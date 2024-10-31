@@ -144,17 +144,17 @@ func (c *RDSMYSQLV2) RestoreToCrossRegionInstanceWithContext(ctx volcengine.Cont
 }
 
 type ChargeInfoForRestoreToCrossRegionInstanceInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	AutoRenew *bool `type:"boolean"`
+	AutoRenew *bool `type:"boolean" json:",omitempty"`
 
-	ChargeType *string `type:"string"`
+	ChargeType *string `type:"string" json:",omitempty"`
 
-	Number *int32 `type:"int32"`
+	Number *int32 `type:"int32" json:",omitempty"`
 
-	Period *int32 `type:"int32"`
+	Period *int32 `type:"int32" json:",omitempty"`
 
-	PeriodUnit *string `type:"string"`
+	PeriodUnit *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -198,11 +198,11 @@ func (s *ChargeInfoForRestoreToCrossRegionInstanceInput) SetPeriodUnit(v string)
 }
 
 type InstanceTagForRestoreToCrossRegionInstanceInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Key *string `type:"string"`
+	Key *string `type:"string" json:",omitempty"`
 
-	Value *string `type:"string"`
+	Value *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -228,17 +228,17 @@ func (s *InstanceTagForRestoreToCrossRegionInstanceInput) SetValue(v string) *In
 }
 
 type NodeInfoForRestoreToCrossRegionInstanceInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	NodeId *string `type:"string"`
+	NodeId *string `type:"string" json:",omitempty"`
 
-	NodeOperateType *string `type:"string"`
+	NodeOperateType *string `type:"string" json:",omitempty"`
 
-	NodeSpec *string `type:"string"`
+	NodeSpec *string `type:"string" json:",omitempty"`
 
-	NodeType *string `type:"string"`
+	NodeType *string `type:"string" json:",omitempty"`
 
-	ZoneId *string `type:"string"`
+	ZoneId *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -282,47 +282,47 @@ func (s *NodeInfoForRestoreToCrossRegionInstanceInput) SetZoneId(v string) *Node
 }
 
 type RestoreToCrossRegionInstanceInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	AllowListIds []*string `type:"list"`
+	AllowListIds []*string `type:"list" json:",omitempty"`
 
-	BackupId *string `type:"string"`
+	BackupId *string `type:"string" json:",omitempty"`
 
-	ChargeInfo *ChargeInfoForRestoreToCrossRegionInstanceInput `type:"structure"`
+	ChargeInfo *ChargeInfoForRestoreToCrossRegionInstanceInput `type:"structure" json:",omitempty"`
 
-	DBParamGroupId *string `type:"string"`
+	DBParamGroupId *string `type:"string" json:",omitempty"`
 
 	// DstRegionId is a required field
-	DstRegionId *string `type:"string" required:"true"`
+	DstRegionId *string `type:"string" json:",omitempty" required:"true"`
 
-	InstanceName *string `type:"string"`
+	InstanceName *string `type:"string" json:",omitempty"`
 
-	InstanceTags []*InstanceTagForRestoreToCrossRegionInstanceInput `type:"list"`
+	InstanceTags []*InstanceTagForRestoreToCrossRegionInstanceInput `type:"list" json:",omitempty"`
 
-	NodeInfo []*NodeInfoForRestoreToCrossRegionInstanceInput `type:"list"`
+	NodeInfo []*NodeInfoForRestoreToCrossRegionInstanceInput `type:"list" json:",omitempty"`
 
-	Port *int32 `type:"int32"`
+	Port *int32 `type:"int32" json:",omitempty"`
 
-	ProjectName *string `type:"string"`
+	ProjectName *string `type:"string" json:",omitempty"`
 
-	RestoreTime *string `type:"string"`
+	RestoreTime *string `type:"string" json:",omitempty"`
 
 	// SrcRegionId is a required field
-	SrcRegionId *string `type:"string" required:"true"`
+	SrcRegionId *string `type:"string" json:",omitempty" required:"true"`
 
 	// SrcRegionInstanceId is a required field
-	SrcRegionInstanceId *string `type:"string" required:"true"`
+	SrcRegionInstanceId *string `type:"string" json:",omitempty" required:"true"`
 
-	StorageSpace *int32 `type:"int32"`
+	StorageSpace *int32 `type:"int32" json:",omitempty"`
 
 	// StorageType is a required field
-	StorageType *string `type:"string" required:"true"`
+	StorageType *string `type:"string" json:",omitempty" required:"true" enum:"EnumOfStorageTypeForRestoreToCrossRegionInstanceInput"`
 
 	// SubnetId is a required field
-	SubnetId *string `type:"string" required:"true"`
+	SubnetId *string `type:"string" json:",omitempty" required:"true"`
 
 	// VpcId is a required field
-	VpcId *string `type:"string" required:"true"`
+	VpcId *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -466,13 +466,13 @@ func (s *RestoreToCrossRegionInstanceInput) SetVpcId(v string) *RestoreToCrossRe
 }
 
 type RestoreToCrossRegionInstanceOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	InstanceId *string `type:"string"`
+	InstanceId *string `type:"string" json:",omitempty"`
 
-	OrderId *string `type:"string"`
+	OrderId *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -496,3 +496,17 @@ func (s *RestoreToCrossRegionInstanceOutput) SetOrderId(v string) *RestoreToCros
 	s.OrderId = &v
 	return s
 }
+
+const (
+	// EnumOfStorageTypeForRestoreToCrossRegionInstanceInputLocalSsd is a EnumOfStorageTypeForRestoreToCrossRegionInstanceInput enum value
+	EnumOfStorageTypeForRestoreToCrossRegionInstanceInputLocalSsd = "LocalSSD"
+
+	// EnumOfStorageTypeForRestoreToCrossRegionInstanceInputCloudStorage is a EnumOfStorageTypeForRestoreToCrossRegionInstanceInput enum value
+	EnumOfStorageTypeForRestoreToCrossRegionInstanceInputCloudStorage = "CloudStorage"
+
+	// EnumOfStorageTypeForRestoreToCrossRegionInstanceInputEssdpl1 is a EnumOfStorageTypeForRestoreToCrossRegionInstanceInput enum value
+	EnumOfStorageTypeForRestoreToCrossRegionInstanceInputEssdpl1 = "ESSDPL1"
+
+	// EnumOfStorageTypeForRestoreToCrossRegionInstanceInputEssdpl2 is a EnumOfStorageTypeForRestoreToCrossRegionInstanceInput enum value
+	EnumOfStorageTypeForRestoreToCrossRegionInstanceInputEssdpl2 = "ESSDPL2"
+)

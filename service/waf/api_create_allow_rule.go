@@ -144,11 +144,11 @@ func (c *WAF) CreateAllowRuleWithContext(ctx volcengine.Context, input *CreateAl
 }
 
 type AccurateForCreateAllowRuleInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	AccurateRules []*AccurateRuleForCreateAllowRuleInput `type:"list"`
+	AccurateRules []*AccurateRuleForCreateAllowRuleInput `type:"list" json:",omitempty"`
 
-	Logic *int32 `type:"int32"`
+	Logic *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -174,17 +174,17 @@ func (s *AccurateForCreateAllowRuleInput) SetLogic(v int32) *AccurateForCreateAl
 }
 
 type AccurateRuleForCreateAllowRuleInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	HttpObj *string `type:"string"`
+	HttpObj *string `type:"string" json:",omitempty"`
 
-	ObjType *int32 `type:"int32"`
+	ObjType *int32 `type:"int32" json:",omitempty"`
 
-	Opretar *int32 `type:"int32"`
+	Opretar *int32 `type:"int32" json:",omitempty"`
 
-	Property *int32 `type:"int32"`
+	Property *int32 `type:"int32" json:",omitempty"`
 
-	ValueString *string `type:"string"`
+	ValueString *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -228,30 +228,32 @@ func (s *AccurateRuleForCreateAllowRuleInput) SetValueString(v string) *Accurate
 }
 
 type CreateAllowRuleInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Accurate *AccurateForCreateAllowRuleInput `type:"structure"`
+	Accurate *AccurateForCreateAllowRuleInput `type:"structure" json:",omitempty"`
 
 	// Advanced is a required field
-	Advanced *int32 `type:"int32" required:"true"`
+	Advanced *int32 `type:"int32" json:",omitempty" required:"true"`
 
-	ClientIp *string `type:"string"`
+	ClientIp *string `type:"string" json:",omitempty"`
 
-	Description *string `type:"string"`
+	Description *string `type:"string" json:",omitempty"`
 
-	Enable *int32 `type:"int32"`
+	Enable *int32 `type:"int32" json:",omitempty"`
 
 	// Host is a required field
-	Host *string `type:"string" required:"true"`
+	Host *string `type:"string" json:",omitempty" required:"true"`
 
-	IpAddType *int32 `type:"int32"`
+	IpAddType *int32 `type:"int32" json:",omitempty"`
 
-	IpGroupId []*int32 `type:"list"`
+	IpGroupId []*int32 `type:"list" json:",omitempty"`
 
-	Name *string `type:"string"`
+	Name *string `type:"string" json:",omitempty"`
+
+	ProjectName *string `type:"string" json:",omitempty"`
 
 	// Url is a required field
-	Url *string `type:"string" required:"true"`
+	Url *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -337,6 +339,12 @@ func (s *CreateAllowRuleInput) SetName(v string) *CreateAllowRuleInput {
 	return s
 }
 
+// SetProjectName sets the ProjectName field's value.
+func (s *CreateAllowRuleInput) SetProjectName(v string) *CreateAllowRuleInput {
+	s.ProjectName = &v
+	return s
+}
+
 // SetUrl sets the Url field's value.
 func (s *CreateAllowRuleInput) SetUrl(v string) *CreateAllowRuleInput {
 	s.Url = &v
@@ -344,11 +352,11 @@ func (s *CreateAllowRuleInput) SetUrl(v string) *CreateAllowRuleInput {
 }
 
 type CreateAllowRuleOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	Id *int32 `type:"int32"`
+	Id *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation

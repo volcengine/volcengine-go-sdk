@@ -144,19 +144,19 @@ func (c *RDSMYSQLV2) ModifyDBEndpointDNSWithContext(ctx volcengine.Context, inpu
 }
 
 type ModifyDBEndpointDNSInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// DNSVisibility is a required field
-	DNSVisibility *bool `type:"boolean" required:"true"`
+	DNSVisibility *bool `type:"boolean" json:",omitempty" required:"true"`
 
 	// EndpointId is a required field
-	EndpointId *string `type:"string" required:"true"`
+	EndpointId *string `type:"string" json:",omitempty" required:"true"`
 
 	// InstanceId is a required field
-	InstanceId *string `type:"string" required:"true"`
+	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 
 	// NetworkType is a required field
-	NetworkType *string `type:"string" required:"true"`
+	NetworkType *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -216,7 +216,7 @@ func (s *ModifyDBEndpointDNSInput) SetNetworkType(v string) *ModifyDBEndpointDNS
 }
 
 type ModifyDBEndpointDNSOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 }

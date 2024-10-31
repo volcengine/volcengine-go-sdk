@@ -144,16 +144,16 @@ func (c *CR) DeleteRepositoryWithContext(ctx volcengine.Context, input *DeleteRe
 }
 
 type DeleteRepositoryInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// Name is a required field
-	Name *string `type:"string" required:"true"`
+	Name *string `type:"string" json:",omitempty" required:"true"`
 
 	// Namespace is a required field
-	Namespace *string `type:"string" required:"true"`
+	Namespace *string `min:"2" max:"90" type:"string" json:",omitempty" required:"true"`
 
 	// Registry is a required field
-	Registry *string `type:"string" required:"true"`
+	Registry *string `min:"3" max:"30" type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -175,8 +175,20 @@ func (s *DeleteRepositoryInput) Validate() error {
 	if s.Namespace == nil {
 		invalidParams.Add(request.NewErrParamRequired("Namespace"))
 	}
+	if s.Namespace != nil && len(*s.Namespace) < 2 {
+		invalidParams.Add(request.NewErrParamMinLen("Namespace", 2))
+	}
+	if s.Namespace != nil && len(*s.Namespace) > 90 {
+		invalidParams.Add(request.NewErrParamMaxLen("Namespace", 90, *s.Namespace))
+	}
 	if s.Registry == nil {
 		invalidParams.Add(request.NewErrParamRequired("Registry"))
+	}
+	if s.Registry != nil && len(*s.Registry) < 3 {
+		invalidParams.Add(request.NewErrParamMinLen("Registry", 3))
+	}
+	if s.Registry != nil && len(*s.Registry) > 30 {
+		invalidParams.Add(request.NewErrParamMaxLen("Registry", 30, *s.Registry))
 	}
 
 	if invalidParams.Len() > 0 {
@@ -204,7 +216,7 @@ func (s *DeleteRepositoryInput) SetRegistry(v string) *DeleteRepositoryInput {
 }
 
 type DeleteRepositoryOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 }

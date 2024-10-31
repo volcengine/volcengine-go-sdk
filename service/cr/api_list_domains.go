@@ -144,15 +144,15 @@ func (c *CR) ListDomainsWithContext(ctx volcengine.Context, input *ListDomainsIn
 }
 
 type ItemForListDomainsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	CreateTime *string `type:"string"`
+	CreateTime *string `type:"string" json:",omitempty"`
 
-	Default *bool `type:"boolean"`
+	Default *bool `type:"boolean" json:",omitempty"`
 
-	Domain *string `type:"string"`
+	Domain *string `type:"string" json:",omitempty"`
 
-	Type *string `type:"string"`
+	Type *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -190,14 +190,14 @@ func (s *ItemForListDomainsOutput) SetType(v string) *ItemForListDomainsOutput {
 }
 
 type ListDomainsInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	PageNumber *int64 `type:"int64"`
+	PageNumber *int64 `type:"int64" json:",omitempty"`
 
-	PageSize *int64 `type:"int64"`
+	PageSize *int64 `min:"1" max:"100" type:"int64" json:",omitempty"`
 
 	// Registry is a required field
-	Registry *string `type:"string" required:"true"`
+	Registry *string `min:"3" max:"30" type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -213,8 +213,20 @@ func (s ListDomainsInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *ListDomainsInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "ListDomainsInput"}
+	if s.PageSize != nil && *s.PageSize < 1 {
+		invalidParams.Add(request.NewErrParamMinValue("PageSize", 1))
+	}
+	if s.PageSize != nil && *s.PageSize > 100 {
+		invalidParams.Add(request.NewErrParamMaxValue("PageSize", 100))
+	}
 	if s.Registry == nil {
 		invalidParams.Add(request.NewErrParamRequired("Registry"))
+	}
+	if s.Registry != nil && len(*s.Registry) < 3 {
+		invalidParams.Add(request.NewErrParamMinLen("Registry", 3))
+	}
+	if s.Registry != nil && len(*s.Registry) > 30 {
+		invalidParams.Add(request.NewErrParamMaxLen("Registry", 30, *s.Registry))
 	}
 
 	if invalidParams.Len() > 0 {
@@ -242,19 +254,19 @@ func (s *ListDomainsInput) SetRegistry(v string) *ListDomainsInput {
 }
 
 type ListDomainsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	Items []*ItemForListDomainsOutput `type:"list"`
+	Items []*ItemForListDomainsOutput `type:"list" json:",omitempty"`
 
-	PageNumber *int64 `type:"int64"`
+	PageNumber *int64 `type:"int64" json:",omitempty"`
 
-	PageSize *int64 `type:"int64"`
+	PageSize *int64 `type:"int64" json:",omitempty"`
 
-	Registry *string `type:"string"`
+	Registry *string `type:"string" json:",omitempty"`
 
-	TotalCount *int64 `type:"int64"`
+	TotalCount *int64 `type:"int64" json:",omitempty"`
 }
 
 // String returns the string representation

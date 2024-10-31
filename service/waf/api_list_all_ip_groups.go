@@ -144,17 +144,17 @@ func (c *WAF) ListAllIpGroupsWithContext(ctx volcengine.Context, input *ListAllI
 }
 
 type IpGroupListForListAllIpGroupsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	IpCount *int32 `type:"int32"`
+	IpCount *int32 `type:"int32" json:",omitempty"`
 
-	IpGroupId *int32 `type:"int32"`
+	IpGroupId *int32 `type:"int32" json:",omitempty"`
 
-	Name *string `type:"string"`
+	Name *string `type:"string" json:",omitempty"`
 
-	RelatedRules []*RelatedRuleForListAllIpGroupsOutput `type:"list"`
+	RelatedRules []*RelatedRuleForListAllIpGroupsOutput `type:"list" json:",omitempty"`
 
-	UpdateTime *string `type:"string"`
+	UpdateTime *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -198,18 +198,20 @@ func (s *IpGroupListForListAllIpGroupsOutput) SetUpdateTime(v string) *IpGroupLi
 }
 
 type ListAllIpGroupsInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Ip *string `type:"string"`
+	Ip *string `type:"string" json:",omitempty"`
 
-	Page *string `type:"string"`
+	Page *string `type:"string" json:",omitempty"`
 
-	PageSize *int32 `type:"int32"`
+	PageSize *int32 `type:"int32" json:",omitempty"`
 
-	RuleTag *string `type:"string"`
+	ProjectName *string `type:"string" json:",omitempty"`
+
+	RuleTag *string `type:"string" json:",omitempty"`
 
 	// TimeOrderBy is a required field
-	TimeOrderBy *string `type:"string" required:"true" enum:"EnumOfTimeOrderByForListAllIpGroupsInput"`
+	TimeOrderBy *string `type:"string" json:",omitempty" required:"true" enum:"EnumOfTimeOrderByForListAllIpGroupsInput"`
 }
 
 // String returns the string representation
@@ -253,6 +255,12 @@ func (s *ListAllIpGroupsInput) SetPageSize(v int32) *ListAllIpGroupsInput {
 	return s
 }
 
+// SetProjectName sets the ProjectName field's value.
+func (s *ListAllIpGroupsInput) SetProjectName(v string) *ListAllIpGroupsInput {
+	s.ProjectName = &v
+	return s
+}
+
 // SetRuleTag sets the RuleTag field's value.
 func (s *ListAllIpGroupsInput) SetRuleTag(v string) *ListAllIpGroupsInput {
 	s.RuleTag = &v
@@ -266,25 +274,25 @@ func (s *ListAllIpGroupsInput) SetTimeOrderBy(v string) *ListAllIpGroupsInput {
 }
 
 type ListAllIpGroupsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	Count *int32 `type:"int32"`
+	Count *int32 `type:"int32" json:",omitempty"`
 
-	IpGroupCount *int32 `type:"int32"`
+	IpGroupCount *int32 `type:"int32" json:",omitempty"`
 
-	IpGroupList []*IpGroupListForListAllIpGroupsOutput `type:"list"`
+	IpGroupList []*IpGroupListForListAllIpGroupsOutput `type:"list" json:",omitempty"`
 
-	IpGroupQuota *int32 `type:"int32"`
+	IpGroupQuota *int32 `type:"int32" json:",omitempty"`
 
-	IpLimitQuota *int32 `type:"int32"`
+	IpLimitQuota *int32 `type:"int32" json:",omitempty"`
 
-	PageNumber *int32 `type:"int32"`
+	PageNumber *int32 `type:"int32" json:",omitempty"`
 
-	PageSize *int32 `type:"int32"`
+	PageSize *int32 `type:"int32" json:",omitempty"`
 
-	TotalCount *int32 `type:"int32"`
+	TotalCount *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -346,15 +354,15 @@ func (s *ListAllIpGroupsOutput) SetTotalCount(v int32) *ListAllIpGroupsOutput {
 }
 
 type RelatedRuleForListAllIpGroupsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Host *string `type:"string"`
+	Host *string `type:"string" json:",omitempty"`
 
-	RuleName *string `type:"string"`
+	RuleName *string `type:"string" json:",omitempty"`
 
-	RuleTag *string `type:"string"`
+	RuleTag *string `type:"string" json:",omitempty"`
 
-	RuleType *string `type:"string"`
+	RuleType *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation

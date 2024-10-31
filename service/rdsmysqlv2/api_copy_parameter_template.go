@@ -144,15 +144,15 @@ func (c *RDSMYSQLV2) CopyParameterTemplateWithContext(ctx volcengine.Context, in
 }
 
 type CopyParameterTemplateInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// SrcTemplateId is a required field
-	SrcTemplateId *string `type:"string" required:"true"`
+	SrcTemplateId *string `type:"string" json:",omitempty" required:"true"`
 
-	TemplateDesc *string `type:"string"`
+	TemplateDesc *string `type:"string" json:",omitempty"`
 
 	// TemplateName is a required field
-	TemplateName *string `type:"string" required:"true"`
+	TemplateName *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -200,7 +200,7 @@ func (s *CopyParameterTemplateInput) SetTemplateName(v string) *CopyParameterTem
 }
 
 type CopyParameterTemplateOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 }

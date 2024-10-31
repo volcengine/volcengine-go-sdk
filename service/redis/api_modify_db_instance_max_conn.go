@@ -144,15 +144,15 @@ func (c *REDIS) ModifyDBInstanceMaxConnWithContext(ctx volcengine.Context, input
 }
 
 type ModifyDBInstanceMaxConnInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	ClientToken *string `type:"string"`
+	ClientToken *string `type:"string" json:",omitempty"`
 
 	// InstanceId is a required field
-	InstanceId *string `type:"string" required:"true"`
+	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 
 	// MaxConnections is a required field
-	MaxConnections *int32 `type:"int32" required:"true"`
+	MaxConnections *int32 `type:"int32" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -200,7 +200,7 @@ func (s *ModifyDBInstanceMaxConnInput) SetMaxConnections(v int32) *ModifyDBInsta
 }
 
 type ModifyDBInstanceMaxConnOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 }

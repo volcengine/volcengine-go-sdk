@@ -144,12 +144,12 @@ func (c *CR) DeleteRegistryWithContext(ctx volcengine.Context, input *DeleteRegi
 }
 
 type DeleteRegistryInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	DeleteImmediately *bool `type:"boolean"`
+	DeleteImmediately *bool `type:"boolean" json:",omitempty"`
 
 	// Name is a required field
-	Name *string `type:"string" required:"true"`
+	Name *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -188,7 +188,7 @@ func (s *DeleteRegistryInput) SetName(v string) *DeleteRegistryInput {
 }
 
 type DeleteRegistryOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 }

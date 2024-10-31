@@ -144,12 +144,12 @@ func (c *RDSMYSQLV2) DeleteDBInstanceWithContext(ctx volcengine.Context, input *
 }
 
 type DeleteDBInstanceInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	DataKeepPolicy *string `type:"string"`
+	DataKeepPolicy *string `type:"string" json:",omitempty"`
 
 	// InstanceId is a required field
-	InstanceId *string `type:"string" required:"true"`
+	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -188,7 +188,7 @@ func (s *DeleteDBInstanceInput) SetInstanceId(v string) *DeleteDBInstanceInput {
 }
 
 type DeleteDBInstanceOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 }

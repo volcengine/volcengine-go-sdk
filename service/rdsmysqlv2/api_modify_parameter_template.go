@@ -144,17 +144,17 @@ func (c *RDSMYSQLV2) ModifyParameterTemplateWithContext(ctx volcengine.Context, 
 }
 
 type ModifyParameterTemplateInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	TemplateDesc *string `type:"string"`
+	TemplateDesc *string `type:"string" json:",omitempty"`
 
 	// TemplateId is a required field
-	TemplateId *string `type:"string" required:"true"`
+	TemplateId *string `type:"string" json:",omitempty" required:"true"`
 
 	// TemplateName is a required field
-	TemplateName *string `type:"string" required:"true"`
+	TemplateName *string `type:"string" json:",omitempty" required:"true"`
 
-	TemplateParams []*TemplateParamForModifyParameterTemplateInput `type:"list"`
+	TemplateParams []*TemplateParamForModifyParameterTemplateInput `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -208,7 +208,7 @@ func (s *ModifyParameterTemplateInput) SetTemplateParams(v []*TemplateParamForMo
 }
 
 type ModifyParameterTemplateOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 }
@@ -224,19 +224,23 @@ func (s ModifyParameterTemplateOutput) GoString() string {
 }
 
 type TemplateParamForModifyParameterTemplateInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	DefaultValue *string `type:"string"`
+	DefaultValue *string `type:"string" json:",omitempty"`
 
-	Description *string `type:"string"`
+	Description *string `type:"string" json:",omitempty"`
 
-	Name *string `type:"string"`
+	ExpectValue *string `type:"string" json:",omitempty"`
 
-	Restart *bool `type:"boolean"`
+	Expression *string `type:"string" json:",omitempty"`
 
-	RunningValue *string `type:"string"`
+	Name *string `type:"string" json:",omitempty"`
 
-	ValueRange *string `type:"string"`
+	Restart *bool `type:"boolean" json:",omitempty"`
+
+	RunningValue *string `type:"string" json:",omitempty"`
+
+	ValueRange *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -258,6 +262,18 @@ func (s *TemplateParamForModifyParameterTemplateInput) SetDefaultValue(v string)
 // SetDescription sets the Description field's value.
 func (s *TemplateParamForModifyParameterTemplateInput) SetDescription(v string) *TemplateParamForModifyParameterTemplateInput {
 	s.Description = &v
+	return s
+}
+
+// SetExpectValue sets the ExpectValue field's value.
+func (s *TemplateParamForModifyParameterTemplateInput) SetExpectValue(v string) *TemplateParamForModifyParameterTemplateInput {
+	s.ExpectValue = &v
+	return s
+}
+
+// SetExpression sets the Expression field's value.
+func (s *TemplateParamForModifyParameterTemplateInput) SetExpression(v string) *TemplateParamForModifyParameterTemplateInput {
+	s.Expression = &v
 	return s
 }
 

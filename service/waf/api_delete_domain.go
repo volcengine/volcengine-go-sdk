@@ -144,13 +144,15 @@ func (c *WAF) DeleteDomainWithContext(ctx volcengine.Context, input *DeleteDomai
 }
 
 type DeleteDomainInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// Domain is a required field
-	Domain *string `type:"string" required:"true"`
+	Domain *string `type:"string" json:",omitempty" required:"true"`
+
+	ProjectName *string `type:"string" json:",omitempty"`
 
 	// Region is a required field
-	Region *string `type:"string" required:"true"`
+	Region *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -185,6 +187,12 @@ func (s *DeleteDomainInput) SetDomain(v string) *DeleteDomainInput {
 	return s
 }
 
+// SetProjectName sets the ProjectName field's value.
+func (s *DeleteDomainInput) SetProjectName(v string) *DeleteDomainInput {
+	s.ProjectName = &v
+	return s
+}
+
 // SetRegion sets the Region field's value.
 func (s *DeleteDomainInput) SetRegion(v string) *DeleteDomainInput {
 	s.Region = &v
@@ -192,7 +200,7 @@ func (s *DeleteDomainInput) SetRegion(v string) *DeleteDomainInput {
 }
 
 type DeleteDomainOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 }

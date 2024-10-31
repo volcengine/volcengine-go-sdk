@@ -144,13 +144,15 @@ func (c *CR) ListRegistriesWithContext(ctx volcengine.Context, input *ListRegist
 }
 
 type FilterForListRegistriesInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Names []*string `type:"list"`
+	Names []*string `type:"list" json:",omitempty"`
 
-	Statuses []*StatusForListRegistriesInput `type:"list"`
+	Projects []*string `type:"list" json:",omitempty"`
 
-	Types []*string `type:"list"`
+	Statuses []*StatusForListRegistriesInput `type:"list" json:",omitempty"`
+
+	Types []*string `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -169,6 +171,12 @@ func (s *FilterForListRegistriesInput) SetNames(v []*string) *FilterForListRegis
 	return s
 }
 
+// SetProjects sets the Projects field's value.
+func (s *FilterForListRegistriesInput) SetProjects(v []*string) *FilterForListRegistriesInput {
+	s.Projects = v
+	return s
+}
+
 // SetStatuses sets the Statuses field's value.
 func (s *FilterForListRegistriesInput) SetStatuses(v []*StatusForListRegistriesInput) *FilterForListRegistriesInput {
 	s.Statuses = v
@@ -182,17 +190,29 @@ func (s *FilterForListRegistriesInput) SetTypes(v []*string) *FilterForListRegis
 }
 
 type ItemForListRegistriesOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	ChargeType *string `type:"string"`
+	ChargeType *string `type:"string" json:",omitempty"`
 
-	CreateTime *string `type:"string"`
+	CreateTime *string `type:"string" json:",omitempty"`
 
-	Name *string `type:"string"`
+	ExpireTime *string `type:"string" json:",omitempty"`
 
-	Status *StatusForListRegistriesOutput `type:"structure"`
+	Name *string `type:"string" json:",omitempty"`
 
-	Type *string `type:"string"`
+	Project *string `type:"string" json:",omitempty"`
+
+	ProxyCache *ProxyCacheForListRegistriesOutput `type:"structure" json:",omitempty"`
+
+	ProxyCacheEnabled *bool `type:"boolean" json:",omitempty"`
+
+	RenewType *string `type:"string" json:",omitempty"`
+
+	ResourceTags []*ResourceTagForListRegistriesOutput `type:"list" json:",omitempty"`
+
+	Status *StatusForListRegistriesOutput `type:"structure" json:",omitempty"`
+
+	Type *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -217,9 +237,45 @@ func (s *ItemForListRegistriesOutput) SetCreateTime(v string) *ItemForListRegist
 	return s
 }
 
+// SetExpireTime sets the ExpireTime field's value.
+func (s *ItemForListRegistriesOutput) SetExpireTime(v string) *ItemForListRegistriesOutput {
+	s.ExpireTime = &v
+	return s
+}
+
 // SetName sets the Name field's value.
 func (s *ItemForListRegistriesOutput) SetName(v string) *ItemForListRegistriesOutput {
 	s.Name = &v
+	return s
+}
+
+// SetProject sets the Project field's value.
+func (s *ItemForListRegistriesOutput) SetProject(v string) *ItemForListRegistriesOutput {
+	s.Project = &v
+	return s
+}
+
+// SetProxyCache sets the ProxyCache field's value.
+func (s *ItemForListRegistriesOutput) SetProxyCache(v *ProxyCacheForListRegistriesOutput) *ItemForListRegistriesOutput {
+	s.ProxyCache = v
+	return s
+}
+
+// SetProxyCacheEnabled sets the ProxyCacheEnabled field's value.
+func (s *ItemForListRegistriesOutput) SetProxyCacheEnabled(v bool) *ItemForListRegistriesOutput {
+	s.ProxyCacheEnabled = &v
+	return s
+}
+
+// SetRenewType sets the RenewType field's value.
+func (s *ItemForListRegistriesOutput) SetRenewType(v string) *ItemForListRegistriesOutput {
+	s.RenewType = &v
+	return s
+}
+
+// SetResourceTags sets the ResourceTags field's value.
+func (s *ItemForListRegistriesOutput) SetResourceTags(v []*ResourceTagForListRegistriesOutput) *ItemForListRegistriesOutput {
+	s.ResourceTags = v
 	return s
 }
 
@@ -236,13 +292,15 @@ func (s *ItemForListRegistriesOutput) SetType(v string) *ItemForListRegistriesOu
 }
 
 type ListRegistriesInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Filter *FilterForListRegistriesInput `type:"structure"`
+	Filter *FilterForListRegistriesInput `type:"structure" json:",omitempty"`
 
-	PageNumber *int64 `type:"int64"`
+	PageNumber *int64 `type:"int64" json:",omitempty"`
 
-	PageSize *int64 `type:"int64"`
+	PageSize *int64 `min:"1" max:"100" type:"int64" json:",omitempty"`
+
+	ResourceTagFilters []*ResourceTagFilterForListRegistriesInput `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -253,6 +311,22 @@ func (s ListRegistriesInput) String() string {
 // GoString returns the string representation
 func (s ListRegistriesInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *ListRegistriesInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "ListRegistriesInput"}
+	if s.PageSize != nil && *s.PageSize < 1 {
+		invalidParams.Add(request.NewErrParamMinValue("PageSize", 1))
+	}
+	if s.PageSize != nil && *s.PageSize > 100 {
+		invalidParams.Add(request.NewErrParamMaxValue("PageSize", 100))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetFilter sets the Filter field's value.
@@ -273,18 +347,24 @@ func (s *ListRegistriesInput) SetPageSize(v int64) *ListRegistriesInput {
 	return s
 }
 
+// SetResourceTagFilters sets the ResourceTagFilters field's value.
+func (s *ListRegistriesInput) SetResourceTagFilters(v []*ResourceTagFilterForListRegistriesInput) *ListRegistriesInput {
+	s.ResourceTagFilters = v
+	return s
+}
+
 type ListRegistriesOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	Items []*ItemForListRegistriesOutput `type:"list"`
+	Items []*ItemForListRegistriesOutput `type:"list" json:",omitempty"`
 
-	PageNumber *int64 `type:"int64"`
+	PageNumber *int64 `type:"int64" json:",omitempty"`
 
-	PageSize *int64 `type:"int64"`
+	PageSize *int64 `type:"int64" json:",omitempty"`
 
-	TotalCount *int64 `type:"int64"`
+	TotalCount *int64 `type:"int64" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -321,12 +401,94 @@ func (s *ListRegistriesOutput) SetTotalCount(v int64) *ListRegistriesOutput {
 	return s
 }
 
+type ProxyCacheForListRegistriesOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Type *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s ProxyCacheForListRegistriesOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ProxyCacheForListRegistriesOutput) GoString() string {
+	return s.String()
+}
+
+// SetType sets the Type field's value.
+func (s *ProxyCacheForListRegistriesOutput) SetType(v string) *ProxyCacheForListRegistriesOutput {
+	s.Type = &v
+	return s
+}
+
+type ResourceTagFilterForListRegistriesInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Key *string `type:"string" json:",omitempty"`
+
+	Values []*string `type:"list" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s ResourceTagFilterForListRegistriesInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ResourceTagFilterForListRegistriesInput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *ResourceTagFilterForListRegistriesInput) SetKey(v string) *ResourceTagFilterForListRegistriesInput {
+	s.Key = &v
+	return s
+}
+
+// SetValues sets the Values field's value.
+func (s *ResourceTagFilterForListRegistriesInput) SetValues(v []*string) *ResourceTagFilterForListRegistriesInput {
+	s.Values = v
+	return s
+}
+
+type ResourceTagForListRegistriesOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Key *string `type:"string" json:",omitempty"`
+
+	Value *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s ResourceTagForListRegistriesOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ResourceTagForListRegistriesOutput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *ResourceTagForListRegistriesOutput) SetKey(v string) *ResourceTagForListRegistriesOutput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *ResourceTagForListRegistriesOutput) SetValue(v string) *ResourceTagForListRegistriesOutput {
+	s.Value = &v
+	return s
+}
+
 type StatusForListRegistriesInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Condition *string `type:"string"`
+	Condition *string `type:"string" json:",omitempty"`
 
-	Phase *string `type:"string"`
+	Phase *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -352,11 +514,11 @@ func (s *StatusForListRegistriesInput) SetPhase(v string) *StatusForListRegistri
 }
 
 type StatusForListRegistriesOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Conditions []*string `type:"list"`
+	Conditions []*string `type:"list" json:",omitempty"`
 
-	Phase *string `type:"string"`
+	Phase *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation

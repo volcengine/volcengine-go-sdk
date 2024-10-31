@@ -144,9 +144,9 @@ func (c *REDIS) ModifyDBInstanceAZConfigureWithContext(ctx volcengine.Context, i
 }
 
 type ConfigureNodeForModifyDBInstanceAZConfigureInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	AZ *string `type:"string"`
+	AZ *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -166,24 +166,24 @@ func (s *ConfigureNodeForModifyDBInstanceAZConfigureInput) SetAZ(v string) *Conf
 }
 
 type ModifyDBInstanceAZConfigureInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// ApplyImmediately is a required field
-	ApplyImmediately *bool `type:"boolean" required:"true"`
+	ApplyImmediately *bool `type:"boolean" json:",omitempty" required:"true"`
 
-	BackupPointName *string `type:"string"`
+	BackupPointName *string `type:"string" json:",omitempty"`
 
-	ClientToken *string `type:"string"`
+	ClientToken *string `type:"string" json:",omitempty"`
 
-	ConfigureNodes []*ConfigureNodeForModifyDBInstanceAZConfigureInput `type:"list"`
+	ConfigureNodes []*ConfigureNodeForModifyDBInstanceAZConfigureInput `type:"list" json:",omitempty"`
 
-	CreateBackup *bool `type:"boolean"`
+	CreateBackup *bool `type:"boolean" json:",omitempty"`
 
 	// InstanceId is a required field
-	InstanceId *string `type:"string" required:"true"`
+	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 
 	// MultiAZ is a required field
-	MultiAZ *string `type:"string" required:"true"`
+	MultiAZ *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -258,11 +258,11 @@ func (s *ModifyDBInstanceAZConfigureInput) SetMultiAZ(v string) *ModifyDBInstanc
 }
 
 type ModifyDBInstanceAZConfigureOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	OrderNO *string `type:"string"`
+	OrderNO *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation

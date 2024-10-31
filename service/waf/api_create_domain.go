@@ -143,16 +143,84 @@ func (c *WAF) CreateDomainWithContext(ctx volcengine.Context, input *CreateDomai
 	return out, req.Send()
 }
 
+type APIForCreateDomainOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	ApiEnable *int32 `type:"int32" json:",omitempty"`
+
+	EnableAutoLearning *int32 `type:"int32" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s APIForCreateDomainOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s APIForCreateDomainOutput) GoString() string {
+	return s.String()
+}
+
+// SetApiEnable sets the ApiEnable field's value.
+func (s *APIForCreateDomainOutput) SetApiEnable(v int32) *APIForCreateDomainOutput {
+	s.ApiEnable = &v
+	return s
+}
+
+// SetEnableAutoLearning sets the EnableAutoLearning field's value.
+func (s *APIForCreateDomainOutput) SetEnableAutoLearning(v int32) *APIForCreateDomainOutput {
+	s.EnableAutoLearning = &v
+	return s
+}
+
+type AutoCCForCreateDomainOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Action *string `type:"string" json:",omitempty"`
+
+	AutoCCEnable *int32 `type:"int32" json:",omitempty"`
+
+	DefenceLevel *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s AutoCCForCreateDomainOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s AutoCCForCreateDomainOutput) GoString() string {
+	return s.String()
+}
+
+// SetAction sets the Action field's value.
+func (s *AutoCCForCreateDomainOutput) SetAction(v string) *AutoCCForCreateDomainOutput {
+	s.Action = &v
+	return s
+}
+
+// SetAutoCCEnable sets the AutoCCEnable field's value.
+func (s *AutoCCForCreateDomainOutput) SetAutoCCEnable(v int32) *AutoCCForCreateDomainOutput {
+	s.AutoCCEnable = &v
+	return s
+}
+
+// SetDefenceLevel sets the DefenceLevel field's value.
+func (s *AutoCCForCreateDomainOutput) SetDefenceLevel(v string) *AutoCCForCreateDomainOutput {
+	s.DefenceLevel = &v
+	return s
+}
+
 type BackendForCreateDomainInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	IP *string `type:"string"`
+	IP *string `type:"string" json:",omitempty"`
 
-	Port *int32 `type:"int32"`
+	Port *int32 `type:"int32" json:",omitempty"`
 
-	Protocol *string `type:"string"`
+	Protocol *string `type:"string" json:",omitempty"`
 
-	Weight *int32 `type:"int32"`
+	Weight *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -190,13 +258,13 @@ func (s *BackendForCreateDomainInput) SetWeight(v int32) *BackendForCreateDomain
 }
 
 type BackendGroupForCreateDomainInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	AccessPort []*int32 `type:"list"`
+	AccessPort []*int32 `type:"list" json:",omitempty"`
 
-	Backends []*BackendForCreateDomainInput `type:"list"`
+	Backends []*BackendForCreateDomainInput `type:"list" json:",omitempty"`
 
-	Name *string `type:"string"`
+	Name *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -227,18 +295,54 @@ func (s *BackendGroupForCreateDomainInput) SetName(v string) *BackendGroupForCre
 	return s
 }
 
+type BotSequenceForCreateDomainOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	BotSequenceDefaultAction *int32 `type:"int32" json:",omitempty"`
+
+	BotSequenceEnable *int32 `type:"int32" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s BotSequenceForCreateDomainOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s BotSequenceForCreateDomainOutput) GoString() string {
+	return s.String()
+}
+
+// SetBotSequenceDefaultAction sets the BotSequenceDefaultAction field's value.
+func (s *BotSequenceForCreateDomainOutput) SetBotSequenceDefaultAction(v int32) *BotSequenceForCreateDomainOutput {
+	s.BotSequenceDefaultAction = &v
+	return s
+}
+
+// SetBotSequenceEnable sets the BotSequenceEnable field's value.
+func (s *BotSequenceForCreateDomainOutput) SetBotSequenceEnable(v int32) *BotSequenceForCreateDomainOutput {
+	s.BotSequenceEnable = &v
+	return s
+}
+
 type CloudAccessConfigForCreateDomainInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	AccessProtocol *string `type:"string"`
+	AccessProtocol *string `type:"string" json:",omitempty"`
 
-	InstanceID *string `type:"string"`
+	DefenceMode *int32 `type:"int32" json:",omitempty"`
 
-	ListenerID *string `type:"string"`
+	InstanceID *string `type:"string" json:",omitempty"`
 
-	Port *string `type:"string"`
+	InstanceName *string `type:"string" json:",omitempty"`
 
-	Protocol *string `type:"string"`
+	ListenerID *string `type:"string" json:",omitempty"`
+
+	LostAssociationFromALB *int32 `type:"int32" json:",omitempty"`
+
+	Port *string `type:"string" json:",omitempty"`
+
+	Protocol *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -257,15 +361,33 @@ func (s *CloudAccessConfigForCreateDomainInput) SetAccessProtocol(v string) *Clo
 	return s
 }
 
+// SetDefenceMode sets the DefenceMode field's value.
+func (s *CloudAccessConfigForCreateDomainInput) SetDefenceMode(v int32) *CloudAccessConfigForCreateDomainInput {
+	s.DefenceMode = &v
+	return s
+}
+
 // SetInstanceID sets the InstanceID field's value.
 func (s *CloudAccessConfigForCreateDomainInput) SetInstanceID(v string) *CloudAccessConfigForCreateDomainInput {
 	s.InstanceID = &v
 	return s
 }
 
+// SetInstanceName sets the InstanceName field's value.
+func (s *CloudAccessConfigForCreateDomainInput) SetInstanceName(v string) *CloudAccessConfigForCreateDomainInput {
+	s.InstanceName = &v
+	return s
+}
+
 // SetListenerID sets the ListenerID field's value.
 func (s *CloudAccessConfigForCreateDomainInput) SetListenerID(v string) *CloudAccessConfigForCreateDomainInput {
 	s.ListenerID = &v
+	return s
+}
+
+// SetLostAssociationFromALB sets the LostAssociationFromALB field's value.
+func (s *CloudAccessConfigForCreateDomainInput) SetLostAssociationFromALB(v int32) *CloudAccessConfigForCreateDomainInput {
+	s.LostAssociationFromALB = &v
 	return s
 }
 
@@ -282,84 +404,94 @@ func (s *CloudAccessConfigForCreateDomainInput) SetProtocol(v string) *CloudAcce
 }
 
 type CreateDomainInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// AccessMode is a required field
-	AccessMode *int32 `type:"int32" required:"true"`
+	AccessMode *int32 `type:"int32" json:",omitempty" required:"true"`
 
-	BackendGroups []*BackendGroupForCreateDomainInput `type:"list"`
+	BackendGroups []*BackendGroupForCreateDomainInput `type:"list" json:",omitempty"`
 
-	BotDytokenEnable *int32 `type:"int32"`
+	BotDytokenEnable *int32 `type:"int32" json:",omitempty"`
 
-	BotFrequencyEnable *int32 `type:"int32"`
+	BotFrequencyEnable *int32 `type:"int32" json:",omitempty"`
 
-	BotRepeatEnable *int32 `type:"int32"`
+	BotRepeatEnable *int32 `type:"int32" json:",omitempty"`
 
-	BotSequenceDefaultAction *int32 `type:"int32"`
+	BotSequenceDefaultAction *int32 `type:"int32" json:",omitempty"`
 
-	BotSequenceEnable *int32 `type:"int32"`
+	BotSequenceEnable *int32 `type:"int32" json:",omitempty"`
 
-	CertificateID *int32 `type:"int32"`
+	CertificateID *int32 `type:"int32" json:",omitempty"`
 
-	CertificatePlatform *string `type:"string"`
+	CertificatePlatform *string `type:"string" json:",omitempty"`
 
-	ClientIPLocation *int32 `type:"int32"`
+	ClientIPLocation *int32 `type:"int32" json:",omitempty"`
 
-	ClientMaxBodySize *int32 `type:"int32"`
+	ClientMaxBodySize *int32 `type:"int32" json:",omitempty"`
 
-	CloudAccessConfig []*CloudAccessConfigForCreateDomainInput `type:"list"`
+	CloudAccessConfig []*CloudAccessConfigForCreateDomainInput `type:"list" json:",omitempty"`
 
-	CustomHeader []*string `type:"list"`
+	CustomHeader []*string `type:"list" json:",omitempty"`
+
+	CustomSNI *string `type:"string" json:",omitempty"`
 
 	// Domain is a required field
-	Domain *string `type:"string" required:"true"`
+	Domain *string `type:"string" json:",omitempty" required:"true"`
 
-	EnableHTTP2 *int32 `type:"int32"`
+	EnableCustomRedirect *int32 `type:"int32" json:",omitempty"`
 
-	EnableIPv6 *int32 `type:"int32"`
+	EnableHTTP2 *int32 `type:"int32" json:",omitempty"`
 
-	KeepAliveRequest *int32 `type:"int32"`
+	EnableIPv6 *int32 `type:"int32" json:",omitempty"`
 
-	KeepAliveTimeOut *int32 `type:"int32"`
+	EnableSNI *int32 `type:"int32" json:",omitempty"`
 
-	LBAlgorithm *string `type:"string"`
+	KeepAliveRequest *int32 `type:"int32" json:",omitempty"`
 
-	ProtocolFollow *int32 `type:"int32"`
+	KeepAliveTimeOut *int32 `type:"int32" json:",omitempty"`
 
-	ProtocolPorts *ProtocolPortsForCreateDomainInput `type:"structure"`
+	LBAlgorithm *string `type:"string" json:",omitempty"`
 
-	Protocols []*string `type:"list"`
+	ProjectName *string `type:"string" json:",omitempty"`
 
-	ProxyConfig *int32 `type:"int32"`
+	ProtocolFollow *int32 `type:"int32" json:",omitempty"`
 
-	ProxyConnectTimeOut *int32 `type:"int32"`
+	ProtocolPorts *ProtocolPortsForCreateDomainInput `type:"structure" json:",omitempty"`
 
-	ProxyKeepAlive *int32 `type:"int32"`
+	Protocols []*string `type:"list" json:",omitempty"`
 
-	ProxyKeepAliveTimeOut *int32 `type:"int32"`
+	ProxyConfig *int32 `type:"int32" json:",omitempty"`
 
-	ProxyReadTimeOut *int32 `type:"int32"`
+	ProxyConnectTimeOut *int32 `type:"int32" json:",omitempty"`
 
-	ProxyRetry *int32 `type:"int32"`
+	ProxyKeepAlive *int32 `type:"int32" json:",omitempty"`
 
-	ProxyWriteTimeOut *int32 `type:"int32"`
+	ProxyKeepAliveTimeOut *int32 `type:"int32" json:",omitempty"`
 
-	PublicRealServer *int32 `type:"int32"`
+	ProxyReadTimeOut *int32 `type:"int32" json:",omitempty"`
 
-	RedirectHTTPS *bool `type:"boolean"`
+	ProxyRetry *int32 `type:"int32" json:",omitempty"`
+
+	ProxyWriteTimeOut *int32 `type:"int32" json:",omitempty"`
+
+	PublicRealServer *int32 `type:"int32" json:",omitempty"`
+
+	RedirectHTTPS *bool `type:"boolean" json:",omitempty"`
 
 	// Region is a required field
-	Region *string `type:"string" required:"true"`
+	Region *string `type:"string" json:",omitempty" required:"true"`
 
-	SSLCiphers []*string `type:"list"`
+	SSLCiphers []*string `type:"list" json:",omitempty"`
 
-	SSLProtocols []*string `type:"list"`
+	SSLProtocols []*string `type:"list" json:",omitempty"`
 
-	TLSEnable *int32 `type:"int32"`
+	TLSEnable *int32 `type:"int32" json:",omitempty"`
 
-	VolcCertificateID *string `type:"string"`
+	TLSFieldsConfig *TLSFieldsConfigForCreateDomainInput `type:"structure" json:",omitempty"`
 
-	VpcID *string `type:"string"`
+	VolcCertificateID *string `type:"string" json:",omitempty"`
+
+	VpcID *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -469,9 +601,21 @@ func (s *CreateDomainInput) SetCustomHeader(v []*string) *CreateDomainInput {
 	return s
 }
 
+// SetCustomSNI sets the CustomSNI field's value.
+func (s *CreateDomainInput) SetCustomSNI(v string) *CreateDomainInput {
+	s.CustomSNI = &v
+	return s
+}
+
 // SetDomain sets the Domain field's value.
 func (s *CreateDomainInput) SetDomain(v string) *CreateDomainInput {
 	s.Domain = &v
+	return s
+}
+
+// SetEnableCustomRedirect sets the EnableCustomRedirect field's value.
+func (s *CreateDomainInput) SetEnableCustomRedirect(v int32) *CreateDomainInput {
+	s.EnableCustomRedirect = &v
 	return s
 }
 
@@ -484,6 +628,12 @@ func (s *CreateDomainInput) SetEnableHTTP2(v int32) *CreateDomainInput {
 // SetEnableIPv6 sets the EnableIPv6 field's value.
 func (s *CreateDomainInput) SetEnableIPv6(v int32) *CreateDomainInput {
 	s.EnableIPv6 = &v
+	return s
+}
+
+// SetEnableSNI sets the EnableSNI field's value.
+func (s *CreateDomainInput) SetEnableSNI(v int32) *CreateDomainInput {
+	s.EnableSNI = &v
 	return s
 }
 
@@ -502,6 +652,12 @@ func (s *CreateDomainInput) SetKeepAliveTimeOut(v int32) *CreateDomainInput {
 // SetLBAlgorithm sets the LBAlgorithm field's value.
 func (s *CreateDomainInput) SetLBAlgorithm(v string) *CreateDomainInput {
 	s.LBAlgorithm = &v
+	return s
+}
+
+// SetProjectName sets the ProjectName field's value.
+func (s *CreateDomainInput) SetProjectName(v string) *CreateDomainInput {
+	s.ProjectName = &v
 	return s
 }
 
@@ -601,6 +757,12 @@ func (s *CreateDomainInput) SetTLSEnable(v int32) *CreateDomainInput {
 	return s
 }
 
+// SetTLSFieldsConfig sets the TLSFieldsConfig field's value.
+func (s *CreateDomainInput) SetTLSFieldsConfig(v *TLSFieldsConfigForCreateDomainInput) *CreateDomainInput {
+	s.TLSFieldsConfig = v
+	return s
+}
+
 // SetVolcCertificateID sets the VolcCertificateID field's value.
 func (s *CreateDomainInput) SetVolcCertificateID(v string) *CreateDomainInput {
 	s.VolcCertificateID = &v
@@ -614,15 +776,19 @@ func (s *CreateDomainInput) SetVpcID(v string) *CreateDomainInput {
 }
 
 type CreateDomainOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	Cname *string `type:"string"`
+	Cname *string `type:"string" json:",omitempty"`
 
-	Domain *string `type:"string"`
+	DefaultModuleQuickConf *DefaultModuleQuickConfForCreateDomainOutput `type:"structure" json:",omitempty"`
 
-	ServerIps *string `type:"string"`
+	Domain *string `type:"string" json:",omitempty"`
+
+	ServerIps *string `type:"string" json:",omitempty"`
+
+	SrcIps *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -641,6 +807,12 @@ func (s *CreateDomainOutput) SetCname(v string) *CreateDomainOutput {
 	return s
 }
 
+// SetDefaultModuleQuickConf sets the DefaultModuleQuickConf field's value.
+func (s *CreateDomainOutput) SetDefaultModuleQuickConf(v *DefaultModuleQuickConfForCreateDomainOutput) *CreateDomainOutput {
+	s.DefaultModuleQuickConf = v
+	return s
+}
+
 // SetDomain sets the Domain field's value.
 func (s *CreateDomainOutput) SetDomain(v string) *CreateDomainOutput {
 	s.Domain = &v
@@ -653,12 +825,140 @@ func (s *CreateDomainOutput) SetServerIps(v string) *CreateDomainOutput {
 	return s
 }
 
+// SetSrcIps sets the SrcIps field's value.
+func (s *CreateDomainOutput) SetSrcIps(v string) *CreateDomainOutput {
+	s.SrcIps = &v
+	return s
+}
+
+type DefaultModuleQuickConfForCreateDomainOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Enable *int32 `type:"int32" json:",omitempty"`
+
+	ModuleQuickConf *ModuleQuickConfForCreateDomainOutput `type:"structure" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s DefaultModuleQuickConfForCreateDomainOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DefaultModuleQuickConfForCreateDomainOutput) GoString() string {
+	return s.String()
+}
+
+// SetEnable sets the Enable field's value.
+func (s *DefaultModuleQuickConfForCreateDomainOutput) SetEnable(v int32) *DefaultModuleQuickConfForCreateDomainOutput {
+	s.Enable = &v
+	return s
+}
+
+// SetModuleQuickConf sets the ModuleQuickConf field's value.
+func (s *DefaultModuleQuickConfForCreateDomainOutput) SetModuleQuickConf(v *ModuleQuickConfForCreateDomainOutput) *DefaultModuleQuickConfForCreateDomainOutput {
+	s.ModuleQuickConf = v
+	return s
+}
+
+type HeadersConfigForCreateDomainInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Enable *int32 `type:"int32" json:",omitempty"`
+
+	ExcludedKeyList []*string `type:"list" json:",omitempty"`
+
+	StatisticalKeyList []*string `type:"list" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s HeadersConfigForCreateDomainInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s HeadersConfigForCreateDomainInput) GoString() string {
+	return s.String()
+}
+
+// SetEnable sets the Enable field's value.
+func (s *HeadersConfigForCreateDomainInput) SetEnable(v int32) *HeadersConfigForCreateDomainInput {
+	s.Enable = &v
+	return s
+}
+
+// SetExcludedKeyList sets the ExcludedKeyList field's value.
+func (s *HeadersConfigForCreateDomainInput) SetExcludedKeyList(v []*string) *HeadersConfigForCreateDomainInput {
+	s.ExcludedKeyList = v
+	return s
+}
+
+// SetStatisticalKeyList sets the StatisticalKeyList field's value.
+func (s *HeadersConfigForCreateDomainInput) SetStatisticalKeyList(v []*string) *HeadersConfigForCreateDomainInput {
+	s.StatisticalKeyList = v
+	return s
+}
+
+type ModuleQuickConfForCreateDomainOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	API *APIForCreateDomainOutput `type:"structure" json:",omitempty"`
+
+	AutoCC *AutoCCForCreateDomainOutput `type:"structure" json:",omitempty"`
+
+	BotSequence *BotSequenceForCreateDomainOutput `type:"structure" json:",omitempty"`
+
+	SystemBot *SystemBotForCreateDomainOutput `type:"structure" json:",omitempty"`
+
+	Vul *VulForCreateDomainOutput `type:"structure" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s ModuleQuickConfForCreateDomainOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ModuleQuickConfForCreateDomainOutput) GoString() string {
+	return s.String()
+}
+
+// SetAPI sets the API field's value.
+func (s *ModuleQuickConfForCreateDomainOutput) SetAPI(v *APIForCreateDomainOutput) *ModuleQuickConfForCreateDomainOutput {
+	s.API = v
+	return s
+}
+
+// SetAutoCC sets the AutoCC field's value.
+func (s *ModuleQuickConfForCreateDomainOutput) SetAutoCC(v *AutoCCForCreateDomainOutput) *ModuleQuickConfForCreateDomainOutput {
+	s.AutoCC = v
+	return s
+}
+
+// SetBotSequence sets the BotSequence field's value.
+func (s *ModuleQuickConfForCreateDomainOutput) SetBotSequence(v *BotSequenceForCreateDomainOutput) *ModuleQuickConfForCreateDomainOutput {
+	s.BotSequence = v
+	return s
+}
+
+// SetSystemBot sets the SystemBot field's value.
+func (s *ModuleQuickConfForCreateDomainOutput) SetSystemBot(v *SystemBotForCreateDomainOutput) *ModuleQuickConfForCreateDomainOutput {
+	s.SystemBot = v
+	return s
+}
+
+// SetVul sets the Vul field's value.
+func (s *ModuleQuickConfForCreateDomainOutput) SetVul(v *VulForCreateDomainOutput) *ModuleQuickConfForCreateDomainOutput {
+	s.Vul = v
+	return s
+}
+
 type ProtocolPortsForCreateDomainInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	HTTP []*int32 `type:"list"`
+	HTTP []*int32 `type:"list" json:",omitempty"`
 
-	HTTPS []*int32 `type:"list"`
+	HTTPS []*int32 `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -680,5 +980,87 @@ func (s *ProtocolPortsForCreateDomainInput) SetHTTP(v []*int32) *ProtocolPortsFo
 // SetHTTPS sets the HTTPS field's value.
 func (s *ProtocolPortsForCreateDomainInput) SetHTTPS(v []*int32) *ProtocolPortsForCreateDomainInput {
 	s.HTTPS = v
+	return s
+}
+
+type SystemBotForCreateDomainOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	SystemBotEnable *int32 `type:"int32" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s SystemBotForCreateDomainOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s SystemBotForCreateDomainOutput) GoString() string {
+	return s.String()
+}
+
+// SetSystemBotEnable sets the SystemBotEnable field's value.
+func (s *SystemBotForCreateDomainOutput) SetSystemBotEnable(v int32) *SystemBotForCreateDomainOutput {
+	s.SystemBotEnable = &v
+	return s
+}
+
+type TLSFieldsConfigForCreateDomainInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	HeadersConfig *HeadersConfigForCreateDomainInput `type:"structure" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s TLSFieldsConfigForCreateDomainInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TLSFieldsConfigForCreateDomainInput) GoString() string {
+	return s.String()
+}
+
+// SetHeadersConfig sets the HeadersConfig field's value.
+func (s *TLSFieldsConfigForCreateDomainInput) SetHeadersConfig(v *HeadersConfigForCreateDomainInput) *TLSFieldsConfigForCreateDomainInput {
+	s.HeadersConfig = v
+	return s
+}
+
+type VulForCreateDomainOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Action *string `type:"string" json:",omitempty"`
+
+	RuleMode *string `type:"string" json:",omitempty"`
+
+	WafEnable *int32 `type:"int32" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s VulForCreateDomainOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s VulForCreateDomainOutput) GoString() string {
+	return s.String()
+}
+
+// SetAction sets the Action field's value.
+func (s *VulForCreateDomainOutput) SetAction(v string) *VulForCreateDomainOutput {
+	s.Action = &v
+	return s
+}
+
+// SetRuleMode sets the RuleMode field's value.
+func (s *VulForCreateDomainOutput) SetRuleMode(v string) *VulForCreateDomainOutput {
+	s.RuleMode = &v
+	return s
+}
+
+// SetWafEnable sets the WafEnable field's value.
+func (s *VulForCreateDomainOutput) SetWafEnable(v int32) *VulForCreateDomainOutput {
+	s.WafEnable = &v
 	return s
 }

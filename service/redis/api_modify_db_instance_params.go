@@ -144,14 +144,14 @@ func (c *REDIS) ModifyDBInstanceParamsWithContext(ctx volcengine.Context, input 
 }
 
 type ModifyDBInstanceParamsInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	ClientToken *string `type:"string"`
+	ClientToken *string `type:"string" json:",omitempty"`
 
 	// InstanceId is a required field
-	InstanceId *string `type:"string" required:"true"`
+	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 
-	ParamValues []*ParamValueForModifyDBInstanceParamsInput `type:"list"`
+	ParamValues []*ParamValueForModifyDBInstanceParamsInput `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -196,7 +196,7 @@ func (s *ModifyDBInstanceParamsInput) SetParamValues(v []*ParamValueForModifyDBI
 }
 
 type ModifyDBInstanceParamsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 }
@@ -212,11 +212,11 @@ func (s ModifyDBInstanceParamsOutput) GoString() string {
 }
 
 type ParamValueForModifyDBInstanceParamsInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Name *string `type:"string"`
+	Name *string `type:"string" json:",omitempty"`
 
-	Value *string `type:"string"`
+	Value *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation

@@ -144,20 +144,20 @@ func (c *REDIS) ModifyDBInstanceSubnetWithContext(ctx volcengine.Context, input 
 }
 
 type ModifyDBInstanceSubnetInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	ClientToken *string `type:"string"`
+	ClientToken *string `type:"string" json:",omitempty"`
 
 	// InstanceId is a required field
-	InstanceId *string `type:"string" required:"true"`
+	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 
-	RetentionDays *int32 `type:"int32"`
+	RetentionDays *int32 `type:"int32" json:",omitempty"`
 
 	// SubnetId is a required field
-	SubnetId *string `type:"string" required:"true"`
+	SubnetId *string `type:"string" json:",omitempty" required:"true"`
 
 	// VpcId is a required field
-	VpcId *string `type:"string" required:"true"`
+	VpcId *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -220,7 +220,7 @@ func (s *ModifyDBInstanceSubnetInput) SetVpcId(v string) *ModifyDBInstanceSubnet
 }
 
 type ModifyDBInstanceSubnetOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 }

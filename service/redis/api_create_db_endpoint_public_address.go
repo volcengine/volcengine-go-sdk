@@ -144,15 +144,15 @@ func (c *REDIS) CreateDBEndpointPublicAddressWithContext(ctx volcengine.Context,
 }
 
 type CreateDBEndpointPublicAddressInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	ClientToken *string `type:"string"`
+	ClientToken *string `type:"string" json:",omitempty"`
 
 	// EipId is a required field
-	EipId *string `type:"string" required:"true"`
+	EipId *string `type:"string" json:",omitempty" required:"true"`
 
 	// InstanceId is a required field
-	InstanceId *string `type:"string" required:"true"`
+	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -200,7 +200,7 @@ func (s *CreateDBEndpointPublicAddressInput) SetInstanceId(v string) *CreateDBEn
 }
 
 type CreateDBEndpointPublicAddressOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 }

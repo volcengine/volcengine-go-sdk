@@ -144,10 +144,10 @@ func (c *RDSMYSQLV2) DownloadSSLCertificateWithContext(ctx volcengine.Context, i
 }
 
 type DownloadSSLCertificateInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// InstanceId is a required field
-	InstanceId *string `type:"string" required:"true"`
+	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -180,11 +180,11 @@ func (s *DownloadSSLCertificateInput) SetInstanceId(v string) *DownloadSSLCertif
 }
 
 type DownloadSSLCertificateOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	Certificate []*int32 `type:"list"`
+	Certificate []*int32 `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation

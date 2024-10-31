@@ -144,22 +144,22 @@ func (c *REDIS) ModifyDBInstanceShardCapacityWithContext(ctx volcengine.Context,
 }
 
 type ModifyDBInstanceShardCapacityInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// ApplyImmediately is a required field
-	ApplyImmediately *bool `type:"boolean" required:"true"`
+	ApplyImmediately *bool `type:"boolean" json:",omitempty" required:"true"`
 
-	BackupPointName *string `type:"string"`
+	BackupPointName *string `type:"string" json:",omitempty"`
 
-	ClientToken *string `type:"string"`
+	ClientToken *string `type:"string" json:",omitempty"`
 
-	CreateBackup *bool `type:"boolean"`
+	CreateBackup *bool `type:"boolean" json:",omitempty"`
 
 	// InstanceId is a required field
-	InstanceId *string `type:"string" required:"true"`
+	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 
 	// ShardCapacity is a required field
-	ShardCapacity *int64 `type:"int64" required:"true"`
+	ShardCapacity *int64 `type:"int64" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -228,11 +228,11 @@ func (s *ModifyDBInstanceShardCapacityInput) SetShardCapacity(v int64) *ModifyDB
 }
 
 type ModifyDBInstanceShardCapacityOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	OrderNO *string `type:"string"`
+	OrderNO *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation

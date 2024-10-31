@@ -144,15 +144,17 @@ func (c *WAF) AddIpGroupWithContext(ctx volcengine.Context, input *AddIpGroupInp
 }
 
 type AddIpGroupInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// AddType is a required field
-	AddType *string `type:"string" required:"true"`
+	AddType *string `type:"string" json:",omitempty" required:"true"`
 
-	IpList []*string `type:"list"`
+	IpList []*string `type:"list" json:",omitempty"`
 
 	// Name is a required field
-	Name *string `type:"string" required:"true"`
+	Name *string `type:"string" json:",omitempty" required:"true"`
+
+	ProjectName *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -199,12 +201,18 @@ func (s *AddIpGroupInput) SetName(v string) *AddIpGroupInput {
 	return s
 }
 
+// SetProjectName sets the ProjectName field's value.
+func (s *AddIpGroupInput) SetProjectName(v string) *AddIpGroupInput {
+	s.ProjectName = &v
+	return s
+}
+
 type AddIpGroupOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	IpGroupId *int32 `type:"int32"`
+	IpGroupId *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation

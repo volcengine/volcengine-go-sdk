@@ -144,27 +144,27 @@ func (c *WAF) ListLoadBalancerWithContext(ctx volcengine.Context, input *ListLoa
 }
 
 type DataForListLoadBalancerOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	EipAddress *string `type:"string"`
+	EipAddress *string `type:"string" json:",omitempty"`
 
-	EniAddress *string `type:"string"`
+	EniAddress *string `type:"string" json:",omitempty"`
 
-	EniIpv6Address *string `type:"string"`
+	EniIpv6Address *string `type:"string" json:",omitempty"`
 
-	Id *string `type:"string"`
+	Id *string `type:"string" json:",omitempty"`
 
-	ListenerID *string `type:"string"`
+	ListenerID *string `type:"string" json:",omitempty"`
 
-	ListenerName *string `type:"string"`
+	ListenerName *string `type:"string" json:",omitempty"`
 
-	LoadBalancerType *string `type:"string"`
+	LoadBalancerType *string `type:"string" json:",omitempty"`
 
-	Name *string `type:"string"`
+	Name *string `type:"string" json:",omitempty"`
 
-	Port *int32 `type:"int32"`
+	Port *int32 `type:"int32" json:",omitempty"`
 
-	Protocol *string `type:"string"`
+	Protocol *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -238,12 +238,14 @@ func (s *DataForListLoadBalancerOutput) SetProtocol(v string) *DataForListLoadBa
 }
 
 type ListLoadBalancerInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// Host is a required field
-	Host *string `type:"string" required:"true"`
+	Host *string `type:"string" json:",omitempty" required:"true"`
 
-	Type *string `type:"string" enum:"EnumOfTypeForListLoadBalancerInput"`
+	ProjectName *string `type:"string" json:",omitempty"`
+
+	Type *string `type:"string" json:",omitempty" enum:"EnumOfTypeForListLoadBalancerInput"`
 }
 
 // String returns the string representation
@@ -275,6 +277,12 @@ func (s *ListLoadBalancerInput) SetHost(v string) *ListLoadBalancerInput {
 	return s
 }
 
+// SetProjectName sets the ProjectName field's value.
+func (s *ListLoadBalancerInput) SetProjectName(v string) *ListLoadBalancerInput {
+	s.ProjectName = &v
+	return s
+}
+
 // SetType sets the Type field's value.
 func (s *ListLoadBalancerInput) SetType(v string) *ListLoadBalancerInput {
 	s.Type = &v
@@ -282,11 +290,11 @@ func (s *ListLoadBalancerInput) SetType(v string) *ListLoadBalancerInput {
 }
 
 type ListLoadBalancerOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	Data []*DataForListLoadBalancerOutput `type:"list"`
+	Data []*DataForListLoadBalancerOutput `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation

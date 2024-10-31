@@ -144,15 +144,15 @@ func (c *RDSMYSQLV2) DescribeDBInstanceSpecsWithContext(ctx volcengine.Context, 
 }
 
 type DescribeDBInstanceSpecsInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	DBEngineVersion *string `type:"string"`
+	DBEngineVersion *string `type:"string" json:",omitempty"`
 
-	InstanceType *string `type:"string"`
+	InstanceType *string `type:"string" json:",omitempty"`
 
-	SpecCode *string `type:"string"`
+	SpecCode *string `type:"string" json:",omitempty"`
 
-	ZoneId *string `type:"string"`
+	ZoneId *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -190,11 +190,11 @@ func (s *DescribeDBInstanceSpecsInput) SetZoneId(v string) *DescribeDBInstanceSp
 }
 
 type DescribeDBInstanceSpecsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	InstanceSpecsInfo []*InstanceSpecsInfoForDescribeDBInstanceSpecsOutput `type:"list"`
+	InstanceSpecsInfo []*InstanceSpecsInfoForDescribeDBInstanceSpecsOutput `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -214,37 +214,37 @@ func (s *DescribeDBInstanceSpecsOutput) SetInstanceSpecsInfo(v []*InstanceSpecsI
 }
 
 type InstanceSpecsInfoForDescribeDBInstanceSpecsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Connection *int32 `type:"int32"`
+	Connection *int32 `type:"int32" json:",omitempty"`
 
-	DBEngineVersion *string `type:"string"`
+	DBEngineVersion *string `type:"string" json:",omitempty"`
 
-	IOPS *int32 `type:"int32"`
+	IOPS *int32 `type:"int32" json:",omitempty"`
 
-	InstanceType *string `type:"string"`
+	InstanceType *string `type:"string" json:",omitempty"`
 
-	Memory *int32 `type:"int32"`
+	Memory *int32 `type:"int32" json:",omitempty"`
 
-	QPS *int32 `type:"int32"`
+	QPS *int32 `type:"int32" json:",omitempty"`
 
-	RegionId *string `type:"string"`
+	RegionId *string `type:"string" json:",omitempty"`
 
-	SpecCode *string `type:"string"`
+	SpecCode *string `type:"string" json:",omitempty"`
 
-	SpecFamily *string `type:"string"`
+	SpecFamily *string `type:"string" json:",omitempty"`
 
-	SpecStatus *string `type:"string"`
+	SpecStatus *string `type:"string" json:",omitempty"`
 
-	StorageMax *int32 `type:"int32"`
+	StorageMax *int32 `type:"int32" json:",omitempty"`
 
-	StorageMin *int32 `type:"int32"`
+	StorageMin *int32 `type:"int32" json:",omitempty"`
 
-	StorageStep *int32 `type:"int32"`
+	StorageStep *int32 `type:"int32" json:",omitempty"`
 
-	VCPU *int32 `type:"int32"`
+	VCPU *int32 `type:"int32" json:",omitempty"`
 
-	ZoneId *string `type:"string"`
+	ZoneId *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation

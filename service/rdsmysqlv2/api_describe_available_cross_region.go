@@ -144,12 +144,12 @@ func (c *RDSMYSQLV2) DescribeAvailableCrossRegionWithContext(ctx volcengine.Cont
 }
 
 type DescribeAvailableCrossRegionInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	InstanceId *string `type:"string"`
+	InstanceId *string `type:"string" json:",omitempty"`
 
 	// RegionId is a required field
-	RegionId *string `type:"string" required:"true"`
+	RegionId *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -188,11 +188,11 @@ func (s *DescribeAvailableCrossRegionInput) SetRegionId(v string) *DescribeAvail
 }
 
 type DescribeAvailableCrossRegionOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	Regions []*string `type:"list"`
+	Regions []*string `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation

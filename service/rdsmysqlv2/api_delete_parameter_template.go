@@ -144,10 +144,10 @@ func (c *RDSMYSQLV2) DeleteParameterTemplateWithContext(ctx volcengine.Context, 
 }
 
 type DeleteParameterTemplateInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// TemplateId is a required field
-	TemplateId *string `type:"string" required:"true"`
+	TemplateId *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -180,7 +180,7 @@ func (s *DeleteParameterTemplateInput) SetTemplateId(v string) *DeleteParameterT
 }
 
 type DeleteParameterTemplateOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 }

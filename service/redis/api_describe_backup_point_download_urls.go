@@ -144,15 +144,15 @@ func (c *REDIS) DescribeBackupPointDownloadUrlsWithContext(ctx volcengine.Contex
 }
 
 type BackupPointDownloadUrlForDescribeBackupPointDownloadUrlsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	PrivateDownloadUrl *string `type:"string"`
+	PrivateDownloadUrl *string `type:"string" json:",omitempty"`
 
-	PublicDownloadUrl *string `type:"string"`
+	PublicDownloadUrl *string `type:"string" json:",omitempty"`
 
-	RdbFileSize *int64 `type:"int64"`
+	RdbFileSize *int64 `type:"int64" json:",omitempty"`
 
-	ShardId *string `type:"string"`
+	ShardId *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -190,13 +190,13 @@ func (s *BackupPointDownloadUrlForDescribeBackupPointDownloadUrlsOutput) SetShar
 }
 
 type DescribeBackupPointDownloadUrlsInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// BackupPointId is a required field
-	BackupPointId *string `type:"string" required:"true"`
+	BackupPointId *string `type:"string" json:",omitempty" required:"true"`
 
 	// InstanceId is a required field
-	InstanceId *string `type:"string" required:"true"`
+	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -238,15 +238,15 @@ func (s *DescribeBackupPointDownloadUrlsInput) SetInstanceId(v string) *Describe
 }
 
 type DescribeBackupPointDownloadUrlsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	BackupPointDownloadUrls []*BackupPointDownloadUrlForDescribeBackupPointDownloadUrlsOutput `type:"list"`
+	BackupPointDownloadUrls []*BackupPointDownloadUrlForDescribeBackupPointDownloadUrlsOutput `type:"list" json:",omitempty"`
 
-	InstanceId *string `type:"string"`
+	InstanceId *string `type:"string" json:",omitempty"`
 
-	ShardNumber *int32 `type:"int32"`
+	ShardNumber *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation

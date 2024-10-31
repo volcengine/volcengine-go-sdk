@@ -144,10 +144,10 @@ func (c *CR) StartRegistryWithContext(ctx volcengine.Context, input *StartRegist
 }
 
 type StartRegistryInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// Name is a required field
-	Name *string `type:"string" required:"true"`
+	Name *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -180,7 +180,7 @@ func (s *StartRegistryInput) SetName(v string) *StartRegistryInput {
 }
 
 type StartRegistryOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 }

@@ -144,19 +144,19 @@ func (c *RDSMYSQLV2) ModifyDBInstanceChargeTypeWithContext(ctx volcengine.Contex
 }
 
 type ModifyDBInstanceChargeTypeInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	AutoRenew *bool `type:"boolean"`
+	AutoRenew *bool `type:"boolean" json:",omitempty"`
 
 	// ChargeType is a required field
-	ChargeType *string `type:"string" required:"true"`
+	ChargeType *string `type:"string" json:",omitempty" required:"true"`
 
 	// InstanceId is a required field
-	InstanceId *string `type:"string" required:"true"`
+	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 
-	Period *int32 `type:"int32"`
+	Period *int32 `type:"int32" json:",omitempty"`
 
-	PeriodUnit *string `type:"string"`
+	PeriodUnit *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -216,13 +216,13 @@ func (s *ModifyDBInstanceChargeTypeInput) SetPeriodUnit(v string) *ModifyDBInsta
 }
 
 type ModifyDBInstanceChargeTypeOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	InstanceId *string `type:"string"`
+	InstanceId *string `type:"string" json:",omitempty"`
 
-	OrderNO *string `type:"string"`
+	OrderNO *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation

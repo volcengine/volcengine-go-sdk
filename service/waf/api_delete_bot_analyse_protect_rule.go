@@ -144,10 +144,12 @@ func (c *WAF) DeleteBotAnalyseProtectRuleWithContext(ctx volcengine.Context, inp
 }
 
 type DeleteBotAnalyseProtectRuleInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// Id is a required field
-	Id *int32 `type:"int32" required:"true"`
+	Id *int32 `type:"int32" json:",omitempty" required:"true"`
+
+	ProjectName *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -179,8 +181,14 @@ func (s *DeleteBotAnalyseProtectRuleInput) SetId(v int32) *DeleteBotAnalyseProte
 	return s
 }
 
+// SetProjectName sets the ProjectName field's value.
+func (s *DeleteBotAnalyseProtectRuleInput) SetProjectName(v string) *DeleteBotAnalyseProtectRuleInput {
+	s.ProjectName = &v
+	return s
+}
+
 type DeleteBotAnalyseProtectRuleOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 }

@@ -144,21 +144,21 @@ func (c *REDIS) ModifyDBAccountWithContext(ctx volcengine.Context, input *Modify
 }
 
 type ModifyDBAccountInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// AccountName is a required field
-	AccountName *string `type:"string" required:"true"`
+	AccountName *string `type:"string" json:",omitempty" required:"true"`
 
-	ClientToken *string `type:"string"`
+	ClientToken *string `type:"string" json:",omitempty"`
 
-	Description *string `type:"string"`
+	Description *string `type:"string" json:",omitempty"`
 
 	// InstanceId is a required field
-	InstanceId *string `type:"string" required:"true"`
+	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 
-	Password *string `type:"string"`
+	Password *string `type:"string" json:",omitempty"`
 
-	RoleName *string `type:"string"`
+	RoleName *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -224,7 +224,7 @@ func (s *ModifyDBAccountInput) SetRoleName(v string) *ModifyDBAccountInput {
 }
 
 type ModifyDBAccountOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 }

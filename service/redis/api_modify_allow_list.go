@@ -144,23 +144,25 @@ func (c *REDIS) ModifyAllowListWithContext(ctx volcengine.Context, input *Modify
 }
 
 type ModifyAllowListInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	AllowList *string `type:"string"`
+	AllowList *string `type:"string" json:",omitempty"`
 
-	AllowListDesc *string `type:"string"`
+	AllowListCategory *string `type:"string" json:",omitempty" enum:"EnumOfAllowListCategoryForModifyAllowListInput"`
+
+	AllowListDesc *string `type:"string" json:",omitempty"`
 
 	// AllowListId is a required field
-	AllowListId *string `type:"string" required:"true"`
+	AllowListId *string `type:"string" json:",omitempty" required:"true"`
 
 	// AllowListName is a required field
-	AllowListName *string `type:"string" required:"true"`
+	AllowListName *string `type:"string" json:",omitempty" required:"true"`
 
-	ApplyInstanceNum *int32 `type:"int32"`
+	ApplyInstanceNum *int32 `type:"int32" json:",omitempty"`
 
-	ClientToken *string `type:"string"`
+	ClientToken *string `type:"string" json:",omitempty"`
 
-	ModifyMode *string `type:"string"`
+	ModifyMode *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -192,6 +194,12 @@ func (s *ModifyAllowListInput) Validate() error {
 // SetAllowList sets the AllowList field's value.
 func (s *ModifyAllowListInput) SetAllowList(v string) *ModifyAllowListInput {
 	s.AllowList = &v
+	return s
+}
+
+// SetAllowListCategory sets the AllowListCategory field's value.
+func (s *ModifyAllowListInput) SetAllowListCategory(v string) *ModifyAllowListInput {
+	s.AllowListCategory = &v
 	return s
 }
 
@@ -232,7 +240,7 @@ func (s *ModifyAllowListInput) SetModifyMode(v string) *ModifyAllowListInput {
 }
 
 type ModifyAllowListOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 }
@@ -246,3 +254,11 @@ func (s ModifyAllowListOutput) String() string {
 func (s ModifyAllowListOutput) GoString() string {
 	return s.String()
 }
+
+const (
+	// EnumOfAllowListCategoryForModifyAllowListInputOrdinary is a EnumOfAllowListCategoryForModifyAllowListInput enum value
+	EnumOfAllowListCategoryForModifyAllowListInputOrdinary = "Ordinary"
+
+	// EnumOfAllowListCategoryForModifyAllowListInputDefault is a EnumOfAllowListCategoryForModifyAllowListInput enum value
+	EnumOfAllowListCategoryForModifyAllowListInputDefault = "Default"
+)

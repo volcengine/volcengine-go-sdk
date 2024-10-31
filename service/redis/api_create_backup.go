@@ -144,14 +144,14 @@ func (c *REDIS) CreateBackupWithContext(ctx volcengine.Context, input *CreateBac
 }
 
 type CreateBackupInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	BackupPointName *string `type:"string"`
+	BackupPointName *string `type:"string" json:",omitempty"`
 
-	ClientToken *string `type:"string"`
+	ClientToken *string `type:"string" json:",omitempty"`
 
 	// InstanceId is a required field
-	InstanceId *string `type:"string" required:"true"`
+	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -196,13 +196,13 @@ func (s *CreateBackupInput) SetInstanceId(v string) *CreateBackupInput {
 }
 
 type CreateBackupOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	BackupPointId *string `type:"string"`
+	BackupPointId *string `type:"string" json:",omitempty"`
 
-	InstanceId *string `type:"string"`
+	InstanceId *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation

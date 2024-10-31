@@ -144,20 +144,22 @@ func (c *WAF) ListBotAnalyseProtectRulePriorityAvailableWithContext(ctx volcengi
 }
 
 type ListBotAnalyseProtectRulePriorityAvailableInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// BotSpace is a required field
-	BotSpace *string `type:"string" required:"true"`
+	BotSpace *string `type:"string" json:",omitempty" required:"true"`
 
 	// Host is a required field
-	Host *string `type:"string" required:"true"`
+	Host *string `type:"string" json:",omitempty" required:"true"`
 
-	Page *int32 `type:"int32"`
+	Page *int32 `type:"int32" json:",omitempty"`
 
-	PageSize *int32 `type:"int32"`
+	PageSize *int32 `type:"int32" json:",omitempty"`
 
 	// Path is a required field
-	Path *string `type:"string" required:"true"`
+	Path *string `type:"string" json:",omitempty" required:"true"`
+
+	ProjectName *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -219,12 +221,18 @@ func (s *ListBotAnalyseProtectRulePriorityAvailableInput) SetPath(v string) *Lis
 	return s
 }
 
+// SetProjectName sets the ProjectName field's value.
+func (s *ListBotAnalyseProtectRulePriorityAvailableInput) SetProjectName(v string) *ListBotAnalyseProtectRulePriorityAvailableInput {
+	s.ProjectName = &v
+	return s
+}
+
 type ListBotAnalyseProtectRulePriorityAvailableOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	RulePriority []*int32 `type:"list"`
+	RulePriority []*int32 `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation

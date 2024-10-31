@@ -144,17 +144,19 @@ func (c *WAF) UpdateAreaBlockRuleWithContext(ctx volcengine.Context, input *Upda
 }
 
 type UpdateAreaBlockRuleInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// Action is a required field
-	Action *string `type:"string" required:"true"`
+	Action *string `type:"string" json:",omitempty" required:"true"`
 
-	Country []*string `type:"list"`
+	Country []*string `type:"list" json:",omitempty"`
 
 	// Host is a required field
-	Host *string `type:"string" required:"true"`
+	Host *string `type:"string" json:",omitempty" required:"true"`
 
-	SubRegion []*string `type:"list"`
+	ProjectName *string `type:"string" json:",omitempty"`
+
+	SubRegion []*string `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -201,6 +203,12 @@ func (s *UpdateAreaBlockRuleInput) SetHost(v string) *UpdateAreaBlockRuleInput {
 	return s
 }
 
+// SetProjectName sets the ProjectName field's value.
+func (s *UpdateAreaBlockRuleInput) SetProjectName(v string) *UpdateAreaBlockRuleInput {
+	s.ProjectName = &v
+	return s
+}
+
 // SetSubRegion sets the SubRegion field's value.
 func (s *UpdateAreaBlockRuleInput) SetSubRegion(v []*string) *UpdateAreaBlockRuleInput {
 	s.SubRegion = v
@@ -208,7 +216,7 @@ func (s *UpdateAreaBlockRuleInput) SetSubRegion(v []*string) *UpdateAreaBlockRul
 }
 
 type UpdateAreaBlockRuleOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 }

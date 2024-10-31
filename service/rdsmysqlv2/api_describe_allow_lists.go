@@ -144,23 +144,23 @@ func (c *RDSMYSQLV2) DescribeAllowListsWithContext(ctx volcengine.Context, input
 }
 
 type AllowListForDescribeAllowListsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	AllowListCategory *string `type:"string"`
+	AllowListCategory *string `type:"string" json:",omitempty"`
 
-	AllowListDesc *string `type:"string"`
+	AllowListDesc *string `type:"string" json:",omitempty"`
 
-	AllowListIPNum *int32 `type:"int32"`
+	AllowListIPNum *int32 `type:"int32" json:",omitempty"`
 
-	AllowListId *string `type:"string"`
+	AllowListId *string `type:"string" json:",omitempty"`
 
-	AllowListName *string `type:"string"`
+	AllowListName *string `type:"string" json:",omitempty"`
 
-	AllowListType *string `type:"string"`
+	AllowListType *string `type:"string" json:",omitempty"`
 
-	AssociatedInstanceNum *int32 `type:"int32"`
+	AssociatedInstanceNum *int32 `type:"int32" json:",omitempty"`
 
-	SecurityGroupBindInfos []*SecurityGroupBindInfoForDescribeAllowListsOutput `type:"list"`
+	SecurityGroupBindInfos []*SecurityGroupBindInfoForDescribeAllowListsOutput `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -222,12 +222,12 @@ func (s *AllowListForDescribeAllowListsOutput) SetSecurityGroupBindInfos(v []*Se
 }
 
 type DescribeAllowListsInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	InstanceId *string `type:"string"`
+	InstanceId *string `type:"string" json:",omitempty"`
 
 	// RegionId is a required field
-	RegionId *string `type:"string" required:"true"`
+	RegionId *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -266,11 +266,11 @@ func (s *DescribeAllowListsInput) SetRegionId(v string) *DescribeAllowListsInput
 }
 
 type DescribeAllowListsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	AllowLists []*AllowListForDescribeAllowListsOutput `type:"list"`
+	AllowLists []*AllowListForDescribeAllowListsOutput `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -290,15 +290,15 @@ func (s *DescribeAllowListsOutput) SetAllowLists(v []*AllowListForDescribeAllowL
 }
 
 type SecurityGroupBindInfoForDescribeAllowListsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	BindMode *string `type:"string"`
+	BindMode *string `type:"string" json:",omitempty"`
 
-	IpList []*string `type:"list"`
+	IpList []*string `type:"list" json:",omitempty"`
 
-	SecurityGroupId *string `type:"string"`
+	SecurityGroupId *string `type:"string" json:",omitempty"`
 
-	SecurityGroupName *string `type:"string"`
+	SecurityGroupName *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation

@@ -144,16 +144,16 @@ func (c *RDSMYSQLV2) ModifyPlannedEventExecuteTimeWithContext(ctx volcengine.Con
 }
 
 type ModifyPlannedEventExecuteTimeInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// EventId is a required field
-	EventId *string `type:"string" required:"true"`
+	EventId *string `type:"string" json:",omitempty" required:"true"`
 
 	// ModifyBeginTime is a required field
-	ModifyBeginTime *string `type:"string" required:"true"`
+	ModifyBeginTime *string `type:"string" json:",omitempty" required:"true"`
 
 	// ModifyEndTime is a required field
-	ModifyEndTime *string `type:"string" required:"true"`
+	ModifyEndTime *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -204,7 +204,7 @@ func (s *ModifyPlannedEventExecuteTimeInput) SetModifyEndTime(v string) *ModifyP
 }
 
 type ModifyPlannedEventExecuteTimeOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 }

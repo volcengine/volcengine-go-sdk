@@ -144,10 +144,10 @@ func (c *REDIS) DescribeBackupPlanWithContext(ctx volcengine.Context, input *Des
 }
 
 type DescribeBackupPlanInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// InstanceId is a required field
-	InstanceId *string `type:"string" required:"true"`
+	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -180,25 +180,25 @@ func (s *DescribeBackupPlanInput) SetInstanceId(v string) *DescribeBackupPlanInp
 }
 
 type DescribeBackupPlanOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	Active *bool `type:"boolean"`
+	Active *bool `type:"boolean" json:",omitempty"`
 
-	BackupHour *int32 `type:"int32"`
+	BackupHour *int32 `type:"int32" json:",omitempty"`
 
-	BackupType *string `type:"string"`
+	BackupType *string `type:"string" json:",omitempty"`
 
-	ExpectNextBackupTime *string `type:"string"`
+	ExpectNextBackupTime *string `type:"string" json:",omitempty"`
 
-	InstanceId *string `type:"string"`
+	InstanceId *string `type:"string" json:",omitempty"`
 
-	LastUpdateTime *string `type:"string"`
+	LastUpdateTime *string `type:"string" json:",omitempty"`
 
-	Period []*int32 `type:"list"`
+	Period []*int32 `type:"list" json:",omitempty"`
 
-	TTL *int32 `type:"int32"`
+	TTL *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation

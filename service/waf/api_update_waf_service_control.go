@@ -144,50 +144,52 @@ func (c *WAF) UpdateWafServiceControlWithContext(ctx volcengine.Context, input *
 }
 
 type UpdateWafServiceControlInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	ApiEnable *int32 `type:"int32"`
+	ApiEnable *int32 `type:"int32" json:",omitempty"`
 
-	AutoCCEnable *int32 `type:"int32"`
+	AutoCCEnable *int32 `type:"int32" json:",omitempty"`
 
-	BlackIpEnable *int32 `type:"int32"`
+	BlackIpEnable *int32 `type:"int32" json:",omitempty"`
 
-	BlackLctEnable *int32 `type:"int32"`
+	BlackLctEnable *int32 `type:"int32" json:",omitempty"`
 
-	BotDytokenEnable *string `type:"string"`
+	BotDytokenEnable *string `type:"string" json:",omitempty"`
 
-	BotFrequencyEnable *int32 `type:"int32"`
+	BotFrequencyEnable *int32 `type:"int32" json:",omitempty"`
 
-	BotRepeatEnable *int32 `type:"int32"`
+	BotRepeatEnable *int32 `type:"int32" json:",omitempty"`
 
-	BotSequenceDefaultAction *int32 `type:"int32"`
+	BotSequenceDefaultAction *int32 `type:"int32" json:",omitempty"`
 
-	BotSequenceEnable *int32 `type:"int32"`
+	BotSequenceEnable *int32 `type:"int32" json:",omitempty"`
 
-	CcEnable *int32 `type:"int32"`
+	CcEnable *int32 `type:"int32" json:",omitempty"`
 
-	CustomBotEnable *int32 `type:"int32"`
+	CustomBotEnable *int32 `type:"int32" json:",omitempty"`
 
-	CustomRspEnable *int32 `type:"int32"`
+	CustomRspEnable *int32 `type:"int32" json:",omitempty"`
 
-	DlpEnable *int32 `type:"int32"`
+	DlpEnable *int32 `type:"int32" json:",omitempty"`
 
 	// Host is a required field
-	Host *string `type:"string" required:"true"`
+	Host *string `type:"string" json:",omitempty" required:"true"`
 
-	SystemBotEnable *int32 `type:"int32"`
+	ProjectName *string `type:"string" json:",omitempty"`
 
-	TLSEnable *int32 `type:"int32"`
+	SystemBotEnable *int32 `type:"int32" json:",omitempty"`
 
-	TamperProofEnable *int32 `type:"int32"`
+	TLSEnable *int32 `type:"int32" json:",omitempty"`
 
-	WafEnable *int32 `type:"int32"`
+	TamperProofEnable *int32 `type:"int32" json:",omitempty"`
 
-	WafWhiteReqEnable *int32 `type:"int32"`
+	WafEnable *int32 `type:"int32" json:",omitempty"`
 
-	WhiteEnable *int32 `type:"int32"`
+	WafWhiteReqEnable *int32 `type:"int32" json:",omitempty"`
 
-	WhiteFieldEnable *int32 `type:"int32"`
+	WhiteEnable *int32 `type:"int32" json:",omitempty"`
+
+	WhiteFieldEnable *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -297,6 +299,12 @@ func (s *UpdateWafServiceControlInput) SetHost(v string) *UpdateWafServiceContro
 	return s
 }
 
+// SetProjectName sets the ProjectName field's value.
+func (s *UpdateWafServiceControlInput) SetProjectName(v string) *UpdateWafServiceControlInput {
+	s.ProjectName = &v
+	return s
+}
+
 // SetSystemBotEnable sets the SystemBotEnable field's value.
 func (s *UpdateWafServiceControlInput) SetSystemBotEnable(v int32) *UpdateWafServiceControlInput {
 	s.SystemBotEnable = &v
@@ -340,7 +348,7 @@ func (s *UpdateWafServiceControlInput) SetWhiteFieldEnable(v int32) *UpdateWafSe
 }
 
 type UpdateWafServiceControlOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 }

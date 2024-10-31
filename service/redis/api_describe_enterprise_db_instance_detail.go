@@ -144,11 +144,11 @@ func (c *REDIS) DescribeEnterpriseDBInstanceDetailWithContext(ctx volcengine.Con
 }
 
 type CapacityForDescribeEnterpriseDBInstanceDetailOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Total *int64 `type:"int64"`
+	Total *int64 `type:"int64" json:",omitempty"`
 
-	Used *int64 `type:"int64"`
+	Used *int64 `type:"int64" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -174,10 +174,10 @@ func (s *CapacityForDescribeEnterpriseDBInstanceDetailOutput) SetUsed(v int64) *
 }
 
 type DescribeEnterpriseDBInstanceDetailInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// InstanceId is a required field
-	InstanceId *string `type:"string" required:"true"`
+	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -210,59 +210,59 @@ func (s *DescribeEnterpriseDBInstanceDetailInput) SetInstanceId(v string) *Descr
 }
 
 type DescribeEnterpriseDBInstanceDetailOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	AutoRenew *bool `type:"boolean"`
+	AutoRenew *bool `type:"boolean" json:",omitempty"`
 
-	Capacity *CapacityForDescribeEnterpriseDBInstanceDetailOutput `type:"structure"`
+	Capacity *CapacityForDescribeEnterpriseDBInstanceDetailOutput `type:"structure" json:",omitempty"`
 
-	ChargeType *string `type:"string"`
+	ChargeType *string `type:"string" json:",omitempty"`
 
-	CreateTime *string `type:"string"`
+	CreateTime *string `type:"string" json:",omitempty"`
 
-	DataLayout *string `type:"string"`
+	DataLayout *string `type:"string" json:",omitempty"`
 
-	DeletionProtection *string `type:"string"`
+	DeletionProtection *string `type:"string" json:",omitempty"`
 
-	EngineVersion *string `type:"string"`
+	EngineVersion *string `type:"string" json:",omitempty"`
 
-	ExpiredTime *string `type:"string"`
+	ExpiredTime *string `type:"string" json:",omitempty"`
 
-	FlashPerShard *int32 `type:"int32"`
+	FlashPerShard *int32 `type:"int32" json:",omitempty"`
 
-	InstanceId *string `type:"string"`
+	InstanceId *string `type:"string" json:",omitempty"`
 
-	InstanceName *string `type:"string"`
+	InstanceName *string `type:"string" json:",omitempty"`
 
-	MaintenanceTime *string `type:"string"`
+	MaintenanceTime *string `type:"string" json:",omitempty"`
 
-	Modules []*string `type:"list"`
+	Modules []*string `type:"list" json:",omitempty"`
 
-	MultiAZ *string `type:"string"`
+	MultiAZ *string `type:"string" json:",omitempty"`
 
-	NodeNumber *int32 `type:"int32"`
+	NodeNumber *int32 `type:"int32" json:",omitempty"`
 
-	ProjectName *string `type:"string"`
+	ProjectName *string `type:"string" json:",omitempty"`
 
-	RamPerShard *int32 `type:"int32"`
+	RamPerShard *int32 `type:"int32" json:",omitempty"`
 
-	RegionId *string `type:"string"`
+	RegionId *string `type:"string" json:",omitempty"`
 
-	ShardNumber *int32 `type:"int32"`
+	ShardNumber *int32 `type:"int32" json:",omitempty"`
 
-	Status *string `type:"string"`
+	Status *string `type:"string" json:",omitempty"`
 
-	SubnetId *string `type:"string"`
+	SubnetId *string `type:"string" json:",omitempty"`
 
-	Tags []*TagForDescribeEnterpriseDBInstanceDetailOutput `type:"list"`
+	Tags []*TagForDescribeEnterpriseDBInstanceDetailOutput `type:"list" json:",omitempty"`
 
-	VisitAddrs []*VisitAddrForDescribeEnterpriseDBInstanceDetailOutput `type:"list"`
+	VisitAddrs []*VisitAddrForDescribeEnterpriseDBInstanceDetailOutput `type:"list" json:",omitempty"`
 
-	VpcId *string `type:"string"`
+	VpcId *string `type:"string" json:",omitempty"`
 
-	ZoneIds []*string `type:"list"`
+	ZoneIds []*string `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -426,11 +426,11 @@ func (s *DescribeEnterpriseDBInstanceDetailOutput) SetZoneIds(v []*string) *Desc
 }
 
 type TagForDescribeEnterpriseDBInstanceDetailOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Key *string `type:"string"`
+	Key *string `type:"string" json:",omitempty"`
 
-	Value *string `type:"string"`
+	Value *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -456,17 +456,17 @@ func (s *TagForDescribeEnterpriseDBInstanceDetailOutput) SetValue(v string) *Tag
 }
 
 type VisitAddrForDescribeEnterpriseDBInstanceDetailOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	AddrType *string `type:"string"`
+	AddrType *string `type:"string" json:",omitempty"`
 
-	EipId *string `type:"string"`
+	EipId *string `type:"string" json:",omitempty"`
 
-	IPAddress *string `type:"string"`
+	IPAddress *string `type:"string" json:",omitempty"`
 
-	Port *string `type:"string"`
+	Port *string `type:"string" json:",omitempty"`
 
-	VIP *string `type:"string"`
+	VIP *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation

@@ -144,17 +144,17 @@ func (c *RDSMYSQLV2) ModifyDBAccountDescriptionWithContext(ctx volcengine.Contex
 }
 
 type ModifyDBAccountDescriptionInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	AccountDesc *string `type:"string"`
+	AccountDesc *string `type:"string" json:",omitempty"`
 
 	// AccountName is a required field
-	AccountName *string `type:"string" required:"true"`
+	AccountName *string `type:"string" json:",omitempty" required:"true"`
 
-	Host *string `type:"string"`
+	Host *string `type:"string" json:",omitempty"`
 
 	// InstanceId is a required field
-	InstanceId *string `type:"string" required:"true"`
+	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -208,7 +208,7 @@ func (s *ModifyDBAccountDescriptionInput) SetInstanceId(v string) *ModifyDBAccou
 }
 
 type ModifyDBAccountDescriptionOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 }

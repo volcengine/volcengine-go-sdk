@@ -144,11 +144,11 @@ func (c *WAF) ListCustomBotConfigWithContext(ctx volcengine.Context, input *List
 }
 
 type AccurateForListCustomBotConfigOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	AccurateRules []*AccurateRuleForListCustomBotConfigOutput `type:"list"`
+	AccurateRules []*AccurateRuleForListCustomBotConfigOutput `type:"list" json:",omitempty"`
 
-	Logic *int32 `type:"int32"`
+	Logic *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -174,17 +174,17 @@ func (s *AccurateForListCustomBotConfigOutput) SetLogic(v int32) *AccurateForLis
 }
 
 type AccurateRuleForListCustomBotConfigOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	HttpObj *string `type:"string"`
+	HttpObj *string `type:"string" json:",omitempty"`
 
-	ObjType *int32 `type:"int32"`
+	ObjType *int32 `type:"int32" json:",omitempty"`
 
-	Opretar *int32 `type:"int32"`
+	Opretar *int32 `type:"int32" json:",omitempty"`
 
-	Property *int32 `type:"int32"`
+	Property *int32 `type:"int32" json:",omitempty"`
 
-	ValueString *string `type:"string"`
+	ValueString *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -228,25 +228,25 @@ func (s *AccurateRuleForListCustomBotConfigOutput) SetValueString(v string) *Acc
 }
 
 type DataForListCustomBotConfigOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Accurate []*AccurateForListCustomBotConfigOutput `type:"list"`
+	Accurate []*AccurateForListCustomBotConfigOutput `type:"list" json:",omitempty"`
 
-	Action *string `type:"string"`
+	Action *string `type:"string" json:",omitempty"`
 
-	Advanced *int32 `type:"int32"`
+	Advanced *int32 `type:"int32" json:",omitempty"`
 
-	BotType *string `type:"string"`
+	BotType *string `type:"string" json:",omitempty"`
 
-	Description *string `type:"string"`
+	Description *string `type:"string" json:",omitempty"`
 
-	Enable *int32 `type:"int32"`
+	Enable *int32 `type:"int32" json:",omitempty"`
 
-	Id *string `type:"string"`
+	Id *string `type:"string" json:",omitempty"`
 
-	RuleTag *string `type:"string"`
+	RuleTag *string `type:"string" json:",omitempty"`
 
-	UpdateTime *string `type:"string"`
+	UpdateTime *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -314,14 +314,16 @@ func (s *DataForListCustomBotConfigOutput) SetUpdateTime(v string) *DataForListC
 }
 
 type ListCustomBotConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// Host is a required field
-	Host *string `type:"string" required:"true"`
+	Host *string `type:"string" json:",omitempty" required:"true"`
 
-	Page *int32 `type:"int32"`
+	Page *int32 `type:"int32" json:",omitempty"`
 
-	PageSize *int32 `type:"int32"`
+	PageSize *int32 `type:"int32" json:",omitempty"`
+
+	ProjectName *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -365,20 +367,30 @@ func (s *ListCustomBotConfigInput) SetPageSize(v int32) *ListCustomBotConfigInpu
 	return s
 }
 
+// SetProjectName sets the ProjectName field's value.
+func (s *ListCustomBotConfigInput) SetProjectName(v string) *ListCustomBotConfigInput {
+	s.ProjectName = &v
+	return s
+}
+
 type ListCustomBotConfigOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	Count *int32 `type:"int32"`
+	Count *int32 `type:"int32" json:",omitempty"`
 
-	CurrentPage *int32 `type:"int32"`
+	CurrentPage *int32 `type:"int32" json:",omitempty"`
 
-	Data []*DataForListCustomBotConfigOutput `type:"list"`
+	Data []*DataForListCustomBotConfigOutput `type:"list" json:",omitempty"`
 
-	PageSize *int32 `type:"int32"`
+	Page *int32 `type:"int32" json:",omitempty"`
 
-	TotalCount *int32 `type:"int32"`
+	PageNumber *int32 `type:"int32" json:",omitempty"`
+
+	PageSize *int32 `type:"int32" json:",omitempty"`
+
+	TotalCount *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -406,6 +418,18 @@ func (s *ListCustomBotConfigOutput) SetCurrentPage(v int32) *ListCustomBotConfig
 // SetData sets the Data field's value.
 func (s *ListCustomBotConfigOutput) SetData(v []*DataForListCustomBotConfigOutput) *ListCustomBotConfigOutput {
 	s.Data = v
+	return s
+}
+
+// SetPage sets the Page field's value.
+func (s *ListCustomBotConfigOutput) SetPage(v int32) *ListCustomBotConfigOutput {
+	s.Page = &v
+	return s
+}
+
+// SetPageNumber sets the PageNumber field's value.
+func (s *ListCustomBotConfigOutput) SetPageNumber(v int32) *ListCustomBotConfigOutput {
+	s.PageNumber = &v
 	return s
 }
 

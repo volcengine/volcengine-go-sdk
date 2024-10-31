@@ -144,43 +144,43 @@ func (c *WAF) ListAllowRuleWithContext(ctx volcengine.Context, input *ListAllowR
 }
 
 type DataForListAllowRuleOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Action *string `type:"string"`
+	Action *string `type:"string" json:",omitempty"`
 
-	AddSrc *int32 `type:"int32"`
+	AddSrc *int32 `type:"int32" json:",omitempty"`
 
-	Advanced *int32 `type:"int32"`
+	Advanced *int32 `type:"int32" json:",omitempty"`
 
-	ClientIp *string `type:"string"`
+	ClientIp *string `type:"string" json:",omitempty"`
 
-	Description *string `type:"string"`
+	Description *string `type:"string" json:",omitempty"`
 
-	Enable *int32 `type:"int32"`
+	Enable *int32 `type:"int32" json:",omitempty"`
 
-	GroupId *int32 `type:"int32"`
+	GroupId *int32 `type:"int32" json:",omitempty"`
 
-	Host *string `type:"string"`
+	Host *string `type:"string" json:",omitempty"`
 
-	Id *int32 `type:"int32"`
+	Id *int32 `type:"int32" json:",omitempty"`
 
-	IpAddType *int32 `type:"int32"`
+	IpAddType *int32 `type:"int32" json:",omitempty"`
 
-	IpGroups []*IpGroupForListAllowRuleOutput `type:"list"`
+	IpGroups []*IpGroupForListAllowRuleOutput `type:"list" json:",omitempty"`
 
-	IpType *int32 `type:"int32"`
+	IpType *int32 `type:"int32" json:",omitempty"`
 
-	IsolationId *string `type:"string"`
+	IsolationId *string `type:"string" json:",omitempty"`
 
-	JsConfId *int32 `type:"int32"`
+	JsConfId *int32 `type:"int32" json:",omitempty"`
 
-	Name *string `type:"string"`
+	Name *string `type:"string" json:",omitempty"`
 
-	RuleTag *string `type:"string"`
+	RuleTag *string `type:"string" json:",omitempty"`
 
-	UpdateTime *string `type:"string"`
+	UpdateTime *string `type:"string" json:",omitempty"`
 
-	Url *string `type:"string"`
+	Url *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -302,11 +302,11 @@ func (s *DataForListAllowRuleOutput) SetUrl(v string) *DataForListAllowRuleOutpu
 }
 
 type IpGroupForListAllowRuleOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	IpGroupId *int32 `type:"int32"`
+	IpGroupId *int32 `type:"int32" json:",omitempty"`
 
-	Name *string `type:"string"`
+	Name *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -332,16 +332,18 @@ func (s *IpGroupForListAllowRuleOutput) SetName(v string) *IpGroupForListAllowRu
 }
 
 type ListAllowRuleInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	ClientIP *string `type:"string"`
+	ClientIP *string `type:"string" json:",omitempty"`
 
-	GroupID *int32 `type:"int32"`
+	GroupID *int32 `type:"int32" json:",omitempty"`
 
 	// Host is a required field
-	Host *string `type:"string" required:"true"`
+	Host *string `type:"string" json:",omitempty" required:"true"`
 
-	Url *string `type:"string"`
+	ProjectName *string `type:"string" json:",omitempty"`
+
+	Url *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -385,6 +387,12 @@ func (s *ListAllowRuleInput) SetHost(v string) *ListAllowRuleInput {
 	return s
 }
 
+// SetProjectName sets the ProjectName field's value.
+func (s *ListAllowRuleInput) SetProjectName(v string) *ListAllowRuleInput {
+	s.ProjectName = &v
+	return s
+}
+
 // SetUrl sets the Url field's value.
 func (s *ListAllowRuleInput) SetUrl(v string) *ListAllowRuleInput {
 	s.Url = &v
@@ -392,19 +400,19 @@ func (s *ListAllowRuleInput) SetUrl(v string) *ListAllowRuleInput {
 }
 
 type ListAllowRuleOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	Count *int32 `type:"int32"`
+	Count *int32 `type:"int32" json:",omitempty"`
 
-	Data []*DataForListAllowRuleOutput `type:"list"`
+	Data []*DataForListAllowRuleOutput `type:"list" json:",omitempty"`
 
-	PageNumber *int32 `type:"int32"`
+	PageNumber *int32 `type:"int32" json:",omitempty"`
 
-	PageSize *int32 `type:"int32"`
+	PageSize *int32 `type:"int32" json:",omitempty"`
 
-	TotalCount *int32 `type:"int32"`
+	TotalCount *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation

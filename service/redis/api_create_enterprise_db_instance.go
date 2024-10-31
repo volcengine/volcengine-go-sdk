@@ -144,9 +144,9 @@ func (c *REDIS) CreateEnterpriseDBInstanceWithContext(ctx volcengine.Context, in
 }
 
 type ConfigureNodeForCreateEnterpriseDBInstanceInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	AZ *string `type:"string"`
+	AZ *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -166,54 +166,55 @@ func (s *ConfigureNodeForCreateEnterpriseDBInstanceInput) SetAZ(v string) *Confi
 }
 
 type CreateEnterpriseDBInstanceInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	AllowListIds []*string `type:"list"`
+	AllowListIds []*string `type:"list" json:",omitempty"`
 
-	// AutoRenew is a required field
-	AutoRenew *bool `type:"boolean" required:"true"`
+	AutoRenew *bool `type:"boolean" json:",omitempty"`
 
 	// ChargeType is a required field
-	ChargeType *string `type:"string" required:"true"`
+	ChargeType *string `type:"string" json:",omitempty" required:"true"`
 
-	ClientToken *string `type:"string"`
+	ClientToken *string `type:"string" json:",omitempty"`
 
-	ConfigureNodes []*ConfigureNodeForCreateEnterpriseDBInstanceInput `type:"list"`
+	ConfigureNodes []*ConfigureNodeForCreateEnterpriseDBInstanceInput `type:"list" json:",omitempty"`
 
-	DeletionProtection *string `type:"string"`
+	// DataLayout is a required field
+	DataLayout *string `type:"string" json:",omitempty" required:"true"`
+
+	DeletionProtection *string `type:"string" json:",omitempty"`
 
 	// FlashPerShard is a required field
-	FlashPerShard *int32 `type:"int32" required:"true"`
+	FlashPerShard *int32 `type:"int32" json:",omitempty" required:"true"`
 
-	InstanceName *string `type:"string"`
+	InstanceName *string `type:"string" json:",omitempty"`
 
-	Modules []*string `type:"list"`
+	Modules []*string `type:"list" json:",omitempty"`
 
-	MultiAZ *string `type:"string"`
+	MultiAZ *string `type:"string" json:",omitempty"`
 
-	Password *string `type:"string"`
+	Password *string `type:"string" json:",omitempty"`
 
-	ProjectName *string `type:"string"`
+	ProjectName *string `type:"string" json:",omitempty"`
 
-	// PurchaseMonths is a required field
-	PurchaseMonths *int32 `type:"int32" required:"true"`
+	PurchaseMonths *int32 `type:"int32" json:",omitempty"`
 
 	// RamPerShard is a required field
-	RamPerShard *int32 `type:"int32" required:"true"`
+	RamPerShard *int32 `type:"int32" json:",omitempty" required:"true"`
 
 	// RegionId is a required field
-	RegionId *string `type:"string" required:"true"`
+	RegionId *string `type:"string" json:",omitempty" required:"true"`
 
 	// ShardNumber is a required field
-	ShardNumber *int32 `type:"int32" required:"true"`
+	ShardNumber *int32 `type:"int32" json:",omitempty" required:"true"`
 
 	// SubnetId is a required field
-	SubnetId *string `type:"string" required:"true"`
+	SubnetId *string `type:"string" json:",omitempty" required:"true"`
 
-	Tags []*TagForCreateEnterpriseDBInstanceInput `type:"list"`
+	Tags []*TagForCreateEnterpriseDBInstanceInput `type:"list" json:",omitempty"`
 
 	// VpcId is a required field
-	VpcId *string `type:"string" required:"true"`
+	VpcId *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -229,17 +230,14 @@ func (s CreateEnterpriseDBInstanceInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *CreateEnterpriseDBInstanceInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "CreateEnterpriseDBInstanceInput"}
-	if s.AutoRenew == nil {
-		invalidParams.Add(request.NewErrParamRequired("AutoRenew"))
-	}
 	if s.ChargeType == nil {
 		invalidParams.Add(request.NewErrParamRequired("ChargeType"))
 	}
+	if s.DataLayout == nil {
+		invalidParams.Add(request.NewErrParamRequired("DataLayout"))
+	}
 	if s.FlashPerShard == nil {
 		invalidParams.Add(request.NewErrParamRequired("FlashPerShard"))
-	}
-	if s.PurchaseMonths == nil {
-		invalidParams.Add(request.NewErrParamRequired("PurchaseMonths"))
 	}
 	if s.RamPerShard == nil {
 		invalidParams.Add(request.NewErrParamRequired("RamPerShard"))
@@ -290,6 +288,12 @@ func (s *CreateEnterpriseDBInstanceInput) SetClientToken(v string) *CreateEnterp
 // SetConfigureNodes sets the ConfigureNodes field's value.
 func (s *CreateEnterpriseDBInstanceInput) SetConfigureNodes(v []*ConfigureNodeForCreateEnterpriseDBInstanceInput) *CreateEnterpriseDBInstanceInput {
 	s.ConfigureNodes = v
+	return s
+}
+
+// SetDataLayout sets the DataLayout field's value.
+func (s *CreateEnterpriseDBInstanceInput) SetDataLayout(v string) *CreateEnterpriseDBInstanceInput {
+	s.DataLayout = &v
 	return s
 }
 
@@ -378,13 +382,13 @@ func (s *CreateEnterpriseDBInstanceInput) SetVpcId(v string) *CreateEnterpriseDB
 }
 
 type CreateEnterpriseDBInstanceOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	InstanceId *string `type:"string"`
+	InstanceId *string `type:"string" json:",omitempty"`
 
-	OrderNO *string `type:"string"`
+	OrderNO *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -410,11 +414,11 @@ func (s *CreateEnterpriseDBInstanceOutput) SetOrderNO(v string) *CreateEnterpris
 }
 
 type TagForCreateEnterpriseDBInstanceInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Key *string `type:"string"`
+	Key *string `type:"string" json:",omitempty"`
 
-	Value *string `type:"string"`
+	Value *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation

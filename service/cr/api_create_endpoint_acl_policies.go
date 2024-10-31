@@ -144,17 +144,17 @@ func (c *CR) CreateEndpointAclPoliciesWithContext(ctx volcengine.Context, input 
 }
 
 type CreateEndpointAclPoliciesInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Description *string `type:"string"`
+	Description *string `type:"string" json:",omitempty"`
 
-	Entries []*string `type:"list"`
+	Entries []*string `type:"list" json:",omitempty"`
 
 	// Registry is a required field
-	Registry *string `type:"string" required:"true"`
+	Registry *string `min:"3" max:"30" type:"string" json:",omitempty" required:"true"`
 
 	// Type is a required field
-	Type *string `type:"string" required:"true"`
+	Type *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -172,6 +172,12 @@ func (s *CreateEndpointAclPoliciesInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "CreateEndpointAclPoliciesInput"}
 	if s.Registry == nil {
 		invalidParams.Add(request.NewErrParamRequired("Registry"))
+	}
+	if s.Registry != nil && len(*s.Registry) < 3 {
+		invalidParams.Add(request.NewErrParamMinLen("Registry", 3))
+	}
+	if s.Registry != nil && len(*s.Registry) > 30 {
+		invalidParams.Add(request.NewErrParamMaxLen("Registry", 30, *s.Registry))
 	}
 	if s.Type == nil {
 		invalidParams.Add(request.NewErrParamRequired("Type"))
@@ -208,7 +214,7 @@ func (s *CreateEndpointAclPoliciesInput) SetType(v string) *CreateEndpointAclPol
 }
 
 type CreateEndpointAclPoliciesOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 }

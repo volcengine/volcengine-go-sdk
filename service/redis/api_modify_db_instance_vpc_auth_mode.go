@@ -144,15 +144,15 @@ func (c *REDIS) ModifyDBInstanceVpcAuthModeWithContext(ctx volcengine.Context, i
 }
 
 type ModifyDBInstanceVpcAuthModeInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	ClientToken *string `type:"string"`
+	ClientToken *string `type:"string" json:",omitempty"`
 
 	// InstanceId is a required field
-	InstanceId *string `type:"string" required:"true"`
+	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 
 	// VpcAuthMode is a required field
-	VpcAuthMode *string `type:"string" required:"true"`
+	VpcAuthMode *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -200,7 +200,7 @@ func (s *ModifyDBInstanceVpcAuthModeInput) SetVpcAuthMode(v string) *ModifyDBIns
 }
 
 type ModifyDBInstanceVpcAuthModeOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 }

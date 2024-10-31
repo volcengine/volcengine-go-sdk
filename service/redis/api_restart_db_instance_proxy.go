@@ -144,14 +144,14 @@ func (c *REDIS) RestartDBInstanceProxyWithContext(ctx volcengine.Context, input 
 }
 
 type RestartDBInstanceProxyInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	ClientToken *string `type:"string"`
+	ClientToken *string `type:"string" json:",omitempty"`
 
 	// InstanceId is a required field
-	InstanceId *string `type:"string" required:"true"`
+	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 
-	ProxyNodeIds []*string `type:"list"`
+	ProxyNodeIds []*string `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -196,7 +196,7 @@ func (s *RestartDBInstanceProxyInput) SetProxyNodeIds(v []*string) *RestartDBIns
 }
 
 type RestartDBInstanceProxyOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 }

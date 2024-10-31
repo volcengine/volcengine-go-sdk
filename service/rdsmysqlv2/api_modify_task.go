@@ -144,18 +144,18 @@ func (c *RDSMYSQLV2) ModifyTaskWithContext(ctx volcengine.Context, input *Modify
 }
 
 type ModifyTaskInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// InstanceId is a required field
-	InstanceId *string `type:"string" required:"true"`
+	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 
 	// ModifyType is a required field
-	ModifyType *string `type:"string" required:"true"`
+	ModifyType *string `type:"string" json:",omitempty" required:"true"`
 
-	SwitchTime *string `type:"string"`
+	SwitchTime *string `type:"string" json:",omitempty"`
 
 	// TaskId is a required field
-	TaskId *string `type:"string" required:"true"`
+	TaskId *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -212,7 +212,7 @@ func (s *ModifyTaskInput) SetTaskId(v string) *ModifyTaskInput {
 }
 
 type ModifyTaskOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 }

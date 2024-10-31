@@ -144,13 +144,13 @@ func (c *RDSMYSQLV2) DescribeReadOnlyNodeDelayWithContext(ctx volcengine.Context
 }
 
 type DescribeReadOnlyNodeDelayInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// InstanceId is a required field
-	InstanceId *string `type:"string" required:"true"`
+	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 
 	// NodeId is a required field
-	NodeId *string `type:"string" required:"true"`
+	NodeId *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -192,13 +192,13 @@ func (s *DescribeReadOnlyNodeDelayInput) SetNodeId(v string) *DescribeReadOnlyNo
 }
 
 type DescribeReadOnlyNodeDelayOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	DelayReplicationTime *int64 `type:"int64"`
+	DelayReplicationTime *int64 `type:"int64" json:",omitempty"`
 
-	NodeId *string `type:"string"`
+	NodeId *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation

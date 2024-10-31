@@ -144,31 +144,31 @@ func (c *REDIS) DescribeBackupsWithContext(ctx volcengine.Context, input *Descri
 }
 
 type BackupForDescribeBackupsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	BackupPointId *string `type:"string"`
+	BackupPointId *string `type:"string" json:",omitempty"`
 
-	BackupPointName *string `type:"string"`
+	BackupPointName *string `type:"string" json:",omitempty"`
 
-	BackupStrategy *string `type:"string" enum:"EnumOfBackupStrategyForDescribeBackupsOutput"`
+	BackupStrategy *string `type:"string" json:",omitempty" enum:"EnumOfBackupStrategyForDescribeBackupsOutput"`
 
-	BackupType *string `type:"string" enum:"EnumOfBackupTypeForDescribeBackupsOutput"`
+	BackupType *string `type:"string" json:",omitempty" enum:"EnumOfBackupTypeForDescribeBackupsOutput"`
 
-	EndTime *string `type:"string"`
+	EndTime *string `type:"string" json:",omitempty"`
 
-	InstanceId *string `type:"string"`
+	InstanceId *string `type:"string" json:",omitempty"`
 
-	InstanceInfo *InstanceInfoForDescribeBackupsOutput `type:"structure"`
+	InstanceInfo *InstanceInfoForDescribeBackupsOutput `type:"structure" json:",omitempty"`
 
-	ProjectName *string `type:"string"`
+	ProjectName *string `type:"string" json:",omitempty"`
 
-	Size *int64 `type:"int64"`
+	Size *int64 `type:"int64" json:",omitempty"`
 
-	StartTime *string `type:"string"`
+	StartTime *string `type:"string" json:",omitempty"`
 
-	Status *string `type:"string" enum:"EnumOfStatusForDescribeBackupsOutput"`
+	Status *string `type:"string" json:",omitempty" enum:"EnumOfStatusForDescribeBackupsOutput"`
 
-	TTL *int32 `type:"int32"`
+	TTL *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -254,27 +254,27 @@ func (s *BackupForDescribeBackupsOutput) SetTTL(v int32) *BackupForDescribeBacku
 }
 
 type DescribeBackupsInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	BackupPointId *string `type:"string"`
+	BackupPointId *string `type:"string" json:",omitempty"`
 
-	BackupPointName *string `type:"string"`
+	BackupPointName *string `type:"string" json:",omitempty"`
 
-	BackupStrategyList []*string `type:"list"`
+	BackupStrategyList []*string `type:"list" json:",omitempty"`
 
-	EndTime *string `type:"string"`
+	EndTime *string `type:"string" json:",omitempty"`
 
-	InstanceId *string `type:"string"`
+	InstanceId *string `type:"string" json:",omitempty"`
 
-	PageNumber *int32 `type:"int32"`
+	PageNumber *int32 `type:"int32" json:",omitempty"`
 
-	PageSize *int32 `type:"int32"`
+	PageSize *int32 `type:"int32" json:",omitempty"`
 
-	ProjectName *string `type:"string"`
+	ProjectName *string `type:"string" json:",omitempty"`
 
-	Scope *string `type:"string" enum:"EnumOfScopeForDescribeBackupsInput"`
+	Scope *string `type:"string" json:",omitempty" enum:"EnumOfScopeForDescribeBackupsInput"`
 
-	StartTime *string `type:"string"`
+	StartTime *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -348,13 +348,13 @@ func (s *DescribeBackupsInput) SetStartTime(v string) *DescribeBackupsInput {
 }
 
 type DescribeBackupsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	Backups []*BackupForDescribeBackupsOutput `type:"list"`
+	Backups []*BackupForDescribeBackupsOutput `type:"list" json:",omitempty"`
 
-	Total *int32 `type:"int32"`
+	Total *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -380,43 +380,43 @@ func (s *DescribeBackupsOutput) SetTotal(v int32) *DescribeBackupsOutput {
 }
 
 type InstanceDetailForDescribeBackupsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	AccountId *int64 `type:"int64"`
+	AccountId *int64 `type:"int64" json:",omitempty"`
 
-	ArchType *string `type:"string"`
+	ArchType *string `type:"string" json:",omitempty"`
 
-	AutoRenew *bool `type:"boolean"`
+	AutoRenew *bool `type:"boolean" json:",omitempty"`
 
-	ChargeType *string `type:"string"`
+	ChargeType *string `type:"string" json:",omitempty"`
 
-	EngineVersion *string `type:"string"`
+	EngineVersion *string `type:"string" json:",omitempty"`
 
-	ExpiredTime *string `type:"string"`
+	ExpiredTime *string `type:"string" json:",omitempty"`
 
-	InstanceId *string `type:"string"`
+	InstanceId *string `type:"string" json:",omitempty"`
 
-	InstanceName *string `type:"string"`
+	InstanceName *string `type:"string" json:",omitempty"`
 
-	MaintenanceTime *string `type:"string"`
+	MaintenanceTime *string `type:"string" json:",omitempty"`
 
-	NetworkType *string `type:"string"`
+	NetworkType *string `type:"string" json:",omitempty"`
 
-	RegionId *string `type:"string"`
+	RegionId *string `type:"string" json:",omitempty"`
 
-	Replicas *int32 `type:"int32"`
+	Replicas *int32 `type:"int32" json:",omitempty"`
 
-	ShardCapacity *int64 `type:"int64"`
+	ShardCapacity *int64 `type:"int64" json:",omitempty"`
 
-	ShardCount *int32 `type:"int32"`
+	ShardCount *int32 `type:"int32" json:",omitempty"`
 
-	TotalCapacity *int64 `type:"int64"`
+	TotalCapacity *int64 `type:"int64" json:",omitempty"`
 
-	UsedCapacity *int64 `type:"int64"`
+	UsedCapacity *int64 `type:"int64" json:",omitempty"`
 
-	VpcInfo *VpcInfoForDescribeBackupsOutput `type:"structure"`
+	VpcInfo *VpcInfoForDescribeBackupsOutput `type:"structure" json:",omitempty"`
 
-	ZoneIds []*string `type:"list"`
+	ZoneIds []*string `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -538,37 +538,37 @@ func (s *InstanceDetailForDescribeBackupsOutput) SetZoneIds(v []*string) *Instan
 }
 
 type InstanceInfoForDescribeBackupsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	AccountId *int64 `type:"int64"`
+	AccountId *int64 `type:"int64" json:",omitempty"`
 
-	ChargeType *string `type:"string"`
+	ChargeType *string `type:"string" json:",omitempty"`
 
-	DeletionProtection *string `type:"string"`
+	DeletionProtection *string `type:"string" json:",omitempty"`
 
-	EngineVersion *string `type:"string"`
+	EngineVersion *string `type:"string" json:",omitempty"`
 
-	ExpiredTime *string `type:"string"`
+	ExpiredTime *string `type:"string" json:",omitempty"`
 
-	InstanceDetail *InstanceDetailForDescribeBackupsOutput `type:"structure"`
+	InstanceDetail *InstanceDetailForDescribeBackupsOutput `type:"structure" json:",omitempty"`
 
-	InstanceId *string `type:"string"`
+	InstanceId *string `type:"string" json:",omitempty"`
 
-	InstanceName *string `type:"string"`
+	InstanceName *string `type:"string" json:",omitempty"`
 
-	NetworkType *string `type:"string"`
+	NetworkType *string `type:"string" json:",omitempty"`
 
-	RegionId *string `type:"string"`
+	RegionId *string `type:"string" json:",omitempty"`
 
-	ShardCapacity *float64 `type:"double"`
+	ShardCapacity *float64 `type:"double" json:",omitempty"`
 
-	ShardList []*ShardListForDescribeBackupsOutput `type:"list"`
+	ShardList []*ShardListForDescribeBackupsOutput `type:"list" json:",omitempty"`
 
-	ShardNumber *int32 `type:"int32"`
+	ShardNumber *int32 `type:"int32" json:",omitempty"`
 
-	VpcId *string `type:"string"`
+	VpcId *string `type:"string" json:",omitempty"`
 
-	ZoneIds []*string `type:"list"`
+	ZoneIds []*string `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -672,13 +672,13 @@ func (s *InstanceInfoForDescribeBackupsOutput) SetZoneIds(v []*string) *Instance
 }
 
 type ShardListForDescribeBackupsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	ShardIndex *int32 `type:"int32"`
+	ShardIndex *int32 `type:"int32" json:",omitempty"`
 
-	SlotMap []*string `type:"list"`
+	SlotMap []*string `type:"list" json:",omitempty"`
 
-	SlotsNumber *int32 `type:"int32"`
+	SlotsNumber *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -710,11 +710,11 @@ func (s *ShardListForDescribeBackupsOutput) SetSlotsNumber(v int32) *ShardListFo
 }
 
 type VpcInfoForDescribeBackupsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	ID *string `type:"string"`
+	ID *string `type:"string" json:",omitempty"`
 
-	Name *string `type:"string"`
+	Name *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation

@@ -144,13 +144,13 @@ func (c *REDIS) AddTagsToResourceWithContext(ctx volcengine.Context, input *AddT
 }
 
 type AddTagsToResourceInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	ClientToken *string `type:"string"`
+	ClientToken *string `type:"string" json:",omitempty"`
 
-	InstanceIds []*string `type:"list"`
+	InstanceIds []*string `type:"list" json:",omitempty"`
 
-	Tags []*TagForAddTagsToResourceInput `type:"list"`
+	Tags []*TagForAddTagsToResourceInput `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -182,7 +182,7 @@ func (s *AddTagsToResourceInput) SetTags(v []*TagForAddTagsToResourceInput) *Add
 }
 
 type AddTagsToResourceOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 }
@@ -198,11 +198,11 @@ func (s AddTagsToResourceOutput) GoString() string {
 }
 
 type TagForAddTagsToResourceInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Key *string `type:"string"`
+	Key *string `type:"string" json:",omitempty"`
 
-	Value *string `type:"string"`
+	Value *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation

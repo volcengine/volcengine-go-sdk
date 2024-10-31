@@ -144,18 +144,20 @@ func (c *RDSMYSQLV2) CreateParameterTemplateWithContext(ctx volcengine.Context, 
 }
 
 type CreateParameterTemplateInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	TemplateDesc *string `type:"string"`
+	TemplateDesc *string `type:"string" json:",omitempty"`
 
 	// TemplateName is a required field
-	TemplateName *string `type:"string" required:"true"`
+	TemplateName *string `type:"string" json:",omitempty" required:"true"`
 
-	TemplateParams []*TemplateParamForCreateParameterTemplateInput `type:"list"`
+	TemplateParams []*TemplateParamForCreateParameterTemplateInput `type:"list" json:",omitempty"`
 
-	TemplateType *string `type:"string"`
+	// TemplateType is a required field
+	TemplateType *string `type:"string" json:",omitempty" required:"true" enum:"EnumOfTemplateTypeForCreateParameterTemplateInput"`
 
-	TemplateTypeVersion *string `type:"string"`
+	// TemplateTypeVersion is a required field
+	TemplateTypeVersion *string `type:"string" json:",omitempty" required:"true" enum:"EnumOfTemplateTypeVersionForCreateParameterTemplateInput"`
 }
 
 // String returns the string representation
@@ -173,6 +175,12 @@ func (s *CreateParameterTemplateInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "CreateParameterTemplateInput"}
 	if s.TemplateName == nil {
 		invalidParams.Add(request.NewErrParamRequired("TemplateName"))
+	}
+	if s.TemplateType == nil {
+		invalidParams.Add(request.NewErrParamRequired("TemplateType"))
+	}
+	if s.TemplateTypeVersion == nil {
+		invalidParams.Add(request.NewErrParamRequired("TemplateTypeVersion"))
 	}
 
 	if invalidParams.Len() > 0 {
@@ -212,9 +220,11 @@ func (s *CreateParameterTemplateInput) SetTemplateTypeVersion(v string) *CreateP
 }
 
 type CreateParameterTemplateOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
+
+	TemplateId *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -227,20 +237,30 @@ func (s CreateParameterTemplateOutput) GoString() string {
 	return s.String()
 }
 
+// SetTemplateId sets the TemplateId field's value.
+func (s *CreateParameterTemplateOutput) SetTemplateId(v string) *CreateParameterTemplateOutput {
+	s.TemplateId = &v
+	return s
+}
+
 type TemplateParamForCreateParameterTemplateInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	DefaultValue *string `type:"string"`
+	DefaultValue *string `type:"string" json:",omitempty"`
 
-	Description *string `type:"string"`
+	Description *string `type:"string" json:",omitempty"`
 
-	Name *string `type:"string"`
+	ExpectValue *string `type:"string" json:",omitempty"`
 
-	Restart *bool `type:"boolean"`
+	Expression *string `type:"string" json:",omitempty"`
 
-	RunningValue *string `type:"string"`
+	Name *string `type:"string" json:",omitempty"`
 
-	ValueRange *string `type:"string"`
+	Restart *bool `type:"boolean" json:",omitempty"`
+
+	RunningValue *string `type:"string" json:",omitempty"`
+
+	ValueRange *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -262,6 +282,18 @@ func (s *TemplateParamForCreateParameterTemplateInput) SetDefaultValue(v string)
 // SetDescription sets the Description field's value.
 func (s *TemplateParamForCreateParameterTemplateInput) SetDescription(v string) *TemplateParamForCreateParameterTemplateInput {
 	s.Description = &v
+	return s
+}
+
+// SetExpectValue sets the ExpectValue field's value.
+func (s *TemplateParamForCreateParameterTemplateInput) SetExpectValue(v string) *TemplateParamForCreateParameterTemplateInput {
+	s.ExpectValue = &v
+	return s
+}
+
+// SetExpression sets the Expression field's value.
+func (s *TemplateParamForCreateParameterTemplateInput) SetExpression(v string) *TemplateParamForCreateParameterTemplateInput {
+	s.Expression = &v
 	return s
 }
 
@@ -288,3 +320,34 @@ func (s *TemplateParamForCreateParameterTemplateInput) SetValueRange(v string) *
 	s.ValueRange = &v
 	return s
 }
+
+const (
+	// EnumOfTemplateTypeForCreateParameterTemplateInputMysql is a EnumOfTemplateTypeForCreateParameterTemplateInput enum value
+	EnumOfTemplateTypeForCreateParameterTemplateInputMysql = "Mysql"
+
+	// EnumOfTemplateTypeForCreateParameterTemplateInputPostgresql is a EnumOfTemplateTypeForCreateParameterTemplateInput enum value
+	EnumOfTemplateTypeForCreateParameterTemplateInputPostgresql = "Postgresql"
+
+	// EnumOfTemplateTypeForCreateParameterTemplateInputSqlserver is a EnumOfTemplateTypeForCreateParameterTemplateInput enum value
+	EnumOfTemplateTypeForCreateParameterTemplateInputSqlserver = "Sqlserver"
+)
+
+const (
+	// EnumOfTemplateTypeVersionForCreateParameterTemplateInputMySql57 is a EnumOfTemplateTypeVersionForCreateParameterTemplateInput enum value
+	EnumOfTemplateTypeVersionForCreateParameterTemplateInputMySql57 = "MySQL_5_7"
+
+	// EnumOfTemplateTypeVersionForCreateParameterTemplateInputMySql80 is a EnumOfTemplateTypeVersionForCreateParameterTemplateInput enum value
+	EnumOfTemplateTypeVersionForCreateParameterTemplateInputMySql80 = "MySQL_8_0"
+
+	// EnumOfTemplateTypeVersionForCreateParameterTemplateInputMySql56 is a EnumOfTemplateTypeVersionForCreateParameterTemplateInput enum value
+	EnumOfTemplateTypeVersionForCreateParameterTemplateInputMySql56 = "MySQL_5_6"
+
+	// EnumOfTemplateTypeVersionForCreateParameterTemplateInputSqlserver2019Ent is a EnumOfTemplateTypeVersionForCreateParameterTemplateInput enum value
+	EnumOfTemplateTypeVersionForCreateParameterTemplateInputSqlserver2019Ent = "SQLServer_2019_Ent"
+
+	// EnumOfTemplateTypeVersionForCreateParameterTemplateInputSqlserver2019Std is a EnumOfTemplateTypeVersionForCreateParameterTemplateInput enum value
+	EnumOfTemplateTypeVersionForCreateParameterTemplateInputSqlserver2019Std = "SQLServer_2019_Std"
+
+	// EnumOfTemplateTypeVersionForCreateParameterTemplateInputSqlserver2019Web is a EnumOfTemplateTypeVersionForCreateParameterTemplateInput enum value
+	EnumOfTemplateTypeVersionForCreateParameterTemplateInputSqlserver2019Web = "SQLServer_2019_Web"
+)

@@ -144,14 +144,14 @@ func (c *REDIS) DeleteDBInstanceWithContext(ctx volcengine.Context, input *Delet
 }
 
 type DeleteDBInstanceInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	BackupPointName *string `type:"string"`
+	BackupPointName *string `type:"string" json:",omitempty"`
 
-	ClientToken *string `type:"string"`
+	ClientToken *string `type:"string" json:",omitempty"`
 
 	// InstanceId is a required field
-	InstanceId *string `type:"string" required:"true"`
+	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -196,7 +196,7 @@ func (s *DeleteDBInstanceInput) SetInstanceId(v string) *DeleteDBInstanceInput {
 }
 
 type DeleteDBInstanceOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 }

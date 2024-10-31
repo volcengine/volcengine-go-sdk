@@ -144,13 +144,13 @@ func (c *RDSMYSQLV2) DownloadBackupWithContext(ctx volcengine.Context, input *Do
 }
 
 type DownloadBackupInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// BackupId is a required field
-	BackupId *string `type:"string" required:"true"`
+	BackupId *string `type:"string" json:",omitempty" required:"true"`
 
 	// InstanceId is a required field
-	InstanceId *string `type:"string" required:"true"`
+	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -192,7 +192,7 @@ func (s *DownloadBackupInput) SetInstanceId(v string) *DownloadBackupInput {
 }
 
 type DownloadBackupOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 }

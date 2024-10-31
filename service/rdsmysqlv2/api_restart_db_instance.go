@@ -144,16 +144,16 @@ func (c *RDSMYSQLV2) RestartDBInstanceWithContext(ctx volcengine.Context, input 
 }
 
 type RestartDBInstanceInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	ApplyScope *string `type:"string"`
+	ApplyScope *string `type:"string" json:",omitempty"`
 
-	CustomNodeIds []*string `type:"list"`
+	CustomNodeIds []*string `type:"list" json:",omitempty"`
 
 	// InstanceId is a required field
-	InstanceId *string `type:"string" required:"true"`
+	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 
-	SwitchType *string `type:"string"`
+	SwitchType *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -204,7 +204,7 @@ func (s *RestartDBInstanceInput) SetSwitchType(v string) *RestartDBInstanceInput
 }
 
 type RestartDBInstanceOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 }

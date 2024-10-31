@@ -144,18 +144,18 @@ func (c *RDSMYSQLV2) DescribeFailoverLogsWithContext(ctx volcengine.Context, inp
 }
 
 type DescribeFailoverLogsInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	EndTime *string `type:"string"`
+	EndTime *string `type:"string" json:",omitempty"`
 
 	// InstanceId is a required field
-	InstanceId *string `type:"string" required:"true"`
+	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 
-	Limit *int32 `type:"int32"`
+	Limit *int32 `type:"int32" json:",omitempty"`
 
-	Offset *int32 `type:"int32"`
+	Offset *int32 `type:"int32" json:",omitempty"`
 
-	StartTime *string `type:"string"`
+	StartTime *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -212,13 +212,13 @@ func (s *DescribeFailoverLogsInput) SetStartTime(v string) *DescribeFailoverLogs
 }
 
 type DescribeFailoverLogsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	FailoverQueryInfos []*FailoverQueryInfoForDescribeFailoverLogsOutput `type:"list"`
+	FailoverQueryInfos []*FailoverQueryInfoForDescribeFailoverLogsOutput `type:"list" json:",omitempty"`
 
-	Total *int32 `type:"int32"`
+	Total *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -244,19 +244,19 @@ func (s *DescribeFailoverLogsOutput) SetTotal(v int32) *DescribeFailoverLogsOutp
 }
 
 type FailoverQueryInfoForDescribeFailoverLogsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	ChangeTime *string `type:"string"`
+	ChangeTime *string `type:"string" json:",omitempty"`
 
-	Details *string `type:"string"`
+	Details *string `type:"string" json:",omitempty"`
 
-	HAChangeType *string `type:"string"`
+	HAChangeType *string `type:"string" json:",omitempty"`
 
-	NewMaster *string `type:"string"`
+	NewMaster *string `type:"string" json:",omitempty"`
 
-	OldMaster *string `type:"string"`
+	OldMaster *string `type:"string" json:",omitempty"`
 
-	Reason *string `type:"string"`
+	Reason *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation

@@ -144,16 +144,16 @@ func (c *REDIS) DescribeDBInstanceParamsWithContext(ctx volcengine.Context, inpu
 }
 
 type DescribeDBInstanceParamsInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// InstanceId is a required field
-	InstanceId *string `type:"string" required:"true"`
+	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 
 	// PageNumber is a required field
-	PageNumber *int32 `type:"int32" required:"true"`
+	PageNumber *int32 `type:"int32" json:",omitempty" required:"true"`
 
 	// PageSize is a required field
-	PageSize *int32 `type:"int32" required:"true"`
+	PageSize *int32 `type:"int32" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -204,13 +204,13 @@ func (s *DescribeDBInstanceParamsInput) SetPageSize(v int32) *DescribeDBInstance
 }
 
 type DescribeDBInstanceParamsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	Params []*ParamForDescribeDBInstanceParamsOutput `type:"list"`
+	Params []*ParamForDescribeDBInstanceParamsOutput `type:"list" json:",omitempty"`
 
-	TotalParamsNum *int32 `type:"int32"`
+	TotalParamsNum *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -236,11 +236,11 @@ func (s *DescribeDBInstanceParamsOutput) SetTotalParamsNum(v int32) *DescribeDBI
 }
 
 type OptionForDescribeDBInstanceParamsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Description *string `type:"string"`
+	Description *string `type:"string" json:",omitempty"`
 
-	Value *string `type:"string"`
+	Value *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -266,27 +266,27 @@ func (s *OptionForDescribeDBInstanceParamsOutput) SetValue(v string) *OptionForD
 }
 
 type ParamForDescribeDBInstanceParamsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	CurrentValue *string `type:"string"`
+	CurrentValue *string `type:"string" json:",omitempty"`
 
-	DefaultValue *string `type:"string"`
+	DefaultValue *string `type:"string" json:",omitempty"`
 
-	Description *string `type:"string"`
+	Description *string `type:"string" json:",omitempty"`
 
-	EditableForInstance *bool `type:"boolean"`
+	EditableForInstance *bool `type:"boolean" json:",omitempty"`
 
-	NeedReboot *bool `type:"boolean"`
+	NeedReboot *bool `type:"boolean" json:",omitempty"`
 
-	Options []*OptionForDescribeDBInstanceParamsOutput `type:"list"`
+	Options []*OptionForDescribeDBInstanceParamsOutput `type:"list" json:",omitempty"`
 
-	ParamName *string `type:"string"`
+	ParamName *string `type:"string" json:",omitempty"`
 
-	Range *string `type:"string"`
+	Range *string `type:"string" json:",omitempty"`
 
-	Type *string `type:"string"`
+	Type *string `type:"string" json:",omitempty"`
 
-	Unit *string `type:"string"`
+	Unit *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation

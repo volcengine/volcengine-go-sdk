@@ -144,10 +144,10 @@ func (c *RDSMYSQLV2) DescribeParameterTemplateWithContext(ctx volcengine.Context
 }
 
 type DescribeParameterTemplateInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// TemplateId is a required field
-	TemplateId *string `type:"string" required:"true"`
+	TemplateId *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -180,11 +180,11 @@ func (s *DescribeParameterTemplateInput) SetTemplateId(v string) *DescribeParame
 }
 
 type DescribeParameterTemplateOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	TemplateInfo *TemplateInfoForDescribeParameterTemplateOutput `type:"structure"`
+	TemplateInfo *TemplateInfoForDescribeParameterTemplateOutput `type:"structure" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -204,35 +204,35 @@ func (s *DescribeParameterTemplateOutput) SetTemplateInfo(v *TemplateInfoForDesc
 }
 
 type TemplateInfoForDescribeParameterTemplateOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	AccountId *string `type:"string"`
+	AccountId *string `type:"string" json:",omitempty"`
 
-	CreateTime *string `type:"string"`
+	CreateTime *string `type:"string" json:",omitempty"`
 
-	NeedRestart *bool `type:"boolean"`
+	NeedRestart *bool `type:"boolean" json:",omitempty"`
 
-	ParameterNum *int64 `type:"int64"`
+	ParameterNum *int64 `type:"int64" json:",omitempty"`
 
-	ProjectName *string `type:"string"`
+	ProjectName *string `type:"string" json:",omitempty"`
 
-	TemplateCategory *string `type:"string"`
+	TemplateCategory *string `type:"string" json:",omitempty" enum:"EnumOfTemplateCategoryForDescribeParameterTemplateOutput"`
 
-	TemplateDesc *string `type:"string"`
+	TemplateDesc *string `type:"string" json:",omitempty"`
 
-	TemplateId *string `type:"string"`
+	TemplateId *string `type:"string" json:",omitempty"`
 
-	TemplateName *string `type:"string"`
+	TemplateName *string `type:"string" json:",omitempty"`
 
-	TemplateParams []*TemplateParamForDescribeParameterTemplateOutput `type:"list"`
+	TemplateParams []*TemplateParamForDescribeParameterTemplateOutput `type:"list" json:",omitempty"`
 
-	TemplateSource *string `type:"string"`
+	TemplateSource *string `type:"string" json:",omitempty" enum:"EnumOfTemplateSourceForDescribeParameterTemplateOutput"`
 
-	TemplateType *string `type:"string"`
+	TemplateType *string `type:"string" json:",omitempty" enum:"EnumOfTemplateTypeForDescribeParameterTemplateOutput"`
 
-	TemplateTypeVersion *string `type:"string"`
+	TemplateTypeVersion *string `type:"string" json:",omitempty" enum:"EnumOfTemplateTypeVersionForDescribeParameterTemplateOutput"`
 
-	UpdateTime *string `type:"string"`
+	UpdateTime *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -330,19 +330,23 @@ func (s *TemplateInfoForDescribeParameterTemplateOutput) SetUpdateTime(v string)
 }
 
 type TemplateParamForDescribeParameterTemplateOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	DefaultValue *string `type:"string"`
+	DefaultValue *string `type:"string" json:",omitempty"`
 
-	Description *string `type:"string"`
+	Description *string `type:"string" json:",omitempty"`
 
-	Name *string `type:"string"`
+	ExpectValue *string `type:"string" json:",omitempty"`
 
-	Restart *bool `type:"boolean"`
+	Expression *string `type:"string" json:",omitempty"`
 
-	RunningValue *string `type:"string"`
+	Name *string `type:"string" json:",omitempty"`
 
-	ValueRange *string `type:"string"`
+	Restart *bool `type:"boolean" json:",omitempty"`
+
+	RunningValue *string `type:"string" json:",omitempty"`
+
+	ValueRange *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -364,6 +368,18 @@ func (s *TemplateParamForDescribeParameterTemplateOutput) SetDefaultValue(v stri
 // SetDescription sets the Description field's value.
 func (s *TemplateParamForDescribeParameterTemplateOutput) SetDescription(v string) *TemplateParamForDescribeParameterTemplateOutput {
 	s.Description = &v
+	return s
+}
+
+// SetExpectValue sets the ExpectValue field's value.
+func (s *TemplateParamForDescribeParameterTemplateOutput) SetExpectValue(v string) *TemplateParamForDescribeParameterTemplateOutput {
+	s.ExpectValue = &v
+	return s
+}
+
+// SetExpression sets the Expression field's value.
+func (s *TemplateParamForDescribeParameterTemplateOutput) SetExpression(v string) *TemplateParamForDescribeParameterTemplateOutput {
+	s.Expression = &v
 	return s
 }
 
@@ -390,3 +406,50 @@ func (s *TemplateParamForDescribeParameterTemplateOutput) SetValueRange(v string
 	s.ValueRange = &v
 	return s
 }
+
+const (
+	// EnumOfTemplateCategoryForDescribeParameterTemplateOutputDbengine is a EnumOfTemplateCategoryForDescribeParameterTemplateOutput enum value
+	EnumOfTemplateCategoryForDescribeParameterTemplateOutputDbengine = "DBEngine"
+
+	// EnumOfTemplateCategoryForDescribeParameterTemplateOutputProxy is a EnumOfTemplateCategoryForDescribeParameterTemplateOutput enum value
+	EnumOfTemplateCategoryForDescribeParameterTemplateOutputProxy = "Proxy"
+)
+
+const (
+	// EnumOfTemplateSourceForDescribeParameterTemplateOutputSystem is a EnumOfTemplateSourceForDescribeParameterTemplateOutput enum value
+	EnumOfTemplateSourceForDescribeParameterTemplateOutputSystem = "System"
+
+	// EnumOfTemplateSourceForDescribeParameterTemplateOutputUser is a EnumOfTemplateSourceForDescribeParameterTemplateOutput enum value
+	EnumOfTemplateSourceForDescribeParameterTemplateOutputUser = "User"
+)
+
+const (
+	// EnumOfTemplateTypeForDescribeParameterTemplateOutputMysql is a EnumOfTemplateTypeForDescribeParameterTemplateOutput enum value
+	EnumOfTemplateTypeForDescribeParameterTemplateOutputMysql = "Mysql"
+
+	// EnumOfTemplateTypeForDescribeParameterTemplateOutputPostgresql is a EnumOfTemplateTypeForDescribeParameterTemplateOutput enum value
+	EnumOfTemplateTypeForDescribeParameterTemplateOutputPostgresql = "Postgresql"
+
+	// EnumOfTemplateTypeForDescribeParameterTemplateOutputSqlserver is a EnumOfTemplateTypeForDescribeParameterTemplateOutput enum value
+	EnumOfTemplateTypeForDescribeParameterTemplateOutputSqlserver = "Sqlserver"
+)
+
+const (
+	// EnumOfTemplateTypeVersionForDescribeParameterTemplateOutputMySql57 is a EnumOfTemplateTypeVersionForDescribeParameterTemplateOutput enum value
+	EnumOfTemplateTypeVersionForDescribeParameterTemplateOutputMySql57 = "MySQL_5_7"
+
+	// EnumOfTemplateTypeVersionForDescribeParameterTemplateOutputMySql80 is a EnumOfTemplateTypeVersionForDescribeParameterTemplateOutput enum value
+	EnumOfTemplateTypeVersionForDescribeParameterTemplateOutputMySql80 = "MySQL_8_0"
+
+	// EnumOfTemplateTypeVersionForDescribeParameterTemplateOutputMySql56 is a EnumOfTemplateTypeVersionForDescribeParameterTemplateOutput enum value
+	EnumOfTemplateTypeVersionForDescribeParameterTemplateOutputMySql56 = "MySQL_5_6"
+
+	// EnumOfTemplateTypeVersionForDescribeParameterTemplateOutputSqlserver2019Ent is a EnumOfTemplateTypeVersionForDescribeParameterTemplateOutput enum value
+	EnumOfTemplateTypeVersionForDescribeParameterTemplateOutputSqlserver2019Ent = "SQLServer_2019_Ent"
+
+	// EnumOfTemplateTypeVersionForDescribeParameterTemplateOutputSqlserver2019Std is a EnumOfTemplateTypeVersionForDescribeParameterTemplateOutput enum value
+	EnumOfTemplateTypeVersionForDescribeParameterTemplateOutputSqlserver2019Std = "SQLServer_2019_Std"
+
+	// EnumOfTemplateTypeVersionForDescribeParameterTemplateOutputSqlserver2019Web is a EnumOfTemplateTypeVersionForDescribeParameterTemplateOutput enum value
+	EnumOfTemplateTypeVersionForDescribeParameterTemplateOutputSqlserver2019Web = "SQLServer_2019_Web"
+)

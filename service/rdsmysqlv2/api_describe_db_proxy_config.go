@@ -144,11 +144,11 @@ func (c *RDSMYSQLV2) DescribeDBProxyConfigWithContext(ctx volcengine.Context, in
 }
 
 type CheckModifyDBProxyAllowedForDescribeDBProxyConfigOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Allowed *bool `type:"boolean"`
+	Allowed *bool `type:"boolean" json:",omitempty"`
 
-	Reason *string `type:"string"`
+	Reason *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -174,10 +174,10 @@ func (s *CheckModifyDBProxyAllowedForDescribeDBProxyConfigOutput) SetReason(v st
 }
 
 type DescribeDBProxyConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// InstanceId is a required field
-	InstanceId *string `type:"string" required:"true"`
+	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -210,23 +210,23 @@ func (s *DescribeDBProxyConfigInput) SetInstanceId(v string) *DescribeDBProxyCon
 }
 
 type DescribeDBProxyConfigOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	BinlogDump *bool `type:"boolean"`
+	BinlogDump *bool `type:"boolean" json:",omitempty"`
 
-	CheckModifyDBProxyAllowed *CheckModifyDBProxyAllowedForDescribeDBProxyConfigOutput `type:"structure"`
+	CheckModifyDBProxyAllowed *CheckModifyDBProxyAllowedForDescribeDBProxyConfigOutput `type:"structure" json:",omitempty"`
 
-	ConnectionPoolType *string `type:"string"`
+	ConnectionPoolType *string `type:"string" json:",omitempty"`
 
-	DBProxyStatus *string `type:"string"`
+	DBProxyStatus *string `type:"string" json:",omitempty"`
 
-	FeatureStates []*FeatureStateForDescribeDBProxyConfigOutput `type:"list"`
+	FeatureStates []*FeatureStateForDescribeDBProxyConfigOutput `type:"list" json:",omitempty"`
 
-	GlobalReadOnly *bool `type:"boolean"`
+	GlobalReadOnly *bool `type:"boolean" json:",omitempty"`
 
-	InstanceId *string `type:"string"`
+	InstanceId *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -282,13 +282,13 @@ func (s *DescribeDBProxyConfigOutput) SetInstanceId(v string) *DescribeDBProxyCo
 }
 
 type FeatureStateForDescribeDBProxyConfigOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Enable *bool `type:"boolean"`
+	Enable *bool `type:"boolean" json:",omitempty"`
 
-	FeatureName *string `type:"string"`
+	FeatureName *string `type:"string" json:",omitempty"`
 
-	Support *bool `type:"boolean"`
+	Support *bool `type:"boolean" json:",omitempty"`
 }
 
 // String returns the string representation

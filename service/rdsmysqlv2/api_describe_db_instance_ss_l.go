@@ -144,10 +144,10 @@ func (c *RDSMYSQLV2) DescribeDBInstanceSSLWithContext(ctx volcengine.Context, in
 }
 
 type DescribeDBInstanceSSLInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// InstanceId is a required field
-	InstanceId *string `type:"string" required:"true"`
+	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -180,21 +180,21 @@ func (s *DescribeDBInstanceSSLInput) SetInstanceId(v string) *DescribeDBInstance
 }
 
 type DescribeDBInstanceSSLOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	Address *string `type:"string"`
+	Address *string `type:"string" json:",omitempty"`
 
-	InstanceId *string `type:"string"`
+	InstanceId *string `type:"string" json:",omitempty"`
 
-	IsValid *bool `type:"boolean"`
+	IsValid *bool `type:"boolean" json:",omitempty"`
 
-	SSLEnable *bool `type:"boolean"`
+	SSLEnable *bool `type:"boolean" json:",omitempty"`
 
-	SSLExpireTime *string `type:"string"`
+	SSLExpireTime *string `type:"string" json:",omitempty"`
 
-	TLSVersion *string `type:"string"`
+	TLSVersion *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation

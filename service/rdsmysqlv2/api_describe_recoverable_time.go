@@ -144,14 +144,14 @@ func (c *RDSMYSQLV2) DescribeRecoverableTimeWithContext(ctx volcengine.Context, 
 }
 
 type DescribeRecoverableTimeInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	BackupRegion *string `type:"string"`
+	BackupRegion *string `type:"string" json:",omitempty"`
 
 	// InstanceId is a required field
-	InstanceId *string `type:"string" required:"true"`
+	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 
-	RestoreType *string `type:"string"`
+	RestoreType *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -196,11 +196,11 @@ func (s *DescribeRecoverableTimeInput) SetRestoreType(v string) *DescribeRecover
 }
 
 type DescribeRecoverableTimeOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	RecoverableTimeInfo []*RecoverableTimeInfoForDescribeRecoverableTimeOutput `type:"list"`
+	RecoverableTimeInfo []*RecoverableTimeInfoForDescribeRecoverableTimeOutput `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -220,11 +220,11 @@ func (s *DescribeRecoverableTimeOutput) SetRecoverableTimeInfo(v []*RecoverableT
 }
 
 type RecoverableTimeInfoForDescribeRecoverableTimeOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	EarliestRecoverableTime *string `type:"string"`
+	EarliestRecoverableTime *string `type:"string" json:",omitempty"`
 
-	LatestRecoverableTime *string `type:"string"`
+	LatestRecoverableTime *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation

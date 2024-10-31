@@ -144,15 +144,17 @@ func (c *WAF) QueryCertificateIfReplaceWithContext(ctx volcengine.Context, input
 }
 
 type QueryCertificateIfReplaceInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// CertificateID is a required field
-	CertificateID *int32 `type:"int32" required:"true"`
+	CertificateID *int32 `type:"int32" json:",omitempty" required:"true"`
 
 	// Domain is a required field
-	Domain *string `type:"string" required:"true"`
+	Domain *string `type:"string" json:",omitempty" required:"true"`
 
-	PublicRealServer *int32 `type:"int32"`
+	ProjectName *string `type:"string" json:",omitempty"`
+
+	PublicRealServer *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -193,6 +195,12 @@ func (s *QueryCertificateIfReplaceInput) SetDomain(v string) *QueryCertificateIf
 	return s
 }
 
+// SetProjectName sets the ProjectName field's value.
+func (s *QueryCertificateIfReplaceInput) SetProjectName(v string) *QueryCertificateIfReplaceInput {
+	s.ProjectName = &v
+	return s
+}
+
 // SetPublicRealServer sets the PublicRealServer field's value.
 func (s *QueryCertificateIfReplaceInput) SetPublicRealServer(v int32) *QueryCertificateIfReplaceInput {
 	s.PublicRealServer = &v
@@ -200,11 +208,11 @@ func (s *QueryCertificateIfReplaceInput) SetPublicRealServer(v int32) *QueryCert
 }
 
 type QueryCertificateIfReplaceOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	IfReplace *bool `type:"boolean"`
+	IfReplace *bool `type:"boolean" json:",omitempty"`
 }
 
 // String returns the string representation

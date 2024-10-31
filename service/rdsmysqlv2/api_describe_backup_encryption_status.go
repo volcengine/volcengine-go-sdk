@@ -144,10 +144,10 @@ func (c *RDSMYSQLV2) DescribeBackupEncryptionStatusWithContext(ctx volcengine.Co
 }
 
 type DescribeBackupEncryptionStatusInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// InstanceId is a required field
-	InstanceId *string `type:"string" required:"true"`
+	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -180,13 +180,13 @@ func (s *DescribeBackupEncryptionStatusInput) SetInstanceId(v string) *DescribeB
 }
 
 type DescribeBackupEncryptionStatusOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	DataEncryptionStatus *string `type:"string"`
+	DataEncryptionStatus *string `type:"string" json:",omitempty"`
 
-	LogEncryptionStatus *string `type:"string"`
+	LogEncryptionStatus *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation

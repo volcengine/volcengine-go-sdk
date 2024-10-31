@@ -144,17 +144,17 @@ func (c *RDSMYSQLV2) CreateDBInstanceWithContext(ctx volcengine.Context, input *
 }
 
 type ChargeInfoForCreateDBInstanceInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	AutoRenew *bool `type:"boolean"`
+	AutoRenew *bool `type:"boolean" json:",omitempty"`
 
-	ChargeType *string `type:"string"`
+	ChargeType *string `type:"string" json:",omitempty"`
 
-	Number *int32 `type:"int32"`
+	Number *int32 `type:"int32" json:",omitempty"`
 
-	Period *int32 `type:"int32"`
+	Period *int32 `type:"int32" json:",omitempty"`
 
-	PeriodUnit *string `type:"string"`
+	PeriodUnit *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -198,50 +198,49 @@ func (s *ChargeInfoForCreateDBInstanceInput) SetPeriodUnit(v string) *ChargeInfo
 }
 
 type CreateDBInstanceInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	AllowListIds []*string `type:"list"`
+	AllowListIds []*string `type:"list" json:",omitempty"`
 
-	ChargeInfo *ChargeInfoForCreateDBInstanceInput `type:"structure"`
+	ChargeInfo *ChargeInfoForCreateDBInstanceInput `type:"structure" json:",omitempty"`
 
 	// DBEngineVersion is a required field
-	DBEngineVersion *string `type:"string" required:"true"`
+	DBEngineVersion *string `type:"string" json:",omitempty" required:"true"`
 
-	DBParamGroupId *string `type:"string"`
+	DBParamGroupId *string `type:"string" json:",omitempty"`
 
-	DBTimeZone *string `type:"string"`
+	DBTimeZone *string `type:"string" json:",omitempty"`
 
-	InstanceName *string `type:"string"`
+	InstanceName *string `type:"string" json:",omitempty"`
 
-	InstanceTags []*InstanceTagForCreateDBInstanceInput `type:"list"`
+	InstanceTags []*InstanceTagForCreateDBInstanceInput `type:"list" json:",omitempty"`
 
-	InstanceType *string `type:"string"`
+	InstanceType *string `type:"string" json:",omitempty"`
 
-	LowerCaseTableNames *string `type:"string"`
+	LowerCaseTableNames *string `type:"string" json:",omitempty"`
 
-	MaintenanceWindow *MaintenanceWindowForCreateDBInstanceInput `type:"structure"`
+	MaintenanceWindow *MaintenanceWindowForCreateDBInstanceInput `type:"structure" json:",omitempty"`
 
-	NodeInfo []*NodeInfoForCreateDBInstanceInput `type:"list"`
+	NodeInfo []*NodeInfoForCreateDBInstanceInput `type:"list" json:",omitempty"`
 
-	Port *int32 `type:"int32"`
+	Port *int32 `type:"int32" json:",omitempty"`
 
-	ProjectName *string `type:"string"`
+	ProjectName *string `type:"string" json:",omitempty"`
 
-	// StorageSpace is a required field
-	StorageSpace *int32 `type:"int32" required:"true"`
+	StorageSpace *int32 `type:"int32" json:",omitempty"`
 
 	// StorageType is a required field
-	StorageType *string `type:"string" required:"true"`
+	StorageType *string `type:"string" json:",omitempty" required:"true" enum:"EnumOfStorageTypeForCreateDBInstanceInput"`
 
 	// SubnetId is a required field
-	SubnetId *string `type:"string" required:"true"`
+	SubnetId *string `type:"string" json:",omitempty" required:"true"`
 
-	SuperAccountName *string `type:"string"`
+	SuperAccountName *string `type:"string" json:",omitempty"`
 
-	SuperAccountPassword *string `type:"string"`
+	SuperAccountPassword *string `type:"string" json:",omitempty"`
 
 	// VpcId is a required field
-	VpcId *string `type:"string" required:"true"`
+	VpcId *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -259,9 +258,6 @@ func (s *CreateDBInstanceInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "CreateDBInstanceInput"}
 	if s.DBEngineVersion == nil {
 		invalidParams.Add(request.NewErrParamRequired("DBEngineVersion"))
-	}
-	if s.StorageSpace == nil {
-		invalidParams.Add(request.NewErrParamRequired("StorageSpace"))
 	}
 	if s.StorageType == nil {
 		invalidParams.Add(request.NewErrParamRequired("StorageType"))
@@ -394,13 +390,13 @@ func (s *CreateDBInstanceInput) SetVpcId(v string) *CreateDBInstanceInput {
 }
 
 type CreateDBInstanceOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	InstanceId *string `type:"string"`
+	InstanceId *string `type:"string" json:",omitempty"`
 
-	OrderId *string `type:"string"`
+	OrderId *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -426,11 +422,11 @@ func (s *CreateDBInstanceOutput) SetOrderId(v string) *CreateDBInstanceOutput {
 }
 
 type InstanceTagForCreateDBInstanceInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Key *string `type:"string"`
+	Key *string `type:"string" json:",omitempty"`
 
-	Value *string `type:"string"`
+	Value *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -456,13 +452,13 @@ func (s *InstanceTagForCreateDBInstanceInput) SetValue(v string) *InstanceTagFor
 }
 
 type MaintenanceWindowForCreateDBInstanceInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	DayKind *string `type:"string"`
+	DayKind *string `type:"string" json:",omitempty"`
 
-	DayOfWeek []*string `type:"list"`
+	DayOfWeek []*string `type:"list" json:",omitempty"`
 
-	MaintenanceTime *string `type:"string"`
+	MaintenanceTime *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -494,17 +490,17 @@ func (s *MaintenanceWindowForCreateDBInstanceInput) SetMaintenanceTime(v string)
 }
 
 type NodeInfoForCreateDBInstanceInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	NodeId *string `type:"string"`
+	NodeId *string `type:"string" json:",omitempty"`
 
-	NodeOperateType *string `type:"string"`
+	NodeOperateType *string `type:"string" json:",omitempty"`
 
-	NodeSpec *string `type:"string"`
+	NodeSpec *string `type:"string" json:",omitempty"`
 
-	NodeType *string `type:"string"`
+	NodeType *string `type:"string" json:",omitempty"`
 
-	ZoneId *string `type:"string"`
+	ZoneId *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -546,3 +542,17 @@ func (s *NodeInfoForCreateDBInstanceInput) SetZoneId(v string) *NodeInfoForCreat
 	s.ZoneId = &v
 	return s
 }
+
+const (
+	// EnumOfStorageTypeForCreateDBInstanceInputLocalSsd is a EnumOfStorageTypeForCreateDBInstanceInput enum value
+	EnumOfStorageTypeForCreateDBInstanceInputLocalSsd = "LocalSSD"
+
+	// EnumOfStorageTypeForCreateDBInstanceInputCloudStorage is a EnumOfStorageTypeForCreateDBInstanceInput enum value
+	EnumOfStorageTypeForCreateDBInstanceInputCloudStorage = "CloudStorage"
+
+	// EnumOfStorageTypeForCreateDBInstanceInputEssdpl1 is a EnumOfStorageTypeForCreateDBInstanceInput enum value
+	EnumOfStorageTypeForCreateDBInstanceInputEssdpl1 = "ESSDPL1"
+
+	// EnumOfStorageTypeForCreateDBInstanceInputEssdpl2 is a EnumOfStorageTypeForCreateDBInstanceInput enum value
+	EnumOfStorageTypeForCreateDBInstanceInputEssdpl2 = "ESSDPL2"
+)

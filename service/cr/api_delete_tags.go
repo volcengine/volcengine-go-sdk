@@ -144,18 +144,18 @@ func (c *CR) DeleteTagsWithContext(ctx volcengine.Context, input *DeleteTagsInpu
 }
 
 type DeleteTagsInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Names []*string `type:"list"`
+	Names []*string `type:"list" json:",omitempty"`
 
 	// Namespace is a required field
-	Namespace *string `type:"string" required:"true"`
+	Namespace *string `min:"2" max:"90" type:"string" json:",omitempty" required:"true"`
 
 	// Registry is a required field
-	Registry *string `type:"string" required:"true"`
+	Registry *string `min:"3" max:"30" type:"string" json:",omitempty" required:"true"`
 
 	// Repository is a required field
-	Repository *string `type:"string" required:"true"`
+	Repository *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -174,8 +174,20 @@ func (s *DeleteTagsInput) Validate() error {
 	if s.Namespace == nil {
 		invalidParams.Add(request.NewErrParamRequired("Namespace"))
 	}
+	if s.Namespace != nil && len(*s.Namespace) < 2 {
+		invalidParams.Add(request.NewErrParamMinLen("Namespace", 2))
+	}
+	if s.Namespace != nil && len(*s.Namespace) > 90 {
+		invalidParams.Add(request.NewErrParamMaxLen("Namespace", 90, *s.Namespace))
+	}
 	if s.Registry == nil {
 		invalidParams.Add(request.NewErrParamRequired("Registry"))
+	}
+	if s.Registry != nil && len(*s.Registry) < 3 {
+		invalidParams.Add(request.NewErrParamMinLen("Registry", 3))
+	}
+	if s.Registry != nil && len(*s.Registry) > 30 {
+		invalidParams.Add(request.NewErrParamMaxLen("Registry", 30, *s.Registry))
 	}
 	if s.Repository == nil {
 		invalidParams.Add(request.NewErrParamRequired("Repository"))
@@ -212,13 +224,13 @@ func (s *DeleteTagsInput) SetRepository(v string) *DeleteTagsInput {
 }
 
 type DeleteTagsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	Failures []*FailureForDeleteTagsOutput `type:"list"`
+	Failures []*FailureForDeleteTagsOutput `type:"list" json:",omitempty"`
 
-	Successes []*SuccessForDeleteTagsOutput `type:"list"`
+	Successes []*SuccessForDeleteTagsOutput `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -244,11 +256,11 @@ func (s *DeleteTagsOutput) SetSuccesses(v []*SuccessForDeleteTagsOutput) *Delete
 }
 
 type FailureForDeleteTagsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Name *string `type:"string"`
+	Name *string `type:"string" json:",omitempty"`
 
-	Reason *string `type:"string"`
+	Reason *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -274,9 +286,9 @@ func (s *FailureForDeleteTagsOutput) SetReason(v string) *FailureForDeleteTagsOu
 }
 
 type SuccessForDeleteTagsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Name *string `type:"string"`
+	Name *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
