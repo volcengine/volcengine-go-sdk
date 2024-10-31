@@ -144,11 +144,11 @@ func (c *REDIS) DescribeDBInstancesWithContext(ctx volcengine.Context, input *De
 }
 
 type CapacityForDescribeDBInstancesOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Total *int64 `type:"int64"`
+	Total *int64 `type:"int64" json:",omitempty"`
 
-	Used *int64 `type:"int64"`
+	Used *int64 `type:"int64" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -174,40 +174,37 @@ func (s *CapacityForDescribeDBInstancesOutput) SetUsed(v int64) *CapacityForDesc
 }
 
 type DescribeDBInstancesInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	ChargeType *string `type:"string"`
+	ChargeType *string `type:"string" json:",omitempty"`
 
-	DataLayout *string `type:"string"`
+	DataLayout *string `type:"string" json:",omitempty"`
 
-	EngineVersion *string `type:"string"`
+	EngineVersion *string `type:"string" json:",omitempty"`
 
-	InstanceId *string `type:"string"`
+	InstanceId *string `type:"string" json:",omitempty"`
 
-	InstanceName *string `type:"string"`
+	InstanceName *string `type:"string" json:",omitempty"`
 
-	// PageNumber is a required field
-	PageNumber *int32 `type:"int32" required:"true"`
+	PageNumber *int32 `type:"int32" json:",omitempty"`
 
-	// PageSize is a required field
-	PageSize *int32 `type:"int32" required:"true"`
+	PageSize *int32 `type:"int32" json:",omitempty"`
 
-	ProjectName *string `type:"string"`
+	ProjectName *string `type:"string" json:",omitempty"`
 
-	// RegionId is a required field
-	RegionId *string `type:"string" required:"true"`
+	RegionId *string `type:"string" json:",omitempty"`
 
-	ServiceType *string `type:"string"`
+	ServiceType *string `type:"string" json:",omitempty"`
 
-	ShardedCluster *int32 `type:"int32"`
+	ShardedCluster *int32 `type:"int32" json:",omitempty"`
 
-	Status *string `type:"string"`
+	Status *string `type:"string" json:",omitempty"`
 
-	TagFilters []*TagFilterForDescribeDBInstancesInput `type:"list"`
+	TagFilters []*TagFilterForDescribeDBInstancesInput `type:"list" json:",omitempty"`
 
-	VpcId *string `type:"string"`
+	VpcId *string `type:"string" json:",omitempty"`
 
-	ZoneId *string `type:"string"`
+	ZoneId *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -218,25 +215,6 @@ func (s DescribeDBInstancesInput) String() string {
 // GoString returns the string representation
 func (s DescribeDBInstancesInput) GoString() string {
 	return s.String()
-}
-
-// Validate inspects the fields of the type to determine if they are valid.
-func (s *DescribeDBInstancesInput) Validate() error {
-	invalidParams := request.ErrInvalidParams{Context: "DescribeDBInstancesInput"}
-	if s.PageNumber == nil {
-		invalidParams.Add(request.NewErrParamRequired("PageNumber"))
-	}
-	if s.PageSize == nil {
-		invalidParams.Add(request.NewErrParamRequired("PageSize"))
-	}
-	if s.RegionId == nil {
-		invalidParams.Add(request.NewErrParamRequired("RegionId"))
-	}
-
-	if invalidParams.Len() > 0 {
-		return invalidParams
-	}
-	return nil
 }
 
 // SetChargeType sets the ChargeType field's value.
@@ -330,13 +308,13 @@ func (s *DescribeDBInstancesInput) SetZoneId(v string) *DescribeDBInstancesInput
 }
 
 type DescribeDBInstancesOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	Instances []*InstanceForDescribeDBInstancesOutput `type:"list"`
+	Instances []*InstanceForDescribeDBInstancesOutput `type:"list" json:",omitempty"`
 
-	TotalInstancesNum *int32 `type:"int32"`
+	TotalInstancesNum *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -362,51 +340,57 @@ func (s *DescribeDBInstancesOutput) SetTotalInstancesNum(v int32) *DescribeDBIns
 }
 
 type InstanceForDescribeDBInstancesOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Capacity *CapacityForDescribeDBInstancesOutput `type:"structure"`
+	Capacity *CapacityForDescribeDBInstancesOutput `type:"structure" json:",omitempty"`
 
-	ChargeType *string `type:"string"`
+	ChargeType *string `type:"string" json:",omitempty"`
 
-	CreateTime *string `type:"string"`
+	CreateTime *string `type:"string" json:",omitempty"`
 
-	DataLayout *string `type:"string"`
+	DataLayout *string `type:"string" json:",omitempty"`
 
-	DeletionProtection *string `type:"string"`
+	DeletionProtection *string `type:"string" json:",omitempty"`
 
-	EngineVersion *string `type:"string"`
+	EngineVersion *string `type:"string" json:",omitempty"`
 
-	ExpiredTime *string `type:"string"`
+	ExpiredTime *string `type:"string" json:",omitempty"`
 
-	InstanceClass *string `type:"string"`
+	InstanceClass *string `type:"string" json:",omitempty"`
 
-	InstanceId *string `type:"string"`
+	InstanceId *string `type:"string" json:",omitempty"`
 
-	InstanceName *string `type:"string"`
+	InstanceName *string `type:"string" json:",omitempty"`
 
-	MultiAZ *string `type:"string"`
+	MultiAZ *string `type:"string" json:",omitempty"`
 
-	NodeNumber *int32 `type:"int32"`
+	NodeNumber *int32 `type:"int32" json:",omitempty"`
 
-	ProjectName *string `type:"string"`
+	PrivateAddress *string `type:"string" json:",omitempty"`
 
-	RegionId *string `type:"string"`
+	ProjectName *string `type:"string" json:",omitempty"`
 
-	ServiceType *string `type:"string"`
+	RegionId *string `type:"string" json:",omitempty"`
 
-	ShardCapacity *float64 `type:"double"`
+	ServiceType *string `type:"string" json:",omitempty"`
 
-	ShardNumber *int32 `type:"int32"`
+	ShardCapacity *float64 `type:"double" json:",omitempty"`
 
-	ShardedCluster *int32 `type:"int32"`
+	ShardNumber *int32 `type:"int32" json:",omitempty"`
 
-	Status *string `type:"string"`
+	ShardedCluster *int32 `type:"int32" json:",omitempty"`
 
-	Tags []*TagForDescribeDBInstancesOutput `type:"list"`
+	Status *string `type:"string" json:",omitempty"`
 
-	VpcId *string `type:"string"`
+	Tags []*TagForDescribeDBInstancesOutput `type:"list" json:",omitempty"`
 
-	ZoneIds []*string `type:"list"`
+	VIP *string `type:"string" json:",omitempty"`
+
+	VIPv6 *string `type:"string" json:",omitempty"`
+
+	VpcId *string `type:"string" json:",omitempty"`
+
+	ZoneIds []*string `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -491,6 +475,12 @@ func (s *InstanceForDescribeDBInstancesOutput) SetNodeNumber(v int32) *InstanceF
 	return s
 }
 
+// SetPrivateAddress sets the PrivateAddress field's value.
+func (s *InstanceForDescribeDBInstancesOutput) SetPrivateAddress(v string) *InstanceForDescribeDBInstancesOutput {
+	s.PrivateAddress = &v
+	return s
+}
+
 // SetProjectName sets the ProjectName field's value.
 func (s *InstanceForDescribeDBInstancesOutput) SetProjectName(v string) *InstanceForDescribeDBInstancesOutput {
 	s.ProjectName = &v
@@ -539,6 +529,18 @@ func (s *InstanceForDescribeDBInstancesOutput) SetTags(v []*TagForDescribeDBInst
 	return s
 }
 
+// SetVIP sets the VIP field's value.
+func (s *InstanceForDescribeDBInstancesOutput) SetVIP(v string) *InstanceForDescribeDBInstancesOutput {
+	s.VIP = &v
+	return s
+}
+
+// SetVIPv6 sets the VIPv6 field's value.
+func (s *InstanceForDescribeDBInstancesOutput) SetVIPv6(v string) *InstanceForDescribeDBInstancesOutput {
+	s.VIPv6 = &v
+	return s
+}
+
 // SetVpcId sets the VpcId field's value.
 func (s *InstanceForDescribeDBInstancesOutput) SetVpcId(v string) *InstanceForDescribeDBInstancesOutput {
 	s.VpcId = &v
@@ -552,11 +554,11 @@ func (s *InstanceForDescribeDBInstancesOutput) SetZoneIds(v []*string) *Instance
 }
 
 type TagFilterForDescribeDBInstancesInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Key *string `type:"string"`
+	Key *string `type:"string" json:",omitempty"`
 
-	Value *string `type:"string"`
+	Value *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -582,11 +584,11 @@ func (s *TagFilterForDescribeDBInstancesInput) SetValue(v string) *TagFilterForD
 }
 
 type TagForDescribeDBInstancesOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Key *string `type:"string"`
+	Key *string `type:"string" json:",omitempty"`
 
-	Value *string `type:"string"`
+	Value *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation

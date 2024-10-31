@@ -144,18 +144,18 @@ func (c *REDIS) RestoreDBInstanceWithContext(ctx volcengine.Context, input *Rest
 }
 
 type RestoreDBInstanceInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	BackupPointId *string `type:"string"`
+	BackupPointId *string `type:"string" json:",omitempty"`
 
-	BackupType *string `type:"string"`
+	BackupType *string `type:"string" json:",omitempty"`
 
-	ClientToken *string `type:"string"`
+	ClientToken *string `type:"string" json:",omitempty"`
 
 	// InstanceId is a required field
-	InstanceId *string `type:"string" required:"true"`
+	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 
-	TimePoint *string `type:"string"`
+	TimePoint *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -212,7 +212,7 @@ func (s *RestoreDBInstanceInput) SetTimePoint(v string) *RestoreDBInstanceInput 
 }
 
 type RestoreDBInstanceOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 }

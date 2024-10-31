@@ -144,19 +144,21 @@ func (c *REDIS) CreateAllowListWithContext(ctx volcengine.Context, input *Create
 }
 
 type CreateAllowListInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// AllowList is a required field
-	AllowList *string `type:"string" required:"true"`
+	AllowList *string `type:"string" json:",omitempty" required:"true"`
 
-	AllowListDesc *string `type:"string"`
+	AllowListCategory *string `type:"string" json:",omitempty" enum:"EnumOfAllowListCategoryForCreateAllowListInput"`
+
+	AllowListDesc *string `type:"string" json:",omitempty"`
 
 	// AllowListName is a required field
-	AllowListName *string `type:"string" required:"true"`
+	AllowListName *string `type:"string" json:",omitempty" required:"true"`
 
-	AllowListType *string `type:"string"`
+	AllowListType *string `type:"string" json:",omitempty"`
 
-	ClientToken *string `type:"string"`
+	ClientToken *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -191,6 +193,12 @@ func (s *CreateAllowListInput) SetAllowList(v string) *CreateAllowListInput {
 	return s
 }
 
+// SetAllowListCategory sets the AllowListCategory field's value.
+func (s *CreateAllowListInput) SetAllowListCategory(v string) *CreateAllowListInput {
+	s.AllowListCategory = &v
+	return s
+}
+
 // SetAllowListDesc sets the AllowListDesc field's value.
 func (s *CreateAllowListInput) SetAllowListDesc(v string) *CreateAllowListInput {
 	s.AllowListDesc = &v
@@ -216,11 +224,11 @@ func (s *CreateAllowListInput) SetClientToken(v string) *CreateAllowListInput {
 }
 
 type CreateAllowListOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	AllowListId *string `type:"string"`
+	AllowListId *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -238,3 +246,11 @@ func (s *CreateAllowListOutput) SetAllowListId(v string) *CreateAllowListOutput 
 	s.AllowListId = &v
 	return s
 }
+
+const (
+	// EnumOfAllowListCategoryForCreateAllowListInputOrdinary is a EnumOfAllowListCategoryForCreateAllowListInput enum value
+	EnumOfAllowListCategoryForCreateAllowListInputOrdinary = "Ordinary"
+
+	// EnumOfAllowListCategoryForCreateAllowListInputDefault is a EnumOfAllowListCategoryForCreateAllowListInput enum value
+	EnumOfAllowListCategoryForCreateAllowListInputDefault = "Default"
+)

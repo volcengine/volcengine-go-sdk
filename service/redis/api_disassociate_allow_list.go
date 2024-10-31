@@ -144,13 +144,13 @@ func (c *REDIS) DisassociateAllowListWithContext(ctx volcengine.Context, input *
 }
 
 type DisassociateAllowListInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	AllowListIds []*string `type:"list"`
+	AllowListIds []*string `type:"list" json:",omitempty"`
 
-	ClientToken *string `type:"string"`
+	ClientToken *string `type:"string" json:",omitempty"`
 
-	InstanceIds []*string `type:"list"`
+	InstanceIds []*string `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -182,7 +182,7 @@ func (s *DisassociateAllowListInput) SetInstanceIds(v []*string) *DisassociateAl
 }
 
 type DisassociateAllowListOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 }

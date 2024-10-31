@@ -144,24 +144,24 @@ func (c *REDIS) DecreaseDBInstanceNodeNumberWithContext(ctx volcengine.Context, 
 }
 
 type DecreaseDBInstanceNodeNumberInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// ApplyImmediately is a required field
-	ApplyImmediately *bool `type:"boolean" required:"true"`
+	ApplyImmediately *bool `type:"boolean" json:",omitempty" required:"true"`
 
-	BackupPointName *string `type:"string"`
+	BackupPointName *string `type:"string" json:",omitempty"`
 
-	ClientToken *string `type:"string"`
+	ClientToken *string `type:"string" json:",omitempty"`
 
-	CreateBackup *bool `type:"boolean"`
+	CreateBackup *bool `type:"boolean" json:",omitempty"`
 
 	// InstanceId is a required field
-	InstanceId *string `type:"string" required:"true"`
+	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 
 	// NodesNumberToDecrease is a required field
-	NodesNumberToDecrease *int32 `type:"int32" required:"true"`
+	NodesNumberToDecrease *int32 `type:"int32" json:",omitempty" required:"true"`
 
-	NodesToRemove []*NodesToRemoveForDecreaseDBInstanceNodeNumberInput `type:"list"`
+	NodesToRemove []*NodesToRemoveForDecreaseDBInstanceNodeNumberInput `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -236,11 +236,11 @@ func (s *DecreaseDBInstanceNodeNumberInput) SetNodesToRemove(v []*NodesToRemoveF
 }
 
 type DecreaseDBInstanceNodeNumberOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	OrderNO *string `type:"string"`
+	OrderNO *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -260,9 +260,9 @@ func (s *DecreaseDBInstanceNodeNumberOutput) SetOrderNO(v string) *DecreaseDBIns
 }
 
 type NodesToRemoveForDecreaseDBInstanceNodeNumberInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	AZ *string `type:"string"`
+	AZ *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation

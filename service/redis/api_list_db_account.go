@@ -144,15 +144,15 @@ func (c *REDIS) ListDBAccountWithContext(ctx volcengine.Context, input *ListDBAc
 }
 
 type AccountForListDBAccountOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	AccountName *string `type:"string"`
+	AccountName *string `type:"string" json:",omitempty"`
 
-	Description *string `type:"string"`
+	Description *string `type:"string" json:",omitempty"`
 
-	InstanceId *string `type:"string"`
+	InstanceId *string `type:"string" json:",omitempty"`
 
-	RoleName *string `type:"string"`
+	RoleName *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -190,12 +190,12 @@ func (s *AccountForListDBAccountOutput) SetRoleName(v string) *AccountForListDBA
 }
 
 type ListDBAccountInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	AccountName *string `type:"string"`
+	AccountName *string `type:"string" json:",omitempty"`
 
 	// InstanceId is a required field
-	InstanceId *string `type:"string" required:"true"`
+	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -234,11 +234,11 @@ func (s *ListDBAccountInput) SetInstanceId(v string) *ListDBAccountInput {
 }
 
 type ListDBAccountOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	Accounts []*AccountForListDBAccountOutput `type:"list"`
+	Accounts []*AccountForListDBAccountOutput `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation

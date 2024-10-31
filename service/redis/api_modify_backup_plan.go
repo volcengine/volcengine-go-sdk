@@ -144,19 +144,19 @@ func (c *REDIS) ModifyBackupPlanWithContext(ctx volcengine.Context, input *Modif
 }
 
 type ModifyBackupPlanInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// Active is a required field
-	Active *bool `type:"boolean" required:"true"`
+	Active *bool `type:"boolean" json:",omitempty" required:"true"`
 
-	BackupHour *int32 `type:"int32"`
+	BackupHour *int32 `type:"int32" json:",omitempty"`
 
-	ClientToken *string `type:"string"`
+	ClientToken *string `type:"string" json:",omitempty"`
 
 	// InstanceId is a required field
-	InstanceId *string `type:"string" required:"true"`
+	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 
-	Period []*int32 `type:"list"`
+	Period []*int32 `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -216,7 +216,7 @@ func (s *ModifyBackupPlanInput) SetPeriod(v []*int32) *ModifyBackupPlanInput {
 }
 
 type ModifyBackupPlanOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 }

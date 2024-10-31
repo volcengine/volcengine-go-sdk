@@ -144,19 +144,19 @@ func (c *REDIS) DescribeAllowListsWithContext(ctx volcengine.Context, input *Des
 }
 
 type AllowListForDescribeAllowListsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	AllowListDesc *string `type:"string"`
+	AllowListDesc *string `type:"string" json:",omitempty"`
 
-	AllowListIPNum *int32 `type:"int32"`
+	AllowListIPNum *int32 `type:"int32" json:",omitempty"`
 
-	AllowListId *string `type:"string"`
+	AllowListId *string `type:"string" json:",omitempty"`
 
-	AllowListName *string `type:"string"`
+	AllowListName *string `type:"string" json:",omitempty"`
 
-	AllowListType *string `type:"string"`
+	AllowListType *string `type:"string" json:",omitempty"`
 
-	AssociatedInstanceNum *int32 `type:"int32"`
+	AssociatedInstanceNum *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -206,12 +206,14 @@ func (s *AllowListForDescribeAllowListsOutput) SetAssociatedInstanceNum(v int32)
 }
 
 type DescribeAllowListsInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	InstanceId *string `type:"string"`
+	InstanceId *string `type:"string" json:",omitempty"`
+
+	QueryDefault *bool `type:"boolean" json:",omitempty"`
 
 	// RegionId is a required field
-	RegionId *string `type:"string" required:"true"`
+	RegionId *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -243,6 +245,12 @@ func (s *DescribeAllowListsInput) SetInstanceId(v string) *DescribeAllowListsInp
 	return s
 }
 
+// SetQueryDefault sets the QueryDefault field's value.
+func (s *DescribeAllowListsInput) SetQueryDefault(v bool) *DescribeAllowListsInput {
+	s.QueryDefault = &v
+	return s
+}
+
 // SetRegionId sets the RegionId field's value.
 func (s *DescribeAllowListsInput) SetRegionId(v string) *DescribeAllowListsInput {
 	s.RegionId = &v
@@ -250,11 +258,11 @@ func (s *DescribeAllowListsInput) SetRegionId(v string) *DescribeAllowListsInput
 }
 
 type DescribeAllowListsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	AllowLists []*AllowListForDescribeAllowListsOutput `type:"list"`
+	AllowLists []*AllowListForDescribeAllowListsOutput `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation

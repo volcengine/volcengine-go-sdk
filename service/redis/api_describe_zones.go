@@ -144,10 +144,10 @@ func (c *REDIS) DescribeZonesWithContext(ctx volcengine.Context, input *Describe
 }
 
 type DescribeZonesInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// RegionId is a required field
-	RegionId *string `type:"string" required:"true"`
+	RegionId *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -180,11 +180,11 @@ func (s *DescribeZonesInput) SetRegionId(v string) *DescribeZonesInput {
 }
 
 type DescribeZonesOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	Zones []*ZoneForDescribeZonesOutput `type:"list"`
+	Zones []*ZoneForDescribeZonesOutput `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -204,13 +204,13 @@ func (s *DescribeZonesOutput) SetZones(v []*ZoneForDescribeZonesOutput) *Describ
 }
 
 type ZoneForDescribeZonesOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	ZoneId *string `type:"string"`
+	ZoneId *string `type:"string" json:",omitempty"`
 
-	ZoneName *string `type:"string"`
+	ZoneName *string `type:"string" json:",omitempty"`
 
-	ZoneStatus *int32 `type:"int32"`
+	ZoneStatus *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation

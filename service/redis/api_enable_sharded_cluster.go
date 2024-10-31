@@ -144,27 +144,27 @@ func (c *REDIS) EnableShardedClusterWithContext(ctx volcengine.Context, input *E
 }
 
 type EnableShardedClusterInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// ApplyImmediately is a required field
-	ApplyImmediately *bool `type:"boolean" required:"true"`
+	ApplyImmediately *bool `type:"boolean" json:",omitempty" required:"true"`
 
-	BackupPointName *string `type:"string"`
+	BackupPointName *string `type:"string" json:",omitempty"`
 
-	ClientToken *string `type:"string"`
+	ClientToken *string `type:"string" json:",omitempty"`
 
-	CreateBackup *bool `type:"boolean"`
+	CreateBackup *bool `type:"boolean" json:",omitempty"`
 
 	// InstanceId is a required field
-	InstanceId *string `type:"string" required:"true"`
+	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 
-	ShardCapacity *int32 `type:"int32"`
+	ShardCapacity *int32 `type:"int32" json:",omitempty"`
 
 	// ShardNumber is a required field
-	ShardNumber *int32 `type:"int32" required:"true"`
+	ShardNumber *int32 `type:"int32" json:",omitempty" required:"true"`
 
 	// ShardedCluster is a required field
-	ShardedCluster *int32 `type:"int32" required:"true"`
+	ShardedCluster *int32 `type:"int32" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -248,11 +248,11 @@ func (s *EnableShardedClusterInput) SetShardedCluster(v int32) *EnableShardedClu
 }
 
 type EnableShardedClusterOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	OrderNO *string `type:"string"`
+	OrderNO *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
