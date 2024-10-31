@@ -144,9 +144,13 @@ func (c *CR) ListNamespacesWithContext(ctx volcengine.Context, input *ListNamesp
 }
 
 type FilterForListNamespacesInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Names []*string `type:"list"`
+	InProject *bool `type:"boolean" json:",omitempty"`
+
+	Names []*string `type:"list" json:",omitempty"`
+
+	Projects []*string `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -159,20 +163,32 @@ func (s FilterForListNamespacesInput) GoString() string {
 	return s.String()
 }
 
+// SetInProject sets the InProject field's value.
+func (s *FilterForListNamespacesInput) SetInProject(v bool) *FilterForListNamespacesInput {
+	s.InProject = &v
+	return s
+}
+
 // SetNames sets the Names field's value.
 func (s *FilterForListNamespacesInput) SetNames(v []*string) *FilterForListNamespacesInput {
 	s.Names = v
 	return s
 }
 
+// SetProjects sets the Projects field's value.
+func (s *FilterForListNamespacesInput) SetProjects(v []*string) *FilterForListNamespacesInput {
+	s.Projects = v
+	return s
+}
+
 type ItemForListNamespacesOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	CreateTime *string `type:"string"`
+	CreateTime *string `type:"string" json:",omitempty"`
 
-	Name *string `type:"string"`
+	Name *string `type:"string" json:",omitempty"`
 
-	Project *string `type:"string"`
+	Project *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -204,16 +220,16 @@ func (s *ItemForListNamespacesOutput) SetProject(v string) *ItemForListNamespace
 }
 
 type ListNamespacesInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Filter *FilterForListNamespacesInput `type:"structure"`
+	Filter *FilterForListNamespacesInput `type:"structure" json:",omitempty"`
 
-	PageNumber *int64 `type:"int64"`
+	PageNumber *int64 `type:"int64" json:",omitempty"`
 
-	PageSize *int64 `type:"int64"`
+	PageSize *int64 `min:"1" max:"100" type:"int64" json:",omitempty"`
 
 	// Registry is a required field
-	Registry *string `type:"string" required:"true"`
+	Registry *string `min:"3" max:"30" type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -229,8 +245,20 @@ func (s ListNamespacesInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *ListNamespacesInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "ListNamespacesInput"}
+	if s.PageSize != nil && *s.PageSize < 1 {
+		invalidParams.Add(request.NewErrParamMinValue("PageSize", 1))
+	}
+	if s.PageSize != nil && *s.PageSize > 100 {
+		invalidParams.Add(request.NewErrParamMaxValue("PageSize", 100))
+	}
 	if s.Registry == nil {
 		invalidParams.Add(request.NewErrParamRequired("Registry"))
+	}
+	if s.Registry != nil && len(*s.Registry) < 3 {
+		invalidParams.Add(request.NewErrParamMinLen("Registry", 3))
+	}
+	if s.Registry != nil && len(*s.Registry) > 30 {
+		invalidParams.Add(request.NewErrParamMaxLen("Registry", 30, *s.Registry))
 	}
 
 	if invalidParams.Len() > 0 {
@@ -264,19 +292,19 @@ func (s *ListNamespacesInput) SetRegistry(v string) *ListNamespacesInput {
 }
 
 type ListNamespacesOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	Items []*ItemForListNamespacesOutput `type:"list"`
+	Items []*ItemForListNamespacesOutput `type:"list" json:",omitempty"`
 
-	PageNumber *int64 `type:"int64"`
+	PageNumber *int64 `type:"int64" json:",omitempty"`
 
-	PageSize *int64 `type:"int64"`
+	PageSize *int64 `type:"int64" json:",omitempty"`
 
-	Registry *string `type:"string"`
+	Registry *string `type:"string" json:",omitempty"`
 
-	TotalCount *int64 `type:"int64"`
+	TotalCount *int64 `type:"int64" json:",omitempty"`
 }
 
 // String returns the string representation

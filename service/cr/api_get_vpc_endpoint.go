@@ -144,9 +144,9 @@ func (c *CR) GetVpcEndpointWithContext(ctx volcengine.Context, input *GetVpcEndp
 }
 
 type FilterForGetVpcEndpointInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Statuses []*string `type:"list"`
+	Statuses []*string `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -166,12 +166,12 @@ func (s *FilterForGetVpcEndpointInput) SetStatuses(v []*string) *FilterForGetVpc
 }
 
 type GetVpcEndpointInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Filter *FilterForGetVpcEndpointInput `type:"structure"`
+	Filter *FilterForGetVpcEndpointInput `type:"structure" json:",omitempty"`
 
 	// Registry is a required field
-	Registry *string `type:"string" required:"true"`
+	Registry *string `min:"3" max:"30" type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -189,6 +189,12 @@ func (s *GetVpcEndpointInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "GetVpcEndpointInput"}
 	if s.Registry == nil {
 		invalidParams.Add(request.NewErrParamRequired("Registry"))
+	}
+	if s.Registry != nil && len(*s.Registry) < 3 {
+		invalidParams.Add(request.NewErrParamMinLen("Registry", 3))
+	}
+	if s.Registry != nil && len(*s.Registry) > 30 {
+		invalidParams.Add(request.NewErrParamMaxLen("Registry", 30, *s.Registry))
 	}
 
 	if invalidParams.Len() > 0 {
@@ -210,13 +216,13 @@ func (s *GetVpcEndpointInput) SetRegistry(v string) *GetVpcEndpointInput {
 }
 
 type GetVpcEndpointOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	Registry *string `type:"string"`
+	Registry *string `type:"string" json:",omitempty"`
 
-	Vpcs []*VpcForGetVpcEndpointOutput `type:"list"`
+	Vpcs []*VpcForGetVpcEndpointOutput `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -242,21 +248,21 @@ func (s *GetVpcEndpointOutput) SetVpcs(v []*VpcForGetVpcEndpointOutput) *GetVpcE
 }
 
 type VpcForGetVpcEndpointOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	AccountId *int64 `type:"int64"`
+	AccountId *int64 `type:"int64" json:",omitempty"`
 
-	CreateTime *string `type:"string"`
+	CreateTime *string `type:"string" json:",omitempty"`
 
-	Ip *string `type:"string"`
+	Ip *string `type:"string" json:",omitempty"`
 
-	Region *string `type:"string"`
+	Region *string `type:"string" json:",omitempty"`
 
-	Status *string `type:"string"`
+	Status *string `type:"string" json:",omitempty"`
 
-	SubnetId *string `type:"string"`
+	SubnetId *string `type:"string" json:",omitempty"`
 
-	VpcId *string `type:"string"`
+	VpcId *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation

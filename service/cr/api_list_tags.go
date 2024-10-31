@@ -144,13 +144,13 @@ func (c *CR) ListTagsWithContext(ctx volcengine.Context, input *ListTagsInput, o
 }
 
 type ChartAttributeForListTagsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	ApiVersion *string `type:"string"`
+	ApiVersion *string `type:"string" json:",omitempty"`
 
-	Name *string `type:"string"`
+	Name *string `type:"string" json:",omitempty"`
 
-	Version *string `type:"string"`
+	Version *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -182,11 +182,11 @@ func (s *ChartAttributeForListTagsOutput) SetVersion(v string) *ChartAttributeFo
 }
 
 type FilterForListTagsInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Names []*string `type:"list"`
+	Names []*string `type:"list" json:",omitempty"`
 
-	Types []*string `type:"list"`
+	Types []*string `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -212,17 +212,17 @@ func (s *FilterForListTagsInput) SetTypes(v []*string) *FilterForListTagsInput {
 }
 
 type ImageAttributeForListTagsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Architecture *string `type:"string"`
+	Architecture *string `type:"string" json:",omitempty"`
 
-	Author *string `type:"string"`
+	Author *string `type:"string" json:",omitempty"`
 
-	Digest *string `type:"string"`
+	Digest *string `type:"string" json:",omitempty"`
 
-	Os *string `type:"string"`
+	Os *string `type:"string" json:",omitempty"`
 
-	Size *int64 `type:"int64"`
+	Size *int64 `type:"int64" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -266,21 +266,21 @@ func (s *ImageAttributeForListTagsOutput) SetSize(v int64) *ImageAttributeForLis
 }
 
 type ItemForListTagsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	ChartAttribute *ChartAttributeForListTagsOutput `type:"structure"`
+	ChartAttribute *ChartAttributeForListTagsOutput `type:"structure" json:",omitempty"`
 
-	Digest *string `type:"string"`
+	Digest *string `type:"string" json:",omitempty"`
 
-	ImageAttributes []*ImageAttributeForListTagsOutput `type:"list"`
+	ImageAttributes []*ImageAttributeForListTagsOutput `type:"list" json:",omitempty"`
 
-	Name *string `type:"string"`
+	Name *string `type:"string" json:",omitempty"`
 
-	PushTime *string `type:"string"`
+	PushTime *string `type:"string" json:",omitempty"`
 
-	Size *int64 `type:"int64"`
+	Size *int64 `type:"int64" json:",omitempty"`
 
-	Type *string `type:"string"`
+	Type *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -336,22 +336,22 @@ func (s *ItemForListTagsOutput) SetType(v string) *ItemForListTagsOutput {
 }
 
 type ListTagsInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Filter *FilterForListTagsInput `type:"structure"`
+	Filter *FilterForListTagsInput `type:"structure" json:",omitempty"`
 
 	// Namespace is a required field
-	Namespace *string `type:"string" required:"true"`
+	Namespace *string `min:"2" max:"90" type:"string" json:",omitempty" required:"true"`
 
-	PageNumber *int64 `type:"int64"`
+	PageNumber *int64 `type:"int64" json:",omitempty"`
 
-	PageSize *int64 `type:"int64"`
+	PageSize *int64 `min:"1" max:"100" type:"int64" json:",omitempty"`
 
 	// Registry is a required field
-	Registry *string `type:"string" required:"true"`
+	Registry *string `min:"3" max:"30" type:"string" json:",omitempty" required:"true"`
 
 	// Repository is a required field
-	Repository *string `type:"string" required:"true"`
+	Repository *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -370,8 +370,26 @@ func (s *ListTagsInput) Validate() error {
 	if s.Namespace == nil {
 		invalidParams.Add(request.NewErrParamRequired("Namespace"))
 	}
+	if s.Namespace != nil && len(*s.Namespace) < 2 {
+		invalidParams.Add(request.NewErrParamMinLen("Namespace", 2))
+	}
+	if s.Namespace != nil && len(*s.Namespace) > 90 {
+		invalidParams.Add(request.NewErrParamMaxLen("Namespace", 90, *s.Namespace))
+	}
+	if s.PageSize != nil && *s.PageSize < 1 {
+		invalidParams.Add(request.NewErrParamMinValue("PageSize", 1))
+	}
+	if s.PageSize != nil && *s.PageSize > 100 {
+		invalidParams.Add(request.NewErrParamMaxValue("PageSize", 100))
+	}
 	if s.Registry == nil {
 		invalidParams.Add(request.NewErrParamRequired("Registry"))
+	}
+	if s.Registry != nil && len(*s.Registry) < 3 {
+		invalidParams.Add(request.NewErrParamMinLen("Registry", 3))
+	}
+	if s.Registry != nil && len(*s.Registry) > 30 {
+		invalidParams.Add(request.NewErrParamMaxLen("Registry", 30, *s.Registry))
 	}
 	if s.Repository == nil {
 		invalidParams.Add(request.NewErrParamRequired("Repository"))
@@ -420,23 +438,23 @@ func (s *ListTagsInput) SetRepository(v string) *ListTagsInput {
 }
 
 type ListTagsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	Items []*ItemForListTagsOutput `type:"list"`
+	Items []*ItemForListTagsOutput `type:"list" json:",omitempty"`
 
-	Namespace *string `type:"string"`
+	Namespace *string `type:"string" json:",omitempty"`
 
-	PageNumber *int64 `type:"int64"`
+	PageNumber *int64 `type:"int64" json:",omitempty"`
 
-	PageSize *int64 `type:"int64"`
+	PageSize *int64 `type:"int64" json:",omitempty"`
 
-	Registry *string `type:"string"`
+	Registry *string `type:"string" json:",omitempty"`
 
-	Repository *string `type:"string"`
+	Repository *string `type:"string" json:",omitempty"`
 
-	TotalCount *int64 `type:"int64"`
+	TotalCount *int64 `type:"int64" json:",omitempty"`
 }
 
 // String returns the string representation
