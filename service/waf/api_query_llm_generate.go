@@ -144,12 +144,12 @@ func (c *WAF) QueryLLMGenerateWithContext(ctx volcengine.Context, input *QueryLL
 }
 
 type QueryLLMGenerateInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// MsgID is a required field
-	MsgID *string `type:"string" required:"true"`
+	MsgID *string `type:"string" json:",omitempty" required:"true"`
 
-	UseStream *bool `type:"boolean"`
+	UseStream *bool `type:"boolean" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -188,11 +188,11 @@ func (s *QueryLLMGenerateInput) SetUseStream(v bool) *QueryLLMGenerateInput {
 }
 
 type QueryLLMGenerateOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	Suggest *string `type:"string"`
+	Suggest *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation

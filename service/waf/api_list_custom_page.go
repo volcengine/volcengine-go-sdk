@@ -144,11 +144,11 @@ func (c *WAF) ListCustomPageWithContext(ctx volcengine.Context, input *ListCusto
 }
 
 type AccurateForListCustomPageOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	AccurateRules []*AccurateRuleForListCustomPageOutput `type:"list"`
+	AccurateRules []*AccurateRuleForListCustomPageOutput `type:"list" json:",omitempty"`
 
-	Logic *int32 `type:"int32"`
+	Logic *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -174,17 +174,17 @@ func (s *AccurateForListCustomPageOutput) SetLogic(v int32) *AccurateForListCust
 }
 
 type AccurateRuleForListCustomPageOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	HttpObj *string `type:"string"`
+	HttpObj *string `type:"string" json:",omitempty"`
 
-	ObjType *int32 `type:"int32"`
+	ObjType *int32 `type:"int32" json:",omitempty"`
 
-	Opretar *int32 `type:"int32"`
+	Opretar *int32 `type:"int32" json:",omitempty"`
 
-	Property *int32 `type:"int32"`
+	Property *int32 `type:"int32" json:",omitempty"`
 
-	ValueString *string `type:"string"`
+	ValueString *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -228,47 +228,47 @@ func (s *AccurateRuleForListCustomPageOutput) SetValueString(v string) *Accurate
 }
 
 type DataForListCustomPageOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Accurate *AccurateForListCustomPageOutput `type:"structure"`
+	Accurate *AccurateForListCustomPageOutput `type:"structure" json:",omitempty"`
 
-	Advanced *int32 `type:"int32"`
+	Advanced *int32 `type:"int32" json:",omitempty"`
 
-	Body *string `type:"string"`
+	Body *string `type:"string" json:",omitempty"`
 
-	ClientIp *string `type:"string"`
+	ClientIp *string `type:"string" json:",omitempty"`
 
-	Code *string `type:"string"`
+	Code *string `type:"string" json:",omitempty"`
 
-	ContentType *string `type:"string"`
+	ContentType *string `type:"string" json:",omitempty"`
 
-	Description *string `type:"string"`
+	Description *string `type:"string" json:",omitempty"`
 
-	Enable *int32 `type:"int32"`
+	Enable *int32 `type:"int32" json:",omitempty"`
 
-	GroupId *int32 `type:"int32"`
+	GroupId *int32 `type:"int32" json:",omitempty"`
 
-	Header *string `type:"string"`
+	Header *string `type:"string" json:",omitempty"`
 
-	Host *string `type:"string"`
+	Host *string `type:"string" json:",omitempty"`
 
-	Id *int32 `type:"int32"`
+	Id *int32 `type:"int32" json:",omitempty"`
 
-	IsolationId *string `type:"string"`
+	IsolationId *string `type:"string" json:",omitempty"`
 
-	Name *string `type:"string"`
+	Name *string `type:"string" json:",omitempty"`
 
-	PageMode *int32 `type:"int32"`
+	PageMode *int32 `type:"int32" json:",omitempty"`
 
-	Policy *int32 `type:"int32"`
+	Policy *int32 `type:"int32" json:",omitempty"`
 
-	RedirectUrl *string `type:"string"`
+	RedirectUrl *string `type:"string" json:",omitempty"`
 
-	RuleTag *string `type:"string"`
+	RuleTag *string `type:"string" json:",omitempty"`
 
-	UpdateTime *string `type:"string"`
+	UpdateTime *string `type:"string" json:",omitempty"`
 
-	Url *string `type:"string"`
+	Url *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -402,14 +402,16 @@ func (s *DataForListCustomPageOutput) SetUrl(v string) *DataForListCustomPageOut
 }
 
 type ListCustomPageInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// Host is a required field
-	Host *string `type:"string" required:"true"`
+	Host *string `type:"string" json:",omitempty" required:"true"`
 
-	Page *string `type:"string"`
+	Page *string `type:"string" json:",omitempty"`
 
-	PageSize *int32 `type:"int32"`
+	PageSize *int32 `type:"int32" json:",omitempty"`
+
+	ProjectName *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -453,18 +455,24 @@ func (s *ListCustomPageInput) SetPageSize(v int32) *ListCustomPageInput {
 	return s
 }
 
+// SetProjectName sets the ProjectName field's value.
+func (s *ListCustomPageInput) SetProjectName(v string) *ListCustomPageInput {
+	s.ProjectName = &v
+	return s
+}
+
 type ListCustomPageOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	CurrentPage *int32 `type:"int32"`
+	CurrentPage *int32 `type:"int32" json:",omitempty"`
 
-	Data []*DataForListCustomPageOutput `type:"list"`
+	Data []*DataForListCustomPageOutput `type:"list" json:",omitempty"`
 
-	PageNumber *int32 `type:"int32"`
+	PageNumber *int32 `type:"int32" json:",omitempty"`
 
-	PageSize *int32 `type:"int32"`
+	PageSize *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation

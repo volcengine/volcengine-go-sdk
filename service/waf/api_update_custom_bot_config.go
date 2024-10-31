@@ -144,11 +144,11 @@ func (c *WAF) UpdateCustomBotConfigWithContext(ctx volcengine.Context, input *Up
 }
 
 type AccurateForUpdateCustomBotConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	AccurateRules []*AccurateRuleForUpdateCustomBotConfigInput `type:"list"`
+	AccurateRules []*AccurateRuleForUpdateCustomBotConfigInput `type:"list" json:",omitempty"`
 
-	Logic *int32 `type:"int32"`
+	Logic *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -174,17 +174,17 @@ func (s *AccurateForUpdateCustomBotConfigInput) SetLogic(v int32) *AccurateForUp
 }
 
 type AccurateRuleForUpdateCustomBotConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	HttpObj *string `type:"string"`
+	HttpObj *string `type:"string" json:",omitempty"`
 
-	ObjType *int32 `type:"int32"`
+	ObjType *int32 `type:"int32" json:",omitempty"`
 
-	Opretar *int32 `type:"int32"`
+	Opretar *int32 `type:"int32" json:",omitempty"`
 
-	Property *int32 `type:"int32"`
+	Property *int32 `type:"int32" json:",omitempty"`
 
-	ValueString *string `type:"string"`
+	ValueString *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -228,26 +228,28 @@ func (s *AccurateRuleForUpdateCustomBotConfigInput) SetValueString(v string) *Ac
 }
 
 type UpdateCustomBotConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Accurate *AccurateForUpdateCustomBotConfigInput `type:"structure"`
+	Accurate *AccurateForUpdateCustomBotConfigInput `type:"structure" json:",omitempty"`
 
 	// Action is a required field
-	Action *string `type:"string" required:"true"`
+	Action *string `type:"string" json:",omitempty" required:"true"`
 
 	// BotType is a required field
-	BotType *string `type:"string" required:"true"`
+	BotType *string `type:"string" json:",omitempty" required:"true"`
 
-	Description *string `type:"string"`
+	Description *string `type:"string" json:",omitempty"`
 
 	// Enable is a required field
-	Enable *int32 `type:"int32" required:"true"`
+	Enable *int32 `type:"int32" json:",omitempty" required:"true"`
 
 	// Host is a required field
-	Host *string `type:"string" required:"true"`
+	Host *string `type:"string" json:",omitempty" required:"true"`
 
 	// Id is a required field
-	Id *int32 `type:"int32" required:"true"`
+	Id *int32 `type:"int32" json:",omitempty" required:"true"`
+
+	ProjectName *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -327,8 +329,14 @@ func (s *UpdateCustomBotConfigInput) SetId(v int32) *UpdateCustomBotConfigInput 
 	return s
 }
 
+// SetProjectName sets the ProjectName field's value.
+func (s *UpdateCustomBotConfigInput) SetProjectName(v string) *UpdateCustomBotConfigInput {
+	s.ProjectName = &v
+	return s
+}
+
 type UpdateCustomBotConfigOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 }

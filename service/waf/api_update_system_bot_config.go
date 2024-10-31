@@ -144,17 +144,19 @@ func (c *WAF) UpdateSystemBotConfigWithContext(ctx volcengine.Context, input *Up
 }
 
 type UpdateSystemBotConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Action *string `type:"string"`
+	Action *string `type:"string" json:",omitempty"`
 
 	// BotType is a required field
-	BotType *string `type:"string" required:"true"`
+	BotType *string `type:"string" json:",omitempty" required:"true"`
 
-	Enable *int32 `type:"int32"`
+	Enable *int32 `type:"int32" json:",omitempty"`
 
 	// Host is a required field
-	Host *string `type:"string" required:"true"`
+	Host *string `type:"string" json:",omitempty" required:"true"`
+
+	ProjectName *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -207,8 +209,14 @@ func (s *UpdateSystemBotConfigInput) SetHost(v string) *UpdateSystemBotConfigInp
 	return s
 }
 
+// SetProjectName sets the ProjectName field's value.
+func (s *UpdateSystemBotConfigInput) SetProjectName(v string) *UpdateSystemBotConfigInput {
+	s.ProjectName = &v
+	return s
+}
+
 type UpdateSystemBotConfigOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 }

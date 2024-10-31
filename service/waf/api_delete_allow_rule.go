@@ -144,13 +144,15 @@ func (c *WAF) DeleteAllowRuleWithContext(ctx volcengine.Context, input *DeleteAl
 }
 
 type DeleteAllowRuleInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// Host is a required field
-	Host *string `type:"string" required:"true"`
+	Host *string `type:"string" json:",omitempty" required:"true"`
 
 	// Id is a required field
-	Id *int32 `type:"int32" required:"true"`
+	Id *int32 `type:"int32" json:",omitempty" required:"true"`
+
+	ProjectName *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -191,12 +193,18 @@ func (s *DeleteAllowRuleInput) SetId(v int32) *DeleteAllowRuleInput {
 	return s
 }
 
+// SetProjectName sets the ProjectName field's value.
+func (s *DeleteAllowRuleInput) SetProjectName(v string) *DeleteAllowRuleInput {
+	s.ProjectName = &v
+	return s
+}
+
 type DeleteAllowRuleOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	Id *int32 `type:"int32"`
+	Id *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation

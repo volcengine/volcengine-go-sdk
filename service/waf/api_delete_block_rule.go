@@ -144,13 +144,15 @@ func (c *WAF) DeleteBlockRuleWithContext(ctx volcengine.Context, input *DeleteBl
 }
 
 type DeleteBlockRuleInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// Host is a required field
-	Host *string `type:"string" required:"true"`
+	Host *string `type:"string" json:",omitempty" required:"true"`
 
 	// Id is a required field
-	Id *string `type:"string" required:"true"`
+	Id *string `type:"string" json:",omitempty" required:"true"`
+
+	ProjectName *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -191,8 +193,14 @@ func (s *DeleteBlockRuleInput) SetId(v string) *DeleteBlockRuleInput {
 	return s
 }
 
+// SetProjectName sets the ProjectName field's value.
+func (s *DeleteBlockRuleInput) SetProjectName(v string) *DeleteBlockRuleInput {
+	s.ProjectName = &v
+	return s
+}
+
 type DeleteBlockRuleOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 }

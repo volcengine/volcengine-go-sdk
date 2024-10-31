@@ -144,12 +144,14 @@ func (c *WAF) ListCertificateServicesWithContext(ctx volcengine.Context, input *
 }
 
 type ListCertificateServicesInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	ClbCertificateId *string `type:"string"`
+	ClbCertificateId *string `type:"string" json:",omitempty"`
 
 	// Id is a required field
-	Id *int32 `type:"int32" required:"true"`
+	Id *int32 `type:"int32" json:",omitempty" required:"true"`
+
+	ProjectName *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -187,12 +189,18 @@ func (s *ListCertificateServicesInput) SetId(v int32) *ListCertificateServicesIn
 	return s
 }
 
+// SetProjectName sets the ProjectName field's value.
+func (s *ListCertificateServicesInput) SetProjectName(v string) *ListCertificateServicesInput {
+	s.ProjectName = &v
+	return s
+}
+
 type ListCertificateServicesOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	Domains []*string `type:"list"`
+	Domains []*string `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation

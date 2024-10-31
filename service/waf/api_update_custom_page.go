@@ -144,11 +144,11 @@ func (c *WAF) UpdateCustomPageWithContext(ctx volcengine.Context, input *UpdateC
 }
 
 type AccurateForUpdateCustomPageInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	AccurateRules []*AccurateRuleForUpdateCustomPageInput `type:"list"`
+	AccurateRules []*AccurateRuleForUpdateCustomPageInput `type:"list" json:",omitempty"`
 
-	Logic *int32 `type:"int32"`
+	Logic *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -174,17 +174,17 @@ func (s *AccurateForUpdateCustomPageInput) SetLogic(v int32) *AccurateForUpdateC
 }
 
 type AccurateRuleForUpdateCustomPageInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	HttpObj *string `type:"string"`
+	HttpObj *string `type:"string" json:",omitempty"`
 
-	ObjType *int32 `type:"int32"`
+	ObjType *int32 `type:"int32" json:",omitempty"`
 
-	Opretar *int32 `type:"int32"`
+	Opretar *int32 `type:"int32" json:",omitempty"`
 
-	Property *int32 `type:"int32"`
+	Property *int32 `type:"int32" json:",omitempty"`
 
-	ValueString *string `type:"string"`
+	ValueString *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -228,48 +228,50 @@ func (s *AccurateRuleForUpdateCustomPageInput) SetValueString(v string) *Accurat
 }
 
 type UpdateCustomPageInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Accurate *AccurateForUpdateCustomPageInput `type:"structure"`
+	Accurate *AccurateForUpdateCustomPageInput `type:"structure" json:",omitempty"`
 
-	Advanced *int32 `type:"int32"`
+	Advanced *int32 `type:"int32" json:",omitempty"`
 
-	Body *string `type:"string"`
+	Body *string `type:"string" json:",omitempty"`
 
 	// ClientIp is a required field
-	ClientIp *string `type:"string" required:"true"`
+	ClientIp *string `type:"string" json:",omitempty" required:"true"`
 
 	// Code is a required field
-	Code *int32 `type:"int32" required:"true"`
+	Code *int32 `type:"int32" json:",omitempty" required:"true"`
 
-	ContentType *string `type:"string"`
+	ContentType *string `type:"string" json:",omitempty"`
 
-	Description *string `type:"string"`
+	Description *string `type:"string" json:",omitempty"`
 
 	// Enable is a required field
-	Enable *int32 `type:"int32" required:"true"`
+	Enable *int32 `type:"int32" json:",omitempty" required:"true"`
 
-	GroupId *int32 `type:"int32"`
+	GroupId *int32 `type:"int32" json:",omitempty"`
 
 	// Host is a required field
-	Host *string `type:"string" required:"true"`
+	Host *string `type:"string" json:",omitempty" required:"true"`
 
 	// Id is a required field
-	Id *int32 `type:"int32" required:"true"`
+	Id *int32 `type:"int32" json:",omitempty" required:"true"`
 
 	// Name is a required field
-	Name *string `type:"string" required:"true"`
+	Name *string `type:"string" json:",omitempty" required:"true"`
 
 	// PageMode is a required field
-	PageMode *int32 `type:"int32" required:"true"`
+	PageMode *int32 `type:"int32" json:",omitempty" required:"true"`
 
 	// Policy is a required field
-	Policy *int32 `type:"int32" required:"true"`
+	Policy *int32 `type:"int32" json:",omitempty" required:"true"`
 
-	RedirectUrl *string `type:"string"`
+	ProjectName *string `type:"string" json:",omitempty"`
+
+	RedirectUrl *string `type:"string" json:",omitempty"`
 
 	// Url is a required field
-	Url *string `type:"string" required:"true"`
+	Url *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -403,6 +405,12 @@ func (s *UpdateCustomPageInput) SetPolicy(v int32) *UpdateCustomPageInput {
 	return s
 }
 
+// SetProjectName sets the ProjectName field's value.
+func (s *UpdateCustomPageInput) SetProjectName(v string) *UpdateCustomPageInput {
+	s.ProjectName = &v
+	return s
+}
+
 // SetRedirectUrl sets the RedirectUrl field's value.
 func (s *UpdateCustomPageInput) SetRedirectUrl(v string) *UpdateCustomPageInput {
 	s.RedirectUrl = &v
@@ -416,7 +424,7 @@ func (s *UpdateCustomPageInput) SetUrl(v string) *UpdateCustomPageInput {
 }
 
 type UpdateCustomPageOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 }

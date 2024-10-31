@@ -144,18 +144,22 @@ func (c *WAF) ListIpGroupWithContext(ctx volcengine.Context, input *ListIpGroupI
 }
 
 type ListIpGroupInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Ip *string `type:"string"`
+	Ip *string `type:"string" json:",omitempty"`
 
 	// IpGroupId is a required field
-	IpGroupId *int32 `type:"int32" required:"true"`
+	IpGroupId *int32 `type:"int32" json:",omitempty" required:"true"`
+
+	ListAll *string `type:"string" json:",omitempty"`
 
 	// Page is a required field
-	Page *int32 `type:"int32" required:"true"`
+	Page *int32 `type:"int32" json:",omitempty" required:"true"`
 
 	// PageSize is a required field
-	PageSize *int32 `type:"int32" required:"true"`
+	PageSize *int32 `type:"int32" json:",omitempty" required:"true"`
+
+	ProjectName *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -199,6 +203,12 @@ func (s *ListIpGroupInput) SetIpGroupId(v int32) *ListIpGroupInput {
 	return s
 }
 
+// SetListAll sets the ListAll field's value.
+func (s *ListIpGroupInput) SetListAll(v string) *ListIpGroupInput {
+	s.ListAll = &v
+	return s
+}
+
 // SetPage sets the Page field's value.
 func (s *ListIpGroupInput) SetPage(v int32) *ListIpGroupInput {
 	s.Page = &v
@@ -211,20 +221,26 @@ func (s *ListIpGroupInput) SetPageSize(v int32) *ListIpGroupInput {
 	return s
 }
 
+// SetProjectName sets the ProjectName field's value.
+func (s *ListIpGroupInput) SetProjectName(v string) *ListIpGroupInput {
+	s.ProjectName = &v
+	return s
+}
+
 type ListIpGroupOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	Count *int32 `type:"int32"`
+	Count *int32 `type:"int32" json:",omitempty"`
 
-	IpList []*string `type:"list"`
+	IpList []*string `type:"list" json:",omitempty"`
 
-	PageNumber *int32 `type:"int32"`
+	PageNumber *int32 `type:"int32" json:",omitempty"`
 
-	PageSize *int32 `type:"int32"`
+	PageSize *int32 `type:"int32" json:",omitempty"`
 
-	TotalCount *int32 `type:"int32"`
+	TotalCount *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation
