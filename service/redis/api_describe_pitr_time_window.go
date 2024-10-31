@@ -144,10 +144,10 @@ func (c *REDIS) DescribePitrTimeWindowWithContext(ctx volcengine.Context, input 
 }
 
 type DescribePitrTimeWindowInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// InstanceId is a required field
-	InstanceId *string `type:"string" required:"true"`
+	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -180,13 +180,13 @@ func (s *DescribePitrTimeWindowInput) SetInstanceId(v string) *DescribePitrTimeW
 }
 
 type DescribePitrTimeWindowOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	EndTime *string `type:"string"`
+	EndTime *string `type:"string" json:",omitempty"`
 
-	StartTime *string `type:"string"`
+	StartTime *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation

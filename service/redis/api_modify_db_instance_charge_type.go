@@ -144,18 +144,18 @@ func (c *REDIS) ModifyDBInstanceChargeTypeWithContext(ctx volcengine.Context, in
 }
 
 type ModifyDBInstanceChargeTypeInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	AutoRenew *bool `type:"boolean"`
+	AutoRenew *bool `type:"boolean" json:",omitempty"`
 
 	// ChargeType is a required field
-	ChargeType *string `type:"string" required:"true"`
+	ChargeType *string `type:"string" json:",omitempty" required:"true"`
 
-	ClientToken *string `type:"string"`
+	ClientToken *string `type:"string" json:",omitempty"`
 
-	InstanceIds []*string `type:"list"`
+	InstanceIds []*string `type:"list" json:",omitempty"`
 
-	PurchaseMonths *int32 `type:"int32"`
+	PurchaseMonths *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -212,11 +212,11 @@ func (s *ModifyDBInstanceChargeTypeInput) SetPurchaseMonths(v int32) *ModifyDBIn
 }
 
 type ModifyDBInstanceChargeTypeOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	OrderNO *string `type:"string"`
+	OrderNO *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation

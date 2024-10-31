@@ -144,9 +144,9 @@ func (c *REDIS) IncreaseDBInstanceNodeNumberWithContext(ctx volcengine.Context, 
 }
 
 type ConfigureNewNodeForIncreaseDBInstanceNodeNumberInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	AZ *string `type:"string"`
+	AZ *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -166,24 +166,24 @@ func (s *ConfigureNewNodeForIncreaseDBInstanceNodeNumberInput) SetAZ(v string) *
 }
 
 type IncreaseDBInstanceNodeNumberInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// ApplyImmediately is a required field
-	ApplyImmediately *bool `type:"boolean" required:"true"`
+	ApplyImmediately *bool `type:"boolean" json:",omitempty" required:"true"`
 
-	BackupPointName *string `type:"string"`
+	BackupPointName *string `type:"string" json:",omitempty"`
 
-	ClientToken *string `type:"string"`
+	ClientToken *string `type:"string" json:",omitempty"`
 
-	ConfigureNewNodes []*ConfigureNewNodeForIncreaseDBInstanceNodeNumberInput `type:"list"`
+	ConfigureNewNodes []*ConfigureNewNodeForIncreaseDBInstanceNodeNumberInput `type:"list" json:",omitempty"`
 
-	CreateBackup *bool `type:"boolean"`
+	CreateBackup *bool `type:"boolean" json:",omitempty"`
 
 	// InstanceId is a required field
-	InstanceId *string `type:"string" required:"true"`
+	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 
 	// NodesNumberToIncrease is a required field
-	NodesNumberToIncrease *int32 `type:"int32" required:"true"`
+	NodesNumberToIncrease *int32 `type:"int32" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -258,11 +258,11 @@ func (s *IncreaseDBInstanceNodeNumberInput) SetNodesNumberToIncrease(v int32) *I
 }
 
 type IncreaseDBInstanceNodeNumberOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	OrderNO *string `type:"string"`
+	OrderNO *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation

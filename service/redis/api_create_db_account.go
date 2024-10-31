@@ -144,23 +144,23 @@ func (c *REDIS) CreateDBAccountWithContext(ctx volcengine.Context, input *Create
 }
 
 type CreateDBAccountInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// AccountName is a required field
-	AccountName *string `type:"string" required:"true"`
+	AccountName *string `type:"string" json:",omitempty" required:"true"`
 
-	ClientToken *string `type:"string"`
+	ClientToken *string `type:"string" json:",omitempty"`
 
-	Description *string `type:"string"`
+	Description *string `type:"string" json:",omitempty"`
 
 	// InstanceId is a required field
-	InstanceId *string `type:"string" required:"true"`
+	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 
 	// Password is a required field
-	Password *string `type:"string" required:"true"`
+	Password *string `type:"string" json:",omitempty" required:"true"`
 
 	// RoleName is a required field
-	RoleName *string `type:"string" required:"true"`
+	RoleName *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -232,7 +232,7 @@ func (s *CreateDBAccountInput) SetRoleName(v string) *CreateDBAccountInput {
 }
 
 type CreateDBAccountOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 }

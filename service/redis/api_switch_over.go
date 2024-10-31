@@ -144,15 +144,15 @@ func (c *REDIS) SwitchOverWithContext(ctx volcengine.Context, input *SwitchOverI
 }
 
 type SwitchOverInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	ClientToken *string `type:"string"`
+	ClientToken *string `type:"string" json:",omitempty"`
 
 	// InstanceId is a required field
-	InstanceId *string `type:"string" required:"true"`
+	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 
 	// TargetPrimaryNodeId is a required field
-	TargetPrimaryNodeId *string `type:"string" required:"true"`
+	TargetPrimaryNodeId *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -200,7 +200,7 @@ func (s *SwitchOverInput) SetTargetPrimaryNodeId(v string) *SwitchOverInput {
 }
 
 type SwitchOverOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 }

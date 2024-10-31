@@ -144,19 +144,19 @@ func (c *REDIS) ModifyDBInstanceVisitAddressWithContext(ctx volcengine.Context, 
 }
 
 type ModifyDBInstanceVisitAddressInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// AddrType is a required field
-	AddrType *string `type:"string" required:"true"`
+	AddrType *string `type:"string" json:",omitempty" required:"true"`
 
-	ClientToken *string `type:"string"`
+	ClientToken *string `type:"string" json:",omitempty"`
 
 	// InstanceId is a required field
-	InstanceId *string `type:"string" required:"true"`
+	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 
-	NewAddressPrefix *string `type:"string"`
+	NewAddressPrefix *string `type:"string" json:",omitempty"`
 
-	NewPort *int32 `type:"int32"`
+	NewPort *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -216,7 +216,7 @@ func (s *ModifyDBInstanceVisitAddressInput) SetNewPort(v int32) *ModifyDBInstanc
 }
 
 type ModifyDBInstanceVisitAddressOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 }

@@ -144,17 +144,17 @@ func (c *REDIS) DescribeBigKeysWithContext(ctx volcengine.Context, input *Descri
 }
 
 type BigKeyForDescribeBigKeysOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	DBName *string `type:"string"`
+	DBName *string `type:"string" json:",omitempty"`
 
-	KeyInfo *string `type:"string"`
+	KeyInfo *string `type:"string" json:",omitempty"`
 
-	KeyType *string `type:"string"`
+	KeyType *string `type:"string" json:",omitempty"`
 
-	ValueLen *string `type:"string"`
+	ValueLen *string `type:"string" json:",omitempty"`
 
-	ValueSize *string `type:"string"`
+	ValueSize *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -198,21 +198,21 @@ func (s *BigKeyForDescribeBigKeysOutput) SetValueSize(v string) *BigKeyForDescri
 }
 
 type DescribeBigKeysInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// InstanceId is a required field
-	InstanceId *string `type:"string" required:"true"`
+	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 
-	KeyType *string `type:"string"`
+	KeyType *string `type:"string" json:",omitempty"`
 
-	OrderBy *string `type:"string"`
+	OrderBy *string `type:"string" json:",omitempty"`
 
 	// PageSize is a required field
-	PageSize *int32 `type:"int32" required:"true"`
+	PageSize *int32 `type:"int32" json:",omitempty" required:"true"`
 
-	QueryEndTime *string `type:"string"`
+	QueryEndTime *string `type:"string" json:",omitempty"`
 
-	QueryStartTime *string `type:"string"`
+	QueryStartTime *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -278,15 +278,15 @@ func (s *DescribeBigKeysInput) SetQueryStartTime(v string) *DescribeBigKeysInput
 }
 
 type DescribeBigKeysOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	BigKey []*BigKeyForDescribeBigKeysOutput `type:"list"`
+	BigKey []*BigKeyForDescribeBigKeysOutput `type:"list" json:",omitempty"`
 
-	InstanceId *string `type:"string"`
+	InstanceId *string `type:"string" json:",omitempty"`
 
-	Total *int32 `type:"int32"`
+	Total *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation

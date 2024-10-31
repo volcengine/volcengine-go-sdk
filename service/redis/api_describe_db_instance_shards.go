@@ -144,16 +144,16 @@ func (c *REDIS) DescribeDBInstanceShardsWithContext(ctx volcengine.Context, inpu
 }
 
 type DescribeDBInstanceShardsInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// InstanceId is a required field
-	InstanceId *string `type:"string" required:"true"`
+	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 
 	// PageNumber is a required field
-	PageNumber *int32 `type:"int32" required:"true"`
+	PageNumber *int32 `type:"int32" json:",omitempty" required:"true"`
 
 	// PageSize is a required field
-	PageSize *int32 `type:"int32" required:"true"`
+	PageSize *int32 `type:"int32" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -204,13 +204,13 @@ func (s *DescribeDBInstanceShardsInput) SetPageSize(v int32) *DescribeDBInstance
 }
 
 type DescribeDBInstanceShardsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	InstanceShards []*InstanceShardForDescribeDBInstanceShardsOutput `type:"list"`
+	InstanceShards []*InstanceShardForDescribeDBInstanceShardsOutput `type:"list" json:",omitempty"`
 
-	Total *int32 `type:"int32"`
+	Total *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -236,13 +236,13 @@ func (s *DescribeDBInstanceShardsOutput) SetTotal(v int32) *DescribeDBInstanceSh
 }
 
 type InstanceShardForDescribeDBInstanceShardsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	NodeNumber *int32 `type:"int32"`
+	NodeNumber *int32 `type:"int32" json:",omitempty"`
 
-	ServerNodes []*ServerNodeForDescribeDBInstanceShardsOutput `type:"list"`
+	ServerNodes []*ServerNodeForDescribeDBInstanceShardsOutput `type:"list" json:",omitempty"`
 
-	ShardId *string `type:"string"`
+	ShardId *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -274,15 +274,15 @@ func (s *InstanceShardForDescribeDBInstanceShardsOutput) SetShardId(v string) *I
 }
 
 type ServerNodeForDescribeDBInstanceShardsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	CurrentRole *string `type:"string"`
+	CurrentRole *string `type:"string" json:",omitempty"`
 
-	NodeId *string `type:"string"`
+	NodeId *string `type:"string" json:",omitempty"`
 
-	Status *string `type:"string"`
+	Status *string `type:"string" json:",omitempty"`
 
-	ZoneId *string `type:"string"`
+	ZoneId *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation

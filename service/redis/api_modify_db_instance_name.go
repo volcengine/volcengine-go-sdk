@@ -144,15 +144,15 @@ func (c *REDIS) ModifyDBInstanceNameWithContext(ctx volcengine.Context, input *M
 }
 
 type ModifyDBInstanceNameInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	ClientToken *string `type:"string"`
+	ClientToken *string `type:"string" json:",omitempty"`
 
 	// InstanceId is a required field
-	InstanceId *string `type:"string" required:"true"`
+	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 
 	// InstanceName is a required field
-	InstanceName *string `type:"string" required:"true"`
+	InstanceName *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -200,7 +200,7 @@ func (s *ModifyDBInstanceNameInput) SetInstanceName(v string) *ModifyDBInstanceN
 }
 
 type ModifyDBInstanceNameOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 }

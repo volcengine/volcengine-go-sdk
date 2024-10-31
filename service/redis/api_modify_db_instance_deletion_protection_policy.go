@@ -144,15 +144,15 @@ func (c *REDIS) ModifyDBInstanceDeletionProtectionPolicyWithContext(ctx volcengi
 }
 
 type ModifyDBInstanceDeletionProtectionPolicyInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	ClientToken *string `type:"string"`
+	ClientToken *string `type:"string" json:",omitempty"`
 
 	// DeletionProtection is a required field
-	DeletionProtection *string `type:"string" required:"true"`
+	DeletionProtection *string `type:"string" json:",omitempty" required:"true"`
 
 	// InstanceId is a required field
-	InstanceId *string `type:"string" required:"true"`
+	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -200,7 +200,7 @@ func (s *ModifyDBInstanceDeletionProtectionPolicyInput) SetInstanceId(v string) 
 }
 
 type ModifyDBInstanceDeletionProtectionPolicyOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 }

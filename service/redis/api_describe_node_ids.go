@@ -144,10 +144,10 @@ func (c *REDIS) DescribeNodeIdsWithContext(ctx volcengine.Context, input *Descri
 }
 
 type DescribeNodeIdsInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// InstanceId is a required field
-	InstanceId *string `type:"string" required:"true"`
+	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -180,11 +180,11 @@ func (s *DescribeNodeIdsInput) SetInstanceId(v string) *DescribeNodeIdsInput {
 }
 
 type DescribeNodeIdsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	NodeIds []*string `type:"list"`
+	NodeIds []*string `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation

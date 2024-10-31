@@ -144,9 +144,9 @@ func (c *REDIS) CreateDBInstanceWithContext(ctx volcengine.Context, input *Creat
 }
 
 type ConfigureNodeForCreateDBInstanceInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	AZ *string `type:"string"`
+	AZ *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -166,58 +166,58 @@ func (s *ConfigureNodeForCreateDBInstanceInput) SetAZ(v string) *ConfigureNodeFo
 }
 
 type CreateDBInstanceInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	AllowListIds []*string `type:"list"`
+	AllowListIds []*string `type:"list" json:",omitempty"`
 
-	AutoRenew *bool `type:"boolean"`
+	AutoRenew *bool `type:"boolean" json:",omitempty"`
 
-	ChargeType *string `type:"string"`
+	ChargeType *string `type:"string" json:",omitempty"`
 
-	ClientToken *string `type:"string"`
+	ClientToken *string `type:"string" json:",omitempty"`
 
-	ConfigureNodes []*ConfigureNodeForCreateDBInstanceInput `type:"list"`
+	ConfigureNodes []*ConfigureNodeForCreateDBInstanceInput `type:"list" json:",omitempty"`
 
-	DeletionProtection *string `type:"string"`
+	DeletionProtection *string `type:"string" json:",omitempty"`
 
 	// EngineVersion is a required field
-	EngineVersion *string `type:"string" required:"true"`
+	EngineVersion *string `type:"string" json:",omitempty" required:"true"`
 
-	InstanceName *string `type:"string"`
+	InstanceName *string `type:"string" json:",omitempty"`
 
 	// MultiAZ is a required field
-	MultiAZ *string `type:"string" required:"true"`
+	MultiAZ *string `type:"string" json:",omitempty" required:"true"`
 
 	// NodeNumber is a required field
-	NodeNumber *int32 `type:"int32" required:"true"`
+	NodeNumber *int32 `type:"int32" json:",omitempty" required:"true"`
 
 	// Password is a required field
-	Password *string `type:"string" required:"true"`
+	Password *string `type:"string" json:",omitempty" required:"true"`
 
-	Port *int32 `type:"int32"`
+	Port *int32 `type:"int32" json:",omitempty"`
 
-	ProjectName *string `type:"string"`
+	ProjectName *string `type:"string" json:",omitempty"`
 
-	PurchaseMonths *int32 `type:"int32"`
+	PurchaseMonths *int32 `type:"int32" json:",omitempty"`
 
 	// RegionId is a required field
-	RegionId *string `type:"string" required:"true"`
+	RegionId *string `type:"string" json:",omitempty" required:"true"`
 
 	// ShardCapacity is a required field
-	ShardCapacity *int64 `type:"int64" required:"true"`
+	ShardCapacity *int64 `type:"int64" json:",omitempty" required:"true"`
 
-	ShardNumber *int32 `type:"int32"`
+	ShardNumber *int32 `type:"int32" json:",omitempty"`
 
 	// ShardedCluster is a required field
-	ShardedCluster *int32 `type:"int32" required:"true"`
+	ShardedCluster *int32 `type:"int32" json:",omitempty" required:"true"`
 
 	// SubnetId is a required field
-	SubnetId *string `type:"string" required:"true"`
+	SubnetId *string `type:"string" json:",omitempty" required:"true"`
 
-	Tags []*TagForCreateDBInstanceInput `type:"list"`
+	Tags []*TagForCreateDBInstanceInput `type:"list" json:",omitempty"`
 
 	// VpcId is a required field
-	VpcId *string `type:"string" required:"true"`
+	VpcId *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -394,13 +394,13 @@ func (s *CreateDBInstanceInput) SetVpcId(v string) *CreateDBInstanceInput {
 }
 
 type CreateDBInstanceOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	InstanceId *string `type:"string"`
+	InstanceId *string `type:"string" json:",omitempty"`
 
-	OrderNO *string `type:"string"`
+	OrderNO *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -426,11 +426,11 @@ func (s *CreateDBInstanceOutput) SetOrderNO(v string) *CreateDBInstanceOutput {
 }
 
 type TagForCreateDBInstanceInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Key *string `type:"string"`
+	Key *string `type:"string" json:",omitempty"`
 
-	Value *string `type:"string"`
+	Value *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation

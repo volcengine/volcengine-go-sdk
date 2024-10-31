@@ -144,15 +144,15 @@ func (c *REDIS) ModifyDBInstanceAdditionalBandwidthPerShardWithContext(ctx volce
 }
 
 type ModifyDBInstanceAdditionalBandwidthPerShardInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// AdditionalBandwidth is a required field
-	AdditionalBandwidth *int32 `type:"int32" required:"true"`
+	AdditionalBandwidth *int32 `type:"int32" json:",omitempty" required:"true"`
 
-	ClientToken *string `type:"string"`
+	ClientToken *string `type:"string" json:",omitempty"`
 
 	// InstanceId is a required field
-	InstanceId *string `type:"string" required:"true"`
+	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -200,11 +200,11 @@ func (s *ModifyDBInstanceAdditionalBandwidthPerShardInput) SetInstanceId(v strin
 }
 
 type ModifyDBInstanceAdditionalBandwidthPerShardOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	OrderNO *string `type:"string"`
+	OrderNO *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation

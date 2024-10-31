@@ -144,12 +144,12 @@ func (c *REDIS) DeleteDBEndpointPublicAddressWithContext(ctx volcengine.Context,
 }
 
 type DeleteDBEndpointPublicAddressInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	ClientToken *string `type:"string"`
+	ClientToken *string `type:"string" json:",omitempty"`
 
 	// InstanceId is a required field
-	InstanceId *string `type:"string" required:"true"`
+	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -188,7 +188,7 @@ func (s *DeleteDBEndpointPublicAddressInput) SetInstanceId(v string) *DeleteDBEn
 }
 
 type DeleteDBEndpointPublicAddressOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 }

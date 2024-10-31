@@ -144,25 +144,25 @@ func (c *REDIS) DescribeSlowLogsWithContext(ctx volcengine.Context, input *Descr
 }
 
 type DescribeSlowLogsInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Context *string `type:"string"`
+	Context *string `type:"string" json:",omitempty"`
 
-	DBName *string `type:"string"`
+	DBName *string `type:"string" json:",omitempty"`
 
 	// InstanceId is a required field
-	InstanceId *string `type:"string" required:"true"`
+	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 
-	NodeIds []*string `type:"list"`
+	NodeIds []*string `type:"list" json:",omitempty"`
 
 	// PageSize is a required field
-	PageSize *int32 `type:"int32" required:"true"`
+	PageSize *int32 `type:"int32" json:",omitempty" required:"true"`
 
-	QueryEndTime *string `type:"string"`
+	QueryEndTime *string `type:"string" json:",omitempty"`
 
-	QueryStartTime *string `type:"string"`
+	QueryStartTime *string `type:"string" json:",omitempty"`
 
-	SlowLogType *string `type:"string"`
+	SlowLogType *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -240,19 +240,19 @@ func (s *DescribeSlowLogsInput) SetSlowLogType(v string) *DescribeSlowLogsInput 
 }
 
 type DescribeSlowLogsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	Context *string `type:"string"`
+	Context *string `type:"string" json:",omitempty"`
 
-	InstanceId *string `type:"string"`
+	InstanceId *string `type:"string" json:",omitempty"`
 
-	ListOver *bool `type:"boolean"`
+	ListOver *bool `type:"boolean" json:",omitempty"`
 
-	SlowQuery []*SlowQueryForDescribeSlowLogsOutput `type:"list"`
+	SlowQuery []*SlowQueryForDescribeSlowLogsOutput `type:"list" json:",omitempty"`
 
-	Total *int32 `type:"int32"`
+	Total *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -296,23 +296,23 @@ func (s *DescribeSlowLogsOutput) SetTotal(v int32) *DescribeSlowLogsOutput {
 }
 
 type SlowQueryForDescribeSlowLogsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	DBName *string `type:"string"`
+	DBName *string `type:"string" json:",omitempty"`
 
-	ExecutionStartTime *string `type:"string"`
+	ExecutionStartTime *string `type:"string" json:",omitempty"`
 
-	HostAddress *string `type:"string"`
+	HostAddress *string `type:"string" json:",omitempty"`
 
-	InstanceId *string `type:"string"`
+	InstanceId *string `type:"string" json:",omitempty"`
 
-	NodeId *string `type:"string"`
+	NodeId *string `type:"string" json:",omitempty"`
 
-	QueryText *string `type:"string"`
+	QueryText *string `type:"string" json:",omitempty"`
 
-	QueryTimes *int64 `type:"int64"`
+	QueryTimes *int64 `type:"int64" json:",omitempty"`
 
-	UserName *string `type:"string"`
+	UserName *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
