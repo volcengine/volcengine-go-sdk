@@ -144,20 +144,20 @@ func (c *RDSMYSQLV2) ModifyDBEndpointAddressWithContext(ctx volcengine.Context, 
 }
 
 type ModifyDBEndpointAddressInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	DomainPrefix *string `type:"string"`
+	DomainPrefix *string `type:"string" json:",omitempty"`
 
 	// EndpointId is a required field
-	EndpointId *string `type:"string" required:"true"`
+	EndpointId *string `type:"string" json:",omitempty" required:"true"`
 
 	// InstanceId is a required field
-	InstanceId *string `type:"string" required:"true"`
+	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 
 	// NetworkType is a required field
-	NetworkType *string `type:"string" required:"true"`
+	NetworkType *string `type:"string" json:",omitempty" required:"true"`
 
-	Port *int32 `type:"int32"`
+	Port *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -220,7 +220,7 @@ func (s *ModifyDBEndpointAddressInput) SetPort(v int32) *ModifyDBEndpointAddress
 }
 
 type ModifyDBEndpointAddressOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 }

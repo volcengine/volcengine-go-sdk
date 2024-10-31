@@ -144,11 +144,11 @@ func (c *RDSMYSQLV2) DescribeTasksWithContext(ctx volcengine.Context, input *Des
 }
 
 type ConfigInfoForDescribeTasksOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	ConfigInfoKey *string `type:"string"`
+	ConfigInfoKey *string `type:"string" json:",omitempty"`
 
-	ConfigInfoValue []*string `type:"list"`
+	ConfigInfoValue []*string `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -174,37 +174,37 @@ func (s *ConfigInfoForDescribeTasksOutput) SetConfigInfoValue(v []*string) *Conf
 }
 
 type DataForDescribeTasksOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	ConfigInfos []*ConfigInfoForDescribeTasksOutput `type:"list"`
+	ConfigInfos []*ConfigInfoForDescribeTasksOutput `type:"list" json:",omitempty"`
 
-	CostTimeMS *int64 `type:"int64"`
+	CostTimeMS *int64 `type:"int64" json:",omitempty"`
 
-	CreateTime *string `type:"string"`
+	CreateTime *string `type:"string" json:",omitempty"`
 
-	FinishTime *string `type:"string"`
+	FinishTime *string `type:"string" json:",omitempty"`
 
-	Progress *int32 `type:"int32"`
+	Progress *int32 `type:"int32" json:",omitempty"`
 
-	RelatedInstanceInfos *RelatedInstanceInfosForDescribeTasksOutput `type:"structure"`
+	RelatedInstanceInfos *RelatedInstanceInfosForDescribeTasksOutput `type:"structure" json:",omitempty"`
 
-	StartTime *string `type:"string"`
+	StartTime *string `type:"string" json:",omitempty"`
 
-	TaskAction *string `type:"string"`
+	TaskAction *string `type:"string" json:",omitempty"`
 
-	TaskCategory *string `type:"string"`
+	TaskCategory *string `type:"string" json:",omitempty"`
 
-	TaskDesc *string `type:"string"`
+	TaskDesc *string `type:"string" json:",omitempty"`
 
-	TaskId *string `type:"string"`
+	TaskId *string `type:"string" json:",omitempty"`
 
-	TaskParams *string `type:"string"`
+	TaskParams *string `type:"string" json:",omitempty"`
 
-	TaskProgress []*TaskProgressForDescribeTasksOutput `type:"list"`
+	TaskProgress []*TaskProgressForDescribeTasksOutput `type:"list" json:",omitempty"`
 
-	TaskSource *string `type:"string"`
+	TaskSource *string `type:"string" json:",omitempty"`
 
-	TaskStatus *string `type:"string"`
+	TaskStatus *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -308,33 +308,33 @@ func (s *DataForDescribeTasksOutput) SetTaskStatus(v string) *DataForDescribeTas
 }
 
 type DescribeTasksInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	CreationEndTime *string `type:"string"`
+	CreationEndTime *string `type:"string" json:",omitempty"`
 
-	CreationStartTime *string `type:"string"`
+	CreationStartTime *string `type:"string" json:",omitempty"`
 
-	InstanceId *string `type:"string"`
+	InstanceId *string `type:"string" json:",omitempty"`
 
 	// PageNumber is a required field
-	PageNumber *int32 `type:"int32" required:"true"`
+	PageNumber *int32 `type:"int32" json:",omitempty" required:"true"`
 
 	// PageSize is a required field
-	PageSize *int32 `type:"int32" required:"true"`
+	PageSize *int32 `type:"int32" json:",omitempty" required:"true"`
 
-	ProjectName *string `type:"string"`
+	ProjectName *string `type:"string" json:",omitempty"`
 
-	TaskAction *string `type:"string"`
+	TaskAction *string `type:"string" json:",omitempty"`
 
-	TaskCategory []*string `type:"list"`
+	TaskCategory []*string `type:"list" json:",omitempty"`
 
-	TaskId *string `type:"string"`
+	TaskId *string `type:"string" json:",omitempty"`
 
-	TaskSource *string `type:"string"`
+	TaskSource *string `type:"string" json:",omitempty"`
 
-	TaskStatus []*string `type:"list"`
+	TaskStatus []*string `type:"list" json:",omitempty"`
 
-	TaskType *string `type:"string"`
+	TaskType *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -436,13 +436,13 @@ func (s *DescribeTasksInput) SetTaskType(v string) *DescribeTasksInput {
 }
 
 type DescribeTasksOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	Datas []*DataForDescribeTasksOutput `type:"list"`
+	Datas []*DataForDescribeTasksOutput `type:"list" json:",omitempty"`
 
-	Total *int32 `type:"int32"`
+	Total *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -468,9 +468,9 @@ func (s *DescribeTasksOutput) SetTotal(v int32) *DescribeTasksOutput {
 }
 
 type RelatedInstanceInfosForDescribeTasksOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	InstanceID *string `type:"string"`
+	InstanceID *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -490,13 +490,13 @@ func (s *RelatedInstanceInfosForDescribeTasksOutput) SetInstanceID(v string) *Re
 }
 
 type StepExtraInfoForDescribeTasksOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Type *string `type:"string"`
+	Type *string `type:"string" json:",omitempty"`
 
-	Unit *string `type:"string"`
+	Unit *string `type:"string" json:",omitempty"`
 
-	Value *float64 `type:"double"`
+	Value *float64 `type:"double" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -528,13 +528,13 @@ func (s *StepExtraInfoForDescribeTasksOutput) SetValue(v float64) *StepExtraInfo
 }
 
 type TaskProgressForDescribeTasksOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Name *string `type:"string"`
+	Name *string `type:"string" json:",omitempty"`
 
-	StepExtraInfo []*StepExtraInfoForDescribeTasksOutput `type:"list"`
+	StepExtraInfo []*StepExtraInfoForDescribeTasksOutput `type:"list" json:",omitempty"`
 
-	StepStatus *string `type:"string"`
+	StepStatus *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation

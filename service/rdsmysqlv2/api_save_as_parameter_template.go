@@ -144,15 +144,15 @@ func (c *RDSMYSQLV2) SaveAsParameterTemplateWithContext(ctx volcengine.Context, 
 }
 
 type SaveAsParameterTemplateInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// InstanceId is a required field
-	InstanceId *string `type:"string" required:"true"`
+	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 
-	TemplateDesc *string `type:"string"`
+	TemplateDesc *string `type:"string" json:",omitempty"`
 
 	// TemplateName is a required field
-	TemplateName *string `type:"string" required:"true"`
+	TemplateName *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -200,7 +200,7 @@ func (s *SaveAsParameterTemplateInput) SetTemplateName(v string) *SaveAsParamete
 }
 
 type SaveAsParameterTemplateOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 }

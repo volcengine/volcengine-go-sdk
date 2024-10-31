@@ -144,18 +144,18 @@ func (c *RDSMYSQLV2) RevokeDBAccountPrivilegeWithContext(ctx volcengine.Context,
 }
 
 type RevokeDBAccountPrivilegeInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// AccountName is a required field
-	AccountName *string `type:"string" required:"true"`
+	AccountName *string `type:"string" json:",omitempty" required:"true"`
 
 	// DBNames is a required field
-	DBNames *string `type:"string" required:"true"`
+	DBNames *string `type:"string" json:",omitempty" required:"true"`
 
-	Host *string `type:"string"`
+	Host *string `type:"string" json:",omitempty"`
 
 	// InstanceId is a required field
-	InstanceId *string `type:"string" required:"true"`
+	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -212,7 +212,7 @@ func (s *RevokeDBAccountPrivilegeInput) SetInstanceId(v string) *RevokeDBAccount
 }
 
 type RevokeDBAccountPrivilegeOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 }

@@ -144,14 +144,14 @@ func (c *RDSMYSQLV2) ModifyBackupEncryptionPolicyWithContext(ctx volcengine.Cont
 }
 
 type ModifyBackupEncryptionPolicyInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	DataBackupEnabled *bool `type:"boolean"`
+	DataBackupEnabled *bool `type:"boolean" json:",omitempty"`
 
 	// InstanceId is a required field
-	InstanceId *string `type:"string" required:"true"`
+	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 
-	LogBackupEnabled *bool `type:"boolean"`
+	LogBackupEnabled *bool `type:"boolean" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -196,7 +196,7 @@ func (s *ModifyBackupEncryptionPolicyInput) SetLogBackupEnabled(v bool) *ModifyB
 }
 
 type ModifyBackupEncryptionPolicyOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 }

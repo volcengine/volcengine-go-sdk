@@ -144,17 +144,17 @@ func (c *RDSMYSQLV2) DescribeTagsByResourceWithContext(ctx volcengine.Context, i
 }
 
 type DescribeTagsByResourceInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	InstanceIds []*string `type:"list"`
+	InstanceIds []*string `type:"list" json:",omitempty"`
 
 	// PageNumber is a required field
-	PageNumber *int32 `type:"int32" required:"true"`
+	PageNumber *int32 `type:"int32" json:",omitempty" required:"true"`
 
 	// PageSize is a required field
-	PageSize *int32 `type:"int32" required:"true"`
+	PageSize *int32 `type:"int32" json:",omitempty" required:"true"`
 
-	TagFilters []*TagFilterForDescribeTagsByResourceInput `type:"list"`
+	TagFilters []*TagFilterForDescribeTagsByResourceInput `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -208,13 +208,13 @@ func (s *DescribeTagsByResourceInput) SetTagFilters(v []*TagFilterForDescribeTag
 }
 
 type DescribeTagsByResourceOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	TagResources []*TagResourceForDescribeTagsByResourceOutput `type:"list"`
+	TagResources []*TagResourceForDescribeTagsByResourceOutput `type:"list" json:",omitempty"`
 
-	Total *int32 `type:"int32"`
+	Total *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -240,11 +240,11 @@ func (s *DescribeTagsByResourceOutput) SetTotal(v int32) *DescribeTagsByResource
 }
 
 type TagFilterForDescribeTagsByResourceInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Key *string `type:"string"`
+	Key *string `type:"string" json:",omitempty"`
 
-	Value *string `type:"string"`
+	Value *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -270,13 +270,13 @@ func (s *TagFilterForDescribeTagsByResourceInput) SetValue(v string) *TagFilterF
 }
 
 type TagResourceForDescribeTagsByResourceOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	InstanceId *string `type:"string"`
+	InstanceId *string `type:"string" json:",omitempty"`
 
-	Key *string `type:"string"`
+	Key *string `type:"string" json:",omitempty"`
 
-	Value *string `type:"string"`
+	Value *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation

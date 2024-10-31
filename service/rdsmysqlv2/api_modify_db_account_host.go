@@ -144,19 +144,19 @@ func (c *RDSMYSQLV2) ModifyDBAccountHostWithContext(ctx volcengine.Context, inpu
 }
 
 type ModifyDBAccountHostInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// AccountName is a required field
-	AccountName *string `type:"string" required:"true"`
+	AccountName *string `type:"string" json:",omitempty" required:"true"`
 
 	// Host is a required field
-	Host *string `type:"string" required:"true"`
+	Host *string `type:"string" json:",omitempty" required:"true"`
 
 	// InstanceId is a required field
-	InstanceId *string `type:"string" required:"true"`
+	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 
 	// NewHost is a required field
-	NewHost *string `type:"string" required:"true"`
+	NewHost *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -216,7 +216,7 @@ func (s *ModifyDBAccountHostInput) SetNewHost(v string) *ModifyDBAccountHostInpu
 }
 
 type ModifyDBAccountHostOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 }

@@ -144,23 +144,23 @@ func (c *RDSMYSQLV2) DescribeBinlogFilesWithContext(ctx volcengine.Context, inpu
 }
 
 type BinlogFileForDescribeBinlogFilesOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	BackupRegion *string `type:"string"`
+	BackupRegion *string `type:"string" json:",omitempty"`
 
-	BackupStatus *string `type:"string"`
+	BackupStatus *string `type:"string" json:",omitempty"`
 
-	DownloadStatus *string `type:"string"`
+	DownloadStatus *string `type:"string" json:",omitempty"`
 
-	FileName *string `type:"string"`
+	FileName *string `type:"string" json:",omitempty"`
 
-	FileSize *int64 `type:"int64"`
+	FileSize *int64 `type:"int64" json:",omitempty"`
 
-	IsEncrypted *bool `type:"boolean"`
+	IsEncrypted *bool `type:"boolean" json:",omitempty"`
 
-	NodeId *string `type:"string"`
+	NodeId *string `type:"string" json:",omitempty"`
 
-	UpdateTime *string `type:"string"`
+	UpdateTime *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -222,20 +222,20 @@ func (s *BinlogFileForDescribeBinlogFilesOutput) SetUpdateTime(v string) *Binlog
 }
 
 type DescribeBinlogFilesInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	BackupFileNumber *int32 `type:"int32"`
+	BackupFileNumber *int32 `type:"int32" json:",omitempty"`
 
-	Context *string `type:"string"`
+	Context *string `type:"string" json:",omitempty"`
 
 	// EndTime is a required field
-	EndTime *string `type:"string" required:"true"`
+	EndTime *string `type:"string" json:",omitempty" required:"true"`
 
 	// InstanceId is a required field
-	InstanceId *string `type:"string" required:"true"`
+	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 
 	// StartTime is a required field
-	StartTime *string `type:"string" required:"true"`
+	StartTime *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -298,15 +298,15 @@ func (s *DescribeBinlogFilesInput) SetStartTime(v string) *DescribeBinlogFilesIn
 }
 
 type DescribeBinlogFilesOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	BinlogFiles []*BinlogFileForDescribeBinlogFilesOutput `type:"list"`
+	BinlogFiles []*BinlogFileForDescribeBinlogFilesOutput `type:"list" json:",omitempty"`
 
-	Context *string `type:"string"`
+	Context *string `type:"string" json:",omitempty"`
 
-	Total *int32 `type:"int32"`
+	Total *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation

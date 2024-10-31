@@ -144,23 +144,23 @@ func (c *RDSMYSQLV2) DescribeDBInstancesWithContext(ctx volcengine.Context, inpu
 }
 
 type AddressObjectForDescribeDBInstancesOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	DNSVisibility *bool `type:"boolean"`
+	DNSVisibility *bool `type:"boolean" json:",omitempty"`
 
-	Domain *string `type:"string"`
+	Domain *string `type:"string" json:",omitempty"`
 
-	EipId *string `type:"string"`
+	EipId *string `type:"string" json:",omitempty"`
 
-	IPAddress *string `type:"string"`
+	IPAddress *string `type:"string" json:",omitempty"`
 
-	InternetProtocol *string `type:"string"`
+	InternetProtocol *string `type:"string" json:",omitempty" enum:"EnumOfInternetProtocolForDescribeDBInstancesOutput"`
 
-	NetworkType *string `type:"string"`
+	NetworkType *string `type:"string" json:",omitempty" enum:"EnumOfNetworkTypeForDescribeDBInstancesOutput"`
 
-	Port *string `type:"string"`
+	Port *string `type:"string" json:",omitempty"`
 
-	SubnetId *string `type:"string"`
+	SubnetId *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -222,29 +222,29 @@ func (s *AddressObjectForDescribeDBInstancesOutput) SetSubnetId(v string) *Addre
 }
 
 type ChargeDetailForDescribeDBInstancesOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	AutoRenew *bool `type:"boolean"`
+	AutoRenew *bool `type:"boolean" json:",omitempty"`
 
-	ChargeEndTime *string `type:"string"`
+	ChargeEndTime *string `type:"string" json:",omitempty"`
 
-	ChargeStartTime *string `type:"string"`
+	ChargeStartTime *string `type:"string" json:",omitempty"`
 
-	ChargeStatus *string `type:"string"`
+	ChargeStatus *string `type:"string" json:",omitempty" enum:"EnumOfChargeStatusForDescribeDBInstancesOutput"`
 
-	ChargeType *string `type:"string"`
+	ChargeType *string `type:"string" json:",omitempty" enum:"EnumOfChargeTypeForDescribeDBInstancesOutput"`
 
-	OverdueReclaimTime *string `type:"string"`
+	OverdueReclaimTime *string `type:"string" json:",omitempty"`
 
-	OverdueTime *string `type:"string"`
+	OverdueTime *string `type:"string" json:",omitempty"`
 
-	Period *int32 `type:"int32"`
+	Period *int32 `type:"int32" json:",omitempty"`
 
-	PeriodUnit *string `type:"string"`
+	PeriodUnit *string `type:"string" json:",omitempty" enum:"EnumOfPeriodUnitForDescribeDBInstancesOutput"`
 
-	TempModifyEndTime *string `type:"string"`
+	TempModifyEndTime *string `type:"string" json:",omitempty"`
 
-	TempModifyStartTime *string `type:"string"`
+	TempModifyStartTime *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -324,35 +324,35 @@ func (s *ChargeDetailForDescribeDBInstancesOutput) SetTempModifyStartTime(v stri
 }
 
 type DescribeDBInstancesInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	ChargeType *string `type:"string"`
+	ChargeType *string `type:"string" json:",omitempty"`
 
-	CreateTimeEnd *string `type:"string"`
+	CreateTimeEnd *string `type:"string" json:",omitempty"`
 
-	CreateTimeStart *string `type:"string"`
+	CreateTimeStart *string `type:"string" json:",omitempty"`
 
-	DBEngineVersion *string `type:"string"`
+	DBEngineVersion *string `type:"string" json:",omitempty"`
 
-	InstanceId *string `type:"string"`
+	InstanceId *string `type:"string" json:",omitempty"`
 
-	InstanceName *string `type:"string"`
+	InstanceName *string `type:"string" json:",omitempty"`
 
-	InstanceStatus *string `type:"string"`
+	InstanceStatus *string `type:"string" json:",omitempty"`
 
-	InstanceType *string `type:"string"`
+	InstanceType *string `type:"string" json:",omitempty"`
 
-	NodeSpec *string `type:"string"`
+	NodeSpec *string `type:"string" json:",omitempty"`
 
-	PageNumber *int32 `type:"int32"`
+	PageNumber *int32 `type:"int32" json:",omitempty"`
 
-	PageSize *int32 `type:"int32"`
+	PageSize *int32 `type:"int32" json:",omitempty"`
 
-	ProjectName *string `type:"string"`
+	ProjectName *string `type:"string" json:",omitempty"`
 
-	TagFilters []*TagFilterForDescribeDBInstancesInput `type:"list"`
+	TagFilters []*TagFilterForDescribeDBInstancesInput `type:"list" json:",omitempty"`
 
-	ZoneId *string `type:"string"`
+	ZoneId *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -450,13 +450,13 @@ func (s *DescribeDBInstancesInput) SetZoneId(v string) *DescribeDBInstancesInput
 }
 
 type DescribeDBInstancesOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	Instances []*InstanceForDescribeDBInstancesOutput `type:"list"`
+	Instances []*InstanceForDescribeDBInstancesOutput `type:"list" json:",omitempty"`
 
-	Total *int32 `type:"int32"`
+	Total *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -482,59 +482,59 @@ func (s *DescribeDBInstancesOutput) SetTotal(v int32) *DescribeDBInstancesOutput
 }
 
 type InstanceForDescribeDBInstancesOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	AddressObject []*AddressObjectForDescribeDBInstancesOutput `type:"list"`
+	AddressObject []*AddressObjectForDescribeDBInstancesOutput `type:"list" json:",omitempty"`
 
-	AllowListVersion *string `type:"string"`
+	AllowListVersion *string `type:"string" json:",omitempty"`
 
-	ChargeDetail *ChargeDetailForDescribeDBInstancesOutput `type:"structure"`
+	ChargeDetail *ChargeDetailForDescribeDBInstancesOutput `type:"structure" json:",omitempty"`
 
-	CreateTime *string `type:"string"`
+	CreateTime *string `type:"string" json:",omitempty"`
 
-	DBEngineVersion *string `type:"string"`
+	DBEngineVersion *string `type:"string" json:",omitempty"`
 
-	InstanceId *string `type:"string"`
+	InstanceId *string `type:"string" json:",omitempty"`
 
-	InstanceName *string `type:"string"`
+	InstanceName *string `type:"string" json:",omitempty"`
 
-	InstanceStatus *string `type:"string"`
+	InstanceStatus *string `type:"string" json:",omitempty"`
 
-	InstanceType *string `type:"string"`
+	InstanceType *string `type:"string" json:",omitempty"`
 
-	LowerCaseTableNames *string `type:"string"`
+	LowerCaseTableNames *string `type:"string" json:",omitempty"`
 
-	MaintenanceWindow *MaintenanceWindowForDescribeDBInstancesOutput `type:"structure"`
+	MaintenanceWindow *MaintenanceWindowForDescribeDBInstancesOutput `type:"structure" json:",omitempty"`
 
-	NodeCPUUsedPercentage *float64 `type:"float"`
+	NodeCPUUsedPercentage *float64 `type:"float" json:",omitempty"`
 
-	NodeMemoryUsedPercentage *float64 `type:"float"`
+	NodeMemoryUsedPercentage *float64 `type:"float" json:",omitempty"`
 
-	NodeNumber *int32 `type:"int32"`
+	NodeNumber *int32 `type:"int32" json:",omitempty"`
 
-	NodeSpaceUsedPercentage *float64 `type:"float"`
+	NodeSpaceUsedPercentage *float64 `type:"float" json:",omitempty"`
 
-	NodeSpec *string `type:"string"`
+	NodeSpec *string `type:"string" json:",omitempty"`
 
-	ProjectName *string `type:"string"`
+	ProjectName *string `type:"string" json:",omitempty"`
 
-	RegionId *string `type:"string"`
+	RegionId *string `type:"string" json:",omitempty"`
 
-	StorageSpace *int32 `type:"int32"`
+	StorageSpace *int32 `type:"int32" json:",omitempty"`
 
-	StorageType *string `type:"string"`
+	StorageType *string `type:"string" json:",omitempty"`
 
-	SubnetId *string `type:"string"`
+	SubnetId *string `type:"string" json:",omitempty"`
 
-	Tags []*TagForDescribeDBInstancesOutput `type:"list"`
+	Tags []*TagForDescribeDBInstancesOutput `type:"list" json:",omitempty"`
 
-	TimeZone *string `type:"string"`
+	TimeZone *string `type:"string" json:",omitempty"`
 
-	VpcId *string `type:"string"`
+	VpcId *string `type:"string" json:",omitempty"`
 
-	ZoneId *string `type:"string"`
+	ZoneId *string `type:"string" json:",omitempty"`
 
-	ZoneIds []*string `type:"list"`
+	ZoneIds []*string `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -704,13 +704,13 @@ func (s *InstanceForDescribeDBInstancesOutput) SetZoneIds(v []*string) *Instance
 }
 
 type MaintenanceWindowForDescribeDBInstancesOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	DayKind *string `type:"string"`
+	DayKind *string `type:"string" json:",omitempty"`
 
-	DayOfWeek []*string `type:"list"`
+	DayOfWeek []*string `type:"list" json:",omitempty"`
 
-	MaintenanceTime *string `type:"string"`
+	MaintenanceTime *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -742,11 +742,11 @@ func (s *MaintenanceWindowForDescribeDBInstancesOutput) SetMaintenanceTime(v str
 }
 
 type TagFilterForDescribeDBInstancesInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Key *string `type:"string"`
+	Key *string `type:"string" json:",omitempty"`
 
-	Value *string `type:"string"`
+	Value *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -772,11 +772,11 @@ func (s *TagFilterForDescribeDBInstancesInput) SetValue(v string) *TagFilterForD
 }
 
 type TagForDescribeDBInstancesOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Key *string `type:"string"`
+	Key *string `type:"string" json:",omitempty"`
 
-	Value *string `type:"string"`
+	Value *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -800,3 +800,61 @@ func (s *TagForDescribeDBInstancesOutput) SetValue(v string) *TagForDescribeDBIn
 	s.Value = &v
 	return s
 }
+
+const (
+	// EnumOfChargeStatusForDescribeDBInstancesOutputNormal is a EnumOfChargeStatusForDescribeDBInstancesOutput enum value
+	EnumOfChargeStatusForDescribeDBInstancesOutputNormal = "Normal"
+
+	// EnumOfChargeStatusForDescribeDBInstancesOutputOverdue is a EnumOfChargeStatusForDescribeDBInstancesOutput enum value
+	EnumOfChargeStatusForDescribeDBInstancesOutputOverdue = "Overdue"
+
+	// EnumOfChargeStatusForDescribeDBInstancesOutputUnpaid is a EnumOfChargeStatusForDescribeDBInstancesOutput enum value
+	EnumOfChargeStatusForDescribeDBInstancesOutputUnpaid = "Unpaid"
+)
+
+const (
+	// EnumOfChargeTypeForDescribeDBInstancesOutputNotEnabled is a EnumOfChargeTypeForDescribeDBInstancesOutput enum value
+	EnumOfChargeTypeForDescribeDBInstancesOutputNotEnabled = "NotEnabled"
+
+	// EnumOfChargeTypeForDescribeDBInstancesOutputPostPaid is a EnumOfChargeTypeForDescribeDBInstancesOutput enum value
+	EnumOfChargeTypeForDescribeDBInstancesOutputPostPaid = "PostPaid"
+
+	// EnumOfChargeTypeForDescribeDBInstancesOutputPrePaid is a EnumOfChargeTypeForDescribeDBInstancesOutput enum value
+	EnumOfChargeTypeForDescribeDBInstancesOutputPrePaid = "PrePaid"
+)
+
+const (
+	// EnumOfInternetProtocolForDescribeDBInstancesOutputIpv4 is a EnumOfInternetProtocolForDescribeDBInstancesOutput enum value
+	EnumOfInternetProtocolForDescribeDBInstancesOutputIpv4 = "IPv4"
+
+	// EnumOfInternetProtocolForDescribeDBInstancesOutputIpv6 is a EnumOfInternetProtocolForDescribeDBInstancesOutput enum value
+	EnumOfInternetProtocolForDescribeDBInstancesOutputIpv6 = "IPv6"
+
+	// EnumOfInternetProtocolForDescribeDBInstancesOutputDualStack is a EnumOfInternetProtocolForDescribeDBInstancesOutput enum value
+	EnumOfInternetProtocolForDescribeDBInstancesOutputDualStack = "DualStack"
+)
+
+const (
+	// EnumOfNetworkTypeForDescribeDBInstancesOutputPrivate is a EnumOfNetworkTypeForDescribeDBInstancesOutput enum value
+	EnumOfNetworkTypeForDescribeDBInstancesOutputPrivate = "Private"
+
+	// EnumOfNetworkTypeForDescribeDBInstancesOutputPublic is a EnumOfNetworkTypeForDescribeDBInstancesOutput enum value
+	EnumOfNetworkTypeForDescribeDBInstancesOutputPublic = "Public"
+
+	// EnumOfNetworkTypeForDescribeDBInstancesOutputInner is a EnumOfNetworkTypeForDescribeDBInstancesOutput enum value
+	EnumOfNetworkTypeForDescribeDBInstancesOutputInner = "Inner"
+
+	// EnumOfNetworkTypeForDescribeDBInstancesOutputIngress is a EnumOfNetworkTypeForDescribeDBInstancesOutput enum value
+	EnumOfNetworkTypeForDescribeDBInstancesOutputIngress = "Ingress"
+
+	// EnumOfNetworkTypeForDescribeDBInstancesOutputCarma is a EnumOfNetworkTypeForDescribeDBInstancesOutput enum value
+	EnumOfNetworkTypeForDescribeDBInstancesOutputCarma = "Carma"
+)
+
+const (
+	// EnumOfPeriodUnitForDescribeDBInstancesOutputMonth is a EnumOfPeriodUnitForDescribeDBInstancesOutput enum value
+	EnumOfPeriodUnitForDescribeDBInstancesOutputMonth = "Month"
+
+	// EnumOfPeriodUnitForDescribeDBInstancesOutputYear is a EnumOfPeriodUnitForDescribeDBInstancesOutput enum value
+	EnumOfPeriodUnitForDescribeDBInstancesOutputYear = "Year"
+)

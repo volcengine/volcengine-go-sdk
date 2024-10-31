@@ -144,14 +144,14 @@ func (c *RDSMYSQLV2) ModifyDBInstanceSSLWithContext(ctx volcengine.Context, inpu
 }
 
 type ModifyDBInstanceSSLInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// InstanceId is a required field
-	InstanceId *string `type:"string" required:"true"`
+	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 
-	ReloadSSLCertificate *bool `type:"boolean"`
+	ReloadSSLCertificate *bool `type:"boolean" json:",omitempty"`
 
-	SSLEnable *bool `type:"boolean"`
+	SSLEnable *bool `type:"boolean" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -196,7 +196,7 @@ func (s *ModifyDBInstanceSSLInput) SetSSLEnable(v bool) *ModifyDBInstanceSSLInpu
 }
 
 type ModifyDBInstanceSSLOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 }

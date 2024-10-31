@@ -144,13 +144,13 @@ func (c *RDSMYSQLV2) ModifyDBInstanceSyncModeWithContext(ctx volcengine.Context,
 }
 
 type ModifyDBInstanceSyncModeInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// InstanceId is a required field
-	InstanceId *string `type:"string" required:"true"`
+	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 
 	// SyncMode is a required field
-	SyncMode *string `type:"string" required:"true"`
+	SyncMode *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -192,7 +192,7 @@ func (s *ModifyDBInstanceSyncModeInput) SetSyncMode(v string) *ModifyDBInstanceS
 }
 
 type ModifyDBInstanceSyncModeOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 }

@@ -144,13 +144,13 @@ func (c *RDSMYSQLV2) DescribeApplyParameterTemplateWithContext(ctx volcengine.Co
 }
 
 type DescribeApplyParameterTemplateInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// InstanceId is a required field
-	InstanceId *string `type:"string" required:"true"`
+	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 
 	// TemplateId is a required field
-	TemplateId *string `type:"string" required:"true"`
+	TemplateId *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -192,15 +192,15 @@ func (s *DescribeApplyParameterTemplateInput) SetTemplateId(v string) *DescribeA
 }
 
 type DescribeApplyParameterTemplateOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	InstanceId *string `type:"string"`
+	InstanceId *string `type:"string" json:",omitempty"`
 
-	Parameters []*ParameterForDescribeApplyParameterTemplateOutput `type:"list"`
+	Parameters []*ParameterForDescribeApplyParameterTemplateOutput `type:"list" json:",omitempty"`
 
-	TemplateId *string `type:"string"`
+	TemplateId *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -232,15 +232,15 @@ func (s *DescribeApplyParameterTemplateOutput) SetTemplateId(v string) *Describe
 }
 
 type ParameterForDescribeApplyParameterTemplateOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Name *string `type:"string"`
+	Name *string `type:"string" json:",omitempty"`
 
-	NewValue *string `type:"string"`
+	NewValue *string `type:"string" json:",omitempty"`
 
-	OldValue *string `type:"string"`
+	OldValue *string `type:"string" json:",omitempty"`
 
-	Restart *bool `type:"boolean"`
+	Restart *bool `type:"boolean" json:",omitempty"`
 }
 
 // String returns the string representation

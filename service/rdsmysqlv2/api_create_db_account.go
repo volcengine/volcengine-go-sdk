@@ -144,13 +144,13 @@ func (c *RDSMYSQLV2) CreateDBAccountWithContext(ctx volcengine.Context, input *C
 }
 
 type AccountPrivilegeForCreateDBAccountInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	AccountPrivilege *string `type:"string"`
+	AccountPrivilege *string `type:"string" json:",omitempty"`
 
-	AccountPrivilegeDetail *string `type:"string"`
+	AccountPrivilegeDetail *string `type:"string" json:",omitempty"`
 
-	DBName *string `type:"string"`
+	DBName *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -182,25 +182,25 @@ func (s *AccountPrivilegeForCreateDBAccountInput) SetDBName(v string) *AccountPr
 }
 
 type CreateDBAccountInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	AccountDesc *string `type:"string"`
+	AccountDesc *string `type:"string" json:",omitempty"`
 
 	// AccountName is a required field
-	AccountName *string `type:"string" required:"true"`
+	AccountName *string `type:"string" json:",omitempty" required:"true"`
 
 	// AccountPassword is a required field
-	AccountPassword *string `type:"string" required:"true"`
+	AccountPassword *string `type:"string" json:",omitempty" required:"true"`
 
-	AccountPrivileges []*AccountPrivilegeForCreateDBAccountInput `type:"list"`
+	AccountPrivileges []*AccountPrivilegeForCreateDBAccountInput `type:"list" json:",omitempty"`
 
 	// AccountType is a required field
-	AccountType *string `type:"string" required:"true"`
+	AccountType *string `type:"string" json:",omitempty" required:"true"`
 
-	Host *string `type:"string"`
+	Host *string `type:"string" json:",omitempty"`
 
 	// InstanceId is a required field
-	InstanceId *string `type:"string" required:"true"`
+	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -278,7 +278,7 @@ func (s *CreateDBAccountInput) SetInstanceId(v string) *CreateDBAccountInput {
 }
 
 type CreateDBAccountOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 }

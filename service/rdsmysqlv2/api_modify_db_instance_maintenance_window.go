@@ -144,17 +144,17 @@ func (c *RDSMYSQLV2) ModifyDBInstanceMaintenanceWindowWithContext(ctx volcengine
 }
 
 type ModifyDBInstanceMaintenanceWindowInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	DayKind *string `type:"string"`
+	DayKind *string `type:"string" json:",omitempty"`
 
-	DayOfWeek []*string `type:"list"`
+	DayOfWeek []*string `type:"list" json:",omitempty"`
 
 	// InstanceId is a required field
-	InstanceId *string `type:"string" required:"true"`
+	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 
 	// MaintenanceTime is a required field
-	MaintenanceTime *string `type:"string" required:"true"`
+	MaintenanceTime *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -208,7 +208,7 @@ func (s *ModifyDBInstanceMaintenanceWindowInput) SetMaintenanceTime(v string) *M
 }
 
 type ModifyDBInstanceMaintenanceWindowOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 }

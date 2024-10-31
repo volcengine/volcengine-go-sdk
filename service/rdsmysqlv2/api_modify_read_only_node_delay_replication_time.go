@@ -144,18 +144,18 @@ func (c *RDSMYSQLV2) ModifyReadOnlyNodeDelayReplicationTimeWithContext(ctx volce
 }
 
 type ModifyReadOnlyNodeDelayReplicationTimeInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// DelayReplicationTime is a required field
-	DelayReplicationTime *int64 `type:"int64" required:"true"`
+	DelayReplicationTime *int64 `type:"int64" json:",omitempty" required:"true"`
 
 	// InstanceId is a required field
-	InstanceId *string `type:"string" required:"true"`
+	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 
 	// NodeId is a required field
-	NodeId *string `type:"string" required:"true"`
+	NodeId *string `type:"string" json:",omitempty" required:"true"`
 
-	UpdateEndpointIds []*string `type:"list"`
+	UpdateEndpointIds []*string `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -212,7 +212,7 @@ func (s *ModifyReadOnlyNodeDelayReplicationTimeInput) SetUpdateEndpointIds(v []*
 }
 
 type ModifyReadOnlyNodeDelayReplicationTimeOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 }

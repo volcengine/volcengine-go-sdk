@@ -144,16 +144,16 @@ func (c *RDSMYSQLV2) DescribeDBInstanceParametersLogWithContext(ctx volcengine.C
 }
 
 type DescribeDBInstanceParametersLogInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// EndTime is a required field
-	EndTime *string `type:"string" required:"true"`
+	EndTime *string `type:"string" json:",omitempty" required:"true"`
 
 	// InstanceId is a required field
-	InstanceId *string `type:"string" required:"true"`
+	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 
 	// StartTime is a required field
-	StartTime *string `type:"string" required:"true"`
+	StartTime *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -204,13 +204,13 @@ func (s *DescribeDBInstanceParametersLogInput) SetStartTime(v string) *DescribeD
 }
 
 type DescribeDBInstanceParametersLogOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	ParameterChangeLogs []*ParameterChangeLogForDescribeDBInstanceParametersLogOutput `type:"list"`
+	ParameterChangeLogs []*ParameterChangeLogForDescribeDBInstanceParametersLogOutput `type:"list" json:",omitempty"`
 
-	Total *int32 `type:"int32"`
+	Total *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -236,17 +236,21 @@ func (s *DescribeDBInstanceParametersLogOutput) SetTotal(v int32) *DescribeDBIns
 }
 
 type ParameterChangeLogForDescribeDBInstanceParametersLogOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	ModifyTime *string `type:"string"`
+	CustomNodeIds []*string `type:"list" json:",omitempty"`
 
-	NewParameterValue *string `type:"string"`
+	ModifyTime *string `type:"string" json:",omitempty"`
 
-	OldParameterValue *string `type:"string"`
+	NewParameterValue *string `type:"string" json:",omitempty"`
 
-	ParameterName *string `type:"string"`
+	OldParameterValue *string `type:"string" json:",omitempty"`
 
-	Status *string `type:"string"`
+	ParamApplyScope *string `type:"string" json:",omitempty" enum:"EnumOfParamApplyScopeForDescribeDBInstanceParametersLogOutput"`
+
+	ParameterName *string `type:"string" json:",omitempty"`
+
+	Status *string `type:"string" json:",omitempty" enum:"EnumOfStatusForDescribeDBInstanceParametersLogOutput"`
 }
 
 // String returns the string representation
@@ -257,6 +261,12 @@ func (s ParameterChangeLogForDescribeDBInstanceParametersLogOutput) String() str
 // GoString returns the string representation
 func (s ParameterChangeLogForDescribeDBInstanceParametersLogOutput) GoString() string {
 	return s.String()
+}
+
+// SetCustomNodeIds sets the CustomNodeIds field's value.
+func (s *ParameterChangeLogForDescribeDBInstanceParametersLogOutput) SetCustomNodeIds(v []*string) *ParameterChangeLogForDescribeDBInstanceParametersLogOutput {
+	s.CustomNodeIds = v
+	return s
 }
 
 // SetModifyTime sets the ModifyTime field's value.
@@ -277,6 +287,12 @@ func (s *ParameterChangeLogForDescribeDBInstanceParametersLogOutput) SetOldParam
 	return s
 }
 
+// SetParamApplyScope sets the ParamApplyScope field's value.
+func (s *ParameterChangeLogForDescribeDBInstanceParametersLogOutput) SetParamApplyScope(v string) *ParameterChangeLogForDescribeDBInstanceParametersLogOutput {
+	s.ParamApplyScope = &v
+	return s
+}
+
 // SetParameterName sets the ParameterName field's value.
 func (s *ParameterChangeLogForDescribeDBInstanceParametersLogOutput) SetParameterName(v string) *ParameterChangeLogForDescribeDBInstanceParametersLogOutput {
 	s.ParameterName = &v
@@ -288,3 +304,28 @@ func (s *ParameterChangeLogForDescribeDBInstanceParametersLogOutput) SetStatus(v
 	s.Status = &v
 	return s
 }
+
+const (
+	// EnumOfParamApplyScopeForDescribeDBInstanceParametersLogOutputAllNode is a EnumOfParamApplyScopeForDescribeDBInstanceParametersLogOutput enum value
+	EnumOfParamApplyScopeForDescribeDBInstanceParametersLogOutputAllNode = "AllNode"
+
+	// EnumOfParamApplyScopeForDescribeDBInstanceParametersLogOutputOnlyMasterSlaveNode is a EnumOfParamApplyScopeForDescribeDBInstanceParametersLogOutput enum value
+	EnumOfParamApplyScopeForDescribeDBInstanceParametersLogOutputOnlyMasterSlaveNode = "OnlyMasterSlaveNode"
+
+	// EnumOfParamApplyScopeForDescribeDBInstanceParametersLogOutputOnlyReadOnlyNode is a EnumOfParamApplyScopeForDescribeDBInstanceParametersLogOutput enum value
+	EnumOfParamApplyScopeForDescribeDBInstanceParametersLogOutputOnlyReadOnlyNode = "OnlyReadOnlyNode"
+
+	// EnumOfParamApplyScopeForDescribeDBInstanceParametersLogOutputCustomNode is a EnumOfParamApplyScopeForDescribeDBInstanceParametersLogOutput enum value
+	EnumOfParamApplyScopeForDescribeDBInstanceParametersLogOutputCustomNode = "CustomNode"
+)
+
+const (
+	// EnumOfStatusForDescribeDBInstanceParametersLogOutputApplied is a EnumOfStatusForDescribeDBInstanceParametersLogOutput enum value
+	EnumOfStatusForDescribeDBInstanceParametersLogOutputApplied = "Applied"
+
+	// EnumOfStatusForDescribeDBInstanceParametersLogOutputInvalid is a EnumOfStatusForDescribeDBInstanceParametersLogOutput enum value
+	EnumOfStatusForDescribeDBInstanceParametersLogOutputInvalid = "Invalid"
+
+	// EnumOfStatusForDescribeDBInstanceParametersLogOutputSyncing is a EnumOfStatusForDescribeDBInstanceParametersLogOutput enum value
+	EnumOfStatusForDescribeDBInstanceParametersLogOutputSyncing = "Syncing"
+)

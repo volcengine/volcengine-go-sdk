@@ -144,19 +144,19 @@ func (c *RDSMYSQLV2) RestoreToExistedInstanceWithContext(ctx volcengine.Context,
 }
 
 type RestoreToExistedInstanceInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	BackupId *string `type:"string"`
+	BackupId *string `type:"string" json:",omitempty"`
 
-	RestoreTime *string `type:"string"`
+	RestoreTime *string `type:"string" json:",omitempty"`
 
 	// RestoreType is a required field
-	RestoreType *string `type:"string" required:"true"`
+	RestoreType *string `type:"string" json:",omitempty" required:"true"`
 
 	// SourceDBInstanceId is a required field
-	SourceDBInstanceId *string `type:"string" required:"true"`
+	SourceDBInstanceId *string `type:"string" json:",omitempty" required:"true"`
 
-	TableMeta []*TableMetaForRestoreToExistedInstanceInput `type:"list"`
+	TableMeta []*TableMetaForRestoreToExistedInstanceInput `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -216,7 +216,7 @@ func (s *RestoreToExistedInstanceInput) SetTableMeta(v []*TableMetaForRestoreToE
 }
 
 type RestoreToExistedInstanceOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 }
@@ -232,11 +232,11 @@ func (s RestoreToExistedInstanceOutput) GoString() string {
 }
 
 type TableForRestoreToExistedInstanceInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	NewTableName *string `type:"string"`
+	NewTableName *string `type:"string" json:",omitempty"`
 
-	TableName *string `type:"string"`
+	TableName *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -262,13 +262,13 @@ func (s *TableForRestoreToExistedInstanceInput) SetTableName(v string) *TableFor
 }
 
 type TableMetaForRestoreToExistedInstanceInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	DBName *string `type:"string"`
+	DBName *string `type:"string" json:",omitempty"`
 
-	NewDBName *string `type:"string"`
+	NewDBName *string `type:"string" json:",omitempty"`
 
-	Table []*TableForRestoreToExistedInstanceInput `type:"list"`
+	Table []*TableForRestoreToExistedInstanceInput `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation

@@ -144,19 +144,19 @@ func (c *RDSMYSQLV2) ListParameterTemplatesWithContext(ctx volcengine.Context, i
 }
 
 type ListParameterTemplatesInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Limit *int32 `type:"int32"`
+	Limit *int32 `type:"int32" json:",omitempty"`
 
-	Offset *int32 `type:"int32"`
+	Offset *int32 `type:"int32" json:",omitempty"`
 
-	TemplateCategory *string `type:"string"`
+	TemplateCategory *string `type:"string" json:",omitempty" enum:"EnumOfTemplateCategoryForListParameterTemplatesInput"`
 
-	TemplateSource *string `type:"string"`
+	TemplateSource *string `type:"string" json:",omitempty" enum:"EnumOfTemplateSourceForListParameterTemplatesInput"`
 
-	TemplateType *string `type:"string"`
+	TemplateType *string `type:"string" json:",omitempty" enum:"EnumOfTemplateTypeForListParameterTemplatesInput"`
 
-	TemplateTypeVersion *string `type:"string"`
+	TemplateTypeVersion *string `type:"string" json:",omitempty" enum:"EnumOfTemplateTypeVersionForListParameterTemplatesInput"`
 }
 
 // String returns the string representation
@@ -206,13 +206,13 @@ func (s *ListParameterTemplatesInput) SetTemplateTypeVersion(v string) *ListPara
 }
 
 type ListParameterTemplatesOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	TemplateInfos []*TemplateInfoForListParameterTemplatesOutput `type:"list"`
+	TemplateInfos []*TemplateInfoForListParameterTemplatesOutput `type:"list" json:",omitempty"`
 
-	Total *int32 `type:"int32"`
+	Total *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -238,35 +238,35 @@ func (s *ListParameterTemplatesOutput) SetTotal(v int32) *ListParameterTemplates
 }
 
 type TemplateInfoForListParameterTemplatesOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	AccountId *string `type:"string"`
+	AccountId *string `type:"string" json:",omitempty"`
 
-	CreateTime *string `type:"string"`
+	CreateTime *string `type:"string" json:",omitempty"`
 
-	NeedRestart *bool `type:"boolean"`
+	NeedRestart *bool `type:"boolean" json:",omitempty"`
 
-	ParameterNum *int64 `type:"int64"`
+	ParameterNum *int64 `type:"int64" json:",omitempty"`
 
-	ProjectName *string `type:"string"`
+	ProjectName *string `type:"string" json:",omitempty"`
 
-	TemplateCategory *string `type:"string"`
+	TemplateCategory *string `type:"string" json:",omitempty" enum:"EnumOfTemplateCategoryForListParameterTemplatesOutput"`
 
-	TemplateDesc *string `type:"string"`
+	TemplateDesc *string `type:"string" json:",omitempty"`
 
-	TemplateId *string `type:"string"`
+	TemplateId *string `type:"string" json:",omitempty"`
 
-	TemplateName *string `type:"string"`
+	TemplateName *string `type:"string" json:",omitempty"`
 
-	TemplateParams []*TemplateParamForListParameterTemplatesOutput `type:"list"`
+	TemplateParams []*TemplateParamForListParameterTemplatesOutput `type:"list" json:",omitempty"`
 
-	TemplateSource *string `type:"string"`
+	TemplateSource *string `type:"string" json:",omitempty" enum:"EnumOfTemplateSourceForListParameterTemplatesOutput"`
 
-	TemplateType *string `type:"string"`
+	TemplateType *string `type:"string" json:",omitempty" enum:"EnumOfTemplateTypeForListParameterTemplatesOutput"`
 
-	TemplateTypeVersion *string `type:"string"`
+	TemplateTypeVersion *string `type:"string" json:",omitempty" enum:"EnumOfTemplateTypeVersionForListParameterTemplatesOutput"`
 
-	UpdateTime *string `type:"string"`
+	UpdateTime *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -364,19 +364,23 @@ func (s *TemplateInfoForListParameterTemplatesOutput) SetUpdateTime(v string) *T
 }
 
 type TemplateParamForListParameterTemplatesOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	DefaultValue *string `type:"string"`
+	DefaultValue *string `type:"string" json:",omitempty"`
 
-	Description *string `type:"string"`
+	Description *string `type:"string" json:",omitempty"`
 
-	Name *string `type:"string"`
+	ExpectValue *string `type:"string" json:",omitempty"`
 
-	Restart *bool `type:"boolean"`
+	Expression *string `type:"string" json:",omitempty"`
 
-	RunningValue *string `type:"string"`
+	Name *string `type:"string" json:",omitempty"`
 
-	ValueRange *string `type:"string"`
+	Restart *bool `type:"boolean" json:",omitempty"`
+
+	RunningValue *string `type:"string" json:",omitempty"`
+
+	ValueRange *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -398,6 +402,18 @@ func (s *TemplateParamForListParameterTemplatesOutput) SetDefaultValue(v string)
 // SetDescription sets the Description field's value.
 func (s *TemplateParamForListParameterTemplatesOutput) SetDescription(v string) *TemplateParamForListParameterTemplatesOutput {
 	s.Description = &v
+	return s
+}
+
+// SetExpectValue sets the ExpectValue field's value.
+func (s *TemplateParamForListParameterTemplatesOutput) SetExpectValue(v string) *TemplateParamForListParameterTemplatesOutput {
+	s.ExpectValue = &v
+	return s
+}
+
+// SetExpression sets the Expression field's value.
+func (s *TemplateParamForListParameterTemplatesOutput) SetExpression(v string) *TemplateParamForListParameterTemplatesOutput {
+	s.Expression = &v
 	return s
 }
 
@@ -424,3 +440,97 @@ func (s *TemplateParamForListParameterTemplatesOutput) SetValueRange(v string) *
 	s.ValueRange = &v
 	return s
 }
+
+const (
+	// EnumOfTemplateCategoryForListParameterTemplatesInputDbengine is a EnumOfTemplateCategoryForListParameterTemplatesInput enum value
+	EnumOfTemplateCategoryForListParameterTemplatesInputDbengine = "DBEngine"
+
+	// EnumOfTemplateCategoryForListParameterTemplatesInputProxy is a EnumOfTemplateCategoryForListParameterTemplatesInput enum value
+	EnumOfTemplateCategoryForListParameterTemplatesInputProxy = "Proxy"
+)
+
+const (
+	// EnumOfTemplateCategoryForListParameterTemplatesOutputDbengine is a EnumOfTemplateCategoryForListParameterTemplatesOutput enum value
+	EnumOfTemplateCategoryForListParameterTemplatesOutputDbengine = "DBEngine"
+
+	// EnumOfTemplateCategoryForListParameterTemplatesOutputProxy is a EnumOfTemplateCategoryForListParameterTemplatesOutput enum value
+	EnumOfTemplateCategoryForListParameterTemplatesOutputProxy = "Proxy"
+)
+
+const (
+	// EnumOfTemplateSourceForListParameterTemplatesInputSystem is a EnumOfTemplateSourceForListParameterTemplatesInput enum value
+	EnumOfTemplateSourceForListParameterTemplatesInputSystem = "System"
+
+	// EnumOfTemplateSourceForListParameterTemplatesInputUser is a EnumOfTemplateSourceForListParameterTemplatesInput enum value
+	EnumOfTemplateSourceForListParameterTemplatesInputUser = "User"
+)
+
+const (
+	// EnumOfTemplateSourceForListParameterTemplatesOutputSystem is a EnumOfTemplateSourceForListParameterTemplatesOutput enum value
+	EnumOfTemplateSourceForListParameterTemplatesOutputSystem = "System"
+
+	// EnumOfTemplateSourceForListParameterTemplatesOutputUser is a EnumOfTemplateSourceForListParameterTemplatesOutput enum value
+	EnumOfTemplateSourceForListParameterTemplatesOutputUser = "User"
+)
+
+const (
+	// EnumOfTemplateTypeForListParameterTemplatesInputMysql is a EnumOfTemplateTypeForListParameterTemplatesInput enum value
+	EnumOfTemplateTypeForListParameterTemplatesInputMysql = "Mysql"
+
+	// EnumOfTemplateTypeForListParameterTemplatesInputPostgresql is a EnumOfTemplateTypeForListParameterTemplatesInput enum value
+	EnumOfTemplateTypeForListParameterTemplatesInputPostgresql = "Postgresql"
+
+	// EnumOfTemplateTypeForListParameterTemplatesInputSqlserver is a EnumOfTemplateTypeForListParameterTemplatesInput enum value
+	EnumOfTemplateTypeForListParameterTemplatesInputSqlserver = "Sqlserver"
+)
+
+const (
+	// EnumOfTemplateTypeForListParameterTemplatesOutputMysql is a EnumOfTemplateTypeForListParameterTemplatesOutput enum value
+	EnumOfTemplateTypeForListParameterTemplatesOutputMysql = "Mysql"
+
+	// EnumOfTemplateTypeForListParameterTemplatesOutputPostgresql is a EnumOfTemplateTypeForListParameterTemplatesOutput enum value
+	EnumOfTemplateTypeForListParameterTemplatesOutputPostgresql = "Postgresql"
+
+	// EnumOfTemplateTypeForListParameterTemplatesOutputSqlserver is a EnumOfTemplateTypeForListParameterTemplatesOutput enum value
+	EnumOfTemplateTypeForListParameterTemplatesOutputSqlserver = "Sqlserver"
+)
+
+const (
+	// EnumOfTemplateTypeVersionForListParameterTemplatesInputMySql57 is a EnumOfTemplateTypeVersionForListParameterTemplatesInput enum value
+	EnumOfTemplateTypeVersionForListParameterTemplatesInputMySql57 = "MySQL_5_7"
+
+	// EnumOfTemplateTypeVersionForListParameterTemplatesInputMySql80 is a EnumOfTemplateTypeVersionForListParameterTemplatesInput enum value
+	EnumOfTemplateTypeVersionForListParameterTemplatesInputMySql80 = "MySQL_8_0"
+
+	// EnumOfTemplateTypeVersionForListParameterTemplatesInputMySql56 is a EnumOfTemplateTypeVersionForListParameterTemplatesInput enum value
+	EnumOfTemplateTypeVersionForListParameterTemplatesInputMySql56 = "MySQL_5_6"
+
+	// EnumOfTemplateTypeVersionForListParameterTemplatesInputSqlserver2019Ent is a EnumOfTemplateTypeVersionForListParameterTemplatesInput enum value
+	EnumOfTemplateTypeVersionForListParameterTemplatesInputSqlserver2019Ent = "SQLServer_2019_Ent"
+
+	// EnumOfTemplateTypeVersionForListParameterTemplatesInputSqlserver2019Std is a EnumOfTemplateTypeVersionForListParameterTemplatesInput enum value
+	EnumOfTemplateTypeVersionForListParameterTemplatesInputSqlserver2019Std = "SQLServer_2019_Std"
+
+	// EnumOfTemplateTypeVersionForListParameterTemplatesInputSqlserver2019Web is a EnumOfTemplateTypeVersionForListParameterTemplatesInput enum value
+	EnumOfTemplateTypeVersionForListParameterTemplatesInputSqlserver2019Web = "SQLServer_2019_Web"
+)
+
+const (
+	// EnumOfTemplateTypeVersionForListParameterTemplatesOutputMySql57 is a EnumOfTemplateTypeVersionForListParameterTemplatesOutput enum value
+	EnumOfTemplateTypeVersionForListParameterTemplatesOutputMySql57 = "MySQL_5_7"
+
+	// EnumOfTemplateTypeVersionForListParameterTemplatesOutputMySql80 is a EnumOfTemplateTypeVersionForListParameterTemplatesOutput enum value
+	EnumOfTemplateTypeVersionForListParameterTemplatesOutputMySql80 = "MySQL_8_0"
+
+	// EnumOfTemplateTypeVersionForListParameterTemplatesOutputMySql56 is a EnumOfTemplateTypeVersionForListParameterTemplatesOutput enum value
+	EnumOfTemplateTypeVersionForListParameterTemplatesOutputMySql56 = "MySQL_5_6"
+
+	// EnumOfTemplateTypeVersionForListParameterTemplatesOutputSqlserver2019Ent is a EnumOfTemplateTypeVersionForListParameterTemplatesOutput enum value
+	EnumOfTemplateTypeVersionForListParameterTemplatesOutputSqlserver2019Ent = "SQLServer_2019_Ent"
+
+	// EnumOfTemplateTypeVersionForListParameterTemplatesOutputSqlserver2019Std is a EnumOfTemplateTypeVersionForListParameterTemplatesOutput enum value
+	EnumOfTemplateTypeVersionForListParameterTemplatesOutputSqlserver2019Std = "SQLServer_2019_Std"
+
+	// EnumOfTemplateTypeVersionForListParameterTemplatesOutputSqlserver2019Web is a EnumOfTemplateTypeVersionForListParameterTemplatesOutput enum value
+	EnumOfTemplateTypeVersionForListParameterTemplatesOutputSqlserver2019Web = "SQLServer_2019_Web"
+)

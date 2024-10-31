@@ -144,14 +144,14 @@ func (c *RDSMYSQLV2) MigrateToOtherZoneWithContext(ctx volcengine.Context, input
 }
 
 type MigrateToOtherZoneInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// InstanceId is a required field
-	InstanceId *string `type:"string" required:"true"`
+	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 
-	NodeInfo []*NodeInfoForMigrateToOtherZoneInput `type:"list"`
+	NodeInfo []*NodeInfoForMigrateToOtherZoneInput `type:"list" json:",omitempty"`
 
-	SwitchType *string `type:"string"`
+	SwitchType *string `type:"string" json:",omitempty" enum:"EnumOfSwitchTypeForMigrateToOtherZoneInput"`
 }
 
 // String returns the string representation
@@ -196,13 +196,13 @@ func (s *MigrateToOtherZoneInput) SetSwitchType(v string) *MigrateToOtherZoneInp
 }
 
 type MigrateToOtherZoneOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	InstanceId *string `type:"string"`
+	InstanceId *string `type:"string" json:",omitempty"`
 
-	OrderId *string `type:"string"`
+	OrderId *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -228,17 +228,17 @@ func (s *MigrateToOtherZoneOutput) SetOrderId(v string) *MigrateToOtherZoneOutpu
 }
 
 type NodeInfoForMigrateToOtherZoneInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	NodeId *string `type:"string"`
+	NodeId *string `type:"string" json:",omitempty"`
 
-	NodeOperateType *string `type:"string"`
+	NodeOperateType *string `type:"string" json:",omitempty"`
 
-	NodeSpec *string `type:"string"`
+	NodeSpec *string `type:"string" json:",omitempty"`
 
-	NodeType *string `type:"string"`
+	NodeType *string `type:"string" json:",omitempty"`
 
-	ZoneId *string `type:"string"`
+	ZoneId *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -280,3 +280,14 @@ func (s *NodeInfoForMigrateToOtherZoneInput) SetZoneId(v string) *NodeInfoForMig
 	s.ZoneId = &v
 	return s
 }
+
+const (
+	// EnumOfSwitchTypeForMigrateToOtherZoneInputImmediate is a EnumOfSwitchTypeForMigrateToOtherZoneInput enum value
+	EnumOfSwitchTypeForMigrateToOtherZoneInputImmediate = "Immediate"
+
+	// EnumOfSwitchTypeForMigrateToOtherZoneInputMaintainTime is a EnumOfSwitchTypeForMigrateToOtherZoneInput enum value
+	EnumOfSwitchTypeForMigrateToOtherZoneInputMaintainTime = "MaintainTime"
+
+	// EnumOfSwitchTypeForMigrateToOtherZoneInputSpecifiedTime is a EnumOfSwitchTypeForMigrateToOtherZoneInput enum value
+	EnumOfSwitchTypeForMigrateToOtherZoneInputSpecifiedTime = "SpecifiedTime"
+)

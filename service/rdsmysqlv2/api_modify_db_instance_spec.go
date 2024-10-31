@@ -144,20 +144,21 @@ func (c *RDSMYSQLV2) ModifyDBInstanceSpecWithContext(ctx volcengine.Context, inp
 }
 
 type ModifyDBInstanceSpecInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// InstanceId is a required field
-	InstanceId *string `type:"string" required:"true"`
+	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 
-	ModifyType *string `type:"string"`
+	ModifyType *string `type:"string" json:",omitempty" enum:"EnumOfModifyTypeForModifyDBInstanceSpecInput"`
 
-	NodeInfo []*NodeInfoForModifyDBInstanceSpecInput `type:"list"`
+	NodeInfo []*NodeInfoForModifyDBInstanceSpecInput `type:"list" json:",omitempty"`
 
-	StorageSpace *int32 `type:"int32"`
+	StorageSpace *int32 `type:"int32" json:",omitempty"`
 
-	StorageType *string `type:"string"`
+	// StorageType is a required field
+	StorageType *string `type:"string" json:",omitempty" required:"true" enum:"EnumOfStorageTypeForModifyDBInstanceSpecInput"`
 
-	SwitchType *string `type:"string"`
+	SwitchType *string `type:"string" json:",omitempty" enum:"EnumOfSwitchTypeForModifyDBInstanceSpecInput"`
 }
 
 // String returns the string representation
@@ -175,6 +176,9 @@ func (s *ModifyDBInstanceSpecInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "ModifyDBInstanceSpecInput"}
 	if s.InstanceId == nil {
 		invalidParams.Add(request.NewErrParamRequired("InstanceId"))
+	}
+	if s.StorageType == nil {
+		invalidParams.Add(request.NewErrParamRequired("StorageType"))
 	}
 
 	if invalidParams.Len() > 0 {
@@ -220,13 +224,13 @@ func (s *ModifyDBInstanceSpecInput) SetSwitchType(v string) *ModifyDBInstanceSpe
 }
 
 type ModifyDBInstanceSpecOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	InstanceId *string `type:"string"`
+	InstanceId *string `type:"string" json:",omitempty"`
 
-	OrderId *string `type:"string"`
+	OrderId *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -252,17 +256,17 @@ func (s *ModifyDBInstanceSpecOutput) SetOrderId(v string) *ModifyDBInstanceSpecO
 }
 
 type NodeInfoForModifyDBInstanceSpecInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	NodeId *string `type:"string"`
+	NodeId *string `type:"string" json:",omitempty"`
 
-	NodeOperateType *string `type:"string"`
+	NodeOperateType *string `type:"string" json:",omitempty"`
 
-	NodeSpec *string `type:"string"`
+	NodeSpec *string `type:"string" json:",omitempty"`
 
-	NodeType *string `type:"string"`
+	NodeType *string `type:"string" json:",omitempty"`
 
-	ZoneId *string `type:"string"`
+	ZoneId *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -304,3 +308,36 @@ func (s *NodeInfoForModifyDBInstanceSpecInput) SetZoneId(v string) *NodeInfoForM
 	s.ZoneId = &v
 	return s
 }
+
+const (
+	// EnumOfModifyTypeForModifyDBInstanceSpecInputUsually is a EnumOfModifyTypeForModifyDBInstanceSpecInput enum value
+	EnumOfModifyTypeForModifyDBInstanceSpecInputUsually = "Usually"
+
+	// EnumOfModifyTypeForModifyDBInstanceSpecInputTemporary is a EnumOfModifyTypeForModifyDBInstanceSpecInput enum value
+	EnumOfModifyTypeForModifyDBInstanceSpecInputTemporary = "Temporary"
+)
+
+const (
+	// EnumOfStorageTypeForModifyDBInstanceSpecInputLocalSsd is a EnumOfStorageTypeForModifyDBInstanceSpecInput enum value
+	EnumOfStorageTypeForModifyDBInstanceSpecInputLocalSsd = "LocalSSD"
+
+	// EnumOfStorageTypeForModifyDBInstanceSpecInputCloudStorage is a EnumOfStorageTypeForModifyDBInstanceSpecInput enum value
+	EnumOfStorageTypeForModifyDBInstanceSpecInputCloudStorage = "CloudStorage"
+
+	// EnumOfStorageTypeForModifyDBInstanceSpecInputEssdpl1 is a EnumOfStorageTypeForModifyDBInstanceSpecInput enum value
+	EnumOfStorageTypeForModifyDBInstanceSpecInputEssdpl1 = "ESSDPL1"
+
+	// EnumOfStorageTypeForModifyDBInstanceSpecInputEssdpl2 is a EnumOfStorageTypeForModifyDBInstanceSpecInput enum value
+	EnumOfStorageTypeForModifyDBInstanceSpecInputEssdpl2 = "ESSDPL2"
+)
+
+const (
+	// EnumOfSwitchTypeForModifyDBInstanceSpecInputImmediate is a EnumOfSwitchTypeForModifyDBInstanceSpecInput enum value
+	EnumOfSwitchTypeForModifyDBInstanceSpecInputImmediate = "Immediate"
+
+	// EnumOfSwitchTypeForModifyDBInstanceSpecInputMaintainTime is a EnumOfSwitchTypeForModifyDBInstanceSpecInput enum value
+	EnumOfSwitchTypeForModifyDBInstanceSpecInputMaintainTime = "MaintainTime"
+
+	// EnumOfSwitchTypeForModifyDBInstanceSpecInputSpecifiedTime is a EnumOfSwitchTypeForModifyDBInstanceSpecInput enum value
+	EnumOfSwitchTypeForModifyDBInstanceSpecInputSpecifiedTime = "SpecifiedTime"
+)
