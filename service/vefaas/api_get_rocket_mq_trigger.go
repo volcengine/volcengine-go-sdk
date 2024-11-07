@@ -144,13 +144,13 @@ func (c *VEFAAS) GetRocketMQTriggerWithContext(ctx volcengine.Context, input *Ge
 }
 
 type GetRocketMQTriggerInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// FunctionId is a required field
-	FunctionId *string `type:"string" required:"true"`
+	FunctionId *string `type:"string" json:",omitempty" required:"true"`
 
 	// Id is a required field
-	Id *string `type:"string" required:"true"`
+	Id *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -192,41 +192,41 @@ func (s *GetRocketMQTriggerInput) SetId(v string) *GetRocketMQTriggerInput {
 }
 
 type GetRocketMQTriggerOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	ConsumerGroup *string `type:"string"`
+	ConsumerGroup *string `type:"string" json:",omitempty"`
 
-	CreationTime *string `type:"string"`
+	CreationTime *string `type:"string" json:",omitempty"`
 
-	Description *string `type:"string"`
+	Description *string `type:"string" json:",omitempty"`
 
-	Enabled *bool `type:"boolean"`
+	Enabled *bool `type:"boolean" json:",omitempty"`
 
-	Endpoint *string `type:"string"`
+	Endpoint *string `type:"string" json:",omitempty"`
 
-	FunctionId *string `type:"string"`
+	FunctionId *string `type:"string" json:",omitempty"`
 
-	Id *string `type:"string"`
+	Id *string `type:"string" json:",omitempty"`
 
-	LastUpdateTime *string `type:"string"`
+	LastUpdateTime *string `type:"string" json:",omitempty"`
 
-	MaximumRetryAttempts *int32 `type:"int32"`
+	MaximumRetryAttempts *int32 `type:"int32" json:",omitempty"`
 
-	MqInstanceId *string `type:"string"`
+	MqInstanceId *string `type:"string" json:",omitempty"`
 
-	Name *string `type:"string"`
+	Name *string `type:"string" json:",omitempty"`
 
-	Orderly *bool `type:"boolean"`
+	Orderly *bool `type:"boolean" json:",omitempty"`
 
-	QPSLimit *int32 `type:"int32"`
+	QPSLimit *int32 `type:"int32" json:",omitempty"`
 
-	StartingPosition *string `type:"string"`
+	StartingPosition *string `type:"string" json:",omitempty"`
 
-	Status *string `type:"string"`
+	Status *string `type:"string" json:",omitempty"`
 
-	TopicName *string `type:"string"`
+	TopicName *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
