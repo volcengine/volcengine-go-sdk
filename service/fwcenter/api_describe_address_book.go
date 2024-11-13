@@ -144,19 +144,19 @@ func (c *FWCENTER) DescribeAddressBookWithContext(ctx volcengine.Context, input 
 }
 
 type DataForDescribeAddressBookOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	AddressList []*string `type:"list"`
+	AddressList []*string `type:"list" json:",omitempty"`
 
-	Description *string `type:"string"`
+	Description *string `type:"string" json:",omitempty"`
 
-	GroupName *string `type:"string"`
+	GroupName *string `type:"string" json:",omitempty"`
 
-	GroupType *string `type:"string"`
+	GroupType *string `type:"string" json:",omitempty"`
 
-	GroupUuid *string `type:"string"`
+	GroupUuid *string `type:"string" json:",omitempty"`
 
-	RefCnt *int32 `type:"int32"`
+	RefCnt *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -206,15 +206,15 @@ func (s *DataForDescribeAddressBookOutput) SetRefCnt(v int32) *DataForDescribeAd
 }
 
 type DescribeAddressBookInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	GroupType *string `type:"string"`
+	GroupType *string `type:"string" json:",omitempty" enum:"EnumOfGroupTypeForDescribeAddressBookInput"`
 
-	PageNumber *int32 `type:"int32"`
+	PageNumber *int32 `max:"100" type:"int32" json:",omitempty"`
 
-	PageSize *int32 `type:"int32"`
+	PageSize *int32 `type:"int32" json:",omitempty"`
 
-	Query *string `type:"string"`
+	Query *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -225,6 +225,19 @@ func (s DescribeAddressBookInput) String() string {
 // GoString returns the string representation
 func (s DescribeAddressBookInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DescribeAddressBookInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DescribeAddressBookInput"}
+	if s.PageNumber != nil && *s.PageNumber > 100 {
+		invalidParams.Add(request.NewErrParamMaxValue("PageNumber", 100))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetGroupType sets the GroupType field's value.
@@ -252,19 +265,19 @@ func (s *DescribeAddressBookInput) SetQuery(v string) *DescribeAddressBookInput 
 }
 
 type DescribeAddressBookOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	Count *int32 `type:"int32"`
+	Count *int32 `type:"int32" json:",omitempty"`
 
-	Data []*DataForDescribeAddressBookOutput `type:"list"`
+	Data []*DataForDescribeAddressBookOutput `type:"list" json:",omitempty"`
 
-	PageNumber *int32 `type:"int32"`
+	PageNumber *int32 `type:"int32" json:",omitempty"`
 
-	PageSize *int32 `type:"int32"`
+	PageSize *int32 `type:"int32" json:",omitempty"`
 
-	TotalCount *int32 `type:"int32"`
+	TotalCount *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -306,3 +319,14 @@ func (s *DescribeAddressBookOutput) SetTotalCount(v int32) *DescribeAddressBookO
 	s.TotalCount = &v
 	return s
 }
+
+const (
+	// EnumOfGroupTypeForDescribeAddressBookInputIp is a EnumOfGroupTypeForDescribeAddressBookInput enum value
+	EnumOfGroupTypeForDescribeAddressBookInputIp = "ip"
+
+	// EnumOfGroupTypeForDescribeAddressBookInputPort is a EnumOfGroupTypeForDescribeAddressBookInput enum value
+	EnumOfGroupTypeForDescribeAddressBookInputPort = "port"
+
+	// EnumOfGroupTypeForDescribeAddressBookInputDomain is a EnumOfGroupTypeForDescribeAddressBookInput enum value
+	EnumOfGroupTypeForDescribeAddressBookInputDomain = "domain"
+)

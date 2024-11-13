@@ -144,12 +144,12 @@ func (c *FWCENTER) UpdateDnsControlPolicySwitchWithContext(ctx volcengine.Contex
 }
 
 type UpdateDnsControlPolicySwitchInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// RuleId is a required field
-	RuleId *string `type:"string" required:"true"`
+	RuleId *string `type:"string" json:",omitempty" required:"true"`
 
-	Status *bool `type:"boolean"`
+	Status *bool `type:"boolean" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -188,9 +188,11 @@ func (s *UpdateDnsControlPolicySwitchInput) SetStatus(v bool) *UpdateDnsControlP
 }
 
 type UpdateDnsControlPolicySwitchOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
+
+	RuleId *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -201,4 +203,10 @@ func (s UpdateDnsControlPolicySwitchOutput) String() string {
 // GoString returns the string representation
 func (s UpdateDnsControlPolicySwitchOutput) GoString() string {
 	return s.String()
+}
+
+// SetRuleId sets the RuleId field's value.
+func (s *UpdateDnsControlPolicySwitchOutput) SetRuleId(v string) *UpdateDnsControlPolicySwitchOutput {
+	s.RuleId = &v
+	return s
 }

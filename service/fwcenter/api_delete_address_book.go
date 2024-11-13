@@ -144,10 +144,10 @@ func (c *FWCENTER) DeleteAddressBookWithContext(ctx volcengine.Context, input *D
 }
 
 type DeleteAddressBookInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// GroupUuid is a required field
-	GroupUuid *string `type:"string" required:"true"`
+	GroupUuid *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -180,9 +180,11 @@ func (s *DeleteAddressBookInput) SetGroupUuid(v string) *DeleteAddressBookInput 
 }
 
 type DeleteAddressBookOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
+
+	GroupUuid *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -193,4 +195,10 @@ func (s DeleteAddressBookOutput) String() string {
 // GoString returns the string representation
 func (s DeleteAddressBookOutput) GoString() string {
 	return s.String()
+}
+
+// SetGroupUuid sets the GroupUuid field's value.
+func (s *DeleteAddressBookOutput) SetGroupUuid(v string) *DeleteAddressBookOutput {
+	s.GroupUuid = &v
+	return s
 }

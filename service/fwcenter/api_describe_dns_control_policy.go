@@ -144,31 +144,31 @@ func (c *FWCENTER) DescribeDnsControlPolicyWithContext(ctx volcengine.Context, i
 }
 
 type DataForDescribeDnsControlPolicyOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	AccountId *string `type:"string"`
+	AccountId *string `type:"string" json:",omitempty"`
 
-	Description *string `type:"string"`
+	Description *string `type:"string" json:",omitempty"`
 
-	Destination *string `type:"string"`
+	Destination *string `type:"string" json:",omitempty"`
 
-	DestinationGroupList []*string `type:"list"`
+	DestinationGroupList []*string `type:"list" json:",omitempty"`
 
-	DestinationType *string `type:"string"`
+	DestinationType *string `type:"string" json:",omitempty"`
 
-	DomainList []*string `type:"list"`
+	DomainList []*string `type:"list" json:",omitempty"`
 
-	HitCnt *int32 `type:"int32"`
+	HitCnt *int32 `type:"int32" json:",omitempty"`
 
-	LastHitTime *int32 `type:"int32"`
+	LastHitTime *int32 `type:"int32" json:",omitempty"`
 
-	RuleId *string `type:"string"`
+	RuleId *string `type:"string" json:",omitempty"`
 
-	Source []*SourceForDescribeDnsControlPolicyOutput `type:"list"`
+	Source []*SourceForDescribeDnsControlPolicyOutput `type:"list" json:",omitempty"`
 
-	Status *bool `type:"boolean"`
+	Status *bool `type:"boolean" json:",omitempty"`
 
-	UseCount *int32 `type:"int32"`
+	UseCount *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -254,21 +254,21 @@ func (s *DataForDescribeDnsControlPolicyOutput) SetUseCount(v int32) *DataForDes
 }
 
 type DescribeDnsControlPolicyInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Description *string `type:"string"`
+	Description *string `type:"string" json:",omitempty"`
 
-	Destination []*string `type:"list"`
+	Destination []*string `type:"list" json:",omitempty"`
 
-	PageNumber *int32 `type:"int32"`
+	PageNumber *int32 `type:"int32" json:",omitempty"`
 
-	PageSize *int32 `type:"int32"`
+	PageSize *int32 `max:"100" type:"int32" json:",omitempty"`
 
-	RuleId []*string `type:"list"`
+	RuleId []*string `type:"list" json:",omitempty"`
 
-	Source []*string `type:"list"`
+	Source []*string `type:"list" json:",omitempty"`
 
-	Status []*bool `type:"list"`
+	Status []*bool `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -279,6 +279,19 @@ func (s DescribeDnsControlPolicyInput) String() string {
 // GoString returns the string representation
 func (s DescribeDnsControlPolicyInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DescribeDnsControlPolicyInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DescribeDnsControlPolicyInput"}
+	if s.PageSize != nil && *s.PageSize > 100 {
+		invalidParams.Add(request.NewErrParamMaxValue("PageSize", 100))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetDescription sets the Description field's value.
@@ -324,19 +337,19 @@ func (s *DescribeDnsControlPolicyInput) SetStatus(v []*bool) *DescribeDnsControl
 }
 
 type DescribeDnsControlPolicyOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	Count *int32 `type:"int32"`
+	Count *int32 `type:"int32" json:",omitempty"`
 
-	Data []*DataForDescribeDnsControlPolicyOutput `type:"list"`
+	Data []*DataForDescribeDnsControlPolicyOutput `type:"list" json:",omitempty"`
 
-	PageNumber *int32 `type:"int32"`
+	PageNumber *int32 `type:"int32" json:",omitempty"`
 
-	PageSize *int32 `type:"int32"`
+	PageSize *int32 `type:"int32" json:",omitempty"`
 
-	TotalCount *int32 `type:"int32"`
+	TotalCount *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -380,11 +393,11 @@ func (s *DescribeDnsControlPolicyOutput) SetTotalCount(v int32) *DescribeDnsCont
 }
 
 type SourceForDescribeDnsControlPolicyOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Region *string `type:"string"`
+	Region *string `type:"string" json:",omitempty"`
 
-	VpcId *string `type:"string"`
+	VpcId *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation

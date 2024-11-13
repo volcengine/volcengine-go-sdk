@@ -144,12 +144,11 @@ func (c *FWCENTER) UpdateAssetsWithContext(ctx volcengine.Context, input *Update
 }
 
 type UpdateAssetsInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Asset_ips []*string `type:"list" json:"asset_ips"`
+	Asset_ips []*string `type:"list" json:"asset_ips,omitempty"`
 
-	// Enable is a required field
-	Enable *bool `type:"boolean" json:"enable" required:"true"`
+	Enable *bool `type:"boolean" json:"enable,omitempty"`
 }
 
 // String returns the string representation
@@ -160,19 +159,6 @@ func (s UpdateAssetsInput) String() string {
 // GoString returns the string representation
 func (s UpdateAssetsInput) GoString() string {
 	return s.String()
-}
-
-// Validate inspects the fields of the type to determine if they are valid.
-func (s *UpdateAssetsInput) Validate() error {
-	invalidParams := request.ErrInvalidParams{Context: "UpdateAssetsInput"}
-	if s.Enable == nil {
-		invalidParams.Add(request.NewErrParamRequired("Enable"))
-	}
-
-	if invalidParams.Len() > 0 {
-		return invalidParams
-	}
-	return nil
 }
 
 // SetAsset_ips sets the Asset_ips field's value.
@@ -188,7 +174,7 @@ func (s *UpdateAssetsInput) SetEnable(v bool) *UpdateAssetsInput {
 }
 
 type UpdateAssetsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 }

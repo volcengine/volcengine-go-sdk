@@ -144,17 +144,17 @@ func (c *FWCENTER) AddAddressBookWithContext(ctx volcengine.Context, input *AddA
 }
 
 type AddAddressBookInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	AddressList []*string `type:"list"`
+	AddressList []*string `type:"list" json:",omitempty"`
 
-	Description *string `type:"string"`
+	Description *string `type:"string" json:",omitempty"`
 
 	// GroupName is a required field
-	GroupName *string `type:"string" required:"true"`
+	GroupName *string `max:"64" type:"string" json:",omitempty" required:"true"`
 
 	// GroupType is a required field
-	GroupType *string `type:"string" required:"true"`
+	GroupType *string `type:"string" json:",omitempty" required:"true" enum:"EnumOfGroupTypeForAddAddressBookInput"`
 }
 
 // String returns the string representation
@@ -172,6 +172,9 @@ func (s *AddAddressBookInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "AddAddressBookInput"}
 	if s.GroupName == nil {
 		invalidParams.Add(request.NewErrParamRequired("GroupName"))
+	}
+	if s.GroupName != nil && len(*s.GroupName) > 64 {
+		invalidParams.Add(request.NewErrParamMaxLen("GroupName", 64, *s.GroupName))
 	}
 	if s.GroupType == nil {
 		invalidParams.Add(request.NewErrParamRequired("GroupType"))
@@ -208,11 +211,11 @@ func (s *AddAddressBookInput) SetGroupType(v string) *AddAddressBookInput {
 }
 
 type AddAddressBookOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	GroupUuid *string `type:"string"`
+	GroupUuid *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -230,3 +233,14 @@ func (s *AddAddressBookOutput) SetGroupUuid(v string) *AddAddressBookOutput {
 	s.GroupUuid = &v
 	return s
 }
+
+const (
+	// EnumOfGroupTypeForAddAddressBookInputIp is a EnumOfGroupTypeForAddAddressBookInput enum value
+	EnumOfGroupTypeForAddAddressBookInputIp = "ip"
+
+	// EnumOfGroupTypeForAddAddressBookInputDomain is a EnumOfGroupTypeForAddAddressBookInput enum value
+	EnumOfGroupTypeForAddAddressBookInputDomain = "domain"
+
+	// EnumOfGroupTypeForAddAddressBookInputPort is a EnumOfGroupTypeForAddAddressBookInput enum value
+	EnumOfGroupTypeForAddAddressBookInputPort = "port"
+)

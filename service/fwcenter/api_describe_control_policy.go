@@ -144,51 +144,69 @@ func (c *FWCENTER) DescribeControlPolicyWithContext(ctx volcengine.Context, inpu
 }
 
 type DataForDescribeControlPolicyOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	AccountId *string `type:"string"`
+	AccountId *string `type:"string" json:",omitempty"`
 
-	Action *string `type:"string"`
+	Action *string `type:"string" json:",omitempty"`
 
-	Description *string `type:"string"`
+	Description *string `type:"string" json:",omitempty"`
 
-	DestPort *string `type:"string"`
+	DestPort *string `type:"string" json:",omitempty"`
 
-	DestPortGroupType *string `type:"string"`
+	DestPortGroupType *string `type:"string" json:",omitempty"`
 
-	DestPortList []*string `type:"list"`
+	DestPortList []*string `type:"list" json:",omitempty"`
 
-	DestPortType *string `type:"string"`
+	DestPortType *string `type:"string" json:",omitempty"`
 
-	Destination *string `type:"string"`
+	Destination *string `type:"string" json:",omitempty"`
 
-	DestinationCidrList []*string `type:"list"`
+	DestinationCidrList []*string `type:"list" json:",omitempty"`
 
-	DestinationGroupType *string `type:"string"`
+	DestinationGroupType *string `type:"string" json:",omitempty"`
 
-	DestinationType *string `type:"string"`
+	DestinationType *string `type:"string" json:",omitempty"`
 
-	Direction *string `type:"string"`
+	Direction *string `type:"string" json:",omitempty"`
 
-	HitCnt *int32 `type:"int32"`
+	EffectStatus *int32 `type:"int32" json:",omitempty"`
 
-	Prio *int32 `type:"int32"`
+	EndTime *int32 `type:"int32" json:",omitempty"`
 
-	Proto *string `type:"string"`
+	HitCnt *int32 `type:"int32" json:",omitempty"`
 
-	RuleId *string `type:"string"`
+	IsEffected *bool `type:"boolean" json:",omitempty"`
 
-	Source *string `type:"string"`
+	Prio *int32 `type:"int32" json:",omitempty"`
 
-	SourceCidrList []*string `type:"list"`
+	Proto *string `type:"string" json:",omitempty"`
 
-	SourceGroupType *string `type:"string"`
+	RepeatDays []*int32 `type:"list" json:",omitempty"`
 
-	SourceType *string `type:"string"`
+	RepeatEndTime *string `type:"string" json:",omitempty"`
 
-	Status *bool `type:"boolean"`
+	RepeatStartTime *string `type:"string" json:",omitempty"`
 
-	UseCount *int32 `type:"int32"`
+	RepeatType *string `type:"string" json:",omitempty"`
+
+	RuleId *string `type:"string" json:",omitempty"`
+
+	Source *string `type:"string" json:",omitempty"`
+
+	SourceCidrList []*string `type:"list" json:",omitempty"`
+
+	SourceGroupType *string `type:"string" json:",omitempty"`
+
+	SourceType *string `type:"string" json:",omitempty"`
+
+	StartTime *int32 `type:"int32" json:",omitempty"`
+
+	Status *bool `type:"boolean" json:",omitempty"`
+
+	UpdateTime *int32 `type:"int32" json:",omitempty"`
+
+	UseCount *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -273,9 +291,27 @@ func (s *DataForDescribeControlPolicyOutput) SetDirection(v string) *DataForDesc
 	return s
 }
 
+// SetEffectStatus sets the EffectStatus field's value.
+func (s *DataForDescribeControlPolicyOutput) SetEffectStatus(v int32) *DataForDescribeControlPolicyOutput {
+	s.EffectStatus = &v
+	return s
+}
+
+// SetEndTime sets the EndTime field's value.
+func (s *DataForDescribeControlPolicyOutput) SetEndTime(v int32) *DataForDescribeControlPolicyOutput {
+	s.EndTime = &v
+	return s
+}
+
 // SetHitCnt sets the HitCnt field's value.
 func (s *DataForDescribeControlPolicyOutput) SetHitCnt(v int32) *DataForDescribeControlPolicyOutput {
 	s.HitCnt = &v
+	return s
+}
+
+// SetIsEffected sets the IsEffected field's value.
+func (s *DataForDescribeControlPolicyOutput) SetIsEffected(v bool) *DataForDescribeControlPolicyOutput {
+	s.IsEffected = &v
 	return s
 }
 
@@ -288,6 +324,30 @@ func (s *DataForDescribeControlPolicyOutput) SetPrio(v int32) *DataForDescribeCo
 // SetProto sets the Proto field's value.
 func (s *DataForDescribeControlPolicyOutput) SetProto(v string) *DataForDescribeControlPolicyOutput {
 	s.Proto = &v
+	return s
+}
+
+// SetRepeatDays sets the RepeatDays field's value.
+func (s *DataForDescribeControlPolicyOutput) SetRepeatDays(v []*int32) *DataForDescribeControlPolicyOutput {
+	s.RepeatDays = v
+	return s
+}
+
+// SetRepeatEndTime sets the RepeatEndTime field's value.
+func (s *DataForDescribeControlPolicyOutput) SetRepeatEndTime(v string) *DataForDescribeControlPolicyOutput {
+	s.RepeatEndTime = &v
+	return s
+}
+
+// SetRepeatStartTime sets the RepeatStartTime field's value.
+func (s *DataForDescribeControlPolicyOutput) SetRepeatStartTime(v string) *DataForDescribeControlPolicyOutput {
+	s.RepeatStartTime = &v
+	return s
+}
+
+// SetRepeatType sets the RepeatType field's value.
+func (s *DataForDescribeControlPolicyOutput) SetRepeatType(v string) *DataForDescribeControlPolicyOutput {
+	s.RepeatType = &v
 	return s
 }
 
@@ -321,9 +381,21 @@ func (s *DataForDescribeControlPolicyOutput) SetSourceType(v string) *DataForDes
 	return s
 }
 
+// SetStartTime sets the StartTime field's value.
+func (s *DataForDescribeControlPolicyOutput) SetStartTime(v int32) *DataForDescribeControlPolicyOutput {
+	s.StartTime = &v
+	return s
+}
+
 // SetStatus sets the Status field's value.
 func (s *DataForDescribeControlPolicyOutput) SetStatus(v bool) *DataForDescribeControlPolicyOutput {
 	s.Status = &v
+	return s
+}
+
+// SetUpdateTime sets the UpdateTime field's value.
+func (s *DataForDescribeControlPolicyOutput) SetUpdateTime(v int32) *DataForDescribeControlPolicyOutput {
+	s.UpdateTime = &v
 	return s
 }
 
@@ -334,28 +406,30 @@ func (s *DataForDescribeControlPolicyOutput) SetUseCount(v int32) *DataForDescri
 }
 
 type DescribeControlPolicyInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Action []*string `type:"list"`
+	Action []*string `type:"list" json:",omitempty"`
 
-	Description *string `type:"string"`
+	Description *string `type:"string" json:",omitempty"`
 
-	Destination *string `type:"string"`
+	Destination *string `type:"string" json:",omitempty"`
 
 	// Direction is a required field
-	Direction *string `type:"string" required:"true"`
+	Direction *string `type:"string" json:",omitempty" required:"true" enum:"EnumOfDirectionForDescribeControlPolicyInput"`
 
-	PageNumber *int32 `type:"int32"`
+	PageNumber *int32 `type:"int32" json:",omitempty"`
 
-	PageSize *int32 `type:"int32"`
+	PageSize *int32 `max:"100" type:"int32" json:",omitempty"`
 
-	Proto []*string `type:"list"`
+	Proto []*string `type:"list" json:",omitempty"`
 
-	RuleId *string `type:"string"`
+	RepeatType []*string `type:"list" json:",omitempty"`
 
-	Source *string `type:"string"`
+	RuleId *string `type:"string" json:",omitempty"`
 
-	Status []*bool `type:"list"`
+	Source *string `type:"string" json:",omitempty"`
+
+	Status []*bool `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -373,6 +447,9 @@ func (s *DescribeControlPolicyInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "DescribeControlPolicyInput"}
 	if s.Direction == nil {
 		invalidParams.Add(request.NewErrParamRequired("Direction"))
+	}
+	if s.PageSize != nil && *s.PageSize > 100 {
+		invalidParams.Add(request.NewErrParamMaxValue("PageSize", 100))
 	}
 
 	if invalidParams.Len() > 0 {
@@ -423,6 +500,12 @@ func (s *DescribeControlPolicyInput) SetProto(v []*string) *DescribeControlPolic
 	return s
 }
 
+// SetRepeatType sets the RepeatType field's value.
+func (s *DescribeControlPolicyInput) SetRepeatType(v []*string) *DescribeControlPolicyInput {
+	s.RepeatType = v
+	return s
+}
+
 // SetRuleId sets the RuleId field's value.
 func (s *DescribeControlPolicyInput) SetRuleId(v string) *DescribeControlPolicyInput {
 	s.RuleId = &v
@@ -442,19 +525,19 @@ func (s *DescribeControlPolicyInput) SetStatus(v []*bool) *DescribeControlPolicy
 }
 
 type DescribeControlPolicyOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	Count *int32 `type:"int32"`
+	Count *int32 `type:"int32" json:",omitempty"`
 
-	Data []*DataForDescribeControlPolicyOutput `type:"list"`
+	Data []*DataForDescribeControlPolicyOutput `type:"list" json:",omitempty"`
 
-	PageNumber *int32 `type:"int32"`
+	PageNumber *int32 `type:"int32" json:",omitempty"`
 
-	PageSize *int32 `type:"int32"`
+	PageSize *int32 `type:"int32" json:",omitempty"`
 
-	TotalCount *int32 `type:"int32"`
+	TotalCount *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -496,3 +579,11 @@ func (s *DescribeControlPolicyOutput) SetTotalCount(v int32) *DescribeControlPol
 	s.TotalCount = &v
 	return s
 }
+
+const (
+	// EnumOfDirectionForDescribeControlPolicyInputIn is a EnumOfDirectionForDescribeControlPolicyInput enum value
+	EnumOfDirectionForDescribeControlPolicyInputIn = "in"
+
+	// EnumOfDirectionForDescribeControlPolicyInputOut is a EnumOfDirectionForDescribeControlPolicyInput enum value
+	EnumOfDirectionForDescribeControlPolicyInputOut = "out"
+)

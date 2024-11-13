@@ -144,10 +144,10 @@ func (c *FWCENTER) DescribeControlPolicyPriorUsedWithContext(ctx volcengine.Cont
 }
 
 type DescribeControlPolicyPriorUsedInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// Direction is a required field
-	Direction *string `type:"string" required:"true"`
+	Direction *string `type:"string" json:",omitempty" required:"true" enum:"EnumOfDirectionForDescribeControlPolicyPriorUsedInput"`
 }
 
 // String returns the string representation
@@ -180,15 +180,15 @@ func (s *DescribeControlPolicyPriorUsedInput) SetDirection(v string) *DescribeCo
 }
 
 type DescribeControlPolicyPriorUsedOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	AccountId *string `type:"string"`
+	AccountId *string `type:"string" json:",omitempty"`
 
-	End *int32 `type:"int32"`
+	End *int32 `type:"int32" json:",omitempty"`
 
-	Start *int32 `type:"int32"`
+	Start *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -218,3 +218,11 @@ func (s *DescribeControlPolicyPriorUsedOutput) SetStart(v int32) *DescribeContro
 	s.Start = &v
 	return s
 }
+
+const (
+	// EnumOfDirectionForDescribeControlPolicyPriorUsedInputIn is a EnumOfDirectionForDescribeControlPolicyPriorUsedInput enum value
+	EnumOfDirectionForDescribeControlPolicyPriorUsedInputIn = "in"
+
+	// EnumOfDirectionForDescribeControlPolicyPriorUsedInputOut is a EnumOfDirectionForDescribeControlPolicyPriorUsedInput enum value
+	EnumOfDirectionForDescribeControlPolicyPriorUsedInputOut = "out"
+)

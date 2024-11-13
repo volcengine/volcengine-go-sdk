@@ -144,14 +144,14 @@ func (c *FWCENTER) UpdateControlPolicySwitchWithContext(ctx volcengine.Context, 
 }
 
 type UpdateControlPolicySwitchInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// Direction is a required field
-	Direction *string `type:"string" required:"true"`
+	Direction *string `type:"string" json:",omitempty" required:"true" enum:"EnumOfDirectionForUpdateControlPolicySwitchInput"`
 
-	RuleIds []*string `type:"list"`
+	RuleIds []*string `type:"list" json:",omitempty"`
 
-	Status *bool `type:"boolean"`
+	Status *bool `type:"boolean" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -196,9 +196,11 @@ func (s *UpdateControlPolicySwitchInput) SetStatus(v bool) *UpdateControlPolicyS
 }
 
 type UpdateControlPolicySwitchOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
+
+	RuleIds []*string `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -210,3 +212,17 @@ func (s UpdateControlPolicySwitchOutput) String() string {
 func (s UpdateControlPolicySwitchOutput) GoString() string {
 	return s.String()
 }
+
+// SetRuleIds sets the RuleIds field's value.
+func (s *UpdateControlPolicySwitchOutput) SetRuleIds(v []*string) *UpdateControlPolicySwitchOutput {
+	s.RuleIds = v
+	return s
+}
+
+const (
+	// EnumOfDirectionForUpdateControlPolicySwitchInputIn is a EnumOfDirectionForUpdateControlPolicySwitchInput enum value
+	EnumOfDirectionForUpdateControlPolicySwitchInputIn = "in"
+
+	// EnumOfDirectionForUpdateControlPolicySwitchInputOut is a EnumOfDirectionForUpdateControlPolicySwitchInput enum value
+	EnumOfDirectionForUpdateControlPolicySwitchInputOut = "out"
+)

@@ -144,17 +144,17 @@ func (c *FWCENTER) AddDnsControlPolicyWithContext(ctx volcengine.Context, input 
 }
 
 type AddDnsControlPolicyInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Description *string `type:"string"`
+	Description *string `max:"100" type:"string" json:",omitempty"`
 
 	// Destination is a required field
-	Destination *string `type:"string" required:"true"`
+	Destination *string `type:"string" json:",omitempty" required:"true"`
 
 	// DestinationType is a required field
-	DestinationType *string `type:"string" required:"true"`
+	DestinationType *string `type:"string" json:",omitempty" required:"true" enum:"EnumOfDestinationTypeForAddDnsControlPolicyInput"`
 
-	Source []*SourceForAddDnsControlPolicyInput `type:"list"`
+	Source []*SourceForAddDnsControlPolicyInput `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -170,6 +170,9 @@ func (s AddDnsControlPolicyInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *AddDnsControlPolicyInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "AddDnsControlPolicyInput"}
+	if s.Description != nil && len(*s.Description) > 100 {
+		invalidParams.Add(request.NewErrParamMaxLen("Description", 100, *s.Description))
+	}
 	if s.Destination == nil {
 		invalidParams.Add(request.NewErrParamRequired("Destination"))
 	}
@@ -208,11 +211,11 @@ func (s *AddDnsControlPolicyInput) SetSource(v []*SourceForAddDnsControlPolicyIn
 }
 
 type AddDnsControlPolicyOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	RuleId *string `type:"string"`
+	RuleId *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -232,11 +235,11 @@ func (s *AddDnsControlPolicyOutput) SetRuleId(v string) *AddDnsControlPolicyOutp
 }
 
 type SourceForAddDnsControlPolicyInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Region *string `type:"string"`
+	Region *string `type:"string" json:",omitempty"`
 
-	VpcId *string `type:"string"`
+	VpcId *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -260,3 +263,11 @@ func (s *SourceForAddDnsControlPolicyInput) SetVpcId(v string) *SourceForAddDnsC
 	s.VpcId = &v
 	return s
 }
+
+const (
+	// EnumOfDestinationTypeForAddDnsControlPolicyInputGroup is a EnumOfDestinationTypeForAddDnsControlPolicyInput enum value
+	EnumOfDestinationTypeForAddDnsControlPolicyInputGroup = "group"
+
+	// EnumOfDestinationTypeForAddDnsControlPolicyInputDomain is a EnumOfDestinationTypeForAddDnsControlPolicyInput enum value
+	EnumOfDestinationTypeForAddDnsControlPolicyInputDomain = "domain"
+)
