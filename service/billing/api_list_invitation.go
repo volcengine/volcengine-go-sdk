@@ -144,17 +144,17 @@ func (c *BILLING) ListInvitationWithContext(ctx volcengine.Context, input *ListI
 }
 
 type AuthForListInvitationOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	AuthID *string `type:"string"`
+	AuthID *string `type:"string" json:",omitempty"`
 
-	AuthList []*int32 `type:"list"`
+	AuthList []*int32 `type:"list" json:",omitempty"`
 
-	MajorAccountID *int32 `type:"int32"`
+	MajorAccountID *int32 `type:"int32" json:",omitempty"`
 
-	RelationID *string `type:"string"`
+	RelationID *string `type:"string" json:",omitempty"`
 
-	SubAccountID *int32 `type:"int32"`
+	SubAccountID *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -198,13 +198,13 @@ func (s *AuthForListInvitationOutput) SetSubAccountID(v int32) *AuthForListInvit
 }
 
 type AuthInfoForListInvitationOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	AuthID *string `type:"string"`
+	AuthID *string `type:"string" json:",omitempty"`
 
-	AuthList []*int32 `type:"list"`
+	AuthList []*int32 `type:"list" json:",omitempty"`
 
-	AuthStatus *int32 `type:"int32"`
+	AuthStatus *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -236,13 +236,13 @@ func (s *AuthInfoForListInvitationOutput) SetAuthStatus(v int32) *AuthInfoForLis
 }
 
 type ListForListInvitationOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Auth *AuthForListInvitationOutput `type:"structure"`
+	Auth *AuthForListInvitationOutput `type:"structure" json:",omitempty"`
 
-	InvitationType *int32 `type:"int32"`
+	InvitationType *int32 `type:"int32" json:",omitempty"`
 
-	Relation *RelationForListInvitationOutput `type:"structure"`
+	Relation *RelationForListInvitationOutput `type:"structure" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -274,7 +274,7 @@ func (s *ListForListInvitationOutput) SetRelation(v *RelationForListInvitationOu
 }
 
 type ListInvitationInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -288,11 +288,11 @@ func (s ListInvitationInput) GoString() string {
 }
 
 type ListInvitationOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	List []*ListForListInvitationOutput `type:"list"`
+	List []*ListForListInvitationOutput `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -312,35 +312,35 @@ func (s *ListInvitationOutput) SetList(v []*ListForListInvitationOutput) *ListIn
 }
 
 type RelationForListInvitationOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	AccountAlias *string `type:"string"`
+	AccountAlias *string `type:"string" json:",omitempty"`
 
-	AuthInfo []*AuthInfoForListInvitationOutput `type:"list"`
+	AuthInfo []*AuthInfoForListInvitationOutput `type:"list" json:",omitempty"`
 
-	Filiation *int32 `type:"int32"`
+	Filiation *int32 `type:"int32" json:",omitempty"`
 
-	FiliationDesc *string `type:"string"`
+	FiliationDesc *string `type:"string" json:",omitempty"`
 
-	MajorAccountID *int32 `type:"int32"`
+	MajorAccountID *int32 `type:"int32" json:",omitempty"`
 
-	MajorAccountName *string `type:"string"`
+	MajorAccountName *string `type:"string" json:",omitempty"`
 
-	Relation *int32 `type:"int32"`
+	Relation *int32 `type:"int32" json:",omitempty"`
 
-	RelationDesc *string `type:"string"`
+	RelationDesc *string `type:"string" json:",omitempty"`
 
-	RelationID *string `type:"string"`
+	RelationID *string `type:"string" json:",omitempty"`
 
-	Status *int32 `type:"int32"`
+	Status *int32 `type:"int32" json:",omitempty"`
 
-	StatusDesc *string `type:"string"`
+	StatusDesc *string `type:"string" json:",omitempty"`
 
-	SubAccountID *int32 `type:"int32"`
+	SubAccountID *int32 `type:"int32" json:",omitempty"`
 
-	SubAccountName *string `type:"string"`
+	SubAccountName *string `type:"string" json:",omitempty"`
 
-	UpdateTime *string `type:"string"`
+	UpdateTime *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation

@@ -144,37 +144,37 @@ func (c *BILLING) ListAmortizedCostBillDetailWithContext(ctx volcengine.Context,
 }
 
 type ListAmortizedCostBillDetailInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	AmortizedDay *string `type:"string"`
+	AmortizedDay *string `type:"string" json:",omitempty"`
 
 	// AmortizedMonth is a required field
-	AmortizedMonth *string `type:"string" required:"true"`
+	AmortizedMonth *string `type:"string" json:",omitempty" required:"true"`
 
-	AmortizedType []*string `type:"list"`
+	AmortizedType []*string `type:"list" json:",omitempty"`
 
-	BillCategory []*string `type:"list"`
+	BillCategory []*string `type:"list" json:",omitempty"`
 
-	BillPeriod *string `type:"string"`
+	BillPeriod *string `type:"string" json:",omitempty"`
 
-	BillingMode []*string `type:"list"`
+	BillingMode []*string `type:"list" json:",omitempty"`
 
-	IgnoreZero *int32 `type:"int32"`
+	IgnoreZero *int32 `type:"int32" json:",omitempty"`
 
-	InstanceNo *string `type:"string"`
+	InstanceNo *string `type:"string" json:",omitempty"`
 
 	// Limit is a required field
-	Limit *int32 `type:"int32" required:"true"`
+	Limit *int32 `type:"int32" json:",omitempty" required:"true"`
 
-	NeedRecordNum *int32 `type:"int32"`
+	NeedRecordNum *int32 `type:"int32" json:",omitempty"`
 
-	Offset *int32 `type:"int32"`
+	Offset *int32 `type:"int32" json:",omitempty"`
 
-	OwnerID []*int64 `type:"list"`
+	OwnerID []*int64 `type:"list" json:",omitempty"`
 
-	PayerID []*int64 `type:"list"`
+	PayerID []*int64 `type:"list" json:",omitempty"`
 
-	Product []*string `type:"list"`
+	Product []*string `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -288,17 +288,17 @@ func (s *ListAmortizedCostBillDetailInput) SetProduct(v []*string) *ListAmortize
 }
 
 type ListAmortizedCostBillDetailOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	Limit *int32 `type:"int32"`
+	Limit *int32 `type:"int32" json:",omitempty"`
 
-	List []*ListForListAmortizedCostBillDetailOutput `type:"list"`
+	List []*ListForListAmortizedCostBillDetailOutput `type:"list" json:",omitempty"`
 
-	Offset *int32 `type:"int32"`
+	Offset *int32 `type:"int32" json:",omitempty"`
 
-	Total *int32 `type:"int32"`
+	Total *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -336,145 +336,145 @@ func (s *ListAmortizedCostBillDetailOutput) SetTotal(v int32) *ListAmortizedCost
 }
 
 type ListForListAmortizedCostBillDetailOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	AmortizedBeginTime *string `type:"string"`
+	AmortizedBeginTime *string `type:"string" json:",omitempty"`
 
-	AmortizedDay *string `type:"string"`
+	AmortizedDay *string `type:"string" json:",omitempty"`
 
-	AmortizedEndTime *string `type:"string"`
+	AmortizedEndTime *string `type:"string" json:",omitempty"`
 
-	AmortizedMonth *string `type:"string"`
+	AmortizedMonth *string `type:"string" json:",omitempty"`
 
-	AmortizedType *string `type:"string"`
+	AmortizedType *string `type:"string" json:",omitempty"`
 
-	BillCategory *string `type:"string"`
+	BillCategory *string `type:"string" json:",omitempty"`
 
-	BillID *string `type:"string"`
+	BillID *string `type:"string" json:",omitempty"`
 
-	BillPeriod *string `type:"string"`
+	BillPeriod *string `type:"string" json:",omitempty"`
 
-	BillingFunction *string `type:"string"`
+	BillingFunction *string `type:"string" json:",omitempty"`
 
-	BillingMethodCode *string `type:"string"`
+	BillingMethodCode *string `type:"string" json:",omitempty"`
 
-	BillingMode *string `type:"string"`
+	BillingMode *string `type:"string" json:",omitempty"`
 
-	BusiPeriod *string `type:"string"`
+	BusiPeriod *string `type:"string" json:",omitempty"`
 
-	BusinessMode *string `type:"string"`
+	BusinessMode *string `type:"string" json:",omitempty"`
 
-	ConfigName *string `type:"string"`
+	ConfigName *string `type:"string" json:",omitempty"`
 
-	CostID *string `type:"string"`
+	CostID *string `type:"string" json:",omitempty"`
 
-	Count *string `type:"string"`
+	Count *string `type:"string" json:",omitempty"`
 
-	CouponAmount *string `type:"string"`
+	CouponAmount *string `type:"string" json:",omitempty"`
 
-	Currency *string `type:"string"`
+	Currency *string `type:"string" json:",omitempty"`
 
-	DailyAmortizedCouponAmount *string `type:"string"`
+	DailyAmortizedCouponAmount *string `type:"string" json:",omitempty"`
 
-	DailyAmortizedDiscountBillAmount *string `type:"string"`
+	DailyAmortizedDiscountBillAmount *string `type:"string" json:",omitempty"`
 
-	DailyAmortizedOriginalBillAmount *string `type:"string"`
+	DailyAmortizedOriginalBillAmount *string `type:"string" json:",omitempty"`
 
-	DailyAmortizedPaidAmount *string `type:"string"`
+	DailyAmortizedPaidAmount *string `type:"string" json:",omitempty"`
 
-	DailyAmortizedPayableAmount *string `type:"string"`
+	DailyAmortizedPayableAmount *string `type:"string" json:",omitempty"`
 
-	DailyAmortizedPreferentialBillAmount *string `type:"string"`
+	DailyAmortizedPreferentialBillAmount *string `type:"string" json:",omitempty"`
 
-	DailyAmortizedRoundAmount *string `type:"string"`
+	DailyAmortizedRoundAmount *string `type:"string" json:",omitempty"`
 
-	DiscountBillAmount *string `type:"string"`
+	DiscountBillAmount *string `type:"string" json:",omitempty"`
 
-	DiscountBizBillingFunction *string `type:"string"`
+	DiscountBizBillingFunction *string `type:"string" json:",omitempty"`
 
-	DiscountBizMeasureInterval *string `type:"string"`
+	DiscountBizMeasureInterval *string `type:"string" json:",omitempty"`
 
-	DiscountBizUnitPrice *string `type:"string"`
+	DiscountBizUnitPrice *string `type:"string" json:",omitempty"`
 
-	DiscountBizUnitPriceInterval *string `type:"string"`
+	DiscountBizUnitPriceInterval *string `type:"string" json:",omitempty"`
 
-	EffectiveFactor *string `type:"string"`
+	EffectiveFactor *string `type:"string" json:",omitempty"`
 
-	Element *string `type:"string"`
+	Element *string `type:"string" json:",omitempty"`
 
-	ExpandField *string `type:"string"`
+	ExpandField *string `type:"string" json:",omitempty"`
 
-	ExpenseBeginTime *string `type:"string"`
+	ExpenseBeginTime *string `type:"string" json:",omitempty"`
 
-	ExpenseEndTime *string `type:"string"`
+	ExpenseEndTime *string `type:"string" json:",omitempty"`
 
-	Factor *string `type:"string"`
+	Factor *string `type:"string" json:",omitempty"`
 
-	InstanceName *string `type:"string"`
+	InstanceName *string `type:"string" json:",omitempty"`
 
-	InstanceNo *string `type:"string"`
+	InstanceNo *string `type:"string" json:",omitempty"`
 
-	MarketPrice *string `type:"string"`
+	MarketPrice *string `type:"string" json:",omitempty"`
 
-	MeasureInterval *string `type:"string"`
+	MeasureInterval *string `type:"string" json:",omitempty"`
 
-	OriginalBillAmount *string `type:"string"`
+	OriginalBillAmount *string `type:"string" json:",omitempty"`
 
-	OwnerCustomerName *string `type:"string"`
+	OwnerCustomerName *string `type:"string" json:",omitempty"`
 
-	OwnerID *string `type:"string"`
+	OwnerID *string `type:"string" json:",omitempty"`
 
-	OwnerUserName *string `type:"string"`
+	OwnerUserName *string `type:"string" json:",omitempty"`
 
-	PaidAmount *string `type:"string"`
+	PaidAmount *string `type:"string" json:",omitempty"`
 
-	PayableAmount *string `type:"string"`
+	PayableAmount *string `type:"string" json:",omitempty"`
 
-	PayerCustomerName *string `type:"string"`
+	PayerCustomerName *string `type:"string" json:",omitempty"`
 
-	PayerID *string `type:"string"`
+	PayerID *string `type:"string" json:",omitempty"`
 
-	PayerUserName *string `type:"string"`
+	PayerUserName *string `type:"string" json:",omitempty"`
 
-	PreferentialBillAmount *string `type:"string"`
+	PreferentialBillAmount *string `type:"string" json:",omitempty"`
 
-	Price *string `type:"string"`
+	Price *string `type:"string" json:",omitempty"`
 
-	PriceInterval *string `type:"string"`
+	PriceInterval *string `type:"string" json:",omitempty"`
 
-	PriceUnit *string `type:"string"`
+	PriceUnit *string `type:"string" json:",omitempty"`
 
-	Product *string `type:"string"`
+	Product *string `type:"string" json:",omitempty"`
 
-	ProductZh *string `type:"string"`
+	ProductZh *string `type:"string" json:",omitempty"`
 
-	Project *string `type:"string"`
+	Project *string `type:"string" json:",omitempty"`
 
-	ProjectDisplayName *string `type:"string"`
+	ProjectDisplayName *string `type:"string" json:",omitempty"`
 
-	Region *string `type:"string"`
+	Region *string `type:"string" json:",omitempty"`
 
-	RoundAmount *string `type:"string"`
+	RoundAmount *string `type:"string" json:",omitempty"`
 
-	SellerCustomerName *string `type:"string"`
+	SellerCustomerName *string `type:"string" json:",omitempty"`
 
-	SellerID *string `type:"string"`
+	SellerID *string `type:"string" json:",omitempty"`
 
-	SellerUserName *string `type:"string"`
+	SellerUserName *string `type:"string" json:",omitempty"`
 
-	SubjectName *string `type:"string"`
+	SubjectName *string `type:"string" json:",omitempty"`
 
-	Tag *string `type:"string"`
+	Tag *string `type:"string" json:",omitempty"`
 
-	TradeTime *string `type:"string"`
+	TradeTime *string `type:"string" json:",omitempty"`
 
-	Unit *string `type:"string"`
+	Unit *string `type:"string" json:",omitempty"`
 
-	UseDuration *string `type:"string"`
+	UseDuration *string `type:"string" json:",omitempty"`
 
-	UseDurationUnit *string `type:"string"`
+	UseDurationUnit *string `type:"string" json:",omitempty"`
 
-	Zone *string `type:"string"`
+	Zone *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation

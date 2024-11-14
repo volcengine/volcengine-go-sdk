@@ -144,11 +144,11 @@ func (c *BILLING) UnsubscribeInstanceWithContext(ctx volcengine.Context, input *
 }
 
 type SuccessInstanceInfoForUnsubscribeInstanceOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	InstanceID *string `type:"string"`
+	InstanceID *string `type:"string" json:",omitempty"`
 
-	Product *string `type:"string"`
+	Product *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -174,17 +174,17 @@ func (s *SuccessInstanceInfoForUnsubscribeInstanceOutput) SetProduct(v string) *
 }
 
 type UnsubscribeInstanceInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	ClientToken *string `max:"36" type:"string"`
+	ClientToken *string `max:"36" type:"string" json:",omitempty"`
 
 	// InstanceID is a required field
-	InstanceID *string `type:"string" required:"true"`
+	InstanceID *string `type:"string" json:",omitempty" required:"true"`
 
 	// Product is a required field
-	Product *string `type:"string" required:"true"`
+	Product *string `type:"string" json:",omitempty" required:"true"`
 
-	UnsubscribeRelatedInstance *bool `type:"boolean"`
+	UnsubscribeRelatedInstance *bool `type:"boolean" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -241,13 +241,13 @@ func (s *UnsubscribeInstanceInput) SetUnsubscribeRelatedInstance(v bool) *Unsubs
 }
 
 type UnsubscribeInstanceOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	OrderID *string `type:"string"`
+	OrderID *string `type:"string" json:",omitempty"`
 
-	SuccessInstanceInfos []*SuccessInstanceInfoForUnsubscribeInstanceOutput `type:"list"`
+	SuccessInstanceInfos []*SuccessInstanceInfoForUnsubscribeInstanceOutput `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation

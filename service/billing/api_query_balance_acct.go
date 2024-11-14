@@ -144,7 +144,7 @@ func (c *BILLING) QueryBalanceAcctWithContext(ctx volcengine.Context, input *Que
 }
 
 type QueryBalanceAcctInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -158,21 +158,21 @@ func (s QueryBalanceAcctInput) GoString() string {
 }
 
 type QueryBalanceAcctOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	AccountID *int32 `type:"int32"`
+	AccountID *int32 `type:"int32" json:",omitempty"`
 
-	ArrearsBalance *string `type:"string"`
+	ArrearsBalance *string `type:"string" json:",omitempty"`
 
-	AvailableBalance *string `type:"string"`
+	AvailableBalance *string `type:"string" json:",omitempty"`
 
-	CashBalance *string `type:"string"`
+	CashBalance *string `type:"string" json:",omitempty"`
 
-	CreditLimit *string `type:"string"`
+	CreditLimit *string `type:"string" json:",omitempty"`
 
-	FreezeAmount *string `type:"string"`
+	FreezeAmount *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation

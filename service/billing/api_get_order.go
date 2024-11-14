@@ -144,10 +144,10 @@ func (c *BILLING) GetOrderWithContext(ctx volcengine.Context, input *GetOrderInp
 }
 
 type GetOrderInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// OrderID is a required field
-	OrderID *string `type:"string" required:"true"`
+	OrderID *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -180,11 +180,11 @@ func (s *GetOrderInput) SetOrderID(v string) *GetOrderInput {
 }
 
 type GetOrderOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	OrderInfo *OrderInfoForGetOrderOutput `type:"structure"`
+	OrderInfo *OrderInfoForGetOrderOutput `type:"structure" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -204,39 +204,39 @@ func (s *GetOrderOutput) SetOrderInfo(v *OrderInfoForGetOrderOutput) *GetOrderOu
 }
 
 type OrderInfoForGetOrderOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	BuyerCustomerName *string `type:"string"`
+	BuyerCustomerName *string `type:"string" json:",omitempty"`
 
-	BuyerID *int32 `type:"int32"`
+	BuyerID *int32 `type:"int32" json:",omitempty"`
 
-	CouponAmount *string `type:"string"`
+	CouponAmount *string `type:"string" json:",omitempty"`
 
-	CreateTime *string `type:"string"`
+	CreateTime *string `type:"string" json:",omitempty"`
 
-	DiscountAmount *string `type:"string"`
+	DiscountAmount *string `type:"string" json:",omitempty"`
 
-	OrderID *string `type:"string"`
+	OrderID *string `type:"string" json:",omitempty"`
 
-	OrderType *string `type:"string"`
+	OrderType *string `type:"string" json:",omitempty"`
 
-	OriginalAmount *string `type:"string"`
+	OriginalAmount *string `type:"string" json:",omitempty"`
 
-	PaidAmount *string `type:"string"`
+	PaidAmount *string `type:"string" json:",omitempty"`
 
-	PayableAmount *string `type:"string"`
+	PayableAmount *string `type:"string" json:",omitempty"`
 
-	PayerCustomerName *string `type:"string"`
+	PayerCustomerName *string `type:"string" json:",omitempty"`
 
-	PayerID *int32 `type:"int32"`
+	PayerID *int32 `type:"int32" json:",omitempty"`
 
-	SellerCustomerName *string `type:"string"`
+	SellerCustomerName *string `type:"string" json:",omitempty"`
 
-	SellerID *int32 `type:"int32"`
+	SellerID *int32 `type:"int32" json:",omitempty"`
 
-	Status *string `type:"string"`
+	Status *string `type:"string" json:",omitempty"`
 
-	SubjectNo *string `type:"string"`
+	SubjectNo *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation

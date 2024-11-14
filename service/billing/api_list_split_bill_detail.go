@@ -144,133 +144,133 @@ func (c *BILLING) ListSplitBillDetailWithContext(ctx volcengine.Context, input *
 }
 
 type ListForListSplitBillDetailOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	BillCategory *string `type:"string"`
+	BillCategory *string `type:"string" json:",omitempty"`
 
-	BillID *string `type:"string"`
+	BillID *string `type:"string" json:",omitempty"`
 
-	BillPeriod *string `type:"string"`
+	BillPeriod *string `type:"string" json:",omitempty"`
 
-	BillingFunction *string `type:"string"`
+	BillingFunction *string `type:"string" json:",omitempty"`
 
-	BillingMethodCode *string `type:"string"`
+	BillingMethodCode *string `type:"string" json:",omitempty"`
 
-	BillingMode *string `type:"string"`
+	BillingMode *string `type:"string" json:",omitempty"`
 
-	BusinessMode *string `type:"string"`
+	BusinessMode *string `type:"string" json:",omitempty"`
 
-	ConfigName *string `type:"string"`
+	ConfigName *string `type:"string" json:",omitempty"`
 
-	ConfigurationCode *string `type:"string"`
+	ConfigurationCode *string `type:"string" json:",omitempty"`
 
-	CouponDeductionAmount *string `type:"string"`
+	CouponDeductionAmount *string `type:"string" json:",omitempty"`
 
-	CreditCarriedAmount *string `type:"string"`
+	CreditCarriedAmount *string `type:"string" json:",omitempty"`
 
-	Currency *string `type:"string"`
+	Currency *string `type:"string" json:",omitempty"`
 
-	DeductionCount *string `type:"string"`
+	DeductionCount *string `type:"string" json:",omitempty"`
 
-	DiscountBillAmount *string `type:"string"`
+	DiscountBillAmount *string `type:"string" json:",omitempty"`
 
-	DiscountBizBillingFunction *string `type:"string"`
+	DiscountBizBillingFunction *string `type:"string" json:",omitempty"`
 
-	DiscountBizMeasureInterval *string `type:"string"`
+	DiscountBizMeasureInterval *string `type:"string" json:",omitempty"`
 
-	DiscountBizUnitPrice *string `type:"string"`
+	DiscountBizUnitPrice *string `type:"string" json:",omitempty"`
 
-	DiscountBizUnitPriceInterval *string `type:"string"`
+	DiscountBizUnitPriceInterval *string `type:"string" json:",omitempty"`
 
-	EffectiveFactor *string `type:"string"`
+	EffectiveFactor *string `type:"string" json:",omitempty"`
 
-	Element *string `type:"string"`
+	Element *string `type:"string" json:",omitempty"`
 
-	ElementCode *string `type:"string"`
+	ElementCode *string `type:"string" json:",omitempty"`
 
-	ExpandField *string `type:"string"`
+	ExpandField *string `type:"string" json:",omitempty"`
 
-	ExpenseTime *string `type:"string"`
+	ExpenseTime *string `type:"string" json:",omitempty"`
 
-	Factor *string `type:"string"`
+	Factor *string `type:"string" json:",omitempty"`
 
-	FactorCode *string `type:"string"`
+	FactorCode *string `type:"string" json:",omitempty"`
 
-	InstanceName *string `type:"string"`
+	InstanceName *string `type:"string" json:",omitempty"`
 
-	InstanceNo *string `type:"string"`
+	InstanceNo *string `type:"string" json:",omitempty"`
 
-	MarketPrice *string `type:"string"`
+	MarketPrice *string `type:"string" json:",omitempty"`
 
-	MeasureInterval *string `type:"string"`
+	MeasureInterval *string `type:"string" json:",omitempty"`
 
-	OriginalBillAmount *string `type:"string"`
+	OriginalBillAmount *string `type:"string" json:",omitempty"`
 
-	OwnerUserName *string `type:"string"`
+	OwnerUserName *string `type:"string" json:",omitempty"`
 
-	PaidAmount *string `type:"string"`
+	PaidAmount *string `type:"string" json:",omitempty"`
 
-	PayableAmount *string `type:"string"`
+	PayableAmount *string `type:"string" json:",omitempty"`
 
-	PayerUserName *string `type:"string"`
+	PayerUserName *string `type:"string" json:",omitempty"`
 
-	PreferentialBillAmount *string `type:"string"`
+	PreferentialBillAmount *string `type:"string" json:",omitempty"`
 
-	Price *string `type:"string"`
+	Price *string `type:"string" json:",omitempty"`
 
-	PriceInterval *string `type:"string"`
+	PriceInterval *string `type:"string" json:",omitempty"`
 
-	PriceUnit *string `type:"string"`
+	PriceUnit *string `type:"string" json:",omitempty"`
 
-	Product *string `type:"string"`
+	Product *string `type:"string" json:",omitempty"`
 
-	ProductZh *string `type:"string"`
+	ProductZh *string `type:"string" json:",omitempty"`
 
-	Project *string `type:"string"`
+	Project *string `type:"string" json:",omitempty"`
 
-	ProjectDisplayName *string `type:"string"`
+	ProjectDisplayName *string `type:"string" json:",omitempty"`
 
-	Region *string `type:"string"`
+	Region *string `type:"string" json:",omitempty"`
 
-	RegionCode *string `type:"string"`
+	RegionCode *string `type:"string" json:",omitempty"`
 
-	ReservationInstance *string `type:"string"`
+	ReservationInstance *string `type:"string" json:",omitempty"`
 
-	SellerUserName *string `type:"string"`
+	SellerUserName *string `type:"string" json:",omitempty"`
 
-	SellingMode *string `type:"string"`
+	SellingMode *string `type:"string" json:",omitempty"`
 
-	SettlementType *string `type:"string"`
+	SettlementType *string `type:"string" json:",omitempty"`
 
-	SolutionZh *string `type:"string"`
+	SolutionZh *string `type:"string" json:",omitempty"`
 
-	SplitBillDetailId *string `type:"string"`
+	SplitBillDetailId *string `type:"string" json:",omitempty"`
 
-	SplitItemAmount *string `type:"string"`
+	SplitItemAmount *string `type:"string" json:",omitempty"`
 
-	SplitItemID *string `type:"string"`
+	SplitItemID *string `type:"string" json:",omitempty"`
 
-	SplitItemName *string `type:"string"`
+	SplitItemName *string `type:"string" json:",omitempty"`
 
-	SplitItemRatio *string `type:"string"`
+	SplitItemRatio *string `type:"string" json:",omitempty"`
 
-	SubjectName *string `type:"string"`
+	SubjectName *string `type:"string" json:",omitempty"`
 
-	Tag *string `type:"string"`
+	Tag *string `type:"string" json:",omitempty"`
 
-	TradeTime *string `type:"string"`
+	TradeTime *string `type:"string" json:",omitempty"`
 
-	Unit *string `type:"string"`
+	Unit *string `type:"string" json:",omitempty"`
 
-	UnpaidAmount *string `type:"string"`
+	UnpaidAmount *string `type:"string" json:",omitempty"`
 
-	UseDuration *string `type:"string"`
+	UseDuration *string `type:"string" json:",omitempty"`
 
-	UseDurationUnit *string `type:"string"`
+	UseDurationUnit *string `type:"string" json:",omitempty"`
 
-	Zone *string `type:"string"`
+	Zone *string `type:"string" json:",omitempty"`
 
-	ZoneCode *string `type:"string"`
+	ZoneCode *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -662,37 +662,37 @@ func (s *ListForListSplitBillDetailOutput) SetZoneCode(v string) *ListForListSpl
 }
 
 type ListSplitBillDetailInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	BillCategory []*string `type:"list"`
+	BillCategory []*string `type:"list" json:",omitempty"`
 
 	// BillPeriod is a required field
-	BillPeriod *string `type:"string" required:"true"`
+	BillPeriod *string `type:"string" json:",omitempty" required:"true"`
 
-	BillingMode []*string `type:"list"`
+	BillingMode []*string `type:"list" json:",omitempty"`
 
-	ExpenseDate *string `type:"string"`
+	ExpenseDate *string `type:"string" json:",omitempty"`
 
-	GroupPeriod *int32 `type:"int32"`
+	GroupPeriod *int32 `type:"int32" json:",omitempty"`
 
-	IgnoreZero *int32 `type:"int32"`
+	IgnoreZero *int32 `type:"int32" json:",omitempty"`
 
-	InstanceNo *string `type:"string"`
+	InstanceNo *string `type:"string" json:",omitempty"`
 
 	// Limit is a required field
-	Limit *int32 `type:"int32" required:"true"`
+	Limit *int32 `type:"int32" json:",omitempty" required:"true"`
 
-	NeedRecordNum *int32 `type:"int32"`
+	NeedRecordNum *int32 `type:"int32" json:",omitempty"`
 
-	Offset *int32 `type:"int32"`
+	Offset *int32 `type:"int32" json:",omitempty"`
 
-	OwnerID []*int64 `type:"list"`
+	OwnerID []*int64 `type:"list" json:",omitempty"`
 
-	PayerID []*int64 `type:"list"`
+	PayerID []*int64 `type:"list" json:",omitempty"`
 
-	Product []*string `type:"list"`
+	Product []*string `type:"list" json:",omitempty"`
 
-	SplitItemID *string `type:"string"`
+	SplitItemID *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -806,17 +806,17 @@ func (s *ListSplitBillDetailInput) SetSplitItemID(v string) *ListSplitBillDetail
 }
 
 type ListSplitBillDetailOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	Limit *int32 `type:"int32"`
+	Limit *int32 `type:"int32" json:",omitempty"`
 
-	List []*ListForListSplitBillDetailOutput `type:"list"`
+	List []*ListForListSplitBillDetailOutput `type:"list" json:",omitempty"`
 
-	Offset *int32 `type:"int32"`
+	Offset *int32 `type:"int32" json:",omitempty"`
 
-	Total *int32 `type:"int32"`
+	Total *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation

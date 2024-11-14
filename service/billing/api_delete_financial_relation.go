@@ -144,16 +144,16 @@ func (c *BILLING) DeleteFinancialRelationWithContext(ctx volcengine.Context, inp
 }
 
 type DeleteFinancialRelationInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// Relation is a required field
-	Relation *int32 `type:"int32" required:"true"`
+	Relation *int32 `type:"int32" json:",omitempty" required:"true"`
 
 	// RelationID is a required field
-	RelationID *string `type:"string" required:"true"`
+	RelationID *string `type:"string" json:",omitempty" required:"true"`
 
 	// SubAccountID is a required field
-	SubAccountID *int32 `type:"int32" required:"true"`
+	SubAccountID *int32 `type:"int32" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -204,11 +204,11 @@ func (s *DeleteFinancialRelationInput) SetSubAccountID(v int32) *DeleteFinancial
 }
 
 type DeleteFinancialRelationOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	IsSuccess *bool `type:"boolean"`
+	IsSuccess *bool `type:"boolean" json:",omitempty"`
 }
 
 // String returns the string representation

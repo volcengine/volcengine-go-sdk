@@ -144,17 +144,17 @@ func (c *BILLING) CreateFinancialRelationWithContext(ctx volcengine.Context, inp
 }
 
 type CreateFinancialRelationInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	AccountAlias *string `type:"string"`
+	AccountAlias *string `type:"string" json:",omitempty"`
 
-	AuthListStr *string `type:"string"`
+	AuthListStr *string `type:"string" json:",omitempty"`
 
 	// Relation is a required field
-	Relation *int32 `type:"int32" required:"true"`
+	Relation *int32 `type:"int32" json:",omitempty" required:"true"`
 
 	// SubAccountID is a required field
-	SubAccountID *int32 `type:"int32" required:"true"`
+	SubAccountID *int32 `type:"int32" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -208,11 +208,11 @@ func (s *CreateFinancialRelationInput) SetSubAccountID(v int32) *CreateFinancial
 }
 
 type CreateFinancialRelationOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	IsSuccess *bool `type:"boolean"`
+	IsSuccess *bool `type:"boolean" json:",omitempty"`
 }
 
 // String returns the string representation
