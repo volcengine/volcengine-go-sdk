@@ -144,17 +144,17 @@ func (c *FWCENTER) ModifyAddressBookWithContext(ctx volcengine.Context, input *M
 }
 
 type ModifyAddressBookInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	AddressList []*string `type:"list"`
+	AddressList []*string `type:"list" json:",omitempty"`
 
-	Description *string `type:"string"`
+	Description *string `type:"string" json:",omitempty"`
 
 	// GroupName is a required field
-	GroupName *string `type:"string" required:"true"`
+	GroupName *string `max:"64" type:"string" json:",omitempty" required:"true"`
 
 	// GroupUuid is a required field
-	GroupUuid *string `type:"string" required:"true"`
+	GroupUuid *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -172,6 +172,9 @@ func (s *ModifyAddressBookInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "ModifyAddressBookInput"}
 	if s.GroupName == nil {
 		invalidParams.Add(request.NewErrParamRequired("GroupName"))
+	}
+	if s.GroupName != nil && len(*s.GroupName) > 64 {
+		invalidParams.Add(request.NewErrParamMaxLen("GroupName", 64, *s.GroupName))
 	}
 	if s.GroupUuid == nil {
 		invalidParams.Add(request.NewErrParamRequired("GroupUuid"))
@@ -208,9 +211,11 @@ func (s *ModifyAddressBookInput) SetGroupUuid(v string) *ModifyAddressBookInput 
 }
 
 type ModifyAddressBookOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
+
+	GroupUuid *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -221,4 +226,10 @@ func (s ModifyAddressBookOutput) String() string {
 // GoString returns the string representation
 func (s ModifyAddressBookOutput) GoString() string {
 	return s.String()
+}
+
+// SetGroupUuid sets the GroupUuid field's value.
+func (s *ModifyAddressBookOutput) SetGroupUuid(v string) *ModifyAddressBookOutput {
+	s.GroupUuid = &v
+	return s
 }

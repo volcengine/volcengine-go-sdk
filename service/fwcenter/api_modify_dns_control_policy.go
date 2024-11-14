@@ -144,22 +144,22 @@ func (c *FWCENTER) ModifyDnsControlPolicyWithContext(ctx volcengine.Context, inp
 }
 
 type ModifyDnsControlPolicyInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Description *string `type:"string"`
+	Description *string `max:"100" type:"string" json:",omitempty"`
 
 	// Destination is a required field
-	Destination *string `type:"string" required:"true"`
+	Destination *string `type:"string" json:",omitempty" required:"true"`
 
 	// DestinationType is a required field
-	DestinationType *string `type:"string" required:"true"`
+	DestinationType *string `type:"string" json:",omitempty" required:"true" enum:"EnumOfDestinationTypeForModifyDnsControlPolicyInput"`
 
 	// RuleId is a required field
-	RuleId *string `type:"string" required:"true"`
+	RuleId *string `type:"string" json:",omitempty" required:"true"`
 
-	Source []*SourceForModifyDnsControlPolicyInput `type:"list"`
+	Source []*SourceForModifyDnsControlPolicyInput `type:"list" json:",omitempty"`
 
-	Status *bool `type:"boolean"`
+	Status *bool `type:"boolean" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -175,6 +175,9 @@ func (s ModifyDnsControlPolicyInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *ModifyDnsControlPolicyInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "ModifyDnsControlPolicyInput"}
+	if s.Description != nil && len(*s.Description) > 100 {
+		invalidParams.Add(request.NewErrParamMaxLen("Description", 100, *s.Description))
+	}
 	if s.Destination == nil {
 		invalidParams.Add(request.NewErrParamRequired("Destination"))
 	}
@@ -228,9 +231,11 @@ func (s *ModifyDnsControlPolicyInput) SetStatus(v bool) *ModifyDnsControlPolicyI
 }
 
 type ModifyDnsControlPolicyOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
+
+	RuleId *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -243,12 +248,18 @@ func (s ModifyDnsControlPolicyOutput) GoString() string {
 	return s.String()
 }
 
+// SetRuleId sets the RuleId field's value.
+func (s *ModifyDnsControlPolicyOutput) SetRuleId(v string) *ModifyDnsControlPolicyOutput {
+	s.RuleId = &v
+	return s
+}
+
 type SourceForModifyDnsControlPolicyInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Region *string `type:"string"`
+	Region *string `type:"string" json:",omitempty"`
 
-	VpcId *string `type:"string"`
+	VpcId *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -272,3 +283,11 @@ func (s *SourceForModifyDnsControlPolicyInput) SetVpcId(v string) *SourceForModi
 	s.VpcId = &v
 	return s
 }
+
+const (
+	// EnumOfDestinationTypeForModifyDnsControlPolicyInputGroup is a EnumOfDestinationTypeForModifyDnsControlPolicyInput enum value
+	EnumOfDestinationTypeForModifyDnsControlPolicyInputGroup = "group"
+
+	// EnumOfDestinationTypeForModifyDnsControlPolicyInputDomain is a EnumOfDestinationTypeForModifyDnsControlPolicyInput enum value
+	EnumOfDestinationTypeForModifyDnsControlPolicyInputDomain = "domain"
+)

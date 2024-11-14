@@ -144,53 +144,71 @@ func (c *FWCENTER) DescribeVpcFirewallAclRuleListWithContext(ctx volcengine.Cont
 }
 
 type DataForDescribeVpcFirewallAclRuleListOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	AccountId *string `type:"string"`
+	AccountId *string `type:"string" json:",omitempty"`
 
-	Action *string `type:"string"`
+	Action *string `type:"string" json:",omitempty"`
 
-	Description *string `type:"string"`
+	Description *string `type:"string" json:",omitempty"`
 
-	DestPort *string `type:"string"`
+	DestPort *string `type:"string" json:",omitempty"`
 
-	DestPortGroupType *string `type:"string"`
+	DestPortGroupType *string `type:"string" json:",omitempty"`
 
-	DestPortList []*string `type:"list"`
+	DestPortList []*string `type:"list" json:",omitempty"`
 
-	DestPortType *string `type:"string"`
+	DestPortType *string `type:"string" json:",omitempty"`
 
-	Destination *string `type:"string"`
+	Destination *string `type:"string" json:",omitempty"`
 
-	DestinationCidrList []*string `type:"list"`
+	DestinationCidrList []*string `type:"list" json:",omitempty"`
 
-	DestinationGroupType *string `type:"string"`
+	DestinationGroupType *string `type:"string" json:",omitempty"`
 
-	DestinationType *string `type:"string"`
+	DestinationType *string `type:"string" json:",omitempty"`
 
-	HitCnt *int32 `type:"int32"`
+	EffectStatus *int32 `type:"int32" json:",omitempty"`
 
-	Prio *int32 `type:"int32"`
+	EndTime *int32 `type:"int32" json:",omitempty"`
 
-	Proto *string `type:"string"`
+	HitCnt *int32 `type:"int32" json:",omitempty"`
 
-	RuleId *string `type:"string"`
+	IsEffected *bool `type:"boolean" json:",omitempty"`
 
-	Source *string `type:"string"`
+	Prio *int32 `type:"int32" json:",omitempty"`
 
-	SourceCidrList []*string `type:"list"`
+	Proto *string `type:"string" json:",omitempty"`
 
-	SourceGroupType *string `type:"string"`
+	RepeatDays []*int32 `type:"list" json:",omitempty"`
 
-	SourceType *string `type:"string"`
+	RepeatEndTime *string `type:"string" json:",omitempty"`
 
-	Status *bool `type:"boolean"`
+	RepeatStartTime *string `type:"string" json:",omitempty"`
 
-	UseCount *int32 `type:"int32"`
+	RepeatType *string `type:"string" json:",omitempty"`
 
-	VpcFirewallId *string `type:"string"`
+	RuleId *string `type:"string" json:",omitempty"`
 
-	VpcFirewallName *string `type:"string"`
+	Source *string `type:"string" json:",omitempty"`
+
+	SourceCidrList []*string `type:"list" json:",omitempty"`
+
+	SourceGroupType *string `type:"string" json:",omitempty"`
+
+	SourceType *string `type:"string" json:",omitempty"`
+
+	StartTime *int32 `type:"int32" json:",omitempty"`
+
+	Status *bool `type:"boolean" json:",omitempty"`
+
+	UpdateTime *int32 `type:"int32" json:",omitempty"`
+
+	UseCount *int32 `type:"int32" json:",omitempty"`
+
+	VpcFirewallId *string `type:"string" json:",omitempty"`
+
+	VpcFirewallName *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -269,9 +287,27 @@ func (s *DataForDescribeVpcFirewallAclRuleListOutput) SetDestinationType(v strin
 	return s
 }
 
+// SetEffectStatus sets the EffectStatus field's value.
+func (s *DataForDescribeVpcFirewallAclRuleListOutput) SetEffectStatus(v int32) *DataForDescribeVpcFirewallAclRuleListOutput {
+	s.EffectStatus = &v
+	return s
+}
+
+// SetEndTime sets the EndTime field's value.
+func (s *DataForDescribeVpcFirewallAclRuleListOutput) SetEndTime(v int32) *DataForDescribeVpcFirewallAclRuleListOutput {
+	s.EndTime = &v
+	return s
+}
+
 // SetHitCnt sets the HitCnt field's value.
 func (s *DataForDescribeVpcFirewallAclRuleListOutput) SetHitCnt(v int32) *DataForDescribeVpcFirewallAclRuleListOutput {
 	s.HitCnt = &v
+	return s
+}
+
+// SetIsEffected sets the IsEffected field's value.
+func (s *DataForDescribeVpcFirewallAclRuleListOutput) SetIsEffected(v bool) *DataForDescribeVpcFirewallAclRuleListOutput {
+	s.IsEffected = &v
 	return s
 }
 
@@ -284,6 +320,30 @@ func (s *DataForDescribeVpcFirewallAclRuleListOutput) SetPrio(v int32) *DataForD
 // SetProto sets the Proto field's value.
 func (s *DataForDescribeVpcFirewallAclRuleListOutput) SetProto(v string) *DataForDescribeVpcFirewallAclRuleListOutput {
 	s.Proto = &v
+	return s
+}
+
+// SetRepeatDays sets the RepeatDays field's value.
+func (s *DataForDescribeVpcFirewallAclRuleListOutput) SetRepeatDays(v []*int32) *DataForDescribeVpcFirewallAclRuleListOutput {
+	s.RepeatDays = v
+	return s
+}
+
+// SetRepeatEndTime sets the RepeatEndTime field's value.
+func (s *DataForDescribeVpcFirewallAclRuleListOutput) SetRepeatEndTime(v string) *DataForDescribeVpcFirewallAclRuleListOutput {
+	s.RepeatEndTime = &v
+	return s
+}
+
+// SetRepeatStartTime sets the RepeatStartTime field's value.
+func (s *DataForDescribeVpcFirewallAclRuleListOutput) SetRepeatStartTime(v string) *DataForDescribeVpcFirewallAclRuleListOutput {
+	s.RepeatStartTime = &v
+	return s
+}
+
+// SetRepeatType sets the RepeatType field's value.
+func (s *DataForDescribeVpcFirewallAclRuleListOutput) SetRepeatType(v string) *DataForDescribeVpcFirewallAclRuleListOutput {
+	s.RepeatType = &v
 	return s
 }
 
@@ -317,9 +377,21 @@ func (s *DataForDescribeVpcFirewallAclRuleListOutput) SetSourceType(v string) *D
 	return s
 }
 
+// SetStartTime sets the StartTime field's value.
+func (s *DataForDescribeVpcFirewallAclRuleListOutput) SetStartTime(v int32) *DataForDescribeVpcFirewallAclRuleListOutput {
+	s.StartTime = &v
+	return s
+}
+
 // SetStatus sets the Status field's value.
 func (s *DataForDescribeVpcFirewallAclRuleListOutput) SetStatus(v bool) *DataForDescribeVpcFirewallAclRuleListOutput {
 	s.Status = &v
+	return s
+}
+
+// SetUpdateTime sets the UpdateTime field's value.
+func (s *DataForDescribeVpcFirewallAclRuleListOutput) SetUpdateTime(v int32) *DataForDescribeVpcFirewallAclRuleListOutput {
+	s.UpdateTime = &v
 	return s
 }
 
@@ -342,28 +414,30 @@ func (s *DataForDescribeVpcFirewallAclRuleListOutput) SetVpcFirewallName(v strin
 }
 
 type DescribeVpcFirewallAclRuleListInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Action []*string `type:"list"`
+	Action []*string `type:"list" json:",omitempty"`
 
-	Description *string `type:"string"`
+	Description *string `type:"string" json:",omitempty"`
 
-	Destination *string `type:"string"`
+	Destination *string `type:"string" json:",omitempty"`
 
-	PageNumber *int32 `type:"int32"`
+	PageNumber *int32 `type:"int32" json:",omitempty"`
 
-	PageSize *int32 `type:"int32"`
+	PageSize *int32 `max:"100" type:"int32" json:",omitempty"`
 
-	Proto []*string `type:"list"`
+	Proto []*string `type:"list" json:",omitempty"`
 
-	RuleId *string `type:"string"`
+	RepeatType []*string `type:"list" json:",omitempty"`
 
-	Source *string `type:"string"`
+	RuleId *string `type:"string" json:",omitempty"`
 
-	Status []*bool `type:"list"`
+	Source *string `type:"string" json:",omitempty"`
+
+	Status []*bool `type:"list" json:",omitempty"`
 
 	// VpcFirewallId is a required field
-	VpcFirewallId *string `type:"string" required:"true"`
+	VpcFirewallId *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -379,6 +453,9 @@ func (s DescribeVpcFirewallAclRuleListInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *DescribeVpcFirewallAclRuleListInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "DescribeVpcFirewallAclRuleListInput"}
+	if s.PageSize != nil && *s.PageSize > 100 {
+		invalidParams.Add(request.NewErrParamMaxValue("PageSize", 100))
+	}
 	if s.VpcFirewallId == nil {
 		invalidParams.Add(request.NewErrParamRequired("VpcFirewallId"))
 	}
@@ -425,6 +502,12 @@ func (s *DescribeVpcFirewallAclRuleListInput) SetProto(v []*string) *DescribeVpc
 	return s
 }
 
+// SetRepeatType sets the RepeatType field's value.
+func (s *DescribeVpcFirewallAclRuleListInput) SetRepeatType(v []*string) *DescribeVpcFirewallAclRuleListInput {
+	s.RepeatType = v
+	return s
+}
+
 // SetRuleId sets the RuleId field's value.
 func (s *DescribeVpcFirewallAclRuleListInput) SetRuleId(v string) *DescribeVpcFirewallAclRuleListInput {
 	s.RuleId = &v
@@ -450,19 +533,19 @@ func (s *DescribeVpcFirewallAclRuleListInput) SetVpcFirewallId(v string) *Descri
 }
 
 type DescribeVpcFirewallAclRuleListOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	Count *int32 `type:"int32"`
+	Count *int32 `type:"int32" json:",omitempty"`
 
-	Data []*DataForDescribeVpcFirewallAclRuleListOutput `type:"list"`
+	Data []*DataForDescribeVpcFirewallAclRuleListOutput `type:"list" json:",omitempty"`
 
-	PageNumber *int32 `type:"int32"`
+	PageNumber *int32 `type:"int32" json:",omitempty"`
 
-	PageSize *int32 `type:"int32"`
+	PageSize *int32 `type:"int32" json:",omitempty"`
 
-	TotalCount *int32 `type:"int32"`
+	TotalCount *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation

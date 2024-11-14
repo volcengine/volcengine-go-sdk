@@ -144,38 +144,50 @@ func (c *FWCENTER) AddVpcFirewallAclRuleWithContext(ctx volcengine.Context, inpu
 }
 
 type AddVpcFirewallAclRuleInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// Action is a required field
-	Action *string `type:"string" required:"true"`
+	Action *string `type:"string" json:",omitempty" required:"true" enum:"EnumOfActionForAddVpcFirewallAclRuleInput"`
 
-	Description *string `type:"string"`
+	Description *string `type:"string" json:",omitempty"`
 
-	DestPort *string `type:"string"`
+	DestPort *string `type:"string" json:",omitempty"`
 
-	DestPortType *string `type:"string"`
+	DestPortType *string `type:"string" json:",omitempty" enum:"EnumOfDestPortTypeForAddVpcFirewallAclRuleInput"`
 
 	// Destination is a required field
-	Destination *string `type:"string" required:"true"`
+	Destination *string `type:"string" json:",omitempty" required:"true"`
 
 	// DestinationType is a required field
-	DestinationType *string `type:"string" required:"true"`
+	DestinationType *string `type:"string" json:",omitempty" required:"true" enum:"EnumOfDestinationTypeForAddVpcFirewallAclRuleInput"`
 
-	Prio *int32 `type:"int32"`
+	EndTime *int32 `type:"int32" json:",omitempty"`
+
+	Prio *int32 `type:"int32" json:",omitempty"`
 
 	// Proto is a required field
-	Proto *string `type:"string" required:"true"`
+	Proto *string `type:"string" json:",omitempty" required:"true" enum:"EnumOfProtoForAddVpcFirewallAclRuleInput"`
+
+	RepeatDays []*int32 `type:"list" json:",omitempty"`
+
+	RepeatEndTime *string `type:"string" json:",omitempty"`
+
+	RepeatStartTime *string `type:"string" json:",omitempty"`
+
+	RepeatType *string `type:"string" json:",omitempty" enum:"EnumOfRepeatTypeForAddVpcFirewallAclRuleInput"`
 
 	// Source is a required field
-	Source *string `type:"string" required:"true"`
+	Source *string `type:"string" json:",omitempty" required:"true"`
 
 	// SourceType is a required field
-	SourceType *string `type:"string" required:"true"`
+	SourceType *string `type:"string" json:",omitempty" required:"true" enum:"EnumOfSourceTypeForAddVpcFirewallAclRuleInput"`
 
-	Status *bool `type:"boolean"`
+	StartTime *int32 `type:"int32" json:",omitempty"`
+
+	Status *bool `type:"boolean" json:",omitempty"`
 
 	// VpcFirewallId is a required field
-	VpcFirewallId *string `type:"string" required:"true"`
+	VpcFirewallId *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -255,6 +267,12 @@ func (s *AddVpcFirewallAclRuleInput) SetDestinationType(v string) *AddVpcFirewal
 	return s
 }
 
+// SetEndTime sets the EndTime field's value.
+func (s *AddVpcFirewallAclRuleInput) SetEndTime(v int32) *AddVpcFirewallAclRuleInput {
+	s.EndTime = &v
+	return s
+}
+
 // SetPrio sets the Prio field's value.
 func (s *AddVpcFirewallAclRuleInput) SetPrio(v int32) *AddVpcFirewallAclRuleInput {
 	s.Prio = &v
@@ -267,6 +285,30 @@ func (s *AddVpcFirewallAclRuleInput) SetProto(v string) *AddVpcFirewallAclRuleIn
 	return s
 }
 
+// SetRepeatDays sets the RepeatDays field's value.
+func (s *AddVpcFirewallAclRuleInput) SetRepeatDays(v []*int32) *AddVpcFirewallAclRuleInput {
+	s.RepeatDays = v
+	return s
+}
+
+// SetRepeatEndTime sets the RepeatEndTime field's value.
+func (s *AddVpcFirewallAclRuleInput) SetRepeatEndTime(v string) *AddVpcFirewallAclRuleInput {
+	s.RepeatEndTime = &v
+	return s
+}
+
+// SetRepeatStartTime sets the RepeatStartTime field's value.
+func (s *AddVpcFirewallAclRuleInput) SetRepeatStartTime(v string) *AddVpcFirewallAclRuleInput {
+	s.RepeatStartTime = &v
+	return s
+}
+
+// SetRepeatType sets the RepeatType field's value.
+func (s *AddVpcFirewallAclRuleInput) SetRepeatType(v string) *AddVpcFirewallAclRuleInput {
+	s.RepeatType = &v
+	return s
+}
+
 // SetSource sets the Source field's value.
 func (s *AddVpcFirewallAclRuleInput) SetSource(v string) *AddVpcFirewallAclRuleInput {
 	s.Source = &v
@@ -276,6 +318,12 @@ func (s *AddVpcFirewallAclRuleInput) SetSource(v string) *AddVpcFirewallAclRuleI
 // SetSourceType sets the SourceType field's value.
 func (s *AddVpcFirewallAclRuleInput) SetSourceType(v string) *AddVpcFirewallAclRuleInput {
 	s.SourceType = &v
+	return s
+}
+
+// SetStartTime sets the StartTime field's value.
+func (s *AddVpcFirewallAclRuleInput) SetStartTime(v int32) *AddVpcFirewallAclRuleInput {
+	s.StartTime = &v
 	return s
 }
 
@@ -292,11 +340,11 @@ func (s *AddVpcFirewallAclRuleInput) SetVpcFirewallId(v string) *AddVpcFirewallA
 }
 
 type AddVpcFirewallAclRuleOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	RuleId *string `type:"string"`
+	RuleId *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -314,3 +362,72 @@ func (s *AddVpcFirewallAclRuleOutput) SetRuleId(v string) *AddVpcFirewallAclRule
 	s.RuleId = &v
 	return s
 }
+
+const (
+	// EnumOfActionForAddVpcFirewallAclRuleInputAccept is a EnumOfActionForAddVpcFirewallAclRuleInput enum value
+	EnumOfActionForAddVpcFirewallAclRuleInputAccept = "accept"
+
+	// EnumOfActionForAddVpcFirewallAclRuleInputDeny is a EnumOfActionForAddVpcFirewallAclRuleInput enum value
+	EnumOfActionForAddVpcFirewallAclRuleInputDeny = "deny"
+
+	// EnumOfActionForAddVpcFirewallAclRuleInputMonitor is a EnumOfActionForAddVpcFirewallAclRuleInput enum value
+	EnumOfActionForAddVpcFirewallAclRuleInputMonitor = "monitor"
+)
+
+const (
+	// EnumOfDestPortTypeForAddVpcFirewallAclRuleInputPort is a EnumOfDestPortTypeForAddVpcFirewallAclRuleInput enum value
+	EnumOfDestPortTypeForAddVpcFirewallAclRuleInputPort = "port"
+
+	// EnumOfDestPortTypeForAddVpcFirewallAclRuleInputGroup is a EnumOfDestPortTypeForAddVpcFirewallAclRuleInput enum value
+	EnumOfDestPortTypeForAddVpcFirewallAclRuleInputGroup = "group"
+)
+
+const (
+	// EnumOfDestinationTypeForAddVpcFirewallAclRuleInputNet is a EnumOfDestinationTypeForAddVpcFirewallAclRuleInput enum value
+	EnumOfDestinationTypeForAddVpcFirewallAclRuleInputNet = "net"
+
+	// EnumOfDestinationTypeForAddVpcFirewallAclRuleInputGroup is a EnumOfDestinationTypeForAddVpcFirewallAclRuleInput enum value
+	EnumOfDestinationTypeForAddVpcFirewallAclRuleInputGroup = "group"
+
+	// EnumOfDestinationTypeForAddVpcFirewallAclRuleInputDomain is a EnumOfDestinationTypeForAddVpcFirewallAclRuleInput enum value
+	EnumOfDestinationTypeForAddVpcFirewallAclRuleInputDomain = "domain"
+)
+
+const (
+	// EnumOfProtoForAddVpcFirewallAclRuleInputIcmp is a EnumOfProtoForAddVpcFirewallAclRuleInput enum value
+	EnumOfProtoForAddVpcFirewallAclRuleInputIcmp = "ICMP"
+
+	// EnumOfProtoForAddVpcFirewallAclRuleInputTcp is a EnumOfProtoForAddVpcFirewallAclRuleInput enum value
+	EnumOfProtoForAddVpcFirewallAclRuleInputTcp = "TCP"
+
+	// EnumOfProtoForAddVpcFirewallAclRuleInputUdp is a EnumOfProtoForAddVpcFirewallAclRuleInput enum value
+	EnumOfProtoForAddVpcFirewallAclRuleInputUdp = "UDP"
+
+	// EnumOfProtoForAddVpcFirewallAclRuleInputAny is a EnumOfProtoForAddVpcFirewallAclRuleInput enum value
+	EnumOfProtoForAddVpcFirewallAclRuleInputAny = "ANY"
+)
+
+const (
+	// EnumOfRepeatTypeForAddVpcFirewallAclRuleInputPermanent is a EnumOfRepeatTypeForAddVpcFirewallAclRuleInput enum value
+	EnumOfRepeatTypeForAddVpcFirewallAclRuleInputPermanent = "Permanent"
+
+	// EnumOfRepeatTypeForAddVpcFirewallAclRuleInputOnce is a EnumOfRepeatTypeForAddVpcFirewallAclRuleInput enum value
+	EnumOfRepeatTypeForAddVpcFirewallAclRuleInputOnce = "Once"
+
+	// EnumOfRepeatTypeForAddVpcFirewallAclRuleInputDaily is a EnumOfRepeatTypeForAddVpcFirewallAclRuleInput enum value
+	EnumOfRepeatTypeForAddVpcFirewallAclRuleInputDaily = "Daily"
+
+	// EnumOfRepeatTypeForAddVpcFirewallAclRuleInputWeekly is a EnumOfRepeatTypeForAddVpcFirewallAclRuleInput enum value
+	EnumOfRepeatTypeForAddVpcFirewallAclRuleInputWeekly = "Weekly"
+
+	// EnumOfRepeatTypeForAddVpcFirewallAclRuleInputMonthly is a EnumOfRepeatTypeForAddVpcFirewallAclRuleInput enum value
+	EnumOfRepeatTypeForAddVpcFirewallAclRuleInputMonthly = "Monthly"
+)
+
+const (
+	// EnumOfSourceTypeForAddVpcFirewallAclRuleInputNet is a EnumOfSourceTypeForAddVpcFirewallAclRuleInput enum value
+	EnumOfSourceTypeForAddVpcFirewallAclRuleInputNet = "net"
+
+	// EnumOfSourceTypeForAddVpcFirewallAclRuleInputGroup is a EnumOfSourceTypeForAddVpcFirewallAclRuleInput enum value
+	EnumOfSourceTypeForAddVpcFirewallAclRuleInputGroup = "group"
+)

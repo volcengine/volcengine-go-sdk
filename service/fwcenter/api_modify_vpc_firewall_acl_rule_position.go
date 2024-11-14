@@ -144,16 +144,16 @@ func (c *FWCENTER) ModifyVpcFirewallAclRulePositionWithContext(ctx volcengine.Co
 }
 
 type ModifyVpcFirewallAclRulePositionInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// NewPrio is a required field
-	NewPrio *int32 `type:"int32" required:"true"`
+	NewPrio *int32 `min:"1" type:"int32" json:",omitempty" required:"true"`
 
 	// RuleId is a required field
-	RuleId *string `type:"string" required:"true"`
+	RuleId *string `type:"string" json:",omitempty" required:"true"`
 
 	// VpcFirewallId is a required field
-	VpcFirewallId *string `type:"string" required:"true"`
+	VpcFirewallId *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -171,6 +171,9 @@ func (s *ModifyVpcFirewallAclRulePositionInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "ModifyVpcFirewallAclRulePositionInput"}
 	if s.NewPrio == nil {
 		invalidParams.Add(request.NewErrParamRequired("NewPrio"))
+	}
+	if s.NewPrio != nil && *s.NewPrio < 1 {
+		invalidParams.Add(request.NewErrParamMinValue("NewPrio", 1))
 	}
 	if s.RuleId == nil {
 		invalidParams.Add(request.NewErrParamRequired("RuleId"))
@@ -204,9 +207,11 @@ func (s *ModifyVpcFirewallAclRulePositionInput) SetVpcFirewallId(v string) *Modi
 }
 
 type ModifyVpcFirewallAclRulePositionOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
+
+	RuleId *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -217,4 +222,10 @@ func (s ModifyVpcFirewallAclRulePositionOutput) String() string {
 // GoString returns the string representation
 func (s ModifyVpcFirewallAclRulePositionOutput) GoString() string {
 	return s.String()
+}
+
+// SetRuleId sets the RuleId field's value.
+func (s *ModifyVpcFirewallAclRulePositionOutput) SetRuleId(v string) *ModifyVpcFirewallAclRulePositionOutput {
+	s.RuleId = &v
+	return s
 }

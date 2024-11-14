@@ -144,14 +144,14 @@ func (c *FWCENTER) UpdateVpcFirewallAclRuleSwitchWithContext(ctx volcengine.Cont
 }
 
 type UpdateVpcFirewallAclRuleSwitchInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	RuleIds []*string `type:"list"`
+	RuleIds []*string `type:"list" json:",omitempty"`
 
-	Status *bool `type:"boolean"`
+	Status *bool `type:"boolean" json:",omitempty"`
 
 	// VpcFirewallId is a required field
-	VpcFirewallId *string `type:"string" required:"true"`
+	VpcFirewallId *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -196,9 +196,11 @@ func (s *UpdateVpcFirewallAclRuleSwitchInput) SetVpcFirewallId(v string) *Update
 }
 
 type UpdateVpcFirewallAclRuleSwitchOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
+
+	RuleIds []*string `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -209,4 +211,10 @@ func (s UpdateVpcFirewallAclRuleSwitchOutput) String() string {
 // GoString returns the string representation
 func (s UpdateVpcFirewallAclRuleSwitchOutput) GoString() string {
 	return s.String()
+}
+
+// SetRuleIds sets the RuleIds field's value.
+func (s *UpdateVpcFirewallAclRuleSwitchOutput) SetRuleIds(v []*string) *UpdateVpcFirewallAclRuleSwitchOutput {
+	s.RuleIds = v
+	return s
 }
