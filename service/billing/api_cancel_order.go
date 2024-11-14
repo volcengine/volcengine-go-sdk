@@ -144,10 +144,10 @@ func (c *BILLING) CancelOrderWithContext(ctx volcengine.Context, input *CancelOr
 }
 
 type CancelOrderInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// OrderID is a required field
-	OrderID *string `type:"string" required:"true"`
+	OrderID *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -180,7 +180,7 @@ func (s *CancelOrderInput) SetOrderID(v string) *CancelOrderInput {
 }
 
 type CancelOrderOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 }

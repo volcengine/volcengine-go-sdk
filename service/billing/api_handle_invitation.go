@@ -144,22 +144,22 @@ func (c *BILLING) HandleInvitationWithContext(ctx volcengine.Context, input *Han
 }
 
 type HandleInvitationInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// Action is a required field
-	Action *int32 `type:"int32" required:"true"`
+	Action *int32 `type:"int32" json:",omitempty" required:"true"`
 
-	AuthID *string `type:"string"`
+	AuthID *string `type:"string" json:",omitempty"`
 
 	// InvitationType is a required field
-	InvitationType *int32 `type:"int32" required:"true"`
+	InvitationType *int32 `type:"int32" json:",omitempty" required:"true"`
 
-	MajorAccountID *int32 `type:"int32"`
+	MajorAccountID *int32 `type:"int32" json:",omitempty"`
 
-	Relation *int32 `type:"int32"`
+	Relation *int32 `type:"int32" json:",omitempty"`
 
 	// RelationID is a required field
-	RelationID *string `type:"string" required:"true"`
+	RelationID *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -228,11 +228,11 @@ func (s *HandleInvitationInput) SetRelationID(v string) *HandleInvitationInput {
 }
 
 type HandleInvitationOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	IsSuccess *bool `type:"boolean"`
+	IsSuccess *bool `type:"boolean" json:",omitempty"`
 }
 
 // String returns the string representation

@@ -144,13 +144,13 @@ func (c *BILLING) ListFinancialRelationWithContext(ctx volcengine.Context, input
 }
 
 type AuthInfoForListFinancialRelationOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	AuthID *string `type:"string"`
+	AuthID *string `type:"string" json:",omitempty"`
 
-	AuthList []*int32 `type:"list"`
+	AuthList []*int32 `type:"list" json:",omitempty"`
 
-	AuthStatus *int32 `type:"int32"`
+	AuthStatus *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -182,17 +182,17 @@ func (s *AuthInfoForListFinancialRelationOutput) SetAuthStatus(v int32) *AuthInf
 }
 
 type ListFinancialRelationInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	AccountIDSearchList []*string `type:"list"`
+	AccountIDSearchList []*string `type:"list" json:",omitempty"`
 
-	Limit *int32 `type:"int32"`
+	Limit *int32 `type:"int32" json:",omitempty"`
 
-	Offset *int32 `type:"int32"`
+	Offset *int32 `type:"int32" json:",omitempty"`
 
-	Relation []*string `type:"list"`
+	Relation []*string `type:"list" json:",omitempty"`
 
-	Status []*string `type:"list"`
+	Status []*string `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -236,17 +236,17 @@ func (s *ListFinancialRelationInput) SetStatus(v []*string) *ListFinancialRelati
 }
 
 type ListFinancialRelationOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	Limit *int32 `type:"int32"`
+	Limit *int32 `type:"int32" json:",omitempty"`
 
-	List []*ListForListFinancialRelationOutput `type:"list"`
+	List []*ListForListFinancialRelationOutput `type:"list" json:",omitempty"`
 
-	Offset *int32 `type:"int32"`
+	Offset *int32 `type:"int32" json:",omitempty"`
 
-	Total *int32 `type:"int32"`
+	Total *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -284,35 +284,35 @@ func (s *ListFinancialRelationOutput) SetTotal(v int32) *ListFinancialRelationOu
 }
 
 type ListForListFinancialRelationOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	AccountAlias *string `type:"string"`
+	AccountAlias *string `type:"string" json:",omitempty"`
 
-	AuthInfo []*AuthInfoForListFinancialRelationOutput `type:"list"`
+	AuthInfo []*AuthInfoForListFinancialRelationOutput `type:"list" json:",omitempty"`
 
-	Filiation *int32 `type:"int32"`
+	Filiation *int32 `type:"int32" json:",omitempty"`
 
-	FiliationDesc *string `type:"string"`
+	FiliationDesc *string `type:"string" json:",omitempty"`
 
-	MajorAccountID *int32 `type:"int32"`
+	MajorAccountID *int32 `type:"int32" json:",omitempty"`
 
-	MajorAccountName *string `type:"string"`
+	MajorAccountName *string `type:"string" json:",omitempty"`
 
-	Relation *int32 `type:"int32"`
+	Relation *int32 `type:"int32" json:",omitempty"`
 
-	RelationDesc *string `type:"string"`
+	RelationDesc *string `type:"string" json:",omitempty"`
 
-	RelationID *string `type:"string"`
+	RelationID *string `type:"string" json:",omitempty"`
 
-	Status *int32 `type:"int32"`
+	Status *int32 `type:"int32" json:",omitempty"`
 
-	StatusDesc *string `type:"string"`
+	StatusDesc *string `type:"string" json:",omitempty"`
 
-	SubAccountID *int32 `type:"int32"`
+	SubAccountID *int32 `type:"int32" json:",omitempty"`
 
-	SubAccountName *string `type:"string"`
+	SubAccountName *string `type:"string" json:",omitempty"`
 
-	UpdateTime *string `type:"string"`
+	UpdateTime *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation

@@ -144,77 +144,77 @@ func (c *BILLING) ListPackageUsageDetailsWithContext(ctx volcengine.Context, inp
 }
 
 type ListForListPackageUsageDetailsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	AfterAmount *string `type:"string"`
+	AfterAmount *string `type:"string" json:",omitempty"`
 
-	BeforeAmount *string `type:"string"`
+	BeforeAmount *string `type:"string" json:",omitempty"`
 
-	BeginTime *string `type:"string"`
+	BeginTime *string `type:"string" json:",omitempty"`
 
-	ConfigurationCode *string `type:"string"`
+	ConfigurationCode *string `type:"string" json:",omitempty"`
 
-	ConfigurationName *string `type:"string"`
+	ConfigurationName *string `type:"string" json:",omitempty"`
 
-	DeductBillingFactor *string `type:"string"`
+	DeductBillingFactor *string `type:"string" json:",omitempty"`
 
-	DeductionAccountID *string `type:"string"`
+	DeductionAccountID *string `type:"string" json:",omitempty"`
 
-	DeductionAmount *string `type:"string"`
+	DeductionAmount *string `type:"string" json:",omitempty"`
 
-	DeductionCalculateFactor *string `type:"string"`
+	DeductionCalculateFactor *string `type:"string" json:",omitempty"`
 
-	DeductionElementCode *string `type:"string"`
+	DeductionElementCode *string `type:"string" json:",omitempty"`
 
-	DeductionInstanceNo *string `type:"string"`
+	DeductionInstanceNo *string `type:"string" json:",omitempty"`
 
-	DeductionInstanceUnit *string `type:"string"`
+	DeductionInstanceUnit *string `type:"string" json:",omitempty"`
 
-	DeductionProduct *string `type:"string"`
+	DeductionProduct *string `type:"string" json:",omitempty"`
 
-	DeductionRatio *string `type:"string"`
+	DeductionRatio *string `type:"string" json:",omitempty"`
 
-	DeductionRegionCode *string `type:"string"`
+	DeductionRegionCode *string `type:"string" json:",omitempty"`
 
-	DeductionSpecification *string `type:"string"`
+	DeductionSpecification *string `type:"string" json:",omitempty"`
 
-	DeductionSpecificationUnit *string `type:"string"`
+	DeductionSpecificationUnit *string `type:"string" json:",omitempty"`
 
-	DeductionTime *string `type:"string"`
+	DeductionTime *string `type:"string" json:",omitempty"`
 
-	DeductionUseAmount *string `type:"string"`
+	DeductionUseAmount *string `type:"string" json:",omitempty"`
 
-	DeductionUserName *string `type:"string"`
+	DeductionUserName *string `type:"string" json:",omitempty"`
 
-	EndTime *string `type:"string"`
+	EndTime *string `type:"string" json:",omitempty"`
 
-	InstanceName *string `type:"string"`
+	InstanceName *string `type:"string" json:",omitempty"`
 
-	InstanceNo *string `type:"string"`
+	InstanceNo *string `type:"string" json:",omitempty"`
 
-	OwnerID *string `type:"string"`
+	OwnerID *string `type:"string" json:",omitempty"`
 
-	PackageType *string `type:"string" enum:"EnumOfPackageTypeForListPackageUsageDetailsOutput"`
+	PackageType *string `type:"string" json:",omitempty" enum:"EnumOfPackageTypeForListPackageUsageDetailsOutput"`
 
-	Product *string `type:"string"`
+	Product *string `type:"string" json:",omitempty"`
 
-	ProductName *string `type:"string"`
+	ProductName *string `type:"string" json:",omitempty"`
 
-	RegionCode *string `type:"string"`
+	RegionCode *string `type:"string" json:",omitempty"`
 
-	SpecCalculateFactor *string `type:"string"`
+	SpecCalculateFactor *string `type:"string" json:",omitempty"`
 
-	Specification *string `type:"string"`
+	Specification *string `type:"string" json:",omitempty"`
 
-	SpecificationUnit *string `type:"string"`
+	SpecificationUnit *string `type:"string" json:",omitempty"`
 
-	SubjectNo *string `type:"string"`
+	SubjectNo *string `type:"string" json:",omitempty"`
 
-	Unit *string `type:"string"`
+	Unit *string `type:"string" json:",omitempty"`
 
-	UserName *string `type:"string"`
+	UserName *string `type:"string" json:",omitempty"`
 
-	ZoneCode *string `type:"string"`
+	ZoneCode *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -438,23 +438,23 @@ func (s *ListForListPackageUsageDetailsOutput) SetZoneCode(v string) *ListForLis
 }
 
 type ListPackageUsageDetailsInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// DeductBeginTime is a required field
-	DeductBeginTime *string `type:"string" required:"true"`
+	DeductBeginTime *string `type:"string" json:",omitempty" required:"true"`
 
 	// DeductEndTime is a required field
-	DeductEndTime *string `type:"string" required:"true"`
+	DeductEndTime *string `type:"string" json:",omitempty" required:"true"`
 
-	InstanceNo *string `type:"string"`
+	InstanceNo *string `type:"string" json:",omitempty"`
 
 	// MaxResults is a required field
-	MaxResults *string `type:"string" required:"true"`
+	MaxResults *string `type:"string" json:",omitempty" required:"true"`
 
-	NextToken *string `type:"string"`
+	NextToken *string `type:"string" json:",omitempty"`
 
 	// ResourceType is a required field
-	ResourceType *string `type:"string" required:"true" enum:"EnumOfResourceTypeForListPackageUsageDetailsInput"`
+	ResourceType *string `type:"string" json:",omitempty" required:"true" enum:"EnumOfResourceTypeForListPackageUsageDetailsInput"`
 }
 
 // String returns the string representation
@@ -526,13 +526,13 @@ func (s *ListPackageUsageDetailsInput) SetResourceType(v string) *ListPackageUsa
 }
 
 type ListPackageUsageDetailsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	List []*ListForListPackageUsageDetailsOutput `type:"list"`
+	List []*ListForListPackageUsageDetailsOutput `type:"list" json:",omitempty"`
 
-	NextToken *string `type:"string"`
+	NextToken *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation

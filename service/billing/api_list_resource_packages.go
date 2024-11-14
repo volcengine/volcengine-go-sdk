@@ -144,55 +144,55 @@ func (c *BILLING) ListResourcePackagesWithContext(ctx volcengine.Context, input 
 }
 
 type ListForListResourcePackagesOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	AvailableAmount *string `type:"string"`
+	AvailableAmount *string `type:"string" json:",omitempty"`
 
-	BillTime *string `type:"string"`
+	BillTime *string `type:"string" json:",omitempty"`
 
-	ConfigurationCode *string `type:"string"`
+	ConfigurationCode *string `type:"string" json:",omitempty"`
 
-	ConfigurationName *string `type:"string"`
+	ConfigurationName *string `type:"string" json:",omitempty"`
 
-	EffectiveTime *string `type:"string"`
+	EffectiveTime *string `type:"string" json:",omitempty"`
 
-	ExpiryTime *string `type:"string"`
+	ExpiryTime *string `type:"string" json:",omitempty"`
 
-	InstanceName *string `type:"string"`
+	InstanceName *string `type:"string" json:",omitempty"`
 
-	InstanceNo *string `type:"string"`
+	InstanceNo *string `type:"string" json:",omitempty"`
 
-	OwnerID *string `type:"string"`
+	OwnerID *string `type:"string" json:",omitempty"`
 
-	PackageType *string `type:"string"`
+	PackageType *string `type:"string" json:",omitempty"`
 
-	Product *string `type:"string"`
+	Product *string `type:"string" json:",omitempty"`
 
-	ProductName *string `type:"string"`
+	ProductName *string `type:"string" json:",omitempty"`
 
-	RegionCode *string `type:"string"`
+	RegionCode *string `type:"string" json:",omitempty"`
 
-	ResetByNaturalMonth *string `type:"string"`
+	ResetByNaturalMonth *string `type:"string" json:",omitempty"`
 
-	ResetPeriod *string `type:"string"`
+	ResetPeriod *string `type:"string" json:",omitempty"`
 
-	SpecCalculateFactor *string `type:"string"`
+	SpecCalculateFactor *string `type:"string" json:",omitempty"`
 
-	Specification *string `type:"string"`
+	Specification *string `type:"string" json:",omitempty"`
 
-	SpecificationUnit *string `type:"string"`
+	SpecificationUnit *string `type:"string" json:",omitempty"`
 
-	Status *string `type:"string" enum:"EnumOfStatusForListResourcePackagesOutput"`
+	Status *string `type:"string" json:",omitempty" enum:"EnumOfStatusForListResourcePackagesOutput"`
 
-	SubjectNo *string `type:"string"`
+	SubjectNo *string `type:"string" json:",omitempty"`
 
-	TotalAmount *string `type:"string"`
+	TotalAmount *string `type:"string" json:",omitempty"`
 
-	Unit *string `type:"string"`
+	Unit *string `type:"string" json:",omitempty"`
 
-	UserName *string `type:"string"`
+	UserName *string `type:"string" json:",omitempty"`
 
-	ZoneCode *string `type:"string"`
+	ZoneCode *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -350,23 +350,23 @@ func (s *ListForListResourcePackagesOutput) SetZoneCode(v string) *ListForListRe
 }
 
 type ListResourcePackagesInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	EffectiveTimeBegin *string `type:"string"`
+	EffectiveTimeBegin *string `type:"string" json:",omitempty"`
 
-	EffectiveTimeEnd *string `type:"string"`
+	EffectiveTimeEnd *string `type:"string" json:",omitempty"`
 
 	// MaxResults is a required field
-	MaxResults *string `type:"string" required:"true"`
+	MaxResults *string `type:"string" json:",omitempty" required:"true"`
 
-	NextToken *string `type:"string"`
+	NextToken *string `type:"string" json:",omitempty"`
 
-	Product *string `type:"string"`
+	Product *string `type:"string" json:",omitempty"`
 
 	// ResourceType is a required field
-	ResourceType *string `type:"string" required:"true" enum:"EnumOfResourceTypeForListResourcePackagesInput"`
+	ResourceType *string `type:"string" json:",omitempty" required:"true" enum:"EnumOfResourceTypeForListResourcePackagesInput"`
 
-	Status *string `type:"string" enum:"EnumOfStatusForListResourcePackagesInput"`
+	Status *string `type:"string" json:",omitempty" enum:"EnumOfStatusForListResourcePackagesInput"`
 }
 
 // String returns the string representation
@@ -438,13 +438,13 @@ func (s *ListResourcePackagesInput) SetStatus(v string) *ListResourcePackagesInp
 }
 
 type ListResourcePackagesOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	List []*ListForListResourcePackagesOutput `type:"list"`
+	List []*ListForListResourcePackagesOutput `type:"list" json:",omitempty"`
 
-	NextToken *string `type:"string"`
+	NextToken *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation

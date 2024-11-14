@@ -144,10 +144,10 @@ func (c *BILLING) PayOrderWithContext(ctx volcengine.Context, input *PayOrderInp
 }
 
 type PayOrderInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// OrderID is a required field
-	OrderID *string `type:"string" required:"true"`
+	OrderID *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -180,7 +180,7 @@ func (s *PayOrderInput) SetOrderID(v string) *PayOrderInput {
 }
 
 type PayOrderOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 }

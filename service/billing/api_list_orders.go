@@ -144,25 +144,25 @@ func (c *BILLING) ListOrdersWithContext(ctx volcengine.Context, input *ListOrder
 }
 
 type ListOrdersInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// CreateTimeEnd is a required field
-	CreateTimeEnd *string `type:"string" required:"true"`
+	CreateTimeEnd *string `type:"string" json:",omitempty" required:"true"`
 
 	// CreateTimeStart is a required field
-	CreateTimeStart *string `type:"string" required:"true"`
+	CreateTimeStart *string `type:"string" json:",omitempty" required:"true"`
 
 	// MaxResults is a required field
-	MaxResults *int32 `type:"int32" required:"true"`
+	MaxResults *int32 `type:"int32" json:",omitempty" required:"true"`
 
 	// NextToken is a required field
-	NextToken *string `type:"string" required:"true"`
+	NextToken *string `type:"string" json:",omitempty" required:"true"`
 
 	// OrderType is a required field
-	OrderType *string `type:"string" required:"true"`
+	OrderType *string `type:"string" json:",omitempty" required:"true"`
 
 	// Status is a required field
-	Status *string `type:"string" required:"true"`
+	Status *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -240,15 +240,15 @@ func (s *ListOrdersInput) SetStatus(v string) *ListOrdersInput {
 }
 
 type ListOrdersOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	MaxResults *int32 `type:"int32"`
+	MaxResults *int32 `type:"int32" json:",omitempty"`
 
-	NextToken *string `type:"string"`
+	NextToken *string `type:"string" json:",omitempty"`
 
-	OrderInfos []*OrderInfoForListOrdersOutput `type:"list"`
+	OrderInfos []*OrderInfoForListOrdersOutput `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -280,39 +280,39 @@ func (s *ListOrdersOutput) SetOrderInfos(v []*OrderInfoForListOrdersOutput) *Lis
 }
 
 type OrderInfoForListOrdersOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	BuyerCustomerName *string `type:"string"`
+	BuyerCustomerName *string `type:"string" json:",omitempty"`
 
-	BuyerID *int32 `type:"int32"`
+	BuyerID *int32 `type:"int32" json:",omitempty"`
 
-	CouponAmount *string `type:"string"`
+	CouponAmount *string `type:"string" json:",omitempty"`
 
-	CreateTime *string `type:"string"`
+	CreateTime *string `type:"string" json:",omitempty"`
 
-	DiscountAmount *string `type:"string"`
+	DiscountAmount *string `type:"string" json:",omitempty"`
 
-	OrderID *string `type:"string"`
+	OrderID *string `type:"string" json:",omitempty"`
 
-	OrderType *string `type:"string"`
+	OrderType *string `type:"string" json:",omitempty"`
 
-	OriginalAmount *string `type:"string"`
+	OriginalAmount *string `type:"string" json:",omitempty"`
 
-	PaidAmount *string `type:"string"`
+	PaidAmount *string `type:"string" json:",omitempty"`
 
-	PayableAmount *string `type:"string"`
+	PayableAmount *string `type:"string" json:",omitempty"`
 
-	PayerCustomerName *string `type:"string"`
+	PayerCustomerName *string `type:"string" json:",omitempty"`
 
-	PayerID *int32 `type:"int32"`
+	PayerID *int32 `type:"int32" json:",omitempty"`
 
-	SellerCustomerName *string `type:"string"`
+	SellerCustomerName *string `type:"string" json:",omitempty"`
 
-	SellerID *int32 `type:"int32"`
+	SellerID *int32 `type:"int32" json:",omitempty"`
 
-	Status *string `type:"string"`
+	Status *string `type:"string" json:",omitempty"`
 
-	SubjectNo *string `type:"string"`
+	SubjectNo *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
