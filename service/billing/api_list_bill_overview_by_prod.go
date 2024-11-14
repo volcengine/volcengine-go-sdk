@@ -144,29 +144,29 @@ func (c *BILLING) ListBillOverviewByProdWithContext(ctx volcengine.Context, inpu
 }
 
 type ListBillOverviewByProdInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	BillCategoryParent []*string `type:"list"`
+	BillCategoryParent []*string `type:"list" json:",omitempty"`
 
 	// BillPeriod is a required field
-	BillPeriod *string `type:"string" required:"true"`
+	BillPeriod *string `type:"string" json:",omitempty" required:"true"`
 
-	BillingMode []*string `type:"list"`
+	BillingMode []*string `type:"list" json:",omitempty"`
 
-	IgnoreZero *int32 `type:"int32"`
+	IgnoreZero *int32 `type:"int32" json:",omitempty"`
 
 	// Limit is a required field
-	Limit *int32 `type:"int32" required:"true"`
+	Limit *int32 `type:"int32" json:",omitempty" required:"true"`
 
-	NeedRecordNum *int32 `type:"int32"`
+	NeedRecordNum *int32 `type:"int32" json:",omitempty"`
 
-	Offset *int32 `type:"int32"`
+	Offset *int32 `type:"int32" json:",omitempty"`
 
-	OwnerID []*int64 `type:"list"`
+	OwnerID []*int64 `type:"list" json:",omitempty"`
 
-	PayerID []*int64 `type:"list"`
+	PayerID []*int64 `type:"list" json:",omitempty"`
 
-	Product []*string `type:"list"`
+	Product []*string `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -256,17 +256,17 @@ func (s *ListBillOverviewByProdInput) SetProduct(v []*string) *ListBillOverviewB
 }
 
 type ListBillOverviewByProdOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	Limit *int32 `type:"int32"`
+	Limit *int32 `type:"int32" json:",omitempty"`
 
-	List []*ListForListBillOverviewByProdOutput `type:"list"`
+	List []*ListForListBillOverviewByProdOutput `type:"list" json:",omitempty"`
 
-	Offset *int32 `type:"int32"`
+	Offset *int32 `type:"int32" json:",omitempty"`
 
-	Total *int32 `type:"int32"`
+	Total *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -304,57 +304,57 @@ func (s *ListBillOverviewByProdOutput) SetTotal(v int32) *ListBillOverviewByProd
 }
 
 type ListForListBillOverviewByProdOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	BillCategoryParent *string `type:"string"`
+	BillCategoryParent *string `type:"string" json:",omitempty"`
 
-	BillPeriod *string `type:"string"`
+	BillPeriod *string `type:"string" json:",omitempty"`
 
-	BillingMode *string `type:"string"`
+	BillingMode *string `type:"string" json:",omitempty"`
 
-	BusinessMode *string `type:"string"`
+	BusinessMode *string `type:"string" json:",omitempty"`
 
-	CouponAmount *string `type:"string"`
+	CouponAmount *string `type:"string" json:",omitempty"`
 
-	CreditCarriedAmount *string `type:"string"`
+	CreditCarriedAmount *string `type:"string" json:",omitempty"`
 
-	DiscountBillAmount *string `type:"string"`
+	DiscountBillAmount *string `type:"string" json:",omitempty"`
 
-	OriginalBillAmount *string `type:"string"`
+	OriginalBillAmount *string `type:"string" json:",omitempty"`
 
-	OwnerCustomerName *string `type:"string"`
+	OwnerCustomerName *string `type:"string" json:",omitempty"`
 
-	OwnerID *string `type:"string"`
+	OwnerID *string `type:"string" json:",omitempty"`
 
-	OwnerUserName *string `type:"string"`
+	OwnerUserName *string `type:"string" json:",omitempty"`
 
-	PaidAmount *string `type:"string"`
+	PaidAmount *string `type:"string" json:",omitempty"`
 
-	PayableAmount *string `type:"string"`
+	PayableAmount *string `type:"string" json:",omitempty"`
 
-	PayerCustomerName *string `type:"string"`
+	PayerCustomerName *string `type:"string" json:",omitempty"`
 
-	PayerID *string `type:"string"`
+	PayerID *string `type:"string" json:",omitempty"`
 
-	PayerUserName *string `type:"string"`
+	PayerUserName *string `type:"string" json:",omitempty"`
 
-	PreferentialBillAmount *string `type:"string"`
+	PreferentialBillAmount *string `type:"string" json:",omitempty"`
 
-	Product *string `type:"string"`
+	Product *string `type:"string" json:",omitempty"`
 
-	ProductZh *string `type:"string"`
+	ProductZh *string `type:"string" json:",omitempty"`
 
-	RoundBillAmount *string `type:"string"`
+	RoundBillAmount *string `type:"string" json:",omitempty"`
 
-	SellerCustomerName *string `type:"string"`
+	SellerCustomerName *string `type:"string" json:",omitempty"`
 
-	SellerID *string `type:"string"`
+	SellerID *string `type:"string" json:",omitempty"`
 
-	SellerUserName *string `type:"string"`
+	SellerUserName *string `type:"string" json:",omitempty"`
 
-	SettlementType *string `type:"string"`
+	SettlementType *string `type:"string" json:",omitempty"`
 
-	UnpaidAmount *string `type:"string"`
+	UnpaidAmount *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation

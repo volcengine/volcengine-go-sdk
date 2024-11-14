@@ -144,11 +144,11 @@ func (c *VEFAAS) GetRevisionWithContext(ctx volcengine.Context, input *GetRevisi
 }
 
 type CredentialsForGetRevisionOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	AccessKeyId *string `type:"string"`
+	AccessKeyId *string `type:"string" json:",omitempty"`
 
-	SecretAccessKey *string `type:"string"`
+	SecretAccessKey *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -174,11 +174,11 @@ func (s *CredentialsForGetRevisionOutput) SetSecretAccessKey(v string) *Credenti
 }
 
 type EnvForGetRevisionOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Key *string `type:"string"`
+	Key *string `type:"string" json:",omitempty"`
 
-	Value *string `type:"string"`
+	Value *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -204,13 +204,13 @@ func (s *EnvForGetRevisionOutput) SetValue(v string) *EnvForGetRevisionOutput {
 }
 
 type GetRevisionInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// FunctionId is a required field
-	FunctionId *string `type:"string" required:"true"`
+	FunctionId *string `type:"string" json:",omitempty" required:"true"`
 
 	// RevisionNumber is a required field
-	RevisionNumber *int32 `type:"int32" required:"true"`
+	RevisionNumber *int32 `type:"int32" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -252,57 +252,57 @@ func (s *GetRevisionInput) SetRevisionNumber(v int32) *GetRevisionInput {
 }
 
 type GetRevisionOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	CodeSize *int32 `type:"int32"`
+	CodeSize *int32 `type:"int32" json:",omitempty"`
 
-	CodeSizeLimit *int32 `type:"int32"`
+	CodeSizeLimit *int32 `type:"int32" json:",omitempty"`
 
-	CreationTime *string `type:"string"`
+	CreationTime *string `type:"string" json:",omitempty"`
 
-	Description *string `type:"string"`
+	Description *string `type:"string" json:",omitempty"`
 
-	Envs []*EnvForGetRevisionOutput `type:"list"`
+	Envs []*EnvForGetRevisionOutput `type:"list" json:",omitempty"`
 
-	ExclusiveMode *bool `type:"boolean"`
+	ExclusiveMode *bool `type:"boolean" json:",omitempty"`
 
-	Id *string `type:"string"`
+	Id *string `type:"string" json:",omitempty"`
 
-	InitializerSec *int32 `type:"int32"`
+	InitializerSec *int32 `type:"int32" json:",omitempty"`
 
-	MaxConcurrency *int32 `type:"int32"`
+	MaxConcurrency *int32 `type:"int32" json:",omitempty"`
 
-	MaxReplicas *int32 `type:"int32"`
+	MaxReplicas *int32 `type:"int32" json:",omitempty"`
 
-	MemoryMB *int32 `type:"int32"`
+	MemoryMB *int32 `type:"int32" json:",omitempty"`
 
-	Name *string `type:"string"`
+	Name *string `type:"string" json:",omitempty"`
 
-	NasStorage *NasStorageForGetRevisionOutput `type:"structure"`
+	NasStorage *NasStorageForGetRevisionOutput `type:"structure" json:",omitempty"`
 
-	RequestTimeout *int32 `type:"int32"`
+	RequestTimeout *int32 `type:"int32" json:",omitempty"`
 
-	RevisionCreationTime *string `type:"string"`
+	RevisionCreationTime *string `type:"string" json:",omitempty"`
 
-	RevisionDescription *string `type:"string"`
+	RevisionDescription *string `type:"string" json:",omitempty"`
 
-	RevisionNumber *int32 `type:"int32"`
+	RevisionNumber *int32 `type:"int32" json:",omitempty"`
 
-	Runtime *string `type:"string"`
+	Runtime *string `type:"string" json:",omitempty"`
 
-	Source *string `type:"string"`
+	Source *string `type:"string" json:",omitempty"`
 
-	SourceLocation *string `type:"string"`
+	SourceLocation *string `type:"string" json:",omitempty"`
 
-	SourceType *string `type:"string"`
+	SourceType *string `type:"string" json:",omitempty"`
 
-	TlsConfig *TlsConfigForGetRevisionOutput `type:"structure"`
+	TlsConfig *TlsConfigForGetRevisionOutput `type:"structure" json:",omitempty"`
 
-	TosMountConfig *TosMountConfigForGetRevisionOutput `type:"structure"`
+	TosMountConfig *TosMountConfigForGetRevisionOutput `type:"structure" json:",omitempty"`
 
-	VpcConfig *VpcConfigForGetRevisionOutput `type:"structure"`
+	VpcConfig *VpcConfigForGetRevisionOutput `type:"structure" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -460,17 +460,17 @@ func (s *GetRevisionOutput) SetVpcConfig(v *VpcConfigForGetRevisionOutput) *GetR
 }
 
 type MountPointForGetRevisionOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	BucketName *string `type:"string"`
+	BucketName *string `type:"string" json:",omitempty"`
 
-	BucketPath *string `type:"string"`
+	BucketPath *string `type:"string" json:",omitempty"`
 
-	Endpoint *string `type:"string"`
+	Endpoint *string `type:"string" json:",omitempty"`
 
-	LocalMountPath *string `type:"string"`
+	LocalMountPath *string `type:"string" json:",omitempty"`
 
-	ReadOnly *bool `type:"boolean"`
+	ReadOnly *bool `type:"boolean" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -514,19 +514,19 @@ func (s *MountPointForGetRevisionOutput) SetReadOnly(v bool) *MountPointForGetRe
 }
 
 type NasConfigForGetRevisionOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	FileSystemId *string `type:"string"`
+	FileSystemId *string `type:"string" json:",omitempty"`
 
-	Gid *int64 `type:"int64"`
+	Gid *int64 `type:"int64" json:",omitempty"`
 
-	LocalMountPath *string `type:"string"`
+	LocalMountPath *string `type:"string" json:",omitempty"`
 
-	MountPointId *string `type:"string"`
+	MountPointId *string `type:"string" json:",omitempty"`
 
-	RemotePath *string `type:"string"`
+	RemotePath *string `type:"string" json:",omitempty"`
 
-	Uid *int64 `type:"int64"`
+	Uid *int64 `type:"int64" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -576,11 +576,11 @@ func (s *NasConfigForGetRevisionOutput) SetUid(v int64) *NasConfigForGetRevision
 }
 
 type NasStorageForGetRevisionOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	EnableNas *bool `type:"boolean"`
+	EnableNas *bool `type:"boolean" json:",omitempty"`
 
-	NasConfigs []*NasConfigForGetRevisionOutput `type:"list"`
+	NasConfigs []*NasConfigForGetRevisionOutput `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -606,13 +606,13 @@ func (s *NasStorageForGetRevisionOutput) SetNasConfigs(v []*NasConfigForGetRevis
 }
 
 type TlsConfigForGetRevisionOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	EnableLog *bool `type:"boolean"`
+	EnableLog *bool `type:"boolean" json:",omitempty"`
 
-	TlsProjectId *string `type:"string"`
+	TlsProjectId *string `type:"string" json:",omitempty"`
 
-	TlsTopicId *string `type:"string"`
+	TlsTopicId *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -644,13 +644,13 @@ func (s *TlsConfigForGetRevisionOutput) SetTlsTopicId(v string) *TlsConfigForGet
 }
 
 type TosMountConfigForGetRevisionOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Credentials *CredentialsForGetRevisionOutput `type:"structure"`
+	Credentials *CredentialsForGetRevisionOutput `type:"structure" json:",omitempty"`
 
-	EnableTos *bool `type:"boolean"`
+	EnableTos *bool `type:"boolean" json:",omitempty"`
 
-	MountPoints []*MountPointForGetRevisionOutput `type:"list"`
+	MountPoints []*MountPointForGetRevisionOutput `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -682,17 +682,17 @@ func (s *TosMountConfigForGetRevisionOutput) SetMountPoints(v []*MountPointForGe
 }
 
 type VpcConfigForGetRevisionOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	EnableSharedInternetAccess *bool `type:"boolean"`
+	EnableSharedInternetAccess *bool `type:"boolean" json:",omitempty"`
 
-	EnableVpc *bool `type:"boolean"`
+	EnableVpc *bool `type:"boolean" json:",omitempty"`
 
-	SecurityGroupIds []*string `type:"list"`
+	SecurityGroupIds []*string `type:"list" json:",omitempty"`
 
-	SubnetIds []*string `type:"list"`
+	SubnetIds []*string `type:"list" json:",omitempty"`
 
-	VpcId *string `type:"string"`
+	VpcId *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation

@@ -144,16 +144,16 @@ func (c *BILLING) ListOrderProductDetailsWithContext(ctx volcengine.Context, inp
 }
 
 type ListOrderProductDetailsInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// MaxResults is a required field
-	MaxResults *int32 `type:"int32" required:"true"`
+	MaxResults *int32 `type:"int32" json:",omitempty" required:"true"`
 
 	// NextToken is a required field
-	NextToken *string `type:"string" required:"true"`
+	NextToken *string `type:"string" json:",omitempty" required:"true"`
 
 	// OrderID is a required field
-	OrderID *string `type:"string" required:"true"`
+	OrderID *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -204,15 +204,15 @@ func (s *ListOrderProductDetailsInput) SetOrderID(v string) *ListOrderProductDet
 }
 
 type ListOrderProductDetailsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	MaxResults *int32 `type:"int32"`
+	MaxResults *int32 `type:"int32" json:",omitempty"`
 
-	NextToken *string `type:"string"`
+	NextToken *string `type:"string" json:",omitempty"`
 
-	OrderProductInfos []*OrderProductInfoForListOrderProductDetailsOutput `type:"list"`
+	OrderProductInfos []*OrderProductInfoForListOrderProductDetailsOutput `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -244,39 +244,39 @@ func (s *ListOrderProductDetailsOutput) SetOrderProductInfos(v []*OrderProductIn
 }
 
 type OrderProductInfoForListOrderProductDetailsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	BeginTime *string `type:"string"`
+	BeginTime *string `type:"string" json:",omitempty"`
 
-	ConfigurationCode *string `type:"string"`
+	ConfigurationCode *string `type:"string" json:",omitempty"`
 
-	CouponAmount *string `type:"string"`
+	CouponAmount *string `type:"string" json:",omitempty"`
 
-	DiscountAmount *string `type:"string"`
+	DiscountAmount *string `type:"string" json:",omitempty"`
 
-	EndTime *string `type:"string"`
+	EndTime *string `type:"string" json:",omitempty"`
 
-	InstanceID *string `type:"string"`
+	InstanceID *string `type:"string" json:",omitempty"`
 
-	OriginalAmount *string `type:"string"`
+	OriginalAmount *string `type:"string" json:",omitempty"`
 
-	PaidAmount *string `type:"string"`
+	PaidAmount *string `type:"string" json:",omitempty"`
 
-	PayableAmount *string `type:"string"`
+	PayableAmount *string `type:"string" json:",omitempty"`
 
-	PayerCustomerName *string `type:"string"`
+	PayerCustomerName *string `type:"string" json:",omitempty"`
 
-	PayerID *int32 `type:"int32"`
+	PayerID *int32 `type:"int32" json:",omitempty"`
 
-	PaymentMethod *string `type:"string"`
+	PaymentMethod *string `type:"string" json:",omitempty"`
 
-	Period *string `type:"string"`
+	Period *string `type:"string" json:",omitempty"`
 
-	Product *string `type:"string"`
+	Product *string `type:"string" json:",omitempty"`
 
-	Status *string `type:"string"`
+	Status *string `type:"string" json:",omitempty"`
 
-	Times *string `type:"string"`
+	Times *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation

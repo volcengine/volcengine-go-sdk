@@ -144,13 +144,13 @@ func (c *KMS) ArchiveKeyWithContext(ctx volcengine.Context, input *ArchiveKeyInp
 }
 
 type ArchiveKeyInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// KeyName is a required field
-	KeyName *string `min:"2" max:"31" type:"string" required:"true"`
+	KeyName *string `min:"2" max:"31" type:"string" json:",omitempty" required:"true"`
 
 	// KeyringName is a required field
-	KeyringName *string `min:"2" max:"31" type:"string" required:"true"`
+	KeyringName *string `min:"2" max:"31" type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -204,7 +204,7 @@ func (s *ArchiveKeyInput) SetKeyringName(v string) *ArchiveKeyInput {
 }
 
 type ArchiveKeyOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 }

@@ -144,20 +144,20 @@ func (c *KMS) ReEncryptWithContext(ctx volcengine.Context, input *ReEncryptInput
 }
 
 type ReEncryptInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// CiphertextBlob is a required field
-	CiphertextBlob *string `min:"19" type:"string" required:"true"`
+	CiphertextBlob *string `min:"19" type:"string" json:",omitempty" required:"true"`
 
-	NewEncryptionContext *string `type:"string"`
+	NewEncryptionContext *string `type:"string" json:",omitempty"`
 
 	// NewKeyName is a required field
-	NewKeyName *string `min:"2" max:"31" type:"string" required:"true"`
+	NewKeyName *string `min:"2" max:"31" type:"string" json:",omitempty" required:"true"`
 
 	// NewKeyringName is a required field
-	NewKeyringName *string `min:"2" max:"31" type:"string" required:"true"`
+	NewKeyringName *string `min:"2" max:"31" type:"string" json:",omitempty" required:"true"`
 
-	OldEncryptionContext *string `type:"string"`
+	OldEncryptionContext *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -235,11 +235,11 @@ func (s *ReEncryptInput) SetOldEncryptionContext(v string) *ReEncryptInput {
 }
 
 type ReEncryptOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	CiphertextBlob *string `type:"string"`
+	CiphertextBlob *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation

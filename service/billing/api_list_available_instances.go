@@ -144,35 +144,35 @@ func (c *BILLING) ListAvailableInstancesWithContext(ctx volcengine.Context, inpu
 }
 
 type InstanceListForListAvailableInstancesOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	AccountID *int32 `type:"int32"`
+	AccountID *int32 `type:"int32" json:",omitempty"`
 
-	BeginTime *string `type:"string"`
+	BeginTime *string `type:"string" json:",omitempty"`
 
-	ConfigurationCode *string `type:"string"`
+	ConfigurationCode *string `type:"string" json:",omitempty"`
 
-	ExpiredTime *string `type:"string"`
+	ExpiredTime *string `type:"string" json:",omitempty"`
 
-	InstanceID *string `type:"string"`
+	InstanceID *string `type:"string" json:",omitempty"`
 
-	InstanceName *string `type:"string"`
+	InstanceName *string `type:"string" json:",omitempty"`
 
-	PaymentMethod *string `type:"string"`
+	PaymentMethod *string `type:"string" json:",omitempty"`
 
-	Product *string `type:"string"`
+	Product *string `type:"string" json:",omitempty"`
 
-	RemainRenewTimes *string `type:"string"`
+	RemainRenewTimes *string `type:"string" json:",omitempty"`
 
-	RenewType *string `type:"string"`
+	RenewType *string `type:"string" json:",omitempty"`
 
-	RenewalDurationUnit *string `type:"string"`
+	RenewalDurationUnit *string `type:"string" json:",omitempty"`
 
-	RenewalTimes *string `type:"string"`
+	RenewalTimes *string `type:"string" json:",omitempty"`
 
-	Status *string `type:"string"`
+	Status *string `type:"string" json:",omitempty"`
 
-	SubStatus *string `type:"string"`
+	SubStatus *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -270,26 +270,26 @@ func (s *InstanceListForListAvailableInstancesOutput) SetSubStatus(v string) *In
 }
 
 type ListAvailableInstancesInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	BeginTimeEnd *string `type:"string"`
+	BeginTimeEnd *string `type:"string" json:",omitempty"`
 
-	BeginTimeStart *string `type:"string"`
+	BeginTimeStart *string `type:"string" json:",omitempty"`
 
-	ExpiredTimeEnd *string `type:"string"`
+	ExpiredTimeEnd *string `type:"string" json:",omitempty"`
 
-	ExpiredTimeStart *string `type:"string"`
+	ExpiredTimeStart *string `type:"string" json:",omitempty"`
 
-	InstanceIDs []*string `type:"list"`
+	InstanceIDs []*string `type:"list" json:",omitempty"`
 
 	// MaxResults is a required field
-	MaxResults *int32 `type:"int32" required:"true"`
+	MaxResults *int32 `type:"int32" json:",omitempty" required:"true"`
 
-	NextToken *string `type:"string"`
+	NextToken *string `type:"string" json:",omitempty"`
 
-	Product *string `type:"string"`
+	Product *string `type:"string" json:",omitempty"`
 
-	RenewType *string `type:"string"`
+	RenewType *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -370,15 +370,15 @@ func (s *ListAvailableInstancesInput) SetRenewType(v string) *ListAvailableInsta
 }
 
 type ListAvailableInstancesOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	InstanceList []*InstanceListForListAvailableInstancesOutput `type:"list"`
+	InstanceList []*InstanceListForListAvailableInstancesOutput `type:"list" json:",omitempty"`
 
-	MaxResults *int32 `type:"int32"`
+	MaxResults *int32 `type:"int32" json:",omitempty"`
 
-	NextToken *string `type:"string"`
+	NextToken *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation

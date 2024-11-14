@@ -144,10 +144,10 @@ func (c *KMS) CancelSecretDeletionWithContext(ctx volcengine.Context, input *Can
 }
 
 type CancelSecretDeletionInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// SecretName is a required field
-	SecretName *string `min:"2" max:"31" type:"string" required:"true"`
+	SecretName *string `min:"2" max:"31" type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -186,7 +186,7 @@ func (s *CancelSecretDeletionInput) SetSecretName(v string) *CancelSecretDeletio
 }
 
 type CancelSecretDeletionOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 }

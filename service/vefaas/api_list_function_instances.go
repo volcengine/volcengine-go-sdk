@@ -144,19 +144,19 @@ func (c *VEFAAS) ListFunctionInstancesWithContext(ctx volcengine.Context, input 
 }
 
 type ItemForListFunctionInstancesOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	AvailabilityZone *string `type:"string"`
+	AvailabilityZone *string `type:"string" json:",omitempty"`
 
-	CreationTime *string `type:"string"`
+	CreationTime *string `type:"string" json:",omitempty"`
 
-	Id *string `type:"string"`
+	Id *string `type:"string" json:",omitempty"`
 
-	InstanceName *string `type:"string"`
+	InstanceName *string `type:"string" json:",omitempty"`
 
-	InstanceStatus *string `type:"string"`
+	InstanceStatus *string `type:"string" json:",omitempty"`
 
-	RevisionNumber *int32 `type:"int32"`
+	RevisionNumber *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -206,10 +206,10 @@ func (s *ItemForListFunctionInstancesOutput) SetRevisionNumber(v int32) *ItemFor
 }
 
 type ListFunctionInstancesInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// FunctionId is a required field
-	FunctionId *string `type:"string" required:"true"`
+	FunctionId *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -242,13 +242,13 @@ func (s *ListFunctionInstancesInput) SetFunctionId(v string) *ListFunctionInstan
 }
 
 type ListFunctionInstancesOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	Items []*ItemForListFunctionInstancesOutput `type:"list"`
+	Items []*ItemForListFunctionInstancesOutput `type:"list" json:",omitempty"`
 
-	Total *int32 `type:"int32"`
+	Total *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation

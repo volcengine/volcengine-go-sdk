@@ -144,11 +144,11 @@ func (c *VEFAAS) ListFunctionsWithContext(ctx volcengine.Context, input *ListFun
 }
 
 type CredentialsForListFunctionsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	AccessKeyId *string `type:"string"`
+	AccessKeyId *string `type:"string" json:",omitempty"`
 
-	SecretAccessKey *string `type:"string"`
+	SecretAccessKey *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -174,11 +174,11 @@ func (s *CredentialsForListFunctionsOutput) SetSecretAccessKey(v string) *Creden
 }
 
 type EnvForListFunctionsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Key *string `type:"string"`
+	Key *string `type:"string" json:",omitempty"`
 
-	Value *string `type:"string"`
+	Value *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -204,57 +204,59 @@ func (s *EnvForListFunctionsOutput) SetValue(v string) *EnvForListFunctionsOutpu
 }
 
 type ItemForListFunctionsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	CodeSize *int32 `type:"int32"`
+	CodeSize *int32 `type:"int32" json:",omitempty"`
 
-	CodeSizeLimit *int32 `type:"int32"`
+	CodeSizeLimit *int32 `type:"int32" json:",omitempty"`
 
-	CreationTime *string `type:"string"`
+	Command *string `type:"string" json:",omitempty"`
 
-	Description *string `type:"string"`
+	CreationTime *string `type:"string" json:",omitempty"`
 
-	Envs []*EnvForListFunctionsOutput `type:"list"`
+	Description *string `type:"string" json:",omitempty"`
 
-	ExclusiveMode *bool `type:"boolean"`
+	Envs []*EnvForListFunctionsOutput `type:"list" json:",omitempty"`
 
-	Id *string `type:"string"`
+	ExclusiveMode *bool `type:"boolean" json:",omitempty"`
 
-	InitializerSec *int32 `type:"int32"`
+	Id *string `type:"string" json:",omitempty"`
 
-	InstanceType *string `type:"string"`
+	InitializerSec *int32 `type:"int32" json:",omitempty"`
 
-	LastUpdateTime *string `type:"string"`
+	InstanceType *string `type:"string" json:",omitempty"`
 
-	MaxConcurrency *int32 `type:"int32"`
+	LastUpdateTime *string `type:"string" json:",omitempty"`
 
-	MemoryMB *int32 `type:"int32"`
+	MaxConcurrency *int32 `type:"int32" json:",omitempty"`
 
-	Name *string `type:"string"`
+	MemoryMB *int32 `type:"int32" json:",omitempty"`
 
-	NasStorage *NasStorageForListFunctionsOutput `type:"structure"`
+	Name *string `type:"string" json:",omitempty"`
 
-	Owner *string `type:"string"`
+	NasStorage *NasStorageForListFunctionsOutput `type:"structure" json:",omitempty"`
 
-	ProjectName *string `type:"string"`
+	Owner *string `type:"string" json:",omitempty"`
 
-	RequestTimeout *int32 `type:"int32"`
+	ProjectName *string `type:"string" json:",omitempty"`
 
-	Runtime *string `type:"string"`
+	RequestTimeout *int32 `type:"int32" json:",omitempty"`
 
-	SourceLocation *string `type:"string"`
+	Runtime *string `type:"string" json:",omitempty"`
 
-	SourceType *string `type:"string"`
+	SourceLocation *string `type:"string" json:",omitempty"`
 
-	Tags []*TagForListFunctionsOutput `type:"list"`
+	SourceType *string `type:"string" json:",omitempty"`
 
-	TlsConfig *TlsConfigForListFunctionsOutput `type:"structure"`
+	Tags []*TagForListFunctionsOutput `type:"list" json:",omitempty"`
 
-	TosMountConfig *TosMountConfigForListFunctionsOutput `type:"structure"`
+	TlsConfig *TlsConfigForListFunctionsOutput `type:"structure" json:",omitempty"`
 
-	TriggersCount *int32 `type:"int32"`
+	TosMountConfig *TosMountConfigForListFunctionsOutput `type:"structure" json:",omitempty"`
 
-	VpcConfig *VpcConfigForListFunctionsOutput `type:"structure"`
+	TriggersCount *int32 `type:"int32" json:",omitempty"`
+
+	VpcConfig *VpcConfigForListFunctionsOutput `type:"structure" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -276,6 +278,12 @@ func (s *ItemForListFunctionsOutput) SetCodeSize(v int32) *ItemForListFunctionsO
 // SetCodeSizeLimit sets the CodeSizeLimit field's value.
 func (s *ItemForListFunctionsOutput) SetCodeSizeLimit(v int32) *ItemForListFunctionsOutput {
 	s.CodeSizeLimit = &v
+	return s
+}
+
+// SetCommand sets the Command field's value.
+func (s *ItemForListFunctionsOutput) SetCommand(v string) *ItemForListFunctionsOutput {
+	s.Command = &v
 	return s
 }
 
@@ -418,11 +426,11 @@ func (s *ItemForListFunctionsOutput) SetVpcConfig(v *VpcConfigForListFunctionsOu
 }
 
 type ListFunctionsInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	PageNumber *int32 `type:"int32"`
+	PageNumber *int32 `type:"int32" json:",omitempty"`
 
-	PageSize *int32 `type:"int32"`
+	PageSize *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -448,13 +456,13 @@ func (s *ListFunctionsInput) SetPageSize(v int32) *ListFunctionsInput {
 }
 
 type ListFunctionsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	Items []*ItemForListFunctionsOutput `type:"list"`
+	Items []*ItemForListFunctionsOutput `type:"list" json:",omitempty"`
 
-	Total *int32 `type:"int32"`
+	Total *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -480,17 +488,17 @@ func (s *ListFunctionsOutput) SetTotal(v int32) *ListFunctionsOutput {
 }
 
 type MountPointForListFunctionsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	BucketName *string `type:"string"`
+	BucketName *string `type:"string" json:",omitempty"`
 
-	BucketPath *string `type:"string"`
+	BucketPath *string `type:"string" json:",omitempty"`
 
-	Endpoint *string `type:"string"`
+	Endpoint *string `type:"string" json:",omitempty"`
 
-	LocalMountPath *string `type:"string"`
+	LocalMountPath *string `type:"string" json:",omitempty"`
 
-	ReadOnly *bool `type:"boolean"`
+	ReadOnly *bool `type:"boolean" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -534,19 +542,19 @@ func (s *MountPointForListFunctionsOutput) SetReadOnly(v bool) *MountPointForLis
 }
 
 type NasConfigForListFunctionsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	FileSystemId *string `type:"string"`
+	FileSystemId *string `type:"string" json:",omitempty"`
 
-	Gid *int64 `type:"int64"`
+	Gid *int64 `type:"int64" json:",omitempty"`
 
-	LocalMountPath *string `type:"string"`
+	LocalMountPath *string `type:"string" json:",omitempty"`
 
-	MountPointId *string `type:"string"`
+	MountPointId *string `type:"string" json:",omitempty"`
 
-	RemotePath *string `type:"string"`
+	RemotePath *string `type:"string" json:",omitempty"`
 
-	Uid *int64 `type:"int64"`
+	Uid *int64 `type:"int64" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -596,11 +604,11 @@ func (s *NasConfigForListFunctionsOutput) SetUid(v int64) *NasConfigForListFunct
 }
 
 type NasStorageForListFunctionsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	EnableNas *bool `type:"boolean"`
+	EnableNas *bool `type:"boolean" json:",omitempty"`
 
-	NasConfigs []*NasConfigForListFunctionsOutput `type:"list"`
+	NasConfigs []*NasConfigForListFunctionsOutput `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -626,11 +634,11 @@ func (s *NasStorageForListFunctionsOutput) SetNasConfigs(v []*NasConfigForListFu
 }
 
 type TagForListFunctionsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Key *string `type:"string"`
+	Key *string `type:"string" json:",omitempty"`
 
-	Value *string `type:"string"`
+	Value *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -656,13 +664,13 @@ func (s *TagForListFunctionsOutput) SetValue(v string) *TagForListFunctionsOutpu
 }
 
 type TlsConfigForListFunctionsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	EnableLog *bool `type:"boolean"`
+	EnableLog *bool `type:"boolean" json:",omitempty"`
 
-	TlsProjectId *string `type:"string"`
+	TlsProjectId *string `type:"string" json:",omitempty"`
 
-	TlsTopicId *string `type:"string"`
+	TlsTopicId *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -694,13 +702,13 @@ func (s *TlsConfigForListFunctionsOutput) SetTlsTopicId(v string) *TlsConfigForL
 }
 
 type TosMountConfigForListFunctionsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Credentials *CredentialsForListFunctionsOutput `type:"structure"`
+	Credentials *CredentialsForListFunctionsOutput `type:"structure" json:",omitempty"`
 
-	EnableTos *bool `type:"boolean"`
+	EnableTos *bool `type:"boolean" json:",omitempty"`
 
-	MountPoints []*MountPointForListFunctionsOutput `type:"list"`
+	MountPoints []*MountPointForListFunctionsOutput `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -732,17 +740,17 @@ func (s *TosMountConfigForListFunctionsOutput) SetMountPoints(v []*MountPointFor
 }
 
 type VpcConfigForListFunctionsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	EnableSharedInternetAccess *bool `type:"boolean"`
+	EnableSharedInternetAccess *bool `type:"boolean" json:",omitempty"`
 
-	EnableVpc *bool `type:"boolean"`
+	EnableVpc *bool `type:"boolean" json:",omitempty"`
 
-	SecurityGroupIds []*string `type:"list"`
+	SecurityGroupIds []*string `type:"list" json:",omitempty"`
 
-	SubnetIds []*string `type:"list"`
+	SubnetIds []*string `type:"list" json:",omitempty"`
 
-	VpcId *string `type:"string"`
+	VpcId *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation

@@ -144,29 +144,33 @@ func (c *FWCENTER) DescribeVpcFirewallListWithContext(ctx volcengine.Context, in
 }
 
 type DataForDescribeVpcFirewallListOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	ErrMessage *string `type:"string"`
+	Bandwidth *int32 `type:"int32" json:",omitempty"`
 
-	FirewallStatus *string `type:"string"`
+	BypassStatus *string `type:"string" json:",omitempty"`
 
-	PeakTrafficWithin7Day *int32 `type:"int32"`
+	ErrMessage *string `type:"string" json:",omitempty"`
 
-	Region *string `type:"string"`
+	FirewallStatus *string `type:"string" json:",omitempty"`
 
-	RouteMode *string `type:"string"`
+	PeakTrafficWithin7Day *int32 `type:"int32" json:",omitempty"`
 
-	RoutePolicyStatus *string `type:"string"`
+	Region *string `type:"string" json:",omitempty"`
 
-	TransitRouterDescription *string `type:"string"`
+	RouteMode *string `type:"string" json:",omitempty"`
 
-	TransitRouterId *string `type:"string"`
+	RoutePolicyStatus *string `type:"string" json:",omitempty"`
 
-	TransitRouterName *string `type:"string"`
+	TransitRouterDescription *string `type:"string" json:",omitempty"`
 
-	VpcFirewallId *string `type:"string"`
+	TransitRouterId *string `type:"string" json:",omitempty"`
 
-	VpcFirewallName *string `type:"string"`
+	TransitRouterName *string `type:"string" json:",omitempty"`
+
+	VpcFirewallId *string `type:"string" json:",omitempty"`
+
+	VpcFirewallName *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -177,6 +181,18 @@ func (s DataForDescribeVpcFirewallListOutput) String() string {
 // GoString returns the string representation
 func (s DataForDescribeVpcFirewallListOutput) GoString() string {
 	return s.String()
+}
+
+// SetBandwidth sets the Bandwidth field's value.
+func (s *DataForDescribeVpcFirewallListOutput) SetBandwidth(v int32) *DataForDescribeVpcFirewallListOutput {
+	s.Bandwidth = &v
+	return s
+}
+
+// SetBypassStatus sets the BypassStatus field's value.
+func (s *DataForDescribeVpcFirewallListOutput) SetBypassStatus(v string) *DataForDescribeVpcFirewallListOutput {
+	s.BypassStatus = &v
+	return s
 }
 
 // SetErrMessage sets the ErrMessage field's value.
@@ -246,27 +262,27 @@ func (s *DataForDescribeVpcFirewallListOutput) SetVpcFirewallName(v string) *Dat
 }
 
 type DescribeVpcFirewallListInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	FirewallStatus []*string `type:"list"`
+	FirewallStatus []*string `type:"list" json:",omitempty"`
 
-	PageNumber *int32 `type:"int32"`
+	PageNumber *int32 `type:"int32" json:",omitempty"`
 
-	PageSize *int32 `type:"int32"`
+	PageSize *int32 `type:"int32" json:",omitempty"`
 
-	RegionCode []*string `type:"list"`
+	RegionCode []*string `type:"list" json:",omitempty"`
 
-	RouteMode []*string `type:"list"`
+	RouteMode []*string `type:"list" json:",omitempty"`
 
-	RoutePolicyStatus []*string `type:"list"`
+	RoutePolicyStatus []*string `type:"list" json:",omitempty"`
 
-	TransitRouterId *string `type:"string"`
+	TransitRouterId *string `type:"string" json:",omitempty"`
 
-	TransitRouterName *string `type:"string"`
+	TransitRouterName *string `type:"string" json:",omitempty"`
 
-	VpcFirewallId *string `type:"string"`
+	VpcFirewallId *string `type:"string" json:",omitempty"`
 
-	VpcFirewallName *string `type:"string"`
+	VpcFirewallName *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -340,19 +356,19 @@ func (s *DescribeVpcFirewallListInput) SetVpcFirewallName(v string) *DescribeVpc
 }
 
 type DescribeVpcFirewallListOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	Count *int32 `type:"int32"`
+	Count *int32 `type:"int32" json:",omitempty"`
 
-	Data []*DataForDescribeVpcFirewallListOutput `type:"list"`
+	Data []*DataForDescribeVpcFirewallListOutput `type:"list" json:",omitempty"`
 
-	PageNumber *int32 `type:"int32"`
+	PageNumber *int32 `type:"int32" json:",omitempty"`
 
-	PageSize *int32 `type:"int32"`
+	PageSize *int32 `type:"int32" json:",omitempty"`
 
-	TotalCount *int32 `type:"int32"`
+	TotalCount *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation

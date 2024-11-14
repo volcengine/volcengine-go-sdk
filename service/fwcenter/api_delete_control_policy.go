@@ -144,13 +144,13 @@ func (c *FWCENTER) DeleteControlPolicyWithContext(ctx volcengine.Context, input 
 }
 
 type DeleteControlPolicyInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// Direction is a required field
-	Direction *string `type:"string" required:"true"`
+	Direction *string `type:"string" json:",omitempty" required:"true" enum:"EnumOfDirectionForDeleteControlPolicyInput"`
 
 	// RuleId is a required field
-	RuleId *string `type:"string" required:"true"`
+	RuleId *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -192,9 +192,11 @@ func (s *DeleteControlPolicyInput) SetRuleId(v string) *DeleteControlPolicyInput
 }
 
 type DeleteControlPolicyOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
+
+	RuleId *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -206,3 +208,17 @@ func (s DeleteControlPolicyOutput) String() string {
 func (s DeleteControlPolicyOutput) GoString() string {
 	return s.String()
 }
+
+// SetRuleId sets the RuleId field's value.
+func (s *DeleteControlPolicyOutput) SetRuleId(v string) *DeleteControlPolicyOutput {
+	s.RuleId = &v
+	return s
+}
+
+const (
+	// EnumOfDirectionForDeleteControlPolicyInputIn is a EnumOfDirectionForDeleteControlPolicyInput enum value
+	EnumOfDirectionForDeleteControlPolicyInputIn = "in"
+
+	// EnumOfDirectionForDeleteControlPolicyInputOut is a EnumOfDirectionForDeleteControlPolicyInput enum value
+	EnumOfDirectionForDeleteControlPolicyInputOut = "out"
+)

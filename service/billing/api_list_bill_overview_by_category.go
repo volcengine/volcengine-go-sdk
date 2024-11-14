@@ -144,9 +144,9 @@ func (c *BILLING) ListBillOverviewByCategoryWithContext(ctx volcengine.Context, 
 }
 
 type ConvertListForListBillOverviewByCategoryOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	List []*ListForListBillOverviewByCategoryOutput `type:"list"`
+	List []*ListForListBillOverviewByCategoryOutput `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -166,18 +166,18 @@ func (s *ConvertListForListBillOverviewByCategoryOutput) SetList(v []*ListForLis
 }
 
 type ListBillOverviewByCategoryInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	BillCategoryParent []*string `type:"list"`
+	BillCategoryParent []*string `type:"list" json:",omitempty"`
 
 	// BillPeriod is a required field
-	BillPeriod *string `min:"7" max:"7" type:"string" required:"true"`
+	BillPeriod *string `min:"7" max:"7" type:"string" json:",omitempty" required:"true"`
 
-	BillingMode []*string `type:"list"`
+	BillingMode []*string `type:"list" json:",omitempty"`
 
-	OwnerID []*int64 `type:"list"`
+	OwnerID []*int64 `type:"list" json:",omitempty"`
 
-	PayerID []*int64 `type:"list"`
+	PayerID []*int64 `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -240,11 +240,11 @@ func (s *ListBillOverviewByCategoryInput) SetPayerID(v []*int64) *ListBillOvervi
 }
 
 type ListBillOverviewByCategoryOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	List []*ConvertListForListBillOverviewByCategoryOutput `type:"list"`
+	List []*ConvertListForListBillOverviewByCategoryOutput `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -264,53 +264,53 @@ func (s *ListBillOverviewByCategoryOutput) SetList(v []*ConvertListForListBillOv
 }
 
 type ListForListBillOverviewByCategoryOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	BillCategoryParent *string `type:"string"`
+	BillCategoryParent *string `type:"string" json:",omitempty"`
 
-	BillPeriod *string `type:"string"`
+	BillPeriod *string `type:"string" json:",omitempty"`
 
-	BusinessMode *string `type:"string"`
+	BusinessMode *string `type:"string" json:",omitempty"`
 
-	CouponAmount *string `type:"string"`
+	CouponAmount *string `type:"string" json:",omitempty"`
 
-	CreditCarriedAmount *string `type:"string"`
+	CreditCarriedAmount *string `type:"string" json:",omitempty"`
 
-	Currency *string `type:"string"`
+	Currency *string `type:"string" json:",omitempty"`
 
-	DiscountBillAmount *string `type:"string"`
+	DiscountBillAmount *string `type:"string" json:",omitempty"`
 
-	OriginalBillAmount *string `type:"string"`
+	OriginalBillAmount *string `type:"string" json:",omitempty"`
 
-	OwnerCustomerName *string `type:"string"`
+	OwnerCustomerName *string `type:"string" json:",omitempty"`
 
-	OwnerID *string `type:"string"`
+	OwnerID *string `type:"string" json:",omitempty"`
 
-	OwnerUserName *string `type:"string"`
+	OwnerUserName *string `type:"string" json:",omitempty"`
 
-	PaidAmount *string `type:"string"`
+	PaidAmount *string `type:"string" json:",omitempty"`
 
-	PayableAmount *string `type:"string"`
+	PayableAmount *string `type:"string" json:",omitempty"`
 
-	PayerCustomerName *string `type:"string"`
+	PayerCustomerName *string `type:"string" json:",omitempty"`
 
-	PayerID *string `type:"string"`
+	PayerID *string `type:"string" json:",omitempty"`
 
-	PayerUserName *string `type:"string"`
+	PayerUserName *string `type:"string" json:",omitempty"`
 
-	SellerCustomerName *string `type:"string"`
+	SellerCustomerName *string `type:"string" json:",omitempty"`
 
-	SellerID *string `type:"string"`
+	SellerID *string `type:"string" json:",omitempty"`
 
-	SellerUserName *string `type:"string"`
+	SellerUserName *string `type:"string" json:",omitempty"`
 
-	SettlementType *string `type:"string"`
+	SettlementType *string `type:"string" json:",omitempty"`
 
-	SubjectName *string `type:"string"`
+	SubjectName *string `type:"string" json:",omitempty"`
 
-	SubjectNo *string `type:"string"`
+	SubjectNo *string `type:"string" json:",omitempty"`
 
-	UnpaidAmount *string `type:"string"`
+	UnpaidAmount *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation

@@ -144,12 +144,12 @@ func (c *KMS) UpdateSecretWithContext(ctx volcengine.Context, input *UpdateSecre
 }
 
 type UpdateSecretInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Description *string `max:"8192" type:"string"`
+	Description *string `max:"8192" type:"string" json:",omitempty"`
 
 	// SecretName is a required field
-	SecretName *string `min:"2" max:"31" type:"string" required:"true"`
+	SecretName *string `min:"2" max:"31" type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -197,7 +197,7 @@ func (s *UpdateSecretInput) SetSecretName(v string) *UpdateSecretInput {
 }
 
 type UpdateSecretOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 }

@@ -144,13 +144,13 @@ func (c *KMS) GetPublicKeyWithContext(ctx volcengine.Context, input *GetPublicKe
 }
 
 type GetPublicKeyInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	KeyID *string `type:"string"`
+	KeyID *string `type:"string" json:",omitempty"`
 
-	KeyName *string `min:"2" max:"31" type:"string"`
+	KeyName *string `min:"2" max:"31" type:"string" json:",omitempty"`
 
-	KeyringName *string `min:"2" max:"31" type:"string"`
+	KeyringName *string `min:"2" max:"31" type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -204,13 +204,13 @@ func (s *GetPublicKeyInput) SetKeyringName(v string) *GetPublicKeyInput {
 }
 
 type GetPublicKeyOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	KeyID *string `type:"string"`
+	KeyID *string `type:"string" json:",omitempty"`
 
-	PublicKey *string `type:"string"`
+	PublicKey *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation

@@ -262,6 +262,14 @@ type KMSAPI interface {
 	GenerateDataKeyWithContext(volcengine.Context, *GenerateDataKeyInput, ...request.Option) (*GenerateDataKeyOutput, error)
 	GenerateDataKeyRequest(*GenerateDataKeyInput) (*request.Request, *GenerateDataKeyOutput)
 
+	GenerateMacCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	GenerateMacCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	GenerateMacCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	GenerateMac(*GenerateMacInput) (*GenerateMacOutput, error)
+	GenerateMacWithContext(volcengine.Context, *GenerateMacInput, ...request.Option) (*GenerateMacOutput, error)
+	GenerateMacRequest(*GenerateMacInput) (*request.Request, *GenerateMacOutput)
+
 	GetParametersForImportCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	GetParametersForImportCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	GetParametersForImportCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -381,6 +389,14 @@ type KMSAPI interface {
 	UpdateSecretRotationPolicy(*UpdateSecretRotationPolicyInput) (*UpdateSecretRotationPolicyOutput, error)
 	UpdateSecretRotationPolicyWithContext(volcengine.Context, *UpdateSecretRotationPolicyInput, ...request.Option) (*UpdateSecretRotationPolicyOutput, error)
 	UpdateSecretRotationPolicyRequest(*UpdateSecretRotationPolicyInput) (*request.Request, *UpdateSecretRotationPolicyOutput)
+
+	VerifyMacCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	VerifyMacCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	VerifyMacCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	VerifyMac(*VerifyMacInput) (*VerifyMacOutput, error)
+	VerifyMacWithContext(volcengine.Context, *VerifyMacInput, ...request.Option) (*VerifyMacOutput, error)
+	VerifyMacRequest(*VerifyMacInput) (*request.Request, *VerifyMacOutput)
 }
 
 var _ KMSAPI = (*KMS)(nil)

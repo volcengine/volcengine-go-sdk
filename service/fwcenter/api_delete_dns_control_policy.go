@@ -144,10 +144,10 @@ func (c *FWCENTER) DeleteDnsControlPolicyWithContext(ctx volcengine.Context, inp
 }
 
 type DeleteDnsControlPolicyInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// RuleId is a required field
-	RuleId *string `type:"string" required:"true"`
+	RuleId *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -180,9 +180,11 @@ func (s *DeleteDnsControlPolicyInput) SetRuleId(v string) *DeleteDnsControlPolic
 }
 
 type DeleteDnsControlPolicyOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
+
+	RuleId *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -193,4 +195,10 @@ func (s DeleteDnsControlPolicyOutput) String() string {
 // GoString returns the string representation
 func (s DeleteDnsControlPolicyOutput) GoString() string {
 	return s.String()
+}
+
+// SetRuleId sets the RuleId field's value.
+func (s *DeleteDnsControlPolicyOutput) SetRuleId(v string) *DeleteDnsControlPolicyOutput {
+	s.RuleId = &v
+	return s
 }

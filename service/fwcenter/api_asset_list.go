@@ -144,18 +144,19 @@ func (c *FWCENTER) AssetListWithContext(ctx volcengine.Context, input *AssetList
 }
 
 type AssetListInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Asset *string `type:"string" json:"asset"`
+	Asset *string `type:"string" json:"asset,omitempty"`
 
-	Asset_type []*string `type:"list" json:"asset_type"`
+	Asset_type []*string `type:"list" json:"asset_type,omitempty"`
 
-	Current_page *int32 `type:"int32" json:"current_page"`
+	Current_page *int32 `type:"int32" json:"current_page,omitempty"`
 
-	Page_size *int32 `type:"int32" json:"page_size"`
+	Order_dir *string `type:"string" json:"order_dir,omitempty" enum:"EnumOforder_dirForAssetListInput"`
 
-	// Stat is a required field
-	Stat *int32 `type:"int32" json:"stat" required:"true"`
+	Page_size *int32 `max:"1e+06" type:"int32" json:"page_size,omitempty"`
+
+	Stat *int32 `type:"int32" json:"stat,omitempty"`
 }
 
 // String returns the string representation
@@ -171,8 +172,8 @@ func (s AssetListInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *AssetListInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "AssetListInput"}
-	if s.Stat == nil {
-		invalidParams.Add(request.NewErrParamRequired("Stat"))
+	if s.Page_size != nil && *s.Page_size > 1e+06 {
+		invalidParams.Add(request.NewErrParamMaxValue("Page_size", 1e+06))
 	}
 
 	if invalidParams.Len() > 0 {
@@ -199,6 +200,12 @@ func (s *AssetListInput) SetCurrent_page(v int32) *AssetListInput {
 	return s
 }
 
+// SetOrder_dir sets the Order_dir field's value.
+func (s *AssetListInput) SetOrder_dir(v string) *AssetListInput {
+	s.Order_dir = &v
+	return s
+}
+
 // SetPage_size sets the Page_size field's value.
 func (s *AssetListInput) SetPage_size(v int32) *AssetListInput {
 	s.Page_size = &v
@@ -212,19 +219,19 @@ func (s *AssetListInput) SetStat(v int32) *AssetListInput {
 }
 
 type AssetListOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	Count *int32 `type:"int32"`
+	Count *int32 `type:"int32" json:",omitempty"`
 
-	Data []*DataForAssetListOutput `type:"list"`
+	Data []*DataForAssetListOutput `type:"list" json:",omitempty"`
 
-	PageNumber *int32 `type:"int32"`
+	PageNumber *int32 `type:"int32" json:",omitempty"`
 
-	PageSize *int32 `type:"int32"`
+	PageSize *int32 `type:"int32" json:",omitempty"`
 
-	TotalCount *int32 `type:"int32"`
+	TotalCount *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -268,23 +275,27 @@ func (s *AssetListOutput) SetTotalCount(v int32) *AssetListOutput {
 }
 
 type DataForAssetListOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Account_id *string `type:"string" json:"account_id"`
+	AccountID *string `type:"string" json:",omitempty"`
 
-	Cluster *int32 `type:"int32" json:"cluster"`
+	Eip_id *string `type:"string" json:"eip_id,omitempty"`
 
-	Enable *bool `type:"boolean" json:"enable"`
+	Enable *bool `type:"boolean" json:"enable,omitempty"`
 
-	Id *int32 `type:"int32" json:"id"`
+	InstanceID *string `type:"string" json:",omitempty"`
 
-	Ip *string `type:"string" json:"ip"`
+	Ip *string `type:"string" json:"ip,omitempty"`
 
-	Name *string `type:"string" json:"name"`
+	Latest_7_days_peak_traffic *int32 `type:"int32" json:"latest_7_days_peak_traffic,omitempty"`
 
-	Region *string `type:"string" json:"region"`
+	Name *string `type:"string" json:"name,omitempty"`
 
-	Type *string `type:"string" json:"type"`
+	Region *string `type:"string" json:"region,omitempty"`
+
+	RegionN *string `type:"string" json:"regionN,omitempty"`
+
+	Type *string `type:"string" json:"type,omitempty"`
 }
 
 // String returns the string representation
@@ -297,15 +308,15 @@ func (s DataForAssetListOutput) GoString() string {
 	return s.String()
 }
 
-// SetAccount_id sets the Account_id field's value.
-func (s *DataForAssetListOutput) SetAccount_id(v string) *DataForAssetListOutput {
-	s.Account_id = &v
+// SetAccountID sets the AccountID field's value.
+func (s *DataForAssetListOutput) SetAccountID(v string) *DataForAssetListOutput {
+	s.AccountID = &v
 	return s
 }
 
-// SetCluster sets the Cluster field's value.
-func (s *DataForAssetListOutput) SetCluster(v int32) *DataForAssetListOutput {
-	s.Cluster = &v
+// SetEip_id sets the Eip_id field's value.
+func (s *DataForAssetListOutput) SetEip_id(v string) *DataForAssetListOutput {
+	s.Eip_id = &v
 	return s
 }
 
@@ -315,15 +326,21 @@ func (s *DataForAssetListOutput) SetEnable(v bool) *DataForAssetListOutput {
 	return s
 }
 
-// SetId sets the Id field's value.
-func (s *DataForAssetListOutput) SetId(v int32) *DataForAssetListOutput {
-	s.Id = &v
+// SetInstanceID sets the InstanceID field's value.
+func (s *DataForAssetListOutput) SetInstanceID(v string) *DataForAssetListOutput {
+	s.InstanceID = &v
 	return s
 }
 
 // SetIp sets the Ip field's value.
 func (s *DataForAssetListOutput) SetIp(v string) *DataForAssetListOutput {
 	s.Ip = &v
+	return s
+}
+
+// SetLatest_7_days_peak_traffic sets the Latest_7_days_peak_traffic field's value.
+func (s *DataForAssetListOutput) SetLatest_7_days_peak_traffic(v int32) *DataForAssetListOutput {
+	s.Latest_7_days_peak_traffic = &v
 	return s
 }
 
@@ -339,8 +356,22 @@ func (s *DataForAssetListOutput) SetRegion(v string) *DataForAssetListOutput {
 	return s
 }
 
+// SetRegionN sets the RegionN field's value.
+func (s *DataForAssetListOutput) SetRegionN(v string) *DataForAssetListOutput {
+	s.RegionN = &v
+	return s
+}
+
 // SetType sets the Type field's value.
 func (s *DataForAssetListOutput) SetType(v string) *DataForAssetListOutput {
 	s.Type = &v
 	return s
 }
+
+const (
+	// EnumOforder_dirForAssetListInputAsc is a EnumOforder_dirForAssetListInput enum value
+	EnumOforder_dirForAssetListInputAsc = "asc"
+
+	// EnumOforder_dirForAssetListInputDesc is a EnumOforder_dirForAssetListInput enum value
+	EnumOforder_dirForAssetListInputDesc = "desc"
+)

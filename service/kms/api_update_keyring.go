@@ -144,12 +144,12 @@ func (c *KMS) UpdateKeyringWithContext(ctx volcengine.Context, input *UpdateKeyr
 }
 
 type UpdateKeyringInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Description *string `max:"8192" type:"string"`
+	Description *string `max:"8192" type:"string" json:",omitempty"`
 
 	// KeyringName is a required field
-	KeyringName *string `min:"2" max:"31" type:"string" required:"true"`
+	KeyringName *string `min:"2" max:"31" type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -197,7 +197,7 @@ func (s *UpdateKeyringInput) SetKeyringName(v string) *UpdateKeyringInput {
 }
 
 type UpdateKeyringOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 }

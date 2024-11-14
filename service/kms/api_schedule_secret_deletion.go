@@ -144,14 +144,14 @@ func (c *KMS) ScheduleSecretDeletionWithContext(ctx volcengine.Context, input *S
 }
 
 type ScheduleSecretDeletionInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	ForceDelete *bool `type:"boolean"`
+	ForceDelete *bool `type:"boolean" json:",omitempty"`
 
-	PendingWindowInDays *int32 `min:"7" max:"30" type:"int32"`
+	PendingWindowInDays *int32 `min:"7" max:"30" type:"int32" json:",omitempty"`
 
 	// SecretName is a required field
-	SecretName *string `min:"2" max:"31" type:"string" required:"true"`
+	SecretName *string `min:"2" max:"31" type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -208,7 +208,7 @@ func (s *ScheduleSecretDeletionInput) SetSecretName(v string) *ScheduleSecretDel
 }
 
 type ScheduleSecretDeletionOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 }

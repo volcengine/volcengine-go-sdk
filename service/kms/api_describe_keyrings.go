@@ -144,13 +144,13 @@ func (c *KMS) DescribeKeyringsWithContext(ctx volcengine.Context, input *Describ
 }
 
 type DescribeKeyringsInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	CurrentPage *int32 `min:"1" type:"int32"`
+	CurrentPage *int32 `min:"1" type:"int32" json:",omitempty"`
 
-	PageSize *int32 `min:"1" max:"100" type:"int32"`
+	PageSize *int32 `min:"1" max:"100" type:"int32" json:",omitempty"`
 
-	ProjectName *string `type:"string"`
+	ProjectName *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -201,13 +201,13 @@ func (s *DescribeKeyringsInput) SetProjectName(v string) *DescribeKeyringsInput 
 }
 
 type DescribeKeyringsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	Keyrings []*KeyringForDescribeKeyringsOutput `type:"list"`
+	Keyrings []*KeyringForDescribeKeyringsOutput `type:"list" json:",omitempty"`
 
-	PageInfo *PageInfoForDescribeKeyringsOutput `type:"structure"`
+	PageInfo *PageInfoForDescribeKeyringsOutput `type:"structure" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -233,25 +233,25 @@ func (s *DescribeKeyringsOutput) SetPageInfo(v *PageInfoForDescribeKeyringsOutpu
 }
 
 type KeyringForDescribeKeyringsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	CreationDate *int64 `type:"int64"`
+	CreationDate *int64 `type:"int64" json:",omitempty"`
 
-	Description *string `type:"string"`
+	Description *string `type:"string" json:",omitempty"`
 
-	ID *string `type:"string"`
+	ID *string `type:"string" json:",omitempty"`
 
-	KeyCount *string `type:"string"`
+	KeyCount *int64 `type:"int64" json:",omitempty"`
 
-	KeyringName *string `type:"string"`
+	KeyringName *string `type:"string" json:",omitempty"`
 
-	KeyringType *string `type:"string"`
+	KeyringType *string `type:"string" json:",omitempty"`
 
-	TRN *string `type:"string"`
+	TRN *string `type:"string" json:",omitempty"`
 
-	UID *string `type:"string"`
+	UID *string `type:"string" json:",omitempty"`
 
-	UpdateDate *int64 `type:"int64"`
+	UpdateDate *int64 `type:"int64" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -283,7 +283,7 @@ func (s *KeyringForDescribeKeyringsOutput) SetID(v string) *KeyringForDescribeKe
 }
 
 // SetKeyCount sets the KeyCount field's value.
-func (s *KeyringForDescribeKeyringsOutput) SetKeyCount(v string) *KeyringForDescribeKeyringsOutput {
+func (s *KeyringForDescribeKeyringsOutput) SetKeyCount(v int64) *KeyringForDescribeKeyringsOutput {
 	s.KeyCount = &v
 	return s
 }
@@ -319,15 +319,15 @@ func (s *KeyringForDescribeKeyringsOutput) SetUpdateDate(v int64) *KeyringForDes
 }
 
 type PageInfoForDescribeKeyringsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Count *int32 `type:"int32"`
+	Count *int32 `type:"int32" json:",omitempty"`
 
-	CurrentPage *int32 `type:"int32"`
+	CurrentPage *int32 `type:"int32" json:",omitempty"`
 
-	PageSize *int32 `type:"int32"`
+	PageSize *int32 `type:"int32" json:",omitempty"`
 
-	TotalCount *int32 `type:"int32"`
+	TotalCount *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation

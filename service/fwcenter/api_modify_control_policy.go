@@ -144,39 +144,51 @@ func (c *FWCENTER) ModifyControlPolicyWithContext(ctx volcengine.Context, input 
 }
 
 type ModifyControlPolicyInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// Action is a required field
-	Action *string `type:"string" required:"true"`
+	Action *string `type:"string" json:",omitempty" required:"true" enum:"EnumOfActionForModifyControlPolicyInput"`
 
-	Description *string `type:"string"`
+	Description *string `type:"string" json:",omitempty"`
 
-	DestPort *string `type:"string"`
+	DestPort *string `type:"string" json:",omitempty"`
 
-	DestPortType *string `type:"string"`
+	DestPortType *string `type:"string" json:",omitempty" enum:"EnumOfDestPortTypeForModifyControlPolicyInput"`
 
 	// Destination is a required field
-	Destination *string `type:"string" required:"true"`
+	Destination *string `type:"string" json:",omitempty" required:"true"`
 
 	// DestinationType is a required field
-	DestinationType *string `type:"string" required:"true"`
+	DestinationType *string `type:"string" json:",omitempty" required:"true" enum:"EnumOfDestinationTypeForModifyControlPolicyInput"`
 
 	// Direction is a required field
-	Direction *string `type:"string" required:"true"`
+	Direction *string `type:"string" json:",omitempty" required:"true" enum:"EnumOfDirectionForModifyControlPolicyInput"`
+
+	EndTime *int32 `type:"int32" json:",omitempty"`
 
 	// Proto is a required field
-	Proto *string `type:"string" required:"true"`
+	Proto *string `type:"string" json:",omitempty" required:"true" enum:"EnumOfProtoForModifyControlPolicyInput"`
+
+	RepeatDays []*int32 `type:"list" json:",omitempty"`
+
+	RepeatEndTime *string `type:"string" json:",omitempty"`
+
+	RepeatStartTime *string `type:"string" json:",omitempty"`
+
+	RepeatType *string `type:"string" json:",omitempty" enum:"EnumOfRepeatTypeForModifyControlPolicyInput"`
 
 	// RuleId is a required field
-	RuleId *string `type:"string" required:"true"`
+	RuleId *string `type:"string" json:",omitempty" required:"true"`
 
 	// Source is a required field
-	Source *string `type:"string" required:"true"`
+	Source *string `type:"string" json:",omitempty" required:"true"`
 
 	// SourceType is a required field
-	SourceType *string `type:"string" required:"true"`
+	SourceType *string `type:"string" json:",omitempty" required:"true" enum:"EnumOfSourceTypeForModifyControlPolicyInput"`
 
-	Status *bool `type:"boolean"`
+	StartTime *int32 `type:"int32" json:",omitempty"`
+
+	Status *bool `type:"boolean" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -265,9 +277,39 @@ func (s *ModifyControlPolicyInput) SetDirection(v string) *ModifyControlPolicyIn
 	return s
 }
 
+// SetEndTime sets the EndTime field's value.
+func (s *ModifyControlPolicyInput) SetEndTime(v int32) *ModifyControlPolicyInput {
+	s.EndTime = &v
+	return s
+}
+
 // SetProto sets the Proto field's value.
 func (s *ModifyControlPolicyInput) SetProto(v string) *ModifyControlPolicyInput {
 	s.Proto = &v
+	return s
+}
+
+// SetRepeatDays sets the RepeatDays field's value.
+func (s *ModifyControlPolicyInput) SetRepeatDays(v []*int32) *ModifyControlPolicyInput {
+	s.RepeatDays = v
+	return s
+}
+
+// SetRepeatEndTime sets the RepeatEndTime field's value.
+func (s *ModifyControlPolicyInput) SetRepeatEndTime(v string) *ModifyControlPolicyInput {
+	s.RepeatEndTime = &v
+	return s
+}
+
+// SetRepeatStartTime sets the RepeatStartTime field's value.
+func (s *ModifyControlPolicyInput) SetRepeatStartTime(v string) *ModifyControlPolicyInput {
+	s.RepeatStartTime = &v
+	return s
+}
+
+// SetRepeatType sets the RepeatType field's value.
+func (s *ModifyControlPolicyInput) SetRepeatType(v string) *ModifyControlPolicyInput {
+	s.RepeatType = &v
 	return s
 }
 
@@ -289,6 +331,12 @@ func (s *ModifyControlPolicyInput) SetSourceType(v string) *ModifyControlPolicyI
 	return s
 }
 
+// SetStartTime sets the StartTime field's value.
+func (s *ModifyControlPolicyInput) SetStartTime(v int32) *ModifyControlPolicyInput {
+	s.StartTime = &v
+	return s
+}
+
 // SetStatus sets the Status field's value.
 func (s *ModifyControlPolicyInput) SetStatus(v bool) *ModifyControlPolicyInput {
 	s.Status = &v
@@ -296,9 +344,11 @@ func (s *ModifyControlPolicyInput) SetStatus(v bool) *ModifyControlPolicyInput {
 }
 
 type ModifyControlPolicyOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
+
+	RuleId *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -310,3 +360,92 @@ func (s ModifyControlPolicyOutput) String() string {
 func (s ModifyControlPolicyOutput) GoString() string {
 	return s.String()
 }
+
+// SetRuleId sets the RuleId field's value.
+func (s *ModifyControlPolicyOutput) SetRuleId(v string) *ModifyControlPolicyOutput {
+	s.RuleId = &v
+	return s
+}
+
+const (
+	// EnumOfActionForModifyControlPolicyInputAccept is a EnumOfActionForModifyControlPolicyInput enum value
+	EnumOfActionForModifyControlPolicyInputAccept = "accept"
+
+	// EnumOfActionForModifyControlPolicyInputDeny is a EnumOfActionForModifyControlPolicyInput enum value
+	EnumOfActionForModifyControlPolicyInputDeny = "deny"
+
+	// EnumOfActionForModifyControlPolicyInputMonitor is a EnumOfActionForModifyControlPolicyInput enum value
+	EnumOfActionForModifyControlPolicyInputMonitor = "monitor"
+)
+
+const (
+	// EnumOfDestPortTypeForModifyControlPolicyInputPort is a EnumOfDestPortTypeForModifyControlPolicyInput enum value
+	EnumOfDestPortTypeForModifyControlPolicyInputPort = "port"
+
+	// EnumOfDestPortTypeForModifyControlPolicyInputGroup is a EnumOfDestPortTypeForModifyControlPolicyInput enum value
+	EnumOfDestPortTypeForModifyControlPolicyInputGroup = "group"
+)
+
+const (
+	// EnumOfDestinationTypeForModifyControlPolicyInputNet is a EnumOfDestinationTypeForModifyControlPolicyInput enum value
+	EnumOfDestinationTypeForModifyControlPolicyInputNet = "net"
+
+	// EnumOfDestinationTypeForModifyControlPolicyInputLocation is a EnumOfDestinationTypeForModifyControlPolicyInput enum value
+	EnumOfDestinationTypeForModifyControlPolicyInputLocation = "location"
+
+	// EnumOfDestinationTypeForModifyControlPolicyInputGroup is a EnumOfDestinationTypeForModifyControlPolicyInput enum value
+	EnumOfDestinationTypeForModifyControlPolicyInputGroup = "group"
+
+	// EnumOfDestinationTypeForModifyControlPolicyInputDomain is a EnumOfDestinationTypeForModifyControlPolicyInput enum value
+	EnumOfDestinationTypeForModifyControlPolicyInputDomain = "domain"
+)
+
+const (
+	// EnumOfDirectionForModifyControlPolicyInputIn is a EnumOfDirectionForModifyControlPolicyInput enum value
+	EnumOfDirectionForModifyControlPolicyInputIn = "in"
+
+	// EnumOfDirectionForModifyControlPolicyInputOut is a EnumOfDirectionForModifyControlPolicyInput enum value
+	EnumOfDirectionForModifyControlPolicyInputOut = "out"
+)
+
+const (
+	// EnumOfProtoForModifyControlPolicyInputIcmp is a EnumOfProtoForModifyControlPolicyInput enum value
+	EnumOfProtoForModifyControlPolicyInputIcmp = "ICMP"
+
+	// EnumOfProtoForModifyControlPolicyInputTcp is a EnumOfProtoForModifyControlPolicyInput enum value
+	EnumOfProtoForModifyControlPolicyInputTcp = "TCP"
+
+	// EnumOfProtoForModifyControlPolicyInputUdp is a EnumOfProtoForModifyControlPolicyInput enum value
+	EnumOfProtoForModifyControlPolicyInputUdp = "UDP"
+
+	// EnumOfProtoForModifyControlPolicyInputAny is a EnumOfProtoForModifyControlPolicyInput enum value
+	EnumOfProtoForModifyControlPolicyInputAny = "ANY"
+)
+
+const (
+	// EnumOfRepeatTypeForModifyControlPolicyInputPermanent is a EnumOfRepeatTypeForModifyControlPolicyInput enum value
+	EnumOfRepeatTypeForModifyControlPolicyInputPermanent = "Permanent"
+
+	// EnumOfRepeatTypeForModifyControlPolicyInputOnce is a EnumOfRepeatTypeForModifyControlPolicyInput enum value
+	EnumOfRepeatTypeForModifyControlPolicyInputOnce = "Once"
+
+	// EnumOfRepeatTypeForModifyControlPolicyInputDaily is a EnumOfRepeatTypeForModifyControlPolicyInput enum value
+	EnumOfRepeatTypeForModifyControlPolicyInputDaily = "Daily"
+
+	// EnumOfRepeatTypeForModifyControlPolicyInputWeekly is a EnumOfRepeatTypeForModifyControlPolicyInput enum value
+	EnumOfRepeatTypeForModifyControlPolicyInputWeekly = "Weekly"
+
+	// EnumOfRepeatTypeForModifyControlPolicyInputMonthly is a EnumOfRepeatTypeForModifyControlPolicyInput enum value
+	EnumOfRepeatTypeForModifyControlPolicyInputMonthly = "Monthly"
+)
+
+const (
+	// EnumOfSourceTypeForModifyControlPolicyInputNet is a EnumOfSourceTypeForModifyControlPolicyInput enum value
+	EnumOfSourceTypeForModifyControlPolicyInputNet = "net"
+
+	// EnumOfSourceTypeForModifyControlPolicyInputLocation is a EnumOfSourceTypeForModifyControlPolicyInput enum value
+	EnumOfSourceTypeForModifyControlPolicyInputLocation = "location"
+
+	// EnumOfSourceTypeForModifyControlPolicyInputGroup is a EnumOfSourceTypeForModifyControlPolicyInput enum value
+	EnumOfSourceTypeForModifyControlPolicyInputGroup = "group"
+)

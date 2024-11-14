@@ -144,10 +144,10 @@ func (c *FWCENTER) DescribeVpcFirewallAclRulePriorUsedWithContext(ctx volcengine
 }
 
 type DescribeVpcFirewallAclRulePriorUsedInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// VpcFirewallId is a required field
-	VpcFirewallId *string `type:"string" required:"true"`
+	VpcFirewallId *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -180,17 +180,17 @@ func (s *DescribeVpcFirewallAclRulePriorUsedInput) SetVpcFirewallId(v string) *D
 }
 
 type DescribeVpcFirewallAclRulePriorUsedOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	AccountId *string `type:"string"`
+	AccountId *string `type:"string" json:",omitempty"`
 
-	End *int32 `type:"int32"`
+	End *int32 `type:"int32" json:",omitempty"`
 
-	Start *int32 `type:"int32"`
+	Start *int32 `type:"int32" json:",omitempty"`
 
-	VpcFirewallId *string `type:"string"`
+	VpcFirewallId *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation

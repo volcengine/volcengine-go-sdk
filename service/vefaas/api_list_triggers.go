@@ -144,29 +144,29 @@ func (c *VEFAAS) ListTriggersWithContext(ctx volcengine.Context, input *ListTrig
 }
 
 type ItemForListTriggersOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	AccountID *string `type:"string"`
+	AccountID *string `type:"string" json:",omitempty"`
 
-	CreationTime *string `type:"string"`
+	CreationTime *string `type:"string" json:",omitempty"`
 
-	Description *string `type:"string"`
+	Description *string `type:"string" json:",omitempty"`
 
-	DetailedConfig *string `type:"string"`
+	DetailedConfig *string `type:"string" json:",omitempty"`
 
-	Enabled *bool `type:"boolean"`
+	Enabled *bool `type:"boolean" json:",omitempty"`
 
-	FunctionID *string `type:"string"`
+	FunctionID *string `type:"string" json:",omitempty"`
 
-	Id *string `type:"string"`
+	Id *string `type:"string" json:",omitempty"`
 
-	ImageVersion *string `type:"string"`
+	ImageVersion *string `type:"string" json:",omitempty"`
 
-	LastUpdateTime *string `type:"string"`
+	LastUpdateTime *string `type:"string" json:",omitempty"`
 
-	Name *string `type:"string"`
+	Name *string `type:"string" json:",omitempty"`
 
-	Type *string `type:"string"`
+	Type *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -246,10 +246,10 @@ func (s *ItemForListTriggersOutput) SetType(v string) *ItemForListTriggersOutput
 }
 
 type ListTriggersInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// FunctionId is a required field
-	FunctionId *string `type:"string" required:"true"`
+	FunctionId *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -282,13 +282,13 @@ func (s *ListTriggersInput) SetFunctionId(v string) *ListTriggersInput {
 }
 
 type ListTriggersOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	Items []*ItemForListTriggersOutput `type:"list"`
+	Items []*ItemForListTriggersOutput `type:"list" json:",omitempty"`
 
-	Total *int32 `type:"int32"`
+	Total *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation

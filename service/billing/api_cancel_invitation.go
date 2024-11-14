@@ -144,19 +144,19 @@ func (c *BILLING) CancelInvitationWithContext(ctx volcengine.Context, input *Can
 }
 
 type CancelInvitationInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	AuthID *string `type:"string"`
+	AuthID *string `type:"string" json:",omitempty"`
 
 	// InvitationType is a required field
-	InvitationType *int32 `type:"int32" required:"true"`
+	InvitationType *int32 `type:"int32" json:",omitempty" required:"true"`
 
-	Relation *int32 `type:"int32"`
+	Relation *int32 `type:"int32" json:",omitempty"`
 
 	// RelationID is a required field
-	RelationID *string `type:"string" required:"true"`
+	RelationID *string `type:"string" json:",omitempty" required:"true"`
 
-	SubAccountID *int32 `type:"int32"`
+	SubAccountID *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -216,11 +216,11 @@ func (s *CancelInvitationInput) SetSubAccountID(v int32) *CancelInvitationInput 
 }
 
 type CancelInvitationOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	IsSuccess *bool `type:"boolean"`
+	IsSuccess *bool `type:"boolean" json:",omitempty"`
 }
 
 // String returns the string representation
