@@ -144,19 +144,19 @@ func (c *KMS) AsymmetricDecryptWithContext(ctx volcengine.Context, input *Asymme
 }
 
 type AsymmetricDecryptInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// Algorithm is a required field
-	Algorithm *string `type:"string" required:"true"`
+	Algorithm *string `type:"string" json:",omitempty" required:"true"`
 
 	// CiphertextBlob is a required field
-	CiphertextBlob *string `min:"1" max:"4096" type:"string" required:"true"`
+	CiphertextBlob *string `min:"1" max:"4096" type:"string" json:",omitempty" required:"true"`
 
-	KeyID *string `type:"string"`
+	KeyID *string `type:"string" json:",omitempty"`
 
-	KeyName *string `min:"2" max:"31" type:"string"`
+	KeyName *string `min:"2" max:"31" type:"string" json:",omitempty"`
 
-	KeyringName *string `min:"2" max:"31" type:"string"`
+	KeyringName *string `min:"2" max:"31" type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -234,13 +234,13 @@ func (s *AsymmetricDecryptInput) SetKeyringName(v string) *AsymmetricDecryptInpu
 }
 
 type AsymmetricDecryptOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	KeyID *string `type:"string"`
+	KeyID *string `type:"string" json:",omitempty"`
 
-	Plaintext *string `type:"string"`
+	Plaintext *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation

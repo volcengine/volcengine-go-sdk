@@ -144,16 +144,16 @@ func (c *KMS) CreateKeyringWithContext(ctx volcengine.Context, input *CreateKeyr
 }
 
 type CreateKeyringInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Description *string `max:"8192" type:"string"`
+	Description *string `max:"8192" type:"string" json:",omitempty"`
 
 	// KeyringName is a required field
-	KeyringName *string `min:"2" max:"31" type:"string" required:"true"`
+	KeyringName *string `min:"2" max:"31" type:"string" json:",omitempty" required:"true"`
 
-	KeyringType *string `type:"string"`
+	KeyringType *string `type:"string" json:",omitempty"`
 
-	ProjectName *string `type:"string"`
+	ProjectName *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -213,11 +213,11 @@ func (s *CreateKeyringInput) SetProjectName(v string) *CreateKeyringInput {
 }
 
 type CreateKeyringOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	Keyring *KeyringForCreateKeyringOutput `type:"structure"`
+	Keyring *KeyringForCreateKeyringOutput `type:"structure" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -237,23 +237,23 @@ func (s *CreateKeyringOutput) SetKeyring(v *KeyringForCreateKeyringOutput) *Crea
 }
 
 type KeyringForCreateKeyringOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	CreationDate *int64 `type:"int64"`
+	CreationDate *int64 `type:"int64" json:",omitempty"`
 
-	Description *string `type:"string"`
+	Description *string `type:"string" json:",omitempty"`
 
-	ID *string `type:"string"`
+	ID *string `type:"string" json:",omitempty"`
 
-	KeyringName *string `type:"string"`
+	KeyringName *string `type:"string" json:",omitempty"`
 
-	KeyringType *string `type:"string"`
+	KeyringType *string `type:"string" json:",omitempty"`
 
-	TRN *string `type:"string"`
+	TRN *string `type:"string" json:",omitempty"`
 
-	UID *string `type:"string"`
+	UID *string `type:"string" json:",omitempty"`
 
-	UpdateDate *int64 `type:"int64"`
+	UpdateDate *int64 `type:"int64" json:",omitempty"`
 }
 
 // String returns the string representation

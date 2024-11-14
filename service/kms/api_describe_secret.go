@@ -144,10 +144,10 @@ func (c *KMS) DescribeSecretWithContext(ctx volcengine.Context, input *DescribeS
 }
 
 type DescribeSecretInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// SecretName is a required field
-	SecretName *string `min:"2" max:"31" type:"string" required:"true"`
+	SecretName *string `min:"2" max:"31" type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -186,11 +186,11 @@ func (s *DescribeSecretInput) SetSecretName(v string) *DescribeSecretInput {
 }
 
 type DescribeSecretOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	Secret *SecretForDescribeSecretOutput `type:"structure"`
+	Secret *SecretForDescribeSecretOutput `type:"structure" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -210,41 +210,41 @@ func (s *DescribeSecretOutput) SetSecret(v *SecretForDescribeSecretOutput) *Desc
 }
 
 type SecretForDescribeSecretOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	CreationDate *int64 `type:"int64"`
+	CreationDate *int64 `type:"int64" json:",omitempty"`
 
-	Description *string `type:"string"`
+	Description *string `type:"string" json:",omitempty"`
 
-	EncryptionKey *string `type:"string"`
+	EncryptionKey *string `type:"string" json:",omitempty"`
 
-	ExtendedConfig *string `max:"1024" type:"string"`
+	ExtendedConfig *string `max:"1024" type:"string" json:",omitempty"`
 
-	ID *string `type:"string"`
+	ID *string `type:"string" json:",omitempty"`
 
-	LastRotationTime *string `type:"string"`
+	LastRotationTime *string `type:"string" json:",omitempty"`
 
-	Managed *bool `type:"boolean"`
+	Managed *bool `type:"boolean" json:",omitempty"`
 
-	ProjectName *string `type:"string"`
+	ProjectName *string `type:"string" json:",omitempty"`
 
-	RotationInterval *int32 `type:"int32"`
+	RotationInterval *int32 `type:"int32" json:",omitempty"`
 
-	RotationState *string `type:"string"`
+	RotationState *string `type:"string" json:",omitempty"`
 
-	ScheduleDeleteTime *string `type:"string"`
+	ScheduleDeleteTime *string `type:"string" json:",omitempty"`
 
-	ScheduleRotationTime *string `type:"string"`
+	ScheduleRotationTime *string `type:"string" json:",omitempty"`
 
-	SecretName *string `type:"string"`
+	SecretName *string `type:"string" json:",omitempty"`
 
-	SecretType *string `type:"string" enum:"EnumOfSecretTypeForDescribeSecretOutput"`
+	SecretType *string `type:"string" json:",omitempty" enum:"EnumOfSecretTypeForDescribeSecretOutput"`
 
-	Trn *string `type:"string"`
+	Trn *string `type:"string" json:",omitempty"`
 
-	UID *string `type:"string"`
+	UID *string `type:"string" json:",omitempty"`
 
-	UpdateDate *int64 `type:"int64"`
+	UpdateDate *int64 `type:"int64" json:",omitempty"`
 }
 
 // String returns the string representation

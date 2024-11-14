@@ -144,28 +144,28 @@ func (c *KMS) CreateSecretWithContext(ctx volcengine.Context, input *CreateSecre
 }
 
 type CreateSecretInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	AutomaticRotation *bool `type:"boolean"`
+	AutomaticRotation *bool `type:"boolean" json:",omitempty"`
 
-	Description *string `max:"8192" type:"string"`
+	Description *string `max:"8192" type:"string" json:",omitempty"`
 
-	EncryptionKey *string `type:"string"`
+	EncryptionKey *string `type:"string" json:",omitempty"`
 
-	ExtendedConfig *string `max:"1024" type:"string"`
+	ExtendedConfig *string `max:"1024" type:"string" json:",omitempty"`
 
-	ProjectName *string `type:"string"`
+	ProjectName *string `type:"string" json:",omitempty"`
 
-	RotationInterval *string `type:"string"`
+	RotationInterval *string `type:"string" json:",omitempty"`
 
 	// SecretName is a required field
-	SecretName *string `min:"2" max:"31" type:"string" required:"true"`
+	SecretName *string `min:"2" max:"31" type:"string" json:",omitempty" required:"true"`
 
 	// SecretType is a required field
-	SecretType *string `type:"string" required:"true" enum:"EnumOfSecretTypeForCreateSecretInput"`
+	SecretType *string `type:"string" json:",omitempty" required:"true" enum:"EnumOfSecretTypeForCreateSecretInput"`
 
 	// SecretValue is a required field
-	SecretValue *string `max:"30720" type:"string" required:"true"`
+	SecretValue *string `max:"30720" type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -267,11 +267,11 @@ func (s *CreateSecretInput) SetSecretValue(v string) *CreateSecretInput {
 }
 
 type CreateSecretOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	Secret *SecretForCreateSecretOutput `type:"structure"`
+	Secret *SecretForCreateSecretOutput `type:"structure" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -291,41 +291,41 @@ func (s *CreateSecretOutput) SetSecret(v *SecretForCreateSecretOutput) *CreateSe
 }
 
 type SecretForCreateSecretOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	CreationDate *int64 `type:"int64"`
+	CreationDate *int64 `type:"int64" json:",omitempty"`
 
-	Description *string `type:"string"`
+	Description *string `type:"string" json:",omitempty"`
 
-	EncryptionKey *string `type:"string"`
+	EncryptionKey *string `type:"string" json:",omitempty"`
 
-	ExtendedConfig *string `max:"1024" type:"string"`
+	ExtendedConfig *string `max:"1024" type:"string" json:",omitempty"`
 
-	ID *string `type:"string"`
+	ID *string `type:"string" json:",omitempty"`
 
-	LastRotationTime *string `type:"string"`
+	LastRotationTime *string `type:"string" json:",omitempty"`
 
-	Managed *bool `type:"boolean"`
+	Managed *bool `type:"boolean" json:",omitempty"`
 
-	ProjectName *string `type:"string"`
+	ProjectName *string `type:"string" json:",omitempty"`
 
-	RotationInterval *int32 `type:"int32"`
+	RotationInterval *int32 `type:"int32" json:",omitempty"`
 
-	RotationState *string `type:"string"`
+	RotationState *string `type:"string" json:",omitempty"`
 
-	ScheduleDeleteTime *string `type:"string"`
+	ScheduleDeleteTime *string `type:"string" json:",omitempty"`
 
-	ScheduleRotationTime *string `type:"string"`
+	ScheduleRotationTime *string `type:"string" json:",omitempty"`
 
-	SecretName *string `type:"string"`
+	SecretName *string `type:"string" json:",omitempty"`
 
-	SecretType *string `type:"string" enum:"EnumOfSecretTypeForCreateSecretOutput"`
+	SecretType *string `type:"string" json:",omitempty" enum:"EnumOfSecretTypeForCreateSecretOutput"`
 
-	Trn *string `type:"string"`
+	Trn *string `type:"string" json:",omitempty"`
 
-	UID *string `type:"string"`
+	UID *string `type:"string" json:",omitempty"`
 
-	UpdateDate *int64 `type:"int64"`
+	UpdateDate *int64 `type:"int64" json:",omitempty"`
 }
 
 // String returns the string representation

@@ -144,18 +144,18 @@ func (c *KMS) EncryptWithContext(ctx volcengine.Context, input *EncryptInput, op
 }
 
 type EncryptInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	EncryptionContext *string `type:"string"`
+	EncryptionContext *string `type:"string" json:",omitempty"`
 
-	KeyID *string `type:"string"`
+	KeyID *string `type:"string" json:",omitempty"`
 
-	KeyName *string `min:"2" max:"31" type:"string"`
+	KeyName *string `min:"2" max:"31" type:"string" json:",omitempty"`
 
-	KeyringName *string `min:"2" max:"31" type:"string"`
+	KeyringName *string `min:"2" max:"31" type:"string" json:",omitempty"`
 
 	// Plaintext is a required field
-	Plaintext *string `min:"1" max:"4096" type:"string" required:"true"`
+	Plaintext *string `min:"1" max:"4096" type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -230,11 +230,11 @@ func (s *EncryptInput) SetPlaintext(v string) *EncryptInput {
 }
 
 type EncryptOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	CiphertextBlob *string `type:"string"`
+	CiphertextBlob *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation

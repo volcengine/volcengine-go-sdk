@@ -144,17 +144,17 @@ func (c *KMS) GenerateDataKeyWithContext(ctx volcengine.Context, input *Generate
 }
 
 type GenerateDataKeyInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	EncryptionContext *string `type:"string"`
+	EncryptionContext *string `type:"string" json:",omitempty"`
 
-	KeyID *string `type:"string"`
+	KeyID *string `type:"string" json:",omitempty"`
 
-	KeyName *string `min:"2" max:"31" type:"string"`
+	KeyName *string `min:"2" max:"31" type:"string" json:",omitempty"`
 
-	KeyringName *string `min:"2" max:"31" type:"string"`
+	KeyringName *string `min:"2" max:"31" type:"string" json:",omitempty"`
 
-	NumberOfBytes *int32 `min:"1" max:"1024" type:"int32"`
+	NumberOfBytes *int32 `min:"1" max:"1024" type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -226,13 +226,13 @@ func (s *GenerateDataKeyInput) SetNumberOfBytes(v int32) *GenerateDataKeyInput {
 }
 
 type GenerateDataKeyOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	CiphertextBlob *string `type:"string"`
+	CiphertextBlob *string `type:"string" json:",omitempty"`
 
-	Plaintext *string `type:"string"`
+	Plaintext *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation

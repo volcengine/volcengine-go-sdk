@@ -9,29 +9,29 @@ import (
 	"github.com/volcengine/volcengine-go-sdk/volcengine/volcengineutil"
 )
 
-const opGetPublicKeyCommon = "GetPublicKey"
+const opVerifyMacCommon = "VerifyMac"
 
-// GetPublicKeyCommonRequest generates a "volcengine/request.Request" representing the
-// client's request for the GetPublicKeyCommon operation. The "output" return
-// value will be populated with the GetPublicKeyCommon request's response once the request completes
+// VerifyMacCommonRequest generates a "volcengine/request.Request" representing the
+// client's request for the VerifyMacCommon operation. The "output" return
+// value will be populated with the VerifyMacCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned GetPublicKeyCommon Request to send the API call to the service.
-// the "output" return value is not valid until after GetPublicKeyCommon Send returns without error.
+// Use "Send" method on the returned VerifyMacCommon Request to send the API call to the service.
+// the "output" return value is not valid until after VerifyMacCommon Send returns without error.
 //
-// See GetPublicKeyCommon for more information on using the GetPublicKeyCommon
+// See VerifyMacCommon for more information on using the VerifyMacCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the GetPublicKeyCommonRequest method.
-//    req, resp := client.GetPublicKeyCommonRequest(params)
+//    // Example sending a request using the VerifyMacCommonRequest method.
+//    req, resp := client.VerifyMacCommonRequest(params)
 //
 //    err := req.Send()
 //    if err == nil { // resp is now filled
 //        fmt.Println(resp)
 //    }
-func (c *KMS) GetPublicKeyCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
+func (c *KMS) VerifyMacCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
-		Name:       opGetPublicKeyCommon,
+		Name:       opVerifyMacCommon,
 		HTTPMethod: "POST",
 		HTTPPath:   "/",
 	}
@@ -48,66 +48,66 @@ func (c *KMS) GetPublicKeyCommonRequest(input *map[string]interface{}) (req *req
 	return
 }
 
-// GetPublicKeyCommon API operation for KMS.
+// VerifyMacCommon API operation for KMS.
 //
 // Returns volcengineerr.Error for service API and SDK errors. Use runtime type assertions
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
 // See the VOLCENGINE API reference guide for KMS's
-// API operation GetPublicKeyCommon for usage and error information.
-func (c *KMS) GetPublicKeyCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
-	req, out := c.GetPublicKeyCommonRequest(input)
+// API operation VerifyMacCommon for usage and error information.
+func (c *KMS) VerifyMacCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
+	req, out := c.VerifyMacCommonRequest(input)
 	return out, req.Send()
 }
 
-// GetPublicKeyCommonWithContext is the same as GetPublicKeyCommon with the addition of
+// VerifyMacCommonWithContext is the same as VerifyMacCommon with the addition of
 // the ability to pass a context and additional request options.
 //
-// See GetPublicKeyCommon for details on how to use this API operation.
+// See VerifyMacCommon for details on how to use this API operation.
 //
 // The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
 // In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
-func (c *KMS) GetPublicKeyCommonWithContext(ctx volcengine.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
-	req, out := c.GetPublicKeyCommonRequest(input)
+func (c *KMS) VerifyMacCommonWithContext(ctx volcengine.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
+	req, out := c.VerifyMacCommonRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
 	return out, req.Send()
 }
 
-const opGetPublicKey = "GetPublicKey"
+const opVerifyMac = "VerifyMac"
 
-// GetPublicKeyRequest generates a "volcengine/request.Request" representing the
-// client's request for the GetPublicKey operation. The "output" return
-// value will be populated with the GetPublicKeyCommon request's response once the request completes
+// VerifyMacRequest generates a "volcengine/request.Request" representing the
+// client's request for the VerifyMac operation. The "output" return
+// value will be populated with the VerifyMacCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned GetPublicKeyCommon Request to send the API call to the service.
-// the "output" return value is not valid until after GetPublicKeyCommon Send returns without error.
+// Use "Send" method on the returned VerifyMacCommon Request to send the API call to the service.
+// the "output" return value is not valid until after VerifyMacCommon Send returns without error.
 //
-// See GetPublicKey for more information on using the GetPublicKey
+// See VerifyMac for more information on using the VerifyMac
 // API call, and error handling.
 //
-//    // Example sending a request using the GetPublicKeyRequest method.
-//    req, resp := client.GetPublicKeyRequest(params)
+//    // Example sending a request using the VerifyMacRequest method.
+//    req, resp := client.VerifyMacRequest(params)
 //
 //    err := req.Send()
 //    if err == nil { // resp is now filled
 //        fmt.Println(resp)
 //    }
-func (c *KMS) GetPublicKeyRequest(input *GetPublicKeyInput) (req *request.Request, output *GetPublicKeyOutput) {
+func (c *KMS) VerifyMacRequest(input *VerifyMacInput) (req *request.Request, output *VerifyMacOutput) {
 	op := &request.Operation{
-		Name:       opGetPublicKey,
+		Name:       opVerifyMac,
 		HTTPMethod: "POST",
 		HTTPPath:   "/",
 	}
 
 	if input == nil {
-		input = &GetPublicKeyInput{}
+		input = &VerifyMacInput{}
 	}
 
-	output = &GetPublicKeyOutput{}
+	output = &VerifyMacOutput{}
 	req = c.newRequest(op, input, output)
 
 	req.HTTPRequest.Header.Set("Content-Type", "application/json; charset=utf-8")
@@ -115,35 +115,35 @@ func (c *KMS) GetPublicKeyRequest(input *GetPublicKeyInput) (req *request.Reques
 	return
 }
 
-// GetPublicKey API operation for KMS.
+// VerifyMac API operation for KMS.
 //
 // Returns volcengineerr.Error for service API and SDK errors. Use runtime type assertions
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
 // See the VOLCENGINE API reference guide for KMS's
-// API operation GetPublicKey for usage and error information.
-func (c *KMS) GetPublicKey(input *GetPublicKeyInput) (*GetPublicKeyOutput, error) {
-	req, out := c.GetPublicKeyRequest(input)
+// API operation VerifyMac for usage and error information.
+func (c *KMS) VerifyMac(input *VerifyMacInput) (*VerifyMacOutput, error) {
+	req, out := c.VerifyMacRequest(input)
 	return out, req.Send()
 }
 
-// GetPublicKeyWithContext is the same as GetPublicKey with the addition of
+// VerifyMacWithContext is the same as VerifyMac with the addition of
 // the ability to pass a context and additional request options.
 //
-// See GetPublicKey for details on how to use this API operation.
+// See VerifyMac for details on how to use this API operation.
 //
 // The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
 // In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
-func (c *KMS) GetPublicKeyWithContext(ctx volcengine.Context, input *GetPublicKeyInput, opts ...request.Option) (*GetPublicKeyOutput, error) {
-	req, out := c.GetPublicKeyRequest(input)
+func (c *KMS) VerifyMacWithContext(ctx volcengine.Context, input *VerifyMacInput, opts ...request.Option) (*VerifyMacOutput, error) {
+	req, out := c.VerifyMacRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
 	return out, req.Send()
 }
 
-type GetPublicKeyInput struct {
+type VerifyMacInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
 	KeyID *string `type:"string" json:",omitempty"`
@@ -151,21 +151,24 @@ type GetPublicKeyInput struct {
 	KeyName *string `min:"2" max:"31" type:"string" json:",omitempty"`
 
 	KeyringName *string `min:"2" max:"31" type:"string" json:",omitempty"`
+
+	// MacAlgorithm is a required field
+	MacAlgorithm *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
-func (s GetPublicKeyInput) String() string {
+func (s VerifyMacInput) String() string {
 	return volcengineutil.Prettify(s)
 }
 
 // GoString returns the string representation
-func (s GetPublicKeyInput) GoString() string {
+func (s VerifyMacInput) GoString() string {
 	return s.String()
 }
 
 // Validate inspects the fields of the type to determine if they are valid.
-func (s *GetPublicKeyInput) Validate() error {
-	invalidParams := request.ErrInvalidParams{Context: "GetPublicKeyInput"}
+func (s *VerifyMacInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "VerifyMacInput"}
 	if s.KeyName != nil && len(*s.KeyName) < 2 {
 		invalidParams.Add(request.NewErrParamMinLen("KeyName", 2))
 	}
@@ -178,6 +181,9 @@ func (s *GetPublicKeyInput) Validate() error {
 	if s.KeyringName != nil && len(*s.KeyringName) > 31 {
 		invalidParams.Add(request.NewErrParamMaxLen("KeyringName", 31, *s.KeyringName))
 	}
+	if s.MacAlgorithm == nil {
+		invalidParams.Add(request.NewErrParamRequired("MacAlgorithm"))
+	}
 
 	if invalidParams.Len() > 0 {
 		return invalidParams
@@ -186,51 +192,57 @@ func (s *GetPublicKeyInput) Validate() error {
 }
 
 // SetKeyID sets the KeyID field's value.
-func (s *GetPublicKeyInput) SetKeyID(v string) *GetPublicKeyInput {
+func (s *VerifyMacInput) SetKeyID(v string) *VerifyMacInput {
 	s.KeyID = &v
 	return s
 }
 
 // SetKeyName sets the KeyName field's value.
-func (s *GetPublicKeyInput) SetKeyName(v string) *GetPublicKeyInput {
+func (s *VerifyMacInput) SetKeyName(v string) *VerifyMacInput {
 	s.KeyName = &v
 	return s
 }
 
 // SetKeyringName sets the KeyringName field's value.
-func (s *GetPublicKeyInput) SetKeyringName(v string) *GetPublicKeyInput {
+func (s *VerifyMacInput) SetKeyringName(v string) *VerifyMacInput {
 	s.KeyringName = &v
 	return s
 }
 
-type GetPublicKeyOutput struct {
+// SetMacAlgorithm sets the MacAlgorithm field's value.
+func (s *VerifyMacInput) SetMacAlgorithm(v string) *VerifyMacInput {
+	s.MacAlgorithm = &v
+	return s
+}
+
+type VerifyMacOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
 	KeyID *string `type:"string" json:",omitempty"`
 
-	PublicKey *string `type:"string" json:",omitempty"`
+	MacValid *bool `type:"boolean" json:",omitempty"`
 }
 
 // String returns the string representation
-func (s GetPublicKeyOutput) String() string {
+func (s VerifyMacOutput) String() string {
 	return volcengineutil.Prettify(s)
 }
 
 // GoString returns the string representation
-func (s GetPublicKeyOutput) GoString() string {
+func (s VerifyMacOutput) GoString() string {
 	return s.String()
 }
 
 // SetKeyID sets the KeyID field's value.
-func (s *GetPublicKeyOutput) SetKeyID(v string) *GetPublicKeyOutput {
+func (s *VerifyMacOutput) SetKeyID(v string) *VerifyMacOutput {
 	s.KeyID = &v
 	return s
 }
 
-// SetPublicKey sets the PublicKey field's value.
-func (s *GetPublicKeyOutput) SetPublicKey(v string) *GetPublicKeyOutput {
-	s.PublicKey = &v
+// SetMacValid sets the MacValid field's value.
+func (s *VerifyMacOutput) SetMacValid(v bool) *VerifyMacOutput {
+	s.MacValid = &v
 	return s
 }

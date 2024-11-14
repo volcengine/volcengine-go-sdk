@@ -144,14 +144,14 @@ func (c *KMS) DescribeSecretVersionsWithContext(ctx volcengine.Context, input *D
 }
 
 type DescribeSecretVersionsInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	CurrentPage *int32 `min:"1" type:"int32"`
+	CurrentPage *int32 `min:"1" type:"int32" json:",omitempty"`
 
-	PageSize *int32 `min:"1" max:"100" type:"int32"`
+	PageSize *int32 `min:"1" max:"100" type:"int32" json:",omitempty"`
 
 	// SecretName is a required field
-	SecretName *string `min:"2" max:"31" type:"string" required:"true"`
+	SecretName *string `min:"2" max:"31" type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -211,13 +211,13 @@ func (s *DescribeSecretVersionsInput) SetSecretName(v string) *DescribeSecretVer
 }
 
 type DescribeSecretVersionsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	PageInfo *PageInfoForDescribeSecretVersionsOutput `type:"structure"`
+	PageInfo *PageInfoForDescribeSecretVersionsOutput `type:"structure" json:",omitempty"`
 
-	SecretVersions []*SecretVersionForDescribeSecretVersionsOutput `type:"list"`
+	SecretVersions []*SecretVersionForDescribeSecretVersionsOutput `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -243,15 +243,15 @@ func (s *DescribeSecretVersionsOutput) SetSecretVersions(v []*SecretVersionForDe
 }
 
 type PageInfoForDescribeSecretVersionsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Count *int32 `type:"int32"`
+	Count *int32 `type:"int32" json:",omitempty"`
 
-	CurrentPage *int32 `type:"int32"`
+	CurrentPage *int32 `type:"int32" json:",omitempty"`
 
-	PageSize *int32 `type:"int32"`
+	PageSize *int32 `type:"int32" json:",omitempty"`
 
-	TotalCount *int32 `type:"int32"`
+	TotalCount *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -289,13 +289,13 @@ func (s *PageInfoForDescribeSecretVersionsOutput) SetTotalCount(v int32) *PageIn
 }
 
 type SecretVersionForDescribeSecretVersionsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	CreationDate *int64 `type:"int64"`
+	CreationDate *int64 `type:"int64" json:",omitempty"`
 
-	VersionID *string `type:"string"`
+	VersionID *string `type:"string" json:",omitempty"`
 
-	VersionStage *string `type:"string" enum:"EnumOfVersionStageForDescribeSecretVersionsOutput"`
+	VersionStage *string `type:"string" json:",omitempty" enum:"EnumOfVersionStageForDescribeSecretVersionsOutput"`
 }
 
 // String returns the string representation

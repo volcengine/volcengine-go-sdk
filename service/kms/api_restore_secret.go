@@ -144,16 +144,16 @@ func (c *KMS) RestoreSecretWithContext(ctx volcengine.Context, input *RestoreSec
 }
 
 type RestoreSecretInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// BackupData is a required field
-	BackupData *string `type:"string" required:"true"`
+	BackupData *string `type:"string" json:",omitempty" required:"true"`
 
 	// SecretDataKey is a required field
-	SecretDataKey *string `type:"string" required:"true"`
+	SecretDataKey *string `type:"string" json:",omitempty" required:"true"`
 
 	// Signature is a required field
-	Signature *string `type:"string" required:"true"`
+	Signature *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -204,7 +204,7 @@ func (s *RestoreSecretInput) SetSignature(v string) *RestoreSecretInput {
 }
 
 type RestoreSecretOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 }

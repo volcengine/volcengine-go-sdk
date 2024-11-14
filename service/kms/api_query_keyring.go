@@ -144,25 +144,25 @@ func (c *KMS) QueryKeyringWithContext(ctx volcengine.Context, input *QueryKeyrin
 }
 
 type KeyringForQueryKeyringOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	CreationDate *int64 `type:"int64"`
+	CreationDate *int64 `type:"int64" json:",omitempty"`
 
-	Description *string `type:"string"`
+	Description *string `type:"string" json:",omitempty"`
 
-	ID *string `type:"string"`
+	ID *string `type:"string" json:",omitempty"`
 
-	KeyringName *string `type:"string"`
+	KeyringName *string `type:"string" json:",omitempty"`
 
-	KeyringType *string `type:"string"`
+	KeyringType *string `type:"string" json:",omitempty"`
 
-	ProjectName *string `type:"string"`
+	ProjectName *string `type:"string" json:",omitempty"`
 
-	TRN *string `type:"string"`
+	TRN *string `type:"string" json:",omitempty"`
 
-	UID *string `type:"string"`
+	UID *string `type:"string" json:",omitempty"`
 
-	UpdateDate *int64 `type:"int64"`
+	UpdateDate *int64 `type:"int64" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -230,10 +230,10 @@ func (s *KeyringForQueryKeyringOutput) SetUpdateDate(v int64) *KeyringForQueryKe
 }
 
 type QueryKeyringInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// KeyringName is a required field
-	KeyringName *string `min:"2" max:"31" type:"string" required:"true"`
+	KeyringName *string `min:"2" max:"31" type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -272,11 +272,11 @@ func (s *QueryKeyringInput) SetKeyringName(v string) *QueryKeyringInput {
 }
 
 type QueryKeyringOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	Keyring *KeyringForQueryKeyringOutput `type:"structure"`
+	Keyring *KeyringForQueryKeyringOutput `type:"structure" json:",omitempty"`
 }
 
 // String returns the string representation

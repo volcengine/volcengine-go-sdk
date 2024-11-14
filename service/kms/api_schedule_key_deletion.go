@@ -144,15 +144,15 @@ func (c *KMS) ScheduleKeyDeletionWithContext(ctx volcengine.Context, input *Sche
 }
 
 type ScheduleKeyDeletionInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// KeyName is a required field
-	KeyName *string `min:"2" max:"31" type:"string" required:"true"`
+	KeyName *string `min:"2" max:"31" type:"string" json:",omitempty" required:"true"`
 
 	// KeyringName is a required field
-	KeyringName *string `min:"2" max:"31" type:"string" required:"true"`
+	KeyringName *string `min:"2" max:"31" type:"string" json:",omitempty" required:"true"`
 
-	PendingWindowInDays *int32 `min:"7" max:"30" type:"int32"`
+	PendingWindowInDays *int32 `min:"7" max:"30" type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -218,7 +218,7 @@ func (s *ScheduleKeyDeletionInput) SetPendingWindowInDays(v int32) *ScheduleKeyD
 }
 
 type ScheduleKeyDeletionOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 }

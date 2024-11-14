@@ -144,9 +144,9 @@ func (c *KMS) BatchGetSecretValueWithContext(ctx volcengine.Context, input *Batc
 }
 
 type BatchGetSecretValueInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	SecretNames []*string `type:"list"`
+	SecretNames []*string `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -166,11 +166,11 @@ func (s *BatchGetSecretValueInput) SetSecretNames(v []*string) *BatchGetSecretVa
 }
 
 type BatchGetSecretValueOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	SecretValues []*SecretValueForBatchGetSecretValueOutput `type:"list"`
+	SecretValues []*SecretValueForBatchGetSecretValueOutput `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -190,17 +190,17 @@ func (s *BatchGetSecretValueOutput) SetSecretValues(v []*SecretValueForBatchGetS
 }
 
 type SecretValueForBatchGetSecretValueOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	CreationDate *int64 `type:"int64"`
+	CreationDate *int64 `type:"int64" json:",omitempty"`
 
-	SecretName *string `type:"string"`
+	SecretName *string `type:"string" json:",omitempty"`
 
-	SecretValue *string `type:"string"`
+	SecretValue *string `type:"string" json:",omitempty"`
 
-	VersionID *string `type:"string"`
+	VersionID *string `type:"string" json:",omitempty"`
 
-	VersionStage *string `type:"string" enum:"EnumOfVersionStageForBatchGetSecretValueOutput"`
+	VersionStage *string `type:"string" json:",omitempty" enum:"EnumOfVersionStageForBatchGetSecretValueOutput"`
 }
 
 // String returns the string representation

@@ -144,13 +144,13 @@ func (c *KMS) SetSecretValueWithContext(ctx volcengine.Context, input *SetSecret
 }
 
 type SetSecretValueInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// SecretName is a required field
-	SecretName *string `min:"2" max:"31" type:"string" required:"true"`
+	SecretName *string `min:"2" max:"31" type:"string" json:",omitempty" required:"true"`
 
 	// SecretValue is a required field
-	SecretValue *string `max:"30720" type:"string" required:"true"`
+	SecretValue *string `max:"30720" type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -201,15 +201,15 @@ func (s *SetSecretValueInput) SetSecretValue(v string) *SetSecretValueInput {
 }
 
 type SetSecretValueOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	CreationDate *int64 `type:"int64"`
+	CreationDate *int64 `type:"int64" json:",omitempty"`
 
-	VersionID *string `type:"string"`
+	VersionID *string `type:"string" json:",omitempty"`
 
-	VersionStage *string `type:"string"`
+	VersionStage *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
