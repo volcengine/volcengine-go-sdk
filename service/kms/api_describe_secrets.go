@@ -144,15 +144,15 @@ func (c *KMS) DescribeSecretsWithContext(ctx volcengine.Context, input *Describe
 }
 
 type DescribeSecretsInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	CurrentPage *int32 `min:"1" type:"int32"`
+	CurrentPage *int32 `min:"1" type:"int32" json:",omitempty"`
 
-	Filters *string `max:"2048" type:"string"`
+	Filters *string `max:"2048" type:"string" json:",omitempty"`
 
-	PageSize *int32 `min:"1" max:"100" type:"int32"`
+	PageSize *int32 `min:"1" max:"100" type:"int32" json:",omitempty"`
 
-	ProjectName *string `type:"string"`
+	ProjectName *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -212,13 +212,13 @@ func (s *DescribeSecretsInput) SetProjectName(v string) *DescribeSecretsInput {
 }
 
 type DescribeSecretsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	PageInfo *PageInfoForDescribeSecretsOutput `type:"structure"`
+	PageInfo *PageInfoForDescribeSecretsOutput `type:"structure" json:",omitempty"`
 
-	Secrets []*SecretForDescribeSecretsOutput `type:"list"`
+	Secrets []*SecretForDescribeSecretsOutput `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -244,15 +244,15 @@ func (s *DescribeSecretsOutput) SetSecrets(v []*SecretForDescribeSecretsOutput) 
 }
 
 type PageInfoForDescribeSecretsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Count *int32 `type:"int32"`
+	Count *int32 `type:"int32" json:",omitempty"`
 
-	CurrentPage *int32 `type:"int32"`
+	CurrentPage *int32 `type:"int32" json:",omitempty"`
 
-	PageSize *int32 `type:"int32"`
+	PageSize *int32 `type:"int32" json:",omitempty"`
 
-	TotalCount *int32 `type:"int32"`
+	TotalCount *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -290,41 +290,41 @@ func (s *PageInfoForDescribeSecretsOutput) SetTotalCount(v int32) *PageInfoForDe
 }
 
 type SecretForDescribeSecretsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	CreationDate *int64 `type:"int64"`
+	CreationDate *int64 `type:"int64" json:",omitempty"`
 
-	Description *string `type:"string"`
+	Description *string `type:"string" json:",omitempty"`
 
-	EncryptionKey *string `type:"string"`
+	EncryptionKey *string `type:"string" json:",omitempty"`
 
-	ExtendedConfig *string `max:"1024" type:"string"`
+	ExtendedConfig *string `max:"1024" type:"string" json:",omitempty"`
 
-	ID *string `type:"string"`
+	ID *string `type:"string" json:",omitempty"`
 
-	LastRotationTime *string `type:"string"`
+	LastRotationTime *string `type:"string" json:",omitempty"`
 
-	Managed *bool `type:"boolean"`
+	Managed *bool `type:"boolean" json:",omitempty"`
 
-	ProjectName *string `type:"string"`
+	ProjectName *string `type:"string" json:",omitempty"`
 
-	RotationInterval *int32 `type:"int32"`
+	RotationInterval *int32 `type:"int32" json:",omitempty"`
 
-	RotationState *string `type:"string"`
+	RotationState *string `type:"string" json:",omitempty"`
 
-	ScheduleDeleteTime *string `type:"string"`
+	ScheduleDeleteTime *string `type:"string" json:",omitempty"`
 
-	ScheduleRotationTime *string `type:"string"`
+	ScheduleRotationTime *string `type:"string" json:",omitempty"`
 
-	SecretName *string `type:"string"`
+	SecretName *string `type:"string" json:",omitempty"`
 
-	SecretType *string `type:"string" enum:"EnumOfSecretTypeForDescribeSecretsOutput"`
+	SecretType *string `type:"string" json:",omitempty" enum:"EnumOfSecretTypeForDescribeSecretsOutput"`
 
-	Trn *string `type:"string"`
+	Trn *string `type:"string" json:",omitempty"`
 
-	UID *string `type:"string"`
+	UID *string `type:"string" json:",omitempty"`
 
-	UpdateDate *int64 `type:"int64"`
+	UpdateDate *int64 `type:"int64" json:",omitempty"`
 }
 
 // String returns the string representation

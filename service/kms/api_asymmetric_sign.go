@@ -144,21 +144,21 @@ func (c *KMS) AsymmetricSignWithContext(ctx volcengine.Context, input *Asymmetri
 }
 
 type AsymmetricSignInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// Algorithm is a required field
-	Algorithm *string `type:"string" required:"true"`
+	Algorithm *string `type:"string" json:",omitempty" required:"true"`
 
-	KeyID *string `type:"string"`
+	KeyID *string `type:"string" json:",omitempty"`
 
-	KeyName *string `min:"2" max:"31" type:"string"`
+	KeyName *string `min:"2" max:"31" type:"string" json:",omitempty"`
 
-	KeyringName *string `min:"2" max:"31" type:"string"`
+	KeyringName *string `min:"2" max:"31" type:"string" json:",omitempty"`
 
 	// Message is a required field
-	Message *string `type:"string" required:"true"`
+	Message *string `type:"string" json:",omitempty" required:"true"`
 
-	MessageType *string `type:"string"`
+	MessageType *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -236,13 +236,13 @@ func (s *AsymmetricSignInput) SetMessageType(v string) *AsymmetricSignInput {
 }
 
 type AsymmetricSignOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	KeyID *string `type:"string"`
+	KeyID *string `type:"string" json:",omitempty"`
 
-	Signature *string `type:"string"`
+	Signature *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation

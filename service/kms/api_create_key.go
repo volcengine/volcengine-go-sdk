@@ -144,25 +144,25 @@ func (c *KMS) CreateKeyWithContext(ctx volcengine.Context, input *CreateKeyInput
 }
 
 type CreateKeyInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Description *string `max:"8192" type:"string"`
+	Description *string `max:"8192" type:"string" json:",omitempty"`
 
 	// KeyName is a required field
-	KeyName *string `min:"2" max:"31" type:"string" required:"true"`
+	KeyName *string `min:"2" max:"31" type:"string" json:",omitempty" required:"true"`
 
-	KeySpec *string `type:"string"`
+	KeySpec *string `type:"string" json:",omitempty"`
 
-	KeyUsage *string `type:"string"`
+	KeyUsage *string `type:"string" json:",omitempty"`
 
 	// KeyringName is a required field
-	KeyringName *string `min:"2" max:"31" type:"string" required:"true"`
+	KeyringName *string `min:"2" max:"31" type:"string" json:",omitempty" required:"true"`
 
-	Origin *string `type:"string"`
+	Origin *string `type:"string" json:",omitempty"`
 
-	ProtectionLevel *string `type:"string"`
+	ProtectionLevel *string `type:"string" json:",omitempty"`
 
-	RotateState *string `type:"string"`
+	RotateState *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -255,11 +255,11 @@ func (s *CreateKeyInput) SetRotateState(v string) *CreateKeyInput {
 }
 
 type CreateKeyOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	Key *KeyForCreateKeyOutput `type:"structure"`
+	Key *KeyForCreateKeyOutput `type:"structure" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -279,41 +279,41 @@ func (s *CreateKeyOutput) SetKey(v *KeyForCreateKeyOutput) *CreateKeyOutput {
 }
 
 type KeyForCreateKeyOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	CreationDate *int64 `type:"int64"`
+	CreationDate *int64 `type:"int64" json:",omitempty"`
 
-	Description *string `type:"string"`
+	Description *string `type:"string" json:",omitempty"`
 
-	EncryptionAlgorithms *string `type:"string"`
+	EncryptionAlgorithms *string `type:"string" json:",omitempty"`
 
-	ID *string `type:"string"`
+	ID *string `type:"string" json:",omitempty"`
 
-	KeyMaterialExpireTime *string `type:"string"`
+	KeyMaterialExpireTime *string `type:"string" json:",omitempty"`
 
-	KeyName *string `type:"string"`
+	KeyName *string `type:"string" json:",omitempty"`
 
-	KeySpec *string `type:"string"`
+	KeySpec *string `type:"string" json:",omitempty"`
 
-	KeyState *string `type:"string"`
+	KeyState *string `type:"string" json:",omitempty"`
 
-	KeyUsage *string `type:"string"`
+	KeyUsage *string `type:"string" json:",omitempty"`
 
-	LastRotationTime *string `type:"string"`
+	LastRotationTime *string `type:"string" json:",omitempty"`
 
-	Origin *string `type:"string"`
+	Origin *string `type:"string" json:",omitempty"`
 
-	ProtectionLevel *string `type:"string"`
+	ProtectionLevel *string `type:"string" json:",omitempty"`
 
-	RotationState *string `type:"string"`
+	RotationState *string `type:"string" json:",omitempty"`
 
-	ScheduleDeleteTime *string `type:"string"`
+	ScheduleDeleteTime *string `type:"string" json:",omitempty"`
 
-	ScheduleRotationTime *string `type:"string"`
+	ScheduleRotationTime *string `type:"string" json:",omitempty"`
 
-	Trn *string `type:"string"`
+	Trn *string `type:"string" json:",omitempty"`
 
-	UpdateDate *int64 `type:"int64"`
+	UpdateDate *int64 `type:"int64" json:",omitempty"`
 }
 
 // String returns the string representation

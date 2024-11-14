@@ -144,12 +144,12 @@ func (c *KMS) DecryptWithContext(ctx volcengine.Context, input *DecryptInput, op
 }
 
 type DecryptInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// CiphertextBlob is a required field
-	CiphertextBlob *string `min:"19" type:"string" required:"true"`
+	CiphertextBlob *string `min:"19" type:"string" json:",omitempty" required:"true"`
 
-	EncryptionContext *string `type:"string"`
+	EncryptionContext *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -191,11 +191,11 @@ func (s *DecryptInput) SetEncryptionContext(v string) *DecryptInput {
 }
 
 type DecryptOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	Plaintext *string `type:"string"`
+	Plaintext *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation

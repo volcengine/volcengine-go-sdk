@@ -144,10 +144,10 @@ func (c *KMS) BackupSecretWithContext(ctx volcengine.Context, input *BackupSecre
 }
 
 type BackupSecretInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// SecretName is a required field
-	SecretName *string `min:"2" max:"31" type:"string" required:"true"`
+	SecretName *string `min:"2" max:"31" type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -186,15 +186,15 @@ func (s *BackupSecretInput) SetSecretName(v string) *BackupSecretInput {
 }
 
 type BackupSecretOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	BackupData *string `type:"string"`
+	BackupData *string `type:"string" json:",omitempty"`
 
-	SecretDataKey *string `type:"string"`
+	SecretDataKey *string `type:"string" json:",omitempty"`
 
-	Signature *string `type:"string"`
+	Signature *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation

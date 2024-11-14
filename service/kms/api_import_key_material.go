@@ -144,23 +144,23 @@ func (c *KMS) ImportKeyMaterialWithContext(ctx volcengine.Context, input *Import
 }
 
 type ImportKeyMaterialInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// EncryptedKeyMaterial is a required field
-	EncryptedKeyMaterial *string `type:"string" required:"true"`
+	EncryptedKeyMaterial *string `type:"string" json:",omitempty" required:"true"`
 
-	ExpirationModel *string `type:"string"`
+	ExpirationModel *string `type:"string" json:",omitempty"`
 
 	// ImportToken is a required field
-	ImportToken *string `type:"string" required:"true"`
+	ImportToken *string `type:"string" json:",omitempty" required:"true"`
 
 	// KeyName is a required field
-	KeyName *string `min:"2" max:"31" type:"string" required:"true"`
+	KeyName *string `min:"2" max:"31" type:"string" json:",omitempty" required:"true"`
 
 	// KeyringName is a required field
-	KeyringName *string `min:"2" max:"31" type:"string" required:"true"`
+	KeyringName *string `min:"2" max:"31" type:"string" json:",omitempty" required:"true"`
 
-	ValidTo *int64 `type:"int64"`
+	ValidTo *int64 `type:"int64" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -244,7 +244,7 @@ func (s *ImportKeyMaterialInput) SetValidTo(v int64) *ImportKeyMaterialInput {
 }
 
 type ImportKeyMaterialOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 }

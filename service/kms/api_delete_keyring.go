@@ -144,10 +144,10 @@ func (c *KMS) DeleteKeyringWithContext(ctx volcengine.Context, input *DeleteKeyr
 }
 
 type DeleteKeyringInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// KeyringName is a required field
-	KeyringName *string `min:"2" max:"31" type:"string" required:"true"`
+	KeyringName *string `min:"2" max:"31" type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -186,7 +186,7 @@ func (s *DeleteKeyringInput) SetKeyringName(v string) *DeleteKeyringInput {
 }
 
 type DeleteKeyringOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 }

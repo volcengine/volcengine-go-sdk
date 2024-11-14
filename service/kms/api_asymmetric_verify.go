@@ -144,24 +144,24 @@ func (c *KMS) AsymmetricVerifyWithContext(ctx volcengine.Context, input *Asymmet
 }
 
 type AsymmetricVerifyInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// Algorithm is a required field
-	Algorithm *string `type:"string" required:"true"`
+	Algorithm *string `type:"string" json:",omitempty" required:"true"`
 
-	KeyID *string `type:"string"`
+	KeyID *string `type:"string" json:",omitempty"`
 
-	KeyName *string `min:"2" max:"31" type:"string"`
+	KeyName *string `min:"2" max:"31" type:"string" json:",omitempty"`
 
-	KeyringName *string `min:"2" max:"31" type:"string"`
+	KeyringName *string `min:"2" max:"31" type:"string" json:",omitempty"`
 
 	// Message is a required field
-	Message *string `type:"string" required:"true"`
+	Message *string `type:"string" json:",omitempty" required:"true"`
 
-	MessageType *string `type:"string"`
+	MessageType *string `type:"string" json:",omitempty"`
 
 	// Signature is a required field
-	Signature *string `type:"string" required:"true"`
+	Signature *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -248,13 +248,13 @@ func (s *AsymmetricVerifyInput) SetSignature(v string) *AsymmetricVerifyInput {
 }
 
 type AsymmetricVerifyOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	KeyID *string `type:"string"`
+	KeyID *string `type:"string" json:",omitempty"`
 
-	SignatureValid *bool `type:"boolean"`
+	SignatureValid *bool `type:"boolean" json:",omitempty"`
 }
 
 // String returns the string representation

@@ -144,17 +144,17 @@ func (c *KMS) GetParametersForImportWithContext(ctx volcengine.Context, input *G
 }
 
 type GetParametersForImportInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// KeyName is a required field
-	KeyName *string `min:"2" max:"31" type:"string" required:"true"`
+	KeyName *string `min:"2" max:"31" type:"string" json:",omitempty" required:"true"`
 
 	// KeyringName is a required field
-	KeyringName *string `min:"2" max:"31" type:"string" required:"true"`
+	KeyringName *string `min:"2" max:"31" type:"string" json:",omitempty" required:"true"`
 
-	WrappingAlgorithm *string `type:"string"`
+	WrappingAlgorithm *string `type:"string" json:",omitempty"`
 
-	WrappingKeySpec *string `type:"string"`
+	WrappingKeySpec *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -220,19 +220,19 @@ func (s *GetParametersForImportInput) SetWrappingKeySpec(v string) *GetParameter
 }
 
 type GetParametersForImportOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	ImportToken *string `type:"string"`
+	ImportToken *string `type:"string" json:",omitempty"`
 
-	KeyID *string `type:"string"`
+	KeyID *string `type:"string" json:",omitempty"`
 
-	KeyringID *string `type:"string"`
+	KeyringID *string `type:"string" json:",omitempty"`
 
-	PublicKey *string `type:"string"`
+	PublicKey *string `type:"string" json:",omitempty"`
 
-	TokenExpireTime *string `type:"string"`
+	TokenExpireTime *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation

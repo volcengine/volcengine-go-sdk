@@ -144,14 +144,14 @@ func (c *KMS) DescribeKeysWithContext(ctx volcengine.Context, input *DescribeKey
 }
 
 type DescribeKeysInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	CurrentPage *int32 `min:"1" type:"int32"`
+	CurrentPage *int32 `min:"1" type:"int32" json:",omitempty"`
 
 	// KeyringName is a required field
-	KeyringName *string `min:"2" max:"31" type:"string" required:"true"`
+	KeyringName *string `min:"2" max:"31" type:"string" json:",omitempty" required:"true"`
 
-	PageSize *int32 `min:"1" max:"100" type:"int32"`
+	PageSize *int32 `min:"1" max:"100" type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -211,13 +211,13 @@ func (s *DescribeKeysInput) SetPageSize(v int32) *DescribeKeysInput {
 }
 
 type DescribeKeysOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	Keys []*KeyForDescribeKeysOutput `type:"list"`
+	Keys []*KeyForDescribeKeysOutput `type:"list" json:",omitempty"`
 
-	PageInfo *PageInfoForDescribeKeysOutput `type:"structure"`
+	PageInfo *PageInfoForDescribeKeysOutput `type:"structure" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -243,41 +243,41 @@ func (s *DescribeKeysOutput) SetPageInfo(v *PageInfoForDescribeKeysOutput) *Desc
 }
 
 type KeyForDescribeKeysOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	CreationDate *int64 `type:"int64"`
+	CreationDate *int64 `type:"int64" json:",omitempty"`
 
-	Description *string `type:"string"`
+	Description *string `type:"string" json:",omitempty"`
 
-	EncryptionAlgorithms *string `type:"string"`
+	EncryptionAlgorithms *string `type:"string" json:",omitempty"`
 
-	ID *string `type:"string"`
+	ID *string `type:"string" json:",omitempty"`
 
-	KeyMaterialExpireTime *string `type:"string"`
+	KeyMaterialExpireTime *string `type:"string" json:",omitempty"`
 
-	KeyName *string `type:"string"`
+	KeyName *string `type:"string" json:",omitempty"`
 
-	KeySpec *string `type:"string"`
+	KeySpec *string `type:"string" json:",omitempty"`
 
-	KeyState *string `type:"string"`
+	KeyState *string `type:"string" json:",omitempty"`
 
-	KeyUsage *string `type:"string"`
+	KeyUsage *string `type:"string" json:",omitempty"`
 
-	LastRotationTime *string `type:"string"`
+	LastRotationTime *string `type:"string" json:",omitempty"`
 
-	Origin *string `type:"string"`
+	Origin *string `type:"string" json:",omitempty"`
 
-	ProtectionLevel *string `type:"string"`
+	ProtectionLevel *string `type:"string" json:",omitempty"`
 
-	RotationState *string `type:"string"`
+	RotationState *string `type:"string" json:",omitempty"`
 
-	ScheduleDeleteTime *string `type:"string"`
+	ScheduleDeleteTime *string `type:"string" json:",omitempty"`
 
-	ScheduleRotationTime *string `type:"string"`
+	ScheduleRotationTime *string `type:"string" json:",omitempty"`
 
-	Trn *string `type:"string"`
+	Trn *string `type:"string" json:",omitempty"`
 
-	UpdateDate *int64 `type:"int64"`
+	UpdateDate *int64 `type:"int64" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -393,15 +393,15 @@ func (s *KeyForDescribeKeysOutput) SetUpdateDate(v int64) *KeyForDescribeKeysOut
 }
 
 type PageInfoForDescribeKeysOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Count *int32 `type:"int32"`
+	Count *int32 `type:"int32" json:",omitempty"`
 
-	CurrentPage *int32 `type:"int32"`
+	CurrentPage *int32 `type:"int32" json:",omitempty"`
 
-	PageSize *int32 `type:"int32"`
+	PageSize *int32 `type:"int32" json:",omitempty"`
 
-	TotalCount *int32 `type:"int32"`
+	TotalCount *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation
