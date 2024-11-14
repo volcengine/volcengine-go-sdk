@@ -144,12 +144,12 @@ func (c *VEFAAS) AbortReleaseWithContext(ctx volcengine.Context, input *AbortRel
 }
 
 type AbortReleaseInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Async *bool `type:"boolean"`
+	Async *bool `type:"boolean" json:",omitempty"`
 
 	// FunctionId is a required field
-	FunctionId *string `type:"string" required:"true"`
+	FunctionId *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -188,33 +188,33 @@ func (s *AbortReleaseInput) SetFunctionId(v string) *AbortReleaseInput {
 }
 
 type AbortReleaseOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	CurrentTrafficWeight *int32 `type:"int32"`
+	CurrentTrafficWeight *int32 `type:"int32" json:",omitempty"`
 
-	ErrorCode *string `type:"string"`
+	ErrorCode *string `type:"string" json:",omitempty"`
 
-	FailedInstanceLogs *string `type:"string"`
+	FailedInstanceLogs *string `type:"string" json:",omitempty"`
 
-	FunctionId *string `type:"string"`
+	FunctionId *string `type:"string" json:",omitempty"`
 
-	NewRevisionNumber *int32 `type:"int32"`
+	NewRevisionNumber *int32 `type:"int32" json:",omitempty"`
 
-	OldRevisionNumber *int32 `type:"int32"`
+	OldRevisionNumber *int32 `type:"int32" json:",omitempty"`
 
-	ReleaseRecordId *string `type:"string"`
+	ReleaseRecordId *string `type:"string" json:",omitempty"`
 
-	StableRevisionNumber *int32 `type:"int32"`
+	StableRevisionNumber *int32 `type:"int32" json:",omitempty"`
 
-	StartTime *string `type:"string"`
+	StartTime *string `type:"string" json:",omitempty"`
 
-	Status *string `type:"string"`
+	Status *string `type:"string" json:",omitempty"`
 
-	StatusMessage *string `type:"string"`
+	StatusMessage *string `type:"string" json:",omitempty"`
 
-	TargetTrafficWeight *int32 `type:"int32"`
+	TargetTrafficWeight *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation

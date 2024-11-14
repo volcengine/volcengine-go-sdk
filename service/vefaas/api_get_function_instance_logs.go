@@ -144,15 +144,15 @@ func (c *VEFAAS) GetFunctionInstanceLogsWithContext(ctx volcengine.Context, inpu
 }
 
 type GetFunctionInstanceLogsInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// FunctionId is a required field
-	FunctionId *string `type:"string" required:"true"`
+	FunctionId *string `type:"string" json:",omitempty" required:"true"`
 
-	Limit *int64 `type:"int64"`
+	Limit *int64 `type:"int64" json:",omitempty"`
 
 	// Name is a required field
-	Name *string `type:"string" required:"true"`
+	Name *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -200,11 +200,11 @@ func (s *GetFunctionInstanceLogsInput) SetName(v string) *GetFunctionInstanceLog
 }
 
 type GetFunctionInstanceLogsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	Logs *string `type:"string"`
+	Logs *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation

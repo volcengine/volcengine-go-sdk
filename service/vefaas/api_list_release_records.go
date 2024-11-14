@@ -144,11 +144,11 @@ func (c *VEFAAS) ListReleaseRecordsWithContext(ctx volcengine.Context, input *Li
 }
 
 type FilterForListReleaseRecordsInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Name *string `type:"string"`
+	Name *string `type:"string" json:",omitempty"`
 
-	Values []*string `type:"list"`
+	Values []*string `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -174,25 +174,25 @@ func (s *FilterForListReleaseRecordsInput) SetValues(v []*string) *FilterForList
 }
 
 type ItemForListReleaseRecordsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	CreationTime *string `type:"string"`
+	CreationTime *string `type:"string" json:",omitempty"`
 
-	Description *string `type:"string"`
+	Description *string `type:"string" json:",omitempty"`
 
-	FinishTime *string `type:"string"`
+	FinishTime *string `type:"string" json:",omitempty"`
 
-	FunctionId *string `type:"string"`
+	FunctionId *string `type:"string" json:",omitempty"`
 
-	Id *string `type:"string"`
+	Id *string `type:"string" json:",omitempty"`
 
-	LastUpdateTime *string `type:"string"`
+	LastUpdateTime *string `type:"string" json:",omitempty"`
 
-	SourceRevisionNumber *int32 `type:"int32"`
+	SourceRevisionNumber *int32 `type:"int32" json:",omitempty"`
 
-	Status *string `type:"string"`
+	Status *string `type:"string" json:",omitempty"`
 
-	TargetRevisionNumber *int32 `type:"int32"`
+	TargetRevisionNumber *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -260,18 +260,18 @@ func (s *ItemForListReleaseRecordsOutput) SetTargetRevisionNumber(v int32) *Item
 }
 
 type ListReleaseRecordsInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Filters []*FilterForListReleaseRecordsInput `type:"list"`
+	Filters []*FilterForListReleaseRecordsInput `type:"list" json:",omitempty"`
 
 	// FunctionId is a required field
-	FunctionId *string `type:"string" required:"true"`
+	FunctionId *string `type:"string" json:",omitempty" required:"true"`
 
-	OrderBy *OrderByForListReleaseRecordsInput `type:"structure"`
+	OrderBy *OrderByForListReleaseRecordsInput `type:"structure" json:",omitempty"`
 
-	PageNumber *int32 `type:"int32"`
+	PageNumber *int32 `type:"int32" json:",omitempty"`
 
-	PageSize *int32 `type:"int32"`
+	PageSize *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -328,13 +328,13 @@ func (s *ListReleaseRecordsInput) SetPageSize(v int32) *ListReleaseRecordsInput 
 }
 
 type ListReleaseRecordsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	Items []*ItemForListReleaseRecordsOutput `type:"list"`
+	Items []*ItemForListReleaseRecordsOutput `type:"list" json:",omitempty"`
 
-	Total *int32 `type:"int32"`
+	Total *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -360,11 +360,11 @@ func (s *ListReleaseRecordsOutput) SetTotal(v int32) *ListReleaseRecordsOutput {
 }
 
 type OrderByForListReleaseRecordsInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Ascend *bool `type:"boolean"`
+	Ascend *bool `type:"boolean" json:",omitempty"`
 
-	Key *string `type:"string"`
+	Key *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation

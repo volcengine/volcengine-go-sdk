@@ -144,49 +144,49 @@ func (c *VEFAAS) CreateFunctionWithContext(ctx volcengine.Context, input *Create
 }
 
 type CreateFunctionInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Command *string `type:"string"`
+	Command *string `type:"string" json:",omitempty"`
 
-	CpuStrategy *string `type:"string"`
+	CpuStrategy *string `type:"string" json:",omitempty"`
 
-	Description *string `type:"string"`
+	Description *string `type:"string" json:",omitempty"`
 
-	Envs []*EnvForCreateFunctionInput `type:"list"`
+	Envs []*EnvForCreateFunctionInput `type:"list" json:",omitempty"`
 
-	ExclusiveMode *bool `type:"boolean"`
+	ExclusiveMode *bool `type:"boolean" json:",omitempty"`
 
-	InitializerSec *int32 `type:"int32"`
+	InitializerSec *int32 `type:"int32" json:",omitempty"`
 
-	InstanceType *string `type:"string"`
+	InstanceType *string `type:"string" json:",omitempty"`
 
-	MaxConcurrency *int32 `type:"int32"`
+	MaxConcurrency *int32 `type:"int32" json:",omitempty"`
 
-	MemoryMB *int32 `type:"int32"`
+	MemoryMB *int32 `type:"int32" json:",omitempty"`
 
 	// Name is a required field
-	Name *string `type:"string" required:"true"`
+	Name *string `type:"string" json:",omitempty" required:"true"`
 
-	NasStorage *NasStorageForCreateFunctionInput `type:"structure"`
+	NasStorage *NasStorageForCreateFunctionInput `type:"structure" json:",omitempty"`
 
-	ProjectName *string `type:"string"`
+	ProjectName *string `type:"string" json:",omitempty"`
 
-	RequestTimeout *int32 `type:"int32"`
+	RequestTimeout *int32 `type:"int32" json:",omitempty"`
 
 	// Runtime is a required field
-	Runtime *string `type:"string" required:"true"`
+	Runtime *string `type:"string" json:",omitempty" required:"true"`
 
-	Source *string `type:"string"`
+	Source *string `type:"string" json:",omitempty"`
 
-	SourceAccessConfig *SourceAccessConfigForCreateFunctionInput `type:"structure"`
+	SourceAccessConfig *SourceAccessConfigForCreateFunctionInput `type:"structure" json:",omitempty"`
 
-	SourceType *string `type:"string"`
+	SourceType *string `type:"string" json:",omitempty"`
 
-	TlsConfig *TlsConfigForCreateFunctionInput `type:"structure"`
+	TlsConfig *TlsConfigForCreateFunctionInput `type:"structure" json:",omitempty"`
 
-	TosMountConfig *TosMountConfigForCreateFunctionInput `type:"structure"`
+	TosMountConfig *TosMountConfigForCreateFunctionInput `type:"structure" json:",omitempty"`
 
-	VpcConfig *VpcConfigForCreateFunctionInput `type:"structure"`
+	VpcConfig *VpcConfigForCreateFunctionInput `type:"structure" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -336,59 +336,59 @@ func (s *CreateFunctionInput) SetVpcConfig(v *VpcConfigForCreateFunctionInput) *
 }
 
 type CreateFunctionOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	CodeSize *int32 `type:"int32"`
+	CodeSize *int32 `type:"int32" json:",omitempty"`
 
-	CodeSizeLimit *int32 `type:"int32"`
+	CodeSizeLimit *int32 `type:"int32" json:",omitempty"`
 
-	Command *string `type:"string"`
+	Command *string `type:"string" json:",omitempty"`
 
-	CreationTime *string `type:"string"`
+	CreationTime *string `type:"string" json:",omitempty"`
 
-	Description *string `type:"string"`
+	Description *string `type:"string" json:",omitempty"`
 
-	Envs []*EnvForCreateFunctionOutput `type:"list"`
+	Envs []*EnvForCreateFunctionOutput `type:"list" json:",omitempty"`
 
-	ExclusiveMode *bool `type:"boolean"`
+	ExclusiveMode *bool `type:"boolean" json:",omitempty"`
 
-	Id *string `type:"string"`
+	Id *string `type:"string" json:",omitempty"`
 
-	InitializerSec *int32 `type:"int32"`
+	InitializerSec *int32 `type:"int32" json:",omitempty"`
 
-	InstanceType *string `type:"string"`
+	InstanceType *string `type:"string" json:",omitempty"`
 
-	LastUpdateTime *string `type:"string"`
+	LastUpdateTime *string `type:"string" json:",omitempty"`
 
-	MaxConcurrency *int32 `type:"int32"`
+	MaxConcurrency *int32 `type:"int32" json:",omitempty"`
 
-	MemoryMB *int32 `type:"int32"`
+	MemoryMB *int32 `type:"int32" json:",omitempty"`
 
-	Name *string `type:"string"`
+	Name *string `type:"string" json:",omitempty"`
 
-	NasStorage *NasStorageForCreateFunctionOutput `type:"structure"`
+	NasStorage *NasStorageForCreateFunctionOutput `type:"structure" json:",omitempty"`
 
-	Owner *string `type:"string"`
+	Owner *string `type:"string" json:",omitempty"`
 
-	ProjectName *string `type:"string"`
+	ProjectName *string `type:"string" json:",omitempty"`
 
-	RequestTimeout *int32 `type:"int32"`
+	RequestTimeout *int32 `type:"int32" json:",omitempty"`
 
-	Runtime *string `type:"string"`
+	Runtime *string `type:"string" json:",omitempty"`
 
-	SourceLocation *string `type:"string"`
+	SourceLocation *string `type:"string" json:",omitempty"`
 
-	SourceType *string `type:"string"`
+	SourceType *string `type:"string" json:",omitempty"`
 
-	TlsConfig *TlsConfigForCreateFunctionOutput `type:"structure"`
+	TlsConfig *TlsConfigForCreateFunctionOutput `type:"structure" json:",omitempty"`
 
-	TosMountConfig *TosMountConfigForCreateFunctionOutput `type:"structure"`
+	TosMountConfig *TosMountConfigForCreateFunctionOutput `type:"structure" json:",omitempty"`
 
-	TriggersCount *int32 `type:"int32"`
+	TriggersCount *int32 `type:"int32" json:",omitempty"`
 
-	VpcConfig *VpcConfigForCreateFunctionOutput `type:"structure"`
+	VpcConfig *VpcConfigForCreateFunctionOutput `type:"structure" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -552,11 +552,11 @@ func (s *CreateFunctionOutput) SetVpcConfig(v *VpcConfigForCreateFunctionOutput)
 }
 
 type CredentialsForCreateFunctionInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	AccessKeyId *string `type:"string"`
+	AccessKeyId *string `type:"string" json:",omitempty"`
 
-	SecretAccessKey *string `type:"string"`
+	SecretAccessKey *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -582,11 +582,11 @@ func (s *CredentialsForCreateFunctionInput) SetSecretAccessKey(v string) *Creden
 }
 
 type CredentialsForCreateFunctionOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	AccessKeyId *string `type:"string"`
+	AccessKeyId *string `type:"string" json:",omitempty"`
 
-	SecretAccessKey *string `type:"string"`
+	SecretAccessKey *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -612,11 +612,11 @@ func (s *CredentialsForCreateFunctionOutput) SetSecretAccessKey(v string) *Crede
 }
 
 type EnvForCreateFunctionInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Key *string `type:"string"`
+	Key *string `type:"string" json:",omitempty"`
 
-	Value *string `type:"string"`
+	Value *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -642,11 +642,11 @@ func (s *EnvForCreateFunctionInput) SetValue(v string) *EnvForCreateFunctionInpu
 }
 
 type EnvForCreateFunctionOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Key *string `type:"string"`
+	Key *string `type:"string" json:",omitempty"`
 
-	Value *string `type:"string"`
+	Value *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -672,17 +672,17 @@ func (s *EnvForCreateFunctionOutput) SetValue(v string) *EnvForCreateFunctionOut
 }
 
 type MountPointForCreateFunctionInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	BucketName *string `type:"string"`
+	BucketName *string `type:"string" json:",omitempty"`
 
-	BucketPath *string `type:"string"`
+	BucketPath *string `type:"string" json:",omitempty"`
 
-	Endpoint *string `type:"string"`
+	Endpoint *string `type:"string" json:",omitempty"`
 
-	LocalMountPath *string `type:"string"`
+	LocalMountPath *string `type:"string" json:",omitempty"`
 
-	ReadOnly *bool `type:"boolean"`
+	ReadOnly *bool `type:"boolean" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -726,17 +726,17 @@ func (s *MountPointForCreateFunctionInput) SetReadOnly(v bool) *MountPointForCre
 }
 
 type MountPointForCreateFunctionOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	BucketName *string `type:"string"`
+	BucketName *string `type:"string" json:",omitempty"`
 
-	BucketPath *string `type:"string"`
+	BucketPath *string `type:"string" json:",omitempty"`
 
-	Endpoint *string `type:"string"`
+	Endpoint *string `type:"string" json:",omitempty"`
 
-	LocalMountPath *string `type:"string"`
+	LocalMountPath *string `type:"string" json:",omitempty"`
 
-	ReadOnly *bool `type:"boolean"`
+	ReadOnly *bool `type:"boolean" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -780,19 +780,19 @@ func (s *MountPointForCreateFunctionOutput) SetReadOnly(v bool) *MountPointForCr
 }
 
 type NasConfigForCreateFunctionInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	FileSystemId *string `type:"string"`
+	FileSystemId *string `type:"string" json:",omitempty"`
 
-	Gid *int64 `type:"int64"`
+	Gid *int64 `type:"int64" json:",omitempty"`
 
-	LocalMountPath *string `type:"string"`
+	LocalMountPath *string `type:"string" json:",omitempty"`
 
-	MountPointId *string `type:"string"`
+	MountPointId *string `type:"string" json:",omitempty"`
 
-	RemotePath *string `type:"string"`
+	RemotePath *string `type:"string" json:",omitempty"`
 
-	Uid *int64 `type:"int64"`
+	Uid *int64 `type:"int64" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -842,19 +842,19 @@ func (s *NasConfigForCreateFunctionInput) SetUid(v int64) *NasConfigForCreateFun
 }
 
 type NasConfigForCreateFunctionOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	FileSystemId *string `type:"string"`
+	FileSystemId *string `type:"string" json:",omitempty"`
 
-	Gid *int64 `type:"int64"`
+	Gid *int64 `type:"int64" json:",omitempty"`
 
-	LocalMountPath *string `type:"string"`
+	LocalMountPath *string `type:"string" json:",omitempty"`
 
-	MountPointId *string `type:"string"`
+	MountPointId *string `type:"string" json:",omitempty"`
 
-	RemotePath *string `type:"string"`
+	RemotePath *string `type:"string" json:",omitempty"`
 
-	Uid *int64 `type:"int64"`
+	Uid *int64 `type:"int64" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -904,11 +904,11 @@ func (s *NasConfigForCreateFunctionOutput) SetUid(v int64) *NasConfigForCreateFu
 }
 
 type NasStorageForCreateFunctionInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	EnableNas *bool `type:"boolean"`
+	EnableNas *bool `type:"boolean" json:",omitempty"`
 
-	NasConfigs []*NasConfigForCreateFunctionInput `type:"list"`
+	NasConfigs []*NasConfigForCreateFunctionInput `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -934,11 +934,11 @@ func (s *NasStorageForCreateFunctionInput) SetNasConfigs(v []*NasConfigForCreate
 }
 
 type NasStorageForCreateFunctionOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	EnableNas *bool `type:"boolean"`
+	EnableNas *bool `type:"boolean" json:",omitempty"`
 
-	NasConfigs []*NasConfigForCreateFunctionOutput `type:"list"`
+	NasConfigs []*NasConfigForCreateFunctionOutput `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -964,11 +964,11 @@ func (s *NasStorageForCreateFunctionOutput) SetNasConfigs(v []*NasConfigForCreat
 }
 
 type SourceAccessConfigForCreateFunctionInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Password *string `type:"string"`
+	Password *string `type:"string" json:",omitempty"`
 
-	Username *string `type:"string"`
+	Username *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -994,13 +994,13 @@ func (s *SourceAccessConfigForCreateFunctionInput) SetUsername(v string) *Source
 }
 
 type TlsConfigForCreateFunctionInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	EnableLog *bool `type:"boolean"`
+	EnableLog *bool `type:"boolean" json:",omitempty"`
 
-	TlsProjectId *string `type:"string"`
+	TlsProjectId *string `type:"string" json:",omitempty"`
 
-	TlsTopicId *string `type:"string"`
+	TlsTopicId *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -1032,13 +1032,13 @@ func (s *TlsConfigForCreateFunctionInput) SetTlsTopicId(v string) *TlsConfigForC
 }
 
 type TlsConfigForCreateFunctionOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	EnableLog *bool `type:"boolean"`
+	EnableLog *bool `type:"boolean" json:",omitempty"`
 
-	TlsProjectId *string `type:"string"`
+	TlsProjectId *string `type:"string" json:",omitempty"`
 
-	TlsTopicId *string `type:"string"`
+	TlsTopicId *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -1070,13 +1070,13 @@ func (s *TlsConfigForCreateFunctionOutput) SetTlsTopicId(v string) *TlsConfigFor
 }
 
 type TosMountConfigForCreateFunctionInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Credentials *CredentialsForCreateFunctionInput `type:"structure"`
+	Credentials *CredentialsForCreateFunctionInput `type:"structure" json:",omitempty"`
 
-	EnableTos *bool `type:"boolean"`
+	EnableTos *bool `type:"boolean" json:",omitempty"`
 
-	MountPoints []*MountPointForCreateFunctionInput `type:"list"`
+	MountPoints []*MountPointForCreateFunctionInput `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -1108,13 +1108,13 @@ func (s *TosMountConfigForCreateFunctionInput) SetMountPoints(v []*MountPointFor
 }
 
 type TosMountConfigForCreateFunctionOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Credentials *CredentialsForCreateFunctionOutput `type:"structure"`
+	Credentials *CredentialsForCreateFunctionOutput `type:"structure" json:",omitempty"`
 
-	EnableTos *bool `type:"boolean"`
+	EnableTos *bool `type:"boolean" json:",omitempty"`
 
-	MountPoints []*MountPointForCreateFunctionOutput `type:"list"`
+	MountPoints []*MountPointForCreateFunctionOutput `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -1146,17 +1146,17 @@ func (s *TosMountConfigForCreateFunctionOutput) SetMountPoints(v []*MountPointFo
 }
 
 type VpcConfigForCreateFunctionInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	EnableSharedInternetAccess *bool `type:"boolean"`
+	EnableSharedInternetAccess *bool `type:"boolean" json:",omitempty"`
 
-	EnableVpc *bool `type:"boolean"`
+	EnableVpc *bool `type:"boolean" json:",omitempty"`
 
-	SecurityGroupIds []*string `type:"list"`
+	SecurityGroupIds []*string `type:"list" json:",omitempty"`
 
-	SubnetIds []*string `type:"list"`
+	SubnetIds []*string `type:"list" json:",omitempty"`
 
-	VpcId *string `type:"string"`
+	VpcId *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -1200,17 +1200,17 @@ func (s *VpcConfigForCreateFunctionInput) SetVpcId(v string) *VpcConfigForCreate
 }
 
 type VpcConfigForCreateFunctionOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	EnableSharedInternetAccess *bool `type:"boolean"`
+	EnableSharedInternetAccess *bool `type:"boolean" json:",omitempty"`
 
-	EnableVpc *bool `type:"boolean"`
+	EnableVpc *bool `type:"boolean" json:",omitempty"`
 
-	SecurityGroupIds []*string `type:"list"`
+	SecurityGroupIds []*string `type:"list" json:",omitempty"`
 
-	SubnetIds []*string `type:"list"`
+	SubnetIds []*string `type:"list" json:",omitempty"`
 
-	VpcId *string `type:"string"`
+	VpcId *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
