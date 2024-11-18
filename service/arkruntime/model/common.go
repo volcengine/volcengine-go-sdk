@@ -21,10 +21,15 @@ const (
 	ErrorRetryMaxDelay  = 8 * time.Second
 )
 
+type TokensDetail struct {
+	CachedTokens int `json:"cached_tokens"`
+}
+
 type Usage struct {
-	PromptTokens     int `json:"prompt_tokens"`
-	CompletionTokens int `json:"completion_tokens"`
-	TotalTokens      int `json:"total_tokens"`
+	PromptTokens        int           `json:"prompt_tokens"`
+	CompletionTokens    int           `json:"completion_tokens"`
+	TotalTokens         int           `json:"total_tokens"`
+	PromptTokensDetails *TokensDetail `json:"prompt_tokens_details,omitempty"`
 }
 
 type Response interface {
