@@ -144,7 +144,7 @@ func (c *FILENAS) DescribeFileSystemOverviewWithContext(ctx volcengine.Context, 
 }
 
 type DescribeFileSystemOverviewInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -158,11 +158,11 @@ func (s DescribeFileSystemOverviewInput) GoString() string {
 }
 
 type DescribeFileSystemOverviewOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	Overview *OverviewForDescribeFileSystemOverviewOutput `type:"structure"`
+	Overview *OverviewForDescribeFileSystemOverviewOutput `type:"structure" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -182,17 +182,17 @@ func (s *DescribeFileSystemOverviewOutput) SetOverview(v *OverviewForDescribeFil
 }
 
 type OverviewForDescribeFileSystemOverviewOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	ErrorCount *int32 `type:"int32"`
+	ErrorCount *int32 `type:"int32" json:",omitempty"`
 
-	OtherCount *int32 `type:"int32"`
+	OtherCount *int32 `type:"int32" json:",omitempty"`
 
-	RegionId *string `type:"string"`
+	RegionId *string `type:"string" json:",omitempty"`
 
-	RunningCount *int32 `type:"int32"`
+	RunningCount *int32 `type:"int32" json:",omitempty"`
 
-	TotalCount *int32 `type:"int32"`
+	TotalCount *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation

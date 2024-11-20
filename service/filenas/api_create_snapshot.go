@@ -144,15 +144,15 @@ func (c *FILENAS) CreateSnapshotWithContext(ctx volcengine.Context, input *Creat
 }
 
 type CreateSnapshotInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Description *string `type:"string"`
+	Description *string `type:"string" json:",omitempty"`
 
 	// FileSystemId is a required field
-	FileSystemId *string `type:"string" required:"true"`
+	FileSystemId *string `type:"string" json:",omitempty" required:"true"`
 
 	// SnapshotName is a required field
-	SnapshotName *string `type:"string" required:"true"`
+	SnapshotName *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -200,11 +200,11 @@ func (s *CreateSnapshotInput) SetSnapshotName(v string) *CreateSnapshotInput {
 }
 
 type CreateSnapshotOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	SnapshotId *string `type:"string"`
+	SnapshotId *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation

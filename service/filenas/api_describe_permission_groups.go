@@ -144,16 +144,16 @@ func (c *FILENAS) DescribePermissionGroupsWithContext(ctx volcengine.Context, in
 }
 
 type DescribePermissionGroupsInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// FileSystemType is a required field
-	FileSystemType *string `type:"string" required:"true" enum:"EnumOfFileSystemTypeForDescribePermissionGroupsInput"`
+	FileSystemType *string `type:"string" json:",omitempty" required:"true" enum:"EnumOfFileSystemTypeForDescribePermissionGroupsInput"`
 
-	Filters []*FilterForDescribePermissionGroupsInput `type:"list"`
+	Filters []*FilterForDescribePermissionGroupsInput `type:"list" json:",omitempty"`
 
-	PageNumber *int32 `type:"int32"`
+	PageNumber *int32 `type:"int32" json:",omitempty"`
 
-	PageSize *int32 `type:"int32"`
+	PageSize *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -204,17 +204,17 @@ func (s *DescribePermissionGroupsInput) SetPageSize(v int32) *DescribePermission
 }
 
 type DescribePermissionGroupsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	PageNumber *int32 `type:"int32"`
+	PageNumber *int32 `type:"int32" json:",omitempty"`
 
-	PageSize *int32 `type:"int32"`
+	PageSize *int32 `type:"int32" json:",omitempty"`
 
-	PermissionGroups []*PermissionGroupForDescribePermissionGroupsOutput `type:"list"`
+	PermissionGroups []*PermissionGroupForDescribePermissionGroupsOutput `type:"list" json:",omitempty"`
 
-	TotalCount *int32 `type:"int32"`
+	TotalCount *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -252,11 +252,11 @@ func (s *DescribePermissionGroupsOutput) SetTotalCount(v int32) *DescribePermiss
 }
 
 type FilterForDescribePermissionGroupsInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Key *string `type:"string" enum:"EnumOfKeyForDescribePermissionGroupsInput"`
+	Key *string `type:"string" json:",omitempty" enum:"EnumOfKeyForDescribePermissionGroupsInput"`
 
-	Value *string `type:"string"`
+	Value *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -282,13 +282,13 @@ func (s *FilterForDescribePermissionGroupsInput) SetValue(v string) *FilterForDe
 }
 
 type MountPointForDescribePermissionGroupsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	FileSystemId *string `type:"string"`
+	FileSystemId *string `type:"string" json:",omitempty"`
 
-	MountPointId *string `type:"string"`
+	MountPointId *string `type:"string" json:",omitempty"`
 
-	MountPointName *string `type:"string"`
+	MountPointName *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -320,23 +320,23 @@ func (s *MountPointForDescribePermissionGroupsOutput) SetMountPointName(v string
 }
 
 type PermissionGroupForDescribePermissionGroupsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	CreateTime *string `type:"string"`
+	CreateTime *string `type:"string" json:",omitempty"`
 
-	Description *string `type:"string"`
+	Description *string `type:"string" json:",omitempty"`
 
-	FileSystemCount *int32 `type:"int32"`
+	FileSystemCount *int32 `type:"int32" json:",omitempty"`
 
-	FileSystemType *string `type:"string" enum:"EnumOfFileSystemTypeForDescribePermissionGroupsOutput"`
+	FileSystemType *string `type:"string" json:",omitempty" enum:"EnumOfFileSystemTypeForDescribePermissionGroupsOutput"`
 
-	MountPoints []*MountPointForDescribePermissionGroupsOutput `type:"list"`
+	MountPoints []*MountPointForDescribePermissionGroupsOutput `type:"list" json:",omitempty"`
 
-	PermissionGroupId *string `type:"string"`
+	PermissionGroupId *string `type:"string" json:",omitempty"`
 
-	PermissionGroupName *string `type:"string"`
+	PermissionGroupName *string `type:"string" json:",omitempty"`
 
-	PermissionRuleCount *int32 `type:"int32"`
+	PermissionRuleCount *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation

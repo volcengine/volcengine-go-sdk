@@ -144,15 +144,15 @@ func (c *FILENAS) UpdatePermissionRuleWithContext(ctx volcengine.Context, input 
 }
 
 type PermissionRuleForUpdatePermissionRuleInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	CidrIp *string `type:"string"`
+	CidrIp *string `type:"string" json:",omitempty"`
 
-	PermissionRuleId *string `type:"string"`
+	PermissionRuleId *string `type:"string" json:",omitempty"`
 
-	RwMode *string `type:"string" enum:"EnumOfRwModeForUpdatePermissionRuleInput"`
+	RwMode *string `type:"string" json:",omitempty" enum:"EnumOfRwModeForUpdatePermissionRuleInput"`
 
-	UserMode *string `type:"string" enum:"EnumOfUserModeForUpdatePermissionRuleInput"`
+	UserMode *string `type:"string" json:",omitempty" enum:"EnumOfUserModeForUpdatePermissionRuleInput"`
 }
 
 // String returns the string representation
@@ -190,14 +190,14 @@ func (s *PermissionRuleForUpdatePermissionRuleInput) SetUserMode(v string) *Perm
 }
 
 type UpdatePermissionRuleInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// FileSystemType is a required field
-	FileSystemType *string `type:"string" required:"true" enum:"EnumOfFileSystemTypeForUpdatePermissionRuleInput"`
+	FileSystemType *string `type:"string" json:",omitempty" required:"true" enum:"EnumOfFileSystemTypeForUpdatePermissionRuleInput"`
 
-	PermissionGroupId *string `type:"string"`
+	PermissionGroupId *string `type:"string" json:",omitempty"`
 
-	PermissionRules []*PermissionRuleForUpdatePermissionRuleInput `type:"list"`
+	PermissionRules []*PermissionRuleForUpdatePermissionRuleInput `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -242,7 +242,7 @@ func (s *UpdatePermissionRuleInput) SetPermissionRules(v []*PermissionRuleForUpd
 }
 
 type UpdatePermissionRuleOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 }

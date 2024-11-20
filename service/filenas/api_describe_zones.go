@@ -144,7 +144,7 @@ func (c *FILENAS) DescribeZonesWithContext(ctx volcengine.Context, input *Descri
 }
 
 type DescribeZonesInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -158,13 +158,13 @@ func (s DescribeZonesInput) GoString() string {
 }
 
 type DescribeZonesOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	TotalCount *int32 `type:"int32"`
+	TotalCount *int32 `type:"int32" json:",omitempty"`
 
-	Zones []*ZoneForDescribeZonesOutput `type:"list"`
+	Zones []*ZoneForDescribeZonesOutput `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -190,15 +190,15 @@ func (s *DescribeZonesOutput) SetZones(v []*ZoneForDescribeZonesOutput) *Describ
 }
 
 type SaleForDescribeZonesOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	FileSystemType *string `type:"string" enum:"EnumOfFileSystemTypeForDescribeZonesOutput"`
+	FileSystemType *string `type:"string" json:",omitempty" enum:"EnumOfFileSystemTypeForDescribeZonesOutput"`
 
-	ProtocolType *string `type:"string" enum:"EnumOfProtocolTypeForDescribeZonesOutput"`
+	ProtocolType *string `type:"string" json:",omitempty" enum:"EnumOfProtocolTypeForDescribeZonesOutput"`
 
-	Status *string `type:"string" enum:"EnumOfStatusForDescribeZonesOutput"`
+	Status *string `type:"string" json:",omitempty" enum:"EnumOfStatusForDescribeZonesOutput"`
 
-	StorageType *string `type:"string"`
+	StorageType *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -236,15 +236,15 @@ func (s *SaleForDescribeZonesOutput) SetStorageType(v string) *SaleForDescribeZo
 }
 
 type ZoneForDescribeZonesOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Sales []*SaleForDescribeZonesOutput `type:"list"`
+	Sales []*SaleForDescribeZonesOutput `type:"list" json:",omitempty"`
 
-	Status *string `type:"string" enum:"EnumOfStatusForDescribeZonesOutput"`
+	Status *string `type:"string" json:",omitempty" enum:"EnumOfStatusForDescribeZonesOutput"`
 
-	ZoneId *string `type:"string"`
+	ZoneId *string `type:"string" json:",omitempty"`
 
-	ZoneName *string `type:"string"`
+	ZoneName *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation

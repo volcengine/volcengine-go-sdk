@@ -144,22 +144,22 @@ func (c *FILENAS) CreateMountPointWithContext(ctx volcengine.Context, input *Cre
 }
 
 type CreateMountPointInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// FileSystemId is a required field
-	FileSystemId *string `type:"string" required:"true"`
+	FileSystemId *string `type:"string" json:",omitempty" required:"true"`
 
 	// MountPointName is a required field
-	MountPointName *string `type:"string" required:"true"`
+	MountPointName *string `type:"string" json:",omitempty" required:"true"`
 
 	// PermissionGroupId is a required field
-	PermissionGroupId *string `type:"string" required:"true"`
+	PermissionGroupId *string `type:"string" json:",omitempty" required:"true"`
 
 	// SubnetId is a required field
-	SubnetId *string `type:"string" required:"true"`
+	SubnetId *string `type:"string" json:",omitempty" required:"true"`
 
 	// VpcId is a required field
-	VpcId *string `type:"string" required:"true"`
+	VpcId *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -228,11 +228,11 @@ func (s *CreateMountPointInput) SetVpcId(v string) *CreateMountPointInput {
 }
 
 type CreateMountPointOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	MountPointId *string `type:"string"`
+	MountPointId *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation

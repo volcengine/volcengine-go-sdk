@@ -144,12 +144,12 @@ func (c *FILENAS) DescribePermissionRulesWithContext(ctx volcengine.Context, inp
 }
 
 type DescribePermissionRulesInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	FileSystemType *string `type:"string" enum:"EnumOfFileSystemTypeForDescribePermissionRulesInput"`
+	FileSystemType *string `type:"string" json:",omitempty" enum:"EnumOfFileSystemTypeForDescribePermissionRulesInput"`
 
 	// PermissionGroupId is a required field
-	PermissionGroupId *string `type:"string" required:"true"`
+	PermissionGroupId *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -188,13 +188,13 @@ func (s *DescribePermissionRulesInput) SetPermissionGroupId(v string) *DescribeP
 }
 
 type DescribePermissionRulesOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	PermissionRules []*PermissionRuleForDescribePermissionRulesOutput `type:"list"`
+	PermissionRules []*PermissionRuleForDescribePermissionRulesOutput `type:"list" json:",omitempty"`
 
-	TotalCount *int32 `type:"int32"`
+	TotalCount *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -220,15 +220,15 @@ func (s *DescribePermissionRulesOutput) SetTotalCount(v int32) *DescribePermissi
 }
 
 type PermissionRuleForDescribePermissionRulesOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	CidrIp *string `type:"string"`
+	CidrIp *string `type:"string" json:",omitempty"`
 
-	PermissionRuleId *string `type:"string"`
+	PermissionRuleId *string `type:"string" json:",omitempty"`
 
-	RwMode *string `type:"string" enum:"EnumOfRwModeForDescribePermissionRulesOutput"`
+	RwMode *string `type:"string" json:",omitempty" enum:"EnumOfRwModeForDescribePermissionRulesOutput"`
 
-	UserMode *string `type:"string" enum:"EnumOfUserModeForDescribePermissionRulesOutput"`
+	UserMode *string `type:"string" json:",omitempty" enum:"EnumOfUserModeForDescribePermissionRulesOutput"`
 }
 
 // String returns the string representation

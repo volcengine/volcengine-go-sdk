@@ -144,21 +144,21 @@ func (c *FILENAS) DescribeSnapshotsWithContext(ctx volcengine.Context, input *De
 }
 
 type DescribeSnapshotsInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	FileSystemId *string `type:"string"`
+	FileSystemId *string `type:"string" json:",omitempty"`
 
-	PageNumber *int32 `type:"int32"`
+	PageNumber *int32 `type:"int32" json:",omitempty"`
 
-	PageSize *int32 `type:"int32"`
+	PageSize *int32 `type:"int32" json:",omitempty"`
 
-	SnapshotIds *string `type:"string"`
+	SnapshotIds *string `type:"string" json:",omitempty"`
 
-	SnapshotName *string `type:"string"`
+	SnapshotName *string `type:"string" json:",omitempty"`
 
-	SnapshotType *string `type:"string" enum:"EnumOfSnapshotTypeForDescribeSnapshotsInput"`
+	SnapshotType *string `type:"string" json:",omitempty" enum:"EnumOfSnapshotTypeForDescribeSnapshotsInput"`
 
-	Status *string `type:"string" enum:"EnumOfStatusForDescribeSnapshotsInput"`
+	Status *string `type:"string" json:",omitempty" enum:"EnumOfStatusForDescribeSnapshotsInput"`
 }
 
 // String returns the string representation
@@ -214,17 +214,17 @@ func (s *DescribeSnapshotsInput) SetStatus(v string) *DescribeSnapshotsInput {
 }
 
 type DescribeSnapshotsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	PageNumber *int32 `type:"int32"`
+	PageNumber *int32 `type:"int32" json:",omitempty"`
 
-	PageSize *int32 `type:"int32"`
+	PageSize *int32 `type:"int32" json:",omitempty"`
 
-	Snapshots []*SnapshotForDescribeSnapshotsOutput `type:"list"`
+	Snapshots []*SnapshotForDescribeSnapshotsOutput `type:"list" json:",omitempty"`
 
-	TotalCount *int32 `type:"int32"`
+	TotalCount *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -262,35 +262,35 @@ func (s *DescribeSnapshotsOutput) SetTotalCount(v int32) *DescribeSnapshotsOutpu
 }
 
 type SnapshotForDescribeSnapshotsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	CreateTime *string `type:"string"`
+	CreateTime *string `type:"string" json:",omitempty"`
 
-	Description *string `type:"string"`
+	Description *string `type:"string" json:",omitempty"`
 
-	FileSystemId *string `type:"string"`
+	FileSystemId *string `type:"string" json:",omitempty"`
 
-	FileSystemName *string `type:"string"`
+	FileSystemName *string `type:"string" json:",omitempty"`
 
-	IsEncrypt *bool `type:"boolean"`
+	IsEncrypt *bool `type:"boolean" json:",omitempty"`
 
-	Progress *string `type:"string"`
+	Progress *string `type:"string" json:",omitempty"`
 
-	RetentionDays *int32 `type:"int32"`
+	RetentionDays *int32 `type:"int32" json:",omitempty"`
 
-	SnapshotId *string `type:"string"`
+	SnapshotId *string `type:"string" json:",omitempty"`
 
-	SnapshotName *string `type:"string"`
+	SnapshotName *string `type:"string" json:",omitempty"`
 
-	SnapshotType *string `type:"string" enum:"EnumOfSnapshotTypeForDescribeSnapshotsOutput"`
+	SnapshotType *string `type:"string" json:",omitempty" enum:"EnumOfSnapshotTypeForDescribeSnapshotsOutput"`
 
-	SourceSize *int32 `type:"int32"`
+	SourceSize *int32 `type:"int32" json:",omitempty"`
 
-	SourceVersion *string `type:"string"`
+	SourceVersion *string `type:"string" json:",omitempty"`
 
-	Status *string `type:"string" enum:"EnumOfStatusForDescribeSnapshotsOutput"`
+	Status *string `type:"string" json:",omitempty" enum:"EnumOfStatusForDescribeSnapshotsOutput"`
 
-	ZoneId *string `type:"string"`
+	ZoneId *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
