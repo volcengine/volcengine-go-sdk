@@ -144,13 +144,13 @@ func (c *FILENAS) ExpandFileSystemWithContext(ctx volcengine.Context, input *Exp
 }
 
 type ExpandFileSystemInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// Capacity is a required field
-	Capacity *int32 `type:"int32" required:"true"`
+	Capacity *int32 `type:"int32" json:",omitempty" required:"true"`
 
 	// FileSystemId is a required field
-	FileSystemId *string `type:"string" required:"true"`
+	FileSystemId *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -192,11 +192,11 @@ func (s *ExpandFileSystemInput) SetFileSystemId(v string) *ExpandFileSystemInput
 }
 
 type ExpandFileSystemOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	OrderNo *string `type:"string"`
+	OrderNo *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation

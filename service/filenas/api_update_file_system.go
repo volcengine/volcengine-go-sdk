@@ -144,13 +144,13 @@ func (c *FILENAS) UpdateFileSystemWithContext(ctx volcengine.Context, input *Upd
 }
 
 type TagForUpdateFileSystemInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Key *string `type:"string"`
+	Key *string `type:"string" json:",omitempty"`
 
-	Type *string `type:"string" enum:"EnumOfTypeForUpdateFileSystemInput"`
+	Type *string `type:"string" json:",omitempty" enum:"EnumOfTypeForUpdateFileSystemInput"`
 
-	Value *string `type:"string"`
+	Value *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -182,26 +182,26 @@ func (s *TagForUpdateFileSystemInput) SetValue(v string) *TagForUpdateFileSystem
 }
 
 type UpdateFileSystemInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	AutoExpand *bool `type:"boolean"`
+	AutoExpand *bool `type:"boolean" json:",omitempty"`
 
-	AutoExpandLimit *int32 `type:"int32"`
+	AutoExpandLimit *int32 `type:"int32" json:",omitempty"`
 
-	AutoExpandStep *int32 `type:"int32"`
+	AutoExpandStep *int32 `type:"int32" json:",omitempty"`
 
-	AutoExpandThreshold *int32 `type:"int32"`
+	AutoExpandThreshold *int32 `type:"int32" json:",omitempty"`
 
-	Description *string `type:"string"`
+	Description *string `type:"string" json:",omitempty"`
 
 	// FileSystemId is a required field
-	FileSystemId *string `type:"string" required:"true"`
+	FileSystemId *string `type:"string" json:",omitempty" required:"true"`
 
-	FileSystemName *string `type:"string"`
+	FileSystemName *string `type:"string" json:",omitempty"`
 
-	ProjectName *string `type:"string"`
+	ProjectName *string `type:"string" json:",omitempty"`
 
-	Tags []*TagForUpdateFileSystemInput `type:"list"`
+	Tags []*TagForUpdateFileSystemInput `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -282,7 +282,7 @@ func (s *UpdateFileSystemInput) SetTags(v []*TagForUpdateFileSystemInput) *Updat
 }
 
 type UpdateFileSystemOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 }

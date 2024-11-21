@@ -144,31 +144,31 @@ func (c *FILENAS) DescribeMountPointsWithContext(ctx volcengine.Context, input *
 }
 
 type ConvertMountPointForDescribeMountPointsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	CreateTime *string `type:"string"`
+	CreateTime *string `type:"string" json:",omitempty"`
 
-	Domain *string `type:"string"`
+	Domain *string `type:"string" json:",omitempty"`
 
-	Ip *string `type:"string"`
+	Ip *string `type:"string" json:",omitempty"`
 
-	MountPointId *string `type:"string"`
+	MountPointId *string `type:"string" json:",omitempty"`
 
-	MountPointName *string `type:"string"`
+	MountPointName *string `type:"string" json:",omitempty"`
 
-	PermissionGroup *PermissionGroupForDescribeMountPointsOutput `type:"structure"`
+	PermissionGroup *PermissionGroupForDescribeMountPointsOutput `type:"structure" json:",omitempty"`
 
-	Status *string `type:"string" enum:"EnumOfStatusForDescribeMountPointsOutput"`
+	Status *string `type:"string" json:",omitempty" enum:"EnumOfStatusForDescribeMountPointsOutput"`
 
-	SubnetId *string `type:"string"`
+	SubnetId *string `type:"string" json:",omitempty"`
 
-	SubnetName *string `type:"string"`
+	SubnetName *string `type:"string" json:",omitempty"`
 
-	UpdateTime *string `type:"string"`
+	UpdateTime *string `type:"string" json:",omitempty"`
 
-	VpcId *string `type:"string"`
+	VpcId *string `type:"string" json:",omitempty"`
 
-	VpcName *string `type:"string"`
+	VpcName *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -254,16 +254,16 @@ func (s *ConvertMountPointForDescribeMountPointsOutput) SetVpcName(v string) *Co
 }
 
 type DescribeMountPointsInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// FileSystemId is a required field
-	FileSystemId *string `type:"string" required:"true"`
+	FileSystemId *string `type:"string" json:",omitempty" required:"true"`
 
-	MountPointId *string `type:"string"`
+	MountPointId *string `type:"string" json:",omitempty"`
 
-	MountPointName *string `type:"string"`
+	MountPointName *string `type:"string" json:",omitempty"`
 
-	VpcId *string `type:"string"`
+	VpcId *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -314,13 +314,13 @@ func (s *DescribeMountPointsInput) SetVpcId(v string) *DescribeMountPointsInput 
 }
 
 type DescribeMountPointsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	MountPoints []*ConvertMountPointForDescribeMountPointsOutput `type:"list"`
+	MountPoints []*ConvertMountPointForDescribeMountPointsOutput `type:"list" json:",omitempty"`
 
-	TotalCount *int32 `type:"int32"`
+	TotalCount *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -346,13 +346,13 @@ func (s *DescribeMountPointsOutput) SetTotalCount(v int32) *DescribeMountPointsO
 }
 
 type MountPointForDescribeMountPointsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	FileSystemId *string `type:"string"`
+	FileSystemId *string `type:"string" json:",omitempty"`
 
-	MountPointId *string `type:"string"`
+	MountPointId *string `type:"string" json:",omitempty"`
 
-	MountPointName *string `type:"string"`
+	MountPointName *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -384,23 +384,23 @@ func (s *MountPointForDescribeMountPointsOutput) SetMountPointName(v string) *Mo
 }
 
 type PermissionGroupForDescribeMountPointsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	CreateTime *string `type:"string"`
+	CreateTime *string `type:"string" json:",omitempty"`
 
-	Description *string `type:"string"`
+	Description *string `type:"string" json:",omitempty"`
 
-	FileSystemCount *int32 `type:"int32"`
+	FileSystemCount *int32 `type:"int32" json:",omitempty"`
 
-	FileSystemType *string `type:"string" enum:"EnumOfFileSystemTypeForDescribeMountPointsOutput"`
+	FileSystemType *string `type:"string" json:",omitempty" enum:"EnumOfFileSystemTypeForDescribeMountPointsOutput"`
 
-	MountPoints []*MountPointForDescribeMountPointsOutput `type:"list"`
+	MountPoints []*MountPointForDescribeMountPointsOutput `type:"list" json:",omitempty"`
 
-	PermissionGroupId *string `type:"string"`
+	PermissionGroupId *string `type:"string" json:",omitempty"`
 
-	PermissionGroupName *string `type:"string"`
+	PermissionGroupName *string `type:"string" json:",omitempty"`
 
-	PermissionRuleCount *int32 `type:"int32"`
+	PermissionRuleCount *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation

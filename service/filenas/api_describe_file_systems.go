@@ -144,11 +144,11 @@ func (c *FILENAS) DescribeFileSystemsWithContext(ctx volcengine.Context, input *
 }
 
 type CapacityForDescribeFileSystemsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Total *int64 `type:"int64"`
+	Total *int64 `type:"int64" json:",omitempty"`
 
-	Used *int64 `type:"int64"`
+	Used *int64 `type:"int64" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -174,21 +174,21 @@ func (s *CapacityForDescribeFileSystemsOutput) SetUsed(v int64) *CapacityForDesc
 }
 
 type DescribeFileSystemsInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	FileSystemIds *string `type:"string"`
+	FileSystemIds *string `type:"string" json:",omitempty"`
 
-	FileSystemType *string `type:"string" enum:"EnumOfFileSystemTypeForDescribeFileSystemsInput"`
+	FileSystemType *string `type:"string" json:",omitempty" enum:"EnumOfFileSystemTypeForDescribeFileSystemsInput"`
 
-	Filters []*FilterForDescribeFileSystemsInput `type:"list"`
+	Filters []*FilterForDescribeFileSystemsInput `type:"list" json:",omitempty"`
 
-	PageNumber *int32 `type:"int32"`
+	PageNumber *int32 `type:"int32" json:",omitempty"`
 
-	PageSize *int32 `type:"int32"`
+	PageSize *int32 `type:"int32" json:",omitempty"`
 
-	ProjectName *string `type:"string"`
+	ProjectName *string `type:"string" json:",omitempty"`
 
-	TagFilters []*TagFilterForDescribeFileSystemsInput `type:"list"`
+	TagFilters []*TagFilterForDescribeFileSystemsInput `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -244,17 +244,17 @@ func (s *DescribeFileSystemsInput) SetTagFilters(v []*TagFilterForDescribeFileSy
 }
 
 type DescribeFileSystemsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	FileSystems []*FileSystemForDescribeFileSystemsOutput `type:"list"`
+	FileSystems []*FileSystemForDescribeFileSystemsOutput `type:"list" json:",omitempty"`
 
-	PageNumber *int32 `type:"int32"`
+	PageNumber *int32 `type:"int32" json:",omitempty"`
 
-	PageSize *int32 `type:"int32"`
+	PageSize *int32 `type:"int32" json:",omitempty"`
 
-	TotalCount *int32 `type:"int32"`
+	TotalCount *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -292,43 +292,43 @@ func (s *DescribeFileSystemsOutput) SetTotalCount(v int32) *DescribeFileSystemsO
 }
 
 type FileSystemForDescribeFileSystemsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Capacity *CapacityForDescribeFileSystemsOutput `type:"structure"`
+	Capacity *CapacityForDescribeFileSystemsOutput `type:"structure" json:",omitempty"`
 
-	ChargeType *string `type:"string" enum:"EnumOfChargeTypeForDescribeFileSystemsOutput"`
+	ChargeType *string `type:"string" json:",omitempty" enum:"EnumOfChargeTypeForDescribeFileSystemsOutput"`
 
-	CreateTime *string `type:"string"`
+	CreateTime *string `type:"string" json:",omitempty"`
 
-	Description *string `type:"string"`
+	Description *string `type:"string" json:",omitempty"`
 
-	FileSystemId *string `type:"string"`
+	FileSystemId *string `type:"string" json:",omitempty"`
 
-	FileSystemName *string `type:"string"`
+	FileSystemName *string `type:"string" json:",omitempty"`
 
-	FileSystemType *string `type:"string" enum:"EnumOfFileSystemTypeForDescribeFileSystemsOutput"`
+	FileSystemType *string `type:"string" json:",omitempty" enum:"EnumOfFileSystemTypeForDescribeFileSystemsOutput"`
 
-	ProjectName *string `type:"string"`
+	ProjectName *string `type:"string" json:",omitempty"`
 
-	ProtocolType *string `type:"string" enum:"EnumOfProtocolTypeForDescribeFileSystemsOutput"`
+	ProtocolType *string `type:"string" json:",omitempty" enum:"EnumOfProtocolTypeForDescribeFileSystemsOutput"`
 
-	RegionId *string `type:"string"`
+	RegionId *string `type:"string" json:",omitempty"`
 
-	SnapshotCount *int32 `type:"int32"`
+	SnapshotCount *int32 `type:"int32" json:",omitempty"`
 
-	Status *string `type:"string" enum:"EnumOfStatusForDescribeFileSystemsOutput"`
+	Status *string `type:"string" json:",omitempty" enum:"EnumOfStatusForDescribeFileSystemsOutput"`
 
-	StorageType *string `type:"string" enum:"EnumOfStorageTypeForDescribeFileSystemsOutput"`
+	StorageType *string `type:"string" json:",omitempty" enum:"EnumOfStorageTypeForDescribeFileSystemsOutput"`
 
-	Tags []*TagForDescribeFileSystemsOutput `type:"list"`
+	Tags []*TagForDescribeFileSystemsOutput `type:"list" json:",omitempty"`
 
-	UpdateTime *string `type:"string"`
+	UpdateTime *string `type:"string" json:",omitempty"`
 
-	Version *string `type:"string"`
+	Version *string `type:"string" json:",omitempty"`
 
-	ZoneId *string `type:"string"`
+	ZoneId *string `type:"string" json:",omitempty"`
 
-	ZoneName *string `type:"string"`
+	ZoneName *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -450,11 +450,11 @@ func (s *FileSystemForDescribeFileSystemsOutput) SetZoneName(v string) *FileSyst
 }
 
 type FilterForDescribeFileSystemsInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Key *string `type:"string" enum:"EnumOfKeyForDescribeFileSystemsInput"`
+	Key *string `type:"string" json:",omitempty" enum:"EnumOfKeyForDescribeFileSystemsInput"`
 
-	Value *string `type:"string"`
+	Value *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -480,11 +480,11 @@ func (s *FilterForDescribeFileSystemsInput) SetValue(v string) *FilterForDescrib
 }
 
 type TagFilterForDescribeFileSystemsInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Key *string `type:"string"`
+	Key *string `type:"string" json:",omitempty"`
 
-	Value *string `type:"string"`
+	Value *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -510,13 +510,13 @@ func (s *TagFilterForDescribeFileSystemsInput) SetValue(v string) *TagFilterForD
 }
 
 type TagForDescribeFileSystemsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Key *string `type:"string"`
+	Key *string `type:"string" json:",omitempty"`
 
-	Type *string `type:"string" enum:"EnumOfTypeForDescribeFileSystemsOutput"`
+	Type *string `type:"string" json:",omitempty" enum:"EnumOfTypeForDescribeFileSystemsOutput"`
 
-	Value *string `type:"string"`
+	Value *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation

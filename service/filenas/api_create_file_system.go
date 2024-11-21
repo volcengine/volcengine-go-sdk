@@ -144,37 +144,37 @@ func (c *FILENAS) CreateFileSystemWithContext(ctx volcengine.Context, input *Cre
 }
 
 type CreateFileSystemInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// Capacity is a required field
-	Capacity *int32 `type:"int32" required:"true"`
+	Capacity *int32 `type:"int32" json:",omitempty" required:"true"`
 
 	// ChargeType is a required field
-	ChargeType *string `type:"string" required:"true" enum:"EnumOfChargeTypeForCreateFileSystemInput"`
+	ChargeType *string `type:"string" json:",omitempty" required:"true" enum:"EnumOfChargeTypeForCreateFileSystemInput"`
 
-	ClientToken *string `type:"string"`
+	ClientToken *string `type:"string" json:",omitempty"`
 
-	Description *string `max:"120" type:"string"`
+	Description *string `max:"120" type:"string" json:",omitempty"`
 
 	// FileSystemName is a required field
-	FileSystemName *string `min:"1" max:"128" type:"string" required:"true"`
+	FileSystemName *string `min:"1" max:"128" type:"string" json:",omitempty" required:"true"`
 
 	// FileSystemType is a required field
-	FileSystemType *string `type:"string" required:"true" enum:"EnumOfFileSystemTypeForCreateFileSystemInput"`
+	FileSystemType *string `type:"string" json:",omitempty" required:"true" enum:"EnumOfFileSystemTypeForCreateFileSystemInput"`
 
-	ProjectName *string `type:"string"`
+	ProjectName *string `type:"string" json:",omitempty"`
 
 	// ProtocolType is a required field
-	ProtocolType *string `type:"string" required:"true" enum:"EnumOfProtocolTypeForCreateFileSystemInput"`
+	ProtocolType *string `type:"string" json:",omitempty" required:"true" enum:"EnumOfProtocolTypeForCreateFileSystemInput"`
 
-	SnapshotId *string `type:"string"`
+	SnapshotId *string `type:"string" json:",omitempty"`
 
-	StorageType *string `type:"string" enum:"EnumOfStorageTypeForCreateFileSystemInput"`
+	StorageType *string `type:"string" json:",omitempty" enum:"EnumOfStorageTypeForCreateFileSystemInput"`
 
-	Tags []*TagForCreateFileSystemInput `type:"list"`
+	Tags []*TagForCreateFileSystemInput `type:"list" json:",omitempty"`
 
 	// ZoneId is a required field
-	ZoneId *string `type:"string" required:"true"`
+	ZoneId *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -297,13 +297,13 @@ func (s *CreateFileSystemInput) SetZoneId(v string) *CreateFileSystemInput {
 }
 
 type CreateFileSystemOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	FileSystemId *string `type:"string"`
+	FileSystemId *string `type:"string" json:",omitempty"`
 
-	OrderNo *string `type:"string"`
+	OrderNo *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -329,13 +329,13 @@ func (s *CreateFileSystemOutput) SetOrderNo(v string) *CreateFileSystemOutput {
 }
 
 type TagForCreateFileSystemInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Key *string `type:"string"`
+	Key *string `type:"string" json:",omitempty"`
 
-	Type *string `type:"string" enum:"EnumOfTypeForCreateFileSystemInput"`
+	Type *string `type:"string" json:",omitempty" enum:"EnumOfTypeForCreateFileSystemInput"`
 
-	Value *string `type:"string"`
+	Value *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation

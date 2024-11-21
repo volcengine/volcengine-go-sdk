@@ -144,10 +144,10 @@ func (c *FILENAS) DeleteSnapshotWithContext(ctx volcengine.Context, input *Delet
 }
 
 type DeleteSnapshotInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// SnapshotId is a required field
-	SnapshotId *string `type:"string" required:"true"`
+	SnapshotId *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -180,7 +180,7 @@ func (s *DeleteSnapshotInput) SetSnapshotId(v string) *DeleteSnapshotInput {
 }
 
 type DeleteSnapshotOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 }

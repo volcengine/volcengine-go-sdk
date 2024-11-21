@@ -144,11 +144,11 @@ func (c *FILENAS) DescribeFileSystemStatisticsWithContext(ctx volcengine.Context
 }
 
 type CommonCapacityForDescribeFileSystemStatisticsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Total *int64 `type:"int64"`
+	Total *int64 `type:"int64" json:",omitempty"`
 
-	Used *int64 `type:"int64"`
+	Used *int64 `type:"int64" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -174,7 +174,7 @@ func (s *CommonCapacityForDescribeFileSystemStatisticsOutput) SetUsed(v int64) *
 }
 
 type DescribeFileSystemStatisticsInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -188,13 +188,13 @@ func (s DescribeFileSystemStatisticsInput) GoString() string {
 }
 
 type DescribeFileSystemStatisticsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	Statistics []*StatisticForDescribeFileSystemStatisticsOutput `type:"list"`
+	Statistics []*StatisticForDescribeFileSystemStatisticsOutput `type:"list" json:",omitempty"`
 
-	TotalCount *int32 `type:"int32"`
+	TotalCount *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -220,11 +220,11 @@ func (s *DescribeFileSystemStatisticsOutput) SetTotalCount(v int32) *DescribeFil
 }
 
 type ExtremeCapacityForDescribeFileSystemStatisticsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Total *int64 `type:"int64"`
+	Total *int64 `type:"int64" json:",omitempty"`
 
-	Used *int64 `type:"int64"`
+	Used *int64 `type:"int64" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -250,21 +250,21 @@ func (s *ExtremeCapacityForDescribeFileSystemStatisticsOutput) SetUsed(v int64) 
 }
 
 type StatisticForDescribeFileSystemStatisticsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	CommonCapacity *CommonCapacityForDescribeFileSystemStatisticsOutput `type:"structure"`
+	CommonCapacity *CommonCapacityForDescribeFileSystemStatisticsOutput `type:"structure" json:",omitempty"`
 
-	CommonFileSystemCount *int32 `type:"int32"`
+	CommonFileSystemCount *int32 `type:"int32" json:",omitempty"`
 
-	ExtremeCapacity *ExtremeCapacityForDescribeFileSystemStatisticsOutput `type:"structure"`
+	ExtremeCapacity *ExtremeCapacityForDescribeFileSystemStatisticsOutput `type:"structure" json:",omitempty"`
 
-	ExtremeFileSystemCount *int32 `type:"int32"`
+	ExtremeFileSystemCount *int32 `type:"int32" json:",omitempty"`
 
-	RegionId *string `type:"string"`
+	RegionId *string `type:"string" json:",omitempty"`
 
-	ZoneId *string `type:"string"`
+	ZoneId *string `type:"string" json:",omitempty"`
 
-	ZoneName *string `type:"string"`
+	ZoneName *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation

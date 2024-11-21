@@ -144,14 +144,14 @@ func (c *FILENAS) CreatePermissionGroupWithContext(ctx volcengine.Context, input
 }
 
 type CreatePermissionGroupInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Description *string `type:"string"`
+	Description *string `type:"string" json:",omitempty"`
 
-	FileSystemType *string `type:"string" enum:"EnumOfFileSystemTypeForCreatePermissionGroupInput"`
+	FileSystemType *string `type:"string" json:",omitempty" enum:"EnumOfFileSystemTypeForCreatePermissionGroupInput"`
 
 	// PermissionGroupName is a required field
-	PermissionGroupName *string `type:"string" required:"true"`
+	PermissionGroupName *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -196,11 +196,11 @@ func (s *CreatePermissionGroupInput) SetPermissionGroupName(v string) *CreatePer
 }
 
 type CreatePermissionGroupOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	PermissionGroupId *string `type:"string"`
+	PermissionGroupId *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation

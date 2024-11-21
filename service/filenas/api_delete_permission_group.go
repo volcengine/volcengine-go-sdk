@@ -144,13 +144,13 @@ func (c *FILENAS) DeletePermissionGroupWithContext(ctx volcengine.Context, input
 }
 
 type DeletePermissionGroupInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// FileSystemType is a required field
-	FileSystemType *string `type:"string" required:"true" enum:"EnumOfFileSystemTypeForDeletePermissionGroupInput"`
+	FileSystemType *string `type:"string" json:",omitempty" required:"true" enum:"EnumOfFileSystemTypeForDeletePermissionGroupInput"`
 
 	// PermissionGroupId is a required field
-	PermissionGroupId *string `type:"string" required:"true"`
+	PermissionGroupId *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -192,7 +192,7 @@ func (s *DeletePermissionGroupInput) SetPermissionGroupId(v string) *DeletePermi
 }
 
 type DeletePermissionGroupOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 }
