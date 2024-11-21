@@ -148,6 +148,8 @@ type DescribeKeysInput struct {
 
 	CurrentPage *int32 `min:"1" type:"int32" json:",omitempty"`
 
+	Filters *string `max:"2048" type:"string" json:",omitempty"`
+
 	// KeyringName is a required field
 	KeyringName *string `min:"2" max:"31" type:"string" json:",omitempty" required:"true"`
 
@@ -169,6 +171,9 @@ func (s *DescribeKeysInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "DescribeKeysInput"}
 	if s.CurrentPage != nil && *s.CurrentPage < 1 {
 		invalidParams.Add(request.NewErrParamMinValue("CurrentPage", 1))
+	}
+	if s.Filters != nil && len(*s.Filters) > 2048 {
+		invalidParams.Add(request.NewErrParamMaxLen("Filters", 2048, *s.Filters))
 	}
 	if s.KeyringName == nil {
 		invalidParams.Add(request.NewErrParamRequired("KeyringName"))
@@ -195,6 +200,12 @@ func (s *DescribeKeysInput) Validate() error {
 // SetCurrentPage sets the CurrentPage field's value.
 func (s *DescribeKeysInput) SetCurrentPage(v int32) *DescribeKeysInput {
 	s.CurrentPage = &v
+	return s
+}
+
+// SetFilters sets the Filters field's value.
+func (s *DescribeKeysInput) SetFilters(v string) *DescribeKeysInput {
+	s.Filters = &v
 	return s
 }
 

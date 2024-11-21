@@ -146,7 +146,7 @@ func (c *KMS) EncryptWithContext(ctx volcengine.Context, input *EncryptInput, op
 type EncryptInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	EncryptionContext *string `type:"string" json:",omitempty"`
+	EncryptionContext map[string]*string `type:"map" json:",omitempty"`
 
 	KeyID *string `type:"string" json:",omitempty"`
 
@@ -200,8 +200,8 @@ func (s *EncryptInput) Validate() error {
 }
 
 // SetEncryptionContext sets the EncryptionContext field's value.
-func (s *EncryptInput) SetEncryptionContext(v string) *EncryptInput {
-	s.EncryptionContext = &v
+func (s *EncryptInput) SetEncryptionContext(v map[string]*string) *EncryptInput {
+	s.EncryptionContext = v
 	return s
 }
 
