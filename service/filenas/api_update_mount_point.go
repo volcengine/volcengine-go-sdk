@@ -144,17 +144,17 @@ func (c *FILENAS) UpdateMountPointWithContext(ctx volcengine.Context, input *Upd
 }
 
 type UpdateMountPointInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// FileSystemId is a required field
-	FileSystemId *string `type:"string" required:"true"`
+	FileSystemId *string `type:"string" json:",omitempty" required:"true"`
 
 	// MountPointId is a required field
-	MountPointId *string `type:"string" required:"true"`
+	MountPointId *string `type:"string" json:",omitempty" required:"true"`
 
-	MountPointName *string `type:"string"`
+	MountPointName *string `type:"string" json:",omitempty"`
 
-	PermissionGroupId *string `type:"string"`
+	PermissionGroupId *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -208,7 +208,7 @@ func (s *UpdateMountPointInput) SetPermissionGroupId(v string) *UpdateMountPoint
 }
 
 type UpdateMountPointOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 }

@@ -19,7 +19,7 @@ import (
 //    // volcengine sdk func uses an SDK service client to make a request to
 //    // FILENAS.
 //    func myFunc(svc FILENASAPI) bool {
-//        // Make svc.CreateFileSystem request
+//        // Make svc.CancelDirQuota request
 //    }
 //
 //    func main() {
@@ -30,6 +30,14 @@ import (
 //    }
 //
 type FILENASAPI interface {
+	CancelDirQuotaCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CancelDirQuotaCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CancelDirQuotaCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CancelDirQuota(*CancelDirQuotaInput) (*CancelDirQuotaOutput, error)
+	CancelDirQuotaWithContext(volcengine.Context, *CancelDirQuotaInput, ...request.Option) (*CancelDirQuotaOutput, error)
+	CancelDirQuotaRequest(*CancelDirQuotaInput) (*request.Request, *CancelDirQuotaOutput)
+
 	CreateFileSystemCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	CreateFileSystemCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	CreateFileSystemCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -93,6 +101,14 @@ type FILENASAPI interface {
 	DeleteSnapshot(*DeleteSnapshotInput) (*DeleteSnapshotOutput, error)
 	DeleteSnapshotWithContext(volcengine.Context, *DeleteSnapshotInput, ...request.Option) (*DeleteSnapshotOutput, error)
 	DeleteSnapshotRequest(*DeleteSnapshotInput) (*request.Request, *DeleteSnapshotOutput)
+
+	DescribeDirQuotasCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeDirQuotasCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeDirQuotasCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeDirQuotas(*DescribeDirQuotasInput) (*DescribeDirQuotasOutput, error)
+	DescribeDirQuotasWithContext(volcengine.Context, *DescribeDirQuotasInput, ...request.Option) (*DescribeDirQuotasOutput, error)
+	DescribeDirQuotasRequest(*DescribeDirQuotasInput) (*request.Request, *DescribeDirQuotasOutput)
 
 	DescribeFileSystemOverviewCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DescribeFileSystemOverviewCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -173,6 +189,14 @@ type FILENASAPI interface {
 	ExpandFileSystem(*ExpandFileSystemInput) (*ExpandFileSystemOutput, error)
 	ExpandFileSystemWithContext(volcengine.Context, *ExpandFileSystemInput, ...request.Option) (*ExpandFileSystemOutput, error)
 	ExpandFileSystemRequest(*ExpandFileSystemInput) (*request.Request, *ExpandFileSystemOutput)
+
+	SetDirQuotaCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	SetDirQuotaCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	SetDirQuotaCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	SetDirQuota(*SetDirQuotaInput) (*SetDirQuotaOutput, error)
+	SetDirQuotaWithContext(volcengine.Context, *SetDirQuotaInput, ...request.Option) (*SetDirQuotaOutput, error)
+	SetDirQuotaRequest(*SetDirQuotaInput) (*request.Request, *SetDirQuotaOutput)
 
 	UpdateFileSystemCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	UpdateFileSystemCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)

@@ -149,7 +149,7 @@ type DecryptInput struct {
 	// CiphertextBlob is a required field
 	CiphertextBlob *string `min:"19" type:"string" json:",omitempty" required:"true"`
 
-	EncryptionContext *string `type:"string" json:",omitempty"`
+	EncryptionContext map[string]*string `type:"map" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -185,8 +185,8 @@ func (s *DecryptInput) SetCiphertextBlob(v string) *DecryptInput {
 }
 
 // SetEncryptionContext sets the EncryptionContext field's value.
-func (s *DecryptInput) SetEncryptionContext(v string) *DecryptInput {
-	s.EncryptionContext = &v
+func (s *DecryptInput) SetEncryptionContext(v map[string]*string) *DecryptInput {
+	s.EncryptionContext = v
 	return s
 }
 

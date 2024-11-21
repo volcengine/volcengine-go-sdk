@@ -144,14 +144,14 @@ func (c *FILENAS) UpdateSnapshotWithContext(ctx volcengine.Context, input *Updat
 }
 
 type UpdateSnapshotInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Description *string `type:"string"`
+	Description *string `type:"string" json:",omitempty"`
 
 	// SnapshotId is a required field
-	SnapshotId *string `type:"string" required:"true"`
+	SnapshotId *string `type:"string" json:",omitempty" required:"true"`
 
-	SnapshotName *string `type:"string"`
+	SnapshotName *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -196,7 +196,7 @@ func (s *UpdateSnapshotInput) SetSnapshotName(v string) *UpdateSnapshotInput {
 }
 
 type UpdateSnapshotOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 }

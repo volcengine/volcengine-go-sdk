@@ -144,10 +144,10 @@ func (c *FILENAS) DeleteFileSystemWithContext(ctx volcengine.Context, input *Del
 }
 
 type DeleteFileSystemInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// FileSystemId is a required field
-	FileSystemId *string `type:"string" required:"true"`
+	FileSystemId *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -180,11 +180,11 @@ func (s *DeleteFileSystemInput) SetFileSystemId(v string) *DeleteFileSystemInput
 }
 
 type DeleteFileSystemOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	OrderNo *string `type:"string"`
+	OrderNo *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation

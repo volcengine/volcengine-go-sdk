@@ -148,6 +148,8 @@ type DescribeKeyringsInput struct {
 
 	CurrentPage *int32 `min:"1" type:"int32" json:",omitempty"`
 
+	Filters *string `max:"2048" type:"string" json:",omitempty"`
+
 	PageSize *int32 `min:"1" max:"100" type:"int32" json:",omitempty"`
 
 	ProjectName *string `type:"string" json:",omitempty"`
@@ -169,6 +171,9 @@ func (s *DescribeKeyringsInput) Validate() error {
 	if s.CurrentPage != nil && *s.CurrentPage < 1 {
 		invalidParams.Add(request.NewErrParamMinValue("CurrentPage", 1))
 	}
+	if s.Filters != nil && len(*s.Filters) > 2048 {
+		invalidParams.Add(request.NewErrParamMaxLen("Filters", 2048, *s.Filters))
+	}
 	if s.PageSize != nil && *s.PageSize < 1 {
 		invalidParams.Add(request.NewErrParamMinValue("PageSize", 1))
 	}
@@ -185,6 +190,12 @@ func (s *DescribeKeyringsInput) Validate() error {
 // SetCurrentPage sets the CurrentPage field's value.
 func (s *DescribeKeyringsInput) SetCurrentPage(v int32) *DescribeKeyringsInput {
 	s.CurrentPage = &v
+	return s
+}
+
+// SetFilters sets the Filters field's value.
+func (s *DescribeKeyringsInput) SetFilters(v string) *DescribeKeyringsInput {
+	s.Filters = &v
 	return s
 }
 

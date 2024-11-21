@@ -144,13 +144,13 @@ func (c *FILENAS) DeleteMountPointWithContext(ctx volcengine.Context, input *Del
 }
 
 type DeleteMountPointInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// FileSystemId is a required field
-	FileSystemId *string `type:"string" required:"true"`
+	FileSystemId *string `type:"string" json:",omitempty" required:"true"`
 
 	// MountPointId is a required field
-	MountPointId *string `type:"string" required:"true"`
+	MountPointId *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -192,7 +192,7 @@ func (s *DeleteMountPointInput) SetMountPointId(v string) *DeleteMountPointInput
 }
 
 type DeleteMountPointOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 }

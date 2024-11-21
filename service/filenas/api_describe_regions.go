@@ -144,7 +144,7 @@ func (c *FILENAS) DescribeRegionsWithContext(ctx volcengine.Context, input *Desc
 }
 
 type DescribeRegionsInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -158,13 +158,13 @@ func (s DescribeRegionsInput) GoString() string {
 }
 
 type DescribeRegionsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	Regions []*RegionForDescribeRegionsOutput `type:"list"`
+	Regions []*RegionForDescribeRegionsOutput `type:"list" json:",omitempty"`
 
-	TotalCount *int32 `type:"int32"`
+	TotalCount *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -190,13 +190,13 @@ func (s *DescribeRegionsOutput) SetTotalCount(v int32) *DescribeRegionsOutput {
 }
 
 type RegionForDescribeRegionsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	RegionId *string `type:"string"`
+	RegionId *string `type:"string" json:",omitempty"`
 
-	RegionName *string `type:"string"`
+	RegionName *string `type:"string" json:",omitempty"`
 
-	Status *string `type:"string" enum:"EnumOfStatusForDescribeRegionsOutput"`
+	Status *string `type:"string" json:",omitempty" enum:"EnumOfStatusForDescribeRegionsOutput"`
 }
 
 // String returns the string representation
