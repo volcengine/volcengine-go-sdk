@@ -146,7 +146,7 @@ func (c *KMS) GenerateDataKeyWithContext(ctx volcengine.Context, input *Generate
 type GenerateDataKeyInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	EncryptionContext *string `type:"string" json:",omitempty"`
+	EncryptionContext map[string]*string `type:"map" json:",omitempty"`
 
 	KeyID *string `type:"string" json:",omitempty"`
 
@@ -196,8 +196,8 @@ func (s *GenerateDataKeyInput) Validate() error {
 }
 
 // SetEncryptionContext sets the EncryptionContext field's value.
-func (s *GenerateDataKeyInput) SetEncryptionContext(v string) *GenerateDataKeyInput {
-	s.EncryptionContext = &v
+func (s *GenerateDataKeyInput) SetEncryptionContext(v map[string]*string) *GenerateDataKeyInput {
+	s.EncryptionContext = v
 	return s
 }
 

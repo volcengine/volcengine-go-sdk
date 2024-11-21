@@ -149,7 +149,7 @@ type ReEncryptInput struct {
 	// CiphertextBlob is a required field
 	CiphertextBlob *string `min:"19" type:"string" json:",omitempty" required:"true"`
 
-	NewEncryptionContext *string `type:"string" json:",omitempty"`
+	NewEncryptionContext map[string]*string `type:"map" json:",omitempty"`
 
 	// NewKeyName is a required field
 	NewKeyName *string `min:"2" max:"31" type:"string" json:",omitempty" required:"true"`
@@ -157,7 +157,7 @@ type ReEncryptInput struct {
 	// NewKeyringName is a required field
 	NewKeyringName *string `min:"2" max:"31" type:"string" json:",omitempty" required:"true"`
 
-	OldEncryptionContext *string `type:"string" json:",omitempty"`
+	OldEncryptionContext map[string]*string `type:"map" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -211,8 +211,8 @@ func (s *ReEncryptInput) SetCiphertextBlob(v string) *ReEncryptInput {
 }
 
 // SetNewEncryptionContext sets the NewEncryptionContext field's value.
-func (s *ReEncryptInput) SetNewEncryptionContext(v string) *ReEncryptInput {
-	s.NewEncryptionContext = &v
+func (s *ReEncryptInput) SetNewEncryptionContext(v map[string]*string) *ReEncryptInput {
+	s.NewEncryptionContext = v
 	return s
 }
 
@@ -229,8 +229,8 @@ func (s *ReEncryptInput) SetNewKeyringName(v string) *ReEncryptInput {
 }
 
 // SetOldEncryptionContext sets the OldEncryptionContext field's value.
-func (s *ReEncryptInput) SetOldEncryptionContext(v string) *ReEncryptInput {
-	s.OldEncryptionContext = &v
+func (s *ReEncryptInput) SetOldEncryptionContext(v map[string]*string) *ReEncryptInput {
+	s.OldEncryptionContext = v
 	return s
 }
 
