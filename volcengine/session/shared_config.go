@@ -81,10 +81,12 @@ type sharedConfig struct {
 	EnableEndpointDiscovery *bool
 
 	// CSM Options
-	CSMEnabled  *bool
-	CSMHost     string
-	CSMPort     string
-	CSMClientID string
+	CSMEnabled          *bool
+	CSMHost             string
+	CSMPort             string
+	CSMClientID         string
+	EndpointConfigState *bool
+	EndpointConfigPath  string
 }
 
 type sharedConfigFile struct {

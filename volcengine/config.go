@@ -243,6 +243,10 @@ type Config struct {
 	SimpleError *bool
 
 	ForceJsonNumberDecode custom.ForceJsonNumberDecode
+
+	EndpointConfigState *bool
+
+	EndpointConfigPath *string
 }
 
 // NewConfig returns a new Config pointer that can be chained with builder
@@ -486,6 +490,16 @@ func (c *Config) WithSleepDelay(fn func(time.Duration)) *Config {
 //	return c
 //}
 
+func (c *Config) WithEndpointConfigState(t bool) *Config {
+	c.EndpointConfigState = &t
+	return c
+}
+
+func (c *Config) WithEndpointConfigPath(path string) *Config {
+	c.EndpointConfigPath = &path
+	return c
+}
+
 // MergeIn merges the passed in configs into the existing config object.
 func (c *Config) MergeIn(cfgs ...*Config) {
 	for _, other := range cfgs {
@@ -644,6 +658,14 @@ func mergeInConfig(dst *Config, other *Config) {
 
 	if other.CustomerUnmarshalData != nil {
 		dst.CustomerUnmarshalData = other.CustomerUnmarshalData
+	}
+
+	if other.EndpointConfigState != nil {
+		dst.EndpointConfigState = other.EndpointConfigState
+	}
+
+	if other.EndpointConfigPath != nil {
+		dst.EndpointConfigPath = other.EndpointConfigPath
 	}
 
 	dst.Interceptors = other.Interceptors

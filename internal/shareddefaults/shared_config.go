@@ -31,6 +31,17 @@ func SharedConfigFilename() string {
 	return filepath.Join(UserHomeDir(), ".volcengine", "config")
 }
 
+// SharedEndpointConfigFilename returns the SDK's default file path for
+// the shared endpoint config file.
+//
+// Builds the shared config file path based on the OS's platform.
+//
+//   - Linux/Unix: $HOME/.volcengine/endpoint
+//   - Windows: %USERPROFILE%\.volcengine\endpoint
+func SharedEndpointConfigFilename() string {
+	return filepath.Join(UserHomeDir(), ".volcengine", "endpoint")
+}
+
 // UserHomeDir returns the home directory for the user the process is
 // running under.
 func UserHomeDir() string {
