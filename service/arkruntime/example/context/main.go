@@ -4,6 +4,7 @@ import (
 	"context"
 	"fmt"
 	"io"
+	"os"
 
 	"github.com/volcengine/volcengine-go-sdk/service/arkruntime"
 	"github.com/volcengine/volcengine-go-sdk/service/arkruntime/model"
@@ -24,12 +25,12 @@ import (
  */
 
 func main() {
-	client := arkruntime.NewClientWithApiKey("2e4e9818-e73e-4187-9ceb-51004c169e21")
+	client := arkruntime.NewClientWithApiKey(os.Getenv("ARK_API_KEY"))
 	goCtx := context.Background()
 
 	fmt.Println("----- create context -----")
 	createCtxReq := model.CreateContextRequest{
-		Model: "ep-20241025215246-xswsg",
+		Model: "${YOUR_ENDPOINT_ID}",
 		// initial messages
 		Messages: []*model.ChatCompletionMessage{
 			{
@@ -55,7 +56,7 @@ func main() {
 	fmt.Println("----- chat round 1 (non-stream) -----")
 	req := model.ContextChatCompletionRequest{
 		ContextID: createCtxRsp.ID,
-		Model:     "ep-20241025215246-xswsg",
+		Model:     "${YOUR_ENDPOINT_ID}",
 		Messages: []*model.ChatCompletionMessage{
 			{
 				Role: model.ChatMessageRoleUser,
@@ -76,7 +77,7 @@ func main() {
 	fmt.Println("----- chat round 2 (stream) -----")
 	req = model.ContextChatCompletionRequest{
 		ContextID: createCtxRsp.ID,
-		Model:     "ep-20241025215246-xswsg",
+		Model:     "${YOUR_ENDPOINT_ID}",
 		Messages: []*model.ChatCompletionMessage{
 			{
 				Role: model.ChatMessageRoleUser,
