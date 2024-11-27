@@ -284,9 +284,6 @@ func envConfigLoad(enableSharedConfig bool) envConfig {
 	if len(cfg.SharedConfigFile) == 0 {
 		cfg.SharedConfigFile = defaults.SharedConfigFilename()
 	}
-	if len(cfg.EndpointConfigPath) == 0 {
-		cfg.EndpointConfigPath = defaults.SharedEndpointConfigFilename()
-	}
 
 	cfg.CustomCABundle = os.Getenv("VOLCSTACK_CA_BUNDLE")
 

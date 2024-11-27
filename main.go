@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 
-	"github.com/volcengine/volcengine-go-sdk/service/autoscaling"
+	"github.com/volcengine/volcengine-go-sdk/service/ecs"
 	"github.com/volcengine/volcengine-go-sdk/volcengine"
 	"github.com/volcengine/volcengine-go-sdk/volcengine/credentials"
 	"github.com/volcengine/volcengine-go-sdk/volcengine/session"
@@ -13,18 +13,20 @@ func main() {
 	ak, sk, region := "Your AK", "Your SK", "cn-beijing"
 	config := volcengine.NewConfig().
 		WithRegion(region).
-		WithCredentials(credentials.NewStaticCredentials(ak, sk, "")).WithEndpointConfigState(true)
+		WithCredentials(credentials.NewStaticCredentials(ak, sk, "")).
+		WithEndpointConfigState(true)
 	sess, err := session.NewSession(config)
 	if err != nil {
 		panic(err)
 	}
-	svc := autoscaling.New(sess)
-	attachInstancesInput := &autoscaling.AttachInstancesInput{
-		InstanceIds:    volcengine.StringSlice([]string{"i-ybmike5l70l8j1ha****"}),
-		ScalingGroupId: volcengine.String("scg-ybmssdnnhn5pkgyd****"),
+	svc := ecs.New(sess)
+	describeAvailableResourceInput := &ecs.DescribeAvailableResourceInput{
+		DestinationResource: volcengine.String("InstanceType"),
+		InstanceTypeId:      volcengine.String("ecs.g2i.large"),
+		ZoneId:              volcengine.String("cn-*****"),
 	}
 
-	resp, err := svc.AttachInstances(attachInstancesInput)
+	resp, err := svc.DescribeAvailableResource(describeAvailableResourceInput)
 	if err != nil {
 		panic(err)
 	}

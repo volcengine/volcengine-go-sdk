@@ -527,6 +527,8 @@ func mergeConfigSrcs(cfg, userCfg *volcengine.Config,
 			cfg.WithEndpointConfigPath(envCfg.EndpointConfigPath)
 		} else if envCfg.EnableSharedConfig && len(sharedCfg.EndpointConfigPath) > 0 {
 			cfg.WithEndpointConfigPath(sharedCfg.EndpointConfigPath)
+		} else {
+			cfg.WithEndpointConfigPath(defaults.SharedEndpointConfigFilename())
 		}
 	}
 
