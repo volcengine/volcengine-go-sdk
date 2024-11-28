@@ -464,6 +464,12 @@ func (s *PermissionGroupForDescribeMountPointsOutput) SetPermissionRuleCount(v i
 const (
 	// EnumOfFileSystemTypeForDescribeMountPointsOutputExtreme is a EnumOfFileSystemTypeForDescribeMountPointsOutput enum value
 	EnumOfFileSystemTypeForDescribeMountPointsOutputExtreme = "Extreme"
+
+	// EnumOfFileSystemTypeForDescribeMountPointsOutputCapacity is a EnumOfFileSystemTypeForDescribeMountPointsOutput enum value
+	EnumOfFileSystemTypeForDescribeMountPointsOutputCapacity = "Capacity"
+
+	// EnumOfFileSystemTypeForDescribeMountPointsOutputCache is a EnumOfFileSystemTypeForDescribeMountPointsOutput enum value
+	EnumOfFileSystemTypeForDescribeMountPointsOutputCache = "Cache"
 )
 
 const (
