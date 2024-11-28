@@ -411,6 +411,12 @@ const (
 const (
 	// EnumOfFileSystemTypeForDescribePermissionGroupsOutputExtreme is a EnumOfFileSystemTypeForDescribePermissionGroupsOutput enum value
 	EnumOfFileSystemTypeForDescribePermissionGroupsOutputExtreme = "Extreme"
+
+	// EnumOfFileSystemTypeForDescribePermissionGroupsOutputCapacity is a EnumOfFileSystemTypeForDescribePermissionGroupsOutput enum value
+	EnumOfFileSystemTypeForDescribePermissionGroupsOutputCapacity = "Capacity"
+
+	// EnumOfFileSystemTypeForDescribePermissionGroupsOutputCache is a EnumOfFileSystemTypeForDescribePermissionGroupsOutput enum value
+	EnumOfFileSystemTypeForDescribePermissionGroupsOutputCache = "Cache"
 )
 
 const (

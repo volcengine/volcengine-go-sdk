@@ -143,6 +143,44 @@ func (c *FILENAS) DescribeFileSystemsWithContext(ctx volcengine.Context, input *
 	return out, req.Send()
 }
 
+type CachePerformanceForDescribeFileSystemsOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	BaseBandwidth *int32 `type:"int32" json:",omitempty"`
+
+	CacheBandwidth *int32 `type:"int32" json:",omitempty"`
+
+	DataFlowBandwidth *int32 `type:"int32" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s CachePerformanceForDescribeFileSystemsOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s CachePerformanceForDescribeFileSystemsOutput) GoString() string {
+	return s.String()
+}
+
+// SetBaseBandwidth sets the BaseBandwidth field's value.
+func (s *CachePerformanceForDescribeFileSystemsOutput) SetBaseBandwidth(v int32) *CachePerformanceForDescribeFileSystemsOutput {
+	s.BaseBandwidth = &v
+	return s
+}
+
+// SetCacheBandwidth sets the CacheBandwidth field's value.
+func (s *CachePerformanceForDescribeFileSystemsOutput) SetCacheBandwidth(v int32) *CachePerformanceForDescribeFileSystemsOutput {
+	s.CacheBandwidth = &v
+	return s
+}
+
+// SetDataFlowBandwidth sets the DataFlowBandwidth field's value.
+func (s *CachePerformanceForDescribeFileSystemsOutput) SetDataFlowBandwidth(v int32) *CachePerformanceForDescribeFileSystemsOutput {
+	s.DataFlowBandwidth = &v
+	return s
+}
+
 type CapacityForDescribeFileSystemsOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -294,6 +332,8 @@ func (s *DescribeFileSystemsOutput) SetTotalCount(v int32) *DescribeFileSystemsO
 type FileSystemForDescribeFileSystemsOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	CachePerformance *CachePerformanceForDescribeFileSystemsOutput `type:"structure" json:",omitempty"`
+
 	Capacity *CapacityForDescribeFileSystemsOutput `type:"structure" json:",omitempty"`
 
 	ChargeType *string `type:"string" json:",omitempty" enum:"EnumOfChargeTypeForDescribeFileSystemsOutput"`
@@ -339,6 +379,12 @@ func (s FileSystemForDescribeFileSystemsOutput) String() string {
 // GoString returns the string representation
 func (s FileSystemForDescribeFileSystemsOutput) GoString() string {
 	return s.String()
+}
+
+// SetCachePerformance sets the CachePerformance field's value.
+func (s *FileSystemForDescribeFileSystemsOutput) SetCachePerformance(v *CachePerformanceForDescribeFileSystemsOutput) *FileSystemForDescribeFileSystemsOutput {
+	s.CachePerformance = v
+	return s
 }
 
 // SetCapacity sets the Capacity field's value.
@@ -564,6 +610,12 @@ const (
 const (
 	// EnumOfFileSystemTypeForDescribeFileSystemsInputExtreme is a EnumOfFileSystemTypeForDescribeFileSystemsInput enum value
 	EnumOfFileSystemTypeForDescribeFileSystemsInputExtreme = "Extreme"
+
+	// EnumOfFileSystemTypeForDescribeFileSystemsInputCapacity is a EnumOfFileSystemTypeForDescribeFileSystemsInput enum value
+	EnumOfFileSystemTypeForDescribeFileSystemsInputCapacity = "Capacity"
+
+	// EnumOfFileSystemTypeForDescribeFileSystemsInputCache is a EnumOfFileSystemTypeForDescribeFileSystemsInput enum value
+	EnumOfFileSystemTypeForDescribeFileSystemsInputCache = "Cache"
 )
 
 const (
