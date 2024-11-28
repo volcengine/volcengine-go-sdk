@@ -146,6 +146,8 @@ func (c *FILENAS) CreateFileSystemWithContext(ctx volcengine.Context, input *Cre
 type CreateFileSystemInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	CacheBandwidth *int32 `min:"700" max:"100000" type:"int32" json:",omitempty"`
+
 	// Capacity is a required field
 	Capacity *int32 `type:"int32" json:",omitempty" required:"true"`
 
@@ -190,6 +192,12 @@ func (s CreateFileSystemInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *CreateFileSystemInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "CreateFileSystemInput"}
+	if s.CacheBandwidth != nil && *s.CacheBandwidth < 700 {
+		invalidParams.Add(request.NewErrParamMinValue("CacheBandwidth", 700))
+	}
+	if s.CacheBandwidth != nil && *s.CacheBandwidth > 100000 {
+		invalidParams.Add(request.NewErrParamMaxValue("CacheBandwidth", 100000))
+	}
 	if s.Capacity == nil {
 		invalidParams.Add(request.NewErrParamRequired("Capacity"))
 	}
@@ -222,6 +230,12 @@ func (s *CreateFileSystemInput) Validate() error {
 		return invalidParams
 	}
 	return nil
+}
+
+// SetCacheBandwidth sets the CacheBandwidth field's value.
+func (s *CreateFileSystemInput) SetCacheBandwidth(v int32) *CreateFileSystemInput {
+	s.CacheBandwidth = &v
+	return s
 }
 
 // SetCapacity sets the Capacity field's value.

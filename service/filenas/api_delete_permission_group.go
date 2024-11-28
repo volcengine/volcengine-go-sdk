@@ -210,4 +210,10 @@ func (s DeletePermissionGroupOutput) GoString() string {
 const (
 	// EnumOfFileSystemTypeForDeletePermissionGroupInputExtreme is a EnumOfFileSystemTypeForDeletePermissionGroupInput enum value
 	EnumOfFileSystemTypeForDeletePermissionGroupInputExtreme = "Extreme"
+
+	// EnumOfFileSystemTypeForDeletePermissionGroupInputCapacity is a EnumOfFileSystemTypeForDeletePermissionGroupInput enum value
+	EnumOfFileSystemTypeForDeletePermissionGroupInputCapacity = "Capacity"
+
+	// EnumOfFileSystemTypeForDeletePermissionGroupInputCache is a EnumOfFileSystemTypeForDeletePermissionGroupInput enum value
+	EnumOfFileSystemTypeForDeletePermissionGroupInputCache = "Cache"
 )
