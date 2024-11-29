@@ -489,12 +489,13 @@ func (c *Config) WithSleepDelay(fn func(time.Duration)) *Config {
 //	c.DisableEndpointHostPrefix = &t
 //	return c
 //}
-
+// WithEndpointConfigState will set whether or not to use FileEndpointResolver
 func (c *Config) WithEndpointConfigState(t bool) *Config {
 	c.EndpointConfigState = &t
 	return c
 }
 
+// WithEndpointConfigPath will set  fileEndpointResolver config path . This takes effect when EndpointConfigState is true.
 func (c *Config) WithEndpointConfigPath(path string) *Config {
 	c.EndpointConfigPath = &path
 	return c

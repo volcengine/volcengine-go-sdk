@@ -132,7 +132,6 @@ type envConfig struct {
 	//
 	//  VOLCSTACK_ENABLE_ENDPOINT_CONFIG_STATE=session_name
 	EndpointConfigState *bool
-	endpointConfigState string
 	// Specifies the endpoint config file path
 	//
 	//  VOLCSTACK_ENDPOINT_CONFIG_FILE=session_name
@@ -270,9 +269,10 @@ func envConfigLoad(enableSharedConfig bool) envConfig {
 	if len(cfg.enableEndpointDiscovery) > 0 {
 		cfg.EnableEndpointDiscovery = volcengine.Bool(cfg.enableEndpointDiscovery != "false")
 	}
-	setFromEnvVal(&cfg.endpointConfigState, enableEndpointConfigStateEnvKey)
+	var endpointConfigState string
+	setFromEnvVal(&endpointConfigState, enableEndpointConfigStateEnvKey)
 	if len(cfg.enableEndpointDiscovery) > 0 {
-		cfg.EndpointConfigState = volcengine.Bool(cfg.endpointConfigState != "false")
+		cfg.EndpointConfigState = volcengine.Bool(endpointConfigState != "false")
 	}
 	setFromEnvVal(&cfg.SharedCredentialsFile, sharedCredsFileEnvKey)
 	setFromEnvVal(&cfg.SharedConfigFile, sharedConfigFileEnvKey)
