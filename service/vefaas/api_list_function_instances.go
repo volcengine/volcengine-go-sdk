@@ -156,7 +156,13 @@ type ItemForListFunctionInstancesOutput struct {
 
 	InstanceStatus *string `type:"string" json:",omitempty"`
 
+	InstanceType *string `type:"string" json:",omitempty"`
+
 	RevisionNumber *int32 `type:"int32" json:",omitempty"`
+
+	UserVpcIP *string `type:"string" json:",omitempty"`
+
+	UserVpcIPv6 *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -199,9 +205,27 @@ func (s *ItemForListFunctionInstancesOutput) SetInstanceStatus(v string) *ItemFo
 	return s
 }
 
+// SetInstanceType sets the InstanceType field's value.
+func (s *ItemForListFunctionInstancesOutput) SetInstanceType(v string) *ItemForListFunctionInstancesOutput {
+	s.InstanceType = &v
+	return s
+}
+
 // SetRevisionNumber sets the RevisionNumber field's value.
 func (s *ItemForListFunctionInstancesOutput) SetRevisionNumber(v int32) *ItemForListFunctionInstancesOutput {
 	s.RevisionNumber = &v
+	return s
+}
+
+// SetUserVpcIP sets the UserVpcIP field's value.
+func (s *ItemForListFunctionInstancesOutput) SetUserVpcIP(v string) *ItemForListFunctionInstancesOutput {
+	s.UserVpcIP = &v
+	return s
+}
+
+// SetUserVpcIPv6 sets the UserVpcIPv6 field's value.
+func (s *ItemForListFunctionInstancesOutput) SetUserVpcIPv6(v string) *ItemForListFunctionInstancesOutput {
+	s.UserVpcIPv6 = &v
 	return s
 }
 
