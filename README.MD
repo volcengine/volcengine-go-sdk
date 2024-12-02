@@ -37,7 +37,11 @@
              WithCredentials(credentials.NewStaticCredentials(ak, sk, "")).
              WithRegion(region)
 
-	 sess, _ = session.NewSession(config)
+	 sess, err = session.NewSession(config)
+     if err != nil {
+		panic(err)
+	 }
+
 	 client = vpc.New(sess)
 
 	 resp, err = client.DescribeVpcs(&vpc.DescribeVpcsInput{
