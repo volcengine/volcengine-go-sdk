@@ -391,6 +391,16 @@ func newSession(opts Options, envCfg envConfig, cfgs ...*volcengine.Config) (*Se
 		return nil, err
 	}
 
+	if volcengine.BoolValue(cfg.EndpointConfigState) && cfg.EndpointResolver == nil {
+		resolver := &endpoints.FileEndpointConfigResolver{
+			Path: volcengine.StringValue(cfg.EndpointConfigPath),
+		}
+		if err := resolver.Load(); err != nil {
+			return nil, err
+		}
+		cfg.EndpointResolver = resolver
+	}
+
 	s := &Session{
 		Config:   cfg,
 		Handlers: handlers,
@@ -504,6 +514,24 @@ func mergeConfigSrcs(cfg, userCfg *volcengine.Config,
 		cfg.Credentials = creds
 	}
 
+	if cfg.EndpointConfigState == nil {
+		if envCfg.EndpointConfigState != nil {
+			cfg.WithEndpointConfigState(*envCfg.EndpointConfigState)
+		} else if envCfg.EnableSharedConfig && sharedCfg.EndpointConfigState != nil {
+			cfg.WithEndpointConfigState(*sharedCfg.EndpointConfigState)
+		}
+	}
+
+	if cfg.EndpointConfigPath == nil {
+		if len(envCfg.EndpointConfigPath) > 0 {
+			cfg.WithEndpointConfigPath(envCfg.EndpointConfigPath)
+		} else if envCfg.EnableSharedConfig && len(sharedCfg.EndpointConfigPath) > 0 {
+			cfg.WithEndpointConfigPath(sharedCfg.EndpointConfigPath)
+		} else {
+			cfg.WithEndpointConfigPath(defaults.SharedEndpointConfigFilename())
+		}
+	}
+
 	return nil
 }
 
@@ -553,7 +581,16 @@ func (s *Session) clientConfigWithErr(serviceName string, cfgs ...*volcengine.Co
 	region := volcengine.StringValue(s.Config.Region)
 
 	if s.Config.Endpoint == nil {
-		endpoint := volcengineutil.GetDefaultEndpointByServiceInfo(serviceName, region)
+		var endpoint *string
+		if volcengine.BoolValue(s.Config.EndpointConfigState) && s.Config.EndpointResolver != nil {
+			endpointFor, err := s.Config.EndpointResolver.EndpointFor(serviceName, region)
+			if err != nil {
+				return client.Config{}, err
+			}
+			endpoint = &endpointFor.URL
+		} else {
+			endpoint = volcengineutil.GetDefaultEndpointByServiceInfo(serviceName, region)
+		}
 		s.Config.Endpoint = endpoint
 	}
 

@@ -41,6 +41,11 @@ const (
 	// loading configuration from the config files if another profile name
 	// is not provided.
 	DefaultSharedConfigProfile = `default`
+
+	// endpointConfigState if true ,Enable endpoint config
+	endpointConfigState = "endpoint_config_state"
+	// endpointConfigPath Enable endpoint config file path
+	endpointConfigPath = "endpoint_config_path"
 )
 
 // sharedConfig represents the configuration fields of the SDK config files.
@@ -81,10 +86,12 @@ type sharedConfig struct {
 	EnableEndpointDiscovery *bool
 
 	// CSM Options
-	CSMEnabled  *bool
-	CSMHost     string
-	CSMPort     string
-	CSMClientID string
+	CSMEnabled          *bool
+	CSMHost             string
+	CSMPort             string
+	CSMClientID         string
+	EndpointConfigState *bool
+	EndpointConfigPath  string
 }
 
 type sharedConfigFile struct {
@@ -261,7 +268,8 @@ func (cfg *sharedConfig) setFromIniFile(profile string, file sharedConfigFile, e
 
 	// Endpoint discovery
 	updateBoolPtr(&cfg.EnableEndpointDiscovery, section, enableEndpointDiscoveryKey)
-
+	updateBoolPtr(&cfg.EndpointConfigState, section, endpointConfigState)
+	updateString(&cfg.EndpointConfigPath, section, endpointConfigPath)
 	return nil
 }
 

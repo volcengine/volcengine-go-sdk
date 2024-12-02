@@ -128,6 +128,14 @@ type envConfig struct {
 	//
 	//  VOLCSTACK_ROLE_SESSION_NAME=session_name
 	RoleSessionName string
+	// Specifies the endpoint config file path
+	//
+	//  VOLCSTACK_ENABLE_ENDPOINT_CONFIG_STATE=session_name
+	EndpointConfigState *bool
+	// Specifies the endpoint config file path
+	//
+	//  VOLCSTACK_ENDPOINT_CONFIG_FILE=session_name
+	EndpointConfigPath string
 }
 
 var (
@@ -158,6 +166,9 @@ var (
 	enableEndpointDiscoveryEnvKey = []string{
 		"VOLCSTACK_ENABLE_ENDPOINT_DISCOVERY",
 	}
+	enableEndpointConfigStateEnvKey = []string{
+		"VOLCSTACK_ENABLE_ENDPOINT_CONFIG_STATE",
+	}
 
 	regionEnvKeys = []string{
 		"VOLCSTACK_REGION",
@@ -172,6 +183,10 @@ var (
 	}
 	sharedConfigFileEnvKey = []string{
 		"VOLCSTACK_CONFIG_FILE",
+	}
+
+	EndpointConfigPathEnvKey = []string{
+		"VOLCSTACK_ENDPOINT_CONFIG_PATH",
 	}
 	webIdentityTokenFilePathEnvKey = []string{
 		"VOLCSTACK_WEB_IDENTITY_TOKEN_FILE",
@@ -254,9 +269,14 @@ func envConfigLoad(enableSharedConfig bool) envConfig {
 	if len(cfg.enableEndpointDiscovery) > 0 {
 		cfg.EnableEndpointDiscovery = volcengine.Bool(cfg.enableEndpointDiscovery != "false")
 	}
-
+	var endpointConfigState string
+	setFromEnvVal(&endpointConfigState, enableEndpointConfigStateEnvKey)
+	if len(cfg.enableEndpointDiscovery) > 0 {
+		cfg.EndpointConfigState = volcengine.Bool(endpointConfigState != "false")
+	}
 	setFromEnvVal(&cfg.SharedCredentialsFile, sharedCredsFileEnvKey)
 	setFromEnvVal(&cfg.SharedConfigFile, sharedConfigFileEnvKey)
+	setFromEnvVal(&cfg.EndpointConfigPath, EndpointConfigPathEnvKey)
 
 	if len(cfg.SharedCredentialsFile) == 0 {
 		cfg.SharedCredentialsFile = defaults.SharedCredentialsFilename()

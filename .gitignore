@@ -3,3 +3,4 @@
 /vendor/src/
 doc
 .idea
+!/main.go
