@@ -144,9 +144,9 @@ func (c *VOLCOBSERVE) DeleteRulesByIdsWithContext(ctx volcengine.Context, input 
 }
 
 type DeleteRulesByIdsInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Ids []*string `type:"list"`
+	Ids []*string `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -166,11 +166,11 @@ func (s *DeleteRulesByIdsInput) SetIds(v []*string) *DeleteRulesByIdsInput {
 }
 
 type DeleteRulesByIdsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	Data []*string `type:"list"`
+	Data []*string `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation

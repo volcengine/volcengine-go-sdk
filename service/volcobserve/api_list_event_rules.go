@@ -144,49 +144,49 @@ func (c *VOLCOBSERVE) ListEventRulesWithContext(ctx volcengine.Context, input *L
 }
 
 type DataForListEventRulesOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	AccountId *string `type:"string"`
+	AccountId *string `type:"string" json:",omitempty"`
 
-	ContactGroupIds []*string `type:"list"`
+	ContactGroupIds []*string `type:"list" json:",omitempty"`
 
-	ContactMethods []*string `type:"list"`
+	ContactMethods []*string `type:"list" json:",omitempty"`
 
-	CreatedAt *int64 `type:"integer"`
+	CreatedAt *int64 `type:"integer" json:",omitempty"`
 
-	Description *string `type:"string"`
+	Description *string `type:"string" json:",omitempty"`
 
-	EffectEndAt *string `type:"string"`
+	EffectEndAt *string `type:"string" json:",omitempty"`
 
-	EffectStartAt *string `type:"string"`
+	EffectStartAt *string `type:"string" json:",omitempty"`
 
-	EnableState *string `type:"string"`
+	EnableState *string `type:"string" json:",omitempty"`
 
-	Endpoint *string `type:"string"`
+	Endpoint *string `type:"string" json:",omitempty"`
 
-	EventBusName *string `type:"string"`
+	EventBusName *string `type:"string" json:",omitempty"`
 
-	EventType []*string `type:"list"`
+	EventType []*string `type:"list" json:",omitempty"`
 
-	FilterPattern map[string]*interface{} `type:"map"`
+	FilterPattern map[string]*interface{} `type:"map" json:",omitempty"`
 
-	Level *string `type:"string"`
+	Level *string `type:"string" json:",omitempty"`
 
-	MessageQueue *MessageQueueForListEventRulesOutput `type:"structure"`
+	MessageQueue *MessageQueueForListEventRulesOutput `type:"structure" json:",omitempty"`
 
-	Region *string `type:"string"`
+	Region *string `type:"string" json:",omitempty"`
 
-	RuleId *string `type:"string"`
+	RuleId *string `type:"string" json:",omitempty"`
 
-	RuleName *string `type:"string"`
+	RuleName *string `type:"string" json:",omitempty"`
 
-	Source *string `type:"string"`
+	Source *string `type:"string" json:",omitempty"`
 
-	TLSTarget []*TLSTargetForListEventRulesOutput `type:"list"`
+	TLSTarget []*TLSTargetForListEventRulesOutput `type:"list" json:",omitempty"`
 
-	UpdatedAt *int64 `type:"integer"`
+	UpdatedAt *int64 `type:"integer" json:",omitempty"`
 
-	WebhookIds []*string `type:"list"`
+	WebhookIds []*string `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -326,21 +326,21 @@ func (s *DataForListEventRulesOutput) SetWebhookIds(v []*string) *DataForListEve
 }
 
 type ListEventRulesInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Asc *bool `type:"boolean"`
+	Asc *bool `type:"boolean" json:",omitempty"`
 
-	OrderBy *string `type:"string"`
+	OrderBy *string `type:"string" json:",omitempty"`
 
-	PageNumber *int64 `type:"integer"`
+	PageNumber *int64 `type:"integer" json:",omitempty"`
 
-	PageSize *int64 `type:"integer"`
+	PageSize *int64 `type:"integer" json:",omitempty"`
 
-	RuleName *string `type:"string"`
+	RuleName *string `type:"string" json:",omitempty"`
 
-	Source []*string `type:"list"`
+	Source []*string `type:"list" json:",omitempty"`
 
-	Status []*string `type:"list"`
+	Status []*string `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -396,21 +396,21 @@ func (s *ListEventRulesInput) SetStatus(v []*string) *ListEventRulesInput {
 }
 
 type ListEventRulesOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	Asc *bool `type:"boolean"`
+	Asc *bool `type:"boolean" json:",omitempty"`
 
-	Data []*DataForListEventRulesOutput `type:"list"`
+	Data []*DataForListEventRulesOutput `type:"list" json:",omitempty"`
 
-	OrderBy *string `type:"string"`
+	OrderBy *string `type:"string" json:",omitempty"`
 
-	PageNumber *int64 `type:"integer"`
+	PageNumber *int64 `type:"integer" json:",omitempty"`
 
-	PageSize *int64 `type:"integer"`
+	PageSize *int64 `type:"integer" json:",omitempty"`
 
-	TotalCount *int64 `type:"integer"`
+	TotalCount *int64 `type:"integer" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -460,17 +460,17 @@ func (s *ListEventRulesOutput) SetTotalCount(v int64) *ListEventRulesOutput {
 }
 
 type MessageQueueForListEventRulesOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	InstanceId *string `type:"string"`
+	InstanceId *string `type:"string" json:",omitempty"`
 
-	Region *string `type:"string"`
+	Region *string `type:"string" json:",omitempty"`
 
-	Topic *string `type:"string"`
+	Topic *string `type:"string" json:",omitempty"`
 
-	Type *string `type:"string"`
+	Type *string `type:"string" json:",omitempty"`
 
-	VpcId *string `type:"string"`
+	VpcId *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -514,17 +514,17 @@ func (s *MessageQueueForListEventRulesOutput) SetVpcId(v string) *MessageQueueFo
 }
 
 type TLSTargetForListEventRulesOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	ProjectId *string `type:"string"`
+	ProjectId *string `type:"string" json:",omitempty"`
 
-	ProjectName *string `type:"string"`
+	ProjectName *string `type:"string" json:",omitempty"`
 
-	RegionNameCN *string `type:"string"`
+	RegionNameCN *string `type:"string" json:",omitempty"`
 
-	RegionNameEN *string `type:"string"`
+	RegionNameEN *string `type:"string" json:",omitempty"`
 
-	TopicId *string `type:"string"`
+	TopicId *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation

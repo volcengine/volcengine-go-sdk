@@ -144,9 +144,9 @@ func (c *VOLCOBSERVE) DisableEventRuleWithContext(ctx volcengine.Context, input 
 }
 
 type DataForDisableEventRuleOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	RuleId []*string `type:"list"`
+	RuleId []*string `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -166,9 +166,9 @@ func (s *DataForDisableEventRuleOutput) SetRuleId(v []*string) *DataForDisableEv
 }
 
 type DisableEventRuleInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	RuleId []*string `type:"list"`
+	RuleId []*string `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -188,11 +188,11 @@ func (s *DisableEventRuleInput) SetRuleId(v []*string) *DisableEventRuleInput {
 }
 
 type DisableEventRuleOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	Data *DataForDisableEventRuleOutput `type:"structure"`
+	Data *DataForDisableEventRuleOutput `type:"structure" json:",omitempty"`
 }
 
 // String returns the string representation

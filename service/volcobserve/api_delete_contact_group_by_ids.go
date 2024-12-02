@@ -144,9 +144,9 @@ func (c *VOLCOBSERVE) DeleteContactGroupByIdsWithContext(ctx volcengine.Context,
 }
 
 type DeleteContactGroupByIdsInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Ids []*string `type:"list"`
+	Ids []*string `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -166,11 +166,11 @@ func (s *DeleteContactGroupByIdsInput) SetIds(v []*string) *DeleteContactGroupBy
 }
 
 type DeleteContactGroupByIdsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	Data []*string `type:"list"`
+	Data []*string `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation

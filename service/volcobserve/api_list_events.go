@@ -144,21 +144,21 @@ func (c *VOLCOBSERVE) ListEventsWithContext(ctx volcengine.Context, input *ListE
 }
 
 type DataForListEventsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Detail map[string]*interface{} `type:"map"`
+	Detail map[string]*interface{} `type:"map" json:",omitempty"`
 
-	EventBusName *string `type:"string"`
+	EventBusName *string `type:"string" json:",omitempty"`
 
-	EventType *string `type:"string"`
+	EventType *string `type:"string" json:",omitempty"`
 
-	HappenTime *int64 `type:"integer"`
+	HappenTime *int64 `type:"integer" json:",omitempty"`
 
-	ID *string `type:"string"`
+	ID *string `type:"string" json:",omitempty"`
 
-	Region *string `type:"string"`
+	Region *string `type:"string" json:",omitempty"`
 
-	Source *string `type:"string"`
+	Source *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -214,27 +214,27 @@ func (s *DataForListEventsOutput) SetSource(v string) *DataForListEventsOutput {
 }
 
 type ListEventsInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Asc *bool `type:"boolean"`
+	Asc *bool `type:"boolean" json:",omitempty"`
 
-	EndTime *int64 `type:"integer"`
+	EndTime *int64 `type:"integer" json:",omitempty"`
 
-	EventType []*string `type:"list"`
+	EventType []*string `type:"list" json:",omitempty"`
 
-	ID []*string `type:"list"`
+	ID []*string `type:"list" json:",omitempty"`
 
-	OrderBy *string `type:"string" enum:"EnumOfOrderByForListEventsInput"`
+	OrderBy *string `type:"string" json:",omitempty" enum:"EnumOfOrderByForListEventsInput"`
 
-	PageNumber *int64 `type:"integer"`
+	PageNumber *int64 `type:"integer" json:",omitempty"`
 
-	PageSize *int64 `type:"integer"`
+	PageSize *int64 `type:"integer" json:",omitempty"`
 
-	Region *string `type:"string"`
+	Region *string `type:"string" json:",omitempty"`
 
-	Source []*string `type:"list"`
+	Source []*string `type:"list" json:",omitempty"`
 
-	StartTime *int64 `type:"integer"`
+	StartTime *int64 `type:"integer" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -308,21 +308,21 @@ func (s *ListEventsInput) SetStartTime(v int64) *ListEventsInput {
 }
 
 type ListEventsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	Asc *bool `type:"boolean"`
+	Asc *bool `type:"boolean" json:",omitempty"`
 
-	Data []*DataForListEventsOutput `type:"list"`
+	Data []*DataForListEventsOutput `type:"list" json:",omitempty"`
 
-	OrderBy *string `type:"string"`
+	OrderBy *string `type:"string" json:",omitempty"`
 
-	PageNumber *int64 `type:"integer"`
+	PageNumber *int64 `type:"integer" json:",omitempty"`
 
-	PageSize *int64 `type:"integer"`
+	PageSize *int64 `type:"integer" json:",omitempty"`
 
-	TotalCount *int64 `type:"integer"`
+	TotalCount *int64 `type:"integer" json:",omitempty"`
 }
 
 // String returns the string representation

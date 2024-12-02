@@ -144,41 +144,41 @@ func (c *VOLCOBSERVE) CreateEventRuleWithContext(ctx volcengine.Context, input *
 }
 
 type CreateEventRuleInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	ContactGroupIds []*string `type:"list"`
+	ContactGroupIds []*string `type:"list" json:",omitempty"`
 
-	ContactMethods []*string `type:"list"`
+	ContactMethods []*string `type:"list" json:",omitempty"`
 
-	Description *string `type:"string"`
+	Description *string `type:"string" json:",omitempty"`
 
-	EffectiveTime *EffectiveTimeForCreateEventRuleInput `type:"structure"`
+	EffectiveTime *EffectiveTimeForCreateEventRuleInput `type:"structure" json:",omitempty"`
 
-	Endpoint *string `type:"string"`
+	Endpoint *string `type:"string" json:",omitempty"`
 
 	// EventBusName is a required field
-	EventBusName *string `min:"2" max:"127" type:"string" required:"true" enum:"EnumOfEventBusNameForCreateEventRuleInput"`
+	EventBusName *string `min:"2" max:"127" type:"string" json:",omitempty" required:"true" enum:"EnumOfEventBusNameForCreateEventRuleInput"`
 
 	// EventSource is a required field
-	EventSource *string `type:"string" required:"true"`
+	EventSource *string `type:"string" json:",omitempty" required:"true"`
 
-	EventType []*string `type:"list"`
+	EventType []*string `type:"list" json:",omitempty"`
 
-	FilterPattern map[string]*interface{} `type:"map"`
+	FilterPattern map[string]*interface{} `type:"map" json:",omitempty"`
 
 	// Level is a required field
-	Level *string `type:"string" required:"true"`
+	Level *string `type:"string" json:",omitempty" required:"true"`
 
-	MessageQueue []*MessageQueueForCreateEventRuleInput `type:"list"`
+	MessageQueue []*MessageQueueForCreateEventRuleInput `type:"list" json:",omitempty"`
 
 	// RuleName is a required field
-	RuleName *string `min:"2" max:"127" type:"string" required:"true"`
+	RuleName *string `min:"2" max:"127" type:"string" json:",omitempty" required:"true"`
 
-	Status *string `type:"string" enum:"EnumOfStatusForCreateEventRuleInput"`
+	Status *string `type:"string" json:",omitempty" enum:"EnumOfStatusForCreateEventRuleInput"`
 
-	TLSTarget []*TLSTargetForCreateEventRuleInput `type:"list"`
+	TLSTarget []*TLSTargetForCreateEventRuleInput `type:"list" json:",omitempty"`
 
-	WebhookIds []*string `type:"list"`
+	WebhookIds []*string `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -316,11 +316,11 @@ func (s *CreateEventRuleInput) SetWebhookIds(v []*string) *CreateEventRuleInput 
 }
 
 type CreateEventRuleOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	Data *DataForCreateEventRuleOutput `type:"structure"`
+	Data *DataForCreateEventRuleOutput `type:"structure" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -340,9 +340,9 @@ func (s *CreateEventRuleOutput) SetData(v *DataForCreateEventRuleOutput) *Create
 }
 
 type DataForCreateEventRuleOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	RuleId *string `type:"string"`
+	RuleId *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -362,11 +362,11 @@ func (s *DataForCreateEventRuleOutput) SetRuleId(v string) *DataForCreateEventRu
 }
 
 type EffectiveTimeForCreateEventRuleInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	EndTime *string `type:"string"`
+	EndTime *string `type:"string" json:",omitempty"`
 
-	StartTime *string `type:"string"`
+	StartTime *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -392,25 +392,25 @@ func (s *EffectiveTimeForCreateEventRuleInput) SetStartTime(v string) *Effective
 }
 
 type MessageQueueForCreateEventRuleInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	AuthEncrypt []*int64 `type:"list"`
+	AuthEncrypt []*int64 `type:"list" json:",omitempty"`
 
-	Endpoints *string `type:"string"`
+	Endpoints *string `type:"string" json:",omitempty"`
 
-	InstanceId *string `type:"string"`
+	InstanceId *string `type:"string" json:",omitempty"`
 
-	Password *string `type:"string"`
+	Password *string `type:"string" json:",omitempty"`
 
-	Region *string `type:"string"`
+	Region *string `type:"string" json:",omitempty"`
 
-	Topic *string `type:"string"`
+	Topic *string `type:"string" json:",omitempty"`
 
-	Type *string `type:"string"`
+	Type *string `type:"string" json:",omitempty"`
 
-	Username *string `type:"string"`
+	Username *string `type:"string" json:",omitempty"`
 
-	VpcId *string `type:"string"`
+	VpcId *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -478,17 +478,17 @@ func (s *MessageQueueForCreateEventRuleInput) SetVpcId(v string) *MessageQueueFo
 }
 
 type TLSTargetForCreateEventRuleInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	ProjectId *string `type:"string"`
+	ProjectId *string `type:"string" json:",omitempty"`
 
-	ProjectName *string `type:"string"`
+	ProjectName *string `type:"string" json:",omitempty"`
 
-	RegionNameCN *string `type:"string"`
+	RegionNameCN *string `type:"string" json:",omitempty"`
 
-	RegionNameEN *string `type:"string"`
+	RegionNameEN *string `type:"string" json:",omitempty"`
 
-	TopicId *string `type:"string"`
+	TopicId *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
