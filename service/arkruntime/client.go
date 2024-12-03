@@ -267,7 +267,6 @@ func (c *Client) DoBatch(ctx context.Context, method, url, resourceType, resourc
 		if innerErr != nil {
 			retryAfter := c.getRetryAfter(v)
 			if retryAfter > 0 {
-				fmt.Printf("retry after %d seconds for model %s\n", retryAfter, resourceId)
 				return utils.BatchTaskResult{RequeueAfter: retryAfter}, innerErr
 			}
 			return utils.BatchTaskResult{}, innerErr
