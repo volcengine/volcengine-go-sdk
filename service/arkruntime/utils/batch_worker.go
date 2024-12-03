@@ -9,12 +9,11 @@ import (
 )
 
 type BatchTask struct {
-	Model         string
-	DoneChan      chan error
-	TaskFunc      func() (BatchTaskResult, error)
-	MaxRetryTimes int
-	RetryTimes    int
-	Context       context.Context
+	Model      string
+	DoneChan   chan error
+	TaskFunc   func() (BatchTaskResult, error)
+	RetryTimes int
+	Context    context.Context
 }
 
 type BatchTaskResult struct {
@@ -36,20 +35,18 @@ func NewBatchWorkerPool(workerNum int) *BatchWorkerPool {
 		breakerLock:  sync.Mutex{},
 		modelBreaker: map[string]*Breaker{},
 		retryPolicy: RetryPolicy{
-			MaxAttempts:    3,
 			InitialBackoff: 500 * time.Millisecond,
 			MaxBackoff:     5 * time.Second,
 		},
 	}
 }
 
-func (p *BatchWorkerPool) Submit(ctx context.Context, model string, taskFunc func() (BatchTaskResult, error), doneChan chan error, maxRetryTimes int) {
+func (p *BatchWorkerPool) Submit(ctx context.Context, model string, taskFunc func() (BatchTaskResult, error), doneChan chan error) {
 	p.taskQueue <- BatchTask{
-		Context:       ctx,
-		Model:         model,
-		DoneChan:      doneChan,
-		TaskFunc:      taskFunc,
-		MaxRetryTimes: maxRetryTimes,
+		Context:  ctx,
+		Model:    model,
+		DoneChan: doneChan,
+		TaskFunc: taskFunc,
 	}
 }
 
@@ -81,10 +78,6 @@ func (p *BatchWorkerPool) Run() {
 				result, err := task.TaskFunc()
 				if err == nil {
 					close(task.DoneChan)
-					continue
-				}
-				if task.RetryTimes == task.MaxRetryTimes {
-					task.DoneChan <- err
 					continue
 				}
 				task.RetryTimes++

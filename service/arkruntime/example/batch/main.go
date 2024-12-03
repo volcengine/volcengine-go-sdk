@@ -3,11 +3,8 @@ package main
 import (
 	"context"
 	"fmt"
-	"net/http"
 	"os"
-	"strconv"
 	"sync"
-	"sync/atomic"
 	"time"
 
 	"github.com/volcengine/volcengine-go-sdk/service/arkruntime"
@@ -16,46 +13,23 @@ import (
 )
 
 func main() {
-	retryTimes, err := strconv.Atoi(os.Getenv("RETRY_TIMES"))
-	if err != nil {
-		retryTimes = 5
-	}
-	timeout, err := time.ParseDuration(os.Getenv("TIMEOUT"))
-	if err != nil {
-		timeout = 10 * time.Minute
-	}
+	timeout := time.Minute * 30
+	workerNum := 10000
 
-	workerNum, err := strconv.Atoi(os.Getenv("WORKER_NUM"))
-	if err != nil {
-		workerNum = 100
-	}
-	taskNum, err := strconv.Atoi(os.Getenv("TASK_NUM"))
-	if err != nil {
-		taskNum = 5
-	}
-	client := arkruntime.NewClientWithApiKey(os.Getenv("ARK_API_KEY"), arkruntime.WithRetryTimes(retryTimes), arkruntime.WithBaseUrl("https://ark-stg.cn-beijing.volces.com/api/v3"), arkruntime.WithTimeout(timeout), arkruntime.WithHTTPClient(&http.Client{Timeout: timeout, Transport: &http.Transport{
-		IdleConnTimeout: timeout,
-		MaxIdleConns:    workerNum,
-		MaxConnsPerHost: workerNum,
-	}}))
-
+	client := arkruntime.NewClientWithApiKey(os.Getenv("ARK_API_KEY"), arkruntime.WithTimeout(timeout))
 	client.StartBatchWorker(workerNum)
 
 	ctx := context.Background()
 	i := 0
+	taskNum := 5
 	wg := sync.WaitGroup{}
-	start := time.Now()
-	successCount := atomic.Int32{}
-	failCount := atomic.Int32{}
 	for i < workerNum {
 		wg.Add(1)
 		go func(index int) {
 			defer wg.Done()
 			j := 0
-			fmt.Printf("worker %d start\n", index)
 			for j < taskNum {
 				_, err := client.CreateBatchChatCompletion(ctx, model.ChatCompletionRequest{
-					//Model: "ep-20241121212908-lv8jf",
 					Model: os.Getenv("ENDPOINT_ID"),
 					Messages: []*model.ChatCompletionMessage{
 						{
@@ -75,17 +49,11 @@ func main() {
 				j++
 				if err != nil {
 					fmt.Printf("worker %d request %d Fail Err %s\n", index, j, err)
-					failCount.Add(1)
 					continue
 				}
-				successCount.Add(1)
-				fmt.Printf("worker %d request %d Success\n", index, j)
 			}
 		}(i)
 		i++
 	}
 	wg.Wait()
-	fmt.Printf("耗时: %fs\n", time.Since(start).Seconds())
-	fmt.Printf("成功任务数: %d\n", successCount.Load())
-	fmt.Printf("失败任务数: %d\n", failCount.Load())
 }

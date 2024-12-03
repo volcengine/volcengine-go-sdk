@@ -272,7 +272,7 @@ func (c *Client) DoBatch(ctx context.Context, method, url, resourceType, resourc
 			return utils.BatchTaskResult{}, innerErr
 		}
 		return utils.BatchTaskResult{}, nil
-	}, doneChan, c.config.RetryTimes)
+	}, doneChan)
 	select {
 	case doneErr := <-doneChan:
 		return doneErr
