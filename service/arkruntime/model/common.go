@@ -8,6 +8,7 @@ import (
 
 const (
 	ClientRequestHeader = "X-Client-Request-Id"
+	RetryAfterHeader    = "Retry-After"
 
 	DefaultMandatoryRefreshTimeout = 10 * 60          // 10 min
 	DefaultAdvisoryRefreshTimeout  = 30 * 60          // 30 min
@@ -28,12 +29,17 @@ type Usage struct {
 
 type Response interface {
 	SetHeader(http.Header)
+	GetHeader() http.Header
 }
 
 type HttpHeader http.Header
 
 func (h *HttpHeader) SetHeader(header http.Header) {
 	*h = HttpHeader(header)
+}
+
+func (h *HttpHeader) GetHeader() http.Header {
+	return http.Header(*h)
 }
 
 func (h *HttpHeader) Header() http.Header {

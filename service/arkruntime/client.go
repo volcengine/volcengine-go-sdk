@@ -8,6 +8,7 @@ import (
 	"fmt"
 	"io"
 	"net/http"
+	"strconv"
 	"strings"
 	"sync"
 	"time"
@@ -31,6 +32,9 @@ type Client struct {
 	rwLock                  *sync.RWMutex
 	advisoryRefreshTimeout  int
 	mandatoryRefreshTimeout int
+
+	batchWorkerOnce sync.Once
+	batchWorkerPool *utils.BatchWorkerPool
 }
 
 func NewClientWithApiKey(apiKey string, setters ...ConfigOption) *Client {
@@ -252,6 +256,32 @@ func (c *Client) Do(ctx context.Context, method, url, resourceType, resourceId s
 	return
 }
 
+func (c *Client) DoBatch(ctx context.Context, method, url, resourceType, resourceId string, v model.Response, setters ...requestOption) error {
+	doneChan := make(chan error, 1)
+	c.batchWorkerPool.Submit(ctx, resourceId, func() (utils.BatchTaskResult, error) {
+		req, err := c.newRequest(ctx, method, url, resourceType, resourceId, setters...)
+		if err != nil {
+			return utils.BatchTaskResult{}, err
+		}
+		innerErr := c.sendRequest(req, v)
+		if innerErr != nil {
+			retryAfter := c.getRetryAfter(v)
+			if retryAfter > 0 {
+				fmt.Printf("retry after %d seconds for model %s\n", retryAfter, resourceId)
+				return utils.BatchTaskResult{RequeueAfter: retryAfter}, innerErr
+			}
+			return utils.BatchTaskResult{}, innerErr
+		}
+		return utils.BatchTaskResult{}, nil
+	}, doneChan, c.config.RetryTimes)
+	select {
+	case doneErr := <-doneChan:
+		return doneErr
+	case <-ctx.Done():
+		return ctx.Err()
+	}
+}
+
 func (c *Client) sendRequestRaw(req *http.Request) (response model.RawResponse, err error) {
 	requestID := req.Header.Get(model.ClientRequestHeader)
 	resp, err := c.config.HTTPClient.Do(req) //nolint:bodyclose // body should be closed by outer function
@@ -450,4 +480,17 @@ func (c *Client) handleErrorResp(resp *http.Response) error {
 	errRes.Error.HTTPStatusCode = resp.StatusCode
 	errRes.Error.RequestId = requestID
 	return errRes.Error
+}
+
+func (c *Client) getRetryAfter(v model.Response) int64 {
+	header := v.GetHeader()
+	retryAfter := header[model.RetryAfterHeader]
+	if len(retryAfter) == 0 || retryAfter[0] == "" {
+		return 0
+	}
+	retryAfterInterval, err := strconv.ParseInt(retryAfter[0], 10, 64)
+	if err != nil {
+		return 0
+	}
+	return retryAfterInterval
 }
