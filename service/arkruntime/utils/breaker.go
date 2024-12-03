@@ -21,5 +21,5 @@ func (b *Breaker) Reset(Duration time.Duration) {
 }
 
 func (b *Breaker) GetAllowedDuration() time.Duration {
-	return b.LastTime.Sub(time.Now())
+	return time.Until(b.LastTime)
 }

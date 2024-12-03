@@ -3,9 +3,7 @@ package main
 import (
 	"context"
 	"fmt"
-	"log"
 	"net/http"
-	_ "net/http/pprof"
 	"os"
 	"strconv"
 	"sync"
@@ -18,11 +16,6 @@ import (
 )
 
 func main() {
-	go func() {
-		log.Println(http.ListenAndServe("localhost:6060", nil))
-	}()
-	//os.Setenv("ARK_API_KEY", "e0b31760-c725-4478-8a7a-4126df8c37b2")
-	//os.Setenv("ARK_API_KEY", "171d8284-ca9d-4da4-989a-fa9cd3bb1216")
 	retryTimes, err := strconv.Atoi(os.Getenv("RETRY_TIMES"))
 	if err != nil {
 		retryTimes = 5
@@ -92,7 +85,7 @@ func main() {
 		i++
 	}
 	wg.Wait()
-	fmt.Printf("耗时: %fs\n", time.Now().Sub(start).Seconds())
+	fmt.Printf("耗时: %fs\n", time.Since(start).Seconds())
 	fmt.Printf("成功任务数: %d\n", successCount.Load())
 	fmt.Printf("失败任务数: %d\n", failCount.Load())
 }
