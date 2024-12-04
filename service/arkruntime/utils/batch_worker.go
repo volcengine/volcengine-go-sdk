@@ -65,7 +65,6 @@ func (p *BatchWorkerPool) Run() {
 				// 任务被取消
 				case <-task.Context.Done():
 					task.DoneChan <- task.Context.Err()
-					continue
 				default:
 					breaker := p.GetOrCreateBreaker(task.Model)
 					if !breaker.IsAllowed() {
