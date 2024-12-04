@@ -24,7 +24,7 @@ type BatchWorkerPool struct {
 	workerNum    int
 	taskQueue    chan BatchTask
 	breakerLock  sync.Mutex
-	modelBreaker map[string]*Breaker
+	modelBreaker sync.Map
 	retryPolicy  RetryPolicy
 }
 
@@ -33,7 +33,7 @@ func NewBatchWorkerPool(workerNum int) *BatchWorkerPool {
 		workerNum:    workerNum,
 		taskQueue:    make(chan BatchTask, workerNum),
 		breakerLock:  sync.Mutex{},
-		modelBreaker: map[string]*Breaker{},
+		modelBreaker: sync.Map{},
 		retryPolicy: RetryPolicy{
 			InitialBackoff: 500 * time.Millisecond,
 			MaxBackoff:     5 * time.Second,
@@ -67,26 +67,24 @@ func (p *BatchWorkerPool) Run() {
 					task.DoneChan <- task.Context.Err()
 					continue
 				default:
+					breaker := p.GetOrCreateBreaker(task.Model)
+					if !breaker.IsAllowed() {
+						p.AddAfter(task, breaker.GetAllowedDuration())
+						continue
+					}
+					result, err := task.TaskFunc()
+					if err == nil {
+						close(task.DoneChan)
+						continue
+					}
+					task.RetryTimes++
+					if result.RequeueAfter > 0 {
+						p.AddAfter(task, time.Duration(result.RequeueAfter)*time.Second)
+						breaker.Reset(time.Duration(result.RequeueAfter) * time.Second)
+						continue
+					}
+					p.AddAfter(task, p.getRetryDuration(task.RetryTimes))
 				}
-				if p.modelBreaker[task.Model] == nil {
-					p.initBreaker(task.Model)
-				}
-				if !p.modelBreaker[task.Model].IsAllowed() {
-					p.AddAfter(task, p.modelBreaker[task.Model].GetAllowedDuration())
-					continue
-				}
-				result, err := task.TaskFunc()
-				if err == nil {
-					close(task.DoneChan)
-					continue
-				}
-				task.RetryTimes++
-				if result.RequeueAfter > 0 {
-					p.AddAfter(task, time.Duration(result.RequeueAfter)*time.Second)
-					p.modelBreaker[task.Model].Reset(time.Duration(result.RequeueAfter) * time.Second)
-					continue
-				}
-				p.AddAfter(task, p.getRetryDuration(task.RetryTimes))
 			}
 		}()
 	}
@@ -99,12 +97,6 @@ func (p *BatchWorkerPool) getRetryDuration(retryTimes int) time.Duration {
 	return time.Duration(sleepSeconds*jitter) * time.Second
 }
 
-func (p *BatchWorkerPool) initBreaker(model string) {
-	p.breakerLock.Lock()
-	defer p.breakerLock.Unlock()
-	p.modelBreaker[model] = NewBreaker()
-}
-
 func (p *BatchWorkerPool) AddAfter(task BatchTask, duration time.Duration) {
 	time.AfterFunc(duration, func() {
 		p.taskQueue <- task
@@ -113,4 +105,15 @@ func (p *BatchWorkerPool) AddAfter(task BatchTask, duration time.Duration) {
 
 func (p *BatchWorkerPool) Close() {
 	close(p.taskQueue)
+}
+
+func (p *BatchWorkerPool) GetOrCreateBreaker(model string) *Breaker {
+	if value, ok := p.modelBreaker.Load(model); ok {
+		if breaker, ok := value.(*Breaker); ok {
+			return breaker
+		}
+	}
+	breaker := NewBreaker()
+	p.modelBreaker.Store(model, breaker)
+	return breaker
 }
