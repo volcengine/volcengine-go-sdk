@@ -36,3 +36,9 @@ func (c *Client) StartBatchWorker(workerNum int) {
 		go c.batchWorkerPool.Run()
 	})
 }
+
+func (c *Client) StopBatchWorker() {
+	if c.batchWorkerPool != nil {
+		c.batchWorkerPool.Close()
+	}
+}

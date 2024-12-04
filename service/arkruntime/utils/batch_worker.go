@@ -110,3 +110,7 @@ func (p *BatchWorkerPool) AddAfter(task BatchTask, duration time.Duration) {
 		p.taskQueue <- task
 	})
 }
+
+func (p *BatchWorkerPool) Close() {
+	close(p.taskQueue)
+}

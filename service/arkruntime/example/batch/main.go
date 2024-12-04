@@ -13,22 +13,20 @@ import (
 )
 
 func main() {
-	timeout := time.Minute * 30
+	timeout := time.Hour
 	workerNum := 10000
 
 	client := arkruntime.NewClientWithApiKey(os.Getenv("ARK_API_KEY"), arkruntime.WithTimeout(timeout))
 	client.StartBatchWorker(workerNum)
 
 	ctx := context.Background()
-	i := 0
 	taskNum := 5
 	wg := sync.WaitGroup{}
-	for i < workerNum {
+	for i := 0; i < workerNum; i++ {
 		wg.Add(1)
 		go func(index int) {
 			defer wg.Done()
-			j := 0
-			for j < taskNum {
+			for j := 0; j < taskNum; j++ {
 				_, err := client.CreateBatchChatCompletion(ctx, model.ChatCompletionRequest{
 					Model: os.Getenv("ENDPOINT_ID"),
 					Messages: []*model.ChatCompletionMessage{
@@ -46,14 +44,13 @@ func main() {
 						},
 					},
 				})
-				j++
 				if err != nil {
 					fmt.Printf("worker %d request %d Fail Err %s\n", index, j, err)
 					continue
 				}
 			}
 		}(i)
-		i++
 	}
 	wg.Wait()
+	client.StopBatchWorker()
 }
