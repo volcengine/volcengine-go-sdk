@@ -28,7 +28,7 @@ func main() {
 			defer wg.Done()
 			for j := 0; j < taskNum; j++ {
 				_, err := client.CreateBatchChatCompletion(ctx, model.ChatCompletionRequest{
-					Model: os.Getenv("ENDPOINT_ID"),
+					Model: "${YOUR_BOT_ID}",
 					Messages: []*model.ChatCompletionMessage{
 						{
 							Role: model.ChatMessageRoleSystem,
