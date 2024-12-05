@@ -4,15 +4,24 @@ type TruncationStrategyType string
 
 const (
 	TruncationStrategyTypeLastHistoryTokens TruncationStrategyType = "last_history_tokens"
+	TruncationStrategyTypeRollingTokens     TruncationStrategyType = "rolling_tokens"
+)
+
+type ContextMode string
+
+const (
+	ContextModeSession ContextMode = "session"
 )
 
 type TruncationStrategy struct {
 	Type              TruncationStrategyType `json:"type"`
 	LastHistoryTokens *int                   `json:"last_history_tokens,omitempty"`
+	RollingTokens     *bool                  `json:"rolling_tokens,omitempty"`
 }
 
 type CreateContextRequest struct {
 	Model              string                   `json:"model"`
+	Mode               ContextMode              `json:"mode"`
 	Messages           []*ChatCompletionMessage `json:"messages"`
 	TTL                *int                     `json:"ttl,omitempty"`
 	TruncationStrategy *TruncationStrategy      `json:"truncation_strategy,omitempty"`
@@ -20,15 +29,19 @@ type CreateContextRequest struct {
 
 type CreateContextResponse struct {
 	ID                 string              `json:"id"`
+	Mode               ContextMode         `json:"mode"`
 	Model              string              `json:"model"`
 	TTL                *int                `json:"ttl,omitempty"`
 	TruncationStrategy *TruncationStrategy `json:"truncation_strategy,omitempty"`
+
+	Usage Usage `json:"usage"`
 
 	HttpHeader
 }
 
 type ContextChatCompletionRequest struct {
 	ContextID        string                   `json:"context_id"`
+	Mode             ContextMode              `json:"mode"`
 	Model            string                   `json:"model"`
 	Messages         []*ChatCompletionMessage `json:"messages"`
 	MaxTokens        int                      `json:"max_tokens,omitempty"`

@@ -31,6 +31,7 @@ func main() {
 	fmt.Println("----- create context -----")
 	createCtxReq := model.CreateContextRequest{
 		Model: "${YOUR_ENDPOINT_ID}",
+		Mode:  model.ContextModeSession,
 		// initial messages
 		Messages: []*model.ChatCompletionMessage{
 			{
@@ -41,10 +42,6 @@ func main() {
 			},
 		},
 		TTL: volcengine.Int(3600),
-		TruncationStrategy: &model.TruncationStrategy{
-			Type:              model.TruncationStrategyTypeLastHistoryTokens,
-			LastHistoryTokens: volcengine.Int(4096),
-		},
 	}
 
 	createCtxRsp, err := client.CreateContext(goCtx, createCtxReq)
@@ -52,6 +49,7 @@ func main() {
 		fmt.Printf("create context error: %v\n", err)
 		return
 	}
+	fmt.Printf("create context response: %v\n", createCtxRsp)
 
 	fmt.Println("----- chat round 1 (non-stream) -----")
 	req := model.ContextChatCompletionRequest{
