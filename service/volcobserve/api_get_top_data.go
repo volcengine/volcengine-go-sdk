@@ -144,13 +144,13 @@ func (c *VOLCOBSERVE) GetTopDataWithContext(ctx volcengine.Context, input *GetTo
 }
 
 type DataForGetTopDataOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Asc *bool `type:"boolean"`
+	Asc *bool `type:"boolean" json:",omitempty"`
 
-	OrderByMetricName *string `type:"string"`
+	OrderByMetricName *string `type:"string" json:",omitempty"`
 
-	TopDataResults []*TopDataResultForGetTopDataOutput `type:"list"`
+	TopDataResults []*TopDataResultForGetTopDataOutput `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -182,11 +182,11 @@ func (s *DataForGetTopDataOutput) SetTopDataResults(v []*TopDataResultForGetTopD
 }
 
 type DimensionForGetTopDataInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Name *string `type:"string"`
+	Name *string `type:"string" json:",omitempty"`
 
-	Value *string `type:"string"`
+	Value *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -212,27 +212,27 @@ func (s *DimensionForGetTopDataInput) SetValue(v string) *DimensionForGetTopData
 }
 
 type GetTopDataInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Asc *bool `type:"boolean"`
+	Asc *bool `type:"boolean" json:",omitempty"`
 
-	EndTime *int64 `type:"integer"`
+	EndTime *int64 `type:"integer" json:",omitempty"`
 
-	GroupBy []*string `type:"list"`
+	GroupBy []*string `type:"list" json:",omitempty"`
 
-	Instances []*InstanceForGetTopDataInput `type:"list"`
+	Instances []*InstanceForGetTopDataInput `type:"list" json:",omitempty"`
 
-	MetricNames []*string `type:"list"`
+	MetricNames []*string `type:"list" json:",omitempty"`
 
-	Namespace *string `type:"string"`
+	Namespace *string `type:"string" json:",omitempty"`
 
-	OrderByMetricName *string `type:"string"`
+	OrderByMetricName *string `type:"string" json:",omitempty"`
 
-	StartTime *int64 `type:"integer"`
+	StartTime *int64 `type:"integer" json:",omitempty"`
 
-	SubNamespace *string `type:"string"`
+	SubNamespace *string `type:"string" json:",omitempty"`
 
-	TopN *int64 `type:"integer"`
+	TopN *int64 `type:"integer" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -306,11 +306,11 @@ func (s *GetTopDataInput) SetTopN(v int64) *GetTopDataInput {
 }
 
 type GetTopDataOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	Data *DataForGetTopDataOutput `type:"structure"`
+	Data *DataForGetTopDataOutput `type:"structure" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -330,9 +330,9 @@ func (s *GetTopDataOutput) SetData(v *DataForGetTopDataOutput) *GetTopDataOutput
 }
 
 type InstanceForGetTopDataInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Dimensions []*DimensionForGetTopDataInput `type:"list"`
+	Dimensions []*DimensionForGetTopDataInput `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -352,11 +352,11 @@ func (s *InstanceForGetTopDataInput) SetDimensions(v []*DimensionForGetTopDataIn
 }
 
 type TopDataResultForGetTopDataOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	GroupKeys map[string]*interface{} `type:"map"`
+	GroupKeys map[string]*interface{} `type:"map" json:",omitempty"`
 
-	MetricData map[string]*interface{} `type:"map"`
+	MetricData map[string]*interface{} `type:"map" json:",omitempty"`
 }
 
 // String returns the string representation

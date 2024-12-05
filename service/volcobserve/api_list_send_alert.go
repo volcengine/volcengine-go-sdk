@@ -144,19 +144,19 @@ func (c *VOLCOBSERVE) ListSendAlertWithContext(ctx volcengine.Context, input *Li
 }
 
 type DataForListSendAlertOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	AlertMethod *string `type:"string"`
+	AlertMethod *string `type:"string" json:",omitempty"`
 
-	BathId *string `type:"string"`
+	BathId *string `type:"string" json:",omitempty"`
 
-	Content *string `type:"string"`
+	Content *string `type:"string" json:",omitempty"`
 
-	Id *string `type:"string"`
+	Id *string `type:"string" json:",omitempty"`
 
-	SendAt *string `type:"string"`
+	SendAt *string `type:"string" json:",omitempty"`
 
-	SendResult []*SendResultForListSendAlertOutput `type:"list"`
+	SendResult []*SendResultForListSendAlertOutput `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -206,14 +206,14 @@ func (s *DataForListSendAlertOutput) SetSendResult(v []*SendResultForListSendAle
 }
 
 type ListSendAlertInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// AlertGroupId is a required field
-	AlertGroupId *string `type:"string" required:"true"`
+	AlertGroupId *string `type:"string" json:",omitempty" required:"true"`
 
-	PageNumber *int64 `type:"integer"`
+	PageNumber *int64 `type:"integer" json:",omitempty"`
 
-	PageSize *int64 `type:"integer"`
+	PageSize *int64 `type:"integer" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -258,17 +258,17 @@ func (s *ListSendAlertInput) SetPageSize(v int64) *ListSendAlertInput {
 }
 
 type ListSendAlertOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	Data []*DataForListSendAlertOutput `type:"list"`
+	Data []*DataForListSendAlertOutput `type:"list" json:",omitempty"`
 
-	PageNumber *int64 `type:"integer"`
+	PageNumber *int64 `type:"integer" json:",omitempty"`
 
-	PageSize *int64 `type:"integer"`
+	PageSize *int64 `type:"integer" json:",omitempty"`
 
-	TotalCount *int64 `type:"integer"`
+	TotalCount *int64 `type:"integer" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -306,17 +306,17 @@ func (s *ListSendAlertOutput) SetTotalCount(v int64) *ListSendAlertOutput {
 }
 
 type SendResultForListSendAlertOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	AlertMethod *string `type:"string"`
+	AlertMethod *string `type:"string" json:",omitempty"`
 
-	AlertMethodVal *string `type:"string"`
+	AlertMethodVal *string `type:"string" json:",omitempty"`
 
-	ErrMsg *string `type:"string"`
+	ErrMsg *string `type:"string" json:",omitempty"`
 
-	Receiver *string `type:"string"`
+	Receiver *string `type:"string" json:",omitempty"`
 
-	Success *bool `type:"boolean"`
+	Success *bool `type:"boolean" json:",omitempty"`
 }
 
 // String returns the string representation

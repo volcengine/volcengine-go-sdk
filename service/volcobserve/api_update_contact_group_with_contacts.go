@@ -144,12 +144,12 @@ func (c *VOLCOBSERVE) UpdateContactGroupWithContactsWithContext(ctx volcengine.C
 }
 
 type UpdateContactGroupWithContactsInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	ContactsIdList []*string `type:"list"`
+	ContactsIdList []*string `type:"list" json:",omitempty"`
 
 	// Id is a required field
-	Id *string `type:"string" required:"true"`
+	Id *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -188,11 +188,11 @@ func (s *UpdateContactGroupWithContactsInput) SetId(v string) *UpdateContactGrou
 }
 
 type UpdateContactGroupWithContactsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	Data []*string `type:"list"`
+	Data []*string `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation

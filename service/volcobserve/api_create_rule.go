@@ -144,19 +144,19 @@ func (c *VOLCOBSERVE) CreateRuleWithContext(ctx volcengine.Context, input *Creat
 }
 
 type ConditionForCreateRuleInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	ComparisonOperator *string `type:"string"`
+	ComparisonOperator *string `type:"string" json:",omitempty"`
 
-	MetricName *string `type:"string"`
+	MetricName *string `type:"string" json:",omitempty"`
 
-	MetricUnit *string `type:"string"`
+	MetricUnit *string `type:"string" json:",omitempty"`
 
-	Period *string `type:"string"`
+	Period *string `type:"string" json:",omitempty"`
 
-	Statistics *string `type:"string"`
+	Statistics *string `type:"string" json:",omitempty"`
 
-	Threshold *string `type:"string"`
+	Threshold *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -206,61 +206,63 @@ func (s *ConditionForCreateRuleInput) SetThreshold(v string) *ConditionForCreate
 }
 
 type CreateRuleInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	AlertMethods []*string `type:"list"`
+	AlertMethods []*string `type:"list" json:",omitempty"`
 
-	ConditionOperator *string `type:"string"`
+	ConditionOperator *string `type:"string" json:",omitempty"`
 
-	Conditions []*ConditionForCreateRuleInput `type:"list"`
+	Conditions []*ConditionForCreateRuleInput `type:"list" json:",omitempty"`
 
-	ContactGroupIds []*string `type:"list"`
+	ContactGroupIds []*string `type:"list" json:",omitempty"`
 
-	Description *string `type:"string"`
+	Description *string `type:"string" json:",omitempty"`
+
+	DimensionConditions *DimensionConditionsForCreateRuleInput `type:"structure" json:",omitempty"`
 
 	// EffectEndAt is a required field
-	EffectEndAt *string `type:"string" required:"true"`
+	EffectEndAt *string `type:"string" json:",omitempty" required:"true"`
 
 	// EffectStartAt is a required field
-	EffectStartAt *string `type:"string" required:"true"`
+	EffectStartAt *string `type:"string" json:",omitempty" required:"true"`
 
 	// EnableState is a required field
-	EnableState *string `type:"string" required:"true"`
+	EnableState *string `type:"string" json:",omitempty" required:"true"`
 
 	// EvaluationCount is a required field
-	EvaluationCount *int64 `type:"integer" required:"true"`
+	EvaluationCount *int64 `type:"integer" json:",omitempty" required:"true"`
 
 	// Level is a required field
-	Level *string `type:"string" required:"true"`
+	Level *string `type:"string" json:",omitempty" required:"true"`
 
-	MultipleConditions *bool `type:"boolean"`
+	MultipleConditions *bool `type:"boolean" json:",omitempty"`
 
 	// Namespace is a required field
-	Namespace *string `type:"string" required:"true"`
+	Namespace *string `type:"string" json:",omitempty" required:"true"`
 
-	NoData *NoDataForCreateRuleInput `type:"structure"`
+	NoData *NoDataForCreateRuleInput `type:"structure" json:",omitempty"`
 
-	OriginalDimensions map[string][]*string `type:"map"`
+	OriginalDimensions map[string][]*string `type:"map" json:",omitempty"`
 
-	RecoveryNotify *RecoveryNotifyForCreateRuleInput `type:"structure"`
+	RecoveryNotify *RecoveryNotifyForCreateRuleInput `type:"structure" json:",omitempty"`
 
-	Regions []*string `type:"list"`
+	Regions []*string `type:"list" json:",omitempty"`
 
 	// RuleName is a required field
-	RuleName *string `type:"string" required:"true"`
+	RuleName *string `type:"string" json:",omitempty" required:"true"`
 
 	// RuleType is a required field
-	RuleType *string `type:"string" required:"true" enum:"EnumOfRuleTypeForCreateRuleInput"`
+	RuleType *string `type:"string" json:",omitempty" required:"true" enum:"EnumOfRuleTypeForCreateRuleInput"`
 
 	// SilenceTime is a required field
-	SilenceTime *int64 `type:"integer" required:"true"`
+	SilenceTime *int64 `type:"integer" json:",omitempty" required:"true"`
 
 	// SubNamespace is a required field
-	SubNamespace *string `type:"string" required:"true"`
+	SubNamespace *string `type:"string" json:",omitempty" required:"true"`
 
-	Webhook *string `type:"string"`
+	Webhook *string `type:"string" json:",omitempty"`
 
-	WebhookIds []*string `type:"list"`
+	WebhookIds []*string `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -340,6 +342,12 @@ func (s *CreateRuleInput) SetContactGroupIds(v []*string) *CreateRuleInput {
 // SetDescription sets the Description field's value.
 func (s *CreateRuleInput) SetDescription(v string) *CreateRuleInput {
 	s.Description = &v
+	return s
+}
+
+// SetDimensionConditions sets the DimensionConditions field's value.
+func (s *CreateRuleInput) SetDimensionConditions(v *DimensionConditionsForCreateRuleInput) *CreateRuleInput {
+	s.DimensionConditions = v
 	return s
 }
 
@@ -446,11 +454,11 @@ func (s *CreateRuleInput) SetWebhookIds(v []*string) *CreateRuleInput {
 }
 
 type CreateRuleOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	Data []*string `type:"list"`
+	Data []*string `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -469,12 +477,134 @@ func (s *CreateRuleOutput) SetData(v []*string) *CreateRuleOutput {
 	return s
 }
 
+type DimensionConditionsForCreateRuleInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	MetaCondition *MetaConditionForCreateRuleInput `type:"structure" json:",omitempty"`
+
+	ProjectCondition *ProjectConditionForCreateRuleInput `type:"structure" json:",omitempty"`
+
+	TagCondition *TagConditionForCreateRuleInput `type:"structure" json:",omitempty"`
+
+	Type *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s DimensionConditionsForCreateRuleInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DimensionConditionsForCreateRuleInput) GoString() string {
+	return s.String()
+}
+
+// SetMetaCondition sets the MetaCondition field's value.
+func (s *DimensionConditionsForCreateRuleInput) SetMetaCondition(v *MetaConditionForCreateRuleInput) *DimensionConditionsForCreateRuleInput {
+	s.MetaCondition = v
+	return s
+}
+
+// SetProjectCondition sets the ProjectCondition field's value.
+func (s *DimensionConditionsForCreateRuleInput) SetProjectCondition(v *ProjectConditionForCreateRuleInput) *DimensionConditionsForCreateRuleInput {
+	s.ProjectCondition = v
+	return s
+}
+
+// SetTagCondition sets the TagCondition field's value.
+func (s *DimensionConditionsForCreateRuleInput) SetTagCondition(v *TagConditionForCreateRuleInput) *DimensionConditionsForCreateRuleInput {
+	s.TagCondition = v
+	return s
+}
+
+// SetType sets the Type field's value.
+func (s *DimensionConditionsForCreateRuleInput) SetType(v string) *DimensionConditionsForCreateRuleInput {
+	s.Type = &v
+	return s
+}
+
+type MetaConditionForCreateRuleInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	AllDimensions *bool `type:"boolean" json:",omitempty"`
+
+	Condition *string `type:"string" json:",omitempty"`
+
+	Metas []*MetaForCreateRuleInput `type:"list" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s MetaConditionForCreateRuleInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s MetaConditionForCreateRuleInput) GoString() string {
+	return s.String()
+}
+
+// SetAllDimensions sets the AllDimensions field's value.
+func (s *MetaConditionForCreateRuleInput) SetAllDimensions(v bool) *MetaConditionForCreateRuleInput {
+	s.AllDimensions = &v
+	return s
+}
+
+// SetCondition sets the Condition field's value.
+func (s *MetaConditionForCreateRuleInput) SetCondition(v string) *MetaConditionForCreateRuleInput {
+	s.Condition = &v
+	return s
+}
+
+// SetMetas sets the Metas field's value.
+func (s *MetaConditionForCreateRuleInput) SetMetas(v []*MetaForCreateRuleInput) *MetaConditionForCreateRuleInput {
+	s.Metas = v
+	return s
+}
+
+type MetaForCreateRuleInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Comparator *string `type:"string" json:",omitempty"`
+
+	Key *string `type:"string" json:",omitempty"`
+
+	Values []*string `type:"list" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s MetaForCreateRuleInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s MetaForCreateRuleInput) GoString() string {
+	return s.String()
+}
+
+// SetComparator sets the Comparator field's value.
+func (s *MetaForCreateRuleInput) SetComparator(v string) *MetaForCreateRuleInput {
+	s.Comparator = &v
+	return s
+}
+
+// SetKey sets the Key field's value.
+func (s *MetaForCreateRuleInput) SetKey(v string) *MetaForCreateRuleInput {
+	s.Key = &v
+	return s
+}
+
+// SetValues sets the Values field's value.
+func (s *MetaForCreateRuleInput) SetValues(v []*string) *MetaForCreateRuleInput {
+	s.Values = v
+	return s
+}
+
 type NoDataForCreateRuleInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Enable *bool `type:"boolean"`
+	Enable *bool `type:"boolean" json:",omitempty"`
 
-	EvaluationCount *int64 `type:"integer"`
+	EvaluationCount *int64 `type:"integer" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -499,10 +629,32 @@ func (s *NoDataForCreateRuleInput) SetEvaluationCount(v int64) *NoDataForCreateR
 	return s
 }
 
-type RecoveryNotifyForCreateRuleInput struct {
-	_ struct{} `type:"structure"`
+type ProjectConditionForCreateRuleInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Enable *bool `type:"boolean"`
+	Projects []*string `type:"list" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s ProjectConditionForCreateRuleInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ProjectConditionForCreateRuleInput) GoString() string {
+	return s.String()
+}
+
+// SetProjects sets the Projects field's value.
+func (s *ProjectConditionForCreateRuleInput) SetProjects(v []*string) *ProjectConditionForCreateRuleInput {
+	s.Projects = v
+	return s
+}
+
+type RecoveryNotifyForCreateRuleInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Enable *bool `type:"boolean" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -518,6 +670,74 @@ func (s RecoveryNotifyForCreateRuleInput) GoString() string {
 // SetEnable sets the Enable field's value.
 func (s *RecoveryNotifyForCreateRuleInput) SetEnable(v bool) *RecoveryNotifyForCreateRuleInput {
 	s.Enable = &v
+	return s
+}
+
+type TagConditionForCreateRuleInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Condition *string `type:"string" json:",omitempty"`
+
+	Tags []*TagForCreateRuleInput `type:"list" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s TagConditionForCreateRuleInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagConditionForCreateRuleInput) GoString() string {
+	return s.String()
+}
+
+// SetCondition sets the Condition field's value.
+func (s *TagConditionForCreateRuleInput) SetCondition(v string) *TagConditionForCreateRuleInput {
+	s.Condition = &v
+	return s
+}
+
+// SetTags sets the Tags field's value.
+func (s *TagConditionForCreateRuleInput) SetTags(v []*TagForCreateRuleInput) *TagConditionForCreateRuleInput {
+	s.Tags = v
+	return s
+}
+
+type TagForCreateRuleInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Comparator *string `type:"string" json:",omitempty"`
+
+	Key *string `type:"string" json:",omitempty"`
+
+	Values []*string `type:"list" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s TagForCreateRuleInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagForCreateRuleInput) GoString() string {
+	return s.String()
+}
+
+// SetComparator sets the Comparator field's value.
+func (s *TagForCreateRuleInput) SetComparator(v string) *TagForCreateRuleInput {
+	s.Comparator = &v
+	return s
+}
+
+// SetKey sets the Key field's value.
+func (s *TagForCreateRuleInput) SetKey(v string) *TagForCreateRuleInput {
+	s.Key = &v
+	return s
+}
+
+// SetValues sets the Values field's value.
+func (s *TagForCreateRuleInput) SetValues(v []*string) *TagForCreateRuleInput {
+	s.Values = v
 	return s
 }
 
@@ -538,4 +758,7 @@ const (
 const (
 	// EnumOfRuleTypeForCreateRuleInputStatic is a EnumOfRuleTypeForCreateRuleInput enum value
 	EnumOfRuleTypeForCreateRuleInputStatic = "static"
+
+	// EnumOfRuleTypeForCreateRuleInputDynamic is a EnumOfRuleTypeForCreateRuleInput enum value
+	EnumOfRuleTypeForCreateRuleInputDynamic = "dynamic"
 )

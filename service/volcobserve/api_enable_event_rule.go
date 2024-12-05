@@ -144,9 +144,9 @@ func (c *VOLCOBSERVE) EnableEventRuleWithContext(ctx volcengine.Context, input *
 }
 
 type DataForEnableEventRuleOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	RuleId []*string `type:"list"`
+	RuleId []*string `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -166,9 +166,9 @@ func (s *DataForEnableEventRuleOutput) SetRuleId(v []*string) *DataForEnableEven
 }
 
 type EnableEventRuleInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	RuleId []*string `type:"list"`
+	RuleId []*string `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -188,11 +188,11 @@ func (s *EnableEventRuleInput) SetRuleId(v []*string) *EnableEventRuleInput {
 }
 
 type EnableEventRuleOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	Data *DataForEnableEventRuleOutput `type:"structure"`
+	Data *DataForEnableEventRuleOutput `type:"structure" json:",omitempty"`
 }
 
 // String returns the string representation

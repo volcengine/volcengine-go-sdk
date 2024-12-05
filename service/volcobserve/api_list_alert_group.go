@@ -144,51 +144,37 @@ func (c *VOLCOBSERVE) ListAlertGroupWithContext(ctx volcengine.Context, input *L
 }
 
 type DataForListAlertGroupOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	AlertCount *int64 `type:"integer"`
+	AlertState *string `type:"string" json:",omitempty"`
 
-	AlertState *string `type:"string"`
+	AlertType *string `type:"string" json:",omitempty"`
 
-	Dimension *string `type:"string"`
+	Dimension *string `type:"string" json:",omitempty"`
 
-	Duration *string `type:"string"`
+	Duration *string `type:"string" json:",omitempty"`
 
-	EndAt *string `type:"string"`
+	EndAt *string `type:"string" json:",omitempty"`
 
-	Id *string `type:"string"`
+	Level *string `type:"string" json:",omitempty"`
 
-	Level *string `type:"string"`
+	Namespace *string `type:"string" json:",omitempty"`
 
-	Namespace *string `type:"string"`
+	Region *string `type:"string" json:",omitempty"`
 
-	Region *string `type:"string"`
+	ResourceId *string `type:"string" json:",omitempty"`
 
-	ResourceId *string `type:"string"`
+	ResourceName *string `type:"string" json:",omitempty"`
 
-	ResourceName *string `type:"string"`
+	ResourceType *string `type:"string" json:",omitempty"`
 
-	ResourceStatus *string `type:"string"`
+	RuleId *string `type:"string" json:",omitempty"`
 
-	ResourceStatusCN *string `type:"string"`
+	RuleName *string `type:"string" json:",omitempty"`
 
-	ResourceTags []*ResourceTagForListAlertGroupOutput `type:"list"`
+	StartAt *string `type:"string" json:",omitempty"`
 
-	ResourceType *string `type:"string"`
-
-	RuleId *string `type:"string"`
-
-	RuleName *string `type:"string"`
-
-	RuleStatus *string `type:"string"`
-
-	RuleTriggerCondition *string `type:"string"`
-
-	SendAlertCount *int64 `type:"integer"`
-
-	StartAt *string `type:"string"`
-
-	SubNamespace *string `type:"string"`
+	SubNamespace *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -201,15 +187,15 @@ func (s DataForListAlertGroupOutput) GoString() string {
 	return s.String()
 }
 
-// SetAlertCount sets the AlertCount field's value.
-func (s *DataForListAlertGroupOutput) SetAlertCount(v int64) *DataForListAlertGroupOutput {
-	s.AlertCount = &v
-	return s
-}
-
 // SetAlertState sets the AlertState field's value.
 func (s *DataForListAlertGroupOutput) SetAlertState(v string) *DataForListAlertGroupOutput {
 	s.AlertState = &v
+	return s
+}
+
+// SetAlertType sets the AlertType field's value.
+func (s *DataForListAlertGroupOutput) SetAlertType(v string) *DataForListAlertGroupOutput {
+	s.AlertType = &v
 	return s
 }
 
@@ -228,12 +214,6 @@ func (s *DataForListAlertGroupOutput) SetDuration(v string) *DataForListAlertGro
 // SetEndAt sets the EndAt field's value.
 func (s *DataForListAlertGroupOutput) SetEndAt(v string) *DataForListAlertGroupOutput {
 	s.EndAt = &v
-	return s
-}
-
-// SetId sets the Id field's value.
-func (s *DataForListAlertGroupOutput) SetId(v string) *DataForListAlertGroupOutput {
-	s.Id = &v
 	return s
 }
 
@@ -267,24 +247,6 @@ func (s *DataForListAlertGroupOutput) SetResourceName(v string) *DataForListAler
 	return s
 }
 
-// SetResourceStatus sets the ResourceStatus field's value.
-func (s *DataForListAlertGroupOutput) SetResourceStatus(v string) *DataForListAlertGroupOutput {
-	s.ResourceStatus = &v
-	return s
-}
-
-// SetResourceStatusCN sets the ResourceStatusCN field's value.
-func (s *DataForListAlertGroupOutput) SetResourceStatusCN(v string) *DataForListAlertGroupOutput {
-	s.ResourceStatusCN = &v
-	return s
-}
-
-// SetResourceTags sets the ResourceTags field's value.
-func (s *DataForListAlertGroupOutput) SetResourceTags(v []*ResourceTagForListAlertGroupOutput) *DataForListAlertGroupOutput {
-	s.ResourceTags = v
-	return s
-}
-
 // SetResourceType sets the ResourceType field's value.
 func (s *DataForListAlertGroupOutput) SetResourceType(v string) *DataForListAlertGroupOutput {
 	s.ResourceType = &v
@@ -303,24 +265,6 @@ func (s *DataForListAlertGroupOutput) SetRuleName(v string) *DataForListAlertGro
 	return s
 }
 
-// SetRuleStatus sets the RuleStatus field's value.
-func (s *DataForListAlertGroupOutput) SetRuleStatus(v string) *DataForListAlertGroupOutput {
-	s.RuleStatus = &v
-	return s
-}
-
-// SetRuleTriggerCondition sets the RuleTriggerCondition field's value.
-func (s *DataForListAlertGroupOutput) SetRuleTriggerCondition(v string) *DataForListAlertGroupOutput {
-	s.RuleTriggerCondition = &v
-	return s
-}
-
-// SetSendAlertCount sets the SendAlertCount field's value.
-func (s *DataForListAlertGroupOutput) SetSendAlertCount(v int64) *DataForListAlertGroupOutput {
-	s.SendAlertCount = &v
-	return s
-}
-
 // SetStartAt sets the StartAt field's value.
 func (s *DataForListAlertGroupOutput) SetStartAt(v string) *DataForListAlertGroupOutput {
 	s.StartAt = &v
@@ -334,27 +278,27 @@ func (s *DataForListAlertGroupOutput) SetSubNamespace(v string) *DataForListAler
 }
 
 type ListAlertGroupInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	AlertStates []*string `type:"list"`
+	AlertStates []*string `type:"list" json:",omitempty"`
 
-	EndAt *int64 `type:"integer"`
+	EndAt *int64 `type:"integer" json:",omitempty"`
 
-	Levels []*string `type:"list"`
+	Levels []*string `type:"list" json:",omitempty"`
 
-	Namespaces []*string `type:"list"`
+	Namespaces []*string `type:"list" json:",omitempty"`
 
-	PageNumber *int64 `type:"integer"`
+	PageNumber *int64 `type:"integer" json:",omitempty"`
 
-	PageSize *int64 `type:"integer"`
+	PageSize *int64 `type:"integer" json:",omitempty"`
 
-	ResourceId *string `type:"string"`
+	ResourceId *string `type:"string" json:",omitempty"`
 
-	RuleIds []*string `type:"list"`
+	RuleIds []*string `type:"list" json:",omitempty"`
 
-	RuleName *string `type:"string"`
+	RuleName *string `type:"string" json:",omitempty"`
 
-	StartAt *int64 `type:"integer"`
+	StartAt *int64 `type:"integer" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -428,21 +372,21 @@ func (s *ListAlertGroupInput) SetStartAt(v int64) *ListAlertGroupInput {
 }
 
 type ListAlertGroupOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	Asc *bool `type:"boolean"`
+	Asc *bool `type:"boolean" json:",omitempty"`
 
-	Data []*DataForListAlertGroupOutput `type:"list"`
+	Data []*DataForListAlertGroupOutput `type:"list" json:",omitempty"`
 
-	OrderBy *string `type:"string"`
+	OrderBy *string `type:"string" json:",omitempty"`
 
-	PageNumber *int64 `type:"integer"`
+	PageNumber *int64 `type:"integer" json:",omitempty"`
 
-	PageSize *int64 `type:"integer"`
+	PageSize *int64 `type:"integer" json:",omitempty"`
 
-	TotalCount *int64 `type:"integer"`
+	TotalCount *int64 `type:"integer" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -488,35 +432,5 @@ func (s *ListAlertGroupOutput) SetPageSize(v int64) *ListAlertGroupOutput {
 // SetTotalCount sets the TotalCount field's value.
 func (s *ListAlertGroupOutput) SetTotalCount(v int64) *ListAlertGroupOutput {
 	s.TotalCount = &v
-	return s
-}
-
-type ResourceTagForListAlertGroupOutput struct {
-	_ struct{} `type:"structure"`
-
-	Name *string `type:"string"`
-
-	Value *string `type:"string"`
-}
-
-// String returns the string representation
-func (s ResourceTagForListAlertGroupOutput) String() string {
-	return volcengineutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s ResourceTagForListAlertGroupOutput) GoString() string {
-	return s.String()
-}
-
-// SetName sets the Name field's value.
-func (s *ResourceTagForListAlertGroupOutput) SetName(v string) *ResourceTagForListAlertGroupOutput {
-	s.Name = &v
-	return s
-}
-
-// SetValue sets the Value field's value.
-func (s *ResourceTagForListAlertGroupOutput) SetValue(v string) *ResourceTagForListAlertGroupOutput {
-	s.Value = &v
 	return s
 }

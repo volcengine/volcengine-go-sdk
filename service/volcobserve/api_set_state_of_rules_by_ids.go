@@ -144,12 +144,12 @@ func (c *VOLCOBSERVE) SetStateOfRulesByIdsWithContext(ctx volcengine.Context, in
 }
 
 type SetStateOfRulesByIdsInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Ids []*string `type:"list"`
+	Ids []*string `type:"list" json:",omitempty"`
 
 	// State is a required field
-	State *string `type:"string" required:"true" enum:"EnumOfStateForSetStateOfRulesByIdsInput"`
+	State *string `type:"string" json:",omitempty" required:"true" enum:"EnumOfStateForSetStateOfRulesByIdsInput"`
 }
 
 // String returns the string representation
@@ -188,11 +188,11 @@ func (s *SetStateOfRulesByIdsInput) SetState(v string) *SetStateOfRulesByIdsInpu
 }
 
 type SetStateOfRulesByIdsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	Data []*string `type:"list"`
+	Data []*string `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation

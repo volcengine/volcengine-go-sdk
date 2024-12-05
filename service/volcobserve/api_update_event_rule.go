@@ -144,9 +144,9 @@ func (c *VOLCOBSERVE) UpdateEventRuleWithContext(ctx volcengine.Context, input *
 }
 
 type DataForUpdateEventRuleOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	RuleId *string `type:"string"`
+	RuleId *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -166,11 +166,11 @@ func (s *DataForUpdateEventRuleOutput) SetRuleId(v string) *DataForUpdateEventRu
 }
 
 type EffectiveTimeForUpdateEventRuleInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	EndTime *string `type:"string"`
+	EndTime *string `type:"string" json:",omitempty"`
 
-	StartTime *string `type:"string"`
+	StartTime *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -196,25 +196,25 @@ func (s *EffectiveTimeForUpdateEventRuleInput) SetStartTime(v string) *Effective
 }
 
 type MessageQueueForUpdateEventRuleInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	AuthEncrypt []*int64 `type:"list"`
+	AuthEncrypt []*int64 `type:"list" json:",omitempty"`
 
-	Endpoints *string `type:"string"`
+	Endpoints *string `type:"string" json:",omitempty"`
 
-	InstanceId *string `type:"string"`
+	InstanceId *string `type:"string" json:",omitempty"`
 
-	Password *string `type:"string"`
+	Password *string `type:"string" json:",omitempty"`
 
-	Region *string `type:"string"`
+	Region *string `type:"string" json:",omitempty"`
 
-	Topic *string `type:"string"`
+	Topic *string `type:"string" json:",omitempty"`
 
-	Type *string `type:"string"`
+	Type *string `type:"string" json:",omitempty"`
 
-	Username *string `type:"string"`
+	Username *string `type:"string" json:",omitempty"`
 
-	VpcId *string `type:"string"`
+	VpcId *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -282,17 +282,17 @@ func (s *MessageQueueForUpdateEventRuleInput) SetVpcId(v string) *MessageQueueFo
 }
 
 type TLSTargetForUpdateEventRuleInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	ProjectId *string `type:"string"`
+	ProjectId *string `type:"string" json:",omitempty"`
 
-	ProjectName *string `type:"string"`
+	ProjectName *string `type:"string" json:",omitempty"`
 
-	RegionNameCN *string `type:"string"`
+	RegionNameCN *string `type:"string" json:",omitempty"`
 
-	RegionNameEN *string `type:"string"`
+	RegionNameEN *string `type:"string" json:",omitempty"`
 
-	TopicId *string `type:"string"`
+	TopicId *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -336,44 +336,44 @@ func (s *TLSTargetForUpdateEventRuleInput) SetTopicId(v string) *TLSTargetForUpd
 }
 
 type UpdateEventRuleInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	ContactGroupIds []*string `type:"list"`
+	ContactGroupIds []*string `type:"list" json:",omitempty"`
 
-	ContactMethods []*string `type:"list"`
+	ContactMethods []*string `type:"list" json:",omitempty"`
 
-	Description *string `type:"string"`
+	Description *string `type:"string" json:",omitempty"`
 
-	EffectiveTime *EffectiveTimeForUpdateEventRuleInput `type:"structure"`
+	EffectiveTime *EffectiveTimeForUpdateEventRuleInput `type:"structure" json:",omitempty"`
 
-	Endpoint *string `type:"string"`
+	Endpoint *string `type:"string" json:",omitempty"`
 
 	// EventBusName is a required field
-	EventBusName *string `min:"2" max:"127" type:"string" required:"true" enum:"EnumOfEventBusNameForUpdateEventRuleInput"`
+	EventBusName *string `min:"2" max:"127" type:"string" json:",omitempty" required:"true" enum:"EnumOfEventBusNameForUpdateEventRuleInput"`
 
 	// EventSource is a required field
-	EventSource *string `type:"string" required:"true"`
+	EventSource *string `type:"string" json:",omitempty" required:"true"`
 
-	EventType []*string `type:"list"`
+	EventType []*string `type:"list" json:",omitempty"`
 
-	FilterPattern map[string]*interface{} `type:"map"`
+	FilterPattern map[string]*interface{} `type:"map" json:",omitempty"`
 
 	// Level is a required field
-	Level *string `type:"string" required:"true"`
+	Level *string `type:"string" json:",omitempty" required:"true"`
 
-	MessageQueue []*MessageQueueForUpdateEventRuleInput `type:"list"`
+	MessageQueue []*MessageQueueForUpdateEventRuleInput `type:"list" json:",omitempty"`
 
 	// RuleId is a required field
-	RuleId *string `type:"string" required:"true"`
+	RuleId *string `type:"string" json:",omitempty" required:"true"`
 
 	// RuleName is a required field
-	RuleName *string `min:"2" max:"127" type:"string" required:"true"`
+	RuleName *string `min:"2" max:"127" type:"string" json:",omitempty" required:"true"`
 
-	Status *string `type:"string" enum:"EnumOfStatusForUpdateEventRuleInput"`
+	Status *string `type:"string" json:",omitempty" enum:"EnumOfStatusForUpdateEventRuleInput"`
 
-	TLSTarget []*TLSTargetForUpdateEventRuleInput `type:"list"`
+	TLSTarget []*TLSTargetForUpdateEventRuleInput `type:"list" json:",omitempty"`
 
-	WebhookIds []*string `type:"list"`
+	WebhookIds []*string `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -520,11 +520,11 @@ func (s *UpdateEventRuleInput) SetWebhookIds(v []*string) *UpdateEventRuleInput 
 }
 
 type UpdateEventRuleOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	Data *DataForUpdateEventRuleOutput `type:"structure"`
+	Data *DataForUpdateEventRuleOutput `type:"structure" json:",omitempty"`
 }
 
 // String returns the string representation

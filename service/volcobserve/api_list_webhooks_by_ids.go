@@ -144,23 +144,23 @@ func (c *VOLCOBSERVE) ListWebhooksByIdsWithContext(ctx volcengine.Context, input
 }
 
 type DataForListWebhooksByIdsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	CreatedAt *string `type:"string"`
+	CreatedAt *string `type:"string" json:",omitempty"`
 
-	EventRuleIds []*string `type:"list"`
+	EventRuleIds []*string `type:"list" json:",omitempty"`
 
-	Id *string `type:"string"`
+	Id *string `type:"string" json:",omitempty"`
 
-	Name *string `type:"string"`
+	Name *string `type:"string" json:",omitempty"`
 
-	RuleIds []*string `type:"list"`
+	RuleIds []*string `type:"list" json:",omitempty"`
 
-	Type *string `type:"string"`
+	Type *string `type:"string" json:",omitempty"`
 
-	UpdatedAt *string `type:"string"`
+	UpdatedAt *string `type:"string" json:",omitempty"`
 
-	Url *string `type:"string"`
+	Url *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -222,19 +222,9 @@ func (s *DataForListWebhooksByIdsOutput) SetUrl(v string) *DataForListWebhooksBy
 }
 
 type ListWebhooksByIdsInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Asc *bool `type:"boolean"`
-
-	Ids []*string `type:"list"`
-
-	OrderBy *string `type:"string"`
-
-	PageNumber *int64 `type:"integer"`
-
-	PageSize *int64 `type:"integer"`
-
-	TotalCount *int64 `type:"integer"`
+	Ids []*string `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -247,52 +237,18 @@ func (s ListWebhooksByIdsInput) GoString() string {
 	return s.String()
 }
 
-// SetAsc sets the Asc field's value.
-func (s *ListWebhooksByIdsInput) SetAsc(v bool) *ListWebhooksByIdsInput {
-	s.Asc = &v
-	return s
-}
-
 // SetIds sets the Ids field's value.
 func (s *ListWebhooksByIdsInput) SetIds(v []*string) *ListWebhooksByIdsInput {
 	s.Ids = v
 	return s
 }
 
-// SetOrderBy sets the OrderBy field's value.
-func (s *ListWebhooksByIdsInput) SetOrderBy(v string) *ListWebhooksByIdsInput {
-	s.OrderBy = &v
-	return s
-}
-
-// SetPageNumber sets the PageNumber field's value.
-func (s *ListWebhooksByIdsInput) SetPageNumber(v int64) *ListWebhooksByIdsInput {
-	s.PageNumber = &v
-	return s
-}
-
-// SetPageSize sets the PageSize field's value.
-func (s *ListWebhooksByIdsInput) SetPageSize(v int64) *ListWebhooksByIdsInput {
-	s.PageSize = &v
-	return s
-}
-
-// SetTotalCount sets the TotalCount field's value.
-func (s *ListWebhooksByIdsInput) SetTotalCount(v int64) *ListWebhooksByIdsInput {
-	s.TotalCount = &v
-	return s
-}
-
 type ListWebhooksByIdsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	Data []*DataForListWebhooksByIdsOutput `type:"list"`
-
-	PageNumber *int64 `type:"integer"`
-
-	PageSize *int64 `type:"integer"`
+	Data []*DataForListWebhooksByIdsOutput `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -308,17 +264,5 @@ func (s ListWebhooksByIdsOutput) GoString() string {
 // SetData sets the Data field's value.
 func (s *ListWebhooksByIdsOutput) SetData(v []*DataForListWebhooksByIdsOutput) *ListWebhooksByIdsOutput {
 	s.Data = v
-	return s
-}
-
-// SetPageNumber sets the PageNumber field's value.
-func (s *ListWebhooksByIdsOutput) SetPageNumber(v int64) *ListWebhooksByIdsOutput {
-	s.PageNumber = &v
-	return s
-}
-
-// SetPageSize sets the PageSize field's value.
-func (s *ListWebhooksByIdsOutput) SetPageSize(v int64) *ListWebhooksByIdsOutput {
-	s.PageSize = &v
 	return s
 }

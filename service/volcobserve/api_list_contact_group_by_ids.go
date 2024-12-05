@@ -144,19 +144,19 @@ func (c *VOLCOBSERVE) ListContactGroupByIdsWithContext(ctx volcengine.Context, i
 }
 
 type DataForListContactGroupByIdsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	AccountId *string `type:"string"`
+	AccountId *string `type:"string" json:",omitempty"`
 
-	CreatedAt *string `type:"string"`
+	CreatedAt *string `type:"string" json:",omitempty"`
 
-	Description *string `type:"string"`
+	Description *string `type:"string" json:",omitempty"`
 
-	Id *string `type:"string"`
+	Id *string `type:"string" json:",omitempty"`
 
-	Name *string `type:"string"`
+	Name *string `type:"string" json:",omitempty"`
 
-	UpdatedAt *string `type:"string"`
+	UpdatedAt *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -206,9 +206,9 @@ func (s *DataForListContactGroupByIdsOutput) SetUpdatedAt(v string) *DataForList
 }
 
 type ListContactGroupByIdsInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Ids []*string `type:"list"`
+	Ids []*string `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -228,11 +228,11 @@ func (s *ListContactGroupByIdsInput) SetIds(v []*string) *ListContactGroupByIdsI
 }
 
 type ListContactGroupByIdsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	Data []*DataForListContactGroupByIdsOutput `type:"list"`
+	Data []*DataForListContactGroupByIdsOutput `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation

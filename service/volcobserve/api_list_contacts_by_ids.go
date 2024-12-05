@@ -144,15 +144,15 @@ func (c *VOLCOBSERVE) ListContactsByIdsWithContext(ctx volcengine.Context, input
 }
 
 type DataForListContactsByIdsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Email *string `type:"string"`
+	Email *string `type:"string" json:",omitempty"`
 
-	Id *string `type:"string"`
+	Id *string `type:"string" json:",omitempty"`
 
-	Name *string `type:"string"`
+	Name *string `type:"string" json:",omitempty"`
 
-	Phone *string `type:"string"`
+	Phone *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -190,9 +190,9 @@ func (s *DataForListContactsByIdsOutput) SetPhone(v string) *DataForListContacts
 }
 
 type ListContactsByIdsInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Ids []*string `type:"list"`
+	Ids []*string `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -212,11 +212,11 @@ func (s *ListContactsByIdsInput) SetIds(v []*string) *ListContactsByIdsInput {
 }
 
 type ListContactsByIdsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	Data []*DataForListContactsByIdsOutput `type:"list"`
+	Data []*DataForListContactsByIdsOutput `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
