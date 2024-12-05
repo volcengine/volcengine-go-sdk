@@ -144,19 +144,19 @@ func (c *VOLCOBSERVE) UpdateRuleWithContext(ctx volcengine.Context, input *Updat
 }
 
 type ConditionForUpdateRuleInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	ComparisonOperator *string `type:"string"`
+	ComparisonOperator *string `type:"string" json:",omitempty"`
 
-	MetricName *string `type:"string"`
+	MetricName *string `type:"string" json:",omitempty"`
 
-	MetricUnit *string `type:"string"`
+	MetricUnit *string `type:"string" json:",omitempty"`
 
-	Period *string `type:"string"`
+	Period *string `type:"string" json:",omitempty"`
 
-	Statistics *string `type:"string"`
+	Statistics *string `type:"string" json:",omitempty"`
 
-	Threshold *string `type:"string"`
+	Threshold *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -205,12 +205,134 @@ func (s *ConditionForUpdateRuleInput) SetThreshold(v string) *ConditionForUpdate
 	return s
 }
 
+type DimensionConditionsForUpdateRuleInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	MetaCondition *MetaConditionForUpdateRuleInput `type:"structure" json:",omitempty"`
+
+	ProjectCondition *ProjectConditionForUpdateRuleInput `type:"structure" json:",omitempty"`
+
+	TagCondition *TagConditionForUpdateRuleInput `type:"structure" json:",omitempty"`
+
+	Type *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s DimensionConditionsForUpdateRuleInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DimensionConditionsForUpdateRuleInput) GoString() string {
+	return s.String()
+}
+
+// SetMetaCondition sets the MetaCondition field's value.
+func (s *DimensionConditionsForUpdateRuleInput) SetMetaCondition(v *MetaConditionForUpdateRuleInput) *DimensionConditionsForUpdateRuleInput {
+	s.MetaCondition = v
+	return s
+}
+
+// SetProjectCondition sets the ProjectCondition field's value.
+func (s *DimensionConditionsForUpdateRuleInput) SetProjectCondition(v *ProjectConditionForUpdateRuleInput) *DimensionConditionsForUpdateRuleInput {
+	s.ProjectCondition = v
+	return s
+}
+
+// SetTagCondition sets the TagCondition field's value.
+func (s *DimensionConditionsForUpdateRuleInput) SetTagCondition(v *TagConditionForUpdateRuleInput) *DimensionConditionsForUpdateRuleInput {
+	s.TagCondition = v
+	return s
+}
+
+// SetType sets the Type field's value.
+func (s *DimensionConditionsForUpdateRuleInput) SetType(v string) *DimensionConditionsForUpdateRuleInput {
+	s.Type = &v
+	return s
+}
+
+type MetaConditionForUpdateRuleInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	AllDimensions *bool `type:"boolean" json:",omitempty"`
+
+	Condition *string `type:"string" json:",omitempty"`
+
+	Metas []*MetaForUpdateRuleInput `type:"list" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s MetaConditionForUpdateRuleInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s MetaConditionForUpdateRuleInput) GoString() string {
+	return s.String()
+}
+
+// SetAllDimensions sets the AllDimensions field's value.
+func (s *MetaConditionForUpdateRuleInput) SetAllDimensions(v bool) *MetaConditionForUpdateRuleInput {
+	s.AllDimensions = &v
+	return s
+}
+
+// SetCondition sets the Condition field's value.
+func (s *MetaConditionForUpdateRuleInput) SetCondition(v string) *MetaConditionForUpdateRuleInput {
+	s.Condition = &v
+	return s
+}
+
+// SetMetas sets the Metas field's value.
+func (s *MetaConditionForUpdateRuleInput) SetMetas(v []*MetaForUpdateRuleInput) *MetaConditionForUpdateRuleInput {
+	s.Metas = v
+	return s
+}
+
+type MetaForUpdateRuleInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Comparator *string `type:"string" json:",omitempty"`
+
+	Key *string `type:"string" json:",omitempty"`
+
+	Values []*string `type:"list" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s MetaForUpdateRuleInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s MetaForUpdateRuleInput) GoString() string {
+	return s.String()
+}
+
+// SetComparator sets the Comparator field's value.
+func (s *MetaForUpdateRuleInput) SetComparator(v string) *MetaForUpdateRuleInput {
+	s.Comparator = &v
+	return s
+}
+
+// SetKey sets the Key field's value.
+func (s *MetaForUpdateRuleInput) SetKey(v string) *MetaForUpdateRuleInput {
+	s.Key = &v
+	return s
+}
+
+// SetValues sets the Values field's value.
+func (s *MetaForUpdateRuleInput) SetValues(v []*string) *MetaForUpdateRuleInput {
+	s.Values = v
+	return s
+}
+
 type NoDataForUpdateRuleInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Enable *bool `type:"boolean"`
+	Enable *bool `type:"boolean" json:",omitempty"`
 
-	EvaluationCount *int64 `type:"integer"`
+	EvaluationCount *int64 `type:"integer" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -235,10 +357,32 @@ func (s *NoDataForUpdateRuleInput) SetEvaluationCount(v int64) *NoDataForUpdateR
 	return s
 }
 
-type RecoveryNotifyForUpdateRuleInput struct {
-	_ struct{} `type:"structure"`
+type ProjectConditionForUpdateRuleInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Enable *bool `type:"boolean"`
+	Projects []*string `type:"list" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s ProjectConditionForUpdateRuleInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ProjectConditionForUpdateRuleInput) GoString() string {
+	return s.String()
+}
+
+// SetProjects sets the Projects field's value.
+func (s *ProjectConditionForUpdateRuleInput) SetProjects(v []*string) *ProjectConditionForUpdateRuleInput {
+	s.Projects = v
+	return s
+}
+
+type RecoveryNotifyForUpdateRuleInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Enable *bool `type:"boolean" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -257,65 +401,135 @@ func (s *RecoveryNotifyForUpdateRuleInput) SetEnable(v bool) *RecoveryNotifyForU
 	return s
 }
 
+type TagConditionForUpdateRuleInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Condition *string `type:"string" json:",omitempty"`
+
+	Tags []*TagForUpdateRuleInput `type:"list" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s TagConditionForUpdateRuleInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagConditionForUpdateRuleInput) GoString() string {
+	return s.String()
+}
+
+// SetCondition sets the Condition field's value.
+func (s *TagConditionForUpdateRuleInput) SetCondition(v string) *TagConditionForUpdateRuleInput {
+	s.Condition = &v
+	return s
+}
+
+// SetTags sets the Tags field's value.
+func (s *TagConditionForUpdateRuleInput) SetTags(v []*TagForUpdateRuleInput) *TagConditionForUpdateRuleInput {
+	s.Tags = v
+	return s
+}
+
+type TagForUpdateRuleInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Comparator *string `type:"string" json:",omitempty"`
+
+	Key *string `type:"string" json:",omitempty"`
+
+	Values []*string `type:"list" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s TagForUpdateRuleInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagForUpdateRuleInput) GoString() string {
+	return s.String()
+}
+
+// SetComparator sets the Comparator field's value.
+func (s *TagForUpdateRuleInput) SetComparator(v string) *TagForUpdateRuleInput {
+	s.Comparator = &v
+	return s
+}
+
+// SetKey sets the Key field's value.
+func (s *TagForUpdateRuleInput) SetKey(v string) *TagForUpdateRuleInput {
+	s.Key = &v
+	return s
+}
+
+// SetValues sets the Values field's value.
+func (s *TagForUpdateRuleInput) SetValues(v []*string) *TagForUpdateRuleInput {
+	s.Values = v
+	return s
+}
+
 type UpdateRuleInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	AlertMethods []*string `type:"list"`
+	AlertMethods []*string `type:"list" json:",omitempty"`
 
-	ConditionOperator *string `type:"string"`
+	ConditionOperator *string `type:"string" json:",omitempty"`
 
-	Conditions []*ConditionForUpdateRuleInput `type:"list"`
+	Conditions []*ConditionForUpdateRuleInput `type:"list" json:",omitempty"`
 
-	ContactGroupIds []*string `type:"list"`
+	ContactGroupIds []*string `type:"list" json:",omitempty"`
 
-	Description *string `type:"string"`
+	Description *string `type:"string" json:",omitempty"`
+
+	DimensionConditions *DimensionConditionsForUpdateRuleInput `type:"structure" json:",omitempty"`
 
 	// EffectEndAt is a required field
-	EffectEndAt *string `type:"string" required:"true"`
+	EffectEndAt *string `type:"string" json:",omitempty" required:"true"`
 
 	// EffectStartAt is a required field
-	EffectStartAt *string `type:"string" required:"true"`
+	EffectStartAt *string `type:"string" json:",omitempty" required:"true"`
 
 	// EnableState is a required field
-	EnableState *string `type:"string" required:"true"`
+	EnableState *string `type:"string" json:",omitempty" required:"true"`
 
 	// EvaluationCount is a required field
-	EvaluationCount *int64 `type:"integer" required:"true"`
+	EvaluationCount *int64 `type:"integer" json:",omitempty" required:"true"`
 
 	// Id is a required field
-	Id *string `type:"string" required:"true"`
+	Id *string `type:"string" json:",omitempty" required:"true"`
 
 	// Level is a required field
-	Level *string `type:"string" required:"true"`
+	Level *string `type:"string" json:",omitempty" required:"true"`
 
-	MultipleConditions *bool `type:"boolean"`
+	MultipleConditions *bool `type:"boolean" json:",omitempty"`
 
 	// Namespace is a required field
-	Namespace *string `type:"string" required:"true"`
+	Namespace *string `type:"string" json:",omitempty" required:"true"`
 
-	NoData *NoDataForUpdateRuleInput `type:"structure"`
+	NoData *NoDataForUpdateRuleInput `type:"structure" json:",omitempty"`
 
-	OriginalDimensions map[string][]*string `type:"map"`
+	OriginalDimensions map[string][]*string `type:"map" json:",omitempty"`
 
-	RecoveryNotify *RecoveryNotifyForUpdateRuleInput `type:"structure"`
+	RecoveryNotify *RecoveryNotifyForUpdateRuleInput `type:"structure" json:",omitempty"`
 
-	Regions []*string `type:"list"`
+	Regions []*string `type:"list" json:",omitempty"`
 
 	// RuleName is a required field
-	RuleName *string `type:"string" required:"true"`
+	RuleName *string `type:"string" json:",omitempty" required:"true"`
 
 	// RuleType is a required field
-	RuleType *string `type:"string" required:"true" enum:"EnumOfRuleTypeForUpdateRuleInput"`
+	RuleType *string `type:"string" json:",omitempty" required:"true" enum:"EnumOfRuleTypeForUpdateRuleInput"`
 
 	// SilenceTime is a required field
-	SilenceTime *int64 `type:"integer" required:"true"`
+	SilenceTime *int64 `type:"integer" json:",omitempty" required:"true"`
 
 	// SubNamespace is a required field
-	SubNamespace *string `type:"string" required:"true"`
+	SubNamespace *string `type:"string" json:",omitempty" required:"true"`
 
-	Webhook *string `type:"string"`
+	Webhook *string `type:"string" json:",omitempty"`
 
-	WebhookIds []*string `type:"list"`
+	WebhookIds []*string `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -398,6 +612,12 @@ func (s *UpdateRuleInput) SetContactGroupIds(v []*string) *UpdateRuleInput {
 // SetDescription sets the Description field's value.
 func (s *UpdateRuleInput) SetDescription(v string) *UpdateRuleInput {
 	s.Description = &v
+	return s
+}
+
+// SetDimensionConditions sets the DimensionConditions field's value.
+func (s *UpdateRuleInput) SetDimensionConditions(v *DimensionConditionsForUpdateRuleInput) *UpdateRuleInput {
+	s.DimensionConditions = v
 	return s
 }
 
@@ -510,11 +730,11 @@ func (s *UpdateRuleInput) SetWebhookIds(v []*string) *UpdateRuleInput {
 }
 
 type UpdateRuleOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	Data []*string `type:"list"`
+	Data []*string `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -550,4 +770,7 @@ const (
 const (
 	// EnumOfRuleTypeForUpdateRuleInputStatic is a EnumOfRuleTypeForUpdateRuleInput enum value
 	EnumOfRuleTypeForUpdateRuleInputStatic = "static"
+
+	// EnumOfRuleTypeForUpdateRuleInputDynamic is a EnumOfRuleTypeForUpdateRuleInput enum value
+	EnumOfRuleTypeForUpdateRuleInputDynamic = "dynamic"
 )

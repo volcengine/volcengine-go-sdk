@@ -144,17 +144,17 @@ func (c *VOLCOBSERVE) ListRulesByIdsWithContext(ctx volcengine.Context, input *L
 }
 
 type ConditionForListRulesByIdsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	ComparisonOperator *string `type:"string"`
+	ComparisonOperator *string `type:"string" json:",omitempty"`
 
-	MetricName *string `type:"string"`
+	MetricName *string `type:"string" json:",omitempty"`
 
-	MetricUnit *string `type:"string"`
+	MetricUnit *string `type:"string" json:",omitempty"`
 
-	Statistics *string `type:"string"`
+	Statistics *string `type:"string" json:",omitempty"`
 
-	Threshold *string `type:"string"`
+	Threshold *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -198,55 +198,59 @@ func (s *ConditionForListRulesByIdsOutput) SetThreshold(v string) *ConditionForL
 }
 
 type DataForListRulesByIdsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	AlertMethods []*string `type:"list"`
+	AlertMethods []*string `type:"list" json:",omitempty"`
 
-	AlertState *string `type:"string"`
+	AlertState *string `type:"string" json:",omitempty"`
 
-	ConditionOperator *string `type:"string"`
+	ConditionOperator *string `type:"string" json:",omitempty"`
 
-	Conditions []*ConditionForListRulesByIdsOutput `type:"list"`
+	Conditions []*ConditionForListRulesByIdsOutput `type:"list" json:",omitempty"`
 
-	ContactGroupIds []*string `type:"list"`
+	ContactGroupIds []*string `type:"list" json:",omitempty"`
 
-	CreatedAt *string `type:"string"`
+	CreatedAt *string `type:"string" json:",omitempty"`
 
-	Description *string `type:"string"`
+	Description *string `type:"string" json:",omitempty"`
 
-	EffectEndAt *string `type:"string"`
+	DimensionConditions *DimensionConditionsForListRulesByIdsOutput `type:"structure" json:",omitempty"`
 
-	EffectStartAt *string `type:"string"`
+	EffectEndAt *string `type:"string" json:",omitempty"`
 
-	EnableState *string `type:"string"`
+	EffectStartAt *string `type:"string" json:",omitempty"`
 
-	EvaluationCount *int64 `type:"integer"`
+	EnableState *string `type:"string" json:",omitempty"`
 
-	Id *string `type:"string"`
+	EvaluationCount *int64 `type:"integer" json:",omitempty"`
 
-	Level *string `type:"string"`
+	Id *string `type:"string" json:",omitempty"`
 
-	MultipleConditions *bool `type:"boolean"`
+	Level *string `type:"string" json:",omitempty"`
 
-	Namespace *string `type:"string"`
+	MultipleConditions *bool `type:"boolean" json:",omitempty"`
 
-	OriginalDimensions map[string][]*string `type:"map"`
+	Namespace *string `type:"string" json:",omitempty"`
 
-	RecoveryNotify *RecoveryNotifyForListRulesByIdsOutput `type:"structure"`
+	OriginalDimensions map[string][]*string `type:"map" json:",omitempty"`
 
-	Regions []*string `type:"list"`
+	RecoveryNotify *RecoveryNotifyForListRulesByIdsOutput `type:"structure" json:",omitempty"`
 
-	RuleName *string `type:"string"`
+	Regions []*string `type:"list" json:",omitempty"`
 
-	SilenceTime *int64 `type:"integer"`
+	RuleName *string `type:"string" json:",omitempty"`
 
-	SubNamespace *string `type:"string"`
+	RuleType *string `type:"string" json:",omitempty"`
 
-	UpdatedAt *string `type:"string"`
+	SilenceTime *int64 `type:"integer" json:",omitempty"`
 
-	WebHook *string `type:"string"`
+	SubNamespace *string `type:"string" json:",omitempty"`
 
-	WebhookIds []*string `type:"list"`
+	UpdatedAt *string `type:"string" json:",omitempty"`
+
+	WebHook *string `type:"string" json:",omitempty"`
+
+	WebhookIds []*string `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -298,6 +302,12 @@ func (s *DataForListRulesByIdsOutput) SetCreatedAt(v string) *DataForListRulesBy
 // SetDescription sets the Description field's value.
 func (s *DataForListRulesByIdsOutput) SetDescription(v string) *DataForListRulesByIdsOutput {
 	s.Description = &v
+	return s
+}
+
+// SetDimensionConditions sets the DimensionConditions field's value.
+func (s *DataForListRulesByIdsOutput) SetDimensionConditions(v *DimensionConditionsForListRulesByIdsOutput) *DataForListRulesByIdsOutput {
+	s.DimensionConditions = v
 	return s
 }
 
@@ -373,6 +383,12 @@ func (s *DataForListRulesByIdsOutput) SetRuleName(v string) *DataForListRulesByI
 	return s
 }
 
+// SetRuleType sets the RuleType field's value.
+func (s *DataForListRulesByIdsOutput) SetRuleType(v string) *DataForListRulesByIdsOutput {
+	s.RuleType = &v
+	return s
+}
+
 // SetSilenceTime sets the SilenceTime field's value.
 func (s *DataForListRulesByIdsOutput) SetSilenceTime(v int64) *DataForListRulesByIdsOutput {
 	s.SilenceTime = &v
@@ -403,10 +419,56 @@ func (s *DataForListRulesByIdsOutput) SetWebhookIds(v []*string) *DataForListRul
 	return s
 }
 
-type ListRulesByIdsInput struct {
-	_ struct{} `type:"structure"`
+type DimensionConditionsForListRulesByIdsOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Ids []*string `type:"list"`
+	MetaCondition *MetaConditionForListRulesByIdsOutput `type:"structure" json:",omitempty"`
+
+	ProjectCondition *ProjectConditionForListRulesByIdsOutput `type:"structure" json:",omitempty"`
+
+	TagCondition *TagConditionForListRulesByIdsOutput `type:"structure" json:",omitempty"`
+
+	Type *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s DimensionConditionsForListRulesByIdsOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DimensionConditionsForListRulesByIdsOutput) GoString() string {
+	return s.String()
+}
+
+// SetMetaCondition sets the MetaCondition field's value.
+func (s *DimensionConditionsForListRulesByIdsOutput) SetMetaCondition(v *MetaConditionForListRulesByIdsOutput) *DimensionConditionsForListRulesByIdsOutput {
+	s.MetaCondition = v
+	return s
+}
+
+// SetProjectCondition sets the ProjectCondition field's value.
+func (s *DimensionConditionsForListRulesByIdsOutput) SetProjectCondition(v *ProjectConditionForListRulesByIdsOutput) *DimensionConditionsForListRulesByIdsOutput {
+	s.ProjectCondition = v
+	return s
+}
+
+// SetTagCondition sets the TagCondition field's value.
+func (s *DimensionConditionsForListRulesByIdsOutput) SetTagCondition(v *TagConditionForListRulesByIdsOutput) *DimensionConditionsForListRulesByIdsOutput {
+	s.TagCondition = v
+	return s
+}
+
+// SetType sets the Type field's value.
+func (s *DimensionConditionsForListRulesByIdsOutput) SetType(v string) *DimensionConditionsForListRulesByIdsOutput {
+	s.Type = &v
+	return s
+}
+
+type ListRulesByIdsInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Ids []*string `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -426,11 +488,11 @@ func (s *ListRulesByIdsInput) SetIds(v []*string) *ListRulesByIdsInput {
 }
 
 type ListRulesByIdsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	Data []*DataForListRulesByIdsOutput `type:"list"`
+	Data []*DataForListRulesByIdsOutput `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -449,10 +511,108 @@ func (s *ListRulesByIdsOutput) SetData(v []*DataForListRulesByIdsOutput) *ListRu
 	return s
 }
 
-type RecoveryNotifyForListRulesByIdsOutput struct {
-	_ struct{} `type:"structure"`
+type MetaConditionForListRulesByIdsOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Enable *bool `type:"boolean"`
+	AllDimensions *bool `type:"boolean" json:",omitempty"`
+
+	Condition *string `type:"string" json:",omitempty"`
+
+	Metas []*MetaForListRulesByIdsOutput `type:"list" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s MetaConditionForListRulesByIdsOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s MetaConditionForListRulesByIdsOutput) GoString() string {
+	return s.String()
+}
+
+// SetAllDimensions sets the AllDimensions field's value.
+func (s *MetaConditionForListRulesByIdsOutput) SetAllDimensions(v bool) *MetaConditionForListRulesByIdsOutput {
+	s.AllDimensions = &v
+	return s
+}
+
+// SetCondition sets the Condition field's value.
+func (s *MetaConditionForListRulesByIdsOutput) SetCondition(v string) *MetaConditionForListRulesByIdsOutput {
+	s.Condition = &v
+	return s
+}
+
+// SetMetas sets the Metas field's value.
+func (s *MetaConditionForListRulesByIdsOutput) SetMetas(v []*MetaForListRulesByIdsOutput) *MetaConditionForListRulesByIdsOutput {
+	s.Metas = v
+	return s
+}
+
+type MetaForListRulesByIdsOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Comparator *string `type:"string" json:",omitempty"`
+
+	Key *string `type:"string" json:",omitempty"`
+
+	Values []*string `type:"list" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s MetaForListRulesByIdsOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s MetaForListRulesByIdsOutput) GoString() string {
+	return s.String()
+}
+
+// SetComparator sets the Comparator field's value.
+func (s *MetaForListRulesByIdsOutput) SetComparator(v string) *MetaForListRulesByIdsOutput {
+	s.Comparator = &v
+	return s
+}
+
+// SetKey sets the Key field's value.
+func (s *MetaForListRulesByIdsOutput) SetKey(v string) *MetaForListRulesByIdsOutput {
+	s.Key = &v
+	return s
+}
+
+// SetValues sets the Values field's value.
+func (s *MetaForListRulesByIdsOutput) SetValues(v []*string) *MetaForListRulesByIdsOutput {
+	s.Values = v
+	return s
+}
+
+type ProjectConditionForListRulesByIdsOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Projects []*string `type:"list" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s ProjectConditionForListRulesByIdsOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ProjectConditionForListRulesByIdsOutput) GoString() string {
+	return s.String()
+}
+
+// SetProjects sets the Projects field's value.
+func (s *ProjectConditionForListRulesByIdsOutput) SetProjects(v []*string) *ProjectConditionForListRulesByIdsOutput {
+	s.Projects = v
+	return s
+}
+
+type RecoveryNotifyForListRulesByIdsOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Enable *bool `type:"boolean" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -468,5 +628,73 @@ func (s RecoveryNotifyForListRulesByIdsOutput) GoString() string {
 // SetEnable sets the Enable field's value.
 func (s *RecoveryNotifyForListRulesByIdsOutput) SetEnable(v bool) *RecoveryNotifyForListRulesByIdsOutput {
 	s.Enable = &v
+	return s
+}
+
+type TagConditionForListRulesByIdsOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Condition *string `type:"string" json:",omitempty"`
+
+	Tags []*TagForListRulesByIdsOutput `type:"list" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s TagConditionForListRulesByIdsOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagConditionForListRulesByIdsOutput) GoString() string {
+	return s.String()
+}
+
+// SetCondition sets the Condition field's value.
+func (s *TagConditionForListRulesByIdsOutput) SetCondition(v string) *TagConditionForListRulesByIdsOutput {
+	s.Condition = &v
+	return s
+}
+
+// SetTags sets the Tags field's value.
+func (s *TagConditionForListRulesByIdsOutput) SetTags(v []*TagForListRulesByIdsOutput) *TagConditionForListRulesByIdsOutput {
+	s.Tags = v
+	return s
+}
+
+type TagForListRulesByIdsOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Comparator *string `type:"string" json:",omitempty"`
+
+	Key *string `type:"string" json:",omitempty"`
+
+	Values []*string `type:"list" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s TagForListRulesByIdsOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagForListRulesByIdsOutput) GoString() string {
+	return s.String()
+}
+
+// SetComparator sets the Comparator field's value.
+func (s *TagForListRulesByIdsOutput) SetComparator(v string) *TagForListRulesByIdsOutput {
+	s.Comparator = &v
+	return s
+}
+
+// SetKey sets the Key field's value.
+func (s *TagForListRulesByIdsOutput) SetKey(v string) *TagForListRulesByIdsOutput {
+	s.Key = &v
+	return s
+}
+
+// SetValues sets the Values field's value.
+func (s *TagForListRulesByIdsOutput) SetValues(v []*string) *TagForListRulesByIdsOutput {
+	s.Values = v
 	return s
 }

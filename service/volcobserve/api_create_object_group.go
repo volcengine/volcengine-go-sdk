@@ -144,12 +144,12 @@ func (c *VOLCOBSERVE) CreateObjectGroupWithContext(ctx volcengine.Context, input
 }
 
 type CreateObjectGroupInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// Name is a required field
-	Name *string `type:"string" required:"true"`
+	Name *string `type:"string" json:",omitempty" required:"true"`
 
-	Objects []*ObjectForCreateObjectGroupInput `type:"list"`
+	Objects []*ObjectForCreateObjectGroupInput `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -188,11 +188,11 @@ func (s *CreateObjectGroupInput) SetObjects(v []*ObjectForCreateObjectGroupInput
 }
 
 type CreateObjectGroupOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	Data *string `type:"string"`
+	Data *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -211,14 +211,140 @@ func (s *CreateObjectGroupOutput) SetData(v string) *CreateObjectGroupOutput {
 	return s
 }
 
+type DimensionConditionsForCreateObjectGroupInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	MetaCondition *MetaConditionForCreateObjectGroupInput `type:"structure" json:",omitempty"`
+
+	ProjectCondition *ProjectConditionForCreateObjectGroupInput `type:"structure" json:",omitempty"`
+
+	TagCondition *TagConditionForCreateObjectGroupInput `type:"structure" json:",omitempty"`
+
+	Type *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s DimensionConditionsForCreateObjectGroupInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DimensionConditionsForCreateObjectGroupInput) GoString() string {
+	return s.String()
+}
+
+// SetMetaCondition sets the MetaCondition field's value.
+func (s *DimensionConditionsForCreateObjectGroupInput) SetMetaCondition(v *MetaConditionForCreateObjectGroupInput) *DimensionConditionsForCreateObjectGroupInput {
+	s.MetaCondition = v
+	return s
+}
+
+// SetProjectCondition sets the ProjectCondition field's value.
+func (s *DimensionConditionsForCreateObjectGroupInput) SetProjectCondition(v *ProjectConditionForCreateObjectGroupInput) *DimensionConditionsForCreateObjectGroupInput {
+	s.ProjectCondition = v
+	return s
+}
+
+// SetTagCondition sets the TagCondition field's value.
+func (s *DimensionConditionsForCreateObjectGroupInput) SetTagCondition(v *TagConditionForCreateObjectGroupInput) *DimensionConditionsForCreateObjectGroupInput {
+	s.TagCondition = v
+	return s
+}
+
+// SetType sets the Type field's value.
+func (s *DimensionConditionsForCreateObjectGroupInput) SetType(v string) *DimensionConditionsForCreateObjectGroupInput {
+	s.Type = &v
+	return s
+}
+
+type MetaConditionForCreateObjectGroupInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	AllDimensions *bool `type:"boolean" json:",omitempty"`
+
+	Condition *string `type:"string" json:",omitempty"`
+
+	Metas []*MetaForCreateObjectGroupInput `type:"list" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s MetaConditionForCreateObjectGroupInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s MetaConditionForCreateObjectGroupInput) GoString() string {
+	return s.String()
+}
+
+// SetAllDimensions sets the AllDimensions field's value.
+func (s *MetaConditionForCreateObjectGroupInput) SetAllDimensions(v bool) *MetaConditionForCreateObjectGroupInput {
+	s.AllDimensions = &v
+	return s
+}
+
+// SetCondition sets the Condition field's value.
+func (s *MetaConditionForCreateObjectGroupInput) SetCondition(v string) *MetaConditionForCreateObjectGroupInput {
+	s.Condition = &v
+	return s
+}
+
+// SetMetas sets the Metas field's value.
+func (s *MetaConditionForCreateObjectGroupInput) SetMetas(v []*MetaForCreateObjectGroupInput) *MetaConditionForCreateObjectGroupInput {
+	s.Metas = v
+	return s
+}
+
+type MetaForCreateObjectGroupInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Comparator *string `type:"string" json:",omitempty"`
+
+	Key *string `type:"string" json:",omitempty"`
+
+	Values []*string `type:"list" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s MetaForCreateObjectGroupInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s MetaForCreateObjectGroupInput) GoString() string {
+	return s.String()
+}
+
+// SetComparator sets the Comparator field's value.
+func (s *MetaForCreateObjectGroupInput) SetComparator(v string) *MetaForCreateObjectGroupInput {
+	s.Comparator = &v
+	return s
+}
+
+// SetKey sets the Key field's value.
+func (s *MetaForCreateObjectGroupInput) SetKey(v string) *MetaForCreateObjectGroupInput {
+	s.Key = &v
+	return s
+}
+
+// SetValues sets the Values field's value.
+func (s *MetaForCreateObjectGroupInput) SetValues(v []*string) *MetaForCreateObjectGroupInput {
+	s.Values = v
+	return s
+}
+
 type ObjectForCreateObjectGroupInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Dimensions map[string][]*string `type:"map"`
+	DimensionConditions *DimensionConditionsForCreateObjectGroupInput `type:"structure" json:",omitempty"`
 
-	Namespace *string `type:"string"`
+	Dimensions map[string][]*string `type:"map" json:",omitempty"`
 
-	Region *string `type:"string"`
+	Namespace *string `type:"string" json:",omitempty"`
+
+	Region *string `type:"string" json:",omitempty"`
+
+	Type *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -229,6 +355,12 @@ func (s ObjectForCreateObjectGroupInput) String() string {
 // GoString returns the string representation
 func (s ObjectForCreateObjectGroupInput) GoString() string {
 	return s.String()
+}
+
+// SetDimensionConditions sets the DimensionConditions field's value.
+func (s *ObjectForCreateObjectGroupInput) SetDimensionConditions(v *DimensionConditionsForCreateObjectGroupInput) *ObjectForCreateObjectGroupInput {
+	s.DimensionConditions = v
+	return s
 }
 
 // SetDimensions sets the Dimensions field's value.
@@ -246,5 +378,101 @@ func (s *ObjectForCreateObjectGroupInput) SetNamespace(v string) *ObjectForCreat
 // SetRegion sets the Region field's value.
 func (s *ObjectForCreateObjectGroupInput) SetRegion(v string) *ObjectForCreateObjectGroupInput {
 	s.Region = &v
+	return s
+}
+
+// SetType sets the Type field's value.
+func (s *ObjectForCreateObjectGroupInput) SetType(v string) *ObjectForCreateObjectGroupInput {
+	s.Type = &v
+	return s
+}
+
+type ProjectConditionForCreateObjectGroupInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Projects []*string `type:"list" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s ProjectConditionForCreateObjectGroupInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ProjectConditionForCreateObjectGroupInput) GoString() string {
+	return s.String()
+}
+
+// SetProjects sets the Projects field's value.
+func (s *ProjectConditionForCreateObjectGroupInput) SetProjects(v []*string) *ProjectConditionForCreateObjectGroupInput {
+	s.Projects = v
+	return s
+}
+
+type TagConditionForCreateObjectGroupInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Condition *string `type:"string" json:",omitempty"`
+
+	Tags []*TagForCreateObjectGroupInput `type:"list" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s TagConditionForCreateObjectGroupInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagConditionForCreateObjectGroupInput) GoString() string {
+	return s.String()
+}
+
+// SetCondition sets the Condition field's value.
+func (s *TagConditionForCreateObjectGroupInput) SetCondition(v string) *TagConditionForCreateObjectGroupInput {
+	s.Condition = &v
+	return s
+}
+
+// SetTags sets the Tags field's value.
+func (s *TagConditionForCreateObjectGroupInput) SetTags(v []*TagForCreateObjectGroupInput) *TagConditionForCreateObjectGroupInput {
+	s.Tags = v
+	return s
+}
+
+type TagForCreateObjectGroupInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Comparator *string `type:"string" json:",omitempty"`
+
+	Key *string `type:"string" json:",omitempty"`
+
+	Values []*string `type:"list" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s TagForCreateObjectGroupInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagForCreateObjectGroupInput) GoString() string {
+	return s.String()
+}
+
+// SetComparator sets the Comparator field's value.
+func (s *TagForCreateObjectGroupInput) SetComparator(v string) *TagForCreateObjectGroupInput {
+	s.Comparator = &v
+	return s
+}
+
+// SetKey sets the Key field's value.
+func (s *TagForCreateObjectGroupInput) SetKey(v string) *TagForCreateObjectGroupInput {
+	s.Key = &v
+	return s
+}
+
+// SetValues sets the Values field's value.
+func (s *TagForCreateObjectGroupInput) SetValues(v []*string) *TagForCreateObjectGroupInput {
+	s.Values = v
 	return s
 }

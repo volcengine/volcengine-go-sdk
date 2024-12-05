@@ -144,25 +144,25 @@ func (c *VOLCOBSERVE) GetMetricDataWithContext(ctx volcengine.Context, input *Ge
 }
 
 type DataForGetMetricDataOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	DescriptionCN *string `type:"string"`
+	DescriptionCN *string `type:"string" json:",omitempty"`
 
-	DescriptionEN *string `type:"string"`
+	DescriptionEN *string `type:"string" json:",omitempty"`
 
-	EndTime *int64 `type:"integer"`
+	EndTime *int64 `type:"integer" json:",omitempty"`
 
-	MetricDataResults []*MetricDataResultForGetMetricDataOutput `type:"list"`
+	MetricDataResults []*MetricDataResultForGetMetricDataOutput `type:"list" json:",omitempty"`
 
-	MetricName *string `type:"string"`
+	MetricName *string `type:"string" json:",omitempty"`
 
-	Namespace *string `type:"string"`
+	Namespace *string `type:"string" json:",omitempty"`
 
-	Period *string `type:"string"`
+	Period *string `type:"string" json:",omitempty"`
 
-	StartTime *int64 `type:"integer"`
+	StartTime *int64 `type:"integer" json:",omitempty"`
 
-	Unit *string `type:"string"`
+	Unit *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -230,11 +230,11 @@ func (s *DataForGetMetricDataOutput) SetUnit(v string) *DataForGetMetricDataOutp
 }
 
 type DataPointForGetMetricDataOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Timestamp *int64 `type:"integer"`
+	Timestamp *int64 `type:"integer" json:",omitempty"`
 
-	Value *float64 `type:"double"`
+	Value *float64 `type:"float" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -260,11 +260,11 @@ func (s *DataPointForGetMetricDataOutput) SetValue(v float64) *DataPointForGetMe
 }
 
 type DimensionForGetMetricDataInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Name *string `type:"string"`
+	Name *string `type:"string" json:",omitempty"`
 
-	Value *string `type:"string"`
+	Value *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -290,11 +290,11 @@ func (s *DimensionForGetMetricDataInput) SetValue(v string) *DimensionForGetMetr
 }
 
 type DimensionForGetMetricDataOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Name *string `type:"string"`
+	Name *string `type:"string" json:",omitempty"`
 
-	Value *string `type:"string"`
+	Value *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -320,23 +320,26 @@ func (s *DimensionForGetMetricDataOutput) SetValue(v string) *DimensionForGetMet
 }
 
 type GetMetricDataInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	EndTime *int64 `type:"integer"`
+	EndTime *int64 `type:"integer" json:",omitempty"`
 
-	GroupBy []*string `type:"list"`
+	GroupBy []*string `type:"list" json:",omitempty"`
 
-	Instances []*InstanceForGetMetricDataInput `type:"list"`
+	Instances []*InstanceForGetMetricDataInput `type:"list" json:",omitempty"`
 
-	MetricName *string `type:"string"`
+	// MetricName is a required field
+	MetricName *string `type:"string" json:",omitempty" required:"true"`
 
-	Namespace *string `type:"string"`
+	// Namespace is a required field
+	Namespace *string `type:"string" json:",omitempty" required:"true"`
 
-	Period *string `type:"string"`
+	Period *string `type:"string" json:",omitempty"`
 
-	StartTime *int64 `type:"integer"`
+	StartTime *int64 `type:"integer" json:",omitempty"`
 
-	SubNamespace *string `type:"string"`
+	// SubNamespace is a required field
+	SubNamespace *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -347,6 +350,25 @@ func (s GetMetricDataInput) String() string {
 // GoString returns the string representation
 func (s GetMetricDataInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *GetMetricDataInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "GetMetricDataInput"}
+	if s.MetricName == nil {
+		invalidParams.Add(request.NewErrParamRequired("MetricName"))
+	}
+	if s.Namespace == nil {
+		invalidParams.Add(request.NewErrParamRequired("Namespace"))
+	}
+	if s.SubNamespace == nil {
+		invalidParams.Add(request.NewErrParamRequired("SubNamespace"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetEndTime sets the EndTime field's value.
@@ -398,11 +420,11 @@ func (s *GetMetricDataInput) SetSubNamespace(v string) *GetMetricDataInput {
 }
 
 type GetMetricDataOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	Data *DataForGetMetricDataOutput `type:"structure"`
+	Data *DataForGetMetricDataOutput `type:"structure" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -422,9 +444,9 @@ func (s *GetMetricDataOutput) SetData(v *DataForGetMetricDataOutput) *GetMetricD
 }
 
 type InstanceForGetMetricDataInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Dimensions []*DimensionForGetMetricDataInput `type:"list"`
+	Dimensions []*DimensionForGetMetricDataInput `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -444,13 +466,13 @@ func (s *InstanceForGetMetricDataInput) SetDimensions(v []*DimensionForGetMetric
 }
 
 type MetricDataResultForGetMetricDataOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	DataPoints []*DataPointForGetMetricDataOutput `type:"list"`
+	DataPoints []*DataPointForGetMetricDataOutput `type:"list" json:",omitempty"`
 
-	Dimensions []*DimensionForGetMetricDataOutput `type:"list"`
+	Dimensions []*DimensionForGetMetricDataOutput `type:"list" json:",omitempty"`
 
-	Legend *string `type:"string"`
+	Legend *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation

@@ -144,15 +144,15 @@ func (c *VOLCOBSERVE) ListContactsWithContext(ctx volcengine.Context, input *Lis
 }
 
 type DataForListContactsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Email *string `type:"string"`
+	Email *string `type:"string" json:",omitempty"`
 
-	Id *string `type:"string"`
+	Id *string `type:"string" json:",omitempty"`
 
-	Name *string `type:"string"`
+	Name *string `type:"string" json:",omitempty"`
 
-	Phone *string `type:"string"`
+	Phone *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -190,17 +190,17 @@ func (s *DataForListContactsOutput) SetPhone(v string) *DataForListContactsOutpu
 }
 
 type ListContactsInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Email *string `type:"string"`
+	Email *string `type:"string" json:",omitempty"`
 
-	Name *string `type:"string"`
+	Name *string `type:"string" json:",omitempty"`
 
-	PageNumber *int64 `type:"integer"`
+	PageNumber *int64 `type:"integer" json:",omitempty"`
 
-	PageSize *int64 `type:"integer"`
+	PageSize *int64 `type:"integer" json:",omitempty"`
 
-	Phone *string `type:"string"`
+	Phone *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -244,17 +244,17 @@ func (s *ListContactsInput) SetPhone(v string) *ListContactsInput {
 }
 
 type ListContactsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	Data []*DataForListContactsOutput `type:"list"`
+	Data []*DataForListContactsOutput `type:"list" json:",omitempty"`
 
-	PageNumber *int64 `type:"integer"`
+	PageNumber *int64 `type:"integer" json:",omitempty"`
 
-	PageSize *int64 `type:"integer"`
+	PageSize *int64 `type:"integer" json:",omitempty"`
 
-	TotalCount *int64 `type:"integer"`
+	TotalCount *int64 `type:"integer" json:",omitempty"`
 }
 
 // String returns the string representation

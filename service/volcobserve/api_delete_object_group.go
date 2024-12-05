@@ -144,10 +144,10 @@ func (c *VOLCOBSERVE) DeleteObjectGroupWithContext(ctx volcengine.Context, input
 }
 
 type DeleteObjectGroupInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// Id is a required field
-	Id *string `type:"string" required:"true"`
+	Id *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -180,11 +180,11 @@ func (s *DeleteObjectGroupInput) SetId(v string) *DeleteObjectGroupInput {
 }
 
 type DeleteObjectGroupOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	Data *string `type:"string"`
+	Data *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation

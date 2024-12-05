@@ -144,23 +144,23 @@ func (c *VOLCOBSERVE) ListWebhooksWithContext(ctx volcengine.Context, input *Lis
 }
 
 type DataForListWebhooksOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	CreatedAt *string `type:"string"`
+	CreatedAt *string `type:"string" json:",omitempty"`
 
-	EventRuleIds []*string `type:"list"`
+	EventRuleIds []*string `type:"list" json:",omitempty"`
 
-	Id *string `type:"string"`
+	Id *string `type:"string" json:",omitempty"`
 
-	Name *string `type:"string"`
+	Name *string `type:"string" json:",omitempty"`
 
-	RuleIds []*string `type:"list"`
+	RuleIds []*string `type:"list" json:",omitempty"`
 
-	Type *string `type:"string"`
+	Type *string `type:"string" json:",omitempty"`
 
-	UpdatedAt *string `type:"string"`
+	UpdatedAt *string `type:"string" json:",omitempty"`
 
-	Url *string `type:"string"`
+	Url *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -222,27 +222,25 @@ func (s *DataForListWebhooksOutput) SetUrl(v string) *DataForListWebhooksOutput 
 }
 
 type ListWebhooksInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Asc *bool `type:"boolean"`
+	Asc *bool `type:"boolean" json:",omitempty"`
 
-	EventRuleId *string `type:"string"`
+	EventRuleId *string `type:"string" json:",omitempty"`
 
-	Name *string `type:"string"`
+	Name *string `type:"string" json:",omitempty"`
 
-	OrderBy *string `type:"string"`
+	OrderBy *string `type:"string" json:",omitempty"`
 
-	PageNumber *int64 `type:"integer"`
+	PageNumber *int64 `type:"integer" json:",omitempty"`
 
-	PageSize *int64 `type:"integer"`
+	PageSize *int64 `type:"integer" json:",omitempty"`
 
-	RuleId *string `type:"string"`
+	RuleId *string `type:"string" json:",omitempty"`
 
-	TotalCount *int64 `type:"integer"`
+	Type *string `type:"string" json:",omitempty"`
 
-	Type *string `type:"string"`
-
-	Url *string `type:"string"`
+	Url *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -297,12 +295,6 @@ func (s *ListWebhooksInput) SetRuleId(v string) *ListWebhooksInput {
 	return s
 }
 
-// SetTotalCount sets the TotalCount field's value.
-func (s *ListWebhooksInput) SetTotalCount(v int64) *ListWebhooksInput {
-	s.TotalCount = &v
-	return s
-}
-
 // SetType sets the Type field's value.
 func (s *ListWebhooksInput) SetType(v string) *ListWebhooksInput {
 	s.Type = &v
@@ -316,15 +308,21 @@ func (s *ListWebhooksInput) SetUrl(v string) *ListWebhooksInput {
 }
 
 type ListWebhooksOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	Data []*DataForListWebhooksOutput `type:"list"`
+	Asc *bool `type:"boolean" json:",omitempty"`
 
-	PageNumber *int64 `type:"integer"`
+	Data []*DataForListWebhooksOutput `type:"list" json:",omitempty"`
 
-	PageSize *int64 `type:"integer"`
+	OrderBy *string `type:"string" json:",omitempty"`
+
+	PageNumber *int64 `type:"integer" json:",omitempty"`
+
+	PageSize *int64 `type:"integer" json:",omitempty"`
+
+	TotalCount *int64 `type:"integer" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -337,9 +335,21 @@ func (s ListWebhooksOutput) GoString() string {
 	return s.String()
 }
 
+// SetAsc sets the Asc field's value.
+func (s *ListWebhooksOutput) SetAsc(v bool) *ListWebhooksOutput {
+	s.Asc = &v
+	return s
+}
+
 // SetData sets the Data field's value.
 func (s *ListWebhooksOutput) SetData(v []*DataForListWebhooksOutput) *ListWebhooksOutput {
 	s.Data = v
+	return s
+}
+
+// SetOrderBy sets the OrderBy field's value.
+func (s *ListWebhooksOutput) SetOrderBy(v string) *ListWebhooksOutput {
+	s.OrderBy = &v
 	return s
 }
 
@@ -352,5 +362,11 @@ func (s *ListWebhooksOutput) SetPageNumber(v int64) *ListWebhooksOutput {
 // SetPageSize sets the PageSize field's value.
 func (s *ListWebhooksOutput) SetPageSize(v int64) *ListWebhooksOutput {
 	s.PageSize = &v
+	return s
+}
+
+// SetTotalCount sets the TotalCount field's value.
+func (s *ListWebhooksOutput) SetTotalCount(v int64) *ListWebhooksOutput {
+	s.TotalCount = &v
 	return s
 }

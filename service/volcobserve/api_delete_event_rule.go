@@ -144,9 +144,9 @@ func (c *VOLCOBSERVE) DeleteEventRuleWithContext(ctx volcengine.Context, input *
 }
 
 type DataForDeleteEventRuleOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	RuleId []*string `type:"list"`
+	RuleId []*string `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -166,9 +166,9 @@ func (s *DataForDeleteEventRuleOutput) SetRuleId(v []*string) *DataForDeleteEven
 }
 
 type DeleteEventRuleInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	RuleId []*string `type:"list"`
+	RuleId []*string `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -188,11 +188,11 @@ func (s *DeleteEventRuleInput) SetRuleId(v []*string) *DeleteEventRuleInput {
 }
 
 type DeleteEventRuleOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	Data *DataForDeleteEventRuleOutput `type:"structure"`
+	Data *DataForDeleteEventRuleOutput `type:"structure" json:",omitempty"`
 }
 
 // String returns the string representation

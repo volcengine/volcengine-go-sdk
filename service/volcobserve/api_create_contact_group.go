@@ -144,14 +144,14 @@ func (c *VOLCOBSERVE) CreateContactGroupWithContext(ctx volcengine.Context, inpu
 }
 
 type CreateContactGroupInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	ContactsIdList []*string `type:"list"`
+	ContactsIdList []*string `type:"list" json:",omitempty"`
 
-	Description *string `type:"string"`
+	Description *string `type:"string" json:",omitempty"`
 
 	// Name is a required field
-	Name *string `type:"string" required:"true"`
+	Name *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -196,11 +196,11 @@ func (s *CreateContactGroupInput) SetName(v string) *CreateContactGroupInput {
 }
 
 type CreateContactGroupOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	Data []*string `type:"list"`
+	Data []*string `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation

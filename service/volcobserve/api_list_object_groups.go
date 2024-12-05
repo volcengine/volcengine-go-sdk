@@ -144,21 +144,21 @@ func (c *VOLCOBSERVE) ListObjectGroupsWithContext(ctx volcengine.Context, input 
 }
 
 type DataForListObjectGroupsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	AlertTemplateId *string `type:"string"`
+	AlertTemplateId *string `type:"string" json:",omitempty"`
 
-	AlertTemplateName *string `type:"string"`
+	AlertTemplateName *string `type:"string" json:",omitempty"`
 
-	CreatedAt *string `type:"string"`
+	CreatedAt *string `type:"string" json:",omitempty"`
 
-	Id *string `type:"string"`
+	Id *string `type:"string" json:",omitempty"`
 
-	Name *string `type:"string"`
+	Name *string `type:"string" json:",omitempty"`
 
-	Objects []*ObjectForListObjectGroupsOutput `type:"list"`
+	Objects []*ObjectForListObjectGroupsOutput `type:"list" json:",omitempty"`
 
-	UpdatedAt *string `type:"string"`
+	UpdatedAt *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -214,15 +214,15 @@ func (s *DataForListObjectGroupsOutput) SetUpdatedAt(v string) *DataForListObjec
 }
 
 type ListObjectGroupsInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Ids []*string `type:"list"`
+	Ids []*string `type:"list" json:",omitempty"`
 
-	Name *string `type:"string"`
+	Name *string `type:"string" json:",omitempty"`
 
-	PageNumber *int64 `type:"integer"`
+	PageNumber *int64 `type:"integer" json:",omitempty"`
 
-	PageSize *int64 `type:"integer"`
+	PageSize *int64 `type:"integer" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -260,17 +260,17 @@ func (s *ListObjectGroupsInput) SetPageSize(v int64) *ListObjectGroupsInput {
 }
 
 type ListObjectGroupsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	Data []*DataForListObjectGroupsOutput `type:"list"`
+	Data []*DataForListObjectGroupsOutput `type:"list" json:",omitempty"`
 
-	PageNumber *int64 `type:"integer"`
+	PageNumber *int64 `type:"integer" json:",omitempty"`
 
-	PageSize *int64 `type:"integer"`
+	PageSize *int64 `type:"integer" json:",omitempty"`
 
-	TotalCount *int64 `type:"integer"`
+	TotalCount *int64 `type:"integer" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -308,17 +308,19 @@ func (s *ListObjectGroupsOutput) SetTotalCount(v int64) *ListObjectGroupsOutput 
 }
 
 type ObjectForListObjectGroupsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Dimensions map[string][]*string `type:"map"`
+	DimensionConditions *string `type:"string" json:",omitempty"`
 
-	Id *string `type:"string"`
+	Dimensions map[string][]*string `type:"map" json:",omitempty"`
 
-	Namespace *string `type:"string"`
+	Id *string `type:"string" json:",omitempty"`
 
-	Region *string `type:"string"`
+	Namespace *string `type:"string" json:",omitempty"`
 
-	Type *string `type:"string"`
+	Region *string `type:"string" json:",omitempty"`
+
+	Type *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -329,6 +331,12 @@ func (s ObjectForListObjectGroupsOutput) String() string {
 // GoString returns the string representation
 func (s ObjectForListObjectGroupsOutput) GoString() string {
 	return s.String()
+}
+
+// SetDimensionConditions sets the DimensionConditions field's value.
+func (s *ObjectForListObjectGroupsOutput) SetDimensionConditions(v string) *ObjectForListObjectGroupsOutput {
+	s.DimensionConditions = &v
+	return s
 }
 
 // SetDimensions sets the Dimensions field's value.

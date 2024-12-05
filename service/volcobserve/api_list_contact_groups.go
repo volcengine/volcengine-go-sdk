@@ -144,19 +144,19 @@ func (c *VOLCOBSERVE) ListContactGroupsWithContext(ctx volcengine.Context, input
 }
 
 type DataForListContactGroupsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	AccountId *string `type:"string"`
+	AccountId *string `type:"string" json:",omitempty"`
 
-	CreatedAt *string `type:"string"`
+	CreatedAt *string `type:"string" json:",omitempty"`
 
-	Description *string `type:"string"`
+	Description *string `type:"string" json:",omitempty"`
 
-	Id *string `type:"string"`
+	Id *string `type:"string" json:",omitempty"`
 
-	Name *string `type:"string"`
+	Name *string `type:"string" json:",omitempty"`
 
-	UpdatedAt *string `type:"string"`
+	UpdatedAt *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -206,13 +206,13 @@ func (s *DataForListContactGroupsOutput) SetUpdatedAt(v string) *DataForListCont
 }
 
 type ListContactGroupsInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Name *string `type:"string"`
+	Name *string `type:"string" json:",omitempty"`
 
-	PageNumber *int64 `type:"integer"`
+	PageNumber *int64 `type:"integer" json:",omitempty"`
 
-	PageSize *int64 `type:"integer"`
+	PageSize *int64 `type:"integer" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -244,17 +244,17 @@ func (s *ListContactGroupsInput) SetPageSize(v int64) *ListContactGroupsInput {
 }
 
 type ListContactGroupsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	Data []*DataForListContactGroupsOutput `type:"list"`
+	Data []*DataForListContactGroupsOutput `type:"list" json:",omitempty"`
 
-	PageNumber *int64 `type:"integer"`
+	PageNumber *int64 `type:"integer" json:",omitempty"`
 
-	PageSize *int64 `type:"integer"`
+	PageSize *int64 `type:"integer" json:",omitempty"`
 
-	TotalCount *int64 `type:"integer"`
+	TotalCount *int64 `type:"integer" json:",omitempty"`
 }
 
 // String returns the string representation

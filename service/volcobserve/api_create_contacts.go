@@ -144,15 +144,15 @@ func (c *VOLCOBSERVE) CreateContactsWithContext(ctx volcengine.Context, input *C
 }
 
 type CreateContactsInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// Email is a required field
-	Email *string `type:"string" required:"true"`
+	Email *string `type:"string" json:",omitempty" required:"true"`
 
 	// Name is a required field
-	Name *string `type:"string" required:"true"`
+	Name *string `type:"string" json:",omitempty" required:"true"`
 
-	Phone *string `type:"string"`
+	Phone *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -200,11 +200,11 @@ func (s *CreateContactsInput) SetPhone(v string) *CreateContactsInput {
 }
 
 type CreateContactsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	Data []*string `type:"list"`
+	Data []*string `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation

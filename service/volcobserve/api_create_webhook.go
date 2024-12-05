@@ -144,16 +144,16 @@ func (c *VOLCOBSERVE) CreateWebhookWithContext(ctx volcengine.Context, input *Cr
 }
 
 type CreateWebhookInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// Name is a required field
-	Name *string `min:"1" max:"512" type:"string" required:"true"`
+	Name *string `min:"1" max:"512" type:"string" json:",omitempty" required:"true"`
 
 	// Type is a required field
-	Type *string `type:"string" required:"true" enum:"EnumOfTypeForCreateWebhookInput"`
+	Type *string `type:"string" json:",omitempty" required:"true" enum:"EnumOfTypeForCreateWebhookInput"`
 
 	// Url is a required field
-	Url *string `type:"string" required:"true"`
+	Url *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -210,11 +210,11 @@ func (s *CreateWebhookInput) SetUrl(v string) *CreateWebhookInput {
 }
 
 type CreateWebhookOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	Data []*string `type:"list"`
+	Data []*string `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation

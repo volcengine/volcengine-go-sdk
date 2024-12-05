@@ -144,19 +144,19 @@ func (c *VOLCOBSERVE) UpdateWebhookWithContext(ctx volcengine.Context, input *Up
 }
 
 type UpdateWebhookInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// Id is a required field
-	Id *string `type:"string" required:"true"`
+	Id *string `type:"string" json:",omitempty" required:"true"`
 
 	// Name is a required field
-	Name *string `type:"string" required:"true"`
+	Name *string `type:"string" json:",omitempty" required:"true"`
 
 	// Type is a required field
-	Type *string `type:"string" required:"true"`
+	Type *string `type:"string" json:",omitempty" required:"true"`
 
 	// Url is a required field
-	Url *string `type:"string" required:"true"`
+	Url *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -216,11 +216,11 @@ func (s *UpdateWebhookInput) SetUrl(v string) *UpdateWebhookInput {
 }
 
 type UpdateWebhookOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	Data []*string `type:"list"`
+	Data []*string `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
