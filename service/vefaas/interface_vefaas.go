@@ -46,6 +46,14 @@ type VEFAASAPI interface {
 	CreateFunctionWithContext(volcengine.Context, *CreateFunctionInput, ...request.Option) (*CreateFunctionOutput, error)
 	CreateFunctionRequest(*CreateFunctionInput) (*request.Request, *CreateFunctionOutput)
 
+	CreateTimerCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateTimerCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateTimerCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateTimer(*CreateTimerInput) (*CreateTimerOutput, error)
+	CreateTimerWithContext(volcengine.Context, *CreateTimerInput, ...request.Option) (*CreateTimerOutput, error)
+	CreateTimerRequest(*CreateTimerInput) (*request.Request, *CreateTimerOutput)
+
 	DeleteFunctionCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DeleteFunctionCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DeleteFunctionCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -53,6 +61,14 @@ type VEFAASAPI interface {
 	DeleteFunction(*DeleteFunctionInput) (*DeleteFunctionOutput, error)
 	DeleteFunctionWithContext(volcengine.Context, *DeleteFunctionInput, ...request.Option) (*DeleteFunctionOutput, error)
 	DeleteFunctionRequest(*DeleteFunctionInput) (*request.Request, *DeleteFunctionOutput)
+
+	DeleteTimerCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeleteTimerCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeleteTimerCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeleteTimer(*DeleteTimerInput) (*DeleteTimerOutput, error)
+	DeleteTimerWithContext(volcengine.Context, *DeleteTimerInput, ...request.Option) (*DeleteTimerOutput, error)
+	DeleteTimerRequest(*DeleteTimerInput) (*request.Request, *DeleteTimerOutput)
 
 	GetFunctionCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	GetFunctionCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -93,6 +109,14 @@ type VEFAASAPI interface {
 	GetRocketMQTrigger(*GetRocketMQTriggerInput) (*GetRocketMQTriggerOutput, error)
 	GetRocketMQTriggerWithContext(volcengine.Context, *GetRocketMQTriggerInput, ...request.Option) (*GetRocketMQTriggerOutput, error)
 	GetRocketMQTriggerRequest(*GetRocketMQTriggerInput) (*request.Request, *GetRocketMQTriggerOutput)
+
+	GetTimerCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	GetTimerCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	GetTimerCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	GetTimer(*GetTimerInput) (*GetTimerOutput, error)
+	GetTimerWithContext(volcengine.Context, *GetTimerInput, ...request.Option) (*GetTimerOutput, error)
+	GetTimerRequest(*GetTimerInput) (*request.Request, *GetTimerOutput)
 
 	ListFunctionInstancesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ListFunctionInstancesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -157,6 +181,14 @@ type VEFAASAPI interface {
 	UpdateRelease(*UpdateReleaseInput) (*UpdateReleaseOutput, error)
 	UpdateReleaseWithContext(volcengine.Context, *UpdateReleaseInput, ...request.Option) (*UpdateReleaseOutput, error)
 	UpdateReleaseRequest(*UpdateReleaseInput) (*request.Request, *UpdateReleaseOutput)
+
+	UpdateTimerCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	UpdateTimerCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	UpdateTimerCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	UpdateTimer(*UpdateTimerInput) (*UpdateTimerOutput, error)
+	UpdateTimerWithContext(volcengine.Context, *UpdateTimerInput, ...request.Option) (*UpdateTimerOutput, error)
+	UpdateTimerRequest(*UpdateTimerInput) (*request.Request, *UpdateTimerOutput)
 }
 
 var _ VEFAASAPI = (*VEFAAS)(nil)
