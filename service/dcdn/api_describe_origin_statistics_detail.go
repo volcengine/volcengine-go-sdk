@@ -144,27 +144,27 @@ func (c *DCDN) DescribeOriginStatisticsDetailWithContext(ctx volcengine.Context,
 }
 
 type DescribeOriginStatisticsDetailInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Domains []*string `type:"list"`
+	Domains []*string `type:"list" json:",omitempty"`
 
 	// EndTime is a required field
-	EndTime *string `type:"string" required:"true"`
+	EndTime *string `type:"string" json:",omitempty" required:"true"`
 
-	IPVersion *string `type:"string"`
+	IPVersion *string `type:"string" json:",omitempty"`
 
-	Interval *int32 `type:"int32"`
+	Interval *int32 `type:"int32" json:",omitempty"`
 
-	Metrics []*string `type:"list"`
+	Metrics []*string `type:"list" json:",omitempty"`
 
-	ProjectName []*string `type:"list"`
+	ProjectName []*string `type:"list" json:",omitempty"`
 
-	Protocol []*string `type:"list"`
+	Protocol []*string `type:"list" json:",omitempty"`
 
 	// StartTime is a required field
-	StartTime *string `type:"string" required:"true"`
+	StartTime *string `type:"string" json:",omitempty" required:"true"`
 
-	Type *string `type:"string"`
+	Type *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -248,21 +248,21 @@ func (s *DescribeOriginStatisticsDetailInput) SetType(v string) *DescribeOriginS
 }
 
 type DescribeOriginStatisticsDetailOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	DomainCount *int32 `type:"int32"`
+	DomainCount *int32 `type:"int32" json:",omitempty"`
 
-	EndTime *string `type:"string"`
+	EndTime *string `type:"string" json:",omitempty"`
 
-	Metrics []*string `type:"list"`
+	Metrics []*string `type:"list" json:",omitempty"`
 
-	RequestId *string `type:"string"`
+	RequestId *string `type:"string" json:",omitempty"`
 
-	Results []*ResultForDescribeOriginStatisticsDetailOutput `type:"list"`
+	Results []*ResultForDescribeOriginStatisticsDetailOutput `type:"list" json:",omitempty"`
 
-	StartTime *string `type:"string"`
+	StartTime *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -312,11 +312,11 @@ func (s *DescribeOriginStatisticsDetailOutput) SetStartTime(v string) *DescribeO
 }
 
 type DetailInfoForDescribeOriginStatisticsDetailOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Name *string `type:"string"`
+	Name *string `type:"string" json:",omitempty"`
 
-	Value *float64 `type:"float"`
+	Value *float64 `type:"float" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -342,11 +342,11 @@ func (s *DetailInfoForDescribeOriginStatisticsDetailOutput) SetValue(v float64) 
 }
 
 type RealTimeResultForDescribeOriginStatisticsDetailOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	DetailInfo []*DetailInfoForDescribeOriginStatisticsDetailOutput `type:"list"`
+	DetailInfo []*DetailInfoForDescribeOriginStatisticsDetailOutput `type:"list" json:",omitempty"`
 
-	DomainName *string `type:"string"`
+	DomainName *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -372,11 +372,11 @@ func (s *RealTimeResultForDescribeOriginStatisticsDetailOutput) SetDomainName(v 
 }
 
 type ResultForDescribeOriginStatisticsDetailOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	RealTimeResults []*RealTimeResultForDescribeOriginStatisticsDetailOutput `type:"list"`
+	RealTimeResults []*RealTimeResultForDescribeOriginStatisticsDetailOutput `type:"list" json:",omitempty"`
 
-	TimeStamp *string `type:"string"`
+	TimeStamp *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation

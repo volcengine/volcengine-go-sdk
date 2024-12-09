@@ -144,20 +144,20 @@ func (c *DCDN) DescribeTopIPWithContext(ctx volcengine.Context, input *DescribeT
 }
 
 type DescribeTopIPInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// EndTime is a required field
-	EndTime *string `type:"string" required:"true"`
+	EndTime *string `type:"string" json:",omitempty" required:"true"`
 
-	Limit *int32 `type:"int32"`
+	Limit *int32 `type:"int32" json:",omitempty"`
 
-	ProjectName []*string `type:"list"`
+	ProjectName []*string `type:"list" json:",omitempty"`
 
 	// Sort is a required field
-	Sort *string `type:"string" required:"true"`
+	Sort *string `type:"string" json:",omitempty" required:"true"`
 
 	// StartTime is a required field
-	StartTime *string `type:"string" required:"true"`
+	StartTime *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -220,11 +220,11 @@ func (s *DescribeTopIPInput) SetStartTime(v string) *DescribeTopIPInput {
 }
 
 type DescribeTopIPOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	TopIPs []*TopIPForDescribeTopIPOutput `type:"list"`
+	TopIPs []*TopIPForDescribeTopIPOutput `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -244,19 +244,19 @@ func (s *DescribeTopIPOutput) SetTopIPs(v []*TopIPForDescribeTopIPOutput) *Descr
 }
 
 type TopIPForDescribeTopIPOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Bandwidth *float64 `type:"float"`
+	Bandwidth *float64 `type:"float" json:",omitempty"`
 
-	IP *string `type:"string"`
+	IP *string `type:"string" json:",omitempty"`
 
-	QPS *float64 `type:"float"`
+	QPS *float64 `type:"float" json:",omitempty"`
 
-	Rank *float64 `type:"float"`
+	Rank *float64 `type:"float" json:",omitempty"`
 
-	Request *float64 `type:"float"`
+	Request *float64 `type:"float" json:",omitempty"`
 
-	Traffic *float64 `type:"float"`
+	Traffic *float64 `type:"float" json:",omitempty"`
 }
 
 // String returns the string representation

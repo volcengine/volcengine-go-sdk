@@ -144,18 +144,18 @@ func (c *DCDN) DescribeDomainIspDataWithContext(ctx volcengine.Context, input *D
 }
 
 type DescribeDomainIspDataInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// Domain is a required field
-	Domain *string `type:"string" required:"true"`
+	Domain *string `type:"string" json:",omitempty" required:"true"`
 
 	// EndTime is a required field
-	EndTime *string `type:"string" required:"true"`
+	EndTime *string `type:"string" json:",omitempty" required:"true"`
 
-	ProjectName []*string `type:"list"`
+	ProjectName []*string `type:"list" json:",omitempty"`
 
 	// StartTime is a required field
-	StartTime *string `type:"string" required:"true"`
+	StartTime *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -212,17 +212,17 @@ func (s *DescribeDomainIspDataInput) SetStartTime(v string) *DescribeDomainIspDa
 }
 
 type DescribeDomainIspDataOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	DomainName *string `type:"string"`
+	DomainName *string `type:"string" json:",omitempty"`
 
-	EndTime *string `type:"string"`
+	EndTime *string `type:"string" json:",omitempty"`
 
-	StartTime *string `type:"string"`
+	StartTime *string `type:"string" json:",omitempty"`
 
-	Values []*ValueForDescribeDomainIspDataOutput `type:"list"`
+	Values []*ValueForDescribeDomainIspDataOutput `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -260,23 +260,23 @@ func (s *DescribeDomainIspDataOutput) SetValues(v []*ValueForDescribeDomainIspDa
 }
 
 type ValueForDescribeDomainIspDataOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	AvgResponseTime *float64 `type:"float"`
+	AvgResponseTime *float64 `type:"float" json:",omitempty"`
 
-	Bandwidth *float64 `type:"float"`
+	Bandwidth *float64 `type:"float" json:",omitempty"`
 
-	Isp *string `type:"string"`
+	Isp *string `type:"string" json:",omitempty"`
 
-	IspEname *string `type:"string"`
+	IspEname *string `type:"string" json:",omitempty"`
 
-	Request *float64 `type:"float"`
+	Request *float64 `type:"float" json:",omitempty"`
 
-	RequestProportion *float64 `type:"float"`
+	RequestProportion *float64 `type:"float" json:",omitempty"`
 
-	Traffic *float64 `type:"float"`
+	Traffic *float64 `type:"float" json:",omitempty"`
 
-	TrafficProportion *float64 `type:"float"`
+	TrafficProportion *float64 `type:"float" json:",omitempty"`
 }
 
 // String returns the string representation

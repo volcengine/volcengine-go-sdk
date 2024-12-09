@@ -144,13 +144,13 @@ func (c *DCDN) DescribeDomainOverviewWithContext(ctx volcengine.Context, input *
 }
 
 type DescribeDomainOverviewInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	PageNum *int32 `type:"int32"`
+	PageNum *int32 `type:"int32" json:",omitempty"`
 
-	PageSize *int32 `type:"int32"`
+	PageSize *int32 `type:"int32" json:",omitempty"`
 
-	ProjectName []*string `type:"list"`
+	ProjectName []*string `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -182,19 +182,19 @@ func (s *DescribeDomainOverviewInput) SetProjectName(v []*string) *DescribeDomai
 }
 
 type DescribeDomainOverviewOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	AllDomainNum *int32 `type:"int32"`
+	AllDomainNum *int32 `type:"int32" json:",omitempty"`
 
-	Domains []*DomainForDescribeDomainOverviewOutput `type:"list"`
+	Domains []*DomainForDescribeDomainOverviewOutput `type:"list" json:",omitempty"`
 
-	OnlineDomainNum *int32 `type:"int32"`
+	OnlineDomainNum *int32 `type:"int32" json:",omitempty"`
 
-	PageNum *int32 `type:"int32"`
+	PageNum *int32 `type:"int32" json:",omitempty"`
 
-	PageSize *int32 `type:"int32"`
+	PageSize *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -238,13 +238,13 @@ func (s *DescribeDomainOverviewOutput) SetPageSize(v int32) *DescribeDomainOverv
 }
 
 type DomainForDescribeDomainOverviewOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Domain *string `type:"string"`
+	Domain *string `type:"string" json:",omitempty"`
 
-	Scope *string `type:"string"`
+	Scope *string `type:"string" json:",omitempty"`
 
-	Status *string `type:"string"`
+	Status *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation

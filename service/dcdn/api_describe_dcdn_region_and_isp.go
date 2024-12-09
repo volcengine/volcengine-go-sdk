@@ -144,10 +144,10 @@ func (c *DCDN) DescribeDcdnRegionAndIspWithContext(ctx volcengine.Context, input
 }
 
 type DescribeDcdnRegionAndIspInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// Area is a required field
-	Area *string `type:"string" required:"true"`
+	Area *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -180,13 +180,13 @@ func (s *DescribeDcdnRegionAndIspInput) SetArea(v string) *DescribeDcdnRegionAnd
 }
 
 type DescribeDcdnRegionAndIspOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	Isps []*IspForDescribeDcdnRegionAndIspOutput `type:"list"`
+	Isps []*IspForDescribeDcdnRegionAndIspOutput `type:"list" json:",omitempty"`
 
-	Regions []*RegionForDescribeDcdnRegionAndIspOutput `type:"list"`
+	Regions []*RegionForDescribeDcdnRegionAndIspOutput `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -212,11 +212,11 @@ func (s *DescribeDcdnRegionAndIspOutput) SetRegions(v []*RegionForDescribeDcdnRe
 }
 
 type IspForDescribeDcdnRegionAndIspOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Code *string `type:"string"`
+	Code *string `type:"string" json:",omitempty"`
 
-	Name *string `type:"string"`
+	Name *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -242,11 +242,11 @@ func (s *IspForDescribeDcdnRegionAndIspOutput) SetName(v string) *IspForDescribe
 }
 
 type RegionForDescribeDcdnRegionAndIspOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Code *string `type:"string"`
+	Code *string `type:"string" json:",omitempty"`
 
-	Name *string `type:"string"`
+	Name *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation

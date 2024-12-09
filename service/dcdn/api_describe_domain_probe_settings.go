@@ -144,11 +144,13 @@ func (c *DCDN) DescribeDomainProbeSettingsWithContext(ctx volcengine.Context, in
 }
 
 type DescribeDomainProbeSettingsInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Domain *string `type:"string"`
+	Domain *string `type:"string" json:",omitempty"`
 
-	Fuzzy *bool `type:"boolean"`
+	Fuzzy *bool `type:"boolean" json:",omitempty"`
+
+	ProejctName []*string `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -173,12 +175,18 @@ func (s *DescribeDomainProbeSettingsInput) SetFuzzy(v bool) *DescribeDomainProbe
 	return s
 }
 
+// SetProejctName sets the ProejctName field's value.
+func (s *DescribeDomainProbeSettingsInput) SetProejctName(v []*string) *DescribeDomainProbeSettingsInput {
+	s.ProejctName = v
+	return s
+}
+
 type DescribeDomainProbeSettingsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	ProbeSettingInfo []*ProbeSettingInfoForDescribeDomainProbeSettingsOutput `type:"list"`
+	ProbeSettingInfo []*ProbeSettingInfoForDescribeDomainProbeSettingsOutput `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -198,17 +206,17 @@ func (s *DescribeDomainProbeSettingsOutput) SetProbeSettingInfo(v []*ProbeSettin
 }
 
 type ProbeSettingForDescribeDomainProbeSettingsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Host *string `type:"string"`
+	Host *string `type:"string" json:",omitempty"`
 
-	ReqHeadersList []*ReqHeadersListForDescribeDomainProbeSettingsOutput `type:"list"`
+	ReqHeadersList []*ReqHeadersListForDescribeDomainProbeSettingsOutput `type:"list" json:",omitempty"`
 
-	Switch *string `type:"string"`
+	Switch *string `type:"string" json:",omitempty"`
 
-	UnhealthyStatusList []*string `type:"list"`
+	UnhealthyStatusList []*string `type:"list" json:",omitempty"`
 
-	Url *string `type:"string"`
+	Url *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -252,11 +260,11 @@ func (s *ProbeSettingForDescribeDomainProbeSettingsOutput) SetUrl(v string) *Pro
 }
 
 type ProbeSettingInfoForDescribeDomainProbeSettingsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Domain *string `type:"string"`
+	Domain *string `type:"string" json:",omitempty"`
 
-	ProbeSetting *ProbeSettingForDescribeDomainProbeSettingsOutput `type:"structure"`
+	ProbeSetting *ProbeSettingForDescribeDomainProbeSettingsOutput `type:"structure" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -282,11 +290,11 @@ func (s *ProbeSettingInfoForDescribeDomainProbeSettingsOutput) SetProbeSetting(v
 }
 
 type ReqHeadersListForDescribeDomainProbeSettingsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Key *string `type:"string"`
+	Key *string `type:"string" json:",omitempty"`
 
-	Value *string `type:"string"`
+	Value *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation

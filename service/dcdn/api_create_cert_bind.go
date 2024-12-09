@@ -144,16 +144,16 @@ func (c *DCDN) CreateCertBindWithContext(ctx volcengine.Context, input *CreateCe
 }
 
 type CreateCertBindInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// CertId is a required field
-	CertId *string `type:"string" required:"true"`
+	CertId *string `type:"string" json:",omitempty" required:"true"`
 
-	CertSource *string `type:"string"`
+	CertSource *string `type:"string" json:",omitempty"`
 
-	DomainIds []*string `type:"list"`
+	DomainIds []*string `type:"list" json:",omitempty"`
 
-	DomainNames []*string `type:"list"`
+	DomainNames []*string `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -204,9 +204,11 @@ func (s *CreateCertBindInput) SetDomainNames(v []*string) *CreateCertBindInput {
 }
 
 type CreateCertBindOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
+
+	Success *bool `type:"boolean" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -217,4 +219,10 @@ func (s CreateCertBindOutput) String() string {
 // GoString returns the string representation
 func (s CreateCertBindOutput) GoString() string {
 	return s.String()
+}
+
+// SetSuccess sets the Success field's value.
+func (s *CreateCertBindOutput) SetSuccess(v bool) *CreateCertBindOutput {
+	s.Success = &v
+	return s
 }

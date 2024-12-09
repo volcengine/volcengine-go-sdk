@@ -144,23 +144,23 @@ func (c *DCDN) ListCertWithContext(ctx volcengine.Context, input *ListCertInput,
 }
 
 type CertListForListCertOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	CertId *string `type:"string"`
+	CertId *string `type:"string" json:",omitempty"`
 
-	CertName *string `type:"string"`
+	CertName *string `type:"string" json:",omitempty"`
 
-	CertSource *string `type:"string"`
+	CertSource *string `type:"string" json:",omitempty"`
 
-	CertStatus *string `type:"string"`
+	CertStatus *string `type:"string" json:",omitempty"`
 
-	Domain []*string `type:"list"`
+	Domain []*string `type:"list" json:",omitempty"`
 
-	Expire *string `type:"string"`
+	Expire *string `type:"string" json:",omitempty"`
 
-	KeyType *string `type:"string"`
+	KeyType *string `type:"string" json:",omitempty"`
 
-	MatchDomain []*string `type:"list"`
+	MatchDomain []*string `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -222,31 +222,31 @@ func (s *CertListForListCertOutput) SetMatchDomain(v []*string) *CertListForList
 }
 
 type ListCertInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	BindDomain *string `type:"string"`
+	BindDomain *string `type:"string" json:",omitempty"`
 
-	BoundStatus *string `type:"string"`
+	BoundStatus *string `type:"string" json:",omitempty"`
 
-	CertId *string `type:"string"`
+	CertId *string `type:"string" json:",omitempty"`
 
-	CertName *string `type:"string"`
+	CertName *string `type:"string" json:",omitempty"`
 
-	CertSource *string `type:"string"`
+	CertSource *string `type:"string" json:",omitempty"`
 
-	CertStatus *string `type:"string"`
+	CertStatus *string `type:"string" json:",omitempty"`
 
-	ContainDomain *bool `type:"boolean"`
+	ContainDomain *bool `type:"boolean" json:",omitempty"`
 
-	ExpireSortOrder *string `type:"string"`
+	ExpireSortOrder *string `type:"string" json:",omitempty"`
 
-	MatchDomain *string `type:"string"`
+	MatchDomain *string `type:"string" json:",omitempty"`
 
-	PageNumber *int32 `type:"int32"`
+	PageNumber *int32 `type:"int32" json:",omitempty"`
 
-	PageSize *int32 `type:"int32"`
+	PageSize *int32 `type:"int32" json:",omitempty"`
 
-	ProjectName []*string `type:"list"`
+	ProjectName []*string `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -332,17 +332,19 @@ func (s *ListCertInput) SetProjectName(v []*string) *ListCertInput {
 }
 
 type ListCertOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	CertList []*CertListForListCertOutput `type:"list"`
+	CertList []*CertListForListCertOutput `type:"list" json:",omitempty"`
 
-	PageNumber *int32 `type:"int32"`
+	NeedAuth *bool `type:"boolean" json:",omitempty"`
 
-	PageSize *int32 `type:"int32"`
+	PageNumber *int32 `type:"int32" json:",omitempty"`
 
-	Total *int32 `type:"int32"`
+	PageSize *int32 `type:"int32" json:",omitempty"`
+
+	Total *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -358,6 +360,12 @@ func (s ListCertOutput) GoString() string {
 // SetCertList sets the CertList field's value.
 func (s *ListCertOutput) SetCertList(v []*CertListForListCertOutput) *ListCertOutput {
 	s.CertList = v
+	return s
+}
+
+// SetNeedAuth sets the NeedAuth field's value.
+func (s *ListCertOutput) SetNeedAuth(v bool) *ListCertOutput {
+	s.NeedAuth = &v
 	return s
 }
 

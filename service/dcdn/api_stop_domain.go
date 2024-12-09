@@ -144,9 +144,9 @@ func (c *DCDN) StopDomainWithContext(ctx volcengine.Context, input *StopDomainIn
 }
 
 type StopDomainInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Domains []*string `type:"list"`
+	Domains []*string `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -166,7 +166,7 @@ func (s *StopDomainInput) SetDomains(v []*string) *StopDomainInput {
 }
 
 type StopDomainOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 }

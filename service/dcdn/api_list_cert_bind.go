@@ -144,21 +144,21 @@ func (c *DCDN) ListCertBindWithContext(ctx volcengine.Context, input *ListCertBi
 }
 
 type BindListForListCertBindOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	CertId *string `type:"string"`
+	CertId *string `type:"string" json:",omitempty"`
 
-	CertName *string `type:"string"`
+	CertName *string `type:"string" json:",omitempty"`
 
-	CertSource *string `type:"string"`
+	CertSource *string `type:"string" json:",omitempty"`
 
-	DeployStatus *string `type:"string"`
+	DeployStatus *string `type:"string" json:",omitempty"`
 
-	DomainId *string `type:"string"`
+	DomainId *string `type:"string" json:",omitempty"`
 
-	DomainName *string `type:"string"`
+	DomainName *string `type:"string" json:",omitempty"`
 
-	Expire *string `type:"string"`
+	Expire *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -214,11 +214,11 @@ func (s *BindListForListCertBindOutput) SetExpire(v string) *BindListForListCert
 }
 
 type ListCertBindInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	ProjectName []*string `type:"list"`
+	ProjectName []*string `type:"list" json:",omitempty"`
 
-	SearchKey *string `type:"string"`
+	SearchKey *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -244,11 +244,11 @@ func (s *ListCertBindInput) SetSearchKey(v string) *ListCertBindInput {
 }
 
 type ListCertBindOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	BindList []*BindListForListCertBindOutput `type:"list"`
+	BindList []*BindListForListCertBindOutput `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
