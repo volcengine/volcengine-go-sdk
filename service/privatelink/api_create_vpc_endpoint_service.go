@@ -162,6 +162,8 @@ type CreateVpcEndpointServiceInput struct {
 
 	Resources []*ResourceForCreateVpcEndpointServiceInput `type:"list"`
 
+	ServiceNameManaged *string `type:"string"`
+
 	ServiceNameSuffix *string `type:"string"`
 
 	ServiceOwner *string `type:"string"`
@@ -242,6 +244,12 @@ func (s *CreateVpcEndpointServiceInput) SetProjectName(v string) *CreateVpcEndpo
 // SetResources sets the Resources field's value.
 func (s *CreateVpcEndpointServiceInput) SetResources(v []*ResourceForCreateVpcEndpointServiceInput) *CreateVpcEndpointServiceInput {
 	s.Resources = v
+	return s
+}
+
+// SetServiceNameManaged sets the ServiceNameManaged field's value.
+func (s *CreateVpcEndpointServiceInput) SetServiceNameManaged(v string) *CreateVpcEndpointServiceInput {
+	s.ServiceNameManaged = &v
 	return s
 }
 

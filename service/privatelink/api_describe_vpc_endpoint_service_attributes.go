@@ -212,6 +212,8 @@ type DescribeVpcEndpointServiceAttributesOutput struct {
 
 	ServiceName *string `type:"string"`
 
+	ServiceNameManaged *string `type:"string"`
+
 	ServiceOwner *string `type:"string"`
 
 	ServiceResourceType *string `type:"string"`
@@ -334,6 +336,12 @@ func (s *DescribeVpcEndpointServiceAttributesOutput) SetServiceId(v string) *Des
 // SetServiceName sets the ServiceName field's value.
 func (s *DescribeVpcEndpointServiceAttributesOutput) SetServiceName(v string) *DescribeVpcEndpointServiceAttributesOutput {
 	s.ServiceName = &v
+	return s
+}
+
+// SetServiceNameManaged sets the ServiceNameManaged field's value.
+func (s *DescribeVpcEndpointServiceAttributesOutput) SetServiceNameManaged(v string) *DescribeVpcEndpointServiceAttributesOutput {
+	s.ServiceNameManaged = &v
 	return s
 }
 
