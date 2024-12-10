@@ -146,8 +146,7 @@ func (c *REDIS) CreateAllowListWithContext(ctx volcengine.Context, input *Create
 type CreateAllowListInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	// AllowList is a required field
-	AllowList *string `type:"string" json:",omitempty" required:"true"`
+	AllowList *string `type:"string" json:",omitempty"`
 
 	AllowListCategory *string `type:"string" json:",omitempty" enum:"EnumOfAllowListCategoryForCreateAllowListInput"`
 
@@ -159,6 +158,8 @@ type CreateAllowListInput struct {
 	AllowListType *string `type:"string" json:",omitempty"`
 
 	ClientToken *string `type:"string" json:",omitempty"`
+
+	SecurityGroupBindInfos []*SecurityGroupBindInfoForCreateAllowListInput `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -174,9 +175,6 @@ func (s CreateAllowListInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *CreateAllowListInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "CreateAllowListInput"}
-	if s.AllowList == nil {
-		invalidParams.Add(request.NewErrParamRequired("AllowList"))
-	}
 	if s.AllowListName == nil {
 		invalidParams.Add(request.NewErrParamRequired("AllowListName"))
 	}
@@ -223,6 +221,12 @@ func (s *CreateAllowListInput) SetClientToken(v string) *CreateAllowListInput {
 	return s
 }
 
+// SetSecurityGroupBindInfos sets the SecurityGroupBindInfos field's value.
+func (s *CreateAllowListInput) SetSecurityGroupBindInfos(v []*SecurityGroupBindInfoForCreateAllowListInput) *CreateAllowListInput {
+	s.SecurityGroupBindInfos = v
+	return s
+}
+
 type CreateAllowListOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -247,10 +251,48 @@ func (s *CreateAllowListOutput) SetAllowListId(v string) *CreateAllowListOutput 
 	return s
 }
 
+type SecurityGroupBindInfoForCreateAllowListInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	BindMode *string `type:"string" json:",omitempty" enum:"EnumOfBindModeForCreateAllowListInput"`
+
+	SecurityGroupId *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s SecurityGroupBindInfoForCreateAllowListInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s SecurityGroupBindInfoForCreateAllowListInput) GoString() string {
+	return s.String()
+}
+
+// SetBindMode sets the BindMode field's value.
+func (s *SecurityGroupBindInfoForCreateAllowListInput) SetBindMode(v string) *SecurityGroupBindInfoForCreateAllowListInput {
+	s.BindMode = &v
+	return s
+}
+
+// SetSecurityGroupId sets the SecurityGroupId field's value.
+func (s *SecurityGroupBindInfoForCreateAllowListInput) SetSecurityGroupId(v string) *SecurityGroupBindInfoForCreateAllowListInput {
+	s.SecurityGroupId = &v
+	return s
+}
+
 const (
 	// EnumOfAllowListCategoryForCreateAllowListInputOrdinary is a EnumOfAllowListCategoryForCreateAllowListInput enum value
 	EnumOfAllowListCategoryForCreateAllowListInputOrdinary = "Ordinary"
 
 	// EnumOfAllowListCategoryForCreateAllowListInputDefault is a EnumOfAllowListCategoryForCreateAllowListInput enum value
 	EnumOfAllowListCategoryForCreateAllowListInputDefault = "Default"
+)
+
+const (
+	// EnumOfBindModeForCreateAllowListInputAssociateEcsIp is a EnumOfBindModeForCreateAllowListInput enum value
+	EnumOfBindModeForCreateAllowListInputAssociateEcsIp = "AssociateEcsIp"
+
+	// EnumOfBindModeForCreateAllowListInputIngressDirectionIp is a EnumOfBindModeForCreateAllowListInput enum value
+	EnumOfBindModeForCreateAllowListInputIngressDirectionIp = "IngressDirectionIp"
 )

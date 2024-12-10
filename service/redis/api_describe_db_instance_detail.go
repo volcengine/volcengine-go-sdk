@@ -173,6 +173,28 @@ func (s *CapacityForDescribeDBInstanceDetailOutput) SetUsed(v int64) *CapacityFo
 	return s
 }
 
+type ConfigureNodeForDescribeDBInstanceDetailOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	AZ *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s ConfigureNodeForDescribeDBInstanceDetailOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ConfigureNodeForDescribeDBInstanceDetailOutput) GoString() string {
+	return s.String()
+}
+
+// SetAZ sets the AZ field's value.
+func (s *ConfigureNodeForDescribeDBInstanceDetailOutput) SetAZ(v string) *ConfigureNodeForDescribeDBInstanceDetailOutput {
+	s.AZ = &v
+	return s
+}
+
 type DescribeDBInstanceDetailInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -220,6 +242,8 @@ type DescribeDBInstanceDetailOutput struct {
 
 	ChargeType *string `type:"string" json:",omitempty"`
 
+	ConfigureNodes []*ConfigureNodeForDescribeDBInstanceDetailOutput `type:"list" json:",omitempty"`
+
 	CreateTime *string `type:"string" json:",omitempty"`
 
 	DataLayout *string `type:"string" json:",omitempty"`
@@ -250,7 +274,7 @@ type DescribeDBInstanceDetailOutput struct {
 
 	ShardCapacity *float64 `type:"double" json:",omitempty"`
 
-	ShardCapacityV2 *int32 `type:"int32" json:",omitempty"`
+	ShardCapacityV2 *int64 `type:"int64" json:",omitempty"`
 
 	ShardNumber *int32 `type:"int32" json:",omitempty"`
 
@@ -296,6 +320,12 @@ func (s *DescribeDBInstanceDetailOutput) SetCapacity(v *CapacityForDescribeDBIns
 // SetChargeType sets the ChargeType field's value.
 func (s *DescribeDBInstanceDetailOutput) SetChargeType(v string) *DescribeDBInstanceDetailOutput {
 	s.ChargeType = &v
+	return s
+}
+
+// SetConfigureNodes sets the ConfigureNodes field's value.
+func (s *DescribeDBInstanceDetailOutput) SetConfigureNodes(v []*ConfigureNodeForDescribeDBInstanceDetailOutput) *DescribeDBInstanceDetailOutput {
+	s.ConfigureNodes = v
 	return s
 }
 
@@ -390,7 +420,7 @@ func (s *DescribeDBInstanceDetailOutput) SetShardCapacity(v float64) *DescribeDB
 }
 
 // SetShardCapacityV2 sets the ShardCapacityV2 field's value.
-func (s *DescribeDBInstanceDetailOutput) SetShardCapacityV2(v int32) *DescribeDBInstanceDetailOutput {
+func (s *DescribeDBInstanceDetailOutput) SetShardCapacityV2(v int64) *DescribeDBInstanceDetailOutput {
 	s.ShardCapacityV2 = &v
 	return s
 }
@@ -491,6 +521,8 @@ type VisitAddrForDescribeDBInstanceDetailOutput struct {
 	Port *string `type:"string" json:",omitempty"`
 
 	VIP *string `type:"string" json:",omitempty"`
+
+	VIPv6 *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -530,5 +562,11 @@ func (s *VisitAddrForDescribeDBInstanceDetailOutput) SetPort(v string) *VisitAdd
 // SetVIP sets the VIP field's value.
 func (s *VisitAddrForDescribeDBInstanceDetailOutput) SetVIP(v string) *VisitAddrForDescribeDBInstanceDetailOutput {
 	s.VIP = &v
+	return s
+}
+
+// SetVIPv6 sets the VIPv6 field's value.
+func (s *VisitAddrForDescribeDBInstanceDetailOutput) SetVIPv6(v string) *VisitAddrForDescribeDBInstanceDetailOutput {
+	s.VIPv6 = &v
 	return s
 }
