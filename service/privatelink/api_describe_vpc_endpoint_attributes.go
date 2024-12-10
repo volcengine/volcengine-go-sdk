@@ -218,6 +218,8 @@ type DescribeVpcEndpointAttributesOutput struct {
 
 	ServiceId *string `type:"string"`
 
+	ServiceManaged *bool `type:"boolean"`
+
 	ServiceName *string `type:"string"`
 
 	Status *string `type:"string"`
@@ -353,6 +355,12 @@ func (s *DescribeVpcEndpointAttributesOutput) SetServiceId(v string) *DescribeVp
 	return s
 }
 
+// SetServiceManaged sets the ServiceManaged field's value.
+func (s *DescribeVpcEndpointAttributesOutput) SetServiceManaged(v bool) *DescribeVpcEndpointAttributesOutput {
+	s.ServiceManaged = &v
+	return s
+}
+
 // SetServiceName sets the ServiceName field's value.
 func (s *DescribeVpcEndpointAttributesOutput) SetServiceName(v string) *DescribeVpcEndpointAttributesOutput {
 	s.ServiceName = &v
@@ -417,6 +425,8 @@ type EndpointForDescribeVpcEndpointAttributesOutput struct {
 	ProjectName *string `type:"string"`
 
 	ServiceId *string `type:"string"`
+
+	ServiceManaged *bool `type:"boolean"`
 
 	ServiceName *string `type:"string"`
 
@@ -532,6 +542,12 @@ func (s *EndpointForDescribeVpcEndpointAttributesOutput) SetProjectName(v string
 // SetServiceId sets the ServiceId field's value.
 func (s *EndpointForDescribeVpcEndpointAttributesOutput) SetServiceId(v string) *EndpointForDescribeVpcEndpointAttributesOutput {
 	s.ServiceId = &v
+	return s
+}
+
+// SetServiceManaged sets the ServiceManaged field's value.
+func (s *EndpointForDescribeVpcEndpointAttributesOutput) SetServiceManaged(v bool) *EndpointForDescribeVpcEndpointAttributesOutput {
+	s.ServiceManaged = &v
 	return s
 }
 

@@ -160,6 +160,8 @@ type CreateVpcEndpointInput struct {
 	// ServiceId is a required field
 	ServiceId *string `type:"string" required:"true"`
 
+	ServiceManaged *bool `type:"boolean"`
+
 	ServiceName *string `type:"string"`
 
 	Tags []*TagForCreateVpcEndpointInput `type:"list"`
@@ -244,6 +246,12 @@ func (s *CreateVpcEndpointInput) SetSecurityGroupIds(v []*string) *CreateVpcEndp
 // SetServiceId sets the ServiceId field's value.
 func (s *CreateVpcEndpointInput) SetServiceId(v string) *CreateVpcEndpointInput {
 	s.ServiceId = &v
+	return s
+}
+
+// SetServiceManaged sets the ServiceManaged field's value.
+func (s *CreateVpcEndpointInput) SetServiceManaged(v bool) *CreateVpcEndpointInput {
+	s.ServiceManaged = &v
 	return s
 }
 
