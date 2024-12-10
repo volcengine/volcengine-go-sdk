@@ -357,6 +357,8 @@ type RunInstancesInput struct {
 	// ImageId is a required field
 	ImageId *string `type:"string" required:"true"`
 
+	ImageReleaseVersion *string `type:"string"`
+
 	InstallRunCommandAgent *bool `type:"boolean"`
 
 	InstanceChargeType *string `type:"string"`
@@ -544,6 +546,12 @@ func (s *RunInstancesInput) SetHpcClusterId(v string) *RunInstancesInput {
 // SetImageId sets the ImageId field's value.
 func (s *RunInstancesInput) SetImageId(v string) *RunInstancesInput {
 	s.ImageId = &v
+	return s
+}
+
+// SetImageReleaseVersion sets the ImageReleaseVersion field's value.
+func (s *RunInstancesInput) SetImageReleaseVersion(v string) *RunInstancesInput {
+	s.ImageReleaseVersion = &v
 	return s
 }
 

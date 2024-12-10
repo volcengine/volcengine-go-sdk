@@ -147,6 +147,8 @@ type ModifyCommandInput struct {
 	// CommandId is a required field
 	CommandId *string `type:"string" required:"true"`
 
+	ContentEncoding *string `type:"string"`
+
 	Description *string `type:"string"`
 
 	EnableParameter *bool `type:"boolean"`
@@ -196,6 +198,12 @@ func (s *ModifyCommandInput) SetCommandContent(v string) *ModifyCommandInput {
 // SetCommandId sets the CommandId field's value.
 func (s *ModifyCommandInput) SetCommandId(v string) *ModifyCommandInput {
 	s.CommandId = &v
+	return s
+}
+
+// SetContentEncoding sets the ContentEncoding field's value.
+func (s *ModifyCommandInput) SetContentEncoding(v string) *ModifyCommandInput {
+	s.ContentEncoding = &v
 	return s
 }
 

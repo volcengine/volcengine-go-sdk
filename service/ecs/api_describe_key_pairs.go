@@ -155,6 +155,8 @@ type DescribeKeyPairsInput struct {
 	NextToken *string `type:"string"`
 
 	ProjectName *string `type:"string"`
+
+	TagFilters []*TagFilterForDescribeKeyPairsInput `type:"list"`
 }
 
 // String returns the string representation
@@ -209,6 +211,12 @@ func (s *DescribeKeyPairsInput) SetProjectName(v string) *DescribeKeyPairsInput 
 	return s
 }
 
+// SetTagFilters sets the TagFilters field's value.
+func (s *DescribeKeyPairsInput) SetTagFilters(v []*TagFilterForDescribeKeyPairsInput) *DescribeKeyPairsInput {
+	s.TagFilters = v
+	return s
+}
+
 type DescribeKeyPairsOutput struct {
 	_ struct{} `type:"structure"`
 
@@ -255,6 +263,8 @@ type KeyPairForDescribeKeyPairsOutput struct {
 	KeyPairName *string `type:"string"`
 
 	ProjectName *string `type:"string"`
+
+	Tags []*TagForDescribeKeyPairsOutput `type:"list"`
 
 	UpdatedAt *string `type:"string"`
 }
@@ -305,8 +315,74 @@ func (s *KeyPairForDescribeKeyPairsOutput) SetProjectName(v string) *KeyPairForD
 	return s
 }
 
+// SetTags sets the Tags field's value.
+func (s *KeyPairForDescribeKeyPairsOutput) SetTags(v []*TagForDescribeKeyPairsOutput) *KeyPairForDescribeKeyPairsOutput {
+	s.Tags = v
+	return s
+}
+
 // SetUpdatedAt sets the UpdatedAt field's value.
 func (s *KeyPairForDescribeKeyPairsOutput) SetUpdatedAt(v string) *KeyPairForDescribeKeyPairsOutput {
 	s.UpdatedAt = &v
+	return s
+}
+
+type TagFilterForDescribeKeyPairsInput struct {
+	_ struct{} `type:"structure"`
+
+	Key *string `type:"string"`
+
+	Values []*string `type:"list"`
+}
+
+// String returns the string representation
+func (s TagFilterForDescribeKeyPairsInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagFilterForDescribeKeyPairsInput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagFilterForDescribeKeyPairsInput) SetKey(v string) *TagFilterForDescribeKeyPairsInput {
+	s.Key = &v
+	return s
+}
+
+// SetValues sets the Values field's value.
+func (s *TagFilterForDescribeKeyPairsInput) SetValues(v []*string) *TagFilterForDescribeKeyPairsInput {
+	s.Values = v
+	return s
+}
+
+type TagForDescribeKeyPairsOutput struct {
+	_ struct{} `type:"structure"`
+
+	Key *string `type:"string"`
+
+	Value *string `type:"string"`
+}
+
+// String returns the string representation
+func (s TagForDescribeKeyPairsOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagForDescribeKeyPairsOutput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagForDescribeKeyPairsOutput) SetKey(v string) *TagForDescribeKeyPairsOutput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *TagForDescribeKeyPairsOutput) SetValue(v string) *TagForDescribeKeyPairsOutput {
+	s.Value = &v
 	return s
 }

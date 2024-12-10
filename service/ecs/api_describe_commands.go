@@ -158,7 +158,11 @@ type CommandForDescribeCommandsOutput struct {
 
 	ParameterDefinitions []*ParameterDefinitionForDescribeCommandsOutput `type:"list"`
 
+	ProjectName *string `type:"string"`
+
 	Provider *string `type:"string"`
+
+	Tags []*TagForDescribeCommandsOutput `type:"list"`
 
 	Timeout *int32 `type:"int32"`
 
@@ -229,9 +233,21 @@ func (s *CommandForDescribeCommandsOutput) SetParameterDefinitions(v []*Paramete
 	return s
 }
 
+// SetProjectName sets the ProjectName field's value.
+func (s *CommandForDescribeCommandsOutput) SetProjectName(v string) *CommandForDescribeCommandsOutput {
+	s.ProjectName = &v
+	return s
+}
+
 // SetProvider sets the Provider field's value.
 func (s *CommandForDescribeCommandsOutput) SetProvider(v string) *CommandForDescribeCommandsOutput {
 	s.Provider = &v
+	return s
+}
+
+// SetTags sets the Tags field's value.
+func (s *CommandForDescribeCommandsOutput) SetTags(v []*TagForDescribeCommandsOutput) *CommandForDescribeCommandsOutput {
+	s.Tags = v
 	return s
 }
 
@@ -270,6 +286,8 @@ type DescribeCommandsInput struct {
 
 	CommandId *string `type:"string"`
 
+	ContentEncoding *string `type:"string"`
+
 	Name *string `type:"string"`
 
 	Order *string `type:"string"`
@@ -300,6 +318,12 @@ func (s DescribeCommandsInput) GoString() string {
 // SetCommandId sets the CommandId field's value.
 func (s *DescribeCommandsInput) SetCommandId(v string) *DescribeCommandsInput {
 	s.CommandId = &v
+	return s
+}
+
+// SetContentEncoding sets the ContentEncoding field's value.
+func (s *DescribeCommandsInput) SetContentEncoding(v string) *DescribeCommandsInput {
+	s.ContentEncoding = &v
 	return s
 }
 
@@ -490,7 +514,7 @@ type TagFilterForDescribeCommandsInput struct {
 
 	Key *string `type:"string"`
 
-	Value *string `type:"string"`
+	Values []*string `type:"list"`
 }
 
 // String returns the string representation
@@ -509,8 +533,38 @@ func (s *TagFilterForDescribeCommandsInput) SetKey(v string) *TagFilterForDescri
 	return s
 }
 
+// SetValues sets the Values field's value.
+func (s *TagFilterForDescribeCommandsInput) SetValues(v []*string) *TagFilterForDescribeCommandsInput {
+	s.Values = v
+	return s
+}
+
+type TagForDescribeCommandsOutput struct {
+	_ struct{} `type:"structure"`
+
+	Key *string `type:"string"`
+
+	Value *string `type:"string"`
+}
+
+// String returns the string representation
+func (s TagForDescribeCommandsOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagForDescribeCommandsOutput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagForDescribeCommandsOutput) SetKey(v string) *TagForDescribeCommandsOutput {
+	s.Key = &v
+	return s
+}
+
 // SetValue sets the Value field's value.
-func (s *TagFilterForDescribeCommandsInput) SetValue(v string) *TagFilterForDescribeCommandsInput {
+func (s *TagForDescribeCommandsOutput) SetValue(v string) *TagForDescribeCommandsOutput {
 	s.Value = &v
 	return s
 }

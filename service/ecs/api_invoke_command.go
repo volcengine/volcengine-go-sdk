@@ -152,7 +152,8 @@ type InvokeCommandInput struct {
 
 	InvocationDescription *string `type:"string"`
 
-	InvocationName *string `type:"string"`
+	// InvocationName is a required field
+	InvocationName *string `type:"string" required:"true"`
 
 	LaunchTime *string `type:"string"`
 
@@ -191,6 +192,9 @@ func (s *InvokeCommandInput) Validate() error {
 	}
 	if s.InstanceIds == nil {
 		invalidParams.Add(request.NewErrParamRequired("InstanceIds"))
+	}
+	if s.InvocationName == nil {
+		invalidParams.Add(request.NewErrParamRequired("InvocationName"))
 	}
 
 	if invalidParams.Len() > 0 {
