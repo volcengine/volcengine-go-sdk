@@ -340,6 +340,8 @@ type EndpointForDescribeVpcEndpointsOutput struct {
 
 	ServiceId *string `type:"string"`
 
+	ServiceManaged *bool `type:"boolean"`
+
 	ServiceName *string `type:"string"`
 
 	Status *string `type:"string"`
@@ -454,6 +456,12 @@ func (s *EndpointForDescribeVpcEndpointsOutput) SetProjectName(v string) *Endpoi
 // SetServiceId sets the ServiceId field's value.
 func (s *EndpointForDescribeVpcEndpointsOutput) SetServiceId(v string) *EndpointForDescribeVpcEndpointsOutput {
 	s.ServiceId = &v
+	return s
+}
+
+// SetServiceManaged sets the ServiceManaged field's value.
+func (s *EndpointForDescribeVpcEndpointsOutput) SetServiceManaged(v bool) *EndpointForDescribeVpcEndpointsOutput {
+	s.ServiceManaged = &v
 	return s
 }
 

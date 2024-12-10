@@ -153,8 +153,6 @@ type ModifyUniqueResourceTypeVpcEndpointServiceAttributesInput struct {
 	// ServiceId is a required field
 	ServiceId *string `type:"string" required:"true"`
 
-	ZoneIDs *string `type:"string"`
-
 	ZoneIds []*string `type:"list"`
 }
 
@@ -208,12 +206,6 @@ func (s *ModifyUniqueResourceTypeVpcEndpointServiceAttributesInput) SetResource(
 // SetServiceId sets the ServiceId field's value.
 func (s *ModifyUniqueResourceTypeVpcEndpointServiceAttributesInput) SetServiceId(v string) *ModifyUniqueResourceTypeVpcEndpointServiceAttributesInput {
 	s.ServiceId = &v
-	return s
-}
-
-// SetZoneIDs sets the ZoneIDs field's value.
-func (s *ModifyUniqueResourceTypeVpcEndpointServiceAttributesInput) SetZoneIDs(v string) *ModifyUniqueResourceTypeVpcEndpointServiceAttributesInput {
-	s.ZoneIDs = &v
 	return s
 }
 

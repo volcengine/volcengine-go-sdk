@@ -155,7 +155,8 @@ type CreateVpcGatewayEndpointInput struct {
 
 	Tags []*TagForCreateVpcGatewayEndpointInput `type:"list"`
 
-	VpcId *string `type:"string"`
+	// VpcId is a required field
+	VpcId *string `type:"string" required:"true"`
 
 	VpcPolicy *string `type:"string"`
 }
@@ -175,6 +176,9 @@ func (s *CreateVpcGatewayEndpointInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "CreateVpcGatewayEndpointInput"}
 	if s.ServiceId == nil {
 		invalidParams.Add(request.NewErrParamRequired("ServiceId"))
+	}
+	if s.VpcId == nil {
+		invalidParams.Add(request.NewErrParamRequired("VpcId"))
 	}
 
 	if invalidParams.Len() > 0 {

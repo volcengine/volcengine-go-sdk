@@ -374,6 +374,8 @@ type VpcEndpointServiceForDescribeVpcEndpointServicesByEndUserOutput struct {
 
 	ServiceName *string `type:"string"`
 
+	ServiceNameManaged *string `type:"string"`
+
 	ServiceOwner *string `type:"string"`
 
 	ServiceResourceType *string `type:"string"`
@@ -488,6 +490,12 @@ func (s *VpcEndpointServiceForDescribeVpcEndpointServicesByEndUserOutput) SetSer
 // SetServiceName sets the ServiceName field's value.
 func (s *VpcEndpointServiceForDescribeVpcEndpointServicesByEndUserOutput) SetServiceName(v string) *VpcEndpointServiceForDescribeVpcEndpointServicesByEndUserOutput {
 	s.ServiceName = &v
+	return s
+}
+
+// SetServiceNameManaged sets the ServiceNameManaged field's value.
+func (s *VpcEndpointServiceForDescribeVpcEndpointServicesByEndUserOutput) SetServiceNameManaged(v string) *VpcEndpointServiceForDescribeVpcEndpointServicesByEndUserOutput {
+	s.ServiceNameManaged = &v
 	return s
 }
 
