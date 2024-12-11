@@ -1,24 +1,28 @@
 package model
 
 type BotChatCompletionRequest struct {
-	BotId            string                   `json:"bot_id,omitempty"`
-	Model            string                   `json:"model"`
-	Messages         []*ChatCompletionMessage `json:"messages"`
-	MaxTokens        int                      `json:"max_tokens,omitempty"`
-	Temperature      float32                  `json:"temperature,omitempty"`
-	TopP             float32                  `json:"top_p,omitempty"`
-	Stream           bool                     `json:"stream,omitempty"`
-	Stop             []string                 `json:"stop,omitempty"`
-	FrequencyPenalty float32                  `json:"frequency_penalty,omitempty"`
-	LogitBias        map[string]int           `json:"logit_bias,omitempty"`
-	LogProbs         bool                     `json:"logprobs,omitempty"`
-	TopLogProbs      int                      `json:"top_logprobs,omitempty"`
-	User             string                   `json:"user,omitempty"`
-	FunctionCall     interface{}              `json:"function_call,omitempty"`
-	Tools            []*Tool                  `json:"tools,omitempty"`
-	ToolChoice       interface{}              `json:"tool_choice,omitempty"`
-	StreamOptions    *StreamOptions           `json:"stream_options,omitempty"`
-	Metadata         map[string]interface{}   `json:"metadata,omitempty"`
+	BotId             string                   `json:"bot_id,omitempty"`
+	Model             string                   `json:"model"`
+	Messages          []*ChatCompletionMessage `json:"messages"`
+	MaxTokens         int                      `json:"max_tokens,omitempty"`
+	Temperature       float32                  `json:"temperature,omitempty"`
+	TopP              float32                  `json:"top_p,omitempty"`
+	Stream            bool                     `json:"stream,omitempty"`
+	Stop              []string                 `json:"stop,omitempty"`
+	FrequencyPenalty  float32                  `json:"frequency_penalty,omitempty"`
+	LogitBias         map[string]int           `json:"logit_bias,omitempty"`
+	LogProbs          bool                     `json:"logprobs,omitempty"`
+	TopLogProbs       int                      `json:"top_logprobs,omitempty"`
+	User              string                   `json:"user,omitempty"`
+	FunctionCall      interface{}              `json:"function_call,omitempty"`
+	Tools             []*Tool                  `json:"tools,omitempty"`
+	ToolChoice        interface{}              `json:"tool_choice,omitempty"`
+	StreamOptions     *StreamOptions           `json:"stream_options,omitempty"`
+	PresencePenalty   float32                  `json:"presence_penalty,omitempty"`
+	RepetitionPenalty float32                  `json:"repetition_penalty,omitempty"`
+	N                 int                      `json:"n,omitempty"`
+	ResponseFormat    *ResponseFormat          `json:"response_format,omitempty"`
+	Metadata          map[string]interface{}   `json:"metadata,omitempty"`
 }
 
 type BotActionUsage struct {
