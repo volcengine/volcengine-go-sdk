@@ -10,7 +10,8 @@ const (
 type ContextMode string
 
 const (
-	ContextModeSession ContextMode = "session"
+	ContextModeSession      ContextMode = "session"
+	ContextModeCommonPrefix ContextMode = "common_prefix"
 )
 
 type TruncationStrategy struct {
