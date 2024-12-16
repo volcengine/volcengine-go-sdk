@@ -148,6 +148,8 @@ type DedicatedHostTypeForDescribeDedicatedHostTypesOutput struct {
 
 	IsSupportedCpuOvercommitRatio *bool `type:"boolean"`
 
+	LocalVolumes []*LocalVolumeForDescribeDedicatedHostTypesOutput `type:"list"`
+
 	MaxCpuOvercommitRatio *float64 `type:"float"`
 
 	ProcessorModel *string `type:"string"`
@@ -188,6 +190,12 @@ func (s *DedicatedHostTypeForDescribeDedicatedHostTypesOutput) SetDedicatedHostT
 // SetIsSupportedCpuOvercommitRatio sets the IsSupportedCpuOvercommitRatio field's value.
 func (s *DedicatedHostTypeForDescribeDedicatedHostTypesOutput) SetIsSupportedCpuOvercommitRatio(v bool) *DedicatedHostTypeForDescribeDedicatedHostTypesOutput {
 	s.IsSupportedCpuOvercommitRatio = &v
+	return s
+}
+
+// SetLocalVolumes sets the LocalVolumes field's value.
+func (s *DedicatedHostTypeForDescribeDedicatedHostTypesOutput) SetLocalVolumes(v []*LocalVolumeForDescribeDedicatedHostTypesOutput) *DedicatedHostTypeForDescribeDedicatedHostTypesOutput {
+	s.LocalVolumes = v
 	return s
 }
 
@@ -308,5 +316,43 @@ func (s *DescribeDedicatedHostTypesOutput) SetDedicatedHostTypes(v []*DedicatedH
 // SetNextToken sets the NextToken field's value.
 func (s *DescribeDedicatedHostTypesOutput) SetNextToken(v string) *DescribeDedicatedHostTypesOutput {
 	s.NextToken = &v
+	return s
+}
+
+type LocalVolumeForDescribeDedicatedHostTypesOutput struct {
+	_ struct{} `type:"structure"`
+
+	Count *int32 `type:"int32"`
+
+	Size *int32 `type:"int32"`
+
+	VolumeType *string `type:"string"`
+}
+
+// String returns the string representation
+func (s LocalVolumeForDescribeDedicatedHostTypesOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s LocalVolumeForDescribeDedicatedHostTypesOutput) GoString() string {
+	return s.String()
+}
+
+// SetCount sets the Count field's value.
+func (s *LocalVolumeForDescribeDedicatedHostTypesOutput) SetCount(v int32) *LocalVolumeForDescribeDedicatedHostTypesOutput {
+	s.Count = &v
+	return s
+}
+
+// SetSize sets the Size field's value.
+func (s *LocalVolumeForDescribeDedicatedHostTypesOutput) SetSize(v int32) *LocalVolumeForDescribeDedicatedHostTypesOutput {
+	s.Size = &v
+	return s
+}
+
+// SetVolumeType sets the VolumeType field's value.
+func (s *LocalVolumeForDescribeDedicatedHostTypesOutput) SetVolumeType(v string) *LocalVolumeForDescribeDedicatedHostTypesOutput {
+	s.VolumeType = &v
 	return s
 }

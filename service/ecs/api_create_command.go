@@ -145,6 +145,8 @@ type CreateCommandInput struct {
 	// CommandContent is a required field
 	CommandContent *string `type:"string" required:"true"`
 
+	ContentEncoding *string `type:"string"`
+
 	Description *string `type:"string"`
 
 	EnableParameter *bool `type:"boolean"`
@@ -200,6 +202,12 @@ func (s *CreateCommandInput) Validate() error {
 // SetCommandContent sets the CommandContent field's value.
 func (s *CreateCommandInput) SetCommandContent(v string) *CreateCommandInput {
 	s.CommandContent = &v
+	return s
+}
+
+// SetContentEncoding sets the ContentEncoding field's value.
+func (s *CreateCommandInput) SetContentEncoding(v string) *CreateCommandInput {
+	s.ContentEncoding = &v
 	return s
 }
 
