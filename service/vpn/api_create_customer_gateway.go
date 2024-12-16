@@ -22,13 +22,13 @@ const opCreateCustomerGatewayCommon = "CreateCustomerGateway"
 // See CreateCustomerGatewayCommon for more information on using the CreateCustomerGatewayCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the CreateCustomerGatewayCommonRequest method.
-//	req, resp := client.CreateCustomerGatewayCommonRequest(params)
+//    // Example sending a request using the CreateCustomerGatewayCommonRequest method.
+//    req, resp := client.CreateCustomerGatewayCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VPN) CreateCustomerGatewayCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opCreateCustomerGatewayCommon,
@@ -87,13 +87,13 @@ const opCreateCustomerGateway = "CreateCustomerGateway"
 // See CreateCustomerGateway for more information on using the CreateCustomerGateway
 // API call, and error handling.
 //
-//	// Example sending a request using the CreateCustomerGatewayRequest method.
-//	req, resp := client.CreateCustomerGatewayRequest(params)
+//    // Example sending a request using the CreateCustomerGatewayRequest method.
+//    req, resp := client.CreateCustomerGatewayRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VPN) CreateCustomerGatewayRequest(input *CreateCustomerGatewayInput) (req *request.Request, output *CreateCustomerGatewayOutput) {
 	op := &request.Operation{
 		Name:       opCreateCustomerGateway,
@@ -142,11 +142,13 @@ func (c *VPN) CreateCustomerGatewayWithContext(ctx volcengine.Context, input *Cr
 type CreateCustomerGatewayInput struct {
 	_ struct{} `type:"structure"`
 
+	Asn *int64 `type:"integer"`
+
 	ClientToken *string `type:"string"`
 
-	CustomerGatewayName *string `min:"1" max:"128" type:"string"`
+	CustomerGatewayName *string `type:"string"`
 
-	Description *string `min:"1" max:"255" type:"string"`
+	Description *string `type:"string"`
 
 	// IpAddress is a required field
 	IpAddress *string `type:"string" required:"true"`
@@ -167,18 +169,6 @@ func (s CreateCustomerGatewayInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *CreateCustomerGatewayInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "CreateCustomerGatewayInput"}
-	if s.CustomerGatewayName != nil && len(*s.CustomerGatewayName) < 1 {
-		invalidParams.Add(request.NewErrParamMinLen("CustomerGatewayName", 1))
-	}
-	if s.CustomerGatewayName != nil && len(*s.CustomerGatewayName) > 128 {
-		invalidParams.Add(request.NewErrParamMaxLen("CustomerGatewayName", 128, *s.CustomerGatewayName))
-	}
-	if s.Description != nil && len(*s.Description) < 1 {
-		invalidParams.Add(request.NewErrParamMinLen("Description", 1))
-	}
-	if s.Description != nil && len(*s.Description) > 255 {
-		invalidParams.Add(request.NewErrParamMaxLen("Description", 255, *s.Description))
-	}
 	if s.IpAddress == nil {
 		invalidParams.Add(request.NewErrParamRequired("IpAddress"))
 	}
@@ -187,6 +177,12 @@ func (s *CreateCustomerGatewayInput) Validate() error {
 		return invalidParams
 	}
 	return nil
+}
+
+// SetAsn sets the Asn field's value.
+func (s *CreateCustomerGatewayInput) SetAsn(v int64) *CreateCustomerGatewayInput {
+	s.Asn = &v
+	return s
 }
 
 // SetClientToken sets the ClientToken field's value.

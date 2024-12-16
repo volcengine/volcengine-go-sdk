@@ -22,13 +22,13 @@ const opModifyCustomerGatewayAttributesCommon = "ModifyCustomerGatewayAttributes
 // See ModifyCustomerGatewayAttributesCommon for more information on using the ModifyCustomerGatewayAttributesCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the ModifyCustomerGatewayAttributesCommonRequest method.
-//	req, resp := client.ModifyCustomerGatewayAttributesCommonRequest(params)
+//    // Example sending a request using the ModifyCustomerGatewayAttributesCommonRequest method.
+//    req, resp := client.ModifyCustomerGatewayAttributesCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VPN) ModifyCustomerGatewayAttributesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opModifyCustomerGatewayAttributesCommon,
@@ -87,13 +87,13 @@ const opModifyCustomerGatewayAttributes = "ModifyCustomerGatewayAttributes"
 // See ModifyCustomerGatewayAttributes for more information on using the ModifyCustomerGatewayAttributes
 // API call, and error handling.
 //
-//	// Example sending a request using the ModifyCustomerGatewayAttributesRequest method.
-//	req, resp := client.ModifyCustomerGatewayAttributesRequest(params)
+//    // Example sending a request using the ModifyCustomerGatewayAttributesRequest method.
+//    req, resp := client.ModifyCustomerGatewayAttributesRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VPN) ModifyCustomerGatewayAttributesRequest(input *ModifyCustomerGatewayAttributesInput) (req *request.Request, output *ModifyCustomerGatewayAttributesOutput) {
 	op := &request.Operation{
 		Name:       opModifyCustomerGatewayAttributes,
@@ -145,9 +145,9 @@ type ModifyCustomerGatewayAttributesInput struct {
 	// CustomerGatewayId is a required field
 	CustomerGatewayId *string `type:"string" required:"true"`
 
-	CustomerGatewayName *string `min:"1" max:"128" type:"string"`
+	CustomerGatewayName *string `type:"string"`
 
-	Description *string `min:"1" max:"255" type:"string"`
+	Description *string `type:"string"`
 }
 
 // String returns the string representation
@@ -165,18 +165,6 @@ func (s *ModifyCustomerGatewayAttributesInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "ModifyCustomerGatewayAttributesInput"}
 	if s.CustomerGatewayId == nil {
 		invalidParams.Add(request.NewErrParamRequired("CustomerGatewayId"))
-	}
-	if s.CustomerGatewayName != nil && len(*s.CustomerGatewayName) < 1 {
-		invalidParams.Add(request.NewErrParamMinLen("CustomerGatewayName", 1))
-	}
-	if s.CustomerGatewayName != nil && len(*s.CustomerGatewayName) > 128 {
-		invalidParams.Add(request.NewErrParamMaxLen("CustomerGatewayName", 128, *s.CustomerGatewayName))
-	}
-	if s.Description != nil && len(*s.Description) < 1 {
-		invalidParams.Add(request.NewErrParamMinLen("Description", 1))
-	}
-	if s.Description != nil && len(*s.Description) > 255 {
-		invalidParams.Add(request.NewErrParamMaxLen("Description", 255, *s.Description))
 	}
 
 	if invalidParams.Len() > 0 {

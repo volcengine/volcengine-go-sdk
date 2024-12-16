@@ -22,13 +22,13 @@ const opDescribeCustomerGatewaysCommon = "DescribeCustomerGateways"
 // See DescribeCustomerGatewaysCommon for more information on using the DescribeCustomerGatewaysCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeCustomerGatewaysCommonRequest method.
-//	req, resp := client.DescribeCustomerGatewaysCommonRequest(params)
+//    // Example sending a request using the DescribeCustomerGatewaysCommonRequest method.
+//    req, resp := client.DescribeCustomerGatewaysCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VPN) DescribeCustomerGatewaysCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeCustomerGatewaysCommon,
@@ -87,13 +87,13 @@ const opDescribeCustomerGateways = "DescribeCustomerGateways"
 // See DescribeCustomerGateways for more information on using the DescribeCustomerGateways
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeCustomerGatewaysRequest method.
-//	req, resp := client.DescribeCustomerGatewaysRequest(params)
+//    // Example sending a request using the DescribeCustomerGatewaysRequest method.
+//    req, resp := client.DescribeCustomerGatewaysRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VPN) DescribeCustomerGatewaysRequest(input *DescribeCustomerGatewaysInput) (req *request.Request, output *DescribeCustomerGatewaysOutput) {
 	op := &request.Operation{
 		Name:       opDescribeCustomerGateways,
@@ -144,6 +144,8 @@ type CustomerGatewayForDescribeCustomerGatewaysOutput struct {
 
 	AccountId *string `type:"string"`
 
+	Asn *int64 `type:"integer"`
+
 	ConnectionCount *int64 `type:"integer"`
 
 	CreationTime *string `type:"string"`
@@ -176,6 +178,12 @@ func (s CustomerGatewayForDescribeCustomerGatewaysOutput) GoString() string {
 // SetAccountId sets the AccountId field's value.
 func (s *CustomerGatewayForDescribeCustomerGatewaysOutput) SetAccountId(v string) *CustomerGatewayForDescribeCustomerGatewaysOutput {
 	s.AccountId = &v
+	return s
+}
+
+// SetAsn sets the Asn field's value.
+func (s *CustomerGatewayForDescribeCustomerGatewaysOutput) SetAsn(v int64) *CustomerGatewayForDescribeCustomerGatewaysOutput {
+	s.Asn = &v
 	return s
 }
 
@@ -247,6 +255,8 @@ type DescribeCustomerGatewaysInput struct {
 	PageSize *int64 `type:"integer"`
 
 	ProjectName *string `type:"string"`
+
+	Status *string `type:"string"`
 }
 
 // String returns the string representation
@@ -292,6 +302,12 @@ func (s *DescribeCustomerGatewaysInput) SetPageSize(v int64) *DescribeCustomerGa
 // SetProjectName sets the ProjectName field's value.
 func (s *DescribeCustomerGatewaysInput) SetProjectName(v string) *DescribeCustomerGatewaysInput {
 	s.ProjectName = &v
+	return s
+}
+
+// SetStatus sets the Status field's value.
+func (s *DescribeCustomerGatewaysInput) SetStatus(v string) *DescribeCustomerGatewaysInput {
+	s.Status = &v
 	return s
 }
 

@@ -22,13 +22,13 @@ const opModifyVpnGatewayAttributesCommon = "ModifyVpnGatewayAttributes"
 // See ModifyVpnGatewayAttributesCommon for more information on using the ModifyVpnGatewayAttributesCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the ModifyVpnGatewayAttributesCommonRequest method.
-//	req, resp := client.ModifyVpnGatewayAttributesCommonRequest(params)
+//    // Example sending a request using the ModifyVpnGatewayAttributesCommonRequest method.
+//    req, resp := client.ModifyVpnGatewayAttributesCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VPN) ModifyVpnGatewayAttributesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opModifyVpnGatewayAttributesCommon,
@@ -87,13 +87,13 @@ const opModifyVpnGatewayAttributes = "ModifyVpnGatewayAttributes"
 // See ModifyVpnGatewayAttributes for more information on using the ModifyVpnGatewayAttributes
 // API call, and error handling.
 //
-//	// Example sending a request using the ModifyVpnGatewayAttributesRequest method.
-//	req, resp := client.ModifyVpnGatewayAttributesRequest(params)
+//    // Example sending a request using the ModifyVpnGatewayAttributesRequest method.
+//    req, resp := client.ModifyVpnGatewayAttributesRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VPN) ModifyVpnGatewayAttributesRequest(input *ModifyVpnGatewayAttributesInput) (req *request.Request, output *ModifyVpnGatewayAttributesOutput) {
 	op := &request.Operation{
 		Name:       opModifyVpnGatewayAttributes,
@@ -142,16 +142,22 @@ func (c *VPN) ModifyVpnGatewayAttributesWithContext(ctx volcengine.Context, inpu
 type ModifyVpnGatewayAttributesInput struct {
 	_ struct{} `type:"structure"`
 
-	Bandwidth *int64 `min:"5" max:"1000" type:"integer"`
+	Asn *int64 `type:"integer"`
 
-	Description *string `min:"1" max:"255" type:"string"`
+	Bandwidth *int64 `type:"integer"`
 
-	NegotiateInstantly *string `type:"string"`
+	Description *string `type:"string"`
+
+	IpsecEnabled *bool `type:"boolean"`
+
+	SslEnabled *bool `type:"boolean"`
+
+	SslMaxConnections *int64 `type:"integer"`
 
 	// VpnGatewayId is a required field
 	VpnGatewayId *string `type:"string" required:"true"`
 
-	VpnGatewayName *string `min:"1" max:"128" type:"string"`
+	VpnGatewayName *string `type:"string"`
 }
 
 // String returns the string representation
@@ -167,32 +173,20 @@ func (s ModifyVpnGatewayAttributesInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *ModifyVpnGatewayAttributesInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "ModifyVpnGatewayAttributesInput"}
-	if s.Bandwidth != nil && *s.Bandwidth < 5 {
-		invalidParams.Add(request.NewErrParamMinValue("Bandwidth", 5))
-	}
-	if s.Bandwidth != nil && *s.Bandwidth > 1000 {
-		invalidParams.Add(request.NewErrParamMaxValue("Bandwidth", 1000))
-	}
-	if s.Description != nil && len(*s.Description) < 1 {
-		invalidParams.Add(request.NewErrParamMinLen("Description", 1))
-	}
-	if s.Description != nil && len(*s.Description) > 255 {
-		invalidParams.Add(request.NewErrParamMaxLen("Description", 255, *s.Description))
-	}
 	if s.VpnGatewayId == nil {
 		invalidParams.Add(request.NewErrParamRequired("VpnGatewayId"))
-	}
-	if s.VpnGatewayName != nil && len(*s.VpnGatewayName) < 1 {
-		invalidParams.Add(request.NewErrParamMinLen("VpnGatewayName", 1))
-	}
-	if s.VpnGatewayName != nil && len(*s.VpnGatewayName) > 128 {
-		invalidParams.Add(request.NewErrParamMaxLen("VpnGatewayName", 128, *s.VpnGatewayName))
 	}
 
 	if invalidParams.Len() > 0 {
 		return invalidParams
 	}
 	return nil
+}
+
+// SetAsn sets the Asn field's value.
+func (s *ModifyVpnGatewayAttributesInput) SetAsn(v int64) *ModifyVpnGatewayAttributesInput {
+	s.Asn = &v
+	return s
 }
 
 // SetBandwidth sets the Bandwidth field's value.
@@ -207,9 +201,21 @@ func (s *ModifyVpnGatewayAttributesInput) SetDescription(v string) *ModifyVpnGat
 	return s
 }
 
-// SetNegotiateInstantly sets the NegotiateInstantly field's value.
-func (s *ModifyVpnGatewayAttributesInput) SetNegotiateInstantly(v string) *ModifyVpnGatewayAttributesInput {
-	s.NegotiateInstantly = &v
+// SetIpsecEnabled sets the IpsecEnabled field's value.
+func (s *ModifyVpnGatewayAttributesInput) SetIpsecEnabled(v bool) *ModifyVpnGatewayAttributesInput {
+	s.IpsecEnabled = &v
+	return s
+}
+
+// SetSslEnabled sets the SslEnabled field's value.
+func (s *ModifyVpnGatewayAttributesInput) SetSslEnabled(v bool) *ModifyVpnGatewayAttributesInput {
+	s.SslEnabled = &v
+	return s
+}
+
+// SetSslMaxConnections sets the SslMaxConnections field's value.
+func (s *ModifyVpnGatewayAttributesInput) SetSslMaxConnections(v int64) *ModifyVpnGatewayAttributesInput {
+	s.SslMaxConnections = &v
 	return s
 }
 
@@ -230,6 +236,8 @@ type ModifyVpnGatewayAttributesOutput struct {
 
 	Metadata *response.ResponseMetadata
 
+	OrderId *string `type:"string"`
+
 	RequestId *string `type:"string"`
 }
 
@@ -241,6 +249,12 @@ func (s ModifyVpnGatewayAttributesOutput) String() string {
 // GoString returns the string representation
 func (s ModifyVpnGatewayAttributesOutput) GoString() string {
 	return s.String()
+}
+
+// SetOrderId sets the OrderId field's value.
+func (s *ModifyVpnGatewayAttributesOutput) SetOrderId(v string) *ModifyVpnGatewayAttributesOutput {
+	s.OrderId = &v
+	return s
 }
 
 // SetRequestId sets the RequestId field's value.
