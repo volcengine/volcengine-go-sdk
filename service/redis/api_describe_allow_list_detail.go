@@ -235,6 +235,8 @@ type DescribeAllowListDetailOutput struct {
 	AllowListType *string `type:"string" json:",omitempty"`
 
 	AssociatedInstances []*AssociatedInstanceForDescribeAllowListDetailOutput `type:"list" json:",omitempty"`
+
+	SecurityGroupBindInfos []*SecurityGroupBindInfoForDescribeAllowListDetailOutput `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -288,3 +290,63 @@ func (s *DescribeAllowListDetailOutput) SetAssociatedInstances(v []*AssociatedIn
 	s.AssociatedInstances = v
 	return s
 }
+
+// SetSecurityGroupBindInfos sets the SecurityGroupBindInfos field's value.
+func (s *DescribeAllowListDetailOutput) SetSecurityGroupBindInfos(v []*SecurityGroupBindInfoForDescribeAllowListDetailOutput) *DescribeAllowListDetailOutput {
+	s.SecurityGroupBindInfos = v
+	return s
+}
+
+type SecurityGroupBindInfoForDescribeAllowListDetailOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	BindMode *string `type:"string" json:",omitempty" enum:"EnumOfBindModeForDescribeAllowListDetailOutput"`
+
+	IpList []*string `type:"list" json:",omitempty"`
+
+	SecurityGroupId *string `type:"string" json:",omitempty"`
+
+	SecurityGroupName *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s SecurityGroupBindInfoForDescribeAllowListDetailOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s SecurityGroupBindInfoForDescribeAllowListDetailOutput) GoString() string {
+	return s.String()
+}
+
+// SetBindMode sets the BindMode field's value.
+func (s *SecurityGroupBindInfoForDescribeAllowListDetailOutput) SetBindMode(v string) *SecurityGroupBindInfoForDescribeAllowListDetailOutput {
+	s.BindMode = &v
+	return s
+}
+
+// SetIpList sets the IpList field's value.
+func (s *SecurityGroupBindInfoForDescribeAllowListDetailOutput) SetIpList(v []*string) *SecurityGroupBindInfoForDescribeAllowListDetailOutput {
+	s.IpList = v
+	return s
+}
+
+// SetSecurityGroupId sets the SecurityGroupId field's value.
+func (s *SecurityGroupBindInfoForDescribeAllowListDetailOutput) SetSecurityGroupId(v string) *SecurityGroupBindInfoForDescribeAllowListDetailOutput {
+	s.SecurityGroupId = &v
+	return s
+}
+
+// SetSecurityGroupName sets the SecurityGroupName field's value.
+func (s *SecurityGroupBindInfoForDescribeAllowListDetailOutput) SetSecurityGroupName(v string) *SecurityGroupBindInfoForDescribeAllowListDetailOutput {
+	s.SecurityGroupName = &v
+	return s
+}
+
+const (
+	// EnumOfBindModeForDescribeAllowListDetailOutputAssociateEcsIp is a EnumOfBindModeForDescribeAllowListDetailOutput enum value
+	EnumOfBindModeForDescribeAllowListDetailOutputAssociateEcsIp = "AssociateEcsIp"
+
+	// EnumOfBindModeForDescribeAllowListDetailOutputIngressDirectionIp is a EnumOfBindModeForDescribeAllowListDetailOutput enum value
+	EnumOfBindModeForDescribeAllowListDetailOutputIngressDirectionIp = "IngressDirectionIp"
+)

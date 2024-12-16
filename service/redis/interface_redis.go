@@ -134,6 +134,14 @@ type REDISAPI interface {
 	DeleteDBInstanceWithContext(volcengine.Context, *DeleteDBInstanceInput, ...request.Option) (*DeleteDBInstanceOutput, error)
 	DeleteDBInstanceRequest(*DeleteDBInstanceInput) (*request.Request, *DeleteDBInstanceOutput)
 
+	DeleteEnterpriseDBInstanceCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeleteEnterpriseDBInstanceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeleteEnterpriseDBInstanceCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeleteEnterpriseDBInstance(*DeleteEnterpriseDBInstanceInput) (*DeleteEnterpriseDBInstanceOutput, error)
+	DeleteEnterpriseDBInstanceWithContext(volcengine.Context, *DeleteEnterpriseDBInstanceInput, ...request.Option) (*DeleteEnterpriseDBInstanceOutput, error)
+	DeleteEnterpriseDBInstanceRequest(*DeleteEnterpriseDBInstanceInput) (*request.Request, *DeleteEnterpriseDBInstanceOutput)
+
 	DescribeAllowListDetailCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DescribeAllowListDetailCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DescribeAllowListDetailCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -221,6 +229,14 @@ type REDISAPI interface {
 	DescribeEnterpriseDBInstanceDetail(*DescribeEnterpriseDBInstanceDetailInput) (*DescribeEnterpriseDBInstanceDetailOutput, error)
 	DescribeEnterpriseDBInstanceDetailWithContext(volcengine.Context, *DescribeEnterpriseDBInstanceDetailInput, ...request.Option) (*DescribeEnterpriseDBInstanceDetailOutput, error)
 	DescribeEnterpriseDBInstanceDetailRequest(*DescribeEnterpriseDBInstanceDetailInput) (*request.Request, *DescribeEnterpriseDBInstanceDetailOutput)
+
+	DescribeEnterpriseDBInstanceParamsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeEnterpriseDBInstanceParamsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeEnterpriseDBInstanceParamsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeEnterpriseDBInstanceParams(*DescribeEnterpriseDBInstanceParamsInput) (*DescribeEnterpriseDBInstanceParamsOutput, error)
+	DescribeEnterpriseDBInstanceParamsWithContext(volcengine.Context, *DescribeEnterpriseDBInstanceParamsInput, ...request.Option) (*DescribeEnterpriseDBInstanceParamsOutput, error)
+	DescribeEnterpriseDBInstanceParamsRequest(*DescribeEnterpriseDBInstanceParamsInput) (*request.Request, *DescribeEnterpriseDBInstanceParamsOutput)
 
 	DescribeNodeIdsCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DescribeNodeIdsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -429,6 +445,22 @@ type REDISAPI interface {
 	ModifyDBInstanceVpcAuthMode(*ModifyDBInstanceVpcAuthModeInput) (*ModifyDBInstanceVpcAuthModeOutput, error)
 	ModifyDBInstanceVpcAuthModeWithContext(volcengine.Context, *ModifyDBInstanceVpcAuthModeInput, ...request.Option) (*ModifyDBInstanceVpcAuthModeOutput, error)
 	ModifyDBInstanceVpcAuthModeRequest(*ModifyDBInstanceVpcAuthModeInput) (*request.Request, *ModifyDBInstanceVpcAuthModeOutput)
+
+	ModifyEnterpriseDBInstanceCapacityCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ModifyEnterpriseDBInstanceCapacityCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ModifyEnterpriseDBInstanceCapacityCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ModifyEnterpriseDBInstanceCapacity(*ModifyEnterpriseDBInstanceCapacityInput) (*ModifyEnterpriseDBInstanceCapacityOutput, error)
+	ModifyEnterpriseDBInstanceCapacityWithContext(volcengine.Context, *ModifyEnterpriseDBInstanceCapacityInput, ...request.Option) (*ModifyEnterpriseDBInstanceCapacityOutput, error)
+	ModifyEnterpriseDBInstanceCapacityRequest(*ModifyEnterpriseDBInstanceCapacityInput) (*request.Request, *ModifyEnterpriseDBInstanceCapacityOutput)
+
+	ModifyEnterpriseDBInstanceParamsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ModifyEnterpriseDBInstanceParamsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ModifyEnterpriseDBInstanceParamsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ModifyEnterpriseDBInstanceParams(*ModifyEnterpriseDBInstanceParamsInput) (*ModifyEnterpriseDBInstanceParamsOutput, error)
+	ModifyEnterpriseDBInstanceParamsWithContext(volcengine.Context, *ModifyEnterpriseDBInstanceParamsInput, ...request.Option) (*ModifyEnterpriseDBInstanceParamsOutput, error)
+	ModifyEnterpriseDBInstanceParamsRequest(*ModifyEnterpriseDBInstanceParamsInput) (*request.Request, *ModifyEnterpriseDBInstanceParamsOutput)
 
 	RemoveTagsFromResourceCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	RemoveTagsFromResourceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
