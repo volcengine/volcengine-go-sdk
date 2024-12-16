@@ -150,7 +150,11 @@ type CreateListenerInput struct {
 
 	Bandwidth *int64 `type:"integer"`
 
+	CertCenterCertificateId *string `type:"string"`
+
 	CertificateId *string `type:"string"`
+
+	CertificateSource *string `type:"string"`
 
 	ClientBodyTimeout *int64 `type:"integer"`
 
@@ -269,9 +273,21 @@ func (s *CreateListenerInput) SetBandwidth(v int64) *CreateListenerInput {
 	return s
 }
 
+// SetCertCenterCertificateId sets the CertCenterCertificateId field's value.
+func (s *CreateListenerInput) SetCertCenterCertificateId(v string) *CreateListenerInput {
+	s.CertCenterCertificateId = &v
+	return s
+}
+
 // SetCertificateId sets the CertificateId field's value.
 func (s *CreateListenerInput) SetCertificateId(v string) *CreateListenerInput {
 	s.CertificateId = &v
+	return s
+}
+
+// SetCertificateSource sets the CertificateSource field's value.
+func (s *CreateListenerInput) SetCertificateSource(v string) *CreateListenerInput {
+	s.CertificateSource = &v
 	return s
 }
 

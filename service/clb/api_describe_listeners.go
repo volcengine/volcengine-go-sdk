@@ -152,6 +152,8 @@ type DescribeListenersInput struct {
 
 	PageSize *int64 `type:"integer"`
 
+	Protocol *string `type:"string"`
+
 	TagFilters []*TagFilterForDescribeListenersInput `type:"list"`
 }
 
@@ -192,6 +194,12 @@ func (s *DescribeListenersInput) SetPageNumber(v int64) *DescribeListenersInput 
 // SetPageSize sets the PageSize field's value.
 func (s *DescribeListenersInput) SetPageSize(v int64) *DescribeListenersInput {
 	s.PageSize = &v
+	return s
+}
+
+// SetProtocol sets the Protocol field's value.
+func (s *DescribeListenersInput) SetProtocol(v string) *DescribeListenersInput {
+	s.Protocol = &v
 	return s
 }
 
@@ -378,7 +386,11 @@ type ListenerForDescribeListenersOutput struct {
 
 	Bandwidth *int64 `type:"integer"`
 
+	CertCenterCertificateId *string `type:"string"`
+
 	CertificateId *string `type:"string"`
+
+	CertificateSource *string `type:"string"`
 
 	ClientBodyTimeout *int64 `type:"integer"`
 
@@ -423,6 +435,8 @@ type ListenerForDescribeListenersOutput struct {
 	ProxyReadTimeout *int64 `type:"integer"`
 
 	ProxySendTimeout *int64 `type:"integer"`
+
+	ResponseCheckEnabled *string `type:"string"`
 
 	Scheduler *string `type:"string"`
 
@@ -475,9 +489,21 @@ func (s *ListenerForDescribeListenersOutput) SetBandwidth(v int64) *ListenerForD
 	return s
 }
 
+// SetCertCenterCertificateId sets the CertCenterCertificateId field's value.
+func (s *ListenerForDescribeListenersOutput) SetCertCenterCertificateId(v string) *ListenerForDescribeListenersOutput {
+	s.CertCenterCertificateId = &v
+	return s
+}
+
 // SetCertificateId sets the CertificateId field's value.
 func (s *ListenerForDescribeListenersOutput) SetCertificateId(v string) *ListenerForDescribeListenersOutput {
 	s.CertificateId = &v
+	return s
+}
+
+// SetCertificateSource sets the CertificateSource field's value.
+func (s *ListenerForDescribeListenersOutput) SetCertificateSource(v string) *ListenerForDescribeListenersOutput {
+	s.CertificateSource = &v
 	return s
 }
 
@@ -610,6 +636,12 @@ func (s *ListenerForDescribeListenersOutput) SetProxyReadTimeout(v int64) *Liste
 // SetProxySendTimeout sets the ProxySendTimeout field's value.
 func (s *ListenerForDescribeListenersOutput) SetProxySendTimeout(v int64) *ListenerForDescribeListenersOutput {
 	s.ProxySendTimeout = &v
+	return s
+}
+
+// SetResponseCheckEnabled sets the ResponseCheckEnabled field's value.
+func (s *ListenerForDescribeListenersOutput) SetResponseCheckEnabled(v string) *ListenerForDescribeListenersOutput {
+	s.ResponseCheckEnabled = &v
 	return s
 }
 
