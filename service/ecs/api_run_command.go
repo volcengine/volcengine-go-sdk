@@ -139,11 +139,101 @@ func (c *ECS) RunCommandWithContext(ctx volcengine.Context, input *RunCommandInp
 	return out, req.Send()
 }
 
+type ParameterDefinitionForRunCommandInput struct {
+	_ struct{} `type:"structure"`
+
+	DecimalPrecision *string `type:"string"`
+
+	DefaultValue *string `type:"string"`
+
+	MaxLength *string `type:"string"`
+
+	MaxValue *string `type:"string"`
+
+	MinLength *string `type:"string"`
+
+	MinValue *string `type:"string"`
+
+	Name *string `type:"string"`
+
+	Required *bool `type:"boolean"`
+
+	Type *string `type:"string"`
+}
+
+// String returns the string representation
+func (s ParameterDefinitionForRunCommandInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ParameterDefinitionForRunCommandInput) GoString() string {
+	return s.String()
+}
+
+// SetDecimalPrecision sets the DecimalPrecision field's value.
+func (s *ParameterDefinitionForRunCommandInput) SetDecimalPrecision(v string) *ParameterDefinitionForRunCommandInput {
+	s.DecimalPrecision = &v
+	return s
+}
+
+// SetDefaultValue sets the DefaultValue field's value.
+func (s *ParameterDefinitionForRunCommandInput) SetDefaultValue(v string) *ParameterDefinitionForRunCommandInput {
+	s.DefaultValue = &v
+	return s
+}
+
+// SetMaxLength sets the MaxLength field's value.
+func (s *ParameterDefinitionForRunCommandInput) SetMaxLength(v string) *ParameterDefinitionForRunCommandInput {
+	s.MaxLength = &v
+	return s
+}
+
+// SetMaxValue sets the MaxValue field's value.
+func (s *ParameterDefinitionForRunCommandInput) SetMaxValue(v string) *ParameterDefinitionForRunCommandInput {
+	s.MaxValue = &v
+	return s
+}
+
+// SetMinLength sets the MinLength field's value.
+func (s *ParameterDefinitionForRunCommandInput) SetMinLength(v string) *ParameterDefinitionForRunCommandInput {
+	s.MinLength = &v
+	return s
+}
+
+// SetMinValue sets the MinValue field's value.
+func (s *ParameterDefinitionForRunCommandInput) SetMinValue(v string) *ParameterDefinitionForRunCommandInput {
+	s.MinValue = &v
+	return s
+}
+
+// SetName sets the Name field's value.
+func (s *ParameterDefinitionForRunCommandInput) SetName(v string) *ParameterDefinitionForRunCommandInput {
+	s.Name = &v
+	return s
+}
+
+// SetRequired sets the Required field's value.
+func (s *ParameterDefinitionForRunCommandInput) SetRequired(v bool) *ParameterDefinitionForRunCommandInput {
+	s.Required = &v
+	return s
+}
+
+// SetType sets the Type field's value.
+func (s *ParameterDefinitionForRunCommandInput) SetType(v string) *ParameterDefinitionForRunCommandInput {
+	s.Type = &v
+	return s
+}
+
 type RunCommandInput struct {
 	_ struct{} `type:"structure"`
 
 	// CommandContent is a required field
 	CommandContent *string `type:"string" required:"true"`
+
+	ContentEncoding *string `type:"string"`
+
+	EnableParameter *bool `type:"boolean"`
 
 	Frequency *string `type:"string"`
 
@@ -156,6 +246,10 @@ type RunCommandInput struct {
 	InvocationName *string `type:"string" required:"true"`
 
 	LaunchTime *string `type:"string"`
+
+	ParameterDefinitions []*ParameterDefinitionForRunCommandInput `type:"list"`
+
+	Parameters *string `type:"string"`
 
 	ProjectName *string `type:"string"`
 
@@ -213,6 +307,18 @@ func (s *RunCommandInput) SetCommandContent(v string) *RunCommandInput {
 	return s
 }
 
+// SetContentEncoding sets the ContentEncoding field's value.
+func (s *RunCommandInput) SetContentEncoding(v string) *RunCommandInput {
+	s.ContentEncoding = &v
+	return s
+}
+
+// SetEnableParameter sets the EnableParameter field's value.
+func (s *RunCommandInput) SetEnableParameter(v bool) *RunCommandInput {
+	s.EnableParameter = &v
+	return s
+}
+
 // SetFrequency sets the Frequency field's value.
 func (s *RunCommandInput) SetFrequency(v string) *RunCommandInput {
 	s.Frequency = &v
@@ -240,6 +346,18 @@ func (s *RunCommandInput) SetInvocationName(v string) *RunCommandInput {
 // SetLaunchTime sets the LaunchTime field's value.
 func (s *RunCommandInput) SetLaunchTime(v string) *RunCommandInput {
 	s.LaunchTime = &v
+	return s
+}
+
+// SetParameterDefinitions sets the ParameterDefinitions field's value.
+func (s *RunCommandInput) SetParameterDefinitions(v []*ParameterDefinitionForRunCommandInput) *RunCommandInput {
+	s.ParameterDefinitions = v
+	return s
+}
+
+// SetParameters sets the Parameters field's value.
+func (s *RunCommandInput) SetParameters(v string) *RunCommandInput {
+	s.Parameters = &v
 	return s
 }
 

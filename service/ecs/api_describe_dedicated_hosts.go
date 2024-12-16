@@ -146,6 +146,8 @@ type CapacityForDescribeDedicatedHostsOutput struct {
 
 	AvailableVcpus *int32 `type:"int32"`
 
+	LocalVolumeCapacities []*LocalVolumeCapacityForDescribeDedicatedHostsOutput `type:"list"`
+
 	TotalMemory *int32 `type:"int32"`
 
 	TotalVcpus *int32 `type:"int32"`
@@ -170,6 +172,12 @@ func (s *CapacityForDescribeDedicatedHostsOutput) SetAvailableMemory(v int32) *C
 // SetAvailableVcpus sets the AvailableVcpus field's value.
 func (s *CapacityForDescribeDedicatedHostsOutput) SetAvailableVcpus(v int32) *CapacityForDescribeDedicatedHostsOutput {
 	s.AvailableVcpus = &v
+	return s
+}
+
+// SetLocalVolumeCapacities sets the LocalVolumeCapacities field's value.
+func (s *CapacityForDescribeDedicatedHostsOutput) SetLocalVolumeCapacities(v []*LocalVolumeCapacityForDescribeDedicatedHostsOutput) *CapacityForDescribeDedicatedHostsOutput {
+	s.LocalVolumeCapacities = v
 	return s
 }
 
@@ -464,5 +472,43 @@ func (s *InstanceForDescribeDedicatedHostsOutput) SetInstanceId(v string) *Insta
 // SetInstanceTypeId sets the InstanceTypeId field's value.
 func (s *InstanceForDescribeDedicatedHostsOutput) SetInstanceTypeId(v string) *InstanceForDescribeDedicatedHostsOutput {
 	s.InstanceTypeId = &v
+	return s
+}
+
+type LocalVolumeCapacityForDescribeDedicatedHostsOutput struct {
+	_ struct{} `type:"structure"`
+
+	AvailableSize *int32 `type:"int32"`
+
+	TotalSize *int32 `type:"int32"`
+
+	VolumeType *string `type:"string"`
+}
+
+// String returns the string representation
+func (s LocalVolumeCapacityForDescribeDedicatedHostsOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s LocalVolumeCapacityForDescribeDedicatedHostsOutput) GoString() string {
+	return s.String()
+}
+
+// SetAvailableSize sets the AvailableSize field's value.
+func (s *LocalVolumeCapacityForDescribeDedicatedHostsOutput) SetAvailableSize(v int32) *LocalVolumeCapacityForDescribeDedicatedHostsOutput {
+	s.AvailableSize = &v
+	return s
+}
+
+// SetTotalSize sets the TotalSize field's value.
+func (s *LocalVolumeCapacityForDescribeDedicatedHostsOutput) SetTotalSize(v int32) *LocalVolumeCapacityForDescribeDedicatedHostsOutput {
+	s.TotalSize = &v
+	return s
+}
+
+// SetVolumeType sets the VolumeType field's value.
+func (s *LocalVolumeCapacityForDescribeDedicatedHostsOutput) SetVolumeType(v string) *LocalVolumeCapacityForDescribeDedicatedHostsOutput {
+	s.VolumeType = &v
 	return s
 }

@@ -558,6 +558,14 @@ type ECSAPI interface {
 	InvokeCommandWithContext(volcengine.Context, *InvokeCommandInput, ...request.Option) (*InvokeCommandOutput, error)
 	InvokeCommandRequest(*InvokeCommandInput) (*request.Request, *InvokeCommandOutput)
 
+	ListTagsForResourcesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListTagsForResourcesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListTagsForResourcesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListTagsForResources(*ListTagsForResourcesInput) (*ListTagsForResourcesOutput, error)
+	ListTagsForResourcesWithContext(volcengine.Context, *ListTagsForResourcesInput, ...request.Option) (*ListTagsForResourcesOutput, error)
+	ListTagsForResourcesRequest(*ListTagsForResourcesInput) (*request.Request, *ListTagsForResourcesOutput)
+
 	ModifyCommandCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ModifyCommandCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	ModifyCommandCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -790,6 +798,14 @@ type ECSAPI interface {
 	StopInvocationWithContext(volcengine.Context, *StopInvocationInput, ...request.Option) (*StopInvocationOutput, error)
 	StopInvocationRequest(*StopInvocationInput) (*request.Request, *StopInvocationOutput)
 
+	TagResourcesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	TagResourcesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	TagResourcesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	TagResources(*TagResourcesInput) (*TagResourcesOutput, error)
+	TagResourcesWithContext(volcengine.Context, *TagResourcesInput, ...request.Option) (*TagResourcesOutput, error)
+	TagResourcesRequest(*TagResourcesInput) (*request.Request, *TagResourcesOutput)
+
 	UninstallCloudAssistantsCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	UninstallCloudAssistantsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	UninstallCloudAssistantsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -797,6 +813,14 @@ type ECSAPI interface {
 	UninstallCloudAssistants(*UninstallCloudAssistantsInput) (*UninstallCloudAssistantsOutput, error)
 	UninstallCloudAssistantsWithContext(volcengine.Context, *UninstallCloudAssistantsInput, ...request.Option) (*UninstallCloudAssistantsOutput, error)
 	UninstallCloudAssistantsRequest(*UninstallCloudAssistantsInput) (*request.Request, *UninstallCloudAssistantsOutput)
+
+	UntagResourcesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	UntagResourcesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	UntagResourcesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	UntagResources(*UntagResourcesInput) (*UntagResourcesOutput, error)
+	UntagResourcesWithContext(volcengine.Context, *UntagResourcesInput, ...request.Option) (*UntagResourcesOutput, error)
+	UntagResourcesRequest(*UntagResourcesInput) (*request.Request, *UntagResourcesOutput)
 
 	UpdateSystemEventsCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	UpdateSystemEventsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)

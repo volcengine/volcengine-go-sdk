@@ -222,6 +222,8 @@ type ScheduledInstanceStockForDescribeScheduledInstanceStockOutput struct {
 
 	EndDeliveryAt *string `type:"string"`
 
+	ReleaseStatus *string `type:"string"`
+
 	StartDeliveryAt *string `type:"string"`
 
 	Status *string `type:"string"`
@@ -240,6 +242,12 @@ func (s ScheduledInstanceStockForDescribeScheduledInstanceStockOutput) GoString(
 // SetEndDeliveryAt sets the EndDeliveryAt field's value.
 func (s *ScheduledInstanceStockForDescribeScheduledInstanceStockOutput) SetEndDeliveryAt(v string) *ScheduledInstanceStockForDescribeScheduledInstanceStockOutput {
 	s.EndDeliveryAt = &v
+	return s
+}
+
+// SetReleaseStatus sets the ReleaseStatus field's value.
+func (s *ScheduledInstanceStockForDescribeScheduledInstanceStockOutput) SetReleaseStatus(v string) *ScheduledInstanceStockForDescribeScheduledInstanceStockOutput {
+	s.ReleaseStatus = &v
 	return s
 }
 

@@ -178,6 +178,8 @@ type DedicatedHostClusterCapacityForDescribeDedicatedHostClustersOutput struct {
 
 	AvailableVcpus *int32 `type:"int32"`
 
+	LocalVolumeCapacities []*LocalVolumeCapacityForDescribeDedicatedHostClustersOutput `type:"list"`
+
 	TotalMemory *int32 `type:"int32"`
 
 	TotalVcpus *int32 `type:"int32"`
@@ -208,6 +210,12 @@ func (s *DedicatedHostClusterCapacityForDescribeDedicatedHostClustersOutput) Set
 // SetAvailableVcpus sets the AvailableVcpus field's value.
 func (s *DedicatedHostClusterCapacityForDescribeDedicatedHostClustersOutput) SetAvailableVcpus(v int32) *DedicatedHostClusterCapacityForDescribeDedicatedHostClustersOutput {
 	s.AvailableVcpus = &v
+	return s
+}
+
+// SetLocalVolumeCapacities sets the LocalVolumeCapacities field's value.
+func (s *DedicatedHostClusterCapacityForDescribeDedicatedHostClustersOutput) SetLocalVolumeCapacities(v []*LocalVolumeCapacityForDescribeDedicatedHostClustersOutput) *DedicatedHostClusterCapacityForDescribeDedicatedHostClustersOutput {
+	s.LocalVolumeCapacities = v
 	return s
 }
 
@@ -384,5 +392,43 @@ func (s *DescribeDedicatedHostClustersOutput) SetDedicatedHostClusters(v []*Dedi
 // SetNextToken sets the NextToken field's value.
 func (s *DescribeDedicatedHostClustersOutput) SetNextToken(v string) *DescribeDedicatedHostClustersOutput {
 	s.NextToken = &v
+	return s
+}
+
+type LocalVolumeCapacityForDescribeDedicatedHostClustersOutput struct {
+	_ struct{} `type:"structure"`
+
+	AvailableSize *int32 `type:"int32"`
+
+	TotalSize *int32 `type:"int32"`
+
+	VolumeType *string `type:"string"`
+}
+
+// String returns the string representation
+func (s LocalVolumeCapacityForDescribeDedicatedHostClustersOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s LocalVolumeCapacityForDescribeDedicatedHostClustersOutput) GoString() string {
+	return s.String()
+}
+
+// SetAvailableSize sets the AvailableSize field's value.
+func (s *LocalVolumeCapacityForDescribeDedicatedHostClustersOutput) SetAvailableSize(v int32) *LocalVolumeCapacityForDescribeDedicatedHostClustersOutput {
+	s.AvailableSize = &v
+	return s
+}
+
+// SetTotalSize sets the TotalSize field's value.
+func (s *LocalVolumeCapacityForDescribeDedicatedHostClustersOutput) SetTotalSize(v int32) *LocalVolumeCapacityForDescribeDedicatedHostClustersOutput {
+	s.TotalSize = &v
+	return s
+}
+
+// SetVolumeType sets the VolumeType field's value.
+func (s *LocalVolumeCapacityForDescribeDedicatedHostClustersOutput) SetVolumeType(v string) *LocalVolumeCapacityForDescribeDedicatedHostClustersOutput {
+	s.VolumeType = &v
 	return s
 }

@@ -151,6 +151,8 @@ type ReplaceSystemVolumeInput struct {
 	// ImageId is a required field
 	ImageId *string `type:"string" required:"true"`
 
+	ImageReleaseVersion *string `type:"string"`
+
 	// InstanceId is a required field
 	InstanceId *string `type:"string" required:"true"`
 
@@ -206,6 +208,12 @@ func (s *ReplaceSystemVolumeInput) SetDryRun(v bool) *ReplaceSystemVolumeInput {
 // SetImageId sets the ImageId field's value.
 func (s *ReplaceSystemVolumeInput) SetImageId(v string) *ReplaceSystemVolumeInput {
 	s.ImageId = &v
+	return s
+}
+
+// SetImageReleaseVersion sets the ImageReleaseVersion field's value.
+func (s *ReplaceSystemVolumeInput) SetImageReleaseVersion(v string) *ReplaceSystemVolumeInput {
+	s.ImageReleaseVersion = &v
 	return s
 }
 

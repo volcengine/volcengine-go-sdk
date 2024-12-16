@@ -148,6 +148,8 @@ type DescribeInvocationsInput struct {
 
 	CommandType *string `type:"string"`
 
+	ContentEncoding *string `type:"string"`
+
 	InvocationId *string `type:"string"`
 
 	InvocationName *string `type:"string"`
@@ -190,6 +192,12 @@ func (s *DescribeInvocationsInput) SetCommandName(v string) *DescribeInvocations
 // SetCommandType sets the CommandType field's value.
 func (s *DescribeInvocationsInput) SetCommandType(v string) *DescribeInvocationsInput {
 	s.CommandType = &v
+	return s
+}
+
+// SetContentEncoding sets the ContentEncoding field's value.
+func (s *DescribeInvocationsInput) SetContentEncoding(v string) *DescribeInvocationsInput {
+	s.ContentEncoding = &v
 	return s
 }
 
@@ -326,11 +334,15 @@ type InvocationForDescribeInvocationsOutput struct {
 
 	Parameters *string `type:"string"`
 
+	ProjectName *string `type:"string"`
+
 	RecurrenceEndTime *string `type:"string"`
 
 	RepeatMode *string `type:"string"`
 
 	StartTime *string `type:"string"`
+
+	Tags []*TagForDescribeInvocationsOutput `type:"list"`
 
 	Timeout *int32 `type:"int32"`
 
@@ -451,6 +463,12 @@ func (s *InvocationForDescribeInvocationsOutput) SetParameters(v string) *Invoca
 	return s
 }
 
+// SetProjectName sets the ProjectName field's value.
+func (s *InvocationForDescribeInvocationsOutput) SetProjectName(v string) *InvocationForDescribeInvocationsOutput {
+	s.ProjectName = &v
+	return s
+}
+
 // SetRecurrenceEndTime sets the RecurrenceEndTime field's value.
 func (s *InvocationForDescribeInvocationsOutput) SetRecurrenceEndTime(v string) *InvocationForDescribeInvocationsOutput {
 	s.RecurrenceEndTime = &v
@@ -466,6 +484,12 @@ func (s *InvocationForDescribeInvocationsOutput) SetRepeatMode(v string) *Invoca
 // SetStartTime sets the StartTime field's value.
 func (s *InvocationForDescribeInvocationsOutput) SetStartTime(v string) *InvocationForDescribeInvocationsOutput {
 	s.StartTime = &v
+	return s
+}
+
+// SetTags sets the Tags field's value.
+func (s *InvocationForDescribeInvocationsOutput) SetTags(v []*TagForDescribeInvocationsOutput) *InvocationForDescribeInvocationsOutput {
+	s.Tags = v
 	return s
 }
 
@@ -578,7 +602,7 @@ type TagFilterForDescribeInvocationsInput struct {
 
 	Key *string `type:"string"`
 
-	Value *string `type:"string"`
+	Values []*string `type:"list"`
 }
 
 // String returns the string representation
@@ -597,8 +621,38 @@ func (s *TagFilterForDescribeInvocationsInput) SetKey(v string) *TagFilterForDes
 	return s
 }
 
+// SetValues sets the Values field's value.
+func (s *TagFilterForDescribeInvocationsInput) SetValues(v []*string) *TagFilterForDescribeInvocationsInput {
+	s.Values = v
+	return s
+}
+
+type TagForDescribeInvocationsOutput struct {
+	_ struct{} `type:"structure"`
+
+	Key *string `type:"string"`
+
+	Value *string `type:"string"`
+}
+
+// String returns the string representation
+func (s TagForDescribeInvocationsOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagForDescribeInvocationsOutput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagForDescribeInvocationsOutput) SetKey(v string) *TagForDescribeInvocationsOutput {
+	s.Key = &v
+	return s
+}
+
 // SetValue sets the Value field's value.
-func (s *TagFilterForDescribeInvocationsInput) SetValue(v string) *TagFilterForDescribeInvocationsInput {
+func (s *TagForDescribeInvocationsOutput) SetValue(v string) *TagForDescribeInvocationsOutput {
 	s.Value = &v
 	return s
 }

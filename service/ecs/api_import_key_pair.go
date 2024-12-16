@@ -3,6 +3,8 @@
 package ecs
 
 import (
+	"fmt"
+
 	"github.com/volcengine/volcengine-go-sdk/volcengine"
 	"github.com/volcengine/volcengine-go-sdk/volcengine/request"
 	"github.com/volcengine/volcengine-go-sdk/volcengine/response"
@@ -153,6 +155,9 @@ type ImportKeyPairInput struct {
 
 	// PublicKey is a required field
 	PublicKey *string `type:"string" required:"true"`
+
+	// Tags is a required field
+	Tags []*TagForImportKeyPairInput `type:"list" required:"true"`
 }
 
 // String returns the string representation
@@ -173,6 +178,19 @@ func (s *ImportKeyPairInput) Validate() error {
 	}
 	if s.PublicKey == nil {
 		invalidParams.Add(request.NewErrParamRequired("PublicKey"))
+	}
+	if s.Tags == nil {
+		invalidParams.Add(request.NewErrParamRequired("Tags"))
+	}
+	if s.Tags != nil {
+		for i, v := range s.Tags {
+			if v == nil {
+				continue
+			}
+			if err := v.Validate(); err != nil {
+				invalidParams.AddNested(fmt.Sprintf("%s[%v]", "Tags", i), err.(request.ErrInvalidParams))
+			}
+		}
 	}
 
 	if invalidParams.Len() > 0 {
@@ -208,6 +226,12 @@ func (s *ImportKeyPairInput) SetProjectName(v string) *ImportKeyPairInput {
 // SetPublicKey sets the PublicKey field's value.
 func (s *ImportKeyPairInput) SetPublicKey(v string) *ImportKeyPairInput {
 	s.PublicKey = &v
+	return s
+}
+
+// SetTags sets the Tags field's value.
+func (s *ImportKeyPairInput) SetTags(v []*TagForImportKeyPairInput) *ImportKeyPairInput {
+	s.Tags = v
 	return s
 }
 
@@ -248,5 +272,49 @@ func (s *ImportKeyPairOutput) SetKeyPairId(v string) *ImportKeyPairOutput {
 // SetKeyPairName sets the KeyPairName field's value.
 func (s *ImportKeyPairOutput) SetKeyPairName(v string) *ImportKeyPairOutput {
 	s.KeyPairName = &v
+	return s
+}
+
+type TagForImportKeyPairInput struct {
+	_ struct{} `type:"structure"`
+
+	// Key is a required field
+	Key *string `type:"string" required:"true"`
+
+	Value *string `type:"string"`
+}
+
+// String returns the string representation
+func (s TagForImportKeyPairInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagForImportKeyPairInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *TagForImportKeyPairInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "TagForImportKeyPairInput"}
+	if s.Key == nil {
+		invalidParams.Add(request.NewErrParamRequired("Key"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetKey sets the Key field's value.
+func (s *TagForImportKeyPairInput) SetKey(v string) *TagForImportKeyPairInput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *TagForImportKeyPairInput) SetValue(v string) *TagForImportKeyPairInput {
+	s.Value = &v
 	return s
 }

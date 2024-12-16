@@ -62,6 +62,14 @@ type VPCAPI interface {
 	AllocateEipAddressWithContext(volcengine.Context, *AllocateEipAddressInput, ...request.Option) (*AllocateEipAddressOutput, error)
 	AllocateEipAddressRequest(*AllocateEipAddressInput) (*request.Request, *AllocateEipAddressOutput)
 
+	AllocateIpv6AddressBandwidthCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	AllocateIpv6AddressBandwidthCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	AllocateIpv6AddressBandwidthCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	AllocateIpv6AddressBandwidth(*AllocateIpv6AddressBandwidthInput) (*AllocateIpv6AddressBandwidthOutput, error)
+	AllocateIpv6AddressBandwidthWithContext(volcengine.Context, *AllocateIpv6AddressBandwidthInput, ...request.Option) (*AllocateIpv6AddressBandwidthOutput, error)
+	AllocateIpv6AddressBandwidthRequest(*AllocateIpv6AddressBandwidthInput) (*request.Request, *AllocateIpv6AddressBandwidthOutput)
+
 	AssignIpv6AddressesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	AssignIpv6AddressesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	AssignIpv6AddressesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -190,6 +198,22 @@ type VPCAPI interface {
 	CreateIpAddressPoolWithContext(volcengine.Context, *CreateIpAddressPoolInput, ...request.Option) (*CreateIpAddressPoolOutput, error)
 	CreateIpAddressPoolRequest(*CreateIpAddressPoolInput) (*request.Request, *CreateIpAddressPoolOutput)
 
+	CreateIpv6EgressOnlyRuleCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateIpv6EgressOnlyRuleCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateIpv6EgressOnlyRuleCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateIpv6EgressOnlyRule(*CreateIpv6EgressOnlyRuleInput) (*CreateIpv6EgressOnlyRuleOutput, error)
+	CreateIpv6EgressOnlyRuleWithContext(volcengine.Context, *CreateIpv6EgressOnlyRuleInput, ...request.Option) (*CreateIpv6EgressOnlyRuleOutput, error)
+	CreateIpv6EgressOnlyRuleRequest(*CreateIpv6EgressOnlyRuleInput) (*request.Request, *CreateIpv6EgressOnlyRuleOutput)
+
+	CreateIpv6GatewayCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateIpv6GatewayCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateIpv6GatewayCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateIpv6Gateway(*CreateIpv6GatewayInput) (*CreateIpv6GatewayOutput, error)
+	CreateIpv6GatewayWithContext(volcengine.Context, *CreateIpv6GatewayInput, ...request.Option) (*CreateIpv6GatewayOutput, error)
+	CreateIpv6GatewayRequest(*CreateIpv6GatewayInput) (*request.Request, *CreateIpv6GatewayOutput)
+
 	CreateNetworkAclCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	CreateNetworkAclCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	CreateNetworkAclCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -245,6 +269,38 @@ type VPCAPI interface {
 	CreateSubnet(*CreateSubnetInput) (*CreateSubnetOutput, error)
 	CreateSubnetWithContext(volcengine.Context, *CreateSubnetInput, ...request.Option) (*CreateSubnetOutput, error)
 	CreateSubnetRequest(*CreateSubnetInput) (*request.Request, *CreateSubnetOutput)
+
+	CreateTrafficMirrorFilterCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateTrafficMirrorFilterCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateTrafficMirrorFilterCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateTrafficMirrorFilter(*CreateTrafficMirrorFilterInput) (*CreateTrafficMirrorFilterOutput, error)
+	CreateTrafficMirrorFilterWithContext(volcengine.Context, *CreateTrafficMirrorFilterInput, ...request.Option) (*CreateTrafficMirrorFilterOutput, error)
+	CreateTrafficMirrorFilterRequest(*CreateTrafficMirrorFilterInput) (*request.Request, *CreateTrafficMirrorFilterOutput)
+
+	CreateTrafficMirrorFilterRuleCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateTrafficMirrorFilterRuleCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateTrafficMirrorFilterRuleCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateTrafficMirrorFilterRule(*CreateTrafficMirrorFilterRuleInput) (*CreateTrafficMirrorFilterRuleOutput, error)
+	CreateTrafficMirrorFilterRuleWithContext(volcengine.Context, *CreateTrafficMirrorFilterRuleInput, ...request.Option) (*CreateTrafficMirrorFilterRuleOutput, error)
+	CreateTrafficMirrorFilterRuleRequest(*CreateTrafficMirrorFilterRuleInput) (*request.Request, *CreateTrafficMirrorFilterRuleOutput)
+
+	CreateTrafficMirrorSessionCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateTrafficMirrorSessionCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateTrafficMirrorSessionCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateTrafficMirrorSession(*CreateTrafficMirrorSessionInput) (*CreateTrafficMirrorSessionOutput, error)
+	CreateTrafficMirrorSessionWithContext(volcengine.Context, *CreateTrafficMirrorSessionInput, ...request.Option) (*CreateTrafficMirrorSessionOutput, error)
+	CreateTrafficMirrorSessionRequest(*CreateTrafficMirrorSessionInput) (*request.Request, *CreateTrafficMirrorSessionOutput)
+
+	CreateTrafficMirrorTargetCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateTrafficMirrorTargetCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateTrafficMirrorTargetCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateTrafficMirrorTarget(*CreateTrafficMirrorTargetInput) (*CreateTrafficMirrorTargetOutput, error)
+	CreateTrafficMirrorTargetWithContext(volcengine.Context, *CreateTrafficMirrorTargetInput, ...request.Option) (*CreateTrafficMirrorTargetOutput, error)
+	CreateTrafficMirrorTargetRequest(*CreateTrafficMirrorTargetInput) (*request.Request, *CreateTrafficMirrorTargetOutput)
 
 	CreateVpcCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	CreateVpcCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -302,6 +358,22 @@ type VPCAPI interface {
 	DeleteIpAddressPoolCidrBlockWithContext(volcengine.Context, *DeleteIpAddressPoolCidrBlockInput, ...request.Option) (*DeleteIpAddressPoolCidrBlockOutput, error)
 	DeleteIpAddressPoolCidrBlockRequest(*DeleteIpAddressPoolCidrBlockInput) (*request.Request, *DeleteIpAddressPoolCidrBlockOutput)
 
+	DeleteIpv6EgressOnlyRuleCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeleteIpv6EgressOnlyRuleCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeleteIpv6EgressOnlyRuleCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeleteIpv6EgressOnlyRule(*DeleteIpv6EgressOnlyRuleInput) (*DeleteIpv6EgressOnlyRuleOutput, error)
+	DeleteIpv6EgressOnlyRuleWithContext(volcengine.Context, *DeleteIpv6EgressOnlyRuleInput, ...request.Option) (*DeleteIpv6EgressOnlyRuleOutput, error)
+	DeleteIpv6EgressOnlyRuleRequest(*DeleteIpv6EgressOnlyRuleInput) (*request.Request, *DeleteIpv6EgressOnlyRuleOutput)
+
+	DeleteIpv6GatewayCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeleteIpv6GatewayCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeleteIpv6GatewayCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeleteIpv6Gateway(*DeleteIpv6GatewayInput) (*DeleteIpv6GatewayOutput, error)
+	DeleteIpv6GatewayWithContext(volcengine.Context, *DeleteIpv6GatewayInput, ...request.Option) (*DeleteIpv6GatewayOutput, error)
+	DeleteIpv6GatewayRequest(*DeleteIpv6GatewayInput) (*request.Request, *DeleteIpv6GatewayOutput)
+
 	DeleteNetworkAclCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DeleteNetworkAclCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DeleteNetworkAclCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -357,6 +429,38 @@ type VPCAPI interface {
 	DeleteSubnet(*DeleteSubnetInput) (*DeleteSubnetOutput, error)
 	DeleteSubnetWithContext(volcengine.Context, *DeleteSubnetInput, ...request.Option) (*DeleteSubnetOutput, error)
 	DeleteSubnetRequest(*DeleteSubnetInput) (*request.Request, *DeleteSubnetOutput)
+
+	DeleteTrafficMirrorFilterCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeleteTrafficMirrorFilterCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeleteTrafficMirrorFilterCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeleteTrafficMirrorFilter(*DeleteTrafficMirrorFilterInput) (*DeleteTrafficMirrorFilterOutput, error)
+	DeleteTrafficMirrorFilterWithContext(volcengine.Context, *DeleteTrafficMirrorFilterInput, ...request.Option) (*DeleteTrafficMirrorFilterOutput, error)
+	DeleteTrafficMirrorFilterRequest(*DeleteTrafficMirrorFilterInput) (*request.Request, *DeleteTrafficMirrorFilterOutput)
+
+	DeleteTrafficMirrorFilterRuleCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeleteTrafficMirrorFilterRuleCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeleteTrafficMirrorFilterRuleCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeleteTrafficMirrorFilterRule(*DeleteTrafficMirrorFilterRuleInput) (*DeleteTrafficMirrorFilterRuleOutput, error)
+	DeleteTrafficMirrorFilterRuleWithContext(volcengine.Context, *DeleteTrafficMirrorFilterRuleInput, ...request.Option) (*DeleteTrafficMirrorFilterRuleOutput, error)
+	DeleteTrafficMirrorFilterRuleRequest(*DeleteTrafficMirrorFilterRuleInput) (*request.Request, *DeleteTrafficMirrorFilterRuleOutput)
+
+	DeleteTrafficMirrorSessionCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeleteTrafficMirrorSessionCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeleteTrafficMirrorSessionCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeleteTrafficMirrorSession(*DeleteTrafficMirrorSessionInput) (*DeleteTrafficMirrorSessionOutput, error)
+	DeleteTrafficMirrorSessionWithContext(volcengine.Context, *DeleteTrafficMirrorSessionInput, ...request.Option) (*DeleteTrafficMirrorSessionOutput, error)
+	DeleteTrafficMirrorSessionRequest(*DeleteTrafficMirrorSessionInput) (*request.Request, *DeleteTrafficMirrorSessionOutput)
+
+	DeleteTrafficMirrorTargetCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeleteTrafficMirrorTargetCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeleteTrafficMirrorTargetCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeleteTrafficMirrorTarget(*DeleteTrafficMirrorTargetInput) (*DeleteTrafficMirrorTargetOutput, error)
+	DeleteTrafficMirrorTargetWithContext(volcengine.Context, *DeleteTrafficMirrorTargetInput, ...request.Option) (*DeleteTrafficMirrorTargetOutput, error)
+	DeleteTrafficMirrorTargetRequest(*DeleteTrafficMirrorTargetInput) (*request.Request, *DeleteTrafficMirrorTargetOutput)
 
 	DeleteVpcCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DeleteVpcCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -429,6 +533,46 @@ type VPCAPI interface {
 	DescribeIpAddressPools(*DescribeIpAddressPoolsInput) (*DescribeIpAddressPoolsOutput, error)
 	DescribeIpAddressPoolsWithContext(volcengine.Context, *DescribeIpAddressPoolsInput, ...request.Option) (*DescribeIpAddressPoolsOutput, error)
 	DescribeIpAddressPoolsRequest(*DescribeIpAddressPoolsInput) (*request.Request, *DescribeIpAddressPoolsOutput)
+
+	DescribeIpv6AddressBandwidthAttributesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeIpv6AddressBandwidthAttributesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeIpv6AddressBandwidthAttributesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeIpv6AddressBandwidthAttributes(*DescribeIpv6AddressBandwidthAttributesInput) (*DescribeIpv6AddressBandwidthAttributesOutput, error)
+	DescribeIpv6AddressBandwidthAttributesWithContext(volcengine.Context, *DescribeIpv6AddressBandwidthAttributesInput, ...request.Option) (*DescribeIpv6AddressBandwidthAttributesOutput, error)
+	DescribeIpv6AddressBandwidthAttributesRequest(*DescribeIpv6AddressBandwidthAttributesInput) (*request.Request, *DescribeIpv6AddressBandwidthAttributesOutput)
+
+	DescribeIpv6AddressBandwidthsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeIpv6AddressBandwidthsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeIpv6AddressBandwidthsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeIpv6AddressBandwidths(*DescribeIpv6AddressBandwidthsInput) (*DescribeIpv6AddressBandwidthsOutput, error)
+	DescribeIpv6AddressBandwidthsWithContext(volcengine.Context, *DescribeIpv6AddressBandwidthsInput, ...request.Option) (*DescribeIpv6AddressBandwidthsOutput, error)
+	DescribeIpv6AddressBandwidthsRequest(*DescribeIpv6AddressBandwidthsInput) (*request.Request, *DescribeIpv6AddressBandwidthsOutput)
+
+	DescribeIpv6EgressOnlyRulesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeIpv6EgressOnlyRulesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeIpv6EgressOnlyRulesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeIpv6EgressOnlyRules(*DescribeIpv6EgressOnlyRulesInput) (*DescribeIpv6EgressOnlyRulesOutput, error)
+	DescribeIpv6EgressOnlyRulesWithContext(volcengine.Context, *DescribeIpv6EgressOnlyRulesInput, ...request.Option) (*DescribeIpv6EgressOnlyRulesOutput, error)
+	DescribeIpv6EgressOnlyRulesRequest(*DescribeIpv6EgressOnlyRulesInput) (*request.Request, *DescribeIpv6EgressOnlyRulesOutput)
+
+	DescribeIpv6GatewayAttributeCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeIpv6GatewayAttributeCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeIpv6GatewayAttributeCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeIpv6GatewayAttribute(*DescribeIpv6GatewayAttributeInput) (*DescribeIpv6GatewayAttributeOutput, error)
+	DescribeIpv6GatewayAttributeWithContext(volcengine.Context, *DescribeIpv6GatewayAttributeInput, ...request.Option) (*DescribeIpv6GatewayAttributeOutput, error)
+	DescribeIpv6GatewayAttributeRequest(*DescribeIpv6GatewayAttributeInput) (*request.Request, *DescribeIpv6GatewayAttributeOutput)
+
+	DescribeIpv6GatewaysCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeIpv6GatewaysCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeIpv6GatewaysCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeIpv6Gateways(*DescribeIpv6GatewaysInput) (*DescribeIpv6GatewaysOutput, error)
+	DescribeIpv6GatewaysWithContext(volcengine.Context, *DescribeIpv6GatewaysInput, ...request.Option) (*DescribeIpv6GatewaysOutput, error)
+	DescribeIpv6GatewaysRequest(*DescribeIpv6GatewaysInput) (*request.Request, *DescribeIpv6GatewaysOutput)
 
 	DescribeNetworkAclAttributesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DescribeNetworkAclAttributesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -533,6 +677,30 @@ type VPCAPI interface {
 	DescribeSubnets(*DescribeSubnetsInput) (*DescribeSubnetsOutput, error)
 	DescribeSubnetsWithContext(volcengine.Context, *DescribeSubnetsInput, ...request.Option) (*DescribeSubnetsOutput, error)
 	DescribeSubnetsRequest(*DescribeSubnetsInput) (*request.Request, *DescribeSubnetsOutput)
+
+	DescribeTrafficMirrorFiltersCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeTrafficMirrorFiltersCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeTrafficMirrorFiltersCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeTrafficMirrorFilters(*DescribeTrafficMirrorFiltersInput) (*DescribeTrafficMirrorFiltersOutput, error)
+	DescribeTrafficMirrorFiltersWithContext(volcengine.Context, *DescribeTrafficMirrorFiltersInput, ...request.Option) (*DescribeTrafficMirrorFiltersOutput, error)
+	DescribeTrafficMirrorFiltersRequest(*DescribeTrafficMirrorFiltersInput) (*request.Request, *DescribeTrafficMirrorFiltersOutput)
+
+	DescribeTrafficMirrorSessionsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeTrafficMirrorSessionsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeTrafficMirrorSessionsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeTrafficMirrorSessions(*DescribeTrafficMirrorSessionsInput) (*DescribeTrafficMirrorSessionsOutput, error)
+	DescribeTrafficMirrorSessionsWithContext(volcengine.Context, *DescribeTrafficMirrorSessionsInput, ...request.Option) (*DescribeTrafficMirrorSessionsOutput, error)
+	DescribeTrafficMirrorSessionsRequest(*DescribeTrafficMirrorSessionsInput) (*request.Request, *DescribeTrafficMirrorSessionsOutput)
+
+	DescribeTrafficMirrorTargetsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeTrafficMirrorTargetsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeTrafficMirrorTargetsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeTrafficMirrorTargets(*DescribeTrafficMirrorTargetsInput) (*DescribeTrafficMirrorTargetsOutput, error)
+	DescribeTrafficMirrorTargetsWithContext(volcengine.Context, *DescribeTrafficMirrorTargetsInput, ...request.Option) (*DescribeTrafficMirrorTargetsOutput, error)
+	DescribeTrafficMirrorTargetsRequest(*DescribeTrafficMirrorTargetsInput) (*request.Request, *DescribeTrafficMirrorTargetsOutput)
 
 	DescribeVpcAttributesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DescribeVpcAttributesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -662,6 +830,30 @@ type VPCAPI interface {
 	ModifyIpAddressPoolAttributesWithContext(volcengine.Context, *ModifyIpAddressPoolAttributesInput, ...request.Option) (*ModifyIpAddressPoolAttributesOutput, error)
 	ModifyIpAddressPoolAttributesRequest(*ModifyIpAddressPoolAttributesInput) (*request.Request, *ModifyIpAddressPoolAttributesOutput)
 
+	ModifyIpv6AddressBandwidthCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ModifyIpv6AddressBandwidthCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ModifyIpv6AddressBandwidthCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ModifyIpv6AddressBandwidth(*ModifyIpv6AddressBandwidthInput) (*ModifyIpv6AddressBandwidthOutput, error)
+	ModifyIpv6AddressBandwidthWithContext(volcengine.Context, *ModifyIpv6AddressBandwidthInput, ...request.Option) (*ModifyIpv6AddressBandwidthOutput, error)
+	ModifyIpv6AddressBandwidthRequest(*ModifyIpv6AddressBandwidthInput) (*request.Request, *ModifyIpv6AddressBandwidthOutput)
+
+	ModifyIpv6EgressOnlyRuleAttributeCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ModifyIpv6EgressOnlyRuleAttributeCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ModifyIpv6EgressOnlyRuleAttributeCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ModifyIpv6EgressOnlyRuleAttribute(*ModifyIpv6EgressOnlyRuleAttributeInput) (*ModifyIpv6EgressOnlyRuleAttributeOutput, error)
+	ModifyIpv6EgressOnlyRuleAttributeWithContext(volcengine.Context, *ModifyIpv6EgressOnlyRuleAttributeInput, ...request.Option) (*ModifyIpv6EgressOnlyRuleAttributeOutput, error)
+	ModifyIpv6EgressOnlyRuleAttributeRequest(*ModifyIpv6EgressOnlyRuleAttributeInput) (*request.Request, *ModifyIpv6EgressOnlyRuleAttributeOutput)
+
+	ModifyIpv6GatewayAttributeCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ModifyIpv6GatewayAttributeCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ModifyIpv6GatewayAttributeCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ModifyIpv6GatewayAttribute(*ModifyIpv6GatewayAttributeInput) (*ModifyIpv6GatewayAttributeOutput, error)
+	ModifyIpv6GatewayAttributeWithContext(volcengine.Context, *ModifyIpv6GatewayAttributeInput, ...request.Option) (*ModifyIpv6GatewayAttributeOutput, error)
+	ModifyIpv6GatewayAttributeRequest(*ModifyIpv6GatewayAttributeInput) (*request.Request, *ModifyIpv6GatewayAttributeOutput)
+
 	ModifyNetworkAclAttributesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ModifyNetworkAclAttributesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	ModifyNetworkAclAttributesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -734,6 +926,38 @@ type VPCAPI interface {
 	ModifySubnetAttributesWithContext(volcengine.Context, *ModifySubnetAttributesInput, ...request.Option) (*ModifySubnetAttributesOutput, error)
 	ModifySubnetAttributesRequest(*ModifySubnetAttributesInput) (*request.Request, *ModifySubnetAttributesOutput)
 
+	ModifyTrafficMirrorFilterAttributesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ModifyTrafficMirrorFilterAttributesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ModifyTrafficMirrorFilterAttributesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ModifyTrafficMirrorFilterAttributes(*ModifyTrafficMirrorFilterAttributesInput) (*ModifyTrafficMirrorFilterAttributesOutput, error)
+	ModifyTrafficMirrorFilterAttributesWithContext(volcengine.Context, *ModifyTrafficMirrorFilterAttributesInput, ...request.Option) (*ModifyTrafficMirrorFilterAttributesOutput, error)
+	ModifyTrafficMirrorFilterAttributesRequest(*ModifyTrafficMirrorFilterAttributesInput) (*request.Request, *ModifyTrafficMirrorFilterAttributesOutput)
+
+	ModifyTrafficMirrorFilterRuleAttributesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ModifyTrafficMirrorFilterRuleAttributesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ModifyTrafficMirrorFilterRuleAttributesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ModifyTrafficMirrorFilterRuleAttributes(*ModifyTrafficMirrorFilterRuleAttributesInput) (*ModifyTrafficMirrorFilterRuleAttributesOutput, error)
+	ModifyTrafficMirrorFilterRuleAttributesWithContext(volcengine.Context, *ModifyTrafficMirrorFilterRuleAttributesInput, ...request.Option) (*ModifyTrafficMirrorFilterRuleAttributesOutput, error)
+	ModifyTrafficMirrorFilterRuleAttributesRequest(*ModifyTrafficMirrorFilterRuleAttributesInput) (*request.Request, *ModifyTrafficMirrorFilterRuleAttributesOutput)
+
+	ModifyTrafficMirrorSessionAttributesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ModifyTrafficMirrorSessionAttributesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ModifyTrafficMirrorSessionAttributesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ModifyTrafficMirrorSessionAttributes(*ModifyTrafficMirrorSessionAttributesInput) (*ModifyTrafficMirrorSessionAttributesOutput, error)
+	ModifyTrafficMirrorSessionAttributesWithContext(volcengine.Context, *ModifyTrafficMirrorSessionAttributesInput, ...request.Option) (*ModifyTrafficMirrorSessionAttributesOutput, error)
+	ModifyTrafficMirrorSessionAttributesRequest(*ModifyTrafficMirrorSessionAttributesInput) (*request.Request, *ModifyTrafficMirrorSessionAttributesOutput)
+
+	ModifyTrafficMirrorTargetAttributesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ModifyTrafficMirrorTargetAttributesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ModifyTrafficMirrorTargetAttributesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ModifyTrafficMirrorTargetAttributes(*ModifyTrafficMirrorTargetAttributesInput) (*ModifyTrafficMirrorTargetAttributesOutput, error)
+	ModifyTrafficMirrorTargetAttributesWithContext(volcengine.Context, *ModifyTrafficMirrorTargetAttributesInput, ...request.Option) (*ModifyTrafficMirrorTargetAttributesOutput, error)
+	ModifyTrafficMirrorTargetAttributesRequest(*ModifyTrafficMirrorTargetAttributesInput) (*request.Request, *ModifyTrafficMirrorTargetAttributesOutput)
+
 	ModifyVpcAttributesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ModifyVpcAttributesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	ModifyVpcAttributesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -749,6 +973,14 @@ type VPCAPI interface {
 	ReleaseEipAddress(*ReleaseEipAddressInput) (*ReleaseEipAddressOutput, error)
 	ReleaseEipAddressWithContext(volcengine.Context, *ReleaseEipAddressInput, ...request.Option) (*ReleaseEipAddressOutput, error)
 	ReleaseEipAddressRequest(*ReleaseEipAddressInput) (*request.Request, *ReleaseEipAddressOutput)
+
+	ReleaseIpv6AddressBandwidthCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ReleaseIpv6AddressBandwidthCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ReleaseIpv6AddressBandwidthCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ReleaseIpv6AddressBandwidth(*ReleaseIpv6AddressBandwidthInput) (*ReleaseIpv6AddressBandwidthOutput, error)
+	ReleaseIpv6AddressBandwidthWithContext(volcengine.Context, *ReleaseIpv6AddressBandwidthInput, ...request.Option) (*ReleaseIpv6AddressBandwidthOutput, error)
+	ReleaseIpv6AddressBandwidthRequest(*ReleaseIpv6AddressBandwidthInput) (*request.Request, *ReleaseIpv6AddressBandwidthOutput)
 
 	RemoveBandwidthPackageIpCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	RemoveBandwidthPackageIpCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)

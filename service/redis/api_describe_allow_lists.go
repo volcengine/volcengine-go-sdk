@@ -146,6 +146,8 @@ func (c *REDIS) DescribeAllowListsWithContext(ctx volcengine.Context, input *Des
 type AllowListForDescribeAllowListsOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	AllowListCategory *string `type:"string" json:",omitempty" enum:"EnumOfAllowListCategoryForDescribeAllowListsOutput"`
+
 	AllowListDesc *string `type:"string" json:",omitempty"`
 
 	AllowListIPNum *int32 `type:"int32" json:",omitempty"`
@@ -157,6 +159,8 @@ type AllowListForDescribeAllowListsOutput struct {
 	AllowListType *string `type:"string" json:",omitempty"`
 
 	AssociatedInstanceNum *int32 `type:"int32" json:",omitempty"`
+
+	SecurityGroupBindInfos []*SecurityGroupBindInfoForDescribeAllowListsOutput `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -167,6 +171,12 @@ func (s AllowListForDescribeAllowListsOutput) String() string {
 // GoString returns the string representation
 func (s AllowListForDescribeAllowListsOutput) GoString() string {
 	return s.String()
+}
+
+// SetAllowListCategory sets the AllowListCategory field's value.
+func (s *AllowListForDescribeAllowListsOutput) SetAllowListCategory(v string) *AllowListForDescribeAllowListsOutput {
+	s.AllowListCategory = &v
+	return s
 }
 
 // SetAllowListDesc sets the AllowListDesc field's value.
@@ -202,6 +212,12 @@ func (s *AllowListForDescribeAllowListsOutput) SetAllowListType(v string) *Allow
 // SetAssociatedInstanceNum sets the AssociatedInstanceNum field's value.
 func (s *AllowListForDescribeAllowListsOutput) SetAssociatedInstanceNum(v int32) *AllowListForDescribeAllowListsOutput {
 	s.AssociatedInstanceNum = &v
+	return s
+}
+
+// SetSecurityGroupBindInfos sets the SecurityGroupBindInfos field's value.
+func (s *AllowListForDescribeAllowListsOutput) SetSecurityGroupBindInfos(v []*SecurityGroupBindInfoForDescribeAllowListsOutput) *AllowListForDescribeAllowListsOutput {
+	s.SecurityGroupBindInfos = v
 	return s
 }
 
@@ -280,3 +296,65 @@ func (s *DescribeAllowListsOutput) SetAllowLists(v []*AllowListForDescribeAllowL
 	s.AllowLists = v
 	return s
 }
+
+type SecurityGroupBindInfoForDescribeAllowListsOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	BindMode *string `type:"string" json:",omitempty" enum:"EnumOfBindModeForDescribeAllowListsOutput"`
+
+	IpList []*string `type:"list" json:",omitempty"`
+
+	SecurityGroupId *string `type:"string" json:",omitempty"`
+
+	SecurityGroupName *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s SecurityGroupBindInfoForDescribeAllowListsOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s SecurityGroupBindInfoForDescribeAllowListsOutput) GoString() string {
+	return s.String()
+}
+
+// SetBindMode sets the BindMode field's value.
+func (s *SecurityGroupBindInfoForDescribeAllowListsOutput) SetBindMode(v string) *SecurityGroupBindInfoForDescribeAllowListsOutput {
+	s.BindMode = &v
+	return s
+}
+
+// SetIpList sets the IpList field's value.
+func (s *SecurityGroupBindInfoForDescribeAllowListsOutput) SetIpList(v []*string) *SecurityGroupBindInfoForDescribeAllowListsOutput {
+	s.IpList = v
+	return s
+}
+
+// SetSecurityGroupId sets the SecurityGroupId field's value.
+func (s *SecurityGroupBindInfoForDescribeAllowListsOutput) SetSecurityGroupId(v string) *SecurityGroupBindInfoForDescribeAllowListsOutput {
+	s.SecurityGroupId = &v
+	return s
+}
+
+// SetSecurityGroupName sets the SecurityGroupName field's value.
+func (s *SecurityGroupBindInfoForDescribeAllowListsOutput) SetSecurityGroupName(v string) *SecurityGroupBindInfoForDescribeAllowListsOutput {
+	s.SecurityGroupName = &v
+	return s
+}
+
+const (
+	// EnumOfAllowListCategoryForDescribeAllowListsOutputOrdinary is a EnumOfAllowListCategoryForDescribeAllowListsOutput enum value
+	EnumOfAllowListCategoryForDescribeAllowListsOutputOrdinary = "Ordinary"
+
+	// EnumOfAllowListCategoryForDescribeAllowListsOutputDefault is a EnumOfAllowListCategoryForDescribeAllowListsOutput enum value
+	EnumOfAllowListCategoryForDescribeAllowListsOutputDefault = "Default"
+)
+
+const (
+	// EnumOfBindModeForDescribeAllowListsOutputAssociateEcsIp is a EnumOfBindModeForDescribeAllowListsOutput enum value
+	EnumOfBindModeForDescribeAllowListsOutputAssociateEcsIp = "AssociateEcsIp"
+
+	// EnumOfBindModeForDescribeAllowListsOutputIngressDirectionIp is a EnumOfBindModeForDescribeAllowListsOutput enum value
+	EnumOfBindModeForDescribeAllowListsOutputIngressDirectionIp = "IngressDirectionIp"
+)

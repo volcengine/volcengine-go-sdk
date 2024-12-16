@@ -3,6 +3,8 @@
 package ecs
 
 import (
+	"fmt"
+
 	"github.com/volcengine/volcengine-go-sdk/volcengine"
 	"github.com/volcengine/volcengine-go-sdk/volcengine/request"
 	"github.com/volcengine/volcengine-go-sdk/volcengine/response"
@@ -150,6 +152,9 @@ type CreateKeyPairInput struct {
 	KeyPairName *string `type:"string" required:"true"`
 
 	ProjectName *string `type:"string"`
+
+	// Tags is a required field
+	Tags []*TagForCreateKeyPairInput `type:"list" required:"true"`
 }
 
 // String returns the string representation
@@ -167,6 +172,19 @@ func (s *CreateKeyPairInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "CreateKeyPairInput"}
 	if s.KeyPairName == nil {
 		invalidParams.Add(request.NewErrParamRequired("KeyPairName"))
+	}
+	if s.Tags == nil {
+		invalidParams.Add(request.NewErrParamRequired("Tags"))
+	}
+	if s.Tags != nil {
+		for i, v := range s.Tags {
+			if v == nil {
+				continue
+			}
+			if err := v.Validate(); err != nil {
+				invalidParams.AddNested(fmt.Sprintf("%s[%v]", "Tags", i), err.(request.ErrInvalidParams))
+			}
+		}
 	}
 
 	if invalidParams.Len() > 0 {
@@ -196,6 +214,12 @@ func (s *CreateKeyPairInput) SetKeyPairName(v string) *CreateKeyPairInput {
 // SetProjectName sets the ProjectName field's value.
 func (s *CreateKeyPairInput) SetProjectName(v string) *CreateKeyPairInput {
 	s.ProjectName = &v
+	return s
+}
+
+// SetTags sets the Tags field's value.
+func (s *CreateKeyPairInput) SetTags(v []*TagForCreateKeyPairInput) *CreateKeyPairInput {
+	s.Tags = v
 	return s
 }
 
@@ -244,5 +268,49 @@ func (s *CreateKeyPairOutput) SetKeyPairName(v string) *CreateKeyPairOutput {
 // SetPrivateKey sets the PrivateKey field's value.
 func (s *CreateKeyPairOutput) SetPrivateKey(v string) *CreateKeyPairOutput {
 	s.PrivateKey = &v
+	return s
+}
+
+type TagForCreateKeyPairInput struct {
+	_ struct{} `type:"structure"`
+
+	// Key is a required field
+	Key *string `type:"string" required:"true"`
+
+	Value *string `type:"string"`
+}
+
+// String returns the string representation
+func (s TagForCreateKeyPairInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagForCreateKeyPairInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *TagForCreateKeyPairInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "TagForCreateKeyPairInput"}
+	if s.Key == nil {
+		invalidParams.Add(request.NewErrParamRequired("Key"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetKey sets the Key field's value.
+func (s *TagForCreateKeyPairInput) SetKey(v string) *TagForCreateKeyPairInput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *TagForCreateKeyPairInput) SetValue(v string) *TagForCreateKeyPairInput {
+	s.Value = &v
 	return s
 }
