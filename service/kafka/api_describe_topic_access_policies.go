@@ -144,11 +144,11 @@ func (c *KAFKA) DescribeTopicAccessPoliciesWithContext(ctx volcengine.Context, i
 }
 
 type AccessPolicyForDescribeTopicAccessPoliciesOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	AccessPolicy *string `type:"string"`
+	AccessPolicy *string `type:"string" json:",omitempty"`
 
-	UserName *string `type:"string"`
+	UserName *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -174,15 +174,15 @@ func (s *AccessPolicyForDescribeTopicAccessPoliciesOutput) SetUserName(v string)
 }
 
 type DescribeTopicAccessPoliciesInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// InstanceId is a required field
-	InstanceId *string `type:"string" required:"true"`
+	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 
 	// TopicName is a required field
-	TopicName *string `type:"string" required:"true"`
+	TopicName *string `type:"string" json:",omitempty" required:"true"`
 
-	UserName *string `type:"string"`
+	UserName *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -230,13 +230,13 @@ func (s *DescribeTopicAccessPoliciesInput) SetUserName(v string) *DescribeTopicA
 }
 
 type DescribeTopicAccessPoliciesOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	AccessPolicies []*AccessPolicyForDescribeTopicAccessPoliciesOutput `type:"list"`
+	AccessPolicies []*AccessPolicyForDescribeTopicAccessPoliciesOutput `type:"list" json:",omitempty"`
 
-	AllAuthority *bool `type:"boolean"`
+	AllAuthority *bool `type:"boolean" json:",omitempty"`
 }
 
 // String returns the string representation

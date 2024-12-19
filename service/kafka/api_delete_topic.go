@@ -144,13 +144,13 @@ func (c *KAFKA) DeleteTopicWithContext(ctx volcengine.Context, input *DeleteTopi
 }
 
 type DeleteTopicInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// InstanceId is a required field
-	InstanceId *string `type:"string" required:"true"`
+	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 
 	// TopicName is a required field
-	TopicName *string `type:"string" required:"true"`
+	TopicName *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -192,7 +192,7 @@ func (s *DeleteTopicInput) SetTopicName(v string) *DeleteTopicInput {
 }
 
 type DeleteTopicOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 }

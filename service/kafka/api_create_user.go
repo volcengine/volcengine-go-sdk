@@ -144,23 +144,23 @@ func (c *KAFKA) CreateUserWithContext(ctx volcengine.Context, input *CreateUserI
 }
 
 type CreateUserInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// AllAuthority is a required field
-	AllAuthority *bool `type:"boolean" required:"true"`
+	AllAuthority *bool `type:"boolean" json:",omitempty" required:"true"`
 
-	Description *string `type:"string"`
+	Description *string `type:"string" json:",omitempty"`
 
 	// InstanceId is a required field
-	InstanceId *string `type:"string" required:"true"`
+	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 
-	PasswordType *string `type:"string"`
+	PasswordType *string `type:"string" json:",omitempty"`
 
 	// UserName is a required field
-	UserName *string `type:"string" required:"true"`
+	UserName *string `type:"string" json:",omitempty" required:"true"`
 
 	// UserPassword is a required field
-	UserPassword *string `type:"string" required:"true"`
+	UserPassword *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -232,7 +232,7 @@ func (s *CreateUserInput) SetUserPassword(v string) *CreateUserInput {
 }
 
 type CreateUserOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 }

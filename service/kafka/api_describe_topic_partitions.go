@@ -144,23 +144,23 @@ func (c *KAFKA) DescribeTopicPartitionsWithContext(ctx volcengine.Context, input
 }
 
 type DescribeTopicPartitionsInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// InstanceId is a required field
-	InstanceId *string `type:"string" required:"true"`
+	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 
 	// PageNumber is a required field
-	PageNumber *int32 `type:"int32" required:"true"`
+	PageNumber *int32 `type:"int32" json:",omitempty" required:"true"`
 
 	// PageSize is a required field
-	PageSize *int32 `type:"int32" required:"true"`
+	PageSize *int32 `type:"int32" json:",omitempty" required:"true"`
 
-	PartitionIds []*int32 `type:"list"`
+	PartitionIds []*int32 `type:"list" json:",omitempty"`
 
 	// TopicName is a required field
-	TopicName *string `type:"string" required:"true"`
+	TopicName *string `type:"string" json:",omitempty" required:"true"`
 
-	UnderInsyncOnly *bool `type:"boolean"`
+	UnderInsyncOnly *bool `type:"boolean" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -232,13 +232,13 @@ func (s *DescribeTopicPartitionsInput) SetUnderInsyncOnly(v bool) *DescribeTopic
 }
 
 type DescribeTopicPartitionsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	PartitionsInfo []*PartitionsInfoForDescribeTopicPartitionsOutput `type:"list"`
+	PartitionsInfo []*PartitionsInfoForDescribeTopicPartitionsOutput `type:"list" json:",omitempty"`
 
-	Total *int32 `type:"int32"`
+	Total *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -264,23 +264,23 @@ func (s *DescribeTopicPartitionsOutput) SetTotal(v int32) *DescribeTopicPartitio
 }
 
 type PartitionsInfoForDescribeTopicPartitionsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	EndOffset *int64 `type:"int64"`
+	EndOffset *int64 `type:"int64" json:",omitempty"`
 
-	InsyncReplicas []*int32 `type:"list"`
+	InsyncReplicas []*int32 `type:"list" json:",omitempty"`
 
-	Leader *int32 `type:"int32"`
+	Leader *int32 `type:"int32" json:",omitempty"`
 
-	MessageCount *int64 `type:"int64"`
+	MessageCount *int64 `type:"int64" json:",omitempty"`
 
-	PartitionId *int32 `type:"int32"`
+	PartitionId *int32 `type:"int32" json:",omitempty"`
 
-	Replicas []*int32 `type:"list"`
+	Replicas []*int32 `type:"list" json:",omitempty"`
 
-	StartOffset *int64 `type:"int64"`
+	StartOffset *int64 `type:"int64" json:",omitempty"`
 
-	UnderInsyncReplicas []*int32 `type:"list"`
+	UnderInsyncReplicas []*int32 `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation

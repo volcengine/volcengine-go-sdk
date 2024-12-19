@@ -144,20 +144,20 @@ func (c *KAFKA) ModifyAllowListWithContext(ctx volcengine.Context, input *Modify
 }
 
 type ModifyAllowListInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	AllowList *string `type:"string"`
+	AllowList *string `type:"string" json:",omitempty"`
 
 	// AllowListDesc is a required field
-	AllowListDesc *string `type:"string" required:"true"`
+	AllowListDesc *string `type:"string" json:",omitempty" required:"true"`
 
 	// AllowListId is a required field
-	AllowListId *string `type:"string" required:"true"`
+	AllowListId *string `type:"string" json:",omitempty" required:"true"`
 
 	// AllowListName is a required field
-	AllowListName *string `type:"string" required:"true"`
+	AllowListName *string `type:"string" json:",omitempty" required:"true"`
 
-	ApplyInstanceNum *int32 `type:"int32"`
+	ApplyInstanceNum *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -220,7 +220,7 @@ func (s *ModifyAllowListInput) SetApplyInstanceNum(v int32) *ModifyAllowListInpu
 }
 
 type ModifyAllowListOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 }

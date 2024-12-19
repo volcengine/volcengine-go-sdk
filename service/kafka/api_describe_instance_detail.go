@@ -144,57 +144,57 @@ func (c *KAFKA) DescribeInstanceDetailWithContext(ctx volcengine.Context, input 
 }
 
 type BasicInstanceInfoForDescribeInstanceDetailOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	AccountId *string `type:"string"`
+	AccountId *string `type:"string" json:",omitempty"`
 
-	ChargeDetail *ChargeDetailForDescribeInstanceDetailOutput `type:"structure"`
+	ChargeDetail *ChargeDetailForDescribeInstanceDetailOutput `type:"structure" json:",omitempty"`
 
-	ComputeSpec *string `type:"string"`
+	ComputeSpec *string `type:"string" json:",omitempty"`
 
-	CreateTime *string `type:"string"`
+	CreateTime *string `type:"string" json:",omitempty"`
 
-	EipId *string `type:"string"`
+	EipId *string `type:"string" json:",omitempty"`
 
-	InstanceDescription *string `type:"string"`
+	InstanceDescription *string `type:"string" json:",omitempty"`
 
-	InstanceId *string `type:"string"`
+	InstanceId *string `type:"string" json:",omitempty"`
 
-	InstanceName *string `type:"string"`
+	InstanceName *string `type:"string" json:",omitempty"`
 
-	InstanceStatus *string `type:"string"`
+	InstanceStatus *string `type:"string" json:",omitempty"`
 
-	PrivateDomainOnPublic *bool `type:"boolean"`
+	PrivateDomainOnPublic *bool `type:"boolean" json:",omitempty"`
 
-	ProjectName *string `type:"string"`
+	ProjectName *string `type:"string" json:",omitempty"`
 
-	RegionId *string `type:"string"`
+	RegionId *string `type:"string" json:",omitempty"`
 
-	StorageSpace *int32 `type:"int32"`
+	StorageSpace *int32 `type:"int32" json:",omitempty"`
 
-	StorageType *string `type:"string"`
+	StorageType *string `type:"string" json:",omitempty"`
 
-	SubnetId *string `type:"string"`
+	SubnetId *string `type:"string" json:",omitempty"`
 
-	Tags map[string]*string `type:"map"`
+	Tags map[string]*string `type:"map" json:",omitempty"`
 
-	UsableGroupNumber *int32 `type:"int32"`
+	UsableGroupNumber *int32 `type:"int32" json:",omitempty"`
 
-	UsablePartitionNumber *int32 `type:"int32"`
+	UsablePartitionNumber *int32 `type:"int32" json:",omitempty"`
 
-	UsedGroupNumber *int32 `type:"int32"`
+	UsedGroupNumber *int32 `type:"int32" json:",omitempty"`
 
-	UsedPartitionNumber *int32 `type:"int32"`
+	UsedPartitionNumber *int32 `type:"int32" json:",omitempty"`
 
-	UsedStorageSpace *int32 `type:"int32"`
+	UsedStorageSpace *int32 `type:"int32" json:",omitempty"`
 
-	UsedTopicNumber *int32 `type:"int32"`
+	UsedTopicNumber *int32 `type:"int32" json:",omitempty"`
 
-	Version *string `type:"string"`
+	Version *string `type:"string" json:",omitempty"`
 
-	VpcId *string `type:"string"`
+	VpcId *string `type:"string" json:",omitempty"`
 
-	ZoneId *string `type:"string"`
+	ZoneId *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -358,23 +358,23 @@ func (s *BasicInstanceInfoForDescribeInstanceDetailOutput) SetZoneId(v string) *
 }
 
 type ChargeDetailForDescribeInstanceDetailOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	AutoRenew *bool `type:"boolean"`
+	AutoRenew *bool `type:"boolean" json:",omitempty"`
 
-	ChargeExpireTime *string `type:"string"`
+	ChargeExpireTime *string `type:"string" json:",omitempty"`
 
-	ChargeStartTime *string `type:"string"`
+	ChargeStartTime *string `type:"string" json:",omitempty"`
 
-	ChargeStatus *string `type:"string"`
+	ChargeStatus *string `type:"string" json:",omitempty"`
 
-	ChargeType *string `type:"string"`
+	ChargeType *string `type:"string" json:",omitempty"`
 
-	OverdueReclaimTime *string `type:"string"`
+	OverdueReclaimTime *string `type:"string" json:",omitempty"`
 
-	OverdueTime *string `type:"string"`
+	OverdueTime *string `type:"string" json:",omitempty"`
 
-	PeriodUnit *string `type:"string"`
+	PeriodUnit *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -436,15 +436,15 @@ func (s *ChargeDetailForDescribeInstanceDetailOutput) SetPeriodUnit(v string) *C
 }
 
 type ConnectionInfoForDescribeInstanceDetailOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	EndpointType *string `type:"string"`
+	EndpointType *string `type:"string" json:",omitempty"`
 
-	InternalEndpoint *string `type:"string"`
+	InternalEndpoint *string `type:"string" json:",omitempty"`
 
-	NetworkType *string `type:"string"`
+	NetworkType *string `type:"string" json:",omitempty"`
 
-	PublicEndpoint *string `type:"string"`
+	PublicEndpoint *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -482,10 +482,10 @@ func (s *ConnectionInfoForDescribeInstanceDetailOutput) SetPublicEndpoint(v stri
 }
 
 type DescribeInstanceDetailInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// InstanceId is a required field
-	InstanceId *string `type:"string" required:"true"`
+	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -518,17 +518,17 @@ func (s *DescribeInstanceDetailInput) SetInstanceId(v string) *DescribeInstanceD
 }
 
 type DescribeInstanceDetailOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	BasicInstanceInfo *BasicInstanceInfoForDescribeInstanceDetailOutput `type:"structure"`
+	BasicInstanceInfo *BasicInstanceInfoForDescribeInstanceDetailOutput `type:"structure" json:",omitempty"`
 
-	ChargeDetail *ChargeDetailForDescribeInstanceDetailOutput `type:"structure"`
+	ChargeDetail *ChargeDetailForDescribeInstanceDetailOutput `type:"structure" json:",omitempty"`
 
-	ConnectionInfo []*ConnectionInfoForDescribeInstanceDetailOutput `type:"list"`
+	ConnectionInfo []*ConnectionInfoForDescribeInstanceDetailOutput `type:"list" json:",omitempty"`
 
-	Parameters *string `type:"string"`
+	Parameters *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation

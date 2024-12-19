@@ -144,15 +144,15 @@ func (c *KAFKA) CreateInstanceWithContext(ctx volcengine.Context, input *CreateI
 }
 
 type ChargeInfoForCreateInstanceInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	AutoRenew *bool `type:"boolean"`
+	AutoRenew *bool `type:"boolean" json:",omitempty"`
 
-	ChargeType *string `type:"string"`
+	ChargeType *string `type:"string" json:",omitempty"`
 
-	Period *int32 `type:"int32"`
+	Period *int32 `type:"int32" json:",omitempty"`
 
-	PeriodUnit *string `type:"string"`
+	PeriodUnit *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -190,48 +190,50 @@ func (s *ChargeInfoForCreateInstanceInput) SetPeriodUnit(v string) *ChargeInfoFo
 }
 
 type CreateInstanceInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	ChargeInfo *ChargeInfoForCreateInstanceInput `type:"structure"`
+	ChargeInfo *ChargeInfoForCreateInstanceInput `type:"structure" json:",omitempty"`
+
+	ClientToken *string `type:"string" json:",omitempty"`
 
 	// ComputeSpec is a required field
-	ComputeSpec *string `type:"string" required:"true"`
+	ComputeSpec *string `type:"string" json:",omitempty" required:"true"`
 
-	EipId *string `type:"string"`
+	EipId *string `type:"string" json:",omitempty"`
 
-	InstanceDescription *string `type:"string"`
+	InstanceDescription *string `type:"string" json:",omitempty"`
 
-	InstanceName *string `type:"string"`
+	InstanceName *string `type:"string" json:",omitempty"`
 
-	IpWhiteList []*string `type:"list"`
+	IpWhiteList []*string `type:"list" json:",omitempty"`
 
-	Parameters *string `type:"string"`
+	Parameters *string `type:"string" json:",omitempty"`
 
-	PartitionNumber *int32 `type:"int32"`
+	PartitionNumber *int32 `type:"int32" json:",omitempty"`
 
-	ProjectName *string `type:"string"`
+	ProjectName *string `type:"string" json:",omitempty"`
 
-	StorageSpace *int32 `type:"int32"`
+	StorageSpace *int32 `type:"int32" json:",omitempty"`
 
-	StorageType *string `type:"string"`
+	StorageType *string `type:"string" json:",omitempty"`
 
 	// SubnetId is a required field
-	SubnetId *string `type:"string" required:"true"`
+	SubnetId *string `type:"string" json:",omitempty" required:"true"`
 
-	Tags map[string]*string `type:"map"`
+	Tags map[string]*string `type:"map" json:",omitempty"`
 
-	UserName *string `type:"string"`
+	UserName *string `type:"string" json:",omitempty"`
 
-	UserPassword *string `type:"string"`
+	UserPassword *string `type:"string" json:",omitempty"`
 
 	// Version is a required field
-	Version *string `type:"string" required:"true"`
+	Version *string `type:"string" json:",omitempty" required:"true"`
 
 	// VpcId is a required field
-	VpcId *string `type:"string" required:"true"`
+	VpcId *string `type:"string" json:",omitempty" required:"true"`
 
 	// ZoneId is a required field
-	ZoneId *string `type:"string" required:"true"`
+	ZoneId *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -272,6 +274,12 @@ func (s *CreateInstanceInput) Validate() error {
 // SetChargeInfo sets the ChargeInfo field's value.
 func (s *CreateInstanceInput) SetChargeInfo(v *ChargeInfoForCreateInstanceInput) *CreateInstanceInput {
 	s.ChargeInfo = v
+	return s
+}
+
+// SetClientToken sets the ClientToken field's value.
+func (s *CreateInstanceInput) SetClientToken(v string) *CreateInstanceInput {
+	s.ClientToken = &v
 	return s
 }
 
@@ -378,13 +386,13 @@ func (s *CreateInstanceInput) SetZoneId(v string) *CreateInstanceInput {
 }
 
 type CreateInstanceOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	InstanceId *string `type:"string"`
+	InstanceId *string `type:"string" json:",omitempty"`
 
-	OrderId *string `type:"string"`
+	OrderId *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation

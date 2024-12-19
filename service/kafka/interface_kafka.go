@@ -78,6 +78,14 @@ type KAFKAAPI interface {
 	CreateInstanceWithContext(volcengine.Context, *CreateInstanceInput, ...request.Option) (*CreateInstanceOutput, error)
 	CreateInstanceRequest(*CreateInstanceInput) (*request.Request, *CreateInstanceOutput)
 
+	CreateMigrateSubTasksCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateMigrateSubTasksCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateMigrateSubTasksCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateMigrateSubTasks(*CreateMigrateSubTasksInput) (*CreateMigrateSubTasksOutput, error)
+	CreateMigrateSubTasksWithContext(volcengine.Context, *CreateMigrateSubTasksInput, ...request.Option) (*CreateMigrateSubTasksOutput, error)
+	CreateMigrateSubTasksRequest(*CreateMigrateSubTasksInput) (*request.Request, *CreateMigrateSubTasksOutput)
+
 	CreatePublicAddressCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	CreatePublicAddressCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	CreatePublicAddressCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -374,6 +382,14 @@ type KAFKAAPI interface {
 	ModifyUserAuthorityWithContext(volcengine.Context, *ModifyUserAuthorityInput, ...request.Option) (*ModifyUserAuthorityOutput, error)
 	ModifyUserAuthorityRequest(*ModifyUserAuthorityInput) (*request.Request, *ModifyUserAuthorityOutput)
 
+	QueryMessageByTimestampCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	QueryMessageByTimestampCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	QueryMessageByTimestampCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	QueryMessageByTimestamp(*QueryMessageByTimestampInput) (*QueryMessageByTimestampOutput, error)
+	QueryMessageByTimestampWithContext(volcengine.Context, *QueryMessageByTimestampInput, ...request.Option) (*QueryMessageByTimestampOutput, error)
+	QueryMessageByTimestampRequest(*QueryMessageByTimestampInput) (*request.Request, *QueryMessageByTimestampOutput)
+
 	RemoveTagsFromResourceCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	RemoveTagsFromResourceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	RemoveTagsFromResourceCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -389,6 +405,22 @@ type KAFKAAPI interface {
 	ResetConsumedOffsets(*ResetConsumedOffsetsInput) (*ResetConsumedOffsetsOutput, error)
 	ResetConsumedOffsetsWithContext(volcengine.Context, *ResetConsumedOffsetsInput, ...request.Option) (*ResetConsumedOffsetsOutput, error)
 	ResetConsumedOffsetsRequest(*ResetConsumedOffsetsInput) (*request.Request, *ResetConsumedOffsetsOutput)
+
+	UpdateMigrateTaskStatusCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	UpdateMigrateTaskStatusCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	UpdateMigrateTaskStatusCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	UpdateMigrateTaskStatus(*UpdateMigrateTaskStatusInput) (*UpdateMigrateTaskStatusOutput, error)
+	UpdateMigrateTaskStatusWithContext(volcengine.Context, *UpdateMigrateTaskStatusInput, ...request.Option) (*UpdateMigrateTaskStatusOutput, error)
+	UpdateMigrateTaskStatusRequest(*UpdateMigrateTaskStatusInput) (*request.Request, *UpdateMigrateTaskStatusOutput)
+
+	VerifyMigrateSubTasksCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	VerifyMigrateSubTasksCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	VerifyMigrateSubTasksCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	VerifyMigrateSubTasks(*VerifyMigrateSubTasksInput) (*VerifyMigrateSubTasksOutput, error)
+	VerifyMigrateSubTasksWithContext(volcengine.Context, *VerifyMigrateSubTasksInput, ...request.Option) (*VerifyMigrateSubTasksOutput, error)
+	VerifyMigrateSubTasksRequest(*VerifyMigrateSubTasksInput) (*request.Request, *VerifyMigrateSubTasksOutput)
 }
 
 var _ KAFKAAPI = (*KAFKA)(nil)

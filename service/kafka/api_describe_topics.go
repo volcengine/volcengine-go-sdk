@@ -144,22 +144,24 @@ func (c *KAFKA) DescribeTopicsWithContext(ctx volcengine.Context, input *Describ
 }
 
 type DescribeTopicsInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// InstanceId is a required field
-	InstanceId *string `type:"string" required:"true"`
+	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 
 	// PageNumber is a required field
-	PageNumber *int32 `type:"int32" required:"true"`
+	PageNumber *int32 `type:"int32" json:",omitempty" required:"true"`
 
 	// PageSize is a required field
-	PageSize *int32 `type:"int32" required:"true"`
+	PageSize *int32 `type:"int32" json:",omitempty" required:"true"`
 
-	PartitionNumber *int32 `type:"int32"`
+	PartitionNumber *int32 `type:"int32" json:",omitempty"`
 
-	ReplicaNumber *int32 `type:"int32"`
+	ReplicaNumber *int32 `type:"int32" json:",omitempty"`
 
-	TopicName *string `type:"string"`
+	TagFilters []*TagFilterForDescribeTopicsInput `type:"list" json:",omitempty"`
+
+	TopicName *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -221,6 +223,12 @@ func (s *DescribeTopicsInput) SetReplicaNumber(v int32) *DescribeTopicsInput {
 	return s
 }
 
+// SetTagFilters sets the TagFilters field's value.
+func (s *DescribeTopicsInput) SetTagFilters(v []*TagFilterForDescribeTopicsInput) *DescribeTopicsInput {
+	s.TagFilters = v
+	return s
+}
+
 // SetTopicName sets the TopicName field's value.
 func (s *DescribeTopicsInput) SetTopicName(v string) *DescribeTopicsInput {
 	s.TopicName = &v
@@ -228,15 +236,15 @@ func (s *DescribeTopicsInput) SetTopicName(v string) *DescribeTopicsInput {
 }
 
 type DescribeTopicsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	InstanceId *string `type:"string"`
+	InstanceId *string `type:"string" json:",omitempty"`
 
-	TopicsInfo []*TopicsInfoForDescribeTopicsOutput `type:"list"`
+	TopicsInfo []*TopicsInfoForDescribeTopicsOutput `type:"list" json:",omitempty"`
 
-	Total *int32 `type:"int32"`
+	Total *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -267,20 +275,90 @@ func (s *DescribeTopicsOutput) SetTotal(v int32) *DescribeTopicsOutput {
 	return s
 }
 
+type TagFilterForDescribeTopicsInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Key *string `type:"string" json:",omitempty"`
+
+	Value *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s TagFilterForDescribeTopicsInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagFilterForDescribeTopicsInput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagFilterForDescribeTopicsInput) SetKey(v string) *TagFilterForDescribeTopicsInput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *TagFilterForDescribeTopicsInput) SetValue(v string) *TagFilterForDescribeTopicsInput {
+	s.Value = &v
+	return s
+}
+
+type TagForDescribeTopicsOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Key *string `type:"string" json:",omitempty"`
+
+	Value *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s TagForDescribeTopicsOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagForDescribeTopicsOutput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagForDescribeTopicsOutput) SetKey(v string) *TagForDescribeTopicsOutput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *TagForDescribeTopicsOutput) SetValue(v string) *TagForDescribeTopicsOutput {
+	s.Value = &v
+	return s
+}
+
 type TopicsInfoForDescribeTopicsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	CreateTime *string `type:"string"`
+	CleanupPolicy []*string `type:"list" json:",omitempty"`
 
-	Description *string `type:"string"`
+	CreateTime *string `type:"string" json:",omitempty"`
 
-	PartitionNumber *int32 `type:"int32"`
+	Description *string `type:"string" json:",omitempty"`
 
-	ReplicaNumber *int32 `type:"int32"`
+	LogRetentionHours *int32 `type:"int32" json:",omitempty"`
 
-	Status *string `type:"string"`
+	PartitionNumber *int32 `type:"int32" json:",omitempty"`
 
-	TopicName *string `type:"string"`
+	ReplicaNumber *int32 `type:"int32" json:",omitempty"`
+
+	Status *string `type:"string" json:",omitempty"`
+
+	Tags []*TagForDescribeTopicsOutput `type:"list" json:",omitempty"`
+
+	TopicName *string `type:"string" json:",omitempty"`
+
+	UsedStoragePercentageInInstance *float64 `type:"double" json:",omitempty"`
+
+	UsedStorageSpaceInBytes *int64 `type:"int64" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -293,6 +371,12 @@ func (s TopicsInfoForDescribeTopicsOutput) GoString() string {
 	return s.String()
 }
 
+// SetCleanupPolicy sets the CleanupPolicy field's value.
+func (s *TopicsInfoForDescribeTopicsOutput) SetCleanupPolicy(v []*string) *TopicsInfoForDescribeTopicsOutput {
+	s.CleanupPolicy = v
+	return s
+}
+
 // SetCreateTime sets the CreateTime field's value.
 func (s *TopicsInfoForDescribeTopicsOutput) SetCreateTime(v string) *TopicsInfoForDescribeTopicsOutput {
 	s.CreateTime = &v
@@ -302,6 +386,12 @@ func (s *TopicsInfoForDescribeTopicsOutput) SetCreateTime(v string) *TopicsInfoF
 // SetDescription sets the Description field's value.
 func (s *TopicsInfoForDescribeTopicsOutput) SetDescription(v string) *TopicsInfoForDescribeTopicsOutput {
 	s.Description = &v
+	return s
+}
+
+// SetLogRetentionHours sets the LogRetentionHours field's value.
+func (s *TopicsInfoForDescribeTopicsOutput) SetLogRetentionHours(v int32) *TopicsInfoForDescribeTopicsOutput {
+	s.LogRetentionHours = &v
 	return s
 }
 
@@ -323,8 +413,26 @@ func (s *TopicsInfoForDescribeTopicsOutput) SetStatus(v string) *TopicsInfoForDe
 	return s
 }
 
+// SetTags sets the Tags field's value.
+func (s *TopicsInfoForDescribeTopicsOutput) SetTags(v []*TagForDescribeTopicsOutput) *TopicsInfoForDescribeTopicsOutput {
+	s.Tags = v
+	return s
+}
+
 // SetTopicName sets the TopicName field's value.
 func (s *TopicsInfoForDescribeTopicsOutput) SetTopicName(v string) *TopicsInfoForDescribeTopicsOutput {
 	s.TopicName = &v
+	return s
+}
+
+// SetUsedStoragePercentageInInstance sets the UsedStoragePercentageInInstance field's value.
+func (s *TopicsInfoForDescribeTopicsOutput) SetUsedStoragePercentageInInstance(v float64) *TopicsInfoForDescribeTopicsOutput {
+	s.UsedStoragePercentageInInstance = &v
+	return s
+}
+
+// SetUsedStorageSpaceInBytes sets the UsedStorageSpaceInBytes field's value.
+func (s *TopicsInfoForDescribeTopicsOutput) SetUsedStorageSpaceInBytes(v int64) *TopicsInfoForDescribeTopicsOutput {
+	s.UsedStorageSpaceInBytes = &v
 	return s
 }
