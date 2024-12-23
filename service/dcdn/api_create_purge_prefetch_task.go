@@ -144,12 +144,12 @@ func (c *DCDN) CreatePurgePrefetchTaskWithContext(ctx volcengine.Context, input 
 }
 
 type CreatePurgePrefetchTaskInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// TaskType is a required field
-	TaskType *string `type:"string" required:"true"`
+	TaskType *string `type:"string" json:",omitempty" required:"true"`
 
-	Urls []*string `type:"list"`
+	Urls []*string `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -188,15 +188,15 @@ func (s *CreatePurgePrefetchTaskInput) SetUrls(v []*string) *CreatePurgePrefetch
 }
 
 type CreatePurgePrefetchTaskOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	TaskId *string `type:"string"`
+	TaskId *string `type:"string" json:",omitempty"`
 
-	TaskQuotaRemain *int32 `type:"int32"`
+	TaskQuotaRemain *int32 `type:"int32" json:",omitempty"`
 
-	TaskStatus *string `type:"string"`
+	TaskStatus *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation

@@ -144,15 +144,15 @@ func (c *KAFKA) ResetConsumedOffsetsWithContext(ctx volcengine.Context, input *R
 }
 
 type ResetConsumedOffsetsInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// GroupId is a required field
-	GroupId *string `type:"string" required:"true"`
+	GroupId *string `type:"string" json:",omitempty" required:"true"`
 
 	// InstanceId is a required field
-	InstanceId *string `type:"string" required:"true"`
+	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 
-	ResetOffsetsInfo []*ResetOffsetsInfoForResetConsumedOffsetsInput `type:"list"`
+	ResetOffsetsInfo []*ResetOffsetsInfoForResetConsumedOffsetsInput `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -200,7 +200,7 @@ func (s *ResetConsumedOffsetsInput) SetResetOffsetsInfo(v []*ResetOffsetsInfoFor
 }
 
 type ResetConsumedOffsetsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 }
@@ -216,17 +216,17 @@ func (s ResetConsumedOffsetsOutput) GoString() string {
 }
 
 type ResetOffsetsInfoForResetConsumedOffsetsInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	PartitionId *int32 `type:"int32"`
+	PartitionId *int32 `type:"int32" json:",omitempty"`
 
-	ResetOffset *int64 `type:"int64"`
+	ResetOffset *int64 `type:"int64" json:",omitempty"`
 
-	ResetTimestamp *int64 `type:"int64"`
+	ResetTimestamp *int64 `type:"int64" json:",omitempty"`
 
-	ResetType *string `type:"string"`
+	ResetType *string `type:"string" json:",omitempty"`
 
-	TopicName *string `type:"string"`
+	TopicName *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation

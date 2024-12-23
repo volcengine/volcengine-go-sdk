@@ -144,13 +144,13 @@ func (c *KAFKA) DescribeTopicParametersWithContext(ctx volcengine.Context, input
 }
 
 type DescribeTopicParametersInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// InstanceId is a required field
-	InstanceId *string `type:"string" required:"true"`
+	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 
 	// TopicName is a required field
-	TopicName *string `type:"string" required:"true"`
+	TopicName *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -192,11 +192,11 @@ func (s *DescribeTopicParametersInput) SetTopicName(v string) *DescribeTopicPara
 }
 
 type DescribeTopicParametersOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	Parameters *string `type:"string"`
+	Parameters *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation

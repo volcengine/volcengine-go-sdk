@@ -144,15 +144,15 @@ func (c *DCDN) UpdateSingleDomainConfigWithContext(ctx volcengine.Context, input
 }
 
 type BackupOriginForUpdateSingleDomainConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Name *string `type:"string"`
+	Name *string `type:"string" json:",omitempty"`
 
-	Port *int32 `type:"int32"`
+	Port *int32 `type:"int32" json:",omitempty"`
 
-	Type *string `type:"string"`
+	Type *string `type:"string" json:",omitempty"`
 
-	Weight *int32 `type:"int32"`
+	Weight *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -190,9 +190,9 @@ func (s *BackupOriginForUpdateSingleDomainConfigInput) SetWeight(v int32) *Backu
 }
 
 type BrCompressForUpdateSingleDomainConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Enable *bool `type:"boolean"`
+	Enable *bool `type:"boolean" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -212,17 +212,17 @@ func (s *BrCompressForUpdateSingleDomainConfigInput) SetEnable(v bool) *BrCompre
 }
 
 type CacheForUpdateSingleDomainConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	AdaptCache *bool `type:"boolean"`
+	AdaptCache *bool `type:"boolean" json:",omitempty"`
 
-	CacheKeyRules []*CacheKeyRuleForUpdateSingleDomainConfigInput `type:"list"`
+	CacheKeyRules []*CacheKeyRuleForUpdateSingleDomainConfigInput `type:"list" json:",omitempty"`
 
-	CacheRules []*CacheRuleForUpdateSingleDomainConfigInput `type:"list"`
+	CacheRules []*CacheRuleForUpdateSingleDomainConfigInput `type:"list" json:",omitempty"`
 
-	Enable *bool `type:"boolean"`
+	Enable *bool `type:"boolean" json:",omitempty"`
 
-	StatusCodeCacheRule *StatusCodeCacheRuleForUpdateSingleDomainConfigInput `type:"structure"`
+	StatusCodeCacheRule *StatusCodeCacheRuleForUpdateSingleDomainConfigInput `type:"structure" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -266,17 +266,17 @@ func (s *CacheForUpdateSingleDomainConfigInput) SetStatusCodeCacheRule(v *Status
 }
 
 type CacheKeyRuleForUpdateSingleDomainConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Contents *string `type:"string"`
+	Contents *string `type:"string" json:",omitempty"`
 
-	IgnoreCase *bool `type:"boolean"`
+	IgnoreCase *bool `type:"boolean" json:",omitempty"`
 
-	ParamsFilterType *string `type:"string"`
+	ParamsFilterType *string `type:"string" json:",omitempty"`
 
-	ParamsReserveList *string `type:"string"`
+	ParamsReserveList *string `type:"string" json:",omitempty"`
 
-	Type *string `type:"string"`
+	Type *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -320,23 +320,23 @@ func (s *CacheKeyRuleForUpdateSingleDomainConfigInput) SetType(v string) *CacheK
 }
 
 type CacheRuleForUpdateSingleDomainConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	CacheTime *int32 `type:"int32"`
+	CacheTime *int32 `type:"int32" json:",omitempty"`
 
-	CacheTimeUnit *string `type:"string"`
+	CacheTimeUnit *string `type:"string" json:",omitempty"`
 
-	Contents *string `type:"string"`
+	Contents *string `type:"string" json:",omitempty"`
 
-	IgnoreCase *bool `type:"boolean"`
+	IgnoreCase *bool `type:"boolean" json:",omitempty"`
 
-	ParamsFilterType *string `type:"string"`
+	ParamsFilterType *string `type:"string" json:",omitempty"`
 
-	ParamsReserveList *string `type:"string"`
+	ParamsReserveList *string `type:"string" json:",omitempty"`
 
-	Policy *string `type:"string"`
+	Policy *string `type:"string" json:",omitempty"`
 
-	Type *string `type:"string"`
+	Type *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -398,11 +398,11 @@ func (s *CacheRuleForUpdateSingleDomainConfigInput) SetType(v string) *CacheRule
 }
 
 type CertBindForUpdateSingleDomainConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	CertId *string `type:"string"`
+	CertId *string `type:"string" json:",omitempty"`
 
-	CertSource *string `type:"string"`
+	CertSource *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -428,15 +428,15 @@ func (s *CertBindForUpdateSingleDomainConfigInput) SetCertSource(v string) *Cert
 }
 
 type ConditionalOriginForUpdateSingleDomainConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	BackupOrigins []*BackupOriginForUpdateSingleDomainConfigInput `type:"list"`
+	BackupOrigins []*BackupOriginForUpdateSingleDomainConfigInput `type:"list" json:",omitempty"`
 
-	MatchingRuleGroupJSON *string `type:"string"`
+	MatchingRuleGroupJSON *string `type:"string" json:",omitempty"`
 
-	Name *string `type:"string"`
+	Name *string `type:"string" json:",omitempty"`
 
-	Origins []*BackupOriginForUpdateSingleDomainConfigInput `type:"list"`
+	Origins []*BackupOriginForUpdateSingleDomainConfigInput `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -474,35 +474,35 @@ func (s *ConditionalOriginForUpdateSingleDomainConfigInput) SetOrigins(v []*Back
 }
 
 type ConvertConvertOriginForUpdateSingleDomainConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	BackupOriginType *string `type:"string"`
+	BackupOriginType *string `type:"string" json:",omitempty"`
 
-	BackupOrigins []*BackupOriginForUpdateSingleDomainConfigInput `type:"list"`
+	BackupOrigins []*BackupOriginForUpdateSingleDomainConfigInput `type:"list" json:",omitempty"`
 
-	ConditionalOrigins []*ConditionalOriginForUpdateSingleDomainConfigInput `type:"list"`
+	ConditionalOrigins []*ConditionalOriginForUpdateSingleDomainConfigInput `type:"list" json:",omitempty"`
 
-	FollowRedirect *FollowRedirectForUpdateSingleDomainConfigInput `type:"structure"`
+	FollowRedirect *FollowRedirectForUpdateSingleDomainConfigInput `type:"structure" json:",omitempty"`
 
-	OriginHost *OriginHostForUpdateSingleDomainConfigInput `type:"structure"`
+	OriginHost *OriginHostForUpdateSingleDomainConfigInput `type:"structure" json:",omitempty"`
 
-	OriginProtocolType *string `type:"string"`
+	OriginProtocolType *string `type:"string" json:",omitempty"`
 
-	OriginRange *OriginRangeForUpdateSingleDomainConfigInput `type:"structure"`
+	OriginRange *OriginRangeForUpdateSingleDomainConfigInput `type:"structure" json:",omitempty"`
 
-	OriginSni *OriginSniForUpdateSingleDomainConfigInput `type:"structure"`
+	OriginSni *OriginSniForUpdateSingleDomainConfigInput `type:"structure" json:",omitempty"`
 
-	OriginType *string `type:"string"`
+	OriginType *string `type:"string" json:",omitempty"`
 
-	Origins []*ConvertOriginForUpdateSingleDomainConfigInput `type:"list"`
+	Origins []*ConvertOriginForUpdateSingleDomainConfigInput `type:"list" json:",omitempty"`
 
-	RequestHeader *RequestHeaderForUpdateSingleDomainConfigInput `type:"structure"`
+	RequestHeader *RequestHeaderForUpdateSingleDomainConfigInput `type:"structure" json:",omitempty"`
 
-	ResponseHeader *ResponseHeaderForUpdateSingleDomainConfigInput `type:"structure"`
+	ResponseHeader *ResponseHeaderForUpdateSingleDomainConfigInput `type:"structure" json:",omitempty"`
 
-	ResponseTimeout *int32 `type:"int32"`
+	ResponseTimeout *int32 `type:"int32" json:",omitempty"`
 
-	TosPrivateAccess *bool `type:"boolean"`
+	TosPrivateAccess *bool `type:"boolean" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -600,15 +600,15 @@ func (s *ConvertConvertOriginForUpdateSingleDomainConfigInput) SetTosPrivateAcce
 }
 
 type ConvertOriginForUpdateSingleDomainConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Name *string `type:"string"`
+	Name *string `type:"string" json:",omitempty"`
 
-	Port *int32 `type:"int32"`
+	Port *int32 `type:"int32" json:",omitempty"`
 
-	Type *string `type:"string"`
+	Type *string `type:"string" json:",omitempty"`
 
-	Weight *int32 `type:"int32"`
+	Weight *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -646,11 +646,11 @@ func (s *ConvertOriginForUpdateSingleDomainConfigInput) SetWeight(v int32) *Conv
 }
 
 type ConvertRuleForUpdateSingleDomainConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Match *string `type:"string"`
+	Match *string `type:"string" json:",omitempty"`
 
-	Replacement *string `type:"string"`
+	Replacement *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -676,11 +676,11 @@ func (s *ConvertRuleForUpdateSingleDomainConfigInput) SetReplacement(v string) *
 }
 
 type FollowRedirectForUpdateSingleDomainConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Enable *bool `type:"boolean"`
+	Enable *bool `type:"boolean" json:",omitempty"`
 
-	MaxTries *int32 `type:"int32"`
+	MaxTries *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -706,11 +706,11 @@ func (s *FollowRedirectForUpdateSingleDomainConfigInput) SetMaxTries(v int32) *F
 }
 
 type ForceRedirectForUpdateSingleDomainConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Enable *bool `type:"boolean"`
+	Enable *bool `type:"boolean" json:",omitempty"`
 
-	RedirectType *string `type:"string"`
+	RedirectType *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -736,9 +736,9 @@ func (s *ForceRedirectForUpdateSingleDomainConfigInput) SetRedirectType(v string
 }
 
 type GzipCompressForUpdateSingleDomainConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Enable *bool `type:"boolean"`
+	Enable *bool `type:"boolean" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -758,15 +758,15 @@ func (s *GzipCompressForUpdateSingleDomainConfigInput) SetEnable(v bool) *GzipCo
 }
 
 type HeaderInfoForUpdateSingleDomainConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	HeaderMode *int32 `type:"int32"`
+	HeaderMode *int32 `type:"int32" json:",omitempty"`
 
-	HeaderName *string `type:"string"`
+	HeaderName *string `type:"string" json:",omitempty"`
 
-	HeaderValue *string `type:"string"`
+	HeaderValue *string `type:"string" json:",omitempty"`
 
-	HeaderValueType *string `type:"string"`
+	HeaderValueType *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -804,13 +804,13 @@ func (s *HeaderInfoForUpdateSingleDomainConfigInput) SetHeaderValueType(v string
 }
 
 type HstsForUpdateSingleDomainConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Enable *bool `type:"boolean"`
+	Enable *bool `type:"boolean" json:",omitempty"`
 
-	IncludeSubDomain *bool `type:"boolean"`
+	IncludeSubDomain *bool `type:"boolean" json:",omitempty"`
 
-	MaxAge *int32 `type:"int32"`
+	MaxAge *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -842,19 +842,19 @@ func (s *HstsForUpdateSingleDomainConfigInput) SetMaxAge(v int32) *HstsForUpdate
 }
 
 type HttpsForUpdateSingleDomainConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	CertBind *CertBindForUpdateSingleDomainConfigInput `type:"structure"`
+	CertBind *CertBindForUpdateSingleDomainConfigInput `type:"structure" json:",omitempty"`
 
-	ForceRedirect *ForceRedirectForUpdateSingleDomainConfigInput `type:"structure"`
+	ForceRedirect *ForceRedirectForUpdateSingleDomainConfigInput `type:"structure" json:",omitempty"`
 
-	Hsts *HstsForUpdateSingleDomainConfigInput `type:"structure"`
+	Hsts *HstsForUpdateSingleDomainConfigInput `type:"structure" json:",omitempty"`
 
-	Http2 *bool `type:"boolean"`
+	Http2 *bool `type:"boolean" json:",omitempty"`
 
-	QUICSwitch *bool `type:"boolean"`
+	QUICSwitch *bool `type:"boolean" json:",omitempty"`
 
-	TlsVersions *TlsVersionsForUpdateSingleDomainConfigInput `type:"structure"`
+	TlsVersions *TlsVersionsForUpdateSingleDomainConfigInput `type:"structure" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -904,13 +904,13 @@ func (s *HttpsForUpdateSingleDomainConfigInput) SetTlsVersions(v *TlsVersionsFor
 }
 
 type IpAccessForUpdateSingleDomainConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Enable *bool `type:"boolean"`
+	Enable *bool `type:"boolean" json:",omitempty"`
 
-	FilterList []*string `type:"list"`
+	FilterList []*string `type:"list" json:",omitempty"`
 
-	FilterType *string `type:"string"`
+	FilterType *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -942,11 +942,11 @@ func (s *IpAccessForUpdateSingleDomainConfigInput) SetFilterType(v string) *IpAc
 }
 
 type OriginHostForUpdateSingleDomainConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Enable *bool `type:"boolean"`
+	Enable *bool `type:"boolean" json:",omitempty"`
 
-	HostInfo *string `type:"string"`
+	HostInfo *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -972,9 +972,9 @@ func (s *OriginHostForUpdateSingleDomainConfigInput) SetHostInfo(v string) *Orig
 }
 
 type OriginRangeForUpdateSingleDomainConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Enable *bool `type:"boolean"`
+	Enable *bool `type:"boolean" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -994,11 +994,11 @@ func (s *OriginRangeForUpdateSingleDomainConfigInput) SetEnable(v bool) *OriginR
 }
 
 type OriginSniForUpdateSingleDomainConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Enable *bool `type:"boolean"`
+	Enable *bool `type:"boolean" json:",omitempty"`
 
-	SniInfo *string `type:"string"`
+	SniInfo *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -1024,9 +1024,9 @@ func (s *OriginSniForUpdateSingleDomainConfigInput) SetSniInfo(v string) *Origin
 }
 
 type PreConnectForUpdateSingleDomainConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Enable *bool `type:"boolean"`
+	Enable *bool `type:"boolean" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -1046,9 +1046,9 @@ func (s *PreConnectForUpdateSingleDomainConfigInput) SetEnable(v bool) *PreConne
 }
 
 type RTTOptimizeForUpdateSingleDomainConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Enable *bool `type:"boolean"`
+	Enable *bool `type:"boolean" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -1068,15 +1068,15 @@ func (s *RTTOptimizeForUpdateSingleDomainConfigInput) SetEnable(v bool) *RTTOpti
 }
 
 type RefererAccessForUpdateSingleDomainConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	AllowNone *bool `type:"boolean"`
+	AllowNone *bool `type:"boolean" json:",omitempty"`
 
-	Enable *bool `type:"boolean"`
+	Enable *bool `type:"boolean" json:",omitempty"`
 
-	FilterList []*string `type:"list"`
+	FilterList []*string `type:"list" json:",omitempty"`
 
-	FilterType *string `type:"string"`
+	FilterType *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -1114,11 +1114,11 @@ func (s *RefererAccessForUpdateSingleDomainConfigInput) SetFilterType(v string) 
 }
 
 type RequestHeaderForUpdateSingleDomainConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Enable *bool `type:"boolean"`
+	Enable *bool `type:"boolean" json:",omitempty"`
 
-	HeaderInfo []*HeaderInfoForUpdateSingleDomainConfigInput `type:"list"`
+	HeaderInfo []*HeaderInfoForUpdateSingleDomainConfigInput `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -1144,11 +1144,11 @@ func (s *RequestHeaderForUpdateSingleDomainConfigInput) SetHeaderInfo(v []*Heade
 }
 
 type ResponseHeaderForUpdateSingleDomainConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Enable *bool `type:"boolean"`
+	Enable *bool `type:"boolean" json:",omitempty"`
 
-	HeaderInfo []*HeaderInfoForUpdateSingleDomainConfigInput `type:"list"`
+	HeaderInfo []*HeaderInfoForUpdateSingleDomainConfigInput `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -1174,15 +1174,15 @@ func (s *ResponseHeaderForUpdateSingleDomainConfigInput) SetHeaderInfo(v []*Head
 }
 
 type RuleForUpdateSingleDomainConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	CacheTime *int32 `type:"int32"`
+	CacheTime *int32 `type:"int32" json:",omitempty"`
 
-	CacheTimeUnit *string `type:"string"`
+	CacheTimeUnit *string `type:"string" json:",omitempty"`
 
-	RespUrl *string `type:"string"`
+	RespUrl *string `type:"string" json:",omitempty"`
 
-	Status *string `type:"string"`
+	Status *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -1220,9 +1220,9 @@ func (s *RuleForUpdateSingleDomainConfigInput) SetStatus(v string) *RuleForUpdat
 }
 
 type StaticOptimizationForUpdateSingleDomainConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	H2Priority *bool `type:"boolean"`
+	H2Priority *bool `type:"boolean" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -1242,11 +1242,11 @@ func (s *StaticOptimizationForUpdateSingleDomainConfigInput) SetH2Priority(v boo
 }
 
 type StatusCodeCacheRuleForUpdateSingleDomainConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Enable *bool `type:"boolean"`
+	Enable *bool `type:"boolean" json:",omitempty"`
 
-	Rules []*RuleForUpdateSingleDomainConfigInput `type:"list"`
+	Rules []*RuleForUpdateSingleDomainConfigInput `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -1272,11 +1272,11 @@ func (s *StatusCodeCacheRuleForUpdateSingleDomainConfigInput) SetRules(v []*Rule
 }
 
 type TlsVersionsForUpdateSingleDomainConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Enable *bool `type:"boolean"`
+	Enable *bool `type:"boolean" json:",omitempty"`
 
-	TlsVersion []*string `type:"list"`
+	TlsVersion []*string `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -1302,50 +1302,50 @@ func (s *TlsVersionsForUpdateSingleDomainConfigInput) SetTlsVersion(v []*string)
 }
 
 type UpdateSingleDomainConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	BrCompress *BrCompressForUpdateSingleDomainConfigInput `type:"structure"`
+	BrCompress *BrCompressForUpdateSingleDomainConfigInput `type:"structure" json:",omitempty"`
 
-	Cache *CacheForUpdateSingleDomainConfigInput `type:"structure"`
+	Cache *CacheForUpdateSingleDomainConfigInput `type:"structure" json:",omitempty"`
 
 	// Domain is a required field
-	Domain *string `type:"string" required:"true"`
+	Domain *string `type:"string" json:",omitempty" required:"true"`
 
-	EnableFailOver *bool `type:"boolean"`
+	EnableFailOver *bool `type:"boolean" json:",omitempty"`
 
-	GzipCompress *GzipCompressForUpdateSingleDomainConfigInput `type:"structure"`
+	GzipCompress *GzipCompressForUpdateSingleDomainConfigInput `type:"structure" json:",omitempty"`
 
-	Https *HttpsForUpdateSingleDomainConfigInput `type:"structure"`
+	Https *HttpsForUpdateSingleDomainConfigInput `type:"structure" json:",omitempty"`
 
-	IPv6Switch *bool `type:"boolean"`
+	IPv6Switch *bool `type:"boolean" json:",omitempty"`
 
-	IpAccess *IpAccessForUpdateSingleDomainConfigInput `type:"structure"`
+	IpAccess *IpAccessForUpdateSingleDomainConfigInput `type:"structure" json:",omitempty"`
 
-	Origin *ConvertConvertOriginForUpdateSingleDomainConfigInput `type:"structure"`
+	Origin *ConvertConvertOriginForUpdateSingleDomainConfigInput `type:"structure" json:",omitempty"`
 
-	PreConnect *PreConnectForUpdateSingleDomainConfigInput `type:"structure"`
+	PreConnect *PreConnectForUpdateSingleDomainConfigInput `type:"structure" json:",omitempty"`
 
-	RTTOptimize *RTTOptimizeForUpdateSingleDomainConfigInput `type:"structure"`
+	RTTOptimize *RTTOptimizeForUpdateSingleDomainConfigInput `type:"structure" json:",omitempty"`
 
-	RefererAccess *RefererAccessForUpdateSingleDomainConfigInput `type:"structure"`
+	RefererAccess *RefererAccessForUpdateSingleDomainConfigInput `type:"structure" json:",omitempty"`
 
-	Scope *string `type:"string"`
+	Scope *string `type:"string" json:",omitempty"`
 
-	ServiceType *string `type:"string"`
+	ServiceType *string `type:"string" json:",omitempty"`
 
-	StaticOptimization *StaticOptimizationForUpdateSingleDomainConfigInput `type:"structure"`
+	StaticOptimization *StaticOptimizationForUpdateSingleDomainConfigInput `type:"structure" json:",omitempty"`
 
-	StrategyType *string `type:"string"`
+	StrategyType *string `type:"string" json:",omitempty"`
 
-	UploadOptimize *UploadOptimizeForUpdateSingleDomainConfigInput `type:"structure"`
+	UploadOptimize *UploadOptimizeForUpdateSingleDomainConfigInput `type:"structure" json:",omitempty"`
 
-	UrlAccess *UrlAccessForUpdateSingleDomainConfigInput `type:"structure"`
+	UrlAccess *UrlAccessForUpdateSingleDomainConfigInput `type:"structure" json:",omitempty"`
 
-	UrlRedirect *UrlRedirectForUpdateSingleDomainConfigInput `type:"structure"`
+	UrlRedirect *UrlRedirectForUpdateSingleDomainConfigInput `type:"structure" json:",omitempty"`
 
-	UserAgentAccess *UserAgentAccessForUpdateSingleDomainConfigInput `type:"structure"`
+	UserAgentAccess *UserAgentAccessForUpdateSingleDomainConfigInput `type:"structure" json:",omitempty"`
 
-	WebSocket *WebSocketForUpdateSingleDomainConfigInput `type:"structure"`
+	WebSocket *WebSocketForUpdateSingleDomainConfigInput `type:"structure" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -1498,7 +1498,7 @@ func (s *UpdateSingleDomainConfigInput) SetWebSocket(v *WebSocketForUpdateSingle
 }
 
 type UpdateSingleDomainConfigOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 }
@@ -1514,9 +1514,9 @@ func (s UpdateSingleDomainConfigOutput) GoString() string {
 }
 
 type UploadOptimizeForUpdateSingleDomainConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Enable *bool `type:"boolean"`
+	Enable *bool `type:"boolean" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -1536,15 +1536,15 @@ func (s *UploadOptimizeForUpdateSingleDomainConfigInput) SetEnable(v bool) *Uplo
 }
 
 type UrlAccessForUpdateSingleDomainConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Enable *bool `type:"boolean"`
+	Enable *bool `type:"boolean" json:",omitempty"`
 
-	GenKey *string `type:"string"`
+	GenKey *string `type:"string" json:",omitempty"`
 
-	GenTTL *int32 `type:"int32"`
+	GenTTL *int32 `type:"int32" json:",omitempty"`
 
-	GenType *string `type:"string"`
+	GenType *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -1582,11 +1582,11 @@ func (s *UrlAccessForUpdateSingleDomainConfigInput) SetGenType(v string) *UrlAcc
 }
 
 type UrlRedirectForUpdateSingleDomainConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Enable *bool `type:"boolean"`
+	Enable *bool `type:"boolean" json:",omitempty"`
 
-	Rules []*ConvertRuleForUpdateSingleDomainConfigInput `type:"list"`
+	Rules []*ConvertRuleForUpdateSingleDomainConfigInput `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -1612,13 +1612,13 @@ func (s *UrlRedirectForUpdateSingleDomainConfigInput) SetRules(v []*ConvertRuleF
 }
 
 type UserAgentAccessForUpdateSingleDomainConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Enable *bool `type:"boolean"`
+	Enable *bool `type:"boolean" json:",omitempty"`
 
-	FilterList []*string `type:"list"`
+	FilterList []*string `type:"list" json:",omitempty"`
 
-	FilterType *string `type:"string"`
+	FilterType *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -1650,11 +1650,11 @@ func (s *UserAgentAccessForUpdateSingleDomainConfigInput) SetFilterType(v string
 }
 
 type WebSocketForUpdateSingleDomainConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Enable *bool `type:"boolean"`
+	Enable *bool `type:"boolean" json:",omitempty"`
 
-	Timeout *int32 `type:"int32"`
+	Timeout *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation

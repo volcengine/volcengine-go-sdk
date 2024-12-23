@@ -144,17 +144,17 @@ func (c *KAFKA) DescribeAllowListsWithContext(ctx volcengine.Context, input *Des
 }
 
 type AllowListForDescribeAllowListsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	AllowListDesc *string `type:"string"`
+	AllowListDesc *string `type:"string" json:",omitempty"`
 
-	AllowListId *string `type:"string"`
+	AllowListId *string `type:"string" json:",omitempty"`
 
-	AllowListIpNum *int32 `type:"int32"`
+	AllowListIpNum *int32 `type:"int32" json:",omitempty"`
 
-	AllowListName *string `type:"string"`
+	AllowListName *string `type:"string" json:",omitempty"`
 
-	AssociatedInstanceNum *int32 `type:"int32"`
+	AssociatedInstanceNum *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -198,12 +198,12 @@ func (s *AllowListForDescribeAllowListsOutput) SetAssociatedInstanceNum(v int32)
 }
 
 type DescribeAllowListsInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	InstanceId *string `type:"string"`
+	InstanceId *string `type:"string" json:",omitempty"`
 
 	// RegionId is a required field
-	RegionId *string `type:"string" required:"true"`
+	RegionId *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -242,11 +242,11 @@ func (s *DescribeAllowListsInput) SetRegionId(v string) *DescribeAllowListsInput
 }
 
 type DescribeAllowListsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	AllowLists []*AllowListForDescribeAllowListsOutput `type:"list"`
+	AllowLists []*AllowListForDescribeAllowListsOutput `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation

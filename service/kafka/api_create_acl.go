@@ -144,28 +144,28 @@ func (c *KAFKA) CreateAclWithContext(ctx volcengine.Context, input *CreateAclInp
 }
 
 type CreateAclInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// AccessPolicy is a required field
-	AccessPolicy *string `type:"string" required:"true"`
+	AccessPolicy *string `type:"string" json:",omitempty" required:"true"`
 
 	// InstanceId is a required field
-	InstanceId *string `type:"string" required:"true"`
+	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 
 	// Ip is a required field
-	Ip *string `type:"string" required:"true"`
+	Ip *string `type:"string" json:",omitempty" required:"true"`
 
 	// PatternType is a required field
-	PatternType *string `type:"string" required:"true"`
+	PatternType *string `type:"string" json:",omitempty" required:"true"`
 
 	// Resource is a required field
-	Resource *string `type:"string" required:"true"`
+	Resource *string `type:"string" json:",omitempty" required:"true"`
 
 	// ResourceType is a required field
-	ResourceType *string `type:"string" required:"true"`
+	ResourceType *string `type:"string" json:",omitempty" required:"true"`
 
 	// UserName is a required field
-	UserName *string `type:"string" required:"true"`
+	UserName *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -252,7 +252,7 @@ func (s *CreateAclInput) SetUserName(v string) *CreateAclInput {
 }
 
 type CreateAclOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 }

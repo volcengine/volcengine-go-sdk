@@ -144,15 +144,15 @@ func (c *DCDN) DescribeDomainDetailWithContext(ctx volcengine.Context, input *De
 }
 
 type BackupOriginForDescribeDomainDetailOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Name *string `type:"string"`
+	Name *string `type:"string" json:",omitempty"`
 
-	Port *int32 `type:"int32"`
+	Port *int32 `type:"int32" json:",omitempty"`
 
-	Type *string `type:"string"`
+	Type *string `type:"string" json:",omitempty"`
 
-	Weight *int32 `type:"int32"`
+	Weight *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -190,9 +190,9 @@ func (s *BackupOriginForDescribeDomainDetailOutput) SetWeight(v int32) *BackupOr
 }
 
 type BrCompressForDescribeDomainDetailOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Enable *bool `type:"boolean"`
+	Enable *bool `type:"boolean" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -212,17 +212,17 @@ func (s *BrCompressForDescribeDomainDetailOutput) SetEnable(v bool) *BrCompressF
 }
 
 type CacheForDescribeDomainDetailOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	AdaptCache *bool `type:"boolean"`
+	AdaptCache *bool `type:"boolean" json:",omitempty"`
 
-	CacheKeyRules []*CacheKeyRuleForDescribeDomainDetailOutput `type:"list"`
+	CacheKeyRules []*CacheKeyRuleForDescribeDomainDetailOutput `type:"list" json:",omitempty"`
 
-	CacheRules []*CacheRuleForDescribeDomainDetailOutput `type:"list"`
+	CacheRules []*CacheRuleForDescribeDomainDetailOutput `type:"list" json:",omitempty"`
 
-	Enable *bool `type:"boolean"`
+	Enable *bool `type:"boolean" json:",omitempty"`
 
-	StatusCodeCacheRule *StatusCodeCacheRuleForDescribeDomainDetailOutput `type:"structure"`
+	StatusCodeCacheRule *StatusCodeCacheRuleForDescribeDomainDetailOutput `type:"structure" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -266,17 +266,17 @@ func (s *CacheForDescribeDomainDetailOutput) SetStatusCodeCacheRule(v *StatusCod
 }
 
 type CacheKeyRuleForDescribeDomainDetailOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Contents *string `type:"string"`
+	Contents *string `type:"string" json:",omitempty"`
 
-	IgnoreCase *bool `type:"boolean"`
+	IgnoreCase *bool `type:"boolean" json:",omitempty"`
 
-	ParamsFilterType *string `type:"string"`
+	ParamsFilterType *string `type:"string" json:",omitempty"`
 
-	ParamsReserveList *string `type:"string"`
+	ParamsReserveList *string `type:"string" json:",omitempty"`
 
-	Type *string `type:"string"`
+	Type *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -320,23 +320,23 @@ func (s *CacheKeyRuleForDescribeDomainDetailOutput) SetType(v string) *CacheKeyR
 }
 
 type CacheRuleForDescribeDomainDetailOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	CacheTime *int32 `type:"int32"`
+	CacheTime *int32 `type:"int32" json:",omitempty"`
 
-	CacheTimeUnit *string `type:"string"`
+	CacheTimeUnit *string `type:"string" json:",omitempty"`
 
-	Contents *string `type:"string"`
+	Contents *string `type:"string" json:",omitempty"`
 
-	IgnoreCase *bool `type:"boolean"`
+	IgnoreCase *bool `type:"boolean" json:",omitempty"`
 
-	ParamsFilterType *string `type:"string"`
+	ParamsFilterType *string `type:"string" json:",omitempty"`
 
-	ParamsReserveList *string `type:"string"`
+	ParamsReserveList *string `type:"string" json:",omitempty"`
 
-	Policy *string `type:"string"`
+	Policy *string `type:"string" json:",omitempty"`
 
-	Type *string `type:"string"`
+	Type *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -398,11 +398,11 @@ func (s *CacheRuleForDescribeDomainDetailOutput) SetType(v string) *CacheRuleFor
 }
 
 type CertBindForDescribeDomainDetailOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	CertId *string `type:"string"`
+	CertId *string `type:"string" json:",omitempty"`
 
-	CertSource *string `type:"string"`
+	CertSource *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -428,15 +428,15 @@ func (s *CertBindForDescribeDomainDetailOutput) SetCertSource(v string) *CertBin
 }
 
 type ConditionalOriginForDescribeDomainDetailOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	BackupOrigins []*BackupOriginForDescribeDomainDetailOutput `type:"list"`
+	BackupOrigins []*BackupOriginForDescribeDomainDetailOutput `type:"list" json:",omitempty"`
 
-	MatchingRuleGroupJSON *string `type:"string"`
+	MatchingRuleGroupJSON *string `type:"string" json:",omitempty"`
 
-	Name *string `type:"string"`
+	Name *string `type:"string" json:",omitempty"`
 
-	Origins []*BackupOriginForDescribeDomainDetailOutput `type:"list"`
+	Origins []*BackupOriginForDescribeDomainDetailOutput `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -474,35 +474,35 @@ func (s *ConditionalOriginForDescribeDomainDetailOutput) SetOrigins(v []*BackupO
 }
 
 type ConvertConvertOriginForDescribeDomainDetailOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	BackupOriginType *string `type:"string"`
+	BackupOriginType *string `type:"string" json:",omitempty"`
 
-	BackupOrigins []*BackupOriginForDescribeDomainDetailOutput `type:"list"`
+	BackupOrigins []*BackupOriginForDescribeDomainDetailOutput `type:"list" json:",omitempty"`
 
-	ConditionalOrigins []*ConditionalOriginForDescribeDomainDetailOutput `type:"list"`
+	ConditionalOrigins []*ConditionalOriginForDescribeDomainDetailOutput `type:"list" json:",omitempty"`
 
-	FollowRedirect *FollowRedirectForDescribeDomainDetailOutput `type:"structure"`
+	FollowRedirect *FollowRedirectForDescribeDomainDetailOutput `type:"structure" json:",omitempty"`
 
-	OriginHost *OriginHostForDescribeDomainDetailOutput `type:"structure"`
+	OriginHost *OriginHostForDescribeDomainDetailOutput `type:"structure" json:",omitempty"`
 
-	OriginProtocolType *string `type:"string"`
+	OriginProtocolType *string `type:"string" json:",omitempty"`
 
-	OriginRange *OriginRangeForDescribeDomainDetailOutput `type:"structure"`
+	OriginRange *OriginRangeForDescribeDomainDetailOutput `type:"structure" json:",omitempty"`
 
-	OriginSni *OriginSniForDescribeDomainDetailOutput `type:"structure"`
+	OriginSni *OriginSniForDescribeDomainDetailOutput `type:"structure" json:",omitempty"`
 
-	OriginType *string `type:"string"`
+	OriginType *string `type:"string" json:",omitempty"`
 
-	Origins []*ConvertOriginForDescribeDomainDetailOutput `type:"list"`
+	Origins []*ConvertOriginForDescribeDomainDetailOutput `type:"list" json:",omitempty"`
 
-	RequestHeader *RequestHeaderForDescribeDomainDetailOutput `type:"structure"`
+	RequestHeader *RequestHeaderForDescribeDomainDetailOutput `type:"structure" json:",omitempty"`
 
-	ResponseHeader *ResponseHeaderForDescribeDomainDetailOutput `type:"structure"`
+	ResponseHeader *ResponseHeaderForDescribeDomainDetailOutput `type:"structure" json:",omitempty"`
 
-	ResponseTimeout *int32 `type:"int32"`
+	ResponseTimeout *int32 `type:"int32" json:",omitempty"`
 
-	TosPrivateAccess *bool `type:"boolean"`
+	TosPrivateAccess *bool `type:"boolean" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -600,15 +600,15 @@ func (s *ConvertConvertOriginForDescribeDomainDetailOutput) SetTosPrivateAccess(
 }
 
 type ConvertOriginForDescribeDomainDetailOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Name *string `type:"string"`
+	Name *string `type:"string" json:",omitempty"`
 
-	Port *int32 `type:"int32"`
+	Port *int32 `type:"int32" json:",omitempty"`
 
-	Type *string `type:"string"`
+	Type *string `type:"string" json:",omitempty"`
 
-	Weight *int32 `type:"int32"`
+	Weight *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -646,11 +646,11 @@ func (s *ConvertOriginForDescribeDomainDetailOutput) SetWeight(v int32) *Convert
 }
 
 type ConvertRuleForDescribeDomainDetailOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Match *string `type:"string"`
+	Match *string `type:"string" json:",omitempty"`
 
-	Replacement *string `type:"string"`
+	Replacement *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -676,10 +676,10 @@ func (s *ConvertRuleForDescribeDomainDetailOutput) SetReplacement(v string) *Con
 }
 
 type DescribeDomainDetailInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// Domain is a required field
-	Domain *string `type:"string" required:"true"`
+	Domain *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -712,65 +712,65 @@ func (s *DescribeDomainDetailInput) SetDomain(v string) *DescribeDomainDetailInp
 }
 
 type DescribeDomainDetailOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	BrCompress *BrCompressForDescribeDomainDetailOutput `type:"structure"`
+	BrCompress *BrCompressForDescribeDomainDetailOutput `type:"structure" json:",omitempty"`
 
-	Cache *CacheForDescribeDomainDetailOutput `type:"structure"`
+	Cache *CacheForDescribeDomainDetailOutput `type:"structure" json:",omitempty"`
 
-	Cname *string `type:"string"`
+	Cname *string `type:"string" json:",omitempty"`
 
-	CreateTime *string `type:"string"`
+	CreateTime *string `type:"string" json:",omitempty"`
 
-	Domain *string `type:"string"`
+	Domain *string `type:"string" json:",omitempty"`
 
-	EnableFailOver *bool `type:"boolean"`
+	EnableFailOver *bool `type:"boolean" json:",omitempty"`
 
-	GzipCompress *GzipCompressForDescribeDomainDetailOutput `type:"structure"`
+	GzipCompress *GzipCompressForDescribeDomainDetailOutput `type:"structure" json:",omitempty"`
 
-	Https *HttpsForDescribeDomainDetailOutput `type:"structure"`
+	Https *HttpsForDescribeDomainDetailOutput `type:"structure" json:",omitempty"`
 
-	IPv6Switch *bool `type:"boolean"`
+	IPv6Switch *bool `type:"boolean" json:",omitempty"`
 
-	IpAccess *IpAccessForDescribeDomainDetailOutput `type:"structure"`
+	IpAccess *IpAccessForDescribeDomainDetailOutput `type:"structure" json:",omitempty"`
 
-	IsCNAMEResolved *bool `type:"boolean"`
+	IsCNAMEResolved *bool `type:"boolean" json:",omitempty"`
 
-	Origin *ConvertConvertOriginForDescribeDomainDetailOutput `type:"structure"`
+	Origin *ConvertConvertOriginForDescribeDomainDetailOutput `type:"structure" json:",omitempty"`
 
-	PreConnect *PreConnectForDescribeDomainDetailOutput `type:"structure"`
+	PreConnect *PreConnectForDescribeDomainDetailOutput `type:"structure" json:",omitempty"`
 
-	ProjectName *string `type:"string"`
+	ProjectName *string `type:"string" json:",omitempty"`
 
-	RTTOptimize *RTTOptimizeForDescribeDomainDetailOutput `type:"structure"`
+	RTTOptimize *RTTOptimizeForDescribeDomainDetailOutput `type:"structure" json:",omitempty"`
 
-	RecordFiling *string `type:"string"`
+	RecordFiling *string `type:"string" json:",omitempty"`
 
-	RefererAccess *RefererAccessForDescribeDomainDetailOutput `type:"structure"`
+	RefererAccess *RefererAccessForDescribeDomainDetailOutput `type:"structure" json:",omitempty"`
 
-	Scope *string `type:"string"`
+	Scope *string `type:"string" json:",omitempty"`
 
-	ServiceType *string `type:"string"`
+	ServiceType *string `type:"string" json:",omitempty"`
 
-	StaticOptimization *StaticOptimizationForDescribeDomainDetailOutput `type:"structure"`
+	StaticOptimization *StaticOptimizationForDescribeDomainDetailOutput `type:"structure" json:",omitempty"`
 
-	Status *string `type:"string"`
+	Status *string `type:"string" json:",omitempty"`
 
-	StrategyType *string `type:"string"`
+	StrategyType *string `type:"string" json:",omitempty"`
 
-	UpdateTime *string `type:"string"`
+	UpdateTime *string `type:"string" json:",omitempty"`
 
-	UrlAccess *UrlAccessForDescribeDomainDetailOutput `type:"structure"`
+	UrlAccess *UrlAccessForDescribeDomainDetailOutput `type:"structure" json:",omitempty"`
 
-	UrlRedirect *UrlRedirectForDescribeDomainDetailOutput `type:"structure"`
+	UrlRedirect *UrlRedirectForDescribeDomainDetailOutput `type:"structure" json:",omitempty"`
 
-	UserAgentAccess *UserAgentAccessForDescribeDomainDetailOutput `type:"structure"`
+	UserAgentAccess *UserAgentAccessForDescribeDomainDetailOutput `type:"structure" json:",omitempty"`
 
-	UserName *string `type:"string"`
+	UserName *string `type:"string" json:",omitempty"`
 
-	WebSocket *WebSocketForDescribeDomainDetailOutput `type:"structure"`
+	WebSocket *WebSocketForDescribeDomainDetailOutput `type:"structure" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -952,11 +952,11 @@ func (s *DescribeDomainDetailOutput) SetWebSocket(v *WebSocketForDescribeDomainD
 }
 
 type FollowRedirectForDescribeDomainDetailOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Enable *bool `type:"boolean"`
+	Enable *bool `type:"boolean" json:",omitempty"`
 
-	MaxTries *int32 `type:"int32"`
+	MaxTries *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -982,11 +982,11 @@ func (s *FollowRedirectForDescribeDomainDetailOutput) SetMaxTries(v int32) *Foll
 }
 
 type ForceRedirectForDescribeDomainDetailOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Enable *bool `type:"boolean"`
+	Enable *bool `type:"boolean" json:",omitempty"`
 
-	RedirectType *string `type:"string"`
+	RedirectType *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -1012,9 +1012,9 @@ func (s *ForceRedirectForDescribeDomainDetailOutput) SetRedirectType(v string) *
 }
 
 type GzipCompressForDescribeDomainDetailOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Enable *bool `type:"boolean"`
+	Enable *bool `type:"boolean" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -1034,15 +1034,15 @@ func (s *GzipCompressForDescribeDomainDetailOutput) SetEnable(v bool) *GzipCompr
 }
 
 type HeaderInfoForDescribeDomainDetailOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	HeaderMode *int32 `type:"int32"`
+	HeaderMode *int32 `type:"int32" json:",omitempty"`
 
-	HeaderName *string `type:"string"`
+	HeaderName *string `type:"string" json:",omitempty"`
 
-	HeaderValue *string `type:"string"`
+	HeaderValue *string `type:"string" json:",omitempty"`
 
-	HeaderValueType *string `type:"string"`
+	HeaderValueType *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -1080,13 +1080,13 @@ func (s *HeaderInfoForDescribeDomainDetailOutput) SetHeaderValueType(v string) *
 }
 
 type HstsForDescribeDomainDetailOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Enable *bool `type:"boolean"`
+	Enable *bool `type:"boolean" json:",omitempty"`
 
-	IncludeSubDomain *bool `type:"boolean"`
+	IncludeSubDomain *bool `type:"boolean" json:",omitempty"`
 
-	MaxAge *int32 `type:"int32"`
+	MaxAge *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -1118,19 +1118,19 @@ func (s *HstsForDescribeDomainDetailOutput) SetMaxAge(v int32) *HstsForDescribeD
 }
 
 type HttpsForDescribeDomainDetailOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	CertBind *CertBindForDescribeDomainDetailOutput `type:"structure"`
+	CertBind *CertBindForDescribeDomainDetailOutput `type:"structure" json:",omitempty"`
 
-	ForceRedirect *ForceRedirectForDescribeDomainDetailOutput `type:"structure"`
+	ForceRedirect *ForceRedirectForDescribeDomainDetailOutput `type:"structure" json:",omitempty"`
 
-	Hsts *HstsForDescribeDomainDetailOutput `type:"structure"`
+	Hsts *HstsForDescribeDomainDetailOutput `type:"structure" json:",omitempty"`
 
-	Http2 *bool `type:"boolean"`
+	Http2 *bool `type:"boolean" json:",omitempty"`
 
-	QUICSwitch *bool `type:"boolean"`
+	QUICSwitch *bool `type:"boolean" json:",omitempty"`
 
-	TlsVersions *TlsVersionsForDescribeDomainDetailOutput `type:"structure"`
+	TlsVersions *TlsVersionsForDescribeDomainDetailOutput `type:"structure" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -1180,13 +1180,13 @@ func (s *HttpsForDescribeDomainDetailOutput) SetTlsVersions(v *TlsVersionsForDes
 }
 
 type IpAccessForDescribeDomainDetailOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Enable *bool `type:"boolean"`
+	Enable *bool `type:"boolean" json:",omitempty"`
 
-	FilterList []*string `type:"list"`
+	FilterList []*string `type:"list" json:",omitempty"`
 
-	FilterType *string `type:"string"`
+	FilterType *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -1218,11 +1218,11 @@ func (s *IpAccessForDescribeDomainDetailOutput) SetFilterType(v string) *IpAcces
 }
 
 type OriginHostForDescribeDomainDetailOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Enable *bool `type:"boolean"`
+	Enable *bool `type:"boolean" json:",omitempty"`
 
-	HostInfo *string `type:"string"`
+	HostInfo *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -1248,9 +1248,9 @@ func (s *OriginHostForDescribeDomainDetailOutput) SetHostInfo(v string) *OriginH
 }
 
 type OriginRangeForDescribeDomainDetailOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Enable *bool `type:"boolean"`
+	Enable *bool `type:"boolean" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -1270,11 +1270,11 @@ func (s *OriginRangeForDescribeDomainDetailOutput) SetEnable(v bool) *OriginRang
 }
 
 type OriginSniForDescribeDomainDetailOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Enable *bool `type:"boolean"`
+	Enable *bool `type:"boolean" json:",omitempty"`
 
-	SniInfo *string `type:"string"`
+	SniInfo *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -1300,9 +1300,9 @@ func (s *OriginSniForDescribeDomainDetailOutput) SetSniInfo(v string) *OriginSni
 }
 
 type PreConnectForDescribeDomainDetailOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Enable *bool `type:"boolean"`
+	Enable *bool `type:"boolean" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -1322,9 +1322,9 @@ func (s *PreConnectForDescribeDomainDetailOutput) SetEnable(v bool) *PreConnectF
 }
 
 type RTTOptimizeForDescribeDomainDetailOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Enable *bool `type:"boolean"`
+	Enable *bool `type:"boolean" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -1344,15 +1344,15 @@ func (s *RTTOptimizeForDescribeDomainDetailOutput) SetEnable(v bool) *RTTOptimiz
 }
 
 type RefererAccessForDescribeDomainDetailOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	AllowNone *bool `type:"boolean"`
+	AllowNone *bool `type:"boolean" json:",omitempty"`
 
-	Enable *bool `type:"boolean"`
+	Enable *bool `type:"boolean" json:",omitempty"`
 
-	FilterList []*string `type:"list"`
+	FilterList []*string `type:"list" json:",omitempty"`
 
-	FilterType *string `type:"string"`
+	FilterType *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -1390,11 +1390,11 @@ func (s *RefererAccessForDescribeDomainDetailOutput) SetFilterType(v string) *Re
 }
 
 type RequestHeaderForDescribeDomainDetailOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Enable *bool `type:"boolean"`
+	Enable *bool `type:"boolean" json:",omitempty"`
 
-	HeaderInfo []*HeaderInfoForDescribeDomainDetailOutput `type:"list"`
+	HeaderInfo []*HeaderInfoForDescribeDomainDetailOutput `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -1420,11 +1420,11 @@ func (s *RequestHeaderForDescribeDomainDetailOutput) SetHeaderInfo(v []*HeaderIn
 }
 
 type ResponseHeaderForDescribeDomainDetailOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Enable *bool `type:"boolean"`
+	Enable *bool `type:"boolean" json:",omitempty"`
 
-	HeaderInfo []*HeaderInfoForDescribeDomainDetailOutput `type:"list"`
+	HeaderInfo []*HeaderInfoForDescribeDomainDetailOutput `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -1450,15 +1450,15 @@ func (s *ResponseHeaderForDescribeDomainDetailOutput) SetHeaderInfo(v []*HeaderI
 }
 
 type RuleForDescribeDomainDetailOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	CacheTime *int32 `type:"int32"`
+	CacheTime *int32 `type:"int32" json:",omitempty"`
 
-	CacheTimeUnit *string `type:"string"`
+	CacheTimeUnit *string `type:"string" json:",omitempty"`
 
-	RespUrl *string `type:"string"`
+	RespUrl *string `type:"string" json:",omitempty"`
 
-	Status *string `type:"string"`
+	Status *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -1496,9 +1496,9 @@ func (s *RuleForDescribeDomainDetailOutput) SetStatus(v string) *RuleForDescribe
 }
 
 type StaticOptimizationForDescribeDomainDetailOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	H2Priority *bool `type:"boolean"`
+	H2Priority *bool `type:"boolean" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -1518,11 +1518,11 @@ func (s *StaticOptimizationForDescribeDomainDetailOutput) SetH2Priority(v bool) 
 }
 
 type StatusCodeCacheRuleForDescribeDomainDetailOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Enable *bool `type:"boolean"`
+	Enable *bool `type:"boolean" json:",omitempty"`
 
-	Rules []*RuleForDescribeDomainDetailOutput `type:"list"`
+	Rules []*RuleForDescribeDomainDetailOutput `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -1548,11 +1548,11 @@ func (s *StatusCodeCacheRuleForDescribeDomainDetailOutput) SetRules(v []*RuleFor
 }
 
 type TlsVersionsForDescribeDomainDetailOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Enable *bool `type:"boolean"`
+	Enable *bool `type:"boolean" json:",omitempty"`
 
-	TlsVersion []*string `type:"list"`
+	TlsVersion []*string `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -1578,15 +1578,15 @@ func (s *TlsVersionsForDescribeDomainDetailOutput) SetTlsVersion(v []*string) *T
 }
 
 type UrlAccessForDescribeDomainDetailOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Enable *bool `type:"boolean"`
+	Enable *bool `type:"boolean" json:",omitempty"`
 
-	GenKey *string `type:"string"`
+	GenKey *string `type:"string" json:",omitempty"`
 
-	GenTTL *int32 `type:"int32"`
+	GenTTL *int32 `type:"int32" json:",omitempty"`
 
-	GenType *string `type:"string"`
+	GenType *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -1624,11 +1624,11 @@ func (s *UrlAccessForDescribeDomainDetailOutput) SetGenType(v string) *UrlAccess
 }
 
 type UrlRedirectForDescribeDomainDetailOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Enable *bool `type:"boolean"`
+	Enable *bool `type:"boolean" json:",omitempty"`
 
-	Rules []*ConvertRuleForDescribeDomainDetailOutput `type:"list"`
+	Rules []*ConvertRuleForDescribeDomainDetailOutput `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -1654,13 +1654,13 @@ func (s *UrlRedirectForDescribeDomainDetailOutput) SetRules(v []*ConvertRuleForD
 }
 
 type UserAgentAccessForDescribeDomainDetailOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Enable *bool `type:"boolean"`
+	Enable *bool `type:"boolean" json:",omitempty"`
 
-	FilterList []*string `type:"list"`
+	FilterList []*string `type:"list" json:",omitempty"`
 
-	FilterType *string `type:"string"`
+	FilterType *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -1692,11 +1692,11 @@ func (s *UserAgentAccessForDescribeDomainDetailOutput) SetFilterType(v string) *
 }
 
 type WebSocketForDescribeDomainDetailOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Enable *bool `type:"boolean"`
+	Enable *bool `type:"boolean" json:",omitempty"`
 
-	Timeout *int32 `type:"int32"`
+	Timeout *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation

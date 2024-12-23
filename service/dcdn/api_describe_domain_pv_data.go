@@ -144,18 +144,18 @@ func (c *DCDN) DescribeDomainPVDataWithContext(ctx volcengine.Context, input *De
 }
 
 type DescribeDomainPVDataInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// Domain is a required field
-	Domain *string `type:"string" required:"true"`
+	Domain *string `type:"string" json:",omitempty" required:"true"`
 
 	// EndTime is a required field
-	EndTime *string `type:"string" required:"true"`
+	EndTime *string `type:"string" json:",omitempty" required:"true"`
 
-	ProjectName []*string `type:"list"`
+	ProjectName []*string `type:"list" json:",omitempty"`
 
 	// StartTime is a required field
-	StartTime *string `type:"string" required:"true"`
+	StartTime *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -212,19 +212,19 @@ func (s *DescribeDomainPVDataInput) SetStartTime(v string) *DescribeDomainPVData
 }
 
 type DescribeDomainPVDataOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	DataInterval *int32 `type:"int32"`
+	DataInterval *int32 `type:"int32" json:",omitempty"`
 
-	DomainName *string `type:"string"`
+	DomainName *string `type:"string" json:",omitempty"`
 
-	EndTime *string `type:"string"`
+	EndTime *string `type:"string" json:",omitempty"`
 
-	Results []*ResultForDescribeDomainPVDataOutput `type:"list"`
+	Results []*ResultForDescribeDomainPVDataOutput `type:"list" json:",omitempty"`
 
-	StartTime *string `type:"string"`
+	StartTime *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -268,13 +268,13 @@ func (s *DescribeDomainPVDataOutput) SetStartTime(v string) *DescribeDomainPVDat
 }
 
 type ResultForDescribeDomainPVDataOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Domain *string `type:"string"`
+	Domain *string `type:"string" json:",omitempty"`
 
-	TimeStamp *string `type:"string"`
+	TimeStamp *string `type:"string" json:",omitempty"`
 
-	Value *int32 `type:"int32"`
+	Value *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation

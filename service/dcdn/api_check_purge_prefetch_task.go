@@ -144,23 +144,25 @@ func (c *DCDN) CheckPurgePrefetchTaskWithContext(ctx volcengine.Context, input *
 }
 
 type CheckPurgePrefetchTaskInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	EndTime *string `type:"string"`
+	EndTime *string `type:"string" json:",omitempty"`
 
-	OrderType *string `type:"string"`
+	OrderType *string `type:"string" json:",omitempty"`
 
-	Page *int32 `type:"int32"`
+	Page *int32 `type:"int32" json:",omitempty"`
 
-	PageSize *int32 `type:"int32"`
+	PageSize *int32 `type:"int32" json:",omitempty"`
 
-	StartTime *string `type:"string"`
+	StartTime *string `type:"string" json:",omitempty"`
 
-	TaskStatus []*string `type:"list"`
+	TaskId *string `type:"string" json:",omitempty"`
 
-	TaskType []*string `type:"list"`
+	TaskStatus []*string `type:"list" json:",omitempty"`
 
-	Url *string `type:"string"`
+	TaskType []*string `type:"list" json:",omitempty"`
+
+	Url *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -203,6 +205,12 @@ func (s *CheckPurgePrefetchTaskInput) SetStartTime(v string) *CheckPurgePrefetch
 	return s
 }
 
+// SetTaskId sets the TaskId field's value.
+func (s *CheckPurgePrefetchTaskInput) SetTaskId(v string) *CheckPurgePrefetchTaskInput {
+	s.TaskId = &v
+	return s
+}
+
 // SetTaskStatus sets the TaskStatus field's value.
 func (s *CheckPurgePrefetchTaskInput) SetTaskStatus(v []*string) *CheckPurgePrefetchTaskInput {
 	s.TaskStatus = v
@@ -222,13 +230,13 @@ func (s *CheckPurgePrefetchTaskInput) SetUrl(v string) *CheckPurgePrefetchTaskIn
 }
 
 type CheckPurgePrefetchTaskOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	TaskList []*TaskListForCheckPurgePrefetchTaskOutput `type:"list"`
+	TaskList []*TaskListForCheckPurgePrefetchTaskOutput `type:"list" json:",omitempty"`
 
-	Total *int32 `type:"int32"`
+	Total *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -254,25 +262,25 @@ func (s *CheckPurgePrefetchTaskOutput) SetTotal(v int32) *CheckPurgePrefetchTask
 }
 
 type TaskListForCheckPurgePrefetchTaskOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Account *string `type:"string"`
+	Account *string `type:"string" json:",omitempty"`
 
-	FileName *string `type:"string"`
+	FileName *string `type:"string" json:",omitempty"`
 
-	OpTime *string `type:"string"`
+	OpTime *string `type:"string" json:",omitempty"`
 
-	Operator *string `type:"string"`
+	Operator *string `type:"string" json:",omitempty"`
 
-	Retries *int32 `type:"int32"`
+	Retries *int32 `type:"int32" json:",omitempty"`
 
-	TaskId *string `type:"string"`
+	TaskId *string `type:"string" json:",omitempty"`
 
-	TaskStatus *string `type:"string"`
+	TaskStatus *string `type:"string" json:",omitempty"`
 
-	TaskType *string `type:"string"`
+	TaskType *string `type:"string" json:",omitempty"`
 
-	Urls []*string `type:"list"`
+	Urls []*string `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation

@@ -16,18 +16,19 @@ import (
 // VPNAPI provides an interface to enable mocking the
 // vpn.VPN service client's API operation,
 //
-//	// volcengine sdk func uses an SDK service client to make a request to
-//	// VPN.
-//	func myFunc(svc VPNAPI) bool {
-//	    // Make svc.CreateCustomerGateway request
-//	}
+//    // volcengine sdk func uses an SDK service client to make a request to
+//    // VPN.
+//    func myFunc(svc VPNAPI) bool {
+//        // Make svc.CreateCustomerGateway request
+//    }
 //
-//	func main() {
-//	    sess := session.New()
-//	    svc := vpn.New(sess)
+//    func main() {
+//        sess := session.New()
+//        svc := vpn.New(sess)
 //
-//	    myFunc(svc)
-//	}
+//        myFunc(svc)
+//    }
+//
 type VPNAPI interface {
 	CreateCustomerGatewayCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	CreateCustomerGatewayCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -37,6 +38,22 @@ type VPNAPI interface {
 	CreateCustomerGatewayWithContext(volcengine.Context, *CreateCustomerGatewayInput, ...request.Option) (*CreateCustomerGatewayOutput, error)
 	CreateCustomerGatewayRequest(*CreateCustomerGatewayInput) (*request.Request, *CreateCustomerGatewayOutput)
 
+	CreateSslVpnClientCertCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateSslVpnClientCertCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateSslVpnClientCertCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateSslVpnClientCert(*CreateSslVpnClientCertInput) (*CreateSslVpnClientCertOutput, error)
+	CreateSslVpnClientCertWithContext(volcengine.Context, *CreateSslVpnClientCertInput, ...request.Option) (*CreateSslVpnClientCertOutput, error)
+	CreateSslVpnClientCertRequest(*CreateSslVpnClientCertInput) (*request.Request, *CreateSslVpnClientCertOutput)
+
+	CreateSslVpnServerCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateSslVpnServerCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateSslVpnServerCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateSslVpnServer(*CreateSslVpnServerInput) (*CreateSslVpnServerOutput, error)
+	CreateSslVpnServerWithContext(volcengine.Context, *CreateSslVpnServerInput, ...request.Option) (*CreateSslVpnServerOutput, error)
+	CreateSslVpnServerRequest(*CreateSslVpnServerInput) (*request.Request, *CreateSslVpnServerOutput)
+
 	CreateVpnConnectionCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	CreateVpnConnectionCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	CreateVpnConnectionCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -44,6 +61,14 @@ type VPNAPI interface {
 	CreateVpnConnection(*CreateVpnConnectionInput) (*CreateVpnConnectionOutput, error)
 	CreateVpnConnectionWithContext(volcengine.Context, *CreateVpnConnectionInput, ...request.Option) (*CreateVpnConnectionOutput, error)
 	CreateVpnConnectionRequest(*CreateVpnConnectionInput) (*request.Request, *CreateVpnConnectionOutput)
+
+	CreateVpnConnectionHealthCheckersCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateVpnConnectionHealthCheckersCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateVpnConnectionHealthCheckersCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateVpnConnectionHealthCheckers(*CreateVpnConnectionHealthCheckersInput) (*CreateVpnConnectionHealthCheckersOutput, error)
+	CreateVpnConnectionHealthCheckersWithContext(volcengine.Context, *CreateVpnConnectionHealthCheckersInput, ...request.Option) (*CreateVpnConnectionHealthCheckersOutput, error)
+	CreateVpnConnectionHealthCheckersRequest(*CreateVpnConnectionHealthCheckersInput) (*request.Request, *CreateVpnConnectionHealthCheckersOutput)
 
 	CreateVpnGatewayCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	CreateVpnGatewayCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -69,6 +94,22 @@ type VPNAPI interface {
 	DeleteCustomerGatewayWithContext(volcengine.Context, *DeleteCustomerGatewayInput, ...request.Option) (*DeleteCustomerGatewayOutput, error)
 	DeleteCustomerGatewayRequest(*DeleteCustomerGatewayInput) (*request.Request, *DeleteCustomerGatewayOutput)
 
+	DeleteSslVpnClientCertCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeleteSslVpnClientCertCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeleteSslVpnClientCertCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeleteSslVpnClientCert(*DeleteSslVpnClientCertInput) (*DeleteSslVpnClientCertOutput, error)
+	DeleteSslVpnClientCertWithContext(volcengine.Context, *DeleteSslVpnClientCertInput, ...request.Option) (*DeleteSslVpnClientCertOutput, error)
+	DeleteSslVpnClientCertRequest(*DeleteSslVpnClientCertInput) (*request.Request, *DeleteSslVpnClientCertOutput)
+
+	DeleteSslVpnServerCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeleteSslVpnServerCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeleteSslVpnServerCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeleteSslVpnServer(*DeleteSslVpnServerInput) (*DeleteSslVpnServerOutput, error)
+	DeleteSslVpnServerWithContext(volcengine.Context, *DeleteSslVpnServerInput, ...request.Option) (*DeleteSslVpnServerOutput, error)
+	DeleteSslVpnServerRequest(*DeleteSslVpnServerInput) (*request.Request, *DeleteSslVpnServerOutput)
+
 	DeleteVpnConnectionCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DeleteVpnConnectionCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DeleteVpnConnectionCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -76,6 +117,14 @@ type VPNAPI interface {
 	DeleteVpnConnection(*DeleteVpnConnectionInput) (*DeleteVpnConnectionOutput, error)
 	DeleteVpnConnectionWithContext(volcengine.Context, *DeleteVpnConnectionInput, ...request.Option) (*DeleteVpnConnectionOutput, error)
 	DeleteVpnConnectionRequest(*DeleteVpnConnectionInput) (*request.Request, *DeleteVpnConnectionOutput)
+
+	DeleteVpnConnectionHealthCheckerCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeleteVpnConnectionHealthCheckerCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeleteVpnConnectionHealthCheckerCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeleteVpnConnectionHealthChecker(*DeleteVpnConnectionHealthCheckerInput) (*DeleteVpnConnectionHealthCheckerOutput, error)
+	DeleteVpnConnectionHealthCheckerWithContext(volcengine.Context, *DeleteVpnConnectionHealthCheckerInput, ...request.Option) (*DeleteVpnConnectionHealthCheckerOutput, error)
+	DeleteVpnConnectionHealthCheckerRequest(*DeleteVpnConnectionHealthCheckerInput) (*request.Request, *DeleteVpnConnectionHealthCheckerOutput)
 
 	DeleteVpnGatewayCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DeleteVpnGatewayCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -108,6 +157,30 @@ type VPNAPI interface {
 	DescribeCustomerGateways(*DescribeCustomerGatewaysInput) (*DescribeCustomerGatewaysOutput, error)
 	DescribeCustomerGatewaysWithContext(volcengine.Context, *DescribeCustomerGatewaysInput, ...request.Option) (*DescribeCustomerGatewaysOutput, error)
 	DescribeCustomerGatewaysRequest(*DescribeCustomerGatewaysInput) (*request.Request, *DescribeCustomerGatewaysOutput)
+
+	DescribeSslVpnClientCertAttributesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeSslVpnClientCertAttributesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeSslVpnClientCertAttributesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeSslVpnClientCertAttributes(*DescribeSslVpnClientCertAttributesInput) (*DescribeSslVpnClientCertAttributesOutput, error)
+	DescribeSslVpnClientCertAttributesWithContext(volcengine.Context, *DescribeSslVpnClientCertAttributesInput, ...request.Option) (*DescribeSslVpnClientCertAttributesOutput, error)
+	DescribeSslVpnClientCertAttributesRequest(*DescribeSslVpnClientCertAttributesInput) (*request.Request, *DescribeSslVpnClientCertAttributesOutput)
+
+	DescribeSslVpnClientCertsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeSslVpnClientCertsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeSslVpnClientCertsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeSslVpnClientCerts(*DescribeSslVpnClientCertsInput) (*DescribeSslVpnClientCertsOutput, error)
+	DescribeSslVpnClientCertsWithContext(volcengine.Context, *DescribeSslVpnClientCertsInput, ...request.Option) (*DescribeSslVpnClientCertsOutput, error)
+	DescribeSslVpnClientCertsRequest(*DescribeSslVpnClientCertsInput) (*request.Request, *DescribeSslVpnClientCertsOutput)
+
+	DescribeSslVpnServersCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeSslVpnServersCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeSslVpnServersCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeSslVpnServers(*DescribeSslVpnServersInput) (*DescribeSslVpnServersOutput, error)
+	DescribeSslVpnServersWithContext(volcengine.Context, *DescribeSslVpnServersInput, ...request.Option) (*DescribeSslVpnServersOutput, error)
+	DescribeSslVpnServersRequest(*DescribeSslVpnServersInput) (*request.Request, *DescribeSslVpnServersOutput)
 
 	DescribeVpnConnectionAttributesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DescribeVpnConnectionAttributesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -173,6 +246,22 @@ type VPNAPI interface {
 	ModifyCustomerGatewayAttributesWithContext(volcengine.Context, *ModifyCustomerGatewayAttributesInput, ...request.Option) (*ModifyCustomerGatewayAttributesOutput, error)
 	ModifyCustomerGatewayAttributesRequest(*ModifyCustomerGatewayAttributesInput) (*request.Request, *ModifyCustomerGatewayAttributesOutput)
 
+	ModifySslVpnClientCertCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ModifySslVpnClientCertCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ModifySslVpnClientCertCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ModifySslVpnClientCert(*ModifySslVpnClientCertInput) (*ModifySslVpnClientCertOutput, error)
+	ModifySslVpnClientCertWithContext(volcengine.Context, *ModifySslVpnClientCertInput, ...request.Option) (*ModifySslVpnClientCertOutput, error)
+	ModifySslVpnClientCertRequest(*ModifySslVpnClientCertInput) (*request.Request, *ModifySslVpnClientCertOutput)
+
+	ModifySslVpnServerCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ModifySslVpnServerCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ModifySslVpnServerCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ModifySslVpnServer(*ModifySslVpnServerInput) (*ModifySslVpnServerOutput, error)
+	ModifySslVpnServerWithContext(volcengine.Context, *ModifySslVpnServerInput, ...request.Option) (*ModifySslVpnServerOutput, error)
+	ModifySslVpnServerRequest(*ModifySslVpnServerInput) (*request.Request, *ModifySslVpnServerOutput)
+
 	ModifyVpnConnectionAttributesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ModifyVpnConnectionAttributesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	ModifyVpnConnectionAttributesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -180,6 +269,14 @@ type VPNAPI interface {
 	ModifyVpnConnectionAttributes(*ModifyVpnConnectionAttributesInput) (*ModifyVpnConnectionAttributesOutput, error)
 	ModifyVpnConnectionAttributesWithContext(volcengine.Context, *ModifyVpnConnectionAttributesInput, ...request.Option) (*ModifyVpnConnectionAttributesOutput, error)
 	ModifyVpnConnectionAttributesRequest(*ModifyVpnConnectionAttributesInput) (*request.Request, *ModifyVpnConnectionAttributesOutput)
+
+	ModifyVpnConnectionHealthCheckerCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ModifyVpnConnectionHealthCheckerCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ModifyVpnConnectionHealthCheckerCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ModifyVpnConnectionHealthChecker(*ModifyVpnConnectionHealthCheckerInput) (*ModifyVpnConnectionHealthCheckerOutput, error)
+	ModifyVpnConnectionHealthCheckerWithContext(volcengine.Context, *ModifyVpnConnectionHealthCheckerInput, ...request.Option) (*ModifyVpnConnectionHealthCheckerOutput, error)
+	ModifyVpnConnectionHealthCheckerRequest(*ModifyVpnConnectionHealthCheckerInput) (*request.Request, *ModifyVpnConnectionHealthCheckerOutput)
 
 	ModifyVpnGatewayAttributesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ModifyVpnGatewayAttributesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -196,6 +293,14 @@ type VPNAPI interface {
 	RenewVpnGateway(*RenewVpnGatewayInput) (*RenewVpnGatewayOutput, error)
 	RenewVpnGatewayWithContext(volcengine.Context, *RenewVpnGatewayInput, ...request.Option) (*RenewVpnGatewayOutput, error)
 	RenewVpnGatewayRequest(*RenewVpnGatewayInput) (*request.Request, *RenewVpnGatewayOutput)
+
+	ResetVpnConnectionCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ResetVpnConnectionCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ResetVpnConnectionCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ResetVpnConnection(*ResetVpnConnectionInput) (*ResetVpnConnectionOutput, error)
+	ResetVpnConnectionWithContext(volcengine.Context, *ResetVpnConnectionInput, ...request.Option) (*ResetVpnConnectionOutput, error)
+	ResetVpnConnectionRequest(*ResetVpnConnectionInput) (*request.Request, *ResetVpnConnectionOutput)
 
 	SetVpnGatewayRenewalCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	SetVpnGatewayRenewalCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)

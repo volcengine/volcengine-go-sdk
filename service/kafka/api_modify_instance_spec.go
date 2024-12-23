@@ -144,20 +144,22 @@ func (c *KAFKA) ModifyInstanceSpecWithContext(ctx volcengine.Context, input *Mod
 }
 
 type ModifyInstanceSpecInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	ComputeSpec *string `type:"string"`
+	ClientToken *string `type:"string" json:",omitempty"`
+
+	ComputeSpec *string `type:"string" json:",omitempty"`
 
 	// InstanceId is a required field
-	InstanceId *string `type:"string" required:"true"`
+	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 
-	NeedRebalance *bool `type:"boolean"`
+	NeedRebalance *bool `type:"boolean" json:",omitempty"`
 
-	PartitionNumber *int32 `type:"int32"`
+	PartitionNumber *int32 `type:"int32" json:",omitempty"`
 
-	RebalanceTime *string `type:"string"`
+	RebalanceTime *string `type:"string" json:",omitempty"`
 
-	StorageSpace *int32 `type:"int32"`
+	StorageSpace *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -181,6 +183,12 @@ func (s *ModifyInstanceSpecInput) Validate() error {
 		return invalidParams
 	}
 	return nil
+}
+
+// SetClientToken sets the ClientToken field's value.
+func (s *ModifyInstanceSpecInput) SetClientToken(v string) *ModifyInstanceSpecInput {
+	s.ClientToken = &v
+	return s
 }
 
 // SetComputeSpec sets the ComputeSpec field's value.
@@ -220,11 +228,11 @@ func (s *ModifyInstanceSpecInput) SetStorageSpace(v int32) *ModifyInstanceSpecIn
 }
 
 type ModifyInstanceSpecOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	OrderId *string `type:"string"`
+	OrderId *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation

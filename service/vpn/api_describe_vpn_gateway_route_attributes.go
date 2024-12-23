@@ -22,13 +22,13 @@ const opDescribeVpnGatewayRouteAttributesCommon = "DescribeVpnGatewayRouteAttrib
 // See DescribeVpnGatewayRouteAttributesCommon for more information on using the DescribeVpnGatewayRouteAttributesCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeVpnGatewayRouteAttributesCommonRequest method.
-//	req, resp := client.DescribeVpnGatewayRouteAttributesCommonRequest(params)
+//    // Example sending a request using the DescribeVpnGatewayRouteAttributesCommonRequest method.
+//    req, resp := client.DescribeVpnGatewayRouteAttributesCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VPN) DescribeVpnGatewayRouteAttributesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeVpnGatewayRouteAttributesCommon,
@@ -87,13 +87,13 @@ const opDescribeVpnGatewayRouteAttributes = "DescribeVpnGatewayRouteAttributes"
 // See DescribeVpnGatewayRouteAttributes for more information on using the DescribeVpnGatewayRouteAttributes
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeVpnGatewayRouteAttributesRequest method.
-//	req, resp := client.DescribeVpnGatewayRouteAttributesRequest(params)
+//    // Example sending a request using the DescribeVpnGatewayRouteAttributesRequest method.
+//    req, resp := client.DescribeVpnGatewayRouteAttributesRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VPN) DescribeVpnGatewayRouteAttributesRequest(input *DescribeVpnGatewayRouteAttributesInput) (req *request.Request, output *DescribeVpnGatewayRouteAttributesOutput) {
 	op := &request.Operation{
 		Name:       opDescribeVpnGatewayRouteAttributes,
@@ -139,6 +139,36 @@ func (c *VPN) DescribeVpnGatewayRouteAttributesWithContext(ctx volcengine.Contex
 	return out, req.Send()
 }
 
+type AsPathForDescribeVpnGatewayRouteAttributesOutput struct {
+	_ struct{} `type:"structure"`
+
+	Numbers []*int64 `type:"list"`
+
+	Type *string `type:"string" enum:"TypeForDescribeVpnGatewayRouteAttributesOutput"`
+}
+
+// String returns the string representation
+func (s AsPathForDescribeVpnGatewayRouteAttributesOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s AsPathForDescribeVpnGatewayRouteAttributesOutput) GoString() string {
+	return s.String()
+}
+
+// SetNumbers sets the Numbers field's value.
+func (s *AsPathForDescribeVpnGatewayRouteAttributesOutput) SetNumbers(v []*int64) *AsPathForDescribeVpnGatewayRouteAttributesOutput {
+	s.Numbers = v
+	return s
+}
+
+// SetType sets the Type field's value.
+func (s *AsPathForDescribeVpnGatewayRouteAttributesOutput) SetType(v string) *AsPathForDescribeVpnGatewayRouteAttributesOutput {
+	s.Type = &v
+	return s
+}
+
 type DescribeVpnGatewayRouteAttributesInput struct {
 	_ struct{} `type:"structure"`
 
@@ -180,6 +210,8 @@ type DescribeVpnGatewayRouteAttributesOutput struct {
 
 	Metadata *response.ResponseMetadata
 
+	AsPath []*AsPathForDescribeVpnGatewayRouteAttributesOutput `type:"list"`
+
 	CreationTime *string `type:"string"`
 
 	DestinationCidrBlock *string `type:"string"`
@@ -187,6 +219,8 @@ type DescribeVpnGatewayRouteAttributesOutput struct {
 	NextHopId *string `type:"string"`
 
 	RequestId *string `type:"string"`
+
+	RouteType *string `type:"string"`
 
 	Status *string `type:"string"`
 
@@ -205,6 +239,12 @@ func (s DescribeVpnGatewayRouteAttributesOutput) String() string {
 // GoString returns the string representation
 func (s DescribeVpnGatewayRouteAttributesOutput) GoString() string {
 	return s.String()
+}
+
+// SetAsPath sets the AsPath field's value.
+func (s *DescribeVpnGatewayRouteAttributesOutput) SetAsPath(v []*AsPathForDescribeVpnGatewayRouteAttributesOutput) *DescribeVpnGatewayRouteAttributesOutput {
+	s.AsPath = v
+	return s
 }
 
 // SetCreationTime sets the CreationTime field's value.
@@ -231,6 +271,12 @@ func (s *DescribeVpnGatewayRouteAttributesOutput) SetRequestId(v string) *Descri
 	return s
 }
 
+// SetRouteType sets the RouteType field's value.
+func (s *DescribeVpnGatewayRouteAttributesOutput) SetRouteType(v string) *DescribeVpnGatewayRouteAttributesOutput {
+	s.RouteType = &v
+	return s
+}
+
 // SetStatus sets the Status field's value.
 func (s *DescribeVpnGatewayRouteAttributesOutput) SetStatus(v string) *DescribeVpnGatewayRouteAttributesOutput {
 	s.Status = &v
@@ -254,3 +300,11 @@ func (s *DescribeVpnGatewayRouteAttributesOutput) SetVpnGatewayRouteId(v string)
 	s.VpnGatewayRouteId = &v
 	return s
 }
+
+const (
+	// TypeForDescribeVpnGatewayRouteAttributesOutputSequence is a TypeForDescribeVpnGatewayRouteAttributesOutput enum value
+	TypeForDescribeVpnGatewayRouteAttributesOutputSequence = "Sequence"
+
+	// TypeForDescribeVpnGatewayRouteAttributesOutputSet is a TypeForDescribeVpnGatewayRouteAttributesOutput enum value
+	TypeForDescribeVpnGatewayRouteAttributesOutputSet = " Set"
+)

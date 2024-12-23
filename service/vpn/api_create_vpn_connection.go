@@ -22,13 +22,13 @@ const opCreateVpnConnectionCommon = "CreateVpnConnection"
 // See CreateVpnConnectionCommon for more information on using the CreateVpnConnectionCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the CreateVpnConnectionCommonRequest method.
-//	req, resp := client.CreateVpnConnectionCommonRequest(params)
+//    // Example sending a request using the CreateVpnConnectionCommonRequest method.
+//    req, resp := client.CreateVpnConnectionCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VPN) CreateVpnConnectionCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opCreateVpnConnectionCommon,
@@ -87,13 +87,13 @@ const opCreateVpnConnection = "CreateVpnConnection"
 // See CreateVpnConnection for more information on using the CreateVpnConnection
 // API call, and error handling.
 //
-//	// Example sending a request using the CreateVpnConnectionRequest method.
-//	req, resp := client.CreateVpnConnectionRequest(params)
+//    // Example sending a request using the CreateVpnConnectionRequest method.
+//    req, resp := client.CreateVpnConnectionRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VPN) CreateVpnConnectionRequest(input *CreateVpnConnectionInput) (req *request.Request, output *CreateVpnConnectionOutput) {
 	op := &request.Operation{
 		Name:       opCreateVpnConnection,
@@ -139,23 +139,79 @@ func (c *VPN) CreateVpnConnectionWithContext(ctx volcengine.Context, input *Crea
 	return out, req.Send()
 }
 
+type BgpConfigForCreateVpnConnectionInput struct {
+	_ struct{} `type:"structure"`
+
+	// EnableBgp is a required field
+	EnableBgp *bool `type:"boolean" required:"true"`
+
+	LocalBgpIp *string `type:"string"`
+
+	TunnelCidr *string `type:"string"`
+}
+
+// String returns the string representation
+func (s BgpConfigForCreateVpnConnectionInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s BgpConfigForCreateVpnConnectionInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *BgpConfigForCreateVpnConnectionInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "BgpConfigForCreateVpnConnectionInput"}
+	if s.EnableBgp == nil {
+		invalidParams.Add(request.NewErrParamRequired("EnableBgp"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetEnableBgp sets the EnableBgp field's value.
+func (s *BgpConfigForCreateVpnConnectionInput) SetEnableBgp(v bool) *BgpConfigForCreateVpnConnectionInput {
+	s.EnableBgp = &v
+	return s
+}
+
+// SetLocalBgpIp sets the LocalBgpIp field's value.
+func (s *BgpConfigForCreateVpnConnectionInput) SetLocalBgpIp(v string) *BgpConfigForCreateVpnConnectionInput {
+	s.LocalBgpIp = &v
+	return s
+}
+
+// SetTunnelCidr sets the TunnelCidr field's value.
+func (s *BgpConfigForCreateVpnConnectionInput) SetTunnelCidr(v string) *BgpConfigForCreateVpnConnectionInput {
+	s.TunnelCidr = &v
+	return s
+}
+
 type CreateVpnConnectionInput struct {
 	_ struct{} `type:"structure"`
 
-	AttachType *string `type:"string" enum:"AttachTypeForCreateVpnConnectionInput"`
+	AttachType *string `type:"string"`
+
+	// BgpConfig is a required field
+	BgpConfig *BgpConfigForCreateVpnConnectionInput `type:"structure" required:"true"`
 
 	ClientToken *string `type:"string"`
 
 	// CustomerGatewayId is a required field
 	CustomerGatewayId *string `type:"string" required:"true"`
 
-	Description *string `min:"1" max:"255" type:"string"`
+	Description *string `type:"string"`
 
-	DpdAction *string `type:"string" enum:"DpdActionForCreateVpnConnectionInput"`
+	DpdAction *string `type:"string"`
 
-	IkeConfig *string `type:"string"`
+	// IkeConfig is a required field
+	IkeConfig *IkeConfigForCreateVpnConnectionInput `type:"structure" required:"true"`
 
-	IpsecConfig *string `type:"string"`
+	IpsecConfig *IpsecConfigForCreateVpnConnectionInput `type:"structure"`
 
 	// LocalSubnet is a required field
 	LocalSubnet []*string `type:"list" required:"true"`
@@ -171,7 +227,9 @@ type CreateVpnConnectionInput struct {
 	// RemoteSubnet is a required field
 	RemoteSubnet []*string `type:"list" required:"true"`
 
-	VpnConnectionName *string `min:"1" max:"128" type:"string"`
+	Spec *string `type:"string"`
+
+	VpnConnectionName *string `type:"string"`
 
 	// VpnGatewayId is a required field
 	VpnGatewayId *string `type:"string" required:"true"`
@@ -190,14 +248,14 @@ func (s CreateVpnConnectionInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *CreateVpnConnectionInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "CreateVpnConnectionInput"}
+	if s.BgpConfig == nil {
+		invalidParams.Add(request.NewErrParamRequired("BgpConfig"))
+	}
 	if s.CustomerGatewayId == nil {
 		invalidParams.Add(request.NewErrParamRequired("CustomerGatewayId"))
 	}
-	if s.Description != nil && len(*s.Description) < 1 {
-		invalidParams.Add(request.NewErrParamMinLen("Description", 1))
-	}
-	if s.Description != nil && len(*s.Description) > 255 {
-		invalidParams.Add(request.NewErrParamMaxLen("Description", 255, *s.Description))
+	if s.IkeConfig == nil {
+		invalidParams.Add(request.NewErrParamRequired("IkeConfig"))
 	}
 	if s.LocalSubnet == nil {
 		invalidParams.Add(request.NewErrParamRequired("LocalSubnet"))
@@ -205,14 +263,18 @@ func (s *CreateVpnConnectionInput) Validate() error {
 	if s.RemoteSubnet == nil {
 		invalidParams.Add(request.NewErrParamRequired("RemoteSubnet"))
 	}
-	if s.VpnConnectionName != nil && len(*s.VpnConnectionName) < 1 {
-		invalidParams.Add(request.NewErrParamMinLen("VpnConnectionName", 1))
-	}
-	if s.VpnConnectionName != nil && len(*s.VpnConnectionName) > 128 {
-		invalidParams.Add(request.NewErrParamMaxLen("VpnConnectionName", 128, *s.VpnConnectionName))
-	}
 	if s.VpnGatewayId == nil {
 		invalidParams.Add(request.NewErrParamRequired("VpnGatewayId"))
+	}
+	if s.BgpConfig != nil {
+		if err := s.BgpConfig.Validate(); err != nil {
+			invalidParams.AddNested("BgpConfig", err.(request.ErrInvalidParams))
+		}
+	}
+	if s.IkeConfig != nil {
+		if err := s.IkeConfig.Validate(); err != nil {
+			invalidParams.AddNested("IkeConfig", err.(request.ErrInvalidParams))
+		}
 	}
 
 	if invalidParams.Len() > 0 {
@@ -224,6 +286,12 @@ func (s *CreateVpnConnectionInput) Validate() error {
 // SetAttachType sets the AttachType field's value.
 func (s *CreateVpnConnectionInput) SetAttachType(v string) *CreateVpnConnectionInput {
 	s.AttachType = &v
+	return s
+}
+
+// SetBgpConfig sets the BgpConfig field's value.
+func (s *CreateVpnConnectionInput) SetBgpConfig(v *BgpConfigForCreateVpnConnectionInput) *CreateVpnConnectionInput {
+	s.BgpConfig = v
 	return s
 }
 
@@ -252,14 +320,14 @@ func (s *CreateVpnConnectionInput) SetDpdAction(v string) *CreateVpnConnectionIn
 }
 
 // SetIkeConfig sets the IkeConfig field's value.
-func (s *CreateVpnConnectionInput) SetIkeConfig(v string) *CreateVpnConnectionInput {
-	s.IkeConfig = &v
+func (s *CreateVpnConnectionInput) SetIkeConfig(v *IkeConfigForCreateVpnConnectionInput) *CreateVpnConnectionInput {
+	s.IkeConfig = v
 	return s
 }
 
 // SetIpsecConfig sets the IpsecConfig field's value.
-func (s *CreateVpnConnectionInput) SetIpsecConfig(v string) *CreateVpnConnectionInput {
-	s.IpsecConfig = &v
+func (s *CreateVpnConnectionInput) SetIpsecConfig(v *IpsecConfigForCreateVpnConnectionInput) *CreateVpnConnectionInput {
+	s.IpsecConfig = v
 	return s
 }
 
@@ -296,6 +364,12 @@ func (s *CreateVpnConnectionInput) SetProjectName(v string) *CreateVpnConnection
 // SetRemoteSubnet sets the RemoteSubnet field's value.
 func (s *CreateVpnConnectionInput) SetRemoteSubnet(v []*string) *CreateVpnConnectionInput {
 	s.RemoteSubnet = v
+	return s
+}
+
+// SetSpec sets the Spec field's value.
+func (s *CreateVpnConnectionInput) SetSpec(v string) *CreateVpnConnectionInput {
+	s.Spec = &v
 	return s
 }
 
@@ -351,24 +425,148 @@ func (s *CreateVpnConnectionOutput) SetVpnConnectionId(v string) *CreateVpnConne
 	return s
 }
 
-const (
-	// AttachTypeForCreateVpnConnectionInputVpnGateway is a AttachTypeForCreateVpnConnectionInput enum value
-	AttachTypeForCreateVpnConnectionInputVpnGateway = "VpnGateway"
+type IkeConfigForCreateVpnConnectionInput struct {
+	_ struct{} `type:"structure"`
 
-	// AttachTypeForCreateVpnConnectionInputTransitRouter is a AttachTypeForCreateVpnConnectionInput enum value
-	AttachTypeForCreateVpnConnectionInputTransitRouter = "TransitRouter"
-)
+	AuthAlg *string `type:"string"`
 
-const (
-	// DpdActionForCreateVpnConnectionInputNone is a DpdActionForCreateVpnConnectionInput enum value
-	DpdActionForCreateVpnConnectionInputNone = "none"
+	DhGroup *string `type:"string"`
 
-	// DpdActionForCreateVpnConnectionInputClear is a DpdActionForCreateVpnConnectionInput enum value
-	DpdActionForCreateVpnConnectionInputClear = "clear"
+	EncAlg *string `type:"string"`
 
-	// DpdActionForCreateVpnConnectionInputHold is a DpdActionForCreateVpnConnectionInput enum value
-	DpdActionForCreateVpnConnectionInputHold = "hold"
+	Lifetime *int64 `type:"integer"`
 
-	// DpdActionForCreateVpnConnectionInputRestart is a DpdActionForCreateVpnConnectionInput enum value
-	DpdActionForCreateVpnConnectionInputRestart = "restart"
-)
+	LocalId *string `type:"string"`
+
+	Mode *string `type:"string"`
+
+	// Psk is a required field
+	Psk *string `type:"string" required:"true"`
+
+	RemoteId *string `type:"string"`
+
+	Version *string `type:"string"`
+}
+
+// String returns the string representation
+func (s IkeConfigForCreateVpnConnectionInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s IkeConfigForCreateVpnConnectionInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *IkeConfigForCreateVpnConnectionInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "IkeConfigForCreateVpnConnectionInput"}
+	if s.Psk == nil {
+		invalidParams.Add(request.NewErrParamRequired("Psk"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetAuthAlg sets the AuthAlg field's value.
+func (s *IkeConfigForCreateVpnConnectionInput) SetAuthAlg(v string) *IkeConfigForCreateVpnConnectionInput {
+	s.AuthAlg = &v
+	return s
+}
+
+// SetDhGroup sets the DhGroup field's value.
+func (s *IkeConfigForCreateVpnConnectionInput) SetDhGroup(v string) *IkeConfigForCreateVpnConnectionInput {
+	s.DhGroup = &v
+	return s
+}
+
+// SetEncAlg sets the EncAlg field's value.
+func (s *IkeConfigForCreateVpnConnectionInput) SetEncAlg(v string) *IkeConfigForCreateVpnConnectionInput {
+	s.EncAlg = &v
+	return s
+}
+
+// SetLifetime sets the Lifetime field's value.
+func (s *IkeConfigForCreateVpnConnectionInput) SetLifetime(v int64) *IkeConfigForCreateVpnConnectionInput {
+	s.Lifetime = &v
+	return s
+}
+
+// SetLocalId sets the LocalId field's value.
+func (s *IkeConfigForCreateVpnConnectionInput) SetLocalId(v string) *IkeConfigForCreateVpnConnectionInput {
+	s.LocalId = &v
+	return s
+}
+
+// SetMode sets the Mode field's value.
+func (s *IkeConfigForCreateVpnConnectionInput) SetMode(v string) *IkeConfigForCreateVpnConnectionInput {
+	s.Mode = &v
+	return s
+}
+
+// SetPsk sets the Psk field's value.
+func (s *IkeConfigForCreateVpnConnectionInput) SetPsk(v string) *IkeConfigForCreateVpnConnectionInput {
+	s.Psk = &v
+	return s
+}
+
+// SetRemoteId sets the RemoteId field's value.
+func (s *IkeConfigForCreateVpnConnectionInput) SetRemoteId(v string) *IkeConfigForCreateVpnConnectionInput {
+	s.RemoteId = &v
+	return s
+}
+
+// SetVersion sets the Version field's value.
+func (s *IkeConfigForCreateVpnConnectionInput) SetVersion(v string) *IkeConfigForCreateVpnConnectionInput {
+	s.Version = &v
+	return s
+}
+
+type IpsecConfigForCreateVpnConnectionInput struct {
+	_ struct{} `type:"structure"`
+
+	AuthAlg *string `type:"string"`
+
+	DhGroup *string `type:"string"`
+
+	EncAlg *string `type:"string"`
+
+	Lifetime *int64 `type:"integer"`
+}
+
+// String returns the string representation
+func (s IpsecConfigForCreateVpnConnectionInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s IpsecConfigForCreateVpnConnectionInput) GoString() string {
+	return s.String()
+}
+
+// SetAuthAlg sets the AuthAlg field's value.
+func (s *IpsecConfigForCreateVpnConnectionInput) SetAuthAlg(v string) *IpsecConfigForCreateVpnConnectionInput {
+	s.AuthAlg = &v
+	return s
+}
+
+// SetDhGroup sets the DhGroup field's value.
+func (s *IpsecConfigForCreateVpnConnectionInput) SetDhGroup(v string) *IpsecConfigForCreateVpnConnectionInput {
+	s.DhGroup = &v
+	return s
+}
+
+// SetEncAlg sets the EncAlg field's value.
+func (s *IpsecConfigForCreateVpnConnectionInput) SetEncAlg(v string) *IpsecConfigForCreateVpnConnectionInput {
+	s.EncAlg = &v
+	return s
+}
+
+// SetLifetime sets the Lifetime field's value.
+func (s *IpsecConfigForCreateVpnConnectionInput) SetLifetime(v int64) *IpsecConfigForCreateVpnConnectionInput {
+	s.Lifetime = &v
+	return s
+}

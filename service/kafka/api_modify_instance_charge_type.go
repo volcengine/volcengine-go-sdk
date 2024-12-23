@@ -144,15 +144,15 @@ func (c *KAFKA) ModifyInstanceChargeTypeWithContext(ctx volcengine.Context, inpu
 }
 
 type ChargeInfoForModifyInstanceChargeTypeInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	AutoRenew *bool `type:"boolean"`
+	AutoRenew *bool `type:"boolean" json:",omitempty"`
 
-	ChargeType *string `type:"string"`
+	ChargeType *string `type:"string" json:",omitempty"`
 
-	Period *int32 `type:"int32"`
+	Period *int32 `type:"int32" json:",omitempty"`
 
-	PeriodUnit *string `type:"string"`
+	PeriodUnit *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -190,12 +190,12 @@ func (s *ChargeInfoForModifyInstanceChargeTypeInput) SetPeriodUnit(v string) *Ch
 }
 
 type ModifyInstanceChargeTypeInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	ChargeInfo *ChargeInfoForModifyInstanceChargeTypeInput `type:"structure"`
+	ChargeInfo *ChargeInfoForModifyInstanceChargeTypeInput `type:"structure" json:",omitempty"`
 
 	// InstanceId is a required field
-	InstanceId *string `type:"string" required:"true"`
+	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -234,11 +234,11 @@ func (s *ModifyInstanceChargeTypeInput) SetInstanceId(v string) *ModifyInstanceC
 }
 
 type ModifyInstanceChargeTypeOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	OrderId *string `type:"string"`
+	OrderId *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation

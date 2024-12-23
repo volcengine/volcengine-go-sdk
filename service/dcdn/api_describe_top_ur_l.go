@@ -144,24 +144,24 @@ func (c *DCDN) DescribeTopURLWithContext(ctx volcengine.Context, input *Describe
 }
 
 type DescribeTopURLInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Domain *string `type:"string"`
+	Domain *string `type:"string" json:",omitempty"`
 
 	// EndTime is a required field
-	EndTime *string `type:"string" required:"true"`
+	EndTime *string `type:"string" json:",omitempty" required:"true"`
 
-	Limit *int32 `type:"int32"`
+	Limit *int32 `type:"int32" json:",omitempty"`
 
-	ProjectName []*string `type:"list"`
+	ProjectName []*string `type:"list" json:",omitempty"`
 
 	// Sort is a required field
-	Sort *string `type:"string" required:"true"`
+	Sort *string `type:"string" json:",omitempty" required:"true"`
 
 	// StartTime is a required field
-	StartTime *string `type:"string" required:"true"`
+	StartTime *string `type:"string" json:",omitempty" required:"true"`
 
-	StatusCode []*string `type:"list"`
+	StatusCode []*string `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -236,11 +236,11 @@ func (s *DescribeTopURLInput) SetStatusCode(v []*string) *DescribeTopURLInput {
 }
 
 type DescribeTopURLOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	TopURLs []*TopURLForDescribeTopURLOutput `type:"list"`
+	TopURLs []*TopURLForDescribeTopURLOutput `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -260,19 +260,19 @@ func (s *DescribeTopURLOutput) SetTopURLs(v []*TopURLForDescribeTopURLOutput) *D
 }
 
 type TopURLForDescribeTopURLOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Bandwidth *float64 `type:"float"`
+	Bandwidth *float64 `type:"float" json:",omitempty"`
 
-	QPS *float64 `type:"float"`
+	QPS *float64 `type:"float" json:",omitempty"`
 
-	Rank *float64 `type:"float"`
+	Rank *float64 `type:"float" json:",omitempty"`
 
-	Request *float64 `type:"float"`
+	Request *float64 `type:"float" json:",omitempty"`
 
-	Traffic *float64 `type:"float"`
+	Traffic *float64 `type:"float" json:",omitempty"`
 
-	URL *string `type:"string"`
+	URL *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation

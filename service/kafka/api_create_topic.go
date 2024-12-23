@@ -144,11 +144,11 @@ func (c *KAFKA) CreateTopicWithContext(ctx volcengine.Context, input *CreateTopi
 }
 
 type AccessPolicyForCreateTopicInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	AccessPolicy *string `type:"string"`
+	AccessPolicy *string `type:"string" json:",omitempty"`
 
-	UserName *string `type:"string"`
+	UserName *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -174,26 +174,30 @@ func (s *AccessPolicyForCreateTopicInput) SetUserName(v string) *AccessPolicyFor
 }
 
 type CreateTopicInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	AccessPolicies []*AccessPolicyForCreateTopicInput `type:"list"`
+	AccessPolicies []*AccessPolicyForCreateTopicInput `type:"list" json:",omitempty"`
 
-	AllAuthority *bool `type:"boolean"`
+	AllAuthority *bool `type:"boolean" json:",omitempty"`
 
-	Description *string `type:"string"`
+	CleanupPolicy []*string `type:"list" json:",omitempty"`
+
+	Description *string `type:"string" json:",omitempty"`
 
 	// InstanceId is a required field
-	InstanceId *string `type:"string" required:"true"`
+	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 
-	Parameters *string `type:"string"`
+	Parameters *string `type:"string" json:",omitempty"`
 
 	// PartitionNumber is a required field
-	PartitionNumber *int32 `type:"int32" required:"true"`
+	PartitionNumber *int32 `type:"int32" json:",omitempty" required:"true"`
 
-	ReplicaNumber *int32 `type:"int32"`
+	ReplicaNumber *int32 `type:"int32" json:",omitempty"`
+
+	Tags []*TagForCreateTopicInput `type:"list" json:",omitempty"`
 
 	// TopicName is a required field
-	TopicName *string `type:"string" required:"true"`
+	TopicName *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -237,6 +241,12 @@ func (s *CreateTopicInput) SetAllAuthority(v bool) *CreateTopicInput {
 	return s
 }
 
+// SetCleanupPolicy sets the CleanupPolicy field's value.
+func (s *CreateTopicInput) SetCleanupPolicy(v []*string) *CreateTopicInput {
+	s.CleanupPolicy = v
+	return s
+}
+
 // SetDescription sets the Description field's value.
 func (s *CreateTopicInput) SetDescription(v string) *CreateTopicInput {
 	s.Description = &v
@@ -267,6 +277,12 @@ func (s *CreateTopicInput) SetReplicaNumber(v int32) *CreateTopicInput {
 	return s
 }
 
+// SetTags sets the Tags field's value.
+func (s *CreateTopicInput) SetTags(v []*TagForCreateTopicInput) *CreateTopicInput {
+	s.Tags = v
+	return s
+}
+
 // SetTopicName sets the TopicName field's value.
 func (s *CreateTopicInput) SetTopicName(v string) *CreateTopicInput {
 	s.TopicName = &v
@@ -274,7 +290,7 @@ func (s *CreateTopicInput) SetTopicName(v string) *CreateTopicInput {
 }
 
 type CreateTopicOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 }
@@ -288,3 +304,41 @@ func (s CreateTopicOutput) String() string {
 func (s CreateTopicOutput) GoString() string {
 	return s.String()
 }
+
+type TagForCreateTopicInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Key *string `type:"string" json:",omitempty"`
+
+	Value *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s TagForCreateTopicInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagForCreateTopicInput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagForCreateTopicInput) SetKey(v string) *TagForCreateTopicInput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *TagForCreateTopicInput) SetValue(v string) *TagForCreateTopicInput {
+	s.Value = &v
+	return s
+}
+
+const (
+	// EnumOfCleanupPolicyListForCreateTopicInputDelete is a EnumOfCleanupPolicyListForCreateTopicInput enum value
+	EnumOfCleanupPolicyListForCreateTopicInputDelete = "delete"
+
+	// EnumOfCleanupPolicyListForCreateTopicInputCompact is a EnumOfCleanupPolicyListForCreateTopicInput enum value
+	EnumOfCleanupPolicyListForCreateTopicInputCompact = "compact"
+)

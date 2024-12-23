@@ -22,13 +22,13 @@ const opDeleteVpnConnectionCommon = "DeleteVpnConnection"
 // See DeleteVpnConnectionCommon for more information on using the DeleteVpnConnectionCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the DeleteVpnConnectionCommonRequest method.
-//	req, resp := client.DeleteVpnConnectionCommonRequest(params)
+//    // Example sending a request using the DeleteVpnConnectionCommonRequest method.
+//    req, resp := client.DeleteVpnConnectionCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VPN) DeleteVpnConnectionCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDeleteVpnConnectionCommon,
@@ -87,13 +87,13 @@ const opDeleteVpnConnection = "DeleteVpnConnection"
 // See DeleteVpnConnection for more information on using the DeleteVpnConnection
 // API call, and error handling.
 //
-//	// Example sending a request using the DeleteVpnConnectionRequest method.
-//	req, resp := client.DeleteVpnConnectionRequest(params)
+//    // Example sending a request using the DeleteVpnConnectionRequest method.
+//    req, resp := client.DeleteVpnConnectionRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VPN) DeleteVpnConnectionRequest(input *DeleteVpnConnectionInput) (req *request.Request, output *DeleteVpnConnectionOutput) {
 	op := &request.Operation{
 		Name:       opDeleteVpnConnection,

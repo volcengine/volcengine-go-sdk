@@ -144,17 +144,17 @@ func (c *DCDN) UpdateDomainProbeSettingsWithContext(ctx volcengine.Context, inpu
 }
 
 type ProbeSettingForUpdateDomainProbeSettingsInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Host *string `type:"string"`
+	Host *string `type:"string" json:",omitempty"`
 
-	ReqHeadersList []*ReqHeadersListForUpdateDomainProbeSettingsInput `type:"list"`
+	ReqHeadersList []*ReqHeadersListForUpdateDomainProbeSettingsInput `type:"list" json:",omitempty"`
 
-	Switch *string `type:"string"`
+	Switch *string `type:"string" json:",omitempty"`
 
-	UnhealthyStatusList []*string `type:"list"`
+	UnhealthyStatusList []*string `type:"list" json:",omitempty"`
 
-	Url *string `type:"string"`
+	Url *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -198,11 +198,11 @@ func (s *ProbeSettingForUpdateDomainProbeSettingsInput) SetUrl(v string) *ProbeS
 }
 
 type ProbeSettingInfoForUpdateDomainProbeSettingsInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Domain *string `type:"string"`
+	Domain *string `type:"string" json:",omitempty"`
 
-	ProbeSetting *ProbeSettingForUpdateDomainProbeSettingsInput `type:"structure"`
+	ProbeSetting *ProbeSettingForUpdateDomainProbeSettingsInput `type:"structure" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -228,11 +228,11 @@ func (s *ProbeSettingInfoForUpdateDomainProbeSettingsInput) SetProbeSetting(v *P
 }
 
 type ReqHeadersListForUpdateDomainProbeSettingsInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Key *string `type:"string"`
+	Key *string `type:"string" json:",omitempty"`
 
-	Value *string `type:"string"`
+	Value *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -258,9 +258,9 @@ func (s *ReqHeadersListForUpdateDomainProbeSettingsInput) SetValue(v string) *Re
 }
 
 type UpdateDomainProbeSettingsInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	ProbeSettingInfo []*ProbeSettingInfoForUpdateDomainProbeSettingsInput `type:"list"`
+	ProbeSettingInfo []*ProbeSettingInfoForUpdateDomainProbeSettingsInput `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -280,7 +280,7 @@ func (s *UpdateDomainProbeSettingsInput) SetProbeSettingInfo(v []*ProbeSettingIn
 }
 
 type UpdateDomainProbeSettingsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 }

@@ -144,9 +144,9 @@ func (c *DCDN) DeleteDomainWithContext(ctx volcengine.Context, input *DeleteDoma
 }
 
 type DeleteDomainInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Domains []*string `type:"list"`
+	Domains []*string `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -166,7 +166,7 @@ func (s *DeleteDomainInput) SetDomains(v []*string) *DeleteDomainInput {
 }
 
 type DeleteDomainOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 }

@@ -144,16 +144,16 @@ func (c *KAFKA) ModifyUserAuthorityWithContext(ctx volcengine.Context, input *Mo
 }
 
 type ModifyUserAuthorityInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// AllAuthority is a required field
-	AllAuthority *bool `type:"boolean" required:"true"`
+	AllAuthority *bool `type:"boolean" json:",omitempty" required:"true"`
 
 	// InstanceId is a required field
-	InstanceId *string `type:"string" required:"true"`
+	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 
 	// UserName is a required field
-	UserName *string `type:"string" required:"true"`
+	UserName *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -204,7 +204,7 @@ func (s *ModifyUserAuthorityInput) SetUserName(v string) *ModifyUserAuthorityInp
 }
 
 type ModifyUserAuthorityOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 }

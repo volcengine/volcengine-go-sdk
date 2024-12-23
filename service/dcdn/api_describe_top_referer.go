@@ -144,20 +144,20 @@ func (c *DCDN) DescribeTopRefererWithContext(ctx volcengine.Context, input *Desc
 }
 
 type DescribeTopRefererInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// EndTime is a required field
-	EndTime *string `type:"string" required:"true"`
+	EndTime *string `type:"string" json:",omitempty" required:"true"`
 
-	Limit *int32 `type:"int32"`
+	Limit *int32 `type:"int32" json:",omitempty"`
 
-	ProjectName []*string `type:"list"`
+	ProjectName []*string `type:"list" json:",omitempty"`
 
 	// Sort is a required field
-	Sort *string `type:"string" required:"true"`
+	Sort *string `type:"string" json:",omitempty" required:"true"`
 
 	// StartTime is a required field
-	StartTime *string `type:"string" required:"true"`
+	StartTime *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -220,11 +220,11 @@ func (s *DescribeTopRefererInput) SetStartTime(v string) *DescribeTopRefererInpu
 }
 
 type DescribeTopRefererOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	TopReferers []*TopRefererForDescribeTopRefererOutput `type:"list"`
+	TopReferers []*TopRefererForDescribeTopRefererOutput `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -244,19 +244,19 @@ func (s *DescribeTopRefererOutput) SetTopReferers(v []*TopRefererForDescribeTopR
 }
 
 type TopRefererForDescribeTopRefererOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Bandwidth *float64 `type:"float"`
+	Bandwidth *float64 `type:"float" json:",omitempty"`
 
-	QPS *float64 `type:"float"`
+	QPS *float64 `type:"float" json:",omitempty"`
 
-	Rank *float64 `type:"float"`
+	Rank *float64 `type:"float" json:",omitempty"`
 
-	Referer *string `type:"string"`
+	Referer *string `type:"string" json:",omitempty"`
 
-	Request *float64 `type:"float"`
+	Request *float64 `type:"float" json:",omitempty"`
 
-	Traffic *float64 `type:"float"`
+	Traffic *float64 `type:"float" json:",omitempty"`
 }
 
 // String returns the string representation

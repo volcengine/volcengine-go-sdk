@@ -144,36 +144,36 @@ func (c *DCDN) DescribeTopDomainsWithContext(ctx volcengine.Context, input *Desc
 }
 
 type DescribeTopDomainsInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	AcceleratingRegion *string `type:"string"`
+	AcceleratingRegion *string `type:"string" json:",omitempty"`
 
-	Area *string `type:"string"`
+	Area *string `type:"string" json:",omitempty"`
 
-	Domains []*string `type:"list"`
+	Domains []*string `type:"list" json:",omitempty"`
 
 	// EndTime is a required field
-	EndTime *string `type:"string" required:"true"`
+	EndTime *string `type:"string" json:",omitempty" required:"true"`
 
-	IPVersion *string `type:"string"`
+	IPVersion *string `type:"string" json:",omitempty"`
 
-	IspNameEn []*string `type:"list"`
+	IspNameEn []*string `type:"list" json:",omitempty"`
 
-	Limit *int32 `type:"int32"`
+	Limit *int32 `type:"int32" json:",omitempty"`
 
-	ProjectName []*string `type:"list"`
+	ProjectName []*string `type:"list" json:",omitempty"`
 
-	Protocol []*string `type:"list"`
+	Protocol []*string `type:"list" json:",omitempty"`
 
-	Region []*string `type:"list"`
+	Region []*string `type:"list" json:",omitempty"`
 
 	// Sort is a required field
-	Sort *string `type:"string" required:"true"`
+	Sort *string `type:"string" json:",omitempty" required:"true"`
 
 	// StartTime is a required field
-	StartTime *string `type:"string" required:"true"`
+	StartTime *string `type:"string" json:",omitempty" required:"true"`
 
-	Type *string `type:"string"`
+	Type *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -284,17 +284,17 @@ func (s *DescribeTopDomainsInput) SetType(v string) *DescribeTopDomainsInput {
 }
 
 type DescribeTopDomainsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	DomainCount *int32 `type:"int32"`
+	DomainCount *int32 `type:"int32" json:",omitempty"`
 
-	EndTime *string `type:"string"`
+	EndTime *string `type:"string" json:",omitempty"`
 
-	StartTime *string `type:"string"`
+	StartTime *string `type:"string" json:",omitempty"`
 
-	TopDomains []*TopDomainForDescribeTopDomainsOutput `type:"list"`
+	TopDomains []*TopDomainForDescribeTopDomainsOutput `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -332,43 +332,43 @@ func (s *DescribeTopDomainsOutput) SetTopDomains(v []*TopDomainForDescribeTopDom
 }
 
 type TopDomainForDescribeTopDomainsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Bandwidth *float64 `type:"float"`
+	Bandwidth *float64 `type:"float" json:",omitempty"`
 
-	DomainName *string `type:"string"`
+	DomainName *string `type:"string" json:",omitempty"`
 
-	QPS *float64 `type:"float"`
+	QPS *float64 `type:"float" json:",omitempty"`
 
-	Rank *float64 `type:"float"`
+	Rank *float64 `type:"float" json:",omitempty"`
 
-	Request *float64 `type:"float"`
+	Request *float64 `type:"float" json:",omitempty"`
 
-	StatusCode2xx *float64 `type:"float"`
+	StatusCode2xx *float64 `type:"float" json:",omitempty"`
 
-	StatusCode2xxRadio *float64 `type:"float"`
+	StatusCode2xxRadio *float64 `type:"float" json:",omitempty"`
 
-	StatusCode2xxRatio *float64 `type:"float"`
+	StatusCode2xxRatio *float64 `type:"float" json:",omitempty"`
 
-	StatusCode3xx *float64 `type:"float"`
+	StatusCode3xx *float64 `type:"float" json:",omitempty"`
 
-	StatusCode3xxRadio *float64 `type:"float"`
+	StatusCode3xxRadio *float64 `type:"float" json:",omitempty"`
 
-	StatusCode3xxRatio *float64 `type:"float"`
+	StatusCode3xxRatio *float64 `type:"float" json:",omitempty"`
 
-	StatusCode4xx *float64 `type:"float"`
+	StatusCode4xx *float64 `type:"float" json:",omitempty"`
 
-	StatusCode4xxRadio *float64 `type:"float"`
+	StatusCode4xxRadio *float64 `type:"float" json:",omitempty"`
 
-	StatusCode4xxRatio *float64 `type:"float"`
+	StatusCode4xxRatio *float64 `type:"float" json:",omitempty"`
 
-	StatusCode5xx *float64 `type:"float"`
+	StatusCode5xx *float64 `type:"float" json:",omitempty"`
 
-	StatusCode5xxRadio *float64 `type:"float"`
+	StatusCode5xxRadio *float64 `type:"float" json:",omitempty"`
 
-	StatusCode5xxRatio *float64 `type:"float"`
+	StatusCode5xxRatio *float64 `type:"float" json:",omitempty"`
 
-	Traffic *float64 `type:"float"`
+	Traffic *float64 `type:"float" json:",omitempty"`
 }
 
 // String returns the string representation

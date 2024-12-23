@@ -144,15 +144,15 @@ func (c *DCDN) ListDomainConfigWithContext(ctx volcengine.Context, input *ListDo
 }
 
 type BackupOriginForListDomainConfigOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Name *string `type:"string"`
+	Name *string `type:"string" json:",omitempty"`
 
-	Port *int32 `type:"int32"`
+	Port *int32 `type:"int32" json:",omitempty"`
 
-	Type *string `type:"string"`
+	Type *string `type:"string" json:",omitempty"`
 
-	Weight *int32 `type:"int32"`
+	Weight *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -190,9 +190,9 @@ func (s *BackupOriginForListDomainConfigOutput) SetWeight(v int32) *BackupOrigin
 }
 
 type BrCompressForListDomainConfigOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Enable *bool `type:"boolean"`
+	Enable *bool `type:"boolean" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -212,17 +212,17 @@ func (s *BrCompressForListDomainConfigOutput) SetEnable(v bool) *BrCompressForLi
 }
 
 type CacheForListDomainConfigOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	AdaptCache *bool `type:"boolean"`
+	AdaptCache *bool `type:"boolean" json:",omitempty"`
 
-	CacheKeyRules []*CacheKeyRuleForListDomainConfigOutput `type:"list"`
+	CacheKeyRules []*CacheKeyRuleForListDomainConfigOutput `type:"list" json:",omitempty"`
 
-	CacheRules []*CacheRuleForListDomainConfigOutput `type:"list"`
+	CacheRules []*CacheRuleForListDomainConfigOutput `type:"list" json:",omitempty"`
 
-	Enable *bool `type:"boolean"`
+	Enable *bool `type:"boolean" json:",omitempty"`
 
-	StatusCodeCacheRule *StatusCodeCacheRuleForListDomainConfigOutput `type:"structure"`
+	StatusCodeCacheRule *StatusCodeCacheRuleForListDomainConfigOutput `type:"structure" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -266,17 +266,17 @@ func (s *CacheForListDomainConfigOutput) SetStatusCodeCacheRule(v *StatusCodeCac
 }
 
 type CacheKeyRuleForListDomainConfigOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Contents *string `type:"string"`
+	Contents *string `type:"string" json:",omitempty"`
 
-	IgnoreCase *bool `type:"boolean"`
+	IgnoreCase *bool `type:"boolean" json:",omitempty"`
 
-	ParamsFilterType *string `type:"string"`
+	ParamsFilterType *string `type:"string" json:",omitempty"`
 
-	ParamsReserveList *string `type:"string"`
+	ParamsReserveList *string `type:"string" json:",omitempty"`
 
-	Type *string `type:"string"`
+	Type *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -320,23 +320,23 @@ func (s *CacheKeyRuleForListDomainConfigOutput) SetType(v string) *CacheKeyRuleF
 }
 
 type CacheRuleForListDomainConfigOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	CacheTime *int32 `type:"int32"`
+	CacheTime *int32 `type:"int32" json:",omitempty"`
 
-	CacheTimeUnit *string `type:"string"`
+	CacheTimeUnit *string `type:"string" json:",omitempty"`
 
-	Contents *string `type:"string"`
+	Contents *string `type:"string" json:",omitempty"`
 
-	IgnoreCase *bool `type:"boolean"`
+	IgnoreCase *bool `type:"boolean" json:",omitempty"`
 
-	ParamsFilterType *string `type:"string"`
+	ParamsFilterType *string `type:"string" json:",omitempty"`
 
-	ParamsReserveList *string `type:"string"`
+	ParamsReserveList *string `type:"string" json:",omitempty"`
 
-	Policy *string `type:"string"`
+	Policy *string `type:"string" json:",omitempty"`
 
-	Type *string `type:"string"`
+	Type *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -398,11 +398,11 @@ func (s *CacheRuleForListDomainConfigOutput) SetType(v string) *CacheRuleForList
 }
 
 type CertBindForListDomainConfigOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	CertId *string `type:"string"`
+	CertId *string `type:"string" json:",omitempty"`
 
-	CertSource *string `type:"string"`
+	CertSource *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -428,15 +428,15 @@ func (s *CertBindForListDomainConfigOutput) SetCertSource(v string) *CertBindFor
 }
 
 type ConditionalOriginForListDomainConfigOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	BackupOrigins []*BackupOriginForListDomainConfigOutput `type:"list"`
+	BackupOrigins []*BackupOriginForListDomainConfigOutput `type:"list" json:",omitempty"`
 
-	MatchingRuleGroupJSON *string `type:"string"`
+	MatchingRuleGroupJSON *string `type:"string" json:",omitempty"`
 
-	Name *string `type:"string"`
+	Name *string `type:"string" json:",omitempty"`
 
-	Origins []*BackupOriginForListDomainConfigOutput `type:"list"`
+	Origins []*BackupOriginForListDomainConfigOutput `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -474,35 +474,35 @@ func (s *ConditionalOriginForListDomainConfigOutput) SetOrigins(v []*BackupOrigi
 }
 
 type ConvertConvertOriginForListDomainConfigOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	BackupOriginType *string `type:"string"`
+	BackupOriginType *string `type:"string" json:",omitempty"`
 
-	BackupOrigins []*BackupOriginForListDomainConfigOutput `type:"list"`
+	BackupOrigins []*BackupOriginForListDomainConfigOutput `type:"list" json:",omitempty"`
 
-	ConditionalOrigins []*ConditionalOriginForListDomainConfigOutput `type:"list"`
+	ConditionalOrigins []*ConditionalOriginForListDomainConfigOutput `type:"list" json:",omitempty"`
 
-	FollowRedirect *FollowRedirectForListDomainConfigOutput `type:"structure"`
+	FollowRedirect *FollowRedirectForListDomainConfigOutput `type:"structure" json:",omitempty"`
 
-	OriginHost *OriginHostForListDomainConfigOutput `type:"structure"`
+	OriginHost *OriginHostForListDomainConfigOutput `type:"structure" json:",omitempty"`
 
-	OriginProtocolType *string `type:"string"`
+	OriginProtocolType *string `type:"string" json:",omitempty"`
 
-	OriginRange *OriginRangeForListDomainConfigOutput `type:"structure"`
+	OriginRange *OriginRangeForListDomainConfigOutput `type:"structure" json:",omitempty"`
 
-	OriginSni *OriginSniForListDomainConfigOutput `type:"structure"`
+	OriginSni *OriginSniForListDomainConfigOutput `type:"structure" json:",omitempty"`
 
-	OriginType *string `type:"string"`
+	OriginType *string `type:"string" json:",omitempty"`
 
-	Origins []*ConvertOriginForListDomainConfigOutput `type:"list"`
+	Origins []*ConvertOriginForListDomainConfigOutput `type:"list" json:",omitempty"`
 
-	RequestHeader *RequestHeaderForListDomainConfigOutput `type:"structure"`
+	RequestHeader *RequestHeaderForListDomainConfigOutput `type:"structure" json:",omitempty"`
 
-	ResponseHeader *ResponseHeaderForListDomainConfigOutput `type:"structure"`
+	ResponseHeader *ResponseHeaderForListDomainConfigOutput `type:"structure" json:",omitempty"`
 
-	ResponseTimeout *int32 `type:"int32"`
+	ResponseTimeout *int32 `type:"int32" json:",omitempty"`
 
-	TosPrivateAccess *bool `type:"boolean"`
+	TosPrivateAccess *bool `type:"boolean" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -600,15 +600,15 @@ func (s *ConvertConvertOriginForListDomainConfigOutput) SetTosPrivateAccess(v bo
 }
 
 type ConvertOriginForListDomainConfigOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Name *string `type:"string"`
+	Name *string `type:"string" json:",omitempty"`
 
-	Port *int32 `type:"int32"`
+	Port *int32 `type:"int32" json:",omitempty"`
 
-	Type *string `type:"string"`
+	Type *string `type:"string" json:",omitempty"`
 
-	Weight *int32 `type:"int32"`
+	Weight *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -646,11 +646,11 @@ func (s *ConvertOriginForListDomainConfigOutput) SetWeight(v int32) *ConvertOrig
 }
 
 type ConvertRuleForListDomainConfigOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Match *string `type:"string"`
+	Match *string `type:"string" json:",omitempty"`
 
-	Replacement *string `type:"string"`
+	Replacement *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -676,67 +676,67 @@ func (s *ConvertRuleForListDomainConfigOutput) SetReplacement(v string) *Convert
 }
 
 type DomainListForListDomainConfigOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	BrCompress *BrCompressForListDomainConfigOutput `type:"structure"`
+	BrCompress *BrCompressForListDomainConfigOutput `type:"structure" json:",omitempty"`
 
-	Cache *CacheForListDomainConfigOutput `type:"structure"`
+	Cache *CacheForListDomainConfigOutput `type:"structure" json:",omitempty"`
 
-	Cname *string `type:"string"`
+	Cname *string `type:"string" json:",omitempty"`
 
-	CreateTime *string `type:"string"`
+	CreateTime *string `type:"string" json:",omitempty"`
 
-	Domain *string `type:"string"`
+	Domain *string `type:"string" json:",omitempty"`
 
-	EnableFailOver *bool `type:"boolean"`
+	EnableFailOver *bool `type:"boolean" json:",omitempty"`
 
-	GzipCompress *GzipCompressForListDomainConfigOutput `type:"structure"`
+	GzipCompress *GzipCompressForListDomainConfigOutput `type:"structure" json:",omitempty"`
 
-	Https *HttpsForListDomainConfigOutput `type:"structure"`
+	Https *HttpsForListDomainConfigOutput `type:"structure" json:",omitempty"`
 
-	IPv6Switch *bool `type:"boolean"`
+	IPv6Switch *bool `type:"boolean" json:",omitempty"`
 
-	IpAccess *IpAccessForListDomainConfigOutput `type:"structure"`
+	IpAccess *IpAccessForListDomainConfigOutput `type:"structure" json:",omitempty"`
 
-	IsCNAMEResolved *bool `type:"boolean"`
+	IsCNAMEResolved *bool `type:"boolean" json:",omitempty"`
 
-	Origin *ConvertConvertOriginForListDomainConfigOutput `type:"structure"`
+	Origin *ConvertConvertOriginForListDomainConfigOutput `type:"structure" json:",omitempty"`
 
-	PreConnect *PreConnectForListDomainConfigOutput `type:"structure"`
+	PreConnect *PreConnectForListDomainConfigOutput `type:"structure" json:",omitempty"`
 
-	ProjectName *string `type:"string"`
+	ProjectName *string `type:"string" json:",omitempty"`
 
-	RTTOptimize *RTTOptimizeForListDomainConfigOutput `type:"structure"`
+	RTTOptimize *RTTOptimizeForListDomainConfigOutput `type:"structure" json:",omitempty"`
 
-	RecordFiling *string `type:"string"`
+	RecordFiling *string `type:"string" json:",omitempty"`
 
-	RefererAccess *RefererAccessForListDomainConfigOutput `type:"structure"`
+	RefererAccess *RefererAccessForListDomainConfigOutput `type:"structure" json:",omitempty"`
 
-	ResourceTags []*ResourceTagForListDomainConfigOutput `type:"list"`
+	ResourceTags []*ResourceTagForListDomainConfigOutput `type:"list" json:",omitempty"`
 
-	Scope *string `type:"string"`
+	Scope *string `type:"string" json:",omitempty"`
 
-	ServiceType *string `type:"string"`
+	ServiceType *string `type:"string" json:",omitempty"`
 
-	StaticOptimization *StaticOptimizationForListDomainConfigOutput `type:"structure"`
+	StaticOptimization *StaticOptimizationForListDomainConfigOutput `type:"structure" json:",omitempty"`
 
-	Status *string `type:"string"`
+	Status *string `type:"string" json:",omitempty"`
 
-	StrategyType *string `type:"string"`
+	StrategyType *string `type:"string" json:",omitempty"`
 
-	UpdateTime *string `type:"string"`
+	UpdateTime *string `type:"string" json:",omitempty"`
 
-	UploadOptimize *UploadOptimizeForListDomainConfigOutput `type:"structure"`
+	UploadOptimize *UploadOptimizeForListDomainConfigOutput `type:"structure" json:",omitempty"`
 
-	UrlAccess *UrlAccessForListDomainConfigOutput `type:"structure"`
+	UrlAccess *UrlAccessForListDomainConfigOutput `type:"structure" json:",omitempty"`
 
-	UrlRedirect *UrlRedirectForListDomainConfigOutput `type:"structure"`
+	UrlRedirect *UrlRedirectForListDomainConfigOutput `type:"structure" json:",omitempty"`
 
-	UserAgentAccess *UserAgentAccessForListDomainConfigOutput `type:"structure"`
+	UserAgentAccess *UserAgentAccessForListDomainConfigOutput `type:"structure" json:",omitempty"`
 
-	UserName *string `type:"string"`
+	UserName *string `type:"string" json:",omitempty"`
 
-	WebSocket *WebSocketForListDomainConfigOutput `type:"structure"`
+	WebSocket *WebSocketForListDomainConfigOutput `type:"structure" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -930,11 +930,11 @@ func (s *DomainListForListDomainConfigOutput) SetWebSocket(v *WebSocketForListDo
 }
 
 type FollowRedirectForListDomainConfigOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Enable *bool `type:"boolean"`
+	Enable *bool `type:"boolean" json:",omitempty"`
 
-	MaxTries *int32 `type:"int32"`
+	MaxTries *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -960,11 +960,11 @@ func (s *FollowRedirectForListDomainConfigOutput) SetMaxTries(v int32) *FollowRe
 }
 
 type ForceRedirectForListDomainConfigOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Enable *bool `type:"boolean"`
+	Enable *bool `type:"boolean" json:",omitempty"`
 
-	RedirectType *string `type:"string"`
+	RedirectType *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -990,9 +990,9 @@ func (s *ForceRedirectForListDomainConfigOutput) SetRedirectType(v string) *Forc
 }
 
 type GzipCompressForListDomainConfigOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Enable *bool `type:"boolean"`
+	Enable *bool `type:"boolean" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -1012,15 +1012,15 @@ func (s *GzipCompressForListDomainConfigOutput) SetEnable(v bool) *GzipCompressF
 }
 
 type HeaderInfoForListDomainConfigOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	HeaderMode *int32 `type:"int32"`
+	HeaderMode *int32 `type:"int32" json:",omitempty"`
 
-	HeaderName *string `type:"string"`
+	HeaderName *string `type:"string" json:",omitempty"`
 
-	HeaderValue *string `type:"string"`
+	HeaderValue *string `type:"string" json:",omitempty"`
 
-	HeaderValueType *string `type:"string"`
+	HeaderValueType *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -1058,13 +1058,13 @@ func (s *HeaderInfoForListDomainConfigOutput) SetHeaderValueType(v string) *Head
 }
 
 type HstsForListDomainConfigOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Enable *bool `type:"boolean"`
+	Enable *bool `type:"boolean" json:",omitempty"`
 
-	IncludeSubDomain *bool `type:"boolean"`
+	IncludeSubDomain *bool `type:"boolean" json:",omitempty"`
 
-	MaxAge *int32 `type:"int32"`
+	MaxAge *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -1096,19 +1096,19 @@ func (s *HstsForListDomainConfigOutput) SetMaxAge(v int32) *HstsForListDomainCon
 }
 
 type HttpsForListDomainConfigOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	CertBind *CertBindForListDomainConfigOutput `type:"structure"`
+	CertBind *CertBindForListDomainConfigOutput `type:"structure" json:",omitempty"`
 
-	ForceRedirect *ForceRedirectForListDomainConfigOutput `type:"structure"`
+	ForceRedirect *ForceRedirectForListDomainConfigOutput `type:"structure" json:",omitempty"`
 
-	Hsts *HstsForListDomainConfigOutput `type:"structure"`
+	Hsts *HstsForListDomainConfigOutput `type:"structure" json:",omitempty"`
 
-	Http2 *bool `type:"boolean"`
+	Http2 *bool `type:"boolean" json:",omitempty"`
 
-	QUICSwitch *bool `type:"boolean"`
+	QUICSwitch *bool `type:"boolean" json:",omitempty"`
 
-	TlsVersions *TlsVersionsForListDomainConfigOutput `type:"structure"`
+	TlsVersions *TlsVersionsForListDomainConfigOutput `type:"structure" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -1158,13 +1158,13 @@ func (s *HttpsForListDomainConfigOutput) SetTlsVersions(v *TlsVersionsForListDom
 }
 
 type IpAccessForListDomainConfigOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Enable *bool `type:"boolean"`
+	Enable *bool `type:"boolean" json:",omitempty"`
 
-	FilterList []*string `type:"list"`
+	FilterList []*string `type:"list" json:",omitempty"`
 
-	FilterType *string `type:"string"`
+	FilterType *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -1196,27 +1196,27 @@ func (s *IpAccessForListDomainConfigOutput) SetFilterType(v string) *IpAccessFor
 }
 
 type ListDomainConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	HTTPs *bool `type:"boolean"`
+	HTTPs *bool `type:"boolean" json:",omitempty"`
 
-	Keyword *string `type:"string"`
+	Keyword *string `type:"string" json:",omitempty"`
 
-	OriginType []*string `type:"list"`
+	OriginType []*string `type:"list" json:",omitempty"`
 
-	PageNumber *int32 `type:"int32"`
+	PageNumber *int32 `type:"int32" json:",omitempty"`
 
-	PageSize *int32 `type:"int32"`
+	PageSize *int32 `type:"int32" json:",omitempty"`
 
-	ProjectName []*string `type:"list"`
+	ProjectName []*string `type:"list" json:",omitempty"`
 
-	ResourceTagFilter *ResourceTagFilterForListDomainConfigInput `type:"structure"`
+	ResourceTagFilter *ResourceTagFilterForListDomainConfigInput `type:"structure" json:",omitempty"`
 
-	Scope []*string `type:"list"`
+	Scope []*string `type:"list" json:",omitempty"`
 
-	Status []*string `type:"list"`
+	Status []*string `type:"list" json:",omitempty"`
 
-	TimeSortOrder *string `type:"string"`
+	TimeSortOrder *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -1290,11 +1290,11 @@ func (s *ListDomainConfigInput) SetTimeSortOrder(v string) *ListDomainConfigInpu
 }
 
 type ListDomainConfigOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	DomainList []*DomainListForListDomainConfigOutput `type:"list"`
+	DomainList []*DomainListForListDomainConfigOutput `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -1314,11 +1314,11 @@ func (s *ListDomainConfigOutput) SetDomainList(v []*DomainListForListDomainConfi
 }
 
 type OriginHostForListDomainConfigOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Enable *bool `type:"boolean"`
+	Enable *bool `type:"boolean" json:",omitempty"`
 
-	HostInfo *string `type:"string"`
+	HostInfo *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -1344,9 +1344,9 @@ func (s *OriginHostForListDomainConfigOutput) SetHostInfo(v string) *OriginHostF
 }
 
 type OriginRangeForListDomainConfigOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Enable *bool `type:"boolean"`
+	Enable *bool `type:"boolean" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -1366,11 +1366,11 @@ func (s *OriginRangeForListDomainConfigOutput) SetEnable(v bool) *OriginRangeFor
 }
 
 type OriginSniForListDomainConfigOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Enable *bool `type:"boolean"`
+	Enable *bool `type:"boolean" json:",omitempty"`
 
-	SniInfo *string `type:"string"`
+	SniInfo *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -1396,9 +1396,9 @@ func (s *OriginSniForListDomainConfigOutput) SetSniInfo(v string) *OriginSniForL
 }
 
 type PreConnectForListDomainConfigOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Enable *bool `type:"boolean"`
+	Enable *bool `type:"boolean" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -1418,9 +1418,9 @@ func (s *PreConnectForListDomainConfigOutput) SetEnable(v bool) *PreConnectForLi
 }
 
 type RTTOptimizeForListDomainConfigOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Enable *bool `type:"boolean"`
+	Enable *bool `type:"boolean" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -1440,15 +1440,15 @@ func (s *RTTOptimizeForListDomainConfigOutput) SetEnable(v bool) *RTTOptimizeFor
 }
 
 type RefererAccessForListDomainConfigOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	AllowNone *bool `type:"boolean"`
+	AllowNone *bool `type:"boolean" json:",omitempty"`
 
-	Enable *bool `type:"boolean"`
+	Enable *bool `type:"boolean" json:",omitempty"`
 
-	FilterList []*string `type:"list"`
+	FilterList []*string `type:"list" json:",omitempty"`
 
-	FilterType *string `type:"string"`
+	FilterType *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -1486,11 +1486,11 @@ func (s *RefererAccessForListDomainConfigOutput) SetFilterType(v string) *Refere
 }
 
 type RequestHeaderForListDomainConfigOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Enable *bool `type:"boolean"`
+	Enable *bool `type:"boolean" json:",omitempty"`
 
-	HeaderInfo []*HeaderInfoForListDomainConfigOutput `type:"list"`
+	HeaderInfo []*HeaderInfoForListDomainConfigOutput `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -1516,11 +1516,11 @@ func (s *RequestHeaderForListDomainConfigOutput) SetHeaderInfo(v []*HeaderInfoFo
 }
 
 type ResourceTagFilterForListDomainConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	FilterType *string `type:"string"`
+	FilterType *string `type:"string" json:",omitempty"`
 
-	ResourceTags []*ResourceTagForListDomainConfigInput `type:"list"`
+	ResourceTags []*ResourceTagForListDomainConfigInput `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -1546,11 +1546,11 @@ func (s *ResourceTagFilterForListDomainConfigInput) SetResourceTags(v []*Resourc
 }
 
 type ResourceTagForListDomainConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Key *string `type:"string"`
+	Key *string `type:"string" json:",omitempty"`
 
-	Value *string `type:"string"`
+	Value *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -1576,11 +1576,11 @@ func (s *ResourceTagForListDomainConfigInput) SetValue(v string) *ResourceTagFor
 }
 
 type ResourceTagForListDomainConfigOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Key *string `type:"string"`
+	Key *string `type:"string" json:",omitempty"`
 
-	Value *string `type:"string"`
+	Value *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -1606,11 +1606,11 @@ func (s *ResourceTagForListDomainConfigOutput) SetValue(v string) *ResourceTagFo
 }
 
 type ResponseHeaderForListDomainConfigOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Enable *bool `type:"boolean"`
+	Enable *bool `type:"boolean" json:",omitempty"`
 
-	HeaderInfo []*HeaderInfoForListDomainConfigOutput `type:"list"`
+	HeaderInfo []*HeaderInfoForListDomainConfigOutput `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -1636,15 +1636,15 @@ func (s *ResponseHeaderForListDomainConfigOutput) SetHeaderInfo(v []*HeaderInfoF
 }
 
 type RuleForListDomainConfigOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	CacheTime *int32 `type:"int32"`
+	CacheTime *int32 `type:"int32" json:",omitempty"`
 
-	CacheTimeUnit *string `type:"string"`
+	CacheTimeUnit *string `type:"string" json:",omitempty"`
 
-	RespUrl *string `type:"string"`
+	RespUrl *string `type:"string" json:",omitempty"`
 
-	Status *string `type:"string"`
+	Status *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -1682,9 +1682,9 @@ func (s *RuleForListDomainConfigOutput) SetStatus(v string) *RuleForListDomainCo
 }
 
 type StaticOptimizationForListDomainConfigOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	H2Priority *bool `type:"boolean"`
+	H2Priority *bool `type:"boolean" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -1704,11 +1704,11 @@ func (s *StaticOptimizationForListDomainConfigOutput) SetH2Priority(v bool) *Sta
 }
 
 type StatusCodeCacheRuleForListDomainConfigOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Enable *bool `type:"boolean"`
+	Enable *bool `type:"boolean" json:",omitempty"`
 
-	Rules []*RuleForListDomainConfigOutput `type:"list"`
+	Rules []*RuleForListDomainConfigOutput `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -1734,11 +1734,11 @@ func (s *StatusCodeCacheRuleForListDomainConfigOutput) SetRules(v []*RuleForList
 }
 
 type TlsVersionsForListDomainConfigOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Enable *bool `type:"boolean"`
+	Enable *bool `type:"boolean" json:",omitempty"`
 
-	TlsVersion []*string `type:"list"`
+	TlsVersion []*string `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -1764,9 +1764,9 @@ func (s *TlsVersionsForListDomainConfigOutput) SetTlsVersion(v []*string) *TlsVe
 }
 
 type UploadOptimizeForListDomainConfigOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Enable *bool `type:"boolean"`
+	Enable *bool `type:"boolean" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -1786,15 +1786,15 @@ func (s *UploadOptimizeForListDomainConfigOutput) SetEnable(v bool) *UploadOptim
 }
 
 type UrlAccessForListDomainConfigOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Enable *bool `type:"boolean"`
+	Enable *bool `type:"boolean" json:",omitempty"`
 
-	GenKey *string `type:"string"`
+	GenKey *string `type:"string" json:",omitempty"`
 
-	GenTTL *int32 `type:"int32"`
+	GenTTL *int32 `type:"int32" json:",omitempty"`
 
-	GenType *string `type:"string"`
+	GenType *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -1832,11 +1832,11 @@ func (s *UrlAccessForListDomainConfigOutput) SetGenType(v string) *UrlAccessForL
 }
 
 type UrlRedirectForListDomainConfigOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Enable *bool `type:"boolean"`
+	Enable *bool `type:"boolean" json:",omitempty"`
 
-	Rules []*ConvertRuleForListDomainConfigOutput `type:"list"`
+	Rules []*ConvertRuleForListDomainConfigOutput `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -1862,13 +1862,13 @@ func (s *UrlRedirectForListDomainConfigOutput) SetRules(v []*ConvertRuleForListD
 }
 
 type UserAgentAccessForListDomainConfigOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Enable *bool `type:"boolean"`
+	Enable *bool `type:"boolean" json:",omitempty"`
 
-	FilterList []*string `type:"list"`
+	FilterList []*string `type:"list" json:",omitempty"`
 
-	FilterType *string `type:"string"`
+	FilterType *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -1900,11 +1900,11 @@ func (s *UserAgentAccessForListDomainConfigOutput) SetFilterType(v string) *User
 }
 
 type WebSocketForListDomainConfigOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Enable *bool `type:"boolean"`
+	Enable *bool `type:"boolean" json:",omitempty"`
 
-	Timeout *int32 `type:"int32"`
+	Timeout *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation

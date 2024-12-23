@@ -144,14 +144,14 @@ func (c *KAFKA) ModifyInstanceAttributesWithContext(ctx volcengine.Context, inpu
 }
 
 type ModifyInstanceAttributesInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	InstanceDescription *string `type:"string"`
+	InstanceDescription *string `type:"string" json:",omitempty"`
 
 	// InstanceId is a required field
-	InstanceId *string `type:"string" required:"true"`
+	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 
-	InstanceName *string `type:"string"`
+	InstanceName *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -196,7 +196,7 @@ func (s *ModifyInstanceAttributesInput) SetInstanceName(v string) *ModifyInstanc
 }
 
 type ModifyInstanceAttributesOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 }

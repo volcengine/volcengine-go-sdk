@@ -22,13 +22,13 @@ const opDescribeVpnGatewayAttributesCommon = "DescribeVpnGatewayAttributes"
 // See DescribeVpnGatewayAttributesCommon for more information on using the DescribeVpnGatewayAttributesCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeVpnGatewayAttributesCommonRequest method.
-//	req, resp := client.DescribeVpnGatewayAttributesCommonRequest(params)
+//    // Example sending a request using the DescribeVpnGatewayAttributesCommonRequest method.
+//    req, resp := client.DescribeVpnGatewayAttributesCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VPN) DescribeVpnGatewayAttributesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeVpnGatewayAttributesCommon,
@@ -87,13 +87,13 @@ const opDescribeVpnGatewayAttributes = "DescribeVpnGatewayAttributes"
 // See DescribeVpnGatewayAttributes for more information on using the DescribeVpnGatewayAttributes
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeVpnGatewayAttributesRequest method.
-//	req, resp := client.DescribeVpnGatewayAttributesRequest(params)
+//    // Example sending a request using the DescribeVpnGatewayAttributesRequest method.
+//    req, resp := client.DescribeVpnGatewayAttributesRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VPN) DescribeVpnGatewayAttributesRequest(input *DescribeVpnGatewayAttributesInput) (req *request.Request, output *DescribeVpnGatewayAttributesOutput) {
 	op := &request.Operation{
 		Name:       opDescribeVpnGatewayAttributes,
@@ -182,6 +182,8 @@ type DescribeVpnGatewayAttributesOutput struct {
 
 	AccountId *string `type:"string"`
 
+	Asn *int64 `type:"integer"`
+
 	Bandwidth *int64 `type:"integer"`
 
 	BillingType *int64 `type:"integer"`
@@ -200,13 +202,25 @@ type DescribeVpnGatewayAttributesOutput struct {
 
 	IpAddress *string `type:"string"`
 
+	IpsecEnabled *bool `type:"boolean"`
+
+	IsBlocked *bool `type:"boolean"`
+
 	LockReason *string `type:"string"`
+
+	OverdueTime *string `type:"string"`
 
 	ProjectName *string `type:"string"`
 
 	RequestId *string `type:"string"`
 
 	RouteCount *int64 `type:"integer"`
+
+	SslEnabled *bool `type:"boolean"`
+
+	SslMaxConnection *int64 `type:"integer"`
+
+	SslMaxConnections *int64 `type:"integer"`
 
 	Status *string `type:"string"`
 
@@ -236,6 +250,12 @@ func (s DescribeVpnGatewayAttributesOutput) GoString() string {
 // SetAccountId sets the AccountId field's value.
 func (s *DescribeVpnGatewayAttributesOutput) SetAccountId(v string) *DescribeVpnGatewayAttributesOutput {
 	s.AccountId = &v
+	return s
+}
+
+// SetAsn sets the Asn field's value.
+func (s *DescribeVpnGatewayAttributesOutput) SetAsn(v int64) *DescribeVpnGatewayAttributesOutput {
+	s.Asn = &v
 	return s
 }
 
@@ -293,9 +313,27 @@ func (s *DescribeVpnGatewayAttributesOutput) SetIpAddress(v string) *DescribeVpn
 	return s
 }
 
+// SetIpsecEnabled sets the IpsecEnabled field's value.
+func (s *DescribeVpnGatewayAttributesOutput) SetIpsecEnabled(v bool) *DescribeVpnGatewayAttributesOutput {
+	s.IpsecEnabled = &v
+	return s
+}
+
+// SetIsBlocked sets the IsBlocked field's value.
+func (s *DescribeVpnGatewayAttributesOutput) SetIsBlocked(v bool) *DescribeVpnGatewayAttributesOutput {
+	s.IsBlocked = &v
+	return s
+}
+
 // SetLockReason sets the LockReason field's value.
 func (s *DescribeVpnGatewayAttributesOutput) SetLockReason(v string) *DescribeVpnGatewayAttributesOutput {
 	s.LockReason = &v
+	return s
+}
+
+// SetOverdueTime sets the OverdueTime field's value.
+func (s *DescribeVpnGatewayAttributesOutput) SetOverdueTime(v string) *DescribeVpnGatewayAttributesOutput {
+	s.OverdueTime = &v
 	return s
 }
 
@@ -314,6 +352,24 @@ func (s *DescribeVpnGatewayAttributesOutput) SetRequestId(v string) *DescribeVpn
 // SetRouteCount sets the RouteCount field's value.
 func (s *DescribeVpnGatewayAttributesOutput) SetRouteCount(v int64) *DescribeVpnGatewayAttributesOutput {
 	s.RouteCount = &v
+	return s
+}
+
+// SetSslEnabled sets the SslEnabled field's value.
+func (s *DescribeVpnGatewayAttributesOutput) SetSslEnabled(v bool) *DescribeVpnGatewayAttributesOutput {
+	s.SslEnabled = &v
+	return s
+}
+
+// SetSslMaxConnection sets the SslMaxConnection field's value.
+func (s *DescribeVpnGatewayAttributesOutput) SetSslMaxConnection(v int64) *DescribeVpnGatewayAttributesOutput {
+	s.SslMaxConnection = &v
+	return s
+}
+
+// SetSslMaxConnections sets the SslMaxConnections field's value.
+func (s *DescribeVpnGatewayAttributesOutput) SetSslMaxConnections(v int64) *DescribeVpnGatewayAttributesOutput {
+	s.SslMaxConnections = &v
 	return s
 }
 

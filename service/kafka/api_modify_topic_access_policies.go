@@ -144,11 +144,11 @@ func (c *KAFKA) ModifyTopicAccessPoliciesWithContext(ctx volcengine.Context, inp
 }
 
 type AccessPolicyForModifyTopicAccessPoliciesInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	AccessPolicy *string `type:"string"`
+	AccessPolicy *string `type:"string" json:",omitempty"`
 
-	UserName *string `type:"string"`
+	UserName *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -174,20 +174,20 @@ func (s *AccessPolicyForModifyTopicAccessPoliciesInput) SetUserName(v string) *A
 }
 
 type ModifyTopicAccessPoliciesInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	AccessPolicies []*AccessPolicyForModifyTopicAccessPoliciesInput `type:"list"`
+	AccessPolicies []*AccessPolicyForModifyTopicAccessPoliciesInput `type:"list" json:",omitempty"`
 
 	// AllAuthority is a required field
-	AllAuthority *bool `type:"boolean" required:"true"`
+	AllAuthority *bool `type:"boolean" json:",omitempty" required:"true"`
 
-	DeletePolicies []*string `type:"list"`
+	DeletePolicies []*string `type:"list" json:",omitempty"`
 
 	// InstanceId is a required field
-	InstanceId *string `type:"string" required:"true"`
+	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 
 	// TopicName is a required field
-	TopicName *string `type:"string" required:"true"`
+	TopicName *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -250,7 +250,7 @@ func (s *ModifyTopicAccessPoliciesInput) SetTopicName(v string) *ModifyTopicAcce
 }
 
 type ModifyTopicAccessPoliciesOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 }

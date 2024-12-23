@@ -22,13 +22,13 @@ const opDescribeVpnConnectionsCommon = "DescribeVpnConnections"
 // See DescribeVpnConnectionsCommon for more information on using the DescribeVpnConnectionsCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeVpnConnectionsCommonRequest method.
-//	req, resp := client.DescribeVpnConnectionsCommonRequest(params)
+//    // Example sending a request using the DescribeVpnConnectionsCommonRequest method.
+//    req, resp := client.DescribeVpnConnectionsCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VPN) DescribeVpnConnectionsCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeVpnConnectionsCommon,
@@ -87,13 +87,13 @@ const opDescribeVpnConnections = "DescribeVpnConnections"
 // See DescribeVpnConnections for more information on using the DescribeVpnConnections
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeVpnConnectionsRequest method.
-//	req, resp := client.DescribeVpnConnectionsRequest(params)
+//    // Example sending a request using the DescribeVpnConnectionsRequest method.
+//    req, resp := client.DescribeVpnConnectionsRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VPN) DescribeVpnConnectionsRequest(input *DescribeVpnConnectionsInput) (req *request.Request, output *DescribeVpnConnectionsOutput) {
 	op := &request.Operation{
 		Name:       opDescribeVpnConnections,
@@ -139,12 +139,82 @@ func (c *VPN) DescribeVpnConnectionsWithContext(ctx volcengine.Context, input *D
 	return out, req.Send()
 }
 
+type BgpInfoForDescribeVpnConnectionsOutput struct {
+	_ struct{} `type:"structure"`
+
+	EnableBgp *bool `type:"boolean"`
+
+	LocalAsn *int64 `type:"integer"`
+
+	LocalBgpIp *string `type:"string"`
+
+	PeerAsn *string `type:"string"`
+
+	PeerBgpIp *string `type:"string"`
+
+	SessionStatus *string `type:"string" enum:"SessionStatusForDescribeVpnConnectionsOutput"`
+
+	TunnelCidr *string `type:"string"`
+}
+
+// String returns the string representation
+func (s BgpInfoForDescribeVpnConnectionsOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s BgpInfoForDescribeVpnConnectionsOutput) GoString() string {
+	return s.String()
+}
+
+// SetEnableBgp sets the EnableBgp field's value.
+func (s *BgpInfoForDescribeVpnConnectionsOutput) SetEnableBgp(v bool) *BgpInfoForDescribeVpnConnectionsOutput {
+	s.EnableBgp = &v
+	return s
+}
+
+// SetLocalAsn sets the LocalAsn field's value.
+func (s *BgpInfoForDescribeVpnConnectionsOutput) SetLocalAsn(v int64) *BgpInfoForDescribeVpnConnectionsOutput {
+	s.LocalAsn = &v
+	return s
+}
+
+// SetLocalBgpIp sets the LocalBgpIp field's value.
+func (s *BgpInfoForDescribeVpnConnectionsOutput) SetLocalBgpIp(v string) *BgpInfoForDescribeVpnConnectionsOutput {
+	s.LocalBgpIp = &v
+	return s
+}
+
+// SetPeerAsn sets the PeerAsn field's value.
+func (s *BgpInfoForDescribeVpnConnectionsOutput) SetPeerAsn(v string) *BgpInfoForDescribeVpnConnectionsOutput {
+	s.PeerAsn = &v
+	return s
+}
+
+// SetPeerBgpIp sets the PeerBgpIp field's value.
+func (s *BgpInfoForDescribeVpnConnectionsOutput) SetPeerBgpIp(v string) *BgpInfoForDescribeVpnConnectionsOutput {
+	s.PeerBgpIp = &v
+	return s
+}
+
+// SetSessionStatus sets the SessionStatus field's value.
+func (s *BgpInfoForDescribeVpnConnectionsOutput) SetSessionStatus(v string) *BgpInfoForDescribeVpnConnectionsOutput {
+	s.SessionStatus = &v
+	return s
+}
+
+// SetTunnelCidr sets the TunnelCidr field's value.
+func (s *BgpInfoForDescribeVpnConnectionsOutput) SetTunnelCidr(v string) *BgpInfoForDescribeVpnConnectionsOutput {
+	s.TunnelCidr = &v
+	return s
+}
+
 type DescribeVpnConnectionsInput struct {
 	_ struct{} `type:"structure"`
 
-	AttachStatus *string `type:"string" enum:"AttachStatusForDescribeVpnConnectionsInput"`
+	AttachStatus *string `type:"string"`
 
-	AttachType *string `type:"string" enum:"AttachTypeForDescribeVpnConnectionsInput"`
+	AttachType *string `type:"string"`
 
 	CustomerGatewayId *string `type:"string"`
 
@@ -153,6 +223,10 @@ type DescribeVpnConnectionsInput struct {
 	PageSize *int64 `type:"integer"`
 
 	ProjectName *string `type:"string"`
+
+	Spec *string `type:"string"`
+
+	Status *string `type:"string"`
 
 	TransitRouterId *string `type:"string"`
 
@@ -206,6 +280,18 @@ func (s *DescribeVpnConnectionsInput) SetPageSize(v int64) *DescribeVpnConnectio
 // SetProjectName sets the ProjectName field's value.
 func (s *DescribeVpnConnectionsInput) SetProjectName(v string) *DescribeVpnConnectionsInput {
 	s.ProjectName = &v
+	return s
+}
+
+// SetSpec sets the Spec field's value.
+func (s *DescribeVpnConnectionsInput) SetSpec(v string) *DescribeVpnConnectionsInput {
+	s.Spec = &v
+	return s
+}
+
+// SetStatus sets the Status field's value.
+func (s *DescribeVpnConnectionsInput) SetStatus(v string) *DescribeVpnConnectionsInput {
+	s.Status = &v
 	return s
 }
 
@@ -286,6 +372,84 @@ func (s *DescribeVpnConnectionsOutput) SetTotalCount(v int64) *DescribeVpnConnec
 // SetVpnConnections sets the VpnConnections field's value.
 func (s *DescribeVpnConnectionsOutput) SetVpnConnections(v []*VpnConnectionForDescribeVpnConnectionsOutput) *DescribeVpnConnectionsOutput {
 	s.VpnConnections = v
+	return s
+}
+
+type HealthCheckerForDescribeVpnConnectionsOutput struct {
+	_ struct{} `type:"structure"`
+
+	CheckInterval *string `type:"string"`
+
+	CheckResult *string `type:"string" enum:"CheckResultForDescribeVpnConnectionsOutput"`
+
+	CheckerId *string `type:"string"`
+
+	DownTime *int64 `type:"integer"`
+
+	LocalIp *string `type:"string"`
+
+	RemoteIp *string `type:"string"`
+
+	Timeout *int64 `type:"integer"`
+
+	UpTime *int64 `type:"integer"`
+}
+
+// String returns the string representation
+func (s HealthCheckerForDescribeVpnConnectionsOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s HealthCheckerForDescribeVpnConnectionsOutput) GoString() string {
+	return s.String()
+}
+
+// SetCheckInterval sets the CheckInterval field's value.
+func (s *HealthCheckerForDescribeVpnConnectionsOutput) SetCheckInterval(v string) *HealthCheckerForDescribeVpnConnectionsOutput {
+	s.CheckInterval = &v
+	return s
+}
+
+// SetCheckResult sets the CheckResult field's value.
+func (s *HealthCheckerForDescribeVpnConnectionsOutput) SetCheckResult(v string) *HealthCheckerForDescribeVpnConnectionsOutput {
+	s.CheckResult = &v
+	return s
+}
+
+// SetCheckerId sets the CheckerId field's value.
+func (s *HealthCheckerForDescribeVpnConnectionsOutput) SetCheckerId(v string) *HealthCheckerForDescribeVpnConnectionsOutput {
+	s.CheckerId = &v
+	return s
+}
+
+// SetDownTime sets the DownTime field's value.
+func (s *HealthCheckerForDescribeVpnConnectionsOutput) SetDownTime(v int64) *HealthCheckerForDescribeVpnConnectionsOutput {
+	s.DownTime = &v
+	return s
+}
+
+// SetLocalIp sets the LocalIp field's value.
+func (s *HealthCheckerForDescribeVpnConnectionsOutput) SetLocalIp(v string) *HealthCheckerForDescribeVpnConnectionsOutput {
+	s.LocalIp = &v
+	return s
+}
+
+// SetRemoteIp sets the RemoteIp field's value.
+func (s *HealthCheckerForDescribeVpnConnectionsOutput) SetRemoteIp(v string) *HealthCheckerForDescribeVpnConnectionsOutput {
+	s.RemoteIp = &v
+	return s
+}
+
+// SetTimeout sets the Timeout field's value.
+func (s *HealthCheckerForDescribeVpnConnectionsOutput) SetTimeout(v int64) *HealthCheckerForDescribeVpnConnectionsOutput {
+	s.Timeout = &v
+	return s
+}
+
+// SetUpTime sets the UpTime field's value.
+func (s *HealthCheckerForDescribeVpnConnectionsOutput) SetUpTime(v int64) *HealthCheckerForDescribeVpnConnectionsOutput {
+	s.UpTime = &v
 	return s
 }
 
@@ -430,6 +594,8 @@ type VpnConnectionForDescribeVpnConnectionsOutput struct {
 
 	AttachType *string `type:"string"`
 
+	BgpInfo *BgpInfoForDescribeVpnConnectionsOutput `type:"structure"`
+
 	BusinessStatus *string `type:"string"`
 
 	ConnectStatus *string `type:"string"`
@@ -444,11 +610,15 @@ type VpnConnectionForDescribeVpnConnectionsOutput struct {
 
 	DpdAction *string `type:"string"`
 
+	HealthCheckers []*HealthCheckerForDescribeVpnConnectionsOutput `type:"list"`
+
 	IkeConfig *IkeConfigForDescribeVpnConnectionsOutput `type:"structure"`
 
 	IpAddress *string `type:"string"`
 
 	IpsecConfig *IpsecConfigForDescribeVpnConnectionsOutput `type:"structure"`
+
+	IsBlocked *bool `type:"boolean"`
 
 	LocalSubnet []*string `type:"list"`
 
@@ -463,6 +633,10 @@ type VpnConnectionForDescribeVpnConnectionsOutput struct {
 	ProjectName *string `type:"string"`
 
 	RemoteSubnet []*string `type:"list"`
+
+	RequestId *string `type:"string"`
+
+	Spec *string `type:"string"`
 
 	Status *string `type:"string"`
 
@@ -504,6 +678,12 @@ func (s *VpnConnectionForDescribeVpnConnectionsOutput) SetAttachStatus(v string)
 // SetAttachType sets the AttachType field's value.
 func (s *VpnConnectionForDescribeVpnConnectionsOutput) SetAttachType(v string) *VpnConnectionForDescribeVpnConnectionsOutput {
 	s.AttachType = &v
+	return s
+}
+
+// SetBgpInfo sets the BgpInfo field's value.
+func (s *VpnConnectionForDescribeVpnConnectionsOutput) SetBgpInfo(v *BgpInfoForDescribeVpnConnectionsOutput) *VpnConnectionForDescribeVpnConnectionsOutput {
+	s.BgpInfo = v
 	return s
 }
 
@@ -549,6 +729,12 @@ func (s *VpnConnectionForDescribeVpnConnectionsOutput) SetDpdAction(v string) *V
 	return s
 }
 
+// SetHealthCheckers sets the HealthCheckers field's value.
+func (s *VpnConnectionForDescribeVpnConnectionsOutput) SetHealthCheckers(v []*HealthCheckerForDescribeVpnConnectionsOutput) *VpnConnectionForDescribeVpnConnectionsOutput {
+	s.HealthCheckers = v
+	return s
+}
+
 // SetIkeConfig sets the IkeConfig field's value.
 func (s *VpnConnectionForDescribeVpnConnectionsOutput) SetIkeConfig(v *IkeConfigForDescribeVpnConnectionsOutput) *VpnConnectionForDescribeVpnConnectionsOutput {
 	s.IkeConfig = v
@@ -564,6 +750,12 @@ func (s *VpnConnectionForDescribeVpnConnectionsOutput) SetIpAddress(v string) *V
 // SetIpsecConfig sets the IpsecConfig field's value.
 func (s *VpnConnectionForDescribeVpnConnectionsOutput) SetIpsecConfig(v *IpsecConfigForDescribeVpnConnectionsOutput) *VpnConnectionForDescribeVpnConnectionsOutput {
 	s.IpsecConfig = v
+	return s
+}
+
+// SetIsBlocked sets the IsBlocked field's value.
+func (s *VpnConnectionForDescribeVpnConnectionsOutput) SetIsBlocked(v bool) *VpnConnectionForDescribeVpnConnectionsOutput {
+	s.IsBlocked = &v
 	return s
 }
 
@@ -606,6 +798,18 @@ func (s *VpnConnectionForDescribeVpnConnectionsOutput) SetProjectName(v string) 
 // SetRemoteSubnet sets the RemoteSubnet field's value.
 func (s *VpnConnectionForDescribeVpnConnectionsOutput) SetRemoteSubnet(v []*string) *VpnConnectionForDescribeVpnConnectionsOutput {
 	s.RemoteSubnet = v
+	return s
+}
+
+// SetRequestId sets the RequestId field's value.
+func (s *VpnConnectionForDescribeVpnConnectionsOutput) SetRequestId(v string) *VpnConnectionForDescribeVpnConnectionsOutput {
+	s.RequestId = &v
+	return s
+}
+
+// SetSpec sets the Spec field's value.
+func (s *VpnConnectionForDescribeVpnConnectionsOutput) SetSpec(v string) *VpnConnectionForDescribeVpnConnectionsOutput {
+	s.Spec = &v
 	return s
 }
 
@@ -652,23 +856,17 @@ func (s *VpnConnectionForDescribeVpnConnectionsOutput) SetZoneId(v string) *VpnC
 }
 
 const (
-	// AttachStatusForDescribeVpnConnectionsInputAttached is a AttachStatusForDescribeVpnConnectionsInput enum value
-	AttachStatusForDescribeVpnConnectionsInputAttached = "Attached"
+	// CheckResultForDescribeVpnConnectionsOutputDown is a CheckResultForDescribeVpnConnectionsOutput enum value
+	CheckResultForDescribeVpnConnectionsOutputDown = "Down"
 
-	// AttachStatusForDescribeVpnConnectionsInputAttaching is a AttachStatusForDescribeVpnConnectionsInput enum value
-	AttachStatusForDescribeVpnConnectionsInputAttaching = "Attaching"
-
-	// AttachStatusForDescribeVpnConnectionsInputDetached is a AttachStatusForDescribeVpnConnectionsInput enum value
-	AttachStatusForDescribeVpnConnectionsInputDetached = "Detached"
-
-	// AttachStatusForDescribeVpnConnectionsInputDetaching is a AttachStatusForDescribeVpnConnectionsInput enum value
-	AttachStatusForDescribeVpnConnectionsInputDetaching = "Detaching"
+	// CheckResultForDescribeVpnConnectionsOutputUp is a CheckResultForDescribeVpnConnectionsOutput enum value
+	CheckResultForDescribeVpnConnectionsOutputUp = " Up"
 )
 
 const (
-	// AttachTypeForDescribeVpnConnectionsInputVpnGateway is a AttachTypeForDescribeVpnConnectionsInput enum value
-	AttachTypeForDescribeVpnConnectionsInputVpnGateway = "VpnGateway"
+	// SessionStatusForDescribeVpnConnectionsOutputUp is a SessionStatusForDescribeVpnConnectionsOutput enum value
+	SessionStatusForDescribeVpnConnectionsOutputUp = "Up"
 
-	// AttachTypeForDescribeVpnConnectionsInputTransitRouter is a AttachTypeForDescribeVpnConnectionsInput enum value
-	AttachTypeForDescribeVpnConnectionsInputTransitRouter = "TransitRouter"
+	// SessionStatusForDescribeVpnConnectionsOutputDown is a SessionStatusForDescribeVpnConnectionsOutput enum value
+	SessionStatusForDescribeVpnConnectionsOutputDown = " Down"
 )

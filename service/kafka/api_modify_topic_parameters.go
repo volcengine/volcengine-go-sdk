@@ -144,20 +144,20 @@ func (c *KAFKA) ModifyTopicParametersWithContext(ctx volcengine.Context, input *
 }
 
 type ModifyTopicParametersInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// InstanceId is a required field
-	InstanceId *string `type:"string" required:"true"`
+	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 
 	// Parameters is a required field
-	Parameters *string `type:"string" required:"true"`
+	Parameters *string `type:"string" json:",omitempty" required:"true"`
 
-	PartitionNumber *int32 `type:"int32"`
+	PartitionNumber *int32 `type:"int32" json:",omitempty"`
 
-	ReplicaNumber *int32 `type:"int32"`
+	ReplicaNumber *int32 `type:"int32" json:",omitempty"`
 
 	// TopicName is a required field
-	TopicName *string `type:"string" required:"true"`
+	TopicName *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -220,7 +220,7 @@ func (s *ModifyTopicParametersInput) SetTopicName(v string) *ModifyTopicParamete
 }
 
 type ModifyTopicParametersOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 }

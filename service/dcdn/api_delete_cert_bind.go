@@ -144,11 +144,11 @@ func (c *DCDN) DeleteCertBindWithContext(ctx volcengine.Context, input *DeleteCe
 }
 
 type DeleteCertBindInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	DomainIds []*string `type:"list"`
+	DomainIds []*string `type:"list" json:",omitempty"`
 
-	DomainNames []*string `type:"list"`
+	DomainNames []*string `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -174,7 +174,7 @@ func (s *DeleteCertBindInput) SetDomainNames(v []*string) *DeleteCertBindInput {
 }
 
 type DeleteCertBindOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 }

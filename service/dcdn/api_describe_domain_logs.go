@@ -144,22 +144,22 @@ func (c *DCDN) DescribeDomainLogsWithContext(ctx volcengine.Context, input *Desc
 }
 
 type DescribeDomainLogsInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// Domain is a required field
-	Domain *string `type:"string" required:"true"`
+	Domain *string `type:"string" json:",omitempty" required:"true"`
 
 	// EndTime is a required field
-	EndTime *string `type:"string" required:"true"`
+	EndTime *string `type:"string" json:",omitempty" required:"true"`
 
-	PageNum *int32 `type:"int32"`
+	PageNum *int32 `type:"int32" json:",omitempty"`
 
-	PageSize *int32 `type:"int32"`
+	PageSize *int32 `type:"int32" json:",omitempty"`
 
-	ProjectName []*string `type:"list"`
+	ProjectName []*string `type:"list" json:",omitempty"`
 
 	// StartTime is a required field
-	StartTime *string `type:"string" required:"true"`
+	StartTime *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -228,17 +228,17 @@ func (s *DescribeDomainLogsInput) SetStartTime(v string) *DescribeDomainLogsInpu
 }
 
 type DescribeDomainLogsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	FileLists []*FileListForDescribeDomainLogsOutput `type:"list"`
+	FileLists []*FileListForDescribeDomainLogsOutput `type:"list" json:",omitempty"`
 
-	FilesCount *int32 `type:"int32"`
+	FilesCount *int32 `type:"int32" json:",omitempty"`
 
-	PageNum *int32 `type:"int32"`
+	PageNum *int32 `type:"int32" json:",omitempty"`
 
-	PageSize *int32 `type:"int32"`
+	PageSize *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -276,19 +276,19 @@ func (s *DescribeDomainLogsOutput) SetPageSize(v int32) *DescribeDomainLogsOutpu
 }
 
 type FileListForDescribeDomainLogsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	DomainName *string `type:"string"`
+	DomainName *string `type:"string" json:",omitempty"`
 
-	EndTime *string `type:"string"`
+	EndTime *string `type:"string" json:",omitempty"`
 
-	FileName *string `type:"string"`
+	FileName *string `type:"string" json:",omitempty"`
 
-	FilePath *string `type:"string"`
+	FilePath *string `type:"string" json:",omitempty"`
 
-	FileSize *int32 `type:"int32"`
+	FileSize *int32 `type:"int32" json:",omitempty"`
 
-	StartTime *string `type:"string"`
+	StartTime *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation

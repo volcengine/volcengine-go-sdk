@@ -22,13 +22,13 @@ const opDescribeCustomerGatewayAttributesCommon = "DescribeCustomerGatewayAttrib
 // See DescribeCustomerGatewayAttributesCommon for more information on using the DescribeCustomerGatewayAttributesCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeCustomerGatewayAttributesCommonRequest method.
-//	req, resp := client.DescribeCustomerGatewayAttributesCommonRequest(params)
+//    // Example sending a request using the DescribeCustomerGatewayAttributesCommonRequest method.
+//    req, resp := client.DescribeCustomerGatewayAttributesCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VPN) DescribeCustomerGatewayAttributesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeCustomerGatewayAttributesCommon,
@@ -87,13 +87,13 @@ const opDescribeCustomerGatewayAttributes = "DescribeCustomerGatewayAttributes"
 // See DescribeCustomerGatewayAttributes for more information on using the DescribeCustomerGatewayAttributes
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeCustomerGatewayAttributesRequest method.
-//	req, resp := client.DescribeCustomerGatewayAttributesRequest(params)
+//    // Example sending a request using the DescribeCustomerGatewayAttributesRequest method.
+//    req, resp := client.DescribeCustomerGatewayAttributesRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VPN) DescribeCustomerGatewayAttributesRequest(input *DescribeCustomerGatewayAttributesInput) (req *request.Request, output *DescribeCustomerGatewayAttributesOutput) {
 	op := &request.Operation{
 		Name:       opDescribeCustomerGatewayAttributes,
@@ -182,6 +182,8 @@ type DescribeCustomerGatewayAttributesOutput struct {
 
 	AccountId *string `type:"string"`
 
+	Asn *int64 `type:"integer"`
+
 	ConnectionCount *int64 `type:"integer"`
 
 	CreationTime *string `type:"string"`
@@ -200,6 +202,8 @@ type DescribeCustomerGatewayAttributesOutput struct {
 
 	Status *string `type:"string"`
 
+	Tags []*TagForDescribeCustomerGatewayAttributesOutput `type:"list"`
+
 	UpdateTime *string `type:"string"`
 }
 
@@ -216,6 +220,12 @@ func (s DescribeCustomerGatewayAttributesOutput) GoString() string {
 // SetAccountId sets the AccountId field's value.
 func (s *DescribeCustomerGatewayAttributesOutput) SetAccountId(v string) *DescribeCustomerGatewayAttributesOutput {
 	s.AccountId = &v
+	return s
+}
+
+// SetAsn sets the Asn field's value.
+func (s *DescribeCustomerGatewayAttributesOutput) SetAsn(v int64) *DescribeCustomerGatewayAttributesOutput {
+	s.Asn = &v
 	return s
 }
 
@@ -273,8 +283,44 @@ func (s *DescribeCustomerGatewayAttributesOutput) SetStatus(v string) *DescribeC
 	return s
 }
 
+// SetTags sets the Tags field's value.
+func (s *DescribeCustomerGatewayAttributesOutput) SetTags(v []*TagForDescribeCustomerGatewayAttributesOutput) *DescribeCustomerGatewayAttributesOutput {
+	s.Tags = v
+	return s
+}
+
 // SetUpdateTime sets the UpdateTime field's value.
 func (s *DescribeCustomerGatewayAttributesOutput) SetUpdateTime(v string) *DescribeCustomerGatewayAttributesOutput {
 	s.UpdateTime = &v
+	return s
+}
+
+type TagForDescribeCustomerGatewayAttributesOutput struct {
+	_ struct{} `type:"structure"`
+
+	Key *string `type:"string"`
+
+	Value *string `type:"string"`
+}
+
+// String returns the string representation
+func (s TagForDescribeCustomerGatewayAttributesOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagForDescribeCustomerGatewayAttributesOutput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagForDescribeCustomerGatewayAttributesOutput) SetKey(v string) *TagForDescribeCustomerGatewayAttributesOutput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *TagForDescribeCustomerGatewayAttributesOutput) SetValue(v string) *TagForDescribeCustomerGatewayAttributesOutput {
+	s.Value = &v
 	return s
 }

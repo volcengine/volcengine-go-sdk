@@ -428,6 +428,8 @@ type LoadBalancerForDescribeLoadBalancersOutput struct {
 
 	Tags []*TagForDescribeLoadBalancersOutput `type:"list"`
 
+	TimestampRemoveEnabled *string `type:"string"`
+
 	Type *string `type:"string"`
 
 	UpdateTime *string `type:"string"`
@@ -640,6 +642,12 @@ func (s *LoadBalancerForDescribeLoadBalancersOutput) SetSubnetId(v string) *Load
 // SetTags sets the Tags field's value.
 func (s *LoadBalancerForDescribeLoadBalancersOutput) SetTags(v []*TagForDescribeLoadBalancersOutput) *LoadBalancerForDescribeLoadBalancersOutput {
 	s.Tags = v
+	return s
+}
+
+// SetTimestampRemoveEnabled sets the TimestampRemoveEnabled field's value.
+func (s *LoadBalancerForDescribeLoadBalancersOutput) SetTimestampRemoveEnabled(v string) *LoadBalancerForDescribeLoadBalancersOutput {
+	s.TimestampRemoveEnabled = &v
 	return s
 }
 

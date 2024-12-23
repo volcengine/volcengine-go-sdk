@@ -22,13 +22,13 @@ const opDescribeVpnGatewaysBillingCommon = "DescribeVpnGatewaysBilling"
 // See DescribeVpnGatewaysBillingCommon for more information on using the DescribeVpnGatewaysBillingCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeVpnGatewaysBillingCommonRequest method.
-//	req, resp := client.DescribeVpnGatewaysBillingCommonRequest(params)
+//    // Example sending a request using the DescribeVpnGatewaysBillingCommonRequest method.
+//    req, resp := client.DescribeVpnGatewaysBillingCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VPN) DescribeVpnGatewaysBillingCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeVpnGatewaysBillingCommon,
@@ -87,13 +87,13 @@ const opDescribeVpnGatewaysBilling = "DescribeVpnGatewaysBilling"
 // See DescribeVpnGatewaysBilling for more information on using the DescribeVpnGatewaysBilling
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeVpnGatewaysBillingRequest method.
-//	req, resp := client.DescribeVpnGatewaysBillingRequest(params)
+//    // Example sending a request using the DescribeVpnGatewaysBillingRequest method.
+//    req, resp := client.DescribeVpnGatewaysBillingRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VPN) DescribeVpnGatewaysBillingRequest(input *DescribeVpnGatewaysBillingInput) (req *request.Request, output *DescribeVpnGatewaysBillingOutput) {
 	op := &request.Operation{
 		Name:       opDescribeVpnGatewaysBilling,
@@ -144,7 +144,9 @@ type DescribeVpnGatewaysBillingInput struct {
 
 	PageNumber *int64 `type:"integer"`
 
-	PageSize *int64 `max:"100" type:"integer"`
+	PageSize *int64 `type:"integer"`
+
+	ProjectName *string `type:"string"`
 
 	VpnGatewayIds []*string `type:"list"`
 }
@@ -159,19 +161,6 @@ func (s DescribeVpnGatewaysBillingInput) GoString() string {
 	return s.String()
 }
 
-// Validate inspects the fields of the type to determine if they are valid.
-func (s *DescribeVpnGatewaysBillingInput) Validate() error {
-	invalidParams := request.ErrInvalidParams{Context: "DescribeVpnGatewaysBillingInput"}
-	if s.PageSize != nil && *s.PageSize > 100 {
-		invalidParams.Add(request.NewErrParamMaxValue("PageSize", 100))
-	}
-
-	if invalidParams.Len() > 0 {
-		return invalidParams
-	}
-	return nil
-}
-
 // SetPageNumber sets the PageNumber field's value.
 func (s *DescribeVpnGatewaysBillingInput) SetPageNumber(v int64) *DescribeVpnGatewaysBillingInput {
 	s.PageNumber = &v
@@ -181,6 +170,12 @@ func (s *DescribeVpnGatewaysBillingInput) SetPageNumber(v int64) *DescribeVpnGat
 // SetPageSize sets the PageSize field's value.
 func (s *DescribeVpnGatewaysBillingInput) SetPageSize(v int64) *DescribeVpnGatewaysBillingInput {
 	s.PageSize = &v
+	return s
+}
+
+// SetProjectName sets the ProjectName field's value.
+func (s *DescribeVpnGatewaysBillingInput) SetProjectName(v string) *DescribeVpnGatewaysBillingInput {
+	s.ProjectName = &v
 	return s
 }
 
@@ -246,22 +241,90 @@ func (s *DescribeVpnGatewaysBillingOutput) SetVpnGateways(v []*VpnGatewayForDesc
 	return s
 }
 
+type TagForDescribeVpnGatewaysBillingOutput struct {
+	_ struct{} `type:"structure"`
+
+	Key *string `type:"string"`
+
+	Value *string `type:"string"`
+}
+
+// String returns the string representation
+func (s TagForDescribeVpnGatewaysBillingOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagForDescribeVpnGatewaysBillingOutput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagForDescribeVpnGatewaysBillingOutput) SetKey(v string) *TagForDescribeVpnGatewaysBillingOutput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *TagForDescribeVpnGatewaysBillingOutput) SetValue(v string) *TagForDescribeVpnGatewaysBillingOutput {
+	s.Value = &v
+	return s
+}
+
 type VpnGatewayForDescribeVpnGatewaysBillingOutput struct {
 	_ struct{} `type:"structure"`
 
-	BillingStatus *int64 `type:"integer"`
+	AccountId *string `type:"string"`
+
+	Asn *int64 `type:"integer"`
+
+	Bandwidth *int64 `type:"integer"`
 
 	BillingType *int64 `type:"integer"`
 
+	BusinessStatus *string `type:"string"`
+
+	ConnectionCount *int64 `type:"integer"`
+
+	CreationTime *string `type:"string"`
+
+	DeletedTime *string `type:"string"`
+
+	Description *string `type:"string"`
+
 	ExpiredTime *string `type:"string"`
 
-	ReclaimTime *string `type:"string"`
+	IpAddress *string `type:"string"`
 
-	RemainRenewTimes *int64 `type:"integer"`
+	IpsecEnabled *bool `type:"boolean"`
 
-	RenewType *int64 `type:"integer"`
+	IsBlocked *bool `type:"boolean"`
+
+	LockReason *string `type:"string"`
+
+	OverdueTime *string `type:"string"`
+
+	ProjectName *string `type:"string"`
+
+	RouteCount *int64 `type:"integer"`
+
+	SslEnabled *bool `type:"boolean"`
+
+	SslMaxConnections *int64 `type:"integer"`
+
+	Status *string `type:"string"`
+
+	SubnetId *string `type:"string"`
+
+	Tags []*TagForDescribeVpnGatewaysBillingOutput `type:"list"`
+
+	UpdateTime *string `type:"string"`
+
+	VpcId *string `type:"string"`
 
 	VpnGatewayId *string `type:"string"`
+
+	VpnGatewayName *string `type:"string"`
 }
 
 // String returns the string representation
@@ -274,9 +337,21 @@ func (s VpnGatewayForDescribeVpnGatewaysBillingOutput) GoString() string {
 	return s.String()
 }
 
-// SetBillingStatus sets the BillingStatus field's value.
-func (s *VpnGatewayForDescribeVpnGatewaysBillingOutput) SetBillingStatus(v int64) *VpnGatewayForDescribeVpnGatewaysBillingOutput {
-	s.BillingStatus = &v
+// SetAccountId sets the AccountId field's value.
+func (s *VpnGatewayForDescribeVpnGatewaysBillingOutput) SetAccountId(v string) *VpnGatewayForDescribeVpnGatewaysBillingOutput {
+	s.AccountId = &v
+	return s
+}
+
+// SetAsn sets the Asn field's value.
+func (s *VpnGatewayForDescribeVpnGatewaysBillingOutput) SetAsn(v int64) *VpnGatewayForDescribeVpnGatewaysBillingOutput {
+	s.Asn = &v
+	return s
+}
+
+// SetBandwidth sets the Bandwidth field's value.
+func (s *VpnGatewayForDescribeVpnGatewaysBillingOutput) SetBandwidth(v int64) *VpnGatewayForDescribeVpnGatewaysBillingOutput {
+	s.Bandwidth = &v
 	return s
 }
 
@@ -286,32 +361,134 @@ func (s *VpnGatewayForDescribeVpnGatewaysBillingOutput) SetBillingType(v int64) 
 	return s
 }
 
+// SetBusinessStatus sets the BusinessStatus field's value.
+func (s *VpnGatewayForDescribeVpnGatewaysBillingOutput) SetBusinessStatus(v string) *VpnGatewayForDescribeVpnGatewaysBillingOutput {
+	s.BusinessStatus = &v
+	return s
+}
+
+// SetConnectionCount sets the ConnectionCount field's value.
+func (s *VpnGatewayForDescribeVpnGatewaysBillingOutput) SetConnectionCount(v int64) *VpnGatewayForDescribeVpnGatewaysBillingOutput {
+	s.ConnectionCount = &v
+	return s
+}
+
+// SetCreationTime sets the CreationTime field's value.
+func (s *VpnGatewayForDescribeVpnGatewaysBillingOutput) SetCreationTime(v string) *VpnGatewayForDescribeVpnGatewaysBillingOutput {
+	s.CreationTime = &v
+	return s
+}
+
+// SetDeletedTime sets the DeletedTime field's value.
+func (s *VpnGatewayForDescribeVpnGatewaysBillingOutput) SetDeletedTime(v string) *VpnGatewayForDescribeVpnGatewaysBillingOutput {
+	s.DeletedTime = &v
+	return s
+}
+
+// SetDescription sets the Description field's value.
+func (s *VpnGatewayForDescribeVpnGatewaysBillingOutput) SetDescription(v string) *VpnGatewayForDescribeVpnGatewaysBillingOutput {
+	s.Description = &v
+	return s
+}
+
 // SetExpiredTime sets the ExpiredTime field's value.
 func (s *VpnGatewayForDescribeVpnGatewaysBillingOutput) SetExpiredTime(v string) *VpnGatewayForDescribeVpnGatewaysBillingOutput {
 	s.ExpiredTime = &v
 	return s
 }
 
-// SetReclaimTime sets the ReclaimTime field's value.
-func (s *VpnGatewayForDescribeVpnGatewaysBillingOutput) SetReclaimTime(v string) *VpnGatewayForDescribeVpnGatewaysBillingOutput {
-	s.ReclaimTime = &v
+// SetIpAddress sets the IpAddress field's value.
+func (s *VpnGatewayForDescribeVpnGatewaysBillingOutput) SetIpAddress(v string) *VpnGatewayForDescribeVpnGatewaysBillingOutput {
+	s.IpAddress = &v
 	return s
 }
 
-// SetRemainRenewTimes sets the RemainRenewTimes field's value.
-func (s *VpnGatewayForDescribeVpnGatewaysBillingOutput) SetRemainRenewTimes(v int64) *VpnGatewayForDescribeVpnGatewaysBillingOutput {
-	s.RemainRenewTimes = &v
+// SetIpsecEnabled sets the IpsecEnabled field's value.
+func (s *VpnGatewayForDescribeVpnGatewaysBillingOutput) SetIpsecEnabled(v bool) *VpnGatewayForDescribeVpnGatewaysBillingOutput {
+	s.IpsecEnabled = &v
 	return s
 }
 
-// SetRenewType sets the RenewType field's value.
-func (s *VpnGatewayForDescribeVpnGatewaysBillingOutput) SetRenewType(v int64) *VpnGatewayForDescribeVpnGatewaysBillingOutput {
-	s.RenewType = &v
+// SetIsBlocked sets the IsBlocked field's value.
+func (s *VpnGatewayForDescribeVpnGatewaysBillingOutput) SetIsBlocked(v bool) *VpnGatewayForDescribeVpnGatewaysBillingOutput {
+	s.IsBlocked = &v
+	return s
+}
+
+// SetLockReason sets the LockReason field's value.
+func (s *VpnGatewayForDescribeVpnGatewaysBillingOutput) SetLockReason(v string) *VpnGatewayForDescribeVpnGatewaysBillingOutput {
+	s.LockReason = &v
+	return s
+}
+
+// SetOverdueTime sets the OverdueTime field's value.
+func (s *VpnGatewayForDescribeVpnGatewaysBillingOutput) SetOverdueTime(v string) *VpnGatewayForDescribeVpnGatewaysBillingOutput {
+	s.OverdueTime = &v
+	return s
+}
+
+// SetProjectName sets the ProjectName field's value.
+func (s *VpnGatewayForDescribeVpnGatewaysBillingOutput) SetProjectName(v string) *VpnGatewayForDescribeVpnGatewaysBillingOutput {
+	s.ProjectName = &v
+	return s
+}
+
+// SetRouteCount sets the RouteCount field's value.
+func (s *VpnGatewayForDescribeVpnGatewaysBillingOutput) SetRouteCount(v int64) *VpnGatewayForDescribeVpnGatewaysBillingOutput {
+	s.RouteCount = &v
+	return s
+}
+
+// SetSslEnabled sets the SslEnabled field's value.
+func (s *VpnGatewayForDescribeVpnGatewaysBillingOutput) SetSslEnabled(v bool) *VpnGatewayForDescribeVpnGatewaysBillingOutput {
+	s.SslEnabled = &v
+	return s
+}
+
+// SetSslMaxConnections sets the SslMaxConnections field's value.
+func (s *VpnGatewayForDescribeVpnGatewaysBillingOutput) SetSslMaxConnections(v int64) *VpnGatewayForDescribeVpnGatewaysBillingOutput {
+	s.SslMaxConnections = &v
+	return s
+}
+
+// SetStatus sets the Status field's value.
+func (s *VpnGatewayForDescribeVpnGatewaysBillingOutput) SetStatus(v string) *VpnGatewayForDescribeVpnGatewaysBillingOutput {
+	s.Status = &v
+	return s
+}
+
+// SetSubnetId sets the SubnetId field's value.
+func (s *VpnGatewayForDescribeVpnGatewaysBillingOutput) SetSubnetId(v string) *VpnGatewayForDescribeVpnGatewaysBillingOutput {
+	s.SubnetId = &v
+	return s
+}
+
+// SetTags sets the Tags field's value.
+func (s *VpnGatewayForDescribeVpnGatewaysBillingOutput) SetTags(v []*TagForDescribeVpnGatewaysBillingOutput) *VpnGatewayForDescribeVpnGatewaysBillingOutput {
+	s.Tags = v
+	return s
+}
+
+// SetUpdateTime sets the UpdateTime field's value.
+func (s *VpnGatewayForDescribeVpnGatewaysBillingOutput) SetUpdateTime(v string) *VpnGatewayForDescribeVpnGatewaysBillingOutput {
+	s.UpdateTime = &v
+	return s
+}
+
+// SetVpcId sets the VpcId field's value.
+func (s *VpnGatewayForDescribeVpnGatewaysBillingOutput) SetVpcId(v string) *VpnGatewayForDescribeVpnGatewaysBillingOutput {
+	s.VpcId = &v
 	return s
 }
 
 // SetVpnGatewayId sets the VpnGatewayId field's value.
 func (s *VpnGatewayForDescribeVpnGatewaysBillingOutput) SetVpnGatewayId(v string) *VpnGatewayForDescribeVpnGatewaysBillingOutput {
 	s.VpnGatewayId = &v
+	return s
+}
+
+// SetVpnGatewayName sets the VpnGatewayName field's value.
+func (s *VpnGatewayForDescribeVpnGatewaysBillingOutput) SetVpnGatewayName(v string) *VpnGatewayForDescribeVpnGatewaysBillingOutput {
+	s.VpnGatewayName = &v
 	return s
 }

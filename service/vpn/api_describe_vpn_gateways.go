@@ -22,13 +22,13 @@ const opDescribeVpnGatewaysCommon = "DescribeVpnGateways"
 // See DescribeVpnGatewaysCommon for more information on using the DescribeVpnGatewaysCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeVpnGatewaysCommonRequest method.
-//	req, resp := client.DescribeVpnGatewaysCommonRequest(params)
+//    // Example sending a request using the DescribeVpnGatewaysCommonRequest method.
+//    req, resp := client.DescribeVpnGatewaysCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VPN) DescribeVpnGatewaysCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeVpnGatewaysCommon,
@@ -87,13 +87,13 @@ const opDescribeVpnGateways = "DescribeVpnGateways"
 // See DescribeVpnGateways for more information on using the DescribeVpnGateways
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeVpnGatewaysRequest method.
-//	req, resp := client.DescribeVpnGatewaysRequest(params)
+//    // Example sending a request using the DescribeVpnGatewaysRequest method.
+//    req, resp := client.DescribeVpnGatewaysRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VPN) DescribeVpnGatewaysRequest(input *DescribeVpnGatewaysInput) (req *request.Request, output *DescribeVpnGatewaysOutput) {
 	op := &request.Operation{
 		Name:       opDescribeVpnGateways,
@@ -144,11 +144,15 @@ type DescribeVpnGatewaysInput struct {
 
 	IpAddress *string `type:"string"`
 
+	IpsecEnabled *bool `type:"boolean"`
+
 	PageNumber *int64 `type:"integer"`
 
 	PageSize *int64 `type:"integer"`
 
 	ProjectName *string `type:"string"`
+
+	SslEnabled *bool `type:"boolean"`
 
 	SubnetId *string `type:"string"`
 
@@ -177,6 +181,12 @@ func (s *DescribeVpnGatewaysInput) SetIpAddress(v string) *DescribeVpnGatewaysIn
 	return s
 }
 
+// SetIpsecEnabled sets the IpsecEnabled field's value.
+func (s *DescribeVpnGatewaysInput) SetIpsecEnabled(v bool) *DescribeVpnGatewaysInput {
+	s.IpsecEnabled = &v
+	return s
+}
+
 // SetPageNumber sets the PageNumber field's value.
 func (s *DescribeVpnGatewaysInput) SetPageNumber(v int64) *DescribeVpnGatewaysInput {
 	s.PageNumber = &v
@@ -192,6 +202,12 @@ func (s *DescribeVpnGatewaysInput) SetPageSize(v int64) *DescribeVpnGatewaysInpu
 // SetProjectName sets the ProjectName field's value.
 func (s *DescribeVpnGatewaysInput) SetProjectName(v string) *DescribeVpnGatewaysInput {
 	s.ProjectName = &v
+	return s
+}
+
+// SetSslEnabled sets the SslEnabled field's value.
+func (s *DescribeVpnGatewaysInput) SetSslEnabled(v bool) *DescribeVpnGatewaysInput {
+	s.SslEnabled = &v
 	return s
 }
 
@@ -285,6 +301,8 @@ type TagFilterForDescribeVpnGatewaysInput struct {
 	_ struct{} `type:"structure"`
 
 	Key *string `type:"string"`
+
+	Values []*string `type:"list"`
 }
 
 // String returns the string representation
@@ -300,6 +318,12 @@ func (s TagFilterForDescribeVpnGatewaysInput) GoString() string {
 // SetKey sets the Key field's value.
 func (s *TagFilterForDescribeVpnGatewaysInput) SetKey(v string) *TagFilterForDescribeVpnGatewaysInput {
 	s.Key = &v
+	return s
+}
+
+// SetValues sets the Values field's value.
+func (s *TagFilterForDescribeVpnGatewaysInput) SetValues(v []*string) *TagFilterForDescribeVpnGatewaysInput {
+	s.Values = v
 	return s
 }
 
@@ -338,6 +362,8 @@ type VpnGatewayForDescribeVpnGatewaysOutput struct {
 
 	AccountId *string `type:"string"`
 
+	Asn *int64 `type:"integer"`
+
 	Bandwidth *int64 `type:"integer"`
 
 	BillingType *int64 `type:"integer"`
@@ -356,11 +382,21 @@ type VpnGatewayForDescribeVpnGatewaysOutput struct {
 
 	IpAddress *string `type:"string"`
 
+	IpsecEnabled *bool `type:"boolean"`
+
+	IsBlocked *bool `type:"boolean"`
+
 	LockReason *string `type:"string"`
+
+	OverdueTime *string `type:"string"`
 
 	ProjectName *string `type:"string"`
 
 	RouteCount *int64 `type:"integer"`
+
+	SslEnabled *bool `type:"boolean"`
+
+	SslMaxConnections *int64 `type:"integer"`
 
 	Status *string `type:"string"`
 
@@ -390,6 +426,12 @@ func (s VpnGatewayForDescribeVpnGatewaysOutput) GoString() string {
 // SetAccountId sets the AccountId field's value.
 func (s *VpnGatewayForDescribeVpnGatewaysOutput) SetAccountId(v string) *VpnGatewayForDescribeVpnGatewaysOutput {
 	s.AccountId = &v
+	return s
+}
+
+// SetAsn sets the Asn field's value.
+func (s *VpnGatewayForDescribeVpnGatewaysOutput) SetAsn(v int64) *VpnGatewayForDescribeVpnGatewaysOutput {
+	s.Asn = &v
 	return s
 }
 
@@ -447,9 +489,27 @@ func (s *VpnGatewayForDescribeVpnGatewaysOutput) SetIpAddress(v string) *VpnGate
 	return s
 }
 
+// SetIpsecEnabled sets the IpsecEnabled field's value.
+func (s *VpnGatewayForDescribeVpnGatewaysOutput) SetIpsecEnabled(v bool) *VpnGatewayForDescribeVpnGatewaysOutput {
+	s.IpsecEnabled = &v
+	return s
+}
+
+// SetIsBlocked sets the IsBlocked field's value.
+func (s *VpnGatewayForDescribeVpnGatewaysOutput) SetIsBlocked(v bool) *VpnGatewayForDescribeVpnGatewaysOutput {
+	s.IsBlocked = &v
+	return s
+}
+
 // SetLockReason sets the LockReason field's value.
 func (s *VpnGatewayForDescribeVpnGatewaysOutput) SetLockReason(v string) *VpnGatewayForDescribeVpnGatewaysOutput {
 	s.LockReason = &v
+	return s
+}
+
+// SetOverdueTime sets the OverdueTime field's value.
+func (s *VpnGatewayForDescribeVpnGatewaysOutput) SetOverdueTime(v string) *VpnGatewayForDescribeVpnGatewaysOutput {
+	s.OverdueTime = &v
 	return s
 }
 
@@ -462,6 +522,18 @@ func (s *VpnGatewayForDescribeVpnGatewaysOutput) SetProjectName(v string) *VpnGa
 // SetRouteCount sets the RouteCount field's value.
 func (s *VpnGatewayForDescribeVpnGatewaysOutput) SetRouteCount(v int64) *VpnGatewayForDescribeVpnGatewaysOutput {
 	s.RouteCount = &v
+	return s
+}
+
+// SetSslEnabled sets the SslEnabled field's value.
+func (s *VpnGatewayForDescribeVpnGatewaysOutput) SetSslEnabled(v bool) *VpnGatewayForDescribeVpnGatewaysOutput {
+	s.SslEnabled = &v
+	return s
+}
+
+// SetSslMaxConnections sets the SslMaxConnections field's value.
+func (s *VpnGatewayForDescribeVpnGatewaysOutput) SetSslMaxConnections(v int64) *VpnGatewayForDescribeVpnGatewaysOutput {
+	s.SslMaxConnections = &v
 	return s
 }
 
