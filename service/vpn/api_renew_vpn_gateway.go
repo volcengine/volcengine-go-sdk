@@ -22,13 +22,13 @@ const opRenewVpnGatewayCommon = "RenewVpnGateway"
 // See RenewVpnGatewayCommon for more information on using the RenewVpnGatewayCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the RenewVpnGatewayCommonRequest method.
-//	req, resp := client.RenewVpnGatewayCommonRequest(params)
+//    // Example sending a request using the RenewVpnGatewayCommonRequest method.
+//    req, resp := client.RenewVpnGatewayCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VPN) RenewVpnGatewayCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opRenewVpnGatewayCommon,
@@ -87,13 +87,13 @@ const opRenewVpnGateway = "RenewVpnGateway"
 // See RenewVpnGateway for more information on using the RenewVpnGateway
 // API call, and error handling.
 //
-//	// Example sending a request using the RenewVpnGatewayRequest method.
-//	req, resp := client.RenewVpnGatewayRequest(params)
+//    // Example sending a request using the RenewVpnGatewayRequest method.
+//    req, resp := client.RenewVpnGatewayRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VPN) RenewVpnGatewayRequest(input *RenewVpnGatewayInput) (req *request.Request, output *RenewVpnGatewayOutput) {
 	op := &request.Operation{
 		Name:       opRenewVpnGateway,
@@ -144,7 +144,7 @@ type RenewVpnGatewayInput struct {
 
 	Period *int64 `type:"integer"`
 
-	PeriodUnit *string `type:"string" enum:"PeriodUnitForRenewVpnGatewayInput"`
+	PeriodUnit *string `type:"string"`
 
 	// VpnGatewayId is a required field
 	VpnGatewayId *string `type:"string" required:"true"`
@@ -214,11 +214,3 @@ func (s *RenewVpnGatewayOutput) SetRequestId(v string) *RenewVpnGatewayOutput {
 	s.RequestId = &v
 	return s
 }
-
-const (
-	// PeriodUnitForRenewVpnGatewayInputMonth is a PeriodUnitForRenewVpnGatewayInput enum value
-	PeriodUnitForRenewVpnGatewayInputMonth = "Month"
-
-	// PeriodUnitForRenewVpnGatewayInputYear is a PeriodUnitForRenewVpnGatewayInput enum value
-	PeriodUnitForRenewVpnGatewayInputYear = "Year"
-)

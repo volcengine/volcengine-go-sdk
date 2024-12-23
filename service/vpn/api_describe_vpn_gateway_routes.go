@@ -22,13 +22,13 @@ const opDescribeVpnGatewayRoutesCommon = "DescribeVpnGatewayRoutes"
 // See DescribeVpnGatewayRoutesCommon for more information on using the DescribeVpnGatewayRoutesCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeVpnGatewayRoutesCommonRequest method.
-//	req, resp := client.DescribeVpnGatewayRoutesCommonRequest(params)
+//    // Example sending a request using the DescribeVpnGatewayRoutesCommonRequest method.
+//    req, resp := client.DescribeVpnGatewayRoutesCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VPN) DescribeVpnGatewayRoutesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeVpnGatewayRoutesCommon,
@@ -87,13 +87,13 @@ const opDescribeVpnGatewayRoutes = "DescribeVpnGatewayRoutes"
 // See DescribeVpnGatewayRoutes for more information on using the DescribeVpnGatewayRoutes
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeVpnGatewayRoutesRequest method.
-//	req, resp := client.DescribeVpnGatewayRoutesRequest(params)
+//    // Example sending a request using the DescribeVpnGatewayRoutesRequest method.
+//    req, resp := client.DescribeVpnGatewayRoutesRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VPN) DescribeVpnGatewayRoutesRequest(input *DescribeVpnGatewayRoutesInput) (req *request.Request, output *DescribeVpnGatewayRoutesOutput) {
 	op := &request.Operation{
 		Name:       opDescribeVpnGatewayRoutes,
@@ -139,6 +139,36 @@ func (c *VPN) DescribeVpnGatewayRoutesWithContext(ctx volcengine.Context, input 
 	return out, req.Send()
 }
 
+type AsPathForDescribeVpnGatewayRoutesOutput struct {
+	_ struct{} `type:"structure"`
+
+	Numbers []*int64 `type:"list"`
+
+	Type *string `type:"string" enum:"TypeForDescribeVpnGatewayRoutesOutput"`
+}
+
+// String returns the string representation
+func (s AsPathForDescribeVpnGatewayRoutesOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s AsPathForDescribeVpnGatewayRoutesOutput) GoString() string {
+	return s.String()
+}
+
+// SetNumbers sets the Numbers field's value.
+func (s *AsPathForDescribeVpnGatewayRoutesOutput) SetNumbers(v []*int64) *AsPathForDescribeVpnGatewayRoutesOutput {
+	s.Numbers = v
+	return s
+}
+
+// SetType sets the Type field's value.
+func (s *AsPathForDescribeVpnGatewayRoutesOutput) SetType(v string) *AsPathForDescribeVpnGatewayRoutesOutput {
+	s.Type = &v
+	return s
+}
+
 type DescribeVpnGatewayRoutesInput struct {
 	_ struct{} `type:"structure"`
 
@@ -149,6 +179,10 @@ type DescribeVpnGatewayRoutesInput struct {
 	PageNumber *int64 `type:"integer"`
 
 	PageSize *int64 `type:"integer"`
+
+	RouteType *string `type:"string" enum:"RouteTypeForDescribeVpnGatewayRoutesInput"`
+
+	Status *string `type:"string"`
 
 	VpnGatewayId *string `type:"string"`
 
@@ -186,6 +220,18 @@ func (s *DescribeVpnGatewayRoutesInput) SetPageNumber(v int64) *DescribeVpnGatew
 // SetPageSize sets the PageSize field's value.
 func (s *DescribeVpnGatewayRoutesInput) SetPageSize(v int64) *DescribeVpnGatewayRoutesInput {
 	s.PageSize = &v
+	return s
+}
+
+// SetRouteType sets the RouteType field's value.
+func (s *DescribeVpnGatewayRoutesInput) SetRouteType(v string) *DescribeVpnGatewayRoutesInput {
+	s.RouteType = &v
+	return s
+}
+
+// SetStatus sets the Status field's value.
+func (s *DescribeVpnGatewayRoutesInput) SetStatus(v string) *DescribeVpnGatewayRoutesInput {
+	s.Status = &v
 	return s
 }
 
@@ -260,11 +306,15 @@ func (s *DescribeVpnGatewayRoutesOutput) SetVpnGatewayRoutes(v []*VpnGatewayRout
 type VpnGatewayRouteForDescribeVpnGatewayRoutesOutput struct {
 	_ struct{} `type:"structure"`
 
+	AsPath []*AsPathForDescribeVpnGatewayRoutesOutput `type:"list"`
+
 	CreationTime *string `type:"string"`
 
 	DestinationCidrBlock *string `type:"string"`
 
 	NextHopId *string `type:"string"`
+
+	RouteType *string `type:"string" enum:"RouteTypeForDescribeVpnGatewayRoutesOutput"`
 
 	Status *string `type:"string"`
 
@@ -285,6 +335,12 @@ func (s VpnGatewayRouteForDescribeVpnGatewayRoutesOutput) GoString() string {
 	return s.String()
 }
 
+// SetAsPath sets the AsPath field's value.
+func (s *VpnGatewayRouteForDescribeVpnGatewayRoutesOutput) SetAsPath(v []*AsPathForDescribeVpnGatewayRoutesOutput) *VpnGatewayRouteForDescribeVpnGatewayRoutesOutput {
+	s.AsPath = v
+	return s
+}
+
 // SetCreationTime sets the CreationTime field's value.
 func (s *VpnGatewayRouteForDescribeVpnGatewayRoutesOutput) SetCreationTime(v string) *VpnGatewayRouteForDescribeVpnGatewayRoutesOutput {
 	s.CreationTime = &v
@@ -300,6 +356,12 @@ func (s *VpnGatewayRouteForDescribeVpnGatewayRoutesOutput) SetDestinationCidrBlo
 // SetNextHopId sets the NextHopId field's value.
 func (s *VpnGatewayRouteForDescribeVpnGatewayRoutesOutput) SetNextHopId(v string) *VpnGatewayRouteForDescribeVpnGatewayRoutesOutput {
 	s.NextHopId = &v
+	return s
+}
+
+// SetRouteType sets the RouteType field's value.
+func (s *VpnGatewayRouteForDescribeVpnGatewayRoutesOutput) SetRouteType(v string) *VpnGatewayRouteForDescribeVpnGatewayRoutesOutput {
+	s.RouteType = &v
 	return s
 }
 
@@ -326,3 +388,33 @@ func (s *VpnGatewayRouteForDescribeVpnGatewayRoutesOutput) SetVpnGatewayRouteId(
 	s.VpnGatewayRouteId = &v
 	return s
 }
+
+const (
+	// RouteTypeForDescribeVpnGatewayRoutesInputBgp is a RouteTypeForDescribeVpnGatewayRoutesInput enum value
+	RouteTypeForDescribeVpnGatewayRoutesInputBgp = "BGP"
+
+	// RouteTypeForDescribeVpnGatewayRoutesInputStatic is a RouteTypeForDescribeVpnGatewayRoutesInput enum value
+	RouteTypeForDescribeVpnGatewayRoutesInputStatic = " Static"
+
+	// RouteTypeForDescribeVpnGatewayRoutesInputCloud is a RouteTypeForDescribeVpnGatewayRoutesInput enum value
+	RouteTypeForDescribeVpnGatewayRoutesInputCloud = " Cloud"
+)
+
+const (
+	// RouteTypeForDescribeVpnGatewayRoutesOutputBgp is a RouteTypeForDescribeVpnGatewayRoutesOutput enum value
+	RouteTypeForDescribeVpnGatewayRoutesOutputBgp = "BGP"
+
+	// RouteTypeForDescribeVpnGatewayRoutesOutputStatic is a RouteTypeForDescribeVpnGatewayRoutesOutput enum value
+	RouteTypeForDescribeVpnGatewayRoutesOutputStatic = " Static"
+
+	// RouteTypeForDescribeVpnGatewayRoutesOutputCloud is a RouteTypeForDescribeVpnGatewayRoutesOutput enum value
+	RouteTypeForDescribeVpnGatewayRoutesOutputCloud = " Cloud"
+)
+
+const (
+	// TypeForDescribeVpnGatewayRoutesOutputSequence is a TypeForDescribeVpnGatewayRoutesOutput enum value
+	TypeForDescribeVpnGatewayRoutesOutputSequence = "Sequence"
+
+	// TypeForDescribeVpnGatewayRoutesOutputSet is a TypeForDescribeVpnGatewayRoutesOutput enum value
+	TypeForDescribeVpnGatewayRoutesOutputSet = " Set"
+)

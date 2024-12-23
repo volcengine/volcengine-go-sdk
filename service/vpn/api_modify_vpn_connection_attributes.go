@@ -22,13 +22,13 @@ const opModifyVpnConnectionAttributesCommon = "ModifyVpnConnectionAttributes"
 // See ModifyVpnConnectionAttributesCommon for more information on using the ModifyVpnConnectionAttributesCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the ModifyVpnConnectionAttributesCommonRequest method.
-//	req, resp := client.ModifyVpnConnectionAttributesCommonRequest(params)
+//    // Example sending a request using the ModifyVpnConnectionAttributesCommonRequest method.
+//    req, resp := client.ModifyVpnConnectionAttributesCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VPN) ModifyVpnConnectionAttributesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opModifyVpnConnectionAttributesCommon,
@@ -87,13 +87,13 @@ const opModifyVpnConnectionAttributes = "ModifyVpnConnectionAttributes"
 // See ModifyVpnConnectionAttributes for more information on using the ModifyVpnConnectionAttributes
 // API call, and error handling.
 //
-//	// Example sending a request using the ModifyVpnConnectionAttributesRequest method.
-//	req, resp := client.ModifyVpnConnectionAttributesRequest(params)
+//    // Example sending a request using the ModifyVpnConnectionAttributesRequest method.
+//    req, resp := client.ModifyVpnConnectionAttributesRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VPN) ModifyVpnConnectionAttributesRequest(input *ModifyVpnConnectionAttributesInput) (req *request.Request, output *ModifyVpnConnectionAttributesOutput) {
 	op := &request.Operation{
 		Name:       opModifyVpnConnectionAttributes,
@@ -139,16 +139,174 @@ func (c *VPN) ModifyVpnConnectionAttributesWithContext(ctx volcengine.Context, i
 	return out, req.Send()
 }
 
+type BgpConfigForModifyVpnConnectionAttributesInput struct {
+	_ struct{} `type:"structure"`
+
+	EnableBgp *bool `type:"boolean"`
+
+	LocalBgpIp *string `type:"string"`
+
+	TunnelCidr *string `type:"string"`
+}
+
+// String returns the string representation
+func (s BgpConfigForModifyVpnConnectionAttributesInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s BgpConfigForModifyVpnConnectionAttributesInput) GoString() string {
+	return s.String()
+}
+
+// SetEnableBgp sets the EnableBgp field's value.
+func (s *BgpConfigForModifyVpnConnectionAttributesInput) SetEnableBgp(v bool) *BgpConfigForModifyVpnConnectionAttributesInput {
+	s.EnableBgp = &v
+	return s
+}
+
+// SetLocalBgpIp sets the LocalBgpIp field's value.
+func (s *BgpConfigForModifyVpnConnectionAttributesInput) SetLocalBgpIp(v string) *BgpConfigForModifyVpnConnectionAttributesInput {
+	s.LocalBgpIp = &v
+	return s
+}
+
+// SetTunnelCidr sets the TunnelCidr field's value.
+func (s *BgpConfigForModifyVpnConnectionAttributesInput) SetTunnelCidr(v string) *BgpConfigForModifyVpnConnectionAttributesInput {
+	s.TunnelCidr = &v
+	return s
+}
+
+type IkeConfigForModifyVpnConnectionAttributesInput struct {
+	_ struct{} `type:"structure"`
+
+	AuthAlg *string `type:"string"`
+
+	DhGroup *string `type:"string"`
+
+	EncAlg *string `type:"string"`
+
+	Lifetime *int64 `type:"integer"`
+
+	Mode *string `type:"string"`
+
+	Psk *string `type:"string"`
+
+	Version *string `type:"string"`
+}
+
+// String returns the string representation
+func (s IkeConfigForModifyVpnConnectionAttributesInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s IkeConfigForModifyVpnConnectionAttributesInput) GoString() string {
+	return s.String()
+}
+
+// SetAuthAlg sets the AuthAlg field's value.
+func (s *IkeConfigForModifyVpnConnectionAttributesInput) SetAuthAlg(v string) *IkeConfigForModifyVpnConnectionAttributesInput {
+	s.AuthAlg = &v
+	return s
+}
+
+// SetDhGroup sets the DhGroup field's value.
+func (s *IkeConfigForModifyVpnConnectionAttributesInput) SetDhGroup(v string) *IkeConfigForModifyVpnConnectionAttributesInput {
+	s.DhGroup = &v
+	return s
+}
+
+// SetEncAlg sets the EncAlg field's value.
+func (s *IkeConfigForModifyVpnConnectionAttributesInput) SetEncAlg(v string) *IkeConfigForModifyVpnConnectionAttributesInput {
+	s.EncAlg = &v
+	return s
+}
+
+// SetLifetime sets the Lifetime field's value.
+func (s *IkeConfigForModifyVpnConnectionAttributesInput) SetLifetime(v int64) *IkeConfigForModifyVpnConnectionAttributesInput {
+	s.Lifetime = &v
+	return s
+}
+
+// SetMode sets the Mode field's value.
+func (s *IkeConfigForModifyVpnConnectionAttributesInput) SetMode(v string) *IkeConfigForModifyVpnConnectionAttributesInput {
+	s.Mode = &v
+	return s
+}
+
+// SetPsk sets the Psk field's value.
+func (s *IkeConfigForModifyVpnConnectionAttributesInput) SetPsk(v string) *IkeConfigForModifyVpnConnectionAttributesInput {
+	s.Psk = &v
+	return s
+}
+
+// SetVersion sets the Version field's value.
+func (s *IkeConfigForModifyVpnConnectionAttributesInput) SetVersion(v string) *IkeConfigForModifyVpnConnectionAttributesInput {
+	s.Version = &v
+	return s
+}
+
+type IpsecConfigForModifyVpnConnectionAttributesInput struct {
+	_ struct{} `type:"structure"`
+
+	AuthAlg *string `type:"string"`
+
+	DhGroup *string `type:"string"`
+
+	EncAlg *string `type:"string"`
+
+	Lifetime *int64 `type:"integer"`
+}
+
+// String returns the string representation
+func (s IpsecConfigForModifyVpnConnectionAttributesInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s IpsecConfigForModifyVpnConnectionAttributesInput) GoString() string {
+	return s.String()
+}
+
+// SetAuthAlg sets the AuthAlg field's value.
+func (s *IpsecConfigForModifyVpnConnectionAttributesInput) SetAuthAlg(v string) *IpsecConfigForModifyVpnConnectionAttributesInput {
+	s.AuthAlg = &v
+	return s
+}
+
+// SetDhGroup sets the DhGroup field's value.
+func (s *IpsecConfigForModifyVpnConnectionAttributesInput) SetDhGroup(v string) *IpsecConfigForModifyVpnConnectionAttributesInput {
+	s.DhGroup = &v
+	return s
+}
+
+// SetEncAlg sets the EncAlg field's value.
+func (s *IpsecConfigForModifyVpnConnectionAttributesInput) SetEncAlg(v string) *IpsecConfigForModifyVpnConnectionAttributesInput {
+	s.EncAlg = &v
+	return s
+}
+
+// SetLifetime sets the Lifetime field's value.
+func (s *IpsecConfigForModifyVpnConnectionAttributesInput) SetLifetime(v int64) *IpsecConfigForModifyVpnConnectionAttributesInput {
+	s.Lifetime = &v
+	return s
+}
+
 type ModifyVpnConnectionAttributesInput struct {
 	_ struct{} `type:"structure"`
 
-	Description *string `min:"1" max:"255" type:"string"`
+	BgpConfig *BgpConfigForModifyVpnConnectionAttributesInput `type:"structure"`
 
-	DpdAction *string `type:"string" enum:"DpdActionForModifyVpnConnectionAttributesInput"`
+	CustomerGatewayId *string `type:"string"`
 
-	IkeConfig *string `type:"string"`
+	Description *string `type:"string"`
 
-	IpsecConfig *string `type:"string"`
+	DpdAction *string `type:"string"`
+
+	IkeConfig *IkeConfigForModifyVpnConnectionAttributesInput `type:"structure"`
+
+	IpsecConfig *IpsecConfigForModifyVpnConnectionAttributesInput `type:"structure"`
 
 	LocalSubnet []*string `type:"list"`
 
@@ -163,7 +321,7 @@ type ModifyVpnConnectionAttributesInput struct {
 	// VpnConnectionId is a required field
 	VpnConnectionId *string `type:"string" required:"true"`
 
-	VpnConnectionName *string `min:"1" max:"128" type:"string"`
+	VpnConnectionName *string `type:"string"`
 }
 
 // String returns the string representation
@@ -179,26 +337,26 @@ func (s ModifyVpnConnectionAttributesInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *ModifyVpnConnectionAttributesInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "ModifyVpnConnectionAttributesInput"}
-	if s.Description != nil && len(*s.Description) < 1 {
-		invalidParams.Add(request.NewErrParamMinLen("Description", 1))
-	}
-	if s.Description != nil && len(*s.Description) > 255 {
-		invalidParams.Add(request.NewErrParamMaxLen("Description", 255, *s.Description))
-	}
 	if s.VpnConnectionId == nil {
 		invalidParams.Add(request.NewErrParamRequired("VpnConnectionId"))
-	}
-	if s.VpnConnectionName != nil && len(*s.VpnConnectionName) < 1 {
-		invalidParams.Add(request.NewErrParamMinLen("VpnConnectionName", 1))
-	}
-	if s.VpnConnectionName != nil && len(*s.VpnConnectionName) > 128 {
-		invalidParams.Add(request.NewErrParamMaxLen("VpnConnectionName", 128, *s.VpnConnectionName))
 	}
 
 	if invalidParams.Len() > 0 {
 		return invalidParams
 	}
 	return nil
+}
+
+// SetBgpConfig sets the BgpConfig field's value.
+func (s *ModifyVpnConnectionAttributesInput) SetBgpConfig(v *BgpConfigForModifyVpnConnectionAttributesInput) *ModifyVpnConnectionAttributesInput {
+	s.BgpConfig = v
+	return s
+}
+
+// SetCustomerGatewayId sets the CustomerGatewayId field's value.
+func (s *ModifyVpnConnectionAttributesInput) SetCustomerGatewayId(v string) *ModifyVpnConnectionAttributesInput {
+	s.CustomerGatewayId = &v
+	return s
 }
 
 // SetDescription sets the Description field's value.
@@ -214,14 +372,14 @@ func (s *ModifyVpnConnectionAttributesInput) SetDpdAction(v string) *ModifyVpnCo
 }
 
 // SetIkeConfig sets the IkeConfig field's value.
-func (s *ModifyVpnConnectionAttributesInput) SetIkeConfig(v string) *ModifyVpnConnectionAttributesInput {
-	s.IkeConfig = &v
+func (s *ModifyVpnConnectionAttributesInput) SetIkeConfig(v *IkeConfigForModifyVpnConnectionAttributesInput) *ModifyVpnConnectionAttributesInput {
+	s.IkeConfig = v
 	return s
 }
 
 // SetIpsecConfig sets the IpsecConfig field's value.
-func (s *ModifyVpnConnectionAttributesInput) SetIpsecConfig(v string) *ModifyVpnConnectionAttributesInput {
-	s.IpsecConfig = &v
+func (s *ModifyVpnConnectionAttributesInput) SetIpsecConfig(v *IpsecConfigForModifyVpnConnectionAttributesInput) *ModifyVpnConnectionAttributesInput {
+	s.IpsecConfig = v
 	return s
 }
 
@@ -272,6 +430,8 @@ type ModifyVpnConnectionAttributesOutput struct {
 
 	Metadata *response.ResponseMetadata
 
+	OrderId *string `type:"string"`
+
 	RequestId *string `type:"string"`
 }
 
@@ -285,22 +445,14 @@ func (s ModifyVpnConnectionAttributesOutput) GoString() string {
 	return s.String()
 }
 
+// SetOrderId sets the OrderId field's value.
+func (s *ModifyVpnConnectionAttributesOutput) SetOrderId(v string) *ModifyVpnConnectionAttributesOutput {
+	s.OrderId = &v
+	return s
+}
+
 // SetRequestId sets the RequestId field's value.
 func (s *ModifyVpnConnectionAttributesOutput) SetRequestId(v string) *ModifyVpnConnectionAttributesOutput {
 	s.RequestId = &v
 	return s
 }
-
-const (
-	// DpdActionForModifyVpnConnectionAttributesInputNone is a DpdActionForModifyVpnConnectionAttributesInput enum value
-	DpdActionForModifyVpnConnectionAttributesInputNone = "none"
-
-	// DpdActionForModifyVpnConnectionAttributesInputClear is a DpdActionForModifyVpnConnectionAttributesInput enum value
-	DpdActionForModifyVpnConnectionAttributesInputClear = "clear"
-
-	// DpdActionForModifyVpnConnectionAttributesInputHold is a DpdActionForModifyVpnConnectionAttributesInput enum value
-	DpdActionForModifyVpnConnectionAttributesInputHold = "hold"
-
-	// DpdActionForModifyVpnConnectionAttributesInputRestart is a DpdActionForModifyVpnConnectionAttributesInput enum value
-	DpdActionForModifyVpnConnectionAttributesInputRestart = "restart"
-)

@@ -22,13 +22,13 @@ const opCreateVpnGatewayCommon = "CreateVpnGateway"
 // See CreateVpnGatewayCommon for more information on using the CreateVpnGatewayCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the CreateVpnGatewayCommonRequest method.
-//	req, resp := client.CreateVpnGatewayCommonRequest(params)
+//    // Example sending a request using the CreateVpnGatewayCommonRequest method.
+//    req, resp := client.CreateVpnGatewayCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VPN) CreateVpnGatewayCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opCreateVpnGatewayCommon,
@@ -87,13 +87,13 @@ const opCreateVpnGateway = "CreateVpnGateway"
 // See CreateVpnGateway for more information on using the CreateVpnGateway
 // API call, and error handling.
 //
-//	// Example sending a request using the CreateVpnGatewayRequest method.
-//	req, resp := client.CreateVpnGatewayRequest(params)
+//    // Example sending a request using the CreateVpnGatewayRequest method.
+//    req, resp := client.CreateVpnGatewayRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VPN) CreateVpnGatewayRequest(input *CreateVpnGatewayInput) (req *request.Request, output *CreateVpnGatewayOutput) {
 	op := &request.Operation{
 		Name:       opCreateVpnGateway,
@@ -142,18 +142,28 @@ func (c *VPN) CreateVpnGatewayWithContext(ctx volcengine.Context, input *CreateV
 type CreateVpnGatewayInput struct {
 	_ struct{} `type:"structure"`
 
+	Asn *int64 `type:"integer"`
+
 	// Bandwidth is a required field
-	Bandwidth *int64 `min:"5" max:"1000" type:"integer" required:"true"`
+	Bandwidth *int64 `type:"integer" required:"true"`
 
-	BillingType *int64 `min:"1" max:"1" type:"integer"`
+	BillingType *int64 `type:"integer"`
 
-	Description *string `min:"1" max:"255" type:"string"`
+	ClientToken *string `type:"string"`
+
+	Description *string `type:"string"`
+
+	IpsecEnabled *bool `type:"boolean"`
 
 	Period *int64 `type:"integer"`
 
-	PeriodUnit *string `type:"string" enum:"PeriodUnitForCreateVpnGatewayInput"`
+	PeriodUnit *string `type:"string"`
 
 	ProjectName *string `type:"string"`
+
+	SslEnabled *bool `type:"boolean"`
+
+	SslMaxConnections *int64 `type:"integer"`
 
 	// SubnetId is a required field
 	SubnetId *string `type:"string" required:"true"`
@@ -163,7 +173,7 @@ type CreateVpnGatewayInput struct {
 	// VpcId is a required field
 	VpcId *string `type:"string" required:"true"`
 
-	VpnGatewayName *string `min:"1" max:"128" type:"string"`
+	VpnGatewayName *string `type:"string"`
 }
 
 // String returns the string representation
@@ -182,41 +192,23 @@ func (s *CreateVpnGatewayInput) Validate() error {
 	if s.Bandwidth == nil {
 		invalidParams.Add(request.NewErrParamRequired("Bandwidth"))
 	}
-	if s.Bandwidth != nil && *s.Bandwidth < 5 {
-		invalidParams.Add(request.NewErrParamMinValue("Bandwidth", 5))
-	}
-	if s.Bandwidth != nil && *s.Bandwidth > 1000 {
-		invalidParams.Add(request.NewErrParamMaxValue("Bandwidth", 1000))
-	}
-	if s.BillingType != nil && *s.BillingType < 1 {
-		invalidParams.Add(request.NewErrParamMinValue("BillingType", 1))
-	}
-	if s.BillingType != nil && *s.BillingType > 1 {
-		invalidParams.Add(request.NewErrParamMaxValue("BillingType", 1))
-	}
-	if s.Description != nil && len(*s.Description) < 1 {
-		invalidParams.Add(request.NewErrParamMinLen("Description", 1))
-	}
-	if s.Description != nil && len(*s.Description) > 255 {
-		invalidParams.Add(request.NewErrParamMaxLen("Description", 255, *s.Description))
-	}
 	if s.SubnetId == nil {
 		invalidParams.Add(request.NewErrParamRequired("SubnetId"))
 	}
 	if s.VpcId == nil {
 		invalidParams.Add(request.NewErrParamRequired("VpcId"))
 	}
-	if s.VpnGatewayName != nil && len(*s.VpnGatewayName) < 1 {
-		invalidParams.Add(request.NewErrParamMinLen("VpnGatewayName", 1))
-	}
-	if s.VpnGatewayName != nil && len(*s.VpnGatewayName) > 128 {
-		invalidParams.Add(request.NewErrParamMaxLen("VpnGatewayName", 128, *s.VpnGatewayName))
-	}
 
 	if invalidParams.Len() > 0 {
 		return invalidParams
 	}
 	return nil
+}
+
+// SetAsn sets the Asn field's value.
+func (s *CreateVpnGatewayInput) SetAsn(v int64) *CreateVpnGatewayInput {
+	s.Asn = &v
+	return s
 }
 
 // SetBandwidth sets the Bandwidth field's value.
@@ -231,9 +223,21 @@ func (s *CreateVpnGatewayInput) SetBillingType(v int64) *CreateVpnGatewayInput {
 	return s
 }
 
+// SetClientToken sets the ClientToken field's value.
+func (s *CreateVpnGatewayInput) SetClientToken(v string) *CreateVpnGatewayInput {
+	s.ClientToken = &v
+	return s
+}
+
 // SetDescription sets the Description field's value.
 func (s *CreateVpnGatewayInput) SetDescription(v string) *CreateVpnGatewayInput {
 	s.Description = &v
+	return s
+}
+
+// SetIpsecEnabled sets the IpsecEnabled field's value.
+func (s *CreateVpnGatewayInput) SetIpsecEnabled(v bool) *CreateVpnGatewayInput {
+	s.IpsecEnabled = &v
 	return s
 }
 
@@ -252,6 +256,18 @@ func (s *CreateVpnGatewayInput) SetPeriodUnit(v string) *CreateVpnGatewayInput {
 // SetProjectName sets the ProjectName field's value.
 func (s *CreateVpnGatewayInput) SetProjectName(v string) *CreateVpnGatewayInput {
 	s.ProjectName = &v
+	return s
+}
+
+// SetSslEnabled sets the SslEnabled field's value.
+func (s *CreateVpnGatewayInput) SetSslEnabled(v bool) *CreateVpnGatewayInput {
+	s.SslEnabled = &v
+	return s
+}
+
+// SetSslMaxConnections sets the SslMaxConnections field's value.
+func (s *CreateVpnGatewayInput) SetSslMaxConnections(v int64) *CreateVpnGatewayInput {
+	s.SslMaxConnections = &v
 	return s
 }
 
@@ -348,11 +364,3 @@ func (s *TagForCreateVpnGatewayInput) SetValue(v string) *TagForCreateVpnGateway
 	s.Value = &v
 	return s
 }
-
-const (
-	// PeriodUnitForCreateVpnGatewayInputMonth is a PeriodUnitForCreateVpnGatewayInput enum value
-	PeriodUnitForCreateVpnGatewayInputMonth = "Month"
-
-	// PeriodUnitForCreateVpnGatewayInputYear is a PeriodUnitForCreateVpnGatewayInput enum value
-	PeriodUnitForCreateVpnGatewayInputYear = "Year"
-)
