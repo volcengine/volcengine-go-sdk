@@ -188,7 +188,11 @@ type DescribeListenerAttributesOutput struct {
 
 	Bandwidth *int64 `type:"integer"`
 
+	CertCenterCertificateId *string `type:"string"`
+
 	CertificateId *string `type:"string"`
+
+	CertificateSource *string `type:"string"`
 
 	ClientBodyTimeout *int64 `type:"integer"`
 
@@ -239,6 +243,8 @@ type DescribeListenerAttributesOutput struct {
 	ProxySendTimeout *int64 `type:"integer"`
 
 	RequestId *string `type:"string"`
+
+	ResponseCheckEnabled *string `type:"string"`
 
 	Scheduler *string `type:"string"`
 
@@ -291,9 +297,21 @@ func (s *DescribeListenerAttributesOutput) SetBandwidth(v int64) *DescribeListen
 	return s
 }
 
+// SetCertCenterCertificateId sets the CertCenterCertificateId field's value.
+func (s *DescribeListenerAttributesOutput) SetCertCenterCertificateId(v string) *DescribeListenerAttributesOutput {
+	s.CertCenterCertificateId = &v
+	return s
+}
+
 // SetCertificateId sets the CertificateId field's value.
 func (s *DescribeListenerAttributesOutput) SetCertificateId(v string) *DescribeListenerAttributesOutput {
 	s.CertificateId = &v
+	return s
+}
+
+// SetCertificateSource sets the CertificateSource field's value.
+func (s *DescribeListenerAttributesOutput) SetCertificateSource(v string) *DescribeListenerAttributesOutput {
+	s.CertificateSource = &v
 	return s
 }
 
@@ -444,6 +462,12 @@ func (s *DescribeListenerAttributesOutput) SetProxySendTimeout(v int64) *Describ
 // SetRequestId sets the RequestId field's value.
 func (s *DescribeListenerAttributesOutput) SetRequestId(v string) *DescribeListenerAttributesOutput {
 	s.RequestId = &v
+	return s
+}
+
+// SetResponseCheckEnabled sets the ResponseCheckEnabled field's value.
+func (s *DescribeListenerAttributesOutput) SetResponseCheckEnabled(v string) *DescribeListenerAttributesOutput {
+	s.ResponseCheckEnabled = &v
 	return s
 }
 
