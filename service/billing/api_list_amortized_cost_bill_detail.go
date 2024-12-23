@@ -388,6 +388,8 @@ type ListForListAmortizedCostBillDetailOutput struct {
 
 	DailyAmortizedRoundAmount *string `type:"string" json:",omitempty"`
 
+	DeductionUseDuration *string `type:"string" json:",omitempty"`
+
 	DiscountBillAmount *string `type:"string" json:",omitempty"`
 
 	DiscountBizBillingFunction *string `type:"string" json:",omitempty"`
@@ -461,6 +463,10 @@ type ListForListAmortizedCostBillDetailOutput struct {
 	SellerID *string `type:"string" json:",omitempty"`
 
 	SellerUserName *string `type:"string" json:",omitempty"`
+
+	SplitItemID *string `type:"string" json:",omitempty"`
+
+	SplitItemName *string `type:"string" json:",omitempty"`
 
 	SubjectName *string `type:"string" json:",omitempty"`
 
@@ -634,6 +640,12 @@ func (s *ListForListAmortizedCostBillDetailOutput) SetDailyAmortizedPreferential
 // SetDailyAmortizedRoundAmount sets the DailyAmortizedRoundAmount field's value.
 func (s *ListForListAmortizedCostBillDetailOutput) SetDailyAmortizedRoundAmount(v string) *ListForListAmortizedCostBillDetailOutput {
 	s.DailyAmortizedRoundAmount = &v
+	return s
+}
+
+// SetDeductionUseDuration sets the DeductionUseDuration field's value.
+func (s *ListForListAmortizedCostBillDetailOutput) SetDeductionUseDuration(v string) *ListForListAmortizedCostBillDetailOutput {
+	s.DeductionUseDuration = &v
 	return s
 }
 
@@ -856,6 +868,18 @@ func (s *ListForListAmortizedCostBillDetailOutput) SetSellerID(v string) *ListFo
 // SetSellerUserName sets the SellerUserName field's value.
 func (s *ListForListAmortizedCostBillDetailOutput) SetSellerUserName(v string) *ListForListAmortizedCostBillDetailOutput {
 	s.SellerUserName = &v
+	return s
+}
+
+// SetSplitItemID sets the SplitItemID field's value.
+func (s *ListForListAmortizedCostBillDetailOutput) SetSplitItemID(v string) *ListForListAmortizedCostBillDetailOutput {
+	s.SplitItemID = &v
+	return s
+}
+
+// SetSplitItemName sets the SplitItemName field's value.
+func (s *ListForListAmortizedCostBillDetailOutput) SetSplitItemName(v string) *ListForListAmortizedCostBillDetailOutput {
+	s.SplitItemName = &v
 	return s
 }
 
