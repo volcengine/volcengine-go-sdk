@@ -144,7 +144,9 @@ func (c *DCDN) GetPurgePrefetchTaskQuotaWithContext(ctx volcengine.Context, inpu
 }
 
 type GetPurgePrefetchTaskQuotaInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	ProjectName []*string `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -157,22 +159,28 @@ func (s GetPurgePrefetchTaskQuotaInput) GoString() string {
 	return s.String()
 }
 
+// SetProjectName sets the ProjectName field's value.
+func (s *GetPurgePrefetchTaskQuotaInput) SetProjectName(v []*string) *GetPurgePrefetchTaskQuotaInput {
+	s.ProjectName = v
+	return s
+}
+
 type GetPurgePrefetchTaskQuotaOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	DirQuota *int32 `type:"int32"`
+	DirQuota *int32 `type:"int32" json:",omitempty"`
 
-	DirRemain *int32 `type:"int32"`
+	DirRemain *int32 `type:"int32" json:",omitempty"`
 
-	PrefetchUrlQuota *int32 `type:"int32"`
+	PrefetchUrlQuota *int32 `type:"int32" json:",omitempty"`
 
-	PrefetchUrlRemain *int32 `type:"int32"`
+	PrefetchUrlRemain *int32 `type:"int32" json:",omitempty"`
 
-	UrlQuota *int32 `type:"int32"`
+	UrlQuota *int32 `type:"int32" json:",omitempty"`
 
-	UrlRemain *int32 `type:"int32"`
+	UrlRemain *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation

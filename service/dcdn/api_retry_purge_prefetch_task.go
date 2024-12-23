@@ -144,13 +144,13 @@ func (c *DCDN) RetryPurgePrefetchTaskWithContext(ctx volcengine.Context, input *
 }
 
 type RetryPurgePrefetchTaskInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// TaskId is a required field
-	TaskId *string `type:"string" required:"true"`
+	TaskId *string `type:"string" json:",omitempty" required:"true"`
 
 	// TaskType is a required field
-	TaskType *string `type:"string" required:"true"`
+	TaskType *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -192,13 +192,13 @@ func (s *RetryPurgePrefetchTaskInput) SetTaskType(v string) *RetryPurgePrefetchT
 }
 
 type RetryPurgePrefetchTaskOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	TaskId *string `type:"string"`
+	TaskId *string `type:"string" json:",omitempty"`
 
-	TaskStatus *string `type:"string"`
+	TaskStatus *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation

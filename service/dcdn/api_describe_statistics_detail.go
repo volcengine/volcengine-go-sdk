@@ -144,37 +144,37 @@ func (c *DCDN) DescribeStatisticsDetailWithContext(ctx volcengine.Context, input
 }
 
 type DescribeStatisticsDetailInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	AcceleratingRegion *string `type:"string"`
+	AcceleratingRegion *string `type:"string" json:",omitempty"`
 
-	AcceleratingScope *string `type:"string"`
+	AcceleratingScope *string `type:"string" json:",omitempty"`
 
-	Area *string `type:"string"`
+	Area *string `type:"string" json:",omitempty"`
 
-	Domains []*string `type:"list"`
+	Domains []*string `type:"list" json:",omitempty"`
 
 	// EndTime is a required field
-	EndTime *string `type:"string" required:"true"`
+	EndTime *string `type:"string" json:",omitempty" required:"true"`
 
-	IPVersion *string `type:"string"`
+	IPVersion *string `type:"string" json:",omitempty"`
 
-	Interval *int32 `type:"int32"`
+	Interval *int32 `type:"int32" json:",omitempty"`
 
-	IspNameEn []*string `type:"list"`
+	IspNameEn []*string `type:"list" json:",omitempty"`
 
-	Metrics []*string `type:"list"`
+	Metrics []*string `type:"list" json:",omitempty"`
 
-	ProjectName []*string `type:"list"`
+	ProjectName []*string `type:"list" json:",omitempty"`
 
-	Protocol []*string `type:"list"`
+	Protocol []*string `type:"list" json:",omitempty"`
 
-	Region []*string `type:"list"`
+	Region []*string `type:"list" json:",omitempty"`
 
 	// StartTime is a required field
-	StartTime *string `type:"string" required:"true"`
+	StartTime *string `type:"string" json:",omitempty" required:"true"`
 
-	Type *string `type:"string"`
+	Type *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -288,19 +288,19 @@ func (s *DescribeStatisticsDetailInput) SetType(v string) *DescribeStatisticsDet
 }
 
 type DescribeStatisticsDetailOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	DomainCount *int32 `type:"int32"`
+	DomainCount *int32 `type:"int32" json:",omitempty"`
 
-	EndTime *string `type:"string"`
+	EndTime *string `type:"string" json:",omitempty"`
 
-	Metrics []*string `type:"list"`
+	Metrics []*string `type:"list" json:",omitempty"`
 
-	Results []*ResultForDescribeStatisticsDetailOutput `type:"list"`
+	Results []*ResultForDescribeStatisticsDetailOutput `type:"list" json:",omitempty"`
 
-	StartTime *string `type:"string"`
+	StartTime *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -344,11 +344,11 @@ func (s *DescribeStatisticsDetailOutput) SetStartTime(v string) *DescribeStatist
 }
 
 type DetailInfoForDescribeStatisticsDetailOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Name *string `type:"string"`
+	Name *string `type:"string" json:",omitempty"`
 
-	Value *float64 `type:"float"`
+	Value *float64 `type:"float" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -374,11 +374,11 @@ func (s *DetailInfoForDescribeStatisticsDetailOutput) SetValue(v float64) *Detai
 }
 
 type RealTimeResultForDescribeStatisticsDetailOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	DetailInfo []*DetailInfoForDescribeStatisticsDetailOutput `type:"list"`
+	DetailInfo []*DetailInfoForDescribeStatisticsDetailOutput `type:"list" json:",omitempty"`
 
-	DomainName *string `type:"string"`
+	DomainName *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -404,11 +404,11 @@ func (s *RealTimeResultForDescribeStatisticsDetailOutput) SetDomainName(v string
 }
 
 type ResultForDescribeStatisticsDetailOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	RealTimeResults []*RealTimeResultForDescribeStatisticsDetailOutput `type:"list"`
+	RealTimeResults []*RealTimeResultForDescribeStatisticsDetailOutput `type:"list" json:",omitempty"`
 
-	TimeStamp *string `type:"string"`
+	TimeStamp *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
