@@ -144,11 +144,11 @@ func (c *KAFKA) DescribeConsumedTopicsWithContext(ctx volcengine.Context, input 
 }
 
 type ConsumedTopicsInfoForDescribeConsumedTopicsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Accumulation *int64 `type:"int64"`
+	Accumulation *int64 `type:"int64" json:",omitempty"`
 
-	TopicName *string `type:"string"`
+	TopicName *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -174,21 +174,21 @@ func (s *ConsumedTopicsInfoForDescribeConsumedTopicsOutput) SetTopicName(v strin
 }
 
 type DescribeConsumedTopicsInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// GroupId is a required field
-	GroupId *string `type:"string" required:"true"`
+	GroupId *string `type:"string" json:",omitempty" required:"true"`
 
 	// InstanceId is a required field
-	InstanceId *string `type:"string" required:"true"`
+	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 
 	// PageNumber is a required field
-	PageNumber *int32 `type:"int32" required:"true"`
+	PageNumber *int32 `type:"int32" json:",omitempty" required:"true"`
 
 	// PageSize is a required field
-	PageSize *int32 `type:"int32" required:"true"`
+	PageSize *int32 `type:"int32" json:",omitempty" required:"true"`
 
-	TopicName *string `type:"string"`
+	TopicName *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -254,15 +254,15 @@ func (s *DescribeConsumedTopicsInput) SetTopicName(v string) *DescribeConsumedTo
 }
 
 type DescribeConsumedTopicsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	Accumulation *int64 `type:"int64"`
+	Accumulation *int64 `type:"int64" json:",omitempty"`
 
-	ConsumedTopicsInfo []*ConsumedTopicsInfoForDescribeConsumedTopicsOutput `type:"list"`
+	ConsumedTopicsInfo []*ConsumedTopicsInfoForDescribeConsumedTopicsOutput `type:"list" json:",omitempty"`
 
-	Total *int32 `type:"int32"`
+	Total *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation

@@ -144,16 +144,16 @@ func (c *KAFKA) ModifyGroupWithContext(ctx volcengine.Context, input *ModifyGrou
 }
 
 type ModifyGroupInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// Description is a required field
-	Description *string `type:"string" required:"true"`
+	Description *string `type:"string" json:",omitempty" required:"true"`
 
 	// GroupId is a required field
-	GroupId *string `type:"string" required:"true"`
+	GroupId *string `type:"string" json:",omitempty" required:"true"`
 
 	// InstanceId is a required field
-	InstanceId *string `type:"string" required:"true"`
+	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -204,7 +204,7 @@ func (s *ModifyGroupInput) SetInstanceId(v string) *ModifyGroupInput {
 }
 
 type ModifyGroupOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 }

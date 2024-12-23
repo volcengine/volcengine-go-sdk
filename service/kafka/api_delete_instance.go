@@ -144,10 +144,10 @@ func (c *KAFKA) DeleteInstanceWithContext(ctx volcengine.Context, input *DeleteI
 }
 
 type DeleteInstanceInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// InstanceId is a required field
-	InstanceId *string `type:"string" required:"true"`
+	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -180,7 +180,7 @@ func (s *DeleteInstanceInput) SetInstanceId(v string) *DeleteInstanceInput {
 }
 
 type DeleteInstanceOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 }

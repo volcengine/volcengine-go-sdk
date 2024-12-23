@@ -144,18 +144,18 @@ func (c *KAFKA) DescribeUsersWithContext(ctx volcengine.Context, input *Describe
 }
 
 type DescribeUsersInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// InstanceId is a required field
-	InstanceId *string `type:"string" required:"true"`
+	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 
 	// PageNumber is a required field
-	PageNumber *int32 `type:"int32" required:"true"`
+	PageNumber *int32 `type:"int32" json:",omitempty" required:"true"`
 
 	// PageSize is a required field
-	PageSize *int32 `type:"int32" required:"true"`
+	PageSize *int32 `type:"int32" json:",omitempty" required:"true"`
 
-	UserName *string `type:"string"`
+	UserName *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -212,13 +212,13 @@ func (s *DescribeUsersInput) SetUserName(v string) *DescribeUsersInput {
 }
 
 type DescribeUsersOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	Total *int32 `type:"int32"`
+	Total *int32 `type:"int32" json:",omitempty"`
 
-	UsersInfo []*UsersInfoForDescribeUsersOutput `type:"list"`
+	UsersInfo []*UsersInfoForDescribeUsersOutput `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -244,17 +244,17 @@ func (s *DescribeUsersOutput) SetUsersInfo(v []*UsersInfoForDescribeUsersOutput)
 }
 
 type UsersInfoForDescribeUsersOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	AllAuthority *bool `type:"boolean"`
+	AllAuthority *bool `type:"boolean" json:",omitempty"`
 
-	CreateTime *string `type:"string"`
+	CreateTime *string `type:"string" json:",omitempty"`
 
-	Description *string `type:"string"`
+	Description *string `type:"string" json:",omitempty"`
 
-	PasswordType *string `type:"string"`
+	PasswordType *string `type:"string" json:",omitempty"`
 
-	UserName *string `type:"string"`
+	UserName *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation

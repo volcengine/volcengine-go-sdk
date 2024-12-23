@@ -144,18 +144,20 @@ func (c *KAFKA) DescribeGroupsWithContext(ctx volcengine.Context, input *Describ
 }
 
 type DescribeGroupsInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	GroupId *string `type:"string"`
+	GroupId *string `type:"string" json:",omitempty"`
 
 	// InstanceId is a required field
-	InstanceId *string `type:"string" required:"true"`
+	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 
 	// PageNumber is a required field
-	PageNumber *int32 `type:"int32" required:"true"`
+	PageNumber *int32 `type:"int32" json:",omitempty" required:"true"`
 
 	// PageSize is a required field
-	PageSize *int32 `type:"int32" required:"true"`
+	PageSize *int32 `type:"int32" json:",omitempty" required:"true"`
+
+	TagFilters []*TagFilterForDescribeGroupsInput `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -211,14 +213,20 @@ func (s *DescribeGroupsInput) SetPageSize(v int32) *DescribeGroupsInput {
 	return s
 }
 
+// SetTagFilters sets the TagFilters field's value.
+func (s *DescribeGroupsInput) SetTagFilters(v []*TagFilterForDescribeGroupsInput) *DescribeGroupsInput {
+	s.TagFilters = v
+	return s
+}
+
 type DescribeGroupsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	GroupsInfo []*GroupsInfoForDescribeGroupsOutput `type:"list"`
+	GroupsInfo []*GroupsInfoForDescribeGroupsOutput `type:"list" json:",omitempty"`
 
-	Total *int32 `type:"int32"`
+	Total *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -244,11 +252,19 @@ func (s *DescribeGroupsOutput) SetTotal(v int32) *DescribeGroupsOutput {
 }
 
 type GroupsInfoForDescribeGroupsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	GroupId *string `type:"string"`
+	BalanceAlgorithm *string `type:"string" json:",omitempty"`
 
-	State *string `type:"string"`
+	Description *string `type:"string" json:",omitempty"`
+
+	GroupId *string `type:"string" json:",omitempty"`
+
+	ProtocolType *string `type:"string" json:",omitempty"`
+
+	State *string `type:"string" json:",omitempty"`
+
+	Tags []*TagForDescribeGroupsOutput `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -261,14 +277,98 @@ func (s GroupsInfoForDescribeGroupsOutput) GoString() string {
 	return s.String()
 }
 
+// SetBalanceAlgorithm sets the BalanceAlgorithm field's value.
+func (s *GroupsInfoForDescribeGroupsOutput) SetBalanceAlgorithm(v string) *GroupsInfoForDescribeGroupsOutput {
+	s.BalanceAlgorithm = &v
+	return s
+}
+
+// SetDescription sets the Description field's value.
+func (s *GroupsInfoForDescribeGroupsOutput) SetDescription(v string) *GroupsInfoForDescribeGroupsOutput {
+	s.Description = &v
+	return s
+}
+
 // SetGroupId sets the GroupId field's value.
 func (s *GroupsInfoForDescribeGroupsOutput) SetGroupId(v string) *GroupsInfoForDescribeGroupsOutput {
 	s.GroupId = &v
 	return s
 }
 
+// SetProtocolType sets the ProtocolType field's value.
+func (s *GroupsInfoForDescribeGroupsOutput) SetProtocolType(v string) *GroupsInfoForDescribeGroupsOutput {
+	s.ProtocolType = &v
+	return s
+}
+
 // SetState sets the State field's value.
 func (s *GroupsInfoForDescribeGroupsOutput) SetState(v string) *GroupsInfoForDescribeGroupsOutput {
 	s.State = &v
+	return s
+}
+
+// SetTags sets the Tags field's value.
+func (s *GroupsInfoForDescribeGroupsOutput) SetTags(v []*TagForDescribeGroupsOutput) *GroupsInfoForDescribeGroupsOutput {
+	s.Tags = v
+	return s
+}
+
+type TagFilterForDescribeGroupsInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Key *string `type:"string" json:",omitempty"`
+
+	Value *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s TagFilterForDescribeGroupsInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagFilterForDescribeGroupsInput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagFilterForDescribeGroupsInput) SetKey(v string) *TagFilterForDescribeGroupsInput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *TagFilterForDescribeGroupsInput) SetValue(v string) *TagFilterForDescribeGroupsInput {
+	s.Value = &v
+	return s
+}
+
+type TagForDescribeGroupsOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Key *string `type:"string" json:",omitempty"`
+
+	Value *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s TagForDescribeGroupsOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagForDescribeGroupsOutput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagForDescribeGroupsOutput) SetKey(v string) *TagForDescribeGroupsOutput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *TagForDescribeGroupsOutput) SetValue(v string) *TagForDescribeGroupsOutput {
+	s.Value = &v
 	return s
 }

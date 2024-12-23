@@ -144,19 +144,19 @@ func (c *KAFKA) DescribeAclsWithContext(ctx volcengine.Context, input *DescribeA
 }
 
 type AclForDescribeAclsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	AccessPolicy *string `type:"string"`
+	AccessPolicy *string `type:"string" json:",omitempty"`
 
-	Ip *string `type:"string"`
+	Ip *string `type:"string" json:",omitempty"`
 
-	PatternType *string `type:"string"`
+	PatternType *string `type:"string" json:",omitempty"`
 
-	Resource *string `type:"string"`
+	Resource *string `type:"string" json:",omitempty"`
 
-	ResourceType *string `type:"string"`
+	ResourceType *string `type:"string" json:",omitempty"`
 
-	UserName *string `type:"string"`
+	UserName *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -206,28 +206,28 @@ func (s *AclForDescribeAclsOutput) SetUserName(v string) *AclForDescribeAclsOutp
 }
 
 type DescribeAclsInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	AccessPolicy *string `type:"string"`
+	AccessPolicy *string `type:"string" json:",omitempty"`
 
 	// InstanceId is a required field
-	InstanceId *string `type:"string" required:"true"`
+	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 
-	Ip *string `type:"string"`
+	Ip *string `type:"string" json:",omitempty"`
 
 	// PageNumber is a required field
-	PageNumber *int32 `type:"int32" required:"true"`
+	PageNumber *int32 `type:"int32" json:",omitempty" required:"true"`
 
 	// PageSize is a required field
-	PageSize *int32 `type:"int32" required:"true"`
+	PageSize *int32 `type:"int32" json:",omitempty" required:"true"`
 
-	PatternType *string `type:"string"`
+	PatternType *string `type:"string" json:",omitempty"`
 
-	Resource *string `type:"string"`
+	Resource *string `type:"string" json:",omitempty"`
 
-	ResourceType *string `type:"string"`
+	ResourceType *string `type:"string" json:",omitempty"`
 
-	UserName *string `type:"string"`
+	UserName *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -314,13 +314,13 @@ func (s *DescribeAclsInput) SetUserName(v string) *DescribeAclsInput {
 }
 
 type DescribeAclsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	Acls []*AclForDescribeAclsOutput `type:"list"`
+	Acls []*AclForDescribeAclsOutput `type:"list" json:",omitempty"`
 
-	Total *int32 `type:"int32"`
+	Total *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation

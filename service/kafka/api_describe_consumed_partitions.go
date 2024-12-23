@@ -144,19 +144,19 @@ func (c *KAFKA) DescribeConsumedPartitionsWithContext(ctx volcengine.Context, in
 }
 
 type ConsumedPartitionsInfoForDescribeConsumedPartitionsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Accumulation *int64 `type:"int64"`
+	Accumulation *int64 `type:"int64" json:",omitempty"`
 
-	ConsumedClient *string `type:"string"`
+	ConsumedClient *string `type:"string" json:",omitempty"`
 
-	ConsumedOffset *int64 `type:"int64"`
+	ConsumedOffset *int64 `type:"int64" json:",omitempty"`
 
-	EndOffset *int64 `type:"int64"`
+	EndOffset *int64 `type:"int64" json:",omitempty"`
 
-	PartitionId *int32 `type:"int32"`
+	PartitionId *int32 `type:"int32" json:",omitempty"`
 
-	StartOffset *int64 `type:"int64"`
+	StartOffset *int64 `type:"int64" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -206,22 +206,22 @@ func (s *ConsumedPartitionsInfoForDescribeConsumedPartitionsOutput) SetStartOffs
 }
 
 type DescribeConsumedPartitionsInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// GroupId is a required field
-	GroupId *string `type:"string" required:"true"`
+	GroupId *string `type:"string" json:",omitempty" required:"true"`
 
 	// InstanceId is a required field
-	InstanceId *string `type:"string" required:"true"`
+	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 
 	// PageNumber is a required field
-	PageNumber *int32 `type:"int32" required:"true"`
+	PageNumber *int32 `type:"int32" json:",omitempty" required:"true"`
 
 	// PageSize is a required field
-	PageSize *int32 `type:"int32" required:"true"`
+	PageSize *int32 `type:"int32" json:",omitempty" required:"true"`
 
 	// TopicName is a required field
-	TopicName *string `type:"string" required:"true"`
+	TopicName *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -290,13 +290,13 @@ func (s *DescribeConsumedPartitionsInput) SetTopicName(v string) *DescribeConsum
 }
 
 type DescribeConsumedPartitionsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	ConsumedPartitionsInfo []*ConsumedPartitionsInfoForDescribeConsumedPartitionsOutput `type:"list"`
+	ConsumedPartitionsInfo []*ConsumedPartitionsInfoForDescribeConsumedPartitionsOutput `type:"list" json:",omitempty"`
 
-	Total *int32 `type:"int32"`
+	Total *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation

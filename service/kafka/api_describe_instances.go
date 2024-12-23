@@ -144,23 +144,23 @@ func (c *KAFKA) DescribeInstancesWithContext(ctx volcengine.Context, input *Desc
 }
 
 type ChargeDetailForDescribeInstancesOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	AutoRenew *bool `type:"boolean"`
+	AutoRenew *bool `type:"boolean" json:",omitempty"`
 
-	ChargeExpireTime *string `type:"string"`
+	ChargeExpireTime *string `type:"string" json:",omitempty"`
 
-	ChargeStartTime *string `type:"string"`
+	ChargeStartTime *string `type:"string" json:",omitempty"`
 
-	ChargeStatus *string `type:"string"`
+	ChargeStatus *string `type:"string" json:",omitempty"`
 
-	ChargeType *string `type:"string"`
+	ChargeType *string `type:"string" json:",omitempty"`
 
-	OverdueReclaimTime *string `type:"string"`
+	OverdueReclaimTime *string `type:"string" json:",omitempty"`
 
-	OverdueTime *string `type:"string"`
+	OverdueTime *string `type:"string" json:",omitempty"`
 
-	PeriodUnit *string `type:"string"`
+	PeriodUnit *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -222,25 +222,25 @@ func (s *ChargeDetailForDescribeInstancesOutput) SetPeriodUnit(v string) *Charge
 }
 
 type DescribeInstancesInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	InstanceId *string `type:"string"`
+	InstanceId *string `type:"string" json:",omitempty"`
 
-	InstanceName *string `type:"string"`
+	InstanceName *string `type:"string" json:",omitempty"`
 
-	InstanceStatus *string `type:"string"`
+	InstanceStatus *string `type:"string" json:",omitempty"`
 
 	// PageNumber is a required field
-	PageNumber *int32 `type:"int32" required:"true"`
+	PageNumber *int32 `type:"int32" json:",omitempty" required:"true"`
 
 	// PageSize is a required field
-	PageSize *int32 `type:"int32" required:"true"`
+	PageSize *int32 `type:"int32" json:",omitempty" required:"true"`
 
-	Project *string `type:"string"`
+	Project *string `type:"string" json:",omitempty"`
 
-	Tags map[string][]*string `type:"map"`
+	Tags map[string][]*string `type:"map" json:",omitempty"`
 
-	ZoneId *string `type:"string"`
+	ZoneId *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -318,13 +318,13 @@ func (s *DescribeInstancesInput) SetZoneId(v string) *DescribeInstancesInput {
 }
 
 type DescribeInstancesOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	InstancesInfo []*InstancesInfoForDescribeInstancesOutput `type:"list"`
+	InstancesInfo []*InstancesInfoForDescribeInstancesOutput `type:"list" json:",omitempty"`
 
-	Total *int32 `type:"int32"`
+	Total *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -350,57 +350,57 @@ func (s *DescribeInstancesOutput) SetTotal(v int32) *DescribeInstancesOutput {
 }
 
 type InstancesInfoForDescribeInstancesOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	AccountId *string `type:"string"`
+	AccountId *string `type:"string" json:",omitempty"`
 
-	ChargeDetail *ChargeDetailForDescribeInstancesOutput `type:"structure"`
+	ChargeDetail *ChargeDetailForDescribeInstancesOutput `type:"structure" json:",omitempty"`
 
-	ComputeSpec *string `type:"string"`
+	ComputeSpec *string `type:"string" json:",omitempty"`
 
-	CreateTime *string `type:"string"`
+	CreateTime *string `type:"string" json:",omitempty"`
 
-	EipId *string `type:"string"`
+	EipId *string `type:"string" json:",omitempty"`
 
-	InstanceDescription *string `type:"string"`
+	InstanceDescription *string `type:"string" json:",omitempty"`
 
-	InstanceId *string `type:"string"`
+	InstanceId *string `type:"string" json:",omitempty"`
 
-	InstanceName *string `type:"string"`
+	InstanceName *string `type:"string" json:",omitempty"`
 
-	InstanceStatus *string `type:"string"`
+	InstanceStatus *string `type:"string" json:",omitempty"`
 
-	PrivateDomainOnPublic *bool `type:"boolean"`
+	PrivateDomainOnPublic *bool `type:"boolean" json:",omitempty"`
 
-	ProjectName *string `type:"string"`
+	ProjectName *string `type:"string" json:",omitempty"`
 
-	RegionId *string `type:"string"`
+	RegionId *string `type:"string" json:",omitempty"`
 
-	StorageSpace *int32 `type:"int32"`
+	StorageSpace *int32 `type:"int32" json:",omitempty"`
 
-	StorageType *string `type:"string"`
+	StorageType *string `type:"string" json:",omitempty"`
 
-	SubnetId *string `type:"string"`
+	SubnetId *string `type:"string" json:",omitempty"`
 
-	Tags map[string]*string `type:"map"`
+	Tags map[string]*string `type:"map" json:",omitempty"`
 
-	UsableGroupNumber *int32 `type:"int32"`
+	UsableGroupNumber *int32 `type:"int32" json:",omitempty"`
 
-	UsablePartitionNumber *int32 `type:"int32"`
+	UsablePartitionNumber *int32 `type:"int32" json:",omitempty"`
 
-	UsedGroupNumber *int32 `type:"int32"`
+	UsedGroupNumber *int32 `type:"int32" json:",omitempty"`
 
-	UsedPartitionNumber *int32 `type:"int32"`
+	UsedPartitionNumber *int32 `type:"int32" json:",omitempty"`
 
-	UsedStorageSpace *int32 `type:"int32"`
+	UsedStorageSpace *int32 `type:"int32" json:",omitempty"`
 
-	UsedTopicNumber *int32 `type:"int32"`
+	UsedTopicNumber *int32 `type:"int32" json:",omitempty"`
 
-	Version *string `type:"string"`
+	Version *string `type:"string" json:",omitempty"`
 
-	VpcId *string `type:"string"`
+	VpcId *string `type:"string" json:",omitempty"`
 
-	ZoneId *string `type:"string"`
+	ZoneId *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation

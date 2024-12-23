@@ -144,15 +144,17 @@ func (c *KAFKA) CreateGroupWithContext(ctx volcengine.Context, input *CreateGrou
 }
 
 type CreateGroupInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Description *string `type:"string"`
+	Description *string `type:"string" json:",omitempty"`
 
 	// GroupId is a required field
-	GroupId *string `type:"string" required:"true"`
+	GroupId *string `type:"string" json:",omitempty" required:"true"`
 
 	// InstanceId is a required field
-	InstanceId *string `type:"string" required:"true"`
+	InstanceId *string `type:"string" json:",omitempty" required:"true"`
+
+	Tags []*TagForCreateGroupInput `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -199,8 +201,14 @@ func (s *CreateGroupInput) SetInstanceId(v string) *CreateGroupInput {
 	return s
 }
 
+// SetTags sets the Tags field's value.
+func (s *CreateGroupInput) SetTags(v []*TagForCreateGroupInput) *CreateGroupInput {
+	s.Tags = v
+	return s
+}
+
 type CreateGroupOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 }
@@ -213,4 +221,34 @@ func (s CreateGroupOutput) String() string {
 // GoString returns the string representation
 func (s CreateGroupOutput) GoString() string {
 	return s.String()
+}
+
+type TagForCreateGroupInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Key *string `type:"string" json:",omitempty"`
+
+	Value *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s TagForCreateGroupInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagForCreateGroupInput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagForCreateGroupInput) SetKey(v string) *TagForCreateGroupInput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *TagForCreateGroupInput) SetValue(v string) *TagForCreateGroupInput {
+	s.Value = &v
+	return s
 }
