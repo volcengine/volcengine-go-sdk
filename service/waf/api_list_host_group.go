@@ -318,8 +318,6 @@ func (s *ListHostGroupOutput) SetHostGroupList(v []*HostGroupListForListHostGrou
 type RelatedRuleForListHostGroupOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	Host *string `type:"string" json:",omitempty"`
-
 	RuleName *string `type:"string" json:",omitempty"`
 
 	RuleTag *string `type:"string" json:",omitempty"`
@@ -335,12 +333,6 @@ func (s RelatedRuleForListHostGroupOutput) String() string {
 // GoString returns the string representation
 func (s RelatedRuleForListHostGroupOutput) GoString() string {
 	return s.String()
-}
-
-// SetHost sets the Host field's value.
-func (s *RelatedRuleForListHostGroupOutput) SetHost(v string) *RelatedRuleForListHostGroupOutput {
-	s.Host = &v
-	return s
 }
 
 // SetRuleName sets the RuleName field's value.

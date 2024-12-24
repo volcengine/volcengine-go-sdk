@@ -146,11 +146,7 @@ func (c *WAF) CreateAclRuleWithContext(ctx volcengine.Context, input *CreateAclR
 type AccurateGroupForCreateAclRuleInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	AccurateGroupPriority *int32 `type:"int32" json:",omitempty"`
-
 	AccurateRules []*AccurateRuleForCreateAclRuleInput `type:"list" json:",omitempty"`
-
-	Id *int32 `type:"int32" json:",omitempty"`
 
 	Logic *int32 `type:"int32" json:",omitempty"`
 }
@@ -165,21 +161,9 @@ func (s AccurateGroupForCreateAclRuleInput) GoString() string {
 	return s.String()
 }
 
-// SetAccurateGroupPriority sets the AccurateGroupPriority field's value.
-func (s *AccurateGroupForCreateAclRuleInput) SetAccurateGroupPriority(v int32) *AccurateGroupForCreateAclRuleInput {
-	s.AccurateGroupPriority = &v
-	return s
-}
-
 // SetAccurateRules sets the AccurateRules field's value.
 func (s *AccurateGroupForCreateAclRuleInput) SetAccurateRules(v []*AccurateRuleForCreateAclRuleInput) *AccurateGroupForCreateAclRuleInput {
 	s.AccurateRules = v
-	return s
-}
-
-// SetId sets the Id field's value.
-func (s *AccurateGroupForCreateAclRuleInput) SetId(v int32) *AccurateGroupForCreateAclRuleInput {
-	s.Id = &v
 	return s
 }
 
