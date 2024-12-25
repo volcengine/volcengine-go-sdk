@@ -144,21 +144,21 @@ func (c *VEDBM) DescribeDBEndpointWithContext(ctx volcengine.Context, input *Des
 }
 
 type AddressForDescribeDBEndpointOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	DNSVisibility *bool `type:"boolean"`
+	DNSVisibility *bool `type:"boolean" json:",omitempty"`
 
-	Domain *string `type:"string"`
+	Domain *string `type:"string" json:",omitempty"`
 
-	EipId *string `type:"string"`
+	EipId *string `type:"string" json:",omitempty"`
 
-	IPAddress *string `type:"string"`
+	IPAddress *string `type:"string" json:",omitempty"`
 
-	NetworkType *string `type:"string" enum:"EnumOfNetworkTypeForDescribeDBEndpointOutput"`
+	NetworkType *string `type:"string" json:",omitempty" enum:"EnumOfNetworkTypeForDescribeDBEndpointOutput"`
 
-	Port *string `type:"string"`
+	Port *string `type:"string" json:",omitempty"`
 
-	SubnetId *string `type:"string"`
+	SubnetId *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -214,12 +214,12 @@ func (s *AddressForDescribeDBEndpointOutput) SetSubnetId(v string) *AddressForDe
 }
 
 type DescribeDBEndpointInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	EndpointId *string `type:"string"`
+	EndpointId *string `type:"string" json:",omitempty"`
 
 	// InstanceId is a required field
-	InstanceId *string `type:"string" required:"true"`
+	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -258,13 +258,13 @@ func (s *DescribeDBEndpointInput) SetInstanceId(v string) *DescribeDBEndpointInp
 }
 
 type DescribeDBEndpointOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	Endpoints []*EndpointForDescribeDBEndpointOutput `type:"list"`
+	Endpoints []*EndpointForDescribeDBEndpointOutput `type:"list" json:",omitempty"`
 
-	Total *int32 `type:"int32"`
+	Total *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -290,33 +290,33 @@ func (s *DescribeDBEndpointOutput) SetTotal(v int32) *DescribeDBEndpointOutput {
 }
 
 type EndpointForDescribeDBEndpointOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Addresses []*AddressForDescribeDBEndpointOutput `type:"list"`
+	Addresses []*AddressForDescribeDBEndpointOutput `type:"list" json:",omitempty"`
 
-	AutoAddNewNodes *bool `type:"boolean"`
+	AutoAddNewNodes *bool `type:"boolean" json:",omitempty"`
 
-	ConsistLevel *string `type:"string" enum:"EnumOfConsistLevelForDescribeDBEndpointOutput"`
+	ConsistLevel *string `type:"string" json:",omitempty" enum:"EnumOfConsistLevelForDescribeDBEndpointOutput"`
 
-	ConsistTimeout *int32 `type:"int32"`
+	ConsistTimeout *int32 `type:"int32" json:",omitempty"`
 
-	ConsistTimeoutAction *string `type:"string" enum:"EnumOfConsistTimeoutActionForDescribeDBEndpointOutput"`
+	ConsistTimeoutAction *string `type:"string" json:",omitempty" enum:"EnumOfConsistTimeoutActionForDescribeDBEndpointOutput"`
 
-	Description *string `type:"string"`
+	Description *string `type:"string" json:",omitempty"`
 
-	DistributedTransaction *bool `type:"boolean"`
+	DistributedTransaction *bool `type:"boolean" json:",omitempty"`
 
-	EndpointId *string `type:"string"`
+	EndpointId *string `type:"string" json:",omitempty"`
 
-	EndpointName *string `type:"string"`
+	EndpointName *string `type:"string" json:",omitempty"`
 
-	EndpointType *string `type:"string" enum:"EnumOfEndpointTypeForDescribeDBEndpointOutput"`
+	EndpointType *string `type:"string" json:",omitempty" enum:"EnumOfEndpointTypeForDescribeDBEndpointOutput"`
 
-	MasterAcceptReadRequests *bool `type:"boolean"`
+	MasterAcceptReadRequests *bool `type:"boolean" json:",omitempty"`
 
-	NodeIds []*string `type:"list"`
+	NodeIds []*string `type:"list" json:",omitempty"`
 
-	ReadWriteMode *string `type:"string" enum:"EnumOfReadWriteModeForDescribeDBEndpointOutput"`
+	ReadWriteMode *string `type:"string" json:",omitempty" enum:"EnumOfReadWriteModeForDescribeDBEndpointOutput"`
 }
 
 // String returns the string representation

@@ -144,17 +144,19 @@ func (c *VEDBM) CreateAllowListWithContext(ctx volcengine.Context, input *Create
 }
 
 type CreateAllowListInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// AllowList is a required field
-	AllowList *string `type:"string" required:"true"`
+	AllowList *string `type:"string" json:",omitempty" required:"true"`
 
-	AllowListDesc *string `type:"string"`
+	AllowListDesc *string `type:"string" json:",omitempty"`
 
 	// AllowListName is a required field
-	AllowListName *string `type:"string" required:"true"`
+	AllowListName *string `type:"string" json:",omitempty" required:"true"`
 
-	AllowListType *string `type:"string"`
+	AllowListType *string `type:"string" json:",omitempty"`
+
+	ProjectName *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -207,12 +209,18 @@ func (s *CreateAllowListInput) SetAllowListType(v string) *CreateAllowListInput 
 	return s
 }
 
+// SetProjectName sets the ProjectName field's value.
+func (s *CreateAllowListInput) SetProjectName(v string) *CreateAllowListInput {
+	s.ProjectName = &v
+	return s
+}
+
 type CreateAllowListOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	AllowListId *string `type:"string"`
+	AllowListId *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
