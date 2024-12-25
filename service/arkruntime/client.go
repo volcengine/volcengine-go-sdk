@@ -264,7 +264,7 @@ func (c *Client) DoBatch(ctx context.Context, method, url, resourceType, resourc
 			return utils.BatchTaskResult{}, err
 		}
 		innerErr := c.sendRequest(req, v)
-		if innerErr != nil {
+		if innerErr != nil && needRetryError(err) {
 			retryAfter := c.getRetryAfter(v)
 			if retryAfter > 0 {
 				return utils.BatchTaskResult{RequeueAfter: retryAfter}, innerErr
