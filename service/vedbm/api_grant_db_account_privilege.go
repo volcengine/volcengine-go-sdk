@@ -144,13 +144,13 @@ func (c *VEDBM) GrantDBAccountPrivilegeWithContext(ctx volcengine.Context, input
 }
 
 type AccountPrivilegeForGrantDBAccountPrivilegeInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	AccountPrivilege *string `type:"string" enum:"EnumOfAccountPrivilegeForGrantDBAccountPrivilegeInput"`
+	AccountPrivilege *string `type:"string" json:",omitempty" enum:"EnumOfAccountPrivilegeForGrantDBAccountPrivilegeInput"`
 
-	AccountPrivilegeDetail *string `type:"string"`
+	AccountPrivilegeDetail *string `type:"string" json:",omitempty"`
 
-	DBName *string `type:"string"`
+	DBName *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -182,15 +182,15 @@ func (s *AccountPrivilegeForGrantDBAccountPrivilegeInput) SetDBName(v string) *A
 }
 
 type GrantDBAccountPrivilegeInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// AccountName is a required field
-	AccountName *string `type:"string" required:"true"`
+	AccountName *string `type:"string" json:",omitempty" required:"true"`
 
-	AccountPrivileges []*AccountPrivilegeForGrantDBAccountPrivilegeInput `type:"list"`
+	AccountPrivileges []*AccountPrivilegeForGrantDBAccountPrivilegeInput `type:"list" json:",omitempty"`
 
 	// InstanceId is a required field
-	InstanceId *string `type:"string" required:"true"`
+	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -238,7 +238,7 @@ func (s *GrantDBAccountPrivilegeInput) SetInstanceId(v string) *GrantDBAccountPr
 }
 
 type GrantDBAccountPrivilegeOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 }

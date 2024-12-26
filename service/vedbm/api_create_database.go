@@ -144,17 +144,17 @@ func (c *VEDBM) CreateDatabaseWithContext(ctx volcengine.Context, input *CreateD
 }
 
 type CreateDatabaseInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	CharacterSetName *string `type:"string" enum:"EnumOfCharacterSetNameForCreateDatabaseInput"`
+	CharacterSetName *string `type:"string" json:",omitempty" enum:"EnumOfCharacterSetNameForCreateDatabaseInput"`
 
 	// DBName is a required field
-	DBName *string `type:"string" required:"true"`
+	DBName *string `type:"string" json:",omitempty" required:"true"`
 
-	DatabasesPrivileges []*DatabasesPrivilegeForCreateDatabaseInput `type:"list"`
+	DatabasesPrivileges []*DatabasesPrivilegeForCreateDatabaseInput `type:"list" json:",omitempty"`
 
 	// InstanceId is a required field
-	InstanceId *string `type:"string" required:"true"`
+	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -208,7 +208,7 @@ func (s *CreateDatabaseInput) SetInstanceId(v string) *CreateDatabaseInput {
 }
 
 type CreateDatabaseOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 }
@@ -224,13 +224,13 @@ func (s CreateDatabaseOutput) GoString() string {
 }
 
 type DatabasesPrivilegeForCreateDatabaseInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	AccountName *string `type:"string"`
+	AccountName *string `type:"string" json:",omitempty"`
 
-	AccountPrivilege *string `type:"string" enum:"EnumOfAccountPrivilegeForCreateDatabaseInput"`
+	AccountPrivilege *string `type:"string" json:",omitempty" enum:"EnumOfAccountPrivilegeForCreateDatabaseInput"`
 
-	AccountPrivilegeDetail *string `type:"string"`
+	AccountPrivilegeDetail *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation

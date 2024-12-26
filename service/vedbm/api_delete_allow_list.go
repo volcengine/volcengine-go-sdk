@@ -144,10 +144,10 @@ func (c *VEDBM) DeleteAllowListWithContext(ctx volcengine.Context, input *Delete
 }
 
 type DeleteAllowListInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// AllowListId is a required field
-	AllowListId *string `type:"string" required:"true"`
+	AllowListId *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -180,7 +180,7 @@ func (s *DeleteAllowListInput) SetAllowListId(v string) *DeleteAllowListInput {
 }
 
 type DeleteAllowListOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 }

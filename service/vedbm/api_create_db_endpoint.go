@@ -144,34 +144,34 @@ func (c *VEDBM) CreateDBEndpointWithContext(ctx volcengine.Context, input *Creat
 }
 
 type CreateDBEndpointInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	AutoAddNewNodes *bool `type:"boolean"`
+	AutoAddNewNodes *bool `type:"boolean" json:",omitempty"`
 
-	ConsistLevel *string `type:"string" enum:"EnumOfConsistLevelForCreateDBEndpointInput"`
+	ConsistLevel *string `type:"string" json:",omitempty" enum:"EnumOfConsistLevelForCreateDBEndpointInput"`
 
-	ConsistTimeout *int32 `type:"int32"`
+	ConsistTimeout *int32 `type:"int32" json:",omitempty"`
 
-	ConsistTimeoutAction *string `type:"string" enum:"EnumOfConsistTimeoutActionForCreateDBEndpointInput"`
+	ConsistTimeoutAction *string `type:"string" json:",omitempty" enum:"EnumOfConsistTimeoutActionForCreateDBEndpointInput"`
 
-	Description *string `type:"string"`
+	Description *string `type:"string" json:",omitempty"`
 
-	DistributedTransaction *bool `type:"boolean"`
+	DistributedTransaction *bool `type:"boolean" json:",omitempty"`
 
-	EndpointName *string `type:"string"`
+	EndpointName *string `type:"string" json:",omitempty"`
 
 	// EndpointType is a required field
-	EndpointType *string `type:"string" required:"true" enum:"EnumOfEndpointTypeForCreateDBEndpointInput"`
+	EndpointType *string `type:"string" json:",omitempty" required:"true" enum:"EnumOfEndpointTypeForCreateDBEndpointInput"`
 
 	// InstanceId is a required field
-	InstanceId *string `type:"string" required:"true"`
+	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 
-	MasterAcceptReadRequests *bool `type:"boolean"`
+	MasterAcceptReadRequests *bool `type:"boolean" json:",omitempty"`
 
 	// Nodes is a required field
-	Nodes *string `type:"string" required:"true"`
+	Nodes *string `type:"string" json:",omitempty" required:"true"`
 
-	ReadWriteMode *string `type:"string" enum:"EnumOfReadWriteModeForCreateDBEndpointInput"`
+	ReadWriteMode *string `type:"string" json:",omitempty" enum:"EnumOfReadWriteModeForCreateDBEndpointInput"`
 }
 
 // String returns the string representation
@@ -276,11 +276,11 @@ func (s *CreateDBEndpointInput) SetReadWriteMode(v string) *CreateDBEndpointInpu
 }
 
 type CreateDBEndpointOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	EndpointId *string `type:"string"`
+	EndpointId *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
