@@ -356,8 +356,6 @@ func (s *ListAllIpGroupsOutput) SetTotalCount(v int32) *ListAllIpGroupsOutput {
 type RelatedRuleForListAllIpGroupsOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	Host *string `type:"string" json:",omitempty"`
-
 	RuleName *string `type:"string" json:",omitempty"`
 
 	RuleTag *string `type:"string" json:",omitempty"`
@@ -373,12 +371,6 @@ func (s RelatedRuleForListAllIpGroupsOutput) String() string {
 // GoString returns the string representation
 func (s RelatedRuleForListAllIpGroupsOutput) GoString() string {
 	return s.String()
-}
-
-// SetHost sets the Host field's value.
-func (s *RelatedRuleForListAllIpGroupsOutput) SetHost(v string) *RelatedRuleForListAllIpGroupsOutput {
-	s.Host = &v
-	return s
 }
 
 // SetRuleName sets the RuleName field's value.

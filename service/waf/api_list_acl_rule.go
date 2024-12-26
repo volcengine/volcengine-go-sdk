@@ -422,13 +422,9 @@ type RuleForListAclRuleOutput struct {
 
 	Advanced *int32 `type:"int32" json:",omitempty"`
 
-	ClientIp *string `type:"string" json:",omitempty"`
-
 	Description *string `type:"string" json:",omitempty"`
 
 	Enable *int32 `type:"int32" json:",omitempty"`
-
-	Host *string `type:"string" json:",omitempty"`
 
 	HostAddType *int32 `type:"int32" json:",omitempty"`
 
@@ -453,6 +449,8 @@ type RuleForListAclRuleOutput struct {
 	RuleTag *string `type:"string" json:",omitempty"`
 
 	UpdateTime *string `type:"string" json:",omitempty"`
+
+	Url *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -483,12 +481,6 @@ func (s *RuleForListAclRuleOutput) SetAdvanced(v int32) *RuleForListAclRuleOutpu
 	return s
 }
 
-// SetClientIp sets the ClientIp field's value.
-func (s *RuleForListAclRuleOutput) SetClientIp(v string) *RuleForListAclRuleOutput {
-	s.ClientIp = &v
-	return s
-}
-
 // SetDescription sets the Description field's value.
 func (s *RuleForListAclRuleOutput) SetDescription(v string) *RuleForListAclRuleOutput {
 	s.Description = &v
@@ -498,12 +490,6 @@ func (s *RuleForListAclRuleOutput) SetDescription(v string) *RuleForListAclRuleO
 // SetEnable sets the Enable field's value.
 func (s *RuleForListAclRuleOutput) SetEnable(v int32) *RuleForListAclRuleOutput {
 	s.Enable = &v
-	return s
-}
-
-// SetHost sets the Host field's value.
-func (s *RuleForListAclRuleOutput) SetHost(v string) *RuleForListAclRuleOutput {
-	s.Host = &v
 	return s
 }
 
@@ -576,5 +562,11 @@ func (s *RuleForListAclRuleOutput) SetRuleTag(v string) *RuleForListAclRuleOutpu
 // SetUpdateTime sets the UpdateTime field's value.
 func (s *RuleForListAclRuleOutput) SetUpdateTime(v string) *RuleForListAclRuleOutput {
 	s.UpdateTime = &v
+	return s
+}
+
+// SetUrl sets the Url field's value.
+func (s *RuleForListAclRuleOutput) SetUrl(v string) *RuleForListAclRuleOutput {
+	s.Url = &v
 	return s
 }
