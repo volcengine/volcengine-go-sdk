@@ -144,21 +144,21 @@ func (c *VEDBM) ModifyAllowListWithContext(ctx volcengine.Context, input *Modify
 }
 
 type ModifyAllowListInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	AllowList *string `type:"string"`
+	AllowList *string `type:"string" json:",omitempty"`
 
-	AllowListDesc *string `type:"string"`
+	AllowListDesc *string `type:"string" json:",omitempty"`
 
 	// AllowListId is a required field
-	AllowListId *string `type:"string" required:"true"`
+	AllowListId *string `type:"string" json:",omitempty" required:"true"`
 
 	// AllowListName is a required field
-	AllowListName *string `type:"string" required:"true"`
+	AllowListName *string `type:"string" json:",omitempty" required:"true"`
 
-	ApplyInstanceNum *int32 `type:"int32"`
+	ApplyInstanceNum *int32 `type:"int32" json:",omitempty"`
 
-	ModifyMode *int32 `type:"int32"`
+	ModifyMode *string `type:"string" json:",omitempty" enum:"EnumOfModifyModeForModifyAllowListInput"`
 }
 
 // String returns the string representation
@@ -218,13 +218,13 @@ func (s *ModifyAllowListInput) SetApplyInstanceNum(v int32) *ModifyAllowListInpu
 }
 
 // SetModifyMode sets the ModifyMode field's value.
-func (s *ModifyAllowListInput) SetModifyMode(v int32) *ModifyAllowListInput {
+func (s *ModifyAllowListInput) SetModifyMode(v string) *ModifyAllowListInput {
 	s.ModifyMode = &v
 	return s
 }
 
 type ModifyAllowListOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 }
@@ -238,3 +238,14 @@ func (s ModifyAllowListOutput) String() string {
 func (s ModifyAllowListOutput) GoString() string {
 	return s.String()
 }
+
+const (
+	// EnumOfModifyModeForModifyAllowListInputCover is a EnumOfModifyModeForModifyAllowListInput enum value
+	EnumOfModifyModeForModifyAllowListInputCover = "Cover"
+
+	// EnumOfModifyModeForModifyAllowListInputAppend is a EnumOfModifyModeForModifyAllowListInput enum value
+	EnumOfModifyModeForModifyAllowListInputAppend = "Append"
+
+	// EnumOfModifyModeForModifyAllowListInputDelete is a EnumOfModifyModeForModifyAllowListInput enum value
+	EnumOfModifyModeForModifyAllowListInputDelete = "Delete"
+)

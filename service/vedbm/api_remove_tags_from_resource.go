@@ -144,13 +144,13 @@ func (c *VEDBM) RemoveTagsFromResourceWithContext(ctx volcengine.Context, input 
 }
 
 type RemoveTagsFromResourceInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	All *bool `type:"boolean"`
+	All *bool `type:"boolean" json:",omitempty"`
 
-	InstanceIds []*string `type:"list"`
+	InstanceIds []*string `type:"list" json:",omitempty"`
 
-	TagKeys []*string `type:"list"`
+	TagKeys []*string `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -182,7 +182,7 @@ func (s *RemoveTagsFromResourceInput) SetTagKeys(v []*string) *RemoveTagsFromRes
 }
 
 type RemoveTagsFromResourceOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 }

@@ -144,13 +144,13 @@ func (c *VEDBM) ModifyDBInstanceNameWithContext(ctx volcengine.Context, input *M
 }
 
 type ModifyDBInstanceNameInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// InstanceId is a required field
-	InstanceId *string `type:"string" required:"true"`
+	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 
 	// InstanceNewName is a required field
-	InstanceNewName *string `type:"string" required:"true"`
+	InstanceNewName *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -192,7 +192,7 @@ func (s *ModifyDBInstanceNameInput) SetInstanceNewName(v string) *ModifyDBInstan
 }
 
 type ModifyDBInstanceNameOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 }

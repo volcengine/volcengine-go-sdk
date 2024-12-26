@@ -144,58 +144,60 @@ func (c *VEDBM) CreateDBInstanceWithContext(ctx volcengine.Context, input *Creat
 }
 
 type CreateDBInstanceInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	AutoRenew *bool `type:"boolean"`
+	AutoRenew *bool `type:"boolean" json:",omitempty"`
 
 	// ChargeType is a required field
-	ChargeType *string `type:"string" required:"true" enum:"EnumOfChargeTypeForCreateDBInstanceInput"`
+	ChargeType *string `type:"string" json:",omitempty" required:"true" enum:"EnumOfChargeTypeForCreateDBInstanceInput"`
 
 	// DBEngineVersion is a required field
-	DBEngineVersion *string `type:"string" required:"true" enum:"EnumOfDBEngineVersionForCreateDBInstanceInput"`
+	DBEngineVersion *string `type:"string" json:",omitempty" required:"true" enum:"EnumOfDBEngineVersionForCreateDBInstanceInput"`
 
-	DBMinorVersion *string `type:"string" enum:"EnumOfDBMinorVersionForCreateDBInstanceInput"`
+	DBMinorVersion *string `type:"string" json:",omitempty" enum:"EnumOfDBMinorVersionForCreateDBInstanceInput"`
 
-	DBTimeZone *string `type:"string"`
+	DBTimeZone *string `type:"string" json:",omitempty"`
 
-	InstanceName *string `type:"string"`
+	DeletionProtection *string `type:"string" json:",omitempty" enum:"EnumOfDeletionProtectionForCreateDBInstanceInput"`
 
-	LowerCaseTableNames *string `type:"string"`
+	InstanceName *string `type:"string" json:",omitempty"`
+
+	LowerCaseTableNames *string `type:"string" json:",omitempty"`
 
 	// NodeNumber is a required field
-	NodeNumber *int32 `type:"int32" required:"true"`
+	NodeNumber *int32 `type:"int32" json:",omitempty" required:"true"`
 
 	// NodeSpec is a required field
-	NodeSpec *string `type:"string" required:"true" enum:"EnumOfNodeSpecForCreateDBInstanceInput"`
+	NodeSpec *string `type:"string" json:",omitempty" required:"true" enum:"EnumOfNodeSpecForCreateDBInstanceInput"`
 
-	Number *int32 `type:"int32"`
+	Number *int32 `type:"int32" json:",omitempty"`
 
-	Period *int32 `type:"int32"`
+	Period *int32 `type:"int32" json:",omitempty"`
 
-	PeriodUnit *string `type:"string" enum:"EnumOfPeriodUnitForCreateDBInstanceInput"`
+	PeriodUnit *string `type:"string" json:",omitempty" enum:"EnumOfPeriodUnitForCreateDBInstanceInput"`
 
-	Port *int32 `type:"int32"`
+	Port *int32 `type:"int32" json:",omitempty"`
 
-	PrePaidStorageInGB *int32 `type:"int32"`
+	PrePaidStorageInGB *int32 `type:"int32" json:",omitempty"`
 
-	ProjectName *string `type:"string"`
+	ProjectName *string `type:"string" json:",omitempty"`
 
-	StorageChargeType *string `type:"string" enum:"EnumOfStorageChargeTypeForCreateDBInstanceInput"`
+	StorageChargeType *string `type:"string" json:",omitempty" enum:"EnumOfStorageChargeTypeForCreateDBInstanceInput"`
 
 	// SubnetId is a required field
-	SubnetId *string `type:"string" required:"true"`
+	SubnetId *string `type:"string" json:",omitempty" required:"true"`
 
-	SuperAccountName *string `type:"string"`
+	SuperAccountName *string `type:"string" json:",omitempty"`
 
-	SuperAccountPassword *string `type:"string"`
+	SuperAccountPassword *string `type:"string" json:",omitempty"`
 
-	Tags []*TagForCreateDBInstanceInput `type:"list"`
+	Tags []*TagForCreateDBInstanceInput `type:"list" json:",omitempty"`
 
 	// VpcId is a required field
-	VpcId *string `type:"string" required:"true"`
+	VpcId *string `type:"string" json:",omitempty" required:"true"`
 
 	// ZoneIds is a required field
-	ZoneIds *string `type:"string" required:"true"`
+	ZoneIds *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -266,6 +268,12 @@ func (s *CreateDBInstanceInput) SetDBMinorVersion(v string) *CreateDBInstanceInp
 // SetDBTimeZone sets the DBTimeZone field's value.
 func (s *CreateDBInstanceInput) SetDBTimeZone(v string) *CreateDBInstanceInput {
 	s.DBTimeZone = &v
+	return s
+}
+
+// SetDeletionProtection sets the DeletionProtection field's value.
+func (s *CreateDBInstanceInput) SetDeletionProtection(v string) *CreateDBInstanceInput {
+	s.DeletionProtection = &v
 	return s
 }
 
@@ -372,13 +380,13 @@ func (s *CreateDBInstanceInput) SetZoneIds(v string) *CreateDBInstanceInput {
 }
 
 type CreateDBInstanceOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	InstanceId *string `type:"string"`
+	InstanceId *string `type:"string" json:",omitempty"`
 
-	OrderId *string `type:"string"`
+	OrderId *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -404,11 +412,11 @@ func (s *CreateDBInstanceOutput) SetOrderId(v string) *CreateDBInstanceOutput {
 }
 
 type TagForCreateDBInstanceInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Key *string `type:"string"`
+	Key *string `type:"string" json:",omitempty"`
 
-	Value *string `type:"string"`
+	Value *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -455,6 +463,14 @@ const (
 
 	// EnumOfDBMinorVersionForCreateDBInstanceInput32 is a EnumOfDBMinorVersionForCreateDBInstanceInput enum value
 	EnumOfDBMinorVersionForCreateDBInstanceInput32 = "3.2"
+)
+
+const (
+	// EnumOfDeletionProtectionForCreateDBInstanceInputDisabled is a EnumOfDeletionProtectionForCreateDBInstanceInput enum value
+	EnumOfDeletionProtectionForCreateDBInstanceInputDisabled = "disabled"
+
+	// EnumOfDeletionProtectionForCreateDBInstanceInputEnabled is a EnumOfDeletionProtectionForCreateDBInstanceInput enum value
+	EnumOfDeletionProtectionForCreateDBInstanceInputEnabled = "enabled"
 )
 
 const (

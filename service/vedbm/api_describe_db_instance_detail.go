@@ -144,21 +144,21 @@ func (c *VEDBM) DescribeDBInstanceDetailWithContext(ctx volcengine.Context, inpu
 }
 
 type AddressForDescribeDBInstanceDetailOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	DNSVisibility *bool `type:"boolean"`
+	DNSVisibility *bool `type:"boolean" json:",omitempty"`
 
-	Domain *string `type:"string"`
+	Domain *string `type:"string" json:",omitempty"`
 
-	EipId *string `type:"string"`
+	EipId *string `type:"string" json:",omitempty"`
 
-	IPAddress *string `type:"string"`
+	IPAddress *string `type:"string" json:",omitempty"`
 
-	NetworkType *string `type:"string" enum:"EnumOfNetworkTypeForDescribeDBInstanceDetailOutput"`
+	NetworkType *string `type:"string" json:",omitempty" enum:"EnumOfNetworkTypeForDescribeDBInstanceDetailOutput"`
 
-	Port *string `type:"string"`
+	Port *string `type:"string" json:",omitempty"`
 
-	SubnetId *string `type:"string"`
+	SubnetId *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -214,21 +214,21 @@ func (s *AddressForDescribeDBInstanceDetailOutput) SetSubnetId(v string) *Addres
 }
 
 type ChargeDetailForDescribeDBInstanceDetailOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	AutoRenew *bool `type:"boolean"`
+	AutoRenew *bool `type:"boolean" json:",omitempty"`
 
-	ChargeEndTime *string `type:"string"`
+	ChargeEndTime *string `type:"string" json:",omitempty"`
 
-	ChargeStartTime *string `type:"string"`
+	ChargeStartTime *string `type:"string" json:",omitempty"`
 
-	ChargeStatus *string `type:"string" enum:"EnumOfChargeStatusForDescribeDBInstanceDetailOutput"`
+	ChargeStatus *string `type:"string" json:",omitempty" enum:"EnumOfChargeStatusForDescribeDBInstanceDetailOutput"`
 
-	ChargeType *string `type:"string" enum:"EnumOfChargeTypeForDescribeDBInstanceDetailOutput"`
+	ChargeType *string `type:"string" json:",omitempty" enum:"EnumOfChargeTypeForDescribeDBInstanceDetailOutput"`
 
-	OverdueReclaimTime *string `type:"string"`
+	OverdueReclaimTime *string `type:"string" json:",omitempty"`
 
-	OverdueTime *string `type:"string"`
+	OverdueTime *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -284,10 +284,10 @@ func (s *ChargeDetailForDescribeDBInstanceDetailOutput) SetOverdueTime(v string)
 }
 
 type DescribeDBInstanceDetailInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// InstanceId is a required field
-	InstanceId *string `type:"string" required:"true"`
+	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -320,19 +320,19 @@ func (s *DescribeDBInstanceDetailInput) SetInstanceId(v string) *DescribeDBInsta
 }
 
 type DescribeDBInstanceDetailOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	ChargeDetail *ChargeDetailForDescribeDBInstanceDetailOutput `type:"structure"`
+	ChargeDetail *ChargeDetailForDescribeDBInstanceDetailOutput `type:"structure" json:",omitempty"`
 
-	Endpoints []*EndpointForDescribeDBInstanceDetailOutput `type:"list"`
+	Endpoints []*EndpointForDescribeDBInstanceDetailOutput `type:"list" json:",omitempty"`
 
-	InstanceDetail *InstanceDetailForDescribeDBInstanceDetailOutput `type:"structure"`
+	InstanceDetail *InstanceDetailForDescribeDBInstanceDetailOutput `type:"structure" json:",omitempty"`
 
-	Nodes []*NodeForDescribeDBInstanceDetailOutput `type:"list"`
+	Nodes []*NodeForDescribeDBInstanceDetailOutput `type:"list" json:",omitempty"`
 
-	Tags []*TagForDescribeDBInstanceDetailOutput `type:"list"`
+	Tags []*TagForDescribeDBInstanceDetailOutput `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -376,33 +376,33 @@ func (s *DescribeDBInstanceDetailOutput) SetTags(v []*TagForDescribeDBInstanceDe
 }
 
 type EndpointForDescribeDBInstanceDetailOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Addresses []*AddressForDescribeDBInstanceDetailOutput `type:"list"`
+	Addresses []*AddressForDescribeDBInstanceDetailOutput `type:"list" json:",omitempty"`
 
-	AutoAddNewNodes *bool `type:"boolean"`
+	AutoAddNewNodes *bool `type:"boolean" json:",omitempty"`
 
-	ConsistLevel *string `type:"string" enum:"EnumOfConsistLevelForDescribeDBInstanceDetailOutput"`
+	ConsistLevel *string `type:"string" json:",omitempty" enum:"EnumOfConsistLevelForDescribeDBInstanceDetailOutput"`
 
-	ConsistTimeout *int32 `type:"int32"`
+	ConsistTimeout *int32 `type:"int32" json:",omitempty"`
 
-	ConsistTimeoutAction *string `type:"string" enum:"EnumOfConsistTimeoutActionForDescribeDBInstanceDetailOutput"`
+	ConsistTimeoutAction *string `type:"string" json:",omitempty" enum:"EnumOfConsistTimeoutActionForDescribeDBInstanceDetailOutput"`
 
-	Description *string `type:"string"`
+	Description *string `type:"string" json:",omitempty"`
 
-	DistributedTransaction *bool `type:"boolean"`
+	DistributedTransaction *bool `type:"boolean" json:",omitempty"`
 
-	EndpointId *string `type:"string"`
+	EndpointId *string `type:"string" json:",omitempty"`
 
-	EndpointName *string `type:"string"`
+	EndpointName *string `type:"string" json:",omitempty"`
 
-	EndpointType *string `type:"string" enum:"EnumOfEndpointTypeForDescribeDBInstanceDetailOutput"`
+	EndpointType *string `type:"string" json:",omitempty" enum:"EnumOfEndpointTypeForDescribeDBInstanceDetailOutput"`
 
-	MasterAcceptReadRequests *bool `type:"boolean"`
+	MasterAcceptReadRequests *bool `type:"boolean" json:",omitempty"`
 
-	NodeIds []*string `type:"list"`
+	NodeIds []*string `type:"list" json:",omitempty"`
 
-	ReadWriteMode *string `type:"string" enum:"EnumOfReadWriteModeForDescribeDBInstanceDetailOutput"`
+	ReadWriteMode *string `type:"string" json:",omitempty" enum:"EnumOfReadWriteModeForDescribeDBInstanceDetailOutput"`
 }
 
 // String returns the string representation
@@ -494,43 +494,45 @@ func (s *EndpointForDescribeDBInstanceDetailOutput) SetReadWriteMode(v string) *
 }
 
 type InstanceDetailForDescribeDBInstanceDetailOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	CreateTime *string `type:"string"`
+	CreateTime *string `type:"string" json:",omitempty"`
 
-	DBEngineVersion *string `type:"string" enum:"EnumOfDBEngineVersionForDescribeDBInstanceDetailOutput"`
+	DBEngineVersion *string `type:"string" json:",omitempty" enum:"EnumOfDBEngineVersionForDescribeDBInstanceDetailOutput"`
 
-	InstanceId *string `type:"string"`
+	DeletionProtection *string `type:"string" json:",omitempty" enum:"EnumOfDeletionProtectionForDescribeDBInstanceDetailOutput"`
 
-	InstanceName *string `type:"string"`
+	InstanceId *string `type:"string" json:",omitempty"`
 
-	InstanceStatus *string `type:"string" enum:"EnumOfInstanceStatusForDescribeDBInstanceDetailOutput"`
+	InstanceName *string `type:"string" json:",omitempty"`
 
-	InstanceStructures []*InstanceStructureForDescribeDBInstanceDetailOutput `type:"list"`
+	InstanceStatus *string `type:"string" json:",omitempty" enum:"EnumOfInstanceStatusForDescribeDBInstanceDetailOutput"`
 
-	LowerCaseTableNames *string `type:"string"`
+	InstanceStructures []*InstanceStructureForDescribeDBInstanceDetailOutput `type:"list" json:",omitempty"`
 
-	MaintenanceWindow *MaintenanceWindowForDescribeDBInstanceDetailOutput `type:"structure"`
+	LowerCaseTableNames *string `type:"string" json:",omitempty"`
 
-	PrePaidStorageInGB *int32 `type:"int32"`
+	MaintenanceWindow *MaintenanceWindowForDescribeDBInstanceDetailOutput `type:"structure" json:",omitempty"`
 
-	ProjectName *string `type:"string"`
+	PrePaidStorageInGB *int32 `type:"int32" json:",omitempty"`
 
-	RegionId *string `type:"string"`
+	ProjectName *string `type:"string" json:",omitempty"`
 
-	SpecFamily *string `type:"string" enum:"EnumOfSpecFamilyForDescribeDBInstanceDetailOutput"`
+	RegionId *string `type:"string" json:",omitempty"`
 
-	StorageChargeType *string `type:"string" enum:"EnumOfStorageChargeTypeForDescribeDBInstanceDetailOutput"`
+	SpecFamily *string `type:"string" json:",omitempty" enum:"EnumOfSpecFamilyForDescribeDBInstanceDetailOutput"`
 
-	StorageUsedGiB *float64 `type:"double"`
+	StorageChargeType *string `type:"string" json:",omitempty" enum:"EnumOfStorageChargeTypeForDescribeDBInstanceDetailOutput"`
 
-	SubnetId *string `type:"string"`
+	StorageUsedGiB *float64 `type:"double" json:",omitempty"`
 
-	TimeZone *string `type:"string"`
+	SubnetId *string `type:"string" json:",omitempty"`
 
-	VpcId *string `type:"string"`
+	TimeZone *string `type:"string" json:",omitempty"`
 
-	ZoneIds *string `type:"string"`
+	VpcId *string `type:"string" json:",omitempty"`
+
+	ZoneIds *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -552,6 +554,12 @@ func (s *InstanceDetailForDescribeDBInstanceDetailOutput) SetCreateTime(v string
 // SetDBEngineVersion sets the DBEngineVersion field's value.
 func (s *InstanceDetailForDescribeDBInstanceDetailOutput) SetDBEngineVersion(v string) *InstanceDetailForDescribeDBInstanceDetailOutput {
 	s.DBEngineVersion = &v
+	return s
+}
+
+// SetDeletionProtection sets the DeletionProtection field's value.
+func (s *InstanceDetailForDescribeDBInstanceDetailOutput) SetDeletionProtection(v string) *InstanceDetailForDescribeDBInstanceDetailOutput {
+	s.DeletionProtection = &v
 	return s
 }
 
@@ -652,13 +660,13 @@ func (s *InstanceDetailForDescribeDBInstanceDetailOutput) SetZoneIds(v string) *
 }
 
 type InstanceStructureForDescribeDBInstanceDetailOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Nodes []*NodeForDescribeDBInstanceDetailOutput `type:"list"`
+	Nodes []*NodeForDescribeDBInstanceDetailOutput `type:"list" json:",omitempty"`
 
-	SubInstanceType *string `type:"string" enum:"EnumOfSubInstanceTypeForDescribeDBInstanceDetailOutput"`
+	SubInstanceType *string `type:"string" json:",omitempty" enum:"EnumOfSubInstanceTypeForDescribeDBInstanceDetailOutput"`
 
-	ZoneIds *string `type:"string"`
+	ZoneIds *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -690,15 +698,15 @@ func (s *InstanceStructureForDescribeDBInstanceDetailOutput) SetZoneIds(v string
 }
 
 type MaintenanceWindowForDescribeDBInstanceDetailOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	DayKind *int32 `type:"int32"`
+	DayKind *string `type:"string" json:",omitempty" enum:"EnumOfDayKindForDescribeDBInstanceDetailOutput"`
 
-	DayOfMonth []*int32 `type:"list"`
+	DayOfMonth []*int32 `type:"list" json:",omitempty"`
 
-	DayOfWeek []*int32 `type:"list"`
+	DayOfWeek []*string `type:"list" json:",omitempty"`
 
-	MaintenanceTime *string `type:"string"`
+	MaintenanceTime *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -712,7 +720,7 @@ func (s MaintenanceWindowForDescribeDBInstanceDetailOutput) GoString() string {
 }
 
 // SetDayKind sets the DayKind field's value.
-func (s *MaintenanceWindowForDescribeDBInstanceDetailOutput) SetDayKind(v int32) *MaintenanceWindowForDescribeDBInstanceDetailOutput {
+func (s *MaintenanceWindowForDescribeDBInstanceDetailOutput) SetDayKind(v string) *MaintenanceWindowForDescribeDBInstanceDetailOutput {
 	s.DayKind = &v
 	return s
 }
@@ -724,7 +732,7 @@ func (s *MaintenanceWindowForDescribeDBInstanceDetailOutput) SetDayOfMonth(v []*
 }
 
 // SetDayOfWeek sets the DayOfWeek field's value.
-func (s *MaintenanceWindowForDescribeDBInstanceDetailOutput) SetDayOfWeek(v []*int32) *MaintenanceWindowForDescribeDBInstanceDetailOutput {
+func (s *MaintenanceWindowForDescribeDBInstanceDetailOutput) SetDayOfWeek(v []*string) *MaintenanceWindowForDescribeDBInstanceDetailOutput {
 	s.DayOfWeek = v
 	return s
 }
@@ -736,19 +744,19 @@ func (s *MaintenanceWindowForDescribeDBInstanceDetailOutput) SetMaintenanceTime(
 }
 
 type NodeForDescribeDBInstanceDetailOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Memory *int32 `type:"int32"`
+	Memory *int32 `type:"int32" json:",omitempty"`
 
-	NodeId *string `type:"string"`
+	NodeId *string `type:"string" json:",omitempty"`
 
-	NodeSpec *string `type:"string" enum:"EnumOfNodeSpecForDescribeDBInstanceDetailOutput"`
+	NodeSpec *string `type:"string" json:",omitempty" enum:"EnumOfNodeSpecForDescribeDBInstanceDetailOutput"`
 
-	NodeType *string `type:"string" enum:"EnumOfNodeTypeForDescribeDBInstanceDetailOutput"`
+	NodeType *string `type:"string" json:",omitempty" enum:"EnumOfNodeTypeForDescribeDBInstanceDetailOutput"`
 
-	VCPU *int32 `type:"int32" json:"vCPU"`
+	VCPU *int32 `type:"int32" json:"vCPU,omitempty"`
 
-	ZoneId *string `type:"string"`
+	ZoneId *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -798,11 +806,11 @@ func (s *NodeForDescribeDBInstanceDetailOutput) SetZoneId(v string) *NodeForDesc
 }
 
 type TagForDescribeDBInstanceDetailOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Key *string `type:"string"`
+	Key *string `type:"string" json:",omitempty"`
 
-	Value *string `type:"string"`
+	Value *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -868,6 +876,48 @@ const (
 const (
 	// EnumOfDBEngineVersionForDescribeDBInstanceDetailOutputMySql80 is a EnumOfDBEngineVersionForDescribeDBInstanceDetailOutput enum value
 	EnumOfDBEngineVersionForDescribeDBInstanceDetailOutputMySql80 = "MySQL_8_0"
+
+	// EnumOfDBEngineVersionForDescribeDBInstanceDetailOutputMySql57 is a EnumOfDBEngineVersionForDescribeDBInstanceDetailOutput enum value
+	EnumOfDBEngineVersionForDescribeDBInstanceDetailOutputMySql57 = "MySQL_5_7"
+)
+
+const (
+	// EnumOfDayKindForDescribeDBInstanceDetailOutputWeek is a EnumOfDayKindForDescribeDBInstanceDetailOutput enum value
+	EnumOfDayKindForDescribeDBInstanceDetailOutputWeek = "Week"
+
+	// EnumOfDayKindForDescribeDBInstanceDetailOutputMonth is a EnumOfDayKindForDescribeDBInstanceDetailOutput enum value
+	EnumOfDayKindForDescribeDBInstanceDetailOutputMonth = "Month"
+)
+
+const (
+	// EnumOfDayOfWeekListForDescribeDBInstanceDetailOutputSunday is a EnumOfDayOfWeekListForDescribeDBInstanceDetailOutput enum value
+	EnumOfDayOfWeekListForDescribeDBInstanceDetailOutputSunday = "Sunday"
+
+	// EnumOfDayOfWeekListForDescribeDBInstanceDetailOutputMonday is a EnumOfDayOfWeekListForDescribeDBInstanceDetailOutput enum value
+	EnumOfDayOfWeekListForDescribeDBInstanceDetailOutputMonday = "Monday"
+
+	// EnumOfDayOfWeekListForDescribeDBInstanceDetailOutputTuesday is a EnumOfDayOfWeekListForDescribeDBInstanceDetailOutput enum value
+	EnumOfDayOfWeekListForDescribeDBInstanceDetailOutputTuesday = "Tuesday"
+
+	// EnumOfDayOfWeekListForDescribeDBInstanceDetailOutputWednesday is a EnumOfDayOfWeekListForDescribeDBInstanceDetailOutput enum value
+	EnumOfDayOfWeekListForDescribeDBInstanceDetailOutputWednesday = "Wednesday"
+
+	// EnumOfDayOfWeekListForDescribeDBInstanceDetailOutputThursday is a EnumOfDayOfWeekListForDescribeDBInstanceDetailOutput enum value
+	EnumOfDayOfWeekListForDescribeDBInstanceDetailOutputThursday = "Thursday"
+
+	// EnumOfDayOfWeekListForDescribeDBInstanceDetailOutputFriday is a EnumOfDayOfWeekListForDescribeDBInstanceDetailOutput enum value
+	EnumOfDayOfWeekListForDescribeDBInstanceDetailOutputFriday = "Friday"
+
+	// EnumOfDayOfWeekListForDescribeDBInstanceDetailOutputSaturday is a EnumOfDayOfWeekListForDescribeDBInstanceDetailOutput enum value
+	EnumOfDayOfWeekListForDescribeDBInstanceDetailOutputSaturday = "Saturday"
+)
+
+const (
+	// EnumOfDeletionProtectionForDescribeDBInstanceDetailOutputDisabled is a EnumOfDeletionProtectionForDescribeDBInstanceDetailOutput enum value
+	EnumOfDeletionProtectionForDescribeDBInstanceDetailOutputDisabled = "disabled"
+
+	// EnumOfDeletionProtectionForDescribeDBInstanceDetailOutputEnabled is a EnumOfDeletionProtectionForDescribeDBInstanceDetailOutput enum value
+	EnumOfDeletionProtectionForDescribeDBInstanceDetailOutputEnabled = "enabled"
 )
 
 const (

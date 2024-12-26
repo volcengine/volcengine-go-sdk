@@ -392,6 +392,8 @@ type ListForListAmortizedCostBillMonthlyOutput struct {
 
 	DailyAmortizedRoundAmount *string `type:"string" json:",omitempty"`
 
+	DeductionUseDuration *string `type:"string" json:",omitempty"`
+
 	DiscountBillAmount *string `type:"string" json:",omitempty"`
 
 	DiscountBizBillingFunction *string `type:"string" json:",omitempty"`
@@ -477,6 +479,10 @@ type ListForListAmortizedCostBillMonthlyOutput struct {
 	SellerID *string `type:"string" json:",omitempty"`
 
 	SellerUserName *string `type:"string" json:",omitempty"`
+
+	SplitItemID *string `type:"string" json:",omitempty"`
+
+	SplitItemName *string `type:"string" json:",omitempty"`
 
 	SubjectName *string `type:"string" json:",omitempty"`
 
@@ -698,6 +704,12 @@ func (s *ListForListAmortizedCostBillMonthlyOutput) SetDailyAmortizedPreferentia
 // SetDailyAmortizedRoundAmount sets the DailyAmortizedRoundAmount field's value.
 func (s *ListForListAmortizedCostBillMonthlyOutput) SetDailyAmortizedRoundAmount(v string) *ListForListAmortizedCostBillMonthlyOutput {
 	s.DailyAmortizedRoundAmount = &v
+	return s
+}
+
+// SetDeductionUseDuration sets the DeductionUseDuration field's value.
+func (s *ListForListAmortizedCostBillMonthlyOutput) SetDeductionUseDuration(v string) *ListForListAmortizedCostBillMonthlyOutput {
+	s.DeductionUseDuration = &v
 	return s
 }
 
@@ -956,6 +968,18 @@ func (s *ListForListAmortizedCostBillMonthlyOutput) SetSellerID(v string) *ListF
 // SetSellerUserName sets the SellerUserName field's value.
 func (s *ListForListAmortizedCostBillMonthlyOutput) SetSellerUserName(v string) *ListForListAmortizedCostBillMonthlyOutput {
 	s.SellerUserName = &v
+	return s
+}
+
+// SetSplitItemID sets the SplitItemID field's value.
+func (s *ListForListAmortizedCostBillMonthlyOutput) SetSplitItemID(v string) *ListForListAmortizedCostBillMonthlyOutput {
+	s.SplitItemID = &v
+	return s
+}
+
+// SetSplitItemName sets the SplitItemName field's value.
+func (s *ListForListAmortizedCostBillMonthlyOutput) SetSplitItemName(v string) *ListForListAmortizedCostBillMonthlyOutput {
+	s.SplitItemName = &v
 	return s
 }
 

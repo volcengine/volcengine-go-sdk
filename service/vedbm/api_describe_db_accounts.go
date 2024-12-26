@@ -144,13 +144,13 @@ func (c *VEDBM) DescribeDBAccountsWithContext(ctx volcengine.Context, input *Des
 }
 
 type AccountForDescribeDBAccountsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	AccountName *string `type:"string"`
+	AccountName *string `type:"string" json:",omitempty"`
 
-	AccountPrivileges []*AccountPrivilegeForDescribeDBAccountsOutput `type:"list"`
+	AccountPrivileges []*AccountPrivilegeForDescribeDBAccountsOutput `type:"list" json:",omitempty"`
 
-	AccountType *string `type:"string" enum:"EnumOfAccountTypeForDescribeDBAccountsOutput"`
+	AccountType *string `type:"string" json:",omitempty" enum:"EnumOfAccountTypeForDescribeDBAccountsOutput"`
 }
 
 // String returns the string representation
@@ -182,13 +182,13 @@ func (s *AccountForDescribeDBAccountsOutput) SetAccountType(v string) *AccountFo
 }
 
 type AccountPrivilegeForDescribeDBAccountsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	AccountPrivilege *string `type:"string" enum:"EnumOfAccountPrivilegeForDescribeDBAccountsOutput"`
+	AccountPrivilege *string `type:"string" json:",omitempty" enum:"EnumOfAccountPrivilegeForDescribeDBAccountsOutput"`
 
-	AccountPrivilegeDetail *string `type:"string"`
+	AccountPrivilegeDetail *string `type:"string" json:",omitempty"`
 
-	DBName *string `type:"string"`
+	DBName *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -220,16 +220,16 @@ func (s *AccountPrivilegeForDescribeDBAccountsOutput) SetDBName(v string) *Accou
 }
 
 type DescribeDBAccountsInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	AccountName *string `type:"string"`
+	AccountName *string `type:"string" json:",omitempty"`
 
 	// InstanceId is a required field
-	InstanceId *string `type:"string" required:"true"`
+	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 
-	PageNumber *int32 `type:"int32"`
+	PageNumber *int32 `type:"int32" json:",omitempty"`
 
-	PageSize *int32 `type:"int32"`
+	PageSize *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -280,13 +280,13 @@ func (s *DescribeDBAccountsInput) SetPageSize(v int32) *DescribeDBAccountsInput 
 }
 
 type DescribeDBAccountsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	Accounts []*AccountForDescribeDBAccountsOutput `type:"list"`
+	Accounts []*AccountForDescribeDBAccountsOutput `type:"list" json:",omitempty"`
 
-	Total *int32 `type:"int32"`
+	Total *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation

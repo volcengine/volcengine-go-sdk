@@ -46,6 +46,22 @@ type WAFAPI interface {
 	AddIpGroupWithContext(volcengine.Context, *AddIpGroupInput, ...request.Option) (*AddIpGroupOutput, error)
 	AddIpGroupRequest(*AddIpGroupInput) (*request.Request, *AddIpGroupOutput)
 
+	AddProhibitionBlackCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	AddProhibitionBlackCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	AddProhibitionBlackCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	AddProhibitionBlack(*AddProhibitionBlackInput) (*AddProhibitionBlackOutput, error)
+	AddProhibitionBlackWithContext(volcengine.Context, *AddProhibitionBlackInput, ...request.Option) (*AddProhibitionBlackOutput, error)
+	AddProhibitionBlackRequest(*AddProhibitionBlackInput) (*request.Request, *AddProhibitionBlackOutput)
+
+	AddProhibitionWhiteCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	AddProhibitionWhiteCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	AddProhibitionWhiteCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	AddProhibitionWhite(*AddProhibitionWhiteInput) (*AddProhibitionWhiteOutput, error)
+	AddProhibitionWhiteWithContext(volcengine.Context, *AddProhibitionWhiteInput, ...request.Option) (*AddProhibitionWhiteOutput, error)
+	AddProhibitionWhiteRequest(*AddProhibitionWhiteInput) (*request.Request, *AddProhibitionWhiteOutput)
+
 	CheckLLMPromptCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	CheckLLMPromptCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	CheckLLMPromptCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -85,6 +101,14 @@ type WAFAPI interface {
 	CreateBotAnalyseProtectRule(*CreateBotAnalyseProtectRuleInput) (*CreateBotAnalyseProtectRuleOutput, error)
 	CreateBotAnalyseProtectRuleWithContext(volcengine.Context, *CreateBotAnalyseProtectRuleInput, ...request.Option) (*CreateBotAnalyseProtectRuleOutput, error)
 	CreateBotAnalyseProtectRuleRequest(*CreateBotAnalyseProtectRuleInput) (*request.Request, *CreateBotAnalyseProtectRuleOutput)
+
+	CreateCCRuleCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateCCRuleCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateCCRuleCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateCCRule(*CreateCCRuleInput) (*CreateCCRuleOutput, error)
+	CreateCCRuleWithContext(volcengine.Context, *CreateCCRuleInput, ...request.Option) (*CreateCCRuleOutput, error)
+	CreateCCRuleRequest(*CreateCCRuleInput) (*request.Request, *CreateCCRuleOutput)
 
 	CreateCustomBotConfigCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	CreateCustomBotConfigCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -150,6 +174,14 @@ type WAFAPI interface {
 	DeleteBotAnalyseProtectRuleWithContext(volcengine.Context, *DeleteBotAnalyseProtectRuleInput, ...request.Option) (*DeleteBotAnalyseProtectRuleOutput, error)
 	DeleteBotAnalyseProtectRuleRequest(*DeleteBotAnalyseProtectRuleInput) (*request.Request, *DeleteBotAnalyseProtectRuleOutput)
 
+	DeleteCCRuleCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeleteCCRuleCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeleteCCRuleCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeleteCCRule(*DeleteCCRuleInput) (*DeleteCCRuleOutput, error)
+	DeleteCCRuleWithContext(volcengine.Context, *DeleteCCRuleInput, ...request.Option) (*DeleteCCRuleOutput, error)
+	DeleteCCRuleRequest(*DeleteCCRuleInput) (*request.Request, *DeleteCCRuleOutput)
+
 	DeleteCustomBotConfigCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DeleteCustomBotConfigCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DeleteCustomBotConfigCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -174,14 +206,6 @@ type WAFAPI interface {
 	DeleteDomainWithContext(volcengine.Context, *DeleteDomainInput, ...request.Option) (*DeleteDomainOutput, error)
 	DeleteDomainRequest(*DeleteDomainInput) (*request.Request, *DeleteDomainOutput)
 
-	DeleteHostGroupCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	DeleteHostGroupCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	DeleteHostGroupCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	DeleteHostGroup(*DeleteHostGroupInput) (*DeleteHostGroupOutput, error)
-	DeleteHostGroupWithContext(volcengine.Context, *DeleteHostGroupInput, ...request.Option) (*DeleteHostGroupOutput, error)
-	DeleteHostGroupRequest(*DeleteHostGroupInput) (*request.Request, *DeleteHostGroupOutput)
-
 	DeleteIpGroupCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DeleteIpGroupCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DeleteIpGroupCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -189,6 +213,22 @@ type WAFAPI interface {
 	DeleteIpGroup(*DeleteIpGroupInput) (*DeleteIpGroupOutput, error)
 	DeleteIpGroupWithContext(volcengine.Context, *DeleteIpGroupInput, ...request.Option) (*DeleteIpGroupOutput, error)
 	DeleteIpGroupRequest(*DeleteIpGroupInput) (*request.Request, *DeleteIpGroupOutput)
+
+	DeleteProhibitionBlackCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeleteProhibitionBlackCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeleteProhibitionBlackCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeleteProhibitionBlack(*DeleteProhibitionBlackInput) (*DeleteProhibitionBlackOutput, error)
+	DeleteProhibitionBlackWithContext(volcengine.Context, *DeleteProhibitionBlackInput, ...request.Option) (*DeleteProhibitionBlackOutput, error)
+	DeleteProhibitionBlackRequest(*DeleteProhibitionBlackInput) (*request.Request, *DeleteProhibitionBlackOutput)
+
+	DeleteProhibitionWhiteCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeleteProhibitionWhiteCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeleteProhibitionWhiteCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeleteProhibitionWhite(*DeleteProhibitionWhiteInput) (*DeleteProhibitionWhiteOutput, error)
+	DeleteProhibitionWhiteWithContext(volcengine.Context, *DeleteProhibitionWhiteInput, ...request.Option) (*DeleteProhibitionWhiteOutput, error)
+	DeleteProhibitionWhiteRequest(*DeleteProhibitionWhiteInput) (*request.Request, *DeleteProhibitionWhiteOutput)
 
 	DeleteVulWhiteFieldCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DeleteVulWhiteFieldCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -213,6 +253,14 @@ type WAFAPI interface {
 	GetReqQPSAnalysis(*GetReqQPSAnalysisInput) (*GetReqQPSAnalysisOutput, error)
 	GetReqQPSAnalysisWithContext(volcengine.Context, *GetReqQPSAnalysisInput, ...request.Option) (*GetReqQPSAnalysisOutput, error)
 	GetReqQPSAnalysisRequest(*GetReqQPSAnalysisInput) (*request.Request, *GetReqQPSAnalysisOutput)
+
+	GetTLSConfigCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	GetTLSConfigCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	GetTLSConfigCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	GetTLSConfig(*GetTLSConfigInput) (*GetTLSConfigOutput, error)
+	GetTLSConfigWithContext(volcengine.Context, *GetTLSConfigInput, ...request.Option) (*GetTLSConfigOutput, error)
+	GetTLSConfigRequest(*GetTLSConfigInput) (*request.Request, *GetTLSConfigOutput)
 
 	GetVulnerabilityConfigCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	GetVulnerabilityConfigCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -278,6 +326,14 @@ type WAFAPI interface {
 	ListBotAnalyseProtectRulePriorityAvailableWithContext(volcengine.Context, *ListBotAnalyseProtectRulePriorityAvailableInput, ...request.Option) (*ListBotAnalyseProtectRulePriorityAvailableOutput, error)
 	ListBotAnalyseProtectRulePriorityAvailableRequest(*ListBotAnalyseProtectRulePriorityAvailableInput) (*request.Request, *ListBotAnalyseProtectRulePriorityAvailableOutput)
 
+	ListCCRuleCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListCCRuleCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListCCRuleCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListCCRule(*ListCCRuleInput) (*ListCCRuleOutput, error)
+	ListCCRuleWithContext(volcengine.Context, *ListCCRuleInput, ...request.Option) (*ListCCRuleOutput, error)
+	ListCCRuleRequest(*ListCCRuleInput) (*request.Request, *ListCCRuleOutput)
+
 	ListCertificateServicesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ListCertificateServicesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	ListCertificateServicesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -334,6 +390,14 @@ type WAFAPI interface {
 	ListLoadBalancerWithContext(volcengine.Context, *ListLoadBalancerInput, ...request.Option) (*ListLoadBalancerOutput, error)
 	ListLoadBalancerRequest(*ListLoadBalancerInput) (*request.Request, *ListLoadBalancerOutput)
 
+	ListProhibitionCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListProhibitionCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListProhibitionCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListProhibition(*ListProhibitionInput) (*ListProhibitionOutput, error)
+	ListProhibitionWithContext(volcengine.Context, *ListProhibitionInput, ...request.Option) (*ListProhibitionOutput, error)
+	ListProhibitionRequest(*ListProhibitionInput) (*request.Request, *ListProhibitionOutput)
+
 	ListSystemBotConfigCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ListSystemBotConfigCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	ListSystemBotConfigCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -366,6 +430,46 @@ type WAFAPI interface {
 	ListWafServiceCertificateWithContext(volcengine.Context, *ListWafServiceCertificateInput, ...request.Option) (*ListWafServiceCertificateOutput, error)
 	ListWafServiceCertificateRequest(*ListWafServiceCertificateInput) (*request.Request, *ListWafServiceCertificateOutput)
 
+	ModifyServiceDefenceModeCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ModifyServiceDefenceModeCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ModifyServiceDefenceModeCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ModifyServiceDefenceMode(*ModifyServiceDefenceModeInput) (*ModifyServiceDefenceModeOutput, error)
+	ModifyServiceDefenceModeWithContext(volcengine.Context, *ModifyServiceDefenceModeInput, ...request.Option) (*ModifyServiceDefenceModeOutput, error)
+	ModifyServiceDefenceModeRequest(*ModifyServiceDefenceModeInput) (*request.Request, *ModifyServiceDefenceModeOutput)
+
+	ModifyTLSConfigCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ModifyTLSConfigCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ModifyTLSConfigCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ModifyTLSConfig(*ModifyTLSConfigInput) (*ModifyTLSConfigOutput, error)
+	ModifyTLSConfigWithContext(volcengine.Context, *ModifyTLSConfigInput, ...request.Option) (*ModifyTLSConfigOutput, error)
+	ModifyTLSConfigRequest(*ModifyTLSConfigInput) (*request.Request, *ModifyTLSConfigOutput)
+
+	QueryAttackAnalysisTermsAggLbCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	QueryAttackAnalysisTermsAggLbCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	QueryAttackAnalysisTermsAggLbCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	QueryAttackAnalysisTermsAggLb(*QueryAttackAnalysisTermsAggLbInput) (*QueryAttackAnalysisTermsAggLbOutput, error)
+	QueryAttackAnalysisTermsAggLbWithContext(volcengine.Context, *QueryAttackAnalysisTermsAggLbInput, ...request.Option) (*QueryAttackAnalysisTermsAggLbOutput, error)
+	QueryAttackAnalysisTermsAggLbRequest(*QueryAttackAnalysisTermsAggLbInput) (*request.Request, *QueryAttackAnalysisTermsAggLbOutput)
+
+	QueryAttackAnalysisWithRuleAggLbCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	QueryAttackAnalysisWithRuleAggLbCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	QueryAttackAnalysisWithRuleAggLbCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	QueryAttackAnalysisWithRuleAggLb(*QueryAttackAnalysisWithRuleAggLbInput) (*QueryAttackAnalysisWithRuleAggLbOutput, error)
+	QueryAttackAnalysisWithRuleAggLbWithContext(volcengine.Context, *QueryAttackAnalysisWithRuleAggLbInput, ...request.Option) (*QueryAttackAnalysisWithRuleAggLbOutput, error)
+	QueryAttackAnalysisWithRuleAggLbRequest(*QueryAttackAnalysisWithRuleAggLbInput) (*request.Request, *QueryAttackAnalysisWithRuleAggLbOutput)
+
+	QueryAttackSecurityEventCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	QueryAttackSecurityEventCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	QueryAttackSecurityEventCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	QueryAttackSecurityEvent(*QueryAttackSecurityEventInput) (*QueryAttackSecurityEventOutput, error)
+	QueryAttackSecurityEventWithContext(volcengine.Context, *QueryAttackSecurityEventInput, ...request.Option) (*QueryAttackSecurityEventOutput, error)
+	QueryAttackSecurityEventRequest(*QueryAttackSecurityEventInput) (*request.Request, *QueryAttackSecurityEventOutput)
+
 	QueryCertificateIfReplaceCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	QueryCertificateIfReplaceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	QueryCertificateIfReplaceCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -374,6 +478,14 @@ type WAFAPI interface {
 	QueryCertificateIfReplaceWithContext(volcengine.Context, *QueryCertificateIfReplaceInput, ...request.Option) (*QueryCertificateIfReplaceOutput, error)
 	QueryCertificateIfReplaceRequest(*QueryCertificateIfReplaceInput) (*request.Request, *QueryCertificateIfReplaceOutput)
 
+	QueryFlowOverviewLbCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	QueryFlowOverviewLbCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	QueryFlowOverviewLbCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	QueryFlowOverviewLb(*QueryFlowOverviewLbInput) (*QueryFlowOverviewLbOutput, error)
+	QueryFlowOverviewLbWithContext(volcengine.Context, *QueryFlowOverviewLbInput, ...request.Option) (*QueryFlowOverviewLbOutput, error)
+	QueryFlowOverviewLbRequest(*QueryFlowOverviewLbInput) (*request.Request, *QueryFlowOverviewLbOutput)
+
 	QueryLLMGenerateCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	QueryLLMGenerateCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	QueryLLMGenerateCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -381,6 +493,14 @@ type WAFAPI interface {
 	QueryLLMGenerate(*QueryLLMGenerateInput) (*QueryLLMGenerateOutput, error)
 	QueryLLMGenerateWithContext(volcengine.Context, *QueryLLMGenerateInput, ...request.Option) (*QueryLLMGenerateOutput, error)
 	QueryLLMGenerateRequest(*QueryLLMGenerateInput) (*request.Request, *QueryLLMGenerateOutput)
+
+	QueryProtectionOverviewLbCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	QueryProtectionOverviewLbCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	QueryProtectionOverviewLbCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	QueryProtectionOverviewLb(*QueryProtectionOverviewLbInput) (*QueryProtectionOverviewLbOutput, error)
+	QueryProtectionOverviewLbWithContext(volcengine.Context, *QueryProtectionOverviewLbInput, ...request.Option) (*QueryProtectionOverviewLbOutput, error)
+	QueryProtectionOverviewLbRequest(*QueryProtectionOverviewLbInput) (*request.Request, *QueryProtectionOverviewLbOutput)
 
 	UpdateAclRuleCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	UpdateAclRuleCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -422,6 +542,14 @@ type WAFAPI interface {
 	UpdateBotAnalyseProtectRuleWithContext(volcengine.Context, *UpdateBotAnalyseProtectRuleInput, ...request.Option) (*UpdateBotAnalyseProtectRuleOutput, error)
 	UpdateBotAnalyseProtectRuleRequest(*UpdateBotAnalyseProtectRuleInput) (*request.Request, *UpdateBotAnalyseProtectRuleOutput)
 
+	UpdateCCRuleCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	UpdateCCRuleCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	UpdateCCRuleCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	UpdateCCRule(*UpdateCCRuleInput) (*UpdateCCRuleOutput, error)
+	UpdateCCRuleWithContext(volcengine.Context, *UpdateCCRuleInput, ...request.Option) (*UpdateCCRuleOutput, error)
+	UpdateCCRuleRequest(*UpdateCCRuleInput) (*request.Request, *UpdateCCRuleOutput)
+
 	UpdateCustomBotConfigCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	UpdateCustomBotConfigCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	UpdateCustomBotConfigCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -454,13 +582,13 @@ type WAFAPI interface {
 	UpdateDomainWithContext(volcengine.Context, *UpdateDomainInput, ...request.Option) (*UpdateDomainOutput, error)
 	UpdateDomainRequest(*UpdateDomainInput) (*request.Request, *UpdateDomainOutput)
 
-	UpdateHostGroupCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	UpdateHostGroupCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	UpdateHostGroupCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+	UpdateInstanceCtlCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	UpdateInstanceCtlCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	UpdateInstanceCtlCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
 
-	UpdateHostGroup(*UpdateHostGroupInput) (*UpdateHostGroupOutput, error)
-	UpdateHostGroupWithContext(volcengine.Context, *UpdateHostGroupInput, ...request.Option) (*UpdateHostGroupOutput, error)
-	UpdateHostGroupRequest(*UpdateHostGroupInput) (*request.Request, *UpdateHostGroupOutput)
+	UpdateInstanceCtl(*UpdateInstanceCtlInput) (*UpdateInstanceCtlOutput, error)
+	UpdateInstanceCtlWithContext(volcengine.Context, *UpdateInstanceCtlInput, ...request.Option) (*UpdateInstanceCtlOutput, error)
+	UpdateInstanceCtlRequest(*UpdateInstanceCtlInput) (*request.Request, *UpdateInstanceCtlOutput)
 
 	UpdateIpGroupCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	UpdateIpGroupCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)

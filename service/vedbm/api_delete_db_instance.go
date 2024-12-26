@@ -144,12 +144,12 @@ func (c *VEDBM) DeleteDBInstanceWithContext(ctx volcengine.Context, input *Delet
 }
 
 type DeleteDBInstanceInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	DataKeepPolicy *string `type:"string" enum:"EnumOfDataKeepPolicyForDeleteDBInstanceInput"`
+	DataKeepPolicy *string `type:"string" json:",omitempty" enum:"EnumOfDataKeepPolicyForDeleteDBInstanceInput"`
 
 	// InstanceId is a required field
-	InstanceId *string `type:"string" required:"true"`
+	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -188,7 +188,7 @@ func (s *DeleteDBInstanceInput) SetInstanceId(v string) *DeleteDBInstanceInput {
 }
 
 type DeleteDBInstanceOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 }
@@ -204,12 +204,6 @@ func (s DeleteDBInstanceOutput) GoString() string {
 }
 
 const (
-	// EnumOfDataKeepPolicyForDeleteDBInstanceInputNone is a EnumOfDataKeepPolicyForDeleteDBInstanceInput enum value
-	EnumOfDataKeepPolicyForDeleteDBInstanceInputNone = "None"
-
-	// EnumOfDataKeepPolicyForDeleteDBInstanceInputAll is a EnumOfDataKeepPolicyForDeleteDBInstanceInput enum value
-	EnumOfDataKeepPolicyForDeleteDBInstanceInputAll = "All"
-
 	// EnumOfDataKeepPolicyForDeleteDBInstanceInputLast is a EnumOfDataKeepPolicyForDeleteDBInstanceInput enum value
 	EnumOfDataKeepPolicyForDeleteDBInstanceInputLast = "Last"
 )

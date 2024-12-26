@@ -144,33 +144,33 @@ func (c *VEDBM) ModifyDBEndpointWithContext(ctx volcengine.Context, input *Modif
 }
 
 type ModifyDBEndpointInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	AutoAddNewNodes *bool `type:"boolean"`
+	AutoAddNewNodes *bool `type:"boolean" json:",omitempty"`
 
-	ConsistLevel *string `type:"string" enum:"EnumOfConsistLevelForModifyDBEndpointInput"`
+	ConsistLevel *string `type:"string" json:",omitempty" enum:"EnumOfConsistLevelForModifyDBEndpointInput"`
 
-	ConsistTimeout *int32 `type:"int32"`
+	ConsistTimeout *int32 `type:"int32" json:",omitempty"`
 
-	ConsistTimeoutAction *string `type:"string" enum:"EnumOfConsistTimeoutActionForModifyDBEndpointInput"`
+	ConsistTimeoutAction *string `type:"string" json:",omitempty" enum:"EnumOfConsistTimeoutActionForModifyDBEndpointInput"`
 
-	Description *string `type:"string"`
+	Description *string `type:"string" json:",omitempty"`
 
-	DistributedTransaction *bool `type:"boolean"`
+	DistributedTransaction *bool `type:"boolean" json:",omitempty"`
 
 	// EndpointId is a required field
-	EndpointId *string `type:"string" required:"true"`
+	EndpointId *string `type:"string" json:",omitempty" required:"true"`
 
-	EndpointName *string `type:"string"`
+	EndpointName *string `type:"string" json:",omitempty"`
 
 	// InstanceId is a required field
-	InstanceId *string `type:"string" required:"true"`
+	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 
-	MasterAcceptReadRequests *bool `type:"boolean"`
+	MasterAcceptReadRequests *bool `type:"boolean" json:",omitempty"`
 
-	Nodes *string `type:"string"`
+	Nodes *string `type:"string" json:",omitempty"`
 
-	ReadWriteMode *string `type:"string" enum:"EnumOfReadWriteModeForModifyDBEndpointInput"`
+	ReadWriteMode *string `type:"string" json:",omitempty" enum:"EnumOfReadWriteModeForModifyDBEndpointInput"`
 }
 
 // String returns the string representation
@@ -272,7 +272,7 @@ func (s *ModifyDBEndpointInput) SetReadWriteMode(v string) *ModifyDBEndpointInpu
 }
 
 type ModifyDBEndpointOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 }

@@ -144,21 +144,21 @@ func (c *VEDBM) DescribeDBInstancesWithContext(ctx volcengine.Context, input *De
 }
 
 type ChargeDetailForDescribeDBInstancesOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	AutoRenew *bool `type:"boolean"`
+	AutoRenew *bool `type:"boolean" json:",omitempty"`
 
-	ChargeEndTime *string `type:"string"`
+	ChargeEndTime *string `type:"string" json:",omitempty"`
 
-	ChargeStartTime *string `type:"string"`
+	ChargeStartTime *string `type:"string" json:",omitempty"`
 
-	ChargeStatus *string `type:"string" enum:"EnumOfChargeStatusForDescribeDBInstancesOutput"`
+	ChargeStatus *string `type:"string" json:",omitempty" enum:"EnumOfChargeStatusForDescribeDBInstancesOutput"`
 
-	ChargeType *string `type:"string" enum:"EnumOfChargeTypeForDescribeDBInstancesOutput"`
+	ChargeType *string `type:"string" json:",omitempty" enum:"EnumOfChargeTypeForDescribeDBInstancesOutput"`
 
-	OverdueReclaimTime *string `type:"string"`
+	OverdueReclaimTime *string `type:"string" json:",omitempty"`
 
-	OverdueTime *string `type:"string"`
+	OverdueTime *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -214,33 +214,33 @@ func (s *ChargeDetailForDescribeDBInstancesOutput) SetOverdueTime(v string) *Cha
 }
 
 type DescribeDBInstancesInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	ChargeType *string `type:"string" enum:"EnumOfChargeTypeForDescribeDBInstancesInput"`
+	ChargeType *string `type:"string" json:",omitempty" enum:"EnumOfChargeTypeForDescribeDBInstancesInput"`
 
-	CreateTimeEnd *string `type:"string"`
+	CreateTimeEnd *string `type:"string" json:",omitempty"`
 
-	CreateTimeStart *string `type:"string"`
+	CreateTimeStart *string `type:"string" json:",omitempty"`
 
-	DBEngineVersion *string `type:"string" enum:"EnumOfDBEngineVersionForDescribeDBInstancesInput"`
+	DBEngineVersion *string `type:"string" json:",omitempty" enum:"EnumOfDBEngineVersionForDescribeDBInstancesInput"`
 
-	InstanceId *string `type:"string"`
+	InstanceId *string `type:"string" json:",omitempty"`
 
-	InstanceName *string `type:"string"`
+	InstanceName *string `type:"string" json:",omitempty"`
 
-	InstanceStatus *string `type:"string" enum:"EnumOfInstanceStatusForDescribeDBInstancesInput"`
+	InstanceStatus *string `type:"string" json:",omitempty" enum:"EnumOfInstanceStatusForDescribeDBInstancesInput"`
 
-	NodeSpec *string `type:"string" enum:"EnumOfNodeSpecForDescribeDBInstancesInput"`
+	NodeSpec *string `type:"string" json:",omitempty" enum:"EnumOfNodeSpecForDescribeDBInstancesInput"`
 
-	PageNumber *int32 `min:"1" type:"int32"`
+	PageNumber *int32 `type:"int32" json:",omitempty"`
 
-	PageSize *int32 `type:"int32"`
+	PageSize *int32 `type:"int32" json:",omitempty"`
 
-	ProjectName *string `type:"string"`
+	ProjectName *string `type:"string" json:",omitempty"`
 
-	TagFilters []*TagFilterForDescribeDBInstancesInput `type:"list"`
+	TagFilters []*TagFilterForDescribeDBInstancesInput `type:"list" json:",omitempty"`
 
-	ZoneId *string `type:"string"`
+	ZoneId *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -251,19 +251,6 @@ func (s DescribeDBInstancesInput) String() string {
 // GoString returns the string representation
 func (s DescribeDBInstancesInput) GoString() string {
 	return s.String()
-}
-
-// Validate inspects the fields of the type to determine if they are valid.
-func (s *DescribeDBInstancesInput) Validate() error {
-	invalidParams := request.ErrInvalidParams{Context: "DescribeDBInstancesInput"}
-	if s.PageNumber != nil && *s.PageNumber < 1 {
-		invalidParams.Add(request.NewErrParamMinValue("PageNumber", 1))
-	}
-
-	if invalidParams.Len() > 0 {
-		return invalidParams
-	}
-	return nil
 }
 
 // SetChargeType sets the ChargeType field's value.
@@ -345,13 +332,13 @@ func (s *DescribeDBInstancesInput) SetZoneId(v string) *DescribeDBInstancesInput
 }
 
 type DescribeDBInstancesOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	Instances []*InstanceForDescribeDBInstancesOutput `type:"list"`
+	Instances []*InstanceForDescribeDBInstancesOutput `type:"list" json:",omitempty"`
 
-	Total *int32 `type:"int32"`
+	Total *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -377,41 +364,49 @@ func (s *DescribeDBInstancesOutput) SetTotal(v int32) *DescribeDBInstancesOutput
 }
 
 type InstanceForDescribeDBInstancesOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	ChargeDetail *ChargeDetailForDescribeDBInstancesOutput `type:"structure"`
+	ChargeDetail *ChargeDetailForDescribeDBInstancesOutput `type:"structure" json:",omitempty"`
 
-	CreateTime *string `type:"string"`
+	CreateTime *string `type:"string" json:",omitempty"`
 
-	DBEngineVersion *string `type:"string" enum:"EnumOfDBEngineVersionForDescribeDBInstancesOutput"`
+	DBEngineVersion *string `type:"string" json:",omitempty" enum:"EnumOfDBEngineVersionForDescribeDBInstancesOutput"`
 
-	InstanceId *string `type:"string"`
+	DBRevisionVersion *string `type:"string" json:",omitempty"`
 
-	InstanceName *string `type:"string"`
+	DeletionProtection *string `type:"string" json:",omitempty" enum:"EnumOfDeletionProtectionForDescribeDBInstancesOutput"`
 
-	InstanceStatus *string `type:"string" enum:"EnumOfInstanceStatusForDescribeDBInstancesOutput"`
+	InstanceId *string `type:"string" json:",omitempty"`
 
-	Nodes []*NodeForDescribeDBInstancesOutput `type:"list"`
+	InstanceName *string `type:"string" json:",omitempty"`
 
-	PrePaidStorageInGB *int32 `type:"int32"`
+	InstanceStatus *string `type:"string" json:",omitempty" enum:"EnumOfInstanceStatusForDescribeDBInstancesOutput"`
 
-	ProjectName *string `type:"string"`
+	LowerCaseTableNames *string `type:"string" json:",omitempty"`
 
-	RegionId *string `type:"string"`
+	Nodes []*NodeForDescribeDBInstancesOutput `type:"list" json:",omitempty"`
 
-	StorageChargeType *string `type:"string" enum:"EnumOfStorageChargeTypeForDescribeDBInstancesOutput"`
+	PrePaidStorageInGB *int32 `type:"int32" json:",omitempty"`
 
-	StorageUsedGiB *float64 `type:"double"`
+	ProjectName *string `type:"string" json:",omitempty"`
 
-	SubnetId *string `type:"string"`
+	RegionId *string `type:"string" json:",omitempty"`
 
-	Tags []*TagForDescribeDBInstancesOutput `type:"list"`
+	SpecFamily *string `type:"string" json:",omitempty"`
 
-	TimeZone *string `type:"string"`
+	StorageChargeType *string `type:"string" json:",omitempty" enum:"EnumOfStorageChargeTypeForDescribeDBInstancesOutput"`
 
-	VpcId *string `type:"string"`
+	StorageUsedGiB *float64 `type:"double" json:",omitempty"`
 
-	ZoneIds *string `type:"string"`
+	SubnetId *string `type:"string" json:",omitempty"`
+
+	Tags []*TagForDescribeDBInstancesOutput `type:"list" json:",omitempty"`
+
+	TimeZone *string `type:"string" json:",omitempty"`
+
+	VpcId *string `type:"string" json:",omitempty"`
+
+	ZoneIds *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -442,6 +437,18 @@ func (s *InstanceForDescribeDBInstancesOutput) SetDBEngineVersion(v string) *Ins
 	return s
 }
 
+// SetDBRevisionVersion sets the DBRevisionVersion field's value.
+func (s *InstanceForDescribeDBInstancesOutput) SetDBRevisionVersion(v string) *InstanceForDescribeDBInstancesOutput {
+	s.DBRevisionVersion = &v
+	return s
+}
+
+// SetDeletionProtection sets the DeletionProtection field's value.
+func (s *InstanceForDescribeDBInstancesOutput) SetDeletionProtection(v string) *InstanceForDescribeDBInstancesOutput {
+	s.DeletionProtection = &v
+	return s
+}
+
 // SetInstanceId sets the InstanceId field's value.
 func (s *InstanceForDescribeDBInstancesOutput) SetInstanceId(v string) *InstanceForDescribeDBInstancesOutput {
 	s.InstanceId = &v
@@ -457,6 +464,12 @@ func (s *InstanceForDescribeDBInstancesOutput) SetInstanceName(v string) *Instan
 // SetInstanceStatus sets the InstanceStatus field's value.
 func (s *InstanceForDescribeDBInstancesOutput) SetInstanceStatus(v string) *InstanceForDescribeDBInstancesOutput {
 	s.InstanceStatus = &v
+	return s
+}
+
+// SetLowerCaseTableNames sets the LowerCaseTableNames field's value.
+func (s *InstanceForDescribeDBInstancesOutput) SetLowerCaseTableNames(v string) *InstanceForDescribeDBInstancesOutput {
+	s.LowerCaseTableNames = &v
 	return s
 }
 
@@ -481,6 +494,12 @@ func (s *InstanceForDescribeDBInstancesOutput) SetProjectName(v string) *Instanc
 // SetRegionId sets the RegionId field's value.
 func (s *InstanceForDescribeDBInstancesOutput) SetRegionId(v string) *InstanceForDescribeDBInstancesOutput {
 	s.RegionId = &v
+	return s
+}
+
+// SetSpecFamily sets the SpecFamily field's value.
+func (s *InstanceForDescribeDBInstancesOutput) SetSpecFamily(v string) *InstanceForDescribeDBInstancesOutput {
+	s.SpecFamily = &v
 	return s
 }
 
@@ -527,19 +546,19 @@ func (s *InstanceForDescribeDBInstancesOutput) SetZoneIds(v string) *InstanceFor
 }
 
 type NodeForDescribeDBInstancesOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Memory *int32 `type:"int32"`
+	Memory *int32 `type:"int32" json:",omitempty"`
 
-	NodeId *string `type:"string"`
+	NodeId *string `type:"string" json:",omitempty"`
 
-	NodeSpec *string `type:"string" enum:"EnumOfNodeSpecForDescribeDBInstancesOutput"`
+	NodeSpec *string `type:"string" json:",omitempty" enum:"EnumOfNodeSpecForDescribeDBInstancesOutput"`
 
-	NodeType *string `type:"string" enum:"EnumOfNodeTypeForDescribeDBInstancesOutput"`
+	NodeType *string `type:"string" json:",omitempty" enum:"EnumOfNodeTypeForDescribeDBInstancesOutput"`
 
-	VCPU *int32 `type:"int32" json:"vCPU"`
+	VCPU *int32 `type:"int32" json:"vCPU,omitempty"`
 
-	ZoneId *string `type:"string"`
+	ZoneId *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -589,11 +608,11 @@ func (s *NodeForDescribeDBInstancesOutput) SetZoneId(v string) *NodeForDescribeD
 }
 
 type TagFilterForDescribeDBInstancesInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Key *string `type:"string"`
+	Key *string `type:"string" json:",omitempty"`
 
-	Value *string `type:"string"`
+	Value *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -619,11 +638,11 @@ func (s *TagFilterForDescribeDBInstancesInput) SetValue(v string) *TagFilterForD
 }
 
 type TagForDescribeDBInstancesOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Key *string `type:"string"`
+	Key *string `type:"string" json:",omitempty"`
 
-	Value *string `type:"string"`
+	Value *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -683,6 +702,17 @@ const (
 const (
 	// EnumOfDBEngineVersionForDescribeDBInstancesOutputMySql80 is a EnumOfDBEngineVersionForDescribeDBInstancesOutput enum value
 	EnumOfDBEngineVersionForDescribeDBInstancesOutputMySql80 = "MySQL_8_0"
+
+	// EnumOfDBEngineVersionForDescribeDBInstancesOutputMySql57 is a EnumOfDBEngineVersionForDescribeDBInstancesOutput enum value
+	EnumOfDBEngineVersionForDescribeDBInstancesOutputMySql57 = "MySQL_5_7"
+)
+
+const (
+	// EnumOfDeletionProtectionForDescribeDBInstancesOutputDisabled is a EnumOfDeletionProtectionForDescribeDBInstancesOutput enum value
+	EnumOfDeletionProtectionForDescribeDBInstancesOutputDisabled = "disabled"
+
+	// EnumOfDeletionProtectionForDescribeDBInstancesOutputEnabled is a EnumOfDeletionProtectionForDescribeDBInstancesOutput enum value
+	EnumOfDeletionProtectionForDescribeDBInstancesOutputEnabled = "enabled"
 )
 
 const (

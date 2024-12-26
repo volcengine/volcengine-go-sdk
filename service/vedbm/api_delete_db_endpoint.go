@@ -144,13 +144,13 @@ func (c *VEDBM) DeleteDBEndpointWithContext(ctx volcengine.Context, input *Delet
 }
 
 type DeleteDBEndpointInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// EndpointId is a required field
-	EndpointId *string `type:"string" required:"true"`
+	EndpointId *string `type:"string" json:",omitempty" required:"true"`
 
 	// InstanceId is a required field
-	InstanceId *string `type:"string" required:"true"`
+	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -192,7 +192,7 @@ func (s *DeleteDBEndpointInput) SetInstanceId(v string) *DeleteDBEndpointInput {
 }
 
 type DeleteDBEndpointOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 }
