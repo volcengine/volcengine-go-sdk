@@ -247,6 +247,8 @@ type UnsubscribeInstanceOutput struct {
 
 	OrderID *string `type:"string" json:",omitempty"`
 
+	OrderIDList []*string `type:"list" json:",omitempty"`
+
 	SuccessInstanceInfos []*SuccessInstanceInfoForUnsubscribeInstanceOutput `type:"list" json:",omitempty"`
 }
 
@@ -263,6 +265,12 @@ func (s UnsubscribeInstanceOutput) GoString() string {
 // SetOrderID sets the OrderID field's value.
 func (s *UnsubscribeInstanceOutput) SetOrderID(v string) *UnsubscribeInstanceOutput {
 	s.OrderID = &v
+	return s
+}
+
+// SetOrderIDList sets the OrderIDList field's value.
+func (s *UnsubscribeInstanceOutput) SetOrderIDList(v []*string) *UnsubscribeInstanceOutput {
+	s.OrderIDList = v
 	return s
 }
 

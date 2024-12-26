@@ -386,6 +386,8 @@ type ListForListAmortizedCostBillDailyOutput struct {
 
 	DailyAmortizedRoundAmount *string `type:"string" json:",omitempty"`
 
+	DeductionUseDuration *string `type:"string" json:",omitempty"`
+
 	DiscountBillAmount *string `type:"string" json:",omitempty"`
 
 	Element *string `type:"string" json:",omitempty"`
@@ -461,6 +463,10 @@ type ListForListAmortizedCostBillDailyOutput struct {
 	SellerID *string `type:"string" json:",omitempty"`
 
 	SellerUserName *string `type:"string" json:",omitempty"`
+
+	SplitItemID *string `type:"string" json:",omitempty"`
+
+	SplitItemName *string `type:"string" json:",omitempty"`
 
 	SubjectName *string `type:"string" json:",omitempty"`
 
@@ -628,6 +634,12 @@ func (s *ListForListAmortizedCostBillDailyOutput) SetDailyAmortizedPreferentialB
 // SetDailyAmortizedRoundAmount sets the DailyAmortizedRoundAmount field's value.
 func (s *ListForListAmortizedCostBillDailyOutput) SetDailyAmortizedRoundAmount(v string) *ListForListAmortizedCostBillDailyOutput {
 	s.DailyAmortizedRoundAmount = &v
+	return s
+}
+
+// SetDeductionUseDuration sets the DeductionUseDuration field's value.
+func (s *ListForListAmortizedCostBillDailyOutput) SetDeductionUseDuration(v string) *ListForListAmortizedCostBillDailyOutput {
+	s.DeductionUseDuration = &v
 	return s
 }
 
@@ -856,6 +868,18 @@ func (s *ListForListAmortizedCostBillDailyOutput) SetSellerID(v string) *ListFor
 // SetSellerUserName sets the SellerUserName field's value.
 func (s *ListForListAmortizedCostBillDailyOutput) SetSellerUserName(v string) *ListForListAmortizedCostBillDailyOutput {
 	s.SellerUserName = &v
+	return s
+}
+
+// SetSplitItemID sets the SplitItemID field's value.
+func (s *ListForListAmortizedCostBillDailyOutput) SetSplitItemID(v string) *ListForListAmortizedCostBillDailyOutput {
+	s.SplitItemID = &v
+	return s
+}
+
+// SetSplitItemName sets the SplitItemName field's value.
+func (s *ListForListAmortizedCostBillDailyOutput) SetSplitItemName(v string) *ListForListAmortizedCostBillDailyOutput {
+	s.SplitItemName = &v
 	return s
 }
 
