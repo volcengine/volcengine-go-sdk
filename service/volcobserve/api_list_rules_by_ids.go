@@ -234,6 +234,8 @@ type DataForListRulesByIdsOutput struct {
 
 	OriginalDimensions map[string][]*string `type:"map" json:",omitempty"`
 
+	ProjectName *string `type:"string" json:",omitempty"`
+
 	RecoveryNotify *RecoveryNotifyForListRulesByIdsOutput `type:"structure" json:",omitempty"`
 
 	Regions []*string `type:"list" json:",omitempty"`
@@ -362,6 +364,12 @@ func (s *DataForListRulesByIdsOutput) SetNamespace(v string) *DataForListRulesBy
 // SetOriginalDimensions sets the OriginalDimensions field's value.
 func (s *DataForListRulesByIdsOutput) SetOriginalDimensions(v map[string][]*string) *DataForListRulesByIdsOutput {
 	s.OriginalDimensions = v
+	return s
+}
+
+// SetProjectName sets the ProjectName field's value.
+func (s *DataForListRulesByIdsOutput) SetProjectName(v string) *DataForListRulesByIdsOutput {
+	s.ProjectName = &v
 	return s
 }
 

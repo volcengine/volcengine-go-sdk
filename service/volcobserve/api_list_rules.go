@@ -234,6 +234,8 @@ type DataForListRulesOutput struct {
 
 	OriginalDimensions map[string][]*string `type:"map" json:",omitempty"`
 
+	ProjectName *string `type:"string" json:",omitempty"`
+
 	RecoveryNotify *RecoveryNotifyForListRulesOutput `type:"structure" json:",omitempty"`
 
 	Regions []*string `type:"list" json:",omitempty"`
@@ -365,6 +367,12 @@ func (s *DataForListRulesOutput) SetOriginalDimensions(v map[string][]*string) *
 	return s
 }
 
+// SetProjectName sets the ProjectName field's value.
+func (s *DataForListRulesOutput) SetProjectName(v string) *DataForListRulesOutput {
+	s.ProjectName = &v
+	return s
+}
+
 // SetRecoveryNotify sets the RecoveryNotify field's value.
 func (s *DataForListRulesOutput) SetRecoveryNotify(v *RecoveryNotifyForListRulesOutput) *DataForListRulesOutput {
 	s.RecoveryNotify = v
@@ -480,6 +488,8 @@ type ListRulesInput struct {
 
 	PageSize *int64 `type:"integer" json:",omitempty"`
 
+	ProjectName *string `type:"string" json:",omitempty"`
+
 	RuleName *string `type:"string" json:",omitempty"`
 }
 
@@ -526,6 +536,12 @@ func (s *ListRulesInput) SetPageNumber(v int64) *ListRulesInput {
 // SetPageSize sets the PageSize field's value.
 func (s *ListRulesInput) SetPageSize(v int64) *ListRulesInput {
 	s.PageSize = &v
+	return s
+}
+
+// SetProjectName sets the ProjectName field's value.
+func (s *ListRulesInput) SetProjectName(v string) *ListRulesInput {
+	s.ProjectName = &v
 	return s
 }
 
