@@ -298,6 +298,13 @@ func (r FinishReason) MarshalJSON() ([]byte, error) {
 	return []byte(`"` + string(r) + `"`), nil // best effort to not break future API changes
 }
 
+type ChatCompletionResponseChoicesElemModerationHitType string
+
+const (
+	ChatCompletionResponseChoicesElemModerationHitTypeViolence        ChatCompletionResponseChoicesElemModerationHitType = "violence"
+	ChatCompletionResponseChoicesElemModerationHitTypeSevereViolation ChatCompletionResponseChoicesElemModerationHitType = "severe_violation"
+)
+
 type ChatCompletionChoice struct {
 	Index   int                   `json:"index"`
 	Message ChatCompletionMessage `json:"message"`
@@ -309,7 +316,11 @@ type ChatCompletionChoice struct {
 	// content_filter: Omitted content due to a flag from our content filters
 	// null: API response still in progress or incomplete
 	FinishReason FinishReason `json:"finish_reason"`
-	LogProbs     *LogProbs    `json:"logprobs,omitempty"`
+	// ModerationHitType
+	// The type of content moderation service hit.
+	// This might not be empty only when `finish_reason` is set to `content_filter`.
+	ModerationHitType *ChatCompletionResponseChoicesElemModerationHitType `json:"moderation_hit_type,omitempty" yaml:"moderation_hit_type,omitempty" mapstructure:"moderation_hit_type,omitempty"`
+	LogProbs          *LogProbs                                           `json:"logprobs,omitempty"`
 }
 
 // ChatCompletionResponse represents a response structure for chat completion API.
@@ -332,10 +343,11 @@ type ChatCompletionStreamChoiceDelta struct {
 }
 
 type ChatCompletionStreamChoice struct {
-	Index        int                             `json:"index"`
-	Delta        ChatCompletionStreamChoiceDelta `json:"delta"`
-	LogProbs     *LogProbs                       `json:"logprobs,omitempty"`
-	FinishReason FinishReason                    `json:"finish_reason"`
+	Index             int                                                 `json:"index"`
+	Delta             ChatCompletionStreamChoiceDelta                     `json:"delta"`
+	LogProbs          *LogProbs                                           `json:"logprobs,omitempty"`
+	FinishReason      FinishReason                                        `json:"finish_reason"`
+	ModerationHitType *ChatCompletionResponseChoicesElemModerationHitType `json:"moderation_hit_type,omitempty" yaml:"moderation_hit_type,omitempty" mapstructure:"moderation_hit_type,omitempty"`
 }
 
 type ChatCompletionStreamResponse struct {
