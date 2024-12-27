@@ -54,4 +54,5 @@ var (
 	ErrContentFieldsMisused             = errors.New("can't use both Content and MultiContent properties simultaneously")
 	ErrBodyWithoutEndpoint              = errors.New("can't fetch endpoint sts token without endpoint")
 	ErrBodyWithoutBot                   = errors.New("can't fetch bot sts token without bot id")
+	ErrAKSKNotSupported                 = errors.New("AK/SK authentication is currently not supported for this method, use API key instead")
 )
