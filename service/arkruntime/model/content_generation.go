@@ -34,7 +34,7 @@ type GetContentGenerationTaskResponse struct {
 	ID            string  `json:"id"`
 	Model         string  `json:"model"`
 	Status        string  `json:"status"`
-	FailureReason string  `json:"failure_reason,omitempty"`
+	FailureReason *string `json:"failure_reason,omitempty"`
 	Content       Content `json:"content"`
 	Usage         Usage   `json:"usage"`
 	CreatedAt     int64   `json:"created_at"`
@@ -44,9 +44,9 @@ type GetContentGenerationTaskResponse struct {
 }
 
 type ListContentGenerationTasksRequest struct {
-	PageNum  int                              `json:"page_num,omitempty"`
-	PageSize int                              `json:"page_size,omitempty"`
-	Filter   ListContentGenerationTasksFilter `json:"filter,omitempty"`
+	PageNum  *int                              `json:"page_num,omitempty"`
+	PageSize *int                              `json:"page_size,omitempty"`
+	Filter   *ListContentGenerationTasksFilter `json:"filter,omitempty"`
 }
 
 type DeleteContentGenerationTaskRequest struct {
@@ -54,14 +54,14 @@ type DeleteContentGenerationTaskRequest struct {
 }
 
 type ListContentGenerationTasksFilter struct {
-	Status  string   `json:"status,omitempty"`
-	TaskIDs []string `json:"task_ids,omitempty"`
-	Model   string   `json:"model,omitempty"`
+	Status  *string   `json:"status,omitempty"`
+	TaskIDs []*string `json:"task_ids,omitempty"`
+	Model   *string   `json:"model,omitempty"`
 }
 
 type CreateContentGenerationContentItem struct {
 	Type     ContentGenerationContentItemType `json:"type"`
-	Text     string                           `json:"text,omitempty"`
+	Text     *string                          `json:"text,omitempty"`
 	ImageURL *ImageURL                        `json:"image_url,omitempty"`
 }
 
@@ -86,7 +86,7 @@ type ListContentGenerationTaskItem struct {
 	ID            string  `json:"id"`
 	Model         string  `json:"model"`
 	Status        string  `json:"status"`
-	FailureReason string  `json:"failure_reason,omitempty"`
+	FailureReason *string `json:"failure_reason,omitempty"`
 	Content       Content `json:"content"`
 	Usage         Usage   `json:"usage"`
 	CreatedAt     int64   `json:"created_at"`

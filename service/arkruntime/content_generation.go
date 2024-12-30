@@ -10,7 +10,7 @@ import (
 	"github.com/volcengine/volcengine-go-sdk/service/arkruntime/model"
 )
 
-const contentGenerationTasksSuffix = "/contents/generations/tasks"
+const contentGenerationTaskPath = "/contents/generations/tasks"
 
 func (c *Client) CreateContentGenerationTask(
 	ctx context.Context,
@@ -22,7 +22,7 @@ func (c *Client) CreateContentGenerationTask(
 	}
 
 	requestOptions := append(setters, withBody(request))
-	err = c.Do(ctx, http.MethodPost, c.fullURL(contentGenerationTasksSuffix), resourceTypeEndpoint, request.Model, &response, requestOptions...)
+	err = c.Do(ctx, http.MethodPost, c.fullURL(contentGenerationTaskPath), resourceTypeEndpoint, request.Model, &response, requestOptions...)
 	return
 }
 
@@ -35,7 +35,7 @@ func (c *Client) GetContentGenerationTask(
 		return response, model.ErrAKSKNotSupported
 	}
 
-	url := fmt.Sprintf("%s/%s", c.fullURL(contentGenerationTasksSuffix), request.ID)
+	url := fmt.Sprintf("%s/%s", c.fullURL(contentGenerationTaskPath), request.ID)
 
 	err = c.Do(ctx, http.MethodGet, url, resourceTypeEndpoint, "", &response, setters...)
 	return
@@ -50,7 +50,7 @@ func (c *Client) DeleteContentGenerationTask(
 		return model.ErrAKSKNotSupported
 	}
 
-	url := fmt.Sprintf("%s/%s", c.fullURL(contentGenerationTasksSuffix), request.ID)
+	url := fmt.Sprintf("%s/%s", c.fullURL(contentGenerationTaskPath), request.ID)
 
 	err = c.Do(ctx, http.MethodDelete, url, resourceTypeEndpoint, "", nil, setters...)
 	return err
@@ -66,23 +66,26 @@ func (c *Client) ListContentGenerationTasks(
 	}
 
 	values := url.Values{}
-	if request.PageNum > 0 {
-		values.Add("page_num", strconv.Itoa(request.PageNum))
+	if pageNum := request.PageNum; pageNum != nil && *pageNum > 0 {
+		values.Add("page_num", strconv.Itoa(*pageNum))
 	}
-	if request.PageSize > 0 {
-		values.Add("page_size", strconv.Itoa(request.PageSize))
-	}
-	if request.Filter.Status != "" {
-		values.Add("filter.status", request.Filter.Status)
-	}
-	if request.Filter.Model != "" {
-		values.Add("filter.model", request.Filter.Model)
-	}
-	for _, taskID := range request.Filter.TaskIDs {
-		values.Add("filter.task_ids", taskID)
+	if pageSize := request.PageSize; pageSize != nil && *pageSize > 0 {
+		values.Add("page_size", strconv.Itoa(*pageSize))
 	}
 
-	endpoint := fmt.Sprintf("%s?%s", c.fullURL(contentGenerationTasksSuffix), values.Encode())
+	if filter := request.Filter; filter != nil {
+		if status := filter.Status; status != nil && *status != "" {
+			values.Add("filter.status", *status)
+		}
+		if model := filter.Model; model != nil && *model != "" {
+			values.Add("filter.model", *model)
+		}
+		for _, taskID := range filter.TaskIDs {
+			values.Add("filter.task_ids", *taskID)
+		}
+	}
+
+	endpoint := fmt.Sprintf("%s?%s", c.fullURL(contentGenerationTaskPath), values.Encode())
 
 	err = c.Do(ctx, http.MethodGet, endpoint, resourceTypeEndpoint, "", &response, setters...)
 	if err != nil {
