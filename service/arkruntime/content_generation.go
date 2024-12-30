@@ -17,7 +17,7 @@ func (c *Client) CreateContentGenerationTask(
 	request model.CreateContentGenerationTaskRequest,
 	setters ...requestOption,
 ) (response model.CreateContentGenerationTaskResponse, err error) {
-	if c.isAKSKAuthentication() {
+	if !c.isAPIKeyAuthentication() {
 		return response, model.ErrAKSKNotSupported
 	}
 
@@ -31,7 +31,7 @@ func (c *Client) GetContentGenerationTask(
 	request model.GetContentGenerationTaskRequest,
 	setters ...requestOption,
 ) (response model.GetContentGenerationTaskResponse, err error) {
-	if c.isAKSKAuthentication() {
+	if !c.isAPIKeyAuthentication() {
 		return response, model.ErrAKSKNotSupported
 	}
 
@@ -46,7 +46,7 @@ func (c *Client) DeleteContentGenerationTask(
 	request model.DeleteContentGenerationTaskRequest,
 	setters ...requestOption,
 ) (err error) {
-	if c.isAKSKAuthentication() {
+	if !c.isAPIKeyAuthentication() {
 		return model.ErrAKSKNotSupported
 	}
 
@@ -61,7 +61,7 @@ func (c *Client) ListContentGenerationTasks(
 	request model.ListContentGenerationTasksRequest,
 	setters ...requestOption,
 ) (response model.ListContentGenerationTasksResponse, err error) {
-	if c.isAKSKAuthentication() {
+	if !c.isAPIKeyAuthentication() {
 		return response, model.ErrAKSKNotSupported
 	}
 

@@ -494,6 +494,6 @@ func (c *Client) getRetryAfter(v model.Response) int64 {
 	return retryAfterInterval
 }
 
-func (c *Client) isAKSKAuthentication() bool {
-	return c.config.ak != "" && c.config.sk != "" && c.config.apiKey == ""
+func (c *Client) isAPIKeyAuthentication() bool {
+	return c.config.apiKey != ""
 }
