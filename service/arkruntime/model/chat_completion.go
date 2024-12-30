@@ -317,7 +317,9 @@ type ChatCompletionChoice struct {
 	// null: API response still in progress or incomplete
 	FinishReason FinishReason `json:"finish_reason"`
 	// ModerationHitType
-	// The type of content moderation service hit.
+	// The type of content moderation strategy hit.
+	// Only after selecting a moderation strategy for the endpoint that supports returning moderation hit types,
+	// API will return the corresponding values.
 	ModerationHitType *ChatCompletionResponseChoicesElemModerationHitType `json:"moderation_hit_type,omitempty" yaml:"moderation_hit_type,omitempty" mapstructure:"moderation_hit_type,omitempty"`
 	LogProbs          *LogProbs                                           `json:"logprobs,omitempty"`
 }
