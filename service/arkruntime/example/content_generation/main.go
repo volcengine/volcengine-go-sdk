@@ -37,30 +37,61 @@ func main() {
 		},
 	}
 
-	createResp, err := client.CreateContentGenerationTask(ctx, createReq)
+	createResponse, err := client.CreateContentGenerationTask(ctx, createReq)
 	if err != nil {
 		fmt.Printf("create content generation error: %v\n", err)
 		return
 	}
-	fmt.Printf("Task Created with ID: %s\n", createResp.ID)
+	fmt.Printf("Task Created with ID: %s\n", createResponse.ID)
 
 	fmt.Println("----- get content generation task -----")
-	taskID := createResp.ID
+	taskID := createResponse.ID
 
 	getRequest := model.GetContentGenerationTaskRequest{ID: taskID}
 
-	getResp, err := client.GetContentGenerationTask(ctx, getRequest)
+	getResponse, err := client.GetContentGenerationTask(ctx, getRequest)
 	if err != nil {
 		fmt.Printf("get content generation task error: %v\n", err)
 		return
 	}
 
-	fmt.Printf("Task ID: %s\n", getResp.ID)
-	fmt.Printf("Model: %s\n", getResp.Model)
-	fmt.Printf("Status: %s\n", getResp.Status)
-	fmt.Printf("Failure Reason: %s\n", getResp.FailureReason)
-	fmt.Printf("Video URL: %s\n", getResp.Content.VideoURL)
-	fmt.Printf("Completion Tokens: %d\n", getResp.Usage.CompletionTokens)
-	fmt.Printf("Created At: %d\n", getResp.CreatedAt)
-	fmt.Printf("Updated At: %d\n", getResp.UpdatedAt)
+	fmt.Printf("Task ID: %s\n", getResponse.ID)
+	fmt.Printf("Model: %s\n", getResponse.Model)
+	fmt.Printf("Status: %s\n", getResponse.Status)
+	fmt.Printf("Failure Reason: %s\n", getResponse.FailureReason)
+	fmt.Printf("Video URL: %s\n", getResponse.Content.VideoURL)
+	fmt.Printf("Completion Tokens: %d\n", getResponse.Usage.CompletionTokens)
+	fmt.Printf("Created At: %d\n", getResponse.CreatedAt)
+	fmt.Printf("Updated At: %d\n", getResponse.UpdatedAt)
+
+	fmt.Println("----- list content generation task -----")
+
+	listRequest := model.ListContentGenerationTasksRequest{
+		PageNum:  1,
+		PageSize: 10,
+		Filter: model.ListContentGenerationTasksFilter{
+			Status: model.StatusSucceeded,
+			// TaskIDs: []string{"cgt-example-1", "cgt-example-2"},
+			// Model: "${YOUR_ENDPOINT_ID}",
+		},
+	}
+
+	listResponse, err := client.ListContentGenerationTasks(ctx, listRequest)
+	if err != nil {
+		fmt.Printf("failed to list content generation tasks: %v\n", err)
+	}
+
+	fmt.Printf("ListContentGenerationTasks returned %v results\n", listResponse.Total)
+
+	fmt.Println("----- delete content generation task -----")
+
+	deleteRequest := model.DeleteContentGenerationTaskRequest{ID: taskID}
+
+	err = client.DeleteContentGenerationTask(ctx, deleteRequest)
+	if err != nil {
+		fmt.Printf("delete content generation task error: %v\n", err)
+	} else {
+		fmt.Println("successfully deleted task id: ", taskID)
+	}
+
 }
