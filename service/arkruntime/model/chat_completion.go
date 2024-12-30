@@ -318,7 +318,6 @@ type ChatCompletionChoice struct {
 	FinishReason FinishReason `json:"finish_reason"`
 	// ModerationHitType
 	// The type of content moderation service hit.
-	// This might not be empty only when `finish_reason` is set to `content_filter`.
 	ModerationHitType *ChatCompletionResponseChoicesElemModerationHitType `json:"moderation_hit_type,omitempty" yaml:"moderation_hit_type,omitempty" mapstructure:"moderation_hit_type,omitempty"`
 	LogProbs          *LogProbs                                           `json:"logprobs,omitempty"`
 }
