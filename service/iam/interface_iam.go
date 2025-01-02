@@ -16,19 +16,18 @@ import (
 // IAMAPI provides an interface to enable mocking the
 // iam.IAM service client's API operation,
 //
-//    // volcengine sdk func uses an SDK service client to make a request to
-//    // IAM.
-//    func myFunc(svc IAMAPI) bool {
-//        // Make svc.AddUserToGroup request
-//    }
+//	// volcengine sdk func uses an SDK service client to make a request to
+//	// IAM.
+//	func myFunc(svc IAMAPI) bool {
+//	    // Make svc.AddUserToGroup request
+//	}
 //
-//    func main() {
-//        sess := session.New()
-//        svc := iam.New(sess)
+//	func main() {
+//	    sess := session.New()
+//	    svc := iam.New(sess)
 //
-//        myFunc(svc)
-//    }
-//
+//	    myFunc(svc)
+//	}
 type IAMAPI interface {
 	AddUserToGroupCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	AddUserToGroupCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -485,6 +484,37 @@ type IAMAPI interface {
 	UpdateUser(*UpdateUserInput) (*UpdateUserOutput, error)
 	UpdateUserWithContext(volcengine.Context, *UpdateUserInput, ...request.Option) (*UpdateUserOutput, error)
 	UpdateUserRequest(*UpdateUserInput) (*request.Request, *UpdateUserOutput)
+	AddSAMLProviderCertificateCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	AddSAMLProviderCertificateCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	AddSAMLProviderCertificateCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	AddSAMLProviderCertificate(*AddSAMLProviderCertificateInput) (*AddSAMLProviderCertificateOutput, error)
+	AddSAMLProviderCertificateWithContext(volcengine.Context, *AddSAMLProviderCertificateInput, ...request.Option) (*AddSAMLProviderCertificateOutput, error)
+	AddSAMLProviderCertificateRequest(*AddSAMLProviderCertificateInput) (*request.Request, *AddSAMLProviderCertificateOutput)
+
+	CreateSAMLProviderCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateSAMLProviderCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateSAMLProviderCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateSAMLProvider(*CreateSAMLProviderInput) (*CreateSAMLProviderOutput, error)
+	CreateSAMLProviderWithContext(volcengine.Context, *CreateSAMLProviderInput, ...request.Option) (*CreateSAMLProviderOutput, error)
+	CreateSAMLProviderRequest(*CreateSAMLProviderInput) (*request.Request, *CreateSAMLProviderOutput)
+
+	UpdateOAuthProviderCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	UpdateOAuthProviderCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	UpdateOAuthProviderCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	UpdateOAuthProvider(*UpdateOAuthProviderInput) (*UpdateOAuthProviderOutput, error)
+	UpdateOAuthProviderWithContext(volcengine.Context, *UpdateOAuthProviderInput, ...request.Option) (*UpdateOAuthProviderOutput, error)
+	UpdateOAuthProviderRequest(*UpdateOAuthProviderInput) (*request.Request, *UpdateOAuthProviderOutput)
+
+	UpdateSAMLProviderCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	UpdateSAMLProviderCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	UpdateSAMLProviderCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	UpdateSAMLProvider(*UpdateSAMLProviderInput) (*UpdateSAMLProviderOutput, error)
+	UpdateSAMLProviderWithContext(volcengine.Context, *UpdateSAMLProviderInput, ...request.Option) (*UpdateSAMLProviderOutput, error)
+	UpdateSAMLProviderRequest(*UpdateSAMLProviderInput) (*request.Request, *UpdateSAMLProviderOutput)
 }
 
 var _ IAMAPI = (*IAM)(nil)
