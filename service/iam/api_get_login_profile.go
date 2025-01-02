@@ -228,8 +228,6 @@ type LoginProfileForGetLoginProfileOutput struct {
 
 	SafeAuthType *string `type:"string"`
 
-	Status *string `type:"string"`
-
 	UpdateDate *string `type:"string"`
 
 	UserId *int64 `type:"int64"`
@@ -322,12 +320,6 @@ func (s *LoginProfileForGetLoginProfileOutput) SetSafeAuthFlag(v bool) *LoginPro
 // SetSafeAuthType sets the SafeAuthType field's value.
 func (s *LoginProfileForGetLoginProfileOutput) SetSafeAuthType(v string) *LoginProfileForGetLoginProfileOutput {
 	s.SafeAuthType = &v
-	return s
-}
-
-// SetStatus sets the Status field's value.
-func (s *LoginProfileForGetLoginProfileOutput) SetStatus(v string) *LoginProfileForGetLoginProfileOutput {
-	s.Status = &v
 	return s
 }
 
