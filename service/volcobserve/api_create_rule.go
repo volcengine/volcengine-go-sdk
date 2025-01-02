@@ -244,6 +244,8 @@ type CreateRuleInput struct {
 
 	OriginalDimensions map[string][]*string `type:"map" json:",omitempty"`
 
+	ProjectName *string `type:"string" json:",omitempty"`
+
 	RecoveryNotify *RecoveryNotifyForCreateRuleInput `type:"structure" json:",omitempty"`
 
 	Regions []*string `type:"list" json:",omitempty"`
@@ -402,6 +404,12 @@ func (s *CreateRuleInput) SetNoData(v *NoDataForCreateRuleInput) *CreateRuleInpu
 // SetOriginalDimensions sets the OriginalDimensions field's value.
 func (s *CreateRuleInput) SetOriginalDimensions(v map[string][]*string) *CreateRuleInput {
 	s.OriginalDimensions = v
+	return s
+}
+
+// SetProjectName sets the ProjectName field's value.
+func (s *CreateRuleInput) SetProjectName(v string) *CreateRuleInput {
+	s.ProjectName = &v
 	return s
 }
 
