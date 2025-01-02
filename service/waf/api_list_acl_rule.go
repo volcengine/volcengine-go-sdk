@@ -257,6 +257,36 @@ func (s *HostGroupForListAclRuleOutput) SetName(v string) *HostGroupForListAclRu
 	return s
 }
 
+type IpGroupForListAclRuleOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	IpGroupId *int32 `type:"int32" json:",omitempty"`
+
+	Name *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s IpGroupForListAclRuleOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s IpGroupForListAclRuleOutput) GoString() string {
+	return s.String()
+}
+
+// SetIpGroupId sets the IpGroupId field's value.
+func (s *IpGroupForListAclRuleOutput) SetIpGroupId(v int32) *IpGroupForListAclRuleOutput {
+	s.IpGroupId = &v
+	return s
+}
+
+// SetName sets the Name field's value.
+func (s *IpGroupForListAclRuleOutput) SetName(v string) *IpGroupForListAclRuleOutput {
+	s.Name = &v
+	return s
+}
+
 type ListAclRuleInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -272,6 +302,8 @@ type ListAclRuleInput struct {
 	Page *int32 `type:"int32" json:",omitempty"`
 
 	PageSize *int32 `type:"int32" json:",omitempty"`
+
+	ProjectName *string `type:"string" json:",omitempty"`
 
 	RuleName *string `type:"string" json:",omitempty"`
 
@@ -336,6 +368,12 @@ func (s *ListAclRuleInput) SetPage(v int32) *ListAclRuleInput {
 // SetPageSize sets the PageSize field's value.
 func (s *ListAclRuleInput) SetPageSize(v int32) *ListAclRuleInput {
 	s.PageSize = &v
+	return s
+}
+
+// SetProjectName sets the ProjectName field's value.
+func (s *ListAclRuleInput) SetProjectName(v string) *ListAclRuleInput {
+	s.ProjectName = &v
 	return s
 }
 
@@ -436,11 +474,17 @@ type RuleForListAclRuleOutput struct {
 
 	ID *int32 `type:"int32" json:",omitempty"`
 
-	IpGroups *int32 `type:"int32" json:",omitempty"`
+	IpAddType *int32 `type:"int32" json:",omitempty"`
+
+	IpGroupId []*int32 `type:"list" json:",omitempty"`
+
+	IpGroups []*IpGroupForListAclRuleOutput `type:"list" json:",omitempty"`
 
 	IpList []*string `type:"list" json:",omitempty"`
 
 	IpLocationCountry []*string `type:"list" json:",omitempty"`
+
+	IpLocationSubregion []*string `type:"list" json:",omitempty"`
 
 	Name []*string `type:"list" json:",omitempty"`
 
@@ -523,9 +567,21 @@ func (s *RuleForListAclRuleOutput) SetID(v int32) *RuleForListAclRuleOutput {
 	return s
 }
 
+// SetIpAddType sets the IpAddType field's value.
+func (s *RuleForListAclRuleOutput) SetIpAddType(v int32) *RuleForListAclRuleOutput {
+	s.IpAddType = &v
+	return s
+}
+
+// SetIpGroupId sets the IpGroupId field's value.
+func (s *RuleForListAclRuleOutput) SetIpGroupId(v []*int32) *RuleForListAclRuleOutput {
+	s.IpGroupId = v
+	return s
+}
+
 // SetIpGroups sets the IpGroups field's value.
-func (s *RuleForListAclRuleOutput) SetIpGroups(v int32) *RuleForListAclRuleOutput {
-	s.IpGroups = &v
+func (s *RuleForListAclRuleOutput) SetIpGroups(v []*IpGroupForListAclRuleOutput) *RuleForListAclRuleOutput {
+	s.IpGroups = v
 	return s
 }
 
@@ -538,6 +594,12 @@ func (s *RuleForListAclRuleOutput) SetIpList(v []*string) *RuleForListAclRuleOut
 // SetIpLocationCountry sets the IpLocationCountry field's value.
 func (s *RuleForListAclRuleOutput) SetIpLocationCountry(v []*string) *RuleForListAclRuleOutput {
 	s.IpLocationCountry = v
+	return s
+}
+
+// SetIpLocationSubregion sets the IpLocationSubregion field's value.
+func (s *RuleForListAclRuleOutput) SetIpLocationSubregion(v []*string) *RuleForListAclRuleOutput {
+	s.IpLocationSubregion = v
 	return s
 }
 
