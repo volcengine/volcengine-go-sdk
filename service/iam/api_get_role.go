@@ -216,6 +216,8 @@ type RoleForGetRoleOutput struct {
 
 	RoleName *string `type:"string"`
 
+	Tags []*TagForGetRoleOutput `type:"list"`
+
 	Trn *string `type:"string"`
 
 	TrustPolicyDocument *string `type:"string"`
@@ -275,6 +277,12 @@ func (s *RoleForGetRoleOutput) SetRoleName(v string) *RoleForGetRoleOutput {
 	return s
 }
 
+// SetTags sets the Tags field's value.
+func (s *RoleForGetRoleOutput) SetTags(v []*TagForGetRoleOutput) *RoleForGetRoleOutput {
+	s.Tags = v
+	return s
+}
+
 // SetTrn sets the Trn field's value.
 func (s *RoleForGetRoleOutput) SetTrn(v string) *RoleForGetRoleOutput {
 	s.Trn = &v
@@ -290,5 +298,35 @@ func (s *RoleForGetRoleOutput) SetTrustPolicyDocument(v string) *RoleForGetRoleO
 // SetUpdateDate sets the UpdateDate field's value.
 func (s *RoleForGetRoleOutput) SetUpdateDate(v string) *RoleForGetRoleOutput {
 	s.UpdateDate = &v
+	return s
+}
+
+type TagForGetRoleOutput struct {
+	_ struct{} `type:"structure"`
+
+	Key *string `type:"string"`
+
+	Value *string `type:"string"`
+}
+
+// String returns the string representation
+func (s TagForGetRoleOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagForGetRoleOutput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagForGetRoleOutput) SetKey(v string) *TagForGetRoleOutput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *TagForGetRoleOutput) SetValue(v string) *TagForGetRoleOutput {
+	s.Value = &v
 	return s
 }

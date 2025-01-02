@@ -201,6 +201,36 @@ func (s *GetUserOutput) SetUser(v *UserForGetUserOutput) *GetUserOutput {
 	return s
 }
 
+type TagForGetUserOutput struct {
+	_ struct{} `type:"structure"`
+
+	Key *string `type:"string"`
+
+	Value *string `type:"string"`
+}
+
+// String returns the string representation
+func (s TagForGetUserOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagForGetUserOutput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagForGetUserOutput) SetKey(v string) *TagForGetUserOutput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *TagForGetUserOutput) SetValue(v string) *TagForGetUserOutput {
+	s.Value = &v
+	return s
+}
+
 type UserForGetUserOutput struct {
 	_ struct{} `type:"structure"`
 
@@ -221,6 +251,8 @@ type UserForGetUserOutput struct {
 	MobilePhone *string `type:"string"`
 
 	MobilePhoneIsVerify *bool `type:"boolean"`
+
+	Tags []*TagForGetUserOutput `type:"list"`
 
 	Trn *string `type:"string"`
 
@@ -290,6 +322,12 @@ func (s *UserForGetUserOutput) SetMobilePhone(v string) *UserForGetUserOutput {
 // SetMobilePhoneIsVerify sets the MobilePhoneIsVerify field's value.
 func (s *UserForGetUserOutput) SetMobilePhoneIsVerify(v bool) *UserForGetUserOutput {
 	s.MobilePhoneIsVerify = &v
+	return s
+}
+
+// SetTags sets the Tags field's value.
+func (s *UserForGetUserOutput) SetTags(v []*TagForGetUserOutput) *UserForGetUserOutput {
+	s.Tags = v
 	return s
 }
 

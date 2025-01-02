@@ -22,13 +22,13 @@ const opAddSAMLProviderCertificateCommon = "AddSAMLProviderCertificate"
 // See AddSAMLProviderCertificateCommon for more information on using the AddSAMLProviderCertificateCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the AddSAMLProviderCertificateCommonRequest method.
-//    req, resp := client.AddSAMLProviderCertificateCommonRequest(params)
+//	// Example sending a request using the AddSAMLProviderCertificateCommonRequest method.
+//	req, resp := client.AddSAMLProviderCertificateCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *IAM) AddSAMLProviderCertificateCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opAddSAMLProviderCertificateCommon,
@@ -87,13 +87,13 @@ const opAddSAMLProviderCertificate = "AddSAMLProviderCertificate"
 // See AddSAMLProviderCertificate for more information on using the AddSAMLProviderCertificate
 // API call, and error handling.
 //
-//    // Example sending a request using the AddSAMLProviderCertificateRequest method.
-//    req, resp := client.AddSAMLProviderCertificateRequest(params)
+//	// Example sending a request using the AddSAMLProviderCertificateRequest method.
+//	req, resp := client.AddSAMLProviderCertificateRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *IAM) AddSAMLProviderCertificateRequest(input *AddSAMLProviderCertificateInput) (req *request.Request, output *AddSAMLProviderCertificateOutput) {
 	op := &request.Operation{
 		Name:       opAddSAMLProviderCertificate,
