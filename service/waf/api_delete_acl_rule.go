@@ -151,6 +151,8 @@ type DeleteAclRuleInput struct {
 
 	// ID is a required field
 	ID *int32 `type:"int32" json:",omitempty" required:"true"`
+
+	ProjectName *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -188,6 +190,12 @@ func (s *DeleteAclRuleInput) SetAclType(v string) *DeleteAclRuleInput {
 // SetID sets the ID field's value.
 func (s *DeleteAclRuleInput) SetID(v int32) *DeleteAclRuleInput {
 	s.ID = &v
+	return s
+}
+
+// SetProjectName sets the ProjectName field's value.
+func (s *DeleteAclRuleInput) SetProjectName(v string) *DeleteAclRuleInput {
+	s.ProjectName = &v
 	return s
 }
 

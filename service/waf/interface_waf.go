@@ -206,6 +206,14 @@ type WAFAPI interface {
 	DeleteDomainWithContext(volcengine.Context, *DeleteDomainInput, ...request.Option) (*DeleteDomainOutput, error)
 	DeleteDomainRequest(*DeleteDomainInput) (*request.Request, *DeleteDomainOutput)
 
+	DeleteHostGroupCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeleteHostGroupCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeleteHostGroupCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeleteHostGroup(*DeleteHostGroupInput) (*DeleteHostGroupOutput, error)
+	DeleteHostGroupWithContext(volcengine.Context, *DeleteHostGroupInput, ...request.Option) (*DeleteHostGroupOutput, error)
+	DeleteHostGroupRequest(*DeleteHostGroupInput) (*request.Request, *DeleteHostGroupOutput)
+
 	DeleteIpGroupCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DeleteIpGroupCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DeleteIpGroupCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -581,6 +589,14 @@ type WAFAPI interface {
 	UpdateDomain(*UpdateDomainInput) (*UpdateDomainOutput, error)
 	UpdateDomainWithContext(volcengine.Context, *UpdateDomainInput, ...request.Option) (*UpdateDomainOutput, error)
 	UpdateDomainRequest(*UpdateDomainInput) (*request.Request, *UpdateDomainOutput)
+
+	UpdateHostGroupCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	UpdateHostGroupCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	UpdateHostGroupCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	UpdateHostGroup(*UpdateHostGroupInput) (*UpdateHostGroupOutput, error)
+	UpdateHostGroupWithContext(volcengine.Context, *UpdateHostGroupInput, ...request.Option) (*UpdateHostGroupOutput, error)
+	UpdateHostGroupRequest(*UpdateHostGroupInput) (*request.Request, *UpdateHostGroupOutput)
 
 	UpdateInstanceCtlCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	UpdateInstanceCtlCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)

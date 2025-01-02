@@ -139,6 +139,36 @@ func (c *IAM) UpdateUserWithContext(ctx volcengine.Context, input *UpdateUserInp
 	return out, req.Send()
 }
 
+type TagForUpdateUserOutput struct {
+	_ struct{} `type:"structure"`
+
+	Key *string `type:"string"`
+
+	Value *string `type:"string"`
+}
+
+// String returns the string representation
+func (s TagForUpdateUserOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagForUpdateUserOutput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagForUpdateUserOutput) SetKey(v string) *TagForUpdateUserOutput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *TagForUpdateUserOutput) SetValue(v string) *TagForUpdateUserOutput {
+	s.Value = &v
+	return s
+}
+
 type UpdateUserInput struct {
 	_ struct{} `type:"structure"`
 
@@ -260,6 +290,8 @@ type UserForUpdateUserOutput struct {
 
 	MobilePhoneIsVerify *bool `type:"boolean"`
 
+	Tags []*TagForUpdateUserOutput `type:"list"`
+
 	Trn *string `type:"string"`
 
 	UpdateDate *string `type:"string"`
@@ -328,6 +360,12 @@ func (s *UserForUpdateUserOutput) SetMobilePhone(v string) *UserForUpdateUserOut
 // SetMobilePhoneIsVerify sets the MobilePhoneIsVerify field's value.
 func (s *UserForUpdateUserOutput) SetMobilePhoneIsVerify(v bool) *UserForUpdateUserOutput {
 	s.MobilePhoneIsVerify = &v
+	return s
+}
+
+// SetTags sets the Tags field's value.
+func (s *UserForUpdateUserOutput) SetTags(v []*TagForUpdateUserOutput) *UserForUpdateUserOutput {
+	s.Tags = v
 	return s
 }
 

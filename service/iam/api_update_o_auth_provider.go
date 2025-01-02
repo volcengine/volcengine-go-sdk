@@ -22,13 +22,13 @@ const opUpdateOAuthProviderCommon = "UpdateOAuthProvider"
 // See UpdateOAuthProviderCommon for more information on using the UpdateOAuthProviderCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the UpdateOAuthProviderCommonRequest method.
-//    req, resp := client.UpdateOAuthProviderCommonRequest(params)
+//	// Example sending a request using the UpdateOAuthProviderCommonRequest method.
+//	req, resp := client.UpdateOAuthProviderCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *IAM) UpdateOAuthProviderCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opUpdateOAuthProviderCommon,
@@ -87,13 +87,13 @@ const opUpdateOAuthProvider = "UpdateOAuthProvider"
 // See UpdateOAuthProvider for more information on using the UpdateOAuthProvider
 // API call, and error handling.
 //
-//    // Example sending a request using the UpdateOAuthProviderRequest method.
-//    req, resp := client.UpdateOAuthProviderRequest(params)
+//	// Example sending a request using the UpdateOAuthProviderRequest method.
+//	req, resp := client.UpdateOAuthProviderRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *IAM) UpdateOAuthProviderRequest(input *UpdateOAuthProviderInput) (req *request.Request, output *UpdateOAuthProviderOutput) {
 	op := &request.Operation{
 		Name:       opUpdateOAuthProvider,

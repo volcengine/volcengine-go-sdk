@@ -153,8 +153,7 @@ type UpdateRoleInput struct {
 	// RoleName is a required field
 	RoleName *string `type:"string" required:"true"`
 
-	// TrustPolicyDocument is a required field
-	TrustPolicyDocument *string `type:"string" required:"true"`
+	TrustPolicyDocument *string `type:"string"`
 }
 
 // String returns the string representation
@@ -172,9 +171,6 @@ func (s *UpdateRoleInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "UpdateRoleInput"}
 	if s.RoleName == nil {
 		invalidParams.Add(request.NewErrParamRequired("RoleName"))
-	}
-	if s.TrustPolicyDocument == nil {
-		invalidParams.Add(request.NewErrParamRequired("TrustPolicyDocument"))
 	}
 
 	if invalidParams.Len() > 0 {
