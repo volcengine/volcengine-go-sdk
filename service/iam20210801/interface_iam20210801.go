@@ -19,7 +19,7 @@ import (
 //    // volcengine sdk func uses an SDK service client to make a request to
 //    // IAM20210801.
 //    func myFunc(svc IAM20210801API) bool {
-//        // Make svc.AttachPolicyInProject request
+//        // Make svc.GetProject request
 //    }
 //
 //    func main() {
@@ -30,38 +30,6 @@ import (
 //    }
 //
 type IAM20210801API interface {
-	AttachPolicyInProjectCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	AttachPolicyInProjectCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	AttachPolicyInProjectCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	AttachPolicyInProject(*AttachPolicyInProjectInput) (*AttachPolicyInProjectOutput, error)
-	AttachPolicyInProjectWithContext(volcengine.Context, *AttachPolicyInProjectInput, ...request.Option) (*AttachPolicyInProjectOutput, error)
-	AttachPolicyInProjectRequest(*AttachPolicyInProjectInput) (*request.Request, *AttachPolicyInProjectOutput)
-
-	CreateProjectCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	CreateProjectCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	CreateProjectCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	CreateProject(*CreateProjectInput) (*CreateProjectOutput, error)
-	CreateProjectWithContext(volcengine.Context, *CreateProjectInput, ...request.Option) (*CreateProjectOutput, error)
-	CreateProjectRequest(*CreateProjectInput) (*request.Request, *CreateProjectOutput)
-
-	DeleteProjectCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	DeleteProjectCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	DeleteProjectCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	DeleteProject(*DeleteProjectInput) (*DeleteProjectOutput, error)
-	DeleteProjectWithContext(volcengine.Context, *DeleteProjectInput, ...request.Option) (*DeleteProjectOutput, error)
-	DeleteProjectRequest(*DeleteProjectInput) (*request.Request, *DeleteProjectOutput)
-
-	DetachPolicyInProjectCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	DetachPolicyInProjectCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	DetachPolicyInProjectCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	DetachPolicyInProject(*DetachPolicyInProjectInput) (*DetachPolicyInProjectOutput, error)
-	DetachPolicyInProjectWithContext(volcengine.Context, *DetachPolicyInProjectInput, ...request.Option) (*DetachPolicyInProjectOutput, error)
-	DetachPolicyInProjectRequest(*DetachPolicyInProjectInput) (*request.Request, *DetachPolicyInProjectOutput)
-
 	GetProjectCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	GetProjectCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	GetProjectCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -93,22 +61,6 @@ type IAM20210801API interface {
 	ListProjects(*ListProjectsInput) (*ListProjectsOutput, error)
 	ListProjectsWithContext(volcengine.Context, *ListProjectsInput, ...request.Option) (*ListProjectsOutput, error)
 	ListProjectsRequest(*ListProjectsInput) (*request.Request, *ListProjectsOutput)
-
-	MoveProjectResourceCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	MoveProjectResourceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	MoveProjectResourceCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	MoveProjectResource(*MoveProjectResourceInput) (*MoveProjectResourceOutput, error)
-	MoveProjectResourceWithContext(volcengine.Context, *MoveProjectResourceInput, ...request.Option) (*MoveProjectResourceOutput, error)
-	MoveProjectResourceRequest(*MoveProjectResourceInput) (*request.Request, *MoveProjectResourceOutput)
-
-	UpdateProjectCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	UpdateProjectCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	UpdateProjectCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	UpdateProject(*UpdateProjectInput) (*UpdateProjectOutput, error)
-	UpdateProjectWithContext(volcengine.Context, *UpdateProjectInput, ...request.Option) (*UpdateProjectOutput, error)
-	UpdateProjectRequest(*UpdateProjectInput) (*request.Request, *UpdateProjectOutput)
 }
 
 var _ IAM20210801API = (*IAM20210801)(nil)
