@@ -32,7 +32,7 @@ const opAttachPolicyInProjectCommon = "AttachPolicyInProject"
 func (c *IAM20210801) AttachPolicyInProjectCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opAttachPolicyInProjectCommon,
-		HTTPMethod: "GET",
+		HTTPMethod: "POST",
 		HTTPPath:   "/",
 	}
 
@@ -97,7 +97,7 @@ const opAttachPolicyInProject = "AttachPolicyInProject"
 func (c *IAM20210801) AttachPolicyInProjectRequest(input *AttachPolicyInProjectInput) (req *request.Request, output *AttachPolicyInProjectOutput) {
 	op := &request.Operation{
 		Name:       opAttachPolicyInProject,
-		HTTPMethod: "GET",
+		HTTPMethod: "POST",
 		HTTPPath:   "/",
 	}
 

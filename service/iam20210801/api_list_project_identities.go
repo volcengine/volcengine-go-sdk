@@ -32,7 +32,7 @@ const opListProjectIdentitiesCommon = "ListProjectIdentities"
 func (c *IAM20210801) ListProjectIdentitiesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opListProjectIdentitiesCommon,
-		HTTPMethod: "GET",
+		HTTPMethod: "POST",
 		HTTPPath:   "/",
 	}
 
@@ -97,7 +97,7 @@ const opListProjectIdentities = "ListProjectIdentities"
 func (c *IAM20210801) ListProjectIdentitiesRequest(input *ListProjectIdentitiesInput) (req *request.Request, output *ListProjectIdentitiesOutput) {
 	op := &request.Operation{
 		Name:       opListProjectIdentities,
-		HTTPMethod: "GET",
+		HTTPMethod: "POST",
 		HTTPPath:   "/",
 	}
 

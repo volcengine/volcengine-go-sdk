@@ -32,7 +32,7 @@ const opDetachPolicyInProjectCommon = "DetachPolicyInProject"
 func (c *IAM20210801) DetachPolicyInProjectCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDetachPolicyInProjectCommon,
-		HTTPMethod: "GET",
+		HTTPMethod: "POST",
 		HTTPPath:   "/",
 	}
 
@@ -97,7 +97,7 @@ const opDetachPolicyInProject = "DetachPolicyInProject"
 func (c *IAM20210801) DetachPolicyInProjectRequest(input *DetachPolicyInProjectInput) (req *request.Request, output *DetachPolicyInProjectOutput) {
 	op := &request.Operation{
 		Name:       opDetachPolicyInProject,
-		HTTPMethod: "GET",
+		HTTPMethod: "POST",
 		HTTPPath:   "/",
 	}
 
