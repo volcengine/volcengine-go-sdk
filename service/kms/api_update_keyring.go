@@ -32,7 +32,7 @@ const opUpdateKeyringCommon = "UpdateKeyring"
 func (c *KMS) UpdateKeyringCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opUpdateKeyringCommon,
-		HTTPMethod: "POST",
+		HTTPMethod: "GET",
 		HTTPPath:   "/",
 	}
 
@@ -42,8 +42,6 @@ func (c *KMS) UpdateKeyringCommonRequest(input *map[string]interface{}) (req *re
 
 	output = &map[string]interface{}{}
 	req = c.newRequest(op, input, output)
-
-	req.HTTPRequest.Header.Set("Content-Type", "application/json; charset=utf-8")
 
 	return
 }
@@ -99,7 +97,7 @@ const opUpdateKeyring = "UpdateKeyring"
 func (c *KMS) UpdateKeyringRequest(input *UpdateKeyringInput) (req *request.Request, output *UpdateKeyringOutput) {
 	op := &request.Operation{
 		Name:       opUpdateKeyring,
-		HTTPMethod: "POST",
+		HTTPMethod: "GET",
 		HTTPPath:   "/",
 	}
 
@@ -109,8 +107,6 @@ func (c *KMS) UpdateKeyringRequest(input *UpdateKeyringInput) (req *request.Requ
 
 	output = &UpdateKeyringOutput{}
 	req = c.newRequest(op, input, output)
-
-	req.HTTPRequest.Header.Set("Content-Type", "application/json; charset=utf-8")
 
 	return
 }
@@ -144,12 +140,13 @@ func (c *KMS) UpdateKeyringWithContext(ctx volcengine.Context, input *UpdateKeyr
 }
 
 type UpdateKeyringInput struct {
-	_ struct{} `type:"structure" json:",omitempty"`
+	_ struct{} `type:"structure"`
 
-	Description *string `max:"8192" type:"string" json:",omitempty"`
+	Description *string `max:"8192" type:"string"`
 
-	// KeyringName is a required field
-	KeyringName *string `min:"2" max:"31" type:"string" json:",omitempty" required:"true"`
+	KeyringID *string `type:"string"`
+
+	KeyringName *string `min:"2" max:"31" type:"string"`
 }
 
 // String returns the string representation
@@ -167,9 +164,6 @@ func (s *UpdateKeyringInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "UpdateKeyringInput"}
 	if s.Description != nil && len(*s.Description) > 8192 {
 		invalidParams.Add(request.NewErrParamMaxLen("Description", 8192, *s.Description))
-	}
-	if s.KeyringName == nil {
-		invalidParams.Add(request.NewErrParamRequired("KeyringName"))
 	}
 	if s.KeyringName != nil && len(*s.KeyringName) < 2 {
 		invalidParams.Add(request.NewErrParamMinLen("KeyringName", 2))
@@ -190,6 +184,12 @@ func (s *UpdateKeyringInput) SetDescription(v string) *UpdateKeyringInput {
 	return s
 }
 
+// SetKeyringID sets the KeyringID field's value.
+func (s *UpdateKeyringInput) SetKeyringID(v string) *UpdateKeyringInput {
+	s.KeyringID = &v
+	return s
+}
+
 // SetKeyringName sets the KeyringName field's value.
 func (s *UpdateKeyringInput) SetKeyringName(v string) *UpdateKeyringInput {
 	s.KeyringName = &v
@@ -197,7 +197,7 @@ func (s *UpdateKeyringInput) SetKeyringName(v string) *UpdateKeyringInput {
 }
 
 type UpdateKeyringOutput struct {
-	_ struct{} `type:"structure" json:",omitempty"`
+	_ struct{} `type:"structure"`
 
 	Metadata *response.ResponseMetadata
 }

@@ -154,6 +154,9 @@ type GenerateMacInput struct {
 
 	// MacAlgorithm is a required field
 	MacAlgorithm *string `type:"string" json:",omitempty" required:"true"`
+
+	// Message is a required field
+	Message *string `min:"1" max:"4096" type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -184,6 +187,15 @@ func (s *GenerateMacInput) Validate() error {
 	if s.MacAlgorithm == nil {
 		invalidParams.Add(request.NewErrParamRequired("MacAlgorithm"))
 	}
+	if s.Message == nil {
+		invalidParams.Add(request.NewErrParamRequired("Message"))
+	}
+	if s.Message != nil && len(*s.Message) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("Message", 1))
+	}
+	if s.Message != nil && len(*s.Message) > 4096 {
+		invalidParams.Add(request.NewErrParamMaxLen("Message", 4096, *s.Message))
+	}
 
 	if invalidParams.Len() > 0 {
 		return invalidParams
@@ -212,6 +224,12 @@ func (s *GenerateMacInput) SetKeyringName(v string) *GenerateMacInput {
 // SetMacAlgorithm sets the MacAlgorithm field's value.
 func (s *GenerateMacInput) SetMacAlgorithm(v string) *GenerateMacInput {
 	s.MacAlgorithm = &v
+	return s
+}
+
+// SetMessage sets the Message field's value.
+func (s *GenerateMacInput) SetMessage(v string) *GenerateMacInput {
+	s.Message = &v
 	return s
 }
 

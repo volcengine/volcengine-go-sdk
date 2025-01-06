@@ -32,7 +32,7 @@ const opArchiveKeyCommon = "ArchiveKey"
 func (c *KMS) ArchiveKeyCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opArchiveKeyCommon,
-		HTTPMethod: "POST",
+		HTTPMethod: "GET",
 		HTTPPath:   "/",
 	}
 
@@ -42,8 +42,6 @@ func (c *KMS) ArchiveKeyCommonRequest(input *map[string]interface{}) (req *reque
 
 	output = &map[string]interface{}{}
 	req = c.newRequest(op, input, output)
-
-	req.HTTPRequest.Header.Set("Content-Type", "application/json; charset=utf-8")
 
 	return
 }
@@ -99,7 +97,7 @@ const opArchiveKey = "ArchiveKey"
 func (c *KMS) ArchiveKeyRequest(input *ArchiveKeyInput) (req *request.Request, output *ArchiveKeyOutput) {
 	op := &request.Operation{
 		Name:       opArchiveKey,
-		HTTPMethod: "POST",
+		HTTPMethod: "GET",
 		HTTPPath:   "/",
 	}
 
@@ -109,8 +107,6 @@ func (c *KMS) ArchiveKeyRequest(input *ArchiveKeyInput) (req *request.Request, o
 
 	output = &ArchiveKeyOutput{}
 	req = c.newRequest(op, input, output)
-
-	req.HTTPRequest.Header.Set("Content-Type", "application/json; charset=utf-8")
 
 	return
 }
@@ -144,13 +140,13 @@ func (c *KMS) ArchiveKeyWithContext(ctx volcengine.Context, input *ArchiveKeyInp
 }
 
 type ArchiveKeyInput struct {
-	_ struct{} `type:"structure" json:",omitempty"`
+	_ struct{} `type:"structure"`
 
-	// KeyName is a required field
-	KeyName *string `min:"2" max:"31" type:"string" json:",omitempty" required:"true"`
+	KeyID *string `type:"string"`
 
-	// KeyringName is a required field
-	KeyringName *string `min:"2" max:"31" type:"string" json:",omitempty" required:"true"`
+	KeyName *string `min:"2" max:"31" type:"string"`
+
+	KeyringName *string `min:"2" max:"31" type:"string"`
 }
 
 // String returns the string representation
@@ -166,17 +162,11 @@ func (s ArchiveKeyInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *ArchiveKeyInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "ArchiveKeyInput"}
-	if s.KeyName == nil {
-		invalidParams.Add(request.NewErrParamRequired("KeyName"))
-	}
 	if s.KeyName != nil && len(*s.KeyName) < 2 {
 		invalidParams.Add(request.NewErrParamMinLen("KeyName", 2))
 	}
 	if s.KeyName != nil && len(*s.KeyName) > 31 {
 		invalidParams.Add(request.NewErrParamMaxLen("KeyName", 31, *s.KeyName))
-	}
-	if s.KeyringName == nil {
-		invalidParams.Add(request.NewErrParamRequired("KeyringName"))
 	}
 	if s.KeyringName != nil && len(*s.KeyringName) < 2 {
 		invalidParams.Add(request.NewErrParamMinLen("KeyringName", 2))
@@ -189,6 +179,12 @@ func (s *ArchiveKeyInput) Validate() error {
 		return invalidParams
 	}
 	return nil
+}
+
+// SetKeyID sets the KeyID field's value.
+func (s *ArchiveKeyInput) SetKeyID(v string) *ArchiveKeyInput {
+	s.KeyID = &v
+	return s
 }
 
 // SetKeyName sets the KeyName field's value.
@@ -204,7 +200,7 @@ func (s *ArchiveKeyInput) SetKeyringName(v string) *ArchiveKeyInput {
 }
 
 type ArchiveKeyOutput struct {
-	_ struct{} `type:"structure" json:",omitempty"`
+	_ struct{} `type:"structure"`
 
 	Metadata *response.ResponseMetadata
 }

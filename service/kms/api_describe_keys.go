@@ -150,8 +150,9 @@ type DescribeKeysInput struct {
 
 	Filters *string `max:"2048" type:"string" json:",omitempty"`
 
-	// KeyringName is a required field
-	KeyringName *string `min:"2" max:"31" type:"string" json:",omitempty" required:"true"`
+	KeyringID *string `type:"string" json:",omitempty"`
+
+	KeyringName *string `min:"2" max:"31" type:"string" json:",omitempty"`
 
 	PageSize *int32 `min:"1" max:"100" type:"int32" json:",omitempty"`
 }
@@ -174,9 +175,6 @@ func (s *DescribeKeysInput) Validate() error {
 	}
 	if s.Filters != nil && len(*s.Filters) > 2048 {
 		invalidParams.Add(request.NewErrParamMaxLen("Filters", 2048, *s.Filters))
-	}
-	if s.KeyringName == nil {
-		invalidParams.Add(request.NewErrParamRequired("KeyringName"))
 	}
 	if s.KeyringName != nil && len(*s.KeyringName) < 2 {
 		invalidParams.Add(request.NewErrParamMinLen("KeyringName", 2))
@@ -206,6 +204,12 @@ func (s *DescribeKeysInput) SetCurrentPage(v int32) *DescribeKeysInput {
 // SetFilters sets the Filters field's value.
 func (s *DescribeKeysInput) SetFilters(v string) *DescribeKeysInput {
 	s.Filters = &v
+	return s
+}
+
+// SetKeyringID sets the KeyringID field's value.
+func (s *DescribeKeysInput) SetKeyringID(v string) *DescribeKeysInput {
+	s.KeyringID = &v
 	return s
 }
 
@@ -260,8 +264,6 @@ type KeyForDescribeKeysOutput struct {
 
 	Description *string `type:"string" json:",omitempty"`
 
-	EncryptionAlgorithms *string `type:"string" json:",omitempty"`
-
 	ID *string `type:"string" json:",omitempty"`
 
 	KeyMaterialExpireTime *string `type:"string" json:",omitempty"`
@@ -310,12 +312,6 @@ func (s *KeyForDescribeKeysOutput) SetCreationDate(v int64) *KeyForDescribeKeysO
 // SetDescription sets the Description field's value.
 func (s *KeyForDescribeKeysOutput) SetDescription(v string) *KeyForDescribeKeysOutput {
 	s.Description = &v
-	return s
-}
-
-// SetEncryptionAlgorithms sets the EncryptionAlgorithms field's value.
-func (s *KeyForDescribeKeysOutput) SetEncryptionAlgorithms(v string) *KeyForDescribeKeysOutput {
-	s.EncryptionAlgorithms = &v
 	return s
 }
 

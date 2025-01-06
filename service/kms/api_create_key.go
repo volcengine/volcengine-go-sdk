@@ -285,8 +285,6 @@ type KeyForCreateKeyOutput struct {
 
 	Description *string `type:"string" json:",omitempty"`
 
-	EncryptionAlgorithms *string `type:"string" json:",omitempty"`
-
 	ID *string `type:"string" json:",omitempty"`
 
 	KeyMaterialExpireTime *string `type:"string" json:",omitempty"`
@@ -335,12 +333,6 @@ func (s *KeyForCreateKeyOutput) SetCreationDate(v int64) *KeyForCreateKeyOutput 
 // SetDescription sets the Description field's value.
 func (s *KeyForCreateKeyOutput) SetDescription(v string) *KeyForCreateKeyOutput {
 	s.Description = &v
-	return s
-}
-
-// SetEncryptionAlgorithms sets the EncryptionAlgorithms field's value.
-func (s *KeyForCreateKeyOutput) SetEncryptionAlgorithms(v string) *KeyForCreateKeyOutput {
-	s.EncryptionAlgorithms = &v
 	return s
 }
 

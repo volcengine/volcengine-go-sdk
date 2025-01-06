@@ -151,11 +151,11 @@ type ReEncryptInput struct {
 
 	NewEncryptionContext map[string]*string `type:"map" json:",omitempty"`
 
-	// NewKeyName is a required field
-	NewKeyName *string `min:"2" max:"31" type:"string" json:",omitempty" required:"true"`
+	NewKeyID *string `type:"string" json:",omitempty"`
 
-	// NewKeyringName is a required field
-	NewKeyringName *string `min:"2" max:"31" type:"string" json:",omitempty" required:"true"`
+	NewKeyName *string `min:"2" max:"31" type:"string" json:",omitempty"`
+
+	NewKeyringName *string `min:"2" max:"31" type:"string" json:",omitempty"`
 
 	OldEncryptionContext map[string]*string `type:"map" json:",omitempty"`
 }
@@ -179,17 +179,11 @@ func (s *ReEncryptInput) Validate() error {
 	if s.CiphertextBlob != nil && len(*s.CiphertextBlob) < 19 {
 		invalidParams.Add(request.NewErrParamMinLen("CiphertextBlob", 19))
 	}
-	if s.NewKeyName == nil {
-		invalidParams.Add(request.NewErrParamRequired("NewKeyName"))
-	}
 	if s.NewKeyName != nil && len(*s.NewKeyName) < 2 {
 		invalidParams.Add(request.NewErrParamMinLen("NewKeyName", 2))
 	}
 	if s.NewKeyName != nil && len(*s.NewKeyName) > 31 {
 		invalidParams.Add(request.NewErrParamMaxLen("NewKeyName", 31, *s.NewKeyName))
-	}
-	if s.NewKeyringName == nil {
-		invalidParams.Add(request.NewErrParamRequired("NewKeyringName"))
 	}
 	if s.NewKeyringName != nil && len(*s.NewKeyringName) < 2 {
 		invalidParams.Add(request.NewErrParamMinLen("NewKeyringName", 2))
@@ -213,6 +207,12 @@ func (s *ReEncryptInput) SetCiphertextBlob(v string) *ReEncryptInput {
 // SetNewEncryptionContext sets the NewEncryptionContext field's value.
 func (s *ReEncryptInput) SetNewEncryptionContext(v map[string]*string) *ReEncryptInput {
 	s.NewEncryptionContext = v
+	return s
+}
+
+// SetNewKeyID sets the NewKeyID field's value.
+func (s *ReEncryptInput) SetNewKeyID(v string) *ReEncryptInput {
+	s.NewKeyID = &v
 	return s
 }
 

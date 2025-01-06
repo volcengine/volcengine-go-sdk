@@ -152,8 +152,14 @@ type VerifyMacInput struct {
 
 	KeyringName *string `min:"2" max:"31" type:"string" json:",omitempty"`
 
+	// Mac is a required field
+	Mac *string `min:"1" max:"6144" type:"string" json:",omitempty" required:"true"`
+
 	// MacAlgorithm is a required field
 	MacAlgorithm *string `type:"string" json:",omitempty" required:"true"`
+
+	// Message is a required field
+	Message *string `min:"1" max:"4096" type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -181,8 +187,26 @@ func (s *VerifyMacInput) Validate() error {
 	if s.KeyringName != nil && len(*s.KeyringName) > 31 {
 		invalidParams.Add(request.NewErrParamMaxLen("KeyringName", 31, *s.KeyringName))
 	}
+	if s.Mac == nil {
+		invalidParams.Add(request.NewErrParamRequired("Mac"))
+	}
+	if s.Mac != nil && len(*s.Mac) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("Mac", 1))
+	}
+	if s.Mac != nil && len(*s.Mac) > 6144 {
+		invalidParams.Add(request.NewErrParamMaxLen("Mac", 6144, *s.Mac))
+	}
 	if s.MacAlgorithm == nil {
 		invalidParams.Add(request.NewErrParamRequired("MacAlgorithm"))
+	}
+	if s.Message == nil {
+		invalidParams.Add(request.NewErrParamRequired("Message"))
+	}
+	if s.Message != nil && len(*s.Message) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("Message", 1))
+	}
+	if s.Message != nil && len(*s.Message) > 4096 {
+		invalidParams.Add(request.NewErrParamMaxLen("Message", 4096, *s.Message))
 	}
 
 	if invalidParams.Len() > 0 {
@@ -209,9 +233,21 @@ func (s *VerifyMacInput) SetKeyringName(v string) *VerifyMacInput {
 	return s
 }
 
+// SetMac sets the Mac field's value.
+func (s *VerifyMacInput) SetMac(v string) *VerifyMacInput {
+	s.Mac = &v
+	return s
+}
+
 // SetMacAlgorithm sets the MacAlgorithm field's value.
 func (s *VerifyMacInput) SetMacAlgorithm(v string) *VerifyMacInput {
 	s.MacAlgorithm = &v
+	return s
+}
+
+// SetMessage sets the Message field's value.
+func (s *VerifyMacInput) SetMessage(v string) *VerifyMacInput {
+	s.Message = &v
 	return s
 }
 
