@@ -3,6 +3,7 @@ package main
 import (
 	"context"
 	"fmt"
+	"github.com/volcengine/volcengine-go-sdk/volcengine"
 	"os"
 
 	"github.com/volcengine/volcengine-go-sdk/service/arkruntime"
@@ -26,7 +27,7 @@ func main() {
 		Content: []*model.CreateContentGenerationContentItem{
 			{
 				Type: model.ContentGenerationContentItemTypeText,
-				Text: "龙与地下城女骑士背景是起伏的平原，目光从镜头转向平原 --ratio 1:1",
+				Text: volcengine.String("龙与地下城女骑士背景是起伏的平原，目光从镜头转向平原 --ratio 1:1"),
 			},
 			{
 				Type: model.ContentGenerationContentItemTypeImage,
@@ -67,10 +68,10 @@ func main() {
 	fmt.Println("----- list content generation task -----")
 
 	listRequest := model.ListContentGenerationTasksRequest{
-		PageNum:  1,
-		PageSize: 10,
-		Filter: model.ListContentGenerationTasksFilter{
-			Status: model.StatusSucceeded,
+		PageNum:  volcengine.Int(1),
+		PageSize: volcengine.Int(10),
+		Filter: &model.ListContentGenerationTasksFilter{
+			Status: volcengine.String(model.StatusSucceeded),
 			// TaskIDs: []string{"cgt-example-1", "cgt-example-2"},
 			// Model: "${YOUR_ENDPOINT_ID}",
 		},
