@@ -20,10 +20,11 @@ import (
 func main() {
 	client := arkruntime.NewClientWithApiKey(os.Getenv("ARK_API_KEY"))
 	ctx := context.Background()
+	modelEp := "YOUR_ENDPOINT_ID"
 
 	fmt.Println("----- create content generation task -----")
 	createReq := model.CreateContentGenerationTaskRequest{
-		Model: "{YOUR_ENDPOINT_ID}", // Replace with your endpoint ID
+		Model: modelEp, // Replace with your endpoint ID
 		Content: []*model.CreateContentGenerationContentItem{
 			{
 				Type: model.ContentGenerationContentItemTypeText,
@@ -59,7 +60,7 @@ func main() {
 	fmt.Printf("Task ID: %s\n", getResponse.ID)
 	fmt.Printf("Model: %s\n", getResponse.Model)
 	fmt.Printf("Status: %s\n", getResponse.Status)
-	fmt.Printf("Failure Reason: %s\n", getResponse.FailureReason)
+	fmt.Printf("Failure Reason: %v\n", getResponse.FailureReason)
 	fmt.Printf("Video URL: %s\n", getResponse.Content.VideoURL)
 	fmt.Printf("Completion Tokens: %d\n", getResponse.Usage.CompletionTokens)
 	fmt.Printf("Created At: %d\n", getResponse.CreatedAt)
@@ -72,8 +73,8 @@ func main() {
 		PageSize: volcengine.Int(10),
 		Filter: &model.ListContentGenerationTasksFilter{
 			Status: volcengine.String(model.StatusSucceeded),
-			// TaskIDs: []string{"cgt-example-1", "cgt-example-2"},
-			// Model: "${YOUR_ENDPOINT_ID}",
+			//TaskIDs: volcengine.StringSlice([]string{"cgt-example-1", "cgt-example-2"}),
+			//Model:   volcengine.String(modelEp),
 		},
 	}
 
