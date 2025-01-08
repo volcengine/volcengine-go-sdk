@@ -352,6 +352,8 @@ type ListProhibitionOutput struct {
 
 	Count *int32 `type:"int32" json:",omitempty"`
 
+	CurrentPage *int32 `type:"int32" json:",omitempty"`
+
 	IpAggGroup []*IpAggGroupForListProhibitionOutput `type:"list" json:",omitempty"`
 
 	PageNumber *int32 `type:"int32" json:",omitempty"`
@@ -374,6 +376,12 @@ func (s ListProhibitionOutput) GoString() string {
 // SetCount sets the Count field's value.
 func (s *ListProhibitionOutput) SetCount(v int32) *ListProhibitionOutput {
 	s.Count = &v
+	return s
+}
+
+// SetCurrentPage sets the CurrentPage field's value.
+func (s *ListProhibitionOutput) SetCurrentPage(v int32) *ListProhibitionOutput {
+	s.CurrentPage = &v
 	return s
 }
 

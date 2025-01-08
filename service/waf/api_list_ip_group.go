@@ -234,6 +234,8 @@ type ListIpGroupOutput struct {
 
 	Count *int32 `type:"int32" json:",omitempty"`
 
+	CurrentPage *int32 `type:"int32" json:",omitempty"`
+
 	IpList []*string `type:"list" json:",omitempty"`
 
 	PageNumber *int32 `type:"int32" json:",omitempty"`
@@ -256,6 +258,12 @@ func (s ListIpGroupOutput) GoString() string {
 // SetCount sets the Count field's value.
 func (s *ListIpGroupOutput) SetCount(v int32) *ListIpGroupOutput {
 	s.Count = &v
+	return s
+}
+
+// SetCurrentPage sets the CurrentPage field's value.
+func (s *ListIpGroupOutput) SetCurrentPage(v int32) *ListIpGroupOutput {
+	s.CurrentPage = &v
 	return s
 }
 

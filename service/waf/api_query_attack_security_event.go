@@ -304,6 +304,8 @@ type QueryAttackSecurityEventOutput struct {
 
 	Count *int32 `type:"int32" json:",omitempty"`
 
+	CurrentPage *int32 `type:"int32" json:",omitempty"`
+
 	EventEndTime *int32 `type:"int32" json:",omitempty"`
 
 	EventId *string `type:"string" json:",omitempty"`
@@ -342,6 +344,12 @@ func (s *QueryAttackSecurityEventOutput) SetAttackCount(v int32) *QueryAttackSec
 // SetCount sets the Count field's value.
 func (s *QueryAttackSecurityEventOutput) SetCount(v int32) *QueryAttackSecurityEventOutput {
 	s.Count = &v
+	return s
+}
+
+// SetCurrentPage sets the CurrentPage field's value.
+func (s *QueryAttackSecurityEventOutput) SetCurrentPage(v int32) *QueryAttackSecurityEventOutput {
+	s.CurrentPage = &v
 	return s
 }
 

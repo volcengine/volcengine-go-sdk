@@ -460,6 +460,8 @@ type RuleForListAclRuleOutput struct {
 
 	Advanced *int32 `type:"int32" json:",omitempty"`
 
+	ClientIp *string `type:"string" json:",omitempty"`
+
 	Description *string `type:"string" json:",omitempty"`
 
 	Enable *int32 `type:"int32" json:",omitempty"`
@@ -522,6 +524,12 @@ func (s *RuleForListAclRuleOutput) SetAction(v string) *RuleForListAclRuleOutput
 // SetAdvanced sets the Advanced field's value.
 func (s *RuleForListAclRuleOutput) SetAdvanced(v int32) *RuleForListAclRuleOutput {
 	s.Advanced = &v
+	return s
+}
+
+// SetClientIp sets the ClientIp field's value.
+func (s *RuleForListAclRuleOutput) SetClientIp(v string) *RuleForListAclRuleOutput {
+	s.ClientIp = &v
 	return s
 }
 
