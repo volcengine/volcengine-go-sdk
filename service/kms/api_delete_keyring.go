@@ -146,8 +146,9 @@ func (c *KMS) DeleteKeyringWithContext(ctx volcengine.Context, input *DeleteKeyr
 type DeleteKeyringInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	// KeyringName is a required field
-	KeyringName *string `min:"2" max:"31" type:"string" json:",omitempty" required:"true"`
+	KeyringID *string `type:"string" json:",omitempty"`
+
+	KeyringName *string `min:"2" max:"31" type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -163,9 +164,6 @@ func (s DeleteKeyringInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *DeleteKeyringInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "DeleteKeyringInput"}
-	if s.KeyringName == nil {
-		invalidParams.Add(request.NewErrParamRequired("KeyringName"))
-	}
 	if s.KeyringName != nil && len(*s.KeyringName) < 2 {
 		invalidParams.Add(request.NewErrParamMinLen("KeyringName", 2))
 	}
@@ -177,6 +175,12 @@ func (s *DeleteKeyringInput) Validate() error {
 		return invalidParams
 	}
 	return nil
+}
+
+// SetKeyringID sets the KeyringID field's value.
+func (s *DeleteKeyringInput) SetKeyringID(v string) *DeleteKeyringInput {
+	s.KeyringID = &v
+	return s
 }
 
 // SetKeyringName sets the KeyringName field's value.

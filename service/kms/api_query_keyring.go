@@ -32,7 +32,7 @@ const opQueryKeyringCommon = "QueryKeyring"
 func (c *KMS) QueryKeyringCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opQueryKeyringCommon,
-		HTTPMethod: "POST",
+		HTTPMethod: "GET",
 		HTTPPath:   "/",
 	}
 
@@ -42,8 +42,6 @@ func (c *KMS) QueryKeyringCommonRequest(input *map[string]interface{}) (req *req
 
 	output = &map[string]interface{}{}
 	req = c.newRequest(op, input, output)
-
-	req.HTTPRequest.Header.Set("Content-Type", "application/json; charset=utf-8")
 
 	return
 }
@@ -99,7 +97,7 @@ const opQueryKeyring = "QueryKeyring"
 func (c *KMS) QueryKeyringRequest(input *QueryKeyringInput) (req *request.Request, output *QueryKeyringOutput) {
 	op := &request.Operation{
 		Name:       opQueryKeyring,
-		HTTPMethod: "POST",
+		HTTPMethod: "GET",
 		HTTPPath:   "/",
 	}
 
@@ -109,8 +107,6 @@ func (c *KMS) QueryKeyringRequest(input *QueryKeyringInput) (req *request.Reques
 
 	output = &QueryKeyringOutput{}
 	req = c.newRequest(op, input, output)
-
-	req.HTTPRequest.Header.Set("Content-Type", "application/json; charset=utf-8")
 
 	return
 }
@@ -144,25 +140,25 @@ func (c *KMS) QueryKeyringWithContext(ctx volcengine.Context, input *QueryKeyrin
 }
 
 type KeyringForQueryKeyringOutput struct {
-	_ struct{} `type:"structure" json:",omitempty"`
+	_ struct{} `type:"structure"`
 
-	CreationDate *int64 `type:"int64" json:",omitempty"`
+	CreationDate *int64 `type:"int64"`
 
-	Description *string `type:"string" json:",omitempty"`
+	Description *string `type:"string"`
 
-	ID *string `type:"string" json:",omitempty"`
+	ID *string `type:"string"`
 
-	KeyringName *string `type:"string" json:",omitempty"`
+	KeyringName *string `type:"string"`
 
-	KeyringType *string `type:"string" json:",omitempty"`
+	KeyringType *string `type:"string"`
 
-	ProjectName *string `type:"string" json:",omitempty"`
+	ProjectName *string `type:"string"`
 
-	TRN *string `type:"string" json:",omitempty"`
+	TRN *string `type:"string"`
 
-	UID *string `type:"string" json:",omitempty"`
+	UID *string `type:"string"`
 
-	UpdateDate *int64 `type:"int64" json:",omitempty"`
+	UpdateDate *int64 `type:"int64"`
 }
 
 // String returns the string representation
@@ -230,10 +226,11 @@ func (s *KeyringForQueryKeyringOutput) SetUpdateDate(v int64) *KeyringForQueryKe
 }
 
 type QueryKeyringInput struct {
-	_ struct{} `type:"structure" json:",omitempty"`
+	_ struct{} `type:"structure"`
 
-	// KeyringName is a required field
-	KeyringName *string `min:"2" max:"31" type:"string" json:",omitempty" required:"true"`
+	KeyringID *string `type:"string"`
+
+	KeyringName *string `min:"2" max:"31" type:"string"`
 }
 
 // String returns the string representation
@@ -249,9 +246,6 @@ func (s QueryKeyringInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *QueryKeyringInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "QueryKeyringInput"}
-	if s.KeyringName == nil {
-		invalidParams.Add(request.NewErrParamRequired("KeyringName"))
-	}
 	if s.KeyringName != nil && len(*s.KeyringName) < 2 {
 		invalidParams.Add(request.NewErrParamMinLen("KeyringName", 2))
 	}
@@ -265,6 +259,12 @@ func (s *QueryKeyringInput) Validate() error {
 	return nil
 }
 
+// SetKeyringID sets the KeyringID field's value.
+func (s *QueryKeyringInput) SetKeyringID(v string) *QueryKeyringInput {
+	s.KeyringID = &v
+	return s
+}
+
 // SetKeyringName sets the KeyringName field's value.
 func (s *QueryKeyringInput) SetKeyringName(v string) *QueryKeyringInput {
 	s.KeyringName = &v
@@ -272,11 +272,11 @@ func (s *QueryKeyringInput) SetKeyringName(v string) *QueryKeyringInput {
 }
 
 type QueryKeyringOutput struct {
-	_ struct{} `type:"structure" json:",omitempty"`
+	_ struct{} `type:"structure"`
 
 	Metadata *response.ResponseMetadata
 
-	Keyring *KeyringForQueryKeyringOutput `type:"structure" json:",omitempty"`
+	Keyring *KeyringForQueryKeyringOutput `type:"structure"`
 }
 
 // String returns the string representation

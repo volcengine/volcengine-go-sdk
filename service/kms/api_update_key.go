@@ -148,11 +148,11 @@ type UpdateKeyInput struct {
 
 	Description *string `max:"8192" type:"string" json:",omitempty"`
 
-	// KeyName is a required field
-	KeyName *string `min:"2" max:"31" type:"string" json:",omitempty" required:"true"`
+	KeyID *string `type:"string" json:",omitempty"`
 
-	// KeyringName is a required field
-	KeyringName *string `min:"2" max:"31" type:"string" json:",omitempty" required:"true"`
+	KeyName *string `min:"2" max:"31" type:"string" json:",omitempty"`
+
+	KeyringName *string `min:"2" max:"31" type:"string" json:",omitempty"`
 
 	NewKeyName *string `min:"2" max:"31" type:"string" json:",omitempty"`
 }
@@ -173,17 +173,11 @@ func (s *UpdateKeyInput) Validate() error {
 	if s.Description != nil && len(*s.Description) > 8192 {
 		invalidParams.Add(request.NewErrParamMaxLen("Description", 8192, *s.Description))
 	}
-	if s.KeyName == nil {
-		invalidParams.Add(request.NewErrParamRequired("KeyName"))
-	}
 	if s.KeyName != nil && len(*s.KeyName) < 2 {
 		invalidParams.Add(request.NewErrParamMinLen("KeyName", 2))
 	}
 	if s.KeyName != nil && len(*s.KeyName) > 31 {
 		invalidParams.Add(request.NewErrParamMaxLen("KeyName", 31, *s.KeyName))
-	}
-	if s.KeyringName == nil {
-		invalidParams.Add(request.NewErrParamRequired("KeyringName"))
 	}
 	if s.KeyringName != nil && len(*s.KeyringName) < 2 {
 		invalidParams.Add(request.NewErrParamMinLen("KeyringName", 2))
@@ -207,6 +201,12 @@ func (s *UpdateKeyInput) Validate() error {
 // SetDescription sets the Description field's value.
 func (s *UpdateKeyInput) SetDescription(v string) *UpdateKeyInput {
 	s.Description = &v
+	return s
+}
+
+// SetKeyID sets the KeyID field's value.
+func (s *UpdateKeyInput) SetKeyID(v string) *UpdateKeyInput {
+	s.KeyID = &v
 	return s
 }
 

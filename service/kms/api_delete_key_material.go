@@ -146,11 +146,11 @@ func (c *KMS) DeleteKeyMaterialWithContext(ctx volcengine.Context, input *Delete
 type DeleteKeyMaterialInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	// KeyName is a required field
-	KeyName *string `min:"2" max:"31" type:"string" json:",omitempty" required:"true"`
+	KeyID *string `type:"string" json:",omitempty"`
 
-	// KeyringName is a required field
-	KeyringName *string `min:"2" max:"31" type:"string" json:",omitempty" required:"true"`
+	KeyName *string `min:"2" max:"31" type:"string" json:",omitempty"`
+
+	KeyringName *string `min:"2" max:"31" type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -166,17 +166,11 @@ func (s DeleteKeyMaterialInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *DeleteKeyMaterialInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "DeleteKeyMaterialInput"}
-	if s.KeyName == nil {
-		invalidParams.Add(request.NewErrParamRequired("KeyName"))
-	}
 	if s.KeyName != nil && len(*s.KeyName) < 2 {
 		invalidParams.Add(request.NewErrParamMinLen("KeyName", 2))
 	}
 	if s.KeyName != nil && len(*s.KeyName) > 31 {
 		invalidParams.Add(request.NewErrParamMaxLen("KeyName", 31, *s.KeyName))
-	}
-	if s.KeyringName == nil {
-		invalidParams.Add(request.NewErrParamRequired("KeyringName"))
 	}
 	if s.KeyringName != nil && len(*s.KeyringName) < 2 {
 		invalidParams.Add(request.NewErrParamMinLen("KeyringName", 2))
@@ -189,6 +183,12 @@ func (s *DeleteKeyMaterialInput) Validate() error {
 		return invalidParams
 	}
 	return nil
+}
+
+// SetKeyID sets the KeyID field's value.
+func (s *DeleteKeyMaterialInput) SetKeyID(v string) *DeleteKeyMaterialInput {
+	s.KeyID = &v
+	return s
 }
 
 // SetKeyName sets the KeyName field's value.
