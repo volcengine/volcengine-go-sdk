@@ -156,7 +156,7 @@ type AsymmetricEncryptInput struct {
 	KeyringName *string `min:"2" max:"31" type:"string" json:",omitempty"`
 
 	// Plaintext is a required field
-	Plaintext *string `min:"1" max:"4096" type:"string" json:",omitempty" required:"true"`
+	Plaintext *string `min:"1" max:"1024" type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -193,8 +193,8 @@ func (s *AsymmetricEncryptInput) Validate() error {
 	if s.Plaintext != nil && len(*s.Plaintext) < 1 {
 		invalidParams.Add(request.NewErrParamMinLen("Plaintext", 1))
 	}
-	if s.Plaintext != nil && len(*s.Plaintext) > 4096 {
-		invalidParams.Add(request.NewErrParamMaxLen("Plaintext", 4096, *s.Plaintext))
+	if s.Plaintext != nil && len(*s.Plaintext) > 1024 {
+		invalidParams.Add(request.NewErrParamMaxLen("Plaintext", 1024, *s.Plaintext))
 	}
 
 	if invalidParams.Len() > 0 {

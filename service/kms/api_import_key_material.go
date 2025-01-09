@@ -154,11 +154,11 @@ type ImportKeyMaterialInput struct {
 	// ImportToken is a required field
 	ImportToken *string `type:"string" json:",omitempty" required:"true"`
 
-	// KeyName is a required field
-	KeyName *string `min:"2" max:"31" type:"string" json:",omitempty" required:"true"`
+	KeyID *string `type:"string" json:",omitempty"`
 
-	// KeyringName is a required field
-	KeyringName *string `min:"2" max:"31" type:"string" json:",omitempty" required:"true"`
+	KeyName *string `min:"2" max:"31" type:"string" json:",omitempty"`
+
+	KeyringName *string `min:"2" max:"31" type:"string" json:",omitempty"`
 
 	ValidTo *int64 `type:"int64" json:",omitempty"`
 }
@@ -182,17 +182,11 @@ func (s *ImportKeyMaterialInput) Validate() error {
 	if s.ImportToken == nil {
 		invalidParams.Add(request.NewErrParamRequired("ImportToken"))
 	}
-	if s.KeyName == nil {
-		invalidParams.Add(request.NewErrParamRequired("KeyName"))
-	}
 	if s.KeyName != nil && len(*s.KeyName) < 2 {
 		invalidParams.Add(request.NewErrParamMinLen("KeyName", 2))
 	}
 	if s.KeyName != nil && len(*s.KeyName) > 31 {
 		invalidParams.Add(request.NewErrParamMaxLen("KeyName", 31, *s.KeyName))
-	}
-	if s.KeyringName == nil {
-		invalidParams.Add(request.NewErrParamRequired("KeyringName"))
 	}
 	if s.KeyringName != nil && len(*s.KeyringName) < 2 {
 		invalidParams.Add(request.NewErrParamMinLen("KeyringName", 2))
@@ -222,6 +216,12 @@ func (s *ImportKeyMaterialInput) SetExpirationModel(v string) *ImportKeyMaterial
 // SetImportToken sets the ImportToken field's value.
 func (s *ImportKeyMaterialInput) SetImportToken(v string) *ImportKeyMaterialInput {
 	s.ImportToken = &v
+	return s
+}
+
+// SetKeyID sets the KeyID field's value.
+func (s *ImportKeyMaterialInput) SetKeyID(v string) *ImportKeyMaterialInput {
+	s.KeyID = &v
 	return s
 }
 

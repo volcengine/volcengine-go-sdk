@@ -406,6 +406,8 @@ type ListAllowRuleOutput struct {
 
 	Count *int32 `type:"int32" json:",omitempty"`
 
+	CurrentPage *int32 `type:"int32" json:",omitempty"`
+
 	Data []*DataForListAllowRuleOutput `type:"list" json:",omitempty"`
 
 	PageNumber *int32 `type:"int32" json:",omitempty"`
@@ -428,6 +430,12 @@ func (s ListAllowRuleOutput) GoString() string {
 // SetCount sets the Count field's value.
 func (s *ListAllowRuleOutput) SetCount(v int32) *ListAllowRuleOutput {
 	s.Count = &v
+	return s
+}
+
+// SetCurrentPage sets the CurrentPage field's value.
+func (s *ListAllowRuleOutput) SetCurrentPage(v int32) *ListAllowRuleOutput {
+	s.CurrentPage = &v
 	return s
 }
 

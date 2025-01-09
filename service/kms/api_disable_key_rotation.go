@@ -32,7 +32,7 @@ const opDisableKeyRotationCommon = "DisableKeyRotation"
 func (c *KMS) DisableKeyRotationCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDisableKeyRotationCommon,
-		HTTPMethod: "POST",
+		HTTPMethod: "GET",
 		HTTPPath:   "/",
 	}
 
@@ -42,8 +42,6 @@ func (c *KMS) DisableKeyRotationCommonRequest(input *map[string]interface{}) (re
 
 	output = &map[string]interface{}{}
 	req = c.newRequest(op, input, output)
-
-	req.HTTPRequest.Header.Set("Content-Type", "application/json; charset=utf-8")
 
 	return
 }
@@ -99,7 +97,7 @@ const opDisableKeyRotation = "DisableKeyRotation"
 func (c *KMS) DisableKeyRotationRequest(input *DisableKeyRotationInput) (req *request.Request, output *DisableKeyRotationOutput) {
 	op := &request.Operation{
 		Name:       opDisableKeyRotation,
-		HTTPMethod: "POST",
+		HTTPMethod: "GET",
 		HTTPPath:   "/",
 	}
 
@@ -109,8 +107,6 @@ func (c *KMS) DisableKeyRotationRequest(input *DisableKeyRotationInput) (req *re
 
 	output = &DisableKeyRotationOutput{}
 	req = c.newRequest(op, input, output)
-
-	req.HTTPRequest.Header.Set("Content-Type", "application/json; charset=utf-8")
 
 	return
 }
@@ -144,13 +140,13 @@ func (c *KMS) DisableKeyRotationWithContext(ctx volcengine.Context, input *Disab
 }
 
 type DisableKeyRotationInput struct {
-	_ struct{} `type:"structure" json:",omitempty"`
+	_ struct{} `type:"structure"`
 
-	// KeyName is a required field
-	KeyName *string `min:"2" max:"31" type:"string" json:",omitempty" required:"true"`
+	KeyID *string `type:"string"`
 
-	// KeyringName is a required field
-	KeyringName *string `min:"2" max:"31" type:"string" json:",omitempty" required:"true"`
+	KeyName *string `min:"2" max:"31" type:"string"`
+
+	KeyringName *string `min:"2" max:"31" type:"string"`
 }
 
 // String returns the string representation
@@ -166,17 +162,11 @@ func (s DisableKeyRotationInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *DisableKeyRotationInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "DisableKeyRotationInput"}
-	if s.KeyName == nil {
-		invalidParams.Add(request.NewErrParamRequired("KeyName"))
-	}
 	if s.KeyName != nil && len(*s.KeyName) < 2 {
 		invalidParams.Add(request.NewErrParamMinLen("KeyName", 2))
 	}
 	if s.KeyName != nil && len(*s.KeyName) > 31 {
 		invalidParams.Add(request.NewErrParamMaxLen("KeyName", 31, *s.KeyName))
-	}
-	if s.KeyringName == nil {
-		invalidParams.Add(request.NewErrParamRequired("KeyringName"))
 	}
 	if s.KeyringName != nil && len(*s.KeyringName) < 2 {
 		invalidParams.Add(request.NewErrParamMinLen("KeyringName", 2))
@@ -189,6 +179,12 @@ func (s *DisableKeyRotationInput) Validate() error {
 		return invalidParams
 	}
 	return nil
+}
+
+// SetKeyID sets the KeyID field's value.
+func (s *DisableKeyRotationInput) SetKeyID(v string) *DisableKeyRotationInput {
+	s.KeyID = &v
+	return s
 }
 
 // SetKeyName sets the KeyName field's value.
@@ -204,7 +200,7 @@ func (s *DisableKeyRotationInput) SetKeyringName(v string) *DisableKeyRotationIn
 }
 
 type DisableKeyRotationOutput struct {
-	_ struct{} `type:"structure" json:",omitempty"`
+	_ struct{} `type:"structure"`
 
 	Metadata *response.ResponseMetadata
 }

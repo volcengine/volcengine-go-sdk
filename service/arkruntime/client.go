@@ -493,3 +493,7 @@ func (c *Client) getRetryAfter(v model.Response) int64 {
 	}
 	return retryAfterInterval
 }
+
+func (c *Client) isAPIKeyAuthentication() bool {
+	return c.config.apiKey != ""
+}

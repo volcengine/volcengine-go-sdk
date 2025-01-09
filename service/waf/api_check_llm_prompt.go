@@ -255,14 +255,42 @@ func (s *CheckLLMPromptOutput) SetMsgID(v string) *CheckLLMPromptOutput {
 	return s
 }
 
+type CustomMatchForCheckLLMPromptOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Word *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s CustomMatchForCheckLLMPromptOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s CustomMatchForCheckLLMPromptOutput) GoString() string {
+	return s.String()
+}
+
+// SetWord sets the Word field's value.
+func (s *CustomMatchForCheckLLMPromptOutput) SetWord(v string) *CustomMatchForCheckLLMPromptOutput {
+	s.Word = &v
+	return s
+}
+
 type DecisionForCheckLLMPromptOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
+
+	Action *int32 `type:"int32" json:",omitempty"`
+
+	CustomMatches []*CustomMatchForCheckLLMPromptOutput `type:"list" json:",omitempty"`
 
 	ErrCode *int32 `type:"int32" json:",omitempty"`
 
 	ErrMsg *string `type:"string" json:",omitempty"`
 
 	Labels []*string `type:"list" json:",omitempty"`
+
+	Matches []*MatchForCheckLLMPromptOutput `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -273,6 +301,18 @@ func (s DecisionForCheckLLMPromptOutput) String() string {
 // GoString returns the string representation
 func (s DecisionForCheckLLMPromptOutput) GoString() string {
 	return s.String()
+}
+
+// SetAction sets the Action field's value.
+func (s *DecisionForCheckLLMPromptOutput) SetAction(v int32) *DecisionForCheckLLMPromptOutput {
+	s.Action = &v
+	return s
+}
+
+// SetCustomMatches sets the CustomMatches field's value.
+func (s *DecisionForCheckLLMPromptOutput) SetCustomMatches(v []*CustomMatchForCheckLLMPromptOutput) *DecisionForCheckLLMPromptOutput {
+	s.CustomMatches = v
+	return s
 }
 
 // SetErrCode sets the ErrCode field's value.
@@ -290,5 +330,41 @@ func (s *DecisionForCheckLLMPromptOutput) SetErrMsg(v string) *DecisionForCheckL
 // SetLabels sets the Labels field's value.
 func (s *DecisionForCheckLLMPromptOutput) SetLabels(v []*string) *DecisionForCheckLLMPromptOutput {
 	s.Labels = v
+	return s
+}
+
+// SetMatches sets the Matches field's value.
+func (s *DecisionForCheckLLMPromptOutput) SetMatches(v []*MatchForCheckLLMPromptOutput) *DecisionForCheckLLMPromptOutput {
+	s.Matches = v
+	return s
+}
+
+type MatchForCheckLLMPromptOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Label *string `type:"string" json:"label,omitempty"`
+
+	Word *string `type:"string" json:"word,omitempty"`
+}
+
+// String returns the string representation
+func (s MatchForCheckLLMPromptOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s MatchForCheckLLMPromptOutput) GoString() string {
+	return s.String()
+}
+
+// SetLabel sets the Label field's value.
+func (s *MatchForCheckLLMPromptOutput) SetLabel(v string) *MatchForCheckLLMPromptOutput {
+	s.Label = &v
+	return s
+}
+
+// SetWord sets the Word field's value.
+func (s *MatchForCheckLLMPromptOutput) SetWord(v string) *MatchForCheckLLMPromptOutput {
+	s.Word = &v
 	return s
 }

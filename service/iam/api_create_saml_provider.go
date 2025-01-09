@@ -22,13 +22,13 @@ const opCreateSAMLProviderCommon = "CreateSAMLProvider"
 // See CreateSAMLProviderCommon for more information on using the CreateSAMLProviderCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the CreateSAMLProviderCommonRequest method.
-//	req, resp := client.CreateSAMLProviderCommonRequest(params)
+//    // Example sending a request using the CreateSAMLProviderCommonRequest method.
+//    req, resp := client.CreateSAMLProviderCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *IAM) CreateSAMLProviderCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opCreateSAMLProviderCommon,
@@ -87,13 +87,13 @@ const opCreateSAMLProvider = "CreateSAMLProvider"
 // See CreateSAMLProvider for more information on using the CreateSAMLProvider
 // API call, and error handling.
 //
-//	// Example sending a request using the CreateSAMLProviderRequest method.
-//	req, resp := client.CreateSAMLProviderRequest(params)
+//    // Example sending a request using the CreateSAMLProviderRequest method.
+//    req, resp := client.CreateSAMLProviderRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *IAM) CreateSAMLProviderRequest(input *CreateSAMLProviderInput) (req *request.Request, output *CreateSAMLProviderOutput) {
 	op := &request.Operation{
 		Name:       opCreateSAMLProvider,
