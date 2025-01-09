@@ -62,6 +62,14 @@ type WAFAPI interface {
 	AddProhibitionWhiteWithContext(volcengine.Context, *AddProhibitionWhiteInput, ...request.Option) (*AddProhibitionWhiteOutput, error)
 	AddProhibitionWhiteRequest(*AddProhibitionWhiteInput) (*request.Request, *AddProhibitionWhiteOutput)
 
+	BatchUpdateTLSFieldsConfigCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	BatchUpdateTLSFieldsConfigCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	BatchUpdateTLSFieldsConfigCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	BatchUpdateTLSFieldsConfig(*BatchUpdateTLSFieldsConfigInput) (*BatchUpdateTLSFieldsConfigOutput, error)
+	BatchUpdateTLSFieldsConfigWithContext(volcengine.Context, *BatchUpdateTLSFieldsConfigInput, ...request.Option) (*BatchUpdateTLSFieldsConfigOutput, error)
+	BatchUpdateTLSFieldsConfigRequest(*BatchUpdateTLSFieldsConfigInput) (*request.Request, *BatchUpdateTLSFieldsConfigOutput)
+
 	CheckLLMPromptCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	CheckLLMPromptCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	CheckLLMPromptCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -133,6 +141,14 @@ type WAFAPI interface {
 	CreateDomain(*CreateDomainInput) (*CreateDomainOutput, error)
 	CreateDomainWithContext(volcengine.Context, *CreateDomainInput, ...request.Option) (*CreateDomainOutput, error)
 	CreateDomainRequest(*CreateDomainInput) (*request.Request, *CreateDomainOutput)
+
+	CreateTamperProofCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateTamperProofCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateTamperProofCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateTamperProof(*CreateTamperProofInput) (*CreateTamperProofOutput, error)
+	CreateTamperProofWithContext(volcengine.Context, *CreateTamperProofInput, ...request.Option) (*CreateTamperProofOutput, error)
+	CreateTamperProofRequest(*CreateTamperProofInput) (*request.Request, *CreateTamperProofOutput)
 
 	CreateVulWhiteFieldCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	CreateVulWhiteFieldCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -237,6 +253,14 @@ type WAFAPI interface {
 	DeleteProhibitionWhite(*DeleteProhibitionWhiteInput) (*DeleteProhibitionWhiteOutput, error)
 	DeleteProhibitionWhiteWithContext(volcengine.Context, *DeleteProhibitionWhiteInput, ...request.Option) (*DeleteProhibitionWhiteOutput, error)
 	DeleteProhibitionWhiteRequest(*DeleteProhibitionWhiteInput) (*request.Request, *DeleteProhibitionWhiteOutput)
+
+	DeleteTamperProofCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeleteTamperProofCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeleteTamperProofCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeleteTamperProof(*DeleteTamperProofInput) (*DeleteTamperProofOutput, error)
+	DeleteTamperProofWithContext(volcengine.Context, *DeleteTamperProofInput, ...request.Option) (*DeleteTamperProofOutput, error)
+	DeleteTamperProofRequest(*DeleteTamperProofInput) (*request.Request, *DeleteTamperProofOutput)
 
 	DeleteVulWhiteFieldCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DeleteVulWhiteFieldCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -413,6 +437,14 @@ type WAFAPI interface {
 	ListSystemBotConfig(*ListSystemBotConfigInput) (*ListSystemBotConfigOutput, error)
 	ListSystemBotConfigWithContext(volcengine.Context, *ListSystemBotConfigInput, ...request.Option) (*ListSystemBotConfigOutput, error)
 	ListSystemBotConfigRequest(*ListSystemBotConfigInput) (*request.Request, *ListSystemBotConfigOutput)
+
+	ListTamperProofCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListTamperProofCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListTamperProofCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListTamperProof(*ListTamperProofInput) (*ListTamperProofOutput, error)
+	ListTamperProofWithContext(volcengine.Context, *ListTamperProofInput, ...request.Option) (*ListTamperProofOutput, error)
+	ListTamperProofRequest(*ListTamperProofInput) (*request.Request, *ListTamperProofOutput)
 
 	ListVulWhiteFieldCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ListVulWhiteFieldCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -621,6 +653,22 @@ type WAFAPI interface {
 	UpdateSystemBotConfig(*UpdateSystemBotConfigInput) (*UpdateSystemBotConfigOutput, error)
 	UpdateSystemBotConfigWithContext(volcengine.Context, *UpdateSystemBotConfigInput, ...request.Option) (*UpdateSystemBotConfigOutput, error)
 	UpdateSystemBotConfigRequest(*UpdateSystemBotConfigInput) (*request.Request, *UpdateSystemBotConfigOutput)
+
+	UpdateTamperProofCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	UpdateTamperProofCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	UpdateTamperProofCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	UpdateTamperProof(*UpdateTamperProofInput) (*UpdateTamperProofOutput, error)
+	UpdateTamperProofWithContext(volcengine.Context, *UpdateTamperProofInput, ...request.Option) (*UpdateTamperProofOutput, error)
+	UpdateTamperProofRequest(*UpdateTamperProofInput) (*request.Request, *UpdateTamperProofOutput)
+
+	UpdateTamperProofCacheCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	UpdateTamperProofCacheCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	UpdateTamperProofCacheCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	UpdateTamperProofCache(*UpdateTamperProofCacheInput) (*UpdateTamperProofCacheOutput, error)
+	UpdateTamperProofCacheWithContext(volcengine.Context, *UpdateTamperProofCacheInput, ...request.Option) (*UpdateTamperProofCacheOutput, error)
+	UpdateTamperProofCacheRequest(*UpdateTamperProofCacheInput) (*request.Request, *UpdateTamperProofCacheOutput)
 
 	UpdateVulWhiteFieldCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	UpdateVulWhiteFieldCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)

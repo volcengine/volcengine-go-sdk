@@ -280,6 +280,8 @@ type ListAllIpGroupsOutput struct {
 
 	Count *int32 `type:"int32" json:",omitempty"`
 
+	CurrentPage *int32 `type:"int32" json:",omitempty"`
+
 	IpGroupCount *int32 `type:"int32" json:",omitempty"`
 
 	IpGroupList []*IpGroupListForListAllIpGroupsOutput `type:"list" json:",omitempty"`
@@ -308,6 +310,12 @@ func (s ListAllIpGroupsOutput) GoString() string {
 // SetCount sets the Count field's value.
 func (s *ListAllIpGroupsOutput) SetCount(v int32) *ListAllIpGroupsOutput {
 	s.Count = &v
+	return s
+}
+
+// SetCurrentPage sets the CurrentPage field's value.
+func (s *ListAllIpGroupsOutput) SetCurrentPage(v int32) *ListAllIpGroupsOutput {
+	s.CurrentPage = &v
 	return s
 }
 

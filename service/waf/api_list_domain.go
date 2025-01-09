@@ -390,7 +390,7 @@ type DataForListDomainOutput struct {
 
 	ProtocolPorts *ProtocolPortsForListDomainOutput `type:"structure" json:",omitempty"`
 
-	Protocols []*string `type:"list" json:",omitempty"`
+	Protocols *string `type:"string" json:",omitempty"`
 
 	ProxyConfig *int32 `type:"int32" json:",omitempty"`
 
@@ -706,8 +706,8 @@ func (s *DataForListDomainOutput) SetProtocolPorts(v *ProtocolPortsForListDomain
 }
 
 // SetProtocols sets the Protocols field's value.
-func (s *DataForListDomainOutput) SetProtocols(v []*string) *DataForListDomainOutput {
-	s.Protocols = v
+func (s *DataForListDomainOutput) SetProtocols(v string) *DataForListDomainOutput {
+	s.Protocols = &v
 	return s
 }
 
@@ -914,8 +914,7 @@ type ListDomainInput struct {
 
 	AccessMode []*int32 `type:"list" json:",omitempty"`
 
-	// AccurateQuery is a required field
-	AccurateQuery *int32 `type:"int32" json:",omitempty" required:"true"`
+	AccurateQuery *int32 `type:"int32" json:",omitempty"`
 
 	AttackStatus []*int32 `type:"list" json:",omitempty"`
 
@@ -972,9 +971,6 @@ func (s ListDomainInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *ListDomainInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "ListDomainInput"}
-	if s.AccurateQuery == nil {
-		invalidParams.Add(request.NewErrParamRequired("AccurateQuery"))
-	}
 	if s.Page == nil {
 		invalidParams.Add(request.NewErrParamRequired("Page"))
 	}
@@ -1124,9 +1120,9 @@ type ListDomainOutput struct {
 
 	Count *int32 `type:"int32" json:",omitempty"`
 
-	Data []*DataForListDomainOutput `type:"list" json:",omitempty"`
+	CurrentPage *int32 `type:"int32" json:",omitempty"`
 
-	PageNumber *int32 `type:"int32" json:",omitempty"`
+	Data []*DataForListDomainOutput `type:"list" json:",omitempty"`
 
 	PageSize *int32 `type:"int32" json:",omitempty"`
 
@@ -1149,15 +1145,15 @@ func (s *ListDomainOutput) SetCount(v int32) *ListDomainOutput {
 	return s
 }
 
-// SetData sets the Data field's value.
-func (s *ListDomainOutput) SetData(v []*DataForListDomainOutput) *ListDomainOutput {
-	s.Data = v
+// SetCurrentPage sets the CurrentPage field's value.
+func (s *ListDomainOutput) SetCurrentPage(v int32) *ListDomainOutput {
+	s.CurrentPage = &v
 	return s
 }
 
-// SetPageNumber sets the PageNumber field's value.
-func (s *ListDomainOutput) SetPageNumber(v int32) *ListDomainOutput {
-	s.PageNumber = &v
+// SetData sets the Data field's value.
+func (s *ListDomainOutput) SetData(v []*DataForListDomainOutput) *ListDomainOutput {
+	s.Data = v
 	return s
 }
 
