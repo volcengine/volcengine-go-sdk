@@ -22,13 +22,13 @@ const opUpdateSAMLProviderCommon = "UpdateSAMLProvider"
 // See UpdateSAMLProviderCommon for more information on using the UpdateSAMLProviderCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the UpdateSAMLProviderCommonRequest method.
-//	req, resp := client.UpdateSAMLProviderCommonRequest(params)
+//    // Example sending a request using the UpdateSAMLProviderCommonRequest method.
+//    req, resp := client.UpdateSAMLProviderCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *IAM) UpdateSAMLProviderCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opUpdateSAMLProviderCommon,
@@ -87,13 +87,13 @@ const opUpdateSAMLProvider = "UpdateSAMLProvider"
 // See UpdateSAMLProvider for more information on using the UpdateSAMLProvider
 // API call, and error handling.
 //
-//	// Example sending a request using the UpdateSAMLProviderRequest method.
-//	req, resp := client.UpdateSAMLProviderRequest(params)
+//    // Example sending a request using the UpdateSAMLProviderRequest method.
+//    req, resp := client.UpdateSAMLProviderRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *IAM) UpdateSAMLProviderRequest(input *UpdateSAMLProviderInput) (req *request.Request, output *UpdateSAMLProviderOutput) {
 	op := &request.Operation{
 		Name:       opUpdateSAMLProvider,
