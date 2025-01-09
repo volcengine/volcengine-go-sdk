@@ -144,8 +144,7 @@ type ModifyCustomizedCfgAttributesInput struct {
 
 	CustomizedCfgContent *string `min:"1" max:"4096" type:"string"`
 
-	// CustomizedCfgId is a required field
-	CustomizedCfgId *string `type:"string" required:"true"`
+	CustomizedCfgId *string `type:"string"`
 
 	CustomizedCfgName *string `min:"1" max:"128" type:"string"`
 
@@ -170,9 +169,6 @@ func (s *ModifyCustomizedCfgAttributesInput) Validate() error {
 	}
 	if s.CustomizedCfgContent != nil && len(*s.CustomizedCfgContent) > 4096 {
 		invalidParams.Add(request.NewErrParamMaxLen("CustomizedCfgContent", 4096, *s.CustomizedCfgContent))
-	}
-	if s.CustomizedCfgId == nil {
-		invalidParams.Add(request.NewErrParamRequired("CustomizedCfgId"))
 	}
 	if s.CustomizedCfgName != nil && len(*s.CustomizedCfgName) < 1 {
 		invalidParams.Add(request.NewErrParamMinLen("CustomizedCfgName", 1))

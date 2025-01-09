@@ -144,18 +144,15 @@ type UploadCertificateInput struct {
 
 	CertificateName *string `min:"1" max:"128" type:"string"`
 
-	// CertificateType is a required field
-	CertificateType *string `type:"string" required:"true"`
+	CertificateType *string `type:"string"`
 
 	Description *string `type:"string"`
 
-	// PrivateKey is a required field
-	PrivateKey *string `type:"string" required:"true"`
+	PrivateKey *string `type:"string"`
 
 	ProjectName *string `type:"string"`
 
-	// PublicKey is a required field
-	PublicKey *string `type:"string" required:"true"`
+	PublicKey *string `type:"string"`
 }
 
 // String returns the string representation
@@ -176,15 +173,6 @@ func (s *UploadCertificateInput) Validate() error {
 	}
 	if s.CertificateName != nil && len(*s.CertificateName) > 128 {
 		invalidParams.Add(request.NewErrParamMaxLen("CertificateName", 128, *s.CertificateName))
-	}
-	if s.CertificateType == nil {
-		invalidParams.Add(request.NewErrParamRequired("CertificateType"))
-	}
-	if s.PrivateKey == nil {
-		invalidParams.Add(request.NewErrParamRequired("PrivateKey"))
-	}
-	if s.PublicKey == nil {
-		invalidParams.Add(request.NewErrParamRequired("PublicKey"))
 	}
 
 	if invalidParams.Len() > 0 {

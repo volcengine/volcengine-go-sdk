@@ -290,6 +290,8 @@ type HealthCheckForDescribeServerGroupsOutput struct {
 
 	Method *string `type:"string"`
 
+	Port *int64 `max:"65535" type:"integer"`
+
 	Protocol *string `type:"string"`
 
 	Timeout *int64 `type:"integer"`
@@ -351,6 +353,12 @@ func (s *HealthCheckForDescribeServerGroupsOutput) SetMethod(v string) *HealthCh
 	return s
 }
 
+// SetPort sets the Port field's value.
+func (s *HealthCheckForDescribeServerGroupsOutput) SetPort(v int64) *HealthCheckForDescribeServerGroupsOutput {
+	s.Port = &v
+	return s
+}
+
 // SetProtocol sets the Protocol field's value.
 func (s *HealthCheckForDescribeServerGroupsOutput) SetProtocol(v string) *HealthCheckForDescribeServerGroupsOutput {
 	s.Protocol = &v
@@ -387,6 +395,8 @@ type ServerGroupForDescribeServerGroupsOutput struct {
 	Listeners []*string `type:"list"`
 
 	ProjectName *string `type:"string"`
+
+	Protocol *string `type:"string"`
 
 	Scheduler *string `type:"string"`
 
@@ -446,6 +456,12 @@ func (s *ServerGroupForDescribeServerGroupsOutput) SetListeners(v []*string) *Se
 // SetProjectName sets the ProjectName field's value.
 func (s *ServerGroupForDescribeServerGroupsOutput) SetProjectName(v string) *ServerGroupForDescribeServerGroupsOutput {
 	s.ProjectName = &v
+	return s
+}
+
+// SetProtocol sets the Protocol field's value.
+func (s *ServerGroupForDescribeServerGroupsOutput) SetProtocol(v string) *ServerGroupForDescribeServerGroupsOutput {
+	s.Protocol = &v
 	return s
 }
 

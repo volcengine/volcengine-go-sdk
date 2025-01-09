@@ -142,11 +142,9 @@ func (c *ALB) CreateCustomizedCfgWithContext(ctx volcengine.Context, input *Crea
 type CreateCustomizedCfgInput struct {
 	_ struct{} `type:"structure"`
 
-	// CustomizedCfgContent is a required field
-	CustomizedCfgContent *string `min:"1" max:"4096" type:"string" required:"true"`
+	CustomizedCfgContent *string `min:"1" max:"4096" type:"string"`
 
-	// CustomizedCfgName is a required field
-	CustomizedCfgName *string `min:"1" max:"128" type:"string" required:"true"`
+	CustomizedCfgName *string `min:"1" max:"128" type:"string"`
 
 	Description *string `min:"1" max:"255" type:"string"`
 
@@ -166,17 +164,11 @@ func (s CreateCustomizedCfgInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *CreateCustomizedCfgInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "CreateCustomizedCfgInput"}
-	if s.CustomizedCfgContent == nil {
-		invalidParams.Add(request.NewErrParamRequired("CustomizedCfgContent"))
-	}
 	if s.CustomizedCfgContent != nil && len(*s.CustomizedCfgContent) < 1 {
 		invalidParams.Add(request.NewErrParamMinLen("CustomizedCfgContent", 1))
 	}
 	if s.CustomizedCfgContent != nil && len(*s.CustomizedCfgContent) > 4096 {
 		invalidParams.Add(request.NewErrParamMaxLen("CustomizedCfgContent", 4096, *s.CustomizedCfgContent))
-	}
-	if s.CustomizedCfgName == nil {
-		invalidParams.Add(request.NewErrParamRequired("CustomizedCfgName"))
 	}
 	if s.CustomizedCfgName != nil && len(*s.CustomizedCfgName) < 1 {
 		invalidParams.Add(request.NewErrParamMinLen("CustomizedCfgName", 1))

@@ -142,8 +142,7 @@ func (c *ALB) DeleteHealthCheckTemplatesWithContext(ctx volcengine.Context, inpu
 type DeleteHealthCheckTemplatesInput struct {
 	_ struct{} `type:"structure"`
 
-	// HealthCheckTemplateIds is a required field
-	HealthCheckTemplateIds []*string `type:"list" required:"true"`
+	HealthCheckTemplateIds []*string `type:"list"`
 }
 
 // String returns the string representation
@@ -154,19 +153,6 @@ func (s DeleteHealthCheckTemplatesInput) String() string {
 // GoString returns the string representation
 func (s DeleteHealthCheckTemplatesInput) GoString() string {
 	return s.String()
-}
-
-// Validate inspects the fields of the type to determine if they are valid.
-func (s *DeleteHealthCheckTemplatesInput) Validate() error {
-	invalidParams := request.ErrInvalidParams{Context: "DeleteHealthCheckTemplatesInput"}
-	if s.HealthCheckTemplateIds == nil {
-		invalidParams.Add(request.NewErrParamRequired("HealthCheckTemplateIds"))
-	}
-
-	if invalidParams.Len() > 0 {
-		return invalidParams
-	}
-	return nil
 }
 
 // SetHealthCheckTemplateIds sets the HealthCheckTemplateIds field's value.

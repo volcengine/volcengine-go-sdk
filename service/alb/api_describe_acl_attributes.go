@@ -172,8 +172,7 @@ func (s *AclEntryForDescribeAclAttributesOutput) SetEntry(v string) *AclEntryFor
 type DescribeAclAttributesInput struct {
 	_ struct{} `type:"structure"`
 
-	// AclId is a required field
-	AclId *string `type:"string" required:"true"`
+	AclId *string `type:"string"`
 }
 
 // String returns the string representation
@@ -184,19 +183,6 @@ func (s DescribeAclAttributesInput) String() string {
 // GoString returns the string representation
 func (s DescribeAclAttributesInput) GoString() string {
 	return s.String()
-}
-
-// Validate inspects the fields of the type to determine if they are valid.
-func (s *DescribeAclAttributesInput) Validate() error {
-	invalidParams := request.ErrInvalidParams{Context: "DescribeAclAttributesInput"}
-	if s.AclId == nil {
-		invalidParams.Add(request.NewErrParamRequired("AclId"))
-	}
-
-	if invalidParams.Len() > 0 {
-		return invalidParams
-	}
-	return nil
 }
 
 // SetAclId sets the AclId field's value.

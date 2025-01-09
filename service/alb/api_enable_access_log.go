@@ -142,11 +142,9 @@ func (c *ALB) EnableAccessLogWithContext(ctx volcengine.Context, input *EnableAc
 type EnableAccessLogInput struct {
 	_ struct{} `type:"structure"`
 
-	// BucketName is a required field
-	BucketName *string `type:"string" required:"true"`
+	BucketName *string `type:"string"`
 
-	// LoadBalancerId is a required field
-	LoadBalancerId *string `type:"string" required:"true"`
+	LoadBalancerId *string `type:"string"`
 }
 
 // String returns the string representation
@@ -157,22 +155,6 @@ func (s EnableAccessLogInput) String() string {
 // GoString returns the string representation
 func (s EnableAccessLogInput) GoString() string {
 	return s.String()
-}
-
-// Validate inspects the fields of the type to determine if they are valid.
-func (s *EnableAccessLogInput) Validate() error {
-	invalidParams := request.ErrInvalidParams{Context: "EnableAccessLogInput"}
-	if s.BucketName == nil {
-		invalidParams.Add(request.NewErrParamRequired("BucketName"))
-	}
-	if s.LoadBalancerId == nil {
-		invalidParams.Add(request.NewErrParamRequired("LoadBalancerId"))
-	}
-
-	if invalidParams.Len() > 0 {
-		return invalidParams
-	}
-	return nil
 }
 
 // SetBucketName sets the BucketName field's value.

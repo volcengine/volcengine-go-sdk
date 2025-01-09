@@ -139,6 +139,52 @@ func (c *ALB) ModifyLoadBalancerAttributesWithContext(ctx volcengine.Context, in
 	return out, req.Send()
 }
 
+type GlobalAcceleratorForModifyLoadBalancerAttributesInput struct {
+	_ struct{} `type:"structure"`
+
+	AcceleratorId *string `type:"string"`
+
+	AcceleratorListenerId *string `type:"string"`
+
+	EndpointGroupId *string `type:"string"`
+
+	Weight *int64 `type:"integer"`
+}
+
+// String returns the string representation
+func (s GlobalAcceleratorForModifyLoadBalancerAttributesInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s GlobalAcceleratorForModifyLoadBalancerAttributesInput) GoString() string {
+	return s.String()
+}
+
+// SetAcceleratorId sets the AcceleratorId field's value.
+func (s *GlobalAcceleratorForModifyLoadBalancerAttributesInput) SetAcceleratorId(v string) *GlobalAcceleratorForModifyLoadBalancerAttributesInput {
+	s.AcceleratorId = &v
+	return s
+}
+
+// SetAcceleratorListenerId sets the AcceleratorListenerId field's value.
+func (s *GlobalAcceleratorForModifyLoadBalancerAttributesInput) SetAcceleratorListenerId(v string) *GlobalAcceleratorForModifyLoadBalancerAttributesInput {
+	s.AcceleratorListenerId = &v
+	return s
+}
+
+// SetEndpointGroupId sets the EndpointGroupId field's value.
+func (s *GlobalAcceleratorForModifyLoadBalancerAttributesInput) SetEndpointGroupId(v string) *GlobalAcceleratorForModifyLoadBalancerAttributesInput {
+	s.EndpointGroupId = &v
+	return s
+}
+
+// SetWeight sets the Weight field's value.
+func (s *GlobalAcceleratorForModifyLoadBalancerAttributesInput) SetWeight(v int64) *GlobalAcceleratorForModifyLoadBalancerAttributesInput {
+	s.Weight = &v
+	return s
+}
+
 type ModifyLoadBalancerAttributesInput struct {
 	_ struct{} `type:"structure"`
 
@@ -146,19 +192,21 @@ type ModifyLoadBalancerAttributesInput struct {
 
 	Description *string `type:"string"`
 
-	// LoadBalancerId is a required field
-	LoadBalancerId *string `type:"string" required:"true"`
+	GlobalAccelerator *GlobalAcceleratorForModifyLoadBalancerAttributesInput `type:"structure"`
+
+	LoadBalancerId *string `type:"string"`
 
 	LoadBalancerName *string `type:"string"`
 
-	// WafInstanceId is a required field
-	WafInstanceId *string `type:"string" required:"true"`
+	ModificationProtectionReason *string `type:"string"`
 
-	// WafProtectedDomain is a required field
-	WafProtectedDomain *string `type:"string" required:"true"`
+	ModificationProtectionStatus *string `type:"string"`
 
-	// WafProtectionEnabled is a required field
-	WafProtectionEnabled *string `type:"string" required:"true"`
+	WafInstanceId *string `type:"string"`
+
+	WafProtectedDomain *string `type:"string"`
+
+	WafProtectionEnabled *string `type:"string"`
 }
 
 // String returns the string representation
@@ -169,28 +217,6 @@ func (s ModifyLoadBalancerAttributesInput) String() string {
 // GoString returns the string representation
 func (s ModifyLoadBalancerAttributesInput) GoString() string {
 	return s.String()
-}
-
-// Validate inspects the fields of the type to determine if they are valid.
-func (s *ModifyLoadBalancerAttributesInput) Validate() error {
-	invalidParams := request.ErrInvalidParams{Context: "ModifyLoadBalancerAttributesInput"}
-	if s.LoadBalancerId == nil {
-		invalidParams.Add(request.NewErrParamRequired("LoadBalancerId"))
-	}
-	if s.WafInstanceId == nil {
-		invalidParams.Add(request.NewErrParamRequired("WafInstanceId"))
-	}
-	if s.WafProtectedDomain == nil {
-		invalidParams.Add(request.NewErrParamRequired("WafProtectedDomain"))
-	}
-	if s.WafProtectionEnabled == nil {
-		invalidParams.Add(request.NewErrParamRequired("WafProtectionEnabled"))
-	}
-
-	if invalidParams.Len() > 0 {
-		return invalidParams
-	}
-	return nil
 }
 
 // SetDeleteProtection sets the DeleteProtection field's value.
@@ -205,6 +231,12 @@ func (s *ModifyLoadBalancerAttributesInput) SetDescription(v string) *ModifyLoad
 	return s
 }
 
+// SetGlobalAccelerator sets the GlobalAccelerator field's value.
+func (s *ModifyLoadBalancerAttributesInput) SetGlobalAccelerator(v *GlobalAcceleratorForModifyLoadBalancerAttributesInput) *ModifyLoadBalancerAttributesInput {
+	s.GlobalAccelerator = v
+	return s
+}
+
 // SetLoadBalancerId sets the LoadBalancerId field's value.
 func (s *ModifyLoadBalancerAttributesInput) SetLoadBalancerId(v string) *ModifyLoadBalancerAttributesInput {
 	s.LoadBalancerId = &v
@@ -214,6 +246,18 @@ func (s *ModifyLoadBalancerAttributesInput) SetLoadBalancerId(v string) *ModifyL
 // SetLoadBalancerName sets the LoadBalancerName field's value.
 func (s *ModifyLoadBalancerAttributesInput) SetLoadBalancerName(v string) *ModifyLoadBalancerAttributesInput {
 	s.LoadBalancerName = &v
+	return s
+}
+
+// SetModificationProtectionReason sets the ModificationProtectionReason field's value.
+func (s *ModifyLoadBalancerAttributesInput) SetModificationProtectionReason(v string) *ModifyLoadBalancerAttributesInput {
+	s.ModificationProtectionReason = &v
+	return s
+}
+
+// SetModificationProtectionStatus sets the ModificationProtectionStatus field's value.
+func (s *ModifyLoadBalancerAttributesInput) SetModificationProtectionStatus(v string) *ModifyLoadBalancerAttributesInput {
+	s.ModificationProtectionStatus = &v
 	return s
 }
 

@@ -142,8 +142,7 @@ func (c *ALB) DeleteLoadBalancerWithContext(ctx volcengine.Context, input *Delet
 type DeleteLoadBalancerInput struct {
 	_ struct{} `type:"structure"`
 
-	// LoadBalancerId is a required field
-	LoadBalancerId *string `type:"string" required:"true"`
+	LoadBalancerId *string `type:"string"`
 }
 
 // String returns the string representation
@@ -154,19 +153,6 @@ func (s DeleteLoadBalancerInput) String() string {
 // GoString returns the string representation
 func (s DeleteLoadBalancerInput) GoString() string {
 	return s.String()
-}
-
-// Validate inspects the fields of the type to determine if they are valid.
-func (s *DeleteLoadBalancerInput) Validate() error {
-	invalidParams := request.ErrInvalidParams{Context: "DeleteLoadBalancerInput"}
-	if s.LoadBalancerId == nil {
-		invalidParams.Add(request.NewErrParamRequired("LoadBalancerId"))
-	}
-
-	if invalidParams.Len() > 0 {
-		return invalidParams
-	}
-	return nil
 }
 
 // SetLoadBalancerId sets the LoadBalancerId field's value.
