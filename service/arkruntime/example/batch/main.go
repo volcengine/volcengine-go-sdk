@@ -27,7 +27,7 @@ func main() {
 		go func(index int) {
 			defer wg.Done()
 			for j := 0; j < taskNum; j++ {
-				resp, err := client.CreateBatchChatCompletion(ctx, model.ChatCompletionRequest{
+				resp, err := client.CreateBatchChatCompletion(ctx, model.CreateChatCompletionRequest{
 					Model: "${YOUR_BOT_ID}",
 					Messages: []*model.ChatCompletionMessage{
 						{

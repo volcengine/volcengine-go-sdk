@@ -13,7 +13,7 @@ const batchChatCompletionsSuffix = "/batch/chat/completions"
 // CreateBatchChatCompletion — API call to Create a batch completion for the chat message.
 func (c *Client) CreateBatchChatCompletion(
 	ctx context.Context,
-	request model.ChatCompletionRequest,
+	request model.ChatRequest,
 	setters ...requestOption,
 ) (response model.ChatCompletionResponse, err error) {
 	if request.IsStream() {

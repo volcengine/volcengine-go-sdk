@@ -29,7 +29,7 @@ func main() {
 	ctx := context.Background()
 
 	fmt.Println("----- function call request -----")
-	req := model.ChatCompletionRequest{
+	req := model.CreateChatCompletionRequest{
 		Model: "${YOUR_ENDPOINT_ID}",
 		Messages: []*model.ChatCompletionMessage{
 			{

@@ -29,7 +29,7 @@ func main() {
 	ctx := context.Background()
 
 	fmt.Println("----- standard request -----")
-	req := model.ChatCompletionRequest{
+	req := model.CreateChatCompletionRequest{
 		Model: "${YOUR_ENDPOINT_ID}",
 		Messages: []*model.ChatCompletionMessage{
 			{
@@ -55,7 +55,7 @@ func main() {
 	fmt.Println(*resp.Choices[0].Message.Content.StringValue)
 
 	fmt.Println("----- streaming request -----")
-	req = model.ChatCompletionRequest{
+	req = model.CreateChatCompletionRequest{
 		Model: "${YOUR_ENDPOINT_ID}",
 		Messages: []*model.ChatCompletionMessage{
 			{
