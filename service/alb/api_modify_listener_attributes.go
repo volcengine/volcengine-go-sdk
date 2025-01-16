@@ -204,6 +204,8 @@ func (s *DomainExtensionForModifyListenerAttributesInput) SetDomainExtensionId(v
 type ModifyListenerAttributesInput struct {
 	_ struct{} `type:"structure"`
 
+	AccessLogRecordCustomizedHeadersEnabled *string `type:"string"`
+
 	AclIds []*string `type:"list"`
 
 	AclStatus *string `type:"string"`
@@ -232,8 +234,7 @@ type ModifyListenerAttributesInput struct {
 
 	Enabled *string `type:"string"`
 
-	// ListenerId is a required field
-	ListenerId *string `type:"string" required:"true"`
+	ListenerId *string `type:"string"`
 
 	ListenerName *string `min:"1" max:"128" type:"string"`
 
@@ -255,9 +256,6 @@ func (s ModifyListenerAttributesInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *ModifyListenerAttributesInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "ModifyListenerAttributesInput"}
-	if s.ListenerId == nil {
-		invalidParams.Add(request.NewErrParamRequired("ListenerId"))
-	}
 	if s.ListenerName != nil && len(*s.ListenerName) < 1 {
 		invalidParams.Add(request.NewErrParamMinLen("ListenerName", 1))
 	}
@@ -269,6 +267,12 @@ func (s *ModifyListenerAttributesInput) Validate() error {
 		return invalidParams
 	}
 	return nil
+}
+
+// SetAccessLogRecordCustomizedHeadersEnabled sets the AccessLogRecordCustomizedHeadersEnabled field's value.
+func (s *ModifyListenerAttributesInput) SetAccessLogRecordCustomizedHeadersEnabled(v string) *ModifyListenerAttributesInput {
+	s.AccessLogRecordCustomizedHeadersEnabled = &v
+	return s
 }
 
 // SetAclIds sets the AclIds field's value.

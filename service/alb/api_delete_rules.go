@@ -142,11 +142,9 @@ func (c *ALB) DeleteRulesWithContext(ctx volcengine.Context, input *DeleteRulesI
 type DeleteRulesInput struct {
 	_ struct{} `type:"structure"`
 
-	// ListenerId is a required field
-	ListenerId *string `type:"string" required:"true"`
+	ListenerId *string `type:"string"`
 
-	// RuleIds is a required field
-	RuleIds []*string `type:"list" required:"true"`
+	RuleIds []*string `type:"list"`
 }
 
 // String returns the string representation
@@ -157,22 +155,6 @@ func (s DeleteRulesInput) String() string {
 // GoString returns the string representation
 func (s DeleteRulesInput) GoString() string {
 	return s.String()
-}
-
-// Validate inspects the fields of the type to determine if they are valid.
-func (s *DeleteRulesInput) Validate() error {
-	invalidParams := request.ErrInvalidParams{Context: "DeleteRulesInput"}
-	if s.ListenerId == nil {
-		invalidParams.Add(request.NewErrParamRequired("ListenerId"))
-	}
-	if s.RuleIds == nil {
-		invalidParams.Add(request.NewErrParamRequired("RuleIds"))
-	}
-
-	if invalidParams.Len() > 0 {
-		return invalidParams
-	}
-	return nil
 }
 
 // SetListenerId sets the ListenerId field's value.

@@ -510,6 +510,10 @@ type LoadBalancerForDescribeLoadBalancersOutput struct {
 
 	LockReason *string `type:"string"`
 
+	ModificationProtectionReason *string `type:"string"`
+
+	ModificationProtectionStatus *string `type:"string"`
+
 	OverdueTime *string `type:"string"`
 
 	ProjectName *string `type:"string"`
@@ -638,6 +642,18 @@ func (s *LoadBalancerForDescribeLoadBalancersOutput) SetLocalAddresses(v []*stri
 // SetLockReason sets the LockReason field's value.
 func (s *LoadBalancerForDescribeLoadBalancersOutput) SetLockReason(v string) *LoadBalancerForDescribeLoadBalancersOutput {
 	s.LockReason = &v
+	return s
+}
+
+// SetModificationProtectionReason sets the ModificationProtectionReason field's value.
+func (s *LoadBalancerForDescribeLoadBalancersOutput) SetModificationProtectionReason(v string) *LoadBalancerForDescribeLoadBalancersOutput {
+	s.ModificationProtectionReason = &v
+	return s
+}
+
+// SetModificationProtectionStatus sets the ModificationProtectionStatus field's value.
+func (s *LoadBalancerForDescribeLoadBalancersOutput) SetModificationProtectionStatus(v string) *LoadBalancerForDescribeLoadBalancersOutput {
+	s.ModificationProtectionStatus = &v
 	return s
 }
 

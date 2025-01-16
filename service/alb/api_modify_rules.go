@@ -212,11 +212,9 @@ func (s *ForwardGroupConfigServerGroupTupleForModifyRulesInput) SetWeight(v int6
 type ModifyRulesInput struct {
 	_ struct{} `type:"structure"`
 
-	// ListenerId is a required field
-	ListenerId *string `type:"string" required:"true"`
+	ListenerId *string `type:"string"`
 
-	// Rules is a required field
-	Rules []*RuleForModifyRulesInput `type:"list" required:"true"`
+	Rules []*RuleForModifyRulesInput `type:"list"`
 }
 
 // String returns the string representation
@@ -232,12 +230,6 @@ func (s ModifyRulesInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *ModifyRulesInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "ModifyRulesInput"}
-	if s.ListenerId == nil {
-		invalidParams.Add(request.NewErrParamRequired("ListenerId"))
-	}
-	if s.Rules == nil {
-		invalidParams.Add(request.NewErrParamRequired("Rules"))
-	}
 	if s.Rules != nil {
 		for i, v := range s.Rules {
 			if v == nil {

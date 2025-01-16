@@ -142,8 +142,7 @@ func (c *ALB) DescribeRulesWithContext(ctx volcengine.Context, input *DescribeRu
 type DescribeRulesInput struct {
 	_ struct{} `type:"structure"`
 
-	// ListenerId is a required field
-	ListenerId *string `type:"string" required:"true"`
+	ListenerId *string `type:"string"`
 }
 
 // String returns the string representation
@@ -154,19 +153,6 @@ func (s DescribeRulesInput) String() string {
 // GoString returns the string representation
 func (s DescribeRulesInput) GoString() string {
 	return s.String()
-}
-
-// Validate inspects the fields of the type to determine if they are valid.
-func (s *DescribeRulesInput) Validate() error {
-	invalidParams := request.ErrInvalidParams{Context: "DescribeRulesInput"}
-	if s.ListenerId == nil {
-		invalidParams.Add(request.NewErrParamRequired("ListenerId"))
-	}
-
-	if invalidParams.Len() > 0 {
-		return invalidParams
-	}
-	return nil
 }
 
 // SetListenerId sets the ListenerId field's value.

@@ -152,8 +152,7 @@ type ReplaceCertificateInput struct {
 
 	Description *string `type:"string"`
 
-	// OldCertificateId is a required field
-	OldCertificateId *string `type:"string" required:"true"`
+	OldCertificateId *string `type:"string"`
 
 	PrivateKey *string `type:"string"`
 
@@ -161,8 +160,7 @@ type ReplaceCertificateInput struct {
 
 	PublicKey *string `type:"string"`
 
-	// UpdateMode is a required field
-	UpdateMode *string `type:"string" required:"true"`
+	UpdateMode *string `type:"string"`
 }
 
 // String returns the string representation
@@ -183,12 +181,6 @@ func (s *ReplaceCertificateInput) Validate() error {
 	}
 	if s.CertificateName != nil && len(*s.CertificateName) > 128 {
 		invalidParams.Add(request.NewErrParamMaxLen("CertificateName", 128, *s.CertificateName))
-	}
-	if s.OldCertificateId == nil {
-		invalidParams.Add(request.NewErrParamRequired("OldCertificateId"))
-	}
-	if s.UpdateMode == nil {
-		invalidParams.Add(request.NewErrParamRequired("UpdateMode"))
 	}
 
 	if invalidParams.Len() > 0 {

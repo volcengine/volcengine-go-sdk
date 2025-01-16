@@ -142,8 +142,7 @@ func (c *ALB) DeleteAclWithContext(ctx volcengine.Context, input *DeleteAclInput
 type DeleteAclInput struct {
 	_ struct{} `type:"structure"`
 
-	// AclId is a required field
-	AclId *string `type:"string" required:"true"`
+	AclId *string `type:"string"`
 }
 
 // String returns the string representation
@@ -154,19 +153,6 @@ func (s DeleteAclInput) String() string {
 // GoString returns the string representation
 func (s DeleteAclInput) GoString() string {
 	return s.String()
-}
-
-// Validate inspects the fields of the type to determine if they are valid.
-func (s *DeleteAclInput) Validate() error {
-	invalidParams := request.ErrInvalidParams{Context: "DeleteAclInput"}
-	if s.AclId == nil {
-		invalidParams.Add(request.NewErrParamRequired("AclId"))
-	}
-
-	if invalidParams.Len() > 0 {
-		return invalidParams
-	}
-	return nil
 }
 
 // SetAclId sets the AclId field's value.

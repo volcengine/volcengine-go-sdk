@@ -142,8 +142,7 @@ func (c *ALB) DeleteServerGroupWithContext(ctx volcengine.Context, input *Delete
 type DeleteServerGroupInput struct {
 	_ struct{} `type:"structure"`
 
-	// ServerGroupId is a required field
-	ServerGroupId *string `type:"string" required:"true"`
+	ServerGroupId *string `type:"string"`
 }
 
 // String returns the string representation
@@ -154,19 +153,6 @@ func (s DeleteServerGroupInput) String() string {
 // GoString returns the string representation
 func (s DeleteServerGroupInput) GoString() string {
 	return s.String()
-}
-
-// Validate inspects the fields of the type to determine if they are valid.
-func (s *DeleteServerGroupInput) Validate() error {
-	invalidParams := request.ErrInvalidParams{Context: "DeleteServerGroupInput"}
-	if s.ServerGroupId == nil {
-		invalidParams.Add(request.NewErrParamRequired("ServerGroupId"))
-	}
-
-	if invalidParams.Len() > 0 {
-		return invalidParams
-	}
-	return nil
 }
 
 // SetServerGroupId sets the ServerGroupId field's value.

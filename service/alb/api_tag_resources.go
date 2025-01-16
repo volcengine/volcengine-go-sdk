@@ -188,14 +188,11 @@ func (s *TagForTagResourcesInput) SetValue(v string) *TagForTagResourcesInput {
 type TagResourcesInput struct {
 	_ struct{} `type:"structure"`
 
-	// ResourceIds is a required field
-	ResourceIds []*string `type:"list" required:"true"`
+	ResourceIds []*string `type:"list"`
 
-	// ResourceType is a required field
-	ResourceType *string `type:"string" required:"true" enum:"ResourceTypeForTagResourcesInput"`
+	ResourceType *string `type:"string" enum:"ResourceTypeForTagResourcesInput"`
 
-	// Tags is a required field
-	Tags []*TagForTagResourcesInput `type:"list" required:"true"`
+	Tags []*TagForTagResourcesInput `type:"list"`
 }
 
 // String returns the string representation
@@ -211,15 +208,6 @@ func (s TagResourcesInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *TagResourcesInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "TagResourcesInput"}
-	if s.ResourceIds == nil {
-		invalidParams.Add(request.NewErrParamRequired("ResourceIds"))
-	}
-	if s.ResourceType == nil {
-		invalidParams.Add(request.NewErrParamRequired("ResourceType"))
-	}
-	if s.Tags == nil {
-		invalidParams.Add(request.NewErrParamRequired("Tags"))
-	}
 	if s.Tags != nil {
 		for i, v := range s.Tags {
 			if v == nil {

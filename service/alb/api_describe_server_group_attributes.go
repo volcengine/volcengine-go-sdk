@@ -142,8 +142,7 @@ func (c *ALB) DescribeServerGroupAttributesWithContext(ctx volcengine.Context, i
 type DescribeServerGroupAttributesInput struct {
 	_ struct{} `type:"structure"`
 
-	// ServerGroupId is a required field
-	ServerGroupId *string `type:"string" required:"true"`
+	ServerGroupId *string `type:"string"`
 }
 
 // String returns the string representation
@@ -154,19 +153,6 @@ func (s DescribeServerGroupAttributesInput) String() string {
 // GoString returns the string representation
 func (s DescribeServerGroupAttributesInput) GoString() string {
 	return s.String()
-}
-
-// Validate inspects the fields of the type to determine if they are valid.
-func (s *DescribeServerGroupAttributesInput) Validate() error {
-	invalidParams := request.ErrInvalidParams{Context: "DescribeServerGroupAttributesInput"}
-	if s.ServerGroupId == nil {
-		invalidParams.Add(request.NewErrParamRequired("ServerGroupId"))
-	}
-
-	if invalidParams.Len() > 0 {
-		return invalidParams
-	}
-	return nil
 }
 
 // SetServerGroupId sets the ServerGroupId field's value.
@@ -187,6 +173,8 @@ type DescribeServerGroupAttributesOutput struct {
 	Listeners []*string `type:"list"`
 
 	ProjectName *string `type:"string"`
+
+	Protocol *string `type:"string"`
 
 	RequestId *string `type:"string"`
 
@@ -240,6 +228,12 @@ func (s *DescribeServerGroupAttributesOutput) SetListeners(v []*string) *Describ
 // SetProjectName sets the ProjectName field's value.
 func (s *DescribeServerGroupAttributesOutput) SetProjectName(v string) *DescribeServerGroupAttributesOutput {
 	s.ProjectName = &v
+	return s
+}
+
+// SetProtocol sets the Protocol field's value.
+func (s *DescribeServerGroupAttributesOutput) SetProtocol(v string) *DescribeServerGroupAttributesOutput {
+	s.Protocol = &v
 	return s
 }
 
@@ -320,6 +314,8 @@ type HealthCheckForDescribeServerGroupAttributesOutput struct {
 
 	Method *string `type:"string"`
 
+	Port *int64 `max:"65535" type:"integer"`
+
 	Protocol *string `type:"string"`
 
 	Timeout *int64 `type:"integer"`
@@ -378,6 +374,12 @@ func (s *HealthCheckForDescribeServerGroupAttributesOutput) SetInterval(v int64)
 // SetMethod sets the Method field's value.
 func (s *HealthCheckForDescribeServerGroupAttributesOutput) SetMethod(v string) *HealthCheckForDescribeServerGroupAttributesOutput {
 	s.Method = &v
+	return s
+}
+
+// SetPort sets the Port field's value.
+func (s *HealthCheckForDescribeServerGroupAttributesOutput) SetPort(v int64) *HealthCheckForDescribeServerGroupAttributesOutput {
+	s.Port = &v
 	return s
 }
 
