@@ -22,13 +22,13 @@ const opGetApiKeyCommon = "GetApiKey"
 // See GetApiKeyCommon for more information on using the GetApiKeyCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the GetApiKeyCommonRequest method.
-//	req, resp := client.GetApiKeyCommonRequest(params)
+//    // Example sending a request using the GetApiKeyCommonRequest method.
+//    req, resp := client.GetApiKeyCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *ARK) GetApiKeyCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opGetApiKeyCommon,
@@ -89,13 +89,13 @@ const opGetApiKey = "GetApiKey"
 // See GetApiKey for more information on using the GetApiKey
 // API call, and error handling.
 //
-//	// Example sending a request using the GetApiKeyRequest method.
-//	req, resp := client.GetApiKeyRequest(params)
+//    // Example sending a request using the GetApiKeyRequest method.
+//    req, resp := client.GetApiKeyRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *ARK) GetApiKeyRequest(input *GetApiKeyInput) (req *request.Request, output *GetApiKeyOutput) {
 	op := &request.Operation{
 		Name:       opGetApiKey,
@@ -144,15 +144,15 @@ func (c *ARK) GetApiKeyWithContext(ctx volcengine.Context, input *GetApiKeyInput
 }
 
 type GetApiKeyInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// DurationSeconds is a required field
-	DurationSeconds *int32 `type:"int32" required:"true"`
+	DurationSeconds *int32 `type:"int32" json:",omitempty" required:"true"`
 
-	ResourceIds []*string `type:"list"`
+	ResourceIds []*string `type:"list" json:",omitempty"`
 
 	// ResourceType is a required field
-	ResourceType *string `type:"string" required:"true"`
+	ResourceType *string `type:"string" json:",omitempty" required:"true" enum:"EnumOfResourceTypeForGetApiKeyInput"`
 }
 
 // String returns the string representation
@@ -200,13 +200,13 @@ func (s *GetApiKeyInput) SetResourceType(v string) *GetApiKeyInput {
 }
 
 type GetApiKeyOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	ApiKey *string `type:"string"`
+	ApiKey *string `type:"string" json:",omitempty"`
 
-	ExpiredTime *int32 `type:"int32"`
+	ExpiredTime *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -230,3 +230,11 @@ func (s *GetApiKeyOutput) SetExpiredTime(v int32) *GetApiKeyOutput {
 	s.ExpiredTime = &v
 	return s
 }
+
+const (
+	// EnumOfResourceTypeForGetApiKeyInputEndpoint is a EnumOfResourceTypeForGetApiKeyInput enum value
+	EnumOfResourceTypeForGetApiKeyInputEndpoint = "endpoint"
+
+	// EnumOfResourceTypeForGetApiKeyInputBot is a EnumOfResourceTypeForGetApiKeyInput enum value
+	EnumOfResourceTypeForGetApiKeyInputBot = "bot"
+)
