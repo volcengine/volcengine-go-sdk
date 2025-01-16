@@ -142,8 +142,7 @@ func (c *ALB) ReplaceCACertificateWithContext(ctx volcengine.Context, input *Rep
 type ReplaceCACertificateInput struct {
 	_ struct{} `type:"structure"`
 
-	// CACertificate is a required field
-	CACertificate *string `type:"string" required:"true"`
+	CACertificate *string `type:"string"`
 
 	CACertificateId *string `type:"string"`
 
@@ -151,13 +150,11 @@ type ReplaceCACertificateInput struct {
 
 	Description *string `type:"string"`
 
-	// OldCACertificateId is a required field
-	OldCACertificateId *string `type:"string" required:"true"`
+	OldCACertificateId *string `type:"string"`
 
 	ProjectName *string `type:"string"`
 
-	// UpdateMode is a required field
-	UpdateMode *string `type:"string" required:"true"`
+	UpdateMode *string `type:"string"`
 }
 
 // String returns the string representation
@@ -173,20 +170,11 @@ func (s ReplaceCACertificateInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *ReplaceCACertificateInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "ReplaceCACertificateInput"}
-	if s.CACertificate == nil {
-		invalidParams.Add(request.NewErrParamRequired("CACertificate"))
-	}
 	if s.CACertificateName != nil && len(*s.CACertificateName) < 1 {
 		invalidParams.Add(request.NewErrParamMinLen("CACertificateName", 1))
 	}
 	if s.CACertificateName != nil && len(*s.CACertificateName) > 128 {
 		invalidParams.Add(request.NewErrParamMaxLen("CACertificateName", 128, *s.CACertificateName))
-	}
-	if s.OldCACertificateId == nil {
-		invalidParams.Add(request.NewErrParamRequired("OldCACertificateId"))
-	}
-	if s.UpdateMode == nil {
-		invalidParams.Add(request.NewErrParamRequired("UpdateMode"))
 	}
 
 	if invalidParams.Len() > 0 {

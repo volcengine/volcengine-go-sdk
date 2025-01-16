@@ -142,8 +142,7 @@ func (c *ALB) UploadCACertificateWithContext(ctx volcengine.Context, input *Uplo
 type UploadCACertificateInput struct {
 	_ struct{} `type:"structure"`
 
-	// CACertificate is a required field
-	CACertificate *string `type:"string" required:"true"`
+	CACertificate *string `type:"string"`
 
 	CACertificateName *string `min:"1" max:"128" type:"string"`
 
@@ -165,9 +164,6 @@ func (s UploadCACertificateInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *UploadCACertificateInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "UploadCACertificateInput"}
-	if s.CACertificate == nil {
-		invalidParams.Add(request.NewErrParamRequired("CACertificate"))
-	}
 	if s.CACertificateName != nil && len(*s.CACertificateName) < 1 {
 		invalidParams.Add(request.NewErrParamMinLen("CACertificateName", 1))
 	}

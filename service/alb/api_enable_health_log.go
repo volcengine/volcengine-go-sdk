@@ -142,14 +142,11 @@ func (c *ALB) EnableHealthLogWithContext(ctx volcengine.Context, input *EnableHe
 type EnableHealthLogInput struct {
 	_ struct{} `type:"structure"`
 
-	// LoadBalancerId is a required field
-	LoadBalancerId *string `type:"string" required:"true"`
+	LoadBalancerId *string `type:"string"`
 
-	// ProjectId is a required field
-	ProjectId *string `type:"string" required:"true"`
+	ProjectId *string `type:"string"`
 
-	// TopicId is a required field
-	TopicId *string `type:"string" required:"true"`
+	TopicId *string `type:"string"`
 }
 
 // String returns the string representation
@@ -160,25 +157,6 @@ func (s EnableHealthLogInput) String() string {
 // GoString returns the string representation
 func (s EnableHealthLogInput) GoString() string {
 	return s.String()
-}
-
-// Validate inspects the fields of the type to determine if they are valid.
-func (s *EnableHealthLogInput) Validate() error {
-	invalidParams := request.ErrInvalidParams{Context: "EnableHealthLogInput"}
-	if s.LoadBalancerId == nil {
-		invalidParams.Add(request.NewErrParamRequired("LoadBalancerId"))
-	}
-	if s.ProjectId == nil {
-		invalidParams.Add(request.NewErrParamRequired("ProjectId"))
-	}
-	if s.TopicId == nil {
-		invalidParams.Add(request.NewErrParamRequired("TopicId"))
-	}
-
-	if invalidParams.Len() > 0 {
-		return invalidParams
-	}
-	return nil
 }
 
 // SetLoadBalancerId sets the LoadBalancerId field's value.

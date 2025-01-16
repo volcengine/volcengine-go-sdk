@@ -142,8 +142,7 @@ func (c *ALB) DeleteCACertificateWithContext(ctx volcengine.Context, input *Dele
 type DeleteCACertificateInput struct {
 	_ struct{} `type:"structure"`
 
-	// CACertificateId is a required field
-	CACertificateId *string `type:"string" required:"true"`
+	CACertificateId *string `type:"string"`
 }
 
 // String returns the string representation
@@ -154,19 +153,6 @@ func (s DeleteCACertificateInput) String() string {
 // GoString returns the string representation
 func (s DeleteCACertificateInput) GoString() string {
 	return s.String()
-}
-
-// Validate inspects the fields of the type to determine if they are valid.
-func (s *DeleteCACertificateInput) Validate() error {
-	invalidParams := request.ErrInvalidParams{Context: "DeleteCACertificateInput"}
-	if s.CACertificateId == nil {
-		invalidParams.Add(request.NewErrParamRequired("CACertificateId"))
-	}
-
-	if invalidParams.Len() > 0 {
-		return invalidParams
-	}
-	return nil
 }
 
 // SetCACertificateId sets the CACertificateId field's value.

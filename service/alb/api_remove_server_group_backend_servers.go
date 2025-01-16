@@ -142,11 +142,9 @@ func (c *ALB) RemoveServerGroupBackendServersWithContext(ctx volcengine.Context,
 type RemoveServerGroupBackendServersInput struct {
 	_ struct{} `type:"structure"`
 
-	// ServerGroupId is a required field
-	ServerGroupId *string `type:"string" required:"true"`
+	ServerGroupId *string `type:"string"`
 
-	// ServerIds is a required field
-	ServerIds []*string `type:"list" required:"true"`
+	ServerIds []*string `type:"list"`
 }
 
 // String returns the string representation
@@ -157,22 +155,6 @@ func (s RemoveServerGroupBackendServersInput) String() string {
 // GoString returns the string representation
 func (s RemoveServerGroupBackendServersInput) GoString() string {
 	return s.String()
-}
-
-// Validate inspects the fields of the type to determine if they are valid.
-func (s *RemoveServerGroupBackendServersInput) Validate() error {
-	invalidParams := request.ErrInvalidParams{Context: "RemoveServerGroupBackendServersInput"}
-	if s.ServerGroupId == nil {
-		invalidParams.Add(request.NewErrParamRequired("ServerGroupId"))
-	}
-	if s.ServerIds == nil {
-		invalidParams.Add(request.NewErrParamRequired("ServerIds"))
-	}
-
-	if invalidParams.Len() > 0 {
-		return invalidParams
-	}
-	return nil
 }
 
 // SetServerGroupId sets the ServerGroupId field's value.

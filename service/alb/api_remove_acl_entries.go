@@ -142,11 +142,9 @@ func (c *ALB) RemoveAclEntriesWithContext(ctx volcengine.Context, input *RemoveA
 type RemoveAclEntriesInput struct {
 	_ struct{} `type:"structure"`
 
-	// AclId is a required field
-	AclId *string `type:"string" required:"true"`
+	AclId *string `type:"string"`
 
-	// Entries is a required field
-	Entries []*string `type:"list" required:"true"`
+	Entries []*string `type:"list"`
 }
 
 // String returns the string representation
@@ -157,22 +155,6 @@ func (s RemoveAclEntriesInput) String() string {
 // GoString returns the string representation
 func (s RemoveAclEntriesInput) GoString() string {
 	return s.String()
-}
-
-// Validate inspects the fields of the type to determine if they are valid.
-func (s *RemoveAclEntriesInput) Validate() error {
-	invalidParams := request.ErrInvalidParams{Context: "RemoveAclEntriesInput"}
-	if s.AclId == nil {
-		invalidParams.Add(request.NewErrParamRequired("AclId"))
-	}
-	if s.Entries == nil {
-		invalidParams.Add(request.NewErrParamRequired("Entries"))
-	}
-
-	if invalidParams.Len() > 0 {
-		return invalidParams
-	}
-	return nil
 }
 
 // SetAclId sets the AclId field's value.

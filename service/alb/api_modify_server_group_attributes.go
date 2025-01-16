@@ -156,6 +156,9 @@ type HealthCheckForModifyServerGroupAttributesInput struct {
 
 	Method *string `type:"string"`
 
+	// Port is a required field
+	Port *int64 `max:"65535" type:"integer" required:"true"`
+
 	Protocol *string `type:"string"`
 
 	Timeout *string `type:"string"`
@@ -173,6 +176,22 @@ func (s HealthCheckForModifyServerGroupAttributesInput) String() string {
 // GoString returns the string representation
 func (s HealthCheckForModifyServerGroupAttributesInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *HealthCheckForModifyServerGroupAttributesInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "HealthCheckForModifyServerGroupAttributesInput"}
+	if s.Port == nil {
+		invalidParams.Add(request.NewErrParamRequired("Port"))
+	}
+	if s.Port != nil && *s.Port > 65535 {
+		invalidParams.Add(request.NewErrParamMaxValue("Port", 65535))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetDomain sets the Domain field's value.
@@ -217,6 +236,12 @@ func (s *HealthCheckForModifyServerGroupAttributesInput) SetMethod(v string) *He
 	return s
 }
 
+// SetPort sets the Port field's value.
+func (s *HealthCheckForModifyServerGroupAttributesInput) SetPort(v int64) *HealthCheckForModifyServerGroupAttributesInput {
+	s.Port = &v
+	return s
+}
+
 // SetProtocol sets the Protocol field's value.
 func (s *HealthCheckForModifyServerGroupAttributesInput) SetProtocol(v string) *HealthCheckForModifyServerGroupAttributesInput {
 	s.Protocol = &v
@@ -250,8 +275,7 @@ type ModifyServerGroupAttributesInput struct {
 
 	Scheduler *string `type:"string"`
 
-	// ServerGroupId is a required field
-	ServerGroupId *string `type:"string" required:"true"`
+	ServerGroupId *string `type:"string"`
 
 	ServerGroupName *string `type:"string"`
 
@@ -271,8 +295,10 @@ func (s ModifyServerGroupAttributesInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *ModifyServerGroupAttributesInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "ModifyServerGroupAttributesInput"}
-	if s.ServerGroupId == nil {
-		invalidParams.Add(request.NewErrParamRequired("ServerGroupId"))
+	if s.HealthCheck != nil {
+		if err := s.HealthCheck.Validate(); err != nil {
+			invalidParams.AddNested("HealthCheck", err.(request.ErrInvalidParams))
+		}
 	}
 
 	if invalidParams.Len() > 0 {

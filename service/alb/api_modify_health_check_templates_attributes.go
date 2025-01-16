@@ -169,6 +169,9 @@ type HealthCheckTemplateForModifyHealthCheckTemplatesAttributesInput struct {
 
 	HealthyThreshold *int64 `type:"integer"`
 
+	// Port is a required field
+	Port *int64 `max:"65535" type:"integer" required:"true"`
+
 	UnhealthyThreshold *int64 `type:"integer"`
 }
 
@@ -199,6 +202,12 @@ func (s *HealthCheckTemplateForModifyHealthCheckTemplatesAttributesInput) Valida
 	}
 	if s.HealthCheckTemplateName != nil && len(*s.HealthCheckTemplateName) > 128 {
 		invalidParams.Add(request.NewErrParamMaxLen("HealthCheckTemplateName", 128, *s.HealthCheckTemplateName))
+	}
+	if s.Port == nil {
+		invalidParams.Add(request.NewErrParamRequired("Port"))
+	}
+	if s.Port != nil && *s.Port > 65535 {
+		invalidParams.Add(request.NewErrParamMaxValue("Port", 65535))
 	}
 
 	if invalidParams.Len() > 0 {
@@ -279,6 +288,12 @@ func (s *HealthCheckTemplateForModifyHealthCheckTemplatesAttributesInput) SetHea
 	return s
 }
 
+// SetPort sets the Port field's value.
+func (s *HealthCheckTemplateForModifyHealthCheckTemplatesAttributesInput) SetPort(v int64) *HealthCheckTemplateForModifyHealthCheckTemplatesAttributesInput {
+	s.Port = &v
+	return s
+}
+
 // SetUnhealthyThreshold sets the UnhealthyThreshold field's value.
 func (s *HealthCheckTemplateForModifyHealthCheckTemplatesAttributesInput) SetUnhealthyThreshold(v int64) *HealthCheckTemplateForModifyHealthCheckTemplatesAttributesInput {
 	s.UnhealthyThreshold = &v
@@ -288,8 +303,7 @@ func (s *HealthCheckTemplateForModifyHealthCheckTemplatesAttributesInput) SetUnh
 type ModifyHealthCheckTemplatesAttributesInput struct {
 	_ struct{} `type:"structure"`
 
-	// HealthCheckTemplates is a required field
-	HealthCheckTemplates []*HealthCheckTemplateForModifyHealthCheckTemplatesAttributesInput `type:"list" required:"true"`
+	HealthCheckTemplates []*HealthCheckTemplateForModifyHealthCheckTemplatesAttributesInput `type:"list"`
 }
 
 // String returns the string representation
@@ -305,9 +319,6 @@ func (s ModifyHealthCheckTemplatesAttributesInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *ModifyHealthCheckTemplatesAttributesInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "ModifyHealthCheckTemplatesAttributesInput"}
-	if s.HealthCheckTemplates == nil {
-		invalidParams.Add(request.NewErrParamRequired("HealthCheckTemplates"))
-	}
 	if s.HealthCheckTemplates != nil {
 		for i, v := range s.HealthCheckTemplates {
 			if v == nil {

@@ -268,6 +268,8 @@ type HealthCheckTemplateForDescribeHealthCheckTemplatesOutput struct {
 
 	HealthyThreshold *int64 `type:"integer"`
 
+	Port *int64 `max:"65535" type:"integer"`
+
 	UnhealthyThreshold *int64 `type:"integer"`
 }
 
@@ -350,6 +352,12 @@ func (s *HealthCheckTemplateForDescribeHealthCheckTemplatesOutput) SetHealthChec
 // SetHealthyThreshold sets the HealthyThreshold field's value.
 func (s *HealthCheckTemplateForDescribeHealthCheckTemplatesOutput) SetHealthyThreshold(v int64) *HealthCheckTemplateForDescribeHealthCheckTemplatesOutput {
 	s.HealthyThreshold = &v
+	return s
+}
+
+// SetPort sets the Port field's value.
+func (s *HealthCheckTemplateForDescribeHealthCheckTemplatesOutput) SetPort(v int64) *HealthCheckTemplateForDescribeHealthCheckTemplatesOutput {
+	s.Port = &v
 	return s
 }
 

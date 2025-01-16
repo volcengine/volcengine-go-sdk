@@ -142,8 +142,7 @@ func (c *ALB) DescribeCustomizedCfgAttributesWithContext(ctx volcengine.Context,
 type DescribeCustomizedCfgAttributesInput struct {
 	_ struct{} `type:"structure"`
 
-	// CustomizedCfgId is a required field
-	CustomizedCfgId *string `type:"string" required:"true"`
+	CustomizedCfgId *string `type:"string"`
 }
 
 // String returns the string representation
@@ -154,19 +153,6 @@ func (s DescribeCustomizedCfgAttributesInput) String() string {
 // GoString returns the string representation
 func (s DescribeCustomizedCfgAttributesInput) GoString() string {
 	return s.String()
-}
-
-// Validate inspects the fields of the type to determine if they are valid.
-func (s *DescribeCustomizedCfgAttributesInput) Validate() error {
-	invalidParams := request.ErrInvalidParams{Context: "DescribeCustomizedCfgAttributesInput"}
-	if s.CustomizedCfgId == nil {
-		invalidParams.Add(request.NewErrParamRequired("CustomizedCfgId"))
-	}
-
-	if invalidParams.Len() > 0 {
-		return invalidParams
-	}
-	return nil
 }
 
 // SetCustomizedCfgId sets the CustomizedCfgId field's value.

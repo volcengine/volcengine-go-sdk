@@ -46,6 +46,14 @@ type ALBAPI interface {
 	AddServerGroupBackendServersWithContext(volcengine.Context, *AddServerGroupBackendServersInput, ...request.Option) (*AddServerGroupBackendServersOutput, error)
 	AddServerGroupBackendServersRequest(*AddServerGroupBackendServersInput) (*request.Request, *AddServerGroupBackendServersOutput)
 
+	CloneLoadBalancerCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CloneLoadBalancerCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CloneLoadBalancerCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CloneLoadBalancer(*CloneLoadBalancerInput) (*CloneLoadBalancerOutput, error)
+	CloneLoadBalancerWithContext(volcengine.Context, *CloneLoadBalancerInput, ...request.Option) (*CloneLoadBalancerOutput, error)
+	CloneLoadBalancerRequest(*CloneLoadBalancerInput) (*request.Request, *CloneLoadBalancerOutput)
+
 	CreateAclCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	CreateAclCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	CreateAclCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -358,6 +366,14 @@ type ALBAPI interface {
 	EnableTLSAccessLogWithContext(volcengine.Context, *EnableTLSAccessLogInput, ...request.Option) (*EnableTLSAccessLogOutput, error)
 	EnableTLSAccessLogRequest(*EnableTLSAccessLogInput) (*request.Request, *EnableTLSAccessLogOutput)
 
+	ListTagsForResourcesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListTagsForResourcesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListTagsForResourcesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListTagsForResources(*ListTagsForResourcesInput) (*ListTagsForResourcesOutput, error)
+	ListTagsForResourcesWithContext(volcengine.Context, *ListTagsForResourcesInput, ...request.Option) (*ListTagsForResourcesOutput, error)
+	ListTagsForResourcesRequest(*ListTagsForResourcesInput) (*request.Request, *ListTagsForResourcesOutput)
+
 	ModifyAclAttributesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ModifyAclAttributesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	ModifyAclAttributesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -421,6 +437,14 @@ type ALBAPI interface {
 	ModifyLoadBalancerType(*ModifyLoadBalancerTypeInput) (*ModifyLoadBalancerTypeOutput, error)
 	ModifyLoadBalancerTypeWithContext(volcengine.Context, *ModifyLoadBalancerTypeInput, ...request.Option) (*ModifyLoadBalancerTypeOutput, error)
 	ModifyLoadBalancerTypeRequest(*ModifyLoadBalancerTypeInput) (*request.Request, *ModifyLoadBalancerTypeOutput)
+
+	ModifyLoadBalancerZonesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ModifyLoadBalancerZonesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ModifyLoadBalancerZonesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ModifyLoadBalancerZones(*ModifyLoadBalancerZonesInput) (*ModifyLoadBalancerZonesOutput, error)
+	ModifyLoadBalancerZonesWithContext(volcengine.Context, *ModifyLoadBalancerZonesInput, ...request.Option) (*ModifyLoadBalancerZonesOutput, error)
+	ModifyLoadBalancerZonesRequest(*ModifyLoadBalancerZonesInput) (*request.Request, *ModifyLoadBalancerZonesOutput)
 
 	ModifyRulesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ModifyRulesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)

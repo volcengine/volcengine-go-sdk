@@ -142,8 +142,7 @@ func (c *ALB) DescribeListenerAttributesWithContext(ctx volcengine.Context, inpu
 type DescribeListenerAttributesInput struct {
 	_ struct{} `type:"structure"`
 
-	// ListenerId is a required field
-	ListenerId *string `type:"string" required:"true"`
+	ListenerId *string `type:"string"`
 }
 
 // String returns the string representation
@@ -154,19 +153,6 @@ func (s DescribeListenerAttributesInput) String() string {
 // GoString returns the string representation
 func (s DescribeListenerAttributesInput) GoString() string {
 	return s.String()
-}
-
-// Validate inspects the fields of the type to determine if they are valid.
-func (s *DescribeListenerAttributesInput) Validate() error {
-	invalidParams := request.ErrInvalidParams{Context: "DescribeListenerAttributesInput"}
-	if s.ListenerId == nil {
-		invalidParams.Add(request.NewErrParamRequired("ListenerId"))
-	}
-
-	if invalidParams.Len() > 0 {
-		return invalidParams
-	}
-	return nil
 }
 
 // SetListenerId sets the ListenerId field's value.

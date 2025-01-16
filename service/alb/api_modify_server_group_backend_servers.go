@@ -144,11 +144,9 @@ func (c *ALB) ModifyServerGroupBackendServersWithContext(ctx volcengine.Context,
 type ModifyServerGroupBackendServersInput struct {
 	_ struct{} `type:"structure"`
 
-	// ServerGroupId is a required field
-	ServerGroupId *string `type:"string" required:"true"`
+	ServerGroupId *string `type:"string"`
 
-	// Servers is a required field
-	Servers []*ServerForModifyServerGroupBackendServersInput `type:"list" required:"true"`
+	Servers []*ServerForModifyServerGroupBackendServersInput `type:"list"`
 }
 
 // String returns the string representation
@@ -164,12 +162,6 @@ func (s ModifyServerGroupBackendServersInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *ModifyServerGroupBackendServersInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "ModifyServerGroupBackendServersInput"}
-	if s.ServerGroupId == nil {
-		invalidParams.Add(request.NewErrParamRequired("ServerGroupId"))
-	}
-	if s.Servers == nil {
-		invalidParams.Add(request.NewErrParamRequired("Servers"))
-	}
 	if s.Servers != nil {
 		for i, v := range s.Servers {
 			if v == nil {

@@ -148,6 +148,8 @@ type CreateServerGroupInput struct {
 
 	ProjectName *string `type:"string"`
 
+	Protocol *string `type:"string"`
+
 	Scheduler *string `type:"string"`
 
 	ServerGroupName *string `min:"1" max:"128" type:"string"`
@@ -156,8 +158,9 @@ type CreateServerGroupInput struct {
 
 	StickySessionConfig *StickySessionConfigForCreateServerGroupInput `type:"structure"`
 
-	// VpcId is a required field
-	VpcId *string `type:"string" required:"true"`
+	Tags []*TagForCreateServerGroupInput `type:"list"`
+
+	VpcId *string `type:"string"`
 }
 
 // String returns the string representation
@@ -179,8 +182,10 @@ func (s *CreateServerGroupInput) Validate() error {
 	if s.ServerGroupName != nil && len(*s.ServerGroupName) > 128 {
 		invalidParams.Add(request.NewErrParamMaxLen("ServerGroupName", 128, *s.ServerGroupName))
 	}
-	if s.VpcId == nil {
-		invalidParams.Add(request.NewErrParamRequired("VpcId"))
+	if s.HealthCheck != nil {
+		if err := s.HealthCheck.Validate(); err != nil {
+			invalidParams.AddNested("HealthCheck", err.(request.ErrInvalidParams))
+		}
 	}
 
 	if invalidParams.Len() > 0 {
@@ -207,6 +212,12 @@ func (s *CreateServerGroupInput) SetProjectName(v string) *CreateServerGroupInpu
 	return s
 }
 
+// SetProtocol sets the Protocol field's value.
+func (s *CreateServerGroupInput) SetProtocol(v string) *CreateServerGroupInput {
+	s.Protocol = &v
+	return s
+}
+
 // SetScheduler sets the Scheduler field's value.
 func (s *CreateServerGroupInput) SetScheduler(v string) *CreateServerGroupInput {
 	s.Scheduler = &v
@@ -228,6 +239,12 @@ func (s *CreateServerGroupInput) SetServerGroupType(v string) *CreateServerGroup
 // SetStickySessionConfig sets the StickySessionConfig field's value.
 func (s *CreateServerGroupInput) SetStickySessionConfig(v *StickySessionConfigForCreateServerGroupInput) *CreateServerGroupInput {
 	s.StickySessionConfig = v
+	return s
+}
+
+// SetTags sets the Tags field's value.
+func (s *CreateServerGroupInput) SetTags(v []*TagForCreateServerGroupInput) *CreateServerGroupInput {
+	s.Tags = v
 	return s
 }
 
@@ -286,6 +303,9 @@ type HealthCheckForCreateServerGroupInput struct {
 
 	Method *string `type:"string"`
 
+	// Port is a required field
+	Port *int64 `max:"65535" type:"integer" required:"true"`
+
 	Protocol *string `type:"string"`
 
 	Timeout *string `type:"string"`
@@ -303,6 +323,22 @@ func (s HealthCheckForCreateServerGroupInput) String() string {
 // GoString returns the string representation
 func (s HealthCheckForCreateServerGroupInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *HealthCheckForCreateServerGroupInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "HealthCheckForCreateServerGroupInput"}
+	if s.Port == nil {
+		invalidParams.Add(request.NewErrParamRequired("Port"))
+	}
+	if s.Port != nil && *s.Port > 65535 {
+		invalidParams.Add(request.NewErrParamMaxValue("Port", 65535))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetDomain sets the Domain field's value.
@@ -344,6 +380,12 @@ func (s *HealthCheckForCreateServerGroupInput) SetInterval(v string) *HealthChec
 // SetMethod sets the Method field's value.
 func (s *HealthCheckForCreateServerGroupInput) SetMethod(v string) *HealthCheckForCreateServerGroupInput {
 	s.Method = &v
+	return s
+}
+
+// SetPort sets the Port field's value.
+func (s *HealthCheckForCreateServerGroupInput) SetPort(v int64) *HealthCheckForCreateServerGroupInput {
+	s.Port = &v
 	return s
 }
 
@@ -414,5 +456,35 @@ func (s *StickySessionConfigForCreateServerGroupInput) SetStickySessionEnabled(v
 // SetStickySessionType sets the StickySessionType field's value.
 func (s *StickySessionConfigForCreateServerGroupInput) SetStickySessionType(v string) *StickySessionConfigForCreateServerGroupInput {
 	s.StickySessionType = &v
+	return s
+}
+
+type TagForCreateServerGroupInput struct {
+	_ struct{} `type:"structure"`
+
+	Key *string `type:"string"`
+
+	Value *string `type:"string"`
+}
+
+// String returns the string representation
+func (s TagForCreateServerGroupInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagForCreateServerGroupInput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagForCreateServerGroupInput) SetKey(v string) *TagForCreateServerGroupInput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *TagForCreateServerGroupInput) SetValue(v string) *TagForCreateServerGroupInput {
+	s.Value = &v
 	return s
 }

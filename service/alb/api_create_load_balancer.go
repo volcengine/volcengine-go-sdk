@@ -158,17 +158,19 @@ type CreateLoadBalancerInput struct {
 
 	LoadBalancerName *string `type:"string"`
 
+	ModificationProtectionReason *string `type:"string"`
+
+	ModificationProtectionStatus *string `type:"string"`
+
 	ProjectName *string `type:"string"`
 
-	// RegionId is a required field
-	RegionId *string `type:"string" required:"true"`
+	RegionId *string `type:"string"`
 
 	SubnetId *string `type:"string"`
 
 	Tags []*TagForCreateLoadBalancerInput `type:"list"`
 
-	// Type is a required field
-	Type *string `type:"string" required:"true"`
+	Type *string `type:"string"`
 
 	VpcId *string `type:"string"`
 
@@ -183,22 +185,6 @@ func (s CreateLoadBalancerInput) String() string {
 // GoString returns the string representation
 func (s CreateLoadBalancerInput) GoString() string {
 	return s.String()
-}
-
-// Validate inspects the fields of the type to determine if they are valid.
-func (s *CreateLoadBalancerInput) Validate() error {
-	invalidParams := request.ErrInvalidParams{Context: "CreateLoadBalancerInput"}
-	if s.RegionId == nil {
-		invalidParams.Add(request.NewErrParamRequired("RegionId"))
-	}
-	if s.Type == nil {
-		invalidParams.Add(request.NewErrParamRequired("Type"))
-	}
-
-	if invalidParams.Len() > 0 {
-		return invalidParams
-	}
-	return nil
 }
 
 // SetAddressIpVersion sets the AddressIpVersion field's value.
@@ -246,6 +232,18 @@ func (s *CreateLoadBalancerInput) SetLoadBalancerBillingType(v int64) *CreateLoa
 // SetLoadBalancerName sets the LoadBalancerName field's value.
 func (s *CreateLoadBalancerInput) SetLoadBalancerName(v string) *CreateLoadBalancerInput {
 	s.LoadBalancerName = &v
+	return s
+}
+
+// SetModificationProtectionReason sets the ModificationProtectionReason field's value.
+func (s *CreateLoadBalancerInput) SetModificationProtectionReason(v string) *CreateLoadBalancerInput {
+	s.ModificationProtectionReason = &v
+	return s
+}
+
+// SetModificationProtectionStatus sets the ModificationProtectionStatus field's value.
+func (s *CreateLoadBalancerInput) SetModificationProtectionStatus(v string) *CreateLoadBalancerInput {
+	s.ModificationProtectionStatus = &v
 	return s
 }
 
