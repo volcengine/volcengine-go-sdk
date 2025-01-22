@@ -328,12 +328,14 @@ type ChatCompletionChoice struct {
 
 // ChatCompletionResponse represents a response structure for chat completion API.
 type ChatCompletionResponse struct {
-	ID      string                  `json:"id"`
-	Object  string                  `json:"object"`
-	Created int64                   `json:"created"`
-	Model   string                  `json:"model"`
-	Choices []*ChatCompletionChoice `json:"choices"`
-	Usage   Usage                   `json:"usage"`
+	ID      string `json:"id"`
+	Object  string `json:"object"`
+	Created int64  `json:"created"`
+	Model   string `json:"model"`
+	// mark the request is scale-tier or default, only exists for scale-tier
+	ServiceTier string                  `json:"service_tier,omitempty"`
+	Choices     []*ChatCompletionChoice `json:"choices"`
+	Usage       Usage                   `json:"usage"`
 
 	HttpHeader
 }
@@ -355,11 +357,13 @@ type ChatCompletionStreamChoice struct {
 }
 
 type ChatCompletionStreamResponse struct {
-	ID      string                        `json:"id"`
-	Object  string                        `json:"object"`
-	Created int64                         `json:"created"`
-	Model   string                        `json:"model"`
-	Choices []*ChatCompletionStreamChoice `json:"choices"`
+	ID      string `json:"id"`
+	Object  string `json:"object"`
+	Created int64  `json:"created"`
+	Model   string `json:"model"`
+	// mark the request is scale-tier or default, only exists for scale-tier
+	ServiceTier string                        `json:"service_tier,omitempty"`
+	Choices     []*ChatCompletionStreamChoice `json:"choices"`
 	// An optional field that will only be present when you set stream_options: {"include_usage": true} in your request.
 	// When present, it contains a null value except for the last chunk which contains the token usage statistics
 	// for the entire request.
