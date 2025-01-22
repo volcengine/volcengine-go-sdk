@@ -73,10 +73,7 @@ func (p *BatchWorkerPool) Run() {
 						continue
 					}
 					result, err := task.TaskFunc()
-					if err == nil {
-						close(task.DoneChan)
-						continue
-					} else if !result.NeedRetry {
+					if !result.NeedRetry {
 						task.DoneChan <- err
 						continue
 					}
