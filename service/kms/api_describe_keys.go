@@ -278,6 +278,10 @@ type KeyForDescribeKeysOutput struct {
 
 	LastRotationTime *string `type:"string" json:",omitempty"`
 
+	MultiRegion *string `type:"string" json:",omitempty"`
+
+	MultiRegionConfiguration *MultiRegionConfigurationForDescribeKeysOutput `type:"structure" json:",omitempty"`
+
 	Origin *string `type:"string" json:",omitempty"`
 
 	ProtectionLevel *string `type:"string" json:",omitempty"`
@@ -357,6 +361,18 @@ func (s *KeyForDescribeKeysOutput) SetLastRotationTime(v string) *KeyForDescribe
 	return s
 }
 
+// SetMultiRegion sets the MultiRegion field's value.
+func (s *KeyForDescribeKeysOutput) SetMultiRegion(v string) *KeyForDescribeKeysOutput {
+	s.MultiRegion = &v
+	return s
+}
+
+// SetMultiRegionConfiguration sets the MultiRegionConfiguration field's value.
+func (s *KeyForDescribeKeysOutput) SetMultiRegionConfiguration(v *MultiRegionConfigurationForDescribeKeysOutput) *KeyForDescribeKeysOutput {
+	s.MultiRegionConfiguration = v
+	return s
+}
+
 // SetOrigin sets the Origin field's value.
 func (s *KeyForDescribeKeysOutput) SetOrigin(v string) *KeyForDescribeKeysOutput {
 	s.Origin = &v
@@ -396,6 +412,44 @@ func (s *KeyForDescribeKeysOutput) SetTrn(v string) *KeyForDescribeKeysOutput {
 // SetUpdateDate sets the UpdateDate field's value.
 func (s *KeyForDescribeKeysOutput) SetUpdateDate(v int64) *KeyForDescribeKeysOutput {
 	s.UpdateDate = &v
+	return s
+}
+
+type MultiRegionConfigurationForDescribeKeysOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	MultiRegionKeyType *string `type:"string" json:",omitempty" enum:"EnumOfMultiRegionKeyTypeForDescribeKeysOutput"`
+
+	PrimaryKey *PrimaryKeyForDescribeKeysOutput `type:"structure" json:",omitempty"`
+
+	ReplicaKeys []*ReplicaKeyForDescribeKeysOutput `type:"list" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s MultiRegionConfigurationForDescribeKeysOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s MultiRegionConfigurationForDescribeKeysOutput) GoString() string {
+	return s.String()
+}
+
+// SetMultiRegionKeyType sets the MultiRegionKeyType field's value.
+func (s *MultiRegionConfigurationForDescribeKeysOutput) SetMultiRegionKeyType(v string) *MultiRegionConfigurationForDescribeKeysOutput {
+	s.MultiRegionKeyType = &v
+	return s
+}
+
+// SetPrimaryKey sets the PrimaryKey field's value.
+func (s *MultiRegionConfigurationForDescribeKeysOutput) SetPrimaryKey(v *PrimaryKeyForDescribeKeysOutput) *MultiRegionConfigurationForDescribeKeysOutput {
+	s.PrimaryKey = v
+	return s
+}
+
+// SetReplicaKeys sets the ReplicaKeys field's value.
+func (s *MultiRegionConfigurationForDescribeKeysOutput) SetReplicaKeys(v []*ReplicaKeyForDescribeKeysOutput) *MultiRegionConfigurationForDescribeKeysOutput {
+	s.ReplicaKeys = v
 	return s
 }
 
@@ -444,3 +498,71 @@ func (s *PageInfoForDescribeKeysOutput) SetTotalCount(v int32) *PageInfoForDescr
 	s.TotalCount = &v
 	return s
 }
+
+type PrimaryKeyForDescribeKeysOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Region *string `type:"string" json:",omitempty"`
+
+	Trn *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s PrimaryKeyForDescribeKeysOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s PrimaryKeyForDescribeKeysOutput) GoString() string {
+	return s.String()
+}
+
+// SetRegion sets the Region field's value.
+func (s *PrimaryKeyForDescribeKeysOutput) SetRegion(v string) *PrimaryKeyForDescribeKeysOutput {
+	s.Region = &v
+	return s
+}
+
+// SetTrn sets the Trn field's value.
+func (s *PrimaryKeyForDescribeKeysOutput) SetTrn(v string) *PrimaryKeyForDescribeKeysOutput {
+	s.Trn = &v
+	return s
+}
+
+type ReplicaKeyForDescribeKeysOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Region *string `type:"string" json:",omitempty"`
+
+	Trn *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s ReplicaKeyForDescribeKeysOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ReplicaKeyForDescribeKeysOutput) GoString() string {
+	return s.String()
+}
+
+// SetRegion sets the Region field's value.
+func (s *ReplicaKeyForDescribeKeysOutput) SetRegion(v string) *ReplicaKeyForDescribeKeysOutput {
+	s.Region = &v
+	return s
+}
+
+// SetTrn sets the Trn field's value.
+func (s *ReplicaKeyForDescribeKeysOutput) SetTrn(v string) *ReplicaKeyForDescribeKeysOutput {
+	s.Trn = &v
+	return s
+}
+
+const (
+	// EnumOfMultiRegionKeyTypeForDescribeKeysOutputPrimary is a EnumOfMultiRegionKeyTypeForDescribeKeysOutput enum value
+	EnumOfMultiRegionKeyTypeForDescribeKeysOutputPrimary = "PRIMARY"
+
+	// EnumOfMultiRegionKeyTypeForDescribeKeysOutputReplica is a EnumOfMultiRegionKeyTypeForDescribeKeysOutput enum value
+	EnumOfMultiRegionKeyTypeForDescribeKeysOutputReplica = "REPLICA"
+)

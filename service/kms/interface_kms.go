@@ -318,6 +318,14 @@ type KMSAPI interface {
 	ReEncryptWithContext(volcengine.Context, *ReEncryptInput, ...request.Option) (*ReEncryptOutput, error)
 	ReEncryptRequest(*ReEncryptInput) (*request.Request, *ReEncryptOutput)
 
+	ReplicateKeyCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ReplicateKeyCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ReplicateKeyCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ReplicateKey(*ReplicateKeyInput) (*ReplicateKeyOutput, error)
+	ReplicateKeyWithContext(volcengine.Context, *ReplicateKeyInput, ...request.Option) (*ReplicateKeyOutput, error)
+	ReplicateKeyRequest(*ReplicateKeyInput) (*request.Request, *ReplicateKeyOutput)
+
 	RestoreSecretCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	RestoreSecretCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	RestoreSecretCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -373,6 +381,14 @@ type KMSAPI interface {
 	UpdateKeyring(*UpdateKeyringInput) (*UpdateKeyringOutput, error)
 	UpdateKeyringWithContext(volcengine.Context, *UpdateKeyringInput, ...request.Option) (*UpdateKeyringOutput, error)
 	UpdateKeyringRequest(*UpdateKeyringInput) (*request.Request, *UpdateKeyringOutput)
+
+	UpdatePrimaryRegionCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	UpdatePrimaryRegionCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	UpdatePrimaryRegionCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	UpdatePrimaryRegion(*UpdatePrimaryRegionInput) (*UpdatePrimaryRegionOutput, error)
+	UpdatePrimaryRegionWithContext(volcengine.Context, *UpdatePrimaryRegionInput, ...request.Option) (*UpdatePrimaryRegionOutput, error)
+	UpdatePrimaryRegionRequest(*UpdatePrimaryRegionInput) (*request.Request, *UpdatePrimaryRegionOutput)
 
 	UpdateSecretCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	UpdateSecretCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
