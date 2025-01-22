@@ -148,6 +148,8 @@ type DeleteAllowListInput struct {
 
 	// AllowListId is a required field
 	AllowListId *string `type:"string" json:",omitempty" required:"true"`
+
+	ProjectName *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -176,6 +178,12 @@ func (s *DeleteAllowListInput) Validate() error {
 // SetAllowListId sets the AllowListId field's value.
 func (s *DeleteAllowListInput) SetAllowListId(v string) *DeleteAllowListInput {
 	s.AllowListId = &v
+	return s
+}
+
+// SetProjectName sets the ProjectName field's value.
+func (s *DeleteAllowListInput) SetProjectName(v string) *DeleteAllowListInput {
+	s.ProjectName = &v
 	return s
 }
 
