@@ -17,6 +17,7 @@ type BatchTask struct {
 }
 
 type BatchTaskResult struct {
+	NeedRetry    bool
 	RequeueAfter int64
 }
 
@@ -72,8 +73,8 @@ func (p *BatchWorkerPool) Run() {
 						continue
 					}
 					result, err := task.TaskFunc()
-					if err == nil {
-						close(task.DoneChan)
+					if !result.NeedRetry {
+						task.DoneChan <- err
 						continue
 					}
 					task.RetryTimes++
