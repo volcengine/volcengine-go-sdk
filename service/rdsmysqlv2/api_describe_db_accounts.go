@@ -152,9 +152,13 @@ type AccountForDescribeDBAccountsOutput struct {
 
 	AccountPrivileges []*AccountPrivilegeForDescribeDBAccountsOutput `type:"list" json:",omitempty"`
 
+	AccountPrivilegesSQL []*string `type:"list" json:",omitempty"`
+
 	AccountStatus *string `type:"string" json:",omitempty"`
 
 	AccountType *string `type:"string" json:",omitempty"`
+
+	GlobalAccountPrivileges []*string `type:"list" json:",omitempty"`
 
 	Host *string `type:"string" json:",omitempty"`
 }
@@ -187,6 +191,12 @@ func (s *AccountForDescribeDBAccountsOutput) SetAccountPrivileges(v []*AccountPr
 	return s
 }
 
+// SetAccountPrivilegesSQL sets the AccountPrivilegesSQL field's value.
+func (s *AccountForDescribeDBAccountsOutput) SetAccountPrivilegesSQL(v []*string) *AccountForDescribeDBAccountsOutput {
+	s.AccountPrivilegesSQL = v
+	return s
+}
+
 // SetAccountStatus sets the AccountStatus field's value.
 func (s *AccountForDescribeDBAccountsOutput) SetAccountStatus(v string) *AccountForDescribeDBAccountsOutput {
 	s.AccountStatus = &v
@@ -196,6 +206,12 @@ func (s *AccountForDescribeDBAccountsOutput) SetAccountStatus(v string) *Account
 // SetAccountType sets the AccountType field's value.
 func (s *AccountForDescribeDBAccountsOutput) SetAccountType(v string) *AccountForDescribeDBAccountsOutput {
 	s.AccountType = &v
+	return s
+}
+
+// SetGlobalAccountPrivileges sets the GlobalAccountPrivileges field's value.
+func (s *AccountForDescribeDBAccountsOutput) SetGlobalAccountPrivileges(v []*string) *AccountForDescribeDBAccountsOutput {
+	s.GlobalAccountPrivileges = v
 	return s
 }
 

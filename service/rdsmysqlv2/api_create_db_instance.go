@@ -227,10 +227,11 @@ type CreateDBInstanceInput struct {
 
 	ProjectName *string `type:"string" json:",omitempty"`
 
-	StorageSpace *int32 `type:"int32" json:",omitempty"`
+	// StorageSpace is a required field
+	StorageSpace *int32 `type:"int32" json:",omitempty" required:"true"`
 
 	// StorageType is a required field
-	StorageType *string `type:"string" json:",omitempty" required:"true" enum:"EnumOfStorageTypeForCreateDBInstanceInput"`
+	StorageType *string `type:"string" json:",omitempty" required:"true"`
 
 	// SubnetId is a required field
 	SubnetId *string `type:"string" json:",omitempty" required:"true"`
@@ -258,6 +259,9 @@ func (s *CreateDBInstanceInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "CreateDBInstanceInput"}
 	if s.DBEngineVersion == nil {
 		invalidParams.Add(request.NewErrParamRequired("DBEngineVersion"))
+	}
+	if s.StorageSpace == nil {
+		invalidParams.Add(request.NewErrParamRequired("StorageSpace"))
 	}
 	if s.StorageType == nil {
 		invalidParams.Add(request.NewErrParamRequired("StorageType"))
@@ -542,17 +546,3 @@ func (s *NodeInfoForCreateDBInstanceInput) SetZoneId(v string) *NodeInfoForCreat
 	s.ZoneId = &v
 	return s
 }
-
-const (
-	// EnumOfStorageTypeForCreateDBInstanceInputLocalSsd is a EnumOfStorageTypeForCreateDBInstanceInput enum value
-	EnumOfStorageTypeForCreateDBInstanceInputLocalSsd = "LocalSSD"
-
-	// EnumOfStorageTypeForCreateDBInstanceInputCloudStorage is a EnumOfStorageTypeForCreateDBInstanceInput enum value
-	EnumOfStorageTypeForCreateDBInstanceInputCloudStorage = "CloudStorage"
-
-	// EnumOfStorageTypeForCreateDBInstanceInputEssdpl1 is a EnumOfStorageTypeForCreateDBInstanceInput enum value
-	EnumOfStorageTypeForCreateDBInstanceInputEssdpl1 = "ESSDPL1"
-
-	// EnumOfStorageTypeForCreateDBInstanceInputEssdpl2 is a EnumOfStorageTypeForCreateDBInstanceInput enum value
-	EnumOfStorageTypeForCreateDBInstanceInputEssdpl2 = "ESSDPL2"
-)

@@ -146,6 +146,8 @@ func (c *RDSMYSQLV2) CreateParameterTemplateWithContext(ctx volcengine.Context, 
 type CreateParameterTemplateInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	ProjectName *string `type:"string" json:",omitempty"`
+
 	TemplateDesc *string `type:"string" json:",omitempty"`
 
 	// TemplateName is a required field
@@ -154,10 +156,10 @@ type CreateParameterTemplateInput struct {
 	TemplateParams []*TemplateParamForCreateParameterTemplateInput `type:"list" json:",omitempty"`
 
 	// TemplateType is a required field
-	TemplateType *string `type:"string" json:",omitempty" required:"true" enum:"EnumOfTemplateTypeForCreateParameterTemplateInput"`
+	TemplateType *string `type:"string" json:",omitempty" required:"true"`
 
 	// TemplateTypeVersion is a required field
-	TemplateTypeVersion *string `type:"string" json:",omitempty" required:"true" enum:"EnumOfTemplateTypeVersionForCreateParameterTemplateInput"`
+	TemplateTypeVersion *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -187,6 +189,12 @@ func (s *CreateParameterTemplateInput) Validate() error {
 		return invalidParams
 	}
 	return nil
+}
+
+// SetProjectName sets the ProjectName field's value.
+func (s *CreateParameterTemplateInput) SetProjectName(v string) *CreateParameterTemplateInput {
+	s.ProjectName = &v
+	return s
 }
 
 // SetTemplateDesc sets the TemplateDesc field's value.
@@ -320,34 +328,3 @@ func (s *TemplateParamForCreateParameterTemplateInput) SetValueRange(v string) *
 	s.ValueRange = &v
 	return s
 }
-
-const (
-	// EnumOfTemplateTypeForCreateParameterTemplateInputMysql is a EnumOfTemplateTypeForCreateParameterTemplateInput enum value
-	EnumOfTemplateTypeForCreateParameterTemplateInputMysql = "Mysql"
-
-	// EnumOfTemplateTypeForCreateParameterTemplateInputPostgresql is a EnumOfTemplateTypeForCreateParameterTemplateInput enum value
-	EnumOfTemplateTypeForCreateParameterTemplateInputPostgresql = "Postgresql"
-
-	// EnumOfTemplateTypeForCreateParameterTemplateInputSqlserver is a EnumOfTemplateTypeForCreateParameterTemplateInput enum value
-	EnumOfTemplateTypeForCreateParameterTemplateInputSqlserver = "Sqlserver"
-)
-
-const (
-	// EnumOfTemplateTypeVersionForCreateParameterTemplateInputMySql57 is a EnumOfTemplateTypeVersionForCreateParameterTemplateInput enum value
-	EnumOfTemplateTypeVersionForCreateParameterTemplateInputMySql57 = "MySQL_5_7"
-
-	// EnumOfTemplateTypeVersionForCreateParameterTemplateInputMySql80 is a EnumOfTemplateTypeVersionForCreateParameterTemplateInput enum value
-	EnumOfTemplateTypeVersionForCreateParameterTemplateInputMySql80 = "MySQL_8_0"
-
-	// EnumOfTemplateTypeVersionForCreateParameterTemplateInputMySql56 is a EnumOfTemplateTypeVersionForCreateParameterTemplateInput enum value
-	EnumOfTemplateTypeVersionForCreateParameterTemplateInputMySql56 = "MySQL_5_6"
-
-	// EnumOfTemplateTypeVersionForCreateParameterTemplateInputSqlserver2019Ent is a EnumOfTemplateTypeVersionForCreateParameterTemplateInput enum value
-	EnumOfTemplateTypeVersionForCreateParameterTemplateInputSqlserver2019Ent = "SQLServer_2019_Ent"
-
-	// EnumOfTemplateTypeVersionForCreateParameterTemplateInputSqlserver2019Std is a EnumOfTemplateTypeVersionForCreateParameterTemplateInput enum value
-	EnumOfTemplateTypeVersionForCreateParameterTemplateInputSqlserver2019Std = "SQLServer_2019_Std"
-
-	// EnumOfTemplateTypeVersionForCreateParameterTemplateInputSqlserver2019Web is a EnumOfTemplateTypeVersionForCreateParameterTemplateInput enum value
-	EnumOfTemplateTypeVersionForCreateParameterTemplateInputSqlserver2019Web = "SQLServer_2019_Web"
-)

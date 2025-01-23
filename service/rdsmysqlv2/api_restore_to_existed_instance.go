@@ -150,8 +150,7 @@ type RestoreToExistedInstanceInput struct {
 
 	RestoreTime *string `type:"string" json:",omitempty"`
 
-	// RestoreType is a required field
-	RestoreType *string `type:"string" json:",omitempty" required:"true"`
+	RestoreType *string `type:"string" json:",omitempty"`
 
 	// SourceDBInstanceId is a required field
 	SourceDBInstanceId *string `type:"string" json:",omitempty" required:"true"`
@@ -172,9 +171,6 @@ func (s RestoreToExistedInstanceInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *RestoreToExistedInstanceInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "RestoreToExistedInstanceInput"}
-	if s.RestoreType == nil {
-		invalidParams.Add(request.NewErrParamRequired("RestoreType"))
-	}
 	if s.SourceDBInstanceId == nil {
 		invalidParams.Add(request.NewErrParamRequired("SourceDBInstanceId"))
 	}
