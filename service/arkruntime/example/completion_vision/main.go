@@ -41,7 +41,7 @@ func main() {
 						{
 							Type: model.ChatCompletionMessageContentPartTypeImageURL,
 							ImageURL: &model.ChatMessageImageURL{
-								URL: "https://ark-project.tos-cn-beijing.ivolces.com/images/view.jpeg",
+								URL: "https://ark-project.tos-cn-beijing.volces.com/images/view.jpeg",
 							},
 						},
 					},

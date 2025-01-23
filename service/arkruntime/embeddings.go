@@ -7,7 +7,10 @@ import (
 	"github.com/volcengine/volcengine-go-sdk/service/arkruntime/model"
 )
 
-const embeddingsSuffix = "/embeddings"
+const (
+	embeddingsSuffix           = "/embeddings"
+	multimodalEmbeddingsSuffix = "/embeddings/multimodal"
+)
 
 // CreateEmbeddings returns an EmbeddingResponse which will contain an Embedding for every item in |body.Input|.
 //
@@ -33,5 +36,28 @@ func (c *Client) CreateEmbeddings(
 	}
 
 	res, err = base64Response.ToEmbeddingResponse()
+	return
+}
+
+// CreateMultiModalEmbeddings returns an MultimodalEmbeddingResponse which will contain a MultimodalEmbedding for |body.Input|.
+// Body should be MultiModalEmbeddingRequest.
+func (c *Client) CreateMultiModalEmbeddings(
+	ctx context.Context,
+	request model.MultiModalEmbeddingRequest,
+	setters ...requestOption,
+) (res model.MultimodalEmbeddingResponse, err error) {
+
+	requestOptions := append(setters, withBody(request))
+	if request.EncodingFormat != nil && *request.EncodingFormat == model.EmbeddingEncodingFormatBase64 {
+		base64Response := &model.MultiModalEmbeddingResponseBase64{}
+		err = c.Do(ctx, http.MethodPost, c.fullURL(multimodalEmbeddingsSuffix), resourceTypeEndpoint, request.Model, base64Response, requestOptions...)
+		if err != nil {
+			return
+		}
+		res, err = base64Response.ToMultiModalEmbeddingResponse()
+		return
+	}
+
+	err = c.Do(ctx, http.MethodPost, c.fullURL(multimodalEmbeddingsSuffix), resourceTypeEndpoint, request.Model, &res, requestOptions...)
 	return
 }
