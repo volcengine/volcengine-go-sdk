@@ -152,7 +152,7 @@ type GetApiKeyInput struct {
 	ResourceIds []*string `type:"list" json:",omitempty"`
 
 	// ResourceType is a required field
-	ResourceType *string `type:"string" json:",omitempty" required:"true" enum:"EnumOfResourceTypeForGetApiKeyInput"`
+	ResourceType *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -230,11 +230,3 @@ func (s *GetApiKeyOutput) SetExpiredTime(v int32) *GetApiKeyOutput {
 	s.ExpiredTime = &v
 	return s
 }
-
-const (
-	// EnumOfResourceTypeForGetApiKeyInputEndpoint is a EnumOfResourceTypeForGetApiKeyInput enum value
-	EnumOfResourceTypeForGetApiKeyInputEndpoint = "endpoint"
-
-	// EnumOfResourceTypeForGetApiKeyInputBot is a EnumOfResourceTypeForGetApiKeyInput enum value
-	EnumOfResourceTypeForGetApiKeyInputBot = "bot"
-)
