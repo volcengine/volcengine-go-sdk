@@ -148,8 +148,6 @@ type ModifyDBEndpointInput struct {
 
 	AutoAddNewNodes *bool `type:"boolean" json:",omitempty"`
 
-	ConnectionPoolType *string `type:"string" json:",omitempty"`
-
 	Description *string `type:"string" json:",omitempty"`
 
 	// EndpointId is a required field
@@ -162,17 +160,15 @@ type ModifyDBEndpointInput struct {
 	// InstanceId is a required field
 	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 
-	MultiStatementsMode *string `type:"string" json:",omitempty"`
-
 	Nodes *string `type:"string" json:",omitempty"`
 
-	ReadOnlyNodeDistributionType *string `type:"string" json:",omitempty"`
+	ReadOnlyNodeDistributionType *string `type:"string" json:",omitempty" enum:"EnumOfReadOnlyNodeDistributionTypeForModifyDBEndpointInput"`
 
 	ReadOnlyNodeMaxDelayTime *int32 `type:"int32" json:",omitempty"`
 
 	ReadOnlyNodeWeight []*ReadOnlyNodeWeightForModifyDBEndpointInput `type:"list" json:",omitempty"`
 
-	ReadWriteMode *string `type:"string" json:",omitempty"`
+	ReadWriteMode *string `type:"string" json:",omitempty" enum:"EnumOfReadWriteModeForModifyDBEndpointInput"`
 
 	ReadWriteSpliting *bool `type:"boolean" json:",omitempty"`
 }
@@ -209,12 +205,6 @@ func (s *ModifyDBEndpointInput) SetAutoAddNewNodes(v bool) *ModifyDBEndpointInpu
 	return s
 }
 
-// SetConnectionPoolType sets the ConnectionPoolType field's value.
-func (s *ModifyDBEndpointInput) SetConnectionPoolType(v string) *ModifyDBEndpointInput {
-	s.ConnectionPoolType = &v
-	return s
-}
-
 // SetDescription sets the Description field's value.
 func (s *ModifyDBEndpointInput) SetDescription(v string) *ModifyDBEndpointInput {
 	s.Description = &v
@@ -242,12 +232,6 @@ func (s *ModifyDBEndpointInput) SetIdleConnectionReclaim(v bool) *ModifyDBEndpoi
 // SetInstanceId sets the InstanceId field's value.
 func (s *ModifyDBEndpointInput) SetInstanceId(v string) *ModifyDBEndpointInput {
 	s.InstanceId = &v
-	return s
-}
-
-// SetMultiStatementsMode sets the MultiStatementsMode field's value.
-func (s *ModifyDBEndpointInput) SetMultiStatementsMode(v string) *ModifyDBEndpointInput {
-	s.MultiStatementsMode = &v
 	return s
 }
 
@@ -308,7 +292,7 @@ type ReadOnlyNodeWeightForModifyDBEndpointInput struct {
 
 	NodeId *string `type:"string" json:",omitempty"`
 
-	NodeType *string `type:"string" json:",omitempty"`
+	NodeType *string `type:"string" json:",omitempty" enum:"EnumOfNodeTypeForModifyDBEndpointInput"`
 
 	Weight *int32 `type:"int32" json:",omitempty"`
 }
@@ -340,3 +324,36 @@ func (s *ReadOnlyNodeWeightForModifyDBEndpointInput) SetWeight(v int32) *ReadOnl
 	s.Weight = &v
 	return s
 }
+
+const (
+	// EnumOfNodeTypeForModifyDBEndpointInputPrimary is a EnumOfNodeTypeForModifyDBEndpointInput enum value
+	EnumOfNodeTypeForModifyDBEndpointInputPrimary = "Primary"
+
+	// EnumOfNodeTypeForModifyDBEndpointInputSecondary is a EnumOfNodeTypeForModifyDBEndpointInput enum value
+	EnumOfNodeTypeForModifyDBEndpointInputSecondary = "Secondary"
+
+	// EnumOfNodeTypeForModifyDBEndpointInputReadOnly is a EnumOfNodeTypeForModifyDBEndpointInput enum value
+	EnumOfNodeTypeForModifyDBEndpointInputReadOnly = "ReadOnly"
+)
+
+const (
+	// EnumOfReadOnlyNodeDistributionTypeForModifyDBEndpointInputDefault is a EnumOfReadOnlyNodeDistributionTypeForModifyDBEndpointInput enum value
+	EnumOfReadOnlyNodeDistributionTypeForModifyDBEndpointInputDefault = "Default"
+
+	// EnumOfReadOnlyNodeDistributionTypeForModifyDBEndpointInputCustom is a EnumOfReadOnlyNodeDistributionTypeForModifyDBEndpointInput enum value
+	EnumOfReadOnlyNodeDistributionTypeForModifyDBEndpointInputCustom = "Custom"
+
+	// EnumOfReadOnlyNodeDistributionTypeForModifyDBEndpointInputRoundRobin is a EnumOfReadOnlyNodeDistributionTypeForModifyDBEndpointInput enum value
+	EnumOfReadOnlyNodeDistributionTypeForModifyDBEndpointInputRoundRobin = "RoundRobin"
+
+	// EnumOfReadOnlyNodeDistributionTypeForModifyDBEndpointInputLoadSchedule is a EnumOfReadOnlyNodeDistributionTypeForModifyDBEndpointInput enum value
+	EnumOfReadOnlyNodeDistributionTypeForModifyDBEndpointInputLoadSchedule = "LoadSchedule"
+)
+
+const (
+	// EnumOfReadWriteModeForModifyDBEndpointInputReadWrite is a EnumOfReadWriteModeForModifyDBEndpointInput enum value
+	EnumOfReadWriteModeForModifyDBEndpointInputReadWrite = "ReadWrite"
+
+	// EnumOfReadWriteModeForModifyDBEndpointInputReadOnly is a EnumOfReadWriteModeForModifyDBEndpointInput enum value
+	EnumOfReadWriteModeForModifyDBEndpointInputReadOnly = "ReadOnly"
+)

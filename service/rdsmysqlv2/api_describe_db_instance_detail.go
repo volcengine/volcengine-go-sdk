@@ -154,9 +154,9 @@ type AddressForDescribeDBInstanceDetailOutput struct {
 
 	IPAddress *string `type:"string" json:",omitempty"`
 
-	InternetProtocol *string `type:"string" json:",omitempty"`
+	InternetProtocol *string `type:"string" json:",omitempty" enum:"EnumOfInternetProtocolForDescribeDBInstanceDetailOutput"`
 
-	NetworkType *string `type:"string" json:",omitempty"`
+	NetworkType *string `type:"string" json:",omitempty" enum:"EnumOfNetworkTypeForDescribeDBInstanceDetailOutput"`
 
 	Port *string `type:"string" json:",omitempty"`
 
@@ -226,10 +226,6 @@ type BasicInfoForDescribeDBInstanceDetailOutput struct {
 
 	AllowListVersion *string `type:"string" json:",omitempty"`
 
-	AutoUpgradeMinorVersion *string `type:"string" json:",omitempty"`
-
-	BackupFreeQuotaSize *int64 `type:"int64" json:",omitempty"`
-
 	BackupUse *float64 `type:"double" json:",omitempty"`
 
 	BasicBackupBinlogSize *int64 `type:"int64" json:",omitempty"`
@@ -237,8 +233,6 @@ type BasicInfoForDescribeDBInstanceDetailOutput struct {
 	BasicBackupDataSize *int64 `type:"int64" json:",omitempty"`
 
 	CreateTime *string `type:"string" json:",omitempty"`
-
-	CurrentKernelVersion *string `type:"string" json:",omitempty"`
 
 	DBEngineVersion *string `type:"string" json:",omitempty"`
 
@@ -303,18 +297,6 @@ func (s *BasicInfoForDescribeDBInstanceDetailOutput) SetAllowListVersion(v strin
 	return s
 }
 
-// SetAutoUpgradeMinorVersion sets the AutoUpgradeMinorVersion field's value.
-func (s *BasicInfoForDescribeDBInstanceDetailOutput) SetAutoUpgradeMinorVersion(v string) *BasicInfoForDescribeDBInstanceDetailOutput {
-	s.AutoUpgradeMinorVersion = &v
-	return s
-}
-
-// SetBackupFreeQuotaSize sets the BackupFreeQuotaSize field's value.
-func (s *BasicInfoForDescribeDBInstanceDetailOutput) SetBackupFreeQuotaSize(v int64) *BasicInfoForDescribeDBInstanceDetailOutput {
-	s.BackupFreeQuotaSize = &v
-	return s
-}
-
 // SetBackupUse sets the BackupUse field's value.
 func (s *BasicInfoForDescribeDBInstanceDetailOutput) SetBackupUse(v float64) *BasicInfoForDescribeDBInstanceDetailOutput {
 	s.BackupUse = &v
@@ -336,12 +318,6 @@ func (s *BasicInfoForDescribeDBInstanceDetailOutput) SetBasicBackupDataSize(v in
 // SetCreateTime sets the CreateTime field's value.
 func (s *BasicInfoForDescribeDBInstanceDetailOutput) SetCreateTime(v string) *BasicInfoForDescribeDBInstanceDetailOutput {
 	s.CreateTime = &v
-	return s
-}
-
-// SetCurrentKernelVersion sets the CurrentKernelVersion field's value.
-func (s *BasicInfoForDescribeDBInstanceDetailOutput) SetCurrentKernelVersion(v string) *BasicInfoForDescribeDBInstanceDetailOutput {
-	s.CurrentKernelVersion = &v
 	return s
 }
 
@@ -492,9 +468,9 @@ type ChargeDetailForDescribeDBInstanceDetailOutput struct {
 
 	ChargeStartTime *string `type:"string" json:",omitempty"`
 
-	ChargeStatus *string `type:"string" json:",omitempty"`
+	ChargeStatus *string `type:"string" json:",omitempty" enum:"EnumOfChargeStatusForDescribeDBInstanceDetailOutput"`
 
-	ChargeType *string `type:"string" json:",omitempty"`
+	ChargeType *string `type:"string" json:",omitempty" enum:"EnumOfChargeTypeForDescribeDBInstanceDetailOutput"`
 
 	OverdueReclaimTime *string `type:"string" json:",omitempty"`
 
@@ -502,7 +478,7 @@ type ChargeDetailForDescribeDBInstanceDetailOutput struct {
 
 	Period *int32 `type:"int32" json:",omitempty"`
 
-	PeriodUnit *string `type:"string" json:",omitempty"`
+	PeriodUnit *string `type:"string" json:",omitempty" enum:"EnumOfPeriodUnitForDescribeDBInstanceDetailOutput"`
 
 	TempModifyEndTime *string `type:"string" json:",omitempty"`
 
@@ -633,8 +609,6 @@ type DescribeDBInstanceDetailOutput struct {
 	Endpoints []*EndpointForDescribeDBInstanceDetailOutput `type:"list" json:",omitempty"`
 
 	Nodes []*NodeForDescribeDBInstanceDetailOutput `type:"list" json:",omitempty"`
-
-	ProxyDetail *ProxyDetailForDescribeDBInstanceDetailOutput `type:"structure" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -671,22 +645,12 @@ func (s *DescribeDBInstanceDetailOutput) SetNodes(v []*NodeForDescribeDBInstance
 	return s
 }
 
-// SetProxyDetail sets the ProxyDetail field's value.
-func (s *DescribeDBInstanceDetailOutput) SetProxyDetail(v *ProxyDetailForDescribeDBInstanceDetailOutput) *DescribeDBInstanceDetailOutput {
-	s.ProxyDetail = v
-	return s
-}
-
 type EndpointForDescribeDBInstanceDetailOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
 	Addresses []*AddressForDescribeDBInstanceDetailOutput `type:"list" json:",omitempty"`
 
 	AutoAddNewNodes *string `type:"string" json:",omitempty"`
-
-	ConnectionMode *string `type:"string" json:",omitempty"`
-
-	ConnectionPoolType *string `type:"string" json:",omitempty"`
 
 	Description *string `type:"string" json:",omitempty"`
 
@@ -701,12 +665,6 @@ type EndpointForDescribeDBInstanceDetailOutput struct {
 	EndpointType *string `type:"string" json:",omitempty"`
 
 	IdleConnectionReclaim *bool `type:"boolean" json:",omitempty"`
-
-	MultiStatementsMode *string `type:"string" json:",omitempty"`
-
-	ReadOnlyNodeDistributionType *string `type:"string" json:",omitempty"`
-
-	ReadOnlyNodeMaxDelayTime *int32 `type:"int32" json:",omitempty"`
 
 	ReadOnlyNodeWeight []*ReadOnlyNodeWeightForDescribeDBInstanceDetailOutput `type:"list" json:",omitempty"`
 
@@ -732,18 +690,6 @@ func (s *EndpointForDescribeDBInstanceDetailOutput) SetAddresses(v []*AddressFor
 // SetAutoAddNewNodes sets the AutoAddNewNodes field's value.
 func (s *EndpointForDescribeDBInstanceDetailOutput) SetAutoAddNewNodes(v string) *EndpointForDescribeDBInstanceDetailOutput {
 	s.AutoAddNewNodes = &v
-	return s
-}
-
-// SetConnectionMode sets the ConnectionMode field's value.
-func (s *EndpointForDescribeDBInstanceDetailOutput) SetConnectionMode(v string) *EndpointForDescribeDBInstanceDetailOutput {
-	s.ConnectionMode = &v
-	return s
-}
-
-// SetConnectionPoolType sets the ConnectionPoolType field's value.
-func (s *EndpointForDescribeDBInstanceDetailOutput) SetConnectionPoolType(v string) *EndpointForDescribeDBInstanceDetailOutput {
-	s.ConnectionPoolType = &v
 	return s
 }
 
@@ -786,24 +732,6 @@ func (s *EndpointForDescribeDBInstanceDetailOutput) SetEndpointType(v string) *E
 // SetIdleConnectionReclaim sets the IdleConnectionReclaim field's value.
 func (s *EndpointForDescribeDBInstanceDetailOutput) SetIdleConnectionReclaim(v bool) *EndpointForDescribeDBInstanceDetailOutput {
 	s.IdleConnectionReclaim = &v
-	return s
-}
-
-// SetMultiStatementsMode sets the MultiStatementsMode field's value.
-func (s *EndpointForDescribeDBInstanceDetailOutput) SetMultiStatementsMode(v string) *EndpointForDescribeDBInstanceDetailOutput {
-	s.MultiStatementsMode = &v
-	return s
-}
-
-// SetReadOnlyNodeDistributionType sets the ReadOnlyNodeDistributionType field's value.
-func (s *EndpointForDescribeDBInstanceDetailOutput) SetReadOnlyNodeDistributionType(v string) *EndpointForDescribeDBInstanceDetailOutput {
-	s.ReadOnlyNodeDistributionType = &v
-	return s
-}
-
-// SetReadOnlyNodeMaxDelayTime sets the ReadOnlyNodeMaxDelayTime field's value.
-func (s *EndpointForDescribeDBInstanceDetailOutput) SetReadOnlyNodeMaxDelayTime(v int32) *EndpointForDescribeDBInstanceDetailOutput {
-	s.ReadOnlyNodeMaxDelayTime = &v
 	return s
 }
 
@@ -862,8 +790,6 @@ type NodeForDescribeDBInstanceDetailOutput struct {
 
 	CreateTime *string `type:"string" json:",omitempty"`
 
-	DelayReplicationTime *int64 `type:"int64" json:",omitempty"`
-
 	InstanceId *string `type:"string" json:",omitempty"`
 
 	Memory *int32 `type:"int32" json:",omitempty"`
@@ -877,8 +803,6 @@ type NodeForDescribeDBInstanceDetailOutput struct {
 	NodeType *string `type:"string" json:",omitempty"`
 
 	RegionId *string `type:"string" json:",omitempty"`
-
-	SyncDelay *int64 `type:"int64" json:",omitempty"`
 
 	UpdateTime *string `type:"string" json:",omitempty"`
 
@@ -900,12 +824,6 @@ func (s NodeForDescribeDBInstanceDetailOutput) GoString() string {
 // SetCreateTime sets the CreateTime field's value.
 func (s *NodeForDescribeDBInstanceDetailOutput) SetCreateTime(v string) *NodeForDescribeDBInstanceDetailOutput {
 	s.CreateTime = &v
-	return s
-}
-
-// SetDelayReplicationTime sets the DelayReplicationTime field's value.
-func (s *NodeForDescribeDBInstanceDetailOutput) SetDelayReplicationTime(v int64) *NodeForDescribeDBInstanceDetailOutput {
-	s.DelayReplicationTime = &v
 	return s
 }
 
@@ -951,12 +869,6 @@ func (s *NodeForDescribeDBInstanceDetailOutput) SetRegionId(v string) *NodeForDe
 	return s
 }
 
-// SetSyncDelay sets the SyncDelay field's value.
-func (s *NodeForDescribeDBInstanceDetailOutput) SetSyncDelay(v int64) *NodeForDescribeDBInstanceDetailOutput {
-	s.SyncDelay = &v
-	return s
-}
-
 // SetUpdateTime sets the UpdateTime field's value.
 func (s *NodeForDescribeDBInstanceDetailOutput) SetUpdateTime(v string) *NodeForDescribeDBInstanceDetailOutput {
 	s.UpdateTime = &v
@@ -975,80 +887,12 @@ func (s *NodeForDescribeDBInstanceDetailOutput) SetZoneId(v string) *NodeForDesc
 	return s
 }
 
-type ProxyDetailForDescribeDBInstanceDetailOutput struct {
-	_ struct{} `type:"structure" json:",omitempty"`
-
-	DBProxyStatus *string `type:"string" json:",omitempty"`
-
-	ProxyResourceInfo *ProxyResourceInfoForDescribeDBInstanceDetailOutput `type:"structure" json:",omitempty"`
-}
-
-// String returns the string representation
-func (s ProxyDetailForDescribeDBInstanceDetailOutput) String() string {
-	return volcengineutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s ProxyDetailForDescribeDBInstanceDetailOutput) GoString() string {
-	return s.String()
-}
-
-// SetDBProxyStatus sets the DBProxyStatus field's value.
-func (s *ProxyDetailForDescribeDBInstanceDetailOutput) SetDBProxyStatus(v string) *ProxyDetailForDescribeDBInstanceDetailOutput {
-	s.DBProxyStatus = &v
-	return s
-}
-
-// SetProxyResourceInfo sets the ProxyResourceInfo field's value.
-func (s *ProxyDetailForDescribeDBInstanceDetailOutput) SetProxyResourceInfo(v *ProxyResourceInfoForDescribeDBInstanceDetailOutput) *ProxyDetailForDescribeDBInstanceDetailOutput {
-	s.ProxyResourceInfo = v
-	return s
-}
-
-type ProxyResourceInfoForDescribeDBInstanceDetailOutput struct {
-	_ struct{} `type:"structure" json:",omitempty"`
-
-	CurrentProxyCpuNum *int32 `type:"int32" json:",omitempty"`
-
-	MaxProxyCpuNum *int32 `type:"int32" json:",omitempty"`
-
-	MinProxyCpuNum *int32 `type:"int32" json:",omitempty"`
-}
-
-// String returns the string representation
-func (s ProxyResourceInfoForDescribeDBInstanceDetailOutput) String() string {
-	return volcengineutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s ProxyResourceInfoForDescribeDBInstanceDetailOutput) GoString() string {
-	return s.String()
-}
-
-// SetCurrentProxyCpuNum sets the CurrentProxyCpuNum field's value.
-func (s *ProxyResourceInfoForDescribeDBInstanceDetailOutput) SetCurrentProxyCpuNum(v int32) *ProxyResourceInfoForDescribeDBInstanceDetailOutput {
-	s.CurrentProxyCpuNum = &v
-	return s
-}
-
-// SetMaxProxyCpuNum sets the MaxProxyCpuNum field's value.
-func (s *ProxyResourceInfoForDescribeDBInstanceDetailOutput) SetMaxProxyCpuNum(v int32) *ProxyResourceInfoForDescribeDBInstanceDetailOutput {
-	s.MaxProxyCpuNum = &v
-	return s
-}
-
-// SetMinProxyCpuNum sets the MinProxyCpuNum field's value.
-func (s *ProxyResourceInfoForDescribeDBInstanceDetailOutput) SetMinProxyCpuNum(v int32) *ProxyResourceInfoForDescribeDBInstanceDetailOutput {
-	s.MinProxyCpuNum = &v
-	return s
-}
-
 type ReadOnlyNodeWeightForDescribeDBInstanceDetailOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
 	NodeId *string `type:"string" json:",omitempty"`
 
-	NodeType *string `type:"string" json:",omitempty"`
+	NodeType *string `type:"string" json:",omitempty" enum:"EnumOfNodeTypeForDescribeDBInstanceDetailOutput"`
 
 	Weight *int32 `type:"int32" json:",omitempty"`
 }
@@ -1110,3 +954,72 @@ func (s *TagForDescribeDBInstanceDetailOutput) SetValue(v string) *TagForDescrib
 	s.Value = &v
 	return s
 }
+
+const (
+	// EnumOfChargeStatusForDescribeDBInstanceDetailOutputNormal is a EnumOfChargeStatusForDescribeDBInstanceDetailOutput enum value
+	EnumOfChargeStatusForDescribeDBInstanceDetailOutputNormal = "Normal"
+
+	// EnumOfChargeStatusForDescribeDBInstanceDetailOutputOverdue is a EnumOfChargeStatusForDescribeDBInstanceDetailOutput enum value
+	EnumOfChargeStatusForDescribeDBInstanceDetailOutputOverdue = "Overdue"
+
+	// EnumOfChargeStatusForDescribeDBInstanceDetailOutputUnpaid is a EnumOfChargeStatusForDescribeDBInstanceDetailOutput enum value
+	EnumOfChargeStatusForDescribeDBInstanceDetailOutputUnpaid = "Unpaid"
+)
+
+const (
+	// EnumOfChargeTypeForDescribeDBInstanceDetailOutputNotEnabled is a EnumOfChargeTypeForDescribeDBInstanceDetailOutput enum value
+	EnumOfChargeTypeForDescribeDBInstanceDetailOutputNotEnabled = "NotEnabled"
+
+	// EnumOfChargeTypeForDescribeDBInstanceDetailOutputPostPaid is a EnumOfChargeTypeForDescribeDBInstanceDetailOutput enum value
+	EnumOfChargeTypeForDescribeDBInstanceDetailOutputPostPaid = "PostPaid"
+
+	// EnumOfChargeTypeForDescribeDBInstanceDetailOutputPrePaid is a EnumOfChargeTypeForDescribeDBInstanceDetailOutput enum value
+	EnumOfChargeTypeForDescribeDBInstanceDetailOutputPrePaid = "PrePaid"
+)
+
+const (
+	// EnumOfInternetProtocolForDescribeDBInstanceDetailOutputIpv4 is a EnumOfInternetProtocolForDescribeDBInstanceDetailOutput enum value
+	EnumOfInternetProtocolForDescribeDBInstanceDetailOutputIpv4 = "IPv4"
+
+	// EnumOfInternetProtocolForDescribeDBInstanceDetailOutputIpv6 is a EnumOfInternetProtocolForDescribeDBInstanceDetailOutput enum value
+	EnumOfInternetProtocolForDescribeDBInstanceDetailOutputIpv6 = "IPv6"
+
+	// EnumOfInternetProtocolForDescribeDBInstanceDetailOutputDualStack is a EnumOfInternetProtocolForDescribeDBInstanceDetailOutput enum value
+	EnumOfInternetProtocolForDescribeDBInstanceDetailOutputDualStack = "DualStack"
+)
+
+const (
+	// EnumOfNetworkTypeForDescribeDBInstanceDetailOutputPrivate is a EnumOfNetworkTypeForDescribeDBInstanceDetailOutput enum value
+	EnumOfNetworkTypeForDescribeDBInstanceDetailOutputPrivate = "Private"
+
+	// EnumOfNetworkTypeForDescribeDBInstanceDetailOutputPublic is a EnumOfNetworkTypeForDescribeDBInstanceDetailOutput enum value
+	EnumOfNetworkTypeForDescribeDBInstanceDetailOutputPublic = "Public"
+
+	// EnumOfNetworkTypeForDescribeDBInstanceDetailOutputInner is a EnumOfNetworkTypeForDescribeDBInstanceDetailOutput enum value
+	EnumOfNetworkTypeForDescribeDBInstanceDetailOutputInner = "Inner"
+
+	// EnumOfNetworkTypeForDescribeDBInstanceDetailOutputIngress is a EnumOfNetworkTypeForDescribeDBInstanceDetailOutput enum value
+	EnumOfNetworkTypeForDescribeDBInstanceDetailOutputIngress = "Ingress"
+
+	// EnumOfNetworkTypeForDescribeDBInstanceDetailOutputCarma is a EnumOfNetworkTypeForDescribeDBInstanceDetailOutput enum value
+	EnumOfNetworkTypeForDescribeDBInstanceDetailOutputCarma = "Carma"
+)
+
+const (
+	// EnumOfNodeTypeForDescribeDBInstanceDetailOutputPrimary is a EnumOfNodeTypeForDescribeDBInstanceDetailOutput enum value
+	EnumOfNodeTypeForDescribeDBInstanceDetailOutputPrimary = "Primary"
+
+	// EnumOfNodeTypeForDescribeDBInstanceDetailOutputSecondary is a EnumOfNodeTypeForDescribeDBInstanceDetailOutput enum value
+	EnumOfNodeTypeForDescribeDBInstanceDetailOutputSecondary = "Secondary"
+
+	// EnumOfNodeTypeForDescribeDBInstanceDetailOutputReadOnly is a EnumOfNodeTypeForDescribeDBInstanceDetailOutput enum value
+	EnumOfNodeTypeForDescribeDBInstanceDetailOutputReadOnly = "ReadOnly"
+)
+
+const (
+	// EnumOfPeriodUnitForDescribeDBInstanceDetailOutputMonth is a EnumOfPeriodUnitForDescribeDBInstanceDetailOutput enum value
+	EnumOfPeriodUnitForDescribeDBInstanceDetailOutputMonth = "Month"
+
+	// EnumOfPeriodUnitForDescribeDBInstanceDetailOutputYear is a EnumOfPeriodUnitForDescribeDBInstanceDetailOutput enum value
+	EnumOfPeriodUnitForDescribeDBInstanceDetailOutputYear = "Year"
+)

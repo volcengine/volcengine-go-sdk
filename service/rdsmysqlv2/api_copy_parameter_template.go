@@ -146,8 +146,6 @@ func (c *RDSMYSQLV2) CopyParameterTemplateWithContext(ctx volcengine.Context, in
 type CopyParameterTemplateInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	ProjectName *string `type:"string" json:",omitempty"`
-
 	// SrcTemplateId is a required field
 	SrcTemplateId *string `type:"string" json:",omitempty" required:"true"`
 
@@ -181,12 +179,6 @@ func (s *CopyParameterTemplateInput) Validate() error {
 		return invalidParams
 	}
 	return nil
-}
-
-// SetProjectName sets the ProjectName field's value.
-func (s *CopyParameterTemplateInput) SetProjectName(v string) *CopyParameterTemplateInput {
-	s.ProjectName = &v
-	return s
 }
 
 // SetSrcTemplateId sets the SrcTemplateId field's value.

@@ -149,20 +149,16 @@ type ModifyDBInstanceSpecInput struct {
 	// InstanceId is a required field
 	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 
-	ModifyType *string `type:"string" json:",omitempty"`
+	ModifyType *string `type:"string" json:",omitempty" enum:"EnumOfModifyTypeForModifyDBInstanceSpecInput"`
 
 	NodeInfo []*NodeInfoForModifyDBInstanceSpecInput `type:"list" json:",omitempty"`
-
-	SpecifiedSwitchEndTime *string `type:"string" json:",omitempty"`
-
-	SpecifiedSwitchStartTime *string `type:"string" json:",omitempty"`
 
 	StorageSpace *int32 `type:"int32" json:",omitempty"`
 
 	// StorageType is a required field
-	StorageType *string `type:"string" json:",omitempty" required:"true"`
+	StorageType *string `type:"string" json:",omitempty" required:"true" enum:"EnumOfStorageTypeForModifyDBInstanceSpecInput"`
 
-	SwitchType *string `type:"string" json:",omitempty"`
+	SwitchType *string `type:"string" json:",omitempty" enum:"EnumOfSwitchTypeForModifyDBInstanceSpecInput"`
 }
 
 // String returns the string representation
@@ -206,18 +202,6 @@ func (s *ModifyDBInstanceSpecInput) SetModifyType(v string) *ModifyDBInstanceSpe
 // SetNodeInfo sets the NodeInfo field's value.
 func (s *ModifyDBInstanceSpecInput) SetNodeInfo(v []*NodeInfoForModifyDBInstanceSpecInput) *ModifyDBInstanceSpecInput {
 	s.NodeInfo = v
-	return s
-}
-
-// SetSpecifiedSwitchEndTime sets the SpecifiedSwitchEndTime field's value.
-func (s *ModifyDBInstanceSpecInput) SetSpecifiedSwitchEndTime(v string) *ModifyDBInstanceSpecInput {
-	s.SpecifiedSwitchEndTime = &v
-	return s
-}
-
-// SetSpecifiedSwitchStartTime sets the SpecifiedSwitchStartTime field's value.
-func (s *ModifyDBInstanceSpecInput) SetSpecifiedSwitchStartTime(v string) *ModifyDBInstanceSpecInput {
-	s.SpecifiedSwitchStartTime = &v
 	return s
 }
 
@@ -324,3 +308,36 @@ func (s *NodeInfoForModifyDBInstanceSpecInput) SetZoneId(v string) *NodeInfoForM
 	s.ZoneId = &v
 	return s
 }
+
+const (
+	// EnumOfModifyTypeForModifyDBInstanceSpecInputUsually is a EnumOfModifyTypeForModifyDBInstanceSpecInput enum value
+	EnumOfModifyTypeForModifyDBInstanceSpecInputUsually = "Usually"
+
+	// EnumOfModifyTypeForModifyDBInstanceSpecInputTemporary is a EnumOfModifyTypeForModifyDBInstanceSpecInput enum value
+	EnumOfModifyTypeForModifyDBInstanceSpecInputTemporary = "Temporary"
+)
+
+const (
+	// EnumOfStorageTypeForModifyDBInstanceSpecInputLocalSsd is a EnumOfStorageTypeForModifyDBInstanceSpecInput enum value
+	EnumOfStorageTypeForModifyDBInstanceSpecInputLocalSsd = "LocalSSD"
+
+	// EnumOfStorageTypeForModifyDBInstanceSpecInputCloudStorage is a EnumOfStorageTypeForModifyDBInstanceSpecInput enum value
+	EnumOfStorageTypeForModifyDBInstanceSpecInputCloudStorage = "CloudStorage"
+
+	// EnumOfStorageTypeForModifyDBInstanceSpecInputEssdpl1 is a EnumOfStorageTypeForModifyDBInstanceSpecInput enum value
+	EnumOfStorageTypeForModifyDBInstanceSpecInputEssdpl1 = "ESSDPL1"
+
+	// EnumOfStorageTypeForModifyDBInstanceSpecInputEssdpl2 is a EnumOfStorageTypeForModifyDBInstanceSpecInput enum value
+	EnumOfStorageTypeForModifyDBInstanceSpecInputEssdpl2 = "ESSDPL2"
+)
+
+const (
+	// EnumOfSwitchTypeForModifyDBInstanceSpecInputImmediate is a EnumOfSwitchTypeForModifyDBInstanceSpecInput enum value
+	EnumOfSwitchTypeForModifyDBInstanceSpecInputImmediate = "Immediate"
+
+	// EnumOfSwitchTypeForModifyDBInstanceSpecInputMaintainTime is a EnumOfSwitchTypeForModifyDBInstanceSpecInput enum value
+	EnumOfSwitchTypeForModifyDBInstanceSpecInputMaintainTime = "MaintainTime"
+
+	// EnumOfSwitchTypeForModifyDBInstanceSpecInputSpecifiedTime is a EnumOfSwitchTypeForModifyDBInstanceSpecInput enum value
+	EnumOfSwitchTypeForModifyDBInstanceSpecInputSpecifiedTime = "SpecifiedTime"
+)

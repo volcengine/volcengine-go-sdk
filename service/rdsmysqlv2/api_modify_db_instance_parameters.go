@@ -151,7 +151,7 @@ type ModifyDBInstanceParametersInput struct {
 	// InstanceId is a required field
 	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 
-	ParamApplyScope *string `type:"string" json:",omitempty"`
+	ParamApplyScope *string `type:"string" json:",omitempty" enum:"EnumOfParamApplyScopeForModifyDBInstanceParametersInput"`
 
 	Parameters []*ParameterForModifyDBInstanceParametersInput `type:"list" json:",omitempty"`
 }
@@ -248,3 +248,17 @@ func (s *ParameterForModifyDBInstanceParametersInput) SetParameterValue(v string
 	s.ParameterValue = &v
 	return s
 }
+
+const (
+	// EnumOfParamApplyScopeForModifyDBInstanceParametersInputAllNode is a EnumOfParamApplyScopeForModifyDBInstanceParametersInput enum value
+	EnumOfParamApplyScopeForModifyDBInstanceParametersInputAllNode = "AllNode"
+
+	// EnumOfParamApplyScopeForModifyDBInstanceParametersInputOnlyMasterSlaveNode is a EnumOfParamApplyScopeForModifyDBInstanceParametersInput enum value
+	EnumOfParamApplyScopeForModifyDBInstanceParametersInputOnlyMasterSlaveNode = "OnlyMasterSlaveNode"
+
+	// EnumOfParamApplyScopeForModifyDBInstanceParametersInputOnlyReadOnlyNode is a EnumOfParamApplyScopeForModifyDBInstanceParametersInput enum value
+	EnumOfParamApplyScopeForModifyDBInstanceParametersInputOnlyReadOnlyNode = "OnlyReadOnlyNode"
+
+	// EnumOfParamApplyScopeForModifyDBInstanceParametersInputCustomNode is a EnumOfParamApplyScopeForModifyDBInstanceParametersInput enum value
+	EnumOfParamApplyScopeForModifyDBInstanceParametersInputCustomNode = "CustomNode"
+)
