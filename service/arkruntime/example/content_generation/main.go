@@ -3,8 +3,9 @@ package main
 import (
 	"context"
 	"fmt"
-	"github.com/volcengine/volcengine-go-sdk/volcengine"
 	"os"
+
+	"github.com/volcengine/volcengine-go-sdk/volcengine"
 
 	"github.com/volcengine/volcengine-go-sdk/service/arkruntime"
 	"github.com/volcengine/volcengine-go-sdk/service/arkruntime/model"
@@ -60,11 +61,14 @@ func main() {
 	fmt.Printf("Task ID: %s\n", getResponse.ID)
 	fmt.Printf("Model: %s\n", getResponse.Model)
 	fmt.Printf("Status: %s\n", getResponse.Status)
-	fmt.Printf("Failure Reason: %v\n", getResponse.FailureReason)
 	fmt.Printf("Video URL: %s\n", getResponse.Content.VideoURL)
 	fmt.Printf("Completion Tokens: %d\n", getResponse.Usage.CompletionTokens)
 	fmt.Printf("Created At: %d\n", getResponse.CreatedAt)
 	fmt.Printf("Updated At: %d\n", getResponse.UpdatedAt)
+	if getResponse.Error != nil {
+		fmt.Printf("Error Code: %s\n", getResponse.Error.Code)
+		fmt.Printf("Error Message: %s\n", getResponse.Error.Message)
+	}
 
 	fmt.Println("----- list content generation task -----")
 

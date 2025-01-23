@@ -31,14 +31,14 @@ type GetContentGenerationTaskRequest struct {
 }
 
 type GetContentGenerationTaskResponse struct {
-	ID            string  `json:"id"`
-	Model         string  `json:"model"`
-	Status        string  `json:"status"`
-	FailureReason *string `json:"failure_reason,omitempty"`
-	Content       Content `json:"content"`
-	Usage         Usage   `json:"usage"`
-	CreatedAt     int64   `json:"created_at"`
-	UpdatedAt     int64   `json:"updated_at"`
+	ID        string                  `json:"id"`
+	Model     string                  `json:"model"`
+	Status    string                  `json:"status"`
+	Error     *ContentGenerationError `json:"error,omitempty"`
+	Content   Content                 `json:"content"`
+	Usage     Usage                   `json:"usage"`
+	CreatedAt int64                   `json:"created_at"`
+	UpdatedAt int64                   `json:"updated_at"`
 
 	HttpHeader
 }
@@ -83,12 +83,17 @@ type ListContentGenerationTasksResponse struct {
 }
 
 type ListContentGenerationTaskItem struct {
-	ID            string  `json:"id"`
-	Model         string  `json:"model"`
-	Status        string  `json:"status"`
-	FailureReason *string `json:"failure_reason,omitempty"`
-	Content       Content `json:"content"`
-	Usage         Usage   `json:"usage"`
-	CreatedAt     int64   `json:"created_at"`
-	UpdatedAt     int64   `json:"updated_at"`
+	ID            string                  `json:"id"`
+	Model         string                  `json:"model"`
+	Status        string                  `json:"status"`
+	FailureReason *ContentGenerationError `json:"failure_reason,omitempty"`
+	Content       Content                 `json:"content"`
+	Usage         Usage                   `json:"usage"`
+	CreatedAt     int64                   `json:"created_at"`
+	UpdatedAt     int64                   `json:"updated_at"`
+}
+
+type ContentGenerationError struct {
+	Code    string `json:"code"`
+	Message string `json:"message"`
 }
