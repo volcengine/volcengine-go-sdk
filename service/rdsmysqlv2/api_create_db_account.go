@@ -197,8 +197,6 @@ type CreateDBAccountInput struct {
 	// AccountType is a required field
 	AccountType *string `type:"string" json:",omitempty" required:"true"`
 
-	DryRun *bool `type:"boolean" json:",omitempty"`
-
 	Host *string `type:"string" json:",omitempty"`
 
 	// InstanceId is a required field
@@ -267,12 +265,6 @@ func (s *CreateDBAccountInput) SetAccountType(v string) *CreateDBAccountInput {
 	return s
 }
 
-// SetDryRun sets the DryRun field's value.
-func (s *CreateDBAccountInput) SetDryRun(v bool) *CreateDBAccountInput {
-	s.DryRun = &v
-	return s
-}
-
 // SetHost sets the Host field's value.
 func (s *CreateDBAccountInput) SetHost(v string) *CreateDBAccountInput {
 	s.Host = &v
@@ -289,8 +281,6 @@ type CreateDBAccountOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
-
-	CreateAccountSQL []*string `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -301,10 +291,4 @@ func (s CreateDBAccountOutput) String() string {
 // GoString returns the string representation
 func (s CreateDBAccountOutput) GoString() string {
 	return s.String()
-}
-
-// SetCreateAccountSQL sets the CreateAccountSQL field's value.
-func (s *CreateDBAccountOutput) SetCreateAccountSQL(v []*string) *CreateDBAccountOutput {
-	s.CreateAccountSQL = v
-	return s
 }

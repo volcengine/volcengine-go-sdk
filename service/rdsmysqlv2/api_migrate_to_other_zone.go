@@ -151,11 +151,7 @@ type MigrateToOtherZoneInput struct {
 
 	NodeInfo []*NodeInfoForMigrateToOtherZoneInput `type:"list" json:",omitempty"`
 
-	SpecifiedSwitchEndTime *string `type:"string" json:",omitempty"`
-
-	SpecifiedSwitchStartTime *string `type:"string" json:",omitempty"`
-
-	SwitchType *string `type:"string" json:",omitempty"`
+	SwitchType *string `type:"string" json:",omitempty" enum:"EnumOfSwitchTypeForMigrateToOtherZoneInput"`
 }
 
 // String returns the string representation
@@ -190,18 +186,6 @@ func (s *MigrateToOtherZoneInput) SetInstanceId(v string) *MigrateToOtherZoneInp
 // SetNodeInfo sets the NodeInfo field's value.
 func (s *MigrateToOtherZoneInput) SetNodeInfo(v []*NodeInfoForMigrateToOtherZoneInput) *MigrateToOtherZoneInput {
 	s.NodeInfo = v
-	return s
-}
-
-// SetSpecifiedSwitchEndTime sets the SpecifiedSwitchEndTime field's value.
-func (s *MigrateToOtherZoneInput) SetSpecifiedSwitchEndTime(v string) *MigrateToOtherZoneInput {
-	s.SpecifiedSwitchEndTime = &v
-	return s
-}
-
-// SetSpecifiedSwitchStartTime sets the SpecifiedSwitchStartTime field's value.
-func (s *MigrateToOtherZoneInput) SetSpecifiedSwitchStartTime(v string) *MigrateToOtherZoneInput {
-	s.SpecifiedSwitchStartTime = &v
 	return s
 }
 
@@ -296,3 +280,14 @@ func (s *NodeInfoForMigrateToOtherZoneInput) SetZoneId(v string) *NodeInfoForMig
 	s.ZoneId = &v
 	return s
 }
+
+const (
+	// EnumOfSwitchTypeForMigrateToOtherZoneInputImmediate is a EnumOfSwitchTypeForMigrateToOtherZoneInput enum value
+	EnumOfSwitchTypeForMigrateToOtherZoneInputImmediate = "Immediate"
+
+	// EnumOfSwitchTypeForMigrateToOtherZoneInputMaintainTime is a EnumOfSwitchTypeForMigrateToOtherZoneInput enum value
+	EnumOfSwitchTypeForMigrateToOtherZoneInputMaintainTime = "MaintainTime"
+
+	// EnumOfSwitchTypeForMigrateToOtherZoneInputSpecifiedTime is a EnumOfSwitchTypeForMigrateToOtherZoneInput enum value
+	EnumOfSwitchTypeForMigrateToOtherZoneInputSpecifiedTime = "SpecifiedTime"
+)

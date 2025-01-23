@@ -148,7 +148,7 @@ type ChargeItemPriceForDescribeDBInstancePriceDetailOutput struct {
 
 	ChargeItemKey *string `type:"string" json:",omitempty"`
 
-	ChargeItemType *string `type:"string" json:",omitempty"`
+	ChargeItemType *string `type:"string" json:",omitempty" enum:"EnumOfChargeItemTypeForDescribeDBInstancePriceDetailOutput"`
 
 	ChargeItemValue *int64 `type:"int64" json:",omitempty"`
 
@@ -209,7 +209,7 @@ type DescribeDBInstancePriceDetailInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
 	// ChargeType is a required field
-	ChargeType *string `type:"string" json:",omitempty" required:"true"`
+	ChargeType *string `type:"string" json:",omitempty" required:"true" enum:"EnumOfChargeTypeForDescribeDBInstancePriceDetailInput"`
 
 	NodeInfo []*NodeInfoForDescribeDBInstancePriceDetailInput `type:"list" json:",omitempty"`
 
@@ -217,15 +217,13 @@ type DescribeDBInstancePriceDetailInput struct {
 
 	Period *int32 `type:"int32" json:",omitempty"`
 
-	PeriodUnit *string `type:"string" json:",omitempty"`
-
-	ProjectName *string `type:"string" json:",omitempty"`
+	PeriodUnit *string `type:"string" json:",omitempty" enum:"EnumOfPeriodUnitForDescribeDBInstancePriceDetailInput"`
 
 	// StorageSpace is a required field
 	StorageSpace *int32 `type:"int32" json:",omitempty" required:"true"`
 
 	// StorageType is a required field
-	StorageType *string `type:"string" json:",omitempty" required:"true"`
+	StorageType *string `type:"string" json:",omitempty" required:"true" enum:"EnumOfStorageTypeForDescribeDBInstancePriceDetailInput"`
 }
 
 // String returns the string representation
@@ -284,12 +282,6 @@ func (s *DescribeDBInstancePriceDetailInput) SetPeriod(v int32) *DescribeDBInsta
 // SetPeriodUnit sets the PeriodUnit field's value.
 func (s *DescribeDBInstancePriceDetailInput) SetPeriodUnit(v string) *DescribeDBInstancePriceDetailInput {
 	s.PeriodUnit = &v
-	return s
-}
-
-// SetProjectName sets the ProjectName field's value.
-func (s *DescribeDBInstancePriceDetailInput) SetProjectName(v string) *DescribeDBInstancePriceDetailInput {
-	s.ProjectName = &v
 	return s
 }
 
@@ -446,3 +438,50 @@ func (s *NodeInfoForDescribeDBInstancePriceDetailInput) SetZoneId(v string) *Nod
 	s.ZoneId = &v
 	return s
 }
+
+const (
+	// EnumOfChargeItemTypeForDescribeDBInstancePriceDetailOutputPrimary is a EnumOfChargeItemTypeForDescribeDBInstancePriceDetailOutput enum value
+	EnumOfChargeItemTypeForDescribeDBInstancePriceDetailOutputPrimary = "Primary"
+
+	// EnumOfChargeItemTypeForDescribeDBInstancePriceDetailOutputSecondary is a EnumOfChargeItemTypeForDescribeDBInstancePriceDetailOutput enum value
+	EnumOfChargeItemTypeForDescribeDBInstancePriceDetailOutputSecondary = "Secondary"
+
+	// EnumOfChargeItemTypeForDescribeDBInstancePriceDetailOutputReadOnly is a EnumOfChargeItemTypeForDescribeDBInstancePriceDetailOutput enum value
+	EnumOfChargeItemTypeForDescribeDBInstancePriceDetailOutputReadOnly = "ReadOnly"
+
+	// EnumOfChargeItemTypeForDescribeDBInstancePriceDetailOutputStorage is a EnumOfChargeItemTypeForDescribeDBInstancePriceDetailOutput enum value
+	EnumOfChargeItemTypeForDescribeDBInstancePriceDetailOutputStorage = "Storage"
+)
+
+const (
+	// EnumOfChargeTypeForDescribeDBInstancePriceDetailInputNotEnabled is a EnumOfChargeTypeForDescribeDBInstancePriceDetailInput enum value
+	EnumOfChargeTypeForDescribeDBInstancePriceDetailInputNotEnabled = "NotEnabled"
+
+	// EnumOfChargeTypeForDescribeDBInstancePriceDetailInputPostPaid is a EnumOfChargeTypeForDescribeDBInstancePriceDetailInput enum value
+	EnumOfChargeTypeForDescribeDBInstancePriceDetailInputPostPaid = "PostPaid"
+
+	// EnumOfChargeTypeForDescribeDBInstancePriceDetailInputPrePaid is a EnumOfChargeTypeForDescribeDBInstancePriceDetailInput enum value
+	EnumOfChargeTypeForDescribeDBInstancePriceDetailInputPrePaid = "PrePaid"
+)
+
+const (
+	// EnumOfPeriodUnitForDescribeDBInstancePriceDetailInputMonth is a EnumOfPeriodUnitForDescribeDBInstancePriceDetailInput enum value
+	EnumOfPeriodUnitForDescribeDBInstancePriceDetailInputMonth = "Month"
+
+	// EnumOfPeriodUnitForDescribeDBInstancePriceDetailInputYear is a EnumOfPeriodUnitForDescribeDBInstancePriceDetailInput enum value
+	EnumOfPeriodUnitForDescribeDBInstancePriceDetailInputYear = "Year"
+)
+
+const (
+	// EnumOfStorageTypeForDescribeDBInstancePriceDetailInputLocalSsd is a EnumOfStorageTypeForDescribeDBInstancePriceDetailInput enum value
+	EnumOfStorageTypeForDescribeDBInstancePriceDetailInputLocalSsd = "LocalSSD"
+
+	// EnumOfStorageTypeForDescribeDBInstancePriceDetailInputCloudStorage is a EnumOfStorageTypeForDescribeDBInstancePriceDetailInput enum value
+	EnumOfStorageTypeForDescribeDBInstancePriceDetailInputCloudStorage = "CloudStorage"
+
+	// EnumOfStorageTypeForDescribeDBInstancePriceDetailInputEssdpl1 is a EnumOfStorageTypeForDescribeDBInstancePriceDetailInput enum value
+	EnumOfStorageTypeForDescribeDBInstancePriceDetailInputEssdpl1 = "ESSDPL1"
+
+	// EnumOfStorageTypeForDescribeDBInstancePriceDetailInputEssdpl2 is a EnumOfStorageTypeForDescribeDBInstancePriceDetailInput enum value
+	EnumOfStorageTypeForDescribeDBInstancePriceDetailInputEssdpl2 = "ESSDPL2"
+)

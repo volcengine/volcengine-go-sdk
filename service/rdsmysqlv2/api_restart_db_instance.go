@@ -153,10 +153,6 @@ type RestartDBInstanceInput struct {
 	// InstanceId is a required field
 	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 
-	SpecifiedSwitchEndTime *string `type:"string" json:",omitempty"`
-
-	SpecifiedSwitchStartTime *string `type:"string" json:",omitempty"`
-
 	SwitchType *string `type:"string" json:",omitempty"`
 }
 
@@ -198,18 +194,6 @@ func (s *RestartDBInstanceInput) SetCustomNodeIds(v []*string) *RestartDBInstanc
 // SetInstanceId sets the InstanceId field's value.
 func (s *RestartDBInstanceInput) SetInstanceId(v string) *RestartDBInstanceInput {
 	s.InstanceId = &v
-	return s
-}
-
-// SetSpecifiedSwitchEndTime sets the SpecifiedSwitchEndTime field's value.
-func (s *RestartDBInstanceInput) SetSpecifiedSwitchEndTime(v string) *RestartDBInstanceInput {
-	s.SpecifiedSwitchEndTime = &v
-	return s
-}
-
-// SetSpecifiedSwitchStartTime sets the SpecifiedSwitchStartTime field's value.
-func (s *RestartDBInstanceInput) SetSpecifiedSwitchStartTime(v string) *RestartDBInstanceInput {
-	s.SpecifiedSwitchStartTime = &v
 	return s
 }
 

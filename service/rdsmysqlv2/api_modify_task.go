@@ -149,18 +149,10 @@ type ModifyTaskInput struct {
 	// InstanceId is a required field
 	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 
-	ModifyBeginTime *string `type:"string" json:",omitempty"`
-
-	ModifyEndTime *string `type:"string" json:",omitempty"`
-
-	ModifyType *string `type:"string" json:",omitempty"`
-
-	ProjectName *string `type:"string" json:",omitempty"`
+	// ModifyType is a required field
+	ModifyType *string `type:"string" json:",omitempty" required:"true"`
 
 	SwitchTime *string `type:"string" json:",omitempty"`
-
-	// TaskEventOperation is a required field
-	TaskEventOperation *string `type:"string" json:",omitempty" required:"true"`
 
 	// TaskId is a required field
 	TaskId *string `type:"string" json:",omitempty" required:"true"`
@@ -182,8 +174,8 @@ func (s *ModifyTaskInput) Validate() error {
 	if s.InstanceId == nil {
 		invalidParams.Add(request.NewErrParamRequired("InstanceId"))
 	}
-	if s.TaskEventOperation == nil {
-		invalidParams.Add(request.NewErrParamRequired("TaskEventOperation"))
+	if s.ModifyType == nil {
+		invalidParams.Add(request.NewErrParamRequired("ModifyType"))
 	}
 	if s.TaskId == nil {
 		invalidParams.Add(request.NewErrParamRequired("TaskId"))
@@ -201,39 +193,15 @@ func (s *ModifyTaskInput) SetInstanceId(v string) *ModifyTaskInput {
 	return s
 }
 
-// SetModifyBeginTime sets the ModifyBeginTime field's value.
-func (s *ModifyTaskInput) SetModifyBeginTime(v string) *ModifyTaskInput {
-	s.ModifyBeginTime = &v
-	return s
-}
-
-// SetModifyEndTime sets the ModifyEndTime field's value.
-func (s *ModifyTaskInput) SetModifyEndTime(v string) *ModifyTaskInput {
-	s.ModifyEndTime = &v
-	return s
-}
-
 // SetModifyType sets the ModifyType field's value.
 func (s *ModifyTaskInput) SetModifyType(v string) *ModifyTaskInput {
 	s.ModifyType = &v
 	return s
 }
 
-// SetProjectName sets the ProjectName field's value.
-func (s *ModifyTaskInput) SetProjectName(v string) *ModifyTaskInput {
-	s.ProjectName = &v
-	return s
-}
-
 // SetSwitchTime sets the SwitchTime field's value.
 func (s *ModifyTaskInput) SetSwitchTime(v string) *ModifyTaskInput {
 	s.SwitchTime = &v
-	return s
-}
-
-// SetTaskEventOperation sets the TaskEventOperation field's value.
-func (s *ModifyTaskInput) SetTaskEventOperation(v string) *ModifyTaskInput {
-	s.TaskEventOperation = &v
 	return s
 }
 

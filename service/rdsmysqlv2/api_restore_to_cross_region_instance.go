@@ -316,7 +316,7 @@ type RestoreToCrossRegionInstanceInput struct {
 	StorageSpace *int32 `type:"int32" json:",omitempty"`
 
 	// StorageType is a required field
-	StorageType *string `type:"string" json:",omitempty" required:"true"`
+	StorageType *string `type:"string" json:",omitempty" required:"true" enum:"EnumOfStorageTypeForRestoreToCrossRegionInstanceInput"`
 
 	// SubnetId is a required field
 	SubnetId *string `type:"string" json:",omitempty" required:"true"`
@@ -496,3 +496,17 @@ func (s *RestoreToCrossRegionInstanceOutput) SetOrderId(v string) *RestoreToCros
 	s.OrderId = &v
 	return s
 }
+
+const (
+	// EnumOfStorageTypeForRestoreToCrossRegionInstanceInputLocalSsd is a EnumOfStorageTypeForRestoreToCrossRegionInstanceInput enum value
+	EnumOfStorageTypeForRestoreToCrossRegionInstanceInputLocalSsd = "LocalSSD"
+
+	// EnumOfStorageTypeForRestoreToCrossRegionInstanceInputCloudStorage is a EnumOfStorageTypeForRestoreToCrossRegionInstanceInput enum value
+	EnumOfStorageTypeForRestoreToCrossRegionInstanceInputCloudStorage = "CloudStorage"
+
+	// EnumOfStorageTypeForRestoreToCrossRegionInstanceInputEssdpl1 is a EnumOfStorageTypeForRestoreToCrossRegionInstanceInput enum value
+	EnumOfStorageTypeForRestoreToCrossRegionInstanceInputEssdpl1 = "ESSDPL1"
+
+	// EnumOfStorageTypeForRestoreToCrossRegionInstanceInputEssdpl2 is a EnumOfStorageTypeForRestoreToCrossRegionInstanceInput enum value
+	EnumOfStorageTypeForRestoreToCrossRegionInstanceInputEssdpl2 = "ESSDPL2"
+)

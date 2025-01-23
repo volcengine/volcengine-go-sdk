@@ -143,8 +143,40 @@ func (c *RDSMYSQLV2) DescribeTasksWithContext(ctx volcengine.Context, input *Des
 	return out, req.Send()
 }
 
+type ConfigInfoForDescribeTasksOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	ConfigInfoKey *string `type:"string" json:",omitempty"`
+
+	ConfigInfoValue []*string `type:"list" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s ConfigInfoForDescribeTasksOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ConfigInfoForDescribeTasksOutput) GoString() string {
+	return s.String()
+}
+
+// SetConfigInfoKey sets the ConfigInfoKey field's value.
+func (s *ConfigInfoForDescribeTasksOutput) SetConfigInfoKey(v string) *ConfigInfoForDescribeTasksOutput {
+	s.ConfigInfoKey = &v
+	return s
+}
+
+// SetConfigInfoValue sets the ConfigInfoValue field's value.
+func (s *ConfigInfoForDescribeTasksOutput) SetConfigInfoValue(v []*string) *ConfigInfoForDescribeTasksOutput {
+	s.ConfigInfoValue = v
+	return s
+}
+
 type DataForDescribeTasksOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
+
+	ConfigInfos []*ConfigInfoForDescribeTasksOutput `type:"list" json:",omitempty"`
 
 	CostTimeMS *int64 `type:"int64" json:",omitempty"`
 
@@ -155,14 +187,6 @@ type DataForDescribeTasksOutput struct {
 	Progress *int32 `type:"int32" json:",omitempty"`
 
 	RelatedInstanceInfos *RelatedInstanceInfosForDescribeTasksOutput `type:"structure" json:",omitempty"`
-
-	ScheduledExecuteEndTime *string `type:"string" json:",omitempty"`
-
-	ScheduledExecuteStartTime *string `type:"string" json:",omitempty"`
-
-	ScheduledSwitchEndTime *string `type:"string" json:",omitempty"`
-
-	ScheduledSwitchStartTime *string `type:"string" json:",omitempty"`
 
 	StartTime *string `type:"string" json:",omitempty"`
 
@@ -193,6 +217,12 @@ func (s DataForDescribeTasksOutput) GoString() string {
 	return s.String()
 }
 
+// SetConfigInfos sets the ConfigInfos field's value.
+func (s *DataForDescribeTasksOutput) SetConfigInfos(v []*ConfigInfoForDescribeTasksOutput) *DataForDescribeTasksOutput {
+	s.ConfigInfos = v
+	return s
+}
+
 // SetCostTimeMS sets the CostTimeMS field's value.
 func (s *DataForDescribeTasksOutput) SetCostTimeMS(v int64) *DataForDescribeTasksOutput {
 	s.CostTimeMS = &v
@@ -220,30 +250,6 @@ func (s *DataForDescribeTasksOutput) SetProgress(v int32) *DataForDescribeTasksO
 // SetRelatedInstanceInfos sets the RelatedInstanceInfos field's value.
 func (s *DataForDescribeTasksOutput) SetRelatedInstanceInfos(v *RelatedInstanceInfosForDescribeTasksOutput) *DataForDescribeTasksOutput {
 	s.RelatedInstanceInfos = v
-	return s
-}
-
-// SetScheduledExecuteEndTime sets the ScheduledExecuteEndTime field's value.
-func (s *DataForDescribeTasksOutput) SetScheduledExecuteEndTime(v string) *DataForDescribeTasksOutput {
-	s.ScheduledExecuteEndTime = &v
-	return s
-}
-
-// SetScheduledExecuteStartTime sets the ScheduledExecuteStartTime field's value.
-func (s *DataForDescribeTasksOutput) SetScheduledExecuteStartTime(v string) *DataForDescribeTasksOutput {
-	s.ScheduledExecuteStartTime = &v
-	return s
-}
-
-// SetScheduledSwitchEndTime sets the ScheduledSwitchEndTime field's value.
-func (s *DataForDescribeTasksOutput) SetScheduledSwitchEndTime(v string) *DataForDescribeTasksOutput {
-	s.ScheduledSwitchEndTime = &v
-	return s
-}
-
-// SetScheduledSwitchStartTime sets the ScheduledSwitchStartTime field's value.
-func (s *DataForDescribeTasksOutput) SetScheduledSwitchStartTime(v string) *DataForDescribeTasksOutput {
-	s.ScheduledSwitchStartTime = &v
 	return s
 }
 
