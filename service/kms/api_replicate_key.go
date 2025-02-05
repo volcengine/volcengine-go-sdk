@@ -160,7 +160,7 @@ type ConvertReplicaKeyForReplicateKeyOutput struct {
 
 	LastRotationTime *string `type:"string"`
 
-	MultiRegion *string `type:"string"`
+	MultiRegion *bool `type:"boolean"`
 
 	MultiRegionConfiguration *MultiRegionConfigurationForReplicateKeyOutput `type:"structure"`
 
@@ -244,7 +244,7 @@ func (s *ConvertReplicaKeyForReplicateKeyOutput) SetLastRotationTime(v string) *
 }
 
 // SetMultiRegion sets the MultiRegion field's value.
-func (s *ConvertReplicaKeyForReplicateKeyOutput) SetMultiRegion(v string) *ConvertReplicaKeyForReplicateKeyOutput {
+func (s *ConvertReplicaKeyForReplicateKeyOutput) SetMultiRegion(v bool) *ConvertReplicaKeyForReplicateKeyOutput {
 	s.MultiRegion = &v
 	return s
 }
