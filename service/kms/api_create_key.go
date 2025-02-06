@@ -307,7 +307,7 @@ type KeyForCreateKeyOutput struct {
 
 	LastRotationTime *string `type:"string" json:",omitempty"`
 
-	MultiRegion *string `type:"string" json:",omitempty"`
+	MultiRegion *bool `type:"boolean" json:",omitempty"`
 
 	MultiRegionConfiguration *MultiRegionConfigurationForCreateKeyOutput `type:"structure" json:",omitempty"`
 
@@ -391,7 +391,7 @@ func (s *KeyForCreateKeyOutput) SetLastRotationTime(v string) *KeyForCreateKeyOu
 }
 
 // SetMultiRegion sets the MultiRegion field's value.
-func (s *KeyForCreateKeyOutput) SetMultiRegion(v string) *KeyForCreateKeyOutput {
+func (s *KeyForCreateKeyOutput) SetMultiRegion(v bool) *KeyForCreateKeyOutput {
 	s.MultiRegion = &v
 	return s
 }
