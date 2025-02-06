@@ -144,10 +144,10 @@ func (c *ORGANIZATION) DescribeQuitApplicationWithContext(ctx volcengine.Context
 }
 
 type DescribeQuitApplicationInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// ApplicationId is a required field
-	ApplicationId *string `type:"string" required:"true"`
+	ApplicationId *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -180,11 +180,11 @@ func (s *DescribeQuitApplicationInput) SetApplicationId(v string) *DescribeQuitA
 }
 
 type DescribeQuitApplicationOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	OrgQuitApplication *OrgQuitApplicationForDescribeQuitApplicationOutput `type:"structure"`
+	OrgQuitApplication *OrgQuitApplicationForDescribeQuitApplicationOutput `type:"structure" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -204,31 +204,31 @@ func (s *DescribeQuitApplicationOutput) SetOrgQuitApplication(v *OrgQuitApplicat
 }
 
 type OrgQuitApplicationForDescribeQuitApplicationOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	AccountID *string `type:"string"`
+	AccountID *string `type:"string" json:",omitempty"`
 
-	ApplyReason *string `type:"string"`
+	ApplyReason *string `type:"string" json:",omitempty"`
 
-	AuditReason *string `type:"string"`
+	AuditReason *string `type:"string" json:",omitempty"`
 
-	AuditedTime *string `type:"string"`
+	AuditedTime *string `type:"string" json:",omitempty"`
 
-	CreatedTime *string `type:"string"`
+	CreatedTime *string `type:"string" json:",omitempty"`
 
-	DeleteUk *string `type:"string"`
+	DeleteUk *string `type:"string" json:",omitempty"`
 
-	DeletedTime *string `type:"string"`
+	DeletedTime *string `type:"string" json:",omitempty"`
 
-	ID *string `type:"string"`
+	ID *string `type:"string" json:",omitempty"`
 
-	OrgID *string `type:"string"`
+	OrgID *string `type:"string" json:",omitempty"`
 
-	Owner *string `type:"string"`
+	Owner *string `type:"string" json:",omitempty"`
 
-	Status *int32 `type:"int32"`
+	Status *int32 `type:"int32" json:",omitempty"`
 
-	UpdatedTime *string `type:"string"`
+	UpdatedTime *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation

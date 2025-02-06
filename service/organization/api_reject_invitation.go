@@ -144,15 +144,15 @@ func (c *ORGANIZATION) RejectInvitationWithContext(ctx volcengine.Context, input
 }
 
 type RejectInvitationInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// InviteId is a required field
-	InviteId *string `type:"string" required:"true"`
+	InviteId *string `type:"string" json:",omitempty" required:"true"`
 
 	// LinkId is a required field
-	LinkId *string `type:"string" required:"true"`
+	LinkId *string `type:"string" json:",omitempty" required:"true"`
 
-	Reason *string `type:"string"`
+	Reason *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -200,7 +200,7 @@ func (s *RejectInvitationInput) SetReason(v string) *RejectInvitationInput {
 }
 
 type RejectInvitationOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 }

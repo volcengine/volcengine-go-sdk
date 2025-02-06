@@ -144,10 +144,10 @@ func (c *ORGANIZATION) DisableConsoleLoginWithContext(ctx volcengine.Context, in
 }
 
 type DisableConsoleLoginInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// AccountId is a required field
-	AccountId *string `type:"string" required:"true"`
+	AccountId *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -180,7 +180,7 @@ func (s *DisableConsoleLoginInput) SetAccountId(v string) *DisableConsoleLoginIn
 }
 
 type DisableConsoleLoginOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 }

@@ -144,15 +144,15 @@ func (c *ORGANIZATION) UpdateOrganizationalUnitWithContext(ctx volcengine.Contex
 }
 
 type UpdateOrganizationalUnitInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Description *string `type:"string"`
+	Description *string `type:"string" json:",omitempty"`
 
 	// Name is a required field
-	Name *string `type:"string" required:"true"`
+	Name *string `type:"string" json:",omitempty" required:"true"`
 
 	// OrgUnitId is a required field
-	OrgUnitId *string `type:"string" required:"true"`
+	OrgUnitId *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -200,7 +200,7 @@ func (s *UpdateOrganizationalUnitInput) SetOrgUnitId(v string) *UpdateOrganizati
 }
 
 type UpdateOrganizationalUnitOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 }

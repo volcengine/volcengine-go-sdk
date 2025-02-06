@@ -144,16 +144,16 @@ func (c *ORGANIZATION) ChangeAccountSecureContactInfoWithContext(ctx volcengine.
 }
 
 type ChangeAccountSecureContactInfoInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// AccountId is a required field
-	AccountId *string `type:"string" required:"true"`
+	AccountId *string `type:"string" json:",omitempty" required:"true"`
 
 	// Contact is a required field
-	Contact *string `type:"string" required:"true"`
+	Contact *string `type:"string" json:",omitempty" required:"true"`
 
 	// ContactType is a required field
-	ContactType *int32 `type:"int32" required:"true"`
+	ContactType *int32 `type:"int32" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -204,7 +204,7 @@ func (s *ChangeAccountSecureContactInfoInput) SetContactType(v int32) *ChangeAcc
 }
 
 type ChangeAccountSecureContactInfoOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 }

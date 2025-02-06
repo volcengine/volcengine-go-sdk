@@ -144,7 +144,7 @@ func (c *ORGANIZATION) DeleteOrganizationWithContext(ctx volcengine.Context, inp
 }
 
 type DeleteOrganizationInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -158,7 +158,7 @@ func (s DeleteOrganizationInput) GoString() string {
 }
 
 type DeleteOrganizationOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 }

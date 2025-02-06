@@ -144,7 +144,7 @@ func (c *ORGANIZATION) ListOrganizationalUnitsWithContext(ctx volcengine.Context
 }
 
 type ListOrganizationalUnitsInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -158,11 +158,11 @@ func (s ListOrganizationalUnitsInput) GoString() string {
 }
 
 type ListOrganizationalUnitsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	SubUnitList []*SubUnitListForListOrganizationalUnitsOutput `type:"list"`
+	SubUnitList []*SubUnitListForListOrganizationalUnitsOutput `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -182,31 +182,31 @@ func (s *ListOrganizationalUnitsOutput) SetSubUnitList(v []*SubUnitListForListOr
 }
 
 type SubUnitListForListOrganizationalUnitsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	CreatedTime *string `type:"string"`
+	CreatedTime *string `type:"string" json:",omitempty"`
 
-	DeleteUk *string `type:"string"`
+	DeleteUk *string `type:"string" json:",omitempty"`
 
-	DeletedTime *string `type:"string"`
+	DeletedTime *string `type:"string" json:",omitempty"`
 
-	Depth *int32 `type:"int32"`
+	Depth *int32 `type:"int32" json:",omitempty"`
 
-	Description *string `type:"string"`
+	Description *string `type:"string" json:",omitempty"`
 
-	ID *string `type:"string"`
+	ID *string `type:"string" json:",omitempty"`
 
-	Name *string `type:"string"`
+	Name *string `type:"string" json:",omitempty"`
 
-	OrgID *string `type:"string"`
+	OrgID *string `type:"string" json:",omitempty"`
 
-	OrgType *int32 `type:"int32"`
+	OrgType *int32 `type:"int32" json:",omitempty"`
 
-	Owner *string `type:"string"`
+	Owner *string `type:"string" json:",omitempty"`
 
-	ParentID *string `type:"string"`
+	ParentID *string `type:"string" json:",omitempty"`
 
-	UpdatedTime *string `type:"string"`
+	UpdatedTime *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation

@@ -144,10 +144,10 @@ func (c *ORGANIZATION) GetAccountSecureContactInfoWithContext(ctx volcengine.Con
 }
 
 type GetAccountSecureContactInfoInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// AccountId is a required field
-	AccountId *string `type:"string" required:"true"`
+	AccountId *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -180,21 +180,21 @@ func (s *GetAccountSecureContactInfoInput) SetAccountId(v string) *GetAccountSec
 }
 
 type GetAccountSecureContactInfoOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	Email *string `type:"string"`
+	Email *string `type:"string" json:",omitempty"`
 
-	EmailVerified *int32 `type:"int32"`
+	EmailVerified *int32 `type:"int32" json:",omitempty"`
 
-	NewEmail *string `type:"string"`
+	NewEmail *string `type:"string" json:",omitempty"`
 
-	NewPhone *string `type:"string"`
+	NewPhone *string `type:"string" json:",omitempty"`
 
-	Phone *string `type:"string"`
+	Phone *string `type:"string" json:",omitempty"`
 
-	PhoneVerified *int32 `type:"int32"`
+	PhoneVerified *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation

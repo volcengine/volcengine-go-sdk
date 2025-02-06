@@ -144,17 +144,19 @@ func (c *ORGANIZATION) CreateAccountWithContext(ctx volcengine.Context, input *C
 }
 
 type CreateAccountInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// AccountName is a required field
-	AccountName *string `type:"string" required:"true"`
+	AccountName *string `type:"string" json:",omitempty" required:"true"`
 
-	Description *string `type:"string"`
+	Description *string `type:"string" json:",omitempty"`
 
-	OrgUnitId *string `type:"string"`
+	OrgUnitId *string `type:"string" json:",omitempty"`
 
 	// ShowName is a required field
-	ShowName *string `type:"string" required:"true"`
+	ShowName *string `type:"string" json:",omitempty" required:"true"`
+
+	VerificationRelationId *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -207,12 +209,18 @@ func (s *CreateAccountInput) SetShowName(v string) *CreateAccountInput {
 	return s
 }
 
+// SetVerificationRelationId sets the VerificationRelationId field's value.
+func (s *CreateAccountInput) SetVerificationRelationId(v string) *CreateAccountInput {
+	s.VerificationRelationId = &v
+	return s
+}
+
 type CreateAccountOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	AccountId *string `type:"string"`
+	AccountId *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation

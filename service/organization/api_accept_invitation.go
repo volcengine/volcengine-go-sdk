@@ -144,13 +144,13 @@ func (c *ORGANIZATION) AcceptInvitationWithContext(ctx volcengine.Context, input
 }
 
 type AcceptInvitationInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// InviteId is a required field
-	InviteId *string `type:"string" required:"true"`
+	InviteId *string `type:"string" json:",omitempty" required:"true"`
 
 	// LinkId is a required field
-	LinkId *string `type:"string" required:"true"`
+	LinkId *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -192,7 +192,7 @@ func (s *AcceptInvitationInput) SetLinkId(v string) *AcceptInvitationInput {
 }
 
 type AcceptInvitationOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 }
