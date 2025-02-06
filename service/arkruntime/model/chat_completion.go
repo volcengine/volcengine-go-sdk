@@ -72,11 +72,12 @@ func (j *ChatCompletionMessageContent) UnmarshalJSON(b []byte) error {
 }
 
 type ChatCompletionMessage struct {
-	Role         string                        `json:"role"`
-	Content      *ChatCompletionMessageContent `json:"content"`
-	FunctionCall *FunctionCall                 `json:"function_call,omitempty"`
-	ToolCalls    []*ToolCall                   `json:"tool_calls,omitempty"`
-	ToolCallID   string                        `json:"tool_call_id,omitempty"`
+	Role             string                        `json:"role"`
+	Content          *ChatCompletionMessageContent `json:"content"`
+	ReasoningContent *string                       `json:"reasoning_content,omitempty"`
+	FunctionCall     *FunctionCall                 `json:"function_call,omitempty"`
+	ToolCalls        []*ToolCall                   `json:"tool_calls,omitempty"`
+	ToolCallID       string                        `json:"tool_call_id,omitempty"`
 }
 
 type ToolCall struct {
@@ -337,10 +338,11 @@ type ChatCompletionResponse struct {
 }
 
 type ChatCompletionStreamChoiceDelta struct {
-	Content      string        `json:"content,omitempty"`
-	Role         string        `json:"role,omitempty"`
-	FunctionCall *FunctionCall `json:"function_call,omitempty"`
-	ToolCalls    []*ToolCall   `json:"tool_calls,omitempty"`
+	Content          string        `json:"content,omitempty"`
+	Role             string        `json:"role,omitempty"`
+	ReasoningContent *string       `json:"reasoning_content,omitempty"`
+	FunctionCall     *FunctionCall `json:"function_call,omitempty"`
+	ToolCalls        []*ToolCall   `json:"tool_calls,omitempty"`
 }
 
 type ChatCompletionStreamChoice struct {
