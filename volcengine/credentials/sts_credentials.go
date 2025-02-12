@@ -15,6 +15,7 @@ type StsAssumeRoleProvider struct {
 	AccountId       string
 	Host            string
 	Region          string
+	Schema          string
 	Timeout         time.Duration
 	DurationSeconds int
 }
@@ -27,10 +28,13 @@ type StsAssumeRoleTime struct {
 func StsAssumeRole(p *StsAssumeRoleProvider) (*Credentials, *StsAssumeRoleTime, error) {
 	ins := sts.NewInstance()
 	if p.Region != "" {
-		ins.SetRegion(p.Region)
+		ins.Client.ServiceInfo.Credentials.Region = p.Region
 	}
 	if p.Host != "" {
 		ins.SetHost(p.Host)
+	}
+	if p.Schema != "" {
+		ins.SetSchema(p.Schema)
 	}
 	if p.Timeout > 0 {
 		ins.Client.SetTimeout(p.Timeout)
