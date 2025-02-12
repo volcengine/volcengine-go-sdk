@@ -294,7 +294,7 @@ type ListForListFinancialRelationOutput struct {
 
 	FiliationDesc *string `type:"string" json:",omitempty"`
 
-	MajorAccountID *int32 `type:"int32" json:",omitempty"`
+	MajorAccountID *int64 `type:"int64" json:",omitempty"`
 
 	MajorAccountName *string `type:"string" json:",omitempty"`
 
@@ -308,7 +308,7 @@ type ListForListFinancialRelationOutput struct {
 
 	StatusDesc *string `type:"string" json:",omitempty"`
 
-	SubAccountID *int32 `type:"int32" json:",omitempty"`
+	SubAccountID *int64 `type:"int64" json:",omitempty"`
 
 	SubAccountName *string `type:"string" json:",omitempty"`
 
@@ -350,7 +350,7 @@ func (s *ListForListFinancialRelationOutput) SetFiliationDesc(v string) *ListFor
 }
 
 // SetMajorAccountID sets the MajorAccountID field's value.
-func (s *ListForListFinancialRelationOutput) SetMajorAccountID(v int32) *ListForListFinancialRelationOutput {
+func (s *ListForListFinancialRelationOutput) SetMajorAccountID(v int64) *ListForListFinancialRelationOutput {
 	s.MajorAccountID = &v
 	return s
 }
@@ -392,7 +392,7 @@ func (s *ListForListFinancialRelationOutput) SetStatusDesc(v string) *ListForLis
 }
 
 // SetSubAccountID sets the SubAccountID field's value.
-func (s *ListForListFinancialRelationOutput) SetSubAccountID(v int32) *ListForListFinancialRelationOutput {
+func (s *ListForListFinancialRelationOutput) SetSubAccountID(v int64) *ListForListFinancialRelationOutput {
 	s.SubAccountID = &v
 	return s
 }

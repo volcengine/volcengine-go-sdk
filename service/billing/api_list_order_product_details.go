@@ -243,6 +243,60 @@ func (s *ListOrderProductDetailsOutput) SetOrderProductInfos(v []*OrderProductIn
 	return s
 }
 
+type OrderFailRefundInfoForListOrderProductDetailsOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	CouponAmount *string `type:"string" json:",omitempty"`
+
+	DiscountAmount *string `type:"string" json:",omitempty"`
+
+	OriginalAmount *string `type:"string" json:",omitempty"`
+
+	PaidAmount *string `type:"string" json:",omitempty"`
+
+	PayableAmount *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s OrderFailRefundInfoForListOrderProductDetailsOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s OrderFailRefundInfoForListOrderProductDetailsOutput) GoString() string {
+	return s.String()
+}
+
+// SetCouponAmount sets the CouponAmount field's value.
+func (s *OrderFailRefundInfoForListOrderProductDetailsOutput) SetCouponAmount(v string) *OrderFailRefundInfoForListOrderProductDetailsOutput {
+	s.CouponAmount = &v
+	return s
+}
+
+// SetDiscountAmount sets the DiscountAmount field's value.
+func (s *OrderFailRefundInfoForListOrderProductDetailsOutput) SetDiscountAmount(v string) *OrderFailRefundInfoForListOrderProductDetailsOutput {
+	s.DiscountAmount = &v
+	return s
+}
+
+// SetOriginalAmount sets the OriginalAmount field's value.
+func (s *OrderFailRefundInfoForListOrderProductDetailsOutput) SetOriginalAmount(v string) *OrderFailRefundInfoForListOrderProductDetailsOutput {
+	s.OriginalAmount = &v
+	return s
+}
+
+// SetPaidAmount sets the PaidAmount field's value.
+func (s *OrderFailRefundInfoForListOrderProductDetailsOutput) SetPaidAmount(v string) *OrderFailRefundInfoForListOrderProductDetailsOutput {
+	s.PaidAmount = &v
+	return s
+}
+
+// SetPayableAmount sets the PayableAmount field's value.
+func (s *OrderFailRefundInfoForListOrderProductDetailsOutput) SetPayableAmount(v string) *OrderFailRefundInfoForListOrderProductDetailsOutput {
+	s.PayableAmount = &v
+	return s
+}
+
 type OrderProductInfoForListOrderProductDetailsOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -257,6 +311,8 @@ type OrderProductInfoForListOrderProductDetailsOutput struct {
 	EndTime *string `type:"string" json:",omitempty"`
 
 	InstanceID *string `type:"string" json:",omitempty"`
+
+	OrderFailRefundInfo *OrderFailRefundInfoForListOrderProductDetailsOutput `type:"structure" json:",omitempty"`
 
 	OriginalAmount *string `type:"string" json:",omitempty"`
 
@@ -322,6 +378,12 @@ func (s *OrderProductInfoForListOrderProductDetailsOutput) SetEndTime(v string) 
 // SetInstanceID sets the InstanceID field's value.
 func (s *OrderProductInfoForListOrderProductDetailsOutput) SetInstanceID(v string) *OrderProductInfoForListOrderProductDetailsOutput {
 	s.InstanceID = &v
+	return s
+}
+
+// SetOrderFailRefundInfo sets the OrderFailRefundInfo field's value.
+func (s *OrderProductInfoForListOrderProductDetailsOutput) SetOrderFailRefundInfo(v *OrderFailRefundInfoForListOrderProductDetailsOutput) *OrderProductInfoForListOrderProductDetailsOutput {
+	s.OrderFailRefundInfo = v
 	return s
 }
 
