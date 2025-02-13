@@ -144,20 +144,20 @@ func (c *VKE) ListTagsForResourcesWithContext(ctx volcengine.Context, input *Lis
 }
 
 type ListTagsForResourcesInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	MaxResults *int32 `type:"int32"`
+	MaxResults *int32 `type:"int32" json:",omitempty"`
 
-	NextToken *string `type:"string"`
+	NextToken *string `type:"string" json:",omitempty"`
 
-	ResourceIds []*string `type:"list"`
+	ResourceIds []*string `type:"list" json:",omitempty"`
 
 	// ResourceType is a required field
-	ResourceType *string `type:"string" required:"true" enum:"EnumOfResourceTypeForListTagsForResourcesInput"`
+	ResourceType *string `type:"string" json:",omitempty" required:"true" enum:"EnumOfResourceTypeForListTagsForResourcesInput"`
 
-	TagFilters []*TagFilterForListTagsForResourcesInput `type:"list"`
+	TagFilters []*TagFilterForListTagsForResourcesInput `type:"list" json:",omitempty"`
 
-	Type *string `type:"string" enum:"EnumOfTypeForListTagsForResourcesInput"`
+	Type *string `type:"string" json:",omitempty" enum:"EnumOfTypeForListTagsForResourcesInput"`
 }
 
 // String returns the string representation
@@ -220,13 +220,13 @@ func (s *ListTagsForResourcesInput) SetType(v string) *ListTagsForResourcesInput
 }
 
 type ListTagsForResourcesOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	NextToken *string `type:"string"`
+	NextToken *string `type:"string" json:",omitempty"`
 
-	ResourceTags []*ResourceTagForListTagsForResourcesOutput `type:"list"`
+	ResourceTags []*ResourceTagForListTagsForResourcesOutput `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -252,17 +252,17 @@ func (s *ListTagsForResourcesOutput) SetResourceTags(v []*ResourceTagForListTags
 }
 
 type ResourceTagForListTagsForResourcesOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	ResourceId *string `type:"string"`
+	ResourceId *string `type:"string" json:",omitempty"`
 
-	ResourceType *string `type:"string"`
+	ResourceType *string `type:"string" json:",omitempty"`
 
-	TagKey *string `type:"string"`
+	TagKey *string `type:"string" json:",omitempty"`
 
-	TagValue *string `type:"string"`
+	TagValue *string `type:"string" json:",omitempty"`
 
-	Type *string `type:"string"`
+	Type *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -306,11 +306,11 @@ func (s *ResourceTagForListTagsForResourcesOutput) SetType(v string) *ResourceTa
 }
 
 type TagFilterForListTagsForResourcesInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Key *string `type:"string"`
+	Key *string `type:"string" json:",omitempty"`
 
-	Values []*string `type:"list"`
+	Values []*string `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation

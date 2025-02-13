@@ -144,7 +144,7 @@ func (c *VKE) GetGlobalDefaultDeleteOptionWithContext(ctx volcengine.Context, in
 }
 
 type GetGlobalDefaultDeleteOptionInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -158,13 +158,13 @@ func (s GetGlobalDefaultDeleteOptionInput) GoString() string {
 }
 
 type GetGlobalDefaultDeleteOptionOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	DefaultDeleteAllResources *bool `type:"boolean"`
+	DefaultDeleteAllResources *bool `type:"boolean" json:",omitempty"`
 
-	LastChangeTime *string `type:"string"`
+	LastChangeTime *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation

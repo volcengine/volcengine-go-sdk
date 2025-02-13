@@ -144,9 +144,9 @@ func (c *VKE) ListSupportedAddonsWithContext(ctx volcengine.Context, input *List
 }
 
 type CompatibilityForListSupportedAddonsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	KubernetesVersion *string `type:"string"`
+	KubernetesVersion *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -166,21 +166,21 @@ func (s *CompatibilityForListSupportedAddonsOutput) SetKubernetesVersion(v strin
 }
 
 type FilterForListSupportedAddonsInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Categories []*string `type:"list"`
+	Categories []*string `type:"list" json:",omitempty"`
 
-	DeployModes []*string `type:"list"`
+	DeployModes []*string `type:"list" json:",omitempty"`
 
-	DeployNodeTypes []*string `type:"list"`
+	DeployNodeTypes []*string `type:"list" json:",omitempty"`
 
-	Name *string `type:"string"`
+	Name *string `type:"string" json:",omitempty"`
 
-	Necessaries []*string `type:"list"`
+	Necessaries []*string `type:"list" json:",omitempty"`
 
-	PodNetworkModes []*string `type:"list"`
+	PodNetworkModes []*string `type:"list" json:",omitempty"`
 
-	VersionsCompatibilitiesKubernetesVersions []*string `type:"list" json:"Versions.Compatibilities.KubernetesVersions"`
+	VersionsCompatibilitiesKubernetesVersions []*string `type:"list" json:"Versions.Compatibilities.KubernetesVersions,omitempty"`
 }
 
 // String returns the string representation
@@ -236,21 +236,21 @@ func (s *FilterForListSupportedAddonsInput) SetVersionsCompatibilitiesKubernetes
 }
 
 type ItemForListSupportedAddonsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Categories []*string `type:"list"`
+	Categories []*string `type:"list" json:",omitempty"`
 
-	DeployMode *string `type:"string"`
+	DeployMode *string `type:"string" json:",omitempty"`
 
-	DeployNodeTypes []*string `type:"list"`
+	DeployNodeTypes []*string `type:"list" json:",omitempty"`
 
-	Name *string `type:"string"`
+	Name *string `type:"string" json:",omitempty"`
 
-	Necessary *string `type:"string"`
+	Necessary *string `type:"string" json:",omitempty"`
 
-	PodNetworkModes []*string `type:"list"`
+	PodNetworkModes []*string `type:"list" json:",omitempty"`
 
-	Versions []*VersionForListSupportedAddonsOutput `type:"list"`
+	Versions []*VersionForListSupportedAddonsOutput `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -306,9 +306,9 @@ func (s *ItemForListSupportedAddonsOutput) SetVersions(v []*VersionForListSuppor
 }
 
 type ListSupportedAddonsInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Filter *FilterForListSupportedAddonsInput `type:"structure"`
+	Filter *FilterForListSupportedAddonsInput `type:"structure" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -328,13 +328,13 @@ func (s *ListSupportedAddonsInput) SetFilter(v *FilterForListSupportedAddonsInpu
 }
 
 type ListSupportedAddonsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	Items []*ItemForListSupportedAddonsOutput `type:"list"`
+	Items []*ItemForListSupportedAddonsOutput `type:"list" json:",omitempty"`
 
-	TotalCount *int32 `type:"int32"`
+	TotalCount *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -360,13 +360,13 @@ func (s *ListSupportedAddonsOutput) SetTotalCount(v int32) *ListSupportedAddonsO
 }
 
 type VersionForListSupportedAddonsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Compatibilities []*CompatibilityForListSupportedAddonsOutput `type:"list"`
+	Compatibilities []*CompatibilityForListSupportedAddonsOutput `type:"list" json:",omitempty"`
 
-	CompatibleVersions []*string `type:"list"`
+	CompatibleVersions []*string `type:"list" json:",omitempty"`
 
-	Version *string `type:"string"`
+	Version *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -398,20 +398,20 @@ func (s *VersionForListSupportedAddonsOutput) SetVersion(v string) *VersionForLi
 }
 
 const (
-	// EnumOfCategoryListForListSupportedAddonsInputStorage is a EnumOfCategoryListForListSupportedAddonsInput enum value
-	EnumOfCategoryListForListSupportedAddonsInputStorage = "Storage"
-
-	// EnumOfCategoryListForListSupportedAddonsInputNetwork is a EnumOfCategoryListForListSupportedAddonsInput enum value
-	EnumOfCategoryListForListSupportedAddonsInputNetwork = "Network"
-
 	// EnumOfCategoryListForListSupportedAddonsInputMonitor is a EnumOfCategoryListForListSupportedAddonsInput enum value
 	EnumOfCategoryListForListSupportedAddonsInputMonitor = "Monitor"
+
+	// EnumOfCategoryListForListSupportedAddonsInputDns is a EnumOfCategoryListForListSupportedAddonsInput enum value
+	EnumOfCategoryListForListSupportedAddonsInputDns = "Dns"
+
+	// EnumOfCategoryListForListSupportedAddonsInputStorage is a EnumOfCategoryListForListSupportedAddonsInput enum value
+	EnumOfCategoryListForListSupportedAddonsInputStorage = "Storage"
 
 	// EnumOfCategoryListForListSupportedAddonsInputScheduler is a EnumOfCategoryListForListSupportedAddonsInput enum value
 	EnumOfCategoryListForListSupportedAddonsInputScheduler = "Scheduler"
 
-	// EnumOfCategoryListForListSupportedAddonsInputDns is a EnumOfCategoryListForListSupportedAddonsInput enum value
-	EnumOfCategoryListForListSupportedAddonsInputDns = "Dns"
+	// EnumOfCategoryListForListSupportedAddonsInputNetwork is a EnumOfCategoryListForListSupportedAddonsInput enum value
+	EnumOfCategoryListForListSupportedAddonsInputNetwork = "Network"
 
 	// EnumOfCategoryListForListSupportedAddonsInputSecurity is a EnumOfCategoryListForListSupportedAddonsInput enum value
 	EnumOfCategoryListForListSupportedAddonsInputSecurity = "Security"
@@ -459,13 +459,4 @@ const (
 
 	// EnumOfPodNetworkModeListForListSupportedAddonsInputVpcCniShared is a EnumOfPodNetworkModeListForListSupportedAddonsInput enum value
 	EnumOfPodNetworkModeListForListSupportedAddonsInputVpcCniShared = "VpcCniShared"
-
-	// EnumOfPodNetworkModeListForListSupportedAddonsInputCalicoBgp is a EnumOfPodNetworkModeListForListSupportedAddonsInput enum value
-	EnumOfPodNetworkModeListForListSupportedAddonsInputCalicoBgp = "CalicoBgp"
-
-	// EnumOfPodNetworkModeListForListSupportedAddonsInputCalicoVxlan is a EnumOfPodNetworkModeListForListSupportedAddonsInput enum value
-	EnumOfPodNetworkModeListForListSupportedAddonsInputCalicoVxlan = "CalicoVxlan"
-
-	// EnumOfPodNetworkModeListForListSupportedAddonsInputVpcCniDedicated is a EnumOfPodNetworkModeListForListSupportedAddonsInput enum value
-	EnumOfPodNetworkModeListForListSupportedAddonsInputVpcCniDedicated = "VpcCniDedicated"
 )

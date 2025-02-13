@@ -144,9 +144,9 @@ func (c *VKE) ListNodesWithContext(ctx volcengine.Context, input *ListNodesInput
 }
 
 type ConditionForListNodesOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Type *string `type:"string"`
+	Type *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -166,21 +166,21 @@ func (s *ConditionForListNodesOutput) SetType(v string) *ConditionForListNodesOu
 }
 
 type FilterForListNodesInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	ClusterIds []*string `type:"list"`
+	ClusterIds []*string `type:"list" json:",omitempty"`
 
-	CreateClientToken *string `type:"string"`
+	CreateClientToken *string `type:"string" json:",omitempty"`
 
-	Ids []*string `type:"list"`
+	Ids []*string `type:"list" json:",omitempty"`
 
-	Name *string `type:"string"`
+	Name *string `type:"string" json:",omitempty"`
 
-	NodePoolIds []*string `type:"list"`
+	NodePoolIds []*string `type:"list" json:",omitempty"`
 
-	Statuses []*StatusForListNodesInput `type:"list"`
+	Statuses []*StatusForListNodesInput `type:"list" json:",omitempty"`
 
-	ZoneIds []*string `type:"list"`
+	ZoneIds []*string `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -236,41 +236,41 @@ func (s *FilterForListNodesInput) SetZoneIds(v []*string) *FilterForListNodesInp
 }
 
 type ItemForListNodesOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	AdditionalContainerStorageEnabled *bool `type:"boolean"`
+	AdditionalContainerStorageEnabled *bool `type:"boolean" json:",omitempty"`
 
-	ClusterId *string `type:"string"`
+	ClusterId *string `type:"string" json:",omitempty"`
 
-	ContainerStoragePath *string `type:"string"`
+	ContainerStoragePath *string `type:"string" json:",omitempty"`
 
-	CreateClientToken *string `type:"string"`
+	CreateClientToken *string `type:"string" json:",omitempty"`
 
-	CreateTime *string `type:"string"`
+	CreateTime *string `type:"string" json:",omitempty"`
 
-	Id *string `type:"string"`
+	Id *string `type:"string" json:",omitempty"`
 
-	ImageId *string `type:"string"`
+	ImageId *string `type:"string" json:",omitempty"`
 
-	InitializeScript *string `type:"string"`
+	InitializeScript *string `type:"string" json:",omitempty"`
 
-	InstanceId *string `type:"string"`
+	InstanceId *string `type:"string" json:",omitempty"`
 
-	IsVirtual *bool `type:"boolean"`
+	IsVirtual *bool `type:"boolean" json:",omitempty"`
 
-	KubernetesConfig *KubernetesConfigForListNodesOutput `type:"structure"`
+	KubernetesConfig *KubernetesConfigForListNodesOutput `type:"structure" json:",omitempty"`
 
-	Name *string `type:"string"`
+	Name *string `type:"string" json:",omitempty"`
 
-	NodePoolId *string `type:"string"`
+	NodePoolId *string `type:"string" json:",omitempty"`
 
-	Roles []*string `type:"list"`
+	Roles []*string `type:"list" json:",omitempty"`
 
-	Status *StatusForListNodesOutput `type:"structure"`
+	Status *StatusForListNodesOutput `type:"structure" json:",omitempty"`
 
-	UpdateTime *string `type:"string"`
+	UpdateTime *string `type:"string" json:",omitempty"`
 
-	ZoneId *string `type:"string"`
+	ZoneId *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -386,13 +386,13 @@ func (s *ItemForListNodesOutput) SetZoneId(v string) *ItemForListNodesOutput {
 }
 
 type KubernetesConfigForListNodesOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Cordon *bool `type:"boolean"`
+	Cordon *bool `type:"boolean" json:",omitempty"`
 
-	Labels []*LabelForListNodesOutput `type:"list"`
+	Labels []*LabelForListNodesOutput `type:"list" json:",omitempty"`
 
-	Taints []*TaintForListNodesOutput `type:"list"`
+	Taints []*TaintForListNodesOutput `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -424,11 +424,11 @@ func (s *KubernetesConfigForListNodesOutput) SetTaints(v []*TaintForListNodesOut
 }
 
 type LabelForListNodesOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Key *string `type:"string"`
+	Key *string `type:"string" json:",omitempty"`
 
-	Value *string `type:"string"`
+	Value *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -454,13 +454,13 @@ func (s *LabelForListNodesOutput) SetValue(v string) *LabelForListNodesOutput {
 }
 
 type ListNodesInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Filter *FilterForListNodesInput `type:"structure"`
+	Filter *FilterForListNodesInput `type:"structure" json:",omitempty"`
 
-	PageNumber *int32 `type:"int32"`
+	PageNumber *int32 `type:"int32" json:",omitempty"`
 
-	PageSize *int32 `type:"int32"`
+	PageSize *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -492,17 +492,17 @@ func (s *ListNodesInput) SetPageSize(v int32) *ListNodesInput {
 }
 
 type ListNodesOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	Items []*ItemForListNodesOutput `type:"list"`
+	Items []*ItemForListNodesOutput `type:"list" json:",omitempty"`
 
-	PageNumber *int32 `type:"int32"`
+	PageNumber *int32 `type:"int32" json:",omitempty"`
 
-	PageSize *int32 `type:"int32"`
+	PageSize *int32 `type:"int32" json:",omitempty"`
 
-	TotalCount *int32 `type:"int32"`
+	TotalCount *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -540,11 +540,11 @@ func (s *ListNodesOutput) SetTotalCount(v int32) *ListNodesOutput {
 }
 
 type StatusForListNodesInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	ConditionsType *string `type:"string" json:"Conditions.Type" enum:"EnumOfConditionsTypeForListNodesInput"`
+	ConditionsType *string `type:"string" json:"Conditions.Type,omitempty" enum:"EnumOfConditionsTypeForListNodesInput"`
 
-	Phase *string `type:"string" enum:"EnumOfPhaseForListNodesInput"`
+	Phase *string `type:"string" json:",omitempty" enum:"EnumOfPhaseForListNodesInput"`
 }
 
 // String returns the string representation
@@ -570,11 +570,11 @@ func (s *StatusForListNodesInput) SetPhase(v string) *StatusForListNodesInput {
 }
 
 type StatusForListNodesOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Conditions []*ConditionForListNodesOutput `type:"list"`
+	Conditions []*ConditionForListNodesOutput `type:"list" json:",omitempty"`
 
-	Phase *string `type:"string"`
+	Phase *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -600,13 +600,13 @@ func (s *StatusForListNodesOutput) SetPhase(v string) *StatusForListNodesOutput 
 }
 
 type TaintForListNodesOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Effect *string `type:"string" enum:"EnumOfEffectForListNodesOutput"`
+	Effect *string `type:"string" json:",omitempty" enum:"EnumOfEffectForListNodesOutput"`
 
-	Key *string `type:"string"`
+	Key *string `type:"string" json:",omitempty"`
 
-	Value *string `type:"string"`
+	Value *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -638,9 +638,6 @@ func (s *TaintForListNodesOutput) SetValue(v string) *TaintForListNodesOutput {
 }
 
 const (
-	// EnumOfConditionsTypeForListNodesInputProgressing is a EnumOfConditionsTypeForListNodesInput enum value
-	EnumOfConditionsTypeForListNodesInputProgressing = "Progressing"
-
 	// EnumOfConditionsTypeForListNodesInputOk is a EnumOfConditionsTypeForListNodesInput enum value
 	EnumOfConditionsTypeForListNodesInputOk = "Ok"
 
@@ -662,19 +659,22 @@ const (
 	// EnumOfConditionsTypeForListNodesInputBalance is a EnumOfConditionsTypeForListNodesInput enum value
 	EnumOfConditionsTypeForListNodesInputBalance = "Balance"
 
-	// EnumOfConditionsTypeForListNodesInputUnknow is a EnumOfConditionsTypeForListNodesInput enum value
-	EnumOfConditionsTypeForListNodesInputUnknow = "Unknow"
+	// EnumOfConditionsTypeForListNodesInputUnknown is a EnumOfConditionsTypeForListNodesInput enum value
+	EnumOfConditionsTypeForListNodesInputUnknown = "Unknown"
+
+	// EnumOfConditionsTypeForListNodesInputProgressing is a EnumOfConditionsTypeForListNodesInput enum value
+	EnumOfConditionsTypeForListNodesInputProgressing = "Progressing"
 )
 
 const (
 	// EnumOfEffectForListNodesOutputNoSchedule is a EnumOfEffectForListNodesOutput enum value
 	EnumOfEffectForListNodesOutputNoSchedule = "NoSchedule"
 
-	// EnumOfEffectForListNodesOutputNoExecute is a EnumOfEffectForListNodesOutput enum value
-	EnumOfEffectForListNodesOutputNoExecute = "NoExecute"
-
 	// EnumOfEffectForListNodesOutputPreferNoSchedule is a EnumOfEffectForListNodesOutput enum value
 	EnumOfEffectForListNodesOutputPreferNoSchedule = "PreferNoSchedule"
+
+	// EnumOfEffectForListNodesOutputNoExecute is a EnumOfEffectForListNodesOutput enum value
+	EnumOfEffectForListNodesOutputNoExecute = "NoExecute"
 )
 
 const (

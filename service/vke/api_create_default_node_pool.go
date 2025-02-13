@@ -144,18 +144,18 @@ func (c *VKE) CreateDefaultNodePoolWithContext(ctx volcengine.Context, input *Cr
 }
 
 type CreateDefaultNodePoolInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	ClientToken *string `type:"string"`
+	ClientToken *string `type:"string" json:",omitempty"`
 
 	// ClusterId is a required field
-	ClusterId *string `type:"string" required:"true"`
+	ClusterId *string `type:"string" json:",omitempty" required:"true"`
 
-	KubernetesConfig *KubernetesConfigForCreateDefaultNodePoolInput `type:"structure"`
+	KubernetesConfig *KubernetesConfigForCreateDefaultNodePoolInput `type:"structure" json:",omitempty"`
 
-	NodeConfig *NodeConfigForCreateDefaultNodePoolInput `type:"structure"`
+	NodeConfig *NodeConfigForCreateDefaultNodePoolInput `type:"structure" json:",omitempty"`
 
-	Tags []*TagForCreateDefaultNodePoolInput `type:"list"`
+	Tags []*TagForCreateDefaultNodePoolInput `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -212,11 +212,11 @@ func (s *CreateDefaultNodePoolInput) SetTags(v []*TagForCreateDefaultNodePoolInp
 }
 
 type CreateDefaultNodePoolOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	Id *string `type:"string"`
+	Id *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -236,15 +236,17 @@ func (s *CreateDefaultNodePoolOutput) SetId(v string) *CreateDefaultNodePoolOutp
 }
 
 type KubernetesConfigForCreateDefaultNodePoolInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Cordon *bool `type:"boolean"`
+	AutoSyncDisabled *bool `type:"boolean" json:",omitempty"`
 
-	Labels []*LabelForCreateDefaultNodePoolInput `type:"list"`
+	Cordon *bool `type:"boolean" json:",omitempty"`
 
-	NamePrefix *string `type:"string"`
+	Labels []*LabelForCreateDefaultNodePoolInput `type:"list" json:",omitempty"`
 
-	Taints []*TaintForCreateDefaultNodePoolInput `type:"list"`
+	NamePrefix *string `type:"string" json:",omitempty"`
+
+	Taints []*TaintForCreateDefaultNodePoolInput `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -255,6 +257,12 @@ func (s KubernetesConfigForCreateDefaultNodePoolInput) String() string {
 // GoString returns the string representation
 func (s KubernetesConfigForCreateDefaultNodePoolInput) GoString() string {
 	return s.String()
+}
+
+// SetAutoSyncDisabled sets the AutoSyncDisabled field's value.
+func (s *KubernetesConfigForCreateDefaultNodePoolInput) SetAutoSyncDisabled(v bool) *KubernetesConfigForCreateDefaultNodePoolInput {
+	s.AutoSyncDisabled = &v
+	return s
 }
 
 // SetCordon sets the Cordon field's value.
@@ -282,11 +290,11 @@ func (s *KubernetesConfigForCreateDefaultNodePoolInput) SetTaints(v []*TaintForC
 }
 
 type LabelForCreateDefaultNodePoolInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Key *string `type:"string"`
+	Key *string `type:"string" json:",omitempty"`
 
-	Value *string `type:"string"`
+	Value *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -312,11 +320,11 @@ func (s *LabelForCreateDefaultNodePoolInput) SetValue(v string) *LabelForCreateD
 }
 
 type LoginForCreateDefaultNodePoolInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Password *string `type:"string"`
+	Password *string `type:"string" json:",omitempty"`
 
-	SshKeyPairName *string `type:"string"`
+	SshKeyPairName *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -342,15 +350,15 @@ func (s *LoginForCreateDefaultNodePoolInput) SetSshKeyPairName(v string) *LoginF
 }
 
 type NodeConfigForCreateDefaultNodePoolInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	InitializeScript *string `type:"string"`
+	InitializeScript *string `type:"string" json:",omitempty"`
 
-	NamePrefix *string `type:"string"`
+	NamePrefix *string `type:"string" json:",omitempty"`
 
-	Security *SecurityForCreateDefaultNodePoolInput `type:"structure"`
+	Security *SecurityForCreateDefaultNodePoolInput `type:"structure" json:",omitempty"`
 
-	Tags []*TagForCreateDefaultNodePoolInput `type:"list"`
+	Tags []*TagForCreateDefaultNodePoolInput `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -388,13 +396,13 @@ func (s *NodeConfigForCreateDefaultNodePoolInput) SetTags(v []*TagForCreateDefau
 }
 
 type SecurityForCreateDefaultNodePoolInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Login *LoginForCreateDefaultNodePoolInput `type:"structure"`
+	Login *LoginForCreateDefaultNodePoolInput `type:"structure" json:",omitempty"`
 
-	SecurityGroupIds []*string `type:"list"`
+	SecurityGroupIds []*string `type:"list" json:",omitempty"`
 
-	SecurityStrategies []*string `type:"list"`
+	SecurityStrategies []*string `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -426,11 +434,11 @@ func (s *SecurityForCreateDefaultNodePoolInput) SetSecurityStrategies(v []*strin
 }
 
 type TagForCreateDefaultNodePoolInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Key *string `type:"string"`
+	Key *string `type:"string" json:",omitempty"`
 
-	Value *string `type:"string"`
+	Value *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -456,13 +464,13 @@ func (s *TagForCreateDefaultNodePoolInput) SetValue(v string) *TagForCreateDefau
 }
 
 type TaintForCreateDefaultNodePoolInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Effect *string `type:"string" enum:"EnumOfEffectForCreateDefaultNodePoolInput"`
+	Effect *string `type:"string" json:",omitempty" enum:"EnumOfEffectForCreateDefaultNodePoolInput"`
 
-	Key *string `type:"string"`
+	Key *string `type:"string" json:",omitempty"`
 
-	Value *string `type:"string"`
+	Value *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -497,11 +505,11 @@ const (
 	// EnumOfEffectForCreateDefaultNodePoolInputNoSchedule is a EnumOfEffectForCreateDefaultNodePoolInput enum value
 	EnumOfEffectForCreateDefaultNodePoolInputNoSchedule = "NoSchedule"
 
-	// EnumOfEffectForCreateDefaultNodePoolInputNoExecute is a EnumOfEffectForCreateDefaultNodePoolInput enum value
-	EnumOfEffectForCreateDefaultNodePoolInputNoExecute = "NoExecute"
-
 	// EnumOfEffectForCreateDefaultNodePoolInputPreferNoSchedule is a EnumOfEffectForCreateDefaultNodePoolInput enum value
 	EnumOfEffectForCreateDefaultNodePoolInputPreferNoSchedule = "PreferNoSchedule"
+
+	// EnumOfEffectForCreateDefaultNodePoolInputNoExecute is a EnumOfEffectForCreateDefaultNodePoolInput enum value
+	EnumOfEffectForCreateDefaultNodePoolInputNoExecute = "NoExecute"
 )
 
 const (
