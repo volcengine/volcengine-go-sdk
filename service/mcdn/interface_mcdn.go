@@ -206,6 +206,14 @@ type MCDNAPI interface {
 	ListViewsWithContext(volcengine.Context, *ListViewsInput, ...request.Option) (*ListViewsOutput, error)
 	ListViewsRequest(*ListViewsInput) (*request.Request, *ListViewsOutput)
 
+	SubmitOverseaPreloadTaskCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	SubmitOverseaPreloadTaskCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	SubmitOverseaPreloadTaskCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	SubmitOverseaPreloadTask(*SubmitOverseaPreloadTaskInput) (*SubmitOverseaPreloadTaskOutput, error)
+	SubmitOverseaPreloadTaskWithContext(volcengine.Context, *SubmitOverseaPreloadTaskInput, ...request.Option) (*SubmitOverseaPreloadTaskOutput, error)
+	SubmitOverseaPreloadTaskRequest(*SubmitOverseaPreloadTaskInput) (*request.Request, *SubmitOverseaPreloadTaskOutput)
+
 	SubmitPreloadTaskCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	SubmitPreloadTaskCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	SubmitPreloadTaskCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
