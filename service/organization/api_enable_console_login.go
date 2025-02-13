@@ -144,12 +144,12 @@ func (c *ORGANIZATION) EnableConsoleLoginWithContext(ctx volcengine.Context, inp
 }
 
 type EnableConsoleLoginInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// AccountId is a required field
-	AccountId *string `type:"string" required:"true"`
+	AccountId *string `type:"string" json:",omitempty" required:"true"`
 
-	Password *string `type:"string"`
+	Password *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -188,7 +188,7 @@ func (s *EnableConsoleLoginInput) SetPassword(v string) *EnableConsoleLoginInput
 }
 
 type EnableConsoleLoginOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 }

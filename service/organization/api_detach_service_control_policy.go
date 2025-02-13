@@ -144,13 +144,13 @@ func (c *ORGANIZATION) DetachServiceControlPolicyWithContext(ctx volcengine.Cont
 }
 
 type DetachServiceControlPolicyInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// PolicyID is a required field
-	PolicyID *string `type:"string" required:"true"`
+	PolicyID *string `type:"string" json:",omitempty" required:"true"`
 
 	// TargetID is a required field
-	TargetID *string `type:"string" required:"true"`
+	TargetID *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -192,7 +192,7 @@ func (s *DetachServiceControlPolicyInput) SetTargetID(v string) *DetachServiceCo
 }
 
 type DetachServiceControlPolicyOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 }

@@ -144,10 +144,10 @@ func (c *ORGANIZATION) GetServiceControlPolicyWithContext(ctx volcengine.Context
 }
 
 type GetServiceControlPolicyInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// PolicyID is a required field
-	PolicyID *string `type:"string" required:"true"`
+	PolicyID *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -180,23 +180,23 @@ func (s *GetServiceControlPolicyInput) SetPolicyID(v string) *GetServiceControlP
 }
 
 type GetServiceControlPolicyOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	CreateDate *string `type:"string"`
+	CreateDate *string `type:"string" json:",omitempty"`
 
-	Description *string `type:"string"`
+	Description *string `type:"string" json:",omitempty"`
 
-	PolicyID *string `type:"string"`
+	PolicyID *string `type:"string" json:",omitempty"`
 
-	PolicyName *string `type:"string"`
+	PolicyName *string `type:"string" json:",omitempty"`
 
-	PolicyType *string `type:"string"`
+	PolicyType *string `type:"string" json:",omitempty"`
 
-	Statement *string `type:"string"`
+	Statement *string `type:"string" json:",omitempty"`
 
-	UpdateDate *string `type:"string"`
+	UpdateDate *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation

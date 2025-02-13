@@ -144,45 +144,45 @@ func (c *ORGANIZATION) DescribeAccountWithContext(ctx volcengine.Context, input 
 }
 
 type AccountForDescribeAccountOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	AccountID *string `type:"string"`
+	AccountID *string `type:"string" json:",omitempty"`
 
-	AccountName *string `type:"string"`
+	AccountName *string `type:"string" json:",omitempty"`
 
-	AllowConsole *int32 `type:"int32"`
+	AllowConsole *int32 `type:"int32" json:",omitempty"`
 
-	AllowExit *int32 `type:"int32"`
+	AllowExit *int32 `type:"int32" json:",omitempty"`
 
-	CreatedTime *string `type:"string"`
+	CreatedTime *string `type:"string" json:",omitempty"`
 
-	DeleteUk *string `type:"string"`
+	DeleteUk *string `type:"string" json:",omitempty"`
 
-	DeletedTime *string `type:"string"`
+	DeletedTime *string `type:"string" json:",omitempty"`
 
-	Description *string `type:"string"`
+	Description *string `type:"string" json:",omitempty"`
 
-	ID *string `type:"string"`
+	ID *string `type:"string" json:",omitempty"`
 
-	IamRole *string `type:"string"`
+	IamRole *string `type:"string" json:",omitempty"`
 
-	JoinType *int32 `type:"int32"`
+	JoinType *int32 `type:"int32" json:",omitempty"`
 
-	MainName *string `type:"string"`
+	MainName *string `type:"string" json:",omitempty"`
 
-	OrgID *string `type:"string"`
+	OrgID *string `type:"string" json:",omitempty"`
 
-	OrgType *int32 `type:"int32"`
+	OrgType *int32 `type:"int32" json:",omitempty"`
 
-	OrgUnitID *string `type:"string"`
+	OrgUnitID *string `type:"string" json:",omitempty"`
 
-	OrgVerificationID *string `type:"string"`
+	OrgVerificationID *string `type:"string" json:",omitempty"`
 
-	Owner *string `type:"string"`
+	Owner *string `type:"string" json:",omitempty"`
 
-	ShowName *string `type:"string"`
+	ShowName *string `type:"string" json:",omitempty"`
 
-	UpdatedTime *string `type:"string"`
+	UpdatedTime *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -310,10 +310,10 @@ func (s *AccountForDescribeAccountOutput) SetUpdatedTime(v string) *AccountForDe
 }
 
 type DescribeAccountInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// AccountId is a required field
-	AccountId *string `type:"string" required:"true"`
+	AccountId *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -346,11 +346,11 @@ func (s *DescribeAccountInput) SetAccountId(v string) *DescribeAccountInput {
 }
 
 type DescribeAccountOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	Account *AccountForDescribeAccountOutput `type:"structure"`
+	Account *AccountForDescribeAccountOutput `type:"structure" json:",omitempty"`
 }
 
 // String returns the string representation

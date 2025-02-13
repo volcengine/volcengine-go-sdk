@@ -278,6 +278,14 @@ type ORGANIZATIONAPI interface {
 	ListOrganizationalUnitsForParentWithContext(volcengine.Context, *ListOrganizationalUnitsForParentInput, ...request.Option) (*ListOrganizationalUnitsForParentOutput, error)
 	ListOrganizationalUnitsForParentRequest(*ListOrganizationalUnitsForParentInput) (*request.Request, *ListOrganizationalUnitsForParentOutput)
 
+	ListPoliciesForTargetCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListPoliciesForTargetCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListPoliciesForTargetCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListPoliciesForTarget(*ListPoliciesForTargetInput) (*ListPoliciesForTargetOutput, error)
+	ListPoliciesForTargetWithContext(volcengine.Context, *ListPoliciesForTargetInput, ...request.Option) (*ListPoliciesForTargetOutput, error)
+	ListPoliciesForTargetRequest(*ListPoliciesForTargetInput) (*request.Request, *ListPoliciesForTargetOutput)
+
 	ListServiceControlPoliciesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ListServiceControlPoliciesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	ListServiceControlPoliciesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -285,6 +293,14 @@ type ORGANIZATIONAPI interface {
 	ListServiceControlPolicies(*ListServiceControlPoliciesInput) (*ListServiceControlPoliciesOutput, error)
 	ListServiceControlPoliciesWithContext(volcengine.Context, *ListServiceControlPoliciesInput, ...request.Option) (*ListServiceControlPoliciesOutput, error)
 	ListServiceControlPoliciesRequest(*ListServiceControlPoliciesInput) (*request.Request, *ListServiceControlPoliciesOutput)
+
+	ListTargetsForPolicyCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListTargetsForPolicyCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListTargetsForPolicyCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListTargetsForPolicy(*ListTargetsForPolicyInput) (*ListTargetsForPolicyOutput, error)
+	ListTargetsForPolicyWithContext(volcengine.Context, *ListTargetsForPolicyInput, ...request.Option) (*ListTargetsForPolicyOutput, error)
+	ListTargetsForPolicyRequest(*ListTargetsForPolicyInput) (*request.Request, *ListTargetsForPolicyOutput)
 
 	MoveAccountCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	MoveAccountCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)

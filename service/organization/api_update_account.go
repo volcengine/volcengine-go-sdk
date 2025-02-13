@@ -144,18 +144,18 @@ func (c *ORGANIZATION) UpdateAccountWithContext(ctx volcengine.Context, input *U
 }
 
 type UpdateAccountInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// AccountId is a required field
-	AccountId *string `type:"string" required:"true"`
+	AccountId *string `type:"string" json:",omitempty" required:"true"`
 
 	// AccountName is a required field
-	AccountName *string `type:"string" required:"true"`
+	AccountName *string `type:"string" json:",omitempty" required:"true"`
 
-	Description *string `type:"string"`
+	Description *string `type:"string" json:",omitempty"`
 
 	// ShowName is a required field
-	ShowName *string `type:"string" required:"true"`
+	ShowName *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -212,7 +212,7 @@ func (s *UpdateAccountInput) SetShowName(v string) *UpdateAccountInput {
 }
 
 type UpdateAccountOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 }

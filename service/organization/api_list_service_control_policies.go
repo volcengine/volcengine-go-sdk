@@ -144,19 +144,19 @@ func (c *ORGANIZATION) ListServiceControlPoliciesWithContext(ctx volcengine.Cont
 }
 
 type ListServiceControlPoliciesInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	PageNumber *int32 `type:"int32"`
+	PageNumber *int32 `type:"int32" json:",omitempty"`
 
-	PageSize *int32 `type:"int32"`
+	PageSize *int32 `type:"int32" json:",omitempty"`
 
-	PolicyType *string `type:"string"`
+	PolicyType *string `type:"string" json:",omitempty"`
 
-	Query *string `type:"string"`
+	Query *string `type:"string" json:",omitempty"`
 
-	SortBy *string `type:"string"`
+	SortBy *string `type:"string" json:",omitempty"`
 
-	SortOrder *string `type:"string"`
+	SortOrder *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -206,17 +206,17 @@ func (s *ListServiceControlPoliciesInput) SetSortOrder(v string) *ListServiceCon
 }
 
 type ListServiceControlPoliciesOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	PageNumber *int32 `type:"int32"`
+	PageNumber *int32 `type:"int32" json:",omitempty"`
 
-	PageSize *int32 `type:"int32"`
+	PageSize *int32 `type:"int32" json:",omitempty"`
 
-	ServiceControlPolicies []*ServiceControlPolicyForListServiceControlPoliciesOutput `type:"list"`
+	ServiceControlPolicies []*ServiceControlPolicyForListServiceControlPoliciesOutput `type:"list" json:",omitempty"`
 
-	TotalCount *int32 `type:"int32"`
+	TotalCount *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -254,19 +254,19 @@ func (s *ListServiceControlPoliciesOutput) SetTotalCount(v int32) *ListServiceCo
 }
 
 type ServiceControlPolicyForListServiceControlPoliciesOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	CreateDate *string `type:"string"`
+	CreateDate *string `type:"string" json:",omitempty"`
 
-	Description *string `type:"string"`
+	Description *string `type:"string" json:",omitempty"`
 
-	PolicyID *string `type:"string"`
+	PolicyID *string `type:"string" json:",omitempty"`
 
-	PolicyName *string `type:"string"`
+	PolicyName *string `type:"string" json:",omitempty"`
 
-	PolicyType *string `type:"string"`
+	PolicyType *string `type:"string" json:",omitempty"`
 
-	UpdateDate *string `type:"string"`
+	UpdateDate *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation

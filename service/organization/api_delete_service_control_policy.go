@@ -144,10 +144,10 @@ func (c *ORGANIZATION) DeleteServiceControlPolicyWithContext(ctx volcengine.Cont
 }
 
 type DeleteServiceControlPolicyInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// PolicyID is a required field
-	PolicyID *string `type:"string" required:"true"`
+	PolicyID *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -180,7 +180,7 @@ func (s *DeleteServiceControlPolicyInput) SetPolicyID(v string) *DeleteServiceCo
 }
 
 type DeleteServiceControlPolicyOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 }

@@ -144,10 +144,10 @@ func (c *ORGANIZATION) CancelInvitationWithContext(ctx volcengine.Context, input
 }
 
 type CancelInvitationInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// InviteId is a required field
-	InviteId *string `type:"string" required:"true"`
+	InviteId *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -180,7 +180,7 @@ func (s *CancelInvitationInput) SetInviteId(v string) *CancelInvitationInput {
 }
 
 type CancelInvitationOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 }

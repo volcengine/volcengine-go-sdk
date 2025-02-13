@@ -144,13 +144,13 @@ func (c *ORGANIZATION) RetryChangeAccountSecureContactInfoWithContext(ctx volcen
 }
 
 type RetryChangeAccountSecureContactInfoInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// AccountId is a required field
-	AccountId *string `type:"string" required:"true"`
+	AccountId *string `type:"string" json:",omitempty" required:"true"`
 
 	// ContactType is a required field
-	ContactType *int32 `type:"int32" required:"true"`
+	ContactType *int32 `type:"int32" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -192,7 +192,7 @@ func (s *RetryChangeAccountSecureContactInfoInput) SetContactType(v int32) *Retr
 }
 
 type RetryChangeAccountSecureContactInfoOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 }

@@ -144,14 +144,14 @@ func (c *ORGANIZATION) ListOrganizationalUnitsForParentWithContext(ctx volcengin
 }
 
 type ListOrganizationalUnitsForParentInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Limit *int32 `type:"int32"`
+	Limit *int32 `type:"int32" json:",omitempty"`
 
-	Offset *int32 `type:"int32"`
+	Offset *int32 `type:"int32" json:",omitempty"`
 
 	// ParentId is a required field
-	ParentId *string `type:"string" required:"true"`
+	ParentId *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -196,17 +196,17 @@ func (s *ListOrganizationalUnitsForParentInput) SetParentId(v string) *ListOrgan
 }
 
 type ListOrganizationalUnitsForParentOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	Limit *int32 `type:"int32"`
+	Limit *int32 `type:"int32" json:",omitempty"`
 
-	Offset *int32 `type:"int32"`
+	Offset *int32 `type:"int32" json:",omitempty"`
 
-	SubUnitList []*SubUnitListForListOrganizationalUnitsForParentOutput `type:"list"`
+	SubUnitList []*SubUnitListForListOrganizationalUnitsForParentOutput `type:"list" json:",omitempty"`
 
-	Total *int32 `type:"int32"`
+	Total *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -244,31 +244,31 @@ func (s *ListOrganizationalUnitsForParentOutput) SetTotal(v int32) *ListOrganiza
 }
 
 type SubUnitListForListOrganizationalUnitsForParentOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	CreatedTime *string `type:"string"`
+	CreatedTime *string `type:"string" json:",omitempty"`
 
-	DeleteUk *string `type:"string"`
+	DeleteUk *string `type:"string" json:",omitempty"`
 
-	DeletedTime *string `type:"string"`
+	DeletedTime *string `type:"string" json:",omitempty"`
 
-	Depth *int32 `type:"int32"`
+	Depth *int32 `type:"int32" json:",omitempty"`
 
-	Description *string `type:"string"`
+	Description *string `type:"string" json:",omitempty"`
 
-	ID *string `type:"string"`
+	ID *string `type:"string" json:",omitempty"`
 
-	Name *string `type:"string"`
+	Name *string `type:"string" json:",omitempty"`
 
-	OrgID *string `type:"string"`
+	OrgID *string `type:"string" json:",omitempty"`
 
-	OrgType *int32 `type:"int32"`
+	OrgType *int32 `type:"int32" json:",omitempty"`
 
-	Owner *string `type:"string"`
+	Owner *string `type:"string" json:",omitempty"`
 
-	ParentID *string `type:"string"`
+	ParentID *string `type:"string" json:",omitempty"`
 
-	UpdatedTime *string `type:"string"`
+	UpdatedTime *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation

@@ -144,7 +144,7 @@ func (c *ORGANIZATION) CreateOrganizationWithContext(ctx volcengine.Context, inp
 }
 
 type CreateOrganizationInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -158,11 +158,11 @@ func (s CreateOrganizationInput) GoString() string {
 }
 
 type CreateOrganizationOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	ID *string `type:"string"`
+	ID *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation

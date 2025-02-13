@@ -144,7 +144,7 @@ func (c *ORGANIZATION) DescribeOrganizationWithContext(ctx volcengine.Context, i
 }
 
 type DescribeOrganizationInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -158,13 +158,13 @@ func (s DescribeOrganizationInput) GoString() string {
 }
 
 type DescribeOrganizationOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	Organization *OrganizationForDescribeOrganizationOutput `type:"structure"`
+	Organization *OrganizationForDescribeOrganizationOutput `type:"structure" json:",omitempty"`
 
-	Owner *OwnerForDescribeOrganizationOutput `type:"structure"`
+	Owner *OwnerForDescribeOrganizationOutput `type:"structure" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -190,27 +190,27 @@ func (s *DescribeOrganizationOutput) SetOwner(v *OwnerForDescribeOrganizationOut
 }
 
 type OrganizationForDescribeOrganizationOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	CreatedTime *string `type:"string"`
+	CreatedTime *string `type:"string" json:",omitempty"`
 
-	DeleteUk *string `type:"string"`
+	DeleteUk *string `type:"string" json:",omitempty"`
 
-	DeletedTime *string `type:"string"`
+	DeletedTime *string `type:"string" json:",omitempty"`
 
-	Description *string `type:"string"`
+	Description *string `type:"string" json:",omitempty"`
 
-	ID *string `type:"string"`
+	ID *string `type:"string" json:",omitempty"`
 
-	Name *string `type:"string"`
+	Name *string `type:"string" json:",omitempty"`
 
-	Owner *string `type:"string"`
+	Owner *string `type:"string" json:",omitempty"`
 
-	Status *int32 `type:"int32"`
+	Status *int32 `type:"int32" json:",omitempty"`
 
-	Type *int32 `type:"int32"`
+	Type *int32 `type:"int32" json:",omitempty"`
 
-	UpdatedTime *string `type:"string"`
+	UpdatedTime *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -284,13 +284,13 @@ func (s *OrganizationForDescribeOrganizationOutput) SetUpdatedTime(v string) *Or
 }
 
 type OwnerForDescribeOrganizationOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	AccountID *int32 `type:"int32"`
+	AccountID *int64 `type:"int64" json:",omitempty"`
 
-	AccountName *string `type:"string"`
+	AccountName *string `type:"string" json:",omitempty"`
 
-	MainName *string `type:"string"`
+	MainName *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -304,7 +304,7 @@ func (s OwnerForDescribeOrganizationOutput) GoString() string {
 }
 
 // SetAccountID sets the AccountID field's value.
-func (s *OwnerForDescribeOrganizationOutput) SetAccountID(v int32) *OwnerForDescribeOrganizationOutput {
+func (s *OwnerForDescribeOrganizationOutput) SetAccountID(v int64) *OwnerForDescribeOrganizationOutput {
 	s.AccountID = &v
 	return s
 }

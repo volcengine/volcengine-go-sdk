@@ -144,43 +144,43 @@ func (c *ORGANIZATION) ListInvitationsWithContext(ctx volcengine.Context, input 
 }
 
 type InvitationListForListInvitationsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	AccountID *string `type:"string"`
+	AccountID *string `type:"string" json:",omitempty"`
 
-	AccountName *string `type:"string"`
+	AccountName *string `type:"string" json:",omitempty"`
 
-	AllowExit *int32 `type:"int32"`
+	AllowExit *int32 `type:"int32" json:",omitempty"`
 
-	CreatedTime *string `type:"string"`
+	CreatedTime *string `type:"string" json:",omitempty"`
 
-	DeleteUk *string `type:"string"`
+	DeleteUk *string `type:"string" json:",omitempty"`
 
-	DeletedTime *string `type:"string"`
+	DeletedTime *string `type:"string" json:",omitempty"`
 
-	Description *string `type:"string"`
+	Description *string `type:"string" json:",omitempty"`
 
-	ExTime *string `type:"string"`
+	ExTime *string `type:"string" json:",omitempty"`
 
-	ID *string `type:"string"`
+	ID *string `type:"string" json:",omitempty"`
 
-	LinkID *string `type:"string"`
+	LinkID *string `type:"string" json:",omitempty"`
 
-	OrgID *string `type:"string"`
+	OrgID *string `type:"string" json:",omitempty"`
 
-	OrgUnitID *string `type:"string"`
+	OrgUnitID *string `type:"string" json:",omitempty"`
 
-	OrgUnitName *string `type:"string"`
+	OrgUnitName *string `type:"string" json:",omitempty"`
 
-	Owner *string `type:"string"`
+	Owner *string `type:"string" json:",omitempty"`
 
-	RejectReason *string `type:"string"`
+	RejectReason *string `type:"string" json:",omitempty"`
 
-	ShowName *string `type:"string"`
+	ShowName *string `type:"string" json:",omitempty"`
 
-	Status *int32 `type:"int32"`
+	Status *int32 `type:"int32" json:",omitempty"`
 
-	UpdatedTime *string `type:"string"`
+	UpdatedTime *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -302,19 +302,19 @@ func (s *InvitationListForListInvitationsOutput) SetUpdatedTime(v string) *Invit
 }
 
 type ListInvitationsInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Limit *int32 `type:"int32"`
+	Limit *int32 `type:"int32" json:",omitempty"`
 
-	Offset *int32 `type:"int32"`
+	Offset *int32 `type:"int32" json:",omitempty"`
 
-	OrderBy *int32 `type:"int32"`
+	OrderBy *int32 `type:"int32" json:",omitempty"`
 
-	OrderStr *string `type:"string"`
+	OrderStr *string `type:"string" json:",omitempty"`
 
-	OrgUnitId *string `type:"string"`
+	OrgUnitId *string `type:"string" json:",omitempty"`
 
-	Search *string `type:"string"`
+	Search *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -364,17 +364,17 @@ func (s *ListInvitationsInput) SetSearch(v string) *ListInvitationsInput {
 }
 
 type ListInvitationsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	InvitationList []*InvitationListForListInvitationsOutput `type:"list"`
+	InvitationList []*InvitationListForListInvitationsOutput `type:"list" json:",omitempty"`
 
-	Limit *int32 `type:"int32"`
+	Limit *int32 `type:"int32" json:",omitempty"`
 
-	Offset *int32 `type:"int32"`
+	Offset *int32 `type:"int32" json:",omitempty"`
 
-	Total *int32 `type:"int32"`
+	Total *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation

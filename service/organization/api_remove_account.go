@@ -144,10 +144,10 @@ func (c *ORGANIZATION) RemoveAccountWithContext(ctx volcengine.Context, input *R
 }
 
 type RemoveAccountInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// AccountId is a required field
-	AccountId *string `type:"string" required:"true"`
+	AccountId *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -180,7 +180,7 @@ func (s *RemoveAccountInput) SetAccountId(v string) *RemoveAccountInput {
 }
 
 type RemoveAccountOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 }
