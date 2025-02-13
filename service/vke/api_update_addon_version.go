@@ -144,18 +144,18 @@ func (c *VKE) UpdateAddonVersionWithContext(ctx volcengine.Context, input *Updat
 }
 
 type UpdateAddonVersionInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	ClientToken *string `type:"string"`
+	ClientToken *string `type:"string" json:",omitempty"`
 
 	// ClusterId is a required field
-	ClusterId *string `type:"string" required:"true"`
+	ClusterId *string `type:"string" json:",omitempty" required:"true"`
 
 	// Name is a required field
-	Name *string `type:"string" required:"true"`
+	Name *string `type:"string" json:",omitempty" required:"true"`
 
 	// Version is a required field
-	Version *string `type:"string" required:"true"`
+	Version *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -212,7 +212,7 @@ func (s *UpdateAddonVersionInput) SetVersion(v string) *UpdateAddonVersionInput 
 }
 
 type UpdateAddonVersionOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 }

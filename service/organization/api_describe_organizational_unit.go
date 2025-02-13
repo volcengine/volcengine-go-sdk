@@ -144,10 +144,10 @@ func (c *ORGANIZATION) DescribeOrganizationalUnitWithContext(ctx volcengine.Cont
 }
 
 type DescribeOrganizationalUnitInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// OrgUnitId is a required field
-	OrgUnitId *string `type:"string" required:"true"`
+	OrgUnitId *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -180,11 +180,11 @@ func (s *DescribeOrganizationalUnitInput) SetOrgUnitId(v string) *DescribeOrgani
 }
 
 type DescribeOrganizationalUnitOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	OrganizationUnit *OrganizationUnitForDescribeOrganizationalUnitOutput `type:"structure"`
+	OrganizationUnit *OrganizationUnitForDescribeOrganizationalUnitOutput `type:"structure" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -204,31 +204,31 @@ func (s *DescribeOrganizationalUnitOutput) SetOrganizationUnit(v *OrganizationUn
 }
 
 type OrganizationUnitForDescribeOrganizationalUnitOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	CreatedTime *string `type:"string"`
+	CreatedTime *string `type:"string" json:",omitempty"`
 
-	DeleteUk *string `type:"string"`
+	DeleteUk *string `type:"string" json:",omitempty"`
 
-	DeletedTime *string `type:"string"`
+	DeletedTime *string `type:"string" json:",omitempty"`
 
-	Depth *int32 `type:"int32"`
+	Depth *int32 `type:"int32" json:",omitempty"`
 
-	Description *string `type:"string"`
+	Description *string `type:"string" json:",omitempty"`
 
-	ID *string `type:"string"`
+	ID *string `type:"string" json:",omitempty"`
 
-	Name *string `type:"string"`
+	Name *string `type:"string" json:",omitempty"`
 
-	OrgID *string `type:"string"`
+	OrgID *string `type:"string" json:",omitempty"`
 
-	OrgType *int32 `type:"int32"`
+	OrgType *int32 `type:"int32" json:",omitempty"`
 
-	Owner *string `type:"string"`
+	Owner *string `type:"string" json:",omitempty"`
 
-	ParentID *string `type:"string"`
+	ParentID *string `type:"string" json:",omitempty"`
 
-	UpdatedTime *string `type:"string"`
+	UpdatedTime *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation

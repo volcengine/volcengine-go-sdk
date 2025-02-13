@@ -144,10 +144,10 @@ func (c *ORGANIZATION) DeleteOrganizationalUnitWithContext(ctx volcengine.Contex
 }
 
 type DeleteOrganizationalUnitInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// OrgUnitId is a required field
-	OrgUnitId *string `type:"string" required:"true"`
+	OrgUnitId *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -180,7 +180,7 @@ func (s *DeleteOrganizationalUnitInput) SetOrgUnitId(v string) *DeleteOrganizati
 }
 
 type DeleteOrganizationalUnitOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 }

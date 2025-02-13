@@ -144,9 +144,9 @@ func (c *VKE) CreateClusterWithContext(ctx volcengine.Context, input *CreateClus
 }
 
 type ApiServerPublicAccessConfigForCreateClusterInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	PublicAccessNetworkConfig *PublicAccessNetworkConfigForCreateClusterInput `type:"structure"`
+	PublicAccessNetworkConfig *PublicAccessNetworkConfigForCreateClusterInput `type:"structure" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -166,15 +166,15 @@ func (s *ApiServerPublicAccessConfigForCreateClusterInput) SetPublicAccessNetwor
 }
 
 type ClusterConfigForCreateClusterInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	ApiServerPublicAccessConfig *ApiServerPublicAccessConfigForCreateClusterInput `type:"structure"`
+	ApiServerPublicAccessConfig *ApiServerPublicAccessConfigForCreateClusterInput `type:"structure" json:",omitempty"`
 
-	ApiServerPublicAccessEnabled *bool `type:"boolean"`
+	ApiServerPublicAccessEnabled *bool `type:"boolean" json:",omitempty"`
 
-	ResourcePublicAccessDefaultEnabled *bool `type:"boolean"`
+	ResourcePublicAccessDefaultEnabled *bool `type:"boolean" json:",omitempty"`
 
-	SubnetIds []*string `type:"list"`
+	SubnetIds []*string `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -212,28 +212,30 @@ func (s *ClusterConfigForCreateClusterInput) SetSubnetIds(v []*string) *ClusterC
 }
 
 type CreateClusterInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	ClientToken *string `type:"string"`
+	ClientToken *string `type:"string" json:",omitempty"`
 
-	ClusterConfig *ClusterConfigForCreateClusterInput `type:"structure"`
+	ClusterConfig *ClusterConfigForCreateClusterInput `type:"structure" json:",omitempty"`
 
-	DeleteProtectionEnabled *bool `type:"boolean"`
+	DeleteProtectionEnabled *bool `type:"boolean" json:",omitempty"`
 
-	Description *string `type:"string"`
+	Description *string `type:"string" json:",omitempty"`
 
-	KubernetesVersion *string `type:"string"`
+	KubernetesVersion *string `type:"string" json:",omitempty"`
 
-	LoggingConfig *LoggingConfigForCreateClusterInput `type:"structure"`
+	LoggingConfig *LoggingConfigForCreateClusterInput `type:"structure" json:",omitempty"`
 
 	// Name is a required field
-	Name *string `type:"string" required:"true"`
+	Name *string `type:"string" json:",omitempty" required:"true"`
 
-	PodsConfig *PodsConfigForCreateClusterInput `type:"structure"`
+	PodsConfig *PodsConfigForCreateClusterInput `type:"structure" json:",omitempty"`
 
-	ServicesConfig *ServicesConfigForCreateClusterInput `type:"structure"`
+	ProjectName *string `type:"string" json:",omitempty"`
 
-	Tags []*TagForCreateClusterInput `type:"list"`
+	ServicesConfig *ServicesConfigForCreateClusterInput `type:"structure" json:",omitempty"`
+
+	Tags []*TagForCreateClusterInput `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -307,6 +309,12 @@ func (s *CreateClusterInput) SetPodsConfig(v *PodsConfigForCreateClusterInput) *
 	return s
 }
 
+// SetProjectName sets the ProjectName field's value.
+func (s *CreateClusterInput) SetProjectName(v string) *CreateClusterInput {
+	s.ProjectName = &v
+	return s
+}
+
 // SetServicesConfig sets the ServicesConfig field's value.
 func (s *CreateClusterInput) SetServicesConfig(v *ServicesConfigForCreateClusterInput) *CreateClusterInput {
 	s.ServicesConfig = v
@@ -320,11 +328,11 @@ func (s *CreateClusterInput) SetTags(v []*TagForCreateClusterInput) *CreateClust
 }
 
 type CreateClusterOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	Id *string `type:"string"`
+	Id *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -344,11 +352,11 @@ func (s *CreateClusterOutput) SetId(v string) *CreateClusterOutput {
 }
 
 type FlannelConfigForCreateClusterInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	MaxPodsPerNode *int32 `type:"int32"`
+	MaxPodsPerNode *int32 `type:"int32" json:",omitempty"`
 
-	PodCidrs []*string `type:"list"`
+	PodCidrs []*string `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -374,13 +382,13 @@ func (s *FlannelConfigForCreateClusterInput) SetPodCidrs(v []*string) *FlannelCo
 }
 
 type LogSetupForCreateClusterInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Enabled *bool `type:"boolean"`
+	Enabled *bool `type:"boolean" json:",omitempty"`
 
-	LogTtl *int32 `type:"int32"`
+	LogTtl *int32 `type:"int32" json:",omitempty"`
 
-	LogType *string `type:"string" enum:"EnumOfLogTypeForCreateClusterInput"`
+	LogType *string `type:"string" json:",omitempty" enum:"EnumOfLogTypeForCreateClusterInput"`
 }
 
 // String returns the string representation
@@ -412,11 +420,11 @@ func (s *LogSetupForCreateClusterInput) SetLogType(v string) *LogSetupForCreateC
 }
 
 type LoggingConfigForCreateClusterInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	LogProjectId *string `type:"string"`
+	LogProjectId *string `type:"string" json:",omitempty"`
 
-	LogSetups []*LogSetupForCreateClusterInput `type:"list"`
+	LogSetups []*LogSetupForCreateClusterInput `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -442,13 +450,13 @@ func (s *LoggingConfigForCreateClusterInput) SetLogSetups(v []*LogSetupForCreate
 }
 
 type PodsConfigForCreateClusterInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	FlannelConfig *FlannelConfigForCreateClusterInput `type:"structure"`
+	FlannelConfig *FlannelConfigForCreateClusterInput `type:"structure" json:",omitempty"`
 
-	PodNetworkMode *string `type:"string" enum:"EnumOfPodNetworkModeForCreateClusterInput"`
+	PodNetworkMode *string `type:"string" json:",omitempty" enum:"EnumOfPodNetworkModeForCreateClusterInput"`
 
-	VpcCniConfig *VpcCniConfigForCreateClusterInput `type:"structure"`
+	VpcCniConfig *VpcCniConfigForCreateClusterInput `type:"structure" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -480,13 +488,13 @@ func (s *PodsConfigForCreateClusterInput) SetVpcCniConfig(v *VpcCniConfigForCrea
 }
 
 type PublicAccessNetworkConfigForCreateClusterInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Bandwidth *int32 `type:"int32"`
+	Bandwidth *int32 `type:"int32" json:",omitempty"`
 
-	BillingType *int32 `type:"int32"`
+	BillingType *int32 `type:"int32" json:",omitempty"`
 
-	Isp *string `type:"string" enum:"EnumOfIspForCreateClusterInput"`
+	Isp *string `type:"string" json:",omitempty" enum:"EnumOfIspForCreateClusterInput"`
 }
 
 // String returns the string representation
@@ -518,9 +526,9 @@ func (s *PublicAccessNetworkConfigForCreateClusterInput) SetIsp(v string) *Publi
 }
 
 type ServicesConfigForCreateClusterInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	ServiceCidrsv4 []*string `type:"list"`
+	ServiceCidrsv4 []*string `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -540,11 +548,11 @@ func (s *ServicesConfigForCreateClusterInput) SetServiceCidrsv4(v []*string) *Se
 }
 
 type TagForCreateClusterInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Key *string `type:"string"`
+	Key *string `type:"string" json:",omitempty"`
 
-	Value *string `type:"string"`
+	Value *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -570,9 +578,9 @@ func (s *TagForCreateClusterInput) SetValue(v string) *TagForCreateClusterInput 
 }
 
 type VpcCniConfigForCreateClusterInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	SubnetIds []*string `type:"list"`
+	SubnetIds []*string `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -609,20 +617,20 @@ const (
 	// EnumOfLogTypeForCreateClusterInputAudit is a EnumOfLogTypeForCreateClusterInput enum value
 	EnumOfLogTypeForCreateClusterInputAudit = "Audit"
 
+	// EnumOfLogTypeForCreateClusterInputKubeApiServer is a EnumOfLogTypeForCreateClusterInput enum value
+	EnumOfLogTypeForCreateClusterInputKubeApiServer = "KubeApiServer"
+
+	// EnumOfLogTypeForCreateClusterInputKubeScheduler is a EnumOfLogTypeForCreateClusterInput enum value
+	EnumOfLogTypeForCreateClusterInputKubeScheduler = "KubeScheduler"
+
+	// EnumOfLogTypeForCreateClusterInputKubeControllerManager is a EnumOfLogTypeForCreateClusterInput enum value
+	EnumOfLogTypeForCreateClusterInputKubeControllerManager = "KubeControllerManager"
+
 	// EnumOfLogTypeForCreateClusterInputCloudControllerManager is a EnumOfLogTypeForCreateClusterInput enum value
 	EnumOfLogTypeForCreateClusterInputCloudControllerManager = "CloudControllerManager"
 
 	// EnumOfLogTypeForCreateClusterInputEtcd is a EnumOfLogTypeForCreateClusterInput enum value
 	EnumOfLogTypeForCreateClusterInputEtcd = "Etcd"
-
-	// EnumOfLogTypeForCreateClusterInputKubeApiServer is a EnumOfLogTypeForCreateClusterInput enum value
-	EnumOfLogTypeForCreateClusterInputKubeApiServer = "KubeApiServer"
-
-	// EnumOfLogTypeForCreateClusterInputKubeControllerManager is a EnumOfLogTypeForCreateClusterInput enum value
-	EnumOfLogTypeForCreateClusterInputKubeControllerManager = "KubeControllerManager"
-
-	// EnumOfLogTypeForCreateClusterInputKubeScheduler is a EnumOfLogTypeForCreateClusterInput enum value
-	EnumOfLogTypeForCreateClusterInputKubeScheduler = "KubeScheduler"
 )
 
 const (

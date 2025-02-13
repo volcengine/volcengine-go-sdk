@@ -144,15 +144,15 @@ func (c *ORGANIZATION) CreateOrganizationalUnitWithContext(ctx volcengine.Contex
 }
 
 type CreateOrganizationalUnitInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Description *string `type:"string"`
+	Description *string `type:"string" json:",omitempty"`
 
 	// Name is a required field
-	Name *string `type:"string" required:"true"`
+	Name *string `type:"string" json:",omitempty" required:"true"`
 
 	// ParentId is a required field
-	ParentId *string `type:"string" required:"true"`
+	ParentId *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -200,11 +200,11 @@ func (s *CreateOrganizationalUnitInput) SetParentId(v string) *CreateOrganizatio
 }
 
 type CreateOrganizationalUnitOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	ID *string `type:"string"`
+	ID *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation

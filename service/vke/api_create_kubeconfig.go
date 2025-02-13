@@ -144,15 +144,15 @@ func (c *VKE) CreateKubeconfigWithContext(ctx volcengine.Context, input *CreateK
 }
 
 type CreateKubeconfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// ClusterId is a required field
-	ClusterId *string `type:"string" required:"true"`
+	ClusterId *string `type:"string" json:",omitempty" required:"true"`
 
 	// Type is a required field
-	Type *string `type:"string" required:"true" enum:"EnumOfTypeForCreateKubeconfigInput"`
+	Type *string `type:"string" json:",omitempty" required:"true" enum:"EnumOfTypeForCreateKubeconfigInput"`
 
-	ValidDuration *int32 `type:"int32"`
+	ValidDuration *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -200,11 +200,11 @@ func (s *CreateKubeconfigInput) SetValidDuration(v int32) *CreateKubeconfigInput
 }
 
 type CreateKubeconfigOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	Id *string `type:"string"`
+	Id *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -224,9 +224,12 @@ func (s *CreateKubeconfigOutput) SetId(v string) *CreateKubeconfigOutput {
 }
 
 const (
+	// EnumOfTypeForCreateKubeconfigInputPublic is a EnumOfTypeForCreateKubeconfigInput enum value
+	EnumOfTypeForCreateKubeconfigInputPublic = "Public"
+
 	// EnumOfTypeForCreateKubeconfigInputPrivate is a EnumOfTypeForCreateKubeconfigInput enum value
 	EnumOfTypeForCreateKubeconfigInputPrivate = "Private"
 
-	// EnumOfTypeForCreateKubeconfigInputPublic is a EnumOfTypeForCreateKubeconfigInput enum value
-	EnumOfTypeForCreateKubeconfigInputPublic = "Public"
+	// EnumOfTypeForCreateKubeconfigInputTargetCluster is a EnumOfTypeForCreateKubeconfigInput enum value
+	EnumOfTypeForCreateKubeconfigInputTargetCluster = "TargetCluster"
 )

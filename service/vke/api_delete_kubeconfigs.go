@@ -144,12 +144,12 @@ func (c *VKE) DeleteKubeconfigsWithContext(ctx volcengine.Context, input *Delete
 }
 
 type DeleteKubeconfigsInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// ClusterId is a required field
-	ClusterId *string `type:"string" required:"true"`
+	ClusterId *string `type:"string" json:",omitempty" required:"true"`
 
-	Ids []*string `type:"list"`
+	Ids []*string `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -188,7 +188,7 @@ func (s *DeleteKubeconfigsInput) SetIds(v []*string) *DeleteKubeconfigsInput {
 }
 
 type DeleteKubeconfigsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 }

@@ -144,7 +144,7 @@ func (c *ORGANIZATION) EnableServiceControlPolicyWithContext(ctx volcengine.Cont
 }
 
 type EnableServiceControlPolicyInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -158,11 +158,11 @@ func (s EnableServiceControlPolicyInput) GoString() string {
 }
 
 type EnableServiceControlPolicyOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	Status *string `type:"string"`
+	Status *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation

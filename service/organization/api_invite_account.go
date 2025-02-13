@@ -144,20 +144,20 @@ func (c *ORGANIZATION) InviteAccountWithContext(ctx volcengine.Context, input *I
 }
 
 type InviteAccountInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// AccountId is a required field
-	AccountId *string `type:"string" required:"true"`
+	AccountId *string `type:"string" json:",omitempty" required:"true"`
 
 	// AllowExit is a required field
-	AllowExit *int32 `type:"int32" required:"true"`
+	AllowExit *int32 `type:"int32" json:",omitempty" required:"true"`
 
-	Description *string `type:"string"`
+	Description *string `type:"string" json:",omitempty"`
 
-	OrgUnitId *string `type:"string"`
+	OrgUnitId *string `type:"string" json:",omitempty"`
 
 	// ShowName is a required field
-	ShowName *string `type:"string" required:"true"`
+	ShowName *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -220,11 +220,11 @@ func (s *InviteAccountInput) SetShowName(v string) *InviteAccountInput {
 }
 
 type InviteAccountOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	InviteId *string `type:"string"`
+	InviteId *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation

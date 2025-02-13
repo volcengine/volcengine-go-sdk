@@ -144,7 +144,7 @@ func (c *ORGANIZATION) GetServiceControlPolicyEnablementWithContext(ctx volcengi
 }
 
 type GetServiceControlPolicyEnablementInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -158,13 +158,13 @@ func (s GetServiceControlPolicyEnablementInput) GoString() string {
 }
 
 type GetServiceControlPolicyEnablementOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	CanFullAccessDetach *bool `type:"boolean"`
+	CanFullAccessDetach *bool `type:"boolean" json:",omitempty"`
 
-	Status *string `type:"string"`
+	Status *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation

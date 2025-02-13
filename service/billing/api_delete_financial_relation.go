@@ -153,7 +153,7 @@ type DeleteFinancialRelationInput struct {
 	RelationID *string `type:"string" json:",omitempty" required:"true"`
 
 	// SubAccountID is a required field
-	SubAccountID *int32 `type:"int32" json:",omitempty" required:"true"`
+	SubAccountID *int64 `type:"int64" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -198,7 +198,7 @@ func (s *DeleteFinancialRelationInput) SetRelationID(v string) *DeleteFinancialR
 }
 
 // SetSubAccountID sets the SubAccountID field's value.
-func (s *DeleteFinancialRelationInput) SetSubAccountID(v int32) *DeleteFinancialRelationInput {
+func (s *DeleteFinancialRelationInput) SetSubAccountID(v int64) *DeleteFinancialRelationInput {
 	s.SubAccountID = &v
 	return s
 }

@@ -156,7 +156,7 @@ type CancelInvitationInput struct {
 	// RelationID is a required field
 	RelationID *string `type:"string" json:",omitempty" required:"true"`
 
-	SubAccountID *int32 `type:"int32" json:",omitempty"`
+	SubAccountID *int64 `type:"int64" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -210,7 +210,7 @@ func (s *CancelInvitationInput) SetRelationID(v string) *CancelInvitationInput {
 }
 
 // SetSubAccountID sets the SubAccountID field's value.
-func (s *CancelInvitationInput) SetSubAccountID(v int32) *CancelInvitationInput {
+func (s *CancelInvitationInput) SetSubAccountID(v int64) *CancelInvitationInput {
 	s.SubAccountID = &v
 	return s
 }

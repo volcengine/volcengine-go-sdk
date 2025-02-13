@@ -144,15 +144,15 @@ func (c *ORGANIZATION) AcceptQuitApplicationWithContext(ctx volcengine.Context, 
 }
 
 type AcceptQuitApplicationInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// AccountId is a required field
-	AccountId *string `type:"string" required:"true"`
+	AccountId *string `type:"string" json:",omitempty" required:"true"`
 
 	// ApplicationId is a required field
-	ApplicationId *string `type:"string" required:"true"`
+	ApplicationId *string `type:"string" json:",omitempty" required:"true"`
 
-	Reason *string `type:"string"`
+	Reason *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -200,7 +200,7 @@ func (s *AcceptQuitApplicationInput) SetReason(v string) *AcceptQuitApplicationI
 }
 
 type AcceptQuitApplicationOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 }

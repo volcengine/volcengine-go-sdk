@@ -144,9 +144,9 @@ func (c *ORGANIZATION) QuitOrganizationWithContext(ctx volcengine.Context, input
 }
 
 type QuitOrganizationInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	ApplyReason *string `type:"string"`
+	ApplyReason *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -166,11 +166,11 @@ func (s *QuitOrganizationInput) SetApplyReason(v string) *QuitOrganizationInput 
 }
 
 type QuitOrganizationOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	ApplicationID *string `type:"string"`
+	ApplicationID *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation

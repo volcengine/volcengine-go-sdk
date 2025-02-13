@@ -144,13 +144,13 @@ func (c *ORGANIZATION) MoveAccountWithContext(ctx volcengine.Context, input *Mov
 }
 
 type MoveAccountInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// AccountId is a required field
-	AccountId *string `type:"string" required:"true"`
+	AccountId *string `type:"string" json:",omitempty" required:"true"`
 
 	// ToOrgUnitId is a required field
-	ToOrgUnitId *string `type:"string" required:"true"`
+	ToOrgUnitId *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -192,7 +192,7 @@ func (s *MoveAccountInput) SetToOrgUnitId(v string) *MoveAccountInput {
 }
 
 type MoveAccountOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 }

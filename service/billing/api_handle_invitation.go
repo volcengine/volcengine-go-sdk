@@ -154,7 +154,7 @@ type HandleInvitationInput struct {
 	// InvitationType is a required field
 	InvitationType *int32 `type:"int32" json:",omitempty" required:"true"`
 
-	MajorAccountID *int32 `type:"int32" json:",omitempty"`
+	MajorAccountID *int64 `type:"int64" json:",omitempty"`
 
 	Relation *int32 `type:"int32" json:",omitempty"`
 
@@ -210,7 +210,7 @@ func (s *HandleInvitationInput) SetInvitationType(v int32) *HandleInvitationInpu
 }
 
 // SetMajorAccountID sets the MajorAccountID field's value.
-func (s *HandleInvitationInput) SetMajorAccountID(v int32) *HandleInvitationInput {
+func (s *HandleInvitationInput) SetMajorAccountID(v int64) *HandleInvitationInput {
 	s.MajorAccountID = &v
 	return s
 }

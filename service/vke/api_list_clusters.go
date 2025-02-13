@@ -144,11 +144,11 @@ func (c *VKE) ListClustersWithContext(ctx volcengine.Context, input *ListCluster
 }
 
 type ApiServerEndpointsForListClustersOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	PrivateIp *PrivateIpForListClustersOutput `type:"structure"`
+	PrivateIp *PrivateIpForListClustersOutput `type:"structure" json:",omitempty"`
 
-	PublicIp *PublicIpForListClustersOutput `type:"structure"`
+	PublicIp *PublicIpForListClustersOutput `type:"structure" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -174,11 +174,11 @@ func (s *ApiServerEndpointsForListClustersOutput) SetPublicIp(v *PublicIpForList
 }
 
 type ApiServerPublicAccessConfigForListClustersOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	AccessSourceIpsv4 []*string `type:"list"`
+	AccessSourceIpsv4 []*string `type:"list" json:",omitempty"`
 
-	PublicAccessNetworkConfig *PublicAccessNetworkConfigForListClustersOutput `type:"structure"`
+	PublicAccessNetworkConfig *PublicAccessNetworkConfigForListClustersOutput `type:"structure" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -204,21 +204,21 @@ func (s *ApiServerPublicAccessConfigForListClustersOutput) SetPublicAccessNetwor
 }
 
 type ClusterConfigForListClustersOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	ApiServerEndpoints *ApiServerEndpointsForListClustersOutput `type:"structure"`
+	ApiServerEndpoints *ApiServerEndpointsForListClustersOutput `type:"structure" json:",omitempty"`
 
-	ApiServerPublicAccessConfig *ApiServerPublicAccessConfigForListClustersOutput `type:"structure"`
+	ApiServerPublicAccessConfig *ApiServerPublicAccessConfigForListClustersOutput `type:"structure" json:",omitempty"`
 
-	ApiServerPublicAccessEnabled *bool `type:"boolean"`
+	ApiServerPublicAccessEnabled *bool `type:"boolean" json:",omitempty"`
 
-	ResourcePublicAccessDefaultEnabled *bool `type:"boolean"`
+	ResourcePublicAccessDefaultEnabled *bool `type:"boolean" json:",omitempty"`
 
-	SecurityGroupIds []*string `type:"list"`
+	SecurityGroupIds []*string `type:"list" json:",omitempty"`
 
-	SubnetIds []*string `type:"list"`
+	SubnetIds []*string `type:"list" json:",omitempty"`
 
-	VpcId *string `type:"string"`
+	VpcId *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -274,9 +274,9 @@ func (s *ClusterConfigForListClustersOutput) SetVpcId(v string) *ClusterConfigFo
 }
 
 type ConditionForListClustersOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Type *string `type:"string"`
+	Type *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -296,21 +296,21 @@ func (s *ConditionForListClustersOutput) SetType(v string) *ConditionForListClus
 }
 
 type FilterForListClustersInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	CreateClientToken *string `type:"string"`
+	CreateClientToken *string `type:"string" json:",omitempty"`
 
-	DeleteProtectionEnabled *bool `type:"boolean"`
+	DeleteProtectionEnabled *bool `type:"boolean" json:",omitempty"`
 
-	Ids []*string `type:"list"`
+	Ids []*string `type:"list" json:",omitempty"`
 
-	Name *string `type:"string"`
+	Name *string `type:"string" json:",omitempty"`
 
-	PodsConfigPodNetworkMode *string `type:"string" json:"PodsConfig.PodNetworkMode" enum:"EnumOfPodsConfigPodNetworkModeForListClustersInput"`
+	PodsConfigPodNetworkMode *string `type:"string" json:"PodsConfig.PodNetworkMode,omitempty" enum:"EnumOfPodsConfigPodNetworkModeForListClustersInput"`
 
-	Statuses []*StatusForListClustersInput `type:"list"`
+	Statuses []*StatusForListClustersInput `type:"list" json:",omitempty"`
 
-	UpdateClientToken *string `type:"string"`
+	UpdateClientToken *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -366,11 +366,11 @@ func (s *FilterForListClustersInput) SetUpdateClientToken(v string) *FilterForLi
 }
 
 type FlannelConfigForListClustersOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	MaxPodsPerNode *int32 `type:"int32"`
+	MaxPodsPerNode *int32 `type:"int32" json:",omitempty"`
 
-	PodCidrs []*string `type:"list"`
+	PodCidrs []*string `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -396,39 +396,39 @@ func (s *FlannelConfigForListClustersOutput) SetPodCidrs(v []*string) *FlannelCo
 }
 
 type ItemForListClustersOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	ClusterConfig *ClusterConfigForListClustersOutput `type:"structure"`
+	ClusterConfig *ClusterConfigForListClustersOutput `type:"structure" json:",omitempty"`
 
-	CreateClientToken *string `type:"string"`
+	CreateClientToken *string `type:"string" json:",omitempty"`
 
-	CreateTime *string `type:"string"`
+	CreateTime *string `type:"string" json:",omitempty"`
 
-	DeleteProtectionEnabled *bool `type:"boolean"`
+	DeleteProtectionEnabled *bool `type:"boolean" json:",omitempty"`
 
-	Description *string `type:"string"`
+	Description *string `type:"string" json:",omitempty"`
 
-	Id *string `type:"string"`
+	Id *string `type:"string" json:",omitempty"`
 
-	KubernetesVersion *string `type:"string"`
+	KubernetesVersion *string `type:"string" json:",omitempty"`
 
-	LoggingConfig *LoggingConfigForListClustersOutput `type:"structure"`
+	LoggingConfig *LoggingConfigForListClustersOutput `type:"structure" json:",omitempty"`
 
-	Name *string `type:"string"`
+	Name *string `type:"string" json:",omitempty"`
 
-	NodeStatistics *NodeStatisticsForListClustersOutput `type:"structure"`
+	NodeStatistics *NodeStatisticsForListClustersOutput `type:"structure" json:",omitempty"`
 
-	PodsConfig *PodsConfigForListClustersOutput `type:"structure"`
+	PodsConfig *PodsConfigForListClustersOutput `type:"structure" json:",omitempty"`
 
-	ServicesConfig *ServicesConfigForListClustersOutput `type:"structure"`
+	ServicesConfig *ServicesConfigForListClustersOutput `type:"structure" json:",omitempty"`
 
-	Status *StatusForListClustersOutput `type:"structure"`
+	Status *StatusForListClustersOutput `type:"structure" json:",omitempty"`
 
-	Tags []*TagForListClustersOutput `type:"list"`
+	Tags []*TagForListClustersOutput `type:"list" json:",omitempty"`
 
-	UpdateClientToken *string `type:"string"`
+	UpdateClientToken *string `type:"string" json:",omitempty"`
 
-	UpdateTime *string `type:"string"`
+	UpdateTime *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -538,15 +538,17 @@ func (s *ItemForListClustersOutput) SetUpdateTime(v string) *ItemForListClusters
 }
 
 type ListClustersInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Filter *FilterForListClustersInput `type:"structure"`
+	Filter *FilterForListClustersInput `type:"structure" json:",omitempty"`
 
-	PageNumber *int32 `type:"int32"`
+	PageNumber *int32 `type:"int32" json:",omitempty"`
 
-	PageSize *int32 `type:"int32"`
+	PageSize *int32 `type:"int32" json:",omitempty"`
 
-	Tags []*TagForListClustersInput `type:"list"`
+	ProjectName *string `type:"string" json:",omitempty"`
+
+	Tags []*TagForListClustersInput `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -577,6 +579,12 @@ func (s *ListClustersInput) SetPageSize(v int32) *ListClustersInput {
 	return s
 }
 
+// SetProjectName sets the ProjectName field's value.
+func (s *ListClustersInput) SetProjectName(v string) *ListClustersInput {
+	s.ProjectName = &v
+	return s
+}
+
 // SetTags sets the Tags field's value.
 func (s *ListClustersInput) SetTags(v []*TagForListClustersInput) *ListClustersInput {
 	s.Tags = v
@@ -584,17 +592,17 @@ func (s *ListClustersInput) SetTags(v []*TagForListClustersInput) *ListClustersI
 }
 
 type ListClustersOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	Items []*ItemForListClustersOutput `type:"list"`
+	Items []*ItemForListClustersOutput `type:"list" json:",omitempty"`
 
-	PageNumber *int32 `type:"int32"`
+	PageNumber *int32 `type:"int32" json:",omitempty"`
 
-	PageSize *int32 `type:"int32"`
+	PageSize *int32 `type:"int32" json:",omitempty"`
 
-	TotalCount *int32 `type:"int32"`
+	TotalCount *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -632,15 +640,15 @@ func (s *ListClustersOutput) SetTotalCount(v int32) *ListClustersOutput {
 }
 
 type LogSetupForListClustersOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Enabled *bool `type:"boolean"`
+	Enabled *bool `type:"boolean" json:",omitempty"`
 
-	LogTopicId *string `type:"string"`
+	LogTopicId *string `type:"string" json:",omitempty"`
 
-	LogTtl *int32 `type:"int32"`
+	LogTtl *int32 `type:"int32" json:",omitempty"`
 
-	LogType *string `type:"string"`
+	LogType *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -678,11 +686,11 @@ func (s *LogSetupForListClustersOutput) SetLogType(v string) *LogSetupForListClu
 }
 
 type LoggingConfigForListClustersOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	LogProjectId *string `type:"string"`
+	LogProjectId *string `type:"string" json:",omitempty"`
 
-	LogSetups []*LogSetupForListClustersOutput `type:"list"`
+	LogSetups []*LogSetupForListClustersOutput `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -708,19 +716,19 @@ func (s *LoggingConfigForListClustersOutput) SetLogSetups(v []*LogSetupForListCl
 }
 
 type NodeStatisticsForListClustersOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	CreatingCount *int32 `type:"int32"`
+	CreatingCount *int32 `type:"int32" json:",omitempty"`
 
-	DeletingCount *int32 `type:"int32"`
+	DeletingCount *int32 `type:"int32" json:",omitempty"`
 
-	FailedCount *int32 `type:"int32"`
+	FailedCount *int32 `type:"int32" json:",omitempty"`
 
-	RunningCount *int32 `type:"int32"`
+	RunningCount *int32 `type:"int32" json:",omitempty"`
 
-	TotalCount *int32 `type:"int32"`
+	TotalCount *int32 `type:"int32" json:",omitempty"`
 
-	UpdatingCount *int32 `type:"int32"`
+	UpdatingCount *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -770,13 +778,13 @@ func (s *NodeStatisticsForListClustersOutput) SetUpdatingCount(v int32) *NodeSta
 }
 
 type PodsConfigForListClustersOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	FlannelConfig *FlannelConfigForListClustersOutput `type:"structure"`
+	FlannelConfig *FlannelConfigForListClustersOutput `type:"structure" json:",omitempty"`
 
-	PodNetworkMode *string `type:"string"`
+	PodNetworkMode *string `type:"string" json:",omitempty"`
 
-	VpcCniConfig *VpcCniConfigForListClustersOutput `type:"structure"`
+	VpcCniConfig *VpcCniConfigForListClustersOutput `type:"structure" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -808,9 +816,9 @@ func (s *PodsConfigForListClustersOutput) SetVpcCniConfig(v *VpcCniConfigForList
 }
 
 type PrivateIpForListClustersOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Ipv4 *string `type:"string"`
+	Ipv4 *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -830,13 +838,13 @@ func (s *PrivateIpForListClustersOutput) SetIpv4(v string) *PrivateIpForListClus
 }
 
 type PublicAccessNetworkConfigForListClustersOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Bandwidth *int32 `type:"int32"`
+	Bandwidth *int32 `type:"int32" json:",omitempty"`
 
-	BillingType *int32 `type:"int32"`
+	BillingType *int32 `type:"int32" json:",omitempty"`
 
-	Isp *string `type:"string"`
+	Isp *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -868,9 +876,9 @@ func (s *PublicAccessNetworkConfigForListClustersOutput) SetIsp(v string) *Publi
 }
 
 type PublicIpForListClustersOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Ipv4 *string `type:"string"`
+	Ipv4 *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -890,9 +898,9 @@ func (s *PublicIpForListClustersOutput) SetIpv4(v string) *PublicIpForListCluste
 }
 
 type ServicesConfigForListClustersOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	ServiceCidrsv4 []*string `type:"list"`
+	ServiceCidrsv4 []*string `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -912,11 +920,11 @@ func (s *ServicesConfigForListClustersOutput) SetServiceCidrsv4(v []*string) *Se
 }
 
 type StatusForListClustersInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	ConditionsType *string `type:"string" json:"Conditions.Type" enum:"EnumOfConditionsTypeForListClustersInput"`
+	ConditionsType *string `type:"string" json:"Conditions.Type,omitempty" enum:"EnumOfConditionsTypeForListClustersInput"`
 
-	Phase *string `type:"string" enum:"EnumOfPhaseForListClustersInput"`
+	Phase *string `type:"string" json:",omitempty" enum:"EnumOfPhaseForListClustersInput"`
 }
 
 // String returns the string representation
@@ -942,11 +950,11 @@ func (s *StatusForListClustersInput) SetPhase(v string) *StatusForListClustersIn
 }
 
 type StatusForListClustersOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Conditions []*ConditionForListClustersOutput `type:"list"`
+	Conditions []*ConditionForListClustersOutput `type:"list" json:",omitempty"`
 
-	Phase *string `type:"string"`
+	Phase *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -972,11 +980,11 @@ func (s *StatusForListClustersOutput) SetPhase(v string) *StatusForListClustersO
 }
 
 type TagForListClustersInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Key *string `type:"string"`
+	Key *string `type:"string" json:",omitempty"`
 
-	Value *string `type:"string"`
+	Value *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -1002,13 +1010,13 @@ func (s *TagForListClustersInput) SetValue(v string) *TagForListClustersInput {
 }
 
 type TagForListClustersOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Key *string `type:"string"`
+	Key *string `type:"string" json:",omitempty"`
 
-	Type *string `type:"string"`
+	Type *string `type:"string" json:",omitempty"`
 
-	Value *string `type:"string"`
+	Value *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -1040,9 +1048,9 @@ func (s *TagForListClustersOutput) SetValue(v string) *TagForListClustersOutput 
 }
 
 type VpcCniConfigForListClustersOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	SubnetIds []*string `type:"list"`
+	SubnetIds []*string `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -1062,17 +1070,17 @@ func (s *VpcCniConfigForListClustersOutput) SetSubnetIds(v []*string) *VpcCniCon
 }
 
 const (
-	// EnumOfConditionsTypeForListClustersInputBalance is a EnumOfConditionsTypeForListClustersInput enum value
-	EnumOfConditionsTypeForListClustersInputBalance = "Balance"
-
-	// EnumOfConditionsTypeForListClustersInputClusterVersionUpgrading is a EnumOfConditionsTypeForListClustersInput enum value
-	EnumOfConditionsTypeForListClustersInputClusterVersionUpgrading = "ClusterVersionUpgrading"
+	// EnumOfConditionsTypeForListClustersInputOk is a EnumOfConditionsTypeForListClustersInput enum value
+	EnumOfConditionsTypeForListClustersInputOk = "Ok"
 
 	// EnumOfConditionsTypeForListClustersInputCreateError is a EnumOfConditionsTypeForListClustersInput enum value
 	EnumOfConditionsTypeForListClustersInputCreateError = "CreateError"
 
-	// EnumOfConditionsTypeForListClustersInputDegraded is a EnumOfConditionsTypeForListClustersInput enum value
-	EnumOfConditionsTypeForListClustersInputDegraded = "Degraded"
+	// EnumOfConditionsTypeForListClustersInputProgressing is a EnumOfConditionsTypeForListClustersInput enum value
+	EnumOfConditionsTypeForListClustersInputProgressing = "Progressing"
+
+	// EnumOfConditionsTypeForListClustersInputClusterVersionUpgrading is a EnumOfConditionsTypeForListClustersInput enum value
+	EnumOfConditionsTypeForListClustersInputClusterVersionUpgrading = "ClusterVersionUpgrading"
 
 	// EnumOfConditionsTypeForListClustersInputDisconnected is a EnumOfConditionsTypeForListClustersInput enum value
 	EnumOfConditionsTypeForListClustersInputDisconnected = "Disconnected"
@@ -1080,58 +1088,58 @@ const (
 	// EnumOfConditionsTypeForListClustersInputInvalidCertificate is a EnumOfConditionsTypeForListClustersInput enum value
 	EnumOfConditionsTypeForListClustersInputInvalidCertificate = "InvalidCertificate"
 
-	// EnumOfConditionsTypeForListClustersInputLimitedByQuota is a EnumOfConditionsTypeForListClustersInput enum value
-	EnumOfConditionsTypeForListClustersInputLimitedByQuota = "LimitedByQuota"
-
-	// EnumOfConditionsTypeForListClustersInputOk is a EnumOfConditionsTypeForListClustersInput enum value
-	EnumOfConditionsTypeForListClustersInputOk = "Ok"
-
-	// EnumOfConditionsTypeForListClustersInputProgressing is a EnumOfConditionsTypeForListClustersInput enum value
-	EnumOfConditionsTypeForListClustersInputProgressing = "Progressing"
-
-	// EnumOfConditionsTypeForListClustersInputResourceCleanupFailed is a EnumOfConditionsTypeForListClustersInput enum value
-	EnumOfConditionsTypeForListClustersInputResourceCleanupFailed = "ResourceCleanupFailed"
-
-	// EnumOfConditionsTypeForListClustersInputSecurity is a EnumOfConditionsTypeForListClustersInput enum value
-	EnumOfConditionsTypeForListClustersInputSecurity = "Security"
-
 	// EnumOfConditionsTypeForListClustersInputSetByProvider is a EnumOfConditionsTypeForListClustersInput enum value
 	EnumOfConditionsTypeForListClustersInputSetByProvider = "SetByProvider"
-
-	// EnumOfConditionsTypeForListClustersInputSetByUser is a EnumOfConditionsTypeForListClustersInput enum value
-	EnumOfConditionsTypeForListClustersInputSetByUser = "SetByUser"
 
 	// EnumOfConditionsTypeForListClustersInputStockOut is a EnumOfConditionsTypeForListClustersInput enum value
 	EnumOfConditionsTypeForListClustersInputStockOut = "StockOut"
 
-	// EnumOfConditionsTypeForListClustersInputUnknown is a EnumOfConditionsTypeForListClustersInput enum value
-	EnumOfConditionsTypeForListClustersInputUnknown = "Unknown"
+	// EnumOfConditionsTypeForListClustersInputLimitedByQuota is a EnumOfConditionsTypeForListClustersInput enum value
+	EnumOfConditionsTypeForListClustersInputLimitedByQuota = "LimitedByQuota"
+
+	// EnumOfConditionsTypeForListClustersInputSetByUser is a EnumOfConditionsTypeForListClustersInput enum value
+	EnumOfConditionsTypeForListClustersInputSetByUser = "SetByUser"
+
+	// EnumOfConditionsTypeForListClustersInputSecurity is a EnumOfConditionsTypeForListClustersInput enum value
+	EnumOfConditionsTypeForListClustersInputSecurity = "Security"
+
+	// EnumOfConditionsTypeForListClustersInputBalance is a EnumOfConditionsTypeForListClustersInput enum value
+	EnumOfConditionsTypeForListClustersInputBalance = "Balance"
+
+	// EnumOfConditionsTypeForListClustersInputDegraded is a EnumOfConditionsTypeForListClustersInput enum value
+	EnumOfConditionsTypeForListClustersInputDegraded = "Degraded"
 
 	// EnumOfConditionsTypeForListClustersInputWaiting is a EnumOfConditionsTypeForListClustersInput enum value
 	EnumOfConditionsTypeForListClustersInputWaiting = "Waiting"
+
+	// EnumOfConditionsTypeForListClustersInputResourceCleanupFailed is a EnumOfConditionsTypeForListClustersInput enum value
+	EnumOfConditionsTypeForListClustersInputResourceCleanupFailed = "ResourceCleanupFailed"
+
+	// EnumOfConditionsTypeForListClustersInputUnknown is a EnumOfConditionsTypeForListClustersInput enum value
+	EnumOfConditionsTypeForListClustersInputUnknown = "Unknown"
 )
 
 const (
-	// EnumOfPhaseForListClustersInputCreating is a EnumOfPhaseForListClustersInput enum value
-	EnumOfPhaseForListClustersInputCreating = "Creating"
-
-	// EnumOfPhaseForListClustersInputDeleting is a EnumOfPhaseForListClustersInput enum value
-	EnumOfPhaseForListClustersInputDeleting = "Deleting"
-
-	// EnumOfPhaseForListClustersInputFailed is a EnumOfPhaseForListClustersInput enum value
-	EnumOfPhaseForListClustersInputFailed = "Failed"
-
 	// EnumOfPhaseForListClustersInputRunning is a EnumOfPhaseForListClustersInput enum value
 	EnumOfPhaseForListClustersInputRunning = "Running"
-
-	// EnumOfPhaseForListClustersInputUpdating is a EnumOfPhaseForListClustersInput enum value
-	EnumOfPhaseForListClustersInputUpdating = "Updating"
 
 	// EnumOfPhaseForListClustersInputStarting is a EnumOfPhaseForListClustersInput enum value
 	EnumOfPhaseForListClustersInputStarting = "Starting"
 
 	// EnumOfPhaseForListClustersInputStopped is a EnumOfPhaseForListClustersInput enum value
 	EnumOfPhaseForListClustersInputStopped = "Stopped"
+
+	// EnumOfPhaseForListClustersInputFailed is a EnumOfPhaseForListClustersInput enum value
+	EnumOfPhaseForListClustersInputFailed = "Failed"
+
+	// EnumOfPhaseForListClustersInputUpdating is a EnumOfPhaseForListClustersInput enum value
+	EnumOfPhaseForListClustersInputUpdating = "Updating"
+
+	// EnumOfPhaseForListClustersInputCreating is a EnumOfPhaseForListClustersInput enum value
+	EnumOfPhaseForListClustersInputCreating = "Creating"
+
+	// EnumOfPhaseForListClustersInputDeleting is a EnumOfPhaseForListClustersInput enum value
+	EnumOfPhaseForListClustersInputDeleting = "Deleting"
 )
 
 const (
@@ -1140,13 +1148,4 @@ const (
 
 	// EnumOfPodsConfigPodNetworkModeForListClustersInputVpcCniShared is a EnumOfPodsConfigPodNetworkModeForListClustersInput enum value
 	EnumOfPodsConfigPodNetworkModeForListClustersInputVpcCniShared = "VpcCniShared"
-
-	// EnumOfPodsConfigPodNetworkModeForListClustersInputCalicoBgp is a EnumOfPodsConfigPodNetworkModeForListClustersInput enum value
-	EnumOfPodsConfigPodNetworkModeForListClustersInputCalicoBgp = "CalicoBgp"
-
-	// EnumOfPodsConfigPodNetworkModeForListClustersInputCalicoVxlan is a EnumOfPodsConfigPodNetworkModeForListClustersInput enum value
-	EnumOfPodsConfigPodNetworkModeForListClustersInputCalicoVxlan = "CalicoVxlan"
-
-	// EnumOfPodsConfigPodNetworkModeForListClustersInputVpcCniDedicated is a EnumOfPodsConfigPodNetworkModeForListClustersInput enum value
-	EnumOfPodsConfigPodNetworkModeForListClustersInputVpcCniDedicated = "VpcCniDedicated"
 )

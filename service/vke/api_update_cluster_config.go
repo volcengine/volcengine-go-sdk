@@ -144,9 +144,9 @@ func (c *VKE) UpdateClusterConfigWithContext(ctx volcengine.Context, input *Upda
 }
 
 type ApiServerPublicAccessConfigForUpdateClusterConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	PublicAccessNetworkConfig *PublicAccessNetworkConfigForUpdateClusterConfigInput `type:"structure"`
+	PublicAccessNetworkConfig *PublicAccessNetworkConfigForUpdateClusterConfigInput `type:"structure" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -166,11 +166,13 @@ func (s *ApiServerPublicAccessConfigForUpdateClusterConfigInput) SetPublicAccess
 }
 
 type ClusterConfigForUpdateClusterConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	ApiServerPublicAccessConfig *ApiServerPublicAccessConfigForUpdateClusterConfigInput `type:"structure"`
+	ApiServerPublicAccessConfig *ApiServerPublicAccessConfigForUpdateClusterConfigInput `type:"structure" json:",omitempty"`
 
-	ApiServerPublicAccessEnabled *bool `type:"boolean"`
+	ApiServerPublicAccessEnabled *bool `type:"boolean" json:",omitempty"`
+
+	SubnetIds []*string `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -195,14 +197,20 @@ func (s *ClusterConfigForUpdateClusterConfigInput) SetApiServerPublicAccessEnabl
 	return s
 }
 
+// SetSubnetIds sets the SubnetIds field's value.
+func (s *ClusterConfigForUpdateClusterConfigInput) SetSubnetIds(v []*string) *ClusterConfigForUpdateClusterConfigInput {
+	s.SubnetIds = v
+	return s
+}
+
 type LogSetupForUpdateClusterConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Enabled *bool `type:"boolean"`
+	Enabled *bool `type:"boolean" json:",omitempty"`
 
-	LogTtl *int32 `type:"int32"`
+	LogTtl *int32 `type:"int32" json:",omitempty"`
 
-	LogType *string `type:"string" enum:"EnumOfLogTypeForUpdateClusterConfigInput"`
+	LogType *string `type:"string" json:",omitempty" enum:"EnumOfLogTypeForUpdateClusterConfigInput"`
 }
 
 // String returns the string representation
@@ -234,11 +242,11 @@ func (s *LogSetupForUpdateClusterConfigInput) SetLogType(v string) *LogSetupForU
 }
 
 type LoggingConfigForUpdateClusterConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	LogProjectId *string `type:"string"`
+	LogProjectId *string `type:"string" json:",omitempty"`
 
-	LogSetups []*LogSetupForUpdateClusterConfigInput `type:"list"`
+	LogSetups []*LogSetupForUpdateClusterConfigInput `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -264,9 +272,9 @@ func (s *LoggingConfigForUpdateClusterConfigInput) SetLogSetups(v []*LogSetupFor
 }
 
 type PodsConfigForUpdateClusterConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	VpcCniConfig *VpcCniConfigForUpdateClusterConfigInput `type:"structure"`
+	VpcCniConfig *VpcCniConfigForUpdateClusterConfigInput `type:"structure" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -286,13 +294,13 @@ func (s *PodsConfigForUpdateClusterConfigInput) SetVpcCniConfig(v *VpcCniConfigF
 }
 
 type PublicAccessNetworkConfigForUpdateClusterConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Bandwidth *int32 `type:"int32"`
+	Bandwidth *int32 `type:"int32" json:",omitempty"`
 
-	BillingType *int32 `type:"int32"`
+	BillingType *int32 `type:"int32" json:",omitempty"`
 
-	Isp *string `type:"string" enum:"EnumOfIspForUpdateClusterConfigInput"`
+	Isp *string `type:"string" json:",omitempty" enum:"EnumOfIspForUpdateClusterConfigInput"`
 }
 
 // String returns the string representation
@@ -324,24 +332,24 @@ func (s *PublicAccessNetworkConfigForUpdateClusterConfigInput) SetIsp(v string) 
 }
 
 type UpdateClusterConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	ClientToken *string `type:"string"`
+	ClientToken *string `type:"string" json:",omitempty"`
 
-	ClusterConfig *ClusterConfigForUpdateClusterConfigInput `type:"structure"`
+	ClusterConfig *ClusterConfigForUpdateClusterConfigInput `type:"structure" json:",omitempty"`
 
-	DeleteProtectionEnabled *bool `type:"boolean"`
+	DeleteProtectionEnabled *bool `type:"boolean" json:",omitempty"`
 
-	Description *string `type:"string"`
+	Description *string `type:"string" json:",omitempty"`
 
 	// Id is a required field
-	Id *string `type:"string" required:"true"`
+	Id *string `type:"string" json:",omitempty" required:"true"`
 
-	LoggingConfig *LoggingConfigForUpdateClusterConfigInput `type:"structure"`
+	LoggingConfig *LoggingConfigForUpdateClusterConfigInput `type:"structure" json:",omitempty"`
 
-	Name *string `type:"string"`
+	Name *string `type:"string" json:",omitempty"`
 
-	PodsConfig *PodsConfigForUpdateClusterConfigInput `type:"structure"`
+	PodsConfig *PodsConfigForUpdateClusterConfigInput `type:"structure" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -416,7 +424,7 @@ func (s *UpdateClusterConfigInput) SetPodsConfig(v *PodsConfigForUpdateClusterCo
 }
 
 type UpdateClusterConfigOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 }
@@ -432,9 +440,9 @@ func (s UpdateClusterConfigOutput) GoString() string {
 }
 
 type VpcCniConfigForUpdateClusterConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	SubnetIds []*string `type:"list"`
+	SubnetIds []*string `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -471,18 +479,18 @@ const (
 	// EnumOfLogTypeForUpdateClusterConfigInputAudit is a EnumOfLogTypeForUpdateClusterConfigInput enum value
 	EnumOfLogTypeForUpdateClusterConfigInputAudit = "Audit"
 
+	// EnumOfLogTypeForUpdateClusterConfigInputKubeApiServer is a EnumOfLogTypeForUpdateClusterConfigInput enum value
+	EnumOfLogTypeForUpdateClusterConfigInputKubeApiServer = "KubeApiServer"
+
+	// EnumOfLogTypeForUpdateClusterConfigInputKubeScheduler is a EnumOfLogTypeForUpdateClusterConfigInput enum value
+	EnumOfLogTypeForUpdateClusterConfigInputKubeScheduler = "KubeScheduler"
+
+	// EnumOfLogTypeForUpdateClusterConfigInputKubeControllerManager is a EnumOfLogTypeForUpdateClusterConfigInput enum value
+	EnumOfLogTypeForUpdateClusterConfigInputKubeControllerManager = "KubeControllerManager"
+
 	// EnumOfLogTypeForUpdateClusterConfigInputCloudControllerManager is a EnumOfLogTypeForUpdateClusterConfigInput enum value
 	EnumOfLogTypeForUpdateClusterConfigInputCloudControllerManager = "CloudControllerManager"
 
 	// EnumOfLogTypeForUpdateClusterConfigInputEtcd is a EnumOfLogTypeForUpdateClusterConfigInput enum value
 	EnumOfLogTypeForUpdateClusterConfigInputEtcd = "Etcd"
-
-	// EnumOfLogTypeForUpdateClusterConfigInputKubeApiServer is a EnumOfLogTypeForUpdateClusterConfigInput enum value
-	EnumOfLogTypeForUpdateClusterConfigInputKubeApiServer = "KubeApiServer"
-
-	// EnumOfLogTypeForUpdateClusterConfigInputKubeControllerManager is a EnumOfLogTypeForUpdateClusterConfigInput enum value
-	EnumOfLogTypeForUpdateClusterConfigInputKubeControllerManager = "KubeControllerManager"
-
-	// EnumOfLogTypeForUpdateClusterConfigInputKubeScheduler is a EnumOfLogTypeForUpdateClusterConfigInput enum value
-	EnumOfLogTypeForUpdateClusterConfigInputKubeScheduler = "KubeScheduler"
 )
