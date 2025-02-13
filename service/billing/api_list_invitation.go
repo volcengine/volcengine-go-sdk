@@ -322,7 +322,7 @@ type RelationForListInvitationOutput struct {
 
 	FiliationDesc *string `type:"string" json:",omitempty"`
 
-	MajorAccountID *int32 `type:"int32" json:",omitempty"`
+	MajorAccountID *int64 `type:"int64" json:",omitempty"`
 
 	MajorAccountName *string `type:"string" json:",omitempty"`
 
@@ -336,7 +336,7 @@ type RelationForListInvitationOutput struct {
 
 	StatusDesc *string `type:"string" json:",omitempty"`
 
-	SubAccountID *int32 `type:"int32" json:",omitempty"`
+	SubAccountID *int64 `type:"int64" json:",omitempty"`
 
 	SubAccountName *string `type:"string" json:",omitempty"`
 
@@ -378,7 +378,7 @@ func (s *RelationForListInvitationOutput) SetFiliationDesc(v string) *RelationFo
 }
 
 // SetMajorAccountID sets the MajorAccountID field's value.
-func (s *RelationForListInvitationOutput) SetMajorAccountID(v int32) *RelationForListInvitationOutput {
+func (s *RelationForListInvitationOutput) SetMajorAccountID(v int64) *RelationForListInvitationOutput {
 	s.MajorAccountID = &v
 	return s
 }
@@ -420,7 +420,7 @@ func (s *RelationForListInvitationOutput) SetStatusDesc(v string) *RelationForLi
 }
 
 // SetSubAccountID sets the SubAccountID field's value.
-func (s *RelationForListInvitationOutput) SetSubAccountID(v int32) *RelationForListInvitationOutput {
+func (s *RelationForListInvitationOutput) SetSubAccountID(v int64) *RelationForListInvitationOutput {
 	s.SubAccountID = &v
 	return s
 }
