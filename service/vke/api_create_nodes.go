@@ -144,28 +144,28 @@ func (c *VKE) CreateNodesWithContext(ctx volcengine.Context, input *CreateNodesI
 }
 
 type CreateNodesInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	AdditionalContainerStorageEnabled *bool `type:"boolean"`
+	AdditionalContainerStorageEnabled *bool `type:"boolean" json:",omitempty"`
 
-	ClientToken *string `type:"string"`
+	ClientToken *string `type:"string" json:",omitempty"`
 
 	// ClusterId is a required field
-	ClusterId *string `type:"string" required:"true"`
+	ClusterId *string `type:"string" json:",omitempty" required:"true"`
 
-	ContainerStoragePath *string `type:"string"`
+	ContainerStoragePath *string `type:"string" json:",omitempty"`
 
-	ImageId *string `type:"string"`
+	ImageId *string `type:"string" json:",omitempty"`
 
-	InitializeScript *string `type:"string"`
+	InitializeScript *string `type:"string" json:",omitempty"`
 
-	InstanceIds []*string `type:"list"`
+	InstanceIds []*string `type:"list" json:",omitempty"`
 
-	KeepInstanceName *bool `type:"boolean"`
+	KeepInstanceName *bool `type:"boolean" json:",omitempty"`
 
-	KubernetesConfig *KubernetesConfigForCreateNodesInput `type:"structure"`
+	KubernetesConfig *KubernetesConfigForCreateNodesInput `type:"structure" json:",omitempty"`
 
-	NodePoolId *string `type:"string"`
+	NodePoolId *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -252,11 +252,11 @@ func (s *CreateNodesInput) SetNodePoolId(v string) *CreateNodesInput {
 }
 
 type CreateNodesOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	Ids []*string `type:"list"`
+	Ids []*string `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -276,13 +276,13 @@ func (s *CreateNodesOutput) SetIds(v []*string) *CreateNodesOutput {
 }
 
 type KubernetesConfigForCreateNodesInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Cordon *bool `type:"boolean"`
+	Cordon *bool `type:"boolean" json:",omitempty"`
 
-	Labels []*LabelForCreateNodesInput `type:"list"`
+	Labels []*LabelForCreateNodesInput `type:"list" json:",omitempty"`
 
-	Taints []*TaintForCreateNodesInput `type:"list"`
+	Taints []*TaintForCreateNodesInput `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -314,11 +314,11 @@ func (s *KubernetesConfigForCreateNodesInput) SetTaints(v []*TaintForCreateNodes
 }
 
 type LabelForCreateNodesInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Key *string `type:"string"`
+	Key *string `type:"string" json:",omitempty"`
 
-	Value *string `type:"string"`
+	Value *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -344,13 +344,13 @@ func (s *LabelForCreateNodesInput) SetValue(v string) *LabelForCreateNodesInput 
 }
 
 type TaintForCreateNodesInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Effect *string `type:"string" enum:"EnumOfEffectForCreateNodesInput"`
+	Effect *string `type:"string" json:",omitempty" enum:"EnumOfEffectForCreateNodesInput"`
 
-	Key *string `type:"string"`
+	Key *string `type:"string" json:",omitempty"`
 
-	Value *string `type:"string"`
+	Value *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -385,9 +385,9 @@ const (
 	// EnumOfEffectForCreateNodesInputNoSchedule is a EnumOfEffectForCreateNodesInput enum value
 	EnumOfEffectForCreateNodesInputNoSchedule = "NoSchedule"
 
-	// EnumOfEffectForCreateNodesInputNoExecute is a EnumOfEffectForCreateNodesInput enum value
-	EnumOfEffectForCreateNodesInputNoExecute = "NoExecute"
-
 	// EnumOfEffectForCreateNodesInputPreferNoSchedule is a EnumOfEffectForCreateNodesInput enum value
 	EnumOfEffectForCreateNodesInputPreferNoSchedule = "PreferNoSchedule"
+
+	// EnumOfEffectForCreateNodesInputNoExecute is a EnumOfEffectForCreateNodesInput enum value
+	EnumOfEffectForCreateNodesInputNoExecute = "NoExecute"
 )

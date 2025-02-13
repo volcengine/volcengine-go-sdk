@@ -144,16 +144,16 @@ func (c *VKE) DeleteClusterWithContext(ctx volcengine.Context, input *DeleteClus
 }
 
 type DeleteClusterInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	CascadingDeleteResources []*string `type:"list"`
+	CascadingDeleteResources []*string `type:"list" json:",omitempty"`
 
-	Force *bool `type:"boolean"`
+	Force *bool `type:"boolean" json:",omitempty"`
 
 	// Id is a required field
-	Id *string `type:"string" required:"true"`
+	Id *string `type:"string" json:",omitempty" required:"true"`
 
-	RetainResources []*string `type:"list"`
+	RetainResources []*string `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -204,7 +204,7 @@ func (s *DeleteClusterInput) SetRetainResources(v []*string) *DeleteClusterInput
 }
 
 type DeleteClusterOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 }
@@ -220,37 +220,37 @@ func (s DeleteClusterOutput) GoString() string {
 }
 
 const (
-	// EnumOfCascadingDeleteResourceListForDeleteClusterInputDefaultNodePoolResource is a EnumOfCascadingDeleteResourceListForDeleteClusterInput enum value
-	EnumOfCascadingDeleteResourceListForDeleteClusterInputDefaultNodePoolResource = "DefaultNodePoolResource"
-
-	// EnumOfCascadingDeleteResourceListForDeleteClusterInputNodePoolResource is a EnumOfCascadingDeleteResourceListForDeleteClusterInput enum value
-	EnumOfCascadingDeleteResourceListForDeleteClusterInputNodePoolResource = "NodePoolResource"
+	// EnumOfCascadingDeleteResourceListForDeleteClusterInputNat is a EnumOfCascadingDeleteResourceListForDeleteClusterInput enum value
+	EnumOfCascadingDeleteResourceListForDeleteClusterInputNat = "Nat"
 
 	// EnumOfCascadingDeleteResourceListForDeleteClusterInputClb is a EnumOfCascadingDeleteResourceListForDeleteClusterInput enum value
 	EnumOfCascadingDeleteResourceListForDeleteClusterInputClb = "Clb"
 
-	// EnumOfCascadingDeleteResourceListForDeleteClusterInputNat is a EnumOfCascadingDeleteResourceListForDeleteClusterInput enum value
-	EnumOfCascadingDeleteResourceListForDeleteClusterInputNat = "Nat"
+	// EnumOfCascadingDeleteResourceListForDeleteClusterInputNodePoolResource is a EnumOfCascadingDeleteResourceListForDeleteClusterInput enum value
+	EnumOfCascadingDeleteResourceListForDeleteClusterInputNodePoolResource = "NodePoolResource"
+
+	// EnumOfCascadingDeleteResourceListForDeleteClusterInputDefaultNodePoolResource is a EnumOfCascadingDeleteResourceListForDeleteClusterInput enum value
+	EnumOfCascadingDeleteResourceListForDeleteClusterInputDefaultNodePoolResource = "DefaultNodePoolResource"
 
 	// EnumOfCascadingDeleteResourceListForDeleteClusterInputTryBest is a EnumOfCascadingDeleteResourceListForDeleteClusterInput enum value
 	EnumOfCascadingDeleteResourceListForDeleteClusterInputTryBest = "TryBest"
 )
 
 const (
-	// EnumOfRetainResourceListForDeleteClusterInputDefaultNodePoolResource is a EnumOfRetainResourceListForDeleteClusterInput enum value
-	EnumOfRetainResourceListForDeleteClusterInputDefaultNodePoolResource = "DefaultNodePoolResource"
-
-	// EnumOfRetainResourceListForDeleteClusterInputNodePoolResource is a EnumOfRetainResourceListForDeleteClusterInput enum value
-	EnumOfRetainResourceListForDeleteClusterInputNodePoolResource = "NodePoolResource"
-
-	// EnumOfRetainResourceListForDeleteClusterInputAlb is a EnumOfRetainResourceListForDeleteClusterInput enum value
-	EnumOfRetainResourceListForDeleteClusterInputAlb = "Alb"
+	// EnumOfRetainResourceListForDeleteClusterInputNat is a EnumOfRetainResourceListForDeleteClusterInput enum value
+	EnumOfRetainResourceListForDeleteClusterInputNat = "Nat"
 
 	// EnumOfRetainResourceListForDeleteClusterInputClb is a EnumOfRetainResourceListForDeleteClusterInput enum value
 	EnumOfRetainResourceListForDeleteClusterInputClb = "Clb"
 
-	// EnumOfRetainResourceListForDeleteClusterInputNat is a EnumOfRetainResourceListForDeleteClusterInput enum value
-	EnumOfRetainResourceListForDeleteClusterInputNat = "Nat"
+	// EnumOfRetainResourceListForDeleteClusterInputAlb is a EnumOfRetainResourceListForDeleteClusterInput enum value
+	EnumOfRetainResourceListForDeleteClusterInputAlb = "Alb"
+
+	// EnumOfRetainResourceListForDeleteClusterInputNodePoolResource is a EnumOfRetainResourceListForDeleteClusterInput enum value
+	EnumOfRetainResourceListForDeleteClusterInputNodePoolResource = "NodePoolResource"
+
+	// EnumOfRetainResourceListForDeleteClusterInputDefaultNodePoolResource is a EnumOfRetainResourceListForDeleteClusterInput enum value
+	EnumOfRetainResourceListForDeleteClusterInputDefaultNodePoolResource = "DefaultNodePoolResource"
 
 	// EnumOfRetainResourceListForDeleteClusterInputSecurityGroup is a EnumOfRetainResourceListForDeleteClusterInput enum value
 	EnumOfRetainResourceListForDeleteClusterInputSecurityGroup = "SecurityGroup"

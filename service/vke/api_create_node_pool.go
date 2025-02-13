@@ -144,19 +144,19 @@ func (c *VKE) CreateNodePoolWithContext(ctx volcengine.Context, input *CreateNod
 }
 
 type AutoScalingForCreateNodePoolInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	DesiredReplicas *int32 `type:"int32"`
+	DesiredReplicas *int32 `type:"int32" json:",omitempty"`
 
-	Enabled *bool `type:"boolean"`
+	Enabled *bool `type:"boolean" json:",omitempty"`
 
-	MaxReplicas *int32 `type:"int32"`
+	MaxReplicas *int32 `type:"int32" json:",omitempty"`
 
-	MinReplicas *int32 `type:"int32"`
+	MinReplicas *int32 `type:"int32" json:",omitempty"`
 
-	Priority *int32 `type:"int32"`
+	Priority *int32 `type:"int32" json:",omitempty"`
 
-	SubnetPolicy *string `type:"string" enum:"EnumOfSubnetPolicyForCreateNodePoolInput"`
+	SubnetPolicy *string `type:"string" json:",omitempty" enum:"EnumOfSubnetPolicyForCreateNodePoolInput"`
 }
 
 // String returns the string representation
@@ -206,23 +206,23 @@ func (s *AutoScalingForCreateNodePoolInput) SetSubnetPolicy(v string) *AutoScali
 }
 
 type CreateNodePoolInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	AutoScaling *AutoScalingForCreateNodePoolInput `type:"structure"`
+	AutoScaling *AutoScalingForCreateNodePoolInput `type:"structure" json:",omitempty"`
 
-	ClientToken *string `type:"string"`
+	ClientToken *string `type:"string" json:",omitempty"`
 
 	// ClusterId is a required field
-	ClusterId *string `type:"string" required:"true"`
+	ClusterId *string `type:"string" json:",omitempty" required:"true"`
 
-	KubernetesConfig *KubernetesConfigForCreateNodePoolInput `type:"structure"`
+	KubernetesConfig *KubernetesConfigForCreateNodePoolInput `type:"structure" json:",omitempty"`
 
 	// Name is a required field
-	Name *string `type:"string" required:"true"`
+	Name *string `type:"string" json:",omitempty" required:"true"`
 
-	NodeConfig *NodeConfigForCreateNodePoolInput `type:"structure"`
+	NodeConfig *NodeConfigForCreateNodePoolInput `type:"structure" json:",omitempty"`
 
-	Tags []*TagForCreateNodePoolInput `type:"list"`
+	Tags []*TagForCreateNodePoolInput `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -294,11 +294,11 @@ func (s *CreateNodePoolInput) SetTags(v []*TagForCreateNodePoolInput) *CreateNod
 }
 
 type CreateNodePoolOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	Id *string `type:"string"`
+	Id *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -318,15 +318,15 @@ func (s *CreateNodePoolOutput) SetId(v string) *CreateNodePoolOutput {
 }
 
 type DataVolumeForCreateNodePoolInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	FileSystem *string `type:"string" enum:"EnumOfFileSystemForCreateNodePoolInput"`
+	FileSystem *string `type:"string" json:",omitempty" enum:"EnumOfFileSystemForCreateNodePoolInput"`
 
-	MountPoint *string `type:"string"`
+	MountPoint *string `type:"string" json:",omitempty"`
 
-	Size *int32 `type:"int32"`
+	Size *int32 `type:"int32" json:",omitempty"`
 
-	Type *string `type:"string" enum:"EnumOfTypeForCreateNodePoolInput"`
+	Type *string `type:"string" json:",omitempty" enum:"EnumOfTypeForCreateNodePoolInput"`
 }
 
 // String returns the string representation
@@ -364,15 +364,17 @@ func (s *DataVolumeForCreateNodePoolInput) SetType(v string) *DataVolumeForCreat
 }
 
 type KubernetesConfigForCreateNodePoolInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Cordon *bool `type:"boolean"`
+	AutoSyncDisabled *bool `type:"boolean" json:",omitempty"`
 
-	Labels []*LabelForCreateNodePoolInput `type:"list"`
+	Cordon *bool `type:"boolean" json:",omitempty"`
 
-	NamePrefix *string `type:"string"`
+	Labels []*LabelForCreateNodePoolInput `type:"list" json:",omitempty"`
 
-	Taints []*TaintForCreateNodePoolInput `type:"list"`
+	NamePrefix *string `type:"string" json:",omitempty"`
+
+	Taints []*TaintForCreateNodePoolInput `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -383,6 +385,12 @@ func (s KubernetesConfigForCreateNodePoolInput) String() string {
 // GoString returns the string representation
 func (s KubernetesConfigForCreateNodePoolInput) GoString() string {
 	return s.String()
+}
+
+// SetAutoSyncDisabled sets the AutoSyncDisabled field's value.
+func (s *KubernetesConfigForCreateNodePoolInput) SetAutoSyncDisabled(v bool) *KubernetesConfigForCreateNodePoolInput {
+	s.AutoSyncDisabled = &v
+	return s
 }
 
 // SetCordon sets the Cordon field's value.
@@ -410,11 +418,11 @@ func (s *KubernetesConfigForCreateNodePoolInput) SetTaints(v []*TaintForCreateNo
 }
 
 type LabelForCreateNodePoolInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Key *string `type:"string"`
+	Key *string `type:"string" json:",omitempty"`
 
-	Value *string `type:"string"`
+	Value *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -440,11 +448,11 @@ func (s *LabelForCreateNodePoolInput) SetValue(v string) *LabelForCreateNodePool
 }
 
 type LoginForCreateNodePoolInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Password *string `type:"string"`
+	Password *string `type:"string" json:",omitempty"`
 
-	SshKeyPairName *string `type:"string"`
+	SshKeyPairName *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -470,37 +478,39 @@ func (s *LoginForCreateNodePoolInput) SetSshKeyPairName(v string) *LoginForCreat
 }
 
 type NodeConfigForCreateNodePoolInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	AdditionalContainerStorageEnabled *bool `type:"boolean"`
+	AdditionalContainerStorageEnabled *bool `type:"boolean" json:",omitempty"`
 
-	AutoRenew *bool `type:"boolean"`
+	AutoRenew *bool `type:"boolean" json:",omitempty"`
 
-	AutoRenewPeriod *int32 `type:"int32"`
+	AutoRenewPeriod *int32 `type:"int32" json:",omitempty"`
 
-	DataVolumes []*DataVolumeForCreateNodePoolInput `type:"list"`
+	DataVolumes []*DataVolumeForCreateNodePoolInput `type:"list" json:",omitempty"`
 
-	HpcClusterIds []*string `type:"list"`
+	HpcClusterIds []*string `type:"list" json:",omitempty"`
 
-	ImageId *string `type:"string"`
+	ImageId *string `type:"string" json:",omitempty"`
 
-	InitializeScript *string `type:"string"`
+	InitializeScript *string `type:"string" json:",omitempty"`
 
-	InstanceChargeType *string `type:"string" enum:"EnumOfInstanceChargeTypeForCreateNodePoolInput"`
+	InstanceChargeType *string `type:"string" json:",omitempty" enum:"EnumOfInstanceChargeTypeForCreateNodePoolInput"`
 
-	InstanceTypeIds []*string `type:"list"`
+	InstanceTypeIds []*string `type:"list" json:",omitempty"`
 
-	NamePrefix *string `type:"string"`
+	NamePrefix *string `type:"string" json:",omitempty"`
 
-	Period *int32 `type:"int32"`
+	Period *int32 `type:"int32" json:",omitempty"`
 
-	Security *SecurityForCreateNodePoolInput `type:"structure"`
+	ProjectName *string `type:"string" json:",omitempty"`
 
-	SubnetIds []*string `type:"list"`
+	Security *SecurityForCreateNodePoolInput `type:"structure" json:",omitempty"`
 
-	SystemVolume *SystemVolumeForCreateNodePoolInput `type:"structure"`
+	SubnetIds []*string `type:"list" json:",omitempty"`
 
-	Tags []*TagForCreateNodePoolInput `type:"list"`
+	SystemVolume *SystemVolumeForCreateNodePoolInput `type:"structure" json:",omitempty"`
+
+	Tags []*TagForCreateNodePoolInput `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -579,6 +589,12 @@ func (s *NodeConfigForCreateNodePoolInput) SetPeriod(v int32) *NodeConfigForCrea
 	return s
 }
 
+// SetProjectName sets the ProjectName field's value.
+func (s *NodeConfigForCreateNodePoolInput) SetProjectName(v string) *NodeConfigForCreateNodePoolInput {
+	s.ProjectName = &v
+	return s
+}
+
 // SetSecurity sets the Security field's value.
 func (s *NodeConfigForCreateNodePoolInput) SetSecurity(v *SecurityForCreateNodePoolInput) *NodeConfigForCreateNodePoolInput {
 	s.Security = v
@@ -604,13 +620,13 @@ func (s *NodeConfigForCreateNodePoolInput) SetTags(v []*TagForCreateNodePoolInpu
 }
 
 type SecurityForCreateNodePoolInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Login *LoginForCreateNodePoolInput `type:"structure"`
+	Login *LoginForCreateNodePoolInput `type:"structure" json:",omitempty"`
 
-	SecurityGroupIds []*string `type:"list"`
+	SecurityGroupIds []*string `type:"list" json:",omitempty"`
 
-	SecurityStrategies []*string `type:"list"`
+	SecurityStrategies []*string `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -642,11 +658,11 @@ func (s *SecurityForCreateNodePoolInput) SetSecurityStrategies(v []*string) *Sec
 }
 
 type SystemVolumeForCreateNodePoolInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Size *int32 `type:"int32"`
+	Size *int32 `type:"int32" json:",omitempty"`
 
-	Type *string `type:"string" enum:"EnumOfTypeForCreateNodePoolInput"`
+	Type *string `type:"string" json:",omitempty" enum:"EnumOfTypeForCreateNodePoolInput"`
 }
 
 // String returns the string representation
@@ -672,11 +688,11 @@ func (s *SystemVolumeForCreateNodePoolInput) SetType(v string) *SystemVolumeForC
 }
 
 type TagForCreateNodePoolInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Key *string `type:"string"`
+	Key *string `type:"string" json:",omitempty"`
 
-	Value *string `type:"string"`
+	Value *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -702,13 +718,13 @@ func (s *TagForCreateNodePoolInput) SetValue(v string) *TagForCreateNodePoolInpu
 }
 
 type TaintForCreateNodePoolInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Effect *string `type:"string" enum:"EnumOfEffectForCreateNodePoolInput"`
+	Effect *string `type:"string" json:",omitempty" enum:"EnumOfEffectForCreateNodePoolInput"`
 
-	Key *string `type:"string"`
+	Key *string `type:"string" json:",omitempty"`
 
-	Value *string `type:"string"`
+	Value *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -743,11 +759,11 @@ const (
 	// EnumOfEffectForCreateNodePoolInputNoSchedule is a EnumOfEffectForCreateNodePoolInput enum value
 	EnumOfEffectForCreateNodePoolInputNoSchedule = "NoSchedule"
 
-	// EnumOfEffectForCreateNodePoolInputNoExecute is a EnumOfEffectForCreateNodePoolInput enum value
-	EnumOfEffectForCreateNodePoolInputNoExecute = "NoExecute"
-
 	// EnumOfEffectForCreateNodePoolInputPreferNoSchedule is a EnumOfEffectForCreateNodePoolInput enum value
 	EnumOfEffectForCreateNodePoolInputPreferNoSchedule = "PreferNoSchedule"
+
+	// EnumOfEffectForCreateNodePoolInputNoExecute is a EnumOfEffectForCreateNodePoolInput enum value
+	EnumOfEffectForCreateNodePoolInputNoExecute = "NoExecute"
 )
 
 const (

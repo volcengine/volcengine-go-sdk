@@ -144,9 +144,9 @@ func (c *VKE) ListAddonsWithContext(ctx volcengine.Context, input *ListAddonsInp
 }
 
 type ConditionForListAddonsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Type *string `type:"string"`
+	Type *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -166,21 +166,21 @@ func (s *ConditionForListAddonsOutput) SetType(v string) *ConditionForListAddons
 }
 
 type FilterForListAddonsInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	ClusterIds []*string `type:"list"`
+	ClusterIds []*string `type:"list" json:",omitempty"`
 
-	CreateClientToken *string `type:"string"`
+	CreateClientToken *string `type:"string" json:",omitempty"`
 
-	DeployModes []*string `type:"list"`
+	DeployModes []*string `type:"list" json:",omitempty"`
 
-	DeployNodeTypes []*string `type:"list"`
+	DeployNodeTypes []*string `type:"list" json:",omitempty"`
 
-	Names []*string `type:"list"`
+	Names []*string `type:"list" json:",omitempty"`
 
-	Statuses []*StatusForListAddonsInput `type:"list"`
+	Statuses []*StatusForListAddonsInput `type:"list" json:",omitempty"`
 
-	UpdateClientToken *string `type:"string"`
+	UpdateClientToken *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -236,29 +236,29 @@ func (s *FilterForListAddonsInput) SetUpdateClientToken(v string) *FilterForList
 }
 
 type ItemForListAddonsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	ClusterId *string `type:"string"`
+	ClusterId *string `type:"string" json:",omitempty"`
 
-	Config *string `type:"string"`
+	Config *string `type:"string" json:",omitempty"`
 
-	CreateClientToken *string `type:"string"`
+	CreateClientToken *string `type:"string" json:",omitempty"`
 
-	CreateTime *string `type:"string"`
+	CreateTime *string `type:"string" json:",omitempty"`
 
-	DeployMode *string `type:"string"`
+	DeployMode *string `type:"string" json:",omitempty" enum:"EnumOfDeployModeForListAddonsOutput"`
 
-	DeployNodeType *string `type:"string"`
+	DeployNodeType *string `type:"string" json:",omitempty" enum:"EnumOfDeployNodeTypeForListAddonsOutput"`
 
-	Name *string `type:"string"`
+	Name *string `type:"string" json:",omitempty"`
 
-	Status *StatusForListAddonsOutput `type:"structure"`
+	Status *StatusForListAddonsOutput `type:"structure" json:",omitempty"`
 
-	UpdateClientToken *string `type:"string"`
+	UpdateClientToken *string `type:"string" json:",omitempty"`
 
-	UpdateTime *string `type:"string"`
+	UpdateTime *string `type:"string" json:",omitempty"`
 
-	Version *string `type:"string"`
+	Version *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -338,13 +338,13 @@ func (s *ItemForListAddonsOutput) SetVersion(v string) *ItemForListAddonsOutput 
 }
 
 type ListAddonsInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Filter *FilterForListAddonsInput `type:"structure"`
+	Filter *FilterForListAddonsInput `type:"structure" json:",omitempty"`
 
-	PageNumber *int32 `type:"int32"`
+	PageNumber *int32 `type:"int32" json:",omitempty"`
 
-	PageSize *int32 `type:"int32"`
+	PageSize *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -376,17 +376,17 @@ func (s *ListAddonsInput) SetPageSize(v int32) *ListAddonsInput {
 }
 
 type ListAddonsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	Items []*ItemForListAddonsOutput `type:"list"`
+	Items []*ItemForListAddonsOutput `type:"list" json:",omitempty"`
 
-	PageNumber *int32 `type:"int32"`
+	PageNumber *int32 `type:"int32" json:",omitempty"`
 
-	PageSize *int32 `type:"int32"`
+	PageSize *int32 `type:"int32" json:",omitempty"`
 
-	TotalCount *int32 `type:"int32"`
+	TotalCount *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -424,11 +424,11 @@ func (s *ListAddonsOutput) SetTotalCount(v int32) *ListAddonsOutput {
 }
 
 type StatusForListAddonsInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	ConditionsType *string `type:"string" json:"Conditions.Type" enum:"EnumOfConditionsTypeForListAddonsInput"`
+	ConditionsType *string `type:"string" json:"Conditions.Type,omitempty" enum:"EnumOfConditionsTypeForListAddonsInput"`
 
-	Phase *string `type:"string" enum:"EnumOfPhaseForListAddonsInput"`
+	Phase *string `type:"string" json:",omitempty" enum:"EnumOfPhaseForListAddonsInput"`
 }
 
 // String returns the string representation
@@ -454,11 +454,11 @@ func (s *StatusForListAddonsInput) SetPhase(v string) *StatusForListAddonsInput 
 }
 
 type StatusForListAddonsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Conditions []*ConditionForListAddonsOutput `type:"list"`
+	Conditions []*ConditionForListAddonsOutput `type:"list" json:",omitempty"`
 
-	Phase *string `type:"string"`
+	Phase *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -484,38 +484,46 @@ func (s *StatusForListAddonsOutput) SetPhase(v string) *StatusForListAddonsOutpu
 }
 
 const (
-	// EnumOfConditionsTypeForListAddonsInputOk is a EnumOfConditionsTypeForListAddonsInput enum value
-	EnumOfConditionsTypeForListAddonsInputOk = "Ok"
+	// EnumOfConditionsTypeForListAddonsInputUnknown is a EnumOfConditionsTypeForListAddonsInput enum value
+	EnumOfConditionsTypeForListAddonsInputUnknown = "Unknown"
 
 	// EnumOfConditionsTypeForListAddonsInputClusterNotRunning is a EnumOfConditionsTypeForListAddonsInput enum value
 	EnumOfConditionsTypeForListAddonsInputClusterNotRunning = "ClusterNotRunning"
 
-	// EnumOfConditionsTypeForListAddonsInputClusterVersionUpgrading is a EnumOfConditionsTypeForListAddonsInput enum value
-	EnumOfConditionsTypeForListAddonsInputClusterVersionUpgrading = "ClusterVersionUpgrading"
-
 	// EnumOfConditionsTypeForListAddonsInputCrashLoopBackOff is a EnumOfConditionsTypeForListAddonsInput enum value
 	EnumOfConditionsTypeForListAddonsInputCrashLoopBackOff = "CrashLoopBackOff"
-
-	// EnumOfConditionsTypeForListAddonsInputDegraded is a EnumOfConditionsTypeForListAddonsInput enum value
-	EnumOfConditionsTypeForListAddonsInputDegraded = "Degraded"
 
 	// EnumOfConditionsTypeForListAddonsInputImagePullBackOff is a EnumOfConditionsTypeForListAddonsInput enum value
 	EnumOfConditionsTypeForListAddonsInputImagePullBackOff = "ImagePullBackOff"
 
+	// EnumOfConditionsTypeForListAddonsInputSchedulingFailed is a EnumOfConditionsTypeForListAddonsInput enum value
+	EnumOfConditionsTypeForListAddonsInputSchedulingFailed = "SchedulingFailed"
+
 	// EnumOfConditionsTypeForListAddonsInputNameConflict is a EnumOfConditionsTypeForListAddonsInput enum value
 	EnumOfConditionsTypeForListAddonsInputNameConflict = "NameConflict"
-
-	// EnumOfConditionsTypeForListAddonsInputProgressing is a EnumOfConditionsTypeForListAddonsInput enum value
-	EnumOfConditionsTypeForListAddonsInputProgressing = "Progressing"
 
 	// EnumOfConditionsTypeForListAddonsInputResourceCleanupFailed is a EnumOfConditionsTypeForListAddonsInput enum value
 	EnumOfConditionsTypeForListAddonsInputResourceCleanupFailed = "ResourceCleanupFailed"
 
-	// EnumOfConditionsTypeForListAddonsInputSchedulingFailed is a EnumOfConditionsTypeForListAddonsInput enum value
-	EnumOfConditionsTypeForListAddonsInputSchedulingFailed = "SchedulingFailed"
+	// EnumOfConditionsTypeForListAddonsInputClusterVersionUpgrading is a EnumOfConditionsTypeForListAddonsInput enum value
+	EnumOfConditionsTypeForListAddonsInputClusterVersionUpgrading = "ClusterVersionUpgrading"
 
-	// EnumOfConditionsTypeForListAddonsInputUnknown is a EnumOfConditionsTypeForListAddonsInput enum value
-	EnumOfConditionsTypeForListAddonsInputUnknown = "Unknown"
+	// EnumOfConditionsTypeForListAddonsInputOk is a EnumOfConditionsTypeForListAddonsInput enum value
+	EnumOfConditionsTypeForListAddonsInputOk = "Ok"
+
+	// EnumOfConditionsTypeForListAddonsInputDegraded is a EnumOfConditionsTypeForListAddonsInput enum value
+	EnumOfConditionsTypeForListAddonsInputDegraded = "Degraded"
+
+	// EnumOfConditionsTypeForListAddonsInputProgressing is a EnumOfConditionsTypeForListAddonsInput enum value
+	EnumOfConditionsTypeForListAddonsInputProgressing = "Progressing"
+)
+
+const (
+	// EnumOfDeployModeForListAddonsOutputManaged is a EnumOfDeployModeForListAddonsOutput enum value
+	EnumOfDeployModeForListAddonsOutputManaged = "Managed"
+
+	// EnumOfDeployModeForListAddonsOutputUnmanaged is a EnumOfDeployModeForListAddonsOutput enum value
+	EnumOfDeployModeForListAddonsOutputUnmanaged = "Unmanaged"
 )
 
 const (
@@ -524,6 +532,17 @@ const (
 
 	// EnumOfDeployModeListForListAddonsInputUnmanaged is a EnumOfDeployModeListForListAddonsInput enum value
 	EnumOfDeployModeListForListAddonsInputUnmanaged = "Unmanaged"
+)
+
+const (
+	// EnumOfDeployNodeTypeForListAddonsOutputNode is a EnumOfDeployNodeTypeForListAddonsOutput enum value
+	EnumOfDeployNodeTypeForListAddonsOutputNode = "Node"
+
+	// EnumOfDeployNodeTypeForListAddonsOutputVirtualNode is a EnumOfDeployNodeTypeForListAddonsOutput enum value
+	EnumOfDeployNodeTypeForListAddonsOutputVirtualNode = "VirtualNode"
+
+	// EnumOfDeployNodeTypeForListAddonsOutputEdgeNode is a EnumOfDeployNodeTypeForListAddonsOutput enum value
+	EnumOfDeployNodeTypeForListAddonsOutputEdgeNode = "EdgeNode"
 )
 
 const (
@@ -538,17 +557,17 @@ const (
 )
 
 const (
+	// EnumOfPhaseForListAddonsInputRunning is a EnumOfPhaseForListAddonsInput enum value
+	EnumOfPhaseForListAddonsInputRunning = "Running"
+
+	// EnumOfPhaseForListAddonsInputFailed is a EnumOfPhaseForListAddonsInput enum value
+	EnumOfPhaseForListAddonsInputFailed = "Failed"
+
 	// EnumOfPhaseForListAddonsInputCreating is a EnumOfPhaseForListAddonsInput enum value
 	EnumOfPhaseForListAddonsInputCreating = "Creating"
 
 	// EnumOfPhaseForListAddonsInputDeleting is a EnumOfPhaseForListAddonsInput enum value
 	EnumOfPhaseForListAddonsInputDeleting = "Deleting"
-
-	// EnumOfPhaseForListAddonsInputFailed is a EnumOfPhaseForListAddonsInput enum value
-	EnumOfPhaseForListAddonsInputFailed = "Failed"
-
-	// EnumOfPhaseForListAddonsInputRunning is a EnumOfPhaseForListAddonsInput enum value
-	EnumOfPhaseForListAddonsInputRunning = "Running"
 
 	// EnumOfPhaseForListAddonsInputUpdating is a EnumOfPhaseForListAddonsInput enum value
 	EnumOfPhaseForListAddonsInputUpdating = "Updating"

@@ -144,10 +144,10 @@ func (c *VKE) SetGlobalDefaultDeleteOptionWithContext(ctx volcengine.Context, in
 }
 
 type SetGlobalDefaultDeleteOptionInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// DefaultDeleteAllResources is a required field
-	DefaultDeleteAllResources *bool `type:"boolean" required:"true"`
+	DefaultDeleteAllResources *bool `type:"boolean" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -180,7 +180,7 @@ func (s *SetGlobalDefaultDeleteOptionInput) SetDefaultDeleteAllResources(v bool)
 }
 
 type SetGlobalDefaultDeleteOptionOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 }

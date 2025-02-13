@@ -144,21 +144,21 @@ func (c *VKE) ListScalingEventsWithContext(ctx volcengine.Context, input *ListSc
 }
 
 type FilterForListScalingEventsInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	EndTime *string `type:"string"`
+	EndTime *string `type:"string" json:",omitempty"`
 
-	Ids []*string `type:"list"`
+	Ids []*string `type:"list" json:",omitempty"`
 
-	NodeIds []*string `type:"list"`
+	NodeIds []*string `type:"list" json:",omitempty"`
 
-	NodePoolIds []*string `type:"list"`
+	NodePoolIds []*string `type:"list" json:",omitempty"`
 
-	StartTime *string `type:"string"`
+	StartTime *string `type:"string" json:",omitempty"`
 
-	Statuses []*string `type:"list"`
+	Statuses []*string `type:"list" json:",omitempty"`
 
-	Type *string `type:"string"`
+	Type *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -214,25 +214,25 @@ func (s *FilterForListScalingEventsInput) SetType(v string) *FilterForListScalin
 }
 
 type ItemForListScalingEventsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	EndTime *string `type:"string"`
+	EndTime *string `type:"string" json:",omitempty"`
 
-	Id *string `type:"string"`
+	Id *string `type:"string" json:",omitempty"`
 
-	Message *string `type:"string"`
+	Message *string `type:"string" json:",omitempty"`
 
-	NodeIds []*string `type:"list"`
+	NodeIds []*string `type:"list" json:",omitempty"`
 
-	NodePoolId *string `type:"string"`
+	NodePoolId *string `type:"string" json:",omitempty"`
 
-	Replicas *int32 `type:"int32"`
+	Replicas *int32 `type:"int32" json:",omitempty"`
 
-	StartTime *string `type:"string"`
+	StartTime *string `type:"string" json:",omitempty"`
 
-	Status *string `type:"string"`
+	Status *string `type:"string" json:",omitempty"`
 
-	Type *string `type:"string"`
+	Type *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -300,16 +300,16 @@ func (s *ItemForListScalingEventsOutput) SetType(v string) *ItemForListScalingEv
 }
 
 type ListScalingEventsInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// ClusterId is a required field
-	ClusterId *string `type:"string" required:"true"`
+	ClusterId *string `type:"string" json:",omitempty" required:"true"`
 
-	Filter *FilterForListScalingEventsInput `type:"structure"`
+	Filter *FilterForListScalingEventsInput `type:"structure" json:",omitempty"`
 
-	PageNumber *int32 `type:"int32"`
+	PageNumber *int32 `type:"int32" json:",omitempty"`
 
-	PageSize *int32 `type:"int32"`
+	PageSize *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -360,17 +360,17 @@ func (s *ListScalingEventsInput) SetPageSize(v int32) *ListScalingEventsInput {
 }
 
 type ListScalingEventsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	Items []*ItemForListScalingEventsOutput `type:"list"`
+	Items []*ItemForListScalingEventsOutput `type:"list" json:",omitempty"`
 
-	PageNumber *int32 `type:"int32"`
+	PageNumber *int32 `type:"int32" json:",omitempty"`
 
-	PageSize *int32 `type:"int32"`
+	PageSize *int32 `type:"int32" json:",omitempty"`
 
-	TotalCount *int32 `type:"int32"`
+	TotalCount *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation

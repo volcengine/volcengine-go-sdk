@@ -144,17 +144,17 @@ func (c *VKE) ListKubeconfigsWithContext(ctx volcengine.Context, input *ListKube
 }
 
 type FilterForListKubeconfigsInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	ClusterIds []*string `type:"list"`
+	ClusterIds []*string `type:"list" json:",omitempty"`
 
-	Ids []*string `type:"list"`
+	Ids []*string `type:"list" json:",omitempty"`
 
-	RoleIds []*int64 `type:"list"`
+	RoleIds []*int32 `type:"list" json:",omitempty"`
 
-	Types []*string `type:"list"`
+	Types []*string `type:"list" json:",omitempty"`
 
-	UserIds []*int64 `type:"list"`
+	UserIds []*int32 `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -180,7 +180,7 @@ func (s *FilterForListKubeconfigsInput) SetIds(v []*string) *FilterForListKubeco
 }
 
 // SetRoleIds sets the RoleIds field's value.
-func (s *FilterForListKubeconfigsInput) SetRoleIds(v []*int64) *FilterForListKubeconfigsInput {
+func (s *FilterForListKubeconfigsInput) SetRoleIds(v []*int32) *FilterForListKubeconfigsInput {
 	s.RoleIds = v
 	return s
 }
@@ -192,29 +192,29 @@ func (s *FilterForListKubeconfigsInput) SetTypes(v []*string) *FilterForListKube
 }
 
 // SetUserIds sets the UserIds field's value.
-func (s *FilterForListKubeconfigsInput) SetUserIds(v []*int64) *FilterForListKubeconfigsInput {
+func (s *FilterForListKubeconfigsInput) SetUserIds(v []*int32) *FilterForListKubeconfigsInput {
 	s.UserIds = v
 	return s
 }
 
 type ItemForListKubeconfigsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	ClusterId *string `type:"string"`
+	ClusterId *string `type:"string" json:",omitempty"`
 
-	CreateTime *string `type:"string"`
+	CreateTime *string `type:"string" json:",omitempty"`
 
-	ExpireTime *string `type:"string"`
+	ExpireTime *string `type:"string" json:",omitempty"`
 
-	Id *string `type:"string"`
+	Id *string `type:"string" json:",omitempty"`
 
-	Kubeconfig *string `type:"string"`
+	Kubeconfig *string `type:"string" json:",omitempty"`
 
-	RoleId *int64 `type:"int64"`
+	RoleId *int64 `type:"int64" json:",omitempty"`
 
-	Type *string `type:"string"`
+	Type *string `type:"string" json:",omitempty"`
 
-	UserId *int64 `type:"int64"`
+	UserId *int64 `type:"int64" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -276,13 +276,13 @@ func (s *ItemForListKubeconfigsOutput) SetUserId(v int64) *ItemForListKubeconfig
 }
 
 type ListKubeconfigsInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Filter *FilterForListKubeconfigsInput `type:"structure"`
+	Filter *FilterForListKubeconfigsInput `type:"structure" json:",omitempty"`
 
-	PageNumber *int32 `type:"int32"`
+	PageNumber *int32 `type:"int32" json:",omitempty"`
 
-	PageSize *int32 `type:"int32"`
+	PageSize *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -314,17 +314,17 @@ func (s *ListKubeconfigsInput) SetPageSize(v int32) *ListKubeconfigsInput {
 }
 
 type ListKubeconfigsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	Items []*ItemForListKubeconfigsOutput `type:"list"`
+	Items []*ItemForListKubeconfigsOutput `type:"list" json:",omitempty"`
 
-	PageNumber *int32 `type:"int32"`
+	PageNumber *int32 `type:"int32" json:",omitempty"`
 
-	PageSize *int32 `type:"int32"`
+	PageSize *int32 `type:"int32" json:",omitempty"`
 
-	TotalCount *int32 `type:"int32"`
+	TotalCount *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation

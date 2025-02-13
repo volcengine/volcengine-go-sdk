@@ -144,17 +144,17 @@ func (c *VKE) DeleteAddonWithContext(ctx volcengine.Context, input *DeleteAddonI
 }
 
 type DeleteAddonInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	CascadingDeleteResources []*string `type:"list"`
+	CascadingDeleteResources []*string `type:"list" json:",omitempty"`
 
 	// ClusterId is a required field
-	ClusterId *string `type:"string" required:"true"`
+	ClusterId *string `type:"string" json:",omitempty" required:"true"`
 
 	// Name is a required field
-	Name *string `type:"string" required:"true"`
+	Name *string `type:"string" json:",omitempty" required:"true"`
 
-	RetainResources []*string `type:"list"`
+	RetainResources []*string `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -208,7 +208,7 @@ func (s *DeleteAddonInput) SetRetainResources(v []*string) *DeleteAddonInput {
 }
 
 type DeleteAddonOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 }

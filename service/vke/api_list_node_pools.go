@@ -144,19 +144,21 @@ func (c *VKE) ListNodePoolsWithContext(ctx volcengine.Context, input *ListNodePo
 }
 
 type AutoScalingForListNodePoolsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	DesiredReplicas *int32 `type:"int32"`
+	DesiredReplicas *int32 `type:"int32" json:",omitempty"`
 
-	Enabled *bool `type:"boolean"`
+	Enabled *bool `type:"boolean" json:",omitempty"`
 
-	MaxReplicas *int32 `type:"int32"`
+	MaxReplicas *int32 `type:"int32" json:",omitempty"`
 
-	MinReplicas *int32 `type:"int32"`
+	MinReplicas *int32 `type:"int32" json:",omitempty"`
 
-	Priority *int32 `type:"int32"`
+	Priority *int32 `type:"int32" json:",omitempty"`
 
-	SubnetPolicy *string `type:"string"`
+	ScalingGroupId *string `type:"string" json:",omitempty"`
+
+	SubnetPolicy *string `type:"string" json:",omitempty" enum:"EnumOfSubnetPolicyForListNodePoolsOutput"`
 }
 
 // String returns the string representation
@@ -199,6 +201,12 @@ func (s *AutoScalingForListNodePoolsOutput) SetPriority(v int32) *AutoScalingFor
 	return s
 }
 
+// SetScalingGroupId sets the ScalingGroupId field's value.
+func (s *AutoScalingForListNodePoolsOutput) SetScalingGroupId(v string) *AutoScalingForListNodePoolsOutput {
+	s.ScalingGroupId = &v
+	return s
+}
+
 // SetSubnetPolicy sets the SubnetPolicy field's value.
 func (s *AutoScalingForListNodePoolsOutput) SetSubnetPolicy(v string) *AutoScalingForListNodePoolsOutput {
 	s.SubnetPolicy = &v
@@ -206,9 +214,9 @@ func (s *AutoScalingForListNodePoolsOutput) SetSubnetPolicy(v string) *AutoScali
 }
 
 type ConditionForListNodePoolsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Type *string `type:"string"`
+	Type *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -228,13 +236,13 @@ func (s *ConditionForListNodePoolsOutput) SetType(v string) *ConditionForListNod
 }
 
 type ConvertTagForListNodePoolsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Key *string `type:"string"`
+	Key *string `type:"string" json:",omitempty"`
 
-	Type *string `type:"string"`
+	Type *string `type:"string" json:",omitempty"`
 
-	Value *string `type:"string"`
+	Value *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -266,15 +274,15 @@ func (s *ConvertTagForListNodePoolsOutput) SetValue(v string) *ConvertTagForList
 }
 
 type DataVolumeForListNodePoolsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	FileSystem *string `type:"string"`
+	FileSystem *string `type:"string" json:",omitempty" enum:"EnumOfFileSystemForListNodePoolsOutput"`
 
-	MountPoint *string `type:"string"`
+	MountPoint *string `type:"string" json:",omitempty"`
 
-	Size *int32 `type:"int32"`
+	Size *int32 `type:"int32" json:",omitempty"`
 
-	Type *string `type:"string"`
+	Type *string `type:"string" json:",omitempty" enum:"EnumOfTypeForListNodePoolsOutput"`
 }
 
 // String returns the string representation
@@ -312,21 +320,21 @@ func (s *DataVolumeForListNodePoolsOutput) SetType(v string) *DataVolumeForListN
 }
 
 type FilterForListNodePoolsInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	AutoScalingEnabled *bool `type:"boolean" json:"AutoScaling.Enabled"`
+	AutoScalingEnabled *bool `type:"boolean" json:"AutoScaling.Enabled,omitempty"`
 
-	ClusterIds []*string `type:"list"`
+	ClusterIds []*string `type:"list" json:",omitempty"`
 
-	CreateClientToken *string `type:"string"`
+	CreateClientToken *string `type:"string" json:",omitempty"`
 
-	Ids []*string `type:"list"`
+	Ids []*string `type:"list" json:",omitempty"`
 
-	Name *string `type:"string"`
+	Name *string `type:"string" json:",omitempty"`
 
-	Statuses []*StatusForListNodePoolsInput `type:"list"`
+	Statuses []*StatusForListNodePoolsInput `type:"list" json:",omitempty"`
 
-	UpdateClientToken *string `type:"string"`
+	UpdateClientToken *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -382,33 +390,33 @@ func (s *FilterForListNodePoolsInput) SetUpdateClientToken(v string) *FilterForL
 }
 
 type ItemForListNodePoolsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	AutoScaling *AutoScalingForListNodePoolsOutput `type:"structure"`
+	AutoScaling *AutoScalingForListNodePoolsOutput `type:"structure" json:",omitempty"`
 
-	ClusterId *string `type:"string"`
+	ClusterId *string `type:"string" json:",omitempty"`
 
-	CreateClientToken *string `type:"string"`
+	CreateClientToken *string `type:"string" json:",omitempty"`
 
-	CreateTime *string `type:"string"`
+	CreateTime *string `type:"string" json:",omitempty"`
 
-	Id *string `type:"string"`
+	Id *string `type:"string" json:",omitempty"`
 
-	KubernetesConfig *KubernetesConfigForListNodePoolsOutput `type:"structure"`
+	KubernetesConfig *KubernetesConfigForListNodePoolsOutput `type:"structure" json:",omitempty"`
 
-	Name *string `type:"string"`
+	Name *string `type:"string" json:",omitempty"`
 
-	NodeConfig *NodeConfigForListNodePoolsOutput `type:"structure"`
+	NodeConfig *NodeConfigForListNodePoolsOutput `type:"structure" json:",omitempty"`
 
-	NodeStatistics *NodeStatisticsForListNodePoolsOutput `type:"structure"`
+	NodeStatistics *NodeStatisticsForListNodePoolsOutput `type:"structure" json:",omitempty"`
 
-	Status *StatusForListNodePoolsOutput `type:"structure"`
+	Status *StatusForListNodePoolsOutput `type:"structure" json:",omitempty"`
 
-	Tags []*ConvertTagForListNodePoolsOutput `type:"list"`
+	Tags []*ConvertTagForListNodePoolsOutput `type:"list" json:",omitempty"`
 
-	UpdateClientToken *string `type:"string"`
+	UpdateClientToken *string `type:"string" json:",omitempty"`
 
-	UpdateTime *string `type:"string"`
+	UpdateTime *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -500,15 +508,17 @@ func (s *ItemForListNodePoolsOutput) SetUpdateTime(v string) *ItemForListNodePoo
 }
 
 type KubernetesConfigForListNodePoolsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Cordon *bool `type:"boolean"`
+	AutoSyncDisabled *bool `type:"boolean" json:",omitempty"`
 
-	Labels []*LabelForListNodePoolsOutput `type:"list"`
+	Cordon *bool `type:"boolean" json:",omitempty"`
 
-	NamePrefix *string `type:"string"`
+	Labels []*LabelForListNodePoolsOutput `type:"list" json:",omitempty"`
 
-	Taints []*TaintForListNodePoolsOutput `type:"list"`
+	NamePrefix *string `type:"string" json:",omitempty"`
+
+	Taints []*TaintForListNodePoolsOutput `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -519,6 +529,12 @@ func (s KubernetesConfigForListNodePoolsOutput) String() string {
 // GoString returns the string representation
 func (s KubernetesConfigForListNodePoolsOutput) GoString() string {
 	return s.String()
+}
+
+// SetAutoSyncDisabled sets the AutoSyncDisabled field's value.
+func (s *KubernetesConfigForListNodePoolsOutput) SetAutoSyncDisabled(v bool) *KubernetesConfigForListNodePoolsOutput {
+	s.AutoSyncDisabled = &v
+	return s
 }
 
 // SetCordon sets the Cordon field's value.
@@ -546,11 +562,11 @@ func (s *KubernetesConfigForListNodePoolsOutput) SetTaints(v []*TaintForListNode
 }
 
 type LabelForListNodePoolsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Key *string `type:"string"`
+	Key *string `type:"string" json:",omitempty"`
 
-	Value *string `type:"string"`
+	Value *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -576,15 +592,15 @@ func (s *LabelForListNodePoolsOutput) SetValue(v string) *LabelForListNodePoolsO
 }
 
 type ListNodePoolsInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Filter *FilterForListNodePoolsInput `type:"structure"`
+	Filter *FilterForListNodePoolsInput `type:"structure" json:",omitempty"`
 
-	PageNumber *int32 `type:"int32"`
+	PageNumber *int32 `type:"int32" json:",omitempty"`
 
-	PageSize *int32 `type:"int32"`
+	PageSize *int32 `type:"int32" json:",omitempty"`
 
-	Tags []*TagForListNodePoolsInput `type:"list"`
+	Tags []*TagForListNodePoolsInput `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -622,17 +638,17 @@ func (s *ListNodePoolsInput) SetTags(v []*TagForListNodePoolsInput) *ListNodePoo
 }
 
 type ListNodePoolsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	Items []*ItemForListNodePoolsOutput `type:"list"`
+	Items []*ItemForListNodePoolsOutput `type:"list" json:",omitempty"`
 
-	PageNumber *int32 `type:"int32"`
+	PageNumber *int32 `type:"int32" json:",omitempty"`
 
-	PageSize *int32 `type:"int32"`
+	PageSize *int32 `type:"int32" json:",omitempty"`
 
-	TotalCount *int32 `type:"int32"`
+	TotalCount *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -670,11 +686,11 @@ func (s *ListNodePoolsOutput) SetTotalCount(v int32) *ListNodePoolsOutput {
 }
 
 type LoginForListNodePoolsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	SshKeyPairName *string `type:"string"`
+	SshKeyPairName *string `type:"string" json:",omitempty"`
 
-	Type *string `type:"string"`
+	Type *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -700,37 +716,37 @@ func (s *LoginForListNodePoolsOutput) SetType(v string) *LoginForListNodePoolsOu
 }
 
 type NodeConfigForListNodePoolsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	AdditionalContainerStorageEnabled *bool `type:"boolean"`
+	AdditionalContainerStorageEnabled *bool `type:"boolean" json:",omitempty"`
 
-	AutoRenew *bool `type:"boolean"`
+	AutoRenew *bool `type:"boolean" json:",omitempty"`
 
-	AutoRenewPeriod *int32 `type:"int32"`
+	AutoRenewPeriod *int32 `type:"int32" json:",omitempty"`
 
-	DataVolumes []*DataVolumeForListNodePoolsOutput `type:"list"`
+	DataVolumes []*DataVolumeForListNodePoolsOutput `type:"list" json:",omitempty"`
 
-	HpcClusterIds []*string `type:"list"`
+	HpcClusterIds []*string `type:"list" json:",omitempty"`
 
-	ImageId *string `type:"string"`
+	ImageId *string `type:"string" json:",omitempty"`
 
-	InitializeScript *string `type:"string"`
+	InitializeScript *string `type:"string" json:",omitempty"`
 
-	InstanceChargeType *string `type:"string"`
+	InstanceChargeType *string `type:"string" json:",omitempty" enum:"EnumOfInstanceChargeTypeForListNodePoolsOutput"`
 
-	InstanceTypeIds []*string `type:"list"`
+	InstanceTypeIds []*string `type:"list" json:",omitempty"`
 
-	NamePrefix *string `type:"string"`
+	NamePrefix *string `type:"string" json:",omitempty"`
 
-	Period *int32 `type:"int32"`
+	Period *int32 `type:"int32" json:",omitempty"`
 
-	Security *SecurityForListNodePoolsOutput `type:"structure"`
+	Security *SecurityForListNodePoolsOutput `type:"structure" json:",omitempty"`
 
-	SubnetIds []*string `type:"list"`
+	SubnetIds []*string `type:"list" json:",omitempty"`
 
-	SystemVolume *SystemVolumeForListNodePoolsOutput `type:"structure"`
+	SystemVolume *SystemVolumeForListNodePoolsOutput `type:"structure" json:",omitempty"`
 
-	Tags []*TagForListNodePoolsOutput `type:"list"`
+	Tags []*TagForListNodePoolsOutput `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -834,19 +850,19 @@ func (s *NodeConfigForListNodePoolsOutput) SetTags(v []*TagForListNodePoolsOutpu
 }
 
 type NodeStatisticsForListNodePoolsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	CreatingCount *int32 `type:"int32"`
+	CreatingCount *int32 `type:"int32" json:",omitempty"`
 
-	DeletingCount *int32 `type:"int32"`
+	DeletingCount *int32 `type:"int32" json:",omitempty"`
 
-	FailedCount *int32 `type:"int32"`
+	FailedCount *int32 `type:"int32" json:",omitempty"`
 
-	RunningCount *int32 `type:"int32"`
+	RunningCount *int32 `type:"int32" json:",omitempty"`
 
-	TotalCount *int32 `type:"int32"`
+	TotalCount *int32 `type:"int32" json:",omitempty"`
 
-	UpdatingCount *int32 `type:"int32"`
+	UpdatingCount *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -896,15 +912,15 @@ func (s *NodeStatisticsForListNodePoolsOutput) SetUpdatingCount(v int32) *NodeSt
 }
 
 type SecurityForListNodePoolsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Login *LoginForListNodePoolsOutput `type:"structure"`
+	Login *LoginForListNodePoolsOutput `type:"structure" json:",omitempty"`
 
-	SecurityGroupIds []*string `type:"list"`
+	SecurityGroupIds []*string `type:"list" json:",omitempty"`
 
-	SecurityStrategies []*string `type:"list"`
+	SecurityStrategies []*string `type:"list" json:",omitempty"`
 
-	SecurityStrategyEnabled *bool `type:"boolean"`
+	SecurityStrategyEnabled *bool `type:"boolean" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -942,11 +958,11 @@ func (s *SecurityForListNodePoolsOutput) SetSecurityStrategyEnabled(v bool) *Sec
 }
 
 type StatusForListNodePoolsInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	ConditionsType *string `type:"string" json:"Conditions.Type" enum:"EnumOfConditionsTypeForListNodePoolsInput"`
+	ConditionsType *string `type:"string" json:"Conditions.Type,omitempty" enum:"EnumOfConditionsTypeForListNodePoolsInput"`
 
-	Phase *string `type:"string" enum:"EnumOfPhaseForListNodePoolsInput"`
+	Phase *string `type:"string" json:",omitempty" enum:"EnumOfPhaseForListNodePoolsInput"`
 }
 
 // String returns the string representation
@@ -972,11 +988,11 @@ func (s *StatusForListNodePoolsInput) SetPhase(v string) *StatusForListNodePools
 }
 
 type StatusForListNodePoolsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Conditions []*ConditionForListNodePoolsOutput `type:"list"`
+	Conditions []*ConditionForListNodePoolsOutput `type:"list" json:",omitempty"`
 
-	Phase *string `type:"string"`
+	Phase *string `type:"string" json:",omitempty" enum:"EnumOfPhaseForListNodePoolsOutput"`
 }
 
 // String returns the string representation
@@ -1002,11 +1018,11 @@ func (s *StatusForListNodePoolsOutput) SetPhase(v string) *StatusForListNodePool
 }
 
 type SystemVolumeForListNodePoolsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Size *int32 `type:"int32"`
+	Size *int32 `type:"int32" json:",omitempty"`
 
-	Type *string `type:"string"`
+	Type *string `type:"string" json:",omitempty" enum:"EnumOfTypeForListNodePoolsOutput"`
 }
 
 // String returns the string representation
@@ -1032,11 +1048,11 @@ func (s *SystemVolumeForListNodePoolsOutput) SetType(v string) *SystemVolumeForL
 }
 
 type TagForListNodePoolsInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Key *string `type:"string"`
+	Key *string `type:"string" json:",omitempty"`
 
-	Value *string `type:"string"`
+	Value *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -1062,11 +1078,11 @@ func (s *TagForListNodePoolsInput) SetValue(v string) *TagForListNodePoolsInput 
 }
 
 type TagForListNodePoolsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Key *string `type:"string"`
+	Key *string `type:"string" json:",omitempty"`
 
-	Value *string `type:"string"`
+	Value *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -1092,13 +1108,13 @@ func (s *TagForListNodePoolsOutput) SetValue(v string) *TagForListNodePoolsOutpu
 }
 
 type TaintForListNodePoolsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Effect *string `type:"string" enum:"EnumOfEffectForListNodePoolsOutput"`
+	Effect *string `type:"string" json:",omitempty" enum:"EnumOfEffectForListNodePoolsOutput"`
 
-	Key *string `type:"string"`
+	Key *string `type:"string" json:",omitempty"`
 
-	Value *string `type:"string"`
+	Value *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -1130,64 +1146,121 @@ func (s *TaintForListNodePoolsOutput) SetValue(v string) *TaintForListNodePoolsO
 }
 
 const (
-	// EnumOfConditionsTypeForListNodePoolsInputBalance is a EnumOfConditionsTypeForListNodePoolsInput enum value
-	EnumOfConditionsTypeForListNodePoolsInputBalance = "Balance"
-
-	// EnumOfConditionsTypeForListNodePoolsInputClusterNotRunning is a EnumOfConditionsTypeForListNodePoolsInput enum value
-	EnumOfConditionsTypeForListNodePoolsInputClusterNotRunning = "ClusterNotRunning"
-
-	// EnumOfConditionsTypeForListNodePoolsInputClusterVersionUpgrading is a EnumOfConditionsTypeForListNodePoolsInput enum value
-	EnumOfConditionsTypeForListNodePoolsInputClusterVersionUpgrading = "ClusterVersionUpgrading"
-
-	// EnumOfConditionsTypeForListNodePoolsInputLimitedByQuota is a EnumOfConditionsTypeForListNodePoolsInput enum value
-	EnumOfConditionsTypeForListNodePoolsInputLimitedByQuota = "LimitedByQuota"
-
 	// EnumOfConditionsTypeForListNodePoolsInputOk is a EnumOfConditionsTypeForListNodePoolsInput enum value
 	EnumOfConditionsTypeForListNodePoolsInputOk = "Ok"
-
-	// EnumOfConditionsTypeForListNodePoolsInputProgressing is a EnumOfConditionsTypeForListNodePoolsInput enum value
-	EnumOfConditionsTypeForListNodePoolsInputProgressing = "Progressing"
-
-	// EnumOfConditionsTypeForListNodePoolsInputResourceCleanupFailed is a EnumOfConditionsTypeForListNodePoolsInput enum value
-	EnumOfConditionsTypeForListNodePoolsInputResourceCleanupFailed = "ResourceCleanupFailed"
 
 	// EnumOfConditionsTypeForListNodePoolsInputStockOut is a EnumOfConditionsTypeForListNodePoolsInput enum value
 	EnumOfConditionsTypeForListNodePoolsInputStockOut = "StockOut"
 
-	// EnumOfConditionsTypeForListNodePoolsInputUnknown is a EnumOfConditionsTypeForListNodePoolsInput enum value
-	EnumOfConditionsTypeForListNodePoolsInputUnknown = "Unknown"
+	// EnumOfConditionsTypeForListNodePoolsInputLimitedByQuota is a EnumOfConditionsTypeForListNodePoolsInput enum value
+	EnumOfConditionsTypeForListNodePoolsInputLimitedByQuota = "LimitedByQuota"
+
+	// EnumOfConditionsTypeForListNodePoolsInputBalance is a EnumOfConditionsTypeForListNodePoolsInput enum value
+	EnumOfConditionsTypeForListNodePoolsInputBalance = "Balance"
 
 	// EnumOfConditionsTypeForListNodePoolsInputVersionPartlyUpgraded is a EnumOfConditionsTypeForListNodePoolsInput enum value
 	EnumOfConditionsTypeForListNodePoolsInputVersionPartlyUpgraded = "VersionPartlyUpgraded"
+
+	// EnumOfConditionsTypeForListNodePoolsInputResourceCleanupFailed is a EnumOfConditionsTypeForListNodePoolsInput enum value
+	EnumOfConditionsTypeForListNodePoolsInputResourceCleanupFailed = "ResourceCleanupFailed"
+
+	// EnumOfConditionsTypeForListNodePoolsInputClusterNotRunning is a EnumOfConditionsTypeForListNodePoolsInput enum value
+	EnumOfConditionsTypeForListNodePoolsInputClusterNotRunning = "ClusterNotRunning"
+
+	// EnumOfConditionsTypeForListNodePoolsInputUnknown is a EnumOfConditionsTypeForListNodePoolsInput enum value
+	EnumOfConditionsTypeForListNodePoolsInputUnknown = "Unknown"
+
+	// EnumOfConditionsTypeForListNodePoolsInputProgressing is a EnumOfConditionsTypeForListNodePoolsInput enum value
+	EnumOfConditionsTypeForListNodePoolsInputProgressing = "Progressing"
+
+	// EnumOfConditionsTypeForListNodePoolsInputClusterVersionUpgrading is a EnumOfConditionsTypeForListNodePoolsInput enum value
+	EnumOfConditionsTypeForListNodePoolsInputClusterVersionUpgrading = "ClusterVersionUpgrading"
 )
 
 const (
 	// EnumOfEffectForListNodePoolsOutputNoSchedule is a EnumOfEffectForListNodePoolsOutput enum value
 	EnumOfEffectForListNodePoolsOutputNoSchedule = "NoSchedule"
 
-	// EnumOfEffectForListNodePoolsOutputNoExecute is a EnumOfEffectForListNodePoolsOutput enum value
-	EnumOfEffectForListNodePoolsOutputNoExecute = "NoExecute"
-
 	// EnumOfEffectForListNodePoolsOutputPreferNoSchedule is a EnumOfEffectForListNodePoolsOutput enum value
 	EnumOfEffectForListNodePoolsOutputPreferNoSchedule = "PreferNoSchedule"
+
+	// EnumOfEffectForListNodePoolsOutputNoExecute is a EnumOfEffectForListNodePoolsOutput enum value
+	EnumOfEffectForListNodePoolsOutputNoExecute = "NoExecute"
+)
+
+const (
+	// EnumOfFileSystemForListNodePoolsOutputExt4 is a EnumOfFileSystemForListNodePoolsOutput enum value
+	EnumOfFileSystemForListNodePoolsOutputExt4 = "Ext4"
+
+	// EnumOfFileSystemForListNodePoolsOutputXfs is a EnumOfFileSystemForListNodePoolsOutput enum value
+	EnumOfFileSystemForListNodePoolsOutputXfs = "Xfs"
+)
+
+const (
+	// EnumOfInstanceChargeTypeForListNodePoolsOutputPostPaid is a EnumOfInstanceChargeTypeForListNodePoolsOutput enum value
+	EnumOfInstanceChargeTypeForListNodePoolsOutputPostPaid = "PostPaid"
+
+	// EnumOfInstanceChargeTypeForListNodePoolsOutputPrePaid is a EnumOfInstanceChargeTypeForListNodePoolsOutput enum value
+	EnumOfInstanceChargeTypeForListNodePoolsOutputPrePaid = "PrePaid"
 )
 
 const (
 	// EnumOfPhaseForListNodePoolsInputCreating is a EnumOfPhaseForListNodePoolsInput enum value
 	EnumOfPhaseForListNodePoolsInputCreating = "Creating"
 
+	// EnumOfPhaseForListNodePoolsInputRunning is a EnumOfPhaseForListNodePoolsInput enum value
+	EnumOfPhaseForListNodePoolsInputRunning = "Running"
+
+	// EnumOfPhaseForListNodePoolsInputUpdating is a EnumOfPhaseForListNodePoolsInput enum value
+	EnumOfPhaseForListNodePoolsInputUpdating = "Updating"
+
+	// EnumOfPhaseForListNodePoolsInputScaling is a EnumOfPhaseForListNodePoolsInput enum value
+	EnumOfPhaseForListNodePoolsInputScaling = "Scaling"
+
 	// EnumOfPhaseForListNodePoolsInputDeleting is a EnumOfPhaseForListNodePoolsInput enum value
 	EnumOfPhaseForListNodePoolsInputDeleting = "Deleting"
 
 	// EnumOfPhaseForListNodePoolsInputFailed is a EnumOfPhaseForListNodePoolsInput enum value
 	EnumOfPhaseForListNodePoolsInputFailed = "Failed"
+)
 
-	// EnumOfPhaseForListNodePoolsInputRunning is a EnumOfPhaseForListNodePoolsInput enum value
-	EnumOfPhaseForListNodePoolsInputRunning = "Running"
+const (
+	// EnumOfPhaseForListNodePoolsOutputCreating is a EnumOfPhaseForListNodePoolsOutput enum value
+	EnumOfPhaseForListNodePoolsOutputCreating = "Creating"
 
-	// EnumOfPhaseForListNodePoolsInputScaling is a EnumOfPhaseForListNodePoolsInput enum value
-	EnumOfPhaseForListNodePoolsInputScaling = "Scaling"
+	// EnumOfPhaseForListNodePoolsOutputRunning is a EnumOfPhaseForListNodePoolsOutput enum value
+	EnumOfPhaseForListNodePoolsOutputRunning = "Running"
 
-	// EnumOfPhaseForListNodePoolsInputUpdating is a EnumOfPhaseForListNodePoolsInput enum value
-	EnumOfPhaseForListNodePoolsInputUpdating = "Updating"
+	// EnumOfPhaseForListNodePoolsOutputUpdating is a EnumOfPhaseForListNodePoolsOutput enum value
+	EnumOfPhaseForListNodePoolsOutputUpdating = "Updating"
+
+	// EnumOfPhaseForListNodePoolsOutputScaling is a EnumOfPhaseForListNodePoolsOutput enum value
+	EnumOfPhaseForListNodePoolsOutputScaling = "Scaling"
+
+	// EnumOfPhaseForListNodePoolsOutputDeleting is a EnumOfPhaseForListNodePoolsOutput enum value
+	EnumOfPhaseForListNodePoolsOutputDeleting = "Deleting"
+
+	// EnumOfPhaseForListNodePoolsOutputFailed is a EnumOfPhaseForListNodePoolsOutput enum value
+	EnumOfPhaseForListNodePoolsOutputFailed = "Failed"
+)
+
+const (
+	// EnumOfSecurityStrategyListForListNodePoolsOutputHids is a EnumOfSecurityStrategyListForListNodePoolsOutput enum value
+	EnumOfSecurityStrategyListForListNodePoolsOutputHids = "Hids"
+)
+
+const (
+	// EnumOfSubnetPolicyForListNodePoolsOutputZoneBalance is a EnumOfSubnetPolicyForListNodePoolsOutput enum value
+	EnumOfSubnetPolicyForListNodePoolsOutputZoneBalance = "ZoneBalance"
+
+	// EnumOfSubnetPolicyForListNodePoolsOutputPriority is a EnumOfSubnetPolicyForListNodePoolsOutput enum value
+	EnumOfSubnetPolicyForListNodePoolsOutputPriority = "Priority"
+)
+
+const (
+	// EnumOfTypeForListNodePoolsOutputEssdPl0 is a EnumOfTypeForListNodePoolsOutput enum value
+	EnumOfTypeForListNodePoolsOutputEssdPl0 = "ESSD_PL0"
+
+	// EnumOfTypeForListNodePoolsOutputEssdFlexPl is a EnumOfTypeForListNodePoolsOutput enum value
+	EnumOfTypeForListNodePoolsOutputEssdFlexPl = "ESSD_FlexPL"
 )

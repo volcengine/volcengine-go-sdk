@@ -144,20 +144,20 @@ func (c *VKE) ForwardKubernetesApiWithContext(ctx volcengine.Context, input *For
 }
 
 type ForwardKubernetesApiInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Body *string `type:"string"`
+	Body *string `type:"string" json:",omitempty"`
 
 	// ClusterId is a required field
-	ClusterId *string `type:"string" required:"true"`
+	ClusterId *string `type:"string" json:",omitempty" required:"true"`
 
-	Headers []*HeaderForForwardKubernetesApiInput `type:"list"`
+	Headers []*HeaderForForwardKubernetesApiInput `type:"list" json:",omitempty"`
 
 	// Method is a required field
-	Method *string `type:"string" required:"true"`
+	Method *string `type:"string" json:",omitempty" required:"true"`
 
 	// Path is a required field
-	Path *string `type:"string" required:"true"`
+	Path *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -220,13 +220,13 @@ func (s *ForwardKubernetesApiInput) SetPath(v string) *ForwardKubernetesApiInput
 }
 
 type ForwardKubernetesApiOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	Body *string `type:"string"`
+	Body *string `type:"string" json:",omitempty"`
 
-	Code *int32 `type:"int32"`
+	Code *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -252,11 +252,11 @@ func (s *ForwardKubernetesApiOutput) SetCode(v int32) *ForwardKubernetesApiOutpu
 }
 
 type HeaderForForwardKubernetesApiInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Key *string `type:"string"`
+	Key *string `type:"string" json:",omitempty"`
 
-	Value *string `type:"string"`
+	Value *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation

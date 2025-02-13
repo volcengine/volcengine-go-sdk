@@ -144,11 +144,11 @@ func (c *VKE) ListSupportedResourceTypesWithContext(ctx volcengine.Context, inpu
 }
 
 type FilterForListSupportedResourceTypesInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	ResourceTypes []*string `type:"list"`
+	ResourceTypes []*string `type:"list" json:",omitempty"`
 
-	ZoneIds []*string `type:"list"`
+	ZoneIds []*string `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -174,15 +174,15 @@ func (s *FilterForListSupportedResourceTypesInput) SetZoneIds(v []*string) *Filt
 }
 
 type ItemForListSupportedResourceTypesOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	ResourceScope *string `type:"string"`
+	ResourceScope *string `type:"string" json:",omitempty"`
 
-	ResourceSpecifications []*string `type:"list"`
+	ResourceSpecifications []*string `type:"list" json:",omitempty"`
 
-	ResourceType *string `type:"string"`
+	ResourceType *string `type:"string" json:",omitempty"`
 
-	ZoneId *string `type:"string"`
+	ZoneId *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -220,13 +220,13 @@ func (s *ItemForListSupportedResourceTypesOutput) SetZoneId(v string) *ItemForLi
 }
 
 type ListSupportedResourceTypesInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Filter *FilterForListSupportedResourceTypesInput `type:"structure"`
+	Filter *FilterForListSupportedResourceTypesInput `type:"structure" json:",omitempty"`
 
-	PageNumber *int32 `type:"int32"`
+	PageNumber *int32 `type:"int32" json:",omitempty"`
 
-	PageSize *int32 `type:"int32"`
+	PageSize *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -258,17 +258,17 @@ func (s *ListSupportedResourceTypesInput) SetPageSize(v int32) *ListSupportedRes
 }
 
 type ListSupportedResourceTypesOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	Items []*ItemForListSupportedResourceTypesOutput `type:"list"`
+	Items []*ItemForListSupportedResourceTypesOutput `type:"list" json:",omitempty"`
 
-	PageNumber *int32 `type:"int32"`
+	PageNumber *int32 `type:"int32" json:",omitempty"`
 
-	PageSize *int32 `type:"int32"`
+	PageSize *int32 `type:"int32" json:",omitempty"`
 
-	TotalCount *int32 `type:"int32"`
+	TotalCount *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation

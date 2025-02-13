@@ -144,19 +144,19 @@ func (c *VKE) UpdateNodePoolConfigWithContext(ctx volcengine.Context, input *Upd
 }
 
 type AutoScalingForUpdateNodePoolConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	DesiredReplicas *int32 `type:"int32"`
+	DesiredReplicas *int32 `type:"int32" json:",omitempty"`
 
-	Enabled *bool `type:"boolean"`
+	Enabled *bool `type:"boolean" json:",omitempty"`
 
-	MaxReplicas *int32 `type:"int32"`
+	MaxReplicas *int32 `type:"int32" json:",omitempty"`
 
-	MinReplicas *int32 `type:"int32"`
+	MinReplicas *int32 `type:"int32" json:",omitempty"`
 
-	Priority *int32 `type:"int32"`
+	Priority *int32 `type:"int32" json:",omitempty"`
 
-	SubnetPolicy *string `type:"string" enum:"EnumOfSubnetPolicyForUpdateNodePoolConfigInput"`
+	SubnetPolicy *string `type:"string" json:",omitempty" enum:"EnumOfSubnetPolicyForUpdateNodePoolConfigInput"`
 }
 
 // String returns the string representation
@@ -206,15 +206,15 @@ func (s *AutoScalingForUpdateNodePoolConfigInput) SetSubnetPolicy(v string) *Aut
 }
 
 type DataVolumeForUpdateNodePoolConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	FileSystem *string `type:"string" enum:"EnumOfFileSystemForUpdateNodePoolConfigInput"`
+	FileSystem *string `type:"string" json:",omitempty" enum:"EnumOfFileSystemForUpdateNodePoolConfigInput"`
 
-	MountPoint *string `type:"string"`
+	MountPoint *string `type:"string" json:",omitempty"`
 
-	Size *int32 `type:"int32"`
+	Size *int32 `type:"int32" json:",omitempty"`
 
-	Type *string `type:"string" enum:"EnumOfTypeForUpdateNodePoolConfigInput"`
+	Type *string `type:"string" json:",omitempty" enum:"EnumOfTypeForUpdateNodePoolConfigInput"`
 }
 
 // String returns the string representation
@@ -252,15 +252,17 @@ func (s *DataVolumeForUpdateNodePoolConfigInput) SetType(v string) *DataVolumeFo
 }
 
 type KubernetesConfigForUpdateNodePoolConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Cordon *bool `type:"boolean"`
+	AutoSyncDisabled *bool `type:"boolean" json:",omitempty"`
 
-	Labels []*LabelForUpdateNodePoolConfigInput `type:"list"`
+	Cordon *bool `type:"boolean" json:",omitempty"`
 
-	NamePrefix *string `type:"string"`
+	Labels []*LabelForUpdateNodePoolConfigInput `type:"list" json:",omitempty"`
 
-	Taints []*TaintForUpdateNodePoolConfigInput `type:"list"`
+	NamePrefix *string `type:"string" json:",omitempty"`
+
+	Taints []*TaintForUpdateNodePoolConfigInput `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -271,6 +273,12 @@ func (s KubernetesConfigForUpdateNodePoolConfigInput) String() string {
 // GoString returns the string representation
 func (s KubernetesConfigForUpdateNodePoolConfigInput) GoString() string {
 	return s.String()
+}
+
+// SetAutoSyncDisabled sets the AutoSyncDisabled field's value.
+func (s *KubernetesConfigForUpdateNodePoolConfigInput) SetAutoSyncDisabled(v bool) *KubernetesConfigForUpdateNodePoolConfigInput {
+	s.AutoSyncDisabled = &v
+	return s
 }
 
 // SetCordon sets the Cordon field's value.
@@ -298,11 +306,11 @@ func (s *KubernetesConfigForUpdateNodePoolConfigInput) SetTaints(v []*TaintForUp
 }
 
 type LabelForUpdateNodePoolConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Key *string `type:"string"`
+	Key *string `type:"string" json:",omitempty"`
 
-	Value *string `type:"string"`
+	Value *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -328,11 +336,11 @@ func (s *LabelForUpdateNodePoolConfigInput) SetValue(v string) *LabelForUpdateNo
 }
 
 type LoginForUpdateNodePoolConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Password *string `type:"string"`
+	Password *string `type:"string" json:",omitempty"`
 
-	SshKeyPairName *string `type:"string"`
+	SshKeyPairName *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -358,35 +366,37 @@ func (s *LoginForUpdateNodePoolConfigInput) SetSshKeyPairName(v string) *LoginFo
 }
 
 type NodeConfigForUpdateNodePoolConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	AdditionalContainerStorageEnabled *bool `type:"boolean"`
+	AdditionalContainerStorageEnabled *bool `type:"boolean" json:",omitempty"`
 
-	AutoRenew *bool `type:"boolean"`
+	AutoRenew *bool `type:"boolean" json:",omitempty"`
 
-	AutoRenewPeriod *int32 `type:"int32"`
+	AutoRenewPeriod *int32 `type:"int32" json:",omitempty"`
 
-	DataVolumes []*DataVolumeForUpdateNodePoolConfigInput `type:"list"`
+	DataVolumes []*DataVolumeForUpdateNodePoolConfigInput `type:"list" json:",omitempty"`
 
-	HpcClusterIds []*string `type:"list"`
+	HpcClusterIds []*string `type:"list" json:",omitempty"`
 
-	ImageId *string `type:"string"`
+	ImageId *string `type:"string" json:",omitempty"`
 
-	InitializeScript *string `type:"string"`
+	InitializeScript *string `type:"string" json:",omitempty"`
 
-	InstanceTypeIds []*string `type:"list"`
+	InstanceTypeIds []*string `type:"list" json:",omitempty"`
 
-	NamePrefix *string `type:"string"`
+	NamePrefix *string `type:"string" json:",omitempty"`
 
-	Period *int32 `type:"int32"`
+	Period *int32 `type:"int32" json:",omitempty"`
 
-	Security *SecurityForUpdateNodePoolConfigInput `type:"structure"`
+	ProjectName *string `type:"string" json:",omitempty"`
 
-	SubnetIds []*string `type:"list"`
+	Security *SecurityForUpdateNodePoolConfigInput `type:"structure" json:",omitempty"`
 
-	SystemVolume *SystemVolumeForUpdateNodePoolConfigInput `type:"structure"`
+	SubnetIds []*string `type:"list" json:",omitempty"`
 
-	Tags []*TagForUpdateNodePoolConfigInput `type:"list"`
+	SystemVolume *SystemVolumeForUpdateNodePoolConfigInput `type:"structure" json:",omitempty"`
+
+	Tags []*TagForUpdateNodePoolConfigInput `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -459,6 +469,12 @@ func (s *NodeConfigForUpdateNodePoolConfigInput) SetPeriod(v int32) *NodeConfigF
 	return s
 }
 
+// SetProjectName sets the ProjectName field's value.
+func (s *NodeConfigForUpdateNodePoolConfigInput) SetProjectName(v string) *NodeConfigForUpdateNodePoolConfigInput {
+	s.ProjectName = &v
+	return s
+}
+
 // SetSecurity sets the Security field's value.
 func (s *NodeConfigForUpdateNodePoolConfigInput) SetSecurity(v *SecurityForUpdateNodePoolConfigInput) *NodeConfigForUpdateNodePoolConfigInput {
 	s.Security = v
@@ -484,13 +500,13 @@ func (s *NodeConfigForUpdateNodePoolConfigInput) SetTags(v []*TagForUpdateNodePo
 }
 
 type SecurityForUpdateNodePoolConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Login *LoginForUpdateNodePoolConfigInput `type:"structure"`
+	Login *LoginForUpdateNodePoolConfigInput `type:"structure" json:",omitempty"`
 
-	SecurityGroupIds []*string `type:"list"`
+	SecurityGroupIds []*string `type:"list" json:",omitempty"`
 
-	SecurityStrategies []*string `type:"list"`
+	SecurityStrategies []*string `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -522,11 +538,11 @@ func (s *SecurityForUpdateNodePoolConfigInput) SetSecurityStrategies(v []*string
 }
 
 type SystemVolumeForUpdateNodePoolConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Size *int32 `type:"int32"`
+	Size *int32 `type:"int32" json:",omitempty"`
 
-	Type *string `type:"string" enum:"EnumOfTypeForUpdateNodePoolConfigInput"`
+	Type *string `type:"string" json:",omitempty" enum:"EnumOfTypeForUpdateNodePoolConfigInput"`
 }
 
 // String returns the string representation
@@ -552,11 +568,11 @@ func (s *SystemVolumeForUpdateNodePoolConfigInput) SetType(v string) *SystemVolu
 }
 
 type TagForUpdateNodePoolConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Key *string `type:"string"`
+	Key *string `type:"string" json:",omitempty"`
 
-	Value *string `type:"string"`
+	Value *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -582,13 +598,13 @@ func (s *TagForUpdateNodePoolConfigInput) SetValue(v string) *TagForUpdateNodePo
 }
 
 type TaintForUpdateNodePoolConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Effect *string `type:"string" enum:"EnumOfEffectForUpdateNodePoolConfigInput"`
+	Effect *string `type:"string" json:",omitempty" enum:"EnumOfEffectForUpdateNodePoolConfigInput"`
 
-	Key *string `type:"string"`
+	Key *string `type:"string" json:",omitempty"`
 
-	Value *string `type:"string"`
+	Value *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -620,23 +636,23 @@ func (s *TaintForUpdateNodePoolConfigInput) SetValue(v string) *TaintForUpdateNo
 }
 
 type UpdateNodePoolConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	AutoScaling *AutoScalingForUpdateNodePoolConfigInput `type:"structure"`
+	AutoScaling *AutoScalingForUpdateNodePoolConfigInput `type:"structure" json:",omitempty"`
 
-	ClientToken *string `type:"string"`
+	ClientToken *string `type:"string" json:",omitempty"`
 
 	// ClusterId is a required field
-	ClusterId *string `type:"string" required:"true"`
+	ClusterId *string `type:"string" json:",omitempty" required:"true"`
 
 	// Id is a required field
-	Id *string `type:"string" required:"true"`
+	Id *string `type:"string" json:",omitempty" required:"true"`
 
-	KubernetesConfig *KubernetesConfigForUpdateNodePoolConfigInput `type:"structure"`
+	KubernetesConfig *KubernetesConfigForUpdateNodePoolConfigInput `type:"structure" json:",omitempty"`
 
-	Name *string `type:"string"`
+	Name *string `type:"string" json:",omitempty"`
 
-	NodeConfig *NodeConfigForUpdateNodePoolConfigInput `type:"structure"`
+	NodeConfig *NodeConfigForUpdateNodePoolConfigInput `type:"structure" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -708,7 +724,7 @@ func (s *UpdateNodePoolConfigInput) SetNodeConfig(v *NodeConfigForUpdateNodePool
 }
 
 type UpdateNodePoolConfigOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 }
@@ -727,11 +743,11 @@ const (
 	// EnumOfEffectForUpdateNodePoolConfigInputNoSchedule is a EnumOfEffectForUpdateNodePoolConfigInput enum value
 	EnumOfEffectForUpdateNodePoolConfigInputNoSchedule = "NoSchedule"
 
-	// EnumOfEffectForUpdateNodePoolConfigInputNoExecute is a EnumOfEffectForUpdateNodePoolConfigInput enum value
-	EnumOfEffectForUpdateNodePoolConfigInputNoExecute = "NoExecute"
-
 	// EnumOfEffectForUpdateNodePoolConfigInputPreferNoSchedule is a EnumOfEffectForUpdateNodePoolConfigInput enum value
 	EnumOfEffectForUpdateNodePoolConfigInputPreferNoSchedule = "PreferNoSchedule"
+
+	// EnumOfEffectForUpdateNodePoolConfigInputNoExecute is a EnumOfEffectForUpdateNodePoolConfigInput enum value
+	EnumOfEffectForUpdateNodePoolConfigInputNoExecute = "NoExecute"
 )
 
 const (

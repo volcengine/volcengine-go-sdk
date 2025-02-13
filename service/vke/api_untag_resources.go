@@ -144,14 +144,14 @@ func (c *VKE) UntagResourcesWithContext(ctx volcengine.Context, input *UntagReso
 }
 
 type UntagResourcesInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	ResourceIds []*string `type:"list"`
+	ResourceIds []*string `type:"list" json:",omitempty"`
 
 	// ResourceType is a required field
-	ResourceType *string `type:"string" required:"true" enum:"EnumOfResourceTypeForUntagResourcesInput"`
+	ResourceType *string `type:"string" json:",omitempty" required:"true" enum:"EnumOfResourceTypeForUntagResourcesInput"`
 
-	TagKeys []*string `type:"list"`
+	TagKeys []*string `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -196,7 +196,7 @@ func (s *UntagResourcesInput) SetTagKeys(v []*string) *UntagResourcesInput {
 }
 
 type UntagResourcesOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 }

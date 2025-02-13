@@ -144,11 +144,11 @@ func (c *VKE) TagResourcesWithContext(ctx volcengine.Context, input *TagResource
 }
 
 type TagForTagResourcesInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Key *string `type:"string"`
+	Key *string `type:"string" json:",omitempty"`
 
-	Value *string `type:"string"`
+	Value *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -174,14 +174,14 @@ func (s *TagForTagResourcesInput) SetValue(v string) *TagForTagResourcesInput {
 }
 
 type TagResourcesInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	ResourceIds []*string `type:"list"`
+	ResourceIds []*string `type:"list" json:",omitempty"`
 
 	// ResourceType is a required field
-	ResourceType *string `type:"string" required:"true" enum:"EnumOfResourceTypeForTagResourcesInput"`
+	ResourceType *string `type:"string" json:",omitempty" required:"true" enum:"EnumOfResourceTypeForTagResourcesInput"`
 
-	Tags []*TagForTagResourcesInput `type:"list"`
+	Tags []*TagForTagResourcesInput `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -226,7 +226,7 @@ func (s *TagResourcesInput) SetTags(v []*TagForTagResourcesInput) *TagResourcesI
 }
 
 type TagResourcesOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 }

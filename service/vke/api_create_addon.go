@@ -144,23 +144,23 @@ func (c *VKE) CreateAddonWithContext(ctx volcengine.Context, input *CreateAddonI
 }
 
 type CreateAddonInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	ClientToken *string `type:"string"`
+	ClientToken *string `type:"string" json:",omitempty"`
 
 	// ClusterId is a required field
-	ClusterId *string `type:"string" required:"true"`
+	ClusterId *string `type:"string" json:",omitempty" required:"true"`
 
-	Config *string `type:"string"`
+	Config *string `type:"string" json:",omitempty"`
 
-	DeployMode *string `type:"string" enum:"EnumOfDeployModeForCreateAddonInput"`
+	DeployMode *string `type:"string" json:",omitempty" enum:"EnumOfDeployModeForCreateAddonInput"`
 
-	DeployNodeType *string `type:"string" enum:"EnumOfDeployNodeTypeForCreateAddonInput"`
+	DeployNodeType *string `type:"string" json:",omitempty" enum:"EnumOfDeployNodeTypeForCreateAddonInput"`
 
 	// Name is a required field
-	Name *string `type:"string" required:"true"`
+	Name *string `type:"string" json:",omitempty" required:"true"`
 
-	Version *string `type:"string"`
+	Version *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -232,7 +232,7 @@ func (s *CreateAddonInput) SetVersion(v string) *CreateAddonInput {
 }
 
 type CreateAddonOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 }
@@ -248,11 +248,11 @@ func (s CreateAddonOutput) GoString() string {
 }
 
 const (
-	// EnumOfDeployModeForCreateAddonInputUnmanaged is a EnumOfDeployModeForCreateAddonInput enum value
-	EnumOfDeployModeForCreateAddonInputUnmanaged = "Unmanaged"
-
 	// EnumOfDeployModeForCreateAddonInputManaged is a EnumOfDeployModeForCreateAddonInput enum value
 	EnumOfDeployModeForCreateAddonInputManaged = "Managed"
+
+	// EnumOfDeployModeForCreateAddonInputUnmanaged is a EnumOfDeployModeForCreateAddonInput enum value
+	EnumOfDeployModeForCreateAddonInputUnmanaged = "Unmanaged"
 )
 
 const (

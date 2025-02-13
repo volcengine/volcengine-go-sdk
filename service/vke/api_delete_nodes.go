@@ -144,18 +144,19 @@ func (c *VKE) DeleteNodesWithContext(ctx volcengine.Context, input *DeleteNodesI
 }
 
 type DeleteNodesInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	CascadingDeleteResources []*string `type:"list"`
+	CascadingDeleteResources []*string `type:"list" json:",omitempty"`
 
 	// ClusterId is a required field
-	ClusterId *string `type:"string" required:"true"`
+	ClusterId *string `type:"string" json:",omitempty" required:"true"`
 
-	Ids []*string `type:"list"`
+	Ids []*string `type:"list" json:",omitempty"`
 
-	NodePoolId *string `type:"string"`
+	// NodePoolId is a required field
+	NodePoolId *string `type:"string" json:",omitempty" required:"true"`
 
-	RetainResources []*string `type:"list"`
+	RetainResources []*string `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -173,6 +174,9 @@ func (s *DeleteNodesInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "DeleteNodesInput"}
 	if s.ClusterId == nil {
 		invalidParams.Add(request.NewErrParamRequired("ClusterId"))
+	}
+	if s.NodePoolId == nil {
+		invalidParams.Add(request.NewErrParamRequired("NodePoolId"))
 	}
 
 	if invalidParams.Len() > 0 {
@@ -212,7 +216,7 @@ func (s *DeleteNodesInput) SetRetainResources(v []*string) *DeleteNodesInput {
 }
 
 type DeleteNodesOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 }
