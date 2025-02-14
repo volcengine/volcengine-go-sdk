@@ -148,6 +148,8 @@ type ModifyBandwidthPackageAttributesInput struct {
 	BandwidthPackageName *string `min:"1" max:"128" type:"string"`
 
 	Description *string `min:"1" max:"255" type:"string"`
+
+	EnableDualStack *bool `type:"boolean"`
 }
 
 // String returns the string representation
@@ -200,6 +202,12 @@ func (s *ModifyBandwidthPackageAttributesInput) SetBandwidthPackageName(v string
 // SetDescription sets the Description field's value.
 func (s *ModifyBandwidthPackageAttributesInput) SetDescription(v string) *ModifyBandwidthPackageAttributesInput {
 	s.Description = &v
+	return s
+}
+
+// SetEnableDualStack sets the EnableDualStack field's value.
+func (s *ModifyBandwidthPackageAttributesInput) SetEnableDualStack(v bool) *ModifyBandwidthPackageAttributesInput {
+	s.EnableDualStack = &v
 	return s
 }
 

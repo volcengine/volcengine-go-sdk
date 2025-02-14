@@ -380,6 +380,9 @@ const (
 	// ProtocolForCreateBandwidthPackageInputIpv4 is a ProtocolForCreateBandwidthPackageInput enum value
 	ProtocolForCreateBandwidthPackageInputIpv4 = "IPv4"
 
+	// ProtocolForCreateBandwidthPackageInputDualStack is a ProtocolForCreateBandwidthPackageInput enum value
+	ProtocolForCreateBandwidthPackageInputDualStack = "Dual-stack"
+
 	// ProtocolForCreateBandwidthPackageInputIpv6 is a ProtocolForCreateBandwidthPackageInput enum value
 	ProtocolForCreateBandwidthPackageInputIpv6 = "IPv6"
 )

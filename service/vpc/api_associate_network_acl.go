@@ -147,8 +147,7 @@ type AssociateNetworkAclInput struct {
 	// NetworkAclId is a required field
 	NetworkAclId *string `type:"string" required:"true"`
 
-	// Resource is a required field
-	Resource []*ResourceForAssociateNetworkAclInput `type:"list" required:"true"`
+	Resource []*ResourceForAssociateNetworkAclInput `type:"list"`
 }
 
 // String returns the string representation
@@ -166,9 +165,6 @@ func (s *AssociateNetworkAclInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "AssociateNetworkAclInput"}
 	if s.NetworkAclId == nil {
 		invalidParams.Add(request.NewErrParamRequired("NetworkAclId"))
-	}
-	if s.Resource == nil {
-		invalidParams.Add(request.NewErrParamRequired("Resource"))
 	}
 	if s.Resource != nil {
 		for i, v := range s.Resource {

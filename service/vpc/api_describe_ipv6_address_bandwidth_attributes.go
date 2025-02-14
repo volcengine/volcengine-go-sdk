@@ -210,6 +210,8 @@ type DescribeIpv6AddressBandwidthAttributesOutput struct {
 
 	OverdueTime *string `type:"string"`
 
+	ProjectName *string `type:"string"`
+
 	RequestId *string `type:"string"`
 
 	ServiceManaged *bool `type:"boolean"`
@@ -316,6 +318,12 @@ func (s *DescribeIpv6AddressBandwidthAttributesOutput) SetNetworkType(v string) 
 // SetOverdueTime sets the OverdueTime field's value.
 func (s *DescribeIpv6AddressBandwidthAttributesOutput) SetOverdueTime(v string) *DescribeIpv6AddressBandwidthAttributesOutput {
 	s.OverdueTime = &v
+	return s
+}
+
+// SetProjectName sets the ProjectName field's value.
+func (s *DescribeIpv6AddressBandwidthAttributesOutput) SetProjectName(v string) *DescribeIpv6AddressBandwidthAttributesOutput {
+	s.ProjectName = &v
 	return s
 }
 

@@ -153,6 +153,8 @@ type AllocateIpv6AddressBandwidthInput struct {
 
 	// Ipv6Address is a required field
 	Ipv6Address *string `type:"string" required:"true"`
+
+	ProjectName *string `type:"string"`
 }
 
 // String returns the string representation
@@ -211,6 +213,12 @@ func (s *AllocateIpv6AddressBandwidthInput) SetClientToken(v string) *AllocateIp
 // SetIpv6Address sets the Ipv6Address field's value.
 func (s *AllocateIpv6AddressBandwidthInput) SetIpv6Address(v string) *AllocateIpv6AddressBandwidthInput {
 	s.Ipv6Address = &v
+	return s
+}
+
+// SetProjectName sets the ProjectName field's value.
+func (s *AllocateIpv6AddressBandwidthInput) SetProjectName(v string) *AllocateIpv6AddressBandwidthInput {
+	s.ProjectName = &v
 	return s
 }
 
