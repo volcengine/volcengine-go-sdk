@@ -251,6 +251,36 @@ func (s *DimensionConditionsForUpdateRuleInput) SetType(v string) *DimensionCond
 	return s
 }
 
+type LevelConditionForUpdateRuleInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Conditions []*ConditionForUpdateRuleInput `type:"list" json:",omitempty"`
+
+	Level *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s LevelConditionForUpdateRuleInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s LevelConditionForUpdateRuleInput) GoString() string {
+	return s.String()
+}
+
+// SetConditions sets the Conditions field's value.
+func (s *LevelConditionForUpdateRuleInput) SetConditions(v []*ConditionForUpdateRuleInput) *LevelConditionForUpdateRuleInput {
+	s.Conditions = v
+	return s
+}
+
+// SetLevel sets the Level field's value.
+func (s *LevelConditionForUpdateRuleInput) SetLevel(v string) *LevelConditionForUpdateRuleInput {
+	s.Level = &v
+	return s
+}
+
 type MetaConditionForUpdateRuleInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -502,12 +532,16 @@ type UpdateRuleInput struct {
 	// Level is a required field
 	Level *string `type:"string" json:",omitempty" required:"true"`
 
+	LevelConditions []*LevelConditionForUpdateRuleInput `type:"list" json:",omitempty"`
+
 	MultipleConditions *bool `type:"boolean" json:",omitempty"`
 
 	// Namespace is a required field
 	Namespace *string `type:"string" json:",omitempty" required:"true"`
 
 	NoData *NoDataForUpdateRuleInput `type:"structure" json:",omitempty"`
+
+	NotificationId *string `type:"string" json:",omitempty"`
 
 	OriginalDimensions map[string][]*string `type:"map" json:",omitempty"`
 
@@ -657,6 +691,12 @@ func (s *UpdateRuleInput) SetLevel(v string) *UpdateRuleInput {
 	return s
 }
 
+// SetLevelConditions sets the LevelConditions field's value.
+func (s *UpdateRuleInput) SetLevelConditions(v []*LevelConditionForUpdateRuleInput) *UpdateRuleInput {
+	s.LevelConditions = v
+	return s
+}
+
 // SetMultipleConditions sets the MultipleConditions field's value.
 func (s *UpdateRuleInput) SetMultipleConditions(v bool) *UpdateRuleInput {
 	s.MultipleConditions = &v
@@ -672,6 +712,12 @@ func (s *UpdateRuleInput) SetNamespace(v string) *UpdateRuleInput {
 // SetNoData sets the NoData field's value.
 func (s *UpdateRuleInput) SetNoData(v *NoDataForUpdateRuleInput) *UpdateRuleInput {
 	s.NoData = v
+	return s
+}
+
+// SetNotificationId sets the NotificationId field's value.
+func (s *UpdateRuleInput) SetNotificationId(v string) *UpdateRuleInput {
+	s.NotificationId = &v
 	return s
 }
 
