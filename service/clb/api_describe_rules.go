@@ -144,6 +144,8 @@ type DescribeRulesInput struct {
 
 	// ListenerId is a required field
 	ListenerId *string `type:"string" required:"true"`
+
+	TagFilters []*TagFilterForDescribeRulesInput `type:"list"`
 }
 
 // String returns the string representation
@@ -172,6 +174,12 @@ func (s *DescribeRulesInput) Validate() error {
 // SetListenerId sets the ListenerId field's value.
 func (s *DescribeRulesInput) SetListenerId(v string) *DescribeRulesInput {
 	s.ListenerId = &v
+	return s
+}
+
+// SetTagFilters sets the TagFilters field's value.
+func (s *DescribeRulesInput) SetTagFilters(v []*TagFilterForDescribeRulesInput) *DescribeRulesInput {
+	s.TagFilters = v
 	return s
 }
 
@@ -276,6 +284,8 @@ type RuleForDescribeRulesOutput struct {
 
 	ServerGroupId *string `type:"string"`
 
+	Tags []*TagForDescribeRulesOutput `type:"list"`
+
 	Url *string `type:"string"`
 }
 
@@ -325,8 +335,74 @@ func (s *RuleForDescribeRulesOutput) SetServerGroupId(v string) *RuleForDescribe
 	return s
 }
 
+// SetTags sets the Tags field's value.
+func (s *RuleForDescribeRulesOutput) SetTags(v []*TagForDescribeRulesOutput) *RuleForDescribeRulesOutput {
+	s.Tags = v
+	return s
+}
+
 // SetUrl sets the Url field's value.
 func (s *RuleForDescribeRulesOutput) SetUrl(v string) *RuleForDescribeRulesOutput {
 	s.Url = &v
+	return s
+}
+
+type TagFilterForDescribeRulesInput struct {
+	_ struct{} `type:"structure"`
+
+	Key *string `type:"string"`
+
+	Values []*string `type:"list"`
+}
+
+// String returns the string representation
+func (s TagFilterForDescribeRulesInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagFilterForDescribeRulesInput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagFilterForDescribeRulesInput) SetKey(v string) *TagFilterForDescribeRulesInput {
+	s.Key = &v
+	return s
+}
+
+// SetValues sets the Values field's value.
+func (s *TagFilterForDescribeRulesInput) SetValues(v []*string) *TagFilterForDescribeRulesInput {
+	s.Values = v
+	return s
+}
+
+type TagForDescribeRulesOutput struct {
+	_ struct{} `type:"structure"`
+
+	Key *string `type:"string"`
+
+	Value *string `type:"string"`
+}
+
+// String returns the string representation
+func (s TagForDescribeRulesOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagForDescribeRulesOutput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagForDescribeRulesOutput) SetKey(v string) *TagForDescribeRulesOutput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *TagForDescribeRulesOutput) SetValue(v string) *TagForDescribeRulesOutput {
+	s.Value = &v
 	return s
 }

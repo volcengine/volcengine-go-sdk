@@ -282,6 +282,8 @@ type RuleForCreateRulesInput struct {
 
 	ServerGroupId *string `type:"string"`
 
+	Tags []*RulesTagForCreateRulesInput `type:"list"`
+
 	Url *string `type:"string"`
 }
 
@@ -325,8 +327,44 @@ func (s *RuleForCreateRulesInput) SetServerGroupId(v string) *RuleForCreateRules
 	return s
 }
 
+// SetTags sets the Tags field's value.
+func (s *RuleForCreateRulesInput) SetTags(v []*RulesTagForCreateRulesInput) *RuleForCreateRulesInput {
+	s.Tags = v
+	return s
+}
+
 // SetUrl sets the Url field's value.
 func (s *RuleForCreateRulesInput) SetUrl(v string) *RuleForCreateRulesInput {
 	s.Url = &v
+	return s
+}
+
+type RulesTagForCreateRulesInput struct {
+	_ struct{} `type:"structure"`
+
+	Key *string `type:"string"`
+
+	Value *string `type:"string"`
+}
+
+// String returns the string representation
+func (s RulesTagForCreateRulesInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s RulesTagForCreateRulesInput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *RulesTagForCreateRulesInput) SetKey(v string) *RulesTagForCreateRulesInput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *RulesTagForCreateRulesInput) SetValue(v string) *RulesTagForCreateRulesInput {
+	s.Value = &v
 	return s
 }

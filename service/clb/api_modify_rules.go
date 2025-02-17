@@ -147,8 +147,7 @@ type ModifyRulesInput struct {
 	// ListenerId is a required field
 	ListenerId *string `type:"string" required:"true"`
 
-	// Rules is a required field
-	Rules []*RuleForModifyRulesInput `type:"list" required:"true"`
+	Rules []*RuleForModifyRulesInput `type:"list"`
 }
 
 // String returns the string representation
@@ -166,9 +165,6 @@ func (s *ModifyRulesInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "ModifyRulesInput"}
 	if s.ListenerId == nil {
 		invalidParams.Add(request.NewErrParamRequired("ListenerId"))
-	}
-	if s.Rules == nil {
-		invalidParams.Add(request.NewErrParamRequired("Rules"))
 	}
 	if s.Rules != nil {
 		for i, v := range s.Rules {

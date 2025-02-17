@@ -349,4 +349,10 @@ const (
 
 	// ResourceTypeForListTagsForResourcesInputServergroup is a ResourceTypeForListTagsForResourcesInput enum value
 	ResourceTypeForListTagsForResourcesInputServergroup = "servergroup"
+
+	// ResourceTypeForListTagsForResourcesInputRule is a ResourceTypeForListTagsForResourcesInput enum value
+	ResourceTypeForListTagsForResourcesInputRule = "rule"
+
+	// ResourceTypeForListTagsForResourcesInputEc is a ResourceTypeForListTagsForResourcesInput enum value
+	ResourceTypeForListTagsForResourcesInputEc = "ec"
 )
