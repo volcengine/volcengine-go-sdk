@@ -148,6 +148,12 @@ type AutoSnapshotPolicyForDescribeAutoSnapshotPolicyOutput struct {
 
 	CreatedAt *string `type:"string"`
 
+	DestinationRegion *string `type:"string"`
+
+	DestinationRetentionDays *int32 `max:"65536" type:"int32"`
+
+	EnableCopy *bool `type:"boolean"`
+
 	ProjectName *string `type:"string"`
 
 	RepeatDays *int32 `type:"int32"`
@@ -157,6 +163,8 @@ type AutoSnapshotPolicyForDescribeAutoSnapshotPolicyOutput struct {
 	RetentionDays *int32 `type:"int32"`
 
 	Status *string `type:"string"`
+
+	Tags []*TagForDescribeAutoSnapshotPolicyOutput `type:"list"`
 
 	TimePoints []*string `type:"list"`
 
@@ -193,6 +201,24 @@ func (s *AutoSnapshotPolicyForDescribeAutoSnapshotPolicyOutput) SetCreatedAt(v s
 	return s
 }
 
+// SetDestinationRegion sets the DestinationRegion field's value.
+func (s *AutoSnapshotPolicyForDescribeAutoSnapshotPolicyOutput) SetDestinationRegion(v string) *AutoSnapshotPolicyForDescribeAutoSnapshotPolicyOutput {
+	s.DestinationRegion = &v
+	return s
+}
+
+// SetDestinationRetentionDays sets the DestinationRetentionDays field's value.
+func (s *AutoSnapshotPolicyForDescribeAutoSnapshotPolicyOutput) SetDestinationRetentionDays(v int32) *AutoSnapshotPolicyForDescribeAutoSnapshotPolicyOutput {
+	s.DestinationRetentionDays = &v
+	return s
+}
+
+// SetEnableCopy sets the EnableCopy field's value.
+func (s *AutoSnapshotPolicyForDescribeAutoSnapshotPolicyOutput) SetEnableCopy(v bool) *AutoSnapshotPolicyForDescribeAutoSnapshotPolicyOutput {
+	s.EnableCopy = &v
+	return s
+}
+
 // SetProjectName sets the ProjectName field's value.
 func (s *AutoSnapshotPolicyForDescribeAutoSnapshotPolicyOutput) SetProjectName(v string) *AutoSnapshotPolicyForDescribeAutoSnapshotPolicyOutput {
 	s.ProjectName = &v
@@ -223,6 +249,12 @@ func (s *AutoSnapshotPolicyForDescribeAutoSnapshotPolicyOutput) SetStatus(v stri
 	return s
 }
 
+// SetTags sets the Tags field's value.
+func (s *AutoSnapshotPolicyForDescribeAutoSnapshotPolicyOutput) SetTags(v []*TagForDescribeAutoSnapshotPolicyOutput) *AutoSnapshotPolicyForDescribeAutoSnapshotPolicyOutput {
+	s.Tags = v
+	return s
+}
+
 // SetTimePoints sets the TimePoints field's value.
 func (s *AutoSnapshotPolicyForDescribeAutoSnapshotPolicyOutput) SetTimePoints(v []*string) *AutoSnapshotPolicyForDescribeAutoSnapshotPolicyOutput {
 	s.TimePoints = v
@@ -248,7 +280,7 @@ type DescribeAutoSnapshotPolicyInput struct {
 
 	PageNumber *int32 `type:"int32"`
 
-	PageSize *int32 `type:"int32"`
+	PageSize *int32 `max:"100" type:"int32"`
 
 	ProjectName *string `type:"string"`
 }
@@ -261,6 +293,19 @@ func (s DescribeAutoSnapshotPolicyInput) String() string {
 // GoString returns the string representation
 func (s DescribeAutoSnapshotPolicyInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DescribeAutoSnapshotPolicyInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DescribeAutoSnapshotPolicyInput"}
+	if s.PageSize != nil && *s.PageSize > 100 {
+		invalidParams.Add(request.NewErrParamMaxValue("PageSize", 100))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetAutoSnapshotPolicyIds sets the AutoSnapshotPolicyIds field's value.
@@ -332,5 +377,35 @@ func (s *DescribeAutoSnapshotPolicyOutput) SetPageSize(v int32) *DescribeAutoSna
 // SetTotalCount sets the TotalCount field's value.
 func (s *DescribeAutoSnapshotPolicyOutput) SetTotalCount(v int32) *DescribeAutoSnapshotPolicyOutput {
 	s.TotalCount = &v
+	return s
+}
+
+type TagForDescribeAutoSnapshotPolicyOutput struct {
+	_ struct{} `type:"structure"`
+
+	Key *string `type:"string"`
+
+	Value *string `type:"string"`
+}
+
+// String returns the string representation
+func (s TagForDescribeAutoSnapshotPolicyOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagForDescribeAutoSnapshotPolicyOutput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagForDescribeAutoSnapshotPolicyOutput) SetKey(v string) *TagForDescribeAutoSnapshotPolicyOutput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *TagForDescribeAutoSnapshotPolicyOutput) SetValue(v string) *TagForDescribeAutoSnapshotPolicyOutput {
+	s.Value = &v
 	return s
 }

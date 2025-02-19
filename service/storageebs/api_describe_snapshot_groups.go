@@ -148,7 +148,7 @@ type DescribeSnapshotGroupsInput struct {
 
 	PageNumber *int32 `type:"int32"`
 
-	PageSize *int32 `type:"int32"`
+	PageSize *int32 `max:"100" type:"int32"`
 
 	ProjectName *string `type:"string"`
 
@@ -165,6 +165,19 @@ func (s DescribeSnapshotGroupsInput) String() string {
 // GoString returns the string representation
 func (s DescribeSnapshotGroupsInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DescribeSnapshotGroupsInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DescribeSnapshotGroupsInput"}
+	if s.PageSize != nil && *s.PageSize > 100 {
+		invalidParams.Add(request.NewErrParamMaxValue("PageSize", 100))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetInstanceId sets the InstanceId field's value.
@@ -272,6 +285,8 @@ type SnapshotForDescribeSnapshotGroupsOutput struct {
 
 	RetentionDays *int32 `type:"int32"`
 
+	Shared *bool `type:"boolean"`
+
 	SnapshotGroupId *string `type:"string"`
 
 	SnapshotId *string `type:"string"`
@@ -342,6 +357,12 @@ func (s *SnapshotForDescribeSnapshotGroupsOutput) SetProjectName(v string) *Snap
 // SetRetentionDays sets the RetentionDays field's value.
 func (s *SnapshotForDescribeSnapshotGroupsOutput) SetRetentionDays(v int32) *SnapshotForDescribeSnapshotGroupsOutput {
 	s.RetentionDays = &v
+	return s
+}
+
+// SetShared sets the Shared field's value.
+func (s *SnapshotForDescribeSnapshotGroupsOutput) SetShared(v bool) *SnapshotForDescribeSnapshotGroupsOutput {
+	s.Shared = &v
 	return s
 }
 

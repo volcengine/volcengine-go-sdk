@@ -46,6 +46,14 @@ type STORAGEEBSAPI interface {
 	AttachVolumeWithContext(volcengine.Context, *AttachVolumeInput, ...request.Option) (*AttachVolumeOutput, error)
 	AttachVolumeRequest(*AttachVolumeInput) (*request.Request, *AttachVolumeOutput)
 
+	AutoRenewReservedStorageCapacityCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	AutoRenewReservedStorageCapacityCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	AutoRenewReservedStorageCapacityCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	AutoRenewReservedStorageCapacity(*AutoRenewReservedStorageCapacityInput) (*AutoRenewReservedStorageCapacityOutput, error)
+	AutoRenewReservedStorageCapacityWithContext(volcengine.Context, *AutoRenewReservedStorageCapacityInput, ...request.Option) (*AutoRenewReservedStorageCapacityOutput, error)
+	AutoRenewReservedStorageCapacityRequest(*AutoRenewReservedStorageCapacityInput) (*request.Request, *AutoRenewReservedStorageCapacityOutput)
+
 	CancelAutoSnapshotPolicyCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	CancelAutoSnapshotPolicyCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	CancelAutoSnapshotPolicyCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -158,6 +166,14 @@ type STORAGEEBSAPI interface {
 	DescribeReservedStorageCapacityWithContext(volcengine.Context, *DescribeReservedStorageCapacityInput, ...request.Option) (*DescribeReservedStorageCapacityOutput, error)
 	DescribeReservedStorageCapacityRequest(*DescribeReservedStorageCapacityInput) (*request.Request, *DescribeReservedStorageCapacityOutput)
 
+	DescribeSnapshotChainsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeSnapshotChainsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeSnapshotChainsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeSnapshotChains(*DescribeSnapshotChainsInput) (*DescribeSnapshotChainsOutput, error)
+	DescribeSnapshotChainsWithContext(volcengine.Context, *DescribeSnapshotChainsInput, ...request.Option) (*DescribeSnapshotChainsOutput, error)
+	DescribeSnapshotChainsRequest(*DescribeSnapshotChainsInput) (*request.Request, *DescribeSnapshotChainsOutput)
+
 	DescribeSnapshotGroupsCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DescribeSnapshotGroupsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DescribeSnapshotGroupsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -221,6 +237,14 @@ type STORAGEEBSAPI interface {
 	ExtendVolume(*ExtendVolumeInput) (*ExtendVolumeOutput, error)
 	ExtendVolumeWithContext(volcengine.Context, *ExtendVolumeInput, ...request.Option) (*ExtendVolumeOutput, error)
 	ExtendVolumeRequest(*ExtendVolumeInput) (*request.Request, *ExtendVolumeOutput)
+
+	ManualRenewReservedStorageCapacityCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ManualRenewReservedStorageCapacityCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ManualRenewReservedStorageCapacityCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ManualRenewReservedStorageCapacity(*ManualRenewReservedStorageCapacityInput) (*ManualRenewReservedStorageCapacityOutput, error)
+	ManualRenewReservedStorageCapacityWithContext(volcengine.Context, *ManualRenewReservedStorageCapacityInput, ...request.Option) (*ManualRenewReservedStorageCapacityOutput, error)
+	ManualRenewReservedStorageCapacityRequest(*ManualRenewReservedStorageCapacityInput) (*request.Request, *ManualRenewReservedStorageCapacityOutput)
 
 	ModifyAutoSnapshotPolicyCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ModifyAutoSnapshotPolicyCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -301,6 +325,14 @@ type STORAGEEBSAPI interface {
 	RollbackVolume(*RollbackVolumeInput) (*RollbackVolumeOutput, error)
 	RollbackVolumeWithContext(volcengine.Context, *RollbackVolumeInput, ...request.Option) (*RollbackVolumeOutput, error)
 	RollbackVolumeRequest(*RollbackVolumeInput) (*request.Request, *RollbackVolumeOutput)
+
+	ServicePurchaseRscPreorderCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ServicePurchaseRscPreorderCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ServicePurchaseRscPreorderCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ServicePurchaseRscPreorder(*ServicePurchaseRscPreorderInput) (*ServicePurchaseRscPreorderOutput, error)
+	ServicePurchaseRscPreorderWithContext(volcengine.Context, *ServicePurchaseRscPreorderInput, ...request.Option) (*ServicePurchaseRscPreorderOutput, error)
+	ServicePurchaseRscPreorderRequest(*ServicePurchaseRscPreorderInput) (*request.Request, *ServicePurchaseRscPreorderOutput)
 }
 
 var _ STORAGEEBSAPI = (*STORAGEEBS)(nil)
