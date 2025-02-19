@@ -420,6 +420,8 @@ type ItemForListClustersOutput struct {
 
 	PodsConfig *PodsConfigForListClustersOutput `type:"structure" json:",omitempty"`
 
+	ProjectName *string `type:"string" json:",omitempty"`
+
 	ServicesConfig *ServicesConfigForListClustersOutput `type:"structure" json:",omitempty"`
 
 	Status *StatusForListClustersOutput `type:"structure" json:",omitempty"`
@@ -504,6 +506,12 @@ func (s *ItemForListClustersOutput) SetNodeStatistics(v *NodeStatisticsForListCl
 // SetPodsConfig sets the PodsConfig field's value.
 func (s *ItemForListClustersOutput) SetPodsConfig(v *PodsConfigForListClustersOutput) *ItemForListClustersOutput {
 	s.PodsConfig = v
+	return s
+}
+
+// SetProjectName sets the ProjectName field's value.
+func (s *ItemForListClustersOutput) SetProjectName(v string) *ItemForListClustersOutput {
+	s.ProjectName = &v
 	return s
 }
 
