@@ -147,6 +147,12 @@ type ModifyAutoSnapshotPolicyInput struct {
 
 	AutoSnapshotPolicyName *string `type:"string"`
 
+	DestinationRegion *string `type:"string"`
+
+	DestinationRetentionDays *int32 `max:"65536" type:"int32"`
+
+	EnableCopy *bool `type:"boolean"`
+
 	RepeatDays *int32 `type:"int32"`
 
 	RepeatWeekdays []*string `type:"list"`
@@ -172,6 +178,12 @@ func (s *ModifyAutoSnapshotPolicyInput) Validate() error {
 	if s.AutoSnapshotPolicyId == nil {
 		invalidParams.Add(request.NewErrParamRequired("AutoSnapshotPolicyId"))
 	}
+	if s.DestinationRetentionDays != nil && *s.DestinationRetentionDays < -1 {
+		invalidParams.Add(request.NewErrParamMinValue("DestinationRetentionDays", -1))
+	}
+	if s.DestinationRetentionDays != nil && *s.DestinationRetentionDays > 65536 {
+		invalidParams.Add(request.NewErrParamMaxValue("DestinationRetentionDays", 65536))
+	}
 
 	if invalidParams.Len() > 0 {
 		return invalidParams
@@ -188,6 +200,24 @@ func (s *ModifyAutoSnapshotPolicyInput) SetAutoSnapshotPolicyId(v string) *Modif
 // SetAutoSnapshotPolicyName sets the AutoSnapshotPolicyName field's value.
 func (s *ModifyAutoSnapshotPolicyInput) SetAutoSnapshotPolicyName(v string) *ModifyAutoSnapshotPolicyInput {
 	s.AutoSnapshotPolicyName = &v
+	return s
+}
+
+// SetDestinationRegion sets the DestinationRegion field's value.
+func (s *ModifyAutoSnapshotPolicyInput) SetDestinationRegion(v string) *ModifyAutoSnapshotPolicyInput {
+	s.DestinationRegion = &v
+	return s
+}
+
+// SetDestinationRetentionDays sets the DestinationRetentionDays field's value.
+func (s *ModifyAutoSnapshotPolicyInput) SetDestinationRetentionDays(v int32) *ModifyAutoSnapshotPolicyInput {
+	s.DestinationRetentionDays = &v
+	return s
+}
+
+// SetEnableCopy sets the EnableCopy field's value.
+func (s *ModifyAutoSnapshotPolicyInput) SetEnableCopy(v bool) *ModifyAutoSnapshotPolicyInput {
+	s.EnableCopy = &v
 	return s
 }
 

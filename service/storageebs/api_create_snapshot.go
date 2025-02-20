@@ -148,6 +148,8 @@ type CreateSnapshotInput struct {
 
 	ProjectName *string `type:"string"`
 
+	RetentionDays *int32 `type:"int32"`
+
 	// SnapshotName is a required field
 	SnapshotName *string `type:"string" required:"true"`
 
@@ -198,6 +200,12 @@ func (s *CreateSnapshotInput) SetDescription(v string) *CreateSnapshotInput {
 // SetProjectName sets the ProjectName field's value.
 func (s *CreateSnapshotInput) SetProjectName(v string) *CreateSnapshotInput {
 	s.ProjectName = &v
+	return s
+}
+
+// SetRetentionDays sets the RetentionDays field's value.
+func (s *CreateSnapshotInput) SetRetentionDays(v int32) *CreateSnapshotInput {
+	s.RetentionDays = &v
 	return s
 }
 

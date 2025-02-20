@@ -146,7 +146,7 @@ type DescribeSnapshotsInput struct {
 
 	PageNumber *int32 `type:"int32"`
 
-	PageSize *int32 `type:"int32"`
+	PageSize *int32 `max:"100" type:"int32"`
 
 	ProjectName *string `type:"string"`
 
@@ -155,6 +155,8 @@ type DescribeSnapshotsInput struct {
 	SnapshotName *string `type:"string"`
 
 	SnapshotStatus []*string `type:"list"`
+
+	SnapshotTypes []*string `type:"list"`
 
 	VolumeId *string `type:"string"`
 
@@ -169,6 +171,19 @@ func (s DescribeSnapshotsInput) String() string {
 // GoString returns the string representation
 func (s DescribeSnapshotsInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DescribeSnapshotsInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DescribeSnapshotsInput"}
+	if s.PageSize != nil && *s.PageSize > 100 {
+		invalidParams.Add(request.NewErrParamMaxValue("PageSize", 100))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetFilter sets the Filter field's value.
@@ -210,6 +225,12 @@ func (s *DescribeSnapshotsInput) SetSnapshotName(v string) *DescribeSnapshotsInp
 // SetSnapshotStatus sets the SnapshotStatus field's value.
 func (s *DescribeSnapshotsInput) SetSnapshotStatus(v []*string) *DescribeSnapshotsInput {
 	s.SnapshotStatus = v
+	return s
+}
+
+// SetSnapshotTypes sets the SnapshotTypes field's value.
+func (s *DescribeSnapshotsInput) SetSnapshotTypes(v []*string) *DescribeSnapshotsInput {
+	s.SnapshotTypes = v
 	return s
 }
 
@@ -318,6 +339,8 @@ type SnapshotForDescribeSnapshotsOutput struct {
 
 	RetentionDays *int32 `type:"int32"`
 
+	Shared *bool `type:"boolean"`
+
 	SnapshotGroupId *string `type:"string"`
 
 	SnapshotId *string `type:"string"`
@@ -388,6 +411,12 @@ func (s *SnapshotForDescribeSnapshotsOutput) SetProjectName(v string) *SnapshotF
 // SetRetentionDays sets the RetentionDays field's value.
 func (s *SnapshotForDescribeSnapshotsOutput) SetRetentionDays(v int32) *SnapshotForDescribeSnapshotsOutput {
 	s.RetentionDays = &v
+	return s
+}
+
+// SetShared sets the Shared field's value.
+func (s *SnapshotForDescribeSnapshotsOutput) SetShared(v bool) *SnapshotForDescribeSnapshotsOutput {
+	s.Shared = &v
 	return s
 }
 

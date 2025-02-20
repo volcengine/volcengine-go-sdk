@@ -144,9 +144,13 @@ type PurchaseReservedStorageCapacityInput struct {
 
 	ClientToken *string `type:"string"`
 
+	EffectiveAt *string `type:"string"`
+
 	Period *int32 `type:"int32"`
 
 	PeriodUnit *string `type:"string"`
+
+	RSCAutoRenew *bool `type:"boolean"`
 
 	ReservedCapacity *int32 `type:"int32"`
 
@@ -173,6 +177,12 @@ func (s *PurchaseReservedStorageCapacityInput) SetClientToken(v string) *Purchas
 	return s
 }
 
+// SetEffectiveAt sets the EffectiveAt field's value.
+func (s *PurchaseReservedStorageCapacityInput) SetEffectiveAt(v string) *PurchaseReservedStorageCapacityInput {
+	s.EffectiveAt = &v
+	return s
+}
+
 // SetPeriod sets the Period field's value.
 func (s *PurchaseReservedStorageCapacityInput) SetPeriod(v int32) *PurchaseReservedStorageCapacityInput {
 	s.Period = &v
@@ -182,6 +192,12 @@ func (s *PurchaseReservedStorageCapacityInput) SetPeriod(v int32) *PurchaseReser
 // SetPeriodUnit sets the PeriodUnit field's value.
 func (s *PurchaseReservedStorageCapacityInput) SetPeriodUnit(v string) *PurchaseReservedStorageCapacityInput {
 	s.PeriodUnit = &v
+	return s
+}
+
+// SetRSCAutoRenew sets the RSCAutoRenew field's value.
+func (s *PurchaseReservedStorageCapacityInput) SetRSCAutoRenew(v bool) *PurchaseReservedStorageCapacityInput {
+	s.RSCAutoRenew = &v
 	return s
 }
 
