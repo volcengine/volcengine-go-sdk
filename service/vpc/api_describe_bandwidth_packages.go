@@ -170,6 +170,8 @@ type BandwidthPackageForDescribeBandwidthPackagesOutput struct {
 
 	Protocol *string `type:"string"`
 
+	Ratio *int64 `type:"integer"`
+
 	SecurityProtectionTypes []*string `type:"list"`
 
 	Status *string `type:"string"`
@@ -270,6 +272,12 @@ func (s *BandwidthPackageForDescribeBandwidthPackagesOutput) SetProjectName(v st
 // SetProtocol sets the Protocol field's value.
 func (s *BandwidthPackageForDescribeBandwidthPackagesOutput) SetProtocol(v string) *BandwidthPackageForDescribeBandwidthPackagesOutput {
 	s.Protocol = &v
+	return s
+}
+
+// SetRatio sets the Ratio field's value.
+func (s *BandwidthPackageForDescribeBandwidthPackagesOutput) SetRatio(v int64) *BandwidthPackageForDescribeBandwidthPackagesOutput {
+	s.Ratio = &v
 	return s
 }
 
@@ -607,6 +615,9 @@ const (
 const (
 	// ProtocolForDescribeBandwidthPackagesInputIpv4 is a ProtocolForDescribeBandwidthPackagesInput enum value
 	ProtocolForDescribeBandwidthPackagesInputIpv4 = "IPv4"
+
+	// ProtocolForDescribeBandwidthPackagesInputDualStack is a ProtocolForDescribeBandwidthPackagesInput enum value
+	ProtocolForDescribeBandwidthPackagesInputDualStack = "Dual-stack"
 
 	// ProtocolForDescribeBandwidthPackagesInputIpv6 is a ProtocolForDescribeBandwidthPackagesInput enum value
 	ProtocolForDescribeBandwidthPackagesInputIpv6 = "IPv6"

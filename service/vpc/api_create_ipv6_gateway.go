@@ -148,6 +148,8 @@ type CreateIpv6GatewayInput struct {
 
 	Name *string `type:"string"`
 
+	ProjectName *string `type:"string"`
+
 	// VpcId is a required field
 	VpcId *string `type:"string" required:"true"`
 }
@@ -190,6 +192,12 @@ func (s *CreateIpv6GatewayInput) SetDescription(v string) *CreateIpv6GatewayInpu
 // SetName sets the Name field's value.
 func (s *CreateIpv6GatewayInput) SetName(v string) *CreateIpv6GatewayInput {
 	s.Name = &v
+	return s
+}
+
+// SetProjectName sets the ProjectName field's value.
+func (s *CreateIpv6GatewayInput) SetProjectName(v string) *CreateIpv6GatewayInput {
+	s.ProjectName = &v
 	return s
 }
 

@@ -204,7 +204,7 @@ type DescribeIpAddressPoolCidrBlocksOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	IpAddressPooCidrBlocks []*IpAddressPooCidrBlockForDescribeIpAddressPoolCidrBlocksOutput `type:"list"`
+	IpAddressPoolCidrBlocks []*IpAddressPoolCidrBlockForDescribeIpAddressPoolCidrBlocksOutput `type:"list"`
 
 	NextToken *string `type:"string"`
 
@@ -221,9 +221,9 @@ func (s DescribeIpAddressPoolCidrBlocksOutput) GoString() string {
 	return s.String()
 }
 
-// SetIpAddressPooCidrBlocks sets the IpAddressPooCidrBlocks field's value.
-func (s *DescribeIpAddressPoolCidrBlocksOutput) SetIpAddressPooCidrBlocks(v []*IpAddressPooCidrBlockForDescribeIpAddressPoolCidrBlocksOutput) *DescribeIpAddressPoolCidrBlocksOutput {
-	s.IpAddressPooCidrBlocks = v
+// SetIpAddressPoolCidrBlocks sets the IpAddressPoolCidrBlocks field's value.
+func (s *DescribeIpAddressPoolCidrBlocksOutput) SetIpAddressPoolCidrBlocks(v []*IpAddressPoolCidrBlockForDescribeIpAddressPoolCidrBlocksOutput) *DescribeIpAddressPoolCidrBlocksOutput {
+	s.IpAddressPoolCidrBlocks = v
 	return s
 }
 
@@ -239,7 +239,7 @@ func (s *DescribeIpAddressPoolCidrBlocksOutput) SetRequestId(v string) *Describe
 	return s
 }
 
-type IpAddressPooCidrBlockForDescribeIpAddressPoolCidrBlocksOutput struct {
+type IpAddressPoolCidrBlockForDescribeIpAddressPoolCidrBlocksOutput struct {
 	_ struct{} `type:"structure"`
 
 	CidrBlock *string `type:"string"`
@@ -254,41 +254,41 @@ type IpAddressPooCidrBlockForDescribeIpAddressPoolCidrBlocksOutput struct {
 }
 
 // String returns the string representation
-func (s IpAddressPooCidrBlockForDescribeIpAddressPoolCidrBlocksOutput) String() string {
+func (s IpAddressPoolCidrBlockForDescribeIpAddressPoolCidrBlocksOutput) String() string {
 	return volcengineutil.Prettify(s)
 }
 
 // GoString returns the string representation
-func (s IpAddressPooCidrBlockForDescribeIpAddressPoolCidrBlocksOutput) GoString() string {
+func (s IpAddressPoolCidrBlockForDescribeIpAddressPoolCidrBlocksOutput) GoString() string {
 	return s.String()
 }
 
 // SetCidrBlock sets the CidrBlock field's value.
-func (s *IpAddressPooCidrBlockForDescribeIpAddressPoolCidrBlocksOutput) SetCidrBlock(v string) *IpAddressPooCidrBlockForDescribeIpAddressPoolCidrBlocksOutput {
+func (s *IpAddressPoolCidrBlockForDescribeIpAddressPoolCidrBlocksOutput) SetCidrBlock(v string) *IpAddressPoolCidrBlockForDescribeIpAddressPoolCidrBlocksOutput {
 	s.CidrBlock = &v
 	return s
 }
 
 // SetCreationTime sets the CreationTime field's value.
-func (s *IpAddressPooCidrBlockForDescribeIpAddressPoolCidrBlocksOutput) SetCreationTime(v string) *IpAddressPooCidrBlockForDescribeIpAddressPoolCidrBlocksOutput {
+func (s *IpAddressPoolCidrBlockForDescribeIpAddressPoolCidrBlocksOutput) SetCreationTime(v string) *IpAddressPoolCidrBlockForDescribeIpAddressPoolCidrBlocksOutput {
 	s.CreationTime = &v
 	return s
 }
 
 // SetStatus sets the Status field's value.
-func (s *IpAddressPooCidrBlockForDescribeIpAddressPoolCidrBlocksOutput) SetStatus(v string) *IpAddressPooCidrBlockForDescribeIpAddressPoolCidrBlocksOutput {
+func (s *IpAddressPoolCidrBlockForDescribeIpAddressPoolCidrBlocksOutput) SetStatus(v string) *IpAddressPoolCidrBlockForDescribeIpAddressPoolCidrBlocksOutput {
 	s.Status = &v
 	return s
 }
 
 // SetTotalIpCount sets the TotalIpCount field's value.
-func (s *IpAddressPooCidrBlockForDescribeIpAddressPoolCidrBlocksOutput) SetTotalIpCount(v int64) *IpAddressPooCidrBlockForDescribeIpAddressPoolCidrBlocksOutput {
+func (s *IpAddressPoolCidrBlockForDescribeIpAddressPoolCidrBlocksOutput) SetTotalIpCount(v int64) *IpAddressPoolCidrBlockForDescribeIpAddressPoolCidrBlocksOutput {
 	s.TotalIpCount = &v
 	return s
 }
 
 // SetUsedIpCount sets the UsedIpCount field's value.
-func (s *IpAddressPooCidrBlockForDescribeIpAddressPoolCidrBlocksOutput) SetUsedIpCount(v int64) *IpAddressPooCidrBlockForDescribeIpAddressPoolCidrBlocksOutput {
+func (s *IpAddressPoolCidrBlockForDescribeIpAddressPoolCidrBlocksOutput) SetUsedIpCount(v int64) *IpAddressPoolCidrBlockForDescribeIpAddressPoolCidrBlocksOutput {
 	s.UsedIpCount = &v
 	return s
 }
