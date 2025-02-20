@@ -386,6 +386,10 @@ type ListenerForDescribeListenersOutput struct {
 
 	Bandwidth *int64 `type:"integer"`
 
+	CACertificateId *string `type:"string"`
+
+	CAEnabled *string `type:"string"`
+
 	CertCenterCertificateId *string `type:"string"`
 
 	CertificateId *string `type:"string"`
@@ -453,6 +457,8 @@ type ListenerForDescribeListenersOutput struct {
 	Tags []*TagForDescribeListenersOutput `type:"list"`
 
 	UpdateTime *string `type:"string"`
+
+	WafProtectionEnabled *string `type:"string"`
 }
 
 // String returns the string representation
@@ -486,6 +492,18 @@ func (s *ListenerForDescribeListenersOutput) SetAclType(v string) *ListenerForDe
 // SetBandwidth sets the Bandwidth field's value.
 func (s *ListenerForDescribeListenersOutput) SetBandwidth(v int64) *ListenerForDescribeListenersOutput {
 	s.Bandwidth = &v
+	return s
+}
+
+// SetCACertificateId sets the CACertificateId field's value.
+func (s *ListenerForDescribeListenersOutput) SetCACertificateId(v string) *ListenerForDescribeListenersOutput {
+	s.CACertificateId = &v
+	return s
+}
+
+// SetCAEnabled sets the CAEnabled field's value.
+func (s *ListenerForDescribeListenersOutput) SetCAEnabled(v string) *ListenerForDescribeListenersOutput {
+	s.CAEnabled = &v
 	return s
 }
 
@@ -690,6 +708,12 @@ func (s *ListenerForDescribeListenersOutput) SetTags(v []*TagForDescribeListener
 // SetUpdateTime sets the UpdateTime field's value.
 func (s *ListenerForDescribeListenersOutput) SetUpdateTime(v string) *ListenerForDescribeListenersOutput {
 	s.UpdateTime = &v
+	return s
+}
+
+// SetWafProtectionEnabled sets the WafProtectionEnabled field's value.
+func (s *ListenerForDescribeListenersOutput) SetWafProtectionEnabled(v string) *ListenerForDescribeListenersOutput {
+	s.WafProtectionEnabled = &v
 	return s
 }
 

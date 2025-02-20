@@ -260,6 +260,10 @@ type ModifyListenerAttributesInput struct {
 
 	Bandwidth *int64 `type:"integer"`
 
+	CACertificateId *string `type:"string"`
+
+	CAEnabled *string `type:"string"`
+
 	CertCenterCertificateId *string `type:"string"`
 
 	CertificateId *string `type:"string"`
@@ -358,6 +362,18 @@ func (s *ModifyListenerAttributesInput) SetAclType(v string) *ModifyListenerAttr
 // SetBandwidth sets the Bandwidth field's value.
 func (s *ModifyListenerAttributesInput) SetBandwidth(v int64) *ModifyListenerAttributesInput {
 	s.Bandwidth = &v
+	return s
+}
+
+// SetCACertificateId sets the CACertificateId field's value.
+func (s *ModifyListenerAttributesInput) SetCACertificateId(v string) *ModifyListenerAttributesInput {
+	s.CACertificateId = &v
+	return s
+}
+
+// SetCAEnabled sets the CAEnabled field's value.
+func (s *ModifyListenerAttributesInput) SetCAEnabled(v string) *ModifyListenerAttributesInput {
+	s.CAEnabled = &v
 	return s
 }
 

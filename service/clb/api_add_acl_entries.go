@@ -188,8 +188,7 @@ func (s *AclEntryForAddAclEntriesInput) SetEntry(v string) *AclEntryForAddAclEnt
 type AddAclEntriesInput struct {
 	_ struct{} `type:"structure"`
 
-	// AclEntries is a required field
-	AclEntries []*AclEntryForAddAclEntriesInput `type:"list" required:"true"`
+	AclEntries []*AclEntryForAddAclEntriesInput `type:"list"`
 
 	// AclId is a required field
 	AclId *string `type:"string" required:"true"`
@@ -208,9 +207,6 @@ func (s AddAclEntriesInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *AddAclEntriesInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "AddAclEntriesInput"}
-	if s.AclEntries == nil {
-		invalidParams.Add(request.NewErrParamRequired("AclEntries"))
-	}
 	if s.AclId == nil {
 		invalidParams.Add(request.NewErrParamRequired("AclId"))
 	}
