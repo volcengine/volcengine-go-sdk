@@ -118,6 +118,14 @@ type VKEAPI interface {
 	DeleteNodesWithContext(volcengine.Context, *DeleteNodesInput, ...request.Option) (*DeleteNodesOutput, error)
 	DeleteNodesRequest(*DeleteNodesInput) (*request.Request, *DeleteNodesOutput)
 
+	ExecContainerImageCommitmentCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ExecContainerImageCommitmentCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ExecContainerImageCommitmentCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ExecContainerImageCommitment(*ExecContainerImageCommitmentInput) (*ExecContainerImageCommitmentOutput, error)
+	ExecContainerImageCommitmentWithContext(volcengine.Context, *ExecContainerImageCommitmentInput, ...request.Option) (*ExecContainerImageCommitmentOutput, error)
+	ExecContainerImageCommitmentRequest(*ExecContainerImageCommitmentInput) (*request.Request, *ExecContainerImageCommitmentOutput)
+
 	ForwardKubernetesApiCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ForwardKubernetesApiCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	ForwardKubernetesApiCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
