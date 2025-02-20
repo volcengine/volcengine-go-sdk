@@ -142,6 +142,8 @@ func (c *CLB) DeleteLoadBalancerWithContext(ctx volcengine.Context, input *Delet
 type DeleteLoadBalancerInput struct {
 	_ struct{} `type:"structure"`
 
+	ForceDelete *bool `type:"boolean"`
+
 	// LoadBalancerId is a required field
 	LoadBalancerId *string `type:"string" required:"true"`
 }
@@ -167,6 +169,12 @@ func (s *DeleteLoadBalancerInput) Validate() error {
 		return invalidParams
 	}
 	return nil
+}
+
+// SetForceDelete sets the ForceDelete field's value.
+func (s *DeleteLoadBalancerInput) SetForceDelete(v bool) *DeleteLoadBalancerInput {
+	s.ForceDelete = &v
+	return s
 }
 
 // SetLoadBalancerId sets the LoadBalancerId field's value.

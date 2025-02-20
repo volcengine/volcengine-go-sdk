@@ -238,4 +238,10 @@ const (
 
 	// ResourceTypeForUntagResourcesInputServergroup is a ResourceTypeForUntagResourcesInput enum value
 	ResourceTypeForUntagResourcesInputServergroup = "servergroup"
+
+	// ResourceTypeForUntagResourcesInputRule is a ResourceTypeForUntagResourcesInput enum value
+	ResourceTypeForUntagResourcesInputRule = "rule"
+
+	// ResourceTypeForUntagResourcesInputEc is a ResourceTypeForUntagResourcesInput enum value
+	ResourceTypeForUntagResourcesInputEc = "ec"
 )

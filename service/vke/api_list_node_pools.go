@@ -740,6 +740,8 @@ type NodeConfigForListNodePoolsOutput struct {
 
 	Period *int32 `type:"int32" json:",omitempty"`
 
+	ProjectName *string `type:"string" json:",omitempty"`
+
 	Security *SecurityForListNodePoolsOutput `type:"structure" json:",omitempty"`
 
 	SubnetIds []*string `type:"list" json:",omitempty"`
@@ -822,6 +824,12 @@ func (s *NodeConfigForListNodePoolsOutput) SetNamePrefix(v string) *NodeConfigFo
 // SetPeriod sets the Period field's value.
 func (s *NodeConfigForListNodePoolsOutput) SetPeriod(v int32) *NodeConfigForListNodePoolsOutput {
 	s.Period = &v
+	return s
+}
+
+// SetProjectName sets the ProjectName field's value.
+func (s *NodeConfigForListNodePoolsOutput) SetProjectName(v string) *NodeConfigForListNodePoolsOutput {
+	s.ProjectName = &v
 	return s
 }
 

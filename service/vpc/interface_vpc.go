@@ -190,6 +190,14 @@ type VPCAPI interface {
 	CreateHaVipWithContext(volcengine.Context, *CreateHaVipInput, ...request.Option) (*CreateHaVipOutput, error)
 	CreateHaVipRequest(*CreateHaVipInput) (*request.Request, *CreateHaVipOutput)
 
+	CreateInstanceGroupCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateInstanceGroupCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateInstanceGroupCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateInstanceGroup(*CreateInstanceGroupInput) (*CreateInstanceGroupOutput, error)
+	CreateInstanceGroupWithContext(volcengine.Context, *CreateInstanceGroupInput, ...request.Option) (*CreateInstanceGroupOutput, error)
+	CreateInstanceGroupRequest(*CreateInstanceGroupInput) (*request.Request, *CreateInstanceGroupOutput)
+
 	CreateIpAddressPoolCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	CreateIpAddressPoolCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	CreateIpAddressPoolCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -341,6 +349,14 @@ type VPCAPI interface {
 	DeleteHaVip(*DeleteHaVipInput) (*DeleteHaVipOutput, error)
 	DeleteHaVipWithContext(volcengine.Context, *DeleteHaVipInput, ...request.Option) (*DeleteHaVipOutput, error)
 	DeleteHaVipRequest(*DeleteHaVipInput) (*request.Request, *DeleteHaVipOutput)
+
+	DeleteInstanceGroupCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeleteInstanceGroupCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeleteInstanceGroupCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeleteInstanceGroup(*DeleteInstanceGroupInput) (*DeleteInstanceGroupOutput, error)
+	DeleteInstanceGroupWithContext(volcengine.Context, *DeleteInstanceGroupInput, ...request.Option) (*DeleteInstanceGroupOutput, error)
+	DeleteInstanceGroupRequest(*DeleteInstanceGroupInput) (*request.Request, *DeleteInstanceGroupOutput)
 
 	DeleteIpAddressPoolCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DeleteIpAddressPoolCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -509,6 +525,14 @@ type VPCAPI interface {
 	DescribeHaVips(*DescribeHaVipsInput) (*DescribeHaVipsOutput, error)
 	DescribeHaVipsWithContext(volcengine.Context, *DescribeHaVipsInput, ...request.Option) (*DescribeHaVipsOutput, error)
 	DescribeHaVipsRequest(*DescribeHaVipsInput) (*request.Request, *DescribeHaVipsOutput)
+
+	DescribeInstanceGroupsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeInstanceGroupsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeInstanceGroupsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeInstanceGroups(*DescribeInstanceGroupsInput) (*DescribeInstanceGroupsOutput, error)
+	DescribeInstanceGroupsWithContext(volcengine.Context, *DescribeInstanceGroupsInput, ...request.Option) (*DescribeInstanceGroupsOutput, error)
+	DescribeInstanceGroupsRequest(*DescribeInstanceGroupsInput) (*request.Request, *DescribeInstanceGroupsOutput)
 
 	DescribeIpAddressPoolAttributesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DescribeIpAddressPoolAttributesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -821,6 +845,22 @@ type VPCAPI interface {
 	ModifyHaVipAttributes(*ModifyHaVipAttributesInput) (*ModifyHaVipAttributesOutput, error)
 	ModifyHaVipAttributesWithContext(volcengine.Context, *ModifyHaVipAttributesInput, ...request.Option) (*ModifyHaVipAttributesOutput, error)
 	ModifyHaVipAttributesRequest(*ModifyHaVipAttributesInput) (*request.Request, *ModifyHaVipAttributesOutput)
+
+	ModifyInstanceGroupAttributesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ModifyInstanceGroupAttributesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ModifyInstanceGroupAttributesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ModifyInstanceGroupAttributes(*ModifyInstanceGroupAttributesInput) (*ModifyInstanceGroupAttributesOutput, error)
+	ModifyInstanceGroupAttributesWithContext(volcengine.Context, *ModifyInstanceGroupAttributesInput, ...request.Option) (*ModifyInstanceGroupAttributesOutput, error)
+	ModifyInstanceGroupAttributesRequest(*ModifyInstanceGroupAttributesInput) (*request.Request, *ModifyInstanceGroupAttributesOutput)
+
+	ModifyInstanceGroupMembersCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ModifyInstanceGroupMembersCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ModifyInstanceGroupMembersCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ModifyInstanceGroupMembers(*ModifyInstanceGroupMembersInput) (*ModifyInstanceGroupMembersOutput, error)
+	ModifyInstanceGroupMembersWithContext(volcengine.Context, *ModifyInstanceGroupMembersInput, ...request.Option) (*ModifyInstanceGroupMembersOutput, error)
+	ModifyInstanceGroupMembersRequest(*ModifyInstanceGroupMembersInput) (*request.Request, *ModifyInstanceGroupMembersOutput)
 
 	ModifyIpAddressPoolAttributesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ModifyIpAddressPoolAttributesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)

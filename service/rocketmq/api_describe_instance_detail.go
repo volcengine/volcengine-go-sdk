@@ -172,6 +172,8 @@ type BasicInfoForDescribeInstanceDetailOutput struct {
 
 	InstanceStatus *string `type:"string" json:",omitempty"`
 
+	InstanceTags []*InstanceTagForDescribeInstanceDetailOutput `type:"list" json:",omitempty"`
+
 	ProjectName *string `type:"string" json:",omitempty"`
 
 	RegionId *string `type:"string" json:",omitempty"`
@@ -181,8 +183,6 @@ type BasicInfoForDescribeInstanceDetailOutput struct {
 	StorageSpace *int32 `type:"int32" json:",omitempty"`
 
 	SubnetId *string `type:"string" json:",omitempty"`
-
-	Tags map[string]*string `type:"map" json:",omitempty"`
 
 	UsedGroupNumber *int32 `type:"int32" json:",omitempty"`
 
@@ -287,6 +287,12 @@ func (s *BasicInfoForDescribeInstanceDetailOutput) SetInstanceStatus(v string) *
 	return s
 }
 
+// SetInstanceTags sets the InstanceTags field's value.
+func (s *BasicInfoForDescribeInstanceDetailOutput) SetInstanceTags(v []*InstanceTagForDescribeInstanceDetailOutput) *BasicInfoForDescribeInstanceDetailOutput {
+	s.InstanceTags = v
+	return s
+}
+
 // SetProjectName sets the ProjectName field's value.
 func (s *BasicInfoForDescribeInstanceDetailOutput) SetProjectName(v string) *BasicInfoForDescribeInstanceDetailOutput {
 	s.ProjectName = &v
@@ -314,12 +320,6 @@ func (s *BasicInfoForDescribeInstanceDetailOutput) SetStorageSpace(v int32) *Bas
 // SetSubnetId sets the SubnetId field's value.
 func (s *BasicInfoForDescribeInstanceDetailOutput) SetSubnetId(v string) *BasicInfoForDescribeInstanceDetailOutput {
 	s.SubnetId = &v
-	return s
-}
-
-// SetTags sets the Tags field's value.
-func (s *BasicInfoForDescribeInstanceDetailOutput) SetTags(v map[string]*string) *BasicInfoForDescribeInstanceDetailOutput {
-	s.Tags = v
 	return s
 }
 
@@ -578,5 +578,35 @@ func (s *DescribeInstanceDetailOutput) SetConnectionInfo(v []*ConnectionInfoForD
 // SetFileReservedTime sets the FileReservedTime field's value.
 func (s *DescribeInstanceDetailOutput) SetFileReservedTime(v int32) *DescribeInstanceDetailOutput {
 	s.FileReservedTime = &v
+	return s
+}
+
+type InstanceTagForDescribeInstanceDetailOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Key *string `type:"string" json:",omitempty"`
+
+	Value *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s InstanceTagForDescribeInstanceDetailOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s InstanceTagForDescribeInstanceDetailOutput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *InstanceTagForDescribeInstanceDetailOutput) SetKey(v string) *InstanceTagForDescribeInstanceDetailOutput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *InstanceTagForDescribeInstanceDetailOutput) SetValue(v string) *InstanceTagForDescribeInstanceDetailOutput {
+	s.Value = &v
 	return s
 }

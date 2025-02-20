@@ -147,8 +147,7 @@ type DisassociateNetworkAclInput struct {
 	// NetworkAclId is a required field
 	NetworkAclId *string `type:"string" required:"true"`
 
-	// Resource is a required field
-	Resource []*ResourceForDisassociateNetworkAclInput `type:"list" required:"true"`
+	Resource []*ResourceForDisassociateNetworkAclInput `type:"list"`
 }
 
 // String returns the string representation
@@ -166,9 +165,6 @@ func (s *DisassociateNetworkAclInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "DisassociateNetworkAclInput"}
 	if s.NetworkAclId == nil {
 		invalidParams.Add(request.NewErrParamRequired("NetworkAclId"))
-	}
-	if s.Resource == nil {
-		invalidParams.Add(request.NewErrParamRequired("Resource"))
 	}
 	if s.Resource != nil {
 		for i, v := range s.Resource {

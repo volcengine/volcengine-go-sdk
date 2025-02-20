@@ -143,6 +143,36 @@ func (c *ROCKETMQ) CreateInstanceWithContext(ctx volcengine.Context, input *Crea
 	return out, req.Send()
 }
 
+type BindTagForCreateInstanceInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Key *string `type:"string" json:",omitempty"`
+
+	Value *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s BindTagForCreateInstanceInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s BindTagForCreateInstanceInput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *BindTagForCreateInstanceInput) SetKey(v string) *BindTagForCreateInstanceInput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *BindTagForCreateInstanceInput) SetValue(v string) *BindTagForCreateInstanceInput {
+	s.Value = &v
+	return s
+}
+
 type ChargeInfoForCreateInstanceInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -194,6 +224,8 @@ type CreateInstanceInput struct {
 
 	AllowListIds []*string `type:"list" json:",omitempty"`
 
+	BindTags []*BindTagForCreateInstanceInput `type:"list" json:",omitempty"`
+
 	ChargeInfo *ChargeInfoForCreateInstanceInput `type:"structure" json:",omitempty"`
 
 	ClientToken *string `type:"string" json:",omitempty"`
@@ -226,8 +258,6 @@ type CreateInstanceInput struct {
 
 	// SubnetId is a required field
 	SubnetId *string `type:"string" json:",omitempty" required:"true"`
-
-	Tags map[string]*string `type:"map" json:",omitempty"`
 
 	// Version is a required field
 	Version *string `type:"string" json:",omitempty" required:"true"`
@@ -286,6 +316,12 @@ func (s *CreateInstanceInput) Validate() error {
 // SetAllowListIds sets the AllowListIds field's value.
 func (s *CreateInstanceInput) SetAllowListIds(v []*string) *CreateInstanceInput {
 	s.AllowListIds = v
+	return s
+}
+
+// SetBindTags sets the BindTags field's value.
+func (s *CreateInstanceInput) SetBindTags(v []*BindTagForCreateInstanceInput) *CreateInstanceInput {
+	s.BindTags = v
 	return s
 }
 
@@ -370,12 +406,6 @@ func (s *CreateInstanceInput) SetStorageSpace(v int32) *CreateInstanceInput {
 // SetSubnetId sets the SubnetId field's value.
 func (s *CreateInstanceInput) SetSubnetId(v string) *CreateInstanceInput {
 	s.SubnetId = &v
-	return s
-}
-
-// SetTags sets the Tags field's value.
-func (s *CreateInstanceInput) SetTags(v map[string]*string) *CreateInstanceInput {
-	s.Tags = v
 	return s
 }
 

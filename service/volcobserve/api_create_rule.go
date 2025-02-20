@@ -235,12 +235,16 @@ type CreateRuleInput struct {
 	// Level is a required field
 	Level *string `type:"string" json:",omitempty" required:"true"`
 
+	LevelConditions []*LevelConditionForCreateRuleInput `type:"list" json:",omitempty"`
+
 	MultipleConditions *bool `type:"boolean" json:",omitempty"`
 
 	// Namespace is a required field
 	Namespace *string `type:"string" json:",omitempty" required:"true"`
 
 	NoData *NoDataForCreateRuleInput `type:"structure" json:",omitempty"`
+
+	NotificationId *string `type:"string" json:",omitempty"`
 
 	OriginalDimensions map[string][]*string `type:"map" json:",omitempty"`
 
@@ -383,6 +387,12 @@ func (s *CreateRuleInput) SetLevel(v string) *CreateRuleInput {
 	return s
 }
 
+// SetLevelConditions sets the LevelConditions field's value.
+func (s *CreateRuleInput) SetLevelConditions(v []*LevelConditionForCreateRuleInput) *CreateRuleInput {
+	s.LevelConditions = v
+	return s
+}
+
 // SetMultipleConditions sets the MultipleConditions field's value.
 func (s *CreateRuleInput) SetMultipleConditions(v bool) *CreateRuleInput {
 	s.MultipleConditions = &v
@@ -398,6 +408,12 @@ func (s *CreateRuleInput) SetNamespace(v string) *CreateRuleInput {
 // SetNoData sets the NoData field's value.
 func (s *CreateRuleInput) SetNoData(v *NoDataForCreateRuleInput) *CreateRuleInput {
 	s.NoData = v
+	return s
+}
+
+// SetNotificationId sets the NotificationId field's value.
+func (s *CreateRuleInput) SetNotificationId(v string) *CreateRuleInput {
+	s.NotificationId = &v
 	return s
 }
 
@@ -528,6 +544,36 @@ func (s *DimensionConditionsForCreateRuleInput) SetTagCondition(v *TagConditionF
 // SetType sets the Type field's value.
 func (s *DimensionConditionsForCreateRuleInput) SetType(v string) *DimensionConditionsForCreateRuleInput {
 	s.Type = &v
+	return s
+}
+
+type LevelConditionForCreateRuleInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Conditions []*ConditionForCreateRuleInput `type:"list" json:",omitempty"`
+
+	Level *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s LevelConditionForCreateRuleInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s LevelConditionForCreateRuleInput) GoString() string {
+	return s.String()
+}
+
+// SetConditions sets the Conditions field's value.
+func (s *LevelConditionForCreateRuleInput) SetConditions(v []*ConditionForCreateRuleInput) *LevelConditionForCreateRuleInput {
+	s.Conditions = v
+	return s
+}
+
+// SetLevel sets the Level field's value.
+func (s *LevelConditionForCreateRuleInput) SetLevel(v string) *LevelConditionForCreateRuleInput {
+	s.Level = &v
 	return s
 }
 

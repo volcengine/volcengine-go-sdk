@@ -160,6 +160,8 @@ type DescribeIpv6AddressBandwidthsInput struct {
 
 	NextToken *string `type:"string"`
 
+	ProjectName *string `type:"string"`
+
 	VpcId *string `type:"string"`
 }
 
@@ -224,6 +226,12 @@ func (s *DescribeIpv6AddressBandwidthsInput) SetNetworkType(v string) *DescribeI
 // SetNextToken sets the NextToken field's value.
 func (s *DescribeIpv6AddressBandwidthsInput) SetNextToken(v string) *DescribeIpv6AddressBandwidthsInput {
 	s.NextToken = &v
+	return s
+}
+
+// SetProjectName sets the ProjectName field's value.
+func (s *DescribeIpv6AddressBandwidthsInput) SetProjectName(v string) *DescribeIpv6AddressBandwidthsInput {
+	s.ProjectName = &v
 	return s
 }
 
@@ -305,6 +313,8 @@ type Ipv6AddressBandwidthForDescribeIpv6AddressBandwidthsOutput struct {
 	NetworkType *string `type:"string"`
 
 	OverdueTime *string `type:"string"`
+
+	ProjectName *string `type:"string"`
 
 	Status *string `type:"string"`
 
@@ -408,6 +418,12 @@ func (s *Ipv6AddressBandwidthForDescribeIpv6AddressBandwidthsOutput) SetNetworkT
 // SetOverdueTime sets the OverdueTime field's value.
 func (s *Ipv6AddressBandwidthForDescribeIpv6AddressBandwidthsOutput) SetOverdueTime(v string) *Ipv6AddressBandwidthForDescribeIpv6AddressBandwidthsOutput {
 	s.OverdueTime = &v
+	return s
+}
+
+// SetProjectName sets the ProjectName field's value.
+func (s *Ipv6AddressBandwidthForDescribeIpv6AddressBandwidthsOutput) SetProjectName(v string) *Ipv6AddressBandwidthForDescribeIpv6AddressBandwidthsOutput {
+	s.ProjectName = &v
 	return s
 }
 

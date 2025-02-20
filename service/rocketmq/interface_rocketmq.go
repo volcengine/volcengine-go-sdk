@@ -310,6 +310,14 @@ type ROCKETMQAPI interface {
 	DisassociateAllowListWithContext(volcengine.Context, *DisassociateAllowListInput, ...request.Option) (*DisassociateAllowListOutput, error)
 	DisassociateAllowListRequest(*DisassociateAllowListInput) (*request.Request, *DisassociateAllowListOutput)
 
+	EnableAutoCreateGroupCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	EnableAutoCreateGroupCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	EnableAutoCreateGroupCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	EnableAutoCreateGroup(*EnableAutoCreateGroupInput) (*EnableAutoCreateGroupOutput, error)
+	EnableAutoCreateGroupWithContext(volcengine.Context, *EnableAutoCreateGroupInput, ...request.Option) (*EnableAutoCreateGroupOutput, error)
+	EnableAutoCreateGroupRequest(*EnableAutoCreateGroupInput) (*request.Request, *EnableAutoCreateGroupOutput)
+
 	EnableInstanceInspectCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	EnableInstanceInspectCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	EnableInstanceInspectCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -446,6 +454,14 @@ type ROCKETMQAPI interface {
 	QueryMessageByMsgKeyWithContext(volcengine.Context, *QueryMessageByMsgKeyInput, ...request.Option) (*QueryMessageByMsgKeyOutput, error)
 	QueryMessageByMsgKeyRequest(*QueryMessageByMsgKeyInput) (*request.Request, *QueryMessageByMsgKeyOutput)
 
+	QueryMessageByOffsetCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	QueryMessageByOffsetCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	QueryMessageByOffsetCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	QueryMessageByOffset(*QueryMessageByOffsetInput) (*QueryMessageByOffsetOutput, error)
+	QueryMessageByOffsetWithContext(volcengine.Context, *QueryMessageByOffsetInput, ...request.Option) (*QueryMessageByOffsetOutput, error)
+	QueryMessageByOffsetRequest(*QueryMessageByOffsetInput) (*request.Request, *QueryMessageByOffsetOutput)
+
 	QueryMessageByTimestampCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	QueryMessageByTimestampCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	QueryMessageByTimestampCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -453,6 +469,14 @@ type ROCKETMQAPI interface {
 	QueryMessageByTimestamp(*QueryMessageByTimestampInput) (*QueryMessageByTimestampOutput, error)
 	QueryMessageByTimestampWithContext(volcengine.Context, *QueryMessageByTimestampInput, ...request.Option) (*QueryMessageByTimestampOutput, error)
 	QueryMessageByTimestampRequest(*QueryMessageByTimestampInput) (*request.Request, *QueryMessageByTimestampOutput)
+
+	QueryMessageTraceByMessageIdCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	QueryMessageTraceByMessageIdCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	QueryMessageTraceByMessageIdCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	QueryMessageTraceByMessageId(*QueryMessageTraceByMessageIdInput) (*QueryMessageTraceByMessageIdOutput, error)
+	QueryMessageTraceByMessageIdWithContext(volcengine.Context, *QueryMessageTraceByMessageIdInput, ...request.Option) (*QueryMessageTraceByMessageIdOutput, error)
+	QueryMessageTraceByMessageIdRequest(*QueryMessageTraceByMessageIdInput) (*request.Request, *QueryMessageTraceByMessageIdOutput)
 
 	RemoveTagsFromResourceCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	RemoveTagsFromResourceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)

@@ -150,6 +150,10 @@ type DescribeIpv6GatewaysInput struct {
 
 	NextToken *string `type:"string"`
 
+	ProjectName *string `type:"string"`
+
+	TagFilters []*TagFilterForDescribeIpv6GatewaysInput `type:"list"`
+
 	VpcIds *string `type:"string"`
 }
 
@@ -184,6 +188,18 @@ func (s *DescribeIpv6GatewaysInput) SetName(v string) *DescribeIpv6GatewaysInput
 // SetNextToken sets the NextToken field's value.
 func (s *DescribeIpv6GatewaysInput) SetNextToken(v string) *DescribeIpv6GatewaysInput {
 	s.NextToken = &v
+	return s
+}
+
+// SetProjectName sets the ProjectName field's value.
+func (s *DescribeIpv6GatewaysInput) SetProjectName(v string) *DescribeIpv6GatewaysInput {
+	s.ProjectName = &v
+	return s
+}
+
+// SetTagFilters sets the TagFilters field's value.
+func (s *DescribeIpv6GatewaysInput) SetTagFilters(v []*TagFilterForDescribeIpv6GatewaysInput) *DescribeIpv6GatewaysInput {
+	s.TagFilters = v
 	return s
 }
 
@@ -244,6 +260,8 @@ type Ipv6GatewayForDescribeIpv6GatewaysOutput struct {
 
 	Name *string `type:"string"`
 
+	ProjectName *string `type:"string"`
+
 	Status *string `type:"string"`
 
 	UpdateTime *string `type:"string"`
@@ -285,6 +303,12 @@ func (s *Ipv6GatewayForDescribeIpv6GatewaysOutput) SetName(v string) *Ipv6Gatewa
 	return s
 }
 
+// SetProjectName sets the ProjectName field's value.
+func (s *Ipv6GatewayForDescribeIpv6GatewaysOutput) SetProjectName(v string) *Ipv6GatewayForDescribeIpv6GatewaysOutput {
+	s.ProjectName = &v
+	return s
+}
+
 // SetStatus sets the Status field's value.
 func (s *Ipv6GatewayForDescribeIpv6GatewaysOutput) SetStatus(v string) *Ipv6GatewayForDescribeIpv6GatewaysOutput {
 	s.Status = &v
@@ -300,5 +324,35 @@ func (s *Ipv6GatewayForDescribeIpv6GatewaysOutput) SetUpdateTime(v string) *Ipv6
 // SetVpcId sets the VpcId field's value.
 func (s *Ipv6GatewayForDescribeIpv6GatewaysOutput) SetVpcId(v string) *Ipv6GatewayForDescribeIpv6GatewaysOutput {
 	s.VpcId = &v
+	return s
+}
+
+type TagFilterForDescribeIpv6GatewaysInput struct {
+	_ struct{} `type:"structure"`
+
+	Key *string `type:"string"`
+
+	Values []*string `type:"list"`
+}
+
+// String returns the string representation
+func (s TagFilterForDescribeIpv6GatewaysInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagFilterForDescribeIpv6GatewaysInput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagFilterForDescribeIpv6GatewaysInput) SetKey(v string) *TagFilterForDescribeIpv6GatewaysInput {
+	s.Key = &v
+	return s
+}
+
+// SetValues sets the Values field's value.
+func (s *TagFilterForDescribeIpv6GatewaysInput) SetValues(v []*string) *TagFilterForDescribeIpv6GatewaysInput {
+	s.Values = v
 	return s
 }

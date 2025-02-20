@@ -19,10 +19,13 @@ type StsProvider struct {
 func (s *StsProvider) Retrieve() (Value, error) {
 	ins := sts.NewInstance()
 	if s.Region != "" {
-		ins.SetRegion(s.Region)
+		ins.Client.ServiceInfo.Credentials.Region = s.Region
 	}
 	if s.Host != "" {
 		ins.SetHost(s.Host)
+	}
+	if s.Schema != "" {
+		ins.SetSchema(s.Schema)
 	}
 	if s.Timeout > 0 {
 		ins.Client.SetTimeout(s.Timeout)

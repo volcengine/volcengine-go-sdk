@@ -182,7 +182,7 @@ type DescribeVolumesInput struct {
 
 	PageNumber *int32 `type:"int32"`
 
-	PageSize *int32 `type:"int32"`
+	PageSize *int32 `max:"100" type:"int32"`
 
 	ProjectName *string `type:"string"`
 
@@ -207,6 +207,19 @@ func (s DescribeVolumesInput) String() string {
 // GoString returns the string representation
 func (s DescribeVolumesInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DescribeVolumesInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DescribeVolumesInput"}
+	if s.PageSize != nil && *s.PageSize > 100 {
+		invalidParams.Add(request.NewErrParamMaxValue("PageSize", 100))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetBillingType sets the BillingType field's value.
