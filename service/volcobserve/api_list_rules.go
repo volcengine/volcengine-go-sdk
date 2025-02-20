@@ -228,9 +228,13 @@ type DataForListRulesOutput struct {
 
 	Level *string `type:"string" json:",omitempty"`
 
+	LevelConditions []*LevelConditionForListRulesOutput `type:"list" json:",omitempty"`
+
 	MultipleConditions *bool `type:"boolean" json:",omitempty"`
 
 	Namespace *string `type:"string" json:",omitempty"`
+
+	NotificationId *string `type:"string" json:",omitempty"`
 
 	OriginalDimensions map[string][]*string `type:"map" json:",omitempty"`
 
@@ -349,6 +353,12 @@ func (s *DataForListRulesOutput) SetLevel(v string) *DataForListRulesOutput {
 	return s
 }
 
+// SetLevelConditions sets the LevelConditions field's value.
+func (s *DataForListRulesOutput) SetLevelConditions(v []*LevelConditionForListRulesOutput) *DataForListRulesOutput {
+	s.LevelConditions = v
+	return s
+}
+
 // SetMultipleConditions sets the MultipleConditions field's value.
 func (s *DataForListRulesOutput) SetMultipleConditions(v bool) *DataForListRulesOutput {
 	s.MultipleConditions = &v
@@ -358,6 +368,12 @@ func (s *DataForListRulesOutput) SetMultipleConditions(v bool) *DataForListRules
 // SetNamespace sets the Namespace field's value.
 func (s *DataForListRulesOutput) SetNamespace(v string) *DataForListRulesOutput {
 	s.Namespace = &v
+	return s
+}
+
+// SetNotificationId sets the NotificationId field's value.
+func (s *DataForListRulesOutput) SetNotificationId(v string) *DataForListRulesOutput {
+	s.NotificationId = &v
 	return s
 }
 
@@ -470,6 +486,36 @@ func (s *DimensionConditionsForListRulesOutput) SetTagCondition(v *TagConditionF
 // SetType sets the Type field's value.
 func (s *DimensionConditionsForListRulesOutput) SetType(v string) *DimensionConditionsForListRulesOutput {
 	s.Type = &v
+	return s
+}
+
+type LevelConditionForListRulesOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Conditions []*ConditionForListRulesOutput `type:"list" json:",omitempty"`
+
+	Level *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s LevelConditionForListRulesOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s LevelConditionForListRulesOutput) GoString() string {
+	return s.String()
+}
+
+// SetConditions sets the Conditions field's value.
+func (s *LevelConditionForListRulesOutput) SetConditions(v []*ConditionForListRulesOutput) *LevelConditionForListRulesOutput {
+	s.Conditions = v
+	return s
+}
+
+// SetLevel sets the Level field's value.
+func (s *LevelConditionForListRulesOutput) SetLevel(v string) *LevelConditionForListRulesOutput {
+	s.Level = &v
 	return s
 }
 
