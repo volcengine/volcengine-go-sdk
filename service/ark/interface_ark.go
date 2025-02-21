@@ -78,6 +78,14 @@ type ARKAPI interface {
 	GetEndpointWithContext(volcengine.Context, *GetEndpointInput, ...request.Option) (*GetEndpointOutput, error)
 	GetEndpointRequest(*GetEndpointInput) (*request.Request, *GetEndpointOutput)
 
+	GetEndpointCertificateCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	GetEndpointCertificateCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	GetEndpointCertificateCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	GetEndpointCertificate(*GetEndpointCertificateInput) (*GetEndpointCertificateOutput, error)
+	GetEndpointCertificateWithContext(volcengine.Context, *GetEndpointCertificateInput, ...request.Option) (*GetEndpointCertificateOutput, error)
+	GetEndpointCertificateRequest(*GetEndpointCertificateInput) (*request.Request, *GetEndpointCertificateOutput)
+
 	GetModelCustomizationJobCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	GetModelCustomizationJobCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	GetModelCustomizationJobCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
