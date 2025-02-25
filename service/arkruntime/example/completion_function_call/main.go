@@ -4,6 +4,7 @@ import (
 	"context"
 	"encoding/json"
 	"fmt"
+	"io"
 	"os"
 
 	"github.com/volcengine/volcengine-go-sdk/service/arkruntime"
@@ -73,4 +74,40 @@ func main() {
 	s, _ := json.Marshal(resp)
 	fmt.Println(string(s))
 
+	fmt.Println("----- function call stream request -----")
+	stream, err := client.CreateChatCompletionStream(ctx, req)
+	if err != nil {
+		fmt.Printf("stream chat error: %v\n", err)
+		return
+	}
+	defer stream.Close()
+
+	finalToolCalls := make(map[int]*model.ToolCall)
+	for {
+		recv, err := stream.Recv()
+		if err == io.EOF {
+			break
+		}
+		if err != nil {
+			fmt.Printf("Stream chat error: %v\n", err)
+			break
+		}
+		fmt.Print(recv.Choices[0].Delta.Content)
+
+		for _, toolCall := range recv.Choices[0].Delta.ToolCalls {
+			index := 0
+			if toolCall.Index != nil {
+				index = *toolCall.Index
+			}
+
+			if _, exists := finalToolCalls[index]; !exists {
+				finalToolCalls[index] = toolCall
+			}
+
+			finalToolCalls[index].Function.Arguments += toolCall.Function.Arguments
+		}
+	}
+	for _, finalToolCall := range finalToolCalls {
+		fmt.Println(*finalToolCall)
+	}
 }
