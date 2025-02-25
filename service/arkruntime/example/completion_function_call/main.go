@@ -102,9 +102,8 @@ func main() {
 
 			if _, exists := finalToolCalls[index]; !exists {
 				finalToolCalls[index] = toolCall
-			} else {
-				finalToolCalls[index].Function.Arguments += toolCall.Function.Arguments
 			}
+			finalToolCalls[index].Function.Arguments += toolCall.Function.Arguments
 
 		}
 	}
