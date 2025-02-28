@@ -153,8 +153,7 @@ type CreateKeyPairInput struct {
 
 	ProjectName *string `type:"string"`
 
-	// Tags is a required field
-	Tags []*TagForCreateKeyPairInput `type:"list" required:"true"`
+	Tags []*TagForCreateKeyPairInput `type:"list"`
 }
 
 // String returns the string representation
@@ -172,9 +171,6 @@ func (s *CreateKeyPairInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "CreateKeyPairInput"}
 	if s.KeyPairName == nil {
 		invalidParams.Add(request.NewErrParamRequired("KeyPairName"))
-	}
-	if s.Tags == nil {
-		invalidParams.Add(request.NewErrParamRequired("Tags"))
 	}
 	if s.Tags != nil {
 		for i, v := range s.Tags {

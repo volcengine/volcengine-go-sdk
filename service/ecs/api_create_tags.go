@@ -146,14 +146,12 @@ type CreateTagsInput struct {
 
 	ClientToken *string `type:"string"`
 
-	// ResourceIds is a required field
-	ResourceIds []*string `type:"list" required:"true"`
+	ResourceIds []*string `type:"list"`
 
 	// ResourceType is a required field
 	ResourceType *string `type:"string" required:"true"`
 
-	// Tags is a required field
-	Tags []*TagForCreateTagsInput `type:"list" required:"true"`
+	Tags []*TagForCreateTagsInput `type:"list"`
 }
 
 // String returns the string representation
@@ -169,14 +167,8 @@ func (s CreateTagsInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *CreateTagsInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "CreateTagsInput"}
-	if s.ResourceIds == nil {
-		invalidParams.Add(request.NewErrParamRequired("ResourceIds"))
-	}
 	if s.ResourceType == nil {
 		invalidParams.Add(request.NewErrParamRequired("ResourceType"))
-	}
-	if s.Tags == nil {
-		invalidParams.Add(request.NewErrParamRequired("Tags"))
 	}
 	if s.Tags != nil {
 		for i, v := range s.Tags {

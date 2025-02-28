@@ -226,8 +226,7 @@ type ModifyReservedInstancesInput struct {
 
 	ClientToken *string `type:"string"`
 
-	// Configurations is a required field
-	Configurations []*ConfigurationForModifyReservedInstancesInput `type:"list" required:"true"`
+	Configurations []*ConfigurationForModifyReservedInstancesInput `type:"list"`
 
 	Description *string `type:"string"`
 
@@ -238,8 +237,7 @@ type ModifyReservedInstancesInput struct {
 	// ReservedInstanceIds is a required field
 	ReservedInstanceIds []*string `type:"list" required:"true"`
 
-	// Tags is a required field
-	Tags []*TagForModifyReservedInstancesInput `type:"list" required:"true"`
+	Tags []*TagForModifyReservedInstancesInput `type:"list"`
 }
 
 // String returns the string representation
@@ -255,14 +253,8 @@ func (s ModifyReservedInstancesInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *ModifyReservedInstancesInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "ModifyReservedInstancesInput"}
-	if s.Configurations == nil {
-		invalidParams.Add(request.NewErrParamRequired("Configurations"))
-	}
 	if s.ReservedInstanceIds == nil {
 		invalidParams.Add(request.NewErrParamRequired("ReservedInstanceIds"))
-	}
-	if s.Tags == nil {
-		invalidParams.Add(request.NewErrParamRequired("Tags"))
 	}
 	if s.Configurations != nil {
 		for i, v := range s.Configurations {

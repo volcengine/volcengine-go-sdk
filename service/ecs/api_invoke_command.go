@@ -171,6 +171,8 @@ type InvokeCommandInput struct {
 
 	Username *string `type:"string"`
 
+	WindowsPassword *string `type:"string"`
+
 	WorkingDir *string `type:"string"`
 }
 
@@ -278,6 +280,12 @@ func (s *InvokeCommandInput) SetTimeout(v int32) *InvokeCommandInput {
 // SetUsername sets the Username field's value.
 func (s *InvokeCommandInput) SetUsername(v string) *InvokeCommandInput {
 	s.Username = &v
+	return s
+}
+
+// SetWindowsPassword sets the WindowsPassword field's value.
+func (s *InvokeCommandInput) SetWindowsPassword(v string) *InvokeCommandInput {
+	s.WindowsPassword = &v
 	return s
 }
 
