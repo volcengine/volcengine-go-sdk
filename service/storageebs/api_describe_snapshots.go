@@ -333,6 +333,8 @@ type SnapshotForDescribeSnapshotsOutput struct {
 
 	ImageId *string `type:"string"`
 
+	InstantAccess *bool `type:"boolean"`
+
 	Progress *int32 `type:"int32"`
 
 	ProjectName *string `type:"string"`
@@ -393,6 +395,12 @@ func (s *SnapshotForDescribeSnapshotsOutput) SetDescription(v string) *SnapshotF
 // SetImageId sets the ImageId field's value.
 func (s *SnapshotForDescribeSnapshotsOutput) SetImageId(v string) *SnapshotForDescribeSnapshotsOutput {
 	s.ImageId = &v
+	return s
+}
+
+// SetInstantAccess sets the InstantAccess field's value.
+func (s *SnapshotForDescribeSnapshotsOutput) SetInstantAccess(v bool) *SnapshotForDescribeSnapshotsOutput {
+	s.InstantAccess = &v
 	return s
 }
 
