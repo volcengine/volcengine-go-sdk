@@ -149,11 +149,17 @@ type ModifyPlannedEventExecuteTimeInput struct {
 	// EventId is a required field
 	EventId *string `type:"string" json:",omitempty" required:"true"`
 
-	// ModifyBeginTime is a required field
-	ModifyBeginTime *string `type:"string" json:",omitempty" required:"true"`
+	// InstanceId is a required field
+	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 
-	// ModifyEndTime is a required field
-	ModifyEndTime *string `type:"string" json:",omitempty" required:"true"`
+	ModifyBeginTime *string `type:"string" json:",omitempty"`
+
+	ModifyEndTime *string `type:"string" json:",omitempty"`
+
+	ProjectName *string `type:"string" json:",omitempty"`
+
+	// TaskEventOperation is a required field
+	TaskEventOperation *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -172,11 +178,11 @@ func (s *ModifyPlannedEventExecuteTimeInput) Validate() error {
 	if s.EventId == nil {
 		invalidParams.Add(request.NewErrParamRequired("EventId"))
 	}
-	if s.ModifyBeginTime == nil {
-		invalidParams.Add(request.NewErrParamRequired("ModifyBeginTime"))
+	if s.InstanceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("InstanceId"))
 	}
-	if s.ModifyEndTime == nil {
-		invalidParams.Add(request.NewErrParamRequired("ModifyEndTime"))
+	if s.TaskEventOperation == nil {
+		invalidParams.Add(request.NewErrParamRequired("TaskEventOperation"))
 	}
 
 	if invalidParams.Len() > 0 {
@@ -191,6 +197,12 @@ func (s *ModifyPlannedEventExecuteTimeInput) SetEventId(v string) *ModifyPlanned
 	return s
 }
 
+// SetInstanceId sets the InstanceId field's value.
+func (s *ModifyPlannedEventExecuteTimeInput) SetInstanceId(v string) *ModifyPlannedEventExecuteTimeInput {
+	s.InstanceId = &v
+	return s
+}
+
 // SetModifyBeginTime sets the ModifyBeginTime field's value.
 func (s *ModifyPlannedEventExecuteTimeInput) SetModifyBeginTime(v string) *ModifyPlannedEventExecuteTimeInput {
 	s.ModifyBeginTime = &v
@@ -200,6 +212,18 @@ func (s *ModifyPlannedEventExecuteTimeInput) SetModifyBeginTime(v string) *Modif
 // SetModifyEndTime sets the ModifyEndTime field's value.
 func (s *ModifyPlannedEventExecuteTimeInput) SetModifyEndTime(v string) *ModifyPlannedEventExecuteTimeInput {
 	s.ModifyEndTime = &v
+	return s
+}
+
+// SetProjectName sets the ProjectName field's value.
+func (s *ModifyPlannedEventExecuteTimeInput) SetProjectName(v string) *ModifyPlannedEventExecuteTimeInput {
+	s.ProjectName = &v
+	return s
+}
+
+// SetTaskEventOperation sets the TaskEventOperation field's value.
+func (s *ModifyPlannedEventExecuteTimeInput) SetTaskEventOperation(v string) *ModifyPlannedEventExecuteTimeInput {
+	s.TaskEventOperation = &v
 	return s
 }
 

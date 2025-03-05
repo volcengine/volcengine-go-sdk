@@ -148,6 +148,10 @@ type CreateDBEndpointInput struct {
 
 	AutoAddNewNodes *bool `type:"boolean" json:",omitempty"`
 
+	ConnectionMode *string `type:"string" json:",omitempty"`
+
+	ConnectionPoolType *string `type:"string" json:",omitempty"`
+
 	Description *string `type:"string" json:",omitempty"`
 
 	EndpointName *string `type:"string" json:",omitempty"`
@@ -155,12 +159,24 @@ type CreateDBEndpointInput struct {
 	// EndpointType is a required field
 	EndpointType *string `type:"string" json:",omitempty" required:"true"`
 
+	IdleConnectionReclaim *bool `type:"boolean" json:",omitempty"`
+
 	// InstanceId is a required field
 	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 
+	MultiStatementsMode *string `type:"string" json:",omitempty"`
+
 	Nodes *string `type:"string" json:",omitempty"`
 
+	ReadOnlyNodeDistributionType *string `type:"string" json:",omitempty"`
+
+	ReadOnlyNodeMaxDelayTime *int32 `type:"int32" json:",omitempty"`
+
+	ReadOnlyNodeWeight []*ReadOnlyNodeWeightForCreateDBEndpointInput `type:"list" json:",omitempty"`
+
 	ReadWriteMode *string `type:"string" json:",omitempty"`
+
+	ReadWriteSpliting *bool `type:"boolean" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -195,6 +211,18 @@ func (s *CreateDBEndpointInput) SetAutoAddNewNodes(v bool) *CreateDBEndpointInpu
 	return s
 }
 
+// SetConnectionMode sets the ConnectionMode field's value.
+func (s *CreateDBEndpointInput) SetConnectionMode(v string) *CreateDBEndpointInput {
+	s.ConnectionMode = &v
+	return s
+}
+
+// SetConnectionPoolType sets the ConnectionPoolType field's value.
+func (s *CreateDBEndpointInput) SetConnectionPoolType(v string) *CreateDBEndpointInput {
+	s.ConnectionPoolType = &v
+	return s
+}
+
 // SetDescription sets the Description field's value.
 func (s *CreateDBEndpointInput) SetDescription(v string) *CreateDBEndpointInput {
 	s.Description = &v
@@ -213,9 +241,21 @@ func (s *CreateDBEndpointInput) SetEndpointType(v string) *CreateDBEndpointInput
 	return s
 }
 
+// SetIdleConnectionReclaim sets the IdleConnectionReclaim field's value.
+func (s *CreateDBEndpointInput) SetIdleConnectionReclaim(v bool) *CreateDBEndpointInput {
+	s.IdleConnectionReclaim = &v
+	return s
+}
+
 // SetInstanceId sets the InstanceId field's value.
 func (s *CreateDBEndpointInput) SetInstanceId(v string) *CreateDBEndpointInput {
 	s.InstanceId = &v
+	return s
+}
+
+// SetMultiStatementsMode sets the MultiStatementsMode field's value.
+func (s *CreateDBEndpointInput) SetMultiStatementsMode(v string) *CreateDBEndpointInput {
+	s.MultiStatementsMode = &v
 	return s
 }
 
@@ -225,9 +265,33 @@ func (s *CreateDBEndpointInput) SetNodes(v string) *CreateDBEndpointInput {
 	return s
 }
 
+// SetReadOnlyNodeDistributionType sets the ReadOnlyNodeDistributionType field's value.
+func (s *CreateDBEndpointInput) SetReadOnlyNodeDistributionType(v string) *CreateDBEndpointInput {
+	s.ReadOnlyNodeDistributionType = &v
+	return s
+}
+
+// SetReadOnlyNodeMaxDelayTime sets the ReadOnlyNodeMaxDelayTime field's value.
+func (s *CreateDBEndpointInput) SetReadOnlyNodeMaxDelayTime(v int32) *CreateDBEndpointInput {
+	s.ReadOnlyNodeMaxDelayTime = &v
+	return s
+}
+
+// SetReadOnlyNodeWeight sets the ReadOnlyNodeWeight field's value.
+func (s *CreateDBEndpointInput) SetReadOnlyNodeWeight(v []*ReadOnlyNodeWeightForCreateDBEndpointInput) *CreateDBEndpointInput {
+	s.ReadOnlyNodeWeight = v
+	return s
+}
+
 // SetReadWriteMode sets the ReadWriteMode field's value.
 func (s *CreateDBEndpointInput) SetReadWriteMode(v string) *CreateDBEndpointInput {
 	s.ReadWriteMode = &v
+	return s
+}
+
+// SetReadWriteSpliting sets the ReadWriteSpliting field's value.
+func (s *CreateDBEndpointInput) SetReadWriteSpliting(v bool) *CreateDBEndpointInput {
+	s.ReadWriteSpliting = &v
 	return s
 }
 
@@ -260,5 +324,43 @@ func (s *CreateDBEndpointOutput) SetEndpointId(v string) *CreateDBEndpointOutput
 // SetInstanceId sets the InstanceId field's value.
 func (s *CreateDBEndpointOutput) SetInstanceId(v string) *CreateDBEndpointOutput {
 	s.InstanceId = &v
+	return s
+}
+
+type ReadOnlyNodeWeightForCreateDBEndpointInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	NodeId *string `type:"string" json:",omitempty"`
+
+	NodeType *string `type:"string" json:",omitempty"`
+
+	Weight *int32 `type:"int32" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s ReadOnlyNodeWeightForCreateDBEndpointInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ReadOnlyNodeWeightForCreateDBEndpointInput) GoString() string {
+	return s.String()
+}
+
+// SetNodeId sets the NodeId field's value.
+func (s *ReadOnlyNodeWeightForCreateDBEndpointInput) SetNodeId(v string) *ReadOnlyNodeWeightForCreateDBEndpointInput {
+	s.NodeId = &v
+	return s
+}
+
+// SetNodeType sets the NodeType field's value.
+func (s *ReadOnlyNodeWeightForCreateDBEndpointInput) SetNodeType(v string) *ReadOnlyNodeWeightForCreateDBEndpointInput {
+	s.NodeType = &v
+	return s
+}
+
+// SetWeight sets the Weight field's value.
+func (s *ReadOnlyNodeWeightForCreateDBEndpointInput) SetWeight(v int32) *ReadOnlyNodeWeightForCreateDBEndpointInput {
+	s.Weight = &v
 	return s
 }
