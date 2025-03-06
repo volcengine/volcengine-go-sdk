@@ -160,11 +160,7 @@ type ModifyAllowListInput struct {
 
 	ApplyInstanceNum *int32 `type:"int32" json:",omitempty"`
 
-	IgnoreInstanceStatus *bool `type:"boolean" json:",omitempty"`
-
 	ModifyMode *string `type:"string" json:",omitempty"`
-
-	ProjectName *string `type:"string" json:",omitempty"`
 
 	SecurityGroupBindInfos []*SecurityGroupBindInfoForModifyAllowListInput `type:"list" json:",omitempty"`
 
@@ -237,21 +233,9 @@ func (s *ModifyAllowListInput) SetApplyInstanceNum(v int32) *ModifyAllowListInpu
 	return s
 }
 
-// SetIgnoreInstanceStatus sets the IgnoreInstanceStatus field's value.
-func (s *ModifyAllowListInput) SetIgnoreInstanceStatus(v bool) *ModifyAllowListInput {
-	s.IgnoreInstanceStatus = &v
-	return s
-}
-
 // SetModifyMode sets the ModifyMode field's value.
 func (s *ModifyAllowListInput) SetModifyMode(v string) *ModifyAllowListInput {
 	s.ModifyMode = &v
-	return s
-}
-
-// SetProjectName sets the ProjectName field's value.
-func (s *ModifyAllowListInput) SetProjectName(v string) *ModifyAllowListInput {
-	s.ProjectName = &v
 	return s
 }
 

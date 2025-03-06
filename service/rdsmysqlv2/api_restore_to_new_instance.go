@@ -310,7 +310,7 @@ type RestoreToNewInstanceInput struct {
 	StorageSpace *int32 `type:"int32" json:",omitempty"`
 
 	// StorageType is a required field
-	StorageType *string `type:"string" json:",omitempty" required:"true"`
+	StorageType *string `type:"string" json:",omitempty" required:"true" enum:"EnumOfStorageTypeForRestoreToNewInstanceInput"`
 
 	// SubnetId is a required field
 	SubnetId *string `type:"string" json:",omitempty" required:"true"`
@@ -472,3 +472,17 @@ func (s *RestoreToNewInstanceOutput) SetOrderId(v string) *RestoreToNewInstanceO
 	s.OrderId = &v
 	return s
 }
+
+const (
+	// EnumOfStorageTypeForRestoreToNewInstanceInputLocalSsd is a EnumOfStorageTypeForRestoreToNewInstanceInput enum value
+	EnumOfStorageTypeForRestoreToNewInstanceInputLocalSsd = "LocalSSD"
+
+	// EnumOfStorageTypeForRestoreToNewInstanceInputCloudStorage is a EnumOfStorageTypeForRestoreToNewInstanceInput enum value
+	EnumOfStorageTypeForRestoreToNewInstanceInputCloudStorage = "CloudStorage"
+
+	// EnumOfStorageTypeForRestoreToNewInstanceInputEssdpl1 is a EnumOfStorageTypeForRestoreToNewInstanceInput enum value
+	EnumOfStorageTypeForRestoreToNewInstanceInputEssdpl1 = "ESSDPL1"
+
+	// EnumOfStorageTypeForRestoreToNewInstanceInputEssdpl2 is a EnumOfStorageTypeForRestoreToNewInstanceInput enum value
+	EnumOfStorageTypeForRestoreToNewInstanceInputEssdpl2 = "ESSDPL2"
+)

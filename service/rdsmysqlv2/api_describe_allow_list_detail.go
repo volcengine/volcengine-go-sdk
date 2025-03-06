@@ -150,10 +150,6 @@ type AssociatedInstanceForDescribeAllowListDetailOutput struct {
 
 	InstanceName *string `type:"string" json:",omitempty"`
 
-	InstanceStatus *string `type:"string" json:",omitempty"`
-
-	IsLatest *bool `type:"boolean" json:",omitempty"`
-
 	VPC *string `type:"string" json:",omitempty"`
 }
 
@@ -179,18 +175,6 @@ func (s *AssociatedInstanceForDescribeAllowListDetailOutput) SetInstanceName(v s
 	return s
 }
 
-// SetInstanceStatus sets the InstanceStatus field's value.
-func (s *AssociatedInstanceForDescribeAllowListDetailOutput) SetInstanceStatus(v string) *AssociatedInstanceForDescribeAllowListDetailOutput {
-	s.InstanceStatus = &v
-	return s
-}
-
-// SetIsLatest sets the IsLatest field's value.
-func (s *AssociatedInstanceForDescribeAllowListDetailOutput) SetIsLatest(v bool) *AssociatedInstanceForDescribeAllowListDetailOutput {
-	s.IsLatest = &v
-	return s
-}
-
 // SetVPC sets the VPC field's value.
 func (s *AssociatedInstanceForDescribeAllowListDetailOutput) SetVPC(v string) *AssociatedInstanceForDescribeAllowListDetailOutput {
 	s.VPC = &v
@@ -202,8 +186,6 @@ type DescribeAllowListDetailInput struct {
 
 	// AllowListId is a required field
 	AllowListId *string `type:"string" json:",omitempty" required:"true"`
-
-	ProjectName *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -232,12 +214,6 @@ func (s *DescribeAllowListDetailInput) Validate() error {
 // SetAllowListId sets the AllowListId field's value.
 func (s *DescribeAllowListDetailInput) SetAllowListId(v string) *DescribeAllowListDetailInput {
 	s.AllowListId = &v
-	return s
-}
-
-// SetProjectName sets the ProjectName field's value.
-func (s *DescribeAllowListDetailInput) SetProjectName(v string) *DescribeAllowListDetailInput {
-	s.ProjectName = &v
 	return s
 }
 

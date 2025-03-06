@@ -189,8 +189,6 @@ type GrantDBAccountPrivilegeInput struct {
 
 	AccountPrivileges []*AccountPrivilegeForGrantDBAccountPrivilegeInput `type:"list" json:",omitempty"`
 
-	DryRun *bool `type:"boolean" json:",omitempty"`
-
 	Host *string `type:"string" json:",omitempty"`
 
 	// InstanceId is a required field
@@ -235,12 +233,6 @@ func (s *GrantDBAccountPrivilegeInput) SetAccountPrivileges(v []*AccountPrivileg
 	return s
 }
 
-// SetDryRun sets the DryRun field's value.
-func (s *GrantDBAccountPrivilegeInput) SetDryRun(v bool) *GrantDBAccountPrivilegeInput {
-	s.DryRun = &v
-	return s
-}
-
 // SetHost sets the Host field's value.
 func (s *GrantDBAccountPrivilegeInput) SetHost(v string) *GrantDBAccountPrivilegeInput {
 	s.Host = &v
@@ -257,8 +249,6 @@ type GrantDBAccountPrivilegeOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
-
-	GrantPrivilegeSQL []*string `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -269,10 +259,4 @@ func (s GrantDBAccountPrivilegeOutput) String() string {
 // GoString returns the string representation
 func (s GrantDBAccountPrivilegeOutput) GoString() string {
 	return s.String()
-}
-
-// SetGrantPrivilegeSQL sets the GrantPrivilegeSQL field's value.
-func (s *GrantDBAccountPrivilegeOutput) SetGrantPrivilegeSQL(v []*string) *GrantDBAccountPrivilegeOutput {
-	s.GrantPrivilegeSQL = v
-	return s
 }

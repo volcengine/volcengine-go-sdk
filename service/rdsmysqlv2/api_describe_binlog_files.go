@@ -234,8 +234,6 @@ type DescribeBinlogFilesInput struct {
 	// InstanceId is a required field
 	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 
-	ResultSorter *string `type:"string" json:",omitempty"`
-
 	// StartTime is a required field
 	StartTime *string `type:"string" json:",omitempty" required:"true"`
 }
@@ -290,12 +288,6 @@ func (s *DescribeBinlogFilesInput) SetEndTime(v string) *DescribeBinlogFilesInpu
 // SetInstanceId sets the InstanceId field's value.
 func (s *DescribeBinlogFilesInput) SetInstanceId(v string) *DescribeBinlogFilesInput {
 	s.InstanceId = &v
-	return s
-}
-
-// SetResultSorter sets the ResultSorter field's value.
-func (s *DescribeBinlogFilesInput) SetResultSorter(v string) *DescribeBinlogFilesInput {
-	s.ResultSorter = &v
 	return s
 }
 
