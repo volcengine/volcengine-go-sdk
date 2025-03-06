@@ -194,8 +194,7 @@ type TagResourcesInput struct {
 	// ResourceType is a required field
 	ResourceType *string `type:"string" required:"true"`
 
-	// Tags is a required field
-	Tags []*TagForTagResourcesInput `type:"list" required:"true"`
+	Tags []*TagForTagResourcesInput `type:"list"`
 }
 
 // String returns the string representation
@@ -216,9 +215,6 @@ func (s *TagResourcesInput) Validate() error {
 	}
 	if s.ResourceType == nil {
 		invalidParams.Add(request.NewErrParamRequired("ResourceType"))
-	}
-	if s.Tags == nil {
-		invalidParams.Add(request.NewErrParamRequired("Tags"))
 	}
 	if s.Tags != nil {
 		for i, v := range s.Tags {

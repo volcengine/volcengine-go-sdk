@@ -278,6 +278,22 @@ type WAFAPI interface {
 	DeleteWafServiceCertificateWithContext(volcengine.Context, *DeleteWafServiceCertificateInput, ...request.Option) (*DeleteWafServiceCertificateOutput, error)
 	DeleteWafServiceCertificateRequest(*DeleteWafServiceCertificateInput) (*request.Request, *DeleteWafServiceCertificateOutput)
 
+	GetDomainInfoCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	GetDomainInfoCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	GetDomainInfoCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	GetDomainInfo(*GetDomainInfoInput) (*GetDomainInfoOutput, error)
+	GetDomainInfoWithContext(volcengine.Context, *GetDomainInfoInput, ...request.Option) (*GetDomainInfoOutput, error)
+	GetDomainInfoRequest(*GetDomainInfoInput) (*request.Request, *GetDomainInfoOutput)
+
+	GetInstanceCtlCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	GetInstanceCtlCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	GetInstanceCtlCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	GetInstanceCtl(*GetInstanceCtlInput) (*GetInstanceCtlOutput, error)
+	GetInstanceCtlWithContext(volcengine.Context, *GetInstanceCtlInput, ...request.Option) (*GetInstanceCtlOutput, error)
+	GetInstanceCtlRequest(*GetInstanceCtlInput) (*request.Request, *GetInstanceCtlOutput)
+
 	GetReqQPSAnalysisCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	GetReqQPSAnalysisCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	GetReqQPSAnalysisCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})

@@ -240,8 +240,7 @@ func (s *DataForListLoadBalancerOutput) SetProtocol(v string) *DataForListLoadBa
 type ListLoadBalancerInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	// Host is a required field
-	Host *string `type:"string" json:",omitempty" required:"true"`
+	Host *string `type:"string" json:",omitempty"`
 
 	ProjectName *string `type:"string" json:",omitempty"`
 
@@ -256,19 +255,6 @@ func (s ListLoadBalancerInput) String() string {
 // GoString returns the string representation
 func (s ListLoadBalancerInput) GoString() string {
 	return s.String()
-}
-
-// Validate inspects the fields of the type to determine if they are valid.
-func (s *ListLoadBalancerInput) Validate() error {
-	invalidParams := request.ErrInvalidParams{Context: "ListLoadBalancerInput"}
-	if s.Host == nil {
-		invalidParams.Add(request.NewErrParamRequired("Host"))
-	}
-
-	if invalidParams.Len() > 0 {
-		return invalidParams
-	}
-	return nil
 }
 
 // SetHost sets the Host field's value.

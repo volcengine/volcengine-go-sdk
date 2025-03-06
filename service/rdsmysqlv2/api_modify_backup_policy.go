@@ -146,6 +146,12 @@ func (c *RDSMYSQLV2) ModifyBackupPolicyWithContext(ctx volcengine.Context, input
 type ModifyBackupPolicyInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	BinlogBackupAllRetention *bool `type:"boolean" json:",omitempty"`
+
+	BinlogBackupEnabled *bool `type:"boolean" json:",omitempty"`
+
+	BinlogBackupEncryptionEnabled *bool `type:"boolean" json:",omitempty"`
+
 	BinlogFileCountsEnable *bool `type:"boolean" json:",omitempty"`
 
 	BinlogLimitCount *int32 `type:"int32" json:",omitempty"`
@@ -156,20 +162,36 @@ type ModifyBackupPolicyInput struct {
 
 	BinlogStoragePercentage *int32 `type:"int32" json:",omitempty"`
 
+	DataBackupAllRetention *bool `type:"boolean" json:",omitempty"`
+
+	DataBackupEncryptionEnabled *bool `type:"boolean" json:",omitempty"`
+
 	DataBackupRetentionDay *int32 `type:"int32" json:",omitempty"`
 
 	DataFullBackupPeriods []*string `type:"list" json:",omitempty"`
+
+	DataFullBackupStartUTCHour *int32 `type:"int32" json:",omitempty"`
 
 	DataFullBackupTime *string `type:"string" json:",omitempty"`
 
 	DataIncrBackupPeriods []*string `type:"list" json:",omitempty"`
 
+	DataKeepDaysAfterReleased *int32 `type:"int32" json:",omitempty"`
+
+	DataKeepPolicyAfterReleased *string `type:"string" json:",omitempty"`
+
+	HourlyIncrBackupEnable *bool `type:"boolean" json:",omitempty"`
+
+	IncrBackupHourPeriod *int32 `type:"int32" json:",omitempty"`
+
 	// InstanceId is a required field
 	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 
-	LockDdlTime *int32 `type:"int32" json:",omitempty"`
+	LockDDLTime *int32 `type:"int32" json:",omitempty"`
 
 	LogBackupRetentionDay *int32 `type:"int32" json:",omitempty"`
+
+	RetentionPolicySynced *bool `type:"boolean" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -193,6 +215,24 @@ func (s *ModifyBackupPolicyInput) Validate() error {
 		return invalidParams
 	}
 	return nil
+}
+
+// SetBinlogBackupAllRetention sets the BinlogBackupAllRetention field's value.
+func (s *ModifyBackupPolicyInput) SetBinlogBackupAllRetention(v bool) *ModifyBackupPolicyInput {
+	s.BinlogBackupAllRetention = &v
+	return s
+}
+
+// SetBinlogBackupEnabled sets the BinlogBackupEnabled field's value.
+func (s *ModifyBackupPolicyInput) SetBinlogBackupEnabled(v bool) *ModifyBackupPolicyInput {
+	s.BinlogBackupEnabled = &v
+	return s
+}
+
+// SetBinlogBackupEncryptionEnabled sets the BinlogBackupEncryptionEnabled field's value.
+func (s *ModifyBackupPolicyInput) SetBinlogBackupEncryptionEnabled(v bool) *ModifyBackupPolicyInput {
+	s.BinlogBackupEncryptionEnabled = &v
+	return s
 }
 
 // SetBinlogFileCountsEnable sets the BinlogFileCountsEnable field's value.
@@ -225,6 +265,18 @@ func (s *ModifyBackupPolicyInput) SetBinlogStoragePercentage(v int32) *ModifyBac
 	return s
 }
 
+// SetDataBackupAllRetention sets the DataBackupAllRetention field's value.
+func (s *ModifyBackupPolicyInput) SetDataBackupAllRetention(v bool) *ModifyBackupPolicyInput {
+	s.DataBackupAllRetention = &v
+	return s
+}
+
+// SetDataBackupEncryptionEnabled sets the DataBackupEncryptionEnabled field's value.
+func (s *ModifyBackupPolicyInput) SetDataBackupEncryptionEnabled(v bool) *ModifyBackupPolicyInput {
+	s.DataBackupEncryptionEnabled = &v
+	return s
+}
+
 // SetDataBackupRetentionDay sets the DataBackupRetentionDay field's value.
 func (s *ModifyBackupPolicyInput) SetDataBackupRetentionDay(v int32) *ModifyBackupPolicyInput {
 	s.DataBackupRetentionDay = &v
@@ -234,6 +286,12 @@ func (s *ModifyBackupPolicyInput) SetDataBackupRetentionDay(v int32) *ModifyBack
 // SetDataFullBackupPeriods sets the DataFullBackupPeriods field's value.
 func (s *ModifyBackupPolicyInput) SetDataFullBackupPeriods(v []*string) *ModifyBackupPolicyInput {
 	s.DataFullBackupPeriods = v
+	return s
+}
+
+// SetDataFullBackupStartUTCHour sets the DataFullBackupStartUTCHour field's value.
+func (s *ModifyBackupPolicyInput) SetDataFullBackupStartUTCHour(v int32) *ModifyBackupPolicyInput {
+	s.DataFullBackupStartUTCHour = &v
 	return s
 }
 
@@ -249,15 +307,39 @@ func (s *ModifyBackupPolicyInput) SetDataIncrBackupPeriods(v []*string) *ModifyB
 	return s
 }
 
+// SetDataKeepDaysAfterReleased sets the DataKeepDaysAfterReleased field's value.
+func (s *ModifyBackupPolicyInput) SetDataKeepDaysAfterReleased(v int32) *ModifyBackupPolicyInput {
+	s.DataKeepDaysAfterReleased = &v
+	return s
+}
+
+// SetDataKeepPolicyAfterReleased sets the DataKeepPolicyAfterReleased field's value.
+func (s *ModifyBackupPolicyInput) SetDataKeepPolicyAfterReleased(v string) *ModifyBackupPolicyInput {
+	s.DataKeepPolicyAfterReleased = &v
+	return s
+}
+
+// SetHourlyIncrBackupEnable sets the HourlyIncrBackupEnable field's value.
+func (s *ModifyBackupPolicyInput) SetHourlyIncrBackupEnable(v bool) *ModifyBackupPolicyInput {
+	s.HourlyIncrBackupEnable = &v
+	return s
+}
+
+// SetIncrBackupHourPeriod sets the IncrBackupHourPeriod field's value.
+func (s *ModifyBackupPolicyInput) SetIncrBackupHourPeriod(v int32) *ModifyBackupPolicyInput {
+	s.IncrBackupHourPeriod = &v
+	return s
+}
+
 // SetInstanceId sets the InstanceId field's value.
 func (s *ModifyBackupPolicyInput) SetInstanceId(v string) *ModifyBackupPolicyInput {
 	s.InstanceId = &v
 	return s
 }
 
-// SetLockDdlTime sets the LockDdlTime field's value.
-func (s *ModifyBackupPolicyInput) SetLockDdlTime(v int32) *ModifyBackupPolicyInput {
-	s.LockDdlTime = &v
+// SetLockDDLTime sets the LockDDLTime field's value.
+func (s *ModifyBackupPolicyInput) SetLockDDLTime(v int32) *ModifyBackupPolicyInput {
+	s.LockDDLTime = &v
 	return s
 }
 
@@ -267,10 +349,22 @@ func (s *ModifyBackupPolicyInput) SetLogBackupRetentionDay(v int32) *ModifyBacku
 	return s
 }
 
+// SetRetentionPolicySynced sets the RetentionPolicySynced field's value.
+func (s *ModifyBackupPolicyInput) SetRetentionPolicySynced(v bool) *ModifyBackupPolicyInput {
+	s.RetentionPolicySynced = &v
+	return s
+}
+
 type ModifyBackupPolicyOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
+
+	BinlogBackupAllRetention *bool `type:"boolean" json:",omitempty"`
+
+	BinlogBackupEnabled *bool `type:"boolean" json:",omitempty"`
+
+	BinlogBackupEncryptionEnabled *bool `type:"boolean" json:",omitempty"`
 
 	BinlogFileCountsEnable *bool `type:"boolean" json:",omitempty"`
 
@@ -282,19 +376,35 @@ type ModifyBackupPolicyOutput struct {
 
 	BinlogStoragePercentage *int32 `type:"int32" json:",omitempty"`
 
+	DataBackupAllRetention *bool `type:"boolean" json:",omitempty"`
+
+	DataBackupEncryptionEnabled *bool `type:"boolean" json:",omitempty"`
+
 	DataBackupRetentionDay *int32 `type:"int32" json:",omitempty"`
 
 	DataFullBackupPeriods []*string `type:"list" json:",omitempty"`
+
+	DataFullBackupStartUTCHour *int32 `type:"int32" json:",omitempty"`
 
 	DataFullBackupTime *string `type:"string" json:",omitempty"`
 
 	DataIncrBackupPeriods []*string `type:"list" json:",omitempty"`
 
+	DataKeepDaysAfterReleased *int32 `type:"int32" json:",omitempty"`
+
+	DataKeepPolicyAfterReleased *string `type:"string" json:",omitempty"`
+
+	HourlyIncrBackupEnable *bool `type:"boolean" json:",omitempty"`
+
+	IncrBackupHourPeriod *int32 `type:"int32" json:",omitempty"`
+
 	InstanceId *string `type:"string" json:",omitempty"`
 
-	LockDdlTime *int32 `type:"int32" json:",omitempty"`
+	LockDDLTime *int32 `type:"int32" json:",omitempty"`
 
 	LogBackupRetentionDay *int32 `type:"int32" json:",omitempty"`
+
+	RetentionPolicySynced *bool `type:"boolean" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -305,6 +415,24 @@ func (s ModifyBackupPolicyOutput) String() string {
 // GoString returns the string representation
 func (s ModifyBackupPolicyOutput) GoString() string {
 	return s.String()
+}
+
+// SetBinlogBackupAllRetention sets the BinlogBackupAllRetention field's value.
+func (s *ModifyBackupPolicyOutput) SetBinlogBackupAllRetention(v bool) *ModifyBackupPolicyOutput {
+	s.BinlogBackupAllRetention = &v
+	return s
+}
+
+// SetBinlogBackupEnabled sets the BinlogBackupEnabled field's value.
+func (s *ModifyBackupPolicyOutput) SetBinlogBackupEnabled(v bool) *ModifyBackupPolicyOutput {
+	s.BinlogBackupEnabled = &v
+	return s
+}
+
+// SetBinlogBackupEncryptionEnabled sets the BinlogBackupEncryptionEnabled field's value.
+func (s *ModifyBackupPolicyOutput) SetBinlogBackupEncryptionEnabled(v bool) *ModifyBackupPolicyOutput {
+	s.BinlogBackupEncryptionEnabled = &v
+	return s
 }
 
 // SetBinlogFileCountsEnable sets the BinlogFileCountsEnable field's value.
@@ -337,6 +465,18 @@ func (s *ModifyBackupPolicyOutput) SetBinlogStoragePercentage(v int32) *ModifyBa
 	return s
 }
 
+// SetDataBackupAllRetention sets the DataBackupAllRetention field's value.
+func (s *ModifyBackupPolicyOutput) SetDataBackupAllRetention(v bool) *ModifyBackupPolicyOutput {
+	s.DataBackupAllRetention = &v
+	return s
+}
+
+// SetDataBackupEncryptionEnabled sets the DataBackupEncryptionEnabled field's value.
+func (s *ModifyBackupPolicyOutput) SetDataBackupEncryptionEnabled(v bool) *ModifyBackupPolicyOutput {
+	s.DataBackupEncryptionEnabled = &v
+	return s
+}
+
 // SetDataBackupRetentionDay sets the DataBackupRetentionDay field's value.
 func (s *ModifyBackupPolicyOutput) SetDataBackupRetentionDay(v int32) *ModifyBackupPolicyOutput {
 	s.DataBackupRetentionDay = &v
@@ -346,6 +486,12 @@ func (s *ModifyBackupPolicyOutput) SetDataBackupRetentionDay(v int32) *ModifyBac
 // SetDataFullBackupPeriods sets the DataFullBackupPeriods field's value.
 func (s *ModifyBackupPolicyOutput) SetDataFullBackupPeriods(v []*string) *ModifyBackupPolicyOutput {
 	s.DataFullBackupPeriods = v
+	return s
+}
+
+// SetDataFullBackupStartUTCHour sets the DataFullBackupStartUTCHour field's value.
+func (s *ModifyBackupPolicyOutput) SetDataFullBackupStartUTCHour(v int32) *ModifyBackupPolicyOutput {
+	s.DataFullBackupStartUTCHour = &v
 	return s
 }
 
@@ -361,20 +507,50 @@ func (s *ModifyBackupPolicyOutput) SetDataIncrBackupPeriods(v []*string) *Modify
 	return s
 }
 
+// SetDataKeepDaysAfterReleased sets the DataKeepDaysAfterReleased field's value.
+func (s *ModifyBackupPolicyOutput) SetDataKeepDaysAfterReleased(v int32) *ModifyBackupPolicyOutput {
+	s.DataKeepDaysAfterReleased = &v
+	return s
+}
+
+// SetDataKeepPolicyAfterReleased sets the DataKeepPolicyAfterReleased field's value.
+func (s *ModifyBackupPolicyOutput) SetDataKeepPolicyAfterReleased(v string) *ModifyBackupPolicyOutput {
+	s.DataKeepPolicyAfterReleased = &v
+	return s
+}
+
+// SetHourlyIncrBackupEnable sets the HourlyIncrBackupEnable field's value.
+func (s *ModifyBackupPolicyOutput) SetHourlyIncrBackupEnable(v bool) *ModifyBackupPolicyOutput {
+	s.HourlyIncrBackupEnable = &v
+	return s
+}
+
+// SetIncrBackupHourPeriod sets the IncrBackupHourPeriod field's value.
+func (s *ModifyBackupPolicyOutput) SetIncrBackupHourPeriod(v int32) *ModifyBackupPolicyOutput {
+	s.IncrBackupHourPeriod = &v
+	return s
+}
+
 // SetInstanceId sets the InstanceId field's value.
 func (s *ModifyBackupPolicyOutput) SetInstanceId(v string) *ModifyBackupPolicyOutput {
 	s.InstanceId = &v
 	return s
 }
 
-// SetLockDdlTime sets the LockDdlTime field's value.
-func (s *ModifyBackupPolicyOutput) SetLockDdlTime(v int32) *ModifyBackupPolicyOutput {
-	s.LockDdlTime = &v
+// SetLockDDLTime sets the LockDDLTime field's value.
+func (s *ModifyBackupPolicyOutput) SetLockDDLTime(v int32) *ModifyBackupPolicyOutput {
+	s.LockDDLTime = &v
 	return s
 }
 
 // SetLogBackupRetentionDay sets the LogBackupRetentionDay field's value.
 func (s *ModifyBackupPolicyOutput) SetLogBackupRetentionDay(v int32) *ModifyBackupPolicyOutput {
 	s.LogBackupRetentionDay = &v
+	return s
+}
+
+// SetRetentionPolicySynced sets the RetentionPolicySynced field's value.
+func (s *ModifyBackupPolicyOutput) SetRetentionPolicySynced(v bool) *ModifyBackupPolicyOutput {
+	s.RetentionPolicySynced = &v
 	return s
 }

@@ -146,6 +146,8 @@ func (c *RDSMYSQLV2) DescribeParameterTemplateWithContext(ctx volcengine.Context
 type DescribeParameterTemplateInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	ProjectName *string `type:"string" json:",omitempty"`
+
 	// TemplateId is a required field
 	TemplateId *string `type:"string" json:",omitempty" required:"true"`
 }
@@ -171,6 +173,12 @@ func (s *DescribeParameterTemplateInput) Validate() error {
 		return invalidParams
 	}
 	return nil
+}
+
+// SetProjectName sets the ProjectName field's value.
+func (s *DescribeParameterTemplateInput) SetProjectName(v string) *DescribeParameterTemplateInput {
+	s.ProjectName = &v
+	return s
 }
 
 // SetTemplateId sets the TemplateId field's value.
@@ -216,7 +224,7 @@ type TemplateInfoForDescribeParameterTemplateOutput struct {
 
 	ProjectName *string `type:"string" json:",omitempty"`
 
-	TemplateCategory *string `type:"string" json:",omitempty" enum:"EnumOfTemplateCategoryForDescribeParameterTemplateOutput"`
+	TemplateCategory *string `type:"string" json:",omitempty"`
 
 	TemplateDesc *string `type:"string" json:",omitempty"`
 
@@ -226,11 +234,11 @@ type TemplateInfoForDescribeParameterTemplateOutput struct {
 
 	TemplateParams []*TemplateParamForDescribeParameterTemplateOutput `type:"list" json:",omitempty"`
 
-	TemplateSource *string `type:"string" json:",omitempty" enum:"EnumOfTemplateSourceForDescribeParameterTemplateOutput"`
+	TemplateSource *string `type:"string" json:",omitempty"`
 
-	TemplateType *string `type:"string" json:",omitempty" enum:"EnumOfTemplateTypeForDescribeParameterTemplateOutput"`
+	TemplateType *string `type:"string" json:",omitempty"`
 
-	TemplateTypeVersion *string `type:"string" json:",omitempty" enum:"EnumOfTemplateTypeVersionForDescribeParameterTemplateOutput"`
+	TemplateTypeVersion *string `type:"string" json:",omitempty"`
 
 	UpdateTime *string `type:"string" json:",omitempty"`
 }
@@ -406,50 +414,3 @@ func (s *TemplateParamForDescribeParameterTemplateOutput) SetValueRange(v string
 	s.ValueRange = &v
 	return s
 }
-
-const (
-	// EnumOfTemplateCategoryForDescribeParameterTemplateOutputDbengine is a EnumOfTemplateCategoryForDescribeParameterTemplateOutput enum value
-	EnumOfTemplateCategoryForDescribeParameterTemplateOutputDbengine = "DBEngine"
-
-	// EnumOfTemplateCategoryForDescribeParameterTemplateOutputProxy is a EnumOfTemplateCategoryForDescribeParameterTemplateOutput enum value
-	EnumOfTemplateCategoryForDescribeParameterTemplateOutputProxy = "Proxy"
-)
-
-const (
-	// EnumOfTemplateSourceForDescribeParameterTemplateOutputSystem is a EnumOfTemplateSourceForDescribeParameterTemplateOutput enum value
-	EnumOfTemplateSourceForDescribeParameterTemplateOutputSystem = "System"
-
-	// EnumOfTemplateSourceForDescribeParameterTemplateOutputUser is a EnumOfTemplateSourceForDescribeParameterTemplateOutput enum value
-	EnumOfTemplateSourceForDescribeParameterTemplateOutputUser = "User"
-)
-
-const (
-	// EnumOfTemplateTypeForDescribeParameterTemplateOutputMysql is a EnumOfTemplateTypeForDescribeParameterTemplateOutput enum value
-	EnumOfTemplateTypeForDescribeParameterTemplateOutputMysql = "Mysql"
-
-	// EnumOfTemplateTypeForDescribeParameterTemplateOutputPostgresql is a EnumOfTemplateTypeForDescribeParameterTemplateOutput enum value
-	EnumOfTemplateTypeForDescribeParameterTemplateOutputPostgresql = "Postgresql"
-
-	// EnumOfTemplateTypeForDescribeParameterTemplateOutputSqlserver is a EnumOfTemplateTypeForDescribeParameterTemplateOutput enum value
-	EnumOfTemplateTypeForDescribeParameterTemplateOutputSqlserver = "Sqlserver"
-)
-
-const (
-	// EnumOfTemplateTypeVersionForDescribeParameterTemplateOutputMySql57 is a EnumOfTemplateTypeVersionForDescribeParameterTemplateOutput enum value
-	EnumOfTemplateTypeVersionForDescribeParameterTemplateOutputMySql57 = "MySQL_5_7"
-
-	// EnumOfTemplateTypeVersionForDescribeParameterTemplateOutputMySql80 is a EnumOfTemplateTypeVersionForDescribeParameterTemplateOutput enum value
-	EnumOfTemplateTypeVersionForDescribeParameterTemplateOutputMySql80 = "MySQL_8_0"
-
-	// EnumOfTemplateTypeVersionForDescribeParameterTemplateOutputMySql56 is a EnumOfTemplateTypeVersionForDescribeParameterTemplateOutput enum value
-	EnumOfTemplateTypeVersionForDescribeParameterTemplateOutputMySql56 = "MySQL_5_6"
-
-	// EnumOfTemplateTypeVersionForDescribeParameterTemplateOutputSqlserver2019Ent is a EnumOfTemplateTypeVersionForDescribeParameterTemplateOutput enum value
-	EnumOfTemplateTypeVersionForDescribeParameterTemplateOutputSqlserver2019Ent = "SQLServer_2019_Ent"
-
-	// EnumOfTemplateTypeVersionForDescribeParameterTemplateOutputSqlserver2019Std is a EnumOfTemplateTypeVersionForDescribeParameterTemplateOutput enum value
-	EnumOfTemplateTypeVersionForDescribeParameterTemplateOutputSqlserver2019Std = "SQLServer_2019_Std"
-
-	// EnumOfTemplateTypeVersionForDescribeParameterTemplateOutputSqlserver2019Web is a EnumOfTemplateTypeVersionForDescribeParameterTemplateOutput enum value
-	EnumOfTemplateTypeVersionForDescribeParameterTemplateOutputSqlserver2019Web = "SQLServer_2019_Web"
-)

@@ -146,8 +146,7 @@ type DescribeTagsInput struct {
 
 	NextToken *string `type:"string"`
 
-	// ResourceIds is a required field
-	ResourceIds []*string `type:"list" required:"true"`
+	ResourceIds []*string `type:"list"`
 
 	// ResourceType is a required field
 	ResourceType *string `type:"string" required:"true"`
@@ -168,9 +167,6 @@ func (s DescribeTagsInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *DescribeTagsInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "DescribeTagsInput"}
-	if s.ResourceIds == nil {
-		invalidParams.Add(request.NewErrParamRequired("ResourceIds"))
-	}
 	if s.ResourceType == nil {
 		invalidParams.Add(request.NewErrParamRequired("ResourceType"))
 	}

@@ -156,8 +156,7 @@ type ImportKeyPairInput struct {
 	// PublicKey is a required field
 	PublicKey *string `type:"string" required:"true"`
 
-	// Tags is a required field
-	Tags []*TagForImportKeyPairInput `type:"list" required:"true"`
+	Tags []*TagForImportKeyPairInput `type:"list"`
 }
 
 // String returns the string representation
@@ -178,9 +177,6 @@ func (s *ImportKeyPairInput) Validate() error {
 	}
 	if s.PublicKey == nil {
 		invalidParams.Add(request.NewErrParamRequired("PublicKey"))
-	}
-	if s.Tags == nil {
-		invalidParams.Add(request.NewErrParamRequired("Tags"))
 	}
 	if s.Tags != nil {
 		for i, v := range s.Tags {

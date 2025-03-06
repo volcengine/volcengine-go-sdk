@@ -154,9 +154,9 @@ type AddressObjectForDescribeDBInstancesOutput struct {
 
 	IPAddress *string `type:"string" json:",omitempty"`
 
-	InternetProtocol *string `type:"string" json:",omitempty" enum:"EnumOfInternetProtocolForDescribeDBInstancesOutput"`
+	InternetProtocol *string `type:"string" json:",omitempty"`
 
-	NetworkType *string `type:"string" json:",omitempty" enum:"EnumOfNetworkTypeForDescribeDBInstancesOutput"`
+	NetworkType *string `type:"string" json:",omitempty"`
 
 	Port *string `type:"string" json:",omitempty"`
 
@@ -230,9 +230,9 @@ type ChargeDetailForDescribeDBInstancesOutput struct {
 
 	ChargeStartTime *string `type:"string" json:",omitempty"`
 
-	ChargeStatus *string `type:"string" json:",omitempty" enum:"EnumOfChargeStatusForDescribeDBInstancesOutput"`
+	ChargeStatus *string `type:"string" json:",omitempty"`
 
-	ChargeType *string `type:"string" json:",omitempty" enum:"EnumOfChargeTypeForDescribeDBInstancesOutput"`
+	ChargeType *string `type:"string" json:",omitempty"`
 
 	OverdueReclaimTime *string `type:"string" json:",omitempty"`
 
@@ -240,7 +240,7 @@ type ChargeDetailForDescribeDBInstancesOutput struct {
 
 	Period *int32 `type:"int32" json:",omitempty"`
 
-	PeriodUnit *string `type:"string" json:",omitempty" enum:"EnumOfPeriodUnitForDescribeDBInstancesOutput"`
+	PeriodUnit *string `type:"string" json:",omitempty"`
 
 	TempModifyEndTime *string `type:"string" json:",omitempty"`
 
@@ -342,11 +342,17 @@ type DescribeDBInstancesInput struct {
 
 	InstanceType *string `type:"string" json:",omitempty"`
 
+	KernelVersion []*string `type:"list" json:",omitempty"`
+
 	NodeSpec *string `type:"string" json:",omitempty"`
 
 	PageNumber *int32 `type:"int32" json:",omitempty"`
 
 	PageSize *int32 `type:"int32" json:",omitempty"`
+
+	PrivateNetworkIpAddress *string `type:"string" json:",omitempty"`
+
+	PrivateNetworkVpcId *string `type:"string" json:",omitempty"`
 
 	ProjectName *string `type:"string" json:",omitempty"`
 
@@ -413,6 +419,12 @@ func (s *DescribeDBInstancesInput) SetInstanceType(v string) *DescribeDBInstance
 	return s
 }
 
+// SetKernelVersion sets the KernelVersion field's value.
+func (s *DescribeDBInstancesInput) SetKernelVersion(v []*string) *DescribeDBInstancesInput {
+	s.KernelVersion = v
+	return s
+}
+
 // SetNodeSpec sets the NodeSpec field's value.
 func (s *DescribeDBInstancesInput) SetNodeSpec(v string) *DescribeDBInstancesInput {
 	s.NodeSpec = &v
@@ -428,6 +440,18 @@ func (s *DescribeDBInstancesInput) SetPageNumber(v int32) *DescribeDBInstancesIn
 // SetPageSize sets the PageSize field's value.
 func (s *DescribeDBInstancesInput) SetPageSize(v int32) *DescribeDBInstancesInput {
 	s.PageSize = &v
+	return s
+}
+
+// SetPrivateNetworkIpAddress sets the PrivateNetworkIpAddress field's value.
+func (s *DescribeDBInstancesInput) SetPrivateNetworkIpAddress(v string) *DescribeDBInstancesInput {
+	s.PrivateNetworkIpAddress = &v
+	return s
+}
+
+// SetPrivateNetworkVpcId sets the PrivateNetworkVpcId field's value.
+func (s *DescribeDBInstancesInput) SetPrivateNetworkVpcId(v string) *DescribeDBInstancesInput {
+	s.PrivateNetworkVpcId = &v
 	return s
 }
 
@@ -492,6 +516,8 @@ type InstanceForDescribeDBInstancesOutput struct {
 
 	CreateTime *string `type:"string" json:",omitempty"`
 
+	CurrentKernelVersion *string `type:"string" json:",omitempty"`
+
 	DBEngineVersion *string `type:"string" json:",omitempty"`
 
 	InstanceId *string `type:"string" json:",omitempty"`
@@ -506,13 +532,13 @@ type InstanceForDescribeDBInstancesOutput struct {
 
 	MaintenanceWindow *MaintenanceWindowForDescribeDBInstancesOutput `type:"structure" json:",omitempty"`
 
-	NodeCPUUsedPercentage *float64 `type:"float" json:",omitempty"`
+	NodeCPUUsedPercentage *float64 `type:"double" json:",omitempty"`
 
-	NodeMemoryUsedPercentage *float64 `type:"float" json:",omitempty"`
+	NodeMemoryUsedPercentage *float64 `type:"double" json:",omitempty"`
 
 	NodeNumber *int32 `type:"int32" json:",omitempty"`
 
-	NodeSpaceUsedPercentage *float64 `type:"float" json:",omitempty"`
+	NodeSpaceUsedPercentage *float64 `type:"double" json:",omitempty"`
 
 	NodeSpec *string `type:"string" json:",omitempty"`
 
@@ -568,6 +594,12 @@ func (s *InstanceForDescribeDBInstancesOutput) SetChargeDetail(v *ChargeDetailFo
 // SetCreateTime sets the CreateTime field's value.
 func (s *InstanceForDescribeDBInstancesOutput) SetCreateTime(v string) *InstanceForDescribeDBInstancesOutput {
 	s.CreateTime = &v
+	return s
+}
+
+// SetCurrentKernelVersion sets the CurrentKernelVersion field's value.
+func (s *InstanceForDescribeDBInstancesOutput) SetCurrentKernelVersion(v string) *InstanceForDescribeDBInstancesOutput {
+	s.CurrentKernelVersion = &v
 	return s
 }
 
@@ -800,61 +832,3 @@ func (s *TagForDescribeDBInstancesOutput) SetValue(v string) *TagForDescribeDBIn
 	s.Value = &v
 	return s
 }
-
-const (
-	// EnumOfChargeStatusForDescribeDBInstancesOutputNormal is a EnumOfChargeStatusForDescribeDBInstancesOutput enum value
-	EnumOfChargeStatusForDescribeDBInstancesOutputNormal = "Normal"
-
-	// EnumOfChargeStatusForDescribeDBInstancesOutputOverdue is a EnumOfChargeStatusForDescribeDBInstancesOutput enum value
-	EnumOfChargeStatusForDescribeDBInstancesOutputOverdue = "Overdue"
-
-	// EnumOfChargeStatusForDescribeDBInstancesOutputUnpaid is a EnumOfChargeStatusForDescribeDBInstancesOutput enum value
-	EnumOfChargeStatusForDescribeDBInstancesOutputUnpaid = "Unpaid"
-)
-
-const (
-	// EnumOfChargeTypeForDescribeDBInstancesOutputNotEnabled is a EnumOfChargeTypeForDescribeDBInstancesOutput enum value
-	EnumOfChargeTypeForDescribeDBInstancesOutputNotEnabled = "NotEnabled"
-
-	// EnumOfChargeTypeForDescribeDBInstancesOutputPostPaid is a EnumOfChargeTypeForDescribeDBInstancesOutput enum value
-	EnumOfChargeTypeForDescribeDBInstancesOutputPostPaid = "PostPaid"
-
-	// EnumOfChargeTypeForDescribeDBInstancesOutputPrePaid is a EnumOfChargeTypeForDescribeDBInstancesOutput enum value
-	EnumOfChargeTypeForDescribeDBInstancesOutputPrePaid = "PrePaid"
-)
-
-const (
-	// EnumOfInternetProtocolForDescribeDBInstancesOutputIpv4 is a EnumOfInternetProtocolForDescribeDBInstancesOutput enum value
-	EnumOfInternetProtocolForDescribeDBInstancesOutputIpv4 = "IPv4"
-
-	// EnumOfInternetProtocolForDescribeDBInstancesOutputIpv6 is a EnumOfInternetProtocolForDescribeDBInstancesOutput enum value
-	EnumOfInternetProtocolForDescribeDBInstancesOutputIpv6 = "IPv6"
-
-	// EnumOfInternetProtocolForDescribeDBInstancesOutputDualStack is a EnumOfInternetProtocolForDescribeDBInstancesOutput enum value
-	EnumOfInternetProtocolForDescribeDBInstancesOutputDualStack = "DualStack"
-)
-
-const (
-	// EnumOfNetworkTypeForDescribeDBInstancesOutputPrivate is a EnumOfNetworkTypeForDescribeDBInstancesOutput enum value
-	EnumOfNetworkTypeForDescribeDBInstancesOutputPrivate = "Private"
-
-	// EnumOfNetworkTypeForDescribeDBInstancesOutputPublic is a EnumOfNetworkTypeForDescribeDBInstancesOutput enum value
-	EnumOfNetworkTypeForDescribeDBInstancesOutputPublic = "Public"
-
-	// EnumOfNetworkTypeForDescribeDBInstancesOutputInner is a EnumOfNetworkTypeForDescribeDBInstancesOutput enum value
-	EnumOfNetworkTypeForDescribeDBInstancesOutputInner = "Inner"
-
-	// EnumOfNetworkTypeForDescribeDBInstancesOutputIngress is a EnumOfNetworkTypeForDescribeDBInstancesOutput enum value
-	EnumOfNetworkTypeForDescribeDBInstancesOutputIngress = "Ingress"
-
-	// EnumOfNetworkTypeForDescribeDBInstancesOutputCarma is a EnumOfNetworkTypeForDescribeDBInstancesOutput enum value
-	EnumOfNetworkTypeForDescribeDBInstancesOutputCarma = "Carma"
-)
-
-const (
-	// EnumOfPeriodUnitForDescribeDBInstancesOutputMonth is a EnumOfPeriodUnitForDescribeDBInstancesOutput enum value
-	EnumOfPeriodUnitForDescribeDBInstancesOutputMonth = "Month"
-
-	// EnumOfPeriodUnitForDescribeDBInstancesOutputYear is a EnumOfPeriodUnitForDescribeDBInstancesOutput enum value
-	EnumOfPeriodUnitForDescribeDBInstancesOutputYear = "Year"
-)

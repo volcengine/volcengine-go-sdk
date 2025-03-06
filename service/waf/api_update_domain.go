@@ -433,16 +433,6 @@ type UpdateDomainInput struct {
 
 	BackendGroups []*BackendGroupForUpdateDomainInput `type:"list" json:",omitempty"`
 
-	BotDytokenEnable *int32 `type:"int32" json:",omitempty"`
-
-	BotFrequencyEnable *int32 `type:"int32" json:",omitempty"`
-
-	BotRepeatEnable *int32 `type:"int32" json:",omitempty"`
-
-	BotSequenceDefaultAction *int32 `type:"int32" json:",omitempty"`
-
-	BotSequenceEnable *int32 `type:"int32" json:",omitempty"`
-
 	CertificateID *int32 `type:"int32" json:",omitempty"`
 
 	CertificatePlatform *string `type:"string" json:",omitempty"`
@@ -558,36 +548,6 @@ func (s *UpdateDomainInput) SetAccessMode(v int32) *UpdateDomainInput {
 // SetBackendGroups sets the BackendGroups field's value.
 func (s *UpdateDomainInput) SetBackendGroups(v []*BackendGroupForUpdateDomainInput) *UpdateDomainInput {
 	s.BackendGroups = v
-	return s
-}
-
-// SetBotDytokenEnable sets the BotDytokenEnable field's value.
-func (s *UpdateDomainInput) SetBotDytokenEnable(v int32) *UpdateDomainInput {
-	s.BotDytokenEnable = &v
-	return s
-}
-
-// SetBotFrequencyEnable sets the BotFrequencyEnable field's value.
-func (s *UpdateDomainInput) SetBotFrequencyEnable(v int32) *UpdateDomainInput {
-	s.BotFrequencyEnable = &v
-	return s
-}
-
-// SetBotRepeatEnable sets the BotRepeatEnable field's value.
-func (s *UpdateDomainInput) SetBotRepeatEnable(v int32) *UpdateDomainInput {
-	s.BotRepeatEnable = &v
-	return s
-}
-
-// SetBotSequenceDefaultAction sets the BotSequenceDefaultAction field's value.
-func (s *UpdateDomainInput) SetBotSequenceDefaultAction(v int32) *UpdateDomainInput {
-	s.BotSequenceDefaultAction = &v
-	return s
-}
-
-// SetBotSequenceEnable sets the BotSequenceEnable field's value.
-func (s *UpdateDomainInput) SetBotSequenceEnable(v int32) *UpdateDomainInput {
-	s.BotSequenceEnable = &v
 	return s
 }
 

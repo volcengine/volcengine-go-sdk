@@ -796,6 +796,8 @@ type NetworkInterfaceForDescribeInstancesOutput struct {
 
 	PrimaryIpAddress *string `type:"string"`
 
+	SecurityGroupIds []*string `type:"list"`
+
 	SubnetId *string `type:"string"`
 
 	Type *string `type:"string"`
@@ -834,6 +836,12 @@ func (s *NetworkInterfaceForDescribeInstancesOutput) SetNetworkInterfaceId(v str
 // SetPrimaryIpAddress sets the PrimaryIpAddress field's value.
 func (s *NetworkInterfaceForDescribeInstancesOutput) SetPrimaryIpAddress(v string) *NetworkInterfaceForDescribeInstancesOutput {
 	s.PrimaryIpAddress = &v
+	return s
+}
+
+// SetSecurityGroupIds sets the SecurityGroupIds field's value.
+func (s *NetworkInterfaceForDescribeInstancesOutput) SetSecurityGroupIds(v []*string) *NetworkInterfaceForDescribeInstancesOutput {
+	s.SecurityGroupIds = v
 	return s
 }
 

@@ -150,6 +150,8 @@ type RebuildDBInstanceInput struct {
 	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 
 	ProjectName *string `type:"string" json:",omitempty"`
+
+	RequestSource *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -184,6 +186,12 @@ func (s *RebuildDBInstanceInput) SetInstanceId(v string) *RebuildDBInstanceInput
 // SetProjectName sets the ProjectName field's value.
 func (s *RebuildDBInstanceInput) SetProjectName(v string) *RebuildDBInstanceInput {
 	s.ProjectName = &v
+	return s
+}
+
+// SetRequestSource sets the RequestSource field's value.
+func (s *RebuildDBInstanceInput) SetRequestSource(v string) *RebuildDBInstanceInput {
+	s.RequestSource = &v
 	return s
 }
 

@@ -150,6 +150,8 @@ type CreateScheduledInstancesInput struct {
 
 	Count *int32 `type:"int32"`
 
+	CpuMaxFrequency *float64 `type:"float"`
+
 	DeliveryType *string `type:"string"`
 
 	Description *string `type:"string"`
@@ -181,8 +183,9 @@ type CreateScheduledInstancesInput struct {
 
 	KeyPairName *string `type:"string"`
 
-	// NetworkInterfaces is a required field
-	NetworkInterfaces []*NetworkInterfaceForCreateScheduledInstancesInput `type:"list" required:"true"`
+	MinCount *int32 `type:"int32"`
+
+	NetworkInterfaces []*NetworkInterfaceForCreateScheduledInstancesInput `type:"list"`
 
 	Password *string `type:"string"`
 
@@ -205,8 +208,7 @@ type CreateScheduledInstancesInput struct {
 
 	UserData *string `type:"string"`
 
-	// Volumes is a required field
-	Volumes []*VolumeForCreateScheduledInstancesInput `type:"list" required:"true"`
+	Volumes []*VolumeForCreateScheduledInstancesInput `type:"list"`
 
 	// ZoneId is a required field
 	ZoneId *string `type:"string" required:"true"`
@@ -234,14 +236,8 @@ func (s *CreateScheduledInstancesInput) Validate() error {
 	if s.InstanceTypeId == nil {
 		invalidParams.Add(request.NewErrParamRequired("InstanceTypeId"))
 	}
-	if s.NetworkInterfaces == nil {
-		invalidParams.Add(request.NewErrParamRequired("NetworkInterfaces"))
-	}
 	if s.ScheduledInstanceName == nil {
 		invalidParams.Add(request.NewErrParamRequired("ScheduledInstanceName"))
-	}
-	if s.Volumes == nil {
-		invalidParams.Add(request.NewErrParamRequired("Volumes"))
 	}
 	if s.ZoneId == nil {
 		invalidParams.Add(request.NewErrParamRequired("ZoneId"))
@@ -288,6 +284,12 @@ func (s *CreateScheduledInstancesInput) SetClientToken(v string) *CreateSchedule
 // SetCount sets the Count field's value.
 func (s *CreateScheduledInstancesInput) SetCount(v int32) *CreateScheduledInstancesInput {
 	s.Count = &v
+	return s
+}
+
+// SetCpuMaxFrequency sets the CpuMaxFrequency field's value.
+func (s *CreateScheduledInstancesInput) SetCpuMaxFrequency(v float64) *CreateScheduledInstancesInput {
+	s.CpuMaxFrequency = &v
 	return s
 }
 
@@ -372,6 +374,12 @@ func (s *CreateScheduledInstancesInput) SetKeepImageCredential(v bool) *CreateSc
 // SetKeyPairName sets the KeyPairName field's value.
 func (s *CreateScheduledInstancesInput) SetKeyPairName(v string) *CreateScheduledInstancesInput {
 	s.KeyPairName = &v
+	return s
+}
+
+// SetMinCount sets the MinCount field's value.
+func (s *CreateScheduledInstancesInput) SetMinCount(v int32) *CreateScheduledInstancesInput {
+	s.MinCount = &v
 	return s
 }
 
@@ -554,7 +562,8 @@ type NetworkInterfaceForCreateScheduledInstancesInput struct {
 
 	PrivateIpAddresses []*string `type:"list"`
 
-	SecurityGroupIds []*string `type:"list"`
+	// SecurityGroupIds is a required field
+	SecurityGroupIds []*string `type:"list" required:"true"`
 
 	// SubnetId is a required field
 	SubnetId *string `type:"string" required:"true"`
@@ -573,6 +582,9 @@ func (s NetworkInterfaceForCreateScheduledInstancesInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *NetworkInterfaceForCreateScheduledInstancesInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "NetworkInterfaceForCreateScheduledInstancesInput"}
+	if s.SecurityGroupIds == nil {
+		invalidParams.Add(request.NewErrParamRequired("SecurityGroupIds"))
+	}
 	if s.SubnetId == nil {
 		invalidParams.Add(request.NewErrParamRequired("SubnetId"))
 	}
