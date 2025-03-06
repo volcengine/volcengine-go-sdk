@@ -157,8 +157,6 @@ type CreateAllowListInput struct {
 
 	AllowListType *string `type:"string" json:",omitempty"`
 
-	ProjectName *string `type:"string" json:",omitempty"`
-
 	SecurityGroupBindInfos []*SecurityGroupBindInfoForCreateAllowListInput `type:"list" json:",omitempty"`
 
 	SecurityGroupIds []*string `type:"list" json:",omitempty"`
@@ -216,12 +214,6 @@ func (s *CreateAllowListInput) SetAllowListName(v string) *CreateAllowListInput 
 // SetAllowListType sets the AllowListType field's value.
 func (s *CreateAllowListInput) SetAllowListType(v string) *CreateAllowListInput {
 	s.AllowListType = &v
-	return s
-}
-
-// SetProjectName sets the ProjectName field's value.
-func (s *CreateAllowListInput) SetProjectName(v string) *CreateAllowListInput {
-	s.ProjectName = &v
 	return s
 }
 

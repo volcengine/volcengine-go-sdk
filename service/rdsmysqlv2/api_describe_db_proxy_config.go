@@ -148,8 +148,6 @@ type CheckModifyDBProxyAllowedForDescribeDBProxyConfigOutput struct {
 
 	Allowed *bool `type:"boolean" json:",omitempty"`
 
-	Message *string `type:"string" json:",omitempty"`
-
 	Reason *string `type:"string" json:",omitempty"`
 }
 
@@ -169,52 +167,8 @@ func (s *CheckModifyDBProxyAllowedForDescribeDBProxyConfigOutput) SetAllowed(v b
 	return s
 }
 
-// SetMessage sets the Message field's value.
-func (s *CheckModifyDBProxyAllowedForDescribeDBProxyConfigOutput) SetMessage(v string) *CheckModifyDBProxyAllowedForDescribeDBProxyConfigOutput {
-	s.Message = &v
-	return s
-}
-
 // SetReason sets the Reason field's value.
 func (s *CheckModifyDBProxyAllowedForDescribeDBProxyConfigOutput) SetReason(v string) *CheckModifyDBProxyAllowedForDescribeDBProxyConfigOutput {
-	s.Reason = &v
-	return s
-}
-
-type CheckModifyDBProxyAllowedV2ForDescribeDBProxyConfigOutput struct {
-	_ struct{} `type:"structure" json:",omitempty"`
-
-	Allowed *bool `type:"boolean" json:",omitempty"`
-
-	CheckItem *string `type:"string" json:",omitempty"`
-
-	Reason *string `type:"string" json:",omitempty"`
-}
-
-// String returns the string representation
-func (s CheckModifyDBProxyAllowedV2ForDescribeDBProxyConfigOutput) String() string {
-	return volcengineutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s CheckModifyDBProxyAllowedV2ForDescribeDBProxyConfigOutput) GoString() string {
-	return s.String()
-}
-
-// SetAllowed sets the Allowed field's value.
-func (s *CheckModifyDBProxyAllowedV2ForDescribeDBProxyConfigOutput) SetAllowed(v bool) *CheckModifyDBProxyAllowedV2ForDescribeDBProxyConfigOutput {
-	s.Allowed = &v
-	return s
-}
-
-// SetCheckItem sets the CheckItem field's value.
-func (s *CheckModifyDBProxyAllowedV2ForDescribeDBProxyConfigOutput) SetCheckItem(v string) *CheckModifyDBProxyAllowedV2ForDescribeDBProxyConfigOutput {
-	s.CheckItem = &v
-	return s
-}
-
-// SetReason sets the Reason field's value.
-func (s *CheckModifyDBProxyAllowedV2ForDescribeDBProxyConfigOutput) SetReason(v string) *CheckModifyDBProxyAllowedV2ForDescribeDBProxyConfigOutput {
 	s.Reason = &v
 	return s
 }
@@ -264,8 +218,6 @@ type DescribeDBProxyConfigOutput struct {
 
 	CheckModifyDBProxyAllowed *CheckModifyDBProxyAllowedForDescribeDBProxyConfigOutput `type:"structure" json:",omitempty"`
 
-	CheckModifyDBProxyAllowedV2 []*CheckModifyDBProxyAllowedV2ForDescribeDBProxyConfigOutput `type:"list" json:",omitempty"`
-
 	ConnectionPoolType *string `type:"string" json:",omitempty"`
 
 	DBProxyStatus *string `type:"string" json:",omitempty"`
@@ -275,8 +227,6 @@ type DescribeDBProxyConfigOutput struct {
 	GlobalReadOnly *bool `type:"boolean" json:",omitempty"`
 
 	InstanceId *string `type:"string" json:",omitempty"`
-
-	ProxyResourceInfo *ProxyResourceInfoForDescribeDBProxyConfigOutput `type:"structure" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -298,12 +248,6 @@ func (s *DescribeDBProxyConfigOutput) SetBinlogDump(v bool) *DescribeDBProxyConf
 // SetCheckModifyDBProxyAllowed sets the CheckModifyDBProxyAllowed field's value.
 func (s *DescribeDBProxyConfigOutput) SetCheckModifyDBProxyAllowed(v *CheckModifyDBProxyAllowedForDescribeDBProxyConfigOutput) *DescribeDBProxyConfigOutput {
 	s.CheckModifyDBProxyAllowed = v
-	return s
-}
-
-// SetCheckModifyDBProxyAllowedV2 sets the CheckModifyDBProxyAllowedV2 field's value.
-func (s *DescribeDBProxyConfigOutput) SetCheckModifyDBProxyAllowedV2(v []*CheckModifyDBProxyAllowedV2ForDescribeDBProxyConfigOutput) *DescribeDBProxyConfigOutput {
-	s.CheckModifyDBProxyAllowedV2 = v
 	return s
 }
 
@@ -334,12 +278,6 @@ func (s *DescribeDBProxyConfigOutput) SetGlobalReadOnly(v bool) *DescribeDBProxy
 // SetInstanceId sets the InstanceId field's value.
 func (s *DescribeDBProxyConfigOutput) SetInstanceId(v string) *DescribeDBProxyConfigOutput {
 	s.InstanceId = &v
-	return s
-}
-
-// SetProxyResourceInfo sets the ProxyResourceInfo field's value.
-func (s *DescribeDBProxyConfigOutput) SetProxyResourceInfo(v *ProxyResourceInfoForDescribeDBProxyConfigOutput) *DescribeDBProxyConfigOutput {
-	s.ProxyResourceInfo = v
 	return s
 }
 
@@ -378,43 +316,5 @@ func (s *FeatureStateForDescribeDBProxyConfigOutput) SetFeatureName(v string) *F
 // SetSupport sets the Support field's value.
 func (s *FeatureStateForDescribeDBProxyConfigOutput) SetSupport(v bool) *FeatureStateForDescribeDBProxyConfigOutput {
 	s.Support = &v
-	return s
-}
-
-type ProxyResourceInfoForDescribeDBProxyConfigOutput struct {
-	_ struct{} `type:"structure" json:",omitempty"`
-
-	CurrentProxyCpuNum *int32 `type:"int32" json:",omitempty"`
-
-	MaxProxyCpuNum *int32 `type:"int32" json:",omitempty"`
-
-	MinProxyCpuNum *int32 `type:"int32" json:",omitempty"`
-}
-
-// String returns the string representation
-func (s ProxyResourceInfoForDescribeDBProxyConfigOutput) String() string {
-	return volcengineutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s ProxyResourceInfoForDescribeDBProxyConfigOutput) GoString() string {
-	return s.String()
-}
-
-// SetCurrentProxyCpuNum sets the CurrentProxyCpuNum field's value.
-func (s *ProxyResourceInfoForDescribeDBProxyConfigOutput) SetCurrentProxyCpuNum(v int32) *ProxyResourceInfoForDescribeDBProxyConfigOutput {
-	s.CurrentProxyCpuNum = &v
-	return s
-}
-
-// SetMaxProxyCpuNum sets the MaxProxyCpuNum field's value.
-func (s *ProxyResourceInfoForDescribeDBProxyConfigOutput) SetMaxProxyCpuNum(v int32) *ProxyResourceInfoForDescribeDBProxyConfigOutput {
-	s.MaxProxyCpuNum = &v
-	return s
-}
-
-// SetMinProxyCpuNum sets the MinProxyCpuNum field's value.
-func (s *ProxyResourceInfoForDescribeDBProxyConfigOutput) SetMinProxyCpuNum(v int32) *ProxyResourceInfoForDescribeDBProxyConfigOutput {
-	s.MinProxyCpuNum = &v
 	return s
 }

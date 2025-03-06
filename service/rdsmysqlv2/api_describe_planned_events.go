@@ -256,6 +256,8 @@ type PlannedEventForDescribePlannedEventsOutput struct {
 
 	InstanceName *string `type:"string" json:",omitempty"`
 
+	IsUrgent *bool `type:"boolean" json:",omitempty"`
+
 	MaxDelayTime *string `type:"string" json:",omitempty"`
 
 	OriginBeginTime *string `type:"string" json:",omitempty"`
@@ -267,10 +269,6 @@ type PlannedEventForDescribePlannedEventsOutput struct {
 	PlannedEventDescription *string `type:"string" json:",omitempty"`
 
 	PlannedEventReason *string `type:"string" json:",omitempty"`
-
-	PlannedSwitchBeginTime *string `type:"string" json:",omitempty"`
-
-	PlannedSwitchEndTime *string `type:"string" json:",omitempty"`
 
 	Region *string `type:"string" json:",omitempty"`
 
@@ -335,6 +333,12 @@ func (s *PlannedEventForDescribePlannedEventsOutput) SetInstanceName(v string) *
 	return s
 }
 
+// SetIsUrgent sets the IsUrgent field's value.
+func (s *PlannedEventForDescribePlannedEventsOutput) SetIsUrgent(v bool) *PlannedEventForDescribePlannedEventsOutput {
+	s.IsUrgent = &v
+	return s
+}
+
 // SetMaxDelayTime sets the MaxDelayTime field's value.
 func (s *PlannedEventForDescribePlannedEventsOutput) SetMaxDelayTime(v string) *PlannedEventForDescribePlannedEventsOutput {
 	s.MaxDelayTime = &v
@@ -368,18 +372,6 @@ func (s *PlannedEventForDescribePlannedEventsOutput) SetPlannedEventDescription(
 // SetPlannedEventReason sets the PlannedEventReason field's value.
 func (s *PlannedEventForDescribePlannedEventsOutput) SetPlannedEventReason(v string) *PlannedEventForDescribePlannedEventsOutput {
 	s.PlannedEventReason = &v
-	return s
-}
-
-// SetPlannedSwitchBeginTime sets the PlannedSwitchBeginTime field's value.
-func (s *PlannedEventForDescribePlannedEventsOutput) SetPlannedSwitchBeginTime(v string) *PlannedEventForDescribePlannedEventsOutput {
-	s.PlannedSwitchBeginTime = &v
-	return s
-}
-
-// SetPlannedSwitchEndTime sets the PlannedSwitchEndTime field's value.
-func (s *PlannedEventForDescribePlannedEventsOutput) SetPlannedSwitchEndTime(v string) *PlannedEventForDescribePlannedEventsOutput {
-	s.PlannedSwitchEndTime = &v
 	return s
 }
 
