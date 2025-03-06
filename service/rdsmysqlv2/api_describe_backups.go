@@ -340,12 +340,15 @@ type DescribeBackupsInput struct {
 
 	CreateType *string `type:"string" json:",omitempty"`
 
-	// InstanceId is a required field
-	InstanceId *string `type:"string" json:",omitempty" required:"true"`
+	InstanceId *string `type:"string" json:",omitempty"`
+
+	Option *OptionForDescribeBackupsInput `type:"structure" json:",omitempty"`
 
 	PageNumber *int32 `type:"int32" json:",omitempty"`
 
 	PageSize *int32 `type:"int32" json:",omitempty"`
+
+	ProjectName *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -356,19 +359,6 @@ func (s DescribeBackupsInput) String() string {
 // GoString returns the string representation
 func (s DescribeBackupsInput) GoString() string {
 	return s.String()
-}
-
-// Validate inspects the fields of the type to determine if they are valid.
-func (s *DescribeBackupsInput) Validate() error {
-	invalidParams := request.ErrInvalidParams{Context: "DescribeBackupsInput"}
-	if s.InstanceId == nil {
-		invalidParams.Add(request.NewErrParamRequired("InstanceId"))
-	}
-
-	if invalidParams.Len() > 0 {
-		return invalidParams
-	}
-	return nil
 }
 
 // SetBackupEndTime sets the BackupEndTime field's value.
@@ -419,6 +409,12 @@ func (s *DescribeBackupsInput) SetInstanceId(v string) *DescribeBackupsInput {
 	return s
 }
 
+// SetOption sets the Option field's value.
+func (s *DescribeBackupsInput) SetOption(v *OptionForDescribeBackupsInput) *DescribeBackupsInput {
+	s.Option = v
+	return s
+}
+
 // SetPageNumber sets the PageNumber field's value.
 func (s *DescribeBackupsInput) SetPageNumber(v int32) *DescribeBackupsInput {
 	s.PageNumber = &v
@@ -428,6 +424,12 @@ func (s *DescribeBackupsInput) SetPageNumber(v int32) *DescribeBackupsInput {
 // SetPageSize sets the PageSize field's value.
 func (s *DescribeBackupsInput) SetPageSize(v int32) *DescribeBackupsInput {
 	s.PageSize = &v
+	return s
+}
+
+// SetProjectName sets the ProjectName field's value.
+func (s *DescribeBackupsInput) SetProjectName(v string) *DescribeBackupsInput {
+	s.ProjectName = &v
 	return s
 }
 
@@ -460,5 +462,43 @@ func (s *DescribeBackupsOutput) SetBackups(v []*BackupForDescribeBackupsOutput) 
 // SetTotal sets the Total field's value.
 func (s *DescribeBackupsOutput) SetTotal(v int32) *DescribeBackupsOutput {
 	s.Total = &v
+	return s
+}
+
+type OptionForDescribeBackupsInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	BriefResultOnly *bool `type:"boolean" json:",omitempty"`
+
+	ResultFilter *string `type:"string" json:",omitempty"`
+
+	ResultSorter *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s OptionForDescribeBackupsInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s OptionForDescribeBackupsInput) GoString() string {
+	return s.String()
+}
+
+// SetBriefResultOnly sets the BriefResultOnly field's value.
+func (s *OptionForDescribeBackupsInput) SetBriefResultOnly(v bool) *OptionForDescribeBackupsInput {
+	s.BriefResultOnly = &v
+	return s
+}
+
+// SetResultFilter sets the ResultFilter field's value.
+func (s *OptionForDescribeBackupsInput) SetResultFilter(v string) *OptionForDescribeBackupsInput {
+	s.ResultFilter = &v
+	return s
+}
+
+// SetResultSorter sets the ResultSorter field's value.
+func (s *OptionForDescribeBackupsInput) SetResultSorter(v string) *OptionForDescribeBackupsInput {
+	s.ResultSorter = &v
 	return s
 }

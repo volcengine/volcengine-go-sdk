@@ -146,6 +146,8 @@ func (c *RDSMYSQLV2) DeleteParameterTemplateWithContext(ctx volcengine.Context, 
 type DeleteParameterTemplateInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	ProjectName *string `type:"string" json:",omitempty"`
+
 	// TemplateId is a required field
 	TemplateId *string `type:"string" json:",omitempty" required:"true"`
 }
@@ -171,6 +173,12 @@ func (s *DeleteParameterTemplateInput) Validate() error {
 		return invalidParams
 	}
 	return nil
+}
+
+// SetProjectName sets the ProjectName field's value.
+func (s *DeleteParameterTemplateInput) SetProjectName(v string) *DeleteParameterTemplateInput {
+	s.ProjectName = &v
+	return s
 }
 
 // SetTemplateId sets the TemplateId field's value.

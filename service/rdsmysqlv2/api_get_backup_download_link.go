@@ -200,7 +200,7 @@ type GetBackupDownloadLinkOutput struct {
 
 	BackupFileName *string `type:"string" json:",omitempty"`
 
-	BackupFileSize *int32 `type:"int32" json:",omitempty"`
+	BackupFileSize *int64 `type:"int64" json:",omitempty"`
 
 	BackupId *string `type:"string" json:",omitempty"`
 
@@ -238,7 +238,7 @@ func (s *GetBackupDownloadLinkOutput) SetBackupFileName(v string) *GetBackupDown
 }
 
 // SetBackupFileSize sets the BackupFileSize field's value.
-func (s *GetBackupDownloadLinkOutput) SetBackupFileSize(v int32) *GetBackupDownloadLinkOutput {
+func (s *GetBackupDownloadLinkOutput) SetBackupFileSize(v int64) *GetBackupDownloadLinkOutput {
 	s.BackupFileSize = &v
 	return s
 }
