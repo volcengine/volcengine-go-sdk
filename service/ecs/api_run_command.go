@@ -266,6 +266,8 @@ type RunCommandInput struct {
 
 	Username *string `type:"string"`
 
+	WindowsPassword *string `type:"string"`
+
 	WorkingDir *string `type:"string"`
 }
 
@@ -400,6 +402,12 @@ func (s *RunCommandInput) SetType(v string) *RunCommandInput {
 // SetUsername sets the Username field's value.
 func (s *RunCommandInput) SetUsername(v string) *RunCommandInput {
 	s.Username = &v
+	return s
+}
+
+// SetWindowsPassword sets the WindowsPassword field's value.
+func (s *RunCommandInput) SetWindowsPassword(v string) *RunCommandInput {
+	s.WindowsPassword = &v
 	return s
 }
 

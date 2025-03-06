@@ -220,7 +220,8 @@ type NetworkInterfaceForRunInstancesInput struct {
 
 	PrivateIpAddresses []*string `type:"list"`
 
-	SecurityGroupIds []*string `type:"list"`
+	// SecurityGroupIds is a required field
+	SecurityGroupIds []*string `type:"list" required:"true"`
 
 	// SubnetId is a required field
 	SubnetId *string `type:"string" required:"true"`
@@ -239,6 +240,9 @@ func (s NetworkInterfaceForRunInstancesInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *NetworkInterfaceForRunInstancesInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "NetworkInterfaceForRunInstancesInput"}
+	if s.SecurityGroupIds == nil {
+		invalidParams.Add(request.NewErrParamRequired("SecurityGroupIds"))
+	}
 	if s.SubnetId == nil {
 		invalidParams.Add(request.NewErrParamRequired("SubnetId"))
 	}
@@ -336,6 +340,8 @@ type RunInstancesInput struct {
 
 	Count *int32 `type:"int32"`
 
+	CpuMaxFrequency *float64 `type:"float"`
+
 	CreditSpecification *string `type:"string"`
 
 	DeploymentSetGroupNumber *int32 `type:"int32"`
@@ -376,8 +382,7 @@ type RunInstancesInput struct {
 
 	MinCount *int32 `type:"int32"`
 
-	// NetworkInterfaces is a required field
-	NetworkInterfaces []*NetworkInterfaceForRunInstancesInput `type:"list" required:"true"`
+	NetworkInterfaces []*NetworkInterfaceForRunInstancesInput `type:"list"`
 
 	Password *string `type:"string"`
 
@@ -403,8 +408,7 @@ type RunInstancesInput struct {
 
 	UserData *string `type:"string"`
 
-	// Volumes is a required field
-	Volumes []*VolumeForRunInstancesInput `type:"list" required:"true"`
+	Volumes []*VolumeForRunInstancesInput `type:"list"`
 
 	// ZoneId is a required field
 	ZoneId *string `type:"string" required:"true"`
@@ -428,12 +432,6 @@ func (s *RunInstancesInput) Validate() error {
 	}
 	if s.InstanceName == nil {
 		invalidParams.Add(request.NewErrParamRequired("InstanceName"))
-	}
-	if s.NetworkInterfaces == nil {
-		invalidParams.Add(request.NewErrParamRequired("NetworkInterfaces"))
-	}
-	if s.Volumes == nil {
-		invalidParams.Add(request.NewErrParamRequired("Volumes"))
 	}
 	if s.ZoneId == nil {
 		invalidParams.Add(request.NewErrParamRequired("ZoneId"))
@@ -486,6 +484,12 @@ func (s *RunInstancesInput) SetClientToken(v string) *RunInstancesInput {
 // SetCount sets the Count field's value.
 func (s *RunInstancesInput) SetCount(v int32) *RunInstancesInput {
 	s.Count = &v
+	return s
+}
+
+// SetCpuMaxFrequency sets the CpuMaxFrequency field's value.
+func (s *RunInstancesInput) SetCpuMaxFrequency(v float64) *RunInstancesInput {
+	s.CpuMaxFrequency = &v
 	return s
 }
 

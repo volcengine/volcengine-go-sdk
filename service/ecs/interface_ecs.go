@@ -86,6 +86,14 @@ type ECSAPI interface {
 	CreateDeploymentSetWithContext(volcengine.Context, *CreateDeploymentSetInput, ...request.Option) (*CreateDeploymentSetOutput, error)
 	CreateDeploymentSetRequest(*CreateDeploymentSetInput) (*request.Request, *CreateDeploymentSetOutput)
 
+	CreateHpcClusterCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateHpcClusterCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateHpcClusterCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateHpcCluster(*CreateHpcClusterInput) (*CreateHpcClusterOutput, error)
+	CreateHpcClusterWithContext(volcengine.Context, *CreateHpcClusterInput, ...request.Option) (*CreateHpcClusterOutput, error)
+	CreateHpcClusterRequest(*CreateHpcClusterInput) (*request.Request, *CreateHpcClusterOutput)
+
 	CreateImageCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	CreateImageCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	CreateImageCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -149,6 +157,14 @@ type ECSAPI interface {
 	DeleteDeploymentSet(*DeleteDeploymentSetInput) (*DeleteDeploymentSetOutput, error)
 	DeleteDeploymentSetWithContext(volcengine.Context, *DeleteDeploymentSetInput, ...request.Option) (*DeleteDeploymentSetOutput, error)
 	DeleteDeploymentSetRequest(*DeleteDeploymentSetInput) (*request.Request, *DeleteDeploymentSetOutput)
+
+	DeleteHpcClusterCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeleteHpcClusterCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeleteHpcClusterCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeleteHpcCluster(*DeleteHpcClusterInput) (*DeleteHpcClusterOutput, error)
+	DeleteHpcClusterWithContext(volcengine.Context, *DeleteHpcClusterInput, ...request.Option) (*DeleteHpcClusterOutput, error)
+	DeleteHpcClusterRequest(*DeleteHpcClusterInput) (*request.Request, *DeleteHpcClusterOutput)
 
 	DeleteImagesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DeleteImagesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -277,6 +293,14 @@ type ECSAPI interface {
 	DescribeEventTypes(*DescribeEventTypesInput) (*DescribeEventTypesOutput, error)
 	DescribeEventTypesWithContext(volcengine.Context, *DescribeEventTypesInput, ...request.Option) (*DescribeEventTypesOutput, error)
 	DescribeEventTypesRequest(*DescribeEventTypesInput) (*request.Request, *DescribeEventTypesOutput)
+
+	DescribeHpcClustersCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeHpcClustersCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeHpcClustersCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeHpcClusters(*DescribeHpcClustersInput) (*DescribeHpcClustersOutput, error)
+	DescribeHpcClustersWithContext(volcengine.Context, *DescribeHpcClustersInput, ...request.Option) (*DescribeHpcClustersOutput, error)
+	DescribeHpcClustersRequest(*DescribeHpcClustersInput) (*request.Request, *DescribeHpcClustersOutput)
 
 	DescribeImageSharePermissionCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DescribeImageSharePermissionCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
