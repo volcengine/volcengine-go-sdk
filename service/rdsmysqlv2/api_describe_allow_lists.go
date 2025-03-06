@@ -224,10 +224,15 @@ func (s *AllowListForDescribeAllowListsOutput) SetSecurityGroupBindInfos(v []*Se
 type DescribeAllowListsInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	IPAddress *string `type:"string" json:",omitempty"`
+
 	InstanceId *string `type:"string" json:",omitempty"`
 
-	// RegionId is a required field
-	RegionId *string `type:"string" json:",omitempty" required:"true"`
+	ProjectName *string `type:"string" json:",omitempty"`
+
+	QueryDefault *bool `type:"boolean" json:",omitempty"`
+
+	RegionId *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -240,22 +245,27 @@ func (s DescribeAllowListsInput) GoString() string {
 	return s.String()
 }
 
-// Validate inspects the fields of the type to determine if they are valid.
-func (s *DescribeAllowListsInput) Validate() error {
-	invalidParams := request.ErrInvalidParams{Context: "DescribeAllowListsInput"}
-	if s.RegionId == nil {
-		invalidParams.Add(request.NewErrParamRequired("RegionId"))
-	}
-
-	if invalidParams.Len() > 0 {
-		return invalidParams
-	}
-	return nil
+// SetIPAddress sets the IPAddress field's value.
+func (s *DescribeAllowListsInput) SetIPAddress(v string) *DescribeAllowListsInput {
+	s.IPAddress = &v
+	return s
 }
 
 // SetInstanceId sets the InstanceId field's value.
 func (s *DescribeAllowListsInput) SetInstanceId(v string) *DescribeAllowListsInput {
 	s.InstanceId = &v
+	return s
+}
+
+// SetProjectName sets the ProjectName field's value.
+func (s *DescribeAllowListsInput) SetProjectName(v string) *DescribeAllowListsInput {
+	s.ProjectName = &v
+	return s
+}
+
+// SetQueryDefault sets the QueryDefault field's value.
+func (s *DescribeAllowListsInput) SetQueryDefault(v bool) *DescribeAllowListsInput {
+	s.QueryDefault = &v
 	return s
 }
 

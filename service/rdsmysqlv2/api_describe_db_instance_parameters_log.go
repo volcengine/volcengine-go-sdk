@@ -246,11 +246,11 @@ type ParameterChangeLogForDescribeDBInstanceParametersLogOutput struct {
 
 	OldParameterValue *string `type:"string" json:",omitempty"`
 
-	ParamApplyScope *string `type:"string" json:",omitempty" enum:"EnumOfParamApplyScopeForDescribeDBInstanceParametersLogOutput"`
+	ParamApplyScope *string `type:"string" json:",omitempty"`
 
 	ParameterName *string `type:"string" json:",omitempty"`
 
-	Status *string `type:"string" json:",omitempty" enum:"EnumOfStatusForDescribeDBInstanceParametersLogOutput"`
+	Status *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -304,28 +304,3 @@ func (s *ParameterChangeLogForDescribeDBInstanceParametersLogOutput) SetStatus(v
 	s.Status = &v
 	return s
 }
-
-const (
-	// EnumOfParamApplyScopeForDescribeDBInstanceParametersLogOutputAllNode is a EnumOfParamApplyScopeForDescribeDBInstanceParametersLogOutput enum value
-	EnumOfParamApplyScopeForDescribeDBInstanceParametersLogOutputAllNode = "AllNode"
-
-	// EnumOfParamApplyScopeForDescribeDBInstanceParametersLogOutputOnlyMasterSlaveNode is a EnumOfParamApplyScopeForDescribeDBInstanceParametersLogOutput enum value
-	EnumOfParamApplyScopeForDescribeDBInstanceParametersLogOutputOnlyMasterSlaveNode = "OnlyMasterSlaveNode"
-
-	// EnumOfParamApplyScopeForDescribeDBInstanceParametersLogOutputOnlyReadOnlyNode is a EnumOfParamApplyScopeForDescribeDBInstanceParametersLogOutput enum value
-	EnumOfParamApplyScopeForDescribeDBInstanceParametersLogOutputOnlyReadOnlyNode = "OnlyReadOnlyNode"
-
-	// EnumOfParamApplyScopeForDescribeDBInstanceParametersLogOutputCustomNode is a EnumOfParamApplyScopeForDescribeDBInstanceParametersLogOutput enum value
-	EnumOfParamApplyScopeForDescribeDBInstanceParametersLogOutputCustomNode = "CustomNode"
-)
-
-const (
-	// EnumOfStatusForDescribeDBInstanceParametersLogOutputApplied is a EnumOfStatusForDescribeDBInstanceParametersLogOutput enum value
-	EnumOfStatusForDescribeDBInstanceParametersLogOutputApplied = "Applied"
-
-	// EnumOfStatusForDescribeDBInstanceParametersLogOutputInvalid is a EnumOfStatusForDescribeDBInstanceParametersLogOutput enum value
-	EnumOfStatusForDescribeDBInstanceParametersLogOutputInvalid = "Invalid"
-
-	// EnumOfStatusForDescribeDBInstanceParametersLogOutputSyncing is a EnumOfStatusForDescribeDBInstanceParametersLogOutput enum value
-	EnumOfStatusForDescribeDBInstanceParametersLogOutputSyncing = "Syncing"
-)
