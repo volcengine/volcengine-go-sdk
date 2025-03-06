@@ -146,6 +146,8 @@ func (c *RDSMYSQLV2) ModifyParameterTemplateWithContext(ctx volcengine.Context, 
 type ModifyParameterTemplateInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	ProjectName *string `type:"string" json:",omitempty"`
+
 	TemplateDesc *string `type:"string" json:",omitempty"`
 
 	// TemplateId is a required field
@@ -181,6 +183,12 @@ func (s *ModifyParameterTemplateInput) Validate() error {
 		return invalidParams
 	}
 	return nil
+}
+
+// SetProjectName sets the ProjectName field's value.
+func (s *ModifyParameterTemplateInput) SetProjectName(v string) *ModifyParameterTemplateInput {
+	s.ProjectName = &v
+	return s
 }
 
 // SetTemplateDesc sets the TemplateDesc field's value.
