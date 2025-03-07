@@ -53,9 +53,10 @@ func (p *BatchWorkerPool) Submit(ctx context.Context, model string, taskFunc fun
 
 func (p *BatchWorkerPool) Run() {
 	wg := sync.WaitGroup{}
+
 	for i := 0; i < p.workerNum; i++ {
 		wg.Add(1)
-		go func() {
+		go func(index int) {
 			defer wg.Done()
 			for {
 				task, ok := <-p.taskQueue
@@ -68,10 +69,7 @@ func (p *BatchWorkerPool) Run() {
 					task.DoneChan <- task.Context.Err()
 				default:
 					breaker := p.GetOrCreateBreaker(task.Model)
-					if !breaker.IsAllowed() {
-						p.AddAfter(task, breaker.GetAllowedDuration())
-						continue
-					}
+					breaker.Wait(index)
 					result, err := task.TaskFunc()
 					if !result.NeedRetry {
 						task.DoneChan <- err
@@ -86,7 +84,7 @@ func (p *BatchWorkerPool) Run() {
 					p.AddAfter(task, p.getRetryDuration(task.RetryTimes))
 				}
 			}
-		}()
+		}(i)
 	}
 	wg.Wait()
 }
