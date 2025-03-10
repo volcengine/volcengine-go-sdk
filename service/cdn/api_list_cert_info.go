@@ -144,11 +144,11 @@ func (c *CDN) ListCertInfoWithContext(ctx volcengine.Context, input *ListCertInf
 }
 
 type CertFingerprintForListCertInfoOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Sha1 *string `type:"string"`
+	Sha1 *string `type:"string" json:",omitempty"`
 
-	Sha256 *string `type:"string"`
+	Sha256 *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -174,33 +174,33 @@ func (s *CertFingerprintForListCertInfoOutput) SetSha256(v string) *CertFingerpr
 }
 
 type CertInfoForListCertInfoOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	CertFingerprint *CertFingerprintForListCertInfoOutput `type:"structure"`
+	CertFingerprint *CertFingerprintForListCertInfoOutput `type:"structure" json:",omitempty"`
 
-	CertId *string `type:"string"`
+	CertId *string `type:"string" json:",omitempty"`
 
-	CertName *string `type:"string"`
+	CertName *string `type:"string" json:",omitempty"`
 
-	CertType *string `type:"string"`
+	CertType *string `type:"string" json:",omitempty"`
 
-	ConfiguredDomain *string `type:"string"`
+	ConfiguredDomain *string `type:"string" json:",omitempty"`
 
-	ConfiguredDomainDetail []*ConfiguredDomainDetailForListCertInfoOutput `type:"list"`
+	ConfiguredDomainDetail []*ConfiguredDomainDetailForListCertInfoOutput `type:"list" json:",omitempty"`
 
-	Desc *string `type:"string"`
+	Desc *string `type:"string" json:",omitempty"`
 
-	DnsName *string `type:"string"`
+	DnsName *string `type:"string" json:",omitempty"`
 
-	EffectiveTime *int64 `type:"int64"`
+	EffectiveTime *int64 `type:"int64" json:",omitempty"`
 
-	EncryType *string `type:"string"`
+	EncryType *string `type:"string" json:",omitempty"`
 
-	ExpireTime *int64 `type:"int64"`
+	ExpireTime *int64 `type:"int64" json:",omitempty"`
 
-	Source *string `type:"string"`
+	Source *string `type:"string" json:",omitempty"`
 
-	Status *string `type:"string"`
+	Status *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -292,11 +292,11 @@ func (s *CertInfoForListCertInfoOutput) SetStatus(v string) *CertInfoForListCert
 }
 
 type ConfiguredDomainDetailForListCertInfoOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Domain *string `type:"string"`
+	Domain *string `type:"string" json:",omitempty"`
 
-	Type *string `type:"string"`
+	Type *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -322,30 +322,30 @@ func (s *ConfiguredDomainDetailForListCertInfoOutput) SetType(v string) *Configu
 }
 
 type ListCertInfoInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	CertId *string `type:"string"`
+	CertId *string `type:"string" json:",omitempty"`
 
-	CertType *string `type:"string"`
+	CertType *string `type:"string" json:",omitempty"`
 
-	ConfiguredDomain *string `type:"string"`
+	ConfiguredDomain *string `type:"string" json:",omitempty"`
 
-	EncryType *string `type:"string"`
+	EncryType *string `type:"string" json:",omitempty"`
 
-	FuzzyMatch *bool `type:"boolean"`
+	FuzzyMatch *bool `type:"boolean" json:",omitempty"`
 
-	Name *string `type:"string"`
+	Name *string `type:"string" json:",omitempty"`
 
-	PageNum *int32 `type:"int32"`
+	PageNum *int32 `type:"int32" json:",omitempty"`
 
-	PageSize *int32 `type:"int32"`
+	PageSize *int32 `type:"int32" json:",omitempty"`
 
-	SortRule *SortRuleForListCertInfoInput `type:"structure"`
+	SortRule *SortRuleForListCertInfoInput `type:"structure" json:",omitempty"`
 
 	// Source is a required field
-	Source *string `type:"string" required:"true"`
+	Source *string `type:"string" json:",omitempty" required:"true"`
 
-	Status *string `type:"string"`
+	Status *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -438,19 +438,19 @@ func (s *ListCertInfoInput) SetStatus(v string) *ListCertInfoInput {
 }
 
 type ListCertInfoOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	CertInfo []*CertInfoForListCertInfoOutput `type:"list"`
+	CertInfo []*CertInfoForListCertInfoOutput `type:"list" json:",omitempty"`
 
-	ExpiringCount *int64 `type:"int64"`
+	ExpiringCount *int64 `type:"int64" json:",omitempty"`
 
-	PageNum *int64 `type:"int64"`
+	PageNum *int64 `type:"int64" json:",omitempty"`
 
-	PageSize *int64 `type:"int64"`
+	PageSize *int64 `type:"int64" json:",omitempty"`
 
-	Total *int64 `type:"int64"`
+	Total *int64 `type:"int64" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -494,11 +494,11 @@ func (s *ListCertInfoOutput) SetTotal(v int64) *ListCertInfoOutput {
 }
 
 type SortRuleForListCertInfoInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Asc *bool `type:"boolean"`
+	Asc *bool `type:"boolean" json:",omitempty"`
 
-	OrderBy *string `type:"string"`
+	OrderBy *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation

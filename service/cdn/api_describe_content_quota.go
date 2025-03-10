@@ -144,7 +144,7 @@ func (c *CDN) DescribeContentQuotaWithContext(ctx volcengine.Context, input *Des
 }
 
 type DescribeContentQuotaInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -158,45 +158,45 @@ func (s DescribeContentQuotaInput) GoString() string {
 }
 
 type DescribeContentQuotaOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	BlockLimit *int64 `type:"int64"`
+	BlockLimit *int64 `type:"int64" json:",omitempty"`
 
-	BlockQuota *int64 `type:"int64"`
+	BlockQuota *int64 `type:"int64" json:",omitempty"`
 
-	BlockRemain *int64 `type:"int64"`
+	BlockRemain *int64 `type:"int64" json:",omitempty"`
 
-	PreloadLimit *int64 `type:"int64"`
+	PreloadLimit *int64 `type:"int64" json:",omitempty"`
 
-	PreloadQuota *int64 `type:"int64"`
+	PreloadQuota *int64 `type:"int64" json:",omitempty"`
 
-	PreloadRemain *int64 `type:"int64"`
+	PreloadRemain *int64 `type:"int64" json:",omitempty"`
 
-	RefreshDirLimit *int64 `type:"int64"`
+	RefreshDirLimit *int64 `type:"int64" json:",omitempty"`
 
-	RefreshDirQuota *int64 `type:"int64"`
+	RefreshDirQuota *int64 `type:"int64" json:",omitempty"`
 
-	RefreshDirRemain *int64 `type:"int64"`
+	RefreshDirRemain *int64 `type:"int64" json:",omitempty"`
 
-	RefreshQuota *int64 `type:"int64"`
+	RefreshQuota *int64 `type:"int64" json:",omitempty"`
 
-	RefreshQuotaLimit *int64 `type:"int64"`
+	RefreshQuotaLimit *int64 `type:"int64" json:",omitempty"`
 
-	RefreshRegexLimit *int64 `type:"int64"`
+	RefreshRegexLimit *int64 `type:"int64" json:",omitempty"`
 
-	RefreshRegexQuota *int64 `type:"int64"`
+	RefreshRegexQuota *int64 `type:"int64" json:",omitempty"`
 
-	RefreshRegexRemain *int64 `type:"int64"`
+	RefreshRegexRemain *int64 `type:"int64" json:",omitempty"`
 
-	RefreshRemain *int64 `type:"int64"`
+	RefreshRemain *int64 `type:"int64" json:",omitempty"`
 
-	UnblockLimit *int64 `type:"int64"`
+	UnblockLimit *int64 `type:"int64" json:",omitempty"`
 
-	UnblockQuota *int64 `type:"int64"`
+	UnblockQuota *int64 `type:"int64" json:",omitempty"`
 
-	UnblockRemain *int64 `type:"int64"`
+	UnblockRemain *int64 `type:"int64" json:",omitempty"`
 }
 
 // String returns the string representation

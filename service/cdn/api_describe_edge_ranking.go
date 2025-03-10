@@ -144,27 +144,27 @@ func (c *CDN) DescribeEdgeRankingWithContext(ctx volcengine.Context, input *Desc
 }
 
 type DescribeEdgeRankingInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	BillingRegion *string `type:"string"`
+	BillingRegion *string `type:"string" json:",omitempty"`
 
-	Domain *string `type:"string"`
+	Domain *string `type:"string" json:",omitempty"`
 
 	// EndTime is a required field
-	EndTime *int64 `type:"int64" required:"true"`
+	EndTime *int64 `type:"int64" json:",omitempty" required:"true"`
 
-	Interval *string `type:"string"`
+	Interval *string `type:"string" json:",omitempty"`
 
 	// Item is a required field
-	Item *string `type:"string" required:"true"`
+	Item *string `type:"string" json:",omitempty" required:"true"`
 
 	// Metric is a required field
-	Metric *string `type:"string" required:"true"`
+	Metric *string `type:"string" json:",omitempty" required:"true"`
 
-	Project *string `type:"string"`
+	Project *string `type:"string" json:",omitempty"`
 
 	// StartTime is a required field
-	StartTime *int64 `type:"int64" required:"true"`
+	StartTime *int64 `type:"int64" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -248,13 +248,13 @@ func (s *DescribeEdgeRankingInput) SetStartTime(v int64) *DescribeEdgeRankingInp
 }
 
 type DescribeEdgeRankingOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	Item *string `type:"string"`
+	Item *string `type:"string" json:",omitempty"`
 
-	TopDataDetails []*TopDataDetailForDescribeEdgeRankingOutput `type:"list"`
+	TopDataDetails []*TopDataDetailForDescribeEdgeRankingOutput `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -280,11 +280,11 @@ func (s *DescribeEdgeRankingOutput) SetTopDataDetails(v []*TopDataDetailForDescr
 }
 
 type TopDataDetailForDescribeEdgeRankingOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Metric *string `type:"string"`
+	Metric *string `type:"string" json:",omitempty"`
 
-	ValueDetails []*ValueDetailForDescribeEdgeRankingOutput `type:"list"`
+	ValueDetails []*ValueDetailForDescribeEdgeRankingOutput `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -310,15 +310,15 @@ func (s *TopDataDetailForDescribeEdgeRankingOutput) SetValueDetails(v []*ValueDe
 }
 
 type ValueDetailForDescribeEdgeRankingOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	ItemKey *string `type:"string"`
+	ItemKey *string `type:"string" json:",omitempty"`
 
-	Ratio *float64 `type:"double"`
+	Ratio *float64 `type:"double" json:",omitempty"`
 
-	Timestamp *int64 `type:"int64"`
+	Timestamp *int64 `type:"int64" json:",omitempty"`
 
-	Value *float64 `type:"double"`
+	Value *float64 `type:"double" json:",omitempty"`
 }
 
 // String returns the string representation

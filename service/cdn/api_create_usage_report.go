@@ -144,38 +144,38 @@ func (c *CDN) CreateUsageReportWithContext(ctx volcengine.Context, input *Create
 }
 
 type CreateUsageReportInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Aggregate *string `type:"string"`
+	Aggregate *string `type:"string" json:",omitempty"`
 
-	BillingCode *string `type:"string"`
+	BillingCode *string `type:"string" json:",omitempty"`
 
 	// BillingRegion is a required field
-	BillingRegion *string `type:"string" required:"true"`
+	BillingRegion *string `type:"string" json:",omitempty" required:"true"`
 
-	CalculationMethod *string `type:"string"`
+	CalculationMethod *string `type:"string" json:",omitempty"`
 
-	Domain *string `type:"string"`
+	Domain *string `type:"string" json:",omitempty"`
 
 	// EndTime is a required field
-	EndTime *int64 `type:"int64" required:"true"`
+	EndTime *int64 `type:"int64" json:",omitempty" required:"true"`
 
 	// ExportType is a required field
-	ExportType *string `type:"string" required:"true"`
+	ExportType *string `type:"string" json:",omitempty" required:"true"`
 
-	FreeTimeTrafficCompute *bool `type:"boolean"`
+	FreeTimeTrafficCompute *bool `type:"boolean" json:",omitempty"`
 
-	Metric *string `type:"string"`
+	Metric *string `type:"string" json:",omitempty"`
 
 	// StartTime is a required field
-	StartTime *int64 `type:"int64" required:"true"`
+	StartTime *int64 `type:"int64" json:",omitempty" required:"true"`
 
 	// TaskName is a required field
-	TaskName *string `type:"string" required:"true"`
+	TaskName *string `type:"string" json:",omitempty" required:"true"`
 
-	TimeZone *string `type:"string"`
+	TimeZone *string `type:"string" json:",omitempty"`
 
-	TlsTopic *string `type:"string"`
+	TlsTopic *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -292,11 +292,11 @@ func (s *CreateUsageReportInput) SetTlsTopic(v string) *CreateUsageReportInput {
 }
 
 type CreateUsageReportOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	TaskId *string `type:"string"`
+	TaskId *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation

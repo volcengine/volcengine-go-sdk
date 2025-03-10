@@ -144,11 +144,11 @@ func (c *CDN) SubmitPreloadTaskWithContext(ctx volcengine.Context, input *Submit
 }
 
 type RequestHeaderInstanceForSubmitPreloadTaskInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Key *string `type:"string"`
+	Key *string `type:"string" json:",omitempty"`
 
-	Value *string `type:"string"`
+	Value *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -174,18 +174,18 @@ func (s *RequestHeaderInstanceForSubmitPreloadTaskInput) SetValue(v string) *Req
 }
 
 type SubmitPreloadTaskInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Area *string `type:"string"`
+	Area *string `type:"string" json:",omitempty"`
 
-	ConcurrentLimit *int64 `type:"int64"`
+	ConcurrentLimit *int64 `type:"int64" json:",omitempty"`
 
-	Layer *string `type:"string"`
+	Layer *string `type:"string" json:",omitempty"`
 
-	RequestHeaderInstances []*RequestHeaderInstanceForSubmitPreloadTaskInput `type:"list"`
+	RequestHeaderInstances []*RequestHeaderInstanceForSubmitPreloadTaskInput `type:"list" json:",omitempty"`
 
 	// Urls is a required field
-	Urls *string `type:"string" required:"true"`
+	Urls *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -242,13 +242,13 @@ func (s *SubmitPreloadTaskInput) SetUrls(v string) *SubmitPreloadTaskInput {
 }
 
 type SubmitPreloadTaskOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	CommitNum *int64 `type:"int64"`
+	CommitNum *int64 `type:"int64" json:",omitempty"`
 
-	TaskID *string `type:"string"`
+	TaskID *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation

@@ -144,12 +144,12 @@ func (c *CDN) SubmitUnblockTaskWithContext(ctx volcengine.Context, input *Submit
 }
 
 type SubmitUnblockTaskInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Type *string `type:"string"`
+	Type *string `type:"string" json:",omitempty"`
 
 	// Urls is a required field
-	Urls *string `type:"string" required:"true"`
+	Urls *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -188,11 +188,11 @@ func (s *SubmitUnblockTaskInput) SetUrls(v string) *SubmitUnblockTaskInput {
 }
 
 type SubmitUnblockTaskOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	TaskID *string `type:"string"`
+	TaskID *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation

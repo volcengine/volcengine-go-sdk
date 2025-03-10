@@ -144,49 +144,49 @@ func (c *CDN) ListCdnDomainsWithContext(ctx volcengine.Context, input *ListCdnDo
 }
 
 type DataForListCdnDomainsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	BackupCname *string `type:"string"`
+	BackupCname *string `type:"string" json:",omitempty"`
 
-	BackupOrigin []*string `type:"list"`
+	BackupOrigin []*string `type:"list" json:",omitempty"`
 
-	CacheShared *string `type:"string"`
+	CacheShared *string `type:"string" json:",omitempty"`
 
-	CacheSharedTargetHost *string `type:"string"`
+	CacheSharedTargetHost *string `type:"string" json:",omitempty"`
 
-	Cname *string `type:"string"`
+	Cname *string `type:"string" json:",omitempty"`
 
-	ConfigStatus *string `type:"string"`
+	ConfigStatus *string `type:"string" json:",omitempty"`
 
-	CreateTime *int64 `type:"int64"`
+	CreateTime *int64 `type:"int64" json:",omitempty"`
 
-	Domain *string `type:"string"`
+	Domain *string `type:"string" json:",omitempty"`
 
-	DomainLock *DomainLockForListCdnDomainsOutput `type:"structure"`
+	DomainLock *DomainLockForListCdnDomainsOutput `type:"structure" json:",omitempty"`
 
-	FeatureConfig *FeatureConfigForListCdnDomainsOutput `type:"structure"`
+	FeatureConfig *FeatureConfigForListCdnDomainsOutput `type:"structure" json:",omitempty"`
 
-	HTTPS *bool `type:"boolean"`
+	HTTPS *bool `type:"boolean" json:",omitempty"`
 
-	IPv6 *bool `type:"boolean"`
+	IPv6 *bool `type:"boolean" json:",omitempty"`
 
-	IsConflictDomain *bool `type:"boolean"`
+	IsConflictDomain *bool `type:"boolean" json:",omitempty"`
 
-	OriginProtocol *string `type:"string"`
+	OriginProtocol *string `type:"string" json:",omitempty"`
 
-	PrimaryOrigin []*string `type:"list"`
+	PrimaryOrigin []*string `type:"list" json:",omitempty"`
 
-	Project *string `type:"string"`
+	Project *string `type:"string" json:",omitempty"`
 
-	ResourceTags []*ResourceTagForListCdnDomainsOutput `type:"list"`
+	ResourceTags []*ResourceTagForListCdnDomainsOutput `type:"list" json:",omitempty"`
 
-	ServiceRegion *string `type:"string"`
+	ServiceRegion *string `type:"string" json:",omitempty"`
 
-	ServiceType *string `type:"string"`
+	ServiceType *string `type:"string" json:",omitempty"`
 
-	Status *string `type:"string"`
+	Status *string `type:"string" json:",omitempty"`
 
-	UpdateTime *int64 `type:"int64"`
+	UpdateTime *int64 `type:"int64" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -326,11 +326,11 @@ func (s *DataForListCdnDomainsOutput) SetUpdateTime(v int64) *DataForListCdnDoma
 }
 
 type DomainLockForListCdnDomainsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Remark *string `type:"string"`
+	Remark *string `type:"string" json:",omitempty"`
 
-	Status *string `type:"string"`
+	Status *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -356,9 +356,9 @@ func (s *DomainLockForListCdnDomainsOutput) SetStatus(v string) *DomainLockForLi
 }
 
 type FeatureConfigForListCdnDomainsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	OriginV2 *bool `type:"boolean"`
+	OriginV2 *bool `type:"boolean" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -378,37 +378,37 @@ func (s *FeatureConfigForListCdnDomainsOutput) SetOriginV2(v bool) *FeatureConfi
 }
 
 type ListCdnDomainsInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Domain *string `type:"string"`
+	Domain *string `type:"string" json:",omitempty"`
 
-	ExactMatch *bool `type:"boolean"`
+	ExactMatch *bool `type:"boolean" json:",omitempty"`
 
-	FeatureConfig *bool `type:"boolean"`
+	FeatureConfig *bool `type:"boolean" json:",omitempty"`
 
-	HTTPS *bool `type:"boolean"`
+	HTTPS *bool `type:"boolean" json:",omitempty"`
 
-	IPv6 *bool `type:"boolean"`
+	IPv6 *bool `type:"boolean" json:",omitempty"`
 
-	OriginProtocol *string `type:"string"`
+	OriginProtocol *string `type:"string" json:",omitempty"`
 
-	PageNum *int64 `type:"int64"`
+	PageNum *int64 `type:"int64" json:",omitempty"`
 
-	PageSize *int64 `type:"int64"`
+	PageSize *int64 `type:"int64" json:",omitempty"`
 
-	PrimaryOrigin *string `type:"string"`
+	PrimaryOrigin *string `type:"string" json:",omitempty"`
 
-	Project *string `type:"string"`
+	Project *string `type:"string" json:",omitempty"`
 
-	ResourceTags []*string `type:"list"`
+	ResourceTags []*string `type:"list" json:",omitempty"`
 
-	ServiceRegion *string `type:"string"`
+	ServiceRegion *string `type:"string" json:",omitempty"`
 
-	ServiceType *string `type:"string"`
+	ServiceType *string `type:"string" json:",omitempty"`
 
-	Status *string `type:"string"`
+	Status *string `type:"string" json:",omitempty"`
 
-	TagConnective *string `type:"string"`
+	TagConnective *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -512,17 +512,17 @@ func (s *ListCdnDomainsInput) SetTagConnective(v string) *ListCdnDomainsInput {
 }
 
 type ListCdnDomainsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	Data []*DataForListCdnDomainsOutput `type:"list"`
+	Data []*DataForListCdnDomainsOutput `type:"list" json:",omitempty"`
 
-	PageNum *int64 `type:"int64"`
+	PageNum *int64 `type:"int64" json:",omitempty"`
 
-	PageSize *int64 `type:"int64"`
+	PageSize *int64 `type:"int64" json:",omitempty"`
 
-	Total *int64 `type:"int64"`
+	Total *int64 `type:"int64" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -560,11 +560,11 @@ func (s *ListCdnDomainsOutput) SetTotal(v int64) *ListCdnDomainsOutput {
 }
 
 type ResourceTagForListCdnDomainsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Key *string `type:"string"`
+	Key *string `type:"string" json:",omitempty"`
 
-	Value *string `type:"string"`
+	Value *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation

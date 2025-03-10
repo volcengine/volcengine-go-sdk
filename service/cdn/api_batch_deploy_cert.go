@@ -144,15 +144,15 @@ func (c *CDN) BatchDeployCertWithContext(ctx volcengine.Context, input *BatchDep
 }
 
 type BatchDeployCertInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// CertId is a required field
-	CertId *string `type:"string" required:"true"`
+	CertId *string `type:"string" json:",omitempty" required:"true"`
 
-	CertId2 *string `type:"string"`
+	CertId2 *string `type:"string" json:",omitempty"`
 
 	// Domain is a required field
-	Domain *string `type:"string" required:"true"`
+	Domain *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -200,11 +200,11 @@ func (s *BatchDeployCertInput) SetDomain(v string) *BatchDeployCertInput {
 }
 
 type BatchDeployCertOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	DeployResult []*DeployResultForBatchDeployCertOutput `type:"list"`
+	DeployResult []*DeployResultForBatchDeployCertOutput `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -224,13 +224,13 @@ func (s *BatchDeployCertOutput) SetDeployResult(v []*DeployResultForBatchDeployC
 }
 
 type DeployResultForBatchDeployCertOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Domain *string `type:"string"`
+	Domain *string `type:"string" json:",omitempty"`
 
-	ErrorMsg *string `type:"string"`
+	ErrorMsg *string `type:"string" json:",omitempty"`
 
-	Status *string `type:"string"`
+	Status *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation

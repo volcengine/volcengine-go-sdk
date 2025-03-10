@@ -144,25 +144,25 @@ func (c *CDN) DescribeUserDataWithContext(ctx volcengine.Context, input *Describ
 }
 
 type DescribeUserDataInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// Domain is a required field
-	Domain *string `type:"string" required:"true"`
+	Domain *string `type:"string" json:",omitempty" required:"true"`
 
 	// EndTime is a required field
-	EndTime *int64 `type:"int64" required:"true"`
+	EndTime *int64 `type:"int64" json:",omitempty" required:"true"`
 
 	// Interval is a required field
-	Interval *string `type:"string" required:"true"`
+	Interval *string `type:"string" json:",omitempty" required:"true"`
 
-	IpVersion *string `type:"string"`
+	IpVersion *string `type:"string" json:",omitempty"`
 
-	Location *string `type:"string"`
+	Location *string `type:"string" json:",omitempty"`
 
-	Province *string `type:"string"`
+	Province *string `type:"string" json:",omitempty"`
 
 	// StartTime is a required field
-	StartTime *int64 `type:"int64" required:"true"`
+	StartTime *int64 `type:"int64" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -240,11 +240,11 @@ func (s *DescribeUserDataInput) SetStartTime(v int64) *DescribeUserDataInput {
 }
 
 type DescribeUserDataOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	MetricDataList []*MetricDataListForDescribeUserDataOutput `type:"list"`
+	MetricDataList []*MetricDataListForDescribeUserDataOutput `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -264,13 +264,13 @@ func (s *DescribeUserDataOutput) SetMetricDataList(v []*MetricDataListForDescrib
 }
 
 type MetricDataListForDescribeUserDataOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Item *string `type:"string"`
+	Item *string `type:"string" json:",omitempty"`
 
-	TimeStamp *int64 `type:"int64"`
+	TimeStamp *int64 `type:"int64" json:",omitempty"`
 
-	Value *float64 `type:"double"`
+	Value *float64 `type:"double" json:",omitempty"`
 }
 
 // String returns the string representation

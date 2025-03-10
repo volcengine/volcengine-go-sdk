@@ -144,26 +144,26 @@ func (c *CDN) DescribeStatisticalRankingWithContext(ctx volcengine.Context, inpu
 }
 
 type DescribeStatisticalRankingInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Area *string `type:"string"`
+	Area *string `type:"string" json:",omitempty"`
 
 	// Domain is a required field
-	Domain *string `type:"string" required:"true"`
+	Domain *string `type:"string" json:",omitempty" required:"true"`
 
 	// EndTime is a required field
-	EndTime *int64 `type:"int64" required:"true"`
+	EndTime *int64 `type:"int64" json:",omitempty" required:"true"`
 
 	// Item is a required field
-	Item *string `type:"string" required:"true"`
+	Item *string `type:"string" json:",omitempty" required:"true"`
 
 	// Metric is a required field
-	Metric *string `type:"string" required:"true"`
+	Metric *string `type:"string" json:",omitempty" required:"true"`
 
 	// StartTime is a required field
-	StartTime *int64 `type:"int64" required:"true"`
+	StartTime *int64 `type:"int64" json:",omitempty" required:"true"`
 
-	UaType *string `type:"string"`
+	UaType *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -244,17 +244,17 @@ func (s *DescribeStatisticalRankingInput) SetUaType(v string) *DescribeStatistic
 }
 
 type DescribeStatisticalRankingOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	Item *string `type:"string"`
+	Item *string `type:"string" json:",omitempty"`
 
-	Metric *string `type:"string"`
+	Metric *string `type:"string" json:",omitempty"`
 
-	RankingDataList []*RankingDataListForDescribeStatisticalRankingOutput `type:"list"`
+	RankingDataList []*RankingDataListForDescribeStatisticalRankingOutput `type:"list" json:",omitempty"`
 
-	UaType *string `type:"string"`
+	UaType *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -292,13 +292,13 @@ func (s *DescribeStatisticalRankingOutput) SetUaType(v string) *DescribeStatisti
 }
 
 type RankingDataListForDescribeStatisticalRankingOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	ItemKey *string `type:"string"`
+	ItemKey *string `type:"string" json:",omitempty"`
 
-	ItemKeyCN *string `type:"string"`
+	ItemKeyCN *string `type:"string" json:",omitempty"`
 
-	Value *float64 `type:"double"`
+	Value *float64 `type:"double" json:",omitempty"`
 }
 
 // String returns the string representation

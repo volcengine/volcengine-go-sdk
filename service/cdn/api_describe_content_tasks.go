@@ -144,27 +144,27 @@ func (c *CDN) DescribeContentTasksWithContext(ctx volcengine.Context, input *Des
 }
 
 type DataForDescribeContentTasksOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	CreateTime *int64 `type:"int64"`
+	CreateTime *int64 `type:"int64" json:",omitempty"`
 
-	Delete *bool `type:"boolean"`
+	Delete *bool `type:"boolean" json:",omitempty"`
 
-	Layer *string `type:"string"`
+	Layer *string `type:"string" json:",omitempty"`
 
-	Process *string `type:"string"`
+	Process *string `type:"string" json:",omitempty"`
 
-	RefreshPrefix *bool `type:"boolean"`
+	RefreshPrefix *bool `type:"boolean" json:",omitempty"`
 
-	Remark *string `type:"string"`
+	Remark *string `type:"string" json:",omitempty"`
 
-	Status *string `type:"string"`
+	Status *string `type:"string" json:",omitempty"`
 
-	TaskID *string `type:"string"`
+	TaskID *string `type:"string" json:",omitempty"`
 
-	TaskType *string `type:"string"`
+	TaskType *string `type:"string" json:",omitempty"`
 
-	Url *string `type:"string"`
+	Url *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -238,28 +238,28 @@ func (s *DataForDescribeContentTasksOutput) SetUrl(v string) *DataForDescribeCon
 }
 
 type DescribeContentTasksInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	DomainName *string `type:"string"`
+	DomainName *string `type:"string" json:",omitempty"`
 
-	EndTime *int64 `type:"int64"`
+	EndTime *int64 `type:"int64" json:",omitempty"`
 
-	PageNum *int32 `type:"int32"`
+	PageNum *int32 `type:"int32" json:",omitempty"`
 
-	PageSize *int32 `type:"int32"`
+	PageSize *int32 `type:"int32" json:",omitempty"`
 
-	Remark *string `type:"string"`
+	Remark *string `type:"string" json:",omitempty"`
 
-	StartTime *int32 `type:"int32"`
+	StartTime *int32 `type:"int32" json:",omitempty"`
 
-	Status *string `type:"string"`
+	Status *string `type:"string" json:",omitempty"`
 
-	TaskID *string `type:"string"`
+	TaskID *string `type:"string" json:",omitempty"`
 
 	// TaskType is a required field
-	TaskType *string `type:"string" required:"true"`
+	TaskType *string `type:"string" json:",omitempty" required:"true"`
 
-	Url *string `type:"string"`
+	Url *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -346,17 +346,17 @@ func (s *DescribeContentTasksInput) SetUrl(v string) *DescribeContentTasksInput 
 }
 
 type DescribeContentTasksOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	Data []*DataForDescribeContentTasksOutput `type:"list"`
+	Data []*DataForDescribeContentTasksOutput `type:"list" json:",omitempty"`
 
-	PageNum *int32 `type:"int32"`
+	PageNum *int32 `type:"int32" json:",omitempty"`
 
-	PageSize *int32 `type:"int32"`
+	PageSize *int32 `type:"int32" json:",omitempty"`
 
-	Total *int32 `type:"int32"`
+	Total *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation
