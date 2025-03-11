@@ -46,6 +46,14 @@ type BILLINGAPI interface {
 	CancelOrderWithContext(volcengine.Context, *CancelOrderInput, ...request.Option) (*CancelOrderOutput, error)
 	CancelOrderRequest(*CancelOrderInput) (*request.Request, *CancelOrderOutput)
 
+	CleanUpFinancialRelationCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CleanUpFinancialRelationCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CleanUpFinancialRelationCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CleanUpFinancialRelation(*CleanUpFinancialRelationInput) (*CleanUpFinancialRelationOutput, error)
+	CleanUpFinancialRelationWithContext(volcengine.Context, *CleanUpFinancialRelationInput, ...request.Option) (*CleanUpFinancialRelationOutput, error)
+	CleanUpFinancialRelationRequest(*CleanUpFinancialRelationInput) (*request.Request, *CleanUpFinancialRelationOutput)
+
 	CreateFinancialRelationCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	CreateFinancialRelationCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	CreateFinancialRelationCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -213,6 +221,46 @@ type BILLINGAPI interface {
 	QueryBalanceAcct(*QueryBalanceAcctInput) (*QueryBalanceAcctOutput, error)
 	QueryBalanceAcctWithContext(volcengine.Context, *QueryBalanceAcctInput, ...request.Option) (*QueryBalanceAcctOutput, error)
 	QueryBalanceAcctRequest(*QueryBalanceAcctInput) (*request.Request, *QueryBalanceAcctOutput)
+
+	QueryPriceForPayAsYouGoCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	QueryPriceForPayAsYouGoCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	QueryPriceForPayAsYouGoCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	QueryPriceForPayAsYouGo(*QueryPriceForPayAsYouGoInput) (*QueryPriceForPayAsYouGoOutput, error)
+	QueryPriceForPayAsYouGoWithContext(volcengine.Context, *QueryPriceForPayAsYouGoInput, ...request.Option) (*QueryPriceForPayAsYouGoOutput, error)
+	QueryPriceForPayAsYouGoRequest(*QueryPriceForPayAsYouGoInput) (*request.Request, *QueryPriceForPayAsYouGoOutput)
+
+	QueryPriceForRenewCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	QueryPriceForRenewCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	QueryPriceForRenewCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	QueryPriceForRenew(*QueryPriceForRenewInput) (*QueryPriceForRenewOutput, error)
+	QueryPriceForRenewWithContext(volcengine.Context, *QueryPriceForRenewInput, ...request.Option) (*QueryPriceForRenewOutput, error)
+	QueryPriceForRenewRequest(*QueryPriceForRenewInput) (*request.Request, *QueryPriceForRenewOutput)
+
+	QueryPriceForSubscriptionCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	QueryPriceForSubscriptionCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	QueryPriceForSubscriptionCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	QueryPriceForSubscription(*QueryPriceForSubscriptionInput) (*QueryPriceForSubscriptionOutput, error)
+	QueryPriceForSubscriptionWithContext(volcengine.Context, *QueryPriceForSubscriptionInput, ...request.Option) (*QueryPriceForSubscriptionOutput, error)
+	QueryPriceForSubscriptionRequest(*QueryPriceForSubscriptionInput) (*request.Request, *QueryPriceForSubscriptionOutput)
+
+	RenewInstanceCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	RenewInstanceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	RenewInstanceCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	RenewInstance(*RenewInstanceInput) (*RenewInstanceOutput, error)
+	RenewInstanceWithContext(volcengine.Context, *RenewInstanceInput, ...request.Option) (*RenewInstanceOutput, error)
+	RenewInstanceRequest(*RenewInstanceInput) (*request.Request, *RenewInstanceOutput)
+
+	SetRenewalTypeCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	SetRenewalTypeCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	SetRenewalTypeCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	SetRenewalType(*SetRenewalTypeInput) (*SetRenewalTypeOutput, error)
+	SetRenewalTypeWithContext(volcengine.Context, *SetRenewalTypeInput, ...request.Option) (*SetRenewalTypeOutput, error)
+	SetRenewalTypeRequest(*SetRenewalTypeInput) (*request.Request, *SetRenewalTypeOutput)
 
 	UnsubscribeInstanceCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	UnsubscribeInstanceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
