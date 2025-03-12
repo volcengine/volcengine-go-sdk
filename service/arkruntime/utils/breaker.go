@@ -4,31 +4,33 @@ import (
 	"math"
 	"sync"
 	"time"
+
+	"github.com/google/uuid"
 )
 
 type querySet struct {
-	index map[int]int
-	items []int
+	index map[uuid.UUID]int
+	items []uuid.UUID
 	lock  sync.Mutex
 }
 
 // newQuerySet 创建一个新的 QuerySet 实例
 func newQuerySet() *querySet {
 	return &querySet{
-		index: make(map[int]int),
-		items: make([]int, 0),
+		index: make(map[uuid.UUID]int),
+		items: make([]uuid.UUID, 0),
 	}
 }
 
 // Query 查询元素的索引
-func (qs *querySet) Query(item int) int {
+func (qs *querySet) Query(item uuid.UUID) int {
 	qs.lock.Lock()
 	defer qs.lock.Unlock()
 	return qs.index[item]
 }
 
 // Add 向 QuerySet 中添加元素
-func (qs *querySet) Add(item int) {
+func (qs *querySet) Add(item uuid.UUID) {
 	qs.lock.Lock()
 	defer qs.lock.Unlock()
 
@@ -40,7 +42,7 @@ func (qs *querySet) Add(item int) {
 }
 
 // Remove 从 QuerySet 中移除元素
-func (qs *querySet) Remove(item int) {
+func (qs *querySet) Remove(item uuid.UUID) {
 	qs.lock.Lock()
 	defer qs.lock.Unlock()
 
@@ -77,12 +79,12 @@ func NewBreaker() *Breaker {
 // 3. 10s 后，允许所有请求通过。
 // 由于并发的随机性，实际允许通过的请求数量可能会超过预期。
 // 但在并发度较高时，慢启动策略可以有效地减少初始阶段并发请求的数量。
-func (mb *Breaker) allow(id int) bool {
+func (mb *Breaker) allow(id uuid.UUID) bool {
 	mb.lock.Lock()
 	defer mb.lock.Unlock()
 	cur := time.Now()
 	elapsed := cur.Sub(mb.allowTime).Seconds()
-	// fmt.Println("elapsed", elapsed, "id", id, "idx", mb.waiters.Query(id))
+
 	if elapsed <= 0 {
 		return false
 	}
@@ -111,10 +113,20 @@ func (mb *Breaker) Reset(duration time.Duration) {
 	mb.allowTime = time.Now().Add(duration)
 }
 
-// Wait 同步等待直到允许通过
-func (mb *Breaker) Wait(id int) {
+func (mb *Breaker) acquire() uuid.UUID {
+	id := uuid.New()
 	mb.waiters.Add(id)
-	defer mb.waiters.Remove(id)
+	return id
+}
+
+func (mb *Breaker) release(id uuid.UUID) {
+	mb.waiters.Remove(id)
+}
+
+// Wait 同步等待直到允许通过
+func (mb *Breaker) Wait() {
+	id := mb.acquire()
+	defer mb.release(id)
 
 	for !mb.allow(id) {
 		time.Sleep(mb.getAllowedDuration())

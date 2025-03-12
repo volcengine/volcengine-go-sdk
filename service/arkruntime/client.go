@@ -33,8 +33,7 @@ type Client struct {
 	advisoryRefreshTimeout  int
 	mandatoryRefreshTimeout int
 
-	batchWorkerOnce sync.Once
-	batchWorkerPool *utils.BatchWorkerPool
+	batchWorkerPool *utils.ModelBreakerProvider
 }
 
 func NewClientWithApiKey(apiKey string, setters ...ConfigOption) *Client {
@@ -65,6 +64,7 @@ func newClientWithConfig(config clientConfig) *Client {
 		rwLock:                  &sync.RWMutex{},
 		advisoryRefreshTimeout:  model.DefaultAdvisoryRefreshTimeout,
 		mandatoryRefreshTimeout: model.DefaultMandatoryRefreshTimeout,
+		batchWorkerPool:         utils.NewModelBreakerProvider(),
 	}
 }
 
@@ -257,27 +257,40 @@ func (c *Client) Do(ctx context.Context, method, url, resourceType, resourceId s
 }
 
 func (c *Client) DoBatch(ctx context.Context, method, url, resourceType, resourceId string, v model.Response, setters ...requestOption) error {
-	doneChan := make(chan error, 1)
-	c.batchWorkerPool.Submit(ctx, resourceId, func() (utils.BatchTaskResult, error) {
-		req, err := c.newRequest(ctx, method, url, resourceType, resourceId, setters...)
-		if err != nil {
-			return utils.BatchTaskResult{}, err
+	breaker := c.batchWorkerPool.GetOrCreateBreaker(resourceId)
+
+	for {
+		breaker.Wait()
+
+		select {
+		case <-ctx.Done(): // whole context finish
+			return ctx.Err()
+		default:
 		}
-		innerErr := c.sendRequest(req, v)
-		if innerErr != nil && needRetryError(innerErr) {
-			retryAfter := c.getRetryAfter(v)
-			if retryAfter > 0 {
-				return utils.BatchTaskResult{NeedRetry: true, RequeueAfter: retryAfter}, innerErr
+
+		err := func() error {
+			req, er := c.newRequest(ctx, method, url, resourceType, resourceId, setters...)
+			if er != nil {
+				return er
 			}
-			return utils.BatchTaskResult{NeedRetry: true}, innerErr
+
+			return c.sendRequest(req, v)
+		}()
+
+		// no error: just return on this try
+		if err == nil {
+			return nil
 		}
-		return utils.BatchTaskResult{NeedRetry: false}, innerErr
-	}, doneChan)
-	select {
-	case doneErr := <-doneChan:
-		return doneErr
-	case <-ctx.Done():
-		return ctx.Err()
+
+		// no need to retry error
+		if !needRetryError(err) {
+			return err
+		}
+
+		retryAfter := c.getRetryAfter(v)
+		if retryAfter > 0 {
+			breaker.Reset(time.Duration(retryAfter) * time.Second)
+		}
 	}
 }
 

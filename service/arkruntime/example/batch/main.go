@@ -2,7 +2,9 @@ package main
 
 import (
 	"context"
+	"encoding/json"
 	"fmt"
+	"net/http"
 	"os"
 	"sync"
 	"time"
@@ -13,45 +15,61 @@ import (
 )
 
 func main() {
-	timeout := time.Hour
-	workerNum := 10000
+	// 设置超时时间为 24 小时，以利用潮汐资源
+	ctx, cancel := context.WithTimeout(context.Background(), 24*time.Hour)
+	defer cancel()
 
-	client := arkruntime.NewClientWithApiKey(os.Getenv("ARK_API_KEY"), arkruntime.WithTimeout(timeout))
-	client.StartBatchWorker(workerNum)
+	// 使用 API 密钥创建一个新的客户端实例，并设置超时时间
+	client := arkruntime.NewClientWithApiKey(
+		os.Getenv("ARK_API_KEY"),
+		arkruntime.WithHTTPClient(&http.Client{
+			Transport: &http.Transport{
+				// 设置发起请求的最大并发数量为 3000
+				MaxConnsPerHost: 3000,
+			},
+		}),
+	)
 
-	ctx := context.Background()
-	taskNum := 5
 	wg := sync.WaitGroup{}
-	for i := 0; i < workerNum; i++ {
+
+	// 发起 50000 个请求
+	for i := 0; i < 50000; i++ {
 		wg.Add(1)
+
+		// 异步发起请求
 		go func(index int) {
 			defer wg.Done()
-			for j := 0; j < taskNum; j++ {
-				resp, err := client.CreateBatchChatCompletion(ctx, model.CreateChatCompletionRequest{
-					Model: "${YOUR_BOT_ID}",
-					Messages: []*model.ChatCompletionMessage{
-						{
-							Role: model.ChatMessageRoleSystem,
-							Content: &model.ChatCompletionMessageContent{
-								StringValue: volcengine.String("你是豆包，是由字节跳动开发的 AI 人工智能助手"),
-							},
-						},
-						{
-							Role: model.ChatMessageRoleUser,
-							Content: &model.ChatCompletionMessageContent{
-								StringValue: volcengine.String("常见的十字花科植物有哪些？"),
-							},
+
+			// 发起批量推理请求
+			result, err := client.CreateBatchChatCompletion(ctx, model.ChatCompletionRequest{
+				Model: os.Getenv("YOUR_ENDPOINT_ID"),
+				Messages: []*model.ChatCompletionMessage{
+					{
+						Role: model.ChatMessageRoleSystem,
+						Content: &model.ChatCompletionMessageContent{
+							StringValue: volcengine.String("你是豆包，是由字节跳动开发的 AI 人工智能助手"),
 						},
 					},
-				})
-				if err != nil {
-					fmt.Printf("worker %d request %d Fail Err %s\n", index, j, err)
-					continue
-				}
-				fmt.Println(*resp.Choices[0].Message.Content.StringValue)
+					{
+						Role: model.ChatMessageRoleUser,
+						Content: &model.ChatCompletionMessageContent{
+							StringValue: volcengine.String("常见的十字花科植物有哪些？"),
+						},
+					},
+				},
+			})
+			if err != nil {
+				fmt.Fprintln(os.Stderr, index, err)
+			} else {
+				fmt.Println(index, MustMarshalJson(result))
 			}
 		}(i)
 	}
+	// 等待所有工作线程完成任务
 	wg.Wait()
-	client.StopBatchWorker()
+}
+
+func MustMarshalJson(v interface{}) string {
+	s, _ := json.Marshal(v)
+	return string(s)
 }
