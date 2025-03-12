@@ -19,7 +19,7 @@ func main() {
 	ctx, cancel := context.WithTimeout(context.Background(), 24*time.Hour)
 	defer cancel()
 
-	// 使用 API 密钥创建一个新的客户端实例，并设置超时时间
+	// 使用 API 密钥创建一个新的客户端实例
 	client := arkruntime.NewClientWithApiKey(
 		os.Getenv("ARK_API_KEY"),
 		arkruntime.WithHTTPClient(&http.Client{

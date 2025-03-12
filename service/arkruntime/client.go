@@ -33,7 +33,7 @@ type Client struct {
 	advisoryRefreshTimeout  int
 	mandatoryRefreshTimeout int
 
-	batchWorkerPool *utils.ModelBreakerProvider
+	modelBreakerProvider *utils.ModelBreakerProvider
 }
 
 func NewClientWithApiKey(apiKey string, setters ...ConfigOption) *Client {
@@ -64,7 +64,7 @@ func newClientWithConfig(config clientConfig) *Client {
 		rwLock:                  &sync.RWMutex{},
 		advisoryRefreshTimeout:  model.DefaultAdvisoryRefreshTimeout,
 		mandatoryRefreshTimeout: model.DefaultMandatoryRefreshTimeout,
-		batchWorkerPool:         utils.NewModelBreakerProvider(),
+		modelBreakerProvider:    utils.NewModelBreakerProvider(),
 	}
 }
 
@@ -257,7 +257,7 @@ func (c *Client) Do(ctx context.Context, method, url, resourceType, resourceId s
 }
 
 func (c *Client) DoBatch(ctx context.Context, method, url, resourceType, resourceId string, v model.Response, setters ...requestOption) error {
-	breaker := c.batchWorkerPool.GetOrCreateBreaker(resourceId)
+	breaker := c.modelBreakerProvider.GetOrCreateBreaker(resourceId)
 
 	for {
 		breaker.Wait()
