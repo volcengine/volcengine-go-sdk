@@ -144,15 +144,15 @@ func (c *CDN) UpdateCdnConfigWithContext(ctx volcengine.Context, input *UpdateCd
 }
 
 type AccessActionForUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	AllowEmpty *bool `type:"boolean"`
+	AllowEmpty *bool `type:"boolean" json:",omitempty"`
 
-	ListRules []*string `type:"list"`
+	ListRules []*string `type:"list" json:",omitempty"`
 
-	RequestHeader *string `type:"string"`
+	RequestHeader *string `type:"string" json:",omitempty"`
 
-	RuleType *string `type:"string"`
+	RuleType *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -190,9 +190,9 @@ func (s *AccessActionForUpdateCdnConfigInput) SetRuleType(v string) *AccessActio
 }
 
 type ActionsForUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	OriginLines []*OriginLineForUpdateCdnConfigInput `type:"list"`
+	OriginLines []*OriginLineForUpdateCdnConfigInput `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -212,13 +212,13 @@ func (s *ActionsForUpdateCdnConfigInput) SetOriginLines(v []*OriginLineForUpdate
 }
 
 type AreaAccessRuleForUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Area []*string `type:"list"`
+	Area []*string `type:"list" json:",omitempty"`
 
-	RuleType *string `type:"string"`
+	RuleType *string `type:"string" json:",omitempty"`
 
-	Switch *bool `type:"boolean"`
+	Switch *bool `type:"boolean" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -250,17 +250,17 @@ func (s *AreaAccessRuleForUpdateCdnConfigInput) SetSwitch(v bool) *AreaAccessRul
 }
 
 type AuthModeConfigForUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	BackupRemoteAddr *string `type:"string"`
+	BackupRemoteAddr *string `type:"string" json:",omitempty"`
 
-	MasterRemoteAddr *string `type:"string"`
+	MasterRemoteAddr *string `type:"string" json:",omitempty"`
 
-	PathType *string `type:"string"`
+	PathType *string `type:"string" json:",omitempty"`
 
-	PathValue *string `type:"string"`
+	PathValue *string `type:"string" json:",omitempty"`
 
-	RequestMethod *string `type:"string"`
+	RequestMethod *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -304,15 +304,15 @@ func (s *AuthModeConfigForUpdateCdnConfigInput) SetRequestMethod(v string) *Auth
 }
 
 type AuthResponseConfigForUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	CacheAction *ConvertCacheActionForUpdateCdnConfigInput `type:"structure"`
+	CacheAction *ConvertCacheActionForUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 
-	ResponseAction *ResponseActionForUpdateCdnConfigInput `type:"structure"`
+	ResponseAction *ResponseActionForUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 
-	StatusCodeAction *StatusCodeActionForUpdateCdnConfigInput `type:"structure"`
+	StatusCodeAction *StatusCodeActionForUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 
-	TimeOutAction *TimeOutActionForUpdateCdnConfigInput `type:"structure"`
+	TimeOutAction *TimeOutActionForUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -350,15 +350,15 @@ func (s *AuthResponseConfigForUpdateCdnConfigInput) SetTimeOutAction(v *TimeOutA
 }
 
 type BandwidthLimitActionForUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	BandwidthThreshold *int64 `type:"int64"`
+	BandwidthThreshold *int64 `type:"int64" json:",omitempty"`
 
-	LimitType *string `type:"string"`
+	LimitType *string `type:"string" json:",omitempty"`
 
-	SpeedLimitRate *int64 `type:"int64"`
+	SpeedLimitRate *int64 `type:"int64" json:",omitempty"`
 
-	SpeedLimitRateMax *int64 `type:"int64"`
+	SpeedLimitRateMax *int64 `type:"int64" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -396,11 +396,11 @@ func (s *BandwidthLimitActionForUpdateCdnConfigInput) SetSpeedLimitRateMax(v int
 }
 
 type BandwidthLimitForUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	BandwidthLimitRule *BandwidthLimitRuleForUpdateCdnConfigInput `type:"structure"`
+	BandwidthLimitRule *BandwidthLimitRuleForUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 
-	Switch *bool `type:"boolean"`
+	Switch *bool `type:"boolean" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -426,11 +426,11 @@ func (s *BandwidthLimitForUpdateCdnConfigInput) SetSwitch(v bool) *BandwidthLimi
 }
 
 type BandwidthLimitRuleForUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	BandwidthLimitAction *BandwidthLimitActionForUpdateCdnConfigInput `type:"structure"`
+	BandwidthLimitAction *BandwidthLimitActionForUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 
-	Condition *ConditionForUpdateCdnConfigInput `type:"structure"`
+	Condition *ConditionForUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -456,15 +456,15 @@ func (s *BandwidthLimitRuleForUpdateCdnConfigInput) SetCondition(v *ConditionFor
 }
 
 type BlockActionForUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Action *string `type:"string"`
+	Action *string `type:"string" json:",omitempty"`
 
-	ErrorPage *string `type:"string"`
+	ErrorPage *string `type:"string" json:",omitempty"`
 
-	RedirectUrl *string `type:"string"`
+	RedirectUrl *string `type:"string" json:",omitempty"`
 
-	StatusCode *string `type:"string"`
+	StatusCode *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -502,13 +502,13 @@ func (s *BlockActionForUpdateCdnConfigInput) SetStatusCode(v string) *BlockActio
 }
 
 type BlockRuleForUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	BlockAction *BlockActionForUpdateCdnConfigInput `type:"structure"`
+	BlockAction *BlockActionForUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 
-	Condition *ConditionForUpdateCdnConfigInput `type:"structure"`
+	Condition *ConditionForUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 
-	RuleName *string `type:"string"`
+	RuleName *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -540,11 +540,11 @@ func (s *BlockRuleForUpdateCdnConfigInput) SetRuleName(v string) *BlockRuleForUp
 }
 
 type BrowserCacheForUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	CacheAction *CacheActionForUpdateCdnConfigInput `type:"structure"`
+	CacheAction *CacheActionForUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 
-	Condition *ConditionForUpdateCdnConfigInput `type:"structure"`
+	Condition *ConditionForUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -570,15 +570,15 @@ func (s *BrowserCacheForUpdateCdnConfigInput) SetCondition(v *ConditionForUpdate
 }
 
 type CacheActionForUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Action *string `type:"string"`
+	Action *string `type:"string" json:",omitempty"`
 
-	DefaultPolicy *string `type:"string"`
+	DefaultPolicy *string `type:"string" json:",omitempty"`
 
-	IgnoreCase *bool `type:"boolean"`
+	IgnoreCase *bool `type:"boolean" json:",omitempty"`
 
-	Ttl *int64 `type:"int64"`
+	Ttl *int64 `type:"int64" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -616,11 +616,11 @@ func (s *CacheActionForUpdateCdnConfigInput) SetTtl(v int64) *CacheActionForUpda
 }
 
 type CacheForUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	CacheAction *CacheActionForUpdateCdnConfigInput `type:"structure"`
+	CacheAction *CacheActionForUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 
-	Condition *ConditionForUpdateCdnConfigInput `type:"structure"`
+	Condition *ConditionForUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -646,9 +646,9 @@ func (s *CacheForUpdateCdnConfigInput) SetCondition(v *ConditionForUpdateCdnConf
 }
 
 type CacheHostActionForUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	CacheHost *string `type:"string"`
+	CacheHost *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -668,11 +668,11 @@ func (s *CacheHostActionForUpdateCdnConfigInput) SetCacheHost(v string) *CacheHo
 }
 
 type CacheHostForUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	CacheHostRule []*CacheHostRuleForUpdateCdnConfigInput `type:"list"`
+	CacheHostRule []*CacheHostRuleForUpdateCdnConfigInput `type:"list" json:",omitempty"`
 
-	Switch *bool `type:"boolean"`
+	Switch *bool `type:"boolean" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -698,11 +698,11 @@ func (s *CacheHostForUpdateCdnConfigInput) SetSwitch(v bool) *CacheHostForUpdate
 }
 
 type CacheHostRuleForUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	CacheHostAction *CacheHostActionForUpdateCdnConfigInput `type:"structure"`
+	CacheHostAction *CacheHostActionForUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 
-	Condition *ConditionForUpdateCdnConfigInput `type:"structure"`
+	Condition *ConditionForUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -728,9 +728,9 @@ func (s *CacheHostRuleForUpdateCdnConfigInput) SetCondition(v *ConditionForUpdat
 }
 
 type CacheKeyActionForUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	CacheKeyComponents []*CacheKeyComponentForUpdateCdnConfigInput `type:"list"`
+	CacheKeyComponents []*CacheKeyComponentForUpdateCdnConfigInput `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -750,15 +750,15 @@ func (s *CacheKeyActionForUpdateCdnConfigInput) SetCacheKeyComponents(v []*Cache
 }
 
 type CacheKeyComponentForUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Action *string `type:"string"`
+	Action *string `type:"string" json:",omitempty"`
 
-	IgnoreCase *bool `type:"boolean"`
+	IgnoreCase *bool `type:"boolean" json:",omitempty"`
 
-	Object *string `type:"string"`
+	Object *string `type:"string" json:",omitempty"`
 
-	Subobject *string `type:"string"`
+	Subobject *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -796,11 +796,11 @@ func (s *CacheKeyComponentForUpdateCdnConfigInput) SetSubobject(v string) *Cache
 }
 
 type CacheKeyForUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	CacheKeyAction *CacheKeyActionForUpdateCdnConfigInput `type:"structure"`
+	CacheKeyAction *CacheKeyActionForUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 
-	Condition *ConditionForUpdateCdnConfigInput `type:"structure"`
+	Condition *ConditionForUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -826,11 +826,11 @@ func (s *CacheKeyForUpdateCdnConfigInput) SetCondition(v *ConditionForUpdateCdnC
 }
 
 type CertCheckForUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	CertInfoList []*CertInfoListForUpdateCdnConfigInput `type:"list"`
+	CertInfoList []*CertInfoListForUpdateCdnConfigInput `type:"list" json:",omitempty"`
 
-	Switch *bool `type:"boolean"`
+	Switch *bool `type:"boolean" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -856,23 +856,23 @@ func (s *CertCheckForUpdateCdnConfigInput) SetSwitch(v bool) *CertCheckForUpdate
 }
 
 type CertInfoForUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	CertId *string `type:"string"`
+	CertId *string `type:"string" json:",omitempty"`
 
-	CertName *string `type:"string"`
+	CertName *string `type:"string" json:",omitempty"`
 
-	Certificate *CertificateForUpdateCdnConfigInput `type:"structure"`
+	Certificate *CertificateForUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 
-	Desc *string `type:"string"`
+	Desc *string `type:"string" json:",omitempty"`
 
-	EffectiveTime *int64 `type:"int64"`
+	EffectiveTime *int64 `type:"int64" json:",omitempty"`
 
-	EncryType *string `type:"string"`
+	EncryType *string `type:"string" json:",omitempty"`
 
-	ExpireTime *int64 `type:"int64"`
+	ExpireTime *int64 `type:"int64" json:",omitempty"`
 
-	Source *string `type:"string"`
+	Source *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -934,23 +934,23 @@ func (s *CertInfoForUpdateCdnConfigInput) SetSource(v string) *CertInfoForUpdate
 }
 
 type CertInfoListForUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	CertId *string `type:"string"`
+	CertId *string `type:"string" json:",omitempty"`
 
-	CertName *string `type:"string"`
+	CertName *string `type:"string" json:",omitempty"`
 
-	Certificate *CertificateForUpdateCdnConfigInput `type:"structure"`
+	Certificate *CertificateForUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 
-	Desc *string `type:"string"`
+	Desc *string `type:"string" json:",omitempty"`
 
-	EffectiveTime *int64 `type:"int64"`
+	EffectiveTime *int64 `type:"int64" json:",omitempty"`
 
-	EncryType *string `type:"string"`
+	EncryType *string `type:"string" json:",omitempty"`
 
-	ExpireTime *int64 `type:"int64"`
+	ExpireTime *int64 `type:"int64" json:",omitempty"`
 
-	Source *string `type:"string"`
+	Source *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -1012,15 +1012,15 @@ func (s *CertInfoListForUpdateCdnConfigInput) SetSource(v string) *CertInfoListF
 }
 
 type CertificateForUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Certificate *string `type:"string"`
+	Certificate *string `type:"string" json:",omitempty"`
 
-	EncryptionCert *string `type:"string"`
+	EncryptionCert *string `type:"string" json:",omitempty"`
 
-	EncryptionKey *string `type:"string"`
+	EncryptionKey *string `type:"string" json:",omitempty"`
 
-	PrivateKey *string `type:"string"`
+	PrivateKey *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -1058,13 +1058,13 @@ func (s *CertificateForUpdateCdnConfigInput) SetPrivateKey(v string) *Certificat
 }
 
 type CommonTypeForUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	IgnoreCase *bool `type:"boolean"`
+	IgnoreCase *bool `type:"boolean" json:",omitempty"`
 
-	IgnoreScheme *bool `type:"boolean"`
+	IgnoreScheme *bool `type:"boolean" json:",omitempty"`
 
-	Referers []*string `type:"list"`
+	Referers []*string `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -1096,15 +1096,17 @@ func (s *CommonTypeForUpdateCdnConfigInput) SetReferers(v []*string) *CommonType
 }
 
 type CompressionActionForUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	CompressionFormat *string `type:"string"`
+	CompressionFormat *string `type:"string" json:",omitempty"`
 
-	CompressionTarget *string `type:"string"`
+	CompressionTarget *string `type:"string" json:",omitempty"`
 
-	CompressionType []*string `type:"list"`
+	CompressionType []*string `type:"list" json:",omitempty"`
 
-	MinFileSizeKB *int64 `type:"int64"`
+	MaxFileSizeKB *int64 `type:"int64" json:",omitempty"`
+
+	MinFileSizeKB *int64 `type:"int64" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -1135,6 +1137,12 @@ func (s *CompressionActionForUpdateCdnConfigInput) SetCompressionType(v []*strin
 	return s
 }
 
+// SetMaxFileSizeKB sets the MaxFileSizeKB field's value.
+func (s *CompressionActionForUpdateCdnConfigInput) SetMaxFileSizeKB(v int64) *CompressionActionForUpdateCdnConfigInput {
+	s.MaxFileSizeKB = &v
+	return s
+}
+
 // SetMinFileSizeKB sets the MinFileSizeKB field's value.
 func (s *CompressionActionForUpdateCdnConfigInput) SetMinFileSizeKB(v int64) *CompressionActionForUpdateCdnConfigInput {
 	s.MinFileSizeKB = &v
@@ -1142,11 +1150,11 @@ func (s *CompressionActionForUpdateCdnConfigInput) SetMinFileSizeKB(v int64) *Co
 }
 
 type CompressionForUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	CompressionRules []*CompressionRuleForUpdateCdnConfigInput `type:"list"`
+	CompressionRules []*CompressionRuleForUpdateCdnConfigInput `type:"list" json:",omitempty"`
 
-	Switch *bool `type:"boolean"`
+	Switch *bool `type:"boolean" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -1172,11 +1180,11 @@ func (s *CompressionForUpdateCdnConfigInput) SetSwitch(v bool) *CompressionForUp
 }
 
 type CompressionRuleForUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	CompressionAction *CompressionActionForUpdateCdnConfigInput `type:"structure"`
+	CompressionAction *CompressionActionForUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 
-	Condition *ConditionForUpdateCdnConfigInput `type:"structure"`
+	Condition *ConditionForUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -1202,11 +1210,11 @@ func (s *CompressionRuleForUpdateCdnConfigInput) SetCondition(v *ConditionForUpd
 }
 
 type ConditionForUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	ConditionRule []*ConditionRuleForUpdateCdnConfigInput `type:"list"`
+	ConditionRule []*ConditionRuleForUpdateCdnConfigInput `type:"list" json:",omitempty"`
 
-	Connective *string `type:"string"`
+	Connective *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -1232,11 +1240,11 @@ func (s *ConditionForUpdateCdnConfigInput) SetConnective(v string) *ConditionFor
 }
 
 type ConditionGroupForUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Condition *ConvertConditionForUpdateCdnConfigInput `type:"structure"`
+	Condition *ConvertConditionForUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 
-	IsGroup *bool `type:"boolean"`
+	IsGroup *bool `type:"boolean" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -1262,17 +1270,17 @@ func (s *ConditionGroupForUpdateCdnConfigInput) SetIsGroup(v bool) *ConditionGro
 }
 
 type ConditionRuleForUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Name *string `type:"string"`
+	Name *string `type:"string" json:",omitempty"`
 
-	Object *string `type:"string"`
+	Object *string `type:"string" json:",omitempty"`
 
-	Operator *string `type:"string"`
+	Operator *string `type:"string" json:",omitempty"`
 
-	Type *string `type:"string"`
+	Type *string `type:"string" json:",omitempty"`
 
-	Value *string `type:"string"`
+	Value *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -1316,11 +1324,11 @@ func (s *ConditionRuleForUpdateCdnConfigInput) SetValue(v string) *ConditionRule
 }
 
 type ConditionalOriginForUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	OriginRules []*OriginRuleForUpdateCdnConfigInput `type:"list"`
+	OriginRules []*OriginRuleForUpdateCdnConfigInput `type:"list" json:",omitempty"`
 
-	Switch *bool `type:"boolean"`
+	Switch *bool `type:"boolean" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -1346,15 +1354,15 @@ func (s *ConditionalOriginForUpdateCdnConfigInput) SetSwitch(v bool) *Conditiona
 }
 
 type ConvertCacheActionForUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Action *string `type:"string"`
+	Action *string `type:"string" json:",omitempty"`
 
-	CacheKey []*string `type:"list"`
+	CacheKey []*string `type:"list" json:",omitempty"`
 
-	IgnoreCase *bool `type:"boolean"`
+	IgnoreCase *bool `type:"boolean" json:",omitempty"`
 
-	Ttl *int64 `type:"int64"`
+	Ttl *int64 `type:"int64" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -1392,13 +1400,13 @@ func (s *ConvertCacheActionForUpdateCdnConfigInput) SetTtl(v int64) *ConvertCach
 }
 
 type ConvertConditionForUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Object *string `type:"string"`
+	Object *string `type:"string" json:",omitempty"`
 
-	Operator *string `type:"string"`
+	Operator *string `type:"string" json:",omitempty"`
 
-	Value []*string `type:"list"`
+	Value []*string `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -1430,13 +1438,13 @@ func (s *ConvertConditionForUpdateCdnConfigInput) SetValue(v []*string) *Convert
 }
 
 type ConvertConvertConditionForUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	ConditionGroups []*ConditionGroupForUpdateCdnConfigInput `type:"list"`
+	ConditionGroups []*ConditionGroupForUpdateCdnConfigInput `type:"list" json:",omitempty"`
 
-	Connective *string `type:"string"`
+	Connective *string `type:"string" json:",omitempty"`
 
-	IsGroup *bool `type:"boolean"`
+	IsGroup *bool `type:"boolean" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -1468,29 +1476,29 @@ func (s *ConvertConvertConditionForUpdateCdnConfigInput) SetIsGroup(v bool) *Con
 }
 
 type ConvertOriginLineForUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Address *string `type:"string"`
+	Address *string `type:"string" json:",omitempty"`
 
-	BucketName *string `type:"string"`
+	BucketName *string `type:"string" json:",omitempty"`
 
-	HttpPort *string `type:"string"`
+	HttpPort *string `type:"string" json:",omitempty"`
 
-	HttpsPort *string `type:"string"`
+	HttpsPort *string `type:"string" json:",omitempty"`
 
-	InstanceType *string `type:"string"`
+	InstanceType *string `type:"string" json:",omitempty"`
 
-	OriginHost *string `type:"string"`
+	OriginHost *string `type:"string" json:",omitempty"`
 
-	OriginType *string `type:"string"`
+	OriginType *string `type:"string" json:",omitempty"`
 
-	PrivateBucketAccess *bool `type:"boolean"`
+	PrivateBucketAccess *bool `type:"boolean" json:",omitempty"`
 
-	PrivateBucketAuth *PrivateBucketAuthForUpdateCdnConfigInput `type:"structure"`
+	PrivateBucketAuth *PrivateBucketAuthForUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 
-	Region *string `type:"string"`
+	Region *string `type:"string" json:",omitempty"`
 
-	Weight *string `type:"string"`
+	Weight *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -1570,11 +1578,11 @@ func (s *ConvertOriginLineForUpdateCdnConfigInput) SetWeight(v string) *ConvertO
 }
 
 type ConvertTimeoutActionForUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	HttpTimeout *int64 `type:"int64"`
+	HttpTimeout *int64 `type:"int64" json:",omitempty"`
 
-	TcpTimeout *int64 `type:"int64"`
+	TcpTimeout *int64 `type:"int64" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -1600,11 +1608,11 @@ func (s *ConvertTimeoutActionForUpdateCdnConfigInput) SetTcpTimeout(v int64) *Co
 }
 
 type CustomErrorPageForUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	ErrorPageRule []*ErrorPageRuleForUpdateCdnConfigInput `type:"list"`
+	ErrorPageRule []*ErrorPageRuleForUpdateCdnConfigInput `type:"list" json:",omitempty"`
 
-	Switch *bool `type:"boolean"`
+	Switch *bool `type:"boolean" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -1630,13 +1638,13 @@ func (s *CustomErrorPageForUpdateCdnConfigInput) SetSwitch(v bool) *CustomErrorP
 }
 
 type CustomVariableInstanceForUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Operator *string `type:"string"`
+	Operator *string `type:"string" json:",omitempty"`
 
-	Type *string `type:"string"`
+	Type *string `type:"string" json:",omitempty"`
 
-	Value *string `type:"string"`
+	Value *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -1668,9 +1676,9 @@ func (s *CustomVariableInstanceForUpdateCdnConfigInput) SetValue(v string) *Cust
 }
 
 type CustomVariableRulesForUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	CustomVariableInstances []*CustomVariableInstanceForUpdateCdnConfigInput `type:"list"`
+	CustomVariableInstances []*CustomVariableInstanceForUpdateCdnConfigInput `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -1690,11 +1698,11 @@ func (s *CustomVariableRulesForUpdateCdnConfigInput) SetCustomVariableInstances(
 }
 
 type CustomizeAccessRuleForUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	CustomizeInstances []*CustomizeInstanceForUpdateCdnConfigInput `type:"list"`
+	CustomizeInstances []*CustomizeInstanceForUpdateCdnConfigInput `type:"list" json:",omitempty"`
 
-	Switch *bool `type:"boolean"`
+	Switch *bool `type:"boolean" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -1720,9 +1728,9 @@ func (s *CustomizeAccessRuleForUpdateCdnConfigInput) SetSwitch(v bool) *Customiz
 }
 
 type CustomizeInstanceForUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	CustomizeRule *CustomizeRuleForUpdateCdnConfigInput `type:"structure"`
+	CustomizeRule *CustomizeRuleForUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -1742,11 +1750,11 @@ func (s *CustomizeInstanceForUpdateCdnConfigInput) SetCustomizeRule(v *Customize
 }
 
 type CustomizeRuleForUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	AccessAction *AccessActionForUpdateCdnConfigInput `type:"structure"`
+	AccessAction *AccessActionForUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 
-	Condition *ConditionForUpdateCdnConfigInput `type:"structure"`
+	Condition *ConditionForUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -1772,13 +1780,13 @@ func (s *CustomizeRuleForUpdateCdnConfigInput) SetCondition(v *ConditionForUpdat
 }
 
 type DownloadSpeedLimitActionForUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	SpeedLimitRate *int64 `type:"int64"`
+	SpeedLimitRate *int64 `type:"int64" json:",omitempty"`
 
-	SpeedLimitRateAfter *int64 `type:"int64"`
+	SpeedLimitRateAfter *int64 `type:"int64" json:",omitempty"`
 
-	SpeedLimitTime *SpeedLimitTimeForUpdateCdnConfigInput `type:"structure"`
+	SpeedLimitTime *SpeedLimitTimeForUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -1810,11 +1818,11 @@ func (s *DownloadSpeedLimitActionForUpdateCdnConfigInput) SetSpeedLimitTime(v *S
 }
 
 type DownloadSpeedLimitForUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	DownloadSpeedLimitRules []*DownloadSpeedLimitRuleForUpdateCdnConfigInput `type:"list"`
+	DownloadSpeedLimitRules []*DownloadSpeedLimitRuleForUpdateCdnConfigInput `type:"list" json:",omitempty"`
 
-	Switch *bool `type:"boolean"`
+	Switch *bool `type:"boolean" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -1840,11 +1848,11 @@ func (s *DownloadSpeedLimitForUpdateCdnConfigInput) SetSwitch(v bool) *DownloadS
 }
 
 type DownloadSpeedLimitRuleForUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Condition *ConditionForUpdateCdnConfigInput `type:"structure"`
+	Condition *ConditionForUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 
-	DownloadSpeedLimitAction *DownloadSpeedLimitActionForUpdateCdnConfigInput `type:"structure"`
+	DownloadSpeedLimitAction *DownloadSpeedLimitActionForUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -1870,15 +1878,15 @@ func (s *DownloadSpeedLimitRuleForUpdateCdnConfigInput) SetDownloadSpeedLimitAct
 }
 
 type ErrorPageActionForUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Action *string `type:"string"`
+	Action *string `type:"string" json:",omitempty"`
 
-	RedirectCode *string `type:"string"`
+	RedirectCode *string `type:"string" json:",omitempty"`
 
-	RedirectUrl *string `type:"string"`
+	RedirectUrl *string `type:"string" json:",omitempty"`
 
-	StatusCode *string `type:"string"`
+	StatusCode *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -1916,9 +1924,9 @@ func (s *ErrorPageActionForUpdateCdnConfigInput) SetStatusCode(v string) *ErrorP
 }
 
 type ErrorPageRuleForUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	ErrorPageAction *ErrorPageActionForUpdateCdnConfigInput `type:"structure"`
+	ErrorPageAction *ErrorPageActionForUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -1938,13 +1946,13 @@ func (s *ErrorPageRuleForUpdateCdnConfigInput) SetErrorPageAction(v *ErrorPageAc
 }
 
 type ExpTimeCapRuleForUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	CapMode *string `type:"string"`
+	CapMode *string `type:"string" json:",omitempty"`
 
-	ParamName *string `type:"string"`
+	ParamName *string `type:"string" json:",omitempty"`
 
-	UriLevel *int64 `type:"int64"`
+	UriLevel *int64 `type:"int64" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -1976,11 +1984,11 @@ func (s *ExpTimeCapRuleForUpdateCdnConfigInput) SetUriLevel(v int64) *ExpTimeCap
 }
 
 type ForcedRedirectForUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	EnableForcedRedirect *bool `type:"boolean"`
+	EnableForcedRedirect *bool `type:"boolean" json:",omitempty"`
 
-	StatusCode *string `type:"string"`
+	StatusCode *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -2006,27 +2014,27 @@ func (s *ForcedRedirectForUpdateCdnConfigInput) SetStatusCode(v string) *ForcedR
 }
 
 type HTTPSForUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	CertCheck *CertCheckForUpdateCdnConfigInput `type:"structure"`
+	CertCheck *CertCheckForUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 
-	CertInfo *CertInfoForUpdateCdnConfigInput `type:"structure"`
+	CertInfo *CertInfoForUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 
-	CertInfoList []*CertInfoListForUpdateCdnConfigInput `type:"list"`
+	CertInfoList []*CertInfoListForUpdateCdnConfigInput `type:"list" json:",omitempty"`
 
-	DisableHttp *bool `type:"boolean"`
+	DisableHttp *bool `type:"boolean" json:",omitempty"`
 
-	ForcedRedirect *ForcedRedirectForUpdateCdnConfigInput `type:"structure"`
+	ForcedRedirect *ForcedRedirectForUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 
-	HTTP2 *bool `type:"boolean"`
+	HTTP2 *bool `type:"boolean" json:",omitempty"`
 
-	Hsts *HstsForUpdateCdnConfigInput `type:"structure"`
+	Hsts *HstsForUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 
-	OCSP *bool `type:"boolean"`
+	OCSP *bool `type:"boolean" json:",omitempty"`
 
-	Switch *bool `type:"boolean"`
+	Switch *bool `type:"boolean" json:",omitempty"`
 
-	TlsVersion []*string `type:"list"`
+	TlsVersion []*string `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -2100,13 +2108,13 @@ func (s *HTTPSForUpdateCdnConfigInput) SetTlsVersion(v []*string) *HTTPSForUpdat
 }
 
 type HstsForUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Subdomain *string `type:"string"`
+	Subdomain *string `type:"string" json:",omitempty"`
 
-	Switch *bool `type:"boolean"`
+	Switch *bool `type:"boolean" json:",omitempty"`
 
-	Ttl *int64 `type:"int64"`
+	Ttl *int64 `type:"int64" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -2138,11 +2146,11 @@ func (s *HstsForUpdateCdnConfigInput) SetTtl(v int64) *HstsForUpdateCdnConfigInp
 }
 
 type HttpForcedRedirectForUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	EnableForcedRedirect *bool `type:"boolean"`
+	EnableForcedRedirect *bool `type:"boolean" json:",omitempty"`
 
-	StatusCode *string `type:"string"`
+	StatusCode *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -2168,9 +2176,9 @@ func (s *HttpForcedRedirectForUpdateCdnConfigInput) SetStatusCode(v string) *Htt
 }
 
 type IPv6ForUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Switch *bool `type:"boolean"`
+	Switch *bool `type:"boolean" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -2190,15 +2198,15 @@ func (s *IPv6ForUpdateCdnConfigInput) SetSwitch(v bool) *IPv6ForUpdateCdnConfigI
 }
 
 type IpAccessRuleForUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Ip []*string `type:"list"`
+	Ip []*string `type:"list" json:",omitempty"`
 
-	RuleType *string `type:"string"`
+	RuleType *string `type:"string" json:",omitempty"`
 
-	SharedConfig *SharedConfigForUpdateCdnConfigInput `type:"structure"`
+	SharedConfig *SharedConfigForUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 
-	Switch *bool `type:"boolean"`
+	Switch *bool `type:"boolean" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -2236,13 +2244,13 @@ func (s *IpAccessRuleForUpdateCdnConfigInput) SetSwitch(v bool) *IpAccessRuleFor
 }
 
 type IpFreqLimitActionForUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Action *string `type:"string"`
+	Action *string `type:"string" json:",omitempty"`
 
-	FreqLimitRate *int64 `type:"int64"`
+	FreqLimitRate *int64 `type:"int64" json:",omitempty"`
 
-	StatusCode *string `type:"string"`
+	StatusCode *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -2274,11 +2282,11 @@ func (s *IpFreqLimitActionForUpdateCdnConfigInput) SetStatusCode(v string) *IpFr
 }
 
 type IpFreqLimitForUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	IpFreqLimitRules []*IpFreqLimitRuleForUpdateCdnConfigInput `type:"list"`
+	IpFreqLimitRules []*IpFreqLimitRuleForUpdateCdnConfigInput `type:"list" json:",omitempty"`
 
-	Switch *bool `type:"boolean"`
+	Switch *bool `type:"boolean" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -2304,11 +2312,11 @@ func (s *IpFreqLimitForUpdateCdnConfigInput) SetSwitch(v bool) *IpFreqLimitForUp
 }
 
 type IpFreqLimitRuleForUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Condition *ConditionForUpdateCdnConfigInput `type:"structure"`
+	Condition *ConditionForUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 
-	IpFreqLimitAction *IpFreqLimitActionForUpdateCdnConfigInput `type:"structure"`
+	IpFreqLimitAction *IpFreqLimitActionForUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -2334,11 +2342,11 @@ func (s *IpFreqLimitRuleForUpdateCdnConfigInput) SetIpFreqLimitAction(v *IpFreqL
 }
 
 type MethodDeniedRuleForUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Methods *string `type:"string"`
+	Methods *string `type:"string" json:",omitempty"`
 
-	Switch *bool `type:"boolean"`
+	Switch *bool `type:"boolean" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -2364,9 +2372,9 @@ func (s *MethodDeniedRuleForUpdateCdnConfigInput) SetSwitch(v bool) *MethodDenie
 }
 
 type MultiRangeForUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Switch *bool `type:"boolean"`
+	Switch *bool `type:"boolean" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -2386,11 +2394,11 @@ func (s *MultiRangeForUpdateCdnConfigInput) SetSwitch(v bool) *MultiRangeForUpda
 }
 
 type NegativeCacheForUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Condition *ConditionForUpdateCdnConfigInput `type:"structure"`
+	Condition *ConditionForUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 
-	NegativeCacheRule *NegativeCacheRuleForUpdateCdnConfigInput `type:"structure"`
+	NegativeCacheRule *NegativeCacheRuleForUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -2416,15 +2424,15 @@ func (s *NegativeCacheForUpdateCdnConfigInput) SetNegativeCacheRule(v *NegativeC
 }
 
 type NegativeCacheRuleForUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Action *string `type:"string"`
+	Action *string `type:"string" json:",omitempty"`
 
-	IgnoreCase *bool `type:"boolean"`
+	IgnoreCase *bool `type:"boolean" json:",omitempty"`
 
-	StatusCode *string `type:"string"`
+	StatusCode *string `type:"string" json:",omitempty"`
 
-	Ttl *int64 `type:"int64"`
+	Ttl *int64 `type:"int64" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -2461,18 +2469,56 @@ func (s *NegativeCacheRuleForUpdateCdnConfigInput) SetTtl(v int64) *NegativeCach
 	return s
 }
 
+type OfflineCacheForUpdateCdnConfigInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Object *string `type:"string" json:",omitempty"`
+
+	StatusCode *string `type:"string" json:",omitempty"`
+
+	Switch *bool `type:"boolean" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s OfflineCacheForUpdateCdnConfigInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s OfflineCacheForUpdateCdnConfigInput) GoString() string {
+	return s.String()
+}
+
+// SetObject sets the Object field's value.
+func (s *OfflineCacheForUpdateCdnConfigInput) SetObject(v string) *OfflineCacheForUpdateCdnConfigInput {
+	s.Object = &v
+	return s
+}
+
+// SetStatusCode sets the StatusCode field's value.
+func (s *OfflineCacheForUpdateCdnConfigInput) SetStatusCode(v string) *OfflineCacheForUpdateCdnConfigInput {
+	s.StatusCode = &v
+	return s
+}
+
+// SetSwitch sets the Switch field's value.
+func (s *OfflineCacheForUpdateCdnConfigInput) SetSwitch(v bool) *OfflineCacheForUpdateCdnConfigInput {
+	s.Switch = &v
+	return s
+}
+
 type OriginAccessRuleForUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	AllowEmpty *bool `type:"boolean"`
+	AllowEmpty *bool `type:"boolean" json:",omitempty"`
 
-	IgnoreCase *bool `type:"boolean"`
+	IgnoreCase *bool `type:"boolean" json:",omitempty"`
 
-	Origins []*string `type:"list"`
+	Origins []*string `type:"list" json:",omitempty"`
 
-	RuleType *string `type:"string"`
+	RuleType *string `type:"string" json:",omitempty"`
 
-	Switch *bool `type:"boolean"`
+	Switch *bool `type:"boolean" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -2516,9 +2562,9 @@ func (s *OriginAccessRuleForUpdateCdnConfigInput) SetSwitch(v bool) *OriginAcces
 }
 
 type OriginActionForUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	OriginLines []*ConvertOriginLineForUpdateCdnConfigInput `type:"list"`
+	OriginLines []*ConvertOriginLineForUpdateCdnConfigInput `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -2538,9 +2584,9 @@ func (s *OriginActionForUpdateCdnConfigInput) SetOriginLines(v []*ConvertOriginL
 }
 
 type OriginArgActionForUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	OriginArgComponents []*OriginArgComponentForUpdateCdnConfigInput `type:"list"`
+	OriginArgComponents []*OriginArgComponentForUpdateCdnConfigInput `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -2560,13 +2606,13 @@ func (s *OriginArgActionForUpdateCdnConfigInput) SetOriginArgComponents(v []*Ori
 }
 
 type OriginArgComponentForUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Action *string `type:"string"`
+	Action *string `type:"string" json:",omitempty"`
 
-	Object *string `type:"string"`
+	Object *string `type:"string" json:",omitempty"`
 
-	Subobject *string `type:"string"`
+	Subobject *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -2598,11 +2644,11 @@ func (s *OriginArgComponentForUpdateCdnConfigInput) SetSubobject(v string) *Orig
 }
 
 type OriginArgForUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Condition *ConditionForUpdateCdnConfigInput `type:"structure"`
+	Condition *ConditionForUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 
-	OriginArgAction *OriginArgActionForUpdateCdnConfigInput `type:"structure"`
+	OriginArgAction *OriginArgActionForUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -2628,9 +2674,9 @@ func (s *OriginArgForUpdateCdnConfigInput) SetOriginArgAction(v *OriginArgAction
 }
 
 type OriginCertCheckForUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Switch *bool `type:"boolean"`
+	Switch *bool `type:"boolean" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -2650,11 +2696,11 @@ func (s *OriginCertCheckForUpdateCdnConfigInput) SetSwitch(v bool) *OriginCertCh
 }
 
 type OriginForUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Condition *ConditionForUpdateCdnConfigInput `type:"structure"`
+	Condition *ConditionForUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 
-	OriginAction *OriginActionForUpdateCdnConfigInput `type:"structure"`
+	OriginAction *OriginActionForUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -2680,17 +2726,17 @@ func (s *OriginForUpdateCdnConfigInput) SetOriginAction(v *OriginActionForUpdate
 }
 
 type OriginLineForUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Address *string `type:"string"`
+	Address *string `type:"string" json:",omitempty"`
 
-	HttpPort *string `type:"string"`
+	HttpPort *string `type:"string" json:",omitempty"`
 
-	HttpsPort *string `type:"string"`
+	HttpsPort *string `type:"string" json:",omitempty"`
 
-	InstanceType *string `type:"string"`
+	InstanceType *string `type:"string" json:",omitempty"`
 
-	OriginHost *string `type:"string"`
+	OriginHost *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -2734,11 +2780,11 @@ func (s *OriginLineForUpdateCdnConfigInput) SetOriginHost(v string) *OriginLineF
 }
 
 type OriginRetryForUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	StatusCode *string `type:"string"`
+	StatusCode *string `type:"string" json:",omitempty"`
 
-	Switch *bool `type:"boolean"`
+	Switch *bool `type:"boolean" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -2764,13 +2810,13 @@ func (s *OriginRetryForUpdateCdnConfigInput) SetSwitch(v bool) *OriginRetryForUp
 }
 
 type OriginRewriteActionForUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	RewriteType *string `type:"string"`
+	RewriteType *string `type:"string" json:",omitempty"`
 
-	SourcePath *string `type:"string"`
+	SourcePath *string `type:"string" json:",omitempty"`
 
-	TargetPath *string `type:"string"`
+	TargetPath *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -2802,11 +2848,11 @@ func (s *OriginRewriteActionForUpdateCdnConfigInput) SetTargetPath(v string) *Or
 }
 
 type OriginRewriteForUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	OriginRewriteRule []*OriginRewriteRuleForUpdateCdnConfigInput `type:"list"`
+	OriginRewriteRule []*OriginRewriteRuleForUpdateCdnConfigInput `type:"list" json:",omitempty"`
 
-	Switch *bool `type:"boolean"`
+	Switch *bool `type:"boolean" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -2832,11 +2878,11 @@ func (s *OriginRewriteForUpdateCdnConfigInput) SetSwitch(v bool) *OriginRewriteF
 }
 
 type OriginRewriteRuleForUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Condition *ConditionForUpdateCdnConfigInput `type:"structure"`
+	Condition *ConditionForUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 
-	OriginRewriteAction *OriginRewriteActionForUpdateCdnConfigInput `type:"structure"`
+	OriginRewriteAction *OriginRewriteActionForUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -2862,11 +2908,11 @@ func (s *OriginRewriteRuleForUpdateCdnConfigInput) SetOriginRewriteAction(v *Ori
 }
 
 type OriginRuleForUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Actions *ActionsForUpdateCdnConfigInput `type:"structure"`
+	Actions *ActionsForUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 
-	Condition *ConvertConvertConditionForUpdateCdnConfigInput `type:"structure"`
+	Condition *ConvertConvertConditionForUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -2892,11 +2938,11 @@ func (s *OriginRuleForUpdateCdnConfigInput) SetCondition(v *ConvertConvertCondit
 }
 
 type OriginSniForUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	SniDomain *string `type:"string"`
+	SniDomain *string `type:"string" json:",omitempty"`
 
-	Switch *bool `type:"boolean"`
+	Switch *bool `type:"boolean" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -2922,11 +2968,11 @@ func (s *OriginSniForUpdateCdnConfigInput) SetSwitch(v bool) *OriginSniForUpdate
 }
 
 type PageOptimizationForUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	OptimizationType []*string `type:"list"`
+	OptimizationType []*string `type:"list" json:",omitempty"`
 
-	Switch *bool `type:"boolean"`
+	Switch *bool `type:"boolean" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -2952,13 +2998,13 @@ func (s *PageOptimizationForUpdateCdnConfigInput) SetSwitch(v bool) *PageOptimiz
 }
 
 type PrivateBucketAuthForUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	AuthType *string `type:"string"`
+	AuthType *string `type:"string" json:",omitempty"`
 
-	Switch *bool `type:"boolean"`
+	Switch *bool `type:"boolean" json:",omitempty"`
 
-	TosAuthInformation *TosAuthInformationForUpdateCdnConfigInput `type:"structure"`
+	TosAuthInformation *TosAuthInformationForUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -2990,11 +3036,11 @@ func (s *PrivateBucketAuthForUpdateCdnConfigInput) SetTosAuthInformation(v *TosA
 }
 
 type QueryStringComponentsForUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Action *string `type:"string"`
+	Action *string `type:"string" json:",omitempty"`
 
-	Value *string `type:"string"`
+	Value *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -3020,15 +3066,15 @@ func (s *QueryStringComponentsForUpdateCdnConfigInput) SetValue(v string) *Query
 }
 
 type QueryStringInstanceForUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Action *string `type:"string"`
+	Action *string `type:"string" json:",omitempty"`
 
-	Key *string `type:"string"`
+	Key *string `type:"string" json:",omitempty"`
 
-	Value *string `type:"string"`
+	Value *string `type:"string" json:",omitempty"`
 
-	ValueType *string `type:"string"`
+	ValueType *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -3066,11 +3112,11 @@ func (s *QueryStringInstanceForUpdateCdnConfigInput) SetValueType(v string) *Que
 }
 
 type QueryStringRulesForUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	QueryStringComponents *QueryStringComponentsForUpdateCdnConfigInput `type:"structure"`
+	QueryStringComponents *QueryStringComponentsForUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 
-	QueryStringInstances []*QueryStringInstanceForUpdateCdnConfigInput `type:"list"`
+	QueryStringInstances []*QueryStringInstanceForUpdateCdnConfigInput `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -3096,9 +3142,9 @@ func (s *QueryStringRulesForUpdateCdnConfigInput) SetQueryStringInstances(v []*Q
 }
 
 type QuicForUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Switch *bool `type:"boolean"`
+	Switch *bool `type:"boolean" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -3118,19 +3164,19 @@ func (s *QuicForUpdateCdnConfigInput) SetSwitch(v bool) *QuicForUpdateCdnConfigI
 }
 
 type RedirectionActionForUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	RedirectCode *string `type:"string"`
+	RedirectCode *string `type:"string" json:",omitempty"`
 
-	SourcePath *string `type:"string"`
+	SourcePath *string `type:"string" json:",omitempty"`
 
-	TargetHost *string `type:"string"`
+	TargetHost *string `type:"string" json:",omitempty"`
 
-	TargetPath *string `type:"string"`
+	TargetPath *string `type:"string" json:",omitempty"`
 
-	TargetProtocol *string `type:"string"`
+	TargetProtocol *string `type:"string" json:",omitempty"`
 
-	TargetQueryComponents *TargetQueryComponentsForUpdateCdnConfigInput `type:"structure"`
+	TargetQueryComponents *TargetQueryComponentsForUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -3180,11 +3226,11 @@ func (s *RedirectionActionForUpdateCdnConfigInput) SetTargetQueryComponents(v *T
 }
 
 type RedirectionRewriteForUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	RedirectionRule []*RedirectionRuleForUpdateCdnConfigInput `type:"list"`
+	RedirectionRule []*RedirectionRuleForUpdateCdnConfigInput `type:"list" json:",omitempty"`
 
-	Switch *bool `type:"boolean"`
+	Switch *bool `type:"boolean" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -3210,9 +3256,9 @@ func (s *RedirectionRewriteForUpdateCdnConfigInput) SetSwitch(v bool) *Redirecti
 }
 
 type RedirectionRuleForUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	RedirectionAction *RedirectionActionForUpdateCdnConfigInput `type:"structure"`
+	RedirectionAction *RedirectionActionForUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -3232,19 +3278,19 @@ func (s *RedirectionRuleForUpdateCdnConfigInput) SetRedirectionAction(v *Redirec
 }
 
 type RefererAccessRuleForUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	AllowEmpty *bool `type:"boolean"`
+	AllowEmpty *bool `type:"boolean" json:",omitempty"`
 
-	Referers []*string `type:"list"`
+	Referers []*string `type:"list" json:",omitempty"`
 
-	ReferersType *ReferersTypeForUpdateCdnConfigInput `type:"structure"`
+	ReferersType *ReferersTypeForUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 
-	RuleType *string `type:"string"`
+	RuleType *string `type:"string" json:",omitempty"`
 
-	SharedConfig *SharedConfigForUpdateCdnConfigInput `type:"structure"`
+	SharedConfig *SharedConfigForUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 
-	Switch *bool `type:"boolean"`
+	Switch *bool `type:"boolean" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -3294,11 +3340,11 @@ func (s *RefererAccessRuleForUpdateCdnConfigInput) SetSwitch(v bool) *RefererAcc
 }
 
 type ReferersTypeForUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	CommonType *CommonTypeForUpdateCdnConfigInput `type:"structure"`
+	CommonType *CommonTypeForUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 
-	RegularType *RegularTypeForUpdateCdnConfigInput `type:"structure"`
+	RegularType *RegularTypeForUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -3324,9 +3370,9 @@ func (s *ReferersTypeForUpdateCdnConfigInput) SetRegularType(v *RegularTypeForUp
 }
 
 type RegularTypeForUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Referers []*string `type:"list"`
+	Referers []*string `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -3346,11 +3392,11 @@ func (s *RegularTypeForUpdateCdnConfigInput) SetReferers(v []*string) *RegularTy
 }
 
 type RemoteAuthForUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	RemoteAuthRules []*RemoteAuthRuleForUpdateCdnConfigInput `type:"list"`
+	RemoteAuthRules []*RemoteAuthRuleForUpdateCdnConfigInput `type:"list" json:",omitempty"`
 
-	Switch *bool `type:"boolean"`
+	Switch *bool `type:"boolean" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -3376,17 +3422,17 @@ func (s *RemoteAuthForUpdateCdnConfigInput) SetSwitch(v bool) *RemoteAuthForUpda
 }
 
 type RemoteAuthRuleActionForUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	AuthModeConfig *AuthModeConfigForUpdateCdnConfigInput `type:"structure"`
+	AuthModeConfig *AuthModeConfigForUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 
-	AuthResponseConfig *AuthResponseConfigForUpdateCdnConfigInput `type:"structure"`
+	AuthResponseConfig *AuthResponseConfigForUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 
-	QueryStringRules *QueryStringRulesForUpdateCdnConfigInput `type:"structure"`
+	QueryStringRules *QueryStringRulesForUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 
-	RequestBodyRules *string `type:"string"`
+	RequestBodyRules *string `type:"string" json:",omitempty"`
 
-	RequestHeaderRules *RequestHeaderRulesForUpdateCdnConfigInput `type:"structure"`
+	RequestHeaderRules *RequestHeaderRulesForUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -3430,11 +3476,11 @@ func (s *RemoteAuthRuleActionForUpdateCdnConfigInput) SetRequestHeaderRules(v *R
 }
 
 type RemoteAuthRuleForUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Condition *ConditionForUpdateCdnConfigInput `type:"structure"`
+	Condition *ConditionForUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 
-	RemoteAuthRuleAction *RemoteAuthRuleActionForUpdateCdnConfigInput `type:"structure"`
+	RemoteAuthRuleAction *RemoteAuthRuleActionForUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -3460,11 +3506,11 @@ func (s *RemoteAuthRuleForUpdateCdnConfigInput) SetRemoteAuthRuleAction(v *Remot
 }
 
 type RequestBlockRuleForUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	BlockRule []*BlockRuleForUpdateCdnConfigInput `type:"list"`
+	BlockRule []*BlockRuleForUpdateCdnConfigInput `type:"list" json:",omitempty"`
 
-	Switch *bool `type:"boolean"`
+	Switch *bool `type:"boolean" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -3490,9 +3536,9 @@ func (s *RequestBlockRuleForUpdateCdnConfigInput) SetSwitch(v bool) *RequestBloc
 }
 
 type RequestHeaderActionForUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	RequestHeaderInstances []*RequestHeaderInstanceForUpdateCdnConfigInput `type:"list"`
+	RequestHeaderInstances []*RequestHeaderInstanceForUpdateCdnConfigInput `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -3512,11 +3558,11 @@ func (s *RequestHeaderActionForUpdateCdnConfigInput) SetRequestHeaderInstances(v
 }
 
 type RequestHeaderComponentsForUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Action *string `type:"string"`
+	Action *string `type:"string" json:",omitempty"`
 
-	Value *string `type:"string"`
+	Value *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -3542,11 +3588,11 @@ func (s *RequestHeaderComponentsForUpdateCdnConfigInput) SetValue(v string) *Req
 }
 
 type RequestHeaderForUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Condition *ConditionForUpdateCdnConfigInput `type:"structure"`
+	Condition *ConditionForUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 
-	RequestHeaderAction *RequestHeaderActionForUpdateCdnConfigInput `type:"structure"`
+	RequestHeaderAction *RequestHeaderActionForUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -3572,15 +3618,15 @@ func (s *RequestHeaderForUpdateCdnConfigInput) SetRequestHeaderAction(v *Request
 }
 
 type RequestHeaderInstanceForUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Action *string `type:"string"`
+	Action *string `type:"string" json:",omitempty"`
 
-	Key *string `type:"string"`
+	Key *string `type:"string" json:",omitempty"`
 
-	Value *string `type:"string"`
+	Value *string `type:"string" json:",omitempty"`
 
-	ValueType *string `type:"string"`
+	ValueType *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -3618,13 +3664,13 @@ func (s *RequestHeaderInstanceForUpdateCdnConfigInput) SetValueType(v string) *R
 }
 
 type RequestHeaderRulesForUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	RequestHeaderComponents *RequestHeaderComponentsForUpdateCdnConfigInput `type:"structure"`
+	RequestHeaderComponents *RequestHeaderComponentsForUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 
-	RequestHeaderInstances []*RequestHeaderInstanceForUpdateCdnConfigInput `type:"list"`
+	RequestHeaderInstances []*RequestHeaderInstanceForUpdateCdnConfigInput `type:"list" json:",omitempty"`
 
-	RequestHost *string `type:"string"`
+	RequestHost *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -3656,9 +3702,9 @@ func (s *RequestHeaderRulesForUpdateCdnConfigInput) SetRequestHost(v string) *Re
 }
 
 type ResponseActionForUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	StatusCode *string `type:"string"`
+	StatusCode *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -3678,9 +3724,9 @@ func (s *ResponseActionForUpdateCdnConfigInput) SetStatusCode(v string) *Respons
 }
 
 type ResponseHeaderActionForUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	ResponseHeaderInstances []*ResponseHeaderInstanceForUpdateCdnConfigInput `type:"list"`
+	ResponseHeaderInstances []*ResponseHeaderInstanceForUpdateCdnConfigInput `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -3700,11 +3746,11 @@ func (s *ResponseHeaderActionForUpdateCdnConfigInput) SetResponseHeaderInstances
 }
 
 type ResponseHeaderForUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Condition *ConditionForUpdateCdnConfigInput `type:"structure"`
+	Condition *ConditionForUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 
-	ResponseHeaderAction *ResponseHeaderActionForUpdateCdnConfigInput `type:"structure"`
+	ResponseHeaderAction *ResponseHeaderActionForUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -3730,17 +3776,17 @@ func (s *ResponseHeaderForUpdateCdnConfigInput) SetResponseHeaderAction(v *Respo
 }
 
 type ResponseHeaderInstanceForUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	AccessOriginControl *bool `type:"boolean"`
+	AccessOriginControl *bool `type:"boolean" json:",omitempty"`
 
-	Action *string `type:"string"`
+	Action *string `type:"string" json:",omitempty"`
 
-	Key *string `type:"string"`
+	Key *string `type:"string" json:",omitempty"`
 
-	Value *string `type:"string"`
+	Value *string `type:"string" json:",omitempty"`
 
-	ValueType *string `type:"string"`
+	ValueType *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -3784,11 +3830,11 @@ func (s *ResponseHeaderInstanceForUpdateCdnConfigInput) SetValueType(v string) *
 }
 
 type RewriteHLSForUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	SignName *string `type:"string"`
+	SignName *string `type:"string" json:",omitempty"`
 
-	Switch *bool `type:"boolean"`
+	Switch *bool `type:"boolean" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -3814,13 +3860,13 @@ func (s *RewriteHLSForUpdateCdnConfigInput) SetSwitch(v bool) *RewriteHLSForUpda
 }
 
 type RewriteM3u8RuleForUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	DeleteParam *bool `type:"boolean"`
+	DeleteParam *bool `type:"boolean" json:",omitempty"`
 
-	KeepM3u8Param *bool `type:"boolean"`
+	KeepM3u8Param *bool `type:"boolean" json:",omitempty"`
 
-	TransferEncoding *bool `type:"boolean"`
+	TransferEncoding *bool `type:"boolean" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -3852,9 +3898,9 @@ func (s *RewriteM3u8RuleForUpdateCdnConfigInput) SetTransferEncoding(v bool) *Re
 }
 
 type SharedConfigForUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	ConfigName *string `type:"string"`
+	ConfigName *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -3874,13 +3920,13 @@ func (s *SharedConfigForUpdateCdnConfigInput) SetConfigName(v string) *SharedCon
 }
 
 type SignCapRuleForUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	CapMode *string `type:"string"`
+	CapMode *string `type:"string" json:",omitempty"`
 
-	ParamName *string `type:"string"`
+	ParamName *string `type:"string" json:",omitempty"`
 
-	UriLevel *int64 `type:"int64"`
+	UriLevel *int64 `type:"int64" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -3912,17 +3958,17 @@ func (s *SignCapRuleForUpdateCdnConfigInput) SetUriLevel(v int64) *SignCapRuleFo
 }
 
 type SignParamForUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	ParamType *string `type:"string"`
+	ParamType *string `type:"string" json:",omitempty"`
 
-	RequestHeader *string `type:"string"`
+	RequestHeader *string `type:"string" json:",omitempty"`
 
-	SupContent *string `type:"string"`
+	SupContent *string `type:"string" json:",omitempty"`
 
-	UriParamSup *UriParamSupForUpdateCdnConfigInput `type:"structure"`
+	UriParamSup *UriParamSupForUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 
-	UrlParam *SignCapRuleForUpdateCdnConfigInput `type:"structure"`
+	UrlParam *SignCapRuleForUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -3966,39 +4012,39 @@ func (s *SignParamForUpdateCdnConfigInput) SetUrlParam(v *SignCapRuleForUpdateCd
 }
 
 type SignedUrlAuthActionForUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	AuthAlgorithm *string `type:"string"`
+	AuthAlgorithm *string `type:"string" json:",omitempty"`
 
-	BackupSecretKey *string `type:"string"`
+	BackupSecretKey *string `type:"string" json:",omitempty"`
 
-	CustomVariableRules *CustomVariableRulesForUpdateCdnConfigInput `type:"structure"`
+	CustomVariableRules *CustomVariableRulesForUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 
-	Duration *int64 `type:"int64"`
+	Duration *int64 `type:"int64" json:",omitempty"`
 
-	KeepOriginArg *bool `type:"boolean"`
+	KeepOriginArg *bool `type:"boolean" json:",omitempty"`
 
-	MasterSecretKey *string `type:"string"`
+	MasterSecretKey *string `type:"string" json:",omitempty"`
 
-	MpdVarExpand *bool `type:"boolean"`
+	MpdVarExpand *bool `type:"boolean" json:",omitempty"`
 
-	RewriteM3u8 *bool `type:"boolean"`
+	RewriteM3u8 *bool `type:"boolean" json:",omitempty"`
 
-	RewriteM3u8Rule *RewriteM3u8RuleForUpdateCdnConfigInput `type:"structure"`
+	RewriteM3u8Rule *RewriteM3u8RuleForUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 
-	RewriteMpd *bool `type:"boolean"`
+	RewriteMpd *bool `type:"boolean" json:",omitempty"`
 
-	SignName *string `type:"string"`
+	SignName *string `type:"string" json:",omitempty"`
 
-	SignatureRule []*string `type:"list"`
+	SignatureRule []*string `type:"list" json:",omitempty"`
 
-	TimeFormat *string `type:"string"`
+	TimeFormat *string `type:"string" json:",omitempty"`
 
-	TimeName *string `type:"string"`
+	TimeName *string `type:"string" json:",omitempty"`
 
-	URLAuthType *string `type:"string"`
+	URLAuthType *string `type:"string" json:",omitempty"`
 
-	UrlAuthCustomAction *UrlAuthCustomActionForUpdateCdnConfigInput `type:"structure"`
+	UrlAuthCustomAction *UrlAuthCustomActionForUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -4108,11 +4154,11 @@ func (s *SignedUrlAuthActionForUpdateCdnConfigInput) SetUrlAuthCustomAction(v *U
 }
 
 type SignedUrlAuthForUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	SignedUrlAuthRules []*SignedUrlAuthRuleForUpdateCdnConfigInput `type:"list"`
+	SignedUrlAuthRules []*SignedUrlAuthRuleForUpdateCdnConfigInput `type:"list" json:",omitempty"`
 
-	Switch *bool `type:"boolean"`
+	Switch *bool `type:"boolean" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -4138,11 +4184,11 @@ func (s *SignedUrlAuthForUpdateCdnConfigInput) SetSwitch(v bool) *SignedUrlAuthF
 }
 
 type SignedUrlAuthRuleForUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Condition *ConditionForUpdateCdnConfigInput `type:"structure"`
+	Condition *ConditionForUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 
-	SignedUrlAuthAction *SignedUrlAuthActionForUpdateCdnConfigInput `type:"structure"`
+	SignedUrlAuthAction *SignedUrlAuthActionForUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -4168,13 +4214,13 @@ func (s *SignedUrlAuthRuleForUpdateCdnConfigInput) SetSignedUrlAuthAction(v *Sig
 }
 
 type SpeedLimitTimeForUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	BeginTime *string `type:"string"`
+	BeginTime *string `type:"string" json:",omitempty"`
 
-	DayWeek *string `type:"string"`
+	DayWeek *string `type:"string" json:",omitempty"`
 
-	EndTime *string `type:"string"`
+	EndTime *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -4206,13 +4252,13 @@ func (s *SpeedLimitTimeForUpdateCdnConfigInput) SetEndTime(v string) *SpeedLimit
 }
 
 type StatusCodeActionForUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	DefaultAction *string `type:"string"`
+	DefaultAction *string `type:"string" json:",omitempty"`
 
-	FailCode *string `type:"string"`
+	FailCode *string `type:"string" json:",omitempty"`
 
-	SuccessCode *string `type:"string"`
+	SuccessCode *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -4244,11 +4290,11 @@ func (s *StatusCodeActionForUpdateCdnConfigInput) SetSuccessCode(v string) *Stat
 }
 
 type TargetQueryComponentsForUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Action *string `type:"string"`
+	Action *string `type:"string" json:",omitempty"`
 
-	Value *string `type:"string"`
+	Value *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -4274,11 +4320,11 @@ func (s *TargetQueryComponentsForUpdateCdnConfigInput) SetValue(v string) *Targe
 }
 
 type TimeOutActionForUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Action *string `type:"string"`
+	Action *string `type:"string" json:",omitempty"`
 
-	Time *int64 `type:"int64"`
+	Time *int64 `type:"int64" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -4304,11 +4350,11 @@ func (s *TimeOutActionForUpdateCdnConfigInput) SetTime(v int64) *TimeOutActionFo
 }
 
 type TimeoutForUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Switch *bool `type:"boolean"`
+	Switch *bool `type:"boolean" json:",omitempty"`
 
-	TimeoutRules []*TimeoutRuleForUpdateCdnConfigInput `type:"list"`
+	TimeoutRules []*TimeoutRuleForUpdateCdnConfigInput `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -4334,11 +4380,11 @@ func (s *TimeoutForUpdateCdnConfigInput) SetTimeoutRules(v []*TimeoutRuleForUpda
 }
 
 type TimeoutRuleForUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Condition *ConditionForUpdateCdnConfigInput `type:"structure"`
+	Condition *ConditionForUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 
-	TimeoutAction *ConvertTimeoutActionForUpdateCdnConfigInput `type:"structure"`
+	TimeoutAction *ConvertTimeoutActionForUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -4364,13 +4410,13 @@ func (s *TimeoutRuleForUpdateCdnConfigInput) SetTimeoutAction(v *ConvertTimeoutA
 }
 
 type TosAuthInformationForUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	AccessKeyId *string `type:"string"`
+	AccessKeyId *string `type:"string" json:",omitempty"`
 
-	AccessKeySecret *string `type:"string"`
+	AccessKeySecret *string `type:"string" json:",omitempty"`
 
-	AccountKey *string `type:"string"`
+	AccountKey *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -4402,17 +4448,17 @@ func (s *TosAuthInformationForUpdateCdnConfigInput) SetAccountKey(v string) *Tos
 }
 
 type UaAccessRuleForUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	AllowEmpty *bool `type:"boolean"`
+	AllowEmpty *bool `type:"boolean" json:",omitempty"`
 
-	IgnoreCase *bool `type:"boolean"`
+	IgnoreCase *bool `type:"boolean" json:",omitempty"`
 
-	RuleType *string `type:"string"`
+	RuleType *string `type:"string" json:",omitempty"`
 
-	Switch *bool `type:"boolean"`
+	Switch *bool `type:"boolean" json:",omitempty"`
 
-	UserAgent []*string `type:"list"`
+	UserAgent []*string `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -4456,102 +4502,104 @@ func (s *UaAccessRuleForUpdateCdnConfigInput) SetUserAgent(v []*string) *UaAcces
 }
 
 type UpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	AreaAccessRule *AreaAccessRuleForUpdateCdnConfigInput `type:"structure"`
+	AreaAccessRule *AreaAccessRuleForUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 
-	BandwidthLimit *BandwidthLimitForUpdateCdnConfigInput `type:"structure"`
+	BandwidthLimit *BandwidthLimitForUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 
-	BrowserCache []*BrowserCacheForUpdateCdnConfigInput `type:"list"`
+	BrowserCache []*BrowserCacheForUpdateCdnConfigInput `type:"list" json:",omitempty"`
 
-	Cache []*CacheForUpdateCdnConfigInput `type:"list"`
+	Cache []*CacheForUpdateCdnConfigInput `type:"list" json:",omitempty"`
 
-	CacheHost *CacheHostForUpdateCdnConfigInput `type:"structure"`
+	CacheHost *CacheHostForUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 
-	CacheKey []*CacheKeyForUpdateCdnConfigInput `type:"list"`
+	CacheKey []*CacheKeyForUpdateCdnConfigInput `type:"list" json:",omitempty"`
 
-	Compression *CompressionForUpdateCdnConfigInput `type:"structure"`
+	Compression *CompressionForUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 
-	ConditionalOrigin *ConditionalOriginForUpdateCdnConfigInput `type:"structure"`
+	ConditionalOrigin *ConditionalOriginForUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 
-	CustomErrorPage *CustomErrorPageForUpdateCdnConfigInput `type:"structure"`
+	CustomErrorPage *CustomErrorPageForUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 
-	CustomizeAccessRule *CustomizeAccessRuleForUpdateCdnConfigInput `type:"structure"`
+	CustomizeAccessRule *CustomizeAccessRuleForUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 
 	// Domain is a required field
-	Domain *string `type:"string" required:"true"`
+	Domain *string `type:"string" json:",omitempty" required:"true"`
 
-	DownloadSpeedLimit *DownloadSpeedLimitForUpdateCdnConfigInput `type:"structure"`
+	DownloadSpeedLimit *DownloadSpeedLimitForUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 
-	FollowRedirect *bool `type:"boolean"`
+	FollowRedirect *bool `type:"boolean" json:",omitempty"`
 
-	HTTPS *HTTPSForUpdateCdnConfigInput `type:"structure"`
+	HTTPS *HTTPSForUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 
-	HttpForcedRedirect *HttpForcedRedirectForUpdateCdnConfigInput `type:"structure"`
+	HttpForcedRedirect *HttpForcedRedirectForUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 
-	IPv6 *IPv6ForUpdateCdnConfigInput `type:"structure"`
+	IPv6 *IPv6ForUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 
-	IpAccessRule *IpAccessRuleForUpdateCdnConfigInput `type:"structure"`
+	IpAccessRule *IpAccessRuleForUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 
-	IpFreqLimit *IpFreqLimitForUpdateCdnConfigInput `type:"structure"`
+	IpFreqLimit *IpFreqLimitForUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 
-	MethodDeniedRule *MethodDeniedRuleForUpdateCdnConfigInput `type:"structure"`
+	MethodDeniedRule *MethodDeniedRuleForUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 
-	MultiRange *MultiRangeForUpdateCdnConfigInput `type:"structure"`
+	MultiRange *MultiRangeForUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 
-	NegativeCache []*NegativeCacheForUpdateCdnConfigInput `type:"list"`
+	NegativeCache []*NegativeCacheForUpdateCdnConfigInput `type:"list" json:",omitempty"`
 
-	Origin []*OriginForUpdateCdnConfigInput `type:"list"`
+	OfflineCache *OfflineCacheForUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 
-	OriginAccessRule *OriginAccessRuleForUpdateCdnConfigInput `type:"structure"`
+	Origin []*OriginForUpdateCdnConfigInput `type:"list" json:",omitempty"`
 
-	OriginArg []*OriginArgForUpdateCdnConfigInput `type:"list"`
+	OriginAccessRule *OriginAccessRuleForUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 
-	OriginCertCheck *OriginCertCheckForUpdateCdnConfigInput `type:"structure"`
+	OriginArg []*OriginArgForUpdateCdnConfigInput `type:"list" json:",omitempty"`
 
-	OriginHost *string `type:"string"`
+	OriginCertCheck *OriginCertCheckForUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 
-	OriginIPv6 *string `type:"string"`
+	OriginHost *string `type:"string" json:",omitempty"`
 
-	OriginProtocol *string `type:"string"`
+	OriginIPv6 *string `type:"string" json:",omitempty"`
 
-	OriginRange *bool `type:"boolean"`
+	OriginProtocol *string `type:"string" json:",omitempty"`
 
-	OriginRetry *OriginRetryForUpdateCdnConfigInput `type:"structure"`
+	OriginRange *bool `type:"boolean" json:",omitempty"`
 
-	OriginRewrite *OriginRewriteForUpdateCdnConfigInput `type:"structure"`
+	OriginRetry *OriginRetryForUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 
-	OriginSni *OriginSniForUpdateCdnConfigInput `type:"structure"`
+	OriginRewrite *OriginRewriteForUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 
-	PageOptimization *PageOptimizationForUpdateCdnConfigInput `type:"structure"`
+	OriginSni *OriginSniForUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 
-	Quic *QuicForUpdateCdnConfigInput `type:"structure"`
+	PageOptimization *PageOptimizationForUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 
-	RedirectionRewrite *RedirectionRewriteForUpdateCdnConfigInput `type:"structure"`
+	Quic *QuicForUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 
-	RefererAccessRule *RefererAccessRuleForUpdateCdnConfigInput `type:"structure"`
+	RedirectionRewrite *RedirectionRewriteForUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 
-	RemoteAuth *RemoteAuthForUpdateCdnConfigInput `type:"structure"`
+	RefererAccessRule *RefererAccessRuleForUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 
-	RequestBlockRule *RequestBlockRuleForUpdateCdnConfigInput `type:"structure"`
+	RemoteAuth *RemoteAuthForUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 
-	RequestHeader []*RequestHeaderForUpdateCdnConfigInput `type:"list"`
+	RequestBlockRule *RequestBlockRuleForUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 
-	ResponseHeader []*ResponseHeaderForUpdateCdnConfigInput `type:"list"`
+	RequestHeader []*RequestHeaderForUpdateCdnConfigInput `type:"list" json:",omitempty"`
 
-	RewriteHLS *RewriteHLSForUpdateCdnConfigInput `type:"structure"`
+	ResponseHeader []*ResponseHeaderForUpdateCdnConfigInput `type:"list" json:",omitempty"`
 
-	ServiceRegion *string `type:"string"`
+	RewriteHLS *RewriteHLSForUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 
-	SignedUrlAuth *SignedUrlAuthForUpdateCdnConfigInput `type:"structure"`
+	ServiceRegion *string `type:"string" json:",omitempty"`
 
-	Timeout *TimeoutForUpdateCdnConfigInput `type:"structure"`
+	SignedUrlAuth *SignedUrlAuthForUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 
-	UaAccessRule *UaAccessRuleForUpdateCdnConfigInput `type:"structure"`
+	Timeout *TimeoutForUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 
-	UrlNormalize *UrlNormalizeForUpdateCdnConfigInput `type:"structure"`
+	UaAccessRule *UaAccessRuleForUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 
-	VideoDrag *VideoDragForUpdateCdnConfigInput `type:"structure"`
+	UrlNormalize *UrlNormalizeForUpdateCdnConfigInput `type:"structure" json:",omitempty"`
+
+	VideoDrag *VideoDragForUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -4700,6 +4748,12 @@ func (s *UpdateCdnConfigInput) SetMultiRange(v *MultiRangeForUpdateCdnConfigInpu
 // SetNegativeCache sets the NegativeCache field's value.
 func (s *UpdateCdnConfigInput) SetNegativeCache(v []*NegativeCacheForUpdateCdnConfigInput) *UpdateCdnConfigInput {
 	s.NegativeCache = v
+	return s
+}
+
+// SetOfflineCache sets the OfflineCache field's value.
+func (s *UpdateCdnConfigInput) SetOfflineCache(v *OfflineCacheForUpdateCdnConfigInput) *UpdateCdnConfigInput {
+	s.OfflineCache = v
 	return s
 }
 
@@ -4860,7 +4914,7 @@ func (s *UpdateCdnConfigInput) SetVideoDrag(v *VideoDragForUpdateCdnConfigInput)
 }
 
 type UpdateCdnConfigOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 }
@@ -4876,15 +4930,15 @@ func (s UpdateCdnConfigOutput) GoString() string {
 }
 
 type UriParamSupForUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	JoinSymbol *string `type:"string"`
+	JoinSymbol *string `type:"string" json:",omitempty"`
 
-	SplitSymbol *string `type:"string"`
+	SplitSymbol *string `type:"string" json:",omitempty"`
 
-	StartLevel *int64 `type:"int64"`
+	StartLevel *int64 `type:"int64" json:",omitempty"`
 
-	TermLevel *int64 `type:"int64"`
+	TermLevel *int64 `type:"int64" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -4922,17 +4976,17 @@ func (s *UriParamSupForUpdateCdnConfigInput) SetTermLevel(v int64) *UriParamSupF
 }
 
 type UrlAuthCustomActionForUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	ExpTimeCapRule *ExpTimeCapRuleForUpdateCdnConfigInput `type:"structure"`
+	ExpTimeCapRule *ExpTimeCapRuleForUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 
-	ParamCalRules []*string `type:"list"`
+	ParamCalRules []*string `type:"list" json:",omitempty"`
 
-	SignCapRule *SignCapRuleForUpdateCdnConfigInput `type:"structure"`
+	SignCapRule *SignCapRuleForUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 
-	SignJoinSymbol *string `type:"string"`
+	SignJoinSymbol *string `type:"string" json:",omitempty"`
 
-	SignParam []*SignParamForUpdateCdnConfigInput `type:"list"`
+	SignParam []*SignParamForUpdateCdnConfigInput `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -4976,11 +5030,11 @@ func (s *UrlAuthCustomActionForUpdateCdnConfigInput) SetSignParam(v []*SignParam
 }
 
 type UrlNormalizeForUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	NormalizeObject []*string `type:"list"`
+	NormalizeObject []*string `type:"list" json:",omitempty"`
 
-	Switch *bool `type:"boolean"`
+	Switch *bool `type:"boolean" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -5006,9 +5060,9 @@ func (s *UrlNormalizeForUpdateCdnConfigInput) SetSwitch(v bool) *UrlNormalizeFor
 }
 
 type VideoDragForUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Switch *bool `type:"boolean"`
+	Switch *bool `type:"boolean" json:",omitempty"`
 }
 
 // String returns the string representation

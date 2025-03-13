@@ -144,12 +144,12 @@ func (c *CDN) SubmitBlockTaskWithContext(ctx volcengine.Context, input *SubmitBl
 }
 
 type SubmitBlockTaskInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Type *string `type:"string"`
+	Type *string `type:"string" json:",omitempty"`
 
 	// Urls is a required field
-	Urls *string `type:"string" required:"true"`
+	Urls *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -188,11 +188,11 @@ func (s *SubmitBlockTaskInput) SetUrls(v string) *SubmitBlockTaskInput {
 }
 
 type SubmitBlockTaskOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	TaskID *string `type:"string"`
+	TaskID *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation

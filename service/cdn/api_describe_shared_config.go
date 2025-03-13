@@ -144,11 +144,11 @@ func (c *CDN) DescribeSharedConfigWithContext(ctx volcengine.Context, input *Des
 }
 
 type AllowIpAccessRuleForDescribeSharedConfigOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Option *string `type:"string"`
+	Option *string `type:"string" json:",omitempty"`
 
-	Rules []*string `type:"list"`
+	Rules []*string `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -174,11 +174,11 @@ func (s *AllowIpAccessRuleForDescribeSharedConfigOutput) SetRules(v []*string) *
 }
 
 type AllowRefererAccessRuleForDescribeSharedConfigOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	AllowEmpty *bool `type:"boolean"`
+	AllowEmpty *bool `type:"boolean" json:",omitempty"`
 
-	CommonType *CommonTypeForDescribeSharedConfigOutput `type:"structure"`
+	CommonType *CommonTypeForDescribeSharedConfigOutput `type:"structure" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -204,9 +204,9 @@ func (s *AllowRefererAccessRuleForDescribeSharedConfigOutput) SetCommonType(v *C
 }
 
 type CommonMatchListForDescribeSharedConfigOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	CommonType *CommonTypeForDescribeSharedConfigOutput `type:"structure"`
+	CommonType *CommonTypeForDescribeSharedConfigOutput `type:"structure" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -226,13 +226,13 @@ func (s *CommonMatchListForDescribeSharedConfigOutput) SetCommonType(v *CommonTy
 }
 
 type CommonTypeForDescribeSharedConfigOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	IgnoreCase *bool `type:"boolean"`
+	IgnoreCase *bool `type:"boolean" json:",omitempty"`
 
-	Option *string `type:"string"`
+	Option *string `type:"string" json:",omitempty"`
 
-	Rules []*string `type:"list"`
+	Rules []*string `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -264,11 +264,11 @@ func (s *CommonTypeForDescribeSharedConfigOutput) SetRules(v []*string) *CommonT
 }
 
 type DenyIpAccessRuleForDescribeSharedConfigOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Option *string `type:"string"`
+	Option *string `type:"string" json:",omitempty"`
 
-	Rules []*string `type:"list"`
+	Rules []*string `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -294,11 +294,11 @@ func (s *DenyIpAccessRuleForDescribeSharedConfigOutput) SetRules(v []*string) *D
 }
 
 type DenyRefererAccessRuleForDescribeSharedConfigOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	AllowEmpty *bool `type:"boolean"`
+	AllowEmpty *bool `type:"boolean" json:",omitempty"`
 
-	CommonType *CommonTypeForDescribeSharedConfigOutput `type:"structure"`
+	CommonType *CommonTypeForDescribeSharedConfigOutput `type:"structure" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -324,9 +324,9 @@ func (s *DenyRefererAccessRuleForDescribeSharedConfigOutput) SetCommonType(v *Co
 }
 
 type DescribeSharedConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	ConfigName *string `type:"string"`
+	ConfigName *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -346,27 +346,27 @@ func (s *DescribeSharedConfigInput) SetConfigName(v string) *DescribeSharedConfi
 }
 
 type DescribeSharedConfigOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	AllowIpAccessRule *AllowIpAccessRuleForDescribeSharedConfigOutput `type:"structure"`
+	AllowIpAccessRule *AllowIpAccessRuleForDescribeSharedConfigOutput `type:"structure" json:",omitempty"`
 
-	AllowRefererAccessRule *AllowRefererAccessRuleForDescribeSharedConfigOutput `type:"structure"`
+	AllowRefererAccessRule *AllowRefererAccessRuleForDescribeSharedConfigOutput `type:"structure" json:",omitempty"`
 
-	CommonMatchList *CommonMatchListForDescribeSharedConfigOutput `type:"structure"`
+	CommonMatchList *CommonMatchListForDescribeSharedConfigOutput `type:"structure" json:",omitempty"`
 
-	ConfigName *string `type:"string"`
+	ConfigName *string `type:"string" json:",omitempty"`
 
-	ConfigType *string `type:"string"`
+	ConfigType *string `type:"string" json:",omitempty"`
 
-	DenyIpAccessRule *DenyIpAccessRuleForDescribeSharedConfigOutput `type:"structure"`
+	DenyIpAccessRule *DenyIpAccessRuleForDescribeSharedConfigOutput `type:"structure" json:",omitempty"`
 
-	DenyRefererAccessRule *DenyRefererAccessRuleForDescribeSharedConfigOutput `type:"structure"`
+	DenyRefererAccessRule *DenyRefererAccessRuleForDescribeSharedConfigOutput `type:"structure" json:",omitempty"`
 
-	ErrorPageRule *ErrorPageRuleForDescribeSharedConfigOutput `type:"structure"`
+	ErrorPageRule *ErrorPageRuleForDescribeSharedConfigOutput `type:"structure" json:",omitempty"`
 
-	Project *string `type:"string"`
+	Project *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -434,9 +434,9 @@ func (s *DescribeSharedConfigOutput) SetProject(v string) *DescribeSharedConfigO
 }
 
 type ErrorPageRuleForDescribeSharedConfigOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	RuleContent *string `type:"string"`
+	RuleContent *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation

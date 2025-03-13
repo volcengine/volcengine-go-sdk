@@ -144,11 +144,11 @@ func (c *CDN) UpdateSharedConfigWithContext(ctx volcengine.Context, input *Updat
 }
 
 type AllowIpAccessRuleForUpdateSharedConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Option *string `type:"string"`
+	Option *string `type:"string" json:",omitempty"`
 
-	Rules []*string `type:"list"`
+	Rules []*string `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -174,11 +174,11 @@ func (s *AllowIpAccessRuleForUpdateSharedConfigInput) SetRules(v []*string) *All
 }
 
 type AllowRefererAccessRuleForUpdateSharedConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	AllowEmpty *bool `type:"boolean"`
+	AllowEmpty *bool `type:"boolean" json:",omitempty"`
 
-	CommonType *CommonTypeForUpdateSharedConfigInput `type:"structure"`
+	CommonType *CommonTypeForUpdateSharedConfigInput `type:"structure" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -204,9 +204,9 @@ func (s *AllowRefererAccessRuleForUpdateSharedConfigInput) SetCommonType(v *Comm
 }
 
 type CommonMatchListForUpdateSharedConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	CommonType *CommonTypeForUpdateSharedConfigInput `type:"structure"`
+	CommonType *CommonTypeForUpdateSharedConfigInput `type:"structure" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -226,13 +226,13 @@ func (s *CommonMatchListForUpdateSharedConfigInput) SetCommonType(v *CommonTypeF
 }
 
 type CommonTypeForUpdateSharedConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	IgnoreCase *bool `type:"boolean"`
+	IgnoreCase *bool `type:"boolean" json:",omitempty"`
 
-	Option *string `type:"string"`
+	Option *string `type:"string" json:",omitempty"`
 
-	Rules []*string `type:"list"`
+	Rules []*string `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -264,11 +264,11 @@ func (s *CommonTypeForUpdateSharedConfigInput) SetRules(v []*string) *CommonType
 }
 
 type DenyIpAccessRuleForUpdateSharedConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Option *string `type:"string"`
+	Option *string `type:"string" json:",omitempty"`
 
-	Rules []*string `type:"list"`
+	Rules []*string `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -294,11 +294,11 @@ func (s *DenyIpAccessRuleForUpdateSharedConfigInput) SetRules(v []*string) *Deny
 }
 
 type DenyRefererAccessRuleForUpdateSharedConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	AllowEmpty *bool `type:"boolean"`
+	AllowEmpty *bool `type:"boolean" json:",omitempty"`
 
-	CommonType *CommonTypeForUpdateSharedConfigInput `type:"structure"`
+	CommonType *CommonTypeForUpdateSharedConfigInput `type:"structure" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -324,20 +324,20 @@ func (s *DenyRefererAccessRuleForUpdateSharedConfigInput) SetCommonType(v *Commo
 }
 
 type UpdateSharedConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	AllowIpAccessRule *AllowIpAccessRuleForUpdateSharedConfigInput `type:"structure"`
+	AllowIpAccessRule *AllowIpAccessRuleForUpdateSharedConfigInput `type:"structure" json:",omitempty"`
 
-	AllowRefererAccessRule *AllowRefererAccessRuleForUpdateSharedConfigInput `type:"structure"`
+	AllowRefererAccessRule *AllowRefererAccessRuleForUpdateSharedConfigInput `type:"structure" json:",omitempty"`
 
-	CommonMatchList *CommonMatchListForUpdateSharedConfigInput `type:"structure"`
+	CommonMatchList *CommonMatchListForUpdateSharedConfigInput `type:"structure" json:",omitempty"`
 
 	// ConfigName is a required field
-	ConfigName *string `type:"string" required:"true"`
+	ConfigName *string `type:"string" json:",omitempty" required:"true"`
 
-	DenyIpAccessRule *DenyIpAccessRuleForUpdateSharedConfigInput `type:"structure"`
+	DenyIpAccessRule *DenyIpAccessRuleForUpdateSharedConfigInput `type:"structure" json:",omitempty"`
 
-	DenyRefererAccessRule *DenyRefererAccessRuleForUpdateSharedConfigInput `type:"structure"`
+	DenyRefererAccessRule *DenyRefererAccessRuleForUpdateSharedConfigInput `type:"structure" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -400,7 +400,7 @@ func (s *UpdateSharedConfigInput) SetDenyRefererAccessRule(v *DenyRefererAccessR
 }
 
 type UpdateSharedConfigOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 }

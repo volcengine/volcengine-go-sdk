@@ -144,10 +144,10 @@ func (c *CDN) DeleteCdnCertificateWithContext(ctx volcengine.Context, input *Del
 }
 
 type DeleteCdnCertificateInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// CertId is a required field
-	CertId *string `type:"string" required:"true"`
+	CertId *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -180,7 +180,7 @@ func (s *DeleteCdnCertificateInput) SetCertId(v string) *DeleteCdnCertificateInp
 }
 
 type DeleteCdnCertificateOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 }

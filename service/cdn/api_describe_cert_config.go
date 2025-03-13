@@ -144,15 +144,15 @@ func (c *CDN) DescribeCertConfigWithContext(ctx volcengine.Context, input *Descr
 }
 
 type CertNotConfigForDescribeCertConfigOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Domain *string `type:"string"`
+	Domain *string `type:"string" json:",omitempty"`
 
-	DomainLock *DomainLockForDescribeCertConfigOutput `type:"structure"`
+	DomainLock *DomainLockForDescribeCertConfigOutput `type:"structure" json:",omitempty"`
 
-	Status *string `type:"string"`
+	Status *string `type:"string" json:",omitempty"`
 
-	Type *string `type:"string"`
+	Type *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -190,18 +190,18 @@ func (s *CertNotConfigForDescribeCertConfigOutput) SetType(v string) *CertNotCon
 }
 
 type DescribeCertConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// CertId is a required field
-	CertId *string `type:"string" required:"true"`
+	CertId *string `type:"string" json:",omitempty" required:"true"`
 
-	CertId2 *string `type:"string"`
+	CertId2 *string `type:"string" json:",omitempty"`
 
-	CertType *string `type:"string"`
+	CertType *string `type:"string" json:",omitempty"`
 
-	EncryType *string `type:"string"`
+	EncryType *string `type:"string" json:",omitempty"`
 
-	Status *string `type:"string"`
+	Status *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -258,15 +258,15 @@ func (s *DescribeCertConfigInput) SetStatus(v string) *DescribeCertConfigInput {
 }
 
 type DescribeCertConfigOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	CertNotConfig []*CertNotConfigForDescribeCertConfigOutput `type:"list"`
+	CertNotConfig []*CertNotConfigForDescribeCertConfigOutput `type:"list" json:",omitempty"`
 
-	OtherCertConfig []*OtherCertConfigForDescribeCertConfigOutput `type:"list"`
+	OtherCertConfig []*OtherCertConfigForDescribeCertConfigOutput `type:"list" json:",omitempty"`
 
-	SpecifiedCertConfig []*SpecifiedCertConfigForDescribeCertConfigOutput `type:"list"`
+	SpecifiedCertConfig []*SpecifiedCertConfigForDescribeCertConfigOutput `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -298,11 +298,11 @@ func (s *DescribeCertConfigOutput) SetSpecifiedCertConfig(v []*SpecifiedCertConf
 }
 
 type DomainLockForDescribeCertConfigOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Remark *string `type:"string"`
+	Remark *string `type:"string" json:",omitempty"`
 
-	Status *string `type:"string"`
+	Status *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -328,17 +328,17 @@ func (s *DomainLockForDescribeCertConfigOutput) SetStatus(v string) *DomainLockF
 }
 
 type OtherCertConfigForDescribeCertConfigOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	CerStatus *string `type:"string"`
+	CerStatus *string `type:"string" json:",omitempty"`
 
-	Domain *string `type:"string"`
+	Domain *string `type:"string" json:",omitempty"`
 
-	DomainLock *DomainLockForDescribeCertConfigOutput `type:"structure"`
+	DomainLock *DomainLockForDescribeCertConfigOutput `type:"structure" json:",omitempty"`
 
-	Status *string `type:"string"`
+	Status *string `type:"string" json:",omitempty"`
 
-	Type *string `type:"string"`
+	Type *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -382,17 +382,17 @@ func (s *OtherCertConfigForDescribeCertConfigOutput) SetType(v string) *OtherCer
 }
 
 type SpecifiedCertConfigForDescribeCertConfigOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	CerStatus *string `type:"string"`
+	CerStatus *string `type:"string" json:",omitempty"`
 
-	Domain *string `type:"string"`
+	Domain *string `type:"string" json:",omitempty"`
 
-	DomainLock *DomainLockForDescribeCertConfigOutput `type:"structure"`
+	DomainLock *DomainLockForDescribeCertConfigOutput `type:"structure" json:",omitempty"`
 
-	Status *string `type:"string"`
+	Status *string `type:"string" json:",omitempty"`
 
-	Type *string `type:"string"`
+	Type *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation

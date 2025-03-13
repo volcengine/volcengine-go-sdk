@@ -144,25 +144,25 @@ func (c *CDN) AddSharedConfigWithContext(ctx volcengine.Context, input *AddShare
 }
 
 type AddSharedConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	AllowIpAccessRule *AllowIpAccessRuleForAddSharedConfigInput `type:"structure"`
+	AllowIpAccessRule *AllowIpAccessRuleForAddSharedConfigInput `type:"structure" json:",omitempty"`
 
-	AllowRefererAccessRule *AllowRefererAccessRuleForAddSharedConfigInput `type:"structure"`
+	AllowRefererAccessRule *AllowRefererAccessRuleForAddSharedConfigInput `type:"structure" json:",omitempty"`
 
-	CommonMatchList *CommonMatchListForAddSharedConfigInput `type:"structure"`
+	CommonMatchList *CommonMatchListForAddSharedConfigInput `type:"structure" json:",omitempty"`
 
 	// ConfigName is a required field
-	ConfigName *string `type:"string" required:"true"`
+	ConfigName *string `type:"string" json:",omitempty" required:"true"`
 
 	// ConfigType is a required field
-	ConfigType *string `type:"string" required:"true"`
+	ConfigType *string `type:"string" json:",omitempty" required:"true"`
 
-	DenyIpAccessRule *DenyIpAccessRuleForAddSharedConfigInput `type:"structure"`
+	DenyIpAccessRule *DenyIpAccessRuleForAddSharedConfigInput `type:"structure" json:",omitempty"`
 
-	DenyRefererAccessRule *DenyRefererAccessRuleForAddSharedConfigInput `type:"structure"`
+	DenyRefererAccessRule *DenyRefererAccessRuleForAddSharedConfigInput `type:"structure" json:",omitempty"`
 
-	Project *string `type:"string"`
+	Project *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -240,7 +240,7 @@ func (s *AddSharedConfigInput) SetProject(v string) *AddSharedConfigInput {
 }
 
 type AddSharedConfigOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 }
@@ -256,11 +256,11 @@ func (s AddSharedConfigOutput) GoString() string {
 }
 
 type AllowIpAccessRuleForAddSharedConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Option *string `type:"string"`
+	Option *string `type:"string" json:",omitempty"`
 
-	Rules []*string `type:"list"`
+	Rules []*string `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -286,11 +286,11 @@ func (s *AllowIpAccessRuleForAddSharedConfigInput) SetRules(v []*string) *AllowI
 }
 
 type AllowRefererAccessRuleForAddSharedConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	AllowEmpty *bool `type:"boolean"`
+	AllowEmpty *bool `type:"boolean" json:",omitempty"`
 
-	CommonType *CommonTypeForAddSharedConfigInput `type:"structure"`
+	CommonType *CommonTypeForAddSharedConfigInput `type:"structure" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -316,9 +316,9 @@ func (s *AllowRefererAccessRuleForAddSharedConfigInput) SetCommonType(v *CommonT
 }
 
 type CommonMatchListForAddSharedConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	CommonType *CommonTypeForAddSharedConfigInput `type:"structure"`
+	CommonType *CommonTypeForAddSharedConfigInput `type:"structure" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -338,13 +338,13 @@ func (s *CommonMatchListForAddSharedConfigInput) SetCommonType(v *CommonTypeForA
 }
 
 type CommonTypeForAddSharedConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	IgnoreCase *bool `type:"boolean"`
+	IgnoreCase *bool `type:"boolean" json:",omitempty"`
 
-	Option *string `type:"string"`
+	Option *string `type:"string" json:",omitempty"`
 
-	Rules []*string `type:"list"`
+	Rules []*string `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -376,11 +376,11 @@ func (s *CommonTypeForAddSharedConfigInput) SetRules(v []*string) *CommonTypeFor
 }
 
 type DenyIpAccessRuleForAddSharedConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Option *string `type:"string"`
+	Option *string `type:"string" json:",omitempty"`
 
-	Rules []*string `type:"list"`
+	Rules []*string `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -406,11 +406,11 @@ func (s *DenyIpAccessRuleForAddSharedConfigInput) SetRules(v []*string) *DenyIpA
 }
 
 type DenyRefererAccessRuleForAddSharedConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	AllowEmpty *bool `type:"boolean"`
+	AllowEmpty *bool `type:"boolean" json:",omitempty"`
 
-	CommonType *CommonTypeForAddSharedConfigInput `type:"structure"`
+	CommonType *CommonTypeForAddSharedConfigInput `type:"structure" json:",omitempty"`
 }
 
 // String returns the string representation

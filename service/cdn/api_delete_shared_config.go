@@ -144,10 +144,10 @@ func (c *CDN) DeleteSharedConfigWithContext(ctx volcengine.Context, input *Delet
 }
 
 type DeleteSharedConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// ConfigName is a required field
-	ConfigName *string `type:"string" required:"true"`
+	ConfigName *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -180,7 +180,7 @@ func (s *DeleteSharedConfigInput) SetConfigName(v string) *DeleteSharedConfigInp
 }
 
 type DeleteSharedConfigOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 }

@@ -144,11 +144,11 @@ func (c *CDN) UpdateResourceTagsWithContext(ctx volcengine.Context, input *Updat
 }
 
 type ResourceTagForUpdateResourceTagsInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Key *string `type:"string"`
+	Key *string `type:"string" json:",omitempty"`
 
-	Value *string `type:"string"`
+	Value *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -174,11 +174,11 @@ func (s *ResourceTagForUpdateResourceTagsInput) SetValue(v string) *ResourceTagF
 }
 
 type UpdateResourceTagsInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	ResourceTags []*ResourceTagForUpdateResourceTagsInput `type:"list"`
+	ResourceTags []*ResourceTagForUpdateResourceTagsInput `type:"list" json:",omitempty"`
 
-	Resources []*string `type:"list"`
+	Resources []*string `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -204,7 +204,7 @@ func (s *UpdateResourceTagsInput) SetResources(v []*string) *UpdateResourceTagsI
 }
 
 type UpdateResourceTagsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 }

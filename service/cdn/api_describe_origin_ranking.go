@@ -144,25 +144,25 @@ func (c *CDN) DescribeOriginRankingWithContext(ctx volcengine.Context, input *De
 }
 
 type DescribeOriginRankingInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Domain *string `type:"string"`
+	Domain *string `type:"string" json:",omitempty"`
 
 	// EndTime is a required field
-	EndTime *int64 `type:"int64" required:"true"`
+	EndTime *int64 `type:"int64" json:",omitempty" required:"true"`
 
-	Interval *string `type:"string"`
+	Interval *string `type:"string" json:",omitempty"`
 
 	// Item is a required field
-	Item *string `type:"string" required:"true"`
+	Item *string `type:"string" json:",omitempty" required:"true"`
 
 	// Metric is a required field
-	Metric *string `type:"string" required:"true"`
+	Metric *string `type:"string" json:",omitempty" required:"true"`
 
-	Project *string `type:"string"`
+	Project *string `type:"string" json:",omitempty"`
 
 	// StartTime is a required field
-	StartTime *int64 `type:"int64" required:"true"`
+	StartTime *int64 `type:"int64" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -240,13 +240,13 @@ func (s *DescribeOriginRankingInput) SetStartTime(v int64) *DescribeOriginRankin
 }
 
 type DescribeOriginRankingOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	Item *string `type:"string"`
+	Item *string `type:"string" json:",omitempty"`
 
-	TopDataDetails []*TopDataDetailForDescribeOriginRankingOutput `type:"list"`
+	TopDataDetails []*TopDataDetailForDescribeOriginRankingOutput `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -272,11 +272,11 @@ func (s *DescribeOriginRankingOutput) SetTopDataDetails(v []*TopDataDetailForDes
 }
 
 type TopDataDetailForDescribeOriginRankingOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Metric *string `type:"string"`
+	Metric *string `type:"string" json:",omitempty"`
 
-	ValueDetails []*ValueDetailForDescribeOriginRankingOutput `type:"list"`
+	ValueDetails []*ValueDetailForDescribeOriginRankingOutput `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -302,15 +302,15 @@ func (s *TopDataDetailForDescribeOriginRankingOutput) SetValueDetails(v []*Value
 }
 
 type ValueDetailForDescribeOriginRankingOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	ItemKey *string `type:"string"`
+	ItemKey *string `type:"string" json:",omitempty"`
 
-	Ratio *float64 `type:"double"`
+	Ratio *float64 `type:"double" json:",omitempty"`
 
-	Timestamp *int64 `type:"int64"`
+	Timestamp *int64 `type:"int64" json:",omitempty"`
 
-	Value *float64 `type:"double"`
+	Value *float64 `type:"double" json:",omitempty"`
 }
 
 // String returns the string representation

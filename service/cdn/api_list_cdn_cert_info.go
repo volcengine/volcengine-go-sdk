@@ -144,11 +144,11 @@ func (c *CDN) ListCdnCertInfoWithContext(ctx volcengine.Context, input *ListCdnC
 }
 
 type CertFingerprintForListCdnCertInfoOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Sha1 *string `type:"string"`
+	Sha1 *string `type:"string" json:",omitempty"`
 
-	Sha256 *string `type:"string"`
+	Sha256 *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -174,33 +174,33 @@ func (s *CertFingerprintForListCdnCertInfoOutput) SetSha256(v string) *CertFinge
 }
 
 type CertInfoForListCdnCertInfoOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	CertFingerprint *CertFingerprintForListCdnCertInfoOutput `type:"structure"`
+	CertFingerprint *CertFingerprintForListCdnCertInfoOutput `type:"structure" json:",omitempty"`
 
-	CertId *string `type:"string"`
+	CertId *string `type:"string" json:",omitempty"`
 
-	CertName *string `type:"string"`
+	CertName *string `type:"string" json:",omitempty"`
 
-	CertType *string `type:"string"`
+	CertType *string `type:"string" json:",omitempty"`
 
-	ConfiguredDomain *string `type:"string"`
+	ConfiguredDomain *string `type:"string" json:",omitempty"`
 
-	ConfiguredDomainDetail []*ConfiguredDomainDetailForListCdnCertInfoOutput `type:"list"`
+	ConfiguredDomainDetail []*ConfiguredDomainDetailForListCdnCertInfoOutput `type:"list" json:",omitempty"`
 
-	Desc *string `type:"string"`
+	Desc *string `type:"string" json:",omitempty"`
 
-	DnsName *string `type:"string"`
+	DnsName *string `type:"string" json:",omitempty"`
 
-	EffectiveTime *int64 `type:"int64"`
+	EffectiveTime *int64 `type:"int64" json:",omitempty"`
 
-	EncryType *string `type:"string"`
+	EncryType *string `type:"string" json:",omitempty"`
 
-	ExpireTime *int64 `type:"int64"`
+	ExpireTime *int64 `type:"int64" json:",omitempty"`
 
-	Source *string `type:"string"`
+	Source *string `type:"string" json:",omitempty"`
 
-	Status *string `type:"string"`
+	Status *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -292,11 +292,11 @@ func (s *CertInfoForListCdnCertInfoOutput) SetStatus(v string) *CertInfoForListC
 }
 
 type ConfiguredDomainDetailForListCdnCertInfoOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Domain *string `type:"string"`
+	Domain *string `type:"string" json:",omitempty"`
 
-	Type *string `type:"string"`
+	Type *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -322,27 +322,27 @@ func (s *ConfiguredDomainDetailForListCdnCertInfoOutput) SetType(v string) *Conf
 }
 
 type ListCdnCertInfoInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	CertId *string `type:"string"`
+	CertId *string `type:"string" json:",omitempty"`
 
-	CertType *string `type:"string"`
+	CertType *string `type:"string" json:",omitempty"`
 
-	Configured *bool `type:"boolean"`
+	Configured *bool `type:"boolean" json:",omitempty"`
 
-	ConfiguredDomain *string `type:"string"`
+	ConfiguredDomain *string `type:"string" json:",omitempty"`
 
-	DnsName *string `type:"string"`
+	DnsName *string `type:"string" json:",omitempty"`
 
-	EncryType *string `type:"string"`
+	EncryType *string `type:"string" json:",omitempty"`
 
-	PageNum *int64 `type:"int64"`
+	PageNum *int64 `type:"int64" json:",omitempty"`
 
-	PageSize *int64 `type:"int64"`
+	PageSize *int64 `type:"int64" json:",omitempty"`
 
-	Source *string `type:"string"`
+	Source *string `type:"string" json:",omitempty"`
 
-	Status *string `type:"string"`
+	Status *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -416,19 +416,19 @@ func (s *ListCdnCertInfoInput) SetStatus(v string) *ListCdnCertInfoInput {
 }
 
 type ListCdnCertInfoOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	CertInfo []*CertInfoForListCdnCertInfoOutput `type:"list"`
+	CertInfo []*CertInfoForListCdnCertInfoOutput `type:"list" json:",omitempty"`
 
-	ExpiringCount *int64 `type:"int64"`
+	ExpiringCount *int64 `type:"int64" json:",omitempty"`
 
-	PageNum *int64 `type:"int64"`
+	PageNum *int64 `type:"int64" json:",omitempty"`
 
-	PageSize *int64 `type:"int64"`
+	PageSize *int64 `type:"int64" json:",omitempty"`
 
-	Total *int64 `type:"int64"`
+	Total *int64 `type:"int64" json:",omitempty"`
 }
 
 // String returns the string representation

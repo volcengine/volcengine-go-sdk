@@ -144,20 +144,20 @@ func (c *CDN) DescribeCdnEdgeIpWithContext(ctx volcengine.Context, input *Descri
 }
 
 type DescribeCdnEdgeIpInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// Domain is a required field
-	Domain *string `type:"string" required:"true"`
+	Domain *string `type:"string" json:",omitempty" required:"true"`
 
-	IpVersion *string `type:"string"`
+	IpVersion *string `type:"string" json:",omitempty"`
 
-	Isp *string `type:"string"`
+	Isp *string `type:"string" json:",omitempty"`
 
-	Region *string `type:"string"`
+	Region *string `type:"string" json:",omitempty"`
 
-	RsIp *bool `type:"boolean"`
+	RsIp *bool `type:"boolean" json:",omitempty"`
 
-	Status *string `type:"string"`
+	Status *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -220,13 +220,13 @@ func (s *DescribeCdnEdgeIpInput) SetStatus(v string) *DescribeCdnEdgeIpInput {
 }
 
 type DescribeCdnEdgeIpOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	CdnIpv4 []*string `type:"list"`
+	CdnIpv4 []*string `type:"list" json:",omitempty"`
 
-	CdnIpv6 []*string `type:"list"`
+	CdnIpv6 []*string `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation

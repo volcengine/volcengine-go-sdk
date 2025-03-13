@@ -144,22 +144,22 @@ func (c *CDN) DescribeOriginDataWithContext(ctx volcengine.Context, input *Descr
 }
 
 type DescribeOriginDataInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Domain *string `type:"string"`
+	Domain *string `type:"string" json:",omitempty"`
 
 	// EndTime is a required field
-	EndTime *int64 `type:"int64" required:"true"`
+	EndTime *int64 `type:"int64" json:",omitempty" required:"true"`
 
-	Interval *string `type:"string"`
+	Interval *string `type:"string" json:",omitempty"`
 
 	// Metric is a required field
-	Metric *string `type:"string" required:"true"`
+	Metric *string `type:"string" json:",omitempty" required:"true"`
 
-	Project *string `type:"string"`
+	Project *string `type:"string" json:",omitempty"`
 
 	// StartTime is a required field
-	StartTime *int64 `type:"int64" required:"true"`
+	StartTime *int64 `type:"int64" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -228,11 +228,11 @@ func (s *DescribeOriginDataInput) SetStartTime(v int64) *DescribeOriginDataInput
 }
 
 type DescribeOriginDataOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	MetricDataList []*MetricDataListForDescribeOriginDataOutput `type:"list"`
+	MetricDataList []*MetricDataListForDescribeOriginDataOutput `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -252,11 +252,11 @@ func (s *DescribeOriginDataOutput) SetMetricDataList(v []*MetricDataListForDescr
 }
 
 type MetricDataListForDescribeOriginDataOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Metric *string `type:"string"`
+	Metric *string `type:"string" json:",omitempty"`
 
-	Values []*ValueForDescribeOriginDataOutput `type:"list"`
+	Values []*ValueForDescribeOriginDataOutput `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -282,13 +282,13 @@ func (s *MetricDataListForDescribeOriginDataOutput) SetValues(v []*ValueForDescr
 }
 
 type ValueForDescribeOriginDataOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Item *string `type:"string"`
+	Item *string `type:"string" json:",omitempty"`
 
-	TimeStamp *int64 `type:"int64"`
+	TimeStamp *int64 `type:"int64" json:",omitempty"`
 
-	Value *float64 `type:"double"`
+	Value *float64 `type:"double" json:",omitempty"`
 }
 
 // String returns the string representation

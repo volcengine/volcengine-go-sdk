@@ -144,10 +144,10 @@ func (c *CDN) StartCdnDomainWithContext(ctx volcengine.Context, input *StartCdnD
 }
 
 type StartCdnDomainInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// Domain is a required field
-	Domain *string `type:"string" required:"true"`
+	Domain *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -180,7 +180,7 @@ func (s *StartCdnDomainInput) SetDomain(v string) *StartCdnDomainInput {
 }
 
 type StartCdnDomainOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 }
