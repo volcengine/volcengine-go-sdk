@@ -54,6 +54,7 @@ type ServiceEndpointInfo struct {
 
 const (
 	regionCodeCNBeijingAutoDriving = "cn-beijing-autodriving"
+	regionCodeAPSouthEast3         = "ap-southeast-3"
 )
 
 var defaultEndpoint = map[string]*ServiceEndpointInfo{
@@ -73,6 +74,7 @@ var defaultEndpoint = map[string]*ServiceEndpointInfo{
 		DefaultEndpoint: endpoint,
 		RegionEndpointMap: RegionEndpointMap{
 			regionCodeCNBeijingAutoDriving: "redis" + separator + regionCodeCNBeijingAutoDriving + endpointSuffix,
+			regionCodeAPSouthEast3:         "redis" + separator + regionCodeAPSouthEast3 + endpointSuffix,
 		},
 	},
 	"privatelink": {
@@ -82,6 +84,7 @@ var defaultEndpoint = map[string]*ServiceEndpointInfo{
 		DefaultEndpoint: endpoint,
 		RegionEndpointMap: RegionEndpointMap{
 			regionCodeCNBeijingAutoDriving: "privatelink" + separator + regionCodeCNBeijingAutoDriving + endpointSuffix,
+			regionCodeAPSouthEast3:         "privatelink" + separator + regionCodeAPSouthEast3 + endpointSuffix,
 		},
 	},
 	"vpc": {
@@ -91,6 +94,7 @@ var defaultEndpoint = map[string]*ServiceEndpointInfo{
 		DefaultEndpoint: endpoint,
 		RegionEndpointMap: RegionEndpointMap{
 			regionCodeCNBeijingAutoDriving: "vpc" + separator + regionCodeCNBeijingAutoDriving + endpointSuffix,
+			regionCodeAPSouthEast3:         "vpc" + separator + regionCodeAPSouthEast3 + endpointSuffix,
 		},
 	},
 	"RocketMQ": {
@@ -100,6 +104,7 @@ var defaultEndpoint = map[string]*ServiceEndpointInfo{
 		DefaultEndpoint: endpoint,
 		RegionEndpointMap: RegionEndpointMap{
 			regionCodeCNBeijingAutoDriving: "rocketmq" + separator + regionCodeCNBeijingAutoDriving + endpointSuffix,
+			regionCodeAPSouthEast3:         "rocketmq" + separator + regionCodeAPSouthEast3 + endpointSuffix,
 		},
 	},
 	"Kafka": {
@@ -109,6 +114,7 @@ var defaultEndpoint = map[string]*ServiceEndpointInfo{
 		DefaultEndpoint: endpoint,
 		RegionEndpointMap: RegionEndpointMap{
 			regionCodeCNBeijingAutoDriving: "kafka" + separator + regionCodeCNBeijingAutoDriving + endpointSuffix,
+			regionCodeAPSouthEast3:         "kafka" + separator + regionCodeAPSouthEast3 + endpointSuffix,
 		},
 	},
 	"rds_mysql": {
@@ -118,6 +124,7 @@ var defaultEndpoint = map[string]*ServiceEndpointInfo{
 		DefaultEndpoint: endpoint,
 		RegionEndpointMap: RegionEndpointMap{
 			regionCodeCNBeijingAutoDriving: "rds-mysql" + separator + regionCodeCNBeijingAutoDriving + endpointSuffix,
+			regionCodeAPSouthEast3:         "rds-mysql" + separator + regionCodeAPSouthEast3 + endpointSuffix,
 		},
 	},
 	"rds_postgresql": {
@@ -127,6 +134,7 @@ var defaultEndpoint = map[string]*ServiceEndpointInfo{
 		DefaultEndpoint: endpoint,
 		RegionEndpointMap: RegionEndpointMap{
 			regionCodeCNBeijingAutoDriving: "rds-postgresql" + separator + regionCodeCNBeijingAutoDriving + endpointSuffix,
+			regionCodeAPSouthEast3:         "rds-postgresql" + separator + regionCodeAPSouthEast3 + endpointSuffix,
 		},
 	},
 	"storage_ebs": {
@@ -136,6 +144,7 @@ var defaultEndpoint = map[string]*ServiceEndpointInfo{
 		DefaultEndpoint: endpoint,
 		RegionEndpointMap: RegionEndpointMap{
 			regionCodeCNBeijingAutoDriving: "storage-ebs" + separator + regionCodeCNBeijingAutoDriving + endpointSuffix,
+			regionCodeAPSouthEast3:         "storage-ebs" + separator + regionCodeAPSouthEast3 + endpointSuffix,
 		},
 	},
 	"clb": {
@@ -154,6 +163,7 @@ var defaultEndpoint = map[string]*ServiceEndpointInfo{
 		DefaultEndpoint: endpoint,
 		RegionEndpointMap: RegionEndpointMap{
 			regionCodeCNBeijingAutoDriving: "ecs" + separator + regionCodeCNBeijingAutoDriving + endpointSuffix,
+			regionCodeAPSouthEast3:         "ecs" + separator + regionCodeAPSouthEast3 + endpointSuffix,
 		},
 	},
 	"alb": {
@@ -163,6 +173,7 @@ var defaultEndpoint = map[string]*ServiceEndpointInfo{
 		DefaultEndpoint: endpoint,
 		RegionEndpointMap: RegionEndpointMap{
 			regionCodeCNBeijingAutoDriving: "alb" + separator + regionCodeCNBeijingAutoDriving + endpointSuffix,
+			regionCodeAPSouthEast3:         "alb" + separator + regionCodeAPSouthEast3 + endpointSuffix,
 		},
 	},
 	"FileNAS": {
@@ -208,6 +219,7 @@ var defaultEndpoint = map[string]*ServiceEndpointInfo{
 		DefaultEndpoint: endpoint,
 		RegionEndpointMap: RegionEndpointMap{
 			regionCodeCNBeijingAutoDriving: "mongodb" + separator + regionCodeCNBeijingAutoDriving + endpointSuffix,
+			regionCodeAPSouthEast3:         "mongodb" + separator + regionCodeAPSouthEast3 + endpointSuffix,
 		},
 	},
 	"transitrouter": {
@@ -217,6 +229,7 @@ var defaultEndpoint = map[string]*ServiceEndpointInfo{
 		DefaultEndpoint: endpoint,
 		RegionEndpointMap: RegionEndpointMap{
 			regionCodeCNBeijingAutoDriving: "transitrouter" + separator + regionCodeCNBeijingAutoDriving + endpointSuffix,
+			regionCodeAPSouthEast3:         "transitrouter" + separator + regionCodeAPSouthEast3 + endpointSuffix,
 		},
 	},
 	"Volc_Observe": {
@@ -226,6 +239,7 @@ var defaultEndpoint = map[string]*ServiceEndpointInfo{
 		DefaultEndpoint: endpoint,
 		RegionEndpointMap: RegionEndpointMap{
 			regionCodeCNBeijingAutoDriving: "volc-observe" + separator + regionCodeCNBeijingAutoDriving + endpointSuffix,
+			regionCodeAPSouthEast3:         "volc-observe" + separator + regionCodeAPSouthEast3 + endpointSuffix,
 		},
 	},
 	"dms": {
@@ -235,6 +249,7 @@ var defaultEndpoint = map[string]*ServiceEndpointInfo{
 		DefaultEndpoint: endpoint,
 		RegionEndpointMap: RegionEndpointMap{
 			regionCodeCNBeijingAutoDriving: "dms" + separator + regionCodeCNBeijingAutoDriving + endpointSuffix,
+			regionCodeAPSouthEast3:         "dms" + separator + regionCodeAPSouthEast3 + endpointSuffix,
 		},
 	},
 	"auto_scaling": {
@@ -244,6 +259,7 @@ var defaultEndpoint = map[string]*ServiceEndpointInfo{
 		DefaultEndpoint: endpoint,
 		RegionEndpointMap: RegionEndpointMap{
 			regionCodeCNBeijingAutoDriving: "auto-scaling" + separator + regionCodeCNBeijingAutoDriving + endpointSuffix,
+			regionCodeAPSouthEast3:         "auto-scaling" + separator + regionCodeAPSouthEast3 + endpointSuffix,
 		},
 	},
 	"directconnect": {
@@ -253,6 +269,7 @@ var defaultEndpoint = map[string]*ServiceEndpointInfo{
 		DefaultEndpoint: endpoint,
 		RegionEndpointMap: RegionEndpointMap{
 			regionCodeCNBeijingAutoDriving: "directconnect" + separator + regionCodeCNBeijingAutoDriving + endpointSuffix,
+			regionCodeAPSouthEast3:         "directconnect" + separator + regionCodeAPSouthEast3 + endpointSuffix,
 		},
 	},
 	"kms": {
@@ -262,6 +279,63 @@ var defaultEndpoint = map[string]*ServiceEndpointInfo{
 		DefaultEndpoint: endpoint,
 		RegionEndpointMap: RegionEndpointMap{
 			regionCodeCNBeijingAutoDriving: "kms" + separator + regionCodeCNBeijingAutoDriving + endpointSuffix,
+		},
+	},
+	"dbw": {
+		Service:         "dbw",
+		IsGlobal:        false,
+		GlobalEndpoint:  "",
+		DefaultEndpoint: endpoint,
+		RegionEndpointMap: RegionEndpointMap{
+			regionCodeAPSouthEast3: "dbw" + separator + regionCodeAPSouthEast3 + endpointSuffix,
+		},
+	},
+	"dts": {
+		Service:         "dts",
+		IsGlobal:        false,
+		GlobalEndpoint:  "",
+		DefaultEndpoint: endpoint,
+		RegionEndpointMap: RegionEndpointMap{
+			regionCodeCNBeijingAutoDriving: "dts" + separator + regionCodeCNBeijingAutoDriving + endpointSuffix,
+			regionCodeAPSouthEast3:         "dts" + separator + regionCodeAPSouthEast3 + endpointSuffix,
+		},
+	},
+	"natgateway": {
+		Service:         "natgateway",
+		IsGlobal:        false,
+		GlobalEndpoint:  "",
+		DefaultEndpoint: endpoint,
+		RegionEndpointMap: RegionEndpointMap{
+			regionCodeAPSouthEast3: "natgateway" + separator + regionCodeAPSouthEast3 + endpointSuffix,
+		},
+	},
+	"tos": {
+		Service:         "tos",
+		IsGlobal:        false,
+		GlobalEndpoint:  "",
+		DefaultEndpoint: endpoint,
+		RegionEndpointMap: RegionEndpointMap{
+			regionCodeCNBeijingAutoDriving: "tos" + separator + regionCodeCNBeijingAutoDriving + endpointSuffix,
+			regionCodeAPSouthEast3:         "tos" + separator + regionCodeAPSouthEast3 + endpointSuffix,
+		},
+	},
+	"TLS": {
+		Service:         "TLS",
+		IsGlobal:        false,
+		GlobalEndpoint:  "",
+		DefaultEndpoint: endpoint,
+		RegionEndpointMap: RegionEndpointMap{
+			regionCodeCNBeijingAutoDriving: "tls" + separator + regionCodeCNBeijingAutoDriving + endpointSuffix,
+			regionCodeAPSouthEast3:         "tls" + separator + regionCodeAPSouthEast3 + endpointSuffix,
+		},
+	},
+	"vpn": {
+		Service:         "vpn",
+		IsGlobal:        false,
+		GlobalEndpoint:  "",
+		DefaultEndpoint: endpoint,
+		RegionEndpointMap: RegionEndpointMap{
+			regionCodeAPSouthEast3: "vpn" + separator + regionCodeAPSouthEast3 + endpointSuffix,
 		},
 	},
 }
