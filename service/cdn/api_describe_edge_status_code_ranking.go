@@ -144,25 +144,25 @@ func (c *CDN) DescribeEdgeStatusCodeRankingWithContext(ctx volcengine.Context, i
 }
 
 type DescribeEdgeStatusCodeRankingInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Domain *string `type:"string"`
+	Domain *string `type:"string" json:",omitempty"`
 
 	// EndTime is a required field
-	EndTime *int64 `type:"int64" required:"true"`
+	EndTime *int64 `type:"int64" json:",omitempty" required:"true"`
 
-	Interval *string `type:"string"`
+	Interval *string `type:"string" json:",omitempty"`
 
 	// Item is a required field
-	Item *string `type:"string" required:"true"`
+	Item *string `type:"string" json:",omitempty" required:"true"`
 
 	// Metric is a required field
-	Metric *string `type:"string" required:"true"`
+	Metric *string `type:"string" json:",omitempty" required:"true"`
 
-	Project *string `type:"string"`
+	Project *string `type:"string" json:",omitempty"`
 
 	// StartTime is a required field
-	StartTime *int64 `type:"int64" required:"true"`
+	StartTime *int64 `type:"int64" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -240,15 +240,15 @@ func (s *DescribeEdgeStatusCodeRankingInput) SetStartTime(v int64) *DescribeEdge
 }
 
 type DescribeEdgeStatusCodeRankingOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	Item *string `type:"string"`
+	Item *string `type:"string" json:",omitempty"`
 
-	Metric *string `type:"string"`
+	Metric *string `type:"string" json:",omitempty"`
 
-	TopDataDetails []*TopDataDetailForDescribeEdgeStatusCodeRankingOutput `type:"list"`
+	TopDataDetails []*TopDataDetailForDescribeEdgeStatusCodeRankingOutput `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -280,25 +280,25 @@ func (s *DescribeEdgeStatusCodeRankingOutput) SetTopDataDetails(v []*TopDataDeta
 }
 
 type TopDataDetailForDescribeEdgeStatusCodeRankingOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	ItemKey *string `type:"string"`
+	ItemKey *string `type:"string" json:",omitempty"`
 
-	Status2xx *float64 `type:"double"`
+	Status2xx *float64 `type:"double" json:",omitempty"`
 
-	Status2xxRatio *float64 `type:"double"`
+	Status2xxRatio *float64 `type:"double" json:",omitempty"`
 
-	Status3xx *float64 `type:"double"`
+	Status3xx *float64 `type:"double" json:",omitempty"`
 
-	Status3xxRatio *float64 `type:"double"`
+	Status3xxRatio *float64 `type:"double" json:",omitempty"`
 
-	Status4xx *float64 `type:"double"`
+	Status4xx *float64 `type:"double" json:",omitempty"`
 
-	Status4xxRatio *float64 `type:"double"`
+	Status4xxRatio *float64 `type:"double" json:",omitempty"`
 
-	Status5xx *float64 `type:"double"`
+	Status5xx *float64 `type:"double" json:",omitempty"`
 
-	Status5xxRatio *float64 `type:"double"`
+	Status5xxRatio *float64 `type:"double" json:",omitempty"`
 }
 
 // String returns the string representation

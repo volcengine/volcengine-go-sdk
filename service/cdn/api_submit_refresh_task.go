@@ -144,16 +144,16 @@ func (c *CDN) SubmitRefreshTaskWithContext(ctx volcengine.Context, input *Submit
 }
 
 type SubmitRefreshTaskInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Delete *bool `type:"boolean"`
+	Delete *bool `type:"boolean" json:",omitempty"`
 
-	Prefix *bool `type:"boolean"`
+	Prefix *bool `type:"boolean" json:",omitempty"`
 
-	Type *string `type:"string"`
+	Type *string `type:"string" json:",omitempty"`
 
 	// Urls is a required field
-	Urls *string `type:"string" required:"true"`
+	Urls *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -204,11 +204,11 @@ func (s *SubmitRefreshTaskInput) SetUrls(v string) *SubmitRefreshTaskInput {
 }
 
 type SubmitRefreshTaskOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	TaskID *string `type:"string"`
+	TaskID *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation

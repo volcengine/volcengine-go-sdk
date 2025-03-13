@@ -144,15 +144,15 @@ func (c *CDN) BatchUpdateCdnConfigWithContext(ctx volcengine.Context, input *Bat
 }
 
 type AccessActionForBatchUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	AllowEmpty *bool `type:"boolean"`
+	AllowEmpty *bool `type:"boolean" json:",omitempty"`
 
-	ListRules []*string `type:"list"`
+	ListRules []*string `type:"list" json:",omitempty"`
 
-	RequestHeader *string `type:"string"`
+	RequestHeader *string `type:"string" json:",omitempty"`
 
-	RuleType *string `type:"string"`
+	RuleType *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -190,9 +190,9 @@ func (s *AccessActionForBatchUpdateCdnConfigInput) SetRuleType(v string) *Access
 }
 
 type ActionsForBatchUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	OriginLines []*OriginLineForBatchUpdateCdnConfigInput `type:"list"`
+	OriginLines []*OriginLineForBatchUpdateCdnConfigInput `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -212,13 +212,13 @@ func (s *ActionsForBatchUpdateCdnConfigInput) SetOriginLines(v []*OriginLineForB
 }
 
 type AreaAccessRuleForBatchUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Area []*string `type:"list"`
+	Area []*string `type:"list" json:",omitempty"`
 
-	RuleType *string `type:"string"`
+	RuleType *string `type:"string" json:",omitempty"`
 
-	Switch *bool `type:"boolean"`
+	Switch *bool `type:"boolean" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -250,17 +250,17 @@ func (s *AreaAccessRuleForBatchUpdateCdnConfigInput) SetSwitch(v bool) *AreaAcce
 }
 
 type AuthModeConfigForBatchUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	BackupRemoteAddr *string `type:"string"`
+	BackupRemoteAddr *string `type:"string" json:",omitempty"`
 
-	MasterRemoteAddr *string `type:"string"`
+	MasterRemoteAddr *string `type:"string" json:",omitempty"`
 
-	PathType *string `type:"string"`
+	PathType *string `type:"string" json:",omitempty"`
 
-	PathValue *string `type:"string"`
+	PathValue *string `type:"string" json:",omitempty"`
 
-	RequestMethod *string `type:"string"`
+	RequestMethod *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -304,15 +304,15 @@ func (s *AuthModeConfigForBatchUpdateCdnConfigInput) SetRequestMethod(v string) 
 }
 
 type AuthResponseConfigForBatchUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	CacheAction *ConvertCacheActionForBatchUpdateCdnConfigInput `type:"structure"`
+	CacheAction *ConvertCacheActionForBatchUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 
-	ResponseAction *ResponseActionForBatchUpdateCdnConfigInput `type:"structure"`
+	ResponseAction *ResponseActionForBatchUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 
-	StatusCodeAction *StatusCodeActionForBatchUpdateCdnConfigInput `type:"structure"`
+	StatusCodeAction *StatusCodeActionForBatchUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 
-	TimeOutAction *TimeOutActionForBatchUpdateCdnConfigInput `type:"structure"`
+	TimeOutAction *TimeOutActionForBatchUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -350,15 +350,15 @@ func (s *AuthResponseConfigForBatchUpdateCdnConfigInput) SetTimeOutAction(v *Tim
 }
 
 type BandwidthLimitActionForBatchUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	BandwidthThreshold *int64 `type:"int64"`
+	BandwidthThreshold *int64 `type:"int64" json:",omitempty"`
 
-	LimitType *string `type:"string"`
+	LimitType *string `type:"string" json:",omitempty"`
 
-	SpeedLimitRate *int64 `type:"int64"`
+	SpeedLimitRate *int64 `type:"int64" json:",omitempty"`
 
-	SpeedLimitRateMax *int64 `type:"int64"`
+	SpeedLimitRateMax *int64 `type:"int64" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -396,11 +396,11 @@ func (s *BandwidthLimitActionForBatchUpdateCdnConfigInput) SetSpeedLimitRateMax(
 }
 
 type BandwidthLimitForBatchUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	BandwidthLimitRule *BandwidthLimitRuleForBatchUpdateCdnConfigInput `type:"structure"`
+	BandwidthLimitRule *BandwidthLimitRuleForBatchUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 
-	Switch *bool `type:"boolean"`
+	Switch *bool `type:"boolean" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -426,11 +426,11 @@ func (s *BandwidthLimitForBatchUpdateCdnConfigInput) SetSwitch(v bool) *Bandwidt
 }
 
 type BandwidthLimitRuleForBatchUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	BandwidthLimitAction *BandwidthLimitActionForBatchUpdateCdnConfigInput `type:"structure"`
+	BandwidthLimitAction *BandwidthLimitActionForBatchUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 
-	Condition *ConditionForBatchUpdateCdnConfigInput `type:"structure"`
+	Condition *ConditionForBatchUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -456,103 +456,105 @@ func (s *BandwidthLimitRuleForBatchUpdateCdnConfigInput) SetCondition(v *Conditi
 }
 
 type BatchUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Aggregate *bool `type:"boolean"`
+	Aggregate *bool `type:"boolean" json:",omitempty"`
 
-	AreaAccessRule *AreaAccessRuleForBatchUpdateCdnConfigInput `type:"structure"`
+	AreaAccessRule *AreaAccessRuleForBatchUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 
-	BandwidthLimit *BandwidthLimitForBatchUpdateCdnConfigInput `type:"structure"`
+	BandwidthLimit *BandwidthLimitForBatchUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 
-	BrowserCache []*BrowserCacheForBatchUpdateCdnConfigInput `type:"list"`
+	BrowserCache []*BrowserCacheForBatchUpdateCdnConfigInput `type:"list" json:",omitempty"`
 
-	Cache []*CacheForBatchUpdateCdnConfigInput `type:"list"`
+	Cache []*CacheForBatchUpdateCdnConfigInput `type:"list" json:",omitempty"`
 
-	CacheHost *CacheHostForBatchUpdateCdnConfigInput `type:"structure"`
+	CacheHost *CacheHostForBatchUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 
-	CacheKey []*CacheKeyForBatchUpdateCdnConfigInput `type:"list"`
+	CacheKey []*CacheKeyForBatchUpdateCdnConfigInput `type:"list" json:",omitempty"`
 
-	Compression *CompressionForBatchUpdateCdnConfigInput `type:"structure"`
+	Compression *CompressionForBatchUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 
-	ConditionalOrigin *ConditionalOriginForBatchUpdateCdnConfigInput `type:"structure"`
+	ConditionalOrigin *ConditionalOriginForBatchUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 
-	CustomErrorPage *CustomErrorPageForBatchUpdateCdnConfigInput `type:"structure"`
+	CustomErrorPage *CustomErrorPageForBatchUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 
-	CustomizeAccessRule *CustomizeAccessRuleForBatchUpdateCdnConfigInput `type:"structure"`
+	CustomizeAccessRule *CustomizeAccessRuleForBatchUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 
-	Domains []*string `type:"list"`
+	Domains []*string `type:"list" json:",omitempty"`
 
-	DownloadSpeedLimit *DownloadSpeedLimitForBatchUpdateCdnConfigInput `type:"structure"`
+	DownloadSpeedLimit *DownloadSpeedLimitForBatchUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 
-	FollowRedirect *bool `type:"boolean"`
+	FollowRedirect *bool `type:"boolean" json:",omitempty"`
 
-	HTTPS *HTTPSForBatchUpdateCdnConfigInput `type:"structure"`
+	HTTPS *HTTPSForBatchUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 
-	HttpForcedRedirect *HttpForcedRedirectForBatchUpdateCdnConfigInput `type:"structure"`
+	HttpForcedRedirect *HttpForcedRedirectForBatchUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 
-	IPv6 *IPv6ForBatchUpdateCdnConfigInput `type:"structure"`
+	IPv6 *IPv6ForBatchUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 
-	IpAccessRule *IpAccessRuleForBatchUpdateCdnConfigInput `type:"structure"`
+	IpAccessRule *IpAccessRuleForBatchUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 
-	IpFreqLimit *IpFreqLimitForBatchUpdateCdnConfigInput `type:"structure"`
+	IpFreqLimit *IpFreqLimitForBatchUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 
-	MethodDeniedRule *MethodDeniedRuleForBatchUpdateCdnConfigInput `type:"structure"`
+	MethodDeniedRule *MethodDeniedRuleForBatchUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 
-	MultiRange *MultiRangeForBatchUpdateCdnConfigInput `type:"structure"`
+	MultiRange *MultiRangeForBatchUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 
-	NegativeCache []*NegativeCacheForBatchUpdateCdnConfigInput `type:"list"`
+	NegativeCache []*NegativeCacheForBatchUpdateCdnConfigInput `type:"list" json:",omitempty"`
 
-	Origin []*OriginForBatchUpdateCdnConfigInput `type:"list"`
+	OfflineCache *OfflineCacheForBatchUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 
-	OriginAccessRule *OriginAccessRuleForBatchUpdateCdnConfigInput `type:"structure"`
+	Origin []*OriginForBatchUpdateCdnConfigInput `type:"list" json:",omitempty"`
 
-	OriginArg []*OriginArgForBatchUpdateCdnConfigInput `type:"list"`
+	OriginAccessRule *OriginAccessRuleForBatchUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 
-	OriginCertCheck *OriginCertCheckForBatchUpdateCdnConfigInput `type:"structure"`
+	OriginArg []*OriginArgForBatchUpdateCdnConfigInput `type:"list" json:",omitempty"`
 
-	OriginHost *string `type:"string"`
+	OriginCertCheck *OriginCertCheckForBatchUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 
-	OriginIPv6 *string `type:"string"`
+	OriginHost *string `type:"string" json:",omitempty"`
 
-	OriginProtocol *string `type:"string"`
+	OriginIPv6 *string `type:"string" json:",omitempty"`
 
-	OriginRange *bool `type:"boolean"`
+	OriginProtocol *string `type:"string" json:",omitempty"`
 
-	OriginRetry *OriginRetryForBatchUpdateCdnConfigInput `type:"structure"`
+	OriginRange *bool `type:"boolean" json:",omitempty"`
 
-	OriginRewrite *OriginRewriteForBatchUpdateCdnConfigInput `type:"structure"`
+	OriginRetry *OriginRetryForBatchUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 
-	OriginSni *OriginSniForBatchUpdateCdnConfigInput `type:"structure"`
+	OriginRewrite *OriginRewriteForBatchUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 
-	PageOptimization *PageOptimizationForBatchUpdateCdnConfigInput `type:"structure"`
+	OriginSni *OriginSniForBatchUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 
-	Quic *QuicForBatchUpdateCdnConfigInput `type:"structure"`
+	PageOptimization *PageOptimizationForBatchUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 
-	RedirectionRewrite *RedirectionRewriteForBatchUpdateCdnConfigInput `type:"structure"`
+	Quic *QuicForBatchUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 
-	RefererAccessRule *RefererAccessRuleForBatchUpdateCdnConfigInput `type:"structure"`
+	RedirectionRewrite *RedirectionRewriteForBatchUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 
-	RemoteAuth *RemoteAuthForBatchUpdateCdnConfigInput `type:"structure"`
+	RefererAccessRule *RefererAccessRuleForBatchUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 
-	RequestBlockRule *RequestBlockRuleForBatchUpdateCdnConfigInput `type:"structure"`
+	RemoteAuth *RemoteAuthForBatchUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 
-	RequestHeader []*RequestHeaderForBatchUpdateCdnConfigInput `type:"list"`
+	RequestBlockRule *RequestBlockRuleForBatchUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 
-	ResponseHeader []*ResponseHeaderForBatchUpdateCdnConfigInput `type:"list"`
+	RequestHeader []*RequestHeaderForBatchUpdateCdnConfigInput `type:"list" json:",omitempty"`
 
-	RewriteHLS *RewriteHLSForBatchUpdateCdnConfigInput `type:"structure"`
+	ResponseHeader []*ResponseHeaderForBatchUpdateCdnConfigInput `type:"list" json:",omitempty"`
 
-	ServiceRegion *string `type:"string"`
+	RewriteHLS *RewriteHLSForBatchUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 
-	SignedUrlAuth *SignedUrlAuthForBatchUpdateCdnConfigInput `type:"structure"`
+	ServiceRegion *string `type:"string" json:",omitempty"`
 
-	Timeout *TimeoutForBatchUpdateCdnConfigInput `type:"structure"`
+	SignedUrlAuth *SignedUrlAuthForBatchUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 
-	UaAccessRule *UaAccessRuleForBatchUpdateCdnConfigInput `type:"structure"`
+	Timeout *TimeoutForBatchUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 
-	UrlNormalize *UrlNormalizeForBatchUpdateCdnConfigInput `type:"structure"`
+	UaAccessRule *UaAccessRuleForBatchUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 
-	VideoDrag *VideoDragForBatchUpdateCdnConfigInput `type:"structure"`
+	UrlNormalize *UrlNormalizeForBatchUpdateCdnConfigInput `type:"structure" json:",omitempty"`
+
+	VideoDrag *VideoDragForBatchUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -694,6 +696,12 @@ func (s *BatchUpdateCdnConfigInput) SetMultiRange(v *MultiRangeForBatchUpdateCdn
 // SetNegativeCache sets the NegativeCache field's value.
 func (s *BatchUpdateCdnConfigInput) SetNegativeCache(v []*NegativeCacheForBatchUpdateCdnConfigInput) *BatchUpdateCdnConfigInput {
 	s.NegativeCache = v
+	return s
+}
+
+// SetOfflineCache sets the OfflineCache field's value.
+func (s *BatchUpdateCdnConfigInput) SetOfflineCache(v *OfflineCacheForBatchUpdateCdnConfigInput) *BatchUpdateCdnConfigInput {
+	s.OfflineCache = v
 	return s
 }
 
@@ -854,11 +862,11 @@ func (s *BatchUpdateCdnConfigInput) SetVideoDrag(v *VideoDragForBatchUpdateCdnCo
 }
 
 type BatchUpdateCdnConfigOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	DeployResult []*DeployResultForBatchUpdateCdnConfigOutput `type:"list"`
+	DeployResult []*DeployResultForBatchUpdateCdnConfigOutput `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -878,15 +886,15 @@ func (s *BatchUpdateCdnConfigOutput) SetDeployResult(v []*DeployResultForBatchUp
 }
 
 type BlockActionForBatchUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Action *string `type:"string"`
+	Action *string `type:"string" json:",omitempty"`
 
-	ErrorPage *string `type:"string"`
+	ErrorPage *string `type:"string" json:",omitempty"`
 
-	RedirectUrl *string `type:"string"`
+	RedirectUrl *string `type:"string" json:",omitempty"`
 
-	StatusCode *string `type:"string"`
+	StatusCode *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -924,13 +932,13 @@ func (s *BlockActionForBatchUpdateCdnConfigInput) SetStatusCode(v string) *Block
 }
 
 type BlockRuleForBatchUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	BlockAction *BlockActionForBatchUpdateCdnConfigInput `type:"structure"`
+	BlockAction *BlockActionForBatchUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 
-	Condition *ConditionForBatchUpdateCdnConfigInput `type:"structure"`
+	Condition *ConditionForBatchUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 
-	RuleName *string `type:"string"`
+	RuleName *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -962,11 +970,11 @@ func (s *BlockRuleForBatchUpdateCdnConfigInput) SetRuleName(v string) *BlockRule
 }
 
 type BrowserCacheForBatchUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	CacheAction *CacheActionForBatchUpdateCdnConfigInput `type:"structure"`
+	CacheAction *CacheActionForBatchUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 
-	Condition *ConditionForBatchUpdateCdnConfigInput `type:"structure"`
+	Condition *ConditionForBatchUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -992,15 +1000,15 @@ func (s *BrowserCacheForBatchUpdateCdnConfigInput) SetCondition(v *ConditionForB
 }
 
 type CacheActionForBatchUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Action *string `type:"string"`
+	Action *string `type:"string" json:",omitempty"`
 
-	DefaultPolicy *string `type:"string"`
+	DefaultPolicy *string `type:"string" json:",omitempty"`
 
-	IgnoreCase *bool `type:"boolean"`
+	IgnoreCase *bool `type:"boolean" json:",omitempty"`
 
-	Ttl *int64 `type:"int64"`
+	Ttl *int64 `type:"int64" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -1038,11 +1046,11 @@ func (s *CacheActionForBatchUpdateCdnConfigInput) SetTtl(v int64) *CacheActionFo
 }
 
 type CacheForBatchUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	CacheAction *CacheActionForBatchUpdateCdnConfigInput `type:"structure"`
+	CacheAction *CacheActionForBatchUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 
-	Condition *ConditionForBatchUpdateCdnConfigInput `type:"structure"`
+	Condition *ConditionForBatchUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -1068,9 +1076,9 @@ func (s *CacheForBatchUpdateCdnConfigInput) SetCondition(v *ConditionForBatchUpd
 }
 
 type CacheHostActionForBatchUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	CacheHost *string `type:"string"`
+	CacheHost *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -1090,11 +1098,11 @@ func (s *CacheHostActionForBatchUpdateCdnConfigInput) SetCacheHost(v string) *Ca
 }
 
 type CacheHostForBatchUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	CacheHostRule []*CacheHostRuleForBatchUpdateCdnConfigInput `type:"list"`
+	CacheHostRule []*CacheHostRuleForBatchUpdateCdnConfigInput `type:"list" json:",omitempty"`
 
-	Switch *bool `type:"boolean"`
+	Switch *bool `type:"boolean" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -1120,11 +1128,11 @@ func (s *CacheHostForBatchUpdateCdnConfigInput) SetSwitch(v bool) *CacheHostForB
 }
 
 type CacheHostRuleForBatchUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	CacheHostAction *CacheHostActionForBatchUpdateCdnConfigInput `type:"structure"`
+	CacheHostAction *CacheHostActionForBatchUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 
-	Condition *ConditionForBatchUpdateCdnConfigInput `type:"structure"`
+	Condition *ConditionForBatchUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -1150,9 +1158,9 @@ func (s *CacheHostRuleForBatchUpdateCdnConfigInput) SetCondition(v *ConditionFor
 }
 
 type CacheKeyActionForBatchUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	CacheKeyComponents []*CacheKeyComponentForBatchUpdateCdnConfigInput `type:"list"`
+	CacheKeyComponents []*CacheKeyComponentForBatchUpdateCdnConfigInput `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -1172,15 +1180,15 @@ func (s *CacheKeyActionForBatchUpdateCdnConfigInput) SetCacheKeyComponents(v []*
 }
 
 type CacheKeyComponentForBatchUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Action *string `type:"string"`
+	Action *string `type:"string" json:",omitempty"`
 
-	IgnoreCase *bool `type:"boolean"`
+	IgnoreCase *bool `type:"boolean" json:",omitempty"`
 
-	Object *string `type:"string"`
+	Object *string `type:"string" json:",omitempty"`
 
-	Subobject *string `type:"string"`
+	Subobject *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -1218,11 +1226,11 @@ func (s *CacheKeyComponentForBatchUpdateCdnConfigInput) SetSubobject(v string) *
 }
 
 type CacheKeyForBatchUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	CacheKeyAction *CacheKeyActionForBatchUpdateCdnConfigInput `type:"structure"`
+	CacheKeyAction *CacheKeyActionForBatchUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 
-	Condition *ConditionForBatchUpdateCdnConfigInput `type:"structure"`
+	Condition *ConditionForBatchUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -1248,11 +1256,11 @@ func (s *CacheKeyForBatchUpdateCdnConfigInput) SetCondition(v *ConditionForBatch
 }
 
 type CertCheckForBatchUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	CertInfoList []*CertInfoListForBatchUpdateCdnConfigInput `type:"list"`
+	CertInfoList []*CertInfoListForBatchUpdateCdnConfigInput `type:"list" json:",omitempty"`
 
-	Switch *bool `type:"boolean"`
+	Switch *bool `type:"boolean" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -1278,23 +1286,23 @@ func (s *CertCheckForBatchUpdateCdnConfigInput) SetSwitch(v bool) *CertCheckForB
 }
 
 type CertInfoForBatchUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	CertId *string `type:"string"`
+	CertId *string `type:"string" json:",omitempty"`
 
-	CertName *string `type:"string"`
+	CertName *string `type:"string" json:",omitempty"`
 
-	Certificate *CertificateForBatchUpdateCdnConfigInput `type:"structure"`
+	Certificate *CertificateForBatchUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 
-	Desc *string `type:"string"`
+	Desc *string `type:"string" json:",omitempty"`
 
-	EffectiveTime *int64 `type:"int64"`
+	EffectiveTime *int64 `type:"int64" json:",omitempty"`
 
-	EncryType *string `type:"string"`
+	EncryType *string `type:"string" json:",omitempty"`
 
-	ExpireTime *int64 `type:"int64"`
+	ExpireTime *int64 `type:"int64" json:",omitempty"`
 
-	Source *string `type:"string"`
+	Source *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -1356,23 +1364,23 @@ func (s *CertInfoForBatchUpdateCdnConfigInput) SetSource(v string) *CertInfoForB
 }
 
 type CertInfoListForBatchUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	CertId *string `type:"string"`
+	CertId *string `type:"string" json:",omitempty"`
 
-	CertName *string `type:"string"`
+	CertName *string `type:"string" json:",omitempty"`
 
-	Certificate *CertificateForBatchUpdateCdnConfigInput `type:"structure"`
+	Certificate *CertificateForBatchUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 
-	Desc *string `type:"string"`
+	Desc *string `type:"string" json:",omitempty"`
 
-	EffectiveTime *int64 `type:"int64"`
+	EffectiveTime *int64 `type:"int64" json:",omitempty"`
 
-	EncryType *string `type:"string"`
+	EncryType *string `type:"string" json:",omitempty"`
 
-	ExpireTime *int64 `type:"int64"`
+	ExpireTime *int64 `type:"int64" json:",omitempty"`
 
-	Source *string `type:"string"`
+	Source *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -1434,15 +1442,15 @@ func (s *CertInfoListForBatchUpdateCdnConfigInput) SetSource(v string) *CertInfo
 }
 
 type CertificateForBatchUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Certificate *string `type:"string"`
+	Certificate *string `type:"string" json:",omitempty"`
 
-	EncryptionCert *string `type:"string"`
+	EncryptionCert *string `type:"string" json:",omitempty"`
 
-	EncryptionKey *string `type:"string"`
+	EncryptionKey *string `type:"string" json:",omitempty"`
 
-	PrivateKey *string `type:"string"`
+	PrivateKey *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -1480,13 +1488,13 @@ func (s *CertificateForBatchUpdateCdnConfigInput) SetPrivateKey(v string) *Certi
 }
 
 type CommonTypeForBatchUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	IgnoreCase *bool `type:"boolean"`
+	IgnoreCase *bool `type:"boolean" json:",omitempty"`
 
-	IgnoreScheme *bool `type:"boolean"`
+	IgnoreScheme *bool `type:"boolean" json:",omitempty"`
 
-	Referers []*string `type:"list"`
+	Referers []*string `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -1518,15 +1526,17 @@ func (s *CommonTypeForBatchUpdateCdnConfigInput) SetReferers(v []*string) *Commo
 }
 
 type CompressionActionForBatchUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	CompressionFormat *string `type:"string"`
+	CompressionFormat *string `type:"string" json:",omitempty"`
 
-	CompressionTarget *string `type:"string"`
+	CompressionTarget *string `type:"string" json:",omitempty"`
 
-	CompressionType []*string `type:"list"`
+	CompressionType []*string `type:"list" json:",omitempty"`
 
-	MinFileSizeKB *int64 `type:"int64"`
+	MaxFileSizeKB *int64 `type:"int64" json:",omitempty"`
+
+	MinFileSizeKB *int64 `type:"int64" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -1557,6 +1567,12 @@ func (s *CompressionActionForBatchUpdateCdnConfigInput) SetCompressionType(v []*
 	return s
 }
 
+// SetMaxFileSizeKB sets the MaxFileSizeKB field's value.
+func (s *CompressionActionForBatchUpdateCdnConfigInput) SetMaxFileSizeKB(v int64) *CompressionActionForBatchUpdateCdnConfigInput {
+	s.MaxFileSizeKB = &v
+	return s
+}
+
 // SetMinFileSizeKB sets the MinFileSizeKB field's value.
 func (s *CompressionActionForBatchUpdateCdnConfigInput) SetMinFileSizeKB(v int64) *CompressionActionForBatchUpdateCdnConfigInput {
 	s.MinFileSizeKB = &v
@@ -1564,11 +1580,11 @@ func (s *CompressionActionForBatchUpdateCdnConfigInput) SetMinFileSizeKB(v int64
 }
 
 type CompressionForBatchUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	CompressionRules []*CompressionRuleForBatchUpdateCdnConfigInput `type:"list"`
+	CompressionRules []*CompressionRuleForBatchUpdateCdnConfigInput `type:"list" json:",omitempty"`
 
-	Switch *bool `type:"boolean"`
+	Switch *bool `type:"boolean" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -1594,11 +1610,11 @@ func (s *CompressionForBatchUpdateCdnConfigInput) SetSwitch(v bool) *Compression
 }
 
 type CompressionRuleForBatchUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	CompressionAction *CompressionActionForBatchUpdateCdnConfigInput `type:"structure"`
+	CompressionAction *CompressionActionForBatchUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 
-	Condition *ConditionForBatchUpdateCdnConfigInput `type:"structure"`
+	Condition *ConditionForBatchUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -1624,11 +1640,11 @@ func (s *CompressionRuleForBatchUpdateCdnConfigInput) SetCondition(v *ConditionF
 }
 
 type ConditionForBatchUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	ConditionRule []*ConditionRuleForBatchUpdateCdnConfigInput `type:"list"`
+	ConditionRule []*ConditionRuleForBatchUpdateCdnConfigInput `type:"list" json:",omitempty"`
 
-	Connective *string `type:"string"`
+	Connective *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -1654,11 +1670,11 @@ func (s *ConditionForBatchUpdateCdnConfigInput) SetConnective(v string) *Conditi
 }
 
 type ConditionGroupForBatchUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Condition *ConvertConditionForBatchUpdateCdnConfigInput `type:"structure"`
+	Condition *ConvertConditionForBatchUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 
-	IsGroup *bool `type:"boolean"`
+	IsGroup *bool `type:"boolean" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -1684,17 +1700,17 @@ func (s *ConditionGroupForBatchUpdateCdnConfigInput) SetIsGroup(v bool) *Conditi
 }
 
 type ConditionRuleForBatchUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Name *string `type:"string"`
+	Name *string `type:"string" json:",omitempty"`
 
-	Object *string `type:"string"`
+	Object *string `type:"string" json:",omitempty"`
 
-	Operator *string `type:"string"`
+	Operator *string `type:"string" json:",omitempty"`
 
-	Type *string `type:"string"`
+	Type *string `type:"string" json:",omitempty"`
 
-	Value *string `type:"string"`
+	Value *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -1738,11 +1754,11 @@ func (s *ConditionRuleForBatchUpdateCdnConfigInput) SetValue(v string) *Conditio
 }
 
 type ConditionalOriginForBatchUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	OriginRules []*OriginRuleForBatchUpdateCdnConfigInput `type:"list"`
+	OriginRules []*OriginRuleForBatchUpdateCdnConfigInput `type:"list" json:",omitempty"`
 
-	Switch *bool `type:"boolean"`
+	Switch *bool `type:"boolean" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -1768,15 +1784,15 @@ func (s *ConditionalOriginForBatchUpdateCdnConfigInput) SetSwitch(v bool) *Condi
 }
 
 type ConvertCacheActionForBatchUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Action *string `type:"string"`
+	Action *string `type:"string" json:",omitempty"`
 
-	CacheKey []*string `type:"list"`
+	CacheKey []*string `type:"list" json:",omitempty"`
 
-	IgnoreCase *bool `type:"boolean"`
+	IgnoreCase *bool `type:"boolean" json:",omitempty"`
 
-	Ttl *int64 `type:"int64"`
+	Ttl *int64 `type:"int64" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -1814,13 +1830,13 @@ func (s *ConvertCacheActionForBatchUpdateCdnConfigInput) SetTtl(v int64) *Conver
 }
 
 type ConvertConditionForBatchUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Object *string `type:"string"`
+	Object *string `type:"string" json:",omitempty"`
 
-	Operator *string `type:"string"`
+	Operator *string `type:"string" json:",omitempty"`
 
-	Value []*string `type:"list"`
+	Value []*string `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -1852,13 +1868,13 @@ func (s *ConvertConditionForBatchUpdateCdnConfigInput) SetValue(v []*string) *Co
 }
 
 type ConvertConvertConditionForBatchUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	ConditionGroups []*ConditionGroupForBatchUpdateCdnConfigInput `type:"list"`
+	ConditionGroups []*ConditionGroupForBatchUpdateCdnConfigInput `type:"list" json:",omitempty"`
 
-	Connective *string `type:"string"`
+	Connective *string `type:"string" json:",omitempty"`
 
-	IsGroup *bool `type:"boolean"`
+	IsGroup *bool `type:"boolean" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -1890,29 +1906,29 @@ func (s *ConvertConvertConditionForBatchUpdateCdnConfigInput) SetIsGroup(v bool)
 }
 
 type ConvertOriginLineForBatchUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Address *string `type:"string"`
+	Address *string `type:"string" json:",omitempty"`
 
-	BucketName *string `type:"string"`
+	BucketName *string `type:"string" json:",omitempty"`
 
-	HttpPort *string `type:"string"`
+	HttpPort *string `type:"string" json:",omitempty"`
 
-	HttpsPort *string `type:"string"`
+	HttpsPort *string `type:"string" json:",omitempty"`
 
-	InstanceType *string `type:"string"`
+	InstanceType *string `type:"string" json:",omitempty"`
 
-	OriginHost *string `type:"string"`
+	OriginHost *string `type:"string" json:",omitempty"`
 
-	OriginType *string `type:"string"`
+	OriginType *string `type:"string" json:",omitempty"`
 
-	PrivateBucketAccess *bool `type:"boolean"`
+	PrivateBucketAccess *bool `type:"boolean" json:",omitempty"`
 
-	PrivateBucketAuth *PrivateBucketAuthForBatchUpdateCdnConfigInput `type:"structure"`
+	PrivateBucketAuth *PrivateBucketAuthForBatchUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 
-	Region *string `type:"string"`
+	Region *string `type:"string" json:",omitempty"`
 
-	Weight *string `type:"string"`
+	Weight *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -1992,11 +2008,11 @@ func (s *ConvertOriginLineForBatchUpdateCdnConfigInput) SetWeight(v string) *Con
 }
 
 type ConvertTimeoutActionForBatchUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	HttpTimeout *int64 `type:"int64"`
+	HttpTimeout *int64 `type:"int64" json:",omitempty"`
 
-	TcpTimeout *int64 `type:"int64"`
+	TcpTimeout *int64 `type:"int64" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -2022,11 +2038,11 @@ func (s *ConvertTimeoutActionForBatchUpdateCdnConfigInput) SetTcpTimeout(v int64
 }
 
 type CustomErrorPageForBatchUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	ErrorPageRule []*ErrorPageRuleForBatchUpdateCdnConfigInput `type:"list"`
+	ErrorPageRule []*ErrorPageRuleForBatchUpdateCdnConfigInput `type:"list" json:",omitempty"`
 
-	Switch *bool `type:"boolean"`
+	Switch *bool `type:"boolean" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -2052,13 +2068,13 @@ func (s *CustomErrorPageForBatchUpdateCdnConfigInput) SetSwitch(v bool) *CustomE
 }
 
 type CustomVariableInstanceForBatchUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Operator *string `type:"string"`
+	Operator *string `type:"string" json:",omitempty"`
 
-	Type *string `type:"string"`
+	Type *string `type:"string" json:",omitempty"`
 
-	Value *string `type:"string"`
+	Value *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -2090,9 +2106,9 @@ func (s *CustomVariableInstanceForBatchUpdateCdnConfigInput) SetValue(v string) 
 }
 
 type CustomVariableRulesForBatchUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	CustomVariableInstances []*CustomVariableInstanceForBatchUpdateCdnConfigInput `type:"list"`
+	CustomVariableInstances []*CustomVariableInstanceForBatchUpdateCdnConfigInput `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -2112,11 +2128,11 @@ func (s *CustomVariableRulesForBatchUpdateCdnConfigInput) SetCustomVariableInsta
 }
 
 type CustomizeAccessRuleForBatchUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	CustomizeInstances []*CustomizeInstanceForBatchUpdateCdnConfigInput `type:"list"`
+	CustomizeInstances []*CustomizeInstanceForBatchUpdateCdnConfigInput `type:"list" json:",omitempty"`
 
-	Switch *bool `type:"boolean"`
+	Switch *bool `type:"boolean" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -2142,9 +2158,9 @@ func (s *CustomizeAccessRuleForBatchUpdateCdnConfigInput) SetSwitch(v bool) *Cus
 }
 
 type CustomizeInstanceForBatchUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	CustomizeRule *CustomizeRuleForBatchUpdateCdnConfigInput `type:"structure"`
+	CustomizeRule *CustomizeRuleForBatchUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -2164,11 +2180,11 @@ func (s *CustomizeInstanceForBatchUpdateCdnConfigInput) SetCustomizeRule(v *Cust
 }
 
 type CustomizeRuleForBatchUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	AccessAction *AccessActionForBatchUpdateCdnConfigInput `type:"structure"`
+	AccessAction *AccessActionForBatchUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 
-	Condition *ConditionForBatchUpdateCdnConfigInput `type:"structure"`
+	Condition *ConditionForBatchUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -2194,13 +2210,13 @@ func (s *CustomizeRuleForBatchUpdateCdnConfigInput) SetCondition(v *ConditionFor
 }
 
 type DeployResultForBatchUpdateCdnConfigOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Domain *string `type:"string"`
+	Domain *string `type:"string" json:",omitempty"`
 
-	ErrorMsg *string `type:"string"`
+	ErrorMsg *string `type:"string" json:",omitempty"`
 
-	Status *string `type:"string"`
+	Status *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -2232,13 +2248,13 @@ func (s *DeployResultForBatchUpdateCdnConfigOutput) SetStatus(v string) *DeployR
 }
 
 type DownloadSpeedLimitActionForBatchUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	SpeedLimitRate *int64 `type:"int64"`
+	SpeedLimitRate *int64 `type:"int64" json:",omitempty"`
 
-	SpeedLimitRateAfter *int64 `type:"int64"`
+	SpeedLimitRateAfter *int64 `type:"int64" json:",omitempty"`
 
-	SpeedLimitTime *SpeedLimitTimeForBatchUpdateCdnConfigInput `type:"structure"`
+	SpeedLimitTime *SpeedLimitTimeForBatchUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -2270,11 +2286,11 @@ func (s *DownloadSpeedLimitActionForBatchUpdateCdnConfigInput) SetSpeedLimitTime
 }
 
 type DownloadSpeedLimitForBatchUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	DownloadSpeedLimitRules []*DownloadSpeedLimitRuleForBatchUpdateCdnConfigInput `type:"list"`
+	DownloadSpeedLimitRules []*DownloadSpeedLimitRuleForBatchUpdateCdnConfigInput `type:"list" json:",omitempty"`
 
-	Switch *bool `type:"boolean"`
+	Switch *bool `type:"boolean" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -2300,11 +2316,11 @@ func (s *DownloadSpeedLimitForBatchUpdateCdnConfigInput) SetSwitch(v bool) *Down
 }
 
 type DownloadSpeedLimitRuleForBatchUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Condition *ConditionForBatchUpdateCdnConfigInput `type:"structure"`
+	Condition *ConditionForBatchUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 
-	DownloadSpeedLimitAction *DownloadSpeedLimitActionForBatchUpdateCdnConfigInput `type:"structure"`
+	DownloadSpeedLimitAction *DownloadSpeedLimitActionForBatchUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -2330,15 +2346,15 @@ func (s *DownloadSpeedLimitRuleForBatchUpdateCdnConfigInput) SetDownloadSpeedLim
 }
 
 type ErrorPageActionForBatchUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Action *string `type:"string"`
+	Action *string `type:"string" json:",omitempty"`
 
-	RedirectCode *string `type:"string"`
+	RedirectCode *string `type:"string" json:",omitempty"`
 
-	RedirectUrl *string `type:"string"`
+	RedirectUrl *string `type:"string" json:",omitempty"`
 
-	StatusCode *string `type:"string"`
+	StatusCode *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -2376,9 +2392,9 @@ func (s *ErrorPageActionForBatchUpdateCdnConfigInput) SetStatusCode(v string) *E
 }
 
 type ErrorPageRuleForBatchUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	ErrorPageAction *ErrorPageActionForBatchUpdateCdnConfigInput `type:"structure"`
+	ErrorPageAction *ErrorPageActionForBatchUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -2398,13 +2414,13 @@ func (s *ErrorPageRuleForBatchUpdateCdnConfigInput) SetErrorPageAction(v *ErrorP
 }
 
 type ExpTimeCapRuleForBatchUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	CapMode *string `type:"string"`
+	CapMode *string `type:"string" json:",omitempty"`
 
-	ParamName *string `type:"string"`
+	ParamName *string `type:"string" json:",omitempty"`
 
-	UriLevel *int64 `type:"int64"`
+	UriLevel *int64 `type:"int64" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -2436,11 +2452,11 @@ func (s *ExpTimeCapRuleForBatchUpdateCdnConfigInput) SetUriLevel(v int64) *ExpTi
 }
 
 type ForcedRedirectForBatchUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	EnableForcedRedirect *bool `type:"boolean"`
+	EnableForcedRedirect *bool `type:"boolean" json:",omitempty"`
 
-	StatusCode *string `type:"string"`
+	StatusCode *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -2466,27 +2482,27 @@ func (s *ForcedRedirectForBatchUpdateCdnConfigInput) SetStatusCode(v string) *Fo
 }
 
 type HTTPSForBatchUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	CertCheck *CertCheckForBatchUpdateCdnConfigInput `type:"structure"`
+	CertCheck *CertCheckForBatchUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 
-	CertInfo *CertInfoForBatchUpdateCdnConfigInput `type:"structure"`
+	CertInfo *CertInfoForBatchUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 
-	CertInfoList []*CertInfoListForBatchUpdateCdnConfigInput `type:"list"`
+	CertInfoList []*CertInfoListForBatchUpdateCdnConfigInput `type:"list" json:",omitempty"`
 
-	DisableHttp *bool `type:"boolean"`
+	DisableHttp *bool `type:"boolean" json:",omitempty"`
 
-	ForcedRedirect *ForcedRedirectForBatchUpdateCdnConfigInput `type:"structure"`
+	ForcedRedirect *ForcedRedirectForBatchUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 
-	HTTP2 *bool `type:"boolean"`
+	HTTP2 *bool `type:"boolean" json:",omitempty"`
 
-	Hsts *HstsForBatchUpdateCdnConfigInput `type:"structure"`
+	Hsts *HstsForBatchUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 
-	OCSP *bool `type:"boolean"`
+	OCSP *bool `type:"boolean" json:",omitempty"`
 
-	Switch *bool `type:"boolean"`
+	Switch *bool `type:"boolean" json:",omitempty"`
 
-	TlsVersion []*string `type:"list"`
+	TlsVersion []*string `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -2560,13 +2576,13 @@ func (s *HTTPSForBatchUpdateCdnConfigInput) SetTlsVersion(v []*string) *HTTPSFor
 }
 
 type HstsForBatchUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Subdomain *string `type:"string"`
+	Subdomain *string `type:"string" json:",omitempty"`
 
-	Switch *bool `type:"boolean"`
+	Switch *bool `type:"boolean" json:",omitempty"`
 
-	Ttl *int64 `type:"int64"`
+	Ttl *int64 `type:"int64" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -2598,11 +2614,11 @@ func (s *HstsForBatchUpdateCdnConfigInput) SetTtl(v int64) *HstsForBatchUpdateCd
 }
 
 type HttpForcedRedirectForBatchUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	EnableForcedRedirect *bool `type:"boolean"`
+	EnableForcedRedirect *bool `type:"boolean" json:",omitempty"`
 
-	StatusCode *string `type:"string"`
+	StatusCode *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -2628,9 +2644,9 @@ func (s *HttpForcedRedirectForBatchUpdateCdnConfigInput) SetStatusCode(v string)
 }
 
 type IPv6ForBatchUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Switch *bool `type:"boolean"`
+	Switch *bool `type:"boolean" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -2650,15 +2666,15 @@ func (s *IPv6ForBatchUpdateCdnConfigInput) SetSwitch(v bool) *IPv6ForBatchUpdate
 }
 
 type IpAccessRuleForBatchUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Ip []*string `type:"list"`
+	Ip []*string `type:"list" json:",omitempty"`
 
-	RuleType *string `type:"string"`
+	RuleType *string `type:"string" json:",omitempty"`
 
-	SharedConfig *SharedConfigForBatchUpdateCdnConfigInput `type:"structure"`
+	SharedConfig *SharedConfigForBatchUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 
-	Switch *bool `type:"boolean"`
+	Switch *bool `type:"boolean" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -2696,13 +2712,13 @@ func (s *IpAccessRuleForBatchUpdateCdnConfigInput) SetSwitch(v bool) *IpAccessRu
 }
 
 type IpFreqLimitActionForBatchUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Action *string `type:"string"`
+	Action *string `type:"string" json:",omitempty"`
 
-	FreqLimitRate *int64 `type:"int64"`
+	FreqLimitRate *int64 `type:"int64" json:",omitempty"`
 
-	StatusCode *string `type:"string"`
+	StatusCode *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -2734,11 +2750,11 @@ func (s *IpFreqLimitActionForBatchUpdateCdnConfigInput) SetStatusCode(v string) 
 }
 
 type IpFreqLimitForBatchUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	IpFreqLimitRules []*IpFreqLimitRuleForBatchUpdateCdnConfigInput `type:"list"`
+	IpFreqLimitRules []*IpFreqLimitRuleForBatchUpdateCdnConfigInput `type:"list" json:",omitempty"`
 
-	Switch *bool `type:"boolean"`
+	Switch *bool `type:"boolean" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -2764,11 +2780,11 @@ func (s *IpFreqLimitForBatchUpdateCdnConfigInput) SetSwitch(v bool) *IpFreqLimit
 }
 
 type IpFreqLimitRuleForBatchUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Condition *ConditionForBatchUpdateCdnConfigInput `type:"structure"`
+	Condition *ConditionForBatchUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 
-	IpFreqLimitAction *IpFreqLimitActionForBatchUpdateCdnConfigInput `type:"structure"`
+	IpFreqLimitAction *IpFreqLimitActionForBatchUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -2794,11 +2810,11 @@ func (s *IpFreqLimitRuleForBatchUpdateCdnConfigInput) SetIpFreqLimitAction(v *Ip
 }
 
 type MethodDeniedRuleForBatchUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Methods *string `type:"string"`
+	Methods *string `type:"string" json:",omitempty"`
 
-	Switch *bool `type:"boolean"`
+	Switch *bool `type:"boolean" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -2824,9 +2840,9 @@ func (s *MethodDeniedRuleForBatchUpdateCdnConfigInput) SetSwitch(v bool) *Method
 }
 
 type MultiRangeForBatchUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Switch *bool `type:"boolean"`
+	Switch *bool `type:"boolean" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -2846,11 +2862,11 @@ func (s *MultiRangeForBatchUpdateCdnConfigInput) SetSwitch(v bool) *MultiRangeFo
 }
 
 type NegativeCacheForBatchUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Condition *ConditionForBatchUpdateCdnConfigInput `type:"structure"`
+	Condition *ConditionForBatchUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 
-	NegativeCacheRule *NegativeCacheRuleForBatchUpdateCdnConfigInput `type:"structure"`
+	NegativeCacheRule *NegativeCacheRuleForBatchUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -2876,15 +2892,15 @@ func (s *NegativeCacheForBatchUpdateCdnConfigInput) SetNegativeCacheRule(v *Nega
 }
 
 type NegativeCacheRuleForBatchUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Action *string `type:"string"`
+	Action *string `type:"string" json:",omitempty"`
 
-	IgnoreCase *bool `type:"boolean"`
+	IgnoreCase *bool `type:"boolean" json:",omitempty"`
 
-	StatusCode *string `type:"string"`
+	StatusCode *string `type:"string" json:",omitempty"`
 
-	Ttl *int64 `type:"int64"`
+	Ttl *int64 `type:"int64" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -2921,18 +2937,56 @@ func (s *NegativeCacheRuleForBatchUpdateCdnConfigInput) SetTtl(v int64) *Negativ
 	return s
 }
 
+type OfflineCacheForBatchUpdateCdnConfigInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Object *string `type:"string" json:",omitempty"`
+
+	StatusCode *string `type:"string" json:",omitempty"`
+
+	Switch *bool `type:"boolean" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s OfflineCacheForBatchUpdateCdnConfigInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s OfflineCacheForBatchUpdateCdnConfigInput) GoString() string {
+	return s.String()
+}
+
+// SetObject sets the Object field's value.
+func (s *OfflineCacheForBatchUpdateCdnConfigInput) SetObject(v string) *OfflineCacheForBatchUpdateCdnConfigInput {
+	s.Object = &v
+	return s
+}
+
+// SetStatusCode sets the StatusCode field's value.
+func (s *OfflineCacheForBatchUpdateCdnConfigInput) SetStatusCode(v string) *OfflineCacheForBatchUpdateCdnConfigInput {
+	s.StatusCode = &v
+	return s
+}
+
+// SetSwitch sets the Switch field's value.
+func (s *OfflineCacheForBatchUpdateCdnConfigInput) SetSwitch(v bool) *OfflineCacheForBatchUpdateCdnConfigInput {
+	s.Switch = &v
+	return s
+}
+
 type OriginAccessRuleForBatchUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	AllowEmpty *bool `type:"boolean"`
+	AllowEmpty *bool `type:"boolean" json:",omitempty"`
 
-	IgnoreCase *bool `type:"boolean"`
+	IgnoreCase *bool `type:"boolean" json:",omitempty"`
 
-	Origins []*string `type:"list"`
+	Origins []*string `type:"list" json:",omitempty"`
 
-	RuleType *string `type:"string"`
+	RuleType *string `type:"string" json:",omitempty"`
 
-	Switch *bool `type:"boolean"`
+	Switch *bool `type:"boolean" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -2976,9 +3030,9 @@ func (s *OriginAccessRuleForBatchUpdateCdnConfigInput) SetSwitch(v bool) *Origin
 }
 
 type OriginActionForBatchUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	OriginLines []*ConvertOriginLineForBatchUpdateCdnConfigInput `type:"list"`
+	OriginLines []*ConvertOriginLineForBatchUpdateCdnConfigInput `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -2998,9 +3052,9 @@ func (s *OriginActionForBatchUpdateCdnConfigInput) SetOriginLines(v []*ConvertOr
 }
 
 type OriginArgActionForBatchUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	OriginArgComponents []*OriginArgComponentForBatchUpdateCdnConfigInput `type:"list"`
+	OriginArgComponents []*OriginArgComponentForBatchUpdateCdnConfigInput `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -3020,13 +3074,13 @@ func (s *OriginArgActionForBatchUpdateCdnConfigInput) SetOriginArgComponents(v [
 }
 
 type OriginArgComponentForBatchUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Action *string `type:"string"`
+	Action *string `type:"string" json:",omitempty"`
 
-	Object *string `type:"string"`
+	Object *string `type:"string" json:",omitempty"`
 
-	Subobject *string `type:"string"`
+	Subobject *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -3058,11 +3112,11 @@ func (s *OriginArgComponentForBatchUpdateCdnConfigInput) SetSubobject(v string) 
 }
 
 type OriginArgForBatchUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Condition *ConditionForBatchUpdateCdnConfigInput `type:"structure"`
+	Condition *ConditionForBatchUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 
-	OriginArgAction *OriginArgActionForBatchUpdateCdnConfigInput `type:"structure"`
+	OriginArgAction *OriginArgActionForBatchUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -3088,9 +3142,9 @@ func (s *OriginArgForBatchUpdateCdnConfigInput) SetOriginArgAction(v *OriginArgA
 }
 
 type OriginCertCheckForBatchUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Switch *bool `type:"boolean"`
+	Switch *bool `type:"boolean" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -3110,11 +3164,11 @@ func (s *OriginCertCheckForBatchUpdateCdnConfigInput) SetSwitch(v bool) *OriginC
 }
 
 type OriginForBatchUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Condition *ConditionForBatchUpdateCdnConfigInput `type:"structure"`
+	Condition *ConditionForBatchUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 
-	OriginAction *OriginActionForBatchUpdateCdnConfigInput `type:"structure"`
+	OriginAction *OriginActionForBatchUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -3140,17 +3194,17 @@ func (s *OriginForBatchUpdateCdnConfigInput) SetOriginAction(v *OriginActionForB
 }
 
 type OriginLineForBatchUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Address *string `type:"string"`
+	Address *string `type:"string" json:",omitempty"`
 
-	HttpPort *string `type:"string"`
+	HttpPort *string `type:"string" json:",omitempty"`
 
-	HttpsPort *string `type:"string"`
+	HttpsPort *string `type:"string" json:",omitempty"`
 
-	InstanceType *string `type:"string"`
+	InstanceType *string `type:"string" json:",omitempty"`
 
-	OriginHost *string `type:"string"`
+	OriginHost *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -3194,11 +3248,11 @@ func (s *OriginLineForBatchUpdateCdnConfigInput) SetOriginHost(v string) *Origin
 }
 
 type OriginRetryForBatchUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	StatusCode *string `type:"string"`
+	StatusCode *string `type:"string" json:",omitempty"`
 
-	Switch *bool `type:"boolean"`
+	Switch *bool `type:"boolean" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -3224,13 +3278,13 @@ func (s *OriginRetryForBatchUpdateCdnConfigInput) SetSwitch(v bool) *OriginRetry
 }
 
 type OriginRewriteActionForBatchUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	RewriteType *string `type:"string"`
+	RewriteType *string `type:"string" json:",omitempty"`
 
-	SourcePath *string `type:"string"`
+	SourcePath *string `type:"string" json:",omitempty"`
 
-	TargetPath *string `type:"string"`
+	TargetPath *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -3262,11 +3316,11 @@ func (s *OriginRewriteActionForBatchUpdateCdnConfigInput) SetTargetPath(v string
 }
 
 type OriginRewriteForBatchUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	OriginRewriteRule []*OriginRewriteRuleForBatchUpdateCdnConfigInput `type:"list"`
+	OriginRewriteRule []*OriginRewriteRuleForBatchUpdateCdnConfigInput `type:"list" json:",omitempty"`
 
-	Switch *bool `type:"boolean"`
+	Switch *bool `type:"boolean" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -3292,11 +3346,11 @@ func (s *OriginRewriteForBatchUpdateCdnConfigInput) SetSwitch(v bool) *OriginRew
 }
 
 type OriginRewriteRuleForBatchUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Condition *ConditionForBatchUpdateCdnConfigInput `type:"structure"`
+	Condition *ConditionForBatchUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 
-	OriginRewriteAction *OriginRewriteActionForBatchUpdateCdnConfigInput `type:"structure"`
+	OriginRewriteAction *OriginRewriteActionForBatchUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -3322,11 +3376,11 @@ func (s *OriginRewriteRuleForBatchUpdateCdnConfigInput) SetOriginRewriteAction(v
 }
 
 type OriginRuleForBatchUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Actions *ActionsForBatchUpdateCdnConfigInput `type:"structure"`
+	Actions *ActionsForBatchUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 
-	Condition *ConvertConvertConditionForBatchUpdateCdnConfigInput `type:"structure"`
+	Condition *ConvertConvertConditionForBatchUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -3352,11 +3406,11 @@ func (s *OriginRuleForBatchUpdateCdnConfigInput) SetCondition(v *ConvertConvertC
 }
 
 type OriginSniForBatchUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	SniDomain *string `type:"string"`
+	SniDomain *string `type:"string" json:",omitempty"`
 
-	Switch *bool `type:"boolean"`
+	Switch *bool `type:"boolean" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -3382,11 +3436,11 @@ func (s *OriginSniForBatchUpdateCdnConfigInput) SetSwitch(v bool) *OriginSniForB
 }
 
 type PageOptimizationForBatchUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	OptimizationType []*string `type:"list"`
+	OptimizationType []*string `type:"list" json:",omitempty"`
 
-	Switch *bool `type:"boolean"`
+	Switch *bool `type:"boolean" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -3412,13 +3466,13 @@ func (s *PageOptimizationForBatchUpdateCdnConfigInput) SetSwitch(v bool) *PageOp
 }
 
 type PrivateBucketAuthForBatchUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	AuthType *string `type:"string"`
+	AuthType *string `type:"string" json:",omitempty"`
 
-	Switch *bool `type:"boolean"`
+	Switch *bool `type:"boolean" json:",omitempty"`
 
-	TosAuthInformation *TosAuthInformationForBatchUpdateCdnConfigInput `type:"structure"`
+	TosAuthInformation *TosAuthInformationForBatchUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -3450,11 +3504,11 @@ func (s *PrivateBucketAuthForBatchUpdateCdnConfigInput) SetTosAuthInformation(v 
 }
 
 type QueryStringComponentsForBatchUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Action *string `type:"string"`
+	Action *string `type:"string" json:",omitempty"`
 
-	Value *string `type:"string"`
+	Value *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -3480,15 +3534,15 @@ func (s *QueryStringComponentsForBatchUpdateCdnConfigInput) SetValue(v string) *
 }
 
 type QueryStringInstanceForBatchUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Action *string `type:"string"`
+	Action *string `type:"string" json:",omitempty"`
 
-	Key *string `type:"string"`
+	Key *string `type:"string" json:",omitempty"`
 
-	Value *string `type:"string"`
+	Value *string `type:"string" json:",omitempty"`
 
-	ValueType *string `type:"string"`
+	ValueType *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -3526,11 +3580,11 @@ func (s *QueryStringInstanceForBatchUpdateCdnConfigInput) SetValueType(v string)
 }
 
 type QueryStringRulesForBatchUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	QueryStringComponents *QueryStringComponentsForBatchUpdateCdnConfigInput `type:"structure"`
+	QueryStringComponents *QueryStringComponentsForBatchUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 
-	QueryStringInstances []*QueryStringInstanceForBatchUpdateCdnConfigInput `type:"list"`
+	QueryStringInstances []*QueryStringInstanceForBatchUpdateCdnConfigInput `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -3556,9 +3610,9 @@ func (s *QueryStringRulesForBatchUpdateCdnConfigInput) SetQueryStringInstances(v
 }
 
 type QuicForBatchUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Switch *bool `type:"boolean"`
+	Switch *bool `type:"boolean" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -3578,19 +3632,19 @@ func (s *QuicForBatchUpdateCdnConfigInput) SetSwitch(v bool) *QuicForBatchUpdate
 }
 
 type RedirectionActionForBatchUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	RedirectCode *string `type:"string"`
+	RedirectCode *string `type:"string" json:",omitempty"`
 
-	SourcePath *string `type:"string"`
+	SourcePath *string `type:"string" json:",omitempty"`
 
-	TargetHost *string `type:"string"`
+	TargetHost *string `type:"string" json:",omitempty"`
 
-	TargetPath *string `type:"string"`
+	TargetPath *string `type:"string" json:",omitempty"`
 
-	TargetProtocol *string `type:"string"`
+	TargetProtocol *string `type:"string" json:",omitempty"`
 
-	TargetQueryComponents *TargetQueryComponentsForBatchUpdateCdnConfigInput `type:"structure"`
+	TargetQueryComponents *TargetQueryComponentsForBatchUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -3640,11 +3694,11 @@ func (s *RedirectionActionForBatchUpdateCdnConfigInput) SetTargetQueryComponents
 }
 
 type RedirectionRewriteForBatchUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	RedirectionRule []*RedirectionRuleForBatchUpdateCdnConfigInput `type:"list"`
+	RedirectionRule []*RedirectionRuleForBatchUpdateCdnConfigInput `type:"list" json:",omitempty"`
 
-	Switch *bool `type:"boolean"`
+	Switch *bool `type:"boolean" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -3670,9 +3724,9 @@ func (s *RedirectionRewriteForBatchUpdateCdnConfigInput) SetSwitch(v bool) *Redi
 }
 
 type RedirectionRuleForBatchUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	RedirectionAction *RedirectionActionForBatchUpdateCdnConfigInput `type:"structure"`
+	RedirectionAction *RedirectionActionForBatchUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -3692,19 +3746,19 @@ func (s *RedirectionRuleForBatchUpdateCdnConfigInput) SetRedirectionAction(v *Re
 }
 
 type RefererAccessRuleForBatchUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	AllowEmpty *bool `type:"boolean"`
+	AllowEmpty *bool `type:"boolean" json:",omitempty"`
 
-	Referers []*string `type:"list"`
+	Referers []*string `type:"list" json:",omitempty"`
 
-	ReferersType *ReferersTypeForBatchUpdateCdnConfigInput `type:"structure"`
+	ReferersType *ReferersTypeForBatchUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 
-	RuleType *string `type:"string"`
+	RuleType *string `type:"string" json:",omitempty"`
 
-	SharedConfig *SharedConfigForBatchUpdateCdnConfigInput `type:"structure"`
+	SharedConfig *SharedConfigForBatchUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 
-	Switch *bool `type:"boolean"`
+	Switch *bool `type:"boolean" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -3754,11 +3808,11 @@ func (s *RefererAccessRuleForBatchUpdateCdnConfigInput) SetSwitch(v bool) *Refer
 }
 
 type ReferersTypeForBatchUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	CommonType *CommonTypeForBatchUpdateCdnConfigInput `type:"structure"`
+	CommonType *CommonTypeForBatchUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 
-	RegularType *RegularTypeForBatchUpdateCdnConfigInput `type:"structure"`
+	RegularType *RegularTypeForBatchUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -3784,9 +3838,9 @@ func (s *ReferersTypeForBatchUpdateCdnConfigInput) SetRegularType(v *RegularType
 }
 
 type RegularTypeForBatchUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Referers []*string `type:"list"`
+	Referers []*string `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -3806,11 +3860,11 @@ func (s *RegularTypeForBatchUpdateCdnConfigInput) SetReferers(v []*string) *Regu
 }
 
 type RemoteAuthForBatchUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	RemoteAuthRules []*RemoteAuthRuleForBatchUpdateCdnConfigInput `type:"list"`
+	RemoteAuthRules []*RemoteAuthRuleForBatchUpdateCdnConfigInput `type:"list" json:",omitempty"`
 
-	Switch *bool `type:"boolean"`
+	Switch *bool `type:"boolean" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -3836,17 +3890,17 @@ func (s *RemoteAuthForBatchUpdateCdnConfigInput) SetSwitch(v bool) *RemoteAuthFo
 }
 
 type RemoteAuthRuleActionForBatchUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	AuthModeConfig *AuthModeConfigForBatchUpdateCdnConfigInput `type:"structure"`
+	AuthModeConfig *AuthModeConfigForBatchUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 
-	AuthResponseConfig *AuthResponseConfigForBatchUpdateCdnConfigInput `type:"structure"`
+	AuthResponseConfig *AuthResponseConfigForBatchUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 
-	QueryStringRules *QueryStringRulesForBatchUpdateCdnConfigInput `type:"structure"`
+	QueryStringRules *QueryStringRulesForBatchUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 
-	RequestBodyRules *string `type:"string"`
+	RequestBodyRules *string `type:"string" json:",omitempty"`
 
-	RequestHeaderRules *RequestHeaderRulesForBatchUpdateCdnConfigInput `type:"structure"`
+	RequestHeaderRules *RequestHeaderRulesForBatchUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -3890,11 +3944,11 @@ func (s *RemoteAuthRuleActionForBatchUpdateCdnConfigInput) SetRequestHeaderRules
 }
 
 type RemoteAuthRuleForBatchUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Condition *ConditionForBatchUpdateCdnConfigInput `type:"structure"`
+	Condition *ConditionForBatchUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 
-	RemoteAuthRuleAction *RemoteAuthRuleActionForBatchUpdateCdnConfigInput `type:"structure"`
+	RemoteAuthRuleAction *RemoteAuthRuleActionForBatchUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -3920,11 +3974,11 @@ func (s *RemoteAuthRuleForBatchUpdateCdnConfigInput) SetRemoteAuthRuleAction(v *
 }
 
 type RequestBlockRuleForBatchUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	BlockRule []*BlockRuleForBatchUpdateCdnConfigInput `type:"list"`
+	BlockRule []*BlockRuleForBatchUpdateCdnConfigInput `type:"list" json:",omitempty"`
 
-	Switch *bool `type:"boolean"`
+	Switch *bool `type:"boolean" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -3950,9 +4004,9 @@ func (s *RequestBlockRuleForBatchUpdateCdnConfigInput) SetSwitch(v bool) *Reques
 }
 
 type RequestHeaderActionForBatchUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	RequestHeaderInstances []*RequestHeaderInstanceForBatchUpdateCdnConfigInput `type:"list"`
+	RequestHeaderInstances []*RequestHeaderInstanceForBatchUpdateCdnConfigInput `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -3972,11 +4026,11 @@ func (s *RequestHeaderActionForBatchUpdateCdnConfigInput) SetRequestHeaderInstan
 }
 
 type RequestHeaderComponentsForBatchUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Action *string `type:"string"`
+	Action *string `type:"string" json:",omitempty"`
 
-	Value *string `type:"string"`
+	Value *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -4002,11 +4056,11 @@ func (s *RequestHeaderComponentsForBatchUpdateCdnConfigInput) SetValue(v string)
 }
 
 type RequestHeaderForBatchUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Condition *ConditionForBatchUpdateCdnConfigInput `type:"structure"`
+	Condition *ConditionForBatchUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 
-	RequestHeaderAction *RequestHeaderActionForBatchUpdateCdnConfigInput `type:"structure"`
+	RequestHeaderAction *RequestHeaderActionForBatchUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -4032,15 +4086,15 @@ func (s *RequestHeaderForBatchUpdateCdnConfigInput) SetRequestHeaderAction(v *Re
 }
 
 type RequestHeaderInstanceForBatchUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Action *string `type:"string"`
+	Action *string `type:"string" json:",omitempty"`
 
-	Key *string `type:"string"`
+	Key *string `type:"string" json:",omitempty"`
 
-	Value *string `type:"string"`
+	Value *string `type:"string" json:",omitempty"`
 
-	ValueType *string `type:"string"`
+	ValueType *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -4078,13 +4132,13 @@ func (s *RequestHeaderInstanceForBatchUpdateCdnConfigInput) SetValueType(v strin
 }
 
 type RequestHeaderRulesForBatchUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	RequestHeaderComponents *RequestHeaderComponentsForBatchUpdateCdnConfigInput `type:"structure"`
+	RequestHeaderComponents *RequestHeaderComponentsForBatchUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 
-	RequestHeaderInstances []*RequestHeaderInstanceForBatchUpdateCdnConfigInput `type:"list"`
+	RequestHeaderInstances []*RequestHeaderInstanceForBatchUpdateCdnConfigInput `type:"list" json:",omitempty"`
 
-	RequestHost *string `type:"string"`
+	RequestHost *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -4116,9 +4170,9 @@ func (s *RequestHeaderRulesForBatchUpdateCdnConfigInput) SetRequestHost(v string
 }
 
 type ResponseActionForBatchUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	StatusCode *string `type:"string"`
+	StatusCode *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -4138,9 +4192,9 @@ func (s *ResponseActionForBatchUpdateCdnConfigInput) SetStatusCode(v string) *Re
 }
 
 type ResponseHeaderActionForBatchUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	ResponseHeaderInstances []*ResponseHeaderInstanceForBatchUpdateCdnConfigInput `type:"list"`
+	ResponseHeaderInstances []*ResponseHeaderInstanceForBatchUpdateCdnConfigInput `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -4160,11 +4214,11 @@ func (s *ResponseHeaderActionForBatchUpdateCdnConfigInput) SetResponseHeaderInst
 }
 
 type ResponseHeaderForBatchUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Condition *ConditionForBatchUpdateCdnConfigInput `type:"structure"`
+	Condition *ConditionForBatchUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 
-	ResponseHeaderAction *ResponseHeaderActionForBatchUpdateCdnConfigInput `type:"structure"`
+	ResponseHeaderAction *ResponseHeaderActionForBatchUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -4190,17 +4244,17 @@ func (s *ResponseHeaderForBatchUpdateCdnConfigInput) SetResponseHeaderAction(v *
 }
 
 type ResponseHeaderInstanceForBatchUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	AccessOriginControl *bool `type:"boolean"`
+	AccessOriginControl *bool `type:"boolean" json:",omitempty"`
 
-	Action *string `type:"string"`
+	Action *string `type:"string" json:",omitempty"`
 
-	Key *string `type:"string"`
+	Key *string `type:"string" json:",omitempty"`
 
-	Value *string `type:"string"`
+	Value *string `type:"string" json:",omitempty"`
 
-	ValueType *string `type:"string"`
+	ValueType *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -4244,11 +4298,11 @@ func (s *ResponseHeaderInstanceForBatchUpdateCdnConfigInput) SetValueType(v stri
 }
 
 type RewriteHLSForBatchUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	SignName *string `type:"string"`
+	SignName *string `type:"string" json:",omitempty"`
 
-	Switch *bool `type:"boolean"`
+	Switch *bool `type:"boolean" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -4274,13 +4328,13 @@ func (s *RewriteHLSForBatchUpdateCdnConfigInput) SetSwitch(v bool) *RewriteHLSFo
 }
 
 type RewriteM3u8RuleForBatchUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	DeleteParam *bool `type:"boolean"`
+	DeleteParam *bool `type:"boolean" json:",omitempty"`
 
-	KeepM3u8Param *bool `type:"boolean"`
+	KeepM3u8Param *bool `type:"boolean" json:",omitempty"`
 
-	TransferEncoding *bool `type:"boolean"`
+	TransferEncoding *bool `type:"boolean" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -4312,9 +4366,9 @@ func (s *RewriteM3u8RuleForBatchUpdateCdnConfigInput) SetTransferEncoding(v bool
 }
 
 type SharedConfigForBatchUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	ConfigName *string `type:"string"`
+	ConfigName *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -4334,13 +4388,13 @@ func (s *SharedConfigForBatchUpdateCdnConfigInput) SetConfigName(v string) *Shar
 }
 
 type SignCapRuleForBatchUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	CapMode *string `type:"string"`
+	CapMode *string `type:"string" json:",omitempty"`
 
-	ParamName *string `type:"string"`
+	ParamName *string `type:"string" json:",omitempty"`
 
-	UriLevel *int64 `type:"int64"`
+	UriLevel *int64 `type:"int64" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -4372,17 +4426,17 @@ func (s *SignCapRuleForBatchUpdateCdnConfigInput) SetUriLevel(v int64) *SignCapR
 }
 
 type SignParamForBatchUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	ParamType *string `type:"string"`
+	ParamType *string `type:"string" json:",omitempty"`
 
-	RequestHeader *string `type:"string"`
+	RequestHeader *string `type:"string" json:",omitempty"`
 
-	SupContent *string `type:"string"`
+	SupContent *string `type:"string" json:",omitempty"`
 
-	UriParamSup *UriParamSupForBatchUpdateCdnConfigInput `type:"structure"`
+	UriParamSup *UriParamSupForBatchUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 
-	UrlParam *SignCapRuleForBatchUpdateCdnConfigInput `type:"structure"`
+	UrlParam *SignCapRuleForBatchUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -4426,39 +4480,39 @@ func (s *SignParamForBatchUpdateCdnConfigInput) SetUrlParam(v *SignCapRuleForBat
 }
 
 type SignedUrlAuthActionForBatchUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	AuthAlgorithm *string `type:"string"`
+	AuthAlgorithm *string `type:"string" json:",omitempty"`
 
-	BackupSecretKey *string `type:"string"`
+	BackupSecretKey *string `type:"string" json:",omitempty"`
 
-	CustomVariableRules *CustomVariableRulesForBatchUpdateCdnConfigInput `type:"structure"`
+	CustomVariableRules *CustomVariableRulesForBatchUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 
-	Duration *int64 `type:"int64"`
+	Duration *int64 `type:"int64" json:",omitempty"`
 
-	KeepOriginArg *bool `type:"boolean"`
+	KeepOriginArg *bool `type:"boolean" json:",omitempty"`
 
-	MasterSecretKey *string `type:"string"`
+	MasterSecretKey *string `type:"string" json:",omitempty"`
 
-	MpdVarExpand *bool `type:"boolean"`
+	MpdVarExpand *bool `type:"boolean" json:",omitempty"`
 
-	RewriteM3u8 *bool `type:"boolean"`
+	RewriteM3u8 *bool `type:"boolean" json:",omitempty"`
 
-	RewriteM3u8Rule *RewriteM3u8RuleForBatchUpdateCdnConfigInput `type:"structure"`
+	RewriteM3u8Rule *RewriteM3u8RuleForBatchUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 
-	RewriteMpd *bool `type:"boolean"`
+	RewriteMpd *bool `type:"boolean" json:",omitempty"`
 
-	SignName *string `type:"string"`
+	SignName *string `type:"string" json:",omitempty"`
 
-	SignatureRule []*string `type:"list"`
+	SignatureRule []*string `type:"list" json:",omitempty"`
 
-	TimeFormat *string `type:"string"`
+	TimeFormat *string `type:"string" json:",omitempty"`
 
-	TimeName *string `type:"string"`
+	TimeName *string `type:"string" json:",omitempty"`
 
-	URLAuthType *string `type:"string"`
+	URLAuthType *string `type:"string" json:",omitempty"`
 
-	UrlAuthCustomAction *UrlAuthCustomActionForBatchUpdateCdnConfigInput `type:"structure"`
+	UrlAuthCustomAction *UrlAuthCustomActionForBatchUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -4568,11 +4622,11 @@ func (s *SignedUrlAuthActionForBatchUpdateCdnConfigInput) SetUrlAuthCustomAction
 }
 
 type SignedUrlAuthForBatchUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	SignedUrlAuthRules []*SignedUrlAuthRuleForBatchUpdateCdnConfigInput `type:"list"`
+	SignedUrlAuthRules []*SignedUrlAuthRuleForBatchUpdateCdnConfigInput `type:"list" json:",omitempty"`
 
-	Switch *bool `type:"boolean"`
+	Switch *bool `type:"boolean" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -4598,11 +4652,11 @@ func (s *SignedUrlAuthForBatchUpdateCdnConfigInput) SetSwitch(v bool) *SignedUrl
 }
 
 type SignedUrlAuthRuleForBatchUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Condition *ConditionForBatchUpdateCdnConfigInput `type:"structure"`
+	Condition *ConditionForBatchUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 
-	SignedUrlAuthAction *SignedUrlAuthActionForBatchUpdateCdnConfigInput `type:"structure"`
+	SignedUrlAuthAction *SignedUrlAuthActionForBatchUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -4628,13 +4682,13 @@ func (s *SignedUrlAuthRuleForBatchUpdateCdnConfigInput) SetSignedUrlAuthAction(v
 }
 
 type SpeedLimitTimeForBatchUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	BeginTime *string `type:"string"`
+	BeginTime *string `type:"string" json:",omitempty"`
 
-	DayWeek *string `type:"string"`
+	DayWeek *string `type:"string" json:",omitempty"`
 
-	EndTime *string `type:"string"`
+	EndTime *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -4666,13 +4720,13 @@ func (s *SpeedLimitTimeForBatchUpdateCdnConfigInput) SetEndTime(v string) *Speed
 }
 
 type StatusCodeActionForBatchUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	DefaultAction *string `type:"string"`
+	DefaultAction *string `type:"string" json:",omitempty"`
 
-	FailCode *string `type:"string"`
+	FailCode *string `type:"string" json:",omitempty"`
 
-	SuccessCode *string `type:"string"`
+	SuccessCode *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -4704,11 +4758,11 @@ func (s *StatusCodeActionForBatchUpdateCdnConfigInput) SetSuccessCode(v string) 
 }
 
 type TargetQueryComponentsForBatchUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Action *string `type:"string"`
+	Action *string `type:"string" json:",omitempty"`
 
-	Value *string `type:"string"`
+	Value *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -4734,11 +4788,11 @@ func (s *TargetQueryComponentsForBatchUpdateCdnConfigInput) SetValue(v string) *
 }
 
 type TimeOutActionForBatchUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Action *string `type:"string"`
+	Action *string `type:"string" json:",omitempty"`
 
-	Time *int64 `type:"int64"`
+	Time *int64 `type:"int64" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -4764,11 +4818,11 @@ func (s *TimeOutActionForBatchUpdateCdnConfigInput) SetTime(v int64) *TimeOutAct
 }
 
 type TimeoutForBatchUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Switch *bool `type:"boolean"`
+	Switch *bool `type:"boolean" json:",omitempty"`
 
-	TimeoutRules []*TimeoutRuleForBatchUpdateCdnConfigInput `type:"list"`
+	TimeoutRules []*TimeoutRuleForBatchUpdateCdnConfigInput `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -4794,11 +4848,11 @@ func (s *TimeoutForBatchUpdateCdnConfigInput) SetTimeoutRules(v []*TimeoutRuleFo
 }
 
 type TimeoutRuleForBatchUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Condition *ConditionForBatchUpdateCdnConfigInput `type:"structure"`
+	Condition *ConditionForBatchUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 
-	TimeoutAction *ConvertTimeoutActionForBatchUpdateCdnConfigInput `type:"structure"`
+	TimeoutAction *ConvertTimeoutActionForBatchUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -4824,13 +4878,13 @@ func (s *TimeoutRuleForBatchUpdateCdnConfigInput) SetTimeoutAction(v *ConvertTim
 }
 
 type TosAuthInformationForBatchUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	AccessKeyId *string `type:"string"`
+	AccessKeyId *string `type:"string" json:",omitempty"`
 
-	AccessKeySecret *string `type:"string"`
+	AccessKeySecret *string `type:"string" json:",omitempty"`
 
-	AccountKey *string `type:"string"`
+	AccountKey *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -4862,17 +4916,17 @@ func (s *TosAuthInformationForBatchUpdateCdnConfigInput) SetAccountKey(v string)
 }
 
 type UaAccessRuleForBatchUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	AllowEmpty *bool `type:"boolean"`
+	AllowEmpty *bool `type:"boolean" json:",omitempty"`
 
-	IgnoreCase *bool `type:"boolean"`
+	IgnoreCase *bool `type:"boolean" json:",omitempty"`
 
-	RuleType *string `type:"string"`
+	RuleType *string `type:"string" json:",omitempty"`
 
-	Switch *bool `type:"boolean"`
+	Switch *bool `type:"boolean" json:",omitempty"`
 
-	UserAgent []*string `type:"list"`
+	UserAgent []*string `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -4916,15 +4970,15 @@ func (s *UaAccessRuleForBatchUpdateCdnConfigInput) SetUserAgent(v []*string) *Ua
 }
 
 type UriParamSupForBatchUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	JoinSymbol *string `type:"string"`
+	JoinSymbol *string `type:"string" json:",omitempty"`
 
-	SplitSymbol *string `type:"string"`
+	SplitSymbol *string `type:"string" json:",omitempty"`
 
-	StartLevel *int64 `type:"int64"`
+	StartLevel *int64 `type:"int64" json:",omitempty"`
 
-	TermLevel *int64 `type:"int64"`
+	TermLevel *int64 `type:"int64" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -4962,17 +5016,17 @@ func (s *UriParamSupForBatchUpdateCdnConfigInput) SetTermLevel(v int64) *UriPara
 }
 
 type UrlAuthCustomActionForBatchUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	ExpTimeCapRule *ExpTimeCapRuleForBatchUpdateCdnConfigInput `type:"structure"`
+	ExpTimeCapRule *ExpTimeCapRuleForBatchUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 
-	ParamCalRules []*string `type:"list"`
+	ParamCalRules []*string `type:"list" json:",omitempty"`
 
-	SignCapRule *SignCapRuleForBatchUpdateCdnConfigInput `type:"structure"`
+	SignCapRule *SignCapRuleForBatchUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 
-	SignJoinSymbol *string `type:"string"`
+	SignJoinSymbol *string `type:"string" json:",omitempty"`
 
-	SignParam []*SignParamForBatchUpdateCdnConfigInput `type:"list"`
+	SignParam []*SignParamForBatchUpdateCdnConfigInput `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -5016,11 +5070,11 @@ func (s *UrlAuthCustomActionForBatchUpdateCdnConfigInput) SetSignParam(v []*Sign
 }
 
 type UrlNormalizeForBatchUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	NormalizeObject []*string `type:"list"`
+	NormalizeObject []*string `type:"list" json:",omitempty"`
 
-	Switch *bool `type:"boolean"`
+	Switch *bool `type:"boolean" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -5046,9 +5100,9 @@ func (s *UrlNormalizeForBatchUpdateCdnConfigInput) SetSwitch(v bool) *UrlNormali
 }
 
 type VideoDragForBatchUpdateCdnConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Switch *bool `type:"boolean"`
+	Switch *bool `type:"boolean" json:",omitempty"`
 }
 
 // String returns the string representation

@@ -144,17 +144,17 @@ func (c *CDN) ListUsageReportsWithContext(ctx volcengine.Context, input *ListUsa
 }
 
 type ListUsageReportsInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	ExportType *string `type:"string"`
+	ExportType *string `type:"string" json:",omitempty"`
 
-	PageNum *int64 `type:"int64"`
+	PageNum *int64 `type:"int64" json:",omitempty"`
 
-	PageSize *int64 `type:"int64"`
+	PageSize *int64 `type:"int64" json:",omitempty"`
 
-	Status *int64 `type:"int64"`
+	Status *int64 `type:"int64" json:",omitempty"`
 
-	TaskName *string `type:"string"`
+	TaskName *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -198,17 +198,17 @@ func (s *ListUsageReportsInput) SetTaskName(v string) *ListUsageReportsInput {
 }
 
 type ListUsageReportsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	PageNum *int64 `type:"int64"`
+	PageNum *int64 `type:"int64" json:",omitempty"`
 
-	PageSize *int64 `type:"int64"`
+	PageSize *int64 `type:"int64" json:",omitempty"`
 
-	Total *int64 `type:"int64"`
+	Total *int64 `type:"int64" json:",omitempty"`
 
-	UsageReportsDetails []*UsageReportsDetailForListUsageReportsOutput `type:"list"`
+	UsageReportsDetails []*UsageReportsDetailForListUsageReportsOutput `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -246,35 +246,35 @@ func (s *ListUsageReportsOutput) SetUsageReportsDetails(v []*UsageReportsDetailF
 }
 
 type UsageReportsDetailForListUsageReportsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	AccountId *string `type:"string"`
+	AccountId *string `type:"string" json:",omitempty"`
 
-	BillingCode *string `type:"string"`
+	BillingCode *string `type:"string" json:",omitempty"`
 
-	BillingRegion *string `type:"string"`
+	BillingRegion *string `type:"string" json:",omitempty"`
 
-	CalculationMethod *string `type:"string"`
+	CalculationMethod *string `type:"string" json:",omitempty"`
 
-	CreateTime *int64 `type:"int64"`
+	CreateTime *int64 `type:"int64" json:",omitempty"`
 
-	DownLoadUrl *string `type:"string"`
+	DownLoadUrl *string `type:"string" json:",omitempty"`
 
-	EndTime *int64 `type:"int64"`
+	EndTime *int64 `type:"int64" json:",omitempty"`
 
-	ExportType *string `type:"string"`
+	ExportType *string `type:"string" json:",omitempty"`
 
-	Metric *string `type:"string"`
+	Metric *string `type:"string" json:",omitempty"`
 
-	StartTime *int64 `type:"int64"`
+	StartTime *int64 `type:"int64" json:",omitempty"`
 
-	Status *int64 `type:"int64"`
+	Status *int64 `type:"int64" json:",omitempty"`
 
-	TaskId *string `type:"string"`
+	TaskId *string `type:"string" json:",omitempty"`
 
-	TaskName *string `type:"string"`
+	TaskName *string `type:"string" json:",omitempty"`
 
-	TimeZone *string `type:"string"`
+	TimeZone *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation

@@ -144,24 +144,24 @@ func (c *CDN) DescribeEdgeDataWithContext(ctx volcengine.Context, input *Describ
 }
 
 type DescribeEdgeDataInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	BillingRegion *string `type:"string"`
+	BillingRegion *string `type:"string" json:",omitempty"`
 
-	Domain *string `type:"string"`
+	Domain *string `type:"string" json:",omitempty"`
 
 	// EndTime is a required field
-	EndTime *int64 `type:"int64" required:"true"`
+	EndTime *int64 `type:"int64" json:",omitempty" required:"true"`
 
-	Interval *string `type:"string"`
+	Interval *string `type:"string" json:",omitempty"`
 
 	// Metric is a required field
-	Metric *string `type:"string" required:"true"`
+	Metric *string `type:"string" json:",omitempty" required:"true"`
 
-	Project *string `type:"string"`
+	Project *string `type:"string" json:",omitempty"`
 
 	// StartTime is a required field
-	StartTime *int64 `type:"int64" required:"true"`
+	StartTime *int64 `type:"int64" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -236,11 +236,11 @@ func (s *DescribeEdgeDataInput) SetStartTime(v int64) *DescribeEdgeDataInput {
 }
 
 type DescribeEdgeDataOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	MetricDataList []*MetricDataListForDescribeEdgeDataOutput `type:"list"`
+	MetricDataList []*MetricDataListForDescribeEdgeDataOutput `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -260,11 +260,11 @@ func (s *DescribeEdgeDataOutput) SetMetricDataList(v []*MetricDataListForDescrib
 }
 
 type MetricDataListForDescribeEdgeDataOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Metric *string `type:"string"`
+	Metric *string `type:"string" json:",omitempty"`
 
-	Values []*ValueForDescribeEdgeDataOutput `type:"list"`
+	Values []*ValueForDescribeEdgeDataOutput `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -290,13 +290,13 @@ func (s *MetricDataListForDescribeEdgeDataOutput) SetValues(v []*ValueForDescrib
 }
 
 type ValueForDescribeEdgeDataOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Item *string `type:"string"`
+	Item *string `type:"string" json:",omitempty"`
 
-	TimeStamp *int64 `type:"int64"`
+	TimeStamp *int64 `type:"int64" json:",omitempty"`
 
-	Value *float64 `type:"double"`
+	Value *float64 `type:"double" json:",omitempty"`
 }
 
 // String returns the string representation

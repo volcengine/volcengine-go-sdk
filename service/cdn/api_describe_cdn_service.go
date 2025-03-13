@@ -144,7 +144,7 @@ func (c *CDN) DescribeCdnServiceWithContext(ctx volcengine.Context, input *Descr
 }
 
 type DescribeCdnServiceInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -158,11 +158,11 @@ func (s DescribeCdnServiceInput) GoString() string {
 }
 
 type DescribeCdnServiceOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	ServiceInfos []*ServiceInfoForDescribeCdnServiceOutput `type:"list"`
+	ServiceInfos []*ServiceInfoForDescribeCdnServiceOutput `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -182,33 +182,33 @@ func (s *DescribeCdnServiceOutput) SetServiceInfos(v []*ServiceInfoForDescribeCd
 }
 
 type ServiceInfoForDescribeCdnServiceOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	BeginTime *string `type:"string"`
+	BeginTime *string `type:"string" json:",omitempty"`
 
-	BillingCode *string `type:"string"`
+	BillingCode *string `type:"string" json:",omitempty"`
 
-	BillingCycle *string `type:"string"`
+	BillingCycle *string `type:"string" json:",omitempty"`
 
-	BillingData *string `type:"string"`
+	BillingData *string `type:"string" json:",omitempty"`
 
-	BillingDesc *string `type:"string"`
+	BillingDesc *string `type:"string" json:",omitempty"`
 
-	CreateTime *string `type:"string"`
+	CreateTime *string `type:"string" json:",omitempty"`
 
-	InstanceCategory *string `type:"string"`
+	InstanceCategory *string `type:"string" json:",omitempty"`
 
-	InstanceNo *string `type:"string"`
+	InstanceNo *string `type:"string" json:",omitempty"`
 
-	InstanceType *string `type:"string"`
+	InstanceType *string `type:"string" json:",omitempty"`
 
-	MetricType *string `type:"string"`
+	MetricType *string `type:"string" json:",omitempty"`
 
-	ServiceRegion *string `type:"string"`
+	ServiceRegion *string `type:"string" json:",omitempty"`
 
-	StartTime *string `type:"string"`
+	StartTime *string `type:"string" json:",omitempty"`
 
-	Status *string `type:"string"`
+	Status *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation

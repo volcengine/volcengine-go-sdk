@@ -144,10 +144,10 @@ func (c *CDN) DeleteCdnDomainWithContext(ctx volcengine.Context, input *DeleteCd
 }
 
 type DeleteCdnDomainInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// Domain is a required field
-	Domain *string `type:"string" required:"true"`
+	Domain *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -180,7 +180,7 @@ func (s *DeleteCdnDomainInput) SetDomain(v string) *DeleteCdnDomainInput {
 }
 
 type DeleteCdnDomainOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 }

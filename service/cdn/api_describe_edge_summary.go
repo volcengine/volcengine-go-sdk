@@ -144,24 +144,24 @@ func (c *CDN) DescribeEdgeSummaryWithContext(ctx volcengine.Context, input *Desc
 }
 
 type DescribeEdgeSummaryInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	BillingRegion *string `type:"string"`
+	BillingRegion *string `type:"string" json:",omitempty"`
 
-	Domain *string `type:"string"`
+	Domain *string `type:"string" json:",omitempty"`
 
 	// EndTime is a required field
-	EndTime *int64 `type:"int64" required:"true"`
+	EndTime *int64 `type:"int64" json:",omitempty" required:"true"`
 
-	Interval *string `type:"string"`
+	Interval *string `type:"string" json:",omitempty"`
 
 	// Metric is a required field
-	Metric *string `type:"string" required:"true"`
+	Metric *string `type:"string" json:",omitempty" required:"true"`
 
-	Project *string `type:"string"`
+	Project *string `type:"string" json:",omitempty"`
 
 	// StartTime is a required field
-	StartTime *int64 `type:"int64" required:"true"`
+	StartTime *int64 `type:"int64" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -236,11 +236,11 @@ func (s *DescribeEdgeSummaryInput) SetStartTime(v int64) *DescribeEdgeSummaryInp
 }
 
 type DescribeEdgeSummaryOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	MetricDataList []*MetricDataListForDescribeEdgeSummaryOutput `type:"list"`
+	MetricDataList []*MetricDataListForDescribeEdgeSummaryOutput `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -260,11 +260,11 @@ func (s *DescribeEdgeSummaryOutput) SetMetricDataList(v []*MetricDataListForDesc
 }
 
 type MetricDataListForDescribeEdgeSummaryOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Metric *string `type:"string"`
+	Metric *string `type:"string" json:",omitempty"`
 
-	Value *float64 `type:"double"`
+	Value *float64 `type:"double" json:",omitempty"`
 }
 
 // String returns the string representation

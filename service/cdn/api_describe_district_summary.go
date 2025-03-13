@@ -144,32 +144,32 @@ func (c *CDN) DescribeDistrictSummaryWithContext(ctx volcengine.Context, input *
 }
 
 type DescribeDistrictSummaryInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Domain *string `type:"string"`
+	Domain *string `type:"string" json:",omitempty"`
 
 	// EndTime is a required field
-	EndTime *int64 `type:"int64" required:"true"`
+	EndTime *int64 `type:"int64" json:",omitempty" required:"true"`
 
-	Interval *string `type:"string"`
+	Interval *string `type:"string" json:",omitempty"`
 
-	IpVersion *string `type:"string"`
+	IpVersion *string `type:"string" json:",omitempty"`
 
-	Isp *string `type:"string"`
+	Isp *string `type:"string" json:",omitempty"`
 
-	Location *string `type:"string"`
+	Location *string `type:"string" json:",omitempty"`
 
 	// Metric is a required field
-	Metric *string `type:"string" required:"true"`
+	Metric *string `type:"string" json:",omitempty" required:"true"`
 
-	Project *string `type:"string"`
+	Project *string `type:"string" json:",omitempty"`
 
-	Protocol *string `type:"string"`
+	Protocol *string `type:"string" json:",omitempty"`
 
-	Province *string `type:"string"`
+	Province *string `type:"string" json:",omitempty"`
 
 	// StartTime is a required field
-	StartTime *int64 `type:"int64" required:"true"`
+	StartTime *int64 `type:"int64" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -268,11 +268,11 @@ func (s *DescribeDistrictSummaryInput) SetStartTime(v int64) *DescribeDistrictSu
 }
 
 type DescribeDistrictSummaryOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	MetricDataList []*MetricDataListForDescribeDistrictSummaryOutput `type:"list"`
+	MetricDataList []*MetricDataListForDescribeDistrictSummaryOutput `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -292,11 +292,11 @@ func (s *DescribeDistrictSummaryOutput) SetMetricDataList(v []*MetricDataListFor
 }
 
 type MetricDataListForDescribeDistrictSummaryOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Metric *string `type:"string"`
+	Metric *string `type:"string" json:",omitempty"`
 
-	Value *float64 `type:"double"`
+	Value *float64 `type:"double" json:",omitempty"`
 }
 
 // String returns the string representation

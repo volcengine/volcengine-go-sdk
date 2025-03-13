@@ -144,22 +144,22 @@ func (c *CDN) DescribeCdnAccessLogWithContext(ctx volcengine.Context, input *Des
 }
 
 type DescribeCdnAccessLogInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// Domain is a required field
-	Domain *string `type:"string" required:"true"`
+	Domain *string `type:"string" json:",omitempty" required:"true"`
 
 	// EndTime is a required field
-	EndTime *int64 `type:"int64" required:"true"`
+	EndTime *int64 `type:"int64" json:",omitempty" required:"true"`
 
-	PageNum *int64 `type:"int64"`
+	PageNum *int64 `type:"int64" json:",omitempty"`
 
-	PageSize *int64 `type:"int64"`
+	PageSize *int64 `type:"int64" json:",omitempty"`
 
-	ServiceRegion *string `type:"string"`
+	ServiceRegion *string `type:"string" json:",omitempty"`
 
 	// StartTime is a required field
-	StartTime *int64 `type:"int64" required:"true"`
+	StartTime *int64 `type:"int64" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -228,19 +228,19 @@ func (s *DescribeCdnAccessLogInput) SetStartTime(v int64) *DescribeCdnAccessLogI
 }
 
 type DescribeCdnAccessLogOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	Domain *string `type:"string"`
+	Domain *string `type:"string" json:",omitempty"`
 
-	DomainLogDetails []*DomainLogDetailForDescribeCdnAccessLogOutput `type:"list"`
+	DomainLogDetails []*DomainLogDetailForDescribeCdnAccessLogOutput `type:"list" json:",omitempty"`
 
-	PageNum *int64 `type:"int64"`
+	PageNum *int64 `type:"int64" json:",omitempty"`
 
-	PageSize *int64 `type:"int64"`
+	PageSize *int64 `type:"int64" json:",omitempty"`
 
-	TotalCount *int64 `type:"int64"`
+	TotalCount *int64 `type:"int64" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -284,17 +284,17 @@ func (s *DescribeCdnAccessLogOutput) SetTotalCount(v int64) *DescribeCdnAccessLo
 }
 
 type DomainLogDetailForDescribeCdnAccessLogOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	EndTime *int64 `type:"int64"`
+	EndTime *int64 `type:"int64" json:",omitempty"`
 
-	LogName *string `type:"string"`
+	LogName *string `type:"string" json:",omitempty"`
 
-	LogPath *string `type:"string"`
+	LogPath *string `type:"string" json:",omitempty"`
 
-	LogSize *int64 `type:"int64"`
+	LogSize *int64 `type:"int64" json:",omitempty"`
 
-	StartTime *int64 `type:"int64"`
+	StartTime *int64 `type:"int64" json:",omitempty"`
 }
 
 // String returns the string representation

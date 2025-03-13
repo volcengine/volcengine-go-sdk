@@ -144,7 +144,7 @@ func (c *CDN) ListResourceTagsWithContext(ctx volcengine.Context, input *ListRes
 }
 
 type ListResourceTagsInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -158,11 +158,11 @@ func (s ListResourceTagsInput) GoString() string {
 }
 
 type ListResourceTagsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	ResourceTags []*ResourceTagForListResourceTagsOutput `type:"list"`
+	ResourceTags []*ResourceTagForListResourceTagsOutput `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -182,11 +182,11 @@ func (s *ListResourceTagsOutput) SetResourceTags(v []*ResourceTagForListResource
 }
 
 type ResourceTagForListResourceTagsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Key *string `type:"string"`
+	Key *string `type:"string" json:",omitempty"`
 
-	Value *string `type:"string"`
+	Value *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation

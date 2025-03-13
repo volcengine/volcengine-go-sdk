@@ -144,22 +144,22 @@ func (c *CDN) DescribeOriginSummaryWithContext(ctx volcengine.Context, input *De
 }
 
 type DescribeOriginSummaryInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Domain *string `type:"string"`
+	Domain *string `type:"string" json:",omitempty"`
 
 	// EndTime is a required field
-	EndTime *int64 `type:"int64" required:"true"`
+	EndTime *int64 `type:"int64" json:",omitempty" required:"true"`
 
-	Interval *string `type:"string"`
+	Interval *string `type:"string" json:",omitempty"`
 
 	// Metric is a required field
-	Metric *string `type:"string" required:"true"`
+	Metric *string `type:"string" json:",omitempty" required:"true"`
 
-	Project *string `type:"string"`
+	Project *string `type:"string" json:",omitempty"`
 
 	// StartTime is a required field
-	StartTime *int64 `type:"int64" required:"true"`
+	StartTime *int64 `type:"int64" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -228,11 +228,11 @@ func (s *DescribeOriginSummaryInput) SetStartTime(v int64) *DescribeOriginSummar
 }
 
 type DescribeOriginSummaryOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	MetricDataList []*MetricDataListForDescribeOriginSummaryOutput `type:"list"`
+	MetricDataList []*MetricDataListForDescribeOriginSummaryOutput `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -252,11 +252,11 @@ func (s *DescribeOriginSummaryOutput) SetMetricDataList(v []*MetricDataListForDe
 }
 
 type MetricDataListForDescribeOriginSummaryOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Metric *string `type:"string"`
+	Metric *string `type:"string" json:",omitempty"`
 
-	Value *float64 `type:"double"`
+	Value *float64 `type:"double" json:",omitempty"`
 }
 
 // String returns the string representation

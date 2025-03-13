@@ -144,17 +144,17 @@ func (c *CDN) ListSharedConfigWithContext(ctx volcengine.Context, input *ListSha
 }
 
 type ConfigDataForListSharedConfigOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	ConfigName *string `type:"string"`
+	ConfigName *string `type:"string" json:",omitempty"`
 
-	ConfigType *string `type:"string"`
+	ConfigType *string `type:"string" json:",omitempty"`
 
-	DomainCount *int64 `type:"int64"`
+	DomainCount *int64 `type:"int64" json:",omitempty"`
 
-	Project *string `type:"string"`
+	Project *string `type:"string" json:",omitempty"`
 
-	UpdateTime *int64 `type:"int64"`
+	UpdateTime *int64 `type:"int64" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -198,19 +198,19 @@ func (s *ConfigDataForListSharedConfigOutput) SetUpdateTime(v int64) *ConfigData
 }
 
 type ListSharedConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	ConfigName *string `type:"string"`
+	ConfigName *string `type:"string" json:",omitempty"`
 
-	ConfigType *string `type:"string"`
+	ConfigType *string `type:"string" json:",omitempty"`
 
-	ConfigTypeList []*string `type:"list"`
+	ConfigTypeList []*string `type:"list" json:",omitempty"`
 
-	PageNum *int64 `type:"int64"`
+	PageNum *int64 `type:"int64" json:",omitempty"`
 
-	PageSize *int64 `type:"int64"`
+	PageSize *int64 `type:"int64" json:",omitempty"`
 
-	Project *string `type:"string"`
+	Project *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -260,17 +260,17 @@ func (s *ListSharedConfigInput) SetProject(v string) *ListSharedConfigInput {
 }
 
 type ListSharedConfigOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	ConfigData []*ConfigDataForListSharedConfigOutput `type:"list"`
+	ConfigData []*ConfigDataForListSharedConfigOutput `type:"list" json:",omitempty"`
 
-	PageNum *int64 `type:"int64"`
+	PageNum *int64 `type:"int64" json:",omitempty"`
 
-	PageSize *int64 `type:"int64"`
+	PageSize *int64 `type:"int64" json:",omitempty"`
 
-	Total *int64 `type:"int64"`
+	Total *int64 `type:"int64" json:",omitempty"`
 }
 
 // String returns the string representation

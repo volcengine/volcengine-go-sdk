@@ -144,9 +144,9 @@ func (c *CDN) DescribeCdnIPWithContext(ctx volcengine.Context, input *DescribeCd
 }
 
 type DescribeCdnIPInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	IPs []*string `type:"list"`
+	IPs []*string `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -166,11 +166,11 @@ func (s *DescribeCdnIPInput) SetIPs(v []*string) *DescribeCdnIPInput {
 }
 
 type DescribeCdnIPOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	IPs []*IPForDescribeCdnIPOutput `type:"list"`
+	IPs []*IPForDescribeCdnIPOutput `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -190,15 +190,15 @@ func (s *DescribeCdnIPOutput) SetIPs(v []*IPForDescribeCdnIPOutput) *DescribeCdn
 }
 
 type IPForDescribeCdnIPOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	CdnIp *bool `type:"boolean"`
+	CdnIp *bool `type:"boolean" json:",omitempty"`
 
-	IP *string `type:"string"`
+	IP *string `type:"string" json:",omitempty"`
 
-	ISP *string `type:"string"`
+	ISP *string `type:"string" json:",omitempty"`
 
-	Location *string `type:"string"`
+	Location *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation

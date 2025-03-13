@@ -126,6 +126,14 @@ type CDNAPI interface {
 	DeleteUsageReportWithContext(volcengine.Context, *DeleteUsageReportInput, ...request.Option) (*DeleteUsageReportOutput, error)
 	DeleteUsageReportRequest(*DeleteUsageReportInput) (*request.Request, *DeleteUsageReportOutput)
 
+	DescribeBillingDetailCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeBillingDetailCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeBillingDetailCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeBillingDetail(*DescribeBillingDetailInput) (*DescribeBillingDetailOutput, error)
+	DescribeBillingDetailWithContext(volcengine.Context, *DescribeBillingDetailInput, ...request.Option) (*DescribeBillingDetailOutput, error)
+	DescribeBillingDetailRequest(*DescribeBillingDetailInput) (*request.Request, *DescribeBillingDetailOutput)
+
 	DescribeCdnAccessLogCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DescribeCdnAccessLogCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DescribeCdnAccessLogCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})

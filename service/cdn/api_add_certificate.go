@@ -144,27 +144,27 @@ func (c *CDN) AddCertificateWithContext(ctx volcengine.Context, input *AddCertif
 }
 
 type AddCertificateInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	CertType *string `type:"string"`
+	CertType *string `type:"string" json:",omitempty"`
 
 	// Certificate is a required field
-	Certificate *string `type:"string" required:"true"`
+	Certificate *string `type:"string" json:",omitempty" required:"true"`
 
-	Desc *string `type:"string"`
+	Desc *string `type:"string" json:",omitempty"`
 
-	EncryType *string `type:"string"`
+	EncryType *string `type:"string" json:",omitempty"`
 
-	EncryptionCert *string `type:"string"`
+	EncryptionCert *string `type:"string" json:",omitempty"`
 
-	EncryptionKey *string `type:"string"`
+	EncryptionKey *string `type:"string" json:",omitempty"`
 
 	// PrivateKey is a required field
-	PrivateKey *string `type:"string" required:"true"`
+	PrivateKey *string `type:"string" json:",omitempty" required:"true"`
 
-	Repeatable *bool `type:"boolean"`
+	Repeatable *bool `type:"boolean" json:",omitempty"`
 
-	Source *string `type:"string"`
+	Source *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -248,11 +248,11 @@ func (s *AddCertificateInput) SetSource(v string) *AddCertificateInput {
 }
 
 type AddCertificateOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	CertId *string `type:"string"`
+	CertId *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation

@@ -144,10 +144,10 @@ func (c *CDN) DeleteUsageReportWithContext(ctx volcengine.Context, input *Delete
 }
 
 type DeleteUsageReportInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// TaskId is a required field
-	TaskId *string `type:"string" required:"true"`
+	TaskId *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -180,11 +180,11 @@ func (s *DeleteUsageReportInput) SetTaskId(v string) *DeleteUsageReportInput {
 }
 
 type DeleteUsageReportOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	TaskIds []*string `type:"list"`
+	TaskIds []*string `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation

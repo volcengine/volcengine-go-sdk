@@ -144,19 +144,19 @@ func (c *CDN) DescribeContentBlockTasksWithContext(ctx volcengine.Context, input
 }
 
 type DataForDescribeContentBlockTasksOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	BlockReason *string `type:"string"`
+	BlockReason *string `type:"string" json:",omitempty"`
 
-	CreateTime *int64 `type:"int64"`
+	CreateTime *int64 `type:"int64" json:",omitempty"`
 
-	Status *string `type:"string"`
+	Status *string `type:"string" json:",omitempty"`
 
-	TaskID *string `type:"string"`
+	TaskID *string `type:"string" json:",omitempty"`
 
-	TaskType *string `type:"string"`
+	TaskType *string `type:"string" json:",omitempty"`
 
-	Url *string `type:"string"`
+	Url *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -206,26 +206,26 @@ func (s *DataForDescribeContentBlockTasksOutput) SetUrl(v string) *DataForDescri
 }
 
 type DescribeContentBlockTasksInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	DomainName *string `type:"string"`
+	DomainName *string `type:"string" json:",omitempty"`
 
-	EndTime *int64 `type:"int64"`
+	EndTime *int64 `type:"int64" json:",omitempty"`
 
-	PageNum *int32 `type:"int32"`
+	PageNum *int32 `type:"int32" json:",omitempty"`
 
-	PageSize *int32 `type:"int32"`
+	PageSize *int32 `type:"int32" json:",omitempty"`
 
-	StartTime *int64 `type:"int64"`
+	StartTime *int64 `type:"int64" json:",omitempty"`
 
-	Status *string `type:"string"`
+	Status *string `type:"string" json:",omitempty"`
 
-	TaskID *string `type:"string"`
+	TaskID *string `type:"string" json:",omitempty"`
 
 	// TaskType is a required field
-	TaskType *string `type:"string" required:"true"`
+	TaskType *string `type:"string" json:",omitempty" required:"true"`
 
-	URL *string `type:"string"`
+	URL *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -306,17 +306,17 @@ func (s *DescribeContentBlockTasksInput) SetURL(v string) *DescribeContentBlockT
 }
 
 type DescribeContentBlockTasksOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	Data []*DataForDescribeContentBlockTasksOutput `type:"list"`
+	Data []*DataForDescribeContentBlockTasksOutput `type:"list" json:",omitempty"`
 
-	PageNum *int64 `type:"int64"`
+	PageNum *int64 `type:"int64" json:",omitempty"`
 
-	PageSize *int64 `type:"int64"`
+	PageSize *int64 `type:"int64" json:",omitempty"`
 
-	Total *int64 `type:"int64"`
+	Total *int64 `type:"int64" json:",omitempty"`
 }
 
 // String returns the string representation
