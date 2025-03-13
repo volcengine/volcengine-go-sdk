@@ -33,6 +33,7 @@ type Client struct {
 	advisoryRefreshTimeout  int
 	mandatoryRefreshTimeout int
 
+	batchHTTPClient      *http.Client
 	modelBreakerProvider *utils.ModelBreakerProvider
 }
 
@@ -64,6 +65,7 @@ func newClientWithConfig(config clientConfig) *Client {
 		rwLock:                  &sync.RWMutex{},
 		advisoryRefreshTimeout:  model.DefaultAdvisoryRefreshTimeout,
 		mandatoryRefreshTimeout: model.DefaultMandatoryRefreshTimeout,
+		batchHTTPClient:         newBatchHTTPClient(config.batchMaxParallel),
 		modelBreakerProvider:    utils.NewModelBreakerProvider(),
 	}
 }
@@ -196,7 +198,7 @@ func (c *Client) newRequest(ctx context.Context, method, url, resourceType, reso
 	return req, nil
 }
 
-func (c *Client) sendRequest(req *http.Request, v model.Response) error {
+func (c *Client) sendRequest(client *http.Client, req *http.Request, v model.Response) error {
 	requestID := req.Header.Get(model.ClientRequestHeader)
 	req.Header.Set("Accept", "application/json")
 
@@ -207,7 +209,7 @@ func (c *Client) sendRequest(req *http.Request, v model.Response) error {
 		req.Header.Set("Content-Type", "application/json")
 	}
 
-	res, err := c.config.HTTPClient.Do(req)
+	res, err := client.Do(req)
 	if err != nil {
 		return model.NewRequestError(http.StatusInternalServerError, err, requestID)
 	}
@@ -248,7 +250,7 @@ func (c *Client) Do(ctx context.Context, method, url, resourceType, resourceId s
 				return innerErr
 			}
 
-			return c.sendRequest(req, v)
+			return c.sendRequest(c.config.HTTPClient, req, v)
 		},
 		nil,
 		needRetryError,
@@ -274,7 +276,7 @@ func (c *Client) DoBatch(ctx context.Context, method, url, resourceType, resourc
 				return er
 			}
 
-			return c.sendRequest(req, v)
+			return c.sendRequest(c.batchHTTPClient, req, v)
 		}()
 
 		// no error: just return on this try
@@ -294,9 +296,9 @@ func (c *Client) DoBatch(ctx context.Context, method, url, resourceType, resourc
 	}
 }
 
-func (c *Client) sendRequestRaw(req *http.Request) (response model.RawResponse, err error) {
+func (c *Client) sendRequestRaw(client *http.Client, req *http.Request) (response model.RawResponse, err error) {
 	requestID := req.Header.Get(model.ClientRequestHeader)
-	resp, err := c.config.HTTPClient.Do(req) //nolint:bodyclose // body should be closed by outer function
+	resp, err := client.Do(req) //nolint:bodyclose // body should be closed by outer function
 	if err != nil {
 		err = model.NewRequestError(http.StatusInternalServerError, err, requestID)
 		return
@@ -312,14 +314,14 @@ func (c *Client) sendRequestRaw(req *http.Request) (response model.RawResponse, 
 	return
 }
 
-func sendChatCompletionRequestStream(client *Client, req *http.Request) (*utils.ChatCompletionStreamReader, error) {
+func sendChatCompletionRequestStream(client *Client, httpClient *http.Client, req *http.Request) (*utils.ChatCompletionStreamReader, error) {
 	requestID := req.Header.Get(model.ClientRequestHeader)
 	req.Header.Set("Content-Type", "application/json")
 	req.Header.Set("Accept", "text/event-stream")
 	req.Header.Set("Cache-Control", "no-cache")
 	req.Header.Set("Connection", "keep-alive")
 
-	resp, err := client.config.HTTPClient.Do(req) //nolint:bodyclose // body is closed in stream.Close()
+	resp, err := httpClient.Do(req) //nolint:bodyclose // body is closed in stream.Close()
 	if err != nil {
 		return &utils.ChatCompletionStreamReader{}, model.NewRequestError(http.StatusInternalServerError, err, requestID)
 	}
@@ -336,14 +338,14 @@ func sendChatCompletionRequestStream(client *Client, req *http.Request) (*utils.
 	}, nil
 }
 
-func sendBotChatCompletionRequestStream(client *Client, req *http.Request) (*utils.BotChatCompletionStreamReader, error) {
+func sendBotChatCompletionRequestStream(client *Client, httpClient *http.Client, req *http.Request) (*utils.BotChatCompletionStreamReader, error) {
 	requestID := req.Header.Get(model.ClientRequestHeader)
 	req.Header.Set("Content-Type", "application/json")
 	req.Header.Set("Accept", "text/event-stream")
 	req.Header.Set("Cache-Control", "no-cache")
 	req.Header.Set("Connection", "keep-alive")
 
-	resp, err := client.config.HTTPClient.Do(req) //nolint:bodyclose // body is closed in stream.Close()
+	resp, err := httpClient.Do(req) //nolint:bodyclose // body is closed in stream.Close()
 	if err != nil {
 		return &utils.BotChatCompletionStreamReader{}, model.NewRequestError(http.StatusInternalServerError, err, requestID)
 	}
@@ -377,7 +379,7 @@ func (c *Client) BotChatCompletionRequestStreamDo(ctx context.Context, method, u
 				return innerErr
 			}
 
-			streamReader, err = sendBotChatCompletionRequestStream(c, req)
+			streamReader, err = sendBotChatCompletionRequestStream(c, c.config.HTTPClient, req)
 			return err
 		},
 		nil,
@@ -402,7 +404,7 @@ func (c *Client) ChatCompletionRequestStreamDo(ctx context.Context, method, url,
 				return innerErr
 			}
 
-			streamReader, err = sendChatCompletionRequestStream(c, req)
+			streamReader, err = sendChatCompletionRequestStream(c, c.config.HTTPClient, req)
 			return err
 		},
 		nil,
