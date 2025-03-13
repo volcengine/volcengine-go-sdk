@@ -118,13 +118,13 @@ type ESCLOUDAPI interface {
 	ModifyDeletionProtectionWithContext(volcengine.Context, *ModifyDeletionProtectionInput, ...request.Option) (*ModifyDeletionProtectionOutput, error)
 	ModifyDeletionProtectionRequest(*ModifyDeletionProtectionInput) (*request.Request, *ModifyDeletionProtectionOutput)
 
-	ModifyIpWhitelistCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	ModifyIpWhitelistCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	ModifyIpWhitelistCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+	ModifyIpAllowListCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ModifyIpAllowListCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ModifyIpAllowListCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
 
-	ModifyIpWhitelist(*ModifyIpWhitelistInput) (*ModifyIpWhitelistOutput, error)
-	ModifyIpWhitelistWithContext(volcengine.Context, *ModifyIpWhitelistInput, ...request.Option) (*ModifyIpWhitelistOutput, error)
-	ModifyIpWhitelistRequest(*ModifyIpWhitelistInput) (*request.Request, *ModifyIpWhitelistOutput)
+	ModifyIpAllowList(*ModifyIpAllowListInput) (*ModifyIpAllowListOutput, error)
+	ModifyIpAllowListWithContext(volcengine.Context, *ModifyIpAllowListInput, ...request.Option) (*ModifyIpAllowListOutput, error)
+	ModifyIpAllowListRequest(*ModifyIpAllowListInput) (*request.Request, *ModifyIpAllowListOutput)
 
 	ModifyMaintenanceSettingCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ModifyMaintenanceSettingCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
