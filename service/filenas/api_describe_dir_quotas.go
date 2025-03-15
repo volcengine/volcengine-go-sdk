@@ -254,7 +254,7 @@ func (s *DescribeDirQuotasOutput) SetTotalCount(v int32) *DescribeDirQuotasOutpu
 type DirQuotaInfoForDescribeDirQuotasOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	DirInode *int32 `type:"int32" json:",omitempty"`
+	DirInode *int64 `type:"int64" json:",omitempty"`
 
 	Path *string `type:"string" json:",omitempty"`
 
@@ -276,7 +276,7 @@ func (s DirQuotaInfoForDescribeDirQuotasOutput) GoString() string {
 }
 
 // SetDirInode sets the DirInode field's value.
-func (s *DirQuotaInfoForDescribeDirQuotasOutput) SetDirInode(v int32) *DirQuotaInfoForDescribeDirQuotasOutput {
+func (s *DirQuotaInfoForDescribeDirQuotasOutput) SetDirInode(v int64) *DirQuotaInfoForDescribeDirQuotasOutput {
 	s.DirInode = &v
 	return s
 }
