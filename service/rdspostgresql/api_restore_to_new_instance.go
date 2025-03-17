@@ -144,17 +144,17 @@ func (c *RDSPOSTGRESQL) RestoreToNewInstanceWithContext(ctx volcengine.Context, 
 }
 
 type ChargeInfoForRestoreToNewInstanceInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	AutoRenew *bool `type:"boolean"`
+	AutoRenew *bool `type:"boolean" json:",omitempty"`
 
-	ChargeType *string `type:"string" enum:"EnumOfChargeTypeForRestoreToNewInstanceInput"`
+	ChargeType *string `type:"string" json:",omitempty"`
 
-	Number *int32 `type:"int32"`
+	Number *int32 `type:"int32" json:",omitempty"`
 
-	Period *int32 `type:"int32"`
+	Period *int32 `type:"int32" json:",omitempty"`
 
-	PeriodUnit *string `type:"string" enum:"EnumOfPeriodUnitForRestoreToNewInstanceInput"`
+	PeriodUnit *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -198,17 +198,17 @@ func (s *ChargeInfoForRestoreToNewInstanceInput) SetPeriodUnit(v string) *Charge
 }
 
 type NodeInfoForRestoreToNewInstanceInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	NodeId *string `type:"string"`
+	NodeId *string `type:"string" json:",omitempty"`
 
-	NodeOperateType *string `type:"string" enum:"EnumOfNodeOperateTypeForRestoreToNewInstanceInput"`
+	NodeOperateType *string `type:"string" json:",omitempty"`
 
-	NodeSpec *string `type:"string"`
+	NodeSpec *string `type:"string" json:",omitempty"`
 
-	NodeType *string `type:"string" enum:"EnumOfNodeTypeForRestoreToNewInstanceInput"`
+	NodeType *string `type:"string" json:",omitempty"`
 
-	ZoneId *string `type:"string"`
+	ZoneId *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -252,35 +252,35 @@ func (s *NodeInfoForRestoreToNewInstanceInput) SetZoneId(v string) *NodeInfoForR
 }
 
 type RestoreToNewInstanceInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	BackupId *string `type:"string"`
+	BackupId *string `type:"string" json:",omitempty"`
 
-	ChargeInfo *ChargeInfoForRestoreToNewInstanceInput `type:"structure"`
+	ChargeInfo *ChargeInfoForRestoreToNewInstanceInput `type:"structure" json:",omitempty"`
 
-	InstanceName *string `type:"string"`
+	InstanceName *string `type:"string" json:",omitempty"`
 
-	NodeInfo []*NodeInfoForRestoreToNewInstanceInput `type:"list"`
+	NodeInfo []*NodeInfoForRestoreToNewInstanceInput `type:"list" json:",omitempty"`
 
-	ProjectName *string `type:"string"`
+	ProjectName *string `type:"string" json:",omitempty"`
 
-	RestoreTime *string `type:"string"`
+	RestoreTime *string `type:"string" json:",omitempty"`
 
 	// SrcInstanceId is a required field
-	SrcInstanceId *string `type:"string" required:"true"`
+	SrcInstanceId *string `type:"string" json:",omitempty" required:"true"`
 
-	StorageSpace *int32 `min:"20" max:"3000" type:"int32"`
+	StorageSpace *int32 `type:"int32" json:",omitempty"`
 
 	// StorageType is a required field
-	StorageType *string `type:"string" required:"true" enum:"EnumOfStorageTypeForRestoreToNewInstanceInput"`
+	StorageType *string `type:"string" json:",omitempty" required:"true"`
 
 	// SubnetId is a required field
-	SubnetId *string `type:"string" required:"true"`
+	SubnetId *string `type:"string" json:",omitempty" required:"true"`
 
-	Tags []*TagForRestoreToNewInstanceInput `type:"list"`
+	Tags []*TagForRestoreToNewInstanceInput `type:"list" json:",omitempty"`
 
 	// VpcId is a required field
-	VpcId *string `type:"string" required:"true"`
+	VpcId *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -298,12 +298,6 @@ func (s *RestoreToNewInstanceInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "RestoreToNewInstanceInput"}
 	if s.SrcInstanceId == nil {
 		invalidParams.Add(request.NewErrParamRequired("SrcInstanceId"))
-	}
-	if s.StorageSpace != nil && *s.StorageSpace < 20 {
-		invalidParams.Add(request.NewErrParamMinValue("StorageSpace", 20))
-	}
-	if s.StorageSpace != nil && *s.StorageSpace > 3000 {
-		invalidParams.Add(request.NewErrParamMaxValue("StorageSpace", 3000))
 	}
 	if s.StorageType == nil {
 		invalidParams.Add(request.NewErrParamRequired("StorageType"))
@@ -394,13 +388,13 @@ func (s *RestoreToNewInstanceInput) SetVpcId(v string) *RestoreToNewInstanceInpu
 }
 
 type RestoreToNewInstanceOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	InstanceId *string `type:"string"`
+	InstanceId *string `type:"string" json:",omitempty"`
 
-	OrderId *string `type:"string"`
+	OrderId *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -426,11 +420,11 @@ func (s *RestoreToNewInstanceOutput) SetOrderId(v string) *RestoreToNewInstanceO
 }
 
 type TagForRestoreToNewInstanceInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Key *string `type:"string"`
+	Key *string `type:"string" json:",omitempty"`
 
-	Value *string `type:"string"`
+	Value *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -454,46 +448,3 @@ func (s *TagForRestoreToNewInstanceInput) SetValue(v string) *TagForRestoreToNew
 	s.Value = &v
 	return s
 }
-
-const (
-	// EnumOfChargeTypeForRestoreToNewInstanceInputPostPaid is a EnumOfChargeTypeForRestoreToNewInstanceInput enum value
-	EnumOfChargeTypeForRestoreToNewInstanceInputPostPaid = "PostPaid"
-
-	// EnumOfChargeTypeForRestoreToNewInstanceInputPrePaid is a EnumOfChargeTypeForRestoreToNewInstanceInput enum value
-	EnumOfChargeTypeForRestoreToNewInstanceInputPrePaid = "PrePaid"
-)
-
-const (
-	// EnumOfNodeOperateTypeForRestoreToNewInstanceInputCreate is a EnumOfNodeOperateTypeForRestoreToNewInstanceInput enum value
-	EnumOfNodeOperateTypeForRestoreToNewInstanceInputCreate = "Create"
-
-	// EnumOfNodeOperateTypeForRestoreToNewInstanceInputDelete is a EnumOfNodeOperateTypeForRestoreToNewInstanceInput enum value
-	EnumOfNodeOperateTypeForRestoreToNewInstanceInputDelete = "Delete"
-
-	// EnumOfNodeOperateTypeForRestoreToNewInstanceInputModify is a EnumOfNodeOperateTypeForRestoreToNewInstanceInput enum value
-	EnumOfNodeOperateTypeForRestoreToNewInstanceInputModify = "Modify"
-)
-
-const (
-	// EnumOfNodeTypeForRestoreToNewInstanceInputPrimary is a EnumOfNodeTypeForRestoreToNewInstanceInput enum value
-	EnumOfNodeTypeForRestoreToNewInstanceInputPrimary = "Primary"
-
-	// EnumOfNodeTypeForRestoreToNewInstanceInputSecondary is a EnumOfNodeTypeForRestoreToNewInstanceInput enum value
-	EnumOfNodeTypeForRestoreToNewInstanceInputSecondary = "Secondary"
-
-	// EnumOfNodeTypeForRestoreToNewInstanceInputReadOnly is a EnumOfNodeTypeForRestoreToNewInstanceInput enum value
-	EnumOfNodeTypeForRestoreToNewInstanceInputReadOnly = "ReadOnly"
-)
-
-const (
-	// EnumOfPeriodUnitForRestoreToNewInstanceInputMonth is a EnumOfPeriodUnitForRestoreToNewInstanceInput enum value
-	EnumOfPeriodUnitForRestoreToNewInstanceInputMonth = "Month"
-
-	// EnumOfPeriodUnitForRestoreToNewInstanceInputYear is a EnumOfPeriodUnitForRestoreToNewInstanceInput enum value
-	EnumOfPeriodUnitForRestoreToNewInstanceInputYear = "Year"
-)
-
-const (
-	// EnumOfStorageTypeForRestoreToNewInstanceInputLocalSsd is a EnumOfStorageTypeForRestoreToNewInstanceInput enum value
-	EnumOfStorageTypeForRestoreToNewInstanceInputLocalSsd = "LocalSSD"
-)

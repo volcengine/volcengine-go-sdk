@@ -144,22 +144,22 @@ func (c *RDSPOSTGRESQL) ModifyDBEndpointReadWriteFlagWithContext(ctx volcengine.
 }
 
 type ModifyDBEndpointReadWriteFlagInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// EndpointId is a required field
-	EndpointId *string `type:"string" required:"true"`
+	EndpointId *string `type:"string" json:",omitempty" required:"true"`
 
 	// InstanceId is a required field
-	InstanceId *string `type:"string" required:"true"`
+	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 
-	ReadOnlyNodeDistributionType *string `type:"string" enum:"EnumOfReadOnlyNodeDistributionTypeForModifyDBEndpointReadWriteFlagInput"`
+	ReadOnlyNodeDistributionType *string `type:"string" json:",omitempty"`
 
-	ReadOnlyNodeMaxDelayTime *int32 `type:"int32"`
+	ReadOnlyNodeMaxDelayTime *int32 `type:"int32" json:",omitempty"`
 
-	ReadOnlyNodeWeight []*ReadOnlyNodeWeightForModifyDBEndpointReadWriteFlagInput `type:"list"`
+	ReadOnlyNodeWeight []*ReadOnlyNodeWeightForModifyDBEndpointReadWriteFlagInput `type:"list" json:",omitempty"`
 
 	// ReadWriteSpliting is a required field
-	ReadWriteSpliting *bool `type:"boolean" required:"true"`
+	ReadWriteSpliting *bool `type:"boolean" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -228,7 +228,7 @@ func (s *ModifyDBEndpointReadWriteFlagInput) SetReadWriteSpliting(v bool) *Modif
 }
 
 type ModifyDBEndpointReadWriteFlagOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 }
@@ -244,13 +244,13 @@ func (s ModifyDBEndpointReadWriteFlagOutput) GoString() string {
 }
 
 type ReadOnlyNodeWeightForModifyDBEndpointReadWriteFlagInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	NodeId *string `type:"string"`
+	NodeId *string `type:"string" json:",omitempty"`
 
-	NodeType *string `type:"string" enum:"EnumOfNodeTypeForModifyDBEndpointReadWriteFlagInput"`
+	NodeType *string `type:"string" json:",omitempty"`
 
-	Weight *int32 `type:"int32"`
+	Weight *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -280,19 +280,3 @@ func (s *ReadOnlyNodeWeightForModifyDBEndpointReadWriteFlagInput) SetWeight(v in
 	s.Weight = &v
 	return s
 }
-
-const (
-	// EnumOfNodeTypeForModifyDBEndpointReadWriteFlagInputPrimary is a EnumOfNodeTypeForModifyDBEndpointReadWriteFlagInput enum value
-	EnumOfNodeTypeForModifyDBEndpointReadWriteFlagInputPrimary = "Primary"
-
-	// EnumOfNodeTypeForModifyDBEndpointReadWriteFlagInputReadOnly is a EnumOfNodeTypeForModifyDBEndpointReadWriteFlagInput enum value
-	EnumOfNodeTypeForModifyDBEndpointReadWriteFlagInputReadOnly = "ReadOnly"
-)
-
-const (
-	// EnumOfReadOnlyNodeDistributionTypeForModifyDBEndpointReadWriteFlagInputDefault is a EnumOfReadOnlyNodeDistributionTypeForModifyDBEndpointReadWriteFlagInput enum value
-	EnumOfReadOnlyNodeDistributionTypeForModifyDBEndpointReadWriteFlagInputDefault = "Default"
-
-	// EnumOfReadOnlyNodeDistributionTypeForModifyDBEndpointReadWriteFlagInputCustom is a EnumOfReadOnlyNodeDistributionTypeForModifyDBEndpointReadWriteFlagInput enum value
-	EnumOfReadOnlyNodeDistributionTypeForModifyDBEndpointReadWriteFlagInputCustom = "Custom"
-)

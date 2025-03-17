@@ -144,20 +144,20 @@ func (c *RDSPOSTGRESQL) ModifyDBInstanceSpecWithContext(ctx volcengine.Context, 
 }
 
 type ModifyDBInstanceSpecInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// InstanceId is a required field
-	InstanceId *string `type:"string" required:"true"`
+	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 
-	ModifyType *string `type:"string" enum:"EnumOfModifyTypeForModifyDBInstanceSpecInput"`
+	ModifyType *string `type:"string" json:",omitempty"`
 
-	NodeInfo []*NodeInfoForModifyDBInstanceSpecInput `type:"list"`
+	NodeInfo []*NodeInfoForModifyDBInstanceSpecInput `type:"list" json:",omitempty"`
 
-	RollbackTime *string `type:"string"`
+	RollbackTime *string `type:"string" json:",omitempty"`
 
-	StorageSpace *int32 `min:"20" max:"3000" type:"int32"`
+	StorageSpace *int32 `type:"int32" json:",omitempty"`
 
-	StorageType *string `type:"string" enum:"EnumOfStorageTypeForModifyDBInstanceSpecInput"`
+	StorageType *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -175,12 +175,6 @@ func (s *ModifyDBInstanceSpecInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "ModifyDBInstanceSpecInput"}
 	if s.InstanceId == nil {
 		invalidParams.Add(request.NewErrParamRequired("InstanceId"))
-	}
-	if s.StorageSpace != nil && *s.StorageSpace < 20 {
-		invalidParams.Add(request.NewErrParamMinValue("StorageSpace", 20))
-	}
-	if s.StorageSpace != nil && *s.StorageSpace > 3000 {
-		invalidParams.Add(request.NewErrParamMaxValue("StorageSpace", 3000))
 	}
 
 	if invalidParams.Len() > 0 {
@@ -226,13 +220,13 @@ func (s *ModifyDBInstanceSpecInput) SetStorageType(v string) *ModifyDBInstanceSp
 }
 
 type ModifyDBInstanceSpecOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	InstanceId *string `type:"string"`
+	InstanceId *string `type:"string" json:",omitempty"`
 
-	OrderId *string `type:"string"`
+	OrderId *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -258,17 +252,17 @@ func (s *ModifyDBInstanceSpecOutput) SetOrderId(v string) *ModifyDBInstanceSpecO
 }
 
 type NodeInfoForModifyDBInstanceSpecInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	NodeId *string `type:"string"`
+	NodeId *string `type:"string" json:",omitempty"`
 
-	NodeOperateType *string `type:"string" enum:"EnumOfNodeOperateTypeForModifyDBInstanceSpecInput"`
+	NodeOperateType *string `type:"string" json:",omitempty"`
 
-	NodeSpec *string `type:"string"`
+	NodeSpec *string `type:"string" json:",omitempty"`
 
-	NodeType *string `type:"string" enum:"EnumOfNodeTypeForModifyDBInstanceSpecInput"`
+	NodeType *string `type:"string" json:",omitempty"`
 
-	ZoneId *string `type:"string"`
+	ZoneId *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -310,38 +304,3 @@ func (s *NodeInfoForModifyDBInstanceSpecInput) SetZoneId(v string) *NodeInfoForM
 	s.ZoneId = &v
 	return s
 }
-
-const (
-	// EnumOfModifyTypeForModifyDBInstanceSpecInputUsually is a EnumOfModifyTypeForModifyDBInstanceSpecInput enum value
-	EnumOfModifyTypeForModifyDBInstanceSpecInputUsually = "Usually"
-
-	// EnumOfModifyTypeForModifyDBInstanceSpecInputTemporary is a EnumOfModifyTypeForModifyDBInstanceSpecInput enum value
-	EnumOfModifyTypeForModifyDBInstanceSpecInputTemporary = "Temporary"
-)
-
-const (
-	// EnumOfNodeOperateTypeForModifyDBInstanceSpecInputCreate is a EnumOfNodeOperateTypeForModifyDBInstanceSpecInput enum value
-	EnumOfNodeOperateTypeForModifyDBInstanceSpecInputCreate = "Create"
-
-	// EnumOfNodeOperateTypeForModifyDBInstanceSpecInputDelete is a EnumOfNodeOperateTypeForModifyDBInstanceSpecInput enum value
-	EnumOfNodeOperateTypeForModifyDBInstanceSpecInputDelete = "Delete"
-
-	// EnumOfNodeOperateTypeForModifyDBInstanceSpecInputModify is a EnumOfNodeOperateTypeForModifyDBInstanceSpecInput enum value
-	EnumOfNodeOperateTypeForModifyDBInstanceSpecInputModify = "Modify"
-)
-
-const (
-	// EnumOfNodeTypeForModifyDBInstanceSpecInputPrimary is a EnumOfNodeTypeForModifyDBInstanceSpecInput enum value
-	EnumOfNodeTypeForModifyDBInstanceSpecInputPrimary = "Primary"
-
-	// EnumOfNodeTypeForModifyDBInstanceSpecInputSecondary is a EnumOfNodeTypeForModifyDBInstanceSpecInput enum value
-	EnumOfNodeTypeForModifyDBInstanceSpecInputSecondary = "Secondary"
-
-	// EnumOfNodeTypeForModifyDBInstanceSpecInputReadOnly is a EnumOfNodeTypeForModifyDBInstanceSpecInput enum value
-	EnumOfNodeTypeForModifyDBInstanceSpecInputReadOnly = "ReadOnly"
-)
-
-const (
-	// EnumOfStorageTypeForModifyDBInstanceSpecInputLocalSsd is a EnumOfStorageTypeForModifyDBInstanceSpecInput enum value
-	EnumOfStorageTypeForModifyDBInstanceSpecInputLocalSsd = "LocalSSD"
-)

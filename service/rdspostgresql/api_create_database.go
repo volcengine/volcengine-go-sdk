@@ -144,21 +144,21 @@ func (c *RDSPOSTGRESQL) CreateDatabaseWithContext(ctx volcengine.Context, input 
 }
 
 type CreateDatabaseInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	CharacterSetName *string `type:"string"`
+	CType *string `type:"string" json:",omitempty"`
 
-	Collate *string `type:"string"`
+	CharacterSetName *string `type:"string" json:",omitempty"`
 
-	Ctype *string `type:"string"`
+	Collate *string `type:"string" json:",omitempty"`
 
 	// DBName is a required field
-	DBName *string `type:"string" required:"true"`
+	DBName *string `type:"string" json:",omitempty" required:"true"`
 
 	// InstanceId is a required field
-	InstanceId *string `type:"string" required:"true"`
+	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 
-	Owner *string `type:"string"`
+	Owner *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -187,6 +187,12 @@ func (s *CreateDatabaseInput) Validate() error {
 	return nil
 }
 
+// SetCType sets the CType field's value.
+func (s *CreateDatabaseInput) SetCType(v string) *CreateDatabaseInput {
+	s.CType = &v
+	return s
+}
+
 // SetCharacterSetName sets the CharacterSetName field's value.
 func (s *CreateDatabaseInput) SetCharacterSetName(v string) *CreateDatabaseInput {
 	s.CharacterSetName = &v
@@ -196,12 +202,6 @@ func (s *CreateDatabaseInput) SetCharacterSetName(v string) *CreateDatabaseInput
 // SetCollate sets the Collate field's value.
 func (s *CreateDatabaseInput) SetCollate(v string) *CreateDatabaseInput {
 	s.Collate = &v
-	return s
-}
-
-// SetCtype sets the Ctype field's value.
-func (s *CreateDatabaseInput) SetCtype(v string) *CreateDatabaseInput {
-	s.Ctype = &v
 	return s
 }
 
@@ -224,7 +224,7 @@ func (s *CreateDatabaseInput) SetOwner(v string) *CreateDatabaseInput {
 }
 
 type CreateDatabaseOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 }

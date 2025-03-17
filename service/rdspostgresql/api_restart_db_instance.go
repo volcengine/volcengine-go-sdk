@@ -144,10 +144,14 @@ func (c *RDSPOSTGRESQL) RestartDBInstanceWithContext(ctx volcengine.Context, inp
 }
 
 type RestartDBInstanceInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	ApplyScope *string `type:"string" json:",omitempty"`
+
+	CustomNodeIds []*string `type:"list" json:",omitempty"`
 
 	// InstanceId is a required field
-	InstanceId *string `type:"string" required:"true"`
+	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -173,6 +177,18 @@ func (s *RestartDBInstanceInput) Validate() error {
 	return nil
 }
 
+// SetApplyScope sets the ApplyScope field's value.
+func (s *RestartDBInstanceInput) SetApplyScope(v string) *RestartDBInstanceInput {
+	s.ApplyScope = &v
+	return s
+}
+
+// SetCustomNodeIds sets the CustomNodeIds field's value.
+func (s *RestartDBInstanceInput) SetCustomNodeIds(v []*string) *RestartDBInstanceInput {
+	s.CustomNodeIds = v
+	return s
+}
+
 // SetInstanceId sets the InstanceId field's value.
 func (s *RestartDBInstanceInput) SetInstanceId(v string) *RestartDBInstanceInput {
 	s.InstanceId = &v
@@ -180,7 +196,7 @@ func (s *RestartDBInstanceInput) SetInstanceId(v string) *RestartDBInstanceInput
 }
 
 type RestartDBInstanceOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 }

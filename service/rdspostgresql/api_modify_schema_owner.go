@@ -144,12 +144,12 @@ func (c *RDSPOSTGRESQL) ModifySchemaOwnerWithContext(ctx volcengine.Context, inp
 }
 
 type ModifySchemaOwnerInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// InstanceId is a required field
-	InstanceId *string `type:"string" required:"true"`
+	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 
-	SchemaInfo []*SchemaInfoForModifySchemaOwnerInput `type:"list"`
+	SchemaInfo []*SchemaInfoForModifySchemaOwnerInput `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -188,7 +188,7 @@ func (s *ModifySchemaOwnerInput) SetSchemaInfo(v []*SchemaInfoForModifySchemaOwn
 }
 
 type ModifySchemaOwnerOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 }
@@ -204,13 +204,13 @@ func (s ModifySchemaOwnerOutput) GoString() string {
 }
 
 type SchemaInfoForModifySchemaOwnerInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	DBName *string `type:"string"`
+	DBName *string `type:"string" json:",omitempty"`
 
-	Owner *string `type:"string"`
+	Owner *string `type:"string" json:",omitempty"`
 
-	SchemaName *string `type:"string"`
+	SchemaName *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation

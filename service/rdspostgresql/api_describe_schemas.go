@@ -144,16 +144,16 @@ func (c *RDSPOSTGRESQL) DescribeSchemasWithContext(ctx volcengine.Context, input
 }
 
 type DescribeSchemasInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	DBName *string `type:"string"`
+	DBName *string `type:"string" json:",omitempty"`
 
 	// InstanceId is a required field
-	InstanceId *string `type:"string" required:"true"`
+	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 
-	PageNumber *int32 `type:"int32"`
+	PageNumber *int32 `type:"int32" json:",omitempty"`
 
-	PageSize *int32 `type:"int32"`
+	PageSize *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -204,13 +204,13 @@ func (s *DescribeSchemasInput) SetPageSize(v int32) *DescribeSchemasInput {
 }
 
 type DescribeSchemasOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	Schemas []*SchemaForDescribeSchemasOutput `type:"list"`
+	Schemas []*SchemaForDescribeSchemasOutput `type:"list" json:",omitempty"`
 
-	Total *int32 `type:"int32"`
+	Total *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -236,13 +236,13 @@ func (s *DescribeSchemasOutput) SetTotal(v int32) *DescribeSchemasOutput {
 }
 
 type SchemaForDescribeSchemasOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	DBName *string `type:"string"`
+	DBName *string `type:"string" json:",omitempty"`
 
-	Owner *string `type:"string"`
+	Owner *string `type:"string" json:",omitempty"`
 
-	SchemaName *string `type:"string"`
+	SchemaName *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation

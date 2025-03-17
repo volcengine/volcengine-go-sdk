@@ -144,12 +144,12 @@ func (c *RDSPOSTGRESQL) ModifyDBInstanceAvailabilityZoneWithContext(ctx volcengi
 }
 
 type ModifyDBInstanceAvailabilityZoneInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// InstanceId is a required field
-	InstanceId *string `type:"string" required:"true"`
+	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 
-	NodeInfo []*NodeInfoForModifyDBInstanceAvailabilityZoneInput `type:"list"`
+	NodeInfo []*NodeInfoForModifyDBInstanceAvailabilityZoneInput `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -188,13 +188,13 @@ func (s *ModifyDBInstanceAvailabilityZoneInput) SetNodeInfo(v []*NodeInfoForModi
 }
 
 type ModifyDBInstanceAvailabilityZoneOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	InstanceId *string `type:"string"`
+	InstanceId *string `type:"string" json:",omitempty"`
 
-	OrderId *string `type:"string"`
+	OrderId *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -220,11 +220,11 @@ func (s *ModifyDBInstanceAvailabilityZoneOutput) SetOrderId(v string) *ModifyDBI
 }
 
 type NodeInfoForModifyDBInstanceAvailabilityZoneInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	NodeId *string `type:"string"`
+	NodeId *string `type:"string" json:",omitempty"`
 
-	ZoneId *string `type:"string"`
+	ZoneId *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation

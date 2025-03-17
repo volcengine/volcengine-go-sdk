@@ -144,19 +144,19 @@ func (c *RDSPOSTGRESQL) DescribeDatabasesWithContext(ctx volcengine.Context, inp
 }
 
 type DatabaseForDescribeDatabasesOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	CType *string `type:"string"`
+	CType *string `type:"string" json:",omitempty"`
 
-	CharacterSetName *string `type:"string"`
+	CharacterSetName *string `type:"string" json:",omitempty"`
 
-	Collate *string `type:"string"`
+	Collate *string `type:"string" json:",omitempty"`
 
-	DBName *string `type:"string"`
+	DBName *string `type:"string" json:",omitempty"`
 
-	DBStatus *string `type:"string" enum:"EnumOfDBStatusForDescribeDatabasesOutput"`
+	DBStatus *string `type:"string" json:",omitempty"`
 
-	Owner *string `type:"string"`
+	Owner *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -206,16 +206,16 @@ func (s *DatabaseForDescribeDatabasesOutput) SetOwner(v string) *DatabaseForDesc
 }
 
 type DescribeDatabasesInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	DBName *string `type:"string"`
+	DBName *string `type:"string" json:",omitempty"`
 
 	// InstanceId is a required field
-	InstanceId *string `type:"string" required:"true"`
+	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 
-	PageNumber *int32 `type:"int32"`
+	PageNumber *int32 `type:"int32" json:",omitempty"`
 
-	PageSize *int32 `type:"int32"`
+	PageSize *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -266,13 +266,13 @@ func (s *DescribeDatabasesInput) SetPageSize(v int32) *DescribeDatabasesInput {
 }
 
 type DescribeDatabasesOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	Databases []*DatabaseForDescribeDatabasesOutput `type:"list"`
+	Databases []*DatabaseForDescribeDatabasesOutput `type:"list" json:",omitempty"`
 
-	Total *int32 `type:"int32"`
+	Total *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -296,11 +296,3 @@ func (s *DescribeDatabasesOutput) SetTotal(v int32) *DescribeDatabasesOutput {
 	s.Total = &v
 	return s
 }
-
-const (
-	// EnumOfDBStatusForDescribeDatabasesOutputAvailable is a EnumOfDBStatusForDescribeDatabasesOutput enum value
-	EnumOfDBStatusForDescribeDatabasesOutputAvailable = "Available"
-
-	// EnumOfDBStatusForDescribeDatabasesOutputUnavailable is a EnumOfDBStatusForDescribeDatabasesOutput enum value
-	EnumOfDBStatusForDescribeDatabasesOutputUnavailable = "Unavailable"
-)

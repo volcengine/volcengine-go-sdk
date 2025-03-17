@@ -144,19 +144,19 @@ func (c *RDSPOSTGRESQL) ModifyDBInstanceChargeTypeWithContext(ctx volcengine.Con
 }
 
 type ModifyDBInstanceChargeTypeInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	AutoRenew *bool `type:"boolean"`
+	AutoRenew *bool `type:"boolean" json:",omitempty"`
 
 	// ChargeType is a required field
-	ChargeType *string `type:"string" required:"true" enum:"EnumOfChargeTypeForModifyDBInstanceChargeTypeInput"`
+	ChargeType *string `type:"string" json:",omitempty" required:"true"`
 
 	// InstanceId is a required field
-	InstanceId *string `type:"string" required:"true"`
+	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 
-	Period *int32 `type:"int32"`
+	Period *int32 `type:"int32" json:",omitempty"`
 
-	PeriodUnit *string `type:"string" enum:"EnumOfPeriodUnitForModifyDBInstanceChargeTypeInput"`
+	PeriodUnit *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -216,13 +216,13 @@ func (s *ModifyDBInstanceChargeTypeInput) SetPeriodUnit(v string) *ModifyDBInsta
 }
 
 type ModifyDBInstanceChargeTypeOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	InstanceId *string `type:"string"`
+	InstanceId *string `type:"string" json:",omitempty"`
 
-	OrderId *string `type:"string"`
+	OrderNO *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -241,24 +241,8 @@ func (s *ModifyDBInstanceChargeTypeOutput) SetInstanceId(v string) *ModifyDBInst
 	return s
 }
 
-// SetOrderId sets the OrderId field's value.
-func (s *ModifyDBInstanceChargeTypeOutput) SetOrderId(v string) *ModifyDBInstanceChargeTypeOutput {
-	s.OrderId = &v
+// SetOrderNO sets the OrderNO field's value.
+func (s *ModifyDBInstanceChargeTypeOutput) SetOrderNO(v string) *ModifyDBInstanceChargeTypeOutput {
+	s.OrderNO = &v
 	return s
 }
-
-const (
-	// EnumOfChargeTypeForModifyDBInstanceChargeTypeInputPostPaid is a EnumOfChargeTypeForModifyDBInstanceChargeTypeInput enum value
-	EnumOfChargeTypeForModifyDBInstanceChargeTypeInputPostPaid = "PostPaid"
-
-	// EnumOfChargeTypeForModifyDBInstanceChargeTypeInputPrePaid is a EnumOfChargeTypeForModifyDBInstanceChargeTypeInput enum value
-	EnumOfChargeTypeForModifyDBInstanceChargeTypeInputPrePaid = "PrePaid"
-)
-
-const (
-	// EnumOfPeriodUnitForModifyDBInstanceChargeTypeInputMonth is a EnumOfPeriodUnitForModifyDBInstanceChargeTypeInput enum value
-	EnumOfPeriodUnitForModifyDBInstanceChargeTypeInputMonth = "Month"
-
-	// EnumOfPeriodUnitForModifyDBInstanceChargeTypeInputYear is a EnumOfPeriodUnitForModifyDBInstanceChargeTypeInput enum value
-	EnumOfPeriodUnitForModifyDBInstanceChargeTypeInputYear = "Year"
-)

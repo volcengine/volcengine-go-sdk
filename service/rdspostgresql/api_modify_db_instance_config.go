@@ -144,12 +144,12 @@ func (c *RDSPOSTGRESQL) ModifyDBInstanceConfigWithContext(ctx volcengine.Context
 }
 
 type ModifyDBInstanceConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	GlobalReadOnly *bool `type:"boolean"`
+	GlobalReadOnly *bool `type:"boolean" json:",omitempty"`
 
 	// InstanceId is a required field
-	InstanceId *string `type:"string" required:"true"`
+	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -188,7 +188,7 @@ func (s *ModifyDBInstanceConfigInput) SetInstanceId(v string) *ModifyDBInstanceC
 }
 
 type ModifyDBInstanceConfigOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 }

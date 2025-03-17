@@ -144,12 +144,12 @@ func (c *RDSPOSTGRESQL) DescribeDBInstanceParametersWithContext(ctx volcengine.C
 }
 
 type DescribeDBInstanceParametersInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// InstanceId is a required field
-	InstanceId *string `type:"string" required:"true"`
+	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 
-	ParameterName *string `type:"string"`
+	ParameterName *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -188,17 +188,17 @@ func (s *DescribeDBInstanceParametersInput) SetParameterName(v string) *Describe
 }
 
 type DescribeDBInstanceParametersOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	DBEngineVersion *string `type:"string"`
+	DBEngineVersion *string `type:"string" json:",omitempty"`
 
-	InstanceId *string `type:"string"`
+	InstanceId *string `type:"string" json:",omitempty"`
 
-	ParameterCount *string `type:"string"`
+	ParameterCount *string `type:"string" json:",omitempty"`
 
-	Parameters []*ParameterForDescribeDBInstanceParametersOutput `type:"list"`
+	Parameters []*ParameterForDescribeDBInstanceParametersOutput `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -236,21 +236,23 @@ func (s *DescribeDBInstanceParametersOutput) SetParameters(v []*ParameterForDesc
 }
 
 type ParameterForDescribeDBInstanceParametersOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	CheckingCode *string `type:"string"`
+	CheckingCode *string `type:"string" json:",omitempty"`
 
-	DefaultValue *string `type:"string"`
+	DefaultValue *string `type:"string" json:",omitempty"`
 
-	Description *string `type:"string"`
+	Description *string `type:"string" json:",omitempty"`
 
-	ForceRestart *bool `type:"boolean"`
+	DescriptionZH *string `type:"string" json:",omitempty"`
 
-	Name *string `type:"string"`
+	ForceRestart *bool `type:"boolean" json:",omitempty"`
 
-	Type *string `type:"string" enum:"EnumOfTypeForDescribeDBInstanceParametersOutput"`
+	Name *string `type:"string" json:",omitempty"`
 
-	Value *string `type:"string"`
+	Type *string `type:"string" json:",omitempty"`
+
+	Value *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -281,6 +283,12 @@ func (s *ParameterForDescribeDBInstanceParametersOutput) SetDescription(v string
 	return s
 }
 
+// SetDescriptionZH sets the DescriptionZH field's value.
+func (s *ParameterForDescribeDBInstanceParametersOutput) SetDescriptionZH(v string) *ParameterForDescribeDBInstanceParametersOutput {
+	s.DescriptionZH = &v
+	return s
+}
+
 // SetForceRestart sets the ForceRestart field's value.
 func (s *ParameterForDescribeDBInstanceParametersOutput) SetForceRestart(v bool) *ParameterForDescribeDBInstanceParametersOutput {
 	s.ForceRestart = &v
@@ -304,23 +312,3 @@ func (s *ParameterForDescribeDBInstanceParametersOutput) SetValue(v string) *Par
 	s.Value = &v
 	return s
 }
-
-const (
-	// EnumOfTypeForDescribeDBInstanceParametersOutputString is a EnumOfTypeForDescribeDBInstanceParametersOutput enum value
-	EnumOfTypeForDescribeDBInstanceParametersOutputString = "String"
-
-	// EnumOfTypeForDescribeDBInstanceParametersOutputInteger is a EnumOfTypeForDescribeDBInstanceParametersOutput enum value
-	EnumOfTypeForDescribeDBInstanceParametersOutputInteger = "Integer"
-
-	// EnumOfTypeForDescribeDBInstanceParametersOutputFloat is a EnumOfTypeForDescribeDBInstanceParametersOutput enum value
-	EnumOfTypeForDescribeDBInstanceParametersOutputFloat = "Float"
-
-	// EnumOfTypeForDescribeDBInstanceParametersOutputBoolean is a EnumOfTypeForDescribeDBInstanceParametersOutput enum value
-	EnumOfTypeForDescribeDBInstanceParametersOutputBoolean = "Boolean"
-
-	// EnumOfTypeForDescribeDBInstanceParametersOutputList is a EnumOfTypeForDescribeDBInstanceParametersOutput enum value
-	EnumOfTypeForDescribeDBInstanceParametersOutputList = "List"
-
-	// EnumOfTypeForDescribeDBInstanceParametersOutputEnum is a EnumOfTypeForDescribeDBInstanceParametersOutput enum value
-	EnumOfTypeForDescribeDBInstanceParametersOutputEnum = "Enum"
-)

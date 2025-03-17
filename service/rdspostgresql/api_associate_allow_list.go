@@ -144,11 +144,11 @@ func (c *RDSPOSTGRESQL) AssociateAllowListWithContext(ctx volcengine.Context, in
 }
 
 type AssociateAllowListInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	AllowListIds []*string `type:"list"`
+	AllowListIds []*string `type:"list" json:",omitempty"`
 
-	InstanceIds []*string `type:"list"`
+	InstanceIds []*string `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -174,7 +174,7 @@ func (s *AssociateAllowListInput) SetInstanceIds(v []*string) *AssociateAllowLis
 }
 
 type AssociateAllowListOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 }

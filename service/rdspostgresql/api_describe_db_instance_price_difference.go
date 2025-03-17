@@ -144,17 +144,17 @@ func (c *RDSPOSTGRESQL) DescribeDBInstancePriceDifferenceWithContext(ctx volceng
 }
 
 type ChargeInfoForDescribeDBInstancePriceDifferenceInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	AutoRenew *bool `type:"boolean"`
+	AutoRenew *bool `type:"boolean" json:",omitempty"`
 
-	ChargeType *string `type:"string" enum:"EnumOfChargeTypeForDescribeDBInstancePriceDifferenceInput"`
+	ChargeType *string `type:"string" json:",omitempty"`
 
-	Number *int32 `type:"int32"`
+	Number *int32 `type:"int32" json:",omitempty"`
 
-	Period *int32 `type:"int32"`
+	Period *int32 `type:"int32" json:",omitempty"`
 
-	PeriodUnit *string `type:"string" enum:"EnumOfPeriodUnitForDescribeDBInstancePriceDifferenceInput"`
+	PeriodUnit *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -198,21 +198,21 @@ func (s *ChargeInfoForDescribeDBInstancePriceDifferenceInput) SetPeriodUnit(v st
 }
 
 type ChargeItemPriceForDescribeDBInstancePriceDifferenceOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	ChargeItemKey *string `type:"string"`
+	ChargeItemKey *string `type:"string" json:",omitempty"`
 
-	ChargeItemType *string `type:"string" enum:"EnumOfChargeItemTypeForDescribeDBInstancePriceDifferenceOutput"`
+	ChargeItemType *string `type:"string" json:",omitempty"`
 
-	ChargeItemValue *int32 `type:"int32"`
+	ChargeItemValue *int32 `type:"int32" json:",omitempty"`
 
-	DiscountPrice *float64 `type:"double"`
+	DiscountPrice *float64 `type:"double" json:",omitempty"`
 
-	NodeNumPerInstance *int32 `type:"int32"`
+	NodeNumPerInstance *int32 `type:"int32" json:",omitempty"`
 
-	OriginalPrice *float64 `type:"double"`
+	OriginalPrice *float64 `type:"double" json:",omitempty"`
 
-	PayablePrice *float64 `type:"double"`
+	PayablePrice *float64 `type:"double" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -268,24 +268,24 @@ func (s *ChargeItemPriceForDescribeDBInstancePriceDifferenceOutput) SetPayablePr
 }
 
 type DescribeDBInstancePriceDifferenceInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	ChargeInfo *ChargeInfoForDescribeDBInstancePriceDifferenceInput `type:"structure"`
+	ChargeInfo *ChargeInfoForDescribeDBInstancePriceDifferenceInput `type:"structure" json:",omitempty"`
 
 	// InstanceId is a required field
-	InstanceId *string `type:"string" required:"true"`
+	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 
-	ModifyType *string `type:"string" enum:"EnumOfModifyTypeForDescribeDBInstancePriceDifferenceInput"`
+	ModifyType *string `type:"string" json:",omitempty"`
 
-	NodeInfo []*NodeInfoForDescribeDBInstancePriceDifferenceInput `type:"list"`
+	NodeInfo []*NodeInfoForDescribeDBInstancePriceDifferenceInput `type:"list" json:",omitempty"`
 
-	RollbackTime *string `type:"string"`
+	RollbackTime *string `type:"string" json:",omitempty"`
 
 	// StorageSpace is a required field
-	StorageSpace *int32 `min:"20" max:"3000" type:"int32" required:"true"`
+	StorageSpace *int32 `type:"int32" json:",omitempty" required:"true"`
 
 	// StorageType is a required field
-	StorageType *string `type:"string" required:"true" enum:"EnumOfStorageTypeForDescribeDBInstancePriceDifferenceInput"`
+	StorageType *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -306,12 +306,6 @@ func (s *DescribeDBInstancePriceDifferenceInput) Validate() error {
 	}
 	if s.StorageSpace == nil {
 		invalidParams.Add(request.NewErrParamRequired("StorageSpace"))
-	}
-	if s.StorageSpace != nil && *s.StorageSpace < 20 {
-		invalidParams.Add(request.NewErrParamMinValue("StorageSpace", 20))
-	}
-	if s.StorageSpace != nil && *s.StorageSpace > 3000 {
-		invalidParams.Add(request.NewErrParamMaxValue("StorageSpace", 3000))
 	}
 	if s.StorageType == nil {
 		invalidParams.Add(request.NewErrParamRequired("StorageType"))
@@ -366,19 +360,19 @@ func (s *DescribeDBInstancePriceDifferenceInput) SetStorageType(v string) *Descr
 }
 
 type DescribeDBInstancePriceDifferenceOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	ChargeItemPrices []*ChargeItemPriceForDescribeDBInstancePriceDifferenceOutput `type:"list"`
+	ChargeItemPrices []*ChargeItemPriceForDescribeDBInstancePriceDifferenceOutput `type:"list" json:",omitempty"`
 
-	Currency *string `type:"string"`
+	Currency *string `type:"string" json:",omitempty"`
 
-	DiscountPrice *float64 `type:"double"`
+	DiscountPrice *float64 `type:"double" json:",omitempty"`
 
-	OriginalPrice *float64 `type:"double"`
+	OriginalPrice *float64 `type:"double" json:",omitempty"`
 
-	PayablePrice *float64 `type:"double"`
+	PayablePrice *float64 `type:"double" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -422,17 +416,17 @@ func (s *DescribeDBInstancePriceDifferenceOutput) SetPayablePrice(v float64) *De
 }
 
 type NodeInfoForDescribeDBInstancePriceDifferenceInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	NodeId *string `type:"string"`
+	NodeId *string `type:"string" json:",omitempty"`
 
-	NodeOperateType *string `type:"string" enum:"EnumOfNodeOperateTypeForDescribeDBInstancePriceDifferenceInput"`
+	NodeOperateType *string `type:"string" json:",omitempty"`
 
-	NodeSpec *string `type:"string"`
+	NodeSpec *string `type:"string" json:",omitempty"`
 
-	NodeType *string `type:"string" enum:"EnumOfNodeTypeForDescribeDBInstancePriceDifferenceInput"`
+	NodeType *string `type:"string" json:",omitempty"`
 
-	ZoneId *string `type:"string"`
+	ZoneId *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -474,68 +468,3 @@ func (s *NodeInfoForDescribeDBInstancePriceDifferenceInput) SetZoneId(v string) 
 	s.ZoneId = &v
 	return s
 }
-
-const (
-	// EnumOfChargeItemTypeForDescribeDBInstancePriceDifferenceOutputPrimary is a EnumOfChargeItemTypeForDescribeDBInstancePriceDifferenceOutput enum value
-	EnumOfChargeItemTypeForDescribeDBInstancePriceDifferenceOutputPrimary = "Primary"
-
-	// EnumOfChargeItemTypeForDescribeDBInstancePriceDifferenceOutputSecondary is a EnumOfChargeItemTypeForDescribeDBInstancePriceDifferenceOutput enum value
-	EnumOfChargeItemTypeForDescribeDBInstancePriceDifferenceOutputSecondary = "Secondary"
-
-	// EnumOfChargeItemTypeForDescribeDBInstancePriceDifferenceOutputReadOnly is a EnumOfChargeItemTypeForDescribeDBInstancePriceDifferenceOutput enum value
-	EnumOfChargeItemTypeForDescribeDBInstancePriceDifferenceOutputReadOnly = "ReadOnly"
-
-	// EnumOfChargeItemTypeForDescribeDBInstancePriceDifferenceOutputStorage is a EnumOfChargeItemTypeForDescribeDBInstancePriceDifferenceOutput enum value
-	EnumOfChargeItemTypeForDescribeDBInstancePriceDifferenceOutputStorage = "Storage"
-)
-
-const (
-	// EnumOfChargeTypeForDescribeDBInstancePriceDifferenceInputPostPaid is a EnumOfChargeTypeForDescribeDBInstancePriceDifferenceInput enum value
-	EnumOfChargeTypeForDescribeDBInstancePriceDifferenceInputPostPaid = "PostPaid"
-
-	// EnumOfChargeTypeForDescribeDBInstancePriceDifferenceInputPrePaid is a EnumOfChargeTypeForDescribeDBInstancePriceDifferenceInput enum value
-	EnumOfChargeTypeForDescribeDBInstancePriceDifferenceInputPrePaid = "PrePaid"
-)
-
-const (
-	// EnumOfModifyTypeForDescribeDBInstancePriceDifferenceInputUsually is a EnumOfModifyTypeForDescribeDBInstancePriceDifferenceInput enum value
-	EnumOfModifyTypeForDescribeDBInstancePriceDifferenceInputUsually = "Usually"
-
-	// EnumOfModifyTypeForDescribeDBInstancePriceDifferenceInputTemporary is a EnumOfModifyTypeForDescribeDBInstancePriceDifferenceInput enum value
-	EnumOfModifyTypeForDescribeDBInstancePriceDifferenceInputTemporary = "Temporary"
-)
-
-const (
-	// EnumOfNodeOperateTypeForDescribeDBInstancePriceDifferenceInputCreate is a EnumOfNodeOperateTypeForDescribeDBInstancePriceDifferenceInput enum value
-	EnumOfNodeOperateTypeForDescribeDBInstancePriceDifferenceInputCreate = "Create"
-
-	// EnumOfNodeOperateTypeForDescribeDBInstancePriceDifferenceInputDelete is a EnumOfNodeOperateTypeForDescribeDBInstancePriceDifferenceInput enum value
-	EnumOfNodeOperateTypeForDescribeDBInstancePriceDifferenceInputDelete = "Delete"
-
-	// EnumOfNodeOperateTypeForDescribeDBInstancePriceDifferenceInputModify is a EnumOfNodeOperateTypeForDescribeDBInstancePriceDifferenceInput enum value
-	EnumOfNodeOperateTypeForDescribeDBInstancePriceDifferenceInputModify = "Modify"
-)
-
-const (
-	// EnumOfNodeTypeForDescribeDBInstancePriceDifferenceInputPrimary is a EnumOfNodeTypeForDescribeDBInstancePriceDifferenceInput enum value
-	EnumOfNodeTypeForDescribeDBInstancePriceDifferenceInputPrimary = "Primary"
-
-	// EnumOfNodeTypeForDescribeDBInstancePriceDifferenceInputSecondary is a EnumOfNodeTypeForDescribeDBInstancePriceDifferenceInput enum value
-	EnumOfNodeTypeForDescribeDBInstancePriceDifferenceInputSecondary = "Secondary"
-
-	// EnumOfNodeTypeForDescribeDBInstancePriceDifferenceInputReadOnly is a EnumOfNodeTypeForDescribeDBInstancePriceDifferenceInput enum value
-	EnumOfNodeTypeForDescribeDBInstancePriceDifferenceInputReadOnly = "ReadOnly"
-)
-
-const (
-	// EnumOfPeriodUnitForDescribeDBInstancePriceDifferenceInputMonth is a EnumOfPeriodUnitForDescribeDBInstancePriceDifferenceInput enum value
-	EnumOfPeriodUnitForDescribeDBInstancePriceDifferenceInputMonth = "Month"
-
-	// EnumOfPeriodUnitForDescribeDBInstancePriceDifferenceInputYear is a EnumOfPeriodUnitForDescribeDBInstancePriceDifferenceInput enum value
-	EnumOfPeriodUnitForDescribeDBInstancePriceDifferenceInputYear = "Year"
-)
-
-const (
-	// EnumOfStorageTypeForDescribeDBInstancePriceDifferenceInputLocalSsd is a EnumOfStorageTypeForDescribeDBInstancePriceDifferenceInput enum value
-	EnumOfStorageTypeForDescribeDBInstancePriceDifferenceInputLocalSsd = "LocalSSD"
-)

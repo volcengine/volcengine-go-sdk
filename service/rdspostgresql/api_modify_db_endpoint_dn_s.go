@@ -144,18 +144,18 @@ func (c *RDSPOSTGRESQL) ModifyDBEndpointDNSWithContext(ctx volcengine.Context, i
 }
 
 type ModifyDBEndpointDNSInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// DNSVisibility is a required field
-	DNSVisibility *bool `type:"boolean" required:"true"`
+	DNSVisibility *bool `type:"boolean" json:",omitempty" required:"true"`
 
-	EndpointId *string `type:"string"`
+	EndpointId *string `type:"string" json:",omitempty"`
 
 	// InstanceId is a required field
-	InstanceId *string `type:"string" required:"true"`
+	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 
 	// NetworkType is a required field
-	NetworkType *string `type:"string" required:"true" enum:"EnumOfNetworkTypeForModifyDBEndpointDNSInput"`
+	NetworkType *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -212,7 +212,7 @@ func (s *ModifyDBEndpointDNSInput) SetNetworkType(v string) *ModifyDBEndpointDNS
 }
 
 type ModifyDBEndpointDNSOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 }
@@ -226,8 +226,3 @@ func (s ModifyDBEndpointDNSOutput) String() string {
 func (s ModifyDBEndpointDNSOutput) GoString() string {
 	return s.String()
 }
-
-const (
-	// EnumOfNetworkTypeForModifyDBEndpointDNSInputPrivate is a EnumOfNetworkTypeForModifyDBEndpointDNSInput enum value
-	EnumOfNetworkTypeForModifyDBEndpointDNSInputPrivate = "Private"
-)

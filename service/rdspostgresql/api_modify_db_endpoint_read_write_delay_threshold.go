@@ -144,16 +144,16 @@ func (c *RDSPOSTGRESQL) ModifyDBEndpointReadWriteDelayThresholdWithContext(ctx v
 }
 
 type ModifyDBEndpointReadWriteDelayThresholdInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// EndpointId is a required field
-	EndpointId *string `type:"string" required:"true"`
+	EndpointId *string `type:"string" json:",omitempty" required:"true"`
 
 	// InstanceId is a required field
-	InstanceId *string `type:"string" required:"true"`
+	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 
 	// ReadOnlyNodeMaxDelayTime is a required field
-	ReadOnlyNodeMaxDelayTime *int32 `type:"int32" required:"true"`
+	ReadOnlyNodeMaxDelayTime *int32 `type:"int32" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -204,7 +204,7 @@ func (s *ModifyDBEndpointReadWriteDelayThresholdInput) SetReadOnlyNodeMaxDelayTi
 }
 
 type ModifyDBEndpointReadWriteDelayThresholdOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 }

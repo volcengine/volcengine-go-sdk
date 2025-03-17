@@ -144,13 +144,13 @@ func (c *RDSPOSTGRESQL) DescribeDBInstanceSpecsWithContext(ctx volcengine.Contex
 }
 
 type DescribeDBInstanceSpecsInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	DBEngineVersion *string `type:"string" enum:"EnumOfDBEngineVersionForDescribeDBInstanceSpecsInput"`
+	DBEngineVersion *string `type:"string" json:",omitempty"`
 
-	SpecCode *string `type:"string"`
+	SpecCode *string `type:"string" json:",omitempty"`
 
-	ZoneId *string `type:"string"`
+	ZoneId *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -182,13 +182,13 @@ func (s *DescribeDBInstanceSpecsInput) SetZoneId(v string) *DescribeDBInstanceSp
 }
 
 type DescribeDBInstanceSpecsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	InstanceSpecs []*InstanceSpecForDescribeDBInstanceSpecsOutput `type:"list"`
+	InstanceSpecs []*InstanceSpecForDescribeDBInstanceSpecsOutput `type:"list" json:",omitempty"`
 
-	Total *int32 `type:"int32"`
+	Total *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -214,23 +214,23 @@ func (s *DescribeDBInstanceSpecsOutput) SetTotal(v int32) *DescribeDBInstanceSpe
 }
 
 type InstanceSpecForDescribeDBInstanceSpecsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Connection *int32 `type:"int32"`
+	Connection *int32 `type:"int32" json:",omitempty"`
 
-	DBEngineVersion *string `type:"string" enum:"EnumOfDBEngineVersionForDescribeDBInstanceSpecsOutput"`
+	DBEngineVersion *string `type:"string" json:",omitempty"`
 
-	Memory *int32 `type:"int32"`
+	Memory *int32 `type:"int32" json:",omitempty"`
 
-	RegionId *string `type:"string"`
+	RegionId *string `type:"string" json:",omitempty"`
 
-	SpecCode *string `type:"string"`
+	SpecCode *string `type:"string" json:",omitempty"`
 
-	SpecStatus *string `type:"string" enum:"EnumOfSpecStatusForDescribeDBInstanceSpecsOutput"`
+	SpecStatus *string `type:"string" json:",omitempty"`
 
-	VCPU *int32 `type:"int32"`
+	VCPU *int32 `type:"int32" json:",omitempty"`
 
-	ZoneId *string `type:"string"`
+	ZoneId *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -290,33 +290,3 @@ func (s *InstanceSpecForDescribeDBInstanceSpecsOutput) SetZoneId(v string) *Inst
 	s.ZoneId = &v
 	return s
 }
-
-const (
-	// EnumOfDBEngineVersionForDescribeDBInstanceSpecsInputPostgreSql11 is a EnumOfDBEngineVersionForDescribeDBInstanceSpecsInput enum value
-	EnumOfDBEngineVersionForDescribeDBInstanceSpecsInputPostgreSql11 = "PostgreSQL_11"
-
-	// EnumOfDBEngineVersionForDescribeDBInstanceSpecsInputPostgreSql12 is a EnumOfDBEngineVersionForDescribeDBInstanceSpecsInput enum value
-	EnumOfDBEngineVersionForDescribeDBInstanceSpecsInputPostgreSql12 = "PostgreSQL_12"
-
-	// EnumOfDBEngineVersionForDescribeDBInstanceSpecsInputPostgreSql13 is a EnumOfDBEngineVersionForDescribeDBInstanceSpecsInput enum value
-	EnumOfDBEngineVersionForDescribeDBInstanceSpecsInputPostgreSql13 = "PostgreSQL_13"
-)
-
-const (
-	// EnumOfDBEngineVersionForDescribeDBInstanceSpecsOutputPostgreSql11 is a EnumOfDBEngineVersionForDescribeDBInstanceSpecsOutput enum value
-	EnumOfDBEngineVersionForDescribeDBInstanceSpecsOutputPostgreSql11 = "PostgreSQL_11"
-
-	// EnumOfDBEngineVersionForDescribeDBInstanceSpecsOutputPostgreSql12 is a EnumOfDBEngineVersionForDescribeDBInstanceSpecsOutput enum value
-	EnumOfDBEngineVersionForDescribeDBInstanceSpecsOutputPostgreSql12 = "PostgreSQL_12"
-
-	// EnumOfDBEngineVersionForDescribeDBInstanceSpecsOutputPostgreSql13 is a EnumOfDBEngineVersionForDescribeDBInstanceSpecsOutput enum value
-	EnumOfDBEngineVersionForDescribeDBInstanceSpecsOutputPostgreSql13 = "PostgreSQL_13"
-)
-
-const (
-	// EnumOfSpecStatusForDescribeDBInstanceSpecsOutputNormal is a EnumOfSpecStatusForDescribeDBInstanceSpecsOutput enum value
-	EnumOfSpecStatusForDescribeDBInstanceSpecsOutputNormal = "Normal"
-
-	// EnumOfSpecStatusForDescribeDBInstanceSpecsOutputSoldout is a EnumOfSpecStatusForDescribeDBInstanceSpecsOutput enum value
-	EnumOfSpecStatusForDescribeDBInstanceSpecsOutputSoldout = "Soldout"
-)
