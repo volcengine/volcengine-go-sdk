@@ -296,24 +296,6 @@ func (c *Client) DoBatch(ctx context.Context, method, url, resourceType, resourc
 	}
 }
 
-func (c *Client) sendRequestRaw(client *http.Client, req *http.Request) (response model.RawResponse, err error) {
-	requestID := req.Header.Get(model.ClientRequestHeader)
-	resp, err := client.Do(req) //nolint:bodyclose // body should be closed by outer function
-	if err != nil {
-		err = model.NewRequestError(http.StatusInternalServerError, err, requestID)
-		return
-	}
-
-	if isFailureStatusCode(resp) {
-		err = c.handleErrorResp(resp)
-		return
-	}
-
-	response.SetHeader(resp.Header)
-	response.ReadCloser = resp.Body
-	return
-}
-
 func sendChatCompletionRequestStream(client *Client, httpClient *http.Client, req *http.Request) (*utils.ChatCompletionStreamReader, error) {
 	requestID := req.Header.Get(model.ClientRequestHeader)
 	req.Header.Set("Content-Type", "application/json")
