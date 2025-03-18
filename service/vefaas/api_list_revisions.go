@@ -233,6 +233,152 @@ func (s *FilterForListRevisionsInput) SetValues(v []*string) *FilterForListRevis
 	return s
 }
 
+type HTTPGetForListRevisionsOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	HTTPHeaders []*HTTPHeaderForListRevisionsOutput `type:"list" json:",omitempty"`
+
+	Path *string `type:"string" json:",omitempty"`
+
+	Port *int32 `type:"int32" json:",omitempty"`
+
+	Scheme *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s HTTPGetForListRevisionsOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s HTTPGetForListRevisionsOutput) GoString() string {
+	return s.String()
+}
+
+// SetHTTPHeaders sets the HTTPHeaders field's value.
+func (s *HTTPGetForListRevisionsOutput) SetHTTPHeaders(v []*HTTPHeaderForListRevisionsOutput) *HTTPGetForListRevisionsOutput {
+	s.HTTPHeaders = v
+	return s
+}
+
+// SetPath sets the Path field's value.
+func (s *HTTPGetForListRevisionsOutput) SetPath(v string) *HTTPGetForListRevisionsOutput {
+	s.Path = &v
+	return s
+}
+
+// SetPort sets the Port field's value.
+func (s *HTTPGetForListRevisionsOutput) SetPort(v int32) *HTTPGetForListRevisionsOutput {
+	s.Port = &v
+	return s
+}
+
+// SetScheme sets the Scheme field's value.
+func (s *HTTPGetForListRevisionsOutput) SetScheme(v string) *HTTPGetForListRevisionsOutput {
+	s.Scheme = &v
+	return s
+}
+
+type HTTPHeaderForListRevisionsOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Name *string `type:"string" json:",omitempty"`
+
+	Value *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s HTTPHeaderForListRevisionsOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s HTTPHeaderForListRevisionsOutput) GoString() string {
+	return s.String()
+}
+
+// SetName sets the Name field's value.
+func (s *HTTPHeaderForListRevisionsOutput) SetName(v string) *HTTPHeaderForListRevisionsOutput {
+	s.Name = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *HTTPHeaderForListRevisionsOutput) SetValue(v string) *HTTPHeaderForListRevisionsOutput {
+	s.Value = &v
+	return s
+}
+
+type HealthCheckConfigForListRevisionsOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	EnableHealthCheck *bool `type:"boolean" json:",omitempty"`
+
+	FailureThreshold *int32 `type:"int32" json:",omitempty"`
+
+	InitialDelaySeconds *int32 `type:"int32" json:",omitempty"`
+
+	PeriodSeconds *int32 `type:"int32" json:",omitempty"`
+
+	ProbeHandler *ProbeHandlerForListRevisionsOutput `type:"structure" json:",omitempty"`
+
+	SuccessThreshold *int32 `type:"int32" json:",omitempty"`
+
+	TimeoutSeconds *int32 `type:"int32" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s HealthCheckConfigForListRevisionsOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s HealthCheckConfigForListRevisionsOutput) GoString() string {
+	return s.String()
+}
+
+// SetEnableHealthCheck sets the EnableHealthCheck field's value.
+func (s *HealthCheckConfigForListRevisionsOutput) SetEnableHealthCheck(v bool) *HealthCheckConfigForListRevisionsOutput {
+	s.EnableHealthCheck = &v
+	return s
+}
+
+// SetFailureThreshold sets the FailureThreshold field's value.
+func (s *HealthCheckConfigForListRevisionsOutput) SetFailureThreshold(v int32) *HealthCheckConfigForListRevisionsOutput {
+	s.FailureThreshold = &v
+	return s
+}
+
+// SetInitialDelaySeconds sets the InitialDelaySeconds field's value.
+func (s *HealthCheckConfigForListRevisionsOutput) SetInitialDelaySeconds(v int32) *HealthCheckConfigForListRevisionsOutput {
+	s.InitialDelaySeconds = &v
+	return s
+}
+
+// SetPeriodSeconds sets the PeriodSeconds field's value.
+func (s *HealthCheckConfigForListRevisionsOutput) SetPeriodSeconds(v int32) *HealthCheckConfigForListRevisionsOutput {
+	s.PeriodSeconds = &v
+	return s
+}
+
+// SetProbeHandler sets the ProbeHandler field's value.
+func (s *HealthCheckConfigForListRevisionsOutput) SetProbeHandler(v *ProbeHandlerForListRevisionsOutput) *HealthCheckConfigForListRevisionsOutput {
+	s.ProbeHandler = v
+	return s
+}
+
+// SetSuccessThreshold sets the SuccessThreshold field's value.
+func (s *HealthCheckConfigForListRevisionsOutput) SetSuccessThreshold(v int32) *HealthCheckConfigForListRevisionsOutput {
+	s.SuccessThreshold = &v
+	return s
+}
+
+// SetTimeoutSeconds sets the TimeoutSeconds field's value.
+func (s *HealthCheckConfigForListRevisionsOutput) SetTimeoutSeconds(v int32) *HealthCheckConfigForListRevisionsOutput {
+	s.TimeoutSeconds = &v
+	return s
+}
+
 type ItemForListRevisionsOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -247,6 +393,8 @@ type ItemForListRevisionsOutput struct {
 	Envs []*EnvForListRevisionsOutput `type:"list" json:",omitempty"`
 
 	ExclusiveMode *bool `type:"boolean" json:",omitempty"`
+
+	HealthCheckConfig *HealthCheckConfigForListRevisionsOutput `type:"structure" json:",omitempty"`
 
 	Id *string `type:"string" json:",omitempty"`
 
@@ -330,6 +478,12 @@ func (s *ItemForListRevisionsOutput) SetEnvs(v []*EnvForListRevisionsOutput) *It
 // SetExclusiveMode sets the ExclusiveMode field's value.
 func (s *ItemForListRevisionsOutput) SetExclusiveMode(v bool) *ItemForListRevisionsOutput {
 	s.ExclusiveMode = &v
+	return s
+}
+
+// SetHealthCheckConfig sets the HealthCheckConfig field's value.
+func (s *ItemForListRevisionsOutput) SetHealthCheckConfig(v *HealthCheckConfigForListRevisionsOutput) *ItemForListRevisionsOutput {
+	s.HealthCheckConfig = v
 	return s
 }
 
@@ -682,6 +836,58 @@ func (s *NasStorageForListRevisionsOutput) SetEnableNas(v bool) *NasStorageForLi
 // SetNasConfigs sets the NasConfigs field's value.
 func (s *NasStorageForListRevisionsOutput) SetNasConfigs(v []*NasConfigForListRevisionsOutput) *NasStorageForListRevisionsOutput {
 	s.NasConfigs = v
+	return s
+}
+
+type ProbeHandlerForListRevisionsOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	HTTPGet *HTTPGetForListRevisionsOutput `type:"structure" json:",omitempty"`
+
+	TCPSocket *TCPSocketForListRevisionsOutput `type:"structure" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s ProbeHandlerForListRevisionsOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ProbeHandlerForListRevisionsOutput) GoString() string {
+	return s.String()
+}
+
+// SetHTTPGet sets the HTTPGet field's value.
+func (s *ProbeHandlerForListRevisionsOutput) SetHTTPGet(v *HTTPGetForListRevisionsOutput) *ProbeHandlerForListRevisionsOutput {
+	s.HTTPGet = v
+	return s
+}
+
+// SetTCPSocket sets the TCPSocket field's value.
+func (s *ProbeHandlerForListRevisionsOutput) SetTCPSocket(v *TCPSocketForListRevisionsOutput) *ProbeHandlerForListRevisionsOutput {
+	s.TCPSocket = v
+	return s
+}
+
+type TCPSocketForListRevisionsOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Port *int32 `type:"int32" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s TCPSocketForListRevisionsOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TCPSocketForListRevisionsOutput) GoString() string {
+	return s.String()
+}
+
+// SetPort sets the Port field's value.
+func (s *TCPSocketForListRevisionsOutput) SetPort(v int32) *TCPSocketForListRevisionsOutput {
+	s.Port = &v
 	return s
 }
 

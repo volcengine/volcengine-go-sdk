@@ -268,9 +268,13 @@ type GetRevisionOutput struct {
 
 	ExclusiveMode *bool `type:"boolean" json:",omitempty"`
 
+	HealthCheckConfig *HealthCheckConfigForGetRevisionOutput `type:"structure" json:",omitempty"`
+
 	Id *string `type:"string" json:",omitempty"`
 
 	InitializerSec *int32 `type:"int32" json:",omitempty"`
+
+	InstanceType *string `type:"string" json:",omitempty"`
 
 	MaxConcurrency *int32 `type:"int32" json:",omitempty"`
 
@@ -351,6 +355,12 @@ func (s *GetRevisionOutput) SetExclusiveMode(v bool) *GetRevisionOutput {
 	return s
 }
 
+// SetHealthCheckConfig sets the HealthCheckConfig field's value.
+func (s *GetRevisionOutput) SetHealthCheckConfig(v *HealthCheckConfigForGetRevisionOutput) *GetRevisionOutput {
+	s.HealthCheckConfig = v
+	return s
+}
+
 // SetId sets the Id field's value.
 func (s *GetRevisionOutput) SetId(v string) *GetRevisionOutput {
 	s.Id = &v
@@ -360,6 +370,12 @@ func (s *GetRevisionOutput) SetId(v string) *GetRevisionOutput {
 // SetInitializerSec sets the InitializerSec field's value.
 func (s *GetRevisionOutput) SetInitializerSec(v int32) *GetRevisionOutput {
 	s.InitializerSec = &v
+	return s
+}
+
+// SetInstanceType sets the InstanceType field's value.
+func (s *GetRevisionOutput) SetInstanceType(v string) *GetRevisionOutput {
+	s.InstanceType = &v
 	return s
 }
 
@@ -456,6 +472,152 @@ func (s *GetRevisionOutput) SetTosMountConfig(v *TosMountConfigForGetRevisionOut
 // SetVpcConfig sets the VpcConfig field's value.
 func (s *GetRevisionOutput) SetVpcConfig(v *VpcConfigForGetRevisionOutput) *GetRevisionOutput {
 	s.VpcConfig = v
+	return s
+}
+
+type HTTPGetForGetRevisionOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	HTTPHeaders []*HTTPHeaderForGetRevisionOutput `type:"list" json:",omitempty"`
+
+	Path *string `type:"string" json:",omitempty"`
+
+	Port *int32 `type:"int32" json:",omitempty"`
+
+	Scheme *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s HTTPGetForGetRevisionOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s HTTPGetForGetRevisionOutput) GoString() string {
+	return s.String()
+}
+
+// SetHTTPHeaders sets the HTTPHeaders field's value.
+func (s *HTTPGetForGetRevisionOutput) SetHTTPHeaders(v []*HTTPHeaderForGetRevisionOutput) *HTTPGetForGetRevisionOutput {
+	s.HTTPHeaders = v
+	return s
+}
+
+// SetPath sets the Path field's value.
+func (s *HTTPGetForGetRevisionOutput) SetPath(v string) *HTTPGetForGetRevisionOutput {
+	s.Path = &v
+	return s
+}
+
+// SetPort sets the Port field's value.
+func (s *HTTPGetForGetRevisionOutput) SetPort(v int32) *HTTPGetForGetRevisionOutput {
+	s.Port = &v
+	return s
+}
+
+// SetScheme sets the Scheme field's value.
+func (s *HTTPGetForGetRevisionOutput) SetScheme(v string) *HTTPGetForGetRevisionOutput {
+	s.Scheme = &v
+	return s
+}
+
+type HTTPHeaderForGetRevisionOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Name *string `type:"string" json:",omitempty"`
+
+	Value *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s HTTPHeaderForGetRevisionOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s HTTPHeaderForGetRevisionOutput) GoString() string {
+	return s.String()
+}
+
+// SetName sets the Name field's value.
+func (s *HTTPHeaderForGetRevisionOutput) SetName(v string) *HTTPHeaderForGetRevisionOutput {
+	s.Name = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *HTTPHeaderForGetRevisionOutput) SetValue(v string) *HTTPHeaderForGetRevisionOutput {
+	s.Value = &v
+	return s
+}
+
+type HealthCheckConfigForGetRevisionOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	EnableHealthCheck *bool `type:"boolean" json:",omitempty"`
+
+	FailureThreshold *int32 `type:"int32" json:",omitempty"`
+
+	InitialDelaySeconds *int32 `type:"int32" json:",omitempty"`
+
+	PeriodSeconds *int32 `type:"int32" json:",omitempty"`
+
+	ProbeHandler *ProbeHandlerForGetRevisionOutput `type:"structure" json:",omitempty"`
+
+	SuccessThreshold *int32 `type:"int32" json:",omitempty"`
+
+	TimeoutSeconds *int32 `type:"int32" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s HealthCheckConfigForGetRevisionOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s HealthCheckConfigForGetRevisionOutput) GoString() string {
+	return s.String()
+}
+
+// SetEnableHealthCheck sets the EnableHealthCheck field's value.
+func (s *HealthCheckConfigForGetRevisionOutput) SetEnableHealthCheck(v bool) *HealthCheckConfigForGetRevisionOutput {
+	s.EnableHealthCheck = &v
+	return s
+}
+
+// SetFailureThreshold sets the FailureThreshold field's value.
+func (s *HealthCheckConfigForGetRevisionOutput) SetFailureThreshold(v int32) *HealthCheckConfigForGetRevisionOutput {
+	s.FailureThreshold = &v
+	return s
+}
+
+// SetInitialDelaySeconds sets the InitialDelaySeconds field's value.
+func (s *HealthCheckConfigForGetRevisionOutput) SetInitialDelaySeconds(v int32) *HealthCheckConfigForGetRevisionOutput {
+	s.InitialDelaySeconds = &v
+	return s
+}
+
+// SetPeriodSeconds sets the PeriodSeconds field's value.
+func (s *HealthCheckConfigForGetRevisionOutput) SetPeriodSeconds(v int32) *HealthCheckConfigForGetRevisionOutput {
+	s.PeriodSeconds = &v
+	return s
+}
+
+// SetProbeHandler sets the ProbeHandler field's value.
+func (s *HealthCheckConfigForGetRevisionOutput) SetProbeHandler(v *ProbeHandlerForGetRevisionOutput) *HealthCheckConfigForGetRevisionOutput {
+	s.ProbeHandler = v
+	return s
+}
+
+// SetSuccessThreshold sets the SuccessThreshold field's value.
+func (s *HealthCheckConfigForGetRevisionOutput) SetSuccessThreshold(v int32) *HealthCheckConfigForGetRevisionOutput {
+	s.SuccessThreshold = &v
+	return s
+}
+
+// SetTimeoutSeconds sets the TimeoutSeconds field's value.
+func (s *HealthCheckConfigForGetRevisionOutput) SetTimeoutSeconds(v int32) *HealthCheckConfigForGetRevisionOutput {
+	s.TimeoutSeconds = &v
 	return s
 }
 
@@ -602,6 +764,58 @@ func (s *NasStorageForGetRevisionOutput) SetEnableNas(v bool) *NasStorageForGetR
 // SetNasConfigs sets the NasConfigs field's value.
 func (s *NasStorageForGetRevisionOutput) SetNasConfigs(v []*NasConfigForGetRevisionOutput) *NasStorageForGetRevisionOutput {
 	s.NasConfigs = v
+	return s
+}
+
+type ProbeHandlerForGetRevisionOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	HTTPGet *HTTPGetForGetRevisionOutput `type:"structure" json:",omitempty"`
+
+	TCPSocket *TCPSocketForGetRevisionOutput `type:"structure" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s ProbeHandlerForGetRevisionOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ProbeHandlerForGetRevisionOutput) GoString() string {
+	return s.String()
+}
+
+// SetHTTPGet sets the HTTPGet field's value.
+func (s *ProbeHandlerForGetRevisionOutput) SetHTTPGet(v *HTTPGetForGetRevisionOutput) *ProbeHandlerForGetRevisionOutput {
+	s.HTTPGet = v
+	return s
+}
+
+// SetTCPSocket sets the TCPSocket field's value.
+func (s *ProbeHandlerForGetRevisionOutput) SetTCPSocket(v *TCPSocketForGetRevisionOutput) *ProbeHandlerForGetRevisionOutput {
+	s.TCPSocket = v
+	return s
+}
+
+type TCPSocketForGetRevisionOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Port *int32 `type:"int32" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s TCPSocketForGetRevisionOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TCPSocketForGetRevisionOutput) GoString() string {
+	return s.String()
+}
+
+// SetPort sets the Port field's value.
+func (s *TCPSocketForGetRevisionOutput) SetPort(v int32) *TCPSocketForGetRevisionOutput {
+	s.Port = &v
 	return s
 }
 

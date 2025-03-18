@@ -46,6 +46,14 @@ type VEFAASAPI interface {
 	CreateFunctionWithContext(volcengine.Context, *CreateFunctionInput, ...request.Option) (*CreateFunctionOutput, error)
 	CreateFunctionRequest(*CreateFunctionInput) (*request.Request, *CreateFunctionOutput)
 
+	CreateKafkaTriggerCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateKafkaTriggerCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateKafkaTriggerCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateKafkaTrigger(*CreateKafkaTriggerInput) (*CreateKafkaTriggerOutput, error)
+	CreateKafkaTriggerWithContext(volcengine.Context, *CreateKafkaTriggerInput, ...request.Option) (*CreateKafkaTriggerOutput, error)
+	CreateKafkaTriggerRequest(*CreateKafkaTriggerInput) (*request.Request, *CreateKafkaTriggerOutput)
+
 	CreateTimerCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	CreateTimerCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	CreateTimerCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -62,6 +70,14 @@ type VEFAASAPI interface {
 	DeleteFunctionWithContext(volcengine.Context, *DeleteFunctionInput, ...request.Option) (*DeleteFunctionOutput, error)
 	DeleteFunctionRequest(*DeleteFunctionInput) (*request.Request, *DeleteFunctionOutput)
 
+	DeleteKafkaTriggerCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeleteKafkaTriggerCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeleteKafkaTriggerCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeleteKafkaTrigger(*DeleteKafkaTriggerInput) (*DeleteKafkaTriggerOutput, error)
+	DeleteKafkaTriggerWithContext(volcengine.Context, *DeleteKafkaTriggerInput, ...request.Option) (*DeleteKafkaTriggerOutput, error)
+	DeleteKafkaTriggerRequest(*DeleteKafkaTriggerInput) (*request.Request, *DeleteKafkaTriggerOutput)
+
 	DeleteTimerCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DeleteTimerCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DeleteTimerCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -69,6 +85,14 @@ type VEFAASAPI interface {
 	DeleteTimer(*DeleteTimerInput) (*DeleteTimerOutput, error)
 	DeleteTimerWithContext(volcengine.Context, *DeleteTimerInput, ...request.Option) (*DeleteTimerOutput, error)
 	DeleteTimerRequest(*DeleteTimerInput) (*request.Request, *DeleteTimerOutput)
+
+	GenWebshellEndpointCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	GenWebshellEndpointCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	GenWebshellEndpointCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	GenWebshellEndpoint(*GenWebshellEndpointInput) (*GenWebshellEndpointOutput, error)
+	GenWebshellEndpointWithContext(volcengine.Context, *GenWebshellEndpointInput, ...request.Option) (*GenWebshellEndpointOutput, error)
+	GenWebshellEndpointRequest(*GenWebshellEndpointInput) (*request.Request, *GenWebshellEndpointOutput)
 
 	GetFunctionCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	GetFunctionCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -86,6 +110,22 @@ type VEFAASAPI interface {
 	GetFunctionInstanceLogsWithContext(volcengine.Context, *GetFunctionInstanceLogsInput, ...request.Option) (*GetFunctionInstanceLogsOutput, error)
 	GetFunctionInstanceLogsRequest(*GetFunctionInstanceLogsInput) (*request.Request, *GetFunctionInstanceLogsOutput)
 
+	GetImageSyncStatusCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	GetImageSyncStatusCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	GetImageSyncStatusCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	GetImageSyncStatus(*GetImageSyncStatusInput) (*GetImageSyncStatusOutput, error)
+	GetImageSyncStatusWithContext(volcengine.Context, *GetImageSyncStatusInput, ...request.Option) (*GetImageSyncStatusOutput, error)
+	GetImageSyncStatusRequest(*GetImageSyncStatusInput) (*request.Request, *GetImageSyncStatusOutput)
+
+	GetKafkaTriggerCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	GetKafkaTriggerCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	GetKafkaTriggerCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	GetKafkaTrigger(*GetKafkaTriggerInput) (*GetKafkaTriggerOutput, error)
+	GetKafkaTriggerWithContext(volcengine.Context, *GetKafkaTriggerInput, ...request.Option) (*GetKafkaTriggerOutput, error)
+	GetKafkaTriggerRequest(*GetKafkaTriggerInput) (*request.Request, *GetKafkaTriggerOutput)
+
 	GetReleaseStatusCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	GetReleaseStatusCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	GetReleaseStatusCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -102,14 +142,6 @@ type VEFAASAPI interface {
 	GetRevisionWithContext(volcengine.Context, *GetRevisionInput, ...request.Option) (*GetRevisionOutput, error)
 	GetRevisionRequest(*GetRevisionInput) (*request.Request, *GetRevisionOutput)
 
-	GetRocketMQTriggerCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	GetRocketMQTriggerCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	GetRocketMQTriggerCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	GetRocketMQTrigger(*GetRocketMQTriggerInput) (*GetRocketMQTriggerOutput, error)
-	GetRocketMQTriggerWithContext(volcengine.Context, *GetRocketMQTriggerInput, ...request.Option) (*GetRocketMQTriggerOutput, error)
-	GetRocketMQTriggerRequest(*GetRocketMQTriggerInput) (*request.Request, *GetRocketMQTriggerOutput)
-
 	GetTimerCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	GetTimerCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	GetTimerCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -117,6 +149,14 @@ type VEFAASAPI interface {
 	GetTimer(*GetTimerInput) (*GetTimerOutput, error)
 	GetTimerWithContext(volcengine.Context, *GetTimerInput, ...request.Option) (*GetTimerOutput, error)
 	GetTimerRequest(*GetTimerInput) (*request.Request, *GetTimerOutput)
+
+	ListFunctionElasticScaleStrategyCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListFunctionElasticScaleStrategyCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListFunctionElasticScaleStrategyCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListFunctionElasticScaleStrategy(*ListFunctionElasticScaleStrategyInput) (*ListFunctionElasticScaleStrategyOutput, error)
+	ListFunctionElasticScaleStrategyWithContext(volcengine.Context, *ListFunctionElasticScaleStrategyInput, ...request.Option) (*ListFunctionElasticScaleStrategyOutput, error)
+	ListFunctionElasticScaleStrategyRequest(*ListFunctionElasticScaleStrategyInput) (*request.Request, *ListFunctionElasticScaleStrategyOutput)
 
 	ListFunctionInstancesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ListFunctionInstancesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -173,6 +213,30 @@ type VEFAASAPI interface {
 	UpdateFunction(*UpdateFunctionInput) (*UpdateFunctionOutput, error)
 	UpdateFunctionWithContext(volcengine.Context, *UpdateFunctionInput, ...request.Option) (*UpdateFunctionOutput, error)
 	UpdateFunctionRequest(*UpdateFunctionInput) (*request.Request, *UpdateFunctionOutput)
+
+	UpdateFunctionMetricScaleStrategyRulesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	UpdateFunctionMetricScaleStrategyRulesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	UpdateFunctionMetricScaleStrategyRulesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	UpdateFunctionMetricScaleStrategyRules(*UpdateFunctionMetricScaleStrategyRulesInput) (*UpdateFunctionMetricScaleStrategyRulesOutput, error)
+	UpdateFunctionMetricScaleStrategyRulesWithContext(volcengine.Context, *UpdateFunctionMetricScaleStrategyRulesInput, ...request.Option) (*UpdateFunctionMetricScaleStrategyRulesOutput, error)
+	UpdateFunctionMetricScaleStrategyRulesRequest(*UpdateFunctionMetricScaleStrategyRulesInput) (*request.Request, *UpdateFunctionMetricScaleStrategyRulesOutput)
+
+	UpdateFunctionResourceCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	UpdateFunctionResourceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	UpdateFunctionResourceCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	UpdateFunctionResource(*UpdateFunctionResourceInput) (*UpdateFunctionResourceOutput, error)
+	UpdateFunctionResourceWithContext(volcengine.Context, *UpdateFunctionResourceInput, ...request.Option) (*UpdateFunctionResourceOutput, error)
+	UpdateFunctionResourceRequest(*UpdateFunctionResourceInput) (*request.Request, *UpdateFunctionResourceOutput)
+
+	UpdateKafkaTriggerCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	UpdateKafkaTriggerCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	UpdateKafkaTriggerCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	UpdateKafkaTrigger(*UpdateKafkaTriggerInput) (*UpdateKafkaTriggerOutput, error)
+	UpdateKafkaTriggerWithContext(volcengine.Context, *UpdateKafkaTriggerInput, ...request.Option) (*UpdateKafkaTriggerOutput, error)
+	UpdateKafkaTriggerRequest(*UpdateKafkaTriggerInput) (*request.Request, *UpdateKafkaTriggerOutput)
 
 	UpdateReleaseCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	UpdateReleaseCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)

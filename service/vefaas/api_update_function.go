@@ -585,6 +585,66 @@ func (s *SourceAccessConfigForUpdateFunctionInput) SetUsername(v string) *Source
 	return s
 }
 
+type TagForUpdateFunctionInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Key *string `type:"string" json:",omitempty"`
+
+	Value *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s TagForUpdateFunctionInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagForUpdateFunctionInput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagForUpdateFunctionInput) SetKey(v string) *TagForUpdateFunctionInput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *TagForUpdateFunctionInput) SetValue(v string) *TagForUpdateFunctionInput {
+	s.Value = &v
+	return s
+}
+
+type TagForUpdateFunctionOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Key *string `type:"string" json:",omitempty"`
+
+	Value *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s TagForUpdateFunctionOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagForUpdateFunctionOutput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagForUpdateFunctionOutput) SetKey(v string) *TagForUpdateFunctionOutput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *TagForUpdateFunctionOutput) SetValue(v string) *TagForUpdateFunctionOutput {
+	s.Value = &v
+	return s
+}
+
 type TlsConfigForUpdateFunctionInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -767,6 +827,8 @@ type UpdateFunctionInput struct {
 
 	SourceType *string `type:"string" json:",omitempty"`
 
+	Tags []*TagForUpdateFunctionInput `type:"list" json:",omitempty"`
+
 	TlsConfig *TlsConfigForUpdateFunctionInput `type:"structure" json:",omitempty"`
 
 	TosMountConfig *TosMountConfigForUpdateFunctionInput `type:"structure" json:",omitempty"`
@@ -875,6 +937,12 @@ func (s *UpdateFunctionInput) SetSourceType(v string) *UpdateFunctionInput {
 	return s
 }
 
+// SetTags sets the Tags field's value.
+func (s *UpdateFunctionInput) SetTags(v []*TagForUpdateFunctionInput) *UpdateFunctionInput {
+	s.Tags = v
+	return s
+}
+
 // SetTlsConfig sets the TlsConfig field's value.
 func (s *UpdateFunctionInput) SetTlsConfig(v *TlsConfigForUpdateFunctionInput) *UpdateFunctionInput {
 	s.TlsConfig = v
@@ -904,6 +972,8 @@ type UpdateFunctionOutput struct {
 
 	Command *string `type:"string" json:",omitempty"`
 
+	CpuStrategy *string `type:"string" json:",omitempty"`
+
 	CreationTime *string `type:"string" json:",omitempty"`
 
 	Description *string `type:"string" json:",omitempty"`
@@ -930,6 +1000,8 @@ type UpdateFunctionOutput struct {
 
 	Owner *string `type:"string" json:",omitempty"`
 
+	Port *int32 `type:"int32" json:",omitempty"`
+
 	ProjectName *string `type:"string" json:",omitempty"`
 
 	RequestTimeout *int32 `type:"int32" json:",omitempty"`
@@ -939,6 +1011,8 @@ type UpdateFunctionOutput struct {
 	SourceLocation *string `type:"string" json:",omitempty"`
 
 	SourceType *string `type:"string" json:",omitempty"`
+
+	Tags []*TagForUpdateFunctionOutput `type:"list" json:",omitempty"`
 
 	TlsConfig *TlsConfigForUpdateFunctionOutput `type:"structure" json:",omitempty"`
 
@@ -974,6 +1048,12 @@ func (s *UpdateFunctionOutput) SetCodeSizeLimit(v int32) *UpdateFunctionOutput {
 // SetCommand sets the Command field's value.
 func (s *UpdateFunctionOutput) SetCommand(v string) *UpdateFunctionOutput {
 	s.Command = &v
+	return s
+}
+
+// SetCpuStrategy sets the CpuStrategy field's value.
+func (s *UpdateFunctionOutput) SetCpuStrategy(v string) *UpdateFunctionOutput {
+	s.CpuStrategy = &v
 	return s
 }
 
@@ -1055,6 +1135,12 @@ func (s *UpdateFunctionOutput) SetOwner(v string) *UpdateFunctionOutput {
 	return s
 }
 
+// SetPort sets the Port field's value.
+func (s *UpdateFunctionOutput) SetPort(v int32) *UpdateFunctionOutput {
+	s.Port = &v
+	return s
+}
+
 // SetProjectName sets the ProjectName field's value.
 func (s *UpdateFunctionOutput) SetProjectName(v string) *UpdateFunctionOutput {
 	s.ProjectName = &v
@@ -1082,6 +1168,12 @@ func (s *UpdateFunctionOutput) SetSourceLocation(v string) *UpdateFunctionOutput
 // SetSourceType sets the SourceType field's value.
 func (s *UpdateFunctionOutput) SetSourceType(v string) *UpdateFunctionOutput {
 	s.SourceType = &v
+	return s
+}
+
+// SetTags sets the Tags field's value.
+func (s *UpdateFunctionOutput) SetTags(v []*TagForUpdateFunctionOutput) *UpdateFunctionOutput {
+	s.Tags = v
 	return s
 }
 

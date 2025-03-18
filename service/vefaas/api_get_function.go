@@ -250,6 +250,8 @@ type GetFunctionOutput struct {
 
 	Command *string `type:"string" json:",omitempty"`
 
+	CpuStrategy *string `type:"string" json:",omitempty"`
+
 	CreationTime *string `type:"string" json:",omitempty"`
 
 	Description *string `type:"string" json:",omitempty"`
@@ -275,6 +277,8 @@ type GetFunctionOutput struct {
 	NasStorage *NasStorageForGetFunctionOutput `type:"structure" json:",omitempty"`
 
 	Owner *string `type:"string" json:",omitempty"`
+
+	Port *int32 `type:"int32" json:",omitempty"`
 
 	ProjectName *string `type:"string" json:",omitempty"`
 
@@ -320,6 +324,12 @@ func (s *GetFunctionOutput) SetCodeSizeLimit(v int32) *GetFunctionOutput {
 // SetCommand sets the Command field's value.
 func (s *GetFunctionOutput) SetCommand(v string) *GetFunctionOutput {
 	s.Command = &v
+	return s
+}
+
+// SetCpuStrategy sets the CpuStrategy field's value.
+func (s *GetFunctionOutput) SetCpuStrategy(v string) *GetFunctionOutput {
+	s.CpuStrategy = &v
 	return s
 }
 
@@ -398,6 +408,12 @@ func (s *GetFunctionOutput) SetNasStorage(v *NasStorageForGetFunctionOutput) *Ge
 // SetOwner sets the Owner field's value.
 func (s *GetFunctionOutput) SetOwner(v string) *GetFunctionOutput {
 	s.Owner = &v
+	return s
+}
+
+// SetPort sets the Port field's value.
+func (s *GetFunctionOutput) SetPort(v int32) *GetFunctionOutput {
+	s.Port = &v
 	return s
 }
 
