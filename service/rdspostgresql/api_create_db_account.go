@@ -144,21 +144,21 @@ func (c *RDSPOSTGRESQL) CreateDBAccountWithContext(ctx volcengine.Context, input
 }
 
 type CreateDBAccountInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// AccountName is a required field
-	AccountName *string `type:"string" required:"true"`
+	AccountName *string `type:"string" json:",omitempty" required:"true"`
 
 	// AccountPassword is a required field
-	AccountPassword *string `type:"string" required:"true"`
+	AccountPassword *string `type:"string" json:",omitempty" required:"true"`
 
-	AccountPrivileges *string `type:"string"`
+	AccountPrivileges *string `type:"string" json:",omitempty"`
 
 	// AccountType is a required field
-	AccountType *string `type:"string" required:"true" enum:"EnumOfAccountTypeForCreateDBAccountInput"`
+	AccountType *string `type:"string" json:",omitempty" required:"true"`
 
 	// InstanceId is a required field
-	InstanceId *string `type:"string" required:"true"`
+	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -224,7 +224,7 @@ func (s *CreateDBAccountInput) SetInstanceId(v string) *CreateDBAccountInput {
 }
 
 type CreateDBAccountOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 }
@@ -238,11 +238,3 @@ func (s CreateDBAccountOutput) String() string {
 func (s CreateDBAccountOutput) GoString() string {
 	return s.String()
 }
-
-const (
-	// EnumOfAccountTypeForCreateDBAccountInputNormal is a EnumOfAccountTypeForCreateDBAccountInput enum value
-	EnumOfAccountTypeForCreateDBAccountInputNormal = "Normal"
-
-	// EnumOfAccountTypeForCreateDBAccountInputSuper is a EnumOfAccountTypeForCreateDBAccountInput enum value
-	EnumOfAccountTypeForCreateDBAccountInputSuper = "Super"
-)

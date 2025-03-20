@@ -210,6 +210,9 @@ type StreamOptions struct {
 	// and the choices field will always be an empty array.
 	// All other chunks will also include a usage field, but with a null value.
 	IncludeUsage bool `json:"include_usage,omitempty"`
+	// if set, each data chunk will include a `usage` field
+	// representing the current cumulative token usage for the entire request.
+	ChunkIncludeUsage bool `json:"chunk_include_usage,omitempty"`
 }
 
 type ToolType string

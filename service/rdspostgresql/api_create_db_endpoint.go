@@ -144,19 +144,19 @@ func (c *RDSPOSTGRESQL) CreateDBEndpointWithContext(ctx volcengine.Context, inpu
 }
 
 type CreateDBEndpointInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	EndpointName *string `type:"string"`
+	EndpointName *string `type:"string" json:",omitempty"`
 
 	// EndpointType is a required field
-	EndpointType *string `type:"string" required:"true" enum:"EnumOfEndpointTypeForCreateDBEndpointInput"`
+	EndpointType *string `type:"string" json:",omitempty" required:"true"`
 
 	// InstanceId is a required field
-	InstanceId *string `type:"string" required:"true"`
+	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 
-	Nodes *string `type:"string"`
+	Nodes *string `type:"string" json:",omitempty"`
 
-	ReadWriteMode *string `type:"string" enum:"EnumOfReadWriteModeForCreateDBEndpointInput"`
+	ReadWriteMode *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -216,7 +216,7 @@ func (s *CreateDBEndpointInput) SetReadWriteMode(v string) *CreateDBEndpointInpu
 }
 
 type CreateDBEndpointOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 }
@@ -230,16 +230,3 @@ func (s CreateDBEndpointOutput) String() string {
 func (s CreateDBEndpointOutput) GoString() string {
 	return s.String()
 }
-
-const (
-	// EnumOfEndpointTypeForCreateDBEndpointInputCustom is a EnumOfEndpointTypeForCreateDBEndpointInput enum value
-	EnumOfEndpointTypeForCreateDBEndpointInputCustom = "Custom"
-)
-
-const (
-	// EnumOfReadWriteModeForCreateDBEndpointInputReadOnly is a EnumOfReadWriteModeForCreateDBEndpointInput enum value
-	EnumOfReadWriteModeForCreateDBEndpointInputReadOnly = "ReadOnly"
-
-	// EnumOfReadWriteModeForCreateDBEndpointInputReadWrite is a EnumOfReadWriteModeForCreateDBEndpointInput enum value
-	EnumOfReadWriteModeForCreateDBEndpointInputReadWrite = "ReadWrite"
-)

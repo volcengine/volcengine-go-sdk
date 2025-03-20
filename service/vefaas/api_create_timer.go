@@ -164,8 +164,6 @@ type CreateTimerInput struct {
 	Payload *string `type:"string" json:",omitempty"`
 
 	Retries *int32 `type:"int32" json:",omitempty"`
-
-	TopParam *TopParamForCreateTimerInput `type:"structure" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -242,12 +240,6 @@ func (s *CreateTimerInput) SetPayload(v string) *CreateTimerInput {
 // SetRetries sets the Retries field's value.
 func (s *CreateTimerInput) SetRetries(v int32) *CreateTimerInput {
 	s.Retries = &v
-	return s
-}
-
-// SetTopParam sets the TopParam field's value.
-func (s *CreateTimerInput) SetTopParam(v *TopParamForCreateTimerInput) *CreateTimerInput {
-	s.TopParam = v
 	return s
 }
 
@@ -352,115 +344,5 @@ func (s *CreateTimerOutput) SetPayload(v string) *CreateTimerOutput {
 // SetRetries sets the Retries field's value.
 func (s *CreateTimerOutput) SetRetries(v int32) *CreateTimerOutput {
 	s.Retries = &v
-	return s
-}
-
-type TopParamForCreateTimerInput struct {
-	_ struct{} `type:"structure" json:",omitempty"`
-
-	AccountId *int64 `type:"int64" json:",omitempty"`
-
-	DestService *string `type:"string" json:",omitempty"`
-
-	IsInternal *string `type:"string" json:",omitempty"`
-
-	Psm *string `type:"string" json:",omitempty"`
-
-	RealIp *string `type:"string" json:",omitempty"`
-
-	Region *string `type:"string" json:",omitempty"`
-
-	RequestId *string `type:"string" json:",omitempty"`
-
-	RoleId *int64 `type:"int64" json:",omitempty"`
-
-	Site *string `type:"string" json:",omitempty"`
-
-	SourceService *string `type:"string" json:",omitempty"`
-
-	UserAgent *string `type:"string" json:",omitempty"`
-
-	UserId *int64 `type:"int64" json:",omitempty"`
-}
-
-// String returns the string representation
-func (s TopParamForCreateTimerInput) String() string {
-	return volcengineutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s TopParamForCreateTimerInput) GoString() string {
-	return s.String()
-}
-
-// SetAccountId sets the AccountId field's value.
-func (s *TopParamForCreateTimerInput) SetAccountId(v int64) *TopParamForCreateTimerInput {
-	s.AccountId = &v
-	return s
-}
-
-// SetDestService sets the DestService field's value.
-func (s *TopParamForCreateTimerInput) SetDestService(v string) *TopParamForCreateTimerInput {
-	s.DestService = &v
-	return s
-}
-
-// SetIsInternal sets the IsInternal field's value.
-func (s *TopParamForCreateTimerInput) SetIsInternal(v string) *TopParamForCreateTimerInput {
-	s.IsInternal = &v
-	return s
-}
-
-// SetPsm sets the Psm field's value.
-func (s *TopParamForCreateTimerInput) SetPsm(v string) *TopParamForCreateTimerInput {
-	s.Psm = &v
-	return s
-}
-
-// SetRealIp sets the RealIp field's value.
-func (s *TopParamForCreateTimerInput) SetRealIp(v string) *TopParamForCreateTimerInput {
-	s.RealIp = &v
-	return s
-}
-
-// SetRegion sets the Region field's value.
-func (s *TopParamForCreateTimerInput) SetRegion(v string) *TopParamForCreateTimerInput {
-	s.Region = &v
-	return s
-}
-
-// SetRequestId sets the RequestId field's value.
-func (s *TopParamForCreateTimerInput) SetRequestId(v string) *TopParamForCreateTimerInput {
-	s.RequestId = &v
-	return s
-}
-
-// SetRoleId sets the RoleId field's value.
-func (s *TopParamForCreateTimerInput) SetRoleId(v int64) *TopParamForCreateTimerInput {
-	s.RoleId = &v
-	return s
-}
-
-// SetSite sets the Site field's value.
-func (s *TopParamForCreateTimerInput) SetSite(v string) *TopParamForCreateTimerInput {
-	s.Site = &v
-	return s
-}
-
-// SetSourceService sets the SourceService field's value.
-func (s *TopParamForCreateTimerInput) SetSourceService(v string) *TopParamForCreateTimerInput {
-	s.SourceService = &v
-	return s
-}
-
-// SetUserAgent sets the UserAgent field's value.
-func (s *TopParamForCreateTimerInput) SetUserAgent(v string) *TopParamForCreateTimerInput {
-	s.UserAgent = &v
-	return s
-}
-
-// SetUserId sets the UserId field's value.
-func (s *TopParamForCreateTimerInput) SetUserId(v int64) *TopParamForCreateTimerInput {
-	s.UserId = &v
 	return s
 }

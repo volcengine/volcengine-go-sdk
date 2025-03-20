@@ -182,6 +182,8 @@ type CreateFunctionInput struct {
 
 	SourceType *string `type:"string" json:",omitempty"`
 
+	Tags []*TagForCreateFunctionInput `type:"list" json:",omitempty"`
+
 	TlsConfig *TlsConfigForCreateFunctionInput `type:"structure" json:",omitempty"`
 
 	TosMountConfig *TosMountConfigForCreateFunctionInput `type:"structure" json:",omitempty"`
@@ -314,6 +316,12 @@ func (s *CreateFunctionInput) SetSourceAccessConfig(v *SourceAccessConfigForCrea
 // SetSourceType sets the SourceType field's value.
 func (s *CreateFunctionInput) SetSourceType(v string) *CreateFunctionInput {
 	s.SourceType = &v
+	return s
+}
+
+// SetTags sets the Tags field's value.
+func (s *CreateFunctionInput) SetTags(v []*TagForCreateFunctionInput) *CreateFunctionInput {
+	s.Tags = v
 	return s
 }
 
@@ -990,6 +998,36 @@ func (s *SourceAccessConfigForCreateFunctionInput) SetPassword(v string) *Source
 // SetUsername sets the Username field's value.
 func (s *SourceAccessConfigForCreateFunctionInput) SetUsername(v string) *SourceAccessConfigForCreateFunctionInput {
 	s.Username = &v
+	return s
+}
+
+type TagForCreateFunctionInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Key *string `type:"string" json:",omitempty"`
+
+	Value *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s TagForCreateFunctionInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagForCreateFunctionInput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagForCreateFunctionInput) SetKey(v string) *TagForCreateFunctionInput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *TagForCreateFunctionInput) SetValue(v string) *TagForCreateFunctionInput {
+	s.Value = &v
 	return s
 }
 

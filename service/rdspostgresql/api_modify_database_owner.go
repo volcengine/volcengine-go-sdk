@@ -144,16 +144,16 @@ func (c *RDSPOSTGRESQL) ModifyDatabaseOwnerWithContext(ctx volcengine.Context, i
 }
 
 type ModifyDatabaseOwnerInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// DBName is a required field
-	DBName *string `type:"string" required:"true"`
+	DBName *string `type:"string" json:",omitempty" required:"true"`
 
 	// InstanceId is a required field
-	InstanceId *string `type:"string" required:"true"`
+	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 
 	// Owner is a required field
-	Owner *string `type:"string" required:"true"`
+	Owner *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -204,7 +204,7 @@ func (s *ModifyDatabaseOwnerInput) SetOwner(v string) *ModifyDatabaseOwnerInput 
 }
 
 type ModifyDatabaseOwnerOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 }

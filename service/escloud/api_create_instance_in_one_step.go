@@ -270,8 +270,6 @@ type InstanceConfigurationForCreateInstanceInOneStepInput struct {
 
 	DeletionProtection *bool `type:"boolean" json:",omitempty"`
 
-	EnableCerebro *bool `type:"boolean" json:",omitempty"`
-
 	EnableHttps *bool `type:"boolean" json:",omitempty"`
 
 	EnablePureMaster *bool `type:"boolean" json:",omitempty"`
@@ -334,12 +332,6 @@ func (s *InstanceConfigurationForCreateInstanceInOneStepInput) SetConfigurationC
 // SetDeletionProtection sets the DeletionProtection field's value.
 func (s *InstanceConfigurationForCreateInstanceInOneStepInput) SetDeletionProtection(v bool) *InstanceConfigurationForCreateInstanceInOneStepInput {
 	s.DeletionProtection = &v
-	return s
-}
-
-// SetEnableCerebro sets the EnableCerebro field's value.
-func (s *InstanceConfigurationForCreateInstanceInOneStepInput) SetEnableCerebro(v bool) *InstanceConfigurationForCreateInstanceInOneStepInput {
-	s.EnableCerebro = &v
 	return s
 }
 

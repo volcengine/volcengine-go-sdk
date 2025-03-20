@@ -166,6 +166,14 @@ type RDSPOSTGRESQLAPI interface {
 	DeleteSchemaWithContext(volcengine.Context, *DeleteSchemaInput, ...request.Option) (*DeleteSchemaOutput, error)
 	DeleteSchemaRequest(*DeleteSchemaInput) (*request.Request, *DeleteSchemaOutput)
 
+	DeleteSlotCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeleteSlotCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeleteSlotCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeleteSlot(*DeleteSlotInput) (*DeleteSlotOutput, error)
+	DeleteSlotWithContext(volcengine.Context, *DeleteSlotInput, ...request.Option) (*DeleteSlotOutput, error)
+	DeleteSlotRequest(*DeleteSlotInput) (*request.Request, *DeleteSlotOutput)
+
 	DescribeAllowListDetailCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DescribeAllowListDetailCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DescribeAllowListDetailCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -317,6 +325,14 @@ type RDSPOSTGRESQLAPI interface {
 	DescribeSchemas(*DescribeSchemasInput) (*DescribeSchemasOutput, error)
 	DescribeSchemasWithContext(volcengine.Context, *DescribeSchemasInput, ...request.Option) (*DescribeSchemasOutput, error)
 	DescribeSchemasRequest(*DescribeSchemasInput) (*request.Request, *DescribeSchemasOutput)
+
+	DescribeSlotsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeSlotsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeSlotsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeSlots(*DescribeSlotsInput) (*DescribeSlotsOutput, error)
+	DescribeSlotsWithContext(volcengine.Context, *DescribeSlotsInput, ...request.Option) (*DescribeSlotsOutput, error)
+	DescribeSlotsRequest(*DescribeSlotsInput) (*request.Request, *DescribeSlotsOutput)
 
 	DisassociateAllowListCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DisassociateAllowListCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)

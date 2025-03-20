@@ -144,15 +144,15 @@ func (c *RDSPOSTGRESQL) DescribeDBAccountsWithContext(ctx volcengine.Context, in
 }
 
 type AccountForDescribeDBAccountsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	AccountName *string `type:"string"`
+	AccountName *string `type:"string" json:",omitempty"`
 
-	AccountPrivileges *string `type:"string"`
+	AccountPrivileges *string `type:"string" json:",omitempty"`
 
-	AccountStatus *string `type:"string" enum:"EnumOfAccountStatusForDescribeDBAccountsOutput"`
+	AccountStatus *string `type:"string" json:",omitempty"`
 
-	AccountType *string `type:"string" enum:"EnumOfAccountTypeForDescribeDBAccountsOutput"`
+	AccountType *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -190,16 +190,16 @@ func (s *AccountForDescribeDBAccountsOutput) SetAccountType(v string) *AccountFo
 }
 
 type DescribeDBAccountsInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	AccountName *string `type:"string"`
+	AccountName *string `type:"string" json:",omitempty"`
 
 	// InstanceId is a required field
-	InstanceId *string `type:"string" required:"true"`
+	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 
-	PageNumber *int32 `type:"int32"`
+	PageNumber *int32 `type:"int32" json:",omitempty"`
 
-	PageSize *int32 `type:"int32"`
+	PageSize *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -250,13 +250,13 @@ func (s *DescribeDBAccountsInput) SetPageSize(v int32) *DescribeDBAccountsInput 
 }
 
 type DescribeDBAccountsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	Accounts []*AccountForDescribeDBAccountsOutput `type:"list"`
+	Accounts []*AccountForDescribeDBAccountsOutput `type:"list" json:",omitempty"`
 
-	Total *int32 `type:"int32"`
+	Total *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -280,22 +280,3 @@ func (s *DescribeDBAccountsOutput) SetTotal(v int32) *DescribeDBAccountsOutput {
 	s.Total = &v
 	return s
 }
-
-const (
-	// EnumOfAccountStatusForDescribeDBAccountsOutputUnavailable is a EnumOfAccountStatusForDescribeDBAccountsOutput enum value
-	EnumOfAccountStatusForDescribeDBAccountsOutputUnavailable = "Unavailable"
-
-	// EnumOfAccountStatusForDescribeDBAccountsOutputAvailable is a EnumOfAccountStatusForDescribeDBAccountsOutput enum value
-	EnumOfAccountStatusForDescribeDBAccountsOutputAvailable = "Available"
-)
-
-const (
-	// EnumOfAccountTypeForDescribeDBAccountsOutputSuper is a EnumOfAccountTypeForDescribeDBAccountsOutput enum value
-	EnumOfAccountTypeForDescribeDBAccountsOutputSuper = "Super"
-
-	// EnumOfAccountTypeForDescribeDBAccountsOutputNormal is a EnumOfAccountTypeForDescribeDBAccountsOutput enum value
-	EnumOfAccountTypeForDescribeDBAccountsOutputNormal = "Normal"
-
-	// EnumOfAccountTypeForDescribeDBAccountsOutputInstanceReadOnly is a EnumOfAccountTypeForDescribeDBAccountsOutput enum value
-	EnumOfAccountTypeForDescribeDBAccountsOutputInstanceReadOnly = "InstanceReadOnly"
-)
