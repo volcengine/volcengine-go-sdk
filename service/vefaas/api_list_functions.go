@@ -203,6 +203,36 @@ func (s *EnvForListFunctionsOutput) SetValue(v string) *EnvForListFunctionsOutpu
 	return s
 }
 
+type FilterForListFunctionsInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Name *string `type:"string" json:",omitempty"`
+
+	Values []*string `type:"list" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s FilterForListFunctionsInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s FilterForListFunctionsInput) GoString() string {
+	return s.String()
+}
+
+// SetName sets the Name field's value.
+func (s *FilterForListFunctionsInput) SetName(v string) *FilterForListFunctionsInput {
+	s.Name = &v
+	return s
+}
+
+// SetValues sets the Values field's value.
+func (s *FilterForListFunctionsInput) SetValues(v []*string) *FilterForListFunctionsInput {
+	s.Values = v
+	return s
+}
+
 type ItemForListFunctionsOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -211,6 +241,8 @@ type ItemForListFunctionsOutput struct {
 	CodeSizeLimit *int32 `type:"int32" json:",omitempty"`
 
 	Command *string `type:"string" json:",omitempty"`
+
+	CpuStrategy *string `type:"string" json:",omitempty"`
 
 	CreationTime *string `type:"string" json:",omitempty"`
 
@@ -237,6 +269,8 @@ type ItemForListFunctionsOutput struct {
 	NasStorage *NasStorageForListFunctionsOutput `type:"structure" json:",omitempty"`
 
 	Owner *string `type:"string" json:",omitempty"`
+
+	Port *int32 `type:"int32" json:",omitempty"`
 
 	ProjectName *string `type:"string" json:",omitempty"`
 
@@ -284,6 +318,12 @@ func (s *ItemForListFunctionsOutput) SetCodeSizeLimit(v int32) *ItemForListFunct
 // SetCommand sets the Command field's value.
 func (s *ItemForListFunctionsOutput) SetCommand(v string) *ItemForListFunctionsOutput {
 	s.Command = &v
+	return s
+}
+
+// SetCpuStrategy sets the CpuStrategy field's value.
+func (s *ItemForListFunctionsOutput) SetCpuStrategy(v string) *ItemForListFunctionsOutput {
+	s.CpuStrategy = &v
 	return s
 }
 
@@ -365,6 +405,12 @@ func (s *ItemForListFunctionsOutput) SetOwner(v string) *ItemForListFunctionsOut
 	return s
 }
 
+// SetPort sets the Port field's value.
+func (s *ItemForListFunctionsOutput) SetPort(v int32) *ItemForListFunctionsOutput {
+	s.Port = &v
+	return s
+}
+
 // SetProjectName sets the ProjectName field's value.
 func (s *ItemForListFunctionsOutput) SetProjectName(v string) *ItemForListFunctionsOutput {
 	s.ProjectName = &v
@@ -428,9 +474,13 @@ func (s *ItemForListFunctionsOutput) SetVpcConfig(v *VpcConfigForListFunctionsOu
 type ListFunctionsInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	Filters []*FilterForListFunctionsInput `type:"list" json:",omitempty"`
+
 	PageNumber *int32 `type:"int32" json:",omitempty"`
 
 	PageSize *int32 `type:"int32" json:",omitempty"`
+
+	TagFilters []*TagFilterForListFunctionsInput `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -443,6 +493,12 @@ func (s ListFunctionsInput) GoString() string {
 	return s.String()
 }
 
+// SetFilters sets the Filters field's value.
+func (s *ListFunctionsInput) SetFilters(v []*FilterForListFunctionsInput) *ListFunctionsInput {
+	s.Filters = v
+	return s
+}
+
 // SetPageNumber sets the PageNumber field's value.
 func (s *ListFunctionsInput) SetPageNumber(v int32) *ListFunctionsInput {
 	s.PageNumber = &v
@@ -452,6 +508,12 @@ func (s *ListFunctionsInput) SetPageNumber(v int32) *ListFunctionsInput {
 // SetPageSize sets the PageSize field's value.
 func (s *ListFunctionsInput) SetPageSize(v int32) *ListFunctionsInput {
 	s.PageSize = &v
+	return s
+}
+
+// SetTagFilters sets the TagFilters field's value.
+func (s *ListFunctionsInput) SetTagFilters(v []*TagFilterForListFunctionsInput) *ListFunctionsInput {
+	s.TagFilters = v
 	return s
 }
 
@@ -630,6 +692,36 @@ func (s *NasStorageForListFunctionsOutput) SetEnableNas(v bool) *NasStorageForLi
 // SetNasConfigs sets the NasConfigs field's value.
 func (s *NasStorageForListFunctionsOutput) SetNasConfigs(v []*NasConfigForListFunctionsOutput) *NasStorageForListFunctionsOutput {
 	s.NasConfigs = v
+	return s
+}
+
+type TagFilterForListFunctionsInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Key *string `type:"string" json:",omitempty"`
+
+	Values []*string `type:"list" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s TagFilterForListFunctionsInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagFilterForListFunctionsInput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagFilterForListFunctionsInput) SetKey(v string) *TagFilterForListFunctionsInput {
+	s.Key = &v
+	return s
+}
+
+// SetValues sets the Values field's value.
+func (s *TagFilterForListFunctionsInput) SetValues(v []*string) *TagFilterForListFunctionsInput {
+	s.Values = v
 	return s
 }
 

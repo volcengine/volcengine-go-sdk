@@ -143,116 +143,6 @@ func (c *VEFAAS) UpdateTimerWithContext(ctx volcengine.Context, input *UpdateTim
 	return out, req.Send()
 }
 
-type TopParamForUpdateTimerInput struct {
-	_ struct{} `type:"structure" json:",omitempty"`
-
-	AccountId *int64 `type:"int64" json:",omitempty"`
-
-	DestService *string `type:"string" json:",omitempty"`
-
-	IsInternal *string `type:"string" json:",omitempty"`
-
-	Psm *string `type:"string" json:",omitempty"`
-
-	RealIp *string `type:"string" json:",omitempty"`
-
-	Region *string `type:"string" json:",omitempty"`
-
-	RequestId *string `type:"string" json:",omitempty"`
-
-	RoleId *int64 `type:"int64" json:",omitempty"`
-
-	Site *string `type:"string" json:",omitempty"`
-
-	SourceService *string `type:"string" json:",omitempty"`
-
-	UserAgent *string `type:"string" json:",omitempty"`
-
-	UserId *int64 `type:"int64" json:",omitempty"`
-}
-
-// String returns the string representation
-func (s TopParamForUpdateTimerInput) String() string {
-	return volcengineutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s TopParamForUpdateTimerInput) GoString() string {
-	return s.String()
-}
-
-// SetAccountId sets the AccountId field's value.
-func (s *TopParamForUpdateTimerInput) SetAccountId(v int64) *TopParamForUpdateTimerInput {
-	s.AccountId = &v
-	return s
-}
-
-// SetDestService sets the DestService field's value.
-func (s *TopParamForUpdateTimerInput) SetDestService(v string) *TopParamForUpdateTimerInput {
-	s.DestService = &v
-	return s
-}
-
-// SetIsInternal sets the IsInternal field's value.
-func (s *TopParamForUpdateTimerInput) SetIsInternal(v string) *TopParamForUpdateTimerInput {
-	s.IsInternal = &v
-	return s
-}
-
-// SetPsm sets the Psm field's value.
-func (s *TopParamForUpdateTimerInput) SetPsm(v string) *TopParamForUpdateTimerInput {
-	s.Psm = &v
-	return s
-}
-
-// SetRealIp sets the RealIp field's value.
-func (s *TopParamForUpdateTimerInput) SetRealIp(v string) *TopParamForUpdateTimerInput {
-	s.RealIp = &v
-	return s
-}
-
-// SetRegion sets the Region field's value.
-func (s *TopParamForUpdateTimerInput) SetRegion(v string) *TopParamForUpdateTimerInput {
-	s.Region = &v
-	return s
-}
-
-// SetRequestId sets the RequestId field's value.
-func (s *TopParamForUpdateTimerInput) SetRequestId(v string) *TopParamForUpdateTimerInput {
-	s.RequestId = &v
-	return s
-}
-
-// SetRoleId sets the RoleId field's value.
-func (s *TopParamForUpdateTimerInput) SetRoleId(v int64) *TopParamForUpdateTimerInput {
-	s.RoleId = &v
-	return s
-}
-
-// SetSite sets the Site field's value.
-func (s *TopParamForUpdateTimerInput) SetSite(v string) *TopParamForUpdateTimerInput {
-	s.Site = &v
-	return s
-}
-
-// SetSourceService sets the SourceService field's value.
-func (s *TopParamForUpdateTimerInput) SetSourceService(v string) *TopParamForUpdateTimerInput {
-	s.SourceService = &v
-	return s
-}
-
-// SetUserAgent sets the UserAgent field's value.
-func (s *TopParamForUpdateTimerInput) SetUserAgent(v string) *TopParamForUpdateTimerInput {
-	s.UserAgent = &v
-	return s
-}
-
-// SetUserId sets the UserId field's value.
-func (s *TopParamForUpdateTimerInput) SetUserId(v int64) *TopParamForUpdateTimerInput {
-	s.UserId = &v
-	return s
-}
-
 type UpdateTimerInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -273,8 +163,6 @@ type UpdateTimerInput struct {
 	Payload *string `type:"string" json:",omitempty"`
 
 	Retries *int32 `type:"int32" json:",omitempty"`
-
-	TopParam *TopParamForUpdateTimerInput `type:"structure" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -348,12 +236,6 @@ func (s *UpdateTimerInput) SetPayload(v string) *UpdateTimerInput {
 // SetRetries sets the Retries field's value.
 func (s *UpdateTimerInput) SetRetries(v int32) *UpdateTimerInput {
 	s.Retries = &v
-	return s
-}
-
-// SetTopParam sets the TopParam field's value.
-func (s *UpdateTimerInput) SetTopParam(v *TopParamForUpdateTimerInput) *UpdateTimerInput {
-	s.TopParam = v
 	return s
 }
 

@@ -151,8 +151,6 @@ type DeleteTimerInput struct {
 
 	// Id is a required field
 	Id *string `type:"string" json:",omitempty" required:"true"`
-
-	TopParam *TopParamForDeleteTimerInput `type:"structure" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -193,12 +191,6 @@ func (s *DeleteTimerInput) SetId(v string) *DeleteTimerInput {
 	return s
 }
 
-// SetTopParam sets the TopParam field's value.
-func (s *DeleteTimerInput) SetTopParam(v *TopParamForDeleteTimerInput) *DeleteTimerInput {
-	s.TopParam = v
-	return s
-}
-
 type DeleteTimerOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -213,114 +205,4 @@ func (s DeleteTimerOutput) String() string {
 // GoString returns the string representation
 func (s DeleteTimerOutput) GoString() string {
 	return s.String()
-}
-
-type TopParamForDeleteTimerInput struct {
-	_ struct{} `type:"structure" json:",omitempty"`
-
-	AccountId *int64 `type:"int64" json:",omitempty"`
-
-	DestService *string `type:"string" json:",omitempty"`
-
-	IsInternal *string `type:"string" json:",omitempty"`
-
-	Psm *string `type:"string" json:",omitempty"`
-
-	RealIp *string `type:"string" json:",omitempty"`
-
-	Region *string `type:"string" json:",omitempty"`
-
-	RequestId *string `type:"string" json:",omitempty"`
-
-	RoleId *int64 `type:"int64" json:",omitempty"`
-
-	Site *string `type:"string" json:",omitempty"`
-
-	SourceService *string `type:"string" json:",omitempty"`
-
-	UserAgent *string `type:"string" json:",omitempty"`
-
-	UserId *int64 `type:"int64" json:",omitempty"`
-}
-
-// String returns the string representation
-func (s TopParamForDeleteTimerInput) String() string {
-	return volcengineutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s TopParamForDeleteTimerInput) GoString() string {
-	return s.String()
-}
-
-// SetAccountId sets the AccountId field's value.
-func (s *TopParamForDeleteTimerInput) SetAccountId(v int64) *TopParamForDeleteTimerInput {
-	s.AccountId = &v
-	return s
-}
-
-// SetDestService sets the DestService field's value.
-func (s *TopParamForDeleteTimerInput) SetDestService(v string) *TopParamForDeleteTimerInput {
-	s.DestService = &v
-	return s
-}
-
-// SetIsInternal sets the IsInternal field's value.
-func (s *TopParamForDeleteTimerInput) SetIsInternal(v string) *TopParamForDeleteTimerInput {
-	s.IsInternal = &v
-	return s
-}
-
-// SetPsm sets the Psm field's value.
-func (s *TopParamForDeleteTimerInput) SetPsm(v string) *TopParamForDeleteTimerInput {
-	s.Psm = &v
-	return s
-}
-
-// SetRealIp sets the RealIp field's value.
-func (s *TopParamForDeleteTimerInput) SetRealIp(v string) *TopParamForDeleteTimerInput {
-	s.RealIp = &v
-	return s
-}
-
-// SetRegion sets the Region field's value.
-func (s *TopParamForDeleteTimerInput) SetRegion(v string) *TopParamForDeleteTimerInput {
-	s.Region = &v
-	return s
-}
-
-// SetRequestId sets the RequestId field's value.
-func (s *TopParamForDeleteTimerInput) SetRequestId(v string) *TopParamForDeleteTimerInput {
-	s.RequestId = &v
-	return s
-}
-
-// SetRoleId sets the RoleId field's value.
-func (s *TopParamForDeleteTimerInput) SetRoleId(v int64) *TopParamForDeleteTimerInput {
-	s.RoleId = &v
-	return s
-}
-
-// SetSite sets the Site field's value.
-func (s *TopParamForDeleteTimerInput) SetSite(v string) *TopParamForDeleteTimerInput {
-	s.Site = &v
-	return s
-}
-
-// SetSourceService sets the SourceService field's value.
-func (s *TopParamForDeleteTimerInput) SetSourceService(v string) *TopParamForDeleteTimerInput {
-	s.SourceService = &v
-	return s
-}
-
-// SetUserAgent sets the UserAgent field's value.
-func (s *TopParamForDeleteTimerInput) SetUserAgent(v string) *TopParamForDeleteTimerInput {
-	s.UserAgent = &v
-	return s
-}
-
-// SetUserId sets the UserId field's value.
-func (s *TopParamForDeleteTimerInput) SetUserId(v int64) *TopParamForDeleteTimerInput {
-	s.UserId = &v
-	return s
 }
