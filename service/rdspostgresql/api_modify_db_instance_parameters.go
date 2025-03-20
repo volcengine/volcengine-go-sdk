@@ -144,12 +144,12 @@ func (c *RDSPOSTGRESQL) ModifyDBInstanceParametersWithContext(ctx volcengine.Con
 }
 
 type ModifyDBInstanceParametersInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// InstanceId is a required field
-	InstanceId *string `type:"string" required:"true"`
+	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 
-	Parameters []*ParameterForModifyDBInstanceParametersInput `type:"list"`
+	Parameters []*ParameterForModifyDBInstanceParametersInput `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -188,7 +188,7 @@ func (s *ModifyDBInstanceParametersInput) SetParameters(v []*ParameterForModifyD
 }
 
 type ModifyDBInstanceParametersOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 }
@@ -204,21 +204,23 @@ func (s ModifyDBInstanceParametersOutput) GoString() string {
 }
 
 type ParameterForModifyDBInstanceParametersInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	CheckingCode *string `type:"string"`
+	CheckingCode *string `type:"string" json:",omitempty"`
 
-	DefaultValue *string `type:"string"`
+	DefaultValue *string `type:"string" json:",omitempty"`
 
-	Description *string `type:"string"`
+	Description *string `type:"string" json:",omitempty"`
 
-	ForceRestart *bool `type:"boolean"`
+	DescriptionZH *string `type:"string" json:",omitempty"`
 
-	Name *string `type:"string"`
+	ForceRestart *bool `type:"boolean" json:",omitempty"`
 
-	Type *string `type:"string" enum:"EnumOfTypeForModifyDBInstanceParametersInput"`
+	Name *string `type:"string" json:",omitempty"`
 
-	Value *string `type:"string"`
+	Type *string `type:"string" json:",omitempty"`
+
+	Value *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -249,6 +251,12 @@ func (s *ParameterForModifyDBInstanceParametersInput) SetDescription(v string) *
 	return s
 }
 
+// SetDescriptionZH sets the DescriptionZH field's value.
+func (s *ParameterForModifyDBInstanceParametersInput) SetDescriptionZH(v string) *ParameterForModifyDBInstanceParametersInput {
+	s.DescriptionZH = &v
+	return s
+}
+
 // SetForceRestart sets the ForceRestart field's value.
 func (s *ParameterForModifyDBInstanceParametersInput) SetForceRestart(v bool) *ParameterForModifyDBInstanceParametersInput {
 	s.ForceRestart = &v
@@ -272,23 +280,3 @@ func (s *ParameterForModifyDBInstanceParametersInput) SetValue(v string) *Parame
 	s.Value = &v
 	return s
 }
-
-const (
-	// EnumOfTypeForModifyDBInstanceParametersInputString is a EnumOfTypeForModifyDBInstanceParametersInput enum value
-	EnumOfTypeForModifyDBInstanceParametersInputString = "String"
-
-	// EnumOfTypeForModifyDBInstanceParametersInputInteger is a EnumOfTypeForModifyDBInstanceParametersInput enum value
-	EnumOfTypeForModifyDBInstanceParametersInputInteger = "Integer"
-
-	// EnumOfTypeForModifyDBInstanceParametersInputFloat is a EnumOfTypeForModifyDBInstanceParametersInput enum value
-	EnumOfTypeForModifyDBInstanceParametersInputFloat = "Float"
-
-	// EnumOfTypeForModifyDBInstanceParametersInputBoolean is a EnumOfTypeForModifyDBInstanceParametersInput enum value
-	EnumOfTypeForModifyDBInstanceParametersInputBoolean = "Boolean"
-
-	// EnumOfTypeForModifyDBInstanceParametersInputList is a EnumOfTypeForModifyDBInstanceParametersInput enum value
-	EnumOfTypeForModifyDBInstanceParametersInputList = "List"
-
-	// EnumOfTypeForModifyDBInstanceParametersInputEnum is a EnumOfTypeForModifyDBInstanceParametersInput enum value
-	EnumOfTypeForModifyDBInstanceParametersInputEnum = "Enum"
-)

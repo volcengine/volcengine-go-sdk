@@ -144,18 +144,18 @@ func (c *RDSPOSTGRESQL) DescribeFailoverLogsWithContext(ctx volcengine.Context, 
 }
 
 type DescribeFailoverLogsInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Context *string `type:"string"`
+	Context *string `type:"string" json:",omitempty"`
 
 	// InstanceId is a required field
-	InstanceId *string `type:"string" required:"true"`
+	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 
-	Limit *int32 `type:"int32"`
+	Limit *int32 `type:"int32" json:",omitempty"`
 
-	QueryEndTime *string `type:"string"`
+	QueryEndTime *string `type:"string" json:",omitempty"`
 
-	QueryStartTime *string `type:"string"`
+	QueryStartTime *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -212,17 +212,17 @@ func (s *DescribeFailoverLogsInput) SetQueryStartTime(v string) *DescribeFailove
 }
 
 type DescribeFailoverLogsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	Context *string `type:"string"`
+	Context *string `type:"string" json:",omitempty"`
 
-	FailoverLogs []*FailoverLogForDescribeFailoverLogsOutput `type:"list"`
+	FailoverLogs []*FailoverLogForDescribeFailoverLogsOutput `type:"list" json:",omitempty"`
 
-	InstanceId *string `type:"string"`
+	InstanceId *string `type:"string" json:",omitempty"`
 
-	Total *int32 `type:"int32"`
+	Total *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -260,15 +260,15 @@ func (s *DescribeFailoverLogsOutput) SetTotal(v int32) *DescribeFailoverLogsOutp
 }
 
 type FailoverLogForDescribeFailoverLogsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	FailoverTime *string `type:"string"`
+	FailoverTime *string `type:"string" json:",omitempty"`
 
-	FailoverType *string `type:"string" enum:"EnumOfFailoverTypeForDescribeFailoverLogsOutput"`
+	FailoverType *string `type:"string" json:",omitempty"`
 
-	NewMasterNodeId *string `type:"string"`
+	NewMasterNodeId *string `type:"string" json:",omitempty"`
 
-	OldMasterNodeId *string `type:"string"`
+	OldMasterNodeId *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -304,11 +304,3 @@ func (s *FailoverLogForDescribeFailoverLogsOutput) SetOldMasterNodeId(v string) 
 	s.OldMasterNodeId = &v
 	return s
 }
-
-const (
-	// EnumOfFailoverTypeForDescribeFailoverLogsOutputSystem is a EnumOfFailoverTypeForDescribeFailoverLogsOutput enum value
-	EnumOfFailoverTypeForDescribeFailoverLogsOutputSystem = "System"
-
-	// EnumOfFailoverTypeForDescribeFailoverLogsOutputUser is a EnumOfFailoverTypeForDescribeFailoverLogsOutput enum value
-	EnumOfFailoverTypeForDescribeFailoverLogsOutputUser = "User"
-)

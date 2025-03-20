@@ -144,27 +144,27 @@ func (c *RDSPOSTGRESQL) DescribeBackupsWithContext(ctx volcengine.Context, input
 }
 
 type BackupForDescribeBackupsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	BackupEndTime *string `type:"string"`
+	BackupEndTime *string `type:"string" json:",omitempty"`
 
-	BackupFileName *string `type:"string"`
+	BackupFileName *string `type:"string" json:",omitempty"`
 
-	BackupFileSize *int64 `type:"int64"`
+	BackupFileSize *int64 `type:"int64" json:",omitempty"`
 
-	BackupId *string `type:"string"`
+	BackupId *string `type:"string" json:",omitempty"`
 
-	BackupProgress *int32 `max:"100" type:"int32"`
+	BackupProgress *int32 `type:"int32" json:",omitempty"`
 
-	BackupStartTime *string `type:"string"`
+	BackupStartTime *string `type:"string" json:",omitempty"`
 
-	BackupStatus *string `type:"string" enum:"EnumOfBackupStatusForDescribeBackupsOutput"`
+	BackupStatus *string `type:"string" json:",omitempty"`
 
-	BackupType *string `type:"string" enum:"EnumOfBackupTypeForDescribeBackupsOutput"`
+	BackupType *string `type:"string" json:",omitempty"`
 
-	CreateType *string `type:"string" enum:"EnumOfCreateTypeForDescribeBackupsOutput"`
+	CreateType *string `type:"string" json:",omitempty"`
 
-	InstanceInfo *InstanceInfoForDescribeBackupsOutput `type:"structure"`
+	InstanceInfo *InstanceInfoForDescribeBackupsOutput `type:"structure" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -238,31 +238,31 @@ func (s *BackupForDescribeBackupsOutput) SetInstanceInfo(v *InstanceInfoForDescr
 }
 
 type ChargeDetailForDescribeBackupsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	AutoRenew *bool `type:"boolean"`
+	AutoRenew *bool `type:"boolean" json:",omitempty"`
 
-	ChargeEndTime *string `type:"string"`
+	ChargeEndTime *string `type:"string" json:",omitempty"`
 
-	ChargeStartTime *string `type:"string"`
+	ChargeStartTime *string `type:"string" json:",omitempty"`
 
-	ChargeStatus *string `type:"string" enum:"EnumOfChargeStatusForDescribeBackupsOutput"`
+	ChargeStatus *string `type:"string" json:",omitempty"`
 
-	ChargeType *string `type:"string" enum:"EnumOfChargeTypeForDescribeBackupsOutput"`
+	ChargeType *string `type:"string" json:",omitempty"`
 
-	Number *int32 `type:"int32"`
+	Number *int32 `type:"int32" json:",omitempty"`
 
-	OverdueReclaimTime *string `type:"string"`
+	OverdueReclaimTime *string `type:"string" json:",omitempty"`
 
-	OverdueTime *string `type:"string"`
+	OverdueTime *string `type:"string" json:",omitempty"`
 
-	Period *int32 `type:"int32"`
+	Period *int32 `type:"int32" json:",omitempty"`
 
-	PeriodUnit *string `type:"string" enum:"EnumOfPeriodUnitForDescribeBackupsOutput"`
+	PeriodUnit *string `type:"string" json:",omitempty"`
 
-	TempModifyEndTime *string `type:"string"`
+	TempModifyEndTime *string `type:"string" json:",omitempty"`
 
-	TempModifyStartTime *string `type:"string"`
+	TempModifyStartTime *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -348,24 +348,24 @@ func (s *ChargeDetailForDescribeBackupsOutput) SetTempModifyStartTime(v string) 
 }
 
 type DescribeBackupsInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	BackupEndTime *string `type:"string"`
+	BackupEndTime *string `type:"string" json:",omitempty"`
 
-	BackupId *string `type:"string"`
+	BackupId *string `type:"string" json:",omitempty"`
 
-	BackupStartTime *string `type:"string"`
+	BackupStartTime *string `type:"string" json:",omitempty"`
 
-	BackupStatus *string `type:"string"`
+	BackupStatus *string `type:"string" json:",omitempty"`
 
-	BackupType *string `type:"string" enum:"EnumOfBackupTypeForDescribeBackupsInput"`
+	BackupType *string `type:"string" json:",omitempty"`
 
 	// InstanceId is a required field
-	InstanceId *string `type:"string" required:"true"`
+	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 
-	PageNumber *int32 `type:"int32"`
+	PageNumber *int32 `type:"int32" json:",omitempty"`
 
-	PageSize *int32 `type:"int32"`
+	PageSize *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -440,13 +440,13 @@ func (s *DescribeBackupsInput) SetPageSize(v int32) *DescribeBackupsInput {
 }
 
 type DescribeBackupsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	Backups []*BackupForDescribeBackupsOutput `type:"list"`
+	Backups []*BackupForDescribeBackupsOutput `type:"list" json:",omitempty"`
 
-	Total *int32 `type:"int32"`
+	Total *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -472,37 +472,37 @@ func (s *DescribeBackupsOutput) SetTotal(v int32) *DescribeBackupsOutput {
 }
 
 type InstanceInfoForDescribeBackupsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	ChargeDetail *ChargeDetailForDescribeBackupsOutput `type:"structure"`
+	ChargeDetail *ChargeDetailForDescribeBackupsOutput `type:"structure" json:",omitempty"`
 
-	DBEngineVersion *string `type:"string" enum:"EnumOfDBEngineVersionForDescribeBackupsOutput"`
+	DBEngineVersion *string `type:"string" json:",omitempty"`
 
-	InstanceId *string `type:"string"`
+	InstanceId *string `type:"string" json:",omitempty"`
 
-	InstanceName *string `type:"string"`
+	InstanceName *string `type:"string" json:",omitempty"`
 
-	InstanceStatus *string `type:"string" enum:"EnumOfInstanceStatusForDescribeBackupsOutput"`
+	InstanceStatus *string `type:"string" json:",omitempty"`
 
-	InstanceType *string `type:"string" enum:"EnumOfInstanceTypeForDescribeBackupsOutput"`
+	InstanceType *string `type:"string" json:",omitempty"`
 
-	Memory *int32 `type:"int32"`
+	Memory *int32 `type:"int32" json:",omitempty"`
 
-	Nodes []*NodeForDescribeBackupsOutput `type:"list"`
+	Nodes []*NodeForDescribeBackupsOutput `type:"list" json:",omitempty"`
 
-	ProjectName *string `type:"string"`
+	ProjectName *string `type:"string" json:",omitempty"`
 
-	StorageSpace *float64 `type:"double"`
+	StorageSpace *int32 `type:"int32" json:",omitempty"`
 
-	StorageType *string `type:"string" enum:"EnumOfStorageTypeForDescribeBackupsOutput"`
+	StorageType *string `type:"string" json:",omitempty"`
 
-	SubnetId *string `type:"string"`
+	SubnetId *string `type:"string" json:",omitempty"`
 
-	VCPU *int32 `type:"int32"`
+	VCPU *int32 `type:"int32" json:",omitempty"`
 
-	VpcId *string `type:"string"`
+	VpcId *string `type:"string" json:",omitempty"`
 
-	ZoneId *string `type:"string"`
+	ZoneId *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -570,7 +570,7 @@ func (s *InstanceInfoForDescribeBackupsOutput) SetProjectName(v string) *Instanc
 }
 
 // SetStorageSpace sets the StorageSpace field's value.
-func (s *InstanceInfoForDescribeBackupsOutput) SetStorageSpace(v float64) *InstanceInfoForDescribeBackupsOutput {
+func (s *InstanceInfoForDescribeBackupsOutput) SetStorageSpace(v int32) *InstanceInfoForDescribeBackupsOutput {
 	s.StorageSpace = &v
 	return s
 }
@@ -606,29 +606,29 @@ func (s *InstanceInfoForDescribeBackupsOutput) SetZoneId(v string) *InstanceInfo
 }
 
 type NodeForDescribeBackupsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	CreateTime *string `type:"string"`
+	CreateTime *string `type:"string" json:",omitempty"`
 
-	InstanceId *string `type:"string"`
+	InstanceId *string `type:"string" json:",omitempty"`
 
-	Memory *int32 `type:"int32"`
+	Memory *int32 `type:"int32" json:",omitempty"`
 
-	NodeId *string `type:"string"`
+	NodeId *string `type:"string" json:",omitempty"`
 
-	NodeSpec *string `type:"string"`
+	NodeSpec *string `type:"string" json:",omitempty"`
 
-	NodeStatus *string `type:"string" enum:"EnumOfNodeStatusForDescribeBackupsOutput"`
+	NodeStatus *string `type:"string" json:",omitempty"`
 
-	NodeType *string `type:"string" enum:"EnumOfNodeTypeForDescribeBackupsOutput"`
+	NodeType *string `type:"string" json:",omitempty"`
 
-	RegionId *string `type:"string"`
+	RegionId *string `type:"string" json:",omitempty"`
 
-	UpdateTime *string `type:"string"`
+	UpdateTime *string `type:"string" json:",omitempty"`
 
-	VCPU *int32 `type:"int32"`
+	VCPU *int32 `type:"int32" json:",omitempty"`
 
-	ZoneId *string `type:"string"`
+	ZoneId *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -706,179 +706,3 @@ func (s *NodeForDescribeBackupsOutput) SetZoneId(v string) *NodeForDescribeBacku
 	s.ZoneId = &v
 	return s
 }
-
-const (
-	// EnumOfBackupStatusForDescribeBackupsOutputSuccess is a EnumOfBackupStatusForDescribeBackupsOutput enum value
-	EnumOfBackupStatusForDescribeBackupsOutputSuccess = "Success"
-
-	// EnumOfBackupStatusForDescribeBackupsOutputFailed is a EnumOfBackupStatusForDescribeBackupsOutput enum value
-	EnumOfBackupStatusForDescribeBackupsOutputFailed = "Failed"
-
-	// EnumOfBackupStatusForDescribeBackupsOutputRunning is a EnumOfBackupStatusForDescribeBackupsOutput enum value
-	EnumOfBackupStatusForDescribeBackupsOutputRunning = "Running"
-)
-
-const (
-	// EnumOfBackupTypeForDescribeBackupsInputFull is a EnumOfBackupTypeForDescribeBackupsInput enum value
-	EnumOfBackupTypeForDescribeBackupsInputFull = "Full"
-
-	// EnumOfBackupTypeForDescribeBackupsInputIncrement is a EnumOfBackupTypeForDescribeBackupsInput enum value
-	EnumOfBackupTypeForDescribeBackupsInputIncrement = "Increment"
-)
-
-const (
-	// EnumOfBackupTypeForDescribeBackupsOutputFull is a EnumOfBackupTypeForDescribeBackupsOutput enum value
-	EnumOfBackupTypeForDescribeBackupsOutputFull = "Full"
-
-	// EnumOfBackupTypeForDescribeBackupsOutputIncrement is a EnumOfBackupTypeForDescribeBackupsOutput enum value
-	EnumOfBackupTypeForDescribeBackupsOutputIncrement = "Increment"
-)
-
-const (
-	// EnumOfChargeStatusForDescribeBackupsOutputNormal is a EnumOfChargeStatusForDescribeBackupsOutput enum value
-	EnumOfChargeStatusForDescribeBackupsOutputNormal = "Normal"
-
-	// EnumOfChargeStatusForDescribeBackupsOutputOverdue is a EnumOfChargeStatusForDescribeBackupsOutput enum value
-	EnumOfChargeStatusForDescribeBackupsOutputOverdue = "Overdue"
-
-	// EnumOfChargeStatusForDescribeBackupsOutputUnpaid is a EnumOfChargeStatusForDescribeBackupsOutput enum value
-	EnumOfChargeStatusForDescribeBackupsOutputUnpaid = "Unpaid"
-)
-
-const (
-	// EnumOfChargeTypeForDescribeBackupsOutputPostPaid is a EnumOfChargeTypeForDescribeBackupsOutput enum value
-	EnumOfChargeTypeForDescribeBackupsOutputPostPaid = "PostPaid"
-
-	// EnumOfChargeTypeForDescribeBackupsOutputPrePaid is a EnumOfChargeTypeForDescribeBackupsOutput enum value
-	EnumOfChargeTypeForDescribeBackupsOutputPrePaid = "PrePaid"
-)
-
-const (
-	// EnumOfCreateTypeForDescribeBackupsOutputSystem is a EnumOfCreateTypeForDescribeBackupsOutput enum value
-	EnumOfCreateTypeForDescribeBackupsOutputSystem = "System"
-
-	// EnumOfCreateTypeForDescribeBackupsOutputUser is a EnumOfCreateTypeForDescribeBackupsOutput enum value
-	EnumOfCreateTypeForDescribeBackupsOutputUser = "User"
-)
-
-const (
-	// EnumOfDBEngineVersionForDescribeBackupsOutputPostgreSql11 is a EnumOfDBEngineVersionForDescribeBackupsOutput enum value
-	EnumOfDBEngineVersionForDescribeBackupsOutputPostgreSql11 = "PostgreSQL_11"
-
-	// EnumOfDBEngineVersionForDescribeBackupsOutputPostgreSql12 is a EnumOfDBEngineVersionForDescribeBackupsOutput enum value
-	EnumOfDBEngineVersionForDescribeBackupsOutputPostgreSql12 = "PostgreSQL_12"
-
-	// EnumOfDBEngineVersionForDescribeBackupsOutputPostgreSql13 is a EnumOfDBEngineVersionForDescribeBackupsOutput enum value
-	EnumOfDBEngineVersionForDescribeBackupsOutputPostgreSql13 = "PostgreSQL_13"
-)
-
-const (
-	// EnumOfInstanceStatusForDescribeBackupsOutputRunning is a EnumOfInstanceStatusForDescribeBackupsOutput enum value
-	EnumOfInstanceStatusForDescribeBackupsOutputRunning = "Running"
-
-	// EnumOfInstanceStatusForDescribeBackupsOutputCreating is a EnumOfInstanceStatusForDescribeBackupsOutput enum value
-	EnumOfInstanceStatusForDescribeBackupsOutputCreating = "Creating"
-
-	// EnumOfInstanceStatusForDescribeBackupsOutputDeleting is a EnumOfInstanceStatusForDescribeBackupsOutput enum value
-	EnumOfInstanceStatusForDescribeBackupsOutputDeleting = "Deleting"
-
-	// EnumOfInstanceStatusForDescribeBackupsOutputRestarting is a EnumOfInstanceStatusForDescribeBackupsOutput enum value
-	EnumOfInstanceStatusForDescribeBackupsOutputRestarting = "Restarting"
-
-	// EnumOfInstanceStatusForDescribeBackupsOutputRestoring is a EnumOfInstanceStatusForDescribeBackupsOutput enum value
-	EnumOfInstanceStatusForDescribeBackupsOutputRestoring = "Restoring"
-
-	// EnumOfInstanceStatusForDescribeBackupsOutputUpdating is a EnumOfInstanceStatusForDescribeBackupsOutput enum value
-	EnumOfInstanceStatusForDescribeBackupsOutputUpdating = "Updating"
-
-	// EnumOfInstanceStatusForDescribeBackupsOutputUpgrading is a EnumOfInstanceStatusForDescribeBackupsOutput enum value
-	EnumOfInstanceStatusForDescribeBackupsOutputUpgrading = "Upgrading"
-
-	// EnumOfInstanceStatusForDescribeBackupsOutputError is a EnumOfInstanceStatusForDescribeBackupsOutput enum value
-	EnumOfInstanceStatusForDescribeBackupsOutputError = "Error"
-
-	// EnumOfInstanceStatusForDescribeBackupsOutputReleased is a EnumOfInstanceStatusForDescribeBackupsOutput enum value
-	EnumOfInstanceStatusForDescribeBackupsOutputReleased = "Released"
-
-	// EnumOfInstanceStatusForDescribeBackupsOutputCreateError is a EnumOfInstanceStatusForDescribeBackupsOutput enum value
-	EnumOfInstanceStatusForDescribeBackupsOutputCreateError = "CreateError"
-
-	// EnumOfInstanceStatusForDescribeBackupsOutputMasterChanging is a EnumOfInstanceStatusForDescribeBackupsOutput enum value
-	EnumOfInstanceStatusForDescribeBackupsOutputMasterChanging = "MasterChanging"
-
-	// EnumOfInstanceStatusForDescribeBackupsOutputDeleted is a EnumOfInstanceStatusForDescribeBackupsOutput enum value
-	EnumOfInstanceStatusForDescribeBackupsOutputDeleted = "Deleted"
-
-	// EnumOfInstanceStatusForDescribeBackupsOutputRecycled is a EnumOfInstanceStatusForDescribeBackupsOutput enum value
-	EnumOfInstanceStatusForDescribeBackupsOutputRecycled = "Recycled"
-)
-
-const (
-	// EnumOfInstanceTypeForDescribeBackupsOutputHa is a EnumOfInstanceTypeForDescribeBackupsOutput enum value
-	EnumOfInstanceTypeForDescribeBackupsOutputHa = "HA"
-)
-
-const (
-	// EnumOfNodeStatusForDescribeBackupsOutputRunning is a EnumOfNodeStatusForDescribeBackupsOutput enum value
-	EnumOfNodeStatusForDescribeBackupsOutputRunning = "Running"
-
-	// EnumOfNodeStatusForDescribeBackupsOutputCreating is a EnumOfNodeStatusForDescribeBackupsOutput enum value
-	EnumOfNodeStatusForDescribeBackupsOutputCreating = "Creating"
-
-	// EnumOfNodeStatusForDescribeBackupsOutputDeleting is a EnumOfNodeStatusForDescribeBackupsOutput enum value
-	EnumOfNodeStatusForDescribeBackupsOutputDeleting = "Deleting"
-
-	// EnumOfNodeStatusForDescribeBackupsOutputRestarting is a EnumOfNodeStatusForDescribeBackupsOutput enum value
-	EnumOfNodeStatusForDescribeBackupsOutputRestarting = "Restarting"
-
-	// EnumOfNodeStatusForDescribeBackupsOutputRestoring is a EnumOfNodeStatusForDescribeBackupsOutput enum value
-	EnumOfNodeStatusForDescribeBackupsOutputRestoring = "Restoring"
-
-	// EnumOfNodeStatusForDescribeBackupsOutputUpdating is a EnumOfNodeStatusForDescribeBackupsOutput enum value
-	EnumOfNodeStatusForDescribeBackupsOutputUpdating = "Updating"
-
-	// EnumOfNodeStatusForDescribeBackupsOutputUpgrading is a EnumOfNodeStatusForDescribeBackupsOutput enum value
-	EnumOfNodeStatusForDescribeBackupsOutputUpgrading = "Upgrading"
-
-	// EnumOfNodeStatusForDescribeBackupsOutputError is a EnumOfNodeStatusForDescribeBackupsOutput enum value
-	EnumOfNodeStatusForDescribeBackupsOutputError = "Error"
-
-	// EnumOfNodeStatusForDescribeBackupsOutputReleased is a EnumOfNodeStatusForDescribeBackupsOutput enum value
-	EnumOfNodeStatusForDescribeBackupsOutputReleased = "Released"
-
-	// EnumOfNodeStatusForDescribeBackupsOutputCreateError is a EnumOfNodeStatusForDescribeBackupsOutput enum value
-	EnumOfNodeStatusForDescribeBackupsOutputCreateError = "CreateError"
-
-	// EnumOfNodeStatusForDescribeBackupsOutputMasterChanging is a EnumOfNodeStatusForDescribeBackupsOutput enum value
-	EnumOfNodeStatusForDescribeBackupsOutputMasterChanging = "MasterChanging"
-
-	// EnumOfNodeStatusForDescribeBackupsOutputDeleted is a EnumOfNodeStatusForDescribeBackupsOutput enum value
-	EnumOfNodeStatusForDescribeBackupsOutputDeleted = "Deleted"
-
-	// EnumOfNodeStatusForDescribeBackupsOutputRecycled is a EnumOfNodeStatusForDescribeBackupsOutput enum value
-	EnumOfNodeStatusForDescribeBackupsOutputRecycled = "Recycled"
-)
-
-const (
-	// EnumOfNodeTypeForDescribeBackupsOutputPrimary is a EnumOfNodeTypeForDescribeBackupsOutput enum value
-	EnumOfNodeTypeForDescribeBackupsOutputPrimary = "Primary"
-
-	// EnumOfNodeTypeForDescribeBackupsOutputSecondary is a EnumOfNodeTypeForDescribeBackupsOutput enum value
-	EnumOfNodeTypeForDescribeBackupsOutputSecondary = "Secondary"
-
-	// EnumOfNodeTypeForDescribeBackupsOutputReadOnly is a EnumOfNodeTypeForDescribeBackupsOutput enum value
-	EnumOfNodeTypeForDescribeBackupsOutputReadOnly = "ReadOnly"
-)
-
-const (
-	// EnumOfPeriodUnitForDescribeBackupsOutputMonth is a EnumOfPeriodUnitForDescribeBackupsOutput enum value
-	EnumOfPeriodUnitForDescribeBackupsOutputMonth = "Month"
-
-	// EnumOfPeriodUnitForDescribeBackupsOutputYear is a EnumOfPeriodUnitForDescribeBackupsOutput enum value
-	EnumOfPeriodUnitForDescribeBackupsOutputYear = "Year"
-)
-
-const (
-	// EnumOfStorageTypeForDescribeBackupsOutputLocalSsd is a EnumOfStorageTypeForDescribeBackupsOutput enum value
-	EnumOfStorageTypeForDescribeBackupsOutputLocalSsd = "LocalSSD"
-)

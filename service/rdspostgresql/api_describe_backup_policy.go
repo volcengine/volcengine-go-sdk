@@ -144,10 +144,10 @@ func (c *RDSPOSTGRESQL) DescribeBackupPolicyWithContext(ctx volcengine.Context, 
 }
 
 type DescribeBackupPolicyInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// InstanceId is a required field
-	InstanceId *string `type:"string" required:"true"`
+	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -180,19 +180,21 @@ func (s *DescribeBackupPolicyInput) SetInstanceId(v string) *DescribeBackupPolic
 }
 
 type DescribeBackupPolicyOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	BackupRetentionPeriod *int32 `type:"int32"`
+	BackupRetentionPeriod *int32 `type:"int32" json:",omitempty"`
 
-	FullBackupPeriod *string `type:"string"`
+	FullBackupPeriod *string `type:"string" json:",omitempty"`
 
-	FullBackupTime *string `type:"string"`
+	FullBackupTime *string `type:"string" json:",omitempty"`
 
-	IncrementBackupFrequency *int32 `type:"int32"`
+	IncrementBackupFrequency *int32 `type:"int32" json:",omitempty"`
 
-	InstanceId *string `type:"string"`
+	InstanceId *string `type:"string" json:",omitempty"`
+
+	WALLogSpaceLimitEnable *bool `type:"boolean" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -232,5 +234,11 @@ func (s *DescribeBackupPolicyOutput) SetIncrementBackupFrequency(v int32) *Descr
 // SetInstanceId sets the InstanceId field's value.
 func (s *DescribeBackupPolicyOutput) SetInstanceId(v string) *DescribeBackupPolicyOutput {
 	s.InstanceId = &v
+	return s
+}
+
+// SetWALLogSpaceLimitEnable sets the WALLogSpaceLimitEnable field's value.
+func (s *DescribeBackupPolicyOutput) SetWALLogSpaceLimitEnable(v bool) *DescribeBackupPolicyOutput {
+	s.WALLogSpaceLimitEnable = &v
 	return s
 }

@@ -144,17 +144,17 @@ func (c *RDSPOSTGRESQL) CreateDBInstanceWithContext(ctx volcengine.Context, inpu
 }
 
 type ChargeInfoForCreateDBInstanceInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	AutoRenew *bool `type:"boolean"`
+	AutoRenew *bool `type:"boolean" json:",omitempty"`
 
-	ChargeType *string `type:"string" enum:"EnumOfChargeTypeForCreateDBInstanceInput"`
+	ChargeType *string `type:"string" json:",omitempty"`
 
-	Number *int32 `type:"int32"`
+	Number *int32 `type:"int32" json:",omitempty"`
 
-	Period *int32 `type:"int32"`
+	Period *int32 `type:"int32" json:",omitempty"`
 
-	PeriodUnit *string `type:"string" enum:"EnumOfPeriodUnitForCreateDBInstanceInput"`
+	PeriodUnit *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -198,31 +198,31 @@ func (s *ChargeInfoForCreateDBInstanceInput) SetPeriodUnit(v string) *ChargeInfo
 }
 
 type CreateDBInstanceInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	ChargeInfo *ChargeInfoForCreateDBInstanceInput `type:"structure"`
+	ChargeInfo *ChargeInfoForCreateDBInstanceInput `type:"structure" json:",omitempty"`
 
 	// DBEngineVersion is a required field
-	DBEngineVersion *string `type:"string" required:"true" enum:"EnumOfDBEngineVersionForCreateDBInstanceInput"`
+	DBEngineVersion *string `type:"string" json:",omitempty" required:"true"`
 
-	InstanceName *string `type:"string"`
+	InstanceName *string `type:"string" json:",omitempty"`
 
-	NodeInfo []*NodeInfoForCreateDBInstanceInput `type:"list"`
+	NodeInfo []*NodeInfoForCreateDBInstanceInput `type:"list" json:",omitempty"`
 
-	ProjectName *string `type:"string"`
+	ProjectName *string `type:"string" json:",omitempty"`
 
-	StorageSpace *int32 `min:"20" max:"3000" type:"int32"`
+	StorageSpace *int32 `type:"int32" json:",omitempty"`
 
 	// StorageType is a required field
-	StorageType *string `type:"string" required:"true" enum:"EnumOfStorageTypeForCreateDBInstanceInput"`
+	StorageType *string `type:"string" json:",omitempty" required:"true"`
 
 	// SubnetId is a required field
-	SubnetId *string `type:"string" required:"true"`
+	SubnetId *string `type:"string" json:",omitempty" required:"true"`
 
-	Tags []*TagForCreateDBInstanceInput `type:"list"`
+	Tags []*TagForCreateDBInstanceInput `type:"list" json:",omitempty"`
 
 	// VpcId is a required field
-	VpcId *string `type:"string" required:"true"`
+	VpcId *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -240,12 +240,6 @@ func (s *CreateDBInstanceInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "CreateDBInstanceInput"}
 	if s.DBEngineVersion == nil {
 		invalidParams.Add(request.NewErrParamRequired("DBEngineVersion"))
-	}
-	if s.StorageSpace != nil && *s.StorageSpace < 20 {
-		invalidParams.Add(request.NewErrParamMinValue("StorageSpace", 20))
-	}
-	if s.StorageSpace != nil && *s.StorageSpace > 3000 {
-		invalidParams.Add(request.NewErrParamMaxValue("StorageSpace", 3000))
 	}
 	if s.StorageType == nil {
 		invalidParams.Add(request.NewErrParamRequired("StorageType"))
@@ -324,13 +318,13 @@ func (s *CreateDBInstanceInput) SetVpcId(v string) *CreateDBInstanceInput {
 }
 
 type CreateDBInstanceOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	InstanceId *string `type:"string"`
+	InstanceId *string `type:"string" json:",omitempty"`
 
-	OrderId *string `type:"string"`
+	OrderId *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -356,17 +350,17 @@ func (s *CreateDBInstanceOutput) SetOrderId(v string) *CreateDBInstanceOutput {
 }
 
 type NodeInfoForCreateDBInstanceInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	NodeId *string `type:"string"`
+	NodeId *string `type:"string" json:",omitempty"`
 
-	NodeOperateType *string `type:"string" enum:"EnumOfNodeOperateTypeForCreateDBInstanceInput"`
+	NodeOperateType *string `type:"string" json:",omitempty"`
 
-	NodeSpec *string `type:"string"`
+	NodeSpec *string `type:"string" json:",omitempty"`
 
-	NodeType *string `type:"string" enum:"EnumOfNodeTypeForCreateDBInstanceInput"`
+	NodeType *string `type:"string" json:",omitempty"`
 
-	ZoneId *string `type:"string"`
+	ZoneId *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -410,11 +404,11 @@ func (s *NodeInfoForCreateDBInstanceInput) SetZoneId(v string) *NodeInfoForCreat
 }
 
 type TagForCreateDBInstanceInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Key *string `type:"string"`
+	Key *string `type:"string" json:",omitempty"`
 
-	Value *string `type:"string"`
+	Value *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -438,57 +432,3 @@ func (s *TagForCreateDBInstanceInput) SetValue(v string) *TagForCreateDBInstance
 	s.Value = &v
 	return s
 }
-
-const (
-	// EnumOfChargeTypeForCreateDBInstanceInputPostPaid is a EnumOfChargeTypeForCreateDBInstanceInput enum value
-	EnumOfChargeTypeForCreateDBInstanceInputPostPaid = "PostPaid"
-
-	// EnumOfChargeTypeForCreateDBInstanceInputPrePaid is a EnumOfChargeTypeForCreateDBInstanceInput enum value
-	EnumOfChargeTypeForCreateDBInstanceInputPrePaid = "PrePaid"
-)
-
-const (
-	// EnumOfDBEngineVersionForCreateDBInstanceInputPostgreSql11 is a EnumOfDBEngineVersionForCreateDBInstanceInput enum value
-	EnumOfDBEngineVersionForCreateDBInstanceInputPostgreSql11 = "PostgreSQL_11"
-
-	// EnumOfDBEngineVersionForCreateDBInstanceInputPostgreSql12 is a EnumOfDBEngineVersionForCreateDBInstanceInput enum value
-	EnumOfDBEngineVersionForCreateDBInstanceInputPostgreSql12 = "PostgreSQL_12"
-
-	// EnumOfDBEngineVersionForCreateDBInstanceInputPostgreSql13 is a EnumOfDBEngineVersionForCreateDBInstanceInput enum value
-	EnumOfDBEngineVersionForCreateDBInstanceInputPostgreSql13 = "PostgreSQL_13"
-)
-
-const (
-	// EnumOfNodeOperateTypeForCreateDBInstanceInputCreate is a EnumOfNodeOperateTypeForCreateDBInstanceInput enum value
-	EnumOfNodeOperateTypeForCreateDBInstanceInputCreate = "Create"
-
-	// EnumOfNodeOperateTypeForCreateDBInstanceInputDelete is a EnumOfNodeOperateTypeForCreateDBInstanceInput enum value
-	EnumOfNodeOperateTypeForCreateDBInstanceInputDelete = "Delete"
-
-	// EnumOfNodeOperateTypeForCreateDBInstanceInputModify is a EnumOfNodeOperateTypeForCreateDBInstanceInput enum value
-	EnumOfNodeOperateTypeForCreateDBInstanceInputModify = "Modify"
-)
-
-const (
-	// EnumOfNodeTypeForCreateDBInstanceInputPrimary is a EnumOfNodeTypeForCreateDBInstanceInput enum value
-	EnumOfNodeTypeForCreateDBInstanceInputPrimary = "Primary"
-
-	// EnumOfNodeTypeForCreateDBInstanceInputSecondary is a EnumOfNodeTypeForCreateDBInstanceInput enum value
-	EnumOfNodeTypeForCreateDBInstanceInputSecondary = "Secondary"
-
-	// EnumOfNodeTypeForCreateDBInstanceInputReadOnly is a EnumOfNodeTypeForCreateDBInstanceInput enum value
-	EnumOfNodeTypeForCreateDBInstanceInputReadOnly = "ReadOnly"
-)
-
-const (
-	// EnumOfPeriodUnitForCreateDBInstanceInputMonth is a EnumOfPeriodUnitForCreateDBInstanceInput enum value
-	EnumOfPeriodUnitForCreateDBInstanceInputMonth = "Month"
-
-	// EnumOfPeriodUnitForCreateDBInstanceInputYear is a EnumOfPeriodUnitForCreateDBInstanceInput enum value
-	EnumOfPeriodUnitForCreateDBInstanceInputYear = "Year"
-)
-
-const (
-	// EnumOfStorageTypeForCreateDBInstanceInputLocalSsd is a EnumOfStorageTypeForCreateDBInstanceInput enum value
-	EnumOfStorageTypeForCreateDBInstanceInputLocalSsd = "LocalSSD"
-)

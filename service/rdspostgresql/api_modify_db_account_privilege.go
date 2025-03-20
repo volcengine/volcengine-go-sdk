@@ -144,16 +144,16 @@ func (c *RDSPOSTGRESQL) ModifyDBAccountPrivilegeWithContext(ctx volcengine.Conte
 }
 
 type ModifyDBAccountPrivilegeInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// AccountName is a required field
-	AccountName *string `type:"string" required:"true"`
+	AccountName *string `type:"string" json:",omitempty" required:"true"`
 
 	// AccountPrivileges is a required field
-	AccountPrivileges *string `type:"string" required:"true"`
+	AccountPrivileges *string `type:"string" json:",omitempty" required:"true"`
 
 	// InstanceId is a required field
-	InstanceId *string `type:"string" required:"true"`
+	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -204,7 +204,7 @@ func (s *ModifyDBAccountPrivilegeInput) SetInstanceId(v string) *ModifyDBAccount
 }
 
 type ModifyDBAccountPrivilegeOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 }

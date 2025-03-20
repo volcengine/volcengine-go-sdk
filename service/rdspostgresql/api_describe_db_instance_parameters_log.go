@@ -144,20 +144,20 @@ func (c *RDSPOSTGRESQL) DescribeDBInstanceParametersLogWithContext(ctx volcengin
 }
 
 type DescribeDBInstanceParametersLogInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// EndTime is a required field
-	EndTime *string `type:"string" required:"true"`
+	EndTime *string `type:"string" json:",omitempty" required:"true"`
 
 	// InstanceId is a required field
-	InstanceId *string `type:"string" required:"true"`
+	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 
-	PageNumber *int32 `type:"int32"`
+	PageNumber *int32 `type:"int32" json:",omitempty"`
 
-	PageSize *int32 `type:"int32"`
+	PageSize *int32 `type:"int32" json:",omitempty"`
 
 	// StartTime is a required field
-	StartTime *string `type:"string" required:"true"`
+	StartTime *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -220,13 +220,13 @@ func (s *DescribeDBInstanceParametersLogInput) SetStartTime(v string) *DescribeD
 }
 
 type DescribeDBInstanceParametersLogOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	ParameterChangeLogs []*ParameterChangeLogForDescribeDBInstanceParametersLogOutput `type:"list"`
+	ParameterChangeLogs []*ParameterChangeLogForDescribeDBInstanceParametersLogOutput `type:"list" json:",omitempty"`
 
-	Total *int32 `type:"int32"`
+	Total *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -252,17 +252,17 @@ func (s *DescribeDBInstanceParametersLogOutput) SetTotal(v int32) *DescribeDBIns
 }
 
 type ParameterChangeLogForDescribeDBInstanceParametersLogOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	ModifyTime *string `type:"string"`
+	ModifyTime *string `type:"string" json:",omitempty"`
 
-	Name *string `type:"string"`
+	Name *string `type:"string" json:",omitempty"`
 
-	NewValue *string `type:"string"`
+	NewValue *string `type:"string" json:",omitempty"`
 
-	OldValue *string `type:"string"`
+	OldValue *string `type:"string" json:",omitempty"`
 
-	Status *string `type:"string" enum:"EnumOfStatusForDescribeDBInstanceParametersLogOutput"`
+	Status *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -304,14 +304,3 @@ func (s *ParameterChangeLogForDescribeDBInstanceParametersLogOutput) SetStatus(v
 	s.Status = &v
 	return s
 }
-
-const (
-	// EnumOfStatusForDescribeDBInstanceParametersLogOutputApplied is a EnumOfStatusForDescribeDBInstanceParametersLogOutput enum value
-	EnumOfStatusForDescribeDBInstanceParametersLogOutputApplied = "Applied"
-
-	// EnumOfStatusForDescribeDBInstanceParametersLogOutputInvalid is a EnumOfStatusForDescribeDBInstanceParametersLogOutput enum value
-	EnumOfStatusForDescribeDBInstanceParametersLogOutputInvalid = "Invalid"
-
-	// EnumOfStatusForDescribeDBInstanceParametersLogOutputSyncing is a EnumOfStatusForDescribeDBInstanceParametersLogOutput enum value
-	EnumOfStatusForDescribeDBInstanceParametersLogOutputSyncing = "Syncing"
-)

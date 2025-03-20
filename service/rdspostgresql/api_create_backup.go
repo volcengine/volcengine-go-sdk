@@ -144,12 +144,12 @@ func (c *RDSPOSTGRESQL) CreateBackupWithContext(ctx volcengine.Context, input *C
 }
 
 type CreateBackupInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	BackupType *string `type:"string" enum:"EnumOfBackupTypeForCreateBackupInput"`
+	BackupType *string `type:"string" json:",omitempty"`
 
 	// InstanceId is a required field
-	InstanceId *string `type:"string" required:"true"`
+	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -188,7 +188,7 @@ func (s *CreateBackupInput) SetInstanceId(v string) *CreateBackupInput {
 }
 
 type CreateBackupOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 }
@@ -202,11 +202,3 @@ func (s CreateBackupOutput) String() string {
 func (s CreateBackupOutput) GoString() string {
 	return s.String()
 }
-
-const (
-	// EnumOfBackupTypeForCreateBackupInputFull is a EnumOfBackupTypeForCreateBackupInput enum value
-	EnumOfBackupTypeForCreateBackupInputFull = "Full"
-
-	// EnumOfBackupTypeForCreateBackupInputIncrement is a EnumOfBackupTypeForCreateBackupInput enum value
-	EnumOfBackupTypeForCreateBackupInputIncrement = "Increment"
-)

@@ -144,14 +144,14 @@ func (c *RDSPOSTGRESQL) UnifyNewAllowListWithContext(ctx volcengine.Context, inp
 }
 
 type UnifyNewAllowListInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	AllowListDesc *string `type:"string"`
+	AllowListDesc *string `type:"string" json:",omitempty"`
 
 	// AllowListName is a required field
-	AllowListName *string `type:"string" required:"true"`
+	AllowListName *string `type:"string" json:",omitempty" required:"true"`
 
-	InstanceIds []*string `type:"list"`
+	InstanceIds []*string `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -196,11 +196,11 @@ func (s *UnifyNewAllowListInput) SetInstanceIds(v []*string) *UnifyNewAllowListI
 }
 
 type UnifyNewAllowListOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	AllowListId *string `type:"string"`
+	AllowListId *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation

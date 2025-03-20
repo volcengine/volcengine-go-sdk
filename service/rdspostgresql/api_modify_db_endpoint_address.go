@@ -144,17 +144,19 @@ func (c *RDSPOSTGRESQL) ModifyDBEndpointAddressWithContext(ctx volcengine.Contex
 }
 
 type ModifyDBEndpointAddressInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	EndpointId *string `type:"string"`
+	DomainPrefix *string `type:"string" json:",omitempty"`
+
+	EndpointId *string `type:"string" json:",omitempty"`
 
 	// InstanceId is a required field
-	InstanceId *string `type:"string" required:"true"`
+	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 
 	// NetworkType is a required field
-	NetworkType *string `type:"string" required:"true" enum:"EnumOfNetworkTypeForModifyDBEndpointAddressInput"`
+	NetworkType *string `type:"string" json:",omitempty" required:"true"`
 
-	Port *string `type:"string"`
+	Port *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -183,6 +185,12 @@ func (s *ModifyDBEndpointAddressInput) Validate() error {
 	return nil
 }
 
+// SetDomainPrefix sets the DomainPrefix field's value.
+func (s *ModifyDBEndpointAddressInput) SetDomainPrefix(v string) *ModifyDBEndpointAddressInput {
+	s.DomainPrefix = &v
+	return s
+}
+
 // SetEndpointId sets the EndpointId field's value.
 func (s *ModifyDBEndpointAddressInput) SetEndpointId(v string) *ModifyDBEndpointAddressInput {
 	s.EndpointId = &v
@@ -208,7 +216,7 @@ func (s *ModifyDBEndpointAddressInput) SetPort(v string) *ModifyDBEndpointAddres
 }
 
 type ModifyDBEndpointAddressOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 }
@@ -222,8 +230,3 @@ func (s ModifyDBEndpointAddressOutput) String() string {
 func (s ModifyDBEndpointAddressOutput) GoString() string {
 	return s.String()
 }
-
-const (
-	// EnumOfNetworkTypeForModifyDBEndpointAddressInputPrivate is a EnumOfNetworkTypeForModifyDBEndpointAddressInput enum value
-	EnumOfNetworkTypeForModifyDBEndpointAddressInputPrivate = "Private"
-)

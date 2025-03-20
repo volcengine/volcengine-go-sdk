@@ -144,16 +144,16 @@ func (c *RDSPOSTGRESQL) DeleteSchemaWithContext(ctx volcengine.Context, input *D
 }
 
 type DeleteSchemaInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// DBName is a required field
-	DBName *string `type:"string" required:"true"`
+	DBName *string `type:"string" json:",omitempty" required:"true"`
 
 	// InstanceId is a required field
-	InstanceId *string `type:"string" required:"true"`
+	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 
 	// SchemaName is a required field
-	SchemaName *string `type:"string" required:"true"`
+	SchemaName *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -204,7 +204,7 @@ func (s *DeleteSchemaInput) SetSchemaName(v string) *DeleteSchemaInput {
 }
 
 type DeleteSchemaOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 }

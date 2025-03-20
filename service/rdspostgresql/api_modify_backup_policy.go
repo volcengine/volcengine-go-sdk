@@ -144,18 +144,20 @@ func (c *RDSPOSTGRESQL) ModifyBackupPolicyWithContext(ctx volcengine.Context, in
 }
 
 type ModifyBackupPolicyInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	BackupRetentionPeriod *int32 `type:"int32"`
+	BackupRetentionPeriod *int32 `type:"int32" json:",omitempty"`
 
-	FullBackupPeriod *string `type:"string"`
+	FullBackupPeriod *string `type:"string" json:",omitempty"`
 
-	FullBackupTime *string `type:"string"`
+	FullBackupTime *string `type:"string" json:",omitempty"`
 
-	IncrementBackupFrequency *int32 `type:"int32"`
+	IncrementBackupFrequency *int32 `type:"int32" json:",omitempty"`
 
 	// InstanceId is a required field
-	InstanceId *string `type:"string" required:"true"`
+	InstanceId *string `type:"string" json:",omitempty" required:"true"`
+
+	WALLogSpaceLimitEnable *bool `type:"boolean" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -211,8 +213,14 @@ func (s *ModifyBackupPolicyInput) SetInstanceId(v string) *ModifyBackupPolicyInp
 	return s
 }
 
+// SetWALLogSpaceLimitEnable sets the WALLogSpaceLimitEnable field's value.
+func (s *ModifyBackupPolicyInput) SetWALLogSpaceLimitEnable(v bool) *ModifyBackupPolicyInput {
+	s.WALLogSpaceLimitEnable = &v
+	return s
+}
+
 type ModifyBackupPolicyOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 }
