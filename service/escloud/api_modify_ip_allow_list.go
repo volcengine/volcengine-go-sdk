@@ -9,29 +9,29 @@ import (
 	"github.com/volcengine/volcengine-go-sdk/volcengine/volcengineutil"
 )
 
-const opModifyIpWhitelistCommon = "ModifyIpWhitelist"
+const opModifyIpAllowListCommon = "ModifyIpAllowList"
 
-// ModifyIpWhitelistCommonRequest generates a "volcengine/request.Request" representing the
-// client's request for the ModifyIpWhitelistCommon operation. The "output" return
-// value will be populated with the ModifyIpWhitelistCommon request's response once the request completes
+// ModifyIpAllowListCommonRequest generates a "volcengine/request.Request" representing the
+// client's request for the ModifyIpAllowListCommon operation. The "output" return
+// value will be populated with the ModifyIpAllowListCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned ModifyIpWhitelistCommon Request to send the API call to the service.
-// the "output" return value is not valid until after ModifyIpWhitelistCommon Send returns without error.
+// Use "Send" method on the returned ModifyIpAllowListCommon Request to send the API call to the service.
+// the "output" return value is not valid until after ModifyIpAllowListCommon Send returns without error.
 //
-// See ModifyIpWhitelistCommon for more information on using the ModifyIpWhitelistCommon
+// See ModifyIpAllowListCommon for more information on using the ModifyIpAllowListCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the ModifyIpWhitelistCommonRequest method.
-//    req, resp := client.ModifyIpWhitelistCommonRequest(params)
+//    // Example sending a request using the ModifyIpAllowListCommonRequest method.
+//    req, resp := client.ModifyIpAllowListCommonRequest(params)
 //
 //    err := req.Send()
 //    if err == nil { // resp is now filled
 //        fmt.Println(resp)
 //    }
-func (c *ESCLOUD) ModifyIpWhitelistCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
+func (c *ESCLOUD) ModifyIpAllowListCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
-		Name:       opModifyIpWhitelistCommon,
+		Name:       opModifyIpAllowListCommon,
 		HTTPMethod: "POST",
 		HTTPPath:   "/",
 	}
@@ -48,66 +48,66 @@ func (c *ESCLOUD) ModifyIpWhitelistCommonRequest(input *map[string]interface{}) 
 	return
 }
 
-// ModifyIpWhitelistCommon API operation for ESCLOUD.
+// ModifyIpAllowListCommon API operation for ESCLOUD.
 //
 // Returns volcengineerr.Error for service API and SDK errors. Use runtime type assertions
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
 // See the VOLCENGINE API reference guide for ESCLOUD's
-// API operation ModifyIpWhitelistCommon for usage and error information.
-func (c *ESCLOUD) ModifyIpWhitelistCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
-	req, out := c.ModifyIpWhitelistCommonRequest(input)
+// API operation ModifyIpAllowListCommon for usage and error information.
+func (c *ESCLOUD) ModifyIpAllowListCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
+	req, out := c.ModifyIpAllowListCommonRequest(input)
 	return out, req.Send()
 }
 
-// ModifyIpWhitelistCommonWithContext is the same as ModifyIpWhitelistCommon with the addition of
+// ModifyIpAllowListCommonWithContext is the same as ModifyIpAllowListCommon with the addition of
 // the ability to pass a context and additional request options.
 //
-// See ModifyIpWhitelistCommon for details on how to use this API operation.
+// See ModifyIpAllowListCommon for details on how to use this API operation.
 //
 // The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
 // In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
-func (c *ESCLOUD) ModifyIpWhitelistCommonWithContext(ctx volcengine.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
-	req, out := c.ModifyIpWhitelistCommonRequest(input)
+func (c *ESCLOUD) ModifyIpAllowListCommonWithContext(ctx volcengine.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
+	req, out := c.ModifyIpAllowListCommonRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
 	return out, req.Send()
 }
 
-const opModifyIpWhitelist = "ModifyIpWhitelist"
+const opModifyIpAllowList = "ModifyIpAllowList"
 
-// ModifyIpWhitelistRequest generates a "volcengine/request.Request" representing the
-// client's request for the ModifyIpWhitelist operation. The "output" return
-// value will be populated with the ModifyIpWhitelistCommon request's response once the request completes
+// ModifyIpAllowListRequest generates a "volcengine/request.Request" representing the
+// client's request for the ModifyIpAllowList operation. The "output" return
+// value will be populated with the ModifyIpAllowListCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned ModifyIpWhitelistCommon Request to send the API call to the service.
-// the "output" return value is not valid until after ModifyIpWhitelistCommon Send returns without error.
+// Use "Send" method on the returned ModifyIpAllowListCommon Request to send the API call to the service.
+// the "output" return value is not valid until after ModifyIpAllowListCommon Send returns without error.
 //
-// See ModifyIpWhitelist for more information on using the ModifyIpWhitelist
+// See ModifyIpAllowList for more information on using the ModifyIpAllowList
 // API call, and error handling.
 //
-//    // Example sending a request using the ModifyIpWhitelistRequest method.
-//    req, resp := client.ModifyIpWhitelistRequest(params)
+//    // Example sending a request using the ModifyIpAllowListRequest method.
+//    req, resp := client.ModifyIpAllowListRequest(params)
 //
 //    err := req.Send()
 //    if err == nil { // resp is now filled
 //        fmt.Println(resp)
 //    }
-func (c *ESCLOUD) ModifyIpWhitelistRequest(input *ModifyIpWhitelistInput) (req *request.Request, output *ModifyIpWhitelistOutput) {
+func (c *ESCLOUD) ModifyIpAllowListRequest(input *ModifyIpAllowListInput) (req *request.Request, output *ModifyIpAllowListOutput) {
 	op := &request.Operation{
-		Name:       opModifyIpWhitelist,
+		Name:       opModifyIpAllowList,
 		HTTPMethod: "POST",
 		HTTPPath:   "/",
 	}
 
 	if input == nil {
-		input = &ModifyIpWhitelistInput{}
+		input = &ModifyIpAllowListInput{}
 	}
 
-	output = &ModifyIpWhitelistOutput{}
+	output = &ModifyIpAllowListOutput{}
 	req = c.newRequest(op, input, output)
 
 	req.HTTPRequest.Header.Set("Content-Type", "application/json; charset=utf-8")
@@ -115,35 +115,35 @@ func (c *ESCLOUD) ModifyIpWhitelistRequest(input *ModifyIpWhitelistInput) (req *
 	return
 }
 
-// ModifyIpWhitelist API operation for ESCLOUD.
+// ModifyIpAllowList API operation for ESCLOUD.
 //
 // Returns volcengineerr.Error for service API and SDK errors. Use runtime type assertions
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
 // See the VOLCENGINE API reference guide for ESCLOUD's
-// API operation ModifyIpWhitelist for usage and error information.
-func (c *ESCLOUD) ModifyIpWhitelist(input *ModifyIpWhitelistInput) (*ModifyIpWhitelistOutput, error) {
-	req, out := c.ModifyIpWhitelistRequest(input)
+// API operation ModifyIpAllowList for usage and error information.
+func (c *ESCLOUD) ModifyIpAllowList(input *ModifyIpAllowListInput) (*ModifyIpAllowListOutput, error) {
+	req, out := c.ModifyIpAllowListRequest(input)
 	return out, req.Send()
 }
 
-// ModifyIpWhitelistWithContext is the same as ModifyIpWhitelist with the addition of
+// ModifyIpAllowListWithContext is the same as ModifyIpAllowList with the addition of
 // the ability to pass a context and additional request options.
 //
-// See ModifyIpWhitelist for details on how to use this API operation.
+// See ModifyIpAllowList for details on how to use this API operation.
 //
 // The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
 // In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
-func (c *ESCLOUD) ModifyIpWhitelistWithContext(ctx volcengine.Context, input *ModifyIpWhitelistInput, opts ...request.Option) (*ModifyIpWhitelistOutput, error) {
-	req, out := c.ModifyIpWhitelistRequest(input)
+func (c *ESCLOUD) ModifyIpAllowListWithContext(ctx volcengine.Context, input *ModifyIpAllowListInput, opts ...request.Option) (*ModifyIpAllowListOutput, error) {
+	req, out := c.ModifyIpAllowListRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
 	return out, req.Send()
 }
 
-type ModifyIpWhitelistInput struct {
+type ModifyIpAllowListInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
 	// Component is a required field
@@ -160,18 +160,18 @@ type ModifyIpWhitelistInput struct {
 }
 
 // String returns the string representation
-func (s ModifyIpWhitelistInput) String() string {
+func (s ModifyIpAllowListInput) String() string {
 	return volcengineutil.Prettify(s)
 }
 
 // GoString returns the string representation
-func (s ModifyIpWhitelistInput) GoString() string {
+func (s ModifyIpAllowListInput) GoString() string {
 	return s.String()
 }
 
 // Validate inspects the fields of the type to determine if they are valid.
-func (s *ModifyIpWhitelistInput) Validate() error {
-	invalidParams := request.ErrInvalidParams{Context: "ModifyIpWhitelistInput"}
+func (s *ModifyIpAllowListInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "ModifyIpAllowListInput"}
 	if s.Component == nil {
 		invalidParams.Add(request.NewErrParamRequired("Component"))
 	}
@@ -192,30 +192,30 @@ func (s *ModifyIpWhitelistInput) Validate() error {
 }
 
 // SetComponent sets the Component field's value.
-func (s *ModifyIpWhitelistInput) SetComponent(v string) *ModifyIpWhitelistInput {
+func (s *ModifyIpAllowListInput) SetComponent(v string) *ModifyIpAllowListInput {
 	s.Component = &v
 	return s
 }
 
 // SetInstanceId sets the InstanceId field's value.
-func (s *ModifyIpWhitelistInput) SetInstanceId(v string) *ModifyIpWhitelistInput {
+func (s *ModifyIpAllowListInput) SetInstanceId(v string) *ModifyIpAllowListInput {
 	s.InstanceId = &v
 	return s
 }
 
 // SetIpList sets the IpList field's value.
-func (s *ModifyIpWhitelistInput) SetIpList(v string) *ModifyIpWhitelistInput {
+func (s *ModifyIpAllowListInput) SetIpList(v string) *ModifyIpAllowListInput {
 	s.IpList = &v
 	return s
 }
 
 // SetType sets the Type field's value.
-func (s *ModifyIpWhitelistInput) SetType(v string) *ModifyIpWhitelistInput {
+func (s *ModifyIpAllowListInput) SetType(v string) *ModifyIpAllowListInput {
 	s.Type = &v
 	return s
 }
 
-type ModifyIpWhitelistOutput struct {
+type ModifyIpAllowListOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
@@ -226,23 +226,23 @@ type ModifyIpWhitelistOutput struct {
 }
 
 // String returns the string representation
-func (s ModifyIpWhitelistOutput) String() string {
+func (s ModifyIpAllowListOutput) String() string {
 	return volcengineutil.Prettify(s)
 }
 
 // GoString returns the string representation
-func (s ModifyIpWhitelistOutput) GoString() string {
+func (s ModifyIpAllowListOutput) GoString() string {
 	return s.String()
 }
 
 // SetMessage sets the Message field's value.
-func (s *ModifyIpWhitelistOutput) SetMessage(v string) *ModifyIpWhitelistOutput {
+func (s *ModifyIpAllowListOutput) SetMessage(v string) *ModifyIpAllowListOutput {
 	s.Message = &v
 	return s
 }
 
 // SetStatus sets the Status field's value.
-func (s *ModifyIpWhitelistOutput) SetStatus(v string) *ModifyIpWhitelistOutput {
+func (s *ModifyIpAllowListOutput) SetStatus(v string) *ModifyIpAllowListOutput {
 	s.Status = &v
 	return s
 }

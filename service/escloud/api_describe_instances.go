@@ -1566,9 +1566,7 @@ func (s *SubnetForDescribeInstancesOutput) SetSubnetName(v string) *SubnetForDes
 type TagFilterForDescribeInstancesInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	Key *string `type:"string" json:",omitempty"`
-
-	Values []*string `type:"list" json:",omitempty"`
+	Tags []*TagForDescribeInstancesInput `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -1581,14 +1579,38 @@ func (s TagFilterForDescribeInstancesInput) GoString() string {
 	return s.String()
 }
 
+// SetTags sets the Tags field's value.
+func (s *TagFilterForDescribeInstancesInput) SetTags(v []*TagForDescribeInstancesInput) *TagFilterForDescribeInstancesInput {
+	s.Tags = v
+	return s
+}
+
+type TagForDescribeInstancesInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Key *string `type:"string" json:",omitempty"`
+
+	Values []*string `type:"list" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s TagForDescribeInstancesInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagForDescribeInstancesInput) GoString() string {
+	return s.String()
+}
+
 // SetKey sets the Key field's value.
-func (s *TagFilterForDescribeInstancesInput) SetKey(v string) *TagFilterForDescribeInstancesInput {
+func (s *TagForDescribeInstancesInput) SetKey(v string) *TagForDescribeInstancesInput {
 	s.Key = &v
 	return s
 }
 
 // SetValues sets the Values field's value.
-func (s *TagFilterForDescribeInstancesInput) SetValues(v []*string) *TagFilterForDescribeInstancesInput {
+func (s *TagForDescribeInstancesInput) SetValues(v []*string) *TagForDescribeInstancesInput {
 	s.Values = v
 	return s
 }
