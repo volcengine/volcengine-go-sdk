@@ -70,6 +70,14 @@ type RDSMSSQLAPI interface {
 	DescribeAvailabilityZonesWithContext(volcengine.Context, *DescribeAvailabilityZonesInput, ...request.Option) (*DescribeAvailabilityZonesOutput, error)
 	DescribeAvailabilityZonesRequest(*DescribeAvailabilityZonesInput) (*request.Request, *DescribeAvailabilityZonesOutput)
 
+	DescribeBackupDetailCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeBackupDetailCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeBackupDetailCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeBackupDetail(*DescribeBackupDetailInput) (*DescribeBackupDetailOutput, error)
+	DescribeBackupDetailWithContext(volcengine.Context, *DescribeBackupDetailInput, ...request.Option) (*DescribeBackupDetailOutput, error)
+	DescribeBackupDetailRequest(*DescribeBackupDetailInput) (*request.Request, *DescribeBackupDetailOutput)
+
 	DescribeBackupsCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DescribeBackupsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DescribeBackupsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -141,6 +149,14 @@ type RDSMSSQLAPI interface {
 	ModifyBackupPolicy(*ModifyBackupPolicyInput) (*ModifyBackupPolicyOutput, error)
 	ModifyBackupPolicyWithContext(volcengine.Context, *ModifyBackupPolicyInput, ...request.Option) (*ModifyBackupPolicyOutput, error)
 	ModifyBackupPolicyRequest(*ModifyBackupPolicyInput) (*request.Request, *ModifyBackupPolicyOutput)
+
+	ModifyInstanceAdvancedFeaturesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ModifyInstanceAdvancedFeaturesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ModifyInstanceAdvancedFeaturesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ModifyInstanceAdvancedFeatures(*ModifyInstanceAdvancedFeaturesInput) (*ModifyInstanceAdvancedFeaturesOutput, error)
+	ModifyInstanceAdvancedFeaturesWithContext(volcengine.Context, *ModifyInstanceAdvancedFeaturesInput, ...request.Option) (*ModifyInstanceAdvancedFeaturesOutput, error)
+	ModifyInstanceAdvancedFeaturesRequest(*ModifyInstanceAdvancedFeaturesInput) (*request.Request, *ModifyInstanceAdvancedFeaturesOutput)
 
 	RestoreToExistedInstanceCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	RestoreToExistedInstanceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)

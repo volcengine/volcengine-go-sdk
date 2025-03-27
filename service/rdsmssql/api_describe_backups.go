@@ -144,29 +144,29 @@ func (c *RDSMSSQL) DescribeBackupsWithContext(ctx volcengine.Context, input *Des
 }
 
 type BackupDatabaseDetailForDescribeBackupsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	BackupDownloadLinkEIP *string `type:"string"`
+	BackupDownloadLinkEIP *string `type:"string" json:",omitempty"`
 
-	BackupDownloadLinkInner *string `type:"string"`
+	BackupDownloadLinkInner *string `type:"string" json:",omitempty"`
 
-	BackupEndTime *string `type:"string"`
+	BackupEndTime *string `type:"string" json:",omitempty"`
 
-	BackupFileName *string `type:"string"`
+	BackupFileName *string `type:"string" json:",omitempty"`
 
-	BackupFileSize *int64 `type:"int64"`
+	BackupFileSize *int64 `type:"int64" json:",omitempty"`
 
-	BackupStartTime *string `type:"string"`
+	BackupStartTime *string `type:"string" json:",omitempty"`
 
-	BackupType *string `type:"string"`
+	BackupType *string `type:"string" json:",omitempty"`
 
-	DatabaseName *string `type:"string"`
+	DatabaseName *string `type:"string" json:",omitempty"`
 
-	DownloadProgress *int32 `type:"int32"`
+	DownloadProgress *int32 `type:"int32" json:",omitempty"`
 
-	DownloadStatus *string `type:"string"`
+	DownloadStatus *string `type:"string" json:",omitempty"`
 
-	LinkExpiredTime *string `type:"string"`
+	LinkExpiredTime *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -246,25 +246,29 @@ func (s *BackupDatabaseDetailForDescribeBackupsOutput) SetLinkExpiredTime(v stri
 }
 
 type BackupsInfoForDescribeBackupsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	BackupDatabaseDetail []*BackupDatabaseDetailForDescribeBackupsOutput `type:"list"`
+	BackupDatabaseDetail []*BackupDatabaseDetailForDescribeBackupsOutput `type:"list" json:",omitempty"`
 
-	BackupEndTime *string `type:"string"`
+	BackupEndTime *string `type:"string" json:",omitempty"`
 
-	BackupFileSize *int64 `type:"int64"`
+	BackupFileSize *int64 `type:"int64" json:",omitempty"`
 
-	BackupId *string `type:"string"`
+	BackupId *string `type:"string" json:",omitempty"`
 
-	BackupMethod *string `type:"string"`
+	BackupMethod *string `type:"string" json:",omitempty"`
 
-	BackupStartTime *string `type:"string"`
+	BackupStartTime *string `type:"string" json:",omitempty"`
 
-	BackupStatus *string `type:"string"`
+	BackupStatus *string `type:"string" json:",omitempty"`
 
-	BackupType *string `type:"string"`
+	BackupType *string `type:"string" json:",omitempty"`
 
-	CreateType *string `type:"string"`
+	CreateType *string `type:"string" json:",omitempty"`
+
+	DownloadProgress *int32 `type:"int32" json:",omitempty"`
+
+	DownloadStatus *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -331,23 +335,35 @@ func (s *BackupsInfoForDescribeBackupsOutput) SetCreateType(v string) *BackupsIn
 	return s
 }
 
+// SetDownloadProgress sets the DownloadProgress field's value.
+func (s *BackupsInfoForDescribeBackupsOutput) SetDownloadProgress(v int32) *BackupsInfoForDescribeBackupsOutput {
+	s.DownloadProgress = &v
+	return s
+}
+
+// SetDownloadStatus sets the DownloadStatus field's value.
+func (s *BackupsInfoForDescribeBackupsOutput) SetDownloadStatus(v string) *BackupsInfoForDescribeBackupsOutput {
+	s.DownloadStatus = &v
+	return s
+}
+
 type DescribeBackupsInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	BackupEndTime *string `type:"string"`
+	BackupEndTime *string `type:"string" json:",omitempty"`
 
-	BackupId *string `type:"string"`
+	BackupId *string `type:"string" json:",omitempty"`
 
-	BackupStartTime *string `type:"string"`
+	BackupStartTime *string `type:"string" json:",omitempty"`
 
-	BackupType *string `type:"string"`
+	BackupType *string `type:"string" json:",omitempty"`
 
 	// InstanceId is a required field
-	InstanceId *string `type:"string" required:"true"`
+	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 
-	PageNumber *int32 `type:"int32"`
+	PageNumber *int32 `type:"int32" json:",omitempty"`
 
-	PageSize *int32 `type:"int32"`
+	PageSize *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -416,13 +432,13 @@ func (s *DescribeBackupsInput) SetPageSize(v int32) *DescribeBackupsInput {
 }
 
 type DescribeBackupsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	BackupsInfo []*BackupsInfoForDescribeBackupsOutput `type:"list"`
+	BackupsInfo []*BackupsInfoForDescribeBackupsOutput `type:"list" json:",omitempty"`
 
-	Total *int32 `type:"int32"`
+	Total *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation

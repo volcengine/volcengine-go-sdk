@@ -144,13 +144,13 @@ func (c *RDSMSSQL) DeleteBackupWithContext(ctx volcengine.Context, input *Delete
 }
 
 type DeleteBackupInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// BackupId is a required field
-	BackupId *string `type:"string" required:"true"`
+	BackupId *string `type:"string" json:",omitempty" required:"true"`
 
 	// InstanceId is a required field
-	InstanceId *string `type:"string" required:"true"`
+	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -192,9 +192,13 @@ func (s *DeleteBackupInput) SetInstanceId(v string) *DeleteBackupInput {
 }
 
 type DeleteBackupOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
+
+	BackupId *string `type:"string" json:",omitempty"`
+
+	InstanceId *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -205,4 +209,16 @@ func (s DeleteBackupOutput) String() string {
 // GoString returns the string representation
 func (s DeleteBackupOutput) GoString() string {
 	return s.String()
+}
+
+// SetBackupId sets the BackupId field's value.
+func (s *DeleteBackupOutput) SetBackupId(v string) *DeleteBackupOutput {
+	s.BackupId = &v
+	return s
+}
+
+// SetInstanceId sets the InstanceId field's value.
+func (s *DeleteBackupOutput) SetInstanceId(v string) *DeleteBackupOutput {
+	s.InstanceId = &v
+	return s
 }

@@ -144,21 +144,21 @@ func (c *RDSMSSQL) CreateTosRestoreWithContext(ctx volcengine.Context, input *Cr
 }
 
 type CreateTosRestoreInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Databases []*DatabaseForCreateTosRestoreInput `type:"list"`
+	Databases []*DatabaseForCreateTosRestoreInput `type:"list" json:",omitempty"`
 
-	IsOnline *bool `type:"boolean"`
+	IsOnline *bool `type:"boolean" json:",omitempty"`
 
-	IsReplace *bool `type:"boolean"`
+	IsReplace *bool `type:"boolean" json:",omitempty"`
 
-	RestoreType *string `type:"string"`
+	RestoreType *string `type:"string" json:",omitempty"`
 
 	// TargetDBInstanceId is a required field
-	TargetDBInstanceId *string `type:"string" required:"true"`
+	TargetDBInstanceId *string `type:"string" json:",omitempty" required:"true"`
 
 	// TosObjectPositions is a required field
-	TosObjectPositions *string `type:"string" required:"true"`
+	TosObjectPositions *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -224,11 +224,11 @@ func (s *CreateTosRestoreInput) SetTosObjectPositions(v string) *CreateTosRestor
 }
 
 type CreateTosRestoreOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	RestoreTaskId *string `type:"string"`
+	RestoreTaskId *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -248,11 +248,11 @@ func (s *CreateTosRestoreOutput) SetRestoreTaskId(v string) *CreateTosRestoreOut
 }
 
 type DatabaseForCreateTosRestoreInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	DBName *string `type:"string"`
+	DBName *string `type:"string" json:",omitempty"`
 
-	NewDBName *string `type:"string"`
+	NewDBName *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
