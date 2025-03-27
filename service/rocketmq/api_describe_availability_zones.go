@@ -216,11 +216,11 @@ type ZoneForDescribeAvailabilityZonesOutput struct {
 
 	Description *string `type:"string" json:",omitempty"`
 
-	Status *string `type:"string" json:",omitempty"`
-
 	ZoneId *string `type:"string" json:",omitempty"`
 
 	ZoneName *string `type:"string" json:",omitempty"`
+
+	ZoneStatus *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -239,12 +239,6 @@ func (s *ZoneForDescribeAvailabilityZonesOutput) SetDescription(v string) *ZoneF
 	return s
 }
 
-// SetStatus sets the Status field's value.
-func (s *ZoneForDescribeAvailabilityZonesOutput) SetStatus(v string) *ZoneForDescribeAvailabilityZonesOutput {
-	s.Status = &v
-	return s
-}
-
 // SetZoneId sets the ZoneId field's value.
 func (s *ZoneForDescribeAvailabilityZonesOutput) SetZoneId(v string) *ZoneForDescribeAvailabilityZonesOutput {
 	s.ZoneId = &v
@@ -254,5 +248,11 @@ func (s *ZoneForDescribeAvailabilityZonesOutput) SetZoneId(v string) *ZoneForDes
 // SetZoneName sets the ZoneName field's value.
 func (s *ZoneForDescribeAvailabilityZonesOutput) SetZoneName(v string) *ZoneForDescribeAvailabilityZonesOutput {
 	s.ZoneName = &v
+	return s
+}
+
+// SetZoneStatus sets the ZoneStatus field's value.
+func (s *ZoneForDescribeAvailabilityZonesOutput) SetZoneStatus(v string) *ZoneForDescribeAvailabilityZonesOutput {
+	s.ZoneStatus = &v
 	return s
 }

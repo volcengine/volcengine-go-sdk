@@ -184,7 +184,7 @@ func (s *DescribeRegionsOutput) SetRegions(v []*RegionForDescribeRegionsOutput) 
 type RegionForDescribeRegionsOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	Description *string `type:"string" json:",omitempty"`
+	Describeption *string `type:"string" json:",omitempty"`
 
 	RegionId *string `type:"string" json:",omitempty"`
 
@@ -203,9 +203,9 @@ func (s RegionForDescribeRegionsOutput) GoString() string {
 	return s.String()
 }
 
-// SetDescription sets the Description field's value.
-func (s *RegionForDescribeRegionsOutput) SetDescription(v string) *RegionForDescribeRegionsOutput {
-	s.Description = &v
+// SetDescribeption sets the Describeption field's value.
+func (s *RegionForDescribeRegionsOutput) SetDescribeption(v string) *RegionForDescribeRegionsOutput {
+	s.Describeption = &v
 	return s
 }
 
