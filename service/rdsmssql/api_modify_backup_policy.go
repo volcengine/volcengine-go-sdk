@@ -144,19 +144,21 @@ func (c *RDSMSSQL) ModifyBackupPolicyWithContext(ctx volcengine.Context, input *
 }
 
 type ModifyBackupPolicyInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// BackupRetentionPeriod is a required field
-	BackupRetentionPeriod *int32 `type:"int32" required:"true"`
+	BackupRetentionPeriod *int32 `type:"int32" json:",omitempty" required:"true"`
 
 	// BackupTime is a required field
-	BackupTime *string `type:"string" required:"true"`
+	BackupTime *string `type:"string" json:",omitempty" required:"true"`
 
 	// FullBackupPeriod is a required field
-	FullBackupPeriod *string `type:"string" required:"true"`
+	FullBackupPeriod *string `type:"string" json:",omitempty" required:"true"`
 
 	// InstanceId is a required field
-	InstanceId *string `type:"string" required:"true"`
+	InstanceId *string `type:"string" json:",omitempty" required:"true"`
+
+	LogBackupInterval *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -215,10 +217,18 @@ func (s *ModifyBackupPolicyInput) SetInstanceId(v string) *ModifyBackupPolicyInp
 	return s
 }
 
+// SetLogBackupInterval sets the LogBackupInterval field's value.
+func (s *ModifyBackupPolicyInput) SetLogBackupInterval(v int32) *ModifyBackupPolicyInput {
+	s.LogBackupInterval = &v
+	return s
+}
+
 type ModifyBackupPolicyOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
+
+	InstanceId *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -229,4 +239,10 @@ func (s ModifyBackupPolicyOutput) String() string {
 // GoString returns the string representation
 func (s ModifyBackupPolicyOutput) GoString() string {
 	return s.String()
+}
+
+// SetInstanceId sets the InstanceId field's value.
+func (s *ModifyBackupPolicyOutput) SetInstanceId(v string) *ModifyBackupPolicyOutput {
+	s.InstanceId = &v
+	return s
 }

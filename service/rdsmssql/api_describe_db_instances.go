@@ -144,25 +144,25 @@ func (c *RDSMSSQL) DescribeDBInstancesWithContext(ctx volcengine.Context, input 
 }
 
 type ChargeDetailForDescribeDBInstancesOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	AutoRenew *bool `type:"boolean"`
+	AutoRenew *bool `type:"boolean" json:",omitempty"`
 
-	ChargeEndTime *string `type:"string"`
+	ChargeEndTime *string `type:"string" json:",omitempty"`
 
-	ChargeStartTime *string `type:"string"`
+	ChargeStartTime *string `type:"string" json:",omitempty"`
 
-	ChargeStatus *string `type:"string"`
+	ChargeStatus *string `type:"string" json:",omitempty"`
 
-	ChargeType *string `type:"string"`
+	ChargeType *string `type:"string" json:",omitempty"`
 
-	OverdueReclaimTime *string `type:"string"`
+	OverdueReclaimTime *string `type:"string" json:",omitempty"`
 
-	OverdueTime *string `type:"string"`
+	OverdueTime *string `type:"string" json:",omitempty"`
 
-	Period *int32 `type:"int32"`
+	Period *int32 `type:"int32" json:",omitempty"`
 
-	PeriodUnit *string `type:"string"`
+	PeriodUnit *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -230,35 +230,39 @@ func (s *ChargeDetailForDescribeDBInstancesOutput) SetPeriodUnit(v string) *Char
 }
 
 type DescribeDBInstancesInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	ChargeType *string `type:"string"`
+	ChargeType *string `type:"string" json:",omitempty"`
 
-	CreateTimeEnd *string `type:"string"`
+	CreateTimeEnd *string `type:"string" json:",omitempty"`
 
-	CreateTimeStart *string `type:"string"`
+	CreateTimeStart *string `type:"string" json:",omitempty"`
 
-	DBEngineVersion *string `type:"string"`
+	DBEngineVersion *string `type:"string" json:",omitempty"`
 
-	InstanceCategory *string `type:"string"`
+	InstanceCategory *string `type:"string" json:",omitempty"`
 
-	InstanceId *string `type:"string"`
+	InstanceId *string `type:"string" json:",omitempty"`
 
-	InstanceName *string `type:"string"`
+	InstanceName *string `type:"string" json:",omitempty"`
 
-	InstanceStatus *string `type:"string"`
+	InstanceStatus *string `type:"string" json:",omitempty"`
 
-	InstanceType *string `type:"string"`
+	InstanceType *string `type:"string" json:",omitempty"`
 
-	PageNumber *int32 `type:"int32"`
+	PageNumber *int32 `type:"int32" json:",omitempty"`
 
-	PageSize *int32 `type:"int32"`
+	PageSize *int32 `type:"int32" json:",omitempty"`
 
-	PrimaryInstanceId *string `type:"string"`
+	PrimaryInstanceId *string `type:"string" json:",omitempty"`
 
-	TagFilters []*TagFilterForDescribeDBInstancesInput `type:"list"`
+	ProjectName *string `type:"string" json:",omitempty"`
 
-	ZoneId *string `type:"string"`
+	ServerCollation *string `type:"string" json:",omitempty"`
+
+	TagFilters []*TagFilterForDescribeDBInstancesInput `type:"list" json:",omitempty"`
+
+	ZoneId *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -343,6 +347,18 @@ func (s *DescribeDBInstancesInput) SetPrimaryInstanceId(v string) *DescribeDBIns
 	return s
 }
 
+// SetProjectName sets the ProjectName field's value.
+func (s *DescribeDBInstancesInput) SetProjectName(v string) *DescribeDBInstancesInput {
+	s.ProjectName = &v
+	return s
+}
+
+// SetServerCollation sets the ServerCollation field's value.
+func (s *DescribeDBInstancesInput) SetServerCollation(v string) *DescribeDBInstancesInput {
+	s.ServerCollation = &v
+	return s
+}
+
 // SetTagFilters sets the TagFilters field's value.
 func (s *DescribeDBInstancesInput) SetTagFilters(v []*TagFilterForDescribeDBInstancesInput) *DescribeDBInstancesInput {
 	s.TagFilters = v
@@ -356,13 +372,13 @@ func (s *DescribeDBInstancesInput) SetZoneId(v string) *DescribeDBInstancesInput
 }
 
 type DescribeDBInstancesOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	InstancesInfo []*InstancesInfoForDescribeDBInstancesOutput `type:"list"`
+	InstancesInfo []*InstancesInfoForDescribeDBInstancesOutput `type:"list" json:",omitempty"`
 
-	Total *int32 `type:"int32"`
+	Total *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -388,51 +404,55 @@ func (s *DescribeDBInstancesOutput) SetTotal(v int32) *DescribeDBInstancesOutput
 }
 
 type InstancesInfoForDescribeDBInstancesOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	ChargeDetail *ChargeDetailForDescribeDBInstancesOutput `type:"structure"`
+	ChargeDetail *ChargeDetailForDescribeDBInstancesOutput `type:"structure" json:",omitempty"`
 
-	CreateTime *string `type:"string"`
+	CreateTime *string `type:"string" json:",omitempty"`
 
-	DBEngineVersion *string `type:"string"`
+	DBEngineVersion *string `type:"string" json:",omitempty"`
 
-	InstanceCategory *string `type:"string"`
+	InstanceCategory *string `type:"string" json:",omitempty"`
 
-	InstanceId *string `type:"string"`
+	InstanceId *string `type:"string" json:",omitempty"`
 
-	InstanceName *string `type:"string"`
+	InstanceName *string `type:"string" json:",omitempty"`
 
-	InstanceStatus *string `type:"string"`
+	InstanceStatus *string `type:"string" json:",omitempty"`
 
-	InstanceType *string `type:"string"`
+	InstanceType *string `type:"string" json:",omitempty"`
 
-	NodeDetailInfo []*NodeDetailInfoForDescribeDBInstancesOutput `type:"list"`
+	MaintenanceTime *string `type:"string" json:",omitempty"`
 
-	NodeSpec *string `type:"string"`
+	NodeDetailInfo []*NodeDetailInfoForDescribeDBInstancesOutput `type:"list" json:",omitempty"`
 
-	Port *string `type:"string"`
+	NodeSpec *string `type:"string" json:",omitempty"`
 
-	PrimaryInstanceId *string `type:"string"`
+	Port *string `type:"string" json:",omitempty"`
 
-	ProjectName *string `type:"string"`
+	PrimaryInstanceId *string `type:"string" json:",omitempty"`
 
-	ReadOnlyNumber *int32 `type:"int32"`
+	ProjectName *string `type:"string" json:",omitempty"`
 
-	RegionId *string `type:"string"`
+	ReadOnlyNumber *int32 `type:"int32" json:",omitempty"`
 
-	ServerCollation *string `type:"string"`
+	RegionId *string `type:"string" json:",omitempty"`
 
-	StorageSpace *int32 `type:"int32"`
+	ServerCollation *string `type:"string" json:",omitempty"`
 
-	StorageType *string `type:"string"`
+	StorageSpace *int32 `type:"int32" json:",omitempty"`
 
-	SubnetId *string `type:"string"`
+	StorageType *string `type:"string" json:",omitempty"`
 
-	TimeZone *string `type:"string"`
+	SubnetId *string `type:"string" json:",omitempty"`
 
-	VpcId *string `type:"string"`
+	Tags []*TagForDescribeDBInstancesOutput `type:"list" json:",omitempty"`
 
-	ZoneId *string `type:"string"`
+	TimeZone *string `type:"string" json:",omitempty"`
+
+	VpcId *string `type:"string" json:",omitempty"`
+
+	ZoneId *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -490,6 +510,12 @@ func (s *InstancesInfoForDescribeDBInstancesOutput) SetInstanceStatus(v string) 
 // SetInstanceType sets the InstanceType field's value.
 func (s *InstancesInfoForDescribeDBInstancesOutput) SetInstanceType(v string) *InstancesInfoForDescribeDBInstancesOutput {
 	s.InstanceType = &v
+	return s
+}
+
+// SetMaintenanceTime sets the MaintenanceTime field's value.
+func (s *InstancesInfoForDescribeDBInstancesOutput) SetMaintenanceTime(v string) *InstancesInfoForDescribeDBInstancesOutput {
+	s.MaintenanceTime = &v
 	return s
 }
 
@@ -559,6 +585,12 @@ func (s *InstancesInfoForDescribeDBInstancesOutput) SetSubnetId(v string) *Insta
 	return s
 }
 
+// SetTags sets the Tags field's value.
+func (s *InstancesInfoForDescribeDBInstancesOutput) SetTags(v []*TagForDescribeDBInstancesOutput) *InstancesInfoForDescribeDBInstancesOutput {
+	s.Tags = v
+	return s
+}
+
 // SetTimeZone sets the TimeZone field's value.
 func (s *InstancesInfoForDescribeDBInstancesOutput) SetTimeZone(v string) *InstancesInfoForDescribeDBInstancesOutput {
 	s.TimeZone = &v
@@ -578,31 +610,31 @@ func (s *InstancesInfoForDescribeDBInstancesOutput) SetZoneId(v string) *Instanc
 }
 
 type NodeDetailInfoForDescribeDBInstancesOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	CreateTime *string `type:"string"`
+	CreateTime *string `type:"string" json:",omitempty"`
 
-	InstanceId *string `type:"string"`
+	InstanceId *string `type:"string" json:",omitempty"`
 
-	Memory *int32 `type:"int32"`
+	Memory *int32 `type:"int32" json:",omitempty"`
 
-	NodeIP *string `type:"string"`
+	NodeIP *string `type:"string" json:",omitempty"`
 
-	NodeId *string `type:"string"`
+	NodeId *string `type:"string" json:",omitempty"`
 
-	NodeSpec *string `type:"string"`
+	NodeSpec *string `type:"string" json:",omitempty"`
 
-	NodeStatus *string `type:"string"`
+	NodeStatus *string `type:"string" json:",omitempty"`
 
-	NodeType *string `type:"string"`
+	NodeType *string `type:"string" json:",omitempty"`
 
-	RegionId *string `type:"string"`
+	RegionId *string `type:"string" json:",omitempty"`
 
-	UpdateTime *string `type:"string"`
+	UpdateTime *string `type:"string" json:",omitempty"`
 
-	VCPU *int32 `type:"int32"`
+	VCPU *int32 `type:"int32" json:",omitempty"`
 
-	ZoneId *string `type:"string"`
+	ZoneId *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -688,11 +720,13 @@ func (s *NodeDetailInfoForDescribeDBInstancesOutput) SetZoneId(v string) *NodeDe
 }
 
 type TagFilterForDescribeDBInstancesInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Key *string `type:"string"`
+	Key *string `type:"string" json:",omitempty"`
 
-	Value *string `type:"string"`
+	Value *string `type:"string" json:",omitempty"`
+
+	Values []*string `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -713,6 +747,42 @@ func (s *TagFilterForDescribeDBInstancesInput) SetKey(v string) *TagFilterForDes
 
 // SetValue sets the Value field's value.
 func (s *TagFilterForDescribeDBInstancesInput) SetValue(v string) *TagFilterForDescribeDBInstancesInput {
+	s.Value = &v
+	return s
+}
+
+// SetValues sets the Values field's value.
+func (s *TagFilterForDescribeDBInstancesInput) SetValues(v []*string) *TagFilterForDescribeDBInstancesInput {
+	s.Values = v
+	return s
+}
+
+type TagForDescribeDBInstancesOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Key *string `type:"string" json:",omitempty"`
+
+	Value *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s TagForDescribeDBInstancesOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagForDescribeDBInstancesOutput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagForDescribeDBInstancesOutput) SetKey(v string) *TagForDescribeDBInstancesOutput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *TagForDescribeDBInstancesOutput) SetValue(v string) *TagForDescribeDBInstancesOutput {
 	s.Value = &v
 	return s
 }

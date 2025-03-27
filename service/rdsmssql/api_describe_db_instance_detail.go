@@ -144,21 +144,21 @@ func (c *RDSMSSQL) DescribeDBInstanceDetailWithContext(ctx volcengine.Context, i
 }
 
 type AddressForDescribeDBInstanceDetailOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	DNSVisibility *bool `type:"boolean"`
+	DNSVisibility *bool `type:"boolean" json:",omitempty"`
 
-	Domain *string `type:"string"`
+	Domain *string `type:"string" json:",omitempty"`
 
-	EipId *string `type:"string"`
+	EipId *string `type:"string" json:",omitempty"`
 
-	IPAddress *string `type:"string"`
+	IPAddress *string `type:"string" json:",omitempty"`
 
-	NetworkType *string `type:"string"`
+	NetworkType *string `type:"string" json:",omitempty"`
 
-	Port *string `type:"string"`
+	Port *string `type:"string" json:",omitempty"`
 
-	SubnetId *string `type:"string"`
+	SubnetId *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -214,61 +214,63 @@ func (s *AddressForDescribeDBInstanceDetailOutput) SetSubnetId(v string) *Addres
 }
 
 type BasicInfoForDescribeDBInstanceDetailOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	BackupUse *float64 `type:"float"`
+	BackupUse *float64 `type:"float" json:",omitempty"`
 
-	CreateTime *string `type:"string"`
+	CreateTime *string `type:"string" json:",omitempty"`
 
-	DBEngineVersion *string `type:"string"`
+	DBEngineVersion *string `type:"string" json:",omitempty"`
 
-	InnerVersion *string `type:"string"`
+	InnerVersion *string `type:"string" json:",omitempty"`
 
-	InstanceId *string `type:"string"`
+	InstanceId *string `type:"string" json:",omitempty"`
 
-	InstanceName *string `type:"string"`
+	InstanceName *string `type:"string" json:",omitempty"`
 
-	InstanceStatus *string `type:"string"`
+	InstanceStatus *string `type:"string" json:",omitempty"`
 
-	InstanceType *string `type:"string"`
+	InstanceType *string `type:"string" json:",omitempty"`
 
-	Memory *int32 `type:"int32"`
+	MaintenanceTime *string `type:"string" json:",omitempty"`
 
-	NodeSpec *string `type:"string"`
+	Memory *int32 `type:"int32" json:",omitempty"`
 
-	PrimaryInstanceId *string `type:"string"`
+	NodeSpec *string `type:"string" json:",omitempty"`
 
-	ProjectName *string `type:"string"`
+	PrimaryInstanceId *string `type:"string" json:",omitempty"`
 
-	ReadOnlyNumber *int32 `type:"int32"`
+	ProjectName *string `type:"string" json:",omitempty"`
 
-	RegionId *string `type:"string"`
+	ReadOnlyNumber *int32 `type:"int32" json:",omitempty"`
 
-	ServerCollation *string `type:"string"`
+	RegionId *string `type:"string" json:",omitempty"`
 
-	SlowQueryEnable *bool `type:"boolean"`
+	ServerCollation *string `type:"string" json:",omitempty"`
 
-	SlowQueryTime *string `type:"string"`
+	SlowQueryEnable *bool `type:"boolean" json:",omitempty"`
 
-	StorageSpace *int32 `type:"int32"`
+	SlowQueryTime *string `type:"string" json:",omitempty"`
 
-	StorageType *string `type:"string"`
+	StorageSpace *int32 `type:"int32" json:",omitempty"`
 
-	StorageUse *float64 `type:"float"`
+	StorageType *string `type:"string" json:",omitempty"`
 
-	SubnetId *string `type:"string"`
+	StorageUse *float64 `type:"float" json:",omitempty"`
 
-	Tags []*TagForDescribeDBInstanceDetailOutput `type:"list"`
+	SubnetId *string `type:"string" json:",omitempty"`
 
-	TimeZone *string `type:"string"`
+	Tags []*TagForDescribeDBInstanceDetailOutput `type:"list" json:",omitempty"`
 
-	UpdateTime *string `type:"string"`
+	TimeZone *string `type:"string" json:",omitempty"`
 
-	VCPU *int32 `type:"int32"`
+	UpdateTime *string `type:"string" json:",omitempty"`
 
-	VpcId *string `type:"string"`
+	VCPU *int32 `type:"int32" json:",omitempty"`
 
-	ZoneId *string `type:"string"`
+	VpcId *string `type:"string" json:",omitempty"`
+
+	ZoneId *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -326,6 +328,12 @@ func (s *BasicInfoForDescribeDBInstanceDetailOutput) SetInstanceStatus(v string)
 // SetInstanceType sets the InstanceType field's value.
 func (s *BasicInfoForDescribeDBInstanceDetailOutput) SetInstanceType(v string) *BasicInfoForDescribeDBInstanceDetailOutput {
 	s.InstanceType = &v
+	return s
+}
+
+// SetMaintenanceTime sets the MaintenanceTime field's value.
+func (s *BasicInfoForDescribeDBInstanceDetailOutput) SetMaintenanceTime(v string) *BasicInfoForDescribeDBInstanceDetailOutput {
+	s.MaintenanceTime = &v
 	return s
 }
 
@@ -444,25 +452,25 @@ func (s *BasicInfoForDescribeDBInstanceDetailOutput) SetZoneId(v string) *BasicI
 }
 
 type ChargeDetailForDescribeDBInstanceDetailOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	AutoRenew *bool `type:"boolean"`
+	AutoRenew *bool `type:"boolean" json:",omitempty"`
 
-	ChargeEndTime *string `type:"string"`
+	ChargeEndTime *string `type:"string" json:",omitempty"`
 
-	ChargeStartTime *string `type:"string"`
+	ChargeStartTime *string `type:"string" json:",omitempty"`
 
-	ChargeStatus *string `type:"string"`
+	ChargeStatus *string `type:"string" json:",omitempty"`
 
-	ChargeType *string `type:"string"`
+	ChargeType *string `type:"string" json:",omitempty"`
 
-	OverdueReclaimTime *string `type:"string"`
+	OverdueReclaimTime *string `type:"string" json:",omitempty"`
 
-	OverdueTime *string `type:"string"`
+	OverdueTime *string `type:"string" json:",omitempty"`
 
-	Period *int32 `type:"int32"`
+	Period *int32 `type:"int32" json:",omitempty"`
 
-	PeriodUnit *string `type:"string"`
+	PeriodUnit *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -530,17 +538,17 @@ func (s *ChargeDetailForDescribeDBInstanceDetailOutput) SetPeriodUnit(v string) 
 }
 
 type ConnectionInfoForDescribeDBInstanceDetailOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Address []*AddressForDescribeDBInstanceDetailOutput `type:"list"`
+	Address []*AddressForDescribeDBInstanceDetailOutput `type:"list" json:",omitempty"`
 
-	Description *string `type:"string"`
+	Description *string `type:"string" json:",omitempty"`
 
-	EndpointId *string `type:"string"`
+	EndpointId *string `type:"string" json:",omitempty"`
 
-	EndpointName *string `type:"string"`
+	EndpointName *string `type:"string" json:",omitempty"`
 
-	EndpointType *string `type:"string"`
+	EndpointType *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -584,10 +592,10 @@ func (s *ConnectionInfoForDescribeDBInstanceDetailOutput) SetEndpointType(v stri
 }
 
 type DescribeDBInstanceDetailInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// InstanceId is a required field
-	InstanceId *string `type:"string" required:"true"`
+	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -620,17 +628,17 @@ func (s *DescribeDBInstanceDetailInput) SetInstanceId(v string) *DescribeDBInsta
 }
 
 type DescribeDBInstanceDetailOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	BasicInfo *BasicInfoForDescribeDBInstanceDetailOutput `type:"structure"`
+	BasicInfo *BasicInfoForDescribeDBInstanceDetailOutput `type:"structure" json:",omitempty"`
 
-	ChargeDetail *ChargeDetailForDescribeDBInstanceDetailOutput `type:"structure"`
+	ChargeDetail *ChargeDetailForDescribeDBInstanceDetailOutput `type:"structure" json:",omitempty"`
 
-	ConnectionInfo []*ConnectionInfoForDescribeDBInstanceDetailOutput `type:"list"`
+	ConnectionInfo []*ConnectionInfoForDescribeDBInstanceDetailOutput `type:"list" json:",omitempty"`
 
-	NodeDetailInfo []*NodeDetailInfoForDescribeDBInstanceDetailOutput `type:"list"`
+	NodeDetailInfo []*NodeDetailInfoForDescribeDBInstanceDetailOutput `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -668,31 +676,31 @@ func (s *DescribeDBInstanceDetailOutput) SetNodeDetailInfo(v []*NodeDetailInfoFo
 }
 
 type NodeDetailInfoForDescribeDBInstanceDetailOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	CreateTime *string `type:"string"`
+	CreateTime *string `type:"string" json:",omitempty"`
 
-	InstanceId *string `type:"string"`
+	InstanceId *string `type:"string" json:",omitempty"`
 
-	Memory *int32 `type:"int32"`
+	Memory *int32 `type:"int32" json:",omitempty"`
 
-	NodeIP *string `type:"string"`
+	NodeIP *string `type:"string" json:",omitempty"`
 
-	NodeId *string `type:"string"`
+	NodeId *string `type:"string" json:",omitempty"`
 
-	NodeSpec *string `type:"string"`
+	NodeSpec *string `type:"string" json:",omitempty"`
 
-	NodeStatus *string `type:"string"`
+	NodeStatus *string `type:"string" json:",omitempty"`
 
-	NodeType *string `type:"string"`
+	NodeType *string `type:"string" json:",omitempty"`
 
-	RegionId *string `type:"string"`
+	RegionId *string `type:"string" json:",omitempty"`
 
-	UpdateTime *string `type:"string"`
+	UpdateTime *string `type:"string" json:",omitempty"`
 
-	VCPU *int32 `type:"int32"`
+	VCPU *int32 `type:"int32" json:",omitempty"`
 
-	ZoneId *string `type:"string"`
+	ZoneId *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -778,11 +786,11 @@ func (s *NodeDetailInfoForDescribeDBInstanceDetailOutput) SetZoneId(v string) *N
 }
 
 type TagForDescribeDBInstanceDetailOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Key *string `type:"string"`
+	Key *string `type:"string" json:",omitempty"`
 
-	Value *string `type:"string"`
+	Value *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation

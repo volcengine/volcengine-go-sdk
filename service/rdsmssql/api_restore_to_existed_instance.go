@@ -144,11 +144,11 @@ func (c *RDSMSSQL) RestoreToExistedInstanceWithContext(ctx volcengine.Context, i
 }
 
 type DatabaseForRestoreToExistedInstanceInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	DBName *string `type:"string"`
+	DBName *string `type:"string" json:",omitempty"`
 
-	NewDBName *string `type:"string"`
+	NewDBName *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -174,19 +174,19 @@ func (s *DatabaseForRestoreToExistedInstanceInput) SetNewDBName(v string) *Datab
 }
 
 type RestoreToExistedInstanceInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	BackupId *string `type:"string"`
+	BackupId *string `type:"string" json:",omitempty"`
 
-	Databases []*DatabaseForRestoreToExistedInstanceInput `type:"list"`
+	Databases []*DatabaseForRestoreToExistedInstanceInput `type:"list" json:",omitempty"`
 
-	RestoreTime *string `type:"string"`
+	RestoreTime *string `type:"string" json:",omitempty"`
 
 	// SourceDBInstanceId is a required field
-	SourceDBInstanceId *string `type:"string" required:"true"`
+	SourceDBInstanceId *string `type:"string" json:",omitempty" required:"true"`
 
 	// TargetDBInstanceId is a required field
-	TargetDBInstanceId *string `type:"string" required:"true"`
+	TargetDBInstanceId *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -246,11 +246,11 @@ func (s *RestoreToExistedInstanceInput) SetTargetDBInstanceId(v string) *Restore
 }
 
 type RestoreToExistedInstanceOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	InstanceId *string `type:"string"`
+	InstanceId *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation

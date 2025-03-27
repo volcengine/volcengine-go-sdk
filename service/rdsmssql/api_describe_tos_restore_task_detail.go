@@ -144,14 +144,16 @@ func (c *RDSMSSQL) DescribeTosRestoreTaskDetailWithContext(ctx volcengine.Contex
 }
 
 type DescribeTosRestoreTaskDetailInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	PageNumber *int32 `type:"int32"`
+	PageNumber *int32 `type:"int32" json:",omitempty"`
 
-	PageSize *int32 `type:"int32"`
+	PageSize *int32 `type:"int32" json:",omitempty"`
+
+	ProjectName *string `type:"string" json:",omitempty"`
 
 	// RestoreTaskId is a required field
-	RestoreTaskId *string `type:"string" required:"true"`
+	RestoreTaskId *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -189,6 +191,12 @@ func (s *DescribeTosRestoreTaskDetailInput) SetPageSize(v int32) *DescribeTosRes
 	return s
 }
 
+// SetProjectName sets the ProjectName field's value.
+func (s *DescribeTosRestoreTaskDetailInput) SetProjectName(v string) *DescribeTosRestoreTaskDetailInput {
+	s.ProjectName = &v
+	return s
+}
+
 // SetRestoreTaskId sets the RestoreTaskId field's value.
 func (s *DescribeTosRestoreTaskDetailInput) SetRestoreTaskId(v string) *DescribeTosRestoreTaskDetailInput {
 	s.RestoreTaskId = &v
@@ -196,13 +204,13 @@ func (s *DescribeTosRestoreTaskDetailInput) SetRestoreTaskId(v string) *Describe
 }
 
 type DescribeTosRestoreTaskDetailOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	RestoreTaskDetails []*RestoreTaskDetailForDescribeTosRestoreTaskDetailOutput `type:"list"`
+	RestoreTaskDetails []*RestoreTaskDetailForDescribeTosRestoreTaskDetailOutput `type:"list" json:",omitempty"`
 
-	Total *int32 `type:"int32"`
+	Total *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -228,21 +236,23 @@ func (s *DescribeTosRestoreTaskDetailOutput) SetTotal(v int32) *DescribeTosResto
 }
 
 type RestoreTaskDetailForDescribeTosRestoreTaskDetailOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	BackupType *string `type:"string"`
+	BackupType *string `type:"string" json:",omitempty"`
 
-	DBName *string `type:"string"`
+	DBName *string `type:"string" json:",omitempty"`
 
-	RestoreDesc *string `type:"string"`
+	NewDBName *string `type:"string" json:",omitempty"`
 
-	RestoreEndTime *string `type:"string"`
+	RestoreDesc *string `type:"string" json:",omitempty"`
 
-	RestoreFileName *string `type:"string"`
+	RestoreEndTime *string `type:"string" json:",omitempty"`
 
-	RestoreFileSize *string `type:"string"`
+	RestoreFileName *string `type:"string" json:",omitempty"`
 
-	RestoreStartTime *string `type:"string"`
+	RestoreFileSize *string `type:"string" json:",omitempty"`
+
+	RestoreStartTime *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -264,6 +274,12 @@ func (s *RestoreTaskDetailForDescribeTosRestoreTaskDetailOutput) SetBackupType(v
 // SetDBName sets the DBName field's value.
 func (s *RestoreTaskDetailForDescribeTosRestoreTaskDetailOutput) SetDBName(v string) *RestoreTaskDetailForDescribeTosRestoreTaskDetailOutput {
 	s.DBName = &v
+	return s
+}
+
+// SetNewDBName sets the NewDBName field's value.
+func (s *RestoreTaskDetailForDescribeTosRestoreTaskDetailOutput) SetNewDBName(v string) *RestoreTaskDetailForDescribeTosRestoreTaskDetailOutput {
+	s.NewDBName = &v
 	return s
 }
 

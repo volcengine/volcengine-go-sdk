@@ -144,19 +144,23 @@ func (c *RDSMSSQL) DescribeTosRestoreTasksWithContext(ctx volcengine.Context, in
 }
 
 type DescribeTosRestoreTasksInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	InstanceId *string `type:"string"`
+	InstanceId *string `type:"string" json:",omitempty"`
 
-	InstanceName *string `type:"string"`
+	InstanceName *string `type:"string" json:",omitempty"`
 
-	PageNumber *int32 `type:"int32"`
+	PageNumber *int32 `type:"int32" json:",omitempty"`
 
-	PageSize *int32 `type:"int32"`
+	PageSize *int32 `type:"int32" json:",omitempty"`
 
-	QueryEndTime *string `type:"string"`
+	ProjectName *string `type:"string" json:",omitempty"`
 
-	QueryStartTime *string `type:"string"`
+	QueryEndTime *string `type:"string" json:",omitempty"`
+
+	QueryStartTime *string `type:"string" json:",omitempty"`
+
+	RestoreTaskIds []*string `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -193,6 +197,12 @@ func (s *DescribeTosRestoreTasksInput) SetPageSize(v int32) *DescribeTosRestoreT
 	return s
 }
 
+// SetProjectName sets the ProjectName field's value.
+func (s *DescribeTosRestoreTasksInput) SetProjectName(v string) *DescribeTosRestoreTasksInput {
+	s.ProjectName = &v
+	return s
+}
+
 // SetQueryEndTime sets the QueryEndTime field's value.
 func (s *DescribeTosRestoreTasksInput) SetQueryEndTime(v string) *DescribeTosRestoreTasksInput {
 	s.QueryEndTime = &v
@@ -205,14 +215,20 @@ func (s *DescribeTosRestoreTasksInput) SetQueryStartTime(v string) *DescribeTosR
 	return s
 }
 
+// SetRestoreTaskIds sets the RestoreTaskIds field's value.
+func (s *DescribeTosRestoreTasksInput) SetRestoreTaskIds(v []*string) *DescribeTosRestoreTasksInput {
+	s.RestoreTaskIds = v
+	return s
+}
+
 type DescribeTosRestoreTasksOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	RestoreTasks []*RestoreTaskForDescribeTosRestoreTasksOutput `type:"list"`
+	RestoreTasks []*RestoreTaskForDescribeTosRestoreTasksOutput `type:"list" json:",omitempty"`
 
-	Total *int32 `type:"int32"`
+	Total *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -238,27 +254,27 @@ func (s *DescribeTosRestoreTasksOutput) SetTotal(v int32) *DescribeTosRestoreTas
 }
 
 type RestoreTaskForDescribeTosRestoreTasksOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	InstanceId *string `type:"string"`
+	InstanceId *string `type:"string" json:",omitempty"`
 
-	InstanceName *string `type:"string"`
+	InstanceName *string `type:"string" json:",omitempty"`
 
-	IsReplace *bool `type:"boolean"`
+	IsReplace *bool `type:"boolean" json:",omitempty"`
 
-	RestoreTaskId *string `type:"string"`
+	RestoreTaskId *string `type:"string" json:",omitempty"`
 
-	RestoreType *string `type:"string"`
+	RestoreType *string `type:"string" json:",omitempty"`
 
-	TaskDesc *string `type:"string"`
+	TaskDesc *string `type:"string" json:",omitempty"`
 
-	TaskEndTime *string `type:"string"`
+	TaskEndTime *string `type:"string" json:",omitempty"`
 
-	TaskStartTime *string `type:"string"`
+	TaskStartTime *string `type:"string" json:",omitempty"`
 
-	TaskStatus *string `type:"string"`
+	TaskStatus *string `type:"string" json:",omitempty"`
 
-	TaskType *string `type:"string"`
+	TaskType *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
