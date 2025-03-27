@@ -12,6 +12,7 @@ const (
 	defaultEmptyMessagesLimit uint = 300
 	defaultRetryTimes         int  = 2
 	defaultTimeout                 = 10 * time.Minute
+	defaultBatchMaxParallel        = 3000
 )
 
 const (
@@ -36,6 +37,8 @@ type clientConfig struct {
 	HTTPClient         *http.Client
 	EmptyMessagesLimit uint
 	RetryTimes         int
+
+	batchMaxParallel int
 }
 
 func NewClientConfig(apiKey, ak, sk string, setters ...ConfigOption) clientConfig {
@@ -50,6 +53,7 @@ func NewClientConfig(apiKey, ak, sk string, setters ...ConfigOption) clientConfi
 		},
 		EmptyMessagesLimit: defaultEmptyMessagesLimit,
 		RetryTimes:         defaultRetryTimes,
+		batchMaxParallel:   defaultBatchMaxParallel,
 	}
 
 	for _, setter := range setters {
@@ -90,5 +94,12 @@ func WithTimeout(timeout time.Duration) ConfigOption {
 func WithHTTPClient(client *http.Client) ConfigOption {
 	return func(config *clientConfig) {
 		config.HTTPClient = client
+	}
+}
+
+// WithBatchMaxParallel sets the max parallel for batch requests.
+func WithBatchMaxParallel(maxParallel int) ConfigOption {
+	return func(config *clientConfig) {
+		config.batchMaxParallel = maxParallel
 	}
 }

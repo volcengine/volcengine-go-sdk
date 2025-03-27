@@ -100,7 +100,8 @@ type ChatRequest interface {
 	GetModel() string
 }
 
-// ChatCompletionRequest[Deprecated] - When making a request using this struct, only non-zero fields take effect.
+// Deprecated: use `CreateChatCompletionRequest` instead.
+// ChatCompletionRequest - When making a request using this struct, only non-zero fields take effect.
 // This means that if your field value is 0, an empty string (""), false, or
 // other zero values, it will not be sent to the server.
 // The server will handle these fields according to their default values.
