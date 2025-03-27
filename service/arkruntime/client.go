@@ -33,8 +33,8 @@ type Client struct {
 	advisoryRefreshTimeout  int
 	mandatoryRefreshTimeout int
 
-	batchWorkerOnce sync.Once
-	batchWorkerPool *utils.BatchWorkerPool
+	batchHTTPClient      *http.Client
+	modelBreakerProvider *utils.ModelBreakerProvider
 }
 
 func NewClientWithApiKey(apiKey string, setters ...ConfigOption) *Client {
@@ -65,6 +65,8 @@ func newClientWithConfig(config clientConfig) *Client {
 		rwLock:                  &sync.RWMutex{},
 		advisoryRefreshTimeout:  model.DefaultAdvisoryRefreshTimeout,
 		mandatoryRefreshTimeout: model.DefaultMandatoryRefreshTimeout,
+		batchHTTPClient:         newBatchHTTPClient(config.batchMaxParallel),
+		modelBreakerProvider:    utils.NewModelBreakerProvider(),
 	}
 }
 
@@ -196,7 +198,7 @@ func (c *Client) newRequest(ctx context.Context, method, url, resourceType, reso
 	return req, nil
 }
 
-func (c *Client) sendRequest(req *http.Request, v model.Response) error {
+func (c *Client) sendRequest(client *http.Client, req *http.Request, v model.Response) error {
 	requestID := req.Header.Get(model.ClientRequestHeader)
 	req.Header.Set("Accept", "application/json")
 
@@ -207,7 +209,7 @@ func (c *Client) sendRequest(req *http.Request, v model.Response) error {
 		req.Header.Set("Content-Type", "application/json")
 	}
 
-	res, err := c.config.HTTPClient.Do(req)
+	res, err := client.Do(req)
 	if err != nil {
 		return model.NewRequestError(http.StatusInternalServerError, err, requestID)
 	}
@@ -248,7 +250,7 @@ func (c *Client) Do(ctx context.Context, method, url, resourceType, resourceId s
 				return innerErr
 			}
 
-			return c.sendRequest(req, v)
+			return c.sendRequest(c.config.HTTPClient, req, v)
 		},
 		nil,
 		needRetryError,
@@ -257,56 +259,51 @@ func (c *Client) Do(ctx context.Context, method, url, resourceType, resourceId s
 }
 
 func (c *Client) DoBatch(ctx context.Context, method, url, resourceType, resourceId string, v model.Response, setters ...requestOption) error {
-	doneChan := make(chan error, 1)
-	c.batchWorkerPool.Submit(ctx, resourceId, func() (utils.BatchTaskResult, error) {
-		req, err := c.newRequest(ctx, method, url, resourceType, resourceId, setters...)
-		if err != nil {
-			return utils.BatchTaskResult{}, err
+	breaker := c.modelBreakerProvider.GetOrCreateBreaker(resourceId)
+
+	for {
+		breaker.Wait()
+
+		select {
+		case <-ctx.Done(): // whole context finish
+			return ctx.Err()
+		default:
 		}
-		innerErr := c.sendRequest(req, v)
-		if innerErr != nil && needRetryError(innerErr) {
-			retryAfter := c.getRetryAfter(v)
-			if retryAfter > 0 {
-				return utils.BatchTaskResult{NeedRetry: true, RequeueAfter: retryAfter}, innerErr
+
+		err := func() error {
+			req, er := c.newRequest(ctx, method, url, resourceType, resourceId, setters...)
+			if er != nil {
+				return er
 			}
-			return utils.BatchTaskResult{NeedRetry: true}, innerErr
+
+			return c.sendRequest(c.batchHTTPClient, req, v)
+		}()
+
+		// no error: just return on this try
+		if err == nil {
+			return nil
 		}
-		return utils.BatchTaskResult{NeedRetry: false}, innerErr
-	}, doneChan)
-	select {
-	case doneErr := <-doneChan:
-		return doneErr
-	case <-ctx.Done():
-		return ctx.Err()
+
+		// no need to retry error
+		if !needRetryError(err) {
+			return err
+		}
+
+		retryAfter := c.getRetryAfter(v)
+		if retryAfter > 0 {
+			breaker.Reset(time.Duration(retryAfter) * time.Second)
+		}
 	}
 }
 
-func (c *Client) sendRequestRaw(req *http.Request) (response model.RawResponse, err error) {
-	requestID := req.Header.Get(model.ClientRequestHeader)
-	resp, err := c.config.HTTPClient.Do(req) //nolint:bodyclose // body should be closed by outer function
-	if err != nil {
-		err = model.NewRequestError(http.StatusInternalServerError, err, requestID)
-		return
-	}
-
-	if isFailureStatusCode(resp) {
-		err = c.handleErrorResp(resp)
-		return
-	}
-
-	response.SetHeader(resp.Header)
-	response.ReadCloser = resp.Body
-	return
-}
-
-func sendChatCompletionRequestStream(client *Client, req *http.Request) (*utils.ChatCompletionStreamReader, error) {
+func sendChatCompletionRequestStream(client *Client, httpClient *http.Client, req *http.Request) (*utils.ChatCompletionStreamReader, error) {
 	requestID := req.Header.Get(model.ClientRequestHeader)
 	req.Header.Set("Content-Type", "application/json")
 	req.Header.Set("Accept", "text/event-stream")
 	req.Header.Set("Cache-Control", "no-cache")
 	req.Header.Set("Connection", "keep-alive")
 
-	resp, err := client.config.HTTPClient.Do(req) //nolint:bodyclose // body is closed in stream.Close()
+	resp, err := httpClient.Do(req) //nolint:bodyclose // body is closed in stream.Close()
 	if err != nil {
 		return &utils.ChatCompletionStreamReader{}, model.NewRequestError(http.StatusInternalServerError, err, requestID)
 	}
@@ -323,14 +320,14 @@ func sendChatCompletionRequestStream(client *Client, req *http.Request) (*utils.
 	}, nil
 }
 
-func sendBotChatCompletionRequestStream(client *Client, req *http.Request) (*utils.BotChatCompletionStreamReader, error) {
+func sendBotChatCompletionRequestStream(client *Client, httpClient *http.Client, req *http.Request) (*utils.BotChatCompletionStreamReader, error) {
 	requestID := req.Header.Get(model.ClientRequestHeader)
 	req.Header.Set("Content-Type", "application/json")
 	req.Header.Set("Accept", "text/event-stream")
 	req.Header.Set("Cache-Control", "no-cache")
 	req.Header.Set("Connection", "keep-alive")
 
-	resp, err := client.config.HTTPClient.Do(req) //nolint:bodyclose // body is closed in stream.Close()
+	resp, err := httpClient.Do(req) //nolint:bodyclose // body is closed in stream.Close()
 	if err != nil {
 		return &utils.BotChatCompletionStreamReader{}, model.NewRequestError(http.StatusInternalServerError, err, requestID)
 	}
@@ -364,7 +361,7 @@ func (c *Client) BotChatCompletionRequestStreamDo(ctx context.Context, method, u
 				return innerErr
 			}
 
-			streamReader, err = sendBotChatCompletionRequestStream(c, req)
+			streamReader, err = sendBotChatCompletionRequestStream(c, c.config.HTTPClient, req)
 			return err
 		},
 		nil,
@@ -389,7 +386,7 @@ func (c *Client) ChatCompletionRequestStreamDo(ctx context.Context, method, url,
 				return innerErr
 			}
 
-			streamReader, err = sendChatCompletionRequestStream(c, req)
+			streamReader, err = sendChatCompletionRequestStream(c, c.config.HTTPClient, req)
 			return err
 		},
 		nil,

@@ -5,10 +5,17 @@ import (
 	"net/http"
 
 	"github.com/volcengine/volcengine-go-sdk/service/arkruntime/model"
-	"github.com/volcengine/volcengine-go-sdk/service/arkruntime/utils"
 )
 
 const batchChatCompletionsSuffix = "/batch/chat/completions"
+
+func newBatchHTTPClient(maxParallel int) *http.Client {
+	return &http.Client{
+		Transport: &http.Transport{
+			MaxConnsPerHost: maxParallel,
+		},
+	}
+}
 
 // CreateBatchChatCompletion — API call to Create a batch completion for the chat message.
 func (c *Client) CreateBatchChatCompletion(
@@ -20,25 +27,21 @@ func (c *Client) CreateBatchChatCompletion(
 		err = model.ErrChatCompletionStreamNotSupported
 		return
 	}
-	ctxWithTimeout, cancel := context.WithTimeout(ctx, c.config.HTTPClient.Timeout)
-	defer cancel()
 	requestOptions := append(setters, withBody(request))
-	err = c.DoBatch(ctxWithTimeout, http.MethodPost, c.fullURL(batchChatCompletionsSuffix), resourceTypeEndpoint, request.GetModel(), &response, requestOptions...)
+	err = c.DoBatch(ctx, http.MethodPost, c.fullURL(batchChatCompletionsSuffix), resourceTypeEndpoint, request.GetModel(), &response, requestOptions...)
 	if err != nil {
 		return
 	}
 	return
 }
 
+// Deprecated: use `arkruntime.WithBatchMaxParallel` option in `arkruntime.NewClientXXX` instead.
 func (c *Client) StartBatchWorker(workerNum int) {
-	c.batchWorkerOnce.Do(func() {
-		c.batchWorkerPool = utils.NewBatchWorkerPool(workerNum)
-		go c.batchWorkerPool.Run()
-	})
+	if transport, ok := c.batchHTTPClient.Transport.(*http.Transport); ok {
+		transport.MaxConnsPerHost = workerNum
+	}
 }
 
+// Deprecated: no need to stop batch worker.
 func (c *Client) StopBatchWorker() {
-	if c.batchWorkerPool != nil {
-		c.batchWorkerPool.Close()
-	}
 }

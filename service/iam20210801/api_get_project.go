@@ -32,7 +32,7 @@ const opGetProjectCommon = "GetProject"
 func (c *IAM20210801) GetProjectCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opGetProjectCommon,
-		HTTPMethod: "POST",
+		HTTPMethod: "GET",
 		HTTPPath:   "/",
 	}
 
@@ -97,7 +97,7 @@ const opGetProject = "GetProject"
 func (c *IAM20210801) GetProjectRequest(input *GetProjectInput) (req *request.Request, output *GetProjectOutput) {
 	op := &request.Operation{
 		Name:       opGetProject,
-		HTTPMethod: "POST",
+		HTTPMethod: "GET",
 		HTTPPath:   "/",
 	}
 

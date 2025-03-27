@@ -144,9 +144,9 @@ func (c *RDSMSSQL) DescribeAvailabilityZonesWithContext(ctx volcengine.Context, 
 }
 
 type DescribeAvailabilityZonesInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	RegionId *string `type:"string"`
+	RegionId *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -166,13 +166,13 @@ func (s *DescribeAvailabilityZonesInput) SetRegionId(v string) *DescribeAvailabi
 }
 
 type DescribeAvailabilityZonesOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	RegionId *string `type:"string"`
+	RegionId *string `type:"string" json:",omitempty"`
 
-	Zones []*ZoneForDescribeAvailabilityZonesOutput `type:"list"`
+	Zones []*ZoneForDescribeAvailabilityZonesOutput `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -198,13 +198,13 @@ func (s *DescribeAvailabilityZonesOutput) SetZones(v []*ZoneForDescribeAvailabil
 }
 
 type ZoneForDescribeAvailabilityZonesOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Description *string `type:"string"`
+	Description *string `type:"string" json:",omitempty"`
 
-	ZoneId *string `type:"string"`
+	ZoneId *string `type:"string" json:",omitempty"`
 
-	ZoneName *string `type:"string"`
+	ZoneName *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation

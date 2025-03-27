@@ -144,12 +144,12 @@ func (c *RDSMSSQL) DescribeDBInstanceParametersWithContext(ctx volcengine.Contex
 }
 
 type DescribeDBInstanceParametersInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// InstanceId is a required field
-	InstanceId *string `type:"string" required:"true"`
+	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 
-	ParameterNames *string `type:"string"`
+	ParameterNames *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -188,19 +188,19 @@ func (s *DescribeDBInstanceParametersInput) SetParameterNames(v string) *Describ
 }
 
 type DescribeDBInstanceParametersOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	DBEngine *string `type:"string"`
+	DBEngine *string `type:"string" json:",omitempty"`
 
-	DBEngineVersion *string `type:"string"`
+	DBEngineVersion *string `type:"string" json:",omitempty"`
 
-	InstanceId *string `type:"string"`
+	InstanceId *string `type:"string" json:",omitempty"`
 
-	InstanceParameters []*InstanceParameterForDescribeDBInstanceParametersOutput `type:"list"`
+	InstanceParameters []*InstanceParameterForDescribeDBInstanceParametersOutput `type:"list" json:",omitempty"`
 
-	ParameterCount *int32 `type:"int32"`
+	ParameterCount *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -244,23 +244,23 @@ func (s *DescribeDBInstanceParametersOutput) SetParameterCount(v int32) *Describ
 }
 
 type InstanceParameterForDescribeDBInstanceParametersOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	CheckingCode *string `type:"string"`
+	CheckingCode *string `type:"string" json:",omitempty"`
 
-	ForceModify *bool `type:"boolean"`
+	ForceModify *bool `type:"boolean" json:",omitempty"`
 
-	ForceRestart *bool `type:"boolean"`
+	ForceRestart *bool `type:"boolean" json:",omitempty"`
 
-	ParameterDefaultValue *string `type:"string"`
+	ParameterDefaultValue *string `type:"string" json:",omitempty"`
 
-	ParameterDescription *string `type:"string"`
+	ParameterDescription *string `type:"string" json:",omitempty"`
 
-	ParameterName *string `type:"string"`
+	ParameterName *string `type:"string" json:",omitempty"`
 
-	ParameterType *string `type:"string"`
+	ParameterType *string `type:"string" json:",omitempty"`
 
-	ParameterValue *string `type:"string"`
+	ParameterValue *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation

@@ -144,17 +144,17 @@ func (c *RDSMSSQL) CreateDBInstanceWithContext(ctx volcengine.Context, input *Cr
 }
 
 type ChargeInfoForCreateDBInstanceInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	AutoRenew *bool `type:"boolean"`
+	AutoRenew *bool `type:"boolean" json:",omitempty"`
 
-	ChargeType *string `type:"string"`
+	ChargeType *string `type:"string" json:",omitempty"`
 
-	Number *int32 `type:"int32"`
+	Number *int32 `type:"int32" json:",omitempty"`
 
-	Period *int32 `type:"int32"`
+	Period *int32 `type:"int32" json:",omitempty"`
 
-	PeriodUnit *string `type:"string"`
+	PeriodUnit *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -198,44 +198,48 @@ func (s *ChargeInfoForCreateDBInstanceInput) SetPeriodUnit(v string) *ChargeInfo
 }
 
 type CreateDBInstanceInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	ChargeInfo *ChargeInfoForCreateDBInstanceInput `type:"structure"`
+	AllowListIds []*string `type:"list" json:",omitempty"`
+
+	ChargeInfo *ChargeInfoForCreateDBInstanceInput `type:"structure" json:",omitempty"`
 
 	// DBEngineVersion is a required field
-	DBEngineVersion *string `type:"string" required:"true"`
+	DBEngineVersion *string `type:"string" json:",omitempty" required:"true"`
 
 	// DBTimeZone is a required field
-	DBTimeZone *string `type:"string" required:"true"`
+	DBTimeZone *string `type:"string" json:",omitempty" required:"true"`
 
-	InstanceName *string `type:"string"`
+	InstanceName *string `type:"string" json:",omitempty"`
 
 	// InstanceType is a required field
-	InstanceType *string `type:"string" required:"true"`
+	InstanceType *string `type:"string" json:",omitempty" required:"true"`
+
+	MaintenanceTime *string `type:"string" json:",omitempty"`
 
 	// NodeSpec is a required field
-	NodeSpec *string `type:"string" required:"true"`
+	NodeSpec *string `type:"string" json:",omitempty" required:"true"`
 
-	ProjectName *string `type:"string"`
+	ProjectName *string `type:"string" json:",omitempty"`
 
-	ServerCollation *string `type:"string"`
+	ServerCollation *string `type:"string" json:",omitempty"`
 
 	// StorageSpace is a required field
-	StorageSpace *int32 `type:"int32" required:"true"`
+	StorageSpace *int32 `type:"int32" json:",omitempty" required:"true"`
 
 	// SubnetId is a required field
-	SubnetId *string `type:"string" required:"true"`
+	SubnetId *string `type:"string" json:",omitempty" required:"true"`
 
 	// SuperAccountPassword is a required field
-	SuperAccountPassword *string `type:"string" required:"true"`
+	SuperAccountPassword *string `type:"string" json:",omitempty" required:"true"`
 
-	Tags []*TagForCreateDBInstanceInput `type:"list"`
+	Tags []*TagForCreateDBInstanceInput `type:"list" json:",omitempty"`
 
 	// VpcId is a required field
-	VpcId *string `type:"string" required:"true"`
+	VpcId *string `type:"string" json:",omitempty" required:"true"`
 
 	// ZoneId is a required field
-	ZoneId *string `type:"string" required:"true"`
+	ZoneId *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -285,6 +289,12 @@ func (s *CreateDBInstanceInput) Validate() error {
 	return nil
 }
 
+// SetAllowListIds sets the AllowListIds field's value.
+func (s *CreateDBInstanceInput) SetAllowListIds(v []*string) *CreateDBInstanceInput {
+	s.AllowListIds = v
+	return s
+}
+
 // SetChargeInfo sets the ChargeInfo field's value.
 func (s *CreateDBInstanceInput) SetChargeInfo(v *ChargeInfoForCreateDBInstanceInput) *CreateDBInstanceInput {
 	s.ChargeInfo = v
@@ -312,6 +322,12 @@ func (s *CreateDBInstanceInput) SetInstanceName(v string) *CreateDBInstanceInput
 // SetInstanceType sets the InstanceType field's value.
 func (s *CreateDBInstanceInput) SetInstanceType(v string) *CreateDBInstanceInput {
 	s.InstanceType = &v
+	return s
+}
+
+// SetMaintenanceTime sets the MaintenanceTime field's value.
+func (s *CreateDBInstanceInput) SetMaintenanceTime(v string) *CreateDBInstanceInput {
+	s.MaintenanceTime = &v
 	return s
 }
 
@@ -370,13 +386,13 @@ func (s *CreateDBInstanceInput) SetZoneId(v string) *CreateDBInstanceInput {
 }
 
 type CreateDBInstanceOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	InstanceId *string `type:"string"`
+	InstanceId *string `type:"string" json:",omitempty"`
 
-	OrderId *string `type:"string"`
+	OrderId *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -402,11 +418,11 @@ func (s *CreateDBInstanceOutput) SetOrderId(v string) *CreateDBInstanceOutput {
 }
 
 type TagForCreateDBInstanceInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Key *string `type:"string"`
+	Key *string `type:"string" json:",omitempty"`
 
-	Value *string `type:"string"`
+	Value *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation

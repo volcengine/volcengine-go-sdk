@@ -19,7 +19,7 @@ import (
 //    // volcengine sdk func uses an SDK service client to make a request to
 //    // IAM20210801.
 //    func myFunc(svc IAM20210801API) bool {
-//        // Make svc.GetProject request
+//        // Make svc.AttachPolicyInProject request
 //    }
 //
 //    func main() {
@@ -30,38 +30,6 @@ import (
 //    }
 //
 type IAM20210801API interface {
-	GetProjectCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	GetProjectCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	GetProjectCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	GetProject(*GetProjectInput) (*GetProjectOutput, error)
-	GetProjectWithContext(volcengine.Context, *GetProjectInput, ...request.Option) (*GetProjectOutput, error)
-	GetProjectRequest(*GetProjectInput) (*request.Request, *GetProjectOutput)
-
-	ListProjectIdentitiesCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	ListProjectIdentitiesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	ListProjectIdentitiesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	ListProjectIdentities(*ListProjectIdentitiesInput) (*ListProjectIdentitiesOutput, error)
-	ListProjectIdentitiesWithContext(volcengine.Context, *ListProjectIdentitiesInput, ...request.Option) (*ListProjectIdentitiesOutput, error)
-	ListProjectIdentitiesRequest(*ListProjectIdentitiesInput) (*request.Request, *ListProjectIdentitiesOutput)
-
-	ListProjectResourcesCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	ListProjectResourcesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	ListProjectResourcesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	ListProjectResources(*ListProjectResourcesInput) (*ListProjectResourcesOutput, error)
-	ListProjectResourcesWithContext(volcengine.Context, *ListProjectResourcesInput, ...request.Option) (*ListProjectResourcesOutput, error)
-	ListProjectResourcesRequest(*ListProjectResourcesInput) (*request.Request, *ListProjectResourcesOutput)
-
-	ListProjectsCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	ListProjectsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	ListProjectsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	ListProjects(*ListProjectsInput) (*ListProjectsOutput, error)
-	ListProjectsWithContext(volcengine.Context, *ListProjectsInput, ...request.Option) (*ListProjectsOutput, error)
-	ListProjectsRequest(*ListProjectsInput) (*request.Request, *ListProjectsOutput)
-
 	AttachPolicyInProjectCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	AttachPolicyInProjectCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	AttachPolicyInProjectCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -93,6 +61,38 @@ type IAM20210801API interface {
 	DetachPolicyInProject(*DetachPolicyInProjectInput) (*DetachPolicyInProjectOutput, error)
 	DetachPolicyInProjectWithContext(volcengine.Context, *DetachPolicyInProjectInput, ...request.Option) (*DetachPolicyInProjectOutput, error)
 	DetachPolicyInProjectRequest(*DetachPolicyInProjectInput) (*request.Request, *DetachPolicyInProjectOutput)
+
+	GetProjectCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	GetProjectCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	GetProjectCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	GetProject(*GetProjectInput) (*GetProjectOutput, error)
+	GetProjectWithContext(volcengine.Context, *GetProjectInput, ...request.Option) (*GetProjectOutput, error)
+	GetProjectRequest(*GetProjectInput) (*request.Request, *GetProjectOutput)
+
+	ListProjectIdentitiesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListProjectIdentitiesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListProjectIdentitiesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListProjectIdentities(*ListProjectIdentitiesInput) (*ListProjectIdentitiesOutput, error)
+	ListProjectIdentitiesWithContext(volcengine.Context, *ListProjectIdentitiesInput, ...request.Option) (*ListProjectIdentitiesOutput, error)
+	ListProjectIdentitiesRequest(*ListProjectIdentitiesInput) (*request.Request, *ListProjectIdentitiesOutput)
+
+	ListProjectResourcesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListProjectResourcesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListProjectResourcesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListProjectResources(*ListProjectResourcesInput) (*ListProjectResourcesOutput, error)
+	ListProjectResourcesWithContext(volcengine.Context, *ListProjectResourcesInput, ...request.Option) (*ListProjectResourcesOutput, error)
+	ListProjectResourcesRequest(*ListProjectResourcesInput) (*request.Request, *ListProjectResourcesOutput)
+
+	ListProjectsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListProjectsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListProjectsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListProjects(*ListProjectsInput) (*ListProjectsOutput, error)
+	ListProjectsWithContext(volcengine.Context, *ListProjectsInput, ...request.Option) (*ListProjectsOutput, error)
+	ListProjectsRequest(*ListProjectsInput) (*request.Request, *ListProjectsOutput)
 
 	MoveProjectResourceCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	MoveProjectResourceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)

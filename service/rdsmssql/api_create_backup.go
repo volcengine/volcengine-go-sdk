@@ -144,9 +144,9 @@ func (c *RDSMSSQL) CreateBackupWithContext(ctx volcengine.Context, input *Create
 }
 
 type BackupMetaForCreateBackupInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	DBName *string `type:"string"`
+	DBName *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -166,14 +166,14 @@ func (s *BackupMetaForCreateBackupInput) SetDBName(v string) *BackupMetaForCreat
 }
 
 type CreateBackupInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	BackupMeta []*BackupMetaForCreateBackupInput `type:"list"`
+	BackupMeta []*BackupMetaForCreateBackupInput `type:"list" json:",omitempty"`
 
-	BackupType *string `type:"string"`
+	BackupType *string `type:"string" json:",omitempty"`
 
 	// InstanceId is a required field
-	InstanceId *string `type:"string" required:"true"`
+	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -218,11 +218,13 @@ func (s *CreateBackupInput) SetInstanceId(v string) *CreateBackupInput {
 }
 
 type CreateBackupOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	BackupId *string `type:"string"`
+	BackupId *string `type:"string" json:",omitempty"`
+
+	InstanceId *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -238,5 +240,11 @@ func (s CreateBackupOutput) GoString() string {
 // SetBackupId sets the BackupId field's value.
 func (s *CreateBackupOutput) SetBackupId(v string) *CreateBackupOutput {
 	s.BackupId = &v
+	return s
+}
+
+// SetInstanceId sets the InstanceId field's value.
+func (s *CreateBackupOutput) SetInstanceId(v string) *CreateBackupOutput {
+	s.InstanceId = &v
 	return s
 }
