@@ -282,6 +282,8 @@ type DataVolumeForListNodePoolsOutput struct {
 
 	Size *int32 `type:"int32" json:",omitempty"`
 
+	SnapshotId *string `type:"string" json:",omitempty"`
+
 	Type *string `type:"string" json:",omitempty" enum:"EnumOfTypeForListNodePoolsOutput"`
 }
 
@@ -313,9 +315,51 @@ func (s *DataVolumeForListNodePoolsOutput) SetSize(v int32) *DataVolumeForListNo
 	return s
 }
 
+// SetSnapshotId sets the SnapshotId field's value.
+func (s *DataVolumeForListNodePoolsOutput) SetSnapshotId(v string) *DataVolumeForListNodePoolsOutput {
+	s.SnapshotId = &v
+	return s
+}
+
 // SetType sets the Type field's value.
 func (s *DataVolumeForListNodePoolsOutput) SetType(v string) *DataVolumeForListNodePoolsOutput {
 	s.Type = &v
+	return s
+}
+
+type EvictionHardForListNodePoolsOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s EvictionHardForListNodePoolsOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s EvictionHardForListNodePoolsOutput) GoString() string {
+	return s.String()
+}
+
+type FeatureGatesForListNodePoolsOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	QoSResourceManager *bool `type:"boolean" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s FeatureGatesForListNodePoolsOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s FeatureGatesForListNodePoolsOutput) GoString() string {
+	return s.String()
+}
+
+// SetQoSResourceManager sets the QoSResourceManager field's value.
+func (s *FeatureGatesForListNodePoolsOutput) SetQoSResourceManager(v bool) *FeatureGatesForListNodePoolsOutput {
+	s.QoSResourceManager = &v
 	return s
 }
 
@@ -507,12 +551,100 @@ func (s *ItemForListNodePoolsOutput) SetUpdateTime(v string) *ItemForListNodePoo
 	return s
 }
 
+type KubeletConfigForListNodePoolsOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	EvictionHard []*EvictionHardForListNodePoolsOutput `type:"list" json:",omitempty"`
+
+	FeatureGates *FeatureGatesForListNodePoolsOutput `type:"structure" json:",omitempty"`
+
+	KubeApiBurst *int32 `min:"1" max:"100" type:"int32" json:",omitempty"`
+
+	KubeApiQps *int32 `min:"1" max:"50" type:"int32" json:",omitempty"`
+
+	RegistryBurst *int32 `min:"1" max:"100" type:"int32" json:",omitempty"`
+
+	RegistryPullQps *int32 `min:"1" max:"50" type:"int32" json:",omitempty"`
+
+	SerializeImagePulls *bool `type:"boolean" json:",omitempty"`
+
+	TopologyManagerPolicy *string `type:"string" json:",omitempty" enum:"EnumOfTopologyManagerPolicyForListNodePoolsOutput"`
+
+	TopologyManagerScope *string `type:"string" json:",omitempty" enum:"EnumOfTopologyManagerScopeForListNodePoolsOutput"`
+}
+
+// String returns the string representation
+func (s KubeletConfigForListNodePoolsOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s KubeletConfigForListNodePoolsOutput) GoString() string {
+	return s.String()
+}
+
+// SetEvictionHard sets the EvictionHard field's value.
+func (s *KubeletConfigForListNodePoolsOutput) SetEvictionHard(v []*EvictionHardForListNodePoolsOutput) *KubeletConfigForListNodePoolsOutput {
+	s.EvictionHard = v
+	return s
+}
+
+// SetFeatureGates sets the FeatureGates field's value.
+func (s *KubeletConfigForListNodePoolsOutput) SetFeatureGates(v *FeatureGatesForListNodePoolsOutput) *KubeletConfigForListNodePoolsOutput {
+	s.FeatureGates = v
+	return s
+}
+
+// SetKubeApiBurst sets the KubeApiBurst field's value.
+func (s *KubeletConfigForListNodePoolsOutput) SetKubeApiBurst(v int32) *KubeletConfigForListNodePoolsOutput {
+	s.KubeApiBurst = &v
+	return s
+}
+
+// SetKubeApiQps sets the KubeApiQps field's value.
+func (s *KubeletConfigForListNodePoolsOutput) SetKubeApiQps(v int32) *KubeletConfigForListNodePoolsOutput {
+	s.KubeApiQps = &v
+	return s
+}
+
+// SetRegistryBurst sets the RegistryBurst field's value.
+func (s *KubeletConfigForListNodePoolsOutput) SetRegistryBurst(v int32) *KubeletConfigForListNodePoolsOutput {
+	s.RegistryBurst = &v
+	return s
+}
+
+// SetRegistryPullQps sets the RegistryPullQps field's value.
+func (s *KubeletConfigForListNodePoolsOutput) SetRegistryPullQps(v int32) *KubeletConfigForListNodePoolsOutput {
+	s.RegistryPullQps = &v
+	return s
+}
+
+// SetSerializeImagePulls sets the SerializeImagePulls field's value.
+func (s *KubeletConfigForListNodePoolsOutput) SetSerializeImagePulls(v bool) *KubeletConfigForListNodePoolsOutput {
+	s.SerializeImagePulls = &v
+	return s
+}
+
+// SetTopologyManagerPolicy sets the TopologyManagerPolicy field's value.
+func (s *KubeletConfigForListNodePoolsOutput) SetTopologyManagerPolicy(v string) *KubeletConfigForListNodePoolsOutput {
+	s.TopologyManagerPolicy = &v
+	return s
+}
+
+// SetTopologyManagerScope sets the TopologyManagerScope field's value.
+func (s *KubeletConfigForListNodePoolsOutput) SetTopologyManagerScope(v string) *KubeletConfigForListNodePoolsOutput {
+	s.TopologyManagerScope = &v
+	return s
+}
+
 type KubernetesConfigForListNodePoolsOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
 	AutoSyncDisabled *bool `type:"boolean" json:",omitempty"`
 
 	Cordon *bool `type:"boolean" json:",omitempty"`
+
+	KubeletConfig *KubeletConfigForListNodePoolsOutput `type:"structure" json:",omitempty"`
 
 	Labels []*LabelForListNodePoolsOutput `type:"list" json:",omitempty"`
 
@@ -540,6 +672,12 @@ func (s *KubernetesConfigForListNodePoolsOutput) SetAutoSyncDisabled(v bool) *Ku
 // SetCordon sets the Cordon field's value.
 func (s *KubernetesConfigForListNodePoolsOutput) SetCordon(v bool) *KubernetesConfigForListNodePoolsOutput {
 	s.Cordon = &v
+	return s
+}
+
+// SetKubeletConfig sets the KubeletConfig field's value.
+func (s *KubernetesConfigForListNodePoolsOutput) SetKubeletConfig(v *KubeletConfigForListNodePoolsOutput) *KubernetesConfigForListNodePoolsOutput {
+	s.KubeletConfig = v
 	return s
 }
 
@@ -726,6 +864,10 @@ type NodeConfigForListNodePoolsOutput struct {
 
 	DataVolumes []*DataVolumeForListNodePoolsOutput `type:"list" json:",omitempty"`
 
+	DeploymentSetGroupNumber *int32 `type:"int32" json:",omitempty"`
+
+	DeploymentSetId *string `type:"string" json:",omitempty"`
+
 	HpcClusterIds []*string `type:"list" json:",omitempty"`
 
 	ImageId *string `type:"string" json:",omitempty"`
@@ -782,6 +924,18 @@ func (s *NodeConfigForListNodePoolsOutput) SetAutoRenewPeriod(v int32) *NodeConf
 // SetDataVolumes sets the DataVolumes field's value.
 func (s *NodeConfigForListNodePoolsOutput) SetDataVolumes(v []*DataVolumeForListNodePoolsOutput) *NodeConfigForListNodePoolsOutput {
 	s.DataVolumes = v
+	return s
+}
+
+// SetDeploymentSetGroupNumber sets the DeploymentSetGroupNumber field's value.
+func (s *NodeConfigForListNodePoolsOutput) SetDeploymentSetGroupNumber(v int32) *NodeConfigForListNodePoolsOutput {
+	s.DeploymentSetGroupNumber = &v
+	return s
+}
+
+// SetDeploymentSetId sets the DeploymentSetId field's value.
+func (s *NodeConfigForListNodePoolsOutput) SetDeploymentSetId(v string) *NodeConfigForListNodePoolsOutput {
+	s.DeploymentSetId = &v
 	return s
 }
 
@@ -1263,6 +1417,28 @@ const (
 
 	// EnumOfSubnetPolicyForListNodePoolsOutputPriority is a EnumOfSubnetPolicyForListNodePoolsOutput enum value
 	EnumOfSubnetPolicyForListNodePoolsOutputPriority = "Priority"
+)
+
+const (
+	// EnumOfTopologyManagerPolicyForListNodePoolsOutputRestricted is a EnumOfTopologyManagerPolicyForListNodePoolsOutput enum value
+	EnumOfTopologyManagerPolicyForListNodePoolsOutputRestricted = "restricted"
+
+	// EnumOfTopologyManagerPolicyForListNodePoolsOutputBestEffort is a EnumOfTopologyManagerPolicyForListNodePoolsOutput enum value
+	EnumOfTopologyManagerPolicyForListNodePoolsOutputBestEffort = "best-effort"
+
+	// EnumOfTopologyManagerPolicyForListNodePoolsOutputNone is a EnumOfTopologyManagerPolicyForListNodePoolsOutput enum value
+	EnumOfTopologyManagerPolicyForListNodePoolsOutputNone = "none"
+
+	// EnumOfTopologyManagerPolicyForListNodePoolsOutputSingleNumaNode is a EnumOfTopologyManagerPolicyForListNodePoolsOutput enum value
+	EnumOfTopologyManagerPolicyForListNodePoolsOutputSingleNumaNode = "single-numa-node"
+)
+
+const (
+	// EnumOfTopologyManagerScopeForListNodePoolsOutputPod is a EnumOfTopologyManagerScopeForListNodePoolsOutput enum value
+	EnumOfTopologyManagerScopeForListNodePoolsOutputPod = "pod"
+
+	// EnumOfTopologyManagerScopeForListNodePoolsOutputContainer is a EnumOfTopologyManagerScopeForListNodePoolsOutput enum value
+	EnumOfTopologyManagerScopeForListNodePoolsOutputContainer = "container"
 )
 
 const (
