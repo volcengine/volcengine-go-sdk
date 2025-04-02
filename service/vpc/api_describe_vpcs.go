@@ -429,6 +429,8 @@ type VpcForDescribeVpcsOutput struct {
 
 	DnsServers []*string `type:"list"`
 
+	Ipv4GatewayId *string `type:"string"`
+
 	IsDefault *bool `type:"boolean"`
 
 	NatGatewayIds []*string `type:"list"`
@@ -446,6 +448,8 @@ type VpcForDescribeVpcsOutput struct {
 	Status *string `type:"string"`
 
 	SubnetIds []*string `type:"list"`
+
+	SupportIpv4Gateway *bool `type:"boolean"`
 
 	Tags []*TagForDescribeVpcsOutput `type:"list"`
 
@@ -504,6 +508,12 @@ func (s *VpcForDescribeVpcsOutput) SetDnsServers(v []*string) *VpcForDescribeVpc
 	return s
 }
 
+// SetIpv4GatewayId sets the Ipv4GatewayId field's value.
+func (s *VpcForDescribeVpcsOutput) SetIpv4GatewayId(v string) *VpcForDescribeVpcsOutput {
+	s.Ipv4GatewayId = &v
+	return s
+}
+
 // SetIsDefault sets the IsDefault field's value.
 func (s *VpcForDescribeVpcsOutput) SetIsDefault(v bool) *VpcForDescribeVpcsOutput {
 	s.IsDefault = &v
@@ -555,6 +565,12 @@ func (s *VpcForDescribeVpcsOutput) SetStatus(v string) *VpcForDescribeVpcsOutput
 // SetSubnetIds sets the SubnetIds field's value.
 func (s *VpcForDescribeVpcsOutput) SetSubnetIds(v []*string) *VpcForDescribeVpcsOutput {
 	s.SubnetIds = v
+	return s
+}
+
+// SetSupportIpv4Gateway sets the SupportIpv4Gateway field's value.
+func (s *VpcForDescribeVpcsOutput) SetSupportIpv4Gateway(v bool) *VpcForDescribeVpcsOutput {
+	s.SupportIpv4Gateway = &v
 	return s
 }
 
