@@ -158,6 +158,8 @@ type CustomizedCfgForDescribeCustomizedCfgsOutput struct {
 
 	Status *string `type:"string"`
 
+	Tags []*TagForDescribeCustomizedCfgsOutput `type:"list"`
+
 	UpdateTime *string `type:"string"`
 }
 
@@ -219,6 +221,12 @@ func (s *CustomizedCfgForDescribeCustomizedCfgsOutput) SetStatus(v string) *Cust
 	return s
 }
 
+// SetTags sets the Tags field's value.
+func (s *CustomizedCfgForDescribeCustomizedCfgsOutput) SetTags(v []*TagForDescribeCustomizedCfgsOutput) *CustomizedCfgForDescribeCustomizedCfgsOutput {
+	s.Tags = v
+	return s
+}
+
 // SetUpdateTime sets the UpdateTime field's value.
 func (s *CustomizedCfgForDescribeCustomizedCfgsOutput) SetUpdateTime(v string) *CustomizedCfgForDescribeCustomizedCfgsOutput {
 	s.UpdateTime = &v
@@ -239,6 +247,8 @@ type DescribeCustomizedCfgsInput struct {
 	PageSize *int64 `type:"integer"`
 
 	ProjectName *string `type:"string"`
+
+	TagFilters []*TagFilterForDescribeCustomizedCfgsInput `type:"list"`
 }
 
 // String returns the string representation
@@ -284,6 +294,12 @@ func (s *DescribeCustomizedCfgsInput) SetPageSize(v int64) *DescribeCustomizedCf
 // SetProjectName sets the ProjectName field's value.
 func (s *DescribeCustomizedCfgsInput) SetProjectName(v string) *DescribeCustomizedCfgsInput {
 	s.ProjectName = &v
+	return s
+}
+
+// SetTagFilters sets the TagFilters field's value.
+func (s *DescribeCustomizedCfgsInput) SetTagFilters(v []*TagFilterForDescribeCustomizedCfgsInput) *DescribeCustomizedCfgsInput {
+	s.TagFilters = v
 	return s
 }
 
@@ -340,5 +356,65 @@ func (s *DescribeCustomizedCfgsOutput) SetRequestId(v string) *DescribeCustomize
 // SetTotalCount sets the TotalCount field's value.
 func (s *DescribeCustomizedCfgsOutput) SetTotalCount(v int64) *DescribeCustomizedCfgsOutput {
 	s.TotalCount = &v
+	return s
+}
+
+type TagFilterForDescribeCustomizedCfgsInput struct {
+	_ struct{} `type:"structure"`
+
+	Key *string `type:"string"`
+
+	Values []*string `type:"list"`
+}
+
+// String returns the string representation
+func (s TagFilterForDescribeCustomizedCfgsInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagFilterForDescribeCustomizedCfgsInput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagFilterForDescribeCustomizedCfgsInput) SetKey(v string) *TagFilterForDescribeCustomizedCfgsInput {
+	s.Key = &v
+	return s
+}
+
+// SetValues sets the Values field's value.
+func (s *TagFilterForDescribeCustomizedCfgsInput) SetValues(v []*string) *TagFilterForDescribeCustomizedCfgsInput {
+	s.Values = v
+	return s
+}
+
+type TagForDescribeCustomizedCfgsOutput struct {
+	_ struct{} `type:"structure"`
+
+	Key *string `type:"string"`
+
+	Value *string `type:"string"`
+}
+
+// String returns the string representation
+func (s TagForDescribeCustomizedCfgsOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagForDescribeCustomizedCfgsOutput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagForDescribeCustomizedCfgsOutput) SetKey(v string) *TagForDescribeCustomizedCfgsOutput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *TagForDescribeCustomizedCfgsOutput) SetValue(v string) *TagForDescribeCustomizedCfgsOutput {
+	s.Value = &v
 	return s
 }

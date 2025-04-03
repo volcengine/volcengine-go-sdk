@@ -163,6 +163,8 @@ type CertificateForDescribeAllCertificatesOutput struct {
 	San *string `type:"string"`
 
 	Status *string `type:"string"`
+
+	Tags []*TagForDescribeAllCertificatesOutput `type:"list"`
 }
 
 // String returns the string representation
@@ -241,6 +243,12 @@ func (s *CertificateForDescribeAllCertificatesOutput) SetStatus(v string) *Certi
 	return s
 }
 
+// SetTags sets the Tags field's value.
+func (s *CertificateForDescribeAllCertificatesOutput) SetTags(v []*TagForDescribeAllCertificatesOutput) *CertificateForDescribeAllCertificatesOutput {
+	s.Tags = v
+	return s
+}
+
 type DescribeAllCertificatesInput struct {
 	_ struct{} `type:"structure"`
 
@@ -255,6 +263,8 @@ type DescribeAllCertificatesInput struct {
 	PageSize *int64 `type:"integer"`
 
 	ProjectName *string `type:"string"`
+
+	TagFilters []*TagFilterForDescribeAllCertificatesInput `type:"list"`
 }
 
 // String returns the string representation
@@ -300,6 +310,12 @@ func (s *DescribeAllCertificatesInput) SetPageSize(v int64) *DescribeAllCertific
 // SetProjectName sets the ProjectName field's value.
 func (s *DescribeAllCertificatesInput) SetProjectName(v string) *DescribeAllCertificatesInput {
 	s.ProjectName = &v
+	return s
+}
+
+// SetTagFilters sets the TagFilters field's value.
+func (s *DescribeAllCertificatesInput) SetTagFilters(v []*TagFilterForDescribeAllCertificatesInput) *DescribeAllCertificatesInput {
+	s.TagFilters = v
 	return s
 }
 
@@ -356,5 +372,65 @@ func (s *DescribeAllCertificatesOutput) SetRequestId(v string) *DescribeAllCerti
 // SetTotalCount sets the TotalCount field's value.
 func (s *DescribeAllCertificatesOutput) SetTotalCount(v int64) *DescribeAllCertificatesOutput {
 	s.TotalCount = &v
+	return s
+}
+
+type TagFilterForDescribeAllCertificatesInput struct {
+	_ struct{} `type:"structure"`
+
+	Key *string `type:"string"`
+
+	Values []*string `type:"list"`
+}
+
+// String returns the string representation
+func (s TagFilterForDescribeAllCertificatesInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagFilterForDescribeAllCertificatesInput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagFilterForDescribeAllCertificatesInput) SetKey(v string) *TagFilterForDescribeAllCertificatesInput {
+	s.Key = &v
+	return s
+}
+
+// SetValues sets the Values field's value.
+func (s *TagFilterForDescribeAllCertificatesInput) SetValues(v []*string) *TagFilterForDescribeAllCertificatesInput {
+	s.Values = v
+	return s
+}
+
+type TagForDescribeAllCertificatesOutput struct {
+	_ struct{} `type:"structure"`
+
+	Key *string `type:"string"`
+
+	Value *string `type:"string"`
+}
+
+// String returns the string representation
+func (s TagForDescribeAllCertificatesOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagForDescribeAllCertificatesOutput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagForDescribeAllCertificatesOutput) SetKey(v string) *TagForDescribeAllCertificatesOutput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *TagForDescribeAllCertificatesOutput) SetValue(v string) *TagForDescribeAllCertificatesOutput {
+	s.Value = &v
 	return s
 }

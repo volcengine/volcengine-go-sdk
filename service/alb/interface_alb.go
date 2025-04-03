@@ -302,6 +302,14 @@ type ALBAPI interface {
 	DescribeServerGroupAttributesWithContext(volcengine.Context, *DescribeServerGroupAttributesInput, ...request.Option) (*DescribeServerGroupAttributesOutput, error)
 	DescribeServerGroupAttributesRequest(*DescribeServerGroupAttributesInput) (*request.Request, *DescribeServerGroupAttributesOutput)
 
+	DescribeServerGroupBackendServersCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeServerGroupBackendServersCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeServerGroupBackendServersCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeServerGroupBackendServers(*DescribeServerGroupBackendServersInput) (*DescribeServerGroupBackendServersOutput, error)
+	DescribeServerGroupBackendServersWithContext(volcengine.Context, *DescribeServerGroupBackendServersInput, ...request.Option) (*DescribeServerGroupBackendServersOutput, error)
+	DescribeServerGroupBackendServersRequest(*DescribeServerGroupBackendServersInput) (*request.Request, *DescribeServerGroupBackendServersOutput)
+
 	DescribeServerGroupsCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DescribeServerGroupsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DescribeServerGroupsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})

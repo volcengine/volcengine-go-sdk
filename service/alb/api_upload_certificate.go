@@ -139,20 +139,55 @@ func (c *ALB) UploadCertificateWithContext(ctx volcengine.Context, input *Upload
 	return out, req.Send()
 }
 
+type TagForUploadCertificateInput struct {
+	_ struct{} `type:"structure"`
+
+	Key *string `type:"string"`
+
+	Value *string `type:"string"`
+}
+
+// String returns the string representation
+func (s TagForUploadCertificateInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagForUploadCertificateInput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagForUploadCertificateInput) SetKey(v string) *TagForUploadCertificateInput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *TagForUploadCertificateInput) SetValue(v string) *TagForUploadCertificateInput {
+	s.Value = &v
+	return s
+}
+
 type UploadCertificateInput struct {
 	_ struct{} `type:"structure"`
 
 	CertificateName *string `min:"1" max:"128" type:"string"`
 
-	CertificateType *string `type:"string"`
+	// CertificateType is a required field
+	CertificateType *string `type:"string" required:"true"`
 
 	Description *string `type:"string"`
 
-	PrivateKey *string `type:"string"`
+	// PrivateKey is a required field
+	PrivateKey *string `type:"string" required:"true"`
 
 	ProjectName *string `type:"string"`
 
-	PublicKey *string `type:"string"`
+	// PublicKey is a required field
+	PublicKey *string `type:"string" required:"true"`
+
+	Tags []*TagForUploadCertificateInput `type:"list"`
 }
 
 // String returns the string representation
@@ -173,6 +208,15 @@ func (s *UploadCertificateInput) Validate() error {
 	}
 	if s.CertificateName != nil && len(*s.CertificateName) > 128 {
 		invalidParams.Add(request.NewErrParamMaxLen("CertificateName", 128, *s.CertificateName))
+	}
+	if s.CertificateType == nil {
+		invalidParams.Add(request.NewErrParamRequired("CertificateType"))
+	}
+	if s.PrivateKey == nil {
+		invalidParams.Add(request.NewErrParamRequired("PrivateKey"))
+	}
+	if s.PublicKey == nil {
+		invalidParams.Add(request.NewErrParamRequired("PublicKey"))
 	}
 
 	if invalidParams.Len() > 0 {
@@ -214,6 +258,12 @@ func (s *UploadCertificateInput) SetProjectName(v string) *UploadCertificateInpu
 // SetPublicKey sets the PublicKey field's value.
 func (s *UploadCertificateInput) SetPublicKey(v string) *UploadCertificateInput {
 	s.PublicKey = &v
+	return s
+}
+
+// SetTags sets the Tags field's value.
+func (s *UploadCertificateInput) SetTags(v []*TagForUploadCertificateInput) *UploadCertificateInput {
+	s.Tags = v
 	return s
 }
 

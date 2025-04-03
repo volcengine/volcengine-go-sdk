@@ -194,7 +194,8 @@ type ModifyLoadBalancerAttributesInput struct {
 
 	GlobalAccelerator *GlobalAcceleratorForModifyLoadBalancerAttributesInput `type:"structure"`
 
-	LoadBalancerId *string `type:"string"`
+	// LoadBalancerId is a required field
+	LoadBalancerId *string `type:"string" required:"true"`
 
 	LoadBalancerName *string `type:"string"`
 
@@ -217,6 +218,19 @@ func (s ModifyLoadBalancerAttributesInput) String() string {
 // GoString returns the string representation
 func (s ModifyLoadBalancerAttributesInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *ModifyLoadBalancerAttributesInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "ModifyLoadBalancerAttributesInput"}
+	if s.LoadBalancerId == nil {
+		invalidParams.Add(request.NewErrParamRequired("LoadBalancerId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetDeleteProtection sets the DeleteProtection field's value.

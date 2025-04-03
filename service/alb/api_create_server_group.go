@@ -146,6 +146,8 @@ type CreateServerGroupInput struct {
 
 	HealthCheck *HealthCheckForCreateServerGroupInput `type:"structure"`
 
+	IPAddressType *string `type:"string"`
+
 	ProjectName *string `type:"string"`
 
 	Protocol *string `type:"string"`
@@ -160,7 +162,8 @@ type CreateServerGroupInput struct {
 
 	Tags []*TagForCreateServerGroupInput `type:"list"`
 
-	VpcId *string `type:"string"`
+	// VpcId is a required field
+	VpcId *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -181,6 +184,9 @@ func (s *CreateServerGroupInput) Validate() error {
 	}
 	if s.ServerGroupName != nil && len(*s.ServerGroupName) > 128 {
 		invalidParams.Add(request.NewErrParamMaxLen("ServerGroupName", 128, *s.ServerGroupName))
+	}
+	if s.VpcId == nil {
+		invalidParams.Add(request.NewErrParamRequired("VpcId"))
 	}
 	if s.HealthCheck != nil {
 		if err := s.HealthCheck.Validate(); err != nil {
@@ -203,6 +209,12 @@ func (s *CreateServerGroupInput) SetDescription(v string) *CreateServerGroupInpu
 // SetHealthCheck sets the HealthCheck field's value.
 func (s *CreateServerGroupInput) SetHealthCheck(v *HealthCheckForCreateServerGroupInput) *CreateServerGroupInput {
 	s.HealthCheck = v
+	return s
+}
+
+// SetIPAddressType sets the IPAddressType field's value.
+func (s *CreateServerGroupInput) SetIPAddressType(v string) *CreateServerGroupInput {
+	s.IPAddressType = &v
 	return s
 }
 

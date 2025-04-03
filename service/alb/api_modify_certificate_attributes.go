@@ -142,7 +142,8 @@ func (c *ALB) ModifyCertificateAttributesWithContext(ctx volcengine.Context, inp
 type ModifyCertificateAttributesInput struct {
 	_ struct{} `type:"structure"`
 
-	CertificateId *string `type:"string"`
+	// CertificateId is a required field
+	CertificateId *string `type:"string" required:"true"`
 
 	CertificateName *string `min:"1" max:"128" type:"string"`
 
@@ -162,6 +163,9 @@ func (s ModifyCertificateAttributesInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *ModifyCertificateAttributesInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "ModifyCertificateAttributesInput"}
+	if s.CertificateId == nil {
+		invalidParams.Add(request.NewErrParamRequired("CertificateId"))
+	}
 	if s.CertificateName != nil && len(*s.CertificateName) < 1 {
 		invalidParams.Add(request.NewErrParamMinLen("CertificateName", 1))
 	}

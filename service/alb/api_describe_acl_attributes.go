@@ -172,7 +172,8 @@ func (s *AclEntryForDescribeAclAttributesOutput) SetEntry(v string) *AclEntryFor
 type DescribeAclAttributesInput struct {
 	_ struct{} `type:"structure"`
 
-	AclId *string `type:"string"`
+	// AclId is a required field
+	AclId *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -183,6 +184,19 @@ func (s DescribeAclAttributesInput) String() string {
 // GoString returns the string representation
 func (s DescribeAclAttributesInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DescribeAclAttributesInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DescribeAclAttributesInput"}
+	if s.AclId == nil {
+		invalidParams.Add(request.NewErrParamRequired("AclId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetAclId sets the AclId field's value.
@@ -213,6 +227,8 @@ type DescribeAclAttributesOutput struct {
 	RequestId *string `type:"string"`
 
 	Status *string `type:"string"`
+
+	Tags []*TagForDescribeAclAttributesOutput `type:"list"`
 
 	UpdateTime *string `type:"string"`
 }
@@ -281,6 +297,12 @@ func (s *DescribeAclAttributesOutput) SetStatus(v string) *DescribeAclAttributes
 	return s
 }
 
+// SetTags sets the Tags field's value.
+func (s *DescribeAclAttributesOutput) SetTags(v []*TagForDescribeAclAttributesOutput) *DescribeAclAttributesOutput {
+	s.Tags = v
+	return s
+}
+
 // SetUpdateTime sets the UpdateTime field's value.
 func (s *DescribeAclAttributesOutput) SetUpdateTime(v string) *DescribeAclAttributesOutput {
 	s.UpdateTime = &v
@@ -338,5 +360,35 @@ func (s *ListenerForDescribeAclAttributesOutput) SetPort(v int64) *ListenerForDe
 // SetProtocol sets the Protocol field's value.
 func (s *ListenerForDescribeAclAttributesOutput) SetProtocol(v string) *ListenerForDescribeAclAttributesOutput {
 	s.Protocol = &v
+	return s
+}
+
+type TagForDescribeAclAttributesOutput struct {
+	_ struct{} `type:"structure"`
+
+	Key *string `type:"string"`
+
+	Value *string `type:"string"`
+}
+
+// String returns the string representation
+func (s TagForDescribeAclAttributesOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagForDescribeAclAttributesOutput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagForDescribeAclAttributesOutput) SetKey(v string) *TagForDescribeAclAttributesOutput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *TagForDescribeAclAttributesOutput) SetValue(v string) *TagForDescribeAclAttributesOutput {
+	s.Value = &v
 	return s
 }
