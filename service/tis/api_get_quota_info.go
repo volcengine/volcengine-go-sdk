@@ -220,6 +220,8 @@ type QuotaInfoListForGetQuotaInfoOutput struct {
 
 	AvailableAmount *int32 `type:"int32" json:"availableAmount,omitempty"`
 
+	ConfigurationCode *string `type:"string" json:"configurationCode,omitempty"`
+
 	PackageName *string `type:"string" json:"packageName,omitempty"`
 
 	TotalAmount *int32 `type:"int32" json:"totalAmount,omitempty"`
@@ -238,6 +240,12 @@ func (s QuotaInfoListForGetQuotaInfoOutput) GoString() string {
 // SetAvailableAmount sets the AvailableAmount field's value.
 func (s *QuotaInfoListForGetQuotaInfoOutput) SetAvailableAmount(v int32) *QuotaInfoListForGetQuotaInfoOutput {
 	s.AvailableAmount = &v
+	return s
+}
+
+// SetConfigurationCode sets the ConfigurationCode field's value.
+func (s *QuotaInfoListForGetQuotaInfoOutput) SetConfigurationCode(v string) *QuotaInfoListForGetQuotaInfoOutput {
+	s.ConfigurationCode = &v
 	return s
 }
 
