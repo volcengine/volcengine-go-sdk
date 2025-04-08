@@ -145,9 +145,6 @@ func (c *ESCLOUD) DescribeZonesWithContext(ctx volcengine.Context, input *Descri
 
 type DescribeZonesInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
-
-	// RegionId is a required field
-	RegionId *string `type:"string" json:",omitempty" required:"true" enum:"EnumOfRegionIdForDescribeZonesInput"`
 }
 
 // String returns the string representation
@@ -158,25 +155,6 @@ func (s DescribeZonesInput) String() string {
 // GoString returns the string representation
 func (s DescribeZonesInput) GoString() string {
 	return s.String()
-}
-
-// Validate inspects the fields of the type to determine if they are valid.
-func (s *DescribeZonesInput) Validate() error {
-	invalidParams := request.ErrInvalidParams{Context: "DescribeZonesInput"}
-	if s.RegionId == nil {
-		invalidParams.Add(request.NewErrParamRequired("RegionId"))
-	}
-
-	if invalidParams.Len() > 0 {
-		return invalidParams
-	}
-	return nil
-}
-
-// SetRegionId sets the RegionId field's value.
-func (s *DescribeZonesInput) SetRegionId(v string) *DescribeZonesInput {
-	s.RegionId = &v
-	return s
 }
 
 type DescribeZonesOutput struct {
@@ -248,20 +226,3 @@ func (s *ZoneForDescribeZonesOutput) SetZoneStatus(v string) *ZoneForDescribeZon
 	s.ZoneStatus = &v
 	return s
 }
-
-const (
-	// EnumOfRegionIdForDescribeZonesInputCnBeijing is a EnumOfRegionIdForDescribeZonesInput enum value
-	EnumOfRegionIdForDescribeZonesInputCnBeijing = "cn-beijing"
-
-	// EnumOfRegionIdForDescribeZonesInputCnShanghai is a EnumOfRegionIdForDescribeZonesInput enum value
-	EnumOfRegionIdForDescribeZonesInputCnShanghai = "cn-shanghai"
-
-	// EnumOfRegionIdForDescribeZonesInputCnGuangzhou is a EnumOfRegionIdForDescribeZonesInput enum value
-	EnumOfRegionIdForDescribeZonesInputCnGuangzhou = "cn-guangzhou"
-
-	// EnumOfRegionIdForDescribeZonesInputApSoutheast1 is a EnumOfRegionIdForDescribeZonesInput enum value
-	EnumOfRegionIdForDescribeZonesInputApSoutheast1 = "ap-southeast-1"
-
-	// EnumOfRegionIdForDescribeZonesInputCnBeijingSelfdrive is a EnumOfRegionIdForDescribeZonesInput enum value
-	EnumOfRegionIdForDescribeZonesInputCnBeijingSelfdrive = "cn-beijing-selfdrive"
-)

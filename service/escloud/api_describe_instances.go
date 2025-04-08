@@ -876,9 +876,13 @@ type InstanceForDescribeInstancesOutput struct {
 
 	ESPrivateEndpoint *string `type:"string" json:",omitempty"`
 
+	ESPrivateIpAllowList *string `type:"string" json:",omitempty"`
+
 	ESPrivateIpWhitelist *string `type:"string" json:",omitempty"`
 
 	ESPublicEndpoint *string `type:"string" json:",omitempty"`
+
+	ESPublicIpAllowList *string `type:"string" json:",omitempty"`
 
 	ESPublicIpWhitelist *string `type:"string" json:",omitempty"`
 
@@ -908,9 +912,13 @@ type InstanceForDescribeInstancesOutput struct {
 
 	KibanaPrivateDomain *string `type:"string" json:",omitempty"`
 
+	KibanaPrivateIpAllowList *string `type:"string" json:",omitempty"`
+
 	KibanaPrivateIpWhitelist *string `type:"string" json:",omitempty"`
 
 	KibanaPublicDomain *string `type:"string" json:",omitempty"`
+
+	KibanaPublicIpAllowList *string `type:"string" json:",omitempty"`
 
 	KibanaPublicIpWhitelist *string `type:"string" json:",omitempty"`
 
@@ -923,6 +931,8 @@ type InstanceForDescribeInstancesOutput struct {
 	ResourceTags []*ResourceTagForDescribeInstancesOutput `type:"list" json:",omitempty"`
 
 	Status *string `type:"string" json:",omitempty" enum:"EnumOfStatusForDescribeInstancesOutput"`
+
+	SubInstanceEnable *string `type:"string" json:",omitempty" enum:"EnumOfSubInstanceEnableForDescribeInstancesOutput"`
 
 	SubInstances []*SubInstanceForDescribeInstancesOutput `type:"list" json:",omitempty"`
 
@@ -1005,6 +1015,12 @@ func (s *InstanceForDescribeInstancesOutput) SetESPrivateEndpoint(v string) *Ins
 	return s
 }
 
+// SetESPrivateIpAllowList sets the ESPrivateIpAllowList field's value.
+func (s *InstanceForDescribeInstancesOutput) SetESPrivateIpAllowList(v string) *InstanceForDescribeInstancesOutput {
+	s.ESPrivateIpAllowList = &v
+	return s
+}
+
 // SetESPrivateIpWhitelist sets the ESPrivateIpWhitelist field's value.
 func (s *InstanceForDescribeInstancesOutput) SetESPrivateIpWhitelist(v string) *InstanceForDescribeInstancesOutput {
 	s.ESPrivateIpWhitelist = &v
@@ -1014,6 +1030,12 @@ func (s *InstanceForDescribeInstancesOutput) SetESPrivateIpWhitelist(v string) *
 // SetESPublicEndpoint sets the ESPublicEndpoint field's value.
 func (s *InstanceForDescribeInstancesOutput) SetESPublicEndpoint(v string) *InstanceForDescribeInstancesOutput {
 	s.ESPublicEndpoint = &v
+	return s
+}
+
+// SetESPublicIpAllowList sets the ESPublicIpAllowList field's value.
+func (s *InstanceForDescribeInstancesOutput) SetESPublicIpAllowList(v string) *InstanceForDescribeInstancesOutput {
+	s.ESPublicIpAllowList = &v
 	return s
 }
 
@@ -1101,6 +1123,12 @@ func (s *InstanceForDescribeInstancesOutput) SetKibanaPrivateDomain(v string) *I
 	return s
 }
 
+// SetKibanaPrivateIpAllowList sets the KibanaPrivateIpAllowList field's value.
+func (s *InstanceForDescribeInstancesOutput) SetKibanaPrivateIpAllowList(v string) *InstanceForDescribeInstancesOutput {
+	s.KibanaPrivateIpAllowList = &v
+	return s
+}
+
 // SetKibanaPrivateIpWhitelist sets the KibanaPrivateIpWhitelist field's value.
 func (s *InstanceForDescribeInstancesOutput) SetKibanaPrivateIpWhitelist(v string) *InstanceForDescribeInstancesOutput {
 	s.KibanaPrivateIpWhitelist = &v
@@ -1110,6 +1138,12 @@ func (s *InstanceForDescribeInstancesOutput) SetKibanaPrivateIpWhitelist(v strin
 // SetKibanaPublicDomain sets the KibanaPublicDomain field's value.
 func (s *InstanceForDescribeInstancesOutput) SetKibanaPublicDomain(v string) *InstanceForDescribeInstancesOutput {
 	s.KibanaPublicDomain = &v
+	return s
+}
+
+// SetKibanaPublicIpAllowList sets the KibanaPublicIpAllowList field's value.
+func (s *InstanceForDescribeInstancesOutput) SetKibanaPublicIpAllowList(v string) *InstanceForDescribeInstancesOutput {
+	s.KibanaPublicIpAllowList = &v
 	return s
 }
 
@@ -1146,6 +1180,12 @@ func (s *InstanceForDescribeInstancesOutput) SetResourceTags(v []*ResourceTagFor
 // SetStatus sets the Status field's value.
 func (s *InstanceForDescribeInstancesOutput) SetStatus(v string) *InstanceForDescribeInstancesOutput {
 	s.Status = &v
+	return s
+}
+
+// SetSubInstanceEnable sets the SubInstanceEnable field's value.
+func (s *InstanceForDescribeInstancesOutput) SetSubInstanceEnable(v string) *InstanceForDescribeInstancesOutput {
+	s.SubInstanceEnable = &v
 	return s
 }
 
@@ -1938,6 +1978,20 @@ const (
 )
 
 const (
+	// EnumOfSubInstanceEnableForDescribeInstancesOutputNone is a EnumOfSubInstanceEnableForDescribeInstancesOutput enum value
+	EnumOfSubInstanceEnableForDescribeInstancesOutputNone = "None"
+
+	// EnumOfSubInstanceEnableForDescribeInstancesOutputAi is a EnumOfSubInstanceEnableForDescribeInstancesOutput enum value
+	EnumOfSubInstanceEnableForDescribeInstancesOutputAi = " AI"
+
+	// EnumOfSubInstanceEnableForDescribeInstancesOutputSql is a EnumOfSubInstanceEnableForDescribeInstancesOutput enum value
+	EnumOfSubInstanceEnableForDescribeInstancesOutputSql = " Sql"
+
+	// EnumOfSubInstanceEnableForDescribeInstancesOutputAiSql is a EnumOfSubInstanceEnableForDescribeInstancesOutput enum value
+	EnumOfSubInstanceEnableForDescribeInstancesOutputAiSql = " AI_Sql"
+)
+
+const (
 	// EnumOfSubInstanceStatusForDescribeInstancesOutputAvailable is a EnumOfSubInstanceStatusForDescribeInstancesOutput enum value
 	EnumOfSubInstanceStatusForDescribeInstancesOutputAvailable = "AVAILABLE"
 
@@ -1949,8 +2003,8 @@ const (
 	// EnumOfSubInstanceTypeForDescribeInstancesOutputSql is a EnumOfSubInstanceTypeForDescribeInstancesOutput enum value
 	EnumOfSubInstanceTypeForDescribeInstancesOutputSql = "Sql"
 
-	// EnumOfSubInstanceTypeForDescribeInstancesOutputKrypton is a EnumOfSubInstanceTypeForDescribeInstancesOutput enum value
-	EnumOfSubInstanceTypeForDescribeInstancesOutputKrypton = "Krypton"
+	// EnumOfSubInstanceTypeForDescribeInstancesOutputAi is a EnumOfSubInstanceTypeForDescribeInstancesOutput enum value
+	EnumOfSubInstanceTypeForDescribeInstancesOutputAi = "AI"
 )
 
 const (
