@@ -15,15 +15,13 @@ import (
 
 var _ Provider = &OIDCCredentialsProvider{}
 
-const DEFAULT_STS_ENDPOINT = "sts.volcengineapi.com"
+const DefaultEndpoint = "sts.volcengineapi.com"
 
 const (
 	defaultSessionName = "volcengine-go-sdk-oidc-session"
 )
 
 type HttpOptions struct {
-	// The maximum number of retries to attempt.
-	MaxRetries int
 	// The maximum time to wait for a connection.
 	Timeout time.Duration
 }
@@ -90,7 +88,7 @@ func NewOIDCCredentialsProviderFromEnv() *OIDCCredentialsProvider {
 		Policy:            os.Getenv("VOLCENGINE_OIDC_ROLE_POLICY"),
 		Schema:            "https", //default https
 		Endpoint:          os.Getenv("VOLCENGINE_OIDC_STS_ENDPOINT"),
-		httpOptions:       &HttpOptions{MaxRetries: 3, Timeout: 10 * time.Second},
+		httpOptions:       &HttpOptions{Timeout: 10 * time.Second},
 	}
 }
 func (p *OIDCCredentialsProvider) Retrieve() (Value, error) {
@@ -123,7 +121,7 @@ func (p *OIDCCredentialsProvider) fetchOnce() (Value, error) {
 	if p.Policy != "" {
 		data.Set("Policy", p.Policy)
 	}
-	endpoint := DEFAULT_STS_ENDPOINT
+	endpoint := DefaultEndpoint
 	if p.Endpoint != "" {
 		endpoint = p.Endpoint
 	}
