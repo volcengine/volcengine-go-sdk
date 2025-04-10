@@ -142,6 +142,8 @@ func (c *VPC) CreateRouteTableWithContext(ctx volcengine.Context, input *CreateR
 type CreateRouteTableInput struct {
 	_ struct{} `type:"structure"`
 
+	AssociateType *string `type:"string" enum:"AssociateTypeForCreateRouteTableInput"`
+
 	ClientToken *string `type:"string"`
 
 	Description *string `min:"1" max:"255" type:"string"`
@@ -189,6 +191,12 @@ func (s *CreateRouteTableInput) Validate() error {
 		return invalidParams
 	}
 	return nil
+}
+
+// SetAssociateType sets the AssociateType field's value.
+func (s *CreateRouteTableInput) SetAssociateType(v string) *CreateRouteTableInput {
+	s.AssociateType = &v
+	return s
 }
 
 // SetClientToken sets the ClientToken field's value.
@@ -288,3 +296,11 @@ func (s *TagForCreateRouteTableInput) SetValue(v string) *TagForCreateRouteTable
 	s.Value = &v
 	return s
 }
+
+const (
+	// AssociateTypeForCreateRouteTableInputSubnet is a AssociateTypeForCreateRouteTableInput enum value
+	AssociateTypeForCreateRouteTableInputSubnet = "Subnet"
+
+	// AssociateTypeForCreateRouteTableInputGateway is a AssociateTypeForCreateRouteTableInput enum value
+	AssociateTypeForCreateRouteTableInputGateway = "Gateway"
+)

@@ -144,11 +144,14 @@ type DisassociateRouteTableInput struct {
 
 	ClientToken *string `type:"string"`
 
+	GatewayId *string `type:"string"`
+
+	GatewayType *string `type:"string" enum:"GatewayTypeForDisassociateRouteTableInput"`
+
 	// RouteTableId is a required field
 	RouteTableId *string `type:"string" required:"true"`
 
-	// SubnetId is a required field
-	SubnetId *string `type:"string" required:"true"`
+	SubnetId *string `type:"string"`
 }
 
 // String returns the string representation
@@ -167,9 +170,6 @@ func (s *DisassociateRouteTableInput) Validate() error {
 	if s.RouteTableId == nil {
 		invalidParams.Add(request.NewErrParamRequired("RouteTableId"))
 	}
-	if s.SubnetId == nil {
-		invalidParams.Add(request.NewErrParamRequired("SubnetId"))
-	}
 
 	if invalidParams.Len() > 0 {
 		return invalidParams
@@ -180,6 +180,18 @@ func (s *DisassociateRouteTableInput) Validate() error {
 // SetClientToken sets the ClientToken field's value.
 func (s *DisassociateRouteTableInput) SetClientToken(v string) *DisassociateRouteTableInput {
 	s.ClientToken = &v
+	return s
+}
+
+// SetGatewayId sets the GatewayId field's value.
+func (s *DisassociateRouteTableInput) SetGatewayId(v string) *DisassociateRouteTableInput {
+	s.GatewayId = &v
+	return s
+}
+
+// SetGatewayType sets the GatewayType field's value.
+func (s *DisassociateRouteTableInput) SetGatewayType(v string) *DisassociateRouteTableInput {
+	s.GatewayType = &v
 	return s
 }
 
@@ -218,3 +230,11 @@ func (s *DisassociateRouteTableOutput) SetRequestId(v string) *DisassociateRoute
 	s.RequestId = &v
 	return s
 }
+
+const (
+	// GatewayTypeForDisassociateRouteTableInputIpv4gateway is a GatewayTypeForDisassociateRouteTableInput enum value
+	GatewayTypeForDisassociateRouteTableInputIpv4gateway = "Ipv4Gateway"
+
+	// GatewayTypeForDisassociateRouteTableInputIpv6gateway is a GatewayTypeForDisassociateRouteTableInput enum value
+	GatewayTypeForDisassociateRouteTableInputIpv6gateway = "Ipv6Gateway"
+)

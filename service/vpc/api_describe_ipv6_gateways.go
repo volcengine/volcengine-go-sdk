@@ -262,6 +262,8 @@ type Ipv6GatewayForDescribeIpv6GatewaysOutput struct {
 
 	ProjectName *string `type:"string"`
 
+	RouteTableId *string `type:"string"`
+
 	Status *string `type:"string"`
 
 	UpdateTime *string `type:"string"`
@@ -306,6 +308,12 @@ func (s *Ipv6GatewayForDescribeIpv6GatewaysOutput) SetName(v string) *Ipv6Gatewa
 // SetProjectName sets the ProjectName field's value.
 func (s *Ipv6GatewayForDescribeIpv6GatewaysOutput) SetProjectName(v string) *Ipv6GatewayForDescribeIpv6GatewaysOutput {
 	s.ProjectName = &v
+	return s
+}
+
+// SetRouteTableId sets the RouteTableId field's value.
+func (s *Ipv6GatewayForDescribeIpv6GatewaysOutput) SetRouteTableId(v string) *Ipv6GatewayForDescribeIpv6GatewaysOutput {
+	s.RouteTableId = &v
 	return s
 }
 
