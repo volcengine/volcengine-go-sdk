@@ -838,6 +838,8 @@ type InstanceInfoForDescribeInstanceOutput struct {
 
 	EnableKibanaPublicNetwork *bool `type:"boolean" json:",omitempty"`
 
+	EsPubBandwidth *int32 `type:"int32" json:",omitempty"`
+
 	ExpireDate *string `type:"string" json:",omitempty"`
 
 	InstanceConfiguration *InstanceConfigurationForDescribeInstanceOutput `type:"structure" json:",omitempty"`
@@ -854,6 +856,8 @@ type InstanceInfoForDescribeInstanceOutput struct {
 
 	KibanaPrivateIpWhitelist *string `type:"string" json:",omitempty"`
 
+	KibanaPubBandwidth *int32 `type:"int32" json:",omitempty"`
+
 	KibanaPublicDomain *string `type:"string" json:",omitempty"`
 
 	KibanaPublicIpWhitelist *string `type:"string" json:",omitempty"`
@@ -867,6 +871,8 @@ type InstanceInfoForDescribeInstanceOutput struct {
 	ResourceTags []*ResourceTagForDescribeInstanceOutput `type:"list" json:",omitempty"`
 
 	Status *string `type:"string" json:",omitempty" enum:"EnumOfStatusForDescribeInstanceOutput"`
+
+	SubInstanceEnable *string `type:"string" json:",omitempty" enum:"EnumOfSubInstanceEnableForDescribeInstanceOutput"`
 
 	SubInstances []*SubInstanceForDescribeInstanceOutput `type:"list" json:",omitempty"`
 
@@ -1003,6 +1009,12 @@ func (s *InstanceInfoForDescribeInstanceOutput) SetEnableKibanaPublicNetwork(v b
 	return s
 }
 
+// SetEsPubBandwidth sets the EsPubBandwidth field's value.
+func (s *InstanceInfoForDescribeInstanceOutput) SetEsPubBandwidth(v int32) *InstanceInfoForDescribeInstanceOutput {
+	s.EsPubBandwidth = &v
+	return s
+}
+
 // SetExpireDate sets the ExpireDate field's value.
 func (s *InstanceInfoForDescribeInstanceOutput) SetExpireDate(v string) *InstanceInfoForDescribeInstanceOutput {
 	s.ExpireDate = &v
@@ -1051,6 +1063,12 @@ func (s *InstanceInfoForDescribeInstanceOutput) SetKibanaPrivateIpWhitelist(v st
 	return s
 }
 
+// SetKibanaPubBandwidth sets the KibanaPubBandwidth field's value.
+func (s *InstanceInfoForDescribeInstanceOutput) SetKibanaPubBandwidth(v int32) *InstanceInfoForDescribeInstanceOutput {
+	s.KibanaPubBandwidth = &v
+	return s
+}
+
 // SetKibanaPublicDomain sets the KibanaPublicDomain field's value.
 func (s *InstanceInfoForDescribeInstanceOutput) SetKibanaPublicDomain(v string) *InstanceInfoForDescribeInstanceOutput {
 	s.KibanaPublicDomain = &v
@@ -1090,6 +1108,12 @@ func (s *InstanceInfoForDescribeInstanceOutput) SetResourceTags(v []*ResourceTag
 // SetStatus sets the Status field's value.
 func (s *InstanceInfoForDescribeInstanceOutput) SetStatus(v string) *InstanceInfoForDescribeInstanceOutput {
 	s.Status = &v
+	return s
+}
+
+// SetSubInstanceEnable sets the SubInstanceEnable field's value.
+func (s *InstanceInfoForDescribeInstanceOutput) SetSubInstanceEnable(v string) *InstanceInfoForDescribeInstanceOutput {
+	s.SubInstanceEnable = &v
 	return s
 }
 
@@ -1791,6 +1815,20 @@ const (
 
 	// EnumOfStatusForDescribeInstanceOutputUnknown is a EnumOfStatusForDescribeInstanceOutput enum value
 	EnumOfStatusForDescribeInstanceOutputUnknown = "Unknown"
+)
+
+const (
+	// EnumOfSubInstanceEnableForDescribeInstanceOutputNone is a EnumOfSubInstanceEnableForDescribeInstanceOutput enum value
+	EnumOfSubInstanceEnableForDescribeInstanceOutputNone = "None"
+
+	// EnumOfSubInstanceEnableForDescribeInstanceOutputAi is a EnumOfSubInstanceEnableForDescribeInstanceOutput enum value
+	EnumOfSubInstanceEnableForDescribeInstanceOutputAi = " AI"
+
+	// EnumOfSubInstanceEnableForDescribeInstanceOutputSql is a EnumOfSubInstanceEnableForDescribeInstanceOutput enum value
+	EnumOfSubInstanceEnableForDescribeInstanceOutputSql = " Sql"
+
+	// EnumOfSubInstanceEnableForDescribeInstanceOutputAiSql is a EnumOfSubInstanceEnableForDescribeInstanceOutput enum value
+	EnumOfSubInstanceEnableForDescribeInstanceOutputAiSql = " AI_Sql"
 )
 
 const (

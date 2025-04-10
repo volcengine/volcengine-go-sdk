@@ -214,6 +214,8 @@ type DataVolumeForUpdateNodePoolConfigInput struct {
 
 	Size *int32 `type:"int32" json:",omitempty"`
 
+	SnapshotId *string `type:"string" json:",omitempty"`
+
 	Type *string `type:"string" json:",omitempty" enum:"EnumOfTypeForUpdateNodePoolConfigInput"`
 }
 
@@ -245,9 +247,171 @@ func (s *DataVolumeForUpdateNodePoolConfigInput) SetSize(v int32) *DataVolumeFor
 	return s
 }
 
+// SetSnapshotId sets the SnapshotId field's value.
+func (s *DataVolumeForUpdateNodePoolConfigInput) SetSnapshotId(v string) *DataVolumeForUpdateNodePoolConfigInput {
+	s.SnapshotId = &v
+	return s
+}
+
 // SetType sets the Type field's value.
 func (s *DataVolumeForUpdateNodePoolConfigInput) SetType(v string) *DataVolumeForUpdateNodePoolConfigInput {
 	s.Type = &v
+	return s
+}
+
+type EvictionHardForUpdateNodePoolConfigInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s EvictionHardForUpdateNodePoolConfigInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s EvictionHardForUpdateNodePoolConfigInput) GoString() string {
+	return s.String()
+}
+
+type FeatureGatesForUpdateNodePoolConfigInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	QoSResourceManager *bool `type:"boolean" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s FeatureGatesForUpdateNodePoolConfigInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s FeatureGatesForUpdateNodePoolConfigInput) GoString() string {
+	return s.String()
+}
+
+// SetQoSResourceManager sets the QoSResourceManager field's value.
+func (s *FeatureGatesForUpdateNodePoolConfigInput) SetQoSResourceManager(v bool) *FeatureGatesForUpdateNodePoolConfigInput {
+	s.QoSResourceManager = &v
+	return s
+}
+
+type KubeletConfigForUpdateNodePoolConfigInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	EvictionHard []*EvictionHardForUpdateNodePoolConfigInput `type:"list" json:",omitempty"`
+
+	FeatureGates *FeatureGatesForUpdateNodePoolConfigInput `type:"structure" json:",omitempty"`
+
+	KubeApiBurst *int32 `min:"1" max:"100" type:"int32" json:",omitempty"`
+
+	KubeApiQps *int32 `min:"1" max:"50" type:"int32" json:",omitempty"`
+
+	RegistryBurst *int32 `min:"1" max:"100" type:"int32" json:",omitempty"`
+
+	RegistryPullQps *int32 `min:"1" max:"50" type:"int32" json:",omitempty"`
+
+	SerializeImagePulls *bool `type:"boolean" json:",omitempty"`
+
+	TopologyManagerPolicy *string `type:"string" json:",omitempty" enum:"EnumOfTopologyManagerPolicyForUpdateNodePoolConfigInput"`
+
+	TopologyManagerScope *string `type:"string" json:",omitempty" enum:"EnumOfTopologyManagerScopeForUpdateNodePoolConfigInput"`
+}
+
+// String returns the string representation
+func (s KubeletConfigForUpdateNodePoolConfigInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s KubeletConfigForUpdateNodePoolConfigInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *KubeletConfigForUpdateNodePoolConfigInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "KubeletConfigForUpdateNodePoolConfigInput"}
+	if s.KubeApiBurst != nil && *s.KubeApiBurst < 1 {
+		invalidParams.Add(request.NewErrParamMinValue("KubeApiBurst", 1))
+	}
+	if s.KubeApiBurst != nil && *s.KubeApiBurst > 100 {
+		invalidParams.Add(request.NewErrParamMaxValue("KubeApiBurst", 100))
+	}
+	if s.KubeApiQps != nil && *s.KubeApiQps < 1 {
+		invalidParams.Add(request.NewErrParamMinValue("KubeApiQps", 1))
+	}
+	if s.KubeApiQps != nil && *s.KubeApiQps > 50 {
+		invalidParams.Add(request.NewErrParamMaxValue("KubeApiQps", 50))
+	}
+	if s.RegistryBurst != nil && *s.RegistryBurst < 1 {
+		invalidParams.Add(request.NewErrParamMinValue("RegistryBurst", 1))
+	}
+	if s.RegistryBurst != nil && *s.RegistryBurst > 100 {
+		invalidParams.Add(request.NewErrParamMaxValue("RegistryBurst", 100))
+	}
+	if s.RegistryPullQps != nil && *s.RegistryPullQps < 1 {
+		invalidParams.Add(request.NewErrParamMinValue("RegistryPullQps", 1))
+	}
+	if s.RegistryPullQps != nil && *s.RegistryPullQps > 50 {
+		invalidParams.Add(request.NewErrParamMaxValue("RegistryPullQps", 50))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetEvictionHard sets the EvictionHard field's value.
+func (s *KubeletConfigForUpdateNodePoolConfigInput) SetEvictionHard(v []*EvictionHardForUpdateNodePoolConfigInput) *KubeletConfigForUpdateNodePoolConfigInput {
+	s.EvictionHard = v
+	return s
+}
+
+// SetFeatureGates sets the FeatureGates field's value.
+func (s *KubeletConfigForUpdateNodePoolConfigInput) SetFeatureGates(v *FeatureGatesForUpdateNodePoolConfigInput) *KubeletConfigForUpdateNodePoolConfigInput {
+	s.FeatureGates = v
+	return s
+}
+
+// SetKubeApiBurst sets the KubeApiBurst field's value.
+func (s *KubeletConfigForUpdateNodePoolConfigInput) SetKubeApiBurst(v int32) *KubeletConfigForUpdateNodePoolConfigInput {
+	s.KubeApiBurst = &v
+	return s
+}
+
+// SetKubeApiQps sets the KubeApiQps field's value.
+func (s *KubeletConfigForUpdateNodePoolConfigInput) SetKubeApiQps(v int32) *KubeletConfigForUpdateNodePoolConfigInput {
+	s.KubeApiQps = &v
+	return s
+}
+
+// SetRegistryBurst sets the RegistryBurst field's value.
+func (s *KubeletConfigForUpdateNodePoolConfigInput) SetRegistryBurst(v int32) *KubeletConfigForUpdateNodePoolConfigInput {
+	s.RegistryBurst = &v
+	return s
+}
+
+// SetRegistryPullQps sets the RegistryPullQps field's value.
+func (s *KubeletConfigForUpdateNodePoolConfigInput) SetRegistryPullQps(v int32) *KubeletConfigForUpdateNodePoolConfigInput {
+	s.RegistryPullQps = &v
+	return s
+}
+
+// SetSerializeImagePulls sets the SerializeImagePulls field's value.
+func (s *KubeletConfigForUpdateNodePoolConfigInput) SetSerializeImagePulls(v bool) *KubeletConfigForUpdateNodePoolConfigInput {
+	s.SerializeImagePulls = &v
+	return s
+}
+
+// SetTopologyManagerPolicy sets the TopologyManagerPolicy field's value.
+func (s *KubeletConfigForUpdateNodePoolConfigInput) SetTopologyManagerPolicy(v string) *KubeletConfigForUpdateNodePoolConfigInput {
+	s.TopologyManagerPolicy = &v
+	return s
+}
+
+// SetTopologyManagerScope sets the TopologyManagerScope field's value.
+func (s *KubeletConfigForUpdateNodePoolConfigInput) SetTopologyManagerScope(v string) *KubeletConfigForUpdateNodePoolConfigInput {
+	s.TopologyManagerScope = &v
 	return s
 }
 
@@ -257,6 +421,8 @@ type KubernetesConfigForUpdateNodePoolConfigInput struct {
 	AutoSyncDisabled *bool `type:"boolean" json:",omitempty"`
 
 	Cordon *bool `type:"boolean" json:",omitempty"`
+
+	KubeletConfig *KubeletConfigForUpdateNodePoolConfigInput `type:"structure" json:",omitempty"`
 
 	Labels []*LabelForUpdateNodePoolConfigInput `type:"list" json:",omitempty"`
 
@@ -275,6 +441,21 @@ func (s KubernetesConfigForUpdateNodePoolConfigInput) GoString() string {
 	return s.String()
 }
 
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *KubernetesConfigForUpdateNodePoolConfigInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "KubernetesConfigForUpdateNodePoolConfigInput"}
+	if s.KubeletConfig != nil {
+		if err := s.KubeletConfig.Validate(); err != nil {
+			invalidParams.AddNested("KubeletConfig", err.(request.ErrInvalidParams))
+		}
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
 // SetAutoSyncDisabled sets the AutoSyncDisabled field's value.
 func (s *KubernetesConfigForUpdateNodePoolConfigInput) SetAutoSyncDisabled(v bool) *KubernetesConfigForUpdateNodePoolConfigInput {
 	s.AutoSyncDisabled = &v
@@ -284,6 +465,12 @@ func (s *KubernetesConfigForUpdateNodePoolConfigInput) SetAutoSyncDisabled(v boo
 // SetCordon sets the Cordon field's value.
 func (s *KubernetesConfigForUpdateNodePoolConfigInput) SetCordon(v bool) *KubernetesConfigForUpdateNodePoolConfigInput {
 	s.Cordon = &v
+	return s
+}
+
+// SetKubeletConfig sets the KubeletConfig field's value.
+func (s *KubernetesConfigForUpdateNodePoolConfigInput) SetKubeletConfig(v *KubeletConfigForUpdateNodePoolConfigInput) *KubernetesConfigForUpdateNodePoolConfigInput {
+	s.KubeletConfig = v
 	return s
 }
 
@@ -674,6 +861,11 @@ func (s *UpdateNodePoolConfigInput) Validate() error {
 	if s.Id == nil {
 		invalidParams.Add(request.NewErrParamRequired("Id"))
 	}
+	if s.KubernetesConfig != nil {
+		if err := s.KubernetesConfig.Validate(); err != nil {
+			invalidParams.AddNested("KubernetesConfig", err.(request.ErrInvalidParams))
+		}
+	}
 
 	if invalidParams.Len() > 0 {
 		return invalidParams
@@ -769,6 +961,28 @@ const (
 
 	// EnumOfSubnetPolicyForUpdateNodePoolConfigInputPriority is a EnumOfSubnetPolicyForUpdateNodePoolConfigInput enum value
 	EnumOfSubnetPolicyForUpdateNodePoolConfigInputPriority = "Priority"
+)
+
+const (
+	// EnumOfTopologyManagerPolicyForUpdateNodePoolConfigInputRestricted is a EnumOfTopologyManagerPolicyForUpdateNodePoolConfigInput enum value
+	EnumOfTopologyManagerPolicyForUpdateNodePoolConfigInputRestricted = "restricted"
+
+	// EnumOfTopologyManagerPolicyForUpdateNodePoolConfigInputBestEffort is a EnumOfTopologyManagerPolicyForUpdateNodePoolConfigInput enum value
+	EnumOfTopologyManagerPolicyForUpdateNodePoolConfigInputBestEffort = "best-effort"
+
+	// EnumOfTopologyManagerPolicyForUpdateNodePoolConfigInputNone is a EnumOfTopologyManagerPolicyForUpdateNodePoolConfigInput enum value
+	EnumOfTopologyManagerPolicyForUpdateNodePoolConfigInputNone = "none"
+
+	// EnumOfTopologyManagerPolicyForUpdateNodePoolConfigInputSingleNumaNode is a EnumOfTopologyManagerPolicyForUpdateNodePoolConfigInput enum value
+	EnumOfTopologyManagerPolicyForUpdateNodePoolConfigInputSingleNumaNode = "single-numa-node"
+)
+
+const (
+	// EnumOfTopologyManagerScopeForUpdateNodePoolConfigInputPod is a EnumOfTopologyManagerScopeForUpdateNodePoolConfigInput enum value
+	EnumOfTopologyManagerScopeForUpdateNodePoolConfigInputPod = "pod"
+
+	// EnumOfTopologyManagerScopeForUpdateNodePoolConfigInputContainer is a EnumOfTopologyManagerScopeForUpdateNodePoolConfigInput enum value
+	EnumOfTopologyManagerScopeForUpdateNodePoolConfigInputContainer = "container"
 )
 
 const (

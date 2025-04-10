@@ -295,6 +295,44 @@ func (s *ConditionForListClustersOutput) SetType(v string) *ConditionForListClus
 	return s
 }
 
+type ConnectorConfigForListClustersOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Provider *string `type:"string" json:",omitempty" enum:"EnumOfProviderForListClustersOutput"`
+
+	ProxyConfig *ProxyConfigForListClustersOutput `type:"structure" json:",omitempty"`
+
+	Type *string `type:"string" json:",omitempty" enum:"EnumOfTypeForListClustersOutput"`
+}
+
+// String returns the string representation
+func (s ConnectorConfigForListClustersOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ConnectorConfigForListClustersOutput) GoString() string {
+	return s.String()
+}
+
+// SetProvider sets the Provider field's value.
+func (s *ConnectorConfigForListClustersOutput) SetProvider(v string) *ConnectorConfigForListClustersOutput {
+	s.Provider = &v
+	return s
+}
+
+// SetProxyConfig sets the ProxyConfig field's value.
+func (s *ConnectorConfigForListClustersOutput) SetProxyConfig(v *ProxyConfigForListClustersOutput) *ConnectorConfigForListClustersOutput {
+	s.ProxyConfig = v
+	return s
+}
+
+// SetType sets the Type field's value.
+func (s *ConnectorConfigForListClustersOutput) SetType(v string) *ConnectorConfigForListClustersOutput {
+	s.Type = &v
+	return s
+}
+
 type FilterForListClustersInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -309,6 +347,8 @@ type FilterForListClustersInput struct {
 	PodsConfigPodNetworkMode *string `type:"string" json:"PodsConfig.PodNetworkMode,omitempty" enum:"EnumOfPodsConfigPodNetworkModeForListClustersInput"`
 
 	Statuses []*StatusForListClustersInput `type:"list" json:",omitempty"`
+
+	Types []*string `type:"list" json:",omitempty"`
 
 	UpdateClientToken *string `type:"string" json:",omitempty"`
 }
@@ -359,6 +399,12 @@ func (s *FilterForListClustersInput) SetStatuses(v []*StatusForListClustersInput
 	return s
 }
 
+// SetTypes sets the Types field's value.
+func (s *FilterForListClustersInput) SetTypes(v []*string) *FilterForListClustersInput {
+	s.Types = v
+	return s
+}
+
 // SetUpdateClientToken sets the UpdateClientToken field's value.
 func (s *FilterForListClustersInput) SetUpdateClientToken(v string) *FilterForListClustersInput {
 	s.UpdateClientToken = &v
@@ -400,6 +446,8 @@ type ItemForListClustersOutput struct {
 
 	ClusterConfig *ClusterConfigForListClustersOutput `type:"structure" json:",omitempty"`
 
+	ConnectorConfig *ConnectorConfigForListClustersOutput `type:"structure" json:",omitempty"`
+
 	CreateClientToken *string `type:"string" json:",omitempty"`
 
 	CreateTime *string `type:"string" json:",omitempty"`
@@ -428,6 +476,8 @@ type ItemForListClustersOutput struct {
 
 	Tags []*TagForListClustersOutput `type:"list" json:",omitempty"`
 
+	Type *string `type:"string" json:",omitempty" enum:"ConvertEnumOfTypeForListClustersOutput"`
+
 	UpdateClientToken *string `type:"string" json:",omitempty"`
 
 	UpdateTime *string `type:"string" json:",omitempty"`
@@ -446,6 +496,12 @@ func (s ItemForListClustersOutput) GoString() string {
 // SetClusterConfig sets the ClusterConfig field's value.
 func (s *ItemForListClustersOutput) SetClusterConfig(v *ClusterConfigForListClustersOutput) *ItemForListClustersOutput {
 	s.ClusterConfig = v
+	return s
+}
+
+// SetConnectorConfig sets the ConnectorConfig field's value.
+func (s *ItemForListClustersOutput) SetConnectorConfig(v *ConnectorConfigForListClustersOutput) *ItemForListClustersOutput {
+	s.ConnectorConfig = v
 	return s
 }
 
@@ -530,6 +586,12 @@ func (s *ItemForListClustersOutput) SetStatus(v *StatusForListClustersOutput) *I
 // SetTags sets the Tags field's value.
 func (s *ItemForListClustersOutput) SetTags(v []*TagForListClustersOutput) *ItemForListClustersOutput {
 	s.Tags = v
+	return s
+}
+
+// SetType sets the Type field's value.
+func (s *ItemForListClustersOutput) SetType(v string) *ItemForListClustersOutput {
+	s.Type = &v
 	return s
 }
 
@@ -845,6 +907,60 @@ func (s *PrivateIpForListClustersOutput) SetIpv4(v string) *PrivateIpForListClus
 	return s
 }
 
+type ProxyConfigForListClustersOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	ApiServerEndpoints *ApiServerEndpointsForListClustersOutput `type:"structure" json:",omitempty"`
+
+	ApiServerPublicAccessConfig *ApiServerPublicAccessConfigForListClustersOutput `type:"structure" json:",omitempty"`
+
+	ApiServerPublicAccessEnabled *bool `type:"boolean" json:",omitempty"`
+
+	SubnetIds *string `type:"string" json:",omitempty"`
+
+	VpcId *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s ProxyConfigForListClustersOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ProxyConfigForListClustersOutput) GoString() string {
+	return s.String()
+}
+
+// SetApiServerEndpoints sets the ApiServerEndpoints field's value.
+func (s *ProxyConfigForListClustersOutput) SetApiServerEndpoints(v *ApiServerEndpointsForListClustersOutput) *ProxyConfigForListClustersOutput {
+	s.ApiServerEndpoints = v
+	return s
+}
+
+// SetApiServerPublicAccessConfig sets the ApiServerPublicAccessConfig field's value.
+func (s *ProxyConfigForListClustersOutput) SetApiServerPublicAccessConfig(v *ApiServerPublicAccessConfigForListClustersOutput) *ProxyConfigForListClustersOutput {
+	s.ApiServerPublicAccessConfig = v
+	return s
+}
+
+// SetApiServerPublicAccessEnabled sets the ApiServerPublicAccessEnabled field's value.
+func (s *ProxyConfigForListClustersOutput) SetApiServerPublicAccessEnabled(v bool) *ProxyConfigForListClustersOutput {
+	s.ApiServerPublicAccessEnabled = &v
+	return s
+}
+
+// SetSubnetIds sets the SubnetIds field's value.
+func (s *ProxyConfigForListClustersOutput) SetSubnetIds(v string) *ProxyConfigForListClustersOutput {
+	s.SubnetIds = &v
+	return s
+}
+
+// SetVpcId sets the VpcId field's value.
+func (s *ProxyConfigForListClustersOutput) SetVpcId(v string) *ProxyConfigForListClustersOutput {
+	s.VpcId = &v
+	return s
+}
+
 type PublicAccessNetworkConfigForListClustersOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -1078,6 +1194,20 @@ func (s *VpcCniConfigForListClustersOutput) SetSubnetIds(v []*string) *VpcCniCon
 }
 
 const (
+	// ConvertEnumOfTypeForListClustersOutputManaged is a ConvertEnumOfTypeForListClustersOutput enum value
+	ConvertEnumOfTypeForListClustersOutputManaged = "Managed"
+
+	// ConvertEnumOfTypeForListClustersOutputStandard is a ConvertEnumOfTypeForListClustersOutput enum value
+	ConvertEnumOfTypeForListClustersOutputStandard = "Standard"
+
+	// ConvertEnumOfTypeForListClustersOutputRegistered is a ConvertEnumOfTypeForListClustersOutput enum value
+	ConvertEnumOfTypeForListClustersOutputRegistered = "Registered"
+
+	// ConvertEnumOfTypeForListClustersOutputOnPremise is a ConvertEnumOfTypeForListClustersOutput enum value
+	ConvertEnumOfTypeForListClustersOutputOnPremise = "OnPremise"
+)
+
+const (
 	// EnumOfConditionsTypeForListClustersInputOk is a EnumOfConditionsTypeForListClustersInput enum value
 	EnumOfConditionsTypeForListClustersInputOk = "Ok"
 
@@ -1156,4 +1286,49 @@ const (
 
 	// EnumOfPodsConfigPodNetworkModeForListClustersInputVpcCniShared is a EnumOfPodsConfigPodNetworkModeForListClustersInput enum value
 	EnumOfPodsConfigPodNetworkModeForListClustersInputVpcCniShared = "VpcCniShared"
+)
+
+const (
+	// EnumOfProviderForListClustersOutputAck is a EnumOfProviderForListClustersOutput enum value
+	EnumOfProviderForListClustersOutputAck = "Ack"
+
+	// EnumOfProviderForListClustersOutputTke is a EnumOfProviderForListClustersOutput enum value
+	EnumOfProviderForListClustersOutputTke = "Tke"
+
+	// EnumOfProviderForListClustersOutputCce is a EnumOfProviderForListClustersOutput enum value
+	EnumOfProviderForListClustersOutputCce = "Cce"
+
+	// EnumOfProviderForListClustersOutputGke is a EnumOfProviderForListClustersOutput enum value
+	EnumOfProviderForListClustersOutputGke = "Gke"
+
+	// EnumOfProviderForListClustersOutputEks is a EnumOfProviderForListClustersOutput enum value
+	EnumOfProviderForListClustersOutputEks = "Eks"
+
+	// EnumOfProviderForListClustersOutputBaiduCce is a EnumOfProviderForListClustersOutput enum value
+	EnumOfProviderForListClustersOutputBaiduCce = "BaiduCce"
+
+	// EnumOfProviderForListClustersOutputNone is a EnumOfProviderForListClustersOutput enum value
+	EnumOfProviderForListClustersOutputNone = "None"
+)
+
+const (
+	// EnumOfTypeForListClustersOutputDirect is a EnumOfTypeForListClustersOutput enum value
+	EnumOfTypeForListClustersOutputDirect = "Direct"
+
+	// EnumOfTypeForListClustersOutputAgent is a EnumOfTypeForListClustersOutput enum value
+	EnumOfTypeForListClustersOutputAgent = "Agent"
+)
+
+const (
+	// EnumOfTypeListForListClustersInputManaged is a EnumOfTypeListForListClustersInput enum value
+	EnumOfTypeListForListClustersInputManaged = "Managed"
+
+	// EnumOfTypeListForListClustersInputStandard is a EnumOfTypeListForListClustersInput enum value
+	EnumOfTypeListForListClustersInputStandard = "Standard"
+
+	// EnumOfTypeListForListClustersInputRegistered is a EnumOfTypeListForListClustersInput enum value
+	EnumOfTypeListForListClustersInputRegistered = "Registered"
+
+	// EnumOfTypeListForListClustersInputOnPremise is a EnumOfTypeListForListClustersInput enum value
+	EnumOfTypeListForListClustersInputOnPremise = "OnPremise"
 )

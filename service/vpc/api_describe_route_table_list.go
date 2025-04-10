@@ -142,6 +142,8 @@ func (c *VPC) DescribeRouteTableListWithContext(ctx volcengine.Context, input *D
 type DescribeRouteTableListInput struct {
 	_ struct{} `type:"structure"`
 
+	AssociateType *string `type:"string" enum:"AssociateTypeForDescribeRouteTableListInput"`
+
 	MaxResults *int64 `type:"integer"`
 
 	NextToken *string `type:"string"`
@@ -182,6 +184,12 @@ func (s *DescribeRouteTableListInput) Validate() error {
 		return invalidParams
 	}
 	return nil
+}
+
+// SetAssociateType sets the AssociateType field's value.
+func (s *DescribeRouteTableListInput) SetAssociateType(v string) *DescribeRouteTableListInput {
+	s.AssociateType = &v
+	return s
 }
 
 // SetMaxResults sets the MaxResults field's value.
@@ -307,9 +315,15 @@ type RouterTableListForDescribeRouteTableListOutput struct {
 
 	AccountId *string `type:"string"`
 
+	AssociateType *string `type:"string" enum:"AssociateTypeForDescribeRouteTableListOutput"`
+
 	CreationTime *string `type:"string"`
 
 	Description *string `type:"string"`
+
+	Ipv4GatewayId *string `type:"string"`
+
+	Ipv6GatewayId *string `type:"string"`
 
 	ProjectName *string `type:"string"`
 
@@ -346,6 +360,12 @@ func (s *RouterTableListForDescribeRouteTableListOutput) SetAccountId(v string) 
 	return s
 }
 
+// SetAssociateType sets the AssociateType field's value.
+func (s *RouterTableListForDescribeRouteTableListOutput) SetAssociateType(v string) *RouterTableListForDescribeRouteTableListOutput {
+	s.AssociateType = &v
+	return s
+}
+
 // SetCreationTime sets the CreationTime field's value.
 func (s *RouterTableListForDescribeRouteTableListOutput) SetCreationTime(v string) *RouterTableListForDescribeRouteTableListOutput {
 	s.CreationTime = &v
@@ -355,6 +375,18 @@ func (s *RouterTableListForDescribeRouteTableListOutput) SetCreationTime(v strin
 // SetDescription sets the Description field's value.
 func (s *RouterTableListForDescribeRouteTableListOutput) SetDescription(v string) *RouterTableListForDescribeRouteTableListOutput {
 	s.Description = &v
+	return s
+}
+
+// SetIpv4GatewayId sets the Ipv4GatewayId field's value.
+func (s *RouterTableListForDescribeRouteTableListOutput) SetIpv4GatewayId(v string) *RouterTableListForDescribeRouteTableListOutput {
+	s.Ipv4GatewayId = &v
+	return s
+}
+
+// SetIpv6GatewayId sets the Ipv6GatewayId field's value.
+func (s *RouterTableListForDescribeRouteTableListOutput) SetIpv6GatewayId(v string) *RouterTableListForDescribeRouteTableListOutput {
+	s.Ipv6GatewayId = &v
 	return s
 }
 
@@ -471,3 +503,19 @@ func (s *TagForDescribeRouteTableListOutput) SetValue(v string) *TagForDescribeR
 	s.Value = &v
 	return s
 }
+
+const (
+	// AssociateTypeForDescribeRouteTableListInputSubnet is a AssociateTypeForDescribeRouteTableListInput enum value
+	AssociateTypeForDescribeRouteTableListInputSubnet = "Subnet"
+
+	// AssociateTypeForDescribeRouteTableListInputGateway is a AssociateTypeForDescribeRouteTableListInput enum value
+	AssociateTypeForDescribeRouteTableListInputGateway = "Gateway"
+)
+
+const (
+	// AssociateTypeForDescribeRouteTableListOutputSubnet is a AssociateTypeForDescribeRouteTableListOutput enum value
+	AssociateTypeForDescribeRouteTableListOutputSubnet = "Subnet"
+
+	// AssociateTypeForDescribeRouteTableListOutputGateway is a AssociateTypeForDescribeRouteTableListOutput enum value
+	AssociateTypeForDescribeRouteTableListOutputGateway = "Gateway"
+)

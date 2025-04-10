@@ -54,6 +54,14 @@ type VOLCOBSERVEAPI interface {
 	CreateEventRuleWithContext(volcengine.Context, *CreateEventRuleInput, ...request.Option) (*CreateEventRuleOutput, error)
 	CreateEventRuleRequest(*CreateEventRuleInput) (*request.Request, *CreateEventRuleOutput)
 
+	CreateNotificationCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateNotificationCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateNotificationCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateNotification(*CreateNotificationInput) (*CreateNotificationOutput, error)
+	CreateNotificationWithContext(volcengine.Context, *CreateNotificationInput, ...request.Option) (*CreateNotificationOutput, error)
+	CreateNotificationRequest(*CreateNotificationInput) (*request.Request, *CreateNotificationOutput)
+
 	CreateObjectGroupCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	CreateObjectGroupCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	CreateObjectGroupCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -101,6 +109,14 @@ type VOLCOBSERVEAPI interface {
 	DeleteEventRule(*DeleteEventRuleInput) (*DeleteEventRuleOutput, error)
 	DeleteEventRuleWithContext(volcengine.Context, *DeleteEventRuleInput, ...request.Option) (*DeleteEventRuleOutput, error)
 	DeleteEventRuleRequest(*DeleteEventRuleInput) (*request.Request, *DeleteEventRuleOutput)
+
+	DeleteNotificationsByIdsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeleteNotificationsByIdsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeleteNotificationsByIdsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeleteNotificationsByIds(*DeleteNotificationsByIdsInput) (*DeleteNotificationsByIdsOutput, error)
+	DeleteNotificationsByIdsWithContext(volcengine.Context, *DeleteNotificationsByIdsInput, ...request.Option) (*DeleteNotificationsByIdsOutput, error)
+	DeleteNotificationsByIdsRequest(*DeleteNotificationsByIdsInput) (*request.Request, *DeleteNotificationsByIdsOutput)
 
 	DeleteObjectGroupCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DeleteObjectGroupCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -214,6 +230,14 @@ type VOLCOBSERVEAPI interface {
 	ListEventsWithContext(volcengine.Context, *ListEventsInput, ...request.Option) (*ListEventsOutput, error)
 	ListEventsRequest(*ListEventsInput) (*request.Request, *ListEventsOutput)
 
+	ListNotificationsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListNotificationsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListNotificationsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListNotifications(*ListNotificationsInput) (*ListNotificationsOutput, error)
+	ListNotificationsWithContext(volcengine.Context, *ListNotificationsInput, ...request.Option) (*ListNotificationsOutput, error)
+	ListNotificationsRequest(*ListNotificationsInput) (*request.Request, *ListNotificationsOutput)
+
 	ListObjectGroupsCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ListObjectGroupsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	ListObjectGroupsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -270,6 +294,22 @@ type VOLCOBSERVEAPI interface {
 	SetStateOfRulesByIdsWithContext(volcengine.Context, *SetStateOfRulesByIdsInput, ...request.Option) (*SetStateOfRulesByIdsOutput, error)
 	SetStateOfRulesByIdsRequest(*SetStateOfRulesByIdsInput) (*request.Request, *SetStateOfRulesByIdsOutput)
 
+	TagResourcesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	TagResourcesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	TagResourcesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	TagResources(*TagResourcesInput) (*TagResourcesOutput, error)
+	TagResourcesWithContext(volcengine.Context, *TagResourcesInput, ...request.Option) (*TagResourcesOutput, error)
+	TagResourcesRequest(*TagResourcesInput) (*request.Request, *TagResourcesOutput)
+
+	UntagResourcesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	UntagResourcesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	UntagResourcesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	UntagResources(*UntagResourcesInput) (*UntagResourcesOutput, error)
+	UntagResourcesWithContext(volcengine.Context, *UntagResourcesInput, ...request.Option) (*UntagResourcesOutput, error)
+	UntagResourcesRequest(*UntagResourcesInput) (*request.Request, *UntagResourcesOutput)
+
 	UpdateContactGroupCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	UpdateContactGroupCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	UpdateContactGroupCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -309,6 +349,14 @@ type VOLCOBSERVEAPI interface {
 	UpdateEventRule(*UpdateEventRuleInput) (*UpdateEventRuleOutput, error)
 	UpdateEventRuleWithContext(volcengine.Context, *UpdateEventRuleInput, ...request.Option) (*UpdateEventRuleOutput, error)
 	UpdateEventRuleRequest(*UpdateEventRuleInput) (*request.Request, *UpdateEventRuleOutput)
+
+	UpdateNotificationCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	UpdateNotificationCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	UpdateNotificationCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	UpdateNotification(*UpdateNotificationInput) (*UpdateNotificationOutput, error)
+	UpdateNotificationWithContext(volcengine.Context, *UpdateNotificationInput, ...request.Option) (*UpdateNotificationOutput, error)
+	UpdateNotificationRequest(*UpdateNotificationInput) (*request.Request, *UpdateNotificationOutput)
 
 	UpdateObjectGroupCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	UpdateObjectGroupCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)

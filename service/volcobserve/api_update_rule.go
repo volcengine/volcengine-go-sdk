@@ -205,6 +205,36 @@ func (s *ConditionForUpdateRuleInput) SetThreshold(v string) *ConditionForUpdate
 	return s
 }
 
+type ConvertTagForUpdateRuleInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Key *string `type:"string" json:",omitempty"`
+
+	Value *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s ConvertTagForUpdateRuleInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ConvertTagForUpdateRuleInput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *ConvertTagForUpdateRuleInput) SetKey(v string) *ConvertTagForUpdateRuleInput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *ConvertTagForUpdateRuleInput) SetValue(v string) *ConvertTagForUpdateRuleInput {
+	s.Value = &v
+	return s
+}
+
 type DimensionConditionsForUpdateRuleInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -561,6 +591,8 @@ type UpdateRuleInput struct {
 	// SubNamespace is a required field
 	SubNamespace *string `type:"string" json:",omitempty" required:"true"`
 
+	Tags []*ConvertTagForUpdateRuleInput `type:"list" json:",omitempty"`
+
 	Webhook *string `type:"string" json:",omitempty"`
 
 	WebhookIds []*string `type:"list" json:",omitempty"`
@@ -760,6 +792,12 @@ func (s *UpdateRuleInput) SetSilenceTime(v int64) *UpdateRuleInput {
 // SetSubNamespace sets the SubNamespace field's value.
 func (s *UpdateRuleInput) SetSubNamespace(v string) *UpdateRuleInput {
 	s.SubNamespace = &v
+	return s
+}
+
+// SetTags sets the Tags field's value.
+func (s *UpdateRuleInput) SetTags(v []*ConvertTagForUpdateRuleInput) *UpdateRuleInput {
+	s.Tags = v
 	return s
 }
 

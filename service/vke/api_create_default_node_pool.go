@@ -174,6 +174,11 @@ func (s *CreateDefaultNodePoolInput) Validate() error {
 	if s.ClusterId == nil {
 		invalidParams.Add(request.NewErrParamRequired("ClusterId"))
 	}
+	if s.KubernetesConfig != nil {
+		if err := s.KubernetesConfig.Validate(); err != nil {
+			invalidParams.AddNested("KubernetesConfig", err.(request.ErrInvalidParams))
+		}
+	}
 
 	if invalidParams.Len() > 0 {
 		return invalidParams
@@ -235,12 +240,170 @@ func (s *CreateDefaultNodePoolOutput) SetId(v string) *CreateDefaultNodePoolOutp
 	return s
 }
 
+type EvictionHardForCreateDefaultNodePoolInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s EvictionHardForCreateDefaultNodePoolInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s EvictionHardForCreateDefaultNodePoolInput) GoString() string {
+	return s.String()
+}
+
+type FeatureGatesForCreateDefaultNodePoolInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	QoSResourceManager *bool `type:"boolean" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s FeatureGatesForCreateDefaultNodePoolInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s FeatureGatesForCreateDefaultNodePoolInput) GoString() string {
+	return s.String()
+}
+
+// SetQoSResourceManager sets the QoSResourceManager field's value.
+func (s *FeatureGatesForCreateDefaultNodePoolInput) SetQoSResourceManager(v bool) *FeatureGatesForCreateDefaultNodePoolInput {
+	s.QoSResourceManager = &v
+	return s
+}
+
+type KubeletConfigForCreateDefaultNodePoolInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	EvictionHard []*EvictionHardForCreateDefaultNodePoolInput `type:"list" json:",omitempty"`
+
+	FeatureGates *FeatureGatesForCreateDefaultNodePoolInput `type:"structure" json:",omitempty"`
+
+	KubeApiBurst *int32 `min:"1" max:"100" type:"int32" json:",omitempty"`
+
+	KubeApiQps *int32 `min:"1" max:"50" type:"int32" json:",omitempty"`
+
+	RegistryBurst *int32 `min:"1" max:"100" type:"int32" json:",omitempty"`
+
+	RegistryPullQps *int32 `min:"1" max:"50" type:"int32" json:",omitempty"`
+
+	SerializeImagePulls *bool `type:"boolean" json:",omitempty"`
+
+	TopologyManagerPolicy *string `type:"string" json:",omitempty" enum:"EnumOfTopologyManagerPolicyForCreateDefaultNodePoolInput"`
+
+	TopologyManagerScope *string `type:"string" json:",omitempty" enum:"EnumOfTopologyManagerScopeForCreateDefaultNodePoolInput"`
+}
+
+// String returns the string representation
+func (s KubeletConfigForCreateDefaultNodePoolInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s KubeletConfigForCreateDefaultNodePoolInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *KubeletConfigForCreateDefaultNodePoolInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "KubeletConfigForCreateDefaultNodePoolInput"}
+	if s.KubeApiBurst != nil && *s.KubeApiBurst < 1 {
+		invalidParams.Add(request.NewErrParamMinValue("KubeApiBurst", 1))
+	}
+	if s.KubeApiBurst != nil && *s.KubeApiBurst > 100 {
+		invalidParams.Add(request.NewErrParamMaxValue("KubeApiBurst", 100))
+	}
+	if s.KubeApiQps != nil && *s.KubeApiQps < 1 {
+		invalidParams.Add(request.NewErrParamMinValue("KubeApiQps", 1))
+	}
+	if s.KubeApiQps != nil && *s.KubeApiQps > 50 {
+		invalidParams.Add(request.NewErrParamMaxValue("KubeApiQps", 50))
+	}
+	if s.RegistryBurst != nil && *s.RegistryBurst < 1 {
+		invalidParams.Add(request.NewErrParamMinValue("RegistryBurst", 1))
+	}
+	if s.RegistryBurst != nil && *s.RegistryBurst > 100 {
+		invalidParams.Add(request.NewErrParamMaxValue("RegistryBurst", 100))
+	}
+	if s.RegistryPullQps != nil && *s.RegistryPullQps < 1 {
+		invalidParams.Add(request.NewErrParamMinValue("RegistryPullQps", 1))
+	}
+	if s.RegistryPullQps != nil && *s.RegistryPullQps > 50 {
+		invalidParams.Add(request.NewErrParamMaxValue("RegistryPullQps", 50))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetEvictionHard sets the EvictionHard field's value.
+func (s *KubeletConfigForCreateDefaultNodePoolInput) SetEvictionHard(v []*EvictionHardForCreateDefaultNodePoolInput) *KubeletConfigForCreateDefaultNodePoolInput {
+	s.EvictionHard = v
+	return s
+}
+
+// SetFeatureGates sets the FeatureGates field's value.
+func (s *KubeletConfigForCreateDefaultNodePoolInput) SetFeatureGates(v *FeatureGatesForCreateDefaultNodePoolInput) *KubeletConfigForCreateDefaultNodePoolInput {
+	s.FeatureGates = v
+	return s
+}
+
+// SetKubeApiBurst sets the KubeApiBurst field's value.
+func (s *KubeletConfigForCreateDefaultNodePoolInput) SetKubeApiBurst(v int32) *KubeletConfigForCreateDefaultNodePoolInput {
+	s.KubeApiBurst = &v
+	return s
+}
+
+// SetKubeApiQps sets the KubeApiQps field's value.
+func (s *KubeletConfigForCreateDefaultNodePoolInput) SetKubeApiQps(v int32) *KubeletConfigForCreateDefaultNodePoolInput {
+	s.KubeApiQps = &v
+	return s
+}
+
+// SetRegistryBurst sets the RegistryBurst field's value.
+func (s *KubeletConfigForCreateDefaultNodePoolInput) SetRegistryBurst(v int32) *KubeletConfigForCreateDefaultNodePoolInput {
+	s.RegistryBurst = &v
+	return s
+}
+
+// SetRegistryPullQps sets the RegistryPullQps field's value.
+func (s *KubeletConfigForCreateDefaultNodePoolInput) SetRegistryPullQps(v int32) *KubeletConfigForCreateDefaultNodePoolInput {
+	s.RegistryPullQps = &v
+	return s
+}
+
+// SetSerializeImagePulls sets the SerializeImagePulls field's value.
+func (s *KubeletConfigForCreateDefaultNodePoolInput) SetSerializeImagePulls(v bool) *KubeletConfigForCreateDefaultNodePoolInput {
+	s.SerializeImagePulls = &v
+	return s
+}
+
+// SetTopologyManagerPolicy sets the TopologyManagerPolicy field's value.
+func (s *KubeletConfigForCreateDefaultNodePoolInput) SetTopologyManagerPolicy(v string) *KubeletConfigForCreateDefaultNodePoolInput {
+	s.TopologyManagerPolicy = &v
+	return s
+}
+
+// SetTopologyManagerScope sets the TopologyManagerScope field's value.
+func (s *KubeletConfigForCreateDefaultNodePoolInput) SetTopologyManagerScope(v string) *KubeletConfigForCreateDefaultNodePoolInput {
+	s.TopologyManagerScope = &v
+	return s
+}
+
 type KubernetesConfigForCreateDefaultNodePoolInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
 	AutoSyncDisabled *bool `type:"boolean" json:",omitempty"`
 
 	Cordon *bool `type:"boolean" json:",omitempty"`
+
+	KubeletConfig *KubeletConfigForCreateDefaultNodePoolInput `type:"structure" json:",omitempty"`
 
 	Labels []*LabelForCreateDefaultNodePoolInput `type:"list" json:",omitempty"`
 
@@ -259,6 +422,21 @@ func (s KubernetesConfigForCreateDefaultNodePoolInput) GoString() string {
 	return s.String()
 }
 
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *KubernetesConfigForCreateDefaultNodePoolInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "KubernetesConfigForCreateDefaultNodePoolInput"}
+	if s.KubeletConfig != nil {
+		if err := s.KubeletConfig.Validate(); err != nil {
+			invalidParams.AddNested("KubeletConfig", err.(request.ErrInvalidParams))
+		}
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
 // SetAutoSyncDisabled sets the AutoSyncDisabled field's value.
 func (s *KubernetesConfigForCreateDefaultNodePoolInput) SetAutoSyncDisabled(v bool) *KubernetesConfigForCreateDefaultNodePoolInput {
 	s.AutoSyncDisabled = &v
@@ -268,6 +446,12 @@ func (s *KubernetesConfigForCreateDefaultNodePoolInput) SetAutoSyncDisabled(v bo
 // SetCordon sets the Cordon field's value.
 func (s *KubernetesConfigForCreateDefaultNodePoolInput) SetCordon(v bool) *KubernetesConfigForCreateDefaultNodePoolInput {
 	s.Cordon = &v
+	return s
+}
+
+// SetKubeletConfig sets the KubeletConfig field's value.
+func (s *KubernetesConfigForCreateDefaultNodePoolInput) SetKubeletConfig(v *KubeletConfigForCreateDefaultNodePoolInput) *KubernetesConfigForCreateDefaultNodePoolInput {
+	s.KubeletConfig = v
 	return s
 }
 
@@ -515,4 +699,26 @@ const (
 const (
 	// EnumOfSecurityStrategyListForCreateDefaultNodePoolInputHids is a EnumOfSecurityStrategyListForCreateDefaultNodePoolInput enum value
 	EnumOfSecurityStrategyListForCreateDefaultNodePoolInputHids = "Hids"
+)
+
+const (
+	// EnumOfTopologyManagerPolicyForCreateDefaultNodePoolInputRestricted is a EnumOfTopologyManagerPolicyForCreateDefaultNodePoolInput enum value
+	EnumOfTopologyManagerPolicyForCreateDefaultNodePoolInputRestricted = "restricted"
+
+	// EnumOfTopologyManagerPolicyForCreateDefaultNodePoolInputBestEffort is a EnumOfTopologyManagerPolicyForCreateDefaultNodePoolInput enum value
+	EnumOfTopologyManagerPolicyForCreateDefaultNodePoolInputBestEffort = "best-effort"
+
+	// EnumOfTopologyManagerPolicyForCreateDefaultNodePoolInputNone is a EnumOfTopologyManagerPolicyForCreateDefaultNodePoolInput enum value
+	EnumOfTopologyManagerPolicyForCreateDefaultNodePoolInputNone = "none"
+
+	// EnumOfTopologyManagerPolicyForCreateDefaultNodePoolInputSingleNumaNode is a EnumOfTopologyManagerPolicyForCreateDefaultNodePoolInput enum value
+	EnumOfTopologyManagerPolicyForCreateDefaultNodePoolInputSingleNumaNode = "single-numa-node"
+)
+
+const (
+	// EnumOfTopologyManagerScopeForCreateDefaultNodePoolInputPod is a EnumOfTopologyManagerScopeForCreateDefaultNodePoolInput enum value
+	EnumOfTopologyManagerScopeForCreateDefaultNodePoolInputPod = "pod"
+
+	// EnumOfTopologyManagerScopeForCreateDefaultNodePoolInputContainer is a EnumOfTopologyManagerScopeForCreateDefaultNodePoolInput enum value
+	EnumOfTopologyManagerScopeForCreateDefaultNodePoolInputContainer = "container"
 )
