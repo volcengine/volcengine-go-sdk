@@ -211,7 +211,7 @@ type ListAllIpGroupsInput struct {
 	RuleTag *string `type:"string" json:",omitempty"`
 
 	// TimeOrderBy is a required field
-	TimeOrderBy *string `type:"string" json:",omitempty" required:"true" enum:"EnumOfTimeOrderByForListAllIpGroupsInput"`
+	TimeOrderBy *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -398,11 +398,3 @@ func (s *RelatedRuleForListAllIpGroupsOutput) SetRuleType(v string) *RelatedRule
 	s.RuleType = &v
 	return s
 }
-
-const (
-	// EnumOfTimeOrderByForListAllIpGroupsInputAsc is a EnumOfTimeOrderByForListAllIpGroupsInput enum value
-	EnumOfTimeOrderByForListAllIpGroupsInputAsc = "ASC"
-
-	// EnumOfTimeOrderByForListAllIpGroupsInputDesc is a EnumOfTimeOrderByForListAllIpGroupsInput enum value
-	EnumOfTimeOrderByForListAllIpGroupsInputDesc = "DESC"
-)

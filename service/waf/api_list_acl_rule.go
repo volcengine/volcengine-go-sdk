@@ -488,7 +488,7 @@ type RuleForListAclRuleOutput struct {
 
 	IpLocationSubregion []*string `type:"list" json:",omitempty"`
 
-	Name []*string `type:"list" json:",omitempty"`
+	Name *string `type:"string" json:",omitempty"`
 
 	PrefixSwitch []*string `type:"list" json:",omitempty"`
 
@@ -612,8 +612,8 @@ func (s *RuleForListAclRuleOutput) SetIpLocationSubregion(v []*string) *RuleForL
 }
 
 // SetName sets the Name field's value.
-func (s *RuleForListAclRuleOutput) SetName(v []*string) *RuleForListAclRuleOutput {
-	s.Name = v
+func (s *RuleForListAclRuleOutput) SetName(v string) *RuleForListAclRuleOutput {
+	s.Name = &v
 	return s
 }
 
