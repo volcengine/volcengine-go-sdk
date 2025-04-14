@@ -19,6 +19,10 @@ import (
 // modify mutate any of the struct's properties though.
 type WAFRuntime struct {
 	*waf.WAF
+	StreamBuf     string
+	StreamSendLen int
+	MsgID         *string
+	defaultOut    *waf.CheckLLMResponseStreamOutput
 }
 
 // Used for custom client initialization logic

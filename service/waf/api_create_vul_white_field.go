@@ -146,15 +146,20 @@ func (c *WAF) CreateVulWhiteFieldWithContext(ctx volcengine.Context, input *Crea
 type CreateVulWhiteFieldInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	Enable *int32 `type:"int32" json:",omitempty"`
+	// Enable is a required field
+	Enable *int32 `type:"int32" json:",omitempty" required:"true"`
 
-	FieldArea *string `type:"string" json:",omitempty" enum:"EnumOfFieldAreaForCreateVulWhiteFieldInput"`
+	// FieldArea is a required field
+	FieldArea *string `type:"string" json:",omitempty" required:"true"`
 
-	FieldList *string `type:"string" json:",omitempty"`
+	// FieldList is a required field
+	FieldList *string `type:"string" json:",omitempty" required:"true"`
 
-	Host *string `type:"string" json:",omitempty"`
+	// Host is a required field
+	Host *string `type:"string" json:",omitempty" required:"true"`
 
-	Name *string `type:"string" json:",omitempty"`
+	// Name is a required field
+	Name *string `type:"string" json:",omitempty" required:"true"`
 
 	ProjectName *string `type:"string" json:",omitempty"`
 }
@@ -167,6 +172,31 @@ func (s CreateVulWhiteFieldInput) String() string {
 // GoString returns the string representation
 func (s CreateVulWhiteFieldInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *CreateVulWhiteFieldInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "CreateVulWhiteFieldInput"}
+	if s.Enable == nil {
+		invalidParams.Add(request.NewErrParamRequired("Enable"))
+	}
+	if s.FieldArea == nil {
+		invalidParams.Add(request.NewErrParamRequired("FieldArea"))
+	}
+	if s.FieldList == nil {
+		invalidParams.Add(request.NewErrParamRequired("FieldList"))
+	}
+	if s.Host == nil {
+		invalidParams.Add(request.NewErrParamRequired("Host"))
+	}
+	if s.Name == nil {
+		invalidParams.Add(request.NewErrParamRequired("Name"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetEnable sets the Enable field's value.
@@ -228,20 +258,3 @@ func (s *CreateVulWhiteFieldOutput) SetId(v int32) *CreateVulWhiteFieldOutput {
 	s.Id = &v
 	return s
 }
-
-const (
-	// EnumOfFieldAreaForCreateVulWhiteFieldInputArgs is a EnumOfFieldAreaForCreateVulWhiteFieldInput enum value
-	EnumOfFieldAreaForCreateVulWhiteFieldInputArgs = "args"
-
-	// EnumOfFieldAreaForCreateVulWhiteFieldInputUrl is a EnumOfFieldAreaForCreateVulWhiteFieldInput enum value
-	EnumOfFieldAreaForCreateVulWhiteFieldInputUrl = "url"
-
-	// EnumOfFieldAreaForCreateVulWhiteFieldInputCookies is a EnumOfFieldAreaForCreateVulWhiteFieldInput enum value
-	EnumOfFieldAreaForCreateVulWhiteFieldInputCookies = "cookies"
-
-	// EnumOfFieldAreaForCreateVulWhiteFieldInputHeaders is a EnumOfFieldAreaForCreateVulWhiteFieldInput enum value
-	EnumOfFieldAreaForCreateVulWhiteFieldInputHeaders = "headers"
-
-	// EnumOfFieldAreaForCreateVulWhiteFieldInputBodydetail is a EnumOfFieldAreaForCreateVulWhiteFieldInput enum value
-	EnumOfFieldAreaForCreateVulWhiteFieldInputBodydetail = "bodydetail"
-)

@@ -147,7 +147,7 @@ type DeleteVulWhiteFieldInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
 	// ID is a required field
-	ID *string `type:"string" json:",omitempty" required:"true"`
+	ID *int32 `type:"int32" json:",omitempty" required:"true"`
 
 	ProjectName *string `type:"string" json:",omitempty"`
 }
@@ -176,7 +176,7 @@ func (s *DeleteVulWhiteFieldInput) Validate() error {
 }
 
 // SetID sets the ID field's value.
-func (s *DeleteVulWhiteFieldInput) SetID(v string) *DeleteVulWhiteFieldInput {
+func (s *DeleteVulWhiteFieldInput) SetID(v int32) *DeleteVulWhiteFieldInput {
 	s.ID = &v
 	return s
 }
