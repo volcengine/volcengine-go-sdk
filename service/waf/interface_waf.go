@@ -78,6 +78,14 @@ type WAFAPI interface {
 	CheckLLMPromptWithContext(volcengine.Context, *CheckLLMPromptInput, ...request.Option) (*CheckLLMPromptOutput, error)
 	CheckLLMPromptRequest(*CheckLLMPromptInput) (*request.Request, *CheckLLMPromptOutput)
 
+	CheckLLMResponseStreamCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CheckLLMResponseStreamCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CheckLLMResponseStreamCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CheckLLMResponseStream(*CheckLLMResponseStreamInput) (*CheckLLMResponseStreamOutput, error)
+	CheckLLMResponseStreamWithContext(volcengine.Context, *CheckLLMResponseStreamInput, ...request.Option) (*CheckLLMResponseStreamOutput, error)
+	CheckLLMResponseStreamRequest(*CheckLLMResponseStreamInput) (*request.Request, *CheckLLMResponseStreamOutput)
+
 	CreateAclRuleCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	CreateAclRuleCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	CreateAclRuleCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})

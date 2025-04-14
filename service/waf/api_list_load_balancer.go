@@ -244,7 +244,7 @@ type ListLoadBalancerInput struct {
 
 	ProjectName *string `type:"string" json:",omitempty"`
 
-	Type *string `type:"string" json:",omitempty" enum:"EnumOfTypeForListLoadBalancerInput"`
+	Type *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -298,11 +298,3 @@ func (s *ListLoadBalancerOutput) SetData(v []*DataForListLoadBalancerOutput) *Li
 	s.Data = v
 	return s
 }
-
-const (
-	// EnumOfTypeForListLoadBalancerInputAlb is a EnumOfTypeForListLoadBalancerInput enum value
-	EnumOfTypeForListLoadBalancerInputAlb = "alb"
-
-	// EnumOfTypeForListLoadBalancerInputClb is a EnumOfTypeForListLoadBalancerInput enum value
-	EnumOfTypeForListLoadBalancerInputClb = "clb"
-)

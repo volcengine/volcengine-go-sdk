@@ -342,9 +342,9 @@ func (s *DecisionForCheckLLMPromptOutput) SetMatches(v []*MatchForCheckLLMPrompt
 type MatchForCheckLLMPromptOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	Label *string `type:"string" json:"label,omitempty"`
+	Label *string `type:"string" json:",omitempty"`
 
-	Word *string `type:"string" json:"word,omitempty"`
+	Word *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
