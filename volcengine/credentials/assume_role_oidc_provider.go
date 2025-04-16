@@ -131,8 +131,13 @@ func (p *OIDCCredentialsProvider) fetchOnce() (Value, error) {
 	}
 
 	url := scheme + "://" + endpoint
+	var client *http.Client
+	if p.httpOptions != nil {
+		client = &http.Client{Timeout: p.httpOptions.Timeout}
+	} else {
+		client = &http.Client{}
+	}
 	// 发送请求到STS服务
-	client := &http.Client{Timeout: p.httpOptions.Timeout}
 	resp, err := client.Post(
 		url+"/?Action=AssumeRoleWithOIDC&Version=2018-01-01",
 		"application/x-www-form-urlencoded",
