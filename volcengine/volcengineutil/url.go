@@ -1,5 +1,10 @@
 package volcengineutil
 
+import (
+	"os"
+	"strings"
+)
+
 // Copy from https://github.com/aws/aws-sdk-go
 // May have been modified by Beijing Volcanoengine Technology Ltd.
 
@@ -35,9 +40,10 @@ func (c *Endpoint) GetEndpoint() string {
 }
 
 const (
-	separator      = "."
-	openPrefix     = "open"
-	endpointSuffix = separator + "volcengineapi.com"
+	separator               = "."
+	openPrefix              = "open"
+	endpointSuffix          = separator + "volcengineapi.com"
+	dualstackEndpointSuffix = separator + "volcengine-api.com"
 )
 
 var endpoint = openPrefix + endpointSuffix
@@ -340,6 +346,10 @@ var defaultEndpoint = map[string]*ServiceEndpointInfo{
 	},
 }
 
+func standardizeDomainServiceCode(serviceCode string) string {
+	return strings.ReplaceAll(strings.ToLower(serviceCode), "_", "-")
+}
+
 // GetDefaultEndpointByServiceInfo retrieves the default endpoint for a given service and region.
 //
 // This function takes in the service name and region code, and returns a pointer to the default
@@ -349,41 +359,95 @@ var defaultEndpoint = map[string]*ServiceEndpointInfo{
 // Parameters:
 // - service: The name of the service for which to retrieve the endpoint.
 // - regionCode: The region code to look up the region-specific endpoint.
-//
+// - customBootstrapRegion: The map which keys are bootstrapping region code and values are empty struct.
 // Returns:
 // - *string: A pointer to the endpoint string. It could be a global endpoint, a region-specific
 // endpoint, or a default endpoint if the specified service or region does not have a defined endpoint.
 //
 // Example:
-//   endpoint := GetDefaultEndpointByServiceInfo("exampleService", "cn-beijing")
+//
+//	endpoint := GetDefaultEndpointByServiceInfo("exampleService", "cn-beijing", nil)
 //
 // Note: Ensure the `defaultEndpoint` map is properly populated with service and region endpoint
 // information before calling this function.
-func GetDefaultEndpointByServiceInfo(service string, regionCode string) *string {
+func GetDefaultEndpointByServiceInfo(service string, regionCode string, customBootstrapRegion map[string]struct{}) *string {
+
 	resultEndpoint := endpoint
+
+	if !inBootstrapRegionList(regionCode, customBootstrapRegion) {
+		return &resultEndpoint
+	}
+
 	defaultEndpointInfo, sExist := defaultEndpoint[service]
 	if !sExist {
 		return &resultEndpoint
 	}
 
-	isGlobal := defaultEndpointInfo.IsGlobal
-	if isGlobal {
+	suffix := endpointSuffix
+	if enableDualStack() {
+		suffix = dualstackEndpointSuffix
+	}
+
+	if defaultEndpointInfo.IsGlobal {
 		if len(defaultEndpointInfo.GlobalEndpoint) > 0 {
 			resultEndpoint = defaultEndpointInfo.GlobalEndpoint
 			return &resultEndpoint
 		}
-	} else {
-		regionEndpointMp := defaultEndpointInfo.RegionEndpointMap
-		regionEndpointStr, rExist := regionEndpointMp[regionCode]
-		if rExist {
-			resultEndpoint = regionEndpointStr
-			return &resultEndpoint
+		resultEndpoint = standardizeDomainServiceCode(service) + suffix
+		return &resultEndpoint
+	}
+
+	// regional endpoint
+	regionEndpointMp := defaultEndpointInfo.RegionEndpointMap
+	regionEndpointStr, rExist := regionEndpointMp[regionCode]
+	if rExist {
+		resultEndpoint = regionEndpointStr
+		return &resultEndpoint
+	}
+
+	resultEndpoint = standardizeDomainServiceCode(service) + separator + regionCode + separator + suffix
+	return &resultEndpoint
+
+}
+
+var bootstrapRegion = map[string]struct{}{
+	regionCodeCNBeijingAutoDriving: {},
+	regionCodeAPSouthEast3:         {},
+}
+
+func inBootstrapRegionList(regionCode string, customBootstrapRegion map[string]struct{}) bool {
+	regionCode = strings.TrimSpace(regionCode)
+	bsRegionListPath := os.Getenv("VOLC_BOOTSTRAP_REGION_LIST_CONF")
+	if len(bsRegionListPath) > 0 {
+		f, err := os.ReadFile(bsRegionListPath)
+		if err == nil {
+			for _, l := range strings.Split(string(f), "\n") {
+				l = strings.TrimSpace(l)
+				if len(l) == 0 {
+					continue
+				}
+				if l == regionCode {
+					return true
+				}
+			}
 		}
 	}
 
-	if len(defaultEndpointInfo.DefaultEndpoint) > 0 {
-		resultEndpoint = defaultEndpointInfo.DefaultEndpoint
-		return &resultEndpoint
+	if len(bootstrapRegion) > 0 {
+		_, ok := bootstrapRegion[regionCode]
+		if ok {
+			return ok
+		}
 	}
-	return &resultEndpoint
+
+	if len(customBootstrapRegion) > 0 {
+		_, ok := customBootstrapRegion[regionCode]
+		return ok
+	}
+
+	return false
+}
+
+func enableDualStack() bool {
+	return os.Getenv("VOLC_ENABLE_DUALSTACK") == "true"
 }

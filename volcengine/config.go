@@ -61,6 +61,8 @@ type Config struct {
 	// Regions and Endpoints.
 	Region *string
 
+	BootstrapRegion map[string]struct{}
+
 	// Set this to `true` to disable SSL when sending requests. Defaults
 	// to `false`.
 	DisableSSL *bool
@@ -252,16 +254,16 @@ type Config struct {
 // NewConfig returns a new Config pointer that can be chained with builder
 // methods to set multiple configuration values inline without using pointers.
 //
-//     // Create Session with MaxRetries configuration to be shared by multiple
-//     // service clients.
-//     sess := session.Must(session.NewSession(volcengine.NewConfig().
-//         WithMaxRetries(3),
-//     ))
+//	// Create Session with MaxRetries configuration to be shared by multiple
+//	// service clients.
+//	sess := session.Must(session.NewSession(volcengine.NewConfig().
+//	    WithMaxRetries(3),
+//	))
 //
-//     // Create S3 service client with a specific Region.
-//     svc := s3.New(sess, volcengine.NewConfig().
-//         WithRegion("us-west-2"),
-//     )
+//	// Create S3 service client with a specific Region.
+//	svc := s3.New(sess, volcengine.NewConfig().
+//	    WithRegion("us-west-2"),
+//	)
 func NewConfig() *Config {
 	return &Config{}
 }
@@ -390,6 +392,18 @@ func (c *Config) WithRegion(region string) *Config {
 	return c
 }
 
+func (c *Config) WithBootstrapRegionList(l []string) *Config {
+	if len(l) == 0 {
+		c.BootstrapRegion = nil
+		return c
+	}
+	c.BootstrapRegion = make(map[string]struct{})
+	for _, r := range l {
+		c.BootstrapRegion[r] = struct{}{}
+	}
+	return c
+}
+
 // WithDisableSSL sets a config DisableSSL value returning a Config pointer
 // for chaining.
 func (c *Config) WithDisableSSL(disable bool) *Config {
@@ -485,10 +499,12 @@ func (c *Config) WithSleepDelay(fn func(time.Duration)) *Config {
 
 // WithDisableEndpointHostPrefix will set whether or not to use modeled host prefix
 // when making requests.
-//func (c *Config) WithDisableEndpointHostPrefix(t bool) *Config {
-//	c.DisableEndpointHostPrefix = &t
-//	return c
-//}
+//
+//	func (c *Config) WithDisableEndpointHostPrefix(t bool) *Config {
+//		c.DisableEndpointHostPrefix = &t
+//		return c
+//	}
+//
 // WithEndpointConfigState will set whether or not to use FileEndpointResolver
 func (c *Config) WithEndpointConfigState(t bool) *Config {
 	c.EndpointConfigState = &t
@@ -531,6 +547,10 @@ func mergeInConfig(dst *Config, other *Config) {
 
 	if other.Region != nil {
 		dst.Region = other.Region
+	}
+
+	if other.BootstrapRegion != nil {
+		dst.BootstrapRegion = other.BootstrapRegion
 	}
 
 	if other.DisableSSL != nil {
