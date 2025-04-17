@@ -188,6 +188,8 @@ type ItemForListTaskRunsOutput struct {
 
 	Name *string `type:"string" json:",omitempty"`
 
+	Outputs []*OutputForListTaskRunsOutput `type:"list" json:",omitempty"`
+
 	StartTime *string `type:"string" json:",omitempty"`
 
 	Status *string `type:"string" json:",omitempty"`
@@ -242,6 +244,12 @@ func (s *ItemForListTaskRunsOutput) SetId(v string) *ItemForListTaskRunsOutput {
 // SetName sets the Name field's value.
 func (s *ItemForListTaskRunsOutput) SetName(v string) *ItemForListTaskRunsOutput {
 	s.Name = &v
+	return s
+}
+
+// SetOutputs sets the Outputs field's value.
+func (s *ItemForListTaskRunsOutput) SetOutputs(v []*OutputForListTaskRunsOutput) *ItemForListTaskRunsOutput {
+	s.Outputs = v
 	return s
 }
 
@@ -416,6 +424,36 @@ func (s *ListTaskRunsOutput) SetPageSize(v int64) *ListTaskRunsOutput {
 // SetTotalCount sets the TotalCount field's value.
 func (s *ListTaskRunsOutput) SetTotalCount(v int64) *ListTaskRunsOutput {
 	s.TotalCount = &v
+	return s
+}
+
+type OutputForListTaskRunsOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Key *string `type:"string" json:",omitempty"`
+
+	Value *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s OutputForListTaskRunsOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s OutputForListTaskRunsOutput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *OutputForListTaskRunsOutput) SetKey(v string) *OutputForListTaskRunsOutput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *OutputForListTaskRunsOutput) SetValue(v string) *OutputForListTaskRunsOutput {
+	s.Value = &v
 	return s
 }
 
