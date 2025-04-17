@@ -406,7 +406,7 @@ func GetDefaultEndpointByServiceInfo(service string, regionCode string, customBo
 		return &resultEndpoint
 	}
 
-	resultEndpoint = standardizeDomainServiceCode(service) + separator + regionCode + separator + suffix
+	resultEndpoint = standardizeDomainServiceCode(service) + separator + regionCode + suffix
 	return &resultEndpoint
 
 }
