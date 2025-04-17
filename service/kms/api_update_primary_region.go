@@ -32,7 +32,7 @@ const opUpdatePrimaryRegionCommon = "UpdatePrimaryRegion"
 func (c *KMS) UpdatePrimaryRegionCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opUpdatePrimaryRegionCommon,
-		HTTPMethod: "GET",
+		HTTPMethod: "POST",
 		HTTPPath:   "/",
 	}
 
@@ -42,6 +42,8 @@ func (c *KMS) UpdatePrimaryRegionCommonRequest(input *map[string]interface{}) (r
 
 	output = &map[string]interface{}{}
 	req = c.newRequest(op, input, output)
+
+	req.HTTPRequest.Header.Set("Content-Type", "application/json; charset=utf-8")
 
 	return
 }
@@ -97,7 +99,7 @@ const opUpdatePrimaryRegion = "UpdatePrimaryRegion"
 func (c *KMS) UpdatePrimaryRegionRequest(input *UpdatePrimaryRegionInput) (req *request.Request, output *UpdatePrimaryRegionOutput) {
 	op := &request.Operation{
 		Name:       opUpdatePrimaryRegion,
-		HTTPMethod: "GET",
+		HTTPMethod: "POST",
 		HTTPPath:   "/",
 	}
 
@@ -107,6 +109,8 @@ func (c *KMS) UpdatePrimaryRegionRequest(input *UpdatePrimaryRegionInput) (req *
 
 	output = &UpdatePrimaryRegionOutput{}
 	req = c.newRequest(op, input, output)
+
+	req.HTTPRequest.Header.Set("Content-Type", "application/json; charset=utf-8")
 
 	return
 }
@@ -140,16 +144,16 @@ func (c *KMS) UpdatePrimaryRegionWithContext(ctx volcengine.Context, input *Upda
 }
 
 type UpdatePrimaryRegionInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	KeyID *string `type:"string"`
+	KeyID *string `type:"string" json:",omitempty"`
 
-	KeyName *string `min:"2" max:"31" type:"string"`
+	KeyName *string `min:"2" max:"31" type:"string" json:",omitempty"`
 
-	KeyringName *string `min:"2" max:"31" type:"string"`
+	KeyringName *string `min:"2" max:"31" type:"string" json:",omitempty"`
 
 	// PrimaryRegion is a required field
-	PrimaryRegion *string `max:"64" type:"string" required:"true"`
+	PrimaryRegion *string `max:"64" type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -215,7 +219,7 @@ func (s *UpdatePrimaryRegionInput) SetPrimaryRegion(v string) *UpdatePrimaryRegi
 }
 
 type UpdatePrimaryRegionOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 }
