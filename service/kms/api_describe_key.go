@@ -262,6 +262,8 @@ type KeyForDescribeKeyOutput struct {
 
 	ScheduleRotationTime *string `type:"string" json:",omitempty"`
 
+	Tags []*TagForDescribeKeyOutput `type:"list" json:",omitempty"`
+
 	Trn *string `type:"string" json:",omitempty"`
 
 	UpdateDate *int64 `type:"int64" json:",omitempty"`
@@ -373,6 +375,12 @@ func (s *KeyForDescribeKeyOutput) SetScheduleRotationTime(v string) *KeyForDescr
 	return s
 }
 
+// SetTags sets the Tags field's value.
+func (s *KeyForDescribeKeyOutput) SetTags(v []*TagForDescribeKeyOutput) *KeyForDescribeKeyOutput {
+	s.Tags = v
+	return s
+}
+
 // SetTrn sets the Trn field's value.
 func (s *KeyForDescribeKeyOutput) SetTrn(v string) *KeyForDescribeKeyOutput {
 	s.Trn = &v
@@ -480,6 +488,36 @@ func (s *ReplicaKeyForDescribeKeyOutput) SetRegion(v string) *ReplicaKeyForDescr
 // SetTrn sets the Trn field's value.
 func (s *ReplicaKeyForDescribeKeyOutput) SetTrn(v string) *ReplicaKeyForDescribeKeyOutput {
 	s.Trn = &v
+	return s
+}
+
+type TagForDescribeKeyOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Key *string `type:"string" json:",omitempty"`
+
+	Value *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s TagForDescribeKeyOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagForDescribeKeyOutput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagForDescribeKeyOutput) SetKey(v string) *TagForDescribeKeyOutput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *TagForDescribeKeyOutput) SetValue(v string) *TagForDescribeKeyOutput {
+	s.Value = &v
 	return s
 }
 

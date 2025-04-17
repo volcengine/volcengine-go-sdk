@@ -32,7 +32,7 @@ const opReplicateKeyCommon = "ReplicateKey"
 func (c *KMS) ReplicateKeyCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opReplicateKeyCommon,
-		HTTPMethod: "GET",
+		HTTPMethod: "POST",
 		HTTPPath:   "/",
 	}
 
@@ -42,6 +42,8 @@ func (c *KMS) ReplicateKeyCommonRequest(input *map[string]interface{}) (req *req
 
 	output = &map[string]interface{}{}
 	req = c.newRequest(op, input, output)
+
+	req.HTTPRequest.Header.Set("Content-Type", "application/json; charset=utf-8")
 
 	return
 }
@@ -97,7 +99,7 @@ const opReplicateKey = "ReplicateKey"
 func (c *KMS) ReplicateKeyRequest(input *ReplicateKeyInput) (req *request.Request, output *ReplicateKeyOutput) {
 	op := &request.Operation{
 		Name:       opReplicateKey,
-		HTTPMethod: "GET",
+		HTTPMethod: "POST",
 		HTTPPath:   "/",
 	}
 
@@ -107,6 +109,8 @@ func (c *KMS) ReplicateKeyRequest(input *ReplicateKeyInput) (req *request.Reques
 
 	output = &ReplicateKeyOutput{}
 	req = c.newRequest(op, input, output)
+
+	req.HTTPRequest.Header.Set("Content-Type", "application/json; charset=utf-8")
 
 	return
 }
@@ -140,43 +144,45 @@ func (c *KMS) ReplicateKeyWithContext(ctx volcengine.Context, input *ReplicateKe
 }
 
 type ConvertReplicaKeyForReplicateKeyOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	CreationDate *int64 `type:"int64"`
+	CreationDate *int64 `type:"int64" json:",omitempty"`
 
-	Description *string `type:"string"`
+	Description *string `type:"string" json:",omitempty"`
 
-	ID *string `type:"string"`
+	ID *string `type:"string" json:",omitempty"`
 
-	KeyMaterialExpireTime *string `type:"string"`
+	KeyMaterialExpireTime *string `type:"string" json:",omitempty"`
 
-	KeyName *string `type:"string"`
+	KeyName *string `type:"string" json:",omitempty"`
 
-	KeySpec *string `type:"string"`
+	KeySpec *string `type:"string" json:",omitempty"`
 
-	KeyState *string `type:"string"`
+	KeyState *string `type:"string" json:",omitempty"`
 
-	KeyUsage *string `type:"string"`
+	KeyUsage *string `type:"string" json:",omitempty"`
 
-	LastRotationTime *string `type:"string"`
+	LastRotationTime *string `type:"string" json:",omitempty"`
 
-	MultiRegion *bool `type:"boolean"`
+	MultiRegion *bool `type:"boolean" json:",omitempty"`
 
-	MultiRegionConfiguration *MultiRegionConfigurationForReplicateKeyOutput `type:"structure"`
+	MultiRegionConfiguration *MultiRegionConfigurationForReplicateKeyOutput `type:"structure" json:",omitempty"`
 
-	Origin *string `type:"string"`
+	Origin *string `type:"string" json:",omitempty"`
 
-	ProtectionLevel *string `type:"string"`
+	ProtectionLevel *string `type:"string" json:",omitempty"`
 
-	RotationState *string `type:"string"`
+	RotationState *string `type:"string" json:",omitempty"`
 
-	ScheduleDeleteTime *string `type:"string"`
+	ScheduleDeleteTime *string `type:"string" json:",omitempty"`
 
-	ScheduleRotationTime *string `type:"string"`
+	ScheduleRotationTime *string `type:"string" json:",omitempty"`
 
-	Trn *string `type:"string"`
+	Tags []*TagForReplicateKeyOutput `type:"list" json:",omitempty"`
 
-	UpdateDate *int64 `type:"int64"`
+	Trn *string `type:"string" json:",omitempty"`
+
+	UpdateDate *int64 `type:"int64" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -285,6 +291,12 @@ func (s *ConvertReplicaKeyForReplicateKeyOutput) SetScheduleRotationTime(v strin
 	return s
 }
 
+// SetTags sets the Tags field's value.
+func (s *ConvertReplicaKeyForReplicateKeyOutput) SetTags(v []*TagForReplicateKeyOutput) *ConvertReplicaKeyForReplicateKeyOutput {
+	s.Tags = v
+	return s
+}
+
 // SetTrn sets the Trn field's value.
 func (s *ConvertReplicaKeyForReplicateKeyOutput) SetTrn(v string) *ConvertReplicaKeyForReplicateKeyOutput {
 	s.Trn = &v
@@ -298,13 +310,13 @@ func (s *ConvertReplicaKeyForReplicateKeyOutput) SetUpdateDate(v int64) *Convert
 }
 
 type MultiRegionConfigurationForReplicateKeyOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	MultiRegionKeyType *string `type:"string" enum:"EnumOfMultiRegionKeyTypeForReplicateKeyOutput"`
+	MultiRegionKeyType *string `type:"string" json:",omitempty" enum:"EnumOfMultiRegionKeyTypeForReplicateKeyOutput"`
 
-	PrimaryKey *PrimaryKeyForReplicateKeyOutput `type:"structure"`
+	PrimaryKey *PrimaryKeyForReplicateKeyOutput `type:"structure" json:",omitempty"`
 
-	ReplicaKeys []*ReplicaKeyForReplicateKeyOutput `type:"list"`
+	ReplicaKeys []*ReplicaKeyForReplicateKeyOutput `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -336,11 +348,11 @@ func (s *MultiRegionConfigurationForReplicateKeyOutput) SetReplicaKeys(v []*Repl
 }
 
 type PrimaryKeyForReplicateKeyOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Region *string `type:"string"`
+	Region *string `type:"string" json:",omitempty"`
 
-	Trn *string `type:"string"`
+	Trn *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -366,11 +378,11 @@ func (s *PrimaryKeyForReplicateKeyOutput) SetTrn(v string) *PrimaryKeyForReplica
 }
 
 type ReplicaKeyForReplicateKeyOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Region *string `type:"string"`
+	Region *string `type:"string" json:",omitempty"`
 
-	Trn *string `type:"string"`
+	Trn *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -396,18 +408,20 @@ func (s *ReplicaKeyForReplicateKeyOutput) SetTrn(v string) *ReplicaKeyForReplica
 }
 
 type ReplicateKeyInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Description *string `max:"8192" type:"string"`
+	Description *string `max:"8192" type:"string" json:",omitempty"`
 
-	KeyID *string `type:"string"`
+	KeyID *string `type:"string" json:",omitempty"`
 
-	KeyName *string `min:"2" max:"31" type:"string"`
+	KeyName *string `min:"2" max:"31" type:"string" json:",omitempty"`
 
-	KeyringName *string `min:"2" max:"31" type:"string"`
+	KeyringName *string `min:"2" max:"31" type:"string" json:",omitempty"`
 
 	// ReplicaRegion is a required field
-	ReplicaRegion *string `max:"64" type:"string" required:"true"`
+	ReplicaRegion *string `max:"64" type:"string" json:",omitempty" required:"true"`
+
+	Tags []*TagForReplicateKeyInput `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -481,12 +495,18 @@ func (s *ReplicateKeyInput) SetReplicaRegion(v string) *ReplicateKeyInput {
 	return s
 }
 
+// SetTags sets the Tags field's value.
+func (s *ReplicateKeyInput) SetTags(v []*TagForReplicateKeyInput) *ReplicateKeyInput {
+	s.Tags = v
+	return s
+}
+
 type ReplicateKeyOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	ReplicaKey *ConvertReplicaKeyForReplicateKeyOutput `type:"structure"`
+	ReplicaKey *ConvertReplicaKeyForReplicateKeyOutput `type:"structure" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -502,6 +522,66 @@ func (s ReplicateKeyOutput) GoString() string {
 // SetReplicaKey sets the ReplicaKey field's value.
 func (s *ReplicateKeyOutput) SetReplicaKey(v *ConvertReplicaKeyForReplicateKeyOutput) *ReplicateKeyOutput {
 	s.ReplicaKey = v
+	return s
+}
+
+type TagForReplicateKeyInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Key *string `type:"string" json:",omitempty"`
+
+	Value *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s TagForReplicateKeyInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagForReplicateKeyInput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagForReplicateKeyInput) SetKey(v string) *TagForReplicateKeyInput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *TagForReplicateKeyInput) SetValue(v string) *TagForReplicateKeyInput {
+	s.Value = &v
+	return s
+}
+
+type TagForReplicateKeyOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Key *string `type:"string" json:",omitempty"`
+
+	Value *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s TagForReplicateKeyOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagForReplicateKeyOutput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagForReplicateKeyOutput) SetKey(v string) *TagForReplicateKeyOutput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *TagForReplicateKeyOutput) SetValue(v string) *TagForReplicateKeyOutput {
+	s.Value = &v
 	return s
 }
 
