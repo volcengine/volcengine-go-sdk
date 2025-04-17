@@ -150,15 +150,16 @@ type UpdateVulWhiteFieldInput struct {
 	Enable *int32 `type:"int32" json:",omitempty" required:"true"`
 
 	// FieldArea is a required field
-	FieldArea *string `type:"string" json:",omitempty" required:"true" enum:"EnumOfFieldAreaForUpdateVulWhiteFieldInput"`
+	FieldArea *string `type:"string" json:",omitempty" required:"true"`
 
-	FieldList *string `type:"string" json:",omitempty"`
+	// FieldList is a required field
+	FieldList *string `type:"string" json:",omitempty" required:"true"`
 
 	// Host is a required field
 	Host *string `type:"string" json:",omitempty" required:"true"`
 
 	// ID is a required field
-	ID *string `type:"string" json:",omitempty" required:"true"`
+	ID *int32 `type:"int32" json:",omitempty" required:"true"`
 
 	// Name is a required field
 	Name *string `type:"string" json:",omitempty" required:"true"`
@@ -184,6 +185,9 @@ func (s *UpdateVulWhiteFieldInput) Validate() error {
 	}
 	if s.FieldArea == nil {
 		invalidParams.Add(request.NewErrParamRequired("FieldArea"))
+	}
+	if s.FieldList == nil {
+		invalidParams.Add(request.NewErrParamRequired("FieldList"))
 	}
 	if s.Host == nil {
 		invalidParams.Add(request.NewErrParamRequired("Host"))
@@ -226,7 +230,7 @@ func (s *UpdateVulWhiteFieldInput) SetHost(v string) *UpdateVulWhiteFieldInput {
 }
 
 // SetID sets the ID field's value.
-func (s *UpdateVulWhiteFieldInput) SetID(v string) *UpdateVulWhiteFieldInput {
+func (s *UpdateVulWhiteFieldInput) SetID(v int32) *UpdateVulWhiteFieldInput {
 	s.ID = &v
 	return s
 }
@@ -258,20 +262,3 @@ func (s UpdateVulWhiteFieldOutput) String() string {
 func (s UpdateVulWhiteFieldOutput) GoString() string {
 	return s.String()
 }
-
-const (
-	// EnumOfFieldAreaForUpdateVulWhiteFieldInputArgs is a EnumOfFieldAreaForUpdateVulWhiteFieldInput enum value
-	EnumOfFieldAreaForUpdateVulWhiteFieldInputArgs = "args"
-
-	// EnumOfFieldAreaForUpdateVulWhiteFieldInputUrl is a EnumOfFieldAreaForUpdateVulWhiteFieldInput enum value
-	EnumOfFieldAreaForUpdateVulWhiteFieldInputUrl = "url"
-
-	// EnumOfFieldAreaForUpdateVulWhiteFieldInputCookies is a EnumOfFieldAreaForUpdateVulWhiteFieldInput enum value
-	EnumOfFieldAreaForUpdateVulWhiteFieldInputCookies = "cookies"
-
-	// EnumOfFieldAreaForUpdateVulWhiteFieldInputHeaders is a EnumOfFieldAreaForUpdateVulWhiteFieldInput enum value
-	EnumOfFieldAreaForUpdateVulWhiteFieldInputHeaders = "headers"
-
-	// EnumOfFieldAreaForUpdateVulWhiteFieldInputBodydetail is a EnumOfFieldAreaForUpdateVulWhiteFieldInput enum value
-	EnumOfFieldAreaForUpdateVulWhiteFieldInputBodydetail = "bodydetail"
-)

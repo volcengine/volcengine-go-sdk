@@ -160,6 +160,8 @@ type RenewInstanceInput struct {
 
 	// RenewalDurationUnit is a required field
 	RenewalDurationUnit *string `type:"string" json:",omitempty" required:"true"`
+
+	UnitedExpireDay *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -224,6 +226,12 @@ func (s *RenewInstanceInput) SetRenewalDuration(v int64) *RenewInstanceInput {
 // SetRenewalDurationUnit sets the RenewalDurationUnit field's value.
 func (s *RenewInstanceInput) SetRenewalDurationUnit(v string) *RenewInstanceInput {
 	s.RenewalDurationUnit = &v
+	return s
+}
+
+// SetUnitedExpireDay sets the UnitedExpireDay field's value.
+func (s *RenewInstanceInput) SetUnitedExpireDay(v string) *RenewInstanceInput {
+	s.UnitedExpireDay = &v
 	return s
 }
 

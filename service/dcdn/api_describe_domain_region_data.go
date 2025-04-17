@@ -146,6 +146,8 @@ func (c *DCDN) DescribeDomainRegionDataWithContext(ctx volcengine.Context, input
 type DescribeDomainRegionDataInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	Area *string `type:"string" json:",omitempty"`
+
 	// Domain is a required field
 	Domain *string `type:"string" json:",omitempty" required:"true"`
 
@@ -185,6 +187,12 @@ func (s *DescribeDomainRegionDataInput) Validate() error {
 		return invalidParams
 	}
 	return nil
+}
+
+// SetArea sets the Area field's value.
+func (s *DescribeDomainRegionDataInput) SetArea(v string) *DescribeDomainRegionDataInput {
+	s.Area = &v
+	return s
 }
 
 // SetDomain sets the Domain field's value.

@@ -1295,6 +1295,12 @@ type ListDomainConfigOutput struct {
 	Metadata *response.ResponseMetadata
 
 	DomainList []*DomainListForListDomainConfigOutput `type:"list" json:",omitempty"`
+
+	PageNumber *int32 `type:"int32" json:",omitempty"`
+
+	PageSize *int32 `type:"int32" json:",omitempty"`
+
+	Total *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -1310,6 +1316,24 @@ func (s ListDomainConfigOutput) GoString() string {
 // SetDomainList sets the DomainList field's value.
 func (s *ListDomainConfigOutput) SetDomainList(v []*DomainListForListDomainConfigOutput) *ListDomainConfigOutput {
 	s.DomainList = v
+	return s
+}
+
+// SetPageNumber sets the PageNumber field's value.
+func (s *ListDomainConfigOutput) SetPageNumber(v int32) *ListDomainConfigOutput {
+	s.PageNumber = &v
+	return s
+}
+
+// SetPageSize sets the PageSize field's value.
+func (s *ListDomainConfigOutput) SetPageSize(v int32) *ListDomainConfigOutput {
+	s.PageSize = &v
+	return s
+}
+
+// SetTotal sets the Total field's value.
+func (s *ListDomainConfigOutput) SetTotal(v int32) *ListDomainConfigOutput {
+	s.Total = &v
 	return s
 }
 

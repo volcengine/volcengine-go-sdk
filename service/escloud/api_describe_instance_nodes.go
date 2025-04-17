@@ -146,7 +146,8 @@ func (c *ESCLOUD) DescribeInstanceNodesWithContext(ctx volcengine.Context, input
 type DescribeInstanceNodesInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	InstanceId *string `type:"string" json:",omitempty"`
+	// InstanceId is a required field
+	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -157,6 +158,19 @@ func (s DescribeInstanceNodesInput) String() string {
 // GoString returns the string representation
 func (s DescribeInstanceNodesInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DescribeInstanceNodesInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DescribeInstanceNodesInput"}
+	if s.InstanceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("InstanceId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetInstanceId sets the InstanceId field's value.

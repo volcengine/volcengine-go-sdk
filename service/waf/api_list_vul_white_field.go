@@ -227,8 +227,7 @@ type ListVulWhiteFieldInput struct {
 	// Host is a required field
 	Host *string `type:"string" json:",omitempty" required:"true"`
 
-	// Page is a required field
-	Page *string `type:"string" json:",omitempty" required:"true"`
+	Page *int32 `type:"int32" json:",omitempty"`
 
 	// PageSize is a required field
 	PageSize *int32 `type:"int32" json:",omitempty" required:"true"`
@@ -254,9 +253,6 @@ func (s *ListVulWhiteFieldInput) Validate() error {
 	if s.Host == nil {
 		invalidParams.Add(request.NewErrParamRequired("Host"))
 	}
-	if s.Page == nil {
-		invalidParams.Add(request.NewErrParamRequired("Page"))
-	}
 	if s.PageSize == nil {
 		invalidParams.Add(request.NewErrParamRequired("PageSize"))
 	}
@@ -274,7 +270,7 @@ func (s *ListVulWhiteFieldInput) SetHost(v string) *ListVulWhiteFieldInput {
 }
 
 // SetPage sets the Page field's value.
-func (s *ListVulWhiteFieldInput) SetPage(v string) *ListVulWhiteFieldInput {
+func (s *ListVulWhiteFieldInput) SetPage(v int32) *ListVulWhiteFieldInput {
 	s.Page = &v
 	return s
 }
@@ -302,7 +298,15 @@ type ListVulWhiteFieldOutput struct {
 
 	Metadata *response.ResponseMetadata
 
+	Count *int32 `type:"int32" json:",omitempty"`
+
+	CurrentPage *int32 `type:"int32" json:",omitempty"`
+
 	Data []*DataForListVulWhiteFieldOutput `type:"list" json:",omitempty"`
+
+	PageSize *int32 `type:"int32" json:",omitempty"`
+
+	TotalCount *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -315,8 +319,32 @@ func (s ListVulWhiteFieldOutput) GoString() string {
 	return s.String()
 }
 
+// SetCount sets the Count field's value.
+func (s *ListVulWhiteFieldOutput) SetCount(v int32) *ListVulWhiteFieldOutput {
+	s.Count = &v
+	return s
+}
+
+// SetCurrentPage sets the CurrentPage field's value.
+func (s *ListVulWhiteFieldOutput) SetCurrentPage(v int32) *ListVulWhiteFieldOutput {
+	s.CurrentPage = &v
+	return s
+}
+
 // SetData sets the Data field's value.
 func (s *ListVulWhiteFieldOutput) SetData(v []*DataForListVulWhiteFieldOutput) *ListVulWhiteFieldOutput {
 	s.Data = v
+	return s
+}
+
+// SetPageSize sets the PageSize field's value.
+func (s *ListVulWhiteFieldOutput) SetPageSize(v int32) *ListVulWhiteFieldOutput {
+	s.PageSize = &v
+	return s
+}
+
+// SetTotalCount sets the TotalCount field's value.
+func (s *ListVulWhiteFieldOutput) SetTotalCount(v int32) *ListVulWhiteFieldOutput {
+	s.TotalCount = &v
 	return s
 }

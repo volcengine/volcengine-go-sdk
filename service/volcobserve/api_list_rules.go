@@ -197,6 +197,36 @@ func (s *ConditionForListRulesOutput) SetThreshold(v string) *ConditionForListRu
 	return s
 }
 
+type ConvertTagForListRulesOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Key *string `type:"string" json:",omitempty"`
+
+	Value *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s ConvertTagForListRulesOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ConvertTagForListRulesOutput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *ConvertTagForListRulesOutput) SetKey(v string) *ConvertTagForListRulesOutput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *ConvertTagForListRulesOutput) SetValue(v string) *ConvertTagForListRulesOutput {
+	s.Value = &v
+	return s
+}
+
 type DataForListRulesOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -251,6 +281,8 @@ type DataForListRulesOutput struct {
 	SilenceTime *int64 `type:"integer" json:",omitempty"`
 
 	SubNamespace *string `type:"string" json:",omitempty"`
+
+	Tags []*ConvertTagForListRulesOutput `type:"list" json:",omitempty"`
 
 	UpdatedAt *string `type:"string" json:",omitempty"`
 
@@ -422,6 +454,12 @@ func (s *DataForListRulesOutput) SetSilenceTime(v int64) *DataForListRulesOutput
 // SetSubNamespace sets the SubNamespace field's value.
 func (s *DataForListRulesOutput) SetSubNamespace(v string) *DataForListRulesOutput {
 	s.SubNamespace = &v
+	return s
+}
+
+// SetTags sets the Tags field's value.
+func (s *DataForListRulesOutput) SetTags(v []*ConvertTagForListRulesOutput) *DataForListRulesOutput {
+	s.Tags = v
 	return s
 }
 

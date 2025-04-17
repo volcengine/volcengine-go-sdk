@@ -144,11 +144,14 @@ type AssociateRouteTableInput struct {
 
 	ClientToken *string `type:"string"`
 
+	GatewayId *string `type:"string"`
+
+	GatewayType *string `type:"string" enum:"GatewayTypeForAssociateRouteTableInput"`
+
 	// RouteTableId is a required field
 	RouteTableId *string `type:"string" required:"true"`
 
-	// SubnetId is a required field
-	SubnetId *string `type:"string" required:"true"`
+	SubnetId *string `type:"string"`
 }
 
 // String returns the string representation
@@ -167,9 +170,6 @@ func (s *AssociateRouteTableInput) Validate() error {
 	if s.RouteTableId == nil {
 		invalidParams.Add(request.NewErrParamRequired("RouteTableId"))
 	}
-	if s.SubnetId == nil {
-		invalidParams.Add(request.NewErrParamRequired("SubnetId"))
-	}
 
 	if invalidParams.Len() > 0 {
 		return invalidParams
@@ -180,6 +180,18 @@ func (s *AssociateRouteTableInput) Validate() error {
 // SetClientToken sets the ClientToken field's value.
 func (s *AssociateRouteTableInput) SetClientToken(v string) *AssociateRouteTableInput {
 	s.ClientToken = &v
+	return s
+}
+
+// SetGatewayId sets the GatewayId field's value.
+func (s *AssociateRouteTableInput) SetGatewayId(v string) *AssociateRouteTableInput {
+	s.GatewayId = &v
+	return s
+}
+
+// SetGatewayType sets the GatewayType field's value.
+func (s *AssociateRouteTableInput) SetGatewayType(v string) *AssociateRouteTableInput {
+	s.GatewayType = &v
 	return s
 }
 
@@ -218,3 +230,11 @@ func (s *AssociateRouteTableOutput) SetRequestId(v string) *AssociateRouteTableO
 	s.RequestId = &v
 	return s
 }
+
+const (
+	// GatewayTypeForAssociateRouteTableInputIpv4gateway is a GatewayTypeForAssociateRouteTableInput enum value
+	GatewayTypeForAssociateRouteTableInputIpv4gateway = "Ipv4Gateway"
+
+	// GatewayTypeForAssociateRouteTableInputIpv6gateway is a GatewayTypeForAssociateRouteTableInput enum value
+	GatewayTypeForAssociateRouteTableInputIpv6gateway = "Ipv6Gateway"
+)

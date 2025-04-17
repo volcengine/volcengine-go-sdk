@@ -54,6 +54,14 @@ type FLINK20250101API interface {
 	ListApplicationInstanceWithContext(volcengine.Context, *ListApplicationInstanceInput, ...request.Option) (*ListApplicationInstanceOutput, error)
 	ListApplicationInstanceRequest(*ListApplicationInstanceInput) (*request.Request, *ListApplicationInstanceOutput)
 
+	RestartGWSApplicationCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	RestartGWSApplicationCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	RestartGWSApplicationCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	RestartGWSApplication(*RestartGWSApplicationInput) (*RestartGWSApplicationOutput, error)
+	RestartGWSApplicationWithContext(volcengine.Context, *RestartGWSApplicationInput, ...request.Option) (*RestartGWSApplicationOutput, error)
+	RestartGWSApplicationRequest(*RestartGWSApplicationInput) (*request.Request, *RestartGWSApplicationOutput)
+
 	StartApplicationInstanceCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	StartApplicationInstanceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	StartApplicationInstanceCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})

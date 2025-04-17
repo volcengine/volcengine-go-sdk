@@ -244,6 +244,11 @@ func (s *CreateNodePoolInput) Validate() error {
 	if s.Name == nil {
 		invalidParams.Add(request.NewErrParamRequired("Name"))
 	}
+	if s.KubernetesConfig != nil {
+		if err := s.KubernetesConfig.Validate(); err != nil {
+			invalidParams.AddNested("KubernetesConfig", err.(request.ErrInvalidParams))
+		}
+	}
 
 	if invalidParams.Len() > 0 {
 		return invalidParams
@@ -326,6 +331,8 @@ type DataVolumeForCreateNodePoolInput struct {
 
 	Size *int32 `type:"int32" json:",omitempty"`
 
+	SnapshotId *string `type:"string" json:",omitempty"`
+
 	Type *string `type:"string" json:",omitempty" enum:"EnumOfTypeForCreateNodePoolInput"`
 }
 
@@ -357,9 +364,171 @@ func (s *DataVolumeForCreateNodePoolInput) SetSize(v int32) *DataVolumeForCreate
 	return s
 }
 
+// SetSnapshotId sets the SnapshotId field's value.
+func (s *DataVolumeForCreateNodePoolInput) SetSnapshotId(v string) *DataVolumeForCreateNodePoolInput {
+	s.SnapshotId = &v
+	return s
+}
+
 // SetType sets the Type field's value.
 func (s *DataVolumeForCreateNodePoolInput) SetType(v string) *DataVolumeForCreateNodePoolInput {
 	s.Type = &v
+	return s
+}
+
+type EvictionHardForCreateNodePoolInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s EvictionHardForCreateNodePoolInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s EvictionHardForCreateNodePoolInput) GoString() string {
+	return s.String()
+}
+
+type FeatureGatesForCreateNodePoolInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	QoSResourceManager *bool `type:"boolean" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s FeatureGatesForCreateNodePoolInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s FeatureGatesForCreateNodePoolInput) GoString() string {
+	return s.String()
+}
+
+// SetQoSResourceManager sets the QoSResourceManager field's value.
+func (s *FeatureGatesForCreateNodePoolInput) SetQoSResourceManager(v bool) *FeatureGatesForCreateNodePoolInput {
+	s.QoSResourceManager = &v
+	return s
+}
+
+type KubeletConfigForCreateNodePoolInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	EvictionHard []*EvictionHardForCreateNodePoolInput `type:"list" json:",omitempty"`
+
+	FeatureGates *FeatureGatesForCreateNodePoolInput `type:"structure" json:",omitempty"`
+
+	KubeApiBurst *int32 `min:"1" max:"100" type:"int32" json:",omitempty"`
+
+	KubeApiQps *int32 `min:"1" max:"50" type:"int32" json:",omitempty"`
+
+	RegistryBurst *int32 `min:"1" max:"100" type:"int32" json:",omitempty"`
+
+	RegistryPullQps *int32 `min:"1" max:"50" type:"int32" json:",omitempty"`
+
+	SerializeImagePulls *bool `type:"boolean" json:",omitempty"`
+
+	TopologyManagerPolicy *string `type:"string" json:",omitempty" enum:"EnumOfTopologyManagerPolicyForCreateNodePoolInput"`
+
+	TopologyManagerScope *string `type:"string" json:",omitempty" enum:"EnumOfTopologyManagerScopeForCreateNodePoolInput"`
+}
+
+// String returns the string representation
+func (s KubeletConfigForCreateNodePoolInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s KubeletConfigForCreateNodePoolInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *KubeletConfigForCreateNodePoolInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "KubeletConfigForCreateNodePoolInput"}
+	if s.KubeApiBurst != nil && *s.KubeApiBurst < 1 {
+		invalidParams.Add(request.NewErrParamMinValue("KubeApiBurst", 1))
+	}
+	if s.KubeApiBurst != nil && *s.KubeApiBurst > 100 {
+		invalidParams.Add(request.NewErrParamMaxValue("KubeApiBurst", 100))
+	}
+	if s.KubeApiQps != nil && *s.KubeApiQps < 1 {
+		invalidParams.Add(request.NewErrParamMinValue("KubeApiQps", 1))
+	}
+	if s.KubeApiQps != nil && *s.KubeApiQps > 50 {
+		invalidParams.Add(request.NewErrParamMaxValue("KubeApiQps", 50))
+	}
+	if s.RegistryBurst != nil && *s.RegistryBurst < 1 {
+		invalidParams.Add(request.NewErrParamMinValue("RegistryBurst", 1))
+	}
+	if s.RegistryBurst != nil && *s.RegistryBurst > 100 {
+		invalidParams.Add(request.NewErrParamMaxValue("RegistryBurst", 100))
+	}
+	if s.RegistryPullQps != nil && *s.RegistryPullQps < 1 {
+		invalidParams.Add(request.NewErrParamMinValue("RegistryPullQps", 1))
+	}
+	if s.RegistryPullQps != nil && *s.RegistryPullQps > 50 {
+		invalidParams.Add(request.NewErrParamMaxValue("RegistryPullQps", 50))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetEvictionHard sets the EvictionHard field's value.
+func (s *KubeletConfigForCreateNodePoolInput) SetEvictionHard(v []*EvictionHardForCreateNodePoolInput) *KubeletConfigForCreateNodePoolInput {
+	s.EvictionHard = v
+	return s
+}
+
+// SetFeatureGates sets the FeatureGates field's value.
+func (s *KubeletConfigForCreateNodePoolInput) SetFeatureGates(v *FeatureGatesForCreateNodePoolInput) *KubeletConfigForCreateNodePoolInput {
+	s.FeatureGates = v
+	return s
+}
+
+// SetKubeApiBurst sets the KubeApiBurst field's value.
+func (s *KubeletConfigForCreateNodePoolInput) SetKubeApiBurst(v int32) *KubeletConfigForCreateNodePoolInput {
+	s.KubeApiBurst = &v
+	return s
+}
+
+// SetKubeApiQps sets the KubeApiQps field's value.
+func (s *KubeletConfigForCreateNodePoolInput) SetKubeApiQps(v int32) *KubeletConfigForCreateNodePoolInput {
+	s.KubeApiQps = &v
+	return s
+}
+
+// SetRegistryBurst sets the RegistryBurst field's value.
+func (s *KubeletConfigForCreateNodePoolInput) SetRegistryBurst(v int32) *KubeletConfigForCreateNodePoolInput {
+	s.RegistryBurst = &v
+	return s
+}
+
+// SetRegistryPullQps sets the RegistryPullQps field's value.
+func (s *KubeletConfigForCreateNodePoolInput) SetRegistryPullQps(v int32) *KubeletConfigForCreateNodePoolInput {
+	s.RegistryPullQps = &v
+	return s
+}
+
+// SetSerializeImagePulls sets the SerializeImagePulls field's value.
+func (s *KubeletConfigForCreateNodePoolInput) SetSerializeImagePulls(v bool) *KubeletConfigForCreateNodePoolInput {
+	s.SerializeImagePulls = &v
+	return s
+}
+
+// SetTopologyManagerPolicy sets the TopologyManagerPolicy field's value.
+func (s *KubeletConfigForCreateNodePoolInput) SetTopologyManagerPolicy(v string) *KubeletConfigForCreateNodePoolInput {
+	s.TopologyManagerPolicy = &v
+	return s
+}
+
+// SetTopologyManagerScope sets the TopologyManagerScope field's value.
+func (s *KubeletConfigForCreateNodePoolInput) SetTopologyManagerScope(v string) *KubeletConfigForCreateNodePoolInput {
+	s.TopologyManagerScope = &v
 	return s
 }
 
@@ -369,6 +538,8 @@ type KubernetesConfigForCreateNodePoolInput struct {
 	AutoSyncDisabled *bool `type:"boolean" json:",omitempty"`
 
 	Cordon *bool `type:"boolean" json:",omitempty"`
+
+	KubeletConfig *KubeletConfigForCreateNodePoolInput `type:"structure" json:",omitempty"`
 
 	Labels []*LabelForCreateNodePoolInput `type:"list" json:",omitempty"`
 
@@ -387,6 +558,21 @@ func (s KubernetesConfigForCreateNodePoolInput) GoString() string {
 	return s.String()
 }
 
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *KubernetesConfigForCreateNodePoolInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "KubernetesConfigForCreateNodePoolInput"}
+	if s.KubeletConfig != nil {
+		if err := s.KubeletConfig.Validate(); err != nil {
+			invalidParams.AddNested("KubeletConfig", err.(request.ErrInvalidParams))
+		}
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
 // SetAutoSyncDisabled sets the AutoSyncDisabled field's value.
 func (s *KubernetesConfigForCreateNodePoolInput) SetAutoSyncDisabled(v bool) *KubernetesConfigForCreateNodePoolInput {
 	s.AutoSyncDisabled = &v
@@ -396,6 +582,12 @@ func (s *KubernetesConfigForCreateNodePoolInput) SetAutoSyncDisabled(v bool) *Ku
 // SetCordon sets the Cordon field's value.
 func (s *KubernetesConfigForCreateNodePoolInput) SetCordon(v bool) *KubernetesConfigForCreateNodePoolInput {
 	s.Cordon = &v
+	return s
+}
+
+// SetKubeletConfig sets the KubeletConfig field's value.
+func (s *KubernetesConfigForCreateNodePoolInput) SetKubeletConfig(v *KubeletConfigForCreateNodePoolInput) *KubernetesConfigForCreateNodePoolInput {
+	s.KubeletConfig = v
 	return s
 }
 
@@ -488,6 +680,10 @@ type NodeConfigForCreateNodePoolInput struct {
 
 	DataVolumes []*DataVolumeForCreateNodePoolInput `type:"list" json:",omitempty"`
 
+	DeploymentSetGroupNumber *int32 `type:"int32" json:",omitempty"`
+
+	DeploymentSetId *string `type:"string" json:",omitempty"`
+
 	HpcClusterIds []*string `type:"list" json:",omitempty"`
 
 	ImageId *string `type:"string" json:",omitempty"`
@@ -544,6 +740,18 @@ func (s *NodeConfigForCreateNodePoolInput) SetAutoRenewPeriod(v int32) *NodeConf
 // SetDataVolumes sets the DataVolumes field's value.
 func (s *NodeConfigForCreateNodePoolInput) SetDataVolumes(v []*DataVolumeForCreateNodePoolInput) *NodeConfigForCreateNodePoolInput {
 	s.DataVolumes = v
+	return s
+}
+
+// SetDeploymentSetGroupNumber sets the DeploymentSetGroupNumber field's value.
+func (s *NodeConfigForCreateNodePoolInput) SetDeploymentSetGroupNumber(v int32) *NodeConfigForCreateNodePoolInput {
+	s.DeploymentSetGroupNumber = &v
+	return s
+}
+
+// SetDeploymentSetId sets the DeploymentSetId field's value.
+func (s *NodeConfigForCreateNodePoolInput) SetDeploymentSetId(v string) *NodeConfigForCreateNodePoolInput {
+	s.DeploymentSetId = &v
 	return s
 }
 
@@ -793,6 +1001,28 @@ const (
 
 	// EnumOfSubnetPolicyForCreateNodePoolInputPriority is a EnumOfSubnetPolicyForCreateNodePoolInput enum value
 	EnumOfSubnetPolicyForCreateNodePoolInputPriority = "Priority"
+)
+
+const (
+	// EnumOfTopologyManagerPolicyForCreateNodePoolInputRestricted is a EnumOfTopologyManagerPolicyForCreateNodePoolInput enum value
+	EnumOfTopologyManagerPolicyForCreateNodePoolInputRestricted = "restricted"
+
+	// EnumOfTopologyManagerPolicyForCreateNodePoolInputBestEffort is a EnumOfTopologyManagerPolicyForCreateNodePoolInput enum value
+	EnumOfTopologyManagerPolicyForCreateNodePoolInputBestEffort = "best-effort"
+
+	// EnumOfTopologyManagerPolicyForCreateNodePoolInputNone is a EnumOfTopologyManagerPolicyForCreateNodePoolInput enum value
+	EnumOfTopologyManagerPolicyForCreateNodePoolInputNone = "none"
+
+	// EnumOfTopologyManagerPolicyForCreateNodePoolInputSingleNumaNode is a EnumOfTopologyManagerPolicyForCreateNodePoolInput enum value
+	EnumOfTopologyManagerPolicyForCreateNodePoolInputSingleNumaNode = "single-numa-node"
+)
+
+const (
+	// EnumOfTopologyManagerScopeForCreateNodePoolInputPod is a EnumOfTopologyManagerScopeForCreateNodePoolInput enum value
+	EnumOfTopologyManagerScopeForCreateNodePoolInputPod = "pod"
+
+	// EnumOfTopologyManagerScopeForCreateNodePoolInputContainer is a EnumOfTopologyManagerScopeForCreateNodePoolInput enum value
+	EnumOfTopologyManagerScopeForCreateNodePoolInputContainer = "container"
 )
 
 const (

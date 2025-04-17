@@ -233,7 +233,7 @@ type UpdateBlockRuleInput struct {
 	Accurate *AccurateForUpdateBlockRuleInput `type:"structure" json:",omitempty"`
 
 	// Action is a required field
-	Action *string `type:"string" json:",omitempty" required:"true" enum:"EnumOfActionForUpdateBlockRuleInput"`
+	Action *string `type:"string" json:",omitempty" required:"true"`
 
 	// Advanced is a required field
 	Advanced *int32 `type:"int32" json:",omitempty" required:"true"`
@@ -402,11 +402,3 @@ func (s *UpdateBlockRuleOutput) SetId(v string) *UpdateBlockRuleOutput {
 	s.Id = &v
 	return s
 }
-
-const (
-	// EnumOfActionForUpdateBlockRuleInputObserve is a EnumOfActionForUpdateBlockRuleInput enum value
-	EnumOfActionForUpdateBlockRuleInputObserve = "observe"
-
-	// EnumOfActionForUpdateBlockRuleInputBlock is a EnumOfActionForUpdateBlockRuleInput enum value
-	EnumOfActionForUpdateBlockRuleInputBlock = "block"
-)
