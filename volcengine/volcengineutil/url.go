@@ -385,7 +385,7 @@ func GetDefaultEndpointByServiceInfo(service string, regionCode string, customBo
 	}
 
 	suffix := endpointSuffix
-	if enableDualStack() {
+	if hasEnableDualStack() {
 		suffix = dualstackEndpointSuffix
 	}
 
@@ -449,6 +449,6 @@ func inBootstrapRegionList(regionCode string, customBootstrapRegion map[string]s
 	return false
 }
 
-func enableDualStack() bool {
+func hasEnableDualStack() bool {
 	return os.Getenv("VOLC_ENABLE_DUALSTACK") == "true"
 }
