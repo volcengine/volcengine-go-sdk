@@ -726,3 +726,23 @@ func (s *TagForListBatchInferenceJobsOutput) SetValue(v string) *TagForListBatch
 	s.Value = &v
 	return s
 }
+
+const (
+	// EnumOfPhaseListForListBatchInferenceJobsInputQueued is a EnumOfPhaseListForListBatchInferenceJobsInput enum value
+	EnumOfPhaseListForListBatchInferenceJobsInputQueued = "Queued"
+
+	// EnumOfPhaseListForListBatchInferenceJobsInputRunning is a EnumOfPhaseListForListBatchInferenceJobsInput enum value
+	EnumOfPhaseListForListBatchInferenceJobsInputRunning = "Running"
+
+	// EnumOfPhaseListForListBatchInferenceJobsInputCompleted is a EnumOfPhaseListForListBatchInferenceJobsInput enum value
+	EnumOfPhaseListForListBatchInferenceJobsInputCompleted = "Completed"
+
+	// EnumOfPhaseListForListBatchInferenceJobsInputTerminating is a EnumOfPhaseListForListBatchInferenceJobsInput enum value
+	EnumOfPhaseListForListBatchInferenceJobsInputTerminating = "Terminating"
+
+	// EnumOfPhaseListForListBatchInferenceJobsInputTerminated is a EnumOfPhaseListForListBatchInferenceJobsInput enum value
+	EnumOfPhaseListForListBatchInferenceJobsInputTerminated = "Terminated"
+
+	// EnumOfPhaseListForListBatchInferenceJobsInputFailed is a EnumOfPhaseListForListBatchInferenceJobsInput enum value
+	EnumOfPhaseListForListBatchInferenceJobsInputFailed = "Failed"
+)

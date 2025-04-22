@@ -46,6 +46,14 @@ type ARKAPI interface {
 	CreateEndpointWithContext(volcengine.Context, *CreateEndpointInput, ...request.Option) (*CreateEndpointOutput, error)
 	CreateEndpointRequest(*CreateEndpointInput) (*request.Request, *CreateEndpointOutput)
 
+	CreateEvaluationJobCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateEvaluationJobCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateEvaluationJobCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateEvaluationJob(*CreateEvaluationJobInput) (*CreateEvaluationJobOutput, error)
+	CreateEvaluationJobWithContext(volcengine.Context, *CreateEvaluationJobInput, ...request.Option) (*CreateEvaluationJobOutput, error)
+	CreateEvaluationJobRequest(*CreateEvaluationJobInput) (*request.Request, *CreateEvaluationJobOutput)
+
 	CreateModelCustomizationJobCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	CreateModelCustomizationJobCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	CreateModelCustomizationJobCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -94,6 +102,22 @@ type ARKAPI interface {
 	GetModelCustomizationJobWithContext(volcengine.Context, *GetModelCustomizationJobInput, ...request.Option) (*GetModelCustomizationJobOutput, error)
 	GetModelCustomizationJobRequest(*GetModelCustomizationJobInput) (*request.Request, *GetModelCustomizationJobOutput)
 
+	GetModelCustomizationJobMetricDataCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	GetModelCustomizationJobMetricDataCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	GetModelCustomizationJobMetricDataCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	GetModelCustomizationJobMetricData(*GetModelCustomizationJobMetricDataInput) (*GetModelCustomizationJobMetricDataOutput, error)
+	GetModelCustomizationJobMetricDataWithContext(volcengine.Context, *GetModelCustomizationJobMetricDataInput, ...request.Option) (*GetModelCustomizationJobMetricDataOutput, error)
+	GetModelCustomizationJobMetricDataRequest(*GetModelCustomizationJobMetricDataInput) (*request.Request, *GetModelCustomizationJobMetricDataOutput)
+
+	GetModelCustomizationJobMetricsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	GetModelCustomizationJobMetricsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	GetModelCustomizationJobMetricsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	GetModelCustomizationJobMetrics(*GetModelCustomizationJobMetricsInput) (*GetModelCustomizationJobMetricsOutput, error)
+	GetModelCustomizationJobMetricsWithContext(volcengine.Context, *GetModelCustomizationJobMetricsInput, ...request.Option) (*GetModelCustomizationJobMetricsOutput, error)
+	GetModelCustomizationJobMetricsRequest(*GetModelCustomizationJobMetricsInput) (*request.Request, *GetModelCustomizationJobMetricsOutput)
+
 	ListBatchInferenceJobsCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ListBatchInferenceJobsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	ListBatchInferenceJobsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -117,6 +141,30 @@ type ARKAPI interface {
 	ListModelCustomizationJobs(*ListModelCustomizationJobsInput) (*ListModelCustomizationJobsOutput, error)
 	ListModelCustomizationJobsWithContext(volcengine.Context, *ListModelCustomizationJobsInput, ...request.Option) (*ListModelCustomizationJobsOutput, error)
 	ListModelCustomizationJobsRequest(*ListModelCustomizationJobsInput) (*request.Request, *ListModelCustomizationJobsOutput)
+
+	ResumeModelCustomizationJobCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ResumeModelCustomizationJobCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ResumeModelCustomizationJobCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ResumeModelCustomizationJob(*ResumeModelCustomizationJobInput) (*ResumeModelCustomizationJobOutput, error)
+	ResumeModelCustomizationJobWithContext(volcengine.Context, *ResumeModelCustomizationJobInput, ...request.Option) (*ResumeModelCustomizationJobOutput, error)
+	ResumeModelCustomizationJobRequest(*ResumeModelCustomizationJobInput) (*request.Request, *ResumeModelCustomizationJobOutput)
+
+	StopEndpointCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	StopEndpointCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	StopEndpointCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	StopEndpoint(*StopEndpointInput) (*StopEndpointOutput, error)
+	StopEndpointWithContext(volcengine.Context, *StopEndpointInput, ...request.Option) (*StopEndpointOutput, error)
+	StopEndpointRequest(*StopEndpointInput) (*request.Request, *StopEndpointOutput)
+
+	TerminateModelCustomizationJobCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	TerminateModelCustomizationJobCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	TerminateModelCustomizationJobCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	TerminateModelCustomizationJob(*TerminateModelCustomizationJobInput) (*TerminateModelCustomizationJobOutput, error)
+	TerminateModelCustomizationJobWithContext(volcengine.Context, *TerminateModelCustomizationJobInput, ...request.Option) (*TerminateModelCustomizationJobOutput, error)
+	TerminateModelCustomizationJobRequest(*TerminateModelCustomizationJobInput) (*request.Request, *TerminateModelCustomizationJobOutput)
 }
 
 var _ ARKAPI = (*ARK)(nil)

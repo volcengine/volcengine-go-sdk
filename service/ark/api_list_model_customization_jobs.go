@@ -810,7 +810,7 @@ type StatusForListModelCustomizationJobsOutput struct {
 
 	OutputExpiredTime *string `type:"string" json:",omitempty"`
 
-	Phase *string `type:"string" json:",omitempty"`
+	Phase *string `type:"string" json:",omitempty" enum:"EnumOfPhaseForListModelCustomizationJobsOutput"`
 
 	PhaseTime *string `type:"string" json:",omitempty"`
 
@@ -1078,6 +1078,35 @@ const (
 
 	// EnumOfEncryptionKeyringTypeForListModelCustomizationJobsOutputCustomKeyring is a EnumOfEncryptionKeyringTypeForListModelCustomizationJobsOutput enum value
 	EnumOfEncryptionKeyringTypeForListModelCustomizationJobsOutputCustomKeyring = "CustomKeyring"
+)
+
+const (
+	// EnumOfPhaseForListModelCustomizationJobsOutputPreprocessing is a EnumOfPhaseForListModelCustomizationJobsOutput enum value
+	EnumOfPhaseForListModelCustomizationJobsOutputPreprocessing = "Preprocessing"
+
+	// EnumOfPhaseForListModelCustomizationJobsOutputQueued is a EnumOfPhaseForListModelCustomizationJobsOutput enum value
+	EnumOfPhaseForListModelCustomizationJobsOutputQueued = "Queued"
+
+	// EnumOfPhaseForListModelCustomizationJobsOutputDeploying is a EnumOfPhaseForListModelCustomizationJobsOutput enum value
+	EnumOfPhaseForListModelCustomizationJobsOutputDeploying = "Deploying"
+
+	// EnumOfPhaseForListModelCustomizationJobsOutputRunning is a EnumOfPhaseForListModelCustomizationJobsOutput enum value
+	EnumOfPhaseForListModelCustomizationJobsOutputRunning = "Running"
+
+	// EnumOfPhaseForListModelCustomizationJobsOutputCompleting is a EnumOfPhaseForListModelCustomizationJobsOutput enum value
+	EnumOfPhaseForListModelCustomizationJobsOutputCompleting = "Completing"
+
+	// EnumOfPhaseForListModelCustomizationJobsOutputCompleted is a EnumOfPhaseForListModelCustomizationJobsOutput enum value
+	EnumOfPhaseForListModelCustomizationJobsOutputCompleted = "Completed"
+
+	// EnumOfPhaseForListModelCustomizationJobsOutputTerminating is a EnumOfPhaseForListModelCustomizationJobsOutput enum value
+	EnumOfPhaseForListModelCustomizationJobsOutputTerminating = "Terminating"
+
+	// EnumOfPhaseForListModelCustomizationJobsOutputTerminated is a EnumOfPhaseForListModelCustomizationJobsOutput enum value
+	EnumOfPhaseForListModelCustomizationJobsOutputTerminated = "Terminated"
+
+	// EnumOfPhaseForListModelCustomizationJobsOutputFailed is a EnumOfPhaseForListModelCustomizationJobsOutput enum value
+	EnumOfPhaseForListModelCustomizationJobsOutputFailed = "Failed"
 )
 
 const (
