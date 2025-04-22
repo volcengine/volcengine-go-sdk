@@ -196,6 +196,10 @@ type GetKafkaTriggerOutput struct {
 
 	Metadata *response.ResponseMetadata
 
+	BatchFlushDurationMilliseconds *int32 `type:"int32" json:",omitempty"`
+
+	BatchSize *int32 `type:"int32" json:",omitempty"`
+
 	ConsumerGroup *string `type:"string" json:",omitempty"`
 
 	CreationTime *string `type:"string" json:",omitempty"`
@@ -231,6 +235,18 @@ func (s GetKafkaTriggerOutput) String() string {
 // GoString returns the string representation
 func (s GetKafkaTriggerOutput) GoString() string {
 	return s.String()
+}
+
+// SetBatchFlushDurationMilliseconds sets the BatchFlushDurationMilliseconds field's value.
+func (s *GetKafkaTriggerOutput) SetBatchFlushDurationMilliseconds(v int32) *GetKafkaTriggerOutput {
+	s.BatchFlushDurationMilliseconds = &v
+	return s
+}
+
+// SetBatchSize sets the BatchSize field's value.
+func (s *GetKafkaTriggerOutput) SetBatchSize(v int32) *GetKafkaTriggerOutput {
+	s.BatchSize = &v
+	return s
 }
 
 // SetConsumerGroup sets the ConsumerGroup field's value.
