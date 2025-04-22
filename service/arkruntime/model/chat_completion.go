@@ -29,7 +29,6 @@ type VideoURLDetail string
 const (
 	VideoURLDetailHigh VideoURLDetail = "high"
 	VideoURLDetailLow  VideoURLDetail = "low"
-	VideoURLDetailAuto VideoURLDetail = "auto"
 )
 
 type ChatMessageViedoURL struct {
