@@ -144,11 +144,11 @@ func (c *VEPFS) DescribeZonesWithContext(ctx volcengine.Context, input *Describe
 }
 
 type DescribeZonesInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	FileSystemType *string `type:"string"`
+	LanguageCode *string `type:"string" json:",omitempty" enum:"EnumOfLanguageCodeForDescribeZonesInput"`
 
-	RegionId *string `type:"string"`
+	RegionId *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -161,9 +161,9 @@ func (s DescribeZonesInput) GoString() string {
 	return s.String()
 }
 
-// SetFileSystemType sets the FileSystemType field's value.
-func (s *DescribeZonesInput) SetFileSystemType(v string) *DescribeZonesInput {
-	s.FileSystemType = &v
+// SetLanguageCode sets the LanguageCode field's value.
+func (s *DescribeZonesInput) SetLanguageCode(v string) *DescribeZonesInput {
+	s.LanguageCode = &v
 	return s
 }
 
@@ -174,13 +174,13 @@ func (s *DescribeZonesInput) SetRegionId(v string) *DescribeZonesInput {
 }
 
 type DescribeZonesOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	TotalCount *int32 `type:"int32"`
+	TotalCount *int32 `type:"int32" json:",omitempty"`
 
-	Zones []*ZoneForDescribeZonesOutput `type:"list"`
+	Zones []*ZoneForDescribeZonesOutput `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -206,19 +206,23 @@ func (s *DescribeZonesOutput) SetZones(v []*ZoneForDescribeZonesOutput) *Describ
 }
 
 type SaleInfoForDescribeZonesOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	FileSystemType *string `type:"string"`
+	FileSystemType *string `type:"string" json:",omitempty" enum:"EnumOfFileSystemTypeForDescribeZonesOutput"`
 
-	ProtocolType *string `type:"string"`
+	ProtocolType *string `type:"string" json:",omitempty" enum:"EnumOfProtocolTypeForDescribeZonesOutput"`
 
-	RegionId *string `type:"string"`
+	RegionId *string `type:"string" json:",omitempty"`
 
-	Status *string `type:"string"`
+	Status *string `type:"string" json:",omitempty" enum:"EnumOfStatusForDescribeZonesOutput"`
 
-	StoreType *string `type:"string"`
+	StoreType *string `type:"string" json:",omitempty"`
 
-	ZoneId *string `type:"string"`
+	StoreTypeCN *string `type:"string" json:",omitempty"`
+
+	StoreTypeEN *string `type:"string" json:",omitempty"`
+
+	ZoneId *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -261,6 +265,18 @@ func (s *SaleInfoForDescribeZonesOutput) SetStoreType(v string) *SaleInfoForDesc
 	return s
 }
 
+// SetStoreTypeCN sets the StoreTypeCN field's value.
+func (s *SaleInfoForDescribeZonesOutput) SetStoreTypeCN(v string) *SaleInfoForDescribeZonesOutput {
+	s.StoreTypeCN = &v
+	return s
+}
+
+// SetStoreTypeEN sets the StoreTypeEN field's value.
+func (s *SaleInfoForDescribeZonesOutput) SetStoreTypeEN(v string) *SaleInfoForDescribeZonesOutput {
+	s.StoreTypeEN = &v
+	return s
+}
+
 // SetZoneId sets the ZoneId field's value.
 func (s *SaleInfoForDescribeZonesOutput) SetZoneId(v string) *SaleInfoForDescribeZonesOutput {
 	s.ZoneId = &v
@@ -268,15 +284,15 @@ func (s *SaleInfoForDescribeZonesOutput) SetZoneId(v string) *SaleInfoForDescrib
 }
 
 type ZoneForDescribeZonesOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	RegionId *string `type:"string"`
+	RegionId *string `type:"string" json:",omitempty"`
 
-	SaleInfos []*SaleInfoForDescribeZonesOutput `type:"list"`
+	SaleInfos []*SaleInfoForDescribeZonesOutput `type:"list" json:",omitempty"`
 
-	ZoneId *string `type:"string"`
+	ZoneId *string `type:"string" json:",omitempty"`
 
-	ZoneName *string `type:"string"`
+	ZoneName *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -312,3 +328,41 @@ func (s *ZoneForDescribeZonesOutput) SetZoneName(v string) *ZoneForDescribeZones
 	s.ZoneName = &v
 	return s
 }
+
+const (
+	// EnumOfFileSystemTypeForDescribeZonesOutputVePfs is a EnumOfFileSystemTypeForDescribeZonesOutput enum value
+	EnumOfFileSystemTypeForDescribeZonesOutputVePfs = "VePFS"
+)
+
+const (
+	// EnumOfLanguageCodeForDescribeZonesInputZh is a EnumOfLanguageCodeForDescribeZonesInput enum value
+	EnumOfLanguageCodeForDescribeZonesInputZh = "zh"
+
+	// EnumOfLanguageCodeForDescribeZonesInputEn is a EnumOfLanguageCodeForDescribeZonesInput enum value
+	EnumOfLanguageCodeForDescribeZonesInputEn = "en"
+)
+
+const (
+	// EnumOfProtocolTypeForDescribeZonesOutputNfs is a EnumOfProtocolTypeForDescribeZonesOutput enum value
+	EnumOfProtocolTypeForDescribeZonesOutputNfs = "NFS"
+
+	// EnumOfProtocolTypeForDescribeZonesOutputSmb is a EnumOfProtocolTypeForDescribeZonesOutput enum value
+	EnumOfProtocolTypeForDescribeZonesOutputSmb = "SMB"
+
+	// EnumOfProtocolTypeForDescribeZonesOutputVePfs is a EnumOfProtocolTypeForDescribeZonesOutput enum value
+	EnumOfProtocolTypeForDescribeZonesOutputVePfs = "VePFS"
+
+	// EnumOfProtocolTypeForDescribeZonesOutputFsx is a EnumOfProtocolTypeForDescribeZonesOutput enum value
+	EnumOfProtocolTypeForDescribeZonesOutputFsx = "FSX"
+)
+
+const (
+	// EnumOfStatusForDescribeZonesOutputUnSold is a EnumOfStatusForDescribeZonesOutput enum value
+	EnumOfStatusForDescribeZonesOutputUnSold = "UnSold"
+
+	// EnumOfStatusForDescribeZonesOutputOnSale is a EnumOfStatusForDescribeZonesOutput enum value
+	EnumOfStatusForDescribeZonesOutputOnSale = "OnSale"
+
+	// EnumOfStatusForDescribeZonesOutputSoldOut is a EnumOfStatusForDescribeZonesOutput enum value
+	EnumOfStatusForDescribeZonesOutputSoldOut = "SoldOut"
+)

@@ -144,11 +144,12 @@ func (c *VEPFS) UpdateMountServiceWithContext(ctx volcengine.Context, input *Upd
 }
 
 type UpdateMountServiceInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	MountServiceId *string `type:"string"`
+	// MountServiceId is a required field
+	MountServiceId *string `type:"string" json:",omitempty" required:"true"`
 
-	MountServiceName *string `type:"string"`
+	MountServiceName *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -159,6 +160,19 @@ func (s UpdateMountServiceInput) String() string {
 // GoString returns the string representation
 func (s UpdateMountServiceInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *UpdateMountServiceInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "UpdateMountServiceInput"}
+	if s.MountServiceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("MountServiceId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetMountServiceId sets the MountServiceId field's value.
@@ -174,7 +188,7 @@ func (s *UpdateMountServiceInput) SetMountServiceName(v string) *UpdateMountServ
 }
 
 type UpdateMountServiceOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 }

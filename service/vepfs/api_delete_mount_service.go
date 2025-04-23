@@ -144,9 +144,10 @@ func (c *VEPFS) DeleteMountServiceWithContext(ctx volcengine.Context, input *Del
 }
 
 type DeleteMountServiceInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	MountServiceId *string `type:"string"`
+	// MountServiceId is a required field
+	MountServiceId *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -159,6 +160,19 @@ func (s DeleteMountServiceInput) GoString() string {
 	return s.String()
 }
 
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DeleteMountServiceInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DeleteMountServiceInput"}
+	if s.MountServiceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("MountServiceId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
 // SetMountServiceId sets the MountServiceId field's value.
 func (s *DeleteMountServiceInput) SetMountServiceId(v string) *DeleteMountServiceInput {
 	s.MountServiceId = &v
@@ -166,7 +180,7 @@ func (s *DeleteMountServiceInput) SetMountServiceId(v string) *DeleteMountServic
 }
 
 type DeleteMountServiceOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 }
