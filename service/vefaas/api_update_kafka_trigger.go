@@ -146,6 +146,10 @@ func (c *VEFAAS) UpdateKafkaTriggerWithContext(ctx volcengine.Context, input *Up
 type UpdateKafkaTriggerInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	BatchFlushDurationMilliseconds *int32 `type:"int32" json:",omitempty"`
+
+	BatchSize *int32 `type:"int32" json:",omitempty"`
+
 	Description *string `type:"string" json:",omitempty"`
 
 	Enabled *bool `type:"boolean" json:",omitempty"`
@@ -185,6 +189,18 @@ func (s *UpdateKafkaTriggerInput) Validate() error {
 	return nil
 }
 
+// SetBatchFlushDurationMilliseconds sets the BatchFlushDurationMilliseconds field's value.
+func (s *UpdateKafkaTriggerInput) SetBatchFlushDurationMilliseconds(v int32) *UpdateKafkaTriggerInput {
+	s.BatchFlushDurationMilliseconds = &v
+	return s
+}
+
+// SetBatchSize sets the BatchSize field's value.
+func (s *UpdateKafkaTriggerInput) SetBatchSize(v int32) *UpdateKafkaTriggerInput {
+	s.BatchSize = &v
+	return s
+}
+
 // SetDescription sets the Description field's value.
 func (s *UpdateKafkaTriggerInput) SetDescription(v string) *UpdateKafkaTriggerInput {
 	s.Description = &v
@@ -219,6 +235,10 @@ type UpdateKafkaTriggerOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
+
+	BatchFlushDurationMilliseconds *int32 `type:"int32" json:",omitempty"`
+
+	BatchSize *int32 `type:"int32" json:",omitempty"`
 
 	ConsumerGroup *string `type:"string" json:",omitempty"`
 
@@ -255,6 +275,18 @@ func (s UpdateKafkaTriggerOutput) String() string {
 // GoString returns the string representation
 func (s UpdateKafkaTriggerOutput) GoString() string {
 	return s.String()
+}
+
+// SetBatchFlushDurationMilliseconds sets the BatchFlushDurationMilliseconds field's value.
+func (s *UpdateKafkaTriggerOutput) SetBatchFlushDurationMilliseconds(v int32) *UpdateKafkaTriggerOutput {
+	s.BatchFlushDurationMilliseconds = &v
+	return s
+}
+
+// SetBatchSize sets the BatchSize field's value.
+func (s *UpdateKafkaTriggerOutput) SetBatchSize(v int32) *UpdateKafkaTriggerOutput {
+	s.BatchSize = &v
+	return s
 }
 
 // SetConsumerGroup sets the ConsumerGroup field's value.
