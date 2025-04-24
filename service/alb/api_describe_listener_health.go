@@ -142,7 +142,8 @@ func (c *ALB) DescribeListenerHealthWithContext(ctx volcengine.Context, input *D
 type DescribeListenerHealthInput struct {
 	_ struct{} `type:"structure"`
 
-	ListenerIds []*string `type:"list"`
+	// ListenerIds is a required field
+	ListenerIds []*string `type:"list" required:"true"`
 
 	OnlyUnHealthy *string `type:"string"`
 
@@ -157,6 +158,19 @@ func (s DescribeListenerHealthInput) String() string {
 // GoString returns the string representation
 func (s DescribeListenerHealthInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DescribeListenerHealthInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DescribeListenerHealthInput"}
+	if s.ListenerIds == nil {
+		invalidParams.Add(request.NewErrParamRequired("ListenerIds"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetListenerIds sets the ListenerIds field's value.

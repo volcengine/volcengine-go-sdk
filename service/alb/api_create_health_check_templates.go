@@ -244,6 +244,10 @@ type HealthCheckTemplateForCreateHealthCheckTemplatesInput struct {
 	// Port is a required field
 	Port *int64 `max:"65535" type:"integer" required:"true"`
 
+	ProjectName *string `type:"string"`
+
+	Tags []*HealthCheckTemplatesTagForCreateHealthCheckTemplatesInput `type:"list"`
+
 	UnhealthyThreshold *int64 `type:"integer"`
 }
 
@@ -274,6 +278,16 @@ func (s *HealthCheckTemplateForCreateHealthCheckTemplatesInput) Validate() error
 	}
 	if s.Port != nil && *s.Port > 65535 {
 		invalidParams.Add(request.NewErrParamMaxValue("Port", 65535))
+	}
+	if s.Tags != nil {
+		for i, v := range s.Tags {
+			if v == nil {
+				continue
+			}
+			if err := v.Validate(); err != nil {
+				invalidParams.AddNested(fmt.Sprintf("%s[%v]", "Tags", i), err.(request.ErrInvalidParams))
+			}
+		}
 	}
 
 	if invalidParams.Len() > 0 {
@@ -354,8 +368,64 @@ func (s *HealthCheckTemplateForCreateHealthCheckTemplatesInput) SetPort(v int64)
 	return s
 }
 
+// SetProjectName sets the ProjectName field's value.
+func (s *HealthCheckTemplateForCreateHealthCheckTemplatesInput) SetProjectName(v string) *HealthCheckTemplateForCreateHealthCheckTemplatesInput {
+	s.ProjectName = &v
+	return s
+}
+
+// SetTags sets the Tags field's value.
+func (s *HealthCheckTemplateForCreateHealthCheckTemplatesInput) SetTags(v []*HealthCheckTemplatesTagForCreateHealthCheckTemplatesInput) *HealthCheckTemplateForCreateHealthCheckTemplatesInput {
+	s.Tags = v
+	return s
+}
+
 // SetUnhealthyThreshold sets the UnhealthyThreshold field's value.
 func (s *HealthCheckTemplateForCreateHealthCheckTemplatesInput) SetUnhealthyThreshold(v int64) *HealthCheckTemplateForCreateHealthCheckTemplatesInput {
 	s.UnhealthyThreshold = &v
+	return s
+}
+
+type HealthCheckTemplatesTagForCreateHealthCheckTemplatesInput struct {
+	_ struct{} `type:"structure"`
+
+	Key *string `type:"string"`
+
+	// Value is a required field
+	Value *string `type:"string" required:"true"`
+}
+
+// String returns the string representation
+func (s HealthCheckTemplatesTagForCreateHealthCheckTemplatesInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s HealthCheckTemplatesTagForCreateHealthCheckTemplatesInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *HealthCheckTemplatesTagForCreateHealthCheckTemplatesInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "HealthCheckTemplatesTagForCreateHealthCheckTemplatesInput"}
+	if s.Value == nil {
+		invalidParams.Add(request.NewErrParamRequired("Value"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetKey sets the Key field's value.
+func (s *HealthCheckTemplatesTagForCreateHealthCheckTemplatesInput) SetKey(v string) *HealthCheckTemplatesTagForCreateHealthCheckTemplatesInput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *HealthCheckTemplatesTagForCreateHealthCheckTemplatesInput) SetValue(v string) *HealthCheckTemplatesTagForCreateHealthCheckTemplatesInput {
+	s.Value = &v
 	return s
 }

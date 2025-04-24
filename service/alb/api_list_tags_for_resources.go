@@ -148,7 +148,8 @@ type ListTagsForResourcesInput struct {
 
 	ResourceIds []*string `type:"list"`
 
-	ResourceType *string `type:"string" enum:"ResourceTypeForListTagsForResourcesInput"`
+	// ResourceType is a required field
+	ResourceType *string `type:"string" required:"true" enum:"ResourceTypeForListTagsForResourcesInput"`
 
 	TagFilters []*TagFilterForListTagsForResourcesInput `type:"list"`
 }
@@ -161,6 +162,19 @@ func (s ListTagsForResourcesInput) String() string {
 // GoString returns the string representation
 func (s ListTagsForResourcesInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *ListTagsForResourcesInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "ListTagsForResourcesInput"}
+	if s.ResourceType == nil {
+		invalidParams.Add(request.NewErrParamRequired("ResourceType"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetMaxResults sets the MaxResults field's value.
@@ -318,4 +332,16 @@ const (
 
 	// ResourceTypeForListTagsForResourcesInputServergroup is a ResourceTypeForListTagsForResourcesInput enum value
 	ResourceTypeForListTagsForResourcesInputServergroup = "servergroup"
+
+	// ResourceTypeForListTagsForResourcesInputAcl is a ResourceTypeForListTagsForResourcesInput enum value
+	ResourceTypeForListTagsForResourcesInputAcl = "acl"
+
+	// ResourceTypeForListTagsForResourcesInputCertificate is a ResourceTypeForListTagsForResourcesInput enum value
+	ResourceTypeForListTagsForResourcesInputCertificate = "certificate"
+
+	// ResourceTypeForListTagsForResourcesInputCustomizedcfg is a ResourceTypeForListTagsForResourcesInput enum value
+	ResourceTypeForListTagsForResourcesInputCustomizedcfg = "customizedcfg"
+
+	// ResourceTypeForListTagsForResourcesInputHealthchecktemplate is a ResourceTypeForListTagsForResourcesInput enum value
+	ResourceTypeForListTagsForResourcesInputHealthchecktemplate = "healthchecktemplate"
 )

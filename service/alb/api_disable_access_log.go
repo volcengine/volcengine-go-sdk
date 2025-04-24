@@ -142,7 +142,8 @@ func (c *ALB) DisableAccessLogWithContext(ctx volcengine.Context, input *Disable
 type DisableAccessLogInput struct {
 	_ struct{} `type:"structure"`
 
-	LoadBalancerId *string `type:"string"`
+	// LoadBalancerId is a required field
+	LoadBalancerId *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -153,6 +154,19 @@ func (s DisableAccessLogInput) String() string {
 // GoString returns the string representation
 func (s DisableAccessLogInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DisableAccessLogInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DisableAccessLogInput"}
+	if s.LoadBalancerId == nil {
+		invalidParams.Add(request.NewErrParamRequired("LoadBalancerId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetLoadBalancerId sets the LoadBalancerId field's value.

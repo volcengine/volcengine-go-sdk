@@ -163,6 +163,8 @@ type CACertificateForDescribeCACertificatesOutput struct {
 	San *string `type:"string"`
 
 	Status *string `type:"string"`
+
+	Tags []*TagForDescribeCACertificatesOutput `type:"list"`
 }
 
 // String returns the string representation
@@ -241,6 +243,12 @@ func (s *CACertificateForDescribeCACertificatesOutput) SetStatus(v string) *CACe
 	return s
 }
 
+// SetTags sets the Tags field's value.
+func (s *CACertificateForDescribeCACertificatesOutput) SetTags(v []*TagForDescribeCACertificatesOutput) *CACertificateForDescribeCACertificatesOutput {
+	s.Tags = v
+	return s
+}
+
 type DescribeCACertificatesInput struct {
 	_ struct{} `type:"structure"`
 
@@ -253,6 +261,8 @@ type DescribeCACertificatesInput struct {
 	PageSize *int64 `type:"integer"`
 
 	ProjectName *string `type:"string"`
+
+	TagFilters []*TagFilterForDescribeCACertificatesInput `type:"list"`
 }
 
 // String returns the string representation
@@ -292,6 +302,12 @@ func (s *DescribeCACertificatesInput) SetPageSize(v int64) *DescribeCACertificat
 // SetProjectName sets the ProjectName field's value.
 func (s *DescribeCACertificatesInput) SetProjectName(v string) *DescribeCACertificatesInput {
 	s.ProjectName = &v
+	return s
+}
+
+// SetTagFilters sets the TagFilters field's value.
+func (s *DescribeCACertificatesInput) SetTagFilters(v []*TagFilterForDescribeCACertificatesInput) *DescribeCACertificatesInput {
+	s.TagFilters = v
 	return s
 }
 
@@ -348,5 +364,65 @@ func (s *DescribeCACertificatesOutput) SetRequestId(v string) *DescribeCACertifi
 // SetTotalCount sets the TotalCount field's value.
 func (s *DescribeCACertificatesOutput) SetTotalCount(v int64) *DescribeCACertificatesOutput {
 	s.TotalCount = &v
+	return s
+}
+
+type TagFilterForDescribeCACertificatesInput struct {
+	_ struct{} `type:"structure"`
+
+	Key *string `type:"string"`
+
+	Values []*string `type:"list"`
+}
+
+// String returns the string representation
+func (s TagFilterForDescribeCACertificatesInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagFilterForDescribeCACertificatesInput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagFilterForDescribeCACertificatesInput) SetKey(v string) *TagFilterForDescribeCACertificatesInput {
+	s.Key = &v
+	return s
+}
+
+// SetValues sets the Values field's value.
+func (s *TagFilterForDescribeCACertificatesInput) SetValues(v []*string) *TagFilterForDescribeCACertificatesInput {
+	s.Values = v
+	return s
+}
+
+type TagForDescribeCACertificatesOutput struct {
+	_ struct{} `type:"structure"`
+
+	Key *string `type:"string"`
+
+	Value *string `type:"string"`
+}
+
+// String returns the string representation
+func (s TagForDescribeCACertificatesOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagForDescribeCACertificatesOutput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagForDescribeCACertificatesOutput) SetKey(v string) *TagForDescribeCACertificatesOutput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *TagForDescribeCACertificatesOutput) SetValue(v string) *TagForDescribeCACertificatesOutput {
+	s.Value = &v
 	return s
 }

@@ -147,6 +147,8 @@ type CreateAclInput struct {
 	Description *string `min:"1" max:"255" type:"string"`
 
 	ProjectName *string `type:"string"`
+
+	Tags []*TagForCreateAclInput `type:"list"`
 }
 
 // String returns the string representation
@@ -199,6 +201,12 @@ func (s *CreateAclInput) SetProjectName(v string) *CreateAclInput {
 	return s
 }
 
+// SetTags sets the Tags field's value.
+func (s *CreateAclInput) SetTags(v []*TagForCreateAclInput) *CreateAclInput {
+	s.Tags = v
+	return s
+}
+
 type CreateAclOutput struct {
 	_ struct{} `type:"structure"`
 
@@ -228,5 +236,35 @@ func (s *CreateAclOutput) SetAclId(v string) *CreateAclOutput {
 // SetRequestId sets the RequestId field's value.
 func (s *CreateAclOutput) SetRequestId(v string) *CreateAclOutput {
 	s.RequestId = &v
+	return s
+}
+
+type TagForCreateAclInput struct {
+	_ struct{} `type:"structure"`
+
+	Key *string `type:"string"`
+
+	Value *string `type:"string"`
+}
+
+// String returns the string representation
+func (s TagForCreateAclInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagForCreateAclInput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagForCreateAclInput) SetKey(v string) *TagForCreateAclInput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *TagForCreateAclInput) SetValue(v string) *TagForCreateAclInput {
+	s.Value = &v
 	return s
 }

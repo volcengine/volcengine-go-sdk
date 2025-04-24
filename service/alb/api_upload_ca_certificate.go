@@ -139,16 +139,49 @@ func (c *ALB) UploadCACertificateWithContext(ctx volcengine.Context, input *Uplo
 	return out, req.Send()
 }
 
+type TagForUploadCACertificateInput struct {
+	_ struct{} `type:"structure"`
+
+	Key *string `type:"string"`
+
+	Value *string `type:"string"`
+}
+
+// String returns the string representation
+func (s TagForUploadCACertificateInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagForUploadCACertificateInput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagForUploadCACertificateInput) SetKey(v string) *TagForUploadCACertificateInput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *TagForUploadCACertificateInput) SetValue(v string) *TagForUploadCACertificateInput {
+	s.Value = &v
+	return s
+}
+
 type UploadCACertificateInput struct {
 	_ struct{} `type:"structure"`
 
-	CACertificate *string `type:"string"`
+	// CACertificate is a required field
+	CACertificate *string `type:"string" required:"true"`
 
 	CACertificateName *string `min:"1" max:"128" type:"string"`
 
 	Description *string `type:"string"`
 
 	ProjectName *string `type:"string"`
+
+	Tags []*TagForUploadCACertificateInput `type:"list"`
 }
 
 // String returns the string representation
@@ -164,6 +197,9 @@ func (s UploadCACertificateInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *UploadCACertificateInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "UploadCACertificateInput"}
+	if s.CACertificate == nil {
+		invalidParams.Add(request.NewErrParamRequired("CACertificate"))
+	}
 	if s.CACertificateName != nil && len(*s.CACertificateName) < 1 {
 		invalidParams.Add(request.NewErrParamMinLen("CACertificateName", 1))
 	}
@@ -198,6 +234,12 @@ func (s *UploadCACertificateInput) SetDescription(v string) *UploadCACertificate
 // SetProjectName sets the ProjectName field's value.
 func (s *UploadCACertificateInput) SetProjectName(v string) *UploadCACertificateInput {
 	s.ProjectName = &v
+	return s
+}
+
+// SetTags sets the Tags field's value.
+func (s *UploadCACertificateInput) SetTags(v []*TagForUploadCACertificateInput) *UploadCACertificateInput {
+	s.Tags = v
 	return s
 }
 

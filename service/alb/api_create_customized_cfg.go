@@ -142,13 +142,17 @@ func (c *ALB) CreateCustomizedCfgWithContext(ctx volcengine.Context, input *Crea
 type CreateCustomizedCfgInput struct {
 	_ struct{} `type:"structure"`
 
-	CustomizedCfgContent *string `min:"1" max:"4096" type:"string"`
+	// CustomizedCfgContent is a required field
+	CustomizedCfgContent *string `min:"1" max:"4096" type:"string" required:"true"`
 
-	CustomizedCfgName *string `min:"1" max:"128" type:"string"`
+	// CustomizedCfgName is a required field
+	CustomizedCfgName *string `min:"1" max:"128" type:"string" required:"true"`
 
 	Description *string `min:"1" max:"255" type:"string"`
 
 	ProjectName *string `type:"string"`
+
+	Tags []*TagForCreateCustomizedCfgInput `type:"list"`
 }
 
 // String returns the string representation
@@ -164,11 +168,17 @@ func (s CreateCustomizedCfgInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *CreateCustomizedCfgInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "CreateCustomizedCfgInput"}
+	if s.CustomizedCfgContent == nil {
+		invalidParams.Add(request.NewErrParamRequired("CustomizedCfgContent"))
+	}
 	if s.CustomizedCfgContent != nil && len(*s.CustomizedCfgContent) < 1 {
 		invalidParams.Add(request.NewErrParamMinLen("CustomizedCfgContent", 1))
 	}
 	if s.CustomizedCfgContent != nil && len(*s.CustomizedCfgContent) > 4096 {
 		invalidParams.Add(request.NewErrParamMaxLen("CustomizedCfgContent", 4096, *s.CustomizedCfgContent))
+	}
+	if s.CustomizedCfgName == nil {
+		invalidParams.Add(request.NewErrParamRequired("CustomizedCfgName"))
 	}
 	if s.CustomizedCfgName != nil && len(*s.CustomizedCfgName) < 1 {
 		invalidParams.Add(request.NewErrParamMinLen("CustomizedCfgName", 1))
@@ -213,6 +223,12 @@ func (s *CreateCustomizedCfgInput) SetProjectName(v string) *CreateCustomizedCfg
 	return s
 }
 
+// SetTags sets the Tags field's value.
+func (s *CreateCustomizedCfgInput) SetTags(v []*TagForCreateCustomizedCfgInput) *CreateCustomizedCfgInput {
+	s.Tags = v
+	return s
+}
+
 type CreateCustomizedCfgOutput struct {
 	_ struct{} `type:"structure"`
 
@@ -242,5 +258,35 @@ func (s *CreateCustomizedCfgOutput) SetCustomizedCfgId(v string) *CreateCustomiz
 // SetRequestId sets the RequestId field's value.
 func (s *CreateCustomizedCfgOutput) SetRequestId(v string) *CreateCustomizedCfgOutput {
 	s.RequestId = &v
+	return s
+}
+
+type TagForCreateCustomizedCfgInput struct {
+	_ struct{} `type:"structure"`
+
+	Key *string `type:"string"`
+
+	Value *string `type:"string"`
+}
+
+// String returns the string representation
+func (s TagForCreateCustomizedCfgInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagForCreateCustomizedCfgInput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagForCreateCustomizedCfgInput) SetKey(v string) *TagForCreateCustomizedCfgInput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *TagForCreateCustomizedCfgInput) SetValue(v string) *TagForCreateCustomizedCfgInput {
+	s.Value = &v
 	return s
 }

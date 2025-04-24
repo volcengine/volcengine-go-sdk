@@ -188,9 +188,11 @@ func (s *TagForTagResourcesInput) SetValue(v string) *TagForTagResourcesInput {
 type TagResourcesInput struct {
 	_ struct{} `type:"structure"`
 
-	ResourceIds []*string `type:"list"`
+	// ResourceIds is a required field
+	ResourceIds []*string `type:"list" required:"true"`
 
-	ResourceType *string `type:"string" enum:"ResourceTypeForTagResourcesInput"`
+	// ResourceType is a required field
+	ResourceType *string `type:"string" required:"true" enum:"ResourceTypeForTagResourcesInput"`
 
 	Tags []*TagForTagResourcesInput `type:"list"`
 }
@@ -208,6 +210,12 @@ func (s TagResourcesInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *TagResourcesInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "TagResourcesInput"}
+	if s.ResourceIds == nil {
+		invalidParams.Add(request.NewErrParamRequired("ResourceIds"))
+	}
+	if s.ResourceType == nil {
+		invalidParams.Add(request.NewErrParamRequired("ResourceType"))
+	}
 	if s.Tags != nil {
 		for i, v := range s.Tags {
 			if v == nil {
@@ -276,4 +284,16 @@ const (
 
 	// ResourceTypeForTagResourcesInputServergroup is a ResourceTypeForTagResourcesInput enum value
 	ResourceTypeForTagResourcesInputServergroup = "servergroup"
+
+	// ResourceTypeForTagResourcesInputAcl is a ResourceTypeForTagResourcesInput enum value
+	ResourceTypeForTagResourcesInputAcl = "acl"
+
+	// ResourceTypeForTagResourcesInputCertificate is a ResourceTypeForTagResourcesInput enum value
+	ResourceTypeForTagResourcesInputCertificate = "certificate"
+
+	// ResourceTypeForTagResourcesInputCustomizedcfg is a ResourceTypeForTagResourcesInput enum value
+	ResourceTypeForTagResourcesInputCustomizedcfg = "customizedcfg"
+
+	// ResourceTypeForTagResourcesInputHealthchecktemplate is a ResourceTypeForTagResourcesInput enum value
+	ResourceTypeForTagResourcesInputHealthchecktemplate = "healthchecktemplate"
 )
