@@ -144,13 +144,15 @@ func (c *VEPFS) AttachMountServiceToSelfFileSystemWithContext(ctx volcengine.Con
 }
 
 type AttachMountServiceToSelfFileSystemInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	CustomerPath *string `type:"string"`
+	CustomerPath *string `type:"string" json:",omitempty"`
 
-	FileSystemId *string `type:"string"`
+	// FileSystemId is a required field
+	FileSystemId *string `type:"string" json:",omitempty" required:"true"`
 
-	MountServiceId *string `type:"string"`
+	// MountServiceId is a required field
+	MountServiceId *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -161,6 +163,22 @@ func (s AttachMountServiceToSelfFileSystemInput) String() string {
 // GoString returns the string representation
 func (s AttachMountServiceToSelfFileSystemInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *AttachMountServiceToSelfFileSystemInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "AttachMountServiceToSelfFileSystemInput"}
+	if s.FileSystemId == nil {
+		invalidParams.Add(request.NewErrParamRequired("FileSystemId"))
+	}
+	if s.MountServiceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("MountServiceId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetCustomerPath sets the CustomerPath field's value.
@@ -182,7 +200,7 @@ func (s *AttachMountServiceToSelfFileSystemInput) SetMountServiceId(v string) *A
 }
 
 type AttachMountServiceToSelfFileSystemOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 }

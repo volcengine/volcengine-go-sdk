@@ -142,7 +142,8 @@ func (c *ALB) DescribeCustomizedCfgAttributesWithContext(ctx volcengine.Context,
 type DescribeCustomizedCfgAttributesInput struct {
 	_ struct{} `type:"structure"`
 
-	CustomizedCfgId *string `type:"string"`
+	// CustomizedCfgId is a required field
+	CustomizedCfgId *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -153,6 +154,19 @@ func (s DescribeCustomizedCfgAttributesInput) String() string {
 // GoString returns the string representation
 func (s DescribeCustomizedCfgAttributesInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DescribeCustomizedCfgAttributesInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DescribeCustomizedCfgAttributesInput"}
+	if s.CustomizedCfgId == nil {
+		invalidParams.Add(request.NewErrParamRequired("CustomizedCfgId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetCustomizedCfgId sets the CustomizedCfgId field's value.
@@ -183,6 +197,8 @@ type DescribeCustomizedCfgAttributesOutput struct {
 	RequestId *string `type:"string"`
 
 	Status *string `type:"string"`
+
+	Tags []*TagForDescribeCustomizedCfgAttributesOutput `type:"list"`
 
 	UpdateTime *string `type:"string"`
 }
@@ -251,6 +267,12 @@ func (s *DescribeCustomizedCfgAttributesOutput) SetStatus(v string) *DescribeCus
 	return s
 }
 
+// SetTags sets the Tags field's value.
+func (s *DescribeCustomizedCfgAttributesOutput) SetTags(v []*TagForDescribeCustomizedCfgAttributesOutput) *DescribeCustomizedCfgAttributesOutput {
+	s.Tags = v
+	return s
+}
+
 // SetUpdateTime sets the UpdateTime field's value.
 func (s *DescribeCustomizedCfgAttributesOutput) SetUpdateTime(v string) *DescribeCustomizedCfgAttributesOutput {
 	s.UpdateTime = &v
@@ -300,5 +322,35 @@ func (s *ListenerForDescribeCustomizedCfgAttributesOutput) SetPort(v int64) *Lis
 // SetProtocol sets the Protocol field's value.
 func (s *ListenerForDescribeCustomizedCfgAttributesOutput) SetProtocol(v string) *ListenerForDescribeCustomizedCfgAttributesOutput {
 	s.Protocol = &v
+	return s
+}
+
+type TagForDescribeCustomizedCfgAttributesOutput struct {
+	_ struct{} `type:"structure"`
+
+	Key *string `type:"string"`
+
+	Value *string `type:"string"`
+}
+
+// String returns the string representation
+func (s TagForDescribeCustomizedCfgAttributesOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagForDescribeCustomizedCfgAttributesOutput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagForDescribeCustomizedCfgAttributesOutput) SetKey(v string) *TagForDescribeCustomizedCfgAttributesOutput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *TagForDescribeCustomizedCfgAttributesOutput) SetValue(v string) *TagForDescribeCustomizedCfgAttributesOutput {
+	s.Value = &v
 	return s
 }

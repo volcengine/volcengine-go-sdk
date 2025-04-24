@@ -142,7 +142,8 @@ func (c *ALB) DeleteCustomizedCfgWithContext(ctx volcengine.Context, input *Dele
 type DeleteCustomizedCfgInput struct {
 	_ struct{} `type:"structure"`
 
-	CustomizedCfgId *string `type:"string"`
+	// CustomizedCfgId is a required field
+	CustomizedCfgId *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -153,6 +154,19 @@ func (s DeleteCustomizedCfgInput) String() string {
 // GoString returns the string representation
 func (s DeleteCustomizedCfgInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DeleteCustomizedCfgInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DeleteCustomizedCfgInput"}
+	if s.CustomizedCfgId == nil {
+		invalidParams.Add(request.NewErrParamRequired("CustomizedCfgId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetCustomizedCfgId sets the CustomizedCfgId field's value.

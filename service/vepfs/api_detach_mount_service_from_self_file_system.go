@@ -144,11 +144,13 @@ func (c *VEPFS) DetachMountServiceFromSelfFileSystemWithContext(ctx volcengine.C
 }
 
 type DetachMountServiceFromSelfFileSystemInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	FileSystemId *string `type:"string"`
+	// FileSystemId is a required field
+	FileSystemId *string `type:"string" json:",omitempty" required:"true"`
 
-	MountServiceId *string `type:"string"`
+	// MountServiceId is a required field
+	MountServiceId *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -159,6 +161,22 @@ func (s DetachMountServiceFromSelfFileSystemInput) String() string {
 // GoString returns the string representation
 func (s DetachMountServiceFromSelfFileSystemInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DetachMountServiceFromSelfFileSystemInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DetachMountServiceFromSelfFileSystemInput"}
+	if s.FileSystemId == nil {
+		invalidParams.Add(request.NewErrParamRequired("FileSystemId"))
+	}
+	if s.MountServiceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("MountServiceId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetFileSystemId sets the FileSystemId field's value.
@@ -174,7 +192,7 @@ func (s *DetachMountServiceFromSelfFileSystemInput) SetMountServiceId(v string) 
 }
 
 type DetachMountServiceFromSelfFileSystemOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 }

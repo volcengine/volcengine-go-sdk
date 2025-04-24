@@ -146,6 +146,10 @@ func (c *VEFAAS) CreateKafkaTriggerWithContext(ctx volcengine.Context, input *Cr
 type CreateKafkaTriggerInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	BatchFlushDurationMilliseconds *int32 `type:"int32" json:",omitempty"`
+
+	BatchSize *int32 `type:"int32" json:",omitempty"`
+
 	Description *string `type:"string" json:",omitempty"`
 
 	Enabled *bool `type:"boolean" json:",omitempty"`
@@ -199,6 +203,18 @@ func (s *CreateKafkaTriggerInput) Validate() error {
 		return invalidParams
 	}
 	return nil
+}
+
+// SetBatchFlushDurationMilliseconds sets the BatchFlushDurationMilliseconds field's value.
+func (s *CreateKafkaTriggerInput) SetBatchFlushDurationMilliseconds(v int32) *CreateKafkaTriggerInput {
+	s.BatchFlushDurationMilliseconds = &v
+	return s
+}
+
+// SetBatchSize sets the BatchSize field's value.
+func (s *CreateKafkaTriggerInput) SetBatchSize(v int32) *CreateKafkaTriggerInput {
+	s.BatchSize = &v
+	return s
 }
 
 // SetDescription sets the Description field's value.
@@ -260,6 +276,10 @@ type CreateKafkaTriggerOutput struct {
 
 	Metadata *response.ResponseMetadata
 
+	BatchFlushDurationMilliseconds *int32 `type:"int32" json:",omitempty"`
+
+	BatchSize *int32 `type:"int32" json:",omitempty"`
+
 	ConsumerGroup *string `type:"string" json:",omitempty"`
 
 	CreationTime *string `type:"string" json:",omitempty"`
@@ -295,6 +315,18 @@ func (s CreateKafkaTriggerOutput) String() string {
 // GoString returns the string representation
 func (s CreateKafkaTriggerOutput) GoString() string {
 	return s.String()
+}
+
+// SetBatchFlushDurationMilliseconds sets the BatchFlushDurationMilliseconds field's value.
+func (s *CreateKafkaTriggerOutput) SetBatchFlushDurationMilliseconds(v int32) *CreateKafkaTriggerOutput {
+	s.BatchFlushDurationMilliseconds = &v
+	return s
+}
+
+// SetBatchSize sets the BatchSize field's value.
+func (s *CreateKafkaTriggerOutput) SetBatchSize(v int32) *CreateKafkaTriggerOutput {
+	s.BatchSize = &v
+	return s
 }
 
 // SetConsumerGroup sets the ConsumerGroup field's value.

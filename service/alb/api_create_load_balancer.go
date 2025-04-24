@@ -156,6 +156,8 @@ type CreateLoadBalancerInput struct {
 
 	LoadBalancerBillingType *int64 `type:"integer"`
 
+	LoadBalancerEdition *string `type:"string"`
+
 	LoadBalancerName *string `type:"string"`
 
 	ModificationProtectionReason *string `type:"string"`
@@ -164,13 +166,15 @@ type CreateLoadBalancerInput struct {
 
 	ProjectName *string `type:"string"`
 
-	RegionId *string `type:"string"`
+	// RegionId is a required field
+	RegionId *string `type:"string" required:"true"`
 
 	SubnetId *string `type:"string"`
 
 	Tags []*TagForCreateLoadBalancerInput `type:"list"`
 
-	Type *string `type:"string"`
+	// Type is a required field
+	Type *string `type:"string" required:"true"`
 
 	VpcId *string `type:"string"`
 
@@ -185,6 +189,22 @@ func (s CreateLoadBalancerInput) String() string {
 // GoString returns the string representation
 func (s CreateLoadBalancerInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *CreateLoadBalancerInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "CreateLoadBalancerInput"}
+	if s.RegionId == nil {
+		invalidParams.Add(request.NewErrParamRequired("RegionId"))
+	}
+	if s.Type == nil {
+		invalidParams.Add(request.NewErrParamRequired("Type"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetAddressIpVersion sets the AddressIpVersion field's value.
@@ -226,6 +246,12 @@ func (s *CreateLoadBalancerInput) SetIpv6EipBillingConfig(v *Ipv6EipBillingConfi
 // SetLoadBalancerBillingType sets the LoadBalancerBillingType field's value.
 func (s *CreateLoadBalancerInput) SetLoadBalancerBillingType(v int64) *CreateLoadBalancerInput {
 	s.LoadBalancerBillingType = &v
+	return s
+}
+
+// SetLoadBalancerEdition sets the LoadBalancerEdition field's value.
+func (s *CreateLoadBalancerInput) SetLoadBalancerEdition(v string) *CreateLoadBalancerInput {
+	s.LoadBalancerEdition = &v
 	return s
 }
 

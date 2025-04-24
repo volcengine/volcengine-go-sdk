@@ -206,6 +206,14 @@ type VEFAASAPI interface {
 	ReleaseWithContext(volcengine.Context, *ReleaseInput, ...request.Option) (*ReleaseOutput, error)
 	ReleaseRequest(*ReleaseInput) (*request.Request, *ReleaseOutput)
 
+	TerminateAsyncTaskCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	TerminateAsyncTaskCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	TerminateAsyncTaskCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	TerminateAsyncTask(*TerminateAsyncTaskInput) (*TerminateAsyncTaskOutput, error)
+	TerminateAsyncTaskWithContext(volcengine.Context, *TerminateAsyncTaskInput, ...request.Option) (*TerminateAsyncTaskOutput, error)
+	TerminateAsyncTaskRequest(*TerminateAsyncTaskInput) (*request.Request, *TerminateAsyncTaskOutput)
+
 	UpdateFunctionCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	UpdateFunctionCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	UpdateFunctionCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})

@@ -392,6 +392,8 @@ type ServerGroupForDescribeServerGroupsOutput struct {
 
 	HealthCheck *HealthCheckForDescribeServerGroupsOutput `type:"structure"`
 
+	IPAddressType *string `type:"string"`
+
 	Listeners []*string `type:"list"`
 
 	ProjectName *string `type:"string"`
@@ -444,6 +446,12 @@ func (s *ServerGroupForDescribeServerGroupsOutput) SetDescription(v string) *Ser
 // SetHealthCheck sets the HealthCheck field's value.
 func (s *ServerGroupForDescribeServerGroupsOutput) SetHealthCheck(v *HealthCheckForDescribeServerGroupsOutput) *ServerGroupForDescribeServerGroupsOutput {
 	s.HealthCheck = v
+	return s
+}
+
+// SetIPAddressType sets the IPAddressType field's value.
+func (s *ServerGroupForDescribeServerGroupsOutput) SetIPAddressType(v string) *ServerGroupForDescribeServerGroupsOutput {
+	s.IPAddressType = &v
 	return s
 }
 

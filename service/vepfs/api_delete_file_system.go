@@ -144,9 +144,10 @@ func (c *VEPFS) DeleteFileSystemWithContext(ctx volcengine.Context, input *Delet
 }
 
 type DeleteFileSystemInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	FileSystemId *string `type:"string"`
+	// FileSystemId is a required field
+	FileSystemId *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -159,6 +160,19 @@ func (s DeleteFileSystemInput) GoString() string {
 	return s.String()
 }
 
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DeleteFileSystemInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DeleteFileSystemInput"}
+	if s.FileSystemId == nil {
+		invalidParams.Add(request.NewErrParamRequired("FileSystemId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
 // SetFileSystemId sets the FileSystemId field's value.
 func (s *DeleteFileSystemInput) SetFileSystemId(v string) *DeleteFileSystemInput {
 	s.FileSystemId = &v
@@ -166,9 +180,11 @@ func (s *DeleteFileSystemInput) SetFileSystemId(v string) *DeleteFileSystemInput
 }
 
 type DeleteFileSystemOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
+
+	OrderNO *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -179,4 +195,10 @@ func (s DeleteFileSystemOutput) String() string {
 // GoString returns the string representation
 func (s DeleteFileSystemOutput) GoString() string {
 	return s.String()
+}
+
+// SetOrderNO sets the OrderNO field's value.
+func (s *DeleteFileSystemOutput) SetOrderNO(v string) *DeleteFileSystemOutput {
+	s.OrderNO = &v
+	return s
 }

@@ -142,11 +142,14 @@ func (c *ALB) EnableTLSAccessLogWithContext(ctx volcengine.Context, input *Enabl
 type EnableTLSAccessLogInput struct {
 	_ struct{} `type:"structure"`
 
-	LoadBalancerId *string `type:"string"`
+	// LoadBalancerId is a required field
+	LoadBalancerId *string `type:"string" required:"true"`
 
-	ProjectId *string `type:"string"`
+	// ProjectId is a required field
+	ProjectId *string `type:"string" required:"true"`
 
-	TopicId *string `type:"string"`
+	// TopicId is a required field
+	TopicId *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -157,6 +160,25 @@ func (s EnableTLSAccessLogInput) String() string {
 // GoString returns the string representation
 func (s EnableTLSAccessLogInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *EnableTLSAccessLogInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "EnableTLSAccessLogInput"}
+	if s.LoadBalancerId == nil {
+		invalidParams.Add(request.NewErrParamRequired("LoadBalancerId"))
+	}
+	if s.ProjectId == nil {
+		invalidParams.Add(request.NewErrParamRequired("ProjectId"))
+	}
+	if s.TopicId == nil {
+		invalidParams.Add(request.NewErrParamRequired("TopicId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetLoadBalancerId sets the LoadBalancerId field's value.

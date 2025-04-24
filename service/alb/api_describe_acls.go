@@ -158,6 +158,8 @@ type AclForDescribeAclsOutput struct {
 
 	Status *string `type:"string"`
 
+	Tags []*TagForDescribeAclsOutput `type:"list"`
+
 	UpdateTime *string `type:"string"`
 }
 
@@ -219,6 +221,12 @@ func (s *AclForDescribeAclsOutput) SetStatus(v string) *AclForDescribeAclsOutput
 	return s
 }
 
+// SetTags sets the Tags field's value.
+func (s *AclForDescribeAclsOutput) SetTags(v []*TagForDescribeAclsOutput) *AclForDescribeAclsOutput {
+	s.Tags = v
+	return s
+}
+
 // SetUpdateTime sets the UpdateTime field's value.
 func (s *AclForDescribeAclsOutput) SetUpdateTime(v string) *AclForDescribeAclsOutput {
 	s.UpdateTime = &v
@@ -237,6 +245,8 @@ type DescribeAclsInput struct {
 	PageSize *int64 `type:"integer"`
 
 	ProjectName *string `type:"string"`
+
+	TagFilters []*TagFilterForDescribeAclsInput `type:"list"`
 }
 
 // String returns the string representation
@@ -276,6 +286,12 @@ func (s *DescribeAclsInput) SetPageSize(v int64) *DescribeAclsInput {
 // SetProjectName sets the ProjectName field's value.
 func (s *DescribeAclsInput) SetProjectName(v string) *DescribeAclsInput {
 	s.ProjectName = &v
+	return s
+}
+
+// SetTagFilters sets the TagFilters field's value.
+func (s *DescribeAclsInput) SetTagFilters(v []*TagFilterForDescribeAclsInput) *DescribeAclsInput {
+	s.TagFilters = v
 	return s
 }
 
@@ -332,5 +348,65 @@ func (s *DescribeAclsOutput) SetRequestId(v string) *DescribeAclsOutput {
 // SetTotalCount sets the TotalCount field's value.
 func (s *DescribeAclsOutput) SetTotalCount(v int64) *DescribeAclsOutput {
 	s.TotalCount = &v
+	return s
+}
+
+type TagFilterForDescribeAclsInput struct {
+	_ struct{} `type:"structure"`
+
+	Key *string `type:"string"`
+
+	Values []*string `type:"list"`
+}
+
+// String returns the string representation
+func (s TagFilterForDescribeAclsInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagFilterForDescribeAclsInput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagFilterForDescribeAclsInput) SetKey(v string) *TagFilterForDescribeAclsInput {
+	s.Key = &v
+	return s
+}
+
+// SetValues sets the Values field's value.
+func (s *TagFilterForDescribeAclsInput) SetValues(v []*string) *TagFilterForDescribeAclsInput {
+	s.Values = v
+	return s
+}
+
+type TagForDescribeAclsOutput struct {
+	_ struct{} `type:"structure"`
+
+	Key *string `type:"string"`
+
+	Value *string `type:"string"`
+}
+
+// String returns the string representation
+func (s TagForDescribeAclsOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagForDescribeAclsOutput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagForDescribeAclsOutput) SetKey(v string) *TagForDescribeAclsOutput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *TagForDescribeAclsOutput) SetValue(v string) *TagForDescribeAclsOutput {
+	s.Value = &v
 	return s
 }

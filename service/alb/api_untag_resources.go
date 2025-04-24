@@ -142,11 +142,14 @@ func (c *ALB) UntagResourcesWithContext(ctx volcengine.Context, input *UntagReso
 type UntagResourcesInput struct {
 	_ struct{} `type:"structure"`
 
-	ResourceIds []*string `type:"list"`
+	// ResourceIds is a required field
+	ResourceIds []*string `type:"list" required:"true"`
 
-	ResourceType *string `type:"string" enum:"ResourceTypeForUntagResourcesInput"`
+	// ResourceType is a required field
+	ResourceType *string `type:"string" required:"true" enum:"ResourceTypeForUntagResourcesInput"`
 
-	TagKeys []*string `type:"list"`
+	// TagKeys is a required field
+	TagKeys []*string `type:"list" required:"true"`
 }
 
 // String returns the string representation
@@ -157,6 +160,25 @@ func (s UntagResourcesInput) String() string {
 // GoString returns the string representation
 func (s UntagResourcesInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *UntagResourcesInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "UntagResourcesInput"}
+	if s.ResourceIds == nil {
+		invalidParams.Add(request.NewErrParamRequired("ResourceIds"))
+	}
+	if s.ResourceType == nil {
+		invalidParams.Add(request.NewErrParamRequired("ResourceType"))
+	}
+	if s.TagKeys == nil {
+		invalidParams.Add(request.NewErrParamRequired("TagKeys"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetResourceIds sets the ResourceIds field's value.
@@ -210,4 +232,16 @@ const (
 
 	// ResourceTypeForUntagResourcesInputServergroup is a ResourceTypeForUntagResourcesInput enum value
 	ResourceTypeForUntagResourcesInputServergroup = "servergroup"
+
+	// ResourceTypeForUntagResourcesInputAcl is a ResourceTypeForUntagResourcesInput enum value
+	ResourceTypeForUntagResourcesInputAcl = "acl"
+
+	// ResourceTypeForUntagResourcesInputCertificate is a ResourceTypeForUntagResourcesInput enum value
+	ResourceTypeForUntagResourcesInputCertificate = "certificate"
+
+	// ResourceTypeForUntagResourcesInputCustomizedcfg is a ResourceTypeForUntagResourcesInput enum value
+	ResourceTypeForUntagResourcesInputCustomizedcfg = "customizedcfg"
+
+	// ResourceTypeForUntagResourcesInputHealthchecktemplate is a ResourceTypeForUntagResourcesInput enum value
+	ResourceTypeForUntagResourcesInputHealthchecktemplate = "healthchecktemplate"
 )

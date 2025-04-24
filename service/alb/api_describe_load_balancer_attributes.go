@@ -172,7 +172,8 @@ func (s *AccessLogForDescribeLoadBalancerAttributesOutput) SetEnabled(v bool) *A
 type DescribeLoadBalancerAttributesInput struct {
 	_ struct{} `type:"structure"`
 
-	LoadBalancerId *string `type:"string"`
+	// LoadBalancerId is a required field
+	LoadBalancerId *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -183,6 +184,19 @@ func (s DescribeLoadBalancerAttributesInput) String() string {
 // GoString returns the string representation
 func (s DescribeLoadBalancerAttributesInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DescribeLoadBalancerAttributesInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DescribeLoadBalancerAttributesInput"}
+	if s.LoadBalancerId == nil {
+		invalidParams.Add(request.NewErrParamRequired("LoadBalancerId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetLoadBalancerId sets the LoadBalancerId field's value.
@@ -231,6 +245,8 @@ type DescribeLoadBalancerAttributesOutput struct {
 	Listeners []*ListenerForDescribeLoadBalancerAttributesOutput `type:"list"`
 
 	LoadBalancerBillingType *int64 `type:"integer"`
+
+	LoadBalancerEdition *string `type:"string"`
 
 	LoadBalancerId *string `type:"string"`
 
@@ -388,6 +404,12 @@ func (s *DescribeLoadBalancerAttributesOutput) SetListeners(v []*ListenerForDesc
 // SetLoadBalancerBillingType sets the LoadBalancerBillingType field's value.
 func (s *DescribeLoadBalancerAttributesOutput) SetLoadBalancerBillingType(v int64) *DescribeLoadBalancerAttributesOutput {
 	s.LoadBalancerBillingType = &v
+	return s
+}
+
+// SetLoadBalancerEdition sets the LoadBalancerEdition field's value.
+func (s *DescribeLoadBalancerAttributesOutput) SetLoadBalancerEdition(v string) *DescribeLoadBalancerAttributesOutput {
+	s.LoadBalancerEdition = &v
 	return s
 }
 
