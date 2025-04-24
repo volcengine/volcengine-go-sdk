@@ -622,7 +622,7 @@ type StatusForGetModelCustomizationJobOutput struct {
 
 	OutputExpiredTime *string `type:"string" json:",omitempty"`
 
-	Phase *string `type:"string" json:",omitempty"`
+	Phase *string `type:"string" json:",omitempty" enum:"EnumOfPhaseForGetModelCustomizationJobOutput"`
 
 	PhaseTime *string `type:"string" json:",omitempty"`
 
@@ -843,6 +843,35 @@ const (
 
 	// EnumOfEncryptionKeyringTypeForGetModelCustomizationJobOutputCustomKeyring is a EnumOfEncryptionKeyringTypeForGetModelCustomizationJobOutput enum value
 	EnumOfEncryptionKeyringTypeForGetModelCustomizationJobOutputCustomKeyring = "CustomKeyring"
+)
+
+const (
+	// EnumOfPhaseForGetModelCustomizationJobOutputPreprocessing is a EnumOfPhaseForGetModelCustomizationJobOutput enum value
+	EnumOfPhaseForGetModelCustomizationJobOutputPreprocessing = "Preprocessing"
+
+	// EnumOfPhaseForGetModelCustomizationJobOutputQueued is a EnumOfPhaseForGetModelCustomizationJobOutput enum value
+	EnumOfPhaseForGetModelCustomizationJobOutputQueued = "Queued"
+
+	// EnumOfPhaseForGetModelCustomizationJobOutputDeploying is a EnumOfPhaseForGetModelCustomizationJobOutput enum value
+	EnumOfPhaseForGetModelCustomizationJobOutputDeploying = "Deploying"
+
+	// EnumOfPhaseForGetModelCustomizationJobOutputRunning is a EnumOfPhaseForGetModelCustomizationJobOutput enum value
+	EnumOfPhaseForGetModelCustomizationJobOutputRunning = "Running"
+
+	// EnumOfPhaseForGetModelCustomizationJobOutputCompleting is a EnumOfPhaseForGetModelCustomizationJobOutput enum value
+	EnumOfPhaseForGetModelCustomizationJobOutputCompleting = "Completing"
+
+	// EnumOfPhaseForGetModelCustomizationJobOutputCompleted is a EnumOfPhaseForGetModelCustomizationJobOutput enum value
+	EnumOfPhaseForGetModelCustomizationJobOutputCompleted = "Completed"
+
+	// EnumOfPhaseForGetModelCustomizationJobOutputTerminating is a EnumOfPhaseForGetModelCustomizationJobOutput enum value
+	EnumOfPhaseForGetModelCustomizationJobOutputTerminating = "Terminating"
+
+	// EnumOfPhaseForGetModelCustomizationJobOutputTerminated is a EnumOfPhaseForGetModelCustomizationJobOutput enum value
+	EnumOfPhaseForGetModelCustomizationJobOutputTerminated = "Terminated"
+
+	// EnumOfPhaseForGetModelCustomizationJobOutputFailed is a EnumOfPhaseForGetModelCustomizationJobOutput enum value
+	EnumOfPhaseForGetModelCustomizationJobOutputFailed = "Failed"
 )
 
 const (
