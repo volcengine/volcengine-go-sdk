@@ -144,31 +144,39 @@ func (c *VEPFS) CreateFileSystemWithContext(ctx volcengine.Context, input *Creat
 }
 
 type CreateFileSystemInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Capacity *int32 `type:"int32"`
+	Capacity *int32 `type:"int32" json:",omitempty"`
 
-	ChargeType *string `type:"string"`
+	// ChargeType is a required field
+	ChargeType *string `type:"string" json:",omitempty" required:"true" enum:"EnumOfChargeTypeForCreateFileSystemInput"`
 
-	Description *string `type:"string"`
+	Description *string `type:"string" json:",omitempty"`
 
-	FileSystemName *string `type:"string"`
+	// FileSystemName is a required field
+	FileSystemName *string `type:"string" json:",omitempty" required:"true"`
 
-	FileSystemType *string `type:"string"`
+	// FileSystemType is a required field
+	FileSystemType *string `type:"string" json:",omitempty" required:"true" enum:"EnumOfFileSystemTypeForCreateFileSystemInput"`
 
-	Project *string `type:"string"`
+	Project *string `type:"string" json:",omitempty"`
 
-	ProtocolType *string `type:"string"`
+	// ProtocolType is a required field
+	ProtocolType *string `type:"string" json:",omitempty" required:"true" enum:"EnumOfProtocolTypeForCreateFileSystemInput"`
 
-	StoreType *string `type:"string"`
+	// StoreType is a required field
+	StoreType *string `type:"string" json:",omitempty" required:"true"`
 
-	SubnetId *string `type:"string"`
+	SubnetId *string `type:"string" json:",omitempty"`
 
-	Tags []*TagForCreateFileSystemInput `type:"list"`
+	Tags []*TagForCreateFileSystemInput `type:"list" json:",omitempty"`
 
-	VpcId *string `type:"string"`
+	VersionNumber *string `type:"string" json:",omitempty"`
 
-	ZoneId *string `type:"string"`
+	VpcId *string `type:"string" json:",omitempty"`
+
+	// ZoneId is a required field
+	ZoneId *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -179,6 +187,34 @@ func (s CreateFileSystemInput) String() string {
 // GoString returns the string representation
 func (s CreateFileSystemInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *CreateFileSystemInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "CreateFileSystemInput"}
+	if s.ChargeType == nil {
+		invalidParams.Add(request.NewErrParamRequired("ChargeType"))
+	}
+	if s.FileSystemName == nil {
+		invalidParams.Add(request.NewErrParamRequired("FileSystemName"))
+	}
+	if s.FileSystemType == nil {
+		invalidParams.Add(request.NewErrParamRequired("FileSystemType"))
+	}
+	if s.ProtocolType == nil {
+		invalidParams.Add(request.NewErrParamRequired("ProtocolType"))
+	}
+	if s.StoreType == nil {
+		invalidParams.Add(request.NewErrParamRequired("StoreType"))
+	}
+	if s.ZoneId == nil {
+		invalidParams.Add(request.NewErrParamRequired("ZoneId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetCapacity sets the Capacity field's value.
@@ -241,6 +277,12 @@ func (s *CreateFileSystemInput) SetTags(v []*TagForCreateFileSystemInput) *Creat
 	return s
 }
 
+// SetVersionNumber sets the VersionNumber field's value.
+func (s *CreateFileSystemInput) SetVersionNumber(v string) *CreateFileSystemInput {
+	s.VersionNumber = &v
+	return s
+}
+
 // SetVpcId sets the VpcId field's value.
 func (s *CreateFileSystemInput) SetVpcId(v string) *CreateFileSystemInput {
 	s.VpcId = &v
@@ -254,15 +296,15 @@ func (s *CreateFileSystemInput) SetZoneId(v string) *CreateFileSystemInput {
 }
 
 type CreateFileSystemOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	FileSystemId *string `type:"string"`
+	FileSystemId *string `type:"string" json:",omitempty"`
 
-	OrderNO *string `type:"string"`
+	OrderNO *string `type:"string" json:",omitempty"`
 
-	Tags []*TagForCreateFileSystemOutput `type:"list"`
+	Tags []*TagForCreateFileSystemOutput `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -294,13 +336,13 @@ func (s *CreateFileSystemOutput) SetTags(v []*TagForCreateFileSystemOutput) *Cre
 }
 
 type TagForCreateFileSystemInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Key *string `type:"string"`
+	Key *string `type:"string" json:",omitempty"`
 
-	Type *string `type:"string"`
+	Type *string `type:"string" json:",omitempty" enum:"EnumOfTypeForCreateFileSystemInput"`
 
-	Value *string `type:"string"`
+	Value *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -332,13 +374,13 @@ func (s *TagForCreateFileSystemInput) SetValue(v string) *TagForCreateFileSystem
 }
 
 type TagForCreateFileSystemOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Key *string `type:"string"`
+	Key *string `type:"string" json:",omitempty"`
 
-	Type *string `type:"string"`
+	Type *string `type:"string" json:",omitempty" enum:"EnumOfTypeForCreateFileSystemOutput"`
 
-	Value *string `type:"string"`
+	Value *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -368,3 +410,43 @@ func (s *TagForCreateFileSystemOutput) SetValue(v string) *TagForCreateFileSyste
 	s.Value = &v
 	return s
 }
+
+const (
+	// EnumOfChargeTypeForCreateFileSystemInputPayAsYouGo is a EnumOfChargeTypeForCreateFileSystemInput enum value
+	EnumOfChargeTypeForCreateFileSystemInputPayAsYouGo = "PayAsYouGo"
+)
+
+const (
+	// EnumOfFileSystemTypeForCreateFileSystemInputVePfs is a EnumOfFileSystemTypeForCreateFileSystemInput enum value
+	EnumOfFileSystemTypeForCreateFileSystemInputVePfs = "VePFS"
+)
+
+const (
+	// EnumOfProtocolTypeForCreateFileSystemInputNfs is a EnumOfProtocolTypeForCreateFileSystemInput enum value
+	EnumOfProtocolTypeForCreateFileSystemInputNfs = "NFS"
+
+	// EnumOfProtocolTypeForCreateFileSystemInputSmb is a EnumOfProtocolTypeForCreateFileSystemInput enum value
+	EnumOfProtocolTypeForCreateFileSystemInputSmb = "SMB"
+
+	// EnumOfProtocolTypeForCreateFileSystemInputVePfs is a EnumOfProtocolTypeForCreateFileSystemInput enum value
+	EnumOfProtocolTypeForCreateFileSystemInputVePfs = "VePFS"
+
+	// EnumOfProtocolTypeForCreateFileSystemInputFsx is a EnumOfProtocolTypeForCreateFileSystemInput enum value
+	EnumOfProtocolTypeForCreateFileSystemInputFsx = "FSX"
+)
+
+const (
+	// EnumOfTypeForCreateFileSystemInputSystem is a EnumOfTypeForCreateFileSystemInput enum value
+	EnumOfTypeForCreateFileSystemInputSystem = "System"
+
+	// EnumOfTypeForCreateFileSystemInputCustom is a EnumOfTypeForCreateFileSystemInput enum value
+	EnumOfTypeForCreateFileSystemInputCustom = "Custom"
+)
+
+const (
+	// EnumOfTypeForCreateFileSystemOutputSystem is a EnumOfTypeForCreateFileSystemOutput enum value
+	EnumOfTypeForCreateFileSystemOutputSystem = "System"
+
+	// EnumOfTypeForCreateFileSystemOutputCustom is a EnumOfTypeForCreateFileSystemOutput enum value
+	EnumOfTypeForCreateFileSystemOutputCustom = "Custom"
+)

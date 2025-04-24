@@ -144,13 +144,13 @@ func (c *VEPFS) UpdateFileSystemWithContext(ctx volcengine.Context, input *Updat
 }
 
 type TagForUpdateFileSystemInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Key *string `type:"string"`
+	Key *string `type:"string" json:",omitempty"`
 
-	Type *string `type:"string"`
+	Type *string `type:"string" json:",omitempty" enum:"EnumOfTypeForUpdateFileSystemInput"`
 
-	Value *string `type:"string"`
+	Value *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -182,15 +182,16 @@ func (s *TagForUpdateFileSystemInput) SetValue(v string) *TagForUpdateFileSystem
 }
 
 type UpdateFileSystemInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Description *string `type:"string"`
+	Description *string `type:"string" json:",omitempty"`
 
-	FileSystemId *string `type:"string"`
+	// FileSystemId is a required field
+	FileSystemId *string `type:"string" json:",omitempty" required:"true"`
 
-	FileSystemName *string `type:"string"`
+	FileSystemName *string `type:"string" json:",omitempty"`
 
-	Tags []*TagForUpdateFileSystemInput `type:"list"`
+	Tags []*TagForUpdateFileSystemInput `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -201,6 +202,19 @@ func (s UpdateFileSystemInput) String() string {
 // GoString returns the string representation
 func (s UpdateFileSystemInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *UpdateFileSystemInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "UpdateFileSystemInput"}
+	if s.FileSystemId == nil {
+		invalidParams.Add(request.NewErrParamRequired("FileSystemId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetDescription sets the Description field's value.
@@ -228,7 +242,7 @@ func (s *UpdateFileSystemInput) SetTags(v []*TagForUpdateFileSystemInput) *Updat
 }
 
 type UpdateFileSystemOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 }
@@ -242,3 +256,11 @@ func (s UpdateFileSystemOutput) String() string {
 func (s UpdateFileSystemOutput) GoString() string {
 	return s.String()
 }
+
+const (
+	// EnumOfTypeForUpdateFileSystemInputSystem is a EnumOfTypeForUpdateFileSystemInput enum value
+	EnumOfTypeForUpdateFileSystemInputSystem = "System"
+
+	// EnumOfTypeForUpdateFileSystemInputCustom is a EnumOfTypeForUpdateFileSystemInput enum value
+	EnumOfTypeForUpdateFileSystemInputCustom = "Custom"
+)
