@@ -156,6 +156,8 @@ type DataForListAlertGroupOutput struct {
 
 	EndAt *string `type:"string" json:",omitempty"`
 
+	Id *string `type:"string" json:",omitempty"`
+
 	Level *string `type:"string" json:",omitempty"`
 
 	Namespace *string `type:"string" json:",omitempty"`
@@ -214,6 +216,12 @@ func (s *DataForListAlertGroupOutput) SetDuration(v string) *DataForListAlertGro
 // SetEndAt sets the EndAt field's value.
 func (s *DataForListAlertGroupOutput) SetEndAt(v string) *DataForListAlertGroupOutput {
 	s.EndAt = &v
+	return s
+}
+
+// SetId sets the Id field's value.
+func (s *DataForListAlertGroupOutput) SetId(v string) *DataForListAlertGroupOutput {
+	s.Id = &v
 	return s
 }
 
