@@ -60,6 +60,7 @@ type ServiceEndpointInfo struct {
 
 const (
 	regionCodeCNBeijingAutoDriving = "cn-beijing-autodriving"
+	regionCodeAPSouthEast2         = "ap-southeast-2"
 	regionCodeAPSouthEast3         = "ap-southeast-3"
 )
 
@@ -434,6 +435,7 @@ func GetDefaultEndpointByServiceInfo(service string, regionCode string, customBo
 
 var bootstrapRegion = map[string]struct{}{
 	regionCodeCNBeijingAutoDriving: {},
+	regionCodeAPSouthEast2:         {},
 	regionCodeAPSouthEast3:         {},
 }
 
