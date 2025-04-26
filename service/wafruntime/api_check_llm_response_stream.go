@@ -9,7 +9,7 @@ import (
 
 const opCheckLLMResponseStream = "CheckLLMResponseStream"
 
-func (c *WAFRuntime) CheckLLMResponseStreamRequest(input *waf.CheckLLMResponseStreamInput) (req *request.Request, output *waf.CheckLLMResponseStreamOutput) {
+func (c *WAFRuntime) CheckLLMResponseStreamRequest(input *waf.CheckLLMResponseStreamInput, session *LLMStreamSession) (req *request.Request, output *waf.CheckLLMResponseStreamOutput) {
 	op := &request.Operation{
 		Name:       opCheckLLMResponseStream,
 		HTTPMethod: "POST",
@@ -19,16 +19,16 @@ func (c *WAFRuntime) CheckLLMResponseStreamRequest(input *waf.CheckLLMResponseSt
 	if input == nil {
 		input = &waf.CheckLLMResponseStreamInput{}
 	}
-	c.StreamBuf += *input.Content
-	c.StreamSendLen += len(*input.Content)
-	if c.StreamSendLen < 10 && input.MsgID != nil && *input.UseStream != 2 {
+	session.StreamBuf += *input.Content
+	session.StreamSendLen += len(*input.Content)
+	if session.StreamSendLen < 10 && input.MsgID != nil && *input.UseStream != 2 {
 		return nil, nil
 	} else {
-		c.StreamSendLen = 0
-		*input.Content = c.StreamBuf
+		session.StreamSendLen = 0
+		*input.Content = session.StreamBuf
 	}
-	if c.MsgID != nil {
-		input.MsgID = c.MsgID
+	if session.MsgID != "" {
+		input.MsgID = &session.MsgID
 	}
 	output = &waf.CheckLLMResponseStreamOutput{}
 	req = c.newRequest(op, input, output)
@@ -40,24 +40,24 @@ func (c *WAFRuntime) CheckLLMResponseStreamRequest(input *waf.CheckLLMResponseSt
 	return
 }
 
-func (c *WAFRuntime) CheckLLMResponseStream(input *waf.CheckLLMResponseStreamInput) (*waf.CheckLLMResponseStreamOutput, error) {
-	req, out := c.CheckLLMResponseStreamRequest(input)
+func (c *WAFRuntime) CheckLLMResponseStream(input *waf.CheckLLMResponseStreamInput, session *LLMStreamSession) (*waf.CheckLLMResponseStreamOutput, error) {
+	req, out := c.CheckLLMResponseStreamRequest(input, session)
 	if req == nil {
-		return c.defaultOut, nil
+		return session.DefaultBody, nil
 	}
 	err := req.Send()
 	if err != nil {
 		return nil, err
 	}
-	if c.MsgID == nil {
-		c.MsgID = out.MsgID
+	if session.MsgID == "" {
+		session.MsgID = *out.MsgID
 	}
-	c.defaultOut = out
+	session.DefaultBody = out
 	return out, err
 }
 
-func (c *WAFRuntime) CheckLLMResponseStreamWithContext(ctx volcengine.Context, input *waf.CheckLLMResponseStreamInput, opts ...request.Option) (*waf.CheckLLMResponseStreamOutput, error) {
-	req, out := c.CheckLLMResponseStreamRequest(input)
+func (c *WAFRuntime) CheckLLMResponseStreamWithContext(ctx volcengine.Context, input *waf.CheckLLMResponseStreamInput, session *LLMStreamSession, opts ...request.Option) (*waf.CheckLLMResponseStreamOutput, error) {
+	req, out := c.CheckLLMResponseStreamRequest(input, session)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
 	return out, c.send(req)
