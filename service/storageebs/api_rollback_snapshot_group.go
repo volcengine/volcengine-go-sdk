@@ -142,6 +142,8 @@ func (c *STORAGEEBS) RollbackSnapshotGroupWithContext(ctx volcengine.Context, in
 type RollbackSnapshotGroupInput struct {
 	_ struct{} `type:"structure"`
 
+	ClientToken *string `type:"string"`
+
 	InstanceId *string `type:"string"`
 
 	// SnapshotGroupId is a required field
@@ -181,6 +183,12 @@ func (s *RollbackSnapshotGroupInput) Validate() error {
 		return invalidParams
 	}
 	return nil
+}
+
+// SetClientToken sets the ClientToken field's value.
+func (s *RollbackSnapshotGroupInput) SetClientToken(v string) *RollbackSnapshotGroupInput {
+	s.ClientToken = &v
+	return s
 }
 
 // SetInstanceId sets the InstanceId field's value.
