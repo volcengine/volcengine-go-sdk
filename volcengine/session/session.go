@@ -588,7 +588,8 @@ func (s *Session) clientConfigWithErr(serviceName string, cfgs ...*volcengine.Co
 			}
 			endpoint = &endpointFor.URL
 		} else {
-			endpoint = volcengineutil.GetDefaultEndpointByServiceInfo(serviceName, region, s.Config.BootstrapRegion)
+			endpoint = volcengineutil.GetDefaultEndpointByServiceInfo(serviceName, region, s.Config.BootstrapRegion,
+				s.Config.UseDualStack)
 		}
 		s.Config.Endpoint = endpoint
 	}

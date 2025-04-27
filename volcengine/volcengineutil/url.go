@@ -391,7 +391,8 @@ func standardizeDomainServiceCode(serviceCode string) string {
 //
 // Note: Ensure the `defaultEndpoint` map is properly populated with service and region endpoint
 // information before calling this function.
-func GetDefaultEndpointByServiceInfo(service string, regionCode string, customBootstrapRegion map[string]struct{}) *string {
+func GetDefaultEndpointByServiceInfo(service string, regionCode string,
+	customBootstrapRegion map[string]struct{}, useDualStack *bool) *string {
 
 	resultEndpoint := endpoint
 
@@ -405,7 +406,7 @@ func GetDefaultEndpointByServiceInfo(service string, regionCode string, customBo
 	}
 
 	suffix := endpointSuffix
-	if hasEnableDualStack() {
+	if hasEnableDualStack(useDualStack) {
 		suffix = dualstackEndpointSuffix
 	}
 
@@ -472,6 +473,9 @@ func inBootstrapRegionList(regionCode string, customBootstrapRegion map[string]s
 	return false
 }
 
-func hasEnableDualStack() bool {
-	return os.Getenv("VOLC_ENABLE_DUALSTACK") == "true"
+func hasEnableDualStack(useDualStack *bool) bool {
+	if useDualStack == nil {
+		return os.Getenv("VOLC_ENABLE_DUALSTACK") == "true"
+	}
+	return *useDualStack
 }
