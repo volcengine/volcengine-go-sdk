@@ -150,7 +150,7 @@ type BuyResourcePackageInput struct {
 	DeviceName *string `type:"string" json:"deviceName,omitempty" required:"true"`
 
 	// Item is a required field
-	Item *string `type:"string" json:"item,omitempty" required:"true" enum:"EnumOfitemForBuyResourcePackageInput"`
+	Item *string `type:"string" json:"item,omitempty" required:"true"`
 
 	// ProductKey is a required field
 	ProductKey *string `type:"string" json:"productKey,omitempty" required:"true"`
@@ -234,32 +234,3 @@ func (s *BuyResourcePackageOutput) SetSuccess(v bool) *BuyResourcePackageOutput 
 	s.Success = &v
 	return s
 }
-
-const (
-	// EnumOfitemForBuyResourcePackageInputTest01 is a EnumOfitemForBuyResourcePackageInput enum value
-	EnumOfitemForBuyResourcePackageInputTest01 = "test_01"
-
-	// EnumOfitemForBuyResourcePackageInputRecording3 is a EnumOfitemForBuyResourcePackageInput enum value
-	EnumOfitemForBuyResourcePackageInputRecording3 = "recording_3"
-
-	// EnumOfitemForBuyResourcePackageInputRecording10 is a EnumOfitemForBuyResourcePackageInput enum value
-	EnumOfitemForBuyResourcePackageInputRecording10 = "recording_10"
-
-	// EnumOfitemForBuyResourcePackageInputVoice3 is a EnumOfitemForBuyResourcePackageInput enum value
-	EnumOfitemForBuyResourcePackageInputVoice3 = "voice_3"
-
-	// EnumOfitemForBuyResourcePackageInputVoice10 is a EnumOfitemForBuyResourcePackageInput enum value
-	EnumOfitemForBuyResourcePackageInputVoice10 = "voice_10"
-
-	// EnumOfitemForBuyResourcePackageInputBigmodel32k is a EnumOfitemForBuyResourcePackageInput enum value
-	EnumOfitemForBuyResourcePackageInputBigmodel32k = "bigmodel_32k"
-
-	// EnumOfitemForBuyResourcePackageInputBigmodel128k is a EnumOfitemForBuyResourcePackageInput enum value
-	EnumOfitemForBuyResourcePackageInputBigmodel128k = "bigmodel_128k"
-
-	// EnumOfitemForBuyResourcePackageInputImage10 is a EnumOfitemForBuyResourcePackageInput enum value
-	EnumOfitemForBuyResourcePackageInputImage10 = "image_10"
-
-	// EnumOfitemForBuyResourcePackageInputImage50 is a EnumOfitemForBuyResourcePackageInput enum value
-	EnumOfitemForBuyResourcePackageInputImage50 = "image_50"
-)

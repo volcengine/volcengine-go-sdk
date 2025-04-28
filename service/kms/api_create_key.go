@@ -165,6 +165,8 @@ type CreateKeyInput struct {
 	ProtectionLevel *string `type:"string" json:",omitempty"`
 
 	RotateState *string `type:"string" json:",omitempty"`
+
+	Tags []*TagForCreateKeyInput `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -262,6 +264,12 @@ func (s *CreateKeyInput) SetRotateState(v string) *CreateKeyInput {
 	return s
 }
 
+// SetTags sets the Tags field's value.
+func (s *CreateKeyInput) SetTags(v []*TagForCreateKeyInput) *CreateKeyInput {
+	s.Tags = v
+	return s
+}
+
 type CreateKeyOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -320,6 +328,8 @@ type KeyForCreateKeyOutput struct {
 	ScheduleDeleteTime *string `type:"string" json:",omitempty"`
 
 	ScheduleRotationTime *string `type:"string" json:",omitempty"`
+
+	Tags []*TagForCreateKeyOutput `type:"list" json:",omitempty"`
 
 	Trn *string `type:"string" json:",omitempty"`
 
@@ -432,6 +442,12 @@ func (s *KeyForCreateKeyOutput) SetScheduleRotationTime(v string) *KeyForCreateK
 	return s
 }
 
+// SetTags sets the Tags field's value.
+func (s *KeyForCreateKeyOutput) SetTags(v []*TagForCreateKeyOutput) *KeyForCreateKeyOutput {
+	s.Tags = v
+	return s
+}
+
 // SetTrn sets the Trn field's value.
 func (s *KeyForCreateKeyOutput) SetTrn(v string) *KeyForCreateKeyOutput {
 	s.Trn = &v
@@ -539,6 +555,66 @@ func (s *ReplicaKeyForCreateKeyOutput) SetRegion(v string) *ReplicaKeyForCreateK
 // SetTrn sets the Trn field's value.
 func (s *ReplicaKeyForCreateKeyOutput) SetTrn(v string) *ReplicaKeyForCreateKeyOutput {
 	s.Trn = &v
+	return s
+}
+
+type TagForCreateKeyInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Key *string `type:"string" json:",omitempty"`
+
+	Value *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s TagForCreateKeyInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagForCreateKeyInput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagForCreateKeyInput) SetKey(v string) *TagForCreateKeyInput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *TagForCreateKeyInput) SetValue(v string) *TagForCreateKeyInput {
+	s.Value = &v
+	return s
+}
+
+type TagForCreateKeyOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Key *string `type:"string" json:",omitempty"`
+
+	Value *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s TagForCreateKeyOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagForCreateKeyOutput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagForCreateKeyOutput) SetKey(v string) *TagForCreateKeyOutput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *TagForCreateKeyOutput) SetValue(v string) *TagForCreateKeyOutput {
+	s.Value = &v
 	return s
 }
 

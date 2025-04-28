@@ -302,6 +302,14 @@ type KMSAPI interface {
 	ImportKeyMaterialWithContext(volcengine.Context, *ImportKeyMaterialInput, ...request.Option) (*ImportKeyMaterialOutput, error)
 	ImportKeyMaterialRequest(*ImportKeyMaterialInput) (*request.Request, *ImportKeyMaterialOutput)
 
+	ListTagsForResourcesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListTagsForResourcesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListTagsForResourcesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListTagsForResources(*ListTagsForResourcesInput) (*ListTagsForResourcesOutput, error)
+	ListTagsForResourcesWithContext(volcengine.Context, *ListTagsForResourcesInput, ...request.Option) (*ListTagsForResourcesOutput, error)
+	ListTagsForResourcesRequest(*ListTagsForResourcesInput) (*request.Request, *ListTagsForResourcesOutput)
+
 	QueryKeyringCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	QueryKeyringCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	QueryKeyringCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -365,6 +373,22 @@ type KMSAPI interface {
 	SetSecretValue(*SetSecretValueInput) (*SetSecretValueOutput, error)
 	SetSecretValueWithContext(volcengine.Context, *SetSecretValueInput, ...request.Option) (*SetSecretValueOutput, error)
 	SetSecretValueRequest(*SetSecretValueInput) (*request.Request, *SetSecretValueOutput)
+
+	TagResourcesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	TagResourcesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	TagResourcesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	TagResources(*TagResourcesInput) (*TagResourcesOutput, error)
+	TagResourcesWithContext(volcengine.Context, *TagResourcesInput, ...request.Option) (*TagResourcesOutput, error)
+	TagResourcesRequest(*TagResourcesInput) (*request.Request, *TagResourcesOutput)
+
+	UntagResourcesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	UntagResourcesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	UntagResourcesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	UntagResources(*UntagResourcesInput) (*UntagResourcesOutput, error)
+	UntagResourcesWithContext(volcengine.Context, *UntagResourcesInput, ...request.Option) (*UntagResourcesOutput, error)
+	UntagResourcesRequest(*UntagResourcesInput) (*request.Request, *UntagResourcesOutput)
 
 	UpdateKeyCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	UpdateKeyCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)

@@ -144,7 +144,8 @@ func (c *ALB) CreateRulesWithContext(ctx volcengine.Context, input *CreateRulesI
 type CreateRulesInput struct {
 	_ struct{} `type:"structure"`
 
-	ListenerId *string `type:"string"`
+	// ListenerId is a required field
+	ListenerId *string `type:"string" required:"true"`
 
 	Rules []*RuleForCreateRulesInput `type:"list"`
 }
@@ -162,6 +163,9 @@ func (s CreateRulesInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *CreateRulesInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "CreateRulesInput"}
+	if s.ListenerId == nil {
+		invalidParams.Add(request.NewErrParamRequired("ListenerId"))
+	}
 	if s.Rules != nil {
 		for i, v := range s.Rules {
 			if v == nil {

@@ -170,15 +170,19 @@ type CreateListenerInput struct {
 
 	ListenerName *string `min:"1" max:"128" type:"string"`
 
-	LoadBalancerId *string `type:"string"`
+	// LoadBalancerId is a required field
+	LoadBalancerId *string `type:"string" required:"true"`
 
-	Port *int64 `type:"integer"`
+	// Port is a required field
+	Port *int64 `type:"integer" required:"true"`
 
-	Protocol *string `type:"string"`
+	// Protocol is a required field
+	Protocol *string `type:"string" required:"true"`
 
 	ProxyProtocolDisabled *string `type:"string"`
 
-	ServerGroupId *string `type:"string"`
+	// ServerGroupId is a required field
+	ServerGroupId *string `type:"string" required:"true"`
 
 	Tags []*TagForCreateListenerInput `type:"list"`
 }
@@ -201,6 +205,18 @@ func (s *CreateListenerInput) Validate() error {
 	}
 	if s.ListenerName != nil && len(*s.ListenerName) > 128 {
 		invalidParams.Add(request.NewErrParamMaxLen("ListenerName", 128, *s.ListenerName))
+	}
+	if s.LoadBalancerId == nil {
+		invalidParams.Add(request.NewErrParamRequired("LoadBalancerId"))
+	}
+	if s.Port == nil {
+		invalidParams.Add(request.NewErrParamRequired("Port"))
+	}
+	if s.Protocol == nil {
+		invalidParams.Add(request.NewErrParamRequired("Protocol"))
+	}
+	if s.ServerGroupId == nil {
+		invalidParams.Add(request.NewErrParamRequired("ServerGroupId"))
 	}
 
 	if invalidParams.Len() > 0 {

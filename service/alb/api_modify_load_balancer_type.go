@@ -142,9 +142,11 @@ func (c *ALB) ModifyLoadBalancerTypeWithContext(ctx volcengine.Context, input *M
 type ModifyLoadBalancerTypeInput struct {
 	_ struct{} `type:"structure"`
 
-	LoadBalancerId *string `type:"string"`
+	// LoadBalancerId is a required field
+	LoadBalancerId *string `type:"string" required:"true"`
 
-	Type *string `type:"string"`
+	// Type is a required field
+	Type *string `type:"string" required:"true"`
 
 	ZoneMappings []*ZoneMappingForModifyLoadBalancerTypeInput `type:"list"`
 }
@@ -157,6 +159,22 @@ func (s ModifyLoadBalancerTypeInput) String() string {
 // GoString returns the string representation
 func (s ModifyLoadBalancerTypeInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *ModifyLoadBalancerTypeInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "ModifyLoadBalancerTypeInput"}
+	if s.LoadBalancerId == nil {
+		invalidParams.Add(request.NewErrParamRequired("LoadBalancerId"))
+	}
+	if s.Type == nil {
+		invalidParams.Add(request.NewErrParamRequired("Type"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetLoadBalancerId sets the LoadBalancerId field's value.

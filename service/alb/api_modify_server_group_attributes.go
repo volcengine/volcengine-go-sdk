@@ -275,7 +275,8 @@ type ModifyServerGroupAttributesInput struct {
 
 	Scheduler *string `type:"string"`
 
-	ServerGroupId *string `type:"string"`
+	// ServerGroupId is a required field
+	ServerGroupId *string `type:"string" required:"true"`
 
 	ServerGroupName *string `type:"string"`
 
@@ -295,6 +296,9 @@ func (s ModifyServerGroupAttributesInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *ModifyServerGroupAttributesInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "ModifyServerGroupAttributesInput"}
+	if s.ServerGroupId == nil {
+		invalidParams.Add(request.NewErrParamRequired("ServerGroupId"))
+	}
 	if s.HealthCheck != nil {
 		if err := s.HealthCheck.Validate(); err != nil {
 			invalidParams.AddNested("HealthCheck", err.(request.ErrInvalidParams))

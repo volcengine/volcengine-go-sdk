@@ -155,6 +155,8 @@ type DescribeKeysInput struct {
 	KeyringName *string `min:"2" max:"31" type:"string" json:",omitempty"`
 
 	PageSize *int32 `min:"1" max:"100" type:"int32" json:",omitempty"`
+
+	TagFilters []*TagFilterForDescribeKeysInput `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -225,6 +227,12 @@ func (s *DescribeKeysInput) SetPageSize(v int32) *DescribeKeysInput {
 	return s
 }
 
+// SetTagFilters sets the TagFilters field's value.
+func (s *DescribeKeysInput) SetTagFilters(v []*TagFilterForDescribeKeysInput) *DescribeKeysInput {
+	s.TagFilters = v
+	return s
+}
+
 type DescribeKeysOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -291,6 +299,8 @@ type KeyForDescribeKeysOutput struct {
 	ScheduleDeleteTime *string `type:"string" json:",omitempty"`
 
 	ScheduleRotationTime *string `type:"string" json:",omitempty"`
+
+	Tags []*TagForDescribeKeysOutput `type:"list" json:",omitempty"`
 
 	Trn *string `type:"string" json:",omitempty"`
 
@@ -400,6 +410,12 @@ func (s *KeyForDescribeKeysOutput) SetScheduleDeleteTime(v string) *KeyForDescri
 // SetScheduleRotationTime sets the ScheduleRotationTime field's value.
 func (s *KeyForDescribeKeysOutput) SetScheduleRotationTime(v string) *KeyForDescribeKeysOutput {
 	s.ScheduleRotationTime = &v
+	return s
+}
+
+// SetTags sets the Tags field's value.
+func (s *KeyForDescribeKeysOutput) SetTags(v []*TagForDescribeKeysOutput) *KeyForDescribeKeysOutput {
+	s.Tags = v
 	return s
 }
 
@@ -556,6 +572,66 @@ func (s *ReplicaKeyForDescribeKeysOutput) SetRegion(v string) *ReplicaKeyForDesc
 // SetTrn sets the Trn field's value.
 func (s *ReplicaKeyForDescribeKeysOutput) SetTrn(v string) *ReplicaKeyForDescribeKeysOutput {
 	s.Trn = &v
+	return s
+}
+
+type TagFilterForDescribeKeysInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Key *string `type:"string" json:",omitempty"`
+
+	Values []*string `type:"list" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s TagFilterForDescribeKeysInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagFilterForDescribeKeysInput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagFilterForDescribeKeysInput) SetKey(v string) *TagFilterForDescribeKeysInput {
+	s.Key = &v
+	return s
+}
+
+// SetValues sets the Values field's value.
+func (s *TagFilterForDescribeKeysInput) SetValues(v []*string) *TagFilterForDescribeKeysInput {
+	s.Values = v
+	return s
+}
+
+type TagForDescribeKeysOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Key *string `type:"string" json:",omitempty"`
+
+	Value *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s TagForDescribeKeysOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagForDescribeKeysOutput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagForDescribeKeysOutput) SetKey(v string) *TagForDescribeKeysOutput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *TagForDescribeKeysOutput) SetValue(v string) *TagForDescribeKeysOutput {
+	s.Value = &v
 	return s
 }
 

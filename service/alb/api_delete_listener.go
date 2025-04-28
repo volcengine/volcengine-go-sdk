@@ -142,7 +142,8 @@ func (c *ALB) DeleteListenerWithContext(ctx volcengine.Context, input *DeleteLis
 type DeleteListenerInput struct {
 	_ struct{} `type:"structure"`
 
-	ListenerId *string `type:"string"`
+	// ListenerId is a required field
+	ListenerId *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -153,6 +154,19 @@ func (s DeleteListenerInput) String() string {
 // GoString returns the string representation
 func (s DeleteListenerInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DeleteListenerInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DeleteListenerInput"}
+	if s.ListenerId == nil {
+		invalidParams.Add(request.NewErrParamRequired("ListenerId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetListenerId sets the ListenerId field's value.

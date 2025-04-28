@@ -144,9 +144,7 @@ func (c *VEPFS) DescribeRegionsWithContext(ctx volcengine.Context, input *Descri
 }
 
 type DescribeRegionsInput struct {
-	_ struct{} `type:"structure"`
-
-	FileSystemType *string `type:"string"`
+	_ struct{} `type:"structure" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -159,20 +157,14 @@ func (s DescribeRegionsInput) GoString() string {
 	return s.String()
 }
 
-// SetFileSystemType sets the FileSystemType field's value.
-func (s *DescribeRegionsInput) SetFileSystemType(v string) *DescribeRegionsInput {
-	s.FileSystemType = &v
-	return s
-}
-
 type DescribeRegionsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	Regions []*RegionForDescribeRegionsOutput `type:"list"`
+	Regions []*RegionForDescribeRegionsOutput `type:"list" json:",omitempty"`
 
-	TotalCount *int32 `type:"int32"`
+	TotalCount *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -198,11 +190,13 @@ func (s *DescribeRegionsOutput) SetTotalCount(v int32) *DescribeRegionsOutput {
 }
 
 type RegionForDescribeRegionsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	RegionId *string `type:"string"`
+	RegionId *string `type:"string" json:",omitempty"`
 
-	RegionName *string `type:"string"`
+	RegionName *string `type:"string" json:",omitempty"`
+
+	TotalCount *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -224,5 +218,11 @@ func (s *RegionForDescribeRegionsOutput) SetRegionId(v string) *RegionForDescrib
 // SetRegionName sets the RegionName field's value.
 func (s *RegionForDescribeRegionsOutput) SetRegionName(v string) *RegionForDescribeRegionsOutput {
 	s.RegionName = &v
+	return s
+}
+
+// SetTotalCount sets the TotalCount field's value.
+func (s *RegionForDescribeRegionsOutput) SetTotalCount(v int32) *RegionForDescribeRegionsOutput {
+	s.TotalCount = &v
 	return s
 }

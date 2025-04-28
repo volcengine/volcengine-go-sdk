@@ -502,6 +502,8 @@ type LoadBalancerForDescribeLoadBalancersOutput struct {
 
 	LoadBalancerBillingType *int64 `type:"integer"`
 
+	LoadBalancerEdition *string `type:"string"`
+
 	LoadBalancerId *string `type:"string"`
 
 	LoadBalancerName *string `type:"string"`
@@ -618,6 +620,12 @@ func (s *LoadBalancerForDescribeLoadBalancersOutput) SetEniId(v string) *LoadBal
 // SetLoadBalancerBillingType sets the LoadBalancerBillingType field's value.
 func (s *LoadBalancerForDescribeLoadBalancersOutput) SetLoadBalancerBillingType(v int64) *LoadBalancerForDescribeLoadBalancersOutput {
 	s.LoadBalancerBillingType = &v
+	return s
+}
+
+// SetLoadBalancerEdition sets the LoadBalancerEdition field's value.
+func (s *LoadBalancerForDescribeLoadBalancersOutput) SetLoadBalancerEdition(v string) *LoadBalancerForDescribeLoadBalancersOutput {
+	s.LoadBalancerEdition = &v
 	return s
 }
 

@@ -142,7 +142,8 @@ func (c *ALB) DescribeListenerAttributesWithContext(ctx volcengine.Context, inpu
 type DescribeListenerAttributesInput struct {
 	_ struct{} `type:"structure"`
 
-	ListenerId *string `type:"string"`
+	// ListenerId is a required field
+	ListenerId *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -155,6 +156,19 @@ func (s DescribeListenerAttributesInput) GoString() string {
 	return s.String()
 }
 
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DescribeListenerAttributesInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DescribeListenerAttributesInput"}
+	if s.ListenerId == nil {
+		invalidParams.Add(request.NewErrParamRequired("ListenerId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
 // SetListenerId sets the ListenerId field's value.
 func (s *DescribeListenerAttributesInput) SetListenerId(v string) *DescribeListenerAttributesInput {
 	s.ListenerId = &v
@@ -165,6 +179,8 @@ type DescribeListenerAttributesOutput struct {
 	_ struct{} `type:"structure"`
 
 	Metadata *response.ResponseMetadata
+
+	AccessLogRecordCustomizedHeadersEnabled *string `type:"string"`
 
 	AclIds []*string `type:"list"`
 
@@ -231,6 +247,12 @@ func (s DescribeListenerAttributesOutput) String() string {
 // GoString returns the string representation
 func (s DescribeListenerAttributesOutput) GoString() string {
 	return s.String()
+}
+
+// SetAccessLogRecordCustomizedHeadersEnabled sets the AccessLogRecordCustomizedHeadersEnabled field's value.
+func (s *DescribeListenerAttributesOutput) SetAccessLogRecordCustomizedHeadersEnabled(v string) *DescribeListenerAttributesOutput {
+	s.AccessLogRecordCustomizedHeadersEnabled = &v
+	return s
 }
 
 // SetAclIds sets the AclIds field's value.
