@@ -144,9 +144,11 @@ func (c *VEPFS) DescribeMountServiceNodeTypesWithContext(ctx volcengine.Context,
 }
 
 type DescribeMountServiceNodeTypesInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	ZoneId *string `type:"string"`
+	LanguageCode *string `type:"string" json:",omitempty" enum:"EnumOfLanguageCodeForDescribeMountServiceNodeTypesInput"`
+
+	ZoneId *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -159,6 +161,12 @@ func (s DescribeMountServiceNodeTypesInput) GoString() string {
 	return s.String()
 }
 
+// SetLanguageCode sets the LanguageCode field's value.
+func (s *DescribeMountServiceNodeTypesInput) SetLanguageCode(v string) *DescribeMountServiceNodeTypesInput {
+	s.LanguageCode = &v
+	return s
+}
+
 // SetZoneId sets the ZoneId field's value.
 func (s *DescribeMountServiceNodeTypesInput) SetZoneId(v string) *DescribeMountServiceNodeTypesInput {
 	s.ZoneId = &v
@@ -166,11 +174,11 @@ func (s *DescribeMountServiceNodeTypesInput) SetZoneId(v string) *DescribeMountS
 }
 
 type DescribeMountServiceNodeTypesOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	NodeTypeInfos []*NodeTypeInfoForDescribeMountServiceNodeTypesOutput `type:"list"`
+	NodeTypeInfos []*NodeTypeInfoForDescribeMountServiceNodeTypesOutput `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -190,11 +198,15 @@ func (s *DescribeMountServiceNodeTypesOutput) SetNodeTypeInfos(v []*NodeTypeInfo
 }
 
 type NodeTypeInfoForDescribeMountServiceNodeTypesOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Description *string `type:"string"`
+	DescriptionCN *string `type:"string" json:",omitempty"`
 
-	NodeType *string `type:"string"`
+	DescriptionEN *string `type:"string" json:",omitempty"`
+
+	NodeType *string `type:"string" json:",omitempty"`
+
+	Status *string `type:"string" json:",omitempty" enum:"EnumOfStatusForDescribeMountServiceNodeTypesOutput"`
 }
 
 // String returns the string representation
@@ -207,9 +219,15 @@ func (s NodeTypeInfoForDescribeMountServiceNodeTypesOutput) GoString() string {
 	return s.String()
 }
 
-// SetDescription sets the Description field's value.
-func (s *NodeTypeInfoForDescribeMountServiceNodeTypesOutput) SetDescription(v string) *NodeTypeInfoForDescribeMountServiceNodeTypesOutput {
-	s.Description = &v
+// SetDescriptionCN sets the DescriptionCN field's value.
+func (s *NodeTypeInfoForDescribeMountServiceNodeTypesOutput) SetDescriptionCN(v string) *NodeTypeInfoForDescribeMountServiceNodeTypesOutput {
+	s.DescriptionCN = &v
+	return s
+}
+
+// SetDescriptionEN sets the DescriptionEN field's value.
+func (s *NodeTypeInfoForDescribeMountServiceNodeTypesOutput) SetDescriptionEN(v string) *NodeTypeInfoForDescribeMountServiceNodeTypesOutput {
+	s.DescriptionEN = &v
 	return s
 }
 
@@ -218,3 +236,28 @@ func (s *NodeTypeInfoForDescribeMountServiceNodeTypesOutput) SetNodeType(v strin
 	s.NodeType = &v
 	return s
 }
+
+// SetStatus sets the Status field's value.
+func (s *NodeTypeInfoForDescribeMountServiceNodeTypesOutput) SetStatus(v string) *NodeTypeInfoForDescribeMountServiceNodeTypesOutput {
+	s.Status = &v
+	return s
+}
+
+const (
+	// EnumOfLanguageCodeForDescribeMountServiceNodeTypesInputZh is a EnumOfLanguageCodeForDescribeMountServiceNodeTypesInput enum value
+	EnumOfLanguageCodeForDescribeMountServiceNodeTypesInputZh = "zh"
+
+	// EnumOfLanguageCodeForDescribeMountServiceNodeTypesInputEn is a EnumOfLanguageCodeForDescribeMountServiceNodeTypesInput enum value
+	EnumOfLanguageCodeForDescribeMountServiceNodeTypesInputEn = "en"
+)
+
+const (
+	// EnumOfStatusForDescribeMountServiceNodeTypesOutputUnSold is a EnumOfStatusForDescribeMountServiceNodeTypesOutput enum value
+	EnumOfStatusForDescribeMountServiceNodeTypesOutputUnSold = "UnSold"
+
+	// EnumOfStatusForDescribeMountServiceNodeTypesOutputOnSale is a EnumOfStatusForDescribeMountServiceNodeTypesOutput enum value
+	EnumOfStatusForDescribeMountServiceNodeTypesOutputOnSale = "OnSale"
+
+	// EnumOfStatusForDescribeMountServiceNodeTypesOutputSoldOut is a EnumOfStatusForDescribeMountServiceNodeTypesOutput enum value
+	EnumOfStatusForDescribeMountServiceNodeTypesOutputSoldOut = "SoldOut"
+)

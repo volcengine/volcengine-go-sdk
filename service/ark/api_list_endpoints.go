@@ -250,7 +250,7 @@ type ItemForListEndpointsOutput struct {
 
 	Description *string `type:"string" json:",omitempty"`
 
-	EndpointModelType *string `type:"string" json:",omitempty" enum:"EnumOfEndpointModelTypeForListEndpointsOutput"`
+	EndpointModelType *string `type:"string" json:",omitempty"`
 
 	Id *string `type:"string" json:",omitempty"`
 
@@ -266,15 +266,11 @@ type ItemForListEndpointsOutput struct {
 
 	RollingId *string `type:"string" json:",omitempty"`
 
-	ScaleTierId *string `type:"string" json:",omitempty"`
-
-	Status *string `type:"string" json:",omitempty" enum:"EnumOfStatusForListEndpointsOutput"`
+	Status *string `type:"string" json:",omitempty"`
 
 	StatusReason *string `type:"string" json:",omitempty"`
 
 	SupportRolling *bool `type:"boolean" json:",omitempty"`
-
-	SupportScaleTier *bool `type:"boolean" json:",omitempty"`
 
 	Tags []*TagForListEndpointsOutput `type:"list" json:",omitempty"`
 
@@ -351,12 +347,6 @@ func (s *ItemForListEndpointsOutput) SetRollingId(v string) *ItemForListEndpoint
 	return s
 }
 
-// SetScaleTierId sets the ScaleTierId field's value.
-func (s *ItemForListEndpointsOutput) SetScaleTierId(v string) *ItemForListEndpointsOutput {
-	s.ScaleTierId = &v
-	return s
-}
-
 // SetStatus sets the Status field's value.
 func (s *ItemForListEndpointsOutput) SetStatus(v string) *ItemForListEndpointsOutput {
 	s.Status = &v
@@ -372,12 +362,6 @@ func (s *ItemForListEndpointsOutput) SetStatusReason(v string) *ItemForListEndpo
 // SetSupportRolling sets the SupportRolling field's value.
 func (s *ItemForListEndpointsOutput) SetSupportRolling(v bool) *ItemForListEndpointsOutput {
 	s.SupportRolling = &v
-	return s
-}
-
-// SetSupportScaleTier sets the SupportScaleTier field's value.
-func (s *ItemForListEndpointsOutput) SetSupportScaleTier(v bool) *ItemForListEndpointsOutput {
-	s.SupportScaleTier = &v
 	return s
 }
 
@@ -630,47 +614,3 @@ func (s *TagForListEndpointsOutput) SetValue(v string) *TagForListEndpointsOutpu
 	s.Value = &v
 	return s
 }
-
-const (
-	// EnumOfEndpointModelTypeForListEndpointsOutputFoundationModel is a EnumOfEndpointModelTypeForListEndpointsOutput enum value
-	EnumOfEndpointModelTypeForListEndpointsOutputFoundationModel = "FoundationModel"
-
-	// EnumOfEndpointModelTypeForListEndpointsOutputCustomModel is a EnumOfEndpointModelTypeForListEndpointsOutput enum value
-	EnumOfEndpointModelTypeForListEndpointsOutputCustomModel = "CustomModel"
-)
-
-const (
-	// EnumOfEndpointModelTypeListForListEndpointsInputFoundationModel is a EnumOfEndpointModelTypeListForListEndpointsInput enum value
-	EnumOfEndpointModelTypeListForListEndpointsInputFoundationModel = "FoundationModel"
-
-	// EnumOfEndpointModelTypeListForListEndpointsInputCustomModel is a EnumOfEndpointModelTypeListForListEndpointsInput enum value
-	EnumOfEndpointModelTypeListForListEndpointsInputCustomModel = "CustomModel"
-)
-
-const (
-	// EnumOfStatusForListEndpointsOutputRunning is a EnumOfStatusForListEndpointsOutput enum value
-	EnumOfStatusForListEndpointsOutputRunning = "Running"
-
-	// EnumOfStatusForListEndpointsOutputScheduling is a EnumOfStatusForListEndpointsOutput enum value
-	EnumOfStatusForListEndpointsOutputScheduling = "Scheduling"
-
-	// EnumOfStatusForListEndpointsOutputAbnormal is a EnumOfStatusForListEndpointsOutput enum value
-	EnumOfStatusForListEndpointsOutputAbnormal = "Abnormal"
-
-	// EnumOfStatusForListEndpointsOutputStopped is a EnumOfStatusForListEndpointsOutput enum value
-	EnumOfStatusForListEndpointsOutputStopped = "Stopped"
-)
-
-const (
-	// EnumOfStatusListForListEndpointsInputRunning is a EnumOfStatusListForListEndpointsInput enum value
-	EnumOfStatusListForListEndpointsInputRunning = "Running"
-
-	// EnumOfStatusListForListEndpointsInputScheduling is a EnumOfStatusListForListEndpointsInput enum value
-	EnumOfStatusListForListEndpointsInputScheduling = "Scheduling"
-
-	// EnumOfStatusListForListEndpointsInputAbnormal is a EnumOfStatusListForListEndpointsInput enum value
-	EnumOfStatusListForListEndpointsInputAbnormal = "Abnormal"
-
-	// EnumOfStatusListForListEndpointsInputStopped is a EnumOfStatusListForListEndpointsInput enum value
-	EnumOfStatusListForListEndpointsInputStopped = "Stopped"
-)

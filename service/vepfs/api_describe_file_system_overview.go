@@ -144,7 +144,7 @@ func (c *VEPFS) DescribeFileSystemOverviewWithContext(ctx volcengine.Context, in
 }
 
 type DescribeFileSystemOverviewInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -158,11 +158,11 @@ func (s DescribeFileSystemOverviewInput) GoString() string {
 }
 
 type DescribeFileSystemOverviewOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	OverView *OverViewForDescribeFileSystemOverviewOutput `type:"structure"`
+	OverView *OverViewForDescribeFileSystemOverviewOutput `type:"structure" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -182,19 +182,19 @@ func (s *DescribeFileSystemOverviewOutput) SetOverView(v *OverViewForDescribeFil
 }
 
 type OverViewForDescribeFileSystemOverviewOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	AccountId *string `type:"string"`
+	AccountId *string `type:"string" json:",omitempty"`
 
-	ErrorCount *int32 `type:"int32"`
+	ErrorCount *int32 `type:"int32" json:",omitempty"`
 
-	OtherCount *int32 `type:"int32"`
+	OtherCount *int32 `type:"int32" json:",omitempty"`
 
-	RegionId *string `type:"string"`
+	RegionId *string `type:"string" json:",omitempty"`
 
-	RunningCount *int32 `type:"int32"`
+	RunningCount *int32 `type:"int32" json:",omitempty"`
 
-	TotalCount *int32 `type:"int32"`
+	TotalCount *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation

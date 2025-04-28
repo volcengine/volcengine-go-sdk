@@ -149,6 +149,8 @@ type GetApiKeyInput struct {
 	// DurationSeconds is a required field
 	DurationSeconds *int32 `type:"int32" json:",omitempty" required:"true"`
 
+	ProjectName *string `type:"string" json:",omitempty"`
+
 	ResourceIds []*string `type:"list" json:",omitempty"`
 
 	// ResourceType is a required field
@@ -184,6 +186,12 @@ func (s *GetApiKeyInput) Validate() error {
 // SetDurationSeconds sets the DurationSeconds field's value.
 func (s *GetApiKeyInput) SetDurationSeconds(v int32) *GetApiKeyInput {
 	s.DurationSeconds = &v
+	return s
+}
+
+// SetProjectName sets the ProjectName field's value.
+func (s *GetApiKeyInput) SetProjectName(v string) *GetApiKeyInput {
+	s.ProjectName = &v
 	return s
 }
 

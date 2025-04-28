@@ -144,19 +144,17 @@ func (c *VEPFS) DescribeMountServicesWithContext(ctx volcengine.Context, input *
 }
 
 type AttachFileSystemForDescribeMountServicesOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	AccountId *string `type:"string"`
+	AccountId *string `type:"string" json:",omitempty"`
 
-	CustomerPath *string `type:"string"`
+	CustomerPath *string `type:"string" json:",omitempty"`
 
-	FileSystemId *string `type:"string"`
+	FileSystemId *string `type:"string" json:",omitempty"`
 
-	FileSystemName *string `type:"string"`
+	FileSystemName *string `type:"string" json:",omitempty"`
 
-	Status *string `type:"string"`
-
-	Type *string `type:"string"`
+	Status *string `type:"string" json:",omitempty" enum:"EnumOfStatusForDescribeMountServicesOutput"`
 }
 
 // String returns the string representation
@@ -199,22 +197,20 @@ func (s *AttachFileSystemForDescribeMountServicesOutput) SetStatus(v string) *At
 	return s
 }
 
-// SetType sets the Type field's value.
-func (s *AttachFileSystemForDescribeMountServicesOutput) SetType(v string) *AttachFileSystemForDescribeMountServicesOutput {
-	s.Type = &v
-	return s
-}
-
 type DescribeMountServicesInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Filters []*FilterForDescribeMountServicesInput `type:"list"`
+	Filters []*FilterForDescribeMountServicesInput `type:"list" json:",omitempty"`
 
-	OrderBy *string `type:"string"`
+	LanguageCode *string `type:"string" json:",omitempty" enum:"EnumOfLanguageCodeForDescribeMountServicesInput"`
 
-	PageNumber *int32 `type:"int32"`
+	OrderBy *string `type:"string" json:",omitempty" enum:"EnumOfOrderByForDescribeMountServicesInput"`
 
-	PageSize *int32 `type:"int32"`
+	PageNumber *int32 `type:"int32" json:",omitempty"`
+
+	PageSize *int32 `type:"int32" json:",omitempty"`
+
+	Project *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -230,6 +226,12 @@ func (s DescribeMountServicesInput) GoString() string {
 // SetFilters sets the Filters field's value.
 func (s *DescribeMountServicesInput) SetFilters(v []*FilterForDescribeMountServicesInput) *DescribeMountServicesInput {
 	s.Filters = v
+	return s
+}
+
+// SetLanguageCode sets the LanguageCode field's value.
+func (s *DescribeMountServicesInput) SetLanguageCode(v string) *DescribeMountServicesInput {
+	s.LanguageCode = &v
 	return s
 }
 
@@ -251,18 +253,24 @@ func (s *DescribeMountServicesInput) SetPageSize(v int32) *DescribeMountServices
 	return s
 }
 
+// SetProject sets the Project field's value.
+func (s *DescribeMountServicesInput) SetProject(v string) *DescribeMountServicesInput {
+	s.Project = &v
+	return s
+}
+
 type DescribeMountServicesOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	MountServices []*MountServiceForDescribeMountServicesOutput `type:"list"`
+	MountServices []*MountServiceForDescribeMountServicesOutput `type:"list" json:",omitempty"`
 
-	PageNumber *int32 `type:"int32"`
+	PageNumber *int32 `type:"int32" json:",omitempty"`
 
-	PageSize *int32 `type:"int32"`
+	PageSize *int32 `type:"int32" json:",omitempty"`
 
-	TotalCount *int32 `type:"int32"`
+	TotalCount *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -300,11 +308,11 @@ func (s *DescribeMountServicesOutput) SetTotalCount(v int32) *DescribeMountServi
 }
 
 type FilterForDescribeMountServicesInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Key *string `type:"string"`
+	Key *string `type:"string" json:",omitempty" enum:"EnumOfKeyForDescribeMountServicesInput"`
 
-	Value *string `type:"string"`
+	Value *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -330,47 +338,37 @@ func (s *FilterForDescribeMountServicesInput) SetValue(v string) *FilterForDescr
 }
 
 type MountServiceForDescribeMountServicesOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	AccountId *string `type:"string"`
+	AccountId *string `type:"string" json:",omitempty"`
 
-	AttachFileSystems []*AttachFileSystemForDescribeMountServicesOutput `type:"list"`
+	AttachFileSystems []*AttachFileSystemForDescribeMountServicesOutput `type:"list" json:",omitempty"`
 
-	CreateTime *string `type:"string"`
+	CreateTime *string `type:"string" json:",omitempty"`
 
-	MountServiceId *string `type:"string"`
+	MountServiceId *string `type:"string" json:",omitempty"`
 
-	MountServiceName *string `type:"string"`
+	MountServiceName *string `type:"string" json:",omitempty"`
 
-	Nodes []*NodeForDescribeMountServicesOutput `type:"list"`
+	Nodes []*NodeForDescribeMountServicesOutput `type:"list" json:",omitempty"`
 
-	Project *string `type:"string"`
+	Project *string `type:"string" json:",omitempty"`
 
-	RegionId *string `type:"string"`
+	RegionId *string `type:"string" json:",omitempty"`
 
-	SecondarySecurityGroupId *string `type:"string"`
+	SecurityGroupId *string `type:"string" json:",omitempty"`
 
-	SecondarySubnetId *string `type:"string"`
+	Status *string `type:"string" json:",omitempty" enum:"ConvertEnumOfStatusForDescribeMountServicesOutput"`
 
-	SecondaryVpcId *string `type:"string"`
+	SubnetId *string `type:"string" json:",omitempty"`
 
-	SecurityGroupId *string `type:"string"`
+	VersionNumber *string `type:"string" json:",omitempty"`
 
-	Status *string `type:"string"`
+	VpcId *string `type:"string" json:",omitempty"`
 
-	SubnetId *string `type:"string"`
+	ZoneId *string `type:"string" json:",omitempty"`
 
-	SubnetName *string `type:"string"`
-
-	Version *string `type:"string"`
-
-	VpcId *string `type:"string"`
-
-	VpcName *string `type:"string"`
-
-	ZoneId *string `type:"string"`
-
-	ZoneName *string `type:"string"`
+	ZoneName *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -431,24 +429,6 @@ func (s *MountServiceForDescribeMountServicesOutput) SetRegionId(v string) *Moun
 	return s
 }
 
-// SetSecondarySecurityGroupId sets the SecondarySecurityGroupId field's value.
-func (s *MountServiceForDescribeMountServicesOutput) SetSecondarySecurityGroupId(v string) *MountServiceForDescribeMountServicesOutput {
-	s.SecondarySecurityGroupId = &v
-	return s
-}
-
-// SetSecondarySubnetId sets the SecondarySubnetId field's value.
-func (s *MountServiceForDescribeMountServicesOutput) SetSecondarySubnetId(v string) *MountServiceForDescribeMountServicesOutput {
-	s.SecondarySubnetId = &v
-	return s
-}
-
-// SetSecondaryVpcId sets the SecondaryVpcId field's value.
-func (s *MountServiceForDescribeMountServicesOutput) SetSecondaryVpcId(v string) *MountServiceForDescribeMountServicesOutput {
-	s.SecondaryVpcId = &v
-	return s
-}
-
 // SetSecurityGroupId sets the SecurityGroupId field's value.
 func (s *MountServiceForDescribeMountServicesOutput) SetSecurityGroupId(v string) *MountServiceForDescribeMountServicesOutput {
 	s.SecurityGroupId = &v
@@ -467,27 +447,15 @@ func (s *MountServiceForDescribeMountServicesOutput) SetSubnetId(v string) *Moun
 	return s
 }
 
-// SetSubnetName sets the SubnetName field's value.
-func (s *MountServiceForDescribeMountServicesOutput) SetSubnetName(v string) *MountServiceForDescribeMountServicesOutput {
-	s.SubnetName = &v
-	return s
-}
-
-// SetVersion sets the Version field's value.
-func (s *MountServiceForDescribeMountServicesOutput) SetVersion(v string) *MountServiceForDescribeMountServicesOutput {
-	s.Version = &v
+// SetVersionNumber sets the VersionNumber field's value.
+func (s *MountServiceForDescribeMountServicesOutput) SetVersionNumber(v string) *MountServiceForDescribeMountServicesOutput {
+	s.VersionNumber = &v
 	return s
 }
 
 // SetVpcId sets the VpcId field's value.
 func (s *MountServiceForDescribeMountServicesOutput) SetVpcId(v string) *MountServiceForDescribeMountServicesOutput {
 	s.VpcId = &v
-	return s
-}
-
-// SetVpcName sets the VpcName field's value.
-func (s *MountServiceForDescribeMountServicesOutput) SetVpcName(v string) *MountServiceForDescribeMountServicesOutput {
-	s.VpcName = &v
 	return s
 }
 
@@ -504,13 +472,11 @@ func (s *MountServiceForDescribeMountServicesOutput) SetZoneName(v string) *Moun
 }
 
 type NodeForDescribeMountServicesOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	DefaultPassword *string `type:"string"`
+	DefaultPassword *string `type:"string" json:",omitempty"`
 
-	NodeIP *string `type:"string"`
-
-	NodeId *string `type:"string"`
+	NodeId *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -529,14 +495,114 @@ func (s *NodeForDescribeMountServicesOutput) SetDefaultPassword(v string) *NodeF
 	return s
 }
 
-// SetNodeIP sets the NodeIP field's value.
-func (s *NodeForDescribeMountServicesOutput) SetNodeIP(v string) *NodeForDescribeMountServicesOutput {
-	s.NodeIP = &v
-	return s
-}
-
 // SetNodeId sets the NodeId field's value.
 func (s *NodeForDescribeMountServicesOutput) SetNodeId(v string) *NodeForDescribeMountServicesOutput {
 	s.NodeId = &v
 	return s
 }
+
+const (
+	// ConvertEnumOfStatusForDescribeMountServicesOutputCreating is a ConvertEnumOfStatusForDescribeMountServicesOutput enum value
+	ConvertEnumOfStatusForDescribeMountServicesOutputCreating = "Creating"
+
+	// ConvertEnumOfStatusForDescribeMountServicesOutputCreateError is a ConvertEnumOfStatusForDescribeMountServicesOutput enum value
+	ConvertEnumOfStatusForDescribeMountServicesOutputCreateError = "CreateError"
+
+	// ConvertEnumOfStatusForDescribeMountServicesOutputRunning is a ConvertEnumOfStatusForDescribeMountServicesOutput enum value
+	ConvertEnumOfStatusForDescribeMountServicesOutputRunning = "Running"
+
+	// ConvertEnumOfStatusForDescribeMountServicesOutputUpdating is a ConvertEnumOfStatusForDescribeMountServicesOutput enum value
+	ConvertEnumOfStatusForDescribeMountServicesOutputUpdating = "Updating"
+
+	// ConvertEnumOfStatusForDescribeMountServicesOutputUpdateError is a ConvertEnumOfStatusForDescribeMountServicesOutput enum value
+	ConvertEnumOfStatusForDescribeMountServicesOutputUpdateError = "UpdateError"
+
+	// ConvertEnumOfStatusForDescribeMountServicesOutputDeleting is a ConvertEnumOfStatusForDescribeMountServicesOutput enum value
+	ConvertEnumOfStatusForDescribeMountServicesOutputDeleting = "Deleting"
+
+	// ConvertEnumOfStatusForDescribeMountServicesOutputDeleteError is a ConvertEnumOfStatusForDescribeMountServicesOutput enum value
+	ConvertEnumOfStatusForDescribeMountServicesOutputDeleteError = "DeleteError"
+
+	// ConvertEnumOfStatusForDescribeMountServicesOutputDeleted is a ConvertEnumOfStatusForDescribeMountServicesOutput enum value
+	ConvertEnumOfStatusForDescribeMountServicesOutputDeleted = "Deleted"
+
+	// ConvertEnumOfStatusForDescribeMountServicesOutputAttaching is a ConvertEnumOfStatusForDescribeMountServicesOutput enum value
+	ConvertEnumOfStatusForDescribeMountServicesOutputAttaching = "Attaching"
+
+	// ConvertEnumOfStatusForDescribeMountServicesOutputAttachError is a ConvertEnumOfStatusForDescribeMountServicesOutput enum value
+	ConvertEnumOfStatusForDescribeMountServicesOutputAttachError = "AttachError"
+
+	// ConvertEnumOfStatusForDescribeMountServicesOutputDetaching is a ConvertEnumOfStatusForDescribeMountServicesOutput enum value
+	ConvertEnumOfStatusForDescribeMountServicesOutputDetaching = "Detaching"
+
+	// ConvertEnumOfStatusForDescribeMountServicesOutputDetachError is a ConvertEnumOfStatusForDescribeMountServicesOutput enum value
+	ConvertEnumOfStatusForDescribeMountServicesOutputDetachError = "DetachError"
+
+	// ConvertEnumOfStatusForDescribeMountServicesOutputStopped is a ConvertEnumOfStatusForDescribeMountServicesOutput enum value
+	ConvertEnumOfStatusForDescribeMountServicesOutputStopped = "Stopped"
+
+	// ConvertEnumOfStatusForDescribeMountServicesOutputError is a ConvertEnumOfStatusForDescribeMountServicesOutput enum value
+	ConvertEnumOfStatusForDescribeMountServicesOutputError = "Error"
+)
+
+const (
+	// EnumOfKeyForDescribeMountServicesInputFileSystemId is a EnumOfKeyForDescribeMountServicesInput enum value
+	EnumOfKeyForDescribeMountServicesInputFileSystemId = "FileSystemId"
+
+	// EnumOfKeyForDescribeMountServicesInputMountServiceName is a EnumOfKeyForDescribeMountServicesInput enum value
+	EnumOfKeyForDescribeMountServicesInputMountServiceName = "MountServiceName"
+
+	// EnumOfKeyForDescribeMountServicesInputMountServiceId is a EnumOfKeyForDescribeMountServicesInput enum value
+	EnumOfKeyForDescribeMountServicesInputMountServiceId = "MountServiceId"
+
+	// EnumOfKeyForDescribeMountServicesInputStatus is a EnumOfKeyForDescribeMountServicesInput enum value
+	EnumOfKeyForDescribeMountServicesInputStatus = "Status"
+
+	// EnumOfKeyForDescribeMountServicesInputZoneId is a EnumOfKeyForDescribeMountServicesInput enum value
+	EnumOfKeyForDescribeMountServicesInputZoneId = "ZoneId"
+)
+
+const (
+	// EnumOfLanguageCodeForDescribeMountServicesInputZh is a EnumOfLanguageCodeForDescribeMountServicesInput enum value
+	EnumOfLanguageCodeForDescribeMountServicesInputZh = "zh"
+
+	// EnumOfLanguageCodeForDescribeMountServicesInputEn is a EnumOfLanguageCodeForDescribeMountServicesInput enum value
+	EnumOfLanguageCodeForDescribeMountServicesInputEn = "en"
+)
+
+const (
+	// EnumOfOrderByForDescribeMountServicesInputCreateTimeDesc is a EnumOfOrderByForDescribeMountServicesInput enum value
+	EnumOfOrderByForDescribeMountServicesInputCreateTimeDesc = "CreateTimeDesc"
+
+	// EnumOfOrderByForDescribeMountServicesInputCreateTimeAsc is a EnumOfOrderByForDescribeMountServicesInput enum value
+	EnumOfOrderByForDescribeMountServicesInputCreateTimeAsc = "CreateTimeAsc"
+
+	// EnumOfOrderByForDescribeMountServicesInputNameDesc is a EnumOfOrderByForDescribeMountServicesInput enum value
+	EnumOfOrderByForDescribeMountServicesInputNameDesc = "NameDesc"
+
+	// EnumOfOrderByForDescribeMountServicesInputNameAsc is a EnumOfOrderByForDescribeMountServicesInput enum value
+	EnumOfOrderByForDescribeMountServicesInputNameAsc = "NameAsc"
+
+	// EnumOfOrderByForDescribeMountServicesInputVersionNumberDesc is a EnumOfOrderByForDescribeMountServicesInput enum value
+	EnumOfOrderByForDescribeMountServicesInputVersionNumberDesc = "VersionNumberDesc"
+
+	// EnumOfOrderByForDescribeMountServicesInputVersionNumberAsc is a EnumOfOrderByForDescribeMountServicesInput enum value
+	EnumOfOrderByForDescribeMountServicesInputVersionNumberAsc = "VersionNumberAsc"
+)
+
+const (
+	// EnumOfStatusForDescribeMountServicesOutputAttaching is a EnumOfStatusForDescribeMountServicesOutput enum value
+	EnumOfStatusForDescribeMountServicesOutputAttaching = "Attaching"
+
+	// EnumOfStatusForDescribeMountServicesOutputAttachError is a EnumOfStatusForDescribeMountServicesOutput enum value
+	EnumOfStatusForDescribeMountServicesOutputAttachError = "AttachError"
+
+	// EnumOfStatusForDescribeMountServicesOutputAttached is a EnumOfStatusForDescribeMountServicesOutput enum value
+	EnumOfStatusForDescribeMountServicesOutputAttached = "Attached"
+
+	// EnumOfStatusForDescribeMountServicesOutputDetaching is a EnumOfStatusForDescribeMountServicesOutput enum value
+	EnumOfStatusForDescribeMountServicesOutputDetaching = "Detaching"
+
+	// EnumOfStatusForDescribeMountServicesOutputDetachError is a EnumOfStatusForDescribeMountServicesOutput enum value
+	EnumOfStatusForDescribeMountServicesOutputDetachError = "DetachError"
+)

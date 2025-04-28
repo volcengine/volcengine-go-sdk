@@ -144,11 +144,11 @@ func (c *VEPFS) DescribeFileSystemsWithContext(ctx volcengine.Context, input *De
 }
 
 type CapacityInfoForDescribeFileSystemsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	TotalTiB *int32 `type:"int32"`
+	TotalTiB *int32 `type:"int32" json:",omitempty"`
 
-	UsedGiB *int32 `type:"int32"`
+	UsedGiB *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -174,19 +174,23 @@ func (s *CapacityInfoForDescribeFileSystemsOutput) SetUsedGiB(v int32) *Capacity
 }
 
 type DescribeFileSystemsInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	FileSystemIds *string `type:"string"`
+	FileSystemIds *string `type:"string" json:",omitempty"`
 
-	Filters []*FilterForDescribeFileSystemsInput `type:"list"`
+	Filters []*FilterForDescribeFileSystemsInput `type:"list" json:",omitempty"`
 
-	OrderBy *string `type:"string"`
+	LanguageCode *string `type:"string" json:",omitempty" enum:"EnumOfLanguageCodeForDescribeFileSystemsInput"`
 
-	PageNumber *int32 `type:"int32"`
+	OrderBy *string `type:"string" json:",omitempty" enum:"EnumOfOrderByForDescribeFileSystemsInput"`
 
-	PageSize *int32 `type:"int32"`
+	PageNumber *int32 `type:"int32" json:",omitempty"`
 
-	Project *string `type:"string"`
+	PageSize *int32 `type:"int32" json:",omitempty"`
+
+	Project *string `type:"string" json:",omitempty"`
+
+	TagFilters []*TagFilterForDescribeFileSystemsInput `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -208,6 +212,12 @@ func (s *DescribeFileSystemsInput) SetFileSystemIds(v string) *DescribeFileSyste
 // SetFilters sets the Filters field's value.
 func (s *DescribeFileSystemsInput) SetFilters(v []*FilterForDescribeFileSystemsInput) *DescribeFileSystemsInput {
 	s.Filters = v
+	return s
+}
+
+// SetLanguageCode sets the LanguageCode field's value.
+func (s *DescribeFileSystemsInput) SetLanguageCode(v string) *DescribeFileSystemsInput {
+	s.LanguageCode = &v
 	return s
 }
 
@@ -235,18 +245,24 @@ func (s *DescribeFileSystemsInput) SetProject(v string) *DescribeFileSystemsInpu
 	return s
 }
 
+// SetTagFilters sets the TagFilters field's value.
+func (s *DescribeFileSystemsInput) SetTagFilters(v []*TagFilterForDescribeFileSystemsInput) *DescribeFileSystemsInput {
+	s.TagFilters = v
+	return s
+}
+
 type DescribeFileSystemsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	FileSystems []*FileSystemForDescribeFileSystemsOutput `type:"list"`
+	FileSystems []*FileSystemForDescribeFileSystemsOutput `type:"list" json:",omitempty"`
 
-	PageNumber *int32 `type:"int32"`
+	PageNumber *int32 `type:"int32" json:",omitempty"`
 
-	PageSize *int32 `type:"int32"`
+	PageSize *int32 `type:"int32" json:",omitempty"`
 
-	TotalCount *int32 `type:"int32"`
+	TotalCount *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -284,87 +300,69 @@ func (s *DescribeFileSystemsOutput) SetTotalCount(v int32) *DescribeFileSystemsO
 }
 
 type FileSystemForDescribeFileSystemsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	AccountId *string `type:"string"`
+	AccountId *string `type:"string" json:",omitempty"`
 
-	AttachStatus *string `type:"string"`
+	Bandwidth *int32 `type:"int32" json:",omitempty"`
 
-	AutoRenew *bool `type:"boolean"`
+	CapacityInfo *CapacityInfoForDescribeFileSystemsOutput `type:"structure" json:",omitempty"`
 
-	Bandwidth *int32 `type:"int32"`
+	ChargeStatus *string `type:"string" json:",omitempty" enum:"EnumOfChargeStatusForDescribeFileSystemsOutput"`
 
-	CapacityInfo *CapacityInfoForDescribeFileSystemsOutput `type:"structure"`
+	ChargeType *string `type:"string" json:",omitempty" enum:"EnumOfChargeTypeForDescribeFileSystemsOutput"`
 
-	ChargeStatus *string `type:"string"`
+	CreateTime *string `type:"string" json:",omitempty"`
 
-	ChargeType *string `type:"string"`
+	Description *string `type:"string" json:",omitempty"`
 
-	CreateTime *string `type:"string"`
+	ExpireTime *string `type:"string" json:",omitempty"`
 
-	Description *string `type:"string"`
+	FileSystemId *string `type:"string" json:",omitempty"`
 
-	EceCode *string `type:"string"`
+	FileSystemName *string `type:"string" json:",omitempty"`
 
-	ExpireTime *string `type:"string"`
+	FileSystemType *string `type:"string" json:",omitempty" enum:"EnumOfFileSystemTypeForDescribeFileSystemsOutput"`
 
-	FileSystemId *string `type:"string"`
+	FreeTime *string `type:"string" json:",omitempty"`
 
-	FileSystemName *string `type:"string"`
+	LastModifyTime *string `type:"string" json:",omitempty"`
 
-	FileSystemType *string `type:"string"`
+	Project *string `type:"string" json:",omitempty"`
 
-	FreeTime *string `type:"string"`
+	ProjectName *string `type:"string" json:",omitempty"`
 
-	LastModifyTime *string `type:"string"`
+	ProtocolType *string `type:"string" json:",omitempty" enum:"EnumOfProtocolTypeForDescribeFileSystemsOutput"`
 
-	Month *int32 `type:"int32"`
+	ReadBandwidth *int32 `type:"int32" json:",omitempty"`
 
-	MountPoints []*MountPointForDescribeFileSystemsOutput `type:"list"`
+	RegionId *string `type:"string" json:",omitempty"`
 
-	Project *string `type:"string"`
+	SecurityGroupId *string `type:"string" json:",omitempty"`
 
-	ProtocolType *string `type:"string"`
+	Status *string `type:"string" json:",omitempty" enum:"EnumOfStatusForDescribeFileSystemsOutput"`
 
-	RegionId *string `type:"string"`
+	StopServiceTime *string `type:"string" json:",omitempty"`
 
-	ReplicasNum *int32 `type:"int32"`
+	StoreType *string `type:"string" json:",omitempty"`
 
-	SecurityGroupId *string `type:"string"`
+	StoreTypeCN *string `type:"string" json:",omitempty"`
 
-	Status *string `type:"string"`
+	StoreTypeEN *string `type:"string" json:",omitempty"`
 
-	StopServiceTime *string `type:"string"`
+	SubnetId *string `type:"string" json:",omitempty"`
 
-	Storage *StorageForDescribeFileSystemsOutput `type:"structure"`
+	Tags []*TagForDescribeFileSystemsOutput `type:"list" json:",omitempty"`
 
-	StoreType *string `type:"string"`
+	VersionNumber *string `type:"string" json:",omitempty"`
 
-	SubnetId *string `type:"string"`
+	VpcId *string `type:"string" json:",omitempty"`
 
-	SubnetName *string `type:"string"`
+	WriteBandwidth *int32 `type:"int32" json:",omitempty"`
 
-	Tags []*TagForDescribeFileSystemsOutput `type:"list"`
+	ZoneId *string `type:"string" json:",omitempty"`
 
-	TradeInfo *TradeInfoForDescribeFileSystemsOutput `type:"structure"`
-
-	UpgradeEndTime *string `type:"string"`
-
-	UpgradeError *string `type:"string"`
-
-	UpgradeStartTime *string `type:"string"`
-
-	UserId *string `type:"string"`
-
-	Version *string `type:"string"`
-
-	VpcId *string `type:"string"`
-
-	VpcName *string `type:"string"`
-
-	ZoneId *string `type:"string"`
-
-	ZoneName *string `type:"string"`
+	ZoneName *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -380,18 +378,6 @@ func (s FileSystemForDescribeFileSystemsOutput) GoString() string {
 // SetAccountId sets the AccountId field's value.
 func (s *FileSystemForDescribeFileSystemsOutput) SetAccountId(v string) *FileSystemForDescribeFileSystemsOutput {
 	s.AccountId = &v
-	return s
-}
-
-// SetAttachStatus sets the AttachStatus field's value.
-func (s *FileSystemForDescribeFileSystemsOutput) SetAttachStatus(v string) *FileSystemForDescribeFileSystemsOutput {
-	s.AttachStatus = &v
-	return s
-}
-
-// SetAutoRenew sets the AutoRenew field's value.
-func (s *FileSystemForDescribeFileSystemsOutput) SetAutoRenew(v bool) *FileSystemForDescribeFileSystemsOutput {
-	s.AutoRenew = &v
 	return s
 }
 
@@ -431,12 +417,6 @@ func (s *FileSystemForDescribeFileSystemsOutput) SetDescription(v string) *FileS
 	return s
 }
 
-// SetEceCode sets the EceCode field's value.
-func (s *FileSystemForDescribeFileSystemsOutput) SetEceCode(v string) *FileSystemForDescribeFileSystemsOutput {
-	s.EceCode = &v
-	return s
-}
-
 // SetExpireTime sets the ExpireTime field's value.
 func (s *FileSystemForDescribeFileSystemsOutput) SetExpireTime(v string) *FileSystemForDescribeFileSystemsOutput {
 	s.ExpireTime = &v
@@ -473,21 +453,15 @@ func (s *FileSystemForDescribeFileSystemsOutput) SetLastModifyTime(v string) *Fi
 	return s
 }
 
-// SetMonth sets the Month field's value.
-func (s *FileSystemForDescribeFileSystemsOutput) SetMonth(v int32) *FileSystemForDescribeFileSystemsOutput {
-	s.Month = &v
-	return s
-}
-
-// SetMountPoints sets the MountPoints field's value.
-func (s *FileSystemForDescribeFileSystemsOutput) SetMountPoints(v []*MountPointForDescribeFileSystemsOutput) *FileSystemForDescribeFileSystemsOutput {
-	s.MountPoints = v
-	return s
-}
-
 // SetProject sets the Project field's value.
 func (s *FileSystemForDescribeFileSystemsOutput) SetProject(v string) *FileSystemForDescribeFileSystemsOutput {
 	s.Project = &v
+	return s
+}
+
+// SetProjectName sets the ProjectName field's value.
+func (s *FileSystemForDescribeFileSystemsOutput) SetProjectName(v string) *FileSystemForDescribeFileSystemsOutput {
+	s.ProjectName = &v
 	return s
 }
 
@@ -497,15 +471,15 @@ func (s *FileSystemForDescribeFileSystemsOutput) SetProtocolType(v string) *File
 	return s
 }
 
-// SetRegionId sets the RegionId field's value.
-func (s *FileSystemForDescribeFileSystemsOutput) SetRegionId(v string) *FileSystemForDescribeFileSystemsOutput {
-	s.RegionId = &v
+// SetReadBandwidth sets the ReadBandwidth field's value.
+func (s *FileSystemForDescribeFileSystemsOutput) SetReadBandwidth(v int32) *FileSystemForDescribeFileSystemsOutput {
+	s.ReadBandwidth = &v
 	return s
 }
 
-// SetReplicasNum sets the ReplicasNum field's value.
-func (s *FileSystemForDescribeFileSystemsOutput) SetReplicasNum(v int32) *FileSystemForDescribeFileSystemsOutput {
-	s.ReplicasNum = &v
+// SetRegionId sets the RegionId field's value.
+func (s *FileSystemForDescribeFileSystemsOutput) SetRegionId(v string) *FileSystemForDescribeFileSystemsOutput {
+	s.RegionId = &v
 	return s
 }
 
@@ -527,15 +501,21 @@ func (s *FileSystemForDescribeFileSystemsOutput) SetStopServiceTime(v string) *F
 	return s
 }
 
-// SetStorage sets the Storage field's value.
-func (s *FileSystemForDescribeFileSystemsOutput) SetStorage(v *StorageForDescribeFileSystemsOutput) *FileSystemForDescribeFileSystemsOutput {
-	s.Storage = v
-	return s
-}
-
 // SetStoreType sets the StoreType field's value.
 func (s *FileSystemForDescribeFileSystemsOutput) SetStoreType(v string) *FileSystemForDescribeFileSystemsOutput {
 	s.StoreType = &v
+	return s
+}
+
+// SetStoreTypeCN sets the StoreTypeCN field's value.
+func (s *FileSystemForDescribeFileSystemsOutput) SetStoreTypeCN(v string) *FileSystemForDescribeFileSystemsOutput {
+	s.StoreTypeCN = &v
+	return s
+}
+
+// SetStoreTypeEN sets the StoreTypeEN field's value.
+func (s *FileSystemForDescribeFileSystemsOutput) SetStoreTypeEN(v string) *FileSystemForDescribeFileSystemsOutput {
+	s.StoreTypeEN = &v
 	return s
 }
 
@@ -545,51 +525,15 @@ func (s *FileSystemForDescribeFileSystemsOutput) SetSubnetId(v string) *FileSyst
 	return s
 }
 
-// SetSubnetName sets the SubnetName field's value.
-func (s *FileSystemForDescribeFileSystemsOutput) SetSubnetName(v string) *FileSystemForDescribeFileSystemsOutput {
-	s.SubnetName = &v
-	return s
-}
-
 // SetTags sets the Tags field's value.
 func (s *FileSystemForDescribeFileSystemsOutput) SetTags(v []*TagForDescribeFileSystemsOutput) *FileSystemForDescribeFileSystemsOutput {
 	s.Tags = v
 	return s
 }
 
-// SetTradeInfo sets the TradeInfo field's value.
-func (s *FileSystemForDescribeFileSystemsOutput) SetTradeInfo(v *TradeInfoForDescribeFileSystemsOutput) *FileSystemForDescribeFileSystemsOutput {
-	s.TradeInfo = v
-	return s
-}
-
-// SetUpgradeEndTime sets the UpgradeEndTime field's value.
-func (s *FileSystemForDescribeFileSystemsOutput) SetUpgradeEndTime(v string) *FileSystemForDescribeFileSystemsOutput {
-	s.UpgradeEndTime = &v
-	return s
-}
-
-// SetUpgradeError sets the UpgradeError field's value.
-func (s *FileSystemForDescribeFileSystemsOutput) SetUpgradeError(v string) *FileSystemForDescribeFileSystemsOutput {
-	s.UpgradeError = &v
-	return s
-}
-
-// SetUpgradeStartTime sets the UpgradeStartTime field's value.
-func (s *FileSystemForDescribeFileSystemsOutput) SetUpgradeStartTime(v string) *FileSystemForDescribeFileSystemsOutput {
-	s.UpgradeStartTime = &v
-	return s
-}
-
-// SetUserId sets the UserId field's value.
-func (s *FileSystemForDescribeFileSystemsOutput) SetUserId(v string) *FileSystemForDescribeFileSystemsOutput {
-	s.UserId = &v
-	return s
-}
-
-// SetVersion sets the Version field's value.
-func (s *FileSystemForDescribeFileSystemsOutput) SetVersion(v string) *FileSystemForDescribeFileSystemsOutput {
-	s.Version = &v
+// SetVersionNumber sets the VersionNumber field's value.
+func (s *FileSystemForDescribeFileSystemsOutput) SetVersionNumber(v string) *FileSystemForDescribeFileSystemsOutput {
+	s.VersionNumber = &v
 	return s
 }
 
@@ -599,9 +543,9 @@ func (s *FileSystemForDescribeFileSystemsOutput) SetVpcId(v string) *FileSystemF
 	return s
 }
 
-// SetVpcName sets the VpcName field's value.
-func (s *FileSystemForDescribeFileSystemsOutput) SetVpcName(v string) *FileSystemForDescribeFileSystemsOutput {
-	s.VpcName = &v
+// SetWriteBandwidth sets the WriteBandwidth field's value.
+func (s *FileSystemForDescribeFileSystemsOutput) SetWriteBandwidth(v int32) *FileSystemForDescribeFileSystemsOutput {
+	s.WriteBandwidth = &v
 	return s
 }
 
@@ -618,11 +562,11 @@ func (s *FileSystemForDescribeFileSystemsOutput) SetZoneName(v string) *FileSyst
 }
 
 type FilterForDescribeFileSystemsInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Key *string `type:"string"`
+	Key *string `type:"string" json:",omitempty" enum:"EnumOfKeyForDescribeFileSystemsInput"`
 
-	Value *string `type:"string"`
+	Value *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -647,184 +591,52 @@ func (s *FilterForDescribeFileSystemsInput) SetValue(v string) *FilterForDescrib
 	return s
 }
 
-type MountPointForDescribeFileSystemsOutput struct {
-	_ struct{} `type:"structure"`
+type TagFilterForDescribeFileSystemsInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	CreateTime *string `type:"string"`
+	Key *string `type:"string" json:",omitempty"`
 
-	FileSystemId *string `type:"string"`
+	Value *string `type:"string" json:",omitempty"`
 
-	MountPointId *string `type:"string"`
-
-	MountPointName *string `type:"string"`
-
-	Nodes []*NodeForDescribeFileSystemsOutput `type:"list"`
-
-	SecurityGroupId *string `type:"string"`
-
-	Status *string `type:"string"`
-
-	SubnetId *string `type:"string"`
-
-	SubnetName *string `type:"string"`
-
-	VpcId *string `type:"string"`
-
-	VpcName *string `type:"string"`
+	Values []*string `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
-func (s MountPointForDescribeFileSystemsOutput) String() string {
+func (s TagFilterForDescribeFileSystemsInput) String() string {
 	return volcengineutil.Prettify(s)
 }
 
 // GoString returns the string representation
-func (s MountPointForDescribeFileSystemsOutput) GoString() string {
+func (s TagFilterForDescribeFileSystemsInput) GoString() string {
 	return s.String()
 }
 
-// SetCreateTime sets the CreateTime field's value.
-func (s *MountPointForDescribeFileSystemsOutput) SetCreateTime(v string) *MountPointForDescribeFileSystemsOutput {
-	s.CreateTime = &v
+// SetKey sets the Key field's value.
+func (s *TagFilterForDescribeFileSystemsInput) SetKey(v string) *TagFilterForDescribeFileSystemsInput {
+	s.Key = &v
 	return s
 }
 
-// SetFileSystemId sets the FileSystemId field's value.
-func (s *MountPointForDescribeFileSystemsOutput) SetFileSystemId(v string) *MountPointForDescribeFileSystemsOutput {
-	s.FileSystemId = &v
+// SetValue sets the Value field's value.
+func (s *TagFilterForDescribeFileSystemsInput) SetValue(v string) *TagFilterForDescribeFileSystemsInput {
+	s.Value = &v
 	return s
 }
 
-// SetMountPointId sets the MountPointId field's value.
-func (s *MountPointForDescribeFileSystemsOutput) SetMountPointId(v string) *MountPointForDescribeFileSystemsOutput {
-	s.MountPointId = &v
-	return s
-}
-
-// SetMountPointName sets the MountPointName field's value.
-func (s *MountPointForDescribeFileSystemsOutput) SetMountPointName(v string) *MountPointForDescribeFileSystemsOutput {
-	s.MountPointName = &v
-	return s
-}
-
-// SetNodes sets the Nodes field's value.
-func (s *MountPointForDescribeFileSystemsOutput) SetNodes(v []*NodeForDescribeFileSystemsOutput) *MountPointForDescribeFileSystemsOutput {
-	s.Nodes = v
-	return s
-}
-
-// SetSecurityGroupId sets the SecurityGroupId field's value.
-func (s *MountPointForDescribeFileSystemsOutput) SetSecurityGroupId(v string) *MountPointForDescribeFileSystemsOutput {
-	s.SecurityGroupId = &v
-	return s
-}
-
-// SetStatus sets the Status field's value.
-func (s *MountPointForDescribeFileSystemsOutput) SetStatus(v string) *MountPointForDescribeFileSystemsOutput {
-	s.Status = &v
-	return s
-}
-
-// SetSubnetId sets the SubnetId field's value.
-func (s *MountPointForDescribeFileSystemsOutput) SetSubnetId(v string) *MountPointForDescribeFileSystemsOutput {
-	s.SubnetId = &v
-	return s
-}
-
-// SetSubnetName sets the SubnetName field's value.
-func (s *MountPointForDescribeFileSystemsOutput) SetSubnetName(v string) *MountPointForDescribeFileSystemsOutput {
-	s.SubnetName = &v
-	return s
-}
-
-// SetVpcId sets the VpcId field's value.
-func (s *MountPointForDescribeFileSystemsOutput) SetVpcId(v string) *MountPointForDescribeFileSystemsOutput {
-	s.VpcId = &v
-	return s
-}
-
-// SetVpcName sets the VpcName field's value.
-func (s *MountPointForDescribeFileSystemsOutput) SetVpcName(v string) *MountPointForDescribeFileSystemsOutput {
-	s.VpcName = &v
-	return s
-}
-
-type NodeForDescribeFileSystemsOutput struct {
-	_ struct{} `type:"structure"`
-
-	DefaultPassword *string `type:"string"`
-
-	EcsIP *string `type:"string"`
-
-	EcsId *string `type:"string"`
-}
-
-// String returns the string representation
-func (s NodeForDescribeFileSystemsOutput) String() string {
-	return volcengineutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s NodeForDescribeFileSystemsOutput) GoString() string {
-	return s.String()
-}
-
-// SetDefaultPassword sets the DefaultPassword field's value.
-func (s *NodeForDescribeFileSystemsOutput) SetDefaultPassword(v string) *NodeForDescribeFileSystemsOutput {
-	s.DefaultPassword = &v
-	return s
-}
-
-// SetEcsIP sets the EcsIP field's value.
-func (s *NodeForDescribeFileSystemsOutput) SetEcsIP(v string) *NodeForDescribeFileSystemsOutput {
-	s.EcsIP = &v
-	return s
-}
-
-// SetEcsId sets the EcsId field's value.
-func (s *NodeForDescribeFileSystemsOutput) SetEcsId(v string) *NodeForDescribeFileSystemsOutput {
-	s.EcsId = &v
-	return s
-}
-
-type StorageForDescribeFileSystemsOutput struct {
-	_ struct{} `type:"structure"`
-
-	SubVolume *string `type:"string"`
-
-	Volume *string `type:"string"`
-}
-
-// String returns the string representation
-func (s StorageForDescribeFileSystemsOutput) String() string {
-	return volcengineutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s StorageForDescribeFileSystemsOutput) GoString() string {
-	return s.String()
-}
-
-// SetSubVolume sets the SubVolume field's value.
-func (s *StorageForDescribeFileSystemsOutput) SetSubVolume(v string) *StorageForDescribeFileSystemsOutput {
-	s.SubVolume = &v
-	return s
-}
-
-// SetVolume sets the Volume field's value.
-func (s *StorageForDescribeFileSystemsOutput) SetVolume(v string) *StorageForDescribeFileSystemsOutput {
-	s.Volume = &v
+// SetValues sets the Values field's value.
+func (s *TagFilterForDescribeFileSystemsInput) SetValues(v []*string) *TagFilterForDescribeFileSystemsInput {
+	s.Values = v
 	return s
 }
 
 type TagForDescribeFileSystemsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Key *string `type:"string"`
+	Key *string `type:"string" json:",omitempty"`
 
-	Type *string `type:"string"`
+	Type *string `type:"string" json:",omitempty" enum:"EnumOfTypeForDescribeFileSystemsOutput"`
 
-	Value *string `type:"string"`
+	Value *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -855,48 +667,170 @@ func (s *TagForDescribeFileSystemsOutput) SetValue(v string) *TagForDescribeFile
 	return s
 }
 
-type TradeInfoForDescribeFileSystemsOutput struct {
-	_ struct{} `type:"structure"`
+const (
+	// EnumOfChargeStatusForDescribeFileSystemsOutputInit is a EnumOfChargeStatusForDescribeFileSystemsOutput enum value
+	EnumOfChargeStatusForDescribeFileSystemsOutputInit = "Init"
 
-	AccountId *string `type:"string"`
+	// EnumOfChargeStatusForDescribeFileSystemsOutputNormal is a EnumOfChargeStatusForDescribeFileSystemsOutput enum value
+	EnumOfChargeStatusForDescribeFileSystemsOutputNormal = "Normal"
 
-	CustomerName *string `type:"string"`
+	// EnumOfChargeStatusForDescribeFileSystemsOutputOverdue is a EnumOfChargeStatusForDescribeFileSystemsOutput enum value
+	EnumOfChargeStatusForDescribeFileSystemsOutputOverdue = "Overdue"
 
-	Identity *string `type:"string"`
+	// EnumOfChargeStatusForDescribeFileSystemsOutputUnpaid is a EnumOfChargeStatusForDescribeFileSystemsOutput enum value
+	EnumOfChargeStatusForDescribeFileSystemsOutputUnpaid = "Unpaid"
 
-	IsTest *bool `type:"boolean"`
-}
+	// EnumOfChargeStatusForDescribeFileSystemsOutputNeedNotCharge is a EnumOfChargeStatusForDescribeFileSystemsOutput enum value
+	EnumOfChargeStatusForDescribeFileSystemsOutputNeedNotCharge = "NeedNotCharge"
 
-// String returns the string representation
-func (s TradeInfoForDescribeFileSystemsOutput) String() string {
-	return volcengineutil.Prettify(s)
-}
+	// EnumOfChargeStatusForDescribeFileSystemsOutputChargeFailed is a EnumOfChargeStatusForDescribeFileSystemsOutput enum value
+	EnumOfChargeStatusForDescribeFileSystemsOutputChargeFailed = "ChargeFailed"
+)
 
-// GoString returns the string representation
-func (s TradeInfoForDescribeFileSystemsOutput) GoString() string {
-	return s.String()
-}
+const (
+	// EnumOfChargeTypeForDescribeFileSystemsOutputPayAsYouGo is a EnumOfChargeTypeForDescribeFileSystemsOutput enum value
+	EnumOfChargeTypeForDescribeFileSystemsOutputPayAsYouGo = "PayAsYouGo"
+)
 
-// SetAccountId sets the AccountId field's value.
-func (s *TradeInfoForDescribeFileSystemsOutput) SetAccountId(v string) *TradeInfoForDescribeFileSystemsOutput {
-	s.AccountId = &v
-	return s
-}
+const (
+	// EnumOfFileSystemTypeForDescribeFileSystemsOutputVePfs is a EnumOfFileSystemTypeForDescribeFileSystemsOutput enum value
+	EnumOfFileSystemTypeForDescribeFileSystemsOutputVePfs = "VePFS"
+)
 
-// SetCustomerName sets the CustomerName field's value.
-func (s *TradeInfoForDescribeFileSystemsOutput) SetCustomerName(v string) *TradeInfoForDescribeFileSystemsOutput {
-	s.CustomerName = &v
-	return s
-}
+const (
+	// EnumOfKeyForDescribeFileSystemsInputChargeType is a EnumOfKeyForDescribeFileSystemsInput enum value
+	EnumOfKeyForDescribeFileSystemsInputChargeType = "ChargeType"
 
-// SetIdentity sets the Identity field's value.
-func (s *TradeInfoForDescribeFileSystemsOutput) SetIdentity(v string) *TradeInfoForDescribeFileSystemsOutput {
-	s.Identity = &v
-	return s
-}
+	// EnumOfKeyForDescribeFileSystemsInputFileSystemType is a EnumOfKeyForDescribeFileSystemsInput enum value
+	EnumOfKeyForDescribeFileSystemsInputFileSystemType = "FileSystemType"
 
-// SetIsTest sets the IsTest field's value.
-func (s *TradeInfoForDescribeFileSystemsOutput) SetIsTest(v bool) *TradeInfoForDescribeFileSystemsOutput {
-	s.IsTest = &v
-	return s
-}
+	// EnumOfKeyForDescribeFileSystemsInputStoreType is a EnumOfKeyForDescribeFileSystemsInput enum value
+	EnumOfKeyForDescribeFileSystemsInputStoreType = "StoreType"
+
+	// EnumOfKeyForDescribeFileSystemsInputFileSystemName is a EnumOfKeyForDescribeFileSystemsInput enum value
+	EnumOfKeyForDescribeFileSystemsInputFileSystemName = "FileSystemName"
+
+	// EnumOfKeyForDescribeFileSystemsInputStatus is a EnumOfKeyForDescribeFileSystemsInput enum value
+	EnumOfKeyForDescribeFileSystemsInputStatus = "Status"
+
+	// EnumOfKeyForDescribeFileSystemsInputZoneId is a EnumOfKeyForDescribeFileSystemsInput enum value
+	EnumOfKeyForDescribeFileSystemsInputZoneId = "ZoneId"
+
+	// EnumOfKeyForDescribeFileSystemsInputProtocol is a EnumOfKeyForDescribeFileSystemsInput enum value
+	EnumOfKeyForDescribeFileSystemsInputProtocol = "Protocol"
+
+	// EnumOfKeyForDescribeFileSystemsInputAccountId is a EnumOfKeyForDescribeFileSystemsInput enum value
+	EnumOfKeyForDescribeFileSystemsInputAccountId = "AccountId"
+)
+
+const (
+	// EnumOfLanguageCodeForDescribeFileSystemsInputZh is a EnumOfLanguageCodeForDescribeFileSystemsInput enum value
+	EnumOfLanguageCodeForDescribeFileSystemsInputZh = "zh"
+
+	// EnumOfLanguageCodeForDescribeFileSystemsInputEn is a EnumOfLanguageCodeForDescribeFileSystemsInput enum value
+	EnumOfLanguageCodeForDescribeFileSystemsInputEn = "en"
+)
+
+const (
+	// EnumOfOrderByForDescribeFileSystemsInputCreateTimeDesc is a EnumOfOrderByForDescribeFileSystemsInput enum value
+	EnumOfOrderByForDescribeFileSystemsInputCreateTimeDesc = "CreateTimeDesc"
+
+	// EnumOfOrderByForDescribeFileSystemsInputCreateTimeAsc is a EnumOfOrderByForDescribeFileSystemsInput enum value
+	EnumOfOrderByForDescribeFileSystemsInputCreateTimeAsc = "CreateTimeAsc"
+
+	// EnumOfOrderByForDescribeFileSystemsInputCapacityDesc is a EnumOfOrderByForDescribeFileSystemsInput enum value
+	EnumOfOrderByForDescribeFileSystemsInputCapacityDesc = "CapacityDesc"
+
+	// EnumOfOrderByForDescribeFileSystemsInputCapacityAsc is a EnumOfOrderByForDescribeFileSystemsInput enum value
+	EnumOfOrderByForDescribeFileSystemsInputCapacityAsc = "CapacityAsc"
+
+	// EnumOfOrderByForDescribeFileSystemsInputIdDesc is a EnumOfOrderByForDescribeFileSystemsInput enum value
+	EnumOfOrderByForDescribeFileSystemsInputIdDesc = "IdDesc"
+
+	// EnumOfOrderByForDescribeFileSystemsInputIdAsc is a EnumOfOrderByForDescribeFileSystemsInput enum value
+	EnumOfOrderByForDescribeFileSystemsInputIdAsc = "IdAsc"
+
+	// EnumOfOrderByForDescribeFileSystemsInputVersionNumberDesc is a EnumOfOrderByForDescribeFileSystemsInput enum value
+	EnumOfOrderByForDescribeFileSystemsInputVersionNumberDesc = "VersionNumberDesc"
+
+	// EnumOfOrderByForDescribeFileSystemsInputVersionNumberAsc is a EnumOfOrderByForDescribeFileSystemsInput enum value
+	EnumOfOrderByForDescribeFileSystemsInputVersionNumberAsc = "VersionNumberAsc"
+)
+
+const (
+	// EnumOfProtocolTypeForDescribeFileSystemsOutputNfs is a EnumOfProtocolTypeForDescribeFileSystemsOutput enum value
+	EnumOfProtocolTypeForDescribeFileSystemsOutputNfs = "NFS"
+
+	// EnumOfProtocolTypeForDescribeFileSystemsOutputSmb is a EnumOfProtocolTypeForDescribeFileSystemsOutput enum value
+	EnumOfProtocolTypeForDescribeFileSystemsOutputSmb = "SMB"
+
+	// EnumOfProtocolTypeForDescribeFileSystemsOutputVePfs is a EnumOfProtocolTypeForDescribeFileSystemsOutput enum value
+	EnumOfProtocolTypeForDescribeFileSystemsOutputVePfs = "VePFS"
+
+	// EnumOfProtocolTypeForDescribeFileSystemsOutputFsx is a EnumOfProtocolTypeForDescribeFileSystemsOutput enum value
+	EnumOfProtocolTypeForDescribeFileSystemsOutputFsx = "FSX"
+)
+
+const (
+	// EnumOfStatusForDescribeFileSystemsOutputCreating is a EnumOfStatusForDescribeFileSystemsOutput enum value
+	EnumOfStatusForDescribeFileSystemsOutputCreating = "Creating"
+
+	// EnumOfStatusForDescribeFileSystemsOutputCreateError is a EnumOfStatusForDescribeFileSystemsOutput enum value
+	EnumOfStatusForDescribeFileSystemsOutputCreateError = "CreateError"
+
+	// EnumOfStatusForDescribeFileSystemsOutputRunning is a EnumOfStatusForDescribeFileSystemsOutput enum value
+	EnumOfStatusForDescribeFileSystemsOutputRunning = "Running"
+
+	// EnumOfStatusForDescribeFileSystemsOutputUpdating is a EnumOfStatusForDescribeFileSystemsOutput enum value
+	EnumOfStatusForDescribeFileSystemsOutputUpdating = "Updating"
+
+	// EnumOfStatusForDescribeFileSystemsOutputUpdateError is a EnumOfStatusForDescribeFileSystemsOutput enum value
+	EnumOfStatusForDescribeFileSystemsOutputUpdateError = "UpdateError"
+
+	// EnumOfStatusForDescribeFileSystemsOutputUpgrading is a EnumOfStatusForDescribeFileSystemsOutput enum value
+	EnumOfStatusForDescribeFileSystemsOutputUpgrading = "Upgrading"
+
+	// EnumOfStatusForDescribeFileSystemsOutputUpgradeError is a EnumOfStatusForDescribeFileSystemsOutput enum value
+	EnumOfStatusForDescribeFileSystemsOutputUpgradeError = "UpgradeError"
+
+	// EnumOfStatusForDescribeFileSystemsOutputExpanding is a EnumOfStatusForDescribeFileSystemsOutput enum value
+	EnumOfStatusForDescribeFileSystemsOutputExpanding = "Expanding"
+
+	// EnumOfStatusForDescribeFileSystemsOutputExpandError is a EnumOfStatusForDescribeFileSystemsOutput enum value
+	EnumOfStatusForDescribeFileSystemsOutputExpandError = "ExpandError"
+
+	// EnumOfStatusForDescribeFileSystemsOutputDeleting is a EnumOfStatusForDescribeFileSystemsOutput enum value
+	EnumOfStatusForDescribeFileSystemsOutputDeleting = "Deleting"
+
+	// EnumOfStatusForDescribeFileSystemsOutputDeleteError is a EnumOfStatusForDescribeFileSystemsOutput enum value
+	EnumOfStatusForDescribeFileSystemsOutputDeleteError = "DeleteError"
+
+	// EnumOfStatusForDescribeFileSystemsOutputDeleted is a EnumOfStatusForDescribeFileSystemsOutput enum value
+	EnumOfStatusForDescribeFileSystemsOutputDeleted = "Deleted"
+
+	// EnumOfStatusForDescribeFileSystemsOutputAttaching is a EnumOfStatusForDescribeFileSystemsOutput enum value
+	EnumOfStatusForDescribeFileSystemsOutputAttaching = "Attaching"
+
+	// EnumOfStatusForDescribeFileSystemsOutputAttachError is a EnumOfStatusForDescribeFileSystemsOutput enum value
+	EnumOfStatusForDescribeFileSystemsOutputAttachError = "AttachError"
+
+	// EnumOfStatusForDescribeFileSystemsOutputDetaching is a EnumOfStatusForDescribeFileSystemsOutput enum value
+	EnumOfStatusForDescribeFileSystemsOutputDetaching = "Detaching"
+
+	// EnumOfStatusForDescribeFileSystemsOutputDetachError is a EnumOfStatusForDescribeFileSystemsOutput enum value
+	EnumOfStatusForDescribeFileSystemsOutputDetachError = "DetachError"
+
+	// EnumOfStatusForDescribeFileSystemsOutputStopped is a EnumOfStatusForDescribeFileSystemsOutput enum value
+	EnumOfStatusForDescribeFileSystemsOutputStopped = "Stopped"
+
+	// EnumOfStatusForDescribeFileSystemsOutputError is a EnumOfStatusForDescribeFileSystemsOutput enum value
+	EnumOfStatusForDescribeFileSystemsOutputError = "Error"
+)
+
+const (
+	// EnumOfTypeForDescribeFileSystemsOutputSystem is a EnumOfTypeForDescribeFileSystemsOutput enum value
+	EnumOfTypeForDescribeFileSystemsOutputSystem = "System"
+
+	// EnumOfTypeForDescribeFileSystemsOutputCustom is a EnumOfTypeForDescribeFileSystemsOutput enum value
+	EnumOfTypeForDescribeFileSystemsOutputCustom = "Custom"
+)

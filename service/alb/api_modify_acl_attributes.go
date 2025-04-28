@@ -142,7 +142,8 @@ func (c *ALB) ModifyAclAttributesWithContext(ctx volcengine.Context, input *Modi
 type ModifyAclAttributesInput struct {
 	_ struct{} `type:"structure"`
 
-	AclId *string `type:"string"`
+	// AclId is a required field
+	AclId *string `type:"string" required:"true"`
 
 	AclName *string `min:"1" max:"128" type:"string"`
 
@@ -162,6 +163,9 @@ func (s ModifyAclAttributesInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *ModifyAclAttributesInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "ModifyAclAttributesInput"}
+	if s.AclId == nil {
+		invalidParams.Add(request.NewErrParamRequired("AclId"))
+	}
 	if s.AclName != nil && len(*s.AclName) < 1 {
 		invalidParams.Add(request.NewErrParamMinLen("AclName", 1))
 	}

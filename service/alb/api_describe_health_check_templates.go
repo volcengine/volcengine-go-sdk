@@ -149,6 +149,10 @@ type DescribeHealthCheckTemplatesInput struct {
 	PageNumber *int64 `type:"integer"`
 
 	PageSize *int64 `type:"integer"`
+
+	ProjectName *string `type:"string"`
+
+	TagFilters []*TagFilterForDescribeHealthCheckTemplatesInput `type:"list"`
 }
 
 // String returns the string representation
@@ -182,6 +186,18 @@ func (s *DescribeHealthCheckTemplatesInput) SetPageNumber(v int64) *DescribeHeal
 // SetPageSize sets the PageSize field's value.
 func (s *DescribeHealthCheckTemplatesInput) SetPageSize(v int64) *DescribeHealthCheckTemplatesInput {
 	s.PageSize = &v
+	return s
+}
+
+// SetProjectName sets the ProjectName field's value.
+func (s *DescribeHealthCheckTemplatesInput) SetProjectName(v string) *DescribeHealthCheckTemplatesInput {
+	s.ProjectName = &v
+	return s
+}
+
+// SetTagFilters sets the TagFilters field's value.
+func (s *DescribeHealthCheckTemplatesInput) SetTagFilters(v []*TagFilterForDescribeHealthCheckTemplatesInput) *DescribeHealthCheckTemplatesInput {
+	s.TagFilters = v
 	return s
 }
 
@@ -244,6 +260,8 @@ func (s *DescribeHealthCheckTemplatesOutput) SetTotalCount(v int64) *DescribeHea
 type HealthCheckTemplateForDescribeHealthCheckTemplatesOutput struct {
 	_ struct{} `type:"structure"`
 
+	CreateTime *string `type:"string"`
+
 	Description *string `type:"string"`
 
 	HealthCheckDomain *string `type:"string"`
@@ -270,7 +288,13 @@ type HealthCheckTemplateForDescribeHealthCheckTemplatesOutput struct {
 
 	Port *int64 `max:"65535" type:"integer"`
 
+	ProjectName *string `type:"string"`
+
+	Tags []*TagForDescribeHealthCheckTemplatesOutput `type:"list"`
+
 	UnhealthyThreshold *int64 `type:"integer"`
+
+	UpdateTime *string `type:"string"`
 }
 
 // String returns the string representation
@@ -281,6 +305,12 @@ func (s HealthCheckTemplateForDescribeHealthCheckTemplatesOutput) String() strin
 // GoString returns the string representation
 func (s HealthCheckTemplateForDescribeHealthCheckTemplatesOutput) GoString() string {
 	return s.String()
+}
+
+// SetCreateTime sets the CreateTime field's value.
+func (s *HealthCheckTemplateForDescribeHealthCheckTemplatesOutput) SetCreateTime(v string) *HealthCheckTemplateForDescribeHealthCheckTemplatesOutput {
+	s.CreateTime = &v
+	return s
 }
 
 // SetDescription sets the Description field's value.
@@ -361,8 +391,86 @@ func (s *HealthCheckTemplateForDescribeHealthCheckTemplatesOutput) SetPort(v int
 	return s
 }
 
+// SetProjectName sets the ProjectName field's value.
+func (s *HealthCheckTemplateForDescribeHealthCheckTemplatesOutput) SetProjectName(v string) *HealthCheckTemplateForDescribeHealthCheckTemplatesOutput {
+	s.ProjectName = &v
+	return s
+}
+
+// SetTags sets the Tags field's value.
+func (s *HealthCheckTemplateForDescribeHealthCheckTemplatesOutput) SetTags(v []*TagForDescribeHealthCheckTemplatesOutput) *HealthCheckTemplateForDescribeHealthCheckTemplatesOutput {
+	s.Tags = v
+	return s
+}
+
 // SetUnhealthyThreshold sets the UnhealthyThreshold field's value.
 func (s *HealthCheckTemplateForDescribeHealthCheckTemplatesOutput) SetUnhealthyThreshold(v int64) *HealthCheckTemplateForDescribeHealthCheckTemplatesOutput {
 	s.UnhealthyThreshold = &v
+	return s
+}
+
+// SetUpdateTime sets the UpdateTime field's value.
+func (s *HealthCheckTemplateForDescribeHealthCheckTemplatesOutput) SetUpdateTime(v string) *HealthCheckTemplateForDescribeHealthCheckTemplatesOutput {
+	s.UpdateTime = &v
+	return s
+}
+
+type TagFilterForDescribeHealthCheckTemplatesInput struct {
+	_ struct{} `type:"structure"`
+
+	Key *string `type:"string"`
+
+	Values []*string `type:"list"`
+}
+
+// String returns the string representation
+func (s TagFilterForDescribeHealthCheckTemplatesInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagFilterForDescribeHealthCheckTemplatesInput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagFilterForDescribeHealthCheckTemplatesInput) SetKey(v string) *TagFilterForDescribeHealthCheckTemplatesInput {
+	s.Key = &v
+	return s
+}
+
+// SetValues sets the Values field's value.
+func (s *TagFilterForDescribeHealthCheckTemplatesInput) SetValues(v []*string) *TagFilterForDescribeHealthCheckTemplatesInput {
+	s.Values = v
+	return s
+}
+
+type TagForDescribeHealthCheckTemplatesOutput struct {
+	_ struct{} `type:"structure"`
+
+	Key *string `type:"string"`
+
+	Value *string `type:"string"`
+}
+
+// String returns the string representation
+func (s TagForDescribeHealthCheckTemplatesOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagForDescribeHealthCheckTemplatesOutput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagForDescribeHealthCheckTemplatesOutput) SetKey(v string) *TagForDescribeHealthCheckTemplatesOutput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *TagForDescribeHealthCheckTemplatesOutput) SetValue(v string) *TagForDescribeHealthCheckTemplatesOutput {
+	s.Value = &v
 	return s
 }

@@ -144,13 +144,15 @@ func (c *VEPFS) ExpandFileSystemWithContext(ctx volcengine.Context, input *Expan
 }
 
 type ExpandFileSystemInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Capacity *int32 `type:"int32"`
+	// Capacity is a required field
+	Capacity *int32 `type:"int32" json:",omitempty" required:"true"`
 
-	EnableRestripe *bool `type:"boolean"`
+	EnableRestripe *bool `type:"boolean" json:",omitempty"`
 
-	FileSystemId *string `type:"string"`
+	// FileSystemId is a required field
+	FileSystemId *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -161,6 +163,22 @@ func (s ExpandFileSystemInput) String() string {
 // GoString returns the string representation
 func (s ExpandFileSystemInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *ExpandFileSystemInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "ExpandFileSystemInput"}
+	if s.Capacity == nil {
+		invalidParams.Add(request.NewErrParamRequired("Capacity"))
+	}
+	if s.FileSystemId == nil {
+		invalidParams.Add(request.NewErrParamRequired("FileSystemId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetCapacity sets the Capacity field's value.
@@ -182,11 +200,11 @@ func (s *ExpandFileSystemInput) SetFileSystemId(v string) *ExpandFileSystemInput
 }
 
 type ExpandFileSystemOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	OrderNO *string `type:"string"`
+	OrderNO *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
