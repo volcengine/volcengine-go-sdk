@@ -46,6 +46,14 @@ type VEPFSAPI interface {
 	CreateFileSystemWithContext(volcengine.Context, *CreateFileSystemInput, ...request.Option) (*CreateFileSystemOutput, error)
 	CreateFileSystemRequest(*CreateFileSystemInput) (*request.Request, *CreateFileSystemOutput)
 
+	CreateFilesetCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateFilesetCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateFilesetCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateFileset(*CreateFilesetInput) (*CreateFilesetOutput, error)
+	CreateFilesetWithContext(volcengine.Context, *CreateFilesetInput, ...request.Option) (*CreateFilesetOutput, error)
+	CreateFilesetRequest(*CreateFilesetInput) (*request.Request, *CreateFilesetOutput)
+
 	CreateMountServiceCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	CreateMountServiceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	CreateMountServiceCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -61,6 +69,14 @@ type VEPFSAPI interface {
 	DeleteFileSystem(*DeleteFileSystemInput) (*DeleteFileSystemOutput, error)
 	DeleteFileSystemWithContext(volcengine.Context, *DeleteFileSystemInput, ...request.Option) (*DeleteFileSystemOutput, error)
 	DeleteFileSystemRequest(*DeleteFileSystemInput) (*request.Request, *DeleteFileSystemOutput)
+
+	DeleteFilesetCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeleteFilesetCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeleteFilesetCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeleteFileset(*DeleteFilesetInput) (*DeleteFilesetOutput, error)
+	DeleteFilesetWithContext(volcengine.Context, *DeleteFilesetInput, ...request.Option) (*DeleteFilesetOutput, error)
+	DeleteFilesetRequest(*DeleteFilesetInput) (*request.Request, *DeleteFilesetOutput)
 
 	DeleteMountServiceCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DeleteMountServiceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -93,6 +109,14 @@ type VEPFSAPI interface {
 	DescribeFileSystems(*DescribeFileSystemsInput) (*DescribeFileSystemsOutput, error)
 	DescribeFileSystemsWithContext(volcengine.Context, *DescribeFileSystemsInput, ...request.Option) (*DescribeFileSystemsOutput, error)
 	DescribeFileSystemsRequest(*DescribeFileSystemsInput) (*request.Request, *DescribeFileSystemsOutput)
+
+	DescribeFilesetsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeFilesetsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeFilesetsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeFilesets(*DescribeFilesetsInput) (*DescribeFilesetsOutput, error)
+	DescribeFilesetsWithContext(volcengine.Context, *DescribeFilesetsInput, ...request.Option) (*DescribeFilesetsOutput, error)
+	DescribeFilesetsRequest(*DescribeFilesetsInput) (*request.Request, *DescribeFilesetsOutput)
 
 	DescribeMountServiceNodeTypesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DescribeMountServiceNodeTypesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -142,6 +166,46 @@ type VEPFSAPI interface {
 	ExpandFileSystemWithContext(volcengine.Context, *ExpandFileSystemInput, ...request.Option) (*ExpandFileSystemOutput, error)
 	ExpandFileSystemRequest(*ExpandFileSystemInput) (*request.Request, *ExpandFileSystemOutput)
 
+	ListTagsForResourcesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListTagsForResourcesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListTagsForResourcesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListTagsForResources(*ListTagsForResourcesInput) (*ListTagsForResourcesOutput, error)
+	ListTagsForResourcesWithContext(volcengine.Context, *ListTagsForResourcesInput, ...request.Option) (*ListTagsForResourcesOutput, error)
+	ListTagsForResourcesRequest(*ListTagsForResourcesInput) (*request.Request, *ListTagsForResourcesOutput)
+
+	SetFilesetQosCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	SetFilesetQosCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	SetFilesetQosCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	SetFilesetQos(*SetFilesetQosInput) (*SetFilesetQosOutput, error)
+	SetFilesetQosWithContext(volcengine.Context, *SetFilesetQosInput, ...request.Option) (*SetFilesetQosOutput, error)
+	SetFilesetQosRequest(*SetFilesetQosInput) (*request.Request, *SetFilesetQosOutput)
+
+	SetFilesetQuotaCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	SetFilesetQuotaCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	SetFilesetQuotaCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	SetFilesetQuota(*SetFilesetQuotaInput) (*SetFilesetQuotaOutput, error)
+	SetFilesetQuotaWithContext(volcengine.Context, *SetFilesetQuotaInput, ...request.Option) (*SetFilesetQuotaOutput, error)
+	SetFilesetQuotaRequest(*SetFilesetQuotaInput) (*request.Request, *SetFilesetQuotaOutput)
+
+	TagResourcesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	TagResourcesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	TagResourcesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	TagResources(*TagResourcesInput) (*TagResourcesOutput, error)
+	TagResourcesWithContext(volcengine.Context, *TagResourcesInput, ...request.Option) (*TagResourcesOutput, error)
+	TagResourcesRequest(*TagResourcesInput) (*request.Request, *TagResourcesOutput)
+
+	UntagResourcesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	UntagResourcesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	UntagResourcesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	UntagResources(*UntagResourcesInput) (*UntagResourcesOutput, error)
+	UntagResourcesWithContext(volcengine.Context, *UntagResourcesInput, ...request.Option) (*UntagResourcesOutput, error)
+	UntagResourcesRequest(*UntagResourcesInput) (*request.Request, *UntagResourcesOutput)
+
 	UpdateFileSystemCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	UpdateFileSystemCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	UpdateFileSystemCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -149,6 +213,14 @@ type VEPFSAPI interface {
 	UpdateFileSystem(*UpdateFileSystemInput) (*UpdateFileSystemOutput, error)
 	UpdateFileSystemWithContext(volcengine.Context, *UpdateFileSystemInput, ...request.Option) (*UpdateFileSystemOutput, error)
 	UpdateFileSystemRequest(*UpdateFileSystemInput) (*request.Request, *UpdateFileSystemOutput)
+
+	UpdateFilesetCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	UpdateFilesetCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	UpdateFilesetCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	UpdateFileset(*UpdateFilesetInput) (*UpdateFilesetOutput, error)
+	UpdateFilesetWithContext(volcengine.Context, *UpdateFilesetInput, ...request.Option) (*UpdateFilesetOutput, error)
+	UpdateFilesetRequest(*UpdateFilesetInput) (*request.Request, *UpdateFilesetOutput)
 
 	UpdateMountServiceCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	UpdateMountServiceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)

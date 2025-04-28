@@ -152,7 +152,8 @@ type ReplaceCertificateInput struct {
 
 	Description *string `type:"string"`
 
-	OldCertificateId *string `type:"string"`
+	// OldCertificateId is a required field
+	OldCertificateId *string `type:"string" required:"true"`
 
 	PrivateKey *string `type:"string"`
 
@@ -160,7 +161,10 @@ type ReplaceCertificateInput struct {
 
 	PublicKey *string `type:"string"`
 
-	UpdateMode *string `type:"string"`
+	Tags []*TagForReplaceCertificateInput `type:"list"`
+
+	// UpdateMode is a required field
+	UpdateMode *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -181,6 +185,12 @@ func (s *ReplaceCertificateInput) Validate() error {
 	}
 	if s.CertificateName != nil && len(*s.CertificateName) > 128 {
 		invalidParams.Add(request.NewErrParamMaxLen("CertificateName", 128, *s.CertificateName))
+	}
+	if s.OldCertificateId == nil {
+		invalidParams.Add(request.NewErrParamRequired("OldCertificateId"))
+	}
+	if s.UpdateMode == nil {
+		invalidParams.Add(request.NewErrParamRequired("UpdateMode"))
 	}
 
 	if invalidParams.Len() > 0 {
@@ -243,6 +253,12 @@ func (s *ReplaceCertificateInput) SetPublicKey(v string) *ReplaceCertificateInpu
 	return s
 }
 
+// SetTags sets the Tags field's value.
+func (s *ReplaceCertificateInput) SetTags(v []*TagForReplaceCertificateInput) *ReplaceCertificateInput {
+	s.Tags = v
+	return s
+}
+
 // SetUpdateMode sets the UpdateMode field's value.
 func (s *ReplaceCertificateInput) SetUpdateMode(v string) *ReplaceCertificateInput {
 	s.UpdateMode = &v
@@ -278,5 +294,35 @@ func (s *ReplaceCertificateOutput) SetCertificateId(v string) *ReplaceCertificat
 // SetRequestId sets the RequestId field's value.
 func (s *ReplaceCertificateOutput) SetRequestId(v string) *ReplaceCertificateOutput {
 	s.RequestId = &v
+	return s
+}
+
+type TagForReplaceCertificateInput struct {
+	_ struct{} `type:"structure"`
+
+	Key *string `type:"string"`
+
+	Value *string `type:"string"`
+}
+
+// String returns the string representation
+func (s TagForReplaceCertificateInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagForReplaceCertificateInput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagForReplaceCertificateInput) SetKey(v string) *TagForReplaceCertificateInput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *TagForReplaceCertificateInput) SetValue(v string) *TagForReplaceCertificateInput {
+	s.Value = &v
 	return s
 }

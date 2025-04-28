@@ -152,13 +152,15 @@ type CloneLoadBalancerInput struct {
 
 	Ipv6EipBillingConfig *Ipv6EipBillingConfigForCloneLoadBalancerInput `type:"structure"`
 
-	LoadBalancerID *string `type:"string"`
+	// LoadBalancerID is a required field
+	LoadBalancerID *string `type:"string" required:"true"`
 
 	LoadBalancerName *string `type:"string"`
 
 	ProjectName *string `type:"string"`
 
-	RegionId *string `type:"string"`
+	// RegionId is a required field
+	RegionId *string `type:"string" required:"true"`
 
 	ZoneMappings []*ZoneMappingForCloneLoadBalancerInput `type:"list"`
 }
@@ -171,6 +173,22 @@ func (s CloneLoadBalancerInput) String() string {
 // GoString returns the string representation
 func (s CloneLoadBalancerInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *CloneLoadBalancerInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "CloneLoadBalancerInput"}
+	if s.LoadBalancerID == nil {
+		invalidParams.Add(request.NewErrParamRequired("LoadBalancerID"))
+	}
+	if s.RegionId == nil {
+		invalidParams.Add(request.NewErrParamRequired("RegionId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetBandwidthPackageId sets the BandwidthPackageId field's value.

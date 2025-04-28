@@ -144,19 +144,24 @@ func (c *VEPFS) CreateMountServiceWithContext(ctx volcengine.Context, input *Cre
 }
 
 type CreateMountServiceInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	MountServiceName *string `type:"string"`
+	// MountServiceName is a required field
+	MountServiceName *string `type:"string" json:",omitempty" required:"true"`
 
-	NodeType *string `type:"string"`
+	// NodeType is a required field
+	NodeType *string `type:"string" json:",omitempty" required:"true"`
 
-	Project *string `type:"string"`
+	Project *string `type:"string" json:",omitempty"`
 
-	SubnetId *string `type:"string"`
+	// SubnetId is a required field
+	SubnetId *string `type:"string" json:",omitempty" required:"true"`
 
-	VpcId *string `type:"string"`
+	// VpcId is a required field
+	VpcId *string `type:"string" json:",omitempty" required:"true"`
 
-	ZoneId *string `type:"string"`
+	// ZoneId is a required field
+	ZoneId *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -167,6 +172,31 @@ func (s CreateMountServiceInput) String() string {
 // GoString returns the string representation
 func (s CreateMountServiceInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *CreateMountServiceInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "CreateMountServiceInput"}
+	if s.MountServiceName == nil {
+		invalidParams.Add(request.NewErrParamRequired("MountServiceName"))
+	}
+	if s.NodeType == nil {
+		invalidParams.Add(request.NewErrParamRequired("NodeType"))
+	}
+	if s.SubnetId == nil {
+		invalidParams.Add(request.NewErrParamRequired("SubnetId"))
+	}
+	if s.VpcId == nil {
+		invalidParams.Add(request.NewErrParamRequired("VpcId"))
+	}
+	if s.ZoneId == nil {
+		invalidParams.Add(request.NewErrParamRequired("ZoneId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetMountServiceName sets the MountServiceName field's value.
@@ -206,11 +236,11 @@ func (s *CreateMountServiceInput) SetZoneId(v string) *CreateMountServiceInput {
 }
 
 type CreateMountServiceOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	MountServiceId *string `type:"string"`
+	MountServiceId *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation

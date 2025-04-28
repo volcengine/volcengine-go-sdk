@@ -144,11 +144,11 @@ func (c *VEPFS) DescribeFileSystemStatisticsWithContext(ctx volcengine.Context, 
 }
 
 type CapacityInfoForDescribeFileSystemStatisticsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	TotalTiB *int32 `type:"int32"`
+	TotalTiB *int32 `type:"int32" json:",omitempty"`
 
-	UsedGiB *int32 `type:"int32"`
+	UsedGiB *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -174,7 +174,9 @@ func (s *CapacityInfoForDescribeFileSystemStatisticsOutput) SetUsedGiB(v int32) 
 }
 
 type DescribeFileSystemStatisticsInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	LanguageCode *string `type:"string" json:",omitempty" enum:"EnumOfLanguageCodeForDescribeFileSystemStatisticsInput"`
 }
 
 // String returns the string representation
@@ -187,12 +189,18 @@ func (s DescribeFileSystemStatisticsInput) GoString() string {
 	return s.String()
 }
 
+// SetLanguageCode sets the LanguageCode field's value.
+func (s *DescribeFileSystemStatisticsInput) SetLanguageCode(v string) *DescribeFileSystemStatisticsInput {
+	s.LanguageCode = &v
+	return s
+}
+
 type DescribeFileSystemStatisticsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	Statistics []*StatisticForDescribeFileSystemStatisticsOutput `type:"list"`
+	Statistics []*StatisticForDescribeFileSystemStatisticsOutput `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -212,19 +220,23 @@ func (s *DescribeFileSystemStatisticsOutput) SetStatistics(v []*StatisticForDesc
 }
 
 type StatisticForDescribeFileSystemStatisticsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	AccountId *string `type:"string"`
+	AccountId *string `type:"string" json:",omitempty"`
 
-	CapacityInfo *CapacityInfoForDescribeFileSystemStatisticsOutput `type:"structure"`
+	CapacityInfo *CapacityInfoForDescribeFileSystemStatisticsOutput `type:"structure" json:",omitempty"`
 
-	FileSystemType *string `type:"string"`
+	FileSystemType *string `type:"string" json:",omitempty" enum:"EnumOfFileSystemTypeForDescribeFileSystemStatisticsOutput"`
 
-	RegionId *string `type:"string"`
+	RegionId *string `type:"string" json:",omitempty"`
 
-	StoreType *string `type:"string"`
+	StoreType *string `type:"string" json:",omitempty"`
 
-	TotalCount *int32 `type:"int32"`
+	StoreTypeCN *string `type:"string" json:",omitempty"`
+
+	StoreTypeEN *string `type:"string" json:",omitempty"`
+
+	TotalCount *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -267,8 +279,33 @@ func (s *StatisticForDescribeFileSystemStatisticsOutput) SetStoreType(v string) 
 	return s
 }
 
+// SetStoreTypeCN sets the StoreTypeCN field's value.
+func (s *StatisticForDescribeFileSystemStatisticsOutput) SetStoreTypeCN(v string) *StatisticForDescribeFileSystemStatisticsOutput {
+	s.StoreTypeCN = &v
+	return s
+}
+
+// SetStoreTypeEN sets the StoreTypeEN field's value.
+func (s *StatisticForDescribeFileSystemStatisticsOutput) SetStoreTypeEN(v string) *StatisticForDescribeFileSystemStatisticsOutput {
+	s.StoreTypeEN = &v
+	return s
+}
+
 // SetTotalCount sets the TotalCount field's value.
 func (s *StatisticForDescribeFileSystemStatisticsOutput) SetTotalCount(v int32) *StatisticForDescribeFileSystemStatisticsOutput {
 	s.TotalCount = &v
 	return s
 }
+
+const (
+	// EnumOfFileSystemTypeForDescribeFileSystemStatisticsOutputVePfs is a EnumOfFileSystemTypeForDescribeFileSystemStatisticsOutput enum value
+	EnumOfFileSystemTypeForDescribeFileSystemStatisticsOutputVePfs = "VePFS"
+)
+
+const (
+	// EnumOfLanguageCodeForDescribeFileSystemStatisticsInputZh is a EnumOfLanguageCodeForDescribeFileSystemStatisticsInput enum value
+	EnumOfLanguageCodeForDescribeFileSystemStatisticsInputZh = "zh"
+
+	// EnumOfLanguageCodeForDescribeFileSystemStatisticsInputEn is a EnumOfLanguageCodeForDescribeFileSystemStatisticsInput enum value
+	EnumOfLanguageCodeForDescribeFileSystemStatisticsInputEn = "en"
+)

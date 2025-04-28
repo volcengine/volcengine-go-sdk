@@ -142,7 +142,8 @@ func (c *ALB) ReplaceCACertificateWithContext(ctx volcengine.Context, input *Rep
 type ReplaceCACertificateInput struct {
 	_ struct{} `type:"structure"`
 
-	CACertificate *string `type:"string"`
+	// CACertificate is a required field
+	CACertificate *string `type:"string" required:"true"`
 
 	CACertificateId *string `type:"string"`
 
@@ -150,11 +151,15 @@ type ReplaceCACertificateInput struct {
 
 	Description *string `type:"string"`
 
-	OldCACertificateId *string `type:"string"`
+	// OldCACertificateId is a required field
+	OldCACertificateId *string `type:"string" required:"true"`
 
 	ProjectName *string `type:"string"`
 
-	UpdateMode *string `type:"string"`
+	Tags []*TagForReplaceCACertificateInput `type:"list"`
+
+	// UpdateMode is a required field
+	UpdateMode *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -170,11 +175,20 @@ func (s ReplaceCACertificateInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *ReplaceCACertificateInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "ReplaceCACertificateInput"}
+	if s.CACertificate == nil {
+		invalidParams.Add(request.NewErrParamRequired("CACertificate"))
+	}
 	if s.CACertificateName != nil && len(*s.CACertificateName) < 1 {
 		invalidParams.Add(request.NewErrParamMinLen("CACertificateName", 1))
 	}
 	if s.CACertificateName != nil && len(*s.CACertificateName) > 128 {
 		invalidParams.Add(request.NewErrParamMaxLen("CACertificateName", 128, *s.CACertificateName))
+	}
+	if s.OldCACertificateId == nil {
+		invalidParams.Add(request.NewErrParamRequired("OldCACertificateId"))
+	}
+	if s.UpdateMode == nil {
+		invalidParams.Add(request.NewErrParamRequired("UpdateMode"))
 	}
 
 	if invalidParams.Len() > 0 {
@@ -219,6 +233,12 @@ func (s *ReplaceCACertificateInput) SetProjectName(v string) *ReplaceCACertifica
 	return s
 }
 
+// SetTags sets the Tags field's value.
+func (s *ReplaceCACertificateInput) SetTags(v []*TagForReplaceCACertificateInput) *ReplaceCACertificateInput {
+	s.Tags = v
+	return s
+}
+
 // SetUpdateMode sets the UpdateMode field's value.
 func (s *ReplaceCACertificateInput) SetUpdateMode(v string) *ReplaceCACertificateInput {
 	s.UpdateMode = &v
@@ -254,5 +274,35 @@ func (s *ReplaceCACertificateOutput) SetCACertificateId(v string) *ReplaceCACert
 // SetRequestId sets the RequestId field's value.
 func (s *ReplaceCACertificateOutput) SetRequestId(v string) *ReplaceCACertificateOutput {
 	s.RequestId = &v
+	return s
+}
+
+type TagForReplaceCACertificateInput struct {
+	_ struct{} `type:"structure"`
+
+	Key *string `type:"string"`
+
+	Value *string `type:"string"`
+}
+
+// String returns the string representation
+func (s TagForReplaceCACertificateInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagForReplaceCACertificateInput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagForReplaceCACertificateInput) SetKey(v string) *TagForReplaceCACertificateInput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *TagForReplaceCACertificateInput) SetValue(v string) *TagForReplaceCACertificateInput {
+	s.Value = &v
 	return s
 }
