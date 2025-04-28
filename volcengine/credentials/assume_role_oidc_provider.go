@@ -3,7 +3,7 @@ package credentials
 import (
 	"encoding/json"
 	"fmt"
-	"io"
+	"io/ioutil"
 	"net/http"
 	"net/url"
 	"os"
@@ -102,7 +102,7 @@ func (p *OIDCCredentialsProvider) fetchOnce() (Value, error) {
 	}
 
 	// 从文件中读取OIDC令牌
-	tokenBytes, err := os.ReadFile(p.OIDCTokenFilePath)
+	tokenBytes, err := ioutil.ReadFile(p.OIDCTokenFilePath)
 	if err != nil {
 		return Value{}, fmt.Errorf("failed to read OIDC token file: %v", err)
 	}
@@ -150,7 +150,7 @@ func (p *OIDCCredentialsProvider) fetchOnce() (Value, error) {
 
 	// 检查响应状态
 	if resp.StatusCode != http.StatusOK {
-		body, _ := io.ReadAll(resp.Body)
+		body, _ := ioutil.ReadAll(resp.Body)
 		return Value{}, fmt.Errorf("STS service returned non-OK status: %d, body: %s", resp.StatusCode, string(body))
 	}
 	stsResp := AssumeRoleWithOIDCResponse{}

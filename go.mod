@@ -1,6 +1,6 @@
 module github.com/volcengine/volcengine-go-sdk
 
-go 1.12
+go 1.14
 
 require (
 	github.com/google/uuid v1.3.0
