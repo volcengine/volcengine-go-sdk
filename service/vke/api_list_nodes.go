@@ -174,6 +174,8 @@ type FilterForListNodesInput struct {
 
 	Ids []*string `type:"list" json:",omitempty"`
 
+	InstanceIds []*string `type:"list" json:",omitempty"`
+
 	Name *string `type:"string" json:",omitempty"`
 
 	NodePoolIds []*string `type:"list" json:",omitempty"`
@@ -208,6 +210,12 @@ func (s *FilterForListNodesInput) SetCreateClientToken(v string) *FilterForListN
 // SetIds sets the Ids field's value.
 func (s *FilterForListNodesInput) SetIds(v []*string) *FilterForListNodesInput {
 	s.Ids = v
+	return s
+}
+
+// SetInstanceIds sets the InstanceIds field's value.
+func (s *FilterForListNodesInput) SetInstanceIds(v []*string) *FilterForListNodesInput {
+	s.InstanceIds = v
 	return s
 }
 

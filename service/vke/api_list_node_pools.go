@@ -884,6 +884,10 @@ type NodeConfigForListNodePoolsOutput struct {
 
 	ProjectName *string `type:"string" json:",omitempty"`
 
+	PublicAccessConfig *PublicAccessConfigForListNodePoolsOutput `type:"structure" json:",omitempty"`
+
+	PublicAccessEnabled *bool `type:"boolean" json:",omitempty"`
+
 	Security *SecurityForListNodePoolsOutput `type:"structure" json:",omitempty"`
 
 	SubnetIds []*string `type:"list" json:",omitempty"`
@@ -987,6 +991,18 @@ func (s *NodeConfigForListNodePoolsOutput) SetProjectName(v string) *NodeConfigF
 	return s
 }
 
+// SetPublicAccessConfig sets the PublicAccessConfig field's value.
+func (s *NodeConfigForListNodePoolsOutput) SetPublicAccessConfig(v *PublicAccessConfigForListNodePoolsOutput) *NodeConfigForListNodePoolsOutput {
+	s.PublicAccessConfig = v
+	return s
+}
+
+// SetPublicAccessEnabled sets the PublicAccessEnabled field's value.
+func (s *NodeConfigForListNodePoolsOutput) SetPublicAccessEnabled(v bool) *NodeConfigForListNodePoolsOutput {
+	s.PublicAccessEnabled = &v
+	return s
+}
+
 // SetSecurity sets the Security field's value.
 func (s *NodeConfigForListNodePoolsOutput) SetSecurity(v *SecurityForListNodePoolsOutput) *NodeConfigForListNodePoolsOutput {
 	s.Security = v
@@ -1070,6 +1086,44 @@ func (s *NodeStatisticsForListNodePoolsOutput) SetTotalCount(v int32) *NodeStati
 // SetUpdatingCount sets the UpdatingCount field's value.
 func (s *NodeStatisticsForListNodePoolsOutput) SetUpdatingCount(v int32) *NodeStatisticsForListNodePoolsOutput {
 	s.UpdatingCount = &v
+	return s
+}
+
+type PublicAccessConfigForListNodePoolsOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Bandwidth *int32 `type:"int32" json:",omitempty"`
+
+	BillingType *int32 `type:"int32" json:",omitempty"`
+
+	Isp *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s PublicAccessConfigForListNodePoolsOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s PublicAccessConfigForListNodePoolsOutput) GoString() string {
+	return s.String()
+}
+
+// SetBandwidth sets the Bandwidth field's value.
+func (s *PublicAccessConfigForListNodePoolsOutput) SetBandwidth(v int32) *PublicAccessConfigForListNodePoolsOutput {
+	s.Bandwidth = &v
+	return s
+}
+
+// SetBillingType sets the BillingType field's value.
+func (s *PublicAccessConfigForListNodePoolsOutput) SetBillingType(v int32) *PublicAccessConfigForListNodePoolsOutput {
+	s.BillingType = &v
+	return s
+}
+
+// SetIsp sets the Isp field's value.
+func (s *PublicAccessConfigForListNodePoolsOutput) SetIsp(v string) *PublicAccessConfigForListNodePoolsOutput {
+	s.Isp = &v
 	return s
 }
 

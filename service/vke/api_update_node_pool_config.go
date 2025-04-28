@@ -577,6 +577,10 @@ type NodeConfigForUpdateNodePoolConfigInput struct {
 
 	ProjectName *string `type:"string" json:",omitempty"`
 
+	PublicAccessConfig *PublicAccessConfigForUpdateNodePoolConfigInput `type:"structure" json:",omitempty"`
+
+	PublicAccessEnabled *bool `type:"boolean" json:",omitempty"`
+
 	Security *SecurityForUpdateNodePoolConfigInput `type:"structure" json:",omitempty"`
 
 	SubnetIds []*string `type:"list" json:",omitempty"`
@@ -662,6 +666,18 @@ func (s *NodeConfigForUpdateNodePoolConfigInput) SetProjectName(v string) *NodeC
 	return s
 }
 
+// SetPublicAccessConfig sets the PublicAccessConfig field's value.
+func (s *NodeConfigForUpdateNodePoolConfigInput) SetPublicAccessConfig(v *PublicAccessConfigForUpdateNodePoolConfigInput) *NodeConfigForUpdateNodePoolConfigInput {
+	s.PublicAccessConfig = v
+	return s
+}
+
+// SetPublicAccessEnabled sets the PublicAccessEnabled field's value.
+func (s *NodeConfigForUpdateNodePoolConfigInput) SetPublicAccessEnabled(v bool) *NodeConfigForUpdateNodePoolConfigInput {
+	s.PublicAccessEnabled = &v
+	return s
+}
+
 // SetSecurity sets the Security field's value.
 func (s *NodeConfigForUpdateNodePoolConfigInput) SetSecurity(v *SecurityForUpdateNodePoolConfigInput) *NodeConfigForUpdateNodePoolConfigInput {
 	s.Security = v
@@ -683,6 +699,44 @@ func (s *NodeConfigForUpdateNodePoolConfigInput) SetSystemVolume(v *SystemVolume
 // SetTags sets the Tags field's value.
 func (s *NodeConfigForUpdateNodePoolConfigInput) SetTags(v []*TagForUpdateNodePoolConfigInput) *NodeConfigForUpdateNodePoolConfigInput {
 	s.Tags = v
+	return s
+}
+
+type PublicAccessConfigForUpdateNodePoolConfigInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Bandwidth *int32 `type:"int32" json:",omitempty"`
+
+	BillingType *int32 `type:"int32" json:",omitempty"`
+
+	Isp *string `type:"string" json:",omitempty" enum:"EnumOfIspForUpdateNodePoolConfigInput"`
+}
+
+// String returns the string representation
+func (s PublicAccessConfigForUpdateNodePoolConfigInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s PublicAccessConfigForUpdateNodePoolConfigInput) GoString() string {
+	return s.String()
+}
+
+// SetBandwidth sets the Bandwidth field's value.
+func (s *PublicAccessConfigForUpdateNodePoolConfigInput) SetBandwidth(v int32) *PublicAccessConfigForUpdateNodePoolConfigInput {
+	s.Bandwidth = &v
+	return s
+}
+
+// SetBillingType sets the BillingType field's value.
+func (s *PublicAccessConfigForUpdateNodePoolConfigInput) SetBillingType(v int32) *PublicAccessConfigForUpdateNodePoolConfigInput {
+	s.BillingType = &v
+	return s
+}
+
+// SetIsp sets the Isp field's value.
+func (s *PublicAccessConfigForUpdateNodePoolConfigInput) SetIsp(v string) *PublicAccessConfigForUpdateNodePoolConfigInput {
+	s.Isp = &v
 	return s
 }
 
@@ -948,6 +1002,20 @@ const (
 
 	// EnumOfFileSystemForUpdateNodePoolConfigInputXfs is a EnumOfFileSystemForUpdateNodePoolConfigInput enum value
 	EnumOfFileSystemForUpdateNodePoolConfigInputXfs = "Xfs"
+)
+
+const (
+	// EnumOfIspForUpdateNodePoolConfigInputBgp is a EnumOfIspForUpdateNodePoolConfigInput enum value
+	EnumOfIspForUpdateNodePoolConfigInputBgp = "BGP"
+
+	// EnumOfIspForUpdateNodePoolConfigInputChinaMobile is a EnumOfIspForUpdateNodePoolConfigInput enum value
+	EnumOfIspForUpdateNodePoolConfigInputChinaMobile = "ChinaMobile"
+
+	// EnumOfIspForUpdateNodePoolConfigInputChinaTelecom is a EnumOfIspForUpdateNodePoolConfigInput enum value
+	EnumOfIspForUpdateNodePoolConfigInputChinaTelecom = "ChinaTelecom"
+
+	// EnumOfIspForUpdateNodePoolConfigInputChinaUnicom is a EnumOfIspForUpdateNodePoolConfigInput enum value
+	EnumOfIspForUpdateNodePoolConfigInputChinaUnicom = "ChinaUnicom"
 )
 
 const (
