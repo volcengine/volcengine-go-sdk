@@ -61,6 +61,12 @@ type Config struct {
 	// Regions and Endpoints.
 	Region *string
 
+	// BootstrapRegion is used to tell sdk to use the bootstrap region endpoint rule
+	// for the service.
+	//
+	// Key: region code
+	BootstrapRegion map[string]struct{}
+
 	// Set this to `true` to disable SSL when sending requests. Defaults
 	// to `false`.
 	DisableSSL *bool
@@ -162,7 +168,8 @@ type Config struct {
 	//     svc := s3.New(sess, &volcengine.Config{
 	//         UseDualStack: volcengine.Bool(true),
 	//     })
-	//UseDualStack *bool
+	// UseDualStack setting this to true will use dual stack endpoint for service
+	UseDualStack *bool
 
 	// SleepDelay is an override for the func the SDK will call when sleeping
 	// during the lifecycle of a request. Specifically this will be used for
@@ -252,16 +259,16 @@ type Config struct {
 // NewConfig returns a new Config pointer that can be chained with builder
 // methods to set multiple configuration values inline without using pointers.
 //
-//     // Create Session with MaxRetries configuration to be shared by multiple
-//     // service clients.
-//     sess := session.Must(session.NewSession(volcengine.NewConfig().
-//         WithMaxRetries(3),
-//     ))
+//	// Create Session with MaxRetries configuration to be shared by multiple
+//	// service clients.
+//	sess := session.Must(session.NewSession(volcengine.NewConfig().
+//	    WithMaxRetries(3),
+//	))
 //
-//     // Create S3 service client with a specific Region.
-//     svc := s3.New(sess, volcengine.NewConfig().
-//         WithRegion("us-west-2"),
-//     )
+//	// Create S3 service client with a specific Region.
+//	svc := s3.New(sess, volcengine.NewConfig().
+//	    WithRegion("us-west-2"),
+//	)
 func NewConfig() *Config {
 	return &Config{}
 }
@@ -390,6 +397,15 @@ func (c *Config) WithRegion(region string) *Config {
 	return c
 }
 
+// WithBootstrapRegion sets a config BootstrapRegion value returning a Config pointer
+func (c *Config) WithBootstrapRegion(bootstrapRegion map[string]struct{}) *Config {
+	c.BootstrapRegion = make(map[string]struct{})
+	for region := range bootstrapRegion {
+		c.BootstrapRegion[region] = struct{}{}
+	}
+	return c
+}
+
 // WithDisableSSL sets a config DisableSSL value returning a Config pointer
 // for chaining.
 func (c *Config) WithDisableSSL(disable bool) *Config {
@@ -458,10 +474,10 @@ func (c *Config) WithLogger(logger Logger) *Config {
 
 // WithUseDualStack sets a config UseDualStack value returning a Config
 // pointer for chaining.
-//func (c *Config) WithUseDualStack(enable bool) *Config {
-//	c.UseDualStack = &enable
-//	return c
-//}
+func (c *Config) WithUseDualStack(enable bool) *Config {
+	c.UseDualStack = &enable
+	return c
+}
 
 // WithEC2MetadataDisableTimeoutOverride sets a config EC2MetadataDisableTimeoutOverride value
 // returning a Config pointer for chaining.
@@ -485,10 +501,12 @@ func (c *Config) WithSleepDelay(fn func(time.Duration)) *Config {
 
 // WithDisableEndpointHostPrefix will set whether or not to use modeled host prefix
 // when making requests.
-//func (c *Config) WithDisableEndpointHostPrefix(t bool) *Config {
-//	c.DisableEndpointHostPrefix = &t
-//	return c
-//}
+//
+//	func (c *Config) WithDisableEndpointHostPrefix(t bool) *Config {
+//		c.DisableEndpointHostPrefix = &t
+//		return c
+//	}
+//
 // WithEndpointConfigState will set whether or not to use FileEndpointResolver
 func (c *Config) WithEndpointConfigState(t bool) *Config {
 	c.EndpointConfigState = &t
@@ -531,6 +549,10 @@ func mergeInConfig(dst *Config, other *Config) {
 
 	if other.Region != nil {
 		dst.Region = other.Region
+	}
+
+	if other.BootstrapRegion != nil {
+		dst.BootstrapRegion = other.BootstrapRegion
 	}
 
 	if other.DisableSSL != nil {
@@ -581,9 +603,9 @@ func mergeInConfig(dst *Config, other *Config) {
 	//	dst.S3DisableContentMD5Validation = other.S3DisableContentMD5Validation
 	//}
 	//
-	//if other.UseDualStack != nil {
-	//	dst.UseDualStack = other.UseDualStack
-	//}
+	if other.UseDualStack != nil {
+		dst.UseDualStack = other.UseDualStack
+	}
 	//
 	//if other.EC2MetadataDisableTimeoutOverride != nil {
 	//	dst.EC2MetadataDisableTimeoutOverride = other.EC2MetadataDisableTimeoutOverride

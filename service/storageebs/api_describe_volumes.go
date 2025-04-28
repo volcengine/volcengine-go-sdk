@@ -141,6 +141,36 @@ func (c *STORAGEEBS) DescribeVolumesWithContext(ctx volcengine.Context, input *D
 	return out, req.Send()
 }
 
+type AttachmentForDescribeVolumesOutput struct {
+	_ struct{} `type:"structure"`
+
+	AttachedTime *string `type:"string"`
+
+	InstanceId *string `type:"string"`
+}
+
+// String returns the string representation
+func (s AttachmentForDescribeVolumesOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s AttachmentForDescribeVolumesOutput) GoString() string {
+	return s.String()
+}
+
+// SetAttachedTime sets the AttachedTime field's value.
+func (s *AttachmentForDescribeVolumesOutput) SetAttachedTime(v string) *AttachmentForDescribeVolumesOutput {
+	s.AttachedTime = &v
+	return s
+}
+
+// SetInstanceId sets the InstanceId field's value.
+func (s *AttachmentForDescribeVolumesOutput) SetInstanceId(v string) *AttachmentForDescribeVolumesOutput {
+	s.InstanceId = &v
+	return s
+}
+
 type BaselinePerformanceForDescribeVolumesOutput struct {
 	_ struct{} `type:"structure"`
 
@@ -473,6 +503,8 @@ func (s *TotalPerformanceForDescribeVolumesOutput) SetThroughput(v int32) *Total
 type VolumeForDescribeVolumesOutput struct {
 	_ struct{} `type:"structure"`
 
+	Attachments []*AttachmentForDescribeVolumesOutput `type:"list"`
+
 	AutoSnapshotPolicyId *string `type:"string"`
 
 	AutoSnapshotPolicyName *string `type:"string"`
@@ -550,6 +582,12 @@ func (s VolumeForDescribeVolumesOutput) String() string {
 // GoString returns the string representation
 func (s VolumeForDescribeVolumesOutput) GoString() string {
 	return s.String()
+}
+
+// SetAttachments sets the Attachments field's value.
+func (s *VolumeForDescribeVolumesOutput) SetAttachments(v []*AttachmentForDescribeVolumesOutput) *VolumeForDescribeVolumesOutput {
+	s.Attachments = v
+	return s
 }
 
 // SetAutoSnapshotPolicyId sets the AutoSnapshotPolicyId field's value.

@@ -1,5 +1,11 @@
 package volcengineutil
 
+import (
+	"os"
+	"path/filepath"
+	"strings"
+)
+
 // Copy from https://github.com/aws/aws-sdk-go
 // May have been modified by Beijing Volcanoengine Technology Ltd.
 
@@ -35,9 +41,10 @@ func (c *Endpoint) GetEndpoint() string {
 }
 
 const (
-	separator      = "."
-	openPrefix     = "open"
-	endpointSuffix = separator + "volcengineapi.com"
+	separator               = "."
+	openPrefix              = "open"
+	endpointSuffix          = separator + "volcengineapi.com"
+	dualstackEndpointSuffix = separator + "volcengine-api.com"
 )
 
 var endpoint = openPrefix + endpointSuffix
@@ -45,299 +52,327 @@ var endpoint = openPrefix + endpointSuffix
 type RegionEndpointMap map[string]string
 
 type ServiceEndpointInfo struct {
-	Service         string
-	IsGlobal        bool
-	GlobalEndpoint  string
-	DefaultEndpoint string
+	Service        string
+	IsGlobal       bool
+	GlobalEndpoint string
 	RegionEndpointMap
 }
 
 const (
 	regionCodeCNBeijingAutoDriving = "cn-beijing-autodriving"
+	regionCodeAPSouthEast2         = "ap-southeast-2"
 	regionCodeAPSouthEast3         = "ap-southeast-3"
 )
 
 var defaultEndpoint = map[string]*ServiceEndpointInfo{
+	"mcs": {
+		Service:  "mcs",
+		IsGlobal: false,
+	},
+	"rocketmq": {
+		Service:  "rocketmq",
+		IsGlobal: false,
+	},
+	"bytehouse": {
+		Service:  "bytehouse",
+		IsGlobal: false,
+	},
+	"dns": {
+		Service:  "dns",
+		IsGlobal: true,
+	},
+	"autoscaling": {
+		Service:  "autoscaling",
+		IsGlobal: false,
+	},
+	"billing": {
+		Service:  "billing",
+		IsGlobal: false,
+	},
+	"spark": {
+		Service:  "spark",
+		IsGlobal: false,
+	},
+	"cloud_detect": {
+		Service:  "cloud_detect",
+		IsGlobal: false,
+	},
+	"filenas": {
+		Service:  "filenas",
+		IsGlobal: false,
+	},
+	"escloud": {
+		Service:  "escloud",
+		IsGlobal: false,
+	},
+	"ark": {
+		Service:  "ark",
+		IsGlobal: false,
+	},
+	"flink": {
+		Service:  "flink",
+		IsGlobal: false,
+	},
+	"cp": {
+		Service:  "cp",
+		IsGlobal: false,
+	},
+	"vefaas": {
+		Service:  "vefaas",
+		IsGlobal: false,
+	},
+	"ml_platform": {
+		Service:  "ml_platform",
+		IsGlobal: false,
+	},
+	"edx": {
+		Service:  "edx",
+		IsGlobal: true,
+	},
+	"dcdn": {
+		Service:  "dcdn",
+		IsGlobal: true,
+	},
+	"cdn": {
+		Service:  "cdn",
+		IsGlobal: true,
+	},
+	"kafka": {
+		Service:  "kafka",
+		IsGlobal: false,
+	},
+	"certificate_service": {
+		Service:  "certificate_service",
+		IsGlobal: true,
+	},
+	"waf": {
+		Service:  "waf",
+		IsGlobal: true,
+	},
+	"rds_mssql": {
+		Service:  "rds_mssql",
+		IsGlobal: false,
+	},
+	"cloudtrail": {
+		Service:  "cloudtrail",
+		IsGlobal: false,
+	},
+	"vei_api": {
+		Service:  "vei_api",
+		IsGlobal: true,
+	},
+	"cen": {
+		Service:  "cen",
+		IsGlobal: true,
+	},
+	"rabbitmq": {
+		Service:  "rabbitmq",
+		IsGlobal: false,
+	},
+	"vmp": {
+		Service:  "vmp",
+		IsGlobal: false,
+	},
+	"volc_observe": {
+		Service:  "volc_observe",
+		IsGlobal: false,
+	},
+	"dataleap": {
+		Service:  "dataleap",
+		IsGlobal: false,
+	},
+	"iam": {
+		Service:  "iam",
+		IsGlobal: true,
+	},
+	"fw_center": {
+		Service:  "fw_center",
+		IsGlobal: true,
+	},
+	"redis": {
+		Service:  "redis",
+		IsGlobal: false,
+	},
+	"mcdn": {
+		Service:  "mcdn",
+		IsGlobal: true,
+	},
+	"cloudidentity": {
+		Service:  "cloudidentity",
+		IsGlobal: false,
+	},
+	"vedbm": {
+		Service:  "vedbm",
+		IsGlobal: false,
+	},
+	"cv": {
+		Service:  "cv",
+		IsGlobal: true,
+	},
+	"translate": {
+		Service:  "translate",
+		IsGlobal: true,
+	},
+	"cloud_trail": {
+		Service:  "cloud_trail",
+		IsGlobal: false,
+	},
+	"bio": {
+		Service:  "bio",
+		IsGlobal: false,
+	},
+	"nta": {
+		Service:  "nta",
+		IsGlobal: true,
+	},
+	"elasticmapreduce": {
+		Service:  "elasticmapreduce",
+		IsGlobal: false,
+	},
+	"vepfs": {
+		Service:  "vepfs",
+		IsGlobal: false,
+	},
+	"seccenter": {
+		Service:  "seccenter",
+		IsGlobal: true,
+	},
+	"advdefence": {
+		Service:  "advdefence",
+		IsGlobal: true,
+	},
+	"tis": {
+		Service:  "tis",
+		IsGlobal: true,
+	},
+	"organization": {
+		Service:  "organization",
+		IsGlobal: true,
+	},
 	"vke": {
-		Service:         "vke",
-		IsGlobal:        false,
-		GlobalEndpoint:  "",
-		DefaultEndpoint: endpoint,
-		RegionEndpointMap: RegionEndpointMap{
-			regionCodeCNBeijingAutoDriving: "vke" + separator + regionCodeCNBeijingAutoDriving + endpointSuffix,
-		},
+		Service:  "vke",
+		IsGlobal: false,
 	},
 	"Redis": {
-		Service:         "Redis",
-		IsGlobal:        false,
-		GlobalEndpoint:  "",
-		DefaultEndpoint: endpoint,
-		RegionEndpointMap: RegionEndpointMap{
-			regionCodeCNBeijingAutoDriving: "redis" + separator + regionCodeCNBeijingAutoDriving + endpointSuffix,
-			regionCodeAPSouthEast3:         "redis" + separator + regionCodeAPSouthEast3 + endpointSuffix,
-		},
+		Service:  "Redis",
+		IsGlobal: false,
 	},
 	"privatelink": {
-		Service:         "privatelink",
-		IsGlobal:        false,
-		GlobalEndpoint:  "",
-		DefaultEndpoint: endpoint,
-		RegionEndpointMap: RegionEndpointMap{
-			regionCodeCNBeijingAutoDriving: "privatelink" + separator + regionCodeCNBeijingAutoDriving + endpointSuffix,
-			regionCodeAPSouthEast3:         "privatelink" + separator + regionCodeAPSouthEast3 + endpointSuffix,
-		},
+		Service:  "privatelink",
+		IsGlobal: false,
 	},
 	"vpc": {
-		Service:         "vpc",
-		IsGlobal:        false,
-		GlobalEndpoint:  "",
-		DefaultEndpoint: endpoint,
-		RegionEndpointMap: RegionEndpointMap{
-			regionCodeCNBeijingAutoDriving: "vpc" + separator + regionCodeCNBeijingAutoDriving + endpointSuffix,
-			regionCodeAPSouthEast3:         "vpc" + separator + regionCodeAPSouthEast3 + endpointSuffix,
-		},
+		Service:  "vpc",
+		IsGlobal: false,
 	},
 	"RocketMQ": {
-		Service:         "RocketMQ",
-		IsGlobal:        false,
-		GlobalEndpoint:  "",
-		DefaultEndpoint: endpoint,
-		RegionEndpointMap: RegionEndpointMap{
-			regionCodeCNBeijingAutoDriving: "rocketmq" + separator + regionCodeCNBeijingAutoDriving + endpointSuffix,
-			regionCodeAPSouthEast3:         "rocketmq" + separator + regionCodeAPSouthEast3 + endpointSuffix,
-		},
+		Service:  "RocketMQ",
+		IsGlobal: false,
 	},
 	"Kafka": {
-		Service:         "Kafka",
-		IsGlobal:        false,
-		GlobalEndpoint:  "",
-		DefaultEndpoint: endpoint,
-		RegionEndpointMap: RegionEndpointMap{
-			regionCodeCNBeijingAutoDriving: "kafka" + separator + regionCodeCNBeijingAutoDriving + endpointSuffix,
-			regionCodeAPSouthEast3:         "kafka" + separator + regionCodeAPSouthEast3 + endpointSuffix,
-		},
+		Service:  "Kafka",
+		IsGlobal: false,
 	},
 	"rds_mysql": {
-		Service:         "rds_mysql",
-		IsGlobal:        false,
-		GlobalEndpoint:  "",
-		DefaultEndpoint: endpoint,
-		RegionEndpointMap: RegionEndpointMap{
-			regionCodeCNBeijingAutoDriving: "rds-mysql" + separator + regionCodeCNBeijingAutoDriving + endpointSuffix,
-			regionCodeAPSouthEast3:         "rds-mysql" + separator + regionCodeAPSouthEast3 + endpointSuffix,
-		},
+		Service:  "rds_mysql",
+		IsGlobal: false,
 	},
 	"rds_postgresql": {
-		Service:         "rds_postgresql",
-		IsGlobal:        false,
-		GlobalEndpoint:  "",
-		DefaultEndpoint: endpoint,
-		RegionEndpointMap: RegionEndpointMap{
-			regionCodeCNBeijingAutoDriving: "rds-postgresql" + separator + regionCodeCNBeijingAutoDriving + endpointSuffix,
-			regionCodeAPSouthEast3:         "rds-postgresql" + separator + regionCodeAPSouthEast3 + endpointSuffix,
-		},
+		Service:  "rds_postgresql",
+		IsGlobal: false,
 	},
 	"storage_ebs": {
-		Service:         "storage_ebs",
-		IsGlobal:        false,
-		GlobalEndpoint:  "",
-		DefaultEndpoint: endpoint,
-		RegionEndpointMap: RegionEndpointMap{
-			regionCodeCNBeijingAutoDriving: "storage-ebs" + separator + regionCodeCNBeijingAutoDriving + endpointSuffix,
-			regionCodeAPSouthEast3:         "storage-ebs" + separator + regionCodeAPSouthEast3 + endpointSuffix,
-		},
+		Service:  "storage_ebs",
+		IsGlobal: false,
 	},
 	"clb": {
-		Service:         "clb",
-		IsGlobal:        false,
-		GlobalEndpoint:  "",
-		DefaultEndpoint: endpoint,
-		RegionEndpointMap: RegionEndpointMap{
-			regionCodeCNBeijingAutoDriving: "clb" + separator + regionCodeCNBeijingAutoDriving + endpointSuffix,
-		},
+		Service:  "clb",
+		IsGlobal: false,
 	},
 	"ecs": {
-		Service:         "ecs",
-		IsGlobal:        false,
-		GlobalEndpoint:  "",
-		DefaultEndpoint: endpoint,
-		RegionEndpointMap: RegionEndpointMap{
-			regionCodeCNBeijingAutoDriving: "ecs" + separator + regionCodeCNBeijingAutoDriving + endpointSuffix,
-			regionCodeAPSouthEast3:         "ecs" + separator + regionCodeAPSouthEast3 + endpointSuffix,
-		},
+		Service:  "ecs",
+		IsGlobal: false,
 	},
 	"alb": {
-		Service:         "alb",
-		IsGlobal:        false,
-		GlobalEndpoint:  "",
-		DefaultEndpoint: endpoint,
-		RegionEndpointMap: RegionEndpointMap{
-			regionCodeCNBeijingAutoDriving: "alb" + separator + regionCodeCNBeijingAutoDriving + endpointSuffix,
-			regionCodeAPSouthEast3:         "alb" + separator + regionCodeAPSouthEast3 + endpointSuffix,
-		},
+		Service:  "alb",
+		IsGlobal: false,
 	},
 	"FileNAS": {
-		Service:         "FileNAS",
-		IsGlobal:        false,
-		GlobalEndpoint:  "",
-		DefaultEndpoint: endpoint,
-		RegionEndpointMap: RegionEndpointMap{
-			regionCodeCNBeijingAutoDriving: "filenas" + separator + regionCodeCNBeijingAutoDriving + endpointSuffix,
-		},
+		Service:  "FileNAS",
+		IsGlobal: false,
 	},
 	"configcenter": {
-		Service:         "configcenter",
-		IsGlobal:        false,
-		GlobalEndpoint:  "",
-		DefaultEndpoint: endpoint,
-		RegionEndpointMap: RegionEndpointMap{
-			regionCodeCNBeijingAutoDriving: "configcenter" + separator + regionCodeCNBeijingAutoDriving + endpointSuffix,
-		},
+		Service:  "configcenter",
+		IsGlobal: false,
 	},
 	"cr": {
-		Service:         "cr",
-		IsGlobal:        false,
-		GlobalEndpoint:  "",
-		DefaultEndpoint: endpoint,
-		RegionEndpointMap: RegionEndpointMap{
-			regionCodeCNBeijingAutoDriving: "cr" + separator + regionCodeCNBeijingAutoDriving + endpointSuffix,
-		},
+		Service:  "cr",
+		IsGlobal: false,
 	},
 	"sts": {
-		Service:         "sts",
-		IsGlobal:        false,
-		GlobalEndpoint:  "",
-		DefaultEndpoint: endpoint,
-		RegionEndpointMap: RegionEndpointMap{
-			regionCodeCNBeijingAutoDriving: "sts" + separator + regionCodeCNBeijingAutoDriving + endpointSuffix,
-		},
+		Service:  "sts",
+		IsGlobal: false,
 	},
 	"mongodb": {
-		Service:         "mongodb",
-		IsGlobal:        false,
-		GlobalEndpoint:  "",
-		DefaultEndpoint: endpoint,
-		RegionEndpointMap: RegionEndpointMap{
-			regionCodeCNBeijingAutoDriving: "mongodb" + separator + regionCodeCNBeijingAutoDriving + endpointSuffix,
-			regionCodeAPSouthEast3:         "mongodb" + separator + regionCodeAPSouthEast3 + endpointSuffix,
-		},
+		Service:  "mongodb",
+		IsGlobal: false,
 	},
 	"transitrouter": {
-		Service:         "transitrouter",
-		IsGlobal:        false,
-		GlobalEndpoint:  "",
-		DefaultEndpoint: endpoint,
-		RegionEndpointMap: RegionEndpointMap{
-			regionCodeCNBeijingAutoDriving: "transitrouter" + separator + regionCodeCNBeijingAutoDriving + endpointSuffix,
-			regionCodeAPSouthEast3:         "transitrouter" + separator + regionCodeAPSouthEast3 + endpointSuffix,
-		},
+		Service:  "transitrouter",
+		IsGlobal: false,
 	},
 	"Volc_Observe": {
-		Service:         "Volc_Observe",
-		IsGlobal:        false,
-		GlobalEndpoint:  "",
-		DefaultEndpoint: endpoint,
-		RegionEndpointMap: RegionEndpointMap{
-			regionCodeCNBeijingAutoDriving: "volc-observe" + separator + regionCodeCNBeijingAutoDriving + endpointSuffix,
-			regionCodeAPSouthEast3:         "volc-observe" + separator + regionCodeAPSouthEast3 + endpointSuffix,
-		},
+		Service:  "Volc_Observe",
+		IsGlobal: false,
 	},
 	"dms": {
-		Service:         "dms",
-		IsGlobal:        false,
-		GlobalEndpoint:  "",
-		DefaultEndpoint: endpoint,
-		RegionEndpointMap: RegionEndpointMap{
-			regionCodeCNBeijingAutoDriving: "dms" + separator + regionCodeCNBeijingAutoDriving + endpointSuffix,
-			regionCodeAPSouthEast3:         "dms" + separator + regionCodeAPSouthEast3 + endpointSuffix,
-		},
+		Service:  "dms",
+		IsGlobal: false,
 	},
 	"auto_scaling": {
-		Service:         "auto_scaling",
-		IsGlobal:        false,
-		GlobalEndpoint:  "",
-		DefaultEndpoint: endpoint,
-		RegionEndpointMap: RegionEndpointMap{
-			regionCodeCNBeijingAutoDriving: "auto-scaling" + separator + regionCodeCNBeijingAutoDriving + endpointSuffix,
-			regionCodeAPSouthEast3:         "auto-scaling" + separator + regionCodeAPSouthEast3 + endpointSuffix,
-		},
+		Service:  "auto_scaling",
+		IsGlobal: false,
 	},
 	"directconnect": {
-		Service:         "directconnect",
-		IsGlobal:        false,
-		GlobalEndpoint:  "",
-		DefaultEndpoint: endpoint,
-		RegionEndpointMap: RegionEndpointMap{
-			regionCodeCNBeijingAutoDriving: "directconnect" + separator + regionCodeCNBeijingAutoDriving + endpointSuffix,
-			regionCodeAPSouthEast3:         "directconnect" + separator + regionCodeAPSouthEast3 + endpointSuffix,
-		},
+		Service:  "directconnect",
+		IsGlobal: false,
 	},
 	"kms": {
-		Service:         "kms",
-		IsGlobal:        false,
-		GlobalEndpoint:  "",
-		DefaultEndpoint: endpoint,
-		RegionEndpointMap: RegionEndpointMap{
-			regionCodeCNBeijingAutoDriving: "kms" + separator + regionCodeCNBeijingAutoDriving + endpointSuffix,
-		},
+		Service:  "kms",
+		IsGlobal: false,
 	},
 	"dbw": {
-		Service:         "dbw",
-		IsGlobal:        false,
-		GlobalEndpoint:  "",
-		DefaultEndpoint: endpoint,
-		RegionEndpointMap: RegionEndpointMap{
-			regionCodeAPSouthEast3: "dbw" + separator + regionCodeAPSouthEast3 + endpointSuffix,
-		},
+		Service:  "dbw",
+		IsGlobal: false,
 	},
 	"dts": {
-		Service:         "dts",
-		IsGlobal:        false,
-		GlobalEndpoint:  "",
-		DefaultEndpoint: endpoint,
-		RegionEndpointMap: RegionEndpointMap{
-			regionCodeCNBeijingAutoDriving: "dts" + separator + regionCodeCNBeijingAutoDriving + endpointSuffix,
-			regionCodeAPSouthEast3:         "dts" + separator + regionCodeAPSouthEast3 + endpointSuffix,
-		},
+		Service:  "dts",
+		IsGlobal: false,
 	},
 	"natgateway": {
-		Service:         "natgateway",
-		IsGlobal:        false,
-		GlobalEndpoint:  "",
-		DefaultEndpoint: endpoint,
-		RegionEndpointMap: RegionEndpointMap{
-			regionCodeAPSouthEast3: "natgateway" + separator + regionCodeAPSouthEast3 + endpointSuffix,
-		},
+		Service:  "natgateway",
+		IsGlobal: false,
 	},
 	"tos": {
-		Service:         "tos",
-		IsGlobal:        false,
-		GlobalEndpoint:  "",
-		DefaultEndpoint: endpoint,
-		RegionEndpointMap: RegionEndpointMap{
-			regionCodeCNBeijingAutoDriving: "tos" + separator + regionCodeCNBeijingAutoDriving + endpointSuffix,
-			regionCodeAPSouthEast3:         "tos" + separator + regionCodeAPSouthEast3 + endpointSuffix,
-		},
+		Service:  "tos",
+		IsGlobal: false,
 	},
 	"TLS": {
-		Service:         "TLS",
-		IsGlobal:        false,
-		GlobalEndpoint:  "",
-		DefaultEndpoint: endpoint,
-		RegionEndpointMap: RegionEndpointMap{
-			regionCodeCNBeijingAutoDriving: "tls" + separator + regionCodeCNBeijingAutoDriving + endpointSuffix,
-			regionCodeAPSouthEast3:         "tls" + separator + regionCodeAPSouthEast3 + endpointSuffix,
-		},
+		Service:  "TLS",
+		IsGlobal: false,
 	},
 	"vpn": {
-		Service:         "vpn",
-		IsGlobal:        false,
-		GlobalEndpoint:  "",
-		DefaultEndpoint: endpoint,
-		RegionEndpointMap: RegionEndpointMap{
-			regionCodeAPSouthEast3: "vpn" + separator + regionCodeAPSouthEast3 + endpointSuffix,
-		},
+		Service:  "vpn",
+		IsGlobal: false,
 	},
+	"vod": {
+		Service:  "vod",
+		IsGlobal: false,
+	},
+}
+
+func standardizeDomainServiceCode(serviceCode string) string {
+	return strings.ReplaceAll(strings.ToLower(serviceCode), "_", "-")
 }
 
 // GetDefaultEndpointByServiceInfo retrieves the default endpoint for a given service and region.
@@ -349,31 +384,48 @@ var defaultEndpoint = map[string]*ServiceEndpointInfo{
 // Parameters:
 // - service: The name of the service for which to retrieve the endpoint.
 // - regionCode: The region code to look up the region-specific endpoint.
-//
+// - customBootstrapRegion: The map which keys are bootstrapping region code and values are empty struct.
 // Returns:
 // - *string: A pointer to the endpoint string. It could be a global endpoint, a region-specific
 // endpoint, or a default endpoint if the specified service or region does not have a defined endpoint.
 //
 // Example:
-//   endpoint := GetDefaultEndpointByServiceInfo("exampleService", "cn-beijing")
+//
+//	endpoint := GetDefaultEndpointByServiceInfo("exampleService", "cn-beijing", nil)
 //
 // Note: Ensure the `defaultEndpoint` map is properly populated with service and region endpoint
 // information before calling this function.
-func GetDefaultEndpointByServiceInfo(service string, regionCode string) *string {
+func GetDefaultEndpointByServiceInfo(service string, regionCode string,
+	customBootstrapRegion map[string]struct{}, useDualStack *bool) *string {
+
 	resultEndpoint := endpoint
+
+	if !inBootstrapRegionList(regionCode, customBootstrapRegion) {
+		return &resultEndpoint
+	}
+
 	defaultEndpointInfo, sExist := defaultEndpoint[service]
 	if !sExist {
 		return &resultEndpoint
 	}
 
-	isGlobal := defaultEndpointInfo.IsGlobal
-	if isGlobal {
+	suffix := endpointSuffix
+	if hasEnableDualStack(useDualStack) {
+		suffix = dualstackEndpointSuffix
+	}
+
+	if defaultEndpointInfo.IsGlobal {
 		if len(defaultEndpointInfo.GlobalEndpoint) > 0 {
 			resultEndpoint = defaultEndpointInfo.GlobalEndpoint
 			return &resultEndpoint
 		}
-	} else {
-		regionEndpointMp := defaultEndpointInfo.RegionEndpointMap
+		resultEndpoint = standardizeDomainServiceCode(service) + suffix
+		return &resultEndpoint
+	}
+
+	// regional endpoint
+	regionEndpointMp := defaultEndpointInfo.RegionEndpointMap
+	if regionEndpointMp != nil {
 		regionEndpointStr, rExist := regionEndpointMp[regionCode]
 		if rExist {
 			resultEndpoint = regionEndpointStr
@@ -381,9 +433,53 @@ func GetDefaultEndpointByServiceInfo(service string, regionCode string) *string 
 		}
 	}
 
-	if len(defaultEndpointInfo.DefaultEndpoint) > 0 {
-		resultEndpoint = defaultEndpointInfo.DefaultEndpoint
-		return &resultEndpoint
-	}
+	resultEndpoint = standardizeDomainServiceCode(service) + separator + regionCode + suffix
 	return &resultEndpoint
+
+}
+
+var bootstrapRegion = map[string]struct{}{
+	regionCodeCNBeijingAutoDriving: {},
+	regionCodeAPSouthEast2:         {},
+	regionCodeAPSouthEast3:         {},
+}
+
+func inBootstrapRegionList(regionCode string, customBootstrapRegion map[string]struct{}) bool {
+	regionCode = strings.TrimSpace(regionCode)
+	bsRegionListPath := os.Getenv("VOLC_BOOTSTRAP_REGION_LIST_CONF")
+	if len(bsRegionListPath) > 0 {
+		f, err := os.ReadFile(filepath.Clean(bsRegionListPath))
+		if err == nil {
+			for _, l := range strings.Split(string(f), "\n") {
+				l = strings.TrimSpace(l)
+				if len(l) == 0 {
+					continue
+				}
+				if l == regionCode {
+					return true
+				}
+			}
+		}
+	}
+
+	if len(bootstrapRegion) > 0 {
+		_, ok := bootstrapRegion[regionCode]
+		if ok {
+			return ok
+		}
+	}
+
+	if len(customBootstrapRegion) > 0 {
+		_, ok := customBootstrapRegion[regionCode]
+		return ok
+	}
+
+	return false
+}
+
+func hasEnableDualStack(useDualStack *bool) bool {
+	if useDualStack == nil {
+		return os.Getenv("VOLC_ENABLE_DUALSTACK") == "true"
+	}
+	return *useDualStack
 }

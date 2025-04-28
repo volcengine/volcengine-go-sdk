@@ -254,6 +254,14 @@ type STORAGEEBSAPI interface {
 	ModifyAutoSnapshotPolicyWithContext(volcengine.Context, *ModifyAutoSnapshotPolicyInput, ...request.Option) (*ModifyAutoSnapshotPolicyOutput, error)
 	ModifyAutoSnapshotPolicyRequest(*ModifyAutoSnapshotPolicyInput) (*request.Request, *ModifyAutoSnapshotPolicyOutput)
 
+	ModifyReservedStorageCapacityEffectiveAtCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ModifyReservedStorageCapacityEffectiveAtCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ModifyReservedStorageCapacityEffectiveAtCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ModifyReservedStorageCapacityEffectiveAt(*ModifyReservedStorageCapacityEffectiveAtInput) (*ModifyReservedStorageCapacityEffectiveAtOutput, error)
+	ModifyReservedStorageCapacityEffectiveAtWithContext(volcengine.Context, *ModifyReservedStorageCapacityEffectiveAtInput, ...request.Option) (*ModifyReservedStorageCapacityEffectiveAtOutput, error)
+	ModifyReservedStorageCapacityEffectiveAtRequest(*ModifyReservedStorageCapacityEffectiveAtInput) (*request.Request, *ModifyReservedStorageCapacityEffectiveAtOutput)
+
 	ModifySnapshotAttributeCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ModifySnapshotAttributeCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	ModifySnapshotAttributeCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
