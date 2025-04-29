@@ -143,62 +143,98 @@ func (c *MONGODB) RestoreToNewInstanceWithContext(ctx volcengine.Context, input 
 	return out, req.Send()
 }
 
+type NodeAvailabilityZoneForRestoreToNewInstanceInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	NodeNumber *int32 `type:"int32" json:",omitempty"`
+
+	ZoneId *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s NodeAvailabilityZoneForRestoreToNewInstanceInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s NodeAvailabilityZoneForRestoreToNewInstanceInput) GoString() string {
+	return s.String()
+}
+
+// SetNodeNumber sets the NodeNumber field's value.
+func (s *NodeAvailabilityZoneForRestoreToNewInstanceInput) SetNodeNumber(v int32) *NodeAvailabilityZoneForRestoreToNewInstanceInput {
+	s.NodeNumber = &v
+	return s
+}
+
+// SetZoneId sets the ZoneId field's value.
+func (s *NodeAvailabilityZoneForRestoreToNewInstanceInput) SetZoneId(v string) *NodeAvailabilityZoneForRestoreToNewInstanceInput {
+	s.ZoneId = &v
+	return s
+}
+
 type RestoreToNewInstanceInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	AutoRenew *bool `type:"boolean"`
+	AutoRenew *bool `type:"boolean" json:",omitempty"`
 
-	BackupId *string `type:"string"`
+	BackupId *string `type:"string" json:",omitempty"`
 
-	ChargeType *string `type:"string" enum:"EnumOfChargeTypeForRestoreToNewInstanceInput"`
+	ChargeType *string `type:"string" json:",omitempty" enum:"EnumOfChargeTypeForRestoreToNewInstanceInput"`
 
-	DBEngine *string `type:"string" enum:"EnumOfDBEngineForRestoreToNewInstanceInput"`
+	ConfigServerNodeSpec *string `type:"string" json:",omitempty"`
 
-	DBEngineVersion *string `type:"string" enum:"EnumOfDBEngineVersionForRestoreToNewInstanceInput"`
+	ConfigServerStorageSpaceGB *int32 `type:"int32" json:",omitempty"`
 
-	InstanceName *string `type:"string"`
+	DBEngine *string `type:"string" json:",omitempty" enum:"EnumOfDBEngineForRestoreToNewInstanceInput"`
 
-	InstanceType *string `type:"string" enum:"EnumOfInstanceTypeForRestoreToNewInstanceInput"`
+	DBEngineVersion *string `type:"string" json:",omitempty" enum:"EnumOfDBEngineVersionForRestoreToNewInstanceInput"`
 
-	MongosNodeNumber *int32 `type:"int32"`
+	InstanceName *string `type:"string" json:",omitempty"`
 
-	MongosNodeSpec *string `type:"string"`
+	InstanceType *string `type:"string" json:",omitempty" enum:"EnumOfInstanceTypeForRestoreToNewInstanceInput"`
 
-	NodeNumber *int32 `type:"int32"`
+	MongosNodeNumber *int32 `type:"int32" json:",omitempty"`
+
+	MongosNodeSpec *string `type:"string" json:",omitempty"`
+
+	NodeAvailabilityZone []*NodeAvailabilityZoneForRestoreToNewInstanceInput `type:"list" json:",omitempty"`
+
+	NodeNumber *int32 `type:"int32" json:",omitempty"`
 
 	// NodeSpec is a required field
-	NodeSpec *string `type:"string" required:"true"`
+	NodeSpec *string `type:"string" json:",omitempty" required:"true"`
 
-	Number *int32 `type:"int32"`
+	Period *int32 `type:"int32" json:",omitempty"`
 
-	Period *int32 `type:"int32"`
+	PeriodUnit *string `type:"string" json:",omitempty" enum:"EnumOfPeriodUnitForRestoreToNewInstanceInput"`
 
-	PeriodUnit *string `type:"string" enum:"EnumOfPeriodUnitForRestoreToNewInstanceInput"`
+	ProjectName *string `type:"string" json:",omitempty"`
 
-	ProjectName *string `type:"string"`
+	RestoreTime *string `type:"string" json:",omitempty"`
 
-	RestoreTime *string `type:"string"`
-
-	ShardNumber *int32 `type:"int32"`
+	ShardNumber *int32 `type:"int32" json:",omitempty"`
 
 	// SrcDBInstanceId is a required field
-	SrcDBInstanceId *string `type:"string" required:"true"`
+	SrcDBInstanceId *string `type:"string" json:",omitempty" required:"true"`
 
 	// StorageSpaceGB is a required field
-	StorageSpaceGB *int32 `type:"int32" required:"true"`
+	StorageSpaceGB *int32 `type:"int32" json:",omitempty" required:"true"`
 
 	// SubnetId is a required field
-	SubnetId *string `type:"string" required:"true"`
+	SubnetId *string `type:"string" json:",omitempty" required:"true"`
 
-	SuperAccountName *string `type:"string"`
+	SuperAccountName *string `type:"string" json:",omitempty"`
 
-	SuperAccountPassword *string `type:"string"`
+	SuperAccountPassword *string `type:"string" json:",omitempty"`
+
+	Tags []*TagForRestoreToNewInstanceInput `type:"list" json:",omitempty"`
 
 	// VpcId is a required field
-	VpcId *string `type:"string" required:"true"`
+	VpcId *string `type:"string" json:",omitempty" required:"true"`
 
 	// ZoneId is a required field
-	ZoneId *string `type:"string" required:"true"`
+	ZoneId *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -257,6 +293,18 @@ func (s *RestoreToNewInstanceInput) SetChargeType(v string) *RestoreToNewInstanc
 	return s
 }
 
+// SetConfigServerNodeSpec sets the ConfigServerNodeSpec field's value.
+func (s *RestoreToNewInstanceInput) SetConfigServerNodeSpec(v string) *RestoreToNewInstanceInput {
+	s.ConfigServerNodeSpec = &v
+	return s
+}
+
+// SetConfigServerStorageSpaceGB sets the ConfigServerStorageSpaceGB field's value.
+func (s *RestoreToNewInstanceInput) SetConfigServerStorageSpaceGB(v int32) *RestoreToNewInstanceInput {
+	s.ConfigServerStorageSpaceGB = &v
+	return s
+}
+
 // SetDBEngine sets the DBEngine field's value.
 func (s *RestoreToNewInstanceInput) SetDBEngine(v string) *RestoreToNewInstanceInput {
 	s.DBEngine = &v
@@ -293,6 +341,12 @@ func (s *RestoreToNewInstanceInput) SetMongosNodeSpec(v string) *RestoreToNewIns
 	return s
 }
 
+// SetNodeAvailabilityZone sets the NodeAvailabilityZone field's value.
+func (s *RestoreToNewInstanceInput) SetNodeAvailabilityZone(v []*NodeAvailabilityZoneForRestoreToNewInstanceInput) *RestoreToNewInstanceInput {
+	s.NodeAvailabilityZone = v
+	return s
+}
+
 // SetNodeNumber sets the NodeNumber field's value.
 func (s *RestoreToNewInstanceInput) SetNodeNumber(v int32) *RestoreToNewInstanceInput {
 	s.NodeNumber = &v
@@ -302,12 +356,6 @@ func (s *RestoreToNewInstanceInput) SetNodeNumber(v int32) *RestoreToNewInstance
 // SetNodeSpec sets the NodeSpec field's value.
 func (s *RestoreToNewInstanceInput) SetNodeSpec(v string) *RestoreToNewInstanceInput {
 	s.NodeSpec = &v
-	return s
-}
-
-// SetNumber sets the Number field's value.
-func (s *RestoreToNewInstanceInput) SetNumber(v int32) *RestoreToNewInstanceInput {
-	s.Number = &v
 	return s
 }
 
@@ -371,6 +419,12 @@ func (s *RestoreToNewInstanceInput) SetSuperAccountPassword(v string) *RestoreTo
 	return s
 }
 
+// SetTags sets the Tags field's value.
+func (s *RestoreToNewInstanceInput) SetTags(v []*TagForRestoreToNewInstanceInput) *RestoreToNewInstanceInput {
+	s.Tags = v
+	return s
+}
+
 // SetVpcId sets the VpcId field's value.
 func (s *RestoreToNewInstanceInput) SetVpcId(v string) *RestoreToNewInstanceInput {
 	s.VpcId = &v
@@ -384,13 +438,13 @@ func (s *RestoreToNewInstanceInput) SetZoneId(v string) *RestoreToNewInstanceInp
 }
 
 type RestoreToNewInstanceOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	InstanceId *string `type:"string"`
+	InstanceId *string `type:"string" json:",omitempty"`
 
-	OrderNO *string `type:"string"`
+	OrderNO *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -412,6 +466,36 @@ func (s *RestoreToNewInstanceOutput) SetInstanceId(v string) *RestoreToNewInstan
 // SetOrderNO sets the OrderNO field's value.
 func (s *RestoreToNewInstanceOutput) SetOrderNO(v string) *RestoreToNewInstanceOutput {
 	s.OrderNO = &v
+	return s
+}
+
+type TagForRestoreToNewInstanceInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Key *string `type:"string" json:",omitempty"`
+
+	Value *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s TagForRestoreToNewInstanceInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagForRestoreToNewInstanceInput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagForRestoreToNewInstanceInput) SetKey(v string) *TagForRestoreToNewInstanceInput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *TagForRestoreToNewInstanceInput) SetValue(v string) *TagForRestoreToNewInstanceInput {
+	s.Value = &v
 	return s
 }
 
@@ -446,6 +530,9 @@ const (
 
 	// EnumOfDBEngineVersionForRestoreToNewInstanceInputMongoDb60 is a EnumOfDBEngineVersionForRestoreToNewInstanceInput enum value
 	EnumOfDBEngineVersionForRestoreToNewInstanceInputMongoDb60 = "MongoDB_6_0"
+
+	// EnumOfDBEngineVersionForRestoreToNewInstanceInputMongoDbInner40 is a EnumOfDBEngineVersionForRestoreToNewInstanceInput enum value
+	EnumOfDBEngineVersionForRestoreToNewInstanceInputMongoDbInner40 = "MongoDB_Inner_4_0"
 )
 
 const (

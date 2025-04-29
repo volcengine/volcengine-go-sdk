@@ -144,10 +144,10 @@ func (c *MONGODB) DescribeDBInstanceSSLWithContext(ctx volcengine.Context, input
 }
 
 type DescribeDBInstanceSSLInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// InstanceId is a required field
-	InstanceId *string `type:"string" required:"true"`
+	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -180,17 +180,17 @@ func (s *DescribeDBInstanceSSLInput) SetInstanceId(v string) *DescribeDBInstance
 }
 
 type DescribeDBInstanceSSLOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	InstanceId *string `type:"string"`
+	InstanceId *string `type:"string" json:",omitempty"`
 
-	IsValid *bool `type:"boolean"`
+	IsValid *bool `type:"boolean" json:",omitempty"`
 
-	SSLEnable *bool `type:"boolean"`
+	SSLEnable *bool `type:"boolean" json:",omitempty"`
 
-	SSLExpiredTime *string `type:"string"`
+	SSLExpiredTime *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation

@@ -144,12 +144,12 @@ func (c *MONGODB) CreateBackupWithContext(ctx volcengine.Context, input *CreateB
 }
 
 type CreateBackupInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	BackupType *string `type:"string" enum:"EnumOfBackupTypeForCreateBackupInput"`
+	BackupType *string `type:"string" json:",omitempty" enum:"EnumOfBackupTypeForCreateBackupInput"`
 
 	// InstanceId is a required field
-	InstanceId *string `type:"string" required:"true"`
+	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -188,7 +188,7 @@ func (s *CreateBackupInput) SetInstanceId(v string) *CreateBackupInput {
 }
 
 type CreateBackupOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 }

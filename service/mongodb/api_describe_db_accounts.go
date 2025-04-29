@@ -144,13 +144,21 @@ func (c *MONGODB) DescribeDBAccountsWithContext(ctx volcengine.Context, input *D
 }
 
 type AccountForDescribeDBAccountsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	AccountName *string `type:"string"`
+	AccountDesc *string `type:"string" json:",omitempty"`
 
-	AccountPrivileges []*AccountPrivilegeForDescribeDBAccountsOutput `type:"list"`
+	AccountName *string `type:"string" json:",omitempty"`
 
-	AccountType *string `type:"string" enum:"EnumOfAccountTypeForDescribeDBAccountsOutput"`
+	AccountPrivileges []*AccountPrivilegeForDescribeDBAccountsOutput `type:"list" json:",omitempty"`
+
+	AccountType *string `type:"string" json:",omitempty" enum:"EnumOfAccountTypeForDescribeDBAccountsOutput"`
+
+	AuthDB *string `type:"string" json:",omitempty"`
+
+	CreateTime *string `type:"string" json:",omitempty"`
+
+	ModifyTime *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -161,6 +169,12 @@ func (s AccountForDescribeDBAccountsOutput) String() string {
 // GoString returns the string representation
 func (s AccountForDescribeDBAccountsOutput) GoString() string {
 	return s.String()
+}
+
+// SetAccountDesc sets the AccountDesc field's value.
+func (s *AccountForDescribeDBAccountsOutput) SetAccountDesc(v string) *AccountForDescribeDBAccountsOutput {
+	s.AccountDesc = &v
+	return s
 }
 
 // SetAccountName sets the AccountName field's value.
@@ -181,12 +195,30 @@ func (s *AccountForDescribeDBAccountsOutput) SetAccountType(v string) *AccountFo
 	return s
 }
 
+// SetAuthDB sets the AuthDB field's value.
+func (s *AccountForDescribeDBAccountsOutput) SetAuthDB(v string) *AccountForDescribeDBAccountsOutput {
+	s.AuthDB = &v
+	return s
+}
+
+// SetCreateTime sets the CreateTime field's value.
+func (s *AccountForDescribeDBAccountsOutput) SetCreateTime(v string) *AccountForDescribeDBAccountsOutput {
+	s.CreateTime = &v
+	return s
+}
+
+// SetModifyTime sets the ModifyTime field's value.
+func (s *AccountForDescribeDBAccountsOutput) SetModifyTime(v string) *AccountForDescribeDBAccountsOutput {
+	s.ModifyTime = &v
+	return s
+}
+
 type AccountPrivilegeForDescribeDBAccountsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	DBName *string `type:"string"`
+	DBName *string `type:"string" json:",omitempty"`
 
-	RoleName *string `type:"string"`
+	RoleName *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -212,16 +244,18 @@ func (s *AccountPrivilegeForDescribeDBAccountsOutput) SetRoleName(v string) *Acc
 }
 
 type DescribeDBAccountsInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	AccountName *string `type:"string"`
+	AccountName *string `type:"string" json:",omitempty"`
+
+	AuthDB *string `type:"string" json:",omitempty"`
 
 	// InstanceId is a required field
-	InstanceId *string `type:"string" required:"true"`
+	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 
-	PageNumber *int32 `type:"int32"`
+	PageNumber *int32 `type:"int32" json:",omitempty"`
 
-	PageSize *int32 `type:"int32"`
+	PageSize *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -253,6 +287,12 @@ func (s *DescribeDBAccountsInput) SetAccountName(v string) *DescribeDBAccountsIn
 	return s
 }
 
+// SetAuthDB sets the AuthDB field's value.
+func (s *DescribeDBAccountsInput) SetAuthDB(v string) *DescribeDBAccountsInput {
+	s.AuthDB = &v
+	return s
+}
+
 // SetInstanceId sets the InstanceId field's value.
 func (s *DescribeDBAccountsInput) SetInstanceId(v string) *DescribeDBAccountsInput {
 	s.InstanceId = &v
@@ -272,13 +312,13 @@ func (s *DescribeDBAccountsInput) SetPageSize(v int32) *DescribeDBAccountsInput 
 }
 
 type DescribeDBAccountsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	Accounts []*AccountForDescribeDBAccountsOutput `type:"list"`
+	Accounts []*AccountForDescribeDBAccountsOutput `type:"list" json:",omitempty"`
 
-	Total *int32 `type:"int32"`
+	Total *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -306,4 +346,10 @@ func (s *DescribeDBAccountsOutput) SetTotal(v int32) *DescribeDBAccountsOutput {
 const (
 	// EnumOfAccountTypeForDescribeDBAccountsOutputSuper is a EnumOfAccountTypeForDescribeDBAccountsOutput enum value
 	EnumOfAccountTypeForDescribeDBAccountsOutputSuper = "Super"
+
+	// EnumOfAccountTypeForDescribeDBAccountsOutputUserAdmin is a EnumOfAccountTypeForDescribeDBAccountsOutput enum value
+	EnumOfAccountTypeForDescribeDBAccountsOutputUserAdmin = "UserAdmin"
+
+	// EnumOfAccountTypeForDescribeDBAccountsOutputNormal is a EnumOfAccountTypeForDescribeDBAccountsOutput enum value
+	EnumOfAccountTypeForDescribeDBAccountsOutputNormal = "Normal"
 )

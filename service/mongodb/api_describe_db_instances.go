@@ -144,53 +144,55 @@ func (c *MONGODB) DescribeDBInstancesWithContext(ctx volcengine.Context, input *
 }
 
 type DBInstanceForDescribeDBInstancesOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	AutoRenew *bool `type:"boolean"`
+	AutoRenew *bool `type:"boolean" json:",omitempty"`
 
-	ChargeStatus *string `type:"string" enum:"EnumOfChargeStatusForDescribeDBInstancesOutput"`
+	ChargeStatus *string `type:"string" json:",omitempty" enum:"EnumOfChargeStatusForDescribeDBInstancesOutput"`
 
-	ChargeType *string `type:"string" enum:"EnumOfChargeTypeForDescribeDBInstancesOutput"`
+	ChargeType *string `type:"string" json:",omitempty" enum:"EnumOfChargeTypeForDescribeDBInstancesOutput"`
 
-	ClosedTime *string `type:"string"`
+	ClosedTime *string `type:"string" json:",omitempty"`
 
-	ConfigServersId *string `type:"string"`
+	ConfigServersId *string `type:"string" json:",omitempty"`
 
-	CreateTime *string `type:"string"`
+	CreateTime *string `type:"string" json:",omitempty"`
 
-	DBEngineVersion *string `type:"string" enum:"EnumOfDBEngineVersionForDescribeDBInstancesOutput"`
+	DBEngineVersion *string `type:"string" json:",omitempty" enum:"EnumOfDBEngineVersionForDescribeDBInstancesOutput"`
 
-	DBEngineVersionStr *string `type:"string"`
+	DBEngineVersionStr *string `type:"string" json:",omitempty"`
 
-	ExpiredTime *string `type:"string"`
+	ExpiredTime *string `type:"string" json:",omitempty"`
 
-	InstanceId *string `type:"string"`
+	InstanceId *string `type:"string" json:",omitempty"`
 
-	InstanceName *string `type:"string"`
+	InstanceName *string `type:"string" json:",omitempty"`
 
-	InstanceStatus *string `type:"string" enum:"EnumOfInstanceStatusForDescribeDBInstancesOutput"`
+	InstanceStatus *string `type:"string" json:",omitempty" enum:"EnumOfInstanceStatusForDescribeDBInstancesOutput"`
 
-	InstanceType *string `type:"string" enum:"EnumOfInstanceTypeForDescribeDBInstancesOutput"`
+	InstanceType *string `type:"string" json:",omitempty" enum:"EnumOfInstanceTypeForDescribeDBInstancesOutput"`
 
-	MongosId *string `type:"string"`
+	MongosId *string `type:"string" json:",omitempty"`
 
-	PrivateEndpoint *string `type:"string"`
+	PrivateEndpoint *string `type:"string" json:",omitempty"`
 
-	ProjectName *string `type:"string"`
+	ProjectName *string `type:"string" json:",omitempty"`
 
-	ReclaimTime *string `type:"string"`
+	ReadOnlyNodeNumber *int32 `type:"int32" json:",omitempty"`
 
-	StorageType *string `type:"string" enum:"EnumOfStorageTypeForDescribeDBInstancesOutput"`
+	ReclaimTime *string `type:"string" json:",omitempty"`
 
-	SubnetId *string `type:"string"`
+	StorageType *string `type:"string" json:",omitempty" enum:"EnumOfStorageTypeForDescribeDBInstancesOutput"`
 
-	Tags []*TagForDescribeDBInstancesOutput `type:"list"`
+	SubnetId *string `type:"string" json:",omitempty"`
 
-	UpdateTime *string `type:"string"`
+	Tags []*TagForDescribeDBInstancesOutput `type:"list" json:",omitempty"`
 
-	VpcId *string `type:"string"`
+	UpdateTime *string `type:"string" json:",omitempty"`
 
-	ZoneId *string `type:"string"`
+	VpcId *string `type:"string" json:",omitempty"`
+
+	ZoneId *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -299,6 +301,12 @@ func (s *DBInstanceForDescribeDBInstancesOutput) SetProjectName(v string) *DBIns
 	return s
 }
 
+// SetReadOnlyNodeNumber sets the ReadOnlyNodeNumber field's value.
+func (s *DBInstanceForDescribeDBInstancesOutput) SetReadOnlyNodeNumber(v int32) *DBInstanceForDescribeDBInstancesOutput {
+	s.ReadOnlyNodeNumber = &v
+	return s
+}
+
 // SetReclaimTime sets the ReclaimTime field's value.
 func (s *DBInstanceForDescribeDBInstancesOutput) SetReclaimTime(v string) *DBInstanceForDescribeDBInstancesOutput {
 	s.ReclaimTime = &v
@@ -342,39 +350,41 @@ func (s *DBInstanceForDescribeDBInstancesOutput) SetZoneId(v string) *DBInstance
 }
 
 type DescribeDBInstancesInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	CreateEndTime *string `type:"string"`
+	CreateEndTime *string `type:"string" json:",omitempty"`
 
-	CreateStartTime *string `type:"string"`
+	CreateStartTime *string `type:"string" json:",omitempty"`
 
-	DBEngine *string `type:"string" enum:"EnumOfDBEngineForDescribeDBInstancesInput"`
+	DBEngine *string `type:"string" json:",omitempty" enum:"EnumOfDBEngineForDescribeDBInstancesInput"`
 
-	DBEngineVersion *string `type:"string" enum:"EnumOfDBEngineVersionForDescribeDBInstancesInput"`
+	DBEngineVersion *string `type:"string" json:",omitempty" enum:"EnumOfDBEngineVersionForDescribeDBInstancesInput"`
 
-	InstanceId *string `type:"string"`
+	FilterByTags []*FilterByTagForDescribeDBInstancesInput `type:"list" json:",omitempty"`
 
-	InstanceName *string `type:"string"`
+	InstanceId *string `type:"string" json:",omitempty"`
 
-	InstanceStatus *string `type:"string" enum:"EnumOfInstanceStatusForDescribeDBInstancesInput"`
+	InstanceName *string `type:"string" json:",omitempty"`
 
-	InstanceType *string `type:"string" enum:"EnumOfInstanceTypeForDescribeDBInstancesInput"`
+	InstanceStatus *string `type:"string" json:",omitempty" enum:"EnumOfInstanceStatusForDescribeDBInstancesInput"`
 
-	PageNumber *int32 `type:"int32"`
+	InstanceType *string `type:"string" json:",omitempty" enum:"EnumOfInstanceTypeForDescribeDBInstancesInput"`
 
-	PageSize *int32 `type:"int32"`
+	PageNumber *int32 `type:"int32" json:",omitempty"`
 
-	ProjectName *string `type:"string"`
+	PageSize *int32 `type:"int32" json:",omitempty"`
 
-	TagFilters []*TagFilterForDescribeDBInstancesInput `type:"list"`
+	ProjectName *string `type:"string" json:",omitempty"`
 
-	UpdateEndTime *string `type:"string"`
+	TagFilters []*TagFilterForDescribeDBInstancesInput `type:"list" json:",omitempty"`
 
-	UpdateStartTime *string `type:"string"`
+	UpdateEndTime *string `type:"string" json:",omitempty"`
 
-	VpcId *string `type:"string"`
+	UpdateStartTime *string `type:"string" json:",omitempty"`
 
-	ZoneId *string `type:"string"`
+	VpcId *string `type:"string" json:",omitempty"`
+
+	ZoneId *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -408,6 +418,12 @@ func (s *DescribeDBInstancesInput) SetDBEngine(v string) *DescribeDBInstancesInp
 // SetDBEngineVersion sets the DBEngineVersion field's value.
 func (s *DescribeDBInstancesInput) SetDBEngineVersion(v string) *DescribeDBInstancesInput {
 	s.DBEngineVersion = &v
+	return s
+}
+
+// SetFilterByTags sets the FilterByTags field's value.
+func (s *DescribeDBInstancesInput) SetFilterByTags(v []*FilterByTagForDescribeDBInstancesInput) *DescribeDBInstancesInput {
+	s.FilterByTags = v
 	return s
 }
 
@@ -484,13 +500,13 @@ func (s *DescribeDBInstancesInput) SetZoneId(v string) *DescribeDBInstancesInput
 }
 
 type DescribeDBInstancesOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	DBInstances []*DBInstanceForDescribeDBInstancesOutput `type:"list"`
+	DBInstances []*DBInstanceForDescribeDBInstancesOutput `type:"list" json:",omitempty"`
 
-	Total *int32 `type:"int32"`
+	Total *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -515,12 +531,42 @@ func (s *DescribeDBInstancesOutput) SetTotal(v int32) *DescribeDBInstancesOutput
 	return s
 }
 
+type FilterByTagForDescribeDBInstancesInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Key *string `type:"string" json:",omitempty"`
+
+	Values []*string `type:"list" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s FilterByTagForDescribeDBInstancesInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s FilterByTagForDescribeDBInstancesInput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *FilterByTagForDescribeDBInstancesInput) SetKey(v string) *FilterByTagForDescribeDBInstancesInput {
+	s.Key = &v
+	return s
+}
+
+// SetValues sets the Values field's value.
+func (s *FilterByTagForDescribeDBInstancesInput) SetValues(v []*string) *FilterByTagForDescribeDBInstancesInput {
+	s.Values = v
+	return s
+}
+
 type TagFilterForDescribeDBInstancesInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Key *string `type:"string"`
+	Key *string `type:"string" json:",omitempty"`
 
-	Value *string `type:"string"`
+	Value *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -546,11 +592,11 @@ func (s *TagFilterForDescribeDBInstancesInput) SetValue(v string) *TagFilterForD
 }
 
 type TagForDescribeDBInstancesOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Key *string `type:"string"`
+	Key *string `type:"string" json:",omitempty"`
 
-	Value *string `type:"string"`
+	Value *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -629,6 +675,9 @@ const (
 
 	// EnumOfDBEngineVersionForDescribeDBInstancesInputMongoDb60 is a EnumOfDBEngineVersionForDescribeDBInstancesInput enum value
 	EnumOfDBEngineVersionForDescribeDBInstancesInputMongoDb60 = "MongoDB_6_0"
+
+	// EnumOfDBEngineVersionForDescribeDBInstancesInputMongoDbInner40 is a EnumOfDBEngineVersionForDescribeDBInstancesInput enum value
+	EnumOfDBEngineVersionForDescribeDBInstancesInputMongoDbInner40 = "MongoDB_Inner_4_0"
 )
 
 const (
@@ -646,6 +695,9 @@ const (
 
 	// EnumOfDBEngineVersionForDescribeDBInstancesOutputMongoDb60 is a EnumOfDBEngineVersionForDescribeDBInstancesOutput enum value
 	EnumOfDBEngineVersionForDescribeDBInstancesOutputMongoDb60 = "MongoDB_6_0"
+
+	// EnumOfDBEngineVersionForDescribeDBInstancesOutputMongoDbInner40 is a EnumOfDBEngineVersionForDescribeDBInstancesOutput enum value
+	EnumOfDBEngineVersionForDescribeDBInstancesOutputMongoDbInner40 = "MongoDB_Inner_4_0"
 )
 
 const (
@@ -747,6 +799,18 @@ const (
 
 	// EnumOfInstanceStatusForDescribeDBInstancesInputTemporary is a EnumOfInstanceStatusForDescribeDBInstancesInput enum value
 	EnumOfInstanceStatusForDescribeDBInstancesInputTemporary = "Temporary"
+
+	// EnumOfInstanceStatusForDescribeDBInstancesInputRoleChanging is a EnumOfInstanceStatusForDescribeDBInstancesInput enum value
+	EnumOfInstanceStatusForDescribeDBInstancesInputRoleChanging = "RoleChanging"
+
+	// EnumOfInstanceStatusForDescribeDBInstancesInputCrossClusterMigrating is a EnumOfInstanceStatusForDescribeDBInstancesInput enum value
+	EnumOfInstanceStatusForDescribeDBInstancesInputCrossClusterMigrating = "CrossClusterMigrating"
+
+	// EnumOfInstanceStatusForDescribeDBInstancesInputCrossNodeMigrating is a EnumOfInstanceStatusForDescribeDBInstancesInput enum value
+	EnumOfInstanceStatusForDescribeDBInstancesInputCrossNodeMigrating = "CrossNodeMigrating"
+
+	// EnumOfInstanceStatusForDescribeDBInstancesInputMultiAzMigrating is a EnumOfInstanceStatusForDescribeDBInstancesInput enum value
+	EnumOfInstanceStatusForDescribeDBInstancesInputMultiAzMigrating = "MultiAzMigrating"
 )
 
 const (
@@ -848,6 +912,18 @@ const (
 
 	// EnumOfInstanceStatusForDescribeDBInstancesOutputTemporary is a EnumOfInstanceStatusForDescribeDBInstancesOutput enum value
 	EnumOfInstanceStatusForDescribeDBInstancesOutputTemporary = "Temporary"
+
+	// EnumOfInstanceStatusForDescribeDBInstancesOutputRoleChanging is a EnumOfInstanceStatusForDescribeDBInstancesOutput enum value
+	EnumOfInstanceStatusForDescribeDBInstancesOutputRoleChanging = "RoleChanging"
+
+	// EnumOfInstanceStatusForDescribeDBInstancesOutputCrossClusterMigrating is a EnumOfInstanceStatusForDescribeDBInstancesOutput enum value
+	EnumOfInstanceStatusForDescribeDBInstancesOutputCrossClusterMigrating = "CrossClusterMigrating"
+
+	// EnumOfInstanceStatusForDescribeDBInstancesOutputCrossNodeMigrating is a EnumOfInstanceStatusForDescribeDBInstancesOutput enum value
+	EnumOfInstanceStatusForDescribeDBInstancesOutputCrossNodeMigrating = "CrossNodeMigrating"
+
+	// EnumOfInstanceStatusForDescribeDBInstancesOutputMultiAzMigrating is a EnumOfInstanceStatusForDescribeDBInstancesOutput enum value
+	EnumOfInstanceStatusForDescribeDBInstancesOutputMultiAzMigrating = "MultiAzMigrating"
 )
 
 const (

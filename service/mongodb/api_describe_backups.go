@@ -144,27 +144,27 @@ func (c *MONGODB) DescribeBackupsWithContext(ctx volcengine.Context, input *Desc
 }
 
 type BackupForDescribeBackupsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	BackupDownloadStatus *string `type:"string" enum:"EnumOfBackupDownloadStatusForDescribeBackupsOutput"`
+	BackupDownloadStatus *string `type:"string" json:",omitempty" enum:"EnumOfBackupDownloadStatusForDescribeBackupsOutput"`
 
-	BackupEndTime *string `type:"string"`
+	BackupEndTime *string `type:"string" json:",omitempty"`
 
-	BackupFileName *string `type:"string"`
+	BackupFileName *string `type:"string" json:",omitempty"`
 
-	BackupFileSize *int64 `type:"int64"`
+	BackupFileSize *int64 `type:"int64" json:",omitempty"`
 
-	BackupId *string `type:"string"`
+	BackupId *string `type:"string" json:",omitempty"`
 
-	BackupObject *string `type:"string" enum:"EnumOfBackupObjectForDescribeBackupsOutput"`
+	BackupObject *string `type:"string" json:",omitempty" enum:"EnumOfBackupObjectForDescribeBackupsOutput"`
 
-	BackupStartTime *string `type:"string"`
+	BackupStartTime *string `type:"string" json:",omitempty"`
 
-	BackupStatus *string `type:"string" enum:"EnumOfBackupStatusForDescribeBackupsOutput"`
+	BackupStatus *string `type:"string" json:",omitempty" enum:"EnumOfBackupStatusForDescribeBackupsOutput"`
 
-	BackupType *string `type:"string" enum:"EnumOfBackupTypeForDescribeBackupsOutput"`
+	BackupType *string `type:"string" json:",omitempty" enum:"EnumOfBackupTypeForDescribeBackupsOutput"`
 
-	Creator *string `type:"string" enum:"EnumOfCreatorForDescribeBackupsOutput"`
+	Creator *string `type:"string" json:",omitempty" enum:"EnumOfCreatorForDescribeBackupsOutput"`
 }
 
 // String returns the string representation
@@ -238,24 +238,24 @@ func (s *BackupForDescribeBackupsOutput) SetCreator(v string) *BackupForDescribe
 }
 
 type DescribeBackupsInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	BackupObject *string `type:"string" enum:"EnumOfBackupObjectForDescribeBackupsInput"`
+	BackupObject *string `type:"string" json:",omitempty" enum:"EnumOfBackupObjectForDescribeBackupsInput"`
 
-	BackupStatus *string `type:"string" enum:"EnumOfBackupStatusForDescribeBackupsInput"`
+	BackupStatus *string `type:"string" json:",omitempty" enum:"EnumOfBackupStatusForDescribeBackupsInput"`
 
-	BackupType *string `type:"string" enum:"EnumOfBackupTypeForDescribeBackupsInput"`
+	BackupType *string `type:"string" json:",omitempty" enum:"EnumOfBackupTypeForDescribeBackupsInput"`
 
-	EndTime *string `type:"string"`
+	EndTime *string `type:"string" json:",omitempty"`
 
 	// InstanceId is a required field
-	InstanceId *string `type:"string" required:"true"`
+	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 
-	PageNumber *int32 `type:"int32"`
+	PageNumber *int32 `type:"int32" json:",omitempty"`
 
-	PageSize *int32 `type:"int32"`
+	PageSize *int32 `type:"int32" json:",omitempty"`
 
-	StartTime *string `type:"string"`
+	StartTime *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -330,13 +330,13 @@ func (s *DescribeBackupsInput) SetStartTime(v string) *DescribeBackupsInput {
 }
 
 type DescribeBackupsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	Backups []*BackupForDescribeBackupsOutput `type:"list"`
+	Backups []*BackupForDescribeBackupsOutput `type:"list" json:",omitempty"`
 
-	Total *int32 `type:"int32"`
+	Total *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation
