@@ -202,7 +202,7 @@ type ListAllIpGroupsInput struct {
 
 	Ip *string `type:"string" json:",omitempty"`
 
-	Page *string `type:"string" json:",omitempty"`
+	Page *int32 `type:"int32" json:",omitempty"`
 
 	PageSize *int32 `type:"int32" json:",omitempty"`
 
@@ -244,7 +244,7 @@ func (s *ListAllIpGroupsInput) SetIp(v string) *ListAllIpGroupsInput {
 }
 
 // SetPage sets the Page field's value.
-func (s *ListAllIpGroupsInput) SetPage(v string) *ListAllIpGroupsInput {
+func (s *ListAllIpGroupsInput) SetPage(v int32) *ListAllIpGroupsInput {
 	s.Page = &v
 	return s
 }
