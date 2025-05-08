@@ -176,7 +176,8 @@ func (s *ItemForQueryAttackAnalysisTermsAggLbOutput) SetValue(v float64) *ItemFo
 type QueryAttackAnalysisTermsAggLbInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	AnalysisKey *string `type:"string" json:",omitempty"`
+	// AnalysisKey is a required field
+	AnalysisKey *string `type:"string" json:",omitempty" required:"true"`
 
 	// EndTime is a required field
 	EndTime *int32 `type:"int32" json:",omitempty" required:"true"`
@@ -184,6 +185,8 @@ type QueryAttackAnalysisTermsAggLbInput struct {
 	Host *string `type:"string" json:",omitempty"`
 
 	Plugins []*string `type:"list" json:",omitempty"`
+
+	ProjectName *string `type:"string" json:",omitempty"`
 
 	// StartTime is a required field
 	StartTime *int32 `type:"int32" json:",omitempty" required:"true"`
@@ -202,6 +205,9 @@ func (s QueryAttackAnalysisTermsAggLbInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *QueryAttackAnalysisTermsAggLbInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "QueryAttackAnalysisTermsAggLbInput"}
+	if s.AnalysisKey == nil {
+		invalidParams.Add(request.NewErrParamRequired("AnalysisKey"))
+	}
 	if s.EndTime == nil {
 		invalidParams.Add(request.NewErrParamRequired("EndTime"))
 	}
@@ -236,6 +242,12 @@ func (s *QueryAttackAnalysisTermsAggLbInput) SetHost(v string) *QueryAttackAnaly
 // SetPlugins sets the Plugins field's value.
 func (s *QueryAttackAnalysisTermsAggLbInput) SetPlugins(v []*string) *QueryAttackAnalysisTermsAggLbInput {
 	s.Plugins = v
+	return s
+}
+
+// SetProjectName sets the ProjectName field's value.
+func (s *QueryAttackAnalysisTermsAggLbInput) SetProjectName(v string) *QueryAttackAnalysisTermsAggLbInput {
+	s.ProjectName = &v
 	return s
 }
 
