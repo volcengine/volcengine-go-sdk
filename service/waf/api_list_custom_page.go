@@ -407,7 +407,7 @@ type ListCustomPageInput struct {
 	// Host is a required field
 	Host *string `type:"string" json:",omitempty" required:"true"`
 
-	Page *string `type:"string" json:",omitempty"`
+	Page *int32 `type:"int32" json:",omitempty"`
 
 	PageSize *int32 `type:"int32" json:",omitempty"`
 
@@ -444,7 +444,7 @@ func (s *ListCustomPageInput) SetHost(v string) *ListCustomPageInput {
 }
 
 // SetPage sets the Page field's value.
-func (s *ListCustomPageInput) SetPage(v string) *ListCustomPageInput {
+func (s *ListCustomPageInput) SetPage(v int32) *ListCustomPageInput {
 	s.Page = &v
 	return s
 }

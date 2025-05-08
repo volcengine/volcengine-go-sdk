@@ -144,12 +144,12 @@ func (c *MONGODB) ModifyDBInstanceParametersWithContext(ctx volcengine.Context, 
 }
 
 type ModifyDBInstanceParametersInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// InstanceId is a required field
-	InstanceId *string `type:"string" required:"true"`
+	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 
-	ParametersObject *ParametersObjectForModifyDBInstanceParametersInput `type:"structure"`
+	ParametersObject *ParametersObjectForModifyDBInstanceParametersInput `type:"structure" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -188,11 +188,11 @@ func (s *ModifyDBInstanceParametersInput) SetParametersObject(v *ParametersObjec
 }
 
 type ModifyDBInstanceParametersOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	InstanceId *string `type:"string"`
+	InstanceId *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -212,13 +212,13 @@ func (s *ModifyDBInstanceParametersOutput) SetInstanceId(v string) *ModifyDBInst
 }
 
 type ParametersObjectForModifyDBInstanceParametersInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	ParameterName *string `type:"string"`
+	ParameterName *string `type:"string" json:",omitempty"`
 
-	ParameterRole *string `type:"string" enum:"EnumOfParameterRoleForModifyDBInstanceParametersInput"`
+	ParameterRole *string `type:"string" json:",omitempty" enum:"EnumOfParameterRoleForModifyDBInstanceParametersInput"`
 
-	ParameterValue *string `type:"string"`
+	ParameterValue *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation

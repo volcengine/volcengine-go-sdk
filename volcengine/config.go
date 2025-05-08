@@ -223,6 +223,8 @@ type Config struct {
 
 	DynamicCredentials custom.DynamicCredentials
 
+	DynamicCredentialsWithMeta custom.DynamicCredentialsWithMeta
+
 	DynamicCredentialsIncludeError custom.DynamicCredentialsIncludeError
 
 	LogAccount custom.LogAccount
@@ -358,6 +360,11 @@ func (c *Config) WithLogAccount(account custom.LogAccount) *Config {
 
 func (c *Config) WithDynamicCredentials(f custom.DynamicCredentials) *Config {
 	c.DynamicCredentials = f
+	return c
+}
+
+func (c *Config) WithDynamicCredentialsWithMeta(f custom.DynamicCredentialsWithMeta) *Config {
+	c.DynamicCredentialsWithMeta = f
 	return c
 }
 
@@ -641,6 +648,10 @@ func mergeInConfig(dst *Config, other *Config) {
 
 	if other.DynamicCredentials != nil {
 		dst.DynamicCredentials = other.DynamicCredentials
+	}
+
+	if other.DynamicCredentialsWithMeta != nil {
+		dst.DynamicCredentialsWithMeta = other.DynamicCredentialsWithMeta
 	}
 
 	if other.DynamicCredentialsIncludeError != nil {

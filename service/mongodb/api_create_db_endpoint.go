@@ -144,18 +144,18 @@ func (c *MONGODB) CreateDBEndpointWithContext(ctx volcengine.Context, input *Cre
 }
 
 type CreateDBEndpointInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	EipIds []*string `type:"list"`
+	EipIds []*string `type:"list" json:",omitempty"`
 
 	// InstanceId is a required field
-	InstanceId *string `type:"string" required:"true"`
+	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 
-	MongosNodeIds []*string `type:"list"`
+	MongosNodeIds []*string `type:"list" json:",omitempty"`
 
-	NetworkType *string `type:"string" enum:"EnumOfNetworkTypeForCreateDBEndpointInput"`
+	NetworkType *string `type:"string" json:",omitempty" enum:"EnumOfNetworkTypeForCreateDBEndpointInput"`
 
-	ObjectId *string `type:"string"`
+	ObjectId *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -212,7 +212,7 @@ func (s *CreateDBEndpointInput) SetObjectId(v string) *CreateDBEndpointInput {
 }
 
 type CreateDBEndpointOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 }

@@ -144,23 +144,23 @@ func (c *MONGODB) DescribeDBInstanceDetailWithContext(ctx volcengine.Context, in
 }
 
 type ConfigServerForDescribeDBInstanceDetailOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	ConfigServerNodeId *string `type:"string"`
+	ConfigServerNodeId *string `type:"string" json:",omitempty"`
 
-	NodeRole *string `type:"string" enum:"EnumOfNodeRoleForDescribeDBInstanceDetailOutput"`
+	NodeRole *string `type:"string" json:",omitempty" enum:"EnumOfNodeRoleForDescribeDBInstanceDetailOutput"`
 
-	NodeStatus *string `type:"string" enum:"EnumOfNodeStatusForDescribeDBInstanceDetailOutput"`
+	NodeStatus *string `type:"string" json:",omitempty" enum:"EnumOfNodeStatusForDescribeDBInstanceDetailOutput"`
 
-	TotalMemoryGB *float64 `type:"double"`
+	TotalMemoryGB *float64 `type:"double" json:",omitempty"`
 
-	TotalvCPU *float64 `type:"double"`
+	TotalvCPU *float64 `type:"double" json:",omitempty"`
 
-	UsedMemoryGB *float64 `type:"double"`
+	UsedMemoryGB *float64 `type:"double" json:",omitempty"`
 
-	UsedvCPU *float64 `type:"double"`
+	UsedvCPU *float64 `type:"double" json:",omitempty"`
 
-	ZoneId *string `type:"string"`
+	ZoneId *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -222,63 +222,65 @@ func (s *ConfigServerForDescribeDBInstanceDetailOutput) SetZoneId(v string) *Con
 }
 
 type DBInstanceForDescribeDBInstanceDetailOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	AutoRenew *bool `type:"boolean"`
+	AutoRenew *bool `type:"boolean" json:",omitempty"`
 
-	ChargeStatus *string `type:"string" enum:"EnumOfChargeStatusForDescribeDBInstanceDetailOutput"`
+	ChargeStatus *string `type:"string" json:",omitempty" enum:"EnumOfChargeStatusForDescribeDBInstanceDetailOutput"`
 
-	ChargeType *string `type:"string" enum:"EnumOfChargeTypeForDescribeDBInstanceDetailOutput"`
+	ChargeType *string `type:"string" json:",omitempty" enum:"EnumOfChargeTypeForDescribeDBInstanceDetailOutput"`
 
-	ClosedTime *string `type:"string"`
+	ClosedTime *string `type:"string" json:",omitempty"`
 
-	ConfigServers []*ConfigServerForDescribeDBInstanceDetailOutput `type:"list"`
+	ConfigServers []*ConfigServerForDescribeDBInstanceDetailOutput `type:"list" json:",omitempty"`
 
-	ConfigServersId *string `type:"string"`
+	ConfigServersId *string `type:"string" json:",omitempty"`
 
-	CreateTime *string `type:"string"`
+	CreateTime *string `type:"string" json:",omitempty"`
 
-	DBEngine *string `type:"string" enum:"EnumOfDBEngineForDescribeDBInstanceDetailOutput"`
+	DBEngine *string `type:"string" json:",omitempty" enum:"EnumOfDBEngineForDescribeDBInstanceDetailOutput"`
 
-	DBEngineVersion *string `type:"string" enum:"EnumOfDBEngineVersionForDescribeDBInstanceDetailOutput"`
+	DBEngineVersion *string `type:"string" json:",omitempty" enum:"EnumOfDBEngineVersionForDescribeDBInstanceDetailOutput"`
 
-	DBEngineVersionStr *string `type:"string"`
+	DBEngineVersionStr *string `type:"string" json:",omitempty"`
 
-	ExpiredTime *string `type:"string"`
+	ExpiredTime *string `type:"string" json:",omitempty"`
 
-	InstanceId *string `type:"string"`
+	InstanceId *string `type:"string" json:",omitempty"`
 
-	InstanceName *string `type:"string"`
+	InstanceName *string `type:"string" json:",omitempty"`
 
-	InstanceStatus *string `type:"string" enum:"EnumOfInstanceStatusForDescribeDBInstanceDetailOutput"`
+	InstanceStatus *string `type:"string" json:",omitempty" enum:"EnumOfInstanceStatusForDescribeDBInstanceDetailOutput"`
 
-	InstanceType *string `type:"string" enum:"EnumOfInstanceTypeForDescribeDBInstanceDetailOutput"`
+	InstanceType *string `type:"string" json:",omitempty" enum:"EnumOfInstanceTypeForDescribeDBInstanceDetailOutput"`
 
-	Mongos []*MongoForDescribeDBInstanceDetailOutput `type:"list"`
+	Mongos []*MongoForDescribeDBInstanceDetailOutput `type:"list" json:",omitempty"`
 
-	MongosId *string `type:"string"`
+	MongosId *string `type:"string" json:",omitempty"`
 
-	Nodes []*NodeForDescribeDBInstanceDetailOutput `type:"list"`
+	Nodes []*NodeForDescribeDBInstanceDetailOutput `type:"list" json:",omitempty"`
 
-	PrivateEndpoint *string `type:"string"`
+	PrivateEndpoint *string `type:"string" json:",omitempty"`
 
-	ProjectName *string `type:"string"`
+	ProjectName *string `type:"string" json:",omitempty"`
 
-	ReclaimTime *string `type:"string"`
+	ReadOnlyNodeNumber *int32 `type:"int32" json:",omitempty"`
 
-	Shards []*ShardForDescribeDBInstanceDetailOutput `type:"list"`
+	ReclaimTime *string `type:"string" json:",omitempty"`
 
-	StorageType *string `type:"string" enum:"EnumOfStorageTypeForDescribeDBInstanceDetailOutput"`
+	Shards []*ShardForDescribeDBInstanceDetailOutput `type:"list" json:",omitempty"`
 
-	SubnetId *string `type:"string"`
+	StorageType *string `type:"string" json:",omitempty" enum:"EnumOfStorageTypeForDescribeDBInstanceDetailOutput"`
 
-	Tags []*TagForDescribeDBInstanceDetailOutput `type:"list"`
+	SubnetId *string `type:"string" json:",omitempty"`
 
-	UpdateTime *string `type:"string"`
+	Tags []*TagForDescribeDBInstanceDetailOutput `type:"list" json:",omitempty"`
 
-	VpcId *string `type:"string"`
+	UpdateTime *string `type:"string" json:",omitempty"`
 
-	ZoneId *string `type:"string"`
+	VpcId *string `type:"string" json:",omitempty"`
+
+	ZoneId *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -411,6 +413,12 @@ func (s *DBInstanceForDescribeDBInstanceDetailOutput) SetProjectName(v string) *
 	return s
 }
 
+// SetReadOnlyNodeNumber sets the ReadOnlyNodeNumber field's value.
+func (s *DBInstanceForDescribeDBInstanceDetailOutput) SetReadOnlyNodeNumber(v int32) *DBInstanceForDescribeDBInstanceDetailOutput {
+	s.ReadOnlyNodeNumber = &v
+	return s
+}
+
 // SetReclaimTime sets the ReclaimTime field's value.
 func (s *DBInstanceForDescribeDBInstanceDetailOutput) SetReclaimTime(v string) *DBInstanceForDescribeDBInstanceDetailOutput {
 	s.ReclaimTime = &v
@@ -460,10 +468,10 @@ func (s *DBInstanceForDescribeDBInstanceDetailOutput) SetZoneId(v string) *DBIns
 }
 
 type DescribeDBInstanceDetailInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// InstanceId is a required field
-	InstanceId *string `type:"string" required:"true"`
+	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -496,11 +504,11 @@ func (s *DescribeDBInstanceDetailInput) SetInstanceId(v string) *DescribeDBInsta
 }
 
 type DescribeDBInstanceDetailOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	DBInstance *DBInstanceForDescribeDBInstanceDetailOutput `type:"structure"`
+	DBInstance *DBInstanceForDescribeDBInstanceDetailOutput `type:"structure" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -520,23 +528,23 @@ func (s *DescribeDBInstanceDetailOutput) SetDBInstance(v *DBInstanceForDescribeD
 }
 
 type MongoForDescribeDBInstanceDetailOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	MongosNodeId *string `type:"string"`
+	MongosNodeId *string `type:"string" json:",omitempty"`
 
-	NodeSpec *string `type:"string"`
+	NodeSpec *string `type:"string" json:",omitempty"`
 
-	NodeStatus *string `type:"string" enum:"EnumOfNodeStatusForDescribeDBInstanceDetailOutput"`
+	NodeStatus *string `type:"string" json:",omitempty" enum:"EnumOfNodeStatusForDescribeDBInstanceDetailOutput"`
 
-	TotalMemoryGB *float64 `type:"double"`
+	TotalMemoryGB *float64 `type:"double" json:",omitempty"`
 
-	TotalvCPU *float64 `type:"double"`
+	TotalvCPU *float64 `type:"double" json:",omitempty"`
 
-	UsedMemoryGB *float64 `type:"double"`
+	UsedMemoryGB *float64 `type:"double" json:",omitempty"`
 
-	UsedvCPU *float64 `type:"double"`
+	UsedvCPU *float64 `type:"double" json:",omitempty"`
 
-	ZoneId *string `type:"string"`
+	ZoneId *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -598,31 +606,31 @@ func (s *MongoForDescribeDBInstanceDetailOutput) SetZoneId(v string) *MongoForDe
 }
 
 type NodeForDescribeDBInstanceDetailOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	NodeDelayTime *int32 `type:"int32"`
+	NodeDelayTime *int32 `type:"int32" json:",omitempty"`
 
-	NodeId *string `type:"string"`
+	NodeId *string `type:"string" json:",omitempty"`
 
-	NodeRole *string `type:"string" enum:"EnumOfNodeRoleForDescribeDBInstanceDetailOutput"`
+	NodeRole *string `type:"string" json:",omitempty" enum:"EnumOfNodeRoleForDescribeDBInstanceDetailOutput"`
 
-	NodeSpec *string `type:"string"`
+	NodeSpec *string `type:"string" json:",omitempty"`
 
-	NodeStatus *string `type:"string" enum:"EnumOfNodeStatusForDescribeDBInstanceDetailOutput"`
+	NodeStatus *string `type:"string" json:",omitempty" enum:"EnumOfNodeStatusForDescribeDBInstanceDetailOutput"`
 
-	TotalMemoryGB *float64 `type:"double"`
+	TotalMemoryGB *float64 `type:"double" json:",omitempty"`
 
-	TotalStorageGB *float64 `type:"double"`
+	TotalStorageGB *float64 `type:"double" json:",omitempty"`
 
-	TotalvCPU *float64 `type:"double"`
+	TotalvCPU *float64 `type:"double" json:",omitempty"`
 
-	UsedMemoryGB *float64 `type:"double"`
+	UsedMemoryGB *float64 `type:"double" json:",omitempty"`
 
-	UsedStorageGB *float64 `type:"double"`
+	UsedStorageGB *float64 `type:"double" json:",omitempty"`
 
-	UsedvCPU *float64 `type:"double"`
+	UsedvCPU *float64 `type:"double" json:",omitempty"`
 
-	ZoneId *string `type:"string"`
+	ZoneId *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -708,11 +716,11 @@ func (s *NodeForDescribeDBInstanceDetailOutput) SetZoneId(v string) *NodeForDesc
 }
 
 type ShardForDescribeDBInstanceDetailOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Nodes []*NodeForDescribeDBInstanceDetailOutput `type:"list"`
+	Nodes []*NodeForDescribeDBInstanceDetailOutput `type:"list" json:",omitempty"`
 
-	ShardId *string `type:"string"`
+	ShardId *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -738,11 +746,11 @@ func (s *ShardForDescribeDBInstanceDetailOutput) SetShardId(v string) *ShardForD
 }
 
 type TagForDescribeDBInstanceDetailOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Key *string `type:"string"`
+	Key *string `type:"string" json:",omitempty"`
 
-	Value *string `type:"string"`
+	Value *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -821,6 +829,9 @@ const (
 
 	// EnumOfDBEngineVersionForDescribeDBInstanceDetailOutputMongoDb60 is a EnumOfDBEngineVersionForDescribeDBInstanceDetailOutput enum value
 	EnumOfDBEngineVersionForDescribeDBInstanceDetailOutputMongoDb60 = "MongoDB_6_0"
+
+	// EnumOfDBEngineVersionForDescribeDBInstanceDetailOutputMongoDbInner40 is a EnumOfDBEngineVersionForDescribeDBInstanceDetailOutput enum value
+	EnumOfDBEngineVersionForDescribeDBInstanceDetailOutputMongoDbInner40 = "MongoDB_Inner_4_0"
 )
 
 const (
@@ -922,6 +933,18 @@ const (
 
 	// EnumOfInstanceStatusForDescribeDBInstanceDetailOutputTemporary is a EnumOfInstanceStatusForDescribeDBInstanceDetailOutput enum value
 	EnumOfInstanceStatusForDescribeDBInstanceDetailOutputTemporary = "Temporary"
+
+	// EnumOfInstanceStatusForDescribeDBInstanceDetailOutputRoleChanging is a EnumOfInstanceStatusForDescribeDBInstanceDetailOutput enum value
+	EnumOfInstanceStatusForDescribeDBInstanceDetailOutputRoleChanging = "RoleChanging"
+
+	// EnumOfInstanceStatusForDescribeDBInstanceDetailOutputCrossClusterMigrating is a EnumOfInstanceStatusForDescribeDBInstanceDetailOutput enum value
+	EnumOfInstanceStatusForDescribeDBInstanceDetailOutputCrossClusterMigrating = "CrossClusterMigrating"
+
+	// EnumOfInstanceStatusForDescribeDBInstanceDetailOutputCrossNodeMigrating is a EnumOfInstanceStatusForDescribeDBInstanceDetailOutput enum value
+	EnumOfInstanceStatusForDescribeDBInstanceDetailOutputCrossNodeMigrating = "CrossNodeMigrating"
+
+	// EnumOfInstanceStatusForDescribeDBInstanceDetailOutputMultiAzMigrating is a EnumOfInstanceStatusForDescribeDBInstanceDetailOutput enum value
+	EnumOfInstanceStatusForDescribeDBInstanceDetailOutputMultiAzMigrating = "MultiAzMigrating"
 )
 
 const (

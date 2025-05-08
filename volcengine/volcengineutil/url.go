@@ -1,6 +1,7 @@
 package volcengineutil
 
 import (
+	"io/ioutil"
 	"os"
 	"path/filepath"
 	"strings"
@@ -59,9 +60,10 @@ type ServiceEndpointInfo struct {
 }
 
 const (
-	regionCodeCNBeijingAutoDriving = "cn-beijing-autodriving"
-	regionCodeAPSouthEast2         = "ap-southeast-2"
-	regionCodeAPSouthEast3         = "ap-southeast-3"
+	regionCodeCNBeijingAutoDriving  = "cn-beijing-autodriving"
+	regionCodeAPSouthEast2          = "ap-southeast-2"
+	regionCodeAPSouthEast3          = "ap-southeast-3"
+	regionCodeCNShanghaiAutoDriving = "cn-shanghai-autodriving"
 )
 
 var defaultEndpoint = map[string]*ServiceEndpointInfo{
@@ -439,16 +441,17 @@ func GetDefaultEndpointByServiceInfo(service string, regionCode string,
 }
 
 var bootstrapRegion = map[string]struct{}{
-	regionCodeCNBeijingAutoDriving: {},
-	regionCodeAPSouthEast2:         {},
-	regionCodeAPSouthEast3:         {},
+	regionCodeCNBeijingAutoDriving:  {},
+	regionCodeAPSouthEast2:          {},
+	regionCodeAPSouthEast3:          {},
+	regionCodeCNShanghaiAutoDriving: {},
 }
 
 func inBootstrapRegionList(regionCode string, customBootstrapRegion map[string]struct{}) bool {
 	regionCode = strings.TrimSpace(regionCode)
 	bsRegionListPath := os.Getenv("VOLC_BOOTSTRAP_REGION_LIST_CONF")
 	if len(bsRegionListPath) > 0 {
-		f, err := os.ReadFile(filepath.Clean(bsRegionListPath))
+		f, err := ioutil.ReadFile(filepath.Clean(bsRegionListPath))
 		if err == nil {
 			for _, l := range strings.Split(string(f), "\n") {
 				l = strings.TrimSpace(l)

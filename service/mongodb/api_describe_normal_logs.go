@@ -144,15 +144,15 @@ func (c *MONGODB) DescribeNormalLogsWithContext(ctx volcengine.Context, input *D
 }
 
 type DataForDescribeNormalLogsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Connection *string `type:"string"`
+	Connection *string `type:"string" json:",omitempty"`
 
-	CreateTime *string `type:"string"`
+	CreateTime *string `type:"string" json:",omitempty"`
 
-	LogType *string `type:"string"`
+	LogType *string `type:"string" json:",omitempty"`
 
-	Message *string `type:"string"`
+	Message *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -190,28 +190,28 @@ func (s *DataForDescribeNormalLogsOutput) SetMessage(v string) *DataForDescribeN
 }
 
 type DescribeNormalLogsInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Context *string `type:"string"`
-
-	// EndTime is a required field
-	EndTime *int64 `type:"int64" required:"true"`
+	Context *string `type:"string" json:",omitempty"`
 
 	// InstanceId is a required field
-	InstanceId *string `type:"string" required:"true"`
+	InstanceId *string `type:"string" json:",omitempty" required:"true"`
+
+	Keys *string `type:"string" json:",omitempty"`
 
 	// Limit is a required field
-	Limit *int64 `type:"int64" required:"true"`
+	Limit *int64 `type:"int64" json:",omitempty" required:"true"`
 
-	LogLevel *string `type:"string" enum:"EnumOfLogLevelForDescribeNormalLogsInput"`
+	LogLevel *string `type:"string" json:",omitempty" enum:"EnumOfLogLevelForDescribeNormalLogsInput"`
 
 	// PodName is a required field
-	PodName *string `type:"string" required:"true"`
+	PodName *string `type:"string" json:",omitempty" required:"true"`
 
-	Sort *string `type:"string" enum:"EnumOfSortForDescribeNormalLogsInput"`
+	QueryEndTime *string `type:"string" json:",omitempty"`
 
-	// StartTime is a required field
-	StartTime *int64 `type:"int64" required:"true"`
+	QueryStartTime *string `type:"string" json:",omitempty"`
+
+	Sort *string `type:"string" json:",omitempty" enum:"EnumOfSortForDescribeNormalLogsInput"`
 }
 
 // String returns the string representation
@@ -227,9 +227,6 @@ func (s DescribeNormalLogsInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *DescribeNormalLogsInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "DescribeNormalLogsInput"}
-	if s.EndTime == nil {
-		invalidParams.Add(request.NewErrParamRequired("EndTime"))
-	}
 	if s.InstanceId == nil {
 		invalidParams.Add(request.NewErrParamRequired("InstanceId"))
 	}
@@ -238,9 +235,6 @@ func (s *DescribeNormalLogsInput) Validate() error {
 	}
 	if s.PodName == nil {
 		invalidParams.Add(request.NewErrParamRequired("PodName"))
-	}
-	if s.StartTime == nil {
-		invalidParams.Add(request.NewErrParamRequired("StartTime"))
 	}
 
 	if invalidParams.Len() > 0 {
@@ -255,15 +249,15 @@ func (s *DescribeNormalLogsInput) SetContext(v string) *DescribeNormalLogsInput 
 	return s
 }
 
-// SetEndTime sets the EndTime field's value.
-func (s *DescribeNormalLogsInput) SetEndTime(v int64) *DescribeNormalLogsInput {
-	s.EndTime = &v
-	return s
-}
-
 // SetInstanceId sets the InstanceId field's value.
 func (s *DescribeNormalLogsInput) SetInstanceId(v string) *DescribeNormalLogsInput {
 	s.InstanceId = &v
+	return s
+}
+
+// SetKeys sets the Keys field's value.
+func (s *DescribeNormalLogsInput) SetKeys(v string) *DescribeNormalLogsInput {
+	s.Keys = &v
 	return s
 }
 
@@ -285,30 +279,36 @@ func (s *DescribeNormalLogsInput) SetPodName(v string) *DescribeNormalLogsInput 
 	return s
 }
 
+// SetQueryEndTime sets the QueryEndTime field's value.
+func (s *DescribeNormalLogsInput) SetQueryEndTime(v string) *DescribeNormalLogsInput {
+	s.QueryEndTime = &v
+	return s
+}
+
+// SetQueryStartTime sets the QueryStartTime field's value.
+func (s *DescribeNormalLogsInput) SetQueryStartTime(v string) *DescribeNormalLogsInput {
+	s.QueryStartTime = &v
+	return s
+}
+
 // SetSort sets the Sort field's value.
 func (s *DescribeNormalLogsInput) SetSort(v string) *DescribeNormalLogsInput {
 	s.Sort = &v
 	return s
 }
 
-// SetStartTime sets the StartTime field's value.
-func (s *DescribeNormalLogsInput) SetStartTime(v int64) *DescribeNormalLogsInput {
-	s.StartTime = &v
-	return s
-}
-
 type DescribeNormalLogsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	Context *string `type:"string"`
+	Context *string `type:"string" json:",omitempty"`
 
-	Datas []*DataForDescribeNormalLogsOutput `type:"list"`
+	Datas []*DataForDescribeNormalLogsOutput `type:"list" json:",omitempty"`
 
-	ListOver *bool `type:"boolean"`
+	ListOver *bool `type:"boolean" json:",omitempty"`
 
-	Total *int32 `type:"int32"`
+	Total *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation

@@ -144,22 +144,22 @@ func (c *MONGODB) DescribeDBInstanceParametersLogWithContext(ctx volcengine.Cont
 }
 
 type DescribeDBInstanceParametersLogInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// EndTime is a required field
-	EndTime *string `type:"string" required:"true"`
+	EndTime *string `type:"string" json:",omitempty" required:"true"`
 
 	// InstanceId is a required field
-	InstanceId *string `type:"string" required:"true"`
+	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 
 	// PageNumber is a required field
-	PageNumber *int32 `type:"int32" required:"true"`
+	PageNumber *int32 `type:"int32" json:",omitempty" required:"true"`
 
 	// PageSize is a required field
-	PageSize *int32 `type:"int32" required:"true"`
+	PageSize *int32 `type:"int32" json:",omitempty" required:"true"`
 
 	// StartTime is a required field
-	StartTime *string `type:"string" required:"true"`
+	StartTime *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -228,13 +228,13 @@ func (s *DescribeDBInstanceParametersLogInput) SetStartTime(v string) *DescribeD
 }
 
 type DescribeDBInstanceParametersLogOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	ParameterChangeLog []*ParameterChangeLogForDescribeDBInstanceParametersLogOutput `type:"list"`
+	ParameterChangeLog []*ParameterChangeLogForDescribeDBInstanceParametersLogOutput `type:"list" json:",omitempty"`
 
-	Total *int32 `type:"int32"`
+	Total *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -260,19 +260,19 @@ func (s *DescribeDBInstanceParametersLogOutput) SetTotal(v int32) *DescribeDBIns
 }
 
 type ParameterChangeLogForDescribeDBInstanceParametersLogOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	ModifyTime *string `type:"string"`
+	ModifyTime *string `type:"string" json:",omitempty"`
 
-	NewParameterValue *string `type:"string"`
+	NewParameterValue *string `type:"string" json:",omitempty"`
 
-	OldParameterValue *string `type:"string"`
+	OldParameterValue *string `type:"string" json:",omitempty"`
 
-	ParameterName *string `type:"string"`
+	ParameterName *string `type:"string" json:",omitempty"`
 
-	ParameterRole *string `type:"string" enum:"EnumOfParameterRoleForDescribeDBInstanceParametersLogOutput"`
+	ParameterRole *string `type:"string" json:",omitempty" enum:"EnumOfParameterRoleForDescribeDBInstanceParametersLogOutput"`
 
-	ParameterStatus *string `type:"string" enum:"EnumOfParameterStatusForDescribeDBInstanceParametersLogOutput"`
+	ParameterStatus *string `type:"string" json:",omitempty" enum:"EnumOfParameterStatusForDescribeDBInstanceParametersLogOutput"`
 }
 
 // String returns the string representation

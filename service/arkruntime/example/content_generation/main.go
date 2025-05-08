@@ -36,6 +36,7 @@ func main() {
 				ImageURL: &model.ImageURL{
 					URL: "${YOUR URL HERE}", // Replace with URL
 				},
+				// Role: volcengine.String("first_frame"),
 			},
 		},
 	}

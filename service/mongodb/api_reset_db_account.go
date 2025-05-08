@@ -144,16 +144,20 @@ func (c *MONGODB) ResetDBAccountWithContext(ctx volcengine.Context, input *Reset
 }
 
 type ResetDBAccountInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// AccountName is a required field
-	AccountName *string `type:"string" required:"true"`
+	AccountName *string `type:"string" json:",omitempty" required:"true"`
 
 	// AccountPassword is a required field
-	AccountPassword *string `type:"string" required:"true"`
+	AccountPassword *string `type:"string" json:",omitempty" required:"true"`
+
+	AuthDB *string `type:"string" json:",omitempty"`
 
 	// InstanceId is a required field
-	InstanceId *string `type:"string" required:"true"`
+	InstanceId *string `type:"string" json:",omitempty" required:"true"`
+
+	ResetDBAccount *bool `type:"boolean" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -197,14 +201,26 @@ func (s *ResetDBAccountInput) SetAccountPassword(v string) *ResetDBAccountInput 
 	return s
 }
 
+// SetAuthDB sets the AuthDB field's value.
+func (s *ResetDBAccountInput) SetAuthDB(v string) *ResetDBAccountInput {
+	s.AuthDB = &v
+	return s
+}
+
 // SetInstanceId sets the InstanceId field's value.
 func (s *ResetDBAccountInput) SetInstanceId(v string) *ResetDBAccountInput {
 	s.InstanceId = &v
 	return s
 }
 
+// SetResetDBAccount sets the ResetDBAccount field's value.
+func (s *ResetDBAccountInput) SetResetDBAccount(v bool) *ResetDBAccountInput {
+	s.ResetDBAccount = &v
+	return s
+}
+
 type ResetDBAccountOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 }

@@ -144,20 +144,20 @@ func (c *MONGODB) ModifyDBInstanceChargeTypeWithContext(ctx volcengine.Context, 
 }
 
 type ModifyDBInstanceChargeTypeInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	AutoRenew *bool `type:"boolean"`
+	AutoRenew *bool `type:"boolean" json:",omitempty"`
 
 	// ChargeType is a required field
-	ChargeType *string `type:"string" required:"true" enum:"EnumOfChargeTypeForModifyDBInstanceChargeTypeInput"`
+	ChargeType *string `type:"string" json:",omitempty" required:"true" enum:"EnumOfChargeTypeForModifyDBInstanceChargeTypeInput"`
 
-	InstanceIds []*string `type:"list"`
+	InstanceIds []*string `type:"list" json:",omitempty"`
 
 	// Period is a required field
-	Period *int32 `type:"int32" required:"true"`
+	Period *int32 `type:"int32" json:",omitempty" required:"true"`
 
 	// PeriodUnit is a required field
-	PeriodUnit *string `type:"string" required:"true" enum:"EnumOfPeriodUnitForModifyDBInstanceChargeTypeInput"`
+	PeriodUnit *string `type:"string" json:",omitempty" required:"true" enum:"EnumOfPeriodUnitForModifyDBInstanceChargeTypeInput"`
 }
 
 // String returns the string representation
@@ -220,13 +220,13 @@ func (s *ModifyDBInstanceChargeTypeInput) SetPeriodUnit(v string) *ModifyDBInsta
 }
 
 type ModifyDBInstanceChargeTypeOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	InstanceIds []*string `type:"list"`
+	InstanceIds []*string `type:"list" json:",omitempty"`
 
-	OrderNO *string `type:"string"`
+	OrderNO *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation

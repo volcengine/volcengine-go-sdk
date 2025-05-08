@@ -144,10 +144,10 @@ func (c *MONGODB) RestartDBInstanceWithContext(ctx volcengine.Context, input *Re
 }
 
 type RestartDBInstanceInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// InstanceId is a required field
-	InstanceId *string `type:"string" required:"true"`
+	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -180,7 +180,7 @@ func (s *RestartDBInstanceInput) SetInstanceId(v string) *RestartDBInstanceInput
 }
 
 type RestartDBInstanceOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 }
