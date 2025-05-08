@@ -1,7 +1,7 @@
 ### Volcengine SDK for Go
 ####  概述
 1. 火山引擎-云计算-Go语言SDK
-2. Go版本最低1.5+ 推荐是用1.12+ 
+2. Go版本最低1.14+，如使用方舟服务(service/arkruntime)，需要使用go1.18+
 3. service目录下的文件请不要修改，都是由代码生成器自动生成
 4. 建议使用go mod方式进行依赖管理
 

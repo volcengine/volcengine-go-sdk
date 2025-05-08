@@ -1,6 +1,7 @@
 package volcengineutil
 
 import (
+	"io/ioutil"
 	"os"
 	"path/filepath"
 	"strings"
@@ -448,7 +449,7 @@ func inBootstrapRegionList(regionCode string, customBootstrapRegion map[string]s
 	regionCode = strings.TrimSpace(regionCode)
 	bsRegionListPath := os.Getenv("VOLC_BOOTSTRAP_REGION_LIST_CONF")
 	if len(bsRegionListPath) > 0 {
-		f, err := os.ReadFile(filepath.Clean(bsRegionListPath))
+		f, err := ioutil.ReadFile(filepath.Clean(bsRegionListPath))
 		if err == nil {
 			for _, l := range strings.Split(string(f), "\n") {
 				l = strings.TrimSpace(l)
