@@ -144,23 +144,23 @@ func (c *MONGODB) ModifyDBInstanceSpecWithContext(ctx volcengine.Context, input 
 }
 
 type ModifyDBInstanceSpecInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// InstanceId is a required field
-	InstanceId *string `type:"string" required:"true"`
+	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 
 	// InstanceType is a required field
-	InstanceType *string `type:"string" required:"true" enum:"EnumOfInstanceTypeForModifyDBInstanceSpecInput"`
+	InstanceType *string `type:"string" json:",omitempty" required:"true" enum:"EnumOfInstanceTypeForModifyDBInstanceSpecInput"`
 
-	MongosNodeNumber *int32 `type:"int32"`
+	MongosNodeNumber *int32 `type:"int32" json:",omitempty"`
 
-	MongosNodeSpec *string `type:"string"`
+	MongosNodeSpec *string `type:"string" json:",omitempty"`
 
-	NodeSpec *string `type:"string"`
+	NodeSpec *string `type:"string" json:",omitempty"`
 
-	ShardNumber *int32 `type:"int32"`
+	ShardNumber *int32 `type:"int32" json:",omitempty"`
 
-	StorageSpaceGB *int32 `type:"int32"`
+	StorageSpaceGB *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -232,13 +232,13 @@ func (s *ModifyDBInstanceSpecInput) SetStorageSpaceGB(v int32) *ModifyDBInstance
 }
 
 type ModifyDBInstanceSpecOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	InstanceId *string `type:"string"`
+	InstanceId *string `type:"string" json:",omitempty"`
 
-	OrderNO *string `type:"string"`
+	OrderNO *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation

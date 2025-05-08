@@ -144,13 +144,13 @@ func (c *MONGODB) SwitchDBMasterWithContext(ctx volcengine.Context, input *Switc
 }
 
 type SwitchDBMasterInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// InstanceId is a required field
-	InstanceId *string `type:"string" required:"true"`
+	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 
 	// NodeId is a required field
-	NodeId *string `type:"string" required:"true"`
+	NodeId *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -192,7 +192,7 @@ func (s *SwitchDBMasterInput) SetNodeId(v string) *SwitchDBMasterInput {
 }
 
 type SwitchDBMasterOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 }

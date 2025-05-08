@@ -144,19 +144,25 @@ func (c *MONGODB) DescribeAllowListsWithContext(ctx volcengine.Context, input *D
 }
 
 type AllowListForDescribeAllowListsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	AllowListDesc *string `type:"string"`
+	AllowListCategory *string `type:"string" json:",omitempty" enum:"EnumOfAllowListCategoryForDescribeAllowListsOutput"`
 
-	AllowListIPNum *int64 `type:"int64"`
+	AllowListDesc *string `type:"string" json:",omitempty"`
 
-	AllowListId *string `type:"string"`
+	AllowListIPNum *int64 `type:"int64" json:",omitempty"`
 
-	AllowListName *string `type:"string"`
+	AllowListId *string `type:"string" json:",omitempty"`
 
-	AllowListType *string `type:"string"`
+	AllowListName *string `type:"string" json:",omitempty"`
 
-	AssociatedInstanceNum *int64 `type:"int64"`
+	AllowListType *string `type:"string" json:",omitempty"`
+
+	AssociatedInstanceNum *int64 `type:"int64" json:",omitempty"`
+
+	CreateTime *string `type:"string" json:",omitempty"`
+
+	ProjectName *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -167,6 +173,12 @@ func (s AllowListForDescribeAllowListsOutput) String() string {
 // GoString returns the string representation
 func (s AllowListForDescribeAllowListsOutput) GoString() string {
 	return s.String()
+}
+
+// SetAllowListCategory sets the AllowListCategory field's value.
+func (s *AllowListForDescribeAllowListsOutput) SetAllowListCategory(v string) *AllowListForDescribeAllowListsOutput {
+	s.AllowListCategory = &v
+	return s
 }
 
 // SetAllowListDesc sets the AllowListDesc field's value.
@@ -205,13 +217,33 @@ func (s *AllowListForDescribeAllowListsOutput) SetAssociatedInstanceNum(v int64)
 	return s
 }
 
-type DescribeAllowListsInput struct {
-	_ struct{} `type:"structure"`
+// SetCreateTime sets the CreateTime field's value.
+func (s *AllowListForDescribeAllowListsOutput) SetCreateTime(v string) *AllowListForDescribeAllowListsOutput {
+	s.CreateTime = &v
+	return s
+}
 
-	InstanceId *string `type:"string"`
+// SetProjectName sets the ProjectName field's value.
+func (s *AllowListForDescribeAllowListsOutput) SetProjectName(v string) *AllowListForDescribeAllowListsOutput {
+	s.ProjectName = &v
+	return s
+}
+
+type DescribeAllowListsInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	AllowListCategory *string `type:"string" json:",omitempty" enum:"EnumOfAllowListCategoryForDescribeAllowListsInput"`
+
+	InstanceId *string `type:"string" json:",omitempty"`
+
+	PageNumber *int64 `type:"int64" json:",omitempty"`
+
+	PageSize *int64 `type:"int64" json:",omitempty"`
+
+	ProjectName *string `type:"string" json:",omitempty"`
 
 	// RegionId is a required field
-	RegionId *string `type:"string" required:"true"`
+	RegionId *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -237,9 +269,33 @@ func (s *DescribeAllowListsInput) Validate() error {
 	return nil
 }
 
+// SetAllowListCategory sets the AllowListCategory field's value.
+func (s *DescribeAllowListsInput) SetAllowListCategory(v string) *DescribeAllowListsInput {
+	s.AllowListCategory = &v
+	return s
+}
+
 // SetInstanceId sets the InstanceId field's value.
 func (s *DescribeAllowListsInput) SetInstanceId(v string) *DescribeAllowListsInput {
 	s.InstanceId = &v
+	return s
+}
+
+// SetPageNumber sets the PageNumber field's value.
+func (s *DescribeAllowListsInput) SetPageNumber(v int64) *DescribeAllowListsInput {
+	s.PageNumber = &v
+	return s
+}
+
+// SetPageSize sets the PageSize field's value.
+func (s *DescribeAllowListsInput) SetPageSize(v int64) *DescribeAllowListsInput {
+	s.PageSize = &v
+	return s
+}
+
+// SetProjectName sets the ProjectName field's value.
+func (s *DescribeAllowListsInput) SetProjectName(v string) *DescribeAllowListsInput {
+	s.ProjectName = &v
 	return s
 }
 
@@ -250,11 +306,13 @@ func (s *DescribeAllowListsInput) SetRegionId(v string) *DescribeAllowListsInput
 }
 
 type DescribeAllowListsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	AllowLists []*AllowListForDescribeAllowListsOutput `type:"list"`
+	AllowLists []*AllowListForDescribeAllowListsOutput `type:"list" json:",omitempty"`
+
+	Total *int64 `type:"int64" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -272,3 +330,25 @@ func (s *DescribeAllowListsOutput) SetAllowLists(v []*AllowListForDescribeAllowL
 	s.AllowLists = v
 	return s
 }
+
+// SetTotal sets the Total field's value.
+func (s *DescribeAllowListsOutput) SetTotal(v int64) *DescribeAllowListsOutput {
+	s.Total = &v
+	return s
+}
+
+const (
+	// EnumOfAllowListCategoryForDescribeAllowListsInputOrdinary is a EnumOfAllowListCategoryForDescribeAllowListsInput enum value
+	EnumOfAllowListCategoryForDescribeAllowListsInputOrdinary = "Ordinary"
+
+	// EnumOfAllowListCategoryForDescribeAllowListsInputDefault is a EnumOfAllowListCategoryForDescribeAllowListsInput enum value
+	EnumOfAllowListCategoryForDescribeAllowListsInputDefault = "Default"
+)
+
+const (
+	// EnumOfAllowListCategoryForDescribeAllowListsOutputOrdinary is a EnumOfAllowListCategoryForDescribeAllowListsOutput enum value
+	EnumOfAllowListCategoryForDescribeAllowListsOutputOrdinary = "Ordinary"
+
+	// EnumOfAllowListCategoryForDescribeAllowListsOutputDefault is a EnumOfAllowListCategoryForDescribeAllowListsOutput enum value
+	EnumOfAllowListCategoryForDescribeAllowListsOutputDefault = "Default"
+)

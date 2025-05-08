@@ -144,21 +144,23 @@ func (c *MONGODB) ModifyAllowListWithContext(ctx volcengine.Context, input *Modi
 }
 
 type ModifyAllowListInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	AllowList *string `type:"string"`
+	AllowList *string `type:"string" json:",omitempty"`
 
-	AllowListDesc *string `type:"string"`
+	AllowListCategory *string `type:"string" json:",omitempty" enum:"EnumOfAllowListCategoryForModifyAllowListInput"`
+
+	AllowListDesc *string `type:"string" json:",omitempty"`
 
 	// AllowListId is a required field
-	AllowListId *string `type:"string" required:"true"`
+	AllowListId *string `type:"string" json:",omitempty" required:"true"`
 
 	// AllowListName is a required field
-	AllowListName *string `type:"string" required:"true"`
+	AllowListName *string `type:"string" json:",omitempty" required:"true"`
 
-	ApplyInstanceNum *int64 `type:"int64"`
+	ApplyInstanceNum *int64 `type:"int64" json:",omitempty"`
 
-	ModifyMode *string `type:"string" enum:"EnumOfModifyModeForModifyAllowListInput"`
+	ModifyMode *string `type:"string" json:",omitempty" enum:"EnumOfModifyModeForModifyAllowListInput"`
 }
 
 // String returns the string representation
@@ -193,6 +195,12 @@ func (s *ModifyAllowListInput) SetAllowList(v string) *ModifyAllowListInput {
 	return s
 }
 
+// SetAllowListCategory sets the AllowListCategory field's value.
+func (s *ModifyAllowListInput) SetAllowListCategory(v string) *ModifyAllowListInput {
+	s.AllowListCategory = &v
+	return s
+}
+
 // SetAllowListDesc sets the AllowListDesc field's value.
 func (s *ModifyAllowListInput) SetAllowListDesc(v string) *ModifyAllowListInput {
 	s.AllowListDesc = &v
@@ -224,7 +232,7 @@ func (s *ModifyAllowListInput) SetModifyMode(v string) *ModifyAllowListInput {
 }
 
 type ModifyAllowListOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 }
@@ -238,6 +246,14 @@ func (s ModifyAllowListOutput) String() string {
 func (s ModifyAllowListOutput) GoString() string {
 	return s.String()
 }
+
+const (
+	// EnumOfAllowListCategoryForModifyAllowListInputOrdinary is a EnumOfAllowListCategoryForModifyAllowListInput enum value
+	EnumOfAllowListCategoryForModifyAllowListInputOrdinary = "Ordinary"
+
+	// EnumOfAllowListCategoryForModifyAllowListInputDefault is a EnumOfAllowListCategoryForModifyAllowListInput enum value
+	EnumOfAllowListCategoryForModifyAllowListInputDefault = "Default"
+)
 
 const (
 	// EnumOfModifyModeForModifyAllowListInputCover is a EnumOfModifyModeForModifyAllowListInput enum value

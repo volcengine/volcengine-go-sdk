@@ -144,19 +144,19 @@ func (c *MONGODB) DescribeNodeSpecsWithContext(ctx volcengine.Context, input *De
 }
 
 type ConfigServerNodeSpecForDescribeNodeSpecsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	CpuNum *float64 `type:"double"`
+	CpuNum *float64 `type:"double" json:",omitempty"`
 
-	MaxConn *int64 `type:"int64"`
+	MaxConn *int64 `type:"int64" json:",omitempty"`
 
-	MaxStorage *int64 `type:"int64"`
+	MaxStorage *int64 `type:"int64" json:",omitempty"`
 
-	MemInGb *float64 `type:"double"`
+	MemInGb *float64 `type:"double" json:",omitempty"`
 
-	MinStorage *int64 `type:"int64"`
+	MinStorage *int64 `type:"int64" json:",omitempty"`
 
-	SpecName *string `type:"string"`
+	SpecName *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -206,9 +206,9 @@ func (s *ConfigServerNodeSpecForDescribeNodeSpecsOutput) SetSpecName(v string) *
 }
 
 type DescribeNodeSpecsInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	RegionId *string `type:"string"`
+	RegionId *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -228,17 +228,17 @@ func (s *DescribeNodeSpecsInput) SetRegionId(v string) *DescribeNodeSpecsInput {
 }
 
 type DescribeNodeSpecsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	ConfigServerNodeSpecs []*ConfigServerNodeSpecForDescribeNodeSpecsOutput `type:"list"`
+	ConfigServerNodeSpecs []*ConfigServerNodeSpecForDescribeNodeSpecsOutput `type:"list" json:",omitempty"`
 
-	MongosNodeSpecs []*MongosNodeSpecForDescribeNodeSpecsOutput `type:"list"`
+	MongosNodeSpecs []*MongosNodeSpecForDescribeNodeSpecsOutput `type:"list" json:",omitempty"`
 
-	NodeSpecs []*NodeSpecForDescribeNodeSpecsOutput `type:"list"`
+	NodeSpecs []*NodeSpecForDescribeNodeSpecsOutput `type:"list" json:",omitempty"`
 
-	ShardNodeSpecs []*ShardNodeSpecForDescribeNodeSpecsOutput `type:"list"`
+	ShardNodeSpecs []*ShardNodeSpecForDescribeNodeSpecsOutput `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -276,15 +276,15 @@ func (s *DescribeNodeSpecsOutput) SetShardNodeSpecs(v []*ShardNodeSpecForDescrib
 }
 
 type MongosNodeSpecForDescribeNodeSpecsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	CpuNum *float64 `type:"double"`
+	CpuNum *float64 `type:"double" json:",omitempty"`
 
-	MaxConn *int64 `type:"int64"`
+	MaxConn *int64 `type:"int64" json:",omitempty"`
 
-	MemInGb *float64 `type:"double"`
+	MemInGb *float64 `type:"double" json:",omitempty"`
 
-	SpecName *string `type:"string"`
+	SpecName *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -322,19 +322,19 @@ func (s *MongosNodeSpecForDescribeNodeSpecsOutput) SetSpecName(v string) *Mongos
 }
 
 type NodeSpecForDescribeNodeSpecsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	CpuNum *float64 `type:"double"`
+	CpuNum *float64 `type:"double" json:",omitempty"`
 
-	MaxConn *int64 `type:"int64"`
+	MaxConn *int64 `type:"int64" json:",omitempty"`
 
-	MaxStorage *int64 `type:"int64"`
+	MaxStorage *int64 `type:"int64" json:",omitempty"`
 
-	MemInGb *float64 `type:"double"`
+	MemInGb *float64 `type:"double" json:",omitempty"`
 
-	MinStorage *int64 `type:"int64"`
+	MinStorage *int64 `type:"int64" json:",omitempty"`
 
-	SpecName *string `type:"string"`
+	SpecName *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -384,19 +384,19 @@ func (s *NodeSpecForDescribeNodeSpecsOutput) SetSpecName(v string) *NodeSpecForD
 }
 
 type ShardNodeSpecForDescribeNodeSpecsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	CpuNum *float64 `type:"double"`
+	CpuNum *float64 `type:"double" json:",omitempty"`
 
-	MaxConn *int64 `type:"int64"`
+	MaxConn *int64 `type:"int64" json:",omitempty"`
 
-	MaxStorage *int64 `type:"int64"`
+	MaxStorage *int64 `type:"int64" json:",omitempty"`
 
-	MemInGb *float64 `type:"double"`
+	MemInGb *float64 `type:"double" json:",omitempty"`
 
-	MinStorage *int64 `type:"int64"`
+	MinStorage *int64 `type:"int64" json:",omitempty"`
 
-	SpecName *string `type:"string"`
+	SpecName *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation

@@ -144,13 +144,13 @@ func (c *MONGODB) ModifyDBInstanceSSLWithContext(ctx volcengine.Context, input *
 }
 
 type ModifyDBInstanceSSLInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// InstanceId is a required field
-	InstanceId *string `type:"string" required:"true"`
+	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 
 	// SSLAction is a required field
-	SSLAction *string `type:"string" required:"true" enum:"EnumOfSSLActionForModifyDBInstanceSSLInput"`
+	SSLAction *string `type:"string" json:",omitempty" required:"true" enum:"EnumOfSSLActionForModifyDBInstanceSSLInput"`
 }
 
 // String returns the string representation
@@ -192,7 +192,7 @@ func (s *ModifyDBInstanceSSLInput) SetSSLAction(v string) *ModifyDBInstanceSSLIn
 }
 
 type ModifyDBInstanceSSLOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 }

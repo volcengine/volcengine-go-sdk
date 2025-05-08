@@ -144,19 +144,19 @@ func (c *MONGODB) DescribeDBEndpointWithContext(ctx volcengine.Context, input *D
 }
 
 type DBAddressForDescribeDBEndpointOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	AddressDomain *string `type:"string"`
+	AddressDomain *string `type:"string" json:",omitempty"`
 
-	AddressIP *string `type:"string"`
+	AddressIP *string `type:"string" json:",omitempty"`
 
-	AddressPort *string `type:"string"`
+	AddressPort *string `type:"string" json:",omitempty"`
 
-	AddressType *string `type:"string" enum:"EnumOfAddressTypeForDescribeDBEndpointOutput"`
+	AddressType *string `type:"string" json:",omitempty" enum:"EnumOfAddressTypeForDescribeDBEndpointOutput"`
 
-	EipId *string `type:"string"`
+	EipId *string `type:"string" json:",omitempty"`
 
-	NodeId *string `type:"string"`
+	NodeId *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -206,23 +206,23 @@ func (s *DBAddressForDescribeDBEndpointOutput) SetNodeId(v string) *DBAddressFor
 }
 
 type DBEndpointForDescribeDBEndpointOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	DBAddresses []*DBAddressForDescribeDBEndpointOutput `type:"list"`
+	DBAddresses []*DBAddressForDescribeDBEndpointOutput `type:"list" json:",omitempty"`
 
-	EndpointId *string `type:"string"`
+	EndpointId *string `type:"string" json:",omitempty"`
 
-	EndpointStr *string `type:"string"`
+	EndpointStr *string `type:"string" json:",omitempty"`
 
-	EndpointType *string `type:"string" enum:"EnumOfEndpointTypeForDescribeDBEndpointOutput"`
+	EndpointType *string `type:"string" json:",omitempty" enum:"EnumOfEndpointTypeForDescribeDBEndpointOutput"`
 
-	NetworkType *string `type:"string" enum:"EnumOfNetworkTypeForDescribeDBEndpointOutput"`
+	NetworkType *string `type:"string" json:",omitempty" enum:"EnumOfNetworkTypeForDescribeDBEndpointOutput"`
 
-	ObjectId *string `type:"string"`
+	ObjectId *string `type:"string" json:",omitempty"`
 
-	SubnetId *string `type:"string"`
+	SubnetId *string `type:"string" json:",omitempty"`
 
-	VpcId *string `type:"string"`
+	VpcId *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -284,10 +284,10 @@ func (s *DBEndpointForDescribeDBEndpointOutput) SetVpcId(v string) *DBEndpointFo
 }
 
 type DescribeDBEndpointInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// InstanceId is a required field
-	InstanceId *string `type:"string" required:"true"`
+	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -320,11 +320,11 @@ func (s *DescribeDBEndpointInput) SetInstanceId(v string) *DescribeDBEndpointInp
 }
 
 type DescribeDBEndpointOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	DBEndpoints []*DBEndpointForDescribeDBEndpointOutput `type:"list"`
+	DBEndpoints []*DBEndpointForDescribeDBEndpointOutput `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation

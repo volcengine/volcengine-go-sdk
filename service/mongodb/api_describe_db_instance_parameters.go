@@ -144,14 +144,14 @@ func (c *MONGODB) DescribeDBInstanceParametersWithContext(ctx volcengine.Context
 }
 
 type DescribeDBInstanceParametersInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// InstanceId is a required field
-	InstanceId *string `type:"string" required:"true"`
+	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 
-	ParameterNames *string `type:"string"`
+	ParameterNames *string `type:"string" json:",omitempty"`
 
-	ParameterRole *string `type:"string" enum:"EnumOfParameterRoleForDescribeDBInstanceParametersInput"`
+	ParameterRole *string `type:"string" json:",omitempty" enum:"EnumOfParameterRoleForDescribeDBInstanceParametersInput"`
 }
 
 // String returns the string representation
@@ -196,19 +196,19 @@ func (s *DescribeDBInstanceParametersInput) SetParameterRole(v string) *Describe
 }
 
 type DescribeDBInstanceParametersOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	DBEngine *string `type:"string"`
+	DBEngine *string `type:"string" json:",omitempty"`
 
-	DBEngineVersion *string `type:"string"`
+	DBEngineVersion *string `type:"string" json:",omitempty"`
 
-	InstanceId *string `type:"string"`
+	InstanceId *string `type:"string" json:",omitempty"`
 
-	InstanceParameters []*InstanceParameterForDescribeDBInstanceParametersOutput `type:"list"`
+	InstanceParameters []*InstanceParameterForDescribeDBInstanceParametersOutput `type:"list" json:",omitempty"`
 
-	Total *string `type:"string"`
+	Total *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -252,25 +252,25 @@ func (s *DescribeDBInstanceParametersOutput) SetTotal(v string) *DescribeDBInsta
 }
 
 type InstanceParameterForDescribeDBInstanceParametersOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	CheckingCode *string `type:"string"`
+	CheckingCode *string `type:"string" json:",omitempty"`
 
-	ForceModify *bool `type:"boolean"`
+	ForceModify *bool `type:"boolean" json:",omitempty"`
 
-	ForceRestart *bool `type:"boolean"`
+	ForceRestart *bool `type:"boolean" json:",omitempty"`
 
-	ParameterDefaultValue *string `type:"string"`
+	ParameterDefaultValue *string `type:"string" json:",omitempty"`
 
-	ParameterDescription *string `type:"string"`
+	ParameterDescription *string `type:"string" json:",omitempty"`
 
-	ParameterNames *string `type:"string"`
+	ParameterNames *string `type:"string" json:",omitempty"`
 
-	ParameterRole *string `type:"string" enum:"EnumOfParameterRoleForDescribeDBInstanceParametersOutput"`
+	ParameterRole *string `type:"string" json:",omitempty" enum:"EnumOfParameterRoleForDescribeDBInstanceParametersOutput"`
 
-	ParameterType *string `type:"string" enum:"EnumOfParameterTypeForDescribeDBInstanceParametersOutput"`
+	ParameterType *string `type:"string" json:",omitempty" enum:"EnumOfParameterTypeForDescribeDBInstanceParametersOutput"`
 
-	ParameterValue *string `type:"string"`
+	ParameterValue *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation

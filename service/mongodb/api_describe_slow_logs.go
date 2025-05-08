@@ -144,25 +144,25 @@ func (c *MONGODB) DescribeSlowLogsWithContext(ctx volcengine.Context, input *Des
 }
 
 type DataForDescribeSlowLogsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	ClientIP *string `type:"string"`
+	ClientIP *string `type:"string" json:",omitempty"`
 
-	DBName *string `type:"string"`
+	DBName *string `type:"string" json:",omitempty"`
 
-	Duration *int64 `type:"int64"`
+	Duration *int64 `type:"int64" json:",omitempty"`
 
-	FileScan *int64 `type:"int64"`
+	FileScan *int64 `type:"int64" json:",omitempty"`
 
-	IndexScan *int64 `type:"int64"`
+	IndexScan *int64 `type:"int64" json:",omitempty"`
 
-	Return *int64 `type:"int64"`
+	Return *int64 `type:"int64" json:",omitempty"`
 
-	SQL *string `type:"string"`
+	SQL *string `type:"string" json:",omitempty"`
 
-	StartTime *string `type:"string"`
+	StartTime *string `type:"string" json:",omitempty"`
 
-	UserName *string `type:"string"`
+	UserName *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -230,26 +230,28 @@ func (s *DataForDescribeSlowLogsOutput) SetUserName(v string) *DataForDescribeSl
 }
 
 type DescribeSlowLogsInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Context *string `type:"string"`
+	Context *string `type:"string" json:",omitempty"`
 
-	// EndTime is a required field
-	EndTime *int64 `type:"int64" required:"true"`
+	DBName *string `type:"string" json:",omitempty"`
 
 	// InstanceId is a required field
-	InstanceId *string `type:"string" required:"true"`
+	InstanceId *string `type:"string" json:",omitempty" required:"true"`
+
+	Keys *string `type:"string" json:",omitempty"`
 
 	// Limit is a required field
-	Limit *int64 `type:"int64" required:"true"`
+	Limit *int64 `type:"int64" json:",omitempty" required:"true"`
 
 	// PodName is a required field
-	PodName *string `type:"string" required:"true"`
+	PodName *string `type:"string" json:",omitempty" required:"true"`
 
-	Sort *string `type:"string" enum:"EnumOfSortForDescribeSlowLogsInput"`
+	QueryEndTime *string `type:"string" json:",omitempty"`
 
-	// StartTime is a required field
-	StartTime *int64 `type:"int64" required:"true"`
+	QueryStartTime *string `type:"string" json:",omitempty"`
+
+	Sort *string `type:"string" json:",omitempty" enum:"EnumOfSortForDescribeSlowLogsInput"`
 }
 
 // String returns the string representation
@@ -265,9 +267,6 @@ func (s DescribeSlowLogsInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *DescribeSlowLogsInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "DescribeSlowLogsInput"}
-	if s.EndTime == nil {
-		invalidParams.Add(request.NewErrParamRequired("EndTime"))
-	}
 	if s.InstanceId == nil {
 		invalidParams.Add(request.NewErrParamRequired("InstanceId"))
 	}
@@ -276,9 +275,6 @@ func (s *DescribeSlowLogsInput) Validate() error {
 	}
 	if s.PodName == nil {
 		invalidParams.Add(request.NewErrParamRequired("PodName"))
-	}
-	if s.StartTime == nil {
-		invalidParams.Add(request.NewErrParamRequired("StartTime"))
 	}
 
 	if invalidParams.Len() > 0 {
@@ -293,15 +289,21 @@ func (s *DescribeSlowLogsInput) SetContext(v string) *DescribeSlowLogsInput {
 	return s
 }
 
-// SetEndTime sets the EndTime field's value.
-func (s *DescribeSlowLogsInput) SetEndTime(v int64) *DescribeSlowLogsInput {
-	s.EndTime = &v
+// SetDBName sets the DBName field's value.
+func (s *DescribeSlowLogsInput) SetDBName(v string) *DescribeSlowLogsInput {
+	s.DBName = &v
 	return s
 }
 
 // SetInstanceId sets the InstanceId field's value.
 func (s *DescribeSlowLogsInput) SetInstanceId(v string) *DescribeSlowLogsInput {
 	s.InstanceId = &v
+	return s
+}
+
+// SetKeys sets the Keys field's value.
+func (s *DescribeSlowLogsInput) SetKeys(v string) *DescribeSlowLogsInput {
+	s.Keys = &v
 	return s
 }
 
@@ -317,30 +319,36 @@ func (s *DescribeSlowLogsInput) SetPodName(v string) *DescribeSlowLogsInput {
 	return s
 }
 
+// SetQueryEndTime sets the QueryEndTime field's value.
+func (s *DescribeSlowLogsInput) SetQueryEndTime(v string) *DescribeSlowLogsInput {
+	s.QueryEndTime = &v
+	return s
+}
+
+// SetQueryStartTime sets the QueryStartTime field's value.
+func (s *DescribeSlowLogsInput) SetQueryStartTime(v string) *DescribeSlowLogsInput {
+	s.QueryStartTime = &v
+	return s
+}
+
 // SetSort sets the Sort field's value.
 func (s *DescribeSlowLogsInput) SetSort(v string) *DescribeSlowLogsInput {
 	s.Sort = &v
 	return s
 }
 
-// SetStartTime sets the StartTime field's value.
-func (s *DescribeSlowLogsInput) SetStartTime(v int64) *DescribeSlowLogsInput {
-	s.StartTime = &v
-	return s
-}
-
 type DescribeSlowLogsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	Context *string `type:"string"`
+	Context *string `type:"string" json:",omitempty"`
 
-	Datas []*DataForDescribeSlowLogsOutput `type:"list"`
+	Datas []*DataForDescribeSlowLogsOutput `type:"list" json:",omitempty"`
 
-	ListOver *bool `type:"boolean"`
+	ListOver *bool `type:"boolean" json:",omitempty"`
 
-	Total *int32 `type:"int32"`
+	Total *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation

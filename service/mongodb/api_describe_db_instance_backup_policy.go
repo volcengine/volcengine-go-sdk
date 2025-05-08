@@ -144,10 +144,10 @@ func (c *MONGODB) DescribeDBInstanceBackupPolicyWithContext(ctx volcengine.Conte
 }
 
 type DescribeDBInstanceBackupPolicyInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// InstanceId is a required field
-	InstanceId *string `type:"string" required:"true"`
+	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -180,17 +180,17 @@ func (s *DescribeDBInstanceBackupPolicyInput) SetInstanceId(v string) *DescribeD
 }
 
 type DescribeDBInstanceBackupPolicyOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	AutoBackup *string `type:"string"`
+	AutoBackup *string `type:"string" json:",omitempty"`
 
-	DataBackupRetentionDay *int32 `type:"int32"`
+	DataBackupRetentionDay *int32 `type:"int32" json:",omitempty"`
 
-	DataFullBackupPeriods []*string `type:"list"`
+	DataFullBackupPeriods []*string `type:"list" json:",omitempty"`
 
-	DataFullBackupTime *string `type:"string"`
+	DataFullBackupTime *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation

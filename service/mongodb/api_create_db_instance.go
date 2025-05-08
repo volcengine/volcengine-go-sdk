@@ -144,58 +144,64 @@ func (c *MONGODB) CreateDBInstanceWithContext(ctx volcengine.Context, input *Cre
 }
 
 type CreateDBInstanceInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	AllowListIds []*string `type:"list"`
+	AllowListIds []*string `type:"list" json:",omitempty"`
 
-	AutoRenew *bool `type:"boolean"`
+	AutoRenew *bool `type:"boolean" json:",omitempty"`
 
-	ChargeType *string `type:"string" enum:"EnumOfChargeTypeForCreateDBInstanceInput"`
+	ChargeType *string `type:"string" json:",omitempty" enum:"EnumOfChargeTypeForCreateDBInstanceInput"`
 
-	Count *int32 `type:"int32"`
+	ConfigServerNodeSpec *string `type:"string" json:",omitempty"`
 
-	DBEngine *string `type:"string" enum:"EnumOfDBEngineForCreateDBInstanceInput"`
+	ConfigServerStorageSpaceGB *int32 `type:"int32" json:",omitempty"`
 
-	DBEngineVersion *string `type:"string" enum:"EnumOfDBEngineVersionForCreateDBInstanceInput"`
+	Count *int32 `type:"int32" json:",omitempty"`
 
-	InstanceName *string `type:"string"`
+	DBEngine *string `type:"string" json:",omitempty" enum:"EnumOfDBEngineForCreateDBInstanceInput"`
 
-	InstanceType *string `type:"string" enum:"EnumOfInstanceTypeForCreateDBInstanceInput"`
+	DBEngineVersion *string `type:"string" json:",omitempty" enum:"EnumOfDBEngineVersionForCreateDBInstanceInput"`
 
-	MongosNodeNumber *int32 `type:"int32"`
+	InstanceName *string `type:"string" json:",omitempty"`
 
-	MongosNodeSpec *string `type:"string"`
+	InstanceType *string `type:"string" json:",omitempty" enum:"EnumOfInstanceTypeForCreateDBInstanceInput"`
 
-	NodeNumber *int32 `type:"int32"`
+	MongosNodeNumber *int32 `type:"int32" json:",omitempty"`
+
+	MongosNodeSpec *string `type:"string" json:",omitempty"`
+
+	NodeAvailabilityZone []*NodeAvailabilityZoneForCreateDBInstanceInput `type:"list" json:",omitempty"`
+
+	NodeNumber *int32 `type:"int32" json:",omitempty"`
 
 	// NodeSpec is a required field
-	NodeSpec *string `type:"string" required:"true"`
+	NodeSpec *string `type:"string" json:",omitempty" required:"true"`
 
-	Period *int32 `type:"int32"`
+	Period *int32 `type:"int32" json:",omitempty"`
 
-	PeriodUnit *string `type:"string" enum:"EnumOfPeriodUnitForCreateDBInstanceInput"`
+	PeriodUnit *string `type:"string" json:",omitempty" enum:"EnumOfPeriodUnitForCreateDBInstanceInput"`
 
-	ProjectName *string `type:"string"`
+	ProjectName *string `type:"string" json:",omitempty"`
 
-	ShardNumber *int32 `type:"int32"`
+	ShardNumber *int32 `type:"int32" json:",omitempty"`
 
 	// StorageSpaceGB is a required field
-	StorageSpaceGB *int32 `type:"int32" required:"true"`
+	StorageSpaceGB *int32 `type:"int32" json:",omitempty" required:"true"`
 
 	// SubnetId is a required field
-	SubnetId *string `type:"string" required:"true"`
+	SubnetId *string `type:"string" json:",omitempty" required:"true"`
 
-	SuperAccountName *string `type:"string"`
+	SuperAccountName *string `type:"string" json:",omitempty"`
 
-	SuperAccountPassword *string `type:"string"`
+	SuperAccountPassword *string `type:"string" json:",omitempty"`
 
-	Tags []*TagForCreateDBInstanceInput `type:"list"`
+	Tags []*TagForCreateDBInstanceInput `type:"list" json:",omitempty"`
 
 	// VpcId is a required field
-	VpcId *string `type:"string" required:"true"`
+	VpcId *string `type:"string" json:",omitempty" required:"true"`
 
 	// ZoneId is a required field
-	ZoneId *string `type:"string" required:"true"`
+	ZoneId *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -251,6 +257,18 @@ func (s *CreateDBInstanceInput) SetChargeType(v string) *CreateDBInstanceInput {
 	return s
 }
 
+// SetConfigServerNodeSpec sets the ConfigServerNodeSpec field's value.
+func (s *CreateDBInstanceInput) SetConfigServerNodeSpec(v string) *CreateDBInstanceInput {
+	s.ConfigServerNodeSpec = &v
+	return s
+}
+
+// SetConfigServerStorageSpaceGB sets the ConfigServerStorageSpaceGB field's value.
+func (s *CreateDBInstanceInput) SetConfigServerStorageSpaceGB(v int32) *CreateDBInstanceInput {
+	s.ConfigServerStorageSpaceGB = &v
+	return s
+}
+
 // SetCount sets the Count field's value.
 func (s *CreateDBInstanceInput) SetCount(v int32) *CreateDBInstanceInput {
 	s.Count = &v
@@ -290,6 +308,12 @@ func (s *CreateDBInstanceInput) SetMongosNodeNumber(v int32) *CreateDBInstanceIn
 // SetMongosNodeSpec sets the MongosNodeSpec field's value.
 func (s *CreateDBInstanceInput) SetMongosNodeSpec(v string) *CreateDBInstanceInput {
 	s.MongosNodeSpec = &v
+	return s
+}
+
+// SetNodeAvailabilityZone sets the NodeAvailabilityZone field's value.
+func (s *CreateDBInstanceInput) SetNodeAvailabilityZone(v []*NodeAvailabilityZoneForCreateDBInstanceInput) *CreateDBInstanceInput {
+	s.NodeAvailabilityZone = v
 	return s
 }
 
@@ -372,13 +396,13 @@ func (s *CreateDBInstanceInput) SetZoneId(v string) *CreateDBInstanceInput {
 }
 
 type CreateDBInstanceOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	InstanceId *string `type:"string"`
+	InstanceId *string `type:"string" json:",omitempty"`
 
-	OrderNO *string `type:"string"`
+	OrderNO *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -403,12 +427,42 @@ func (s *CreateDBInstanceOutput) SetOrderNO(v string) *CreateDBInstanceOutput {
 	return s
 }
 
+type NodeAvailabilityZoneForCreateDBInstanceInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	NodeNumber *int32 `type:"int32" json:",omitempty"`
+
+	ZoneId *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s NodeAvailabilityZoneForCreateDBInstanceInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s NodeAvailabilityZoneForCreateDBInstanceInput) GoString() string {
+	return s.String()
+}
+
+// SetNodeNumber sets the NodeNumber field's value.
+func (s *NodeAvailabilityZoneForCreateDBInstanceInput) SetNodeNumber(v int32) *NodeAvailabilityZoneForCreateDBInstanceInput {
+	s.NodeNumber = &v
+	return s
+}
+
+// SetZoneId sets the ZoneId field's value.
+func (s *NodeAvailabilityZoneForCreateDBInstanceInput) SetZoneId(v string) *NodeAvailabilityZoneForCreateDBInstanceInput {
+	s.ZoneId = &v
+	return s
+}
+
 type TagForCreateDBInstanceInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Key *string `type:"string"`
+	Key *string `type:"string" json:",omitempty"`
 
-	Value *string `type:"string"`
+	Value *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -464,6 +518,9 @@ const (
 
 	// EnumOfDBEngineVersionForCreateDBInstanceInputMongoDb60 is a EnumOfDBEngineVersionForCreateDBInstanceInput enum value
 	EnumOfDBEngineVersionForCreateDBInstanceInputMongoDb60 = "MongoDB_6_0"
+
+	// EnumOfDBEngineVersionForCreateDBInstanceInputMongoDbInner40 is a EnumOfDBEngineVersionForCreateDBInstanceInput enum value
+	EnumOfDBEngineVersionForCreateDBInstanceInputMongoDbInner40 = "MongoDB_Inner_4_0"
 )
 
 const (

@@ -144,13 +144,13 @@ func (c *MONGODB) DescribeDBInstanceBackupURLWithContext(ctx volcengine.Context,
 }
 
 type DescribeDBInstanceBackupURLInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// BackupId is a required field
-	BackupId *string `type:"string" required:"true"`
+	BackupId *string `type:"string" json:",omitempty" required:"true"`
 
 	// InstanceId is a required field
-	InstanceId *string `type:"string" required:"true"`
+	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -192,19 +192,19 @@ func (s *DescribeDBInstanceBackupURLInput) SetInstanceId(v string) *DescribeDBIn
 }
 
 type DescribeDBInstanceBackupURLOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	BackupDownloadLink *string `type:"string"`
+	BackupDownloadLink *string `type:"string" json:",omitempty"`
 
-	BackupId *string `type:"string"`
+	BackupId *string `type:"string" json:",omitempty"`
 
-	DownloadProgress *int32 `type:"int32"`
+	DownloadProgress *int32 `type:"int32" json:",omitempty"`
 
-	InstanceId *string `type:"string"`
+	InstanceId *string `type:"string" json:",omitempty"`
 
-	LinkExpiredTime *string `type:"string"`
+	LinkExpiredTime *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation

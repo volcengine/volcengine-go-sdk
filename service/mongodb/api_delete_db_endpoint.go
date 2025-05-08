@@ -144,15 +144,15 @@ func (c *MONGODB) DeleteDBEndpointWithContext(ctx volcengine.Context, input *Del
 }
 
 type DeleteDBEndpointInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// EndpointId is a required field
-	EndpointId *string `type:"string" required:"true"`
+	EndpointId *string `type:"string" json:",omitempty" required:"true"`
 
 	// InstanceId is a required field
-	InstanceId *string `type:"string" required:"true"`
+	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 
-	MongosNodeIds []*string `type:"list"`
+	MongosNodeIds []*string `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -200,7 +200,7 @@ func (s *DeleteDBEndpointInput) SetMongosNodeIds(v []*string) *DeleteDBEndpointI
 }
 
 type DeleteDBEndpointOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 }
