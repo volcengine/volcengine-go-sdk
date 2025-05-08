@@ -650,6 +650,10 @@ func mergeInConfig(dst *Config, other *Config) {
 		dst.DynamicCredentials = other.DynamicCredentials
 	}
 
+	if other.DynamicCredentialsWithMeta != nil {
+		dst.DynamicCredentialsWithMeta = other.DynamicCredentialsWithMeta
+	}
+
 	if other.DynamicCredentialsIncludeError != nil {
 		dst.DynamicCredentialsIncludeError = other.DynamicCredentialsIncludeError
 	}
