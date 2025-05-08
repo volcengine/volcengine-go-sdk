@@ -35,6 +35,8 @@ type LogAccount func(ctx context.Context) *string
 
 type DynamicCredentials func(ctx context.Context) (*credentials.Credentials, *string)
 
+type DynamicCredentialsWithMeta func(ctx context.Context, meta RequestMetadata) (*credentials.Credentials, *string, error)
+
 // DynamicCredentialsIncludeError func return Credentials info and error info when error appear
 type DynamicCredentialsIncludeError func(ctx context.Context) (*credentials.Credentials, *string, error)
 
