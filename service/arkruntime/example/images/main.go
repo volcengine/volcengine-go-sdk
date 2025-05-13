@@ -22,7 +22,7 @@ func main() {
 	ctx := context.Background()
 	modelEp := "YOUR_ENDPOINT_ID"
 
-	fmt.Println("----- generate images -----")
+	fmt.Println("----- generate images url -----")
 	generateReq := model.GenerateImagesRequest{
 		Model:          modelEp, // Replace with your endpoint ID
 		Prompt:         "龙与地下城女骑士背景是起伏的平原，目光从镜头转向平原",
@@ -46,6 +46,33 @@ func main() {
 
 	fmt.Printf("Model: %s\n", generateResponse.Model)
 	fmt.Printf("Image URL: %s\n", *generateResponse.Data[0].Url)
+	fmt.Printf("Generated Images: %d\n", generateResponse.Usage.GeneratedImages)
+	fmt.Printf("Created: %d\n", generateResponse.Created)
+
+	fmt.Println("----- generate images base64 -----")
+	generateReq = model.GenerateImagesRequest{
+		Model:          modelEp, // Replace with your endpoint ID
+		Prompt:         "龙与地下城女骑士背景是起伏的平原，目光从镜头转向平原",
+		ResponseFormat: volcengine.String(model.GenerateImagesResponseFormatBase64),
+		Seed:           volcengine.Int64(1234567890),
+		Watermark:      volcengine.Bool(true),
+		Size:           volcengine.String("512x512"),
+		GuidanceScale:  volcengine.Float64(2.5),
+	}
+
+	generateResponse, err = client.GenerateImages(ctx, generateReq)
+	if err != nil {
+		fmt.Printf("generate images error: %v\n", err)
+		return
+	}
+
+	if generateResponse.Error != nil {
+		fmt.Printf("Error Code: %s\n", generateResponse.Error.Code)
+		fmt.Printf("Error Message: %s\n", generateResponse.Error.Message)
+	}
+
+	fmt.Printf("Model: %s\n", generateResponse.Model)
+	fmt.Printf("Image URL: %s\n", *generateResponse.Data[0].B64Json)
 	fmt.Printf("Generated Images: %d\n", generateResponse.Usage.GeneratedImages)
 	fmt.Printf("Created: %d\n", generateResponse.Created)
 }
