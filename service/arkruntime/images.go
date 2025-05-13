@@ -13,7 +13,7 @@ func (c *Client) GenerateImages(
 	ctx context.Context,
 	request model.GenerateImagesRequest,
 	setters ...requestOption,
-) (response model.GenerateImagesResponse, err error) {
+) (response model.ImagesResponse, err error) {
 	if !c.isAPIKeyAuthentication() {
 		return response, model.ErrAKSKNotSupported
 	}

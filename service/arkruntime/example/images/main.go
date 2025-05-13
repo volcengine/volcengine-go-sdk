@@ -33,21 +33,21 @@ func main() {
 		GuidanceScale:  volcengine.Float64(2.5),
 	}
 
-	generateResponse, err := client.GenerateImages(ctx, generateReq)
+	imagesResponse, err := client.GenerateImages(ctx, generateReq)
 	if err != nil {
 		fmt.Printf("generate images error: %v\n", err)
 		return
 	}
 
-	if generateResponse.Error != nil {
-		fmt.Printf("Error Code: %s\n", generateResponse.Error.Code)
-		fmt.Printf("Error Message: %s\n", generateResponse.Error.Message)
+	if imagesResponse.Error != nil {
+		fmt.Printf("Error Code: %s\n", imagesResponse.Error.Code)
+		fmt.Printf("Error Message: %s\n", imagesResponse.Error.Message)
 	}
 
-	fmt.Printf("Model: %s\n", generateResponse.Model)
-	fmt.Printf("Image URL: %s\n", *generateResponse.Data[0].Url)
-	fmt.Printf("Generated Images: %d\n", generateResponse.Usage.GeneratedImages)
-	fmt.Printf("Created: %d\n", generateResponse.Created)
+	fmt.Printf("Model: %s\n", imagesResponse.Model)
+	fmt.Printf("Image URL: %s\n", *imagesResponse.Data[0].Url)
+	fmt.Printf("Generated Images: %d\n", imagesResponse.Usage.GeneratedImages)
+	fmt.Printf("Created: %d\n", imagesResponse.Created)
 
 	fmt.Println("----- generate images base64 -----")
 	generateReq = model.GenerateImagesRequest{
@@ -60,19 +60,19 @@ func main() {
 		GuidanceScale:  volcengine.Float64(2.5),
 	}
 
-	generateResponse, err = client.GenerateImages(ctx, generateReq)
+	imagesResponse, err = client.GenerateImages(ctx, generateReq)
 	if err != nil {
 		fmt.Printf("generate images error: %v\n", err)
 		return
 	}
 
-	if generateResponse.Error != nil {
-		fmt.Printf("Error Code: %s\n", generateResponse.Error.Code)
-		fmt.Printf("Error Message: %s\n", generateResponse.Error.Message)
+	if imagesResponse.Error != nil {
+		fmt.Printf("Error Code: %s\n", imagesResponse.Error.Code)
+		fmt.Printf("Error Message: %s\n", imagesResponse.Error.Message)
 	}
 
-	fmt.Printf("Model: %s\n", generateResponse.Model)
-	fmt.Printf("Image URL: %s\n", *generateResponse.Data[0].B64Json)
-	fmt.Printf("Generated Images: %d\n", generateResponse.Usage.GeneratedImages)
-	fmt.Printf("Created: %d\n", generateResponse.Created)
+	fmt.Printf("Model: %s\n", imagesResponse.Model)
+	fmt.Printf("Image URL: %s\n", *imagesResponse.Data[0].B64Json)
+	fmt.Printf("Generated Images: %d\n", imagesResponse.Usage.GeneratedImages)
+	fmt.Printf("Created: %d\n", imagesResponse.Created)
 }

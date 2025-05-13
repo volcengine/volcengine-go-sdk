@@ -30,7 +30,7 @@ type GenerateImagesError struct {
 	Message string `json:"message"`
 }
 
-type GenerateImagesResponse struct {
+type ImagesResponse struct {
 	Model   string               `json:"model"`
 	Created int64                `json:"created"`
 	Data    []*Image             `json:"data"`
