@@ -93,6 +93,10 @@ type FunctionCall struct {
 	Arguments string `json:"arguments,omitempty"`
 }
 
+type Thinking struct {
+	Type string `json:"type"`
+}
+
 type ChatRequest interface {
 	json.Marshaler
 	WithStream(stream bool) ChatRequest
@@ -178,6 +182,7 @@ type CreateChatCompletionRequest struct {
 	ResponseFormat    *ResponseFormat          `json:"response_format,omitempty"`
 	ParallelToolCalls *bool                    `json:"parallel_tool_calls,omitempty"`
 	ServiceTier       *string                  `json:"service_tier,omitempty"`
+	Thinking          *Thinking                `json:"thinking,omitempty"`
 }
 
 func (r CreateChatCompletionRequest) MarshalJSON() ([]byte, error) {
