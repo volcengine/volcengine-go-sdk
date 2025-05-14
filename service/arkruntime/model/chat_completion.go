@@ -93,8 +93,16 @@ type FunctionCall struct {
 	Arguments string `json:"arguments,omitempty"`
 }
 
+type ThinkingType string
+
+const (
+	ThinkingTypeEnabled  ThinkingType = "enabled"
+	ThinkingTypeDisabled ThinkingType = "disabled"
+	ThinkingTypeAuto     ThinkingType = "auto"
+)
+
 type Thinking struct {
-	Type string `json:"type"`
+	Type ThinkingType `json:"type"`
 }
 
 type ChatRequest interface {
