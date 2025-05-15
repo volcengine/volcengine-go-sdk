@@ -53,6 +53,14 @@ type TISAPI interface {
 	GetQuotaInfo(*GetQuotaInfoInput) (*GetQuotaInfoOutput, error)
 	GetQuotaInfoWithContext(volcengine.Context, *GetQuotaInfoInput, ...request.Option) (*GetQuotaInfoOutput, error)
 	GetQuotaInfoRequest(*GetQuotaInfoInput) (*request.Request, *GetQuotaInfoOutput)
+
+	TopActionDispatchCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	TopActionDispatchCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	TopActionDispatchCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	TopActionDispatch(*TopActionDispatchInput) (*TopActionDispatchOutput, error)
+	TopActionDispatchWithContext(volcengine.Context, *TopActionDispatchInput, ...request.Option) (*TopActionDispatchOutput, error)
+	TopActionDispatchRequest(*TopActionDispatchInput) (*request.Request, *TopActionDispatchOutput)
 }
 
 var _ TISAPI = (*TIS)(nil)
