@@ -145,8 +145,12 @@ type DisableVpcEndpointConnectionInput struct {
 	// EndpointId is a required field
 	EndpointId *string `type:"string" required:"true"`
 
+	ReplacingResource *string `type:"string"`
+
 	// ServiceId is a required field
 	ServiceId *string `type:"string" required:"true"`
+
+	ZoneId *string `type:"string"`
 }
 
 // String returns the string representation
@@ -181,9 +185,21 @@ func (s *DisableVpcEndpointConnectionInput) SetEndpointId(v string) *DisableVpcE
 	return s
 }
 
+// SetReplacingResource sets the ReplacingResource field's value.
+func (s *DisableVpcEndpointConnectionInput) SetReplacingResource(v string) *DisableVpcEndpointConnectionInput {
+	s.ReplacingResource = &v
+	return s
+}
+
 // SetServiceId sets the ServiceId field's value.
 func (s *DisableVpcEndpointConnectionInput) SetServiceId(v string) *DisableVpcEndpointConnectionInput {
 	s.ServiceId = &v
+	return s
+}
+
+// SetZoneId sets the ZoneId field's value.
+func (s *DisableVpcEndpointConnectionInput) SetZoneId(v string) *DisableVpcEndpointConnectionInput {
+	s.ZoneId = &v
 	return s
 }
 
