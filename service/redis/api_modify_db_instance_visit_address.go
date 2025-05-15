@@ -147,7 +147,7 @@ type ModifyDBInstanceVisitAddressInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
 	// AddrType is a required field
-	AddrType *string `type:"string" json:",omitempty" required:"true"`
+	AddrType *string `type:"string" json:",omitempty" required:"true" enum:"EnumOfAddrTypeForModifyDBInstanceVisitAddressInput"`
 
 	ClientToken *string `type:"string" json:",omitempty"`
 
@@ -157,6 +157,8 @@ type ModifyDBInstanceVisitAddressInput struct {
 	NewAddressPrefix *string `type:"string" json:",omitempty"`
 
 	NewPort *int32 `type:"int32" json:",omitempty"`
+
+	UpgradeRegionDomain *bool `type:"boolean" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -215,6 +217,12 @@ func (s *ModifyDBInstanceVisitAddressInput) SetNewPort(v int32) *ModifyDBInstanc
 	return s
 }
 
+// SetUpgradeRegionDomain sets the UpgradeRegionDomain field's value.
+func (s *ModifyDBInstanceVisitAddressInput) SetUpgradeRegionDomain(v bool) *ModifyDBInstanceVisitAddressInput {
+	s.UpgradeRegionDomain = &v
+	return s
+}
+
 type ModifyDBInstanceVisitAddressOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -230,3 +238,20 @@ func (s ModifyDBInstanceVisitAddressOutput) String() string {
 func (s ModifyDBInstanceVisitAddressOutput) GoString() string {
 	return s.String()
 }
+
+const (
+	// EnumOfAddrTypeForModifyDBInstanceVisitAddressInputPrivate is a EnumOfAddrTypeForModifyDBInstanceVisitAddressInput enum value
+	EnumOfAddrTypeForModifyDBInstanceVisitAddressInputPrivate = "Private"
+
+	// EnumOfAddrTypeForModifyDBInstanceVisitAddressInputPublic is a EnumOfAddrTypeForModifyDBInstanceVisitAddressInput enum value
+	EnumOfAddrTypeForModifyDBInstanceVisitAddressInputPublic = "Public"
+
+	// EnumOfAddrTypeForModifyDBInstanceVisitAddressInputPublicZone is a EnumOfAddrTypeForModifyDBInstanceVisitAddressInput enum value
+	EnumOfAddrTypeForModifyDBInstanceVisitAddressInputPublicZone = "PublicZone"
+
+	// EnumOfAddrTypeForModifyDBInstanceVisitAddressInputStorageInner is a EnumOfAddrTypeForModifyDBInstanceVisitAddressInput enum value
+	EnumOfAddrTypeForModifyDBInstanceVisitAddressInputStorageInner = "StorageInner"
+
+	// EnumOfAddrTypeForModifyDBInstanceVisitAddressInputDirectLink is a EnumOfAddrTypeForModifyDBInstanceVisitAddressInput enum value
+	EnumOfAddrTypeForModifyDBInstanceVisitAddressInputDirectLink = "DirectLink"
+)

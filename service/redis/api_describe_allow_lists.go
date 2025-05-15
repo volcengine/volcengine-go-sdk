@@ -160,6 +160,8 @@ type AllowListForDescribeAllowListsOutput struct {
 
 	AssociatedInstanceNum *int32 `type:"int32" json:",omitempty"`
 
+	ProjectName *string `type:"string" json:",omitempty"`
+
 	SecurityGroupBindInfos []*SecurityGroupBindInfoForDescribeAllowListsOutput `type:"list" json:",omitempty"`
 }
 
@@ -215,6 +217,12 @@ func (s *AllowListForDescribeAllowListsOutput) SetAssociatedInstanceNum(v int32)
 	return s
 }
 
+// SetProjectName sets the ProjectName field's value.
+func (s *AllowListForDescribeAllowListsOutput) SetProjectName(v string) *AllowListForDescribeAllowListsOutput {
+	s.ProjectName = &v
+	return s
+}
+
 // SetSecurityGroupBindInfos sets the SecurityGroupBindInfos field's value.
 func (s *AllowListForDescribeAllowListsOutput) SetSecurityGroupBindInfos(v []*SecurityGroupBindInfoForDescribeAllowListsOutput) *AllowListForDescribeAllowListsOutput {
 	s.SecurityGroupBindInfos = v
@@ -224,7 +232,13 @@ func (s *AllowListForDescribeAllowListsOutput) SetSecurityGroupBindInfos(v []*Se
 type DescribeAllowListsInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	IPAddress *string `type:"string" json:",omitempty"`
+
+	IPSegment *string `type:"string" json:",omitempty"`
+
 	InstanceId *string `type:"string" json:",omitempty"`
+
+	ProjectName *string `type:"string" json:",omitempty"`
 
 	QueryDefault *bool `type:"boolean" json:",omitempty"`
 
@@ -255,9 +269,27 @@ func (s *DescribeAllowListsInput) Validate() error {
 	return nil
 }
 
+// SetIPAddress sets the IPAddress field's value.
+func (s *DescribeAllowListsInput) SetIPAddress(v string) *DescribeAllowListsInput {
+	s.IPAddress = &v
+	return s
+}
+
+// SetIPSegment sets the IPSegment field's value.
+func (s *DescribeAllowListsInput) SetIPSegment(v string) *DescribeAllowListsInput {
+	s.IPSegment = &v
+	return s
+}
+
 // SetInstanceId sets the InstanceId field's value.
 func (s *DescribeAllowListsInput) SetInstanceId(v string) *DescribeAllowListsInput {
 	s.InstanceId = &v
+	return s
+}
+
+// SetProjectName sets the ProjectName field's value.
+func (s *DescribeAllowListsInput) SetProjectName(v string) *DescribeAllowListsInput {
+	s.ProjectName = &v
 	return s
 }
 

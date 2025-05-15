@@ -158,6 +158,8 @@ type ModifyDBInstanceShardCapacityInput struct {
 	// InstanceId is a required field
 	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 
+	ReserveAdditionalBandwidth *bool `type:"boolean" json:",omitempty"`
+
 	// ShardCapacity is a required field
 	ShardCapacity *int64 `type:"int64" json:",omitempty" required:"true"`
 }
@@ -218,6 +220,12 @@ func (s *ModifyDBInstanceShardCapacityInput) SetCreateBackup(v bool) *ModifyDBIn
 // SetInstanceId sets the InstanceId field's value.
 func (s *ModifyDBInstanceShardCapacityInput) SetInstanceId(v string) *ModifyDBInstanceShardCapacityInput {
 	s.InstanceId = &v
+	return s
+}
+
+// SetReserveAdditionalBandwidth sets the ReserveAdditionalBandwidth field's value.
+func (s *ModifyDBInstanceShardCapacityInput) SetReserveAdditionalBandwidth(v bool) *ModifyDBInstanceShardCapacityInput {
+	s.ReserveAdditionalBandwidth = &v
 	return s
 }
 

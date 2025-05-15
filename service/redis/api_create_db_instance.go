@@ -188,11 +188,14 @@ type CreateDBInstanceInput struct {
 	// MultiAZ is a required field
 	MultiAZ *string `type:"string" json:",omitempty" required:"true"`
 
+	NoAuthMode *string `type:"string" json:",omitempty" enum:"EnumOfNoAuthModeForCreateDBInstanceInput"`
+
 	// NodeNumber is a required field
 	NodeNumber *int32 `type:"int32" json:",omitempty" required:"true"`
 
-	// Password is a required field
-	Password *string `type:"string" json:",omitempty" required:"true"`
+	ParameterGroupId *string `type:"string" json:",omitempty"`
+
+	Password *string `type:"string" json:",omitempty"`
 
 	Port *int32 `type:"int32" json:",omitempty"`
 
@@ -241,9 +244,6 @@ func (s *CreateDBInstanceInput) Validate() error {
 	}
 	if s.NodeNumber == nil {
 		invalidParams.Add(request.NewErrParamRequired("NodeNumber"))
-	}
-	if s.Password == nil {
-		invalidParams.Add(request.NewErrParamRequired("Password"))
 	}
 	if s.RegionId == nil {
 		invalidParams.Add(request.NewErrParamRequired("RegionId"))
@@ -321,9 +321,21 @@ func (s *CreateDBInstanceInput) SetMultiAZ(v string) *CreateDBInstanceInput {
 	return s
 }
 
+// SetNoAuthMode sets the NoAuthMode field's value.
+func (s *CreateDBInstanceInput) SetNoAuthMode(v string) *CreateDBInstanceInput {
+	s.NoAuthMode = &v
+	return s
+}
+
 // SetNodeNumber sets the NodeNumber field's value.
 func (s *CreateDBInstanceInput) SetNodeNumber(v int32) *CreateDBInstanceInput {
 	s.NodeNumber = &v
+	return s
+}
+
+// SetParameterGroupId sets the ParameterGroupId field's value.
+func (s *CreateDBInstanceInput) SetParameterGroupId(v string) *CreateDBInstanceInput {
+	s.ParameterGroupId = &v
 	return s
 }
 
@@ -454,3 +466,14 @@ func (s *TagForCreateDBInstanceInput) SetValue(v string) *TagForCreateDBInstance
 	s.Value = &v
 	return s
 }
+
+const (
+	// EnumOfNoAuthModeForCreateDBInstanceInputInvalid is a EnumOfNoAuthModeForCreateDBInstanceInput enum value
+	EnumOfNoAuthModeForCreateDBInstanceInputInvalid = "Invalid"
+
+	// EnumOfNoAuthModeForCreateDBInstanceInputOpen is a EnumOfNoAuthModeForCreateDBInstanceInput enum value
+	EnumOfNoAuthModeForCreateDBInstanceInputOpen = "open"
+
+	// EnumOfNoAuthModeForCreateDBInstanceInputClose is a EnumOfNoAuthModeForCreateDBInstanceInput enum value
+	EnumOfNoAuthModeForCreateDBInstanceInputClose = "close"
+)
