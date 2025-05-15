@@ -180,6 +180,8 @@ type DescribeVpcEndpointAttributesOutput struct {
 
 	Metadata *response.ResponseMetadata
 
+	Bps *int32 `type:"int32"`
+
 	BusinessStatus *string `type:"string"`
 
 	ConnectionStatus *string `type:"string"`
@@ -239,6 +241,12 @@ func (s DescribeVpcEndpointAttributesOutput) String() string {
 // GoString returns the string representation
 func (s DescribeVpcEndpointAttributesOutput) GoString() string {
 	return s.String()
+}
+
+// SetBps sets the Bps field's value.
+func (s *DescribeVpcEndpointAttributesOutput) SetBps(v int32) *DescribeVpcEndpointAttributesOutput {
+	s.Bps = &v
+	return s
 }
 
 // SetBusinessStatus sets the BusinessStatus field's value.
@@ -394,6 +402,8 @@ func (s *DescribeVpcEndpointAttributesOutput) SetVpcId(v string) *DescribeVpcEnd
 type EndpointForDescribeVpcEndpointAttributesOutput struct {
 	_ struct{} `type:"structure"`
 
+	Bps *int32 `type:"int32"`
+
 	BusinessStatus *string `type:"string"`
 
 	ConnectionStatus *string `type:"string"`
@@ -447,6 +457,12 @@ func (s EndpointForDescribeVpcEndpointAttributesOutput) String() string {
 // GoString returns the string representation
 func (s EndpointForDescribeVpcEndpointAttributesOutput) GoString() string {
 	return s.String()
+}
+
+// SetBps sets the Bps field's value.
+func (s *EndpointForDescribeVpcEndpointAttributesOutput) SetBps(v int32) *EndpointForDescribeVpcEndpointAttributesOutput {
+	s.Bps = &v
+	return s
 }
 
 // SetBusinessStatus sets the BusinessStatus field's value.

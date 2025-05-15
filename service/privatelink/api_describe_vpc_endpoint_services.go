@@ -426,7 +426,7 @@ type VpcEndpointServiceForDescribeVpcEndpointServicesOutput struct {
 
 	UpdateTime *string `type:"string"`
 
-	WildcardDomainEnabled *string `type:"string"`
+	WildcardDomainEnabled *bool `type:"boolean"`
 
 	ZoneIds []*string `type:"list"`
 }
@@ -574,7 +574,7 @@ func (s *VpcEndpointServiceForDescribeVpcEndpointServicesOutput) SetUpdateTime(v
 }
 
 // SetWildcardDomainEnabled sets the WildcardDomainEnabled field's value.
-func (s *VpcEndpointServiceForDescribeVpcEndpointServicesOutput) SetWildcardDomainEnabled(v string) *VpcEndpointServiceForDescribeVpcEndpointServicesOutput {
+func (s *VpcEndpointServiceForDescribeVpcEndpointServicesOutput) SetWildcardDomainEnabled(v bool) *VpcEndpointServiceForDescribeVpcEndpointServicesOutput {
 	s.WildcardDomainEnabled = &v
 	return s
 }

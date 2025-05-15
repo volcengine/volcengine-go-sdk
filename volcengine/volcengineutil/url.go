@@ -371,6 +371,10 @@ var defaultEndpoint = map[string]*ServiceEndpointInfo{
 		Service:  "vod",
 		IsGlobal: false,
 	},
+	"quota": {
+		Service:  "quota",
+		IsGlobal: true,
+	},
 }
 
 func standardizeDomainServiceCode(serviceCode string) string {

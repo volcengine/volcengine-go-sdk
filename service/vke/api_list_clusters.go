@@ -910,13 +910,17 @@ func (s *PrivateIpForListClustersOutput) SetIpv4(v string) *PrivateIpForListClus
 type ProxyConfigForListClustersOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	AclEnabled *bool `type:"boolean" json:",omitempty"`
+
+	AclIpWhitelist []*string `type:"list" json:",omitempty"`
+
 	ApiServerEndpoints *ApiServerEndpointsForListClustersOutput `type:"structure" json:",omitempty"`
 
 	ApiServerPublicAccessConfig *ApiServerPublicAccessConfigForListClustersOutput `type:"structure" json:",omitempty"`
 
 	ApiServerPublicAccessEnabled *bool `type:"boolean" json:",omitempty"`
 
-	SubnetIds *string `type:"string" json:",omitempty"`
+	SubnetIds []*string `type:"list" json:",omitempty"`
 
 	VpcId *string `type:"string" json:",omitempty"`
 }
@@ -929,6 +933,18 @@ func (s ProxyConfigForListClustersOutput) String() string {
 // GoString returns the string representation
 func (s ProxyConfigForListClustersOutput) GoString() string {
 	return s.String()
+}
+
+// SetAclEnabled sets the AclEnabled field's value.
+func (s *ProxyConfigForListClustersOutput) SetAclEnabled(v bool) *ProxyConfigForListClustersOutput {
+	s.AclEnabled = &v
+	return s
+}
+
+// SetAclIpWhitelist sets the AclIpWhitelist field's value.
+func (s *ProxyConfigForListClustersOutput) SetAclIpWhitelist(v []*string) *ProxyConfigForListClustersOutput {
+	s.AclIpWhitelist = v
+	return s
 }
 
 // SetApiServerEndpoints sets the ApiServerEndpoints field's value.
@@ -950,8 +966,8 @@ func (s *ProxyConfigForListClustersOutput) SetApiServerPublicAccessEnabled(v boo
 }
 
 // SetSubnetIds sets the SubnetIds field's value.
-func (s *ProxyConfigForListClustersOutput) SetSubnetIds(v string) *ProxyConfigForListClustersOutput {
-	s.SubnetIds = &v
+func (s *ProxyConfigForListClustersOutput) SetSubnetIds(v []*string) *ProxyConfigForListClustersOutput {
+	s.SubnetIds = v
 	return s
 }
 

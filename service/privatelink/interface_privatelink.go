@@ -374,6 +374,14 @@ type PRIVATELINKAPI interface {
 	ListTagsForResourcesWithContext(volcengine.Context, *ListTagsForResourcesInput, ...request.Option) (*ListTagsForResourcesOutput, error)
 	ListTagsForResourcesRequest(*ListTagsForResourcesInput) (*request.Request, *ListTagsForResourcesOutput)
 
+	ModifyEndpointPayerAccountCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ModifyEndpointPayerAccountCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ModifyEndpointPayerAccountCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ModifyEndpointPayerAccount(*ModifyEndpointPayerAccountInput) (*ModifyEndpointPayerAccountOutput, error)
+	ModifyEndpointPayerAccountWithContext(volcengine.Context, *ModifyEndpointPayerAccountInput, ...request.Option) (*ModifyEndpointPayerAccountOutput, error)
+	ModifyEndpointPayerAccountRequest(*ModifyEndpointPayerAccountInput) (*request.Request, *ModifyEndpointPayerAccountOutput)
+
 	ModifyPrivateLinkGatewayAttributesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ModifyPrivateLinkGatewayAttributesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	ModifyPrivateLinkGatewayAttributesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -397,6 +405,14 @@ type PRIVATELINKAPI interface {
 	ModifyVpcEndpointAttributes(*ModifyVpcEndpointAttributesInput) (*ModifyVpcEndpointAttributesOutput, error)
 	ModifyVpcEndpointAttributesWithContext(volcengine.Context, *ModifyVpcEndpointAttributesInput, ...request.Option) (*ModifyVpcEndpointAttributesOutput, error)
 	ModifyVpcEndpointAttributesRequest(*ModifyVpcEndpointAttributesInput) (*request.Request, *ModifyVpcEndpointAttributesOutput)
+
+	ModifyVpcEndpointConnectionsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ModifyVpcEndpointConnectionsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ModifyVpcEndpointConnectionsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ModifyVpcEndpointConnections(*ModifyVpcEndpointConnectionsInput) (*ModifyVpcEndpointConnectionsOutput, error)
+	ModifyVpcEndpointConnectionsWithContext(volcengine.Context, *ModifyVpcEndpointConnectionsInput, ...request.Option) (*ModifyVpcEndpointConnectionsOutput, error)
+	ModifyVpcEndpointConnectionsRequest(*ModifyVpcEndpointConnectionsInput) (*request.Request, *ModifyVpcEndpointConnectionsOutput)
 
 	ModifyVpcEndpointServiceAttributesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ModifyVpcEndpointServiceAttributesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)

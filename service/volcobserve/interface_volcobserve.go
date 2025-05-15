@@ -78,6 +78,14 @@ type VOLCOBSERVEAPI interface {
 	CreateRuleWithContext(volcengine.Context, *CreateRuleInput, ...request.Option) (*CreateRuleOutput, error)
 	CreateRuleRequest(*CreateRuleInput) (*request.Request, *CreateRuleOutput)
 
+	CreateSilencePolicyCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateSilencePolicyCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateSilencePolicyCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateSilencePolicy(*CreateSilencePolicyInput) (*CreateSilencePolicyOutput, error)
+	CreateSilencePolicyWithContext(volcengine.Context, *CreateSilencePolicyInput, ...request.Option) (*CreateSilencePolicyOutput, error)
+	CreateSilencePolicyRequest(*CreateSilencePolicyInput) (*request.Request, *CreateSilencePolicyOutput)
+
 	CreateWebhookCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	CreateWebhookCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	CreateWebhookCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -133,6 +141,14 @@ type VOLCOBSERVEAPI interface {
 	DeleteRulesByIds(*DeleteRulesByIdsInput) (*DeleteRulesByIdsOutput, error)
 	DeleteRulesByIdsWithContext(volcengine.Context, *DeleteRulesByIdsInput, ...request.Option) (*DeleteRulesByIdsOutput, error)
 	DeleteRulesByIdsRequest(*DeleteRulesByIdsInput) (*request.Request, *DeleteRulesByIdsOutput)
+
+	DeleteSilencePolicyByIdsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeleteSilencePolicyByIdsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeleteSilencePolicyByIdsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeleteSilencePolicyByIds(*DeleteSilencePolicyByIdsInput) (*DeleteSilencePolicyByIdsOutput, error)
+	DeleteSilencePolicyByIdsWithContext(volcengine.Context, *DeleteSilencePolicyByIdsInput, ...request.Option) (*DeleteSilencePolicyByIdsOutput, error)
+	DeleteSilencePolicyByIdsRequest(*DeleteSilencePolicyByIdsInput) (*request.Request, *DeleteSilencePolicyByIdsOutput)
 
 	DeleteWebhooksByIdsCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DeleteWebhooksByIdsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -270,6 +286,14 @@ type VOLCOBSERVEAPI interface {
 	ListSendAlertWithContext(volcengine.Context, *ListSendAlertInput, ...request.Option) (*ListSendAlertOutput, error)
 	ListSendAlertRequest(*ListSendAlertInput) (*request.Request, *ListSendAlertOutput)
 
+	ListSilencePolicyCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListSilencePolicyCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListSilencePolicyCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListSilencePolicy(*ListSilencePolicyInput) (*ListSilencePolicyOutput, error)
+	ListSilencePolicyWithContext(volcengine.Context, *ListSilencePolicyInput, ...request.Option) (*ListSilencePolicyOutput, error)
+	ListSilencePolicyRequest(*ListSilencePolicyInput) (*request.Request, *ListSilencePolicyOutput)
+
 	ListWebhooksCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ListWebhooksCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	ListWebhooksCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -285,6 +309,14 @@ type VOLCOBSERVEAPI interface {
 	ListWebhooksByIds(*ListWebhooksByIdsInput) (*ListWebhooksByIdsOutput, error)
 	ListWebhooksByIdsWithContext(volcengine.Context, *ListWebhooksByIdsInput, ...request.Option) (*ListWebhooksByIdsOutput, error)
 	ListWebhooksByIdsRequest(*ListWebhooksByIdsInput) (*request.Request, *ListWebhooksByIdsOutput)
+
+	ModifyStateOfSilencePolicyByIdsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ModifyStateOfSilencePolicyByIdsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ModifyStateOfSilencePolicyByIdsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ModifyStateOfSilencePolicyByIds(*ModifyStateOfSilencePolicyByIdsInput) (*ModifyStateOfSilencePolicyByIdsOutput, error)
+	ModifyStateOfSilencePolicyByIdsWithContext(volcengine.Context, *ModifyStateOfSilencePolicyByIdsInput, ...request.Option) (*ModifyStateOfSilencePolicyByIdsOutput, error)
+	ModifyStateOfSilencePolicyByIdsRequest(*ModifyStateOfSilencePolicyByIdsInput) (*request.Request, *ModifyStateOfSilencePolicyByIdsOutput)
 
 	SetStateOfRulesByIdsCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	SetStateOfRulesByIdsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -373,6 +405,14 @@ type VOLCOBSERVEAPI interface {
 	UpdateRule(*UpdateRuleInput) (*UpdateRuleOutput, error)
 	UpdateRuleWithContext(volcengine.Context, *UpdateRuleInput, ...request.Option) (*UpdateRuleOutput, error)
 	UpdateRuleRequest(*UpdateRuleInput) (*request.Request, *UpdateRuleOutput)
+
+	UpdateSilencePolicyCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	UpdateSilencePolicyCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	UpdateSilencePolicyCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	UpdateSilencePolicy(*UpdateSilencePolicyInput) (*UpdateSilencePolicyOutput, error)
+	UpdateSilencePolicyWithContext(volcengine.Context, *UpdateSilencePolicyInput, ...request.Option) (*UpdateSilencePolicyOutput, error)
+	UpdateSilencePolicyRequest(*UpdateSilencePolicyInput) (*request.Request, *UpdateSilencePolicyOutput)
 
 	UpdateWebhookCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	UpdateWebhookCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
