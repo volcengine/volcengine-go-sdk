@@ -149,6 +149,8 @@ type EnableVpcEndpointConnectionInput struct {
 
 	// ServiceId is a required field
 	ServiceId *string `type:"string" required:"true"`
+
+	ZoneId *string `type:"string"`
 }
 
 // String returns the string representation
@@ -192,6 +194,12 @@ func (s *EnableVpcEndpointConnectionInput) SetResourcesAllocate(v []*ResourcesAl
 // SetServiceId sets the ServiceId field's value.
 func (s *EnableVpcEndpointConnectionInput) SetServiceId(v string) *EnableVpcEndpointConnectionInput {
 	s.ServiceId = &v
+	return s
+}
+
+// SetZoneId sets the ZoneId field's value.
+func (s *EnableVpcEndpointConnectionInput) SetZoneId(v string) *EnableVpcEndpointConnectionInput {
+	s.ZoneId = &v
 	return s
 }
 

@@ -276,6 +276,8 @@ type EndpointConnectionForDescribeVpcEndpointConnectionsOutput struct {
 
 	EndpointVpcId *string `type:"string"`
 
+	ReplaceResourceId *string `type:"string"`
+
 	ServiceId *string `type:"string"`
 
 	UpdateTime *string `type:"string"`
@@ -320,6 +322,12 @@ func (s *EndpointConnectionForDescribeVpcEndpointConnectionsOutput) SetEndpointO
 // SetEndpointVpcId sets the EndpointVpcId field's value.
 func (s *EndpointConnectionForDescribeVpcEndpointConnectionsOutput) SetEndpointVpcId(v string) *EndpointConnectionForDescribeVpcEndpointConnectionsOutput {
 	s.EndpointVpcId = &v
+	return s
+}
+
+// SetReplaceResourceId sets the ReplaceResourceId field's value.
+func (s *EndpointConnectionForDescribeVpcEndpointConnectionsOutput) SetReplaceResourceId(v string) *EndpointConnectionForDescribeVpcEndpointConnectionsOutput {
+	s.ReplaceResourceId = &v
 	return s
 }
 

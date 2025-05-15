@@ -308,6 +308,8 @@ func (s *DescribeVpcEndpointsOutput) SetTotalCount(v int32) *DescribeVpcEndpoint
 type EndpointForDescribeVpcEndpointsOutput struct {
 	_ struct{} `type:"structure"`
 
+	Bps *int32 `type:"int32"`
+
 	BusinessStatus *string `type:"string"`
 
 	ConnectionStatus *string `type:"string"`
@@ -361,6 +363,12 @@ func (s EndpointForDescribeVpcEndpointsOutput) String() string {
 // GoString returns the string representation
 func (s EndpointForDescribeVpcEndpointsOutput) GoString() string {
 	return s.String()
+}
+
+// SetBps sets the Bps field's value.
+func (s *EndpointForDescribeVpcEndpointsOutput) SetBps(v int32) *EndpointForDescribeVpcEndpointsOutput {
+	s.Bps = &v
+	return s
 }
 
 // SetBusinessStatus sets the BusinessStatus field's value.
