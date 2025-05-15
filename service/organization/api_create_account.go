@@ -151,6 +151,8 @@ type CreateAccountInput struct {
 
 	Description *string `type:"string" json:",omitempty"`
 
+	InheritProfile *bool `type:"boolean" json:",omitempty"`
+
 	OrgUnitId *string `type:"string" json:",omitempty"`
 
 	// ShowName is a required field
@@ -194,6 +196,12 @@ func (s *CreateAccountInput) SetAccountName(v string) *CreateAccountInput {
 // SetDescription sets the Description field's value.
 func (s *CreateAccountInput) SetDescription(v string) *CreateAccountInput {
 	s.Description = &v
+	return s
+}
+
+// SetInheritProfile sets the InheritProfile field's value.
+func (s *CreateAccountInput) SetInheritProfile(v bool) *CreateAccountInput {
+	s.InheritProfile = &v
 	return s
 }
 
