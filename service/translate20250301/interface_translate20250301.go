@@ -19,7 +19,7 @@ import (
 //    // volcengine sdk func uses an SDK service client to make a request to
 //    // TRANSLATE20250301.
 //    func myFunc(svc TRANSLATE20250301API) bool {
-//        // Make svc.LangDetect request
+//        // Make svc.GetUsage request
 //    }
 //
 //    func main() {
@@ -30,6 +30,14 @@ import (
 //    }
 //
 type TRANSLATE20250301API interface {
+	GetUsageCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	GetUsageCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	GetUsageCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	GetUsage(*GetUsageInput) (*GetUsageOutput, error)
+	GetUsageWithContext(volcengine.Context, *GetUsageInput, ...request.Option) (*GetUsageOutput, error)
+	GetUsageRequest(*GetUsageInput) (*request.Request, *GetUsageOutput)
+
 	LangDetectCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	LangDetectCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	LangDetectCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})

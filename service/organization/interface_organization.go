@@ -358,6 +358,22 @@ type ORGANIZATIONAPI interface {
 	RetryChangeAccountSecureContactInfoWithContext(volcengine.Context, *RetryChangeAccountSecureContactInfoInput, ...request.Option) (*RetryChangeAccountSecureContactInfoOutput, error)
 	RetryChangeAccountSecureContactInfoRequest(*RetryChangeAccountSecureContactInfoInput) (*request.Request, *RetryChangeAccountSecureContactInfoOutput)
 
+	TagResourcesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	TagResourcesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	TagResourcesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	TagResources(*TagResourcesInput) (*TagResourcesOutput, error)
+	TagResourcesWithContext(volcengine.Context, *TagResourcesInput, ...request.Option) (*TagResourcesOutput, error)
+	TagResourcesRequest(*TagResourcesInput) (*request.Request, *TagResourcesOutput)
+
+	UntagResourcesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	UntagResourcesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	UntagResourcesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	UntagResources(*UntagResourcesInput) (*UntagResourcesOutput, error)
+	UntagResourcesWithContext(volcengine.Context, *UntagResourcesInput, ...request.Option) (*UntagResourcesOutput, error)
+	UntagResourcesRequest(*UntagResourcesInput) (*request.Request, *UntagResourcesOutput)
+
 	UpdateAccountCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	UpdateAccountCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	UpdateAccountCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
