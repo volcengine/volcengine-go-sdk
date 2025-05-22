@@ -152,8 +152,7 @@ type CreateUniqueResourceTypeVpcEndpointServiceInput struct {
 
 	ProjectName *string `type:"string"`
 
-	// Resource is a required field
-	Resource *ResourceForCreateUniqueResourceTypeVpcEndpointServiceInput `type:"structure" required:"true"`
+	Resource *ResourceForCreateUniqueResourceTypeVpcEndpointServiceInput `type:"structure"`
 
 	ServiceResourceType *string `type:"string"`
 
@@ -176,9 +175,6 @@ func (s CreateUniqueResourceTypeVpcEndpointServiceInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *CreateUniqueResourceTypeVpcEndpointServiceInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "CreateUniqueResourceTypeVpcEndpointServiceInput"}
-	if s.Resource == nil {
-		invalidParams.Add(request.NewErrParamRequired("Resource"))
-	}
 	if s.ZoneIds == nil {
 		invalidParams.Add(request.NewErrParamRequired("ZoneIds"))
 	}

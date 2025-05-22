@@ -28,7 +28,7 @@ func main() {
 	client := arkruntime.NewClientWithApiKey(os.Getenv("ARK_API_KEY"))
 	ctx := context.Background()
 
-	fmt.Println("----- standard request -----")
+	fmt.Println("----- streaming request -----")
 	req := model.CreateChatCompletionRequest{
 		Model: "${YOUR_ENDPOINT_ID}",
 		Messages: []*model.ChatCompletionMessage{
@@ -39,28 +39,8 @@ func main() {
 				},
 			},
 		},
-	}
-
-	resp, err := client.CreateChatCompletion(ctx, req)
-	if err != nil {
-		fmt.Printf("standard chat error: %v\n", err)
-		return
-	}
-	if resp.Choices[0].Message.ReasoningContent != nil {
-		fmt.Println(*resp.Choices[0].Message.ReasoningContent)
-	}
-	fmt.Println(*resp.Choices[0].Message.Content.StringValue)
-
-	fmt.Println("----- streaming request -----")
-	req = model.CreateChatCompletionRequest{
-		Model: "${YOUR_ENDPOINT_ID}",
-		Messages: []*model.ChatCompletionMessage{
-			{
-				Role: model.ChatMessageRoleUser,
-				Content: &model.ChatCompletionMessageContent{
-					StringValue: volcengine.String("How many Rs are there in the word 'strawberry'?"),
-				},
-			},
+		Thinking: &model.Thinking{
+			Type: model.ThinkingTypeEnabled,
 		},
 	}
 	stream, err := client.CreateChatCompletionStream(ctx, req)
@@ -77,7 +57,7 @@ func main() {
 		}
 		if err != nil {
 			fmt.Printf("Stream chat error: %v\n", err)
-			return
+			break
 		}
 
 		if len(recv.Choices) > 0 {
@@ -88,4 +68,31 @@ func main() {
 			}
 		}
 	}
+	fmt.Println()
+
+	fmt.Println("----- standard request -----")
+	req = model.CreateChatCompletionRequest{
+		Model: "${YOUR_ENDPOINT_ID}",
+		Messages: []*model.ChatCompletionMessage{
+			{
+				Role: model.ChatMessageRoleUser,
+				Content: &model.ChatCompletionMessageContent{
+					StringValue: volcengine.String("How many Rs are there in the word 'strawberry'?"),
+				},
+			},
+		},
+		Thinking: &model.Thinking{
+			Type: model.ThinkingTypeEnabled,
+		},
+	}
+
+	resp, err := client.CreateChatCompletion(ctx, req)
+	if err != nil {
+		fmt.Printf("standard chat error: %v\n", err)
+		return
+	}
+	if resp.Choices[0].Message.ReasoningContent != nil {
+		fmt.Println(*resp.Choices[0].Message.ReasoningContent)
+	}
+	fmt.Println(*resp.Choices[0].Message.Content.StringValue)
 }

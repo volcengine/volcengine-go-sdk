@@ -148,6 +148,8 @@ type AccountForListDBAccountOutput struct {
 
 	AccountName *string `type:"string" json:",omitempty"`
 
+	AccountStatus *string `type:"string" json:",omitempty"`
+
 	Description *string `type:"string" json:",omitempty"`
 
 	InstanceId *string `type:"string" json:",omitempty"`
@@ -168,6 +170,12 @@ func (s AccountForListDBAccountOutput) GoString() string {
 // SetAccountName sets the AccountName field's value.
 func (s *AccountForListDBAccountOutput) SetAccountName(v string) *AccountForListDBAccountOutput {
 	s.AccountName = &v
+	return s
+}
+
+// SetAccountStatus sets the AccountStatus field's value.
+func (s *AccountForListDBAccountOutput) SetAccountStatus(v string) *AccountForListDBAccountOutput {
+	s.AccountStatus = &v
 	return s
 }
 

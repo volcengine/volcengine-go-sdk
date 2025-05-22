@@ -379,16 +379,16 @@ func (s *DescribeBackupsOutput) SetTotal(v int32) *DescribeBackupsOutput {
 	return s
 }
 
-type InstanceDetailForDescribeBackupsOutput struct {
+type InstanceInfoForDescribeBackupsOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
 	AccountId *int64 `type:"int64" json:",omitempty"`
 
 	ArchType *string `type:"string" json:",omitempty"`
 
-	AutoRenew *bool `type:"boolean" json:",omitempty"`
-
 	ChargeType *string `type:"string" json:",omitempty"`
+
+	DeletionProtection *string `type:"string" json:",omitempty"`
 
 	EngineVersion *string `type:"string" json:",omitempty"`
 
@@ -406,165 +406,11 @@ type InstanceDetailForDescribeBackupsOutput struct {
 
 	Replicas *int32 `type:"int32" json:",omitempty"`
 
-	ShardCapacity *int64 `type:"int64" json:",omitempty"`
-
-	ShardCount *int32 `type:"int32" json:",omitempty"`
-
-	TotalCapacity *int64 `type:"int64" json:",omitempty"`
-
-	UsedCapacity *int64 `type:"int64" json:",omitempty"`
-
-	VpcInfo *VpcInfoForDescribeBackupsOutput `type:"structure" json:",omitempty"`
-
-	ZoneIds []*string `type:"list" json:",omitempty"`
-}
-
-// String returns the string representation
-func (s InstanceDetailForDescribeBackupsOutput) String() string {
-	return volcengineutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s InstanceDetailForDescribeBackupsOutput) GoString() string {
-	return s.String()
-}
-
-// SetAccountId sets the AccountId field's value.
-func (s *InstanceDetailForDescribeBackupsOutput) SetAccountId(v int64) *InstanceDetailForDescribeBackupsOutput {
-	s.AccountId = &v
-	return s
-}
-
-// SetArchType sets the ArchType field's value.
-func (s *InstanceDetailForDescribeBackupsOutput) SetArchType(v string) *InstanceDetailForDescribeBackupsOutput {
-	s.ArchType = &v
-	return s
-}
-
-// SetAutoRenew sets the AutoRenew field's value.
-func (s *InstanceDetailForDescribeBackupsOutput) SetAutoRenew(v bool) *InstanceDetailForDescribeBackupsOutput {
-	s.AutoRenew = &v
-	return s
-}
-
-// SetChargeType sets the ChargeType field's value.
-func (s *InstanceDetailForDescribeBackupsOutput) SetChargeType(v string) *InstanceDetailForDescribeBackupsOutput {
-	s.ChargeType = &v
-	return s
-}
-
-// SetEngineVersion sets the EngineVersion field's value.
-func (s *InstanceDetailForDescribeBackupsOutput) SetEngineVersion(v string) *InstanceDetailForDescribeBackupsOutput {
-	s.EngineVersion = &v
-	return s
-}
-
-// SetExpiredTime sets the ExpiredTime field's value.
-func (s *InstanceDetailForDescribeBackupsOutput) SetExpiredTime(v string) *InstanceDetailForDescribeBackupsOutput {
-	s.ExpiredTime = &v
-	return s
-}
-
-// SetInstanceId sets the InstanceId field's value.
-func (s *InstanceDetailForDescribeBackupsOutput) SetInstanceId(v string) *InstanceDetailForDescribeBackupsOutput {
-	s.InstanceId = &v
-	return s
-}
-
-// SetInstanceName sets the InstanceName field's value.
-func (s *InstanceDetailForDescribeBackupsOutput) SetInstanceName(v string) *InstanceDetailForDescribeBackupsOutput {
-	s.InstanceName = &v
-	return s
-}
-
-// SetMaintenanceTime sets the MaintenanceTime field's value.
-func (s *InstanceDetailForDescribeBackupsOutput) SetMaintenanceTime(v string) *InstanceDetailForDescribeBackupsOutput {
-	s.MaintenanceTime = &v
-	return s
-}
-
-// SetNetworkType sets the NetworkType field's value.
-func (s *InstanceDetailForDescribeBackupsOutput) SetNetworkType(v string) *InstanceDetailForDescribeBackupsOutput {
-	s.NetworkType = &v
-	return s
-}
-
-// SetRegionId sets the RegionId field's value.
-func (s *InstanceDetailForDescribeBackupsOutput) SetRegionId(v string) *InstanceDetailForDescribeBackupsOutput {
-	s.RegionId = &v
-	return s
-}
-
-// SetReplicas sets the Replicas field's value.
-func (s *InstanceDetailForDescribeBackupsOutput) SetReplicas(v int32) *InstanceDetailForDescribeBackupsOutput {
-	s.Replicas = &v
-	return s
-}
-
-// SetShardCapacity sets the ShardCapacity field's value.
-func (s *InstanceDetailForDescribeBackupsOutput) SetShardCapacity(v int64) *InstanceDetailForDescribeBackupsOutput {
-	s.ShardCapacity = &v
-	return s
-}
-
-// SetShardCount sets the ShardCount field's value.
-func (s *InstanceDetailForDescribeBackupsOutput) SetShardCount(v int32) *InstanceDetailForDescribeBackupsOutput {
-	s.ShardCount = &v
-	return s
-}
-
-// SetTotalCapacity sets the TotalCapacity field's value.
-func (s *InstanceDetailForDescribeBackupsOutput) SetTotalCapacity(v int64) *InstanceDetailForDescribeBackupsOutput {
-	s.TotalCapacity = &v
-	return s
-}
-
-// SetUsedCapacity sets the UsedCapacity field's value.
-func (s *InstanceDetailForDescribeBackupsOutput) SetUsedCapacity(v int64) *InstanceDetailForDescribeBackupsOutput {
-	s.UsedCapacity = &v
-	return s
-}
-
-// SetVpcInfo sets the VpcInfo field's value.
-func (s *InstanceDetailForDescribeBackupsOutput) SetVpcInfo(v *VpcInfoForDescribeBackupsOutput) *InstanceDetailForDescribeBackupsOutput {
-	s.VpcInfo = v
-	return s
-}
-
-// SetZoneIds sets the ZoneIds field's value.
-func (s *InstanceDetailForDescribeBackupsOutput) SetZoneIds(v []*string) *InstanceDetailForDescribeBackupsOutput {
-	s.ZoneIds = v
-	return s
-}
-
-type InstanceInfoForDescribeBackupsOutput struct {
-	_ struct{} `type:"structure" json:",omitempty"`
-
-	AccountId *int64 `type:"int64" json:",omitempty"`
-
-	ChargeType *string `type:"string" json:",omitempty"`
-
-	DeletionProtection *string `type:"string" json:",omitempty"`
-
-	EngineVersion *string `type:"string" json:",omitempty"`
-
-	ExpiredTime *string `type:"string" json:",omitempty"`
-
-	InstanceDetail *InstanceDetailForDescribeBackupsOutput `type:"structure" json:",omitempty"`
-
-	InstanceId *string `type:"string" json:",omitempty"`
-
-	InstanceName *string `type:"string" json:",omitempty"`
-
-	NetworkType *string `type:"string" json:",omitempty"`
-
-	RegionId *string `type:"string" json:",omitempty"`
-
 	ShardCapacity *float64 `type:"double" json:",omitempty"`
 
-	ShardList []*ShardListForDescribeBackupsOutput `type:"list" json:",omitempty"`
-
 	ShardNumber *int32 `type:"int32" json:",omitempty"`
+
+	TotalCapacity *int64 `type:"int64" json:",omitempty"`
 
 	VpcId *string `type:"string" json:",omitempty"`
 
@@ -584,6 +430,12 @@ func (s InstanceInfoForDescribeBackupsOutput) GoString() string {
 // SetAccountId sets the AccountId field's value.
 func (s *InstanceInfoForDescribeBackupsOutput) SetAccountId(v int64) *InstanceInfoForDescribeBackupsOutput {
 	s.AccountId = &v
+	return s
+}
+
+// SetArchType sets the ArchType field's value.
+func (s *InstanceInfoForDescribeBackupsOutput) SetArchType(v string) *InstanceInfoForDescribeBackupsOutput {
+	s.ArchType = &v
 	return s
 }
 
@@ -611,12 +463,6 @@ func (s *InstanceInfoForDescribeBackupsOutput) SetExpiredTime(v string) *Instanc
 	return s
 }
 
-// SetInstanceDetail sets the InstanceDetail field's value.
-func (s *InstanceInfoForDescribeBackupsOutput) SetInstanceDetail(v *InstanceDetailForDescribeBackupsOutput) *InstanceInfoForDescribeBackupsOutput {
-	s.InstanceDetail = v
-	return s
-}
-
 // SetInstanceId sets the InstanceId field's value.
 func (s *InstanceInfoForDescribeBackupsOutput) SetInstanceId(v string) *InstanceInfoForDescribeBackupsOutput {
 	s.InstanceId = &v
@@ -626,6 +472,12 @@ func (s *InstanceInfoForDescribeBackupsOutput) SetInstanceId(v string) *Instance
 // SetInstanceName sets the InstanceName field's value.
 func (s *InstanceInfoForDescribeBackupsOutput) SetInstanceName(v string) *InstanceInfoForDescribeBackupsOutput {
 	s.InstanceName = &v
+	return s
+}
+
+// SetMaintenanceTime sets the MaintenanceTime field's value.
+func (s *InstanceInfoForDescribeBackupsOutput) SetMaintenanceTime(v string) *InstanceInfoForDescribeBackupsOutput {
+	s.MaintenanceTime = &v
 	return s
 }
 
@@ -641,21 +493,27 @@ func (s *InstanceInfoForDescribeBackupsOutput) SetRegionId(v string) *InstanceIn
 	return s
 }
 
+// SetReplicas sets the Replicas field's value.
+func (s *InstanceInfoForDescribeBackupsOutput) SetReplicas(v int32) *InstanceInfoForDescribeBackupsOutput {
+	s.Replicas = &v
+	return s
+}
+
 // SetShardCapacity sets the ShardCapacity field's value.
 func (s *InstanceInfoForDescribeBackupsOutput) SetShardCapacity(v float64) *InstanceInfoForDescribeBackupsOutput {
 	s.ShardCapacity = &v
 	return s
 }
 
-// SetShardList sets the ShardList field's value.
-func (s *InstanceInfoForDescribeBackupsOutput) SetShardList(v []*ShardListForDescribeBackupsOutput) *InstanceInfoForDescribeBackupsOutput {
-	s.ShardList = v
-	return s
-}
-
 // SetShardNumber sets the ShardNumber field's value.
 func (s *InstanceInfoForDescribeBackupsOutput) SetShardNumber(v int32) *InstanceInfoForDescribeBackupsOutput {
 	s.ShardNumber = &v
+	return s
+}
+
+// SetTotalCapacity sets the TotalCapacity field's value.
+func (s *InstanceInfoForDescribeBackupsOutput) SetTotalCapacity(v int64) *InstanceInfoForDescribeBackupsOutput {
+	s.TotalCapacity = &v
 	return s
 }
 
@@ -671,74 +529,6 @@ func (s *InstanceInfoForDescribeBackupsOutput) SetZoneIds(v []*string) *Instance
 	return s
 }
 
-type ShardListForDescribeBackupsOutput struct {
-	_ struct{} `type:"structure" json:",omitempty"`
-
-	ShardIndex *int32 `type:"int32" json:",omitempty"`
-
-	SlotMap []*string `type:"list" json:",omitempty"`
-
-	SlotsNumber *int32 `type:"int32" json:",omitempty"`
-}
-
-// String returns the string representation
-func (s ShardListForDescribeBackupsOutput) String() string {
-	return volcengineutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s ShardListForDescribeBackupsOutput) GoString() string {
-	return s.String()
-}
-
-// SetShardIndex sets the ShardIndex field's value.
-func (s *ShardListForDescribeBackupsOutput) SetShardIndex(v int32) *ShardListForDescribeBackupsOutput {
-	s.ShardIndex = &v
-	return s
-}
-
-// SetSlotMap sets the SlotMap field's value.
-func (s *ShardListForDescribeBackupsOutput) SetSlotMap(v []*string) *ShardListForDescribeBackupsOutput {
-	s.SlotMap = v
-	return s
-}
-
-// SetSlotsNumber sets the SlotsNumber field's value.
-func (s *ShardListForDescribeBackupsOutput) SetSlotsNumber(v int32) *ShardListForDescribeBackupsOutput {
-	s.SlotsNumber = &v
-	return s
-}
-
-type VpcInfoForDescribeBackupsOutput struct {
-	_ struct{} `type:"structure" json:",omitempty"`
-
-	ID *string `type:"string" json:",omitempty"`
-
-	Name *string `type:"string" json:",omitempty"`
-}
-
-// String returns the string representation
-func (s VpcInfoForDescribeBackupsOutput) String() string {
-	return volcengineutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s VpcInfoForDescribeBackupsOutput) GoString() string {
-	return s.String()
-}
-
-// SetID sets the ID field's value.
-func (s *VpcInfoForDescribeBackupsOutput) SetID(v string) *VpcInfoForDescribeBackupsOutput {
-	s.ID = &v
-	return s
-}
-
-// SetName sets the Name field's value.
-func (s *VpcInfoForDescribeBackupsOutput) SetName(v string) *VpcInfoForDescribeBackupsOutput {
-	s.Name = &v
-	return s
-}
-
 const (
 	// EnumOfBackupStrategyForDescribeBackupsOutputManualBackup is a EnumOfBackupStrategyForDescribeBackupsOutput enum value
 	EnumOfBackupStrategyForDescribeBackupsOutputManualBackup = "ManualBackup"
@@ -751,6 +541,20 @@ const (
 
 	// EnumOfBackupStrategyForDescribeBackupsOutputAllStrategy is a EnumOfBackupStrategyForDescribeBackupsOutput enum value
 	EnumOfBackupStrategyForDescribeBackupsOutputAllStrategy = "AllStrategy"
+)
+
+const (
+	// EnumOfBackupStrategyListListForDescribeBackupsInputManualBackup is a EnumOfBackupStrategyListListForDescribeBackupsInput enum value
+	EnumOfBackupStrategyListListForDescribeBackupsInputManualBackup = "ManualBackup"
+
+	// EnumOfBackupStrategyListListForDescribeBackupsInputAutomatedBackup is a EnumOfBackupStrategyListListForDescribeBackupsInput enum value
+	EnumOfBackupStrategyListListForDescribeBackupsInputAutomatedBackup = "AutomatedBackup"
+
+	// EnumOfBackupStrategyListListForDescribeBackupsInputDataFlashBack is a EnumOfBackupStrategyListListForDescribeBackupsInput enum value
+	EnumOfBackupStrategyListListForDescribeBackupsInputDataFlashBack = "DataFlashBack"
+
+	// EnumOfBackupStrategyListListForDescribeBackupsInputAllStrategy is a EnumOfBackupStrategyListListForDescribeBackupsInput enum value
+	EnumOfBackupStrategyListListForDescribeBackupsInputAllStrategy = "AllStrategy"
 )
 
 const (

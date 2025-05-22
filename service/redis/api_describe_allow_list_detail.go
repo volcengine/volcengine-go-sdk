@@ -150,6 +150,8 @@ type AssociatedInstanceForDescribeAllowListDetailOutput struct {
 
 	InstanceName *string `type:"string" json:",omitempty"`
 
+	ProjectName *string `type:"string" json:",omitempty"`
+
 	VPC *string `type:"string" json:",omitempty"`
 }
 
@@ -172,6 +174,12 @@ func (s *AssociatedInstanceForDescribeAllowListDetailOutput) SetInstanceId(v str
 // SetInstanceName sets the InstanceName field's value.
 func (s *AssociatedInstanceForDescribeAllowListDetailOutput) SetInstanceName(v string) *AssociatedInstanceForDescribeAllowListDetailOutput {
 	s.InstanceName = &v
+	return s
+}
+
+// SetProjectName sets the ProjectName field's value.
+func (s *AssociatedInstanceForDescribeAllowListDetailOutput) SetProjectName(v string) *AssociatedInstanceForDescribeAllowListDetailOutput {
+	s.ProjectName = &v
 	return s
 }
 
@@ -234,7 +242,11 @@ type DescribeAllowListDetailOutput struct {
 
 	AllowListType *string `type:"string" json:",omitempty"`
 
+	AssociatedInstanceNum *int32 `type:"int32" json:",omitempty"`
+
 	AssociatedInstances []*AssociatedInstanceForDescribeAllowListDetailOutput `type:"list" json:",omitempty"`
+
+	ProjectName *string `type:"string" json:",omitempty"`
 
 	SecurityGroupBindInfos []*SecurityGroupBindInfoForDescribeAllowListDetailOutput `type:"list" json:",omitempty"`
 }
@@ -285,9 +297,21 @@ func (s *DescribeAllowListDetailOutput) SetAllowListType(v string) *DescribeAllo
 	return s
 }
 
+// SetAssociatedInstanceNum sets the AssociatedInstanceNum field's value.
+func (s *DescribeAllowListDetailOutput) SetAssociatedInstanceNum(v int32) *DescribeAllowListDetailOutput {
+	s.AssociatedInstanceNum = &v
+	return s
+}
+
 // SetAssociatedInstances sets the AssociatedInstances field's value.
 func (s *DescribeAllowListDetailOutput) SetAssociatedInstances(v []*AssociatedInstanceForDescribeAllowListDetailOutput) *DescribeAllowListDetailOutput {
 	s.AssociatedInstances = v
+	return s
+}
+
+// SetProjectName sets the ProjectName field's value.
+func (s *DescribeAllowListDetailOutput) SetProjectName(v string) *DescribeAllowListDetailOutput {
+	s.ProjectName = &v
 	return s
 }
 
