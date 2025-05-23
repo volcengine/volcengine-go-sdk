@@ -38,6 +38,22 @@ type VEPFSAPI interface {
 	AttachMountServiceToSelfFileSystemWithContext(volcengine.Context, *AttachMountServiceToSelfFileSystemInput, ...request.Option) (*AttachMountServiceToSelfFileSystemOutput, error)
 	AttachMountServiceToSelfFileSystemRequest(*AttachMountServiceToSelfFileSystemInput) (*request.Request, *AttachMountServiceToSelfFileSystemOutput)
 
+	ConfigDataFlowBandwidthCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ConfigDataFlowBandwidthCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ConfigDataFlowBandwidthCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ConfigDataFlowBandwidth(*ConfigDataFlowBandwidthInput) (*ConfigDataFlowBandwidthOutput, error)
+	ConfigDataFlowBandwidthWithContext(volcengine.Context, *ConfigDataFlowBandwidthInput, ...request.Option) (*ConfigDataFlowBandwidthOutput, error)
+	ConfigDataFlowBandwidthRequest(*ConfigDataFlowBandwidthInput) (*request.Request, *ConfigDataFlowBandwidthOutput)
+
+	CreateDataFlowTaskCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateDataFlowTaskCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateDataFlowTaskCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateDataFlowTask(*CreateDataFlowTaskInput) (*CreateDataFlowTaskOutput, error)
+	CreateDataFlowTaskWithContext(volcengine.Context, *CreateDataFlowTaskInput, ...request.Option) (*CreateDataFlowTaskOutput, error)
+	CreateDataFlowTaskRequest(*CreateDataFlowTaskInput) (*request.Request, *CreateDataFlowTaskOutput)
+
 	CreateFileSystemCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	CreateFileSystemCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	CreateFileSystemCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -61,6 +77,14 @@ type VEPFSAPI interface {
 	CreateMountService(*CreateMountServiceInput) (*CreateMountServiceOutput, error)
 	CreateMountServiceWithContext(volcengine.Context, *CreateMountServiceInput, ...request.Option) (*CreateMountServiceOutput, error)
 	CreateMountServiceRequest(*CreateMountServiceInput) (*request.Request, *CreateMountServiceOutput)
+
+	CreatePreSignedUrlCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreatePreSignedUrlCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreatePreSignedUrlCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreatePreSignedUrl(*CreatePreSignedUrlInput) (*CreatePreSignedUrlOutput, error)
+	CreatePreSignedUrlWithContext(volcengine.Context, *CreatePreSignedUrlInput, ...request.Option) (*CreatePreSignedUrlOutput, error)
+	CreatePreSignedUrlRequest(*CreatePreSignedUrlInput) (*request.Request, *CreatePreSignedUrlOutput)
 
 	DeleteFileSystemCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DeleteFileSystemCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
