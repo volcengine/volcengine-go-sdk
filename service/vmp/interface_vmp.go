@@ -19,7 +19,7 @@ import (
 //    // volcengine sdk func uses an SDK service client to make a request to
 //    // VMP.
 //    func myFunc(svc VMPAPI) bool {
-//        // Make svc.CreateWorkspace request
+//        // Make svc.CreateAlertingRule request
 //    }
 //
 //    func main() {
@@ -30,6 +30,62 @@ import (
 //    }
 //
 type VMPAPI interface {
+	CreateAlertingRuleCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateAlertingRuleCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateAlertingRuleCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateAlertingRule(*CreateAlertingRuleInput) (*CreateAlertingRuleOutput, error)
+	CreateAlertingRuleWithContext(volcengine.Context, *CreateAlertingRuleInput, ...request.Option) (*CreateAlertingRuleOutput, error)
+	CreateAlertingRuleRequest(*CreateAlertingRuleInput) (*request.Request, *CreateAlertingRuleOutput)
+
+	CreateContactCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateContactCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateContactCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateContact(*CreateContactInput) (*CreateContactOutput, error)
+	CreateContactWithContext(volcengine.Context, *CreateContactInput, ...request.Option) (*CreateContactOutput, error)
+	CreateContactRequest(*CreateContactInput) (*request.Request, *CreateContactOutput)
+
+	CreateContactGroupCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateContactGroupCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateContactGroupCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateContactGroup(*CreateContactGroupInput) (*CreateContactGroupOutput, error)
+	CreateContactGroupWithContext(volcengine.Context, *CreateContactGroupInput, ...request.Option) (*CreateContactGroupOutput, error)
+	CreateContactGroupRequest(*CreateContactGroupInput) (*request.Request, *CreateContactGroupOutput)
+
+	CreateNotifyGroupPolicyCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateNotifyGroupPolicyCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateNotifyGroupPolicyCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateNotifyGroupPolicy(*CreateNotifyGroupPolicyInput) (*CreateNotifyGroupPolicyOutput, error)
+	CreateNotifyGroupPolicyWithContext(volcengine.Context, *CreateNotifyGroupPolicyInput, ...request.Option) (*CreateNotifyGroupPolicyOutput, error)
+	CreateNotifyGroupPolicyRequest(*CreateNotifyGroupPolicyInput) (*request.Request, *CreateNotifyGroupPolicyOutput)
+
+	CreateNotifyPolicyCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateNotifyPolicyCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateNotifyPolicyCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateNotifyPolicy(*CreateNotifyPolicyInput) (*CreateNotifyPolicyOutput, error)
+	CreateNotifyPolicyWithContext(volcengine.Context, *CreateNotifyPolicyInput, ...request.Option) (*CreateNotifyPolicyOutput, error)
+	CreateNotifyPolicyRequest(*CreateNotifyPolicyInput) (*request.Request, *CreateNotifyPolicyOutput)
+
+	CreateNotifyTemplateCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateNotifyTemplateCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateNotifyTemplateCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateNotifyTemplate(*CreateNotifyTemplateInput) (*CreateNotifyTemplateOutput, error)
+	CreateNotifyTemplateWithContext(volcengine.Context, *CreateNotifyTemplateInput, ...request.Option) (*CreateNotifyTemplateOutput, error)
+	CreateNotifyTemplateRequest(*CreateNotifyTemplateInput) (*request.Request, *CreateNotifyTemplateOutput)
+
+	CreateRuleFileCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateRuleFileCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateRuleFileCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateRuleFile(*CreateRuleFileInput) (*CreateRuleFileOutput, error)
+	CreateRuleFileWithContext(volcengine.Context, *CreateRuleFileInput, ...request.Option) (*CreateRuleFileOutput, error)
+	CreateRuleFileRequest(*CreateRuleFileInput) (*request.Request, *CreateRuleFileOutput)
+
 	CreateWorkspaceCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	CreateWorkspaceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	CreateWorkspaceCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -38,6 +94,62 @@ type VMPAPI interface {
 	CreateWorkspaceWithContext(volcengine.Context, *CreateWorkspaceInput, ...request.Option) (*CreateWorkspaceOutput, error)
 	CreateWorkspaceRequest(*CreateWorkspaceInput) (*request.Request, *CreateWorkspaceOutput)
 
+	DeleteAlertingRulesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeleteAlertingRulesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeleteAlertingRulesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeleteAlertingRules(*DeleteAlertingRulesInput) (*DeleteAlertingRulesOutput, error)
+	DeleteAlertingRulesWithContext(volcengine.Context, *DeleteAlertingRulesInput, ...request.Option) (*DeleteAlertingRulesOutput, error)
+	DeleteAlertingRulesRequest(*DeleteAlertingRulesInput) (*request.Request, *DeleteAlertingRulesOutput)
+
+	DeleteContactGroupsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeleteContactGroupsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeleteContactGroupsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeleteContactGroups(*DeleteContactGroupsInput) (*DeleteContactGroupsOutput, error)
+	DeleteContactGroupsWithContext(volcengine.Context, *DeleteContactGroupsInput, ...request.Option) (*DeleteContactGroupsOutput, error)
+	DeleteContactGroupsRequest(*DeleteContactGroupsInput) (*request.Request, *DeleteContactGroupsOutput)
+
+	DeleteContactsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeleteContactsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeleteContactsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeleteContacts(*DeleteContactsInput) (*DeleteContactsOutput, error)
+	DeleteContactsWithContext(volcengine.Context, *DeleteContactsInput, ...request.Option) (*DeleteContactsOutput, error)
+	DeleteContactsRequest(*DeleteContactsInput) (*request.Request, *DeleteContactsOutput)
+
+	DeleteNotifyGroupPolicyCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeleteNotifyGroupPolicyCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeleteNotifyGroupPolicyCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeleteNotifyGroupPolicy(*DeleteNotifyGroupPolicyInput) (*DeleteNotifyGroupPolicyOutput, error)
+	DeleteNotifyGroupPolicyWithContext(volcengine.Context, *DeleteNotifyGroupPolicyInput, ...request.Option) (*DeleteNotifyGroupPolicyOutput, error)
+	DeleteNotifyGroupPolicyRequest(*DeleteNotifyGroupPolicyInput) (*request.Request, *DeleteNotifyGroupPolicyOutput)
+
+	DeleteNotifyPolicyCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeleteNotifyPolicyCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeleteNotifyPolicyCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeleteNotifyPolicy(*DeleteNotifyPolicyInput) (*DeleteNotifyPolicyOutput, error)
+	DeleteNotifyPolicyWithContext(volcengine.Context, *DeleteNotifyPolicyInput, ...request.Option) (*DeleteNotifyPolicyOutput, error)
+	DeleteNotifyPolicyRequest(*DeleteNotifyPolicyInput) (*request.Request, *DeleteNotifyPolicyOutput)
+
+	DeleteNotifyTemplateCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeleteNotifyTemplateCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeleteNotifyTemplateCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeleteNotifyTemplate(*DeleteNotifyTemplateInput) (*DeleteNotifyTemplateOutput, error)
+	DeleteNotifyTemplateWithContext(volcengine.Context, *DeleteNotifyTemplateInput, ...request.Option) (*DeleteNotifyTemplateOutput, error)
+	DeleteNotifyTemplateRequest(*DeleteNotifyTemplateInput) (*request.Request, *DeleteNotifyTemplateOutput)
+
+	DeleteRuleFileCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeleteRuleFileCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeleteRuleFileCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeleteRuleFile(*DeleteRuleFileInput) (*DeleteRuleFileOutput, error)
+	DeleteRuleFileWithContext(volcengine.Context, *DeleteRuleFileInput, ...request.Option) (*DeleteRuleFileOutput, error)
+	DeleteRuleFileRequest(*DeleteRuleFileInput) (*request.Request, *DeleteRuleFileOutput)
+
 	DeleteWorkspaceCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DeleteWorkspaceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DeleteWorkspaceCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -45,6 +157,182 @@ type VMPAPI interface {
 	DeleteWorkspace(*DeleteWorkspaceInput) (*DeleteWorkspaceOutput, error)
 	DeleteWorkspaceWithContext(volcengine.Context, *DeleteWorkspaceInput, ...request.Option) (*DeleteWorkspaceOutput, error)
 	DeleteWorkspaceRequest(*DeleteWorkspaceInput) (*request.Request, *DeleteWorkspaceOutput)
+
+	DisableAlertingRulesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DisableAlertingRulesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DisableAlertingRulesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DisableAlertingRules(*DisableAlertingRulesInput) (*DisableAlertingRulesOutput, error)
+	DisableAlertingRulesWithContext(volcengine.Context, *DisableAlertingRulesInput, ...request.Option) (*DisableAlertingRulesOutput, error)
+	DisableAlertingRulesRequest(*DisableAlertingRulesInput) (*request.Request, *DisableAlertingRulesOutput)
+
+	EnableAlertingRulesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	EnableAlertingRulesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	EnableAlertingRulesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	EnableAlertingRules(*EnableAlertingRulesInput) (*EnableAlertingRulesOutput, error)
+	EnableAlertingRulesWithContext(volcengine.Context, *EnableAlertingRulesInput, ...request.Option) (*EnableAlertingRulesOutput, error)
+	EnableAlertingRulesRequest(*EnableAlertingRulesInput) (*request.Request, *EnableAlertingRulesOutput)
+
+	GetAlertCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	GetAlertCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	GetAlertCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	GetAlert(*GetAlertInput) (*GetAlertOutput, error)
+	GetAlertWithContext(volcengine.Context, *GetAlertInput, ...request.Option) (*GetAlertOutput, error)
+	GetAlertRequest(*GetAlertInput) (*request.Request, *GetAlertOutput)
+
+	GetAlertingRuleCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	GetAlertingRuleCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	GetAlertingRuleCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	GetAlertingRule(*GetAlertingRuleInput) (*GetAlertingRuleOutput, error)
+	GetAlertingRuleWithContext(volcengine.Context, *GetAlertingRuleInput, ...request.Option) (*GetAlertingRuleOutput, error)
+	GetAlertingRuleRequest(*GetAlertingRuleInput) (*request.Request, *GetAlertingRuleOutput)
+
+	GetContactCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	GetContactCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	GetContactCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	GetContact(*GetContactInput) (*GetContactOutput, error)
+	GetContactWithContext(volcengine.Context, *GetContactInput, ...request.Option) (*GetContactOutput, error)
+	GetContactRequest(*GetContactInput) (*request.Request, *GetContactOutput)
+
+	GetContactGroupCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	GetContactGroupCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	GetContactGroupCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	GetContactGroup(*GetContactGroupInput) (*GetContactGroupOutput, error)
+	GetContactGroupWithContext(volcengine.Context, *GetContactGroupInput, ...request.Option) (*GetContactGroupOutput, error)
+	GetContactGroupRequest(*GetContactGroupInput) (*request.Request, *GetContactGroupOutput)
+
+	GetNotifyGroupPolicyCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	GetNotifyGroupPolicyCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	GetNotifyGroupPolicyCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	GetNotifyGroupPolicy(*GetNotifyGroupPolicyInput) (*GetNotifyGroupPolicyOutput, error)
+	GetNotifyGroupPolicyWithContext(volcengine.Context, *GetNotifyGroupPolicyInput, ...request.Option) (*GetNotifyGroupPolicyOutput, error)
+	GetNotifyGroupPolicyRequest(*GetNotifyGroupPolicyInput) (*request.Request, *GetNotifyGroupPolicyOutput)
+
+	GetNotifyPolicyCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	GetNotifyPolicyCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	GetNotifyPolicyCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	GetNotifyPolicy(*GetNotifyPolicyInput) (*GetNotifyPolicyOutput, error)
+	GetNotifyPolicyWithContext(volcengine.Context, *GetNotifyPolicyInput, ...request.Option) (*GetNotifyPolicyOutput, error)
+	GetNotifyPolicyRequest(*GetNotifyPolicyInput) (*request.Request, *GetNotifyPolicyOutput)
+
+	GetRuleFileCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	GetRuleFileCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	GetRuleFileCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	GetRuleFile(*GetRuleFileInput) (*GetRuleFileOutput, error)
+	GetRuleFileWithContext(volcengine.Context, *GetRuleFileInput, ...request.Option) (*GetRuleFileOutput, error)
+	GetRuleFileRequest(*GetRuleFileInput) (*request.Request, *GetRuleFileOutput)
+
+	GetWorkspaceCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	GetWorkspaceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	GetWorkspaceCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	GetWorkspace(*GetWorkspaceInput) (*GetWorkspaceOutput, error)
+	GetWorkspaceWithContext(volcengine.Context, *GetWorkspaceInput, ...request.Option) (*GetWorkspaceOutput, error)
+	GetWorkspaceRequest(*GetWorkspaceInput) (*request.Request, *GetWorkspaceOutput)
+
+	ListAlertSamplesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListAlertSamplesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListAlertSamplesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListAlertSamples(*ListAlertSamplesInput) (*ListAlertSamplesOutput, error)
+	ListAlertSamplesWithContext(volcengine.Context, *ListAlertSamplesInput, ...request.Option) (*ListAlertSamplesOutput, error)
+	ListAlertSamplesRequest(*ListAlertSamplesInput) (*request.Request, *ListAlertSamplesOutput)
+
+	ListAlertingRulesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListAlertingRulesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListAlertingRulesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListAlertingRules(*ListAlertingRulesInput) (*ListAlertingRulesOutput, error)
+	ListAlertingRulesWithContext(volcengine.Context, *ListAlertingRulesInput, ...request.Option) (*ListAlertingRulesOutput, error)
+	ListAlertingRulesRequest(*ListAlertingRulesInput) (*request.Request, *ListAlertingRulesOutput)
+
+	ListAlertsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListAlertsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListAlertsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListAlerts(*ListAlertsInput) (*ListAlertsOutput, error)
+	ListAlertsWithContext(volcengine.Context, *ListAlertsInput, ...request.Option) (*ListAlertsOutput, error)
+	ListAlertsRequest(*ListAlertsInput) (*request.Request, *ListAlertsOutput)
+
+	ListContactGroupsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListContactGroupsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListContactGroupsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListContactGroups(*ListContactGroupsInput) (*ListContactGroupsOutput, error)
+	ListContactGroupsWithContext(volcengine.Context, *ListContactGroupsInput, ...request.Option) (*ListContactGroupsOutput, error)
+	ListContactGroupsRequest(*ListContactGroupsInput) (*request.Request, *ListContactGroupsOutput)
+
+	ListContactsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListContactsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListContactsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListContacts(*ListContactsInput) (*ListContactsOutput, error)
+	ListContactsWithContext(volcengine.Context, *ListContactsInput, ...request.Option) (*ListContactsOutput, error)
+	ListContactsRequest(*ListContactsInput) (*request.Request, *ListContactsOutput)
+
+	ListNotifyGroupPoliciesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListNotifyGroupPoliciesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListNotifyGroupPoliciesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListNotifyGroupPolicies(*ListNotifyGroupPoliciesInput) (*ListNotifyGroupPoliciesOutput, error)
+	ListNotifyGroupPoliciesWithContext(volcengine.Context, *ListNotifyGroupPoliciesInput, ...request.Option) (*ListNotifyGroupPoliciesOutput, error)
+	ListNotifyGroupPoliciesRequest(*ListNotifyGroupPoliciesInput) (*request.Request, *ListNotifyGroupPoliciesOutput)
+
+	ListNotifyPoliciesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListNotifyPoliciesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListNotifyPoliciesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListNotifyPolicies(*ListNotifyPoliciesInput) (*ListNotifyPoliciesOutput, error)
+	ListNotifyPoliciesWithContext(volcengine.Context, *ListNotifyPoliciesInput, ...request.Option) (*ListNotifyPoliciesOutput, error)
+	ListNotifyPoliciesRequest(*ListNotifyPoliciesInput) (*request.Request, *ListNotifyPoliciesOutput)
+
+	ListNotifyTemplatesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListNotifyTemplatesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListNotifyTemplatesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListNotifyTemplates(*ListNotifyTemplatesInput) (*ListNotifyTemplatesOutput, error)
+	ListNotifyTemplatesWithContext(volcengine.Context, *ListNotifyTemplatesInput, ...request.Option) (*ListNotifyTemplatesOutput, error)
+	ListNotifyTemplatesRequest(*ListNotifyTemplatesInput) (*request.Request, *ListNotifyTemplatesOutput)
+
+	ListRuleFilesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListRuleFilesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListRuleFilesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListRuleFiles(*ListRuleFilesInput) (*ListRuleFilesOutput, error)
+	ListRuleFilesWithContext(volcengine.Context, *ListRuleFilesInput, ...request.Option) (*ListRuleFilesOutput, error)
+	ListRuleFilesRequest(*ListRuleFilesInput) (*request.Request, *ListRuleFilesOutput)
+
+	ListRulesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListRulesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListRulesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListRules(*ListRulesInput) (*ListRulesOutput, error)
+	ListRulesWithContext(volcengine.Context, *ListRulesInput, ...request.Option) (*ListRulesOutput, error)
+	ListRulesRequest(*ListRulesInput) (*request.Request, *ListRulesOutput)
+
+	ListTagsForResourcesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListTagsForResourcesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListTagsForResourcesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListTagsForResources(*ListTagsForResourcesInput) (*ListTagsForResourcesOutput, error)
+	ListTagsForResourcesWithContext(volcengine.Context, *ListTagsForResourcesInput, ...request.Option) (*ListTagsForResourcesOutput, error)
+	ListTagsForResourcesRequest(*ListTagsForResourcesInput) (*request.Request, *ListTagsForResourcesOutput)
+
+	ListWorkspaceInstanceTypesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListWorkspaceInstanceTypesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListWorkspaceInstanceTypesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListWorkspaceInstanceTypes(*ListWorkspaceInstanceTypesInput) (*ListWorkspaceInstanceTypesOutput, error)
+	ListWorkspaceInstanceTypesWithContext(volcengine.Context, *ListWorkspaceInstanceTypesInput, ...request.Option) (*ListWorkspaceInstanceTypesOutput, error)
+	ListWorkspaceInstanceTypesRequest(*ListWorkspaceInstanceTypesInput) (*request.Request, *ListWorkspaceInstanceTypesOutput)
 
 	ListWorkspaceStatusCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ListWorkspaceStatusCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -61,6 +349,118 @@ type VMPAPI interface {
 	ListWorkspaces(*ListWorkspacesInput) (*ListWorkspacesOutput, error)
 	ListWorkspacesWithContext(volcengine.Context, *ListWorkspacesInput, ...request.Option) (*ListWorkspacesOutput, error)
 	ListWorkspacesRequest(*ListWorkspacesInput) (*request.Request, *ListWorkspacesOutput)
+
+	SendValidationMessageCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	SendValidationMessageCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	SendValidationMessageCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	SendValidationMessage(*SendValidationMessageInput) (*SendValidationMessageOutput, error)
+	SendValidationMessageWithContext(volcengine.Context, *SendValidationMessageInput, ...request.Option) (*SendValidationMessageOutput, error)
+	SendValidationMessageRequest(*SendValidationMessageInput) (*request.Request, *SendValidationMessageOutput)
+
+	TagResourcesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	TagResourcesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	TagResourcesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	TagResources(*TagResourcesInput) (*TagResourcesOutput, error)
+	TagResourcesWithContext(volcengine.Context, *TagResourcesInput, ...request.Option) (*TagResourcesOutput, error)
+	TagResourcesRequest(*TagResourcesInput) (*request.Request, *TagResourcesOutput)
+
+	TestDingTalkBotWebhookCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	TestDingTalkBotWebhookCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	TestDingTalkBotWebhookCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	TestDingTalkBotWebhook(*TestDingTalkBotWebhookInput) (*TestDingTalkBotWebhookOutput, error)
+	TestDingTalkBotWebhookWithContext(volcengine.Context, *TestDingTalkBotWebhookInput, ...request.Option) (*TestDingTalkBotWebhookOutput, error)
+	TestDingTalkBotWebhookRequest(*TestDingTalkBotWebhookInput) (*request.Request, *TestDingTalkBotWebhookOutput)
+
+	TestLarkBotWebhookCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	TestLarkBotWebhookCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	TestLarkBotWebhookCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	TestLarkBotWebhook(*TestLarkBotWebhookInput) (*TestLarkBotWebhookOutput, error)
+	TestLarkBotWebhookWithContext(volcengine.Context, *TestLarkBotWebhookInput, ...request.Option) (*TestLarkBotWebhookOutput, error)
+	TestLarkBotWebhookRequest(*TestLarkBotWebhookInput) (*request.Request, *TestLarkBotWebhookOutput)
+
+	TestWeComBotWebhookCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	TestWeComBotWebhookCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	TestWeComBotWebhookCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	TestWeComBotWebhook(*TestWeComBotWebhookInput) (*TestWeComBotWebhookOutput, error)
+	TestWeComBotWebhookWithContext(volcengine.Context, *TestWeComBotWebhookInput, ...request.Option) (*TestWeComBotWebhookOutput, error)
+	TestWeComBotWebhookRequest(*TestWeComBotWebhookInput) (*request.Request, *TestWeComBotWebhookOutput)
+
+	TestWebhookCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	TestWebhookCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	TestWebhookCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	TestWebhook(*TestWebhookInput) (*TestWebhookOutput, error)
+	TestWebhookWithContext(volcengine.Context, *TestWebhookInput, ...request.Option) (*TestWebhookOutput, error)
+	TestWebhookRequest(*TestWebhookInput) (*request.Request, *TestWebhookOutput)
+
+	UntagResourcesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	UntagResourcesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	UntagResourcesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	UntagResources(*UntagResourcesInput) (*UntagResourcesOutput, error)
+	UntagResourcesWithContext(volcengine.Context, *UntagResourcesInput, ...request.Option) (*UntagResourcesOutput, error)
+	UntagResourcesRequest(*UntagResourcesInput) (*request.Request, *UntagResourcesOutput)
+
+	UpdateAlertingRuleCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	UpdateAlertingRuleCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	UpdateAlertingRuleCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	UpdateAlertingRule(*UpdateAlertingRuleInput) (*UpdateAlertingRuleOutput, error)
+	UpdateAlertingRuleWithContext(volcengine.Context, *UpdateAlertingRuleInput, ...request.Option) (*UpdateAlertingRuleOutput, error)
+	UpdateAlertingRuleRequest(*UpdateAlertingRuleInput) (*request.Request, *UpdateAlertingRuleOutput)
+
+	UpdateContactCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	UpdateContactCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	UpdateContactCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	UpdateContact(*UpdateContactInput) (*UpdateContactOutput, error)
+	UpdateContactWithContext(volcengine.Context, *UpdateContactInput, ...request.Option) (*UpdateContactOutput, error)
+	UpdateContactRequest(*UpdateContactInput) (*request.Request, *UpdateContactOutput)
+
+	UpdateContactGroupCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	UpdateContactGroupCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	UpdateContactGroupCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	UpdateContactGroup(*UpdateContactGroupInput) (*UpdateContactGroupOutput, error)
+	UpdateContactGroupWithContext(volcengine.Context, *UpdateContactGroupInput, ...request.Option) (*UpdateContactGroupOutput, error)
+	UpdateContactGroupRequest(*UpdateContactGroupInput) (*request.Request, *UpdateContactGroupOutput)
+
+	UpdateNotifyGroupPolicyCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	UpdateNotifyGroupPolicyCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	UpdateNotifyGroupPolicyCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	UpdateNotifyGroupPolicy(*UpdateNotifyGroupPolicyInput) (*UpdateNotifyGroupPolicyOutput, error)
+	UpdateNotifyGroupPolicyWithContext(volcengine.Context, *UpdateNotifyGroupPolicyInput, ...request.Option) (*UpdateNotifyGroupPolicyOutput, error)
+	UpdateNotifyGroupPolicyRequest(*UpdateNotifyGroupPolicyInput) (*request.Request, *UpdateNotifyGroupPolicyOutput)
+
+	UpdateNotifyPolicyCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	UpdateNotifyPolicyCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	UpdateNotifyPolicyCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	UpdateNotifyPolicy(*UpdateNotifyPolicyInput) (*UpdateNotifyPolicyOutput, error)
+	UpdateNotifyPolicyWithContext(volcengine.Context, *UpdateNotifyPolicyInput, ...request.Option) (*UpdateNotifyPolicyOutput, error)
+	UpdateNotifyPolicyRequest(*UpdateNotifyPolicyInput) (*request.Request, *UpdateNotifyPolicyOutput)
+
+	UpdateNotifyTemplateCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	UpdateNotifyTemplateCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	UpdateNotifyTemplateCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	UpdateNotifyTemplate(*UpdateNotifyTemplateInput) (*UpdateNotifyTemplateOutput, error)
+	UpdateNotifyTemplateWithContext(volcengine.Context, *UpdateNotifyTemplateInput, ...request.Option) (*UpdateNotifyTemplateOutput, error)
+	UpdateNotifyTemplateRequest(*UpdateNotifyTemplateInput) (*request.Request, *UpdateNotifyTemplateOutput)
+
+	UpdateRuleFileCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	UpdateRuleFileCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	UpdateRuleFileCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	UpdateRuleFile(*UpdateRuleFileInput) (*UpdateRuleFileOutput, error)
+	UpdateRuleFileWithContext(volcengine.Context, *UpdateRuleFileInput, ...request.Option) (*UpdateRuleFileOutput, error)
+	UpdateRuleFileRequest(*UpdateRuleFileInput) (*request.Request, *UpdateRuleFileOutput)
 
 	UpdateWorkspaceCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	UpdateWorkspaceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
