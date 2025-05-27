@@ -134,7 +134,7 @@ func main() {
     config := volcengine.NewConfig().
         WithRegion(region).
         WithCredentials(credentials.NewStsCredentials(credentials.StsValue{
-            AccessKey:  ak,         // 子账号AK,最好从环境变量获取：os.Getenv("VVOLCSTACK_ACCESS_KEY_ID")
+            AccessKey:  ak,         // 子账号AK,最好从环境变量获取：os.Getenv("VOLCSTACK_ACCESS_KEY_ID")
             SecurityKey: sk,        // 子账号SK，最好从环境变量获取：os.Getenv("VOLCSTACK_SECRET_ACCESS_KEY")
             RoleName:   "RoleName", // 扮演角色名称
             Host:       "Host",     // 请求的sts域名
@@ -158,7 +158,7 @@ func main() {
 ## 自定义Endpoint
 
 > - **默认**  
->   open.volcengineapi.com
+>   不指定endpoint时，走[自动化Endpoint寻址](#自动化Endpoint寻址)
 
 用户可以通过在初始化客户端时指定Endpoint
 
@@ -169,7 +169,7 @@ func main() {
        WithCredentials(credentials.NewEnvCredentials()). //环境变量配置：VOLCSTACK_ACCESS_KEY_ID、VOLCSTACK_SECRET_ACCESS_KEY、VOLCSTACK_SESSION_TOKEN
        WithRegion(region).
        // 自定义Endpoint
-       WithEndpoint("ecs..volcengineapi.com")
+       WithEndpoint("ecs.volcengineapi.com")
      sess, err := session.NewSession(config)
      if err != nil {
         panic(err)
@@ -280,7 +280,7 @@ func main() {
 
 # Https请求配置
 
-## 指定Shema
+## 指定schema
 
 > - **默认**  
 >   https
