@@ -153,8 +153,6 @@ type CreateDataFlowTaskInput struct {
 	// DataType is a required field
 	DataType *string `type:"string" json:",omitempty" required:"true" enum:"EnumOfDataTypeForCreateDataFlowTaskInput"`
 
-	DeleteRule *string `type:"string" json:",omitempty" enum:"EnumOfDeleteRuleForCreateDataFlowTaskInput"`
-
 	EntryListFileInfo *EntryListFileInfoForCreateDataFlowTaskInput `type:"structure" json:",omitempty"`
 
 	ExportSymlinkPolicy *string `type:"string" json:",omitempty" enum:"EnumOfExportSymlinkPolicyForCreateDataFlowTaskInput"`
@@ -216,12 +214,6 @@ func (s *CreateDataFlowTaskInput) SetDataStoragePath(v string) *CreateDataFlowTa
 // SetDataType sets the DataType field's value.
 func (s *CreateDataFlowTaskInput) SetDataType(v string) *CreateDataFlowTaskInput {
 	s.DataType = &v
-	return s
-}
-
-// SetDeleteRule sets the DeleteRule field's value.
-func (s *CreateDataFlowTaskInput) SetDeleteRule(v string) *CreateDataFlowTaskInput {
-	s.DeleteRule = &v
 	return s
 }
 
@@ -338,17 +330,6 @@ const (
 )
 
 const (
-	// EnumOfDeleteRuleForCreateDataFlowTaskInputDeleteTypeOnlyFs is a EnumOfDeleteRuleForCreateDataFlowTaskInput enum value
-	EnumOfDeleteRuleForCreateDataFlowTaskInputDeleteTypeOnlyFs = "DELETE_TYPE_ONLY_FS"
-
-	// EnumOfDeleteRuleForCreateDataFlowTaskInputDeleteTypeFsWithLatestObject is a EnumOfDeleteRuleForCreateDataFlowTaskInput enum value
-	EnumOfDeleteRuleForCreateDataFlowTaskInputDeleteTypeFsWithLatestObject = "DELETE_TYPE_FS_WITH_LATEST_OBJECT"
-
-	// EnumOfDeleteRuleForCreateDataFlowTaskInputDeleteTypeFsWithAllversionObject is a EnumOfDeleteRuleForCreateDataFlowTaskInput enum value
-	EnumOfDeleteRuleForCreateDataFlowTaskInputDeleteTypeFsWithAllversionObject = "DELETE_TYPE_FS_WITH_ALLVERSION_OBJECT"
-)
-
-const (
 	// EnumOfExportSymlinkPolicyForCreateDataFlowTaskInputSkip is a EnumOfExportSymlinkPolicyForCreateDataFlowTaskInput enum value
 	EnumOfExportSymlinkPolicyForCreateDataFlowTaskInputSkip = "Skip"
 
@@ -376,7 +357,4 @@ const (
 
 	// EnumOfTaskActionForCreateDataFlowTaskInputInventory is a EnumOfTaskActionForCreateDataFlowTaskInput enum value
 	EnumOfTaskActionForCreateDataFlowTaskInputInventory = "Inventory"
-
-	// EnumOfTaskActionForCreateDataFlowTaskInputDelete is a EnumOfTaskActionForCreateDataFlowTaskInput enum value
-	EnumOfTaskActionForCreateDataFlowTaskInputDelete = "Delete"
 )
