@@ -38,6 +38,14 @@ type VEPFSAPI interface {
 	AttachMountServiceToSelfFileSystemWithContext(volcengine.Context, *AttachMountServiceToSelfFileSystemInput, ...request.Option) (*AttachMountServiceToSelfFileSystemOutput, error)
 	AttachMountServiceToSelfFileSystemRequest(*AttachMountServiceToSelfFileSystemInput) (*request.Request, *AttachMountServiceToSelfFileSystemOutput)
 
+	CancelDataFlowTaskCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CancelDataFlowTaskCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CancelDataFlowTaskCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CancelDataFlowTask(*CancelDataFlowTaskInput) (*CancelDataFlowTaskOutput, error)
+	CancelDataFlowTaskWithContext(volcengine.Context, *CancelDataFlowTaskInput, ...request.Option) (*CancelDataFlowTaskOutput, error)
+	CancelDataFlowTaskRequest(*CancelDataFlowTaskInput) (*request.Request, *CancelDataFlowTaskOutput)
+
 	ConfigDataFlowBandwidthCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ConfigDataFlowBandwidthCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	ConfigDataFlowBandwidthCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -86,6 +94,14 @@ type VEPFSAPI interface {
 	CreatePreSignedUrlWithContext(volcengine.Context, *CreatePreSignedUrlInput, ...request.Option) (*CreatePreSignedUrlOutput, error)
 	CreatePreSignedUrlRequest(*CreatePreSignedUrlInput) (*request.Request, *CreatePreSignedUrlOutput)
 
+	DeleteDataFlowTaskCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeleteDataFlowTaskCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeleteDataFlowTaskCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeleteDataFlowTask(*DeleteDataFlowTaskInput) (*DeleteDataFlowTaskOutput, error)
+	DeleteDataFlowTaskWithContext(volcengine.Context, *DeleteDataFlowTaskInput, ...request.Option) (*DeleteDataFlowTaskOutput, error)
+	DeleteDataFlowTaskRequest(*DeleteDataFlowTaskInput) (*request.Request, *DeleteDataFlowTaskOutput)
+
 	DeleteFileSystemCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DeleteFileSystemCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DeleteFileSystemCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -109,6 +125,22 @@ type VEPFSAPI interface {
 	DeleteMountService(*DeleteMountServiceInput) (*DeleteMountServiceOutput, error)
 	DeleteMountServiceWithContext(volcengine.Context, *DeleteMountServiceInput, ...request.Option) (*DeleteMountServiceOutput, error)
 	DeleteMountServiceRequest(*DeleteMountServiceInput) (*request.Request, *DeleteMountServiceOutput)
+
+	DescribeDataFlowBandwidthCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeDataFlowBandwidthCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeDataFlowBandwidthCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeDataFlowBandwidth(*DescribeDataFlowBandwidthInput) (*DescribeDataFlowBandwidthOutput, error)
+	DescribeDataFlowBandwidthWithContext(volcengine.Context, *DescribeDataFlowBandwidthInput, ...request.Option) (*DescribeDataFlowBandwidthOutput, error)
+	DescribeDataFlowBandwidthRequest(*DescribeDataFlowBandwidthInput) (*request.Request, *DescribeDataFlowBandwidthOutput)
+
+	DescribeDataFlowTasksCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeDataFlowTasksCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeDataFlowTasksCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeDataFlowTasks(*DescribeDataFlowTasksInput) (*DescribeDataFlowTasksOutput, error)
+	DescribeDataFlowTasksWithContext(volcengine.Context, *DescribeDataFlowTasksInput, ...request.Option) (*DescribeDataFlowTasksOutput, error)
+	DescribeDataFlowTasksRequest(*DescribeDataFlowTasksInput) (*request.Request, *DescribeDataFlowTasksOutput)
 
 	DescribeFileSystemOverviewCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DescribeFileSystemOverviewCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
