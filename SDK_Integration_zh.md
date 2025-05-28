@@ -1,3 +1,40 @@
+# 目录
+
+- [目录](#目录)
+- [集成SDK](#集成sdk)
+- [环境要求](#环境要求)
+- [安全设置访问凭据](#安全设置访问凭据)
+  - [环境变量设置](#环境变量设置)
+    - [Linux 设置](#linux-设置)
+    - [Windows 设置](#windows-设置)
+      - [图形化界面设置](#图形化界面设置)
+      - [命令行设置](#命令行设置)
+- [访问凭据](#访问凭据)
+  - [AK、SK设置](#aksk设置)
+  - [STS Token设置](#sts-token设置)
+  - [AssumeRole](#assumerole)
+- [EndPoint配置](#endpoint配置)
+  - [自定义Endpoint](#自定义endpoint)
+  - [自定义RegionId](#自定义regionid)
+  - [自动化Endpoint寻址](#自动化endpoint寻址)
+    - [Endpoint默认寻址](#endpoint默认寻址)
+- [Http连接池配置](#http连接池配置)
+- [Https请求配置](#https请求配置)
+  - [指定Schema](#指定schema)
+  - [忽略SSL验证](#忽略ssl验证)
+  - [指定TLS协议版本](#指定tls协议版本)
+- [超时配置](#超时配置)
+  - [全局超时设置（Client级别）](#全局超时设置client级别)
+  - [单接口指定超时设置](#单接口指定超时设置)
+- [重试机制](#重试机制)
+  - [开启重试机制](#开启重试机制)
+  - [重试次数](#重试次数)
+  - [自定义重试错误码](#自定义重试错误码)
+- [异常处理](#异常处理)
+- [Debug机制](#debug机制)
+- [指定日志Logger](#指定日志logger)
+  - [自定义Logger](#自定义logger)
+
 # 集成SDK
 
 在调用接口时，推荐在项目中集成 SDK 的方式进行接入。通过使用 SDK，不仅可以简化开发流程、加快功能集成速度，还能有效降低后期的维护成本。火山引擎 SDK 的集成主要包括以下三个步骤：引入 SDK、配置访问凭证，以及编写接口调用代码。本文将结合常见使用场景，详细说明各步骤的实现方法及注意事项。
@@ -169,7 +206,7 @@ func main() {
        WithCredentials(credentials.NewEnvCredentials()). //环境变量配置：VOLCSTACK_ACCESS_KEY_ID、VOLCSTACK_SECRET_ACCESS_KEY、VOLCSTACK_SESSION_TOKEN
        WithRegion(region).
        // 自定义Endpoint
-       WithEndpoint("ecs.volcengineapi.com")
+       WithEndpoint("<example>.<regionId>.volcengineapi.com")
      sess, err := session.NewSession(config)
      if err != nil {
         panic(err)
@@ -184,8 +221,7 @@ func main() {
     regionId := "cn-beijing"
     config := volcengine.NewConfig().
        WithCredentials(credentials.NewEnvCredentials()). //环境变量配置：VOLCSTACK_ACCESS_KEY_ID、VOLCSTACK_SECRET_ACCESS_KEY、VOLCSTACK_SESSION_TOKEN
-       WithRegion(regionId). // 自定义regionId
-       WithEndpoint("ecs.cn-beijing-autodriving.volcengineapi.com")
+       WithRegion(regionId) // 自定义regionId
 	sess, err := session.NewSession(config)
     if err != nil {
         panic(err)
@@ -225,9 +261,9 @@ func main() {
         WithRegion(regionId).
         WithUseDualStack(true). // 定义是否启用双栈网络（IPv4 + IPv6）访问地址，默认false；也可以使用环境变量VOLC_ENABLE_DUALSTACK=true
         WithBootstrapRegion(map[string]struct{}{
-        "cn-beijing-autodriving": {},
-        "cn-shanghai-autodriving": {},
-        }) // 自定义自举Region；也可以使用环境变量VOLC_BOOTSTRAP_REGION_LIST_CONF	
+            "cn-beijing-autodriving": {},
+            "cn-shanghai-autodriving": {},
+        }) // 自定义自举Region；也可以使用环境变量VOLC_BOOTSTRAP_REGION_LIST_CONF
     sess, err := session.NewSession(config)
     if err != nil {
         panic(err)
@@ -263,7 +299,7 @@ func main() {
 
     client := &http.Client{
        Transport: transport,
-       Timeout:   60 * time.Second, // 这个相当于ReadTimeout
+       Timeout:   60 * time.Second, // 设置ReadTimeout
     }
     config := volcengine.NewConfig().
        WithRegion(region).
@@ -330,7 +366,7 @@ func main() {
 
     client := &http.Client{
        Transport: transport,
-       Timeout:   60 * time.Second, // 这个相当于ReadTimeout
+       Timeout:   60 * time.Second, // 设置ReadTimeout
     }
     config := volcengine.NewConfig().
        WithRegion(region).
@@ -368,14 +404,14 @@ func main() {
        TLSHandshakeTimeout:   10 * time.Second,
        ExpectContinueTimeout: 1 * time.Second,
        TLSClientConfig: &tls.Config{
-           MinVersion: tls.VersionTLS12, // 只允许 TLS 1.2
-           MaxVersion: tls.VersionTLS13, // 最大TLS1.3
+           MinVersion: tls.VersionTLS12, // 最小 TLS1.2
+           MaxVersion: tls.VersionTLS13, // 最大 TLS1.3
        }, 
     }
 
     client := &http.Client{
        Transport: transport,
-       Timeout:   60 * time.Second, // 这个相当于ReadTimeout
+       Timeout:   60 * time.Second, // 设置ReadTimeout
     }
     config := volcengine.NewConfig().
        WithRegion(region).
@@ -407,7 +443,7 @@ func main() {
     transport := &http.Transport{
        Proxy: http.ProxyFromEnvironment,
        DialContext: (&net.Dialer{
-          Timeout:   30 * time.Second, // 这个相当于ConnectTimeOut
+          Timeout:   30 * time.Second, // 设置ConnectTimeOut
           KeepAlive: 30 * time.Second,
           DualStack: true,
        }).DialContext,
@@ -419,7 +455,7 @@ func main() {
 
     client := &http.Client{
        Transport: transport,
-       Timeout:   60 * time.Second, // 这个相当于ReadTimeout
+       Timeout:   60 * time.Second, // 设置ReadTimeout
     }
     config := volcengine.NewConfig().
        WithRegion(region).
@@ -454,7 +490,7 @@ func main() {
        InstanceIds: volcengine.StringSlice([]string{"i-3tiefmkskq3vj0******"}),
     }
 
-    // 创建带5秒超时的上下文
+    // 创建带5秒超时的上下文；注意：如果已经存在上下文context，请把这里context.Background()替换为已有的上下文
     ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
     // 防止资源泄漏
     defer cancel() 
@@ -470,11 +506,34 @@ func main() {
 
 # 重试机制
 
-请求的处理逻辑内置了网络异常重试逻辑，即当遇到网络异常问题或限流错误时，系统会自动尝试重新发起请求，以确保服务的稳定性和可靠性。若请求因业务逻辑错误而报错，例如参数错误、资源不存在等情况，SDK将不会执行重试操作，这是因为业务层面的错误通常需要应用程序根据具体的错误信息做出相应的处理或调整，而非简单地重复尝试
+请求的处理逻辑内置了网络异常重试逻辑，即当遇到网络异常问题或限流错误时，系统会自动尝试重新发起请求，以确保服务的稳定性和可靠性。若请求因业务逻辑错误而报错，例如参数错误、资源不存在等情况，SDK将不会执行重试操作，这是因为业务层面的错误通常需要应用程序根据具体的错误信息做出相应的处理或调整，而非简单地重复尝试。
+
+> **重试延迟说明：**  
+> SDK为了防止请求风暴，提高系统稳定性，并有效缓解服务雪崩风险，增加重试间的延迟，实现对服务端压力的自适应控制。  
+> **延迟时间公式：**    
+> delay = min(MaxDelay, 2ⁿ × minDelay × (1 + Rand[0, 1)) + Retry-After
+>
+> | 参数            | 说明                                         |
+> | --------------- | -------------------------------------------- |
+> | 2ⁿ             | 纯指数增长                                   |
+> | (1 + Rand[0, 1) | 把结果随机放大 1 ~ 2 倍，避免「惊群效应」    |
+> | min(...)        | 防止无限增长，超过MaxDelay                   |
+> | Retry-After     | 服务端如果显式告知休眠时长，则先按它要求静默 |
+> 
+> **举例说明：**  
+> MaxDelay=500ms，minDelay=30ms
+>
+>
+> | 重试次数（从第0次开始） | 指数退避×抖动区间(ms) | Retry-After(ms) | 最终延迟时间（指数退避×抖动区间+Retry-After） |
+> | ----------------------- | ---------------------- | --------------- | ---------------------------------------------- |
+> | 0                       | [30,60]                | 10              | [40,70]                                        |
+> | 1                       | [60,120]               | 20              | [80,140]                                       |
+> | 3                       | [120,240]              | 30              | [150,270]                                      |
+> | ...                     | ...<=500ms             | 10              | <=510                                          |
 
 ## 开启重试机制
 
-> - **默认**  
+> - **默认**
 >   开启（3次）
 
 如果想关闭，可以把最大尝试次数改为0
@@ -729,15 +788,6 @@ func main() {
 >      记录服务请求的重试情况
 >      用于跟踪服务请求何时被重试
 >      会同时启用 LogDebug
->    - LogDebugWithRequestErrors
->      记录服务请求构建、发送、验证或反序列化失败的情况
->    - LogDebugWithEventStreamBody
->      记录 EventStream 请求和响应的 body
->      用于查看 EventStream 消息内容
->      会同时启用 LogDebug
->    - LogInfoWithInputAndOutput
->      记录结构体(STRUCT)的输入和输出
->      会同时启用 LogInfo
 >    - LogDebugWithInputAndOutput
 >      记录结构体(STRUCT)的输入和输出
 >      会同时启用 LogDebug
