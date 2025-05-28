@@ -161,7 +161,7 @@ type SetRenewalTypeInput struct {
 
 	RenewalDurationUnit *string `type:"string" json:",omitempty"`
 
-	RenewalTimes *string `type:"string" json:",omitempty"`
+	RenewalTimes *int64 `type:"int64" json:",omitempty"`
 
 	SetRenewalRelatedInstance *bool `type:"boolean" json:",omitempty"`
 }
@@ -232,7 +232,7 @@ func (s *SetRenewalTypeInput) SetRenewalDurationUnit(v string) *SetRenewalTypeIn
 }
 
 // SetRenewalTimes sets the RenewalTimes field's value.
-func (s *SetRenewalTypeInput) SetRenewalTimes(v string) *SetRenewalTypeInput {
+func (s *SetRenewalTypeInput) SetRenewalTimes(v int64) *SetRenewalTypeInput {
 	s.RenewalTimes = &v
 	return s
 }
