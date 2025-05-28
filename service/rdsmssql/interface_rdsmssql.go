@@ -62,6 +62,14 @@ type RDSMSSQLAPI interface {
 	DeleteBackupWithContext(volcengine.Context, *DeleteBackupInput, ...request.Option) (*DeleteBackupOutput, error)
 	DeleteBackupRequest(*DeleteBackupInput) (*request.Request, *DeleteBackupOutput)
 
+	DeleteDBInstanceCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeleteDBInstanceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeleteDBInstanceCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeleteDBInstance(*DeleteDBInstanceInput) (*DeleteDBInstanceOutput, error)
+	DeleteDBInstanceWithContext(volcengine.Context, *DeleteDBInstanceInput, ...request.Option) (*DeleteDBInstanceOutput, error)
+	DeleteDBInstanceRequest(*DeleteDBInstanceInput) (*request.Request, *DeleteDBInstanceOutput)
+
 	DescribeAvailabilityZonesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DescribeAvailabilityZonesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DescribeAvailabilityZonesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -69,6 +77,14 @@ type RDSMSSQLAPI interface {
 	DescribeAvailabilityZones(*DescribeAvailabilityZonesInput) (*DescribeAvailabilityZonesOutput, error)
 	DescribeAvailabilityZonesWithContext(volcengine.Context, *DescribeAvailabilityZonesInput, ...request.Option) (*DescribeAvailabilityZonesOutput, error)
 	DescribeAvailabilityZonesRequest(*DescribeAvailabilityZonesInput) (*request.Request, *DescribeAvailabilityZonesOutput)
+
+	DescribeAvailableCrossRegionCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeAvailableCrossRegionCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeAvailableCrossRegionCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeAvailableCrossRegion(*DescribeAvailableCrossRegionInput) (*DescribeAvailableCrossRegionOutput, error)
+	DescribeAvailableCrossRegionWithContext(volcengine.Context, *DescribeAvailableCrossRegionInput, ...request.Option) (*DescribeAvailableCrossRegionOutput, error)
+	DescribeAvailableCrossRegionRequest(*DescribeAvailableCrossRegionInput) (*request.Request, *DescribeAvailableCrossRegionOutput)
 
 	DescribeBackupDetailCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DescribeBackupDetailCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -86,6 +102,14 @@ type RDSMSSQLAPI interface {
 	DescribeBackupsWithContext(volcengine.Context, *DescribeBackupsInput, ...request.Option) (*DescribeBackupsOutput, error)
 	DescribeBackupsRequest(*DescribeBackupsInput) (*request.Request, *DescribeBackupsOutput)
 
+	DescribeCrossBackupPolicyCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeCrossBackupPolicyCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeCrossBackupPolicyCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeCrossBackupPolicy(*DescribeCrossBackupPolicyInput) (*DescribeCrossBackupPolicyOutput, error)
+	DescribeCrossBackupPolicyWithContext(volcengine.Context, *DescribeCrossBackupPolicyInput, ...request.Option) (*DescribeCrossBackupPolicyOutput, error)
+	DescribeCrossBackupPolicyRequest(*DescribeCrossBackupPolicyInput) (*request.Request, *DescribeCrossBackupPolicyOutput)
+
 	DescribeDBInstanceDetailCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DescribeDBInstanceDetailCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DescribeDBInstanceDetailCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -101,6 +125,14 @@ type RDSMSSQLAPI interface {
 	DescribeDBInstanceParameters(*DescribeDBInstanceParametersInput) (*DescribeDBInstanceParametersOutput, error)
 	DescribeDBInstanceParametersWithContext(volcengine.Context, *DescribeDBInstanceParametersInput, ...request.Option) (*DescribeDBInstanceParametersOutput, error)
 	DescribeDBInstanceParametersRequest(*DescribeDBInstanceParametersInput) (*request.Request, *DescribeDBInstanceParametersOutput)
+
+	DescribeDBInstanceSpecsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeDBInstanceSpecsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeDBInstanceSpecsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeDBInstanceSpecs(*DescribeDBInstanceSpecsInput) (*DescribeDBInstanceSpecsOutput, error)
+	DescribeDBInstanceSpecsWithContext(volcengine.Context, *DescribeDBInstanceSpecsInput, ...request.Option) (*DescribeDBInstanceSpecsOutput, error)
+	DescribeDBInstanceSpecsRequest(*DescribeDBInstanceSpecsInput) (*request.Request, *DescribeDBInstanceSpecsOutput)
 
 	DescribeDBInstancesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DescribeDBInstancesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -150,6 +182,30 @@ type RDSMSSQLAPI interface {
 	ModifyBackupPolicyWithContext(volcengine.Context, *ModifyBackupPolicyInput, ...request.Option) (*ModifyBackupPolicyOutput, error)
 	ModifyBackupPolicyRequest(*ModifyBackupPolicyInput) (*request.Request, *ModifyBackupPolicyOutput)
 
+	ModifyCrossBackupPolicyCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ModifyCrossBackupPolicyCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ModifyCrossBackupPolicyCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ModifyCrossBackupPolicy(*ModifyCrossBackupPolicyInput) (*ModifyCrossBackupPolicyOutput, error)
+	ModifyCrossBackupPolicyWithContext(volcengine.Context, *ModifyCrossBackupPolicyInput, ...request.Option) (*ModifyCrossBackupPolicyOutput, error)
+	ModifyCrossBackupPolicyRequest(*ModifyCrossBackupPolicyInput) (*request.Request, *ModifyCrossBackupPolicyOutput)
+
+	ModifyDBFailoverCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ModifyDBFailoverCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ModifyDBFailoverCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ModifyDBFailover(*ModifyDBFailoverInput) (*ModifyDBFailoverOutput, error)
+	ModifyDBFailoverWithContext(volcengine.Context, *ModifyDBFailoverInput, ...request.Option) (*ModifyDBFailoverOutput, error)
+	ModifyDBFailoverRequest(*ModifyDBFailoverInput) (*request.Request, *ModifyDBFailoverOutput)
+
+	ModifyDBInstanceNameCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ModifyDBInstanceNameCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ModifyDBInstanceNameCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ModifyDBInstanceName(*ModifyDBInstanceNameInput) (*ModifyDBInstanceNameOutput, error)
+	ModifyDBInstanceNameWithContext(volcengine.Context, *ModifyDBInstanceNameInput, ...request.Option) (*ModifyDBInstanceNameOutput, error)
+	ModifyDBInstanceNameRequest(*ModifyDBInstanceNameInput) (*request.Request, *ModifyDBInstanceNameOutput)
+
 	ModifyInstanceAdvancedFeaturesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ModifyInstanceAdvancedFeaturesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	ModifyInstanceAdvancedFeaturesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -157,6 +213,14 @@ type RDSMSSQLAPI interface {
 	ModifyInstanceAdvancedFeatures(*ModifyInstanceAdvancedFeaturesInput) (*ModifyInstanceAdvancedFeaturesOutput, error)
 	ModifyInstanceAdvancedFeaturesWithContext(volcengine.Context, *ModifyInstanceAdvancedFeaturesInput, ...request.Option) (*ModifyInstanceAdvancedFeaturesOutput, error)
 	ModifyInstanceAdvancedFeaturesRequest(*ModifyInstanceAdvancedFeaturesInput) (*request.Request, *ModifyInstanceAdvancedFeaturesOutput)
+
+	RestartDBInstanceCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	RestartDBInstanceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	RestartDBInstanceCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	RestartDBInstance(*RestartDBInstanceInput) (*RestartDBInstanceOutput, error)
+	RestartDBInstanceWithContext(volcengine.Context, *RestartDBInstanceInput, ...request.Option) (*RestartDBInstanceOutput, error)
+	RestartDBInstanceRequest(*RestartDBInstanceInput) (*request.Request, *RestartDBInstanceOutput)
 
 	RestoreToExistedInstanceCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	RestoreToExistedInstanceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
