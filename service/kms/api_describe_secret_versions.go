@@ -151,7 +151,7 @@ type DescribeSecretVersionsInput struct {
 	PageSize *int32 `min:"1" max:"100" type:"int32" json:",omitempty"`
 
 	// SecretName is a required field
-	SecretName *string `min:"2" max:"31" type:"string" json:",omitempty" required:"true"`
+	SecretName *string `min:"2" max:"128" type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -182,8 +182,8 @@ func (s *DescribeSecretVersionsInput) Validate() error {
 	if s.SecretName != nil && len(*s.SecretName) < 2 {
 		invalidParams.Add(request.NewErrParamMinLen("SecretName", 2))
 	}
-	if s.SecretName != nil && len(*s.SecretName) > 31 {
-		invalidParams.Add(request.NewErrParamMaxLen("SecretName", 31, *s.SecretName))
+	if s.SecretName != nil && len(*s.SecretName) > 128 {
+		invalidParams.Add(request.NewErrParamMaxLen("SecretName", 128, *s.SecretName))
 	}
 
 	if invalidParams.Len() > 0 {

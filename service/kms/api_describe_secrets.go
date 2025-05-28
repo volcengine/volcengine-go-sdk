@@ -318,6 +318,8 @@ type SecretForDescribeSecretsOutput struct {
 
 	SecretName *string `type:"string" json:",omitempty"`
 
+	SecretState *string `type:"string" json:",omitempty" enum:"EnumOfSecretStateForDescribeSecretsOutput"`
+
 	SecretType *string `type:"string" json:",omitempty" enum:"EnumOfSecretTypeForDescribeSecretsOutput"`
 
 	Trn *string `type:"string" json:",omitempty"`
@@ -415,6 +417,12 @@ func (s *SecretForDescribeSecretsOutput) SetSecretName(v string) *SecretForDescr
 	return s
 }
 
+// SetSecretState sets the SecretState field's value.
+func (s *SecretForDescribeSecretsOutput) SetSecretState(v string) *SecretForDescribeSecretsOutput {
+	s.SecretState = &v
+	return s
+}
+
 // SetSecretType sets the SecretType field's value.
 func (s *SecretForDescribeSecretsOutput) SetSecretType(v string) *SecretForDescribeSecretsOutput {
 	s.SecretType = &v
@@ -438,6 +446,17 @@ func (s *SecretForDescribeSecretsOutput) SetUpdateDate(v int64) *SecretForDescri
 	s.UpdateDate = &v
 	return s
 }
+
+const (
+	// EnumOfSecretStateForDescribeSecretsOutputEnable is a EnumOfSecretStateForDescribeSecretsOutput enum value
+	EnumOfSecretStateForDescribeSecretsOutputEnable = "Enable"
+
+	// EnumOfSecretStateForDescribeSecretsOutputDisable is a EnumOfSecretStateForDescribeSecretsOutput enum value
+	EnumOfSecretStateForDescribeSecretsOutputDisable = "Disable"
+
+	// EnumOfSecretStateForDescribeSecretsOutputPendingDelete is a EnumOfSecretStateForDescribeSecretsOutput enum value
+	EnumOfSecretStateForDescribeSecretsOutputPendingDelete = "PendingDelete"
+)
 
 const (
 	// EnumOfSecretTypeForDescribeSecretsOutputGeneric is a EnumOfSecretTypeForDescribeSecretsOutput enum value

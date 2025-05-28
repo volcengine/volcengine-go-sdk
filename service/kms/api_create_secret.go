@@ -159,7 +159,7 @@ type CreateSecretInput struct {
 	RotationInterval *string `type:"string" json:",omitempty"`
 
 	// SecretName is a required field
-	SecretName *string `min:"2" max:"31" type:"string" json:",omitempty" required:"true"`
+	SecretName *string `min:"2" max:"128" type:"string" json:",omitempty" required:"true"`
 
 	// SecretType is a required field
 	SecretType *string `type:"string" json:",omitempty" required:"true" enum:"EnumOfSecretTypeForCreateSecretInput"`
@@ -193,8 +193,8 @@ func (s *CreateSecretInput) Validate() error {
 	if s.SecretName != nil && len(*s.SecretName) < 2 {
 		invalidParams.Add(request.NewErrParamMinLen("SecretName", 2))
 	}
-	if s.SecretName != nil && len(*s.SecretName) > 31 {
-		invalidParams.Add(request.NewErrParamMaxLen("SecretName", 31, *s.SecretName))
+	if s.SecretName != nil && len(*s.SecretName) > 128 {
+		invalidParams.Add(request.NewErrParamMaxLen("SecretName", 128, *s.SecretName))
 	}
 	if s.SecretType == nil {
 		invalidParams.Add(request.NewErrParamRequired("SecretType"))
@@ -319,6 +319,8 @@ type SecretForCreateSecretOutput struct {
 
 	SecretName *string `type:"string" json:",omitempty"`
 
+	SecretState *string `type:"string" json:",omitempty" enum:"EnumOfSecretStateForCreateSecretOutput"`
+
 	SecretType *string `type:"string" json:",omitempty" enum:"EnumOfSecretTypeForCreateSecretOutput"`
 
 	Trn *string `type:"string" json:",omitempty"`
@@ -416,6 +418,12 @@ func (s *SecretForCreateSecretOutput) SetSecretName(v string) *SecretForCreateSe
 	return s
 }
 
+// SetSecretState sets the SecretState field's value.
+func (s *SecretForCreateSecretOutput) SetSecretState(v string) *SecretForCreateSecretOutput {
+	s.SecretState = &v
+	return s
+}
+
 // SetSecretType sets the SecretType field's value.
 func (s *SecretForCreateSecretOutput) SetSecretType(v string) *SecretForCreateSecretOutput {
 	s.SecretType = &v
@@ -439,6 +447,17 @@ func (s *SecretForCreateSecretOutput) SetUpdateDate(v int64) *SecretForCreateSec
 	s.UpdateDate = &v
 	return s
 }
+
+const (
+	// EnumOfSecretStateForCreateSecretOutputEnable is a EnumOfSecretStateForCreateSecretOutput enum value
+	EnumOfSecretStateForCreateSecretOutputEnable = "Enable"
+
+	// EnumOfSecretStateForCreateSecretOutputDisable is a EnumOfSecretStateForCreateSecretOutput enum value
+	EnumOfSecretStateForCreateSecretOutputDisable = "Disable"
+
+	// EnumOfSecretStateForCreateSecretOutputPendingDelete is a EnumOfSecretStateForCreateSecretOutput enum value
+	EnumOfSecretStateForCreateSecretOutputPendingDelete = "PendingDelete"
+)
 
 const (
 	// EnumOfSecretTypeForCreateSecretInputGeneric is a EnumOfSecretTypeForCreateSecretInput enum value
