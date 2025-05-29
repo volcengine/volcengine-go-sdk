@@ -335,6 +335,158 @@ func (s *EdgeForAddTablesInput) SetVertex_constraint(v *Vertex_constraintForAddT
 	return s
 }
 
+type Gremlin_quota_configForAddTablesInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Caller_psm *string `type:"string" json:"caller_psm,omitempty"`
+
+	Quota_size *int64 `type:"int64" json:"quota_size,omitempty"`
+
+	Template *string `type:"string" json:"template,omitempty"`
+}
+
+// String returns the string representation
+func (s Gremlin_quota_configForAddTablesInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s Gremlin_quota_configForAddTablesInput) GoString() string {
+	return s.String()
+}
+
+// SetCaller_psm sets the Caller_psm field's value.
+func (s *Gremlin_quota_configForAddTablesInput) SetCaller_psm(v string) *Gremlin_quota_configForAddTablesInput {
+	s.Caller_psm = &v
+	return s
+}
+
+// SetQuota_size sets the Quota_size field's value.
+func (s *Gremlin_quota_configForAddTablesInput) SetQuota_size(v int64) *Gremlin_quota_configForAddTablesInput {
+	s.Quota_size = &v
+	return s
+}
+
+// SetTemplate sets the Template field's value.
+func (s *Gremlin_quota_configForAddTablesInput) SetTemplate(v string) *Gremlin_quota_configForAddTablesInput {
+	s.Template = &v
+	return s
+}
+
+type Io_qos_optionsForAddTablesInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Iops_limit *int64 `type:"int64" json:"iops_limit,omitempty"`
+
+	Read_bandwidth_limit_in_bytes *int64 `type:"int64" json:"read_bandwidth_limit_in_bytes,omitempty"`
+
+	Storage_capacity_limit_in_bytes *int64 `type:"int64" json:"storage_capacity_limit_in_bytes,omitempty"`
+
+	Write_bandwidth_limit_in_bytes *int64 `type:"int64" json:"write_bandwidth_limit_in_bytes,omitempty"`
+}
+
+// String returns the string representation
+func (s Io_qos_optionsForAddTablesInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s Io_qos_optionsForAddTablesInput) GoString() string {
+	return s.String()
+}
+
+// SetIops_limit sets the Iops_limit field's value.
+func (s *Io_qos_optionsForAddTablesInput) SetIops_limit(v int64) *Io_qos_optionsForAddTablesInput {
+	s.Iops_limit = &v
+	return s
+}
+
+// SetRead_bandwidth_limit_in_bytes sets the Read_bandwidth_limit_in_bytes field's value.
+func (s *Io_qos_optionsForAddTablesInput) SetRead_bandwidth_limit_in_bytes(v int64) *Io_qos_optionsForAddTablesInput {
+	s.Read_bandwidth_limit_in_bytes = &v
+	return s
+}
+
+// SetStorage_capacity_limit_in_bytes sets the Storage_capacity_limit_in_bytes field's value.
+func (s *Io_qos_optionsForAddTablesInput) SetStorage_capacity_limit_in_bytes(v int64) *Io_qos_optionsForAddTablesInput {
+	s.Storage_capacity_limit_in_bytes = &v
+	return s
+}
+
+// SetWrite_bandwidth_limit_in_bytes sets the Write_bandwidth_limit_in_bytes field's value.
+func (s *Io_qos_optionsForAddTablesInput) SetWrite_bandwidth_limit_in_bytes(v int64) *Io_qos_optionsForAddTablesInput {
+	s.Write_bandwidth_limit_in_bytes = &v
+	return s
+}
+
+type Psm_quota_configForAddTablesInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Caller_psm *string `type:"string" json:"caller_psm,omitempty"`
+
+	Read_quota_size *int64 `type:"int64" json:"read_quota_size,omitempty"`
+
+	Write_quota_size *int64 `type:"int64" json:"write_quota_size,omitempty"`
+}
+
+// String returns the string representation
+func (s Psm_quota_configForAddTablesInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s Psm_quota_configForAddTablesInput) GoString() string {
+	return s.String()
+}
+
+// SetCaller_psm sets the Caller_psm field's value.
+func (s *Psm_quota_configForAddTablesInput) SetCaller_psm(v string) *Psm_quota_configForAddTablesInput {
+	s.Caller_psm = &v
+	return s
+}
+
+// SetRead_quota_size sets the Read_quota_size field's value.
+func (s *Psm_quota_configForAddTablesInput) SetRead_quota_size(v int64) *Psm_quota_configForAddTablesInput {
+	s.Read_quota_size = &v
+	return s
+}
+
+// SetWrite_quota_size sets the Write_quota_size field's value.
+func (s *Psm_quota_configForAddTablesInput) SetWrite_quota_size(v int64) *Psm_quota_configForAddTablesInput {
+	s.Write_quota_size = &v
+	return s
+}
+
+type QuotasForAddTablesInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Gremlin_quota_configs []*Gremlin_quota_configForAddTablesInput `type:"list" json:"gremlin_quota_configs,omitempty"`
+
+	Psm_quota_configs []*Psm_quota_configForAddTablesInput `type:"list" json:"psm_quota_configs,omitempty"`
+}
+
+// String returns the string representation
+func (s QuotasForAddTablesInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s QuotasForAddTablesInput) GoString() string {
+	return s.String()
+}
+
+// SetGremlin_quota_configs sets the Gremlin_quota_configs field's value.
+func (s *QuotasForAddTablesInput) SetGremlin_quota_configs(v []*Gremlin_quota_configForAddTablesInput) *QuotasForAddTablesInput {
+	s.Gremlin_quota_configs = v
+	return s
+}
+
+// SetPsm_quota_configs sets the Psm_quota_configs field's value.
+func (s *QuotasForAddTablesInput) SetPsm_quota_configs(v []*Psm_quota_configForAddTablesInput) *QuotasForAddTablesInput {
+	s.Psm_quota_configs = v
+	return s
+}
+
 type SchemaForAddTablesInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -422,6 +574,12 @@ func (s *Secondary_indexForAddTablesInput) SetIs_unique_index(v bool) *Secondary
 type TableForAddTablesInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	Enable_rotate *bool `type:"boolean" json:"enable_rotate,omitempty"`
+
+	Quotas *QuotasForAddTablesInput `type:"structure" json:"quotas,omitempty"`
+
+	Rotate_size *int64 `type:"int64" json:"rotate_size,omitempty"`
+
 	Schema *SchemaForAddTablesInput `type:"structure" json:"schema,omitempty"`
 
 	Table_name *string `type:"string" json:"table_name,omitempty"`
@@ -435,6 +593,24 @@ func (s TableForAddTablesInput) String() string {
 // GoString returns the string representation
 func (s TableForAddTablesInput) GoString() string {
 	return s.String()
+}
+
+// SetEnable_rotate sets the Enable_rotate field's value.
+func (s *TableForAddTablesInput) SetEnable_rotate(v bool) *TableForAddTablesInput {
+	s.Enable_rotate = &v
+	return s
+}
+
+// SetQuotas sets the Quotas field's value.
+func (s *TableForAddTablesInput) SetQuotas(v *QuotasForAddTablesInput) *TableForAddTablesInput {
+	s.Quotas = v
+	return s
+}
+
+// SetRotate_size sets the Rotate_size field's value.
+func (s *TableForAddTablesInput) SetRotate_size(v int64) *TableForAddTablesInput {
+	s.Rotate_size = &v
+	return s
 }
 
 // SetSchema sets the Schema field's value.
@@ -451,6 +627,8 @@ func (s *TableForAddTablesInput) SetTable_name(v string) *TableForAddTablesInput
 
 type Tables_infoForAddTablesInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
+
+	Io_qos_options *Io_qos_optionsForAddTablesInput `type:"structure" json:"io_qos_options,omitempty"`
 
 	Name *string `type:"string" json:"name,omitempty"`
 
@@ -471,6 +649,12 @@ func (s Tables_infoForAddTablesInput) String() string {
 // GoString returns the string representation
 func (s Tables_infoForAddTablesInput) GoString() string {
 	return s.String()
+}
+
+// SetIo_qos_options sets the Io_qos_options field's value.
+func (s *Tables_infoForAddTablesInput) SetIo_qos_options(v *Io_qos_optionsForAddTablesInput) *Tables_infoForAddTablesInput {
+	s.Io_qos_options = v
+	return s
 }
 
 // SetName sets the Name field's value.

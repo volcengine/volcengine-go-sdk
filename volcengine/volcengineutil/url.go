@@ -375,6 +375,22 @@ var defaultEndpoint = map[string]*ServiceEndpointInfo{
 		Service:  "quota",
 		IsGlobal: true,
 	},
+	"acep": {
+		Service:  "acep",
+		IsGlobal: true,
+	},
+	"private_zone": {
+		Service:  "private_zone",
+		IsGlobal: true,
+	},
+	"sqs": {
+		Service:  "sqs",
+		IsGlobal: false,
+	},
+	"resourcecenter": {
+		Service:  "resourcecenter",
+		IsGlobal: true,
+	},
 }
 
 func standardizeDomainServiceCode(serviceCode string) string {
