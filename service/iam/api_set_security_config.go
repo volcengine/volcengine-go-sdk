@@ -32,7 +32,7 @@ const opSetSecurityConfigCommon = "SetSecurityConfig"
 func (c *IAM) SetSecurityConfigCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opSetSecurityConfigCommon,
-		HTTPMethod: "GET",
+		HTTPMethod: "POST",
 		HTTPPath:   "/",
 	}
 
@@ -42,6 +42,8 @@ func (c *IAM) SetSecurityConfigCommonRequest(input *map[string]interface{}) (req
 
 	output = &map[string]interface{}{}
 	req = c.newRequest(op, input, output)
+
+	req.HTTPRequest.Header.Set("Content-Type", "application/json; charset=utf-8")
 
 	return
 }
@@ -97,7 +99,7 @@ const opSetSecurityConfig = "SetSecurityConfig"
 func (c *IAM) SetSecurityConfigRequest(input *SetSecurityConfigInput) (req *request.Request, output *SetSecurityConfigOutput) {
 	op := &request.Operation{
 		Name:       opSetSecurityConfig,
-		HTTPMethod: "GET",
+		HTTPMethod: "POST",
 		HTTPPath:   "/",
 	}
 
@@ -107,6 +109,8 @@ func (c *IAM) SetSecurityConfigRequest(input *SetSecurityConfigInput) (req *requ
 
 	output = &SetSecurityConfigOutput{}
 	req = c.newRequest(op, input, output)
+
+	req.HTTPRequest.Header.Set("Content-Type", "application/json; charset=utf-8")
 
 	return
 }
@@ -140,15 +144,15 @@ func (c *IAM) SetSecurityConfigWithContext(ctx volcengine.Context, input *SetSec
 }
 
 type SetSecurityConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	SafeAuthExemptDuration *string `type:"string"`
+	SafeAuthExemptDuration *string `type:"string" json:",omitempty"`
 
 	// SafeAuthType is a required field
-	SafeAuthType *string `type:"string" required:"true"`
+	SafeAuthType *string `type:"string" json:",omitempty" required:"true"`
 
 	// UserName is a required field
-	UserName *string `type:"string" required:"true"`
+	UserName *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -196,7 +200,7 @@ func (s *SetSecurityConfigInput) SetUserName(v string) *SetSecurityConfigInput {
 }
 
 type SetSecurityConfigOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 }

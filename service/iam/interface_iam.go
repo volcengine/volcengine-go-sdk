@@ -38,6 +38,14 @@ type IAMAPI interface {
 	AddClientIDToOIDCProviderWithContext(volcengine.Context, *AddClientIDToOIDCProviderInput, ...request.Option) (*AddClientIDToOIDCProviderOutput, error)
 	AddClientIDToOIDCProviderRequest(*AddClientIDToOIDCProviderInput) (*request.Request, *AddClientIDToOIDCProviderOutput)
 
+	AddSAMLProviderCertificateCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	AddSAMLProviderCertificateCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	AddSAMLProviderCertificateCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	AddSAMLProviderCertificate(*AddSAMLProviderCertificateInput) (*AddSAMLProviderCertificateOutput, error)
+	AddSAMLProviderCertificateWithContext(volcengine.Context, *AddSAMLProviderCertificateInput, ...request.Option) (*AddSAMLProviderCertificateOutput, error)
+	AddSAMLProviderCertificateRequest(*AddSAMLProviderCertificateInput) (*request.Request, *AddSAMLProviderCertificateOutput)
+
 	AddThumbprintToOIDCProviderCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	AddThumbprintToOIDCProviderCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	AddThumbprintToOIDCProviderCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -133,6 +141,14 @@ type IAMAPI interface {
 	CreateRole(*CreateRoleInput) (*CreateRoleOutput, error)
 	CreateRoleWithContext(volcengine.Context, *CreateRoleInput, ...request.Option) (*CreateRoleOutput, error)
 	CreateRoleRequest(*CreateRoleInput) (*request.Request, *CreateRoleOutput)
+
+	CreateSAMLProviderCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateSAMLProviderCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateSAMLProviderCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateSAMLProvider(*CreateSAMLProviderInput) (*CreateSAMLProviderOutput, error)
+	CreateSAMLProviderWithContext(volcengine.Context, *CreateSAMLProviderInput, ...request.Option) (*CreateSAMLProviderOutput, error)
+	CreateSAMLProviderRequest(*CreateSAMLProviderInput) (*request.Request, *CreateSAMLProviderOutput)
 
 	CreateServiceLinkedRoleCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	CreateServiceLinkedRoleCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -261,6 +277,14 @@ type IAMAPI interface {
 	GetAccessKeyLastUsed(*GetAccessKeyLastUsedInput) (*GetAccessKeyLastUsedOutput, error)
 	GetAccessKeyLastUsedWithContext(volcengine.Context, *GetAccessKeyLastUsedInput, ...request.Option) (*GetAccessKeyLastUsedOutput, error)
 	GetAccessKeyLastUsedRequest(*GetAccessKeyLastUsedInput) (*request.Request, *GetAccessKeyLastUsedOutput)
+
+	GetAccountSummaryCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	GetAccountSummaryCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	GetAccountSummaryCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	GetAccountSummary(*GetAccountSummaryInput) (*GetAccountSummaryOutput, error)
+	GetAccountSummaryWithContext(volcengine.Context, *GetAccountSummaryInput, ...request.Option) (*GetAccountSummaryOutput, error)
+	GetAccountSummaryRequest(*GetAccountSummaryInput) (*request.Request, *GetAccountSummaryOutput)
 
 	GetGroupCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	GetGroupCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -462,6 +486,14 @@ type IAMAPI interface {
 	ListUsersForGroupWithContext(volcengine.Context, *ListUsersForGroupInput, ...request.Option) (*ListUsersForGroupOutput, error)
 	ListUsersForGroupRequest(*ListUsersForGroupInput) (*request.Request, *ListUsersForGroupOutput)
 
+	RecoverAccessKeyCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	RecoverAccessKeyCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	RecoverAccessKeyCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	RecoverAccessKey(*RecoverAccessKeyInput) (*RecoverAccessKeyOutput, error)
+	RecoverAccessKeyWithContext(volcengine.Context, *RecoverAccessKeyInput, ...request.Option) (*RecoverAccessKeyOutput, error)
+	RecoverAccessKeyRequest(*RecoverAccessKeyInput) (*request.Request, *RecoverAccessKeyOutput)
+
 	RemoveClientIDFromOIDCProviderCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	RemoveClientIDFromOIDCProviderCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	RemoveClientIDFromOIDCProviderCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -542,6 +574,14 @@ type IAMAPI interface {
 	UpdateLoginProfileWithContext(volcengine.Context, *UpdateLoginProfileInput, ...request.Option) (*UpdateLoginProfileOutput, error)
 	UpdateLoginProfileRequest(*UpdateLoginProfileInput) (*request.Request, *UpdateLoginProfileOutput)
 
+	UpdateOAuthProviderCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	UpdateOAuthProviderCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	UpdateOAuthProviderCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	UpdateOAuthProvider(*UpdateOAuthProviderInput) (*UpdateOAuthProviderOutput, error)
+	UpdateOAuthProviderWithContext(volcengine.Context, *UpdateOAuthProviderInput, ...request.Option) (*UpdateOAuthProviderOutput, error)
+	UpdateOAuthProviderRequest(*UpdateOAuthProviderInput) (*request.Request, *UpdateOAuthProviderOutput)
+
 	UpdateOIDCProviderCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	UpdateOIDCProviderCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	UpdateOIDCProviderCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -566,38 +606,6 @@ type IAMAPI interface {
 	UpdateRoleWithContext(volcengine.Context, *UpdateRoleInput, ...request.Option) (*UpdateRoleOutput, error)
 	UpdateRoleRequest(*UpdateRoleInput) (*request.Request, *UpdateRoleOutput)
 
-	UpdateUserCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	UpdateUserCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	UpdateUserCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	UpdateUser(*UpdateUserInput) (*UpdateUserOutput, error)
-	UpdateUserWithContext(volcengine.Context, *UpdateUserInput, ...request.Option) (*UpdateUserOutput, error)
-	UpdateUserRequest(*UpdateUserInput) (*request.Request, *UpdateUserOutput)
-
-	AddSAMLProviderCertificateCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	AddSAMLProviderCertificateCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	AddSAMLProviderCertificateCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	AddSAMLProviderCertificate(*AddSAMLProviderCertificateInput) (*AddSAMLProviderCertificateOutput, error)
-	AddSAMLProviderCertificateWithContext(volcengine.Context, *AddSAMLProviderCertificateInput, ...request.Option) (*AddSAMLProviderCertificateOutput, error)
-	AddSAMLProviderCertificateRequest(*AddSAMLProviderCertificateInput) (*request.Request, *AddSAMLProviderCertificateOutput)
-
-	CreateSAMLProviderCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	CreateSAMLProviderCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	CreateSAMLProviderCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	CreateSAMLProvider(*CreateSAMLProviderInput) (*CreateSAMLProviderOutput, error)
-	CreateSAMLProviderWithContext(volcengine.Context, *CreateSAMLProviderInput, ...request.Option) (*CreateSAMLProviderOutput, error)
-	CreateSAMLProviderRequest(*CreateSAMLProviderInput) (*request.Request, *CreateSAMLProviderOutput)
-
-	UpdateOAuthProviderCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	UpdateOAuthProviderCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	UpdateOAuthProviderCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	UpdateOAuthProvider(*UpdateOAuthProviderInput) (*UpdateOAuthProviderOutput, error)
-	UpdateOAuthProviderWithContext(volcengine.Context, *UpdateOAuthProviderInput, ...request.Option) (*UpdateOAuthProviderOutput, error)
-	UpdateOAuthProviderRequest(*UpdateOAuthProviderInput) (*request.Request, *UpdateOAuthProviderOutput)
-
 	UpdateSAMLProviderCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	UpdateSAMLProviderCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	UpdateSAMLProviderCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -605,6 +613,14 @@ type IAMAPI interface {
 	UpdateSAMLProvider(*UpdateSAMLProviderInput) (*UpdateSAMLProviderOutput, error)
 	UpdateSAMLProviderWithContext(volcengine.Context, *UpdateSAMLProviderInput, ...request.Option) (*UpdateSAMLProviderOutput, error)
 	UpdateSAMLProviderRequest(*UpdateSAMLProviderInput) (*request.Request, *UpdateSAMLProviderOutput)
+
+	UpdateUserCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	UpdateUserCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	UpdateUserCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	UpdateUser(*UpdateUserInput) (*UpdateUserOutput, error)
+	UpdateUserWithContext(volcengine.Context, *UpdateUserInput, ...request.Option) (*UpdateUserOutput, error)
+	UpdateUserRequest(*UpdateUserInput) (*request.Request, *UpdateUserOutput)
 }
 
 var _ IAMAPI = (*IAM)(nil)

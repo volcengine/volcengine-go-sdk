@@ -144,8 +144,7 @@ type CreateRoleInput struct {
 
 	Description *string `type:"string"`
 
-	// DisplayName is a required field
-	DisplayName *string `type:"string" required:"true"`
+	DisplayName *string `type:"string"`
 
 	MaxSessionDuration *int32 `type:"int32"`
 
@@ -170,9 +169,6 @@ func (s CreateRoleInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *CreateRoleInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "CreateRoleInput"}
-	if s.DisplayName == nil {
-		invalidParams.Add(request.NewErrParamRequired("DisplayName"))
-	}
 	if s.RoleName == nil {
 		invalidParams.Add(request.NewErrParamRequired("RoleName"))
 	}
