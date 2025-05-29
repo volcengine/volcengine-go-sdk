@@ -143,6 +143,114 @@ func (c *GRAPH) DescribeInstanceWithContext(ctx volcengine.Context, input *Descr
 	return out, req.Send()
 }
 
+type AvailabilityZoneForDescribeInstanceOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	AvailabilityZoneId *string `type:"string" json:",omitempty"`
+
+	K8sDomain *string `type:"string" json:",omitempty"`
+
+	NodeNum *int32 `type:"int32" json:",omitempty"`
+
+	NodePoolName *string `type:"string" json:",omitempty"`
+
+	SubnetID *string `type:"string" json:",omitempty"`
+
+	SubnetName *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s AvailabilityZoneForDescribeInstanceOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s AvailabilityZoneForDescribeInstanceOutput) GoString() string {
+	return s.String()
+}
+
+// SetAvailabilityZoneId sets the AvailabilityZoneId field's value.
+func (s *AvailabilityZoneForDescribeInstanceOutput) SetAvailabilityZoneId(v string) *AvailabilityZoneForDescribeInstanceOutput {
+	s.AvailabilityZoneId = &v
+	return s
+}
+
+// SetK8sDomain sets the K8sDomain field's value.
+func (s *AvailabilityZoneForDescribeInstanceOutput) SetK8sDomain(v string) *AvailabilityZoneForDescribeInstanceOutput {
+	s.K8sDomain = &v
+	return s
+}
+
+// SetNodeNum sets the NodeNum field's value.
+func (s *AvailabilityZoneForDescribeInstanceOutput) SetNodeNum(v int32) *AvailabilityZoneForDescribeInstanceOutput {
+	s.NodeNum = &v
+	return s
+}
+
+// SetNodePoolName sets the NodePoolName field's value.
+func (s *AvailabilityZoneForDescribeInstanceOutput) SetNodePoolName(v string) *AvailabilityZoneForDescribeInstanceOutput {
+	s.NodePoolName = &v
+	return s
+}
+
+// SetSubnetID sets the SubnetID field's value.
+func (s *AvailabilityZoneForDescribeInstanceOutput) SetSubnetID(v string) *AvailabilityZoneForDescribeInstanceOutput {
+	s.SubnetID = &v
+	return s
+}
+
+// SetSubnetName sets the SubnetName field's value.
+func (s *AvailabilityZoneForDescribeInstanceOutput) SetSubnetName(v string) *AvailabilityZoneForDescribeInstanceOutput {
+	s.SubnetName = &v
+	return s
+}
+
+type BytestoreInfoForDescribeInstanceOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Cluster *string `type:"string" json:",omitempty"`
+
+	Id *int64 `type:"int64" json:",omitempty"`
+
+	Pool *string `type:"string" json:",omitempty"`
+
+	Region *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s BytestoreInfoForDescribeInstanceOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s BytestoreInfoForDescribeInstanceOutput) GoString() string {
+	return s.String()
+}
+
+// SetCluster sets the Cluster field's value.
+func (s *BytestoreInfoForDescribeInstanceOutput) SetCluster(v string) *BytestoreInfoForDescribeInstanceOutput {
+	s.Cluster = &v
+	return s
+}
+
+// SetId sets the Id field's value.
+func (s *BytestoreInfoForDescribeInstanceOutput) SetId(v int64) *BytestoreInfoForDescribeInstanceOutput {
+	s.Id = &v
+	return s
+}
+
+// SetPool sets the Pool field's value.
+func (s *BytestoreInfoForDescribeInstanceOutput) SetPool(v string) *BytestoreInfoForDescribeInstanceOutput {
+	s.Pool = &v
+	return s
+}
+
+// SetRegion sets the Region field's value.
+func (s *BytestoreInfoForDescribeInstanceOutput) SetRegion(v string) *BytestoreInfoForDescribeInstanceOutput {
+	s.Region = &v
+	return s
+}
+
 type DescribeInstanceInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -262,6 +370,8 @@ type InfoForDescribeInstanceOutput struct {
 
 	AvailabilityZoneId *string `type:"string" json:",omitempty"`
 
+	AvailabilityZones []*AvailabilityZoneForDescribeInstanceOutput `type:"list" json:",omitempty"`
+
 	Bg3Link *string `type:"string" json:",omitempty"`
 
 	CreateTime *string `type:"string" json:",omitempty"`
@@ -300,6 +410,8 @@ type InfoForDescribeInstanceOutput struct {
 
 	Status *string `type:"string" json:",omitempty"`
 
+	StorageInfo *StorageInfoForDescribeInstanceOutput `type:"structure" json:",omitempty"`
+
 	SubnetID *string `type:"string" json:",omitempty"`
 
 	SubnetName *string `type:"string" json:",omitempty"`
@@ -326,6 +438,12 @@ func (s InfoForDescribeInstanceOutput) GoString() string {
 // SetAvailabilityZoneId sets the AvailabilityZoneId field's value.
 func (s *InfoForDescribeInstanceOutput) SetAvailabilityZoneId(v string) *InfoForDescribeInstanceOutput {
 	s.AvailabilityZoneId = &v
+	return s
+}
+
+// SetAvailabilityZones sets the AvailabilityZones field's value.
+func (s *InfoForDescribeInstanceOutput) SetAvailabilityZones(v []*AvailabilityZoneForDescribeInstanceOutput) *InfoForDescribeInstanceOutput {
+	s.AvailabilityZones = v
 	return s
 }
 
@@ -443,6 +561,12 @@ func (s *InfoForDescribeInstanceOutput) SetStatus(v string) *InfoForDescribeInst
 	return s
 }
 
+// SetStorageInfo sets the StorageInfo field's value.
+func (s *InfoForDescribeInstanceOutput) SetStorageInfo(v *StorageInfoForDescribeInstanceOutput) *InfoForDescribeInstanceOutput {
+	s.StorageInfo = v
+	return s
+}
+
 // SetSubnetID sets the SubnetID field's value.
 func (s *InfoForDescribeInstanceOutput) SetSubnetID(v string) *InfoForDescribeInstanceOutput {
 	s.SubnetID = &v
@@ -517,6 +641,36 @@ func (s *InsSpecForDescribeInstanceOutput) SetSpecName(v string) *InsSpecForDesc
 	return s
 }
 
+type StorageInfoForDescribeInstanceOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	BytestoreInfo *BytestoreInfoForDescribeInstanceOutput `type:"structure" json:",omitempty"`
+
+	StorageType *string `type:"string" json:",omitempty" enum:"EnumOfStorageTypeForDescribeInstanceOutput"`
+}
+
+// String returns the string representation
+func (s StorageInfoForDescribeInstanceOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s StorageInfoForDescribeInstanceOutput) GoString() string {
+	return s.String()
+}
+
+// SetBytestoreInfo sets the BytestoreInfo field's value.
+func (s *StorageInfoForDescribeInstanceOutput) SetBytestoreInfo(v *BytestoreInfoForDescribeInstanceOutput) *StorageInfoForDescribeInstanceOutput {
+	s.BytestoreInfo = v
+	return s
+}
+
+// SetStorageType sets the StorageType field's value.
+func (s *StorageInfoForDescribeInstanceOutput) SetStorageType(v string) *StorageInfoForDescribeInstanceOutput {
+	s.StorageType = &v
+	return s
+}
+
 type TagForDescribeInstanceOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -546,3 +700,11 @@ func (s *TagForDescribeInstanceOutput) SetValue(v string) *TagForDescribeInstanc
 	s.Value = &v
 	return s
 }
+
+const (
+	// EnumOfStorageTypeForDescribeInstanceOutputMemory is a EnumOfStorageTypeForDescribeInstanceOutput enum value
+	EnumOfStorageTypeForDescribeInstanceOutputMemory = "Memory"
+
+	// EnumOfStorageTypeForDescribeInstanceOutputByteStore is a EnumOfStorageTypeForDescribeInstanceOutput enum value
+	EnumOfStorageTypeForDescribeInstanceOutputByteStore = "ByteStore"
+)
