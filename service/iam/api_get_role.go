@@ -142,6 +142,8 @@ func (c *IAM) GetRoleWithContext(ctx volcengine.Context, input *GetRoleInput, op
 type GetRoleInput struct {
 	_ struct{} `type:"structure"`
 
+	ID *int64 `type:"int64"`
+
 	// RoleName is a required field
 	RoleName *string `type:"string" required:"true"`
 }
@@ -167,6 +169,12 @@ func (s *GetRoleInput) Validate() error {
 		return invalidParams
 	}
 	return nil
+}
+
+// SetID sets the ID field's value.
+func (s *GetRoleInput) SetID(v int64) *GetRoleInput {
+	s.ID = &v
+	return s
 }
 
 // SetRoleName sets the RoleName field's value.

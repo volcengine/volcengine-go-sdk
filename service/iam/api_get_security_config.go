@@ -32,7 +32,7 @@ const opGetSecurityConfigCommon = "GetSecurityConfig"
 func (c *IAM) GetSecurityConfigCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opGetSecurityConfigCommon,
-		HTTPMethod: "GET",
+		HTTPMethod: "POST",
 		HTTPPath:   "/",
 	}
 
@@ -42,6 +42,8 @@ func (c *IAM) GetSecurityConfigCommonRequest(input *map[string]interface{}) (req
 
 	output = &map[string]interface{}{}
 	req = c.newRequest(op, input, output)
+
+	req.HTTPRequest.Header.Set("Content-Type", "application/json; charset=utf-8")
 
 	return
 }
@@ -97,7 +99,7 @@ const opGetSecurityConfig = "GetSecurityConfig"
 func (c *IAM) GetSecurityConfigRequest(input *GetSecurityConfigInput) (req *request.Request, output *GetSecurityConfigOutput) {
 	op := &request.Operation{
 		Name:       opGetSecurityConfig,
-		HTTPMethod: "GET",
+		HTTPMethod: "POST",
 		HTTPPath:   "/",
 	}
 
@@ -107,6 +109,8 @@ func (c *IAM) GetSecurityConfigRequest(input *GetSecurityConfigInput) (req *requ
 
 	output = &GetSecurityConfigOutput{}
 	req = c.newRequest(op, input, output)
+
+	req.HTTPRequest.Header.Set("Content-Type", "application/json; charset=utf-8")
 
 	return
 }
@@ -140,10 +144,10 @@ func (c *IAM) GetSecurityConfigWithContext(ctx volcengine.Context, input *GetSec
 }
 
 type GetSecurityConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// UserName is a required field
-	UserName *string `type:"string" required:"true"`
+	UserName *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -176,17 +180,17 @@ func (s *GetSecurityConfigInput) SetUserName(v string) *GetSecurityConfigInput {
 }
 
 type GetSecurityConfigOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	SafeAuthClose *int32 `type:"int32"`
+	SafeAuthClose *int32 `type:"int32" json:",omitempty"`
 
-	SafeAuthExemptDuration *int32 `type:"int32"`
+	SafeAuthExemptDuration *int32 `type:"int32" json:",omitempty"`
 
-	SafeAuthType *string `type:"string"`
+	SafeAuthType *string `type:"string" json:",omitempty"`
 
-	UserID *int32 `type:"int32"`
+	UserID *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation

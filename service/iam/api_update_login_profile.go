@@ -32,7 +32,7 @@ const opUpdateLoginProfileCommon = "UpdateLoginProfile"
 func (c *IAM) UpdateLoginProfileCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opUpdateLoginProfileCommon,
-		HTTPMethod: "GET",
+		HTTPMethod: "POST",
 		HTTPPath:   "/",
 	}
 
@@ -42,6 +42,8 @@ func (c *IAM) UpdateLoginProfileCommonRequest(input *map[string]interface{}) (re
 
 	output = &map[string]interface{}{}
 	req = c.newRequest(op, input, output)
+
+	req.HTTPRequest.Header.Set("Content-Type", "application/json; charset=utf-8")
 
 	return
 }
@@ -97,7 +99,7 @@ const opUpdateLoginProfile = "UpdateLoginProfile"
 func (c *IAM) UpdateLoginProfileRequest(input *UpdateLoginProfileInput) (req *request.Request, output *UpdateLoginProfileOutput) {
 	op := &request.Operation{
 		Name:       opUpdateLoginProfile,
-		HTTPMethod: "GET",
+		HTTPMethod: "POST",
 		HTTPPath:   "/",
 	}
 
@@ -107,6 +109,8 @@ func (c *IAM) UpdateLoginProfileRequest(input *UpdateLoginProfileInput) (req *re
 
 	output = &UpdateLoginProfileOutput{}
 	req = c.newRequest(op, input, output)
+
+	req.HTTPRequest.Header.Set("Content-Type", "application/json; charset=utf-8")
 
 	return
 }
@@ -140,39 +144,39 @@ func (c *IAM) UpdateLoginProfileWithContext(ctx volcengine.Context, input *Updat
 }
 
 type LoginProfileForUpdateLoginProfileOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	CreateDate *string `type:"string"`
+	CreateDate *string `type:"string" json:",omitempty"`
 
-	LastLoginDate *string `type:"string"`
+	LastLoginDate *string `type:"string" json:",omitempty"`
 
-	LastLoginIp *string `type:"string"`
+	LastLoginIp *string `type:"string" json:",omitempty"`
 
-	LastResetPasswordTime *int32 `type:"int32"`
+	LastResetPasswordTime *int32 `type:"int32" json:",omitempty"`
 
-	LoginAllowed *bool `type:"boolean"`
+	LoginAllowed *bool `type:"boolean" json:",omitempty"`
 
-	LoginLocked *bool `type:"boolean"`
+	LoginLocked *bool `type:"boolean" json:",omitempty"`
 
-	PasswordExpireAt *int32 `type:"int32"`
+	PasswordExpireAt *int32 `type:"int32" json:",omitempty"`
 
-	PasswordResetRequired *bool `type:"boolean"`
+	PasswordResetRequired *bool `type:"boolean" json:",omitempty"`
 
-	SafeAuthExemptDuration *int32 `type:"int32"`
+	SafeAuthExemptDuration *int32 `type:"int32" json:",omitempty"`
 
-	SafeAuthExemptRequired *int32 `type:"int32"`
+	SafeAuthExemptRequired *int32 `type:"int32" json:",omitempty"`
 
-	SafeAuthExemptUnit *int32 `type:"int32"`
+	SafeAuthExemptUnit *int32 `type:"int32" json:",omitempty"`
 
-	SafeAuthFlag *bool `type:"boolean"`
+	SafeAuthFlag *bool `type:"boolean" json:",omitempty"`
 
-	SafeAuthType *string `type:"string"`
+	SafeAuthType *string `type:"string" json:",omitempty"`
 
-	UpdateDate *string `type:"string"`
+	UpdateDate *string `type:"string" json:",omitempty"`
 
-	UserId *int64 `type:"int64"`
+	UserId *int64 `type:"int64" json:",omitempty"`
 
-	UserName *string `type:"string"`
+	UserName *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -282,26 +286,26 @@ func (s *LoginProfileForUpdateLoginProfileOutput) SetUserName(v string) *LoginPr
 }
 
 type UpdateLoginProfileInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	LoginAllowed *bool `type:"boolean"`
+	LoginAllowed *bool `type:"boolean" json:",omitempty"`
 
-	Password *string `type:"string"`
+	Password *string `type:"string" json:",omitempty"`
 
-	PasswordResetRequired *bool `type:"boolean"`
+	PasswordResetRequired *bool `type:"boolean" json:",omitempty"`
 
-	SafeAuthExemptDuration *int32 `type:"int32"`
+	SafeAuthExemptDuration *int32 `type:"int32" json:",omitempty"`
 
-	SafeAuthExemptRequired *int32 `type:"int32"`
+	SafeAuthExemptRequired *int32 `type:"int32" json:",omitempty"`
 
-	SafeAuthExemptUnit *int32 `type:"int32"`
+	SafeAuthExemptUnit *int32 `type:"int32" json:",omitempty"`
 
-	SafeAuthFlag *bool `type:"boolean"`
+	SafeAuthFlag *bool `type:"boolean" json:",omitempty"`
 
-	SafeAuthType *string `type:"string"`
+	SafeAuthType *string `type:"string" json:",omitempty"`
 
 	// UserName is a required field
-	UserName *string `type:"string" required:"true"`
+	UserName *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -382,11 +386,11 @@ func (s *UpdateLoginProfileInput) SetUserName(v string) *UpdateLoginProfileInput
 }
 
 type UpdateLoginProfileOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	LoginProfile *LoginProfileForUpdateLoginProfileOutput `type:"structure"`
+	LoginProfile *LoginProfileForUpdateLoginProfileOutput `type:"structure" json:",omitempty"`
 }
 
 // String returns the string representation
