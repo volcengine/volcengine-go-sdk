@@ -253,6 +253,7 @@ SDK 支持双栈网络（IPv4 + IPv6）访问地址，自动启用条件如下�
 示例：ecs.cn-beijing.volcengineapi.com
 
 **代码示例：**
+
 ```go
 func main() {
     regionId := "cn-beijing"
@@ -513,12 +514,14 @@ func main() {
 > **延迟时间公式：**    
 > delay = min(MaxDelay, 2ⁿ × minDelay × (1 + Rand[0, 1)) + Retry-After
 >
-> | 参数            | 说明                                         |
-> | --------------- | -------------------------------------------- |
-> | 2ⁿ             | 纯指数增长                                   |
-> | (1 + Rand[0, 1) | 把结果随机放大 1 ~ 2 倍，避免「惊群效应」    |
-> | min(...)        | 防止无限增长，超过MaxDelay                   |
-> | Retry-After     | 服务端如果显式告知休眠时长，则先按它要求静默 |
+>
+> | 参数            | 说明                                                    |
+> | --------------- | ------------------------------------------------------- |
+> | maxDelay        | 最大延迟时间，计算的最大延迟不会超过maxDelay，默认500ms |
+> | 2ⁿ             | 纯指数增长                                              |
+> | (1 + Rand[0, 1) | 把结果随机放大 1 ~ 2 倍，避免「惊群效应」               |
+> | min(...)        | 防止无限增长，超过MaxDelay                              |
+> | Retry-After     | 服务端如果显式告知休眠时长，则先按它要求静默            |
 > 
 > **举例说明：**  
 > MaxDelay=500ms，minDelay=30ms
@@ -627,143 +630,96 @@ func main() {
 错误分类：
 
 
-| 错误类型                         | 错误描述                                                      |
-| -------------------------------- | ------------------------------------------------------------- |
-| 1. 配置缺失/验证错误             | 某些全局配置没有配置，如：Region,endpoint,请求body格式验证等  |
-| 2. 网络错误                      | SDK 在尝试发起 HTTP 请求前就失败，或在建立连接/发送请求时失败 |
-| 3. 超时错误                      | 请求已成功发出，但等待响应超时（可细分为连接超时、读取超时）  |
-| 4. 业务错误                      | 请求成功到达服务器，但返回的是业务逻辑错误（参数不合法）      |
-| 5. 认证错误                      | 请求签名无效、Token 过期或缺失                                |
-| 6. 限流/熔断错误(ThrottingError) | 服务端返回限流标志，通常 HTTP 429，或内部系统降级             |
-| 7. 反序列化数据错误              | 对json或xml反序列化报的错误                                   |
+| 错误类型         | 错误描述                             | 返回错误类型                   | 公共属性                                                                         | 私有属性                                          |
+| ---------------- | ------------------------------------ | ------------------------------ |------------------------------------------------------------------------------| ------------------------------------------------- |
+| 1. 创建会话错误  | 创建会话会做一些配置的前置校验       | volcengineerr.Error或原生error | Code()：错误码;  <br>Message():错误描述信息;  <br>Error()：详细错误信息;  <br>OrigErr(): 原始错误 | 无                                                |
+| 2. 参数验证错误  | 发起请求前会对一些参数做一些校验     | request.ErrInvalidParam        | 同上                                                                           | 可以通过Field()获取验证失败的属性                 |
+| 3. 服务端错误    | 请求成功到达服务器，返回业务逻辑错误 | volcengineerr.RequestFailure   | 同上                                                                           | 可以通过RequestID()获取请求id，方便服务端问题排查 |
+| 4. 网络/超时错误 | DNS解析错误或请求超时                | volcengineerr.Error            | 同上                                                                           | 无                                                |
+| 5. 其它错误      | 未包含在前4中错误的其它错误处理      | volcengineerr.Error或原生error | 同上                                                                           | 无                                                |
 
-代码示例：
+**代码示例：**
 
 ```go
 package main
 
 import (
-    "context"
-    "errors"
-    "fmt"
-    "github.com/volcengine/volcengine-go-sdk/service/ecs"
-    "github.com/volcengine/volcengine-go-sdk/volcengine"
-    "github.com/volcengine/volcengine-go-sdk/volcengine/credentials"
-    "github.com/volcengine/volcengine-go-sdk/volcengine/request"
-    "github.com/volcengine/volcengine-go-sdk/volcengine/session"
-    "github.com/volcengine/volcengine-go-sdk/volcengine/volcengineerr"
-    "net"
-    "net/http"
-    "time"
+	"context"
+	"errors"
+	"fmt"
+	"github.com/volcengine/volcengine-go-sdk/service/ecs"
+	"github.com/volcengine/volcengine-go-sdk/volcengine"
+	"github.com/volcengine/volcengine-go-sdk/volcengine/credentials"
+	"github.com/volcengine/volcengine-go-sdk/volcengine/request"
+	"github.com/volcengine/volcengine-go-sdk/volcengine/session"
+	"github.com/volcengine/volcengine-go-sdk/volcengine/volcengineerr"
+	"net"
 )
 
 func main() {
-    region := "cn-beijing"
-    config := volcengine.NewConfig().
-       WithRegion(region).
-       WithCredentials(credentials.NewEnvCredentials())
-    sess, err := session.NewSession(config)
-    var be volcengineerr.Error
-    if err != nil {
-       // 1. 配置/参数验证错误
-       if errors.As(err, &be) {
-          switch be.Code() {
-          case "LoadCustomCABundleError":
-             fmt.Println("1. 配置缺失/验证错误：当在配置文件中未找到配置文件时会出现此错误")
-          case "SharedConfigLoadError":
-             fmt.Println("1. 配置缺失/验证错误：SharedConfigLoadError是共享配置文件加载失败时的错误。")
-          case "SharedConfigProfileNotExistsError":
-             fmt.Println("1. 配置缺失/验证错误：共享配置文件不存在错误是共享配置出现的一种错误，当在配置文件中未找到配置文件时就会出现该错误。")
-          case "SharedConfigAssumeRoleError":
-             fmt.Println("1. 配置缺失/验证错误：SharedConfigAssumeRoleError是共享配置中的一种错误，当配置文件包含角色假设信息，但该信息无效或不完整时会出现此错误。")
-          case "CredentialRequiresARNError":
-             fmt.Println("1. 配置缺失/验证错误：credential type (source_profile|credential_source|web_identity_token_file) requires role_arn, profile ")
-          }
+	region := "cn-beijing"
+	config := volcengine.NewConfig().
+		WithRegion(region).
+		WithCredentials(credentials.NewEnvCredentials())
+	sess, err := session.NewSession(config)
+	var be volcengineerr.Error
+	if err != nil {
+		if errors.As(err, &be) {
+			fmt.Println("1. 创建session失败", be.Code(), be.Message(), be.Error())
+		} else {
+			fmt.Println("5. 其它错误", err.Error())
+		}
+		panic(err)
+	}
+	svc := ecs.New(sess)
 
-       } else {
-          fmt.Println("处理其它错误")
-       }
-       panic(err)
-    }
-    svc := ecs.New(sess)
+	tags := make([]*ecs.TagForCreateKeyPairInput, 0, 2)
+	tags = append(tags, &ecs.TagForCreateKeyPairInput{Key: volcengine.String("testTag")})
+	createKeyPairInput := &ecs.CreateKeyPairInput{
+		KeyPairName: volcengine.String(("testKeyPairName")),
+		Tags:        tags,
+	}
 
-    tags := make([]*ecs.TagForCreateKeyPairInput, 0, 2)
-    tags = append(tags, &ecs.TagForCreateKeyPairInput{Key: volcengine.String(("testTag")})
-    createKeyPairInput := &ecs.CreateKeyPairInput{
-       KeyPairName: volcengine.String(("testKeyPairName"),
-       Tags:        tags,
-    }
+	_, err = svc.CreateKeyPair(createKeyPairInput)
+	if err != nil {
+		var requestFailure volcengineerr.RequestFailure // 服务端返回的错误
+		var errInvalidParam request.ErrInvalidParam     // 参数验证错误
+		// 请求未达到服务前参数验证
+		if errors.As(err, &errInvalidParam) {
+			fmt.Println("2. 参数验证错误：", errInvalidParam.Code(), errInvalidParam.Field(), errInvalidParam.Error())
+			// 请求到达服务端，服务端返回错误
+		} else if errors.As(err, &requestFailure) {
+			fmt.Println("4. 服务端错误：", requestFailure.RequestID(), requestFailure.Code(), requestFailure.StatusCode(), requestFailure.Error())
+		} else if errors.As(err, &be) {
+			// 发送请求，但没有到达后端服务
+			switch be.Code() {
+			case "RequestCanceled":
+				fmt.Println("3. 网络/超时错误：这里是请求接口传入context上下文超时")
+			case "RequestError":
+				if be.OrigErr() != nil {
+					var netErr net.Error
+					var dnsError *net.DNSError
+					if errors.As(be.OrigErr(), &dnsError) {
+						fmt.Println("3. 网络/超时错误：DNS解析错误处理")
+					} else if errors.As(be.OrigErr(), &netErr) && netErr.Timeout() {
+						var oPError *net.OpError
+						if errors.Is(be.OrigErr(), context.DeadlineExceeded) {
+							fmt.Println("3. 网络/超时错误：http.Client Timeout(ReadTimeout)....", be.Code(), be.Error())
+						} else if errors.As(be.OrigErr(), &oPError) && oPError.Op == "dial" {
+							fmt.Println("3. 网络/超时错误：http.Client Transport.Dialer Timeout(ConnectTimeout)....", be.Code(), be.Error())
+						} else {
+							fmt.Println("3. 网络/超时错误：其它超时处理", be.Code(), be.Message(), be.Error())
+						}
+					}
+				}
+			default:
+				fmt.Println("5. 其它错误", be.Code(), be.Message(), be.Error())
+			}
+		} else {
+			fmt.Println("5. 其它错误", err.Error())
+		}
 
-    _, err = svc.CreateKeyPair(createKeyPairInput)
-    if err != nil {
-       var requestFailure volcengineerr.RequestFailure // 服务端返回的错误
-       var errInvalidParam request.ErrInvalidParam     // 参数验证错误
-       var unmarshalError volcengineerr.UnmarshalError // 返回数据解析错误
-       var batchedErrors volcengineerr.BatchedErrors   // 批量错误
-       // 请求未达到服务前参数验证
-       if errors.As(err, &errInvalidParam) {
-          fmt.Println("1. 配置缺失/验证错误：", errInvalidParam.Field(), errInvalidParam.Error())
-       // 请求到达服务端，服务端返回错误   
-       } else if errors.As(err, &requestFailure) {
-          fmt.Println("请求错误：", requestFailure.RequestID(), requestFailure.StatusCode())
-          switch requestFailure.Code() {
-          // 请求过于频繁
-          case "FlowLimitExceeded":
-             fmt.Println("6. 限流/熔断错误(ThrottingError): 请求过于频繁，超出了限速。请降低请求QPS，如果有提升限速需求")
-          case "AccessDenied":
-             fmt.Println("5. 认证错误：用户拥有的权限不支持当前操作")
-          case "InvalidActionOrVersion":
-             fmt.Println("4. 业务错误：请求接口不存在")
-          case "InvalidAccessKey":
-             fmt.Println("5. 认证错误：请求的Access Key不合法。请检查Access key Id和Secret Access Key是否正确，注意不要有多余的空格符号")
-          case "InternalServiceTimeout":
-             fmt.Println("3. 超时错误：服务内部执行超时")
-          case "InvalidAuthorization":
-             fmt.Println("5. 认证错误：Authorization头格式错误，构造的 Authorization Header 不正确，比如没有填 Region 字段、字符不在合法字符集中，请检查Authorization")
-          case "InvalidCredential":
-             fmt.Println("5. 认证错误： Authorization头中的Credential格式错误，比如 AK 不在合法字符集中检查Credential")
-          case "InvalidSecretToken":
-             fmt.Println("5. 认证错误：错误的STS（临时安全凭证），可能是多种错误，例如签名错误、过期等。请检查AssumeRole产生的临时凭证是否过期，以及签名是正确")
-          default:
-             fmt.Println("4. 业务错误：可以把其它未处理的后端返回错误归结为业务错误")
-          }
-        // 反序列化数据错误
-       } else if errors.As(err, &unmarshalError) {
-          fmt.Println("7. 反序列化数据错误：", string(unmarshalError.Bytes()))
-       } else if errors.As(err, &batchedErrors) {
-          for _, e := range batchedErrors.OrigErrs() {
-             fmt.Println("批量错误:", e)
-          }
-       // 发送请求，但没有到达后端服务   
-       }else if errors.As(err, &be) {
-          switch be.Code() {
-          case "RequestCanceled":
-             fmt.Println("3. 超时错误：这里是请求接口传入context上下文超时")
-          case "RequestError":
-             if be.OrigErr() != nil {
-                var netErr net.Error
-                var dnsError *net.DNSError
-                if errors.As(be.OrigErr(), &dnsError) {
-                    fmt.Println("2. 网络错误：DNS解析错误处理")
-                }else if errors.As(be.OrigErr(), &netErr) && netErr.Timeout() {
-                   var oPError *net.OpError
-                   if errors.Is(be.OrigErr(), context.DeadlineExceeded) {
-                      fmt.Println("3. 超时错误：http.Client Timeout(ReadTimeout)....")
-                   } else if errors.As(be.OrigErr(), &oPError) && oPError.Op == "dial" {
-                      fmt.Println("3. 超时错误：http.Client Transport.Dialer Timeout(ConnectTimeout)....")
-                   } else {
-                      fmt.Println("3. 超时错误：其它超时处理")
-                   }
-                }
-             }
-          default:
-             fmt.Println("处理其它错误")
-          }
-       }  else {
-          fmt.Println("处理其它错误")
-       }
-
-    }
+	}
 
 }
 
