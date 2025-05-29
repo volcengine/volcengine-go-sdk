@@ -254,4 +254,7 @@ const (
 
 	// EnumOfAddrTypeForModifyDBInstanceVisitAddressInputDirectLink is a EnumOfAddrTypeForModifyDBInstanceVisitAddressInput enum value
 	EnumOfAddrTypeForModifyDBInstanceVisitAddressInputDirectLink = "DirectLink"
+
+	// EnumOfAddrTypeForModifyDBInstanceVisitAddressInputPublicZoneAffinity is a EnumOfAddrTypeForModifyDBInstanceVisitAddressInput enum value
+	EnumOfAddrTypeForModifyDBInstanceVisitAddressInputPublicZoneAffinity = "PublicZoneAffinity"
 )

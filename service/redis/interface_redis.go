@@ -430,6 +430,14 @@ type REDISAPI interface {
 	EnableShardedClusterWithContext(volcengine.Context, *EnableShardedClusterInput, ...request.Option) (*EnableShardedClusterOutput, error)
 	EnableShardedClusterRequest(*EnableShardedClusterInput) (*request.Request, *EnableShardedClusterOutput)
 
+	ExecutePlannedEventCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ExecutePlannedEventCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ExecutePlannedEventCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ExecutePlannedEvent(*ExecutePlannedEventInput) (*ExecutePlannedEventOutput, error)
+	ExecutePlannedEventWithContext(volcengine.Context, *ExecutePlannedEventInput, ...request.Option) (*ExecutePlannedEventOutput, error)
+	ExecutePlannedEventRequest(*ExecutePlannedEventInput) (*request.Request, *ExecutePlannedEventOutput)
+
 	FlushDBInstanceCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	FlushDBInstanceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	FlushDBInstanceCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -613,6 +621,14 @@ type REDISAPI interface {
 	ModifyParameterGroup(*ModifyParameterGroupInput) (*ModifyParameterGroupOutput, error)
 	ModifyParameterGroupWithContext(volcengine.Context, *ModifyParameterGroupInput, ...request.Option) (*ModifyParameterGroupOutput, error)
 	ModifyParameterGroupRequest(*ModifyParameterGroupInput) (*request.Request, *ModifyParameterGroupOutput)
+
+	ModifyPlannedEventExecuteTimeCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ModifyPlannedEventExecuteTimeCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ModifyPlannedEventExecuteTimeCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ModifyPlannedEventExecuteTime(*ModifyPlannedEventExecuteTimeInput) (*ModifyPlannedEventExecuteTimeOutput, error)
+	ModifyPlannedEventExecuteTimeWithContext(volcengine.Context, *ModifyPlannedEventExecuteTimeInput, ...request.Option) (*ModifyPlannedEventExecuteTimeOutput, error)
+	ModifyPlannedEventExecuteTimeRequest(*ModifyPlannedEventExecuteTimeInput) (*request.Request, *ModifyPlannedEventExecuteTimeOutput)
 
 	RemoveTagsFromResourceCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	RemoveTagsFromResourceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
