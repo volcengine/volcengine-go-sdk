@@ -6,7 +6,7 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/invopop/jsonschema"
+	"github.com/invopop/jsonschema" // required go1.18+
 
 	"github.com/volcengine/volcengine-go-sdk/service/arkruntime"
 	"github.com/volcengine/volcengine-go-sdk/service/arkruntime/model"
