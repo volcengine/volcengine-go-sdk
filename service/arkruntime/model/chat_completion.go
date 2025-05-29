@@ -31,7 +31,7 @@ const (
 	VideoURLDetailLow  VideoURLDetail = "low"
 )
 
-type ChatMessageViedoURL struct {
+type ChatMessageVideoURL struct {
 	URL    string         `json:"url,omitempty"`
 	Fps    float32        `json:"fps,omitempty"`
 	Detail VideoURLDetail `json:"detail,omitempty"`
@@ -49,7 +49,7 @@ type ChatCompletionMessageContentPart struct {
 	Type     ChatCompletionMessageContentPartType `json:"type,omitempty"`
 	Text     string                               `json:"text,omitempty"`
 	ImageURL *ChatMessageImageURL                 `json:"image_url,omitempty"`
-	VideoURL *ChatMessageViedoURL                 `json:"video_url,omitempty"`
+	VideoURL *ChatMessageVideoURL                 `json:"video_url,omitempty"`
 }
 
 type ChatCompletionMessageContent struct {
