@@ -46,6 +46,15 @@ type Config struct {
 	// to use based on region.
 	EndpointResolver endpoints.Resolver
 
+	// Site is used to set the site for the endpoint.
+	Site *string
+
+	// IPVersion is used to set the ip version for the endpoint.
+	IPVersion *string
+
+	// RunningEnvironment is used to set the running environment for the endpoint.
+	RunningEnvironment *string
+
 	// EnforceShouldRetryCheck is used in the AfterRetryHandler to always call
 	// ShouldRetry regardless of whether or not if request.Retryable is set.
 	// This will utilize ShouldRetry method of custom retryers. If EnforceShouldRetryCheck
@@ -397,6 +406,27 @@ func (c *Config) WithEndpointResolver(resolver endpoints.Resolver) *Config {
 	return c
 }
 
+// WithSite sets a config Site value returning a
+// Config pointer for chaining.
+func (c *Config) WithSite(site string) *Config {
+	c.Site = &site
+	return c
+}
+
+// WithIPVersion sets a config IPVersion value returning a
+// Config pointer for chaining.
+func (c *Config) WithIPVersion(ipVersion string) *Config {
+	c.IPVersion = &ipVersion
+	return c
+}
+
+// WithRunningEnvironment sets a config RunningEnvironment value returning a
+// Config pointer for chaining.
+func (c *Config) WithRunningEnvironment(runningEnv string) *Config {
+	c.RunningEnvironment = &runningEnv
+	return c
+}
+
 // WithRegion sets a config Region value returning a Config pointer for
 // chaining.
 func (c *Config) WithRegion(region string) *Config {
@@ -552,6 +582,18 @@ func mergeInConfig(dst *Config, other *Config) {
 
 	if other.EndpointResolver != nil {
 		dst.EndpointResolver = other.EndpointResolver
+	}
+
+	if other.Site != nil {
+		dst.Site = other.Site
+	}
+
+	if other.IPVersion != nil {
+		dst.IPVersion = other.IPVersion
+	}
+
+	if other.RunningEnvironment != nil {
+		dst.RunningEnvironment = other.RunningEnvironment
 	}
 
 	if other.Region != nil {
