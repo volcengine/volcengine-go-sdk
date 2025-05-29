@@ -153,6 +153,8 @@ type CreateDBEndpointPublicAddressInput struct {
 
 	// InstanceId is a required field
 	InstanceId *string `type:"string" json:",omitempty" required:"true"`
+
+	Port *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -196,6 +198,12 @@ func (s *CreateDBEndpointPublicAddressInput) SetEipId(v string) *CreateDBEndpoin
 // SetInstanceId sets the InstanceId field's value.
 func (s *CreateDBEndpointPublicAddressInput) SetInstanceId(v string) *CreateDBEndpointPublicAddressInput {
 	s.InstanceId = &v
+	return s
+}
+
+// SetPort sets the Port field's value.
+func (s *CreateDBEndpointPublicAddressInput) SetPort(v int32) *CreateDBEndpointPublicAddressInput {
+	s.Port = &v
 	return s
 }
 
