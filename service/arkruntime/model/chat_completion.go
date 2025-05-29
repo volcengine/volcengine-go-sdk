@@ -24,6 +24,11 @@ type ChatMessageImageURL struct {
 	Detail ImageURLDetail `json:"detail,omitempty"`
 }
 
+type ChatMessageVideoURL struct {
+	URL string   `json:"url"`
+	FPS *float64 `json:"fps,omitempty"`
+}
+
 type ChatCompletionMessageContentPartType string
 
 const (
@@ -35,6 +40,7 @@ type ChatCompletionMessageContentPart struct {
 	Type     ChatCompletionMessageContentPartType `json:"type,omitempty"`
 	Text     string                               `json:"text,omitempty"`
 	ImageURL *ChatMessageImageURL                 `json:"image_url,omitempty"`
+	VideoURL *ChatMessageVideoURL                 `json:"video_url,omitempty"`
 }
 
 type ChatCompletionMessageContent struct {
@@ -294,11 +300,29 @@ type LogProbs struct {
 type ResponseFormatType string
 
 type ResponseFormat struct {
-	Type   ResponseFormatType `json:"type"`
-	Schema interface{}        `json:"schema,omitempty"`
+	Type       ResponseFormatType                       `json:"type"`
+	JSONSchema *ResponseFormatJSONSchemaJSONSchemaParam `json:"json_schema,omitempty"`
+	// Deprecated: use `JSONSchema` instead.
+	Schema interface{} `json:"schema,omitempty"`
+}
+
+type ResponseFormatJSONSchemaJSONSchemaParam struct {
+	// The name of the response format. Must be a-z, A-Z, 0-9, or contain underscores
+	// and dashes, with a maximum length of 64.
+	Name string `json:"name"`
+	// A description of what the response format is for, used by the model to determine
+	// how to respond in the format.
+	Description string `json:"description"`
+	// The schema for the response format, described as a JSON Schema object.
+	Schema interface{} `json:"schema"`
+	// Whether to enable strict schema adherence when generating the output. If set to
+	// true, the model will always follow the exact schema defined in the `schema`
+	// field. Only a subset of JSON Schema is supported when `strict` is `true`.
+	Strict bool `json:"strict"`
 }
 
 const (
+	ResponseFormatJSONSchema ResponseFormatType = "json_schema"
 	ResponseFormatJsonObject ResponseFormatType = "json_object"
 	ResponseFormatText       ResponseFormatType = "text"
 )

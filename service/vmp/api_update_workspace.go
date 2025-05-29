@@ -143,6 +143,60 @@ func (c *VMP) UpdateWorkspaceWithContext(ctx volcengine.Context, input *UpdateWo
 	return out, req.Send()
 }
 
+type QuotaForUpdateWorkspaceInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	ActiveSeries *int32 `type:"int32" json:",omitempty"`
+
+	IngestSamplesPerSecond *int32 `type:"int32" json:",omitempty"`
+
+	QueryPerSecond *int32 `type:"int32" json:",omitempty"`
+
+	ScanSamplesPerSecond *int64 `type:"int64" json:",omitempty"`
+
+	ScanSeriesPerSecond *int32 `type:"int32" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s QuotaForUpdateWorkspaceInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s QuotaForUpdateWorkspaceInput) GoString() string {
+	return s.String()
+}
+
+// SetActiveSeries sets the ActiveSeries field's value.
+func (s *QuotaForUpdateWorkspaceInput) SetActiveSeries(v int32) *QuotaForUpdateWorkspaceInput {
+	s.ActiveSeries = &v
+	return s
+}
+
+// SetIngestSamplesPerSecond sets the IngestSamplesPerSecond field's value.
+func (s *QuotaForUpdateWorkspaceInput) SetIngestSamplesPerSecond(v int32) *QuotaForUpdateWorkspaceInput {
+	s.IngestSamplesPerSecond = &v
+	return s
+}
+
+// SetQueryPerSecond sets the QueryPerSecond field's value.
+func (s *QuotaForUpdateWorkspaceInput) SetQueryPerSecond(v int32) *QuotaForUpdateWorkspaceInput {
+	s.QueryPerSecond = &v
+	return s
+}
+
+// SetScanSamplesPerSecond sets the ScanSamplesPerSecond field's value.
+func (s *QuotaForUpdateWorkspaceInput) SetScanSamplesPerSecond(v int64) *QuotaForUpdateWorkspaceInput {
+	s.ScanSamplesPerSecond = &v
+	return s
+}
+
+// SetScanSeriesPerSecond sets the ScanSeriesPerSecond field's value.
+func (s *QuotaForUpdateWorkspaceInput) SetScanSeriesPerSecond(v int32) *QuotaForUpdateWorkspaceInput {
+	s.ScanSeriesPerSecond = &v
+	return s
+}
+
 type UpdateWorkspaceInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -156,6 +210,8 @@ type UpdateWorkspaceInput struct {
 	Name *string `type:"string" json:",omitempty"`
 
 	Password *string `type:"string" json:",omitempty"`
+
+	Quota *QuotaForUpdateWorkspaceInput `type:"structure" json:",omitempty"`
 
 	Username *string `type:"string" json:",omitempty"`
 }
@@ -210,6 +266,12 @@ func (s *UpdateWorkspaceInput) SetName(v string) *UpdateWorkspaceInput {
 // SetPassword sets the Password field's value.
 func (s *UpdateWorkspaceInput) SetPassword(v string) *UpdateWorkspaceInput {
 	s.Password = &v
+	return s
+}
+
+// SetQuota sets the Quota field's value.
+func (s *UpdateWorkspaceInput) SetQuota(v *QuotaForUpdateWorkspaceInput) *UpdateWorkspaceInput {
+	s.Quota = v
 	return s
 }
 

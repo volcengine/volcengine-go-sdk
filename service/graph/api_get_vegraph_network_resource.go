@@ -208,6 +208,8 @@ type NetworkResourceForGetVegraphNetworkResourceOutput struct {
 
 	AddressType *string `type:"string" json:",omitempty"`
 
+	Az *string `type:"string" json:",omitempty"`
+
 	Id *int64 `type:"int64" json:",omitempty"`
 
 	InstanceId *string `type:"string" json:",omitempty"`
@@ -242,6 +244,12 @@ func (s NetworkResourceForGetVegraphNetworkResourceOutput) GoString() string {
 // SetAddressType sets the AddressType field's value.
 func (s *NetworkResourceForGetVegraphNetworkResourceOutput) SetAddressType(v string) *NetworkResourceForGetVegraphNetworkResourceOutput {
 	s.AddressType = &v
+	return s
+}
+
+// SetAz sets the Az field's value.
+func (s *NetworkResourceForGetVegraphNetworkResourceOutput) SetAz(v string) *NetworkResourceForGetVegraphNetworkResourceOutput {
+	s.Az = &v
 	return s
 }
 
