@@ -178,6 +178,8 @@ type AsrForStartExecutionInput struct {
 
 	Language *string `type:"string" json:",omitempty"`
 
+	Mode *string `type:"string" json:",omitempty"`
+
 	Type *string `type:"string" json:",omitempty"`
 
 	WithConfidence *bool `type:"boolean" json:",omitempty"`
@@ -198,6 +200,12 @@ func (s AsrForStartExecutionInput) GoString() string {
 // SetLanguage sets the Language field's value.
 func (s *AsrForStartExecutionInput) SetLanguage(v string) *AsrForStartExecutionInput {
 	s.Language = &v
+	return s
+}
+
+// SetMode sets the Mode field's value.
+func (s *AsrForStartExecutionInput) SetMode(v string) *AsrForStartExecutionInput {
+	s.Mode = &v
 	return s
 }
 
@@ -505,6 +513,82 @@ func (s *ModelForStartExecutionInput) SetDoubaoVisionEndpoint(v string) *ModelFo
 	return s
 }
 
+type MultiInputForStartExecutionInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	DirectUrl *DirectUrlForStartExecutionInput `type:"structure" json:",omitempty"`
+
+	FileId *FileIdForStartExecutionInput `type:"structure" json:",omitempty"`
+
+	Type *string `type:"string" json:",omitempty"`
+
+	Vid *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s MultiInputForStartExecutionInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s MultiInputForStartExecutionInput) GoString() string {
+	return s.String()
+}
+
+// SetDirectUrl sets the DirectUrl field's value.
+func (s *MultiInputForStartExecutionInput) SetDirectUrl(v *DirectUrlForStartExecutionInput) *MultiInputForStartExecutionInput {
+	s.DirectUrl = v
+	return s
+}
+
+// SetFileId sets the FileId field's value.
+func (s *MultiInputForStartExecutionInput) SetFileId(v *FileIdForStartExecutionInput) *MultiInputForStartExecutionInput {
+	s.FileId = v
+	return s
+}
+
+// SetType sets the Type field's value.
+func (s *MultiInputForStartExecutionInput) SetType(v string) *MultiInputForStartExecutionInput {
+	s.Type = &v
+	return s
+}
+
+// SetVid sets the Vid field's value.
+func (s *MultiInputForStartExecutionInput) SetVid(v string) *MultiInputForStartExecutionInput {
+	s.Vid = &v
+	return s
+}
+
+type OcrForStartExecutionInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Mode *string `type:"string" json:",omitempty"`
+
+	WithImageSet *bool `type:"boolean" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s OcrForStartExecutionInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s OcrForStartExecutionInput) GoString() string {
+	return s.String()
+}
+
+// SetMode sets the Mode field's value.
+func (s *OcrForStartExecutionInput) SetMode(v string) *OcrForStartExecutionInput {
+	s.Mode = &v
+	return s
+}
+
+// SetWithImageSet sets the WithImageSet field's value.
+func (s *OcrForStartExecutionInput) SetWithImageSet(v bool) *OcrForStartExecutionInput {
+	s.WithImageSet = &v
+	return s
+}
+
 type OperationForStartExecutionInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -543,12 +627,36 @@ func (s *OperationForStartExecutionInput) SetType(v string) *OperationForStartEx
 	return s
 }
 
+type SegmentForStartExecutionInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	NoFile *bool `type:"boolean" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s SegmentForStartExecutionInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s SegmentForStartExecutionInput) GoString() string {
+	return s.String()
+}
+
+// SetNoFile sets the NoFile field's value.
+func (s *SegmentForStartExecutionInput) SetNoFile(v bool) *SegmentForStartExecutionInput {
+	s.NoFile = &v
+	return s
+}
+
 type StartExecutionInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
 	Control *ControlForStartExecutionInput `type:"structure" json:",omitempty"`
 
 	Input *InputForStartExecutionInput `type:"structure" json:",omitempty"`
+
+	MultiInputs []*MultiInputForStartExecutionInput `type:"list" json:",omitempty"`
 
 	Operation *OperationForStartExecutionInput `type:"structure" json:",omitempty"`
 }
@@ -572,6 +680,12 @@ func (s *StartExecutionInput) SetControl(v *ControlForStartExecutionInput) *Star
 // SetInput sets the Input field's value.
 func (s *StartExecutionInput) SetInput(v *InputForStartExecutionInput) *StartExecutionInput {
 	s.Input = v
+	return s
+}
+
+// SetMultiInputs sets the MultiInputs field's value.
+func (s *StartExecutionInput) SetMultiInputs(v []*MultiInputForStartExecutionInput) *StartExecutionInput {
+	s.MultiInputs = v
 	return s
 }
 
@@ -605,6 +719,36 @@ func (s *StartExecutionOutput) SetRunId(v string) *StartExecutionOutput {
 	return s
 }
 
+type StorylineForStartExecutionInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	ClipDuration *float64 `type:"double" json:",omitempty"`
+
+	WithSnapshot *bool `type:"boolean" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s StorylineForStartExecutionInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s StorylineForStartExecutionInput) GoString() string {
+	return s.String()
+}
+
+// SetClipDuration sets the ClipDuration field's value.
+func (s *StorylineForStartExecutionInput) SetClipDuration(v float64) *StorylineForStartExecutionInput {
+	s.ClipDuration = &v
+	return s
+}
+
+// SetWithSnapshot sets the WithSnapshot field's value.
+func (s *StorylineForStartExecutionInput) SetWithSnapshot(v bool) *StorylineForStartExecutionInput {
+	s.WithSnapshot = &v
+	return s
+}
+
 type TaskForStartExecutionInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -615,6 +759,12 @@ type TaskForStartExecutionInput struct {
 	AudioExtract *AudioExtractForStartExecutionInput `type:"structure" json:",omitempty"`
 
 	Highlight *HighlightForStartExecutionInput `type:"structure" json:",omitempty"`
+
+	Ocr *OcrForStartExecutionInput `type:"structure" json:",omitempty"`
+
+	Segment *SegmentForStartExecutionInput `type:"structure" json:",omitempty"`
+
+	Storyline *StorylineForStartExecutionInput `type:"structure" json:",omitempty"`
 
 	Type *string `type:"string" json:",omitempty"`
 
@@ -652,6 +802,24 @@ func (s *TaskForStartExecutionInput) SetAudioExtract(v *AudioExtractForStartExec
 // SetHighlight sets the Highlight field's value.
 func (s *TaskForStartExecutionInput) SetHighlight(v *HighlightForStartExecutionInput) *TaskForStartExecutionInput {
 	s.Highlight = v
+	return s
+}
+
+// SetOcr sets the Ocr field's value.
+func (s *TaskForStartExecutionInput) SetOcr(v *OcrForStartExecutionInput) *TaskForStartExecutionInput {
+	s.Ocr = v
+	return s
+}
+
+// SetSegment sets the Segment field's value.
+func (s *TaskForStartExecutionInput) SetSegment(v *SegmentForStartExecutionInput) *TaskForStartExecutionInput {
+	s.Segment = v
+	return s
+}
+
+// SetStoryline sets the Storyline field's value.
+func (s *TaskForStartExecutionInput) SetStoryline(v *StorylineForStartExecutionInput) *TaskForStartExecutionInput {
+	s.Storyline = v
 	return s
 }
 

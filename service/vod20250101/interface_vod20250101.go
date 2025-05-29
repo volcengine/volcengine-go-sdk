@@ -19,7 +19,7 @@ import (
 //    // volcengine sdk func uses an SDK service client to make a request to
 //    // VOD20250101.
 //    func myFunc(svc VOD20250101API) bool {
-//        // Make svc.GetExecution request
+//        // Make svc.GetAITranslationProject request
 //    }
 //
 //    func main() {
@@ -30,6 +30,14 @@ import (
 //    }
 //
 type VOD20250101API interface {
+	GetAITranslationProjectCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	GetAITranslationProjectCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	GetAITranslationProjectCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	GetAITranslationProject(*GetAITranslationProjectInput) (*GetAITranslationProjectOutput, error)
+	GetAITranslationProjectWithContext(volcengine.Context, *GetAITranslationProjectInput, ...request.Option) (*GetAITranslationProjectOutput, error)
+	GetAITranslationProjectRequest(*GetAITranslationProjectInput) (*request.Request, *GetAITranslationProjectOutput)
+
 	GetExecutionCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	GetExecutionCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	GetExecutionCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -38,6 +46,14 @@ type VOD20250101API interface {
 	GetExecutionWithContext(volcengine.Context, *GetExecutionInput, ...request.Option) (*GetExecutionOutput, error)
 	GetExecutionRequest(*GetExecutionInput) (*request.Request, *GetExecutionOutput)
 
+	ListAITranslationProjectCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListAITranslationProjectCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListAITranslationProjectCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListAITranslationProject(*ListAITranslationProjectInput) (*ListAITranslationProjectOutput, error)
+	ListAITranslationProjectWithContext(volcengine.Context, *ListAITranslationProjectInput, ...request.Option) (*ListAITranslationProjectOutput, error)
+	ListAITranslationProjectRequest(*ListAITranslationProjectInput) (*request.Request, *ListAITranslationProjectOutput)
+
 	StartExecutionCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	StartExecutionCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	StartExecutionCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -45,6 +61,14 @@ type VOD20250101API interface {
 	StartExecution(*StartExecutionInput) (*StartExecutionOutput, error)
 	StartExecutionWithContext(volcengine.Context, *StartExecutionInput, ...request.Option) (*StartExecutionOutput, error)
 	StartExecutionRequest(*StartExecutionInput) (*request.Request, *StartExecutionOutput)
+
+	SubmitAITranslationWorkflowCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	SubmitAITranslationWorkflowCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	SubmitAITranslationWorkflowCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	SubmitAITranslationWorkflow(*SubmitAITranslationWorkflowInput) (*SubmitAITranslationWorkflowOutput, error)
+	SubmitAITranslationWorkflowWithContext(volcengine.Context, *SubmitAITranslationWorkflowInput, ...request.Option) (*SubmitAITranslationWorkflowOutput, error)
+	SubmitAITranslationWorkflowRequest(*SubmitAITranslationWorkflowInput) (*request.Request, *SubmitAITranslationWorkflowOutput)
 }
 
 var _ VOD20250101API = (*VOD20250101)(nil)
