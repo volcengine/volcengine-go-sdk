@@ -24,17 +24,32 @@ type ChatMessageImageURL struct {
 	Detail ImageURLDetail `json:"detail,omitempty"`
 }
 
+type VideoURLDetail string
+
+const (
+	VideoURLDetailHigh VideoURLDetail = "high"
+	VideoURLDetailLow  VideoURLDetail = "low"
+)
+
+type ChatMessageVideoURL struct {
+	URL    string         `json:"url,omitempty"`
+	Fps    float32        `json:"fps,omitempty"`
+	Detail VideoURLDetail `json:"detail,omitempty"`
+}
+
 type ChatCompletionMessageContentPartType string
 
 const (
 	ChatCompletionMessageContentPartTypeText     ChatCompletionMessageContentPartType = "text"
 	ChatCompletionMessageContentPartTypeImageURL ChatCompletionMessageContentPartType = "image_url"
+	ChatCompletionMessageContentPartTypeVideoURL ChatCompletionMessageContentPartType = "video_url"
 )
 
 type ChatCompletionMessageContentPart struct {
 	Type     ChatCompletionMessageContentPartType `json:"type,omitempty"`
 	Text     string                               `json:"text,omitempty"`
 	ImageURL *ChatMessageImageURL                 `json:"image_url,omitempty"`
+	VideoURL *ChatMessageVideoURL                 `json:"video_url,omitempty"`
 }
 
 type ChatCompletionMessageContent struct {
