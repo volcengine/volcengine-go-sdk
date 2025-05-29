@@ -19,7 +19,7 @@
     - [Endpoint默认寻址](#endpoint默认寻址)
 - [Http连接池配置](#http连接池配置)
 - [Https请求配置](#https请求配置)
-  - [指定Schema](#指定schema)
+  - [指定Scheme](#指定scheme)
   - [忽略SSL验证](#忽略ssl验证)
   - [指定TLS协议版本](#指定tls协议版本)
 - [超时配置](#超时配置)
@@ -316,19 +316,19 @@ func main() {
 
 # Https请求配置
 
-## 指定schema
+## 指定scheme
 
 > - **默认**  
 >   https
 
-schema是参数DisableSSL来控的，为true表示schema为http，为false表示schema为https；建议使用HTTPS，这样可以提升数据传输的安全性。若不设置，则使用默认支持的请求协议类型（HTTPS）
+scheme，为true表示scheme为http，为false表示scheme为https；建议使用HTTPS，这样可以提升数据传输的安全性。若不设置，则使用默认支持的请求协议类型（HTTPS）
 
 ```go
 func main() {
     region := "cn-beijing"
     config := volcengine.NewConfig().
        WithRegion(region).
-       WithDisableSSL(true). //true 表示schema为http，false表示为https，默认为false
+       WithDisableSSL(true). //true 表示scheme为http，false表示为https，默认为false
        WithCredentials(credentials.NewEnvCredentials()) // 环境变量配置：VOLCSTACK_ACCESS_KEY_ID、VOLCSTACK_SECRET_ACCESS_KEY、VOLCSTACK_SESSION_TOKEN
 
     sess, err := session.NewSession(config)
