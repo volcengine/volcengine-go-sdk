@@ -70,6 +70,14 @@ type GRAPHAPI interface {
 	DescribeZonesWithContext(volcengine.Context, *DescribeZonesInput, ...request.Option) (*DescribeZonesOutput, error)
 	DescribeZonesRequest(*DescribeZonesInput) (*request.Request, *DescribeZonesOutput)
 
+	DestroyInstanceCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DestroyInstanceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DestroyInstanceCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DestroyInstance(*DestroyInstanceInput) (*DestroyInstanceOutput, error)
+	DestroyInstanceWithContext(volcengine.Context, *DestroyInstanceInput, ...request.Option) (*DestroyInstanceOutput, error)
+	DestroyInstanceRequest(*DestroyInstanceInput) (*request.Request, *DestroyInstanceOutput)
+
 	GetInstanceSpecScopeCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	GetInstanceSpecScopeCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	GetInstanceSpecScopeCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -77,6 +85,38 @@ type GRAPHAPI interface {
 	GetInstanceSpecScope(*GetInstanceSpecScopeInput) (*GetInstanceSpecScopeOutput, error)
 	GetInstanceSpecScopeWithContext(volcengine.Context, *GetInstanceSpecScopeInput, ...request.Option) (*GetInstanceSpecScopeOutput, error)
 	GetInstanceSpecScopeRequest(*GetInstanceSpecScopeInput) (*request.Request, *GetInstanceSpecScopeOutput)
+
+	GetTableConfigCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	GetTableConfigCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	GetTableConfigCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	GetTableConfig(*GetTableConfigInput) (*GetTableConfigOutput, error)
+	GetTableConfigWithContext(volcengine.Context, *GetTableConfigInput, ...request.Option) (*GetTableConfigOutput, error)
+	GetTableConfigRequest(*GetTableConfigInput) (*request.Request, *GetTableConfigOutput)
+
+	GetTableIOQosOptionsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	GetTableIOQosOptionsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	GetTableIOQosOptionsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	GetTableIOQosOptions(*GetTableIOQosOptionsInput) (*GetTableIOQosOptionsOutput, error)
+	GetTableIOQosOptionsWithContext(volcengine.Context, *GetTableIOQosOptionsInput, ...request.Option) (*GetTableIOQosOptionsOutput, error)
+	GetTableIOQosOptionsRequest(*GetTableIOQosOptionsInput) (*request.Request, *GetTableIOQosOptionsOutput)
+
+	GetTableLimitCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	GetTableLimitCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	GetTableLimitCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	GetTableLimit(*GetTableLimitInput) (*GetTableLimitOutput, error)
+	GetTableLimitWithContext(volcengine.Context, *GetTableLimitInput, ...request.Option) (*GetTableLimitOutput, error)
+	GetTableLimitRequest(*GetTableLimitInput) (*request.Request, *GetTableLimitOutput)
+
+	GetTableQuotaCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	GetTableQuotaCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	GetTableQuotaCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	GetTableQuota(*GetTableQuotaInput) (*GetTableQuotaOutput, error)
+	GetTableQuotaWithContext(volcengine.Context, *GetTableQuotaInput, ...request.Option) (*GetTableQuotaOutput, error)
+	GetTableQuotaRequest(*GetTableQuotaInput) (*request.Request, *GetTableQuotaOutput)
 
 	GetTableSchemaCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	GetTableSchemaCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -94,6 +134,14 @@ type GRAPHAPI interface {
 	GetVegraphNetworkResourceWithContext(volcengine.Context, *GetVegraphNetworkResourceInput, ...request.Option) (*GetVegraphNetworkResourceOutput, error)
 	GetVegraphNetworkResourceRequest(*GetVegraphNetworkResourceInput) (*request.Request, *GetVegraphNetworkResourceOutput)
 
+	GetVegraphReadAndWriteStatusCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	GetVegraphReadAndWriteStatusCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	GetVegraphReadAndWriteStatusCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	GetVegraphReadAndWriteStatus(*GetVegraphReadAndWriteStatusInput) (*GetVegraphReadAndWriteStatusOutput, error)
+	GetVegraphReadAndWriteStatusWithContext(volcengine.Context, *GetVegraphReadAndWriteStatusInput, ...request.Option) (*GetVegraphReadAndWriteStatusOutput, error)
+	GetVegraphReadAndWriteStatusRequest(*GetVegraphReadAndWriteStatusInput) (*request.Request, *GetVegraphReadAndWriteStatusOutput)
+
 	ListClusterTablesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ListClusterTablesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	ListClusterTablesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -110,6 +158,14 @@ type GRAPHAPI interface {
 	ListInstanceWithContext(volcengine.Context, *ListInstanceInput, ...request.Option) (*ListInstanceOutput, error)
 	ListInstanceRequest(*ListInstanceInput) (*request.Request, *ListInstanceOutput)
 
+	ModifyDBInstanceDeletionProtectionPolicyCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ModifyDBInstanceDeletionProtectionPolicyCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ModifyDBInstanceDeletionProtectionPolicyCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ModifyDBInstanceDeletionProtectionPolicy(*ModifyDBInstanceDeletionProtectionPolicyInput) (*ModifyDBInstanceDeletionProtectionPolicyOutput, error)
+	ModifyDBInstanceDeletionProtectionPolicyWithContext(volcengine.Context, *ModifyDBInstanceDeletionProtectionPolicyInput, ...request.Option) (*ModifyDBInstanceDeletionProtectionPolicyOutput, error)
+	ModifyDBInstanceDeletionProtectionPolicyRequest(*ModifyDBInstanceDeletionProtectionPolicyInput) (*request.Request, *ModifyDBInstanceDeletionProtectionPolicyOutput)
+
 	ModifySchemaCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ModifySchemaCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	ModifySchemaCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -117,6 +173,14 @@ type GRAPHAPI interface {
 	ModifySchema(*ModifySchemaInput) (*ModifySchemaOutput, error)
 	ModifySchemaWithContext(volcengine.Context, *ModifySchemaInput, ...request.Option) (*ModifySchemaOutput, error)
 	ModifySchemaRequest(*ModifySchemaInput) (*request.Request, *ModifySchemaOutput)
+
+	SetVegraphReadAndWriteStatusCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	SetVegraphReadAndWriteStatusCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	SetVegraphReadAndWriteStatusCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	SetVegraphReadAndWriteStatus(*SetVegraphReadAndWriteStatusInput) (*SetVegraphReadAndWriteStatusOutput, error)
+	SetVegraphReadAndWriteStatusWithContext(volcengine.Context, *SetVegraphReadAndWriteStatusInput, ...request.Option) (*SetVegraphReadAndWriteStatusOutput, error)
+	SetVegraphReadAndWriteStatusRequest(*SetVegraphReadAndWriteStatusInput) (*request.Request, *SetVegraphReadAndWriteStatusOutput)
 }
 
 var _ GRAPHAPI = (*GRAPH)(nil)

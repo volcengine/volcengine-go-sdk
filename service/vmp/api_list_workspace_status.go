@@ -151,6 +151,8 @@ type FiltersForListWorkspaceStatusInput struct {
 	InstanceTypeIds []*string `type:"list" json:",omitempty"`
 
 	Name *string `type:"string" json:",omitempty"`
+
+	Statuses []*string `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -178,6 +180,12 @@ func (s *FiltersForListWorkspaceStatusInput) SetInstanceTypeIds(v []*string) *Fi
 // SetName sets the Name field's value.
 func (s *FiltersForListWorkspaceStatusInput) SetName(v string) *FiltersForListWorkspaceStatusInput {
 	s.Name = &v
+	return s
+}
+
+// SetStatuses sets the Statuses field's value.
+func (s *FiltersForListWorkspaceStatusInput) SetStatuses(v []*string) *FiltersForListWorkspaceStatusInput {
+	s.Statuses = v
 	return s
 }
 

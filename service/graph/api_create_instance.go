@@ -143,6 +143,114 @@ func (c *GRAPH) CreateInstanceWithContext(ctx volcengine.Context, input *CreateI
 	return out, req.Send()
 }
 
+type AvailabilityZoneForCreateInstanceInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	AvailabilityZoneId *string `type:"string" json:",omitempty"`
+
+	K8sDomain *string `type:"string" json:",omitempty"`
+
+	NodeNum *int32 `type:"int32" json:",omitempty"`
+
+	NodePoolName *string `type:"string" json:",omitempty"`
+
+	SubnetID *string `type:"string" json:",omitempty"`
+
+	SubnetName *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s AvailabilityZoneForCreateInstanceInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s AvailabilityZoneForCreateInstanceInput) GoString() string {
+	return s.String()
+}
+
+// SetAvailabilityZoneId sets the AvailabilityZoneId field's value.
+func (s *AvailabilityZoneForCreateInstanceInput) SetAvailabilityZoneId(v string) *AvailabilityZoneForCreateInstanceInput {
+	s.AvailabilityZoneId = &v
+	return s
+}
+
+// SetK8sDomain sets the K8sDomain field's value.
+func (s *AvailabilityZoneForCreateInstanceInput) SetK8sDomain(v string) *AvailabilityZoneForCreateInstanceInput {
+	s.K8sDomain = &v
+	return s
+}
+
+// SetNodeNum sets the NodeNum field's value.
+func (s *AvailabilityZoneForCreateInstanceInput) SetNodeNum(v int32) *AvailabilityZoneForCreateInstanceInput {
+	s.NodeNum = &v
+	return s
+}
+
+// SetNodePoolName sets the NodePoolName field's value.
+func (s *AvailabilityZoneForCreateInstanceInput) SetNodePoolName(v string) *AvailabilityZoneForCreateInstanceInput {
+	s.NodePoolName = &v
+	return s
+}
+
+// SetSubnetID sets the SubnetID field's value.
+func (s *AvailabilityZoneForCreateInstanceInput) SetSubnetID(v string) *AvailabilityZoneForCreateInstanceInput {
+	s.SubnetID = &v
+	return s
+}
+
+// SetSubnetName sets the SubnetName field's value.
+func (s *AvailabilityZoneForCreateInstanceInput) SetSubnetName(v string) *AvailabilityZoneForCreateInstanceInput {
+	s.SubnetName = &v
+	return s
+}
+
+type BytestoreInfoForCreateInstanceInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Cluster *string `type:"string" json:",omitempty"`
+
+	Id *int64 `type:"int64" json:",omitempty"`
+
+	Pool *string `type:"string" json:",omitempty"`
+
+	Region *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s BytestoreInfoForCreateInstanceInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s BytestoreInfoForCreateInstanceInput) GoString() string {
+	return s.String()
+}
+
+// SetCluster sets the Cluster field's value.
+func (s *BytestoreInfoForCreateInstanceInput) SetCluster(v string) *BytestoreInfoForCreateInstanceInput {
+	s.Cluster = &v
+	return s
+}
+
+// SetId sets the Id field's value.
+func (s *BytestoreInfoForCreateInstanceInput) SetId(v int64) *BytestoreInfoForCreateInstanceInput {
+	s.Id = &v
+	return s
+}
+
+// SetPool sets the Pool field's value.
+func (s *BytestoreInfoForCreateInstanceInput) SetPool(v string) *BytestoreInfoForCreateInstanceInput {
+	s.Pool = &v
+	return s
+}
+
+// SetRegion sets the Region field's value.
+func (s *BytestoreInfoForCreateInstanceInput) SetRegion(v string) *BytestoreInfoForCreateInstanceInput {
+	s.Region = &v
+	return s
+}
+
 type CreateInstanceInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -296,6 +404,8 @@ type InfoForCreateInstanceInput struct {
 
 	AvailabilityZoneId *string `type:"string" json:",omitempty"`
 
+	AvailabilityZones []*AvailabilityZoneForCreateInstanceInput `type:"list" json:",omitempty"`
+
 	Bg3Link *string `type:"string" json:",omitempty"`
 
 	CreateTime *string `type:"string" json:",omitempty"`
@@ -334,6 +444,8 @@ type InfoForCreateInstanceInput struct {
 
 	Status *string `type:"string" json:",omitempty"`
 
+	StorageInfo *StorageInfoForCreateInstanceInput `type:"structure" json:",omitempty"`
+
 	SubnetID *string `type:"string" json:",omitempty"`
 
 	SubnetName *string `type:"string" json:",omitempty"`
@@ -360,6 +472,12 @@ func (s InfoForCreateInstanceInput) GoString() string {
 // SetAvailabilityZoneId sets the AvailabilityZoneId field's value.
 func (s *InfoForCreateInstanceInput) SetAvailabilityZoneId(v string) *InfoForCreateInstanceInput {
 	s.AvailabilityZoneId = &v
+	return s
+}
+
+// SetAvailabilityZones sets the AvailabilityZones field's value.
+func (s *InfoForCreateInstanceInput) SetAvailabilityZones(v []*AvailabilityZoneForCreateInstanceInput) *InfoForCreateInstanceInput {
+	s.AvailabilityZones = v
 	return s
 }
 
@@ -474,6 +592,12 @@ func (s *InfoForCreateInstanceInput) SetRegionId(v string) *InfoForCreateInstanc
 // SetStatus sets the Status field's value.
 func (s *InfoForCreateInstanceInput) SetStatus(v string) *InfoForCreateInstanceInput {
 	s.Status = &v
+	return s
+}
+
+// SetStorageInfo sets the StorageInfo field's value.
+func (s *InfoForCreateInstanceInput) SetStorageInfo(v *StorageInfoForCreateInstanceInput) *InfoForCreateInstanceInput {
+	s.StorageInfo = v
 	return s
 }
 
@@ -611,6 +735,36 @@ func (s *NetworkDescriptionForCreateInstanceInput) SetIPVersionType(v string) *N
 	return s
 }
 
+type StorageInfoForCreateInstanceInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	BytestoreInfo *BytestoreInfoForCreateInstanceInput `type:"structure" json:",omitempty"`
+
+	StorageType *string `type:"string" json:",omitempty" enum:"EnumOfStorageTypeForCreateInstanceInput"`
+}
+
+// String returns the string representation
+func (s StorageInfoForCreateInstanceInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s StorageInfoForCreateInstanceInput) GoString() string {
+	return s.String()
+}
+
+// SetBytestoreInfo sets the BytestoreInfo field's value.
+func (s *StorageInfoForCreateInstanceInput) SetBytestoreInfo(v *BytestoreInfoForCreateInstanceInput) *StorageInfoForCreateInstanceInput {
+	s.BytestoreInfo = v
+	return s
+}
+
+// SetStorageType sets the StorageType field's value.
+func (s *StorageInfoForCreateInstanceInput) SetStorageType(v string) *StorageInfoForCreateInstanceInput {
+	s.StorageType = &v
+	return s
+}
+
 type TagForCreateInstanceInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -640,3 +794,11 @@ func (s *TagForCreateInstanceInput) SetValue(v string) *TagForCreateInstanceInpu
 	s.Value = &v
 	return s
 }
+
+const (
+	// EnumOfStorageTypeForCreateInstanceInputMemory is a EnumOfStorageTypeForCreateInstanceInput enum value
+	EnumOfStorageTypeForCreateInstanceInputMemory = "Memory"
+
+	// EnumOfStorageTypeForCreateInstanceInputByteStore is a EnumOfStorageTypeForCreateInstanceInput enum value
+	EnumOfStorageTypeForCreateInstanceInputByteStore = "ByteStore"
+)
