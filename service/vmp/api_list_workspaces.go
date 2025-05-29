@@ -151,6 +151,8 @@ type FiltersForListWorkspacesInput struct {
 	InstanceTypeIds []*string `type:"list" json:",omitempty"`
 
 	Name *string `type:"string" json:",omitempty"`
+
+	Statuses []*string `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -181,6 +183,12 @@ func (s *FiltersForListWorkspacesInput) SetName(v string) *FiltersForListWorkspa
 	return s
 }
 
+// SetStatuses sets the Statuses field's value.
+func (s *FiltersForListWorkspacesInput) SetStatuses(v []*string) *FiltersForListWorkspacesInput {
+	s.Statuses = v
+	return s
+}
+
 type ItemForListWorkspacesOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -199,6 +207,8 @@ type ItemForListWorkspacesOutput struct {
 	OverdueReclaimTime *string `type:"string" json:",omitempty"`
 
 	ProjectName *string `type:"string" json:",omitempty"`
+
+	PrometheusPushIntranetEndpoint *string `type:"string" json:",omitempty"`
 
 	PrometheusQueryIntranetEndpoint *string `type:"string" json:",omitempty"`
 
@@ -266,6 +276,12 @@ func (s *ItemForListWorkspacesOutput) SetOverdueReclaimTime(v string) *ItemForLi
 // SetProjectName sets the ProjectName field's value.
 func (s *ItemForListWorkspacesOutput) SetProjectName(v string) *ItemForListWorkspacesOutput {
 	s.ProjectName = &v
+	return s
+}
+
+// SetPrometheusPushIntranetEndpoint sets the PrometheusPushIntranetEndpoint field's value.
+func (s *ItemForListWorkspacesOutput) SetPrometheusPushIntranetEndpoint(v string) *ItemForListWorkspacesOutput {
+	s.PrometheusPushIntranetEndpoint = &v
 	return s
 }
 
