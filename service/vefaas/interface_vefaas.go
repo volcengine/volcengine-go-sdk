@@ -54,6 +54,14 @@ type VEFAASAPI interface {
 	CreateKafkaTriggerWithContext(volcengine.Context, *CreateKafkaTriggerInput, ...request.Option) (*CreateKafkaTriggerOutput, error)
 	CreateKafkaTriggerRequest(*CreateKafkaTriggerInput) (*request.Request, *CreateKafkaTriggerOutput)
 
+	CreateSandboxCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateSandboxCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateSandboxCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateSandbox(*CreateSandboxInput) (*CreateSandboxOutput, error)
+	CreateSandboxWithContext(volcengine.Context, *CreateSandboxInput, ...request.Option) (*CreateSandboxOutput, error)
+	CreateSandboxRequest(*CreateSandboxInput) (*request.Request, *CreateSandboxOutput)
+
 	CreateTimerCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	CreateTimerCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	CreateTimerCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -93,6 +101,14 @@ type VEFAASAPI interface {
 	GenWebshellEndpoint(*GenWebshellEndpointInput) (*GenWebshellEndpointOutput, error)
 	GenWebshellEndpointWithContext(volcengine.Context, *GenWebshellEndpointInput, ...request.Option) (*GenWebshellEndpointOutput, error)
 	GenWebshellEndpointRequest(*GenWebshellEndpointInput) (*request.Request, *GenWebshellEndpointOutput)
+
+	GetCodeUploadAddressCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	GetCodeUploadAddressCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	GetCodeUploadAddressCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	GetCodeUploadAddress(*GetCodeUploadAddressInput) (*GetCodeUploadAddressOutput, error)
+	GetCodeUploadAddressWithContext(volcengine.Context, *GetCodeUploadAddressInput, ...request.Option) (*GetCodeUploadAddressOutput, error)
+	GetCodeUploadAddressRequest(*GetCodeUploadAddressInput) (*request.Request, *GetCodeUploadAddressOutput)
 
 	GetFunctionCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	GetFunctionCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -150,6 +166,14 @@ type VEFAASAPI interface {
 	GetTimerWithContext(volcengine.Context, *GetTimerInput, ...request.Option) (*GetTimerOutput, error)
 	GetTimerRequest(*GetTimerInput) (*request.Request, *GetTimerOutput)
 
+	KillSandboxCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	KillSandboxCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	KillSandboxCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	KillSandbox(*KillSandboxInput) (*KillSandboxOutput, error)
+	KillSandboxWithContext(volcengine.Context, *KillSandboxInput, ...request.Option) (*KillSandboxOutput, error)
+	KillSandboxRequest(*KillSandboxInput) (*request.Request, *KillSandboxOutput)
+
 	ListFunctionElasticScaleStrategyCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ListFunctionElasticScaleStrategyCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	ListFunctionElasticScaleStrategyCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -190,6 +214,14 @@ type VEFAASAPI interface {
 	ListRevisionsWithContext(volcengine.Context, *ListRevisionsInput, ...request.Option) (*ListRevisionsOutput, error)
 	ListRevisionsRequest(*ListRevisionsInput) (*request.Request, *ListRevisionsOutput)
 
+	ListSandboxesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListSandboxesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListSandboxesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListSandboxes(*ListSandboxesInput) (*ListSandboxesOutput, error)
+	ListSandboxesWithContext(volcengine.Context, *ListSandboxesInput, ...request.Option) (*ListSandboxesOutput, error)
+	ListSandboxesRequest(*ListSandboxesInput) (*request.Request, *ListSandboxesOutput)
+
 	ListTriggersCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ListTriggersCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	ListTriggersCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -206,6 +238,22 @@ type VEFAASAPI interface {
 	ReleaseWithContext(volcengine.Context, *ReleaseInput, ...request.Option) (*ReleaseOutput, error)
 	ReleaseRequest(*ReleaseInput) (*request.Request, *ReleaseOutput)
 
+	RunCodeCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	RunCodeCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	RunCodeCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	RunCode(*RunCodeInput) (*RunCodeOutput, error)
+	RunCodeWithContext(volcengine.Context, *RunCodeInput, ...request.Option) (*RunCodeOutput, error)
+	RunCodeRequest(*RunCodeInput) (*request.Request, *RunCodeOutput)
+
+	SetSandboxTimeoutCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	SetSandboxTimeoutCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	SetSandboxTimeoutCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	SetSandboxTimeout(*SetSandboxTimeoutInput) (*SetSandboxTimeoutOutput, error)
+	SetSandboxTimeoutWithContext(volcengine.Context, *SetSandboxTimeoutInput, ...request.Option) (*SetSandboxTimeoutOutput, error)
+	SetSandboxTimeoutRequest(*SetSandboxTimeoutInput) (*request.Request, *SetSandboxTimeoutOutput)
+
 	TerminateAsyncTaskCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	TerminateAsyncTaskCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	TerminateAsyncTaskCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -213,6 +261,14 @@ type VEFAASAPI interface {
 	TerminateAsyncTask(*TerminateAsyncTaskInput) (*TerminateAsyncTaskOutput, error)
 	TerminateAsyncTaskWithContext(volcengine.Context, *TerminateAsyncTaskInput, ...request.Option) (*TerminateAsyncTaskOutput, error)
 	TerminateAsyncTaskRequest(*TerminateAsyncTaskInput) (*request.Request, *TerminateAsyncTaskOutput)
+
+	TransitionSandboxCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	TransitionSandboxCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	TransitionSandboxCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	TransitionSandbox(*TransitionSandboxInput) (*TransitionSandboxOutput, error)
+	TransitionSandboxWithContext(volcengine.Context, *TransitionSandboxInput, ...request.Option) (*TransitionSandboxOutput, error)
+	TransitionSandboxRequest(*TransitionSandboxInput) (*request.Request, *TransitionSandboxOutput)
 
 	UpdateFunctionCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	UpdateFunctionCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
