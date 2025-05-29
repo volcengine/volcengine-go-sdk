@@ -77,9 +77,9 @@
 在桌面右键单击**此电脑**，选择**属性>高级系统设置>环境变量>系统变量/用户变量>新建**，完成以下配置：
 
 
-| 变量             | 示例                                                   |
-| ---------------- | ------------------------------------------------------ |
-| AccessKey Id     | 变量名：VVOLCSTACK_ACCESS_KEY_ID<br />变量值：*****     |
+| 变量             | 示例                                                  |
+| ---------------- | ----------------------------------------------------- |
+| AccessKey Id     | 变量名：VOLCSTACK_ACCESS_KEY_ID<br />变量值：*****     |
 | AccessKey Secret | 变量名：VOLCSTACK_SECRET_ACCESS_KEY<br />变量值：***** |
 | Session Token    | 变量名：VOLCSTACK_SESSION_TOKEN<br />变量值：*****     |
 
