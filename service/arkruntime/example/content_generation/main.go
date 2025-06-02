@@ -39,6 +39,7 @@ func main() {
 				// Role: volcengine.String("first_frame"),
 			},
 		},
+		// CallbackUrl: volcengine.String("CALLBACK_URL"),
 	}
 
 	createResponse, err := client.CreateContentGenerationTask(ctx, createReq)
