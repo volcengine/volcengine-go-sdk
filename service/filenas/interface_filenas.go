@@ -102,6 +102,14 @@ type FILENASAPI interface {
 	CreateSnapshotWithContext(volcengine.Context, *CreateSnapshotInput, ...request.Option) (*CreateSnapshotOutput, error)
 	CreateSnapshotRequest(*CreateSnapshotInput) (*request.Request, *CreateSnapshotOutput)
 
+	DeleteDataFlowCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeleteDataFlowCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeleteDataFlowCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeleteDataFlow(*DeleteDataFlowInput) (*DeleteDataFlowOutput, error)
+	DeleteDataFlowWithContext(volcengine.Context, *DeleteDataFlowInput, ...request.Option) (*DeleteDataFlowOutput, error)
+	DeleteDataFlowRequest(*DeleteDataFlowInput) (*request.Request, *DeleteDataFlowOutput)
+
 	DeleteDataFlowTaskCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DeleteDataFlowTaskCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DeleteDataFlowTaskCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
