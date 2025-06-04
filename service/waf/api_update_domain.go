@@ -343,36 +343,6 @@ func (s *HeadersConfigForUpdateDomainInput) SetStatisticalKeyList(v []*string) *
 	return s
 }
 
-type LLMPathInfoForUpdateDomainInput struct {
-	_ struct{} `type:"structure" json:",omitempty"`
-
-	Path *string `type:"string" json:",omitempty"`
-
-	TokenLocation *string `type:"string" json:",omitempty"`
-}
-
-// String returns the string representation
-func (s LLMPathInfoForUpdateDomainInput) String() string {
-	return volcengineutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s LLMPathInfoForUpdateDomainInput) GoString() string {
-	return s.String()
-}
-
-// SetPath sets the Path field's value.
-func (s *LLMPathInfoForUpdateDomainInput) SetPath(v string) *LLMPathInfoForUpdateDomainInput {
-	s.Path = &v
-	return s
-}
-
-// SetTokenLocation sets the TokenLocation field's value.
-func (s *LLMPathInfoForUpdateDomainInput) SetTokenLocation(v string) *LLMPathInfoForUpdateDomainInput {
-	s.TokenLocation = &v
-	return s
-}
-
 type ProtocolPortsForUpdateDomainInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -463,10 +433,6 @@ type UpdateDomainInput struct {
 	KeepAliveTimeOut *int32 `type:"int32" json:",omitempty"`
 
 	LBAlgorithm *string `type:"string" json:",omitempty"`
-
-	LLMAvailable *bool `type:"boolean" json:",omitempty"`
-
-	LLMPathInfo []*LLMPathInfoForUpdateDomainInput `type:"list" json:",omitempty"`
 
 	ProjectName *string `type:"string" json:",omitempty"`
 
@@ -638,18 +604,6 @@ func (s *UpdateDomainInput) SetKeepAliveTimeOut(v int32) *UpdateDomainInput {
 // SetLBAlgorithm sets the LBAlgorithm field's value.
 func (s *UpdateDomainInput) SetLBAlgorithm(v string) *UpdateDomainInput {
 	s.LBAlgorithm = &v
-	return s
-}
-
-// SetLLMAvailable sets the LLMAvailable field's value.
-func (s *UpdateDomainInput) SetLLMAvailable(v bool) *UpdateDomainInput {
-	s.LLMAvailable = &v
-	return s
-}
-
-// SetLLMPathInfo sets the LLMPathInfo field's value.
-func (s *UpdateDomainInput) SetLLMPathInfo(v []*LLMPathInfoForUpdateDomainInput) *UpdateDomainInput {
-	s.LLMPathInfo = v
 	return s
 }
 

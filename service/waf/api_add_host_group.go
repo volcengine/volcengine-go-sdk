@@ -152,6 +152,8 @@ type AddHostGroupInput struct {
 
 	// Name is a required field
 	Name *string `type:"string" json:",omitempty" required:"true"`
+
+	ProjectName *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -192,6 +194,12 @@ func (s *AddHostGroupInput) SetHostList(v []*string) *AddHostGroupInput {
 // SetName sets the Name field's value.
 func (s *AddHostGroupInput) SetName(v string) *AddHostGroupInput {
 	s.Name = &v
+	return s
+}
+
+// SetProjectName sets the ProjectName field's value.
+func (s *AddHostGroupInput) SetProjectName(v string) *AddHostGroupInput {
+	s.ProjectName = &v
 	return s
 }
 

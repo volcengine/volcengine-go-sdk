@@ -232,8 +232,6 @@ type CreateCCRuleInput struct {
 
 	AccurateGroup *AccurateGroupForCreateCCRuleInput `type:"structure" json:",omitempty"`
 
-	AccurateGroupPriority *int32 `type:"int32" json:",omitempty"`
-
 	CCType *int32 `type:"int32" json:",omitempty"`
 
 	CountTime *int32 `type:"int32" json:",omitempty"`
@@ -318,12 +316,6 @@ func (s *CreateCCRuleInput) Validate() error {
 // SetAccurateGroup sets the AccurateGroup field's value.
 func (s *CreateCCRuleInput) SetAccurateGroup(v *AccurateGroupForCreateCCRuleInput) *CreateCCRuleInput {
 	s.AccurateGroup = v
-	return s
-}
-
-// SetAccurateGroupPriority sets the AccurateGroupPriority field's value.
-func (s *CreateCCRuleInput) SetAccurateGroupPriority(v int32) *CreateCCRuleInput {
-	s.AccurateGroupPriority = &v
 	return s
 }
 
