@@ -153,11 +153,9 @@ type ModifyDBInstanceChargeTypeInput struct {
 
 	InstanceIds []*string `type:"list" json:",omitempty"`
 
-	// Period is a required field
-	Period *int32 `type:"int32" json:",omitempty" required:"true"`
+	Period *int32 `type:"int32" json:",omitempty"`
 
-	// PeriodUnit is a required field
-	PeriodUnit *string `type:"string" json:",omitempty" required:"true" enum:"EnumOfPeriodUnitForModifyDBInstanceChargeTypeInput"`
+	PeriodUnit *string `type:"string" json:",omitempty" enum:"EnumOfPeriodUnitForModifyDBInstanceChargeTypeInput"`
 }
 
 // String returns the string representation
@@ -175,12 +173,6 @@ func (s *ModifyDBInstanceChargeTypeInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "ModifyDBInstanceChargeTypeInput"}
 	if s.ChargeType == nil {
 		invalidParams.Add(request.NewErrParamRequired("ChargeType"))
-	}
-	if s.Period == nil {
-		invalidParams.Add(request.NewErrParamRequired("Period"))
-	}
-	if s.PeriodUnit == nil {
-		invalidParams.Add(request.NewErrParamRequired("PeriodUnit"))
 	}
 
 	if invalidParams.Len() > 0 {
