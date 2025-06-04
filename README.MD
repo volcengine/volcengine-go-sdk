@@ -28,51 +28,53 @@ config = volcengine.NewConfig().
 #### 代码示例
 代码示例在example目录下
 
-	package main
+```go
+package main
 
-    import (
-    "fmt"
+import (
+	"fmt"
 
 	"github.com/volcengine/volcengine-go-sdk/service/vpc"
 	"github.com/volcengine/volcengine-go-sdk/volcengine"
 	"github.com/volcengine/volcengine-go-sdk/volcengine/credentials"
 	"github.com/volcengine/volcengine-go-sdk/volcengine/session"
-    )
+)
 
-    func main() {
-     var (
-      ak     string
-      sk     string
-      region string
-      config *volcengine.Config
-      sess   *session.Session
-      client *vpc.VPC
-      resp   *vpc.DescribeVpcsOutput
-      err    error
-     )
-     ak = "your ak"
-     sk = "your sk"
-     region = "cn-beijing"
-     config = volcengine.NewConfig().
-             WithCredentials(credentials.NewStaticCredentials(ak, sk, "")).
-             WithRegion(region)
+func main() {
+	var (
+		ak     string
+		sk     string
+		region string
+		config *volcengine.Config
+		sess   *session.Session
+		client *vpc.VPC
+		resp   *vpc.DescribeVpcsOutput
+		err    error
+	)
+	ak = "your ak"
+	sk = "your sk"
+	region = "cn-beijing"
+	config = volcengine.NewConfig().
+		WithCredentials(credentials.NewStaticCredentials(ak, sk, "")).
+		WithRegion(region)
 
-	 sess, err = session.NewSession(config)
-     if err != nil {
+	sess, err = session.NewSession(config)
+	if err != nil {
 		panic(err)
-	 }
+	}
 
-	 client = vpc.New(sess)
+	client = vpc.New(sess)
 
-	 resp, err = client.DescribeVpcs(&vpc.DescribeVpcsInput{
+	resp, err = client.DescribeVpcs(&vpc.DescribeVpcsInput{
 		PageNumber: volcengine.Int64(1),
 		PageSize:   volcengine.Int64(10),
-	 })
+	})
 
-	 if err != nil {
+	if err != nil {
 		panic(err)
-	 }
+	}
 
-	 fmt.Println(&resp)
+	fmt.Println(&resp)
 
-     }
+}
+```
