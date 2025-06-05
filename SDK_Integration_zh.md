@@ -236,7 +236,8 @@ func main() {
 为了简化用户配置，Vocoengine 提供了灵活的 Endpoint 自动寻址机制。用户无需手动指定服务地址，SDK 会根据服务名称、区域（Region）等信息自动拼接出合理的访问地址，并支持用户自定义DualStack（双栈）支持。  
 ### Endpoint默认寻址 
 **Endpoint默认寻址逻辑**
-1. 是否自举Region  
+1. 是否自动寻址Region  
+内置自动寻址Region列表代码:[./volcengine/volcengineutil/url.go#bootstrapRegion](./volcengine/volcengineutil/url.go#L463)  
 SDK 仅对部分预设区域（如 cn-beijing-autodriving、ap-southeast-2）或用户配置的区域执行自动寻址；其他区域默认返回Endpoint：open.volcengineapi.com。  
 用户可通过环境变量 VOLC_BOOTSTRAP_REGION_LIST_CONF 或代码中自定义 customBootstrapRegion 来扩展控制区域列表。
 2. DualStack 支持（IPv6）  
@@ -263,7 +264,7 @@ func main() {
         WithBootstrapRegion(map[string]struct{}{
             "cn-beijing-autodriving": {},
             "cn-shanghai-autodriving": {},
-        }) // 自定义自举Region；也可以使用环境变量VOLC_BOOTSTRAP_REGION_LIST_CONF
+        }) // 自定义自动寻址Region列表；也可以使用环境变量VOLC_BOOTSTRAP_REGION_LIST_CONF
     sess, err := session.NewSession(config)
     if err != nil {
         panic(err)
