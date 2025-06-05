@@ -228,6 +228,8 @@ type ListHostGroupInput struct {
 
 	PageSize *int32 `type:"int32" json:",omitempty"`
 
+	ProjectName *string `type:"string" json:",omitempty"`
+
 	RuleTag *string `type:"string" json:",omitempty"`
 
 	TimeOrderBy *string `type:"string" json:",omitempty"`
@@ -276,6 +278,12 @@ func (s *ListHostGroupInput) SetPage(v int32) *ListHostGroupInput {
 // SetPageSize sets the PageSize field's value.
 func (s *ListHostGroupInput) SetPageSize(v int32) *ListHostGroupInput {
 	s.PageSize = &v
+	return s
+}
+
+// SetProjectName sets the ProjectName field's value.
+func (s *ListHostGroupInput) SetProjectName(v string) *ListHostGroupInput {
+	s.ProjectName = &v
 	return s
 }
 

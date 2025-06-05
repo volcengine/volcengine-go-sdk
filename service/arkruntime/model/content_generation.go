@@ -16,8 +16,9 @@ const (
 )
 
 type CreateContentGenerationTaskRequest struct {
-	Model   string                                `json:"model"`
-	Content []*CreateContentGenerationContentItem `json:"content"`
+	Model       string                                `json:"model"`
+	Content     []*CreateContentGenerationContentItem `json:"content"`
+	CallbackUrl *string                               `json:"callback_url,omitempty"`
 }
 
 type CreateContentGenerationTaskResponse struct {

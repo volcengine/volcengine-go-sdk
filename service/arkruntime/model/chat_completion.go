@@ -34,6 +34,7 @@ type ChatCompletionMessageContentPartType string
 const (
 	ChatCompletionMessageContentPartTypeText     ChatCompletionMessageContentPartType = "text"
 	ChatCompletionMessageContentPartTypeImageURL ChatCompletionMessageContentPartType = "image_url"
+	ChatCompletionMessageContentPartTypeVideoURL ChatCompletionMessageContentPartType = "video_url"
 )
 
 type ChatCompletionMessageContentPart struct {

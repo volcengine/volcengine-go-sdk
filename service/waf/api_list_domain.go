@@ -354,7 +354,7 @@ type DataForListDomainOutput struct {
 
 	ClbServerId *string `type:"string" json:",omitempty"`
 
-	ClientIPLocation *string `type:"string" json:",omitempty"`
+	ClientIPLocation *int32 `type:"int32" json:",omitempty"`
 
 	ClientMaxBodySize *int32 `type:"int32" json:",omitempty"`
 
@@ -598,7 +598,7 @@ func (s *DataForListDomainOutput) SetClbServerId(v string) *DataForListDomainOut
 }
 
 // SetClientIPLocation sets the ClientIPLocation field's value.
-func (s *DataForListDomainOutput) SetClientIPLocation(v string) *DataForListDomainOutput {
+func (s *DataForListDomainOutput) SetClientIPLocation(v int32) *DataForListDomainOutput {
 	s.ClientIPLocation = &v
 	return s
 }
@@ -934,6 +934,8 @@ type ListDomainInput struct {
 	// PageSize is a required field
 	PageSize *int32 `type:"int32" json:",omitempty" required:"true"`
 
+	ProjectName *string `type:"string" json:",omitempty"`
+
 	PublicRealServer []*int32 `type:"list" json:",omitempty"`
 
 	// Region is a required field
@@ -1044,6 +1046,12 @@ func (s *ListDomainInput) SetPage(v int32) *ListDomainInput {
 // SetPageSize sets the PageSize field's value.
 func (s *ListDomainInput) SetPageSize(v int32) *ListDomainInput {
 	s.PageSize = &v
+	return s
+}
+
+// SetProjectName sets the ProjectName field's value.
+func (s *ListDomainInput) SetProjectName(v string) *ListDomainInput {
+	s.ProjectName = &v
 	return s
 }
 

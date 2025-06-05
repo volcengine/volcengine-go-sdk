@@ -391,6 +391,10 @@ var defaultEndpoint = map[string]*ServiceEndpointInfo{
 		Service:  "resourcecenter",
 		IsGlobal: true,
 	},
+	"gtm": {
+		Service:  "gtm",
+		IsGlobal: false,
+	},
 }
 
 func standardizeDomainServiceCode(serviceCode string) string {
