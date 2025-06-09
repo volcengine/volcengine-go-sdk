@@ -22,13 +22,13 @@ const opDescribeDBAccountsCommon = "DescribeDBAccounts"
 // See DescribeDBAccountsCommon for more information on using the DescribeDBAccountsCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the DescribeDBAccountsCommonRequest method.
-//    req, resp := client.DescribeDBAccountsCommonRequest(params)
+//	// Example sending a request using the DescribeDBAccountsCommonRequest method.
+//	req, resp := client.DescribeDBAccountsCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *VEDBM) DescribeDBAccountsCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeDBAccountsCommon,
@@ -89,13 +89,13 @@ const opDescribeDBAccounts = "DescribeDBAccounts"
 // See DescribeDBAccounts for more information on using the DescribeDBAccounts
 // API call, and error handling.
 //
-//    // Example sending a request using the DescribeDBAccountsRequest method.
-//    req, resp := client.DescribeDBAccountsRequest(params)
+//	// Example sending a request using the DescribeDBAccountsRequest method.
+//	req, resp := client.DescribeDBAccountsRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *VEDBM) DescribeDBAccountsRequest(input *DescribeDBAccountsInput) (req *request.Request, output *DescribeDBAccountsOutput) {
 	op := &request.Operation{
 		Name:       opDescribeDBAccounts,
@@ -146,6 +146,8 @@ func (c *VEDBM) DescribeDBAccountsWithContext(ctx volcengine.Context, input *Des
 type AccountForDescribeDBAccountsOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	AccountDesc *string `type:"string" json:",omitempty"`
+
 	AccountName *string `type:"string" json:",omitempty"`
 
 	AccountPrivileges []*AccountPrivilegeForDescribeDBAccountsOutput `type:"list" json:",omitempty"`
@@ -161,6 +163,12 @@ func (s AccountForDescribeDBAccountsOutput) String() string {
 // GoString returns the string representation
 func (s AccountForDescribeDBAccountsOutput) GoString() string {
 	return s.String()
+}
+
+// SetAccountDesc sets the AccountDesc field's value.
+func (s *AccountForDescribeDBAccountsOutput) SetAccountDesc(v string) *AccountForDescribeDBAccountsOutput {
+	s.AccountDesc = &v
+	return s
 }
 
 // SetAccountName sets the AccountName field's value.
@@ -312,11 +320,8 @@ func (s *DescribeDBAccountsOutput) SetTotal(v int32) *DescribeDBAccountsOutput {
 }
 
 const (
-	// EnumOfAccountPrivilegeForDescribeDBAccountsOutputReadWrite is a EnumOfAccountPrivilegeForDescribeDBAccountsOutput enum value
-	EnumOfAccountPrivilegeForDescribeDBAccountsOutputReadWrite = "ReadWrite"
-
-	// EnumOfAccountPrivilegeForDescribeDBAccountsOutputReadOnly is a EnumOfAccountPrivilegeForDescribeDBAccountsOutput enum value
-	EnumOfAccountPrivilegeForDescribeDBAccountsOutputReadOnly = "ReadOnly"
+	// EnumOfAccountPrivilegeForDescribeDBAccountsOutputCustom is a EnumOfAccountPrivilegeForDescribeDBAccountsOutput enum value
+	EnumOfAccountPrivilegeForDescribeDBAccountsOutputCustom = "Custom"
 
 	// EnumOfAccountPrivilegeForDescribeDBAccountsOutputDdlonly is a EnumOfAccountPrivilegeForDescribeDBAccountsOutput enum value
 	EnumOfAccountPrivilegeForDescribeDBAccountsOutputDdlonly = "DDLOnly"
@@ -324,14 +329,17 @@ const (
 	// EnumOfAccountPrivilegeForDescribeDBAccountsOutputDmlonly is a EnumOfAccountPrivilegeForDescribeDBAccountsOutput enum value
 	EnumOfAccountPrivilegeForDescribeDBAccountsOutputDmlonly = "DMLOnly"
 
-	// EnumOfAccountPrivilegeForDescribeDBAccountsOutputCustom is a EnumOfAccountPrivilegeForDescribeDBAccountsOutput enum value
-	EnumOfAccountPrivilegeForDescribeDBAccountsOutputCustom = "Custom"
+	// EnumOfAccountPrivilegeForDescribeDBAccountsOutputReadOnly is a EnumOfAccountPrivilegeForDescribeDBAccountsOutput enum value
+	EnumOfAccountPrivilegeForDescribeDBAccountsOutputReadOnly = "ReadOnly"
+
+	// EnumOfAccountPrivilegeForDescribeDBAccountsOutputReadWrite is a EnumOfAccountPrivilegeForDescribeDBAccountsOutput enum value
+	EnumOfAccountPrivilegeForDescribeDBAccountsOutputReadWrite = "ReadWrite"
 )
 
 const (
-	// EnumOfAccountTypeForDescribeDBAccountsOutputSuper is a EnumOfAccountTypeForDescribeDBAccountsOutput enum value
-	EnumOfAccountTypeForDescribeDBAccountsOutputSuper = "Super"
-
 	// EnumOfAccountTypeForDescribeDBAccountsOutputNormal is a EnumOfAccountTypeForDescribeDBAccountsOutput enum value
 	EnumOfAccountTypeForDescribeDBAccountsOutputNormal = "Normal"
+
+	// EnumOfAccountTypeForDescribeDBAccountsOutputSuper is a EnumOfAccountTypeForDescribeDBAccountsOutput enum value
+	EnumOfAccountTypeForDescribeDBAccountsOutputSuper = "Super"
 )

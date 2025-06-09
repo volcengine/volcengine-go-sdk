@@ -22,13 +22,13 @@ const opModifyDBEndpointCommon = "ModifyDBEndpoint"
 // See ModifyDBEndpointCommon for more information on using the ModifyDBEndpointCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the ModifyDBEndpointCommonRequest method.
-//    req, resp := client.ModifyDBEndpointCommonRequest(params)
+//	// Example sending a request using the ModifyDBEndpointCommonRequest method.
+//	req, resp := client.ModifyDBEndpointCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *VEDBM) ModifyDBEndpointCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opModifyDBEndpointCommon,
@@ -89,13 +89,13 @@ const opModifyDBEndpoint = "ModifyDBEndpoint"
 // See ModifyDBEndpoint for more information on using the ModifyDBEndpoint
 // API call, and error handling.
 //
-//    // Example sending a request using the ModifyDBEndpointRequest method.
-//    req, resp := client.ModifyDBEndpointRequest(params)
+//	// Example sending a request using the ModifyDBEndpointRequest method.
+//	req, resp := client.ModifyDBEndpointRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *VEDBM) ModifyDBEndpointRequest(input *ModifyDBEndpointInput) (req *request.Request, output *ModifyDBEndpointOutput) {
 	op := &request.Operation{
 		Name:       opModifyDBEndpoint,
@@ -291,19 +291,19 @@ const (
 	// EnumOfConsistLevelForModifyDBEndpointInputEventual is a EnumOfConsistLevelForModifyDBEndpointInput enum value
 	EnumOfConsistLevelForModifyDBEndpointInputEventual = "Eventual"
 
-	// EnumOfConsistLevelForModifyDBEndpointInputSession is a EnumOfConsistLevelForModifyDBEndpointInput enum value
-	EnumOfConsistLevelForModifyDBEndpointInputSession = "Session"
-
 	// EnumOfConsistLevelForModifyDBEndpointInputGlobal is a EnumOfConsistLevelForModifyDBEndpointInput enum value
 	EnumOfConsistLevelForModifyDBEndpointInputGlobal = "Global"
+
+	// EnumOfConsistLevelForModifyDBEndpointInputSession is a EnumOfConsistLevelForModifyDBEndpointInput enum value
+	EnumOfConsistLevelForModifyDBEndpointInputSession = "Session"
 )
 
 const (
-	// EnumOfConsistTimeoutActionForModifyDBEndpointInputReturnError is a EnumOfConsistTimeoutActionForModifyDBEndpointInput enum value
-	EnumOfConsistTimeoutActionForModifyDBEndpointInputReturnError = "ReturnError"
-
 	// EnumOfConsistTimeoutActionForModifyDBEndpointInputReadMaster is a EnumOfConsistTimeoutActionForModifyDBEndpointInput enum value
 	EnumOfConsistTimeoutActionForModifyDBEndpointInputReadMaster = "ReadMaster"
+
+	// EnumOfConsistTimeoutActionForModifyDBEndpointInputReturnError is a EnumOfConsistTimeoutActionForModifyDBEndpointInput enum value
+	EnumOfConsistTimeoutActionForModifyDBEndpointInputReturnError = "ReturnError"
 )
 
 const (

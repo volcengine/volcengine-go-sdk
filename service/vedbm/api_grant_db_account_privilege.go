@@ -22,13 +22,13 @@ const opGrantDBAccountPrivilegeCommon = "GrantDBAccountPrivilege"
 // See GrantDBAccountPrivilegeCommon for more information on using the GrantDBAccountPrivilegeCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the GrantDBAccountPrivilegeCommonRequest method.
-//    req, resp := client.GrantDBAccountPrivilegeCommonRequest(params)
+//	// Example sending a request using the GrantDBAccountPrivilegeCommonRequest method.
+//	req, resp := client.GrantDBAccountPrivilegeCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *VEDBM) GrantDBAccountPrivilegeCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opGrantDBAccountPrivilegeCommon,
@@ -89,13 +89,13 @@ const opGrantDBAccountPrivilege = "GrantDBAccountPrivilege"
 // See GrantDBAccountPrivilege for more information on using the GrantDBAccountPrivilege
 // API call, and error handling.
 //
-//    // Example sending a request using the GrantDBAccountPrivilegeRequest method.
-//    req, resp := client.GrantDBAccountPrivilegeRequest(params)
+//	// Example sending a request using the GrantDBAccountPrivilegeRequest method.
+//	req, resp := client.GrantDBAccountPrivilegeRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *VEDBM) GrantDBAccountPrivilegeRequest(input *GrantDBAccountPrivilegeInput) (req *request.Request, output *GrantDBAccountPrivilegeOutput) {
 	op := &request.Operation{
 		Name:       opGrantDBAccountPrivilege,
@@ -254,11 +254,8 @@ func (s GrantDBAccountPrivilegeOutput) GoString() string {
 }
 
 const (
-	// EnumOfAccountPrivilegeForGrantDBAccountPrivilegeInputReadWrite is a EnumOfAccountPrivilegeForGrantDBAccountPrivilegeInput enum value
-	EnumOfAccountPrivilegeForGrantDBAccountPrivilegeInputReadWrite = "ReadWrite"
-
-	// EnumOfAccountPrivilegeForGrantDBAccountPrivilegeInputReadOnly is a EnumOfAccountPrivilegeForGrantDBAccountPrivilegeInput enum value
-	EnumOfAccountPrivilegeForGrantDBAccountPrivilegeInputReadOnly = "ReadOnly"
+	// EnumOfAccountPrivilegeForGrantDBAccountPrivilegeInputCustom is a EnumOfAccountPrivilegeForGrantDBAccountPrivilegeInput enum value
+	EnumOfAccountPrivilegeForGrantDBAccountPrivilegeInputCustom = "Custom"
 
 	// EnumOfAccountPrivilegeForGrantDBAccountPrivilegeInputDdlonly is a EnumOfAccountPrivilegeForGrantDBAccountPrivilegeInput enum value
 	EnumOfAccountPrivilegeForGrantDBAccountPrivilegeInputDdlonly = "DDLOnly"
@@ -266,6 +263,9 @@ const (
 	// EnumOfAccountPrivilegeForGrantDBAccountPrivilegeInputDmlonly is a EnumOfAccountPrivilegeForGrantDBAccountPrivilegeInput enum value
 	EnumOfAccountPrivilegeForGrantDBAccountPrivilegeInputDmlonly = "DMLOnly"
 
-	// EnumOfAccountPrivilegeForGrantDBAccountPrivilegeInputCustom is a EnumOfAccountPrivilegeForGrantDBAccountPrivilegeInput enum value
-	EnumOfAccountPrivilegeForGrantDBAccountPrivilegeInputCustom = "Custom"
+	// EnumOfAccountPrivilegeForGrantDBAccountPrivilegeInputReadOnly is a EnumOfAccountPrivilegeForGrantDBAccountPrivilegeInput enum value
+	EnumOfAccountPrivilegeForGrantDBAccountPrivilegeInputReadOnly = "ReadOnly"
+
+	// EnumOfAccountPrivilegeForGrantDBAccountPrivilegeInputReadWrite is a EnumOfAccountPrivilegeForGrantDBAccountPrivilegeInput enum value
+	EnumOfAccountPrivilegeForGrantDBAccountPrivilegeInputReadWrite = "ReadWrite"
 )
