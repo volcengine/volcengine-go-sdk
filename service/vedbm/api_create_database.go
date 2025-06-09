@@ -22,13 +22,13 @@ const opCreateDatabaseCommon = "CreateDatabase"
 // See CreateDatabaseCommon for more information on using the CreateDatabaseCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the CreateDatabaseCommonRequest method.
-//    req, resp := client.CreateDatabaseCommonRequest(params)
+//	// Example sending a request using the CreateDatabaseCommonRequest method.
+//	req, resp := client.CreateDatabaseCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *VEDBM) CreateDatabaseCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opCreateDatabaseCommon,
@@ -89,13 +89,13 @@ const opCreateDatabase = "CreateDatabase"
 // See CreateDatabase for more information on using the CreateDatabase
 // API call, and error handling.
 //
-//    // Example sending a request using the CreateDatabaseRequest method.
-//    req, resp := client.CreateDatabaseRequest(params)
+//	// Example sending a request using the CreateDatabaseRequest method.
+//	req, resp := client.CreateDatabaseRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *VEDBM) CreateDatabaseRequest(input *CreateDatabaseInput) (req *request.Request, output *CreateDatabaseOutput) {
 	op := &request.Operation{
 		Name:       opCreateDatabase,
@@ -148,6 +148,8 @@ type CreateDatabaseInput struct {
 
 	CharacterSetName *string `type:"string" json:",omitempty" enum:"EnumOfCharacterSetNameForCreateDatabaseInput"`
 
+	DBDesc *string `type:"string" json:",omitempty"`
+
 	// DBName is a required field
 	DBName *string `type:"string" json:",omitempty" required:"true"`
 
@@ -186,6 +188,12 @@ func (s *CreateDatabaseInput) Validate() error {
 // SetCharacterSetName sets the CharacterSetName field's value.
 func (s *CreateDatabaseInput) SetCharacterSetName(v string) *CreateDatabaseInput {
 	s.CharacterSetName = &v
+	return s
+}
+
+// SetDBDesc sets the DBDesc field's value.
+func (s *CreateDatabaseInput) SetDBDesc(v string) *CreateDatabaseInput {
+	s.DBDesc = &v
 	return s
 }
 
@@ -262,11 +270,8 @@ func (s *DatabasesPrivilegeForCreateDatabaseInput) SetAccountPrivilegeDetail(v s
 }
 
 const (
-	// EnumOfAccountPrivilegeForCreateDatabaseInputReadWrite is a EnumOfAccountPrivilegeForCreateDatabaseInput enum value
-	EnumOfAccountPrivilegeForCreateDatabaseInputReadWrite = "ReadWrite"
-
-	// EnumOfAccountPrivilegeForCreateDatabaseInputReadOnly is a EnumOfAccountPrivilegeForCreateDatabaseInput enum value
-	EnumOfAccountPrivilegeForCreateDatabaseInputReadOnly = "ReadOnly"
+	// EnumOfAccountPrivilegeForCreateDatabaseInputCustom is a EnumOfAccountPrivilegeForCreateDatabaseInput enum value
+	EnumOfAccountPrivilegeForCreateDatabaseInputCustom = "Custom"
 
 	// EnumOfAccountPrivilegeForCreateDatabaseInputDdlonly is a EnumOfAccountPrivilegeForCreateDatabaseInput enum value
 	EnumOfAccountPrivilegeForCreateDatabaseInputDdlonly = "DDLOnly"
@@ -274,20 +279,23 @@ const (
 	// EnumOfAccountPrivilegeForCreateDatabaseInputDmlonly is a EnumOfAccountPrivilegeForCreateDatabaseInput enum value
 	EnumOfAccountPrivilegeForCreateDatabaseInputDmlonly = "DMLOnly"
 
-	// EnumOfAccountPrivilegeForCreateDatabaseInputCustom is a EnumOfAccountPrivilegeForCreateDatabaseInput enum value
-	EnumOfAccountPrivilegeForCreateDatabaseInputCustom = "Custom"
+	// EnumOfAccountPrivilegeForCreateDatabaseInputReadOnly is a EnumOfAccountPrivilegeForCreateDatabaseInput enum value
+	EnumOfAccountPrivilegeForCreateDatabaseInputReadOnly = "ReadOnly"
+
+	// EnumOfAccountPrivilegeForCreateDatabaseInputReadWrite is a EnumOfAccountPrivilegeForCreateDatabaseInput enum value
+	EnumOfAccountPrivilegeForCreateDatabaseInputReadWrite = "ReadWrite"
 )
 
 const (
-	// EnumOfCharacterSetNameForCreateDatabaseInputUtf8mb4 is a EnumOfCharacterSetNameForCreateDatabaseInput enum value
-	EnumOfCharacterSetNameForCreateDatabaseInputUtf8mb4 = "utf8mb4"
-
-	// EnumOfCharacterSetNameForCreateDatabaseInputUtf8 is a EnumOfCharacterSetNameForCreateDatabaseInput enum value
-	EnumOfCharacterSetNameForCreateDatabaseInputUtf8 = "utf8"
+	// EnumOfCharacterSetNameForCreateDatabaseInputAscii is a EnumOfCharacterSetNameForCreateDatabaseInput enum value
+	EnumOfCharacterSetNameForCreateDatabaseInputAscii = "ascii"
 
 	// EnumOfCharacterSetNameForCreateDatabaseInputLatin1 is a EnumOfCharacterSetNameForCreateDatabaseInput enum value
 	EnumOfCharacterSetNameForCreateDatabaseInputLatin1 = "latin1"
 
-	// EnumOfCharacterSetNameForCreateDatabaseInputAscii is a EnumOfCharacterSetNameForCreateDatabaseInput enum value
-	EnumOfCharacterSetNameForCreateDatabaseInputAscii = "ascii"
+	// EnumOfCharacterSetNameForCreateDatabaseInputUtf8 is a EnumOfCharacterSetNameForCreateDatabaseInput enum value
+	EnumOfCharacterSetNameForCreateDatabaseInputUtf8 = "utf8"
+
+	// EnumOfCharacterSetNameForCreateDatabaseInputUtf8mb4 is a EnumOfCharacterSetNameForCreateDatabaseInput enum value
+	EnumOfCharacterSetNameForCreateDatabaseInputUtf8mb4 = "utf8mb4"
 )

@@ -22,13 +22,13 @@ const opDescribeDatabasesCommon = "DescribeDatabases"
 // See DescribeDatabasesCommon for more information on using the DescribeDatabasesCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the DescribeDatabasesCommonRequest method.
-//    req, resp := client.DescribeDatabasesCommonRequest(params)
+//	// Example sending a request using the DescribeDatabasesCommonRequest method.
+//	req, resp := client.DescribeDatabasesCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *VEDBM) DescribeDatabasesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeDatabasesCommon,
@@ -89,13 +89,13 @@ const opDescribeDatabases = "DescribeDatabases"
 // See DescribeDatabases for more information on using the DescribeDatabases
 // API call, and error handling.
 //
-//    // Example sending a request using the DescribeDatabasesRequest method.
-//    req, resp := client.DescribeDatabasesRequest(params)
+//	// Example sending a request using the DescribeDatabasesRequest method.
+//	req, resp := client.DescribeDatabasesRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *VEDBM) DescribeDatabasesRequest(input *DescribeDatabasesInput) (req *request.Request, output *DescribeDatabasesOutput) {
 	op := &request.Operation{
 		Name:       opDescribeDatabases,
@@ -148,6 +148,8 @@ type DatabaseForDescribeDatabasesOutput struct {
 
 	CharacterSetName *string `type:"string" json:",omitempty" enum:"EnumOfCharacterSetNameForDescribeDatabasesOutput"`
 
+	DBDesc *string `type:"string" json:",omitempty"`
+
 	DBName *string `type:"string" json:",omitempty"`
 
 	DatabasesPrivileges []*DatabasesPrivilegeForDescribeDatabasesOutput `type:"list" json:",omitempty"`
@@ -166,6 +168,12 @@ func (s DatabaseForDescribeDatabasesOutput) GoString() string {
 // SetCharacterSetName sets the CharacterSetName field's value.
 func (s *DatabaseForDescribeDatabasesOutput) SetCharacterSetName(v string) *DatabaseForDescribeDatabasesOutput {
 	s.CharacterSetName = &v
+	return s
+}
+
+// SetDBDesc sets the DBDesc field's value.
+func (s *DatabaseForDescribeDatabasesOutput) SetDBDesc(v string) *DatabaseForDescribeDatabasesOutput {
+	s.DBDesc = &v
 	return s
 }
 
@@ -312,11 +320,8 @@ func (s *DescribeDatabasesOutput) SetTotal(v int32) *DescribeDatabasesOutput {
 }
 
 const (
-	// EnumOfAccountPrivilegeForDescribeDatabasesOutputReadWrite is a EnumOfAccountPrivilegeForDescribeDatabasesOutput enum value
-	EnumOfAccountPrivilegeForDescribeDatabasesOutputReadWrite = "ReadWrite"
-
-	// EnumOfAccountPrivilegeForDescribeDatabasesOutputReadOnly is a EnumOfAccountPrivilegeForDescribeDatabasesOutput enum value
-	EnumOfAccountPrivilegeForDescribeDatabasesOutputReadOnly = "ReadOnly"
+	// EnumOfAccountPrivilegeForDescribeDatabasesOutputCustom is a EnumOfAccountPrivilegeForDescribeDatabasesOutput enum value
+	EnumOfAccountPrivilegeForDescribeDatabasesOutputCustom = "Custom"
 
 	// EnumOfAccountPrivilegeForDescribeDatabasesOutputDdlonly is a EnumOfAccountPrivilegeForDescribeDatabasesOutput enum value
 	EnumOfAccountPrivilegeForDescribeDatabasesOutputDdlonly = "DDLOnly"
@@ -324,20 +329,23 @@ const (
 	// EnumOfAccountPrivilegeForDescribeDatabasesOutputDmlonly is a EnumOfAccountPrivilegeForDescribeDatabasesOutput enum value
 	EnumOfAccountPrivilegeForDescribeDatabasesOutputDmlonly = "DMLOnly"
 
-	// EnumOfAccountPrivilegeForDescribeDatabasesOutputCustom is a EnumOfAccountPrivilegeForDescribeDatabasesOutput enum value
-	EnumOfAccountPrivilegeForDescribeDatabasesOutputCustom = "Custom"
+	// EnumOfAccountPrivilegeForDescribeDatabasesOutputReadOnly is a EnumOfAccountPrivilegeForDescribeDatabasesOutput enum value
+	EnumOfAccountPrivilegeForDescribeDatabasesOutputReadOnly = "ReadOnly"
+
+	// EnumOfAccountPrivilegeForDescribeDatabasesOutputReadWrite is a EnumOfAccountPrivilegeForDescribeDatabasesOutput enum value
+	EnumOfAccountPrivilegeForDescribeDatabasesOutputReadWrite = "ReadWrite"
 )
 
 const (
-	// EnumOfCharacterSetNameForDescribeDatabasesOutputUtf8mb4 is a EnumOfCharacterSetNameForDescribeDatabasesOutput enum value
-	EnumOfCharacterSetNameForDescribeDatabasesOutputUtf8mb4 = "utf8mb4"
-
-	// EnumOfCharacterSetNameForDescribeDatabasesOutputUtf8 is a EnumOfCharacterSetNameForDescribeDatabasesOutput enum value
-	EnumOfCharacterSetNameForDescribeDatabasesOutputUtf8 = "utf8"
+	// EnumOfCharacterSetNameForDescribeDatabasesOutputAscii is a EnumOfCharacterSetNameForDescribeDatabasesOutput enum value
+	EnumOfCharacterSetNameForDescribeDatabasesOutputAscii = "ascii"
 
 	// EnumOfCharacterSetNameForDescribeDatabasesOutputLatin1 is a EnumOfCharacterSetNameForDescribeDatabasesOutput enum value
 	EnumOfCharacterSetNameForDescribeDatabasesOutputLatin1 = "latin1"
 
-	// EnumOfCharacterSetNameForDescribeDatabasesOutputAscii is a EnumOfCharacterSetNameForDescribeDatabasesOutput enum value
-	EnumOfCharacterSetNameForDescribeDatabasesOutputAscii = "ascii"
+	// EnumOfCharacterSetNameForDescribeDatabasesOutputUtf8 is a EnumOfCharacterSetNameForDescribeDatabasesOutput enum value
+	EnumOfCharacterSetNameForDescribeDatabasesOutputUtf8 = "utf8"
+
+	// EnumOfCharacterSetNameForDescribeDatabasesOutputUtf8mb4 is a EnumOfCharacterSetNameForDescribeDatabasesOutput enum value
+	EnumOfCharacterSetNameForDescribeDatabasesOutputUtf8mb4 = "utf8mb4"
 )
