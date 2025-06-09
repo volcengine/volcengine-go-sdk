@@ -154,6 +154,8 @@ type ListParameterTemplatesInput struct {
 
 	TemplateCategory *string `type:"string" json:",omitempty"`
 
+	TemplateName *string `type:"string" json:",omitempty"`
+
 	TemplateSource *string `type:"string" json:",omitempty"`
 
 	TemplateType *string `type:"string" json:",omitempty"`
@@ -192,6 +194,12 @@ func (s *ListParameterTemplatesInput) SetProjectName(v string) *ListParameterTem
 // SetTemplateCategory sets the TemplateCategory field's value.
 func (s *ListParameterTemplatesInput) SetTemplateCategory(v string) *ListParameterTemplatesInput {
 	s.TemplateCategory = &v
+	return s
+}
+
+// SetTemplateName sets the TemplateName field's value.
+func (s *ListParameterTemplatesInput) SetTemplateName(v string) *ListParameterTemplatesInput {
+	s.TemplateName = &v
 	return s
 }
 

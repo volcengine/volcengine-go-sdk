@@ -148,6 +148,8 @@ type CopyParameterTemplateInput struct {
 
 	ProjectName *string `type:"string" json:",omitempty"`
 
+	Region *string `type:"string" json:",omitempty"`
+
 	// SrcTemplateId is a required field
 	SrcTemplateId *string `type:"string" json:",omitempty" required:"true"`
 
@@ -189,6 +191,12 @@ func (s *CopyParameterTemplateInput) SetProjectName(v string) *CopyParameterTemp
 	return s
 }
 
+// SetRegion sets the Region field's value.
+func (s *CopyParameterTemplateInput) SetRegion(v string) *CopyParameterTemplateInput {
+	s.Region = &v
+	return s
+}
+
 // SetSrcTemplateId sets the SrcTemplateId field's value.
 func (s *CopyParameterTemplateInput) SetSrcTemplateId(v string) *CopyParameterTemplateInput {
 	s.SrcTemplateId = &v
@@ -211,6 +219,8 @@ type CopyParameterTemplateOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
+
+	TemplateId *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -221,4 +231,10 @@ func (s CopyParameterTemplateOutput) String() string {
 // GoString returns the string representation
 func (s CopyParameterTemplateOutput) GoString() string {
 	return s.String()
+}
+
+// SetTemplateId sets the TemplateId field's value.
+func (s *CopyParameterTemplateOutput) SetTemplateId(v string) *CopyParameterTemplateOutput {
+	s.TemplateId = &v
+	return s
 }

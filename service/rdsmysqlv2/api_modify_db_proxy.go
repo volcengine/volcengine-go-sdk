@@ -146,6 +146,8 @@ func (c *RDSMYSQLV2) ModifyDBProxyWithContext(ctx volcengine.Context, input *Mod
 type ModifyDBProxyInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	ConvertDefaultEndpoint *bool `type:"boolean" json:",omitempty"`
+
 	EnableDBProxy *bool `type:"boolean" json:",omitempty"`
 
 	// InstanceId is a required field
@@ -175,6 +177,12 @@ func (s *ModifyDBProxyInput) Validate() error {
 		return invalidParams
 	}
 	return nil
+}
+
+// SetConvertDefaultEndpoint sets the ConvertDefaultEndpoint field's value.
+func (s *ModifyDBProxyInput) SetConvertDefaultEndpoint(v bool) *ModifyDBProxyInput {
+	s.ConvertDefaultEndpoint = &v
+	return s
 }
 
 // SetEnableDBProxy sets the EnableDBProxy field's value.

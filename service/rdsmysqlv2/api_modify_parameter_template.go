@@ -219,6 +219,8 @@ type ModifyParameterTemplateOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
+
+	TemplateId *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -229,6 +231,12 @@ func (s ModifyParameterTemplateOutput) String() string {
 // GoString returns the string representation
 func (s ModifyParameterTemplateOutput) GoString() string {
 	return s.String()
+}
+
+// SetTemplateId sets the TemplateId field's value.
+func (s *ModifyParameterTemplateOutput) SetTemplateId(v string) *ModifyParameterTemplateOutput {
+	s.TemplateId = &v
+	return s
 }
 
 type TemplateParamForModifyParameterTemplateInput struct {

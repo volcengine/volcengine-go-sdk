@@ -245,6 +245,8 @@ type TagFilterForDescribeTagsByResourceInput struct {
 	Key *string `type:"string" json:",omitempty"`
 
 	Value *string `type:"string" json:",omitempty"`
+
+	Values []*string `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -266,6 +268,12 @@ func (s *TagFilterForDescribeTagsByResourceInput) SetKey(v string) *TagFilterFor
 // SetValue sets the Value field's value.
 func (s *TagFilterForDescribeTagsByResourceInput) SetValue(v string) *TagFilterForDescribeTagsByResourceInput {
 	s.Value = &v
+	return s
+}
+
+// SetValues sets the Values field's value.
+func (s *TagFilterForDescribeTagsByResourceInput) SetValues(v []*string) *TagFilterForDescribeTagsByResourceInput {
+	s.Values = v
 	return s
 }
 

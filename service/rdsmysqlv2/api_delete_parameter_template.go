@@ -191,6 +191,8 @@ type DeleteParameterTemplateOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
+
+	TemplateId *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -201,4 +203,10 @@ func (s DeleteParameterTemplateOutput) String() string {
 // GoString returns the string representation
 func (s DeleteParameterTemplateOutput) GoString() string {
 	return s.String()
+}
+
+// SetTemplateId sets the TemplateId field's value.
+func (s *DeleteParameterTemplateOutput) SetTemplateId(v string) *DeleteParameterTemplateOutput {
+	s.TemplateId = &v
+	return s
 }

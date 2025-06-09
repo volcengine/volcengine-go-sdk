@@ -152,11 +152,11 @@ type ChargeItemPriceForDescribeDBInstancePriceDetailOutput struct {
 
 	ChargeItemValue *int64 `type:"int64" json:",omitempty"`
 
-	DiscountPrice *float64 `type:"double" json:",omitempty"`
+	DiscountPrice *string `type:"string" json:",omitempty"`
 
-	OriginalPrice *float64 `type:"double" json:",omitempty"`
+	OriginalPrice *string `type:"string" json:",omitempty"`
 
-	PayablePrice *float64 `type:"double" json:",omitempty"`
+	PayablePrice *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -188,19 +188,19 @@ func (s *ChargeItemPriceForDescribeDBInstancePriceDetailOutput) SetChargeItemVal
 }
 
 // SetDiscountPrice sets the DiscountPrice field's value.
-func (s *ChargeItemPriceForDescribeDBInstancePriceDetailOutput) SetDiscountPrice(v float64) *ChargeItemPriceForDescribeDBInstancePriceDetailOutput {
+func (s *ChargeItemPriceForDescribeDBInstancePriceDetailOutput) SetDiscountPrice(v string) *ChargeItemPriceForDescribeDBInstancePriceDetailOutput {
 	s.DiscountPrice = &v
 	return s
 }
 
 // SetOriginalPrice sets the OriginalPrice field's value.
-func (s *ChargeItemPriceForDescribeDBInstancePriceDetailOutput) SetOriginalPrice(v float64) *ChargeItemPriceForDescribeDBInstancePriceDetailOutput {
+func (s *ChargeItemPriceForDescribeDBInstancePriceDetailOutput) SetOriginalPrice(v string) *ChargeItemPriceForDescribeDBInstancePriceDetailOutput {
 	s.OriginalPrice = &v
 	return s
 }
 
 // SetPayablePrice sets the PayablePrice field's value.
-func (s *ChargeItemPriceForDescribeDBInstancePriceDetailOutput) SetPayablePrice(v float64) *ChargeItemPriceForDescribeDBInstancePriceDetailOutput {
+func (s *ChargeItemPriceForDescribeDBInstancePriceDetailOutput) SetPayablePrice(v string) *ChargeItemPriceForDescribeDBInstancePriceDetailOutput {
 	s.PayablePrice = &v
 	return s
 }
@@ -220,6 +220,8 @@ type DescribeDBInstancePriceDetailInput struct {
 	PeriodUnit *string `type:"string" json:",omitempty"`
 
 	ProjectName *string `type:"string" json:",omitempty"`
+
+	ProxyNodeCustom *ProxyNodeCustomForDescribeDBInstancePriceDetailInput `type:"structure" json:",omitempty"`
 
 	// StorageSpace is a required field
 	StorageSpace *int32 `type:"int32" json:",omitempty" required:"true"`
@@ -293,6 +295,12 @@ func (s *DescribeDBInstancePriceDetailInput) SetProjectName(v string) *DescribeD
 	return s
 }
 
+// SetProxyNodeCustom sets the ProxyNodeCustom field's value.
+func (s *DescribeDBInstancePriceDetailInput) SetProxyNodeCustom(v *ProxyNodeCustomForDescribeDBInstancePriceDetailInput) *DescribeDBInstancePriceDetailInput {
+	s.ProxyNodeCustom = v
+	return s
+}
+
 // SetStorageSpace sets the StorageSpace field's value.
 func (s *DescribeDBInstancePriceDetailInput) SetStorageSpace(v int32) *DescribeDBInstancePriceDetailInput {
 	s.StorageSpace = &v
@@ -310,23 +318,7 @@ type DescribeDBInstancePriceDetailOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	BillingMethod *string `type:"string" json:",omitempty"`
-
-	ChargeItemPrices []*ChargeItemPriceForDescribeDBInstancePriceDetailOutput `type:"list" json:",omitempty"`
-
-	CouponAmount *float64 `type:"double" json:",omitempty"`
-
-	Currency *string `type:"string" json:",omitempty"`
-
-	DiscountPrice *float64 `type:"double" json:",omitempty"`
-
-	OriginalPrice *float64 `type:"double" json:",omitempty"`
-
-	PayablePrice *float64 `type:"double" json:",omitempty"`
-
-	Quantity *int32 `type:"int32" json:",omitempty"`
-
-	RefundAmount *float64 `type:"double" json:",omitempty"`
+	DescribeDBInstancePriceDetailStr *DescribeDBInstancePriceDetailStrForDescribeDBInstancePriceDetailOutput `type:"structure" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -339,56 +331,94 @@ func (s DescribeDBInstancePriceDetailOutput) GoString() string {
 	return s.String()
 }
 
+// SetDescribeDBInstancePriceDetailStr sets the DescribeDBInstancePriceDetailStr field's value.
+func (s *DescribeDBInstancePriceDetailOutput) SetDescribeDBInstancePriceDetailStr(v *DescribeDBInstancePriceDetailStrForDescribeDBInstancePriceDetailOutput) *DescribeDBInstancePriceDetailOutput {
+	s.DescribeDBInstancePriceDetailStr = v
+	return s
+}
+
+type DescribeDBInstancePriceDetailStrForDescribeDBInstancePriceDetailOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	BillingMethod *string `type:"string" json:",omitempty"`
+
+	ChargeItemPrices []*ChargeItemPriceForDescribeDBInstancePriceDetailOutput `type:"list" json:",omitempty"`
+
+	CouponAmount *string `type:"string" json:",omitempty"`
+
+	Currency *string `type:"string" json:",omitempty"`
+
+	DiscountPrice *string `type:"string" json:",omitempty"`
+
+	OriginalPrice *string `type:"string" json:",omitempty"`
+
+	PayablePrice *string `type:"string" json:",omitempty"`
+
+	Quantity *int32 `type:"int32" json:",omitempty"`
+
+	RefundAmount *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s DescribeDBInstancePriceDetailStrForDescribeDBInstancePriceDetailOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DescribeDBInstancePriceDetailStrForDescribeDBInstancePriceDetailOutput) GoString() string {
+	return s.String()
+}
+
 // SetBillingMethod sets the BillingMethod field's value.
-func (s *DescribeDBInstancePriceDetailOutput) SetBillingMethod(v string) *DescribeDBInstancePriceDetailOutput {
+func (s *DescribeDBInstancePriceDetailStrForDescribeDBInstancePriceDetailOutput) SetBillingMethod(v string) *DescribeDBInstancePriceDetailStrForDescribeDBInstancePriceDetailOutput {
 	s.BillingMethod = &v
 	return s
 }
 
 // SetChargeItemPrices sets the ChargeItemPrices field's value.
-func (s *DescribeDBInstancePriceDetailOutput) SetChargeItemPrices(v []*ChargeItemPriceForDescribeDBInstancePriceDetailOutput) *DescribeDBInstancePriceDetailOutput {
+func (s *DescribeDBInstancePriceDetailStrForDescribeDBInstancePriceDetailOutput) SetChargeItemPrices(v []*ChargeItemPriceForDescribeDBInstancePriceDetailOutput) *DescribeDBInstancePriceDetailStrForDescribeDBInstancePriceDetailOutput {
 	s.ChargeItemPrices = v
 	return s
 }
 
 // SetCouponAmount sets the CouponAmount field's value.
-func (s *DescribeDBInstancePriceDetailOutput) SetCouponAmount(v float64) *DescribeDBInstancePriceDetailOutput {
+func (s *DescribeDBInstancePriceDetailStrForDescribeDBInstancePriceDetailOutput) SetCouponAmount(v string) *DescribeDBInstancePriceDetailStrForDescribeDBInstancePriceDetailOutput {
 	s.CouponAmount = &v
 	return s
 }
 
 // SetCurrency sets the Currency field's value.
-func (s *DescribeDBInstancePriceDetailOutput) SetCurrency(v string) *DescribeDBInstancePriceDetailOutput {
+func (s *DescribeDBInstancePriceDetailStrForDescribeDBInstancePriceDetailOutput) SetCurrency(v string) *DescribeDBInstancePriceDetailStrForDescribeDBInstancePriceDetailOutput {
 	s.Currency = &v
 	return s
 }
 
 // SetDiscountPrice sets the DiscountPrice field's value.
-func (s *DescribeDBInstancePriceDetailOutput) SetDiscountPrice(v float64) *DescribeDBInstancePriceDetailOutput {
+func (s *DescribeDBInstancePriceDetailStrForDescribeDBInstancePriceDetailOutput) SetDiscountPrice(v string) *DescribeDBInstancePriceDetailStrForDescribeDBInstancePriceDetailOutput {
 	s.DiscountPrice = &v
 	return s
 }
 
 // SetOriginalPrice sets the OriginalPrice field's value.
-func (s *DescribeDBInstancePriceDetailOutput) SetOriginalPrice(v float64) *DescribeDBInstancePriceDetailOutput {
+func (s *DescribeDBInstancePriceDetailStrForDescribeDBInstancePriceDetailOutput) SetOriginalPrice(v string) *DescribeDBInstancePriceDetailStrForDescribeDBInstancePriceDetailOutput {
 	s.OriginalPrice = &v
 	return s
 }
 
 // SetPayablePrice sets the PayablePrice field's value.
-func (s *DescribeDBInstancePriceDetailOutput) SetPayablePrice(v float64) *DescribeDBInstancePriceDetailOutput {
+func (s *DescribeDBInstancePriceDetailStrForDescribeDBInstancePriceDetailOutput) SetPayablePrice(v string) *DescribeDBInstancePriceDetailStrForDescribeDBInstancePriceDetailOutput {
 	s.PayablePrice = &v
 	return s
 }
 
 // SetQuantity sets the Quantity field's value.
-func (s *DescribeDBInstancePriceDetailOutput) SetQuantity(v int32) *DescribeDBInstancePriceDetailOutput {
+func (s *DescribeDBInstancePriceDetailStrForDescribeDBInstancePriceDetailOutput) SetQuantity(v int32) *DescribeDBInstancePriceDetailStrForDescribeDBInstancePriceDetailOutput {
 	s.Quantity = &v
 	return s
 }
 
 // SetRefundAmount sets the RefundAmount field's value.
-func (s *DescribeDBInstancePriceDetailOutput) SetRefundAmount(v float64) *DescribeDBInstancePriceDetailOutput {
+func (s *DescribeDBInstancePriceDetailStrForDescribeDBInstancePriceDetailOutput) SetRefundAmount(v string) *DescribeDBInstancePriceDetailStrForDescribeDBInstancePriceDetailOutput {
 	s.RefundAmount = &v
 	return s
 }
@@ -444,5 +474,27 @@ func (s *NodeInfoForDescribeDBInstancePriceDetailInput) SetNodeType(v string) *N
 // SetZoneId sets the ZoneId field's value.
 func (s *NodeInfoForDescribeDBInstancePriceDetailInput) SetZoneId(v string) *NodeInfoForDescribeDBInstancePriceDetailInput {
 	s.ZoneId = &v
+	return s
+}
+
+type ProxyNodeCustomForDescribeDBInstancePriceDetailInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	CpuNum *int32 `type:"int32" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s ProxyNodeCustomForDescribeDBInstancePriceDetailInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ProxyNodeCustomForDescribeDBInstancePriceDetailInput) GoString() string {
+	return s.String()
+}
+
+// SetCpuNum sets the CpuNum field's value.
+func (s *ProxyNodeCustomForDescribeDBInstancePriceDetailInput) SetCpuNum(v int32) *ProxyNodeCustomForDescribeDBInstancePriceDetailInput {
+	s.CpuNum = &v
 	return s
 }
