@@ -22,13 +22,13 @@ const opCreateDBAccountCommon = "CreateDBAccount"
 // See CreateDBAccountCommon for more information on using the CreateDBAccountCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the CreateDBAccountCommonRequest method.
-//    req, resp := client.CreateDBAccountCommonRequest(params)
+//	// Example sending a request using the CreateDBAccountCommonRequest method.
+//	req, resp := client.CreateDBAccountCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *VEDBM) CreateDBAccountCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opCreateDBAccountCommon,
@@ -89,13 +89,13 @@ const opCreateDBAccount = "CreateDBAccount"
 // See CreateDBAccount for more information on using the CreateDBAccount
 // API call, and error handling.
 //
-//    // Example sending a request using the CreateDBAccountRequest method.
-//    req, resp := client.CreateDBAccountRequest(params)
+//	// Example sending a request using the CreateDBAccountRequest method.
+//	req, resp := client.CreateDBAccountRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *VEDBM) CreateDBAccountRequest(input *CreateDBAccountInput) (req *request.Request, output *CreateDBAccountOutput) {
 	op := &request.Operation{
 		Name:       opCreateDBAccount,
@@ -184,6 +184,8 @@ func (s *AccountPrivilegeForCreateDBAccountInput) SetDBName(v string) *AccountPr
 type CreateDBAccountInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	AccountDesc *string `type:"string" json:",omitempty"`
+
 	// AccountName is a required field
 	AccountName *string `type:"string" json:",omitempty" required:"true"`
 
@@ -229,6 +231,12 @@ func (s *CreateDBAccountInput) Validate() error {
 		return invalidParams
 	}
 	return nil
+}
+
+// SetAccountDesc sets the AccountDesc field's value.
+func (s *CreateDBAccountInput) SetAccountDesc(v string) *CreateDBAccountInput {
+	s.AccountDesc = &v
+	return s
 }
 
 // SetAccountName sets the AccountName field's value.
@@ -278,11 +286,8 @@ func (s CreateDBAccountOutput) GoString() string {
 }
 
 const (
-	// EnumOfAccountPrivilegeForCreateDBAccountInputReadWrite is a EnumOfAccountPrivilegeForCreateDBAccountInput enum value
-	EnumOfAccountPrivilegeForCreateDBAccountInputReadWrite = "ReadWrite"
-
-	// EnumOfAccountPrivilegeForCreateDBAccountInputReadOnly is a EnumOfAccountPrivilegeForCreateDBAccountInput enum value
-	EnumOfAccountPrivilegeForCreateDBAccountInputReadOnly = "ReadOnly"
+	// EnumOfAccountPrivilegeForCreateDBAccountInputCustom is a EnumOfAccountPrivilegeForCreateDBAccountInput enum value
+	EnumOfAccountPrivilegeForCreateDBAccountInputCustom = "Custom"
 
 	// EnumOfAccountPrivilegeForCreateDBAccountInputDdlonly is a EnumOfAccountPrivilegeForCreateDBAccountInput enum value
 	EnumOfAccountPrivilegeForCreateDBAccountInputDdlonly = "DDLOnly"
@@ -290,14 +295,17 @@ const (
 	// EnumOfAccountPrivilegeForCreateDBAccountInputDmlonly is a EnumOfAccountPrivilegeForCreateDBAccountInput enum value
 	EnumOfAccountPrivilegeForCreateDBAccountInputDmlonly = "DMLOnly"
 
-	// EnumOfAccountPrivilegeForCreateDBAccountInputCustom is a EnumOfAccountPrivilegeForCreateDBAccountInput enum value
-	EnumOfAccountPrivilegeForCreateDBAccountInputCustom = "Custom"
+	// EnumOfAccountPrivilegeForCreateDBAccountInputReadOnly is a EnumOfAccountPrivilegeForCreateDBAccountInput enum value
+	EnumOfAccountPrivilegeForCreateDBAccountInputReadOnly = "ReadOnly"
+
+	// EnumOfAccountPrivilegeForCreateDBAccountInputReadWrite is a EnumOfAccountPrivilegeForCreateDBAccountInput enum value
+	EnumOfAccountPrivilegeForCreateDBAccountInputReadWrite = "ReadWrite"
 )
 
 const (
-	// EnumOfAccountTypeForCreateDBAccountInputSuper is a EnumOfAccountTypeForCreateDBAccountInput enum value
-	EnumOfAccountTypeForCreateDBAccountInputSuper = "Super"
-
 	// EnumOfAccountTypeForCreateDBAccountInputNormal is a EnumOfAccountTypeForCreateDBAccountInput enum value
 	EnumOfAccountTypeForCreateDBAccountInputNormal = "Normal"
+
+	// EnumOfAccountTypeForCreateDBAccountInputSuper is a EnumOfAccountTypeForCreateDBAccountInput enum value
+	EnumOfAccountTypeForCreateDBAccountInputSuper = "Super"
 )

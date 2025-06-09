@@ -22,13 +22,13 @@ const opDescribeDBInstancesCommon = "DescribeDBInstances"
 // See DescribeDBInstancesCommon for more information on using the DescribeDBInstancesCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the DescribeDBInstancesCommonRequest method.
-//    req, resp := client.DescribeDBInstancesCommonRequest(params)
+//	// Example sending a request using the DescribeDBInstancesCommonRequest method.
+//	req, resp := client.DescribeDBInstancesCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *VEDBM) DescribeDBInstancesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeDBInstancesCommon,
@@ -89,13 +89,13 @@ const opDescribeDBInstances = "DescribeDBInstances"
 // See DescribeDBInstances for more information on using the DescribeDBInstances
 // API call, and error handling.
 //
-//    // Example sending a request using the DescribeDBInstancesRequest method.
-//    req, resp := client.DescribeDBInstancesRequest(params)
+//	// Example sending a request using the DescribeDBInstancesRequest method.
+//	req, resp := client.DescribeDBInstancesRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *VEDBM) DescribeDBInstancesRequest(input *DescribeDBInstancesInput) (req *request.Request, output *DescribeDBInstancesOutput) {
 	op := &request.Operation{
 		Name:       opDescribeDBInstances,
@@ -238,6 +238,8 @@ type DescribeDBInstancesInput struct {
 
 	ProjectName *string `type:"string" json:",omitempty"`
 
+	StorageChargeType *string `type:"string" json:",omitempty" enum:"EnumOfStorageChargeTypeForDescribeDBInstancesInput"`
+
 	TagFilters []*TagFilterForDescribeDBInstancesInput `type:"list" json:",omitempty"`
 
 	ZoneId *string `type:"string" json:",omitempty"`
@@ -316,6 +318,12 @@ func (s *DescribeDBInstancesInput) SetPageSize(v int32) *DescribeDBInstancesInpu
 // SetProjectName sets the ProjectName field's value.
 func (s *DescribeDBInstancesInput) SetProjectName(v string) *DescribeDBInstancesInput {
 	s.ProjectName = &v
+	return s
+}
+
+// SetStorageChargeType sets the StorageChargeType field's value.
+func (s *DescribeDBInstancesInput) SetStorageChargeType(v string) *DescribeDBInstancesInput {
+	s.StorageChargeType = &v
 	return s
 }
 
@@ -668,11 +676,17 @@ func (s *TagForDescribeDBInstancesOutput) SetValue(v string) *TagForDescribeDBIn
 }
 
 const (
+	// EnumOfChargeStatusForDescribeDBInstancesOutputExpired is a EnumOfChargeStatusForDescribeDBInstancesOutput enum value
+	EnumOfChargeStatusForDescribeDBInstancesOutputExpired = "Expired"
+
 	// EnumOfChargeStatusForDescribeDBInstancesOutputNormal is a EnumOfChargeStatusForDescribeDBInstancesOutput enum value
 	EnumOfChargeStatusForDescribeDBInstancesOutputNormal = "Normal"
 
 	// EnumOfChargeStatusForDescribeDBInstancesOutputOverdue is a EnumOfChargeStatusForDescribeDBInstancesOutput enum value
 	EnumOfChargeStatusForDescribeDBInstancesOutputOverdue = "Overdue"
+
+	// EnumOfChargeStatusForDescribeDBInstancesOutputRecycled is a EnumOfChargeStatusForDescribeDBInstancesOutput enum value
+	EnumOfChargeStatusForDescribeDBInstancesOutputRecycled = "Recycled"
 
 	// EnumOfChargeStatusForDescribeDBInstancesOutputShutdown is a EnumOfChargeStatusForDescribeDBInstancesOutput enum value
 	EnumOfChargeStatusForDescribeDBInstancesOutputShutdown = "Shutdown"
@@ -695,16 +709,19 @@ const (
 )
 
 const (
+	// EnumOfDBEngineVersionForDescribeDBInstancesInputMySql57 is a EnumOfDBEngineVersionForDescribeDBInstancesInput enum value
+	EnumOfDBEngineVersionForDescribeDBInstancesInputMySql57 = "MySQL_5_7"
+
 	// EnumOfDBEngineVersionForDescribeDBInstancesInputMySql80 is a EnumOfDBEngineVersionForDescribeDBInstancesInput enum value
 	EnumOfDBEngineVersionForDescribeDBInstancesInputMySql80 = "MySQL_8_0"
 )
 
 const (
-	// EnumOfDBEngineVersionForDescribeDBInstancesOutputMySql80 is a EnumOfDBEngineVersionForDescribeDBInstancesOutput enum value
-	EnumOfDBEngineVersionForDescribeDBInstancesOutputMySql80 = "MySQL_8_0"
-
 	// EnumOfDBEngineVersionForDescribeDBInstancesOutputMySql57 is a EnumOfDBEngineVersionForDescribeDBInstancesOutput enum value
 	EnumOfDBEngineVersionForDescribeDBInstancesOutputMySql57 = "MySQL_5_7"
+
+	// EnumOfDBEngineVersionForDescribeDBInstancesOutputMySql80 is a EnumOfDBEngineVersionForDescribeDBInstancesOutput enum value
+	EnumOfDBEngineVersionForDescribeDBInstancesOutputMySql80 = "MySQL_8_0"
 )
 
 const (
@@ -716,44 +733,23 @@ const (
 )
 
 const (
-	// EnumOfInstanceStatusForDescribeDBInstancesInputWaitingPaid is a EnumOfInstanceStatusForDescribeDBInstancesInput enum value
-	EnumOfInstanceStatusForDescribeDBInstancesInputWaitingPaid = "WaitingPaid"
+	// EnumOfInstanceStatusForDescribeDBInstancesInputAddressModifying is a EnumOfInstanceStatusForDescribeDBInstancesInput enum value
+	EnumOfInstanceStatusForDescribeDBInstancesInputAddressModifying = "AddressModifying"
 
-	// EnumOfInstanceStatusForDescribeDBInstancesInputRunning is a EnumOfInstanceStatusForDescribeDBInstancesInput enum value
-	EnumOfInstanceStatusForDescribeDBInstancesInputRunning = "Running"
-
-	// EnumOfInstanceStatusForDescribeDBInstancesInputCreating is a EnumOfInstanceStatusForDescribeDBInstancesInput enum value
-	EnumOfInstanceStatusForDescribeDBInstancesInputCreating = "Creating"
-
-	// EnumOfInstanceStatusForDescribeDBInstancesInputScaling is a EnumOfInstanceStatusForDescribeDBInstancesInput enum value
-	EnumOfInstanceStatusForDescribeDBInstancesInputScaling = "Scaling"
-
-	// EnumOfInstanceStatusForDescribeDBInstancesInputRestarting is a EnumOfInstanceStatusForDescribeDBInstancesInput enum value
-	EnumOfInstanceStatusForDescribeDBInstancesInputRestarting = "Restarting"
-
-	// EnumOfInstanceStatusForDescribeDBInstancesInputRestoring is a EnumOfInstanceStatusForDescribeDBInstancesInput enum value
-	EnumOfInstanceStatusForDescribeDBInstancesInputRestoring = "Restoring"
-
-	// EnumOfInstanceStatusForDescribeDBInstancesInputUpgrading is a EnumOfInstanceStatusForDescribeDBInstancesInput enum value
-	EnumOfInstanceStatusForDescribeDBInstancesInputUpgrading = "Upgrading"
-
-	// EnumOfInstanceStatusForDescribeDBInstancesInputPrimaryChanging is a EnumOfInstanceStatusForDescribeDBInstancesInput enum value
-	EnumOfInstanceStatusForDescribeDBInstancesInputPrimaryChanging = "PrimaryChanging"
-
-	// EnumOfInstanceStatusForDescribeDBInstancesInputUnavailable is a EnumOfInstanceStatusForDescribeDBInstancesInput enum value
-	EnumOfInstanceStatusForDescribeDBInstancesInputUnavailable = "Unavailable"
-
-	// EnumOfInstanceStatusForDescribeDBInstancesInputDeleting is a EnumOfInstanceStatusForDescribeDBInstancesInput enum value
-	EnumOfInstanceStatusForDescribeDBInstancesInputDeleting = "Deleting"
-
-	// EnumOfInstanceStatusForDescribeDBInstancesInputDeleted is a EnumOfInstanceStatusForDescribeDBInstancesInput enum value
-	EnumOfInstanceStatusForDescribeDBInstancesInputDeleted = "Deleted"
+	// EnumOfInstanceStatusForDescribeDBInstancesInputAllowListMaintaining is a EnumOfInstanceStatusForDescribeDBInstancesInput enum value
+	EnumOfInstanceStatusForDescribeDBInstancesInputAllowListMaintaining = "AllowListMaintaining"
 
 	// EnumOfInstanceStatusForDescribeDBInstancesInputCreateFailed is a EnumOfInstanceStatusForDescribeDBInstancesInput enum value
 	EnumOfInstanceStatusForDescribeDBInstancesInputCreateFailed = "CreateFailed"
 
-	// EnumOfInstanceStatusForDescribeDBInstancesInputClosing is a EnumOfInstanceStatusForDescribeDBInstancesInput enum value
-	EnumOfInstanceStatusForDescribeDBInstancesInputClosing = "Closing"
+	// EnumOfInstanceStatusForDescribeDBInstancesInputCreating is a EnumOfInstanceStatusForDescribeDBInstancesInput enum value
+	EnumOfInstanceStatusForDescribeDBInstancesInputCreating = "Creating"
+
+	// EnumOfInstanceStatusForDescribeDBInstancesInputDeleting is a EnumOfInstanceStatusForDescribeDBInstancesInput enum value
+	EnumOfInstanceStatusForDescribeDBInstancesInputDeleting = "Deleting"
+
+	// EnumOfInstanceStatusForDescribeDBInstancesInputError is a EnumOfInstanceStatusForDescribeDBInstancesInput enum value
+	EnumOfInstanceStatusForDescribeDBInstancesInputError = "Error"
 
 	// EnumOfInstanceStatusForDescribeDBInstancesInputExpired is a EnumOfInstanceStatusForDescribeDBInstancesInput enum value
 	EnumOfInstanceStatusForDescribeDBInstancesInputExpired = "Expired"
@@ -761,55 +757,52 @@ const (
 	// EnumOfInstanceStatusForDescribeDBInstancesInputOwing is a EnumOfInstanceStatusForDescribeDBInstancesInput enum value
 	EnumOfInstanceStatusForDescribeDBInstancesInputOwing = "Owing"
 
+	// EnumOfInstanceStatusForDescribeDBInstancesInputPrimaryChanging is a EnumOfInstanceStatusForDescribeDBInstancesInput enum value
+	EnumOfInstanceStatusForDescribeDBInstancesInputPrimaryChanging = "PrimaryChanging"
+
+	// EnumOfInstanceStatusForDescribeDBInstancesInputReclaiming is a EnumOfInstanceStatusForDescribeDBInstancesInput enum value
+	EnumOfInstanceStatusForDescribeDBInstancesInputReclaiming = "Reclaiming"
+
+	// EnumOfInstanceStatusForDescribeDBInstancesInputRestarting is a EnumOfInstanceStatusForDescribeDBInstancesInput enum value
+	EnumOfInstanceStatusForDescribeDBInstancesInputRestarting = "Restarting"
+
+	// EnumOfInstanceStatusForDescribeDBInstancesInputRestoring is a EnumOfInstanceStatusForDescribeDBInstancesInput enum value
+	EnumOfInstanceStatusForDescribeDBInstancesInputRestoring = "Restoring"
+
 	// EnumOfInstanceStatusForDescribeDBInstancesInputResuming is a EnumOfInstanceStatusForDescribeDBInstancesInput enum value
 	EnumOfInstanceStatusForDescribeDBInstancesInputResuming = "Resuming"
 
-	// EnumOfInstanceStatusForDescribeDBInstancesInputAllowListMaintaining is a EnumOfInstanceStatusForDescribeDBInstancesInput enum value
-	EnumOfInstanceStatusForDescribeDBInstancesInputAllowListMaintaining = "AllowListMaintaining"
+	// EnumOfInstanceStatusForDescribeDBInstancesInputRunning is a EnumOfInstanceStatusForDescribeDBInstancesInput enum value
+	EnumOfInstanceStatusForDescribeDBInstancesInputRunning = "Running"
 
-	// EnumOfInstanceStatusForDescribeDBInstancesInputError is a EnumOfInstanceStatusForDescribeDBInstancesInput enum value
-	EnumOfInstanceStatusForDescribeDBInstancesInputError = "Error"
+	// EnumOfInstanceStatusForDescribeDBInstancesInputScaling is a EnumOfInstanceStatusForDescribeDBInstancesInput enum value
+	EnumOfInstanceStatusForDescribeDBInstancesInputScaling = "Scaling"
+
+	// EnumOfInstanceStatusForDescribeDBInstancesInputUpgrading is a EnumOfInstanceStatusForDescribeDBInstancesInput enum value
+	EnumOfInstanceStatusForDescribeDBInstancesInputUpgrading = "Upgrading"
+
+	// EnumOfInstanceStatusForDescribeDBInstancesInputWaitingPaid is a EnumOfInstanceStatusForDescribeDBInstancesInput enum value
+	EnumOfInstanceStatusForDescribeDBInstancesInputWaitingPaid = "WaitingPaid"
 )
 
 const (
-	// EnumOfInstanceStatusForDescribeDBInstancesOutputWaitingPaid is a EnumOfInstanceStatusForDescribeDBInstancesOutput enum value
-	EnumOfInstanceStatusForDescribeDBInstancesOutputWaitingPaid = "WaitingPaid"
+	// EnumOfInstanceStatusForDescribeDBInstancesOutputAddressModifying is a EnumOfInstanceStatusForDescribeDBInstancesOutput enum value
+	EnumOfInstanceStatusForDescribeDBInstancesOutputAddressModifying = "AddressModifying"
 
-	// EnumOfInstanceStatusForDescribeDBInstancesOutputRunning is a EnumOfInstanceStatusForDescribeDBInstancesOutput enum value
-	EnumOfInstanceStatusForDescribeDBInstancesOutputRunning = "Running"
-
-	// EnumOfInstanceStatusForDescribeDBInstancesOutputCreating is a EnumOfInstanceStatusForDescribeDBInstancesOutput enum value
-	EnumOfInstanceStatusForDescribeDBInstancesOutputCreating = "Creating"
-
-	// EnumOfInstanceStatusForDescribeDBInstancesOutputScaling is a EnumOfInstanceStatusForDescribeDBInstancesOutput enum value
-	EnumOfInstanceStatusForDescribeDBInstancesOutputScaling = "Scaling"
-
-	// EnumOfInstanceStatusForDescribeDBInstancesOutputRestarting is a EnumOfInstanceStatusForDescribeDBInstancesOutput enum value
-	EnumOfInstanceStatusForDescribeDBInstancesOutputRestarting = "Restarting"
-
-	// EnumOfInstanceStatusForDescribeDBInstancesOutputRestoring is a EnumOfInstanceStatusForDescribeDBInstancesOutput enum value
-	EnumOfInstanceStatusForDescribeDBInstancesOutputRestoring = "Restoring"
-
-	// EnumOfInstanceStatusForDescribeDBInstancesOutputUpgrading is a EnumOfInstanceStatusForDescribeDBInstancesOutput enum value
-	EnumOfInstanceStatusForDescribeDBInstancesOutputUpgrading = "Upgrading"
-
-	// EnumOfInstanceStatusForDescribeDBInstancesOutputPrimaryChanging is a EnumOfInstanceStatusForDescribeDBInstancesOutput enum value
-	EnumOfInstanceStatusForDescribeDBInstancesOutputPrimaryChanging = "PrimaryChanging"
-
-	// EnumOfInstanceStatusForDescribeDBInstancesOutputUnavailable is a EnumOfInstanceStatusForDescribeDBInstancesOutput enum value
-	EnumOfInstanceStatusForDescribeDBInstancesOutputUnavailable = "Unavailable"
-
-	// EnumOfInstanceStatusForDescribeDBInstancesOutputDeleting is a EnumOfInstanceStatusForDescribeDBInstancesOutput enum value
-	EnumOfInstanceStatusForDescribeDBInstancesOutputDeleting = "Deleting"
-
-	// EnumOfInstanceStatusForDescribeDBInstancesOutputDeleted is a EnumOfInstanceStatusForDescribeDBInstancesOutput enum value
-	EnumOfInstanceStatusForDescribeDBInstancesOutputDeleted = "Deleted"
+	// EnumOfInstanceStatusForDescribeDBInstancesOutputAllowListMaintaining is a EnumOfInstanceStatusForDescribeDBInstancesOutput enum value
+	EnumOfInstanceStatusForDescribeDBInstancesOutputAllowListMaintaining = "AllowListMaintaining"
 
 	// EnumOfInstanceStatusForDescribeDBInstancesOutputCreateFailed is a EnumOfInstanceStatusForDescribeDBInstancesOutput enum value
 	EnumOfInstanceStatusForDescribeDBInstancesOutputCreateFailed = "CreateFailed"
 
-	// EnumOfInstanceStatusForDescribeDBInstancesOutputClosing is a EnumOfInstanceStatusForDescribeDBInstancesOutput enum value
-	EnumOfInstanceStatusForDescribeDBInstancesOutputClosing = "Closing"
+	// EnumOfInstanceStatusForDescribeDBInstancesOutputCreating is a EnumOfInstanceStatusForDescribeDBInstancesOutput enum value
+	EnumOfInstanceStatusForDescribeDBInstancesOutputCreating = "Creating"
+
+	// EnumOfInstanceStatusForDescribeDBInstancesOutputDeleting is a EnumOfInstanceStatusForDescribeDBInstancesOutput enum value
+	EnumOfInstanceStatusForDescribeDBInstancesOutputDeleting = "Deleting"
+
+	// EnumOfInstanceStatusForDescribeDBInstancesOutputError is a EnumOfInstanceStatusForDescribeDBInstancesOutput enum value
+	EnumOfInstanceStatusForDescribeDBInstancesOutputError = "Error"
 
 	// EnumOfInstanceStatusForDescribeDBInstancesOutputExpired is a EnumOfInstanceStatusForDescribeDBInstancesOutput enum value
 	EnumOfInstanceStatusForDescribeDBInstancesOutputExpired = "Expired"
@@ -817,46 +810,40 @@ const (
 	// EnumOfInstanceStatusForDescribeDBInstancesOutputOwing is a EnumOfInstanceStatusForDescribeDBInstancesOutput enum value
 	EnumOfInstanceStatusForDescribeDBInstancesOutputOwing = "Owing"
 
+	// EnumOfInstanceStatusForDescribeDBInstancesOutputPrimaryChanging is a EnumOfInstanceStatusForDescribeDBInstancesOutput enum value
+	EnumOfInstanceStatusForDescribeDBInstancesOutputPrimaryChanging = "PrimaryChanging"
+
+	// EnumOfInstanceStatusForDescribeDBInstancesOutputReclaiming is a EnumOfInstanceStatusForDescribeDBInstancesOutput enum value
+	EnumOfInstanceStatusForDescribeDBInstancesOutputReclaiming = "Reclaiming"
+
+	// EnumOfInstanceStatusForDescribeDBInstancesOutputRestarting is a EnumOfInstanceStatusForDescribeDBInstancesOutput enum value
+	EnumOfInstanceStatusForDescribeDBInstancesOutputRestarting = "Restarting"
+
+	// EnumOfInstanceStatusForDescribeDBInstancesOutputRestoring is a EnumOfInstanceStatusForDescribeDBInstancesOutput enum value
+	EnumOfInstanceStatusForDescribeDBInstancesOutputRestoring = "Restoring"
+
 	// EnumOfInstanceStatusForDescribeDBInstancesOutputResuming is a EnumOfInstanceStatusForDescribeDBInstancesOutput enum value
 	EnumOfInstanceStatusForDescribeDBInstancesOutputResuming = "Resuming"
 
-	// EnumOfInstanceStatusForDescribeDBInstancesOutputAllowListMaintaining is a EnumOfInstanceStatusForDescribeDBInstancesOutput enum value
-	EnumOfInstanceStatusForDescribeDBInstancesOutputAllowListMaintaining = "AllowListMaintaining"
+	// EnumOfInstanceStatusForDescribeDBInstancesOutputRunning is a EnumOfInstanceStatusForDescribeDBInstancesOutput enum value
+	EnumOfInstanceStatusForDescribeDBInstancesOutputRunning = "Running"
+
+	// EnumOfInstanceStatusForDescribeDBInstancesOutputScaling is a EnumOfInstanceStatusForDescribeDBInstancesOutput enum value
+	EnumOfInstanceStatusForDescribeDBInstancesOutputScaling = "Scaling"
+
+	// EnumOfInstanceStatusForDescribeDBInstancesOutputUpgrading is a EnumOfInstanceStatusForDescribeDBInstancesOutput enum value
+	EnumOfInstanceStatusForDescribeDBInstancesOutputUpgrading = "Upgrading"
+
+	// EnumOfInstanceStatusForDescribeDBInstancesOutputWaitingPaid is a EnumOfInstanceStatusForDescribeDBInstancesOutput enum value
+	EnumOfInstanceStatusForDescribeDBInstancesOutputWaitingPaid = "WaitingPaid"
 )
 
 const (
-	// EnumOfNodeSpecForDescribeDBInstancesInputVedbMysqlX4Large is a EnumOfNodeSpecForDescribeDBInstancesInput enum value
-	EnumOfNodeSpecForDescribeDBInstancesInputVedbMysqlX4Large = "vedb.mysql.x4.large"
+	// EnumOfNodeSpecForDescribeDBInstancesInputVedbMysqlG42xlarge is a EnumOfNodeSpecForDescribeDBInstancesInput enum value
+	EnumOfNodeSpecForDescribeDBInstancesInputVedbMysqlG42xlarge = "vedb.mysql.g4.2xlarge"
 
-	// EnumOfNodeSpecForDescribeDBInstancesInputVedbMysqlX8Large is a EnumOfNodeSpecForDescribeDBInstancesInput enum value
-	EnumOfNodeSpecForDescribeDBInstancesInputVedbMysqlX8Large = "vedb.mysql.x8.large"
-
-	// EnumOfNodeSpecForDescribeDBInstancesInputVedbMysqlX4Xlarge is a EnumOfNodeSpecForDescribeDBInstancesInput enum value
-	EnumOfNodeSpecForDescribeDBInstancesInputVedbMysqlX4Xlarge = "vedb.mysql.x4.xlarge"
-
-	// EnumOfNodeSpecForDescribeDBInstancesInputVedbMysqlX8Xlarge is a EnumOfNodeSpecForDescribeDBInstancesInput enum value
-	EnumOfNodeSpecForDescribeDBInstancesInputVedbMysqlX8Xlarge = "vedb.mysql.x8.xlarge"
-
-	// EnumOfNodeSpecForDescribeDBInstancesInputVedbMysqlX42xlarge is a EnumOfNodeSpecForDescribeDBInstancesInput enum value
-	EnumOfNodeSpecForDescribeDBInstancesInputVedbMysqlX42xlarge = "vedb.mysql.x4.2xlarge"
-
-	// EnumOfNodeSpecForDescribeDBInstancesInputVedbMysqlX82xlarge is a EnumOfNodeSpecForDescribeDBInstancesInput enum value
-	EnumOfNodeSpecForDescribeDBInstancesInputVedbMysqlX82xlarge = "vedb.mysql.x8.2xlarge"
-
-	// EnumOfNodeSpecForDescribeDBInstancesInputVedbMysqlX44xlarge is a EnumOfNodeSpecForDescribeDBInstancesInput enum value
-	EnumOfNodeSpecForDescribeDBInstancesInputVedbMysqlX44xlarge = "vedb.mysql.x4.4xlarge"
-
-	// EnumOfNodeSpecForDescribeDBInstancesInputVedbMysqlX84xlarge is a EnumOfNodeSpecForDescribeDBInstancesInput enum value
-	EnumOfNodeSpecForDescribeDBInstancesInputVedbMysqlX84xlarge = "vedb.mysql.x8.4xlarge"
-
-	// EnumOfNodeSpecForDescribeDBInstancesInputVedbMysqlX86xlarge is a EnumOfNodeSpecForDescribeDBInstancesInput enum value
-	EnumOfNodeSpecForDescribeDBInstancesInputVedbMysqlX86xlarge = "vedb.mysql.x8.6xlarge"
-
-	// EnumOfNodeSpecForDescribeDBInstancesInputVedbMysqlX48xlarge is a EnumOfNodeSpecForDescribeDBInstancesInput enum value
-	EnumOfNodeSpecForDescribeDBInstancesInputVedbMysqlX48xlarge = "vedb.mysql.x4.8xlarge"
-
-	// EnumOfNodeSpecForDescribeDBInstancesInputVedbMysqlX88xlarge is a EnumOfNodeSpecForDescribeDBInstancesInput enum value
-	EnumOfNodeSpecForDescribeDBInstancesInputVedbMysqlX88xlarge = "vedb.mysql.x8.8xlarge"
+	// EnumOfNodeSpecForDescribeDBInstancesInputVedbMysqlG44xlarge is a EnumOfNodeSpecForDescribeDBInstancesInput enum value
+	EnumOfNodeSpecForDescribeDBInstancesInputVedbMysqlG44xlarge = "vedb.mysql.g4.4xlarge"
 
 	// EnumOfNodeSpecForDescribeDBInstancesInputVedbMysqlG4Large is a EnumOfNodeSpecForDescribeDBInstancesInput enum value
 	EnumOfNodeSpecForDescribeDBInstancesInputVedbMysqlG4Large = "vedb.mysql.g4.large"
@@ -864,49 +851,49 @@ const (
 	// EnumOfNodeSpecForDescribeDBInstancesInputVedbMysqlG4Xlarge is a EnumOfNodeSpecForDescribeDBInstancesInput enum value
 	EnumOfNodeSpecForDescribeDBInstancesInputVedbMysqlG4Xlarge = "vedb.mysql.g4.xlarge"
 
-	// EnumOfNodeSpecForDescribeDBInstancesInputVedbMysqlG42xlarge is a EnumOfNodeSpecForDescribeDBInstancesInput enum value
-	EnumOfNodeSpecForDescribeDBInstancesInputVedbMysqlG42xlarge = "vedb.mysql.g4.2xlarge"
-
 	// EnumOfNodeSpecForDescribeDBInstancesInputVedbMysqlG82xlarge is a EnumOfNodeSpecForDescribeDBInstancesInput enum value
 	EnumOfNodeSpecForDescribeDBInstancesInputVedbMysqlG82xlarge = "vedb.mysql.g8.2xlarge"
 
-	// EnumOfNodeSpecForDescribeDBInstancesInputVedbMysqlG44xlarge is a EnumOfNodeSpecForDescribeDBInstancesInput enum value
-	EnumOfNodeSpecForDescribeDBInstancesInputVedbMysqlG44xlarge = "vedb.mysql.g4.4xlarge"
+	// EnumOfNodeSpecForDescribeDBInstancesInputVedbMysqlX42xlarge is a EnumOfNodeSpecForDescribeDBInstancesInput enum value
+	EnumOfNodeSpecForDescribeDBInstancesInputVedbMysqlX42xlarge = "vedb.mysql.x4.2xlarge"
+
+	// EnumOfNodeSpecForDescribeDBInstancesInputVedbMysqlX44xlarge is a EnumOfNodeSpecForDescribeDBInstancesInput enum value
+	EnumOfNodeSpecForDescribeDBInstancesInputVedbMysqlX44xlarge = "vedb.mysql.x4.4xlarge"
+
+	// EnumOfNodeSpecForDescribeDBInstancesInputVedbMysqlX48xlarge is a EnumOfNodeSpecForDescribeDBInstancesInput enum value
+	EnumOfNodeSpecForDescribeDBInstancesInputVedbMysqlX48xlarge = "vedb.mysql.x4.8xlarge"
+
+	// EnumOfNodeSpecForDescribeDBInstancesInputVedbMysqlX4Large is a EnumOfNodeSpecForDescribeDBInstancesInput enum value
+	EnumOfNodeSpecForDescribeDBInstancesInputVedbMysqlX4Large = "vedb.mysql.x4.large"
+
+	// EnumOfNodeSpecForDescribeDBInstancesInputVedbMysqlX4Xlarge is a EnumOfNodeSpecForDescribeDBInstancesInput enum value
+	EnumOfNodeSpecForDescribeDBInstancesInputVedbMysqlX4Xlarge = "vedb.mysql.x4.xlarge"
+
+	// EnumOfNodeSpecForDescribeDBInstancesInputVedbMysqlX82xlarge is a EnumOfNodeSpecForDescribeDBInstancesInput enum value
+	EnumOfNodeSpecForDescribeDBInstancesInputVedbMysqlX82xlarge = "vedb.mysql.x8.2xlarge"
+
+	// EnumOfNodeSpecForDescribeDBInstancesInputVedbMysqlX84xlarge is a EnumOfNodeSpecForDescribeDBInstancesInput enum value
+	EnumOfNodeSpecForDescribeDBInstancesInputVedbMysqlX84xlarge = "vedb.mysql.x8.4xlarge"
+
+	// EnumOfNodeSpecForDescribeDBInstancesInputVedbMysqlX86xlarge is a EnumOfNodeSpecForDescribeDBInstancesInput enum value
+	EnumOfNodeSpecForDescribeDBInstancesInputVedbMysqlX86xlarge = "vedb.mysql.x8.6xlarge"
+
+	// EnumOfNodeSpecForDescribeDBInstancesInputVedbMysqlX88xlarge is a EnumOfNodeSpecForDescribeDBInstancesInput enum value
+	EnumOfNodeSpecForDescribeDBInstancesInputVedbMysqlX88xlarge = "vedb.mysql.x8.8xlarge"
+
+	// EnumOfNodeSpecForDescribeDBInstancesInputVedbMysqlX8Large is a EnumOfNodeSpecForDescribeDBInstancesInput enum value
+	EnumOfNodeSpecForDescribeDBInstancesInputVedbMysqlX8Large = "vedb.mysql.x8.large"
+
+	// EnumOfNodeSpecForDescribeDBInstancesInputVedbMysqlX8Xlarge is a EnumOfNodeSpecForDescribeDBInstancesInput enum value
+	EnumOfNodeSpecForDescribeDBInstancesInputVedbMysqlX8Xlarge = "vedb.mysql.x8.xlarge"
 )
 
 const (
-	// EnumOfNodeSpecForDescribeDBInstancesOutputVedbMysqlX4Large is a EnumOfNodeSpecForDescribeDBInstancesOutput enum value
-	EnumOfNodeSpecForDescribeDBInstancesOutputVedbMysqlX4Large = "vedb.mysql.x4.large"
+	// EnumOfNodeSpecForDescribeDBInstancesOutputVedbMysqlG42xlarge is a EnumOfNodeSpecForDescribeDBInstancesOutput enum value
+	EnumOfNodeSpecForDescribeDBInstancesOutputVedbMysqlG42xlarge = "vedb.mysql.g4.2xlarge"
 
-	// EnumOfNodeSpecForDescribeDBInstancesOutputVedbMysqlX8Large is a EnumOfNodeSpecForDescribeDBInstancesOutput enum value
-	EnumOfNodeSpecForDescribeDBInstancesOutputVedbMysqlX8Large = "vedb.mysql.x8.large"
-
-	// EnumOfNodeSpecForDescribeDBInstancesOutputVedbMysqlX4Xlarge is a EnumOfNodeSpecForDescribeDBInstancesOutput enum value
-	EnumOfNodeSpecForDescribeDBInstancesOutputVedbMysqlX4Xlarge = "vedb.mysql.x4.xlarge"
-
-	// EnumOfNodeSpecForDescribeDBInstancesOutputVedbMysqlX8Xlarge is a EnumOfNodeSpecForDescribeDBInstancesOutput enum value
-	EnumOfNodeSpecForDescribeDBInstancesOutputVedbMysqlX8Xlarge = "vedb.mysql.x8.xlarge"
-
-	// EnumOfNodeSpecForDescribeDBInstancesOutputVedbMysqlX42xlarge is a EnumOfNodeSpecForDescribeDBInstancesOutput enum value
-	EnumOfNodeSpecForDescribeDBInstancesOutputVedbMysqlX42xlarge = "vedb.mysql.x4.2xlarge"
-
-	// EnumOfNodeSpecForDescribeDBInstancesOutputVedbMysqlX82xlarge is a EnumOfNodeSpecForDescribeDBInstancesOutput enum value
-	EnumOfNodeSpecForDescribeDBInstancesOutputVedbMysqlX82xlarge = "vedb.mysql.x8.2xlarge"
-
-	// EnumOfNodeSpecForDescribeDBInstancesOutputVedbMysqlX44xlarge is a EnumOfNodeSpecForDescribeDBInstancesOutput enum value
-	EnumOfNodeSpecForDescribeDBInstancesOutputVedbMysqlX44xlarge = "vedb.mysql.x4.4xlarge"
-
-	// EnumOfNodeSpecForDescribeDBInstancesOutputVedbMysqlX84xlarge is a EnumOfNodeSpecForDescribeDBInstancesOutput enum value
-	EnumOfNodeSpecForDescribeDBInstancesOutputVedbMysqlX84xlarge = "vedb.mysql.x8.4xlarge"
-
-	// EnumOfNodeSpecForDescribeDBInstancesOutputVedbMysqlX86xlarge is a EnumOfNodeSpecForDescribeDBInstancesOutput enum value
-	EnumOfNodeSpecForDescribeDBInstancesOutputVedbMysqlX86xlarge = "vedb.mysql.x8.6xlarge"
-
-	// EnumOfNodeSpecForDescribeDBInstancesOutputVedbMysqlX48xlarge is a EnumOfNodeSpecForDescribeDBInstancesOutput enum value
-	EnumOfNodeSpecForDescribeDBInstancesOutputVedbMysqlX48xlarge = "vedb.mysql.x4.8xlarge"
-
-	// EnumOfNodeSpecForDescribeDBInstancesOutputVedbMysqlX88xlarge is a EnumOfNodeSpecForDescribeDBInstancesOutput enum value
-	EnumOfNodeSpecForDescribeDBInstancesOutputVedbMysqlX88xlarge = "vedb.mysql.x8.8xlarge"
+	// EnumOfNodeSpecForDescribeDBInstancesOutputVedbMysqlG44xlarge is a EnumOfNodeSpecForDescribeDBInstancesOutput enum value
+	EnumOfNodeSpecForDescribeDBInstancesOutputVedbMysqlG44xlarge = "vedb.mysql.g4.4xlarge"
 
 	// EnumOfNodeSpecForDescribeDBInstancesOutputVedbMysqlG4Large is a EnumOfNodeSpecForDescribeDBInstancesOutput enum value
 	EnumOfNodeSpecForDescribeDBInstancesOutputVedbMysqlG4Large = "vedb.mysql.g4.large"
@@ -914,14 +901,41 @@ const (
 	// EnumOfNodeSpecForDescribeDBInstancesOutputVedbMysqlG4Xlarge is a EnumOfNodeSpecForDescribeDBInstancesOutput enum value
 	EnumOfNodeSpecForDescribeDBInstancesOutputVedbMysqlG4Xlarge = "vedb.mysql.g4.xlarge"
 
-	// EnumOfNodeSpecForDescribeDBInstancesOutputVedbMysqlG42xlarge is a EnumOfNodeSpecForDescribeDBInstancesOutput enum value
-	EnumOfNodeSpecForDescribeDBInstancesOutputVedbMysqlG42xlarge = "vedb.mysql.g4.2xlarge"
-
 	// EnumOfNodeSpecForDescribeDBInstancesOutputVedbMysqlG82xlarge is a EnumOfNodeSpecForDescribeDBInstancesOutput enum value
 	EnumOfNodeSpecForDescribeDBInstancesOutputVedbMysqlG82xlarge = "vedb.mysql.g8.2xlarge"
 
-	// EnumOfNodeSpecForDescribeDBInstancesOutputVedbMysqlG44xlarge is a EnumOfNodeSpecForDescribeDBInstancesOutput enum value
-	EnumOfNodeSpecForDescribeDBInstancesOutputVedbMysqlG44xlarge = "vedb.mysql.g4.4xlarge"
+	// EnumOfNodeSpecForDescribeDBInstancesOutputVedbMysqlX42xlarge is a EnumOfNodeSpecForDescribeDBInstancesOutput enum value
+	EnumOfNodeSpecForDescribeDBInstancesOutputVedbMysqlX42xlarge = "vedb.mysql.x4.2xlarge"
+
+	// EnumOfNodeSpecForDescribeDBInstancesOutputVedbMysqlX44xlarge is a EnumOfNodeSpecForDescribeDBInstancesOutput enum value
+	EnumOfNodeSpecForDescribeDBInstancesOutputVedbMysqlX44xlarge = "vedb.mysql.x4.4xlarge"
+
+	// EnumOfNodeSpecForDescribeDBInstancesOutputVedbMysqlX48xlarge is a EnumOfNodeSpecForDescribeDBInstancesOutput enum value
+	EnumOfNodeSpecForDescribeDBInstancesOutputVedbMysqlX48xlarge = "vedb.mysql.x4.8xlarge"
+
+	// EnumOfNodeSpecForDescribeDBInstancesOutputVedbMysqlX4Large is a EnumOfNodeSpecForDescribeDBInstancesOutput enum value
+	EnumOfNodeSpecForDescribeDBInstancesOutputVedbMysqlX4Large = "vedb.mysql.x4.large"
+
+	// EnumOfNodeSpecForDescribeDBInstancesOutputVedbMysqlX4Xlarge is a EnumOfNodeSpecForDescribeDBInstancesOutput enum value
+	EnumOfNodeSpecForDescribeDBInstancesOutputVedbMysqlX4Xlarge = "vedb.mysql.x4.xlarge"
+
+	// EnumOfNodeSpecForDescribeDBInstancesOutputVedbMysqlX82xlarge is a EnumOfNodeSpecForDescribeDBInstancesOutput enum value
+	EnumOfNodeSpecForDescribeDBInstancesOutputVedbMysqlX82xlarge = "vedb.mysql.x8.2xlarge"
+
+	// EnumOfNodeSpecForDescribeDBInstancesOutputVedbMysqlX84xlarge is a EnumOfNodeSpecForDescribeDBInstancesOutput enum value
+	EnumOfNodeSpecForDescribeDBInstancesOutputVedbMysqlX84xlarge = "vedb.mysql.x8.4xlarge"
+
+	// EnumOfNodeSpecForDescribeDBInstancesOutputVedbMysqlX86xlarge is a EnumOfNodeSpecForDescribeDBInstancesOutput enum value
+	EnumOfNodeSpecForDescribeDBInstancesOutputVedbMysqlX86xlarge = "vedb.mysql.x8.6xlarge"
+
+	// EnumOfNodeSpecForDescribeDBInstancesOutputVedbMysqlX88xlarge is a EnumOfNodeSpecForDescribeDBInstancesOutput enum value
+	EnumOfNodeSpecForDescribeDBInstancesOutputVedbMysqlX88xlarge = "vedb.mysql.x8.8xlarge"
+
+	// EnumOfNodeSpecForDescribeDBInstancesOutputVedbMysqlX8Large is a EnumOfNodeSpecForDescribeDBInstancesOutput enum value
+	EnumOfNodeSpecForDescribeDBInstancesOutputVedbMysqlX8Large = "vedb.mysql.x8.large"
+
+	// EnumOfNodeSpecForDescribeDBInstancesOutputVedbMysqlX8Xlarge is a EnumOfNodeSpecForDescribeDBInstancesOutput enum value
+	EnumOfNodeSpecForDescribeDBInstancesOutputVedbMysqlX8Xlarge = "vedb.mysql.x8.xlarge"
 )
 
 const (
@@ -930,6 +944,14 @@ const (
 
 	// EnumOfNodeTypeForDescribeDBInstancesOutputReadOnly is a EnumOfNodeTypeForDescribeDBInstancesOutput enum value
 	EnumOfNodeTypeForDescribeDBInstancesOutputReadOnly = "ReadOnly"
+)
+
+const (
+	// EnumOfStorageChargeTypeForDescribeDBInstancesInputPostPaid is a EnumOfStorageChargeTypeForDescribeDBInstancesInput enum value
+	EnumOfStorageChargeTypeForDescribeDBInstancesInputPostPaid = "PostPaid"
+
+	// EnumOfStorageChargeTypeForDescribeDBInstancesInputPrePaid is a EnumOfStorageChargeTypeForDescribeDBInstancesInput enum value
+	EnumOfStorageChargeTypeForDescribeDBInstancesInputPrePaid = "PrePaid"
 )
 
 const (
