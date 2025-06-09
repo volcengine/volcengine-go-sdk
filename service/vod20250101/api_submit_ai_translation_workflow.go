@@ -165,6 +165,36 @@ func (s *OperatorConfigForSubmitAITranslationWorkflowInput) SetSubtitleRecogniti
 	return s
 }
 
+type ProjectBaseInfoForSubmitAITranslationWorkflowOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	ProjectId *string `type:"string" json:",omitempty"`
+
+	ProjectVersion *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s ProjectBaseInfoForSubmitAITranslationWorkflowOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ProjectBaseInfoForSubmitAITranslationWorkflowOutput) GoString() string {
+	return s.String()
+}
+
+// SetProjectId sets the ProjectId field's value.
+func (s *ProjectBaseInfoForSubmitAITranslationWorkflowOutput) SetProjectId(v string) *ProjectBaseInfoForSubmitAITranslationWorkflowOutput {
+	s.ProjectId = &v
+	return s
+}
+
+// SetProjectVersion sets the ProjectVersion field's value.
+func (s *ProjectBaseInfoForSubmitAITranslationWorkflowOutput) SetProjectVersion(v string) *ProjectBaseInfoForSubmitAITranslationWorkflowOutput {
+	s.ProjectVersion = &v
+	return s
+}
+
 type SubmitAITranslationWorkflowInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -233,6 +263,8 @@ type SubmitAITranslationWorkflowOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
+
+	ProjectBaseInfo *ProjectBaseInfoForSubmitAITranslationWorkflowOutput `type:"structure" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -243,6 +275,12 @@ func (s SubmitAITranslationWorkflowOutput) String() string {
 // GoString returns the string representation
 func (s SubmitAITranslationWorkflowOutput) GoString() string {
 	return s.String()
+}
+
+// SetProjectBaseInfo sets the ProjectBaseInfo field's value.
+func (s *SubmitAITranslationWorkflowOutput) SetProjectBaseInfo(v *ProjectBaseInfoForSubmitAITranslationWorkflowOutput) *SubmitAITranslationWorkflowOutput {
+	s.ProjectBaseInfo = v
+	return s
 }
 
 type SubtitleRecognitionConfigForSubmitAITranslationWorkflowInput struct {
