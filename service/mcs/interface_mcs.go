@@ -19,7 +19,7 @@ import (
 //    // volcengine sdk func uses an SDK service client to make a request to
 //    // MCS.
 //    func myFunc(svc MCSAPI) bool {
-//        // Make svc.GetAlarmSyncTask request
+//        // Make svc.BanAlertIPCallback request
 //    }
 //
 //    func main() {
@@ -30,6 +30,14 @@ import (
 //    }
 //
 type MCSAPI interface {
+	BanAlertIPCallbackCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	BanAlertIPCallbackCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	BanAlertIPCallbackCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	BanAlertIPCallback(*BanAlertIPCallbackInput) (*BanAlertIPCallbackOutput, error)
+	BanAlertIPCallbackWithContext(volcengine.Context, *BanAlertIPCallbackInput, ...request.Option) (*BanAlertIPCallbackOutput, error)
+	BanAlertIPCallbackRequest(*BanAlertIPCallbackInput) (*request.Request, *BanAlertIPCallbackOutput)
+
 	GetAlarmSyncTaskCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	GetAlarmSyncTaskCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	GetAlarmSyncTaskCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -133,6 +141,14 @@ type MCSAPI interface {
 	PostApiV1OverviewDescribeAssetInfo(*PostApiV1OverviewDescribeAssetInfoInput) (*PostApiV1OverviewDescribeAssetInfoOutput, error)
 	PostApiV1OverviewDescribeAssetInfoWithContext(volcengine.Context, *PostApiV1OverviewDescribeAssetInfoInput, ...request.Option) (*PostApiV1OverviewDescribeAssetInfoOutput, error)
 	PostApiV1OverviewDescribeAssetInfoRequest(*PostApiV1OverviewDescribeAssetInfoInput) (*request.Request, *PostApiV1OverviewDescribeAssetInfoOutput)
+
+	RiskStatusUpdateBySoarCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	RiskStatusUpdateBySoarCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	RiskStatusUpdateBySoarCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	RiskStatusUpdateBySoar(*RiskStatusUpdateBySoarInput) (*RiskStatusUpdateBySoarOutput, error)
+	RiskStatusUpdateBySoarWithContext(volcengine.Context, *RiskStatusUpdateBySoarInput, ...request.Option) (*RiskStatusUpdateBySoarOutput, error)
+	RiskStatusUpdateBySoarRequest(*RiskStatusUpdateBySoarInput) (*request.Request, *RiskStatusUpdateBySoarOutput)
 }
 
 var _ MCSAPI = (*MCS)(nil)
