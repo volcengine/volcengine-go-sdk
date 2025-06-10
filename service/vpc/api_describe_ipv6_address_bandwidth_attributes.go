@@ -218,6 +218,8 @@ type DescribeIpv6AddressBandwidthAttributesOutput struct {
 
 	Status *string `type:"string"`
 
+	Tags []*TagForDescribeIpv6AddressBandwidthAttributesOutput `type:"list"`
+
 	UpdateTime *string `type:"string"`
 }
 
@@ -345,8 +347,44 @@ func (s *DescribeIpv6AddressBandwidthAttributesOutput) SetStatus(v string) *Desc
 	return s
 }
 
+// SetTags sets the Tags field's value.
+func (s *DescribeIpv6AddressBandwidthAttributesOutput) SetTags(v []*TagForDescribeIpv6AddressBandwidthAttributesOutput) *DescribeIpv6AddressBandwidthAttributesOutput {
+	s.Tags = v
+	return s
+}
+
 // SetUpdateTime sets the UpdateTime field's value.
 func (s *DescribeIpv6AddressBandwidthAttributesOutput) SetUpdateTime(v string) *DescribeIpv6AddressBandwidthAttributesOutput {
 	s.UpdateTime = &v
+	return s
+}
+
+type TagForDescribeIpv6AddressBandwidthAttributesOutput struct {
+	_ struct{} `type:"structure"`
+
+	Key *string `type:"string"`
+
+	Value *string `type:"string"`
+}
+
+// String returns the string representation
+func (s TagForDescribeIpv6AddressBandwidthAttributesOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagForDescribeIpv6AddressBandwidthAttributesOutput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagForDescribeIpv6AddressBandwidthAttributesOutput) SetKey(v string) *TagForDescribeIpv6AddressBandwidthAttributesOutput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *TagForDescribeIpv6AddressBandwidthAttributesOutput) SetValue(v string) *TagForDescribeIpv6AddressBandwidthAttributesOutput {
+	s.Value = &v
 	return s
 }
