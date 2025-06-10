@@ -302,7 +302,7 @@ func (s *ApplicationExtraForCreateClusterInput) SetConnectionType(v string) *App
 type BootstrapScriptForCreateClusterInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	EffectiveScope *string `type:"string" json:",omitempty"`
+	EffectiveScope *EffectiveScopeForCreateClusterInput `type:"structure" json:",omitempty"`
 
 	ExecutionFailStrategy *string `type:"string" json:",omitempty" enum:"EnumOfExecutionFailStrategyForCreateClusterInput"`
 
@@ -346,8 +346,8 @@ func (s *BootstrapScriptForCreateClusterInput) Validate() error {
 }
 
 // SetEffectiveScope sets the EffectiveScope field's value.
-func (s *BootstrapScriptForCreateClusterInput) SetEffectiveScope(v string) *BootstrapScriptForCreateClusterInput {
-	s.EffectiveScope = &v
+func (s *BootstrapScriptForCreateClusterInput) SetEffectiveScope(v *EffectiveScopeForCreateClusterInput) *BootstrapScriptForCreateClusterInput {
+	s.EffectiveScope = v
 	return s
 }
 
@@ -1045,11 +1045,11 @@ const (
 )
 
 const (
-	// EnumOfExecutionMomentForCreateClusterInputBeforeAppInstall is a EnumOfExecutionMomentForCreateClusterInput enum value
-	EnumOfExecutionMomentForCreateClusterInputBeforeAppInstall = "BEFORE_APP_INSTALL"
+	// EnumOfExecutionMomentForCreateClusterInputBeforeApplicationInstall is a EnumOfExecutionMomentForCreateClusterInput enum value
+	EnumOfExecutionMomentForCreateClusterInputBeforeApplicationInstall = "BEFORE_APPLICATION_INSTALL"
 
-	// EnumOfExecutionMomentForCreateClusterInputAfterAppStarted is a EnumOfExecutionMomentForCreateClusterInput enum value
-	EnumOfExecutionMomentForCreateClusterInputAfterAppStarted = "AFTER_APP_STARTED"
+	// EnumOfExecutionMomentForCreateClusterInputAfterApplicationStarted is a EnumOfExecutionMomentForCreateClusterInput enum value
+	EnumOfExecutionMomentForCreateClusterInputAfterApplicationStarted = "AFTER_APPLICATION_STARTED"
 )
 
 const (
