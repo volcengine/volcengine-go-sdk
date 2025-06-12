@@ -228,6 +228,8 @@ type DescribeVpnConnectionsInput struct {
 
 	Status *string `type:"string"`
 
+	TagFilters []*TagFilterForDescribeVpnConnectionsInput `type:"list"`
+
 	TransitRouterId *string `type:"string"`
 
 	VpnConnectionIds []*string `type:"list"`
@@ -292,6 +294,12 @@ func (s *DescribeVpnConnectionsInput) SetSpec(v string) *DescribeVpnConnectionsI
 // SetStatus sets the Status field's value.
 func (s *DescribeVpnConnectionsInput) SetStatus(v string) *DescribeVpnConnectionsInput {
 	s.Status = &v
+	return s
+}
+
+// SetTagFilters sets the TagFilters field's value.
+func (s *DescribeVpnConnectionsInput) SetTagFilters(v []*TagFilterForDescribeVpnConnectionsInput) *DescribeVpnConnectionsInput {
+	s.TagFilters = v
 	return s
 }
 
@@ -378,7 +386,7 @@ func (s *DescribeVpnConnectionsOutput) SetVpnConnections(v []*VpnConnectionForDe
 type HealthCheckerForDescribeVpnConnectionsOutput struct {
 	_ struct{} `type:"structure"`
 
-	CheckInterval *string `type:"string"`
+	CheckInterval *int64 `type:"integer"`
 
 	CheckResult *string `type:"string" enum:"CheckResultForDescribeVpnConnectionsOutput"`
 
@@ -406,7 +414,7 @@ func (s HealthCheckerForDescribeVpnConnectionsOutput) GoString() string {
 }
 
 // SetCheckInterval sets the CheckInterval field's value.
-func (s *HealthCheckerForDescribeVpnConnectionsOutput) SetCheckInterval(v string) *HealthCheckerForDescribeVpnConnectionsOutput {
+func (s *HealthCheckerForDescribeVpnConnectionsOutput) SetCheckInterval(v int64) *HealthCheckerForDescribeVpnConnectionsOutput {
 	s.CheckInterval = &v
 	return s
 }
@@ -585,6 +593,144 @@ func (s *IpsecConfigForDescribeVpnConnectionsOutput) SetLifetime(v int64) *Ipsec
 	return s
 }
 
+type TagFilterForDescribeVpnConnectionsInput struct {
+	_ struct{} `type:"structure"`
+
+	Key *string `type:"string"`
+
+	Values []*string `type:"list"`
+}
+
+// String returns the string representation
+func (s TagFilterForDescribeVpnConnectionsInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagFilterForDescribeVpnConnectionsInput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagFilterForDescribeVpnConnectionsInput) SetKey(v string) *TagFilterForDescribeVpnConnectionsInput {
+	s.Key = &v
+	return s
+}
+
+// SetValues sets the Values field's value.
+func (s *TagFilterForDescribeVpnConnectionsInput) SetValues(v []*string) *TagFilterForDescribeVpnConnectionsInput {
+	s.Values = v
+	return s
+}
+
+type TagForDescribeVpnConnectionsOutput struct {
+	_ struct{} `type:"structure"`
+
+	Key *string `type:"string"`
+
+	Value *string `type:"string"`
+}
+
+// String returns the string representation
+func (s TagForDescribeVpnConnectionsOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagForDescribeVpnConnectionsOutput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagForDescribeVpnConnectionsOutput) SetKey(v string) *TagForDescribeVpnConnectionsOutput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *TagForDescribeVpnConnectionsOutput) SetValue(v string) *TagForDescribeVpnConnectionsOutput {
+	s.Value = &v
+	return s
+}
+
+type TunnelOptionForDescribeVpnConnectionsOutput struct {
+	_ struct{} `type:"structure"`
+
+	ConnectStatus *string `type:"string"`
+
+	CustomerGatewayId *string `type:"string"`
+
+	DpdAction *string `type:"string"`
+
+	IkeConfig *IkeConfigForDescribeVpnConnectionsOutput `type:"structure"`
+
+	IpsecConfig *IpsecConfigForDescribeVpnConnectionsOutput `type:"structure"`
+
+	NatTraversal *bool `type:"boolean"`
+
+	Role *string `type:"string"`
+
+	TunnelId *string `type:"string"`
+}
+
+// String returns the string representation
+func (s TunnelOptionForDescribeVpnConnectionsOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TunnelOptionForDescribeVpnConnectionsOutput) GoString() string {
+	return s.String()
+}
+
+// SetConnectStatus sets the ConnectStatus field's value.
+func (s *TunnelOptionForDescribeVpnConnectionsOutput) SetConnectStatus(v string) *TunnelOptionForDescribeVpnConnectionsOutput {
+	s.ConnectStatus = &v
+	return s
+}
+
+// SetCustomerGatewayId sets the CustomerGatewayId field's value.
+func (s *TunnelOptionForDescribeVpnConnectionsOutput) SetCustomerGatewayId(v string) *TunnelOptionForDescribeVpnConnectionsOutput {
+	s.CustomerGatewayId = &v
+	return s
+}
+
+// SetDpdAction sets the DpdAction field's value.
+func (s *TunnelOptionForDescribeVpnConnectionsOutput) SetDpdAction(v string) *TunnelOptionForDescribeVpnConnectionsOutput {
+	s.DpdAction = &v
+	return s
+}
+
+// SetIkeConfig sets the IkeConfig field's value.
+func (s *TunnelOptionForDescribeVpnConnectionsOutput) SetIkeConfig(v *IkeConfigForDescribeVpnConnectionsOutput) *TunnelOptionForDescribeVpnConnectionsOutput {
+	s.IkeConfig = v
+	return s
+}
+
+// SetIpsecConfig sets the IpsecConfig field's value.
+func (s *TunnelOptionForDescribeVpnConnectionsOutput) SetIpsecConfig(v *IpsecConfigForDescribeVpnConnectionsOutput) *TunnelOptionForDescribeVpnConnectionsOutput {
+	s.IpsecConfig = v
+	return s
+}
+
+// SetNatTraversal sets the NatTraversal field's value.
+func (s *TunnelOptionForDescribeVpnConnectionsOutput) SetNatTraversal(v bool) *TunnelOptionForDescribeVpnConnectionsOutput {
+	s.NatTraversal = &v
+	return s
+}
+
+// SetRole sets the Role field's value.
+func (s *TunnelOptionForDescribeVpnConnectionsOutput) SetRole(v string) *TunnelOptionForDescribeVpnConnectionsOutput {
+	s.Role = &v
+	return s
+}
+
+// SetTunnelId sets the TunnelId field's value.
+func (s *TunnelOptionForDescribeVpnConnectionsOutput) SetTunnelId(v string) *TunnelOptionForDescribeVpnConnectionsOutput {
+	s.TunnelId = &v
+	return s
+}
+
 type VpnConnectionForDescribeVpnConnectionsOutput struct {
 	_ struct{} `type:"structure"`
 
@@ -609,6 +755,8 @@ type VpnConnectionForDescribeVpnConnectionsOutput struct {
 	Description *string `type:"string"`
 
 	DpdAction *string `type:"string"`
+
+	DualTunnelEnabled *bool `type:"boolean"`
 
 	HealthCheckers []*HealthCheckerForDescribeVpnConnectionsOutput `type:"list"`
 
@@ -640,7 +788,11 @@ type VpnConnectionForDescribeVpnConnectionsOutput struct {
 
 	Status *string `type:"string"`
 
+	Tags []*TagForDescribeVpnConnectionsOutput `type:"list"`
+
 	TransitRouterId *string `type:"string"`
+
+	TunnelOptions []*TunnelOptionForDescribeVpnConnectionsOutput `type:"list"`
 
 	UpdateTime *string `type:"string"`
 
@@ -726,6 +878,12 @@ func (s *VpnConnectionForDescribeVpnConnectionsOutput) SetDescription(v string) 
 // SetDpdAction sets the DpdAction field's value.
 func (s *VpnConnectionForDescribeVpnConnectionsOutput) SetDpdAction(v string) *VpnConnectionForDescribeVpnConnectionsOutput {
 	s.DpdAction = &v
+	return s
+}
+
+// SetDualTunnelEnabled sets the DualTunnelEnabled field's value.
+func (s *VpnConnectionForDescribeVpnConnectionsOutput) SetDualTunnelEnabled(v bool) *VpnConnectionForDescribeVpnConnectionsOutput {
+	s.DualTunnelEnabled = &v
 	return s
 }
 
@@ -819,9 +977,21 @@ func (s *VpnConnectionForDescribeVpnConnectionsOutput) SetStatus(v string) *VpnC
 	return s
 }
 
+// SetTags sets the Tags field's value.
+func (s *VpnConnectionForDescribeVpnConnectionsOutput) SetTags(v []*TagForDescribeVpnConnectionsOutput) *VpnConnectionForDescribeVpnConnectionsOutput {
+	s.Tags = v
+	return s
+}
+
 // SetTransitRouterId sets the TransitRouterId field's value.
 func (s *VpnConnectionForDescribeVpnConnectionsOutput) SetTransitRouterId(v string) *VpnConnectionForDescribeVpnConnectionsOutput {
 	s.TransitRouterId = &v
+	return s
+}
+
+// SetTunnelOptions sets the TunnelOptions field's value.
+func (s *VpnConnectionForDescribeVpnConnectionsOutput) SetTunnelOptions(v []*TunnelOptionForDescribeVpnConnectionsOutput) *VpnConnectionForDescribeVpnConnectionsOutput {
+	s.TunnelOptions = v
 	return s
 }
 

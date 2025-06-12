@@ -152,6 +152,8 @@ type DescribeSslVpnServersInput struct {
 
 	SslVpnServerName *string `type:"string"`
 
+	TagFilters []*TagFilterForDescribeSslVpnServersInput `type:"list"`
+
 	VpnGatewayId *string `type:"string"`
 }
 
@@ -192,6 +194,12 @@ func (s *DescribeSslVpnServersInput) SetSslVpnServerIds(v []*string) *DescribeSs
 // SetSslVpnServerName sets the SslVpnServerName field's value.
 func (s *DescribeSslVpnServersInput) SetSslVpnServerName(v string) *DescribeSslVpnServersInput {
 	s.SslVpnServerName = &v
+	return s
+}
+
+// SetTagFilters sets the TagFilters field's value.
+func (s *DescribeSslVpnServersInput) SetTagFilters(v []*TagFilterForDescribeSslVpnServersInput) *DescribeSslVpnServersInput {
+	s.TagFilters = v
 	return s
 }
 
@@ -287,6 +295,8 @@ type SslVpnServerForDescribeSslVpnServersOutput struct {
 	SslVpnServerName *string `type:"string"`
 
 	Status *string `type:"string"`
+
+	Tags []*TagForDescribeSslVpnServersOutput `type:"list"`
 
 	UpdateTime *string `type:"string"`
 
@@ -387,6 +397,12 @@ func (s *SslVpnServerForDescribeSslVpnServersOutput) SetStatus(v string) *SslVpn
 	return s
 }
 
+// SetTags sets the Tags field's value.
+func (s *SslVpnServerForDescribeSslVpnServersOutput) SetTags(v []*TagForDescribeSslVpnServersOutput) *SslVpnServerForDescribeSslVpnServersOutput {
+	s.Tags = v
+	return s
+}
+
 // SetUpdateTime sets the UpdateTime field's value.
 func (s *SslVpnServerForDescribeSslVpnServersOutput) SetUpdateTime(v string) *SslVpnServerForDescribeSslVpnServersOutput {
 	s.UpdateTime = &v
@@ -396,5 +412,65 @@ func (s *SslVpnServerForDescribeSslVpnServersOutput) SetUpdateTime(v string) *Ss
 // SetVpnGatewayId sets the VpnGatewayId field's value.
 func (s *SslVpnServerForDescribeSslVpnServersOutput) SetVpnGatewayId(v string) *SslVpnServerForDescribeSslVpnServersOutput {
 	s.VpnGatewayId = &v
+	return s
+}
+
+type TagFilterForDescribeSslVpnServersInput struct {
+	_ struct{} `type:"structure"`
+
+	Key *string `type:"string"`
+
+	Values []*string `type:"list"`
+}
+
+// String returns the string representation
+func (s TagFilterForDescribeSslVpnServersInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagFilterForDescribeSslVpnServersInput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagFilterForDescribeSslVpnServersInput) SetKey(v string) *TagFilterForDescribeSslVpnServersInput {
+	s.Key = &v
+	return s
+}
+
+// SetValues sets the Values field's value.
+func (s *TagFilterForDescribeSslVpnServersInput) SetValues(v []*string) *TagFilterForDescribeSslVpnServersInput {
+	s.Values = v
+	return s
+}
+
+type TagForDescribeSslVpnServersOutput struct {
+	_ struct{} `type:"structure"`
+
+	Key *string `type:"string"`
+
+	Value *string `type:"string"`
+}
+
+// String returns the string representation
+func (s TagForDescribeSslVpnServersOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagForDescribeSslVpnServersOutput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagForDescribeSslVpnServersOutput) SetKey(v string) *TagForDescribeSslVpnServersOutput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *TagForDescribeSslVpnServersOutput) SetValue(v string) *TagForDescribeSslVpnServersOutput {
+	s.Value = &v
 	return s
 }

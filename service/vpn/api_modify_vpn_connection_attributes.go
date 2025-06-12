@@ -188,9 +188,13 @@ type IkeConfigForModifyVpnConnectionAttributesInput struct {
 
 	Lifetime *int64 `type:"integer"`
 
+	LocalId *string `type:"string"`
+
 	Mode *string `type:"string"`
 
 	Psk *string `type:"string"`
+
+	RemoteId *string `type:"string"`
 
 	Version *string `type:"string"`
 }
@@ -229,6 +233,12 @@ func (s *IkeConfigForModifyVpnConnectionAttributesInput) SetLifetime(v int64) *I
 	return s
 }
 
+// SetLocalId sets the LocalId field's value.
+func (s *IkeConfigForModifyVpnConnectionAttributesInput) SetLocalId(v string) *IkeConfigForModifyVpnConnectionAttributesInput {
+	s.LocalId = &v
+	return s
+}
+
 // SetMode sets the Mode field's value.
 func (s *IkeConfigForModifyVpnConnectionAttributesInput) SetMode(v string) *IkeConfigForModifyVpnConnectionAttributesInput {
 	s.Mode = &v
@@ -238,6 +248,12 @@ func (s *IkeConfigForModifyVpnConnectionAttributesInput) SetMode(v string) *IkeC
 // SetPsk sets the Psk field's value.
 func (s *IkeConfigForModifyVpnConnectionAttributesInput) SetPsk(v string) *IkeConfigForModifyVpnConnectionAttributesInput {
 	s.Psk = &v
+	return s
+}
+
+// SetRemoteId sets the RemoteId field's value.
+func (s *IkeConfigForModifyVpnConnectionAttributesInput) SetRemoteId(v string) *IkeConfigForModifyVpnConnectionAttributesInput {
+	s.RemoteId = &v
 	return s
 }
 
@@ -317,6 +333,8 @@ type ModifyVpnConnectionAttributesInput struct {
 	NegotiateInstantly *bool `type:"boolean"`
 
 	RemoteSubnet []*string `type:"list"`
+
+	TunnelOptions []*TunnelOptionForModifyVpnConnectionAttributesInput `type:"list"`
 
 	// VpnConnectionId is a required field
 	VpnConnectionId *string `type:"string" required:"true"`
@@ -413,6 +431,12 @@ func (s *ModifyVpnConnectionAttributesInput) SetRemoteSubnet(v []*string) *Modif
 	return s
 }
 
+// SetTunnelOptions sets the TunnelOptions field's value.
+func (s *ModifyVpnConnectionAttributesInput) SetTunnelOptions(v []*TunnelOptionForModifyVpnConnectionAttributesInput) *ModifyVpnConnectionAttributesInput {
+	s.TunnelOptions = v
+	return s
+}
+
 // SetVpnConnectionId sets the VpnConnectionId field's value.
 func (s *ModifyVpnConnectionAttributesInput) SetVpnConnectionId(v string) *ModifyVpnConnectionAttributesInput {
 	s.VpnConnectionId = &v
@@ -454,5 +478,67 @@ func (s *ModifyVpnConnectionAttributesOutput) SetOrderId(v string) *ModifyVpnCon
 // SetRequestId sets the RequestId field's value.
 func (s *ModifyVpnConnectionAttributesOutput) SetRequestId(v string) *ModifyVpnConnectionAttributesOutput {
 	s.RequestId = &v
+	return s
+}
+
+type TunnelOptionForModifyVpnConnectionAttributesInput struct {
+	_ struct{} `type:"structure"`
+
+	CustomerGatewayId *string `type:"string"`
+
+	DpdAction *string `type:"string"`
+
+	IkeConfig *IkeConfigForModifyVpnConnectionAttributesInput `type:"structure"`
+
+	IpsecConfig *IpsecConfigForModifyVpnConnectionAttributesInput `type:"structure"`
+
+	NatTraversal *bool `type:"boolean"`
+
+	TunnelId *string `type:"string"`
+}
+
+// String returns the string representation
+func (s TunnelOptionForModifyVpnConnectionAttributesInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TunnelOptionForModifyVpnConnectionAttributesInput) GoString() string {
+	return s.String()
+}
+
+// SetCustomerGatewayId sets the CustomerGatewayId field's value.
+func (s *TunnelOptionForModifyVpnConnectionAttributesInput) SetCustomerGatewayId(v string) *TunnelOptionForModifyVpnConnectionAttributesInput {
+	s.CustomerGatewayId = &v
+	return s
+}
+
+// SetDpdAction sets the DpdAction field's value.
+func (s *TunnelOptionForModifyVpnConnectionAttributesInput) SetDpdAction(v string) *TunnelOptionForModifyVpnConnectionAttributesInput {
+	s.DpdAction = &v
+	return s
+}
+
+// SetIkeConfig sets the IkeConfig field's value.
+func (s *TunnelOptionForModifyVpnConnectionAttributesInput) SetIkeConfig(v *IkeConfigForModifyVpnConnectionAttributesInput) *TunnelOptionForModifyVpnConnectionAttributesInput {
+	s.IkeConfig = v
+	return s
+}
+
+// SetIpsecConfig sets the IpsecConfig field's value.
+func (s *TunnelOptionForModifyVpnConnectionAttributesInput) SetIpsecConfig(v *IpsecConfigForModifyVpnConnectionAttributesInput) *TunnelOptionForModifyVpnConnectionAttributesInput {
+	s.IpsecConfig = v
+	return s
+}
+
+// SetNatTraversal sets the NatTraversal field's value.
+func (s *TunnelOptionForModifyVpnConnectionAttributesInput) SetNatTraversal(v bool) *TunnelOptionForModifyVpnConnectionAttributesInput {
+	s.NatTraversal = &v
+	return s
+}
+
+// SetTunnelId sets the TunnelId field's value.
+func (s *TunnelOptionForModifyVpnConnectionAttributesInput) SetTunnelId(v string) *TunnelOptionForModifyVpnConnectionAttributesInput {
+	s.TunnelId = &v
 	return s
 }

@@ -144,6 +144,8 @@ type ResetVpnConnectionInput struct {
 
 	ClientToken *string `type:"string"`
 
+	TunnelId *string `type:"string"`
+
 	// VpnConnectionId is a required field
 	VpnConnectionId *string `type:"string" required:"true"`
 }
@@ -174,6 +176,12 @@ func (s *ResetVpnConnectionInput) Validate() error {
 // SetClientToken sets the ClientToken field's value.
 func (s *ResetVpnConnectionInput) SetClientToken(v string) *ResetVpnConnectionInput {
 	s.ClientToken = &v
+	return s
+}
+
+// SetTunnelId sets the TunnelId field's value.
+func (s *ResetVpnConnectionInput) SetTunnelId(v string) *ResetVpnConnectionInput {
+	s.TunnelId = &v
 	return s
 }
 

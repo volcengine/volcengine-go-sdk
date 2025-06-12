@@ -198,6 +198,8 @@ type DescribeVpnGatewayAttributesOutput struct {
 
 	Description *string `type:"string"`
 
+	DualTunnelEnabled *bool `type:"boolean"`
+
 	ExpiredTime *string `type:"string"`
 
 	IpAddress *string `type:"string"`
@@ -215,6 +217,10 @@ type DescribeVpnGatewayAttributesOutput struct {
 	RequestId *string `type:"string"`
 
 	RouteCount *int64 `type:"integer"`
+
+	SecondaryIpAddress *string `type:"string"`
+
+	SecondarySubnetId *string `type:"string"`
 
 	SslEnabled *bool `type:"boolean"`
 
@@ -301,6 +307,12 @@ func (s *DescribeVpnGatewayAttributesOutput) SetDescription(v string) *DescribeV
 	return s
 }
 
+// SetDualTunnelEnabled sets the DualTunnelEnabled field's value.
+func (s *DescribeVpnGatewayAttributesOutput) SetDualTunnelEnabled(v bool) *DescribeVpnGatewayAttributesOutput {
+	s.DualTunnelEnabled = &v
+	return s
+}
+
 // SetExpiredTime sets the ExpiredTime field's value.
 func (s *DescribeVpnGatewayAttributesOutput) SetExpiredTime(v string) *DescribeVpnGatewayAttributesOutput {
 	s.ExpiredTime = &v
@@ -352,6 +364,18 @@ func (s *DescribeVpnGatewayAttributesOutput) SetRequestId(v string) *DescribeVpn
 // SetRouteCount sets the RouteCount field's value.
 func (s *DescribeVpnGatewayAttributesOutput) SetRouteCount(v int64) *DescribeVpnGatewayAttributesOutput {
 	s.RouteCount = &v
+	return s
+}
+
+// SetSecondaryIpAddress sets the SecondaryIpAddress field's value.
+func (s *DescribeVpnGatewayAttributesOutput) SetSecondaryIpAddress(v string) *DescribeVpnGatewayAttributesOutput {
+	s.SecondaryIpAddress = &v
+	return s
+}
+
+// SetSecondarySubnetId sets the SecondarySubnetId field's value.
+func (s *DescribeVpnGatewayAttributesOutput) SetSecondarySubnetId(v string) *DescribeVpnGatewayAttributesOutput {
+	s.SecondarySubnetId = &v
 	return s
 }
 
