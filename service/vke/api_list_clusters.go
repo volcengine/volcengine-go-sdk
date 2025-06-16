@@ -273,6 +273,36 @@ func (s *ClusterConfigForListClustersOutput) SetVpcId(v string) *ClusterConfigFo
 	return s
 }
 
+type ComponentConfigForListClustersOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Enabled *bool `type:"boolean" json:",omitempty"`
+
+	Name *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s ComponentConfigForListClustersOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ComponentConfigForListClustersOutput) GoString() string {
+	return s.String()
+}
+
+// SetEnabled sets the Enabled field's value.
+func (s *ComponentConfigForListClustersOutput) SetEnabled(v bool) *ComponentConfigForListClustersOutput {
+	s.Enabled = &v
+	return s
+}
+
+// SetName sets the Name field's value.
+func (s *ComponentConfigForListClustersOutput) SetName(v string) *ComponentConfigForListClustersOutput {
+	s.Name = &v
+	return s
+}
+
 type ConditionForListClustersOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -462,6 +492,10 @@ type ItemForListClustersOutput struct {
 
 	LoggingConfig *LoggingConfigForListClustersOutput `type:"structure" json:",omitempty"`
 
+	Message *string `type:"string" json:",omitempty"`
+
+	MonitoringConfig *MonitoringConfigForListClustersOutput `type:"structure" json:",omitempty"`
+
 	Name *string `type:"string" json:",omitempty"`
 
 	NodeStatistics *NodeStatisticsForListClustersOutput `type:"structure" json:",omitempty"`
@@ -469,6 +503,8 @@ type ItemForListClustersOutput struct {
 	PodsConfig *PodsConfigForListClustersOutput `type:"structure" json:",omitempty"`
 
 	ProjectName *string `type:"string" json:",omitempty"`
+
+	RegisterMonitoringConfig *RegisterMonitoringConfigForListClustersOutput `type:"structure" json:",omitempty"`
 
 	ServicesConfig *ServicesConfigForListClustersOutput `type:"structure" json:",omitempty"`
 
@@ -547,6 +583,18 @@ func (s *ItemForListClustersOutput) SetLoggingConfig(v *LoggingConfigForListClus
 	return s
 }
 
+// SetMessage sets the Message field's value.
+func (s *ItemForListClustersOutput) SetMessage(v string) *ItemForListClustersOutput {
+	s.Message = &v
+	return s
+}
+
+// SetMonitoringConfig sets the MonitoringConfig field's value.
+func (s *ItemForListClustersOutput) SetMonitoringConfig(v *MonitoringConfigForListClustersOutput) *ItemForListClustersOutput {
+	s.MonitoringConfig = v
+	return s
+}
+
 // SetName sets the Name field's value.
 func (s *ItemForListClustersOutput) SetName(v string) *ItemForListClustersOutput {
 	s.Name = &v
@@ -568,6 +616,12 @@ func (s *ItemForListClustersOutput) SetPodsConfig(v *PodsConfigForListClustersOu
 // SetProjectName sets the ProjectName field's value.
 func (s *ItemForListClustersOutput) SetProjectName(v string) *ItemForListClustersOutput {
 	s.ProjectName = &v
+	return s
+}
+
+// SetRegisterMonitoringConfig sets the RegisterMonitoringConfig field's value.
+func (s *ItemForListClustersOutput) SetRegisterMonitoringConfig(v *RegisterMonitoringConfigForListClustersOutput) *ItemForListClustersOutput {
+	s.RegisterMonitoringConfig = v
 	return s
 }
 
@@ -782,6 +836,36 @@ func (s *LoggingConfigForListClustersOutput) SetLogProjectId(v string) *LoggingC
 // SetLogSetups sets the LogSetups field's value.
 func (s *LoggingConfigForListClustersOutput) SetLogSetups(v []*LogSetupForListClustersOutput) *LoggingConfigForListClustersOutput {
 	s.LogSetups = v
+	return s
+}
+
+type MonitoringConfigForListClustersOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	ComponentConfigs []*ComponentConfigForListClustersOutput `type:"list" json:",omitempty"`
+
+	WorkspaceId *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s MonitoringConfigForListClustersOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s MonitoringConfigForListClustersOutput) GoString() string {
+	return s.String()
+}
+
+// SetComponentConfigs sets the ComponentConfigs field's value.
+func (s *MonitoringConfigForListClustersOutput) SetComponentConfigs(v []*ComponentConfigForListClustersOutput) *MonitoringConfigForListClustersOutput {
+	s.ComponentConfigs = v
+	return s
+}
+
+// SetWorkspaceId sets the WorkspaceId field's value.
+func (s *MonitoringConfigForListClustersOutput) SetWorkspaceId(v string) *MonitoringConfigForListClustersOutput {
+	s.WorkspaceId = &v
 	return s
 }
 
@@ -1037,6 +1121,44 @@ func (s *PublicIpForListClustersOutput) SetIpv4(v string) *PublicIpForListCluste
 	return s
 }
 
+type RegisterMonitoringConfigForListClustersOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	QueryUrl *string `type:"string" json:",omitempty"`
+
+	RemoteWriteUrl *string `type:"string" json:",omitempty"`
+
+	WorkspaceId *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s RegisterMonitoringConfigForListClustersOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s RegisterMonitoringConfigForListClustersOutput) GoString() string {
+	return s.String()
+}
+
+// SetQueryUrl sets the QueryUrl field's value.
+func (s *RegisterMonitoringConfigForListClustersOutput) SetQueryUrl(v string) *RegisterMonitoringConfigForListClustersOutput {
+	s.QueryUrl = &v
+	return s
+}
+
+// SetRemoteWriteUrl sets the RemoteWriteUrl field's value.
+func (s *RegisterMonitoringConfigForListClustersOutput) SetRemoteWriteUrl(v string) *RegisterMonitoringConfigForListClustersOutput {
+	s.RemoteWriteUrl = &v
+	return s
+}
+
+// SetWorkspaceId sets the WorkspaceId field's value.
+func (s *RegisterMonitoringConfigForListClustersOutput) SetWorkspaceId(v string) *RegisterMonitoringConfigForListClustersOutput {
+	s.WorkspaceId = &v
+	return s
+}
+
 type ServicesConfigForListClustersOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -1191,6 +1313,8 @@ type VpcCniConfigForListClustersOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
 	SubnetIds []*string `type:"list" json:",omitempty"`
+
+	TrunkEniEnabled *bool `type:"boolean" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -1206,6 +1330,12 @@ func (s VpcCniConfigForListClustersOutput) GoString() string {
 // SetSubnetIds sets the SubnetIds field's value.
 func (s *VpcCniConfigForListClustersOutput) SetSubnetIds(v []*string) *VpcCniConfigForListClustersOutput {
 	s.SubnetIds = v
+	return s
+}
+
+// SetTrunkEniEnabled sets the TrunkEniEnabled field's value.
+func (s *VpcCniConfigForListClustersOutput) SetTrunkEniEnabled(v bool) *VpcCniConfigForListClustersOutput {
+	s.TrunkEniEnabled = &v
 	return s
 }
 
