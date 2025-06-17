@@ -26,13 +26,13 @@ type BotChatCompletionRequest struct {
 }
 
 type BotActionUsage struct {
-	Name             string `json:"name"`
-	PromptTokens     string `json:"prompt_tokens,omitempty"`
-	CompletionTokens int    `json:"completion_tokens,omitempty"`
-	TotalTokens      int    `json:"total_tokens,omitempty"`
-	SearchCount      int    `json:"search_count,omitempty"`
-	ActionName       string `json:"action_name,omitempty"`
-	Count            int    `json:"count,omitempty"`
+	Name             string  `json:"name"`
+	PromptTokens     string  `json:"prompt_tokens,omitempty"`
+	CompletionTokens int     `json:"completion_tokens,omitempty"`
+	TotalTokens      int     `json:"total_tokens,omitempty"`
+	SearchCount      int     `json:"search_count,omitempty"`
+	ActionName       *string `json:"action_name,omitempty"`
+	Count            *int    `json:"count,omitempty"`
 }
 
 type BotModelUsage struct {
