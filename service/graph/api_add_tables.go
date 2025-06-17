@@ -146,6 +146,8 @@ func (c *GRAPH) AddTablesWithContext(ctx volcengine.Context, input *AddTablesInp
 type AddTablesInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	Dry_run *bool `type:"boolean" json:"dry_run,omitempty"`
+
 	// InstanceId is a required field
 	InstanceId *string `type:"string" json:"instanceId,omitempty" required:"true"`
 
@@ -175,6 +177,12 @@ func (s *AddTablesInput) Validate() error {
 		return invalidParams
 	}
 	return nil
+}
+
+// SetDry_run sets the Dry_run field's value.
+func (s *AddTablesInput) SetDry_run(v bool) *AddTablesInput {
+	s.Dry_run = &v
+	return s
 }
 
 // SetInstanceId sets the InstanceId field's value.
