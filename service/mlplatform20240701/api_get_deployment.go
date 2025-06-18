@@ -488,8 +488,12 @@ func (s *FlexibleResourceClaimForGetDeploymentOutput) SetRdmaEniCount(v int32) *
 type GetDeploymentInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	HistoryVersionLimit *int32 `max:"100" type:"int32" json:",omitempty"`
+
 	// Id is a required field
 	Id *string `type:"string" json:",omitempty" required:"true"`
+
+	IncludeInstanceItems *bool `type:"boolean" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -505,6 +509,9 @@ func (s GetDeploymentInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *GetDeploymentInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "GetDeploymentInput"}
+	if s.HistoryVersionLimit != nil && *s.HistoryVersionLimit > 100 {
+		invalidParams.Add(request.NewErrParamMaxValue("HistoryVersionLimit", 100))
+	}
 	if s.Id == nil {
 		invalidParams.Add(request.NewErrParamRequired("Id"))
 	}
@@ -515,9 +522,21 @@ func (s *GetDeploymentInput) Validate() error {
 	return nil
 }
 
+// SetHistoryVersionLimit sets the HistoryVersionLimit field's value.
+func (s *GetDeploymentInput) SetHistoryVersionLimit(v int32) *GetDeploymentInput {
+	s.HistoryVersionLimit = &v
+	return s
+}
+
 // SetId sets the Id field's value.
 func (s *GetDeploymentInput) SetId(v string) *GetDeploymentInput {
 	s.Id = &v
+	return s
+}
+
+// SetIncludeInstanceItems sets the IncludeInstanceItems field's value.
+func (s *GetDeploymentInput) SetIncludeInstanceItems(v bool) *GetDeploymentInput {
+	s.IncludeInstanceItems = &v
 	return s
 }
 

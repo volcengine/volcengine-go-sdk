@@ -38,6 +38,14 @@ type MLPLATFORM20240701API interface {
 	CancelIdleShutdownWithContext(volcengine.Context, *CancelIdleShutdownInput, ...request.Option) (*CancelIdleShutdownOutput, error)
 	CancelIdleShutdownRequest(*CancelIdleShutdownInput) (*request.Request, *CancelIdleShutdownOutput)
 
+	CancelResourceReservationPlanCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CancelResourceReservationPlanCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CancelResourceReservationPlanCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CancelResourceReservationPlan(*CancelResourceReservationPlanInput) (*CancelResourceReservationPlanOutput, error)
+	CancelResourceReservationPlanWithContext(volcengine.Context, *CancelResourceReservationPlanInput, ...request.Option) (*CancelResourceReservationPlanOutput, error)
+	CancelResourceReservationPlanRequest(*CancelResourceReservationPlanInput) (*request.Request, *CancelResourceReservationPlanOutput)
+
 	CreateDeploymentCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	CreateDeploymentCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	CreateDeploymentCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -77,6 +85,14 @@ type MLPLATFORM20240701API interface {
 	CreateResourceQueue(*CreateResourceQueueInput) (*CreateResourceQueueOutput, error)
 	CreateResourceQueueWithContext(volcengine.Context, *CreateResourceQueueInput, ...request.Option) (*CreateResourceQueueOutput, error)
 	CreateResourceQueueRequest(*CreateResourceQueueInput) (*request.Request, *CreateResourceQueueOutput)
+
+	CreateResourceReservationPlanCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateResourceReservationPlanCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateResourceReservationPlanCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateResourceReservationPlan(*CreateResourceReservationPlanInput) (*CreateResourceReservationPlanOutput, error)
+	CreateResourceReservationPlanWithContext(volcengine.Context, *CreateResourceReservationPlanInput, ...request.Option) (*CreateResourceReservationPlanOutput, error)
+	CreateResourceReservationPlanRequest(*CreateResourceReservationPlanInput) (*request.Request, *CreateResourceReservationPlanOutput)
 
 	CreateServiceCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	CreateServiceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -125,6 +141,14 @@ type MLPLATFORM20240701API interface {
 	DeleteResourceQueue(*DeleteResourceQueueInput) (*DeleteResourceQueueOutput, error)
 	DeleteResourceQueueWithContext(volcengine.Context, *DeleteResourceQueueInput, ...request.Option) (*DeleteResourceQueueOutput, error)
 	DeleteResourceQueueRequest(*DeleteResourceQueueInput) (*request.Request, *DeleteResourceQueueOutput)
+
+	DeleteResourceReservationPlanCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeleteResourceReservationPlanCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeleteResourceReservationPlanCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeleteResourceReservationPlan(*DeleteResourceReservationPlanInput) (*DeleteResourceReservationPlanOutput, error)
+	DeleteResourceReservationPlanWithContext(volcengine.Context, *DeleteResourceReservationPlanInput, ...request.Option) (*DeleteResourceReservationPlanOutput, error)
+	DeleteResourceReservationPlanRequest(*DeleteResourceReservationPlanInput) (*request.Request, *DeleteResourceReservationPlanOutput)
 
 	DeleteServiceCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DeleteServiceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -181,6 +205,14 @@ type MLPLATFORM20240701API interface {
 	GetResourceQueue(*GetResourceQueueInput) (*GetResourceQueueOutput, error)
 	GetResourceQueueWithContext(volcengine.Context, *GetResourceQueueInput, ...request.Option) (*GetResourceQueueOutput, error)
 	GetResourceQueueRequest(*GetResourceQueueInput) (*request.Request, *GetResourceQueueOutput)
+
+	GetResourceReservationPlanCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	GetResourceReservationPlanCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	GetResourceReservationPlanCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	GetResourceReservationPlan(*GetResourceReservationPlanInput) (*GetResourceReservationPlanOutput, error)
+	GetResourceReservationPlanWithContext(volcengine.Context, *GetResourceReservationPlanInput, ...request.Option) (*GetResourceReservationPlanOutput, error)
+	GetResourceReservationPlanRequest(*GetResourceReservationPlanInput) (*request.Request, *GetResourceReservationPlanOutput)
 
 	GetServiceCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	GetServiceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -277,6 +309,22 @@ type MLPLATFORM20240701API interface {
 	ListResourceQueues(*ListResourceQueuesInput) (*ListResourceQueuesOutput, error)
 	ListResourceQueuesWithContext(volcengine.Context, *ListResourceQueuesInput, ...request.Option) (*ListResourceQueuesOutput, error)
 	ListResourceQueuesRequest(*ListResourceQueuesInput) (*request.Request, *ListResourceQueuesOutput)
+
+	ListResourceReservationPlansCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListResourceReservationPlansCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListResourceReservationPlansCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListResourceReservationPlans(*ListResourceReservationPlansInput) (*ListResourceReservationPlansOutput, error)
+	ListResourceReservationPlansWithContext(volcengine.Context, *ListResourceReservationPlansInput, ...request.Option) (*ListResourceReservationPlansOutput, error)
+	ListResourceReservationPlansRequest(*ListResourceReservationPlansInput) (*request.Request, *ListResourceReservationPlansOutput)
+
+	ListResourceReservationRecordsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListResourceReservationRecordsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListResourceReservationRecordsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListResourceReservationRecords(*ListResourceReservationRecordsInput) (*ListResourceReservationRecordsOutput, error)
+	ListResourceReservationRecordsWithContext(volcengine.Context, *ListResourceReservationRecordsInput, ...request.Option) (*ListResourceReservationRecordsOutput, error)
+	ListResourceReservationRecordsRequest(*ListResourceReservationRecordsInput) (*request.Request, *ListResourceReservationRecordsOutput)
 
 	ListServicesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ListServicesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -445,6 +493,14 @@ type MLPLATFORM20240701API interface {
 	UpdateResourceQueue(*UpdateResourceQueueInput) (*UpdateResourceQueueOutput, error)
 	UpdateResourceQueueWithContext(volcengine.Context, *UpdateResourceQueueInput, ...request.Option) (*UpdateResourceQueueOutput, error)
 	UpdateResourceQueueRequest(*UpdateResourceQueueInput) (*request.Request, *UpdateResourceQueueOutput)
+
+	UpdateResourceReservationPlanCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	UpdateResourceReservationPlanCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	UpdateResourceReservationPlanCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	UpdateResourceReservationPlan(*UpdateResourceReservationPlanInput) (*UpdateResourceReservationPlanOutput, error)
+	UpdateResourceReservationPlanWithContext(volcengine.Context, *UpdateResourceReservationPlanInput, ...request.Option) (*UpdateResourceReservationPlanOutput, error)
+	UpdateResourceReservationPlanRequest(*UpdateResourceReservationPlanInput) (*request.Request, *UpdateResourceReservationPlanOutput)
 
 	UpdateServiceCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	UpdateServiceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)

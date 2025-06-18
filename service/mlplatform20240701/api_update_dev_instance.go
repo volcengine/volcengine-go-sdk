@@ -731,6 +731,8 @@ type UpdateDevInstanceInput struct {
 
 	NodeAffinitySpec *NodeAffinitySpecForUpdateDevInstanceInput `type:"structure" json:",omitempty"`
 
+	NumaAffinity *string `type:"string" json:",omitempty"`
+
 	Ports []*PortForUpdateDevInstanceInput `type:"list" json:",omitempty"`
 
 	ResourceClaim *ResourceClaimForUpdateDevInstanceInput `type:"structure" json:",omitempty"`
@@ -794,6 +796,12 @@ func (s *UpdateDevInstanceInput) SetName(v string) *UpdateDevInstanceInput {
 // SetNodeAffinitySpec sets the NodeAffinitySpec field's value.
 func (s *UpdateDevInstanceInput) SetNodeAffinitySpec(v *NodeAffinitySpecForUpdateDevInstanceInput) *UpdateDevInstanceInput {
 	s.NodeAffinitySpec = v
+	return s
+}
+
+// SetNumaAffinity sets the NumaAffinity field's value.
+func (s *UpdateDevInstanceInput) SetNumaAffinity(v string) *UpdateDevInstanceInput {
+	s.NumaAffinity = &v
 	return s
 }
 

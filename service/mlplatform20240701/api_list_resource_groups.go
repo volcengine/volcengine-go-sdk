@@ -206,6 +206,8 @@ type ItemForListResourceGroupsOutput struct {
 
 	WorkloadNetworkConfig *WorkloadNetworkConfigForListResourceGroupsOutput `type:"structure" json:",omitempty"`
 
+	WorkloadNetworkMode *string `type:"string" json:",omitempty"`
+
 	ZoneIds []*string `type:"list" json:",omitempty"`
 }
 
@@ -282,6 +284,12 @@ func (s *ItemForListResourceGroupsOutput) SetStorageConfig(v *StorageConfigForLi
 // SetWorkloadNetworkConfig sets the WorkloadNetworkConfig field's value.
 func (s *ItemForListResourceGroupsOutput) SetWorkloadNetworkConfig(v *WorkloadNetworkConfigForListResourceGroupsOutput) *ItemForListResourceGroupsOutput {
 	s.WorkloadNetworkConfig = v
+	return s
+}
+
+// SetWorkloadNetworkMode sets the WorkloadNetworkMode field's value.
+func (s *ItemForListResourceGroupsOutput) SetWorkloadNetworkMode(v string) *ItemForListResourceGroupsOutput {
+	s.WorkloadNetworkMode = &v
 	return s
 }
 

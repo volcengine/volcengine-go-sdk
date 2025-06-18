@@ -195,6 +195,8 @@ type CreateResourceGroupInput struct {
 
 	DryRun *bool `type:"boolean" json:",omitempty"`
 
+	MGpuEnabled *bool `type:"boolean" json:",omitempty"`
+
 	// Name is a required field
 	Name *string `min:"1" max:"200" type:"string" json:",omitempty" required:"true"`
 
@@ -206,9 +208,9 @@ type CreateResourceGroupInput struct {
 
 	StorageConfig *StorageConfigForCreateResourceGroupInput `type:"structure" json:",omitempty"`
 
-	UseMGpu *bool `type:"boolean" json:",omitempty"`
-
 	WorkloadNetworkConfig *WorkloadNetworkConfigForCreateResourceGroupInput `type:"structure" json:",omitempty"`
+
+	WorkloadNetworkMode *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -285,6 +287,12 @@ func (s *CreateResourceGroupInput) SetDryRun(v bool) *CreateResourceGroupInput {
 	return s
 }
 
+// SetMGpuEnabled sets the MGpuEnabled field's value.
+func (s *CreateResourceGroupInput) SetMGpuEnabled(v bool) *CreateResourceGroupInput {
+	s.MGpuEnabled = &v
+	return s
+}
+
 // SetName sets the Name field's value.
 func (s *CreateResourceGroupInput) SetName(v string) *CreateResourceGroupInput {
 	s.Name = &v
@@ -315,15 +323,15 @@ func (s *CreateResourceGroupInput) SetStorageConfig(v *StorageConfigForCreateRes
 	return s
 }
 
-// SetUseMGpu sets the UseMGpu field's value.
-func (s *CreateResourceGroupInput) SetUseMGpu(v bool) *CreateResourceGroupInput {
-	s.UseMGpu = &v
-	return s
-}
-
 // SetWorkloadNetworkConfig sets the WorkloadNetworkConfig field's value.
 func (s *CreateResourceGroupInput) SetWorkloadNetworkConfig(v *WorkloadNetworkConfigForCreateResourceGroupInput) *CreateResourceGroupInput {
 	s.WorkloadNetworkConfig = v
+	return s
+}
+
+// SetWorkloadNetworkMode sets the WorkloadNetworkMode field's value.
+func (s *CreateResourceGroupInput) SetWorkloadNetworkMode(v string) *CreateResourceGroupInput {
+	s.WorkloadNetworkMode = &v
 	return s
 }
 
