@@ -311,8 +311,6 @@ type UpdateCCRuleInput struct {
 
 	SingleThreshold *int32 `type:"int32" json:",omitempty"`
 
-	UpdateTime *string `type:"string" json:",omitempty"`
-
 	// Url is a required field
 	Url *string `type:"string" json:",omitempty" required:"true"`
 }
@@ -466,12 +464,6 @@ func (s *UpdateCCRuleInput) SetRuleTag(v string) *UpdateCCRuleInput {
 // SetSingleThreshold sets the SingleThreshold field's value.
 func (s *UpdateCCRuleInput) SetSingleThreshold(v int32) *UpdateCCRuleInput {
 	s.SingleThreshold = &v
-	return s
-}
-
-// SetUpdateTime sets the UpdateTime field's value.
-func (s *UpdateCCRuleInput) SetUpdateTime(v string) *UpdateCCRuleInput {
-	s.UpdateTime = &v
 	return s
 }
 

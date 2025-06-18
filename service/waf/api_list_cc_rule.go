@@ -370,9 +370,15 @@ type ListCCRuleOutput struct {
 
 	Metadata *response.ResponseMetadata
 
+	Count *int32 `type:"int32" json:",omitempty"`
+
+	CurrentPage *int32 `type:"int32" json:",omitempty"`
+
 	EnableCount *int32 `type:"int32" json:",omitempty"`
 
 	InsertTime *string `type:"string" json:",omitempty"`
+
+	PageSize *int32 `type:"int32" json:",omitempty"`
 
 	RuleGroup []*RuleGroupForListCCRuleOutput `type:"list" json:",omitempty"`
 
@@ -391,6 +397,18 @@ func (s ListCCRuleOutput) GoString() string {
 	return s.String()
 }
 
+// SetCount sets the Count field's value.
+func (s *ListCCRuleOutput) SetCount(v int32) *ListCCRuleOutput {
+	s.Count = &v
+	return s
+}
+
+// SetCurrentPage sets the CurrentPage field's value.
+func (s *ListCCRuleOutput) SetCurrentPage(v int32) *ListCCRuleOutput {
+	s.CurrentPage = &v
+	return s
+}
+
 // SetEnableCount sets the EnableCount field's value.
 func (s *ListCCRuleOutput) SetEnableCount(v int32) *ListCCRuleOutput {
 	s.EnableCount = &v
@@ -400,6 +418,12 @@ func (s *ListCCRuleOutput) SetEnableCount(v int32) *ListCCRuleOutput {
 // SetInsertTime sets the InsertTime field's value.
 func (s *ListCCRuleOutput) SetInsertTime(v string) *ListCCRuleOutput {
 	s.InsertTime = &v
+	return s
+}
+
+// SetPageSize sets the PageSize field's value.
+func (s *ListCCRuleOutput) SetPageSize(v int32) *ListCCRuleOutput {
+	s.PageSize = &v
 	return s
 }
 
