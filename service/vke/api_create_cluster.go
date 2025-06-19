@@ -581,6 +581,8 @@ type VpcCniConfigForCreateClusterInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
 	SubnetIds []*string `type:"list" json:",omitempty"`
+
+	TrunkEniEnabled *bool `type:"boolean" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -596,6 +598,12 @@ func (s VpcCniConfigForCreateClusterInput) GoString() string {
 // SetSubnetIds sets the SubnetIds field's value.
 func (s *VpcCniConfigForCreateClusterInput) SetSubnetIds(v []*string) *VpcCniConfigForCreateClusterInput {
 	s.SubnetIds = v
+	return s
+}
+
+// SetTrunkEniEnabled sets the TrunkEniEnabled field's value.
+func (s *VpcCniConfigForCreateClusterInput) SetTrunkEniEnabled(v bool) *VpcCniConfigForCreateClusterInput {
+	s.TrunkEniEnabled = &v
 	return s
 }
 
