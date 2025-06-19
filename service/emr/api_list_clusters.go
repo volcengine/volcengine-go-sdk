@@ -160,6 +160,8 @@ type ItemForListClustersOutput struct {
 
 	CreateTime *int64 `type:"int64" json:",omitempty"`
 
+	CreateTimeStr *string `type:"string" json:",omitempty"`
+
 	Creator *string `type:"string" json:",omitempty"`
 
 	ExpireTime *int64 `type:"int64" json:",omitempty"`
@@ -177,6 +179,8 @@ type ItemForListClustersOutput struct {
 	SecurityGroupId *string `type:"string" json:",omitempty"`
 
 	StateChangeReason *StateChangeReasonForListClustersOutput `type:"structure" json:",omitempty"`
+
+	Tags []*TagForListClustersOutput `type:"list" json:",omitempty"`
 
 	TerminateTime *int64 `type:"int64" json:",omitempty"`
 
@@ -235,6 +239,12 @@ func (s *ItemForListClustersOutput) SetCreateTime(v int64) *ItemForListClustersO
 	return s
 }
 
+// SetCreateTimeStr sets the CreateTimeStr field's value.
+func (s *ItemForListClustersOutput) SetCreateTimeStr(v string) *ItemForListClustersOutput {
+	s.CreateTimeStr = &v
+	return s
+}
+
 // SetCreator sets the Creator field's value.
 func (s *ItemForListClustersOutput) SetCreator(v string) *ItemForListClustersOutput {
 	s.Creator = &v
@@ -286,6 +296,12 @@ func (s *ItemForListClustersOutput) SetSecurityGroupId(v string) *ItemForListClu
 // SetStateChangeReason sets the StateChangeReason field's value.
 func (s *ItemForListClustersOutput) SetStateChangeReason(v *StateChangeReasonForListClustersOutput) *ItemForListClustersOutput {
 	s.StateChangeReason = v
+	return s
+}
+
+// SetTags sets the Tags field's value.
+func (s *ItemForListClustersOutput) SetTags(v []*TagForListClustersOutput) *ItemForListClustersOutput {
+	s.Tags = v
 	return s
 }
 
@@ -553,6 +569,36 @@ func (s *TagForListClustersInput) SetKey(v string) *TagForListClustersInput {
 
 // SetValue sets the Value field's value.
 func (s *TagForListClustersInput) SetValue(v string) *TagForListClustersInput {
+	s.Value = &v
+	return s
+}
+
+type TagForListClustersOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Key *string `type:"string" json:",omitempty"`
+
+	Value *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s TagForListClustersOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagForListClustersOutput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagForListClustersOutput) SetKey(v string) *TagForListClustersOutput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *TagForListClustersOutput) SetValue(v string) *TagForListClustersOutput {
 	s.Value = &v
 	return s
 }
