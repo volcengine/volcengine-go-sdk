@@ -143,6 +143,44 @@ func (c *RDSMYSQLV2) RestoreToCrossRegionInstanceWithContext(ctx volcengine.Cont
 	return out, req.Send()
 }
 
+type AutoStorageScalingConfigForRestoreToCrossRegionInstanceInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	EnableStorageAutoScale *bool `type:"boolean" json:",omitempty"`
+
+	StorageThreshold *int32 `type:"int32" json:",omitempty"`
+
+	StorageUpperBound *int32 `type:"int32" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s AutoStorageScalingConfigForRestoreToCrossRegionInstanceInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s AutoStorageScalingConfigForRestoreToCrossRegionInstanceInput) GoString() string {
+	return s.String()
+}
+
+// SetEnableStorageAutoScale sets the EnableStorageAutoScale field's value.
+func (s *AutoStorageScalingConfigForRestoreToCrossRegionInstanceInput) SetEnableStorageAutoScale(v bool) *AutoStorageScalingConfigForRestoreToCrossRegionInstanceInput {
+	s.EnableStorageAutoScale = &v
+	return s
+}
+
+// SetStorageThreshold sets the StorageThreshold field's value.
+func (s *AutoStorageScalingConfigForRestoreToCrossRegionInstanceInput) SetStorageThreshold(v int32) *AutoStorageScalingConfigForRestoreToCrossRegionInstanceInput {
+	s.StorageThreshold = &v
+	return s
+}
+
+// SetStorageUpperBound sets the StorageUpperBound field's value.
+func (s *AutoStorageScalingConfigForRestoreToCrossRegionInstanceInput) SetStorageUpperBound(v int32) *AutoStorageScalingConfigForRestoreToCrossRegionInstanceInput {
+	s.StorageUpperBound = &v
+	return s
+}
+
 type ChargeInfoForRestoreToCrossRegionInstanceInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -286,11 +324,15 @@ type RestoreToCrossRegionInstanceInput struct {
 
 	AllowListIds []*string `type:"list" json:",omitempty"`
 
+	AutoStorageScalingConfig *AutoStorageScalingConfigForRestoreToCrossRegionInstanceInput `type:"structure" json:",omitempty"`
+
 	BackupId *string `type:"string" json:",omitempty"`
 
 	ChargeInfo *ChargeInfoForRestoreToCrossRegionInstanceInput `type:"structure" json:",omitempty"`
 
 	DBParamGroupId *string `type:"string" json:",omitempty"`
+
+	DeletionProtection *string `type:"string" json:",omitempty"`
 
 	// DstRegionId is a required field
 	DstRegionId *string `type:"string" json:",omitempty" required:"true"`
@@ -369,6 +411,12 @@ func (s *RestoreToCrossRegionInstanceInput) SetAllowListIds(v []*string) *Restor
 	return s
 }
 
+// SetAutoStorageScalingConfig sets the AutoStorageScalingConfig field's value.
+func (s *RestoreToCrossRegionInstanceInput) SetAutoStorageScalingConfig(v *AutoStorageScalingConfigForRestoreToCrossRegionInstanceInput) *RestoreToCrossRegionInstanceInput {
+	s.AutoStorageScalingConfig = v
+	return s
+}
+
 // SetBackupId sets the BackupId field's value.
 func (s *RestoreToCrossRegionInstanceInput) SetBackupId(v string) *RestoreToCrossRegionInstanceInput {
 	s.BackupId = &v
@@ -384,6 +432,12 @@ func (s *RestoreToCrossRegionInstanceInput) SetChargeInfo(v *ChargeInfoForRestor
 // SetDBParamGroupId sets the DBParamGroupId field's value.
 func (s *RestoreToCrossRegionInstanceInput) SetDBParamGroupId(v string) *RestoreToCrossRegionInstanceInput {
 	s.DBParamGroupId = &v
+	return s
+}
+
+// SetDeletionProtection sets the DeletionProtection field's value.
+func (s *RestoreToCrossRegionInstanceInput) SetDeletionProtection(v string) *RestoreToCrossRegionInstanceInput {
+	s.DeletionProtection = &v
 	return s
 }
 

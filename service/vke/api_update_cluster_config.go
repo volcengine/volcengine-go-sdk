@@ -203,6 +203,36 @@ func (s *ClusterConfigForUpdateClusterConfigInput) SetSubnetIds(v []*string) *Cl
 	return s
 }
 
+type ComponentConfigForUpdateClusterConfigInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Enabled *bool `type:"boolean" json:",omitempty"`
+
+	Name *string `type:"string" json:",omitempty" enum:"EnumOfNameForUpdateClusterConfigInput"`
+}
+
+// String returns the string representation
+func (s ComponentConfigForUpdateClusterConfigInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ComponentConfigForUpdateClusterConfigInput) GoString() string {
+	return s.String()
+}
+
+// SetEnabled sets the Enabled field's value.
+func (s *ComponentConfigForUpdateClusterConfigInput) SetEnabled(v bool) *ComponentConfigForUpdateClusterConfigInput {
+	s.Enabled = &v
+	return s
+}
+
+// SetName sets the Name field's value.
+func (s *ComponentConfigForUpdateClusterConfigInput) SetName(v string) *ComponentConfigForUpdateClusterConfigInput {
+	s.Name = &v
+	return s
+}
+
 type LogSetupForUpdateClusterConfigInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -271,6 +301,36 @@ func (s *LoggingConfigForUpdateClusterConfigInput) SetLogSetups(v []*LogSetupFor
 	return s
 }
 
+type MonitoringConfigForUpdateClusterConfigInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	ComponentConfigs []*ComponentConfigForUpdateClusterConfigInput `type:"list" json:",omitempty"`
+
+	WorkspaceId *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s MonitoringConfigForUpdateClusterConfigInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s MonitoringConfigForUpdateClusterConfigInput) GoString() string {
+	return s.String()
+}
+
+// SetComponentConfigs sets the ComponentConfigs field's value.
+func (s *MonitoringConfigForUpdateClusterConfigInput) SetComponentConfigs(v []*ComponentConfigForUpdateClusterConfigInput) *MonitoringConfigForUpdateClusterConfigInput {
+	s.ComponentConfigs = v
+	return s
+}
+
+// SetWorkspaceId sets the WorkspaceId field's value.
+func (s *MonitoringConfigForUpdateClusterConfigInput) SetWorkspaceId(v string) *MonitoringConfigForUpdateClusterConfigInput {
+	s.WorkspaceId = &v
+	return s
+}
+
 type PodsConfigForUpdateClusterConfigInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -331,6 +391,44 @@ func (s *PublicAccessNetworkConfigForUpdateClusterConfigInput) SetIsp(v string) 
 	return s
 }
 
+type RegisterMonitoringConfigForUpdateClusterConfigInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	QueryUrl *string `type:"string" json:",omitempty"`
+
+	RemoteWriteUrl *string `type:"string" json:",omitempty"`
+
+	WorkspaceId *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s RegisterMonitoringConfigForUpdateClusterConfigInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s RegisterMonitoringConfigForUpdateClusterConfigInput) GoString() string {
+	return s.String()
+}
+
+// SetQueryUrl sets the QueryUrl field's value.
+func (s *RegisterMonitoringConfigForUpdateClusterConfigInput) SetQueryUrl(v string) *RegisterMonitoringConfigForUpdateClusterConfigInput {
+	s.QueryUrl = &v
+	return s
+}
+
+// SetRemoteWriteUrl sets the RemoteWriteUrl field's value.
+func (s *RegisterMonitoringConfigForUpdateClusterConfigInput) SetRemoteWriteUrl(v string) *RegisterMonitoringConfigForUpdateClusterConfigInput {
+	s.RemoteWriteUrl = &v
+	return s
+}
+
+// SetWorkspaceId sets the WorkspaceId field's value.
+func (s *RegisterMonitoringConfigForUpdateClusterConfigInput) SetWorkspaceId(v string) *RegisterMonitoringConfigForUpdateClusterConfigInput {
+	s.WorkspaceId = &v
+	return s
+}
+
 type UpdateClusterConfigInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -347,9 +445,15 @@ type UpdateClusterConfigInput struct {
 
 	LoggingConfig *LoggingConfigForUpdateClusterConfigInput `type:"structure" json:",omitempty"`
 
+	MonitoringConfig *MonitoringConfigForUpdateClusterConfigInput `type:"structure" json:",omitempty"`
+
 	Name *string `type:"string" json:",omitempty"`
 
 	PodsConfig *PodsConfigForUpdateClusterConfigInput `type:"structure" json:",omitempty"`
+
+	RegisterMonitoringConfig *RegisterMonitoringConfigForUpdateClusterConfigInput `type:"structure" json:",omitempty"`
+
+	SourceRegion *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -411,6 +515,12 @@ func (s *UpdateClusterConfigInput) SetLoggingConfig(v *LoggingConfigForUpdateClu
 	return s
 }
 
+// SetMonitoringConfig sets the MonitoringConfig field's value.
+func (s *UpdateClusterConfigInput) SetMonitoringConfig(v *MonitoringConfigForUpdateClusterConfigInput) *UpdateClusterConfigInput {
+	s.MonitoringConfig = v
+	return s
+}
+
 // SetName sets the Name field's value.
 func (s *UpdateClusterConfigInput) SetName(v string) *UpdateClusterConfigInput {
 	s.Name = &v
@@ -420,6 +530,18 @@ func (s *UpdateClusterConfigInput) SetName(v string) *UpdateClusterConfigInput {
 // SetPodsConfig sets the PodsConfig field's value.
 func (s *UpdateClusterConfigInput) SetPodsConfig(v *PodsConfigForUpdateClusterConfigInput) *UpdateClusterConfigInput {
 	s.PodsConfig = v
+	return s
+}
+
+// SetRegisterMonitoringConfig sets the RegisterMonitoringConfig field's value.
+func (s *UpdateClusterConfigInput) SetRegisterMonitoringConfig(v *RegisterMonitoringConfigForUpdateClusterConfigInput) *UpdateClusterConfigInput {
+	s.RegisterMonitoringConfig = v
+	return s
+}
+
+// SetSourceRegion sets the SourceRegion field's value.
+func (s *UpdateClusterConfigInput) SetSourceRegion(v string) *UpdateClusterConfigInput {
+	s.SourceRegion = &v
 	return s
 }
 
@@ -493,4 +615,36 @@ const (
 
 	// EnumOfLogTypeForUpdateClusterConfigInputEtcd is a EnumOfLogTypeForUpdateClusterConfigInput enum value
 	EnumOfLogTypeForUpdateClusterConfigInputEtcd = "Etcd"
+)
+
+const (
+	// EnumOfNameForUpdateClusterConfigInputKubelet is a EnumOfNameForUpdateClusterConfigInput enum value
+	EnumOfNameForUpdateClusterConfigInputKubelet = "Kubelet"
+
+	// EnumOfNameForUpdateClusterConfigInputKubeApiServer is a EnumOfNameForUpdateClusterConfigInput enum value
+	EnumOfNameForUpdateClusterConfigInputKubeApiServer = "KubeApiServer"
+
+	// EnumOfNameForUpdateClusterConfigInputKubeControllerManager is a EnumOfNameForUpdateClusterConfigInput enum value
+	EnumOfNameForUpdateClusterConfigInputKubeControllerManager = "KubeControllerManager"
+
+	// EnumOfNameForUpdateClusterConfigInputKubeScheduler is a EnumOfNameForUpdateClusterConfigInput enum value
+	EnumOfNameForUpdateClusterConfigInputKubeScheduler = "KubeScheduler"
+
+	// EnumOfNameForUpdateClusterConfigInputEtcd is a EnumOfNameForUpdateClusterConfigInput enum value
+	EnumOfNameForUpdateClusterConfigInputEtcd = "Etcd"
+
+	// EnumOfNameForUpdateClusterConfigInputClusterAutoscaler is a EnumOfNameForUpdateClusterConfigInput enum value
+	EnumOfNameForUpdateClusterConfigInputClusterAutoscaler = "ClusterAutoscaler"
+
+	// EnumOfNameForUpdateClusterConfigInputKubeBrain is a EnumOfNameForUpdateClusterConfigInput enum value
+	EnumOfNameForUpdateClusterConfigInputKubeBrain = "KubeBrain"
+
+	// EnumOfNameForUpdateClusterConfigInputGodelScheduler is a EnumOfNameForUpdateClusterConfigInput enum value
+	EnumOfNameForUpdateClusterConfigInputGodelScheduler = "GodelScheduler"
+
+	// EnumOfNameForUpdateClusterConfigInputGodelDispatcher is a EnumOfNameForUpdateClusterConfigInput enum value
+	EnumOfNameForUpdateClusterConfigInputGodelDispatcher = "GodelDispatcher"
+
+	// EnumOfNameForUpdateClusterConfigInputGodelBinder is a EnumOfNameForUpdateClusterConfigInput enum value
+	EnumOfNameForUpdateClusterConfigInputGodelBinder = "GodelBinder"
 )

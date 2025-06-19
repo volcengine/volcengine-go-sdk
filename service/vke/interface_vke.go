@@ -142,6 +142,14 @@ type VKEAPI interface {
 	GetGlobalDefaultDeleteOptionWithContext(volcengine.Context, *GetGlobalDefaultDeleteOptionInput, ...request.Option) (*GetGlobalDefaultDeleteOptionOutput, error)
 	GetGlobalDefaultDeleteOptionRequest(*GetGlobalDefaultDeleteOptionInput) (*request.Request, *GetGlobalDefaultDeleteOptionOutput)
 
+	GrantPermissionCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	GrantPermissionCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	GrantPermissionCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	GrantPermission(*GrantPermissionInput) (*GrantPermissionOutput, error)
+	GrantPermissionWithContext(volcengine.Context, *GrantPermissionInput, ...request.Option) (*GrantPermissionOutput, error)
+	GrantPermissionRequest(*GrantPermissionInput) (*request.Request, *GrantPermissionOutput)
+
 	ListAddonsCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ListAddonsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	ListAddonsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -182,6 +190,14 @@ type VKEAPI interface {
 	ListNodesWithContext(volcengine.Context, *ListNodesInput, ...request.Option) (*ListNodesOutput, error)
 	ListNodesRequest(*ListNodesInput) (*request.Request, *ListNodesOutput)
 
+	ListPermissionsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListPermissionsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListPermissionsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListPermissions(*ListPermissionsInput) (*ListPermissionsOutput, error)
+	ListPermissionsWithContext(volcengine.Context, *ListPermissionsInput, ...request.Option) (*ListPermissionsOutput, error)
+	ListPermissionsRequest(*ListPermissionsInput) (*request.Request, *ListPermissionsOutput)
+
 	ListScalingEventsCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ListScalingEventsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	ListScalingEventsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -213,6 +229,14 @@ type VKEAPI interface {
 	ListTagsForResources(*ListTagsForResourcesInput) (*ListTagsForResourcesOutput, error)
 	ListTagsForResourcesWithContext(volcengine.Context, *ListTagsForResourcesInput, ...request.Option) (*ListTagsForResourcesOutput, error)
 	ListTagsForResourcesRequest(*ListTagsForResourcesInput) (*request.Request, *ListTagsForResourcesOutput)
+
+	RevokePermissionCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	RevokePermissionCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	RevokePermissionCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	RevokePermission(*RevokePermissionInput) (*RevokePermissionOutput, error)
+	RevokePermissionWithContext(volcengine.Context, *RevokePermissionInput, ...request.Option) (*RevokePermissionOutput, error)
+	RevokePermissionRequest(*RevokePermissionInput) (*request.Request, *RevokePermissionOutput)
 
 	SetGlobalDefaultDeleteOptionCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	SetGlobalDefaultDeleteOptionCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)

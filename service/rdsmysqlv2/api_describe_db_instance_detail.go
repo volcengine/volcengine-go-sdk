@@ -244,6 +244,16 @@ type BasicInfoForDescribeDBInstanceDetailOutput struct {
 
 	DataSyncMode *string `type:"string" json:",omitempty"`
 
+	DeletionProtection *string `type:"string" json:",omitempty"`
+
+	DrDtsTaskId *string `type:"string" json:",omitempty"`
+
+	DrDtsTaskName *string `type:"string" json:",omitempty"`
+
+	DrDtsTaskStatus *string `type:"string" json:",omitempty"`
+
+	DrSecondsBehindMaster *int32 `type:"int32" json:",omitempty"`
+
 	InstanceId *string `type:"string" json:",omitempty"`
 
 	InstanceName *string `type:"string" json:",omitempty"`
@@ -255,6 +265,12 @@ type BasicInfoForDescribeDBInstanceDetailOutput struct {
 	LowerCaseTableNames *string `type:"string" json:",omitempty"`
 
 	MaintenanceWindow *MaintenanceWindowForDescribeDBInstanceDetailOutput `type:"structure" json:",omitempty"`
+
+	MasterInstanceId *string `type:"string" json:",omitempty"`
+
+	MasterInstanceName *string `type:"string" json:",omitempty"`
+
+	MasterRegion *string `type:"string" json:",omitempty"`
 
 	Memory *int32 `type:"int32" json:",omitempty"`
 
@@ -357,6 +373,36 @@ func (s *BasicInfoForDescribeDBInstanceDetailOutput) SetDataSyncMode(v string) *
 	return s
 }
 
+// SetDeletionProtection sets the DeletionProtection field's value.
+func (s *BasicInfoForDescribeDBInstanceDetailOutput) SetDeletionProtection(v string) *BasicInfoForDescribeDBInstanceDetailOutput {
+	s.DeletionProtection = &v
+	return s
+}
+
+// SetDrDtsTaskId sets the DrDtsTaskId field's value.
+func (s *BasicInfoForDescribeDBInstanceDetailOutput) SetDrDtsTaskId(v string) *BasicInfoForDescribeDBInstanceDetailOutput {
+	s.DrDtsTaskId = &v
+	return s
+}
+
+// SetDrDtsTaskName sets the DrDtsTaskName field's value.
+func (s *BasicInfoForDescribeDBInstanceDetailOutput) SetDrDtsTaskName(v string) *BasicInfoForDescribeDBInstanceDetailOutput {
+	s.DrDtsTaskName = &v
+	return s
+}
+
+// SetDrDtsTaskStatus sets the DrDtsTaskStatus field's value.
+func (s *BasicInfoForDescribeDBInstanceDetailOutput) SetDrDtsTaskStatus(v string) *BasicInfoForDescribeDBInstanceDetailOutput {
+	s.DrDtsTaskStatus = &v
+	return s
+}
+
+// SetDrSecondsBehindMaster sets the DrSecondsBehindMaster field's value.
+func (s *BasicInfoForDescribeDBInstanceDetailOutput) SetDrSecondsBehindMaster(v int32) *BasicInfoForDescribeDBInstanceDetailOutput {
+	s.DrSecondsBehindMaster = &v
+	return s
+}
+
 // SetInstanceId sets the InstanceId field's value.
 func (s *BasicInfoForDescribeDBInstanceDetailOutput) SetInstanceId(v string) *BasicInfoForDescribeDBInstanceDetailOutput {
 	s.InstanceId = &v
@@ -390,6 +436,24 @@ func (s *BasicInfoForDescribeDBInstanceDetailOutput) SetLowerCaseTableNames(v st
 // SetMaintenanceWindow sets the MaintenanceWindow field's value.
 func (s *BasicInfoForDescribeDBInstanceDetailOutput) SetMaintenanceWindow(v *MaintenanceWindowForDescribeDBInstanceDetailOutput) *BasicInfoForDescribeDBInstanceDetailOutput {
 	s.MaintenanceWindow = v
+	return s
+}
+
+// SetMasterInstanceId sets the MasterInstanceId field's value.
+func (s *BasicInfoForDescribeDBInstanceDetailOutput) SetMasterInstanceId(v string) *BasicInfoForDescribeDBInstanceDetailOutput {
+	s.MasterInstanceId = &v
+	return s
+}
+
+// SetMasterInstanceName sets the MasterInstanceName field's value.
+func (s *BasicInfoForDescribeDBInstanceDetailOutput) SetMasterInstanceName(v string) *BasicInfoForDescribeDBInstanceDetailOutput {
+	s.MasterInstanceName = &v
+	return s
+}
+
+// SetMasterRegion sets the MasterRegion field's value.
+func (s *BasicInfoForDescribeDBInstanceDetailOutput) SetMasterRegion(v string) *BasicInfoForDescribeDBInstanceDetailOutput {
+	s.MasterRegion = &v
 	return s
 }
 
@@ -630,6 +694,8 @@ type DescribeDBInstanceDetailOutput struct {
 
 	ChargeDetail *ChargeDetailForDescribeDBInstanceDetailOutput `type:"structure" json:",omitempty"`
 
+	DisasterRecoveryInstances []*DisasterRecoveryInstanceForDescribeDBInstanceDetailOutput `type:"list" json:",omitempty"`
+
 	Endpoints []*EndpointForDescribeDBInstanceDetailOutput `type:"list" json:",omitempty"`
 
 	Nodes []*NodeForDescribeDBInstanceDetailOutput `type:"list" json:",omitempty"`
@@ -659,6 +725,12 @@ func (s *DescribeDBInstanceDetailOutput) SetChargeDetail(v *ChargeDetailForDescr
 	return s
 }
 
+// SetDisasterRecoveryInstances sets the DisasterRecoveryInstances field's value.
+func (s *DescribeDBInstanceDetailOutput) SetDisasterRecoveryInstances(v []*DisasterRecoveryInstanceForDescribeDBInstanceDetailOutput) *DescribeDBInstanceDetailOutput {
+	s.DisasterRecoveryInstances = v
+	return s
+}
+
 // SetEndpoints sets the Endpoints field's value.
 func (s *DescribeDBInstanceDetailOutput) SetEndpoints(v []*EndpointForDescribeDBInstanceDetailOutput) *DescribeDBInstanceDetailOutput {
 	s.Endpoints = v
@@ -677,12 +749,84 @@ func (s *DescribeDBInstanceDetailOutput) SetProxyDetail(v *ProxyDetailForDescrib
 	return s
 }
 
+type DisasterRecoveryInstanceForDescribeDBInstanceDetailOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	DtsTaskId *string `type:"string" json:",omitempty"`
+
+	DtsTaskName *string `type:"string" json:",omitempty"`
+
+	DtsTaskStatus *string `type:"string" json:",omitempty"`
+
+	InstanceId *string `type:"string" json:",omitempty"`
+
+	InstanceName *string `type:"string" json:",omitempty"`
+
+	Region *string `type:"string" json:",omitempty"`
+
+	SecondsBehindMaster *int32 `type:"int32" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s DisasterRecoveryInstanceForDescribeDBInstanceDetailOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DisasterRecoveryInstanceForDescribeDBInstanceDetailOutput) GoString() string {
+	return s.String()
+}
+
+// SetDtsTaskId sets the DtsTaskId field's value.
+func (s *DisasterRecoveryInstanceForDescribeDBInstanceDetailOutput) SetDtsTaskId(v string) *DisasterRecoveryInstanceForDescribeDBInstanceDetailOutput {
+	s.DtsTaskId = &v
+	return s
+}
+
+// SetDtsTaskName sets the DtsTaskName field's value.
+func (s *DisasterRecoveryInstanceForDescribeDBInstanceDetailOutput) SetDtsTaskName(v string) *DisasterRecoveryInstanceForDescribeDBInstanceDetailOutput {
+	s.DtsTaskName = &v
+	return s
+}
+
+// SetDtsTaskStatus sets the DtsTaskStatus field's value.
+func (s *DisasterRecoveryInstanceForDescribeDBInstanceDetailOutput) SetDtsTaskStatus(v string) *DisasterRecoveryInstanceForDescribeDBInstanceDetailOutput {
+	s.DtsTaskStatus = &v
+	return s
+}
+
+// SetInstanceId sets the InstanceId field's value.
+func (s *DisasterRecoveryInstanceForDescribeDBInstanceDetailOutput) SetInstanceId(v string) *DisasterRecoveryInstanceForDescribeDBInstanceDetailOutput {
+	s.InstanceId = &v
+	return s
+}
+
+// SetInstanceName sets the InstanceName field's value.
+func (s *DisasterRecoveryInstanceForDescribeDBInstanceDetailOutput) SetInstanceName(v string) *DisasterRecoveryInstanceForDescribeDBInstanceDetailOutput {
+	s.InstanceName = &v
+	return s
+}
+
+// SetRegion sets the Region field's value.
+func (s *DisasterRecoveryInstanceForDescribeDBInstanceDetailOutput) SetRegion(v string) *DisasterRecoveryInstanceForDescribeDBInstanceDetailOutput {
+	s.Region = &v
+	return s
+}
+
+// SetSecondsBehindMaster sets the SecondsBehindMaster field's value.
+func (s *DisasterRecoveryInstanceForDescribeDBInstanceDetailOutput) SetSecondsBehindMaster(v int32) *DisasterRecoveryInstanceForDescribeDBInstanceDetailOutput {
+	s.SecondsBehindMaster = &v
+	return s
+}
+
 type EndpointForDescribeDBInstanceDetailOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
 	Addresses []*AddressForDescribeDBInstanceDetailOutput `type:"list" json:",omitempty"`
 
 	AutoAddNewNodes *string `type:"string" json:",omitempty"`
+
+	ConnectionInfoTags []*string `type:"list" json:",omitempty"`
 
 	ConnectionMode *string `type:"string" json:",omitempty"`
 
@@ -702,7 +846,15 @@ type EndpointForDescribeDBInstanceDetailOutput struct {
 
 	IdleConnectionReclaim *bool `type:"boolean" json:",omitempty"`
 
+	ImplicitTransSplit *bool `type:"boolean" json:",omitempty"`
+
+	MasterNodeRouting *bool `type:"boolean" json:",omitempty"`
+
+	MasterProtectorTimeout *int32 `type:"int32" json:",omitempty"`
+
 	MultiStatementsMode *string `type:"string" json:",omitempty"`
+
+	OverloadProtection *bool `type:"boolean" json:",omitempty"`
 
 	ReadOnlyNodeDistributionType *string `type:"string" json:",omitempty"`
 
@@ -732,6 +884,12 @@ func (s *EndpointForDescribeDBInstanceDetailOutput) SetAddresses(v []*AddressFor
 // SetAutoAddNewNodes sets the AutoAddNewNodes field's value.
 func (s *EndpointForDescribeDBInstanceDetailOutput) SetAutoAddNewNodes(v string) *EndpointForDescribeDBInstanceDetailOutput {
 	s.AutoAddNewNodes = &v
+	return s
+}
+
+// SetConnectionInfoTags sets the ConnectionInfoTags field's value.
+func (s *EndpointForDescribeDBInstanceDetailOutput) SetConnectionInfoTags(v []*string) *EndpointForDescribeDBInstanceDetailOutput {
+	s.ConnectionInfoTags = v
 	return s
 }
 
@@ -789,9 +947,33 @@ func (s *EndpointForDescribeDBInstanceDetailOutput) SetIdleConnectionReclaim(v b
 	return s
 }
 
+// SetImplicitTransSplit sets the ImplicitTransSplit field's value.
+func (s *EndpointForDescribeDBInstanceDetailOutput) SetImplicitTransSplit(v bool) *EndpointForDescribeDBInstanceDetailOutput {
+	s.ImplicitTransSplit = &v
+	return s
+}
+
+// SetMasterNodeRouting sets the MasterNodeRouting field's value.
+func (s *EndpointForDescribeDBInstanceDetailOutput) SetMasterNodeRouting(v bool) *EndpointForDescribeDBInstanceDetailOutput {
+	s.MasterNodeRouting = &v
+	return s
+}
+
+// SetMasterProtectorTimeout sets the MasterProtectorTimeout field's value.
+func (s *EndpointForDescribeDBInstanceDetailOutput) SetMasterProtectorTimeout(v int32) *EndpointForDescribeDBInstanceDetailOutput {
+	s.MasterProtectorTimeout = &v
+	return s
+}
+
 // SetMultiStatementsMode sets the MultiStatementsMode field's value.
 func (s *EndpointForDescribeDBInstanceDetailOutput) SetMultiStatementsMode(v string) *EndpointForDescribeDBInstanceDetailOutput {
 	s.MultiStatementsMode = &v
+	return s
+}
+
+// SetOverloadProtection sets the OverloadProtection field's value.
+func (s *EndpointForDescribeDBInstanceDetailOutput) SetOverloadProtection(v bool) *EndpointForDescribeDBInstanceDetailOutput {
+	s.OverloadProtection = &v
 	return s
 }
 

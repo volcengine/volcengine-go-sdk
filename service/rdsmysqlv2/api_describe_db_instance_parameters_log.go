@@ -152,6 +152,10 @@ type DescribeDBInstanceParametersLogInput struct {
 	// InstanceId is a required field
 	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 
+	PageNumber *int32 `type:"int32" json:",omitempty"`
+
+	PageSize *int32 `type:"int32" json:",omitempty"`
+
 	// StartTime is a required field
 	StartTime *string `type:"string" json:",omitempty" required:"true"`
 }
@@ -194,6 +198,18 @@ func (s *DescribeDBInstanceParametersLogInput) SetEndTime(v string) *DescribeDBI
 // SetInstanceId sets the InstanceId field's value.
 func (s *DescribeDBInstanceParametersLogInput) SetInstanceId(v string) *DescribeDBInstanceParametersLogInput {
 	s.InstanceId = &v
+	return s
+}
+
+// SetPageNumber sets the PageNumber field's value.
+func (s *DescribeDBInstanceParametersLogInput) SetPageNumber(v int32) *DescribeDBInstanceParametersLogInput {
+	s.PageNumber = &v
+	return s
+}
+
+// SetPageSize sets the PageSize field's value.
+func (s *DescribeDBInstanceParametersLogInput) SetPageSize(v int32) *DescribeDBInstanceParametersLogInput {
+	s.PageSize = &v
 	return s
 }
 

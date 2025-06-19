@@ -264,7 +264,7 @@ type CreateBotAnalyseProtectRuleInput struct {
 	// RulePriority is a required field
 	RulePriority *int32 `type:"int32" json:",omitempty" required:"true"`
 
-	SingleProportion *string `type:"string" json:",omitempty"`
+	SingleProportion *float64 `type:"float" json:",omitempty"`
 
 	// SingleThreshold is a required field
 	SingleThreshold *int32 `type:"int32" json:",omitempty" required:"true"`
@@ -408,7 +408,7 @@ func (s *CreateBotAnalyseProtectRuleInput) SetRulePriority(v int32) *CreateBotAn
 }
 
 // SetSingleProportion sets the SingleProportion field's value.
-func (s *CreateBotAnalyseProtectRuleInput) SetSingleProportion(v string) *CreateBotAnalyseProtectRuleInput {
+func (s *CreateBotAnalyseProtectRuleInput) SetSingleProportion(v float64) *CreateBotAnalyseProtectRuleInput {
 	s.SingleProportion = &v
 	return s
 }

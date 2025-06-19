@@ -142,7 +142,7 @@ func (c *VPC) DescribeIpv6GatewaysWithContext(ctx volcengine.Context, input *Des
 type DescribeIpv6GatewaysInput struct {
 	_ struct{} `type:"structure"`
 
-	Ipv6GatewayIds *string `type:"string"`
+	Ipv6GatewayIds []*string `type:"list"`
 
 	MaxResults *int64 `type:"integer"`
 
@@ -154,7 +154,7 @@ type DescribeIpv6GatewaysInput struct {
 
 	TagFilters []*TagFilterForDescribeIpv6GatewaysInput `type:"list"`
 
-	VpcIds *string `type:"string"`
+	VpcIds []*string `type:"list"`
 }
 
 // String returns the string representation
@@ -168,8 +168,8 @@ func (s DescribeIpv6GatewaysInput) GoString() string {
 }
 
 // SetIpv6GatewayIds sets the Ipv6GatewayIds field's value.
-func (s *DescribeIpv6GatewaysInput) SetIpv6GatewayIds(v string) *DescribeIpv6GatewaysInput {
-	s.Ipv6GatewayIds = &v
+func (s *DescribeIpv6GatewaysInput) SetIpv6GatewayIds(v []*string) *DescribeIpv6GatewaysInput {
+	s.Ipv6GatewayIds = v
 	return s
 }
 
@@ -204,8 +204,8 @@ func (s *DescribeIpv6GatewaysInput) SetTagFilters(v []*TagFilterForDescribeIpv6G
 }
 
 // SetVpcIds sets the VpcIds field's value.
-func (s *DescribeIpv6GatewaysInput) SetVpcIds(v string) *DescribeIpv6GatewaysInput {
-	s.VpcIds = &v
+func (s *DescribeIpv6GatewaysInput) SetVpcIds(v []*string) *DescribeIpv6GatewaysInput {
+	s.VpcIds = v
 	return s
 }
 

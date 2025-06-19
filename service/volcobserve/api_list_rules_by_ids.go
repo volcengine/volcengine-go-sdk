@@ -148,9 +148,13 @@ type ConditionForListRulesByIdsOutput struct {
 
 	ComparisonOperator *string `type:"string" json:",omitempty"`
 
+	DisplayName *string `type:"string" json:",omitempty"`
+
 	MetricName *string `type:"string" json:",omitempty"`
 
 	MetricUnit *string `type:"string" json:",omitempty"`
+
+	Period *string `type:"string" json:",omitempty"`
 
 	Statistics *string `type:"string" json:",omitempty"`
 
@@ -173,6 +177,12 @@ func (s *ConditionForListRulesByIdsOutput) SetComparisonOperator(v string) *Cond
 	return s
 }
 
+// SetDisplayName sets the DisplayName field's value.
+func (s *ConditionForListRulesByIdsOutput) SetDisplayName(v string) *ConditionForListRulesByIdsOutput {
+	s.DisplayName = &v
+	return s
+}
+
 // SetMetricName sets the MetricName field's value.
 func (s *ConditionForListRulesByIdsOutput) SetMetricName(v string) *ConditionForListRulesByIdsOutput {
 	s.MetricName = &v
@@ -182,6 +192,12 @@ func (s *ConditionForListRulesByIdsOutput) SetMetricName(v string) *ConditionFor
 // SetMetricUnit sets the MetricUnit field's value.
 func (s *ConditionForListRulesByIdsOutput) SetMetricUnit(v string) *ConditionForListRulesByIdsOutput {
 	s.MetricUnit = &v
+	return s
+}
+
+// SetPeriod sets the Period field's value.
+func (s *ConditionForListRulesByIdsOutput) SetPeriod(v string) *ConditionForListRulesByIdsOutput {
+	s.Period = &v
 	return s
 }
 

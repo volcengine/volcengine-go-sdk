@@ -142,7 +142,7 @@ func (c *VPC) DescribeIpv6AddressBandwidthsWithContext(ctx volcengine.Context, i
 type DescribeIpv6AddressBandwidthsInput struct {
 	_ struct{} `type:"structure"`
 
-	AllocationIds *string `type:"string"`
+	AllocationIds []*string `type:"list"`
 
 	AssociatedInstanceId *string `type:"string"`
 
@@ -152,7 +152,7 @@ type DescribeIpv6AddressBandwidthsInput struct {
 
 	ISP *string `type:"string"`
 
-	Ipv6Addresses *string `type:"string"`
+	Ipv6Addresses []*string `type:"list"`
 
 	MaxResults *int64 `type:"integer"`
 
@@ -161,6 +161,8 @@ type DescribeIpv6AddressBandwidthsInput struct {
 	NextToken *string `type:"string"`
 
 	ProjectName *string `type:"string"`
+
+	TagFilters []*TagFilterForDescribeIpv6AddressBandwidthsInput `type:"list"`
 
 	VpcId *string `type:"string"`
 }
@@ -176,8 +178,8 @@ func (s DescribeIpv6AddressBandwidthsInput) GoString() string {
 }
 
 // SetAllocationIds sets the AllocationIds field's value.
-func (s *DescribeIpv6AddressBandwidthsInput) SetAllocationIds(v string) *DescribeIpv6AddressBandwidthsInput {
-	s.AllocationIds = &v
+func (s *DescribeIpv6AddressBandwidthsInput) SetAllocationIds(v []*string) *DescribeIpv6AddressBandwidthsInput {
+	s.AllocationIds = v
 	return s
 }
 
@@ -206,8 +208,8 @@ func (s *DescribeIpv6AddressBandwidthsInput) SetISP(v string) *DescribeIpv6Addre
 }
 
 // SetIpv6Addresses sets the Ipv6Addresses field's value.
-func (s *DescribeIpv6AddressBandwidthsInput) SetIpv6Addresses(v string) *DescribeIpv6AddressBandwidthsInput {
-	s.Ipv6Addresses = &v
+func (s *DescribeIpv6AddressBandwidthsInput) SetIpv6Addresses(v []*string) *DescribeIpv6AddressBandwidthsInput {
+	s.Ipv6Addresses = v
 	return s
 }
 
@@ -232,6 +234,12 @@ func (s *DescribeIpv6AddressBandwidthsInput) SetNextToken(v string) *DescribeIpv
 // SetProjectName sets the ProjectName field's value.
 func (s *DescribeIpv6AddressBandwidthsInput) SetProjectName(v string) *DescribeIpv6AddressBandwidthsInput {
 	s.ProjectName = &v
+	return s
+}
+
+// SetTagFilters sets the TagFilters field's value.
+func (s *DescribeIpv6AddressBandwidthsInput) SetTagFilters(v []*TagFilterForDescribeIpv6AddressBandwidthsInput) *DescribeIpv6AddressBandwidthsInput {
+	s.TagFilters = v
 	return s
 }
 
@@ -317,6 +325,8 @@ type Ipv6AddressBandwidthForDescribeIpv6AddressBandwidthsOutput struct {
 	ProjectName *string `type:"string"`
 
 	Status *string `type:"string"`
+
+	Tags []*TagForDescribeIpv6AddressBandwidthsOutput `type:"list"`
 
 	UpdatedAt *string `type:"string"`
 }
@@ -433,8 +443,74 @@ func (s *Ipv6AddressBandwidthForDescribeIpv6AddressBandwidthsOutput) SetStatus(v
 	return s
 }
 
+// SetTags sets the Tags field's value.
+func (s *Ipv6AddressBandwidthForDescribeIpv6AddressBandwidthsOutput) SetTags(v []*TagForDescribeIpv6AddressBandwidthsOutput) *Ipv6AddressBandwidthForDescribeIpv6AddressBandwidthsOutput {
+	s.Tags = v
+	return s
+}
+
 // SetUpdatedAt sets the UpdatedAt field's value.
 func (s *Ipv6AddressBandwidthForDescribeIpv6AddressBandwidthsOutput) SetUpdatedAt(v string) *Ipv6AddressBandwidthForDescribeIpv6AddressBandwidthsOutput {
 	s.UpdatedAt = &v
+	return s
+}
+
+type TagFilterForDescribeIpv6AddressBandwidthsInput struct {
+	_ struct{} `type:"structure"`
+
+	Key *string `type:"string"`
+
+	Values []*string `type:"list"`
+}
+
+// String returns the string representation
+func (s TagFilterForDescribeIpv6AddressBandwidthsInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagFilterForDescribeIpv6AddressBandwidthsInput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagFilterForDescribeIpv6AddressBandwidthsInput) SetKey(v string) *TagFilterForDescribeIpv6AddressBandwidthsInput {
+	s.Key = &v
+	return s
+}
+
+// SetValues sets the Values field's value.
+func (s *TagFilterForDescribeIpv6AddressBandwidthsInput) SetValues(v []*string) *TagFilterForDescribeIpv6AddressBandwidthsInput {
+	s.Values = v
+	return s
+}
+
+type TagForDescribeIpv6AddressBandwidthsOutput struct {
+	_ struct{} `type:"structure"`
+
+	Key *string `type:"string"`
+
+	Value *string `type:"string"`
+}
+
+// String returns the string representation
+func (s TagForDescribeIpv6AddressBandwidthsOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagForDescribeIpv6AddressBandwidthsOutput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagForDescribeIpv6AddressBandwidthsOutput) SetKey(v string) *TagForDescribeIpv6AddressBandwidthsOutput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *TagForDescribeIpv6AddressBandwidthsOutput) SetValue(v string) *TagForDescribeIpv6AddressBandwidthsOutput {
+	s.Value = &v
 	return s
 }

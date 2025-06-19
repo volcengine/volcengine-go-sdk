@@ -152,6 +152,8 @@ type DataForDescribeTasksOutput struct {
 
 	FinishTime *string `type:"string" json:",omitempty"`
 
+	OriginConfig *string `type:"string" json:",omitempty"`
+
 	Progress *int32 `type:"int32" json:",omitempty"`
 
 	RelatedInstanceInfos *RelatedInstanceInfosForDescribeTasksOutput `type:"structure" json:",omitempty"`
@@ -208,6 +210,12 @@ func (s *DataForDescribeTasksOutput) SetCreateTime(v string) *DataForDescribeTas
 // SetFinishTime sets the FinishTime field's value.
 func (s *DataForDescribeTasksOutput) SetFinishTime(v string) *DataForDescribeTasksOutput {
 	s.FinishTime = &v
+	return s
+}
+
+// SetOriginConfig sets the OriginConfig field's value.
+func (s *DataForDescribeTasksOutput) SetOriginConfig(v string) *DataForDescribeTasksOutput {
+	s.OriginConfig = &v
 	return s
 }
 

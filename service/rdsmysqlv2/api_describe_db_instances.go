@@ -356,6 +356,8 @@ type DescribeDBInstancesInput struct {
 
 	ProjectName *string `type:"string" json:",omitempty"`
 
+	StorageType *string `type:"string" json:",omitempty"`
+
 	TagFilters []*TagFilterForDescribeDBInstancesInput `type:"list" json:",omitempty"`
 
 	ZoneId *string `type:"string" json:",omitempty"`
@@ -461,6 +463,12 @@ func (s *DescribeDBInstancesInput) SetProjectName(v string) *DescribeDBInstances
 	return s
 }
 
+// SetStorageType sets the StorageType field's value.
+func (s *DescribeDBInstancesInput) SetStorageType(v string) *DescribeDBInstancesInput {
+	s.StorageType = &v
+	return s
+}
+
 // SetTagFilters sets the TagFilters field's value.
 func (s *DescribeDBInstancesInput) SetTagFilters(v []*TagFilterForDescribeDBInstancesInput) *DescribeDBInstancesInput {
 	s.TagFilters = v
@@ -519,6 +527,10 @@ type InstanceForDescribeDBInstancesOutput struct {
 	CurrentKernelVersion *string `type:"string" json:",omitempty"`
 
 	DBEngineVersion *string `type:"string" json:",omitempty"`
+
+	DeletionProtection *string `type:"string" json:",omitempty"`
+
+	DrDtsTaskId *string `type:"string" json:",omitempty"`
 
 	InstanceId *string `type:"string" json:",omitempty"`
 
@@ -606,6 +618,18 @@ func (s *InstanceForDescribeDBInstancesOutput) SetCurrentKernelVersion(v string)
 // SetDBEngineVersion sets the DBEngineVersion field's value.
 func (s *InstanceForDescribeDBInstancesOutput) SetDBEngineVersion(v string) *InstanceForDescribeDBInstancesOutput {
 	s.DBEngineVersion = &v
+	return s
+}
+
+// SetDeletionProtection sets the DeletionProtection field's value.
+func (s *InstanceForDescribeDBInstancesOutput) SetDeletionProtection(v string) *InstanceForDescribeDBInstancesOutput {
+	s.DeletionProtection = &v
+	return s
+}
+
+// SetDrDtsTaskId sets the DrDtsTaskId field's value.
+func (s *InstanceForDescribeDBInstancesOutput) SetDrDtsTaskId(v string) *InstanceForDescribeDBInstancesOutput {
+	s.DrDtsTaskId = &v
 	return s
 }
 
@@ -779,6 +803,8 @@ type TagFilterForDescribeDBInstancesInput struct {
 	Key *string `type:"string" json:",omitempty"`
 
 	Value *string `type:"string" json:",omitempty"`
+
+	Values []*string `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -800,6 +826,12 @@ func (s *TagFilterForDescribeDBInstancesInput) SetKey(v string) *TagFilterForDes
 // SetValue sets the Value field's value.
 func (s *TagFilterForDescribeDBInstancesInput) SetValue(v string) *TagFilterForDescribeDBInstancesInput {
 	s.Value = &v
+	return s
+}
+
+// SetValues sets the Values field's value.
+func (s *TagFilterForDescribeDBInstancesInput) SetValues(v []*string) *TagFilterForDescribeDBInstancesInput {
+	s.Values = v
 	return s
 }
 

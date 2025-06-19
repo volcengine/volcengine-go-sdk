@@ -19,7 +19,7 @@ import (
 //    // volcengine sdk func uses an SDK service client to make a request to
 //    // ROCKETMQ.
 //    func myFunc(svc ROCKETMQAPI) bool {
-//        // Make svc.AddTagsToResource request
+//        // Make svc.AddPLWhitelist request
 //    }
 //
 //    func main() {
@@ -30,6 +30,14 @@ import (
 //    }
 //
 type ROCKETMQAPI interface {
+	AddPLWhitelistCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	AddPLWhitelistCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	AddPLWhitelistCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	AddPLWhitelist(*AddPLWhitelistInput) (*AddPLWhitelistOutput, error)
+	AddPLWhitelistWithContext(volcengine.Context, *AddPLWhitelistInput, ...request.Option) (*AddPLWhitelistOutput, error)
+	AddPLWhitelistRequest(*AddPLWhitelistInput) (*request.Request, *AddPLWhitelistOutput)
+
 	AddTagsToResourceCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	AddTagsToResourceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	AddTagsToResourceCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -77,6 +85,14 @@ type ROCKETMQAPI interface {
 	CreateInstance(*CreateInstanceInput) (*CreateInstanceOutput, error)
 	CreateInstanceWithContext(volcengine.Context, *CreateInstanceInput, ...request.Option) (*CreateInstanceOutput, error)
 	CreateInstanceRequest(*CreateInstanceInput) (*request.Request, *CreateInstanceOutput)
+
+	CreatePrivateLinkCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreatePrivateLinkCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreatePrivateLinkCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreatePrivateLink(*CreatePrivateLinkInput) (*CreatePrivateLinkOutput, error)
+	CreatePrivateLinkWithContext(volcengine.Context, *CreatePrivateLinkInput, ...request.Option) (*CreatePrivateLinkOutput, error)
+	CreatePrivateLinkRequest(*CreatePrivateLinkInput) (*request.Request, *CreatePrivateLinkOutput)
 
 	CreatePublicAddressCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	CreatePublicAddressCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -133,6 +149,14 @@ type ROCKETMQAPI interface {
 	DeleteInstance(*DeleteInstanceInput) (*DeleteInstanceOutput, error)
 	DeleteInstanceWithContext(volcengine.Context, *DeleteInstanceInput, ...request.Option) (*DeleteInstanceOutput, error)
 	DeleteInstanceRequest(*DeleteInstanceInput) (*request.Request, *DeleteInstanceOutput)
+
+	DeletePrivateLinkCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeletePrivateLinkCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeletePrivateLinkCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeletePrivateLink(*DeletePrivateLinkInput) (*DeletePrivateLinkOutput, error)
+	DeletePrivateLinkWithContext(volcengine.Context, *DeletePrivateLinkInput, ...request.Option) (*DeletePrivateLinkOutput, error)
+	DeletePrivateLinkRequest(*DeletePrivateLinkInput) (*request.Request, *DeletePrivateLinkOutput)
 
 	DeletePublicAddressCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DeletePublicAddressCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -245,6 +269,14 @@ type ROCKETMQAPI interface {
 	DescribeInstances(*DescribeInstancesInput) (*DescribeInstancesOutput, error)
 	DescribeInstancesWithContext(volcengine.Context, *DescribeInstancesInput, ...request.Option) (*DescribeInstancesOutput, error)
 	DescribeInstancesRequest(*DescribeInstancesInput) (*request.Request, *DescribeInstancesOutput)
+
+	DescribePLWhitelistCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribePLWhitelistCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribePLWhitelistCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribePLWhitelist(*DescribePLWhitelistInput) (*DescribePLWhitelistOutput, error)
+	DescribePLWhitelistWithContext(volcengine.Context, *DescribePLWhitelistInput, ...request.Option) (*DescribePLWhitelistOutput, error)
+	DescribePLWhitelistRequest(*DescribePLWhitelistInput) (*request.Request, *DescribePLWhitelistOutput)
 
 	DescribeRegionsCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DescribeRegionsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -477,6 +509,14 @@ type ROCKETMQAPI interface {
 	QueryMessageTraceByMessageId(*QueryMessageTraceByMessageIdInput) (*QueryMessageTraceByMessageIdOutput, error)
 	QueryMessageTraceByMessageIdWithContext(volcengine.Context, *QueryMessageTraceByMessageIdInput, ...request.Option) (*QueryMessageTraceByMessageIdOutput, error)
 	QueryMessageTraceByMessageIdRequest(*QueryMessageTraceByMessageIdInput) (*request.Request, *QueryMessageTraceByMessageIdOutput)
+
+	RemovePLWhitelistCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	RemovePLWhitelistCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	RemovePLWhitelistCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	RemovePLWhitelist(*RemovePLWhitelistInput) (*RemovePLWhitelistOutput, error)
+	RemovePLWhitelistWithContext(volcengine.Context, *RemovePLWhitelistInput, ...request.Option) (*RemovePLWhitelistOutput, error)
+	RemovePLWhitelistRequest(*RemovePLWhitelistInput) (*request.Request, *RemovePLWhitelistOutput)
 
 	RemoveTagsFromResourceCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	RemoveTagsFromResourceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)

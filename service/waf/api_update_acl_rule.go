@@ -268,8 +268,6 @@ type UpdateAclRuleInput struct {
 	// Name is a required field
 	Name *string `type:"string" json:",omitempty" required:"true"`
 
-	PrefixSwitch *int32 `type:"int32" json:",omitempty"`
-
 	ProjectName *string `type:"string" json:",omitempty"`
 
 	// Url is a required field
@@ -410,12 +408,6 @@ func (s *UpdateAclRuleInput) SetIpLocationSubregion(v []*string) *UpdateAclRuleI
 // SetName sets the Name field's value.
 func (s *UpdateAclRuleInput) SetName(v string) *UpdateAclRuleInput {
 	s.Name = &v
-	return s
-}
-
-// SetPrefixSwitch sets the PrefixSwitch field's value.
-func (s *UpdateAclRuleInput) SetPrefixSwitch(v int32) *UpdateAclRuleInput {
-	s.PrefixSwitch = &v
 	return s
 }
 

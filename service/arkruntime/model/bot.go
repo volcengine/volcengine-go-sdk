@@ -26,11 +26,13 @@ type BotChatCompletionRequest struct {
 }
 
 type BotActionUsage struct {
-	Name             string `json:"name"`
-	PromptTokens     string `json:"prompt_tokens,omitempty"`
-	CompletionTokens int    `json:"completion_tokens,omitempty"`
-	TotalTokens      int    `json:"total_tokens,omitempty"`
-	SearchCount      int    `json:"search_count,omitempty"`
+	Name             string  `json:"name"`
+	PromptTokens     string  `json:"prompt_tokens,omitempty"`
+	CompletionTokens int     `json:"completion_tokens,omitempty"`
+	TotalTokens      int     `json:"total_tokens,omitempty"`
+	SearchCount      int     `json:"search_count,omitempty"`
+	ActionName       *string `json:"action_name,omitempty"`
+	Count            *int    `json:"count,omitempty"`
 }
 
 type BotModelUsage struct {
@@ -41,6 +43,22 @@ type BotModelUsage struct {
 type BotUsage struct {
 	ModelUsage  []*BotModelUsage  `json:"model_usage,omitempty"`
 	ActionUsage []*BotActionUsage `json:"action_usage,omitempty"`
+
+	ActionDetails []*BotActionDetail `json:"action_details,omitempty"` // 本次请求插件调用详情
+}
+
+type BotActionDetail struct {
+	Name        string           `json:"name"`                   // 插件分类名称，如 content_plugin（内容插件）等
+	Count       int              `json:"count"`                  // 本次请求某插件分类中插件调用次数
+	ToolDetails []*BotToolDetail `json:"tool_details,omitempty"` // 某插件分类中插件调用详细信息
+}
+
+type BotToolDetail struct {
+	Name        string      `json:"name"`         // 具体调用的工具名称
+	Input       interface{} `json:"input"`        // 插件输入参数，调用插件的数据结构
+	Output      interface{} `json:"output"`       // 插件输出结果，调用插件返回的数据结构
+	CreatedAt   int         `json:"created_at"`   // 插件调用开始时间
+	CompletedAt int         `json:"completed_at"` // 插件调用结束时间
 }
 
 type BotCoverImage struct {

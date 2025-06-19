@@ -148,6 +148,8 @@ type RestoreToExistedInstanceInput struct {
 
 	BackupId *string `type:"string" json:",omitempty"`
 
+	FastMode *bool `type:"boolean" json:",omitempty"`
+
 	RestoreTime *string `type:"string" json:",omitempty"`
 
 	RestoreType *string `type:"string" json:",omitempty"`
@@ -184,6 +186,12 @@ func (s *RestoreToExistedInstanceInput) Validate() error {
 // SetBackupId sets the BackupId field's value.
 func (s *RestoreToExistedInstanceInput) SetBackupId(v string) *RestoreToExistedInstanceInput {
 	s.BackupId = &v
+	return s
+}
+
+// SetFastMode sets the FastMode field's value.
+func (s *RestoreToExistedInstanceInput) SetFastMode(v bool) *RestoreToExistedInstanceInput {
+	s.FastMode = &v
 	return s
 }
 

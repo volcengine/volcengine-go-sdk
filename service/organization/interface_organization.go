@@ -294,6 +294,14 @@ type ORGANIZATIONAPI interface {
 	ListServiceControlPoliciesWithContext(volcengine.Context, *ListServiceControlPoliciesInput, ...request.Option) (*ListServiceControlPoliciesOutput, error)
 	ListServiceControlPoliciesRequest(*ListServiceControlPoliciesInput) (*request.Request, *ListServiceControlPoliciesOutput)
 
+	ListTagResourcesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListTagResourcesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListTagResourcesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListTagResources(*ListTagResourcesInput) (*ListTagResourcesOutput, error)
+	ListTagResourcesWithContext(volcengine.Context, *ListTagResourcesInput, ...request.Option) (*ListTagResourcesOutput, error)
+	ListTagResourcesRequest(*ListTagResourcesInput) (*request.Request, *ListTagResourcesOutput)
+
 	ListTargetsForPolicyCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ListTargetsForPolicyCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	ListTargetsForPolicyCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})

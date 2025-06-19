@@ -181,6 +181,44 @@ func (s *AccountPrivilegeForCreateDBAccountInput) SetDBName(v string) *AccountPr
 	return s
 }
 
+type ColumnPrivilegeForCreateDBAccountInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	AccountPrivilegeDetail *string `type:"string" json:",omitempty"`
+
+	ColumnName *string `type:"string" json:",omitempty"`
+
+	TableName *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s ColumnPrivilegeForCreateDBAccountInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ColumnPrivilegeForCreateDBAccountInput) GoString() string {
+	return s.String()
+}
+
+// SetAccountPrivilegeDetail sets the AccountPrivilegeDetail field's value.
+func (s *ColumnPrivilegeForCreateDBAccountInput) SetAccountPrivilegeDetail(v string) *ColumnPrivilegeForCreateDBAccountInput {
+	s.AccountPrivilegeDetail = &v
+	return s
+}
+
+// SetColumnName sets the ColumnName field's value.
+func (s *ColumnPrivilegeForCreateDBAccountInput) SetColumnName(v string) *ColumnPrivilegeForCreateDBAccountInput {
+	s.ColumnName = &v
+	return s
+}
+
+// SetTableName sets the TableName field's value.
+func (s *ColumnPrivilegeForCreateDBAccountInput) SetTableName(v string) *ColumnPrivilegeForCreateDBAccountInput {
+	s.TableName = &v
+	return s
+}
+
 type CreateDBAccountInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -203,6 +241,8 @@ type CreateDBAccountInput struct {
 
 	// InstanceId is a required field
 	InstanceId *string `type:"string" json:",omitempty" required:"true"`
+
+	TableColumnPrivileges []*TableColumnPrivilegeForCreateDBAccountInput `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -285,6 +325,12 @@ func (s *CreateDBAccountInput) SetInstanceId(v string) *CreateDBAccountInput {
 	return s
 }
 
+// SetTableColumnPrivileges sets the TableColumnPrivileges field's value.
+func (s *CreateDBAccountInput) SetTableColumnPrivileges(v []*TableColumnPrivilegeForCreateDBAccountInput) *CreateDBAccountInput {
+	s.TableColumnPrivileges = v
+	return s
+}
+
 type CreateDBAccountOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -306,5 +352,73 @@ func (s CreateDBAccountOutput) GoString() string {
 // SetCreateAccountSQL sets the CreateAccountSQL field's value.
 func (s *CreateDBAccountOutput) SetCreateAccountSQL(v []*string) *CreateDBAccountOutput {
 	s.CreateAccountSQL = v
+	return s
+}
+
+type TableColumnPrivilegeForCreateDBAccountInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	ColumnPrivileges []*ColumnPrivilegeForCreateDBAccountInput `type:"list" json:",omitempty"`
+
+	DBName *string `type:"string" json:",omitempty"`
+
+	TablePrivileges []*TablePrivilegeForCreateDBAccountInput `type:"list" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s TableColumnPrivilegeForCreateDBAccountInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TableColumnPrivilegeForCreateDBAccountInput) GoString() string {
+	return s.String()
+}
+
+// SetColumnPrivileges sets the ColumnPrivileges field's value.
+func (s *TableColumnPrivilegeForCreateDBAccountInput) SetColumnPrivileges(v []*ColumnPrivilegeForCreateDBAccountInput) *TableColumnPrivilegeForCreateDBAccountInput {
+	s.ColumnPrivileges = v
+	return s
+}
+
+// SetDBName sets the DBName field's value.
+func (s *TableColumnPrivilegeForCreateDBAccountInput) SetDBName(v string) *TableColumnPrivilegeForCreateDBAccountInput {
+	s.DBName = &v
+	return s
+}
+
+// SetTablePrivileges sets the TablePrivileges field's value.
+func (s *TableColumnPrivilegeForCreateDBAccountInput) SetTablePrivileges(v []*TablePrivilegeForCreateDBAccountInput) *TableColumnPrivilegeForCreateDBAccountInput {
+	s.TablePrivileges = v
+	return s
+}
+
+type TablePrivilegeForCreateDBAccountInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	AccountPrivilegeDetail *string `type:"string" json:",omitempty"`
+
+	TableName *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s TablePrivilegeForCreateDBAccountInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TablePrivilegeForCreateDBAccountInput) GoString() string {
+	return s.String()
+}
+
+// SetAccountPrivilegeDetail sets the AccountPrivilegeDetail field's value.
+func (s *TablePrivilegeForCreateDBAccountInput) SetAccountPrivilegeDetail(v string) *TablePrivilegeForCreateDBAccountInput {
+	s.AccountPrivilegeDetail = &v
+	return s
+}
+
+// SetTableName sets the TableName field's value.
+func (s *TablePrivilegeForCreateDBAccountInput) SetTableName(v string) *TablePrivilegeForCreateDBAccountInput {
+	s.TableName = &v
 	return s
 }

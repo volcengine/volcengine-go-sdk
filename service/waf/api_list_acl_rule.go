@@ -490,8 +490,6 @@ type RuleForListAclRuleOutput struct {
 
 	Name *string `type:"string" json:",omitempty"`
 
-	PrefixSwitch []*string `type:"list" json:",omitempty"`
-
 	RuleTag *string `type:"string" json:",omitempty"`
 
 	UpdateTime *string `type:"string" json:",omitempty"`
@@ -614,12 +612,6 @@ func (s *RuleForListAclRuleOutput) SetIpLocationSubregion(v []*string) *RuleForL
 // SetName sets the Name field's value.
 func (s *RuleForListAclRuleOutput) SetName(v string) *RuleForListAclRuleOutput {
 	s.Name = &v
-	return s
-}
-
-// SetPrefixSwitch sets the PrefixSwitch field's value.
-func (s *RuleForListAclRuleOutput) SetPrefixSwitch(v []*string) *RuleForListAclRuleOutput {
-	s.PrefixSwitch = v
 	return s
 }
 

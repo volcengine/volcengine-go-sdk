@@ -152,6 +152,10 @@ type DescribeDBInstanceSpecsInput struct {
 
 	SpecCode *string `type:"string" json:",omitempty"`
 
+	SpecFamily *string `type:"string" json:",omitempty"`
+
+	StorageType *string `type:"string" json:",omitempty"`
+
 	ZoneId *string `type:"string" json:",omitempty"`
 }
 
@@ -180,6 +184,18 @@ func (s *DescribeDBInstanceSpecsInput) SetInstanceType(v string) *DescribeDBInst
 // SetSpecCode sets the SpecCode field's value.
 func (s *DescribeDBInstanceSpecsInput) SetSpecCode(v string) *DescribeDBInstanceSpecsInput {
 	s.SpecCode = &v
+	return s
+}
+
+// SetSpecFamily sets the SpecFamily field's value.
+func (s *DescribeDBInstanceSpecsInput) SetSpecFamily(v string) *DescribeDBInstanceSpecsInput {
+	s.SpecFamily = &v
+	return s
+}
+
+// SetStorageType sets the StorageType field's value.
+func (s *DescribeDBInstanceSpecsInput) SetStorageType(v string) *DescribeDBInstanceSpecsInput {
+	s.StorageType = &v
 	return s
 }
 
@@ -241,6 +257,8 @@ type InstanceSpecsInfoForDescribeDBInstanceSpecsOutput struct {
 	StorageMin *int32 `type:"int32" json:",omitempty"`
 
 	StorageStep *int32 `type:"int32" json:",omitempty"`
+
+	StorageType *string `type:"string" json:",omitempty"`
 
 	VCPU *int32 `type:"int32" json:",omitempty"`
 
@@ -332,6 +350,12 @@ func (s *InstanceSpecsInfoForDescribeDBInstanceSpecsOutput) SetStorageMin(v int3
 // SetStorageStep sets the StorageStep field's value.
 func (s *InstanceSpecsInfoForDescribeDBInstanceSpecsOutput) SetStorageStep(v int32) *InstanceSpecsInfoForDescribeDBInstanceSpecsOutput {
 	s.StorageStep = &v
+	return s
+}
+
+// SetStorageType sets the StorageType field's value.
+func (s *InstanceSpecsInfoForDescribeDBInstanceSpecsOutput) SetStorageType(v string) *InstanceSpecsInfoForDescribeDBInstanceSpecsOutput {
+	s.StorageType = &v
 	return s
 }
 

@@ -143,6 +143,44 @@ func (c *RDSMYSQLV2) RestoreToNewInstanceWithContext(ctx volcengine.Context, inp
 	return out, req.Send()
 }
 
+type AutoStorageScalingConfigForRestoreToNewInstanceInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	EnableStorageAutoScale *bool `type:"boolean" json:",omitempty"`
+
+	StorageThreshold *int32 `type:"int32" json:",omitempty"`
+
+	StorageUpperBound *int32 `type:"int32" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s AutoStorageScalingConfigForRestoreToNewInstanceInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s AutoStorageScalingConfigForRestoreToNewInstanceInput) GoString() string {
+	return s.String()
+}
+
+// SetEnableStorageAutoScale sets the EnableStorageAutoScale field's value.
+func (s *AutoStorageScalingConfigForRestoreToNewInstanceInput) SetEnableStorageAutoScale(v bool) *AutoStorageScalingConfigForRestoreToNewInstanceInput {
+	s.EnableStorageAutoScale = &v
+	return s
+}
+
+// SetStorageThreshold sets the StorageThreshold field's value.
+func (s *AutoStorageScalingConfigForRestoreToNewInstanceInput) SetStorageThreshold(v int32) *AutoStorageScalingConfigForRestoreToNewInstanceInput {
+	s.StorageThreshold = &v
+	return s
+}
+
+// SetStorageUpperBound sets the StorageUpperBound field's value.
+func (s *AutoStorageScalingConfigForRestoreToNewInstanceInput) SetStorageUpperBound(v int32) *AutoStorageScalingConfigForRestoreToNewInstanceInput {
+	s.StorageUpperBound = &v
+	return s
+}
+
 type ChargeInfoForRestoreToNewInstanceInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -286,11 +324,15 @@ type RestoreToNewInstanceInput struct {
 
 	AllowListIds []*string `type:"list" json:",omitempty"`
 
+	AutoStorageScalingConfig *AutoStorageScalingConfigForRestoreToNewInstanceInput `type:"structure" json:",omitempty"`
+
 	BackupId *string `type:"string" json:",omitempty"`
 
 	ChargeInfo *ChargeInfoForRestoreToNewInstanceInput `type:"structure" json:",omitempty"`
 
 	DBParamGroupId *string `type:"string" json:",omitempty"`
+
+	DeletionProtection *string `type:"string" json:",omitempty"`
 
 	InstanceName *string `type:"string" json:",omitempty"`
 
@@ -357,6 +399,12 @@ func (s *RestoreToNewInstanceInput) SetAllowListIds(v []*string) *RestoreToNewIn
 	return s
 }
 
+// SetAutoStorageScalingConfig sets the AutoStorageScalingConfig field's value.
+func (s *RestoreToNewInstanceInput) SetAutoStorageScalingConfig(v *AutoStorageScalingConfigForRestoreToNewInstanceInput) *RestoreToNewInstanceInput {
+	s.AutoStorageScalingConfig = v
+	return s
+}
+
 // SetBackupId sets the BackupId field's value.
 func (s *RestoreToNewInstanceInput) SetBackupId(v string) *RestoreToNewInstanceInput {
 	s.BackupId = &v
@@ -372,6 +420,12 @@ func (s *RestoreToNewInstanceInput) SetChargeInfo(v *ChargeInfoForRestoreToNewIn
 // SetDBParamGroupId sets the DBParamGroupId field's value.
 func (s *RestoreToNewInstanceInput) SetDBParamGroupId(v string) *RestoreToNewInstanceInput {
 	s.DBParamGroupId = &v
+	return s
+}
+
+// SetDeletionProtection sets the DeletionProtection field's value.
+func (s *RestoreToNewInstanceInput) SetDeletionProtection(v string) *RestoreToNewInstanceInput {
+	s.DeletionProtection = &v
 	return s
 }
 
