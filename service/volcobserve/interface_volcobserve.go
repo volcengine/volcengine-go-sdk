@@ -19,7 +19,7 @@ import (
 //    // volcengine sdk func uses an SDK service client to make a request to
 //    // VOLC_OBSERVE.
 //    func myFunc(svc VOLCOBSERVEAPI) bool {
-//        // Make svc.CreateContactGroup request
+//        // Make svc.ApplyObjectGroupsByAlertTemplate request
 //    }
 //
 //    func main() {
@@ -30,6 +30,22 @@ import (
 //    }
 //
 type VOLCOBSERVEAPI interface {
+	ApplyObjectGroupsByAlertTemplateCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ApplyObjectGroupsByAlertTemplateCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ApplyObjectGroupsByAlertTemplateCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ApplyObjectGroupsByAlertTemplate(*ApplyObjectGroupsByAlertTemplateInput) (*ApplyObjectGroupsByAlertTemplateOutput, error)
+	ApplyObjectGroupsByAlertTemplateWithContext(volcengine.Context, *ApplyObjectGroupsByAlertTemplateInput, ...request.Option) (*ApplyObjectGroupsByAlertTemplateOutput, error)
+	ApplyObjectGroupsByAlertTemplateRequest(*ApplyObjectGroupsByAlertTemplateInput) (*request.Request, *ApplyObjectGroupsByAlertTemplateOutput)
+
+	CreateAlertTemplateCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateAlertTemplateCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateAlertTemplateCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateAlertTemplate(*CreateAlertTemplateInput) (*CreateAlertTemplateOutput, error)
+	CreateAlertTemplateWithContext(volcengine.Context, *CreateAlertTemplateInput, ...request.Option) (*CreateAlertTemplateOutput, error)
+	CreateAlertTemplateRequest(*CreateAlertTemplateInput) (*request.Request, *CreateAlertTemplateOutput)
+
 	CreateContactGroupCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	CreateContactGroupCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	CreateContactGroupCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -93,6 +109,14 @@ type VOLCOBSERVEAPI interface {
 	CreateWebhook(*CreateWebhookInput) (*CreateWebhookOutput, error)
 	CreateWebhookWithContext(volcengine.Context, *CreateWebhookInput, ...request.Option) (*CreateWebhookOutput, error)
 	CreateWebhookRequest(*CreateWebhookInput) (*request.Request, *CreateWebhookOutput)
+
+	DeleteAlertTemplatesByIdsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeleteAlertTemplatesByIdsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeleteAlertTemplatesByIdsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeleteAlertTemplatesByIds(*DeleteAlertTemplatesByIdsInput) (*DeleteAlertTemplatesByIdsOutput, error)
+	DeleteAlertTemplatesByIdsWithContext(volcengine.Context, *DeleteAlertTemplatesByIdsInput, ...request.Option) (*DeleteAlertTemplatesByIdsOutput, error)
+	DeleteAlertTemplatesByIdsRequest(*DeleteAlertTemplatesByIdsInput) (*request.Request, *DeleteAlertTemplatesByIdsOutput)
 
 	DeleteContactGroupByIdsCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DeleteContactGroupByIdsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -166,6 +190,14 @@ type VOLCOBSERVEAPI interface {
 	DisableEventRuleWithContext(volcengine.Context, *DisableEventRuleInput, ...request.Option) (*DisableEventRuleOutput, error)
 	DisableEventRuleRequest(*DisableEventRuleInput) (*request.Request, *DisableEventRuleOutput)
 
+	DisablePresetAlertTemplateCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DisablePresetAlertTemplateCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DisablePresetAlertTemplateCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DisablePresetAlertTemplate(*DisablePresetAlertTemplateInput) (*DisablePresetAlertTemplateOutput, error)
+	DisablePresetAlertTemplateWithContext(volcengine.Context, *DisablePresetAlertTemplateInput, ...request.Option) (*DisablePresetAlertTemplateOutput, error)
+	DisablePresetAlertTemplateRequest(*DisablePresetAlertTemplateInput) (*request.Request, *DisablePresetAlertTemplateOutput)
+
 	EnableEventRuleCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	EnableEventRuleCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	EnableEventRuleCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -173,6 +205,14 @@ type VOLCOBSERVEAPI interface {
 	EnableEventRule(*EnableEventRuleInput) (*EnableEventRuleOutput, error)
 	EnableEventRuleWithContext(volcengine.Context, *EnableEventRuleInput, ...request.Option) (*EnableEventRuleOutput, error)
 	EnableEventRuleRequest(*EnableEventRuleInput) (*request.Request, *EnableEventRuleOutput)
+
+	EnablePresetAlertTemplateCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	EnablePresetAlertTemplateCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	EnablePresetAlertTemplateCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	EnablePresetAlertTemplate(*EnablePresetAlertTemplateInput) (*EnablePresetAlertTemplateOutput, error)
+	EnablePresetAlertTemplateWithContext(volcengine.Context, *EnablePresetAlertTemplateInput, ...request.Option) (*EnablePresetAlertTemplateOutput, error)
+	EnablePresetAlertTemplateRequest(*EnablePresetAlertTemplateInput) (*request.Request, *EnablePresetAlertTemplateOutput)
 
 	GetMetricDataCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	GetMetricDataCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -197,6 +237,14 @@ type VOLCOBSERVEAPI interface {
 	ListAlertGroup(*ListAlertGroupInput) (*ListAlertGroupOutput, error)
 	ListAlertGroupWithContext(volcengine.Context, *ListAlertGroupInput, ...request.Option) (*ListAlertGroupOutput, error)
 	ListAlertGroupRequest(*ListAlertGroupInput) (*request.Request, *ListAlertGroupOutput)
+
+	ListAlertTemplatesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListAlertTemplatesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListAlertTemplatesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListAlertTemplates(*ListAlertTemplatesInput) (*ListAlertTemplatesOutput, error)
+	ListAlertTemplatesWithContext(volcengine.Context, *ListAlertTemplatesInput, ...request.Option) (*ListAlertTemplatesOutput, error)
+	ListAlertTemplatesRequest(*ListAlertTemplatesInput) (*request.Request, *ListAlertTemplatesOutput)
 
 	ListContactGroupByIdsCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ListContactGroupByIdsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -261,6 +309,14 @@ type VOLCOBSERVEAPI interface {
 	ListObjectGroups(*ListObjectGroupsInput) (*ListObjectGroupsOutput, error)
 	ListObjectGroupsWithContext(volcengine.Context, *ListObjectGroupsInput, ...request.Option) (*ListObjectGroupsOutput, error)
 	ListObjectGroupsRequest(*ListObjectGroupsInput) (*request.Request, *ListObjectGroupsOutput)
+
+	ListPresetAlertTemplatesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListPresetAlertTemplatesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListPresetAlertTemplatesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListPresetAlertTemplates(*ListPresetAlertTemplatesInput) (*ListPresetAlertTemplatesOutput, error)
+	ListPresetAlertTemplatesWithContext(volcengine.Context, *ListPresetAlertTemplatesInput, ...request.Option) (*ListPresetAlertTemplatesOutput, error)
+	ListPresetAlertTemplatesRequest(*ListPresetAlertTemplatesInput) (*request.Request, *ListPresetAlertTemplatesOutput)
 
 	ListRulesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ListRulesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -341,6 +397,14 @@ type VOLCOBSERVEAPI interface {
 	UntagResources(*UntagResourcesInput) (*UntagResourcesOutput, error)
 	UntagResourcesWithContext(volcengine.Context, *UntagResourcesInput, ...request.Option) (*UntagResourcesOutput, error)
 	UntagResourcesRequest(*UntagResourcesInput) (*request.Request, *UntagResourcesOutput)
+
+	UpdateAlertTemplateCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	UpdateAlertTemplateCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	UpdateAlertTemplateCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	UpdateAlertTemplate(*UpdateAlertTemplateInput) (*UpdateAlertTemplateOutput, error)
+	UpdateAlertTemplateWithContext(volcengine.Context, *UpdateAlertTemplateInput, ...request.Option) (*UpdateAlertTemplateOutput, error)
+	UpdateAlertTemplateRequest(*UpdateAlertTemplateInput) (*request.Request, *UpdateAlertTemplateOutput)
 
 	UpdateContactGroupCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	UpdateContactGroupCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
