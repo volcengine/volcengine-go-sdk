@@ -19,7 +19,7 @@ import (
 //    // volcengine sdk func uses an SDK service client to make a request to
 //    // DBW.
 //    func myFunc(svc DBWAPI) bool {
-//        // Make svc.DataCancelExec request
+//        // Make svc.DescribeAuditLogConfig request
 //    }
 //
 //    func main() {
@@ -30,85 +30,21 @@ import (
 //    }
 //
 type DBWAPI interface {
-	DataCancelExecCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	DataCancelExecCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	DataCancelExecCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+	DescribeAuditLogConfigCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeAuditLogConfigCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeAuditLogConfigCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
 
-	DataCancelExec(*DataCancelExecInput) (*DataCancelExecOutput, error)
-	DataCancelExecWithContext(volcengine.Context, *DataCancelExecInput, ...request.Option) (*DataCancelExecOutput, error)
-	DataCancelExecRequest(*DataCancelExecInput) (*request.Request, *DataCancelExecOutput)
+	DescribeAuditLogConfig(*DescribeAuditLogConfigInput) (*DescribeAuditLogConfigOutput, error)
+	DescribeAuditLogConfigWithContext(volcengine.Context, *DescribeAuditLogConfigInput, ...request.Option) (*DescribeAuditLogConfigOutput, error)
+	DescribeAuditLogConfigRequest(*DescribeAuditLogConfigInput) (*request.Request, *DescribeAuditLogConfigOutput)
 
-	DataCloseSessionCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	DataCloseSessionCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	DataCloseSessionCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+	DescribeAuditLogDetailCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeAuditLogDetailCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeAuditLogDetailCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
 
-	DataCloseSession(*DataCloseSessionInput) (*DataCloseSessionOutput, error)
-	DataCloseSessionWithContext(volcengine.Context, *DataCloseSessionInput, ...request.Option) (*DataCloseSessionOutput, error)
-	DataCloseSessionRequest(*DataCloseSessionInput) (*request.Request, *DataCloseSessionOutput)
-
-	DataConnectInstanceCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	DataConnectInstanceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	DataConnectInstanceCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	DataConnectInstance(*DataConnectInstanceInput) (*DataConnectInstanceOutput, error)
-	DataConnectInstanceWithContext(volcengine.Context, *DataConnectInstanceInput, ...request.Option) (*DataConnectInstanceOutput, error)
-	DataConnectInstanceRequest(*DataConnectInstanceInput) (*request.Request, *DataConnectInstanceOutput)
-
-	DataExecCommandsCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	DataExecCommandsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	DataExecCommandsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	DataExecCommands(*DataExecCommandsInput) (*DataExecCommandsOutput, error)
-	DataExecCommandsWithContext(volcengine.Context, *DataExecCommandsInput, ...request.Option) (*DataExecCommandsOutput, error)
-	DataExecCommandsRequest(*DataExecCommandsInput) (*request.Request, *DataExecCommandsOutput)
-
-	DataSessionKeepAliveCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	DataSessionKeepAliveCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	DataSessionKeepAliveCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	DataSessionKeepAlive(*DataSessionKeepAliveInput) (*DataSessionKeepAliveOutput, error)
-	DataSessionKeepAliveWithContext(volcengine.Context, *DataSessionKeepAliveInput, ...request.Option) (*DataSessionKeepAliveOutput, error)
-	DataSessionKeepAliveRequest(*DataSessionKeepAliveInput) (*request.Request, *DataSessionKeepAliveOutput)
-
-	DescribeAggregateSlowLogsCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	DescribeAggregateSlowLogsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	DescribeAggregateSlowLogsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	DescribeAggregateSlowLogs(*DescribeAggregateSlowLogsInput) (*DescribeAggregateSlowLogsOutput, error)
-	DescribeAggregateSlowLogsWithContext(volcengine.Context, *DescribeAggregateSlowLogsInput, ...request.Option) (*DescribeAggregateSlowLogsOutput, error)
-	DescribeAggregateSlowLogsRequest(*DescribeAggregateSlowLogsInput) (*request.Request, *DescribeAggregateSlowLogsOutput)
-
-	DescribeAvailableTLSTopicCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	DescribeAvailableTLSTopicCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	DescribeAvailableTLSTopicCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	DescribeAvailableTLSTopic(*DescribeAvailableTLSTopicInput) (*DescribeAvailableTLSTopicOutput, error)
-	DescribeAvailableTLSTopicWithContext(volcengine.Context, *DescribeAvailableTLSTopicInput, ...request.Option) (*DescribeAvailableTLSTopicOutput, error)
-	DescribeAvailableTLSTopicRequest(*DescribeAvailableTLSTopicInput) (*request.Request, *DescribeAvailableTLSTopicOutput)
-
-	DescribeDBsCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	DescribeDBsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	DescribeDBsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	DescribeDBs(*DescribeDBsInput) (*DescribeDBsOutput, error)
-	DescribeDBsWithContext(volcengine.Context, *DescribeDBsInput, ...request.Option) (*DescribeDBsOutput, error)
-	DescribeDBsRequest(*DescribeDBsInput) (*request.Request, *DescribeDBsOutput)
-
-	DescribeExampleSQLCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	DescribeExampleSQLCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	DescribeExampleSQLCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	DescribeExampleSQL(*DescribeExampleSQLInput) (*DescribeExampleSQLOutput, error)
-	DescribeExampleSQLWithContext(volcengine.Context, *DescribeExampleSQLInput, ...request.Option) (*DescribeExampleSQLOutput, error)
-	DescribeExampleSQLRequest(*DescribeExampleSQLInput) (*request.Request, *DescribeExampleSQLOutput)
-
-	DescribeSlowLogTimeSeriesStatsCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	DescribeSlowLogTimeSeriesStatsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	DescribeSlowLogTimeSeriesStatsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	DescribeSlowLogTimeSeriesStats(*DescribeSlowLogTimeSeriesStatsInput) (*DescribeSlowLogTimeSeriesStatsOutput, error)
-	DescribeSlowLogTimeSeriesStatsWithContext(volcengine.Context, *DescribeSlowLogTimeSeriesStatsInput, ...request.Option) (*DescribeSlowLogTimeSeriesStatsOutput, error)
-	DescribeSlowLogTimeSeriesStatsRequest(*DescribeSlowLogTimeSeriesStatsInput) (*request.Request, *DescribeSlowLogTimeSeriesStatsOutput)
+	DescribeAuditLogDetail(*DescribeAuditLogDetailInput) (*DescribeAuditLogDetailOutput, error)
+	DescribeAuditLogDetailWithContext(volcengine.Context, *DescribeAuditLogDetailInput, ...request.Option) (*DescribeAuditLogDetailOutput, error)
+	DescribeAuditLogDetailRequest(*DescribeAuditLogDetailInput) (*request.Request, *DescribeAuditLogDetailOutput)
 
 	DescribeSlowLogsCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DescribeSlowLogsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -118,29 +54,13 @@ type DBWAPI interface {
 	DescribeSlowLogsWithContext(volcengine.Context, *DescribeSlowLogsInput, ...request.Option) (*DescribeSlowLogsOutput, error)
 	DescribeSlowLogsRequest(*DescribeSlowLogsInput) (*request.Request, *DescribeSlowLogsOutput)
 
-	DescribeSourceIPsCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	DescribeSourceIPsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	DescribeSourceIPsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+	ModifyAuditLogConfigCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ModifyAuditLogConfigCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ModifyAuditLogConfigCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
 
-	DescribeSourceIPs(*DescribeSourceIPsInput) (*DescribeSourceIPsOutput, error)
-	DescribeSourceIPsWithContext(volcengine.Context, *DescribeSourceIPsInput, ...request.Option) (*DescribeSourceIPsOutput, error)
-	DescribeSourceIPsRequest(*DescribeSourceIPsInput) (*request.Request, *DescribeSourceIPsOutput)
-
-	DescribeUsersCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	DescribeUsersCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	DescribeUsersCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	DescribeUsers(*DescribeUsersInput) (*DescribeUsersOutput, error)
-	DescribeUsersWithContext(volcengine.Context, *DescribeUsersInput, ...request.Option) (*DescribeUsersOutput, error)
-	DescribeUsersRequest(*DescribeUsersInput) (*request.Request, *DescribeUsersOutput)
-
-	DownloadSlowLogsCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	DownloadSlowLogsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	DownloadSlowLogsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	DownloadSlowLogs(*DownloadSlowLogsInput) (*DownloadSlowLogsOutput, error)
-	DownloadSlowLogsWithContext(volcengine.Context, *DownloadSlowLogsInput, ...request.Option) (*DownloadSlowLogsOutput, error)
-	DownloadSlowLogsRequest(*DownloadSlowLogsInput) (*request.Request, *DownloadSlowLogsOutput)
+	ModifyAuditLogConfig(*ModifyAuditLogConfigInput) (*ModifyAuditLogConfigOutput, error)
+	ModifyAuditLogConfigWithContext(volcengine.Context, *ModifyAuditLogConfigInput, ...request.Option) (*ModifyAuditLogConfigOutput, error)
+	ModifyAuditLogConfigRequest(*ModifyAuditLogConfigInput) (*request.Request, *ModifyAuditLogConfigOutput)
 }
 
 var _ DBWAPI = (*DBW)(nil)

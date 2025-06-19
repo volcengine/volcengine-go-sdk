@@ -144,23 +144,33 @@ func (c *DBW) DescribeSlowLogsWithContext(ctx volcengine.Context, input *Describ
 }
 
 type DescribeSlowLogsInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	DSType *string `type:"string" enum:"EnumOfDSTypeForDescribeSlowLogsInput"`
+	// EndTime is a required field
+	EndTime *int32 `type:"int32" json:",omitempty" required:"true"`
 
-	EndTime *int32 `type:"int32"`
+	// InstanceId is a required field
+	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 
-	InstanceId *string `type:"string"`
+	InstanceType *string `type:"string" json:",omitempty" enum:"EnumOfInstanceTypeForDescribeSlowLogsInput"`
 
-	PageNumber *int32 `type:"int32"`
+	NodeId *string `type:"string" json:",omitempty"`
 
-	PageSize *int32 `type:"int32"`
+	OrderBy *string `type:"string" json:",omitempty" enum:"EnumOfOrderByForDescribeSlowLogsInput"`
 
-	RegionId *string `type:"string"`
+	PageNumber *int32 `type:"int32" json:",omitempty"`
 
-	SearchParam *SearchParamForDescribeSlowLogsInput `type:"structure"`
+	PageSize *int32 `type:"int32" json:",omitempty"`
 
-	StartTime *int32 `type:"int32"`
+	// RegionId is a required field
+	RegionId *string `type:"string" json:",omitempty" required:"true"`
+
+	SearchParam *SearchParamForDescribeSlowLogsInput `type:"structure" json:",omitempty"`
+
+	SortBy *string `type:"string" json:",omitempty" enum:"EnumOfSortByForDescribeSlowLogsInput"`
+
+	// StartTime is a required field
+	StartTime *int32 `type:"int32" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -173,10 +183,26 @@ func (s DescribeSlowLogsInput) GoString() string {
 	return s.String()
 }
 
-// SetDSType sets the DSType field's value.
-func (s *DescribeSlowLogsInput) SetDSType(v string) *DescribeSlowLogsInput {
-	s.DSType = &v
-	return s
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DescribeSlowLogsInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DescribeSlowLogsInput"}
+	if s.EndTime == nil {
+		invalidParams.Add(request.NewErrParamRequired("EndTime"))
+	}
+	if s.InstanceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("InstanceId"))
+	}
+	if s.RegionId == nil {
+		invalidParams.Add(request.NewErrParamRequired("RegionId"))
+	}
+	if s.StartTime == nil {
+		invalidParams.Add(request.NewErrParamRequired("StartTime"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetEndTime sets the EndTime field's value.
@@ -188,6 +214,24 @@ func (s *DescribeSlowLogsInput) SetEndTime(v int32) *DescribeSlowLogsInput {
 // SetInstanceId sets the InstanceId field's value.
 func (s *DescribeSlowLogsInput) SetInstanceId(v string) *DescribeSlowLogsInput {
 	s.InstanceId = &v
+	return s
+}
+
+// SetInstanceType sets the InstanceType field's value.
+func (s *DescribeSlowLogsInput) SetInstanceType(v string) *DescribeSlowLogsInput {
+	s.InstanceType = &v
+	return s
+}
+
+// SetNodeId sets the NodeId field's value.
+func (s *DescribeSlowLogsInput) SetNodeId(v string) *DescribeSlowLogsInput {
+	s.NodeId = &v
+	return s
+}
+
+// SetOrderBy sets the OrderBy field's value.
+func (s *DescribeSlowLogsInput) SetOrderBy(v string) *DescribeSlowLogsInput {
+	s.OrderBy = &v
 	return s
 }
 
@@ -215,6 +259,12 @@ func (s *DescribeSlowLogsInput) SetSearchParam(v *SearchParamForDescribeSlowLogs
 	return s
 }
 
+// SetSortBy sets the SortBy field's value.
+func (s *DescribeSlowLogsInput) SetSortBy(v string) *DescribeSlowLogsInput {
+	s.SortBy = &v
+	return s
+}
+
 // SetStartTime sets the StartTime field's value.
 func (s *DescribeSlowLogsInput) SetStartTime(v int32) *DescribeSlowLogsInput {
 	s.StartTime = &v
@@ -222,13 +272,13 @@ func (s *DescribeSlowLogsInput) SetStartTime(v int32) *DescribeSlowLogsInput {
 }
 
 type DescribeSlowLogsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	SlowLogs []*SlowLogForDescribeSlowLogsOutput `type:"list"`
+	SlowLogs []*SlowLogForDescribeSlowLogsOutput `type:"list" json:",omitempty"`
 
-	Total *int32 `type:"int32"`
+	Total *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -254,19 +304,21 @@ func (s *DescribeSlowLogsOutput) SetTotal(v int32) *DescribeSlowLogsOutput {
 }
 
 type SearchParamForDescribeSlowLogsInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	DBs []*string `type:"list"`
+	DBs []*string `type:"list" json:",omitempty"`
 
-	MaxQueryTime *float64 `type:"double"`
+	MaxQueryTime *float64 `type:"double" json:",omitempty"`
 
-	MinQueryTime *float64 `type:"double"`
+	MinQueryTime *float64 `type:"double" json:",omitempty"`
 
-	SQLTemplate *string `type:"string"`
+	SQLTemplate *string `type:"string" json:",omitempty"`
 
-	SourceIPs []*string `type:"list"`
+	SQLTemplateID *string `type:"string" json:",omitempty"`
 
-	Users []*string `type:"list"`
+	SourceIPs []*string `type:"list" json:",omitempty"`
+
+	Users []*string `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -303,6 +355,12 @@ func (s *SearchParamForDescribeSlowLogsInput) SetSQLTemplate(v string) *SearchPa
 	return s
 }
 
+// SetSQLTemplateID sets the SQLTemplateID field's value.
+func (s *SearchParamForDescribeSlowLogsInput) SetSQLTemplateID(v string) *SearchParamForDescribeSlowLogsInput {
+	s.SQLTemplateID = &v
+	return s
+}
+
 // SetSourceIPs sets the SourceIPs field's value.
 func (s *SearchParamForDescribeSlowLogsInput) SetSourceIPs(v []*string) *SearchParamForDescribeSlowLogsInput {
 	s.SourceIPs = v
@@ -316,27 +374,35 @@ func (s *SearchParamForDescribeSlowLogsInput) SetUsers(v []*string) *SearchParam
 }
 
 type SlowLogForDescribeSlowLogsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	ConnectionId *int32 `type:"int32"`
+	ConnectionId *int32 `type:"int32" json:",omitempty"`
 
-	DB *string `type:"string"`
+	DB *string `type:"string" json:",omitempty"`
 
-	LockTime *float64 `type:"double"`
+	LockTime *float64 `type:"double" json:",omitempty"`
 
-	QueryTime *float64 `type:"double"`
+	QueryTime *float64 `type:"double" json:",omitempty"`
 
-	RowsExamined *int32 `type:"int32"`
+	RowsExamined *int32 `type:"int32" json:",omitempty"`
 
-	RowsSent *int32 `type:"int32"`
+	RowsSent *int32 `type:"int32" json:",omitempty"`
 
-	SQLText *string `type:"string"`
+	SQLTemplate *string `type:"string" json:",omitempty"`
 
-	SourceIP *string `type:"string"`
+	SQLText *string `type:"string" json:",omitempty"`
 
-	Timestamp *int32 `type:"int32"`
+	SourceIP *string `type:"string" json:",omitempty"`
 
-	User *string `type:"string"`
+	SqlFingerprint *string `type:"string" json:",omitempty"`
+
+	SqlMethod *string `type:"string" json:",omitempty"`
+
+	Table *string `type:"string" json:",omitempty"`
+
+	Timestamp *int32 `type:"int32" json:",omitempty"`
+
+	User *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -385,6 +451,12 @@ func (s *SlowLogForDescribeSlowLogsOutput) SetRowsSent(v int32) *SlowLogForDescr
 	return s
 }
 
+// SetSQLTemplate sets the SQLTemplate field's value.
+func (s *SlowLogForDescribeSlowLogsOutput) SetSQLTemplate(v string) *SlowLogForDescribeSlowLogsOutput {
+	s.SQLTemplate = &v
+	return s
+}
+
 // SetSQLText sets the SQLText field's value.
 func (s *SlowLogForDescribeSlowLogsOutput) SetSQLText(v string) *SlowLogForDescribeSlowLogsOutput {
 	s.SQLText = &v
@@ -394,6 +466,24 @@ func (s *SlowLogForDescribeSlowLogsOutput) SetSQLText(v string) *SlowLogForDescr
 // SetSourceIP sets the SourceIP field's value.
 func (s *SlowLogForDescribeSlowLogsOutput) SetSourceIP(v string) *SlowLogForDescribeSlowLogsOutput {
 	s.SourceIP = &v
+	return s
+}
+
+// SetSqlFingerprint sets the SqlFingerprint field's value.
+func (s *SlowLogForDescribeSlowLogsOutput) SetSqlFingerprint(v string) *SlowLogForDescribeSlowLogsOutput {
+	s.SqlFingerprint = &v
+	return s
+}
+
+// SetSqlMethod sets the SqlMethod field's value.
+func (s *SlowLogForDescribeSlowLogsOutput) SetSqlMethod(v string) *SlowLogForDescribeSlowLogsOutput {
+	s.SqlMethod = &v
+	return s
+}
+
+// SetTable sets the Table field's value.
+func (s *SlowLogForDescribeSlowLogsOutput) SetTable(v string) *SlowLogForDescribeSlowLogsOutput {
+	s.Table = &v
 	return s
 }
 
@@ -410,18 +500,58 @@ func (s *SlowLogForDescribeSlowLogsOutput) SetUser(v string) *SlowLogForDescribe
 }
 
 const (
-	// EnumOfDSTypeForDescribeSlowLogsInputMongo is a EnumOfDSTypeForDescribeSlowLogsInput enum value
-	EnumOfDSTypeForDescribeSlowLogsInputMongo = "Mongo"
+	// EnumOfInstanceTypeForDescribeSlowLogsInputMySql is a EnumOfInstanceTypeForDescribeSlowLogsInput enum value
+	EnumOfInstanceTypeForDescribeSlowLogsInputMySql = "MySQL"
 
-	// EnumOfDSTypeForDescribeSlowLogsInputMySql is a EnumOfDSTypeForDescribeSlowLogsInput enum value
-	EnumOfDSTypeForDescribeSlowLogsInputMySql = "MySQL"
+	// EnumOfInstanceTypeForDescribeSlowLogsInputPostgres is a EnumOfInstanceTypeForDescribeSlowLogsInput enum value
+	EnumOfInstanceTypeForDescribeSlowLogsInputPostgres = "Postgres"
 
-	// EnumOfDSTypeForDescribeSlowLogsInputPostgres is a EnumOfDSTypeForDescribeSlowLogsInput enum value
-	EnumOfDSTypeForDescribeSlowLogsInputPostgres = "Postgres"
+	// EnumOfInstanceTypeForDescribeSlowLogsInputMongo is a EnumOfInstanceTypeForDescribeSlowLogsInput enum value
+	EnumOfInstanceTypeForDescribeSlowLogsInputMongo = "Mongo"
 
-	// EnumOfDSTypeForDescribeSlowLogsInputRedis is a EnumOfDSTypeForDescribeSlowLogsInput enum value
-	EnumOfDSTypeForDescribeSlowLogsInputRedis = "Redis"
+	// EnumOfInstanceTypeForDescribeSlowLogsInputRedis is a EnumOfInstanceTypeForDescribeSlowLogsInput enum value
+	EnumOfInstanceTypeForDescribeSlowLogsInputRedis = "Redis"
 
-	// EnumOfDSTypeForDescribeSlowLogsInputVeDbmySql is a EnumOfDSTypeForDescribeSlowLogsInput enum value
-	EnumOfDSTypeForDescribeSlowLogsInputVeDbmySql = "VeDBMySQL"
+	// EnumOfInstanceTypeForDescribeSlowLogsInputVeDbmySql is a EnumOfInstanceTypeForDescribeSlowLogsInput enum value
+	EnumOfInstanceTypeForDescribeSlowLogsInputVeDbmySql = "VeDBMySQL"
+
+	// EnumOfInstanceTypeForDescribeSlowLogsInputMetaRds is a EnumOfInstanceTypeForDescribeSlowLogsInput enum value
+	EnumOfInstanceTypeForDescribeSlowLogsInputMetaRds = "MetaRDS"
+
+	// EnumOfInstanceTypeForDescribeSlowLogsInputMssql is a EnumOfInstanceTypeForDescribeSlowLogsInput enum value
+	EnumOfInstanceTypeForDescribeSlowLogsInputMssql = "MSSQL"
+
+	// EnumOfInstanceTypeForDescribeSlowLogsInputByteRds is a EnumOfInstanceTypeForDescribeSlowLogsInput enum value
+	EnumOfInstanceTypeForDescribeSlowLogsInputByteRds = "ByteRDS"
+
+	// EnumOfInstanceTypeForDescribeSlowLogsInputMySqlsharding is a EnumOfInstanceTypeForDescribeSlowLogsInput enum value
+	EnumOfInstanceTypeForDescribeSlowLogsInputMySqlsharding = "MySQLSharding"
+
+	// EnumOfInstanceTypeForDescribeSlowLogsInputMetaMySql is a EnumOfInstanceTypeForDescribeSlowLogsInput enum value
+	EnumOfInstanceTypeForDescribeSlowLogsInputMetaMySql = "MetaMySQL"
+)
+
+const (
+	// EnumOfOrderByForDescribeSlowLogsInputTimestamp is a EnumOfOrderByForDescribeSlowLogsInput enum value
+	EnumOfOrderByForDescribeSlowLogsInputTimestamp = "Timestamp"
+
+	// EnumOfOrderByForDescribeSlowLogsInputQueryTime is a EnumOfOrderByForDescribeSlowLogsInput enum value
+	EnumOfOrderByForDescribeSlowLogsInputQueryTime = "QueryTime"
+
+	// EnumOfOrderByForDescribeSlowLogsInputLockTime is a EnumOfOrderByForDescribeSlowLogsInput enum value
+	EnumOfOrderByForDescribeSlowLogsInputLockTime = "LockTime"
+
+	// EnumOfOrderByForDescribeSlowLogsInputRowsExamined is a EnumOfOrderByForDescribeSlowLogsInput enum value
+	EnumOfOrderByForDescribeSlowLogsInputRowsExamined = "RowsExamined"
+
+	// EnumOfOrderByForDescribeSlowLogsInputRowsSent is a EnumOfOrderByForDescribeSlowLogsInput enum value
+	EnumOfOrderByForDescribeSlowLogsInputRowsSent = "RowsSent"
+)
+
+const (
+	// EnumOfSortByForDescribeSlowLogsInputAsc is a EnumOfSortByForDescribeSlowLogsInput enum value
+	EnumOfSortByForDescribeSlowLogsInputAsc = "ASC"
+
+	// EnumOfSortByForDescribeSlowLogsInputDesc is a EnumOfSortByForDescribeSlowLogsInput enum value
+	EnumOfSortByForDescribeSlowLogsInputDesc = "DESC"
 )
