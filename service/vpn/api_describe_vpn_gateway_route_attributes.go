@@ -218,6 +218,8 @@ type DescribeVpnGatewayRouteAttributesOutput struct {
 
 	NextHopId *string `type:"string"`
 
+	NextTunnelId *string `type:"string"`
+
 	RequestId *string `type:"string"`
 
 	RouteType *string `type:"string"`
@@ -262,6 +264,12 @@ func (s *DescribeVpnGatewayRouteAttributesOutput) SetDestinationCidrBlock(v stri
 // SetNextHopId sets the NextHopId field's value.
 func (s *DescribeVpnGatewayRouteAttributesOutput) SetNextHopId(v string) *DescribeVpnGatewayRouteAttributesOutput {
 	s.NextHopId = &v
+	return s
+}
+
+// SetNextTunnelId sets the NextTunnelId field's value.
+func (s *DescribeVpnGatewayRouteAttributesOutput) SetNextTunnelId(v string) *DescribeVpnGatewayRouteAttributesOutput {
+	s.NextTunnelId = &v
 	return s
 }
 

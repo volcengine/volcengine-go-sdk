@@ -153,6 +153,8 @@ type CreateVpnGatewayInput struct {
 
 	Description *string `type:"string"`
 
+	DualTunnelEnabled *bool `type:"boolean"`
+
 	IpsecEnabled *bool `type:"boolean"`
 
 	Period *int64 `type:"integer"`
@@ -160,6 +162,8 @@ type CreateVpnGatewayInput struct {
 	PeriodUnit *string `type:"string"`
 
 	ProjectName *string `type:"string"`
+
+	SecondarySubnetId *string `type:"string"`
 
 	SslEnabled *bool `type:"boolean"`
 
@@ -235,6 +239,12 @@ func (s *CreateVpnGatewayInput) SetDescription(v string) *CreateVpnGatewayInput 
 	return s
 }
 
+// SetDualTunnelEnabled sets the DualTunnelEnabled field's value.
+func (s *CreateVpnGatewayInput) SetDualTunnelEnabled(v bool) *CreateVpnGatewayInput {
+	s.DualTunnelEnabled = &v
+	return s
+}
+
 // SetIpsecEnabled sets the IpsecEnabled field's value.
 func (s *CreateVpnGatewayInput) SetIpsecEnabled(v bool) *CreateVpnGatewayInput {
 	s.IpsecEnabled = &v
@@ -256,6 +266,12 @@ func (s *CreateVpnGatewayInput) SetPeriodUnit(v string) *CreateVpnGatewayInput {
 // SetProjectName sets the ProjectName field's value.
 func (s *CreateVpnGatewayInput) SetProjectName(v string) *CreateVpnGatewayInput {
 	s.ProjectName = &v
+	return s
+}
+
+// SetSecondarySubnetId sets the SecondarySubnetId field's value.
+func (s *CreateVpnGatewayInput) SetSecondarySubnetId(v string) *CreateVpnGatewayInput {
+	s.SecondarySubnetId = &v
 	return s
 }
 

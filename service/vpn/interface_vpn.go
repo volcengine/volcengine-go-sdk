@@ -278,6 +278,14 @@ type VPNAPI interface {
 	ModifyVpnConnectionHealthCheckerWithContext(volcengine.Context, *ModifyVpnConnectionHealthCheckerInput, ...request.Option) (*ModifyVpnConnectionHealthCheckerOutput, error)
 	ModifyVpnConnectionHealthCheckerRequest(*ModifyVpnConnectionHealthCheckerInput) (*request.Request, *ModifyVpnConnectionHealthCheckerOutput)
 
+	ModifyVpnConnectionTunnelAttributesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ModifyVpnConnectionTunnelAttributesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ModifyVpnConnectionTunnelAttributesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ModifyVpnConnectionTunnelAttributes(*ModifyVpnConnectionTunnelAttributesInput) (*ModifyVpnConnectionTunnelAttributesOutput, error)
+	ModifyVpnConnectionTunnelAttributesWithContext(volcengine.Context, *ModifyVpnConnectionTunnelAttributesInput, ...request.Option) (*ModifyVpnConnectionTunnelAttributesOutput, error)
+	ModifyVpnConnectionTunnelAttributesRequest(*ModifyVpnConnectionTunnelAttributesInput) (*request.Request, *ModifyVpnConnectionTunnelAttributesOutput)
+
 	ModifyVpnGatewayAttributesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ModifyVpnGatewayAttributesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	ModifyVpnGatewayAttributesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})

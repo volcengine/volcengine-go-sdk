@@ -314,6 +314,8 @@ type VpnGatewayRouteForDescribeVpnGatewayRoutesOutput struct {
 
 	NextHopId *string `type:"string"`
 
+	NextTunnelId *string `type:"string"`
+
 	RouteType *string `type:"string" enum:"RouteTypeForDescribeVpnGatewayRoutesOutput"`
 
 	Status *string `type:"string"`
@@ -356,6 +358,12 @@ func (s *VpnGatewayRouteForDescribeVpnGatewayRoutesOutput) SetDestinationCidrBlo
 // SetNextHopId sets the NextHopId field's value.
 func (s *VpnGatewayRouteForDescribeVpnGatewayRoutesOutput) SetNextHopId(v string) *VpnGatewayRouteForDescribeVpnGatewayRoutesOutput {
 	s.NextHopId = &v
+	return s
+}
+
+// SetNextTunnelId sets the NextTunnelId field's value.
+func (s *VpnGatewayRouteForDescribeVpnGatewayRoutesOutput) SetNextTunnelId(v string) *VpnGatewayRouteForDescribeVpnGatewayRoutesOutput {
+	s.NextTunnelId = &v
 	return s
 }
 

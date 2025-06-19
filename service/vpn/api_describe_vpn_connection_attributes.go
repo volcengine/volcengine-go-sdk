@@ -272,6 +272,10 @@ type DescribeVpnConnectionAttributesOutput struct {
 
 	DpdAction *string `type:"string"`
 
+	DualTunnelEnabled *bool `type:"boolean"`
+
+	HealthCheckers []*HealthCheckerForDescribeVpnConnectionAttributesOutput `type:"list"`
+
 	IkeConfig *IkeConfigForDescribeVpnConnectionAttributesOutput `type:"structure"`
 
 	IpAddress *string `type:"string"`
@@ -303,6 +307,8 @@ type DescribeVpnConnectionAttributesOutput struct {
 	Tags []*TagForDescribeVpnConnectionAttributesOutput `type:"list"`
 
 	TransitRouterId *string `type:"string"`
+
+	TunnelOptions []*TunnelOptionForDescribeVpnConnectionAttributesOutput `type:"list"`
 
 	UpdateTime *string `type:"string"`
 
@@ -388,6 +394,18 @@ func (s *DescribeVpnConnectionAttributesOutput) SetDescription(v string) *Descri
 // SetDpdAction sets the DpdAction field's value.
 func (s *DescribeVpnConnectionAttributesOutput) SetDpdAction(v string) *DescribeVpnConnectionAttributesOutput {
 	s.DpdAction = &v
+	return s
+}
+
+// SetDualTunnelEnabled sets the DualTunnelEnabled field's value.
+func (s *DescribeVpnConnectionAttributesOutput) SetDualTunnelEnabled(v bool) *DescribeVpnConnectionAttributesOutput {
+	s.DualTunnelEnabled = &v
+	return s
+}
+
+// SetHealthCheckers sets the HealthCheckers field's value.
+func (s *DescribeVpnConnectionAttributesOutput) SetHealthCheckers(v []*HealthCheckerForDescribeVpnConnectionAttributesOutput) *DescribeVpnConnectionAttributesOutput {
+	s.HealthCheckers = v
 	return s
 }
 
@@ -487,6 +505,12 @@ func (s *DescribeVpnConnectionAttributesOutput) SetTransitRouterId(v string) *De
 	return s
 }
 
+// SetTunnelOptions sets the TunnelOptions field's value.
+func (s *DescribeVpnConnectionAttributesOutput) SetTunnelOptions(v []*TunnelOptionForDescribeVpnConnectionAttributesOutput) *DescribeVpnConnectionAttributesOutput {
+	s.TunnelOptions = v
+	return s
+}
+
 // SetUpdateTime sets the UpdateTime field's value.
 func (s *DescribeVpnConnectionAttributesOutput) SetUpdateTime(v string) *DescribeVpnConnectionAttributesOutput {
 	s.UpdateTime = &v
@@ -514,6 +538,84 @@ func (s *DescribeVpnConnectionAttributesOutput) SetVpnGatewayId(v string) *Descr
 // SetZoneId sets the ZoneId field's value.
 func (s *DescribeVpnConnectionAttributesOutput) SetZoneId(v string) *DescribeVpnConnectionAttributesOutput {
 	s.ZoneId = &v
+	return s
+}
+
+type HealthCheckerForDescribeVpnConnectionAttributesOutput struct {
+	_ struct{} `type:"structure"`
+
+	CheckInterval *int64 `type:"integer"`
+
+	CheckResult *string `type:"string" enum:"CheckResultForDescribeVpnConnectionAttributesOutput"`
+
+	CheckerId *string `type:"string"`
+
+	DownTime *int64 `type:"integer"`
+
+	LocalIp *string `type:"string"`
+
+	RemoteIp *string `type:"string"`
+
+	Timeout *int64 `type:"integer"`
+
+	UpTime *int64 `type:"integer"`
+}
+
+// String returns the string representation
+func (s HealthCheckerForDescribeVpnConnectionAttributesOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s HealthCheckerForDescribeVpnConnectionAttributesOutput) GoString() string {
+	return s.String()
+}
+
+// SetCheckInterval sets the CheckInterval field's value.
+func (s *HealthCheckerForDescribeVpnConnectionAttributesOutput) SetCheckInterval(v int64) *HealthCheckerForDescribeVpnConnectionAttributesOutput {
+	s.CheckInterval = &v
+	return s
+}
+
+// SetCheckResult sets the CheckResult field's value.
+func (s *HealthCheckerForDescribeVpnConnectionAttributesOutput) SetCheckResult(v string) *HealthCheckerForDescribeVpnConnectionAttributesOutput {
+	s.CheckResult = &v
+	return s
+}
+
+// SetCheckerId sets the CheckerId field's value.
+func (s *HealthCheckerForDescribeVpnConnectionAttributesOutput) SetCheckerId(v string) *HealthCheckerForDescribeVpnConnectionAttributesOutput {
+	s.CheckerId = &v
+	return s
+}
+
+// SetDownTime sets the DownTime field's value.
+func (s *HealthCheckerForDescribeVpnConnectionAttributesOutput) SetDownTime(v int64) *HealthCheckerForDescribeVpnConnectionAttributesOutput {
+	s.DownTime = &v
+	return s
+}
+
+// SetLocalIp sets the LocalIp field's value.
+func (s *HealthCheckerForDescribeVpnConnectionAttributesOutput) SetLocalIp(v string) *HealthCheckerForDescribeVpnConnectionAttributesOutput {
+	s.LocalIp = &v
+	return s
+}
+
+// SetRemoteIp sets the RemoteIp field's value.
+func (s *HealthCheckerForDescribeVpnConnectionAttributesOutput) SetRemoteIp(v string) *HealthCheckerForDescribeVpnConnectionAttributesOutput {
+	s.RemoteIp = &v
+	return s
+}
+
+// SetTimeout sets the Timeout field's value.
+func (s *HealthCheckerForDescribeVpnConnectionAttributesOutput) SetTimeout(v int64) *HealthCheckerForDescribeVpnConnectionAttributesOutput {
+	s.Timeout = &v
+	return s
+}
+
+// SetUpTime sets the UpTime field's value.
+func (s *HealthCheckerForDescribeVpnConnectionAttributesOutput) SetUpTime(v int64) *HealthCheckerForDescribeVpnConnectionAttributesOutput {
+	s.UpTime = &v
 	return s
 }
 
@@ -678,6 +780,92 @@ func (s *TagForDescribeVpnConnectionAttributesOutput) SetValue(v string) *TagFor
 	s.Value = &v
 	return s
 }
+
+type TunnelOptionForDescribeVpnConnectionAttributesOutput struct {
+	_ struct{} `type:"structure"`
+
+	ConnectStatus *string `type:"string"`
+
+	CustomerGatewayId *string `type:"string"`
+
+	DpdAction *string `type:"string"`
+
+	IkeConfig *IkeConfigForDescribeVpnConnectionAttributesOutput `type:"structure"`
+
+	IpsecConfig *IpsecConfigForDescribeVpnConnectionAttributesOutput `type:"structure"`
+
+	NatTraversal *bool `type:"boolean"`
+
+	Role *string `type:"string"`
+
+	TunnelId *string `type:"string"`
+}
+
+// String returns the string representation
+func (s TunnelOptionForDescribeVpnConnectionAttributesOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TunnelOptionForDescribeVpnConnectionAttributesOutput) GoString() string {
+	return s.String()
+}
+
+// SetConnectStatus sets the ConnectStatus field's value.
+func (s *TunnelOptionForDescribeVpnConnectionAttributesOutput) SetConnectStatus(v string) *TunnelOptionForDescribeVpnConnectionAttributesOutput {
+	s.ConnectStatus = &v
+	return s
+}
+
+// SetCustomerGatewayId sets the CustomerGatewayId field's value.
+func (s *TunnelOptionForDescribeVpnConnectionAttributesOutput) SetCustomerGatewayId(v string) *TunnelOptionForDescribeVpnConnectionAttributesOutput {
+	s.CustomerGatewayId = &v
+	return s
+}
+
+// SetDpdAction sets the DpdAction field's value.
+func (s *TunnelOptionForDescribeVpnConnectionAttributesOutput) SetDpdAction(v string) *TunnelOptionForDescribeVpnConnectionAttributesOutput {
+	s.DpdAction = &v
+	return s
+}
+
+// SetIkeConfig sets the IkeConfig field's value.
+func (s *TunnelOptionForDescribeVpnConnectionAttributesOutput) SetIkeConfig(v *IkeConfigForDescribeVpnConnectionAttributesOutput) *TunnelOptionForDescribeVpnConnectionAttributesOutput {
+	s.IkeConfig = v
+	return s
+}
+
+// SetIpsecConfig sets the IpsecConfig field's value.
+func (s *TunnelOptionForDescribeVpnConnectionAttributesOutput) SetIpsecConfig(v *IpsecConfigForDescribeVpnConnectionAttributesOutput) *TunnelOptionForDescribeVpnConnectionAttributesOutput {
+	s.IpsecConfig = v
+	return s
+}
+
+// SetNatTraversal sets the NatTraversal field's value.
+func (s *TunnelOptionForDescribeVpnConnectionAttributesOutput) SetNatTraversal(v bool) *TunnelOptionForDescribeVpnConnectionAttributesOutput {
+	s.NatTraversal = &v
+	return s
+}
+
+// SetRole sets the Role field's value.
+func (s *TunnelOptionForDescribeVpnConnectionAttributesOutput) SetRole(v string) *TunnelOptionForDescribeVpnConnectionAttributesOutput {
+	s.Role = &v
+	return s
+}
+
+// SetTunnelId sets the TunnelId field's value.
+func (s *TunnelOptionForDescribeVpnConnectionAttributesOutput) SetTunnelId(v string) *TunnelOptionForDescribeVpnConnectionAttributesOutput {
+	s.TunnelId = &v
+	return s
+}
+
+const (
+	// CheckResultForDescribeVpnConnectionAttributesOutputDown is a CheckResultForDescribeVpnConnectionAttributesOutput enum value
+	CheckResultForDescribeVpnConnectionAttributesOutputDown = "Down"
+
+	// CheckResultForDescribeVpnConnectionAttributesOutputUp is a CheckResultForDescribeVpnConnectionAttributesOutput enum value
+	CheckResultForDescribeVpnConnectionAttributesOutputUp = " Up"
+)
 
 const (
 	// SessionStatusForDescribeVpnConnectionAttributesOutputUp is a SessionStatusForDescribeVpnConnectionAttributesOutput enum value
