@@ -155,11 +155,9 @@ type CreateParameterTemplateInput struct {
 
 	TemplateParams []*TemplateParamForCreateParameterTemplateInput `type:"list" json:",omitempty"`
 
-	// TemplateType is a required field
-	TemplateType *string `type:"string" json:",omitempty" required:"true"`
+	TemplateType *string `type:"string" json:",omitempty"`
 
-	// TemplateTypeVersion is a required field
-	TemplateTypeVersion *string `type:"string" json:",omitempty" required:"true"`
+	TemplateTypeVersion *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -177,12 +175,6 @@ func (s *CreateParameterTemplateInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "CreateParameterTemplateInput"}
 	if s.TemplateName == nil {
 		invalidParams.Add(request.NewErrParamRequired("TemplateName"))
-	}
-	if s.TemplateType == nil {
-		invalidParams.Add(request.NewErrParamRequired("TemplateType"))
-	}
-	if s.TemplateTypeVersion == nil {
-		invalidParams.Add(request.NewErrParamRequired("TemplateTypeVersion"))
 	}
 
 	if invalidParams.Len() > 0 {

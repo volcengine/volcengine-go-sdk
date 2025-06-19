@@ -160,6 +160,8 @@ type AccountForDescribeDBAccountsOutput struct {
 
 	GlobalAccountPrivileges []*string `type:"list" json:",omitempty"`
 
+	HasTableColumnPrivilegeDBNames []*string `type:"list" json:",omitempty"`
+
 	Host *string `type:"string" json:",omitempty"`
 }
 
@@ -212,6 +214,12 @@ func (s *AccountForDescribeDBAccountsOutput) SetAccountType(v string) *AccountFo
 // SetGlobalAccountPrivileges sets the GlobalAccountPrivileges field's value.
 func (s *AccountForDescribeDBAccountsOutput) SetGlobalAccountPrivileges(v []*string) *AccountForDescribeDBAccountsOutput {
 	s.GlobalAccountPrivileges = v
+	return s
+}
+
+// SetHasTableColumnPrivilegeDBNames sets the HasTableColumnPrivilegeDBNames field's value.
+func (s *AccountForDescribeDBAccountsOutput) SetHasTableColumnPrivilegeDBNames(v []*string) *AccountForDescribeDBAccountsOutput {
+	s.HasTableColumnPrivilegeDBNames = v
 	return s
 }
 

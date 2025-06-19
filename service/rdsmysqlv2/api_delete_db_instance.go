@@ -146,6 +146,8 @@ func (c *RDSMYSQLV2) DeleteDBInstanceWithContext(ctx volcengine.Context, input *
 type DeleteDBInstanceInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	DataKeepDays *int32 `type:"int32" json:",omitempty"`
+
 	DataKeepPolicy *string `type:"string" json:",omitempty"`
 
 	// InstanceId is a required field
@@ -173,6 +175,12 @@ func (s *DeleteDBInstanceInput) Validate() error {
 		return invalidParams
 	}
 	return nil
+}
+
+// SetDataKeepDays sets the DataKeepDays field's value.
+func (s *DeleteDBInstanceInput) SetDataKeepDays(v int32) *DeleteDBInstanceInput {
+	s.DataKeepDays = &v
+	return s
 }
 
 // SetDataKeepPolicy sets the DataKeepPolicy field's value.

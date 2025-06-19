@@ -159,12 +159,20 @@ type ModifyDBEndpointInput struct {
 
 	IdleConnectionReclaim *bool `type:"boolean" json:",omitempty"`
 
+	ImplicitTransSplit *bool `type:"boolean" json:",omitempty"`
+
 	// InstanceId is a required field
 	InstanceId *string `type:"string" json:",omitempty" required:"true"`
+
+	MasterNodeRouting *bool `type:"boolean" json:",omitempty"`
+
+	MasterProtectorTimeout *int32 `type:"int32" json:",omitempty"`
 
 	MultiStatementsMode *string `type:"string" json:",omitempty"`
 
 	Nodes *string `type:"string" json:",omitempty"`
+
+	OverloadProtection *bool `type:"boolean" json:",omitempty"`
 
 	ReadOnlyNodeDistributionType *string `type:"string" json:",omitempty"`
 
@@ -239,9 +247,27 @@ func (s *ModifyDBEndpointInput) SetIdleConnectionReclaim(v bool) *ModifyDBEndpoi
 	return s
 }
 
+// SetImplicitTransSplit sets the ImplicitTransSplit field's value.
+func (s *ModifyDBEndpointInput) SetImplicitTransSplit(v bool) *ModifyDBEndpointInput {
+	s.ImplicitTransSplit = &v
+	return s
+}
+
 // SetInstanceId sets the InstanceId field's value.
 func (s *ModifyDBEndpointInput) SetInstanceId(v string) *ModifyDBEndpointInput {
 	s.InstanceId = &v
+	return s
+}
+
+// SetMasterNodeRouting sets the MasterNodeRouting field's value.
+func (s *ModifyDBEndpointInput) SetMasterNodeRouting(v bool) *ModifyDBEndpointInput {
+	s.MasterNodeRouting = &v
+	return s
+}
+
+// SetMasterProtectorTimeout sets the MasterProtectorTimeout field's value.
+func (s *ModifyDBEndpointInput) SetMasterProtectorTimeout(v int32) *ModifyDBEndpointInput {
+	s.MasterProtectorTimeout = &v
 	return s
 }
 
@@ -254,6 +280,12 @@ func (s *ModifyDBEndpointInput) SetMultiStatementsMode(v string) *ModifyDBEndpoi
 // SetNodes sets the Nodes field's value.
 func (s *ModifyDBEndpointInput) SetNodes(v string) *ModifyDBEndpointInput {
 	s.Nodes = &v
+	return s
+}
+
+// SetOverloadProtection sets the OverloadProtection field's value.
+func (s *ModifyDBEndpointInput) SetOverloadProtection(v bool) *ModifyDBEndpointInput {
+	s.OverloadProtection = &v
 	return s
 }
 

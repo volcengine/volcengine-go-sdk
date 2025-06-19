@@ -143,15 +143,219 @@ func (c *RDSMYSQLV2) RebuildDBInstanceWithContext(ctx volcengine.Context, input 
 	return out, req.Send()
 }
 
+type AutoStorageScalingConfigForRebuildDBInstanceInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	EnableStorageAutoScale *bool `type:"boolean" json:",omitempty"`
+
+	StorageThreshold *int32 `type:"int32" json:",omitempty"`
+
+	StorageUpperBound *int32 `type:"int32" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s AutoStorageScalingConfigForRebuildDBInstanceInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s AutoStorageScalingConfigForRebuildDBInstanceInput) GoString() string {
+	return s.String()
+}
+
+// SetEnableStorageAutoScale sets the EnableStorageAutoScale field's value.
+func (s *AutoStorageScalingConfigForRebuildDBInstanceInput) SetEnableStorageAutoScale(v bool) *AutoStorageScalingConfigForRebuildDBInstanceInput {
+	s.EnableStorageAutoScale = &v
+	return s
+}
+
+// SetStorageThreshold sets the StorageThreshold field's value.
+func (s *AutoStorageScalingConfigForRebuildDBInstanceInput) SetStorageThreshold(v int32) *AutoStorageScalingConfigForRebuildDBInstanceInput {
+	s.StorageThreshold = &v
+	return s
+}
+
+// SetStorageUpperBound sets the StorageUpperBound field's value.
+func (s *AutoStorageScalingConfigForRebuildDBInstanceInput) SetStorageUpperBound(v int32) *AutoStorageScalingConfigForRebuildDBInstanceInput {
+	s.StorageUpperBound = &v
+	return s
+}
+
+type ChargeInfoForRebuildDBInstanceInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	AutoRenew *bool `type:"boolean" json:",omitempty"`
+
+	ChargeType *string `type:"string" json:",omitempty"`
+
+	Number *int32 `type:"int32" json:",omitempty"`
+
+	Period *int32 `type:"int32" json:",omitempty"`
+
+	PeriodUnit *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s ChargeInfoForRebuildDBInstanceInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ChargeInfoForRebuildDBInstanceInput) GoString() string {
+	return s.String()
+}
+
+// SetAutoRenew sets the AutoRenew field's value.
+func (s *ChargeInfoForRebuildDBInstanceInput) SetAutoRenew(v bool) *ChargeInfoForRebuildDBInstanceInput {
+	s.AutoRenew = &v
+	return s
+}
+
+// SetChargeType sets the ChargeType field's value.
+func (s *ChargeInfoForRebuildDBInstanceInput) SetChargeType(v string) *ChargeInfoForRebuildDBInstanceInput {
+	s.ChargeType = &v
+	return s
+}
+
+// SetNumber sets the Number field's value.
+func (s *ChargeInfoForRebuildDBInstanceInput) SetNumber(v int32) *ChargeInfoForRebuildDBInstanceInput {
+	s.Number = &v
+	return s
+}
+
+// SetPeriod sets the Period field's value.
+func (s *ChargeInfoForRebuildDBInstanceInput) SetPeriod(v int32) *ChargeInfoForRebuildDBInstanceInput {
+	s.Period = &v
+	return s
+}
+
+// SetPeriodUnit sets the PeriodUnit field's value.
+func (s *ChargeInfoForRebuildDBInstanceInput) SetPeriodUnit(v string) *ChargeInfoForRebuildDBInstanceInput {
+	s.PeriodUnit = &v
+	return s
+}
+
+type InstanceTagForRebuildDBInstanceInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Key *string `type:"string" json:",omitempty"`
+
+	Value *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s InstanceTagForRebuildDBInstanceInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s InstanceTagForRebuildDBInstanceInput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *InstanceTagForRebuildDBInstanceInput) SetKey(v string) *InstanceTagForRebuildDBInstanceInput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *InstanceTagForRebuildDBInstanceInput) SetValue(v string) *InstanceTagForRebuildDBInstanceInput {
+	s.Value = &v
+	return s
+}
+
+type NodeInfoForRebuildDBInstanceInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	NodeId *string `type:"string" json:",omitempty"`
+
+	NodeOperateType *string `type:"string" json:",omitempty"`
+
+	NodeSpec *string `type:"string" json:",omitempty"`
+
+	NodeType *string `type:"string" json:",omitempty"`
+
+	ZoneId *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s NodeInfoForRebuildDBInstanceInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s NodeInfoForRebuildDBInstanceInput) GoString() string {
+	return s.String()
+}
+
+// SetNodeId sets the NodeId field's value.
+func (s *NodeInfoForRebuildDBInstanceInput) SetNodeId(v string) *NodeInfoForRebuildDBInstanceInput {
+	s.NodeId = &v
+	return s
+}
+
+// SetNodeOperateType sets the NodeOperateType field's value.
+func (s *NodeInfoForRebuildDBInstanceInput) SetNodeOperateType(v string) *NodeInfoForRebuildDBInstanceInput {
+	s.NodeOperateType = &v
+	return s
+}
+
+// SetNodeSpec sets the NodeSpec field's value.
+func (s *NodeInfoForRebuildDBInstanceInput) SetNodeSpec(v string) *NodeInfoForRebuildDBInstanceInput {
+	s.NodeSpec = &v
+	return s
+}
+
+// SetNodeType sets the NodeType field's value.
+func (s *NodeInfoForRebuildDBInstanceInput) SetNodeType(v string) *NodeInfoForRebuildDBInstanceInput {
+	s.NodeType = &v
+	return s
+}
+
+// SetZoneId sets the ZoneId field's value.
+func (s *NodeInfoForRebuildDBInstanceInput) SetZoneId(v string) *NodeInfoForRebuildDBInstanceInput {
+	s.ZoneId = &v
+	return s
+}
+
 type RebuildDBInstanceInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
+
+	AllowListIds []*string `type:"list" json:",omitempty"`
+
+	AutoStorageScalingConfig *AutoStorageScalingConfigForRebuildDBInstanceInput `type:"structure" json:",omitempty"`
+
+	BackupId *string `type:"string" json:",omitempty"`
+
+	ChargeInfo *ChargeInfoForRebuildDBInstanceInput `type:"structure" json:",omitempty"`
+
+	DBParamGroupId *string `type:"string" json:",omitempty"`
+
+	DeletionProtection *string `type:"string" json:",omitempty"`
 
 	// InstanceId is a required field
 	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 
+	InstanceName *string `type:"string" json:",omitempty"`
+
+	InstanceTags []*InstanceTagForRebuildDBInstanceInput `type:"list" json:",omitempty"`
+
+	NodeInfo []*NodeInfoForRebuildDBInstanceInput `type:"list" json:",omitempty"`
+
+	Port *int32 `type:"int32" json:",omitempty"`
+
 	ProjectName *string `type:"string" json:",omitempty"`
 
 	RequestSource *string `type:"string" json:",omitempty"`
+
+	StorageSpace *int32 `type:"int32" json:",omitempty"`
+
+	StorageType *string `type:"string" json:",omitempty"`
+
+	SubnetId *string `type:"string" json:",omitempty"`
+
+	VpcId *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -177,9 +381,69 @@ func (s *RebuildDBInstanceInput) Validate() error {
 	return nil
 }
 
+// SetAllowListIds sets the AllowListIds field's value.
+func (s *RebuildDBInstanceInput) SetAllowListIds(v []*string) *RebuildDBInstanceInput {
+	s.AllowListIds = v
+	return s
+}
+
+// SetAutoStorageScalingConfig sets the AutoStorageScalingConfig field's value.
+func (s *RebuildDBInstanceInput) SetAutoStorageScalingConfig(v *AutoStorageScalingConfigForRebuildDBInstanceInput) *RebuildDBInstanceInput {
+	s.AutoStorageScalingConfig = v
+	return s
+}
+
+// SetBackupId sets the BackupId field's value.
+func (s *RebuildDBInstanceInput) SetBackupId(v string) *RebuildDBInstanceInput {
+	s.BackupId = &v
+	return s
+}
+
+// SetChargeInfo sets the ChargeInfo field's value.
+func (s *RebuildDBInstanceInput) SetChargeInfo(v *ChargeInfoForRebuildDBInstanceInput) *RebuildDBInstanceInput {
+	s.ChargeInfo = v
+	return s
+}
+
+// SetDBParamGroupId sets the DBParamGroupId field's value.
+func (s *RebuildDBInstanceInput) SetDBParamGroupId(v string) *RebuildDBInstanceInput {
+	s.DBParamGroupId = &v
+	return s
+}
+
+// SetDeletionProtection sets the DeletionProtection field's value.
+func (s *RebuildDBInstanceInput) SetDeletionProtection(v string) *RebuildDBInstanceInput {
+	s.DeletionProtection = &v
+	return s
+}
+
 // SetInstanceId sets the InstanceId field's value.
 func (s *RebuildDBInstanceInput) SetInstanceId(v string) *RebuildDBInstanceInput {
 	s.InstanceId = &v
+	return s
+}
+
+// SetInstanceName sets the InstanceName field's value.
+func (s *RebuildDBInstanceInput) SetInstanceName(v string) *RebuildDBInstanceInput {
+	s.InstanceName = &v
+	return s
+}
+
+// SetInstanceTags sets the InstanceTags field's value.
+func (s *RebuildDBInstanceInput) SetInstanceTags(v []*InstanceTagForRebuildDBInstanceInput) *RebuildDBInstanceInput {
+	s.InstanceTags = v
+	return s
+}
+
+// SetNodeInfo sets the NodeInfo field's value.
+func (s *RebuildDBInstanceInput) SetNodeInfo(v []*NodeInfoForRebuildDBInstanceInput) *RebuildDBInstanceInput {
+	s.NodeInfo = v
+	return s
+}
+
+// SetPort sets the Port field's value.
+func (s *RebuildDBInstanceInput) SetPort(v int32) *RebuildDBInstanceInput {
+	s.Port = &v
 	return s
 }
 
@@ -192,6 +456,30 @@ func (s *RebuildDBInstanceInput) SetProjectName(v string) *RebuildDBInstanceInpu
 // SetRequestSource sets the RequestSource field's value.
 func (s *RebuildDBInstanceInput) SetRequestSource(v string) *RebuildDBInstanceInput {
 	s.RequestSource = &v
+	return s
+}
+
+// SetStorageSpace sets the StorageSpace field's value.
+func (s *RebuildDBInstanceInput) SetStorageSpace(v int32) *RebuildDBInstanceInput {
+	s.StorageSpace = &v
+	return s
+}
+
+// SetStorageType sets the StorageType field's value.
+func (s *RebuildDBInstanceInput) SetStorageType(v string) *RebuildDBInstanceInput {
+	s.StorageType = &v
+	return s
+}
+
+// SetSubnetId sets the SubnetId field's value.
+func (s *RebuildDBInstanceInput) SetSubnetId(v string) *RebuildDBInstanceInput {
+	s.SubnetId = &v
+	return s
+}
+
+// SetVpcId sets the VpcId field's value.
+func (s *RebuildDBInstanceInput) SetVpcId(v string) *RebuildDBInstanceInput {
+	s.VpcId = &v
 	return s
 }
 

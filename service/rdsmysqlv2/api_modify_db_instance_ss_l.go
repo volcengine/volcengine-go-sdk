@@ -152,6 +152,12 @@ type ModifyDBInstanceSSLInput struct {
 	ReloadSSLCertificate *bool `type:"boolean" json:",omitempty"`
 
 	SSLEnable *bool `type:"boolean" json:",omitempty"`
+
+	SpecifiedSwitchEndTime *string `type:"string" json:",omitempty"`
+
+	SpecifiedSwitchStartTime *string `type:"string" json:",omitempty"`
+
+	SwitchType *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -192,6 +198,24 @@ func (s *ModifyDBInstanceSSLInput) SetReloadSSLCertificate(v bool) *ModifyDBInst
 // SetSSLEnable sets the SSLEnable field's value.
 func (s *ModifyDBInstanceSSLInput) SetSSLEnable(v bool) *ModifyDBInstanceSSLInput {
 	s.SSLEnable = &v
+	return s
+}
+
+// SetSpecifiedSwitchEndTime sets the SpecifiedSwitchEndTime field's value.
+func (s *ModifyDBInstanceSSLInput) SetSpecifiedSwitchEndTime(v string) *ModifyDBInstanceSSLInput {
+	s.SpecifiedSwitchEndTime = &v
+	return s
+}
+
+// SetSpecifiedSwitchStartTime sets the SpecifiedSwitchStartTime field's value.
+func (s *ModifyDBInstanceSSLInput) SetSpecifiedSwitchStartTime(v string) *ModifyDBInstanceSSLInput {
+	s.SpecifiedSwitchStartTime = &v
+	return s
+}
+
+// SetSwitchType sets the SwitchType field's value.
+func (s *ModifyDBInstanceSSLInput) SetSwitchType(v string) *ModifyDBInstanceSSLInput {
+	s.SwitchType = &v
 	return s
 }
 

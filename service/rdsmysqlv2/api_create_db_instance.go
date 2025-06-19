@@ -143,6 +143,44 @@ func (c *RDSMYSQLV2) CreateDBInstanceWithContext(ctx volcengine.Context, input *
 	return out, req.Send()
 }
 
+type AutoStorageScalingConfigForCreateDBInstanceInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	EnableStorageAutoScale *bool `type:"boolean" json:",omitempty"`
+
+	StorageThreshold *int32 `type:"int32" json:",omitempty"`
+
+	StorageUpperBound *int32 `type:"int32" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s AutoStorageScalingConfigForCreateDBInstanceInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s AutoStorageScalingConfigForCreateDBInstanceInput) GoString() string {
+	return s.String()
+}
+
+// SetEnableStorageAutoScale sets the EnableStorageAutoScale field's value.
+func (s *AutoStorageScalingConfigForCreateDBInstanceInput) SetEnableStorageAutoScale(v bool) *AutoStorageScalingConfigForCreateDBInstanceInput {
+	s.EnableStorageAutoScale = &v
+	return s
+}
+
+// SetStorageThreshold sets the StorageThreshold field's value.
+func (s *AutoStorageScalingConfigForCreateDBInstanceInput) SetStorageThreshold(v int32) *AutoStorageScalingConfigForCreateDBInstanceInput {
+	s.StorageThreshold = &v
+	return s
+}
+
+// SetStorageUpperBound sets the StorageUpperBound field's value.
+func (s *AutoStorageScalingConfigForCreateDBInstanceInput) SetStorageUpperBound(v int32) *AutoStorageScalingConfigForCreateDBInstanceInput {
+	s.StorageUpperBound = &v
+	return s
+}
+
 type ChargeInfoForCreateDBInstanceInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -202,6 +240,8 @@ type CreateDBInstanceInput struct {
 
 	AllowListIds []*string `type:"list" json:",omitempty"`
 
+	AutoStorageScalingConfig *AutoStorageScalingConfigForCreateDBInstanceInput `type:"structure" json:",omitempty"`
+
 	ChargeInfo *ChargeInfoForCreateDBInstanceInput `type:"structure" json:",omitempty"`
 
 	// DBEngineVersion is a required field
@@ -210,6 +250,8 @@ type CreateDBInstanceInput struct {
 	DBParamGroupId *string `type:"string" json:",omitempty"`
 
 	DBTimeZone *string `type:"string" json:",omitempty"`
+
+	DeletionProtection *string `type:"string" json:",omitempty"`
 
 	InstanceName *string `type:"string" json:",omitempty"`
 
@@ -285,6 +327,12 @@ func (s *CreateDBInstanceInput) SetAllowListIds(v []*string) *CreateDBInstanceIn
 	return s
 }
 
+// SetAutoStorageScalingConfig sets the AutoStorageScalingConfig field's value.
+func (s *CreateDBInstanceInput) SetAutoStorageScalingConfig(v *AutoStorageScalingConfigForCreateDBInstanceInput) *CreateDBInstanceInput {
+	s.AutoStorageScalingConfig = v
+	return s
+}
+
 // SetChargeInfo sets the ChargeInfo field's value.
 func (s *CreateDBInstanceInput) SetChargeInfo(v *ChargeInfoForCreateDBInstanceInput) *CreateDBInstanceInput {
 	s.ChargeInfo = v
@@ -306,6 +354,12 @@ func (s *CreateDBInstanceInput) SetDBParamGroupId(v string) *CreateDBInstanceInp
 // SetDBTimeZone sets the DBTimeZone field's value.
 func (s *CreateDBInstanceInput) SetDBTimeZone(v string) *CreateDBInstanceInput {
 	s.DBTimeZone = &v
+	return s
+}
+
+// SetDeletionProtection sets the DeletionProtection field's value.
+func (s *CreateDBInstanceInput) SetDeletionProtection(v string) *CreateDBInstanceInput {
+	s.DeletionProtection = &v
 	return s
 }
 

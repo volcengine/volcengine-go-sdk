@@ -168,6 +168,8 @@ type BackupForDescribeBackupsOutput struct {
 
 	CreateType *string `type:"string" json:",omitempty"`
 
+	DBEngineVersion *string `type:"string" json:",omitempty"`
+
 	DBTableInfos []*DBTableInfoForDescribeBackupsOutput `type:"list" json:",omitempty"`
 
 	DownloadStatus *string `type:"string" json:",omitempty"`
@@ -254,6 +256,12 @@ func (s *BackupForDescribeBackupsOutput) SetConsistentTime(v string) *BackupForD
 // SetCreateType sets the CreateType field's value.
 func (s *BackupForDescribeBackupsOutput) SetCreateType(v string) *BackupForDescribeBackupsOutput {
 	s.CreateType = &v
+	return s
+}
+
+// SetDBEngineVersion sets the DBEngineVersion field's value.
+func (s *BackupForDescribeBackupsOutput) SetDBEngineVersion(v string) *BackupForDescribeBackupsOutput {
+	s.DBEngineVersion = &v
 	return s
 }
 

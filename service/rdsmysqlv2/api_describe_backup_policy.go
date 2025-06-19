@@ -228,6 +228,8 @@ type DescribeBackupPolicyOutput struct {
 
 	LogBackupRetentionDay *int32 `type:"int32" json:",omitempty"`
 
+	PublicDownloadEnable *bool `type:"boolean" json:",omitempty"`
+
 	RetentionPolicySynced *bool `type:"boolean" json:",omitempty"`
 }
 
@@ -370,6 +372,12 @@ func (s *DescribeBackupPolicyOutput) SetLockDDLTime(v int32) *DescribeBackupPoli
 // SetLogBackupRetentionDay sets the LogBackupRetentionDay field's value.
 func (s *DescribeBackupPolicyOutput) SetLogBackupRetentionDay(v int32) *DescribeBackupPolicyOutput {
 	s.LogBackupRetentionDay = &v
+	return s
+}
+
+// SetPublicDownloadEnable sets the PublicDownloadEnable field's value.
+func (s *DescribeBackupPolicyOutput) SetPublicDownloadEnable(v bool) *DescribeBackupPolicyOutput {
+	s.PublicDownloadEnable = &v
 	return s
 }
 
