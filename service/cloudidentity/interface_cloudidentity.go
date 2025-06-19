@@ -94,6 +94,14 @@ type CLOUDIDENTITYAPI interface {
 	CreatePermissionSetWithContext(volcengine.Context, *CreatePermissionSetInput, ...request.Option) (*CreatePermissionSetOutput, error)
 	CreatePermissionSetRequest(*CreatePermissionSetInput) (*request.Request, *CreatePermissionSetOutput)
 
+	CreateSCIMServerCredentialCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateSCIMServerCredentialCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateSCIMServerCredentialCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateSCIMServerCredential(*CreateSCIMServerCredentialInput) (*CreateSCIMServerCredentialOutput, error)
+	CreateSCIMServerCredentialWithContext(volcengine.Context, *CreateSCIMServerCredentialInput, ...request.Option) (*CreateSCIMServerCredentialOutput, error)
+	CreateSCIMServerCredentialRequest(*CreateSCIMServerCredentialInput) (*request.Request, *CreateSCIMServerCredentialOutput)
+
 	CreateUserCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	CreateUserCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	CreateUserCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -133,6 +141,14 @@ type CLOUDIDENTITYAPI interface {
 	DeletePermissionSet(*DeletePermissionSetInput) (*DeletePermissionSetOutput, error)
 	DeletePermissionSetWithContext(volcengine.Context, *DeletePermissionSetInput, ...request.Option) (*DeletePermissionSetOutput, error)
 	DeletePermissionSetRequest(*DeletePermissionSetInput) (*request.Request, *DeletePermissionSetOutput)
+
+	DeleteSCIMServerCredentialCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeleteSCIMServerCredentialCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeleteSCIMServerCredentialCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeleteSCIMServerCredential(*DeleteSCIMServerCredentialInput) (*DeleteSCIMServerCredentialOutput, error)
+	DeleteSCIMServerCredentialWithContext(volcengine.Context, *DeleteSCIMServerCredentialInput, ...request.Option) (*DeleteSCIMServerCredentialOutput, error)
+	DeleteSCIMServerCredentialRequest(*DeleteSCIMServerCredentialInput) (*request.Request, *DeleteSCIMServerCredentialOutput)
 
 	DeleteUserCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DeleteUserCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -333,6 +349,14 @@ type CLOUDIDENTITYAPI interface {
 	ListPortalLoginSettings(*ListPortalLoginSettingsInput) (*ListPortalLoginSettingsOutput, error)
 	ListPortalLoginSettingsWithContext(volcengine.Context, *ListPortalLoginSettingsInput, ...request.Option) (*ListPortalLoginSettingsOutput, error)
 	ListPortalLoginSettingsRequest(*ListPortalLoginSettingsInput) (*request.Request, *ListPortalLoginSettingsOutput)
+
+	ListSCIMServerCredentialsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListSCIMServerCredentialsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListSCIMServerCredentialsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListSCIMServerCredentials(*ListSCIMServerCredentialsInput) (*ListSCIMServerCredentialsOutput, error)
+	ListSCIMServerCredentialsWithContext(volcengine.Context, *ListSCIMServerCredentialsInput, ...request.Option) (*ListSCIMServerCredentialsOutput, error)
+	ListSCIMServerCredentialsRequest(*ListSCIMServerCredentialsInput) (*request.Request, *ListSCIMServerCredentialsOutput)
 
 	ListTasksCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ListTasksCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
