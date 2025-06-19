@@ -38,6 +38,14 @@ type GRAPHAPI interface {
 	AddTablesWithContext(volcengine.Context, *AddTablesInput, ...request.Option) (*AddTablesOutput, error)
 	AddTablesRequest(*AddTablesInput) (*request.Request, *AddTablesOutput)
 
+	CalcTableLimitsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CalcTableLimitsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CalcTableLimitsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CalcTableLimits(*CalcTableLimitsInput) (*CalcTableLimitsOutput, error)
+	CalcTableLimitsWithContext(volcengine.Context, *CalcTableLimitsInput, ...request.Option) (*CalcTableLimitsOutput, error)
+	CalcTableLimitsRequest(*CalcTableLimitsInput) (*request.Request, *CalcTableLimitsOutput)
+
 	CreateInstanceCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	CreateInstanceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	CreateInstanceCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -77,6 +85,14 @@ type GRAPHAPI interface {
 	DestroyInstance(*DestroyInstanceInput) (*DestroyInstanceOutput, error)
 	DestroyInstanceWithContext(volcengine.Context, *DestroyInstanceInput, ...request.Option) (*DestroyInstanceOutput, error)
 	DestroyInstanceRequest(*DestroyInstanceInput) (*request.Request, *DestroyInstanceOutput)
+
+	GetAddTablesTicketOptionsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	GetAddTablesTicketOptionsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	GetAddTablesTicketOptionsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	GetAddTablesTicketOptions(*GetAddTablesTicketOptionsInput) (*GetAddTablesTicketOptionsOutput, error)
+	GetAddTablesTicketOptionsWithContext(volcengine.Context, *GetAddTablesTicketOptionsInput, ...request.Option) (*GetAddTablesTicketOptionsOutput, error)
+	GetAddTablesTicketOptionsRequest(*GetAddTablesTicketOptionsInput) (*request.Request, *GetAddTablesTicketOptionsOutput)
 
 	GetInstanceSpecScopeCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	GetInstanceSpecScopeCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
