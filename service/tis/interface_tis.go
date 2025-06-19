@@ -38,6 +38,14 @@ type TISAPI interface {
 	BuyResourcePackageWithContext(volcengine.Context, *BuyResourcePackageInput, ...request.Option) (*BuyResourcePackageOutput, error)
 	BuyResourcePackageRequest(*BuyResourcePackageInput) (*request.Request, *BuyResourcePackageOutput)
 
+	ClearDeviceLongMemoryCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ClearDeviceLongMemoryCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ClearDeviceLongMemoryCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ClearDeviceLongMemory(*ClearDeviceLongMemoryInput) (*ClearDeviceLongMemoryOutput, error)
+	ClearDeviceLongMemoryWithContext(volcengine.Context, *ClearDeviceLongMemoryInput, ...request.Option) (*ClearDeviceLongMemoryOutput, error)
+	ClearDeviceLongMemoryRequest(*ClearDeviceLongMemoryInput) (*request.Request, *ClearDeviceLongMemoryOutput)
+
 	GetAccessTokenCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	GetAccessTokenCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	GetAccessTokenCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -46,6 +54,14 @@ type TISAPI interface {
 	GetAccessTokenWithContext(volcengine.Context, *GetAccessTokenInput, ...request.Option) (*GetAccessTokenOutput, error)
 	GetAccessTokenRequest(*GetAccessTokenInput) (*request.Request, *GetAccessTokenOutput)
 
+	GetAgentListCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	GetAgentListCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	GetAgentListCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	GetAgentList(*GetAgentListInput) (*GetAgentListOutput, error)
+	GetAgentListWithContext(volcengine.Context, *GetAgentListInput, ...request.Option) (*GetAgentListOutput, error)
+	GetAgentListRequest(*GetAgentListInput) (*request.Request, *GetAgentListOutput)
+
 	GetQuotaInfoCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	GetQuotaInfoCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	GetQuotaInfoCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -53,6 +69,22 @@ type TISAPI interface {
 	GetQuotaInfo(*GetQuotaInfoInput) (*GetQuotaInfoOutput, error)
 	GetQuotaInfoWithContext(volcengine.Context, *GetQuotaInfoInput, ...request.Option) (*GetQuotaInfoOutput, error)
 	GetQuotaInfoRequest(*GetQuotaInfoInput) (*request.Request, *GetQuotaInfoOutput)
+
+	GetSpeakerListCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	GetSpeakerListCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	GetSpeakerListCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	GetSpeakerList(*GetSpeakerListInput) (*GetSpeakerListOutput, error)
+	GetSpeakerListWithContext(volcengine.Context, *GetSpeakerListInput, ...request.Option) (*GetSpeakerListOutput, error)
+	GetSpeakerListRequest(*GetSpeakerListInput) (*request.Request, *GetSpeakerListOutput)
+
+	PushMsgToDeviceCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	PushMsgToDeviceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	PushMsgToDeviceCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	PushMsgToDevice(*PushMsgToDeviceInput) (*PushMsgToDeviceOutput, error)
+	PushMsgToDeviceWithContext(volcengine.Context, *PushMsgToDeviceInput, ...request.Option) (*PushMsgToDeviceOutput, error)
+	PushMsgToDeviceRequest(*PushMsgToDeviceInput) (*request.Request, *PushMsgToDeviceOutput)
 
 	TopActionDispatchCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	TopActionDispatchCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
