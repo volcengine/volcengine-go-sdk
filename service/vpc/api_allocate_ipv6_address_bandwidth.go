@@ -155,6 +155,8 @@ type AllocateIpv6AddressBandwidthInput struct {
 	Ipv6Address *string `type:"string" required:"true"`
 
 	ProjectName *string `type:"string"`
+
+	Tags []*TagForAllocateIpv6AddressBandwidthInput `type:"list"`
 }
 
 // String returns the string representation
@@ -222,6 +224,12 @@ func (s *AllocateIpv6AddressBandwidthInput) SetProjectName(v string) *AllocateIp
 	return s
 }
 
+// SetTags sets the Tags field's value.
+func (s *AllocateIpv6AddressBandwidthInput) SetTags(v []*TagForAllocateIpv6AddressBandwidthInput) *AllocateIpv6AddressBandwidthInput {
+	s.Tags = v
+	return s
+}
+
 type AllocateIpv6AddressBandwidthOutput struct {
 	_ struct{} `type:"structure"`
 
@@ -251,5 +259,35 @@ func (s *AllocateIpv6AddressBandwidthOutput) SetAllocationId(v string) *Allocate
 // SetRequestId sets the RequestId field's value.
 func (s *AllocateIpv6AddressBandwidthOutput) SetRequestId(v string) *AllocateIpv6AddressBandwidthOutput {
 	s.RequestId = &v
+	return s
+}
+
+type TagForAllocateIpv6AddressBandwidthInput struct {
+	_ struct{} `type:"structure"`
+
+	Key *string `type:"string"`
+
+	Value *string `type:"string"`
+}
+
+// String returns the string representation
+func (s TagForAllocateIpv6AddressBandwidthInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagForAllocateIpv6AddressBandwidthInput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagForAllocateIpv6AddressBandwidthInput) SetKey(v string) *TagForAllocateIpv6AddressBandwidthInput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *TagForAllocateIpv6AddressBandwidthInput) SetValue(v string) *TagForAllocateIpv6AddressBandwidthInput {
+	s.Value = &v
 	return s
 }
