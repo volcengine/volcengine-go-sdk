@@ -496,7 +496,7 @@ type RuleForListBotAnalyseProtectRuleOutput struct {
 
 	RuleTag *string `type:"string" json:",omitempty"`
 
-	SingleProportion *string `type:"string" json:",omitempty"`
+	SingleProportion *float64 `type:"float" json:",omitempty"`
 
 	SingleThreshold *int32 `type:"int32" json:",omitempty"`
 
@@ -614,7 +614,7 @@ func (s *RuleForListBotAnalyseProtectRuleOutput) SetRuleTag(v string) *RuleForLi
 }
 
 // SetSingleProportion sets the SingleProportion field's value.
-func (s *RuleForListBotAnalyseProtectRuleOutput) SetSingleProportion(v string) *RuleForListBotAnalyseProtectRuleOutput {
+func (s *RuleForListBotAnalyseProtectRuleOutput) SetSingleProportion(v float64) *RuleForListBotAnalyseProtectRuleOutput {
 	s.SingleProportion = &v
 	return s
 }

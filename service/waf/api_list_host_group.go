@@ -232,7 +232,8 @@ type ListHostGroupInput struct {
 
 	RuleTag *string `type:"string" json:",omitempty"`
 
-	TimeOrderBy *string `type:"string" json:",omitempty"`
+	// TimeOrderBy is a required field
+	TimeOrderBy *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -243,6 +244,19 @@ func (s ListHostGroupInput) String() string {
 // GoString returns the string representation
 func (s ListHostGroupInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *ListHostGroupInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "ListHostGroupInput"}
+	if s.TimeOrderBy == nil {
+		invalidParams.Add(request.NewErrParamRequired("TimeOrderBy"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetHostFix sets the HostFix field's value.
@@ -304,7 +318,15 @@ type ListHostGroupOutput struct {
 
 	Metadata *response.ResponseMetadata
 
+	Count *int32 `type:"int32" json:",omitempty"`
+
+	CurrentPage *int32 `type:"int32" json:",omitempty"`
+
 	HostGroupList []*HostGroupListForListHostGroupOutput `type:"list" json:",omitempty"`
+
+	PageSize *int32 `type:"int32" json:",omitempty"`
+
+	TotalCount *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -317,9 +339,33 @@ func (s ListHostGroupOutput) GoString() string {
 	return s.String()
 }
 
+// SetCount sets the Count field's value.
+func (s *ListHostGroupOutput) SetCount(v int32) *ListHostGroupOutput {
+	s.Count = &v
+	return s
+}
+
+// SetCurrentPage sets the CurrentPage field's value.
+func (s *ListHostGroupOutput) SetCurrentPage(v int32) *ListHostGroupOutput {
+	s.CurrentPage = &v
+	return s
+}
+
 // SetHostGroupList sets the HostGroupList field's value.
 func (s *ListHostGroupOutput) SetHostGroupList(v []*HostGroupListForListHostGroupOutput) *ListHostGroupOutput {
 	s.HostGroupList = v
+	return s
+}
+
+// SetPageSize sets the PageSize field's value.
+func (s *ListHostGroupOutput) SetPageSize(v int32) *ListHostGroupOutput {
+	s.PageSize = &v
+	return s
+}
+
+// SetTotalCount sets the TotalCount field's value.
+func (s *ListHostGroupOutput) SetTotalCount(v int32) *ListHostGroupOutput {
+	s.TotalCount = &v
 	return s
 }
 

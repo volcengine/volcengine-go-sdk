@@ -154,7 +154,7 @@ type UpdateWafServiceControlInput struct {
 
 	BlackLctEnable *int32 `type:"int32" json:",omitempty"`
 
-	BotDytokenEnable *string `type:"string" json:",omitempty"`
+	BotDytokenEnable *int32 `type:"int32" json:",omitempty"`
 
 	BotFrequencyEnable *int32 `type:"int32" json:",omitempty"`
 
@@ -240,7 +240,7 @@ func (s *UpdateWafServiceControlInput) SetBlackLctEnable(v int32) *UpdateWafServ
 }
 
 // SetBotDytokenEnable sets the BotDytokenEnable field's value.
-func (s *UpdateWafServiceControlInput) SetBotDytokenEnable(v string) *UpdateWafServiceControlInput {
+func (s *UpdateWafServiceControlInput) SetBotDytokenEnable(v int32) *UpdateWafServiceControlInput {
 	s.BotDytokenEnable = &v
 	return s
 }

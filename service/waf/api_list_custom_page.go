@@ -412,6 +412,8 @@ type ListCustomPageInput struct {
 	PageSize *int32 `type:"int32" json:",omitempty"`
 
 	ProjectName *string `type:"string" json:",omitempty"`
+
+	RuleTag *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -458,6 +460,12 @@ func (s *ListCustomPageInput) SetPageSize(v int32) *ListCustomPageInput {
 // SetProjectName sets the ProjectName field's value.
 func (s *ListCustomPageInput) SetProjectName(v string) *ListCustomPageInput {
 	s.ProjectName = &v
+	return s
+}
+
+// SetRuleTag sets the RuleTag field's value.
+func (s *ListCustomPageInput) SetRuleTag(v string) *ListCustomPageInput {
+	s.RuleTag = &v
 	return s
 }
 
