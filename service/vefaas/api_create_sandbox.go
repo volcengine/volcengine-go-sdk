@@ -146,8 +146,12 @@ func (c *VEFAAS) CreateSandboxWithContext(ctx volcengine.Context, input *CreateS
 type CreateSandboxInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	Envs []*EnvForCreateSandboxInput `type:"list" json:",omitempty"`
+
 	// FunctionId is a required field
 	FunctionId *string `type:"string" json:",omitempty" required:"true"`
+
+	InstanceTosMountConfig *InstanceTosMountConfigForCreateSandboxInput `type:"structure" json:",omitempty"`
 
 	Metadata *MetadataForCreateSandboxInput `type:"structure" json:",omitempty"`
 
@@ -177,9 +181,21 @@ func (s *CreateSandboxInput) Validate() error {
 	return nil
 }
 
+// SetEnvs sets the Envs field's value.
+func (s *CreateSandboxInput) SetEnvs(v []*EnvForCreateSandboxInput) *CreateSandboxInput {
+	s.Envs = v
+	return s
+}
+
 // SetFunctionId sets the FunctionId field's value.
 func (s *CreateSandboxInput) SetFunctionId(v string) *CreateSandboxInput {
 	s.FunctionId = &v
+	return s
+}
+
+// SetInstanceTosMountConfig sets the InstanceTosMountConfig field's value.
+func (s *CreateSandboxInput) SetInstanceTosMountConfig(v *InstanceTosMountConfigForCreateSandboxInput) *CreateSandboxInput {
+	s.InstanceTosMountConfig = v
 	return s
 }
 
@@ -219,6 +235,66 @@ func (s *CreateSandboxOutput) SetSandboxId(v string) *CreateSandboxOutput {
 	return s
 }
 
+type EnvForCreateSandboxInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Key *string `type:"string" json:",omitempty"`
+
+	Value *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s EnvForCreateSandboxInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s EnvForCreateSandboxInput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *EnvForCreateSandboxInput) SetKey(v string) *EnvForCreateSandboxInput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *EnvForCreateSandboxInput) SetValue(v string) *EnvForCreateSandboxInput {
+	s.Value = &v
+	return s
+}
+
+type InstanceTosMountConfigForCreateSandboxInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Enable *bool `type:"boolean" json:",omitempty"`
+
+	TosMountPoints []*TosMountPointForCreateSandboxInput `type:"list" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s InstanceTosMountConfigForCreateSandboxInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s InstanceTosMountConfigForCreateSandboxInput) GoString() string {
+	return s.String()
+}
+
+// SetEnable sets the Enable field's value.
+func (s *InstanceTosMountConfigForCreateSandboxInput) SetEnable(v bool) *InstanceTosMountConfigForCreateSandboxInput {
+	s.Enable = &v
+	return s
+}
+
+// SetTosMountPoints sets the TosMountPoints field's value.
+func (s *InstanceTosMountConfigForCreateSandboxInput) SetTosMountPoints(v []*TosMountPointForCreateSandboxInput) *InstanceTosMountConfigForCreateSandboxInput {
+	s.TosMountPoints = v
+	return s
+}
+
 type MetadataForCreateSandboxInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 }
@@ -231,4 +307,34 @@ func (s MetadataForCreateSandboxInput) String() string {
 // GoString returns the string representation
 func (s MetadataForCreateSandboxInput) GoString() string {
 	return s.String()
+}
+
+type TosMountPointForCreateSandboxInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	BucketPath *string `type:"string" json:",omitempty"`
+
+	LocalMountPath *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s TosMountPointForCreateSandboxInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TosMountPointForCreateSandboxInput) GoString() string {
+	return s.String()
+}
+
+// SetBucketPath sets the BucketPath field's value.
+func (s *TosMountPointForCreateSandboxInput) SetBucketPath(v string) *TosMountPointForCreateSandboxInput {
+	s.BucketPath = &v
+	return s
+}
+
+// SetLocalMountPath sets the LocalMountPath field's value.
+func (s *TosMountPointForCreateSandboxInput) SetLocalMountPath(v string) *TosMountPointForCreateSandboxInput {
+	s.LocalMountPath = &v
+	return s
 }
