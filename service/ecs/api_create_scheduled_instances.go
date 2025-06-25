@@ -152,6 +152,8 @@ type CreateScheduledInstancesInput struct {
 
 	CpuMaxFrequency *float64 `type:"float"`
 
+	DeletionProtection *bool `type:"boolean"`
+
 	DeliveryType *string `type:"string"`
 
 	Description *string `type:"string"`
@@ -290,6 +292,12 @@ func (s *CreateScheduledInstancesInput) SetCount(v int32) *CreateScheduledInstan
 // SetCpuMaxFrequency sets the CpuMaxFrequency field's value.
 func (s *CreateScheduledInstancesInput) SetCpuMaxFrequency(v float64) *CreateScheduledInstancesInput {
 	s.CpuMaxFrequency = &v
+	return s
+}
+
+// SetDeletionProtection sets the DeletionProtection field's value.
+func (s *CreateScheduledInstancesInput) SetDeletionProtection(v bool) *CreateScheduledInstancesInput {
+	s.DeletionProtection = &v
 	return s
 }
 

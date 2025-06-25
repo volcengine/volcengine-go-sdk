@@ -758,6 +758,14 @@ type ECSAPI interface {
 	RenewInstanceWithContext(volcengine.Context, *RenewInstanceInput, ...request.Option) (*RenewInstanceOutput, error)
 	RenewInstanceRequest(*RenewInstanceInput) (*request.Request, *RenewInstanceOutput)
 
+	RepairImageCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	RepairImageCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	RepairImageCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	RepairImage(*RepairImageInput) (*RepairImageOutput, error)
+	RepairImageWithContext(volcengine.Context, *RepairImageInput, ...request.Option) (*RepairImageOutput, error)
+	RepairImageRequest(*RepairImageInput) (*request.Request, *RepairImageOutput)
+
 	ReplaceSystemVolumeCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ReplaceSystemVolumeCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	ReplaceSystemVolumeCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})

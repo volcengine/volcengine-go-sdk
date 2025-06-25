@@ -296,6 +296,8 @@ func (s *GpuForDescribeInstanceTypesOutput) SetGpuDevices(v []*GpuDeviceForDescr
 type InstanceTypeForDescribeInstanceTypesOutput struct {
 	_ struct{} `type:"structure"`
 
+	AffinityGroupSizes []*int32 `type:"list"`
+
 	BaselineCredit *int64 `type:"int64"`
 
 	Gpu *GpuForDescribeInstanceTypesOutput `type:"structure"`
@@ -305,6 +307,8 @@ type InstanceTypeForDescribeInstanceTypesOutput struct {
 	InstanceTypeFamily *string `type:"string"`
 
 	InstanceTypeId *string `type:"string"`
+
+	IsSupportAffinityGroup *bool `type:"boolean"`
 
 	LocalVolumes []*LocalVolumeForDescribeInstanceTypesOutput `type:"list"`
 
@@ -327,6 +331,12 @@ func (s InstanceTypeForDescribeInstanceTypesOutput) String() string {
 // GoString returns the string representation
 func (s InstanceTypeForDescribeInstanceTypesOutput) GoString() string {
 	return s.String()
+}
+
+// SetAffinityGroupSizes sets the AffinityGroupSizes field's value.
+func (s *InstanceTypeForDescribeInstanceTypesOutput) SetAffinityGroupSizes(v []*int32) *InstanceTypeForDescribeInstanceTypesOutput {
+	s.AffinityGroupSizes = v
+	return s
 }
 
 // SetBaselineCredit sets the BaselineCredit field's value.
@@ -356,6 +366,12 @@ func (s *InstanceTypeForDescribeInstanceTypesOutput) SetInstanceTypeFamily(v str
 // SetInstanceTypeId sets the InstanceTypeId field's value.
 func (s *InstanceTypeForDescribeInstanceTypesOutput) SetInstanceTypeId(v string) *InstanceTypeForDescribeInstanceTypesOutput {
 	s.InstanceTypeId = &v
+	return s
+}
+
+// SetIsSupportAffinityGroup sets the IsSupportAffinityGroup field's value.
+func (s *InstanceTypeForDescribeInstanceTypesOutput) SetIsSupportAffinityGroup(v bool) *InstanceTypeForDescribeInstanceTypesOutput {
+	s.IsSupportAffinityGroup = &v
 	return s
 }
 
@@ -575,6 +591,8 @@ type RdmaForDescribeInstanceTypesOutput struct {
 	_ struct{} `type:"structure"`
 
 	RdmaNetworkInterfaces *int32 `type:"int32"`
+
+	RdmaProductName *string `type:"string"`
 }
 
 // String returns the string representation
@@ -590,6 +608,12 @@ func (s RdmaForDescribeInstanceTypesOutput) GoString() string {
 // SetRdmaNetworkInterfaces sets the RdmaNetworkInterfaces field's value.
 func (s *RdmaForDescribeInstanceTypesOutput) SetRdmaNetworkInterfaces(v int32) *RdmaForDescribeInstanceTypesOutput {
 	s.RdmaNetworkInterfaces = &v
+	return s
+}
+
+// SetRdmaProductName sets the RdmaProductName field's value.
+func (s *RdmaForDescribeInstanceTypesOutput) SetRdmaProductName(v string) *RdmaForDescribeInstanceTypesOutput {
+	s.RdmaProductName = &v
 	return s
 }
 

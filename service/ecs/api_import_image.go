@@ -139,6 +139,28 @@ func (c *ECS) ImportImageWithContext(ctx volcengine.Context, input *ImportImageI
 	return out, req.Send()
 }
 
+type ImportDataVolumeForImportImageInput struct {
+	_ struct{} `type:"structure"`
+
+	DataVolumeUrl *string `type:"string"`
+}
+
+// String returns the string representation
+func (s ImportDataVolumeForImportImageInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ImportDataVolumeForImportImageInput) GoString() string {
+	return s.String()
+}
+
+// SetDataVolumeUrl sets the DataVolumeUrl field's value.
+func (s *ImportDataVolumeForImportImageInput) SetDataVolumeUrl(v string) *ImportDataVolumeForImportImageInput {
+	s.DataVolumeUrl = &v
+	return s
+}
+
 type ImportImageInput struct {
 	_ struct{} `type:"structure"`
 
@@ -150,6 +172,8 @@ type ImportImageInput struct {
 
 	// ImageName is a required field
 	ImageName *string `type:"string" required:"true"`
+
+	ImportDataVolumes []*ImportDataVolumeForImportImageInput `type:"list"`
 
 	LicenseType *string `type:"string"`
 
@@ -220,6 +244,12 @@ func (s *ImportImageInput) SetDescription(v string) *ImportImageInput {
 // SetImageName sets the ImageName field's value.
 func (s *ImportImageInput) SetImageName(v string) *ImportImageInput {
 	s.ImageName = &v
+	return s
+}
+
+// SetImportDataVolumes sets the ImportDataVolumes field's value.
+func (s *ImportImageInput) SetImportDataVolumes(v []*ImportDataVolumeForImportImageInput) *ImportImageInput {
+	s.ImportDataVolumes = v
 	return s
 }
 
