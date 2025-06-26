@@ -172,6 +172,8 @@ func (s *CpuOptionsForDescribeInstancesOutput) SetThreadsPerCore(v int32) *CpuOp
 type DescribeInstancesInput struct {
 	_ struct{} `type:"structure"`
 
+	AffinityGroupIds []*string `type:"list"`
+
 	DedicatedHostClusterId *string `type:"string"`
 
 	DedicatedHostId *string `type:"string"`
@@ -227,6 +229,12 @@ func (s DescribeInstancesInput) String() string {
 // GoString returns the string representation
 func (s DescribeInstancesInput) GoString() string {
 	return s.String()
+}
+
+// SetAffinityGroupIds sets the AffinityGroupIds field's value.
+func (s *DescribeInstancesInput) SetAffinityGroupIds(v []*string) *DescribeInstancesInput {
+	s.AffinityGroupIds = v
+	return s
 }
 
 // SetDedicatedHostClusterId sets the DedicatedHostClusterId field's value.
@@ -440,11 +448,15 @@ func (s *EipAddressForDescribeInstancesOutput) SetIpAddress(v string) *EipAddres
 type InstanceForDescribeInstancesOutput struct {
 	_ struct{} `type:"structure"`
 
+	AffinityGroupId *string `type:"string"`
+
 	CpuOptions *CpuOptionsForDescribeInstancesOutput `type:"structure"`
 
 	Cpus *int32 `type:"int32"`
 
 	CreatedAt *string `type:"string"`
+
+	DeletionProtection *bool `type:"boolean"`
 
 	DeploymentSetGroupNumber *int32 `type:"int32"`
 
@@ -510,6 +522,8 @@ type InstanceForDescribeInstancesOutput struct {
 
 	Uuid *string `type:"string"`
 
+	Volumes []*VolumeForDescribeInstancesOutput `type:"list"`
+
 	VpcId *string `type:"string"`
 
 	ZoneId *string `type:"string"`
@@ -523,6 +537,12 @@ func (s InstanceForDescribeInstancesOutput) String() string {
 // GoString returns the string representation
 func (s InstanceForDescribeInstancesOutput) GoString() string {
 	return s.String()
+}
+
+// SetAffinityGroupId sets the AffinityGroupId field's value.
+func (s *InstanceForDescribeInstancesOutput) SetAffinityGroupId(v string) *InstanceForDescribeInstancesOutput {
+	s.AffinityGroupId = &v
+	return s
 }
 
 // SetCpuOptions sets the CpuOptions field's value.
@@ -540,6 +560,12 @@ func (s *InstanceForDescribeInstancesOutput) SetCpus(v int32) *InstanceForDescri
 // SetCreatedAt sets the CreatedAt field's value.
 func (s *InstanceForDescribeInstancesOutput) SetCreatedAt(v string) *InstanceForDescribeInstancesOutput {
 	s.CreatedAt = &v
+	return s
+}
+
+// SetDeletionProtection sets the DeletionProtection field's value.
+func (s *InstanceForDescribeInstancesOutput) SetDeletionProtection(v bool) *InstanceForDescribeInstancesOutput {
+	s.DeletionProtection = &v
 	return s
 }
 
@@ -732,6 +758,12 @@ func (s *InstanceForDescribeInstancesOutput) SetUpdatedAt(v string) *InstanceFor
 // SetUuid sets the Uuid field's value.
 func (s *InstanceForDescribeInstancesOutput) SetUuid(v string) *InstanceForDescribeInstancesOutput {
 	s.Uuid = &v
+	return s
+}
+
+// SetVolumes sets the Volumes field's value.
+func (s *InstanceForDescribeInstancesOutput) SetVolumes(v []*VolumeForDescribeInstancesOutput) *InstanceForDescribeInstancesOutput {
+	s.Volumes = v
 	return s
 }
 
@@ -966,5 +998,27 @@ func (s *TagForDescribeInstancesOutput) SetKey(v string) *TagForDescribeInstance
 // SetValue sets the Value field's value.
 func (s *TagForDescribeInstancesOutput) SetValue(v string) *TagForDescribeInstancesOutput {
 	s.Value = &v
+	return s
+}
+
+type VolumeForDescribeInstancesOutput struct {
+	_ struct{} `type:"structure"`
+
+	VolumeId *string `type:"string"`
+}
+
+// String returns the string representation
+func (s VolumeForDescribeInstancesOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s VolumeForDescribeInstancesOutput) GoString() string {
+	return s.String()
+}
+
+// SetVolumeId sets the VolumeId field's value.
+func (s *VolumeForDescribeInstancesOutput) SetVolumeId(v string) *VolumeForDescribeInstancesOutput {
+	s.VolumeId = &v
 	return s
 }

@@ -332,6 +332,8 @@ func (s *PlacementForRunInstancesInput) SetTenancy(v string) *PlacementForRunIns
 type RunInstancesInput struct {
 	_ struct{} `type:"structure"`
 
+	AffinityGroupSize *int32 `type:"int32"`
+
 	AutoRenew *bool `type:"boolean"`
 
 	AutoRenewPeriod *int32 `type:"int32"`
@@ -343,6 +345,8 @@ type RunInstancesInput struct {
 	CpuMaxFrequency *float64 `type:"float"`
 
 	CreditSpecification *string `type:"string"`
+
+	DeletionProtection *bool `type:"boolean"`
 
 	DeploymentSetGroupNumber *int32 `type:"int32"`
 
@@ -463,6 +467,12 @@ func (s *RunInstancesInput) Validate() error {
 	return nil
 }
 
+// SetAffinityGroupSize sets the AffinityGroupSize field's value.
+func (s *RunInstancesInput) SetAffinityGroupSize(v int32) *RunInstancesInput {
+	s.AffinityGroupSize = &v
+	return s
+}
+
 // SetAutoRenew sets the AutoRenew field's value.
 func (s *RunInstancesInput) SetAutoRenew(v bool) *RunInstancesInput {
 	s.AutoRenew = &v
@@ -496,6 +506,12 @@ func (s *RunInstancesInput) SetCpuMaxFrequency(v float64) *RunInstancesInput {
 // SetCreditSpecification sets the CreditSpecification field's value.
 func (s *RunInstancesInput) SetCreditSpecification(v string) *RunInstancesInput {
 	s.CreditSpecification = &v
+	return s
+}
+
+// SetDeletionProtection sets the DeletionProtection field's value.
+func (s *RunInstancesInput) SetDeletionProtection(v bool) *RunInstancesInput {
+	s.DeletionProtection = &v
 	return s
 }
 
