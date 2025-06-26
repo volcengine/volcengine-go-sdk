@@ -574,6 +574,8 @@ type StatusForListJobInstancesOutput struct {
 
 	Message *string `type:"string" json:",omitempty"`
 
+	NumaStatus *string `type:"string" json:",omitempty"`
+
 	SecondaryState *string `type:"string" json:",omitempty" enum:"EnumOfSecondaryStateForListJobInstancesOutput"`
 
 	StartTime *string `type:"string" json:",omitempty"`
@@ -624,6 +626,12 @@ func (s *StatusForListJobInstancesOutput) SetHoldingEndTime(v string) *StatusFor
 // SetMessage sets the Message field's value.
 func (s *StatusForListJobInstancesOutput) SetMessage(v string) *StatusForListJobInstancesOutput {
 	s.Message = &v
+	return s
+}
+
+// SetNumaStatus sets the NumaStatus field's value.
+func (s *StatusForListJobInstancesOutput) SetNumaStatus(v string) *StatusForListJobInstancesOutput {
+	s.NumaStatus = &v
 	return s
 }
 

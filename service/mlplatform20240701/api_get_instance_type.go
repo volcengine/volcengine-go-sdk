@@ -218,6 +218,8 @@ type GetInstanceTypeOutput struct {
 
 	RdmaEniMaximumBandwidthMbps *int32 `type:"int32" json:",omitempty"`
 
+	ReservationPlanPriceByHour *float64 `type:"double" json:",omitempty"`
+
 	VolumeMaximumBandwidthMbps *int32 `type:"int32" json:",omitempty"`
 
 	VolumeMaximumIops *int32 `type:"int32" json:",omitempty"`
@@ -339,6 +341,12 @@ func (s *GetInstanceTypeOutput) SetRdmaEniMaximumBandwidthMbps(v int32) *GetInst
 	return s
 }
 
+// SetReservationPlanPriceByHour sets the ReservationPlanPriceByHour field's value.
+func (s *GetInstanceTypeOutput) SetReservationPlanPriceByHour(v float64) *GetInstanceTypeOutput {
+	s.ReservationPlanPriceByHour = &v
+	return s
+}
+
 // SetVolumeMaximumBandwidthMbps sets the VolumeMaximumBandwidthMbps field's value.
 func (s *GetInstanceTypeOutput) SetVolumeMaximumBandwidthMbps(v int32) *GetInstanceTypeOutput {
 	s.VolumeMaximumBandwidthMbps = &v
@@ -366,6 +374,8 @@ func (s *GetInstanceTypeOutput) SetZoneInfo(v []*ZoneInfoForGetInstanceTypeOutpu
 type ZoneInfoForGetInstanceTypeOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	ReservationPlanSupportStatus *string `type:"string" json:",omitempty" enum:"EnumOfReservationPlanSupportStatusForGetInstanceTypeOutput"`
+
 	SupportStatus *string `type:"string" json:",omitempty" enum:"EnumOfSupportStatusForGetInstanceTypeOutput"`
 
 	ZoneId *string `type:"string" json:",omitempty"`
@@ -381,6 +391,12 @@ func (s ZoneInfoForGetInstanceTypeOutput) GoString() string {
 	return s.String()
 }
 
+// SetReservationPlanSupportStatus sets the ReservationPlanSupportStatus field's value.
+func (s *ZoneInfoForGetInstanceTypeOutput) SetReservationPlanSupportStatus(v string) *ZoneInfoForGetInstanceTypeOutput {
+	s.ReservationPlanSupportStatus = &v
+	return s
+}
+
 // SetSupportStatus sets the SupportStatus field's value.
 func (s *ZoneInfoForGetInstanceTypeOutput) SetSupportStatus(v string) *ZoneInfoForGetInstanceTypeOutput {
 	s.SupportStatus = &v
@@ -392,6 +408,11 @@ func (s *ZoneInfoForGetInstanceTypeOutput) SetZoneId(v string) *ZoneInfoForGetIn
 	s.ZoneId = &v
 	return s
 }
+
+const (
+	// EnumOfReservationPlanSupportStatusForGetInstanceTypeOutputValid is a EnumOfReservationPlanSupportStatusForGetInstanceTypeOutput enum value
+	EnumOfReservationPlanSupportStatusForGetInstanceTypeOutputValid = "Valid"
+)
 
 const (
 	// EnumOfSupportStatusForGetInstanceTypeOutputDeprecated is a EnumOfSupportStatusForGetInstanceTypeOutput enum value
