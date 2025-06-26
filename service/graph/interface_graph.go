@@ -86,6 +86,14 @@ type GRAPHAPI interface {
 	DestroyInstanceWithContext(volcengine.Context, *DestroyInstanceInput, ...request.Option) (*DestroyInstanceOutput, error)
 	DestroyInstanceRequest(*DestroyInstanceInput) (*request.Request, *DestroyInstanceOutput)
 
+	ExecuteMetaserviceCliCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ExecuteMetaserviceCliCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ExecuteMetaserviceCliCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ExecuteMetaserviceCli(*ExecuteMetaserviceCliInput) (*ExecuteMetaserviceCliOutput, error)
+	ExecuteMetaserviceCliWithContext(volcengine.Context, *ExecuteMetaserviceCliInput, ...request.Option) (*ExecuteMetaserviceCliOutput, error)
+	ExecuteMetaserviceCliRequest(*ExecuteMetaserviceCliInput) (*request.Request, *ExecuteMetaserviceCliOutput)
+
 	GetAddTablesTicketOptionsCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	GetAddTablesTicketOptionsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	GetAddTablesTicketOptionsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
