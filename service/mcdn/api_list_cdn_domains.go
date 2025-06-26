@@ -261,6 +261,28 @@ func (s *CertificateForListCdnDomainsOutput) SetVolcIdsSyncDetail(v *VolcIdsSync
 	return s
 }
 
+type ConfigsForListCdnDomainsOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Origins []*OriginForListCdnDomainsOutput `type:"list" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s ConfigsForListCdnDomainsOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ConfigsForListCdnDomainsOutput) GoString() string {
+	return s.String()
+}
+
+// SetOrigins sets the Origins field's value.
+func (s *ConfigsForListCdnDomainsOutput) SetOrigins(v []*OriginForListCdnDomainsOutput) *ConfigsForListCdnDomainsOutput {
+	s.Origins = v
+	return s
+}
+
 type DomainForListCdnDomainsOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -279,6 +301,8 @@ type DomainForListCdnDomainsOutput struct {
 	CloudAccountName *string `type:"string" json:",omitempty"`
 
 	Cname *string `type:"string" json:",omitempty"`
+
+	Configs *ConfigsForListCdnDomainsOutput `type:"structure" json:",omitempty"`
 
 	CreatedAt *string `type:"string" json:",omitempty"`
 
@@ -366,6 +390,12 @@ func (s *DomainForListCdnDomainsOutput) SetCloudAccountName(v string) *DomainFor
 // SetCname sets the Cname field's value.
 func (s *DomainForListCdnDomainsOutput) SetCname(v string) *DomainForListCdnDomainsOutput {
 	s.Cname = &v
+	return s
+}
+
+// SetConfigs sets the Configs field's value.
+func (s *DomainForListCdnDomainsOutput) SetConfigs(v *ConfigsForListCdnDomainsOutput) *DomainForListCdnDomainsOutput {
+	s.Configs = v
 	return s
 }
 
@@ -459,6 +489,36 @@ func (s *DomainForListCdnDomainsOutput) SetVendorId(v string) *DomainForListCdnD
 	return s
 }
 
+type HostForListCdnDomainsOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	HeaderHost *string `type:"string" json:",omitempty"`
+
+	Mode *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s HostForListCdnDomainsOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s HostForListCdnDomainsOutput) GoString() string {
+	return s.String()
+}
+
+// SetHeaderHost sets the HeaderHost field's value.
+func (s *HostForListCdnDomainsOutput) SetHeaderHost(v string) *HostForListCdnDomainsOutput {
+	s.HeaderHost = &v
+	return s
+}
+
+// SetMode sets the Mode field's value.
+func (s *HostForListCdnDomainsOutput) SetMode(v string) *HostForListCdnDomainsOutput {
+	s.Mode = &v
+	return s
+}
+
 type ListCdnDomainsInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -483,6 +543,8 @@ type ListCdnDomainsInput struct {
 	TagFilters []*TagFilterForListCdnDomainsInput `type:"list" json:",omitempty"`
 
 	Vendor []*string `type:"list" json:",omitempty"`
+
+	WithConfigs *bool `type:"boolean" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -561,6 +623,12 @@ func (s *ListCdnDomainsInput) SetVendor(v []*string) *ListCdnDomainsInput {
 	return s
 }
 
+// SetWithConfigs sets the WithConfigs field's value.
+func (s *ListCdnDomainsInput) SetWithConfigs(v bool) *ListCdnDomainsInput {
+	s.WithConfigs = &v
+	return s
+}
+
 type ListCdnDomainsOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -620,6 +688,76 @@ func (s *NetworkForListCdnDomainsOutput) SetType(v string) *NetworkForListCdnDom
 // SetValue sets the Value field's value.
 func (s *NetworkForListCdnDomainsOutput) SetValue(v string) *NetworkForListCdnDomainsOutput {
 	s.Value = &v
+	return s
+}
+
+type OriginForListCdnDomainsOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Address *string `type:"string" json:",omitempty"`
+
+	Host *HostForListCdnDomainsOutput `type:"structure" json:",omitempty"`
+
+	HttpPort *int64 `type:"int64" json:",omitempty"`
+
+	HttpsPort *int64 `type:"int64" json:",omitempty"`
+
+	Priority *int64 `type:"int64" json:",omitempty"`
+
+	Type *string `type:"string" json:",omitempty"`
+
+	Weight *int64 `type:"int64" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s OriginForListCdnDomainsOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s OriginForListCdnDomainsOutput) GoString() string {
+	return s.String()
+}
+
+// SetAddress sets the Address field's value.
+func (s *OriginForListCdnDomainsOutput) SetAddress(v string) *OriginForListCdnDomainsOutput {
+	s.Address = &v
+	return s
+}
+
+// SetHost sets the Host field's value.
+func (s *OriginForListCdnDomainsOutput) SetHost(v *HostForListCdnDomainsOutput) *OriginForListCdnDomainsOutput {
+	s.Host = v
+	return s
+}
+
+// SetHttpPort sets the HttpPort field's value.
+func (s *OriginForListCdnDomainsOutput) SetHttpPort(v int64) *OriginForListCdnDomainsOutput {
+	s.HttpPort = &v
+	return s
+}
+
+// SetHttpsPort sets the HttpsPort field's value.
+func (s *OriginForListCdnDomainsOutput) SetHttpsPort(v int64) *OriginForListCdnDomainsOutput {
+	s.HttpsPort = &v
+	return s
+}
+
+// SetPriority sets the Priority field's value.
+func (s *OriginForListCdnDomainsOutput) SetPriority(v int64) *OriginForListCdnDomainsOutput {
+	s.Priority = &v
+	return s
+}
+
+// SetType sets the Type field's value.
+func (s *OriginForListCdnDomainsOutput) SetType(v string) *OriginForListCdnDomainsOutput {
+	s.Type = &v
+	return s
+}
+
+// SetWeight sets the Weight field's value.
+func (s *OriginForListCdnDomainsOutput) SetWeight(v int64) *OriginForListCdnDomainsOutput {
+	s.Weight = &v
 	return s
 }
 
