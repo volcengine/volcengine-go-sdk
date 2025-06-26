@@ -180,6 +180,8 @@ type ItemForListInstanceTypesOutput struct {
 
 	RdmaEniMaximumBandwidthMbps *int32 `type:"int32" json:",omitempty"`
 
+	ReservationPlanPriceByHour *float64 `type:"double" json:",omitempty"`
+
 	VolumeMaximumBandwidthMbps *int32 `type:"int32" json:",omitempty"`
 
 	VolumeMaximumIops *int32 `type:"int32" json:",omitempty"`
@@ -301,6 +303,12 @@ func (s *ItemForListInstanceTypesOutput) SetRdmaEniMaximumBandwidthMbps(v int32)
 	return s
 }
 
+// SetReservationPlanPriceByHour sets the ReservationPlanPriceByHour field's value.
+func (s *ItemForListInstanceTypesOutput) SetReservationPlanPriceByHour(v float64) *ItemForListInstanceTypesOutput {
+	s.ReservationPlanPriceByHour = &v
+	return s
+}
+
 // SetVolumeMaximumBandwidthMbps sets the VolumeMaximumBandwidthMbps field's value.
 func (s *ItemForListInstanceTypesOutput) SetVolumeMaximumBandwidthMbps(v int32) *ItemForListInstanceTypesOutput {
 	s.VolumeMaximumBandwidthMbps = &v
@@ -330,6 +338,8 @@ type ListInstanceTypesInput struct {
 
 	NameContains *string `type:"string" json:",omitempty"`
 
+	ReservationPlanSupportStatus *string `type:"string" json:",omitempty" enum:"EnumOfReservationPlanSupportStatusForListInstanceTypesInput"`
+
 	SupportStatus *string `type:"string" json:",omitempty" enum:"EnumOfSupportStatusForListInstanceTypesInput"`
 
 	ZoneId *string `type:"string" json:",omitempty"`
@@ -348,6 +358,12 @@ func (s ListInstanceTypesInput) GoString() string {
 // SetNameContains sets the NameContains field's value.
 func (s *ListInstanceTypesInput) SetNameContains(v string) *ListInstanceTypesInput {
 	s.NameContains = &v
+	return s
+}
+
+// SetReservationPlanSupportStatus sets the ReservationPlanSupportStatus field's value.
+func (s *ListInstanceTypesInput) SetReservationPlanSupportStatus(v string) *ListInstanceTypesInput {
+	s.ReservationPlanSupportStatus = &v
 	return s
 }
 
@@ -390,6 +406,8 @@ func (s *ListInstanceTypesOutput) SetItems(v []*ItemForListInstanceTypesOutput) 
 type ZoneInfoForListInstanceTypesOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	ReservationPlanSupportStatus *string `type:"string" json:",omitempty" enum:"EnumOfReservationPlanSupportStatusForListInstanceTypesOutput"`
+
 	SupportStatus *string `type:"string" json:",omitempty" enum:"EnumOfSupportStatusForListInstanceTypesOutput"`
 
 	ZoneId *string `type:"string" json:",omitempty"`
@@ -403,6 +421,12 @@ func (s ZoneInfoForListInstanceTypesOutput) String() string {
 // GoString returns the string representation
 func (s ZoneInfoForListInstanceTypesOutput) GoString() string {
 	return s.String()
+}
+
+// SetReservationPlanSupportStatus sets the ReservationPlanSupportStatus field's value.
+func (s *ZoneInfoForListInstanceTypesOutput) SetReservationPlanSupportStatus(v string) *ZoneInfoForListInstanceTypesOutput {
+	s.ReservationPlanSupportStatus = &v
+	return s
 }
 
 // SetSupportStatus sets the SupportStatus field's value.
@@ -435,6 +459,16 @@ const (
 
 	// EnumOfKindForListInstanceTypesOutputHighFrequency is a EnumOfKindForListInstanceTypesOutput enum value
 	EnumOfKindForListInstanceTypesOutputHighFrequency = "HighFrequency"
+)
+
+const (
+	// EnumOfReservationPlanSupportStatusForListInstanceTypesInputValid is a EnumOfReservationPlanSupportStatusForListInstanceTypesInput enum value
+	EnumOfReservationPlanSupportStatusForListInstanceTypesInputValid = "Valid"
+)
+
+const (
+	// EnumOfReservationPlanSupportStatusForListInstanceTypesOutputValid is a EnumOfReservationPlanSupportStatusForListInstanceTypesOutput enum value
+	EnumOfReservationPlanSupportStatusForListInstanceTypesOutputValid = "Valid"
 )
 
 const (

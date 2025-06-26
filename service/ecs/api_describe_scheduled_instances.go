@@ -368,6 +368,8 @@ type InstanceConfigForDescribeScheduledInstancesOutput struct {
 
 	HostName *string `type:"string"`
 
+	HpcClusterId *string `type:"string"`
+
 	ImageId *string `type:"string"`
 
 	InstanceName *string `type:"string"`
@@ -412,6 +414,12 @@ func (s *InstanceConfigForDescribeScheduledInstancesOutput) SetEipAddress(v *Eip
 // SetHostName sets the HostName field's value.
 func (s *InstanceConfigForDescribeScheduledInstancesOutput) SetHostName(v string) *InstanceConfigForDescribeScheduledInstancesOutput {
 	s.HostName = &v
+	return s
+}
+
+// SetHpcClusterId sets the HpcClusterId field's value.
+func (s *InstanceConfigForDescribeScheduledInstancesOutput) SetHpcClusterId(v string) *InstanceConfigForDescribeScheduledInstancesOutput {
+	s.HpcClusterId = &v
 	return s
 }
 

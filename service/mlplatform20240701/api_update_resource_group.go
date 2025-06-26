@@ -340,6 +340,8 @@ type UpdateResourceGroupInput struct {
 	StorageConfig *StorageConfigForUpdateResourceGroupInput `type:"structure" json:",omitempty"`
 
 	WorkloadNetworkConfig *WorkloadNetworkConfigForUpdateResourceGroupInput `type:"structure" json:",omitempty"`
+
+	WorkloadNetworkMode *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -410,6 +412,12 @@ func (s *UpdateResourceGroupInput) SetStorageConfig(v *StorageConfigForUpdateRes
 // SetWorkloadNetworkConfig sets the WorkloadNetworkConfig field's value.
 func (s *UpdateResourceGroupInput) SetWorkloadNetworkConfig(v *WorkloadNetworkConfigForUpdateResourceGroupInput) *UpdateResourceGroupInput {
 	s.WorkloadNetworkConfig = v
+	return s
+}
+
+// SetWorkloadNetworkMode sets the WorkloadNetworkMode field's value.
+func (s *UpdateResourceGroupInput) SetWorkloadNetworkMode(v string) *UpdateResourceGroupInput {
+	s.WorkloadNetworkMode = &v
 	return s
 }
 

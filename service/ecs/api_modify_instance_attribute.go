@@ -144,6 +144,8 @@ type ModifyInstanceAttributeInput struct {
 
 	ClientToken *string `type:"string"`
 
+	DeletionProtection *bool `type:"boolean"`
+
 	Description *string `type:"string"`
 
 	Hostname *string `type:"string"`
@@ -184,6 +186,12 @@ func (s *ModifyInstanceAttributeInput) Validate() error {
 // SetClientToken sets the ClientToken field's value.
 func (s *ModifyInstanceAttributeInput) SetClientToken(v string) *ModifyInstanceAttributeInput {
 	s.ClientToken = &v
+	return s
+}
+
+// SetDeletionProtection sets the DeletionProtection field's value.
+func (s *ModifyInstanceAttributeInput) SetDeletionProtection(v bool) *ModifyInstanceAttributeInput {
+	s.DeletionProtection = &v
 	return s
 }
 

@@ -878,6 +878,8 @@ type ResourceConfigForCreateJobInput struct {
 
 	MaxRuntimeSeconds *int64 `type:"int64" json:",omitempty"`
 
+	NumaAffinity *string `type:"string" json:",omitempty"`
+
 	OnlyUseSuspectedNode *bool `type:"boolean" json:",omitempty"`
 
 	Preemptible *bool `type:"boolean" json:",omitempty"`
@@ -887,6 +889,8 @@ type ResourceConfigForCreateJobInput struct {
 	ResourceQueueId *string `type:"string" json:",omitempty"`
 
 	ResourceReservation *bool `type:"boolean" json:",omitempty"`
+
+	ResourceReservationPlanId *string `type:"string" json:",omitempty"`
 
 	Roles []*RoleForCreateJobInput `type:"list" json:",omitempty"`
 }
@@ -910,6 +914,12 @@ func (s *ResourceConfigForCreateJobInput) SetHoldingTimeSeconds(v int64) *Resour
 // SetMaxRuntimeSeconds sets the MaxRuntimeSeconds field's value.
 func (s *ResourceConfigForCreateJobInput) SetMaxRuntimeSeconds(v int64) *ResourceConfigForCreateJobInput {
 	s.MaxRuntimeSeconds = &v
+	return s
+}
+
+// SetNumaAffinity sets the NumaAffinity field's value.
+func (s *ResourceConfigForCreateJobInput) SetNumaAffinity(v string) *ResourceConfigForCreateJobInput {
+	s.NumaAffinity = &v
 	return s
 }
 
@@ -940,6 +950,12 @@ func (s *ResourceConfigForCreateJobInput) SetResourceQueueId(v string) *Resource
 // SetResourceReservation sets the ResourceReservation field's value.
 func (s *ResourceConfigForCreateJobInput) SetResourceReservation(v bool) *ResourceConfigForCreateJobInput {
 	s.ResourceReservation = &v
+	return s
+}
+
+// SetResourceReservationPlanId sets the ResourceReservationPlanId field's value.
+func (s *ResourceConfigForCreateJobInput) SetResourceReservationPlanId(v string) *ResourceConfigForCreateJobInput {
+	s.ResourceReservationPlanId = &v
 	return s
 }
 

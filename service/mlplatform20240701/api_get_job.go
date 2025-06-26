@@ -584,6 +584,8 @@ type GetJobOutput struct {
 
 	Status *StatusForGetJobOutput `type:"structure" json:",omitempty"`
 
+	StopReason *string `type:"string" json:",omitempty"`
+
 	StorageConfig *StorageConfigForGetJobOutput `type:"structure" json:",omitempty"`
 
 	UpdateTime *string `type:"string" json:",omitempty"`
@@ -674,6 +676,12 @@ func (s *GetJobOutput) SetRuntimeConfig(v *RuntimeConfigForGetJobOutput) *GetJob
 // SetStatus sets the Status field's value.
 func (s *GetJobOutput) SetStatus(v *StatusForGetJobOutput) *GetJobOutput {
 	s.Status = v
+	return s
+}
+
+// SetStopReason sets the StopReason field's value.
+func (s *GetJobOutput) SetStopReason(v string) *GetJobOutput {
+	s.StopReason = &v
 	return s
 }
 
@@ -948,6 +956,8 @@ type ResourceConfigForGetJobOutput struct {
 
 	MaxRuntimeSeconds *int64 `type:"int64" json:",omitempty"`
 
+	NumaAffinity *string `type:"string" json:",omitempty"`
+
 	OnlyUseSuspectedNode *bool `type:"boolean" json:",omitempty"`
 
 	Preemptible *bool `type:"boolean" json:",omitempty"`
@@ -957,6 +967,8 @@ type ResourceConfigForGetJobOutput struct {
 	ResourceQueueId *string `type:"string" json:",omitempty"`
 
 	ResourceReservation *bool `type:"boolean" json:",omitempty"`
+
+	ResourceReservationPlanId *string `type:"string" json:",omitempty"`
 
 	Roles []*RoleForGetJobOutput `type:"list" json:",omitempty"`
 }
@@ -980,6 +992,12 @@ func (s *ResourceConfigForGetJobOutput) SetHoldingTimeSeconds(v int64) *Resource
 // SetMaxRuntimeSeconds sets the MaxRuntimeSeconds field's value.
 func (s *ResourceConfigForGetJobOutput) SetMaxRuntimeSeconds(v int64) *ResourceConfigForGetJobOutput {
 	s.MaxRuntimeSeconds = &v
+	return s
+}
+
+// SetNumaAffinity sets the NumaAffinity field's value.
+func (s *ResourceConfigForGetJobOutput) SetNumaAffinity(v string) *ResourceConfigForGetJobOutput {
+	s.NumaAffinity = &v
 	return s
 }
 
@@ -1010,6 +1028,12 @@ func (s *ResourceConfigForGetJobOutput) SetResourceQueueId(v string) *ResourceCo
 // SetResourceReservation sets the ResourceReservation field's value.
 func (s *ResourceConfigForGetJobOutput) SetResourceReservation(v bool) *ResourceConfigForGetJobOutput {
 	s.ResourceReservation = &v
+	return s
+}
+
+// SetResourceReservationPlanId sets the ResourceReservationPlanId field's value.
+func (s *ResourceConfigForGetJobOutput) SetResourceReservationPlanId(v string) *ResourceConfigForGetJobOutput {
+	s.ResourceReservationPlanId = &v
 	return s
 }
 

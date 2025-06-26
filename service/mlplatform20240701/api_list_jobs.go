@@ -224,6 +224,8 @@ type ItemForListJobsOutput struct {
 
 	Status *StatusForListJobsOutput `type:"structure" json:",omitempty"`
 
+	StopReason *string `type:"string" json:",omitempty"`
+
 	UpdateTime *string `type:"string" json:",omitempty"`
 }
 
@@ -285,6 +287,12 @@ func (s *ItemForListJobsOutput) SetStatus(v *StatusForListJobsOutput) *ItemForLi
 	return s
 }
 
+// SetStopReason sets the StopReason field's value.
+func (s *ItemForListJobsOutput) SetStopReason(v string) *ItemForListJobsOutput {
+	s.StopReason = &v
+	return s
+}
+
 // SetUpdateTime sets the UpdateTime field's value.
 func (s *ItemForListJobsOutput) SetUpdateTime(v string) *ItemForListJobsOutput {
 	s.UpdateTime = &v
@@ -311,6 +319,8 @@ type ListJobsInput struct {
 	ResourceGroupId *string `type:"string" json:",omitempty"`
 
 	ResourceQueueId *string `type:"string" json:",omitempty"`
+
+	ResourceReservationPlanId *string `type:"string" json:",omitempty"`
 
 	SortBy *string `type:"string" json:",omitempty" enum:"EnumOfSortByForListJobsInput"`
 
@@ -400,6 +410,12 @@ func (s *ListJobsInput) SetResourceGroupId(v string) *ListJobsInput {
 // SetResourceQueueId sets the ResourceQueueId field's value.
 func (s *ListJobsInput) SetResourceQueueId(v string) *ListJobsInput {
 	s.ResourceQueueId = &v
+	return s
+}
+
+// SetResourceReservationPlanId sets the ResourceReservationPlanId field's value.
+func (s *ListJobsInput) SetResourceReservationPlanId(v string) *ListJobsInput {
+	s.ResourceReservationPlanId = &v
 	return s
 }
 
@@ -518,6 +534,8 @@ type ResourceConfigForListJobsOutput struct {
 
 	MaxRuntimeSeconds *int64 `type:"int64" json:",omitempty"`
 
+	NumaAffinity *string `type:"string" json:",omitempty"`
+
 	OnlyUseSuspectedNode *bool `type:"boolean" json:",omitempty"`
 
 	Preemptible *bool `type:"boolean" json:",omitempty"`
@@ -527,6 +545,8 @@ type ResourceConfigForListJobsOutput struct {
 	ResourceQueueId *string `type:"string" json:",omitempty"`
 
 	ResourceReservation *bool `type:"boolean" json:",omitempty"`
+
+	ResourceReservationPlanId *string `type:"string" json:",omitempty"`
 
 	Roles []*RoleForListJobsOutput `type:"list" json:",omitempty"`
 }
@@ -550,6 +570,12 @@ func (s *ResourceConfigForListJobsOutput) SetHoldingTimeSeconds(v int64) *Resour
 // SetMaxRuntimeSeconds sets the MaxRuntimeSeconds field's value.
 func (s *ResourceConfigForListJobsOutput) SetMaxRuntimeSeconds(v int64) *ResourceConfigForListJobsOutput {
 	s.MaxRuntimeSeconds = &v
+	return s
+}
+
+// SetNumaAffinity sets the NumaAffinity field's value.
+func (s *ResourceConfigForListJobsOutput) SetNumaAffinity(v string) *ResourceConfigForListJobsOutput {
+	s.NumaAffinity = &v
 	return s
 }
 
@@ -580,6 +606,12 @@ func (s *ResourceConfigForListJobsOutput) SetResourceQueueId(v string) *Resource
 // SetResourceReservation sets the ResourceReservation field's value.
 func (s *ResourceConfigForListJobsOutput) SetResourceReservation(v bool) *ResourceConfigForListJobsOutput {
 	s.ResourceReservation = &v
+	return s
+}
+
+// SetResourceReservationPlanId sets the ResourceReservationPlanId field's value.
+func (s *ResourceConfigForListJobsOutput) SetResourceReservationPlanId(v string) *ResourceConfigForListJobsOutput {
+	s.ResourceReservationPlanId = &v
 	return s
 }
 

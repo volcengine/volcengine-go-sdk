@@ -602,6 +602,10 @@ type ListForListDevInstancesOutput struct {
 
 	NodeAffinitySpec *NodeAffinitySpecForListDevInstancesOutput `type:"structure" json:",omitempty"`
 
+	NumaAffinity *string `type:"string" json:",omitempty"`
+
+	NumaStatus *string `type:"string" json:",omitempty"`
+
 	Ports []*PortForListDevInstancesOutput `type:"list" json:",omitempty"`
 
 	ResourceClaim *ResourceClaimForListDevInstancesOutput `type:"structure" json:",omitempty"`
@@ -698,6 +702,18 @@ func (s *ListForListDevInstancesOutput) SetName(v string) *ListForListDevInstanc
 // SetNodeAffinitySpec sets the NodeAffinitySpec field's value.
 func (s *ListForListDevInstancesOutput) SetNodeAffinitySpec(v *NodeAffinitySpecForListDevInstancesOutput) *ListForListDevInstancesOutput {
 	s.NodeAffinitySpec = v
+	return s
+}
+
+// SetNumaAffinity sets the NumaAffinity field's value.
+func (s *ListForListDevInstancesOutput) SetNumaAffinity(v string) *ListForListDevInstancesOutput {
+	s.NumaAffinity = &v
+	return s
+}
+
+// SetNumaStatus sets the NumaStatus field's value.
+func (s *ListForListDevInstancesOutput) SetNumaStatus(v string) *ListForListDevInstancesOutput {
+	s.NumaStatus = &v
 	return s
 }
 

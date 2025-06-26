@@ -152,6 +152,8 @@ type StopJobInput struct {
 
 	// Id is a required field
 	Id *string `type:"string" json:",omitempty" required:"true"`
+
+	Reason *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -192,6 +194,12 @@ func (s *StopJobInput) SetDryRun(v bool) *StopJobInput {
 // SetId sets the Id field's value.
 func (s *StopJobInput) SetId(v string) *StopJobInput {
 	s.Id = &v
+	return s
+}
+
+// SetReason sets the Reason field's value.
+func (s *StopJobInput) SetReason(v string) *StopJobInput {
+	s.Reason = &v
 	return s
 }
 

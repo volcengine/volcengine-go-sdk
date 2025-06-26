@@ -232,6 +232,8 @@ type GetResourceGroupOutput struct {
 
 	Id *string `type:"string" json:",omitempty"`
 
+	MGpuEnabled *bool `type:"boolean" json:",omitempty"`
+
 	Name *string `type:"string" json:",omitempty"`
 
 	PeriodUnit *string `type:"string" json:",omitempty"`
@@ -249,6 +251,8 @@ type GetResourceGroupOutput struct {
 	StorageConfig *StorageConfigForGetResourceGroupOutput `type:"structure" json:",omitempty"`
 
 	WorkloadNetworkConfig *WorkloadNetworkConfigForGetResourceGroupOutput `type:"structure" json:",omitempty"`
+
+	WorkloadNetworkMode *string `type:"string" json:",omitempty"`
 
 	ZoneIds []*string `type:"list" json:",omitempty"`
 }
@@ -290,6 +294,12 @@ func (s *GetResourceGroupOutput) SetExpireTime(v string) *GetResourceGroupOutput
 // SetId sets the Id field's value.
 func (s *GetResourceGroupOutput) SetId(v string) *GetResourceGroupOutput {
 	s.Id = &v
+	return s
+}
+
+// SetMGpuEnabled sets the MGpuEnabled field's value.
+func (s *GetResourceGroupOutput) SetMGpuEnabled(v bool) *GetResourceGroupOutput {
+	s.MGpuEnabled = &v
 	return s
 }
 
@@ -344,6 +354,12 @@ func (s *GetResourceGroupOutput) SetStorageConfig(v *StorageConfigForGetResource
 // SetWorkloadNetworkConfig sets the WorkloadNetworkConfig field's value.
 func (s *GetResourceGroupOutput) SetWorkloadNetworkConfig(v *WorkloadNetworkConfigForGetResourceGroupOutput) *GetResourceGroupOutput {
 	s.WorkloadNetworkConfig = v
+	return s
+}
+
+// SetWorkloadNetworkMode sets the WorkloadNetworkMode field's value.
+func (s *GetResourceGroupOutput) SetWorkloadNetworkMode(v string) *GetResourceGroupOutput {
+	s.WorkloadNetworkMode = &v
 	return s
 }
 
