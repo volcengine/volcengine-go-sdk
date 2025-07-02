@@ -406,6 +406,8 @@ type ListenerForDescribeListenersOutput struct {
 
 	Cookie *string `type:"string"`
 
+	Cps *int64 `type:"integer"`
+
 	CreateTime *string `type:"string"`
 
 	Description *string `type:"string"`
@@ -413,6 +415,10 @@ type ListenerForDescribeListenersOutput struct {
 	Enabled *string `type:"string"`
 
 	EndPort *int64 `type:"integer"`
+
+	EnhancedSchedulerEnable *string `type:"string"`
+
+	EstablishedTimeout *int64 `type:"integer"`
 
 	HealthCheck *HealthCheckForDescribeListenersOutput `type:"structure"`
 
@@ -423,6 +429,12 @@ type ListenerForDescribeListenersOutput struct {
 	ListenerId *string `type:"string"`
 
 	ListenerName *string `type:"string"`
+
+	LoadBalancerId *string `type:"string"`
+
+	LoadType *string `type:"string"`
+
+	MaxConnections *int64 `type:"integer"`
 
 	PersistenceTimeout *int64 `type:"integer"`
 
@@ -555,6 +567,12 @@ func (s *ListenerForDescribeListenersOutput) SetCookie(v string) *ListenerForDes
 	return s
 }
 
+// SetCps sets the Cps field's value.
+func (s *ListenerForDescribeListenersOutput) SetCps(v int64) *ListenerForDescribeListenersOutput {
+	s.Cps = &v
+	return s
+}
+
 // SetCreateTime sets the CreateTime field's value.
 func (s *ListenerForDescribeListenersOutput) SetCreateTime(v string) *ListenerForDescribeListenersOutput {
 	s.CreateTime = &v
@@ -576,6 +594,18 @@ func (s *ListenerForDescribeListenersOutput) SetEnabled(v string) *ListenerForDe
 // SetEndPort sets the EndPort field's value.
 func (s *ListenerForDescribeListenersOutput) SetEndPort(v int64) *ListenerForDescribeListenersOutput {
 	s.EndPort = &v
+	return s
+}
+
+// SetEnhancedSchedulerEnable sets the EnhancedSchedulerEnable field's value.
+func (s *ListenerForDescribeListenersOutput) SetEnhancedSchedulerEnable(v string) *ListenerForDescribeListenersOutput {
+	s.EnhancedSchedulerEnable = &v
+	return s
+}
+
+// SetEstablishedTimeout sets the EstablishedTimeout field's value.
+func (s *ListenerForDescribeListenersOutput) SetEstablishedTimeout(v int64) *ListenerForDescribeListenersOutput {
+	s.EstablishedTimeout = &v
 	return s
 }
 
@@ -606,6 +636,24 @@ func (s *ListenerForDescribeListenersOutput) SetListenerId(v string) *ListenerFo
 // SetListenerName sets the ListenerName field's value.
 func (s *ListenerForDescribeListenersOutput) SetListenerName(v string) *ListenerForDescribeListenersOutput {
 	s.ListenerName = &v
+	return s
+}
+
+// SetLoadBalancerId sets the LoadBalancerId field's value.
+func (s *ListenerForDescribeListenersOutput) SetLoadBalancerId(v string) *ListenerForDescribeListenersOutput {
+	s.LoadBalancerId = &v
+	return s
+}
+
+// SetLoadType sets the LoadType field's value.
+func (s *ListenerForDescribeListenersOutput) SetLoadType(v string) *ListenerForDescribeListenersOutput {
+	s.LoadType = &v
+	return s
+}
+
+// SetMaxConnections sets the MaxConnections field's value.
+func (s *ListenerForDescribeListenersOutput) SetMaxConnections(v int64) *ListenerForDescribeListenersOutput {
+	s.MaxConnections = &v
 	return s
 }
 

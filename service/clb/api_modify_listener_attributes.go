@@ -280,6 +280,8 @@ type ModifyListenerAttributesInput struct {
 
 	Cookie *string `type:"string"`
 
+	Cps *int64 `type:"integer"`
+
 	Description *string `type:"string"`
 
 	Enabled *string `type:"string"`
@@ -296,6 +298,10 @@ type ModifyListenerAttributesInput struct {
 	ListenerId *string `type:"string" required:"true"`
 
 	ListenerName *string `type:"string"`
+
+	LoadType *string `type:"string"`
+
+	MaxConnections *int64 `type:"integer"`
 
 	PersistenceTimeout *int64 `type:"integer"`
 
@@ -425,6 +431,12 @@ func (s *ModifyListenerAttributesInput) SetCookie(v string) *ModifyListenerAttri
 	return s
 }
 
+// SetCps sets the Cps field's value.
+func (s *ModifyListenerAttributesInput) SetCps(v int64) *ModifyListenerAttributesInput {
+	s.Cps = &v
+	return s
+}
+
 // SetDescription sets the Description field's value.
 func (s *ModifyListenerAttributesInput) SetDescription(v string) *ModifyListenerAttributesInput {
 	s.Description = &v
@@ -470,6 +482,18 @@ func (s *ModifyListenerAttributesInput) SetListenerId(v string) *ModifyListenerA
 // SetListenerName sets the ListenerName field's value.
 func (s *ModifyListenerAttributesInput) SetListenerName(v string) *ModifyListenerAttributesInput {
 	s.ListenerName = &v
+	return s
+}
+
+// SetLoadType sets the LoadType field's value.
+func (s *ModifyListenerAttributesInput) SetLoadType(v string) *ModifyListenerAttributesInput {
+	s.LoadType = &v
+	return s
+}
+
+// SetMaxConnections sets the MaxConnections field's value.
+func (s *ModifyListenerAttributesInput) SetMaxConnections(v int64) *ModifyListenerAttributesInput {
+	s.MaxConnections = &v
 	return s
 }
 

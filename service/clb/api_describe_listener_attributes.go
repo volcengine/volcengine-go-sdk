@@ -208,6 +208,8 @@ type DescribeListenerAttributesOutput struct {
 
 	Cookie *string `type:"string"`
 
+	Cps *int64 `type:"integer"`
+
 	CreateTime *string `type:"string"`
 
 	Description *string `type:"string"`
@@ -215,6 +217,8 @@ type DescribeListenerAttributesOutput struct {
 	Enabled *string `type:"string"`
 
 	EndPort *int64 `type:"integer"`
+
+	EnhancedSchedulerEnable *string `type:"string"`
 
 	EstablishedTimeout *int64 `type:"integer"`
 
@@ -229,6 +233,10 @@ type DescribeListenerAttributesOutput struct {
 	ListenerName *string `type:"string"`
 
 	LoadBalancerId *string `type:"string"`
+
+	LoadType *string `type:"string"`
+
+	MaxConnections *int64 `type:"integer"`
 
 	PersistenceTimeout *int64 `type:"integer"`
 
@@ -363,6 +371,12 @@ func (s *DescribeListenerAttributesOutput) SetCookie(v string) *DescribeListener
 	return s
 }
 
+// SetCps sets the Cps field's value.
+func (s *DescribeListenerAttributesOutput) SetCps(v int64) *DescribeListenerAttributesOutput {
+	s.Cps = &v
+	return s
+}
+
 // SetCreateTime sets the CreateTime field's value.
 func (s *DescribeListenerAttributesOutput) SetCreateTime(v string) *DescribeListenerAttributesOutput {
 	s.CreateTime = &v
@@ -384,6 +398,12 @@ func (s *DescribeListenerAttributesOutput) SetEnabled(v string) *DescribeListene
 // SetEndPort sets the EndPort field's value.
 func (s *DescribeListenerAttributesOutput) SetEndPort(v int64) *DescribeListenerAttributesOutput {
 	s.EndPort = &v
+	return s
+}
+
+// SetEnhancedSchedulerEnable sets the EnhancedSchedulerEnable field's value.
+func (s *DescribeListenerAttributesOutput) SetEnhancedSchedulerEnable(v string) *DescribeListenerAttributesOutput {
+	s.EnhancedSchedulerEnable = &v
 	return s
 }
 
@@ -426,6 +446,18 @@ func (s *DescribeListenerAttributesOutput) SetListenerName(v string) *DescribeLi
 // SetLoadBalancerId sets the LoadBalancerId field's value.
 func (s *DescribeListenerAttributesOutput) SetLoadBalancerId(v string) *DescribeListenerAttributesOutput {
 	s.LoadBalancerId = &v
+	return s
+}
+
+// SetLoadType sets the LoadType field's value.
+func (s *DescribeListenerAttributesOutput) SetLoadType(v string) *DescribeListenerAttributesOutput {
+	s.LoadType = &v
+	return s
+}
+
+// SetMaxConnections sets the MaxConnections field's value.
+func (s *DescribeListenerAttributesOutput) SetMaxConnections(v int64) *DescribeListenerAttributesOutput {
+	s.MaxConnections = &v
 	return s
 }
 

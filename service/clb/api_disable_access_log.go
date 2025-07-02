@@ -142,6 +142,8 @@ func (c *CLB) DisableAccessLogWithContext(ctx volcengine.Context, input *Disable
 type DisableAccessLogInput struct {
 	_ struct{} `type:"structure"`
 
+	DeliveryType *string `type:"string"`
+
 	// LoadBalancerId is a required field
 	LoadBalancerId *string `type:"string" required:"true"`
 }
@@ -167,6 +169,12 @@ func (s *DisableAccessLogInput) Validate() error {
 		return invalidParams
 	}
 	return nil
+}
+
+// SetDeliveryType sets the DeliveryType field's value.
+func (s *DisableAccessLogInput) SetDeliveryType(v string) *DisableAccessLogInput {
+	s.DeliveryType = &v
+	return s
 }
 
 // SetLoadBalancerId sets the LoadBalancerId field's value.
