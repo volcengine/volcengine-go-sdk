@@ -64,6 +64,7 @@ const (
 	regionCodeAPSouthEast2          = "ap-southeast-2"
 	regionCodeAPSouthEast3          = "ap-southeast-3"
 	regionCodeCNShanghaiAutoDriving = "cn-shanghai-autodriving"
+	regionCodeCNBeijingSelfdrive    = "cn-beijing-selfdrive"
 )
 
 var defaultEndpoint = map[string]*ServiceEndpointInfo{
@@ -469,6 +470,7 @@ var bootstrapRegion = map[string]struct{}{
 	regionCodeAPSouthEast2:          {},
 	regionCodeAPSouthEast3:          {},
 	regionCodeCNShanghaiAutoDriving: {},
+	regionCodeCNBeijingSelfdrive:    {},
 }
 
 func inBootstrapRegionList(regionCode string, customBootstrapRegion map[string]struct{}) bool {
