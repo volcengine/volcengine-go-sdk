@@ -67,6 +67,12 @@ func main() {
 	fmt.Printf("Completion Tokens: %d\n", getResponse.Usage.CompletionTokens)
 	fmt.Printf("Created At: %d\n", getResponse.CreatedAt)
 	fmt.Printf("Updated At: %d\n", getResponse.UpdatedAt)
+	if getResponse.Seed != nil {
+		fmt.Printf("Seed: %d\n", getResponse.Seed)
+	}
+	if getResponse.RevisedPrompt != nil {
+		fmt.Printf("RevisedPrompt: %s\n", getResponse.RevisedPrompt)
+	}
 	if getResponse.Error != nil {
 		fmt.Printf("Error Code: %s\n", getResponse.Error.Code)
 		fmt.Printf("Error Message: %s\n", getResponse.Error.Message)

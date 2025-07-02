@@ -32,14 +32,16 @@ type GetContentGenerationTaskRequest struct {
 }
 
 type GetContentGenerationTaskResponse struct {
-	ID        string                  `json:"id"`
-	Model     string                  `json:"model"`
-	Status    string                  `json:"status"`
-	Error     *ContentGenerationError `json:"error,omitempty"`
-	Content   Content                 `json:"content"`
-	Usage     Usage                   `json:"usage"`
-	CreatedAt int64                   `json:"created_at"`
-	UpdatedAt int64                   `json:"updated_at"`
+	ID            string                  `json:"id"`
+	Model         string                  `json:"model"`
+	Status        string                  `json:"status"`
+	Error         *ContentGenerationError `json:"error,omitempty"`
+	Content       Content                 `json:"content"`
+	Usage         Usage                   `json:"usage"`
+	CreatedAt     int64                   `json:"created_at"`
+	UpdatedAt     int64                   `json:"updated_at"`
+	Seed          *int64                  `json:"seed,omitempty"`
+	RevisedPrompt *string                 `json:"revised_prompt,omitempty"`
 
 	HttpHeader
 }
@@ -93,6 +95,8 @@ type ListContentGenerationTaskItem struct {
 	Usage         Usage                   `json:"usage"`
 	CreatedAt     int64                   `json:"created_at"`
 	UpdatedAt     int64                   `json:"updated_at"`
+	Seed          *int64                  `json:"seed,omitempty"`
+	RevisedPrompt *string                 `json:"revised_prompt,omitempty"`
 }
 
 type ContentGenerationError struct {
