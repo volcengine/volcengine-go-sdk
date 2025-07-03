@@ -142,11 +142,16 @@ func (c *CLB) EnableAccessLogWithContext(ctx volcengine.Context, input *EnableAc
 type EnableAccessLogInput struct {
 	_ struct{} `type:"structure"`
 
-	// BucketName is a required field
-	BucketName *string `type:"string" required:"true"`
+	BucketName *string `type:"string"`
+
+	DeliveryType *string `type:"string"`
 
 	// LoadBalancerId is a required field
 	LoadBalancerId *string `type:"string" required:"true"`
+
+	TlsProjectId *string `type:"string"`
+
+	TlsTopicId *string `type:"string"`
 }
 
 // String returns the string representation
@@ -162,9 +167,6 @@ func (s EnableAccessLogInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *EnableAccessLogInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "EnableAccessLogInput"}
-	if s.BucketName == nil {
-		invalidParams.Add(request.NewErrParamRequired("BucketName"))
-	}
 	if s.LoadBalancerId == nil {
 		invalidParams.Add(request.NewErrParamRequired("LoadBalancerId"))
 	}
@@ -181,9 +183,27 @@ func (s *EnableAccessLogInput) SetBucketName(v string) *EnableAccessLogInput {
 	return s
 }
 
+// SetDeliveryType sets the DeliveryType field's value.
+func (s *EnableAccessLogInput) SetDeliveryType(v string) *EnableAccessLogInput {
+	s.DeliveryType = &v
+	return s
+}
+
 // SetLoadBalancerId sets the LoadBalancerId field's value.
 func (s *EnableAccessLogInput) SetLoadBalancerId(v string) *EnableAccessLogInput {
 	s.LoadBalancerId = &v
+	return s
+}
+
+// SetTlsProjectId sets the TlsProjectId field's value.
+func (s *EnableAccessLogInput) SetTlsProjectId(v string) *EnableAccessLogInput {
+	s.TlsProjectId = &v
+	return s
+}
+
+// SetTlsTopicId sets the TlsTopicId field's value.
+func (s *EnableAccessLogInput) SetTlsTopicId(v string) *EnableAccessLogInput {
+	s.TlsTopicId = &v
 	return s
 }
 

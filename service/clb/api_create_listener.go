@@ -170,11 +170,15 @@ type CreateListenerInput struct {
 
 	Cookie *string `type:"string"`
 
+	Cps *int64 `type:"integer"`
+
 	Description *string `type:"string"`
 
 	Enabled *string `type:"string"`
 
 	EndPort *int64 `type:"integer"`
+
+	EnhancedSchedulerEnable *string `type:"string"`
 
 	EstablishedTimeout *int64 `type:"integer"`
 
@@ -188,6 +192,10 @@ type CreateListenerInput struct {
 
 	// LoadBalancerId is a required field
 	LoadBalancerId *string `type:"string" required:"true"`
+
+	LoadType *string `type:"string"`
+
+	MaxConnections *int64 `type:"integer"`
 
 	PersistenceTimeout *int64 `type:"integer"`
 
@@ -337,6 +345,12 @@ func (s *CreateListenerInput) SetCookie(v string) *CreateListenerInput {
 	return s
 }
 
+// SetCps sets the Cps field's value.
+func (s *CreateListenerInput) SetCps(v int64) *CreateListenerInput {
+	s.Cps = &v
+	return s
+}
+
 // SetDescription sets the Description field's value.
 func (s *CreateListenerInput) SetDescription(v string) *CreateListenerInput {
 	s.Description = &v
@@ -352,6 +366,12 @@ func (s *CreateListenerInput) SetEnabled(v string) *CreateListenerInput {
 // SetEndPort sets the EndPort field's value.
 func (s *CreateListenerInput) SetEndPort(v int64) *CreateListenerInput {
 	s.EndPort = &v
+	return s
+}
+
+// SetEnhancedSchedulerEnable sets the EnhancedSchedulerEnable field's value.
+func (s *CreateListenerInput) SetEnhancedSchedulerEnable(v string) *CreateListenerInput {
+	s.EnhancedSchedulerEnable = &v
 	return s
 }
 
@@ -388,6 +408,18 @@ func (s *CreateListenerInput) SetListenerName(v string) *CreateListenerInput {
 // SetLoadBalancerId sets the LoadBalancerId field's value.
 func (s *CreateListenerInput) SetLoadBalancerId(v string) *CreateListenerInput {
 	s.LoadBalancerId = &v
+	return s
+}
+
+// SetLoadType sets the LoadType field's value.
+func (s *CreateListenerInput) SetLoadType(v string) *CreateListenerInput {
+	s.LoadType = &v
+	return s
+}
+
+// SetMaxConnections sets the MaxConnections field's value.
+func (s *CreateListenerInput) SetMaxConnections(v int64) *CreateListenerInput {
+	s.MaxConnections = &v
 	return s
 }
 

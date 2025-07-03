@@ -145,6 +145,12 @@ type AccessLogForDescribeLoadBalancerAttributesOutput struct {
 	BucketName *string `type:"string"`
 
 	Enabled *bool `type:"boolean"`
+
+	TlsEnabled *bool `type:"boolean"`
+
+	TlsProjectId *string `type:"string"`
+
+	TlsTopicId *string `type:"string"`
 }
 
 // String returns the string representation
@@ -166,6 +172,24 @@ func (s *AccessLogForDescribeLoadBalancerAttributesOutput) SetBucketName(v strin
 // SetEnabled sets the Enabled field's value.
 func (s *AccessLogForDescribeLoadBalancerAttributesOutput) SetEnabled(v bool) *AccessLogForDescribeLoadBalancerAttributesOutput {
 	s.Enabled = &v
+	return s
+}
+
+// SetTlsEnabled sets the TlsEnabled field's value.
+func (s *AccessLogForDescribeLoadBalancerAttributesOutput) SetTlsEnabled(v bool) *AccessLogForDescribeLoadBalancerAttributesOutput {
+	s.TlsEnabled = &v
+	return s
+}
+
+// SetTlsProjectId sets the TlsProjectId field's value.
+func (s *AccessLogForDescribeLoadBalancerAttributesOutput) SetTlsProjectId(v string) *AccessLogForDescribeLoadBalancerAttributesOutput {
+	s.TlsProjectId = &v
+	return s
+}
+
+// SetTlsTopicId sets the TlsTopicId field's value.
+func (s *AccessLogForDescribeLoadBalancerAttributesOutput) SetTlsTopicId(v string) *AccessLogForDescribeLoadBalancerAttributesOutput {
+	s.TlsTopicId = &v
 	return s
 }
 
