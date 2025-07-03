@@ -205,6 +205,44 @@ func (s *AvailabilityZoneForDescribeInstanceOutput) SetSubnetName(v string) *Ava
 	return s
 }
 
+type Bg3LinkForDescribeInstanceOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	AddressType *string `type:"string" json:",omitempty"`
+
+	AvailabilityZoneId *string `type:"string" json:",omitempty"`
+
+	Bg3Link *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s Bg3LinkForDescribeInstanceOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s Bg3LinkForDescribeInstanceOutput) GoString() string {
+	return s.String()
+}
+
+// SetAddressType sets the AddressType field's value.
+func (s *Bg3LinkForDescribeInstanceOutput) SetAddressType(v string) *Bg3LinkForDescribeInstanceOutput {
+	s.AddressType = &v
+	return s
+}
+
+// SetAvailabilityZoneId sets the AvailabilityZoneId field's value.
+func (s *Bg3LinkForDescribeInstanceOutput) SetAvailabilityZoneId(v string) *Bg3LinkForDescribeInstanceOutput {
+	s.AvailabilityZoneId = &v
+	return s
+}
+
+// SetBg3Link sets the Bg3Link field's value.
+func (s *Bg3LinkForDescribeInstanceOutput) SetBg3Link(v string) *Bg3LinkForDescribeInstanceOutput {
+	s.Bg3Link = &v
+	return s
+}
+
 type BytestoreInfoForDescribeInstanceOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -374,6 +412,8 @@ type InfoForDescribeInstanceOutput struct {
 
 	Bg3Link *string `type:"string" json:",omitempty"`
 
+	Bg3Links []*Bg3LinkForDescribeInstanceOutput `type:"list" json:",omitempty"`
+
 	CreateTime *string `type:"string" json:",omitempty"`
 
 	Creator *string `type:"string" json:",omitempty"`
@@ -450,6 +490,12 @@ func (s *InfoForDescribeInstanceOutput) SetAvailabilityZones(v []*AvailabilityZo
 // SetBg3Link sets the Bg3Link field's value.
 func (s *InfoForDescribeInstanceOutput) SetBg3Link(v string) *InfoForDescribeInstanceOutput {
 	s.Bg3Link = &v
+	return s
+}
+
+// SetBg3Links sets the Bg3Links field's value.
+func (s *InfoForDescribeInstanceOutput) SetBg3Links(v []*Bg3LinkForDescribeInstanceOutput) *InfoForDescribeInstanceOutput {
+	s.Bg3Links = v
 	return s
 }
 

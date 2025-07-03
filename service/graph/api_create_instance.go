@@ -205,6 +205,44 @@ func (s *AvailabilityZoneForCreateInstanceInput) SetSubnetName(v string) *Availa
 	return s
 }
 
+type Bg3LinkForCreateInstanceInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	AddressType *string `type:"string" json:",omitempty"`
+
+	AvailabilityZoneId *string `type:"string" json:",omitempty"`
+
+	Bg3Link *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s Bg3LinkForCreateInstanceInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s Bg3LinkForCreateInstanceInput) GoString() string {
+	return s.String()
+}
+
+// SetAddressType sets the AddressType field's value.
+func (s *Bg3LinkForCreateInstanceInput) SetAddressType(v string) *Bg3LinkForCreateInstanceInput {
+	s.AddressType = &v
+	return s
+}
+
+// SetAvailabilityZoneId sets the AvailabilityZoneId field's value.
+func (s *Bg3LinkForCreateInstanceInput) SetAvailabilityZoneId(v string) *Bg3LinkForCreateInstanceInput {
+	s.AvailabilityZoneId = &v
+	return s
+}
+
+// SetBg3Link sets the Bg3Link field's value.
+func (s *Bg3LinkForCreateInstanceInput) SetBg3Link(v string) *Bg3LinkForCreateInstanceInput {
+	s.Bg3Link = &v
+	return s
+}
+
 type BytestoreInfoForCreateInstanceInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -408,6 +446,8 @@ type InfoForCreateInstanceInput struct {
 
 	Bg3Link *string `type:"string" json:",omitempty"`
 
+	Bg3Links []*Bg3LinkForCreateInstanceInput `type:"list" json:",omitempty"`
+
 	CreateTime *string `type:"string" json:",omitempty"`
 
 	Creator *string `type:"string" json:",omitempty"`
@@ -484,6 +524,12 @@ func (s *InfoForCreateInstanceInput) SetAvailabilityZones(v []*AvailabilityZoneF
 // SetBg3Link sets the Bg3Link field's value.
 func (s *InfoForCreateInstanceInput) SetBg3Link(v string) *InfoForCreateInstanceInput {
 	s.Bg3Link = &v
+	return s
+}
+
+// SetBg3Links sets the Bg3Links field's value.
+func (s *InfoForCreateInstanceInput) SetBg3Links(v []*Bg3LinkForCreateInstanceInput) *InfoForCreateInstanceInput {
+	s.Bg3Links = v
 	return s
 }
 
