@@ -205,6 +205,44 @@ func (s *AvailabilityZoneForListInstanceOutput) SetSubnetName(v string) *Availab
 	return s
 }
 
+type Bg3LinkForListInstanceOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	AddressType *string `type:"string" json:",omitempty"`
+
+	AvailabilityZoneId *string `type:"string" json:",omitempty"`
+
+	Bg3Link *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s Bg3LinkForListInstanceOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s Bg3LinkForListInstanceOutput) GoString() string {
+	return s.String()
+}
+
+// SetAddressType sets the AddressType field's value.
+func (s *Bg3LinkForListInstanceOutput) SetAddressType(v string) *Bg3LinkForListInstanceOutput {
+	s.AddressType = &v
+	return s
+}
+
+// SetAvailabilityZoneId sets the AvailabilityZoneId field's value.
+func (s *Bg3LinkForListInstanceOutput) SetAvailabilityZoneId(v string) *Bg3LinkForListInstanceOutput {
+	s.AvailabilityZoneId = &v
+	return s
+}
+
+// SetBg3Link sets the Bg3Link field's value.
+func (s *Bg3LinkForListInstanceOutput) SetBg3Link(v string) *Bg3LinkForListInstanceOutput {
+	s.Bg3Link = &v
+	return s
+}
+
 type BytestoreInfoForListInstanceOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -314,6 +352,8 @@ type InfoForListInstanceOutput struct {
 
 	Bg3Link *string `type:"string" json:",omitempty"`
 
+	Bg3Links []*Bg3LinkForListInstanceOutput `type:"list" json:",omitempty"`
+
 	CreateTime *string `type:"string" json:",omitempty"`
 
 	Creator *string `type:"string" json:",omitempty"`
@@ -390,6 +430,12 @@ func (s *InfoForListInstanceOutput) SetAvailabilityZones(v []*AvailabilityZoneFo
 // SetBg3Link sets the Bg3Link field's value.
 func (s *InfoForListInstanceOutput) SetBg3Link(v string) *InfoForListInstanceOutput {
 	s.Bg3Link = &v
+	return s
+}
+
+// SetBg3Links sets the Bg3Links field's value.
+func (s *InfoForListInstanceOutput) SetBg3Links(v []*Bg3LinkForListInstanceOutput) *InfoForListInstanceOutput {
+	s.Bg3Links = v
 	return s
 }
 

@@ -27,6 +27,10 @@ type MultiModalEmbeddingRequest struct {
 	// Currently, only "float" and "base64" are supported, however, "base64" is not officially documented.
 	// If not specified will use "float".
 	EncodingFormat *EmbeddingEncodingFormat `json:"encoding_format,omitempty"`
+	// Dimensions Value range: 1024 or 2048.
+	// Specifies the dimensionality of the output embedding vector.
+	// This parameter is only supported in doubao-embedding-vision-250615 and later versions.
+	Dimensions *int `json:"dimensions,omitempty"`
 }
 
 type MultimodalEmbedding struct {

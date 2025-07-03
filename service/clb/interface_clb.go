@@ -38,6 +38,14 @@ type CLBAPI interface {
 	AddAclEntriesWithContext(volcengine.Context, *AddAclEntriesInput, ...request.Option) (*AddAclEntriesOutput, error)
 	AddAclEntriesRequest(*AddAclEntriesInput) (*request.Request, *AddAclEntriesOutput)
 
+	AddNLBBackendServersCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	AddNLBBackendServersCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	AddNLBBackendServersCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	AddNLBBackendServers(*AddNLBBackendServersInput) (*AddNLBBackendServersOutput, error)
+	AddNLBBackendServersWithContext(volcengine.Context, *AddNLBBackendServersInput, ...request.Option) (*AddNLBBackendServersOutput, error)
+	AddNLBBackendServersRequest(*AddNLBBackendServersInput) (*request.Request, *AddNLBBackendServersOutput)
+
 	AddServerGroupBackendServersCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	AddServerGroupBackendServersCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	AddServerGroupBackendServersCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -94,6 +102,38 @@ type CLBAPI interface {
 	CreateLoadBalancerWithContext(volcengine.Context, *CreateLoadBalancerInput, ...request.Option) (*CreateLoadBalancerOutput, error)
 	CreateLoadBalancerRequest(*CreateLoadBalancerInput) (*request.Request, *CreateLoadBalancerOutput)
 
+	CreateNLBListenerCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateNLBListenerCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateNLBListenerCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateNLBListener(*CreateNLBListenerInput) (*CreateNLBListenerOutput, error)
+	CreateNLBListenerWithContext(volcengine.Context, *CreateNLBListenerInput, ...request.Option) (*CreateNLBListenerOutput, error)
+	CreateNLBListenerRequest(*CreateNLBListenerInput) (*request.Request, *CreateNLBListenerOutput)
+
+	CreateNLBSecurityPolicyCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateNLBSecurityPolicyCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateNLBSecurityPolicyCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateNLBSecurityPolicy(*CreateNLBSecurityPolicyInput) (*CreateNLBSecurityPolicyOutput, error)
+	CreateNLBSecurityPolicyWithContext(volcengine.Context, *CreateNLBSecurityPolicyInput, ...request.Option) (*CreateNLBSecurityPolicyOutput, error)
+	CreateNLBSecurityPolicyRequest(*CreateNLBSecurityPolicyInput) (*request.Request, *CreateNLBSecurityPolicyOutput)
+
+	CreateNLBServerGroupCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateNLBServerGroupCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateNLBServerGroupCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateNLBServerGroup(*CreateNLBServerGroupInput) (*CreateNLBServerGroupOutput, error)
+	CreateNLBServerGroupWithContext(volcengine.Context, *CreateNLBServerGroupInput, ...request.Option) (*CreateNLBServerGroupOutput, error)
+	CreateNLBServerGroupRequest(*CreateNLBServerGroupInput) (*request.Request, *CreateNLBServerGroupOutput)
+
+	CreateNetworkLoadBalancerCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateNetworkLoadBalancerCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateNetworkLoadBalancerCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateNetworkLoadBalancer(*CreateNetworkLoadBalancerInput) (*CreateNetworkLoadBalancerOutput, error)
+	CreateNetworkLoadBalancerWithContext(volcengine.Context, *CreateNetworkLoadBalancerInput, ...request.Option) (*CreateNetworkLoadBalancerOutput, error)
+	CreateNetworkLoadBalancerRequest(*CreateNetworkLoadBalancerInput) (*request.Request, *CreateNetworkLoadBalancerOutput)
+
 	CreateRulesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	CreateRulesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	CreateRulesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -149,6 +189,38 @@ type CLBAPI interface {
 	DeleteLoadBalancer(*DeleteLoadBalancerInput) (*DeleteLoadBalancerOutput, error)
 	DeleteLoadBalancerWithContext(volcengine.Context, *DeleteLoadBalancerInput, ...request.Option) (*DeleteLoadBalancerOutput, error)
 	DeleteLoadBalancerRequest(*DeleteLoadBalancerInput) (*request.Request, *DeleteLoadBalancerOutput)
+
+	DeleteNLBListenerCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeleteNLBListenerCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeleteNLBListenerCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeleteNLBListener(*DeleteNLBListenerInput) (*DeleteNLBListenerOutput, error)
+	DeleteNLBListenerWithContext(volcengine.Context, *DeleteNLBListenerInput, ...request.Option) (*DeleteNLBListenerOutput, error)
+	DeleteNLBListenerRequest(*DeleteNLBListenerInput) (*request.Request, *DeleteNLBListenerOutput)
+
+	DeleteNLBSecurityPolicyCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeleteNLBSecurityPolicyCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeleteNLBSecurityPolicyCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeleteNLBSecurityPolicy(*DeleteNLBSecurityPolicyInput) (*DeleteNLBSecurityPolicyOutput, error)
+	DeleteNLBSecurityPolicyWithContext(volcengine.Context, *DeleteNLBSecurityPolicyInput, ...request.Option) (*DeleteNLBSecurityPolicyOutput, error)
+	DeleteNLBSecurityPolicyRequest(*DeleteNLBSecurityPolicyInput) (*request.Request, *DeleteNLBSecurityPolicyOutput)
+
+	DeleteNLBServerGroupCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeleteNLBServerGroupCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeleteNLBServerGroupCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeleteNLBServerGroup(*DeleteNLBServerGroupInput) (*DeleteNLBServerGroupOutput, error)
+	DeleteNLBServerGroupWithContext(volcengine.Context, *DeleteNLBServerGroupInput, ...request.Option) (*DeleteNLBServerGroupOutput, error)
+	DeleteNLBServerGroupRequest(*DeleteNLBServerGroupInput) (*request.Request, *DeleteNLBServerGroupOutput)
+
+	DeleteNetworkLoadBalancerCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeleteNetworkLoadBalancerCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeleteNetworkLoadBalancerCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeleteNetworkLoadBalancer(*DeleteNetworkLoadBalancerInput) (*DeleteNetworkLoadBalancerOutput, error)
+	DeleteNetworkLoadBalancerWithContext(volcengine.Context, *DeleteNetworkLoadBalancerInput, ...request.Option) (*DeleteNetworkLoadBalancerOutput, error)
+	DeleteNetworkLoadBalancerRequest(*DeleteNetworkLoadBalancerInput) (*request.Request, *DeleteNetworkLoadBalancerOutput)
 
 	DeleteRulesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DeleteRulesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -262,6 +334,94 @@ type CLBAPI interface {
 	DescribeLoadBalancersBillingWithContext(volcengine.Context, *DescribeLoadBalancersBillingInput, ...request.Option) (*DescribeLoadBalancersBillingOutput, error)
 	DescribeLoadBalancersBillingRequest(*DescribeLoadBalancersBillingInput) (*request.Request, *DescribeLoadBalancersBillingOutput)
 
+	DescribeNLBListenerAttributesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeNLBListenerAttributesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeNLBListenerAttributesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeNLBListenerAttributes(*DescribeNLBListenerAttributesInput) (*DescribeNLBListenerAttributesOutput, error)
+	DescribeNLBListenerAttributesWithContext(volcengine.Context, *DescribeNLBListenerAttributesInput, ...request.Option) (*DescribeNLBListenerAttributesOutput, error)
+	DescribeNLBListenerAttributesRequest(*DescribeNLBListenerAttributesInput) (*request.Request, *DescribeNLBListenerAttributesOutput)
+
+	DescribeNLBListenerCertificatesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeNLBListenerCertificatesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeNLBListenerCertificatesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeNLBListenerCertificates(*DescribeNLBListenerCertificatesInput) (*DescribeNLBListenerCertificatesOutput, error)
+	DescribeNLBListenerCertificatesWithContext(volcengine.Context, *DescribeNLBListenerCertificatesInput, ...request.Option) (*DescribeNLBListenerCertificatesOutput, error)
+	DescribeNLBListenerCertificatesRequest(*DescribeNLBListenerCertificatesInput) (*request.Request, *DescribeNLBListenerCertificatesOutput)
+
+	DescribeNLBListenerHealthCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeNLBListenerHealthCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeNLBListenerHealthCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeNLBListenerHealth(*DescribeNLBListenerHealthInput) (*DescribeNLBListenerHealthOutput, error)
+	DescribeNLBListenerHealthWithContext(volcengine.Context, *DescribeNLBListenerHealthInput, ...request.Option) (*DescribeNLBListenerHealthOutput, error)
+	DescribeNLBListenerHealthRequest(*DescribeNLBListenerHealthInput) (*request.Request, *DescribeNLBListenerHealthOutput)
+
+	DescribeNLBListenersCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeNLBListenersCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeNLBListenersCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeNLBListeners(*DescribeNLBListenersInput) (*DescribeNLBListenersOutput, error)
+	DescribeNLBListenersWithContext(volcengine.Context, *DescribeNLBListenersInput, ...request.Option) (*DescribeNLBListenersOutput, error)
+	DescribeNLBListenersRequest(*DescribeNLBListenersInput) (*request.Request, *DescribeNLBListenersOutput)
+
+	DescribeNLBSecurityPoliciesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeNLBSecurityPoliciesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeNLBSecurityPoliciesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeNLBSecurityPolicies(*DescribeNLBSecurityPoliciesInput) (*DescribeNLBSecurityPoliciesOutput, error)
+	DescribeNLBSecurityPoliciesWithContext(volcengine.Context, *DescribeNLBSecurityPoliciesInput, ...request.Option) (*DescribeNLBSecurityPoliciesOutput, error)
+	DescribeNLBSecurityPoliciesRequest(*DescribeNLBSecurityPoliciesInput) (*request.Request, *DescribeNLBSecurityPoliciesOutput)
+
+	DescribeNLBServerGroupAttributesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeNLBServerGroupAttributesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeNLBServerGroupAttributesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeNLBServerGroupAttributes(*DescribeNLBServerGroupAttributesInput) (*DescribeNLBServerGroupAttributesOutput, error)
+	DescribeNLBServerGroupAttributesWithContext(volcengine.Context, *DescribeNLBServerGroupAttributesInput, ...request.Option) (*DescribeNLBServerGroupAttributesOutput, error)
+	DescribeNLBServerGroupAttributesRequest(*DescribeNLBServerGroupAttributesInput) (*request.Request, *DescribeNLBServerGroupAttributesOutput)
+
+	DescribeNLBServerGroupsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeNLBServerGroupsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeNLBServerGroupsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeNLBServerGroups(*DescribeNLBServerGroupsInput) (*DescribeNLBServerGroupsOutput, error)
+	DescribeNLBServerGroupsWithContext(volcengine.Context, *DescribeNLBServerGroupsInput, ...request.Option) (*DescribeNLBServerGroupsOutput, error)
+	DescribeNLBServerGroupsRequest(*DescribeNLBServerGroupsInput) (*request.Request, *DescribeNLBServerGroupsOutput)
+
+	DescribeNLBSystemSecurityPoliciesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeNLBSystemSecurityPoliciesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeNLBSystemSecurityPoliciesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeNLBSystemSecurityPolicies(*DescribeNLBSystemSecurityPoliciesInput) (*DescribeNLBSystemSecurityPoliciesOutput, error)
+	DescribeNLBSystemSecurityPoliciesWithContext(volcengine.Context, *DescribeNLBSystemSecurityPoliciesInput, ...request.Option) (*DescribeNLBSystemSecurityPoliciesOutput, error)
+	DescribeNLBSystemSecurityPoliciesRequest(*DescribeNLBSystemSecurityPoliciesInput) (*request.Request, *DescribeNLBSystemSecurityPoliciesOutput)
+
+	DescribeNLBZonesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeNLBZonesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeNLBZonesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeNLBZones(*DescribeNLBZonesInput) (*DescribeNLBZonesOutput, error)
+	DescribeNLBZonesWithContext(volcengine.Context, *DescribeNLBZonesInput, ...request.Option) (*DescribeNLBZonesOutput, error)
+	DescribeNLBZonesRequest(*DescribeNLBZonesInput) (*request.Request, *DescribeNLBZonesOutput)
+
+	DescribeNetworkLoadBalancerAttributesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeNetworkLoadBalancerAttributesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeNetworkLoadBalancerAttributesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeNetworkLoadBalancerAttributes(*DescribeNetworkLoadBalancerAttributesInput) (*DescribeNetworkLoadBalancerAttributesOutput, error)
+	DescribeNetworkLoadBalancerAttributesWithContext(volcengine.Context, *DescribeNetworkLoadBalancerAttributesInput, ...request.Option) (*DescribeNetworkLoadBalancerAttributesOutput, error)
+	DescribeNetworkLoadBalancerAttributesRequest(*DescribeNetworkLoadBalancerAttributesInput) (*request.Request, *DescribeNetworkLoadBalancerAttributesOutput)
+
+	DescribeNetworkLoadBalancersCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeNetworkLoadBalancersCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeNetworkLoadBalancersCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeNetworkLoadBalancers(*DescribeNetworkLoadBalancersInput) (*DescribeNetworkLoadBalancersOutput, error)
+	DescribeNetworkLoadBalancersWithContext(volcengine.Context, *DescribeNetworkLoadBalancersInput, ...request.Option) (*DescribeNetworkLoadBalancersOutput, error)
+	DescribeNetworkLoadBalancersRequest(*DescribeNetworkLoadBalancersInput) (*request.Request, *DescribeNetworkLoadBalancersOutput)
+
 	DescribeRulesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DescribeRulesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DescribeRulesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -318,6 +478,14 @@ type CLBAPI interface {
 	EnableAccessLogWithContext(volcengine.Context, *EnableAccessLogInput, ...request.Option) (*EnableAccessLogOutput, error)
 	EnableAccessLogRequest(*EnableAccessLogInput) (*request.Request, *EnableAccessLogOutput)
 
+	ListTagsForNLBResourcesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListTagsForNLBResourcesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListTagsForNLBResourcesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListTagsForNLBResources(*ListTagsForNLBResourcesInput) (*ListTagsForNLBResourcesOutput, error)
+	ListTagsForNLBResourcesWithContext(volcengine.Context, *ListTagsForNLBResourcesInput, ...request.Option) (*ListTagsForNLBResourcesOutput, error)
+	ListTagsForNLBResourcesRequest(*ListTagsForNLBResourcesInput) (*request.Request, *ListTagsForNLBResourcesOutput)
+
 	ListTagsForResourcesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ListTagsForResourcesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	ListTagsForResourcesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -358,6 +526,78 @@ type CLBAPI interface {
 	ModifyLoadBalancerAttributesWithContext(volcengine.Context, *ModifyLoadBalancerAttributesInput, ...request.Option) (*ModifyLoadBalancerAttributesOutput, error)
 	ModifyLoadBalancerAttributesRequest(*ModifyLoadBalancerAttributesInput) (*request.Request, *ModifyLoadBalancerAttributesOutput)
 
+	ModifyNLBBackendServersAttributesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ModifyNLBBackendServersAttributesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ModifyNLBBackendServersAttributesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ModifyNLBBackendServersAttributes(*ModifyNLBBackendServersAttributesInput) (*ModifyNLBBackendServersAttributesOutput, error)
+	ModifyNLBBackendServersAttributesWithContext(volcengine.Context, *ModifyNLBBackendServersAttributesInput, ...request.Option) (*ModifyNLBBackendServersAttributesOutput, error)
+	ModifyNLBBackendServersAttributesRequest(*ModifyNLBBackendServersAttributesInput) (*request.Request, *ModifyNLBBackendServersAttributesOutput)
+
+	ModifyNLBListenerAttributesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ModifyNLBListenerAttributesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ModifyNLBListenerAttributesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ModifyNLBListenerAttributes(*ModifyNLBListenerAttributesInput) (*ModifyNLBListenerAttributesOutput, error)
+	ModifyNLBListenerAttributesWithContext(volcengine.Context, *ModifyNLBListenerAttributesInput, ...request.Option) (*ModifyNLBListenerAttributesOutput, error)
+	ModifyNLBListenerAttributesRequest(*ModifyNLBListenerAttributesInput) (*request.Request, *ModifyNLBListenerAttributesOutput)
+
+	ModifyNLBSecurityPolicyAttributesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ModifyNLBSecurityPolicyAttributesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ModifyNLBSecurityPolicyAttributesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ModifyNLBSecurityPolicyAttributes(*ModifyNLBSecurityPolicyAttributesInput) (*ModifyNLBSecurityPolicyAttributesOutput, error)
+	ModifyNLBSecurityPolicyAttributesWithContext(volcengine.Context, *ModifyNLBSecurityPolicyAttributesInput, ...request.Option) (*ModifyNLBSecurityPolicyAttributesOutput, error)
+	ModifyNLBSecurityPolicyAttributesRequest(*ModifyNLBSecurityPolicyAttributesInput) (*request.Request, *ModifyNLBSecurityPolicyAttributesOutput)
+
+	ModifyNLBServerGroupAttributesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ModifyNLBServerGroupAttributesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ModifyNLBServerGroupAttributesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ModifyNLBServerGroupAttributes(*ModifyNLBServerGroupAttributesInput) (*ModifyNLBServerGroupAttributesOutput, error)
+	ModifyNLBServerGroupAttributesWithContext(volcengine.Context, *ModifyNLBServerGroupAttributesInput, ...request.Option) (*ModifyNLBServerGroupAttributesOutput, error)
+	ModifyNLBServerGroupAttributesRequest(*ModifyNLBServerGroupAttributesInput) (*request.Request, *ModifyNLBServerGroupAttributesOutput)
+
+	ModifyNetworkLoadBalancerAttributesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ModifyNetworkLoadBalancerAttributesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ModifyNetworkLoadBalancerAttributesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ModifyNetworkLoadBalancerAttributes(*ModifyNetworkLoadBalancerAttributesInput) (*ModifyNetworkLoadBalancerAttributesOutput, error)
+	ModifyNetworkLoadBalancerAttributesWithContext(volcengine.Context, *ModifyNetworkLoadBalancerAttributesInput, ...request.Option) (*ModifyNetworkLoadBalancerAttributesOutput, error)
+	ModifyNetworkLoadBalancerAttributesRequest(*ModifyNetworkLoadBalancerAttributesInput) (*request.Request, *ModifyNetworkLoadBalancerAttributesOutput)
+
+	ModifyNetworkLoadBalancerBandwidthPackageCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ModifyNetworkLoadBalancerBandwidthPackageCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ModifyNetworkLoadBalancerBandwidthPackageCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ModifyNetworkLoadBalancerBandwidthPackage(*ModifyNetworkLoadBalancerBandwidthPackageInput) (*ModifyNetworkLoadBalancerBandwidthPackageOutput, error)
+	ModifyNetworkLoadBalancerBandwidthPackageWithContext(volcengine.Context, *ModifyNetworkLoadBalancerBandwidthPackageInput, ...request.Option) (*ModifyNetworkLoadBalancerBandwidthPackageOutput, error)
+	ModifyNetworkLoadBalancerBandwidthPackageRequest(*ModifyNetworkLoadBalancerBandwidthPackageInput) (*request.Request, *ModifyNetworkLoadBalancerBandwidthPackageOutput)
+
+	ModifyNetworkLoadBalancerNetworkTypeCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ModifyNetworkLoadBalancerNetworkTypeCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ModifyNetworkLoadBalancerNetworkTypeCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ModifyNetworkLoadBalancerNetworkType(*ModifyNetworkLoadBalancerNetworkTypeInput) (*ModifyNetworkLoadBalancerNetworkTypeOutput, error)
+	ModifyNetworkLoadBalancerNetworkTypeWithContext(volcengine.Context, *ModifyNetworkLoadBalancerNetworkTypeInput, ...request.Option) (*ModifyNetworkLoadBalancerNetworkTypeOutput, error)
+	ModifyNetworkLoadBalancerNetworkTypeRequest(*ModifyNetworkLoadBalancerNetworkTypeInput) (*request.Request, *ModifyNetworkLoadBalancerNetworkTypeOutput)
+
+	ModifyNetworkLoadBalancerSecurityGroupsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ModifyNetworkLoadBalancerSecurityGroupsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ModifyNetworkLoadBalancerSecurityGroupsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ModifyNetworkLoadBalancerSecurityGroups(*ModifyNetworkLoadBalancerSecurityGroupsInput) (*ModifyNetworkLoadBalancerSecurityGroupsOutput, error)
+	ModifyNetworkLoadBalancerSecurityGroupsWithContext(volcengine.Context, *ModifyNetworkLoadBalancerSecurityGroupsInput, ...request.Option) (*ModifyNetworkLoadBalancerSecurityGroupsOutput, error)
+	ModifyNetworkLoadBalancerSecurityGroupsRequest(*ModifyNetworkLoadBalancerSecurityGroupsInput) (*request.Request, *ModifyNetworkLoadBalancerSecurityGroupsOutput)
+
+	ModifyNetworkLoadBalancerZonesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ModifyNetworkLoadBalancerZonesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ModifyNetworkLoadBalancerZonesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ModifyNetworkLoadBalancerZones(*ModifyNetworkLoadBalancerZonesInput) (*ModifyNetworkLoadBalancerZonesOutput, error)
+	ModifyNetworkLoadBalancerZonesWithContext(volcengine.Context, *ModifyNetworkLoadBalancerZonesInput, ...request.Option) (*ModifyNetworkLoadBalancerZonesOutput, error)
+	ModifyNetworkLoadBalancerZonesRequest(*ModifyNetworkLoadBalancerZonesInput) (*request.Request, *ModifyNetworkLoadBalancerZonesOutput)
+
 	ModifyRulesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ModifyRulesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	ModifyRulesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -381,6 +621,14 @@ type CLBAPI interface {
 	RemoveAclEntries(*RemoveAclEntriesInput) (*RemoveAclEntriesOutput, error)
 	RemoveAclEntriesWithContext(volcengine.Context, *RemoveAclEntriesInput, ...request.Option) (*RemoveAclEntriesOutput, error)
 	RemoveAclEntriesRequest(*RemoveAclEntriesInput) (*request.Request, *RemoveAclEntriesOutput)
+
+	RemoveNLBBackendServersCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	RemoveNLBBackendServersCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	RemoveNLBBackendServersCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	RemoveNLBBackendServers(*RemoveNLBBackendServersInput) (*RemoveNLBBackendServersOutput, error)
+	RemoveNLBBackendServersWithContext(volcengine.Context, *RemoveNLBBackendServersInput, ...request.Option) (*RemoveNLBBackendServersOutput, error)
+	RemoveNLBBackendServersRequest(*RemoveNLBBackendServersInput) (*request.Request, *RemoveNLBBackendServersOutput)
 
 	RemoveServerGroupBackendServersCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	RemoveServerGroupBackendServersCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -406,6 +654,14 @@ type CLBAPI interface {
 	SetLoadBalancerRenewalWithContext(volcengine.Context, *SetLoadBalancerRenewalInput, ...request.Option) (*SetLoadBalancerRenewalOutput, error)
 	SetLoadBalancerRenewalRequest(*SetLoadBalancerRenewalInput) (*request.Request, *SetLoadBalancerRenewalOutput)
 
+	TagNLBResourcesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	TagNLBResourcesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	TagNLBResourcesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	TagNLBResources(*TagNLBResourcesInput) (*TagNLBResourcesOutput, error)
+	TagNLBResourcesWithContext(volcengine.Context, *TagNLBResourcesInput, ...request.Option) (*TagNLBResourcesOutput, error)
+	TagNLBResourcesRequest(*TagNLBResourcesInput) (*request.Request, *TagNLBResourcesOutput)
+
 	TagResourcesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	TagResourcesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	TagResourcesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -413,6 +669,14 @@ type CLBAPI interface {
 	TagResources(*TagResourcesInput) (*TagResourcesOutput, error)
 	TagResourcesWithContext(volcengine.Context, *TagResourcesInput, ...request.Option) (*TagResourcesOutput, error)
 	TagResourcesRequest(*TagResourcesInput) (*request.Request, *TagResourcesOutput)
+
+	UntagNLBResourcesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	UntagNLBResourcesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	UntagNLBResourcesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	UntagNLBResources(*UntagNLBResourcesInput) (*UntagNLBResourcesOutput, error)
+	UntagNLBResourcesWithContext(volcengine.Context, *UntagNLBResourcesInput, ...request.Option) (*UntagNLBResourcesOutput, error)
+	UntagNLBResourcesRequest(*UntagNLBResourcesInput) (*request.Request, *UntagNLBResourcesOutput)
 
 	UntagResourcesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	UntagResourcesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
