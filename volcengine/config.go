@@ -80,6 +80,15 @@ type Config struct {
 	// to `false`.
 	DisableSSL *bool
 
+	// HTTProxy is used to set the http proxy.
+	HTTPProxy *string
+
+	// HTTPSProxy is used to set the https proxy.
+	HTTPSProxy *string
+
+	// NoProxy is used to set the no proxy.
+	NoProxy *string
+
 	// The HTTP client to use when sending requests. Defaults to
 	// `http.DefaultClient`.
 	HTTPClient *http.Client
@@ -450,6 +459,27 @@ func (c *Config) WithDisableSSL(disable bool) *Config {
 	return c
 }
 
+// WithHTTPProxy sets a config HTTPProxy value returning a Config pointer
+// for chaining.
+func (c *Config) WithHTTPProxy(httpProxy string) *Config {
+	c.HTTPProxy = &httpProxy
+	return c
+}
+
+// WithHTTPSProxy sets a config HTTPSProxy value returning a Config pointer
+// for chaining.
+func (c *Config) WithHTTPSProxy(httpsProxy string) *Config {
+	c.HTTPSProxy = &httpsProxy
+	return c
+}
+
+// WithNoProxy sets a config NoProxy value returning a Config pointer
+// for chaining.
+func (c *Config) WithNoProxy(noProxy string) *Config {
+	c.NoProxy = &noProxy
+	return c
+}
+
 // WithHTTPClient sets a config HTTPClient value returning a Config pointer
 // for chaining.
 func (c *Config) WithHTTPClient(client *http.Client) *Config {
@@ -606,6 +636,18 @@ func mergeInConfig(dst *Config, other *Config) {
 
 	if other.DisableSSL != nil {
 		dst.DisableSSL = other.DisableSSL
+	}
+
+	if other.HTTPProxy != nil {
+		dst.HTTPProxy = other.HTTPProxy
+	}
+
+	if other.HTTPSProxy != nil {
+		dst.HTTPSProxy = other.HTTPSProxy
+	}
+
+	if other.NoProxy != nil {
+		dst.NoProxy = other.NoProxy
 	}
 
 	if other.HTTPClient != nil {
