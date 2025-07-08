@@ -623,9 +623,9 @@ func (s *Session) clientConfigWithErr(serviceName string, cfgs ...*volcengine.Co
 		if s.Config.DisableSSL != nil && *s.Config.DisableSSL {
 			if s.Config.HTTPProxy != nil && *s.Config.HTTPProxy != "" {
 				proxy, err = url.Parse(*s.Config.HTTPProxy)
-			} else if r := os.Getenv("HTTPS_PROXY"); r != "" {
+			} else if r := os.Getenv("HTTP_PROXY"); r != "" {
 				proxy, err = url.Parse(r)
-			} else if r = os.Getenv("https_proxy"); r != "" {
+			} else if r = os.Getenv("http_proxy"); r != "" {
 				proxy, err = url.Parse(r)
 			}
 		} else {
