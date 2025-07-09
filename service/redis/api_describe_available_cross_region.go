@@ -145,6 +145,9 @@ func (c *REDIS) DescribeAvailableCrossRegionWithContext(ctx volcengine.Context, 
 
 type DescribeAvailableCrossRegionInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
+
+	// InstanceId is a required field
+	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -157,10 +160,31 @@ func (s DescribeAvailableCrossRegionInput) GoString() string {
 	return s.String()
 }
 
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DescribeAvailableCrossRegionInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DescribeAvailableCrossRegionInput"}
+	if s.InstanceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("InstanceId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetInstanceId sets the InstanceId field's value.
+func (s *DescribeAvailableCrossRegionInput) SetInstanceId(v string) *DescribeAvailableCrossRegionInput {
+	s.InstanceId = &v
+	return s
+}
+
 type DescribeAvailableCrossRegionOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
+
+	TargetRegionIds []*string `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -171,4 +195,10 @@ func (s DescribeAvailableCrossRegionOutput) String() string {
 // GoString returns the string representation
 func (s DescribeAvailableCrossRegionOutput) GoString() string {
 	return s.String()
+}
+
+// SetTargetRegionIds sets the TargetRegionIds field's value.
+func (s *DescribeAvailableCrossRegionOutput) SetTargetRegionIds(v []*string) *DescribeAvailableCrossRegionOutput {
+	s.TargetRegionIds = v
+	return s
 }
