@@ -243,8 +243,62 @@ func (s *DcInfoForListPodOutput) SetZoneId(v string) *DcInfoForListPodOutput {
 	return s
 }
 
+type DisplayStatusForListPodOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s DisplayStatusForListPodOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DisplayStatusForListPodOutput) GoString() string {
+	return s.String()
+}
+
+type EipForListPodOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	EipAddress *string `type:"string" json:",omitempty"`
+
+	EipId *string `type:"string" json:",omitempty"`
+
+	Isp *int32 `type:"int32" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s EipForListPodOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s EipForListPodOutput) GoString() string {
+	return s.String()
+}
+
+// SetEipAddress sets the EipAddress field's value.
+func (s *EipForListPodOutput) SetEipAddress(v string) *EipForListPodOutput {
+	s.EipAddress = &v
+	return s
+}
+
+// SetEipId sets the EipId field's value.
+func (s *EipForListPodOutput) SetEipId(v string) *EipForListPodOutput {
+	s.EipId = &v
+	return s
+}
+
+// SetIsp sets the Isp field's value.
+func (s *EipForListPodOutput) SetIsp(v int32) *EipForListPodOutput {
+	s.Isp = &v
+	return s
+}
+
 type ListPodInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
+
+	ArchiveStatus *string `type:"string" json:",omitempty"`
 
 	AuthorityStatus *int32 `type:"int32" json:",omitempty"`
 
@@ -301,6 +355,12 @@ func (s *ListPodInput) Validate() error {
 		return invalidParams
 	}
 	return nil
+}
+
+// SetArchiveStatus sets the ArchiveStatus field's value.
+func (s *ListPodInput) SetArchiveStatus(v string) *ListPodInput {
+	s.ArchiveStatus = &v
+	return s
 }
 
 // SetAuthorityStatus sets the AuthorityStatus field's value.
@@ -550,9 +610,13 @@ type RowForListPodOutput struct {
 
 	AospVersion *string `type:"string" json:",omitempty"`
 
+	ArchiveStatus *int32 `type:"int32" json:",omitempty"`
+
 	AuthorityExpireTime *int64 `type:"int64" json:",omitempty"`
 
 	AuthorityStatus *int32 `type:"int32" json:",omitempty"`
+
+	CidrBlock *string `type:"string" json:",omitempty"`
 
 	Configuration *ConfigurationForListPodOutput `type:"structure" json:",omitempty"`
 
@@ -568,7 +632,11 @@ type RowForListPodOutput struct {
 
 	DisplayLayoutId *string `type:"string" json:",omitempty"`
 
+	DisplayStatus *DisplayStatusForListPodOutput `type:"structure" json:",omitempty"`
+
 	DownBandwidthLimit *int32 `type:"int32" json:",omitempty"`
+
+	Eip *EipForListPodOutput `type:"structure" json:",omitempty"`
 
 	HostId *string `type:"string" json:",omitempty"`
 
@@ -587,6 +655,8 @@ type RowForListPodOutput struct {
 	PortMappingRuleList []*PortMappingRuleListForListPodOutput `type:"list" json:",omitempty"`
 
 	ProductId *string `type:"string" json:",omitempty"`
+
+	SNATId *string `type:"string" json:",omitempty"`
 
 	ServerTypeCode *string `type:"string" json:",omitempty"`
 
@@ -631,6 +701,12 @@ func (s *RowForListPodOutput) SetAospVersion(v string) *RowForListPodOutput {
 	return s
 }
 
+// SetArchiveStatus sets the ArchiveStatus field's value.
+func (s *RowForListPodOutput) SetArchiveStatus(v int32) *RowForListPodOutput {
+	s.ArchiveStatus = &v
+	return s
+}
+
 // SetAuthorityExpireTime sets the AuthorityExpireTime field's value.
 func (s *RowForListPodOutput) SetAuthorityExpireTime(v int64) *RowForListPodOutput {
 	s.AuthorityExpireTime = &v
@@ -640,6 +716,12 @@ func (s *RowForListPodOutput) SetAuthorityExpireTime(v int64) *RowForListPodOutp
 // SetAuthorityStatus sets the AuthorityStatus field's value.
 func (s *RowForListPodOutput) SetAuthorityStatus(v int32) *RowForListPodOutput {
 	s.AuthorityStatus = &v
+	return s
+}
+
+// SetCidrBlock sets the CidrBlock field's value.
+func (s *RowForListPodOutput) SetCidrBlock(v string) *RowForListPodOutput {
+	s.CidrBlock = &v
 	return s
 }
 
@@ -685,9 +767,21 @@ func (s *RowForListPodOutput) SetDisplayLayoutId(v string) *RowForListPodOutput 
 	return s
 }
 
+// SetDisplayStatus sets the DisplayStatus field's value.
+func (s *RowForListPodOutput) SetDisplayStatus(v *DisplayStatusForListPodOutput) *RowForListPodOutput {
+	s.DisplayStatus = v
+	return s
+}
+
 // SetDownBandwidthLimit sets the DownBandwidthLimit field's value.
 func (s *RowForListPodOutput) SetDownBandwidthLimit(v int32) *RowForListPodOutput {
 	s.DownBandwidthLimit = &v
+	return s
+}
+
+// SetEip sets the Eip field's value.
+func (s *RowForListPodOutput) SetEip(v *EipForListPodOutput) *RowForListPodOutput {
+	s.Eip = v
 	return s
 }
 
@@ -742,6 +836,12 @@ func (s *RowForListPodOutput) SetPortMappingRuleList(v []*PortMappingRuleListFor
 // SetProductId sets the ProductId field's value.
 func (s *RowForListPodOutput) SetProductId(v string) *RowForListPodOutput {
 	s.ProductId = &v
+	return s
+}
+
+// SetSNATId sets the SNATId field's value.
+func (s *RowForListPodOutput) SetSNATId(v string) *RowForListPodOutput {
+	s.SNATId = &v
 	return s
 }
 
