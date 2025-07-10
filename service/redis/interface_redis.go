@@ -102,6 +102,14 @@ type REDISAPI interface {
 	CreateEnterpriseDBInstanceWithContext(volcengine.Context, *CreateEnterpriseDBInstanceInput, ...request.Option) (*CreateEnterpriseDBInstanceOutput, error)
 	CreateEnterpriseDBInstanceRequest(*CreateEnterpriseDBInstanceInput) (*request.Request, *CreateEnterpriseDBInstanceOutput)
 
+	CreateKeyScanJobCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateKeyScanJobCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateKeyScanJobCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateKeyScanJob(*CreateKeyScanJobInput) (*CreateKeyScanJobOutput, error)
+	CreateKeyScanJobWithContext(volcengine.Context, *CreateKeyScanJobInput, ...request.Option) (*CreateKeyScanJobOutput, error)
+	CreateKeyScanJobRequest(*CreateKeyScanJobInput) (*request.Request, *CreateKeyScanJobOutput)
+
 	CreateParameterGroupCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	CreateParameterGroupCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	CreateParameterGroupCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -230,13 +238,13 @@ type REDISAPI interface {
 	DescribeBigKeysWithContext(volcengine.Context, *DescribeBigKeysInput, ...request.Option) (*DescribeBigKeysOutput, error)
 	DescribeBigKeysRequest(*DescribeBigKeysInput) (*request.Request, *DescribeBigKeysOutput)
 
-	DescribeCrossBackupPolicyCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	DescribeCrossBackupPolicyCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	DescribeCrossBackupPolicyCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+	DescribeCrossRegionBackupPolicyCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeCrossRegionBackupPolicyCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeCrossRegionBackupPolicyCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
 
-	DescribeCrossBackupPolicy(*DescribeCrossBackupPolicyInput) (*DescribeCrossBackupPolicyOutput, error)
-	DescribeCrossBackupPolicyWithContext(volcengine.Context, *DescribeCrossBackupPolicyInput, ...request.Option) (*DescribeCrossBackupPolicyOutput, error)
-	DescribeCrossBackupPolicyRequest(*DescribeCrossBackupPolicyInput) (*request.Request, *DescribeCrossBackupPolicyOutput)
+	DescribeCrossRegionBackupPolicy(*DescribeCrossRegionBackupPolicyInput) (*DescribeCrossRegionBackupPolicyOutput, error)
+	DescribeCrossRegionBackupPolicyWithContext(volcengine.Context, *DescribeCrossRegionBackupPolicyInput, ...request.Option) (*DescribeCrossRegionBackupPolicyOutput, error)
+	DescribeCrossRegionBackupPolicyRequest(*DescribeCrossRegionBackupPolicyInput) (*request.Request, *DescribeCrossRegionBackupPolicyOutput)
 
 	DescribeCrossRegionBackupsCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DescribeCrossRegionBackupsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -245,6 +253,22 @@ type REDISAPI interface {
 	DescribeCrossRegionBackups(*DescribeCrossRegionBackupsInput) (*DescribeCrossRegionBackupsOutput, error)
 	DescribeCrossRegionBackupsWithContext(volcengine.Context, *DescribeCrossRegionBackupsInput, ...request.Option) (*DescribeCrossRegionBackupsOutput, error)
 	DescribeCrossRegionBackupsRequest(*DescribeCrossRegionBackupsInput) (*request.Request, *DescribeCrossRegionBackupsOutput)
+
+	DescribeDBInstanceAclCategoriesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeDBInstanceAclCategoriesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeDBInstanceAclCategoriesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeDBInstanceAclCategories(*DescribeDBInstanceAclCategoriesInput) (*DescribeDBInstanceAclCategoriesOutput, error)
+	DescribeDBInstanceAclCategoriesWithContext(volcengine.Context, *DescribeDBInstanceAclCategoriesInput, ...request.Option) (*DescribeDBInstanceAclCategoriesOutput, error)
+	DescribeDBInstanceAclCategoriesRequest(*DescribeDBInstanceAclCategoriesInput) (*request.Request, *DescribeDBInstanceAclCategoriesOutput)
+
+	DescribeDBInstanceAclCommandsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeDBInstanceAclCommandsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeDBInstanceAclCommandsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeDBInstanceAclCommands(*DescribeDBInstanceAclCommandsInput) (*DescribeDBInstanceAclCommandsOutput, error)
+	DescribeDBInstanceAclCommandsWithContext(volcengine.Context, *DescribeDBInstanceAclCommandsInput, ...request.Option) (*DescribeDBInstanceAclCommandsOutput, error)
+	DescribeDBInstanceAclCommandsRequest(*DescribeDBInstanceAclCommandsInput) (*request.Request, *DescribeDBInstanceAclCommandsOutput)
 
 	DescribeDBInstanceBandwidthPerShardCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DescribeDBInstanceBandwidthPerShardCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -318,14 +342,6 @@ type REDISAPI interface {
 	DescribeEnterpriseDBInstanceSpecsWithContext(volcengine.Context, *DescribeEnterpriseDBInstanceSpecsInput, ...request.Option) (*DescribeEnterpriseDBInstanceSpecsOutput, error)
 	DescribeEnterpriseDBInstanceSpecsRequest(*DescribeEnterpriseDBInstanceSpecsInput) (*request.Request, *DescribeEnterpriseDBInstanceSpecsOutput)
 
-	DescribeEnterpriseSlowLogsCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	DescribeEnterpriseSlowLogsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	DescribeEnterpriseSlowLogsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	DescribeEnterpriseSlowLogs(*DescribeEnterpriseSlowLogsInput) (*DescribeEnterpriseSlowLogsOutput, error)
-	DescribeEnterpriseSlowLogsWithContext(volcengine.Context, *DescribeEnterpriseSlowLogsInput, ...request.Option) (*DescribeEnterpriseSlowLogsOutput, error)
-	DescribeEnterpriseSlowLogsRequest(*DescribeEnterpriseSlowLogsInput) (*request.Request, *DescribeEnterpriseSlowLogsOutput)
-
 	DescribeEnterpriseZonesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DescribeEnterpriseZonesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DescribeEnterpriseZonesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -341,6 +357,14 @@ type REDISAPI interface {
 	DescribeHotKeys(*DescribeHotKeysInput) (*DescribeHotKeysOutput, error)
 	DescribeHotKeysWithContext(volcengine.Context, *DescribeHotKeysInput, ...request.Option) (*DescribeHotKeysOutput, error)
 	DescribeHotKeysRequest(*DescribeHotKeysInput) (*request.Request, *DescribeHotKeysOutput)
+
+	DescribeKeyScanJobsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeKeyScanJobsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeKeyScanJobsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeKeyScanJobs(*DescribeKeyScanJobsInput) (*DescribeKeyScanJobsOutput, error)
+	DescribeKeyScanJobsWithContext(volcengine.Context, *DescribeKeyScanJobsInput, ...request.Option) (*DescribeKeyScanJobsOutput, error)
+	DescribeKeyScanJobsRequest(*DescribeKeyScanJobsInput) (*request.Request, *DescribeKeyScanJobsOutput)
 
 	DescribeNodeIdsCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DescribeNodeIdsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -478,13 +502,13 @@ type REDISAPI interface {
 	ModifyBackupPlanWithContext(volcengine.Context, *ModifyBackupPlanInput, ...request.Option) (*ModifyBackupPlanOutput, error)
 	ModifyBackupPlanRequest(*ModifyBackupPlanInput) (*request.Request, *ModifyBackupPlanOutput)
 
-	ModifyCrossBackupPolicyCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	ModifyCrossBackupPolicyCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	ModifyCrossBackupPolicyCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+	ModifyCrossRegionBackupPolicyCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ModifyCrossRegionBackupPolicyCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ModifyCrossRegionBackupPolicyCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
 
-	ModifyCrossBackupPolicy(*ModifyCrossBackupPolicyInput) (*ModifyCrossBackupPolicyOutput, error)
-	ModifyCrossBackupPolicyWithContext(volcengine.Context, *ModifyCrossBackupPolicyInput, ...request.Option) (*ModifyCrossBackupPolicyOutput, error)
-	ModifyCrossBackupPolicyRequest(*ModifyCrossBackupPolicyInput) (*request.Request, *ModifyCrossBackupPolicyOutput)
+	ModifyCrossRegionBackupPolicy(*ModifyCrossRegionBackupPolicyInput) (*ModifyCrossRegionBackupPolicyOutput, error)
+	ModifyCrossRegionBackupPolicyWithContext(volcengine.Context, *ModifyCrossRegionBackupPolicyInput, ...request.Option) (*ModifyCrossRegionBackupPolicyOutput, error)
+	ModifyCrossRegionBackupPolicyRequest(*ModifyCrossRegionBackupPolicyInput) (*request.Request, *ModifyCrossRegionBackupPolicyOutput)
 
 	ModifyDBAccountCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ModifyDBAccountCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -685,22 +709,6 @@ type REDISAPI interface {
 	SwitchOver(*SwitchOverInput) (*SwitchOverOutput, error)
 	SwitchOverWithContext(volcengine.Context, *SwitchOverInput, ...request.Option) (*SwitchOverOutput, error)
 	SwitchOverRequest(*SwitchOverInput) (*request.Request, *SwitchOverOutput)
-
-	TagResourcesCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	TagResourcesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	TagResourcesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	TagResources(*TagResourcesInput) (*TagResourcesOutput, error)
-	TagResourcesWithContext(volcengine.Context, *TagResourcesInput, ...request.Option) (*TagResourcesOutput, error)
-	TagResourcesRequest(*TagResourcesInput) (*request.Request, *TagResourcesOutput)
-
-	UnTagResourcesCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	UnTagResourcesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	UnTagResourcesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	UnTagResources(*UnTagResourcesInput) (*UnTagResourcesOutput, error)
-	UnTagResourcesWithContext(volcengine.Context, *UnTagResourcesInput, ...request.Option) (*UnTagResourcesOutput, error)
-	UnTagResourcesRequest(*UnTagResourcesInput) (*request.Request, *UnTagResourcesOutput)
 
 	UpgradeAllowListVersionCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	UpgradeAllowListVersionCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
