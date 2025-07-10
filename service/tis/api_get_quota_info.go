@@ -143,6 +143,36 @@ func (c *TIS) GetQuotaInfoWithContext(ctx volcengine.Context, input *GetQuotaInf
 	return out, req.Send()
 }
 
+type DeviceInfoListForGetQuotaInfoOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	FieldName *string `type:"string" json:"fieldName,omitempty"`
+
+	FieldValue *string `type:"string" json:"fieldValue,omitempty"`
+}
+
+// String returns the string representation
+func (s DeviceInfoListForGetQuotaInfoOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DeviceInfoListForGetQuotaInfoOutput) GoString() string {
+	return s.String()
+}
+
+// SetFieldName sets the FieldName field's value.
+func (s *DeviceInfoListForGetQuotaInfoOutput) SetFieldName(v string) *DeviceInfoListForGetQuotaInfoOutput {
+	s.FieldName = &v
+	return s
+}
+
+// SetFieldValue sets the FieldValue field's value.
+func (s *DeviceInfoListForGetQuotaInfoOutput) SetFieldValue(v string) *DeviceInfoListForGetQuotaInfoOutput {
+	s.FieldValue = &v
+	return s
+}
+
 type GetQuotaInfoInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -196,6 +226,8 @@ type GetQuotaInfoOutput struct {
 
 	Metadata *response.ResponseMetadata
 
+	DeviceInfoList *DeviceInfoListForGetQuotaInfoOutput `type:"structure" json:"deviceInfoList,omitempty"`
+
 	QuotaInfoList []*QuotaInfoListForGetQuotaInfoOutput `type:"list" json:"quotaInfoList,omitempty"`
 }
 
@@ -207,6 +239,12 @@ func (s GetQuotaInfoOutput) String() string {
 // GoString returns the string representation
 func (s GetQuotaInfoOutput) GoString() string {
 	return s.String()
+}
+
+// SetDeviceInfoList sets the DeviceInfoList field's value.
+func (s *GetQuotaInfoOutput) SetDeviceInfoList(v *DeviceInfoListForGetQuotaInfoOutput) *GetQuotaInfoOutput {
+	s.DeviceInfoList = v
+	return s
 }
 
 // SetQuotaInfoList sets the QuotaInfoList field's value.

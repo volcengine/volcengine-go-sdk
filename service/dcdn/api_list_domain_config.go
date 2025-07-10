@@ -402,7 +402,11 @@ type CertBindForListDomainConfigOutput struct {
 
 	CertId *string `type:"string" json:",omitempty"`
 
+	CertName *string `type:"string" json:",omitempty"`
+
 	CertSource *string `type:"string" json:",omitempty"`
+
+	Expire *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -421,9 +425,21 @@ func (s *CertBindForListDomainConfigOutput) SetCertId(v string) *CertBindForList
 	return s
 }
 
+// SetCertName sets the CertName field's value.
+func (s *CertBindForListDomainConfigOutput) SetCertName(v string) *CertBindForListDomainConfigOutput {
+	s.CertName = &v
+	return s
+}
+
 // SetCertSource sets the CertSource field's value.
 func (s *CertBindForListDomainConfigOutput) SetCertSource(v string) *CertBindForListDomainConfigOutput {
 	s.CertSource = &v
+	return s
+}
+
+// SetExpire sets the Expire field's value.
+func (s *CertBindForListDomainConfigOutput) SetExpire(v string) *CertBindForListDomainConfigOutput {
+	s.Expire = &v
 	return s
 }
 
@@ -1100,6 +1116,8 @@ type HttpsForListDomainConfigOutput struct {
 
 	CertBind *CertBindForListDomainConfigOutput `type:"structure" json:",omitempty"`
 
+	EnableHttps *bool `type:"boolean" json:",omitempty"`
+
 	ForceRedirect *ForceRedirectForListDomainConfigOutput `type:"structure" json:",omitempty"`
 
 	Hsts *HstsForListDomainConfigOutput `type:"structure" json:",omitempty"`
@@ -1124,6 +1142,12 @@ func (s HttpsForListDomainConfigOutput) GoString() string {
 // SetCertBind sets the CertBind field's value.
 func (s *HttpsForListDomainConfigOutput) SetCertBind(v *CertBindForListDomainConfigOutput) *HttpsForListDomainConfigOutput {
 	s.CertBind = v
+	return s
+}
+
+// SetEnableHttps sets the EnableHttps field's value.
+func (s *HttpsForListDomainConfigOutput) SetEnableHttps(v bool) *HttpsForListDomainConfigOutput {
+	s.EnableHttps = &v
 	return s
 }
 

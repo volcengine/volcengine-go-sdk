@@ -164,11 +164,15 @@ type BackupForDescribeCrossRegionBackupsOutput struct {
 
 	Size *int64 `type:"int64" json:",omitempty"`
 
+	SourceRegion *string `type:"string" json:",omitempty"`
+
 	StartTime *string `type:"string" json:",omitempty"`
 
 	Status *string `type:"string" json:",omitempty" enum:"EnumOfStatusForDescribeCrossRegionBackupsOutput"`
 
 	TTL *int32 `type:"int32" json:",omitempty"`
+
+	TargetRegion *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -235,6 +239,12 @@ func (s *BackupForDescribeCrossRegionBackupsOutput) SetSize(v int64) *BackupForD
 	return s
 }
 
+// SetSourceRegion sets the SourceRegion field's value.
+func (s *BackupForDescribeCrossRegionBackupsOutput) SetSourceRegion(v string) *BackupForDescribeCrossRegionBackupsOutput {
+	s.SourceRegion = &v
+	return s
+}
+
 // SetStartTime sets the StartTime field's value.
 func (s *BackupForDescribeCrossRegionBackupsOutput) SetStartTime(v string) *BackupForDescribeCrossRegionBackupsOutput {
 	s.StartTime = &v
@@ -253,10 +263,36 @@ func (s *BackupForDescribeCrossRegionBackupsOutput) SetTTL(v int32) *BackupForDe
 	return s
 }
 
+// SetTargetRegion sets the TargetRegion field's value.
+func (s *BackupForDescribeCrossRegionBackupsOutput) SetTargetRegion(v string) *BackupForDescribeCrossRegionBackupsOutput {
+	s.TargetRegion = &v
+	return s
+}
+
 type DescribeCrossRegionBackupsInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	BackupPointId *string `type:"string" json:",omitempty"`
+
+	BackupPointName *string `type:"string" json:",omitempty"`
+
+	BackupStrategyList []*string `type:"list" json:",omitempty"`
+
+	EndTime *string `type:"string" json:",omitempty"`
+
+	InstanceId *string `type:"string" json:",omitempty"`
+
+	PageNumber *int32 `type:"int32" json:",omitempty"`
+
+	PageSize *int32 `type:"int32" json:",omitempty"`
+
 	ProjectName *string `type:"string" json:",omitempty"`
+
+	Scope *string `type:"string" json:",omitempty" enum:"EnumOfScopeForDescribeCrossRegionBackupsInput"`
+
+	StartTime *string `type:"string" json:",omitempty"`
+
+	Status *string `type:"string" json:",omitempty" enum:"EnumOfStatusForDescribeCrossRegionBackupsInput"`
 }
 
 // String returns the string representation
@@ -269,9 +305,69 @@ func (s DescribeCrossRegionBackupsInput) GoString() string {
 	return s.String()
 }
 
+// SetBackupPointId sets the BackupPointId field's value.
+func (s *DescribeCrossRegionBackupsInput) SetBackupPointId(v string) *DescribeCrossRegionBackupsInput {
+	s.BackupPointId = &v
+	return s
+}
+
+// SetBackupPointName sets the BackupPointName field's value.
+func (s *DescribeCrossRegionBackupsInput) SetBackupPointName(v string) *DescribeCrossRegionBackupsInput {
+	s.BackupPointName = &v
+	return s
+}
+
+// SetBackupStrategyList sets the BackupStrategyList field's value.
+func (s *DescribeCrossRegionBackupsInput) SetBackupStrategyList(v []*string) *DescribeCrossRegionBackupsInput {
+	s.BackupStrategyList = v
+	return s
+}
+
+// SetEndTime sets the EndTime field's value.
+func (s *DescribeCrossRegionBackupsInput) SetEndTime(v string) *DescribeCrossRegionBackupsInput {
+	s.EndTime = &v
+	return s
+}
+
+// SetInstanceId sets the InstanceId field's value.
+func (s *DescribeCrossRegionBackupsInput) SetInstanceId(v string) *DescribeCrossRegionBackupsInput {
+	s.InstanceId = &v
+	return s
+}
+
+// SetPageNumber sets the PageNumber field's value.
+func (s *DescribeCrossRegionBackupsInput) SetPageNumber(v int32) *DescribeCrossRegionBackupsInput {
+	s.PageNumber = &v
+	return s
+}
+
+// SetPageSize sets the PageSize field's value.
+func (s *DescribeCrossRegionBackupsInput) SetPageSize(v int32) *DescribeCrossRegionBackupsInput {
+	s.PageSize = &v
+	return s
+}
+
 // SetProjectName sets the ProjectName field's value.
 func (s *DescribeCrossRegionBackupsInput) SetProjectName(v string) *DescribeCrossRegionBackupsInput {
 	s.ProjectName = &v
+	return s
+}
+
+// SetScope sets the Scope field's value.
+func (s *DescribeCrossRegionBackupsInput) SetScope(v string) *DescribeCrossRegionBackupsInput {
+	s.Scope = &v
+	return s
+}
+
+// SetStartTime sets the StartTime field's value.
+func (s *DescribeCrossRegionBackupsInput) SetStartTime(v string) *DescribeCrossRegionBackupsInput {
+	s.StartTime = &v
+	return s
+}
+
+// SetStatus sets the Status field's value.
+func (s *DescribeCrossRegionBackupsInput) SetStatus(v string) *DescribeCrossRegionBackupsInput {
+	s.Status = &v
 	return s
 }
 
@@ -472,6 +568,20 @@ const (
 )
 
 const (
+	// EnumOfBackupStrategyListListForDescribeCrossRegionBackupsInputManualBackup is a EnumOfBackupStrategyListListForDescribeCrossRegionBackupsInput enum value
+	EnumOfBackupStrategyListListForDescribeCrossRegionBackupsInputManualBackup = "ManualBackup"
+
+	// EnumOfBackupStrategyListListForDescribeCrossRegionBackupsInputAutomatedBackup is a EnumOfBackupStrategyListListForDescribeCrossRegionBackupsInput enum value
+	EnumOfBackupStrategyListListForDescribeCrossRegionBackupsInputAutomatedBackup = "AutomatedBackup"
+
+	// EnumOfBackupStrategyListListForDescribeCrossRegionBackupsInputDataFlashBack is a EnumOfBackupStrategyListListForDescribeCrossRegionBackupsInput enum value
+	EnumOfBackupStrategyListListForDescribeCrossRegionBackupsInputDataFlashBack = "DataFlashBack"
+
+	// EnumOfBackupStrategyListListForDescribeCrossRegionBackupsInputAllStrategy is a EnumOfBackupStrategyListListForDescribeCrossRegionBackupsInput enum value
+	EnumOfBackupStrategyListListForDescribeCrossRegionBackupsInputAllStrategy = "AllStrategy"
+)
+
+const (
 	// EnumOfBackupTypeForDescribeCrossRegionBackupsOutputInvalid is a EnumOfBackupTypeForDescribeCrossRegionBackupsOutput enum value
 	EnumOfBackupTypeForDescribeCrossRegionBackupsOutputInvalid = "Invalid"
 
@@ -483,6 +593,31 @@ const (
 
 	// EnumOfBackupTypeForDescribeCrossRegionBackupsOutputAll is a EnumOfBackupTypeForDescribeCrossRegionBackupsOutput enum value
 	EnumOfBackupTypeForDescribeCrossRegionBackupsOutputAll = "All"
+)
+
+const (
+	// EnumOfScopeForDescribeCrossRegionBackupsInputOneInstance is a EnumOfScopeForDescribeCrossRegionBackupsInput enum value
+	EnumOfScopeForDescribeCrossRegionBackupsInputOneInstance = "OneInstance"
+
+	// EnumOfScopeForDescribeCrossRegionBackupsInputDestroyedInstances is a EnumOfScopeForDescribeCrossRegionBackupsInput enum value
+	EnumOfScopeForDescribeCrossRegionBackupsInputDestroyedInstances = "DestroyedInstances"
+
+	// EnumOfScopeForDescribeCrossRegionBackupsInputAccountInstances is a EnumOfScopeForDescribeCrossRegionBackupsInput enum value
+	EnumOfScopeForDescribeCrossRegionBackupsInputAccountInstances = "AccountInstances"
+)
+
+const (
+	// EnumOfStatusForDescribeCrossRegionBackupsInputCreating is a EnumOfStatusForDescribeCrossRegionBackupsInput enum value
+	EnumOfStatusForDescribeCrossRegionBackupsInputCreating = "Creating"
+
+	// EnumOfStatusForDescribeCrossRegionBackupsInputAvailable is a EnumOfStatusForDescribeCrossRegionBackupsInput enum value
+	EnumOfStatusForDescribeCrossRegionBackupsInputAvailable = "Available"
+
+	// EnumOfStatusForDescribeCrossRegionBackupsInputUnavailable is a EnumOfStatusForDescribeCrossRegionBackupsInput enum value
+	EnumOfStatusForDescribeCrossRegionBackupsInputUnavailable = "Unavailable"
+
+	// EnumOfStatusForDescribeCrossRegionBackupsInputDeleting is a EnumOfStatusForDescribeCrossRegionBackupsInput enum value
+	EnumOfStatusForDescribeCrossRegionBackupsInputDeleting = "Deleting"
 )
 
 const (

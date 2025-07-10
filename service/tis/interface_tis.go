@@ -46,14 +46,6 @@ type TISAPI interface {
 	ClearDeviceLongMemoryWithContext(volcengine.Context, *ClearDeviceLongMemoryInput, ...request.Option) (*ClearDeviceLongMemoryOutput, error)
 	ClearDeviceLongMemoryRequest(*ClearDeviceLongMemoryInput) (*request.Request, *ClearDeviceLongMemoryOutput)
 
-	GetAccessTokenCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	GetAccessTokenCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	GetAccessTokenCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	GetAccessToken(*GetAccessTokenInput) (*GetAccessTokenOutput, error)
-	GetAccessTokenWithContext(volcengine.Context, *GetAccessTokenInput, ...request.Option) (*GetAccessTokenOutput, error)
-	GetAccessTokenRequest(*GetAccessTokenInput) (*request.Request, *GetAccessTokenOutput)
-
 	GetAgentListCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	GetAgentListCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	GetAgentListCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})

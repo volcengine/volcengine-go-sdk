@@ -402,7 +402,11 @@ type CertBindForUpdateSingleDomainConfigInput struct {
 
 	CertId *string `type:"string" json:",omitempty"`
 
+	CertName *string `type:"string" json:",omitempty"`
+
 	CertSource *string `type:"string" json:",omitempty"`
+
+	Expire *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -421,9 +425,21 @@ func (s *CertBindForUpdateSingleDomainConfigInput) SetCertId(v string) *CertBind
 	return s
 }
 
+// SetCertName sets the CertName field's value.
+func (s *CertBindForUpdateSingleDomainConfigInput) SetCertName(v string) *CertBindForUpdateSingleDomainConfigInput {
+	s.CertName = &v
+	return s
+}
+
 // SetCertSource sets the CertSource field's value.
 func (s *CertBindForUpdateSingleDomainConfigInput) SetCertSource(v string) *CertBindForUpdateSingleDomainConfigInput {
 	s.CertSource = &v
+	return s
+}
+
+// SetExpire sets the Expire field's value.
+func (s *CertBindForUpdateSingleDomainConfigInput) SetExpire(v string) *CertBindForUpdateSingleDomainConfigInput {
+	s.Expire = &v
 	return s
 }
 
@@ -846,6 +862,8 @@ type HttpsForUpdateSingleDomainConfigInput struct {
 
 	CertBind *CertBindForUpdateSingleDomainConfigInput `type:"structure" json:",omitempty"`
 
+	EnableHttps *bool `type:"boolean" json:",omitempty"`
+
 	ForceRedirect *ForceRedirectForUpdateSingleDomainConfigInput `type:"structure" json:",omitempty"`
 
 	Hsts *HstsForUpdateSingleDomainConfigInput `type:"structure" json:",omitempty"`
@@ -870,6 +888,12 @@ func (s HttpsForUpdateSingleDomainConfigInput) GoString() string {
 // SetCertBind sets the CertBind field's value.
 func (s *HttpsForUpdateSingleDomainConfigInput) SetCertBind(v *CertBindForUpdateSingleDomainConfigInput) *HttpsForUpdateSingleDomainConfigInput {
 	s.CertBind = v
+	return s
+}
+
+// SetEnableHttps sets the EnableHttps field's value.
+func (s *HttpsForUpdateSingleDomainConfigInput) SetEnableHttps(v bool) *HttpsForUpdateSingleDomainConfigInput {
+	s.EnableHttps = &v
 	return s
 }
 
