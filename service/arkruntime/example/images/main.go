@@ -24,7 +24,7 @@ func main() {
 
 	fmt.Println("----- [Seedream] generate images (response format: url) -----")
 	generateReq := model.GenerateImagesRequest{
-		Model:          modelEp, // Replace with your endpoint ID
+		Model:          modelEp, // Replace with your Seedream endpoint ID
 		Prompt:         "龙与地下城女骑士背景是起伏的平原，目光从镜头转向平原",
 		ResponseFormat: volcengine.String(model.GenerateImagesResponseFormatURL),
 		Seed:           volcengine.Int64(1234567890),
@@ -106,7 +106,7 @@ func main() {
 
 	fmt.Println("----- [Seededit] generate images (input format: base64) -----")
 	generateReq = model.GenerateImagesRequest{
-		Model:          modelEp, // Replace with your endpoint ID
+		Model:          modelEp, // Replace with your Seededit endpoint ID
 		Prompt:         "龙与地下城女骑士背景是起伏的平原，目光从镜头转向平原",
 		Image:          volcengine.String("YOUR_IMAGE_BASE64_HERE"), // Replace with your input image base64 data url
 		ResponseFormat: volcengine.String(model.GenerateImagesResponseFormatURL),
