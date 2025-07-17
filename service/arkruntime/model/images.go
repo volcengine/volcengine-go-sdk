@@ -4,16 +4,20 @@ const (
 	GenerateImagesResponseFormatBase64 = "b64_json"
 
 	GenerateImagesResponseFormatURL = "url"
+
+	GenerateImagesSizeAdaptive = "adaptive"
 )
 
 type GenerateImagesRequest struct {
 	Model          string   `json:"model"`
 	Prompt         string   `json:"prompt"`
+	Image          *string  `json:"image,omitempty"`
 	ResponseFormat *string  `json:"response_format,omitempty"`
 	Seed           *int64   `json:"seed,omitempty"`
 	GuidanceScale  *float64 `json:"guidance_scale,omitempty"`
 	Size           *string  `json:"size,omitempty"`
 	Watermark      *bool    `json:"watermark,omitempty"`
+	OptimizePrompt *bool    `json:"optimize_prompt,omitempty"`
 }
 
 type Image struct {
