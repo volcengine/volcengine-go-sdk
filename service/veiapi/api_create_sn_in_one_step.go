@@ -144,15 +144,15 @@ func (c *VEIAPI) CreateSNInOneStepWithContext(ctx volcengine.Context, input *Cre
 }
 
 type CreateSNInOneStepInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Auto_renew *bool `type:"boolean" json:"auto_renew"`
+	Auto_renew *bool `type:"boolean" json:"auto_renew,omitempty"`
 
 	// Count_of_month is a required field
-	Count_of_month *int32 `type:"int32" json:"count_of_month" required:"true"`
+	Count_of_month *int32 `type:"int32" json:"count_of_month,omitempty" required:"true"`
 
 	// Type is a required field
-	Type *int32 `type:"int32" json:"type" required:"true"`
+	Type *int32 `type:"int32" json:"type,omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -200,13 +200,13 @@ func (s *CreateSNInOneStepInput) SetType(v int32) *CreateSNInOneStepInput {
 }
 
 type CreateSNInOneStepOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	Node_id *string `type:"string" json:"node_id"`
+	Node_id *string `type:"string" json:"node_id,omitempty"`
 
-	Sn *string `type:"string" json:"sn"`
+	Sn *string `type:"string" json:"sn,omitempty"`
 }
 
 // String returns the string representation
