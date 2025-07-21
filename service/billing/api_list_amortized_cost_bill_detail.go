@@ -372,9 +372,13 @@ type ListForListAmortizedCostBillDetailOutput struct {
 
 	CountryArea *string `type:"string" json:",omitempty"`
 
+	CountryRegion *string `type:"string" json:",omitempty"`
+
 	CouponAmount *string `type:"string" json:",omitempty"`
 
 	Currency *string `type:"string" json:",omitempty"`
+
+	CurrencySettlement *string `type:"string" json:",omitempty"`
 
 	DailyAmortizedCouponAmount *string `type:"string" json:",omitempty"`
 
@@ -386,21 +390,31 @@ type ListForListAmortizedCostBillDetailOutput struct {
 
 	DailyAmortizedPayableAmount *string `type:"string" json:",omitempty"`
 
+	DailyAmortizedPosttaxAmount *string `type:"string" json:",omitempty"`
+
 	DailyAmortizedPreTaxPayableAmount *string `type:"string" json:",omitempty"`
 
 	DailyAmortizedPreTaxRealValue *string `type:"string" json:",omitempty"`
 
 	DailyAmortizedPreferentialBillAmount *string `type:"string" json:",omitempty"`
 
+	DailyAmortizedPretaxAmount *string `type:"string" json:",omitempty"`
+
 	DailyAmortizedRealValue *string `type:"string" json:",omitempty"`
 
 	DailyAmortizedRoundAmount *string `type:"string" json:",omitempty"`
 
+	DailyAmortizedSavingPlanOriginalAmount *string `type:"string" json:",omitempty"`
+
 	DailyAmortizedSettlePayableAmount *string `type:"string" json:",omitempty"`
+
+	DailyAmortizedSettlePosttaxAmount *string `type:"string" json:",omitempty"`
 
 	DailyAmortizedSettlePreTaxPayableAmount *string `type:"string" json:",omitempty"`
 
 	DailyAmortizedSettlePreTaxRealValue *string `type:"string" json:",omitempty"`
+
+	DailyAmortizedSettlePretaxAmount *string `type:"string" json:",omitempty"`
 
 	DailyAmortizedSettleRealValue *string `type:"string" json:",omitempty"`
 
@@ -419,6 +433,8 @@ type ListForListAmortizedCostBillDetailOutput struct {
 	DiscountBizUnitPrice *string `type:"string" json:",omitempty"`
 
 	DiscountBizUnitPriceInterval *string `type:"string" json:",omitempty"`
+
+	DiscountInfo *string `type:"string" json:",omitempty"`
 
 	EffectiveFactor *string `type:"string" json:",omitempty"`
 
@@ -460,11 +476,15 @@ type ListForListAmortizedCostBillDetailOutput struct {
 
 	PayerUserName *string `type:"string" json:",omitempty"`
 
+	PosttaxAmount *string `type:"string" json:",omitempty"`
+
 	PreTaxPayableAmount *string `type:"string" json:",omitempty"`
 
 	PreTaxRealValue *string `type:"string" json:",omitempty"`
 
 	PreferentialBillAmount *string `type:"string" json:",omitempty"`
+
+	PretaxAmount *string `type:"string" json:",omitempty"`
 
 	Price *string `type:"string" json:",omitempty"`
 
@@ -486,6 +506,12 @@ type ListForListAmortizedCostBillDetailOutput struct {
 
 	RoundAmount *string `type:"string" json:",omitempty"`
 
+	SavingPlanDeductionDiscountAmount *string `type:"string" json:",omitempty"`
+
+	SavingPlanDeductionSpID *string `type:"string" json:",omitempty"`
+
+	SavingPlanOriginalAmount *string `type:"string" json:",omitempty"`
+
 	SellerCustomerName *string `type:"string" json:",omitempty"`
 
 	SellerID *string `type:"string" json:",omitempty"`
@@ -494,9 +520,13 @@ type ListForListAmortizedCostBillDetailOutput struct {
 
 	SettlePayableAmount *string `type:"string" json:",omitempty"`
 
+	SettlePosttaxAmount *string `type:"string" json:",omitempty"`
+
 	SettlePreTaxPayableAmount *string `type:"string" json:",omitempty"`
 
 	SettlePreTaxRealValue *string `type:"string" json:",omitempty"`
+
+	SettlePretaxAmount *string `type:"string" json:",omitempty"`
 
 	SettleRealValue *string `type:"string" json:",omitempty"`
 
@@ -509,6 +539,8 @@ type ListForListAmortizedCostBillDetailOutput struct {
 	SubjectName *string `type:"string" json:",omitempty"`
 
 	Tag *string `type:"string" json:",omitempty"`
+
+	Tax *string `type:"string" json:",omitempty"`
 
 	TaxAmount *string `type:"string" json:",omitempty"`
 
@@ -637,6 +669,12 @@ func (s *ListForListAmortizedCostBillDetailOutput) SetCountryArea(v string) *Lis
 	return s
 }
 
+// SetCountryRegion sets the CountryRegion field's value.
+func (s *ListForListAmortizedCostBillDetailOutput) SetCountryRegion(v string) *ListForListAmortizedCostBillDetailOutput {
+	s.CountryRegion = &v
+	return s
+}
+
 // SetCouponAmount sets the CouponAmount field's value.
 func (s *ListForListAmortizedCostBillDetailOutput) SetCouponAmount(v string) *ListForListAmortizedCostBillDetailOutput {
 	s.CouponAmount = &v
@@ -646,6 +684,12 @@ func (s *ListForListAmortizedCostBillDetailOutput) SetCouponAmount(v string) *Li
 // SetCurrency sets the Currency field's value.
 func (s *ListForListAmortizedCostBillDetailOutput) SetCurrency(v string) *ListForListAmortizedCostBillDetailOutput {
 	s.Currency = &v
+	return s
+}
+
+// SetCurrencySettlement sets the CurrencySettlement field's value.
+func (s *ListForListAmortizedCostBillDetailOutput) SetCurrencySettlement(v string) *ListForListAmortizedCostBillDetailOutput {
+	s.CurrencySettlement = &v
 	return s
 }
 
@@ -679,6 +723,12 @@ func (s *ListForListAmortizedCostBillDetailOutput) SetDailyAmortizedPayableAmoun
 	return s
 }
 
+// SetDailyAmortizedPosttaxAmount sets the DailyAmortizedPosttaxAmount field's value.
+func (s *ListForListAmortizedCostBillDetailOutput) SetDailyAmortizedPosttaxAmount(v string) *ListForListAmortizedCostBillDetailOutput {
+	s.DailyAmortizedPosttaxAmount = &v
+	return s
+}
+
 // SetDailyAmortizedPreTaxPayableAmount sets the DailyAmortizedPreTaxPayableAmount field's value.
 func (s *ListForListAmortizedCostBillDetailOutput) SetDailyAmortizedPreTaxPayableAmount(v string) *ListForListAmortizedCostBillDetailOutput {
 	s.DailyAmortizedPreTaxPayableAmount = &v
@@ -697,6 +747,12 @@ func (s *ListForListAmortizedCostBillDetailOutput) SetDailyAmortizedPreferential
 	return s
 }
 
+// SetDailyAmortizedPretaxAmount sets the DailyAmortizedPretaxAmount field's value.
+func (s *ListForListAmortizedCostBillDetailOutput) SetDailyAmortizedPretaxAmount(v string) *ListForListAmortizedCostBillDetailOutput {
+	s.DailyAmortizedPretaxAmount = &v
+	return s
+}
+
 // SetDailyAmortizedRealValue sets the DailyAmortizedRealValue field's value.
 func (s *ListForListAmortizedCostBillDetailOutput) SetDailyAmortizedRealValue(v string) *ListForListAmortizedCostBillDetailOutput {
 	s.DailyAmortizedRealValue = &v
@@ -709,9 +765,21 @@ func (s *ListForListAmortizedCostBillDetailOutput) SetDailyAmortizedRoundAmount(
 	return s
 }
 
+// SetDailyAmortizedSavingPlanOriginalAmount sets the DailyAmortizedSavingPlanOriginalAmount field's value.
+func (s *ListForListAmortizedCostBillDetailOutput) SetDailyAmortizedSavingPlanOriginalAmount(v string) *ListForListAmortizedCostBillDetailOutput {
+	s.DailyAmortizedSavingPlanOriginalAmount = &v
+	return s
+}
+
 // SetDailyAmortizedSettlePayableAmount sets the DailyAmortizedSettlePayableAmount field's value.
 func (s *ListForListAmortizedCostBillDetailOutput) SetDailyAmortizedSettlePayableAmount(v string) *ListForListAmortizedCostBillDetailOutput {
 	s.DailyAmortizedSettlePayableAmount = &v
+	return s
+}
+
+// SetDailyAmortizedSettlePosttaxAmount sets the DailyAmortizedSettlePosttaxAmount field's value.
+func (s *ListForListAmortizedCostBillDetailOutput) SetDailyAmortizedSettlePosttaxAmount(v string) *ListForListAmortizedCostBillDetailOutput {
+	s.DailyAmortizedSettlePosttaxAmount = &v
 	return s
 }
 
@@ -724,6 +792,12 @@ func (s *ListForListAmortizedCostBillDetailOutput) SetDailyAmortizedSettlePreTax
 // SetDailyAmortizedSettlePreTaxRealValue sets the DailyAmortizedSettlePreTaxRealValue field's value.
 func (s *ListForListAmortizedCostBillDetailOutput) SetDailyAmortizedSettlePreTaxRealValue(v string) *ListForListAmortizedCostBillDetailOutput {
 	s.DailyAmortizedSettlePreTaxRealValue = &v
+	return s
+}
+
+// SetDailyAmortizedSettlePretaxAmount sets the DailyAmortizedSettlePretaxAmount field's value.
+func (s *ListForListAmortizedCostBillDetailOutput) SetDailyAmortizedSettlePretaxAmount(v string) *ListForListAmortizedCostBillDetailOutput {
+	s.DailyAmortizedSettlePretaxAmount = &v
 	return s
 }
 
@@ -778,6 +852,12 @@ func (s *ListForListAmortizedCostBillDetailOutput) SetDiscountBizUnitPrice(v str
 // SetDiscountBizUnitPriceInterval sets the DiscountBizUnitPriceInterval field's value.
 func (s *ListForListAmortizedCostBillDetailOutput) SetDiscountBizUnitPriceInterval(v string) *ListForListAmortizedCostBillDetailOutput {
 	s.DiscountBizUnitPriceInterval = &v
+	return s
+}
+
+// SetDiscountInfo sets the DiscountInfo field's value.
+func (s *ListForListAmortizedCostBillDetailOutput) SetDiscountInfo(v string) *ListForListAmortizedCostBillDetailOutput {
+	s.DiscountInfo = &v
 	return s
 }
 
@@ -901,6 +981,12 @@ func (s *ListForListAmortizedCostBillDetailOutput) SetPayerUserName(v string) *L
 	return s
 }
 
+// SetPosttaxAmount sets the PosttaxAmount field's value.
+func (s *ListForListAmortizedCostBillDetailOutput) SetPosttaxAmount(v string) *ListForListAmortizedCostBillDetailOutput {
+	s.PosttaxAmount = &v
+	return s
+}
+
 // SetPreTaxPayableAmount sets the PreTaxPayableAmount field's value.
 func (s *ListForListAmortizedCostBillDetailOutput) SetPreTaxPayableAmount(v string) *ListForListAmortizedCostBillDetailOutput {
 	s.PreTaxPayableAmount = &v
@@ -916,6 +1002,12 @@ func (s *ListForListAmortizedCostBillDetailOutput) SetPreTaxRealValue(v string) 
 // SetPreferentialBillAmount sets the PreferentialBillAmount field's value.
 func (s *ListForListAmortizedCostBillDetailOutput) SetPreferentialBillAmount(v string) *ListForListAmortizedCostBillDetailOutput {
 	s.PreferentialBillAmount = &v
+	return s
+}
+
+// SetPretaxAmount sets the PretaxAmount field's value.
+func (s *ListForListAmortizedCostBillDetailOutput) SetPretaxAmount(v string) *ListForListAmortizedCostBillDetailOutput {
+	s.PretaxAmount = &v
 	return s
 }
 
@@ -979,6 +1071,24 @@ func (s *ListForListAmortizedCostBillDetailOutput) SetRoundAmount(v string) *Lis
 	return s
 }
 
+// SetSavingPlanDeductionDiscountAmount sets the SavingPlanDeductionDiscountAmount field's value.
+func (s *ListForListAmortizedCostBillDetailOutput) SetSavingPlanDeductionDiscountAmount(v string) *ListForListAmortizedCostBillDetailOutput {
+	s.SavingPlanDeductionDiscountAmount = &v
+	return s
+}
+
+// SetSavingPlanDeductionSpID sets the SavingPlanDeductionSpID field's value.
+func (s *ListForListAmortizedCostBillDetailOutput) SetSavingPlanDeductionSpID(v string) *ListForListAmortizedCostBillDetailOutput {
+	s.SavingPlanDeductionSpID = &v
+	return s
+}
+
+// SetSavingPlanOriginalAmount sets the SavingPlanOriginalAmount field's value.
+func (s *ListForListAmortizedCostBillDetailOutput) SetSavingPlanOriginalAmount(v string) *ListForListAmortizedCostBillDetailOutput {
+	s.SavingPlanOriginalAmount = &v
+	return s
+}
+
 // SetSellerCustomerName sets the SellerCustomerName field's value.
 func (s *ListForListAmortizedCostBillDetailOutput) SetSellerCustomerName(v string) *ListForListAmortizedCostBillDetailOutput {
 	s.SellerCustomerName = &v
@@ -1003,6 +1113,12 @@ func (s *ListForListAmortizedCostBillDetailOutput) SetSettlePayableAmount(v stri
 	return s
 }
 
+// SetSettlePosttaxAmount sets the SettlePosttaxAmount field's value.
+func (s *ListForListAmortizedCostBillDetailOutput) SetSettlePosttaxAmount(v string) *ListForListAmortizedCostBillDetailOutput {
+	s.SettlePosttaxAmount = &v
+	return s
+}
+
 // SetSettlePreTaxPayableAmount sets the SettlePreTaxPayableAmount field's value.
 func (s *ListForListAmortizedCostBillDetailOutput) SetSettlePreTaxPayableAmount(v string) *ListForListAmortizedCostBillDetailOutput {
 	s.SettlePreTaxPayableAmount = &v
@@ -1012,6 +1128,12 @@ func (s *ListForListAmortizedCostBillDetailOutput) SetSettlePreTaxPayableAmount(
 // SetSettlePreTaxRealValue sets the SettlePreTaxRealValue field's value.
 func (s *ListForListAmortizedCostBillDetailOutput) SetSettlePreTaxRealValue(v string) *ListForListAmortizedCostBillDetailOutput {
 	s.SettlePreTaxRealValue = &v
+	return s
+}
+
+// SetSettlePretaxAmount sets the SettlePretaxAmount field's value.
+func (s *ListForListAmortizedCostBillDetailOutput) SetSettlePretaxAmount(v string) *ListForListAmortizedCostBillDetailOutput {
+	s.SettlePretaxAmount = &v
 	return s
 }
 
@@ -1048,6 +1170,12 @@ func (s *ListForListAmortizedCostBillDetailOutput) SetSubjectName(v string) *Lis
 // SetTag sets the Tag field's value.
 func (s *ListForListAmortizedCostBillDetailOutput) SetTag(v string) *ListForListAmortizedCostBillDetailOutput {
 	s.Tag = &v
+	return s
+}
+
+// SetTax sets the Tax field's value.
+func (s *ListForListAmortizedCostBillDetailOutput) SetTax(v string) *ListForListAmortizedCostBillDetailOutput {
+	s.Tax = &v
 	return s
 }
 
