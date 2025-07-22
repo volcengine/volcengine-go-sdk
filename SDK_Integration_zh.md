@@ -25,7 +25,6 @@
   - [指定TLS协议版本](#指定tls协议版本)
 - [Http(s)代理配置](#https代理配置)
   - [配置Http(s)代理](#配置https代理)
-  - [配置No Proxy](#配置no-proxy)
   - [注意事项](#注意事项)
 - [超时配置](#超时配置)
   - [全局超时设置（Client级别）](#全局超时设置client级别)
@@ -449,25 +448,13 @@ sess, _ = session.NewSession(config)
 client = ecsops.New(sess)
 ```
 
-## 配置No Proxy
-
-```go
-var ak, sk, region string
-config = volcengine.NewConfig().
-	WithCredentials(credentials.NewStaticCredentials(ak, sk, "")).
-	WithRegion(region).WithHTTPProxy("http://your_proxy:8080").WithHTTPSProxy("http://your_proxy:8080").WithNoProxy("host1_without_proxy,host2_without_proxy")
-
-sess, _ = session.NewSession(config)
-client = ecsops.New(sess)
-```
-
 ## 注意事项
 
 支持通过以下环境变量配置代理:
 
-http_proxy/HTTP_PROXY, https_proxy/HTTPS_PROXY, no_proxy/NO_PROXY
+http_proxy/HTTP_PROXY, https_proxy/HTTPS_PROXY
 
-优先级：代码 > 环境变量
+优先级：代码指定 > 环境变量
 
 # 超时配置
 

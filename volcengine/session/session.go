@@ -610,42 +610,33 @@ func (s *Session) clientConfigWithErr(serviceName string, cfgs ...*volcengine.Co
 		resolved.SigningRegion = region
 	}
 
-	noProxy := false
-	for _, u := range getNoProxy(s.Config.NoProxy) {
-		if u == *s.Config.Endpoint {
-			noProxy = true
-			break
+	var proxy *url.URL
+	var err error
+	if s.Config.DisableSSL != nil && *s.Config.DisableSSL {
+		if s.Config.HTTPProxy != nil && *s.Config.HTTPProxy != "" {
+			proxy, err = url.Parse(*s.Config.HTTPProxy)
+		} else if r := os.Getenv("HTTP_PROXY"); r != "" {
+			proxy, err = url.Parse(r)
+		} else if r = os.Getenv("http_proxy"); r != "" {
+			proxy, err = url.Parse(r)
+		}
+	} else {
+		if s.Config.HTTPSProxy != nil && *s.Config.HTTPSProxy != "" {
+			proxy, err = url.Parse(*s.Config.HTTPSProxy)
+		} else if r := os.Getenv("HTTPS_PROXY"); r != "" {
+			proxy, err = url.Parse(r)
+		} else if r = os.Getenv("https_proxy"); r != "" {
+			proxy, err = url.Parse(r)
 		}
 	}
-	if !noProxy {
-		var proxy *url.URL
-		var err error
-		if s.Config.DisableSSL != nil && *s.Config.DisableSSL {
-			if s.Config.HTTPProxy != nil && *s.Config.HTTPProxy != "" {
-				proxy, err = url.Parse(*s.Config.HTTPProxy)
-			} else if r := os.Getenv("HTTP_PROXY"); r != "" {
-				proxy, err = url.Parse(r)
-			} else if r = os.Getenv("http_proxy"); r != "" {
-				proxy, err = url.Parse(r)
-			}
-		} else {
-			if s.Config.HTTPSProxy != nil && *s.Config.HTTPSProxy != "" {
-				proxy, err = url.Parse(*s.Config.HTTPSProxy)
-			} else if r := os.Getenv("HTTPS_PROXY"); r != "" {
-				proxy, err = url.Parse(r)
-			} else if r = os.Getenv("https_proxy"); r != "" {
-				proxy, err = url.Parse(r)
-			}
-		}
-		if err != nil {
-			return client.Config{}, err
-		}
-		if s.Config.HTTPClient.Transport == nil {
-			s.Config.HTTPClient.Transport = http.DefaultTransport
-		}
-		if t, ok := s.Config.HTTPClient.Transport.(*http.Transport); ok {
-			t.Proxy = http.ProxyURL(proxy)
-		}
+	if err != nil {
+		return client.Config{}, err
+	}
+	if s.Config.HTTPClient.Transport == nil {
+		s.Config.HTTPClient.Transport = http.DefaultTransport
+	}
+	if t, ok := s.Config.HTTPClient.Transport.(*http.Transport); ok {
+		t.Proxy = http.ProxyURL(proxy)
 	}
 
 	return client.Config{

@@ -86,9 +86,6 @@ type Config struct {
 	// HTTPSProxy is used to set the https proxy.
 	HTTPSProxy *string
 
-	// NoProxy is used to set the no proxy.
-	NoProxy *string
-
 	// The HTTP client to use when sending requests. Defaults to
 	// `http.DefaultClient`.
 	HTTPClient *http.Client
@@ -473,13 +470,6 @@ func (c *Config) WithHTTPSProxy(httpsProxy string) *Config {
 	return c
 }
 
-// WithNoProxy sets a config NoProxy value returning a Config pointer
-// for chaining.
-func (c *Config) WithNoProxy(noProxy string) *Config {
-	c.NoProxy = &noProxy
-	return c
-}
-
 // WithHTTPClient sets a config HTTPClient value returning a Config pointer
 // for chaining.
 func (c *Config) WithHTTPClient(client *http.Client) *Config {
@@ -644,10 +634,6 @@ func mergeInConfig(dst *Config, other *Config) {
 
 	if other.HTTPSProxy != nil {
 		dst.HTTPSProxy = other.HTTPSProxy
-	}
-
-	if other.NoProxy != nil {
-		dst.NoProxy = other.NoProxy
 	}
 
 	if other.HTTPClient != nil {
