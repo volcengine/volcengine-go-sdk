@@ -146,7 +146,11 @@ func (c *VEFAAS) CreateFunctionWithContext(ctx volcengine.Context, input *Create
 type CreateFunctionInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	Cell *string `type:"string" json:",omitempty"`
+
 	Command *string `type:"string" json:",omitempty"`
+
+	CpuMilli *int32 `type:"int32" json:",omitempty"`
 
 	CpuStrategy *string `type:"string" json:",omitempty"`
 
@@ -217,9 +221,21 @@ func (s *CreateFunctionInput) Validate() error {
 	return nil
 }
 
+// SetCell sets the Cell field's value.
+func (s *CreateFunctionInput) SetCell(v string) *CreateFunctionInput {
+	s.Cell = &v
+	return s
+}
+
 // SetCommand sets the Command field's value.
 func (s *CreateFunctionInput) SetCommand(v string) *CreateFunctionInput {
 	s.Command = &v
+	return s
+}
+
+// SetCpuMilli sets the CpuMilli field's value.
+func (s *CreateFunctionInput) SetCpuMilli(v int32) *CreateFunctionInput {
+	s.CpuMilli = &v
 	return s
 }
 
@@ -348,6 +364,8 @@ type CreateFunctionOutput struct {
 
 	Metadata *response.ResponseMetadata
 
+	Cell *string `type:"string" json:",omitempty"`
+
 	CodeSize *int32 `type:"int32" json:",omitempty"`
 
 	CodeSizeLimit *int32 `type:"int32" json:",omitempty"`
@@ -361,6 +379,8 @@ type CreateFunctionOutput struct {
 	Envs []*EnvForCreateFunctionOutput `type:"list" json:",omitempty"`
 
 	ExclusiveMode *bool `type:"boolean" json:",omitempty"`
+
+	FunctionType *string `type:"string" json:",omitempty"`
 
 	Id *string `type:"string" json:",omitempty"`
 
@@ -390,6 +410,8 @@ type CreateFunctionOutput struct {
 
 	SourceType *string `type:"string" json:",omitempty"`
 
+	Tags []*TagForCreateFunctionOutput `type:"list" json:",omitempty"`
+
 	TlsConfig *TlsConfigForCreateFunctionOutput `type:"structure" json:",omitempty"`
 
 	TosMountConfig *TosMountConfigForCreateFunctionOutput `type:"structure" json:",omitempty"`
@@ -407,6 +429,12 @@ func (s CreateFunctionOutput) String() string {
 // GoString returns the string representation
 func (s CreateFunctionOutput) GoString() string {
 	return s.String()
+}
+
+// SetCell sets the Cell field's value.
+func (s *CreateFunctionOutput) SetCell(v string) *CreateFunctionOutput {
+	s.Cell = &v
+	return s
 }
 
 // SetCodeSize sets the CodeSize field's value.
@@ -448,6 +476,12 @@ func (s *CreateFunctionOutput) SetEnvs(v []*EnvForCreateFunctionOutput) *CreateF
 // SetExclusiveMode sets the ExclusiveMode field's value.
 func (s *CreateFunctionOutput) SetExclusiveMode(v bool) *CreateFunctionOutput {
 	s.ExclusiveMode = &v
+	return s
+}
+
+// SetFunctionType sets the FunctionType field's value.
+func (s *CreateFunctionOutput) SetFunctionType(v string) *CreateFunctionOutput {
+	s.FunctionType = &v
 	return s
 }
 
@@ -532,6 +566,12 @@ func (s *CreateFunctionOutput) SetSourceLocation(v string) *CreateFunctionOutput
 // SetSourceType sets the SourceType field's value.
 func (s *CreateFunctionOutput) SetSourceType(v string) *CreateFunctionOutput {
 	s.SourceType = &v
+	return s
+}
+
+// SetTags sets the Tags field's value.
+func (s *CreateFunctionOutput) SetTags(v []*TagForCreateFunctionOutput) *CreateFunctionOutput {
+	s.Tags = v
 	return s
 }
 
@@ -1027,6 +1067,36 @@ func (s *TagForCreateFunctionInput) SetKey(v string) *TagForCreateFunctionInput 
 
 // SetValue sets the Value field's value.
 func (s *TagForCreateFunctionInput) SetValue(v string) *TagForCreateFunctionInput {
+	s.Value = &v
+	return s
+}
+
+type TagForCreateFunctionOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Key *string `type:"string" json:",omitempty"`
+
+	Value *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s TagForCreateFunctionOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagForCreateFunctionOutput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagForCreateFunctionOutput) SetKey(v string) *TagForCreateFunctionOutput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *TagForCreateFunctionOutput) SetValue(v string) *TagForCreateFunctionOutput {
 	s.Value = &v
 	return s
 }

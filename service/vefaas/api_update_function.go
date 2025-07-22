@@ -800,6 +800,8 @@ func (s *TosMountConfigForUpdateFunctionOutput) SetMountPoints(v []*MountPointFo
 type UpdateFunctionInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	CpuMilli *int32 `type:"int32" json:",omitempty"`
+
 	Description *string `type:"string" json:",omitempty"`
 
 	Envs []*EnvForUpdateFunctionInput `type:"list" json:",omitempty"`
@@ -857,6 +859,12 @@ func (s *UpdateFunctionInput) Validate() error {
 		return invalidParams
 	}
 	return nil
+}
+
+// SetCpuMilli sets the CpuMilli field's value.
+func (s *UpdateFunctionInput) SetCpuMilli(v int32) *UpdateFunctionInput {
+	s.CpuMilli = &v
+	return s
 }
 
 // SetDescription sets the Description field's value.
@@ -966,6 +974,8 @@ type UpdateFunctionOutput struct {
 
 	Metadata *response.ResponseMetadata
 
+	Cell *string `type:"string" json:",omitempty"`
+
 	CodeSize *int32 `type:"int32" json:",omitempty"`
 
 	CodeSizeLimit *int32 `type:"int32" json:",omitempty"`
@@ -981,6 +991,8 @@ type UpdateFunctionOutput struct {
 	Envs []*EnvForUpdateFunctionOutput `type:"list" json:",omitempty"`
 
 	ExclusiveMode *bool `type:"boolean" json:",omitempty"`
+
+	FunctionType *string `type:"string" json:",omitempty"`
 
 	Id *string `type:"string" json:",omitempty"`
 
@@ -1033,6 +1045,12 @@ func (s UpdateFunctionOutput) GoString() string {
 	return s.String()
 }
 
+// SetCell sets the Cell field's value.
+func (s *UpdateFunctionOutput) SetCell(v string) *UpdateFunctionOutput {
+	s.Cell = &v
+	return s
+}
+
 // SetCodeSize sets the CodeSize field's value.
 func (s *UpdateFunctionOutput) SetCodeSize(v int32) *UpdateFunctionOutput {
 	s.CodeSize = &v
@@ -1078,6 +1096,12 @@ func (s *UpdateFunctionOutput) SetEnvs(v []*EnvForUpdateFunctionOutput) *UpdateF
 // SetExclusiveMode sets the ExclusiveMode field's value.
 func (s *UpdateFunctionOutput) SetExclusiveMode(v bool) *UpdateFunctionOutput {
 	s.ExclusiveMode = &v
+	return s
+}
+
+// SetFunctionType sets the FunctionType field's value.
+func (s *UpdateFunctionOutput) SetFunctionType(v string) *UpdateFunctionOutput {
+	s.FunctionType = &v
 	return s
 }
 
