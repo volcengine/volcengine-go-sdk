@@ -19,7 +19,7 @@ import (
 //    // volcengine sdk func uses an SDK service client to make a request to
 //    // VEI_API.
 //    func myFunc(svc VEIAPIAPI) bool {
-//        // Make svc.CreateSNInOneStep request
+//        // Make svc.AddIotModels request
 //    }
 //
 //    func main() {
@@ -30,6 +30,38 @@ import (
 //    }
 //
 type VEIAPIAPI interface {
+	AddIotModelsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	AddIotModelsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	AddIotModelsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	AddIotModels(*AddIotModelsInput) (*AddIotModelsOutput, error)
+	AddIotModelsWithContext(volcengine.Context, *AddIotModelsInput, ...request.Option) (*AddIotModelsOutput, error)
+	AddIotModelsRequest(*AddIotModelsInput) (*request.Request, *AddIotModelsOutput)
+
+	CreateIotLlmTokenCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateIotLlmTokenCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateIotLlmTokenCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateIotLlmToken(*CreateIotLlmTokenInput) (*CreateIotLlmTokenOutput, error)
+	CreateIotLlmTokenWithContext(volcengine.Context, *CreateIotLlmTokenInput, ...request.Option) (*CreateIotLlmTokenOutput, error)
+	CreateIotLlmTokenRequest(*CreateIotLlmTokenInput) (*request.Request, *CreateIotLlmTokenOutput)
+
+	CreateModelServiceCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateModelServiceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateModelServiceCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateModelService(*CreateModelServiceInput) (*CreateModelServiceOutput, error)
+	CreateModelServiceWithContext(volcengine.Context, *CreateModelServiceInput, ...request.Option) (*CreateModelServiceOutput, error)
+	CreateModelServiceRequest(*CreateModelServiceInput) (*request.Request, *CreateModelServiceOutput)
+
+	CreateNodeGroupCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateNodeGroupCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateNodeGroupCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateNodeGroup(*CreateNodeGroupInput) (*CreateNodeGroupOutput, error)
+	CreateNodeGroupWithContext(volcengine.Context, *CreateNodeGroupInput, ...request.Option) (*CreateNodeGroupOutput, error)
+	CreateNodeGroupRequest(*CreateNodeGroupInput) (*request.Request, *CreateNodeGroupOutput)
+
 	CreateSNInOneStepCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	CreateSNInOneStepCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	CreateSNInOneStepCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -37,6 +69,222 @@ type VEIAPIAPI interface {
 	CreateSNInOneStep(*CreateSNInOneStepInput) (*CreateSNInOneStepOutput, error)
 	CreateSNInOneStepWithContext(volcengine.Context, *CreateSNInOneStepInput, ...request.Option) (*CreateSNInOneStepOutput, error)
 	CreateSNInOneStepRequest(*CreateSNInOneStepInput) (*request.Request, *CreateSNInOneStepOutput)
+
+	DeleteIotLlmTokensCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeleteIotLlmTokensCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeleteIotLlmTokensCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeleteIotLlmTokens(*DeleteIotLlmTokensInput) (*DeleteIotLlmTokensOutput, error)
+	DeleteIotLlmTokensWithContext(volcengine.Context, *DeleteIotLlmTokensInput, ...request.Option) (*DeleteIotLlmTokensOutput, error)
+	DeleteIotLlmTokensRequest(*DeleteIotLlmTokensInput) (*request.Request, *DeleteIotLlmTokensOutput)
+
+	DeleteIotModelsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeleteIotModelsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeleteIotModelsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeleteIotModels(*DeleteIotModelsInput) (*DeleteIotModelsOutput, error)
+	DeleteIotModelsWithContext(volcengine.Context, *DeleteIotModelsInput, ...request.Option) (*DeleteIotModelsOutput, error)
+	DeleteIotModelsRequest(*DeleteIotModelsInput) (*request.Request, *DeleteIotModelsOutput)
+
+	DeleteNodeGroupCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeleteNodeGroupCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeleteNodeGroupCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeleteNodeGroup(*DeleteNodeGroupInput) (*DeleteNodeGroupOutput, error)
+	DeleteNodeGroupWithContext(volcengine.Context, *DeleteNodeGroupInput, ...request.Option) (*DeleteNodeGroupOutput, error)
+	DeleteNodeGroupRequest(*DeleteNodeGroupInput) (*request.Request, *DeleteNodeGroupOutput)
+
+	DeviceContinuousMoveCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeviceContinuousMoveCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeviceContinuousMoveCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeviceContinuousMove(*DeviceContinuousMoveInput) (*DeviceContinuousMoveOutput, error)
+	DeviceContinuousMoveWithContext(volcengine.Context, *DeviceContinuousMoveInput, ...request.Option) (*DeviceContinuousMoveOutput, error)
+	DeviceContinuousMoveRequest(*DeviceContinuousMoveInput) (*request.Request, *DeviceContinuousMoveOutput)
+
+	EdgeCallCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	EdgeCallCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	EdgeCallCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	EdgeCall(*EdgeCallInput) (*EdgeCallOutput, error)
+	EdgeCallWithContext(volcengine.Context, *EdgeCallInput, ...request.Option) (*EdgeCallOutput, error)
+	EdgeCallRequest(*EdgeCallInput) (*request.Request, *EdgeCallOutput)
+
+	GetLastDevicePropertyValueCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	GetLastDevicePropertyValueCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	GetLastDevicePropertyValueCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	GetLastDevicePropertyValue(*GetLastDevicePropertyValueInput) (*GetLastDevicePropertyValueOutput, error)
+	GetLastDevicePropertyValueWithContext(volcengine.Context, *GetLastDevicePropertyValueInput, ...request.Option) (*GetLastDevicePropertyValueOutput, error)
+	GetLastDevicePropertyValueRequest(*GetLastDevicePropertyValueInput) (*request.Request, *GetLastDevicePropertyValueOutput)
+
+	GetLogRuleCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	GetLogRuleCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	GetLogRuleCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	GetLogRule(*GetLogRuleInput) (*GetLogRuleOutput, error)
+	GetLogRuleWithContext(volcengine.Context, *GetLogRuleInput, ...request.Option) (*GetLogRuleOutput, error)
+	GetLogRuleRequest(*GetLogRuleInput) (*request.Request, *GetLogRuleOutput)
+
+	GetMediapipeEventCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	GetMediapipeEventCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	GetMediapipeEventCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	GetMediapipeEvent(*GetMediapipeEventInput) (*GetMediapipeEventOutput, error)
+	GetMediapipeEventWithContext(volcengine.Context, *GetMediapipeEventInput, ...request.Option) (*GetMediapipeEventOutput, error)
+	GetMediapipeEventRequest(*GetMediapipeEventInput) (*request.Request, *GetMediapipeEventOutput)
+
+	GetNodeGroupCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	GetNodeGroupCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	GetNodeGroupCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	GetNodeGroup(*GetNodeGroupInput) (*GetNodeGroupOutput, error)
+	GetNodeGroupWithContext(volcengine.Context, *GetNodeGroupInput, ...request.Option) (*GetNodeGroupOutput, error)
+	GetNodeGroupRequest(*GetNodeGroupInput) (*request.Request, *GetNodeGroupOutput)
+
+	ListDeploymentCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListDeploymentCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListDeploymentCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListDeployment(*ListDeploymentInput) (*ListDeploymentOutput, error)
+	ListDeploymentWithContext(volcengine.Context, *ListDeploymentInput, ...request.Option) (*ListDeploymentOutput, error)
+	ListDeploymentRequest(*ListDeploymentInput) (*request.Request, *ListDeploymentOutput)
+
+	ListDeviceCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListDeviceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListDeviceCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListDevice(*ListDeviceInput) (*ListDeviceOutput, error)
+	ListDeviceWithContext(volcengine.Context, *ListDeviceInput, ...request.Option) (*ListDeviceOutput, error)
+	ListDeviceRequest(*ListDeviceInput) (*request.Request, *ListDeviceOutput)
+
+	ListHCINewCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListHCINewCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListHCINewCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListHCINew(*ListHCINewInput) (*ListHCINewOutput, error)
+	ListHCINewWithContext(volcengine.Context, *ListHCINewInput, ...request.Option) (*ListHCINewOutput, error)
+	ListHCINewRequest(*ListHCINewInput) (*request.Request, *ListHCINewOutput)
+
+	ListIotModelsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListIotModelsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListIotModelsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListIotModels(*ListIotModelsInput) (*ListIotModelsOutput, error)
+	ListIotModelsWithContext(volcengine.Context, *ListIotModelsInput, ...request.Option) (*ListIotModelsOutput, error)
+	ListIotModelsRequest(*ListIotModelsInput) (*request.Request, *ListIotModelsOutput)
+
+	ListLLModelsV2Common(*map[string]interface{}) (*map[string]interface{}, error)
+	ListLLModelsV2CommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListLLModelsV2CommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListLLModelsV2(*ListLLModelsV2Input) (*ListLLModelsV2Output, error)
+	ListLLModelsV2WithContext(volcengine.Context, *ListLLModelsV2Input, ...request.Option) (*ListLLModelsV2Output, error)
+	ListLLModelsV2Request(*ListLLModelsV2Input) (*request.Request, *ListLLModelsV2Output)
+
+	ListMediapipeEventCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListMediapipeEventCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListMediapipeEventCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListMediapipeEvent(*ListMediapipeEventInput) (*ListMediapipeEventOutput, error)
+	ListMediapipeEventWithContext(volcengine.Context, *ListMediapipeEventInput, ...request.Option) (*ListMediapipeEventOutput, error)
+	ListMediapipeEventRequest(*ListMediapipeEventInput) (*request.Request, *ListMediapipeEventOutput)
+
+	ListMediapipeInstanceCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListMediapipeInstanceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListMediapipeInstanceCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListMediapipeInstance(*ListMediapipeInstanceInput) (*ListMediapipeInstanceOutput, error)
+	ListMediapipeInstanceWithContext(volcengine.Context, *ListMediapipeInstanceInput, ...request.Option) (*ListMediapipeInstanceOutput, error)
+	ListMediapipeInstanceRequest(*ListMediapipeInstanceInput) (*request.Request, *ListMediapipeInstanceOutput)
+
+	ListModelCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListModelCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListModelCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListModel(*ListModelInput) (*ListModelOutput, error)
+	ListModelWithContext(volcengine.Context, *ListModelInput, ...request.Option) (*ListModelOutput, error)
+	ListModelRequest(*ListModelInput) (*request.Request, *ListModelOutput)
+
+	ListModelServiceCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListModelServiceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListModelServiceCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListModelService(*ListModelServiceInput) (*ListModelServiceOutput, error)
+	ListModelServiceWithContext(volcengine.Context, *ListModelServiceInput, ...request.Option) (*ListModelServiceOutput, error)
+	ListModelServiceRequest(*ListModelServiceInput) (*request.Request, *ListModelServiceOutput)
+
+	ListNodeGroupCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListNodeGroupCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListNodeGroupCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListNodeGroup(*ListNodeGroupInput) (*ListNodeGroupOutput, error)
+	ListNodeGroupWithContext(volcengine.Context, *ListNodeGroupInput, ...request.Option) (*ListNodeGroupOutput, error)
+	ListNodeGroupRequest(*ListNodeGroupInput) (*request.Request, *ListNodeGroupOutput)
+
+	ListProjectCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListProjectCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListProjectCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListProject(*ListProjectInput) (*ListProjectOutput, error)
+	ListProjectWithContext(volcengine.Context, *ListProjectInput, ...request.Option) (*ListProjectOutput, error)
+	ListProjectRequest(*ListProjectInput) (*request.Request, *ListProjectOutput)
+
+	TagResourcesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	TagResourcesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	TagResourcesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	TagResources(*TagResourcesInput) (*TagResourcesOutput, error)
+	TagResourcesWithContext(volcengine.Context, *TagResourcesInput, ...request.Option) (*TagResourcesOutput, error)
+	TagResourcesRequest(*TagResourcesInput) (*request.Request, *TagResourcesOutput)
+
+	UntagResourcesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	UntagResourcesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	UntagResourcesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	UntagResources(*UntagResourcesInput) (*UntagResourcesOutput, error)
+	UntagResourcesWithContext(volcengine.Context, *UntagResourcesInput, ...request.Option) (*UntagResourcesOutput, error)
+	UntagResourcesRequest(*UntagResourcesInput) (*request.Request, *UntagResourcesOutput)
+
+	UpdateDeploymentCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	UpdateDeploymentCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	UpdateDeploymentCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	UpdateDeployment(*UpdateDeploymentInput) (*UpdateDeploymentOutput, error)
+	UpdateDeploymentWithContext(volcengine.Context, *UpdateDeploymentInput, ...request.Option) (*UpdateDeploymentOutput, error)
+	UpdateDeploymentRequest(*UpdateDeploymentInput) (*request.Request, *UpdateDeploymentOutput)
+
+	UpdateHCICommon(*map[string]interface{}) (*map[string]interface{}, error)
+	UpdateHCICommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	UpdateHCICommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	UpdateHCI(*UpdateHCIInput) (*UpdateHCIOutput, error)
+	UpdateHCIWithContext(volcengine.Context, *UpdateHCIInput, ...request.Option) (*UpdateHCIOutput, error)
+	UpdateHCIRequest(*UpdateHCIInput) (*request.Request, *UpdateHCIOutput)
+
+	UpdateLogRuleCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	UpdateLogRuleCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	UpdateLogRuleCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	UpdateLogRule(*UpdateLogRuleInput) (*UpdateLogRuleOutput, error)
+	UpdateLogRuleWithContext(volcengine.Context, *UpdateLogRuleInput, ...request.Option) (*UpdateLogRuleOutput, error)
+	UpdateLogRuleRequest(*UpdateLogRuleInput) (*request.Request, *UpdateLogRuleOutput)
+
+	UpdateLogStatusCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	UpdateLogStatusCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	UpdateLogStatusCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	UpdateLogStatus(*UpdateLogStatusInput) (*UpdateLogStatusOutput, error)
+	UpdateLogStatusWithContext(volcengine.Context, *UpdateLogStatusInput, ...request.Option) (*UpdateLogStatusOutput, error)
+	UpdateLogStatusRequest(*UpdateLogStatusInput) (*request.Request, *UpdateLogStatusOutput)
+
+	UpdateNodeGroupCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	UpdateNodeGroupCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	UpdateNodeGroupCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	UpdateNodeGroup(*UpdateNodeGroupInput) (*UpdateNodeGroupOutput, error)
+	UpdateNodeGroupWithContext(volcengine.Context, *UpdateNodeGroupInput, ...request.Option) (*UpdateNodeGroupOutput, error)
+	UpdateNodeGroupRequest(*UpdateNodeGroupInput) (*request.Request, *UpdateNodeGroupOutput)
 }
 
 var _ VEIAPIAPI = (*VEIAPI)(nil)
