@@ -282,6 +282,8 @@ type ListForListBillOverviewByCategoryOutput struct {
 
 	Currency *string `type:"string" json:",omitempty"`
 
+	CurrencySettlement *string `type:"string" json:",omitempty"`
+
 	DiscountBillAmount *string `type:"string" json:",omitempty"`
 
 	OriginalBillAmount *string `type:"string" json:",omitempty"`
@@ -304,11 +306,15 @@ type ListForListBillOverviewByCategoryOutput struct {
 
 	PosttaxAmount *string `type:"string" json:",omitempty"`
 
+	PreTaxPayableAmount *string `type:"string" json:",omitempty"`
+
 	PretaxAmount *string `type:"string" json:",omitempty"`
 
 	PretaxRealValue *string `type:"string" json:",omitempty"`
 
 	RealValue *string `type:"string" json:",omitempty"`
+
+	SavingPlanOriginalAmount *string `type:"string" json:",omitempty"`
 
 	SellerCustomerName *string `type:"string" json:",omitempty"`
 
@@ -316,7 +322,11 @@ type ListForListBillOverviewByCategoryOutput struct {
 
 	SellerUserName *string `type:"string" json:",omitempty"`
 
+	SettlePayableAmount *string `type:"string" json:",omitempty"`
+
 	SettlePosttaxAmount *string `type:"string" json:",omitempty"`
+
+	SettlePreTaxPayableAmount *string `type:"string" json:",omitempty"`
 
 	SettlePretaxAmount *string `type:"string" json:",omitempty"`
 
@@ -395,6 +405,12 @@ func (s *ListForListBillOverviewByCategoryOutput) SetCurrency(v string) *ListFor
 	return s
 }
 
+// SetCurrencySettlement sets the CurrencySettlement field's value.
+func (s *ListForListBillOverviewByCategoryOutput) SetCurrencySettlement(v string) *ListForListBillOverviewByCategoryOutput {
+	s.CurrencySettlement = &v
+	return s
+}
+
 // SetDiscountBillAmount sets the DiscountBillAmount field's value.
 func (s *ListForListBillOverviewByCategoryOutput) SetDiscountBillAmount(v string) *ListForListBillOverviewByCategoryOutput {
 	s.DiscountBillAmount = &v
@@ -461,6 +477,12 @@ func (s *ListForListBillOverviewByCategoryOutput) SetPosttaxAmount(v string) *Li
 	return s
 }
 
+// SetPreTaxPayableAmount sets the PreTaxPayableAmount field's value.
+func (s *ListForListBillOverviewByCategoryOutput) SetPreTaxPayableAmount(v string) *ListForListBillOverviewByCategoryOutput {
+	s.PreTaxPayableAmount = &v
+	return s
+}
+
 // SetPretaxAmount sets the PretaxAmount field's value.
 func (s *ListForListBillOverviewByCategoryOutput) SetPretaxAmount(v string) *ListForListBillOverviewByCategoryOutput {
 	s.PretaxAmount = &v
@@ -476,6 +498,12 @@ func (s *ListForListBillOverviewByCategoryOutput) SetPretaxRealValue(v string) *
 // SetRealValue sets the RealValue field's value.
 func (s *ListForListBillOverviewByCategoryOutput) SetRealValue(v string) *ListForListBillOverviewByCategoryOutput {
 	s.RealValue = &v
+	return s
+}
+
+// SetSavingPlanOriginalAmount sets the SavingPlanOriginalAmount field's value.
+func (s *ListForListBillOverviewByCategoryOutput) SetSavingPlanOriginalAmount(v string) *ListForListBillOverviewByCategoryOutput {
+	s.SavingPlanOriginalAmount = &v
 	return s
 }
 
@@ -497,9 +525,21 @@ func (s *ListForListBillOverviewByCategoryOutput) SetSellerUserName(v string) *L
 	return s
 }
 
+// SetSettlePayableAmount sets the SettlePayableAmount field's value.
+func (s *ListForListBillOverviewByCategoryOutput) SetSettlePayableAmount(v string) *ListForListBillOverviewByCategoryOutput {
+	s.SettlePayableAmount = &v
+	return s
+}
+
 // SetSettlePosttaxAmount sets the SettlePosttaxAmount field's value.
 func (s *ListForListBillOverviewByCategoryOutput) SetSettlePosttaxAmount(v string) *ListForListBillOverviewByCategoryOutput {
 	s.SettlePosttaxAmount = &v
+	return s
+}
+
+// SetSettlePreTaxPayableAmount sets the SettlePreTaxPayableAmount field's value.
+func (s *ListForListBillOverviewByCategoryOutput) SetSettlePreTaxPayableAmount(v string) *ListForListBillOverviewByCategoryOutput {
+	s.SettlePreTaxPayableAmount = &v
 	return s
 }
 

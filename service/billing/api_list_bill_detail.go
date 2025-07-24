@@ -370,6 +370,8 @@ type ListForListBillDetailOutput struct {
 
 	Currency *string `type:"string" json:",omitempty"`
 
+	CurrencySettlement *string `type:"string" json:",omitempty"`
+
 	DeductionCount *string `type:"string" json:",omitempty"`
 
 	DeductionUseDuration *string `type:"string" json:",omitempty"`
@@ -384,11 +386,15 @@ type ListForListBillDetailOutput struct {
 
 	DiscountBizUnitPriceInterval *string `type:"string" json:",omitempty"`
 
+	DiscountInfo *string `type:"string" json:",omitempty"`
+
 	EffectiveFactor *string `type:"string" json:",omitempty"`
 
 	Element *string `type:"string" json:",omitempty"`
 
 	ElementCode *string `type:"string" json:",omitempty"`
+
+	ExchangeRate *string `type:"string" json:",omitempty"`
 
 	ExpandField *string `type:"string" json:",omitempty"`
 
@@ -432,6 +438,8 @@ type ListForListBillDetailOutput struct {
 
 	PosttaxAmount *string `type:"string" json:",omitempty"`
 
+	PreTaxPayableAmount *string `type:"string" json:",omitempty"`
+
 	PreferentialBillAmount *string `type:"string" json:",omitempty"`
 
 	PretaxAmount *string `type:"string" json:",omitempty"`
@@ -462,6 +470,12 @@ type ListForListBillDetailOutput struct {
 
 	RoundAmount *float64 `type:"double" json:",omitempty"`
 
+	SavingPlanDeductionDiscountAmount *string `type:"string" json:",omitempty"`
+
+	SavingPlanDeductionSpID *string `type:"string" json:",omitempty"`
+
+	SavingPlanOriginalAmount *string `type:"string" json:",omitempty"`
+
 	SellerCustomerName *string `type:"string" json:",omitempty"`
 
 	SellerID *string `type:"string" json:",omitempty"`
@@ -470,7 +484,11 @@ type ListForListBillDetailOutput struct {
 
 	SellingMode *string `type:"string" json:",omitempty"`
 
+	SettlePayableAmount *string `type:"string" json:",omitempty"`
+
 	SettlePosttaxAmount *string `type:"string" json:",omitempty"`
+
+	SettlePreTaxPayableAmount *string `type:"string" json:",omitempty"`
 
 	SettlePretaxAmount *string `type:"string" json:",omitempty"`
 
@@ -613,6 +631,12 @@ func (s *ListForListBillDetailOutput) SetCurrency(v string) *ListForListBillDeta
 	return s
 }
 
+// SetCurrencySettlement sets the CurrencySettlement field's value.
+func (s *ListForListBillDetailOutput) SetCurrencySettlement(v string) *ListForListBillDetailOutput {
+	s.CurrencySettlement = &v
+	return s
+}
+
 // SetDeductionCount sets the DeductionCount field's value.
 func (s *ListForListBillDetailOutput) SetDeductionCount(v string) *ListForListBillDetailOutput {
 	s.DeductionCount = &v
@@ -655,6 +679,12 @@ func (s *ListForListBillDetailOutput) SetDiscountBizUnitPriceInterval(v string) 
 	return s
 }
 
+// SetDiscountInfo sets the DiscountInfo field's value.
+func (s *ListForListBillDetailOutput) SetDiscountInfo(v string) *ListForListBillDetailOutput {
+	s.DiscountInfo = &v
+	return s
+}
+
 // SetEffectiveFactor sets the EffectiveFactor field's value.
 func (s *ListForListBillDetailOutput) SetEffectiveFactor(v string) *ListForListBillDetailOutput {
 	s.EffectiveFactor = &v
@@ -670,6 +700,12 @@ func (s *ListForListBillDetailOutput) SetElement(v string) *ListForListBillDetai
 // SetElementCode sets the ElementCode field's value.
 func (s *ListForListBillDetailOutput) SetElementCode(v string) *ListForListBillDetailOutput {
 	s.ElementCode = &v
+	return s
+}
+
+// SetExchangeRate sets the ExchangeRate field's value.
+func (s *ListForListBillDetailOutput) SetExchangeRate(v string) *ListForListBillDetailOutput {
+	s.ExchangeRate = &v
 	return s
 }
 
@@ -799,6 +835,12 @@ func (s *ListForListBillDetailOutput) SetPosttaxAmount(v string) *ListForListBil
 	return s
 }
 
+// SetPreTaxPayableAmount sets the PreTaxPayableAmount field's value.
+func (s *ListForListBillDetailOutput) SetPreTaxPayableAmount(v string) *ListForListBillDetailOutput {
+	s.PreTaxPayableAmount = &v
+	return s
+}
+
 // SetPreferentialBillAmount sets the PreferentialBillAmount field's value.
 func (s *ListForListBillDetailOutput) SetPreferentialBillAmount(v string) *ListForListBillDetailOutput {
 	s.PreferentialBillAmount = &v
@@ -889,6 +931,24 @@ func (s *ListForListBillDetailOutput) SetRoundAmount(v float64) *ListForListBill
 	return s
 }
 
+// SetSavingPlanDeductionDiscountAmount sets the SavingPlanDeductionDiscountAmount field's value.
+func (s *ListForListBillDetailOutput) SetSavingPlanDeductionDiscountAmount(v string) *ListForListBillDetailOutput {
+	s.SavingPlanDeductionDiscountAmount = &v
+	return s
+}
+
+// SetSavingPlanDeductionSpID sets the SavingPlanDeductionSpID field's value.
+func (s *ListForListBillDetailOutput) SetSavingPlanDeductionSpID(v string) *ListForListBillDetailOutput {
+	s.SavingPlanDeductionSpID = &v
+	return s
+}
+
+// SetSavingPlanOriginalAmount sets the SavingPlanOriginalAmount field's value.
+func (s *ListForListBillDetailOutput) SetSavingPlanOriginalAmount(v string) *ListForListBillDetailOutput {
+	s.SavingPlanOriginalAmount = &v
+	return s
+}
+
 // SetSellerCustomerName sets the SellerCustomerName field's value.
 func (s *ListForListBillDetailOutput) SetSellerCustomerName(v string) *ListForListBillDetailOutput {
 	s.SellerCustomerName = &v
@@ -913,9 +973,21 @@ func (s *ListForListBillDetailOutput) SetSellingMode(v string) *ListForListBillD
 	return s
 }
 
+// SetSettlePayableAmount sets the SettlePayableAmount field's value.
+func (s *ListForListBillDetailOutput) SetSettlePayableAmount(v string) *ListForListBillDetailOutput {
+	s.SettlePayableAmount = &v
+	return s
+}
+
 // SetSettlePosttaxAmount sets the SettlePosttaxAmount field's value.
 func (s *ListForListBillDetailOutput) SetSettlePosttaxAmount(v string) *ListForListBillDetailOutput {
 	s.SettlePosttaxAmount = &v
+	return s
+}
+
+// SetSettlePreTaxPayableAmount sets the SettlePreTaxPayableAmount field's value.
+func (s *ListForListBillDetailOutput) SetSettlePreTaxPayableAmount(v string) *ListForListBillDetailOutput {
+	s.SettlePreTaxPayableAmount = &v
 	return s
 }
 
