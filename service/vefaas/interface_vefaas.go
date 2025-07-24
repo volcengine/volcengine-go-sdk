@@ -174,6 +174,14 @@ type VEFAASAPI interface {
 	KillSandboxWithContext(volcengine.Context, *KillSandboxInput, ...request.Option) (*KillSandboxOutput, error)
 	KillSandboxRequest(*KillSandboxInput) (*request.Request, *KillSandboxOutput)
 
+	ListAsyncTasksCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListAsyncTasksCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListAsyncTasksCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListAsyncTasks(*ListAsyncTasksInput) (*ListAsyncTasksOutput, error)
+	ListAsyncTasksWithContext(volcengine.Context, *ListAsyncTasksInput, ...request.Option) (*ListAsyncTasksOutput, error)
+	ListAsyncTasksRequest(*ListAsyncTasksInput) (*request.Request, *ListAsyncTasksOutput)
+
 	ListFunctionElasticScaleStrategyCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ListFunctionElasticScaleStrategyCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	ListFunctionElasticScaleStrategyCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})

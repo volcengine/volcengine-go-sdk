@@ -1,5 +1,6 @@
 # 目录
 
+- [目录](#目录)
 - [集成SDK](#集成sdk)
 - [环境要求](#环境要求)
 - [安全设置访问凭据](#安全设置访问凭据)
@@ -19,9 +20,12 @@
     - [Endpoint默认寻址](#endpoint默认寻址)
 - [Http连接池配置](#http连接池配置)
 - [Https请求配置](#https请求配置)
-  - [指定Scheme](#指定scheme)
+  - [指定scheme](#指定scheme)
   - [忽略SSL验证](#忽略ssl验证)
   - [指定TLS协议版本](#指定tls协议版本)
+- [Http(s)代理配置](#https代理配置)
+  - [配置Http(s)代理](#配置https代理)
+  - [注意事项](#注意事项)
 - [超时配置](#超时配置)
   - [全局超时设置（Client级别）](#全局超时设置client级别)
   - [单接口指定超时设置](#单接口指定超时设置)
@@ -426,6 +430,31 @@ func main() {
     svc := ecs.New(sess)
 }
 ```
+
+# Http(s)代理配置
+
+> - **默认** 
+>   无代理
+
+## 配置Http(s)代理
+
+```go
+var ak, sk, region string
+config = volcengine.NewConfig().
+	WithCredentials(credentials.NewStaticCredentials(ak, sk, "")).
+	WithRegion(region).WithHTTPProxy("http://your_proxy:8080").WithHTTPSProxy("http://your_proxy:8080")
+
+sess, _ = session.NewSession(config)
+client = ecsops.New(sess)
+```
+
+## 注意事项
+
+支持通过以下环境变量配置代理:
+
+http_proxy/HTTP_PROXY, https_proxy/HTTPS_PROXY
+
+优先级：代码指定 > 环境变量
 
 # 超时配置
 

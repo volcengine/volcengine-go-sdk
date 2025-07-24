@@ -394,6 +394,8 @@ type ItemForListRevisionsOutput struct {
 
 	ExclusiveMode *bool `type:"boolean" json:",omitempty"`
 
+	FunctionType *string `type:"string" json:",omitempty"`
+
 	HealthCheckConfig *HealthCheckConfigForListRevisionsOutput `type:"structure" json:",omitempty"`
 
 	Id *string `type:"string" json:",omitempty"`
@@ -478,6 +480,12 @@ func (s *ItemForListRevisionsOutput) SetEnvs(v []*EnvForListRevisionsOutput) *It
 // SetExclusiveMode sets the ExclusiveMode field's value.
 func (s *ItemForListRevisionsOutput) SetExclusiveMode(v bool) *ItemForListRevisionsOutput {
 	s.ExclusiveMode = &v
+	return s
+}
+
+// SetFunctionType sets the FunctionType field's value.
+func (s *ItemForListRevisionsOutput) SetFunctionType(v string) *ItemForListRevisionsOutput {
+	s.FunctionType = &v
 	return s
 }
 

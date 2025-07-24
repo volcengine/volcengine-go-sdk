@@ -70,6 +70,14 @@ type ACEPAPI interface {
 	DeleteCustomRouteWithContext(volcengine.Context, *DeleteCustomRouteInput, ...request.Option) (*DeleteCustomRouteOutput, error)
 	DeleteCustomRouteRequest(*DeleteCustomRouteInput) (*request.Request, *DeleteCustomRouteOutput)
 
+	ListAppCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListAppCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListAppCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListApp(*ListAppInput) (*ListAppOutput, error)
+	ListAppWithContext(volcengine.Context, *ListAppInput, ...request.Option) (*ListAppOutput, error)
+	ListAppRequest(*ListAppInput) (*request.Request, *ListAppOutput)
+
 	ListCustomRouteCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ListCustomRouteCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	ListCustomRouteCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -101,6 +109,22 @@ type ACEPAPI interface {
 	RestorePod(*RestorePodInput) (*RestorePodOutput, error)
 	RestorePodWithContext(volcengine.Context, *RestorePodInput, ...request.Option) (*RestorePodOutput, error)
 	RestorePodRequest(*RestorePodInput) (*request.Request, *RestorePodOutput)
+
+	StartScreenShotCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	StartScreenShotCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	StartScreenShotCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	StartScreenShot(*StartScreenShotInput) (*StartScreenShotOutput, error)
+	StartScreenShotWithContext(volcengine.Context, *StartScreenShotInput, ...request.Option) (*StartScreenShotOutput, error)
+	StartScreenShotRequest(*StartScreenShotInput) (*request.Request, *StartScreenShotOutput)
+
+	StopScreenShotCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	StopScreenShotCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	StopScreenShotCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	StopScreenShot(*StopScreenShotInput) (*StopScreenShotOutput, error)
+	StopScreenShotWithContext(volcengine.Context, *StopScreenShotInput, ...request.Option) (*StopScreenShotOutput, error)
+	StopScreenShotRequest(*StopScreenShotInput) (*request.Request, *StopScreenShotOutput)
 
 	UpdateCustomRouteCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	UpdateCustomRouteCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
