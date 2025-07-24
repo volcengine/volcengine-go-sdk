@@ -150,6 +150,8 @@ type ItemForListFunctionInstancesOutput struct {
 
 	CreationTime *string `type:"string" json:",omitempty"`
 
+	ExpireAt *string `type:"string" json:",omitempty"`
+
 	Id *string `type:"string" json:",omitempty"`
 
 	InstanceName *string `type:"string" json:",omitempty"`
@@ -157,6 +159,8 @@ type ItemForListFunctionInstancesOutput struct {
 	InstanceStatus *string `type:"string" json:",omitempty"`
 
 	InstanceType *string `type:"string" json:",omitempty"`
+
+	Labels *LabelsForListFunctionInstancesOutput `type:"structure" json:",omitempty"`
 
 	RevisionNumber *int32 `type:"int32" json:",omitempty"`
 
@@ -187,6 +191,12 @@ func (s *ItemForListFunctionInstancesOutput) SetCreationTime(v string) *ItemForL
 	return s
 }
 
+// SetExpireAt sets the ExpireAt field's value.
+func (s *ItemForListFunctionInstancesOutput) SetExpireAt(v string) *ItemForListFunctionInstancesOutput {
+	s.ExpireAt = &v
+	return s
+}
+
 // SetId sets the Id field's value.
 func (s *ItemForListFunctionInstancesOutput) SetId(v string) *ItemForListFunctionInstancesOutput {
 	s.Id = &v
@@ -211,6 +221,12 @@ func (s *ItemForListFunctionInstancesOutput) SetInstanceType(v string) *ItemForL
 	return s
 }
 
+// SetLabels sets the Labels field's value.
+func (s *ItemForListFunctionInstancesOutput) SetLabels(v *LabelsForListFunctionInstancesOutput) *ItemForListFunctionInstancesOutput {
+	s.Labels = v
+	return s
+}
+
 // SetRevisionNumber sets the RevisionNumber field's value.
 func (s *ItemForListFunctionInstancesOutput) SetRevisionNumber(v int32) *ItemForListFunctionInstancesOutput {
 	s.RevisionNumber = &v
@@ -227,6 +243,20 @@ func (s *ItemForListFunctionInstancesOutput) SetUserVpcIP(v string) *ItemForList
 func (s *ItemForListFunctionInstancesOutput) SetUserVpcIPv6(v string) *ItemForListFunctionInstancesOutput {
 	s.UserVpcIPv6 = &v
 	return s
+}
+
+type LabelsForListFunctionInstancesOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s LabelsForListFunctionInstancesOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s LabelsForListFunctionInstancesOutput) GoString() string {
+	return s.String()
 }
 
 type ListFunctionInstancesInput struct {

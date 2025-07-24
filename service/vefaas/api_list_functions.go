@@ -236,6 +236,8 @@ func (s *FilterForListFunctionsInput) SetValues(v []*string) *FilterForListFunct
 type ItemForListFunctionsOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	Cell *string `type:"string" json:",omitempty"`
+
 	CodeSize *int32 `type:"int32" json:",omitempty"`
 
 	CodeSizeLimit *int32 `type:"int32" json:",omitempty"`
@@ -251,6 +253,8 @@ type ItemForListFunctionsOutput struct {
 	Envs []*EnvForListFunctionsOutput `type:"list" json:",omitempty"`
 
 	ExclusiveMode *bool `type:"boolean" json:",omitempty"`
+
+	FunctionType *string `type:"string" json:",omitempty"`
 
 	Id *string `type:"string" json:",omitempty"`
 
@@ -303,6 +307,12 @@ func (s ItemForListFunctionsOutput) GoString() string {
 	return s.String()
 }
 
+// SetCell sets the Cell field's value.
+func (s *ItemForListFunctionsOutput) SetCell(v string) *ItemForListFunctionsOutput {
+	s.Cell = &v
+	return s
+}
+
 // SetCodeSize sets the CodeSize field's value.
 func (s *ItemForListFunctionsOutput) SetCodeSize(v int32) *ItemForListFunctionsOutput {
 	s.CodeSize = &v
@@ -348,6 +358,12 @@ func (s *ItemForListFunctionsOutput) SetEnvs(v []*EnvForListFunctionsOutput) *It
 // SetExclusiveMode sets the ExclusiveMode field's value.
 func (s *ItemForListFunctionsOutput) SetExclusiveMode(v bool) *ItemForListFunctionsOutput {
 	s.ExclusiveMode = &v
+	return s
+}
+
+// SetFunctionType sets the FunctionType field's value.
+func (s *ItemForListFunctionsOutput) SetFunctionType(v string) *ItemForListFunctionsOutput {
+	s.FunctionType = &v
 	return s
 }
 
