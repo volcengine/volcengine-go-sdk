@@ -146,6 +146,8 @@ func (c *KMS) CreateKeyWithContext(ctx volcengine.Context, input *CreateKeyInput
 type CreateKeyInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	CustomKeyStoreID *string `min:"36" max:"36" type:"string" json:",omitempty"`
+
 	Description *string `max:"8192" type:"string" json:",omitempty"`
 
 	// KeyName is a required field
@@ -167,6 +169,8 @@ type CreateKeyInput struct {
 	RotateState *string `type:"string" json:",omitempty"`
 
 	Tags []*TagForCreateKeyInput `type:"list" json:",omitempty"`
+
+	XksKeyID *string `min:"1" max:"128" type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -182,6 +186,12 @@ func (s CreateKeyInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *CreateKeyInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "CreateKeyInput"}
+	if s.CustomKeyStoreID != nil && len(*s.CustomKeyStoreID) < 36 {
+		invalidParams.Add(request.NewErrParamMinLen("CustomKeyStoreID", 36))
+	}
+	if s.CustomKeyStoreID != nil && len(*s.CustomKeyStoreID) > 36 {
+		invalidParams.Add(request.NewErrParamMaxLen("CustomKeyStoreID", 36, *s.CustomKeyStoreID))
+	}
 	if s.Description != nil && len(*s.Description) > 8192 {
 		invalidParams.Add(request.NewErrParamMaxLen("Description", 8192, *s.Description))
 	}
@@ -203,11 +213,23 @@ func (s *CreateKeyInput) Validate() error {
 	if s.KeyringName != nil && len(*s.KeyringName) > 31 {
 		invalidParams.Add(request.NewErrParamMaxLen("KeyringName", 31, *s.KeyringName))
 	}
+	if s.XksKeyID != nil && len(*s.XksKeyID) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("XksKeyID", 1))
+	}
+	if s.XksKeyID != nil && len(*s.XksKeyID) > 128 {
+		invalidParams.Add(request.NewErrParamMaxLen("XksKeyID", 128, *s.XksKeyID))
+	}
 
 	if invalidParams.Len() > 0 {
 		return invalidParams
 	}
 	return nil
+}
+
+// SetCustomKeyStoreID sets the CustomKeyStoreID field's value.
+func (s *CreateKeyInput) SetCustomKeyStoreID(v string) *CreateKeyInput {
+	s.CustomKeyStoreID = &v
+	return s
 }
 
 // SetDescription sets the Description field's value.
@@ -270,6 +292,12 @@ func (s *CreateKeyInput) SetTags(v []*TagForCreateKeyInput) *CreateKeyInput {
 	return s
 }
 
+// SetXksKeyID sets the XksKeyID field's value.
+func (s *CreateKeyInput) SetXksKeyID(v string) *CreateKeyInput {
+	s.XksKeyID = &v
+	return s
+}
+
 type CreateKeyOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -298,6 +326,8 @@ type KeyForCreateKeyOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
 	CreationDate *int64 `type:"int64" json:",omitempty"`
+
+	CustomKeyStoreID *string `type:"string" json:",omitempty"`
 
 	Description *string `type:"string" json:",omitempty"`
 
@@ -334,6 +364,8 @@ type KeyForCreateKeyOutput struct {
 	Trn *string `type:"string" json:",omitempty"`
 
 	UpdateDate *int64 `type:"int64" json:",omitempty"`
+
+	XksKeyConfiguration *XksKeyConfigurationForCreateKeyOutput `type:"structure" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -349,6 +381,12 @@ func (s KeyForCreateKeyOutput) GoString() string {
 // SetCreationDate sets the CreationDate field's value.
 func (s *KeyForCreateKeyOutput) SetCreationDate(v int64) *KeyForCreateKeyOutput {
 	s.CreationDate = &v
+	return s
+}
+
+// SetCustomKeyStoreID sets the CustomKeyStoreID field's value.
+func (s *KeyForCreateKeyOutput) SetCustomKeyStoreID(v string) *KeyForCreateKeyOutput {
+	s.CustomKeyStoreID = &v
 	return s
 }
 
@@ -457,6 +495,12 @@ func (s *KeyForCreateKeyOutput) SetTrn(v string) *KeyForCreateKeyOutput {
 // SetUpdateDate sets the UpdateDate field's value.
 func (s *KeyForCreateKeyOutput) SetUpdateDate(v int64) *KeyForCreateKeyOutput {
 	s.UpdateDate = &v
+	return s
+}
+
+// SetXksKeyConfiguration sets the XksKeyConfiguration field's value.
+func (s *KeyForCreateKeyOutput) SetXksKeyConfiguration(v *XksKeyConfigurationForCreateKeyOutput) *KeyForCreateKeyOutput {
+	s.XksKeyConfiguration = v
 	return s
 }
 
@@ -615,6 +659,28 @@ func (s *TagForCreateKeyOutput) SetKey(v string) *TagForCreateKeyOutput {
 // SetValue sets the Value field's value.
 func (s *TagForCreateKeyOutput) SetValue(v string) *TagForCreateKeyOutput {
 	s.Value = &v
+	return s
+}
+
+type XksKeyConfigurationForCreateKeyOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	ID *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s XksKeyConfigurationForCreateKeyOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s XksKeyConfigurationForCreateKeyOutput) GoString() string {
+	return s.String()
+}
+
+// SetID sets the ID field's value.
+func (s *XksKeyConfigurationForCreateKeyOutput) SetID(v string) *XksKeyConfigurationForCreateKeyOutput {
+	s.ID = &v
 	return s
 }
 

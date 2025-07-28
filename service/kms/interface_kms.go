@@ -110,6 +110,22 @@ type KMSAPI interface {
 	CancelSecretDeletionWithContext(volcengine.Context, *CancelSecretDeletionInput, ...request.Option) (*CancelSecretDeletionOutput, error)
 	CancelSecretDeletionRequest(*CancelSecretDeletionInput) (*request.Request, *CancelSecretDeletionOutput)
 
+	ConnectCustomKeyStoreCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ConnectCustomKeyStoreCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ConnectCustomKeyStoreCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ConnectCustomKeyStore(*ConnectCustomKeyStoreInput) (*ConnectCustomKeyStoreOutput, error)
+	ConnectCustomKeyStoreWithContext(volcengine.Context, *ConnectCustomKeyStoreInput, ...request.Option) (*ConnectCustomKeyStoreOutput, error)
+	ConnectCustomKeyStoreRequest(*ConnectCustomKeyStoreInput) (*request.Request, *ConnectCustomKeyStoreOutput)
+
+	CreateCustomKeyStoreCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateCustomKeyStoreCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateCustomKeyStoreCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateCustomKeyStore(*CreateCustomKeyStoreInput) (*CreateCustomKeyStoreOutput, error)
+	CreateCustomKeyStoreWithContext(volcengine.Context, *CreateCustomKeyStoreInput, ...request.Option) (*CreateCustomKeyStoreOutput, error)
+	CreateCustomKeyStoreRequest(*CreateCustomKeyStoreInput) (*request.Request, *CreateCustomKeyStoreOutput)
+
 	CreateKeyCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	CreateKeyCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	CreateKeyCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -142,6 +158,14 @@ type KMSAPI interface {
 	DecryptWithContext(volcengine.Context, *DecryptInput, ...request.Option) (*DecryptOutput, error)
 	DecryptRequest(*DecryptInput) (*request.Request, *DecryptOutput)
 
+	DeleteCustomKeyStoreCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeleteCustomKeyStoreCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeleteCustomKeyStoreCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeleteCustomKeyStore(*DeleteCustomKeyStoreInput) (*DeleteCustomKeyStoreOutput, error)
+	DeleteCustomKeyStoreWithContext(volcengine.Context, *DeleteCustomKeyStoreInput, ...request.Option) (*DeleteCustomKeyStoreOutput, error)
+	DeleteCustomKeyStoreRequest(*DeleteCustomKeyStoreInput) (*request.Request, *DeleteCustomKeyStoreOutput)
+
 	DeleteKeyMaterialCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DeleteKeyMaterialCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DeleteKeyMaterialCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -157,6 +181,14 @@ type KMSAPI interface {
 	DeleteKeyring(*DeleteKeyringInput) (*DeleteKeyringOutput, error)
 	DeleteKeyringWithContext(volcengine.Context, *DeleteKeyringInput, ...request.Option) (*DeleteKeyringOutput, error)
 	DeleteKeyringRequest(*DeleteKeyringInput) (*request.Request, *DeleteKeyringOutput)
+
+	DescribeCustomKeyStoresCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeCustomKeyStoresCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeCustomKeyStoresCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeCustomKeyStores(*DescribeCustomKeyStoresInput) (*DescribeCustomKeyStoresOutput, error)
+	DescribeCustomKeyStoresWithContext(volcengine.Context, *DescribeCustomKeyStoresInput, ...request.Option) (*DescribeCustomKeyStoresOutput, error)
+	DescribeCustomKeyStoresRequest(*DescribeCustomKeyStoresInput) (*request.Request, *DescribeCustomKeyStoresOutput)
 
 	DescribeKeyCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DescribeKeyCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -229,6 +261,14 @@ type KMSAPI interface {
 	DisableKeyRotation(*DisableKeyRotationInput) (*DisableKeyRotationOutput, error)
 	DisableKeyRotationWithContext(volcengine.Context, *DisableKeyRotationInput, ...request.Option) (*DisableKeyRotationOutput, error)
 	DisableKeyRotationRequest(*DisableKeyRotationInput) (*request.Request, *DisableKeyRotationOutput)
+
+	DisconnectCustomKeyStoreCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DisconnectCustomKeyStoreCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DisconnectCustomKeyStoreCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DisconnectCustomKeyStore(*DisconnectCustomKeyStoreInput) (*DisconnectCustomKeyStoreOutput, error)
+	DisconnectCustomKeyStoreWithContext(volcengine.Context, *DisconnectCustomKeyStoreInput, ...request.Option) (*DisconnectCustomKeyStoreOutput, error)
+	DisconnectCustomKeyStoreRequest(*DisconnectCustomKeyStoreInput) (*request.Request, *DisconnectCustomKeyStoreOutput)
 
 	EnableKeyCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	EnableKeyCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -389,6 +429,14 @@ type KMSAPI interface {
 	UntagResources(*UntagResourcesInput) (*UntagResourcesOutput, error)
 	UntagResourcesWithContext(volcengine.Context, *UntagResourcesInput, ...request.Option) (*UntagResourcesOutput, error)
 	UntagResourcesRequest(*UntagResourcesInput) (*request.Request, *UntagResourcesOutput)
+
+	UpdateCustomKeyStoreCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	UpdateCustomKeyStoreCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	UpdateCustomKeyStoreCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	UpdateCustomKeyStore(*UpdateCustomKeyStoreInput) (*UpdateCustomKeyStoreOutput, error)
+	UpdateCustomKeyStoreWithContext(volcengine.Context, *UpdateCustomKeyStoreInput, ...request.Option) (*UpdateCustomKeyStoreOutput, error)
+	UpdateCustomKeyStoreRequest(*UpdateCustomKeyStoreInput) (*request.Request, *UpdateCustomKeyStoreOutput)
 
 	UpdateKeyCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	UpdateKeyCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
