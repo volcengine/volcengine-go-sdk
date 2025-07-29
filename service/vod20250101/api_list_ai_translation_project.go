@@ -396,6 +396,8 @@ type ProjectForListAITranslationProjectOutput struct {
 
 	InputVideo *InputVideoForListAITranslationProjectOutput `type:"structure"`
 
+	InputVideoPosterUrl *string `type:"string"`
+
 	InputVideoTitle *string `type:"string"`
 
 	OperatorConfig *OperatorConfigForListAITranslationProjectOutput `type:"structure"`
@@ -450,6 +452,12 @@ func (s *ProjectForListAITranslationProjectOutput) SetErrorMsg(v string) *Projec
 // SetInputVideo sets the InputVideo field's value.
 func (s *ProjectForListAITranslationProjectOutput) SetInputVideo(v *InputVideoForListAITranslationProjectOutput) *ProjectForListAITranslationProjectOutput {
 	s.InputVideo = v
+	return s
+}
+
+// SetInputVideoPosterUrl sets the InputVideoPosterUrl field's value.
+func (s *ProjectForListAITranslationProjectOutput) SetInputVideoPosterUrl(v string) *ProjectForListAITranslationProjectOutput {
+	s.InputVideoPosterUrl = &v
 	return s
 }
 

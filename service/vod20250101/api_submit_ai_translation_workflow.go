@@ -165,6 +165,28 @@ func (s *OperatorConfigForSubmitAITranslationWorkflowInput) SetSubtitleRecogniti
 	return s
 }
 
+type ProcessConfigForSubmitAITranslationWorkflowInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	SuspensionStageList []*string `type:"list" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s ProcessConfigForSubmitAITranslationWorkflowInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ProcessConfigForSubmitAITranslationWorkflowInput) GoString() string {
+	return s.String()
+}
+
+// SetSuspensionStageList sets the SuspensionStageList field's value.
+func (s *ProcessConfigForSubmitAITranslationWorkflowInput) SetSuspensionStageList(v []*string) *ProcessConfigForSubmitAITranslationWorkflowInput {
+	s.SuspensionStageList = v
+	return s
+}
+
 type ProjectBaseInfoForSubmitAITranslationWorkflowOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -200,8 +222,12 @@ type SubmitAITranslationWorkflowInput struct {
 
 	OperatorConfig *OperatorConfigForSubmitAITranslationWorkflowInput `type:"structure" json:",omitempty"`
 
+	ProcessConfig *ProcessConfigForSubmitAITranslationWorkflowInput `type:"structure" json:",omitempty"`
+
 	// SpaceName is a required field
 	SpaceName *string `type:"string" json:",omitempty" required:"true"`
+
+	SubtitleConfig *SubtitleConfigForSubmitAITranslationWorkflowInput `type:"structure" json:",omitempty"`
 
 	TranslationConfig *TranslationConfigForSubmitAITranslationWorkflowInput `type:"structure" json:",omitempty"`
 
@@ -241,9 +267,21 @@ func (s *SubmitAITranslationWorkflowInput) SetOperatorConfig(v *OperatorConfigFo
 	return s
 }
 
+// SetProcessConfig sets the ProcessConfig field's value.
+func (s *SubmitAITranslationWorkflowInput) SetProcessConfig(v *ProcessConfigForSubmitAITranslationWorkflowInput) *SubmitAITranslationWorkflowInput {
+	s.ProcessConfig = v
+	return s
+}
+
 // SetSpaceName sets the SpaceName field's value.
 func (s *SubmitAITranslationWorkflowInput) SetSpaceName(v string) *SubmitAITranslationWorkflowInput {
 	s.SpaceName = &v
+	return s
+}
+
+// SetSubtitleConfig sets the SubtitleConfig field's value.
+func (s *SubmitAITranslationWorkflowInput) SetSubtitleConfig(v *SubtitleConfigForSubmitAITranslationWorkflowInput) *SubmitAITranslationWorkflowInput {
+	s.SubtitleConfig = v
 	return s
 }
 
@@ -280,6 +318,76 @@ func (s SubmitAITranslationWorkflowOutput) GoString() string {
 // SetProjectBaseInfo sets the ProjectBaseInfo field's value.
 func (s *SubmitAITranslationWorkflowOutput) SetProjectBaseInfo(v *ProjectBaseInfoForSubmitAITranslationWorkflowOutput) *SubmitAITranslationWorkflowOutput {
 	s.ProjectBaseInfo = v
+	return s
+}
+
+type SubtitleConfigForSubmitAITranslationWorkflowInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	FontSize *int32 `type:"int32" json:",omitempty"`
+
+	IsEraseSource *bool `type:"boolean" json:",omitempty"`
+
+	IsHardSubtitle *bool `type:"boolean" json:",omitempty"`
+
+	MarginL *float64 `type:"double" json:",omitempty"`
+
+	MarginR *float64 `type:"double" json:",omitempty"`
+
+	MarginV *float64 `type:"double" json:",omitempty"`
+
+	ShowLines *int32 `type:"int32" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s SubtitleConfigForSubmitAITranslationWorkflowInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s SubtitleConfigForSubmitAITranslationWorkflowInput) GoString() string {
+	return s.String()
+}
+
+// SetFontSize sets the FontSize field's value.
+func (s *SubtitleConfigForSubmitAITranslationWorkflowInput) SetFontSize(v int32) *SubtitleConfigForSubmitAITranslationWorkflowInput {
+	s.FontSize = &v
+	return s
+}
+
+// SetIsEraseSource sets the IsEraseSource field's value.
+func (s *SubtitleConfigForSubmitAITranslationWorkflowInput) SetIsEraseSource(v bool) *SubtitleConfigForSubmitAITranslationWorkflowInput {
+	s.IsEraseSource = &v
+	return s
+}
+
+// SetIsHardSubtitle sets the IsHardSubtitle field's value.
+func (s *SubtitleConfigForSubmitAITranslationWorkflowInput) SetIsHardSubtitle(v bool) *SubtitleConfigForSubmitAITranslationWorkflowInput {
+	s.IsHardSubtitle = &v
+	return s
+}
+
+// SetMarginL sets the MarginL field's value.
+func (s *SubtitleConfigForSubmitAITranslationWorkflowInput) SetMarginL(v float64) *SubtitleConfigForSubmitAITranslationWorkflowInput {
+	s.MarginL = &v
+	return s
+}
+
+// SetMarginR sets the MarginR field's value.
+func (s *SubtitleConfigForSubmitAITranslationWorkflowInput) SetMarginR(v float64) *SubtitleConfigForSubmitAITranslationWorkflowInput {
+	s.MarginR = &v
+	return s
+}
+
+// SetMarginV sets the MarginV field's value.
+func (s *SubtitleConfigForSubmitAITranslationWorkflowInput) SetMarginV(v float64) *SubtitleConfigForSubmitAITranslationWorkflowInput {
+	s.MarginV = &v
+	return s
+}
+
+// SetShowLines sets the ShowLines field's value.
+func (s *SubtitleConfigForSubmitAITranslationWorkflowInput) SetShowLines(v int32) *SubtitleConfigForSubmitAITranslationWorkflowInput {
+	s.ShowLines = &v
 	return s
 }
 
