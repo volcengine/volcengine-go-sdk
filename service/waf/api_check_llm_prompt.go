@@ -228,6 +228,8 @@ type CheckLLMPromptOutput struct {
 
 	Metadata *response.ResponseMetadata
 
+	ContextID *string `type:"string" json:",omitempty"`
+
 	Decision *DecisionForCheckLLMPromptOutput `type:"structure" json:",omitempty"`
 
 	MsgID *string `type:"string" json:",omitempty"`
@@ -241,6 +243,12 @@ func (s CheckLLMPromptOutput) String() string {
 // GoString returns the string representation
 func (s CheckLLMPromptOutput) GoString() string {
 	return s.String()
+}
+
+// SetContextID sets the ContextID field's value.
+func (s *CheckLLMPromptOutput) SetContextID(v string) *CheckLLMPromptOutput {
+	s.ContextID = &v
+	return s
 }
 
 // SetDecision sets the Decision field's value.
@@ -291,6 +299,8 @@ type DecisionForCheckLLMPromptOutput struct {
 	Labels []*string `type:"list" json:",omitempty"`
 
 	Matches []*MatchForCheckLLMPromptOutput `type:"list" json:",omitempty"`
+
+	ReplaceDetail *ReplaceDetailForCheckLLMPromptOutput `type:"structure" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -339,6 +349,12 @@ func (s *DecisionForCheckLLMPromptOutput) SetMatches(v []*MatchForCheckLLMPrompt
 	return s
 }
 
+// SetReplaceDetail sets the ReplaceDetail field's value.
+func (s *DecisionForCheckLLMPromptOutput) SetReplaceDetail(v *ReplaceDetailForCheckLLMPromptOutput) *DecisionForCheckLLMPromptOutput {
+	s.ReplaceDetail = v
+	return s
+}
+
 type MatchForCheckLLMPromptOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -366,5 +382,35 @@ func (s *MatchForCheckLLMPromptOutput) SetLabel(v string) *MatchForCheckLLMPromp
 // SetWord sets the Word field's value.
 func (s *MatchForCheckLLMPromptOutput) SetWord(v string) *MatchForCheckLLMPromptOutput {
 	s.Word = &v
+	return s
+}
+
+type ReplaceDetailForCheckLLMPromptOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Content *string `type:"string" json:",omitempty"`
+
+	ContentType *int32 `type:"int32" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s ReplaceDetailForCheckLLMPromptOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ReplaceDetailForCheckLLMPromptOutput) GoString() string {
+	return s.String()
+}
+
+// SetContent sets the Content field's value.
+func (s *ReplaceDetailForCheckLLMPromptOutput) SetContent(v string) *ReplaceDetailForCheckLLMPromptOutput {
+	s.Content = &v
+	return s
+}
+
+// SetContentType sets the ContentType field's value.
+func (s *ReplaceDetailForCheckLLMPromptOutput) SetContentType(v int32) *ReplaceDetailForCheckLLMPromptOutput {
+	s.ContentType = &v
 	return s
 }
