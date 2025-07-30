@@ -144,6 +144,8 @@ func (c *ECS) DescribeEventTypesWithContext(ctx volcengine.Context, input *Descr
 type DescribeEventTypesInput struct {
 	_ struct{} `type:"structure"`
 
+	ImpactLevel *string `type:"string"`
+
 	Kind *string `type:"string"`
 
 	MaxResults *json.Number `type:"json_number"`
@@ -163,6 +165,12 @@ func (s DescribeEventTypesInput) String() string {
 // GoString returns the string representation
 func (s DescribeEventTypesInput) GoString() string {
 	return s.String()
+}
+
+// SetImpactLevel sets the ImpactLevel field's value.
+func (s *DescribeEventTypesInput) SetImpactLevel(v string) *DescribeEventTypesInput {
+	s.ImpactLevel = &v
+	return s
 }
 
 // SetKind sets the Kind field's value.
@@ -230,6 +238,8 @@ func (s *DescribeEventTypesOutput) SetNextToken(v string) *DescribeEventTypesOut
 type EventTypeForDescribeEventTypesOutput struct {
 	_ struct{} `type:"structure"`
 
+	ImpactLevel *string `type:"string"`
+
 	Kind *string `type:"string"`
 
 	ResponseRequired *bool `type:"boolean"`
@@ -249,6 +259,12 @@ func (s EventTypeForDescribeEventTypesOutput) String() string {
 // GoString returns the string representation
 func (s EventTypeForDescribeEventTypesOutput) GoString() string {
 	return s.String()
+}
+
+// SetImpactLevel sets the ImpactLevel field's value.
+func (s *EventTypeForDescribeEventTypesOutput) SetImpactLevel(v string) *EventTypeForDescribeEventTypesOutput {
+	s.ImpactLevel = &v
+	return s
 }
 
 // SetKind sets the Kind field's value.

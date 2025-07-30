@@ -38,6 +38,14 @@ type ECSAPI interface {
 	AllocateDedicatedHostsWithContext(volcengine.Context, *AllocateDedicatedHostsInput, ...request.Option) (*AllocateDedicatedHostsOutput, error)
 	AllocateDedicatedHostsRequest(*AllocateDedicatedHostsInput) (*request.Request, *AllocateDedicatedHostsOutput)
 
+	AllocateInstancesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	AllocateInstancesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	AllocateInstancesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	AllocateInstances(*AllocateInstancesInput) (*AllocateInstancesOutput, error)
+	AllocateInstancesWithContext(volcengine.Context, *AllocateInstancesInput, ...request.Option) (*AllocateInstancesOutput, error)
+	AllocateInstancesRequest(*AllocateInstancesInput) (*request.Request, *AllocateInstancesOutput)
+
 	AssociateInstancesIamRoleCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	AssociateInstancesIamRoleCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	AssociateInstancesIamRoleCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -222,6 +230,14 @@ type ECSAPI interface {
 	DeleteTagsWithContext(volcengine.Context, *DeleteTagsInput, ...request.Option) (*DeleteTagsOutput, error)
 	DeleteTagsRequest(*DeleteTagsInput) (*request.Request, *DeleteTagsOutput)
 
+	DescribeAutoInstallPackagesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeAutoInstallPackagesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeAutoInstallPackagesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeAutoInstallPackages(*DescribeAutoInstallPackagesInput) (*DescribeAutoInstallPackagesOutput, error)
+	DescribeAutoInstallPackagesWithContext(volcengine.Context, *DescribeAutoInstallPackagesInput, ...request.Option) (*DescribeAutoInstallPackagesOutput, error)
+	DescribeAutoInstallPackagesRequest(*DescribeAutoInstallPackagesInput) (*request.Request, *DescribeAutoInstallPackagesOutput)
+
 	DescribeAvailableResourceCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DescribeAvailableResourceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DescribeAvailableResourceCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -301,6 +317,14 @@ type ECSAPI interface {
 	DescribeHpcClusters(*DescribeHpcClustersInput) (*DescribeHpcClustersOutput, error)
 	DescribeHpcClustersWithContext(volcengine.Context, *DescribeHpcClustersInput, ...request.Option) (*DescribeHpcClustersOutput, error)
 	DescribeHpcClustersRequest(*DescribeHpcClustersInput) (*request.Request, *DescribeHpcClustersOutput)
+
+	DescribeHpcInstancePositionCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeHpcInstancePositionCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeHpcInstancePositionCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeHpcInstancePosition(*DescribeHpcInstancePositionInput) (*DescribeHpcInstancePositionOutput, error)
+	DescribeHpcInstancePositionWithContext(volcengine.Context, *DescribeHpcInstancePositionInput, ...request.Option) (*DescribeHpcInstancePositionOutput, error)
+	DescribeHpcInstancePositionRequest(*DescribeHpcInstancePositionInput) (*request.Request, *DescribeHpcInstancePositionOutput)
 
 	DescribeImageSharePermissionCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DescribeImageSharePermissionCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -662,6 +686,14 @@ type ECSAPI interface {
 	ModifyInstanceDeploymentWithContext(volcengine.Context, *ModifyInstanceDeploymentInput, ...request.Option) (*ModifyInstanceDeploymentOutput, error)
 	ModifyInstanceDeploymentRequest(*ModifyInstanceDeploymentInput) (*request.Request, *ModifyInstanceDeploymentOutput)
 
+	ModifyInstanceMetadataOptionsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ModifyInstanceMetadataOptionsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ModifyInstanceMetadataOptionsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ModifyInstanceMetadataOptions(*ModifyInstanceMetadataOptionsInput) (*ModifyInstanceMetadataOptionsOutput, error)
+	ModifyInstanceMetadataOptionsWithContext(volcengine.Context, *ModifyInstanceMetadataOptionsInput, ...request.Option) (*ModifyInstanceMetadataOptionsOutput, error)
+	ModifyInstanceMetadataOptionsRequest(*ModifyInstanceMetadataOptionsInput) (*request.Request, *ModifyInstanceMetadataOptionsOutput)
+
 	ModifyInstancePlacementCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ModifyInstancePlacementCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	ModifyInstancePlacementCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -757,6 +789,14 @@ type ECSAPI interface {
 	RenewInstance(*RenewInstanceInput) (*RenewInstanceOutput, error)
 	RenewInstanceWithContext(volcengine.Context, *RenewInstanceInput, ...request.Option) (*RenewInstanceOutput, error)
 	RenewInstanceRequest(*RenewInstanceInput) (*request.Request, *RenewInstanceOutput)
+
+	RenewScheduledInstanceCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	RenewScheduledInstanceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	RenewScheduledInstanceCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	RenewScheduledInstance(*RenewScheduledInstanceInput) (*RenewScheduledInstanceOutput, error)
+	RenewScheduledInstanceWithContext(volcengine.Context, *RenewScheduledInstanceInput, ...request.Option) (*RenewScheduledInstanceOutput, error)
+	RenewScheduledInstanceRequest(*RenewScheduledInstanceInput) (*request.Request, *RenewScheduledInstanceOutput)
 
 	RepairImageCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	RepairImageCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)

@@ -270,6 +270,8 @@ type SystemEventForDescribeSystemEventsOutput struct {
 
 	Id *string `type:"string"`
 
+	ImpactLevel *string `type:"string"`
+
 	OperatedEndAt *string `type:"string"`
 
 	OperatedStartAt *string `type:"string"`
@@ -314,6 +316,12 @@ func (s *SystemEventForDescribeSystemEventsOutput) SetExtraInfo(v map[string]*st
 // SetId sets the Id field's value.
 func (s *SystemEventForDescribeSystemEventsOutput) SetId(v string) *SystemEventForDescribeSystemEventsOutput {
 	s.Id = &v
+	return s
+}
+
+// SetImpactLevel sets the ImpactLevel field's value.
+func (s *SystemEventForDescribeSystemEventsOutput) SetImpactLevel(v string) *SystemEventForDescribeSystemEventsOutput {
+	s.ImpactLevel = &v
 	return s
 }
 
