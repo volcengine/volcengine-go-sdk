@@ -7,6 +7,7 @@ import (
 	"errors"
 	"fmt"
 	"io"
+	"math/rand"
 	"net/http"
 	"strconv"
 	"strings"
@@ -293,6 +294,8 @@ func (c *Client) DoBatch(ctx context.Context, method, url, resourceType, resourc
 		if retryAfter > 0 {
 			breaker.Reset(time.Duration(retryAfter) * time.Second)
 		}
+
+		time.Sleep(time.Duration(500+rand.Intn(1001)) * time.Millisecond)
 	}
 }
 
