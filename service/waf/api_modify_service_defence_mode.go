@@ -176,7 +176,8 @@ func (s *ExtraDefenceModeLBInstanceForModifyServiceDefenceModeInput) SetInstance
 type ModifyServiceDefenceModeInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	DefenceMode *int32 `type:"int32" json:",omitempty"`
+	// DefenceMode is a required field
+	DefenceMode *int32 `type:"int32" json:",omitempty" required:"true"`
 
 	ExtraDefenceModeLBInstance []*ExtraDefenceModeLBInstanceForModifyServiceDefenceModeInput `type:"list" json:",omitempty"`
 
@@ -199,6 +200,9 @@ func (s ModifyServiceDefenceModeInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *ModifyServiceDefenceModeInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "ModifyServiceDefenceModeInput"}
+	if s.DefenceMode == nil {
+		invalidParams.Add(request.NewErrParamRequired("DefenceMode"))
+	}
 	if s.Host == nil {
 		invalidParams.Add(request.NewErrParamRequired("Host"))
 	}

@@ -242,7 +242,7 @@ type DataForListCustomBotConfigOutput struct {
 
 	Enable *int32 `type:"int32" json:",omitempty"`
 
-	Id *string `type:"string" json:",omitempty"`
+	Id *int32 `type:"int32" json:",omitempty"`
 
 	RuleTag *string `type:"string" json:",omitempty"`
 
@@ -296,7 +296,7 @@ func (s *DataForListCustomBotConfigOutput) SetEnable(v int32) *DataForListCustom
 }
 
 // SetId sets the Id field's value.
-func (s *DataForListCustomBotConfigOutput) SetId(v string) *DataForListCustomBotConfigOutput {
+func (s *DataForListCustomBotConfigOutput) SetId(v int32) *DataForListCustomBotConfigOutput {
 	s.Id = &v
 	return s
 }

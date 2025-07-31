@@ -152,6 +152,8 @@ type CheckLLMResponseStreamInput struct {
 	// ContentType is a required field
 	ContentType *int32 `type:"int32" json:",omitempty" required:"true"`
 
+	ContextID *string `type:"string" json:",omitempty"`
+
 	// Host is a required field
 	Host *string `type:"string" json:",omitempty" required:"true"`
 
@@ -218,6 +220,12 @@ func (s *CheckLLMResponseStreamInput) SetContentType(v int32) *CheckLLMResponseS
 	return s
 }
 
+// SetContextID sets the ContextID field's value.
+func (s *CheckLLMResponseStreamInput) SetContextID(v string) *CheckLLMResponseStreamInput {
+	s.ContextID = &v
+	return s
+}
+
 // SetHost sets the Host field's value.
 func (s *CheckLLMResponseStreamInput) SetHost(v string) *CheckLLMResponseStreamInput {
 	s.Host = &v
@@ -259,6 +267,8 @@ type CheckLLMResponseStreamOutput struct {
 
 	Metadata *response.ResponseMetadata
 
+	ContextID *string `type:"string" json:",omitempty"`
+
 	Decision *DecisionForCheckLLMResponseStreamOutput `type:"structure" json:",omitempty"`
 
 	MsgID *string `type:"string" json:",omitempty"`
@@ -272,6 +282,12 @@ func (s CheckLLMResponseStreamOutput) String() string {
 // GoString returns the string representation
 func (s CheckLLMResponseStreamOutput) GoString() string {
 	return s.String()
+}
+
+// SetContextID sets the ContextID field's value.
+func (s *CheckLLMResponseStreamOutput) SetContextID(v string) *CheckLLMResponseStreamOutput {
+	s.ContextID = &v
+	return s
 }
 
 // SetDecision sets the Decision field's value.
@@ -322,6 +338,8 @@ type DecisionForCheckLLMResponseStreamOutput struct {
 	Labels []*string `type:"list" json:",omitempty"`
 
 	Matches []*MatchForCheckLLMResponseStreamOutput `type:"list" json:",omitempty"`
+
+	ReplaceDetail *ReplaceDetailForCheckLLMResponseStreamOutput `type:"structure" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -370,6 +388,12 @@ func (s *DecisionForCheckLLMResponseStreamOutput) SetMatches(v []*MatchForCheckL
 	return s
 }
 
+// SetReplaceDetail sets the ReplaceDetail field's value.
+func (s *DecisionForCheckLLMResponseStreamOutput) SetReplaceDetail(v *ReplaceDetailForCheckLLMResponseStreamOutput) *DecisionForCheckLLMResponseStreamOutput {
+	s.ReplaceDetail = v
+	return s
+}
+
 type MatchForCheckLLMResponseStreamOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -397,5 +421,35 @@ func (s *MatchForCheckLLMResponseStreamOutput) SetLabel(v string) *MatchForCheck
 // SetWord sets the Word field's value.
 func (s *MatchForCheckLLMResponseStreamOutput) SetWord(v string) *MatchForCheckLLMResponseStreamOutput {
 	s.Word = &v
+	return s
+}
+
+type ReplaceDetailForCheckLLMResponseStreamOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Content *string `type:"string" json:",omitempty"`
+
+	ContentType *int32 `type:"int32" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s ReplaceDetailForCheckLLMResponseStreamOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ReplaceDetailForCheckLLMResponseStreamOutput) GoString() string {
+	return s.String()
+}
+
+// SetContent sets the Content field's value.
+func (s *ReplaceDetailForCheckLLMResponseStreamOutput) SetContent(v string) *ReplaceDetailForCheckLLMResponseStreamOutput {
+	s.Content = &v
+	return s
+}
+
+// SetContentType sets the ContentType field's value.
+func (s *ReplaceDetailForCheckLLMResponseStreamOutput) SetContentType(v int32) *ReplaceDetailForCheckLLMResponseStreamOutput {
+	s.ContentType = &v
 	return s
 }
