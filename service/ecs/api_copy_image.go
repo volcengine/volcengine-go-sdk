@@ -156,6 +156,8 @@ type CopyImageInput struct {
 	ImageName *string `type:"string" required:"true"`
 
 	ProjectName *string `type:"string"`
+
+	Tags []*TagForCopyImageInput `type:"list"`
 }
 
 // String returns the string representation
@@ -223,6 +225,12 @@ func (s *CopyImageInput) SetProjectName(v string) *CopyImageInput {
 	return s
 }
 
+// SetTags sets the Tags field's value.
+func (s *CopyImageInput) SetTags(v []*TagForCopyImageInput) *CopyImageInput {
+	s.Tags = v
+	return s
+}
+
 type CopyImageOutput struct {
 	_ struct{} `type:"structure"`
 
@@ -244,5 +252,35 @@ func (s CopyImageOutput) GoString() string {
 // SetImageId sets the ImageId field's value.
 func (s *CopyImageOutput) SetImageId(v string) *CopyImageOutput {
 	s.ImageId = &v
+	return s
+}
+
+type TagForCopyImageInput struct {
+	_ struct{} `type:"structure"`
+
+	Key *string `type:"string"`
+
+	Value *string `type:"string"`
+}
+
+// String returns the string representation
+func (s TagForCopyImageInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagForCopyImageInput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagForCopyImageInput) SetKey(v string) *TagForCopyImageInput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *TagForCopyImageInput) SetValue(v string) *TagForCopyImageInput {
+	s.Value = &v
 	return s
 }

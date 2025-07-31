@@ -194,6 +194,8 @@ type CreateIotLlmTokenInput struct {
 
 	Quota *QuotaForCreateIotLlmTokenInput `type:"structure" json:"quota,omitempty"`
 
+	Tags []*TagForCreateIotLlmTokenInput `type:"list" json:"tags,omitempty"`
+
 	// Username is a required field
 	Username *string `type:"string" json:"username,omitempty" required:"true"`
 }
@@ -296,6 +298,12 @@ func (s *CreateIotLlmTokenInput) SetPassword(v string) *CreateIotLlmTokenInput {
 // SetQuota sets the Quota field's value.
 func (s *CreateIotLlmTokenInput) SetQuota(v *QuotaForCreateIotLlmTokenInput) *CreateIotLlmTokenInput {
 	s.Quota = v
+	return s
+}
+
+// SetTags sets the Tags field's value.
+func (s *CreateIotLlmTokenInput) SetTags(v []*TagForCreateIotLlmTokenInput) *CreateIotLlmTokenInput {
+	s.Tags = v
 	return s
 }
 
@@ -416,6 +424,36 @@ func (s RequestForCreateIotLlmTokenInput) GoString() string {
 // SetCount_limit sets the Count_limit field's value.
 func (s *RequestForCreateIotLlmTokenInput) SetCount_limit(v int64) *RequestForCreateIotLlmTokenInput {
 	s.Count_limit = &v
+	return s
+}
+
+type TagForCreateIotLlmTokenInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Key *string `type:"string" json:"key,omitempty"`
+
+	Value *string `type:"string" json:"value,omitempty"`
+}
+
+// String returns the string representation
+func (s TagForCreateIotLlmTokenInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagForCreateIotLlmTokenInput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagForCreateIotLlmTokenInput) SetKey(v string) *TagForCreateIotLlmTokenInput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *TagForCreateIotLlmTokenInput) SetValue(v string) *TagForCreateIotLlmTokenInput {
+	s.Value = &v
 	return s
 }
 

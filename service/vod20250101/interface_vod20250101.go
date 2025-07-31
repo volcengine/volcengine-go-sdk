@@ -19,7 +19,7 @@ import (
 //    // volcengine sdk func uses an SDK service client to make a request to
 //    // VOD20250101.
 //    func myFunc(svc VOD20250101API) bool {
-//        // Make svc.GetAITranslationProject request
+//        // Make svc.ContinueAITranslationWorkflow request
 //    }
 //
 //    func main() {
@@ -30,6 +30,14 @@ import (
 //    }
 //
 type VOD20250101API interface {
+	ContinueAITranslationWorkflowCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ContinueAITranslationWorkflowCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ContinueAITranslationWorkflowCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ContinueAITranslationWorkflow(*ContinueAITranslationWorkflowInput) (*ContinueAITranslationWorkflowOutput, error)
+	ContinueAITranslationWorkflowWithContext(volcengine.Context, *ContinueAITranslationWorkflowInput, ...request.Option) (*ContinueAITranslationWorkflowOutput, error)
+	ContinueAITranslationWorkflowRequest(*ContinueAITranslationWorkflowInput) (*request.Request, *ContinueAITranslationWorkflowOutput)
+
 	GetAITranslationProjectCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	GetAITranslationProjectCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	GetAITranslationProjectCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -69,6 +77,14 @@ type VOD20250101API interface {
 	SubmitAITranslationWorkflow(*SubmitAITranslationWorkflowInput) (*SubmitAITranslationWorkflowOutput, error)
 	SubmitAITranslationWorkflowWithContext(volcengine.Context, *SubmitAITranslationWorkflowInput, ...request.Option) (*SubmitAITranslationWorkflowOutput, error)
 	SubmitAITranslationWorkflowRequest(*SubmitAITranslationWorkflowInput) (*request.Request, *SubmitAITranslationWorkflowOutput)
+
+	UpdateAITranslationUtterancesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	UpdateAITranslationUtterancesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	UpdateAITranslationUtterancesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	UpdateAITranslationUtterances(*UpdateAITranslationUtterancesInput) (*UpdateAITranslationUtterancesOutput, error)
+	UpdateAITranslationUtterancesWithContext(volcengine.Context, *UpdateAITranslationUtterancesInput, ...request.Option) (*UpdateAITranslationUtterancesOutput, error)
+	UpdateAITranslationUtterancesRequest(*UpdateAITranslationUtterancesInput) (*request.Request, *UpdateAITranslationUtterancesOutput)
 }
 
 var _ VOD20250101API = (*VOD20250101)(nil)

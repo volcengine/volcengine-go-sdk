@@ -368,15 +368,21 @@ type DataForListDomainOutput struct {
 
 	CustomRspEnable *int32 `type:"int32" json:",omitempty"`
 
+	CustomSNI *string `type:"string" json:",omitempty"`
+
 	DefenceMode *int32 `type:"int32" json:",omitempty"`
 
 	DlpEnable *int32 `type:"int32" json:",omitempty"`
 
 	Domain *string `type:"string" json:",omitempty"`
 
+	EnableCustomRedirect *int32 `type:"int32" json:",omitempty"`
+
 	EnableHTTP2 *int32 `type:"int32" json:",omitempty"`
 
 	EnableIPv6 *int32 `type:"int32" json:",omitempty"`
+
+	EnableSNI *int32 `type:"int32" json:",omitempty"`
 
 	KeepAliveRequest *int32 `type:"int32" json:",omitempty"`
 
@@ -431,6 +437,8 @@ type DataForListDomainOutput struct {
 	TCPListenerConfig []*TCPListenerConfigForListDomainOutput `type:"list" json:",omitempty"`
 
 	TLSEnable *int32 `type:"int32" json:",omitempty"`
+
+	TLSFieldsConfig *TLSFieldsConfigForListDomainOutput `type:"structure" json:",omitempty"`
 
 	TamperProofEnable *int32 `type:"int32" json:",omitempty"`
 
@@ -639,6 +647,12 @@ func (s *DataForListDomainOutput) SetCustomRspEnable(v int32) *DataForListDomain
 	return s
 }
 
+// SetCustomSNI sets the CustomSNI field's value.
+func (s *DataForListDomainOutput) SetCustomSNI(v string) *DataForListDomainOutput {
+	s.CustomSNI = &v
+	return s
+}
+
 // SetDefenceMode sets the DefenceMode field's value.
 func (s *DataForListDomainOutput) SetDefenceMode(v int32) *DataForListDomainOutput {
 	s.DefenceMode = &v
@@ -657,6 +671,12 @@ func (s *DataForListDomainOutput) SetDomain(v string) *DataForListDomainOutput {
 	return s
 }
 
+// SetEnableCustomRedirect sets the EnableCustomRedirect field's value.
+func (s *DataForListDomainOutput) SetEnableCustomRedirect(v int32) *DataForListDomainOutput {
+	s.EnableCustomRedirect = &v
+	return s
+}
+
 // SetEnableHTTP2 sets the EnableHTTP2 field's value.
 func (s *DataForListDomainOutput) SetEnableHTTP2(v int32) *DataForListDomainOutput {
 	s.EnableHTTP2 = &v
@@ -666,6 +686,12 @@ func (s *DataForListDomainOutput) SetEnableHTTP2(v int32) *DataForListDomainOutp
 // SetEnableIPv6 sets the EnableIPv6 field's value.
 func (s *DataForListDomainOutput) SetEnableIPv6(v int32) *DataForListDomainOutput {
 	s.EnableIPv6 = &v
+	return s
+}
+
+// SetEnableSNI sets the EnableSNI field's value.
+func (s *DataForListDomainOutput) SetEnableSNI(v int32) *DataForListDomainOutput {
+	s.EnableSNI = &v
 	return s
 }
 
@@ -831,6 +857,12 @@ func (s *DataForListDomainOutput) SetTLSEnable(v int32) *DataForListDomainOutput
 	return s
 }
 
+// SetTLSFieldsConfig sets the TLSFieldsConfig field's value.
+func (s *DataForListDomainOutput) SetTLSFieldsConfig(v *TLSFieldsConfigForListDomainOutput) *DataForListDomainOutput {
+	s.TLSFieldsConfig = v
+	return s
+}
+
 // SetTamperProofEnable sets the TamperProofEnable field's value.
 func (s *DataForListDomainOutput) SetTamperProofEnable(v int32) *DataForListDomainOutput {
 	s.TamperProofEnable = &v
@@ -876,6 +908,44 @@ func (s *DataForListDomainOutput) SetWhiteEnable(v int32) *DataForListDomainOutp
 // SetWhiteFieldEnable sets the WhiteFieldEnable field's value.
 func (s *DataForListDomainOutput) SetWhiteFieldEnable(v int32) *DataForListDomainOutput {
 	s.WhiteFieldEnable = &v
+	return s
+}
+
+type HeadersConfigForListDomainOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Enable *int32 `type:"int32" json:",omitempty"`
+
+	ExcludedKeyList []*string `type:"list" json:",omitempty"`
+
+	StatisticalKeyList []*string `type:"list" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s HeadersConfigForListDomainOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s HeadersConfigForListDomainOutput) GoString() string {
+	return s.String()
+}
+
+// SetEnable sets the Enable field's value.
+func (s *HeadersConfigForListDomainOutput) SetEnable(v int32) *HeadersConfigForListDomainOutput {
+	s.Enable = &v
+	return s
+}
+
+// SetExcludedKeyList sets the ExcludedKeyList field's value.
+func (s *HeadersConfigForListDomainOutput) SetExcludedKeyList(v []*string) *HeadersConfigForListDomainOutput {
+	s.ExcludedKeyList = v
+	return s
+}
+
+// SetStatisticalKeyList sets the StatisticalKeyList field's value.
+func (s *HeadersConfigForListDomainOutput) SetStatisticalKeyList(v []*string) *HeadersConfigForListDomainOutput {
+	s.StatisticalKeyList = v
 	return s
 }
 
@@ -1282,5 +1352,27 @@ func (s *TCPListenerConfigForListDomainOutput) SetPort(v string) *TCPListenerCon
 // SetProtocol sets the Protocol field's value.
 func (s *TCPListenerConfigForListDomainOutput) SetProtocol(v string) *TCPListenerConfigForListDomainOutput {
 	s.Protocol = &v
+	return s
+}
+
+type TLSFieldsConfigForListDomainOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	HeadersConfig *HeadersConfigForListDomainOutput `type:"structure" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s TLSFieldsConfigForListDomainOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TLSFieldsConfigForListDomainOutput) GoString() string {
+	return s.String()
+}
+
+// SetHeadersConfig sets the HeadersConfig field's value.
+func (s *TLSFieldsConfigForListDomainOutput) SetHeadersConfig(v *HeadersConfigForListDomainOutput) *TLSFieldsConfigForListDomainOutput {
+	s.HeadersConfig = v
 	return s
 }

@@ -232,6 +232,8 @@ type KeyForDescribeKeyOutput struct {
 
 	CreationDate *int64 `type:"int64" json:",omitempty"`
 
+	CustomKeyStoreID *string `type:"string" json:",omitempty"`
+
 	Description *string `type:"string" json:",omitempty"`
 
 	ID *string `type:"string" json:",omitempty"`
@@ -267,6 +269,8 @@ type KeyForDescribeKeyOutput struct {
 	Trn *string `type:"string" json:",omitempty"`
 
 	UpdateDate *int64 `type:"int64" json:",omitempty"`
+
+	XksKeyConfiguration *XksKeyConfigurationForDescribeKeyOutput `type:"structure" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -282,6 +286,12 @@ func (s KeyForDescribeKeyOutput) GoString() string {
 // SetCreationDate sets the CreationDate field's value.
 func (s *KeyForDescribeKeyOutput) SetCreationDate(v int64) *KeyForDescribeKeyOutput {
 	s.CreationDate = &v
+	return s
+}
+
+// SetCustomKeyStoreID sets the CustomKeyStoreID field's value.
+func (s *KeyForDescribeKeyOutput) SetCustomKeyStoreID(v string) *KeyForDescribeKeyOutput {
+	s.CustomKeyStoreID = &v
 	return s
 }
 
@@ -390,6 +400,12 @@ func (s *KeyForDescribeKeyOutput) SetTrn(v string) *KeyForDescribeKeyOutput {
 // SetUpdateDate sets the UpdateDate field's value.
 func (s *KeyForDescribeKeyOutput) SetUpdateDate(v int64) *KeyForDescribeKeyOutput {
 	s.UpdateDate = &v
+	return s
+}
+
+// SetXksKeyConfiguration sets the XksKeyConfiguration field's value.
+func (s *KeyForDescribeKeyOutput) SetXksKeyConfiguration(v *XksKeyConfigurationForDescribeKeyOutput) *KeyForDescribeKeyOutput {
+	s.XksKeyConfiguration = v
 	return s
 }
 
@@ -518,6 +534,28 @@ func (s *TagForDescribeKeyOutput) SetKey(v string) *TagForDescribeKeyOutput {
 // SetValue sets the Value field's value.
 func (s *TagForDescribeKeyOutput) SetValue(v string) *TagForDescribeKeyOutput {
 	s.Value = &v
+	return s
+}
+
+type XksKeyConfigurationForDescribeKeyOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	ID *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s XksKeyConfigurationForDescribeKeyOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s XksKeyConfigurationForDescribeKeyOutput) GoString() string {
+	return s.String()
+}
+
+// SetID sets the ID field's value.
+func (s *XksKeyConfigurationForDescribeKeyOutput) SetID(v string) *XksKeyConfigurationForDescribeKeyOutput {
+	s.ID = &v
 	return s
 }
 
