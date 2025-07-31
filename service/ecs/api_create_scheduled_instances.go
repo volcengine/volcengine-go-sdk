@@ -170,6 +170,8 @@ type CreateScheduledInstancesInput struct {
 
 	HpcClusterId *string `type:"string"`
 
+	HttpTokens *string `type:"string"`
+
 	// ImageId is a required field
 	ImageId *string `type:"string" required:"true"`
 
@@ -346,6 +348,12 @@ func (s *CreateScheduledInstancesInput) SetHostname(v string) *CreateScheduledIn
 // SetHpcClusterId sets the HpcClusterId field's value.
 func (s *CreateScheduledInstancesInput) SetHpcClusterId(v string) *CreateScheduledInstancesInput {
 	s.HpcClusterId = &v
+	return s
+}
+
+// SetHttpTokens sets the HttpTokens field's value.
+func (s *CreateScheduledInstancesInput) SetHttpTokens(v string) *CreateScheduledInstancesInput {
+	s.HttpTokens = &v
 	return s
 }
 

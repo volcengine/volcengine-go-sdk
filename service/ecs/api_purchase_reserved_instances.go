@@ -152,6 +152,8 @@ type PurchaseReservedInstancesInput struct {
 
 	Description *string `type:"string"`
 
+	EffectiveAt *string `type:"string"`
+
 	HpcClusterId *string `type:"string"`
 
 	InstanceCount *int32 `type:"int32"`
@@ -244,6 +246,12 @@ func (s *PurchaseReservedInstancesInput) SetClientToken(v string) *PurchaseReser
 // SetDescription sets the Description field's value.
 func (s *PurchaseReservedInstancesInput) SetDescription(v string) *PurchaseReservedInstancesInput {
 	s.Description = &v
+	return s
+}
+
+// SetEffectiveAt sets the EffectiveAt field's value.
+func (s *PurchaseReservedInstancesInput) SetEffectiveAt(v string) *PurchaseReservedInstancesInput {
+	s.EffectiveAt = &v
 	return s
 }
 

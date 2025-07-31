@@ -364,6 +364,8 @@ type RunInstancesInput struct {
 
 	HpcClusterId *string `type:"string"`
 
+	HttpTokens *string `type:"string"`
+
 	// ImageId is a required field
 	ImageId *string `type:"string" required:"true"`
 
@@ -560,6 +562,12 @@ func (s *RunInstancesInput) SetHostname(v string) *RunInstancesInput {
 // SetHpcClusterId sets the HpcClusterId field's value.
 func (s *RunInstancesInput) SetHpcClusterId(v string) *RunInstancesInput {
 	s.HpcClusterId = &v
+	return s
+}
+
+// SetHttpTokens sets the HttpTokens field's value.
+func (s *RunInstancesInput) SetHttpTokens(v string) *RunInstancesInput {
+	s.HttpTokens = &v
 	return s
 }
 

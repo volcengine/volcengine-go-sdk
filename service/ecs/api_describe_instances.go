@@ -494,6 +494,8 @@ type InstanceForDescribeInstancesOutput struct {
 
 	MemorySize *int32 `type:"int32"`
 
+	MetadataOptions *MetadataOptionsForDescribeInstancesOutput `type:"structure"`
+
 	NetworkInterfaces []*NetworkInterfaceForDescribeInstancesOutput `type:"list"`
 
 	OsName *string `type:"string"`
@@ -677,6 +679,12 @@ func (s *InstanceForDescribeInstancesOutput) SetMemorySize(v int32) *InstanceFor
 	return s
 }
 
+// SetMetadataOptions sets the MetadataOptions field's value.
+func (s *InstanceForDescribeInstancesOutput) SetMetadataOptions(v *MetadataOptionsForDescribeInstancesOutput) *InstanceForDescribeInstancesOutput {
+	s.MetadataOptions = v
+	return s
+}
+
 // SetNetworkInterfaces sets the NetworkInterfaces field's value.
 func (s *InstanceForDescribeInstancesOutput) SetNetworkInterfaces(v []*NetworkInterfaceForDescribeInstancesOutput) *InstanceForDescribeInstancesOutput {
 	s.NetworkInterfaces = v
@@ -814,6 +822,28 @@ func (s *LocalVolumeForDescribeInstancesOutput) SetSize(v int32) *LocalVolumeFor
 // SetVolumeType sets the VolumeType field's value.
 func (s *LocalVolumeForDescribeInstancesOutput) SetVolumeType(v string) *LocalVolumeForDescribeInstancesOutput {
 	s.VolumeType = &v
+	return s
+}
+
+type MetadataOptionsForDescribeInstancesOutput struct {
+	_ struct{} `type:"structure"`
+
+	HttpTokens *string `type:"string"`
+}
+
+// String returns the string representation
+func (s MetadataOptionsForDescribeInstancesOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s MetadataOptionsForDescribeInstancesOutput) GoString() string {
+	return s.String()
+}
+
+// SetHttpTokens sets the HttpTokens field's value.
+func (s *MetadataOptionsForDescribeInstancesOutput) SetHttpTokens(v string) *MetadataOptionsForDescribeInstancesOutput {
+	s.HttpTokens = &v
 	return s
 }
 

@@ -374,6 +374,8 @@ type ImageForDescribeImagesOutput struct {
 
 	PlatformVersion *string `type:"string"`
 
+	ProductCode *string `type:"string"`
+
 	ProjectName *string `type:"string"`
 
 	ShareStatus *string `type:"string"`
@@ -502,6 +504,12 @@ func (s *ImageForDescribeImagesOutput) SetPlatform(v string) *ImageForDescribeIm
 // SetPlatformVersion sets the PlatformVersion field's value.
 func (s *ImageForDescribeImagesOutput) SetPlatformVersion(v string) *ImageForDescribeImagesOutput {
 	s.PlatformVersion = &v
+	return s
+}
+
+// SetProductCode sets the ProductCode field's value.
+func (s *ImageForDescribeImagesOutput) SetProductCode(v string) *ImageForDescribeImagesOutput {
+	s.ProductCode = &v
 	return s
 }
 
