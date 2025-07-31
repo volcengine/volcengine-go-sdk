@@ -226,7 +226,7 @@ type GetQuotaInfoOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	DeviceInfoList *DeviceInfoListForGetQuotaInfoOutput `type:"structure" json:"deviceInfoList,omitempty"`
+	DeviceInfoList []*DeviceInfoListForGetQuotaInfoOutput `type:"list" json:"deviceInfoList,omitempty"`
 
 	QuotaInfoList []*QuotaInfoListForGetQuotaInfoOutput `type:"list" json:"quotaInfoList,omitempty"`
 }
@@ -242,7 +242,7 @@ func (s GetQuotaInfoOutput) GoString() string {
 }
 
 // SetDeviceInfoList sets the DeviceInfoList field's value.
-func (s *GetQuotaInfoOutput) SetDeviceInfoList(v *DeviceInfoListForGetQuotaInfoOutput) *GetQuotaInfoOutput {
+func (s *GetQuotaInfoOutput) SetDeviceInfoList(v []*DeviceInfoListForGetQuotaInfoOutput) *GetQuotaInfoOutput {
 	s.DeviceInfoList = v
 	return s
 }
