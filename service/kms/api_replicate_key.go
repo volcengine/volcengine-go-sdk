@@ -148,6 +148,8 @@ type ConvertReplicaKeyForReplicateKeyOutput struct {
 
 	CreationDate *int64 `type:"int64" json:",omitempty"`
 
+	CustomKeyStoreID *string `type:"string" json:",omitempty"`
+
 	Description *string `type:"string" json:",omitempty"`
 
 	ID *string `type:"string" json:",omitempty"`
@@ -183,6 +185,8 @@ type ConvertReplicaKeyForReplicateKeyOutput struct {
 	Trn *string `type:"string" json:",omitempty"`
 
 	UpdateDate *int64 `type:"int64" json:",omitempty"`
+
+	XksKeyConfiguration *XksKeyConfigurationForReplicateKeyOutput `type:"structure" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -198,6 +202,12 @@ func (s ConvertReplicaKeyForReplicateKeyOutput) GoString() string {
 // SetCreationDate sets the CreationDate field's value.
 func (s *ConvertReplicaKeyForReplicateKeyOutput) SetCreationDate(v int64) *ConvertReplicaKeyForReplicateKeyOutput {
 	s.CreationDate = &v
+	return s
+}
+
+// SetCustomKeyStoreID sets the CustomKeyStoreID field's value.
+func (s *ConvertReplicaKeyForReplicateKeyOutput) SetCustomKeyStoreID(v string) *ConvertReplicaKeyForReplicateKeyOutput {
+	s.CustomKeyStoreID = &v
 	return s
 }
 
@@ -306,6 +316,12 @@ func (s *ConvertReplicaKeyForReplicateKeyOutput) SetTrn(v string) *ConvertReplic
 // SetUpdateDate sets the UpdateDate field's value.
 func (s *ConvertReplicaKeyForReplicateKeyOutput) SetUpdateDate(v int64) *ConvertReplicaKeyForReplicateKeyOutput {
 	s.UpdateDate = &v
+	return s
+}
+
+// SetXksKeyConfiguration sets the XksKeyConfiguration field's value.
+func (s *ConvertReplicaKeyForReplicateKeyOutput) SetXksKeyConfiguration(v *XksKeyConfigurationForReplicateKeyOutput) *ConvertReplicaKeyForReplicateKeyOutput {
+	s.XksKeyConfiguration = v
 	return s
 }
 
@@ -582,6 +598,28 @@ func (s *TagForReplicateKeyOutput) SetKey(v string) *TagForReplicateKeyOutput {
 // SetValue sets the Value field's value.
 func (s *TagForReplicateKeyOutput) SetValue(v string) *TagForReplicateKeyOutput {
 	s.Value = &v
+	return s
+}
+
+type XksKeyConfigurationForReplicateKeyOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	ID *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s XksKeyConfigurationForReplicateKeyOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s XksKeyConfigurationForReplicateKeyOutput) GoString() string {
+	return s.String()
+}
+
+// SetID sets the ID field's value.
+func (s *XksKeyConfigurationForReplicateKeyOutput) SetID(v string) *XksKeyConfigurationForReplicateKeyOutput {
+	s.ID = &v
 	return s
 }
 
