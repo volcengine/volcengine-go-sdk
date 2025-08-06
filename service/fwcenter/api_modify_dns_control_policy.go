@@ -154,6 +154,8 @@ type ModifyDnsControlPolicyInput struct {
 	// DestinationType is a required field
 	DestinationType *string `type:"string" json:",omitempty" required:"true" enum:"EnumOfDestinationTypeForModifyDnsControlPolicyInput"`
 
+	InternetFirewallId *string `type:"string" json:",omitempty"`
+
 	// RuleId is a required field
 	RuleId *string `type:"string" json:",omitempty" required:"true"`
 
@@ -209,6 +211,12 @@ func (s *ModifyDnsControlPolicyInput) SetDestination(v string) *ModifyDnsControl
 // SetDestinationType sets the DestinationType field's value.
 func (s *ModifyDnsControlPolicyInput) SetDestinationType(v string) *ModifyDnsControlPolicyInput {
 	s.DestinationType = &v
+	return s
+}
+
+// SetInternetFirewallId sets the InternetFirewallId field's value.
+func (s *ModifyDnsControlPolicyInput) SetInternetFirewallId(v string) *ModifyDnsControlPolicyInput {
+	s.InternetFirewallId = &v
 	return s
 }
 

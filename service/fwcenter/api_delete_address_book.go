@@ -146,8 +146,11 @@ func (c *FWCENTER) DeleteAddressBookWithContext(ctx volcengine.Context, input *D
 type DeleteAddressBookInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	// GroupUuid is a required field
-	GroupUuid *string `type:"string" json:",omitempty" required:"true"`
+	CloudFirewallId *string `type:"string" json:",omitempty"`
+
+	GroupUuid *string `type:"string" json:",omitempty"`
+
+	GroupUuidList []*string `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -160,22 +163,21 @@ func (s DeleteAddressBookInput) GoString() string {
 	return s.String()
 }
 
-// Validate inspects the fields of the type to determine if they are valid.
-func (s *DeleteAddressBookInput) Validate() error {
-	invalidParams := request.ErrInvalidParams{Context: "DeleteAddressBookInput"}
-	if s.GroupUuid == nil {
-		invalidParams.Add(request.NewErrParamRequired("GroupUuid"))
-	}
-
-	if invalidParams.Len() > 0 {
-		return invalidParams
-	}
-	return nil
+// SetCloudFirewallId sets the CloudFirewallId field's value.
+func (s *DeleteAddressBookInput) SetCloudFirewallId(v string) *DeleteAddressBookInput {
+	s.CloudFirewallId = &v
+	return s
 }
 
 // SetGroupUuid sets the GroupUuid field's value.
 func (s *DeleteAddressBookInput) SetGroupUuid(v string) *DeleteAddressBookInput {
 	s.GroupUuid = &v
+	return s
+}
+
+// SetGroupUuidList sets the GroupUuidList field's value.
+func (s *DeleteAddressBookInput) SetGroupUuidList(v []*string) *DeleteAddressBookInput {
+	s.GroupUuidList = v
 	return s
 }
 
@@ -185,6 +187,8 @@ type DeleteAddressBookOutput struct {
 	Metadata *response.ResponseMetadata
 
 	GroupUuid *string `type:"string" json:",omitempty"`
+
+	GroupUuidList []*string `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -200,5 +204,11 @@ func (s DeleteAddressBookOutput) GoString() string {
 // SetGroupUuid sets the GroupUuid field's value.
 func (s *DeleteAddressBookOutput) SetGroupUuid(v string) *DeleteAddressBookOutput {
 	s.GroupUuid = &v
+	return s
+}
+
+// SetGroupUuidList sets the GroupUuidList field's value.
+func (s *DeleteAddressBookOutput) SetGroupUuidList(v []*string) *DeleteAddressBookOutput {
+	s.GroupUuidList = v
 	return s
 }

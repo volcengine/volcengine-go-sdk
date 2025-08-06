@@ -149,8 +149,11 @@ type DeleteControlPolicyInput struct {
 	// Direction is a required field
 	Direction *string `type:"string" json:",omitempty" required:"true" enum:"EnumOfDirectionForDeleteControlPolicyInput"`
 
-	// RuleId is a required field
-	RuleId *string `type:"string" json:",omitempty" required:"true"`
+	InternetFirewallId *string `type:"string" json:",omitempty"`
+
+	RuleId *string `type:"string" json:",omitempty"`
+
+	RuleIdList []*string `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -169,9 +172,6 @@ func (s *DeleteControlPolicyInput) Validate() error {
 	if s.Direction == nil {
 		invalidParams.Add(request.NewErrParamRequired("Direction"))
 	}
-	if s.RuleId == nil {
-		invalidParams.Add(request.NewErrParamRequired("RuleId"))
-	}
 
 	if invalidParams.Len() > 0 {
 		return invalidParams
@@ -185,9 +185,21 @@ func (s *DeleteControlPolicyInput) SetDirection(v string) *DeleteControlPolicyIn
 	return s
 }
 
+// SetInternetFirewallId sets the InternetFirewallId field's value.
+func (s *DeleteControlPolicyInput) SetInternetFirewallId(v string) *DeleteControlPolicyInput {
+	s.InternetFirewallId = &v
+	return s
+}
+
 // SetRuleId sets the RuleId field's value.
 func (s *DeleteControlPolicyInput) SetRuleId(v string) *DeleteControlPolicyInput {
 	s.RuleId = &v
+	return s
+}
+
+// SetRuleIdList sets the RuleIdList field's value.
+func (s *DeleteControlPolicyInput) SetRuleIdList(v []*string) *DeleteControlPolicyInput {
+	s.RuleIdList = v
 	return s
 }
 
@@ -197,6 +209,8 @@ type DeleteControlPolicyOutput struct {
 	Metadata *response.ResponseMetadata
 
 	RuleId *string `type:"string" json:",omitempty"`
+
+	RuleIdList []*string `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -212,6 +226,12 @@ func (s DeleteControlPolicyOutput) GoString() string {
 // SetRuleId sets the RuleId field's value.
 func (s *DeleteControlPolicyOutput) SetRuleId(v string) *DeleteControlPolicyOutput {
 	s.RuleId = &v
+	return s
+}
+
+// SetRuleIdList sets the RuleIdList field's value.
+func (s *DeleteControlPolicyOutput) SetRuleIdList(v []*string) *DeleteControlPolicyOutput {
+	s.RuleIdList = v
 	return s
 }
 

@@ -160,11 +160,17 @@ type DataForDescribeNatFirewallControlPolicyOutput struct {
 
 	DestPortList []*string `type:"list" json:",omitempty"`
 
+	DestPortListV1 []*DestPortListV1ForDescribeNatFirewallControlPolicyOutput `type:"list" json:",omitempty"`
+
 	DestPortType *string `type:"string" json:",omitempty"`
 
 	Destination *string `type:"string" json:",omitempty"`
 
 	DestinationCidrList []*string `type:"list" json:",omitempty"`
+
+	DestinationCidrListV1 []*DestinationCidrListV1ForDescribeNatFirewallControlPolicyOutput `type:"list" json:",omitempty"`
+
+	DestinationDomainList []*string `type:"list" json:",omitempty"`
 
 	DestinationGroupList []*string `type:"list" json:",omitempty"`
 
@@ -178,13 +184,15 @@ type DataForDescribeNatFirewallControlPolicyOutput struct {
 
 	EndTime *int32 `type:"int32" json:",omitempty"`
 
+	FirewallId *string `type:"string" json:",omitempty"`
+
 	HitCnt *int32 `type:"int32" json:",omitempty"`
+
+	IpType *string `type:"string" json:",omitempty"`
 
 	IsEffected *bool `type:"boolean" json:",omitempty"`
 
 	LastHitTime *int32 `type:"int32" json:",omitempty"`
-
-	NatFirewallId *string `type:"string" json:",omitempty"`
 
 	Prio *int32 `type:"int32" json:",omitempty"`
 
@@ -203,6 +211,8 @@ type DataForDescribeNatFirewallControlPolicyOutput struct {
 	Source *string `type:"string" json:",omitempty"`
 
 	SourceCidrList []*string `type:"list" json:",omitempty"`
+
+	SourceCidrListV1 []*SourceCidrListV1ForDescribeNatFirewallControlPolicyOutput `type:"list" json:",omitempty"`
 
 	SourceGroupList []*string `type:"list" json:",omitempty"`
 
@@ -271,6 +281,12 @@ func (s *DataForDescribeNatFirewallControlPolicyOutput) SetDestPortList(v []*str
 	return s
 }
 
+// SetDestPortListV1 sets the DestPortListV1 field's value.
+func (s *DataForDescribeNatFirewallControlPolicyOutput) SetDestPortListV1(v []*DestPortListV1ForDescribeNatFirewallControlPolicyOutput) *DataForDescribeNatFirewallControlPolicyOutput {
+	s.DestPortListV1 = v
+	return s
+}
+
 // SetDestPortType sets the DestPortType field's value.
 func (s *DataForDescribeNatFirewallControlPolicyOutput) SetDestPortType(v string) *DataForDescribeNatFirewallControlPolicyOutput {
 	s.DestPortType = &v
@@ -286,6 +302,18 @@ func (s *DataForDescribeNatFirewallControlPolicyOutput) SetDestination(v string)
 // SetDestinationCidrList sets the DestinationCidrList field's value.
 func (s *DataForDescribeNatFirewallControlPolicyOutput) SetDestinationCidrList(v []*string) *DataForDescribeNatFirewallControlPolicyOutput {
 	s.DestinationCidrList = v
+	return s
+}
+
+// SetDestinationCidrListV1 sets the DestinationCidrListV1 field's value.
+func (s *DataForDescribeNatFirewallControlPolicyOutput) SetDestinationCidrListV1(v []*DestinationCidrListV1ForDescribeNatFirewallControlPolicyOutput) *DataForDescribeNatFirewallControlPolicyOutput {
+	s.DestinationCidrListV1 = v
+	return s
+}
+
+// SetDestinationDomainList sets the DestinationDomainList field's value.
+func (s *DataForDescribeNatFirewallControlPolicyOutput) SetDestinationDomainList(v []*string) *DataForDescribeNatFirewallControlPolicyOutput {
+	s.DestinationDomainList = v
 	return s
 }
 
@@ -325,9 +353,21 @@ func (s *DataForDescribeNatFirewallControlPolicyOutput) SetEndTime(v int32) *Dat
 	return s
 }
 
+// SetFirewallId sets the FirewallId field's value.
+func (s *DataForDescribeNatFirewallControlPolicyOutput) SetFirewallId(v string) *DataForDescribeNatFirewallControlPolicyOutput {
+	s.FirewallId = &v
+	return s
+}
+
 // SetHitCnt sets the HitCnt field's value.
 func (s *DataForDescribeNatFirewallControlPolicyOutput) SetHitCnt(v int32) *DataForDescribeNatFirewallControlPolicyOutput {
 	s.HitCnt = &v
+	return s
+}
+
+// SetIpType sets the IpType field's value.
+func (s *DataForDescribeNatFirewallControlPolicyOutput) SetIpType(v string) *DataForDescribeNatFirewallControlPolicyOutput {
+	s.IpType = &v
 	return s
 }
 
@@ -340,12 +380,6 @@ func (s *DataForDescribeNatFirewallControlPolicyOutput) SetIsEffected(v bool) *D
 // SetLastHitTime sets the LastHitTime field's value.
 func (s *DataForDescribeNatFirewallControlPolicyOutput) SetLastHitTime(v int32) *DataForDescribeNatFirewallControlPolicyOutput {
 	s.LastHitTime = &v
-	return s
-}
-
-// SetNatFirewallId sets the NatFirewallId field's value.
-func (s *DataForDescribeNatFirewallControlPolicyOutput) SetNatFirewallId(v string) *DataForDescribeNatFirewallControlPolicyOutput {
-	s.NatFirewallId = &v
 	return s
 }
 
@@ -400,6 +434,12 @@ func (s *DataForDescribeNatFirewallControlPolicyOutput) SetSource(v string) *Dat
 // SetSourceCidrList sets the SourceCidrList field's value.
 func (s *DataForDescribeNatFirewallControlPolicyOutput) SetSourceCidrList(v []*string) *DataForDescribeNatFirewallControlPolicyOutput {
 	s.SourceCidrList = v
+	return s
+}
+
+// SetSourceCidrListV1 sets the SourceCidrListV1 field's value.
+func (s *DataForDescribeNatFirewallControlPolicyOutput) SetSourceCidrListV1(v []*SourceCidrListV1ForDescribeNatFirewallControlPolicyOutput) *DataForDescribeNatFirewallControlPolicyOutput {
+	s.SourceCidrListV1 = v
 	return s
 }
 
@@ -459,16 +499,16 @@ type DescribeNatFirewallControlPolicyInput struct {
 	// Direction is a required field
 	Direction *string `type:"string" json:",omitempty" required:"true" enum:"EnumOfDirectionForDescribeNatFirewallControlPolicyInput"`
 
+	IsEffect []*bool `type:"list" json:",omitempty"`
+
 	// NatFirewallId is a required field
 	NatFirewallId *string `type:"string" json:",omitempty" required:"true"`
-
-	OrderBy *string `type:"string" json:",omitempty"`
 
 	OrderDir *string `type:"string" json:",omitempty" enum:"EnumOfOrderDirForDescribeNatFirewallControlPolicyInput"`
 
 	PageNumber *int32 `type:"int32" json:",omitempty"`
 
-	PageSize *int32 `type:"int32" json:",omitempty"`
+	PageSize *int32 `max:"1000" type:"int32" json:",omitempty"`
 
 	Proto []*string `type:"list" json:",omitempty"`
 
@@ -499,6 +539,9 @@ func (s *DescribeNatFirewallControlPolicyInput) Validate() error {
 	}
 	if s.NatFirewallId == nil {
 		invalidParams.Add(request.NewErrParamRequired("NatFirewallId"))
+	}
+	if s.PageSize != nil && *s.PageSize > 1000 {
+		invalidParams.Add(request.NewErrParamMaxValue("PageSize", 1000))
 	}
 
 	if invalidParams.Len() > 0 {
@@ -537,15 +580,15 @@ func (s *DescribeNatFirewallControlPolicyInput) SetDirection(v string) *Describe
 	return s
 }
 
-// SetNatFirewallId sets the NatFirewallId field's value.
-func (s *DescribeNatFirewallControlPolicyInput) SetNatFirewallId(v string) *DescribeNatFirewallControlPolicyInput {
-	s.NatFirewallId = &v
+// SetIsEffect sets the IsEffect field's value.
+func (s *DescribeNatFirewallControlPolicyInput) SetIsEffect(v []*bool) *DescribeNatFirewallControlPolicyInput {
+	s.IsEffect = v
 	return s
 }
 
-// SetOrderBy sets the OrderBy field's value.
-func (s *DescribeNatFirewallControlPolicyInput) SetOrderBy(v string) *DescribeNatFirewallControlPolicyInput {
-	s.OrderBy = &v
+// SetNatFirewallId sets the NatFirewallId field's value.
+func (s *DescribeNatFirewallControlPolicyInput) SetNatFirewallId(v string) *DescribeNatFirewallControlPolicyInput {
+	s.NatFirewallId = &v
 	return s
 }
 
@@ -650,6 +693,120 @@ func (s *DescribeNatFirewallControlPolicyOutput) SetPageSize(v int32) *DescribeN
 // SetTotalCount sets the TotalCount field's value.
 func (s *DescribeNatFirewallControlPolicyOutput) SetTotalCount(v int32) *DescribeNatFirewallControlPolicyOutput {
 	s.TotalCount = &v
+	return s
+}
+
+type DestPortListV1ForDescribeNatFirewallControlPolicyOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Address *string `type:"string" json:",omitempty"`
+
+	Description *string `max:"32" type:"string" json:",omitempty"`
+
+	Type *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s DestPortListV1ForDescribeNatFirewallControlPolicyOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DestPortListV1ForDescribeNatFirewallControlPolicyOutput) GoString() string {
+	return s.String()
+}
+
+// SetAddress sets the Address field's value.
+func (s *DestPortListV1ForDescribeNatFirewallControlPolicyOutput) SetAddress(v string) *DestPortListV1ForDescribeNatFirewallControlPolicyOutput {
+	s.Address = &v
+	return s
+}
+
+// SetDescription sets the Description field's value.
+func (s *DestPortListV1ForDescribeNatFirewallControlPolicyOutput) SetDescription(v string) *DestPortListV1ForDescribeNatFirewallControlPolicyOutput {
+	s.Description = &v
+	return s
+}
+
+// SetType sets the Type field's value.
+func (s *DestPortListV1ForDescribeNatFirewallControlPolicyOutput) SetType(v string) *DestPortListV1ForDescribeNatFirewallControlPolicyOutput {
+	s.Type = &v
+	return s
+}
+
+type DestinationCidrListV1ForDescribeNatFirewallControlPolicyOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Address *string `type:"string" json:",omitempty"`
+
+	Description *string `max:"32" type:"string" json:",omitempty"`
+
+	Type *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s DestinationCidrListV1ForDescribeNatFirewallControlPolicyOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DestinationCidrListV1ForDescribeNatFirewallControlPolicyOutput) GoString() string {
+	return s.String()
+}
+
+// SetAddress sets the Address field's value.
+func (s *DestinationCidrListV1ForDescribeNatFirewallControlPolicyOutput) SetAddress(v string) *DestinationCidrListV1ForDescribeNatFirewallControlPolicyOutput {
+	s.Address = &v
+	return s
+}
+
+// SetDescription sets the Description field's value.
+func (s *DestinationCidrListV1ForDescribeNatFirewallControlPolicyOutput) SetDescription(v string) *DestinationCidrListV1ForDescribeNatFirewallControlPolicyOutput {
+	s.Description = &v
+	return s
+}
+
+// SetType sets the Type field's value.
+func (s *DestinationCidrListV1ForDescribeNatFirewallControlPolicyOutput) SetType(v string) *DestinationCidrListV1ForDescribeNatFirewallControlPolicyOutput {
+	s.Type = &v
+	return s
+}
+
+type SourceCidrListV1ForDescribeNatFirewallControlPolicyOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Address *string `type:"string" json:",omitempty"`
+
+	Description *string `max:"32" type:"string" json:",omitempty"`
+
+	Type *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s SourceCidrListV1ForDescribeNatFirewallControlPolicyOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s SourceCidrListV1ForDescribeNatFirewallControlPolicyOutput) GoString() string {
+	return s.String()
+}
+
+// SetAddress sets the Address field's value.
+func (s *SourceCidrListV1ForDescribeNatFirewallControlPolicyOutput) SetAddress(v string) *SourceCidrListV1ForDescribeNatFirewallControlPolicyOutput {
+	s.Address = &v
+	return s
+}
+
+// SetDescription sets the Description field's value.
+func (s *SourceCidrListV1ForDescribeNatFirewallControlPolicyOutput) SetDescription(v string) *SourceCidrListV1ForDescribeNatFirewallControlPolicyOutput {
+	s.Description = &v
+	return s
+}
+
+// SetType sets the Type field's value.
+func (s *SourceCidrListV1ForDescribeNatFirewallControlPolicyOutput) SetType(v string) *SourceCidrListV1ForDescribeNatFirewallControlPolicyOutput {
+	s.Type = &v
 	return s
 }
 

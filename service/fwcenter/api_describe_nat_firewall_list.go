@@ -160,11 +160,15 @@ type DataForDescribeNatFirewallListOutput struct {
 
 	NatFirewallName *string `type:"string" json:",omitempty"`
 
+	NatFirewallSubnetCidr *string `type:"string" json:",omitempty"`
+
 	NatGatewayId *string `type:"string" json:",omitempty"`
 
 	NatGatewayName *string `type:"string" json:",omitempty"`
 
 	PeakTrafficWithin7Day *int32 `type:"int32" json:",omitempty"`
+
+	ProjectName *string `type:"string" json:",omitempty"`
 
 	Region *string `type:"string" json:",omitempty"`
 
@@ -229,6 +233,12 @@ func (s *DataForDescribeNatFirewallListOutput) SetNatFirewallName(v string) *Dat
 	return s
 }
 
+// SetNatFirewallSubnetCidr sets the NatFirewallSubnetCidr field's value.
+func (s *DataForDescribeNatFirewallListOutput) SetNatFirewallSubnetCidr(v string) *DataForDescribeNatFirewallListOutput {
+	s.NatFirewallSubnetCidr = &v
+	return s
+}
+
 // SetNatGatewayId sets the NatGatewayId field's value.
 func (s *DataForDescribeNatFirewallListOutput) SetNatGatewayId(v string) *DataForDescribeNatFirewallListOutput {
 	s.NatGatewayId = &v
@@ -244,6 +254,12 @@ func (s *DataForDescribeNatFirewallListOutput) SetNatGatewayName(v string) *Data
 // SetPeakTrafficWithin7Day sets the PeakTrafficWithin7Day field's value.
 func (s *DataForDescribeNatFirewallListOutput) SetPeakTrafficWithin7Day(v int32) *DataForDescribeNatFirewallListOutput {
 	s.PeakTrafficWithin7Day = &v
+	return s
+}
+
+// SetProjectName sets the ProjectName field's value.
+func (s *DataForDescribeNatFirewallListOutput) SetProjectName(v string) *DataForDescribeNatFirewallListOutput {
+	s.ProjectName = &v
 	return s
 }
 
@@ -280,6 +296,8 @@ func (s *DataForDescribeNatFirewallListOutput) SetZoneId(v string) *DataForDescr
 type DescribeNatFirewallListInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	CloudFirewallId *string `type:"string" json:",omitempty"`
+
 	FirewallStatus []*string `type:"list" json:",omitempty"`
 
 	NatFirewallId *string `type:"string" json:",omitempty"`
@@ -292,7 +310,9 @@ type DescribeNatFirewallListInput struct {
 
 	PageNumber *int32 `type:"int32" json:",omitempty"`
 
-	PageSize *int32 `type:"int32" json:",omitempty"`
+	PageSize *int32 `max:"1000" type:"int32" json:",omitempty"`
+
+	ProjectName *string `type:"string" json:",omitempty"`
 
 	RegionCode []*string `type:"list" json:",omitempty"`
 
@@ -309,6 +329,25 @@ func (s DescribeNatFirewallListInput) String() string {
 // GoString returns the string representation
 func (s DescribeNatFirewallListInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DescribeNatFirewallListInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DescribeNatFirewallListInput"}
+	if s.PageSize != nil && *s.PageSize > 1000 {
+		invalidParams.Add(request.NewErrParamMaxValue("PageSize", 1000))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetCloudFirewallId sets the CloudFirewallId field's value.
+func (s *DescribeNatFirewallListInput) SetCloudFirewallId(v string) *DescribeNatFirewallListInput {
+	s.CloudFirewallId = &v
+	return s
 }
 
 // SetFirewallStatus sets the FirewallStatus field's value.
@@ -350,6 +389,12 @@ func (s *DescribeNatFirewallListInput) SetPageNumber(v int32) *DescribeNatFirewa
 // SetPageSize sets the PageSize field's value.
 func (s *DescribeNatFirewallListInput) SetPageSize(v int32) *DescribeNatFirewallListInput {
 	s.PageSize = &v
+	return s
+}
+
+// SetProjectName sets the ProjectName field's value.
+func (s *DescribeNatFirewallListInput) SetProjectName(v string) *DescribeNatFirewallListInput {
+	s.ProjectName = &v
 	return s
 }
 

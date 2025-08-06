@@ -3,6 +3,8 @@
 package fwcenter
 
 import (
+	"fmt"
+
 	"github.com/volcengine/volcengine-go-sdk/volcengine"
 	"github.com/volcengine/volcengine-go-sdk/volcengine/request"
 	"github.com/volcengine/volcengine-go-sdk/volcengine/response"
@@ -146,7 +148,13 @@ func (c *FWCENTER) AddAddressBookWithContext(ctx volcengine.Context, input *AddA
 type AddAddressBookInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	AddressDetailList []*AddressDetailListForAddAddressBookInput `type:"list" json:",omitempty"`
+
 	AddressList []*string `type:"list" json:",omitempty"`
+
+	AutoUpdateType *string `type:"string" json:",omitempty" enum:"EnumOfAutoUpdateTypeForAddAddressBookInput"`
+
+	CloudFirewallId *string `type:"string" json:",omitempty"`
 
 	Description *string `type:"string" json:",omitempty"`
 
@@ -155,6 +163,14 @@ type AddAddressBookInput struct {
 
 	// GroupType is a required field
 	GroupType *string `type:"string" json:",omitempty" required:"true" enum:"EnumOfGroupTypeForAddAddressBookInput"`
+
+	InstanceTypeList []*string `type:"list" json:",omitempty"`
+
+	ResourceType *string `type:"string" json:",omitempty" enum:"EnumOfResourceTypeForAddAddressBookInput"`
+
+	TagRelation *string `type:"string" json:",omitempty" enum:"EnumOfTagRelationForAddAddressBookInput"`
+
+	Tags []*TagForAddAddressBookInput `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -179,6 +195,26 @@ func (s *AddAddressBookInput) Validate() error {
 	if s.GroupType == nil {
 		invalidParams.Add(request.NewErrParamRequired("GroupType"))
 	}
+	if s.AddressDetailList != nil {
+		for i, v := range s.AddressDetailList {
+			if v == nil {
+				continue
+			}
+			if err := v.Validate(); err != nil {
+				invalidParams.AddNested(fmt.Sprintf("%s[%v]", "AddressDetailList", i), err.(request.ErrInvalidParams))
+			}
+		}
+	}
+	if s.Tags != nil {
+		for i, v := range s.Tags {
+			if v == nil {
+				continue
+			}
+			if err := v.Validate(); err != nil {
+				invalidParams.AddNested(fmt.Sprintf("%s[%v]", "Tags", i), err.(request.ErrInvalidParams))
+			}
+		}
+	}
 
 	if invalidParams.Len() > 0 {
 		return invalidParams
@@ -186,9 +222,27 @@ func (s *AddAddressBookInput) Validate() error {
 	return nil
 }
 
+// SetAddressDetailList sets the AddressDetailList field's value.
+func (s *AddAddressBookInput) SetAddressDetailList(v []*AddressDetailListForAddAddressBookInput) *AddAddressBookInput {
+	s.AddressDetailList = v
+	return s
+}
+
 // SetAddressList sets the AddressList field's value.
 func (s *AddAddressBookInput) SetAddressList(v []*string) *AddAddressBookInput {
 	s.AddressList = v
+	return s
+}
+
+// SetAutoUpdateType sets the AutoUpdateType field's value.
+func (s *AddAddressBookInput) SetAutoUpdateType(v string) *AddAddressBookInput {
+	s.AutoUpdateType = &v
+	return s
+}
+
+// SetCloudFirewallId sets the CloudFirewallId field's value.
+func (s *AddAddressBookInput) SetCloudFirewallId(v string) *AddAddressBookInput {
+	s.CloudFirewallId = &v
 	return s
 }
 
@@ -207,6 +261,30 @@ func (s *AddAddressBookInput) SetGroupName(v string) *AddAddressBookInput {
 // SetGroupType sets the GroupType field's value.
 func (s *AddAddressBookInput) SetGroupType(v string) *AddAddressBookInput {
 	s.GroupType = &v
+	return s
+}
+
+// SetInstanceTypeList sets the InstanceTypeList field's value.
+func (s *AddAddressBookInput) SetInstanceTypeList(v []*string) *AddAddressBookInput {
+	s.InstanceTypeList = v
+	return s
+}
+
+// SetResourceType sets the ResourceType field's value.
+func (s *AddAddressBookInput) SetResourceType(v string) *AddAddressBookInput {
+	s.ResourceType = &v
+	return s
+}
+
+// SetTagRelation sets the TagRelation field's value.
+func (s *AddAddressBookInput) SetTagRelation(v string) *AddAddressBookInput {
+	s.TagRelation = &v
+	return s
+}
+
+// SetTags sets the Tags field's value.
+func (s *AddAddressBookInput) SetTags(v []*TagForAddAddressBookInput) *AddAddressBookInput {
+	s.Tags = v
 	return s
 }
 
@@ -234,13 +312,132 @@ func (s *AddAddressBookOutput) SetGroupUuid(v string) *AddAddressBookOutput {
 	return s
 }
 
+type AddressDetailListForAddAddressBookInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Address *string `type:"string" json:",omitempty"`
+
+	Description *string `max:"32" type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s AddressDetailListForAddAddressBookInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s AddressDetailListForAddAddressBookInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *AddressDetailListForAddAddressBookInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "AddressDetailListForAddAddressBookInput"}
+	if s.Description != nil && len(*s.Description) > 32 {
+		invalidParams.Add(request.NewErrParamMaxLen("Description", 32, *s.Description))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetAddress sets the Address field's value.
+func (s *AddressDetailListForAddAddressBookInput) SetAddress(v string) *AddressDetailListForAddAddressBookInput {
+	s.Address = &v
+	return s
+}
+
+// SetDescription sets the Description field's value.
+func (s *AddressDetailListForAddAddressBookInput) SetDescription(v string) *AddressDetailListForAddAddressBookInput {
+	s.Description = &v
+	return s
+}
+
+type TagForAddAddressBookInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Key *string `min:"1" max:"128" type:"string" json:",omitempty"`
+
+	Value *string `max:"256" type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s TagForAddAddressBookInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagForAddAddressBookInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *TagForAddAddressBookInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "TagForAddAddressBookInput"}
+	if s.Key != nil && len(*s.Key) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("Key", 1))
+	}
+	if s.Key != nil && len(*s.Key) > 128 {
+		invalidParams.Add(request.NewErrParamMaxLen("Key", 128, *s.Key))
+	}
+	if s.Value != nil && len(*s.Value) > 256 {
+		invalidParams.Add(request.NewErrParamMaxLen("Value", 256, *s.Value))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetKey sets the Key field's value.
+func (s *TagForAddAddressBookInput) SetKey(v string) *TagForAddAddressBookInput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *TagForAddAddressBookInput) SetValue(v string) *TagForAddAddressBookInput {
+	s.Value = &v
+	return s
+}
+
+const (
+	// EnumOfAutoUpdateTypeForAddAddressBookInputManual is a EnumOfAutoUpdateTypeForAddAddressBookInput enum value
+	EnumOfAutoUpdateTypeForAddAddressBookInputManual = "Manual"
+
+	// EnumOfAutoUpdateTypeForAddAddressBookInputTag is a EnumOfAutoUpdateTypeForAddAddressBookInput enum value
+	EnumOfAutoUpdateTypeForAddAddressBookInputTag = "Tag"
+)
+
 const (
 	// EnumOfGroupTypeForAddAddressBookInputIp is a EnumOfGroupTypeForAddAddressBookInput enum value
 	EnumOfGroupTypeForAddAddressBookInputIp = "ip"
+
+	// EnumOfGroupTypeForAddAddressBookInputIpv6 is a EnumOfGroupTypeForAddAddressBookInput enum value
+	EnumOfGroupTypeForAddAddressBookInputIpv6 = "ipv6"
 
 	// EnumOfGroupTypeForAddAddressBookInputDomain is a EnumOfGroupTypeForAddAddressBookInput enum value
 	EnumOfGroupTypeForAddAddressBookInputDomain = "domain"
 
 	// EnumOfGroupTypeForAddAddressBookInputPort is a EnumOfGroupTypeForAddAddressBookInput enum value
 	EnumOfGroupTypeForAddAddressBookInputPort = "port"
+)
+
+const (
+	// EnumOfResourceTypeForAddAddressBookInputEip is a EnumOfResourceTypeForAddAddressBookInput enum value
+	EnumOfResourceTypeForAddAddressBookInputEip = "Eip"
+
+	// EnumOfResourceTypeForAddAddressBookInputInternetAsset is a EnumOfResourceTypeForAddAddressBookInput enum value
+	EnumOfResourceTypeForAddAddressBookInputInternetAsset = "InternetAsset"
+)
+
+const (
+	// EnumOfTagRelationForAddAddressBookInputAnd is a EnumOfTagRelationForAddAddressBookInput enum value
+	EnumOfTagRelationForAddAddressBookInputAnd = "And"
+
+	// EnumOfTagRelationForAddAddressBookInputOr is a EnumOfTagRelationForAddAddressBookInput enum value
+	EnumOfTagRelationForAddAddressBookInputOr = "Or"
 )
