@@ -62,6 +62,14 @@ type VOD20250101API interface {
 	ListAITranslationProjectWithContext(volcengine.Context, *ListAITranslationProjectInput, ...request.Option) (*ListAITranslationProjectOutput, error)
 	ListAITranslationProjectRequest(*ListAITranslationProjectInput) (*request.Request, *ListAITranslationProjectOutput)
 
+	RefreshAITranslationProjectCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	RefreshAITranslationProjectCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	RefreshAITranslationProjectCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	RefreshAITranslationProject(*RefreshAITranslationProjectInput) (*RefreshAITranslationProjectOutput, error)
+	RefreshAITranslationProjectWithContext(volcengine.Context, *RefreshAITranslationProjectInput, ...request.Option) (*RefreshAITranslationProjectOutput, error)
+	RefreshAITranslationProjectRequest(*RefreshAITranslationProjectInput) (*request.Request, *RefreshAITranslationProjectOutput)
+
 	StartExecutionCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	StartExecutionCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	StartExecutionCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
