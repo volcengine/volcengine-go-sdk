@@ -218,6 +218,8 @@ type ListSandboxesOutput struct {
 
 	Sandboxes []*SandboxForListSandboxesOutput `type:"list" json:",omitempty"`
 
+	StatusCount *StatusCountForListSandboxesOutput `type:"structure" json:",omitempty"`
+
 	Total *int32 `type:"int32" json:",omitempty"`
 }
 
@@ -234,6 +236,12 @@ func (s ListSandboxesOutput) GoString() string {
 // SetSandboxes sets the Sandboxes field's value.
 func (s *ListSandboxesOutput) SetSandboxes(v []*SandboxForListSandboxesOutput) *ListSandboxesOutput {
 	s.Sandboxes = v
+	return s
+}
+
+// SetStatusCount sets the StatusCount field's value.
+func (s *ListSandboxesOutput) SetStatusCount(v *StatusCountForListSandboxesOutput) *ListSandboxesOutput {
+	s.StatusCount = v
 	return s
 }
 
@@ -278,6 +286,10 @@ type SandboxForListSandboxesOutput struct {
 
 	CreatedAt *string `type:"string" json:",omitempty"`
 
+	ErrorCode *string `type:"string" json:",omitempty"`
+
+	ErrorMessage *string `type:"string" json:",omitempty"`
+
 	ExpireAt *string `type:"string" json:",omitempty"`
 
 	FunctionId *string `type:"string" json:",omitempty"`
@@ -287,6 +299,8 @@ type SandboxForListSandboxesOutput struct {
 	InstanceType *string `type:"string" json:",omitempty"`
 
 	Metadata *MetadataForListSandboxesOutput `type:"structure" json:",omitempty"`
+
+	Pending *bool `type:"boolean" json:",omitempty"`
 
 	RevisionNumber *int32 `type:"int32" json:",omitempty"`
 
@@ -312,6 +326,18 @@ func (s *SandboxForListSandboxesOutput) SetAvailabilityZone(v string) *SandboxFo
 // SetCreatedAt sets the CreatedAt field's value.
 func (s *SandboxForListSandboxesOutput) SetCreatedAt(v string) *SandboxForListSandboxesOutput {
 	s.CreatedAt = &v
+	return s
+}
+
+// SetErrorCode sets the ErrorCode field's value.
+func (s *SandboxForListSandboxesOutput) SetErrorCode(v string) *SandboxForListSandboxesOutput {
+	s.ErrorCode = &v
+	return s
+}
+
+// SetErrorMessage sets the ErrorMessage field's value.
+func (s *SandboxForListSandboxesOutput) SetErrorMessage(v string) *SandboxForListSandboxesOutput {
+	s.ErrorMessage = &v
 	return s
 }
 
@@ -345,6 +371,12 @@ func (s *SandboxForListSandboxesOutput) SetMetadata(v *MetadataForListSandboxesO
 	return s
 }
 
+// SetPending sets the Pending field's value.
+func (s *SandboxForListSandboxesOutput) SetPending(v bool) *SandboxForListSandboxesOutput {
+	s.Pending = &v
+	return s
+}
+
 // SetRevisionNumber sets the RevisionNumber field's value.
 func (s *SandboxForListSandboxesOutput) SetRevisionNumber(v int32) *SandboxForListSandboxesOutput {
 	s.RevisionNumber = &v
@@ -355,4 +387,18 @@ func (s *SandboxForListSandboxesOutput) SetRevisionNumber(v int32) *SandboxForLi
 func (s *SandboxForListSandboxesOutput) SetStatus(v string) *SandboxForListSandboxesOutput {
 	s.Status = &v
 	return s
+}
+
+type StatusCountForListSandboxesOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s StatusCountForListSandboxesOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s StatusCountForListSandboxesOutput) GoString() string {
+	return s.String()
 }
