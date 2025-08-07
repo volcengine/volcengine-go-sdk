@@ -454,11 +454,15 @@ type ListForListAmortizedCostBillDetailOutput struct {
 
 	InstanceNo *string `type:"string" json:",omitempty"`
 
+	MainContractNumber *string `type:"string" json:",omitempty"`
+
 	MarketPrice *string `type:"string" json:",omitempty"`
 
 	MeasureInterval *string `type:"string" json:",omitempty"`
 
 	OriginalBillAmount *string `type:"string" json:",omitempty"`
+
+	OriginalOrderNo *string `type:"string" json:",omitempty"`
 
 	OwnerCustomerName *string `type:"string" json:",omitempty"`
 
@@ -915,6 +919,12 @@ func (s *ListForListAmortizedCostBillDetailOutput) SetInstanceNo(v string) *List
 	return s
 }
 
+// SetMainContractNumber sets the MainContractNumber field's value.
+func (s *ListForListAmortizedCostBillDetailOutput) SetMainContractNumber(v string) *ListForListAmortizedCostBillDetailOutput {
+	s.MainContractNumber = &v
+	return s
+}
+
 // SetMarketPrice sets the MarketPrice field's value.
 func (s *ListForListAmortizedCostBillDetailOutput) SetMarketPrice(v string) *ListForListAmortizedCostBillDetailOutput {
 	s.MarketPrice = &v
@@ -930,6 +940,12 @@ func (s *ListForListAmortizedCostBillDetailOutput) SetMeasureInterval(v string) 
 // SetOriginalBillAmount sets the OriginalBillAmount field's value.
 func (s *ListForListAmortizedCostBillDetailOutput) SetOriginalBillAmount(v string) *ListForListAmortizedCostBillDetailOutput {
 	s.OriginalBillAmount = &v
+	return s
+}
+
+// SetOriginalOrderNo sets the OriginalOrderNo field's value.
+func (s *ListForListAmortizedCostBillDetailOutput) SetOriginalOrderNo(v string) *ListForListAmortizedCostBillDetailOutput {
+	s.OriginalOrderNo = &v
 	return s
 }
 
