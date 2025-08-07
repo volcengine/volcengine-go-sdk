@@ -146,6 +146,8 @@ func (c *FWCENTER) UpdateDnsControlPolicySwitchWithContext(ctx volcengine.Contex
 type UpdateDnsControlPolicySwitchInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	InternetFirewallId *string `type:"string" json:",omitempty"`
+
 	// RuleId is a required field
 	RuleId *string `type:"string" json:",omitempty" required:"true"`
 
@@ -173,6 +175,12 @@ func (s *UpdateDnsControlPolicySwitchInput) Validate() error {
 		return invalidParams
 	}
 	return nil
+}
+
+// SetInternetFirewallId sets the InternetFirewallId field's value.
+func (s *UpdateDnsControlPolicySwitchInput) SetInternetFirewallId(v string) *UpdateDnsControlPolicySwitchInput {
+	s.InternetFirewallId = &v
+	return s
 }
 
 // SetRuleId sets the RuleId field's value.

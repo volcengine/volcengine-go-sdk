@@ -158,11 +158,17 @@ type DataForDescribeControlPolicyByRuleIdOutput struct {
 
 	DestPortList []*string `type:"list" json:",omitempty"`
 
+	DestPortListV1 []*DestPortListV1ForDescribeControlPolicyByRuleIdOutput `type:"list" json:",omitempty"`
+
 	DestPortType *string `type:"string" json:",omitempty"`
 
 	Destination *string `type:"string" json:",omitempty"`
 
 	DestinationCidrList []*string `type:"list" json:",omitempty"`
+
+	DestinationCidrListV1 []*DestinationCidrListV1ForDescribeControlPolicyByRuleIdOutput `type:"list" json:",omitempty"`
+
+	DestinationDomainList []*string `type:"list" json:",omitempty"`
 
 	DestinationGroupType *string `type:"string" json:",omitempty"`
 
@@ -175,6 +181,8 @@ type DataForDescribeControlPolicyByRuleIdOutput struct {
 	EndTime *int32 `type:"int32" json:",omitempty"`
 
 	HitCnt *int32 `type:"int32" json:",omitempty"`
+
+	IpType *string `type:"string" json:",omitempty"`
 
 	IsEffected *bool `type:"boolean" json:",omitempty"`
 
@@ -195,6 +203,8 @@ type DataForDescribeControlPolicyByRuleIdOutput struct {
 	Source *string `type:"string" json:",omitempty"`
 
 	SourceCidrList []*string `type:"list" json:",omitempty"`
+
+	SourceCidrListV1 []*SourceCidrListV1ForDescribeControlPolicyByRuleIdOutput `type:"list" json:",omitempty"`
 
 	SourceGroupType *string `type:"string" json:",omitempty"`
 
@@ -255,6 +265,12 @@ func (s *DataForDescribeControlPolicyByRuleIdOutput) SetDestPortList(v []*string
 	return s
 }
 
+// SetDestPortListV1 sets the DestPortListV1 field's value.
+func (s *DataForDescribeControlPolicyByRuleIdOutput) SetDestPortListV1(v []*DestPortListV1ForDescribeControlPolicyByRuleIdOutput) *DataForDescribeControlPolicyByRuleIdOutput {
+	s.DestPortListV1 = v
+	return s
+}
+
 // SetDestPortType sets the DestPortType field's value.
 func (s *DataForDescribeControlPolicyByRuleIdOutput) SetDestPortType(v string) *DataForDescribeControlPolicyByRuleIdOutput {
 	s.DestPortType = &v
@@ -270,6 +286,18 @@ func (s *DataForDescribeControlPolicyByRuleIdOutput) SetDestination(v string) *D
 // SetDestinationCidrList sets the DestinationCidrList field's value.
 func (s *DataForDescribeControlPolicyByRuleIdOutput) SetDestinationCidrList(v []*string) *DataForDescribeControlPolicyByRuleIdOutput {
 	s.DestinationCidrList = v
+	return s
+}
+
+// SetDestinationCidrListV1 sets the DestinationCidrListV1 field's value.
+func (s *DataForDescribeControlPolicyByRuleIdOutput) SetDestinationCidrListV1(v []*DestinationCidrListV1ForDescribeControlPolicyByRuleIdOutput) *DataForDescribeControlPolicyByRuleIdOutput {
+	s.DestinationCidrListV1 = v
+	return s
+}
+
+// SetDestinationDomainList sets the DestinationDomainList field's value.
+func (s *DataForDescribeControlPolicyByRuleIdOutput) SetDestinationDomainList(v []*string) *DataForDescribeControlPolicyByRuleIdOutput {
+	s.DestinationDomainList = v
 	return s
 }
 
@@ -306,6 +334,12 @@ func (s *DataForDescribeControlPolicyByRuleIdOutput) SetEndTime(v int32) *DataFo
 // SetHitCnt sets the HitCnt field's value.
 func (s *DataForDescribeControlPolicyByRuleIdOutput) SetHitCnt(v int32) *DataForDescribeControlPolicyByRuleIdOutput {
 	s.HitCnt = &v
+	return s
+}
+
+// SetIpType sets the IpType field's value.
+func (s *DataForDescribeControlPolicyByRuleIdOutput) SetIpType(v string) *DataForDescribeControlPolicyByRuleIdOutput {
+	s.IpType = &v
 	return s
 }
 
@@ -369,6 +403,12 @@ func (s *DataForDescribeControlPolicyByRuleIdOutput) SetSourceCidrList(v []*stri
 	return s
 }
 
+// SetSourceCidrListV1 sets the SourceCidrListV1 field's value.
+func (s *DataForDescribeControlPolicyByRuleIdOutput) SetSourceCidrListV1(v []*SourceCidrListV1ForDescribeControlPolicyByRuleIdOutput) *DataForDescribeControlPolicyByRuleIdOutput {
+	s.SourceCidrListV1 = v
+	return s
+}
+
 // SetSourceGroupType sets the SourceGroupType field's value.
 func (s *DataForDescribeControlPolicyByRuleIdOutput) SetSourceGroupType(v string) *DataForDescribeControlPolicyByRuleIdOutput {
 	s.SourceGroupType = &v
@@ -411,6 +451,8 @@ type DescribeControlPolicyByRuleIdInput struct {
 	// Direction is a required field
 	Direction *string `type:"string" json:",omitempty" required:"true" enum:"EnumOfDirectionForDescribeControlPolicyByRuleIdInput"`
 
+	InternetFirewallId *string `type:"string" json:",omitempty"`
+
 	RuleIds []*string `type:"list" json:",omitempty"`
 }
 
@@ -440,6 +482,12 @@ func (s *DescribeControlPolicyByRuleIdInput) Validate() error {
 // SetDirection sets the Direction field's value.
 func (s *DescribeControlPolicyByRuleIdInput) SetDirection(v string) *DescribeControlPolicyByRuleIdInput {
 	s.Direction = &v
+	return s
+}
+
+// SetInternetFirewallId sets the InternetFirewallId field's value.
+func (s *DescribeControlPolicyByRuleIdInput) SetInternetFirewallId(v string) *DescribeControlPolicyByRuleIdInput {
+	s.InternetFirewallId = &v
 	return s
 }
 
@@ -502,6 +550,120 @@ func (s *DescribeControlPolicyByRuleIdOutput) SetPageSize(v int32) *DescribeCont
 // SetTotalCount sets the TotalCount field's value.
 func (s *DescribeControlPolicyByRuleIdOutput) SetTotalCount(v int32) *DescribeControlPolicyByRuleIdOutput {
 	s.TotalCount = &v
+	return s
+}
+
+type DestPortListV1ForDescribeControlPolicyByRuleIdOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Address *string `type:"string" json:",omitempty"`
+
+	Description *string `max:"32" type:"string" json:",omitempty"`
+
+	Type *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s DestPortListV1ForDescribeControlPolicyByRuleIdOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DestPortListV1ForDescribeControlPolicyByRuleIdOutput) GoString() string {
+	return s.String()
+}
+
+// SetAddress sets the Address field's value.
+func (s *DestPortListV1ForDescribeControlPolicyByRuleIdOutput) SetAddress(v string) *DestPortListV1ForDescribeControlPolicyByRuleIdOutput {
+	s.Address = &v
+	return s
+}
+
+// SetDescription sets the Description field's value.
+func (s *DestPortListV1ForDescribeControlPolicyByRuleIdOutput) SetDescription(v string) *DestPortListV1ForDescribeControlPolicyByRuleIdOutput {
+	s.Description = &v
+	return s
+}
+
+// SetType sets the Type field's value.
+func (s *DestPortListV1ForDescribeControlPolicyByRuleIdOutput) SetType(v string) *DestPortListV1ForDescribeControlPolicyByRuleIdOutput {
+	s.Type = &v
+	return s
+}
+
+type DestinationCidrListV1ForDescribeControlPolicyByRuleIdOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Address *string `type:"string" json:",omitempty"`
+
+	Description *string `max:"32" type:"string" json:",omitempty"`
+
+	Type *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s DestinationCidrListV1ForDescribeControlPolicyByRuleIdOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DestinationCidrListV1ForDescribeControlPolicyByRuleIdOutput) GoString() string {
+	return s.String()
+}
+
+// SetAddress sets the Address field's value.
+func (s *DestinationCidrListV1ForDescribeControlPolicyByRuleIdOutput) SetAddress(v string) *DestinationCidrListV1ForDescribeControlPolicyByRuleIdOutput {
+	s.Address = &v
+	return s
+}
+
+// SetDescription sets the Description field's value.
+func (s *DestinationCidrListV1ForDescribeControlPolicyByRuleIdOutput) SetDescription(v string) *DestinationCidrListV1ForDescribeControlPolicyByRuleIdOutput {
+	s.Description = &v
+	return s
+}
+
+// SetType sets the Type field's value.
+func (s *DestinationCidrListV1ForDescribeControlPolicyByRuleIdOutput) SetType(v string) *DestinationCidrListV1ForDescribeControlPolicyByRuleIdOutput {
+	s.Type = &v
+	return s
+}
+
+type SourceCidrListV1ForDescribeControlPolicyByRuleIdOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Address *string `type:"string" json:",omitempty"`
+
+	Description *string `max:"32" type:"string" json:",omitempty"`
+
+	Type *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s SourceCidrListV1ForDescribeControlPolicyByRuleIdOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s SourceCidrListV1ForDescribeControlPolicyByRuleIdOutput) GoString() string {
+	return s.String()
+}
+
+// SetAddress sets the Address field's value.
+func (s *SourceCidrListV1ForDescribeControlPolicyByRuleIdOutput) SetAddress(v string) *SourceCidrListV1ForDescribeControlPolicyByRuleIdOutput {
+	s.Address = &v
+	return s
+}
+
+// SetDescription sets the Description field's value.
+func (s *SourceCidrListV1ForDescribeControlPolicyByRuleIdOutput) SetDescription(v string) *SourceCidrListV1ForDescribeControlPolicyByRuleIdOutput {
+	s.Description = &v
+	return s
+}
+
+// SetType sets the Type field's value.
+func (s *SourceCidrListV1ForDescribeControlPolicyByRuleIdOutput) SetType(v string) *SourceCidrListV1ForDescribeControlPolicyByRuleIdOutput {
+	s.Type = &v
 	return s
 }
 

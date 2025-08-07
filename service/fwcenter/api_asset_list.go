@@ -152,9 +152,17 @@ type AssetListInput struct {
 
 	Current_page *int32 `type:"int32" json:"current_page,omitempty"`
 
+	Instance_type []*string `type:"list" json:"instance_type,omitempty"`
+
+	InternetFirewallId *string `type:"string" json:",omitempty"`
+
+	Ip_type *string `type:"string" json:"ip_type,omitempty" enum:"EnumOfip_typeForAssetListInput"`
+
 	Order_dir *string `type:"string" json:"order_dir,omitempty" enum:"EnumOforder_dirForAssetListInput"`
 
 	Page_size *int32 `max:"1e+06" type:"int32" json:"page_size,omitempty"`
+
+	Region_code []*string `type:"list" json:"region_code,omitempty"`
 
 	Stat *int32 `type:"int32" json:"stat,omitempty"`
 }
@@ -200,6 +208,24 @@ func (s *AssetListInput) SetCurrent_page(v int32) *AssetListInput {
 	return s
 }
 
+// SetInstance_type sets the Instance_type field's value.
+func (s *AssetListInput) SetInstance_type(v []*string) *AssetListInput {
+	s.Instance_type = v
+	return s
+}
+
+// SetInternetFirewallId sets the InternetFirewallId field's value.
+func (s *AssetListInput) SetInternetFirewallId(v string) *AssetListInput {
+	s.InternetFirewallId = &v
+	return s
+}
+
+// SetIp_type sets the Ip_type field's value.
+func (s *AssetListInput) SetIp_type(v string) *AssetListInput {
+	s.Ip_type = &v
+	return s
+}
+
 // SetOrder_dir sets the Order_dir field's value.
 func (s *AssetListInput) SetOrder_dir(v string) *AssetListInput {
 	s.Order_dir = &v
@@ -209,6 +235,12 @@ func (s *AssetListInput) SetOrder_dir(v string) *AssetListInput {
 // SetPage_size sets the Page_size field's value.
 func (s *AssetListInput) SetPage_size(v int32) *AssetListInput {
 	s.Page_size = &v
+	return s
+}
+
+// SetRegion_code sets the Region_code field's value.
+func (s *AssetListInput) SetRegion_code(v []*string) *AssetListInput {
+	s.Region_code = v
 	return s
 }
 
@@ -285,7 +317,11 @@ type DataForAssetListOutput struct {
 
 	InstanceID *string `type:"string" json:",omitempty"`
 
+	Instance_type *string `type:"string" json:"instance_type,omitempty"`
+
 	Ip *string `type:"string" json:"ip,omitempty"`
+
+	Ip_type *string `type:"string" json:"ip_type,omitempty"`
 
 	Latest_7_days_peak_traffic *int32 `type:"int32" json:"latest_7_days_peak_traffic,omitempty"`
 
@@ -332,9 +368,21 @@ func (s *DataForAssetListOutput) SetInstanceID(v string) *DataForAssetListOutput
 	return s
 }
 
+// SetInstance_type sets the Instance_type field's value.
+func (s *DataForAssetListOutput) SetInstance_type(v string) *DataForAssetListOutput {
+	s.Instance_type = &v
+	return s
+}
+
 // SetIp sets the Ip field's value.
 func (s *DataForAssetListOutput) SetIp(v string) *DataForAssetListOutput {
 	s.Ip = &v
+	return s
+}
+
+// SetIp_type sets the Ip_type field's value.
+func (s *DataForAssetListOutput) SetIp_type(v string) *DataForAssetListOutput {
+	s.Ip_type = &v
 	return s
 }
 
@@ -367,6 +415,14 @@ func (s *DataForAssetListOutput) SetType(v string) *DataForAssetListOutput {
 	s.Type = &v
 	return s
 }
+
+const (
+	// EnumOfip_typeForAssetListInputV4 is a EnumOfip_typeForAssetListInput enum value
+	EnumOfip_typeForAssetListInputV4 = "v4"
+
+	// EnumOfip_typeForAssetListInputV6 is a EnumOfip_typeForAssetListInput enum value
+	EnumOfip_typeForAssetListInputV6 = "v6"
+)
 
 const (
 	// EnumOforder_dirForAssetListInputAsc is a EnumOforder_dirForAssetListInput enum value

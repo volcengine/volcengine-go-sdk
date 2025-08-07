@@ -78,6 +78,14 @@ type FWCENTERAPI interface {
 	AssetListWithContext(volcengine.Context, *AssetListInput, ...request.Option) (*AssetListOutput, error)
 	AssetListRequest(*AssetListInput) (*request.Request, *AssetListOutput)
 
+	CreateNatFirewallCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateNatFirewallCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateNatFirewallCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateNatFirewall(*CreateNatFirewallInput) (*CreateNatFirewallOutput, error)
+	CreateNatFirewallWithContext(volcengine.Context, *CreateNatFirewallInput, ...request.Option) (*CreateNatFirewallOutput, error)
+	CreateNatFirewallRequest(*CreateNatFirewallInput) (*request.Request, *CreateNatFirewallOutput)
+
 	DeleteAddressBookCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DeleteAddressBookCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DeleteAddressBookCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -101,6 +109,14 @@ type FWCENTERAPI interface {
 	DeleteDnsControlPolicy(*DeleteDnsControlPolicyInput) (*DeleteDnsControlPolicyOutput, error)
 	DeleteDnsControlPolicyWithContext(volcengine.Context, *DeleteDnsControlPolicyInput, ...request.Option) (*DeleteDnsControlPolicyOutput, error)
 	DeleteDnsControlPolicyRequest(*DeleteDnsControlPolicyInput) (*request.Request, *DeleteDnsControlPolicyOutput)
+
+	DeleteNatFirewallCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeleteNatFirewallCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeleteNatFirewallCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeleteNatFirewall(*DeleteNatFirewallInput) (*DeleteNatFirewallOutput, error)
+	DeleteNatFirewallWithContext(volcengine.Context, *DeleteNatFirewallInput, ...request.Option) (*DeleteNatFirewallOutput, error)
+	DeleteNatFirewallRequest(*DeleteNatFirewallInput) (*request.Request, *DeleteNatFirewallOutput)
 
 	DeleteNatFirewallControlPolicyCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DeleteNatFirewallControlPolicyCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -221,6 +237,14 @@ type FWCENTERAPI interface {
 	ModifyAddressBook(*ModifyAddressBookInput) (*ModifyAddressBookOutput, error)
 	ModifyAddressBookWithContext(volcengine.Context, *ModifyAddressBookInput, ...request.Option) (*ModifyAddressBookOutput, error)
 	ModifyAddressBookRequest(*ModifyAddressBookInput) (*request.Request, *ModifyAddressBookOutput)
+
+	ModifyAddressBookListCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ModifyAddressBookListCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ModifyAddressBookListCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ModifyAddressBookList(*ModifyAddressBookListInput) (*ModifyAddressBookListOutput, error)
+	ModifyAddressBookListWithContext(volcengine.Context, *ModifyAddressBookListInput, ...request.Option) (*ModifyAddressBookListOutput, error)
+	ModifyAddressBookListRequest(*ModifyAddressBookListInput) (*request.Request, *ModifyAddressBookListOutput)
 
 	ModifyControlPolicyCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ModifyControlPolicyCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)

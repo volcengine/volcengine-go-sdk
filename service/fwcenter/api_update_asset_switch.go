@@ -173,6 +173,90 @@ func (s *AssetListForUpdateAssetSwitchInput) SetRegion(v string) *AssetListForUp
 	return s
 }
 
+type AssetListForUpdateAssetSwitchOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	IP *string `type:"string" json:",omitempty"`
+
+	Region *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s AssetListForUpdateAssetSwitchOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s AssetListForUpdateAssetSwitchOutput) GoString() string {
+	return s.String()
+}
+
+// SetIP sets the IP field's value.
+func (s *AssetListForUpdateAssetSwitchOutput) SetIP(v string) *AssetListForUpdateAssetSwitchOutput {
+	s.IP = &v
+	return s
+}
+
+// SetRegion sets the Region field's value.
+func (s *AssetListForUpdateAssetSwitchOutput) SetRegion(v string) *AssetListForUpdateAssetSwitchOutput {
+	s.Region = &v
+	return s
+}
+
+type ControlPolicyListForUpdateAssetSwitchOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Direction *string `type:"string" json:",omitempty"`
+
+	FirewallId *string `type:"string" json:",omitempty"`
+
+	FirewallType *string `type:"string" json:",omitempty"`
+
+	RuleId *string `type:"string" json:",omitempty"`
+
+	RuleType *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s ControlPolicyListForUpdateAssetSwitchOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ControlPolicyListForUpdateAssetSwitchOutput) GoString() string {
+	return s.String()
+}
+
+// SetDirection sets the Direction field's value.
+func (s *ControlPolicyListForUpdateAssetSwitchOutput) SetDirection(v string) *ControlPolicyListForUpdateAssetSwitchOutput {
+	s.Direction = &v
+	return s
+}
+
+// SetFirewallId sets the FirewallId field's value.
+func (s *ControlPolicyListForUpdateAssetSwitchOutput) SetFirewallId(v string) *ControlPolicyListForUpdateAssetSwitchOutput {
+	s.FirewallId = &v
+	return s
+}
+
+// SetFirewallType sets the FirewallType field's value.
+func (s *ControlPolicyListForUpdateAssetSwitchOutput) SetFirewallType(v string) *ControlPolicyListForUpdateAssetSwitchOutput {
+	s.FirewallType = &v
+	return s
+}
+
+// SetRuleId sets the RuleId field's value.
+func (s *ControlPolicyListForUpdateAssetSwitchOutput) SetRuleId(v string) *ControlPolicyListForUpdateAssetSwitchOutput {
+	s.RuleId = &v
+	return s
+}
+
+// SetRuleType sets the RuleType field's value.
+func (s *ControlPolicyListForUpdateAssetSwitchOutput) SetRuleType(v string) *ControlPolicyListForUpdateAssetSwitchOutput {
+	s.RuleType = &v
+	return s
+}
+
 type UpdateAssetSwitchInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -180,6 +264,8 @@ type UpdateAssetSwitchInput struct {
 
 	// Enable is a required field
 	Enable *int32 `type:"int32" json:",omitempty" required:"true"`
+
+	InternetFirewallId *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -217,14 +303,20 @@ func (s *UpdateAssetSwitchInput) SetEnable(v int32) *UpdateAssetSwitchInput {
 	return s
 }
 
+// SetInternetFirewallId sets the InternetFirewallId field's value.
+func (s *UpdateAssetSwitchInput) SetInternetFirewallId(v string) *UpdateAssetSwitchInput {
+	s.InternetFirewallId = &v
+	return s
+}
+
 type UpdateAssetSwitchOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	IP *string `type:"string" json:",omitempty"`
+	AssetList []*AssetListForUpdateAssetSwitchOutput `type:"list" json:",omitempty"`
 
-	Region *string `type:"string" json:",omitempty"`
+	ControlPolicyList []*ControlPolicyListForUpdateAssetSwitchOutput `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -237,14 +329,14 @@ func (s UpdateAssetSwitchOutput) GoString() string {
 	return s.String()
 }
 
-// SetIP sets the IP field's value.
-func (s *UpdateAssetSwitchOutput) SetIP(v string) *UpdateAssetSwitchOutput {
-	s.IP = &v
+// SetAssetList sets the AssetList field's value.
+func (s *UpdateAssetSwitchOutput) SetAssetList(v []*AssetListForUpdateAssetSwitchOutput) *UpdateAssetSwitchOutput {
+	s.AssetList = v
 	return s
 }
 
-// SetRegion sets the Region field's value.
-func (s *UpdateAssetSwitchOutput) SetRegion(v string) *UpdateAssetSwitchOutput {
-	s.Region = &v
+// SetControlPolicyList sets the ControlPolicyList field's value.
+func (s *UpdateAssetSwitchOutput) SetControlPolicyList(v []*ControlPolicyListForUpdateAssetSwitchOutput) *UpdateAssetSwitchOutput {
+	s.ControlPolicyList = v
 	return s
 }

@@ -149,6 +149,8 @@ type UpdateAssetsInput struct {
 	Asset_ips []*string `type:"list" json:"asset_ips,omitempty"`
 
 	Enable *bool `type:"boolean" json:"enable,omitempty"`
+
+	InternetFirewallId *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -173,10 +175,18 @@ func (s *UpdateAssetsInput) SetEnable(v bool) *UpdateAssetsInput {
 	return s
 }
 
+// SetInternetFirewallId sets the InternetFirewallId field's value.
+func (s *UpdateAssetsInput) SetInternetFirewallId(v string) *UpdateAssetsInput {
+	s.InternetFirewallId = &v
+	return s
+}
+
 type UpdateAssetsOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
+
+	Asset_ips []*string `type:"list" json:"asset_ips,omitempty"`
 }
 
 // String returns the string representation
@@ -187,4 +197,10 @@ func (s UpdateAssetsOutput) String() string {
 // GoString returns the string representation
 func (s UpdateAssetsOutput) GoString() string {
 	return s.String()
+}
+
+// SetAsset_ips sets the Asset_ips field's value.
+func (s *UpdateAssetsOutput) SetAsset_ips(v []*string) *UpdateAssetsOutput {
+	s.Asset_ips = v
+	return s
 }

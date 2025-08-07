@@ -146,6 +146,8 @@ func (c *FWCENTER) DeleteDnsControlPolicyWithContext(ctx volcengine.Context, inp
 type DeleteDnsControlPolicyInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	InternetFirewallId *string `type:"string" json:",omitempty"`
+
 	// RuleId is a required field
 	RuleId *string `type:"string" json:",omitempty" required:"true"`
 }
@@ -171,6 +173,12 @@ func (s *DeleteDnsControlPolicyInput) Validate() error {
 		return invalidParams
 	}
 	return nil
+}
+
+// SetInternetFirewallId sets the InternetFirewallId field's value.
+func (s *DeleteDnsControlPolicyInput) SetInternetFirewallId(v string) *DeleteDnsControlPolicyInput {
+	s.InternetFirewallId = &v
+	return s
 }
 
 // SetRuleId sets the RuleId field's value.

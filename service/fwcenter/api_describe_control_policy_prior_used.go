@@ -148,6 +148,8 @@ type DescribeControlPolicyPriorUsedInput struct {
 
 	// Direction is a required field
 	Direction *string `type:"string" json:",omitempty" required:"true" enum:"EnumOfDirectionForDescribeControlPolicyPriorUsedInput"`
+
+	InternetFirewallId *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -176,6 +178,12 @@ func (s *DescribeControlPolicyPriorUsedInput) Validate() error {
 // SetDirection sets the Direction field's value.
 func (s *DescribeControlPolicyPriorUsedInput) SetDirection(v string) *DescribeControlPolicyPriorUsedInput {
 	s.Direction = &v
+	return s
+}
+
+// SetInternetFirewallId sets the InternetFirewallId field's value.
+func (s *DescribeControlPolicyPriorUsedInput) SetInternetFirewallId(v string) *DescribeControlPolicyPriorUsedInput {
+	s.InternetFirewallId = &v
 	return s
 }
 

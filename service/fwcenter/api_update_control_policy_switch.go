@@ -149,6 +149,8 @@ type UpdateControlPolicySwitchInput struct {
 	// Direction is a required field
 	Direction *string `type:"string" json:",omitempty" required:"true" enum:"EnumOfDirectionForUpdateControlPolicySwitchInput"`
 
+	InternetFirewallId *string `type:"string" json:",omitempty"`
+
 	RuleIds []*string `type:"list" json:",omitempty"`
 
 	Status *bool `type:"boolean" json:",omitempty"`
@@ -180,6 +182,12 @@ func (s *UpdateControlPolicySwitchInput) Validate() error {
 // SetDirection sets the Direction field's value.
 func (s *UpdateControlPolicySwitchInput) SetDirection(v string) *UpdateControlPolicySwitchInput {
 	s.Direction = &v
+	return s
+}
+
+// SetInternetFirewallId sets the InternetFirewallId field's value.
+func (s *UpdateControlPolicySwitchInput) SetInternetFirewallId(v string) *UpdateControlPolicySwitchInput {
+	s.InternetFirewallId = &v
 	return s
 }
 

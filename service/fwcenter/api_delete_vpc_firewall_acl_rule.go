@@ -146,6 +146,8 @@ func (c *FWCENTER) DeleteVpcFirewallAclRuleWithContext(ctx volcengine.Context, i
 type DeleteVpcFirewallAclRuleInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	RuleIdList []*string `type:"list" json:",omitempty"`
+
 	RuleIds []*string `type:"list" json:",omitempty"`
 
 	// VpcFirewallId is a required field
@@ -175,6 +177,12 @@ func (s *DeleteVpcFirewallAclRuleInput) Validate() error {
 	return nil
 }
 
+// SetRuleIdList sets the RuleIdList field's value.
+func (s *DeleteVpcFirewallAclRuleInput) SetRuleIdList(v []*string) *DeleteVpcFirewallAclRuleInput {
+	s.RuleIdList = v
+	return s
+}
+
 // SetRuleIds sets the RuleIds field's value.
 func (s *DeleteVpcFirewallAclRuleInput) SetRuleIds(v []*string) *DeleteVpcFirewallAclRuleInput {
 	s.RuleIds = v
@@ -192,6 +200,8 @@ type DeleteVpcFirewallAclRuleOutput struct {
 
 	Metadata *response.ResponseMetadata
 
+	RuleIdList []*string `type:"list" json:",omitempty"`
+
 	RuleIds []*string `type:"list" json:",omitempty"`
 }
 
@@ -203,6 +213,12 @@ func (s DeleteVpcFirewallAclRuleOutput) String() string {
 // GoString returns the string representation
 func (s DeleteVpcFirewallAclRuleOutput) GoString() string {
 	return s.String()
+}
+
+// SetRuleIdList sets the RuleIdList field's value.
+func (s *DeleteVpcFirewallAclRuleOutput) SetRuleIdList(v []*string) *DeleteVpcFirewallAclRuleOutput {
+	s.RuleIdList = v
+	return s
 }
 
 // SetRuleIds sets the RuleIds field's value.

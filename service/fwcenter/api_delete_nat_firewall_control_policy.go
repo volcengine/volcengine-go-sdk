@@ -152,8 +152,9 @@ type DeleteNatFirewallControlPolicyInput struct {
 	// NatFirewallId is a required field
 	NatFirewallId *string `type:"string" json:",omitempty" required:"true"`
 
-	// RuleId is a required field
-	RuleId *string `type:"string" json:",omitempty" required:"true"`
+	RuleId *string `type:"string" json:",omitempty"`
+
+	RuleIdList []*string `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -174,9 +175,6 @@ func (s *DeleteNatFirewallControlPolicyInput) Validate() error {
 	}
 	if s.NatFirewallId == nil {
 		invalidParams.Add(request.NewErrParamRequired("NatFirewallId"))
-	}
-	if s.RuleId == nil {
-		invalidParams.Add(request.NewErrParamRequired("RuleId"))
 	}
 
 	if invalidParams.Len() > 0 {
@@ -203,12 +201,20 @@ func (s *DeleteNatFirewallControlPolicyInput) SetRuleId(v string) *DeleteNatFire
 	return s
 }
 
+// SetRuleIdList sets the RuleIdList field's value.
+func (s *DeleteNatFirewallControlPolicyInput) SetRuleIdList(v []*string) *DeleteNatFirewallControlPolicyInput {
+	s.RuleIdList = v
+	return s
+}
+
 type DeleteNatFirewallControlPolicyOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
 	RuleId *string `type:"string" json:",omitempty"`
+
+	RuleIdList []*string `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -224,6 +230,12 @@ func (s DeleteNatFirewallControlPolicyOutput) GoString() string {
 // SetRuleId sets the RuleId field's value.
 func (s *DeleteNatFirewallControlPolicyOutput) SetRuleId(v string) *DeleteNatFirewallControlPolicyOutput {
 	s.RuleId = &v
+	return s
+}
+
+// SetRuleIdList sets the RuleIdList field's value.
+func (s *DeleteNatFirewallControlPolicyOutput) SetRuleIdList(v []*string) *DeleteNatFirewallControlPolicyOutput {
+	s.RuleIdList = v
 	return s
 }
 

@@ -158,11 +158,17 @@ type DataForDescribeControlPolicyOutput struct {
 
 	DestPortList []*string `type:"list" json:",omitempty"`
 
+	DestPortListV1 []*DestPortListV1ForDescribeControlPolicyOutput `type:"list" json:",omitempty"`
+
 	DestPortType *string `type:"string" json:",omitempty"`
 
 	Destination *string `type:"string" json:",omitempty"`
 
 	DestinationCidrList []*string `type:"list" json:",omitempty"`
+
+	DestinationCidrListV1 []*DestinationCidrListV1ForDescribeControlPolicyOutput `type:"list" json:",omitempty"`
+
+	DestinationDomainList []*string `type:"list" json:",omitempty"`
 
 	DestinationGroupType *string `type:"string" json:",omitempty"`
 
@@ -175,6 +181,8 @@ type DataForDescribeControlPolicyOutput struct {
 	EndTime *int32 `type:"int32" json:",omitempty"`
 
 	HitCnt *int32 `type:"int32" json:",omitempty"`
+
+	IpType *string `type:"string" json:",omitempty"`
 
 	IsEffected *bool `type:"boolean" json:",omitempty"`
 
@@ -195,6 +203,8 @@ type DataForDescribeControlPolicyOutput struct {
 	Source *string `type:"string" json:",omitempty"`
 
 	SourceCidrList []*string `type:"list" json:",omitempty"`
+
+	SourceCidrListV1 []*SourceCidrListV1ForDescribeControlPolicyOutput `type:"list" json:",omitempty"`
 
 	SourceGroupType *string `type:"string" json:",omitempty"`
 
@@ -255,6 +265,12 @@ func (s *DataForDescribeControlPolicyOutput) SetDestPortList(v []*string) *DataF
 	return s
 }
 
+// SetDestPortListV1 sets the DestPortListV1 field's value.
+func (s *DataForDescribeControlPolicyOutput) SetDestPortListV1(v []*DestPortListV1ForDescribeControlPolicyOutput) *DataForDescribeControlPolicyOutput {
+	s.DestPortListV1 = v
+	return s
+}
+
 // SetDestPortType sets the DestPortType field's value.
 func (s *DataForDescribeControlPolicyOutput) SetDestPortType(v string) *DataForDescribeControlPolicyOutput {
 	s.DestPortType = &v
@@ -270,6 +286,18 @@ func (s *DataForDescribeControlPolicyOutput) SetDestination(v string) *DataForDe
 // SetDestinationCidrList sets the DestinationCidrList field's value.
 func (s *DataForDescribeControlPolicyOutput) SetDestinationCidrList(v []*string) *DataForDescribeControlPolicyOutput {
 	s.DestinationCidrList = v
+	return s
+}
+
+// SetDestinationCidrListV1 sets the DestinationCidrListV1 field's value.
+func (s *DataForDescribeControlPolicyOutput) SetDestinationCidrListV1(v []*DestinationCidrListV1ForDescribeControlPolicyOutput) *DataForDescribeControlPolicyOutput {
+	s.DestinationCidrListV1 = v
+	return s
+}
+
+// SetDestinationDomainList sets the DestinationDomainList field's value.
+func (s *DataForDescribeControlPolicyOutput) SetDestinationDomainList(v []*string) *DataForDescribeControlPolicyOutput {
+	s.DestinationDomainList = v
 	return s
 }
 
@@ -306,6 +334,12 @@ func (s *DataForDescribeControlPolicyOutput) SetEndTime(v int32) *DataForDescrib
 // SetHitCnt sets the HitCnt field's value.
 func (s *DataForDescribeControlPolicyOutput) SetHitCnt(v int32) *DataForDescribeControlPolicyOutput {
 	s.HitCnt = &v
+	return s
+}
+
+// SetIpType sets the IpType field's value.
+func (s *DataForDescribeControlPolicyOutput) SetIpType(v string) *DataForDescribeControlPolicyOutput {
+	s.IpType = &v
 	return s
 }
 
@@ -369,6 +403,12 @@ func (s *DataForDescribeControlPolicyOutput) SetSourceCidrList(v []*string) *Dat
 	return s
 }
 
+// SetSourceCidrListV1 sets the SourceCidrListV1 field's value.
+func (s *DataForDescribeControlPolicyOutput) SetSourceCidrListV1(v []*SourceCidrListV1ForDescribeControlPolicyOutput) *DataForDescribeControlPolicyOutput {
+	s.SourceCidrListV1 = v
+	return s
+}
+
 // SetSourceGroupType sets the SourceGroupType field's value.
 func (s *DataForDescribeControlPolicyOutput) SetSourceGroupType(v string) *DataForDescribeControlPolicyOutput {
 	s.SourceGroupType = &v
@@ -417,9 +457,15 @@ type DescribeControlPolicyInput struct {
 	// Direction is a required field
 	Direction *string `type:"string" json:",omitempty" required:"true" enum:"EnumOfDirectionForDescribeControlPolicyInput"`
 
+	InternetFirewallId *string `type:"string" json:",omitempty"`
+
+	IpType *string `type:"string" json:",omitempty" enum:"EnumOfIpTypeForDescribeControlPolicyInput"`
+
+	OrderDir *string `type:"string" json:",omitempty" enum:"EnumOfOrderDirForDescribeControlPolicyInput"`
+
 	PageNumber *int32 `type:"int32" json:",omitempty"`
 
-	PageSize *int32 `max:"100" type:"int32" json:",omitempty"`
+	PageSize *int32 `max:"1000" type:"int32" json:",omitempty"`
 
 	Proto []*string `type:"list" json:",omitempty"`
 
@@ -448,8 +494,8 @@ func (s *DescribeControlPolicyInput) Validate() error {
 	if s.Direction == nil {
 		invalidParams.Add(request.NewErrParamRequired("Direction"))
 	}
-	if s.PageSize != nil && *s.PageSize > 100 {
-		invalidParams.Add(request.NewErrParamMaxValue("PageSize", 100))
+	if s.PageSize != nil && *s.PageSize > 1000 {
+		invalidParams.Add(request.NewErrParamMaxValue("PageSize", 1000))
 	}
 
 	if invalidParams.Len() > 0 {
@@ -479,6 +525,24 @@ func (s *DescribeControlPolicyInput) SetDestination(v string) *DescribeControlPo
 // SetDirection sets the Direction field's value.
 func (s *DescribeControlPolicyInput) SetDirection(v string) *DescribeControlPolicyInput {
 	s.Direction = &v
+	return s
+}
+
+// SetInternetFirewallId sets the InternetFirewallId field's value.
+func (s *DescribeControlPolicyInput) SetInternetFirewallId(v string) *DescribeControlPolicyInput {
+	s.InternetFirewallId = &v
+	return s
+}
+
+// SetIpType sets the IpType field's value.
+func (s *DescribeControlPolicyInput) SetIpType(v string) *DescribeControlPolicyInput {
+	s.IpType = &v
+	return s
+}
+
+// SetOrderDir sets the OrderDir field's value.
+func (s *DescribeControlPolicyInput) SetOrderDir(v string) *DescribeControlPolicyInput {
+	s.OrderDir = &v
 	return s
 }
 
@@ -580,10 +644,140 @@ func (s *DescribeControlPolicyOutput) SetTotalCount(v int32) *DescribeControlPol
 	return s
 }
 
+type DestPortListV1ForDescribeControlPolicyOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Address *string `type:"string" json:",omitempty"`
+
+	Description *string `max:"32" type:"string" json:",omitempty"`
+
+	Type *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s DestPortListV1ForDescribeControlPolicyOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DestPortListV1ForDescribeControlPolicyOutput) GoString() string {
+	return s.String()
+}
+
+// SetAddress sets the Address field's value.
+func (s *DestPortListV1ForDescribeControlPolicyOutput) SetAddress(v string) *DestPortListV1ForDescribeControlPolicyOutput {
+	s.Address = &v
+	return s
+}
+
+// SetDescription sets the Description field's value.
+func (s *DestPortListV1ForDescribeControlPolicyOutput) SetDescription(v string) *DestPortListV1ForDescribeControlPolicyOutput {
+	s.Description = &v
+	return s
+}
+
+// SetType sets the Type field's value.
+func (s *DestPortListV1ForDescribeControlPolicyOutput) SetType(v string) *DestPortListV1ForDescribeControlPolicyOutput {
+	s.Type = &v
+	return s
+}
+
+type DestinationCidrListV1ForDescribeControlPolicyOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Address *string `type:"string" json:",omitempty"`
+
+	Description *string `max:"32" type:"string" json:",omitempty"`
+
+	Type *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s DestinationCidrListV1ForDescribeControlPolicyOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DestinationCidrListV1ForDescribeControlPolicyOutput) GoString() string {
+	return s.String()
+}
+
+// SetAddress sets the Address field's value.
+func (s *DestinationCidrListV1ForDescribeControlPolicyOutput) SetAddress(v string) *DestinationCidrListV1ForDescribeControlPolicyOutput {
+	s.Address = &v
+	return s
+}
+
+// SetDescription sets the Description field's value.
+func (s *DestinationCidrListV1ForDescribeControlPolicyOutput) SetDescription(v string) *DestinationCidrListV1ForDescribeControlPolicyOutput {
+	s.Description = &v
+	return s
+}
+
+// SetType sets the Type field's value.
+func (s *DestinationCidrListV1ForDescribeControlPolicyOutput) SetType(v string) *DestinationCidrListV1ForDescribeControlPolicyOutput {
+	s.Type = &v
+	return s
+}
+
+type SourceCidrListV1ForDescribeControlPolicyOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Address *string `type:"string" json:",omitempty"`
+
+	Description *string `max:"32" type:"string" json:",omitempty"`
+
+	Type *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s SourceCidrListV1ForDescribeControlPolicyOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s SourceCidrListV1ForDescribeControlPolicyOutput) GoString() string {
+	return s.String()
+}
+
+// SetAddress sets the Address field's value.
+func (s *SourceCidrListV1ForDescribeControlPolicyOutput) SetAddress(v string) *SourceCidrListV1ForDescribeControlPolicyOutput {
+	s.Address = &v
+	return s
+}
+
+// SetDescription sets the Description field's value.
+func (s *SourceCidrListV1ForDescribeControlPolicyOutput) SetDescription(v string) *SourceCidrListV1ForDescribeControlPolicyOutput {
+	s.Description = &v
+	return s
+}
+
+// SetType sets the Type field's value.
+func (s *SourceCidrListV1ForDescribeControlPolicyOutput) SetType(v string) *SourceCidrListV1ForDescribeControlPolicyOutput {
+	s.Type = &v
+	return s
+}
+
 const (
 	// EnumOfDirectionForDescribeControlPolicyInputIn is a EnumOfDirectionForDescribeControlPolicyInput enum value
 	EnumOfDirectionForDescribeControlPolicyInputIn = "in"
 
 	// EnumOfDirectionForDescribeControlPolicyInputOut is a EnumOfDirectionForDescribeControlPolicyInput enum value
 	EnumOfDirectionForDescribeControlPolicyInputOut = "out"
+)
+
+const (
+	// EnumOfIpTypeForDescribeControlPolicyInputV4 is a EnumOfIpTypeForDescribeControlPolicyInput enum value
+	EnumOfIpTypeForDescribeControlPolicyInputV4 = "v4"
+
+	// EnumOfIpTypeForDescribeControlPolicyInputV6 is a EnumOfIpTypeForDescribeControlPolicyInput enum value
+	EnumOfIpTypeForDescribeControlPolicyInputV6 = "v6"
+)
+
+const (
+	// EnumOfOrderDirForDescribeControlPolicyInputAsc is a EnumOfOrderDirForDescribeControlPolicyInput enum value
+	EnumOfOrderDirForDescribeControlPolicyInputAsc = "asc"
+
+	// EnumOfOrderDirForDescribeControlPolicyInputDesc is a EnumOfOrderDirForDescribeControlPolicyInput enum value
+	EnumOfOrderDirForDescribeControlPolicyInputDesc = "desc"
 )
