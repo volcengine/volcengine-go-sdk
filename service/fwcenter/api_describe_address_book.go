@@ -143,10 +143,52 @@ func (c *FWCENTER) DescribeAddressBookWithContext(ctx volcengine.Context, input 
 	return out, req.Send()
 }
 
+type AddressDetailListForDescribeAddressBookOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Address *string `type:"string" json:",omitempty"`
+
+	Description *string `max:"32" type:"string" json:",omitempty"`
+
+	Type *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s AddressDetailListForDescribeAddressBookOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s AddressDetailListForDescribeAddressBookOutput) GoString() string {
+	return s.String()
+}
+
+// SetAddress sets the Address field's value.
+func (s *AddressDetailListForDescribeAddressBookOutput) SetAddress(v string) *AddressDetailListForDescribeAddressBookOutput {
+	s.Address = &v
+	return s
+}
+
+// SetDescription sets the Description field's value.
+func (s *AddressDetailListForDescribeAddressBookOutput) SetDescription(v string) *AddressDetailListForDescribeAddressBookOutput {
+	s.Description = &v
+	return s
+}
+
+// SetType sets the Type field's value.
+func (s *AddressDetailListForDescribeAddressBookOutput) SetType(v string) *AddressDetailListForDescribeAddressBookOutput {
+	s.Type = &v
+	return s
+}
+
 type DataForDescribeAddressBookOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	AddressDetailList []*AddressDetailListForDescribeAddressBookOutput `type:"list" json:",omitempty"`
+
 	AddressList []*string `type:"list" json:",omitempty"`
+
+	AutoUpdateType *string `type:"string" json:",omitempty"`
 
 	Description *string `type:"string" json:",omitempty"`
 
@@ -156,7 +198,17 @@ type DataForDescribeAddressBookOutput struct {
 
 	GroupUuid *string `type:"string" json:",omitempty"`
 
+	InstanceTypeList []*string `type:"list" json:",omitempty"`
+
 	RefCnt *int32 `type:"int32" json:",omitempty"`
+
+	ResourceType *string `type:"string" json:",omitempty"`
+
+	TagRelation *string `type:"string" json:",omitempty"`
+
+	Tags []*TagForDescribeAddressBookOutput `type:"list" json:",omitempty"`
+
+	Updated *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -169,9 +221,21 @@ func (s DataForDescribeAddressBookOutput) GoString() string {
 	return s.String()
 }
 
+// SetAddressDetailList sets the AddressDetailList field's value.
+func (s *DataForDescribeAddressBookOutput) SetAddressDetailList(v []*AddressDetailListForDescribeAddressBookOutput) *DataForDescribeAddressBookOutput {
+	s.AddressDetailList = v
+	return s
+}
+
 // SetAddressList sets the AddressList field's value.
 func (s *DataForDescribeAddressBookOutput) SetAddressList(v []*string) *DataForDescribeAddressBookOutput {
 	s.AddressList = v
+	return s
+}
+
+// SetAutoUpdateType sets the AutoUpdateType field's value.
+func (s *DataForDescribeAddressBookOutput) SetAutoUpdateType(v string) *DataForDescribeAddressBookOutput {
+	s.AutoUpdateType = &v
 	return s
 }
 
@@ -199,20 +263,52 @@ func (s *DataForDescribeAddressBookOutput) SetGroupUuid(v string) *DataForDescri
 	return s
 }
 
+// SetInstanceTypeList sets the InstanceTypeList field's value.
+func (s *DataForDescribeAddressBookOutput) SetInstanceTypeList(v []*string) *DataForDescribeAddressBookOutput {
+	s.InstanceTypeList = v
+	return s
+}
+
 // SetRefCnt sets the RefCnt field's value.
 func (s *DataForDescribeAddressBookOutput) SetRefCnt(v int32) *DataForDescribeAddressBookOutput {
 	s.RefCnt = &v
 	return s
 }
 
+// SetResourceType sets the ResourceType field's value.
+func (s *DataForDescribeAddressBookOutput) SetResourceType(v string) *DataForDescribeAddressBookOutput {
+	s.ResourceType = &v
+	return s
+}
+
+// SetTagRelation sets the TagRelation field's value.
+func (s *DataForDescribeAddressBookOutput) SetTagRelation(v string) *DataForDescribeAddressBookOutput {
+	s.TagRelation = &v
+	return s
+}
+
+// SetTags sets the Tags field's value.
+func (s *DataForDescribeAddressBookOutput) SetTags(v []*TagForDescribeAddressBookOutput) *DataForDescribeAddressBookOutput {
+	s.Tags = v
+	return s
+}
+
+// SetUpdated sets the Updated field's value.
+func (s *DataForDescribeAddressBookOutput) SetUpdated(v int32) *DataForDescribeAddressBookOutput {
+	s.Updated = &v
+	return s
+}
+
 type DescribeAddressBookInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
+
+	CloudFirewallId *string `type:"string" json:",omitempty"`
 
 	GroupType *string `type:"string" json:",omitempty" enum:"EnumOfGroupTypeForDescribeAddressBookInput"`
 
 	PageNumber *int32 `max:"100" type:"int32" json:",omitempty"`
 
-	PageSize *int32 `type:"int32" json:",omitempty"`
+	PageSize *int32 `max:"1000" type:"int32" json:",omitempty"`
 
 	Query *string `type:"string" json:",omitempty"`
 }
@@ -233,11 +329,20 @@ func (s *DescribeAddressBookInput) Validate() error {
 	if s.PageNumber != nil && *s.PageNumber > 100 {
 		invalidParams.Add(request.NewErrParamMaxValue("PageNumber", 100))
 	}
+	if s.PageSize != nil && *s.PageSize > 1000 {
+		invalidParams.Add(request.NewErrParamMaxValue("PageSize", 1000))
+	}
 
 	if invalidParams.Len() > 0 {
 		return invalidParams
 	}
 	return nil
+}
+
+// SetCloudFirewallId sets the CloudFirewallId field's value.
+func (s *DescribeAddressBookInput) SetCloudFirewallId(v string) *DescribeAddressBookInput {
+	s.CloudFirewallId = &v
+	return s
 }
 
 // SetGroupType sets the GroupType field's value.
@@ -320,9 +425,42 @@ func (s *DescribeAddressBookOutput) SetTotalCount(v int32) *DescribeAddressBookO
 	return s
 }
 
+type TagForDescribeAddressBookOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Key *string `min:"1" max:"128" type:"string" json:",omitempty"`
+
+	Value *string `max:"256" type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s TagForDescribeAddressBookOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagForDescribeAddressBookOutput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagForDescribeAddressBookOutput) SetKey(v string) *TagForDescribeAddressBookOutput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *TagForDescribeAddressBookOutput) SetValue(v string) *TagForDescribeAddressBookOutput {
+	s.Value = &v
+	return s
+}
+
 const (
 	// EnumOfGroupTypeForDescribeAddressBookInputIp is a EnumOfGroupTypeForDescribeAddressBookInput enum value
 	EnumOfGroupTypeForDescribeAddressBookInputIp = "ip"
+
+	// EnumOfGroupTypeForDescribeAddressBookInputIpv6 is a EnumOfGroupTypeForDescribeAddressBookInput enum value
+	EnumOfGroupTypeForDescribeAddressBookInputIpv6 = "ipv6"
 
 	// EnumOfGroupTypeForDescribeAddressBookInputPort is a EnumOfGroupTypeForDescribeAddressBookInput enum value
 	EnumOfGroupTypeForDescribeAddressBookInputPort = "port"

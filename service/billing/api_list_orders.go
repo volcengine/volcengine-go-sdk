@@ -146,23 +146,17 @@ func (c *BILLING) ListOrdersWithContext(ctx volcengine.Context, input *ListOrder
 type ListOrdersInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	// CreateTimeEnd is a required field
-	CreateTimeEnd *string `type:"string" json:",omitempty" required:"true"`
+	CreateTimeEnd *string `type:"string" json:",omitempty"`
 
-	// CreateTimeStart is a required field
-	CreateTimeStart *string `type:"string" json:",omitempty" required:"true"`
+	CreateTimeStart *string `type:"string" json:",omitempty"`
 
-	// MaxResults is a required field
-	MaxResults *int32 `type:"int32" json:",omitempty" required:"true"`
+	MaxResults *int32 `type:"int32" json:",omitempty"`
 
-	// NextToken is a required field
-	NextToken *string `type:"string" json:",omitempty" required:"true"`
+	NextToken *string `type:"string" json:",omitempty"`
 
-	// OrderType is a required field
-	OrderType *string `type:"string" json:",omitempty" required:"true"`
+	OrderType *string `type:"string" json:",omitempty"`
 
-	// Status is a required field
-	Status *string `type:"string" json:",omitempty" required:"true"`
+	Status *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -173,34 +167,6 @@ func (s ListOrdersInput) String() string {
 // GoString returns the string representation
 func (s ListOrdersInput) GoString() string {
 	return s.String()
-}
-
-// Validate inspects the fields of the type to determine if they are valid.
-func (s *ListOrdersInput) Validate() error {
-	invalidParams := request.ErrInvalidParams{Context: "ListOrdersInput"}
-	if s.CreateTimeEnd == nil {
-		invalidParams.Add(request.NewErrParamRequired("CreateTimeEnd"))
-	}
-	if s.CreateTimeStart == nil {
-		invalidParams.Add(request.NewErrParamRequired("CreateTimeStart"))
-	}
-	if s.MaxResults == nil {
-		invalidParams.Add(request.NewErrParamRequired("MaxResults"))
-	}
-	if s.NextToken == nil {
-		invalidParams.Add(request.NewErrParamRequired("NextToken"))
-	}
-	if s.OrderType == nil {
-		invalidParams.Add(request.NewErrParamRequired("OrderType"))
-	}
-	if s.Status == nil {
-		invalidParams.Add(request.NewErrParamRequired("Status"))
-	}
-
-	if invalidParams.Len() > 0 {
-		return invalidParams
-	}
-	return nil
 }
 
 // SetCreateTimeEnd sets the CreateTimeEnd field's value.

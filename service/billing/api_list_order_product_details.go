@@ -146,11 +146,9 @@ func (c *BILLING) ListOrderProductDetailsWithContext(ctx volcengine.Context, inp
 type ListOrderProductDetailsInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	// MaxResults is a required field
-	MaxResults *int32 `type:"int32" json:",omitempty" required:"true"`
+	MaxResults *int32 `type:"int32" json:",omitempty"`
 
-	// NextToken is a required field
-	NextToken *string `type:"string" json:",omitempty" required:"true"`
+	NextToken *string `type:"string" json:",omitempty"`
 
 	// OrderID is a required field
 	OrderID *string `type:"string" json:",omitempty" required:"true"`
@@ -169,12 +167,6 @@ func (s ListOrderProductDetailsInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *ListOrderProductDetailsInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "ListOrderProductDetailsInput"}
-	if s.MaxResults == nil {
-		invalidParams.Add(request.NewErrParamRequired("MaxResults"))
-	}
-	if s.NextToken == nil {
-		invalidParams.Add(request.NewErrParamRequired("NextToken"))
-	}
 	if s.OrderID == nil {
 		invalidParams.Add(request.NewErrParamRequired("OrderID"))
 	}

@@ -3,6 +3,8 @@
 package fwcenter
 
 import (
+	"fmt"
+
 	"github.com/volcengine/volcengine-go-sdk/volcengine"
 	"github.com/volcengine/volcengine-go-sdk/volcengine/request"
 	"github.com/volcengine/volcengine-go-sdk/volcengine/response"
@@ -143,10 +145,59 @@ func (c *FWCENTER) ModifyAddressBookWithContext(ctx volcengine.Context, input *M
 	return out, req.Send()
 }
 
+type AddressDetailListForModifyAddressBookInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Address *string `type:"string" json:",omitempty"`
+
+	Description *string `max:"32" type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s AddressDetailListForModifyAddressBookInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s AddressDetailListForModifyAddressBookInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *AddressDetailListForModifyAddressBookInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "AddressDetailListForModifyAddressBookInput"}
+	if s.Description != nil && len(*s.Description) > 32 {
+		invalidParams.Add(request.NewErrParamMaxLen("Description", 32, *s.Description))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetAddress sets the Address field's value.
+func (s *AddressDetailListForModifyAddressBookInput) SetAddress(v string) *AddressDetailListForModifyAddressBookInput {
+	s.Address = &v
+	return s
+}
+
+// SetDescription sets the Description field's value.
+func (s *AddressDetailListForModifyAddressBookInput) SetDescription(v string) *AddressDetailListForModifyAddressBookInput {
+	s.Description = &v
+	return s
+}
+
 type ModifyAddressBookInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	AddressDetailList []*AddressDetailListForModifyAddressBookInput `type:"list" json:",omitempty"`
+
 	AddressList []*string `type:"list" json:",omitempty"`
+
+	AutoUpdateType *string `type:"string" json:",omitempty" enum:"EnumOfAutoUpdateTypeForModifyAddressBookInput"`
+
+	CloudFirewallId *string `type:"string" json:",omitempty"`
 
 	Description *string `type:"string" json:",omitempty"`
 
@@ -155,6 +206,14 @@ type ModifyAddressBookInput struct {
 
 	// GroupUuid is a required field
 	GroupUuid *string `type:"string" json:",omitempty" required:"true"`
+
+	InstanceTypeList []*string `type:"list" json:",omitempty"`
+
+	ResourceType *string `type:"string" json:",omitempty" enum:"EnumOfResourceTypeForModifyAddressBookInput"`
+
+	TagRelation *string `type:"string" json:",omitempty" enum:"EnumOfTagRelationForModifyAddressBookInput"`
+
+	Tags []*TagForModifyAddressBookInput `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -179,6 +238,26 @@ func (s *ModifyAddressBookInput) Validate() error {
 	if s.GroupUuid == nil {
 		invalidParams.Add(request.NewErrParamRequired("GroupUuid"))
 	}
+	if s.AddressDetailList != nil {
+		for i, v := range s.AddressDetailList {
+			if v == nil {
+				continue
+			}
+			if err := v.Validate(); err != nil {
+				invalidParams.AddNested(fmt.Sprintf("%s[%v]", "AddressDetailList", i), err.(request.ErrInvalidParams))
+			}
+		}
+	}
+	if s.Tags != nil {
+		for i, v := range s.Tags {
+			if v == nil {
+				continue
+			}
+			if err := v.Validate(); err != nil {
+				invalidParams.AddNested(fmt.Sprintf("%s[%v]", "Tags", i), err.(request.ErrInvalidParams))
+			}
+		}
+	}
 
 	if invalidParams.Len() > 0 {
 		return invalidParams
@@ -186,9 +265,27 @@ func (s *ModifyAddressBookInput) Validate() error {
 	return nil
 }
 
+// SetAddressDetailList sets the AddressDetailList field's value.
+func (s *ModifyAddressBookInput) SetAddressDetailList(v []*AddressDetailListForModifyAddressBookInput) *ModifyAddressBookInput {
+	s.AddressDetailList = v
+	return s
+}
+
 // SetAddressList sets the AddressList field's value.
 func (s *ModifyAddressBookInput) SetAddressList(v []*string) *ModifyAddressBookInput {
 	s.AddressList = v
+	return s
+}
+
+// SetAutoUpdateType sets the AutoUpdateType field's value.
+func (s *ModifyAddressBookInput) SetAutoUpdateType(v string) *ModifyAddressBookInput {
+	s.AutoUpdateType = &v
+	return s
+}
+
+// SetCloudFirewallId sets the CloudFirewallId field's value.
+func (s *ModifyAddressBookInput) SetCloudFirewallId(v string) *ModifyAddressBookInput {
+	s.CloudFirewallId = &v
 	return s
 }
 
@@ -207,6 +304,30 @@ func (s *ModifyAddressBookInput) SetGroupName(v string) *ModifyAddressBookInput 
 // SetGroupUuid sets the GroupUuid field's value.
 func (s *ModifyAddressBookInput) SetGroupUuid(v string) *ModifyAddressBookInput {
 	s.GroupUuid = &v
+	return s
+}
+
+// SetInstanceTypeList sets the InstanceTypeList field's value.
+func (s *ModifyAddressBookInput) SetInstanceTypeList(v []*string) *ModifyAddressBookInput {
+	s.InstanceTypeList = v
+	return s
+}
+
+// SetResourceType sets the ResourceType field's value.
+func (s *ModifyAddressBookInput) SetResourceType(v string) *ModifyAddressBookInput {
+	s.ResourceType = &v
+	return s
+}
+
+// SetTagRelation sets the TagRelation field's value.
+func (s *ModifyAddressBookInput) SetTagRelation(v string) *ModifyAddressBookInput {
+	s.TagRelation = &v
+	return s
+}
+
+// SetTags sets the Tags field's value.
+func (s *ModifyAddressBookInput) SetTags(v []*TagForModifyAddressBookInput) *ModifyAddressBookInput {
+	s.Tags = v
 	return s
 }
 
@@ -233,3 +354,76 @@ func (s *ModifyAddressBookOutput) SetGroupUuid(v string) *ModifyAddressBookOutpu
 	s.GroupUuid = &v
 	return s
 }
+
+type TagForModifyAddressBookInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Key *string `min:"1" max:"128" type:"string" json:",omitempty"`
+
+	Value *string `max:"256" type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s TagForModifyAddressBookInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagForModifyAddressBookInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *TagForModifyAddressBookInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "TagForModifyAddressBookInput"}
+	if s.Key != nil && len(*s.Key) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("Key", 1))
+	}
+	if s.Key != nil && len(*s.Key) > 128 {
+		invalidParams.Add(request.NewErrParamMaxLen("Key", 128, *s.Key))
+	}
+	if s.Value != nil && len(*s.Value) > 256 {
+		invalidParams.Add(request.NewErrParamMaxLen("Value", 256, *s.Value))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetKey sets the Key field's value.
+func (s *TagForModifyAddressBookInput) SetKey(v string) *TagForModifyAddressBookInput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *TagForModifyAddressBookInput) SetValue(v string) *TagForModifyAddressBookInput {
+	s.Value = &v
+	return s
+}
+
+const (
+	// EnumOfAutoUpdateTypeForModifyAddressBookInputManual is a EnumOfAutoUpdateTypeForModifyAddressBookInput enum value
+	EnumOfAutoUpdateTypeForModifyAddressBookInputManual = "Manual"
+
+	// EnumOfAutoUpdateTypeForModifyAddressBookInputTag is a EnumOfAutoUpdateTypeForModifyAddressBookInput enum value
+	EnumOfAutoUpdateTypeForModifyAddressBookInputTag = "Tag"
+)
+
+const (
+	// EnumOfResourceTypeForModifyAddressBookInputEip is a EnumOfResourceTypeForModifyAddressBookInput enum value
+	EnumOfResourceTypeForModifyAddressBookInputEip = "Eip"
+
+	// EnumOfResourceTypeForModifyAddressBookInputInternetAsset is a EnumOfResourceTypeForModifyAddressBookInput enum value
+	EnumOfResourceTypeForModifyAddressBookInputInternetAsset = "InternetAsset"
+)
+
+const (
+	// EnumOfTagRelationForModifyAddressBookInputAnd is a EnumOfTagRelationForModifyAddressBookInput enum value
+	EnumOfTagRelationForModifyAddressBookInputAnd = "And"
+
+	// EnumOfTagRelationForModifyAddressBookInputOr is a EnumOfTagRelationForModifyAddressBookInput enum value
+	EnumOfTagRelationForModifyAddressBookInputOr = "Or"
+)

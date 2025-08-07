@@ -148,6 +148,8 @@ type ListForListSplitBillDetailOutput struct {
 
 	BillCategory *string `type:"string" json:",omitempty"`
 
+	BillDetailId *string `type:"string" json:",omitempty"`
+
 	BillID *string `type:"string" json:",omitempty"`
 
 	BillPeriod *string `type:"string" json:",omitempty"`
@@ -210,11 +212,15 @@ type ListForListSplitBillDetailOutput struct {
 
 	InstanceNo *string `type:"string" json:",omitempty"`
 
+	MainContractNumber *string `type:"string" json:",omitempty"`
+
 	MarketPrice *string `type:"string" json:",omitempty"`
 
 	MeasureInterval *string `type:"string" json:",omitempty"`
 
 	OriginalBillAmount *string `type:"string" json:",omitempty"`
+
+	OriginalOrderNo *string `type:"string" json:",omitempty"`
 
 	OwnerCustomerName *string `type:"string" json:",omitempty"`
 
@@ -344,6 +350,12 @@ func (s ListForListSplitBillDetailOutput) GoString() string {
 // SetBillCategory sets the BillCategory field's value.
 func (s *ListForListSplitBillDetailOutput) SetBillCategory(v string) *ListForListSplitBillDetailOutput {
 	s.BillCategory = &v
+	return s
+}
+
+// SetBillDetailId sets the BillDetailId field's value.
+func (s *ListForListSplitBillDetailOutput) SetBillDetailId(v string) *ListForListSplitBillDetailOutput {
+	s.BillDetailId = &v
 	return s
 }
 
@@ -533,6 +545,12 @@ func (s *ListForListSplitBillDetailOutput) SetInstanceNo(v string) *ListForListS
 	return s
 }
 
+// SetMainContractNumber sets the MainContractNumber field's value.
+func (s *ListForListSplitBillDetailOutput) SetMainContractNumber(v string) *ListForListSplitBillDetailOutput {
+	s.MainContractNumber = &v
+	return s
+}
+
 // SetMarketPrice sets the MarketPrice field's value.
 func (s *ListForListSplitBillDetailOutput) SetMarketPrice(v string) *ListForListSplitBillDetailOutput {
 	s.MarketPrice = &v
@@ -548,6 +566,12 @@ func (s *ListForListSplitBillDetailOutput) SetMeasureInterval(v string) *ListFor
 // SetOriginalBillAmount sets the OriginalBillAmount field's value.
 func (s *ListForListSplitBillDetailOutput) SetOriginalBillAmount(v string) *ListForListSplitBillDetailOutput {
 	s.OriginalBillAmount = &v
+	return s
+}
+
+// SetOriginalOrderNo sets the OriginalOrderNo field's value.
+func (s *ListForListSplitBillDetailOutput) SetOriginalOrderNo(v string) *ListForListSplitBillDetailOutput {
+	s.OriginalOrderNo = &v
 	return s
 }
 

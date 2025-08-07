@@ -183,6 +183,8 @@ func (s *DataForDescribeVpcsOutput) SetVpcId(v string) *DataForDescribeVpcsOutpu
 
 type DescribeVpcsInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
+
+	InternetFirewallId *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -195,20 +197,18 @@ func (s DescribeVpcsInput) GoString() string {
 	return s.String()
 }
 
+// SetInternetFirewallId sets the InternetFirewallId field's value.
+func (s *DescribeVpcsInput) SetInternetFirewallId(v string) *DescribeVpcsInput {
+	s.InternetFirewallId = &v
+	return s
+}
+
 type DescribeVpcsOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	Count *int32 `type:"int32" json:",omitempty"`
-
 	Data []*DataForDescribeVpcsOutput `type:"list" json:",omitempty"`
-
-	PageNumber *int32 `type:"int32" json:",omitempty"`
-
-	PageSize *int32 `type:"int32" json:",omitempty"`
-
-	TotalCount *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -221,32 +221,8 @@ func (s DescribeVpcsOutput) GoString() string {
 	return s.String()
 }
 
-// SetCount sets the Count field's value.
-func (s *DescribeVpcsOutput) SetCount(v int32) *DescribeVpcsOutput {
-	s.Count = &v
-	return s
-}
-
 // SetData sets the Data field's value.
 func (s *DescribeVpcsOutput) SetData(v []*DataForDescribeVpcsOutput) *DescribeVpcsOutput {
 	s.Data = v
-	return s
-}
-
-// SetPageNumber sets the PageNumber field's value.
-func (s *DescribeVpcsOutput) SetPageNumber(v int32) *DescribeVpcsOutput {
-	s.PageNumber = &v
-	return s
-}
-
-// SetPageSize sets the PageSize field's value.
-func (s *DescribeVpcsOutput) SetPageSize(v int32) *DescribeVpcsOutput {
-	s.PageSize = &v
-	return s
-}
-
-// SetTotalCount sets the TotalCount field's value.
-func (s *DescribeVpcsOutput) SetTotalCount(v int32) *DescribeVpcsOutput {
-	s.TotalCount = &v
 	return s
 }

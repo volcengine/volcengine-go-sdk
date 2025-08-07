@@ -440,6 +440,8 @@ type ListForListAmortizedCostBillDailyOutput struct {
 
 	InstanceNo *string `type:"string" json:",omitempty"`
 
+	MainContractNumber *string `type:"string" json:",omitempty"`
+
 	NowAmortizedCouponAmount *string `type:"string" json:",omitempty"`
 
 	NowAmortizedDiscountBillAmount *string `type:"string" json:",omitempty"`
@@ -483,6 +485,8 @@ type ListForListAmortizedCostBillDailyOutput struct {
 	NowAmortizedTaxAmount *string `type:"string" json:",omitempty"`
 
 	OriginalBillAmount *string `type:"string" json:",omitempty"`
+
+	OriginalOrderNo *string `type:"string" json:",omitempty"`
 
 	OwnerCustomerName *string `type:"string" json:",omitempty"`
 
@@ -891,6 +895,12 @@ func (s *ListForListAmortizedCostBillDailyOutput) SetInstanceNo(v string) *ListF
 	return s
 }
 
+// SetMainContractNumber sets the MainContractNumber field's value.
+func (s *ListForListAmortizedCostBillDailyOutput) SetMainContractNumber(v string) *ListForListAmortizedCostBillDailyOutput {
+	s.MainContractNumber = &v
+	return s
+}
+
 // SetNowAmortizedCouponAmount sets the NowAmortizedCouponAmount field's value.
 func (s *ListForListAmortizedCostBillDailyOutput) SetNowAmortizedCouponAmount(v string) *ListForListAmortizedCostBillDailyOutput {
 	s.NowAmortizedCouponAmount = &v
@@ -1020,6 +1030,12 @@ func (s *ListForListAmortizedCostBillDailyOutput) SetNowAmortizedTaxAmount(v str
 // SetOriginalBillAmount sets the OriginalBillAmount field's value.
 func (s *ListForListAmortizedCostBillDailyOutput) SetOriginalBillAmount(v string) *ListForListAmortizedCostBillDailyOutput {
 	s.OriginalBillAmount = &v
+	return s
+}
+
+// SetOriginalOrderNo sets the OriginalOrderNo field's value.
+func (s *ListForListAmortizedCostBillDailyOutput) SetOriginalOrderNo(v string) *ListForListAmortizedCostBillDailyOutput {
+	s.OriginalOrderNo = &v
 	return s
 }
 

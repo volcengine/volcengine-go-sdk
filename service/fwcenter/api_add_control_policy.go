@@ -166,6 +166,10 @@ type AddControlPolicyInput struct {
 
 	EndTime *int32 `type:"int32" json:",omitempty"`
 
+	InternetFirewallId *string `type:"string" json:",omitempty"`
+
+	IpType *string `type:"string" json:",omitempty" enum:"EnumOfIpTypeForAddControlPolicyInput"`
+
 	Prio *int32 `type:"int32" json:",omitempty"`
 
 	// Proto is a required field
@@ -276,6 +280,18 @@ func (s *AddControlPolicyInput) SetDirection(v string) *AddControlPolicyInput {
 // SetEndTime sets the EndTime field's value.
 func (s *AddControlPolicyInput) SetEndTime(v int32) *AddControlPolicyInput {
 	s.EndTime = &v
+	return s
+}
+
+// SetInternetFirewallId sets the InternetFirewallId field's value.
+func (s *AddControlPolicyInput) SetInternetFirewallId(v string) *AddControlPolicyInput {
+	s.InternetFirewallId = &v
+	return s
+}
+
+// SetIpType sets the IpType field's value.
+func (s *AddControlPolicyInput) SetIpType(v string) *AddControlPolicyInput {
+	s.IpType = &v
 	return s
 }
 
@@ -402,6 +418,14 @@ const (
 
 	// EnumOfDirectionForAddControlPolicyInputOut is a EnumOfDirectionForAddControlPolicyInput enum value
 	EnumOfDirectionForAddControlPolicyInputOut = "out"
+)
+
+const (
+	// EnumOfIpTypeForAddControlPolicyInputV4 is a EnumOfIpTypeForAddControlPolicyInput enum value
+	EnumOfIpTypeForAddControlPolicyInputV4 = "v4"
+
+	// EnumOfIpTypeForAddControlPolicyInputV6 is a EnumOfIpTypeForAddControlPolicyInput enum value
+	EnumOfIpTypeForAddControlPolicyInputV6 = "v6"
 )
 
 const (

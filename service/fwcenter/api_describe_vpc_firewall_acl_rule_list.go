@@ -158,11 +158,17 @@ type DataForDescribeVpcFirewallAclRuleListOutput struct {
 
 	DestPortList []*string `type:"list" json:",omitempty"`
 
+	DestPortListV1 []*DestPortListV1ForDescribeVpcFirewallAclRuleListOutput `type:"list" json:",omitempty"`
+
 	DestPortType *string `type:"string" json:",omitempty"`
 
 	Destination *string `type:"string" json:",omitempty"`
 
 	DestinationCidrList []*string `type:"list" json:",omitempty"`
+
+	DestinationCidrListV1 []*DestinationCidrListV1ForDescribeVpcFirewallAclRuleListOutput `type:"list" json:",omitempty"`
+
+	DestinationDomainList []*string `type:"list" json:",omitempty"`
 
 	DestinationGroupType *string `type:"string" json:",omitempty"`
 
@@ -193,6 +199,8 @@ type DataForDescribeVpcFirewallAclRuleListOutput struct {
 	Source *string `type:"string" json:",omitempty"`
 
 	SourceCidrList []*string `type:"list" json:",omitempty"`
+
+	SourceCidrListV1 []*SourceCidrListV1ForDescribeVpcFirewallAclRuleListOutput `type:"list" json:",omitempty"`
 
 	SourceGroupType *string `type:"string" json:",omitempty"`
 
@@ -257,6 +265,12 @@ func (s *DataForDescribeVpcFirewallAclRuleListOutput) SetDestPortList(v []*strin
 	return s
 }
 
+// SetDestPortListV1 sets the DestPortListV1 field's value.
+func (s *DataForDescribeVpcFirewallAclRuleListOutput) SetDestPortListV1(v []*DestPortListV1ForDescribeVpcFirewallAclRuleListOutput) *DataForDescribeVpcFirewallAclRuleListOutput {
+	s.DestPortListV1 = v
+	return s
+}
+
 // SetDestPortType sets the DestPortType field's value.
 func (s *DataForDescribeVpcFirewallAclRuleListOutput) SetDestPortType(v string) *DataForDescribeVpcFirewallAclRuleListOutput {
 	s.DestPortType = &v
@@ -272,6 +286,18 @@ func (s *DataForDescribeVpcFirewallAclRuleListOutput) SetDestination(v string) *
 // SetDestinationCidrList sets the DestinationCidrList field's value.
 func (s *DataForDescribeVpcFirewallAclRuleListOutput) SetDestinationCidrList(v []*string) *DataForDescribeVpcFirewallAclRuleListOutput {
 	s.DestinationCidrList = v
+	return s
+}
+
+// SetDestinationCidrListV1 sets the DestinationCidrListV1 field's value.
+func (s *DataForDescribeVpcFirewallAclRuleListOutput) SetDestinationCidrListV1(v []*DestinationCidrListV1ForDescribeVpcFirewallAclRuleListOutput) *DataForDescribeVpcFirewallAclRuleListOutput {
+	s.DestinationCidrListV1 = v
+	return s
+}
+
+// SetDestinationDomainList sets the DestinationDomainList field's value.
+func (s *DataForDescribeVpcFirewallAclRuleListOutput) SetDestinationDomainList(v []*string) *DataForDescribeVpcFirewallAclRuleListOutput {
+	s.DestinationDomainList = v
 	return s
 }
 
@@ -365,6 +391,12 @@ func (s *DataForDescribeVpcFirewallAclRuleListOutput) SetSourceCidrList(v []*str
 	return s
 }
 
+// SetSourceCidrListV1 sets the SourceCidrListV1 field's value.
+func (s *DataForDescribeVpcFirewallAclRuleListOutput) SetSourceCidrListV1(v []*SourceCidrListV1ForDescribeVpcFirewallAclRuleListOutput) *DataForDescribeVpcFirewallAclRuleListOutput {
+	s.SourceCidrListV1 = v
+	return s
+}
+
 // SetSourceGroupType sets the SourceGroupType field's value.
 func (s *DataForDescribeVpcFirewallAclRuleListOutput) SetSourceGroupType(v string) *DataForDescribeVpcFirewallAclRuleListOutput {
 	s.SourceGroupType = &v
@@ -422,9 +454,11 @@ type DescribeVpcFirewallAclRuleListInput struct {
 
 	Destination *string `type:"string" json:",omitempty"`
 
+	OrderDir *string `type:"string" json:",omitempty" enum:"EnumOfOrderDirForDescribeVpcFirewallAclRuleListInput"`
+
 	PageNumber *int32 `type:"int32" json:",omitempty"`
 
-	PageSize *int32 `max:"100" type:"int32" json:",omitempty"`
+	PageSize *int32 `max:"1000" type:"int32" json:",omitempty"`
 
 	Proto []*string `type:"list" json:",omitempty"`
 
@@ -453,8 +487,8 @@ func (s DescribeVpcFirewallAclRuleListInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *DescribeVpcFirewallAclRuleListInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "DescribeVpcFirewallAclRuleListInput"}
-	if s.PageSize != nil && *s.PageSize > 100 {
-		invalidParams.Add(request.NewErrParamMaxValue("PageSize", 100))
+	if s.PageSize != nil && *s.PageSize > 1000 {
+		invalidParams.Add(request.NewErrParamMaxValue("PageSize", 1000))
 	}
 	if s.VpcFirewallId == nil {
 		invalidParams.Add(request.NewErrParamRequired("VpcFirewallId"))
@@ -481,6 +515,12 @@ func (s *DescribeVpcFirewallAclRuleListInput) SetDescription(v string) *Describe
 // SetDestination sets the Destination field's value.
 func (s *DescribeVpcFirewallAclRuleListInput) SetDestination(v string) *DescribeVpcFirewallAclRuleListInput {
 	s.Destination = &v
+	return s
+}
+
+// SetOrderDir sets the OrderDir field's value.
+func (s *DescribeVpcFirewallAclRuleListInput) SetOrderDir(v string) *DescribeVpcFirewallAclRuleListInput {
+	s.OrderDir = &v
 	return s
 }
 
@@ -587,3 +627,125 @@ func (s *DescribeVpcFirewallAclRuleListOutput) SetTotalCount(v int32) *DescribeV
 	s.TotalCount = &v
 	return s
 }
+
+type DestPortListV1ForDescribeVpcFirewallAclRuleListOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Address *string `type:"string" json:",omitempty"`
+
+	Description *string `max:"32" type:"string" json:",omitempty"`
+
+	Type *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s DestPortListV1ForDescribeVpcFirewallAclRuleListOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DestPortListV1ForDescribeVpcFirewallAclRuleListOutput) GoString() string {
+	return s.String()
+}
+
+// SetAddress sets the Address field's value.
+func (s *DestPortListV1ForDescribeVpcFirewallAclRuleListOutput) SetAddress(v string) *DestPortListV1ForDescribeVpcFirewallAclRuleListOutput {
+	s.Address = &v
+	return s
+}
+
+// SetDescription sets the Description field's value.
+func (s *DestPortListV1ForDescribeVpcFirewallAclRuleListOutput) SetDescription(v string) *DestPortListV1ForDescribeVpcFirewallAclRuleListOutput {
+	s.Description = &v
+	return s
+}
+
+// SetType sets the Type field's value.
+func (s *DestPortListV1ForDescribeVpcFirewallAclRuleListOutput) SetType(v string) *DestPortListV1ForDescribeVpcFirewallAclRuleListOutput {
+	s.Type = &v
+	return s
+}
+
+type DestinationCidrListV1ForDescribeVpcFirewallAclRuleListOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Address *string `type:"string" json:",omitempty"`
+
+	Description *string `max:"32" type:"string" json:",omitempty"`
+
+	Type *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s DestinationCidrListV1ForDescribeVpcFirewallAclRuleListOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DestinationCidrListV1ForDescribeVpcFirewallAclRuleListOutput) GoString() string {
+	return s.String()
+}
+
+// SetAddress sets the Address field's value.
+func (s *DestinationCidrListV1ForDescribeVpcFirewallAclRuleListOutput) SetAddress(v string) *DestinationCidrListV1ForDescribeVpcFirewallAclRuleListOutput {
+	s.Address = &v
+	return s
+}
+
+// SetDescription sets the Description field's value.
+func (s *DestinationCidrListV1ForDescribeVpcFirewallAclRuleListOutput) SetDescription(v string) *DestinationCidrListV1ForDescribeVpcFirewallAclRuleListOutput {
+	s.Description = &v
+	return s
+}
+
+// SetType sets the Type field's value.
+func (s *DestinationCidrListV1ForDescribeVpcFirewallAclRuleListOutput) SetType(v string) *DestinationCidrListV1ForDescribeVpcFirewallAclRuleListOutput {
+	s.Type = &v
+	return s
+}
+
+type SourceCidrListV1ForDescribeVpcFirewallAclRuleListOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Address *string `type:"string" json:",omitempty"`
+
+	Description *string `max:"32" type:"string" json:",omitempty"`
+
+	Type *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s SourceCidrListV1ForDescribeVpcFirewallAclRuleListOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s SourceCidrListV1ForDescribeVpcFirewallAclRuleListOutput) GoString() string {
+	return s.String()
+}
+
+// SetAddress sets the Address field's value.
+func (s *SourceCidrListV1ForDescribeVpcFirewallAclRuleListOutput) SetAddress(v string) *SourceCidrListV1ForDescribeVpcFirewallAclRuleListOutput {
+	s.Address = &v
+	return s
+}
+
+// SetDescription sets the Description field's value.
+func (s *SourceCidrListV1ForDescribeVpcFirewallAclRuleListOutput) SetDescription(v string) *SourceCidrListV1ForDescribeVpcFirewallAclRuleListOutput {
+	s.Description = &v
+	return s
+}
+
+// SetType sets the Type field's value.
+func (s *SourceCidrListV1ForDescribeVpcFirewallAclRuleListOutput) SetType(v string) *SourceCidrListV1ForDescribeVpcFirewallAclRuleListOutput {
+	s.Type = &v
+	return s
+}
+
+const (
+	// EnumOfOrderDirForDescribeVpcFirewallAclRuleListInputAsc is a EnumOfOrderDirForDescribeVpcFirewallAclRuleListInput enum value
+	EnumOfOrderDirForDescribeVpcFirewallAclRuleListInputAsc = "asc"
+
+	// EnumOfOrderDirForDescribeVpcFirewallAclRuleListInputDesc is a EnumOfOrderDirForDescribeVpcFirewallAclRuleListInput enum value
+	EnumOfOrderDirForDescribeVpcFirewallAclRuleListInputDesc = "desc"
+)

@@ -149,6 +149,8 @@ type ModifyControlPolicyPositionInput struct {
 	// Direction is a required field
 	Direction *string `type:"string" json:",omitempty" required:"true" enum:"EnumOfDirectionForModifyControlPolicyPositionInput"`
 
+	InternetFirewallId *string `type:"string" json:",omitempty"`
+
 	// NewPrio is a required field
 	NewPrio *int32 `min:"1" type:"int32" json:",omitempty" required:"true"`
 
@@ -191,6 +193,12 @@ func (s *ModifyControlPolicyPositionInput) Validate() error {
 // SetDirection sets the Direction field's value.
 func (s *ModifyControlPolicyPositionInput) SetDirection(v string) *ModifyControlPolicyPositionInput {
 	s.Direction = &v
+	return s
+}
+
+// SetInternetFirewallId sets the InternetFirewallId field's value.
+func (s *ModifyControlPolicyPositionInput) SetInternetFirewallId(v string) *ModifyControlPolicyPositionInput {
+	s.InternetFirewallId = &v
 	return s
 }
 

@@ -158,6 +158,8 @@ type DataForDescribeDnsControlPolicyOutput struct {
 
 	DomainList []*string `type:"list" json:",omitempty"`
 
+	DomainListV1 []*DomainListV1ForDescribeDnsControlPolicyOutput `type:"list" json:",omitempty"`
+
 	HitCnt *int32 `type:"int32" json:",omitempty"`
 
 	LastHitTime *int32 `type:"int32" json:",omitempty"`
@@ -217,6 +219,12 @@ func (s *DataForDescribeDnsControlPolicyOutput) SetDomainList(v []*string) *Data
 	return s
 }
 
+// SetDomainListV1 sets the DomainListV1 field's value.
+func (s *DataForDescribeDnsControlPolicyOutput) SetDomainListV1(v []*DomainListV1ForDescribeDnsControlPolicyOutput) *DataForDescribeDnsControlPolicyOutput {
+	s.DomainListV1 = v
+	return s
+}
+
 // SetHitCnt sets the HitCnt field's value.
 func (s *DataForDescribeDnsControlPolicyOutput) SetHitCnt(v int32) *DataForDescribeDnsControlPolicyOutput {
 	s.HitCnt = &v
@@ -260,9 +268,13 @@ type DescribeDnsControlPolicyInput struct {
 
 	Destination []*string `type:"list" json:",omitempty"`
 
+	InternetFirewallId *string `type:"string" json:",omitempty"`
+
+	OrderDir *string `type:"string" json:",omitempty" enum:"EnumOfOrderDirForDescribeDnsControlPolicyInput"`
+
 	PageNumber *int32 `type:"int32" json:",omitempty"`
 
-	PageSize *int32 `max:"100" type:"int32" json:",omitempty"`
+	PageSize *int32 `max:"1000" type:"int32" json:",omitempty"`
 
 	RuleId []*string `type:"list" json:",omitempty"`
 
@@ -284,8 +296,8 @@ func (s DescribeDnsControlPolicyInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *DescribeDnsControlPolicyInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "DescribeDnsControlPolicyInput"}
-	if s.PageSize != nil && *s.PageSize > 100 {
-		invalidParams.Add(request.NewErrParamMaxValue("PageSize", 100))
+	if s.PageSize != nil && *s.PageSize > 1000 {
+		invalidParams.Add(request.NewErrParamMaxValue("PageSize", 1000))
 	}
 
 	if invalidParams.Len() > 0 {
@@ -303,6 +315,18 @@ func (s *DescribeDnsControlPolicyInput) SetDescription(v string) *DescribeDnsCon
 // SetDestination sets the Destination field's value.
 func (s *DescribeDnsControlPolicyInput) SetDestination(v []*string) *DescribeDnsControlPolicyInput {
 	s.Destination = v
+	return s
+}
+
+// SetInternetFirewallId sets the InternetFirewallId field's value.
+func (s *DescribeDnsControlPolicyInput) SetInternetFirewallId(v string) *DescribeDnsControlPolicyInput {
+	s.InternetFirewallId = &v
+	return s
+}
+
+// SetOrderDir sets the OrderDir field's value.
+func (s *DescribeDnsControlPolicyInput) SetOrderDir(v string) *DescribeDnsControlPolicyInput {
+	s.OrderDir = &v
 	return s
 }
 
@@ -392,6 +416,44 @@ func (s *DescribeDnsControlPolicyOutput) SetTotalCount(v int32) *DescribeDnsCont
 	return s
 }
 
+type DomainListV1ForDescribeDnsControlPolicyOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Address *string `type:"string" json:",omitempty"`
+
+	Description *string `max:"32" type:"string" json:",omitempty"`
+
+	Type *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s DomainListV1ForDescribeDnsControlPolicyOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DomainListV1ForDescribeDnsControlPolicyOutput) GoString() string {
+	return s.String()
+}
+
+// SetAddress sets the Address field's value.
+func (s *DomainListV1ForDescribeDnsControlPolicyOutput) SetAddress(v string) *DomainListV1ForDescribeDnsControlPolicyOutput {
+	s.Address = &v
+	return s
+}
+
+// SetDescription sets the Description field's value.
+func (s *DomainListV1ForDescribeDnsControlPolicyOutput) SetDescription(v string) *DomainListV1ForDescribeDnsControlPolicyOutput {
+	s.Description = &v
+	return s
+}
+
+// SetType sets the Type field's value.
+func (s *DomainListV1ForDescribeDnsControlPolicyOutput) SetType(v string) *DomainListV1ForDescribeDnsControlPolicyOutput {
+	s.Type = &v
+	return s
+}
+
 type SourceForDescribeDnsControlPolicyOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -421,3 +483,11 @@ func (s *SourceForDescribeDnsControlPolicyOutput) SetVpcId(v string) *SourceForD
 	s.VpcId = &v
 	return s
 }
+
+const (
+	// EnumOfOrderDirForDescribeDnsControlPolicyInputAsc is a EnumOfOrderDirForDescribeDnsControlPolicyInput enum value
+	EnumOfOrderDirForDescribeDnsControlPolicyInputAsc = "asc"
+
+	// EnumOfOrderDirForDescribeDnsControlPolicyInputDesc is a EnumOfOrderDirForDescribeDnsControlPolicyInput enum value
+	EnumOfOrderDirForDescribeDnsControlPolicyInputDesc = "desc"
+)
