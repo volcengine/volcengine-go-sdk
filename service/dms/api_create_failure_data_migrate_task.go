@@ -144,13 +144,13 @@ func (c *DMS) CreateFailureDataMigrateTaskWithContext(ctx volcengine.Context, in
 }
 
 type CreateFailureDataMigrateTaskInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// OriginTaskID is a required field
-	OriginTaskID *int64 `type:"int64" required:"true"`
+	OriginTaskID *int64 `type:"int64" json:",omitempty" required:"true"`
 
 	// TaskName is a required field
-	TaskName *string `min:"3" max:"32" type:"string" required:"true"`
+	TaskName *string `min:"3" max:"32" type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -198,11 +198,11 @@ func (s *CreateFailureDataMigrateTaskInput) SetTaskName(v string) *CreateFailure
 }
 
 type CreateFailureDataMigrateTaskOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	TaskID *int64 `type:"int64"`
+	TaskID *int64 `type:"int64" json:",omitempty"`
 }
 
 // String returns the string representation

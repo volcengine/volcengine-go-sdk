@@ -146,15 +146,15 @@ func (c *DMS) CreateDataMigrateTaskWithContext(ctx volcengine.Context, input *Cr
 }
 
 type AdvanceConfigForCreateDataMigrateTaskInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	IncreaseSetting *IncreaseSettingForCreateDataMigrateTaskInput `type:"structure"`
+	IncreaseSetting *IncreaseSettingForCreateDataMigrateTaskInput `type:"structure" json:",omitempty"`
 
-	PrivateLink *PrivateLinkForCreateDataMigrateTaskInput `type:"structure"`
+	PrivateLink *PrivateLinkForCreateDataMigrateTaskInput `type:"structure" json:",omitempty"`
 
-	RenameSetting *RenameSettingForCreateDataMigrateTaskInput `type:"structure"`
+	RenameSetting *RenameSettingForCreateDataMigrateTaskInput `type:"structure" json:",omitempty"`
 
-	TimeBandwidthSetting []*TimeBandwidthSettingForCreateDataMigrateTaskInput `type:"list"`
+	TimeBandwidthSetting []*TimeBandwidthSettingForCreateDataMigrateTaskInput `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -222,21 +222,25 @@ func (s *AdvanceConfigForCreateDataMigrateTaskInput) SetTimeBandwidthSetting(v [
 }
 
 type BasicConfigForCreateDataMigrateTaskInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Bandwidth *int32 `min:"1" max:"1.073741824e+09" type:"int32"`
+	Bandwidth *int32 `min:"1" max:"1.073741824e+09" type:"int32" json:",omitempty"`
 
-	EnableRangeCheck *bool `type:"boolean"`
+	EnableRangeCheck *bool `type:"boolean" json:",omitempty"`
 
-	FailedNumToAbort *int32 `type:"int32"`
+	FailedNumToAbort *int32 `type:"int32" json:",omitempty"`
 
-	OverwritePolicy *string `type:"string" enum:"EnumOfOverwritePolicyForCreateDataMigrateTaskInput"`
+	ObjectMigrationPolicy *ObjectMigrationPolicyForCreateDataMigrateTaskInput `type:"structure" json:",omitempty"`
 
-	SourceType *string `type:"string" enum:"EnumOfSourceTypeForCreateDataMigrateTaskInput"`
+	OfflineMigrationPolicy *OfflineMigrationPolicyForCreateDataMigrateTaskInput `type:"structure" json:",omitempty"`
 
-	StorageClass *string `type:"string" enum:"EnumOfStorageClassForCreateDataMigrateTaskInput"`
+	OverwritePolicy *string `type:"string" json:",omitempty" enum:"EnumOfOverwritePolicyForCreateDataMigrateTaskInput"`
 
-	TaskName *string `min:"3" max:"32" type:"string"`
+	SourceType *string `type:"string" json:",omitempty" enum:"EnumOfSourceTypeForCreateDataMigrateTaskInput"`
+
+	StorageClass *string `type:"string" json:",omitempty" enum:"EnumOfStorageClassForCreateDataMigrateTaskInput"`
+
+	TaskName *string `min:"3" max:"32" type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -292,6 +296,18 @@ func (s *BasicConfigForCreateDataMigrateTaskInput) SetFailedNumToAbort(v int32) 
 	return s
 }
 
+// SetObjectMigrationPolicy sets the ObjectMigrationPolicy field's value.
+func (s *BasicConfigForCreateDataMigrateTaskInput) SetObjectMigrationPolicy(v *ObjectMigrationPolicyForCreateDataMigrateTaskInput) *BasicConfigForCreateDataMigrateTaskInput {
+	s.ObjectMigrationPolicy = v
+	return s
+}
+
+// SetOfflineMigrationPolicy sets the OfflineMigrationPolicy field's value.
+func (s *BasicConfigForCreateDataMigrateTaskInput) SetOfflineMigrationPolicy(v *OfflineMigrationPolicyForCreateDataMigrateTaskInput) *BasicConfigForCreateDataMigrateTaskInput {
+	s.OfflineMigrationPolicy = v
+	return s
+}
+
 // SetOverwritePolicy sets the OverwritePolicy field's value.
 func (s *BasicConfigForCreateDataMigrateTaskInput) SetOverwritePolicy(v string) *BasicConfigForCreateDataMigrateTaskInput {
 	s.OverwritePolicy = &v
@@ -317,21 +333,21 @@ func (s *BasicConfigForCreateDataMigrateTaskInput) SetTaskName(v string) *BasicC
 }
 
 type BucketAccessConfigForCreateDataMigrateTaskInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	AK *string `type:"string"`
+	AK *string `type:"string" json:",omitempty"`
 
-	BucketName *string `type:"string"`
+	BucketName *string `type:"string" json:",omitempty"`
 
-	Endpoint *string `type:"string"`
+	Endpoint *string `type:"string" json:",omitempty"`
 
-	Region *string `type:"string"`
+	Region *string `type:"string" json:",omitempty"`
 
-	RoleTrn *string `type:"string"`
+	RoleTrn *string `type:"string" json:",omitempty"`
 
-	SK *string `type:"string"`
+	SK *string `type:"string" json:",omitempty"`
 
-	Vendor *string `type:"string"`
+	Vendor *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -387,15 +403,15 @@ func (s *BucketAccessConfigForCreateDataMigrateTaskInput) SetVendor(v string) *B
 }
 
 type CreateDataMigrateTaskInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	AdvanceConfig *AdvanceConfigForCreateDataMigrateTaskInput `type:"structure"`
+	AdvanceConfig *AdvanceConfigForCreateDataMigrateTaskInput `type:"structure" json:",omitempty"`
 
-	BasicConfig *BasicConfigForCreateDataMigrateTaskInput `type:"structure"`
+	BasicConfig *BasicConfigForCreateDataMigrateTaskInput `type:"structure" json:",omitempty"`
 
-	Source *SourceForCreateDataMigrateTaskInput `type:"structure"`
+	Source *SourceForCreateDataMigrateTaskInput `type:"structure" json:",omitempty"`
 
-	Target *TargetForCreateDataMigrateTaskInput `type:"structure"`
+	Target *TargetForCreateDataMigrateTaskInput `type:"structure" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -453,11 +469,11 @@ func (s *CreateDataMigrateTaskInput) SetTarget(v *TargetForCreateDataMigrateTask
 }
 
 type CreateDataMigrateTaskOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	TaskID *int64 `type:"int64"`
+	TaskID *int64 `type:"int64" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -477,11 +493,11 @@ func (s *CreateDataMigrateTaskOutput) SetTaskID(v int64) *CreateDataMigrateTaskO
 }
 
 type IncreaseSettingForCreateDataMigrateTaskInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Interval *int32 `min:"3600" max:"86400" type:"int32"`
+	Interval *int32 `min:"3600" max:"86400" type:"int32" json:",omitempty"`
 
-	Times *int32 `min:"1" max:"30" type:"int32"`
+	Times *int32 `min:"1" max:"30" type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -528,22 +544,60 @@ func (s *IncreaseSettingForCreateDataMigrateTaskInput) SetTimes(v int32) *Increa
 	return s
 }
 
+type ObjectMigrationPolicyForCreateDataMigrateTaskInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	SyncAcl *bool `type:"boolean" json:",omitempty"`
+
+	SyncSymlink *bool `type:"boolean" json:",omitempty"`
+
+	SyncTag *bool `type:"boolean" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s ObjectMigrationPolicyForCreateDataMigrateTaskInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ObjectMigrationPolicyForCreateDataMigrateTaskInput) GoString() string {
+	return s.String()
+}
+
+// SetSyncAcl sets the SyncAcl field's value.
+func (s *ObjectMigrationPolicyForCreateDataMigrateTaskInput) SetSyncAcl(v bool) *ObjectMigrationPolicyForCreateDataMigrateTaskInput {
+	s.SyncAcl = &v
+	return s
+}
+
+// SetSyncSymlink sets the SyncSymlink field's value.
+func (s *ObjectMigrationPolicyForCreateDataMigrateTaskInput) SetSyncSymlink(v bool) *ObjectMigrationPolicyForCreateDataMigrateTaskInput {
+	s.SyncSymlink = &v
+	return s
+}
+
+// SetSyncTag sets the SyncTag field's value.
+func (s *ObjectMigrationPolicyForCreateDataMigrateTaskInput) SetSyncTag(v bool) *ObjectMigrationPolicyForCreateDataMigrateTaskInput {
+	s.SyncTag = &v
+	return s
+}
+
 type ObjectSourceConfigForCreateDataMigrateTaskInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	BucketAccessConfig *BucketAccessConfigForCreateDataMigrateTaskInput `type:"structure"`
+	BucketAccessConfig *BucketAccessConfigForCreateDataMigrateTaskInput `type:"structure" json:",omitempty"`
 
-	IsExcluded *bool `type:"boolean"`
+	IsExcluded *bool `type:"boolean" json:",omitempty"`
 
-	KeyListFile *string `type:"string"`
+	KeyListFile *string `type:"string" json:",omitempty"`
 
-	PrefixList []*string `type:"list"`
+	PrefixList []*string `type:"list" json:",omitempty"`
 
-	PrefixListFile *string `type:"string"`
+	PrefixListFile *string `type:"string" json:",omitempty"`
 
-	ScanWithDelimiter *bool `type:"boolean"`
+	ScanWithDelimiter *bool `type:"boolean" json:",omitempty"`
 
-	StartTime *string `type:"string"`
+	StartTime *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -598,20 +652,50 @@ func (s *ObjectSourceConfigForCreateDataMigrateTaskInput) SetStartTime(v string)
 	return s
 }
 
+type OfflineMigrationPolicyForCreateDataMigrateTaskInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Source *string `type:"string" json:",omitempty"`
+
+	Target *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s OfflineMigrationPolicyForCreateDataMigrateTaskInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s OfflineMigrationPolicyForCreateDataMigrateTaskInput) GoString() string {
+	return s.String()
+}
+
+// SetSource sets the Source field's value.
+func (s *OfflineMigrationPolicyForCreateDataMigrateTaskInput) SetSource(v string) *OfflineMigrationPolicyForCreateDataMigrateTaskInput {
+	s.Source = &v
+	return s
+}
+
+// SetTarget sets the Target field's value.
+func (s *OfflineMigrationPolicyForCreateDataMigrateTaskInput) SetTarget(v string) *OfflineMigrationPolicyForCreateDataMigrateTaskInput {
+	s.Target = &v
+	return s
+}
+
 type PrivateLinkForCreateDataMigrateTaskInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	ENIRole *string `type:"string"`
+	ENIRole *string `type:"string" json:",omitempty"`
 
-	IdcIP *string `type:"string"`
+	IdcIP *string `type:"string" json:",omitempty"`
 
-	IdcPort *int32 `type:"int32"`
+	IdcPort *int32 `type:"int32" json:",omitempty"`
 
-	SecurityGroupIDs []*string `type:"list"`
+	SecurityGroupIDs []*string `type:"list" json:",omitempty"`
 
-	SubnetID *string `type:"string"`
+	SubnetID *string `type:"string" json:",omitempty"`
 
-	VpcID *string `type:"string"`
+	VpcID *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -661,11 +745,11 @@ func (s *PrivateLinkForCreateDataMigrateTaskInput) SetVpcID(v string) *PrivateLi
 }
 
 type RenameSettingForCreateDataMigrateTaskInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Pattern *string `max:"696" type:"string"`
+	Pattern *string `max:"696" type:"string" json:",omitempty"`
 
-	ReplaceStr *string `type:"string"`
+	ReplaceStr *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -704,11 +788,11 @@ func (s *RenameSettingForCreateDataMigrateTaskInput) SetReplaceStr(v string) *Re
 }
 
 type SourceForCreateDataMigrateTaskInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	ObjectSourceConfig *ObjectSourceConfigForCreateDataMigrateTaskInput `type:"structure"`
+	ObjectSourceConfig *ObjectSourceConfigForCreateDataMigrateTaskInput `type:"structure" json:",omitempty"`
 
-	UrlSourceConfig *UrlSourceConfigForCreateDataMigrateTaskInput `type:"structure"`
+	UrlSourceConfig *UrlSourceConfigForCreateDataMigrateTaskInput `type:"structure" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -734,15 +818,15 @@ func (s *SourceForCreateDataMigrateTaskInput) SetUrlSourceConfig(v *UrlSourceCon
 }
 
 type TargetForCreateDataMigrateTaskInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	AK *string `type:"string"`
+	AK *string `type:"string" json:",omitempty"`
 
-	BucketName *string `type:"string"`
+	BucketName *string `type:"string" json:",omitempty"`
 
-	RoleTrn *string `type:"string"`
+	RoleTrn *string `type:"string" json:",omitempty"`
 
-	SK *string `type:"string"`
+	SK *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -780,13 +864,13 @@ func (s *TargetForCreateDataMigrateTaskInput) SetSK(v string) *TargetForCreateDa
 }
 
 type TimeBandwidthSettingForCreateDataMigrateTaskInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Bandwidth *int64 `max:"1.073741824e+09" type:"int64"`
+	Bandwidth *int64 `max:"1.073741824e+09" type:"int64" json:",omitempty"`
 
-	End *int32 `min:"1" max:"24" type:"int32"`
+	End *int32 `min:"1" max:"24" type:"int32" json:",omitempty"`
 
-	Start *int32 `max:"23" type:"int32"`
+	Start *int32 `max:"23" type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -840,15 +924,15 @@ func (s *TimeBandwidthSettingForCreateDataMigrateTaskInput) SetStart(v int32) *T
 }
 
 type UrlSourceConfigForCreateDataMigrateTaskInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	BucketAccessConfig *BucketAccessConfigForCreateDataMigrateTaskInput `type:"structure"`
+	BucketAccessConfig *BucketAccessConfigForCreateDataMigrateTaskInput `type:"structure" json:",omitempty"`
 
-	IsUrlTryRangeGet *bool `type:"boolean"`
+	IsUrlTryRangeGet *bool `type:"boolean" json:",omitempty"`
 
-	UrlListLink *string `type:"string"`
+	UrlListLink *string `type:"string" json:",omitempty"`
 
-	UrlListName *string `type:"string"`
+	UrlListName *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
