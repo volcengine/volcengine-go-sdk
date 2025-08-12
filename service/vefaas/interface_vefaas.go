@@ -38,6 +38,14 @@ type VEFAASAPI interface {
 	AbortReleaseWithContext(volcengine.Context, *AbortReleaseInput, ...request.Option) (*AbortReleaseOutput, error)
 	AbortReleaseRequest(*AbortReleaseInput) (*request.Request, *AbortReleaseOutput)
 
+	CreateDependencyInstallTaskCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateDependencyInstallTaskCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateDependencyInstallTaskCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateDependencyInstallTask(*CreateDependencyInstallTaskInput) (*CreateDependencyInstallTaskOutput, error)
+	CreateDependencyInstallTaskWithContext(volcengine.Context, *CreateDependencyInstallTaskInput, ...request.Option) (*CreateDependencyInstallTaskOutput, error)
+	CreateDependencyInstallTaskRequest(*CreateDependencyInstallTaskInput) (*request.Request, *CreateDependencyInstallTaskOutput)
+
 	CreateFunctionCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	CreateFunctionCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	CreateFunctionCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -109,6 +117,22 @@ type VEFAASAPI interface {
 	GetCodeUploadAddress(*GetCodeUploadAddressInput) (*GetCodeUploadAddressOutput, error)
 	GetCodeUploadAddressWithContext(volcengine.Context, *GetCodeUploadAddressInput, ...request.Option) (*GetCodeUploadAddressOutput, error)
 	GetCodeUploadAddressRequest(*GetCodeUploadAddressInput) (*request.Request, *GetCodeUploadAddressOutput)
+
+	GetDependencyInstallTaskLogDownloadURICommon(*map[string]interface{}) (*map[string]interface{}, error)
+	GetDependencyInstallTaskLogDownloadURICommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	GetDependencyInstallTaskLogDownloadURICommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	GetDependencyInstallTaskLogDownloadURI(*GetDependencyInstallTaskLogDownloadURIInput) (*GetDependencyInstallTaskLogDownloadURIOutput, error)
+	GetDependencyInstallTaskLogDownloadURIWithContext(volcengine.Context, *GetDependencyInstallTaskLogDownloadURIInput, ...request.Option) (*GetDependencyInstallTaskLogDownloadURIOutput, error)
+	GetDependencyInstallTaskLogDownloadURIRequest(*GetDependencyInstallTaskLogDownloadURIInput) (*request.Request, *GetDependencyInstallTaskLogDownloadURIOutput)
+
+	GetDependencyInstallTaskStatusCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	GetDependencyInstallTaskStatusCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	GetDependencyInstallTaskStatusCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	GetDependencyInstallTaskStatus(*GetDependencyInstallTaskStatusInput) (*GetDependencyInstallTaskStatusOutput, error)
+	GetDependencyInstallTaskStatusWithContext(volcengine.Context, *GetDependencyInstallTaskStatusInput, ...request.Option) (*GetDependencyInstallTaskStatusOutput, error)
+	GetDependencyInstallTaskStatusRequest(*GetDependencyInstallTaskStatusInput) (*request.Request, *GetDependencyInstallTaskStatusOutput)
 
 	GetFunctionCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	GetFunctionCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -269,6 +293,14 @@ type VEFAASAPI interface {
 	TerminateAsyncTask(*TerminateAsyncTaskInput) (*TerminateAsyncTaskOutput, error)
 	TerminateAsyncTaskWithContext(volcengine.Context, *TerminateAsyncTaskInput, ...request.Option) (*TerminateAsyncTaskOutput, error)
 	TerminateAsyncTaskRequest(*TerminateAsyncTaskInput) (*request.Request, *TerminateAsyncTaskOutput)
+
+	TerminateDependencyInstallTaskCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	TerminateDependencyInstallTaskCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	TerminateDependencyInstallTaskCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	TerminateDependencyInstallTask(*TerminateDependencyInstallTaskInput) (*TerminateDependencyInstallTaskOutput, error)
+	TerminateDependencyInstallTaskWithContext(volcengine.Context, *TerminateDependencyInstallTaskInput, ...request.Option) (*TerminateDependencyInstallTaskOutput, error)
+	TerminateDependencyInstallTaskRequest(*TerminateDependencyInstallTaskInput) (*request.Request, *TerminateDependencyInstallTaskOutput)
 
 	TransitionSandboxCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	TransitionSandboxCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
