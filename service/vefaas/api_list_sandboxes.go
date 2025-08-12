@@ -149,7 +149,7 @@ type ListSandboxesInput struct {
 	// FunctionId is a required field
 	FunctionId *string `type:"string" json:",omitempty" required:"true"`
 
-	Metadata *MetadataForListSandboxesInput `type:"structure" json:",omitempty"`
+	Metadata map[string]*string `type:"map" json:",omitempty"`
 
 	PageNumber *int32 `type:"int32" json:",omitempty"`
 
@@ -188,7 +188,7 @@ func (s *ListSandboxesInput) SetFunctionId(v string) *ListSandboxesInput {
 }
 
 // SetMetadata sets the Metadata field's value.
-func (s *ListSandboxesInput) SetMetadata(v *MetadataForListSandboxesInput) *ListSandboxesInput {
+func (s *ListSandboxesInput) SetMetadata(v map[string]*string) *ListSandboxesInput {
 	s.Metadata = v
 	return s
 }
@@ -218,7 +218,7 @@ type ListSandboxesOutput struct {
 
 	Sandboxes []*SandboxForListSandboxesOutput `type:"list" json:",omitempty"`
 
-	StatusCount *StatusCountForListSandboxesOutput `type:"structure" json:",omitempty"`
+	StatusCount map[string]*int32 `type:"map" json:",omitempty"`
 
 	Total *int32 `type:"int32" json:",omitempty"`
 }
@@ -240,7 +240,7 @@ func (s *ListSandboxesOutput) SetSandboxes(v []*SandboxForListSandboxesOutput) *
 }
 
 // SetStatusCount sets the StatusCount field's value.
-func (s *ListSandboxesOutput) SetStatusCount(v *StatusCountForListSandboxesOutput) *ListSandboxesOutput {
+func (s *ListSandboxesOutput) SetStatusCount(v map[string]*int32) *ListSandboxesOutput {
 	s.StatusCount = v
 	return s
 }
@@ -249,34 +249,6 @@ func (s *ListSandboxesOutput) SetStatusCount(v *StatusCountForListSandboxesOutpu
 func (s *ListSandboxesOutput) SetTotal(v int32) *ListSandboxesOutput {
 	s.Total = &v
 	return s
-}
-
-type MetadataForListSandboxesInput struct {
-	_ struct{} `type:"structure" json:",omitempty"`
-}
-
-// String returns the string representation
-func (s MetadataForListSandboxesInput) String() string {
-	return volcengineutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s MetadataForListSandboxesInput) GoString() string {
-	return s.String()
-}
-
-type MetadataForListSandboxesOutput struct {
-	_ struct{} `type:"structure" json:",omitempty"`
-}
-
-// String returns the string representation
-func (s MetadataForListSandboxesOutput) String() string {
-	return volcengineutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s MetadataForListSandboxesOutput) GoString() string {
-	return s.String()
 }
 
 type SandboxForListSandboxesOutput struct {
@@ -298,7 +270,7 @@ type SandboxForListSandboxesOutput struct {
 
 	InstanceType *string `type:"string" json:",omitempty"`
 
-	Metadata *MetadataForListSandboxesOutput `type:"structure" json:",omitempty"`
+	Metadata map[string]*string `type:"map" json:",omitempty"`
 
 	Pending *bool `type:"boolean" json:",omitempty"`
 
@@ -366,7 +338,7 @@ func (s *SandboxForListSandboxesOutput) SetInstanceType(v string) *SandboxForLis
 }
 
 // SetMetadata sets the Metadata field's value.
-func (s *SandboxForListSandboxesOutput) SetMetadata(v *MetadataForListSandboxesOutput) *SandboxForListSandboxesOutput {
+func (s *SandboxForListSandboxesOutput) SetMetadata(v map[string]*string) *SandboxForListSandboxesOutput {
 	s.Metadata = v
 	return s
 }
@@ -387,18 +359,4 @@ func (s *SandboxForListSandboxesOutput) SetRevisionNumber(v int32) *SandboxForLi
 func (s *SandboxForListSandboxesOutput) SetStatus(v string) *SandboxForListSandboxesOutput {
 	s.Status = &v
 	return s
-}
-
-type StatusCountForListSandboxesOutput struct {
-	_ struct{} `type:"structure" json:",omitempty"`
-}
-
-// String returns the string representation
-func (s StatusCountForListSandboxesOutput) String() string {
-	return volcengineutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s StatusCountForListSandboxesOutput) GoString() string {
-	return s.String()
 }

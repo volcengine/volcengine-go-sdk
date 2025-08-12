@@ -153,7 +153,7 @@ type CreateSandboxInput struct {
 
 	InstanceTosMountConfig *InstanceTosMountConfigForCreateSandboxInput `type:"structure" json:",omitempty"`
 
-	Metadata *MetadataForCreateSandboxInput `type:"structure" json:",omitempty"`
+	Metadata map[string]*string `type:"map" json:",omitempty"`
 
 	Timeout *int32 `type:"int32" json:",omitempty"`
 }
@@ -200,7 +200,7 @@ func (s *CreateSandboxInput) SetInstanceTosMountConfig(v *InstanceTosMountConfig
 }
 
 // SetMetadata sets the Metadata field's value.
-func (s *CreateSandboxInput) SetMetadata(v *MetadataForCreateSandboxInput) *CreateSandboxInput {
+func (s *CreateSandboxInput) SetMetadata(v map[string]*string) *CreateSandboxInput {
 	s.Metadata = v
 	return s
 }
@@ -293,20 +293,6 @@ func (s *InstanceTosMountConfigForCreateSandboxInput) SetEnable(v bool) *Instanc
 func (s *InstanceTosMountConfigForCreateSandboxInput) SetTosMountPoints(v []*TosMountPointForCreateSandboxInput) *InstanceTosMountConfigForCreateSandboxInput {
 	s.TosMountPoints = v
 	return s
-}
-
-type MetadataForCreateSandboxInput struct {
-	_ struct{} `type:"structure" json:",omitempty"`
-}
-
-// String returns the string representation
-func (s MetadataForCreateSandboxInput) String() string {
-	return volcengineutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s MetadataForCreateSandboxInput) GoString() string {
-	return s.String()
 }
 
 type TosMountPointForCreateSandboxInput struct {
