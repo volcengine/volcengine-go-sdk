@@ -8,6 +8,7 @@ import (
 
 	"github.com/volcengine/volcengine-go-sdk/service/arkruntime"
 	"github.com/volcengine/volcengine-go-sdk/service/arkruntime/model"
+	"github.com/volcengine/volcengine-go-sdk/volcengine"
 )
 
 func main() {
@@ -21,9 +22,12 @@ func main() {
 		Model: "doubao-embedding-vision-250615",
 		Input: []model.MultimodalEmbeddingInput{
 			{
-				Type:     model.MultiModalEmbeddingInputTypeImageURL,
-				ImageURL: &model.MultimodalEmbeddingImageURL{URL: "https://ark-project.tos-cn-beijing.volces.com/images/view.jpeg"},
+				Type: model.MultiModalEmbeddingInputTypeText,
+				Text: volcengine.String("花椰菜又称菜花、花菜，是一种常见的蔬菜。"),
 			},
+		},
+		SparseEmbedding: &model.SparseEmbeddingInput{
+			Type: model.SparseEmbeddingInputTypeEnabled,
 		},
 	}
 
@@ -33,6 +37,6 @@ func main() {
 		return
 	}
 
-	s, _ := json.Marshal(resp)
+	s, _ := json.Marshal(resp.Data.SparseEmbedding)
 	fmt.Println(string(s))
 }
