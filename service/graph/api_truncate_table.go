@@ -147,10 +147,10 @@ type TruncateTableInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
 	// InstanceId is a required field
-	InstanceId *string `type:"string" json:"instanceId,omitempty" required:"true"`
+	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 
 	// TableName is a required field
-	TableName *string `type:"string" json:"tableName,omitempty" required:"true"`
+	TableName *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
