@@ -20,7 +20,8 @@ type MultimodalEmbeddingImageURL struct {
 }
 
 type MultimodalEmbeddingVideoURL struct {
-	URL string `json:"url"`
+	URL string   `json:"url"`
+	FPS *float64 `json:"fps,omitempty"`
 }
 
 type MultimodalEmbeddingInput struct {
