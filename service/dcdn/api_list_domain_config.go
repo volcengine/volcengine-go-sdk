@@ -980,6 +980,8 @@ type ForceRedirectForListDomainConfigOutput struct {
 
 	Enable *bool `type:"boolean" json:",omitempty"`
 
+	RedirectCode *int32 `type:"int32" json:",omitempty"`
+
 	RedirectType *string `type:"string" json:",omitempty"`
 }
 
@@ -996,6 +998,12 @@ func (s ForceRedirectForListDomainConfigOutput) GoString() string {
 // SetEnable sets the Enable field's value.
 func (s *ForceRedirectForListDomainConfigOutput) SetEnable(v bool) *ForceRedirectForListDomainConfigOutput {
 	s.Enable = &v
+	return s
+}
+
+// SetRedirectCode sets the RedirectCode field's value.
+func (s *ForceRedirectForListDomainConfigOutput) SetRedirectCode(v int32) *ForceRedirectForListDomainConfigOutput {
+	s.RedirectCode = &v
 	return s
 }
 
@@ -1124,6 +1132,8 @@ type HttpsForListDomainConfigOutput struct {
 
 	Http2 *bool `type:"boolean" json:",omitempty"`
 
+	OCSPStapling *bool `type:"boolean" json:",omitempty"`
+
 	QUICSwitch *bool `type:"boolean" json:",omitempty"`
 
 	TlsVersions *TlsVersionsForListDomainConfigOutput `type:"structure" json:",omitempty"`
@@ -1166,6 +1176,12 @@ func (s *HttpsForListDomainConfigOutput) SetHsts(v *HstsForListDomainConfigOutpu
 // SetHttp2 sets the Http2 field's value.
 func (s *HttpsForListDomainConfigOutput) SetHttp2(v bool) *HttpsForListDomainConfigOutput {
 	s.Http2 = &v
+	return s
+}
+
+// SetOCSPStapling sets the OCSPStapling field's value.
+func (s *HttpsForListDomainConfigOutput) SetOCSPStapling(v bool) *HttpsForListDomainConfigOutput {
+	s.OCSPStapling = &v
 	return s
 }
 
