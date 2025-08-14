@@ -16,9 +16,10 @@ const (
 )
 
 type CreateContentGenerationTaskRequest struct {
-	Model       string                                `json:"model"`
-	Content     []*CreateContentGenerationContentItem `json:"content"`
-	CallbackUrl *string                               `json:"callback_url,omitempty"`
+	Model           string                                `json:"model"`
+	Content         []*CreateContentGenerationContentItem `json:"content"`
+	CallbackUrl     *string                               `json:"callback_url,omitempty"`
+	ReturnLastFrame *bool                                 `json:"return_last_frame,omitempty"`
 }
 
 type CreateContentGenerationTaskResponse struct {
@@ -73,7 +74,8 @@ type ImageURL struct {
 	URL string `json:"url"`
 }
 type Content struct {
-	VideoURL string `json:"video_url"`
+	VideoURL     string `json:"video_url"`
+	LastFrameURL string `json:"last_frame_url"`
 }
 
 type ContentGenerationUsage struct {

@@ -5,16 +5,39 @@ type MultiModalEmbeddingInputType string
 const (
 	MultiModalEmbeddingInputTypeText     MultiModalEmbeddingInputType = "text"
 	MultiModalEmbeddingInputTypeImageURL MultiModalEmbeddingInputType = "image_url"
+	MultiModalEmbeddingInputTypeVideoURL MultiModalEmbeddingInputType = "video_url"
+)
+
+type SparseEmbeddingInputType string
+
+const (
+	SparseEmbeddingInputTypeEnabled  SparseEmbeddingInputType = "enabled"
+	SparseEmbeddingInputTypeDisabled SparseEmbeddingInputType = "disabled"
 )
 
 type MultimodalEmbeddingImageURL struct {
 	URL string `json:"url"`
 }
 
+type MultimodalEmbeddingVideoURL struct {
+	URL string   `json:"url"`
+	FPS *float64 `json:"fps,omitempty"`
+}
+
 type MultimodalEmbeddingInput struct {
 	Type     MultiModalEmbeddingInputType `json:"type"`
 	Text     *string                      `json:"text,omitempty"`
 	ImageURL *MultimodalEmbeddingImageURL `json:"image_url,omitempty"`
+	VideoURL *MultimodalEmbeddingVideoURL `json:"video_url,omitempty"`
+}
+
+type SparseEmbeddingInput struct {
+	Type SparseEmbeddingInputType `json:"type"`
+}
+
+type SparseEmbedding struct {
+	Index int     `json:"index"`
+	Value float64 `json:"value"`
 }
 
 // MultiModalEmbeddingRequest is the input to a create embeddings request.
@@ -31,11 +54,15 @@ type MultiModalEmbeddingRequest struct {
 	// Specifies the dimensionality of the output embedding vector.
 	// This parameter is only supported in doubao-embedding-vision-250615 and later versions.
 	Dimensions *int `json:"dimensions,omitempty"`
+
+	// SparseEmbedding stands for whether to return sparse embedding.
+	SparseEmbedding *SparseEmbeddingInput `json:"sparse_embedding,omitempty"`
 }
 
 type MultimodalEmbedding struct {
-	Embedding []float32 `json:"embedding"`
-	Object    string    `json:"object"`
+	Embedding       []float32          `json:"embedding"`
+	SparseEmbedding *[]SparseEmbedding `json:"sparse_embedding,omitempty"`
+	Object          string             `json:"object"`
 }
 
 type MultimodalEmbeddingPromptTokensDetail struct {
