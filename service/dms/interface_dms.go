@@ -46,6 +46,14 @@ type DMSAPI interface {
 	CreateFailureDataMigrateTaskWithContext(volcengine.Context, *CreateFailureDataMigrateTaskInput, ...request.Option) (*CreateFailureDataMigrateTaskOutput, error)
 	CreateFailureDataMigrateTaskRequest(*CreateFailureDataMigrateTaskInput) (*request.Request, *CreateFailureDataMigrateTaskOutput)
 
+	DeleteDataMigrateTaskCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeleteDataMigrateTaskCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeleteDataMigrateTaskCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeleteDataMigrateTask(*DeleteDataMigrateTaskInput) (*DeleteDataMigrateTaskOutput, error)
+	DeleteDataMigrateTaskWithContext(volcengine.Context, *DeleteDataMigrateTaskInput, ...request.Option) (*DeleteDataMigrateTaskOutput, error)
+	DeleteDataMigrateTaskRequest(*DeleteDataMigrateTaskInput) (*request.Request, *DeleteDataMigrateTaskOutput)
+
 	ListDataMigrateTaskCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ListDataMigrateTaskCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	ListDataMigrateTaskCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})

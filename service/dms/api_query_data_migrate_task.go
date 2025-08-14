@@ -144,15 +144,15 @@ func (c *DMS) QueryDataMigrateTaskWithContext(ctx volcengine.Context, input *Que
 }
 
 type AdvanceConfigForQueryDataMigrateTaskOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	IncreaseSetting *IncreaseSettingForQueryDataMigrateTaskOutput `type:"structure"`
+	IncreaseSetting *IncreaseSettingForQueryDataMigrateTaskOutput `type:"structure" json:",omitempty"`
 
-	PrivateLink *PrivateLinkForQueryDataMigrateTaskOutput `type:"structure"`
+	PrivateLink *PrivateLinkForQueryDataMigrateTaskOutput `type:"structure" json:",omitempty"`
 
-	RenameSetting *RenameSettingForQueryDataMigrateTaskOutput `type:"structure"`
+	RenameSetting *RenameSettingForQueryDataMigrateTaskOutput `type:"structure" json:",omitempty"`
 
-	TimeBandwidthSetting []*TimeBandwidthSettingForQueryDataMigrateTaskOutput `type:"list"`
+	TimeBandwidthSetting []*TimeBandwidthSettingForQueryDataMigrateTaskOutput `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -190,21 +190,25 @@ func (s *AdvanceConfigForQueryDataMigrateTaskOutput) SetTimeBandwidthSetting(v [
 }
 
 type BasicConfigForQueryDataMigrateTaskOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Bandwidth *int32 `min:"1" max:"1.073741824e+09" type:"int32"`
+	Bandwidth *int32 `min:"1" max:"1.073741824e+09" type:"int32" json:",omitempty"`
 
-	EnableRangeCheck *bool `type:"boolean"`
+	EnableRangeCheck *bool `type:"boolean" json:",omitempty"`
 
-	FailedNumToAbort *int32 `type:"int32"`
+	FailedNumToAbort *int32 `type:"int32" json:",omitempty"`
 
-	OverwritePolicy *string `type:"string" enum:"EnumOfOverwritePolicyForQueryDataMigrateTaskOutput"`
+	ObjectMigrationPolicy *ObjectMigrationPolicyForQueryDataMigrateTaskOutput `type:"structure" json:",omitempty"`
 
-	SourceType *string `type:"string" enum:"EnumOfSourceTypeForQueryDataMigrateTaskOutput"`
+	OfflineMigrationPolicy *OfflineMigrationPolicyForQueryDataMigrateTaskOutput `type:"structure" json:",omitempty"`
 
-	StorageClass *string `type:"string" enum:"EnumOfStorageClassForQueryDataMigrateTaskOutput"`
+	OverwritePolicy *string `type:"string" json:",omitempty" enum:"EnumOfOverwritePolicyForQueryDataMigrateTaskOutput"`
 
-	TaskName *string `min:"3" max:"32" type:"string"`
+	SourceType *string `type:"string" json:",omitempty" enum:"EnumOfSourceTypeForQueryDataMigrateTaskOutput"`
+
+	StorageClass *string `type:"string" json:",omitempty" enum:"EnumOfStorageClassForQueryDataMigrateTaskOutput"`
+
+	TaskName *string `min:"3" max:"32" type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -235,6 +239,18 @@ func (s *BasicConfigForQueryDataMigrateTaskOutput) SetFailedNumToAbort(v int32) 
 	return s
 }
 
+// SetObjectMigrationPolicy sets the ObjectMigrationPolicy field's value.
+func (s *BasicConfigForQueryDataMigrateTaskOutput) SetObjectMigrationPolicy(v *ObjectMigrationPolicyForQueryDataMigrateTaskOutput) *BasicConfigForQueryDataMigrateTaskOutput {
+	s.ObjectMigrationPolicy = v
+	return s
+}
+
+// SetOfflineMigrationPolicy sets the OfflineMigrationPolicy field's value.
+func (s *BasicConfigForQueryDataMigrateTaskOutput) SetOfflineMigrationPolicy(v *OfflineMigrationPolicyForQueryDataMigrateTaskOutput) *BasicConfigForQueryDataMigrateTaskOutput {
+	s.OfflineMigrationPolicy = v
+	return s
+}
+
 // SetOverwritePolicy sets the OverwritePolicy field's value.
 func (s *BasicConfigForQueryDataMigrateTaskOutput) SetOverwritePolicy(v string) *BasicConfigForQueryDataMigrateTaskOutput {
 	s.OverwritePolicy = &v
@@ -260,21 +276,21 @@ func (s *BasicConfigForQueryDataMigrateTaskOutput) SetTaskName(v string) *BasicC
 }
 
 type BucketAccessConfigForQueryDataMigrateTaskOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	AK *string `type:"string"`
+	AK *string `type:"string" json:",omitempty"`
 
-	BucketName *string `type:"string"`
+	BucketName *string `type:"string" json:",omitempty"`
 
-	Endpoint *string `type:"string"`
+	Endpoint *string `type:"string" json:",omitempty"`
 
-	Region *string `type:"string"`
+	Region *string `type:"string" json:",omitempty"`
 
-	RoleTrn *string `type:"string"`
+	RoleTrn *string `type:"string" json:",omitempty"`
 
-	SK *string `type:"string"`
+	SK *string `type:"string" json:",omitempty"`
 
-	Vendor *string `type:"string"`
+	Vendor *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -330,11 +346,11 @@ func (s *BucketAccessConfigForQueryDataMigrateTaskOutput) SetVendor(v string) *B
 }
 
 type IncreaseSettingForQueryDataMigrateTaskOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Interval *int32 `min:"3600" max:"86400" type:"int32"`
+	Interval *int32 `min:"3600" max:"86400" type:"int32" json:",omitempty"`
 
-	Times *int32 `min:"1" max:"30" type:"int32"`
+	Times *int32 `min:"1" max:"30" type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -359,22 +375,60 @@ func (s *IncreaseSettingForQueryDataMigrateTaskOutput) SetTimes(v int32) *Increa
 	return s
 }
 
+type ObjectMigrationPolicyForQueryDataMigrateTaskOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	SyncAcl *bool `type:"boolean" json:",omitempty"`
+
+	SyncSymlink *bool `type:"boolean" json:",omitempty"`
+
+	SyncTag *bool `type:"boolean" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s ObjectMigrationPolicyForQueryDataMigrateTaskOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ObjectMigrationPolicyForQueryDataMigrateTaskOutput) GoString() string {
+	return s.String()
+}
+
+// SetSyncAcl sets the SyncAcl field's value.
+func (s *ObjectMigrationPolicyForQueryDataMigrateTaskOutput) SetSyncAcl(v bool) *ObjectMigrationPolicyForQueryDataMigrateTaskOutput {
+	s.SyncAcl = &v
+	return s
+}
+
+// SetSyncSymlink sets the SyncSymlink field's value.
+func (s *ObjectMigrationPolicyForQueryDataMigrateTaskOutput) SetSyncSymlink(v bool) *ObjectMigrationPolicyForQueryDataMigrateTaskOutput {
+	s.SyncSymlink = &v
+	return s
+}
+
+// SetSyncTag sets the SyncTag field's value.
+func (s *ObjectMigrationPolicyForQueryDataMigrateTaskOutput) SetSyncTag(v bool) *ObjectMigrationPolicyForQueryDataMigrateTaskOutput {
+	s.SyncTag = &v
+	return s
+}
+
 type ObjectSourceConfigForQueryDataMigrateTaskOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	BucketAccessConfig *BucketAccessConfigForQueryDataMigrateTaskOutput `type:"structure"`
+	BucketAccessConfig *BucketAccessConfigForQueryDataMigrateTaskOutput `type:"structure" json:",omitempty"`
 
-	IsExcluded *bool `type:"boolean"`
+	IsExcluded *bool `type:"boolean" json:",omitempty"`
 
-	KeyListFile *string `type:"string"`
+	KeyListFile *string `type:"string" json:",omitempty"`
 
-	PrefixList []*string `type:"list"`
+	PrefixList []*string `type:"list" json:",omitempty"`
 
-	PrefixListFile *string `type:"string"`
+	PrefixListFile *string `type:"string" json:",omitempty"`
 
-	ScanWithDelimiter *bool `type:"boolean"`
+	ScanWithDelimiter *bool `type:"boolean" json:",omitempty"`
 
-	StartTime *string `type:"string"`
+	StartTime *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -429,20 +483,50 @@ func (s *ObjectSourceConfigForQueryDataMigrateTaskOutput) SetStartTime(v string)
 	return s
 }
 
+type OfflineMigrationPolicyForQueryDataMigrateTaskOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Source *string `type:"string" json:",omitempty"`
+
+	Target *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s OfflineMigrationPolicyForQueryDataMigrateTaskOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s OfflineMigrationPolicyForQueryDataMigrateTaskOutput) GoString() string {
+	return s.String()
+}
+
+// SetSource sets the Source field's value.
+func (s *OfflineMigrationPolicyForQueryDataMigrateTaskOutput) SetSource(v string) *OfflineMigrationPolicyForQueryDataMigrateTaskOutput {
+	s.Source = &v
+	return s
+}
+
+// SetTarget sets the Target field's value.
+func (s *OfflineMigrationPolicyForQueryDataMigrateTaskOutput) SetTarget(v string) *OfflineMigrationPolicyForQueryDataMigrateTaskOutput {
+	s.Target = &v
+	return s
+}
+
 type PrivateLinkForQueryDataMigrateTaskOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	ENIRole *string `type:"string"`
+	ENIRole *string `type:"string" json:",omitempty"`
 
-	IdcIP *string `type:"string"`
+	IdcIP *string `type:"string" json:",omitempty"`
 
-	IdcPort *int32 `type:"int32"`
+	IdcPort *int32 `type:"int32" json:",omitempty"`
 
-	SecurityGroupIDs []*string `type:"list"`
+	SecurityGroupIDs []*string `type:"list" json:",omitempty"`
 
-	SubnetID *string `type:"string"`
+	SubnetID *string `type:"string" json:",omitempty"`
 
-	VpcID *string `type:"string"`
+	VpcID *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -492,10 +576,10 @@ func (s *PrivateLinkForQueryDataMigrateTaskOutput) SetVpcID(v string) *PrivateLi
 }
 
 type QueryDataMigrateTaskInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// TaskID is a required field
-	TaskID *int64 `type:"int64" required:"true"`
+	TaskID *int64 `type:"int64" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -528,27 +612,27 @@ func (s *QueryDataMigrateTaskInput) SetTaskID(v int64) *QueryDataMigrateTaskInpu
 }
 
 type QueryDataMigrateTaskOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	AdvanceConfig *AdvanceConfigForQueryDataMigrateTaskOutput `type:"structure"`
+	AdvanceConfig *AdvanceConfigForQueryDataMigrateTaskOutput `type:"structure" json:",omitempty"`
 
-	BasicConfig *BasicConfigForQueryDataMigrateTaskOutput `type:"structure"`
+	BasicConfig *BasicConfigForQueryDataMigrateTaskOutput `type:"structure" json:",omitempty"`
 
-	CreateTime *string `type:"string"`
+	CreateTime *string `type:"string" json:",omitempty"`
 
-	Source *SourceForQueryDataMigrateTaskOutput `type:"structure"`
+	Source *SourceForQueryDataMigrateTaskOutput `type:"structure" json:",omitempty"`
 
-	Target *TargetForQueryDataMigrateTaskOutput `type:"structure"`
+	Target *TargetForQueryDataMigrateTaskOutput `type:"structure" json:",omitempty"`
 
-	TaskID *int64 `type:"int64"`
+	TaskID *int64 `type:"int64" json:",omitempty"`
 
-	TaskProgress *TaskProgressForQueryDataMigrateTaskOutput `type:"structure"`
+	TaskProgress *TaskProgressForQueryDataMigrateTaskOutput `type:"structure" json:",omitempty"`
 
-	TaskReport *TaskReportForQueryDataMigrateTaskOutput `type:"structure"`
+	TaskReport *TaskReportForQueryDataMigrateTaskOutput `type:"structure" json:",omitempty"`
 
-	TaskStatus *string `type:"string"`
+	TaskStatus *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -616,11 +700,11 @@ func (s *QueryDataMigrateTaskOutput) SetTaskStatus(v string) *QueryDataMigrateTa
 }
 
 type RenameSettingForQueryDataMigrateTaskOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Pattern *string `max:"696" type:"string"`
+	Pattern *string `max:"696" type:"string" json:",omitempty"`
 
-	ReplaceStr *string `type:"string"`
+	ReplaceStr *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -646,11 +730,11 @@ func (s *RenameSettingForQueryDataMigrateTaskOutput) SetReplaceStr(v string) *Re
 }
 
 type SourceForQueryDataMigrateTaskOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	ObjectSourceConfig *ObjectSourceConfigForQueryDataMigrateTaskOutput `type:"structure"`
+	ObjectSourceConfig *ObjectSourceConfigForQueryDataMigrateTaskOutput `type:"structure" json:",omitempty"`
 
-	UrlSourceConfig *UrlSourceConfigForQueryDataMigrateTaskOutput `type:"structure"`
+	UrlSourceConfig *UrlSourceConfigForQueryDataMigrateTaskOutput `type:"structure" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -676,21 +760,21 @@ func (s *SourceForQueryDataMigrateTaskOutput) SetUrlSourceConfig(v *UrlSourceCon
 }
 
 type TargetForQueryDataMigrateTaskOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	AK *string `type:"string"`
+	AK *string `type:"string" json:",omitempty"`
 
-	BucketName *string `type:"string"`
+	BucketName *string `type:"string" json:",omitempty"`
 
-	Endpoint *string `type:"string"`
+	Endpoint *string `type:"string" json:",omitempty"`
 
-	Region *string `type:"string"`
+	Region *string `type:"string" json:",omitempty"`
 
-	RoleTrn *string `type:"string"`
+	RoleTrn *string `type:"string" json:",omitempty"`
 
-	SK *string `type:"string"`
+	SK *string `type:"string" json:",omitempty"`
 
-	Vendor *string `type:"string"`
+	Vendor *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -746,35 +830,35 @@ func (s *TargetForQueryDataMigrateTaskOutput) SetVendor(v string) *TargetForQuer
 }
 
 type TaskProgressForQueryDataMigrateTaskOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	FailedBytes *int64 `type:"int64"`
+	FailedBytes *int64 `type:"int64" json:",omitempty"`
 
-	FailedObjects *int64 `type:"int64"`
+	FailedObjects *int64 `type:"int64" json:",omitempty"`
 
-	NotExistBytes *int64 `type:"int64"`
+	NotExistBytes *int64 `type:"int64" json:",omitempty"`
 
-	NotExistObjectCount *int64 `type:"int64"`
+	NotExistObjectCount *int64 `type:"int64" json:",omitempty"`
 
-	RemainingBytes *int64 `type:"int64"`
+	RemainingBytes *int64 `type:"int64" json:",omitempty"`
 
-	RemainingObjects *int64 `type:"int64"`
+	RemainingObjects *int64 `type:"int64" json:",omitempty"`
 
-	SkipBytes *int64 `type:"int64"`
+	SkipBytes *int64 `type:"int64" json:",omitempty"`
 
-	SkipObjectCount *int64 `type:"int64"`
+	SkipObjectCount *int64 `type:"int64" json:",omitempty"`
 
-	TotalBytes *int64 `type:"int64"`
+	TotalBytes *int64 `type:"int64" json:",omitempty"`
 
-	TotalObjects *int64 `type:"int64"`
+	TotalObjects *int64 `type:"int64" json:",omitempty"`
 
-	TransferBytesSpeed *int64 `type:"int64"`
+	TransferBytesSpeed *int64 `type:"int64" json:",omitempty"`
 
-	TransferCountSpeed *int64 `type:"int64"`
+	TransferCountSpeed *int64 `type:"int64" json:",omitempty"`
 
-	TransferredBytes *int64 `type:"int64"`
+	TransferredBytes *int64 `type:"int64" json:",omitempty"`
 
-	TransferredObjects *int64 `type:"int64"`
+	TransferredObjects *int64 `type:"int64" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -872,13 +956,13 @@ func (s *TaskProgressForQueryDataMigrateTaskOutput) SetTransferredObjects(v int6
 }
 
 type TaskReportForQueryDataMigrateTaskOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	FailedListName *string `type:"string"`
+	FailedListName *string `type:"string" json:",omitempty"`
 
-	ReportName *string `type:"string"`
+	ReportName *string `type:"string" json:",omitempty"`
 
-	SuccessListName *string `type:"string"`
+	SuccessListName *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -910,13 +994,13 @@ func (s *TaskReportForQueryDataMigrateTaskOutput) SetSuccessListName(v string) *
 }
 
 type TimeBandwidthSettingForQueryDataMigrateTaskOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Bandwidth *int64 `max:"1.073741824e+09" type:"int64"`
+	Bandwidth *int64 `max:"1.073741824e+09" type:"int64" json:",omitempty"`
 
-	End *int32 `min:"1" max:"24" type:"int32"`
+	End *int32 `min:"1" max:"24" type:"int32" json:",omitempty"`
 
-	Start *int32 `max:"23" type:"int32"`
+	Start *int32 `max:"23" type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -948,15 +1032,15 @@ func (s *TimeBandwidthSettingForQueryDataMigrateTaskOutput) SetStart(v int32) *T
 }
 
 type UrlSourceConfigForQueryDataMigrateTaskOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	BucketAccessConfig *BucketAccessConfigForQueryDataMigrateTaskOutput `type:"structure"`
+	BucketAccessConfig *BucketAccessConfigForQueryDataMigrateTaskOutput `type:"structure" json:",omitempty"`
 
-	IsUrlTryRangeGet *bool `type:"boolean"`
+	IsUrlTryRangeGet *bool `type:"boolean" json:",omitempty"`
 
-	UrlListLink *string `type:"string"`
+	UrlListLink *string `type:"string" json:",omitempty"`
 
-	UrlListName *string `type:"string"`
+	UrlListName *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
