@@ -144,14 +144,14 @@ func (c *DMS) ListDataMigrateTaskWithContext(ctx volcengine.Context, input *List
 }
 
 type ListDataMigrateTaskInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Limit *int32 `min:"1" max:"100" type:"int32"`
+	Limit *int32 `min:"1" max:"100" type:"int32" json:",omitempty"`
 
 	// Offset is a required field
-	Offset *int32 `type:"int32" required:"true"`
+	Offset *int32 `type:"int32" json:",omitempty" required:"true"`
 
-	TaskStatus *string `type:"string" enum:"EnumOfTaskStatusForListDataMigrateTaskInput"`
+	TaskStatus *string `type:"string" json:",omitempty" enum:"EnumOfTaskStatusForListDataMigrateTaskInput"`
 }
 
 // String returns the string representation
@@ -202,15 +202,15 @@ func (s *ListDataMigrateTaskInput) SetTaskStatus(v string) *ListDataMigrateTaskI
 }
 
 type ListDataMigrateTaskOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	Count *int32 `type:"int32"`
+	Count *int32 `type:"int32" json:",omitempty"`
 
-	TaskList []*TaskListForListDataMigrateTaskOutput `type:"list"`
+	TaskList []*TaskListForListDataMigrateTaskOutput `type:"list" json:",omitempty"`
 
-	Total *int32 `type:"int32"`
+	Total *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -242,17 +242,17 @@ func (s *ListDataMigrateTaskOutput) SetTotal(v int32) *ListDataMigrateTaskOutput
 }
 
 type TaskListForListDataMigrateTaskOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	CreateTime *string `type:"string"`
+	CreateTime *string `type:"string" json:",omitempty"`
 
-	TaskID *int64 `type:"int64"`
+	TaskID *int64 `type:"int64" json:",omitempty"`
 
-	TaskName *string `type:"string"`
+	TaskName *string `type:"string" json:",omitempty"`
 
-	TaskProgress *TaskProgressForListDataMigrateTaskOutput `type:"structure"`
+	TaskProgress *TaskProgressForListDataMigrateTaskOutput `type:"structure" json:",omitempty"`
 
-	TaskStatus *string `type:"string" enum:"EnumOfTaskStatusForListDataMigrateTaskOutput"`
+	TaskStatus *string `type:"string" json:",omitempty" enum:"EnumOfTaskStatusForListDataMigrateTaskOutput"`
 }
 
 // String returns the string representation
@@ -296,35 +296,35 @@ func (s *TaskListForListDataMigrateTaskOutput) SetTaskStatus(v string) *TaskList
 }
 
 type TaskProgressForListDataMigrateTaskOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	FailedBytes *int64 `type:"int64"`
+	FailedBytes *int64 `type:"int64" json:",omitempty"`
 
-	FailedObjects *int64 `type:"int64"`
+	FailedObjects *int64 `type:"int64" json:",omitempty"`
 
-	NotExistBytes *int64 `type:"int64"`
+	NotExistBytes *int64 `type:"int64" json:",omitempty"`
 
-	NotExistObjectCount *int64 `type:"int64"`
+	NotExistObjectCount *int64 `type:"int64" json:",omitempty"`
 
-	RemainingBytes *int64 `type:"int64"`
+	RemainingBytes *int64 `type:"int64" json:",omitempty"`
 
-	RemainingObjects *int64 `type:"int64"`
+	RemainingObjects *int64 `type:"int64" json:",omitempty"`
 
-	SkipBytes *int64 `type:"int64"`
+	SkipBytes *int64 `type:"int64" json:",omitempty"`
 
-	SkipObjectCount *int64 `type:"int64"`
+	SkipObjectCount *int64 `type:"int64" json:",omitempty"`
 
-	TotalBytes *int64 `type:"int64"`
+	TotalBytes *int64 `type:"int64" json:",omitempty"`
 
-	TotalObjects *int64 `type:"int64"`
+	TotalObjects *int64 `type:"int64" json:",omitempty"`
 
-	TransferBytesSpeed *int64 `type:"int64"`
+	TransferBytesSpeed *int64 `type:"int64" json:",omitempty"`
 
-	TransferCountSpeed *int64 `type:"int64"`
+	TransferCountSpeed *int64 `type:"int64" json:",omitempty"`
 
-	TransferredBytes *int64 `type:"int64"`
+	TransferredBytes *int64 `type:"int64" json:",omitempty"`
 
-	TransferredObjects *int64 `type:"int64"`
+	TransferredObjects *int64 `type:"int64" json:",omitempty"`
 }
 
 // String returns the string representation

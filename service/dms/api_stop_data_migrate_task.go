@@ -144,10 +144,10 @@ func (c *DMS) StopDataMigrateTaskWithContext(ctx volcengine.Context, input *Stop
 }
 
 type StopDataMigrateTaskInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// TaskID is a required field
-	TaskID *int64 `type:"int64" required:"true"`
+	TaskID *int64 `type:"int64" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -180,7 +180,7 @@ func (s *StopDataMigrateTaskInput) SetTaskID(v int64) *StopDataMigrateTaskInput 
 }
 
 type StopDataMigrateTaskOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 }

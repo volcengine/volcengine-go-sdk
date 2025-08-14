@@ -726,6 +726,8 @@ type ForceRedirectForUpdateSingleDomainConfigInput struct {
 
 	Enable *bool `type:"boolean" json:",omitempty"`
 
+	RedirectCode *int32 `type:"int32" json:",omitempty"`
+
 	RedirectType *string `type:"string" json:",omitempty"`
 }
 
@@ -742,6 +744,12 @@ func (s ForceRedirectForUpdateSingleDomainConfigInput) GoString() string {
 // SetEnable sets the Enable field's value.
 func (s *ForceRedirectForUpdateSingleDomainConfigInput) SetEnable(v bool) *ForceRedirectForUpdateSingleDomainConfigInput {
 	s.Enable = &v
+	return s
+}
+
+// SetRedirectCode sets the RedirectCode field's value.
+func (s *ForceRedirectForUpdateSingleDomainConfigInput) SetRedirectCode(v int32) *ForceRedirectForUpdateSingleDomainConfigInput {
+	s.RedirectCode = &v
 	return s
 }
 
@@ -870,6 +878,8 @@ type HttpsForUpdateSingleDomainConfigInput struct {
 
 	Http2 *bool `type:"boolean" json:",omitempty"`
 
+	OCSPStapling *bool `type:"boolean" json:",omitempty"`
+
 	QUICSwitch *bool `type:"boolean" json:",omitempty"`
 
 	TlsVersions *TlsVersionsForUpdateSingleDomainConfigInput `type:"structure" json:",omitempty"`
@@ -912,6 +922,12 @@ func (s *HttpsForUpdateSingleDomainConfigInput) SetHsts(v *HstsForUpdateSingleDo
 // SetHttp2 sets the Http2 field's value.
 func (s *HttpsForUpdateSingleDomainConfigInput) SetHttp2(v bool) *HttpsForUpdateSingleDomainConfigInput {
 	s.Http2 = &v
+	return s
+}
+
+// SetOCSPStapling sets the OCSPStapling field's value.
+func (s *HttpsForUpdateSingleDomainConfigInput) SetOCSPStapling(v bool) *HttpsForUpdateSingleDomainConfigInput {
+	s.OCSPStapling = &v
 	return s
 }
 

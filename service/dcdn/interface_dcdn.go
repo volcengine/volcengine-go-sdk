@@ -19,7 +19,7 @@ import (
 //    // volcengine sdk func uses an SDK service client to make a request to
 //    // DCDN.
 //    func myFunc(svc DCDNAPI) bool {
-//        // Make svc.CheckPurgePrefetchTask request
+//        // Make svc.BatchBlockIP request
 //    }
 //
 //    func main() {
@@ -30,6 +30,14 @@ import (
 //    }
 //
 type DCDNAPI interface {
+	BatchBlockIPCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	BatchBlockIPCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	BatchBlockIPCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	BatchBlockIP(*BatchBlockIPInput) (*BatchBlockIPOutput, error)
+	BatchBlockIPWithContext(volcengine.Context, *BatchBlockIPInput, ...request.Option) (*BatchBlockIPOutput, error)
+	BatchBlockIPRequest(*BatchBlockIPInput) (*request.Request, *BatchBlockIPOutput)
+
 	CheckPurgePrefetchTaskCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	CheckPurgePrefetchTaskCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	CheckPurgePrefetchTaskCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -77,6 +85,14 @@ type DCDNAPI interface {
 	DeleteDomain(*DeleteDomainInput) (*DeleteDomainOutput, error)
 	DeleteDomainWithContext(volcengine.Context, *DeleteDomainInput, ...request.Option) (*DeleteDomainOutput, error)
 	DeleteDomainRequest(*DeleteDomainInput) (*request.Request, *DeleteDomainOutput)
+
+	DescribeBlockIPCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeBlockIPCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeBlockIPCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeBlockIP(*DescribeBlockIPInput) (*DescribeBlockIPOutput, error)
+	DescribeBlockIPWithContext(volcengine.Context, *DescribeBlockIPInput, ...request.Option) (*DescribeBlockIPOutput, error)
+	DescribeBlockIPRequest(*DescribeBlockIPInput) (*request.Request, *DescribeBlockIPOutput)
 
 	DescribeDcdnRegionAndIspCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DescribeDcdnRegionAndIspCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -230,6 +246,14 @@ type DCDNAPI interface {
 	DescribeTopURLWithContext(volcengine.Context, *DescribeTopURLInput, ...request.Option) (*DescribeTopURLOutput, error)
 	DescribeTopURLRequest(*DescribeTopURLInput) (*request.Request, *DescribeTopURLOutput)
 
+	DescribeVerifyContentCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeVerifyContentCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeVerifyContentCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeVerifyContent(*DescribeVerifyContentInput) (*DescribeVerifyContentOutput, error)
+	DescribeVerifyContentWithContext(volcengine.Context, *DescribeVerifyContentInput, ...request.Option) (*DescribeVerifyContentOutput, error)
+	DescribeVerifyContentRequest(*DescribeVerifyContentInput) (*request.Request, *DescribeVerifyContentOutput)
+
 	GetPurgePrefetchTaskQuotaCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	GetPurgePrefetchTaskQuotaCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	GetPurgePrefetchTaskQuotaCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -301,6 +325,14 @@ type DCDNAPI interface {
 	UpdateSingleDomainConfig(*UpdateSingleDomainConfigInput) (*UpdateSingleDomainConfigOutput, error)
 	UpdateSingleDomainConfigWithContext(volcengine.Context, *UpdateSingleDomainConfigInput, ...request.Option) (*UpdateSingleDomainConfigOutput, error)
 	UpdateSingleDomainConfigRequest(*UpdateSingleDomainConfigInput) (*request.Request, *UpdateSingleDomainConfigOutput)
+
+	VerifyDomainOwnershipCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	VerifyDomainOwnershipCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	VerifyDomainOwnershipCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	VerifyDomainOwnership(*VerifyDomainOwnershipInput) (*VerifyDomainOwnershipOutput, error)
+	VerifyDomainOwnershipWithContext(volcengine.Context, *VerifyDomainOwnershipInput, ...request.Option) (*VerifyDomainOwnershipOutput, error)
+	VerifyDomainOwnershipRequest(*VerifyDomainOwnershipInput) (*request.Request, *VerifyDomainOwnershipOutput)
 }
 
 var _ DCDNAPI = (*DCDN)(nil)

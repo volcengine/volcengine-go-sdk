@@ -954,6 +954,8 @@ type ForceRedirectForCreateDomainConfigsInput struct {
 
 	Enable *bool `type:"boolean" json:",omitempty"`
 
+	RedirectCode *int32 `type:"int32" json:",omitempty"`
+
 	RedirectType *string `type:"string" json:",omitempty"`
 }
 
@@ -970,6 +972,12 @@ func (s ForceRedirectForCreateDomainConfigsInput) GoString() string {
 // SetEnable sets the Enable field's value.
 func (s *ForceRedirectForCreateDomainConfigsInput) SetEnable(v bool) *ForceRedirectForCreateDomainConfigsInput {
 	s.Enable = &v
+	return s
+}
+
+// SetRedirectCode sets the RedirectCode field's value.
+func (s *ForceRedirectForCreateDomainConfigsInput) SetRedirectCode(v int32) *ForceRedirectForCreateDomainConfigsInput {
+	s.RedirectCode = &v
 	return s
 }
 
@@ -1098,6 +1106,8 @@ type HttpsForCreateDomainConfigsInput struct {
 
 	Http2 *bool `type:"boolean" json:",omitempty"`
 
+	OCSPStapling *bool `type:"boolean" json:",omitempty"`
+
 	QUICSwitch *bool `type:"boolean" json:",omitempty"`
 
 	TlsVersions *TlsVersionsForCreateDomainConfigsInput `type:"structure" json:",omitempty"`
@@ -1140,6 +1150,12 @@ func (s *HttpsForCreateDomainConfigsInput) SetHsts(v *HstsForCreateDomainConfigs
 // SetHttp2 sets the Http2 field's value.
 func (s *HttpsForCreateDomainConfigsInput) SetHttp2(v bool) *HttpsForCreateDomainConfigsInput {
 	s.Http2 = &v
+	return s
+}
+
+// SetOCSPStapling sets the OCSPStapling field's value.
+func (s *HttpsForCreateDomainConfigsInput) SetOCSPStapling(v bool) *HttpsForCreateDomainConfigsInput {
+	s.OCSPStapling = &v
 	return s
 }
 

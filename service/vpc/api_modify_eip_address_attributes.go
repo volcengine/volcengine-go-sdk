@@ -149,6 +149,8 @@ type ModifyEipAddressAttributesInput struct {
 
 	Description *string `min:"1" max:"255" type:"string"`
 
+	DirectMode *bool `type:"boolean"`
+
 	Name *string `min:"1" max:"128" type:"string"`
 
 	ReleaseWithInstance *bool `type:"boolean"`
@@ -207,6 +209,12 @@ func (s *ModifyEipAddressAttributesInput) SetBandwidth(v int64) *ModifyEipAddres
 // SetDescription sets the Description field's value.
 func (s *ModifyEipAddressAttributesInput) SetDescription(v string) *ModifyEipAddressAttributesInput {
 	s.Description = &v
+	return s
+}
+
+// SetDirectMode sets the DirectMode field's value.
+func (s *ModifyEipAddressAttributesInput) SetDirectMode(v bool) *ModifyEipAddressAttributesInput {
+	s.DirectMode = &v
 	return s
 }
 
