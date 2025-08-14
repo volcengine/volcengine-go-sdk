@@ -150,6 +150,22 @@ type BILLINGAPI interface {
 	ListBillOverviewByProdWithContext(volcengine.Context, *ListBillOverviewByProdInput, ...request.Option) (*ListBillOverviewByProdOutput, error)
 	ListBillOverviewByProdRequest(*ListBillOverviewByProdInput) (*request.Request, *ListBillOverviewByProdOutput)
 
+	ListCouponUsageRecordsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListCouponUsageRecordsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListCouponUsageRecordsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListCouponUsageRecords(*ListCouponUsageRecordsInput) (*ListCouponUsageRecordsOutput, error)
+	ListCouponUsageRecordsWithContext(volcengine.Context, *ListCouponUsageRecordsInput, ...request.Option) (*ListCouponUsageRecordsOutput, error)
+	ListCouponUsageRecordsRequest(*ListCouponUsageRecordsInput) (*request.Request, *ListCouponUsageRecordsOutput)
+
+	ListCouponsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListCouponsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListCouponsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListCoupons(*ListCouponsInput) (*ListCouponsOutput, error)
+	ListCouponsWithContext(volcengine.Context, *ListCouponsInput, ...request.Option) (*ListCouponsOutput, error)
+	ListCouponsRequest(*ListCouponsInput) (*request.Request, *ListCouponsOutput)
+
 	ListFinancialRelationCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ListFinancialRelationCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	ListFinancialRelationCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
