@@ -237,7 +237,7 @@ func main() {
 > - **默认**  
 >   默认支持自动寻址，无需手动指定Endpoint
 
-为了简化用户配置，Vocoengine 提供了灵活的 Endpoint 自动寻址机制。用户无需手动指定服务地址，SDK 会根据服务名称、区域（Region）等信息自动拼接出合理的访问地址，并支持用户自定义DualStack（双栈）支持。  
+为了简化用户配置，Volcengine 提供了灵活的 Endpoint 自动寻址机制。用户无需手动指定服务地址，SDK 会根据服务名称、区域（Region）等信息自动拼接出合理的访问地址，并支持用户自定义DualStack（双栈）支持。  
 ### Endpoint默认寻址 
 **Endpoint默认寻址逻辑**
 1. 是否自动寻址Region  
