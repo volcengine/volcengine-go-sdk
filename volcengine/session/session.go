@@ -633,7 +633,7 @@ func (s *Session) clientConfigWithErr(serviceName string, cfgs ...*volcengine.Co
 		return client.Config{}, err
 	}
 	if s.Config.HTTPClient.Transport == nil {
-		s.Config.HTTPClient.Transport = http.DefaultTransport
+		s.Config.HTTPClient.Transport = http.DefaultTransport.(*http.Transport).Clone()
 	}
 	if t, ok := s.Config.HTTPClient.Transport.(*http.Transport); ok {
 		t.Proxy = http.ProxyURL(proxy)
