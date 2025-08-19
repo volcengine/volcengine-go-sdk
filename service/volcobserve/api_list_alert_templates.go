@@ -427,6 +427,12 @@ type ListAlertTemplatesOutput struct {
 	Metadata *response.ResponseMetadata
 
 	Data []*DataForListAlertTemplatesOutput `type:"list" json:",omitempty"`
+
+	PageNumber *int64 `type:"integer" json:",omitempty"`
+
+	PageSize *int64 `type:"integer" json:",omitempty"`
+
+	TotalCount *int64 `type:"integer" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -442,6 +448,24 @@ func (s ListAlertTemplatesOutput) GoString() string {
 // SetData sets the Data field's value.
 func (s *ListAlertTemplatesOutput) SetData(v []*DataForListAlertTemplatesOutput) *ListAlertTemplatesOutput {
 	s.Data = v
+	return s
+}
+
+// SetPageNumber sets the PageNumber field's value.
+func (s *ListAlertTemplatesOutput) SetPageNumber(v int64) *ListAlertTemplatesOutput {
+	s.PageNumber = &v
+	return s
+}
+
+// SetPageSize sets the PageSize field's value.
+func (s *ListAlertTemplatesOutput) SetPageSize(v int64) *ListAlertTemplatesOutput {
+	s.PageSize = &v
+	return s
+}
+
+// SetTotalCount sets the TotalCount field's value.
+func (s *ListAlertTemplatesOutput) SetTotalCount(v int64) *ListAlertTemplatesOutput {
+	s.TotalCount = &v
 	return s
 }
 
@@ -483,6 +507,36 @@ func (s *NoDataForListAlertTemplatesOutput) SetLevel(v string) *NoDataForListAle
 	return s
 }
 
+type NotifyTemplateForListAlertTemplatesOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Channel *string `type:"string" json:",omitempty" enum:"EnumOfChannelForListAlertTemplatesOutput"`
+
+	NotifyTemplateId *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s NotifyTemplateForListAlertTemplatesOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s NotifyTemplateForListAlertTemplatesOutput) GoString() string {
+	return s.String()
+}
+
+// SetChannel sets the Channel field's value.
+func (s *NotifyTemplateForListAlertTemplatesOutput) SetChannel(v string) *NotifyTemplateForListAlertTemplatesOutput {
+	s.Channel = &v
+	return s
+}
+
+// SetNotifyTemplateId sets the NotifyTemplateId field's value.
+func (s *NotifyTemplateForListAlertTemplatesOutput) SetNotifyTemplateId(v string) *NotifyTemplateForListAlertTemplatesOutput {
+	s.NotifyTemplateId = &v
+	return s
+}
+
 type ObjectGroupForListAlertTemplatesOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -495,6 +549,8 @@ type ObjectGroupForListAlertTemplatesOutput struct {
 	EffectStartAt *string `type:"string" json:",omitempty"`
 
 	NotificationId *string `type:"string" json:",omitempty"`
+
+	NotifyTemplates []*NotifyTemplateForListAlertTemplatesOutput `type:"list" json:",omitempty"`
 
 	ObjectGroupId *string `type:"string" json:",omitempty"`
 
@@ -542,6 +598,12 @@ func (s *ObjectGroupForListAlertTemplatesOutput) SetEffectStartAt(v string) *Obj
 // SetNotificationId sets the NotificationId field's value.
 func (s *ObjectGroupForListAlertTemplatesOutput) SetNotificationId(v string) *ObjectGroupForListAlertTemplatesOutput {
 	s.NotificationId = &v
+	return s
+}
+
+// SetNotifyTemplates sets the NotifyTemplates field's value.
+func (s *ObjectGroupForListAlertTemplatesOutput) SetNotifyTemplates(v []*NotifyTemplateForListAlertTemplatesOutput) *ObjectGroupForListAlertTemplatesOutput {
+	s.NotifyTemplates = v
 	return s
 }
 
@@ -676,6 +738,32 @@ func (s *TemplateRuleForListAlertTemplatesOutput) SetSubNamespace(v string) *Tem
 	s.SubNamespace = &v
 	return s
 }
+
+const (
+	// EnumOfChannelForListAlertTemplatesOutputEmail is a EnumOfChannelForListAlertTemplatesOutput enum value
+	EnumOfChannelForListAlertTemplatesOutputEmail = "email"
+
+	// EnumOfChannelForListAlertTemplatesOutputSms is a EnumOfChannelForListAlertTemplatesOutput enum value
+	EnumOfChannelForListAlertTemplatesOutputSms = "sms"
+
+	// EnumOfChannelForListAlertTemplatesOutputPhone is a EnumOfChannelForListAlertTemplatesOutput enum value
+	EnumOfChannelForListAlertTemplatesOutputPhone = "phone"
+
+	// EnumOfChannelForListAlertTemplatesOutputLark is a EnumOfChannelForListAlertTemplatesOutput enum value
+	EnumOfChannelForListAlertTemplatesOutputLark = "lark"
+
+	// EnumOfChannelForListAlertTemplatesOutputDingtalk is a EnumOfChannelForListAlertTemplatesOutput enum value
+	EnumOfChannelForListAlertTemplatesOutputDingtalk = "dingtalk"
+
+	// EnumOfChannelForListAlertTemplatesOutputWecom is a EnumOfChannelForListAlertTemplatesOutput enum value
+	EnumOfChannelForListAlertTemplatesOutputWecom = "wecom"
+
+	// EnumOfChannelForListAlertTemplatesOutputSlack is a EnumOfChannelForListAlertTemplatesOutput enum value
+	EnumOfChannelForListAlertTemplatesOutputSlack = "slack"
+
+	// EnumOfChannelForListAlertTemplatesOutputApi is a EnumOfChannelForListAlertTemplatesOutput enum value
+	EnumOfChannelForListAlertTemplatesOutputApi = "api"
+)
 
 const (
 	// EnumOfLevelForListAlertTemplatesOutputNotice is a EnumOfLevelForListAlertTemplatesOutput enum value

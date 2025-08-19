@@ -276,6 +276,8 @@ type CreateRuleInput struct {
 
 	NotificationId *string `type:"string" json:",omitempty"`
 
+	NotifyTemplates []*NotifyTemplateForCreateRuleInput `type:"list" json:",omitempty"`
+
 	OriginalDimensions map[string][]*string `type:"map" json:",omitempty"`
 
 	ProjectName *string `type:"string" json:",omitempty"`
@@ -446,6 +448,12 @@ func (s *CreateRuleInput) SetNoData(v *NoDataForCreateRuleInput) *CreateRuleInpu
 // SetNotificationId sets the NotificationId field's value.
 func (s *CreateRuleInput) SetNotificationId(v string) *CreateRuleInput {
 	s.NotificationId = &v
+	return s
+}
+
+// SetNotifyTemplates sets the NotifyTemplates field's value.
+func (s *CreateRuleInput) SetNotifyTemplates(v []*NotifyTemplateForCreateRuleInput) *CreateRuleInput {
+	s.NotifyTemplates = v
 	return s
 }
 
@@ -721,6 +729,36 @@ func (s *NoDataForCreateRuleInput) SetEvaluationCount(v int64) *NoDataForCreateR
 	return s
 }
 
+type NotifyTemplateForCreateRuleInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Channel *string `type:"string" json:",omitempty" enum:"EnumOfChannelForCreateRuleInput"`
+
+	NotifyTemplateId *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s NotifyTemplateForCreateRuleInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s NotifyTemplateForCreateRuleInput) GoString() string {
+	return s.String()
+}
+
+// SetChannel sets the Channel field's value.
+func (s *NotifyTemplateForCreateRuleInput) SetChannel(v string) *NotifyTemplateForCreateRuleInput {
+	s.Channel = &v
+	return s
+}
+
+// SetNotifyTemplateId sets the NotifyTemplateId field's value.
+func (s *NotifyTemplateForCreateRuleInput) SetNotifyTemplateId(v string) *NotifyTemplateForCreateRuleInput {
+	s.NotifyTemplateId = &v
+	return s
+}
+
 type ProjectConditionForCreateRuleInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -845,6 +883,32 @@ const (
 
 	// EnumOfAlertMethodListForCreateRuleInputWebhook is a EnumOfAlertMethodListForCreateRuleInput enum value
 	EnumOfAlertMethodListForCreateRuleInputWebhook = "Webhook"
+)
+
+const (
+	// EnumOfChannelForCreateRuleInputEmail is a EnumOfChannelForCreateRuleInput enum value
+	EnumOfChannelForCreateRuleInputEmail = "email"
+
+	// EnumOfChannelForCreateRuleInputSms is a EnumOfChannelForCreateRuleInput enum value
+	EnumOfChannelForCreateRuleInputSms = "sms"
+
+	// EnumOfChannelForCreateRuleInputPhone is a EnumOfChannelForCreateRuleInput enum value
+	EnumOfChannelForCreateRuleInputPhone = "phone"
+
+	// EnumOfChannelForCreateRuleInputLark is a EnumOfChannelForCreateRuleInput enum value
+	EnumOfChannelForCreateRuleInputLark = "lark"
+
+	// EnumOfChannelForCreateRuleInputDingtalk is a EnumOfChannelForCreateRuleInput enum value
+	EnumOfChannelForCreateRuleInputDingtalk = "dingtalk"
+
+	// EnumOfChannelForCreateRuleInputWecom is a EnumOfChannelForCreateRuleInput enum value
+	EnumOfChannelForCreateRuleInputWecom = "wecom"
+
+	// EnumOfChannelForCreateRuleInputSlack is a EnumOfChannelForCreateRuleInput enum value
+	EnumOfChannelForCreateRuleInputSlack = "slack"
+
+	// EnumOfChannelForCreateRuleInputApi is a EnumOfChannelForCreateRuleInput enum value
+	EnumOfChannelForCreateRuleInputApi = "api"
 )
 
 const (

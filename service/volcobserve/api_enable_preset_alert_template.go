@@ -158,6 +158,8 @@ type EnablePresetAlertTemplateInput struct {
 
 	NotificationId *string `type:"string" json:",omitempty"`
 
+	NotifyTemplates []*NotifyTemplateForEnablePresetAlertTemplateInput `type:"list" json:",omitempty"`
+
 	// ProjectName is a required field
 	ProjectName *string `type:"string" json:",omitempty" required:"true"`
 
@@ -233,6 +235,12 @@ func (s *EnablePresetAlertTemplateInput) SetNotificationId(v string) *EnablePres
 	return s
 }
 
+// SetNotifyTemplates sets the NotifyTemplates field's value.
+func (s *EnablePresetAlertTemplateInput) SetNotifyTemplates(v []*NotifyTemplateForEnablePresetAlertTemplateInput) *EnablePresetAlertTemplateInput {
+	s.NotifyTemplates = v
+	return s
+}
+
 // SetProjectName sets the ProjectName field's value.
 func (s *EnablePresetAlertTemplateInput) SetProjectName(v string) *EnablePresetAlertTemplateInput {
 	s.ProjectName = &v
@@ -286,3 +294,59 @@ func (s *EnablePresetAlertTemplateOutput) SetData(v []*string) *EnablePresetAler
 	s.Data = v
 	return s
 }
+
+type NotifyTemplateForEnablePresetAlertTemplateInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Channel *string `type:"string" json:",omitempty" enum:"EnumOfChannelForEnablePresetAlertTemplateInput"`
+
+	NotifyTemplateId *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s NotifyTemplateForEnablePresetAlertTemplateInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s NotifyTemplateForEnablePresetAlertTemplateInput) GoString() string {
+	return s.String()
+}
+
+// SetChannel sets the Channel field's value.
+func (s *NotifyTemplateForEnablePresetAlertTemplateInput) SetChannel(v string) *NotifyTemplateForEnablePresetAlertTemplateInput {
+	s.Channel = &v
+	return s
+}
+
+// SetNotifyTemplateId sets the NotifyTemplateId field's value.
+func (s *NotifyTemplateForEnablePresetAlertTemplateInput) SetNotifyTemplateId(v string) *NotifyTemplateForEnablePresetAlertTemplateInput {
+	s.NotifyTemplateId = &v
+	return s
+}
+
+const (
+	// EnumOfChannelForEnablePresetAlertTemplateInputEmail is a EnumOfChannelForEnablePresetAlertTemplateInput enum value
+	EnumOfChannelForEnablePresetAlertTemplateInputEmail = "email"
+
+	// EnumOfChannelForEnablePresetAlertTemplateInputSms is a EnumOfChannelForEnablePresetAlertTemplateInput enum value
+	EnumOfChannelForEnablePresetAlertTemplateInputSms = "sms"
+
+	// EnumOfChannelForEnablePresetAlertTemplateInputPhone is a EnumOfChannelForEnablePresetAlertTemplateInput enum value
+	EnumOfChannelForEnablePresetAlertTemplateInputPhone = "phone"
+
+	// EnumOfChannelForEnablePresetAlertTemplateInputLark is a EnumOfChannelForEnablePresetAlertTemplateInput enum value
+	EnumOfChannelForEnablePresetAlertTemplateInputLark = "lark"
+
+	// EnumOfChannelForEnablePresetAlertTemplateInputDingtalk is a EnumOfChannelForEnablePresetAlertTemplateInput enum value
+	EnumOfChannelForEnablePresetAlertTemplateInputDingtalk = "dingtalk"
+
+	// EnumOfChannelForEnablePresetAlertTemplateInputWecom is a EnumOfChannelForEnablePresetAlertTemplateInput enum value
+	EnumOfChannelForEnablePresetAlertTemplateInputWecom = "wecom"
+
+	// EnumOfChannelForEnablePresetAlertTemplateInputSlack is a EnumOfChannelForEnablePresetAlertTemplateInput enum value
+	EnumOfChannelForEnablePresetAlertTemplateInputSlack = "slack"
+
+	// EnumOfChannelForEnablePresetAlertTemplateInputApi is a EnumOfChannelForEnablePresetAlertTemplateInput enum value
+	EnumOfChannelForEnablePresetAlertTemplateInputApi = "api"
+)

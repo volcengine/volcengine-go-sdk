@@ -281,6 +281,36 @@ func (s *MessageQueueForUpdateEventRuleInput) SetVpcId(v string) *MessageQueueFo
 	return s
 }
 
+type NotifyTemplateForUpdateEventRuleInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Channel *string `type:"string" json:",omitempty" enum:"EnumOfChannelForUpdateEventRuleInput"`
+
+	NotifyTemplateId *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s NotifyTemplateForUpdateEventRuleInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s NotifyTemplateForUpdateEventRuleInput) GoString() string {
+	return s.String()
+}
+
+// SetChannel sets the Channel field's value.
+func (s *NotifyTemplateForUpdateEventRuleInput) SetChannel(v string) *NotifyTemplateForUpdateEventRuleInput {
+	s.Channel = &v
+	return s
+}
+
+// SetNotifyTemplateId sets the NotifyTemplateId field's value.
+func (s *NotifyTemplateForUpdateEventRuleInput) SetNotifyTemplateId(v string) *NotifyTemplateForUpdateEventRuleInput {
+	s.NotifyTemplateId = &v
+	return s
+}
+
 type TLSTargetForUpdateEventRuleInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -362,6 +392,8 @@ type UpdateEventRuleInput struct {
 	Level *string `type:"string" json:",omitempty" required:"true"`
 
 	MessageQueue []*MessageQueueForUpdateEventRuleInput `type:"list" json:",omitempty"`
+
+	NotifyTemplates []*NotifyTemplateForUpdateEventRuleInput `type:"list" json:",omitempty"`
 
 	// RuleId is a required field
 	RuleId *string `type:"string" json:",omitempty" required:"true"`
@@ -489,6 +521,12 @@ func (s *UpdateEventRuleInput) SetMessageQueue(v []*MessageQueueForUpdateEventRu
 	return s
 }
 
+// SetNotifyTemplates sets the NotifyTemplates field's value.
+func (s *UpdateEventRuleInput) SetNotifyTemplates(v []*NotifyTemplateForUpdateEventRuleInput) *UpdateEventRuleInput {
+	s.NotifyTemplates = v
+	return s
+}
+
 // SetRuleId sets the RuleId field's value.
 func (s *UpdateEventRuleInput) SetRuleId(v string) *UpdateEventRuleInput {
 	s.RuleId = &v
@@ -542,6 +580,32 @@ func (s *UpdateEventRuleOutput) SetData(v *DataForUpdateEventRuleOutput) *Update
 	s.Data = v
 	return s
 }
+
+const (
+	// EnumOfChannelForUpdateEventRuleInputEmail is a EnumOfChannelForUpdateEventRuleInput enum value
+	EnumOfChannelForUpdateEventRuleInputEmail = "email"
+
+	// EnumOfChannelForUpdateEventRuleInputSms is a EnumOfChannelForUpdateEventRuleInput enum value
+	EnumOfChannelForUpdateEventRuleInputSms = "sms"
+
+	// EnumOfChannelForUpdateEventRuleInputPhone is a EnumOfChannelForUpdateEventRuleInput enum value
+	EnumOfChannelForUpdateEventRuleInputPhone = "phone"
+
+	// EnumOfChannelForUpdateEventRuleInputLark is a EnumOfChannelForUpdateEventRuleInput enum value
+	EnumOfChannelForUpdateEventRuleInputLark = "lark"
+
+	// EnumOfChannelForUpdateEventRuleInputDingtalk is a EnumOfChannelForUpdateEventRuleInput enum value
+	EnumOfChannelForUpdateEventRuleInputDingtalk = "dingtalk"
+
+	// EnumOfChannelForUpdateEventRuleInputWecom is a EnumOfChannelForUpdateEventRuleInput enum value
+	EnumOfChannelForUpdateEventRuleInputWecom = "wecom"
+
+	// EnumOfChannelForUpdateEventRuleInputSlack is a EnumOfChannelForUpdateEventRuleInput enum value
+	EnumOfChannelForUpdateEventRuleInputSlack = "slack"
+
+	// EnumOfChannelForUpdateEventRuleInputApi is a EnumOfChannelForUpdateEventRuleInput enum value
+	EnumOfChannelForUpdateEventRuleInputApi = "api"
+)
 
 const (
 	// EnumOfEventBusNameForUpdateEventRuleInputDefault is a EnumOfEventBusNameForUpdateEventRuleInput enum value

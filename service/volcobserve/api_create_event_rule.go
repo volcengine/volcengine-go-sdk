@@ -171,6 +171,8 @@ type CreateEventRuleInput struct {
 
 	MessageQueue []*MessageQueueForCreateEventRuleInput `type:"list" json:",omitempty"`
 
+	NotifyTemplates []*NotifyTemplateForCreateEventRuleInput `type:"list" json:",omitempty"`
+
 	// RuleName is a required field
 	RuleName *string `min:"2" max:"127" type:"string" json:",omitempty" required:"true"`
 
@@ -288,6 +290,12 @@ func (s *CreateEventRuleInput) SetLevel(v string) *CreateEventRuleInput {
 // SetMessageQueue sets the MessageQueue field's value.
 func (s *CreateEventRuleInput) SetMessageQueue(v []*MessageQueueForCreateEventRuleInput) *CreateEventRuleInput {
 	s.MessageQueue = v
+	return s
+}
+
+// SetNotifyTemplates sets the NotifyTemplates field's value.
+func (s *CreateEventRuleInput) SetNotifyTemplates(v []*NotifyTemplateForCreateEventRuleInput) *CreateEventRuleInput {
+	s.NotifyTemplates = v
 	return s
 }
 
@@ -477,6 +485,36 @@ func (s *MessageQueueForCreateEventRuleInput) SetVpcId(v string) *MessageQueueFo
 	return s
 }
 
+type NotifyTemplateForCreateEventRuleInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Channel *string `type:"string" json:",omitempty" enum:"EnumOfChannelForCreateEventRuleInput"`
+
+	NotifyTemplateId *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s NotifyTemplateForCreateEventRuleInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s NotifyTemplateForCreateEventRuleInput) GoString() string {
+	return s.String()
+}
+
+// SetChannel sets the Channel field's value.
+func (s *NotifyTemplateForCreateEventRuleInput) SetChannel(v string) *NotifyTemplateForCreateEventRuleInput {
+	s.Channel = &v
+	return s
+}
+
+// SetNotifyTemplateId sets the NotifyTemplateId field's value.
+func (s *NotifyTemplateForCreateEventRuleInput) SetNotifyTemplateId(v string) *NotifyTemplateForCreateEventRuleInput {
+	s.NotifyTemplateId = &v
+	return s
+}
+
 type TLSTargetForCreateEventRuleInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -530,6 +568,32 @@ func (s *TLSTargetForCreateEventRuleInput) SetTopicId(v string) *TLSTargetForCre
 	s.TopicId = &v
 	return s
 }
+
+const (
+	// EnumOfChannelForCreateEventRuleInputEmail is a EnumOfChannelForCreateEventRuleInput enum value
+	EnumOfChannelForCreateEventRuleInputEmail = "email"
+
+	// EnumOfChannelForCreateEventRuleInputSms is a EnumOfChannelForCreateEventRuleInput enum value
+	EnumOfChannelForCreateEventRuleInputSms = "sms"
+
+	// EnumOfChannelForCreateEventRuleInputPhone is a EnumOfChannelForCreateEventRuleInput enum value
+	EnumOfChannelForCreateEventRuleInputPhone = "phone"
+
+	// EnumOfChannelForCreateEventRuleInputLark is a EnumOfChannelForCreateEventRuleInput enum value
+	EnumOfChannelForCreateEventRuleInputLark = "lark"
+
+	// EnumOfChannelForCreateEventRuleInputDingtalk is a EnumOfChannelForCreateEventRuleInput enum value
+	EnumOfChannelForCreateEventRuleInputDingtalk = "dingtalk"
+
+	// EnumOfChannelForCreateEventRuleInputWecom is a EnumOfChannelForCreateEventRuleInput enum value
+	EnumOfChannelForCreateEventRuleInputWecom = "wecom"
+
+	// EnumOfChannelForCreateEventRuleInputSlack is a EnumOfChannelForCreateEventRuleInput enum value
+	EnumOfChannelForCreateEventRuleInputSlack = "slack"
+
+	// EnumOfChannelForCreateEventRuleInputApi is a EnumOfChannelForCreateEventRuleInput enum value
+	EnumOfChannelForCreateEventRuleInputApi = "api"
+)
 
 const (
 	// EnumOfEventBusNameForCreateEventRuleInputDefault is a EnumOfEventBusNameForCreateEventRuleInput enum value
