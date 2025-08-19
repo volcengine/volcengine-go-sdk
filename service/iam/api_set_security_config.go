@@ -146,7 +146,7 @@ func (c *IAM) SetSecurityConfigWithContext(ctx volcengine.Context, input *SetSec
 type SetSecurityConfigInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	SafeAuthExemptDuration *string `type:"string" json:",omitempty"`
+	SafeAuthExemptDuration *int32 `type:"int32" json:",omitempty"`
 
 	// SafeAuthType is a required field
 	SafeAuthType *string `type:"string" json:",omitempty" required:"true"`
@@ -182,7 +182,7 @@ func (s *SetSecurityConfigInput) Validate() error {
 }
 
 // SetSafeAuthExemptDuration sets the SafeAuthExemptDuration field's value.
-func (s *SetSecurityConfigInput) SetSafeAuthExemptDuration(v string) *SetSecurityConfigInput {
+func (s *SetSecurityConfigInput) SetSafeAuthExemptDuration(v int32) *SetSecurityConfigInput {
 	s.SafeAuthExemptDuration = &v
 	return s
 }
