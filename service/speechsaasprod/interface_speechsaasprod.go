@@ -19,7 +19,7 @@ import (
 //    // volcengine sdk func uses an SDK service client to make a request to
 //    // SPEECH_SAAS_PROD.
 //    func myFunc(svc SPEECHSAASPRODAPI) bool {
-//        // Make svc.ListBigModelTTSTimbres request
+//        // Make svc.ActivateService request
 //    }
 //
 //    func main() {
@@ -30,6 +30,54 @@ import (
 //    }
 //
 type SPEECHSAASPRODAPI interface {
+	ActivateServiceCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ActivateServiceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ActivateServiceCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ActivateService(*ActivateServiceInput) (*ActivateServiceOutput, error)
+	ActivateServiceWithContext(volcengine.Context, *ActivateServiceInput, ...request.Option) (*ActivateServiceOutput, error)
+	ActivateServiceRequest(*ActivateServiceInput) (*request.Request, *ActivateServiceOutput)
+
+	AliasResourcePackCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	AliasResourcePackCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	AliasResourcePackCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	AliasResourcePack(*AliasResourcePackInput) (*AliasResourcePackOutput, error)
+	AliasResourcePackWithContext(volcengine.Context, *AliasResourcePackInput, ...request.Option) (*AliasResourcePackOutput, error)
+	AliasResourcePackRequest(*AliasResourcePackInput) (*request.Request, *AliasResourcePackOutput)
+
+	CreateAPIKeyCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateAPIKeyCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateAPIKeyCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateAPIKey(*CreateAPIKeyInput) (*CreateAPIKeyOutput, error)
+	CreateAPIKeyWithContext(volcengine.Context, *CreateAPIKeyInput, ...request.Option) (*CreateAPIKeyOutput, error)
+	CreateAPIKeyRequest(*CreateAPIKeyInput) (*request.Request, *CreateAPIKeyOutput)
+
+	DeleteAPIKeyCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeleteAPIKeyCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeleteAPIKeyCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeleteAPIKey(*DeleteAPIKeyInput) (*DeleteAPIKeyOutput, error)
+	DeleteAPIKeyWithContext(volcengine.Context, *DeleteAPIKeyInput, ...request.Option) (*DeleteAPIKeyOutput, error)
+	DeleteAPIKeyRequest(*DeleteAPIKeyInput) (*request.Request, *DeleteAPIKeyOutput)
+
+	FormalizeResourcePacksCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	FormalizeResourcePacksCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	FormalizeResourcePacksCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	FormalizeResourcePacks(*FormalizeResourcePacksInput) (*FormalizeResourcePacksOutput, error)
+	FormalizeResourcePacksWithContext(volcengine.Context, *FormalizeResourcePacksInput, ...request.Option) (*FormalizeResourcePacksOutput, error)
+	FormalizeResourcePacksRequest(*FormalizeResourcePacksInput) (*request.Request, *FormalizeResourcePacksOutput)
+
+	ListAPIKeysCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListAPIKeysCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListAPIKeysCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListAPIKeys(*ListAPIKeysInput) (*ListAPIKeysOutput, error)
+	ListAPIKeysWithContext(volcengine.Context, *ListAPIKeysInput, ...request.Option) (*ListAPIKeysOutput, error)
+	ListAPIKeysRequest(*ListAPIKeysInput) (*request.Request, *ListAPIKeysOutput)
+
 	ListBigModelTTSTimbresCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ListBigModelTTSTimbresCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	ListBigModelTTSTimbresCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -37,6 +85,62 @@ type SPEECHSAASPRODAPI interface {
 	ListBigModelTTSTimbres(*ListBigModelTTSTimbresInput) (*ListBigModelTTSTimbresOutput, error)
 	ListBigModelTTSTimbresWithContext(volcengine.Context, *ListBigModelTTSTimbresInput, ...request.Option) (*ListBigModelTTSTimbresOutput, error)
 	ListBigModelTTSTimbresRequest(*ListBigModelTTSTimbresInput) (*request.Request, *ListBigModelTTSTimbresOutput)
+
+	OrderResourcePacksCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	OrderResourcePacksCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	OrderResourcePacksCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	OrderResourcePacks(*OrderResourcePacksInput) (*OrderResourcePacksOutput, error)
+	OrderResourcePacksWithContext(volcengine.Context, *OrderResourcePacksInput, ...request.Option) (*OrderResourcePacksOutput, error)
+	OrderResourcePacksRequest(*OrderResourcePacksInput) (*request.Request, *OrderResourcePacksOutput)
+
+	PauseServiceCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	PauseServiceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	PauseServiceCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	PauseService(*PauseServiceInput) (*PauseServiceOutput, error)
+	PauseServiceWithContext(volcengine.Context, *PauseServiceInput, ...request.Option) (*PauseServiceOutput, error)
+	PauseServiceRequest(*PauseServiceInput) (*request.Request, *PauseServiceOutput)
+
+	ResourcePacksStatusCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ResourcePacksStatusCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ResourcePacksStatusCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ResourcePacksStatus(*ResourcePacksStatusInput) (*ResourcePacksStatusOutput, error)
+	ResourcePacksStatusWithContext(volcengine.Context, *ResourcePacksStatusInput, ...request.Option) (*ResourcePacksStatusOutput, error)
+	ResourcePacksStatusRequest(*ResourcePacksStatusInput) (*request.Request, *ResourcePacksStatusOutput)
+
+	ResumeServiceCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ResumeServiceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ResumeServiceCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ResumeService(*ResumeServiceInput) (*ResumeServiceOutput, error)
+	ResumeServiceWithContext(volcengine.Context, *ResumeServiceInput, ...request.Option) (*ResumeServiceOutput, error)
+	ResumeServiceRequest(*ResumeServiceInput) (*request.Request, *ResumeServiceOutput)
+
+	ServiceStatusCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ServiceStatusCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ServiceStatusCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ServiceStatus(*ServiceStatusInput) (*ServiceStatusOutput, error)
+	ServiceStatusWithContext(volcengine.Context, *ServiceStatusInput, ...request.Option) (*ServiceStatusOutput, error)
+	ServiceStatusRequest(*ServiceStatusInput) (*request.Request, *ServiceStatusOutput)
+
+	TerminateServiceCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	TerminateServiceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	TerminateServiceCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	TerminateService(*TerminateServiceInput) (*TerminateServiceOutput, error)
+	TerminateServiceWithContext(volcengine.Context, *TerminateServiceInput, ...request.Option) (*TerminateServiceOutput, error)
+	TerminateServiceRequest(*TerminateServiceInput) (*request.Request, *TerminateServiceOutput)
+
+	UpdateAPIKeyCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	UpdateAPIKeyCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	UpdateAPIKeyCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	UpdateAPIKey(*UpdateAPIKeyInput) (*UpdateAPIKeyOutput, error)
+	UpdateAPIKeyWithContext(volcengine.Context, *UpdateAPIKeyInput, ...request.Option) (*UpdateAPIKeyOutput, error)
+	UpdateAPIKeyRequest(*UpdateAPIKeyInput) (*request.Request, *UpdateAPIKeyOutput)
 }
 
 var _ SPEECHSAASPRODAPI = (*SPEECHSAASPROD)(nil)
