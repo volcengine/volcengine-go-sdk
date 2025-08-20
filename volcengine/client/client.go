@@ -61,8 +61,8 @@ func New(cfg volcengine.Config, info metadata.ClientInfo, handlers request.Handl
 	case ok:
 		svc.Retryer = retryer
 	case cfg.Retryer != nil && cfg.Logger != nil:
-		s := fmt.Sprintf("WARNING: %T does not implement request.Retryer; using DefaultRetryer instead", cfg.Retryer)
-		cfg.Logger.Log(s)
+		s := fmt.Sprintf("%T does not implement request.Retryer; using DefaultRetryer instead", cfg.Retryer)
+		cfg.Logger.Warn(s)
 		fallthrough
 	default:
 		maxRetries := volcengine.IntValue(cfg.MaxRetries)
@@ -93,11 +93,11 @@ func (c *Client) AddDebugHandlers() {
 	if !c.Config.LogLevel.AtLeast(volcengine.LogDebug) {
 		return
 	}
+	
 	if c.Config.LogLevel.Matches(volcengine.LogInfoWithInputAndOutput) ||
 		c.Config.LogLevel.Matches(volcengine.LogDebugWithInputAndOutput) {
 		c.Handlers.Send.PushFrontNamed(LogInputHandler)
 		c.Handlers.Complete.PushBackNamed(LogOutHandler)
-		return
 	}
 
 	c.Handlers.Send.PushFrontNamed(LogHTTPRequestHandler)

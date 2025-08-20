@@ -192,20 +192,27 @@ var AfterRetryHandler = request.NamedHandler{
 	Fn: func(r *request.Request) {
 		// If one of the other handlers already set the retry state
 		// we don't want to override it based on the service's state
+
+		logger := r.Config.Logger
+
 		if r.Retryable == nil || volcengine.BoolValue(r.Config.EnforceShouldRetryCheck) {
 			r.Retryable = volcengine.Bool(r.ShouldRetry(r))
 		}
 
 		if r.WillRetry() {
+			logger.DebugByLevel(volcengine.LogDebugWithRequestRetries, "[Retry] retry attempt", r.RetryCount+1, "of", r.MaxRetries(), "for request", r.RequestID, "with error", r.Error)
+
 			r.RetryDelay = r.RetryRules(r)
 
 			if sleepFn := r.Config.SleepDelay; sleepFn != nil {
 				// Support SleepDelay for backwards compatibility and testing
+				logger.DebugByLevel(volcengine.LogDebugWithRequestRetries, "[Retry] custom sleepFn, sleeping for", r.RetryDelay)
 				sleepFn(r.RetryDelay)
 			} else if err := volcengine.SleepWithContext(r.Context(), r.RetryDelay); err != nil {
 				r.Error = volcengineerr.New(request.CanceledErrorCode,
 					"request context canceled", err)
 				r.Retryable = volcengine.Bool(false)
+				logger.DebugByLevel(volcengine.LogDebugWithRequestRetries, "[Retry] canceled sleep", r.Error)
 				return
 			}
 
