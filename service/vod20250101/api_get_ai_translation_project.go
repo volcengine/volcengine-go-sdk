@@ -243,6 +243,60 @@ func (s *BackgroundClipForGetAITranslationProjectOutput) SetTranslationType(v st
 	return s
 }
 
+type ErasedSubtitleVideoForGetAITranslationProjectOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	DurationSecond *float64 `type:"double" json:",omitempty"`
+
+	IsAudio *bool `type:"boolean" json:",omitempty"`
+
+	Uri *string `type:"string" json:",omitempty"`
+
+	Url *string `type:"string" json:",omitempty"`
+
+	Vid *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s ErasedSubtitleVideoForGetAITranslationProjectOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ErasedSubtitleVideoForGetAITranslationProjectOutput) GoString() string {
+	return s.String()
+}
+
+// SetDurationSecond sets the DurationSecond field's value.
+func (s *ErasedSubtitleVideoForGetAITranslationProjectOutput) SetDurationSecond(v float64) *ErasedSubtitleVideoForGetAITranslationProjectOutput {
+	s.DurationSecond = &v
+	return s
+}
+
+// SetIsAudio sets the IsAudio field's value.
+func (s *ErasedSubtitleVideoForGetAITranslationProjectOutput) SetIsAudio(v bool) *ErasedSubtitleVideoForGetAITranslationProjectOutput {
+	s.IsAudio = &v
+	return s
+}
+
+// SetUri sets the Uri field's value.
+func (s *ErasedSubtitleVideoForGetAITranslationProjectOutput) SetUri(v string) *ErasedSubtitleVideoForGetAITranslationProjectOutput {
+	s.Uri = &v
+	return s
+}
+
+// SetUrl sets the Url field's value.
+func (s *ErasedSubtitleVideoForGetAITranslationProjectOutput) SetUrl(v string) *ErasedSubtitleVideoForGetAITranslationProjectOutput {
+	s.Url = &v
+	return s
+}
+
+// SetVid sets the Vid field's value.
+func (s *ErasedSubtitleVideoForGetAITranslationProjectOutput) SetVid(v string) *ErasedSubtitleVideoForGetAITranslationProjectOutput {
+	s.Vid = &v
+	return s
+}
+
 type FacialTranslationVideoForGetAITranslationProjectOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -678,6 +732,8 @@ type ProjectInfoForGetAITranslationProjectOutput struct {
 
 	CreatedAt *string `type:"string" json:",omitempty"`
 
+	ErasedSubtitleVideo *ErasedSubtitleVideoForGetAITranslationProjectOutput `type:"structure" json:",omitempty"`
+
 	ErrorCode *int32 `type:"int32" json:",omitempty"`
 
 	ErrorMsg *string `type:"string" json:",omitempty"`
@@ -756,6 +812,12 @@ func (s *ProjectInfoForGetAITranslationProjectOutput) SetBackgroundClip(v *Backg
 // SetCreatedAt sets the CreatedAt field's value.
 func (s *ProjectInfoForGetAITranslationProjectOutput) SetCreatedAt(v string) *ProjectInfoForGetAITranslationProjectOutput {
 	s.CreatedAt = &v
+	return s
+}
+
+// SetErasedSubtitleVideo sets the ErasedSubtitleVideo field's value.
+func (s *ProjectInfoForGetAITranslationProjectOutput) SetErasedSubtitleVideo(v *ErasedSubtitleVideoForGetAITranslationProjectOutput) *ProjectInfoForGetAITranslationProjectOutput {
+	s.ErasedSubtitleVideo = v
 	return s
 }
 
@@ -1221,6 +1283,8 @@ type SubtitleRecognitionConfigForGetAITranslationProjectOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
 	RecognitionType *string `type:"string" json:",omitempty"`
+
+	SubtitleFileName *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -1236,6 +1300,12 @@ func (s SubtitleRecognitionConfigForGetAITranslationProjectOutput) GoString() st
 // SetRecognitionType sets the RecognitionType field's value.
 func (s *SubtitleRecognitionConfigForGetAITranslationProjectOutput) SetRecognitionType(v string) *SubtitleRecognitionConfigForGetAITranslationProjectOutput {
 	s.RecognitionType = &v
+	return s
+}
+
+// SetSubtitleFileName sets the SubtitleFileName field's value.
+func (s *SubtitleRecognitionConfigForGetAITranslationProjectOutput) SetSubtitleFileName(v string) *SubtitleRecognitionConfigForGetAITranslationProjectOutput {
+	s.SubtitleFileName = &v
 	return s
 }
 

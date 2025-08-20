@@ -412,6 +412,8 @@ type ProjectForListAITranslationProjectOutput struct {
 
 	Status *string `type:"string"`
 
+	SubtitleConfig *SubtitleConfigForListAITranslationProjectOutput `type:"structure"`
+
 	TargetBlueprints []*TargetBlueprintForListAITranslationProjectOutput `type:"list"`
 
 	TranslationTypeList []*string `type:"list"`
@@ -503,6 +505,12 @@ func (s *ProjectForListAITranslationProjectOutput) SetStatus(v string) *ProjectF
 	return s
 }
 
+// SetSubtitleConfig sets the SubtitleConfig field's value.
+func (s *ProjectForListAITranslationProjectOutput) SetSubtitleConfig(v *SubtitleConfigForListAITranslationProjectOutput) *ProjectForListAITranslationProjectOutput {
+	s.SubtitleConfig = v
+	return s
+}
+
 // SetTargetBlueprints sets the TargetBlueprints field's value.
 func (s *ProjectForListAITranslationProjectOutput) SetTargetBlueprints(v []*TargetBlueprintForListAITranslationProjectOutput) *ProjectForListAITranslationProjectOutput {
 	s.TargetBlueprints = v
@@ -573,10 +581,82 @@ func (s *SourceBlueprintForListAITranslationProjectOutput) SetTranslationType(v 
 	return s
 }
 
+type SubtitleConfigForListAITranslationProjectOutput struct {
+	_ struct{} `type:"structure"`
+
+	FontSize *int32 `type:"int32"`
+
+	IsEraseSource *bool `type:"boolean"`
+
+	IsHardSubtitle *bool `type:"boolean"`
+
+	MarginL *float64 `type:"double"`
+
+	MarginR *float64 `type:"double"`
+
+	MarginV *float64 `type:"double"`
+
+	ShowLines *int32 `type:"int32"`
+}
+
+// String returns the string representation
+func (s SubtitleConfigForListAITranslationProjectOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s SubtitleConfigForListAITranslationProjectOutput) GoString() string {
+	return s.String()
+}
+
+// SetFontSize sets the FontSize field's value.
+func (s *SubtitleConfigForListAITranslationProjectOutput) SetFontSize(v int32) *SubtitleConfigForListAITranslationProjectOutput {
+	s.FontSize = &v
+	return s
+}
+
+// SetIsEraseSource sets the IsEraseSource field's value.
+func (s *SubtitleConfigForListAITranslationProjectOutput) SetIsEraseSource(v bool) *SubtitleConfigForListAITranslationProjectOutput {
+	s.IsEraseSource = &v
+	return s
+}
+
+// SetIsHardSubtitle sets the IsHardSubtitle field's value.
+func (s *SubtitleConfigForListAITranslationProjectOutput) SetIsHardSubtitle(v bool) *SubtitleConfigForListAITranslationProjectOutput {
+	s.IsHardSubtitle = &v
+	return s
+}
+
+// SetMarginL sets the MarginL field's value.
+func (s *SubtitleConfigForListAITranslationProjectOutput) SetMarginL(v float64) *SubtitleConfigForListAITranslationProjectOutput {
+	s.MarginL = &v
+	return s
+}
+
+// SetMarginR sets the MarginR field's value.
+func (s *SubtitleConfigForListAITranslationProjectOutput) SetMarginR(v float64) *SubtitleConfigForListAITranslationProjectOutput {
+	s.MarginR = &v
+	return s
+}
+
+// SetMarginV sets the MarginV field's value.
+func (s *SubtitleConfigForListAITranslationProjectOutput) SetMarginV(v float64) *SubtitleConfigForListAITranslationProjectOutput {
+	s.MarginV = &v
+	return s
+}
+
+// SetShowLines sets the ShowLines field's value.
+func (s *SubtitleConfigForListAITranslationProjectOutput) SetShowLines(v int32) *SubtitleConfigForListAITranslationProjectOutput {
+	s.ShowLines = &v
+	return s
+}
+
 type SubtitleRecognitionConfigForListAITranslationProjectOutput struct {
 	_ struct{} `type:"structure"`
 
 	RecognitionType *string `type:"string"`
+
+	SubtitleFileName *string `type:"string"`
 }
 
 // String returns the string representation
@@ -592,6 +672,12 @@ func (s SubtitleRecognitionConfigForListAITranslationProjectOutput) GoString() s
 // SetRecognitionType sets the RecognitionType field's value.
 func (s *SubtitleRecognitionConfigForListAITranslationProjectOutput) SetRecognitionType(v string) *SubtitleRecognitionConfigForListAITranslationProjectOutput {
 	s.RecognitionType = &v
+	return s
+}
+
+// SetSubtitleFileName sets the SubtitleFileName field's value.
+func (s *SubtitleRecognitionConfigForListAITranslationProjectOutput) SetSubtitleFileName(v string) *SubtitleRecognitionConfigForListAITranslationProjectOutput {
+	s.SubtitleFileName = &v
 	return s
 }
 
