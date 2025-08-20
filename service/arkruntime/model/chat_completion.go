@@ -37,11 +37,18 @@ const (
 	ChatCompletionMessageContentPartTypeVideoURL ChatCompletionMessageContentPartType = "video_url"
 )
 
+// CacheControlConfig for anthropic prompt cache control
+type CacheControlConfig struct {
+	Type string `json:"type,omitempty"`
+	TTL  string `json:"ttl,omitempty"`
+}
+
 type ChatCompletionMessageContentPart struct {
-	Type     ChatCompletionMessageContentPartType `json:"type,omitempty"`
-	Text     string                               `json:"text,omitempty"`
-	ImageURL *ChatMessageImageURL                 `json:"image_url,omitempty"`
-	VideoURL *ChatMessageVideoURL                 `json:"video_url,omitempty"`
+	Type         ChatCompletionMessageContentPartType `json:"type,omitempty"`
+	Text         string                               `json:"text,omitempty"`
+	ImageURL     *ChatMessageImageURL                 `json:"image_url,omitempty"`
+	VideoURL     *ChatMessageVideoURL                 `json:"video_url,omitempty"`
+	CacheControl *CacheControlConfig                  `json:"cache_control,omitempty"`
 }
 
 type ChatCompletionMessageContent struct {
@@ -89,10 +96,11 @@ type ChatCompletionMessage struct {
 }
 
 type ToolCall struct {
-	ID       string       `json:"id"`
-	Type     ToolType     `json:"type"`
-	Function FunctionCall `json:"function"`
-	Index    *int         `json:"index,omitempty"`
+	ID           string              `json:"id"`
+	Type         ToolType            `json:"type"`
+	Function     FunctionCall        `json:"function"`
+	Index        *int                `json:"index,omitempty"`
+	CacheControl *CacheControlConfig `json:"cache_control,omitempty"`
 }
 
 type FunctionCall struct {
