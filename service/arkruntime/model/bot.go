@@ -22,6 +22,7 @@ type BotChatCompletionRequest struct {
 	RepetitionPenalty float32                  `json:"repetition_penalty,omitempty"`
 	N                 int                      `json:"n,omitempty"`
 	ResponseFormat    *ResponseFormat          `json:"response_format,omitempty"`
+	Thinking          *Thinking                `json:"thinking,omitempty"`
 	Metadata          map[string]interface{}   `json:"metadata,omitempty"`
 }
 
