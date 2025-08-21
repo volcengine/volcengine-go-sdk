@@ -38,6 +38,14 @@ type VOD20250101API interface {
 	ContinueAITranslationWorkflowWithContext(volcengine.Context, *ContinueAITranslationWorkflowInput, ...request.Option) (*ContinueAITranslationWorkflowOutput, error)
 	ContinueAITranslationWorkflowRequest(*ContinueAITranslationWorkflowInput) (*request.Request, *ContinueAITranslationWorkflowOutput)
 
+	GenerateAITranslationUtteranceAudioCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	GenerateAITranslationUtteranceAudioCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	GenerateAITranslationUtteranceAudioCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	GenerateAITranslationUtteranceAudio(*GenerateAITranslationUtteranceAudioInput) (*GenerateAITranslationUtteranceAudioOutput, error)
+	GenerateAITranslationUtteranceAudioWithContext(volcengine.Context, *GenerateAITranslationUtteranceAudioInput, ...request.Option) (*GenerateAITranslationUtteranceAudioOutput, error)
+	GenerateAITranslationUtteranceAudioRequest(*GenerateAITranslationUtteranceAudioInput) (*request.Request, *GenerateAITranslationUtteranceAudioOutput)
+
 	GetAITranslationProjectCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	GetAITranslationProjectCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	GetAITranslationProjectCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -85,6 +93,14 @@ type VOD20250101API interface {
 	SubmitAITranslationWorkflow(*SubmitAITranslationWorkflowInput) (*SubmitAITranslationWorkflowOutput, error)
 	SubmitAITranslationWorkflowWithContext(volcengine.Context, *SubmitAITranslationWorkflowInput, ...request.Option) (*SubmitAITranslationWorkflowOutput, error)
 	SubmitAITranslationWorkflowRequest(*SubmitAITranslationWorkflowInput) (*request.Request, *SubmitAITranslationWorkflowOutput)
+
+	UpdateAITranslationSpeakersCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	UpdateAITranslationSpeakersCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	UpdateAITranslationSpeakersCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	UpdateAITranslationSpeakers(*UpdateAITranslationSpeakersInput) (*UpdateAITranslationSpeakersOutput, error)
+	UpdateAITranslationSpeakersWithContext(volcengine.Context, *UpdateAITranslationSpeakersInput, ...request.Option) (*UpdateAITranslationSpeakersOutput, error)
+	UpdateAITranslationSpeakersRequest(*UpdateAITranslationSpeakersInput) (*request.Request, *UpdateAITranslationSpeakersOutput)
 
 	UpdateAITranslationUtterancesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	UpdateAITranslationUtterancesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)

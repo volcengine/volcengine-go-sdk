@@ -395,6 +395,8 @@ type SubtitleRecognitionConfigForSubmitAITranslationWorkflowInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
 	RecognitionType *string `type:"string" json:",omitempty"`
+
+	SubtitleFileName *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -410,6 +412,12 @@ func (s SubtitleRecognitionConfigForSubmitAITranslationWorkflowInput) GoString()
 // SetRecognitionType sets the RecognitionType field's value.
 func (s *SubtitleRecognitionConfigForSubmitAITranslationWorkflowInput) SetRecognitionType(v string) *SubtitleRecognitionConfigForSubmitAITranslationWorkflowInput {
 	s.RecognitionType = &v
+	return s
+}
+
+// SetSubtitleFileName sets the SubtitleFileName field's value.
+func (s *SubtitleRecognitionConfigForSubmitAITranslationWorkflowInput) SetSubtitleFileName(v string) *SubtitleRecognitionConfigForSubmitAITranslationWorkflowInput {
+	s.SubtitleFileName = &v
 	return s
 }
 
