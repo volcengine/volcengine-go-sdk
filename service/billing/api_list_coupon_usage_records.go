@@ -246,7 +246,7 @@ func (s *ListCouponUsageRecordsOutput) SetTotal(v int32) *ListCouponUsageRecords
 type ListForListCouponUsageRecordsOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	AccountID *int32 `type:"int32" json:",omitempty"`
+	AccountID *int64 `type:"int64" json:",omitempty"`
 
 	ChangeAmount *float64 `type:"double" json:",omitempty"`
 
@@ -264,7 +264,7 @@ type ListForListCouponUsageRecordsOutput struct {
 
 	SubBusinessID *string `type:"string" json:",omitempty"`
 
-	UserAccountID *int32 `type:"int32" json:",omitempty"`
+	UserAccountID *int64 `type:"int64" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -278,7 +278,7 @@ func (s ListForListCouponUsageRecordsOutput) GoString() string {
 }
 
 // SetAccountID sets the AccountID field's value.
-func (s *ListForListCouponUsageRecordsOutput) SetAccountID(v int32) *ListForListCouponUsageRecordsOutput {
+func (s *ListForListCouponUsageRecordsOutput) SetAccountID(v int64) *ListForListCouponUsageRecordsOutput {
 	s.AccountID = &v
 	return s
 }
@@ -332,7 +332,7 @@ func (s *ListForListCouponUsageRecordsOutput) SetSubBusinessID(v string) *ListFo
 }
 
 // SetUserAccountID sets the UserAccountID field's value.
-func (s *ListForListCouponUsageRecordsOutput) SetUserAccountID(v int32) *ListForListCouponUsageRecordsOutput {
+func (s *ListForListCouponUsageRecordsOutput) SetUserAccountID(v int64) *ListForListCouponUsageRecordsOutput {
 	s.UserAccountID = &v
 	return s
 }
