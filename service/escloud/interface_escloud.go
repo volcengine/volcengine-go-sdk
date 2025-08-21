@@ -78,6 +78,14 @@ type ESCLOUDAPI interface {
 	DescribeInstancesWithContext(volcengine.Context, *DescribeInstancesInput, ...request.Option) (*DescribeInstancesOutput, error)
 	DescribeInstancesRequest(*DescribeInstancesInput) (*request.Request, *DescribeInstancesOutput)
 
+	DescribeIpAllowListCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeIpAllowListCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeIpAllowListCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeIpAllowList(*DescribeIpAllowListInput) (*DescribeIpAllowListOutput, error)
+	DescribeIpAllowListWithContext(volcengine.Context, *DescribeIpAllowListInput, ...request.Option) (*DescribeIpAllowListOutput, error)
+	DescribeIpAllowListRequest(*DescribeIpAllowListInput) (*request.Request, *DescribeIpAllowListOutput)
+
 	DescribeNodeAvailableSpecsCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DescribeNodeAvailableSpecsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DescribeNodeAvailableSpecsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -125,6 +133,14 @@ type ESCLOUDAPI interface {
 	ModifyIpAllowList(*ModifyIpAllowListInput) (*ModifyIpAllowListOutput, error)
 	ModifyIpAllowListWithContext(volcengine.Context, *ModifyIpAllowListInput, ...request.Option) (*ModifyIpAllowListOutput, error)
 	ModifyIpAllowListRequest(*ModifyIpAllowListInput) (*request.Request, *ModifyIpAllowListOutput)
+
+	ModifyIpAllowListV2Common(*map[string]interface{}) (*map[string]interface{}, error)
+	ModifyIpAllowListV2CommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ModifyIpAllowListV2CommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ModifyIpAllowListV2(*ModifyIpAllowListV2Input) (*ModifyIpAllowListV2Output, error)
+	ModifyIpAllowListV2WithContext(volcengine.Context, *ModifyIpAllowListV2Input, ...request.Option) (*ModifyIpAllowListV2Output, error)
+	ModifyIpAllowListV2Request(*ModifyIpAllowListV2Input) (*request.Request, *ModifyIpAllowListV2Output)
 
 	ModifyMaintenanceSettingCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ModifyMaintenanceSettingCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
