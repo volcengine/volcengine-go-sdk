@@ -174,6 +174,8 @@ type DataForListEventRulesOutput struct {
 
 	MessageQueue *MessageQueueForListEventRulesOutput `type:"structure" json:",omitempty"`
 
+	NotifyTemplates []*NotifyTemplateForListEventRulesOutput `type:"list" json:",omitempty"`
+
 	Region *string `type:"string" json:",omitempty"`
 
 	RuleId *string `type:"string" json:",omitempty"`
@@ -280,6 +282,12 @@ func (s *DataForListEventRulesOutput) SetLevel(v string) *DataForListEventRulesO
 // SetMessageQueue sets the MessageQueue field's value.
 func (s *DataForListEventRulesOutput) SetMessageQueue(v *MessageQueueForListEventRulesOutput) *DataForListEventRulesOutput {
 	s.MessageQueue = v
+	return s
+}
+
+// SetNotifyTemplates sets the NotifyTemplates field's value.
+func (s *DataForListEventRulesOutput) SetNotifyTemplates(v []*NotifyTemplateForListEventRulesOutput) *DataForListEventRulesOutput {
+	s.NotifyTemplates = v
 	return s
 }
 
@@ -513,6 +521,36 @@ func (s *MessageQueueForListEventRulesOutput) SetVpcId(v string) *MessageQueueFo
 	return s
 }
 
+type NotifyTemplateForListEventRulesOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Channel *string `type:"string" json:",omitempty" enum:"EnumOfChannelForListEventRulesOutput"`
+
+	NotifyTemplateId *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s NotifyTemplateForListEventRulesOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s NotifyTemplateForListEventRulesOutput) GoString() string {
+	return s.String()
+}
+
+// SetChannel sets the Channel field's value.
+func (s *NotifyTemplateForListEventRulesOutput) SetChannel(v string) *NotifyTemplateForListEventRulesOutput {
+	s.Channel = &v
+	return s
+}
+
+// SetNotifyTemplateId sets the NotifyTemplateId field's value.
+func (s *NotifyTemplateForListEventRulesOutput) SetNotifyTemplateId(v string) *NotifyTemplateForListEventRulesOutput {
+	s.NotifyTemplateId = &v
+	return s
+}
+
 type TLSTargetForListEventRulesOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -566,3 +604,29 @@ func (s *TLSTargetForListEventRulesOutput) SetTopicId(v string) *TLSTargetForLis
 	s.TopicId = &v
 	return s
 }
+
+const (
+	// EnumOfChannelForListEventRulesOutputEmail is a EnumOfChannelForListEventRulesOutput enum value
+	EnumOfChannelForListEventRulesOutputEmail = "email"
+
+	// EnumOfChannelForListEventRulesOutputSms is a EnumOfChannelForListEventRulesOutput enum value
+	EnumOfChannelForListEventRulesOutputSms = "sms"
+
+	// EnumOfChannelForListEventRulesOutputPhone is a EnumOfChannelForListEventRulesOutput enum value
+	EnumOfChannelForListEventRulesOutputPhone = "phone"
+
+	// EnumOfChannelForListEventRulesOutputLark is a EnumOfChannelForListEventRulesOutput enum value
+	EnumOfChannelForListEventRulesOutputLark = "lark"
+
+	// EnumOfChannelForListEventRulesOutputDingtalk is a EnumOfChannelForListEventRulesOutput enum value
+	EnumOfChannelForListEventRulesOutputDingtalk = "dingtalk"
+
+	// EnumOfChannelForListEventRulesOutputWecom is a EnumOfChannelForListEventRulesOutput enum value
+	EnumOfChannelForListEventRulesOutputWecom = "wecom"
+
+	// EnumOfChannelForListEventRulesOutputSlack is a EnumOfChannelForListEventRulesOutput enum value
+	EnumOfChannelForListEventRulesOutputSlack = "slack"
+
+	// EnumOfChannelForListEventRulesOutputApi is a EnumOfChannelForListEventRulesOutput enum value
+	EnumOfChannelForListEventRulesOutputApi = "api"
+)

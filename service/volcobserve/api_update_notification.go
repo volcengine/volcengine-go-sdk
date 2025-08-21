@@ -152,6 +152,8 @@ type NotificationForUpdateNotificationInput struct {
 
 	Level *string `type:"string" json:",omitempty" enum:"EnumOfLevelForUpdateNotificationInput"`
 
+	NotifyTemplates []*NotifyTemplateForUpdateNotificationInput `type:"list" json:",omitempty"`
+
 	WebhookIds []*string `type:"list" json:",omitempty"`
 }
 
@@ -183,9 +185,45 @@ func (s *NotificationForUpdateNotificationInput) SetLevel(v string) *Notificatio
 	return s
 }
 
+// SetNotifyTemplates sets the NotifyTemplates field's value.
+func (s *NotificationForUpdateNotificationInput) SetNotifyTemplates(v []*NotifyTemplateForUpdateNotificationInput) *NotificationForUpdateNotificationInput {
+	s.NotifyTemplates = v
+	return s
+}
+
 // SetWebhookIds sets the WebhookIds field's value.
 func (s *NotificationForUpdateNotificationInput) SetWebhookIds(v []*string) *NotificationForUpdateNotificationInput {
 	s.WebhookIds = v
+	return s
+}
+
+type NotifyTemplateForUpdateNotificationInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Channel *string `type:"string" json:",omitempty" enum:"EnumOfChannelForUpdateNotificationInput"`
+
+	NotifyTemplateId *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s NotifyTemplateForUpdateNotificationInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s NotifyTemplateForUpdateNotificationInput) GoString() string {
+	return s.String()
+}
+
+// SetChannel sets the Channel field's value.
+func (s *NotifyTemplateForUpdateNotificationInput) SetChannel(v string) *NotifyTemplateForUpdateNotificationInput {
+	s.Channel = &v
+	return s
+}
+
+// SetNotifyTemplateId sets the NotifyTemplateId field's value.
+func (s *NotifyTemplateForUpdateNotificationInput) SetNotifyTemplateId(v string) *NotifyTemplateForUpdateNotificationInput {
+	s.NotifyTemplateId = &v
 	return s
 }
 
@@ -305,6 +343,32 @@ const (
 
 	// EnumOfAlertMethodListForUpdateNotificationInputWebhook is a EnumOfAlertMethodListForUpdateNotificationInput enum value
 	EnumOfAlertMethodListForUpdateNotificationInputWebhook = "Webhook"
+)
+
+const (
+	// EnumOfChannelForUpdateNotificationInputEmail is a EnumOfChannelForUpdateNotificationInput enum value
+	EnumOfChannelForUpdateNotificationInputEmail = "email"
+
+	// EnumOfChannelForUpdateNotificationInputSms is a EnumOfChannelForUpdateNotificationInput enum value
+	EnumOfChannelForUpdateNotificationInputSms = "sms"
+
+	// EnumOfChannelForUpdateNotificationInputPhone is a EnumOfChannelForUpdateNotificationInput enum value
+	EnumOfChannelForUpdateNotificationInputPhone = "phone"
+
+	// EnumOfChannelForUpdateNotificationInputLark is a EnumOfChannelForUpdateNotificationInput enum value
+	EnumOfChannelForUpdateNotificationInputLark = "lark"
+
+	// EnumOfChannelForUpdateNotificationInputDingtalk is a EnumOfChannelForUpdateNotificationInput enum value
+	EnumOfChannelForUpdateNotificationInputDingtalk = "dingtalk"
+
+	// EnumOfChannelForUpdateNotificationInputWecom is a EnumOfChannelForUpdateNotificationInput enum value
+	EnumOfChannelForUpdateNotificationInputWecom = "wecom"
+
+	// EnumOfChannelForUpdateNotificationInputSlack is a EnumOfChannelForUpdateNotificationInput enum value
+	EnumOfChannelForUpdateNotificationInputSlack = "slack"
+
+	// EnumOfChannelForUpdateNotificationInputApi is a EnumOfChannelForUpdateNotificationInput enum value
+	EnumOfChannelForUpdateNotificationInputApi = "api"
 )
 
 const (

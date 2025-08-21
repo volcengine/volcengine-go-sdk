@@ -282,6 +282,8 @@ type DataForListRulesByIdsOutput struct {
 
 	NotificationId *string `type:"string" json:",omitempty"`
 
+	NotifyTemplates []*NotifyTemplateForListRulesByIdsOutput `type:"list" json:",omitempty"`
+
 	OriginalDimensions map[string][]*string `type:"map" json:",omitempty"`
 
 	ProjectName *string `type:"string" json:",omitempty"`
@@ -289,6 +291,8 @@ type DataForListRulesByIdsOutput struct {
 	RecoveryNotify *RecoveryNotifyForListRulesByIdsOutput `type:"structure" json:",omitempty"`
 
 	Regions []*string `type:"list" json:",omitempty"`
+
+	ResourceType *string `type:"string" json:",omitempty"`
 
 	RuleName *string `type:"string" json:",omitempty"`
 
@@ -425,6 +429,12 @@ func (s *DataForListRulesByIdsOutput) SetNotificationId(v string) *DataForListRu
 	return s
 }
 
+// SetNotifyTemplates sets the NotifyTemplates field's value.
+func (s *DataForListRulesByIdsOutput) SetNotifyTemplates(v []*NotifyTemplateForListRulesByIdsOutput) *DataForListRulesByIdsOutput {
+	s.NotifyTemplates = v
+	return s
+}
+
 // SetOriginalDimensions sets the OriginalDimensions field's value.
 func (s *DataForListRulesByIdsOutput) SetOriginalDimensions(v map[string][]*string) *DataForListRulesByIdsOutput {
 	s.OriginalDimensions = v
@@ -446,6 +456,12 @@ func (s *DataForListRulesByIdsOutput) SetRecoveryNotify(v *RecoveryNotifyForList
 // SetRegions sets the Regions field's value.
 func (s *DataForListRulesByIdsOutput) SetRegions(v []*string) *DataForListRulesByIdsOutput {
 	s.Regions = v
+	return s
+}
+
+// SetResourceType sets the ResourceType field's value.
+func (s *DataForListRulesByIdsOutput) SetResourceType(v string) *DataForListRulesByIdsOutput {
+	s.ResourceType = &v
 	return s
 }
 
@@ -695,6 +711,36 @@ func (s *MetaForListRulesByIdsOutput) SetValues(v []*string) *MetaForListRulesBy
 	return s
 }
 
+type NotifyTemplateForListRulesByIdsOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Channel *string `type:"string" json:",omitempty" enum:"EnumOfChannelForListRulesByIdsOutput"`
+
+	NotifyTemplateId *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s NotifyTemplateForListRulesByIdsOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s NotifyTemplateForListRulesByIdsOutput) GoString() string {
+	return s.String()
+}
+
+// SetChannel sets the Channel field's value.
+func (s *NotifyTemplateForListRulesByIdsOutput) SetChannel(v string) *NotifyTemplateForListRulesByIdsOutput {
+	s.Channel = &v
+	return s
+}
+
+// SetNotifyTemplateId sets the NotifyTemplateId field's value.
+func (s *NotifyTemplateForListRulesByIdsOutput) SetNotifyTemplateId(v string) *NotifyTemplateForListRulesByIdsOutput {
+	s.NotifyTemplateId = &v
+	return s
+}
+
 type ProjectConditionForListRulesByIdsOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -806,3 +852,29 @@ func (s *TagForListRulesByIdsOutput) SetValues(v []*string) *TagForListRulesById
 	s.Values = v
 	return s
 }
+
+const (
+	// EnumOfChannelForListRulesByIdsOutputEmail is a EnumOfChannelForListRulesByIdsOutput enum value
+	EnumOfChannelForListRulesByIdsOutputEmail = "email"
+
+	// EnumOfChannelForListRulesByIdsOutputSms is a EnumOfChannelForListRulesByIdsOutput enum value
+	EnumOfChannelForListRulesByIdsOutputSms = "sms"
+
+	// EnumOfChannelForListRulesByIdsOutputPhone is a EnumOfChannelForListRulesByIdsOutput enum value
+	EnumOfChannelForListRulesByIdsOutputPhone = "phone"
+
+	// EnumOfChannelForListRulesByIdsOutputLark is a EnumOfChannelForListRulesByIdsOutput enum value
+	EnumOfChannelForListRulesByIdsOutputLark = "lark"
+
+	// EnumOfChannelForListRulesByIdsOutputDingtalk is a EnumOfChannelForListRulesByIdsOutput enum value
+	EnumOfChannelForListRulesByIdsOutputDingtalk = "dingtalk"
+
+	// EnumOfChannelForListRulesByIdsOutputWecom is a EnumOfChannelForListRulesByIdsOutput enum value
+	EnumOfChannelForListRulesByIdsOutputWecom = "wecom"
+
+	// EnumOfChannelForListRulesByIdsOutputSlack is a EnumOfChannelForListRulesByIdsOutput enum value
+	EnumOfChannelForListRulesByIdsOutputSlack = "slack"
+
+	// EnumOfChannelForListRulesByIdsOutputApi is a EnumOfChannelForListRulesByIdsOutput enum value
+	EnumOfChannelForListRulesByIdsOutputApi = "api"
+)

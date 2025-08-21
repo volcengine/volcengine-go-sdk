@@ -282,6 +282,8 @@ type DataForListRulesOutput struct {
 
 	NotificationId *string `type:"string" json:",omitempty"`
 
+	NotifyTemplates []*NotifyTemplateForListRulesOutput `type:"list" json:",omitempty"`
+
 	OriginalDimensions map[string][]*string `type:"map" json:",omitempty"`
 
 	ProjectName *string `type:"string" json:",omitempty"`
@@ -289,6 +291,8 @@ type DataForListRulesOutput struct {
 	RecoveryNotify *RecoveryNotifyForListRulesOutput `type:"structure" json:",omitempty"`
 
 	Regions []*string `type:"list" json:",omitempty"`
+
+	ResourceType *string `type:"string" json:",omitempty"`
 
 	RuleName *string `type:"string" json:",omitempty"`
 
@@ -425,6 +429,12 @@ func (s *DataForListRulesOutput) SetNotificationId(v string) *DataForListRulesOu
 	return s
 }
 
+// SetNotifyTemplates sets the NotifyTemplates field's value.
+func (s *DataForListRulesOutput) SetNotifyTemplates(v []*NotifyTemplateForListRulesOutput) *DataForListRulesOutput {
+	s.NotifyTemplates = v
+	return s
+}
+
 // SetOriginalDimensions sets the OriginalDimensions field's value.
 func (s *DataForListRulesOutput) SetOriginalDimensions(v map[string][]*string) *DataForListRulesOutput {
 	s.OriginalDimensions = v
@@ -446,6 +456,12 @@ func (s *DataForListRulesOutput) SetRecoveryNotify(v *RecoveryNotifyForListRules
 // SetRegions sets the Regions field's value.
 func (s *DataForListRulesOutput) SetRegions(v []*string) *DataForListRulesOutput {
 	s.Regions = v
+	return s
+}
+
+// SetResourceType sets the ResourceType field's value.
+func (s *DataForListRulesOutput) SetResourceType(v string) *DataForListRulesOutput {
+	s.ResourceType = &v
 	return s
 }
 
@@ -775,6 +791,36 @@ func (s *MetaForListRulesOutput) SetValues(v []*string) *MetaForListRulesOutput 
 	return s
 }
 
+type NotifyTemplateForListRulesOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Channel *string `type:"string" json:",omitempty" enum:"EnumOfChannelForListRulesOutput"`
+
+	NotifyTemplateId *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s NotifyTemplateForListRulesOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s NotifyTemplateForListRulesOutput) GoString() string {
+	return s.String()
+}
+
+// SetChannel sets the Channel field's value.
+func (s *NotifyTemplateForListRulesOutput) SetChannel(v string) *NotifyTemplateForListRulesOutput {
+	s.Channel = &v
+	return s
+}
+
+// SetNotifyTemplateId sets the NotifyTemplateId field's value.
+func (s *NotifyTemplateForListRulesOutput) SetNotifyTemplateId(v string) *NotifyTemplateForListRulesOutput {
+	s.NotifyTemplateId = &v
+	return s
+}
+
 type ProjectConditionForListRulesOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -886,3 +932,29 @@ func (s *TagForListRulesOutput) SetValues(v []*string) *TagForListRulesOutput {
 	s.Values = v
 	return s
 }
+
+const (
+	// EnumOfChannelForListRulesOutputEmail is a EnumOfChannelForListRulesOutput enum value
+	EnumOfChannelForListRulesOutputEmail = "email"
+
+	// EnumOfChannelForListRulesOutputSms is a EnumOfChannelForListRulesOutput enum value
+	EnumOfChannelForListRulesOutputSms = "sms"
+
+	// EnumOfChannelForListRulesOutputPhone is a EnumOfChannelForListRulesOutput enum value
+	EnumOfChannelForListRulesOutputPhone = "phone"
+
+	// EnumOfChannelForListRulesOutputLark is a EnumOfChannelForListRulesOutput enum value
+	EnumOfChannelForListRulesOutputLark = "lark"
+
+	// EnumOfChannelForListRulesOutputDingtalk is a EnumOfChannelForListRulesOutput enum value
+	EnumOfChannelForListRulesOutputDingtalk = "dingtalk"
+
+	// EnumOfChannelForListRulesOutputWecom is a EnumOfChannelForListRulesOutput enum value
+	EnumOfChannelForListRulesOutputWecom = "wecom"
+
+	// EnumOfChannelForListRulesOutputSlack is a EnumOfChannelForListRulesOutput enum value
+	EnumOfChannelForListRulesOutputSlack = "slack"
+
+	// EnumOfChannelForListRulesOutputApi is a EnumOfChannelForListRulesOutput enum value
+	EnumOfChannelForListRulesOutputApi = "api"
+)

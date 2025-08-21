@@ -156,6 +156,8 @@ type ApplyObjectForApplyObjectGroupsByAlertTemplateInput struct {
 
 	NotificationId *string `type:"string" json:",omitempty"`
 
+	NotifyTemplates []*NotifyTemplateForApplyObjectGroupsByAlertTemplateInput `type:"list" json:",omitempty"`
+
 	ObjectGroupId *string `type:"string" json:",omitempty"`
 
 	Webhook *string `type:"string" json:",omitempty"`
@@ -200,6 +202,12 @@ func (s *ApplyObjectForApplyObjectGroupsByAlertTemplateInput) SetEffectStartAt(v
 // SetNotificationId sets the NotificationId field's value.
 func (s *ApplyObjectForApplyObjectGroupsByAlertTemplateInput) SetNotificationId(v string) *ApplyObjectForApplyObjectGroupsByAlertTemplateInput {
 	s.NotificationId = &v
+	return s
+}
+
+// SetNotifyTemplates sets the NotifyTemplates field's value.
+func (s *ApplyObjectForApplyObjectGroupsByAlertTemplateInput) SetNotifyTemplates(v []*NotifyTemplateForApplyObjectGroupsByAlertTemplateInput) *ApplyObjectForApplyObjectGroupsByAlertTemplateInput {
+	s.NotifyTemplates = v
 	return s
 }
 
@@ -300,3 +308,59 @@ func (s *ApplyObjectGroupsByAlertTemplateOutput) SetData(v []*string) *ApplyObje
 	s.Data = v
 	return s
 }
+
+type NotifyTemplateForApplyObjectGroupsByAlertTemplateInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Channel *string `type:"string" json:",omitempty" enum:"EnumOfChannelForApplyObjectGroupsByAlertTemplateInput"`
+
+	NotifyTemplateId *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s NotifyTemplateForApplyObjectGroupsByAlertTemplateInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s NotifyTemplateForApplyObjectGroupsByAlertTemplateInput) GoString() string {
+	return s.String()
+}
+
+// SetChannel sets the Channel field's value.
+func (s *NotifyTemplateForApplyObjectGroupsByAlertTemplateInput) SetChannel(v string) *NotifyTemplateForApplyObjectGroupsByAlertTemplateInput {
+	s.Channel = &v
+	return s
+}
+
+// SetNotifyTemplateId sets the NotifyTemplateId field's value.
+func (s *NotifyTemplateForApplyObjectGroupsByAlertTemplateInput) SetNotifyTemplateId(v string) *NotifyTemplateForApplyObjectGroupsByAlertTemplateInput {
+	s.NotifyTemplateId = &v
+	return s
+}
+
+const (
+	// EnumOfChannelForApplyObjectGroupsByAlertTemplateInputEmail is a EnumOfChannelForApplyObjectGroupsByAlertTemplateInput enum value
+	EnumOfChannelForApplyObjectGroupsByAlertTemplateInputEmail = "email"
+
+	// EnumOfChannelForApplyObjectGroupsByAlertTemplateInputSms is a EnumOfChannelForApplyObjectGroupsByAlertTemplateInput enum value
+	EnumOfChannelForApplyObjectGroupsByAlertTemplateInputSms = "sms"
+
+	// EnumOfChannelForApplyObjectGroupsByAlertTemplateInputPhone is a EnumOfChannelForApplyObjectGroupsByAlertTemplateInput enum value
+	EnumOfChannelForApplyObjectGroupsByAlertTemplateInputPhone = "phone"
+
+	// EnumOfChannelForApplyObjectGroupsByAlertTemplateInputLark is a EnumOfChannelForApplyObjectGroupsByAlertTemplateInput enum value
+	EnumOfChannelForApplyObjectGroupsByAlertTemplateInputLark = "lark"
+
+	// EnumOfChannelForApplyObjectGroupsByAlertTemplateInputDingtalk is a EnumOfChannelForApplyObjectGroupsByAlertTemplateInput enum value
+	EnumOfChannelForApplyObjectGroupsByAlertTemplateInputDingtalk = "dingtalk"
+
+	// EnumOfChannelForApplyObjectGroupsByAlertTemplateInputWecom is a EnumOfChannelForApplyObjectGroupsByAlertTemplateInput enum value
+	EnumOfChannelForApplyObjectGroupsByAlertTemplateInputWecom = "wecom"
+
+	// EnumOfChannelForApplyObjectGroupsByAlertTemplateInputSlack is a EnumOfChannelForApplyObjectGroupsByAlertTemplateInput enum value
+	EnumOfChannelForApplyObjectGroupsByAlertTemplateInputSlack = "slack"
+
+	// EnumOfChannelForApplyObjectGroupsByAlertTemplateInputApi is a EnumOfChannelForApplyObjectGroupsByAlertTemplateInput enum value
+	EnumOfChannelForApplyObjectGroupsByAlertTemplateInputApi = "api"
+)
