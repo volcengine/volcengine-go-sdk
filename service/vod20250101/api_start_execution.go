@@ -173,6 +173,52 @@ func (s *AdAuditForStartExecutionInput) SetBusinessType(v string) *AdAuditForSta
 	return s
 }
 
+type AreaForStartExecutionInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	BottomRightX *float64 `type:"double" json:",omitempty"`
+
+	BottomRightY *float64 `type:"double" json:",omitempty"`
+
+	TopLeftX *float64 `type:"double" json:",omitempty"`
+
+	TopLeftY *float64 `type:"double" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s AreaForStartExecutionInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s AreaForStartExecutionInput) GoString() string {
+	return s.String()
+}
+
+// SetBottomRightX sets the BottomRightX field's value.
+func (s *AreaForStartExecutionInput) SetBottomRightX(v float64) *AreaForStartExecutionInput {
+	s.BottomRightX = &v
+	return s
+}
+
+// SetBottomRightY sets the BottomRightY field's value.
+func (s *AreaForStartExecutionInput) SetBottomRightY(v float64) *AreaForStartExecutionInput {
+	s.BottomRightY = &v
+	return s
+}
+
+// SetTopLeftX sets the TopLeftX field's value.
+func (s *AreaForStartExecutionInput) SetTopLeftX(v float64) *AreaForStartExecutionInput {
+	s.TopLeftX = &v
+	return s
+}
+
+// SetTopLeftY sets the TopLeftY field's value.
+func (s *AreaForStartExecutionInput) SetTopLeftY(v float64) *AreaForStartExecutionInput {
+	s.TopLeftY = &v
+	return s
+}
+
 type AsrForStartExecutionInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -246,6 +292,44 @@ func (s AudioExtractForStartExecutionInput) GoString() string {
 // SetVoice sets the Voice field's value.
 func (s *AudioExtractForStartExecutionInput) SetVoice(v bool) *AudioExtractForStartExecutionInput {
 	s.Voice = &v
+	return s
+}
+
+type AutoForStartExecutionInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Locations []*LocationForStartExecutionInput `type:"list" json:",omitempty"`
+
+	SubtitleFilter *SubtitleFilterForStartExecutionInput `type:"structure" json:",omitempty"`
+
+	Type *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s AutoForStartExecutionInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s AutoForStartExecutionInput) GoString() string {
+	return s.String()
+}
+
+// SetLocations sets the Locations field's value.
+func (s *AutoForStartExecutionInput) SetLocations(v []*LocationForStartExecutionInput) *AutoForStartExecutionInput {
+	s.Locations = v
+	return s
+}
+
+// SetSubtitleFilter sets the SubtitleFilter field's value.
+func (s *AutoForStartExecutionInput) SetSubtitleFilter(v *SubtitleFilterForStartExecutionInput) *AutoForStartExecutionInput {
+	s.SubtitleFilter = v
+	return s
+}
+
+// SetType sets the Type field's value.
+func (s *AutoForStartExecutionInput) SetType(v string) *AutoForStartExecutionInput {
+	s.Type = &v
 	return s
 }
 
@@ -325,6 +409,82 @@ func (s *ControlForStartExecutionInput) SetPriority(v int32) *ControlForStartExe
 	return s
 }
 
+type ConvertOperationForStartExecutionInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Task *TaskForStartExecutionInput `type:"structure" json:",omitempty"`
+
+	Template *TemplateForStartExecutionInput `type:"structure" json:",omitempty"`
+
+	Type *string `type:"string" json:",omitempty"`
+
+	Workflow *WorkflowForStartExecutionInput `type:"structure" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s ConvertOperationForStartExecutionInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ConvertOperationForStartExecutionInput) GoString() string {
+	return s.String()
+}
+
+// SetTask sets the Task field's value.
+func (s *ConvertOperationForStartExecutionInput) SetTask(v *TaskForStartExecutionInput) *ConvertOperationForStartExecutionInput {
+	s.Task = v
+	return s
+}
+
+// SetTemplate sets the Template field's value.
+func (s *ConvertOperationForStartExecutionInput) SetTemplate(v *TemplateForStartExecutionInput) *ConvertOperationForStartExecutionInput {
+	s.Template = v
+	return s
+}
+
+// SetType sets the Type field's value.
+func (s *ConvertOperationForStartExecutionInput) SetType(v string) *ConvertOperationForStartExecutionInput {
+	s.Type = &v
+	return s
+}
+
+// SetWorkflow sets the Workflow field's value.
+func (s *ConvertOperationForStartExecutionInput) SetWorkflow(v *WorkflowForStartExecutionInput) *ConvertOperationForStartExecutionInput {
+	s.Workflow = v
+	return s
+}
+
+type ConvertSegmentForStartExecutionInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	End *float64 `type:"double" json:",omitempty"`
+
+	Start *float64 `type:"double" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s ConvertSegmentForStartExecutionInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ConvertSegmentForStartExecutionInput) GoString() string {
+	return s.String()
+}
+
+// SetEnd sets the End field's value.
+func (s *ConvertSegmentForStartExecutionInput) SetEnd(v float64) *ConvertSegmentForStartExecutionInput {
+	s.End = &v
+	return s
+}
+
+// SetStart sets the Start field's value.
+func (s *ConvertSegmentForStartExecutionInput) SetStart(v float64) *ConvertSegmentForStartExecutionInput {
+	s.Start = &v
+	return s
+}
+
 type DirectUrlForStartExecutionInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -385,6 +545,74 @@ func (s *EnhanceForStartExecutionInput) SetTemplateId(v string) *EnhanceForStart
 	return s
 }
 
+type EraseForStartExecutionInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Auto *AutoForStartExecutionInput `type:"structure" json:",omitempty"`
+
+	Manual *ManualForStartExecutionInput `type:"structure" json:",omitempty"`
+
+	Mode *string `type:"string" json:",omitempty"`
+
+	WithEraseInfo *bool `type:"boolean" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s EraseForStartExecutionInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s EraseForStartExecutionInput) GoString() string {
+	return s.String()
+}
+
+// SetAuto sets the Auto field's value.
+func (s *EraseForStartExecutionInput) SetAuto(v *AutoForStartExecutionInput) *EraseForStartExecutionInput {
+	s.Auto = v
+	return s
+}
+
+// SetManual sets the Manual field's value.
+func (s *EraseForStartExecutionInput) SetManual(v *ManualForStartExecutionInput) *EraseForStartExecutionInput {
+	s.Manual = v
+	return s
+}
+
+// SetMode sets the Mode field's value.
+func (s *EraseForStartExecutionInput) SetMode(v string) *EraseForStartExecutionInput {
+	s.Mode = &v
+	return s
+}
+
+// SetWithEraseInfo sets the WithEraseInfo field's value.
+func (s *EraseForStartExecutionInput) SetWithEraseInfo(v bool) *EraseForStartExecutionInput {
+	s.WithEraseInfo = &v
+	return s
+}
+
+type FileDeleteForStartExecutionInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	SkipError *bool `type:"boolean" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s FileDeleteForStartExecutionInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s FileDeleteForStartExecutionInput) GoString() string {
+	return s.String()
+}
+
+// SetSkipError sets the SkipError field's value.
+func (s *FileDeleteForStartExecutionInput) SetSkipError(v bool) *FileDeleteForStartExecutionInput {
+	s.SkipError = &v
+	return s
+}
+
 type FileIdForStartExecutionInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -417,6 +645,10 @@ func (s *FileIdForStartExecutionInput) SetVid(v string) *FileIdForStartExecution
 
 type HighlightForStartExecutionInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
+
+	Mode *string `type:"string" json:",omitempty"`
+
+	StorylineCuts *StorylineCutsForStartExecutionInput `type:"structure" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -429,12 +661,26 @@ func (s HighlightForStartExecutionInput) GoString() string {
 	return s.String()
 }
 
+// SetMode sets the Mode field's value.
+func (s *HighlightForStartExecutionInput) SetMode(v string) *HighlightForStartExecutionInput {
+	s.Mode = &v
+	return s
+}
+
+// SetStorylineCuts sets the StorylineCuts field's value.
+func (s *HighlightForStartExecutionInput) SetStorylineCuts(v *StorylineCutsForStartExecutionInput) *HighlightForStartExecutionInput {
+	s.StorylineCuts = v
+	return s
+}
+
 type InputForStartExecutionInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
 	DirectUrl *DirectUrlForStartExecutionInput `type:"structure" json:",omitempty"`
 
 	FileId *FileIdForStartExecutionInput `type:"structure" json:",omitempty"`
+
+	Tag *string `type:"string" json:",omitempty"`
 
 	Type *string `type:"string" json:",omitempty"`
 
@@ -463,6 +709,12 @@ func (s *InputForStartExecutionInput) SetFileId(v *FileIdForStartExecutionInput)
 	return s
 }
 
+// SetTag sets the Tag field's value.
+func (s *InputForStartExecutionInput) SetTag(v string) *InputForStartExecutionInput {
+	s.Tag = &v
+	return s
+}
+
 // SetType sets the Type field's value.
 func (s *InputForStartExecutionInput) SetType(v string) *InputForStartExecutionInput {
 	s.Type = &v
@@ -475,12 +727,58 @@ func (s *InputForStartExecutionInput) SetVid(v string) *InputForStartExecutionIn
 	return s
 }
 
+type LocationForStartExecutionInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	RatioLocation *RatioLocationForStartExecutionInput `type:"structure" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s LocationForStartExecutionInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s LocationForStartExecutionInput) GoString() string {
+	return s.String()
+}
+
+// SetRatioLocation sets the RatioLocation field's value.
+func (s *LocationForStartExecutionInput) SetRatioLocation(v *RatioLocationForStartExecutionInput) *LocationForStartExecutionInput {
+	s.RatioLocation = v
+	return s
+}
+
+type ManualForStartExecutionInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Locations []*LocationForStartExecutionInput `type:"list" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s ManualForStartExecutionInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ManualForStartExecutionInput) GoString() string {
+	return s.String()
+}
+
+// SetLocations sets the Locations field's value.
+func (s *ManualForStartExecutionInput) SetLocations(v []*LocationForStartExecutionInput) *ManualForStartExecutionInput {
+	s.Locations = v
+	return s
+}
+
 type ModelForStartExecutionInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
 	AsrAppId *string `type:"string" json:",omitempty"`
 
 	AsrAppType *string `type:"string" json:",omitempty"`
+
+	DoubaoTextEndpoint *string `type:"string" json:",omitempty"`
 
 	DoubaoVisionEndpoint *string `type:"string" json:",omitempty"`
 }
@@ -507,6 +805,12 @@ func (s *ModelForStartExecutionInput) SetAsrAppType(v string) *ModelForStartExec
 	return s
 }
 
+// SetDoubaoTextEndpoint sets the DoubaoTextEndpoint field's value.
+func (s *ModelForStartExecutionInput) SetDoubaoTextEndpoint(v string) *ModelForStartExecutionInput {
+	s.DoubaoTextEndpoint = &v
+	return s
+}
+
 // SetDoubaoVisionEndpoint sets the DoubaoVisionEndpoint field's value.
 func (s *ModelForStartExecutionInput) SetDoubaoVisionEndpoint(v string) *ModelForStartExecutionInput {
 	s.DoubaoVisionEndpoint = &v
@@ -519,6 +823,8 @@ type MultiInputForStartExecutionInput struct {
 	DirectUrl *DirectUrlForStartExecutionInput `type:"structure" json:",omitempty"`
 
 	FileId *FileIdForStartExecutionInput `type:"structure" json:",omitempty"`
+
+	Tag *string `type:"string" json:",omitempty"`
 
 	Type *string `type:"string" json:",omitempty"`
 
@@ -547,6 +853,12 @@ func (s *MultiInputForStartExecutionInput) SetFileId(v *FileIdForStartExecutionI
 	return s
 }
 
+// SetTag sets the Tag field's value.
+func (s *MultiInputForStartExecutionInput) SetTag(v string) *MultiInputForStartExecutionInput {
+	s.Tag = &v
+	return s
+}
+
 // SetType sets the Type field's value.
 func (s *MultiInputForStartExecutionInput) SetType(v string) *MultiInputForStartExecutionInput {
 	s.Type = &v
@@ -556,6 +868,68 @@ func (s *MultiInputForStartExecutionInput) SetType(v string) *MultiInputForStart
 // SetVid sets the Vid field's value.
 func (s *MultiInputForStartExecutionInput) SetVid(v string) *MultiInputForStartExecutionInput {
 	s.Vid = &v
+	return s
+}
+
+type NodeForStartExecutionInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Dependencies []*string `type:"list" json:",omitempty"`
+
+	Input *MultiInputForStartExecutionInput `type:"structure" json:",omitempty"`
+
+	MultiInputs []*MultiInputForStartExecutionInput `type:"list" json:",omitempty"`
+
+	Name *string `type:"string" json:",omitempty"`
+
+	Operation *OperationForStartExecutionInput `type:"structure" json:",omitempty"`
+
+	Policy *PolicyForStartExecutionInput `type:"structure" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s NodeForStartExecutionInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s NodeForStartExecutionInput) GoString() string {
+	return s.String()
+}
+
+// SetDependencies sets the Dependencies field's value.
+func (s *NodeForStartExecutionInput) SetDependencies(v []*string) *NodeForStartExecutionInput {
+	s.Dependencies = v
+	return s
+}
+
+// SetInput sets the Input field's value.
+func (s *NodeForStartExecutionInput) SetInput(v *MultiInputForStartExecutionInput) *NodeForStartExecutionInput {
+	s.Input = v
+	return s
+}
+
+// SetMultiInputs sets the MultiInputs field's value.
+func (s *NodeForStartExecutionInput) SetMultiInputs(v []*MultiInputForStartExecutionInput) *NodeForStartExecutionInput {
+	s.MultiInputs = v
+	return s
+}
+
+// SetName sets the Name field's value.
+func (s *NodeForStartExecutionInput) SetName(v string) *NodeForStartExecutionInput {
+	s.Name = &v
+	return s
+}
+
+// SetOperation sets the Operation field's value.
+func (s *NodeForStartExecutionInput) SetOperation(v *OperationForStartExecutionInput) *NodeForStartExecutionInput {
+	s.Operation = v
+	return s
+}
+
+// SetPolicy sets the Policy field's value.
+func (s *NodeForStartExecutionInput) SetPolicy(v *PolicyForStartExecutionInput) *NodeForStartExecutionInput {
+	s.Policy = v
 	return s
 }
 
@@ -594,8 +968,6 @@ type OperationForStartExecutionInput struct {
 
 	Task *TaskForStartExecutionInput `type:"structure" json:",omitempty"`
 
-	Template *TemplateForStartExecutionInput `type:"structure" json:",omitempty"`
-
 	Type *string `type:"string" json:",omitempty"`
 }
 
@@ -615,15 +987,77 @@ func (s *OperationForStartExecutionInput) SetTask(v *TaskForStartExecutionInput)
 	return s
 }
 
-// SetTemplate sets the Template field's value.
-func (s *OperationForStartExecutionInput) SetTemplate(v *TemplateForStartExecutionInput) *OperationForStartExecutionInput {
-	s.Template = v
-	return s
-}
-
 // SetType sets the Type field's value.
 func (s *OperationForStartExecutionInput) SetType(v string) *OperationForStartExecutionInput {
 	s.Type = &v
+	return s
+}
+
+type PolicyForStartExecutionInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	NodeFail *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s PolicyForStartExecutionInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s PolicyForStartExecutionInput) GoString() string {
+	return s.String()
+}
+
+// SetNodeFail sets the NodeFail field's value.
+func (s *PolicyForStartExecutionInput) SetNodeFail(v string) *PolicyForStartExecutionInput {
+	s.NodeFail = &v
+	return s
+}
+
+type RatioLocationForStartExecutionInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	BottomRightX *float64 `type:"double" json:",omitempty"`
+
+	BottomRightY *float64 `type:"double" json:",omitempty"`
+
+	TopLeftX *float64 `type:"double" json:",omitempty"`
+
+	TopLeftY *float64 `type:"double" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s RatioLocationForStartExecutionInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s RatioLocationForStartExecutionInput) GoString() string {
+	return s.String()
+}
+
+// SetBottomRightX sets the BottomRightX field's value.
+func (s *RatioLocationForStartExecutionInput) SetBottomRightX(v float64) *RatioLocationForStartExecutionInput {
+	s.BottomRightX = &v
+	return s
+}
+
+// SetBottomRightY sets the BottomRightY field's value.
+func (s *RatioLocationForStartExecutionInput) SetBottomRightY(v float64) *RatioLocationForStartExecutionInput {
+	s.BottomRightY = &v
+	return s
+}
+
+// SetTopLeftX sets the TopLeftX field's value.
+func (s *RatioLocationForStartExecutionInput) SetTopLeftX(v float64) *RatioLocationForStartExecutionInput {
+	s.TopLeftX = &v
+	return s
+}
+
+// SetTopLeftY sets the TopLeftY field's value.
+func (s *RatioLocationForStartExecutionInput) SetTopLeftY(v float64) *RatioLocationForStartExecutionInput {
+	s.TopLeftY = &v
 	return s
 }
 
@@ -649,6 +1083,44 @@ func (s *SegmentForStartExecutionInput) SetNoFile(v bool) *SegmentForStartExecut
 	return s
 }
 
+type SnapshotParamForStartExecutionInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Area *AreaForStartExecutionInput `type:"structure" json:",omitempty"`
+
+	Fps *float64 `type:"double" json:",omitempty"`
+
+	Resolution *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s SnapshotParamForStartExecutionInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s SnapshotParamForStartExecutionInput) GoString() string {
+	return s.String()
+}
+
+// SetArea sets the Area field's value.
+func (s *SnapshotParamForStartExecutionInput) SetArea(v *AreaForStartExecutionInput) *SnapshotParamForStartExecutionInput {
+	s.Area = v
+	return s
+}
+
+// SetFps sets the Fps field's value.
+func (s *SnapshotParamForStartExecutionInput) SetFps(v float64) *SnapshotParamForStartExecutionInput {
+	s.Fps = &v
+	return s
+}
+
+// SetResolution sets the Resolution field's value.
+func (s *SnapshotParamForStartExecutionInput) SetResolution(v string) *SnapshotParamForStartExecutionInput {
+	s.Resolution = &v
+	return s
+}
+
 type StartExecutionInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -658,7 +1130,9 @@ type StartExecutionInput struct {
 
 	MultiInputs []*MultiInputForStartExecutionInput `type:"list" json:",omitempty"`
 
-	Operation *OperationForStartExecutionInput `type:"structure" json:",omitempty"`
+	Operation *ConvertOperationForStartExecutionInput `type:"structure" json:",omitempty"`
+
+	SpaceName *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -690,8 +1164,14 @@ func (s *StartExecutionInput) SetMultiInputs(v []*MultiInputForStartExecutionInp
 }
 
 // SetOperation sets the Operation field's value.
-func (s *StartExecutionInput) SetOperation(v *OperationForStartExecutionInput) *StartExecutionInput {
+func (s *StartExecutionInput) SetOperation(v *ConvertOperationForStartExecutionInput) *StartExecutionInput {
 	s.Operation = v
+	return s
+}
+
+// SetSpaceName sets the SpaceName field's value.
+func (s *StartExecutionInput) SetSpaceName(v string) *StartExecutionInput {
+	s.SpaceName = &v
 	return s
 }
 
@@ -719,10 +1199,50 @@ func (s *StartExecutionOutput) SetRunId(v string) *StartExecutionOutput {
 	return s
 }
 
+type StorylineCutsForStartExecutionInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	MaxDuration *float64 `type:"double" json:",omitempty"`
+
+	MaxNumber *float64 `type:"double" json:",omitempty"`
+
+	MinDuration *float64 `type:"double" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s StorylineCutsForStartExecutionInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s StorylineCutsForStartExecutionInput) GoString() string {
+	return s.String()
+}
+
+// SetMaxDuration sets the MaxDuration field's value.
+func (s *StorylineCutsForStartExecutionInput) SetMaxDuration(v float64) *StorylineCutsForStartExecutionInput {
+	s.MaxDuration = &v
+	return s
+}
+
+// SetMaxNumber sets the MaxNumber field's value.
+func (s *StorylineCutsForStartExecutionInput) SetMaxNumber(v float64) *StorylineCutsForStartExecutionInput {
+	s.MaxNumber = &v
+	return s
+}
+
+// SetMinDuration sets the MinDuration field's value.
+func (s *StorylineCutsForStartExecutionInput) SetMinDuration(v float64) *StorylineCutsForStartExecutionInput {
+	s.MinDuration = &v
+	return s
+}
+
 type StorylineForStartExecutionInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
 	ClipDuration *float64 `type:"double" json:",omitempty"`
+
+	SampleMode *string `type:"string" json:",omitempty"`
 
 	WithSnapshot *bool `type:"boolean" json:",omitempty"`
 }
@@ -743,9 +1263,53 @@ func (s *StorylineForStartExecutionInput) SetClipDuration(v float64) *StorylineF
 	return s
 }
 
+// SetSampleMode sets the SampleMode field's value.
+func (s *StorylineForStartExecutionInput) SetSampleMode(v string) *StorylineForStartExecutionInput {
+	s.SampleMode = &v
+	return s
+}
+
 // SetWithSnapshot sets the WithSnapshot field's value.
 func (s *StorylineForStartExecutionInput) SetWithSnapshot(v bool) *StorylineForStartExecutionInput {
 	s.WithSnapshot = &v
+	return s
+}
+
+type SubtitleFilterForStartExecutionInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	MaxTextHeightRatio *float64 `type:"double" json:",omitempty"`
+
+	MinTextHeightRatio *float64 `type:"double" json:",omitempty"`
+
+	RectangleCenterOffsetRatio *float64 `type:"double" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s SubtitleFilterForStartExecutionInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s SubtitleFilterForStartExecutionInput) GoString() string {
+	return s.String()
+}
+
+// SetMaxTextHeightRatio sets the MaxTextHeightRatio field's value.
+func (s *SubtitleFilterForStartExecutionInput) SetMaxTextHeightRatio(v float64) *SubtitleFilterForStartExecutionInput {
+	s.MaxTextHeightRatio = &v
+	return s
+}
+
+// SetMinTextHeightRatio sets the MinTextHeightRatio field's value.
+func (s *SubtitleFilterForStartExecutionInput) SetMinTextHeightRatio(v float64) *SubtitleFilterForStartExecutionInput {
+	s.MinTextHeightRatio = &v
+	return s
+}
+
+// SetRectangleCenterOffsetRatio sets the RectangleCenterOffsetRatio field's value.
+func (s *SubtitleFilterForStartExecutionInput) SetRectangleCenterOffsetRatio(v float64) *SubtitleFilterForStartExecutionInput {
+	s.RectangleCenterOffsetRatio = &v
 	return s
 }
 
@@ -758,6 +1322,10 @@ type TaskForStartExecutionInput struct {
 
 	AudioExtract *AudioExtractForStartExecutionInput `type:"structure" json:",omitempty"`
 
+	Erase *EraseForStartExecutionInput `type:"structure" json:",omitempty"`
+
+	FileDelete *FileDeleteForStartExecutionInput `type:"structure" json:",omitempty"`
+
 	Highlight *HighlightForStartExecutionInput `type:"structure" json:",omitempty"`
 
 	Ocr *OcrForStartExecutionInput `type:"structure" json:",omitempty"`
@@ -767,6 +1335,10 @@ type TaskForStartExecutionInput struct {
 	Storyline *StorylineForStartExecutionInput `type:"structure" json:",omitempty"`
 
 	Type *string `type:"string" json:",omitempty"`
+
+	VideoGeneration *VideoGenerationForStartExecutionInput `type:"structure" json:",omitempty"`
+
+	VideoSummary *VideoSummaryForStartExecutionInput `type:"structure" json:",omitempty"`
 
 	Vision *VisionForStartExecutionInput `type:"structure" json:",omitempty"`
 }
@@ -799,6 +1371,18 @@ func (s *TaskForStartExecutionInput) SetAudioExtract(v *AudioExtractForStartExec
 	return s
 }
 
+// SetErase sets the Erase field's value.
+func (s *TaskForStartExecutionInput) SetErase(v *EraseForStartExecutionInput) *TaskForStartExecutionInput {
+	s.Erase = v
+	return s
+}
+
+// SetFileDelete sets the FileDelete field's value.
+func (s *TaskForStartExecutionInput) SetFileDelete(v *FileDeleteForStartExecutionInput) *TaskForStartExecutionInput {
+	s.FileDelete = v
+	return s
+}
+
 // SetHighlight sets the Highlight field's value.
 func (s *TaskForStartExecutionInput) SetHighlight(v *HighlightForStartExecutionInput) *TaskForStartExecutionInput {
 	s.Highlight = v
@@ -826,6 +1410,18 @@ func (s *TaskForStartExecutionInput) SetStoryline(v *StorylineForStartExecutionI
 // SetType sets the Type field's value.
 func (s *TaskForStartExecutionInput) SetType(v string) *TaskForStartExecutionInput {
 	s.Type = &v
+	return s
+}
+
+// SetVideoGeneration sets the VideoGeneration field's value.
+func (s *TaskForStartExecutionInput) SetVideoGeneration(v *VideoGenerationForStartExecutionInput) *TaskForStartExecutionInput {
+	s.VideoGeneration = v
+	return s
+}
+
+// SetVideoSummary sets the VideoSummary field's value.
+func (s *TaskForStartExecutionInput) SetVideoSummary(v *VideoSummaryForStartExecutionInput) *TaskForStartExecutionInput {
+	s.VideoSummary = v
 	return s
 }
 
@@ -941,12 +1537,170 @@ func (s *TranscodeVideoForStartExecutionInput) SetWatermarkTemplateId(v string) 
 	return s
 }
 
+type VideoGenerationForStartExecutionInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	NewVid *bool `type:"boolean" json:",omitempty"`
+
+	Prompt *string `type:"string" json:",omitempty"`
+
+	VideoOption *VideoOptionForStartExecutionInput `type:"structure" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s VideoGenerationForStartExecutionInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s VideoGenerationForStartExecutionInput) GoString() string {
+	return s.String()
+}
+
+// SetNewVid sets the NewVid field's value.
+func (s *VideoGenerationForStartExecutionInput) SetNewVid(v bool) *VideoGenerationForStartExecutionInput {
+	s.NewVid = &v
+	return s
+}
+
+// SetPrompt sets the Prompt field's value.
+func (s *VideoGenerationForStartExecutionInput) SetPrompt(v string) *VideoGenerationForStartExecutionInput {
+	s.Prompt = &v
+	return s
+}
+
+// SetVideoOption sets the VideoOption field's value.
+func (s *VideoGenerationForStartExecutionInput) SetVideoOption(v *VideoOptionForStartExecutionInput) *VideoGenerationForStartExecutionInput {
+	s.VideoOption = v
+	return s
+}
+
+type VideoOptionForStartExecutionInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	AspectRatio *string `type:"string" json:",omitempty"`
+
+	Duration *int32 `type:"int32" json:",omitempty"`
+
+	FixedCamera *bool `type:"boolean" json:",omitempty"`
+
+	Fps *int32 `type:"int32" json:",omitempty"`
+
+	Model *string `type:"string" json:",omitempty"`
+
+	Resolution *string `type:"string" json:",omitempty"`
+
+	Seed *string `type:"string" json:",omitempty"`
+
+	Watermark *bool `type:"boolean" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s VideoOptionForStartExecutionInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s VideoOptionForStartExecutionInput) GoString() string {
+	return s.String()
+}
+
+// SetAspectRatio sets the AspectRatio field's value.
+func (s *VideoOptionForStartExecutionInput) SetAspectRatio(v string) *VideoOptionForStartExecutionInput {
+	s.AspectRatio = &v
+	return s
+}
+
+// SetDuration sets the Duration field's value.
+func (s *VideoOptionForStartExecutionInput) SetDuration(v int32) *VideoOptionForStartExecutionInput {
+	s.Duration = &v
+	return s
+}
+
+// SetFixedCamera sets the FixedCamera field's value.
+func (s *VideoOptionForStartExecutionInput) SetFixedCamera(v bool) *VideoOptionForStartExecutionInput {
+	s.FixedCamera = &v
+	return s
+}
+
+// SetFps sets the Fps field's value.
+func (s *VideoOptionForStartExecutionInput) SetFps(v int32) *VideoOptionForStartExecutionInput {
+	s.Fps = &v
+	return s
+}
+
+// SetModel sets the Model field's value.
+func (s *VideoOptionForStartExecutionInput) SetModel(v string) *VideoOptionForStartExecutionInput {
+	s.Model = &v
+	return s
+}
+
+// SetResolution sets the Resolution field's value.
+func (s *VideoOptionForStartExecutionInput) SetResolution(v string) *VideoOptionForStartExecutionInput {
+	s.Resolution = &v
+	return s
+}
+
+// SetSeed sets the Seed field's value.
+func (s *VideoOptionForStartExecutionInput) SetSeed(v string) *VideoOptionForStartExecutionInput {
+	s.Seed = &v
+	return s
+}
+
+// SetWatermark sets the Watermark field's value.
+func (s *VideoOptionForStartExecutionInput) SetWatermark(v bool) *VideoOptionForStartExecutionInput {
+	s.Watermark = &v
+	return s
+}
+
+type VideoSummaryForStartExecutionInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	BestSegmentDuration *int32 `type:"int32" json:",omitempty"`
+
+	ExtraDescription *string `type:"string" json:",omitempty"`
+
+	OnlyTimeline *bool `type:"boolean" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s VideoSummaryForStartExecutionInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s VideoSummaryForStartExecutionInput) GoString() string {
+	return s.String()
+}
+
+// SetBestSegmentDuration sets the BestSegmentDuration field's value.
+func (s *VideoSummaryForStartExecutionInput) SetBestSegmentDuration(v int32) *VideoSummaryForStartExecutionInput {
+	s.BestSegmentDuration = &v
+	return s
+}
+
+// SetExtraDescription sets the ExtraDescription field's value.
+func (s *VideoSummaryForStartExecutionInput) SetExtraDescription(v string) *VideoSummaryForStartExecutionInput {
+	s.ExtraDescription = &v
+	return s
+}
+
+// SetOnlyTimeline sets the OnlyTimeline field's value.
+func (s *VideoSummaryForStartExecutionInput) SetOnlyTimeline(v bool) *VideoSummaryForStartExecutionInput {
+	s.OnlyTimeline = &v
+	return s
+}
+
 type VisionForStartExecutionInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
 	Model *ModelForStartExecutionInput `type:"structure" json:",omitempty"`
 
 	Prompt *string `type:"string" json:",omitempty"`
+
+	Segment *ConvertSegmentForStartExecutionInput `type:"structure" json:",omitempty"`
+
+	SnapshotParam *SnapshotParamForStartExecutionInput `type:"structure" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -968,5 +1722,39 @@ func (s *VisionForStartExecutionInput) SetModel(v *ModelForStartExecutionInput) 
 // SetPrompt sets the Prompt field's value.
 func (s *VisionForStartExecutionInput) SetPrompt(v string) *VisionForStartExecutionInput {
 	s.Prompt = &v
+	return s
+}
+
+// SetSegment sets the Segment field's value.
+func (s *VisionForStartExecutionInput) SetSegment(v *ConvertSegmentForStartExecutionInput) *VisionForStartExecutionInput {
+	s.Segment = v
+	return s
+}
+
+// SetSnapshotParam sets the SnapshotParam field's value.
+func (s *VisionForStartExecutionInput) SetSnapshotParam(v *SnapshotParamForStartExecutionInput) *VisionForStartExecutionInput {
+	s.SnapshotParam = v
+	return s
+}
+
+type WorkflowForStartExecutionInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Nodes []*NodeForStartExecutionInput `type:"list" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s WorkflowForStartExecutionInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s WorkflowForStartExecutionInput) GoString() string {
+	return s.String()
+}
+
+// SetNodes sets the Nodes field's value.
+func (s *WorkflowForStartExecutionInput) SetNodes(v []*NodeForStartExecutionInput) *WorkflowForStartExecutionInput {
+	s.Nodes = v
 	return s
 }

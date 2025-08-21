@@ -176,9 +176,6 @@ func (s *ProjectBaseInfoForRefreshAITranslationProjectOutput) SetProjectVersion(
 type RefreshAITranslationProjectInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	// CurrentVersion is a required field
-	CurrentVersion *string `type:"string" json:",omitempty" required:"true"`
-
 	// ProjectId is a required field
 	ProjectId *string `type:"string" json:",omitempty" required:"true"`
 
@@ -202,9 +199,6 @@ func (s RefreshAITranslationProjectInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *RefreshAITranslationProjectInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "RefreshAITranslationProjectInput"}
-	if s.CurrentVersion == nil {
-		invalidParams.Add(request.NewErrParamRequired("CurrentVersion"))
-	}
 	if s.ProjectId == nil {
 		invalidParams.Add(request.NewErrParamRequired("ProjectId"))
 	}
@@ -219,12 +213,6 @@ func (s *RefreshAITranslationProjectInput) Validate() error {
 		return invalidParams
 	}
 	return nil
-}
-
-// SetCurrentVersion sets the CurrentVersion field's value.
-func (s *RefreshAITranslationProjectInput) SetCurrentVersion(v string) *RefreshAITranslationProjectInput {
-	s.CurrentVersion = &v
-	return s
 }
 
 // SetProjectId sets the ProjectId field's value.

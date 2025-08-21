@@ -173,6 +173,36 @@ func (s *ProjectBaseInfoForUpdateAITranslationUtterancesOutput) SetProjectVersio
 	return s
 }
 
+type TrimForUpdateAITranslationUtterancesInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	End *int32 `type:"int32" json:",omitempty"`
+
+	Start *int32 `type:"int32" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s TrimForUpdateAITranslationUtterancesInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TrimForUpdateAITranslationUtterancesInput) GoString() string {
+	return s.String()
+}
+
+// SetEnd sets the End field's value.
+func (s *TrimForUpdateAITranslationUtterancesInput) SetEnd(v int32) *TrimForUpdateAITranslationUtterancesInput {
+	s.End = &v
+	return s
+}
+
+// SetStart sets the Start field's value.
+func (s *TrimForUpdateAITranslationUtterancesInput) SetStart(v int32) *TrimForUpdateAITranslationUtterancesInput {
+	s.Start = &v
+	return s
+}
+
 type UpdateAITranslationUtterancesInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -289,6 +319,10 @@ type UtteranceForUpdateAITranslationUtterancesInput struct {
 	SpeakerId *string `type:"string" json:",omitempty"`
 
 	Text *string `type:"string" json:",omitempty"`
+
+	Trim *TrimForUpdateAITranslationUtterancesInput `type:"structure" json:",omitempty"`
+
+	Volume *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -316,5 +350,17 @@ func (s *UtteranceForUpdateAITranslationUtterancesInput) SetSpeakerId(v string) 
 // SetText sets the Text field's value.
 func (s *UtteranceForUpdateAITranslationUtterancesInput) SetText(v string) *UtteranceForUpdateAITranslationUtterancesInput {
 	s.Text = &v
+	return s
+}
+
+// SetTrim sets the Trim field's value.
+func (s *UtteranceForUpdateAITranslationUtterancesInput) SetTrim(v *TrimForUpdateAITranslationUtterancesInput) *UtteranceForUpdateAITranslationUtterancesInput {
+	s.Trim = v
+	return s
+}
+
+// SetVolume sets the Volume field's value.
+func (s *UtteranceForUpdateAITranslationUtterancesInput) SetVolume(v int32) *UtteranceForUpdateAITranslationUtterancesInput {
+	s.Volume = &v
 	return s
 }

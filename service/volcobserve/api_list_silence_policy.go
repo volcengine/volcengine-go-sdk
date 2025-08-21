@@ -367,6 +367,12 @@ type ListSilencePolicyOutput struct {
 	Metadata *response.ResponseMetadata
 
 	Data []*DataForListSilencePolicyOutput `type:"list" json:",omitempty"`
+
+	PageNumber *int64 `type:"integer" json:",omitempty"`
+
+	PageSize *int64 `type:"integer" json:",omitempty"`
+
+	TotalCount *int64 `type:"integer" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -382,6 +388,24 @@ func (s ListSilencePolicyOutput) GoString() string {
 // SetData sets the Data field's value.
 func (s *ListSilencePolicyOutput) SetData(v []*DataForListSilencePolicyOutput) *ListSilencePolicyOutput {
 	s.Data = v
+	return s
+}
+
+// SetPageNumber sets the PageNumber field's value.
+func (s *ListSilencePolicyOutput) SetPageNumber(v int64) *ListSilencePolicyOutput {
+	s.PageNumber = &v
+	return s
+}
+
+// SetPageSize sets the PageSize field's value.
+func (s *ListSilencePolicyOutput) SetPageSize(v int64) *ListSilencePolicyOutput {
+	s.PageSize = &v
+	return s
+}
+
+// SetTotalCount sets the TotalCount field's value.
+func (s *ListSilencePolicyOutput) SetTotalCount(v int64) *ListSilencePolicyOutput {
+	s.TotalCount = &v
 	return s
 }
 

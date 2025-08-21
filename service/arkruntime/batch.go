@@ -7,7 +7,11 @@ import (
 	"github.com/volcengine/volcengine-go-sdk/service/arkruntime/model"
 )
 
-const batchChatCompletionsSuffix = "/batch/chat/completions"
+const (
+	batchChatCompletionsSuffix      = "/batch/chat/completions"
+	batchEmbeddingsSuffix           = "/batch/embeddings"
+	batchMultiModalEmbeddingsSuffix = "/batch/embeddings/multimodal"
+)
 
 func newBatchHTTPClient(maxParallel int) *http.Client {
 	return &http.Client{
@@ -32,6 +36,52 @@ func (c *Client) CreateBatchChatCompletion(
 	if err != nil {
 		return
 	}
+	return
+}
+
+// CreateBatchEmbeddings like CreateEmbeddings, but for batch processing.
+func (c *Client) CreateBatchEmbeddings(
+	ctx context.Context,
+	conv model.EmbeddingRequestConverter,
+	setters ...requestOption,
+) (res model.EmbeddingResponse, err error) {
+	baseReq := conv.Convert()
+
+	requestOptions := append(setters, withBody(baseReq))
+	if baseReq.EncodingFormat != model.EmbeddingEncodingFormatBase64 {
+		err = c.DoBatch(ctx, http.MethodPost, c.fullURL(batchEmbeddingsSuffix), resourceTypeEndpoint, baseReq.Model, &res, requestOptions...)
+		return
+	}
+
+	base64Response := &model.EmbeddingResponseBase64{}
+	err = c.DoBatch(ctx, http.MethodPost, c.fullURL(batchEmbeddingsSuffix), resourceTypeEndpoint, baseReq.Model, base64Response, requestOptions...)
+	if err != nil {
+		return
+	}
+
+	res, err = base64Response.ToEmbeddingResponse()
+	return
+}
+
+// CreateBatchMultiModalEmbeddings like CreateMultiModalEmbeddings, but for batch processing.
+func (c *Client) CreateBatchMultiModalEmbeddings(
+	ctx context.Context,
+	request model.MultiModalEmbeddingRequest,
+	setters ...requestOption,
+) (res model.MultimodalEmbeddingResponse, err error) {
+
+	requestOptions := append(setters, withBody(request))
+	if request.EncodingFormat != nil && *request.EncodingFormat == model.EmbeddingEncodingFormatBase64 {
+		base64Response := &model.MultiModalEmbeddingResponseBase64{}
+		err = c.DoBatch(ctx, http.MethodPost, c.fullURL(batchMultiModalEmbeddingsSuffix), resourceTypeEndpoint, request.Model, base64Response, requestOptions...)
+		if err != nil {
+			return
+		}
+		res, err = base64Response.ToMultiModalEmbeddingResponse()
+		return
+	}
+
+	err = c.DoBatch(ctx, http.MethodPost, c.fullURL(batchMultiModalEmbeddingsSuffix), resourceTypeEndpoint, request.Model, &res, requestOptions...)
 	return
 }
 

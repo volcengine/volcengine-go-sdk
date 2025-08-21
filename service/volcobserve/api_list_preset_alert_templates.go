@@ -156,6 +156,8 @@ type AlertNotificationForListPresetAlertTemplatesOutput struct {
 
 	NotificationId *string `type:"string" json:",omitempty"`
 
+	NotifyTemplates []*NotifyTemplateForListPresetAlertTemplatesOutput `type:"list" json:",omitempty"`
+
 	Webhook *string `type:"string" json:",omitempty"`
 
 	WebhookIds []*string `type:"list" json:",omitempty"`
@@ -198,6 +200,12 @@ func (s *AlertNotificationForListPresetAlertTemplatesOutput) SetEffectStartAt(v 
 // SetNotificationId sets the NotificationId field's value.
 func (s *AlertNotificationForListPresetAlertTemplatesOutput) SetNotificationId(v string) *AlertNotificationForListPresetAlertTemplatesOutput {
 	s.NotificationId = &v
+	return s
+}
+
+// SetNotifyTemplates sets the NotifyTemplates field's value.
+func (s *AlertNotificationForListPresetAlertTemplatesOutput) SetNotifyTemplates(v []*NotifyTemplateForListPresetAlertTemplatesOutput) *AlertNotificationForListPresetAlertTemplatesOutput {
+	s.NotifyTemplates = v
 	return s
 }
 
@@ -505,6 +513,12 @@ type ListPresetAlertTemplatesOutput struct {
 	Metadata *response.ResponseMetadata
 
 	Data []*DataForListPresetAlertTemplatesOutput `type:"list" json:",omitempty"`
+
+	PageNumber *int64 `type:"integer" json:",omitempty"`
+
+	PageSize *int64 `type:"integer" json:",omitempty"`
+
+	TotalCount *int64 `type:"integer" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -520,6 +534,24 @@ func (s ListPresetAlertTemplatesOutput) GoString() string {
 // SetData sets the Data field's value.
 func (s *ListPresetAlertTemplatesOutput) SetData(v []*DataForListPresetAlertTemplatesOutput) *ListPresetAlertTemplatesOutput {
 	s.Data = v
+	return s
+}
+
+// SetPageNumber sets the PageNumber field's value.
+func (s *ListPresetAlertTemplatesOutput) SetPageNumber(v int64) *ListPresetAlertTemplatesOutput {
+	s.PageNumber = &v
+	return s
+}
+
+// SetPageSize sets the PageSize field's value.
+func (s *ListPresetAlertTemplatesOutput) SetPageSize(v int64) *ListPresetAlertTemplatesOutput {
+	s.PageSize = &v
+	return s
+}
+
+// SetTotalCount sets the TotalCount field's value.
+func (s *ListPresetAlertTemplatesOutput) SetTotalCount(v int64) *ListPresetAlertTemplatesOutput {
+	s.TotalCount = &v
 	return s
 }
 
@@ -558,6 +590,36 @@ func (s *NoDataForListPresetAlertTemplatesOutput) SetEvaluationCount(v int64) *N
 // SetLevel sets the Level field's value.
 func (s *NoDataForListPresetAlertTemplatesOutput) SetLevel(v string) *NoDataForListPresetAlertTemplatesOutput {
 	s.Level = &v
+	return s
+}
+
+type NotifyTemplateForListPresetAlertTemplatesOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Channel *string `type:"string" json:",omitempty" enum:"EnumOfChannelForListPresetAlertTemplatesOutput"`
+
+	NotifyTemplateId *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s NotifyTemplateForListPresetAlertTemplatesOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s NotifyTemplateForListPresetAlertTemplatesOutput) GoString() string {
+	return s.String()
+}
+
+// SetChannel sets the Channel field's value.
+func (s *NotifyTemplateForListPresetAlertTemplatesOutput) SetChannel(v string) *NotifyTemplateForListPresetAlertTemplatesOutput {
+	s.Channel = &v
+	return s
+}
+
+// SetNotifyTemplateId sets the NotifyTemplateId field's value.
+func (s *NotifyTemplateForListPresetAlertTemplatesOutput) SetNotifyTemplateId(v string) *NotifyTemplateForListPresetAlertTemplatesOutput {
+	s.NotifyTemplateId = &v
 	return s
 }
 
@@ -668,6 +730,32 @@ func (s *TemplateRuleForListPresetAlertTemplatesOutput) SetSubNamespace(v string
 	s.SubNamespace = &v
 	return s
 }
+
+const (
+	// EnumOfChannelForListPresetAlertTemplatesOutputEmail is a EnumOfChannelForListPresetAlertTemplatesOutput enum value
+	EnumOfChannelForListPresetAlertTemplatesOutputEmail = "email"
+
+	// EnumOfChannelForListPresetAlertTemplatesOutputSms is a EnumOfChannelForListPresetAlertTemplatesOutput enum value
+	EnumOfChannelForListPresetAlertTemplatesOutputSms = "sms"
+
+	// EnumOfChannelForListPresetAlertTemplatesOutputPhone is a EnumOfChannelForListPresetAlertTemplatesOutput enum value
+	EnumOfChannelForListPresetAlertTemplatesOutputPhone = "phone"
+
+	// EnumOfChannelForListPresetAlertTemplatesOutputLark is a EnumOfChannelForListPresetAlertTemplatesOutput enum value
+	EnumOfChannelForListPresetAlertTemplatesOutputLark = "lark"
+
+	// EnumOfChannelForListPresetAlertTemplatesOutputDingtalk is a EnumOfChannelForListPresetAlertTemplatesOutput enum value
+	EnumOfChannelForListPresetAlertTemplatesOutputDingtalk = "dingtalk"
+
+	// EnumOfChannelForListPresetAlertTemplatesOutputWecom is a EnumOfChannelForListPresetAlertTemplatesOutput enum value
+	EnumOfChannelForListPresetAlertTemplatesOutputWecom = "wecom"
+
+	// EnumOfChannelForListPresetAlertTemplatesOutputSlack is a EnumOfChannelForListPresetAlertTemplatesOutput enum value
+	EnumOfChannelForListPresetAlertTemplatesOutputSlack = "slack"
+
+	// EnumOfChannelForListPresetAlertTemplatesOutputApi is a EnumOfChannelForListPresetAlertTemplatesOutput enum value
+	EnumOfChannelForListPresetAlertTemplatesOutputApi = "api"
+)
 
 const (
 	// EnumOfLevelForListPresetAlertTemplatesOutputNotice is a EnumOfLevelForListPresetAlertTemplatesOutput enum value

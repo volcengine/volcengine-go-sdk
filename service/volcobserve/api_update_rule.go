@@ -417,6 +417,36 @@ func (s *NoDataForUpdateRuleInput) SetEvaluationCount(v int64) *NoDataForUpdateR
 	return s
 }
 
+type NotifyTemplateForUpdateRuleInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Channel *string `type:"string" json:",omitempty" enum:"EnumOfChannelForUpdateRuleInput"`
+
+	NotifyTemplateId *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s NotifyTemplateForUpdateRuleInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s NotifyTemplateForUpdateRuleInput) GoString() string {
+	return s.String()
+}
+
+// SetChannel sets the Channel field's value.
+func (s *NotifyTemplateForUpdateRuleInput) SetChannel(v string) *NotifyTemplateForUpdateRuleInput {
+	s.Channel = &v
+	return s
+}
+
+// SetNotifyTemplateId sets the NotifyTemplateId field's value.
+func (s *NotifyTemplateForUpdateRuleInput) SetNotifyTemplateId(v string) *NotifyTemplateForUpdateRuleInput {
+	s.NotifyTemplateId = &v
+	return s
+}
+
 type ProjectConditionForUpdateRuleInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -572,6 +602,8 @@ type UpdateRuleInput struct {
 	NoData *NoDataForUpdateRuleInput `type:"structure" json:",omitempty"`
 
 	NotificationId *string `type:"string" json:",omitempty"`
+
+	NotifyTemplates []*NotifyTemplateForUpdateRuleInput `type:"list" json:",omitempty"`
 
 	OriginalDimensions map[string][]*string `type:"map" json:",omitempty"`
 
@@ -753,6 +785,12 @@ func (s *UpdateRuleInput) SetNotificationId(v string) *UpdateRuleInput {
 	return s
 }
 
+// SetNotifyTemplates sets the NotifyTemplates field's value.
+func (s *UpdateRuleInput) SetNotifyTemplates(v []*NotifyTemplateForUpdateRuleInput) *UpdateRuleInput {
+	s.NotifyTemplates = v
+	return s
+}
+
 // SetOriginalDimensions sets the OriginalDimensions field's value.
 func (s *UpdateRuleInput) SetOriginalDimensions(v map[string][]*string) *UpdateRuleInput {
 	s.OriginalDimensions = v
@@ -849,6 +887,32 @@ const (
 
 	// EnumOfAlertMethodListForUpdateRuleInputWebhook is a EnumOfAlertMethodListForUpdateRuleInput enum value
 	EnumOfAlertMethodListForUpdateRuleInputWebhook = "Webhook"
+)
+
+const (
+	// EnumOfChannelForUpdateRuleInputEmail is a EnumOfChannelForUpdateRuleInput enum value
+	EnumOfChannelForUpdateRuleInputEmail = "email"
+
+	// EnumOfChannelForUpdateRuleInputSms is a EnumOfChannelForUpdateRuleInput enum value
+	EnumOfChannelForUpdateRuleInputSms = "sms"
+
+	// EnumOfChannelForUpdateRuleInputPhone is a EnumOfChannelForUpdateRuleInput enum value
+	EnumOfChannelForUpdateRuleInputPhone = "phone"
+
+	// EnumOfChannelForUpdateRuleInputLark is a EnumOfChannelForUpdateRuleInput enum value
+	EnumOfChannelForUpdateRuleInputLark = "lark"
+
+	// EnumOfChannelForUpdateRuleInputDingtalk is a EnumOfChannelForUpdateRuleInput enum value
+	EnumOfChannelForUpdateRuleInputDingtalk = "dingtalk"
+
+	// EnumOfChannelForUpdateRuleInputWecom is a EnumOfChannelForUpdateRuleInput enum value
+	EnumOfChannelForUpdateRuleInputWecom = "wecom"
+
+	// EnumOfChannelForUpdateRuleInputSlack is a EnumOfChannelForUpdateRuleInput enum value
+	EnumOfChannelForUpdateRuleInputSlack = "slack"
+
+	// EnumOfChannelForUpdateRuleInputApi is a EnumOfChannelForUpdateRuleInput enum value
+	EnumOfChannelForUpdateRuleInputApi = "api"
 )
 
 const (

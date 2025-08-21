@@ -8,7 +8,6 @@ import (
 	"encoding/json"
 	"fmt"
 	"io/ioutil"
-	"net/http"
 	"reflect"
 
 	"github.com/volcengine/volcengine-go-sdk/volcengine/request"
@@ -133,11 +132,10 @@ func processBodyError(r *request.Request, volcengineResponse *response.Volcengin
 	if volcengineResponse.ResponseMetadata == nil {
 		return false
 	}
-
 	if volcengineResponse.ResponseMetadata.Error != nil && volcengineResponse.ResponseMetadata.Error.Code != "" {
 		r.Error = volcengineerr.NewRequestFailure(
 			volcengineerr.New(volcengineResponse.ResponseMetadata.Error.Code, volcengineResponse.ResponseMetadata.Error.Message, nil),
-			http.StatusBadRequest,
+			r.HTTPResponse.StatusCode,
 			volcengineResponse.ResponseMetadata.RequestId,
 		)
 		processUnmarshalError(unmarshalErrorInfo{

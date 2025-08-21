@@ -264,13 +264,13 @@ func (s *ListCouponsOutput) SetTotal(v int32) *ListCouponsOutput {
 type ListForListCouponsOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	AccountID *int32 `type:"int32" json:",omitempty"`
+	AccountID *int64 `type:"int64" json:",omitempty"`
 
 	AcquireTime *string `type:"string" json:",omitempty"`
 
 	AmountLimit *float64 `type:"double" json:",omitempty"`
 
-	AssignedOwnerIDList []*int32 `type:"list" json:",omitempty"`
+	AssignedOwnerIDList []*int64 `type:"list" json:",omitempty"`
 
 	BeginTime *string `type:"string" json:",omitempty"`
 
@@ -292,6 +292,8 @@ type ListForListCouponsOutput struct {
 
 	Status *int32 `type:"int32" json:",omitempty"`
 
+	TotalAmount *float64 `type:"double" json:",omitempty"`
+
 	UsageLimit *int32 `type:"int32" json:",omitempty"`
 }
 
@@ -306,7 +308,7 @@ func (s ListForListCouponsOutput) GoString() string {
 }
 
 // SetAccountID sets the AccountID field's value.
-func (s *ListForListCouponsOutput) SetAccountID(v int32) *ListForListCouponsOutput {
+func (s *ListForListCouponsOutput) SetAccountID(v int64) *ListForListCouponsOutput {
 	s.AccountID = &v
 	return s
 }
@@ -324,7 +326,7 @@ func (s *ListForListCouponsOutput) SetAmountLimit(v float64) *ListForListCoupons
 }
 
 // SetAssignedOwnerIDList sets the AssignedOwnerIDList field's value.
-func (s *ListForListCouponsOutput) SetAssignedOwnerIDList(v []*int32) *ListForListCouponsOutput {
+func (s *ListForListCouponsOutput) SetAssignedOwnerIDList(v []*int64) *ListForListCouponsOutput {
 	s.AssignedOwnerIDList = v
 	return s
 }
@@ -386,6 +388,12 @@ func (s *ListForListCouponsOutput) SetRemark(v string) *ListForListCouponsOutput
 // SetStatus sets the Status field's value.
 func (s *ListForListCouponsOutput) SetStatus(v int32) *ListForListCouponsOutput {
 	s.Status = &v
+	return s
+}
+
+// SetTotalAmount sets the TotalAmount field's value.
+func (s *ListForListCouponsOutput) SetTotalAmount(v float64) *ListForListCouponsOutput {
+	s.TotalAmount = &v
 	return s
 }
 
