@@ -150,6 +150,8 @@ type CreateTransitRouterBandwidthPackageInput struct {
 
 	Description *string `type:"string"`
 
+	LineOperator *string `type:"string"`
+
 	// LocalGeographicRegionSetId is a required field
 	LocalGeographicRegionSetId *string `type:"string" required:"true"`
 
@@ -214,6 +216,12 @@ func (s *CreateTransitRouterBandwidthPackageInput) SetClientToken(v string) *Cre
 // SetDescription sets the Description field's value.
 func (s *CreateTransitRouterBandwidthPackageInput) SetDescription(v string) *CreateTransitRouterBandwidthPackageInput {
 	s.Description = &v
+	return s
+}
+
+// SetLineOperator sets the LineOperator field's value.
+func (s *CreateTransitRouterBandwidthPackageInput) SetLineOperator(v string) *CreateTransitRouterBandwidthPackageInput {
+	s.LineOperator = &v
 	return s
 }
 

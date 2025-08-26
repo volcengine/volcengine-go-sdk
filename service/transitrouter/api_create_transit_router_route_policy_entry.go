@@ -157,6 +157,8 @@ type CreateTransitRouterRoutePolicyEntryInput struct {
 
 	DestinationResourceTypes []*string `type:"list"`
 
+	IpPrefixMatchMode *string `type:"string"`
+
 	IpPrefixes []*string `type:"list"`
 
 	// Priority is a required field
@@ -238,6 +240,12 @@ func (s *CreateTransitRouterRoutePolicyEntryInput) SetDestinationResourceIds(v [
 // SetDestinationResourceTypes sets the DestinationResourceTypes field's value.
 func (s *CreateTransitRouterRoutePolicyEntryInput) SetDestinationResourceTypes(v []*string) *CreateTransitRouterRoutePolicyEntryInput {
 	s.DestinationResourceTypes = v
+	return s
+}
+
+// SetIpPrefixMatchMode sets the IpPrefixMatchMode field's value.
+func (s *CreateTransitRouterRoutePolicyEntryInput) SetIpPrefixMatchMode(v string) *CreateTransitRouterRoutePolicyEntryInput {
+	s.IpPrefixMatchMode = &v
 	return s
 }
 

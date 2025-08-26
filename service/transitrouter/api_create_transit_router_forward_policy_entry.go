@@ -146,6 +146,8 @@ type CreateTransitRouterForwardPolicyEntryInput struct {
 
 	Description *string `type:"string"`
 
+	DestinationCidrBlock *string `type:"string"`
+
 	// Priority is a required field
 	Priority *int32 `type:"int32" required:"true"`
 
@@ -200,6 +202,12 @@ func (s *CreateTransitRouterForwardPolicyEntryInput) SetClientToken(v string) *C
 // SetDescription sets the Description field's value.
 func (s *CreateTransitRouterForwardPolicyEntryInput) SetDescription(v string) *CreateTransitRouterForwardPolicyEntryInput {
 	s.Description = &v
+	return s
+}
+
+// SetDestinationCidrBlock sets the DestinationCidrBlock field's value.
+func (s *CreateTransitRouterForwardPolicyEntryInput) SetDestinationCidrBlock(v string) *CreateTransitRouterForwardPolicyEntryInput {
+	s.DestinationCidrBlock = &v
 	return s
 }
 

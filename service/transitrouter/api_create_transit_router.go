@@ -148,6 +148,8 @@ type CreateTransitRouterInput struct {
 
 	Description *string `type:"string"`
 
+	MulticastEnabled *bool `type:"boolean"`
+
 	ProjectName *string `type:"string"`
 
 	Tags []*TagForCreateTransitRouterInput `type:"list"`
@@ -180,6 +182,12 @@ func (s *CreateTransitRouterInput) SetClientToken(v string) *CreateTransitRouter
 // SetDescription sets the Description field's value.
 func (s *CreateTransitRouterInput) SetDescription(v string) *CreateTransitRouterInput {
 	s.Description = &v
+	return s
+}
+
+// SetMulticastEnabled sets the MulticastEnabled field's value.
+func (s *CreateTransitRouterInput) SetMulticastEnabled(v bool) *CreateTransitRouterInput {
+	s.MulticastEnabled = &v
 	return s
 }
 

@@ -336,6 +336,8 @@ type TransitRouterAttachmentForDescribeTransitRouterDirectConnectGatewayAttachme
 
 	DirectConnectGatewayId *string `type:"string"`
 
+	Ipv6Enabled *string `type:"string"`
+
 	Status *string `type:"string"`
 
 	Tags []*TagForDescribeTransitRouterDirectConnectGatewayAttachmentsOutput `type:"list"`
@@ -386,6 +388,12 @@ func (s *TransitRouterAttachmentForDescribeTransitRouterDirectConnectGatewayAtta
 // SetDirectConnectGatewayId sets the DirectConnectGatewayId field's value.
 func (s *TransitRouterAttachmentForDescribeTransitRouterDirectConnectGatewayAttachmentsOutput) SetDirectConnectGatewayId(v string) *TransitRouterAttachmentForDescribeTransitRouterDirectConnectGatewayAttachmentsOutput {
 	s.DirectConnectGatewayId = &v
+	return s
+}
+
+// SetIpv6Enabled sets the Ipv6Enabled field's value.
+func (s *TransitRouterAttachmentForDescribeTransitRouterDirectConnectGatewayAttachmentsOutput) SetIpv6Enabled(v string) *TransitRouterAttachmentForDescribeTransitRouterDirectConnectGatewayAttachmentsOutput {
+	s.Ipv6Enabled = &v
 	return s
 }
 

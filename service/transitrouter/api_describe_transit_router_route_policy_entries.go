@@ -272,6 +272,8 @@ type TransitRouterRoutePolicyEntryForDescribeTransitRouterRoutePolicyEntriesOutp
 
 	DestinationResourceTypes []*string `type:"list"`
 
+	IpPrefixMatchMode *string `type:"string"`
+
 	IpPrefixes []*string `type:"list"`
 
 	Priority *int32 `type:"int32"`
@@ -338,6 +340,12 @@ func (s *TransitRouterRoutePolicyEntryForDescribeTransitRouterRoutePolicyEntries
 // SetDestinationResourceTypes sets the DestinationResourceTypes field's value.
 func (s *TransitRouterRoutePolicyEntryForDescribeTransitRouterRoutePolicyEntriesOutput) SetDestinationResourceTypes(v []*string) *TransitRouterRoutePolicyEntryForDescribeTransitRouterRoutePolicyEntriesOutput {
 	s.DestinationResourceTypes = v
+	return s
+}
+
+// SetIpPrefixMatchMode sets the IpPrefixMatchMode field's value.
+func (s *TransitRouterRoutePolicyEntryForDescribeTransitRouterRoutePolicyEntriesOutput) SetIpPrefixMatchMode(v string) *TransitRouterRoutePolicyEntryForDescribeTransitRouterRoutePolicyEntriesOutput {
+	s.IpPrefixMatchMode = &v
 	return s
 }
 

@@ -154,6 +154,12 @@ type DescribeTransitRouterRouteEntriesInput struct {
 
 	TransitRouterRouteEntryName *string `type:"string"`
 
+	TransitRouterRouteEntryNextHopResourceType *string `type:"string"`
+
+	TransitRouterRouteEntryNextHopType *string `type:"string"`
+
+	TransitRouterRouteEntryType *string `type:"string"`
+
 	// TransitRouterRouteTableId is a required field
 	TransitRouterRouteTableId *string `type:"string" required:"true"`
 }
@@ -217,6 +223,24 @@ func (s *DescribeTransitRouterRouteEntriesInput) SetTransitRouterRouteEntryName(
 	return s
 }
 
+// SetTransitRouterRouteEntryNextHopResourceType sets the TransitRouterRouteEntryNextHopResourceType field's value.
+func (s *DescribeTransitRouterRouteEntriesInput) SetTransitRouterRouteEntryNextHopResourceType(v string) *DescribeTransitRouterRouteEntriesInput {
+	s.TransitRouterRouteEntryNextHopResourceType = &v
+	return s
+}
+
+// SetTransitRouterRouteEntryNextHopType sets the TransitRouterRouteEntryNextHopType field's value.
+func (s *DescribeTransitRouterRouteEntriesInput) SetTransitRouterRouteEntryNextHopType(v string) *DescribeTransitRouterRouteEntriesInput {
+	s.TransitRouterRouteEntryNextHopType = &v
+	return s
+}
+
+// SetTransitRouterRouteEntryType sets the TransitRouterRouteEntryType field's value.
+func (s *DescribeTransitRouterRouteEntriesInput) SetTransitRouterRouteEntryType(v string) *DescribeTransitRouterRouteEntriesInput {
+	s.TransitRouterRouteEntryType = &v
+	return s
+}
+
 // SetTransitRouterRouteTableId sets the TransitRouterRouteTableId field's value.
 func (s *DescribeTransitRouterRouteEntriesInput) SetTransitRouterRouteTableId(v string) *DescribeTransitRouterRouteEntriesInput {
 	s.TransitRouterRouteTableId = &v
@@ -235,6 +259,10 @@ type DescribeTransitRouterRouteEntriesOutput struct {
 	TotalCount *int32 `type:"int32"`
 
 	TransitRouterRouteEntries []*TransitRouterRouteEntryForDescribeTransitRouterRouteEntriesOutput `type:"list"`
+
+	TransitRouterRouteEntryNextHopResourceID *string `type:"string"`
+
+	TransitRouterRouteEntryNextHopResourceType *string `type:"string"`
 }
 
 // String returns the string representation
@@ -268,6 +296,18 @@ func (s *DescribeTransitRouterRouteEntriesOutput) SetTotalCount(v int32) *Descri
 // SetTransitRouterRouteEntries sets the TransitRouterRouteEntries field's value.
 func (s *DescribeTransitRouterRouteEntriesOutput) SetTransitRouterRouteEntries(v []*TransitRouterRouteEntryForDescribeTransitRouterRouteEntriesOutput) *DescribeTransitRouterRouteEntriesOutput {
 	s.TransitRouterRouteEntries = v
+	return s
+}
+
+// SetTransitRouterRouteEntryNextHopResourceID sets the TransitRouterRouteEntryNextHopResourceID field's value.
+func (s *DescribeTransitRouterRouteEntriesOutput) SetTransitRouterRouteEntryNextHopResourceID(v string) *DescribeTransitRouterRouteEntriesOutput {
+	s.TransitRouterRouteEntryNextHopResourceID = &v
+	return s
+}
+
+// SetTransitRouterRouteEntryNextHopResourceType sets the TransitRouterRouteEntryNextHopResourceType field's value.
+func (s *DescribeTransitRouterRouteEntriesOutput) SetTransitRouterRouteEntryNextHopResourceType(v string) *DescribeTransitRouterRouteEntriesOutput {
+	s.TransitRouterRouteEntryNextHopResourceType = &v
 	return s
 }
 

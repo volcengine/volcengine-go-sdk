@@ -142,6 +142,8 @@ func (c *TRANSITROUTER) DescribeTransitRouterForwardPolicyEntriesWithContext(ctx
 type DescribeTransitRouterForwardPolicyEntriesInput struct {
 	_ struct{} `type:"structure"`
 
+	DestinationCidrBlock *string `type:"string"`
+
 	PageNumber *int32 `type:"int32"`
 
 	PageSize *int32 `type:"int32"`
@@ -177,6 +179,12 @@ func (s *DescribeTransitRouterForwardPolicyEntriesInput) Validate() error {
 		return invalidParams
 	}
 	return nil
+}
+
+// SetDestinationCidrBlock sets the DestinationCidrBlock field's value.
+func (s *DescribeTransitRouterForwardPolicyEntriesInput) SetDestinationCidrBlock(v string) *DescribeTransitRouterForwardPolicyEntriesInput {
+	s.DestinationCidrBlock = &v
+	return s
 }
 
 // SetPageNumber sets the PageNumber field's value.
@@ -270,6 +278,8 @@ type TransitRouterForwardPolicyEntryForDescribeTransitRouterForwardPolicyEntries
 
 	Description *string `type:"string"`
 
+	DestinationCidrBlock *string `type:"string"`
+
 	Priority *int32 `type:"int32"`
 
 	SourceCidrBlock *string `type:"string"`
@@ -304,6 +314,12 @@ func (s *TransitRouterForwardPolicyEntryForDescribeTransitRouterForwardPolicyEnt
 // SetDescription sets the Description field's value.
 func (s *TransitRouterForwardPolicyEntryForDescribeTransitRouterForwardPolicyEntriesOutput) SetDescription(v string) *TransitRouterForwardPolicyEntryForDescribeTransitRouterForwardPolicyEntriesOutput {
 	s.Description = &v
+	return s
+}
+
+// SetDestinationCidrBlock sets the DestinationCidrBlock field's value.
+func (s *TransitRouterForwardPolicyEntryForDescribeTransitRouterForwardPolicyEntriesOutput) SetDestinationCidrBlock(v string) *TransitRouterForwardPolicyEntryForDescribeTransitRouterForwardPolicyEntriesOutput {
+	s.DestinationCidrBlock = &v
 	return s
 }
 

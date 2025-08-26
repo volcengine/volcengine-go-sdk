@@ -408,6 +408,8 @@ type TransitRouterBandwidthPackageForDescribeTransitRouterBandwidthPackagesOutpu
 
 	ExpiredTime *string `type:"string"`
 
+	LineOperator *string `type:"string"`
+
 	LocalGeographicRegionSetId *string `type:"string"`
 
 	PeerGeographicRegionSetId *string `type:"string"`
@@ -488,6 +490,12 @@ func (s *TransitRouterBandwidthPackageForDescribeTransitRouterBandwidthPackagesO
 // SetExpiredTime sets the ExpiredTime field's value.
 func (s *TransitRouterBandwidthPackageForDescribeTransitRouterBandwidthPackagesOutput) SetExpiredTime(v string) *TransitRouterBandwidthPackageForDescribeTransitRouterBandwidthPackagesOutput {
 	s.ExpiredTime = &v
+	return s
+}
+
+// SetLineOperator sets the LineOperator field's value.
+func (s *TransitRouterBandwidthPackageForDescribeTransitRouterBandwidthPackagesOutput) SetLineOperator(v string) *TransitRouterBandwidthPackageForDescribeTransitRouterBandwidthPackagesOutput {
+	s.LineOperator = &v
 	return s
 }
 

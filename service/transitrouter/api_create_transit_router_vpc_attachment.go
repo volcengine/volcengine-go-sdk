@@ -192,8 +192,7 @@ func (s *AttachPointForCreateTransitRouterVpcAttachmentInput) SetZoneId(v string
 type CreateTransitRouterVpcAttachmentInput struct {
 	_ struct{} `type:"structure"`
 
-	// AttachPoints is a required field
-	AttachPoints []*AttachPointForCreateTransitRouterVpcAttachmentInput `type:"list" required:"true"`
+	AttachPoints []*AttachPointForCreateTransitRouterVpcAttachmentInput `type:"list"`
 
 	AutoPublishRouteEnabled *bool `type:"boolean"`
 
@@ -227,9 +226,6 @@ func (s CreateTransitRouterVpcAttachmentInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *CreateTransitRouterVpcAttachmentInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "CreateTransitRouterVpcAttachmentInput"}
-	if s.AttachPoints == nil {
-		invalidParams.Add(request.NewErrParamRequired("AttachPoints"))
-	}
 	if s.TransitRouterId == nil {
 		invalidParams.Add(request.NewErrParamRequired("TransitRouterId"))
 	}
