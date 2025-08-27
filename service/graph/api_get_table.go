@@ -200,7 +200,7 @@ type GetTableOutput struct {
 
 	EnableWrite *bool `type:"boolean" json:",omitempty"`
 
-	State *int32 `type:"int32" json:",omitempty"`
+	State *string `type:"string" json:",omitempty"`
 
 	TableId *int64 `type:"int64" json:",omitempty"`
 
@@ -230,7 +230,7 @@ func (s *GetTableOutput) SetEnableWrite(v bool) *GetTableOutput {
 }
 
 // SetState sets the State field's value.
-func (s *GetTableOutput) SetState(v int32) *GetTableOutput {
+func (s *GetTableOutput) SetState(v string) *GetTableOutput {
 	s.State = &v
 	return s
 }

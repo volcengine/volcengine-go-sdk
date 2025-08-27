@@ -62,6 +62,14 @@ type GRAPHAPI interface {
 	CreateInstanceWithContext(volcengine.Context, *CreateInstanceInput, ...request.Option) (*CreateInstanceOutput, error)
 	CreateInstanceRequest(*CreateInstanceInput) (*request.Request, *CreateInstanceOutput)
 
+	DecodeRawKeyCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DecodeRawKeyCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DecodeRawKeyCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DecodeRawKey(*DecodeRawKeyInput) (*DecodeRawKeyOutput, error)
+	DecodeRawKeyWithContext(volcengine.Context, *DecodeRawKeyInput, ...request.Option) (*DecodeRawKeyOutput, error)
+	DecodeRawKeyRequest(*DecodeRawKeyInput) (*request.Request, *DecodeRawKeyOutput)
+
 	DescribeInstanceCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DescribeInstanceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DescribeInstanceCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -181,6 +189,14 @@ type GRAPHAPI interface {
 	GetVegraphReadAndWriteStatus(*GetVegraphReadAndWriteStatusInput) (*GetVegraphReadAndWriteStatusOutput, error)
 	GetVegraphReadAndWriteStatusWithContext(volcengine.Context, *GetVegraphReadAndWriteStatusInput, ...request.Option) (*GetVegraphReadAndWriteStatusOutput, error)
 	GetVegraphReadAndWriteStatusRequest(*GetVegraphReadAndWriteStatusInput) (*request.Request, *GetVegraphReadAndWriteStatusOutput)
+
+	GetVersionSetAndComponentsInfoCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	GetVersionSetAndComponentsInfoCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	GetVersionSetAndComponentsInfoCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	GetVersionSetAndComponentsInfo(*GetVersionSetAndComponentsInfoInput) (*GetVersionSetAndComponentsInfoOutput, error)
+	GetVersionSetAndComponentsInfoWithContext(volcengine.Context, *GetVersionSetAndComponentsInfoInput, ...request.Option) (*GetVersionSetAndComponentsInfoOutput, error)
+	GetVersionSetAndComponentsInfoRequest(*GetVersionSetAndComponentsInfoInput) (*request.Request, *GetVersionSetAndComponentsInfoOutput)
 
 	ListClusterTablesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ListClusterTablesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
