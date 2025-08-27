@@ -283,6 +283,28 @@ func (s *NetworkInterfaceForRunInstancesInput) SetSubnetId(v string) *NetworkInt
 	return s
 }
 
+type NetworkOptionsForRunInstancesInput struct {
+	_ struct{} `type:"structure"`
+
+	EnableJumboFrame *bool `type:"boolean"`
+}
+
+// String returns the string representation
+func (s NetworkOptionsForRunInstancesInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s NetworkOptionsForRunInstancesInput) GoString() string {
+	return s.String()
+}
+
+// SetEnableJumboFrame sets the EnableJumboFrame field's value.
+func (s *NetworkOptionsForRunInstancesInput) SetEnableJumboFrame(v bool) *NetworkOptionsForRunInstancesInput {
+	s.EnableJumboFrame = &v
+	return s
+}
+
 type PlacementForRunInstancesInput struct {
 	_ struct{} `type:"structure"`
 
@@ -389,6 +411,8 @@ type RunInstancesInput struct {
 	MinCount *int32 `type:"int32"`
 
 	NetworkInterfaces []*NetworkInterfaceForRunInstancesInput `type:"list"`
+
+	NetworkOptions *NetworkOptionsForRunInstancesInput `type:"structure"`
 
 	Password *string `type:"string"`
 
@@ -634,6 +658,12 @@ func (s *RunInstancesInput) SetMinCount(v int32) *RunInstancesInput {
 // SetNetworkInterfaces sets the NetworkInterfaces field's value.
 func (s *RunInstancesInput) SetNetworkInterfaces(v []*NetworkInterfaceForRunInstancesInput) *RunInstancesInput {
 	s.NetworkInterfaces = v
+	return s
+}
+
+// SetNetworkOptions sets the NetworkOptions field's value.
+func (s *RunInstancesInput) SetNetworkOptions(v *NetworkOptionsForRunInstancesInput) *RunInstancesInput {
+	s.NetworkOptions = v
 	return s
 }
 

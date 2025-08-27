@@ -118,6 +118,22 @@ type ECSAPI interface {
 	CreateKeyPairWithContext(volcengine.Context, *CreateKeyPairInput, ...request.Option) (*CreateKeyPairOutput, error)
 	CreateKeyPairRequest(*CreateKeyPairInput) (*request.Request, *CreateKeyPairOutput)
 
+	CreateLaunchTemplateCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateLaunchTemplateCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateLaunchTemplateCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateLaunchTemplate(*CreateLaunchTemplateInput) (*CreateLaunchTemplateOutput, error)
+	CreateLaunchTemplateWithContext(volcengine.Context, *CreateLaunchTemplateInput, ...request.Option) (*CreateLaunchTemplateOutput, error)
+	CreateLaunchTemplateRequest(*CreateLaunchTemplateInput) (*request.Request, *CreateLaunchTemplateOutput)
+
+	CreateLaunchTemplateVersionCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateLaunchTemplateVersionCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateLaunchTemplateVersionCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateLaunchTemplateVersion(*CreateLaunchTemplateVersionInput) (*CreateLaunchTemplateVersionOutput, error)
+	CreateLaunchTemplateVersionWithContext(volcengine.Context, *CreateLaunchTemplateVersionInput, ...request.Option) (*CreateLaunchTemplateVersionOutput, error)
+	CreateLaunchTemplateVersionRequest(*CreateLaunchTemplateVersionInput) (*request.Request, *CreateLaunchTemplateVersionOutput)
+
 	CreateScheduledInstancesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	CreateScheduledInstancesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	CreateScheduledInstancesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -213,6 +229,22 @@ type ECSAPI interface {
 	DeleteKeyPairs(*DeleteKeyPairsInput) (*DeleteKeyPairsOutput, error)
 	DeleteKeyPairsWithContext(volcengine.Context, *DeleteKeyPairsInput, ...request.Option) (*DeleteKeyPairsOutput, error)
 	DeleteKeyPairsRequest(*DeleteKeyPairsInput) (*request.Request, *DeleteKeyPairsOutput)
+
+	DeleteLaunchTemplateCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeleteLaunchTemplateCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeleteLaunchTemplateCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeleteLaunchTemplate(*DeleteLaunchTemplateInput) (*DeleteLaunchTemplateOutput, error)
+	DeleteLaunchTemplateWithContext(volcengine.Context, *DeleteLaunchTemplateInput, ...request.Option) (*DeleteLaunchTemplateOutput, error)
+	DeleteLaunchTemplateRequest(*DeleteLaunchTemplateInput) (*request.Request, *DeleteLaunchTemplateOutput)
+
+	DeleteLaunchTemplateVersionCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeleteLaunchTemplateVersionCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeleteLaunchTemplateVersionCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeleteLaunchTemplateVersion(*DeleteLaunchTemplateVersionInput) (*DeleteLaunchTemplateVersionOutput, error)
+	DeleteLaunchTemplateVersionWithContext(volcengine.Context, *DeleteLaunchTemplateVersionInput, ...request.Option) (*DeleteLaunchTemplateVersionOutput, error)
+	DeleteLaunchTemplateVersionRequest(*DeleteLaunchTemplateVersionInput) (*request.Request, *DeleteLaunchTemplateVersionOutput)
 
 	DeleteScheduledInstanceCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DeleteScheduledInstanceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -421,6 +453,22 @@ type ECSAPI interface {
 	DescribeKeyPairs(*DescribeKeyPairsInput) (*DescribeKeyPairsOutput, error)
 	DescribeKeyPairsWithContext(volcengine.Context, *DescribeKeyPairsInput, ...request.Option) (*DescribeKeyPairsOutput, error)
 	DescribeKeyPairsRequest(*DescribeKeyPairsInput) (*request.Request, *DescribeKeyPairsOutput)
+
+	DescribeLaunchTemplateVersionsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeLaunchTemplateVersionsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeLaunchTemplateVersionsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeLaunchTemplateVersions(*DescribeLaunchTemplateVersionsInput) (*DescribeLaunchTemplateVersionsOutput, error)
+	DescribeLaunchTemplateVersionsWithContext(volcengine.Context, *DescribeLaunchTemplateVersionsInput, ...request.Option) (*DescribeLaunchTemplateVersionsOutput, error)
+	DescribeLaunchTemplateVersionsRequest(*DescribeLaunchTemplateVersionsInput) (*request.Request, *DescribeLaunchTemplateVersionsOutput)
+
+	DescribeLaunchTemplatesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeLaunchTemplatesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeLaunchTemplatesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeLaunchTemplates(*DescribeLaunchTemplatesInput) (*DescribeLaunchTemplatesOutput, error)
+	DescribeLaunchTemplatesWithContext(volcengine.Context, *DescribeLaunchTemplatesInput, ...request.Option) (*DescribeLaunchTemplatesOutput, error)
+	DescribeLaunchTemplatesRequest(*DescribeLaunchTemplatesInput) (*request.Request, *DescribeLaunchTemplatesOutput)
 
 	DescribeRegionsCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DescribeRegionsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -718,6 +766,14 @@ type ECSAPI interface {
 	ModifyInstanceVpcAttributeWithContext(volcengine.Context, *ModifyInstanceVpcAttributeInput, ...request.Option) (*ModifyInstanceVpcAttributeOutput, error)
 	ModifyInstanceVpcAttributeRequest(*ModifyInstanceVpcAttributeInput) (*request.Request, *ModifyInstanceVpcAttributeOutput)
 
+	ModifyInstancesSpecCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ModifyInstancesSpecCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ModifyInstancesSpecCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ModifyInstancesSpec(*ModifyInstancesSpecInput) (*ModifyInstancesSpecOutput, error)
+	ModifyInstancesSpecWithContext(volcengine.Context, *ModifyInstancesSpecInput, ...request.Option) (*ModifyInstancesSpecOutput, error)
+	ModifyInstancesSpecRequest(*ModifyInstancesSpecInput) (*request.Request, *ModifyInstancesSpecOutput)
+
 	ModifyKeyPairAttributeCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ModifyKeyPairAttributeCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	ModifyKeyPairAttributeCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -741,6 +797,14 @@ type ECSAPI interface {
 	ModifySubscriptionEventTypes(*ModifySubscriptionEventTypesInput) (*ModifySubscriptionEventTypesOutput, error)
 	ModifySubscriptionEventTypesWithContext(volcengine.Context, *ModifySubscriptionEventTypesInput, ...request.Option) (*ModifySubscriptionEventTypesOutput, error)
 	ModifySubscriptionEventTypesRequest(*ModifySubscriptionEventTypesInput) (*request.Request, *ModifySubscriptionEventTypesOutput)
+
+	ModifyTemplateDefaultVersionCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ModifyTemplateDefaultVersionCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ModifyTemplateDefaultVersionCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ModifyTemplateDefaultVersion(*ModifyTemplateDefaultVersionInput) (*ModifyTemplateDefaultVersionOutput, error)
+	ModifyTemplateDefaultVersionWithContext(volcengine.Context, *ModifyTemplateDefaultVersionInput, ...request.Option) (*ModifyTemplateDefaultVersionOutput, error)
+	ModifyTemplateDefaultVersionRequest(*ModifyTemplateDefaultVersionInput) (*request.Request, *ModifyTemplateDefaultVersionOutput)
 
 	PurchaseReservedInstancesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	PurchaseReservedInstancesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
