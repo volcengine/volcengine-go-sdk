@@ -155,6 +155,8 @@ type ListVendorContentTaskInput struct {
 
 	ProductType *string `type:"string" json:",omitempty"`
 
+	ProjectName *string `type:"string" json:",omitempty"`
+
 	StartTime *int64 `type:"int64" json:",omitempty"`
 
 	SubProduct *string `type:"string" json:",omitempty"`
@@ -212,6 +214,12 @@ func (s *ListVendorContentTaskInput) SetPagination(v *PaginationForListVendorCon
 // SetProductType sets the ProductType field's value.
 func (s *ListVendorContentTaskInput) SetProductType(v string) *ListVendorContentTaskInput {
 	s.ProductType = &v
+	return s
+}
+
+// SetProjectName sets the ProjectName field's value.
+func (s *ListVendorContentTaskInput) SetProjectName(v string) *ListVendorContentTaskInput {
+	s.ProjectName = &v
 	return s
 }
 

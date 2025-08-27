@@ -146,6 +146,8 @@ func (c *MCDN) DescribeContentTaskByTaskIdWithContext(ctx volcengine.Context, in
 type DescribeContentTaskByTaskIdInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	ProjectName *string `type:"string" json:",omitempty"`
+
 	// TaskId is a required field
 	TaskId *string `type:"string" json:",omitempty" required:"true"`
 }
@@ -171,6 +173,12 @@ func (s *DescribeContentTaskByTaskIdInput) Validate() error {
 		return invalidParams
 	}
 	return nil
+}
+
+// SetProjectName sets the ProjectName field's value.
+func (s *DescribeContentTaskByTaskIdInput) SetProjectName(v string) *DescribeContentTaskByTaskIdInput {
+	s.ProjectName = &v
+	return s
 }
 
 // SetTaskId sets the TaskId field's value.

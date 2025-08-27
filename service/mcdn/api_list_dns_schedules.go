@@ -150,9 +150,13 @@ type DnsScheduleForListDnsSchedulesOutput struct {
 
 	CreatedAt *int64 `type:"int64" json:",omitempty"`
 
+	CreatedTime *string `type:"string" json:",omitempty"`
+
 	DomainName *string `type:"string" json:",omitempty"`
 
 	Id *string `type:"string" json:",omitempty"`
+
+	ProjectName *string `type:"string" json:",omitempty"`
 
 	Region *string `type:"string" json:",omitempty"`
 
@@ -189,6 +193,12 @@ func (s *DnsScheduleForListDnsSchedulesOutput) SetCreatedAt(v int64) *DnsSchedul
 	return s
 }
 
+// SetCreatedTime sets the CreatedTime field's value.
+func (s *DnsScheduleForListDnsSchedulesOutput) SetCreatedTime(v string) *DnsScheduleForListDnsSchedulesOutput {
+	s.CreatedTime = &v
+	return s
+}
+
 // SetDomainName sets the DomainName field's value.
 func (s *DnsScheduleForListDnsSchedulesOutput) SetDomainName(v string) *DnsScheduleForListDnsSchedulesOutput {
 	s.DomainName = &v
@@ -198,6 +208,12 @@ func (s *DnsScheduleForListDnsSchedulesOutput) SetDomainName(v string) *DnsSched
 // SetId sets the Id field's value.
 func (s *DnsScheduleForListDnsSchedulesOutput) SetId(v string) *DnsScheduleForListDnsSchedulesOutput {
 	s.Id = &v
+	return s
+}
+
+// SetProjectName sets the ProjectName field's value.
+func (s *DnsScheduleForListDnsSchedulesOutput) SetProjectName(v string) *DnsScheduleForListDnsSchedulesOutput {
+	s.ProjectName = &v
 	return s
 }
 
@@ -248,6 +264,8 @@ type ListDnsSchedulesInput struct {
 
 	Pagination *PaginationForListDnsSchedulesInput `type:"structure" json:",omitempty"`
 
+	ProjectName *string `type:"string" json:",omitempty"`
+
 	Region *string `type:"string" json:",omitempty"`
 
 	ScheduleStatus *string `type:"string" json:",omitempty"`
@@ -292,6 +310,12 @@ func (s *ListDnsSchedulesInput) SetExactDomainName(v string) *ListDnsSchedulesIn
 // SetPagination sets the Pagination field's value.
 func (s *ListDnsSchedulesInput) SetPagination(v *PaginationForListDnsSchedulesInput) *ListDnsSchedulesInput {
 	s.Pagination = v
+	return s
+}
+
+// SetProjectName sets the ProjectName field's value.
+func (s *ListDnsSchedulesInput) SetProjectName(v string) *ListDnsSchedulesInput {
+	s.ProjectName = &v
 	return s
 }
 

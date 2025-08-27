@@ -333,6 +333,8 @@ type DomainForListCdnDomainsOutput struct {
 	Vendor *string `type:"string" json:",omitempty"`
 
 	VendorId *string `type:"string" json:",omitempty"`
+
+	VolcProjectPath *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -489,6 +491,12 @@ func (s *DomainForListCdnDomainsOutput) SetVendorId(v string) *DomainForListCdnD
 	return s
 }
 
+// SetVolcProjectPath sets the VolcProjectPath field's value.
+func (s *DomainForListCdnDomainsOutput) SetVolcProjectPath(v string) *DomainForListCdnDomainsOutput {
+	s.VolcProjectPath = &v
+	return s
+}
+
 type HostForListCdnDomainsOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -533,6 +541,8 @@ type ListCdnDomainsInput struct {
 	Name *string `type:"string" json:",omitempty"`
 
 	Pagination *PaginationForListCdnDomainsInput `type:"structure" json:",omitempty"`
+
+	ProjectName *string `type:"string" json:",omitempty"`
 
 	Region []*string `type:"list" json:",omitempty"`
 
@@ -590,6 +600,12 @@ func (s *ListCdnDomainsInput) SetName(v string) *ListCdnDomainsInput {
 // SetPagination sets the Pagination field's value.
 func (s *ListCdnDomainsInput) SetPagination(v *PaginationForListCdnDomainsInput) *ListCdnDomainsInput {
 	s.Pagination = v
+	return s
+}
+
+// SetProjectName sets the ProjectName field's value.
+func (s *ListCdnDomainsInput) SetProjectName(v string) *ListCdnDomainsInput {
+	s.ProjectName = &v
 	return s
 }
 
@@ -857,6 +873,8 @@ type TagFilterForListCdnDomainsInput struct {
 	Key *string `type:"string" json:",omitempty"`
 
 	Value *string `type:"string" json:",omitempty"`
+
+	Values []*string `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -878,6 +896,12 @@ func (s *TagFilterForListCdnDomainsInput) SetKey(v string) *TagFilterForListCdnD
 // SetValue sets the Value field's value.
 func (s *TagFilterForListCdnDomainsInput) SetValue(v string) *TagFilterForListCdnDomainsInput {
 	s.Value = &v
+	return s
+}
+
+// SetValues sets the Values field's value.
+func (s *TagFilterForListCdnDomainsInput) SetValues(v []*string) *TagFilterForListCdnDomainsInput {
+	s.Values = v
 	return s
 }
 
