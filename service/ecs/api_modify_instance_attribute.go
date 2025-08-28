@@ -148,6 +148,8 @@ type ModifyInstanceAttributeInput struct {
 
 	Description *string `type:"string"`
 
+	EnableJumboFrame *bool `type:"boolean"`
+
 	Hostname *string `type:"string"`
 
 	// InstanceId is a required field
@@ -198,6 +200,12 @@ func (s *ModifyInstanceAttributeInput) SetDeletionProtection(v bool) *ModifyInst
 // SetDescription sets the Description field's value.
 func (s *ModifyInstanceAttributeInput) SetDescription(v string) *ModifyInstanceAttributeInput {
 	s.Description = &v
+	return s
+}
+
+// SetEnableJumboFrame sets the EnableJumboFrame field's value.
+func (s *ModifyInstanceAttributeInput) SetEnableJumboFrame(v bool) *ModifyInstanceAttributeInput {
+	s.EnableJumboFrame = &v
 	return s
 }
 

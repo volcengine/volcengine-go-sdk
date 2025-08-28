@@ -468,6 +468,8 @@ type InstanceForDescribeInstancesOutput struct {
 
 	ElasticScheduledInstanceType *string `type:"string"`
 
+	EnableJumboFrame *bool `type:"boolean"`
+
 	ExpiredAt *string `type:"string"`
 
 	HostName *string `type:"string"`
@@ -598,6 +600,12 @@ func (s *InstanceForDescribeInstancesOutput) SetEipAddress(v *EipAddressForDescr
 // SetElasticScheduledInstanceType sets the ElasticScheduledInstanceType field's value.
 func (s *InstanceForDescribeInstancesOutput) SetElasticScheduledInstanceType(v string) *InstanceForDescribeInstancesOutput {
 	s.ElasticScheduledInstanceType = &v
+	return s
+}
+
+// SetEnableJumboFrame sets the EnableJumboFrame field's value.
+func (s *InstanceForDescribeInstancesOutput) SetEnableJumboFrame(v bool) *InstanceForDescribeInstancesOutput {
+	s.EnableJumboFrame = &v
 	return s
 }
 
