@@ -329,9 +329,13 @@ type DataVolumeForCreateNodePoolInput struct {
 
 	MountPoint *string `type:"string" json:",omitempty"`
 
+	PlacementGroupId *string `type:"string" json:",omitempty"`
+
 	Size *int32 `type:"int32" json:",omitempty"`
 
 	SnapshotId *string `type:"string" json:",omitempty"`
+
+	SubgroupNumber *int32 `type:"int32" json:",omitempty"`
 
 	Type *string `type:"string" json:",omitempty" enum:"EnumOfTypeForCreateNodePoolInput"`
 }
@@ -358,6 +362,12 @@ func (s *DataVolumeForCreateNodePoolInput) SetMountPoint(v string) *DataVolumeFo
 	return s
 }
 
+// SetPlacementGroupId sets the PlacementGroupId field's value.
+func (s *DataVolumeForCreateNodePoolInput) SetPlacementGroupId(v string) *DataVolumeForCreateNodePoolInput {
+	s.PlacementGroupId = &v
+	return s
+}
+
 // SetSize sets the Size field's value.
 func (s *DataVolumeForCreateNodePoolInput) SetSize(v int32) *DataVolumeForCreateNodePoolInput {
 	s.Size = &v
@@ -367,6 +377,12 @@ func (s *DataVolumeForCreateNodePoolInput) SetSize(v int32) *DataVolumeForCreate
 // SetSnapshotId sets the SnapshotId field's value.
 func (s *DataVolumeForCreateNodePoolInput) SetSnapshotId(v string) *DataVolumeForCreateNodePoolInput {
 	s.SnapshotId = &v
+	return s
+}
+
+// SetSubgroupNumber sets the SubgroupNumber field's value.
+func (s *DataVolumeForCreateNodePoolInput) SetSubgroupNumber(v int32) *DataVolumeForCreateNodePoolInput {
+	s.SubgroupNumber = &v
 	return s
 }
 
@@ -393,6 +409,8 @@ func (s EvictionHardForCreateNodePoolInput) GoString() string {
 type FeatureGatesForCreateNodePoolInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	InPlacePodVerticalScaling *bool `type:"boolean" json:",omitempty"`
+
 	QoSResourceManager *bool `type:"boolean" json:",omitempty"`
 }
 
@@ -406,14 +424,52 @@ func (s FeatureGatesForCreateNodePoolInput) GoString() string {
 	return s.String()
 }
 
+// SetInPlacePodVerticalScaling sets the InPlacePodVerticalScaling field's value.
+func (s *FeatureGatesForCreateNodePoolInput) SetInPlacePodVerticalScaling(v bool) *FeatureGatesForCreateNodePoolInput {
+	s.InPlacePodVerticalScaling = &v
+	return s
+}
+
 // SetQoSResourceManager sets the QoSResourceManager field's value.
 func (s *FeatureGatesForCreateNodePoolInput) SetQoSResourceManager(v bool) *FeatureGatesForCreateNodePoolInput {
 	s.QoSResourceManager = &v
 	return s
 }
 
+type KubeReservedForCreateNodePoolInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Name *string `type:"string" json:",omitempty"`
+
+	Quantity *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s KubeReservedForCreateNodePoolInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s KubeReservedForCreateNodePoolInput) GoString() string {
+	return s.String()
+}
+
+// SetName sets the Name field's value.
+func (s *KubeReservedForCreateNodePoolInput) SetName(v string) *KubeReservedForCreateNodePoolInput {
+	s.Name = &v
+	return s
+}
+
+// SetQuantity sets the Quantity field's value.
+func (s *KubeReservedForCreateNodePoolInput) SetQuantity(v string) *KubeReservedForCreateNodePoolInput {
+	s.Quantity = &v
+	return s
+}
+
 type KubeletConfigForCreateNodePoolInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
+
+	CpuManagerPolicy *string `type:"string" json:",omitempty"`
 
 	EvictionHard []*EvictionHardForCreateNodePoolInput `type:"list" json:",omitempty"`
 
@@ -423,11 +479,17 @@ type KubeletConfigForCreateNodePoolInput struct {
 
 	KubeApiQps *int32 `min:"1" max:"50" type:"int32" json:",omitempty"`
 
+	KubeReserved []*KubeReservedForCreateNodePoolInput `type:"list" json:",omitempty"`
+
+	MaxPods *int32 `type:"int32" json:",omitempty"`
+
 	RegistryBurst *int32 `min:"1" max:"100" type:"int32" json:",omitempty"`
 
 	RegistryPullQps *int32 `min:"1" max:"50" type:"int32" json:",omitempty"`
 
 	SerializeImagePulls *bool `type:"boolean" json:",omitempty"`
+
+	SystemReserved []*SystemReservedForCreateNodePoolInput `type:"list" json:",omitempty"`
 
 	TopologyManagerPolicy *string `type:"string" json:",omitempty" enum:"EnumOfTopologyManagerPolicyForCreateNodePoolInput"`
 
@@ -478,6 +540,12 @@ func (s *KubeletConfigForCreateNodePoolInput) Validate() error {
 	return nil
 }
 
+// SetCpuManagerPolicy sets the CpuManagerPolicy field's value.
+func (s *KubeletConfigForCreateNodePoolInput) SetCpuManagerPolicy(v string) *KubeletConfigForCreateNodePoolInput {
+	s.CpuManagerPolicy = &v
+	return s
+}
+
 // SetEvictionHard sets the EvictionHard field's value.
 func (s *KubeletConfigForCreateNodePoolInput) SetEvictionHard(v []*EvictionHardForCreateNodePoolInput) *KubeletConfigForCreateNodePoolInput {
 	s.EvictionHard = v
@@ -502,6 +570,18 @@ func (s *KubeletConfigForCreateNodePoolInput) SetKubeApiQps(v int32) *KubeletCon
 	return s
 }
 
+// SetKubeReserved sets the KubeReserved field's value.
+func (s *KubeletConfigForCreateNodePoolInput) SetKubeReserved(v []*KubeReservedForCreateNodePoolInput) *KubeletConfigForCreateNodePoolInput {
+	s.KubeReserved = v
+	return s
+}
+
+// SetMaxPods sets the MaxPods field's value.
+func (s *KubeletConfigForCreateNodePoolInput) SetMaxPods(v int32) *KubeletConfigForCreateNodePoolInput {
+	s.MaxPods = &v
+	return s
+}
+
 // SetRegistryBurst sets the RegistryBurst field's value.
 func (s *KubeletConfigForCreateNodePoolInput) SetRegistryBurst(v int32) *KubeletConfigForCreateNodePoolInput {
 	s.RegistryBurst = &v
@@ -517,6 +597,12 @@ func (s *KubeletConfigForCreateNodePoolInput) SetRegistryPullQps(v int32) *Kubel
 // SetSerializeImagePulls sets the SerializeImagePulls field's value.
 func (s *KubeletConfigForCreateNodePoolInput) SetSerializeImagePulls(v bool) *KubeletConfigForCreateNodePoolInput {
 	s.SerializeImagePulls = &v
+	return s
+}
+
+// SetSystemReserved sets the SystemReserved field's value.
+func (s *KubeletConfigForCreateNodePoolInput) SetSystemReserved(v []*SystemReservedForCreateNodePoolInput) *KubeletConfigForCreateNodePoolInput {
+	s.SystemReserved = v
 	return s
 }
 
@@ -919,10 +1005,44 @@ func (s *SecurityForCreateNodePoolInput) SetSecurityStrategies(v []*string) *Sec
 	return s
 }
 
+type SystemReservedForCreateNodePoolInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Name *string `type:"string" json:",omitempty"`
+
+	Quantity *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s SystemReservedForCreateNodePoolInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s SystemReservedForCreateNodePoolInput) GoString() string {
+	return s.String()
+}
+
+// SetName sets the Name field's value.
+func (s *SystemReservedForCreateNodePoolInput) SetName(v string) *SystemReservedForCreateNodePoolInput {
+	s.Name = &v
+	return s
+}
+
+// SetQuantity sets the Quantity field's value.
+func (s *SystemReservedForCreateNodePoolInput) SetQuantity(v string) *SystemReservedForCreateNodePoolInput {
+	s.Quantity = &v
+	return s
+}
+
 type SystemVolumeForCreateNodePoolInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	PlacementGroupId *string `type:"string" json:",omitempty"`
+
 	Size *int32 `type:"int32" json:",omitempty"`
+
+	SubgroupNumber *int32 `type:"int32" json:",omitempty"`
 
 	Type *string `type:"string" json:",omitempty" enum:"EnumOfTypeForCreateNodePoolInput"`
 }
@@ -937,9 +1057,21 @@ func (s SystemVolumeForCreateNodePoolInput) GoString() string {
 	return s.String()
 }
 
+// SetPlacementGroupId sets the PlacementGroupId field's value.
+func (s *SystemVolumeForCreateNodePoolInput) SetPlacementGroupId(v string) *SystemVolumeForCreateNodePoolInput {
+	s.PlacementGroupId = &v
+	return s
+}
+
 // SetSize sets the Size field's value.
 func (s *SystemVolumeForCreateNodePoolInput) SetSize(v int32) *SystemVolumeForCreateNodePoolInput {
 	s.Size = &v
+	return s
+}
+
+// SetSubgroupNumber sets the SubgroupNumber field's value.
+func (s *SystemVolumeForCreateNodePoolInput) SetSubgroupNumber(v int32) *SystemVolumeForCreateNodePoolInput {
+	s.SubgroupNumber = &v
 	return s
 }
 
