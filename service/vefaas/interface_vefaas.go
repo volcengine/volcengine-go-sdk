@@ -94,6 +94,14 @@ type VEFAASAPI interface {
 	DeleteKafkaTriggerWithContext(volcengine.Context, *DeleteKafkaTriggerInput, ...request.Option) (*DeleteKafkaTriggerOutput, error)
 	DeleteKafkaTriggerRequest(*DeleteKafkaTriggerInput) (*request.Request, *DeleteKafkaTriggerOutput)
 
+	DeleteSandboxImageCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeleteSandboxImageCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeleteSandboxImageCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeleteSandboxImage(*DeleteSandboxImageInput) (*DeleteSandboxImageOutput, error)
+	DeleteSandboxImageWithContext(volcengine.Context, *DeleteSandboxImageInput, ...request.Option) (*DeleteSandboxImageOutput, error)
+	DeleteSandboxImageRequest(*DeleteSandboxImageInput) (*request.Request, *DeleteSandboxImageOutput)
+
 	DeleteTimerCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DeleteTimerCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DeleteTimerCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -101,6 +109,14 @@ type VEFAASAPI interface {
 	DeleteTimer(*DeleteTimerInput) (*DeleteTimerOutput, error)
 	DeleteTimerWithContext(volcengine.Context, *DeleteTimerInput, ...request.Option) (*DeleteTimerOutput, error)
 	DeleteTimerRequest(*DeleteTimerInput) (*request.Request, *DeleteTimerOutput)
+
+	DescribeSandboxCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeSandboxCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeSandboxCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeSandbox(*DescribeSandboxInput) (*DescribeSandboxOutput, error)
+	DescribeSandboxWithContext(volcengine.Context, *DescribeSandboxInput, ...request.Option) (*DescribeSandboxOutput, error)
+	DescribeSandboxRequest(*DescribeSandboxInput) (*request.Request, *DescribeSandboxOutput)
 
 	GenWebshellEndpointCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	GenWebshellEndpointCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -150,6 +166,14 @@ type VEFAASAPI interface {
 	GetFunctionInstanceLogsWithContext(volcengine.Context, *GetFunctionInstanceLogsInput, ...request.Option) (*GetFunctionInstanceLogsOutput, error)
 	GetFunctionInstanceLogsRequest(*GetFunctionInstanceLogsInput) (*request.Request, *GetFunctionInstanceLogsOutput)
 
+	GetFunctionResourceCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	GetFunctionResourceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	GetFunctionResourceCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	GetFunctionResource(*GetFunctionResourceInput) (*GetFunctionResourceOutput, error)
+	GetFunctionResourceWithContext(volcengine.Context, *GetFunctionResourceInput, ...request.Option) (*GetFunctionResourceOutput, error)
+	GetFunctionResourceRequest(*GetFunctionResourceInput) (*request.Request, *GetFunctionResourceOutput)
+
 	GetImageSyncStatusCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	GetImageSyncStatusCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	GetImageSyncStatusCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -166,6 +190,14 @@ type VEFAASAPI interface {
 	GetKafkaTriggerWithContext(volcengine.Context, *GetKafkaTriggerInput, ...request.Option) (*GetKafkaTriggerOutput, error)
 	GetKafkaTriggerRequest(*GetKafkaTriggerInput) (*request.Request, *GetKafkaTriggerOutput)
 
+	GetPublicSandboxImageGroupsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	GetPublicSandboxImageGroupsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	GetPublicSandboxImageGroupsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	GetPublicSandboxImageGroups(*GetPublicSandboxImageGroupsInput) (*GetPublicSandboxImageGroupsOutput, error)
+	GetPublicSandboxImageGroupsWithContext(volcengine.Context, *GetPublicSandboxImageGroupsInput, ...request.Option) (*GetPublicSandboxImageGroupsOutput, error)
+	GetPublicSandboxImageGroupsRequest(*GetPublicSandboxImageGroupsInput) (*request.Request, *GetPublicSandboxImageGroupsOutput)
+
 	GetReleaseStatusCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	GetReleaseStatusCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	GetReleaseStatusCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -181,6 +213,22 @@ type VEFAASAPI interface {
 	GetRevision(*GetRevisionInput) (*GetRevisionOutput, error)
 	GetRevisionWithContext(volcengine.Context, *GetRevisionInput, ...request.Option) (*GetRevisionOutput, error)
 	GetRevisionRequest(*GetRevisionInput) (*request.Request, *GetRevisionOutput)
+
+	GetRocketMQTriggerCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	GetRocketMQTriggerCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	GetRocketMQTriggerCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	GetRocketMQTrigger(*GetRocketMQTriggerInput) (*GetRocketMQTriggerOutput, error)
+	GetRocketMQTriggerWithContext(volcengine.Context, *GetRocketMQTriggerInput, ...request.Option) (*GetRocketMQTriggerOutput, error)
+	GetRocketMQTriggerRequest(*GetRocketMQTriggerInput) (*request.Request, *GetRocketMQTriggerOutput)
+
+	GetSandboxImagePrecacheTicketCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	GetSandboxImagePrecacheTicketCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	GetSandboxImagePrecacheTicketCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	GetSandboxImagePrecacheTicket(*GetSandboxImagePrecacheTicketInput) (*GetSandboxImagePrecacheTicketOutput, error)
+	GetSandboxImagePrecacheTicketWithContext(volcengine.Context, *GetSandboxImagePrecacheTicketInput, ...request.Option) (*GetSandboxImagePrecacheTicketOutput, error)
+	GetSandboxImagePrecacheTicketRequest(*GetSandboxImagePrecacheTicketInput) (*request.Request, *GetSandboxImagePrecacheTicketOutput)
 
 	GetTimerCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	GetTimerCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -246,6 +294,14 @@ type VEFAASAPI interface {
 	ListRevisionsWithContext(volcengine.Context, *ListRevisionsInput, ...request.Option) (*ListRevisionsOutput, error)
 	ListRevisionsRequest(*ListRevisionsInput) (*request.Request, *ListRevisionsOutput)
 
+	ListSandboxImagesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListSandboxImagesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListSandboxImagesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListSandboxImages(*ListSandboxImagesInput) (*ListSandboxImagesOutput, error)
+	ListSandboxImagesWithContext(volcengine.Context, *ListSandboxImagesInput, ...request.Option) (*ListSandboxImagesOutput, error)
+	ListSandboxImagesRequest(*ListSandboxImagesInput) (*request.Request, *ListSandboxImagesOutput)
+
 	ListSandboxesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ListSandboxesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	ListSandboxesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -261,6 +317,14 @@ type VEFAASAPI interface {
 	ListTriggers(*ListTriggersInput) (*ListTriggersOutput, error)
 	ListTriggersWithContext(volcengine.Context, *ListTriggersInput, ...request.Option) (*ListTriggersOutput, error)
 	ListTriggersRequest(*ListTriggersInput) (*request.Request, *ListTriggersOutput)
+
+	PrecacheSandboxImagesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	PrecacheSandboxImagesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	PrecacheSandboxImagesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	PrecacheSandboxImages(*PrecacheSandboxImagesInput) (*PrecacheSandboxImagesOutput, error)
+	PrecacheSandboxImagesWithContext(volcengine.Context, *PrecacheSandboxImagesInput, ...request.Option) (*PrecacheSandboxImagesOutput, error)
+	PrecacheSandboxImagesRequest(*PrecacheSandboxImagesInput) (*request.Request, *PrecacheSandboxImagesOutput)
 
 	ReleaseCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ReleaseCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)

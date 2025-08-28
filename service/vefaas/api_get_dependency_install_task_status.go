@@ -183,6 +183,14 @@ type GetDependencyInstallTaskStatusOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
+
+	CreateTime *string `type:"string" json:",omitempty"`
+
+	FinishTime *string `type:"string" json:",omitempty"`
+
+	FunctionId *string `type:"string" json:",omitempty"`
+
+	Status *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -193,4 +201,28 @@ func (s GetDependencyInstallTaskStatusOutput) String() string {
 // GoString returns the string representation
 func (s GetDependencyInstallTaskStatusOutput) GoString() string {
 	return s.String()
+}
+
+// SetCreateTime sets the CreateTime field's value.
+func (s *GetDependencyInstallTaskStatusOutput) SetCreateTime(v string) *GetDependencyInstallTaskStatusOutput {
+	s.CreateTime = &v
+	return s
+}
+
+// SetFinishTime sets the FinishTime field's value.
+func (s *GetDependencyInstallTaskStatusOutput) SetFinishTime(v string) *GetDependencyInstallTaskStatusOutput {
+	s.FinishTime = &v
+	return s
+}
+
+// SetFunctionId sets the FunctionId field's value.
+func (s *GetDependencyInstallTaskStatusOutput) SetFunctionId(v string) *GetDependencyInstallTaskStatusOutput {
+	s.FunctionId = &v
+	return s
+}
+
+// SetStatus sets the Status field's value.
+func (s *GetDependencyInstallTaskStatusOutput) SetStatus(v string) *GetDependencyInstallTaskStatusOutput {
+	s.Status = &v
+	return s
 }

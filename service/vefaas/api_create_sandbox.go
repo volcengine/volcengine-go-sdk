@@ -146,14 +146,24 @@ func (c *VEFAAS) CreateSandboxWithContext(ctx volcengine.Context, input *CreateS
 type CreateSandboxInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	CpuMilli *int32 `type:"int32" json:",omitempty"`
+
 	Envs []*EnvForCreateSandboxInput `type:"list" json:",omitempty"`
 
 	// FunctionId is a required field
 	FunctionId *string `type:"string" json:",omitempty" required:"true"`
 
+	InstanceImageInfo *InstanceImageInfoForCreateSandboxInput `type:"structure" json:",omitempty"`
+
 	InstanceTosMountConfig *InstanceTosMountConfigForCreateSandboxInput `type:"structure" json:",omitempty"`
 
+	MaxConcurrency *int32 `type:"int32" json:",omitempty"`
+
+	MemoryMB *int32 `type:"int32" json:",omitempty"`
+
 	Metadata map[string]*string `type:"map" json:",omitempty"`
+
+	RequestTimeout *int32 `type:"int32" json:",omitempty"`
 
 	Timeout *int32 `type:"int32" json:",omitempty"`
 }
@@ -181,6 +191,12 @@ func (s *CreateSandboxInput) Validate() error {
 	return nil
 }
 
+// SetCpuMilli sets the CpuMilli field's value.
+func (s *CreateSandboxInput) SetCpuMilli(v int32) *CreateSandboxInput {
+	s.CpuMilli = &v
+	return s
+}
+
 // SetEnvs sets the Envs field's value.
 func (s *CreateSandboxInput) SetEnvs(v []*EnvForCreateSandboxInput) *CreateSandboxInput {
 	s.Envs = v
@@ -193,15 +209,39 @@ func (s *CreateSandboxInput) SetFunctionId(v string) *CreateSandboxInput {
 	return s
 }
 
+// SetInstanceImageInfo sets the InstanceImageInfo field's value.
+func (s *CreateSandboxInput) SetInstanceImageInfo(v *InstanceImageInfoForCreateSandboxInput) *CreateSandboxInput {
+	s.InstanceImageInfo = v
+	return s
+}
+
 // SetInstanceTosMountConfig sets the InstanceTosMountConfig field's value.
 func (s *CreateSandboxInput) SetInstanceTosMountConfig(v *InstanceTosMountConfigForCreateSandboxInput) *CreateSandboxInput {
 	s.InstanceTosMountConfig = v
 	return s
 }
 
+// SetMaxConcurrency sets the MaxConcurrency field's value.
+func (s *CreateSandboxInput) SetMaxConcurrency(v int32) *CreateSandboxInput {
+	s.MaxConcurrency = &v
+	return s
+}
+
+// SetMemoryMB sets the MemoryMB field's value.
+func (s *CreateSandboxInput) SetMemoryMB(v int32) *CreateSandboxInput {
+	s.MemoryMB = &v
+	return s
+}
+
 // SetMetadata sets the Metadata field's value.
 func (s *CreateSandboxInput) SetMetadata(v map[string]*string) *CreateSandboxInput {
 	s.Metadata = v
+	return s
+}
+
+// SetRequestTimeout sets the RequestTimeout field's value.
+func (s *CreateSandboxInput) SetRequestTimeout(v int32) *CreateSandboxInput {
+	s.RequestTimeout = &v
 	return s
 }
 
@@ -262,6 +302,52 @@ func (s *EnvForCreateSandboxInput) SetKey(v string) *EnvForCreateSandboxInput {
 // SetValue sets the Value field's value.
 func (s *EnvForCreateSandboxInput) SetValue(v string) *EnvForCreateSandboxInput {
 	s.Value = &v
+	return s
+}
+
+type InstanceImageInfoForCreateSandboxInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Command *string `type:"string" json:",omitempty"`
+
+	Id *string `type:"string" json:",omitempty"`
+
+	Image *string `type:"string" json:",omitempty"`
+
+	Port *int32 `type:"int32" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s InstanceImageInfoForCreateSandboxInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s InstanceImageInfoForCreateSandboxInput) GoString() string {
+	return s.String()
+}
+
+// SetCommand sets the Command field's value.
+func (s *InstanceImageInfoForCreateSandboxInput) SetCommand(v string) *InstanceImageInfoForCreateSandboxInput {
+	s.Command = &v
+	return s
+}
+
+// SetId sets the Id field's value.
+func (s *InstanceImageInfoForCreateSandboxInput) SetId(v string) *InstanceImageInfoForCreateSandboxInput {
+	s.Id = &v
+	return s
+}
+
+// SetImage sets the Image field's value.
+func (s *InstanceImageInfoForCreateSandboxInput) SetImage(v string) *InstanceImageInfoForCreateSandboxInput {
+	s.Image = &v
+	return s
+}
+
+// SetPort sets the Port field's value.
+func (s *InstanceImageInfoForCreateSandboxInput) SetPort(v int32) *InstanceImageInfoForCreateSandboxInput {
+	s.Port = &v
 	return s
 }
 

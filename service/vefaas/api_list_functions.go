@@ -280,7 +280,11 @@ type ItemForListFunctionsOutput struct {
 
 	RequestTimeout *int32 `type:"int32" json:",omitempty"`
 
+	Role *string `type:"string" json:",omitempty"`
+
 	Runtime *string `type:"string" json:",omitempty"`
+
+	Source *string `type:"string" json:",omitempty"`
 
 	SourceLocation *string `type:"string" json:",omitempty"`
 
@@ -439,9 +443,21 @@ func (s *ItemForListFunctionsOutput) SetRequestTimeout(v int32) *ItemForListFunc
 	return s
 }
 
+// SetRole sets the Role field's value.
+func (s *ItemForListFunctionsOutput) SetRole(v string) *ItemForListFunctionsOutput {
+	s.Role = &v
+	return s
+}
+
 // SetRuntime sets the Runtime field's value.
 func (s *ItemForListFunctionsOutput) SetRuntime(v string) *ItemForListFunctionsOutput {
 	s.Runtime = &v
+	return s
+}
+
+// SetSource sets the Source field's value.
+func (s *ItemForListFunctionsOutput) SetSource(v string) *ItemForListFunctionsOutput {
+	s.Source = &v
 	return s
 }
 
