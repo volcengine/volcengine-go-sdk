@@ -149,6 +149,8 @@ type ListSandboxesInput struct {
 	// FunctionId is a required field
 	FunctionId *string `type:"string" json:",omitempty" required:"true"`
 
+	ImageUrl *string `type:"string" json:",omitempty"`
+
 	Metadata map[string]*string `type:"map" json:",omitempty"`
 
 	PageNumber *int32 `type:"int32" json:",omitempty"`
@@ -156,6 +158,8 @@ type ListSandboxesInput struct {
 	PageSize *int32 `type:"int32" json:",omitempty"`
 
 	SandboxId *string `type:"string" json:",omitempty"`
+
+	Status *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -187,6 +191,12 @@ func (s *ListSandboxesInput) SetFunctionId(v string) *ListSandboxesInput {
 	return s
 }
 
+// SetImageUrl sets the ImageUrl field's value.
+func (s *ListSandboxesInput) SetImageUrl(v string) *ListSandboxesInput {
+	s.ImageUrl = &v
+	return s
+}
+
 // SetMetadata sets the Metadata field's value.
 func (s *ListSandboxesInput) SetMetadata(v map[string]*string) *ListSandboxesInput {
 	s.Metadata = v
@@ -208,6 +218,12 @@ func (s *ListSandboxesInput) SetPageSize(v int32) *ListSandboxesInput {
 // SetSandboxId sets the SandboxId field's value.
 func (s *ListSandboxesInput) SetSandboxId(v string) *ListSandboxesInput {
 	s.SandboxId = &v
+	return s
+}
+
+// SetStatus sets the Status field's value.
+func (s *ListSandboxesInput) SetStatus(v string) *ListSandboxesInput {
+	s.Status = &v
 	return s
 }
 
@@ -256,6 +272,8 @@ type SandboxForListSandboxesOutput struct {
 
 	AvailabilityZone *string `type:"string" json:",omitempty"`
 
+	CpuMilli *int32 `type:"int32" json:",omitempty"`
+
 	CreatedAt *string `type:"string" json:",omitempty"`
 
 	ErrorCode *string `type:"string" json:",omitempty"`
@@ -268,7 +286,11 @@ type SandboxForListSandboxesOutput struct {
 
 	Id *string `type:"string" json:",omitempty"`
 
+	Image *string `type:"string" json:",omitempty"`
+
 	InstanceType *string `type:"string" json:",omitempty"`
+
+	MemoryMB *int32 `type:"int32" json:",omitempty"`
 
 	Metadata map[string]*string `type:"map" json:",omitempty"`
 
@@ -292,6 +314,12 @@ func (s SandboxForListSandboxesOutput) GoString() string {
 // SetAvailabilityZone sets the AvailabilityZone field's value.
 func (s *SandboxForListSandboxesOutput) SetAvailabilityZone(v string) *SandboxForListSandboxesOutput {
 	s.AvailabilityZone = &v
+	return s
+}
+
+// SetCpuMilli sets the CpuMilli field's value.
+func (s *SandboxForListSandboxesOutput) SetCpuMilli(v int32) *SandboxForListSandboxesOutput {
+	s.CpuMilli = &v
 	return s
 }
 
@@ -331,9 +359,21 @@ func (s *SandboxForListSandboxesOutput) SetId(v string) *SandboxForListSandboxes
 	return s
 }
 
+// SetImage sets the Image field's value.
+func (s *SandboxForListSandboxesOutput) SetImage(v string) *SandboxForListSandboxesOutput {
+	s.Image = &v
+	return s
+}
+
 // SetInstanceType sets the InstanceType field's value.
 func (s *SandboxForListSandboxesOutput) SetInstanceType(v string) *SandboxForListSandboxesOutput {
 	s.InstanceType = &v
+	return s
+}
+
+// SetMemoryMB sets the MemoryMB field's value.
+func (s *SandboxForListSandboxesOutput) SetMemoryMB(v int32) *SandboxForListSandboxesOutput {
+	s.MemoryMB = &v
 	return s
 }
 

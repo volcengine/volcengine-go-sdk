@@ -310,6 +310,8 @@ type InstanceTypeForDescribeInstanceTypesOutput struct {
 
 	IsSupportAffinityGroup *bool `type:"boolean"`
 
+	IsSupportJumboFrame *bool `type:"boolean"`
+
 	LocalVolumes []*LocalVolumeForDescribeInstanceTypesOutput `type:"list"`
 
 	Memory *MemoryForDescribeInstanceTypesOutput `type:"structure"`
@@ -372,6 +374,12 @@ func (s *InstanceTypeForDescribeInstanceTypesOutput) SetInstanceTypeId(v string)
 // SetIsSupportAffinityGroup sets the IsSupportAffinityGroup field's value.
 func (s *InstanceTypeForDescribeInstanceTypesOutput) SetIsSupportAffinityGroup(v bool) *InstanceTypeForDescribeInstanceTypesOutput {
 	s.IsSupportAffinityGroup = &v
+	return s
+}
+
+// SetIsSupportJumboFrame sets the IsSupportJumboFrame field's value.
+func (s *InstanceTypeForDescribeInstanceTypesOutput) SetIsSupportJumboFrame(v bool) *InstanceTypeForDescribeInstanceTypesOutput {
+	s.IsSupportJumboFrame = &v
 	return s
 }
 

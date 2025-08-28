@@ -422,6 +422,8 @@ type ItemForListRevisionsOutput struct {
 
 	RevisionNumber *int32 `type:"int32" json:",omitempty"`
 
+	Role *string `type:"string" json:",omitempty"`
+
 	Runtime *string `type:"string" json:",omitempty"`
 
 	Source *string `type:"string" json:",omitempty"`
@@ -564,6 +566,12 @@ func (s *ItemForListRevisionsOutput) SetRevisionDescription(v string) *ItemForLi
 // SetRevisionNumber sets the RevisionNumber field's value.
 func (s *ItemForListRevisionsOutput) SetRevisionNumber(v int32) *ItemForListRevisionsOutput {
 	s.RevisionNumber = &v
+	return s
+}
+
+// SetRole sets the Role field's value.
+func (s *ItemForListRevisionsOutput) SetRole(v string) *ItemForListRevisionsOutput {
+	s.Role = &v
 	return s
 }
 

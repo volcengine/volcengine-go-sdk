@@ -177,6 +177,8 @@ type CreateFunctionInput struct {
 
 	RequestTimeout *int32 `type:"int32" json:",omitempty"`
 
+	Role *string `type:"string" json:",omitempty"`
+
 	// Runtime is a required field
 	Runtime *string `type:"string" json:",omitempty" required:"true"`
 
@@ -311,6 +313,12 @@ func (s *CreateFunctionInput) SetRequestTimeout(v int32) *CreateFunctionInput {
 	return s
 }
 
+// SetRole sets the Role field's value.
+func (s *CreateFunctionInput) SetRole(v string) *CreateFunctionInput {
+	s.Role = &v
+	return s
+}
+
 // SetRuntime sets the Runtime field's value.
 func (s *CreateFunctionInput) SetRuntime(v string) *CreateFunctionInput {
 	s.Runtime = &v
@@ -403,6 +411,8 @@ type CreateFunctionOutput struct {
 	ProjectName *string `type:"string" json:",omitempty"`
 
 	RequestTimeout *int32 `type:"int32" json:",omitempty"`
+
+	Role *string `type:"string" json:",omitempty"`
 
 	Runtime *string `type:"string" json:",omitempty"`
 
@@ -548,6 +558,12 @@ func (s *CreateFunctionOutput) SetProjectName(v string) *CreateFunctionOutput {
 // SetRequestTimeout sets the RequestTimeout field's value.
 func (s *CreateFunctionOutput) SetRequestTimeout(v int32) *CreateFunctionOutput {
 	s.RequestTimeout = &v
+	return s
+}
+
+// SetRole sets the Role field's value.
+func (s *CreateFunctionOutput) SetRole(v string) *CreateFunctionOutput {
+	s.Role = &v
 	return s
 }
 

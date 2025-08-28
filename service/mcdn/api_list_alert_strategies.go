@@ -476,6 +476,8 @@ type ListAlertStrategiesInput struct {
 
 	Pagination *PaginationForListAlertStrategiesInput `type:"structure" json:",omitempty"`
 
+	ProjectName *string `type:"string" json:",omitempty"`
+
 	Status *string `type:"string" json:",omitempty"`
 }
 
@@ -504,6 +506,12 @@ func (s *ListAlertStrategiesInput) SetName(v string) *ListAlertStrategiesInput {
 // SetPagination sets the Pagination field's value.
 func (s *ListAlertStrategiesInput) SetPagination(v *PaginationForListAlertStrategiesInput) *ListAlertStrategiesInput {
 	s.Pagination = v
+	return s
+}
+
+// SetProjectName sets the ProjectName field's value.
+func (s *ListAlertStrategiesInput) SetProjectName(v string) *ListAlertStrategiesInput {
+	s.ProjectName = &v
 	return s
 }
 

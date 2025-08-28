@@ -303,6 +303,8 @@ type CreateInstanceInput struct {
 	NetworkDescriptions []*NetworkDescriptionForCreateInstanceInput `type:"list" json:",omitempty"`
 
 	OneStep *bool `type:"boolean" json:",omitempty"`
+
+	VersionSetId *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -348,6 +350,12 @@ func (s *CreateInstanceInput) SetNetworkDescriptions(v []*NetworkDescriptionForC
 // SetOneStep sets the OneStep field's value.
 func (s *CreateInstanceInput) SetOneStep(v bool) *CreateInstanceInput {
 	s.OneStep = &v
+	return s
+}
+
+// SetVersionSetId sets the VersionSetId field's value.
+func (s *CreateInstanceInput) SetVersionSetId(v int32) *CreateInstanceInput {
+	s.VersionSetId = &v
 	return s
 }
 

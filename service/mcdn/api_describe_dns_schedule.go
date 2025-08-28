@@ -224,6 +224,8 @@ type DnsScheduleInfoForDescribeDnsScheduleOutput struct {
 
 	Id *string `type:"string" json:",omitempty"`
 
+	ProjectName *string `type:"string" json:",omitempty"`
+
 	Region *string `type:"string" json:",omitempty"`
 
 	ScheduleCname *string `type:"string" json:",omitempty"`
@@ -277,6 +279,12 @@ func (s *DnsScheduleInfoForDescribeDnsScheduleOutput) SetId(v string) *DnsSchedu
 	return s
 }
 
+// SetProjectName sets the ProjectName field's value.
+func (s *DnsScheduleInfoForDescribeDnsScheduleOutput) SetProjectName(v string) *DnsScheduleInfoForDescribeDnsScheduleOutput {
+	s.ProjectName = &v
+	return s
+}
+
 // SetRegion sets the Region field's value.
 func (s *DnsScheduleInfoForDescribeDnsScheduleOutput) SetRegion(v string) *DnsScheduleInfoForDescribeDnsScheduleOutput {
 	s.Region = &v
@@ -320,6 +328,10 @@ type DomesticDomainForDescribeDnsScheduleOutput struct {
 
 	Cname *string `type:"string" json:",omitempty"`
 
+	IPv4List []*string `type:"list" json:",omitempty"`
+
+	IPv6List []*string `type:"list" json:",omitempty"`
+
 	Id *string `type:"string" json:",omitempty"`
 
 	IsEnabled *bool `type:"boolean" json:",omitempty"`
@@ -354,6 +366,18 @@ func (s *DomesticDomainForDescribeDnsScheduleOutput) SetCloudAccountId(v string)
 // SetCname sets the Cname field's value.
 func (s *DomesticDomainForDescribeDnsScheduleOutput) SetCname(v string) *DomesticDomainForDescribeDnsScheduleOutput {
 	s.Cname = &v
+	return s
+}
+
+// SetIPv4List sets the IPv4List field's value.
+func (s *DomesticDomainForDescribeDnsScheduleOutput) SetIPv4List(v []*string) *DomesticDomainForDescribeDnsScheduleOutput {
+	s.IPv4List = v
+	return s
+}
+
+// SetIPv6List sets the IPv6List field's value.
+func (s *DomesticDomainForDescribeDnsScheduleOutput) SetIPv6List(v []*string) *DomesticDomainForDescribeDnsScheduleOutput {
+	s.IPv6List = v
 	return s
 }
 
@@ -406,6 +430,10 @@ type GlobalDomainForDescribeDnsScheduleOutput struct {
 
 	Cname *string `type:"string" json:",omitempty"`
 
+	IPv4List []*string `type:"list" json:",omitempty"`
+
+	IPv6List []*string `type:"list" json:",omitempty"`
+
 	Id *string `type:"string" json:",omitempty"`
 
 	IsEnabled *bool `type:"boolean" json:",omitempty"`
@@ -440,6 +468,18 @@ func (s *GlobalDomainForDescribeDnsScheduleOutput) SetCloudAccountId(v string) *
 // SetCname sets the Cname field's value.
 func (s *GlobalDomainForDescribeDnsScheduleOutput) SetCname(v string) *GlobalDomainForDescribeDnsScheduleOutput {
 	s.Cname = &v
+	return s
+}
+
+// SetIPv4List sets the IPv4List field's value.
+func (s *GlobalDomainForDescribeDnsScheduleOutput) SetIPv4List(v []*string) *GlobalDomainForDescribeDnsScheduleOutput {
+	s.IPv4List = v
+	return s
+}
+
+// SetIPv6List sets the IPv6List field's value.
+func (s *GlobalDomainForDescribeDnsScheduleOutput) SetIPv6List(v []*string) *GlobalDomainForDescribeDnsScheduleOutput {
+	s.IPv6List = v
 	return s
 }
 

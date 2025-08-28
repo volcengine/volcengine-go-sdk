@@ -257,6 +257,8 @@ func (s EvictionHardForCreateDefaultNodePoolInput) GoString() string {
 type FeatureGatesForCreateDefaultNodePoolInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	InPlacePodVerticalScaling *bool `type:"boolean" json:",omitempty"`
+
 	QoSResourceManager *bool `type:"boolean" json:",omitempty"`
 }
 
@@ -270,14 +272,52 @@ func (s FeatureGatesForCreateDefaultNodePoolInput) GoString() string {
 	return s.String()
 }
 
+// SetInPlacePodVerticalScaling sets the InPlacePodVerticalScaling field's value.
+func (s *FeatureGatesForCreateDefaultNodePoolInput) SetInPlacePodVerticalScaling(v bool) *FeatureGatesForCreateDefaultNodePoolInput {
+	s.InPlacePodVerticalScaling = &v
+	return s
+}
+
 // SetQoSResourceManager sets the QoSResourceManager field's value.
 func (s *FeatureGatesForCreateDefaultNodePoolInput) SetQoSResourceManager(v bool) *FeatureGatesForCreateDefaultNodePoolInput {
 	s.QoSResourceManager = &v
 	return s
 }
 
+type KubeReservedForCreateDefaultNodePoolInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Name *string `type:"string" json:",omitempty"`
+
+	Quantity *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s KubeReservedForCreateDefaultNodePoolInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s KubeReservedForCreateDefaultNodePoolInput) GoString() string {
+	return s.String()
+}
+
+// SetName sets the Name field's value.
+func (s *KubeReservedForCreateDefaultNodePoolInput) SetName(v string) *KubeReservedForCreateDefaultNodePoolInput {
+	s.Name = &v
+	return s
+}
+
+// SetQuantity sets the Quantity field's value.
+func (s *KubeReservedForCreateDefaultNodePoolInput) SetQuantity(v string) *KubeReservedForCreateDefaultNodePoolInput {
+	s.Quantity = &v
+	return s
+}
+
 type KubeletConfigForCreateDefaultNodePoolInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
+
+	CpuManagerPolicy *string `type:"string" json:",omitempty"`
 
 	EvictionHard []*EvictionHardForCreateDefaultNodePoolInput `type:"list" json:",omitempty"`
 
@@ -287,11 +327,17 @@ type KubeletConfigForCreateDefaultNodePoolInput struct {
 
 	KubeApiQps *int32 `min:"1" max:"50" type:"int32" json:",omitempty"`
 
+	KubeReserved []*KubeReservedForCreateDefaultNodePoolInput `type:"list" json:",omitempty"`
+
+	MaxPods *int32 `type:"int32" json:",omitempty"`
+
 	RegistryBurst *int32 `min:"1" max:"100" type:"int32" json:",omitempty"`
 
 	RegistryPullQps *int32 `min:"1" max:"50" type:"int32" json:",omitempty"`
 
 	SerializeImagePulls *bool `type:"boolean" json:",omitempty"`
+
+	SystemReserved []*SystemReservedForCreateDefaultNodePoolInput `type:"list" json:",omitempty"`
 
 	TopologyManagerPolicy *string `type:"string" json:",omitempty" enum:"EnumOfTopologyManagerPolicyForCreateDefaultNodePoolInput"`
 
@@ -342,6 +388,12 @@ func (s *KubeletConfigForCreateDefaultNodePoolInput) Validate() error {
 	return nil
 }
 
+// SetCpuManagerPolicy sets the CpuManagerPolicy field's value.
+func (s *KubeletConfigForCreateDefaultNodePoolInput) SetCpuManagerPolicy(v string) *KubeletConfigForCreateDefaultNodePoolInput {
+	s.CpuManagerPolicy = &v
+	return s
+}
+
 // SetEvictionHard sets the EvictionHard field's value.
 func (s *KubeletConfigForCreateDefaultNodePoolInput) SetEvictionHard(v []*EvictionHardForCreateDefaultNodePoolInput) *KubeletConfigForCreateDefaultNodePoolInput {
 	s.EvictionHard = v
@@ -366,6 +418,18 @@ func (s *KubeletConfigForCreateDefaultNodePoolInput) SetKubeApiQps(v int32) *Kub
 	return s
 }
 
+// SetKubeReserved sets the KubeReserved field's value.
+func (s *KubeletConfigForCreateDefaultNodePoolInput) SetKubeReserved(v []*KubeReservedForCreateDefaultNodePoolInput) *KubeletConfigForCreateDefaultNodePoolInput {
+	s.KubeReserved = v
+	return s
+}
+
+// SetMaxPods sets the MaxPods field's value.
+func (s *KubeletConfigForCreateDefaultNodePoolInput) SetMaxPods(v int32) *KubeletConfigForCreateDefaultNodePoolInput {
+	s.MaxPods = &v
+	return s
+}
+
 // SetRegistryBurst sets the RegistryBurst field's value.
 func (s *KubeletConfigForCreateDefaultNodePoolInput) SetRegistryBurst(v int32) *KubeletConfigForCreateDefaultNodePoolInput {
 	s.RegistryBurst = &v
@@ -381,6 +445,12 @@ func (s *KubeletConfigForCreateDefaultNodePoolInput) SetRegistryPullQps(v int32)
 // SetSerializeImagePulls sets the SerializeImagePulls field's value.
 func (s *KubeletConfigForCreateDefaultNodePoolInput) SetSerializeImagePulls(v bool) *KubeletConfigForCreateDefaultNodePoolInput {
 	s.SerializeImagePulls = &v
+	return s
+}
+
+// SetSystemReserved sets the SystemReserved field's value.
+func (s *KubeletConfigForCreateDefaultNodePoolInput) SetSystemReserved(v []*SystemReservedForCreateDefaultNodePoolInput) *KubeletConfigForCreateDefaultNodePoolInput {
+	s.SystemReserved = v
 	return s
 }
 
@@ -614,6 +684,36 @@ func (s *SecurityForCreateDefaultNodePoolInput) SetSecurityGroupIds(v []*string)
 // SetSecurityStrategies sets the SecurityStrategies field's value.
 func (s *SecurityForCreateDefaultNodePoolInput) SetSecurityStrategies(v []*string) *SecurityForCreateDefaultNodePoolInput {
 	s.SecurityStrategies = v
+	return s
+}
+
+type SystemReservedForCreateDefaultNodePoolInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Name *string `type:"string" json:",omitempty"`
+
+	Quantity *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s SystemReservedForCreateDefaultNodePoolInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s SystemReservedForCreateDefaultNodePoolInput) GoString() string {
+	return s.String()
+}
+
+// SetName sets the Name field's value.
+func (s *SystemReservedForCreateDefaultNodePoolInput) SetName(v string) *SystemReservedForCreateDefaultNodePoolInput {
+	s.Name = &v
+	return s
+}
+
+// SetQuantity sets the Quantity field's value.
+func (s *SystemReservedForCreateDefaultNodePoolInput) SetQuantity(v string) *SystemReservedForCreateDefaultNodePoolInput {
+	s.Quantity = &v
 	return s
 }
 

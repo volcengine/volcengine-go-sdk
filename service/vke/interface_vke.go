@@ -78,6 +78,14 @@ type VKEAPI interface {
 	CreateNodesWithContext(volcengine.Context, *CreateNodesInput, ...request.Option) (*CreateNodesOutput, error)
 	CreateNodesRequest(*CreateNodesInput) (*request.Request, *CreateNodesOutput)
 
+	CreateScalingPolicyCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateScalingPolicyCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateScalingPolicyCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateScalingPolicy(*CreateScalingPolicyInput) (*CreateScalingPolicyOutput, error)
+	CreateScalingPolicyWithContext(volcengine.Context, *CreateScalingPolicyInput, ...request.Option) (*CreateScalingPolicyOutput, error)
+	CreateScalingPolicyRequest(*CreateScalingPolicyInput) (*request.Request, *CreateScalingPolicyOutput)
+
 	DeleteAddonCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DeleteAddonCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DeleteAddonCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -117,6 +125,14 @@ type VKEAPI interface {
 	DeleteNodes(*DeleteNodesInput) (*DeleteNodesOutput, error)
 	DeleteNodesWithContext(volcengine.Context, *DeleteNodesInput, ...request.Option) (*DeleteNodesOutput, error)
 	DeleteNodesRequest(*DeleteNodesInput) (*request.Request, *DeleteNodesOutput)
+
+	DeleteScalingPoliciesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeleteScalingPoliciesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeleteScalingPoliciesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeleteScalingPolicies(*DeleteScalingPoliciesInput) (*DeleteScalingPoliciesOutput, error)
+	DeleteScalingPoliciesWithContext(volcengine.Context, *DeleteScalingPoliciesInput, ...request.Option) (*DeleteScalingPoliciesOutput, error)
+	DeleteScalingPoliciesRequest(*DeleteScalingPoliciesInput) (*request.Request, *DeleteScalingPoliciesOutput)
 
 	ExecContainerImageCommitmentCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ExecContainerImageCommitmentCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -206,6 +222,14 @@ type VKEAPI interface {
 	ListScalingEventsWithContext(volcengine.Context, *ListScalingEventsInput, ...request.Option) (*ListScalingEventsOutput, error)
 	ListScalingEventsRequest(*ListScalingEventsInput) (*request.Request, *ListScalingEventsOutput)
 
+	ListScalingPoliciesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListScalingPoliciesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListScalingPoliciesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListScalingPolicies(*ListScalingPoliciesInput) (*ListScalingPoliciesOutput, error)
+	ListScalingPoliciesWithContext(volcengine.Context, *ListScalingPoliciesInput, ...request.Option) (*ListScalingPoliciesOutput, error)
+	ListScalingPoliciesRequest(*ListScalingPoliciesInput) (*request.Request, *ListScalingPoliciesOutput)
+
 	ListSupportedAddonsCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ListSupportedAddonsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	ListSupportedAddonsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -293,6 +317,14 @@ type VKEAPI interface {
 	UpdateNodePoolConfig(*UpdateNodePoolConfigInput) (*UpdateNodePoolConfigOutput, error)
 	UpdateNodePoolConfigWithContext(volcengine.Context, *UpdateNodePoolConfigInput, ...request.Option) (*UpdateNodePoolConfigOutput, error)
 	UpdateNodePoolConfigRequest(*UpdateNodePoolConfigInput) (*request.Request, *UpdateNodePoolConfigOutput)
+
+	UpdateScalingPolicyCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	UpdateScalingPolicyCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	UpdateScalingPolicyCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	UpdateScalingPolicy(*UpdateScalingPolicyInput) (*UpdateScalingPolicyOutput, error)
+	UpdateScalingPolicyWithContext(volcengine.Context, *UpdateScalingPolicyInput, ...request.Option) (*UpdateScalingPolicyOutput, error)
+	UpdateScalingPolicyRequest(*UpdateScalingPolicyInput) (*request.Request, *UpdateScalingPolicyOutput)
 }
 
 var _ VKEAPI = (*VKE)(nil)
