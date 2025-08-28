@@ -165,6 +165,8 @@ type DescribeCdnDataOfflineInput struct {
 	// Metric is a required field
 	Metric *string `type:"string" json:",omitempty" required:"true"`
 
+	ProjectNames []*string `type:"list" json:",omitempty"`
+
 	// StartTime is a required field
 	StartTime *int64 `type:"int64" json:",omitempty" required:"true"`
 
@@ -250,6 +252,12 @@ func (s *DescribeCdnDataOfflineInput) SetInterval(v string) *DescribeCdnDataOffl
 // SetMetric sets the Metric field's value.
 func (s *DescribeCdnDataOfflineInput) SetMetric(v string) *DescribeCdnDataOfflineInput {
 	s.Metric = &v
+	return s
+}
+
+// SetProjectNames sets the ProjectNames field's value.
+func (s *DescribeCdnDataOfflineInput) SetProjectNames(v []*string) *DescribeCdnDataOfflineInput {
+	s.ProjectNames = v
 	return s
 }
 

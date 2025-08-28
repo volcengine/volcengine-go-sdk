@@ -86,6 +86,22 @@ type MCDNAPI interface {
 	DescribeCdnRegionAndIspWithContext(volcengine.Context, *DescribeCdnRegionAndIspInput, ...request.Option) (*DescribeCdnRegionAndIspOutput, error)
 	DescribeCdnRegionAndIspRequest(*DescribeCdnRegionAndIspInput) (*request.Request, *DescribeCdnRegionAndIspOutput)
 
+	DescribeCdnTopIpCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeCdnTopIpCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeCdnTopIpCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeCdnTopIp(*DescribeCdnTopIpInput) (*DescribeCdnTopIpOutput, error)
+	DescribeCdnTopIpWithContext(volcengine.Context, *DescribeCdnTopIpInput, ...request.Option) (*DescribeCdnTopIpOutput, error)
+	DescribeCdnTopIpRequest(*DescribeCdnTopIpInput) (*request.Request, *DescribeCdnTopIpOutput)
+
+	DescribeCdnTopUrlCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeCdnTopUrlCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeCdnTopUrlCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeCdnTopUrl(*DescribeCdnTopUrlInput) (*DescribeCdnTopUrlOutput, error)
+	DescribeCdnTopUrlWithContext(volcengine.Context, *DescribeCdnTopUrlInput, ...request.Option) (*DescribeCdnTopUrlOutput, error)
+	DescribeCdnTopUrlRequest(*DescribeCdnTopUrlInput) (*request.Request, *DescribeCdnTopUrlOutput)
+
 	DescribeContentQuotaCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DescribeContentQuotaCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DescribeContentQuotaCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
