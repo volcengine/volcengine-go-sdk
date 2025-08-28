@@ -127,6 +127,40 @@ func (r *InputItem) UnmarshalJSON(bytes []byte) error {
 			r.Union = &imageProcess
 			return nil
 		}
+	case *typeOnly.Type == ItemType_mcp_approval_request:
+		mcpApprovalRequest := InputItem_McpApprovalRequest{}
+		if err = unmarshal(bytes, &mcpApprovalRequest.McpApprovalRequest); err == nil {
+			r.Union = &mcpApprovalRequest
+			return nil
+		}
+	case *typeOnly.Type == ItemType_mcp_approval_response:
+		mcpApprovalResponse := InputItem_McpApprovalResponse{}
+		if err = unmarshal(bytes, &mcpApprovalResponse.McpApprovalResponse); err == nil {
+			r.Union = &mcpApprovalResponse
+			return nil
+		}
+	case *typeOnly.Type == ItemType_mcp_list_tools:
+		mcpListTools := InputItem_McpListTools{}
+		if err = unmarshal(bytes, &mcpListTools.McpListTools); err == nil {
+			r.Union = &mcpListTools
+			return nil
+		}
+	case *typeOnly.Type == ItemType_mcp_call:
+		mcpCall := ItemFunctionMcpCall{}
+		if err = unmarshal(bytes, &mcpCall); err == nil {
+			r.Union = &InputItem_FunctionMcpCall{
+				FunctionMcpCall: &mcpCall,
+			}
+			return nil
+		}
+	case *typeOnly.Type == ItemType_web_search_call:
+		webSearchCall := ItemFunctionWebSearch{}
+		if err = unmarshal(bytes, &webSearchCall); err == nil {
+			r.Union = &InputItem_FunctionWebSearchCall{
+				FunctionWebSearchCall: &webSearchCall,
+			}
+			return nil
+		}
 	}
 	return err
 }
@@ -152,6 +186,21 @@ func (r *InputItem) MarshalJSON() ([]byte, error) {
 		return json.Marshal(v)
 	}
 	if v := r.GetImageProcess(); v != nil {
+		return json.Marshal(v)
+	}
+	if v := r.GetMcpApprovalRequest(); v != nil {
+		return json.Marshal(v)
+	}
+	if v := r.GetMcpApprovalResponse(); v != nil {
+		return json.Marshal(v)
+	}
+	if v := r.GetMcpListTools(); v != nil {
+		return json.Marshal(v)
+	}
+	if v := r.GetFunctionMcpCall(); v != nil {
+		return json.Marshal(v)
+	}
+	if v := r.GetFunctionWebSearchCall(); v != nil {
 		return json.Marshal(v)
 	}
 	return json.Marshal(nil)
@@ -214,6 +263,71 @@ func (r *MessageContent) UnmarshalJSON(bytes []byte) error {
 	}
 	if err = unmarshal(bytes, &oneof2.ListValue.ListValue); err == nil {
 		r.Union = &oneof2
+		return nil
+	}
+	return err
+}
+
+// MarshalJSON ...
+func (r *McpAllowedTools) MarshalJSON() ([]byte, error) {
+	if v := r.GetList(); v != nil {
+		// Serialize as a string array, removing the "values" wrapper
+		return json.Marshal(v.Values)
+	}
+	if v := r.GetFilter(); v != nil {
+		// 序列化为对象，保持 "tool_names" 字段
+		return json.Marshal(v)
+	}
+	return json.Marshal(nil)
+}
+
+// UnmarshalJSON ...
+func (r *McpAllowedTools) UnmarshalJSON(bytes []byte) error {
+	var err error
+
+	// Try to parse as a string array
+	var stringArray []string
+	if err = json.Unmarshal(bytes, &stringArray); err == nil {
+		list := McpAllowedTools_List{
+			List: &McpAllowedToolsList{Values: stringArray},
+		}
+		r.Union = &list
+		return nil
+	}
+
+	// Try to parse as filter
+	filter := McpAllowedTools_Filter{
+		Filter: &McpAllowedToolsFilter{},
+	}
+	if err = unmarshal(bytes, &filter.Filter); err == nil {
+		r.Union = &filter
+		return nil
+	}
+
+	return err
+}
+
+// MarshalJSON ...
+func (r *McpRequireApproval) MarshalJSON() ([]byte, error) {
+	if v := r.GetFilter(); v != nil {
+		return json.Marshal(v)
+	}
+	return json.Marshal(r.GetMode())
+}
+
+// UnmarshalJSON ...
+func (r *McpRequireApproval) UnmarshalJSON(bytes []byte) error {
+	var err error
+	mode := McpRequireApproval_Mode{}
+	if err = unmarshal(bytes, &mode.Mode); err == nil {
+		r.Union = &mode
+		return nil
+	}
+	fc := McpRequireApproval_Filter{
+		Filter: &McpToolApprovalFilter{},
+	}
+	if err = unmarshal(bytes, &fc.Filter); err == nil {
+		r.Union = &fc
 		return nil
 	}
 	return err
@@ -351,6 +465,12 @@ func (r *ResponsesTool) UnmarshalJSON(bytes []byte) error {
 			r.Union = &ip
 			return nil
 		}
+	case ToolType_mcp:
+		mcp := ResponsesTool_ToolMcp{}
+		if err = unmarshal(bytes, &mcp.ToolMcp); err == nil {
+			r.Union = &mcp
+			return nil
+		}
 	default:
 		err = &json.InvalidUnmarshalError{
 			Type: reflect.TypeOf(r),
@@ -368,6 +488,9 @@ func (r *ResponsesTool) MarshalJSON() ([]byte, error) {
 		return json.Marshal(v)
 	}
 	if v := r.GetToolImageProcess(); v != nil {
+		return json.Marshal(v)
+	}
+	if v := r.GetToolMcp(); v != nil {
 		return json.Marshal(v)
 	}
 	return json.Marshal(nil)
@@ -450,6 +573,21 @@ func (r *OutputItem) UnmarshalJSON(bytes []byte) error {
 		if err = unmarshal(bytes, &oneof.FunctionImageProcess); err == nil {
 			r.Union = &oneof
 		}
+	case ItemType_mcp_approval_request:
+		oneof := OutputItem_FunctionMcpApprovalRequest{}
+		if err = unmarshal(bytes, &oneof.FunctionMcpApprovalRequest); err == nil {
+			r.Union = &oneof
+		}
+	case ItemType_mcp_call:
+		oneof := OutputItem_FunctionMcpCall{}
+		if err = unmarshal(bytes, &oneof.FunctionMcpCall); err == nil {
+			r.Union = &oneof
+		}
+	case ItemType_mcp_list_tools:
+		oneof := OutputItem_FunctionMcpListTools{}
+		if err = unmarshal(bytes, &oneof.FunctionMcpListTools); err == nil {
+			r.Union = &oneof
+		}
 	default:
 		err = &json.InvalidUnmarshalError{
 			Type: reflect.TypeOf(r),
@@ -476,6 +614,15 @@ func (r *OutputItem) MarshalJSON() ([]byte, error) {
 		return json.Marshal(v)
 	}
 	if v := r.GetFunctionImageProcess(); v != nil {
+		return json.Marshal(v)
+	}
+	if v := r.GetFunctionMcpApprovalRequest(); v != nil {
+		return json.Marshal(v)
+	}
+	if v := r.GetFunctionMcpListTools(); v != nil {
+		return json.Marshal(v)
+	}
+	if v := r.GetFunctionMcpCall(); v != nil {
 		return json.Marshal(v)
 	}
 	return json.Marshal(nil)
@@ -534,8 +681,33 @@ func (e *Event) MarshalJSON() ([]byte, error) {
 	if v := e.GetResponseImageProcessCallCompleted(); v != nil {
 		return json.Marshal(v)
 	}
+	if v := e.GetResponseMcpListToolsInProgress(); v != nil {
+		return json.Marshal(v)
+	}
+	if v := e.GetResponseMcpListToolsCompleted(); v != nil {
+		return json.Marshal(v)
+	}
+	if v := e.GetResponseMcpCallInProgress(); v != nil {
+		return json.Marshal(v)
+	}
+	if v := e.GetResponseMcpCallArgumentsDelta(); v != nil {
+		return json.Marshal(v)
+	}
+	if v := e.GetResponseMcpCallArgumentsDone(); v != nil {
+		return json.Marshal(v)
+	}
+	if v := e.GetResponseMcpCallCompleted(); v != nil {
+		return json.Marshal(v)
+	}
+	if v := e.GetResponseMcpCallFailed(); v != nil {
+		return json.Marshal(v)
+	}
+	if v := e.GetResponseMcpApprovalRequest(); v != nil {
+		return json.Marshal(v)
+	}
 	return json.Marshal(nil)
 }
+
 func (e *Event) UnmarshalJSON(bytes []byte) error {
 	var typeOnly struct {
 		Type EventType_Enum `json:"type"`
@@ -689,6 +861,48 @@ func (e *Event) UnmarshalJSON(bytes []byte) error {
 			return err
 		}
 		e.Event = &oneof
+	case EventType_response_mcp_list_tools_in_progress:
+		oneof := Event_ResponseMcpListToolsInProgress{}
+		if err := unmarshal(bytes, &oneof.ResponseMcpListToolsInProgress); err != nil {
+			return err
+		}
+		e.Event = &oneof
+	case EventType_response_mcp_list_tools_completed:
+		oneof := Event_ResponseMcpListToolsCompleted{}
+		if err := unmarshal(bytes, &oneof.ResponseMcpListToolsCompleted); err != nil {
+			return err
+		}
+		e.Event = &oneof
+	case EventType_response_mcp_call_in_progress:
+		oneof := Event_ResponseMcpCallInProgress{}
+		if err := unmarshal(bytes, &oneof.ResponseMcpCallInProgress); err != nil {
+			return err
+		}
+		e.Event = &oneof
+	case EventType_response_mcp_call_arguments_delta:
+		oneof := Event_ResponseMcpCallArgumentsDelta{}
+		if err := unmarshal(bytes, &oneof.ResponseMcpCallArgumentsDelta); err != nil {
+			return err
+		}
+		e.Event = &oneof
+	case EventType_response_mcp_call_arguments_done:
+		oneof := Event_ResponseMcpCallArgumentsDone{}
+		if err := unmarshal(bytes, &oneof.ResponseMcpCallArgumentsDone); err != nil {
+			return err
+		}
+		e.Event = &oneof
+	case EventType_response_mcp_call_completed:
+		oneof := Event_ResponseMcpCallCompleted{}
+		if err := unmarshal(bytes, &oneof.ResponseMcpCallCompleted); err != nil {
+			return err
+		}
+		e.Event = &oneof
+	case EventType_response_mcp_call_failed:
+		oneof := Event_ResponseMcpCallFailed{}
+		if err := unmarshal(bytes, &oneof.ResponseMcpCallFailed); err != nil {
+			return err
+		}
+		e.Event = &oneof
 	default:
 		return &json.InvalidUnmarshalError{Type: reflect.TypeOf(e)}
 	}
@@ -751,6 +965,20 @@ func (e *Event) GetEventType() string {
 		eventType = e.GetResponseImageProcessCallProcessing().GetType()
 	} else if e.GetResponseImageProcessCallCompleted() != nil {
 		eventType = e.GetResponseImageProcessCallCompleted().GetType()
+	} else if e.GetResponseMcpListToolsInProgress() != nil {
+		eventType = e.GetResponseMcpListToolsInProgress().GetType()
+	} else if e.GetResponseMcpListToolsCompleted() != nil {
+		eventType = e.GetResponseMcpListToolsCompleted().GetType()
+	} else if e.GetResponseMcpCallInProgress() != nil {
+		eventType = e.GetResponseMcpCallInProgress().GetType()
+	} else if e.GetResponseMcpCallArgumentsDelta() != nil {
+		eventType = e.GetResponseMcpCallArgumentsDelta().GetType()
+	} else if e.GetResponseMcpCallArgumentsDone() != nil {
+		eventType = e.GetResponseMcpCallArgumentsDone().GetType()
+	} else if e.GetResponseMcpCallCompleted() != nil {
+		eventType = e.GetResponseMcpCallCompleted().GetType()
+	} else if e.GetResponseMcpCallFailed() != nil {
+		eventType = e.GetResponseMcpCallFailed().GetType()
 	}
 	marshaled, _ := json.Marshal(eventType)
 	eventTypeString := string(marshaled)
@@ -768,7 +996,13 @@ func (e *Event) IsDelta() bool {
 		(e.GetResponseWebSearchCallSearching() != nil) ||
 		(e.GetResponseWebSearchCallCompleted() != nil) ||
 		(e.GetResponseImageProcessCallInProgress() != nil) ||
-		(e.GetResponseImageProcessCallCompleted() != nil) {
+		(e.GetResponseImageProcessCallCompleted() != nil) ||
+		(e.GetResponseMcpListToolsCompleted() != nil) ||
+		(e.GetResponseMcpCallInProgress() != nil) ||
+		(e.GetResponseMcpCallArgumentsDelta() != nil) ||
+		(e.GetResponseMcpCallArgumentsDone() != nil) ||
+		(e.GetResponseMcpCallCompleted() != nil) ||
+		(e.GetResponseMcpCallFailed() != nil) {
 		return true
 	}
 	return false
