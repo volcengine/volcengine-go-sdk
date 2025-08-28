@@ -284,7 +284,11 @@ type GetFunctionOutput struct {
 
 	RequestTimeout *int32 `type:"int32" json:",omitempty"`
 
+	Role *string `type:"string" json:",omitempty"`
+
 	Runtime *string `type:"string" json:",omitempty"`
+
+	Source *string `type:"string" json:",omitempty"`
 
 	SourceLocation *string `type:"string" json:",omitempty"`
 
@@ -429,9 +433,21 @@ func (s *GetFunctionOutput) SetRequestTimeout(v int32) *GetFunctionOutput {
 	return s
 }
 
+// SetRole sets the Role field's value.
+func (s *GetFunctionOutput) SetRole(v string) *GetFunctionOutput {
+	s.Role = &v
+	return s
+}
+
 // SetRuntime sets the Runtime field's value.
 func (s *GetFunctionOutput) SetRuntime(v string) *GetFunctionOutput {
 	s.Runtime = &v
+	return s
+}
+
+// SetSource sets the Source field's value.
+func (s *GetFunctionOutput) SetSource(v string) *GetFunctionOutput {
+	s.Source = &v
 	return s
 }
 

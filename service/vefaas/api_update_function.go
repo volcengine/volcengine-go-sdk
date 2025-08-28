@@ -823,6 +823,8 @@ type UpdateFunctionInput struct {
 
 	RequestTimeout *int32 `type:"int32" json:",omitempty"`
 
+	Role *string `type:"string" json:",omitempty"`
+
 	Source *string `type:"string" json:",omitempty"`
 
 	SourceAccessConfig *SourceAccessConfigForUpdateFunctionInput `type:"structure" json:",omitempty"`
@@ -927,6 +929,12 @@ func (s *UpdateFunctionInput) SetRequestTimeout(v int32) *UpdateFunctionInput {
 	return s
 }
 
+// SetRole sets the Role field's value.
+func (s *UpdateFunctionInput) SetRole(v string) *UpdateFunctionInput {
+	s.Role = &v
+	return s
+}
+
 // SetSource sets the Source field's value.
 func (s *UpdateFunctionInput) SetSource(v string) *UpdateFunctionInput {
 	s.Source = &v
@@ -1018,7 +1026,11 @@ type UpdateFunctionOutput struct {
 
 	RequestTimeout *int32 `type:"int32" json:",omitempty"`
 
+	Role *string `type:"string" json:",omitempty"`
+
 	Runtime *string `type:"string" json:",omitempty"`
+
+	Source *string `type:"string" json:",omitempty"`
 
 	SourceLocation *string `type:"string" json:",omitempty"`
 
@@ -1177,9 +1189,21 @@ func (s *UpdateFunctionOutput) SetRequestTimeout(v int32) *UpdateFunctionOutput 
 	return s
 }
 
+// SetRole sets the Role field's value.
+func (s *UpdateFunctionOutput) SetRole(v string) *UpdateFunctionOutput {
+	s.Role = &v
+	return s
+}
+
 // SetRuntime sets the Runtime field's value.
 func (s *UpdateFunctionOutput) SetRuntime(v string) *UpdateFunctionOutput {
 	s.Runtime = &v
+	return s
+}
+
+// SetSource sets the Source field's value.
+func (s *UpdateFunctionOutput) SetSource(v string) *UpdateFunctionOutput {
+	s.Source = &v
 	return s
 }
 

@@ -294,6 +294,8 @@ type GetRevisionOutput struct {
 
 	RevisionNumber *int32 `type:"int32" json:",omitempty"`
 
+	Role *string `type:"string" json:",omitempty"`
+
 	Runtime *string `type:"string" json:",omitempty"`
 
 	Source *string `type:"string" json:",omitempty"`
@@ -430,6 +432,12 @@ func (s *GetRevisionOutput) SetRevisionDescription(v string) *GetRevisionOutput 
 // SetRevisionNumber sets the RevisionNumber field's value.
 func (s *GetRevisionOutput) SetRevisionNumber(v int32) *GetRevisionOutput {
 	s.RevisionNumber = &v
+	return s
+}
+
+// SetRole sets the Role field's value.
+func (s *GetRevisionOutput) SetRole(v string) *GetRevisionOutput {
+	s.Role = &v
 	return s
 }
 
