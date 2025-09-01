@@ -152,13 +152,13 @@ type LoginProfileForUpdateLoginProfileOutput struct {
 
 	LastLoginIp *string `type:"string" json:",omitempty"`
 
-	LastResetPasswordTime *int32 `type:"int32" json:",omitempty"`
+	LastResetPasswordTime *int64 `type:"int64" json:",omitempty"`
 
 	LoginAllowed *bool `type:"boolean" json:",omitempty"`
 
 	LoginLocked *bool `type:"boolean" json:",omitempty"`
 
-	PasswordExpireAt *int32 `type:"int32" json:",omitempty"`
+	PasswordExpireAt *int64 `type:"int64" json:",omitempty"`
 
 	PasswordResetRequired *bool `type:"boolean" json:",omitempty"`
 
@@ -208,7 +208,7 @@ func (s *LoginProfileForUpdateLoginProfileOutput) SetLastLoginIp(v string) *Logi
 }
 
 // SetLastResetPasswordTime sets the LastResetPasswordTime field's value.
-func (s *LoginProfileForUpdateLoginProfileOutput) SetLastResetPasswordTime(v int32) *LoginProfileForUpdateLoginProfileOutput {
+func (s *LoginProfileForUpdateLoginProfileOutput) SetLastResetPasswordTime(v int64) *LoginProfileForUpdateLoginProfileOutput {
 	s.LastResetPasswordTime = &v
 	return s
 }
@@ -226,7 +226,7 @@ func (s *LoginProfileForUpdateLoginProfileOutput) SetLoginLocked(v bool) *LoginP
 }
 
 // SetPasswordExpireAt sets the PasswordExpireAt field's value.
-func (s *LoginProfileForUpdateLoginProfileOutput) SetPasswordExpireAt(v int32) *LoginProfileForUpdateLoginProfileOutput {
+func (s *LoginProfileForUpdateLoginProfileOutput) SetPasswordExpireAt(v int64) *LoginProfileForUpdateLoginProfileOutput {
 	s.PasswordExpireAt = &v
 	return s
 }
