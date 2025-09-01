@@ -1,10 +1,10 @@
-package basic
 package main
 
 import (
 	"context"
 	"fmt"
 	"io"
+	"os"
 
 	"github.com/volcengine/volcengine-go-sdk/service/arkruntime"
 	"github.com/volcengine/volcengine-go-sdk/service/arkruntime/model/responses"
@@ -20,12 +20,11 @@ import (
  */
 
 func main() {
-	client := arkruntime.NewClientWithApiKey("01c254dd-76c9-4b0a-a717-cea9330cdfad", arkruntime.WithBaseUrl("https://ark-stg.cn-beijing.volces.com/api/v3/"))
+	client := arkruntime.NewClientWithApiKey(os.Getenv("ARK_API_KEY"))
 	ctx := context.Background()
 
 	fmt.Println("----- round 1 message -----")
 	// round 1 message
-	serverDescription := "test desc"
 	inputMessage := &responses.ItemInputMessage{
 		Role: responses.MessageRole_user,
 		Content: []*responses.ContentItem{
@@ -49,7 +48,7 @@ func main() {
 		},
 	}
 	createResponsesReq := &responses.ResponsesRequest{
-		Model: "ep-20250826102747-62tcl",
+		Model: "doubao-seed-1-6",
 		Input: &responses.ResponsesInput{
 			Union: &responses.ResponsesInput_ListValue{
 				ListValue: &responses.InputItemList{ListValue: []*responses.InputItem{{
@@ -59,19 +58,7 @@ func main() {
 				}}},
 			},
 		},
-		//Caching: &responses.ResponsesCaching{Type: responses.CacheType_enabled.Enum()},
-		Tools: []*responses.ResponsesTool{
-			{
-				Union: &responses.ResponsesTool_ToolMcp{
-					ToolMcp: &responses.ToolMcp{
-						Type:              responses.ToolType_mcp,
-						ServerLabel:       "deepwiki",
-						ServerDescription: &serverDescription,
-						ServerUrl:         "https://mcp.deepwiki.com/mcp",
-					},
-				},
-			},
-		},
+		Caching: &responses.ResponsesCaching{Type: responses.CacheType_enabled.Enum()},
 	}
 
 	resp, err := client.CreateResponsesStream(ctx, createResponsesReq)
@@ -133,7 +120,6 @@ func handleEvent(event *responses.Event) {
 	case responses.EventType_response_output_text_done.String(): // aggregated output text
 		fmt.Printf("\naggregated output text: %s\n", event.GetText().GetText())
 	default:
-		print(event.GetEventType())
 		return
 	}
 }
