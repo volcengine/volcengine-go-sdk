@@ -4,6 +4,7 @@ import (
 	"context"
 	"fmt"
 	"io"
+	"os"
 
 	"github.com/volcengine/volcengine-go-sdk/service/arkruntime"
 	"github.com/volcengine/volcengine-go-sdk/service/arkruntime/model/responses"
@@ -18,7 +19,7 @@ import (
  */
 
 func main() {
-	client := arkruntime.NewClientWithApiKey("01c254dd-76c9-4b0a-a717-cea9330cdfad", arkruntime.WithBaseUrl("https://ark-stg.cn-beijing.volces.com/api/v3/"))
+	client := arkruntime.NewClientWithApiKey(os.Getenv("ARK_API_KEY"))
 	ctx := context.Background()
 
 	fmt.Println("----- round 1 message -----")
@@ -38,7 +39,7 @@ func main() {
 		},
 	}
 	createResponsesReq := &responses.ResponsesRequest{
-		Model: "doubao-pro-vis-stg-241028-acc",
+		Model: "doubao-seed-1-6",
 		Input: &responses.ResponsesInput{
 			Union: &responses.ResponsesInput_ListValue{
 				ListValue: &responses.InputItemList{ListValue: []*responses.InputItem{{
@@ -91,7 +92,7 @@ func main() {
 	fmt.Println()
 	fmt.Println("-----round 2---------")
 	createResponsesReq2 := &responses.ResponsesRequest{
-		Model: "doubao-pro-vis-stg-241028-acc",
+		Model: "doubao-seed-1-6",
 		Input: &responses.ResponsesInput{
 			Union: &responses.ResponsesInput_ListValue{
 				ListValue: &responses.InputItemList{ListValue: []*responses.InputItem{{
