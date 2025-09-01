@@ -207,43 +207,43 @@ func (r *InputItem) MarshalJSON() ([]byte, error) {
 }
 
 // MarshalJSON ...
-func (x *ResponseImageProcessArgs) MarshalJSON() ([]byte, error) {
-	if v := x.GetPointArgs(); v != nil {
+func (i *ResponseImageProcessArgs) MarshalJSON() ([]byte, error) {
+	if v := i.GetPointArgs(); v != nil {
 		return json.Marshal(v)
 	}
-	if v := x.GetGroundingArgs(); v != nil {
+	if v := i.GetGroundingArgs(); v != nil {
 		return json.Marshal(v)
 	}
-	if v := x.GetRotateArgs(); v != nil {
+	if v := i.GetRotateArgs(); v != nil {
 		return json.Marshal(v)
 	}
-	if v := x.GetZoomArgs(); v != nil {
+	if v := i.GetZoomArgs(); v != nil {
 		return json.Marshal(v)
 	}
 	return json.Marshal(nil)
 }
 
 // UnmarshalJSON ...
-func (x *ResponseImageProcessArgs) UnmarshalJSON(bytes []byte) error {
+func (i *ResponseImageProcessArgs) UnmarshalJSON(bytes []byte) error {
 	var err error
 	oneof1 := ResponseImageProcessArgs_PointArgs{}
 	if err = unmarshal(bytes, &oneof1.PointArgs); err == nil {
-		x.Union = &oneof1
+		i.Union = &oneof1
 		return nil
 	}
 	oneof2 := ResponseImageProcessArgs_GroundingArgs{}
 	if err = unmarshal(bytes, &oneof2.GroundingArgs); err == nil {
-		x.Union = &oneof2
+		i.Union = &oneof2
 		return nil
 	}
 	oneof3 := ResponseImageProcessArgs_RotateArgs{}
 	if err = unmarshal(bytes, &oneof3.RotateArgs); err == nil {
-		x.Union = &oneof3
+		i.Union = &oneof3
 		return nil
 	}
 	oneof4 := ResponseImageProcessArgs_ZoomArgs{}
 	if err = unmarshal(bytes, &oneof4.ZoomArgs); err == nil {
-		x.Union = &oneof4
+		i.Union = &oneof4
 		return nil
 	}
 	return err
