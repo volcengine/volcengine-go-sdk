@@ -3,11 +3,10 @@ package main
 import (
 	"context"
 	"fmt"
-	"io"
-	"os"
-
 	"github.com/volcengine/volcengine-go-sdk/service/arkruntime"
 	"github.com/volcengine/volcengine-go-sdk/service/arkruntime/model/responses"
+	"io"
+	"os"
 )
 
 /**
@@ -128,6 +127,54 @@ func main() {
 	}
 	for {
 		event, err := resp2.Recv()
+		if err == io.EOF {
+			break
+		}
+		if err != nil {
+			fmt.Printf("stream error: %v\n", err)
+			return
+		}
+		handleEvent(event)
+	}
+
+	fmt.Println("----- round 3 never require approval -----")
+	createResponsesReq3 := &responses.ResponsesRequest{
+		Model: "doubao-seed-1-6",
+		Input: &responses.ResponsesInput{
+			Union: &responses.ResponsesInput_ListValue{
+				ListValue: &responses.InputItemList{ListValue: []*responses.InputItem{{
+					Union: &responses.InputItem_InputMessage{
+						InputMessage: inputMessage,
+					},
+				}}},
+			},
+		},
+		Tools: []*responses.ResponsesTool{
+			{
+				Union: &responses.ResponsesTool_ToolMcp{
+					ToolMcp: &responses.ToolMcp{
+						Type:              responses.ToolType_mcp,
+						ServerLabel:       "deepwiki",
+						ServerDescription: &serverDescription,
+						ServerUrl:         "https://mcp.deepwiki.com/mcp",
+						RequireApproval: &responses.McpRequireApproval{
+							Union: &responses.McpRequireApproval_Mode{
+								Mode: responses.ApprovalMode_never,
+							},
+						},
+					},
+				},
+			},
+		},
+	}
+
+	resp3, err := client.CreateResponsesStream(ctx, createResponsesReq3, arkruntime.WithCustomHeader("ark-beta-mcp", "true"))
+	if err != nil {
+		fmt.Printf("stream error: %v\n", err)
+		return
+	}
+	for {
+		event, err := resp3.Recv()
 		if err == io.EOF {
 			break
 		}

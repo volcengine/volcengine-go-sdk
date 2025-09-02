@@ -4,8 +4,6 @@ package responses
 import (
 	"encoding/json"
 	"reflect"
-
-	"code.byted.org/machinelearning/maas-backend/idl/thrift/openapi/chat"
 )
 
 // UnmarshalJSON ...
@@ -482,11 +480,11 @@ func (r ReasoningEffort_Enum) MarshalJSON() ([]byte, error) {
 func (r *ApprovalMode_Enum) UnmarshalJSON(bytes []byte) error {
 	var value string
 	if err := json.Unmarshal(bytes, &value); err != nil {
-		return chat.NewInvalidParameterError("approval_mode.type", "unable to parse type: %v", err)
+		return err
 	}
 	enumValue, ok := ApprovalMode_Enum_value[value]
 	if !ok || enumValue == 0 {
-		return chat.NewInvalidParameterError("approval_mode.type", "unknown type: %v", value)
+		return &json.InvalidUnmarshalError{Type: reflect.TypeOf(r)}
 	}
 	*r = ApprovalMode_Enum(enumValue)
 	return nil
