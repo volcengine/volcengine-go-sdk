@@ -3,11 +3,10 @@ package main
 import (
 	"context"
 	"fmt"
-	"io"
-	"os"
-
 	"github.com/volcengine/volcengine-go-sdk/service/arkruntime"
 	"github.com/volcengine/volcengine-go-sdk/service/arkruntime/model/responses"
+	"io"
+	"os"
 )
 
 /**
@@ -21,10 +20,8 @@ import (
 func main() {
 	client := arkruntime.NewClientWithApiKey(os.Getenv("ARK_API_KEY"))
 	ctx := context.Background()
+	maxToolCalls := int64(1)
 
-	fmt.Println("----- round 1 message -----")
-	// round 1 message
-	serverDescription := "test desc"
 	inputMessage := &responses.ItemInputMessage{
 		Role: responses.MessageRole_user,
 		Content: []*responses.ContentItem{
@@ -32,7 +29,7 @@ func main() {
 				Union: &responses.ContentItem_Text{
 					Text: &responses.ContentItemText{
 						Type: responses.ContentItemType_input_text,
-						Text: "查一下 mark3labs/mcp-go 这个仓库的结构",
+						Text: "查一下今天的AI相关新闻",
 					},
 				},
 			},
@@ -49,28 +46,24 @@ func main() {
 				}}},
 			},
 		},
-		//Caching: &responses.ResponsesCaching{Type: responses.CacheType_enabled.Enum()},
 		Tools: []*responses.ResponsesTool{
 			{
-				Union: &responses.ResponsesTool_ToolMcp{
-					ToolMcp: &responses.ToolMcp{
-						Type:              responses.ToolType_mcp,
-						ServerLabel:       "deepwiki",
-						ServerDescription: &serverDescription,
-						ServerUrl:         "https://mcp.deepwiki.com/mcp",
+				Union: &responses.ResponsesTool_ToolWebSearch{
+					ToolWebSearch: &responses.ToolWebSearch{
+						Type: responses.ToolType_web_search,
 					},
 				},
 			},
 		},
+		MaxToolCalls: &maxToolCalls,
 	}
 
-	resp, err := client.CreateResponsesStream(ctx, createResponsesReq, arkruntime.WithCustomHeader("ark-beta-mcp", "true"))
+	resp, err := client.CreateResponsesStream(ctx, createResponsesReq)
 	if err != nil {
 		fmt.Printf("stream error: %v\n", err)
 		return
 	}
-	var responseId string
-	var approvalRequestId string
+
 	for {
 		event, err := resp.Recv()
 		if err == io.EOF {
@@ -81,62 +74,9 @@ func main() {
 			return
 		}
 		handleEvent(event)
-		if responseEvent := event.GetResponse(); responseEvent != nil {
-			responseId = responseEvent.GetResponse().GetId()
-		}
-		if event.GetItem().GetItem().GetFunctionMcpApprovalRequest() != nil {
-			approvalRequestId = event.GetItem().GetItem().GetFunctionMcpApprovalRequest().GetId()
-		}
 	}
 
 	fmt.Println()
-	fmt.Println("-----round 2---------")
-	createResponsesReq2 := &responses.ResponsesRequest{
-		Model: "doubao-seed-1-6",
-		Input: &responses.ResponsesInput{
-			Union: &responses.ResponsesInput_ListValue{
-				ListValue: &responses.InputItemList{ListValue: []*responses.InputItem{{
-					Union: &responses.InputItem_McpApprovalResponse{
-						McpApprovalResponse: &responses.ItemFunctionMcpApprovalResponse{
-							Type:              responses.ItemType_mcp_approval_response,
-							ApprovalRequestId: approvalRequestId,
-							Approve:           true,
-						},
-					},
-				}}},
-			},
-		},
-		//Caching: &responses.ResponsesCaching{Type: responses.CacheType_enabled.Enum()},
-		Tools: []*responses.ResponsesTool{
-			{
-				Union: &responses.ResponsesTool_ToolMcp{
-					ToolMcp: &responses.ToolMcp{
-						Type:              responses.ToolType_mcp,
-						ServerLabel:       "deepwiki",
-						ServerDescription: &serverDescription,
-						ServerUrl:         "https://mcp.deepwiki.com/mcp",
-					},
-				},
-			},
-		},
-		PreviousResponseId: &responseId,
-	}
-	resp2, err := client.CreateResponsesStream(ctx, createResponsesReq2, arkruntime.WithCustomHeader("ark-beta-mcp", "true"))
-	if err != nil {
-		fmt.Printf("stream error: %v\n", err)
-		return
-	}
-	for {
-		event, err := resp2.Recv()
-		if err == io.EOF {
-			break
-		}
-		if err != nil {
-			fmt.Printf("stream error: %v\n", err)
-			return
-		}
-		handleEvent(event)
-	}
 }
 
 func handleEvent(event *responses.Event) {
