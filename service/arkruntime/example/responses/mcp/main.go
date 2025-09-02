@@ -18,6 +18,146 @@ import (
  */
 
 func main() {
+	stream()
+	nonStream()
+}
+
+func nonStream() {
+	fmt.Println("non stream")
+
+	client := arkruntime.NewClientWithApiKey("01c254dd-76c9-4b0a-a717-cea9330cdfad", arkruntime.WithBaseUrl("https://ark-stg.cn-beijing.volces.com/api/v3/"))
+	ctx := context.Background()
+
+	fmt.Println("----- round 1 message -----")
+	// round 1 message
+	serverDescription := "test desc"
+	inputMessage := &responses.ItemInputMessage{
+		Role: responses.MessageRole_user,
+		Content: []*responses.ContentItem{
+			{
+				Union: &responses.ContentItem_Text{
+					Text: &responses.ContentItemText{
+						Type: responses.ContentItemType_input_text,
+						Text: "查一下 mark3labs/mcp-go 这个仓库的结构",
+					},
+				},
+			},
+		},
+	}
+	createResponsesReq := &responses.ResponsesRequest{
+		Model: "doubao-seed-1-6",
+		Input: &responses.ResponsesInput{
+			Union: &responses.ResponsesInput_ListValue{
+				ListValue: &responses.InputItemList{ListValue: []*responses.InputItem{{
+					Union: &responses.InputItem_InputMessage{
+						InputMessage: inputMessage,
+					},
+				}}},
+			},
+		},
+		//Caching: &responses.ResponsesCaching{Type: responses.CacheType_enabled.Enum()},
+		Tools: []*responses.ResponsesTool{
+			{
+				Union: &responses.ResponsesTool_ToolMcp{
+					ToolMcp: &responses.ToolMcp{
+						Type:              responses.ToolType_mcp,
+						ServerLabel:       "deepwiki",
+						ServerDescription: &serverDescription,
+						ServerUrl:         "https://mcp.deepwiki.com/mcp",
+					},
+				},
+			},
+		},
+	}
+
+	resp, err := client.CreateResponses(ctx, createResponsesReq, arkruntime.WithCustomHeader("ark-beta-web-search", "true"))
+	if err != nil {
+		fmt.Printf("stream error: %v\n", err)
+		return
+	}
+	var responseId string
+	var approvalRequestId string
+	fmt.Printf("response: %v\n", resp)
+	responseId = resp.Id
+	approvalRequestId = resp.Output[len(resp.Output)-1].GetFunctionMcpApprovalRequest().GetId()
+
+	fmt.Println()
+	fmt.Println("-----round 2---------")
+	createResponsesReq2 := &responses.ResponsesRequest{
+		Model: "doubao-seed-1-6",
+		Input: &responses.ResponsesInput{
+			Union: &responses.ResponsesInput_ListValue{
+				ListValue: &responses.InputItemList{ListValue: []*responses.InputItem{{
+					Union: &responses.InputItem_McpApprovalResponse{
+						McpApprovalResponse: &responses.ItemFunctionMcpApprovalResponse{
+							Type:              responses.ItemType_mcp_approval_response,
+							ApprovalRequestId: approvalRequestId,
+							Approve:           true,
+						},
+					},
+				}}},
+			},
+		},
+		//Caching: &responses.ResponsesCaching{Type: responses.CacheType_enabled.Enum()},
+		Tools: []*responses.ResponsesTool{
+			{
+				Union: &responses.ResponsesTool_ToolMcp{
+					ToolMcp: &responses.ToolMcp{
+						Type:              responses.ToolType_mcp,
+						ServerLabel:       "deepwiki",
+						ServerDescription: &serverDescription,
+						ServerUrl:         "https://mcp.deepwiki.com/mcp",
+					},
+				},
+			},
+		},
+		PreviousResponseId: &responseId,
+	}
+	resp2, err := client.CreateResponses(ctx, createResponsesReq2, arkruntime.WithCustomHeader("ark-beta-web-search", "true"))
+	if err != nil {
+		fmt.Printf("stream error: %v\n", err)
+		return
+	}
+	fmt.Printf("response: %v\n", resp2)
+
+	fmt.Println("----- round 3 never require approval -----")
+	createResponsesReq3 := &responses.ResponsesRequest{
+		Model: "doubao-seed-1-6",
+		Input: &responses.ResponsesInput{
+			Union: &responses.ResponsesInput_ListValue{
+				ListValue: &responses.InputItemList{ListValue: []*responses.InputItem{{
+					Union: &responses.InputItem_InputMessage{
+						InputMessage: inputMessage,
+					},
+				}}},
+			},
+		},
+		Tools: []*responses.ResponsesTool{
+			{
+				Union: &responses.ResponsesTool_ToolMcp{
+					ToolMcp: &responses.ToolMcp{
+						Type:              responses.ToolType_mcp,
+						ServerLabel:       "deepwiki",
+						ServerDescription: &serverDescription,
+						ServerUrl:         "https://mcp.deepwiki.com/mcp",
+						RequireApproval: &responses.McpRequireApproval{
+							Union: &responses.McpRequireApproval_Mode{
+								Mode: responses.ApprovalMode_never,
+							},
+						},
+					},
+				},
+			},
+		},
+	}
+
+	resp3, err := client.CreateResponses(ctx, createResponsesReq3, arkruntime.WithCustomHeader("ark-beta-web-search", "true"))
+	fmt.Printf("response: %v\n", resp3)
+}
+
+func stream() {
+	fmt.Println("stream")
+
 	client := arkruntime.NewClientWithApiKey(os.Getenv("ARK_API_KEY"))
 	ctx := context.Background()
 

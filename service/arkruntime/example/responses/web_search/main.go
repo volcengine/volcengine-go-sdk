@@ -6,7 +6,6 @@ import (
 	"github.com/volcengine/volcengine-go-sdk/service/arkruntime"
 	"github.com/volcengine/volcengine-go-sdk/service/arkruntime/model/responses"
 	"io"
-	"os"
 )
 
 /**
@@ -18,7 +17,13 @@ import (
  */
 
 func main() {
-	client := arkruntime.NewClientWithApiKey(os.Getenv("ARK_API_KEY"))
+	stream()
+	nonStream()
+}
+
+func nonStream() {
+	fmt.Println("non stream")
+	client := arkruntime.NewClientWithApiKey("94b82173-0824-47ae-b2c1-1cab0d59db00")
 	ctx := context.Background()
 	maxToolCalls := int64(1)
 
@@ -58,7 +63,59 @@ func main() {
 		MaxToolCalls: &maxToolCalls,
 	}
 
-	resp, err := client.CreateResponsesStream(ctx, createResponsesReq)
+	resp, err := client.CreateResponses(ctx, createResponsesReq, arkruntime.WithCustomHeader("ark-beta-web-search", "true"))
+	if err != nil {
+		fmt.Printf("stream error: %v\n", err)
+		return
+	}
+
+	fmt.Printf("resp: %v\n", resp)
+	fmt.Println()
+}
+
+func stream() {
+	fmt.Println("stream")
+	client := arkruntime.NewClientWithApiKey("94b82173-0824-47ae-b2c1-1cab0d59db00")
+	ctx := context.Background()
+	maxToolCalls := int64(1)
+
+	inputMessage := &responses.ItemInputMessage{
+		Role: responses.MessageRole_user,
+		Content: []*responses.ContentItem{
+			{
+				Union: &responses.ContentItem_Text{
+					Text: &responses.ContentItemText{
+						Type: responses.ContentItemType_input_text,
+						Text: "查一下今天的AI相关新闻",
+					},
+				},
+			},
+		},
+	}
+	createResponsesReq := &responses.ResponsesRequest{
+		Model: "doubao-seed-1-6",
+		Input: &responses.ResponsesInput{
+			Union: &responses.ResponsesInput_ListValue{
+				ListValue: &responses.InputItemList{ListValue: []*responses.InputItem{{
+					Union: &responses.InputItem_InputMessage{
+						InputMessage: inputMessage,
+					},
+				}}},
+			},
+		},
+		Tools: []*responses.ResponsesTool{
+			{
+				Union: &responses.ResponsesTool_ToolWebSearch{
+					ToolWebSearch: &responses.ToolWebSearch{
+						Type: responses.ToolType_web_search,
+					},
+				},
+			},
+		},
+		MaxToolCalls: &maxToolCalls,
+	}
+
+	resp, err := client.CreateResponsesStream(ctx, createResponsesReq, arkruntime.WithCustomHeader("ark-beta-web-search", "true"))
 	if err != nil {
 		fmt.Printf("stream error: %v\n", err)
 		return
