@@ -24,8 +24,7 @@ func main() {
 
 func nonStream() {
 	fmt.Println("non stream")
-
-	client := arkruntime.NewClientWithApiKey("01c254dd-76c9-4b0a-a717-cea9330cdfad", arkruntime.WithBaseUrl("https://ark-stg.cn-beijing.volces.com/api/v3/"))
+	client := arkruntime.NewClientWithApiKey(os.Getenv("ARK_API_KEY"))
 	ctx := context.Background()
 
 	fmt.Println("----- round 1 message -----")
@@ -70,7 +69,7 @@ func nonStream() {
 		},
 	}
 
-	resp, err := client.CreateResponses(ctx, createResponsesReq, arkruntime.WithCustomHeader("ark-beta-web-search", "true"))
+	resp, err := client.CreateResponses(ctx, createResponsesReq, arkruntime.WithCustomHeader("ark-beta-mcp", "true"))
 	if err != nil {
 		fmt.Printf("stream error: %v\n", err)
 		return
@@ -98,7 +97,6 @@ func nonStream() {
 				}}},
 			},
 		},
-		//Caching: &responses.ResponsesCaching{Type: responses.CacheType_enabled.Enum()},
 		Tools: []*responses.ResponsesTool{
 			{
 				Union: &responses.ResponsesTool_ToolMcp{
@@ -113,7 +111,7 @@ func nonStream() {
 		},
 		PreviousResponseId: &responseId,
 	}
-	resp2, err := client.CreateResponses(ctx, createResponsesReq2, arkruntime.WithCustomHeader("ark-beta-web-search", "true"))
+	resp2, err := client.CreateResponses(ctx, createResponsesReq2, arkruntime.WithCustomHeader("ark-beta-mcp", "true"))
 	if err != nil {
 		fmt.Printf("stream error: %v\n", err)
 		return
@@ -151,7 +149,7 @@ func nonStream() {
 		},
 	}
 
-	resp3, err := client.CreateResponses(ctx, createResponsesReq3, arkruntime.WithCustomHeader("ark-beta-web-search", "true"))
+	resp3, err := client.CreateResponses(ctx, createResponsesReq3, arkruntime.WithCustomHeader("ark-beta-mcp", "true"))
 	fmt.Printf("response: %v\n", resp3)
 }
 

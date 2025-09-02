@@ -6,6 +6,7 @@ import (
 	"github.com/volcengine/volcengine-go-sdk/service/arkruntime"
 	"github.com/volcengine/volcengine-go-sdk/service/arkruntime/model/responses"
 	"io"
+	"os"
 )
 
 /**
@@ -23,7 +24,7 @@ func main() {
 
 func nonStream() {
 	fmt.Println("non stream")
-	client := arkruntime.NewClientWithApiKey("94b82173-0824-47ae-b2c1-1cab0d59db00")
+	client := arkruntime.NewClientWithApiKey(os.Getenv("ARK_API_KEY"))
 	ctx := context.Background()
 	maxToolCalls := int64(1)
 
@@ -63,7 +64,7 @@ func nonStream() {
 		MaxToolCalls: &maxToolCalls,
 	}
 
-	resp, err := client.CreateResponses(ctx, createResponsesReq, arkruntime.WithCustomHeader("ark-beta-web-search", "true"))
+	resp, err := client.CreateResponses(ctx, createResponsesReq)
 	if err != nil {
 		fmt.Printf("stream error: %v\n", err)
 		return
@@ -75,7 +76,7 @@ func nonStream() {
 
 func stream() {
 	fmt.Println("stream")
-	client := arkruntime.NewClientWithApiKey("94b82173-0824-47ae-b2c1-1cab0d59db00")
+	client := arkruntime.NewClientWithApiKey(os.Getenv("ARK_API_KEY"))
 	ctx := context.Background()
 	maxToolCalls := int64(1)
 
@@ -115,7 +116,7 @@ func stream() {
 		MaxToolCalls: &maxToolCalls,
 	}
 
-	resp, err := client.CreateResponsesStream(ctx, createResponsesReq, arkruntime.WithCustomHeader("ark-beta-web-search", "true"))
+	resp, err := client.CreateResponsesStream(ctx, createResponsesReq)
 	if err != nil {
 		fmt.Printf("stream error: %v\n", err)
 		return
