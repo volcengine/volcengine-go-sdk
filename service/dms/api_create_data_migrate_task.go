@@ -224,7 +224,7 @@ func (s *AdvanceConfigForCreateDataMigrateTaskInput) SetTimeBandwidthSetting(v [
 type BasicConfigForCreateDataMigrateTaskInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	Bandwidth *int32 `min:"1" max:"1.073741824e+09" type:"int32" json:",omitempty"`
+	Bandwidth *int64 `type:"int64" json:",omitempty"`
 
 	EnableRangeCheck *bool `type:"boolean" json:",omitempty"`
 
@@ -256,12 +256,6 @@ func (s BasicConfigForCreateDataMigrateTaskInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *BasicConfigForCreateDataMigrateTaskInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "BasicConfigForCreateDataMigrateTaskInput"}
-	if s.Bandwidth != nil && *s.Bandwidth < 1 {
-		invalidParams.Add(request.NewErrParamMinValue("Bandwidth", 1))
-	}
-	if s.Bandwidth != nil && *s.Bandwidth > 1.073741824e+09 {
-		invalidParams.Add(request.NewErrParamMaxValue("Bandwidth", 1.073741824e+09))
-	}
 	if s.FailedNumToAbort != nil && *s.FailedNumToAbort < -1 {
 		invalidParams.Add(request.NewErrParamMinValue("FailedNumToAbort", -1))
 	}
@@ -279,7 +273,7 @@ func (s *BasicConfigForCreateDataMigrateTaskInput) Validate() error {
 }
 
 // SetBandwidth sets the Bandwidth field's value.
-func (s *BasicConfigForCreateDataMigrateTaskInput) SetBandwidth(v int32) *BasicConfigForCreateDataMigrateTaskInput {
+func (s *BasicConfigForCreateDataMigrateTaskInput) SetBandwidth(v int64) *BasicConfigForCreateDataMigrateTaskInput {
 	s.Bandwidth = &v
 	return s
 }
@@ -497,7 +491,7 @@ type IncreaseSettingForCreateDataMigrateTaskInput struct {
 
 	Interval *int32 `min:"3600" max:"86400" type:"int32" json:",omitempty"`
 
-	Times *int32 `min:"1" max:"30" type:"int32" json:",omitempty"`
+	Times *int32 `min:"1" max:"100" type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -522,8 +516,8 @@ func (s *IncreaseSettingForCreateDataMigrateTaskInput) Validate() error {
 	if s.Times != nil && *s.Times < 1 {
 		invalidParams.Add(request.NewErrParamMinValue("Times", 1))
 	}
-	if s.Times != nil && *s.Times > 30 {
-		invalidParams.Add(request.NewErrParamMaxValue("Times", 30))
+	if s.Times != nil && *s.Times > 100 {
+		invalidParams.Add(request.NewErrParamMaxValue("Times", 100))
 	}
 
 	if invalidParams.Len() > 0 {
