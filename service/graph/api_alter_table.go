@@ -148,14 +148,22 @@ type AlterTableInput struct {
 
 	EnableRead *bool `type:"boolean" json:",omitempty"`
 
+	EnableRwSeperateSchedule *bool `type:"boolean" json:",omitempty"`
+
 	EnableWrite *bool `type:"boolean" json:",omitempty"`
 
 	IOQosOptions *IOQosOptionsForAlterTableInput `type:"structure" json:",omitempty"`
 
+	IdcReplicaNums []*IdcReplicaNumForAlterTableInput `type:"list" json:",omitempty"`
+
+	IdcRoNums []*IdcRoNumForAlterTableInput `type:"list" json:",omitempty"`
+
 	// InstanceId is a required field
 	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 
-	State *int32 `type:"int32" json:",omitempty"`
+	RwSchedulableIdcs []*string `type:"list" json:",omitempty"`
+
+	State *string `type:"string" json:",omitempty"`
 
 	// TableName is a required field
 	TableName *string `type:"string" json:",omitempty" required:"true"`
@@ -193,6 +201,12 @@ func (s *AlterTableInput) SetEnableRead(v bool) *AlterTableInput {
 	return s
 }
 
+// SetEnableRwSeperateSchedule sets the EnableRwSeperateSchedule field's value.
+func (s *AlterTableInput) SetEnableRwSeperateSchedule(v bool) *AlterTableInput {
+	s.EnableRwSeperateSchedule = &v
+	return s
+}
+
 // SetEnableWrite sets the EnableWrite field's value.
 func (s *AlterTableInput) SetEnableWrite(v bool) *AlterTableInput {
 	s.EnableWrite = &v
@@ -205,14 +219,32 @@ func (s *AlterTableInput) SetIOQosOptions(v *IOQosOptionsForAlterTableInput) *Al
 	return s
 }
 
+// SetIdcReplicaNums sets the IdcReplicaNums field's value.
+func (s *AlterTableInput) SetIdcReplicaNums(v []*IdcReplicaNumForAlterTableInput) *AlterTableInput {
+	s.IdcReplicaNums = v
+	return s
+}
+
+// SetIdcRoNums sets the IdcRoNums field's value.
+func (s *AlterTableInput) SetIdcRoNums(v []*IdcRoNumForAlterTableInput) *AlterTableInput {
+	s.IdcRoNums = v
+	return s
+}
+
 // SetInstanceId sets the InstanceId field's value.
 func (s *AlterTableInput) SetInstanceId(v string) *AlterTableInput {
 	s.InstanceId = &v
 	return s
 }
 
+// SetRwSchedulableIdcs sets the RwSchedulableIdcs field's value.
+func (s *AlterTableInput) SetRwSchedulableIdcs(v []*string) *AlterTableInput {
+	s.RwSchedulableIdcs = v
+	return s
+}
+
 // SetState sets the State field's value.
-func (s *AlterTableInput) SetState(v int32) *AlterTableInput {
+func (s *AlterTableInput) SetState(v string) *AlterTableInput {
 	s.State = &v
 	return s
 }
@@ -282,5 +314,65 @@ func (s *IOQosOptionsForAlterTableInput) SetStorage_capacity_limit_in_bytes(v in
 // SetWrite_bandwidth_limit_in_bytes sets the Write_bandwidth_limit_in_bytes field's value.
 func (s *IOQosOptionsForAlterTableInput) SetWrite_bandwidth_limit_in_bytes(v int64) *IOQosOptionsForAlterTableInput {
 	s.Write_bandwidth_limit_in_bytes = &v
+	return s
+}
+
+type IdcReplicaNumForAlterTableInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Idc *string `type:"string" json:",omitempty"`
+
+	ReplicaNum *int64 `type:"int64" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s IdcReplicaNumForAlterTableInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s IdcReplicaNumForAlterTableInput) GoString() string {
+	return s.String()
+}
+
+// SetIdc sets the Idc field's value.
+func (s *IdcReplicaNumForAlterTableInput) SetIdc(v string) *IdcReplicaNumForAlterTableInput {
+	s.Idc = &v
+	return s
+}
+
+// SetReplicaNum sets the ReplicaNum field's value.
+func (s *IdcReplicaNumForAlterTableInput) SetReplicaNum(v int64) *IdcReplicaNumForAlterTableInput {
+	s.ReplicaNum = &v
+	return s
+}
+
+type IdcRoNumForAlterTableInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Idc *string `type:"string" json:",omitempty"`
+
+	RoNum *int64 `type:"int64" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s IdcRoNumForAlterTableInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s IdcRoNumForAlterTableInput) GoString() string {
+	return s.String()
+}
+
+// SetIdc sets the Idc field's value.
+func (s *IdcRoNumForAlterTableInput) SetIdc(v string) *IdcRoNumForAlterTableInput {
+	s.Idc = &v
+	return s
+}
+
+// SetRoNum sets the RoNum field's value.
+func (s *IdcRoNumForAlterTableInput) SetRoNum(v int64) *IdcRoNumForAlterTableInput {
+	s.RoNum = &v
 	return s
 }

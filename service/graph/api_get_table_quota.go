@@ -220,6 +220,8 @@ type Gremlin_quota_configForGetTableQuotaOutput struct {
 
 	Caller_psm *string `type:"string" json:"caller_psm,omitempty"`
 
+	Fetch_size *int64 `type:"int64" json:"fetch_size,omitempty"`
+
 	Quota_size *int64 `type:"int64" json:"quota_size,omitempty"`
 
 	Template *string `type:"string" json:"template,omitempty"`
@@ -241,6 +243,12 @@ func (s *Gremlin_quota_configForGetTableQuotaOutput) SetCaller_psm(v string) *Gr
 	return s
 }
 
+// SetFetch_size sets the Fetch_size field's value.
+func (s *Gremlin_quota_configForGetTableQuotaOutput) SetFetch_size(v int64) *Gremlin_quota_configForGetTableQuotaOutput {
+	s.Fetch_size = &v
+	return s
+}
+
 // SetQuota_size sets the Quota_size field's value.
 func (s *Gremlin_quota_configForGetTableQuotaOutput) SetQuota_size(v int64) *Gremlin_quota_configForGetTableQuotaOutput {
 	s.Quota_size = &v
@@ -258,7 +266,11 @@ type Psm_quota_configForGetTableQuotaOutput struct {
 
 	Caller_psm *string `type:"string" json:"caller_psm,omitempty"`
 
+	Read_fetch_size *int64 `type:"int64" json:"read_fetch_size,omitempty"`
+
 	Read_quota_size *int64 `type:"int64" json:"read_quota_size,omitempty"`
+
+	Write_fetch_size *int64 `type:"int64" json:"write_fetch_size,omitempty"`
 
 	Write_quota_size *int64 `type:"int64" json:"write_quota_size,omitempty"`
 }
@@ -279,9 +291,21 @@ func (s *Psm_quota_configForGetTableQuotaOutput) SetCaller_psm(v string) *Psm_qu
 	return s
 }
 
+// SetRead_fetch_size sets the Read_fetch_size field's value.
+func (s *Psm_quota_configForGetTableQuotaOutput) SetRead_fetch_size(v int64) *Psm_quota_configForGetTableQuotaOutput {
+	s.Read_fetch_size = &v
+	return s
+}
+
 // SetRead_quota_size sets the Read_quota_size field's value.
 func (s *Psm_quota_configForGetTableQuotaOutput) SetRead_quota_size(v int64) *Psm_quota_configForGetTableQuotaOutput {
 	s.Read_quota_size = &v
+	return s
+}
+
+// SetWrite_fetch_size sets the Write_fetch_size field's value.
+func (s *Psm_quota_configForGetTableQuotaOutput) SetWrite_fetch_size(v int64) *Psm_quota_configForGetTableQuotaOutput {
+	s.Write_fetch_size = &v
 	return s
 }
 

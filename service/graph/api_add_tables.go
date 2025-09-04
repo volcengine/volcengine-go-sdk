@@ -348,6 +348,8 @@ type Gremlin_quota_configForAddTablesInput struct {
 
 	Caller_psm *string `type:"string" json:"caller_psm,omitempty"`
 
+	Fetch_size *int64 `type:"int64" json:"fetch_size,omitempty"`
+
 	Quota_size *int64 `type:"int64" json:"quota_size,omitempty"`
 
 	Template *string `type:"string" json:"template,omitempty"`
@@ -366,6 +368,12 @@ func (s Gremlin_quota_configForAddTablesInput) GoString() string {
 // SetCaller_psm sets the Caller_psm field's value.
 func (s *Gremlin_quota_configForAddTablesInput) SetCaller_psm(v string) *Gremlin_quota_configForAddTablesInput {
 	s.Caller_psm = &v
+	return s
+}
+
+// SetFetch_size sets the Fetch_size field's value.
+func (s *Gremlin_quota_configForAddTablesInput) SetFetch_size(v int64) *Gremlin_quota_configForAddTablesInput {
+	s.Fetch_size = &v
 	return s
 }
 
@@ -432,7 +440,11 @@ type Psm_quota_configForAddTablesInput struct {
 
 	Caller_psm *string `type:"string" json:"caller_psm,omitempty"`
 
+	Read_fetch_size *int64 `type:"int64" json:"read_fetch_size,omitempty"`
+
 	Read_quota_size *int64 `type:"int64" json:"read_quota_size,omitempty"`
+
+	Write_fetch_size *int64 `type:"int64" json:"write_fetch_size,omitempty"`
 
 	Write_quota_size *int64 `type:"int64" json:"write_quota_size,omitempty"`
 }
@@ -453,9 +465,21 @@ func (s *Psm_quota_configForAddTablesInput) SetCaller_psm(v string) *Psm_quota_c
 	return s
 }
 
+// SetRead_fetch_size sets the Read_fetch_size field's value.
+func (s *Psm_quota_configForAddTablesInput) SetRead_fetch_size(v int64) *Psm_quota_configForAddTablesInput {
+	s.Read_fetch_size = &v
+	return s
+}
+
 // SetRead_quota_size sets the Read_quota_size field's value.
 func (s *Psm_quota_configForAddTablesInput) SetRead_quota_size(v int64) *Psm_quota_configForAddTablesInput {
 	s.Read_quota_size = &v
+	return s
+}
+
+// SetWrite_fetch_size sets the Write_fetch_size field's value.
+func (s *Psm_quota_configForAddTablesInput) SetWrite_fetch_size(v int64) *Psm_quota_configForAddTablesInput {
+	s.Write_fetch_size = &v
 	return s
 }
 
