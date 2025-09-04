@@ -187,6 +187,8 @@ type GetVersionSetAndComponentsInfoInput struct {
 	PageNumber *int32 `type:"int32" json:"pageNumber,omitempty"`
 
 	PageSize *int32 `type:"int32" json:"pageSize,omitempty"`
+
+	VersionSetPrefix *string `type:"string" json:"versionSetPrefix,omitempty"`
 }
 
 // String returns the string representation
@@ -208,6 +210,12 @@ func (s *GetVersionSetAndComponentsInfoInput) SetPageNumber(v int32) *GetVersion
 // SetPageSize sets the PageSize field's value.
 func (s *GetVersionSetAndComponentsInfoInput) SetPageSize(v int32) *GetVersionSetAndComponentsInfoInput {
 	s.PageSize = &v
+	return s
+}
+
+// SetVersionSetPrefix sets the VersionSetPrefix field's value.
+func (s *GetVersionSetAndComponentsInfoInput) SetVersionSetPrefix(v string) *GetVersionSetAndComponentsInfoInput {
+	s.VersionSetPrefix = &v
 	return s
 }
 

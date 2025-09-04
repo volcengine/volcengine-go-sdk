@@ -192,7 +192,7 @@ func (s *AdvanceConfigForQueryDataMigrateTaskOutput) SetTimeBandwidthSetting(v [
 type BasicConfigForQueryDataMigrateTaskOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	Bandwidth *int32 `min:"1" max:"1.073741824e+09" type:"int32" json:",omitempty"`
+	Bandwidth *int64 `type:"int64" json:",omitempty"`
 
 	EnableRangeCheck *bool `type:"boolean" json:",omitempty"`
 
@@ -222,7 +222,7 @@ func (s BasicConfigForQueryDataMigrateTaskOutput) GoString() string {
 }
 
 // SetBandwidth sets the Bandwidth field's value.
-func (s *BasicConfigForQueryDataMigrateTaskOutput) SetBandwidth(v int32) *BasicConfigForQueryDataMigrateTaskOutput {
+func (s *BasicConfigForQueryDataMigrateTaskOutput) SetBandwidth(v int64) *BasicConfigForQueryDataMigrateTaskOutput {
 	s.Bandwidth = &v
 	return s
 }
@@ -350,7 +350,7 @@ type IncreaseSettingForQueryDataMigrateTaskOutput struct {
 
 	Interval *int32 `min:"3600" max:"86400" type:"int32" json:",omitempty"`
 
-	Times *int32 `min:"1" max:"30" type:"int32" json:",omitempty"`
+	Times *int32 `min:"1" max:"100" type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation

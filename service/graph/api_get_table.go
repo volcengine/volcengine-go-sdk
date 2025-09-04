@@ -198,13 +198,29 @@ type GetTableOutput struct {
 
 	EnableRead *bool `type:"boolean" json:",omitempty"`
 
+	EnableRwSeperateSchedule *bool `type:"boolean" json:",omitempty"`
+
 	EnableWrite *bool `type:"boolean" json:",omitempty"`
+
+	IdcReplicaNums []*IdcReplicaNumForGetTableOutput `type:"list" json:",omitempty"`
+
+	IdcRoNums []*IdcRoNumForGetTableOutput `type:"list" json:",omitempty"`
+
+	IoQosOptions *IoQosOptionsForGetTableOutput `type:"structure" json:",omitempty"`
+
+	PartitionNum *int64 `type:"int64" json:",omitempty"`
+
+	RwSchedulableIdcs []*string `type:"list" json:",omitempty"`
 
 	State *string `type:"string" json:",omitempty"`
 
 	TableId *int64 `type:"int64" json:",omitempty"`
 
 	TableName *string `type:"string" json:",omitempty"`
+
+	TableQuota *TableQuotaForGetTableOutput `type:"structure" json:",omitempty"`
+
+	TabletNum *int64 `type:"int64" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -223,9 +239,45 @@ func (s *GetTableOutput) SetEnableRead(v bool) *GetTableOutput {
 	return s
 }
 
+// SetEnableRwSeperateSchedule sets the EnableRwSeperateSchedule field's value.
+func (s *GetTableOutput) SetEnableRwSeperateSchedule(v bool) *GetTableOutput {
+	s.EnableRwSeperateSchedule = &v
+	return s
+}
+
 // SetEnableWrite sets the EnableWrite field's value.
 func (s *GetTableOutput) SetEnableWrite(v bool) *GetTableOutput {
 	s.EnableWrite = &v
+	return s
+}
+
+// SetIdcReplicaNums sets the IdcReplicaNums field's value.
+func (s *GetTableOutput) SetIdcReplicaNums(v []*IdcReplicaNumForGetTableOutput) *GetTableOutput {
+	s.IdcReplicaNums = v
+	return s
+}
+
+// SetIdcRoNums sets the IdcRoNums field's value.
+func (s *GetTableOutput) SetIdcRoNums(v []*IdcRoNumForGetTableOutput) *GetTableOutput {
+	s.IdcRoNums = v
+	return s
+}
+
+// SetIoQosOptions sets the IoQosOptions field's value.
+func (s *GetTableOutput) SetIoQosOptions(v *IoQosOptionsForGetTableOutput) *GetTableOutput {
+	s.IoQosOptions = v
+	return s
+}
+
+// SetPartitionNum sets the PartitionNum field's value.
+func (s *GetTableOutput) SetPartitionNum(v int64) *GetTableOutput {
+	s.PartitionNum = &v
+	return s
+}
+
+// SetRwSchedulableIdcs sets the RwSchedulableIdcs field's value.
+func (s *GetTableOutput) SetRwSchedulableIdcs(v []*string) *GetTableOutput {
+	s.RwSchedulableIdcs = v
 	return s
 }
 
@@ -244,5 +296,253 @@ func (s *GetTableOutput) SetTableId(v int64) *GetTableOutput {
 // SetTableName sets the TableName field's value.
 func (s *GetTableOutput) SetTableName(v string) *GetTableOutput {
 	s.TableName = &v
+	return s
+}
+
+// SetTableQuota sets the TableQuota field's value.
+func (s *GetTableOutput) SetTableQuota(v *TableQuotaForGetTableOutput) *GetTableOutput {
+	s.TableQuota = v
+	return s
+}
+
+// SetTabletNum sets the TabletNum field's value.
+func (s *GetTableOutput) SetTabletNum(v int64) *GetTableOutput {
+	s.TabletNum = &v
+	return s
+}
+
+type Gremlin_quota_configForGetTableOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Caller_psm *string `type:"string" json:"caller_psm,omitempty"`
+
+	Fetch_size *int64 `type:"int64" json:"fetch_size,omitempty"`
+
+	Quota_size *int64 `type:"int64" json:"quota_size,omitempty"`
+
+	Template *string `type:"string" json:"template,omitempty"`
+}
+
+// String returns the string representation
+func (s Gremlin_quota_configForGetTableOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s Gremlin_quota_configForGetTableOutput) GoString() string {
+	return s.String()
+}
+
+// SetCaller_psm sets the Caller_psm field's value.
+func (s *Gremlin_quota_configForGetTableOutput) SetCaller_psm(v string) *Gremlin_quota_configForGetTableOutput {
+	s.Caller_psm = &v
+	return s
+}
+
+// SetFetch_size sets the Fetch_size field's value.
+func (s *Gremlin_quota_configForGetTableOutput) SetFetch_size(v int64) *Gremlin_quota_configForGetTableOutput {
+	s.Fetch_size = &v
+	return s
+}
+
+// SetQuota_size sets the Quota_size field's value.
+func (s *Gremlin_quota_configForGetTableOutput) SetQuota_size(v int64) *Gremlin_quota_configForGetTableOutput {
+	s.Quota_size = &v
+	return s
+}
+
+// SetTemplate sets the Template field's value.
+func (s *Gremlin_quota_configForGetTableOutput) SetTemplate(v string) *Gremlin_quota_configForGetTableOutput {
+	s.Template = &v
+	return s
+}
+
+type IdcReplicaNumForGetTableOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Idc *string `type:"string" json:",omitempty"`
+
+	ReplicaNum *int64 `type:"int64" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s IdcReplicaNumForGetTableOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s IdcReplicaNumForGetTableOutput) GoString() string {
+	return s.String()
+}
+
+// SetIdc sets the Idc field's value.
+func (s *IdcReplicaNumForGetTableOutput) SetIdc(v string) *IdcReplicaNumForGetTableOutput {
+	s.Idc = &v
+	return s
+}
+
+// SetReplicaNum sets the ReplicaNum field's value.
+func (s *IdcReplicaNumForGetTableOutput) SetReplicaNum(v int64) *IdcReplicaNumForGetTableOutput {
+	s.ReplicaNum = &v
+	return s
+}
+
+type IdcRoNumForGetTableOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Idc *string `type:"string" json:",omitempty"`
+
+	RoNum *int64 `type:"int64" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s IdcRoNumForGetTableOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s IdcRoNumForGetTableOutput) GoString() string {
+	return s.String()
+}
+
+// SetIdc sets the Idc field's value.
+func (s *IdcRoNumForGetTableOutput) SetIdc(v string) *IdcRoNumForGetTableOutput {
+	s.Idc = &v
+	return s
+}
+
+// SetRoNum sets the RoNum field's value.
+func (s *IdcRoNumForGetTableOutput) SetRoNum(v int64) *IdcRoNumForGetTableOutput {
+	s.RoNum = &v
+	return s
+}
+
+type IoQosOptionsForGetTableOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Iops_limit *int64 `type:"int64" json:"iops_limit,omitempty"`
+
+	Read_bandwidth_limit_in_bytes *int64 `type:"int64" json:"read_bandwidth_limit_in_bytes,omitempty"`
+
+	Storage_capacity_limit_in_bytes *int64 `type:"int64" json:"storage_capacity_limit_in_bytes,omitempty"`
+
+	Write_bandwidth_limit_in_bytes *int64 `type:"int64" json:"write_bandwidth_limit_in_bytes,omitempty"`
+}
+
+// String returns the string representation
+func (s IoQosOptionsForGetTableOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s IoQosOptionsForGetTableOutput) GoString() string {
+	return s.String()
+}
+
+// SetIops_limit sets the Iops_limit field's value.
+func (s *IoQosOptionsForGetTableOutput) SetIops_limit(v int64) *IoQosOptionsForGetTableOutput {
+	s.Iops_limit = &v
+	return s
+}
+
+// SetRead_bandwidth_limit_in_bytes sets the Read_bandwidth_limit_in_bytes field's value.
+func (s *IoQosOptionsForGetTableOutput) SetRead_bandwidth_limit_in_bytes(v int64) *IoQosOptionsForGetTableOutput {
+	s.Read_bandwidth_limit_in_bytes = &v
+	return s
+}
+
+// SetStorage_capacity_limit_in_bytes sets the Storage_capacity_limit_in_bytes field's value.
+func (s *IoQosOptionsForGetTableOutput) SetStorage_capacity_limit_in_bytes(v int64) *IoQosOptionsForGetTableOutput {
+	s.Storage_capacity_limit_in_bytes = &v
+	return s
+}
+
+// SetWrite_bandwidth_limit_in_bytes sets the Write_bandwidth_limit_in_bytes field's value.
+func (s *IoQosOptionsForGetTableOutput) SetWrite_bandwidth_limit_in_bytes(v int64) *IoQosOptionsForGetTableOutput {
+	s.Write_bandwidth_limit_in_bytes = &v
+	return s
+}
+
+type Psm_quota_configForGetTableOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Caller_psm *string `type:"string" json:"caller_psm,omitempty"`
+
+	Read_fetch_size *int64 `type:"int64" json:"read_fetch_size,omitempty"`
+
+	Read_quota_size *int64 `type:"int64" json:"read_quota_size,omitempty"`
+
+	Write_fetch_size *int64 `type:"int64" json:"write_fetch_size,omitempty"`
+
+	Write_quota_size *int64 `type:"int64" json:"write_quota_size,omitempty"`
+}
+
+// String returns the string representation
+func (s Psm_quota_configForGetTableOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s Psm_quota_configForGetTableOutput) GoString() string {
+	return s.String()
+}
+
+// SetCaller_psm sets the Caller_psm field's value.
+func (s *Psm_quota_configForGetTableOutput) SetCaller_psm(v string) *Psm_quota_configForGetTableOutput {
+	s.Caller_psm = &v
+	return s
+}
+
+// SetRead_fetch_size sets the Read_fetch_size field's value.
+func (s *Psm_quota_configForGetTableOutput) SetRead_fetch_size(v int64) *Psm_quota_configForGetTableOutput {
+	s.Read_fetch_size = &v
+	return s
+}
+
+// SetRead_quota_size sets the Read_quota_size field's value.
+func (s *Psm_quota_configForGetTableOutput) SetRead_quota_size(v int64) *Psm_quota_configForGetTableOutput {
+	s.Read_quota_size = &v
+	return s
+}
+
+// SetWrite_fetch_size sets the Write_fetch_size field's value.
+func (s *Psm_quota_configForGetTableOutput) SetWrite_fetch_size(v int64) *Psm_quota_configForGetTableOutput {
+	s.Write_fetch_size = &v
+	return s
+}
+
+// SetWrite_quota_size sets the Write_quota_size field's value.
+func (s *Psm_quota_configForGetTableOutput) SetWrite_quota_size(v int64) *Psm_quota_configForGetTableOutput {
+	s.Write_quota_size = &v
+	return s
+}
+
+type TableQuotaForGetTableOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Gremlin_quota_configs []*Gremlin_quota_configForGetTableOutput `type:"list" json:"gremlin_quota_configs,omitempty"`
+
+	Psm_quota_configs []*Psm_quota_configForGetTableOutput `type:"list" json:"psm_quota_configs,omitempty"`
+}
+
+// String returns the string representation
+func (s TableQuotaForGetTableOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TableQuotaForGetTableOutput) GoString() string {
+	return s.String()
+}
+
+// SetGremlin_quota_configs sets the Gremlin_quota_configs field's value.
+func (s *TableQuotaForGetTableOutput) SetGremlin_quota_configs(v []*Gremlin_quota_configForGetTableOutput) *TableQuotaForGetTableOutput {
+	s.Gremlin_quota_configs = v
+	return s
+}
+
+// SetPsm_quota_configs sets the Psm_quota_configs field's value.
+func (s *TableQuotaForGetTableOutput) SetPsm_quota_configs(v []*Psm_quota_configForGetTableOutput) *TableQuotaForGetTableOutput {
+	s.Psm_quota_configs = v
 	return s
 }

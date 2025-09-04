@@ -160,7 +160,7 @@ func (s HeaderForPreviewTopicDataOutput) GoString() string {
 type ItemForPreviewTopicDataOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	Header *HeaderForPreviewTopicDataOutput `type:"structure" json:",omitempty"`
+	Header []*HeaderForPreviewTopicDataOutput `type:"list" json:",omitempty"`
 
 	Key *string `type:"string" json:",omitempty"`
 
@@ -186,7 +186,7 @@ func (s ItemForPreviewTopicDataOutput) GoString() string {
 }
 
 // SetHeader sets the Header field's value.
-func (s *ItemForPreviewTopicDataOutput) SetHeader(v *HeaderForPreviewTopicDataOutput) *ItemForPreviewTopicDataOutput {
+func (s *ItemForPreviewTopicDataOutput) SetHeader(v []*HeaderForPreviewTopicDataOutput) *ItemForPreviewTopicDataOutput {
 	s.Header = v
 	return s
 }
