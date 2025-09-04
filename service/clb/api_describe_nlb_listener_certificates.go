@@ -144,6 +144,8 @@ type CertificateForDescribeNLBListenerCertificatesOutput struct {
 
 	CertificateId *string `type:"string"`
 
+	CertificateSource *string `type:"string"`
+
 	CertificateType *string `type:"string"`
 
 	Domain *string `type:"string"`
@@ -166,6 +168,12 @@ func (s CertificateForDescribeNLBListenerCertificatesOutput) GoString() string {
 // SetCertificateId sets the CertificateId field's value.
 func (s *CertificateForDescribeNLBListenerCertificatesOutput) SetCertificateId(v string) *CertificateForDescribeNLBListenerCertificatesOutput {
 	s.CertificateId = &v
+	return s
+}
+
+// SetCertificateSource sets the CertificateSource field's value.
+func (s *CertificateForDescribeNLBListenerCertificatesOutput) SetCertificateSource(v string) *CertificateForDescribeNLBListenerCertificatesOutput {
+	s.CertificateSource = &v
 	return s
 }
 
@@ -199,6 +207,8 @@ type DescribeNLBListenerCertificatesInput struct {
 	CertificateIds []*string `type:"list"`
 
 	CertificateType *string `type:"string"`
+
+	Domain *string `type:"string"`
 
 	// ListenerId is a required field
 	ListenerId *string `type:"string" required:"true"`
@@ -240,6 +250,12 @@ func (s *DescribeNLBListenerCertificatesInput) SetCertificateIds(v []*string) *D
 // SetCertificateType sets the CertificateType field's value.
 func (s *DescribeNLBListenerCertificatesInput) SetCertificateType(v string) *DescribeNLBListenerCertificatesInput {
 	s.CertificateType = &v
+	return s
+}
+
+// SetDomain sets the Domain field's value.
+func (s *DescribeNLBListenerCertificatesInput) SetDomain(v string) *DescribeNLBListenerCertificatesInput {
+	s.Domain = &v
 	return s
 }
 
