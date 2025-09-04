@@ -562,31 +562,37 @@ func (r *OutputItem) UnmarshalJSON(bytes []byte) error {
 		oneof := OutputItem_Transcription{}
 		if err = unmarshal(bytes, &oneof.Transcription); err == nil {
 			r.Union = &oneof
+			return nil
 		}
 	case ItemType_web_search_call:
 		oneof := OutputItem_FunctionWebSearch{}
 		if err = unmarshal(bytes, &oneof.FunctionWebSearch); err == nil {
 			r.Union = &oneof
+			return nil
 		}
 	case ItemType_image_process:
 		oneof := OutputItem_FunctionImageProcess{}
 		if err = unmarshal(bytes, &oneof.FunctionImageProcess); err == nil {
 			r.Union = &oneof
+			return nil
 		}
 	case ItemType_mcp_approval_request:
 		oneof := OutputItem_FunctionMcpApprovalRequest{}
 		if err = unmarshal(bytes, &oneof.FunctionMcpApprovalRequest); err == nil {
 			r.Union = &oneof
+			return nil
 		}
 	case ItemType_mcp_call:
 		oneof := OutputItem_FunctionMcpCall{}
 		if err = unmarshal(bytes, &oneof.FunctionMcpCall); err == nil {
 			r.Union = &oneof
+			return nil
 		}
 	case ItemType_mcp_list_tools:
 		oneof := OutputItem_FunctionMcpListTools{}
 		if err = unmarshal(bytes, &oneof.FunctionMcpListTools); err == nil {
 			r.Union = &oneof
+			return nil
 		}
 	default:
 		err = &json.InvalidUnmarshalError{
