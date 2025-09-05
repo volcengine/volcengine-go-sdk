@@ -21,15 +21,20 @@ func (c *WAFRuntime) CheckLLMResponseStreamRequest(input *waf.CheckLLMResponseSt
 	}
 	session.StreamBuf += *input.Content
 	session.StreamSendLen += len(*input.Content)
-	if session.StreamSendLen < 10 && input.MsgID != nil && *input.UseStream != 2 {
+	if session.MsgID != "" {
+		input.MsgID = &session.MsgID
+	}
+	if session.currentSendWindow == 0 {
+		session.currentSendWindow = LLM_STREAM_SEND_BASE_WINDOW
+	}
+	if int64(session.StreamSendLen) < session.currentSendWindow && input.MsgID != nil && *input.UseStream != 2 {
 		return nil, nil
 	} else {
 		session.StreamSendLen = 0
 		*input.Content = session.StreamBuf
+		session.currentSendWindow = session.currentSendWindow * LLM_STREAM_SEND_EXPONENT
 	}
-	if session.MsgID != "" {
-		input.MsgID = &session.MsgID
-	}
+
 	output = &waf.CheckLLMResponseStreamOutput{}
 	req = c.newRequest(op, input, output)
 
@@ -50,7 +55,9 @@ func (c *WAFRuntime) CheckLLMResponseStream(input *waf.CheckLLMResponseStreamInp
 		return nil, err
 	}
 	if session.MsgID == "" {
-		session.MsgID = *out.MsgID
+		if out != nil && out.MsgID != nil {
+			session.MsgID = *out.MsgID
+		}
 	}
 	session.DefaultBody = out
 	return out, err
