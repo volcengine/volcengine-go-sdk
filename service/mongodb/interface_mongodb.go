@@ -382,6 +382,30 @@ type MONGODBAPI interface {
 	ModifyAllowListWithContext(volcengine.Context, *ModifyAllowListInput, ...request.Option) (*ModifyAllowListOutput, error)
 	ModifyAllowListRequest(*ModifyAllowListInput) (*request.Request, *ModifyAllowListOutput)
 
+	ModifyDBEndpointPortCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ModifyDBEndpointPortCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ModifyDBEndpointPortCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ModifyDBEndpointPort(*ModifyDBEndpointPortInput) (*ModifyDBEndpointPortOutput, error)
+	ModifyDBEndpointPortWithContext(volcengine.Context, *ModifyDBEndpointPortInput, ...request.Option) (*ModifyDBEndpointPortOutput, error)
+	ModifyDBEndpointPortRequest(*ModifyDBEndpointPortInput) (*request.Request, *ModifyDBEndpointPortOutput)
+
+	ModifyDBEndpointPrivateDNSVisibilityCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ModifyDBEndpointPrivateDNSVisibilityCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ModifyDBEndpointPrivateDNSVisibilityCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ModifyDBEndpointPrivateDNSVisibility(*ModifyDBEndpointPrivateDNSVisibilityInput) (*ModifyDBEndpointPrivateDNSVisibilityOutput, error)
+	ModifyDBEndpointPrivateDNSVisibilityWithContext(volcengine.Context, *ModifyDBEndpointPrivateDNSVisibilityInput, ...request.Option) (*ModifyDBEndpointPrivateDNSVisibilityOutput, error)
+	ModifyDBEndpointPrivateDNSVisibilityRequest(*ModifyDBEndpointPrivateDNSVisibilityInput) (*request.Request, *ModifyDBEndpointPrivateDNSVisibilityOutput)
+
+	ModifyDBInstanceBackupPolicyCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ModifyDBInstanceBackupPolicyCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ModifyDBInstanceBackupPolicyCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ModifyDBInstanceBackupPolicy(*ModifyDBInstanceBackupPolicyInput) (*ModifyDBInstanceBackupPolicyOutput, error)
+	ModifyDBInstanceBackupPolicyWithContext(volcengine.Context, *ModifyDBInstanceBackupPolicyInput, ...request.Option) (*ModifyDBInstanceBackupPolicyOutput, error)
+	ModifyDBInstanceBackupPolicyRequest(*ModifyDBInstanceBackupPolicyInput) (*request.Request, *ModifyDBInstanceBackupPolicyOutput)
+
 	ModifyDBInstanceBackupURLCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ModifyDBInstanceBackupURLCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	ModifyDBInstanceBackupURLCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})

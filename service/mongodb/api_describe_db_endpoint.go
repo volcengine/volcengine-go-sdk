@@ -157,6 +157,8 @@ type DBAddressForDescribeDBEndpointOutput struct {
 	EipId *string `type:"string" json:",omitempty"`
 
 	NodeId *string `type:"string" json:",omitempty"`
+
+	ZoneId *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -202,6 +204,12 @@ func (s *DBAddressForDescribeDBEndpointOutput) SetEipId(v string) *DBAddressForD
 // SetNodeId sets the NodeId field's value.
 func (s *DBAddressForDescribeDBEndpointOutput) SetNodeId(v string) *DBAddressForDescribeDBEndpointOutput {
 	s.NodeId = &v
+	return s
+}
+
+// SetZoneId sets the ZoneId field's value.
+func (s *DBAddressForDescribeDBEndpointOutput) SetZoneId(v string) *DBAddressForDescribeDBEndpointOutput {
+	s.ZoneId = &v
 	return s
 }
 
