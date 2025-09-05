@@ -154,6 +154,8 @@ type CreateCenBandwidthPackageInput struct {
 
 	Description *string `min:"1" max:"255" type:"string"`
 
+	LineOperator *string `type:"string"`
+
 	// LocalGeographicRegionSetId is a required field
 	LocalGeographicRegionSetId *string `type:"string" required:"true"`
 
@@ -249,6 +251,12 @@ func (s *CreateCenBandwidthPackageInput) SetDescription(v string) *CreateCenBand
 	return s
 }
 
+// SetLineOperator sets the LineOperator field's value.
+func (s *CreateCenBandwidthPackageInput) SetLineOperator(v string) *CreateCenBandwidthPackageInput {
+	s.LineOperator = &v
+	return s
+}
+
 // SetLocalGeographicRegionSetId sets the LocalGeographicRegionSetId field's value.
 func (s *CreateCenBandwidthPackageInput) SetLocalGeographicRegionSetId(v string) *CreateCenBandwidthPackageInput {
 	s.LocalGeographicRegionSetId = &v
@@ -291,8 +299,6 @@ type CreateCenBandwidthPackageOutput struct {
 	Metadata *response.ResponseMetadata
 
 	CenBandwidthPackageId *string `type:"string"`
-
-	RequestId *string `type:"string"`
 }
 
 // String returns the string representation
@@ -308,12 +314,6 @@ func (s CreateCenBandwidthPackageOutput) GoString() string {
 // SetCenBandwidthPackageId sets the CenBandwidthPackageId field's value.
 func (s *CreateCenBandwidthPackageOutput) SetCenBandwidthPackageId(v string) *CreateCenBandwidthPackageOutput {
 	s.CenBandwidthPackageId = &v
-	return s
-}
-
-// SetRequestId sets the RequestId field's value.
-func (s *CreateCenBandwidthPackageOutput) SetRequestId(v string) *CreateCenBandwidthPackageOutput {
-	s.RequestId = &v
 	return s
 }
 

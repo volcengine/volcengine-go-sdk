@@ -227,8 +227,6 @@ type WithdrawCenRouteEntryOutput struct {
 	_ struct{} `type:"structure"`
 
 	Metadata *response.ResponseMetadata
-
-	RequestId *string `type:"string"`
 }
 
 // String returns the string representation
@@ -239,10 +237,4 @@ func (s WithdrawCenRouteEntryOutput) String() string {
 // GoString returns the string representation
 func (s WithdrawCenRouteEntryOutput) GoString() string {
 	return s.String()
-}
-
-// SetRequestId sets the RequestId field's value.
-func (s *WithdrawCenRouteEntryOutput) SetRequestId(v string) *WithdrawCenRouteEntryOutput {
-	s.RequestId = &v
-	return s
 }

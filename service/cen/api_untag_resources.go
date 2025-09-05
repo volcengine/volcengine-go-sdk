@@ -203,8 +203,6 @@ type UntagResourcesOutput struct {
 	_ struct{} `type:"structure"`
 
 	Metadata *response.ResponseMetadata
-
-	RequestId *string `type:"string"`
 }
 
 // String returns the string representation
@@ -215,12 +213,6 @@ func (s UntagResourcesOutput) String() string {
 // GoString returns the string representation
 func (s UntagResourcesOutput) GoString() string {
 	return s.String()
-}
-
-// SetRequestId sets the RequestId field's value.
-func (s *UntagResourcesOutput) SetRequestId(v string) *UntagResourcesOutput {
-	s.RequestId = &v
-	return s
 }
 
 const (

@@ -202,6 +202,8 @@ type DescribeCenBandwidthPackageAttributesOutput struct {
 
 	ExpiredTime *string `type:"string"`
 
+	LineOperator *string `type:"string"`
+
 	LocalGeographicRegionSetId *string `type:"string"`
 
 	PeerGeographicRegionSetId *string `type:"string"`
@@ -210,13 +212,11 @@ type DescribeCenBandwidthPackageAttributesOutput struct {
 
 	RemainingBandwidth *int64 `type:"integer"`
 
-	RequestId *string `type:"string"`
-
 	Status *string `type:"string"`
 
 	Tags []*TagForDescribeCenBandwidthPackageAttributesOutput `type:"list"`
 
-	UpdatedAt *string `type:"string"`
+	UpdateTime *string `type:"string"`
 }
 
 // String returns the string representation
@@ -295,6 +295,12 @@ func (s *DescribeCenBandwidthPackageAttributesOutput) SetExpiredTime(v string) *
 	return s
 }
 
+// SetLineOperator sets the LineOperator field's value.
+func (s *DescribeCenBandwidthPackageAttributesOutput) SetLineOperator(v string) *DescribeCenBandwidthPackageAttributesOutput {
+	s.LineOperator = &v
+	return s
+}
+
 // SetLocalGeographicRegionSetId sets the LocalGeographicRegionSetId field's value.
 func (s *DescribeCenBandwidthPackageAttributesOutput) SetLocalGeographicRegionSetId(v string) *DescribeCenBandwidthPackageAttributesOutput {
 	s.LocalGeographicRegionSetId = &v
@@ -319,12 +325,6 @@ func (s *DescribeCenBandwidthPackageAttributesOutput) SetRemainingBandwidth(v in
 	return s
 }
 
-// SetRequestId sets the RequestId field's value.
-func (s *DescribeCenBandwidthPackageAttributesOutput) SetRequestId(v string) *DescribeCenBandwidthPackageAttributesOutput {
-	s.RequestId = &v
-	return s
-}
-
 // SetStatus sets the Status field's value.
 func (s *DescribeCenBandwidthPackageAttributesOutput) SetStatus(v string) *DescribeCenBandwidthPackageAttributesOutput {
 	s.Status = &v
@@ -337,9 +337,9 @@ func (s *DescribeCenBandwidthPackageAttributesOutput) SetTags(v []*TagForDescrib
 	return s
 }
 
-// SetUpdatedAt sets the UpdatedAt field's value.
-func (s *DescribeCenBandwidthPackageAttributesOutput) SetUpdatedAt(v string) *DescribeCenBandwidthPackageAttributesOutput {
-	s.UpdatedAt = &v
+// SetUpdateTime sets the UpdateTime field's value.
+func (s *DescribeCenBandwidthPackageAttributesOutput) SetUpdateTime(v string) *DescribeCenBandwidthPackageAttributesOutput {
+	s.UpdateTime = &v
 	return s
 }
 

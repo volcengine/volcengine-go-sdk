@@ -306,8 +306,6 @@ type DescribeCenRouteEntriesOutput struct {
 
 	PageSize *int64 `type:"integer"`
 
-	RequestId *string `type:"string"`
-
 	TotalCount *int64 `type:"integer"`
 }
 
@@ -336,12 +334,6 @@ func (s *DescribeCenRouteEntriesOutput) SetPageNumber(v int64) *DescribeCenRoute
 // SetPageSize sets the PageSize field's value.
 func (s *DescribeCenRouteEntriesOutput) SetPageSize(v int64) *DescribeCenRouteEntriesOutput {
 	s.PageSize = &v
-	return s
-}
-
-// SetRequestId sets the RequestId field's value.
-func (s *DescribeCenRouteEntriesOutput) SetRequestId(v string) *DescribeCenRouteEntriesOutput {
-	s.RequestId = &v
 	return s
 }
 

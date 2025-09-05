@@ -196,8 +196,6 @@ type DescribeCenInterRegionBandwidthsOutput struct {
 
 	PageSize *int64 `type:"integer"`
 
-	RequestId *string `type:"string"`
-
 	TotalCount *int64 `type:"integer"`
 }
 
@@ -226,12 +224,6 @@ func (s *DescribeCenInterRegionBandwidthsOutput) SetPageNumber(v int64) *Describ
 // SetPageSize sets the PageSize field's value.
 func (s *DescribeCenInterRegionBandwidthsOutput) SetPageSize(v int64) *DescribeCenInterRegionBandwidthsOutput {
 	s.PageSize = &v
-	return s
-}
-
-// SetRequestId sets the RequestId field's value.
-func (s *DescribeCenInterRegionBandwidthsOutput) SetRequestId(v string) *DescribeCenInterRegionBandwidthsOutput {
-	s.RequestId = &v
 	return s
 }
 

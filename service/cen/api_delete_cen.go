@@ -179,8 +179,6 @@ type DeleteCenOutput struct {
 	_ struct{} `type:"structure"`
 
 	Metadata *response.ResponseMetadata
-
-	RequestId *string `type:"string"`
 }
 
 // String returns the string representation
@@ -191,10 +189,4 @@ func (s DeleteCenOutput) String() string {
 // GoString returns the string representation
 func (s DeleteCenOutput) GoString() string {
 	return s.String()
-}
-
-// SetRequestId sets the RequestId field's value.
-func (s *DeleteCenOutput) SetRequestId(v string) *DeleteCenOutput {
-	s.RequestId = &v
-	return s
 }

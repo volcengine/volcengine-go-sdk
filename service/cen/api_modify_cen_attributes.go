@@ -195,8 +195,6 @@ type ModifyCenAttributesOutput struct {
 	_ struct{} `type:"structure"`
 
 	Metadata *response.ResponseMetadata
-
-	RequestId *string `type:"string"`
 }
 
 // String returns the string representation
@@ -207,10 +205,4 @@ func (s ModifyCenAttributesOutput) String() string {
 // GoString returns the string representation
 func (s ModifyCenAttributesOutput) GoString() string {
 	return s.String()
-}
-
-// SetRequestId sets the RequestId field's value.
-func (s *ModifyCenAttributesOutput) SetRequestId(v string) *ModifyCenAttributesOutput {
-	s.RequestId = &v
-	return s
 }
