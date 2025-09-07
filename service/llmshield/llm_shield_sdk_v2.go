@@ -61,9 +61,7 @@ func (c *Client) Moderate(request *ModerateV2Request) (*ModerateV2Response, erro
 		return nil, fmt.Errorf("failed to send request: %w", err)
 	}
 	defer resp.Body.Close()
-	if resp.StatusCode != http.StatusOK {
-		return nil, fmt.Errorf("bad response code: %d", resp.StatusCode)
-	}
+
 	// 读取响应体
 	responseBody, err := io.ReadAll(resp.Body)
 	if err != nil {
@@ -147,9 +145,7 @@ func (c *Client) ModerateStream(request *ModerateV2Request, session *ModerateV2S
 		return nil, fmt.Errorf("failed to send request: %w", err)
 	}
 	defer resp.Body.Close()
-	if resp.StatusCode != http.StatusOK {
-		return nil, fmt.Errorf("bad response code: %d", resp.StatusCode)
-	}
+
 	// 读取响应体
 	responseBody, err := io.ReadAll(resp.Body)
 	if err != nil {
