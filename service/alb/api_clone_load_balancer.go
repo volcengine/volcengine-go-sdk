@@ -152,8 +152,8 @@ type CloneLoadBalancerInput struct {
 
 	Ipv6EipBillingConfig *Ipv6EipBillingConfigForCloneLoadBalancerInput `type:"structure"`
 
-	// LoadBalancerID is a required field
-	LoadBalancerID *string `type:"string" required:"true"`
+	// LoadBalancerId is a required field
+	LoadBalancerId *string `type:"string" required:"true"`
 
 	LoadBalancerName *string `type:"string"`
 
@@ -178,8 +178,8 @@ func (s CloneLoadBalancerInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *CloneLoadBalancerInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "CloneLoadBalancerInput"}
-	if s.LoadBalancerID == nil {
-		invalidParams.Add(request.NewErrParamRequired("LoadBalancerID"))
+	if s.LoadBalancerId == nil {
+		invalidParams.Add(request.NewErrParamRequired("LoadBalancerId"))
 	}
 	if s.RegionId == nil {
 		invalidParams.Add(request.NewErrParamRequired("RegionId"))
@@ -221,9 +221,9 @@ func (s *CloneLoadBalancerInput) SetIpv6EipBillingConfig(v *Ipv6EipBillingConfig
 	return s
 }
 
-// SetLoadBalancerID sets the LoadBalancerID field's value.
-func (s *CloneLoadBalancerInput) SetLoadBalancerID(v string) *CloneLoadBalancerInput {
-	s.LoadBalancerID = &v
+// SetLoadBalancerId sets the LoadBalancerId field's value.
+func (s *CloneLoadBalancerInput) SetLoadBalancerId(v string) *CloneLoadBalancerInput {
+	s.LoadBalancerId = &v
 	return s
 }
 

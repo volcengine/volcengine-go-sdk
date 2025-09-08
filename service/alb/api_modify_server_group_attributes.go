@@ -156,8 +156,7 @@ type HealthCheckForModifyServerGroupAttributesInput struct {
 
 	Method *string `type:"string"`
 
-	// Port is a required field
-	Port *int64 `max:"65535" type:"integer" required:"true"`
+	Port *int64 `max:"65535" type:"integer"`
 
 	Protocol *string `type:"string"`
 
@@ -181,9 +180,6 @@ func (s HealthCheckForModifyServerGroupAttributesInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *HealthCheckForModifyServerGroupAttributesInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "HealthCheckForModifyServerGroupAttributesInput"}
-	if s.Port == nil {
-		invalidParams.Add(request.NewErrParamRequired("Port"))
-	}
 	if s.Port != nil && *s.Port > 65535 {
 		invalidParams.Add(request.NewErrParamMaxValue("Port", 65535))
 	}
@@ -269,6 +265,8 @@ func (s *HealthCheckForModifyServerGroupAttributesInput) SetUnhealthyThreshold(v
 type ModifyServerGroupAttributesInput struct {
 	_ struct{} `type:"structure"`
 
+	CrossZoneEnabled *string `type:"string"`
+
 	Description *string `type:"string"`
 
 	HealthCheck *HealthCheckForModifyServerGroupAttributesInput `type:"structure"`
@@ -309,6 +307,12 @@ func (s *ModifyServerGroupAttributesInput) Validate() error {
 		return invalidParams
 	}
 	return nil
+}
+
+// SetCrossZoneEnabled sets the CrossZoneEnabled field's value.
+func (s *ModifyServerGroupAttributesInput) SetCrossZoneEnabled(v string) *ModifyServerGroupAttributesInput {
+	s.CrossZoneEnabled = &v
+	return s
 }
 
 // SetDescription sets the Description field's value.

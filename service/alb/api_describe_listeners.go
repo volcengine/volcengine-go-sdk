@@ -287,6 +287,8 @@ type DomainExtensionForDescribeListenersOutput struct {
 	DomainExtensionId *string `type:"string"`
 
 	ListenerId *string `type:"string"`
+
+	PcaLeafCertificateId *string `type:"string"`
 }
 
 // String returns the string representation
@@ -335,6 +337,12 @@ func (s *DomainExtensionForDescribeListenersOutput) SetListenerId(v string) *Dom
 	return s
 }
 
+// SetPcaLeafCertificateId sets the PcaLeafCertificateId field's value.
+func (s *DomainExtensionForDescribeListenersOutput) SetPcaLeafCertificateId(v string) *DomainExtensionForDescribeListenersOutput {
+	s.PcaLeafCertificateId = &v
+	return s
+}
+
 type ListenerForDescribeListenersOutput struct {
 	_ struct{} `type:"structure"`
 
@@ -345,6 +353,8 @@ type ListenerForDescribeListenersOutput struct {
 	AclType *string `type:"string"`
 
 	CACertificateId *string `type:"string"`
+
+	CACertificateSource *string `type:"string"`
 
 	CertCenterCertificateId *string `type:"string"`
 
@@ -373,6 +383,12 @@ type ListenerForDescribeListenersOutput struct {
 	ListenerName *string `type:"string"`
 
 	LoadBalancerId *string `type:"string"`
+
+	PcaLeafCertificateId *string `type:"string"`
+
+	PcaRootCACertificateId *string `type:"string"`
+
+	PcaSubCACertificateId *string `type:"string"`
 
 	Port *int64 `type:"integer"`
 
@@ -424,6 +440,12 @@ func (s *ListenerForDescribeListenersOutput) SetAclType(v string) *ListenerForDe
 // SetCACertificateId sets the CACertificateId field's value.
 func (s *ListenerForDescribeListenersOutput) SetCACertificateId(v string) *ListenerForDescribeListenersOutput {
 	s.CACertificateId = &v
+	return s
+}
+
+// SetCACertificateSource sets the CACertificateSource field's value.
+func (s *ListenerForDescribeListenersOutput) SetCACertificateSource(v string) *ListenerForDescribeListenersOutput {
+	s.CACertificateSource = &v
 	return s
 }
 
@@ -508,6 +530,24 @@ func (s *ListenerForDescribeListenersOutput) SetListenerName(v string) *Listener
 // SetLoadBalancerId sets the LoadBalancerId field's value.
 func (s *ListenerForDescribeListenersOutput) SetLoadBalancerId(v string) *ListenerForDescribeListenersOutput {
 	s.LoadBalancerId = &v
+	return s
+}
+
+// SetPcaLeafCertificateId sets the PcaLeafCertificateId field's value.
+func (s *ListenerForDescribeListenersOutput) SetPcaLeafCertificateId(v string) *ListenerForDescribeListenersOutput {
+	s.PcaLeafCertificateId = &v
+	return s
+}
+
+// SetPcaRootCACertificateId sets the PcaRootCACertificateId field's value.
+func (s *ListenerForDescribeListenersOutput) SetPcaRootCACertificateId(v string) *ListenerForDescribeListenersOutput {
+	s.PcaRootCACertificateId = &v
+	return s
+}
+
+// SetPcaSubCACertificateId sets the PcaSubCACertificateId field's value.
+func (s *ListenerForDescribeListenersOutput) SetPcaSubCACertificateId(v string) *ListenerForDescribeListenersOutput {
+	s.PcaSubCACertificateId = &v
 	return s
 }
 

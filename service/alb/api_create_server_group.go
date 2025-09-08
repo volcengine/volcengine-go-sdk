@@ -142,6 +142,8 @@ func (c *ALB) CreateServerGroupWithContext(ctx volcengine.Context, input *Create
 type CreateServerGroupInput struct {
 	_ struct{} `type:"structure"`
 
+	CrossZoneEnabled *string `type:"string"`
+
 	Description *string `type:"string"`
 
 	HealthCheck *HealthCheckForCreateServerGroupInput `type:"structure"`
@@ -198,6 +200,12 @@ func (s *CreateServerGroupInput) Validate() error {
 		return invalidParams
 	}
 	return nil
+}
+
+// SetCrossZoneEnabled sets the CrossZoneEnabled field's value.
+func (s *CreateServerGroupInput) SetCrossZoneEnabled(v string) *CreateServerGroupInput {
+	s.CrossZoneEnabled = &v
+	return s
 }
 
 // SetDescription sets the Description field's value.
@@ -315,8 +323,7 @@ type HealthCheckForCreateServerGroupInput struct {
 
 	Method *string `type:"string"`
 
-	// Port is a required field
-	Port *int64 `max:"65535" type:"integer" required:"true"`
+	Port *int64 `max:"65535" type:"integer"`
 
 	Protocol *string `type:"string"`
 
@@ -340,9 +347,6 @@ func (s HealthCheckForCreateServerGroupInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *HealthCheckForCreateServerGroupInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "HealthCheckForCreateServerGroupInput"}
-	if s.Port == nil {
-		invalidParams.Add(request.NewErrParamRequired("Port"))
-	}
 	if s.Port != nil && *s.Port > 65535 {
 		invalidParams.Add(request.NewErrParamMaxValue("Port", 65535))
 	}

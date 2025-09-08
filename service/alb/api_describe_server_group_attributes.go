@@ -180,6 +180,8 @@ type DescribeServerGroupAttributesOutput struct {
 
 	Metadata *response.ResponseMetadata
 
+	CrossZoneEnabled *string `type:"string"`
+
 	Description *string `type:"string"`
 
 	HealthCheck *HealthCheckForDescribeServerGroupAttributesOutput `type:"structure"`
@@ -221,6 +223,12 @@ func (s DescribeServerGroupAttributesOutput) String() string {
 // GoString returns the string representation
 func (s DescribeServerGroupAttributesOutput) GoString() string {
 	return s.String()
+}
+
+// SetCrossZoneEnabled sets the CrossZoneEnabled field's value.
+func (s *DescribeServerGroupAttributesOutput) SetCrossZoneEnabled(v string) *DescribeServerGroupAttributesOutput {
+	s.CrossZoneEnabled = &v
+	return s
 }
 
 // SetDescription sets the Description field's value.
