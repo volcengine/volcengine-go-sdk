@@ -72,6 +72,7 @@ func (c *Client) Moderate(request *ModerateV2Request) (*ModerateV2Response, erro
 	if err != nil {
 		return nil, fmt.Errorf("failed to Unmarshal response body: %w", err)
 	}
+	response.ResponseMetadata.HTTPCode = resp.StatusCode
 	return response, nil
 }
 
@@ -153,6 +154,7 @@ func (c *Client) ModerateStream(request *ModerateV2Request, session *ModerateV2S
 	}
 	response := &ModerateV2Response{}
 	err = json.Unmarshal(responseBody, &response)
+	response.ResponseMetadata.HTTPCode = resp.StatusCode
 	if err != nil {
 		return nil, fmt.Errorf("failed to Unmarshal response body: %w", err)
 	}
