@@ -22,3 +22,17 @@ func (c *Client) GenerateImages(
 	err = c.Do(ctx, http.MethodPost, c.fullURL(generateImagesPath), resourceTypeEndpoint, request.Model, &response, requestOptions...)
 	return
 }
+
+func (c *Client) GenerateImages4(
+	ctx context.Context,
+	request model.GenerateImages4Request,
+	setters ...requestOption,
+) (response model.ImagesResponse, err error) {
+	if !c.isAPIKeyAuthentication() {
+		return response, model.ErrAKSKNotSupported
+	}
+
+	requestOptions := append(setters, withBody(request))
+	err = c.Do(ctx, http.MethodPost, c.fullURL(generateImagesPath), resourceTypeEndpoint, request.Model, &response, requestOptions...)
+	return
+}
