@@ -5,6 +5,11 @@ import (
 	"github.com/volcengine/volcengine-go-sdk/service/waf"
 )
 
+const (
+	LLM_STREAM_SEND_BASE_WINDOW int64 = 10
+	LLM_STREAM_SEND_EXPONENT    int64 = 2
+)
+
 // LLMStreamSession 表示一个流会话的结构体，包含流缓冲区、流发送长度和消息 ID 等信息。
 type LLMStreamSession struct {
 	// 流缓冲区，用于存储流数据
@@ -14,7 +19,8 @@ type LLMStreamSession struct {
 	// 消息的唯一标识符
 	MsgID string
 	// 存储默认响应体
-	DefaultBody *waf.CheckLLMResponseStreamOutput
+	DefaultBody       *waf.CheckLLMResponseStreamOutput
+	currentSendWindow int64
 }
 
 // GetStreamBuf 获取流缓冲区的值。
