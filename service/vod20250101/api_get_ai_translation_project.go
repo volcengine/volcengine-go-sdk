@@ -148,6 +148,8 @@ type BackgroundAudioForGetAITranslationProjectOutput struct {
 
 	DurationSecond *float64 `type:"double" json:",omitempty"`
 
+	FileName *string `type:"string" json:",omitempty"`
+
 	IsAudio *bool `type:"boolean" json:",omitempty"`
 
 	Uri *string `type:"string" json:",omitempty"`
@@ -170,6 +172,12 @@ func (s BackgroundAudioForGetAITranslationProjectOutput) GoString() string {
 // SetDurationSecond sets the DurationSecond field's value.
 func (s *BackgroundAudioForGetAITranslationProjectOutput) SetDurationSecond(v float64) *BackgroundAudioForGetAITranslationProjectOutput {
 	s.DurationSecond = &v
+	return s
+}
+
+// SetFileName sets the FileName field's value.
+func (s *BackgroundAudioForGetAITranslationProjectOutput) SetFileName(v string) *BackgroundAudioForGetAITranslationProjectOutput {
+	s.FileName = &v
 	return s
 }
 
@@ -248,6 +256,8 @@ type ErasedSubtitleVideoForGetAITranslationProjectOutput struct {
 
 	DurationSecond *float64 `type:"double" json:",omitempty"`
 
+	FileName *string `type:"string" json:",omitempty"`
+
 	IsAudio *bool `type:"boolean" json:",omitempty"`
 
 	Uri *string `type:"string" json:",omitempty"`
@@ -270,6 +280,12 @@ func (s ErasedSubtitleVideoForGetAITranslationProjectOutput) GoString() string {
 // SetDurationSecond sets the DurationSecond field's value.
 func (s *ErasedSubtitleVideoForGetAITranslationProjectOutput) SetDurationSecond(v float64) *ErasedSubtitleVideoForGetAITranslationProjectOutput {
 	s.DurationSecond = &v
+	return s
+}
+
+// SetFileName sets the FileName field's value.
+func (s *ErasedSubtitleVideoForGetAITranslationProjectOutput) SetFileName(v string) *ErasedSubtitleVideoForGetAITranslationProjectOutput {
+	s.FileName = &v
 	return s
 }
 
@@ -302,6 +318,8 @@ type FacialTranslationVideoForGetAITranslationProjectOutput struct {
 
 	DurationSecond *float64 `type:"double" json:",omitempty"`
 
+	FileName *string `type:"string" json:",omitempty"`
+
 	IsAudio *bool `type:"boolean" json:",omitempty"`
 
 	Uri *string `type:"string" json:",omitempty"`
@@ -324,6 +342,12 @@ func (s FacialTranslationVideoForGetAITranslationProjectOutput) GoString() strin
 // SetDurationSecond sets the DurationSecond field's value.
 func (s *FacialTranslationVideoForGetAITranslationProjectOutput) SetDurationSecond(v float64) *FacialTranslationVideoForGetAITranslationProjectOutput {
 	s.DurationSecond = &v
+	return s
+}
+
+// SetFileName sets the FileName field's value.
+func (s *FacialTranslationVideoForGetAITranslationProjectOutput) SetFileName(v string) *FacialTranslationVideoForGetAITranslationProjectOutput {
+	s.FileName = &v
 	return s
 }
 
@@ -356,6 +380,8 @@ type ForegroundAudioForGetAITranslationProjectOutput struct {
 
 	DurationSecond *float64 `type:"double" json:",omitempty"`
 
+	FileName *string `type:"string" json:",omitempty"`
+
 	IsAudio *bool `type:"boolean" json:",omitempty"`
 
 	Uri *string `type:"string" json:",omitempty"`
@@ -378,6 +404,12 @@ func (s ForegroundAudioForGetAITranslationProjectOutput) GoString() string {
 // SetDurationSecond sets the DurationSecond field's value.
 func (s *ForegroundAudioForGetAITranslationProjectOutput) SetDurationSecond(v float64) *ForegroundAudioForGetAITranslationProjectOutput {
 	s.DurationSecond = &v
+	return s
+}
+
+// SetFileName sets the FileName field's value.
+func (s *ForegroundAudioForGetAITranslationProjectOutput) SetFileName(v string) *ForegroundAudioForGetAITranslationProjectOutput {
+	s.FileName = &v
 	return s
 }
 
@@ -485,10 +517,74 @@ func (s *GetAITranslationProjectOutput) SetProjectInfo(v *ProjectInfoForGetAITra
 	return s
 }
 
+type InputSubtitleForGetAITranslationProjectOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	DurationSecond *float64 `type:"double" json:",omitempty"`
+
+	FileName *string `type:"string" json:",omitempty"`
+
+	IsAudio *bool `type:"boolean" json:",omitempty"`
+
+	Uri *string `type:"string" json:",omitempty"`
+
+	Url *string `type:"string" json:",omitempty"`
+
+	Vid *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s InputSubtitleForGetAITranslationProjectOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s InputSubtitleForGetAITranslationProjectOutput) GoString() string {
+	return s.String()
+}
+
+// SetDurationSecond sets the DurationSecond field's value.
+func (s *InputSubtitleForGetAITranslationProjectOutput) SetDurationSecond(v float64) *InputSubtitleForGetAITranslationProjectOutput {
+	s.DurationSecond = &v
+	return s
+}
+
+// SetFileName sets the FileName field's value.
+func (s *InputSubtitleForGetAITranslationProjectOutput) SetFileName(v string) *InputSubtitleForGetAITranslationProjectOutput {
+	s.FileName = &v
+	return s
+}
+
+// SetIsAudio sets the IsAudio field's value.
+func (s *InputSubtitleForGetAITranslationProjectOutput) SetIsAudio(v bool) *InputSubtitleForGetAITranslationProjectOutput {
+	s.IsAudio = &v
+	return s
+}
+
+// SetUri sets the Uri field's value.
+func (s *InputSubtitleForGetAITranslationProjectOutput) SetUri(v string) *InputSubtitleForGetAITranslationProjectOutput {
+	s.Uri = &v
+	return s
+}
+
+// SetUrl sets the Url field's value.
+func (s *InputSubtitleForGetAITranslationProjectOutput) SetUrl(v string) *InputSubtitleForGetAITranslationProjectOutput {
+	s.Url = &v
+	return s
+}
+
+// SetVid sets the Vid field's value.
+func (s *InputSubtitleForGetAITranslationProjectOutput) SetVid(v string) *InputSubtitleForGetAITranslationProjectOutput {
+	s.Vid = &v
+	return s
+}
+
 type InputVideoForGetAITranslationProjectOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
 	DurationSecond *float64 `type:"double" json:",omitempty"`
+
+	FileName *string `type:"string" json:",omitempty"`
 
 	IsAudio *bool `type:"boolean" json:",omitempty"`
 
@@ -512,6 +608,12 @@ func (s InputVideoForGetAITranslationProjectOutput) GoString() string {
 // SetDurationSecond sets the DurationSecond field's value.
 func (s *InputVideoForGetAITranslationProjectOutput) SetDurationSecond(v float64) *InputVideoForGetAITranslationProjectOutput {
 	s.DurationSecond = &v
+	return s
+}
+
+// SetFileName sets the FileName field's value.
+func (s *InputVideoForGetAITranslationProjectOutput) SetFileName(v string) *InputVideoForGetAITranslationProjectOutput {
+	s.FileName = &v
 	return s
 }
 
@@ -561,10 +663,74 @@ func (s *OperatorConfigForGetAITranslationProjectOutput) SetSubtitleRecognitionC
 	return s
 }
 
+type OutputSubtitleForGetAITranslationProjectOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	DurationSecond *float64 `type:"double" json:",omitempty"`
+
+	FileName *string `type:"string" json:",omitempty"`
+
+	IsAudio *bool `type:"boolean" json:",omitempty"`
+
+	Uri *string `type:"string" json:",omitempty"`
+
+	Url *string `type:"string" json:",omitempty"`
+
+	Vid *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s OutputSubtitleForGetAITranslationProjectOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s OutputSubtitleForGetAITranslationProjectOutput) GoString() string {
+	return s.String()
+}
+
+// SetDurationSecond sets the DurationSecond field's value.
+func (s *OutputSubtitleForGetAITranslationProjectOutput) SetDurationSecond(v float64) *OutputSubtitleForGetAITranslationProjectOutput {
+	s.DurationSecond = &v
+	return s
+}
+
+// SetFileName sets the FileName field's value.
+func (s *OutputSubtitleForGetAITranslationProjectOutput) SetFileName(v string) *OutputSubtitleForGetAITranslationProjectOutput {
+	s.FileName = &v
+	return s
+}
+
+// SetIsAudio sets the IsAudio field's value.
+func (s *OutputSubtitleForGetAITranslationProjectOutput) SetIsAudio(v bool) *OutputSubtitleForGetAITranslationProjectOutput {
+	s.IsAudio = &v
+	return s
+}
+
+// SetUri sets the Uri field's value.
+func (s *OutputSubtitleForGetAITranslationProjectOutput) SetUri(v string) *OutputSubtitleForGetAITranslationProjectOutput {
+	s.Uri = &v
+	return s
+}
+
+// SetUrl sets the Url field's value.
+func (s *OutputSubtitleForGetAITranslationProjectOutput) SetUrl(v string) *OutputSubtitleForGetAITranslationProjectOutput {
+	s.Url = &v
+	return s
+}
+
+// SetVid sets the Vid field's value.
+func (s *OutputSubtitleForGetAITranslationProjectOutput) SetVid(v string) *OutputSubtitleForGetAITranslationProjectOutput {
+	s.Vid = &v
+	return s
+}
+
 type OutputVideoForGetAITranslationProjectOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
 	DurationSecond *float64 `type:"double" json:",omitempty"`
+
+	FileName *string `type:"string" json:",omitempty"`
 
 	IsAudio *bool `type:"boolean" json:",omitempty"`
 
@@ -588,6 +754,12 @@ func (s OutputVideoForGetAITranslationProjectOutput) GoString() string {
 // SetDurationSecond sets the DurationSecond field's value.
 func (s *OutputVideoForGetAITranslationProjectOutput) SetDurationSecond(v float64) *OutputVideoForGetAITranslationProjectOutput {
 	s.DurationSecond = &v
+	return s
+}
+
+// SetFileName sets the FileName field's value.
+func (s *OutputVideoForGetAITranslationProjectOutput) SetFileName(v string) *OutputVideoForGetAITranslationProjectOutput {
+	s.FileName = &v
 	return s
 }
 
@@ -620,6 +792,8 @@ type PreviewVideoForGetAITranslationProjectOutput struct {
 
 	DurationSecond *float64 `type:"double" json:",omitempty"`
 
+	FileName *string `type:"string" json:",omitempty"`
+
 	IsAudio *bool `type:"boolean" json:",omitempty"`
 
 	Uri *string `type:"string" json:",omitempty"`
@@ -642,6 +816,12 @@ func (s PreviewVideoForGetAITranslationProjectOutput) GoString() string {
 // SetDurationSecond sets the DurationSecond field's value.
 func (s *PreviewVideoForGetAITranslationProjectOutput) SetDurationSecond(v float64) *PreviewVideoForGetAITranslationProjectOutput {
 	s.DurationSecond = &v
+	return s
+}
+
+// SetFileName sets the FileName field's value.
+func (s *PreviewVideoForGetAITranslationProjectOutput) SetFileName(v string) *PreviewVideoForGetAITranslationProjectOutput {
+	s.FileName = &v
 	return s
 }
 
@@ -674,6 +854,8 @@ type PreviewVideoMutedForGetAITranslationProjectOutput struct {
 
 	DurationSecond *float64 `type:"double" json:",omitempty"`
 
+	FileName *string `type:"string" json:",omitempty"`
+
 	IsAudio *bool `type:"boolean" json:",omitempty"`
 
 	Uri *string `type:"string" json:",omitempty"`
@@ -696,6 +878,12 @@ func (s PreviewVideoMutedForGetAITranslationProjectOutput) GoString() string {
 // SetDurationSecond sets the DurationSecond field's value.
 func (s *PreviewVideoMutedForGetAITranslationProjectOutput) SetDurationSecond(v float64) *PreviewVideoMutedForGetAITranslationProjectOutput {
 	s.DurationSecond = &v
+	return s
+}
+
+// SetFileName sets the FileName field's value.
+func (s *PreviewVideoMutedForGetAITranslationProjectOutput) SetFileName(v string) *PreviewVideoMutedForGetAITranslationProjectOutput {
+	s.FileName = &v
 	return s
 }
 
@@ -742,11 +930,15 @@ type ProjectInfoForGetAITranslationProjectOutput struct {
 
 	ForegroundAudio *ForegroundAudioForGetAITranslationProjectOutput `type:"structure" json:",omitempty"`
 
+	InputSubtitle *InputSubtitleForGetAITranslationProjectOutput `type:"structure" json:",omitempty"`
+
 	InputVideo *InputVideoForGetAITranslationProjectOutput `type:"structure" json:",omitempty"`
 
 	InputVideoTitle *string `type:"string" json:",omitempty"`
 
 	OperatorConfig *OperatorConfigForGetAITranslationProjectOutput `type:"structure" json:",omitempty"`
+
+	OutputSubtitle *OutputSubtitleForGetAITranslationProjectOutput `type:"structure" json:",omitempty"`
 
 	OutputVideo *OutputVideoForGetAITranslationProjectOutput `type:"structure" json:",omitempty"`
 
@@ -845,6 +1037,12 @@ func (s *ProjectInfoForGetAITranslationProjectOutput) SetForegroundAudio(v *Fore
 	return s
 }
 
+// SetInputSubtitle sets the InputSubtitle field's value.
+func (s *ProjectInfoForGetAITranslationProjectOutput) SetInputSubtitle(v *InputSubtitleForGetAITranslationProjectOutput) *ProjectInfoForGetAITranslationProjectOutput {
+	s.InputSubtitle = v
+	return s
+}
+
 // SetInputVideo sets the InputVideo field's value.
 func (s *ProjectInfoForGetAITranslationProjectOutput) SetInputVideo(v *InputVideoForGetAITranslationProjectOutput) *ProjectInfoForGetAITranslationProjectOutput {
 	s.InputVideo = v
@@ -860,6 +1058,12 @@ func (s *ProjectInfoForGetAITranslationProjectOutput) SetInputVideoTitle(v strin
 // SetOperatorConfig sets the OperatorConfig field's value.
 func (s *ProjectInfoForGetAITranslationProjectOutput) SetOperatorConfig(v *OperatorConfigForGetAITranslationProjectOutput) *ProjectInfoForGetAITranslationProjectOutput {
 	s.OperatorConfig = v
+	return s
+}
+
+// SetOutputSubtitle sets the OutputSubtitle field's value.
+func (s *ProjectInfoForGetAITranslationProjectOutput) SetOutputSubtitle(v *OutputSubtitleForGetAITranslationProjectOutput) *ProjectInfoForGetAITranslationProjectOutput {
+	s.OutputSubtitle = v
 	return s
 }
 
@@ -1236,6 +1440,8 @@ func (s *SourceUtteranceForGetAITranslationProjectOutput) SetTranslationType(v s
 type SpeakerForGetAITranslationProjectOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	CurrentVoice *string `type:"string" json:",omitempty"`
+
 	Id *string `type:"string" json:",omitempty"`
 
 	Name *string `type:"string" json:",omitempty"`
@@ -1253,6 +1459,12 @@ func (s SpeakerForGetAITranslationProjectOutput) String() string {
 // GoString returns the string representation
 func (s SpeakerForGetAITranslationProjectOutput) GoString() string {
 	return s.String()
+}
+
+// SetCurrentVoice sets the CurrentVoice field's value.
+func (s *SpeakerForGetAITranslationProjectOutput) SetCurrentVoice(v string) *SpeakerForGetAITranslationProjectOutput {
+	s.CurrentVoice = &v
+	return s
 }
 
 // SetId sets the Id field's value.
@@ -1600,6 +1812,8 @@ type VoiceTranslationVideoForGetAITranslationProjectOutput struct {
 
 	DurationSecond *float64 `type:"double" json:",omitempty"`
 
+	FileName *string `type:"string" json:",omitempty"`
+
 	IsAudio *bool `type:"boolean" json:",omitempty"`
 
 	Uri *string `type:"string" json:",omitempty"`
@@ -1622,6 +1836,12 @@ func (s VoiceTranslationVideoForGetAITranslationProjectOutput) GoString() string
 // SetDurationSecond sets the DurationSecond field's value.
 func (s *VoiceTranslationVideoForGetAITranslationProjectOutput) SetDurationSecond(v float64) *VoiceTranslationVideoForGetAITranslationProjectOutput {
 	s.DurationSecond = &v
+	return s
+}
+
+// SetFileName sets the FileName field's value.
+func (s *VoiceTranslationVideoForGetAITranslationProjectOutput) SetFileName(v string) *VoiceTranslationVideoForGetAITranslationProjectOutput {
+	s.FileName = &v
 	return s
 }
 

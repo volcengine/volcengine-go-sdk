@@ -148,6 +148,8 @@ type ClipAudioForGenerateAITranslationUtteranceAudioOutput struct {
 
 	DurationSecond *float64 `type:"double" json:",omitempty"`
 
+	FileName *string `type:"string" json:",omitempty"`
+
 	IsAudio *bool `type:"boolean" json:",omitempty"`
 
 	Uri *string `type:"string" json:",omitempty"`
@@ -170,6 +172,12 @@ func (s ClipAudioForGenerateAITranslationUtteranceAudioOutput) GoString() string
 // SetDurationSecond sets the DurationSecond field's value.
 func (s *ClipAudioForGenerateAITranslationUtteranceAudioOutput) SetDurationSecond(v float64) *ClipAudioForGenerateAITranslationUtteranceAudioOutput {
 	s.DurationSecond = &v
+	return s
+}
+
+// SetFileName sets the FileName field's value.
+func (s *ClipAudioForGenerateAITranslationUtteranceAudioOutput) SetFileName(v string) *ClipAudioForGenerateAITranslationUtteranceAudioOutput {
+	s.FileName = &v
 	return s
 }
 
@@ -202,6 +210,8 @@ type ClipVideoForGenerateAITranslationUtteranceAudioOutput struct {
 
 	DurationSecond *float64 `type:"double" json:",omitempty"`
 
+	FileName *string `type:"string" json:",omitempty"`
+
 	IsAudio *bool `type:"boolean" json:",omitempty"`
 
 	Uri *string `type:"string" json:",omitempty"`
@@ -224,6 +234,12 @@ func (s ClipVideoForGenerateAITranslationUtteranceAudioOutput) GoString() string
 // SetDurationSecond sets the DurationSecond field's value.
 func (s *ClipVideoForGenerateAITranslationUtteranceAudioOutput) SetDurationSecond(v float64) *ClipVideoForGenerateAITranslationUtteranceAudioOutput {
 	s.DurationSecond = &v
+	return s
+}
+
+// SetFileName sets the FileName field's value.
+func (s *ClipVideoForGenerateAITranslationUtteranceAudioOutput) SetFileName(v string) *ClipVideoForGenerateAITranslationUtteranceAudioOutput {
+	s.FileName = &v
 	return s
 }
 

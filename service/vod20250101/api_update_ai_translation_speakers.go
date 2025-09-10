@@ -179,6 +179,8 @@ type SpeakerForUpdateAITranslationSpeakersInput struct {
 	Id *string `type:"string" json:",omitempty"`
 
 	SpeakerName *string `type:"string" json:",omitempty"`
+
+	Voice *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -200,6 +202,12 @@ func (s *SpeakerForUpdateAITranslationSpeakersInput) SetId(v string) *SpeakerFor
 // SetSpeakerName sets the SpeakerName field's value.
 func (s *SpeakerForUpdateAITranslationSpeakersInput) SetSpeakerName(v string) *SpeakerForUpdateAITranslationSpeakersInput {
 	s.SpeakerName = &v
+	return s
+}
+
+// SetVoice sets the Voice field's value.
+func (s *SpeakerForUpdateAITranslationSpeakersInput) SetVoice(v string) *SpeakerForUpdateAITranslationSpeakersInput {
+	s.Voice = &v
 	return s
 }
 
