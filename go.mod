@@ -1,4 +1,4 @@
-module github.com/volcengine/volcengine-go-sdk
+module github.com/volcengine/Tan-volcengine-go-sdk
 
 go 1.14
 
