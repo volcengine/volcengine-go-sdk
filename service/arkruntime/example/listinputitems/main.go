@@ -41,6 +41,12 @@ func main() {
 		fmt.Println(item)
 	}
 
+	// do not have any more data
+	if !resp.GetHasMore() {
+		return
+	}
+
+	// get next page data
 	id := resp.GetFirstId()
 	listResponsesReq.Before = volcengine.String(id)
 

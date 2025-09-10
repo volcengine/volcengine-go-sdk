@@ -193,6 +193,14 @@ func (r *TextType_Enum) UnmarshalJSON(bytes []byte) error {
 	return nil
 }
 
+// MarshalJSON ...
+func (r IncludeType_Enum) MarshalJSON() ([]byte, error) {
+	if r == 0 {
+		return json.Marshal(nil)
+	}
+	return []byte(IncludeType_Enum_name[int32(r)]), nil
+}
+
 // UnmarshalJSON ...
 func (r *IncludeType_Enum) UnmarshalJSON(bytes []byte) error {
 	var value string

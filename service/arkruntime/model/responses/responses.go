@@ -1112,11 +1112,11 @@ const (
 var (
 	IncludeType_Enum_name = map[int32]string{
 		0: "unspecified",
-		1: "image_url",
+		1: "message.input_image.image_url",
 	}
 	IncludeType_Enum_value = map[string]int32{
 		"unspecified": 0,
-		"image_url":   1,
+		"message.input_image.image_url":   1,
 	}
 )
 
