@@ -157,6 +157,20 @@ func withBody(body interface{}) requestOption {
 	}
 }
 
+func structToMap(obj interface{}) (map[string]interface{}, error) {
+	data, err := json.Marshal(obj)
+	if err != nil {
+		return nil, err
+	}
+
+	var result map[string]interface{}
+	if err := json.Unmarshal(data, &result); err != nil {
+		return nil, err
+	}
+
+	return result, nil
+}
+
 func withContentType(contentType string) requestOption {
 	return func(args *requestOptions) {
 		args.header.Set("Content-Type", contentType)
@@ -392,6 +406,33 @@ func sendCreateResponsesRequestStream(client *Client, httpClient *http.Client, r
 	}, nil
 }
 
+func sendImageGenerationStream(client *Client, httpClient *http.Client, req *http.Request) (*utils.ImageGenerationStreamReader, error) {
+
+	requestID := req.Header.Get(model.ClientRequestHeader)
+	req.Header.Set("Content-Type", "application/json")
+	req.Header.Set("Accept", "text/event-stream")
+	req.Header.Set("Cache-Control", "no-cache")
+	req.Header.Set("Connection", "keep-alive")
+
+	resp, err := httpClient.Do(req) //nolint:bodyclose // body is closed in stream.Close()
+	if err != nil {
+		return &utils.ImageGenerationStreamReader{}, model.NewRequestError(http.StatusInternalServerError, err, requestID)
+	}
+	if isFailureStatusCode(resp) {
+		return &utils.ImageGenerationStreamReader{}, client.handleErrorResp(resp)
+	}
+	return &utils.ImageGenerationStreamReader{
+		ChatCompletionStreamReader: utils.ChatCompletionStreamReader{
+			EmptyMessagesLimit: client.config.EmptyMessagesLimit,
+			Reader:             bufio.NewReader(resp.Body),
+			Response:           resp,
+			ErrAccumulator:     utils.NewErrorAccumulator(),
+			Unmarshaler:        &utils.JSONUnmarshaler{},
+			HttpHeader:         model.HttpHeader(resp.Header),
+		},
+	}, nil
+}
+
 func (c *Client) BotChatCompletionRequestStreamDo(ctx context.Context, method, url, botId string, setters ...requestOption) (streamReader *utils.BotChatCompletionStreamReader, err error) {
 	err = utils.Retry(
 		ctx,
@@ -457,8 +498,31 @@ func (c *Client) ResponsesRequestStreamDo(ctx context.Context, method, url, reso
 			if innerErr != nil {
 				return innerErr
 			}
-
 			resp, err = sendCreateResponsesRequestStream(c, c.config.HTTPClient, req)
+			return err
+		},
+		nil,
+		needRetryError,
+	)
+	return
+}
+func (c *Client) ImageGenerationStreamDo(ctx context.Context, method, url, resourceId string, setters ...requestOption) (streamReader *utils.ImageGenerationStreamReader, err error) {
+	err = utils.Retry(
+		ctx,
+		utils.RetryPolicy{
+			MaxAttempts:    c.config.RetryTimes,
+			InitialBackoff: model.ErrorRetryBaseDelay,
+			MaxBackoff:     model.ErrorRetryMaxDelay,
+		},
+		func() bool { return true },
+		func() error {
+			req, innerErr := c.newRequest(ctx, method, url, resourceTypeEndpoint, resourceId, setters...)
+			if innerErr != nil {
+				return innerErr
+			}
+
+			streamReader, err = sendImageGenerationStream(c, c.config.HTTPClient, req)
+
 			return err
 		},
 		nil,

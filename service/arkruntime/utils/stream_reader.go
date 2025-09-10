@@ -32,6 +32,10 @@ type BotChatCompletionStreamReader struct {
 	ChatCompletionStreamReader
 }
 
+type ImageGenerationStreamReader struct {
+	ChatCompletionStreamReader
+}
+
 func (stream *ChatCompletionStreamReader) Recv() (response model.ChatCompletionStreamResponse, err error) {
 	if stream.IsFinished {
 		err = io.EOF
@@ -58,6 +62,15 @@ type ResponsesStreamReader struct {
 }
 
 func (stream *ResponsesStreamReader) Recv() (response *responses.Event, err error) {
+	if stream.IsFinished {
+		err = io.EOF
+		return
+	}
+
+	response, err = stream.processLines()
+	return
+}
+func (stream *ImageGenerationStreamReader) Recv() (response model.ImagesStreamResponse, err error) {
 	if stream.IsFinished {
 		err = io.EOF
 		return
@@ -212,8 +225,62 @@ func (stream *ResponsesStreamReader) processLines() (*responses.Event, error) {
 
 		return response, nil
 	}
-
 	return nil, stream.Decoder.Err()
+}
+
+func (stream *ImageGenerationStreamReader) processLines() (model.ImagesStreamResponse, error) {
+	var (
+		emptyMessagesCount uint
+		hasErrorPrefix     bool
+	)
+
+	for {
+		rawLine, readErr := stream.Reader.ReadBytes('\n')
+		if readErr != nil || hasErrorPrefix {
+			respErr := stream.unmarshalError()
+			if respErr != nil {
+				return model.ImagesStreamResponse{}, fmt.Errorf("error, %w", respErr.Error)
+			}
+			return model.ImagesStreamResponse{}, readErr
+		}
+
+		// noSpaceLint is trimed with leading space
+		noSpaceLine := bytes.TrimSpace(rawLine)
+		// trimedLine is trimed with header and followed space (if exists)
+		trimedLine := bytes.TrimSpace(bytes.TrimPrefix(noSpaceLine, headerData))
+		if bytes.HasPrefix(trimedLine, errorPrefix) {
+			hasErrorPrefix = true
+		}
+		if !bytes.HasPrefix(noSpaceLine, headerData) || hasErrorPrefix {
+			if hasErrorPrefix {
+				noSpaceLine = bytes.TrimPrefix(noSpaceLine, headerData)
+			}
+			writeErr := stream.ErrAccumulator.Write(noSpaceLine)
+			if writeErr != nil {
+				return model.ImagesStreamResponse{}, writeErr
+			}
+			emptyMessagesCount++
+			if emptyMessagesCount > stream.EmptyMessagesLimit {
+				return model.ImagesStreamResponse{}, model.ErrTooManyEmptyStreamMessages
+			}
+
+			continue
+		}
+
+		if string(trimedLine) == "[DONE]" {
+			stream.IsFinished = true
+			return model.ImagesStreamResponse{}, io.EOF
+		}
+
+		var response model.ImagesStreamResponse
+		unmarshalErr := stream.Unmarshaler.Unmarshal(trimedLine, &response)
+		if unmarshalErr != nil {
+			return model.ImagesStreamResponse{}, unmarshalErr
+
+		}
+
+		return response, nil
+	}
 }
 
 func (stream *ChatCompletionStreamReader) unmarshalError() (errResp *model.ErrorResponse) {
@@ -245,4 +312,8 @@ func (stream *BotChatCompletionStreamReader) Close() error {
 	// fmt.Printf("%#v\n", stream.Response)
 	// fmt.Printf("%#v\n", stream.Response.Body)
 	return stream.ChatCompletionStreamReader.Response.Body.Close()
+}
+
+func (stream *ImageGenerationStreamReader) Close() error {
+	return stream.Response.Body.Close()
 }
