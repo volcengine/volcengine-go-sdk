@@ -552,11 +552,7 @@ type ItemForListUpstreamsOutput struct {
 
 	Protocol *string `type:"string" json:",omitempty"`
 
-	ResourceType *string `type:"string" json:",omitempty"`
-
 	SourceType *string `type:"string" json:",omitempty"`
-
-	Tags []*TagForListUpstreamsOutput `type:"list" json:",omitempty"`
 
 	TlsSettings *TlsSettingsForListUpstreamsOutput `type:"structure" json:",omitempty"`
 
@@ -631,21 +627,9 @@ func (s *ItemForListUpstreamsOutput) SetProtocol(v string) *ItemForListUpstreams
 	return s
 }
 
-// SetResourceType sets the ResourceType field's value.
-func (s *ItemForListUpstreamsOutput) SetResourceType(v string) *ItemForListUpstreamsOutput {
-	s.ResourceType = &v
-	return s
-}
-
 // SetSourceType sets the SourceType field's value.
 func (s *ItemForListUpstreamsOutput) SetSourceType(v string) *ItemForListUpstreamsOutput {
 	s.SourceType = &v
-	return s
-}
-
-// SetTags sets the Tags field's value.
-func (s *ItemForListUpstreamsOutput) SetTags(v []*TagForListUpstreamsOutput) *ItemForListUpstreamsOutput {
-	s.Tags = v
 	return s
 }
 
@@ -752,8 +736,6 @@ type ListUpstreamsInput struct {
 
 	PageSize *int64 `type:"int64" json:",omitempty"`
 
-	ResourceType *string `type:"string" json:",omitempty"`
-
 	SourceType *string `type:"string" json:",omitempty"`
 }
 
@@ -788,12 +770,6 @@ func (s *ListUpstreamsInput) SetPageNumber(v int64) *ListUpstreamsInput {
 // SetPageSize sets the PageSize field's value.
 func (s *ListUpstreamsInput) SetPageSize(v int64) *ListUpstreamsInput {
 	s.PageSize = &v
-	return s
-}
-
-// SetResourceType sets the ResourceType field's value.
-func (s *ListUpstreamsInput) SetResourceType(v string) *ListUpstreamsInput {
-	s.ResourceType = &v
 	return s
 }
 
@@ -932,36 +908,6 @@ func (s *NacosServiceForListUpstreamsOutput) SetService(v string) *NacosServiceF
 // SetUpstreamSourceId sets the UpstreamSourceId field's value.
 func (s *NacosServiceForListUpstreamsOutput) SetUpstreamSourceId(v string) *NacosServiceForListUpstreamsOutput {
 	s.UpstreamSourceId = &v
-	return s
-}
-
-type TagForListUpstreamsOutput struct {
-	_ struct{} `type:"structure" json:",omitempty"`
-
-	Key *string `type:"string" json:",omitempty"`
-
-	Value *string `type:"string" json:",omitempty"`
-}
-
-// String returns the string representation
-func (s TagForListUpstreamsOutput) String() string {
-	return volcengineutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s TagForListUpstreamsOutput) GoString() string {
-	return s.String()
-}
-
-// SetKey sets the Key field's value.
-func (s *TagForListUpstreamsOutput) SetKey(v string) *TagForListUpstreamsOutput {
-	s.Key = &v
-	return s
-}
-
-// SetValue sets the Value field's value.
-func (s *TagForListUpstreamsOutput) SetValue(v string) *TagForListUpstreamsOutput {
-	s.Value = &v
 	return s
 }
 

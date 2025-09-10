@@ -165,12 +165,36 @@ func (s *AuthSpecForUpdateGatewayServiceInput) SetEnable(v bool) *AuthSpecForUpd
 	return s
 }
 
+type DomainSpecForUpdateGatewayServiceInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	EnablePublicResolution *bool `type:"boolean" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s DomainSpecForUpdateGatewayServiceInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DomainSpecForUpdateGatewayServiceInput) GoString() string {
+	return s.String()
+}
+
+// SetEnablePublicResolution sets the EnablePublicResolution field's value.
+func (s *DomainSpecForUpdateGatewayServiceInput) SetEnablePublicResolution(v bool) *DomainSpecForUpdateGatewayServiceInput {
+	s.EnablePublicResolution = &v
+	return s
+}
+
 type UpdateGatewayServiceInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
 	AuthSpec *AuthSpecForUpdateGatewayServiceInput `type:"structure" json:",omitempty"`
 
 	Comments *string `type:"string" json:",omitempty"`
+
+	DomainSpec *DomainSpecForUpdateGatewayServiceInput `type:"structure" json:",omitempty"`
 
 	// Id is a required field
 	Id *string `type:"string" json:",omitempty" required:"true"`
@@ -210,6 +234,12 @@ func (s *UpdateGatewayServiceInput) SetAuthSpec(v *AuthSpecForUpdateGatewayServi
 // SetComments sets the Comments field's value.
 func (s *UpdateGatewayServiceInput) SetComments(v string) *UpdateGatewayServiceInput {
 	s.Comments = &v
+	return s
+}
+
+// SetDomainSpec sets the DomainSpec field's value.
+func (s *UpdateGatewayServiceInput) SetDomainSpec(v *DomainSpecForUpdateGatewayServiceInput) *UpdateGatewayServiceInput {
+	s.DomainSpec = v
 	return s
 }
 

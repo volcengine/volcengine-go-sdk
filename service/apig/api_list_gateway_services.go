@@ -225,6 +225,28 @@ func (s *DomainForListGatewayServicesOutput) SetType(v string) *DomainForListGat
 	return s
 }
 
+type DomainSpecForListGatewayServicesOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	EnablePublicResolution *bool `type:"boolean" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s DomainSpecForListGatewayServicesOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DomainSpecForListGatewayServicesOutput) GoString() string {
+	return s.String()
+}
+
+// SetEnablePublicResolution sets the EnablePublicResolution field's value.
+func (s *DomainSpecForListGatewayServicesOutput) SetEnablePublicResolution(v bool) *DomainSpecForListGatewayServicesOutput {
+	s.EnablePublicResolution = &v
+	return s
+}
+
 type FilterForListGatewayServicesInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -266,6 +288,8 @@ type ItemForListGatewayServicesOutput struct {
 
 	CustomDomains []*CustomDomainForListGatewayServicesOutput `type:"list" json:",omitempty"`
 
+	DomainSpec *DomainSpecForListGatewayServicesOutput `type:"structure" json:",omitempty"`
+
 	Domains []*DomainForListGatewayServicesOutput `type:"list" json:",omitempty"`
 
 	GatewayId *string `type:"string" json:",omitempty"`
@@ -281,8 +305,6 @@ type ItemForListGatewayServicesOutput struct {
 	Protocol []*string `type:"list" json:",omitempty"`
 
 	Status *string `type:"string" json:",omitempty"`
-
-	Tags []*TagForListGatewayServicesOutput `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -316,6 +338,12 @@ func (s *ItemForListGatewayServicesOutput) SetCreateTime(v string) *ItemForListG
 // SetCustomDomains sets the CustomDomains field's value.
 func (s *ItemForListGatewayServicesOutput) SetCustomDomains(v []*CustomDomainForListGatewayServicesOutput) *ItemForListGatewayServicesOutput {
 	s.CustomDomains = v
+	return s
+}
+
+// SetDomainSpec sets the DomainSpec field's value.
+func (s *ItemForListGatewayServicesOutput) SetDomainSpec(v *DomainSpecForListGatewayServicesOutput) *ItemForListGatewayServicesOutput {
+	s.DomainSpec = v
 	return s
 }
 
@@ -364,12 +392,6 @@ func (s *ItemForListGatewayServicesOutput) SetProtocol(v []*string) *ItemForList
 // SetStatus sets the Status field's value.
 func (s *ItemForListGatewayServicesOutput) SetStatus(v string) *ItemForListGatewayServicesOutput {
 	s.Status = &v
-	return s
-}
-
-// SetTags sets the Tags field's value.
-func (s *ItemForListGatewayServicesOutput) SetTags(v []*TagForListGatewayServicesOutput) *ItemForListGatewayServicesOutput {
-	s.Tags = v
 	return s
 }
 
@@ -448,35 +470,5 @@ func (s *ListGatewayServicesOutput) SetItems(v []*ItemForListGatewayServicesOutp
 // SetTotal sets the Total field's value.
 func (s *ListGatewayServicesOutput) SetTotal(v int64) *ListGatewayServicesOutput {
 	s.Total = &v
-	return s
-}
-
-type TagForListGatewayServicesOutput struct {
-	_ struct{} `type:"structure" json:",omitempty"`
-
-	Key *string `type:"string" json:",omitempty"`
-
-	Value *string `type:"string" json:",omitempty"`
-}
-
-// String returns the string representation
-func (s TagForListGatewayServicesOutput) String() string {
-	return volcengineutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s TagForListGatewayServicesOutput) GoString() string {
-	return s.String()
-}
-
-// SetKey sets the Key field's value.
-func (s *TagForListGatewayServicesOutput) SetKey(v string) *TagForListGatewayServicesOutput {
-	s.Key = &v
-	return s
-}
-
-// SetValue sets the Value field's value.
-func (s *TagForListGatewayServicesOutput) SetValue(v string) *TagForListGatewayServicesOutput {
-	s.Value = &v
 	return s
 }

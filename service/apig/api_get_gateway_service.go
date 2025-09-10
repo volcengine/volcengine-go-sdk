@@ -225,6 +225,28 @@ func (s *DomainForGetGatewayServiceOutput) SetType(v string) *DomainForGetGatewa
 	return s
 }
 
+type DomainSpecForGetGatewayServiceOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	EnablePublicResolution *bool `type:"boolean" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s DomainSpecForGetGatewayServiceOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DomainSpecForGetGatewayServiceOutput) GoString() string {
+	return s.String()
+}
+
+// SetEnablePublicResolution sets the EnablePublicResolution field's value.
+func (s *DomainSpecForGetGatewayServiceOutput) SetEnablePublicResolution(v bool) *DomainSpecForGetGatewayServiceOutput {
+	s.EnablePublicResolution = &v
+	return s
+}
+
 type GatewayServiceForGetGatewayServiceOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -235,6 +257,8 @@ type GatewayServiceForGetGatewayServiceOutput struct {
 	CreateTime *string `type:"string" json:",omitempty"`
 
 	CustomDomains []*CustomDomainForGetGatewayServiceOutput `type:"list" json:",omitempty"`
+
+	DomainSpec *DomainSpecForGetGatewayServiceOutput `type:"structure" json:",omitempty"`
 
 	Domains []*DomainForGetGatewayServiceOutput `type:"list" json:",omitempty"`
 
@@ -251,8 +275,6 @@ type GatewayServiceForGetGatewayServiceOutput struct {
 	Protocol []*string `type:"list" json:",omitempty"`
 
 	Status *string `type:"string" json:",omitempty"`
-
-	Tags []*TagForGetGatewayServiceOutput `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -286,6 +308,12 @@ func (s *GatewayServiceForGetGatewayServiceOutput) SetCreateTime(v string) *Gate
 // SetCustomDomains sets the CustomDomains field's value.
 func (s *GatewayServiceForGetGatewayServiceOutput) SetCustomDomains(v []*CustomDomainForGetGatewayServiceOutput) *GatewayServiceForGetGatewayServiceOutput {
 	s.CustomDomains = v
+	return s
+}
+
+// SetDomainSpec sets the DomainSpec field's value.
+func (s *GatewayServiceForGetGatewayServiceOutput) SetDomainSpec(v *DomainSpecForGetGatewayServiceOutput) *GatewayServiceForGetGatewayServiceOutput {
+	s.DomainSpec = v
 	return s
 }
 
@@ -334,12 +362,6 @@ func (s *GatewayServiceForGetGatewayServiceOutput) SetProtocol(v []*string) *Gat
 // SetStatus sets the Status field's value.
 func (s *GatewayServiceForGetGatewayServiceOutput) SetStatus(v string) *GatewayServiceForGetGatewayServiceOutput {
 	s.Status = &v
-	return s
-}
-
-// SetTags sets the Tags field's value.
-func (s *GatewayServiceForGetGatewayServiceOutput) SetTags(v []*TagForGetGatewayServiceOutput) *GatewayServiceForGetGatewayServiceOutput {
-	s.Tags = v
 	return s
 }
 
@@ -400,35 +422,5 @@ func (s GetGatewayServiceOutput) GoString() string {
 // SetGatewayService sets the GatewayService field's value.
 func (s *GetGatewayServiceOutput) SetGatewayService(v *GatewayServiceForGetGatewayServiceOutput) *GetGatewayServiceOutput {
 	s.GatewayService = v
-	return s
-}
-
-type TagForGetGatewayServiceOutput struct {
-	_ struct{} `type:"structure" json:",omitempty"`
-
-	Key *string `type:"string" json:",omitempty"`
-
-	Value *string `type:"string" json:",omitempty"`
-}
-
-// String returns the string representation
-func (s TagForGetGatewayServiceOutput) String() string {
-	return volcengineutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s TagForGetGatewayServiceOutput) GoString() string {
-	return s.String()
-}
-
-// SetKey sets the Key field's value.
-func (s *TagForGetGatewayServiceOutput) SetKey(v string) *TagForGetGatewayServiceOutput {
-	s.Key = &v
-	return s
-}
-
-// SetValue sets the Value field's value.
-func (s *TagForGetGatewayServiceOutput) SetValue(v string) *TagForGetGatewayServiceOutput {
-	s.Value = &v
 	return s
 }
