@@ -150,6 +150,8 @@ type CreateDirectConnectGatewayInput struct {
 
 	EnableIpv6 *bool `type:"boolean"`
 
+	ProjectName *string `type:"string"`
+
 	Tags []*TagForCreateDirectConnectGatewayInput `type:"list"`
 }
 
@@ -184,6 +186,12 @@ func (s *CreateDirectConnectGatewayInput) SetDirectConnectGatewayName(v string) 
 // SetEnableIpv6 sets the EnableIpv6 field's value.
 func (s *CreateDirectConnectGatewayInput) SetEnableIpv6(v bool) *CreateDirectConnectGatewayInput {
 	s.EnableIpv6 = &v
+	return s
+}
+
+// SetProjectName sets the ProjectName field's value.
+func (s *CreateDirectConnectGatewayInput) SetProjectName(v string) *CreateDirectConnectGatewayInput {
+	s.ProjectName = &v
 	return s
 }
 

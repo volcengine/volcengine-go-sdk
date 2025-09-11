@@ -228,8 +228,7 @@ type ModifyDirectConnectConnectionLoaAttributesInput struct {
 	// DirectConnectConnectionId is a required field
 	DirectConnectConnectionId *string `type:"string" required:"true"`
 
-	// Engineers is a required field
-	Engineers []*EngineerForModifyDirectConnectConnectionLoaAttributesInput `type:"list" required:"true"`
+	Engineers []*EngineerForModifyDirectConnectConnectionLoaAttributesInput `type:"list"`
 
 	LineType *string `type:"string"`
 
@@ -256,9 +255,6 @@ func (s *ModifyDirectConnectConnectionLoaAttributesInput) Validate() error {
 	}
 	if s.DirectConnectConnectionId == nil {
 		invalidParams.Add(request.NewErrParamRequired("DirectConnectConnectionId"))
-	}
-	if s.Engineers == nil {
-		invalidParams.Add(request.NewErrParamRequired("Engineers"))
 	}
 	if s.Engineers != nil {
 		for i, v := range s.Engineers {
