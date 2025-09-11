@@ -139,6 +139,112 @@ func (c *ALB) DescribeRulesWithContext(ctx volcengine.Context, input *DescribeRu
 	return out, req.Send()
 }
 
+type ConvertForwardGroupConfigForDescribeRulesOutput struct {
+	_ struct{} `type:"structure"`
+
+	ServerGroupStickySession *ServerGroupStickySessionForDescribeRulesOutput `type:"structure"`
+
+	ServerGroupTuples []*ServerGroupTupleForDescribeRulesOutput `type:"list"`
+}
+
+// String returns the string representation
+func (s ConvertForwardGroupConfigForDescribeRulesOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ConvertForwardGroupConfigForDescribeRulesOutput) GoString() string {
+	return s.String()
+}
+
+// SetServerGroupStickySession sets the ServerGroupStickySession field's value.
+func (s *ConvertForwardGroupConfigForDescribeRulesOutput) SetServerGroupStickySession(v *ServerGroupStickySessionForDescribeRulesOutput) *ConvertForwardGroupConfigForDescribeRulesOutput {
+	s.ServerGroupStickySession = v
+	return s
+}
+
+// SetServerGroupTuples sets the ServerGroupTuples field's value.
+func (s *ConvertForwardGroupConfigForDescribeRulesOutput) SetServerGroupTuples(v []*ServerGroupTupleForDescribeRulesOutput) *ConvertForwardGroupConfigForDescribeRulesOutput {
+	s.ServerGroupTuples = v
+	return s
+}
+
+type ConvertRedirectConfigForDescribeRulesOutput struct {
+	_ struct{} `type:"structure"`
+
+	Host *string `type:"string"`
+
+	HttpCode *int64 `type:"integer"`
+
+	Path *string `type:"string"`
+
+	Port *int64 `type:"integer"`
+
+	Protocol *string `type:"string"`
+}
+
+// String returns the string representation
+func (s ConvertRedirectConfigForDescribeRulesOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ConvertRedirectConfigForDescribeRulesOutput) GoString() string {
+	return s.String()
+}
+
+// SetHost sets the Host field's value.
+func (s *ConvertRedirectConfigForDescribeRulesOutput) SetHost(v string) *ConvertRedirectConfigForDescribeRulesOutput {
+	s.Host = &v
+	return s
+}
+
+// SetHttpCode sets the HttpCode field's value.
+func (s *ConvertRedirectConfigForDescribeRulesOutput) SetHttpCode(v int64) *ConvertRedirectConfigForDescribeRulesOutput {
+	s.HttpCode = &v
+	return s
+}
+
+// SetPath sets the Path field's value.
+func (s *ConvertRedirectConfigForDescribeRulesOutput) SetPath(v string) *ConvertRedirectConfigForDescribeRulesOutput {
+	s.Path = &v
+	return s
+}
+
+// SetPort sets the Port field's value.
+func (s *ConvertRedirectConfigForDescribeRulesOutput) SetPort(v int64) *ConvertRedirectConfigForDescribeRulesOutput {
+	s.Port = &v
+	return s
+}
+
+// SetProtocol sets the Protocol field's value.
+func (s *ConvertRedirectConfigForDescribeRulesOutput) SetProtocol(v string) *ConvertRedirectConfigForDescribeRulesOutput {
+	s.Protocol = &v
+	return s
+}
+
+type ConvertRewriteConfigForDescribeRulesOutput struct {
+	_ struct{} `type:"structure"`
+
+	Path *string `type:"string"`
+}
+
+// String returns the string representation
+func (s ConvertRewriteConfigForDescribeRulesOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ConvertRewriteConfigForDescribeRulesOutput) GoString() string {
+	return s.String()
+}
+
+// SetPath sets the Path field's value.
+func (s *ConvertRewriteConfigForDescribeRulesOutput) SetPath(v string) *ConvertRewriteConfigForDescribeRulesOutput {
+	s.Path = &v
+	return s
+}
+
 type DescribeRulesInput struct {
 	_ struct{} `type:"structure"`
 
@@ -207,6 +313,44 @@ func (s *DescribeRulesOutput) SetRules(v []*RuleForDescribeRulesOutput) *Describ
 	return s
 }
 
+type FixedResponseConfigForDescribeRulesOutput struct {
+	_ struct{} `type:"structure"`
+
+	Content *string `type:"string"`
+
+	ContentType *string `type:"string"`
+
+	HttpCode *string `type:"string"`
+}
+
+// String returns the string representation
+func (s FixedResponseConfigForDescribeRulesOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s FixedResponseConfigForDescribeRulesOutput) GoString() string {
+	return s.String()
+}
+
+// SetContent sets the Content field's value.
+func (s *FixedResponseConfigForDescribeRulesOutput) SetContent(v string) *FixedResponseConfigForDescribeRulesOutput {
+	s.Content = &v
+	return s
+}
+
+// SetContentType sets the ContentType field's value.
+func (s *FixedResponseConfigForDescribeRulesOutput) SetContentType(v string) *FixedResponseConfigForDescribeRulesOutput {
+	s.ContentType = &v
+	return s
+}
+
+// SetHttpCode sets the HttpCode field's value.
+func (s *FixedResponseConfigForDescribeRulesOutput) SetHttpCode(v string) *FixedResponseConfigForDescribeRulesOutput {
+	s.HttpCode = &v
+	return s
+}
+
 type ForwardGroupConfigForDescribeRulesOutput struct {
 	_ struct{} `type:"structure"`
 
@@ -242,6 +386,124 @@ func (s *ForwardGroupConfigForDescribeRulesOutput) SetStickySessionEnabled(v str
 // SetStickySessionTimeout sets the StickySessionTimeout field's value.
 func (s *ForwardGroupConfigForDescribeRulesOutput) SetStickySessionTimeout(v int64) *ForwardGroupConfigForDescribeRulesOutput {
 	s.StickySessionTimeout = &v
+	return s
+}
+
+type HeaderConfigForDescribeRulesOutput struct {
+	_ struct{} `type:"structure"`
+
+	Key *string `type:"string"`
+
+	Values []*string `type:"list"`
+}
+
+// String returns the string representation
+func (s HeaderConfigForDescribeRulesOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s HeaderConfigForDescribeRulesOutput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *HeaderConfigForDescribeRulesOutput) SetKey(v string) *HeaderConfigForDescribeRulesOutput {
+	s.Key = &v
+	return s
+}
+
+// SetValues sets the Values field's value.
+func (s *HeaderConfigForDescribeRulesOutput) SetValues(v []*string) *HeaderConfigForDescribeRulesOutput {
+	s.Values = v
+	return s
+}
+
+type HostConfigForDescribeRulesOutput struct {
+	_ struct{} `type:"structure"`
+
+	Values []*string `type:"list"`
+}
+
+// String returns the string representation
+func (s HostConfigForDescribeRulesOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s HostConfigForDescribeRulesOutput) GoString() string {
+	return s.String()
+}
+
+// SetValues sets the Values field's value.
+func (s *HostConfigForDescribeRulesOutput) SetValues(v []*string) *HostConfigForDescribeRulesOutput {
+	s.Values = v
+	return s
+}
+
+type MethodConfigForDescribeRulesOutput struct {
+	_ struct{} `type:"structure"`
+
+	Values []*string `type:"list"`
+}
+
+// String returns the string representation
+func (s MethodConfigForDescribeRulesOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s MethodConfigForDescribeRulesOutput) GoString() string {
+	return s.String()
+}
+
+// SetValues sets the Values field's value.
+func (s *MethodConfigForDescribeRulesOutput) SetValues(v []*string) *MethodConfigForDescribeRulesOutput {
+	s.Values = v
+	return s
+}
+
+type PathConfigForDescribeRulesOutput struct {
+	_ struct{} `type:"structure"`
+
+	Values []*string `type:"list"`
+}
+
+// String returns the string representation
+func (s PathConfigForDescribeRulesOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s PathConfigForDescribeRulesOutput) GoString() string {
+	return s.String()
+}
+
+// SetValues sets the Values field's value.
+func (s *PathConfigForDescribeRulesOutput) SetValues(v []*string) *PathConfigForDescribeRulesOutput {
+	s.Values = v
+	return s
+}
+
+type QueryStringConfigForDescribeRulesOutput struct {
+	_ struct{} `type:"structure"`
+
+	Values []*string `type:"list"`
+}
+
+// String returns the string representation
+func (s QueryStringConfigForDescribeRulesOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s QueryStringConfigForDescribeRulesOutput) GoString() string {
+	return s.String()
+}
+
+// SetValues sets the Values field's value.
+func (s *QueryStringConfigForDescribeRulesOutput) SetValues(v []*string) *QueryStringConfigForDescribeRulesOutput {
+	s.Values = v
 	return s
 }
 
@@ -321,6 +583,130 @@ func (s *RewriteConfigForDescribeRulesOutput) SetRewritePath(v string) *RewriteC
 	return s
 }
 
+type RuleActionForDescribeRulesOutput struct {
+	_ struct{} `type:"structure"`
+
+	FixedResponseConfig *FixedResponseConfigForDescribeRulesOutput `type:"structure"`
+
+	ForwardGroupConfig *ConvertForwardGroupConfigForDescribeRulesOutput `type:"structure"`
+
+	RedirectConfig *ConvertRedirectConfigForDescribeRulesOutput `type:"structure"`
+
+	RewriteConfig *ConvertRewriteConfigForDescribeRulesOutput `type:"structure"`
+
+	TrafficLimitConfig *TrafficLimitConfigForDescribeRulesOutput `type:"structure"`
+
+	Type *string `type:"string"`
+}
+
+// String returns the string representation
+func (s RuleActionForDescribeRulesOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s RuleActionForDescribeRulesOutput) GoString() string {
+	return s.String()
+}
+
+// SetFixedResponseConfig sets the FixedResponseConfig field's value.
+func (s *RuleActionForDescribeRulesOutput) SetFixedResponseConfig(v *FixedResponseConfigForDescribeRulesOutput) *RuleActionForDescribeRulesOutput {
+	s.FixedResponseConfig = v
+	return s
+}
+
+// SetForwardGroupConfig sets the ForwardGroupConfig field's value.
+func (s *RuleActionForDescribeRulesOutput) SetForwardGroupConfig(v *ConvertForwardGroupConfigForDescribeRulesOutput) *RuleActionForDescribeRulesOutput {
+	s.ForwardGroupConfig = v
+	return s
+}
+
+// SetRedirectConfig sets the RedirectConfig field's value.
+func (s *RuleActionForDescribeRulesOutput) SetRedirectConfig(v *ConvertRedirectConfigForDescribeRulesOutput) *RuleActionForDescribeRulesOutput {
+	s.RedirectConfig = v
+	return s
+}
+
+// SetRewriteConfig sets the RewriteConfig field's value.
+func (s *RuleActionForDescribeRulesOutput) SetRewriteConfig(v *ConvertRewriteConfigForDescribeRulesOutput) *RuleActionForDescribeRulesOutput {
+	s.RewriteConfig = v
+	return s
+}
+
+// SetTrafficLimitConfig sets the TrafficLimitConfig field's value.
+func (s *RuleActionForDescribeRulesOutput) SetTrafficLimitConfig(v *TrafficLimitConfigForDescribeRulesOutput) *RuleActionForDescribeRulesOutput {
+	s.TrafficLimitConfig = v
+	return s
+}
+
+// SetType sets the Type field's value.
+func (s *RuleActionForDescribeRulesOutput) SetType(v string) *RuleActionForDescribeRulesOutput {
+	s.Type = &v
+	return s
+}
+
+type RuleConditionForDescribeRulesOutput struct {
+	_ struct{} `type:"structure"`
+
+	HeaderConfig *HeaderConfigForDescribeRulesOutput `type:"structure"`
+
+	HostConfig *HostConfigForDescribeRulesOutput `type:"structure"`
+
+	MethodConfig *MethodConfigForDescribeRulesOutput `type:"structure"`
+
+	PathConfig *PathConfigForDescribeRulesOutput `type:"structure"`
+
+	QueryStringConfig *QueryStringConfigForDescribeRulesOutput `type:"structure"`
+
+	Type *string `type:"string"`
+}
+
+// String returns the string representation
+func (s RuleConditionForDescribeRulesOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s RuleConditionForDescribeRulesOutput) GoString() string {
+	return s.String()
+}
+
+// SetHeaderConfig sets the HeaderConfig field's value.
+func (s *RuleConditionForDescribeRulesOutput) SetHeaderConfig(v *HeaderConfigForDescribeRulesOutput) *RuleConditionForDescribeRulesOutput {
+	s.HeaderConfig = v
+	return s
+}
+
+// SetHostConfig sets the HostConfig field's value.
+func (s *RuleConditionForDescribeRulesOutput) SetHostConfig(v *HostConfigForDescribeRulesOutput) *RuleConditionForDescribeRulesOutput {
+	s.HostConfig = v
+	return s
+}
+
+// SetMethodConfig sets the MethodConfig field's value.
+func (s *RuleConditionForDescribeRulesOutput) SetMethodConfig(v *MethodConfigForDescribeRulesOutput) *RuleConditionForDescribeRulesOutput {
+	s.MethodConfig = v
+	return s
+}
+
+// SetPathConfig sets the PathConfig field's value.
+func (s *RuleConditionForDescribeRulesOutput) SetPathConfig(v *PathConfigForDescribeRulesOutput) *RuleConditionForDescribeRulesOutput {
+	s.PathConfig = v
+	return s
+}
+
+// SetQueryStringConfig sets the QueryStringConfig field's value.
+func (s *RuleConditionForDescribeRulesOutput) SetQueryStringConfig(v *QueryStringConfigForDescribeRulesOutput) *RuleConditionForDescribeRulesOutput {
+	s.QueryStringConfig = v
+	return s
+}
+
+// SetType sets the Type field's value.
+func (s *RuleConditionForDescribeRulesOutput) SetType(v string) *RuleConditionForDescribeRulesOutput {
+	s.Type = &v
+	return s
+}
+
 type RuleForDescribeRulesOutput struct {
 	_ struct{} `type:"structure"`
 
@@ -330,6 +716,8 @@ type RuleForDescribeRulesOutput struct {
 
 	ForwardGroupConfig *ForwardGroupConfigForDescribeRulesOutput `type:"structure"`
 
+	Priority *int64 `type:"integer"`
+
 	RedirectConfig *RedirectConfigForDescribeRulesOutput `type:"structure"`
 
 	RewriteConfig *RewriteConfigForDescribeRulesOutput `type:"structure"`
@@ -337,6 +725,10 @@ type RuleForDescribeRulesOutput struct {
 	RewriteEnabled *string `type:"string"`
 
 	RuleAction *string `type:"string"`
+
+	RuleActions []*RuleActionForDescribeRulesOutput `type:"list"`
+
+	RuleConditions []*RuleConditionForDescribeRulesOutput `type:"list"`
 
 	RuleId *string `type:"string"`
 
@@ -377,6 +769,12 @@ func (s *RuleForDescribeRulesOutput) SetForwardGroupConfig(v *ForwardGroupConfig
 	return s
 }
 
+// SetPriority sets the Priority field's value.
+func (s *RuleForDescribeRulesOutput) SetPriority(v int64) *RuleForDescribeRulesOutput {
+	s.Priority = &v
+	return s
+}
+
 // SetRedirectConfig sets the RedirectConfig field's value.
 func (s *RuleForDescribeRulesOutput) SetRedirectConfig(v *RedirectConfigForDescribeRulesOutput) *RuleForDescribeRulesOutput {
 	s.RedirectConfig = v
@@ -398,6 +796,18 @@ func (s *RuleForDescribeRulesOutput) SetRewriteEnabled(v string) *RuleForDescrib
 // SetRuleAction sets the RuleAction field's value.
 func (s *RuleForDescribeRulesOutput) SetRuleAction(v string) *RuleForDescribeRulesOutput {
 	s.RuleAction = &v
+	return s
+}
+
+// SetRuleActions sets the RuleActions field's value.
+func (s *RuleForDescribeRulesOutput) SetRuleActions(v []*RuleActionForDescribeRulesOutput) *RuleForDescribeRulesOutput {
+	s.RuleActions = v
+	return s
+}
+
+// SetRuleConditions sets the RuleConditions field's value.
+func (s *RuleForDescribeRulesOutput) SetRuleConditions(v []*RuleConditionForDescribeRulesOutput) *RuleForDescribeRulesOutput {
+	s.RuleConditions = v
 	return s
 }
 
@@ -431,6 +841,36 @@ func (s *RuleForDescribeRulesOutput) SetUrl(v string) *RuleForDescribeRulesOutpu
 	return s
 }
 
+type ServerGroupStickySessionForDescribeRulesOutput struct {
+	_ struct{} `type:"structure"`
+
+	Enabled *string `type:"string"`
+
+	Timeout *string `type:"string"`
+}
+
+// String returns the string representation
+func (s ServerGroupStickySessionForDescribeRulesOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ServerGroupStickySessionForDescribeRulesOutput) GoString() string {
+	return s.String()
+}
+
+// SetEnabled sets the Enabled field's value.
+func (s *ServerGroupStickySessionForDescribeRulesOutput) SetEnabled(v string) *ServerGroupStickySessionForDescribeRulesOutput {
+	s.Enabled = &v
+	return s
+}
+
+// SetTimeout sets the Timeout field's value.
+func (s *ServerGroupStickySessionForDescribeRulesOutput) SetTimeout(v string) *ServerGroupStickySessionForDescribeRulesOutput {
+	s.Timeout = &v
+	return s
+}
+
 type ServerGroupTupleForDescribeRulesOutput struct {
 	_ struct{} `type:"structure"`
 
@@ -458,5 +898,27 @@ func (s *ServerGroupTupleForDescribeRulesOutput) SetServerGroupId(v string) *Ser
 // SetWeight sets the Weight field's value.
 func (s *ServerGroupTupleForDescribeRulesOutput) SetWeight(v int64) *ServerGroupTupleForDescribeRulesOutput {
 	s.Weight = &v
+	return s
+}
+
+type TrafficLimitConfigForDescribeRulesOutput struct {
+	_ struct{} `type:"structure"`
+
+	QPS *int64 `type:"integer"`
+}
+
+// String returns the string representation
+func (s TrafficLimitConfigForDescribeRulesOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TrafficLimitConfigForDescribeRulesOutput) GoString() string {
+	return s.String()
+}
+
+// SetQPS sets the QPS field's value.
+func (s *TrafficLimitConfigForDescribeRulesOutput) SetQPS(v int64) *TrafficLimitConfigForDescribeRulesOutput {
+	s.QPS = &v
 	return s
 }

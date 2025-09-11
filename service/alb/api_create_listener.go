@@ -150,6 +150,8 @@ type CreateListenerInput struct {
 
 	CACertificateId *string `type:"string"`
 
+	CACertificateSource *string `type:"string"`
+
 	CertCenterCertificateId *string `type:"string"`
 
 	CertificateId *string `type:"string"`
@@ -172,6 +174,12 @@ type CreateListenerInput struct {
 
 	// LoadBalancerId is a required field
 	LoadBalancerId *string `type:"string" required:"true"`
+
+	PcaLeafCertificateId *string `type:"string"`
+
+	PcaRootCACertificateId *string `type:"string"`
+
+	PcaSubCACertificateId *string `type:"string"`
 
 	// Port is a required field
 	Port *int64 `type:"integer" required:"true"`
@@ -249,6 +257,12 @@ func (s *CreateListenerInput) SetCACertificateId(v string) *CreateListenerInput 
 	return s
 }
 
+// SetCACertificateSource sets the CACertificateSource field's value.
+func (s *CreateListenerInput) SetCACertificateSource(v string) *CreateListenerInput {
+	s.CACertificateSource = &v
+	return s
+}
+
 // SetCertCenterCertificateId sets the CertCenterCertificateId field's value.
 func (s *CreateListenerInput) SetCertCenterCertificateId(v string) *CreateListenerInput {
 	s.CertCenterCertificateId = &v
@@ -312,6 +326,24 @@ func (s *CreateListenerInput) SetListenerName(v string) *CreateListenerInput {
 // SetLoadBalancerId sets the LoadBalancerId field's value.
 func (s *CreateListenerInput) SetLoadBalancerId(v string) *CreateListenerInput {
 	s.LoadBalancerId = &v
+	return s
+}
+
+// SetPcaLeafCertificateId sets the PcaLeafCertificateId field's value.
+func (s *CreateListenerInput) SetPcaLeafCertificateId(v string) *CreateListenerInput {
+	s.PcaLeafCertificateId = &v
+	return s
+}
+
+// SetPcaRootCACertificateId sets the PcaRootCACertificateId field's value.
+func (s *CreateListenerInput) SetPcaRootCACertificateId(v string) *CreateListenerInput {
+	s.PcaRootCACertificateId = &v
+	return s
+}
+
+// SetPcaSubCACertificateId sets the PcaSubCACertificateId field's value.
+func (s *CreateListenerInput) SetPcaSubCACertificateId(v string) *CreateListenerInput {
+	s.PcaSubCACertificateId = &v
 	return s
 }
 
@@ -387,6 +419,8 @@ type DomainExtensionForCreateListenerInput struct {
 	CertificateSource *string `type:"string"`
 
 	Domain *string `type:"string"`
+
+	PcaLeafCertificateId *string `type:"string"`
 }
 
 // String returns the string representation
@@ -420,6 +454,12 @@ func (s *DomainExtensionForCreateListenerInput) SetCertificateSource(v string) *
 // SetDomain sets the Domain field's value.
 func (s *DomainExtensionForCreateListenerInput) SetDomain(v string) *DomainExtensionForCreateListenerInput {
 	s.Domain = &v
+	return s
+}
+
+// SetPcaLeafCertificateId sets the PcaLeafCertificateId field's value.
+func (s *DomainExtensionForCreateListenerInput) SetPcaLeafCertificateId(v string) *DomainExtensionForCreateListenerInput {
+	s.PcaLeafCertificateId = &v
 	return s
 }
 
