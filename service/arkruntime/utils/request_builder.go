@@ -5,6 +5,9 @@ import (
 	"context"
 	"io"
 	"net/http"
+
+	"github.com/volcengine/volcengine-go-sdk/service/arkruntime/pkg/apiform"
+	"github.com/volcengine/volcengine-go-sdk/service/arkruntime/pkg/apiquery"
 )
 
 type RequestBuilder interface {
@@ -29,10 +32,33 @@ func (b *HTTPRequestBuilder) Build(
 	header http.Header,
 ) (req *http.Request, err error) {
 	var bodyReader io.Reader
+	contentType := "application/json"
+
 	if body != nil {
-		if v, ok := body.(io.Reader); ok {
+		if v, ok := body.(io.Reader); ok { // already marshalled
 			bodyReader = v
-		} else {
+		} else if v, ok := body.([]byte); ok { // already marshalled
+			bodyReader = bytes.NewBuffer(v)
+		} else if v, ok := body.(apiform.Marshaler); ok { // multipart form
+			var (
+				content []byte
+				err     error
+			)
+			content, contentType, err = v.MarshalMultipart()
+			if err != nil {
+				return nil, err
+			}
+			bodyReader = bytes.NewBuffer(content)
+		} else if v, ok := body.(apiquery.Queryer); ok { // url query
+			q, err := v.URLQuery()
+			if err != nil {
+				return nil, err
+			}
+			params := q.Encode()
+			if params != "" {
+				url = url + "?" + params
+			}
+		} else { // json
 			var reqBytes []byte
 			reqBytes, err = b.marshaller.Marshal(body)
 			if err != nil {
@@ -41,6 +67,7 @@ func (b *HTTPRequestBuilder) Build(
 			bodyReader = bytes.NewBuffer(reqBytes)
 		}
 	}
+
 	req, err = http.NewRequestWithContext(ctx, method, url, bodyReader)
 	if err != nil {
 		return
@@ -48,5 +75,9 @@ func (b *HTTPRequestBuilder) Build(
 	if header != nil {
 		req.Header = header
 	}
+	if bodyReader != nil {
+		req.Header.Set("Content-Type", contentType)
+	}
+
 	return
 }
