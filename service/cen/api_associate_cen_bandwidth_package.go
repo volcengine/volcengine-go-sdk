@@ -191,8 +191,6 @@ type AssociateCenBandwidthPackageOutput struct {
 	_ struct{} `type:"structure"`
 
 	Metadata *response.ResponseMetadata
-
-	RequestId *string `type:"string"`
 }
 
 // String returns the string representation
@@ -203,10 +201,4 @@ func (s AssociateCenBandwidthPackageOutput) String() string {
 // GoString returns the string representation
 func (s AssociateCenBandwidthPackageOutput) GoString() string {
 	return s.String()
-}
-
-// SetRequestId sets the RequestId field's value.
-func (s *AssociateCenBandwidthPackageOutput) SetRequestId(v string) *AssociateCenBandwidthPackageOutput {
-	s.RequestId = &v
-	return s
 }

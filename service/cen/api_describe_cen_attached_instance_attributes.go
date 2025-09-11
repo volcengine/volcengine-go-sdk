@@ -218,6 +218,8 @@ type DescribeCenAttachedInstanceAttributesOutput struct {
 
 	CenId *string `type:"string"`
 
+	CreationTime *string `type:"string"`
+
 	InstanceId *string `type:"string"`
 
 	InstanceOwnerId *string `type:"string"`
@@ -225,8 +227,6 @@ type DescribeCenAttachedInstanceAttributesOutput struct {
 	InstanceRegionId *string `type:"string"`
 
 	InstanceType *string `type:"string"`
-
-	RequestId *string `type:"string"`
 
 	Status *string `type:"string"`
 }
@@ -244,6 +244,12 @@ func (s DescribeCenAttachedInstanceAttributesOutput) GoString() string {
 // SetCenId sets the CenId field's value.
 func (s *DescribeCenAttachedInstanceAttributesOutput) SetCenId(v string) *DescribeCenAttachedInstanceAttributesOutput {
 	s.CenId = &v
+	return s
+}
+
+// SetCreationTime sets the CreationTime field's value.
+func (s *DescribeCenAttachedInstanceAttributesOutput) SetCreationTime(v string) *DescribeCenAttachedInstanceAttributesOutput {
+	s.CreationTime = &v
 	return s
 }
 
@@ -268,12 +274,6 @@ func (s *DescribeCenAttachedInstanceAttributesOutput) SetInstanceRegionId(v stri
 // SetInstanceType sets the InstanceType field's value.
 func (s *DescribeCenAttachedInstanceAttributesOutput) SetInstanceType(v string) *DescribeCenAttachedInstanceAttributesOutput {
 	s.InstanceType = &v
-	return s
-}
-
-// SetRequestId sets the RequestId field's value.
-func (s *DescribeCenAttachedInstanceAttributesOutput) SetRequestId(v string) *DescribeCenAttachedInstanceAttributesOutput {
-	s.RequestId = &v
 	return s
 }
 

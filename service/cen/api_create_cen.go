@@ -146,7 +146,7 @@ type CreateCenInput struct {
 
 	ClientToken *string `type:"string"`
 
-	Description *string `type:"string"`
+	Description *string `max:"255" type:"string"`
 
 	ProjectName *string `type:"string"`
 
@@ -161,6 +161,19 @@ func (s CreateCenInput) String() string {
 // GoString returns the string representation
 func (s CreateCenInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *CreateCenInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "CreateCenInput"}
+	if s.Description != nil && len(*s.Description) > 255 {
+		invalidParams.Add(request.NewErrParamMaxLen("Description", 255, *s.Description))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetCenName sets the CenName field's value.
@@ -199,8 +212,6 @@ type CreateCenOutput struct {
 	Metadata *response.ResponseMetadata
 
 	CenId *string `type:"string"`
-
-	RequestId *string `type:"string"`
 }
 
 // String returns the string representation
@@ -216,12 +227,6 @@ func (s CreateCenOutput) GoString() string {
 // SetCenId sets the CenId field's value.
 func (s *CreateCenOutput) SetCenId(v string) *CreateCenOutput {
 	s.CenId = &v
-	return s
-}
-
-// SetRequestId sets the RequestId field's value.
-func (s *CreateCenOutput) SetRequestId(v string) *CreateCenOutput {
-	s.RequestId = &v
 	return s
 }
 

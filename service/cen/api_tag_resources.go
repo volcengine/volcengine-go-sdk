@@ -194,8 +194,7 @@ type TagResourcesInput struct {
 	// ResourceType is a required field
 	ResourceType *string `type:"string" required:"true" enum:"ResourceTypeForTagResourcesInput"`
 
-	// Tags is a required field
-	Tags []*TagForTagResourcesInput `type:"list" required:"true"`
+	Tags []*TagForTagResourcesInput `type:"list"`
 }
 
 // String returns the string representation
@@ -216,9 +215,6 @@ func (s *TagResourcesInput) Validate() error {
 	}
 	if s.ResourceType == nil {
 		invalidParams.Add(request.NewErrParamRequired("ResourceType"))
-	}
-	if s.Tags == nil {
-		invalidParams.Add(request.NewErrParamRequired("Tags"))
 	}
 	if s.Tags != nil {
 		for i, v := range s.Tags {
@@ -259,8 +255,6 @@ type TagResourcesOutput struct {
 	_ struct{} `type:"structure"`
 
 	Metadata *response.ResponseMetadata
-
-	RequestId *string `type:"string"`
 }
 
 // String returns the string representation
@@ -271,12 +265,6 @@ func (s TagResourcesOutput) String() string {
 // GoString returns the string representation
 func (s TagResourcesOutput) GoString() string {
 	return s.String()
-}
-
-// SetRequestId sets the RequestId field's value.
-func (s *TagResourcesOutput) SetRequestId(v string) *TagResourcesOutput {
-	s.RequestId = &v
-	return s
 }
 
 const (

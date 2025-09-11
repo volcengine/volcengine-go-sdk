@@ -144,6 +144,8 @@ type ModifyCenInterRegionBandwidthAttributesInput struct {
 
 	Bandwidth *int64 `type:"integer"`
 
+	CenBandwidthPackageId *string `type:"string"`
+
 	// InterRegionBandwidthId is a required field
 	InterRegionBandwidthId *string `type:"string" required:"true"`
 }
@@ -177,6 +179,12 @@ func (s *ModifyCenInterRegionBandwidthAttributesInput) SetBandwidth(v int64) *Mo
 	return s
 }
 
+// SetCenBandwidthPackageId sets the CenBandwidthPackageId field's value.
+func (s *ModifyCenInterRegionBandwidthAttributesInput) SetCenBandwidthPackageId(v string) *ModifyCenInterRegionBandwidthAttributesInput {
+	s.CenBandwidthPackageId = &v
+	return s
+}
+
 // SetInterRegionBandwidthId sets the InterRegionBandwidthId field's value.
 func (s *ModifyCenInterRegionBandwidthAttributesInput) SetInterRegionBandwidthId(v string) *ModifyCenInterRegionBandwidthAttributesInput {
 	s.InterRegionBandwidthId = &v
@@ -187,8 +195,6 @@ type ModifyCenInterRegionBandwidthAttributesOutput struct {
 	_ struct{} `type:"structure"`
 
 	Metadata *response.ResponseMetadata
-
-	RequestId *string `type:"string"`
 }
 
 // String returns the string representation
@@ -199,10 +205,4 @@ func (s ModifyCenInterRegionBandwidthAttributesOutput) String() string {
 // GoString returns the string representation
 func (s ModifyCenInterRegionBandwidthAttributesOutput) GoString() string {
 	return s.String()
-}
-
-// SetRequestId sets the RequestId field's value.
-func (s *ModifyCenInterRegionBandwidthAttributesOutput) SetRequestId(v string) *ModifyCenInterRegionBandwidthAttributesOutput {
-	s.RequestId = &v
-	return s
 }

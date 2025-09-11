@@ -227,8 +227,6 @@ type RevokeInstanceFromCenOutput struct {
 	_ struct{} `type:"structure"`
 
 	Metadata *response.ResponseMetadata
-
-	RequestId *string `type:"string"`
 }
 
 // String returns the string representation
@@ -239,12 +237,6 @@ func (s RevokeInstanceFromCenOutput) String() string {
 // GoString returns the string representation
 func (s RevokeInstanceFromCenOutput) GoString() string {
 	return s.String()
-}
-
-// SetRequestId sets the RequestId field's value.
-func (s *RevokeInstanceFromCenOutput) SetRequestId(v string) *RevokeInstanceFromCenOutput {
-	s.RequestId = &v
-	return s
 }
 
 const (

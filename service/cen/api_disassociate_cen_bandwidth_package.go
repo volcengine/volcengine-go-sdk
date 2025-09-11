@@ -191,8 +191,6 @@ type DisassociateCenBandwidthPackageOutput struct {
 	_ struct{} `type:"structure"`
 
 	Metadata *response.ResponseMetadata
-
-	RequestId *string `type:"string"`
 }
 
 // String returns the string representation
@@ -203,10 +201,4 @@ func (s DisassociateCenBandwidthPackageOutput) String() string {
 // GoString returns the string representation
 func (s DisassociateCenBandwidthPackageOutput) GoString() string {
 	return s.String()
-}
-
-// SetRequestId sets the RequestId field's value.
-func (s *DisassociateCenBandwidthPackageOutput) SetRequestId(v string) *DisassociateCenBandwidthPackageOutput {
-	s.RequestId = &v
-	return s
 }

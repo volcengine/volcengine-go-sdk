@@ -215,8 +215,6 @@ type DetachInstanceFromCenOutput struct {
 	_ struct{} `type:"structure"`
 
 	Metadata *response.ResponseMetadata
-
-	RequestId *string `type:"string"`
 }
 
 // String returns the string representation
@@ -227,10 +225,4 @@ func (s DetachInstanceFromCenOutput) String() string {
 // GoString returns the string representation
 func (s DetachInstanceFromCenOutput) GoString() string {
 	return s.String()
-}
-
-// SetRequestId sets the RequestId field's value.
-func (s *DetachInstanceFromCenOutput) SetRequestId(v string) *DetachInstanceFromCenOutput {
-	s.RequestId = &v
-	return s
 }

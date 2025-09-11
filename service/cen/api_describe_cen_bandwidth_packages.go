@@ -164,9 +164,9 @@ type CenBandwidthPackageForDescribeCenBandwidthPackagesOutput struct {
 
 	ExpiredTime *string `type:"string"`
 
-	LocalGeographicRegionSetId *string `type:"string"`
+	LineOperator *string `type:"string"`
 
-	LocalGeographiclRegionSetId *string `type:"string"`
+	LocalGeographicRegionSetId *string `type:"string"`
 
 	PeerGeographicRegionSetId *string `type:"string"`
 
@@ -177,6 +177,8 @@ type CenBandwidthPackageForDescribeCenBandwidthPackagesOutput struct {
 	Status *string `type:"string"`
 
 	Tags []*TagForDescribeCenBandwidthPackagesOutput `type:"list"`
+
+	UpdateTime *string `type:"string"`
 
 	UpdatedAt *string `type:"string"`
 }
@@ -257,15 +259,15 @@ func (s *CenBandwidthPackageForDescribeCenBandwidthPackagesOutput) SetExpiredTim
 	return s
 }
 
-// SetLocalGeographicRegionSetId sets the LocalGeographicRegionSetId field's value.
-func (s *CenBandwidthPackageForDescribeCenBandwidthPackagesOutput) SetLocalGeographicRegionSetId(v string) *CenBandwidthPackageForDescribeCenBandwidthPackagesOutput {
-	s.LocalGeographicRegionSetId = &v
+// SetLineOperator sets the LineOperator field's value.
+func (s *CenBandwidthPackageForDescribeCenBandwidthPackagesOutput) SetLineOperator(v string) *CenBandwidthPackageForDescribeCenBandwidthPackagesOutput {
+	s.LineOperator = &v
 	return s
 }
 
-// SetLocalGeographiclRegionSetId sets the LocalGeographiclRegionSetId field's value.
-func (s *CenBandwidthPackageForDescribeCenBandwidthPackagesOutput) SetLocalGeographiclRegionSetId(v string) *CenBandwidthPackageForDescribeCenBandwidthPackagesOutput {
-	s.LocalGeographiclRegionSetId = &v
+// SetLocalGeographicRegionSetId sets the LocalGeographicRegionSetId field's value.
+func (s *CenBandwidthPackageForDescribeCenBandwidthPackagesOutput) SetLocalGeographicRegionSetId(v string) *CenBandwidthPackageForDescribeCenBandwidthPackagesOutput {
+	s.LocalGeographicRegionSetId = &v
 	return s
 }
 
@@ -296,6 +298,12 @@ func (s *CenBandwidthPackageForDescribeCenBandwidthPackagesOutput) SetStatus(v s
 // SetTags sets the Tags field's value.
 func (s *CenBandwidthPackageForDescribeCenBandwidthPackagesOutput) SetTags(v []*TagForDescribeCenBandwidthPackagesOutput) *CenBandwidthPackageForDescribeCenBandwidthPackagesOutput {
 	s.Tags = v
+	return s
+}
+
+// SetUpdateTime sets the UpdateTime field's value.
+func (s *CenBandwidthPackageForDescribeCenBandwidthPackagesOutput) SetUpdateTime(v string) *CenBandwidthPackageForDescribeCenBandwidthPackagesOutput {
+	s.UpdateTime = &v
 	return s
 }
 
@@ -402,8 +410,6 @@ type DescribeCenBandwidthPackagesOutput struct {
 
 	PageSize *int64 `type:"integer"`
 
-	RequestId *string `type:"string"`
-
 	TotalCount *int64 `type:"integer"`
 }
 
@@ -432,12 +438,6 @@ func (s *DescribeCenBandwidthPackagesOutput) SetPageNumber(v int64) *DescribeCen
 // SetPageSize sets the PageSize field's value.
 func (s *DescribeCenBandwidthPackagesOutput) SetPageSize(v int64) *DescribeCenBandwidthPackagesOutput {
 	s.PageSize = &v
-	return s
-}
-
-// SetRequestId sets the RequestId field's value.
-func (s *DescribeCenBandwidthPackagesOutput) SetRequestId(v string) *DescribeCenBandwidthPackagesOutput {
-	s.RequestId = &v
 	return s
 }
 
