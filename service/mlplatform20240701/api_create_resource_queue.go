@@ -247,6 +247,8 @@ type CreateResourceQueueInput struct {
 	// Name is a required field
 	Name *string `type:"string" json:",omitempty" required:"true"`
 
+	ProjectName *string `min:"1" max:"64" type:"string" json:",omitempty"`
+
 	Quota *QuotaForCreateResourceQueueInput `type:"structure" json:",omitempty"`
 
 	// ResourceGroupId is a required field
@@ -276,6 +278,12 @@ func (s *CreateResourceQueueInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "CreateResourceQueueInput"}
 	if s.Name == nil {
 		invalidParams.Add(request.NewErrParamRequired("Name"))
+	}
+	if s.ProjectName != nil && len(*s.ProjectName) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("ProjectName", 1))
+	}
+	if s.ProjectName != nil && len(*s.ProjectName) > 64 {
+		invalidParams.Add(request.NewErrParamMaxLen("ProjectName", 64, *s.ProjectName))
 	}
 	if s.ResourceGroupId == nil {
 		invalidParams.Add(request.NewErrParamRequired("ResourceGroupId"))
@@ -308,6 +316,12 @@ func (s *CreateResourceQueueInput) SetDryRun(v bool) *CreateResourceQueueInput {
 // SetName sets the Name field's value.
 func (s *CreateResourceQueueInput) SetName(v string) *CreateResourceQueueInput {
 	s.Name = &v
+	return s
+}
+
+// SetProjectName sets the ProjectName field's value.
+func (s *CreateResourceQueueInput) SetProjectName(v string) *CreateResourceQueueInput {
+	s.ProjectName = &v
 	return s
 }
 

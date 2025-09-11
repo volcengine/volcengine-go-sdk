@@ -196,6 +196,8 @@ type ItemForListResourceGroupsOutput struct {
 
 	PeriodUnit *string `type:"string" json:",omitempty"`
 
+	ProjectName *string `min:"1" max:"64" type:"string" json:",omitempty"`
+
 	ResourceAllocated *ResourceAllocatedForListResourceGroupsOutput `type:"structure" json:",omitempty"`
 
 	ResourceCapability *ResourceCapabilityForListResourceGroupsOutput `type:"structure" json:",omitempty"`
@@ -203,6 +205,8 @@ type ItemForListResourceGroupsOutput struct {
 	Status *StatusForListResourceGroupsOutput `type:"structure" json:",omitempty"`
 
 	StorageConfig *StorageConfigForListResourceGroupsOutput `type:"structure" json:",omitempty"`
+
+	VRdmaEnabled *bool `type:"boolean" json:",omitempty"`
 
 	WorkloadNetworkConfig *WorkloadNetworkConfigForListResourceGroupsOutput `type:"structure" json:",omitempty"`
 
@@ -257,6 +261,12 @@ func (s *ItemForListResourceGroupsOutput) SetPeriodUnit(v string) *ItemForListRe
 	return s
 }
 
+// SetProjectName sets the ProjectName field's value.
+func (s *ItemForListResourceGroupsOutput) SetProjectName(v string) *ItemForListResourceGroupsOutput {
+	s.ProjectName = &v
+	return s
+}
+
 // SetResourceAllocated sets the ResourceAllocated field's value.
 func (s *ItemForListResourceGroupsOutput) SetResourceAllocated(v *ResourceAllocatedForListResourceGroupsOutput) *ItemForListResourceGroupsOutput {
 	s.ResourceAllocated = v
@@ -278,6 +288,12 @@ func (s *ItemForListResourceGroupsOutput) SetStatus(v *StatusForListResourceGrou
 // SetStorageConfig sets the StorageConfig field's value.
 func (s *ItemForListResourceGroupsOutput) SetStorageConfig(v *StorageConfigForListResourceGroupsOutput) *ItemForListResourceGroupsOutput {
 	s.StorageConfig = v
+	return s
+}
+
+// SetVRdmaEnabled sets the VRdmaEnabled field's value.
+func (s *ItemForListResourceGroupsOutput) SetVRdmaEnabled(v bool) *ItemForListResourceGroupsOutput {
+	s.VRdmaEnabled = &v
 	return s
 }
 
@@ -314,6 +330,8 @@ type ListResourceGroupsInput struct {
 
 	PageSize *int32 `min:"10" max:"100" type:"int32" json:",omitempty"`
 
+	ProjectName *string `min:"1" max:"64" type:"string" json:",omitempty"`
+
 	SortBy *string `type:"string" json:",omitempty" enum:"EnumOfSortByForListResourceGroupsInput"`
 
 	SortOrder *string `type:"string" json:",omitempty" enum:"EnumOfSortOrderForListResourceGroupsInput"`
@@ -339,6 +357,12 @@ func (s *ListResourceGroupsInput) Validate() error {
 	}
 	if s.PageSize != nil && *s.PageSize > 100 {
 		invalidParams.Add(request.NewErrParamMaxValue("PageSize", 100))
+	}
+	if s.ProjectName != nil && len(*s.ProjectName) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("ProjectName", 1))
+	}
+	if s.ProjectName != nil && len(*s.ProjectName) > 64 {
+		invalidParams.Add(request.NewErrParamMaxLen("ProjectName", 64, *s.ProjectName))
 	}
 
 	if invalidParams.Len() > 0 {
@@ -380,6 +404,12 @@ func (s *ListResourceGroupsInput) SetPageNumber(v int32) *ListResourceGroupsInpu
 // SetPageSize sets the PageSize field's value.
 func (s *ListResourceGroupsInput) SetPageSize(v int32) *ListResourceGroupsInput {
 	s.PageSize = &v
+	return s
+}
+
+// SetProjectName sets the ProjectName field's value.
+func (s *ListResourceGroupsInput) SetProjectName(v string) *ListResourceGroupsInput {
+	s.ProjectName = &v
 	return s
 }
 

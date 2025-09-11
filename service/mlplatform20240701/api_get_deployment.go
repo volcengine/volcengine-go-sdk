@@ -196,11 +196,15 @@ type ConfigForGetDeploymentOutput struct {
 
 	Nas *NasForGetDeploymentOutput `type:"structure" json:",omitempty"`
 
+	NasAP *NasAPForGetDeploymentOutput `type:"structure" json:",omitempty"`
+
 	Sfcs *SfcsForGetDeploymentOutput `type:"structure" json:",omitempty"`
 
 	Tos *TosForGetDeploymentOutput `type:"structure" json:",omitempty"`
 
 	Vepfs *VepfsForGetDeploymentOutput `type:"structure" json:",omitempty"`
+
+	VepfsAP *VepfsAPForGetDeploymentOutput `type:"structure" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -225,6 +229,12 @@ func (s *ConfigForGetDeploymentOutput) SetNas(v *NasForGetDeploymentOutput) *Con
 	return s
 }
 
+// SetNasAP sets the NasAP field's value.
+func (s *ConfigForGetDeploymentOutput) SetNasAP(v *NasAPForGetDeploymentOutput) *ConfigForGetDeploymentOutput {
+	s.NasAP = v
+	return s
+}
+
 // SetSfcs sets the Sfcs field's value.
 func (s *ConfigForGetDeploymentOutput) SetSfcs(v *SfcsForGetDeploymentOutput) *ConfigForGetDeploymentOutput {
 	s.Sfcs = v
@@ -240,6 +250,12 @@ func (s *ConfigForGetDeploymentOutput) SetTos(v *TosForGetDeploymentOutput) *Con
 // SetVepfs sets the Vepfs field's value.
 func (s *ConfigForGetDeploymentOutput) SetVepfs(v *VepfsForGetDeploymentOutput) *ConfigForGetDeploymentOutput {
 	s.Vepfs = v
+	return s
+}
+
+// SetVepfsAP sets the VepfsAP field's value.
+func (s *ConfigForGetDeploymentOutput) SetVepfsAP(v *VepfsAPForGetDeploymentOutput) *ConfigForGetDeploymentOutput {
+	s.VepfsAP = v
 	return s
 }
 
@@ -561,6 +577,8 @@ type GetDeploymentOutput struct {
 
 	Priority *int32 `type:"int32" json:",omitempty"`
 
+	ProjectName *string `type:"string" json:",omitempty"`
+
 	ResourceQueueId *string `type:"string" json:",omitempty"`
 
 	Roles []*RoleForGetDeploymentOutput `type:"list" json:",omitempty"`
@@ -627,6 +645,12 @@ func (s *GetDeploymentOutput) SetName(v string) *GetDeploymentOutput {
 // SetPriority sets the Priority field's value.
 func (s *GetDeploymentOutput) SetPriority(v int32) *GetDeploymentOutput {
 	s.Priority = &v
+	return s
+}
+
+// SetProjectName sets the ProjectName field's value.
+func (s *GetDeploymentOutput) SetProjectName(v string) *GetDeploymentOutput {
+	s.ProjectName = &v
 	return s
 }
 
@@ -1019,6 +1043,36 @@ func (s *ModelForGetDeploymentOutput) SetModelID(v string) *ModelForGetDeploymen
 // SetModelVersionID sets the ModelVersionID field's value.
 func (s *ModelForGetDeploymentOutput) SetModelVersionID(v string) *ModelForGetDeploymentOutput {
 	s.ModelVersionID = &v
+	return s
+}
+
+type NasAPForGetDeploymentOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	AccessPointId *string `type:"string" json:",omitempty"`
+
+	Id *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s NasAPForGetDeploymentOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s NasAPForGetDeploymentOutput) GoString() string {
+	return s.String()
+}
+
+// SetAccessPointId sets the AccessPointId field's value.
+func (s *NasAPForGetDeploymentOutput) SetAccessPointId(v string) *NasAPForGetDeploymentOutput {
+	s.AccessPointId = &v
+	return s
+}
+
+// SetId sets the Id field's value.
+func (s *NasAPForGetDeploymentOutput) SetId(v string) *NasAPForGetDeploymentOutput {
+	s.Id = &v
 	return s
 }
 
@@ -1831,6 +1885,36 @@ func (s *TosForGetDeploymentOutput) SetBucket(v string) *TosForGetDeploymentOutp
 // SetPrefix sets the Prefix field's value.
 func (s *TosForGetDeploymentOutput) SetPrefix(v string) *TosForGetDeploymentOutput {
 	s.Prefix = &v
+	return s
+}
+
+type VepfsAPForGetDeploymentOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	AccessPointId *string `type:"string" json:",omitempty"`
+
+	Id *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s VepfsAPForGetDeploymentOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s VepfsAPForGetDeploymentOutput) GoString() string {
+	return s.String()
+}
+
+// SetAccessPointId sets the AccessPointId field's value.
+func (s *VepfsAPForGetDeploymentOutput) SetAccessPointId(v string) *VepfsAPForGetDeploymentOutput {
+	s.AccessPointId = &v
+	return s
+}
+
+// SetId sets the Id field's value.
+func (s *VepfsAPForGetDeploymentOutput) SetId(v string) *VepfsAPForGetDeploymentOutput {
+	s.Id = &v
 	return s
 }
 

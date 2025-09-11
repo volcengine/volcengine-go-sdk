@@ -238,6 +238,8 @@ type GetResourceGroupOutput struct {
 
 	PeriodUnit *string `type:"string" json:",omitempty"`
 
+	ProjectName *string `type:"string" json:",omitempty"`
+
 	RemainAutoRenewTimes *int32 `type:"int32" json:",omitempty"`
 
 	RenewType *int32 `type:"int32" json:",omitempty"`
@@ -249,6 +251,8 @@ type GetResourceGroupOutput struct {
 	Status *StatusForGetResourceGroupOutput `type:"structure" json:",omitempty"`
 
 	StorageConfig *StorageConfigForGetResourceGroupOutput `type:"structure" json:",omitempty"`
+
+	VRdmaEnabled *bool `type:"boolean" json:",omitempty"`
 
 	WorkloadNetworkConfig *WorkloadNetworkConfigForGetResourceGroupOutput `type:"structure" json:",omitempty"`
 
@@ -315,6 +319,12 @@ func (s *GetResourceGroupOutput) SetPeriodUnit(v string) *GetResourceGroupOutput
 	return s
 }
 
+// SetProjectName sets the ProjectName field's value.
+func (s *GetResourceGroupOutput) SetProjectName(v string) *GetResourceGroupOutput {
+	s.ProjectName = &v
+	return s
+}
+
 // SetRemainAutoRenewTimes sets the RemainAutoRenewTimes field's value.
 func (s *GetResourceGroupOutput) SetRemainAutoRenewTimes(v int32) *GetResourceGroupOutput {
 	s.RemainAutoRenewTimes = &v
@@ -348,6 +358,12 @@ func (s *GetResourceGroupOutput) SetStatus(v *StatusForGetResourceGroupOutput) *
 // SetStorageConfig sets the StorageConfig field's value.
 func (s *GetResourceGroupOutput) SetStorageConfig(v *StorageConfigForGetResourceGroupOutput) *GetResourceGroupOutput {
 	s.StorageConfig = v
+	return s
+}
+
+// SetVRdmaEnabled sets the VRdmaEnabled field's value.
+func (s *GetResourceGroupOutput) SetVRdmaEnabled(v bool) *GetResourceGroupOutput {
+	s.VRdmaEnabled = &v
 	return s
 }
 

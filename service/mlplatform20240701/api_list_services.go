@@ -226,6 +226,8 @@ type ListServicesInput struct {
 
 	PageSize *int32 `min:"10" max:"100" type:"int32" json:",omitempty"`
 
+	ProjectName *string `min:"1" max:"64" type:"string" json:",omitempty"`
+
 	SortBy *string `type:"string" json:",omitempty" enum:"EnumOfSortByForListServicesInput"`
 
 	SortOrder *string `type:"string" json:",omitempty" enum:"EnumOfSortOrderForListServicesInput"`
@@ -255,6 +257,12 @@ func (s *ListServicesInput) Validate() error {
 	}
 	if s.PageSize != nil && *s.PageSize > 100 {
 		invalidParams.Add(request.NewErrParamMaxValue("PageSize", 100))
+	}
+	if s.ProjectName != nil && len(*s.ProjectName) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("ProjectName", 1))
+	}
+	if s.ProjectName != nil && len(*s.ProjectName) > 64 {
+		invalidParams.Add(request.NewErrParamMaxLen("ProjectName", 64, *s.ProjectName))
 	}
 
 	if invalidParams.Len() > 0 {
@@ -290,6 +298,12 @@ func (s *ListServicesInput) SetPageNumber(v int32) *ListServicesInput {
 // SetPageSize sets the PageSize field's value.
 func (s *ListServicesInput) SetPageSize(v int32) *ListServicesInput {
 	s.PageSize = &v
+	return s
+}
+
+// SetProjectName sets the ProjectName field's value.
+func (s *ListServicesInput) SetProjectName(v string) *ListServicesInput {
+	s.ProjectName = &v
 	return s
 }
 

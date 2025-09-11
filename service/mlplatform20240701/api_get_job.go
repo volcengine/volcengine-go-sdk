@@ -234,11 +234,15 @@ type ConfigForGetJobOutput struct {
 
 	Nas *NasForGetJobOutput `type:"structure" json:",omitempty"`
 
+	NasAP *NasAPForGetJobOutput `type:"structure" json:",omitempty"`
+
 	Sfcs *SfcsForGetJobOutput `type:"structure" json:",omitempty"`
 
 	Tos *TosForGetJobOutput `type:"structure" json:",omitempty"`
 
 	Vepfs *VepfsForGetJobOutput `type:"structure" json:",omitempty"`
+
+	VepfsAP *VepfsAPForGetJobOutput `type:"structure" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -263,6 +267,12 @@ func (s *ConfigForGetJobOutput) SetNas(v *NasForGetJobOutput) *ConfigForGetJobOu
 	return s
 }
 
+// SetNasAP sets the NasAP field's value.
+func (s *ConfigForGetJobOutput) SetNasAP(v *NasAPForGetJobOutput) *ConfigForGetJobOutput {
+	s.NasAP = v
+	return s
+}
+
 // SetSfcs sets the Sfcs field's value.
 func (s *ConfigForGetJobOutput) SetSfcs(v *SfcsForGetJobOutput) *ConfigForGetJobOutput {
 	s.Sfcs = v
@@ -278,6 +288,12 @@ func (s *ConfigForGetJobOutput) SetTos(v *TosForGetJobOutput) *ConfigForGetJobOu
 // SetVepfs sets the Vepfs field's value.
 func (s *ConfigForGetJobOutput) SetVepfs(v *VepfsForGetJobOutput) *ConfigForGetJobOutput {
 	s.Vepfs = v
+	return s
+}
+
+// SetVepfsAP sets the VepfsAP field's value.
+func (s *ConfigForGetJobOutput) SetVepfsAP(v *VepfsAPForGetJobOutput) *ConfigForGetJobOutput {
+	s.VepfsAP = v
 	return s
 }
 
@@ -576,6 +592,8 @@ type GetJobOutput struct {
 
 	PrivateNetworkConfig *PrivateNetworkConfigForGetJobOutput `type:"structure" json:",omitempty"`
 
+	ProjectName *string `type:"string" json:",omitempty"`
+
 	ResourceConfig *ResourceConfigForGetJobOutput `type:"structure" json:",omitempty"`
 
 	RetryConfig *RetryConfigForGetJobOutput `type:"structure" json:",omitempty"`
@@ -652,6 +670,12 @@ func (s *GetJobOutput) SetObservableConfig(v *ObservableConfigForGetJobOutput) *
 // SetPrivateNetworkConfig sets the PrivateNetworkConfig field's value.
 func (s *GetJobOutput) SetPrivateNetworkConfig(v *PrivateNetworkConfigForGetJobOutput) *GetJobOutput {
 	s.PrivateNetworkConfig = v
+	return s
+}
+
+// SetProjectName sets the ProjectName field's value.
+func (s *GetJobOutput) SetProjectName(v string) *GetJobOutput {
+	s.ProjectName = &v
 	return s
 }
 
@@ -732,6 +756,36 @@ func (s *ImageForGetJobOutput) SetType(v string) *ImageForGetJobOutput {
 // SetUrl sets the Url field's value.
 func (s *ImageForGetJobOutput) SetUrl(v string) *ImageForGetJobOutput {
 	s.Url = &v
+	return s
+}
+
+type NasAPForGetJobOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	AccessPointId *string `type:"string" json:",omitempty"`
+
+	Id *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s NasAPForGetJobOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s NasAPForGetJobOutput) GoString() string {
+	return s.String()
+}
+
+// SetAccessPointId sets the AccessPointId field's value.
+func (s *NasAPForGetJobOutput) SetAccessPointId(v string) *NasAPForGetJobOutput {
+	s.AccessPointId = &v
+	return s
+}
+
+// SetId sets the Id field's value.
+func (s *NasAPForGetJobOutput) SetId(v string) *NasAPForGetJobOutput {
+	s.Id = &v
 	return s
 }
 
@@ -1532,6 +1586,36 @@ func (s *TosForGetJobOutput) SetBucket(v string) *TosForGetJobOutput {
 // SetPrefix sets the Prefix field's value.
 func (s *TosForGetJobOutput) SetPrefix(v string) *TosForGetJobOutput {
 	s.Prefix = &v
+	return s
+}
+
+type VepfsAPForGetJobOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	AccessPointId *string `type:"string" json:",omitempty"`
+
+	Id *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s VepfsAPForGetJobOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s VepfsAPForGetJobOutput) GoString() string {
+	return s.String()
+}
+
+// SetAccessPointId sets the AccessPointId field's value.
+func (s *VepfsAPForGetJobOutput) SetAccessPointId(v string) *VepfsAPForGetJobOutput {
+	s.AccessPointId = &v
+	return s
+}
+
+// SetId sets the Id field's value.
+func (s *VepfsAPForGetJobOutput) SetId(v string) *VepfsAPForGetJobOutput {
+	s.Id = &v
 	return s
 }
 

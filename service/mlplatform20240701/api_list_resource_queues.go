@@ -620,6 +620,8 @@ type ItemForListResourceQueuesOutput struct {
 
 	Name *string `type:"string" json:",omitempty"`
 
+	ProjectName *string `min:"1" max:"64" type:"string" json:",omitempty"`
+
 	QuotaAllocated *QuotaAllocatedForListResourceQueuesOutput `type:"structure" json:",omitempty"`
 
 	QuotaCapability *QuotaCapabilityForListResourceQueuesOutput `type:"structure" json:",omitempty"`
@@ -680,6 +682,12 @@ func (s *ItemForListResourceQueuesOutput) SetId(v string) *ItemForListResourceQu
 // SetName sets the Name field's value.
 func (s *ItemForListResourceQueuesOutput) SetName(v string) *ItemForListResourceQueuesOutput {
 	s.Name = &v
+	return s
+}
+
+// SetProjectName sets the ProjectName field's value.
+func (s *ItemForListResourceQueuesOutput) SetProjectName(v string) *ItemForListResourceQueuesOutput {
+	s.ProjectName = &v
 	return s
 }
 
@@ -762,6 +770,8 @@ type ListResourceQueuesInput struct {
 
 	PageSize *int32 `min:"10" max:"100" type:"int32" json:",omitempty"`
 
+	ProjectName *string `min:"1" max:"64" type:"string" json:",omitempty"`
+
 	ResourceGroupIds []*string `type:"list" json:",omitempty"`
 
 	Shareable *bool `type:"boolean" json:",omitempty"`
@@ -795,6 +805,12 @@ func (s *ListResourceQueuesInput) Validate() error {
 	}
 	if s.PageSize != nil && *s.PageSize > 100 {
 		invalidParams.Add(request.NewErrParamMaxValue("PageSize", 100))
+	}
+	if s.ProjectName != nil && len(*s.ProjectName) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("ProjectName", 1))
+	}
+	if s.ProjectName != nil && len(*s.ProjectName) > 64 {
+		invalidParams.Add(request.NewErrParamMaxLen("ProjectName", 64, *s.ProjectName))
 	}
 
 	if invalidParams.Len() > 0 {
@@ -830,6 +846,12 @@ func (s *ListResourceQueuesInput) SetPageNumber(v int32) *ListResourceQueuesInpu
 // SetPageSize sets the PageSize field's value.
 func (s *ListResourceQueuesInput) SetPageSize(v int32) *ListResourceQueuesInput {
 	s.PageSize = &v
+	return s
+}
+
+// SetProjectName sets the ProjectName field's value.
+func (s *ListResourceQueuesInput) SetProjectName(v string) *ListResourceQueuesInput {
+	s.ProjectName = &v
 	return s
 }
 

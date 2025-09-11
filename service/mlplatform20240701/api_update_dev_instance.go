@@ -196,11 +196,15 @@ type ConfigForUpdateDevInstanceInput struct {
 
 	Nas *NasForUpdateDevInstanceInput `type:"structure" json:",omitempty"`
 
+	NasAP *NasAPForUpdateDevInstanceInput `type:"structure" json:",omitempty"`
+
 	Sfcs *SfcsForUpdateDevInstanceInput `type:"structure" json:",omitempty"`
 
 	Tos *TosForUpdateDevInstanceInput `type:"structure" json:",omitempty"`
 
 	Vepfs *VepfsForUpdateDevInstanceInput `type:"structure" json:",omitempty"`
+
+	VepfsAP *VepfsAPForUpdateDevInstanceInput `type:"structure" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -225,6 +229,12 @@ func (s *ConfigForUpdateDevInstanceInput) SetNas(v *NasForUpdateDevInstanceInput
 	return s
 }
 
+// SetNasAP sets the NasAP field's value.
+func (s *ConfigForUpdateDevInstanceInput) SetNasAP(v *NasAPForUpdateDevInstanceInput) *ConfigForUpdateDevInstanceInput {
+	s.NasAP = v
+	return s
+}
+
 // SetSfcs sets the Sfcs field's value.
 func (s *ConfigForUpdateDevInstanceInput) SetSfcs(v *SfcsForUpdateDevInstanceInput) *ConfigForUpdateDevInstanceInput {
 	s.Sfcs = v
@@ -240,6 +250,12 @@ func (s *ConfigForUpdateDevInstanceInput) SetTos(v *TosForUpdateDevInstanceInput
 // SetVepfs sets the Vepfs field's value.
 func (s *ConfigForUpdateDevInstanceInput) SetVepfs(v *VepfsForUpdateDevInstanceInput) *ConfigForUpdateDevInstanceInput {
 	s.Vepfs = v
+	return s
+}
+
+// SetVepfsAP sets the VepfsAP field's value.
+func (s *ConfigForUpdateDevInstanceInput) SetVepfsAP(v *VepfsAPForUpdateDevInstanceInput) *ConfigForUpdateDevInstanceInput {
+	s.VepfsAP = v
 	return s
 }
 
@@ -362,6 +378,36 @@ func (s *FlexibleResourceClaimForUpdateDevInstanceInput) SetMemoryGiB(v float64)
 // SetRdmaEniCount sets the RdmaEniCount field's value.
 func (s *FlexibleResourceClaimForUpdateDevInstanceInput) SetRdmaEniCount(v int32) *FlexibleResourceClaimForUpdateDevInstanceInput {
 	s.RdmaEniCount = &v
+	return s
+}
+
+type NasAPForUpdateDevInstanceInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	AccessPointId *string `type:"string" json:",omitempty"`
+
+	Id *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s NasAPForUpdateDevInstanceInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s NasAPForUpdateDevInstanceInput) GoString() string {
+	return s.String()
+}
+
+// SetAccessPointId sets the AccessPointId field's value.
+func (s *NasAPForUpdateDevInstanceInput) SetAccessPointId(v string) *NasAPForUpdateDevInstanceInput {
+	s.AccessPointId = &v
+	return s
+}
+
+// SetId sets the Id field's value.
+func (s *NasAPForUpdateDevInstanceInput) SetId(v string) *NasAPForUpdateDevInstanceInput {
+	s.Id = &v
 	return s
 }
 
@@ -722,6 +768,8 @@ type UpdateDevInstanceInput struct {
 
 	Credential *CredentialForUpdateDevInstanceInput `type:"structure" json:",omitempty"`
 
+	DefaultFolder *string `type:"string" json:",omitempty"`
+
 	Description *string `type:"string" json:",omitempty"`
 
 	// Id is a required field
@@ -738,6 +786,8 @@ type UpdateDevInstanceInput struct {
 	ResourceClaim *ResourceClaimForUpdateDevInstanceInput `type:"structure" json:",omitempty"`
 
 	ResourceQueueId *string `type:"string" json:",omitempty"`
+
+	ResourceReservationPlanId *string `type:"string" json:",omitempty"`
 
 	SshPublicKey *string `type:"string" json:",omitempty"`
 
@@ -772,6 +822,12 @@ func (s *UpdateDevInstanceInput) Validate() error {
 // SetCredential sets the Credential field's value.
 func (s *UpdateDevInstanceInput) SetCredential(v *CredentialForUpdateDevInstanceInput) *UpdateDevInstanceInput {
 	s.Credential = v
+	return s
+}
+
+// SetDefaultFolder sets the DefaultFolder field's value.
+func (s *UpdateDevInstanceInput) SetDefaultFolder(v string) *UpdateDevInstanceInput {
+	s.DefaultFolder = &v
 	return s
 }
 
@@ -823,6 +879,12 @@ func (s *UpdateDevInstanceInput) SetResourceQueueId(v string) *UpdateDevInstance
 	return s
 }
 
+// SetResourceReservationPlanId sets the ResourceReservationPlanId field's value.
+func (s *UpdateDevInstanceInput) SetResourceReservationPlanId(v string) *UpdateDevInstanceInput {
+	s.ResourceReservationPlanId = &v
+	return s
+}
+
 // SetSshPublicKey sets the SshPublicKey field's value.
 func (s *UpdateDevInstanceInput) SetSshPublicKey(v string) *UpdateDevInstanceInput {
 	s.SshPublicKey = &v
@@ -861,6 +923,36 @@ func (s UpdateDevInstanceOutput) GoString() string {
 
 // SetId sets the Id field's value.
 func (s *UpdateDevInstanceOutput) SetId(v string) *UpdateDevInstanceOutput {
+	s.Id = &v
+	return s
+}
+
+type VepfsAPForUpdateDevInstanceInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	AccessPointId *string `type:"string" json:",omitempty"`
+
+	Id *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s VepfsAPForUpdateDevInstanceInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s VepfsAPForUpdateDevInstanceInput) GoString() string {
+	return s.String()
+}
+
+// SetAccessPointId sets the AccessPointId field's value.
+func (s *VepfsAPForUpdateDevInstanceInput) SetAccessPointId(v string) *VepfsAPForUpdateDevInstanceInput {
+	s.AccessPointId = &v
+	return s
+}
+
+// SetId sets the Id field's value.
+func (s *VepfsAPForUpdateDevInstanceInput) SetId(v string) *VepfsAPForUpdateDevInstanceInput {
 	s.Id = &v
 	return s
 }

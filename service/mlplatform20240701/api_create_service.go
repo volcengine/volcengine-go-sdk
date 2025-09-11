@@ -291,6 +291,8 @@ type CreateServiceInput struct {
 
 	Ports []*PortForCreateServiceInput `type:"list" json:",omitempty"`
 
+	ProjectName *string `min:"1" max:"64" type:"string" json:",omitempty"`
+
 	// ResourceGroupId is a required field
 	ResourceGroupId *string `type:"string" json:",omitempty" required:"true"`
 
@@ -313,6 +315,12 @@ func (s CreateServiceInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *CreateServiceInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "CreateServiceInput"}
+	if s.ProjectName != nil && len(*s.ProjectName) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("ProjectName", 1))
+	}
+	if s.ProjectName != nil && len(*s.ProjectName) > 64 {
+		invalidParams.Add(request.NewErrParamMaxLen("ProjectName", 64, *s.ProjectName))
+	}
 	if s.ResourceGroupId == nil {
 		invalidParams.Add(request.NewErrParamRequired("ResourceGroupId"))
 	}
@@ -358,6 +366,12 @@ func (s *CreateServiceInput) SetDryRun(v bool) *CreateServiceInput {
 // SetPorts sets the Ports field's value.
 func (s *CreateServiceInput) SetPorts(v []*PortForCreateServiceInput) *CreateServiceInput {
 	s.Ports = v
+	return s
+}
+
+// SetProjectName sets the ProjectName field's value.
+func (s *CreateServiceInput) SetProjectName(v string) *CreateServiceInput {
+	s.ProjectName = &v
 	return s
 }
 

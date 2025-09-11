@@ -204,9 +204,13 @@ type CreateResourceGroupInput struct {
 
 	PeriodUnit *string `type:"string" json:",omitempty" enum:"EnumOfPeriodUnitForCreateResourceGroupInput"`
 
+	ProjectName *string `min:"1" max:"64" type:"string" json:",omitempty"`
+
 	ResourceConfig *ResourceConfigForCreateResourceGroupInput `type:"structure" json:",omitempty"`
 
 	StorageConfig *StorageConfigForCreateResourceGroupInput `type:"structure" json:",omitempty"`
+
+	VRdmaEnabled *bool `type:"boolean" json:",omitempty"`
 
 	WorkloadNetworkConfig *WorkloadNetworkConfigForCreateResourceGroupInput `type:"structure" json:",omitempty"`
 
@@ -249,6 +253,12 @@ func (s *CreateResourceGroupInput) Validate() error {
 	}
 	if s.Period != nil && *s.Period < 1 {
 		invalidParams.Add(request.NewErrParamMinValue("Period", 1))
+	}
+	if s.ProjectName != nil && len(*s.ProjectName) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("ProjectName", 1))
+	}
+	if s.ProjectName != nil && len(*s.ProjectName) > 64 {
+		invalidParams.Add(request.NewErrParamMaxLen("ProjectName", 64, *s.ProjectName))
 	}
 
 	if invalidParams.Len() > 0 {
@@ -311,6 +321,12 @@ func (s *CreateResourceGroupInput) SetPeriodUnit(v string) *CreateResourceGroupI
 	return s
 }
 
+// SetProjectName sets the ProjectName field's value.
+func (s *CreateResourceGroupInput) SetProjectName(v string) *CreateResourceGroupInput {
+	s.ProjectName = &v
+	return s
+}
+
 // SetResourceConfig sets the ResourceConfig field's value.
 func (s *CreateResourceGroupInput) SetResourceConfig(v *ResourceConfigForCreateResourceGroupInput) *CreateResourceGroupInput {
 	s.ResourceConfig = v
@@ -320,6 +336,12 @@ func (s *CreateResourceGroupInput) SetResourceConfig(v *ResourceConfigForCreateR
 // SetStorageConfig sets the StorageConfig field's value.
 func (s *CreateResourceGroupInput) SetStorageConfig(v *StorageConfigForCreateResourceGroupInput) *CreateResourceGroupInput {
 	s.StorageConfig = v
+	return s
+}
+
+// SetVRdmaEnabled sets the VRdmaEnabled field's value.
+func (s *CreateResourceGroupInput) SetVRdmaEnabled(v bool) *CreateResourceGroupInput {
+	s.VRdmaEnabled = &v
 	return s
 }
 

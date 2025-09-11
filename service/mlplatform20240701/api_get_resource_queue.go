@@ -466,6 +466,8 @@ type GetResourceQueueOutput struct {
 
 	Name *string `type:"string" json:",omitempty"`
 
+	ProjectName *string `type:"string" json:",omitempty"`
+
 	QuotaAllocated *QuotaAllocatedForGetResourceQueueOutput `type:"structure" json:",omitempty"`
 
 	QuotaCapability *QuotaCapabilityForGetResourceQueueOutput `type:"structure" json:",omitempty"`
@@ -526,6 +528,12 @@ func (s *GetResourceQueueOutput) SetId(v string) *GetResourceQueueOutput {
 // SetName sets the Name field's value.
 func (s *GetResourceQueueOutput) SetName(v string) *GetResourceQueueOutput {
 	s.Name = &v
+	return s
+}
+
+// SetProjectName sets the ProjectName field's value.
+func (s *GetResourceQueueOutput) SetProjectName(v string) *GetResourceQueueOutput {
+	s.ProjectName = &v
 	return s
 }
 
