@@ -148,6 +148,8 @@ type AllocatedComputeResourceForListResourceReservationRecordsOutput struct {
 
 	Count *int64 `type:"int64" json:",omitempty"`
 
+	GpuCount *int64 `type:"int64" json:",omitempty"`
+
 	InstanceTypeId *string `type:"string" json:",omitempty"`
 
 	ZoneIds []*string `type:"list" json:",omitempty"`
@@ -169,6 +171,12 @@ func (s *AllocatedComputeResourceForListResourceReservationRecordsOutput) SetCou
 	return s
 }
 
+// SetGpuCount sets the GpuCount field's value.
+func (s *AllocatedComputeResourceForListResourceReservationRecordsOutput) SetGpuCount(v int64) *AllocatedComputeResourceForListResourceReservationRecordsOutput {
+	s.GpuCount = &v
+	return s
+}
+
 // SetInstanceTypeId sets the InstanceTypeId field's value.
 func (s *AllocatedComputeResourceForListResourceReservationRecordsOutput) SetInstanceTypeId(v string) *AllocatedComputeResourceForListResourceReservationRecordsOutput {
 	s.InstanceTypeId = &v
@@ -185,6 +193,8 @@ type DeliveredComputeResourceForListResourceReservationRecordsOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
 	Count *int64 `type:"int64" json:",omitempty"`
+
+	GpuCount *int64 `type:"int64" json:",omitempty"`
 
 	InstanceTypeId *string `type:"string" json:",omitempty"`
 
@@ -207,6 +217,12 @@ func (s *DeliveredComputeResourceForListResourceReservationRecordsOutput) SetCou
 	return s
 }
 
+// SetGpuCount sets the GpuCount field's value.
+func (s *DeliveredComputeResourceForListResourceReservationRecordsOutput) SetGpuCount(v int64) *DeliveredComputeResourceForListResourceReservationRecordsOutput {
+	s.GpuCount = &v
+	return s
+}
+
 // SetInstanceTypeId sets the InstanceTypeId field's value.
 func (s *DeliveredComputeResourceForListResourceReservationRecordsOutput) SetInstanceTypeId(v string) *DeliveredComputeResourceForListResourceReservationRecordsOutput {
 	s.InstanceTypeId = &v
@@ -223,6 +239,8 @@ type DesiredComputeResourceForListResourceReservationRecordsOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
 	Count *int64 `type:"int64" json:",omitempty"`
+
+	GpuCount *int64 `type:"int64" json:",omitempty"`
 
 	InstanceTypeId *string `type:"string" json:",omitempty"`
 
@@ -242,6 +260,12 @@ func (s DesiredComputeResourceForListResourceReservationRecordsOutput) GoString(
 // SetCount sets the Count field's value.
 func (s *DesiredComputeResourceForListResourceReservationRecordsOutput) SetCount(v int64) *DesiredComputeResourceForListResourceReservationRecordsOutput {
 	s.Count = &v
+	return s
+}
+
+// SetGpuCount sets the GpuCount field's value.
+func (s *DesiredComputeResourceForListResourceReservationRecordsOutput) SetGpuCount(v int64) *DesiredComputeResourceForListResourceReservationRecordsOutput {
+	s.GpuCount = &v
 	return s
 }
 

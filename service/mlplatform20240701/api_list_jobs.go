@@ -220,6 +220,8 @@ type ItemForListJobsOutput struct {
 
 	Name *string `type:"string" json:",omitempty"`
 
+	ProjectName *string `min:"1" max:"64" type:"string" json:",omitempty"`
+
 	ResourceConfig *ResourceConfigForListJobsOutput `type:"structure" json:",omitempty"`
 
 	Status *StatusForListJobsOutput `type:"structure" json:",omitempty"`
@@ -275,6 +277,12 @@ func (s *ItemForListJobsOutput) SetName(v string) *ItemForListJobsOutput {
 	return s
 }
 
+// SetProjectName sets the ProjectName field's value.
+func (s *ItemForListJobsOutput) SetProjectName(v string) *ItemForListJobsOutput {
+	s.ProjectName = &v
+	return s
+}
+
 // SetResourceConfig sets the ResourceConfig field's value.
 func (s *ItemForListJobsOutput) SetResourceConfig(v *ResourceConfigForListJobsOutput) *ItemForListJobsOutput {
 	s.ResourceConfig = v
@@ -316,6 +324,8 @@ type ListJobsInput struct {
 
 	Priority *int32 `type:"int32" json:",omitempty"`
 
+	ProjectName *string `min:"1" max:"64" type:"string" json:",omitempty"`
+
 	ResourceGroupId *string `type:"string" json:",omitempty"`
 
 	ResourceQueueId *string `type:"string" json:",omitempty"`
@@ -351,6 +361,12 @@ func (s *ListJobsInput) Validate() error {
 	}
 	if s.PageSize != nil && *s.PageSize > 100 {
 		invalidParams.Add(request.NewErrParamMaxValue("PageSize", 100))
+	}
+	if s.ProjectName != nil && len(*s.ProjectName) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("ProjectName", 1))
+	}
+	if s.ProjectName != nil && len(*s.ProjectName) > 64 {
+		invalidParams.Add(request.NewErrParamMaxLen("ProjectName", 64, *s.ProjectName))
 	}
 
 	if invalidParams.Len() > 0 {
@@ -398,6 +414,12 @@ func (s *ListJobsInput) SetPageSize(v int32) *ListJobsInput {
 // SetPriority sets the Priority field's value.
 func (s *ListJobsInput) SetPriority(v int32) *ListJobsInput {
 	s.Priority = &v
+	return s
+}
+
+// SetProjectName sets the ProjectName field's value.
+func (s *ListJobsInput) SetProjectName(v string) *ListJobsInput {
+	s.ProjectName = &v
 	return s
 }
 

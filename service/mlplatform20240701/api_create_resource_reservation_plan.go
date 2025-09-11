@@ -148,6 +148,8 @@ type ComputeResourceForCreateResourceReservationPlanInput struct {
 
 	Count *int64 `type:"int64" json:",omitempty"`
 
+	GpuCount *int64 `type:"int64" json:",omitempty"`
+
 	InstanceTypeId *string `type:"string" json:",omitempty"`
 
 	ZoneIds []*string `type:"list" json:",omitempty"`
@@ -166,6 +168,12 @@ func (s ComputeResourceForCreateResourceReservationPlanInput) GoString() string 
 // SetCount sets the Count field's value.
 func (s *ComputeResourceForCreateResourceReservationPlanInput) SetCount(v int64) *ComputeResourceForCreateResourceReservationPlanInput {
 	s.Count = &v
+	return s
+}
+
+// SetGpuCount sets the GpuCount field's value.
+func (s *ComputeResourceForCreateResourceReservationPlanInput) SetGpuCount(v int64) *ComputeResourceForCreateResourceReservationPlanInput {
+	s.GpuCount = &v
 	return s
 }
 
@@ -193,11 +201,17 @@ type CreateResourceReservationPlanInput struct {
 	// Name is a required field
 	Name *string `min:"1" max:"200" type:"string" json:",omitempty" required:"true"`
 
+	ProjectName *string `min:"1" max:"64" type:"string" json:",omitempty"`
+
 	ReservationConfig *ReservationConfigForCreateResourceReservationPlanInput `type:"structure" json:",omitempty"`
+
+	ScheduleConfig *ScheduleConfigForCreateResourceReservationPlanInput `type:"structure" json:",omitempty"`
 
 	StorageConfig *StorageConfigForCreateResourceReservationPlanInput `type:"structure" json:",omitempty"`
 
 	WorkloadNetworkConfig *WorkloadNetworkConfigForCreateResourceReservationPlanInput `type:"structure" json:",omitempty"`
+
+	WorkloadNetworkMode *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -227,6 +241,12 @@ func (s *CreateResourceReservationPlanInput) Validate() error {
 	}
 	if s.Name != nil && len(*s.Name) > 200 {
 		invalidParams.Add(request.NewErrParamMaxLen("Name", 200, *s.Name))
+	}
+	if s.ProjectName != nil && len(*s.ProjectName) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("ProjectName", 1))
+	}
+	if s.ProjectName != nil && len(*s.ProjectName) > 64 {
+		invalidParams.Add(request.NewErrParamMaxLen("ProjectName", 64, *s.ProjectName))
 	}
 	if s.ReservationConfig != nil {
 		if err := s.ReservationConfig.Validate(); err != nil {
@@ -264,9 +284,21 @@ func (s *CreateResourceReservationPlanInput) SetName(v string) *CreateResourceRe
 	return s
 }
 
+// SetProjectName sets the ProjectName field's value.
+func (s *CreateResourceReservationPlanInput) SetProjectName(v string) *CreateResourceReservationPlanInput {
+	s.ProjectName = &v
+	return s
+}
+
 // SetReservationConfig sets the ReservationConfig field's value.
 func (s *CreateResourceReservationPlanInput) SetReservationConfig(v *ReservationConfigForCreateResourceReservationPlanInput) *CreateResourceReservationPlanInput {
 	s.ReservationConfig = v
+	return s
+}
+
+// SetScheduleConfig sets the ScheduleConfig field's value.
+func (s *CreateResourceReservationPlanInput) SetScheduleConfig(v *ScheduleConfigForCreateResourceReservationPlanInput) *CreateResourceReservationPlanInput {
+	s.ScheduleConfig = v
 	return s
 }
 
@@ -279,6 +311,12 @@ func (s *CreateResourceReservationPlanInput) SetStorageConfig(v *StorageConfigFo
 // SetWorkloadNetworkConfig sets the WorkloadNetworkConfig field's value.
 func (s *CreateResourceReservationPlanInput) SetWorkloadNetworkConfig(v *WorkloadNetworkConfigForCreateResourceReservationPlanInput) *CreateResourceReservationPlanInput {
 	s.WorkloadNetworkConfig = v
+	return s
+}
+
+// SetWorkloadNetworkMode sets the WorkloadNetworkMode field's value.
+func (s *CreateResourceReservationPlanInput) SetWorkloadNetworkMode(v string) *CreateResourceReservationPlanInput {
+	s.WorkloadNetworkMode = &v
 	return s
 }
 
@@ -308,6 +346,8 @@ func (s *CreateResourceReservationPlanOutput) SetId(v string) *CreateResourceRes
 
 type ReservationConfigForCreateResourceReservationPlanInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
+
+	AvailableResourceId *string `type:"string" json:",omitempty"`
 
 	MaxDurationHours *int64 `min:"4" max:"12" type:"int64" json:",omitempty"`
 
@@ -354,6 +394,12 @@ func (s *ReservationConfigForCreateResourceReservationPlanInput) Validate() erro
 	return nil
 }
 
+// SetAvailableResourceId sets the AvailableResourceId field's value.
+func (s *ReservationConfigForCreateResourceReservationPlanInput) SetAvailableResourceId(v string) *ReservationConfigForCreateResourceReservationPlanInput {
+	s.AvailableResourceId = &v
+	return s
+}
+
 // SetMaxDurationHours sets the MaxDurationHours field's value.
 func (s *ReservationConfigForCreateResourceReservationPlanInput) SetMaxDurationHours(v int64) *ReservationConfigForCreateResourceReservationPlanInput {
 	s.MaxDurationHours = &v
@@ -387,6 +433,28 @@ func (s *ReservationConfigForCreateResourceReservationPlanInput) SetRecurrenceSt
 // SetReservationType sets the ReservationType field's value.
 func (s *ReservationConfigForCreateResourceReservationPlanInput) SetReservationType(v string) *ReservationConfigForCreateResourceReservationPlanInput {
 	s.ReservationType = &v
+	return s
+}
+
+type ScheduleConfigForCreateResourceReservationPlanInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	SplitSchedulingEnabled *bool `type:"boolean" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s ScheduleConfigForCreateResourceReservationPlanInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ScheduleConfigForCreateResourceReservationPlanInput) GoString() string {
+	return s.String()
+}
+
+// SetSplitSchedulingEnabled sets the SplitSchedulingEnabled field's value.
+func (s *ScheduleConfigForCreateResourceReservationPlanInput) SetSplitSchedulingEnabled(v bool) *ScheduleConfigForCreateResourceReservationPlanInput {
+	s.SplitSchedulingEnabled = &v
 	return s
 }
 

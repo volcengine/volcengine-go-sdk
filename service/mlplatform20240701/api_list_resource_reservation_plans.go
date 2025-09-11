@@ -148,6 +148,8 @@ type DesiredComputeResourceForListResourceReservationPlansOutput struct {
 
 	Count *int64 `type:"int64" json:",omitempty"`
 
+	GpuCount *int64 `type:"int64" json:",omitempty"`
+
 	InstanceTypeId *string `type:"string" json:",omitempty"`
 
 	ZoneIds []*string `type:"list" json:",omitempty"`
@@ -166,6 +168,12 @@ func (s DesiredComputeResourceForListResourceReservationPlansOutput) GoString() 
 // SetCount sets the Count field's value.
 func (s *DesiredComputeResourceForListResourceReservationPlansOutput) SetCount(v int64) *DesiredComputeResourceForListResourceReservationPlansOutput {
 	s.Count = &v
+	return s
+}
+
+// SetGpuCount sets the GpuCount field's value.
+func (s *DesiredComputeResourceForListResourceReservationPlansOutput) SetGpuCount(v int64) *DesiredComputeResourceForListResourceReservationPlansOutput {
+	s.GpuCount = &v
 	return s
 }
 
@@ -196,7 +204,11 @@ type ItemForListResourceReservationPlansOutput struct {
 
 	Name *string `type:"string" json:",omitempty"`
 
+	ProjectName *string `min:"1" max:"64" type:"string" json:",omitempty"`
+
 	ReservationConfig *ReservationConfigForListResourceReservationPlansOutput `type:"structure" json:",omitempty"`
+
+	ScheduleConfig *ScheduleConfigForListResourceReservationPlansOutput `type:"structure" json:",omitempty"`
 
 	Status *StatusForListResourceReservationPlansOutput `type:"structure" json:",omitempty"`
 
@@ -205,6 +217,8 @@ type ItemForListResourceReservationPlansOutput struct {
 	UpdateTime *string `type:"string" json:",omitempty"`
 
 	WorkloadNetworkConfig *WorkloadNetworkConfigForListResourceReservationPlansOutput `type:"structure" json:",omitempty"`
+
+	WorkloadNetworkMode *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -253,9 +267,21 @@ func (s *ItemForListResourceReservationPlansOutput) SetName(v string) *ItemForLi
 	return s
 }
 
+// SetProjectName sets the ProjectName field's value.
+func (s *ItemForListResourceReservationPlansOutput) SetProjectName(v string) *ItemForListResourceReservationPlansOutput {
+	s.ProjectName = &v
+	return s
+}
+
 // SetReservationConfig sets the ReservationConfig field's value.
 func (s *ItemForListResourceReservationPlansOutput) SetReservationConfig(v *ReservationConfigForListResourceReservationPlansOutput) *ItemForListResourceReservationPlansOutput {
 	s.ReservationConfig = v
+	return s
+}
+
+// SetScheduleConfig sets the ScheduleConfig field's value.
+func (s *ItemForListResourceReservationPlansOutput) SetScheduleConfig(v *ScheduleConfigForListResourceReservationPlansOutput) *ItemForListResourceReservationPlansOutput {
+	s.ScheduleConfig = v
 	return s
 }
 
@@ -283,6 +309,12 @@ func (s *ItemForListResourceReservationPlansOutput) SetWorkloadNetworkConfig(v *
 	return s
 }
 
+// SetWorkloadNetworkMode sets the WorkloadNetworkMode field's value.
+func (s *ItemForListResourceReservationPlansOutput) SetWorkloadNetworkMode(v string) *ItemForListResourceReservationPlansOutput {
+	s.WorkloadNetworkMode = &v
+	return s
+}
+
 type ListResourceReservationPlansInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -295,6 +327,10 @@ type ListResourceReservationPlansInput struct {
 	PageNumber *int32 `type:"int32" json:",omitempty"`
 
 	PageSize *int32 `min:"10" max:"100" type:"int32" json:",omitempty"`
+
+	ProjectName *string `min:"1" max:"64" type:"string" json:",omitempty"`
+
+	ReservationTypes []*string `type:"list" json:",omitempty"`
 
 	SortBy *string `type:"string" json:",omitempty" enum:"EnumOfSortByForListResourceReservationPlansInput"`
 
@@ -321,6 +357,12 @@ func (s *ListResourceReservationPlansInput) Validate() error {
 	}
 	if s.PageSize != nil && *s.PageSize > 100 {
 		invalidParams.Add(request.NewErrParamMaxValue("PageSize", 100))
+	}
+	if s.ProjectName != nil && len(*s.ProjectName) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("ProjectName", 1))
+	}
+	if s.ProjectName != nil && len(*s.ProjectName) > 64 {
+		invalidParams.Add(request.NewErrParamMaxLen("ProjectName", 64, *s.ProjectName))
 	}
 
 	if invalidParams.Len() > 0 {
@@ -356,6 +398,18 @@ func (s *ListResourceReservationPlansInput) SetPageNumber(v int32) *ListResource
 // SetPageSize sets the PageSize field's value.
 func (s *ListResourceReservationPlansInput) SetPageSize(v int32) *ListResourceReservationPlansInput {
 	s.PageSize = &v
+	return s
+}
+
+// SetProjectName sets the ProjectName field's value.
+func (s *ListResourceReservationPlansInput) SetProjectName(v string) *ListResourceReservationPlansInput {
+	s.ProjectName = &v
+	return s
+}
+
+// SetReservationTypes sets the ReservationTypes field's value.
+func (s *ListResourceReservationPlansInput) SetReservationTypes(v []*string) *ListResourceReservationPlansInput {
+	s.ReservationTypes = v
 	return s
 }
 
@@ -439,6 +493,8 @@ type ReservationConfigForListResourceReservationPlansOutput struct {
 	RecurrenceStartTime *string `type:"string" json:",omitempty"`
 
 	ReservationType *string `type:"string" json:",omitempty"`
+
+	ResourceSegments []*ResourceSegmentForListResourceReservationPlansOutput `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -484,6 +540,72 @@ func (s *ReservationConfigForListResourceReservationPlansOutput) SetRecurrenceSt
 // SetReservationType sets the ReservationType field's value.
 func (s *ReservationConfigForListResourceReservationPlansOutput) SetReservationType(v string) *ReservationConfigForListResourceReservationPlansOutput {
 	s.ReservationType = &v
+	return s
+}
+
+// SetResourceSegments sets the ResourceSegments field's value.
+func (s *ReservationConfigForListResourceReservationPlansOutput) SetResourceSegments(v []*ResourceSegmentForListResourceReservationPlansOutput) *ReservationConfigForListResourceReservationPlansOutput {
+	s.ResourceSegments = v
+	return s
+}
+
+type ResourceSegmentForListResourceReservationPlansOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	AvailabilityZone *string `type:"string" json:",omitempty"`
+
+	EndTime *string `type:"string" json:",omitempty"`
+
+	StartTime *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s ResourceSegmentForListResourceReservationPlansOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ResourceSegmentForListResourceReservationPlansOutput) GoString() string {
+	return s.String()
+}
+
+// SetAvailabilityZone sets the AvailabilityZone field's value.
+func (s *ResourceSegmentForListResourceReservationPlansOutput) SetAvailabilityZone(v string) *ResourceSegmentForListResourceReservationPlansOutput {
+	s.AvailabilityZone = &v
+	return s
+}
+
+// SetEndTime sets the EndTime field's value.
+func (s *ResourceSegmentForListResourceReservationPlansOutput) SetEndTime(v string) *ResourceSegmentForListResourceReservationPlansOutput {
+	s.EndTime = &v
+	return s
+}
+
+// SetStartTime sets the StartTime field's value.
+func (s *ResourceSegmentForListResourceReservationPlansOutput) SetStartTime(v string) *ResourceSegmentForListResourceReservationPlansOutput {
+	s.StartTime = &v
+	return s
+}
+
+type ScheduleConfigForListResourceReservationPlansOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	SplitSchedulingEnabled *bool `type:"boolean" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s ScheduleConfigForListResourceReservationPlansOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ScheduleConfigForListResourceReservationPlansOutput) GoString() string {
+	return s.String()
+}
+
+// SetSplitSchedulingEnabled sets the SplitSchedulingEnabled field's value.
+func (s *ScheduleConfigForListResourceReservationPlansOutput) SetSplitSchedulingEnabled(v bool) *ScheduleConfigForListResourceReservationPlansOutput {
+	s.SplitSchedulingEnabled = &v
 	return s
 }
 

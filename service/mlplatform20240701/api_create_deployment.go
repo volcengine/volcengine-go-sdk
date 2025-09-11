@@ -256,11 +256,15 @@ type ConfigForCreateDeploymentInput struct {
 
 	Nas *NasForCreateDeploymentInput `type:"structure" json:",omitempty"`
 
+	NasAP *NasAPForCreateDeploymentInput `type:"structure" json:",omitempty"`
+
 	Sfcs *SfcsForCreateDeploymentInput `type:"structure" json:",omitempty"`
 
 	Tos *TosForCreateDeploymentInput `type:"structure" json:",omitempty"`
 
 	Vepfs *VepfsForCreateDeploymentInput `type:"structure" json:",omitempty"`
+
+	VepfsAP *VepfsAPForCreateDeploymentInput `type:"structure" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -285,6 +289,12 @@ func (s *ConfigForCreateDeploymentInput) SetNas(v *NasForCreateDeploymentInput) 
 	return s
 }
 
+// SetNasAP sets the NasAP field's value.
+func (s *ConfigForCreateDeploymentInput) SetNasAP(v *NasAPForCreateDeploymentInput) *ConfigForCreateDeploymentInput {
+	s.NasAP = v
+	return s
+}
+
 // SetSfcs sets the Sfcs field's value.
 func (s *ConfigForCreateDeploymentInput) SetSfcs(v *SfcsForCreateDeploymentInput) *ConfigForCreateDeploymentInput {
 	s.Sfcs = v
@@ -300,6 +310,12 @@ func (s *ConfigForCreateDeploymentInput) SetTos(v *TosForCreateDeploymentInput) 
 // SetVepfs sets the Vepfs field's value.
 func (s *ConfigForCreateDeploymentInput) SetVepfs(v *VepfsForCreateDeploymentInput) *ConfigForCreateDeploymentInput {
 	s.Vepfs = v
+	return s
+}
+
+// SetVepfsAP sets the VepfsAP field's value.
+func (s *ConfigForCreateDeploymentInput) SetVepfsAP(v *VepfsAPForCreateDeploymentInput) *ConfigForCreateDeploymentInput {
+	s.VepfsAP = v
 	return s
 }
 
@@ -928,6 +944,36 @@ func (s *ModelForCreateDeploymentInput) SetModelID(v string) *ModelForCreateDepl
 // SetModelVersionID sets the ModelVersionID field's value.
 func (s *ModelForCreateDeploymentInput) SetModelVersionID(v string) *ModelForCreateDeploymentInput {
 	s.ModelVersionID = &v
+	return s
+}
+
+type NasAPForCreateDeploymentInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	AccessPointId *string `type:"string" json:",omitempty"`
+
+	Id *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s NasAPForCreateDeploymentInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s NasAPForCreateDeploymentInput) GoString() string {
+	return s.String()
+}
+
+// SetAccessPointId sets the AccessPointId field's value.
+func (s *NasAPForCreateDeploymentInput) SetAccessPointId(v string) *NasAPForCreateDeploymentInput {
+	s.AccessPointId = &v
+	return s
+}
+
+// SetId sets the Id field's value.
+func (s *NasAPForCreateDeploymentInput) SetId(v string) *NasAPForCreateDeploymentInput {
+	s.Id = &v
 	return s
 }
 
@@ -1730,6 +1776,36 @@ func (s *UpstreamConfigForCreateDeploymentInput) SetConsistentHashConfig(v *Cons
 // SetLoadBalancePolicy sets the LoadBalancePolicy field's value.
 func (s *UpstreamConfigForCreateDeploymentInput) SetLoadBalancePolicy(v string) *UpstreamConfigForCreateDeploymentInput {
 	s.LoadBalancePolicy = &v
+	return s
+}
+
+type VepfsAPForCreateDeploymentInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	AccessPointId *string `type:"string" json:",omitempty"`
+
+	Id *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s VepfsAPForCreateDeploymentInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s VepfsAPForCreateDeploymentInput) GoString() string {
+	return s.String()
+}
+
+// SetAccessPointId sets the AccessPointId field's value.
+func (s *VepfsAPForCreateDeploymentInput) SetAccessPointId(v string) *VepfsAPForCreateDeploymentInput {
+	s.AccessPointId = &v
+	return s
+}
+
+// SetId sets the Id field's value.
+func (s *VepfsAPForCreateDeploymentInput) SetId(v string) *VepfsAPForCreateDeploymentInput {
+	s.Id = &v
 	return s
 }
 
