@@ -326,6 +326,8 @@ type TransitRouterForDescribeTransitRoutersOutput struct {
 
 	GrantStatus *string `type:"string"`
 
+	MulticastEnabled *bool `type:"boolean"`
+
 	OverdueTime *string `type:"string"`
 
 	ProjectName *string `type:"string"`
@@ -390,6 +392,12 @@ func (s *TransitRouterForDescribeTransitRoutersOutput) SetDescription(v string) 
 // SetGrantStatus sets the GrantStatus field's value.
 func (s *TransitRouterForDescribeTransitRoutersOutput) SetGrantStatus(v string) *TransitRouterForDescribeTransitRoutersOutput {
 	s.GrantStatus = &v
+	return s
+}
+
+// SetMulticastEnabled sets the MulticastEnabled field's value.
+func (s *TransitRouterForDescribeTransitRoutersOutput) SetMulticastEnabled(v bool) *TransitRouterForDescribeTransitRoutersOutput {
+	s.MulticastEnabled = &v
 	return s
 }
 
