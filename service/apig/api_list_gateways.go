@@ -143,6 +143,20 @@ func (c *APIG) ListGatewaysWithContext(ctx volcengine.Context, input *ListGatewa
 	return out, req.Send()
 }
 
+type APMTraceSpecForListGatewaysOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s APMTraceSpecForListGatewaysOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s APMTraceSpecForListGatewaysOutput) GoString() string {
+	return s.String()
+}
+
 type BackendSpecForListGatewaysOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -310,8 +324,6 @@ type FilterForListGatewaysInput struct {
 
 	Status *string `type:"string" json:",omitempty"`
 
-	Tags []*TagForListGatewaysInput `type:"list" json:",omitempty"`
-
 	Type *string `type:"string" json:",omitempty"`
 
 	VpcIds []*string `type:"list" json:",omitempty"`
@@ -342,12 +354,6 @@ func (s *FilterForListGatewaysInput) SetName(v string) *FilterForListGatewaysInp
 // SetStatus sets the Status field's value.
 func (s *FilterForListGatewaysInput) SetStatus(v string) *FilterForListGatewaysInput {
 	s.Status = &v
-	return s
-}
-
-// SetTags sets the Tags field's value.
-func (s *FilterForListGatewaysInput) SetTags(v []*TagForListGatewaysInput) *FilterForListGatewaysInput {
-	s.Tags = v
 	return s
 }
 
@@ -397,6 +403,8 @@ type ItemForListGatewaysOutput struct {
 	Status *string `type:"string" json:",omitempty"`
 
 	Tags []*TagForListGatewaysOutput `type:"list" json:",omitempty"`
+
+	TraceSpec *TraceSpecForListGatewaysOutput `type:"structure" json:",omitempty"`
 
 	Type *string `type:"string" json:",omitempty"`
 
@@ -506,6 +514,12 @@ func (s *ItemForListGatewaysOutput) SetStatus(v string) *ItemForListGatewaysOutp
 // SetTags sets the Tags field's value.
 func (s *ItemForListGatewaysOutput) SetTags(v []*TagForListGatewaysOutput) *ItemForListGatewaysOutput {
 	s.Tags = v
+	return s
+}
+
+// SetTraceSpec sets the TraceSpec field's value.
+func (s *ItemForListGatewaysOutput) SetTraceSpec(v *TraceSpecForListGatewaysOutput) *ItemForListGatewaysOutput {
+	s.TraceSpec = v
 	return s
 }
 
@@ -849,33 +863,33 @@ func (s *ResponseHeaderForListGatewaysOutput) SetKey(v string) *ResponseHeaderFo
 	return s
 }
 
-type TagForListGatewaysInput struct {
+type TLSTraceSpecForListGatewaysOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	Key *string `type:"string" json:",omitempty"`
+	ProjectId *string `type:"string" json:",omitempty"`
 
-	Value *string `type:"string" json:",omitempty"`
+	TraceId *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
-func (s TagForListGatewaysInput) String() string {
+func (s TLSTraceSpecForListGatewaysOutput) String() string {
 	return volcengineutil.Prettify(s)
 }
 
 // GoString returns the string representation
-func (s TagForListGatewaysInput) GoString() string {
+func (s TLSTraceSpecForListGatewaysOutput) GoString() string {
 	return s.String()
 }
 
-// SetKey sets the Key field's value.
-func (s *TagForListGatewaysInput) SetKey(v string) *TagForListGatewaysInput {
-	s.Key = &v
+// SetProjectId sets the ProjectId field's value.
+func (s *TLSTraceSpecForListGatewaysOutput) SetProjectId(v string) *TLSTraceSpecForListGatewaysOutput {
+	s.ProjectId = &v
 	return s
 }
 
-// SetValue sets the Value field's value.
-func (s *TagForListGatewaysInput) SetValue(v string) *TagForListGatewaysInput {
-	s.Value = &v
+// SetTraceId sets the TraceId field's value.
+func (s *TLSTraceSpecForListGatewaysOutput) SetTraceId(v string) *TLSTraceSpecForListGatewaysOutput {
+	s.TraceId = &v
 	return s
 }
 
@@ -906,5 +920,51 @@ func (s *TagForListGatewaysOutput) SetKey(v string) *TagForListGatewaysOutput {
 // SetValue sets the Value field's value.
 func (s *TagForListGatewaysOutput) SetValue(v string) *TagForListGatewaysOutput {
 	s.Value = &v
+	return s
+}
+
+type TraceSpecForListGatewaysOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	APMTraceSpec *APMTraceSpecForListGatewaysOutput `type:"structure" json:",omitempty"`
+
+	Enable *bool `type:"boolean" json:",omitempty"`
+
+	TLSTraceSpec *TLSTraceSpecForListGatewaysOutput `type:"structure" json:",omitempty"`
+
+	TraceType *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s TraceSpecForListGatewaysOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TraceSpecForListGatewaysOutput) GoString() string {
+	return s.String()
+}
+
+// SetAPMTraceSpec sets the APMTraceSpec field's value.
+func (s *TraceSpecForListGatewaysOutput) SetAPMTraceSpec(v *APMTraceSpecForListGatewaysOutput) *TraceSpecForListGatewaysOutput {
+	s.APMTraceSpec = v
+	return s
+}
+
+// SetEnable sets the Enable field's value.
+func (s *TraceSpecForListGatewaysOutput) SetEnable(v bool) *TraceSpecForListGatewaysOutput {
+	s.Enable = &v
+	return s
+}
+
+// SetTLSTraceSpec sets the TLSTraceSpec field's value.
+func (s *TraceSpecForListGatewaysOutput) SetTLSTraceSpec(v *TLSTraceSpecForListGatewaysOutput) *TraceSpecForListGatewaysOutput {
+	s.TLSTraceSpec = v
+	return s
+}
+
+// SetTraceType sets the TraceType field's value.
+func (s *TraceSpecForListGatewaysOutput) SetTraceType(v string) *TraceSpecForListGatewaysOutput {
+	s.TraceType = &v
 	return s
 }

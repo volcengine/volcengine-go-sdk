@@ -143,40 +143,30 @@ func (c *APIG) CreateGatewayWithContext(ctx volcengine.Context, input *CreateGat
 	return out, req.Send()
 }
 
-type BackendSpecForCreateGatewayInput struct {
+type APMTraceSpecForCreateGatewayInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	IsVkeWithFlannelCNISupported *bool `type:"boolean" json:",omitempty"`
-
-	VkePodCidr *string `type:"string" json:",omitempty"`
+	APIKey *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
-func (s BackendSpecForCreateGatewayInput) String() string {
+func (s APMTraceSpecForCreateGatewayInput) String() string {
 	return volcengineutil.Prettify(s)
 }
 
 // GoString returns the string representation
-func (s BackendSpecForCreateGatewayInput) GoString() string {
+func (s APMTraceSpecForCreateGatewayInput) GoString() string {
 	return s.String()
 }
 
-// SetIsVkeWithFlannelCNISupported sets the IsVkeWithFlannelCNISupported field's value.
-func (s *BackendSpecForCreateGatewayInput) SetIsVkeWithFlannelCNISupported(v bool) *BackendSpecForCreateGatewayInput {
-	s.IsVkeWithFlannelCNISupported = &v
-	return s
-}
-
-// SetVkePodCidr sets the VkePodCidr field's value.
-func (s *BackendSpecForCreateGatewayInput) SetVkePodCidr(v string) *BackendSpecForCreateGatewayInput {
-	s.VkePodCidr = &v
+// SetAPIKey sets the APIKey field's value.
+func (s *APMTraceSpecForCreateGatewayInput) SetAPIKey(v string) *APMTraceSpecForCreateGatewayInput {
+	s.APIKey = &v
 	return s
 }
 
 type CreateGatewayInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
-
-	BackendSpec *BackendSpecForCreateGatewayInput `type:"structure" json:",omitempty"`
 
 	Comments *string `type:"string" json:",omitempty"`
 
@@ -196,7 +186,7 @@ type CreateGatewayInput struct {
 
 	ResourceSpec *ResourceSpecForCreateGatewayInput `type:"structure" json:",omitempty"`
 
-	Tags []*TagForCreateGatewayInput `type:"list" json:",omitempty"`
+	TraceSpec *TraceSpecForCreateGatewayInput `type:"structure" json:",omitempty"`
 
 	Type *string `type:"string" json:",omitempty"`
 }
@@ -225,12 +215,6 @@ func (s *CreateGatewayInput) Validate() error {
 		return invalidParams
 	}
 	return nil
-}
-
-// SetBackendSpec sets the BackendSpec field's value.
-func (s *CreateGatewayInput) SetBackendSpec(v *BackendSpecForCreateGatewayInput) *CreateGatewayInput {
-	s.BackendSpec = v
-	return s
 }
 
 // SetComments sets the Comments field's value.
@@ -281,9 +265,9 @@ func (s *CreateGatewayInput) SetResourceSpec(v *ResourceSpecForCreateGatewayInpu
 	return s
 }
 
-// SetTags sets the Tags field's value.
-func (s *CreateGatewayInput) SetTags(v []*TagForCreateGatewayInput) *CreateGatewayInput {
-	s.Tags = v
+// SetTraceSpec sets the TraceSpec field's value.
+func (s *CreateGatewayInput) SetTraceSpec(v *TraceSpecForCreateGatewayInput) *CreateGatewayInput {
+	s.TraceSpec = v
 	return s
 }
 
@@ -507,32 +491,94 @@ func (s *ResourceSpecForCreateGatewayInput) SetReplicas(v int32) *ResourceSpecFo
 	return s
 }
 
-type TagForCreateGatewayInput struct {
+type TLSTraceSpecForCreateGatewayInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	Key *string `type:"string" json:",omitempty"`
+	IAMUserAK *string `type:"string" json:",omitempty"`
 
-	Value *string `type:"string" json:",omitempty"`
+	IAMUserSK *string `type:"string" json:",omitempty"`
+
+	ProjectId *string `type:"string" json:",omitempty"`
+
+	TraceId *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
-func (s TagForCreateGatewayInput) String() string {
+func (s TLSTraceSpecForCreateGatewayInput) String() string {
 	return volcengineutil.Prettify(s)
 }
 
 // GoString returns the string representation
-func (s TagForCreateGatewayInput) GoString() string {
+func (s TLSTraceSpecForCreateGatewayInput) GoString() string {
 	return s.String()
 }
 
-// SetKey sets the Key field's value.
-func (s *TagForCreateGatewayInput) SetKey(v string) *TagForCreateGatewayInput {
-	s.Key = &v
+// SetIAMUserAK sets the IAMUserAK field's value.
+func (s *TLSTraceSpecForCreateGatewayInput) SetIAMUserAK(v string) *TLSTraceSpecForCreateGatewayInput {
+	s.IAMUserAK = &v
 	return s
 }
 
-// SetValue sets the Value field's value.
-func (s *TagForCreateGatewayInput) SetValue(v string) *TagForCreateGatewayInput {
-	s.Value = &v
+// SetIAMUserSK sets the IAMUserSK field's value.
+func (s *TLSTraceSpecForCreateGatewayInput) SetIAMUserSK(v string) *TLSTraceSpecForCreateGatewayInput {
+	s.IAMUserSK = &v
+	return s
+}
+
+// SetProjectId sets the ProjectId field's value.
+func (s *TLSTraceSpecForCreateGatewayInput) SetProjectId(v string) *TLSTraceSpecForCreateGatewayInput {
+	s.ProjectId = &v
+	return s
+}
+
+// SetTraceId sets the TraceId field's value.
+func (s *TLSTraceSpecForCreateGatewayInput) SetTraceId(v string) *TLSTraceSpecForCreateGatewayInput {
+	s.TraceId = &v
+	return s
+}
+
+type TraceSpecForCreateGatewayInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	APMTraceSpec *APMTraceSpecForCreateGatewayInput `type:"structure" json:",omitempty"`
+
+	Enable *bool `type:"boolean" json:",omitempty"`
+
+	TLSTraceSpec *TLSTraceSpecForCreateGatewayInput `type:"structure" json:",omitempty"`
+
+	TraceType *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s TraceSpecForCreateGatewayInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TraceSpecForCreateGatewayInput) GoString() string {
+	return s.String()
+}
+
+// SetAPMTraceSpec sets the APMTraceSpec field's value.
+func (s *TraceSpecForCreateGatewayInput) SetAPMTraceSpec(v *APMTraceSpecForCreateGatewayInput) *TraceSpecForCreateGatewayInput {
+	s.APMTraceSpec = v
+	return s
+}
+
+// SetEnable sets the Enable field's value.
+func (s *TraceSpecForCreateGatewayInput) SetEnable(v bool) *TraceSpecForCreateGatewayInput {
+	s.Enable = &v
+	return s
+}
+
+// SetTLSTraceSpec sets the TLSTraceSpec field's value.
+func (s *TraceSpecForCreateGatewayInput) SetTLSTraceSpec(v *TLSTraceSpecForCreateGatewayInput) *TraceSpecForCreateGatewayInput {
+	s.TLSTraceSpec = v
+	return s
+}
+
+// SetTraceType sets the TraceType field's value.
+func (s *TraceSpecForCreateGatewayInput) SetTraceType(v string) *TraceSpecForCreateGatewayInput {
+	s.TraceType = &v
 	return s
 }

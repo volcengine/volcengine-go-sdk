@@ -146,8 +146,6 @@ func (c *APIG) DeleteGatewayWithContext(ctx volcengine.Context, input *DeleteGat
 type DeleteGatewayInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	ForceDelete *bool `type:"boolean" json:",omitempty"`
-
 	// Id is a required field
 	Id *string `type:"string" json:",omitempty" required:"true"`
 }
@@ -173,12 +171,6 @@ func (s *DeleteGatewayInput) Validate() error {
 		return invalidParams
 	}
 	return nil
-}
-
-// SetForceDelete sets the ForceDelete field's value.
-func (s *DeleteGatewayInput) SetForceDelete(v bool) *DeleteGatewayInput {
-	s.ForceDelete = &v
-	return s
 }
 
 // SetId sets the Id field's value.

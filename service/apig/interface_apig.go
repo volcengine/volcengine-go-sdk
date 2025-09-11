@@ -19,7 +19,7 @@ import (
 //    // volcengine sdk func uses an SDK service client to make a request to
 //    // APIG.
 //    func myFunc(svc APIGAPI) bool {
-//        // Make svc.CreateConsumer request
+//        // Make svc.AttachGatewayLB request
 //    }
 //
 //    func main() {
@@ -30,6 +30,14 @@ import (
 //    }
 //
 type APIGAPI interface {
+	AttachGatewayLBCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	AttachGatewayLBCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	AttachGatewayLBCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	AttachGatewayLB(*AttachGatewayLBInput) (*AttachGatewayLBOutput, error)
+	AttachGatewayLBWithContext(volcengine.Context, *AttachGatewayLBInput, ...request.Option) (*AttachGatewayLBOutput, error)
+	AttachGatewayLBRequest(*AttachGatewayLBInput) (*request.Request, *AttachGatewayLBOutput)
+
 	CreateConsumerCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	CreateConsumerCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	CreateConsumerCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -45,6 +53,14 @@ type APIGAPI interface {
 	CreateConsumerCredential(*CreateConsumerCredentialInput) (*CreateConsumerCredentialOutput, error)
 	CreateConsumerCredentialWithContext(volcengine.Context, *CreateConsumerCredentialInput, ...request.Option) (*CreateConsumerCredentialOutput, error)
 	CreateConsumerCredentialRequest(*CreateConsumerCredentialInput) (*request.Request, *CreateConsumerCredentialOutput)
+
+	CreateCustomDomainCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateCustomDomainCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateCustomDomainCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateCustomDomain(*CreateCustomDomainInput) (*CreateCustomDomainOutput, error)
+	CreateCustomDomainWithContext(volcengine.Context, *CreateCustomDomainInput, ...request.Option) (*CreateCustomDomainOutput, error)
+	CreateCustomDomainRequest(*CreateCustomDomainInput) (*request.Request, *CreateCustomDomainOutput)
 
 	CreateGatewayCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	CreateGatewayCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -86,6 +102,14 @@ type APIGAPI interface {
 	CreateUpstreamSourceWithContext(volcengine.Context, *CreateUpstreamSourceInput, ...request.Option) (*CreateUpstreamSourceOutput, error)
 	CreateUpstreamSourceRequest(*CreateUpstreamSourceInput) (*request.Request, *CreateUpstreamSourceOutput)
 
+	CreateUpstreamVersionCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateUpstreamVersionCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateUpstreamVersionCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateUpstreamVersion(*CreateUpstreamVersionInput) (*CreateUpstreamVersionOutput, error)
+	CreateUpstreamVersionWithContext(volcengine.Context, *CreateUpstreamVersionInput, ...request.Option) (*CreateUpstreamVersionOutput, error)
+	CreateUpstreamVersionRequest(*CreateUpstreamVersionInput) (*request.Request, *CreateUpstreamVersionOutput)
+
 	DeleteConsumerCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DeleteConsumerCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DeleteConsumerCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -101,6 +125,14 @@ type APIGAPI interface {
 	DeleteConsumerCredential(*DeleteConsumerCredentialInput) (*DeleteConsumerCredentialOutput, error)
 	DeleteConsumerCredentialWithContext(volcengine.Context, *DeleteConsumerCredentialInput, ...request.Option) (*DeleteConsumerCredentialOutput, error)
 	DeleteConsumerCredentialRequest(*DeleteConsumerCredentialInput) (*request.Request, *DeleteConsumerCredentialOutput)
+
+	DeleteCustomDomainCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeleteCustomDomainCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeleteCustomDomainCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeleteCustomDomain(*DeleteCustomDomainInput) (*DeleteCustomDomainOutput, error)
+	DeleteCustomDomainWithContext(volcengine.Context, *DeleteCustomDomainInput, ...request.Option) (*DeleteCustomDomainOutput, error)
+	DeleteCustomDomainRequest(*DeleteCustomDomainInput) (*request.Request, *DeleteCustomDomainOutput)
 
 	DeleteGatewayCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DeleteGatewayCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -142,6 +174,22 @@ type APIGAPI interface {
 	DeleteUpstreamSourceWithContext(volcengine.Context, *DeleteUpstreamSourceInput, ...request.Option) (*DeleteUpstreamSourceOutput, error)
 	DeleteUpstreamSourceRequest(*DeleteUpstreamSourceInput) (*request.Request, *DeleteUpstreamSourceOutput)
 
+	DeleteUpstreamVersionCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeleteUpstreamVersionCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeleteUpstreamVersionCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeleteUpstreamVersion(*DeleteUpstreamVersionInput) (*DeleteUpstreamVersionOutput, error)
+	DeleteUpstreamVersionWithContext(volcengine.Context, *DeleteUpstreamVersionInput, ...request.Option) (*DeleteUpstreamVersionOutput, error)
+	DeleteUpstreamVersionRequest(*DeleteUpstreamVersionInput) (*request.Request, *DeleteUpstreamVersionOutput)
+
+	DetachGatewayLBCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DetachGatewayLBCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DetachGatewayLBCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DetachGatewayLB(*DetachGatewayLBInput) (*DetachGatewayLBOutput, error)
+	DetachGatewayLBWithContext(volcengine.Context, *DetachGatewayLBInput, ...request.Option) (*DetachGatewayLBOutput, error)
+	DetachGatewayLBRequest(*DetachGatewayLBInput) (*request.Request, *DetachGatewayLBOutput)
+
 	GetConsumerCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	GetConsumerCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	GetConsumerCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -149,6 +197,14 @@ type APIGAPI interface {
 	GetConsumer(*GetConsumerInput) (*GetConsumerOutput, error)
 	GetConsumerWithContext(volcengine.Context, *GetConsumerInput, ...request.Option) (*GetConsumerOutput, error)
 	GetConsumerRequest(*GetConsumerInput) (*request.Request, *GetConsumerOutput)
+
+	GetCustomDomainCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	GetCustomDomainCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	GetCustomDomainCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	GetCustomDomain(*GetCustomDomainInput) (*GetCustomDomainOutput, error)
+	GetCustomDomainWithContext(volcengine.Context, *GetCustomDomainInput, ...request.Option) (*GetCustomDomainOutput, error)
+	GetCustomDomainRequest(*GetCustomDomainInput) (*request.Request, *GetCustomDomainOutput)
 
 	GetGatewayCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	GetGatewayCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -165,6 +221,14 @@ type APIGAPI interface {
 	GetGatewayService(*GetGatewayServiceInput) (*GetGatewayServiceOutput, error)
 	GetGatewayServiceWithContext(volcengine.Context, *GetGatewayServiceInput, ...request.Option) (*GetGatewayServiceOutput, error)
 	GetGatewayServiceRequest(*GetGatewayServiceInput) (*request.Request, *GetGatewayServiceOutput)
+
+	GetJwtTokenCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	GetJwtTokenCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	GetJwtTokenCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	GetJwtToken(*GetJwtTokenInput) (*GetJwtTokenOutput, error)
+	GetJwtTokenWithContext(volcengine.Context, *GetJwtTokenInput, ...request.Option) (*GetJwtTokenOutput, error)
+	GetJwtTokenRequest(*GetJwtTokenInput) (*request.Request, *GetJwtTokenOutput)
 
 	GetPluginBindingCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	GetPluginBindingCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -205,6 +269,22 @@ type APIGAPI interface {
 	ListConsumers(*ListConsumersInput) (*ListConsumersOutput, error)
 	ListConsumersWithContext(volcengine.Context, *ListConsumersInput, ...request.Option) (*ListConsumersOutput, error)
 	ListConsumersRequest(*ListConsumersInput) (*request.Request, *ListConsumersOutput)
+
+	ListCustomDomainsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListCustomDomainsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListCustomDomainsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListCustomDomains(*ListCustomDomainsInput) (*ListCustomDomainsOutput, error)
+	ListCustomDomainsWithContext(volcengine.Context, *ListCustomDomainsInput, ...request.Option) (*ListCustomDomainsOutput, error)
+	ListCustomDomainsRequest(*ListCustomDomainsInput) (*request.Request, *ListCustomDomainsOutput)
+
+	ListGatewayLBsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListGatewayLBsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListGatewayLBsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListGatewayLBs(*ListGatewayLBsInput) (*ListGatewayLBsOutput, error)
+	ListGatewayLBsWithContext(volcengine.Context, *ListGatewayLBsInput, ...request.Option) (*ListGatewayLBsOutput, error)
+	ListGatewayLBsRequest(*ListGatewayLBsInput) (*request.Request, *ListGatewayLBsOutput)
 
 	ListGatewayServicesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ListGatewayServicesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -254,6 +334,14 @@ type APIGAPI interface {
 	UpdateConsumerWithContext(volcengine.Context, *UpdateConsumerInput, ...request.Option) (*UpdateConsumerOutput, error)
 	UpdateConsumerRequest(*UpdateConsumerInput) (*request.Request, *UpdateConsumerOutput)
 
+	UpdateCustomDomainCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	UpdateCustomDomainCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	UpdateCustomDomainCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	UpdateCustomDomain(*UpdateCustomDomainInput) (*UpdateCustomDomainOutput, error)
+	UpdateCustomDomainWithContext(volcengine.Context, *UpdateCustomDomainInput, ...request.Option) (*UpdateCustomDomainOutput, error)
+	UpdateCustomDomainRequest(*UpdateCustomDomainInput) (*request.Request, *UpdateCustomDomainOutput)
+
 	UpdateGatewayCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	UpdateGatewayCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	UpdateGatewayCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -294,6 +382,14 @@ type APIGAPI interface {
 	UpdateGatewaySpecWithContext(volcengine.Context, *UpdateGatewaySpecInput, ...request.Option) (*UpdateGatewaySpecOutput, error)
 	UpdateGatewaySpecRequest(*UpdateGatewaySpecInput) (*request.Request, *UpdateGatewaySpecOutput)
 
+	UpdateGatewayTraceCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	UpdateGatewayTraceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	UpdateGatewayTraceCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	UpdateGatewayTrace(*UpdateGatewayTraceInput) (*UpdateGatewayTraceOutput, error)
+	UpdateGatewayTraceWithContext(volcengine.Context, *UpdateGatewayTraceInput, ...request.Option) (*UpdateGatewayTraceOutput, error)
+	UpdateGatewayTraceRequest(*UpdateGatewayTraceInput) (*request.Request, *UpdateGatewayTraceOutput)
+
 	UpdatePluginBindingCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	UpdatePluginBindingCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	UpdatePluginBindingCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -317,6 +413,14 @@ type APIGAPI interface {
 	UpdateUpstreamSource(*UpdateUpstreamSourceInput) (*UpdateUpstreamSourceOutput, error)
 	UpdateUpstreamSourceWithContext(volcengine.Context, *UpdateUpstreamSourceInput, ...request.Option) (*UpdateUpstreamSourceOutput, error)
 	UpdateUpstreamSourceRequest(*UpdateUpstreamSourceInput) (*request.Request, *UpdateUpstreamSourceOutput)
+
+	UpdateUpstreamVersionCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	UpdateUpstreamVersionCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	UpdateUpstreamVersionCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	UpdateUpstreamVersion(*UpdateUpstreamVersionInput) (*UpdateUpstreamVersionOutput, error)
+	UpdateUpstreamVersionWithContext(volcengine.Context, *UpdateUpstreamVersionInput, ...request.Option) (*UpdateUpstreamVersionOutput, error)
+	UpdateUpstreamVersionRequest(*UpdateUpstreamVersionInput) (*request.Request, *UpdateUpstreamVersionOutput)
 }
 
 var _ APIGAPI = (*APIG)(nil)
