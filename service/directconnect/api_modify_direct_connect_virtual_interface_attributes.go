@@ -152,6 +152,8 @@ type ModifyDirectConnectVirtualInterfaceAttributesInput struct {
 
 	EnableBfd *bool `type:"boolean"`
 
+	EnableBfdEcho *bool `type:"boolean"`
+
 	EnableNqa *bool `type:"boolean"`
 
 	LocalIpv6Ip *string `type:"string"`
@@ -254,6 +256,12 @@ func (s *ModifyDirectConnectVirtualInterfaceAttributesInput) SetDescription(v st
 // SetEnableBfd sets the EnableBfd field's value.
 func (s *ModifyDirectConnectVirtualInterfaceAttributesInput) SetEnableBfd(v bool) *ModifyDirectConnectVirtualInterfaceAttributesInput {
 	s.EnableBfd = &v
+	return s
+}
+
+// SetEnableBfdEcho sets the EnableBfdEcho field's value.
+func (s *ModifyDirectConnectVirtualInterfaceAttributesInput) SetEnableBfdEcho(v bool) *ModifyDirectConnectVirtualInterfaceAttributesInput {
+	s.EnableBfdEcho = &v
 	return s
 }
 

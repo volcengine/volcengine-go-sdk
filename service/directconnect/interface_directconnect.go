@@ -19,7 +19,7 @@ import (
 //    // volcengine sdk func uses an SDK service client to make a request to
 //    // DIRECTCONNECT.
 //    func myFunc(svc DIRECTCONNECTAPI) bool {
-//        // Make svc.ApplyDirectConnectConnectionLoa request
+//        // Make svc.AllocateDirectConnectVirtualInterface request
 //    }
 //
 //    func main() {
@@ -30,6 +30,14 @@ import (
 //    }
 //
 type DIRECTCONNECTAPI interface {
+	AllocateDirectConnectVirtualInterfaceCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	AllocateDirectConnectVirtualInterfaceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	AllocateDirectConnectVirtualInterfaceCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	AllocateDirectConnectVirtualInterface(*AllocateDirectConnectVirtualInterfaceInput) (*AllocateDirectConnectVirtualInterfaceOutput, error)
+	AllocateDirectConnectVirtualInterfaceWithContext(volcengine.Context, *AllocateDirectConnectVirtualInterfaceInput, ...request.Option) (*AllocateDirectConnectVirtualInterfaceOutput, error)
+	AllocateDirectConnectVirtualInterfaceRequest(*AllocateDirectConnectVirtualInterfaceInput) (*request.Request, *AllocateDirectConnectVirtualInterfaceOutput)
+
 	ApplyDirectConnectConnectionLoaCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ApplyDirectConnectConnectionLoaCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	ApplyDirectConnectConnectionLoaCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -37,6 +45,14 @@ type DIRECTCONNECTAPI interface {
 	ApplyDirectConnectConnectionLoa(*ApplyDirectConnectConnectionLoaInput) (*ApplyDirectConnectConnectionLoaOutput, error)
 	ApplyDirectConnectConnectionLoaWithContext(volcengine.Context, *ApplyDirectConnectConnectionLoaInput, ...request.Option) (*ApplyDirectConnectConnectionLoaOutput, error)
 	ApplyDirectConnectConnectionLoaRequest(*ApplyDirectConnectConnectionLoaInput) (*request.Request, *ApplyDirectConnectConnectionLoaOutput)
+
+	ConfirmDirectConnectVirtualInterfaceCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ConfirmDirectConnectVirtualInterfaceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ConfirmDirectConnectVirtualInterfaceCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ConfirmDirectConnectVirtualInterface(*ConfirmDirectConnectVirtualInterfaceInput) (*ConfirmDirectConnectVirtualInterfaceOutput, error)
+	ConfirmDirectConnectVirtualInterfaceWithContext(volcengine.Context, *ConfirmDirectConnectVirtualInterfaceInput, ...request.Option) (*ConfirmDirectConnectVirtualInterfaceOutput, error)
+	ConfirmDirectConnectVirtualInterfaceRequest(*ConfirmDirectConnectVirtualInterfaceInput) (*request.Request, *ConfirmDirectConnectVirtualInterfaceOutput)
 
 	CreateBgpPeerCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	CreateBgpPeerCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -78,6 +94,30 @@ type DIRECTCONNECTAPI interface {
 	CreateDirectConnectGatewayRouteWithContext(volcengine.Context, *CreateDirectConnectGatewayRouteInput, ...request.Option) (*CreateDirectConnectGatewayRouteOutput, error)
 	CreateDirectConnectGatewayRouteRequest(*CreateDirectConnectGatewayRouteInput) (*request.Request, *CreateDirectConnectGatewayRouteOutput)
 
+	CreateDirectConnectTrafficQosPolicyCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateDirectConnectTrafficQosPolicyCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateDirectConnectTrafficQosPolicyCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateDirectConnectTrafficQosPolicy(*CreateDirectConnectTrafficQosPolicyInput) (*CreateDirectConnectTrafficQosPolicyOutput, error)
+	CreateDirectConnectTrafficQosPolicyWithContext(volcengine.Context, *CreateDirectConnectTrafficQosPolicyInput, ...request.Option) (*CreateDirectConnectTrafficQosPolicyOutput, error)
+	CreateDirectConnectTrafficQosPolicyRequest(*CreateDirectConnectTrafficQosPolicyInput) (*request.Request, *CreateDirectConnectTrafficQosPolicyOutput)
+
+	CreateDirectConnectTrafficQosQueueCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateDirectConnectTrafficQosQueueCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateDirectConnectTrafficQosQueueCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateDirectConnectTrafficQosQueue(*CreateDirectConnectTrafficQosQueueInput) (*CreateDirectConnectTrafficQosQueueOutput, error)
+	CreateDirectConnectTrafficQosQueueWithContext(volcengine.Context, *CreateDirectConnectTrafficQosQueueInput, ...request.Option) (*CreateDirectConnectTrafficQosQueueOutput, error)
+	CreateDirectConnectTrafficQosQueueRequest(*CreateDirectConnectTrafficQosQueueInput) (*request.Request, *CreateDirectConnectTrafficQosQueueOutput)
+
+	CreateDirectConnectTrafficQosRuleCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateDirectConnectTrafficQosRuleCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateDirectConnectTrafficQosRuleCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateDirectConnectTrafficQosRule(*CreateDirectConnectTrafficQosRuleInput) (*CreateDirectConnectTrafficQosRuleOutput, error)
+	CreateDirectConnectTrafficQosRuleWithContext(volcengine.Context, *CreateDirectConnectTrafficQosRuleInput, ...request.Option) (*CreateDirectConnectTrafficQosRuleOutput, error)
+	CreateDirectConnectTrafficQosRuleRequest(*CreateDirectConnectTrafficQosRuleInput) (*request.Request, *CreateDirectConnectTrafficQosRuleOutput)
+
 	CreateDirectConnectVirtualInterfaceCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	CreateDirectConnectVirtualInterfaceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	CreateDirectConnectVirtualInterfaceCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -117,6 +157,30 @@ type DIRECTCONNECTAPI interface {
 	DeleteDirectConnectGatewayRoute(*DeleteDirectConnectGatewayRouteInput) (*DeleteDirectConnectGatewayRouteOutput, error)
 	DeleteDirectConnectGatewayRouteWithContext(volcengine.Context, *DeleteDirectConnectGatewayRouteInput, ...request.Option) (*DeleteDirectConnectGatewayRouteOutput, error)
 	DeleteDirectConnectGatewayRouteRequest(*DeleteDirectConnectGatewayRouteInput) (*request.Request, *DeleteDirectConnectGatewayRouteOutput)
+
+	DeleteDirectConnectTrafficQosPolicyCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeleteDirectConnectTrafficQosPolicyCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeleteDirectConnectTrafficQosPolicyCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeleteDirectConnectTrafficQosPolicy(*DeleteDirectConnectTrafficQosPolicyInput) (*DeleteDirectConnectTrafficQosPolicyOutput, error)
+	DeleteDirectConnectTrafficQosPolicyWithContext(volcengine.Context, *DeleteDirectConnectTrafficQosPolicyInput, ...request.Option) (*DeleteDirectConnectTrafficQosPolicyOutput, error)
+	DeleteDirectConnectTrafficQosPolicyRequest(*DeleteDirectConnectTrafficQosPolicyInput) (*request.Request, *DeleteDirectConnectTrafficQosPolicyOutput)
+
+	DeleteDirectConnectTrafficQosQueueCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeleteDirectConnectTrafficQosQueueCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeleteDirectConnectTrafficQosQueueCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeleteDirectConnectTrafficQosQueue(*DeleteDirectConnectTrafficQosQueueInput) (*DeleteDirectConnectTrafficQosQueueOutput, error)
+	DeleteDirectConnectTrafficQosQueueWithContext(volcengine.Context, *DeleteDirectConnectTrafficQosQueueInput, ...request.Option) (*DeleteDirectConnectTrafficQosQueueOutput, error)
+	DeleteDirectConnectTrafficQosQueueRequest(*DeleteDirectConnectTrafficQosQueueInput) (*request.Request, *DeleteDirectConnectTrafficQosQueueOutput)
+
+	DeleteDirectConnectTrafficQosRuleCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeleteDirectConnectTrafficQosRuleCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeleteDirectConnectTrafficQosRuleCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeleteDirectConnectTrafficQosRule(*DeleteDirectConnectTrafficQosRuleInput) (*DeleteDirectConnectTrafficQosRuleOutput, error)
+	DeleteDirectConnectTrafficQosRuleWithContext(volcengine.Context, *DeleteDirectConnectTrafficQosRuleInput, ...request.Option) (*DeleteDirectConnectTrafficQosRuleOutput, error)
+	DeleteDirectConnectTrafficQosRuleRequest(*DeleteDirectConnectTrafficQosRuleInput) (*request.Request, *DeleteDirectConnectTrafficQosRuleOutput)
 
 	DeleteDirectConnectVirtualInterfaceCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DeleteDirectConnectVirtualInterfaceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -206,6 +270,30 @@ type DIRECTCONNECTAPI interface {
 	DescribeDirectConnectGatewaysWithContext(volcengine.Context, *DescribeDirectConnectGatewaysInput, ...request.Option) (*DescribeDirectConnectGatewaysOutput, error)
 	DescribeDirectConnectGatewaysRequest(*DescribeDirectConnectGatewaysInput) (*request.Request, *DescribeDirectConnectGatewaysOutput)
 
+	DescribeDirectConnectTrafficQosPoliciesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeDirectConnectTrafficQosPoliciesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeDirectConnectTrafficQosPoliciesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeDirectConnectTrafficQosPolicies(*DescribeDirectConnectTrafficQosPoliciesInput) (*DescribeDirectConnectTrafficQosPoliciesOutput, error)
+	DescribeDirectConnectTrafficQosPoliciesWithContext(volcengine.Context, *DescribeDirectConnectTrafficQosPoliciesInput, ...request.Option) (*DescribeDirectConnectTrafficQosPoliciesOutput, error)
+	DescribeDirectConnectTrafficQosPoliciesRequest(*DescribeDirectConnectTrafficQosPoliciesInput) (*request.Request, *DescribeDirectConnectTrafficQosPoliciesOutput)
+
+	DescribeDirectConnectTrafficQosQueuesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeDirectConnectTrafficQosQueuesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeDirectConnectTrafficQosQueuesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeDirectConnectTrafficQosQueues(*DescribeDirectConnectTrafficQosQueuesInput) (*DescribeDirectConnectTrafficQosQueuesOutput, error)
+	DescribeDirectConnectTrafficQosQueuesWithContext(volcengine.Context, *DescribeDirectConnectTrafficQosQueuesInput, ...request.Option) (*DescribeDirectConnectTrafficQosQueuesOutput, error)
+	DescribeDirectConnectTrafficQosQueuesRequest(*DescribeDirectConnectTrafficQosQueuesInput) (*request.Request, *DescribeDirectConnectTrafficQosQueuesOutput)
+
+	DescribeDirectConnectTrafficQosRulesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeDirectConnectTrafficQosRulesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeDirectConnectTrafficQosRulesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeDirectConnectTrafficQosRules(*DescribeDirectConnectTrafficQosRulesInput) (*DescribeDirectConnectTrafficQosRulesOutput, error)
+	DescribeDirectConnectTrafficQosRulesWithContext(volcengine.Context, *DescribeDirectConnectTrafficQosRulesInput, ...request.Option) (*DescribeDirectConnectTrafficQosRulesOutput, error)
+	DescribeDirectConnectTrafficQosRulesRequest(*DescribeDirectConnectTrafficQosRulesInput) (*request.Request, *DescribeDirectConnectTrafficQosRulesOutput)
+
 	DescribeDirectConnectVirtualInterfaceAttributesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DescribeDirectConnectVirtualInterfaceAttributesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DescribeDirectConnectVirtualInterfaceAttributesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -221,6 +309,14 @@ type DIRECTCONNECTAPI interface {
 	DescribeDirectConnectVirtualInterfaces(*DescribeDirectConnectVirtualInterfacesInput) (*DescribeDirectConnectVirtualInterfacesOutput, error)
 	DescribeDirectConnectVirtualInterfacesWithContext(volcengine.Context, *DescribeDirectConnectVirtualInterfacesInput, ...request.Option) (*DescribeDirectConnectVirtualInterfacesOutput, error)
 	DescribeDirectConnectVirtualInterfacesRequest(*DescribeDirectConnectVirtualInterfacesInput) (*request.Request, *DescribeDirectConnectVirtualInterfacesOutput)
+
+	ListTagsForResourcesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListTagsForResourcesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListTagsForResourcesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListTagsForResources(*ListTagsForResourcesInput) (*ListTagsForResourcesOutput, error)
+	ListTagsForResourcesWithContext(volcengine.Context, *ListTagsForResourcesInput, ...request.Option) (*ListTagsForResourcesOutput, error)
+	ListTagsForResourcesRequest(*ListTagsForResourcesInput) (*request.Request, *ListTagsForResourcesOutput)
 
 	ModifyBgpPeerAttributesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ModifyBgpPeerAttributesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -254,6 +350,30 @@ type DIRECTCONNECTAPI interface {
 	ModifyDirectConnectGatewayAttributesWithContext(volcengine.Context, *ModifyDirectConnectGatewayAttributesInput, ...request.Option) (*ModifyDirectConnectGatewayAttributesOutput, error)
 	ModifyDirectConnectGatewayAttributesRequest(*ModifyDirectConnectGatewayAttributesInput) (*request.Request, *ModifyDirectConnectGatewayAttributesOutput)
 
+	ModifyDirectConnectTrafficQosPolicyAttributesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ModifyDirectConnectTrafficQosPolicyAttributesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ModifyDirectConnectTrafficQosPolicyAttributesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ModifyDirectConnectTrafficQosPolicyAttributes(*ModifyDirectConnectTrafficQosPolicyAttributesInput) (*ModifyDirectConnectTrafficQosPolicyAttributesOutput, error)
+	ModifyDirectConnectTrafficQosPolicyAttributesWithContext(volcengine.Context, *ModifyDirectConnectTrafficQosPolicyAttributesInput, ...request.Option) (*ModifyDirectConnectTrafficQosPolicyAttributesOutput, error)
+	ModifyDirectConnectTrafficQosPolicyAttributesRequest(*ModifyDirectConnectTrafficQosPolicyAttributesInput) (*request.Request, *ModifyDirectConnectTrafficQosPolicyAttributesOutput)
+
+	ModifyDirectConnectTrafficQosQueueAttributesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ModifyDirectConnectTrafficQosQueueAttributesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ModifyDirectConnectTrafficQosQueueAttributesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ModifyDirectConnectTrafficQosQueueAttributes(*ModifyDirectConnectTrafficQosQueueAttributesInput) (*ModifyDirectConnectTrafficQosQueueAttributesOutput, error)
+	ModifyDirectConnectTrafficQosQueueAttributesWithContext(volcengine.Context, *ModifyDirectConnectTrafficQosQueueAttributesInput, ...request.Option) (*ModifyDirectConnectTrafficQosQueueAttributesOutput, error)
+	ModifyDirectConnectTrafficQosQueueAttributesRequest(*ModifyDirectConnectTrafficQosQueueAttributesInput) (*request.Request, *ModifyDirectConnectTrafficQosQueueAttributesOutput)
+
+	ModifyDirectConnectTrafficQosRuleAttributesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ModifyDirectConnectTrafficQosRuleAttributesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ModifyDirectConnectTrafficQosRuleAttributesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ModifyDirectConnectTrafficQosRuleAttributes(*ModifyDirectConnectTrafficQosRuleAttributesInput) (*ModifyDirectConnectTrafficQosRuleAttributesOutput, error)
+	ModifyDirectConnectTrafficQosRuleAttributesWithContext(volcengine.Context, *ModifyDirectConnectTrafficQosRuleAttributesInput, ...request.Option) (*ModifyDirectConnectTrafficQosRuleAttributesOutput, error)
+	ModifyDirectConnectTrafficQosRuleAttributesRequest(*ModifyDirectConnectTrafficQosRuleAttributesInput) (*request.Request, *ModifyDirectConnectTrafficQosRuleAttributesOutput)
+
 	ModifyDirectConnectVirtualInterfaceAttributesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ModifyDirectConnectVirtualInterfaceAttributesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	ModifyDirectConnectVirtualInterfaceAttributesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -261,6 +381,22 @@ type DIRECTCONNECTAPI interface {
 	ModifyDirectConnectVirtualInterfaceAttributes(*ModifyDirectConnectVirtualInterfaceAttributesInput) (*ModifyDirectConnectVirtualInterfaceAttributesOutput, error)
 	ModifyDirectConnectVirtualInterfaceAttributesWithContext(volcengine.Context, *ModifyDirectConnectVirtualInterfaceAttributesInput, ...request.Option) (*ModifyDirectConnectVirtualInterfaceAttributesOutput, error)
 	ModifyDirectConnectVirtualInterfaceAttributesRequest(*ModifyDirectConnectVirtualInterfaceAttributesInput) (*request.Request, *ModifyDirectConnectVirtualInterfaceAttributesOutput)
+
+	TagResourcesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	TagResourcesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	TagResourcesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	TagResources(*TagResourcesInput) (*TagResourcesOutput, error)
+	TagResourcesWithContext(volcengine.Context, *TagResourcesInput, ...request.Option) (*TagResourcesOutput, error)
+	TagResourcesRequest(*TagResourcesInput) (*request.Request, *TagResourcesOutput)
+
+	UntagResourcesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	UntagResourcesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	UntagResourcesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	UntagResources(*UntagResourcesInput) (*UntagResourcesOutput, error)
+	UntagResourcesWithContext(volcengine.Context, *UntagResourcesInput, ...request.Option) (*UntagResourcesOutput, error)
+	UntagResourcesRequest(*UntagResourcesInput) (*request.Request, *UntagResourcesOutput)
 }
 
 var _ DIRECTCONNECTAPI = (*DIRECTCONNECT)(nil)

@@ -190,6 +190,8 @@ type DescribeDirectConnectGatewaysInput struct {
 
 	PageSize *int64 `type:"integer"`
 
+	ProjectName *string `type:"string"`
+
 	TagFilters []*TagFilterForDescribeDirectConnectGatewaysInput `type:"list"`
 }
 
@@ -230,6 +232,12 @@ func (s *DescribeDirectConnectGatewaysInput) SetPageNumber(v int64) *DescribeDir
 // SetPageSize sets the PageSize field's value.
 func (s *DescribeDirectConnectGatewaysInput) SetPageSize(v int64) *DescribeDirectConnectGatewaysInput {
 	s.PageSize = &v
+	return s
+}
+
+// SetProjectName sets the ProjectName field's value.
+func (s *DescribeDirectConnectGatewaysInput) SetProjectName(v string) *DescribeDirectConnectGatewaysInput {
+	s.ProjectName = &v
 	return s
 }
 
