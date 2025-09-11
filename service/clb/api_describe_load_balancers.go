@@ -148,6 +148,10 @@ type DescribeLoadBalancersInput struct {
 
 	EniAddress *string `type:"string"`
 
+	InstanceIds []*string `type:"list"`
+
+	InstanceIps []*string `type:"list"`
+
 	LoadBalancerIds []*string `type:"list"`
 
 	LoadBalancerName *string `type:"string"`
@@ -194,6 +198,18 @@ func (s *DescribeLoadBalancersInput) SetEipAddress(v string) *DescribeLoadBalanc
 // SetEniAddress sets the EniAddress field's value.
 func (s *DescribeLoadBalancersInput) SetEniAddress(v string) *DescribeLoadBalancersInput {
 	s.EniAddress = &v
+	return s
+}
+
+// SetInstanceIds sets the InstanceIds field's value.
+func (s *DescribeLoadBalancersInput) SetInstanceIds(v []*string) *DescribeLoadBalancersInput {
+	s.InstanceIds = v
+	return s
+}
+
+// SetInstanceIps sets the InstanceIps field's value.
+func (s *DescribeLoadBalancersInput) SetInstanceIps(v []*string) *DescribeLoadBalancersInput {
+	s.InstanceIps = v
 	return s
 }
 
@@ -262,8 +278,6 @@ type DescribeLoadBalancersOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	AccountId *string `type:"string"`
-
 	LoadBalancers []*LoadBalancerForDescribeLoadBalancersOutput `type:"list"`
 
 	PageNumber *int64 `type:"integer"`
@@ -283,12 +297,6 @@ func (s DescribeLoadBalancersOutput) String() string {
 // GoString returns the string representation
 func (s DescribeLoadBalancersOutput) GoString() string {
 	return s.String()
-}
-
-// SetAccountId sets the AccountId field's value.
-func (s *DescribeLoadBalancersOutput) SetAccountId(v string) *DescribeLoadBalancersOutput {
-	s.AccountId = &v
-	return s
 }
 
 // SetLoadBalancers sets the LoadBalancers field's value.

@@ -316,10 +316,6 @@ type DescribeCertificatesOutput struct {
 
 	RequestId *string `type:"string"`
 
-	ServiceManaged *bool `type:"boolean"`
-
-	Tags []*TagForDescribeCertificatesOutput `type:"list"`
-
 	TotalCount *int64 `type:"integer"`
 }
 
@@ -354,18 +350,6 @@ func (s *DescribeCertificatesOutput) SetPageSize(v int64) *DescribeCertificatesO
 // SetRequestId sets the RequestId field's value.
 func (s *DescribeCertificatesOutput) SetRequestId(v string) *DescribeCertificatesOutput {
 	s.RequestId = &v
-	return s
-}
-
-// SetServiceManaged sets the ServiceManaged field's value.
-func (s *DescribeCertificatesOutput) SetServiceManaged(v bool) *DescribeCertificatesOutput {
-	s.ServiceManaged = &v
-	return s
-}
-
-// SetTags sets the Tags field's value.
-func (s *DescribeCertificatesOutput) SetTags(v []*TagForDescribeCertificatesOutput) *DescribeCertificatesOutput {
-	s.Tags = v
 	return s
 }
 

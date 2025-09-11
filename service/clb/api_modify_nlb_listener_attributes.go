@@ -142,7 +142,15 @@ func (c *CLB) ModifyNLBListenerAttributesWithContext(ctx volcengine.Context, inp
 type ModifyNLBListenerAttributesInput struct {
 	_ struct{} `type:"structure"`
 
+	CACertificateId *string `type:"string"`
+
+	CACertificateSource *string `type:"string"`
+
+	CAEnabled *bool `type:"boolean"`
+
 	CertificateId *string `type:"string"`
+
+	CertificateSource *string `type:"string"`
 
 	ConnectionTimeout *int64 `type:"integer"`
 
@@ -155,7 +163,11 @@ type ModifyNLBListenerAttributesInput struct {
 
 	ListenerName *string `type:"string"`
 
+	PCACertificateId *string `type:"string"`
+
 	SecurityPolicyId *string `type:"string"`
+
+	SecurityPolicyType *string `type:"string"`
 
 	ServerGroupId *string `type:"string"`
 }
@@ -183,9 +195,33 @@ func (s *ModifyNLBListenerAttributesInput) Validate() error {
 	return nil
 }
 
+// SetCACertificateId sets the CACertificateId field's value.
+func (s *ModifyNLBListenerAttributesInput) SetCACertificateId(v string) *ModifyNLBListenerAttributesInput {
+	s.CACertificateId = &v
+	return s
+}
+
+// SetCACertificateSource sets the CACertificateSource field's value.
+func (s *ModifyNLBListenerAttributesInput) SetCACertificateSource(v string) *ModifyNLBListenerAttributesInput {
+	s.CACertificateSource = &v
+	return s
+}
+
+// SetCAEnabled sets the CAEnabled field's value.
+func (s *ModifyNLBListenerAttributesInput) SetCAEnabled(v bool) *ModifyNLBListenerAttributesInput {
+	s.CAEnabled = &v
+	return s
+}
+
 // SetCertificateId sets the CertificateId field's value.
 func (s *ModifyNLBListenerAttributesInput) SetCertificateId(v string) *ModifyNLBListenerAttributesInput {
 	s.CertificateId = &v
+	return s
+}
+
+// SetCertificateSource sets the CertificateSource field's value.
+func (s *ModifyNLBListenerAttributesInput) SetCertificateSource(v string) *ModifyNLBListenerAttributesInput {
+	s.CertificateSource = &v
 	return s
 }
 
@@ -219,9 +255,21 @@ func (s *ModifyNLBListenerAttributesInput) SetListenerName(v string) *ModifyNLBL
 	return s
 }
 
+// SetPCACertificateId sets the PCACertificateId field's value.
+func (s *ModifyNLBListenerAttributesInput) SetPCACertificateId(v string) *ModifyNLBListenerAttributesInput {
+	s.PCACertificateId = &v
+	return s
+}
+
 // SetSecurityPolicyId sets the SecurityPolicyId field's value.
 func (s *ModifyNLBListenerAttributesInput) SetSecurityPolicyId(v string) *ModifyNLBListenerAttributesInput {
 	s.SecurityPolicyId = &v
+	return s
+}
+
+// SetSecurityPolicyType sets the SecurityPolicyType field's value.
+func (s *ModifyNLBListenerAttributesInput) SetSecurityPolicyType(v string) *ModifyNLBListenerAttributesInput {
+	s.SecurityPolicyType = &v
 	return s
 }
 
