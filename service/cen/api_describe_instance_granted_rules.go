@@ -266,8 +266,6 @@ type DescribeInstanceGrantedRulesOutput struct {
 
 	PageSize *int64 `type:"integer"`
 
-	RequestId *string `type:"string"`
-
 	TotalCount *int64 `type:"integer"`
 }
 
@@ -296,12 +294,6 @@ func (s *DescribeInstanceGrantedRulesOutput) SetPageNumber(v int64) *DescribeIns
 // SetPageSize sets the PageSize field's value.
 func (s *DescribeInstanceGrantedRulesOutput) SetPageSize(v int64) *DescribeInstanceGrantedRulesOutput {
 	s.PageSize = &v
-	return s
-}
-
-// SetRequestId sets the RequestId field's value.
-func (s *DescribeInstanceGrantedRulesOutput) SetRequestId(v string) *DescribeInstanceGrantedRulesOutput {
-	s.RequestId = &v
 	return s
 }
 

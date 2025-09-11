@@ -535,6 +535,8 @@ type GetServiceOutput struct {
 
 	Ports []*PortForGetServiceOutput `type:"list" json:",omitempty"`
 
+	ProjectName *string `type:"string" json:",omitempty"`
+
 	Status *ConvertStatusForGetServiceOutput `type:"structure" json:",omitempty"`
 
 	TrafficConfig *ConvertTrafficConfigForGetServiceOutput `type:"structure" json:",omitempty"`
@@ -611,6 +613,12 @@ func (s *GetServiceOutput) SetName(v string) *GetServiceOutput {
 // SetPorts sets the Ports field's value.
 func (s *GetServiceOutput) SetPorts(v []*PortForGetServiceOutput) *GetServiceOutput {
 	s.Ports = v
+	return s
+}
+
+// SetProjectName sets the ProjectName field's value.
+func (s *GetServiceOutput) SetProjectName(v string) *GetServiceOutput {
+	s.ProjectName = &v
 	return s
 }
 

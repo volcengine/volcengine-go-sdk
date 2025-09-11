@@ -191,8 +191,6 @@ type DeleteCenSummaryRouteEntryOutput struct {
 	_ struct{} `type:"structure"`
 
 	Metadata *response.ResponseMetadata
-
-	RequestId *string `type:"string"`
 }
 
 // String returns the string representation
@@ -203,10 +201,4 @@ func (s DeleteCenSummaryRouteEntryOutput) String() string {
 // GoString returns the string representation
 func (s DeleteCenSummaryRouteEntryOutput) GoString() string {
 	return s.String()
-}
-
-// SetRequestId sets the RequestId field's value.
-func (s *DeleteCenSummaryRouteEntryOutput) SetRequestId(v string) *DeleteCenSummaryRouteEntryOutput {
-	s.RequestId = &v
-	return s
 }

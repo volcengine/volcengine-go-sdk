@@ -194,8 +194,6 @@ type DescribeCenInterRegionBandwidthAttributesOutput struct {
 
 	PeerRegionId *string `type:"string"`
 
-	RequestId *string `type:"string"`
-
 	Status *string `type:"string"`
 
 	UpdateTime *string `type:"string"`
@@ -250,12 +248,6 @@ func (s *DescribeCenInterRegionBandwidthAttributesOutput) SetLocalRegionId(v str
 // SetPeerRegionId sets the PeerRegionId field's value.
 func (s *DescribeCenInterRegionBandwidthAttributesOutput) SetPeerRegionId(v string) *DescribeCenInterRegionBandwidthAttributesOutput {
 	s.PeerRegionId = &v
-	return s
-}
-
-// SetRequestId sets the RequestId field's value.
-func (s *DescribeCenInterRegionBandwidthAttributesOutput) SetRequestId(v string) *DescribeCenInterRegionBandwidthAttributesOutput {
-	s.RequestId = &v
 	return s
 }
 

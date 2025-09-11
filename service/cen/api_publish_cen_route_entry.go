@@ -227,8 +227,6 @@ type PublishCenRouteEntryOutput struct {
 	_ struct{} `type:"structure"`
 
 	Metadata *response.ResponseMetadata
-
-	RequestId *string `type:"string"`
 }
 
 // String returns the string representation
@@ -239,10 +237,4 @@ func (s PublishCenRouteEntryOutput) String() string {
 // GoString returns the string representation
 func (s PublishCenRouteEntryOutput) GoString() string {
 	return s.String()
-}
-
-// SetRequestId sets the RequestId field's value.
-func (s *PublishCenRouteEntryOutput) SetRequestId(v string) *PublishCenRouteEntryOutput {
-	s.RequestId = &v
-	return s
 }

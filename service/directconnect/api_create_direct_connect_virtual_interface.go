@@ -158,6 +158,8 @@ type CreateDirectConnectVirtualInterfaceInput struct {
 
 	EnableBfd *bool `type:"boolean"`
 
+	EnableBfdEcho *bool `type:"boolean"`
+
 	EnableNqa *bool `type:"boolean"`
 
 	// LocalIp is a required field
@@ -294,6 +296,12 @@ func (s *CreateDirectConnectVirtualInterfaceInput) SetDirectConnectGatewayId(v s
 // SetEnableBfd sets the EnableBfd field's value.
 func (s *CreateDirectConnectVirtualInterfaceInput) SetEnableBfd(v bool) *CreateDirectConnectVirtualInterfaceInput {
 	s.EnableBfd = &v
+	return s
+}
+
+// SetEnableBfdEcho sets the EnableBfdEcho field's value.
+func (s *CreateDirectConnectVirtualInterfaceInput) SetEnableBfdEcho(v bool) *CreateDirectConnectVirtualInterfaceInput {
+	s.EnableBfdEcho = &v
 	return s
 }
 

@@ -306,8 +306,6 @@ type DescribeCensOutput struct {
 
 	PageSize *int64 `type:"integer"`
 
-	RequestId *string `type:"string"`
-
 	TotalCount *int64 `type:"integer"`
 }
 
@@ -339,12 +337,6 @@ func (s *DescribeCensOutput) SetPageSize(v int64) *DescribeCensOutput {
 	return s
 }
 
-// SetRequestId sets the RequestId field's value.
-func (s *DescribeCensOutput) SetRequestId(v string) *DescribeCensOutput {
-	s.RequestId = &v
-	return s
-}
-
 // SetTotalCount sets the TotalCount field's value.
 func (s *DescribeCensOutput) SetTotalCount(v int64) *DescribeCensOutput {
 	s.TotalCount = &v
@@ -356,7 +348,7 @@ type TagFilterForDescribeCensInput struct {
 
 	Key *string `type:"string"`
 
-	Value []*string `type:"list"`
+	Values []*string `type:"list"`
 }
 
 // String returns the string representation
@@ -375,9 +367,9 @@ func (s *TagFilterForDescribeCensInput) SetKey(v string) *TagFilterForDescribeCe
 	return s
 }
 
-// SetValue sets the Value field's value.
-func (s *TagFilterForDescribeCensInput) SetValue(v []*string) *TagFilterForDescribeCensInput {
-	s.Value = v
+// SetValues sets the Values field's value.
+func (s *TagFilterForDescribeCensInput) SetValues(v []*string) *TagFilterForDescribeCensInput {
+	s.Values = v
 	return s
 }
 

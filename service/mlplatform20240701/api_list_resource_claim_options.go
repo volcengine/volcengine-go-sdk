@@ -252,6 +252,8 @@ type ListResourceClaimOptionsInput struct {
 
 	ResourceQueueId *string `type:"string" json:",omitempty"`
 
+	ResourceReservationPlanId *string `type:"string" json:",omitempty"`
+
 	SupportStatus *string `type:"string" json:",omitempty" enum:"EnumOfSupportStatusForListResourceClaimOptionsInput"`
 }
 
@@ -274,6 +276,12 @@ func (s *ListResourceClaimOptionsInput) SetPreemptible(v bool) *ListResourceClai
 // SetResourceQueueId sets the ResourceQueueId field's value.
 func (s *ListResourceClaimOptionsInput) SetResourceQueueId(v string) *ListResourceClaimOptionsInput {
 	s.ResourceQueueId = &v
+	return s
+}
+
+// SetResourceReservationPlanId sets the ResourceReservationPlanId field's value.
+func (s *ListResourceClaimOptionsInput) SetResourceReservationPlanId(v string) *ListResourceClaimOptionsInput {
+	s.ResourceReservationPlanId = &v
 	return s
 }
 

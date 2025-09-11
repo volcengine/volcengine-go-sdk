@@ -225,8 +225,6 @@ type ListTagsForResourcesOutput struct {
 
 	NextToken *string `type:"string"`
 
-	RequestId *string `type:"string"`
-
 	ResourceTags []*ResourceTagForListTagsForResourcesOutput `type:"list"`
 }
 
@@ -243,12 +241,6 @@ func (s ListTagsForResourcesOutput) GoString() string {
 // SetNextToken sets the NextToken field's value.
 func (s *ListTagsForResourcesOutput) SetNextToken(v string) *ListTagsForResourcesOutput {
 	s.NextToken = &v
-	return s
-}
-
-// SetRequestId sets the RequestId field's value.
-func (s *ListTagsForResourcesOutput) SetRequestId(v string) *ListTagsForResourcesOutput {
-	s.RequestId = &v
 	return s
 }
 

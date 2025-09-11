@@ -729,36 +729,6 @@ func (s *NacosServiceForGetUpstreamOutput) SetUpstreamSourceId(v string) *NacosS
 	return s
 }
 
-type TagForGetUpstreamOutput struct {
-	_ struct{} `type:"structure" json:",omitempty"`
-
-	Key *string `type:"string" json:",omitempty"`
-
-	Value *string `type:"string" json:",omitempty"`
-}
-
-// String returns the string representation
-func (s TagForGetUpstreamOutput) String() string {
-	return volcengineutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s TagForGetUpstreamOutput) GoString() string {
-	return s.String()
-}
-
-// SetKey sets the Key field's value.
-func (s *TagForGetUpstreamOutput) SetKey(v string) *TagForGetUpstreamOutput {
-	s.Key = &v
-	return s
-}
-
-// SetValue sets the Value field's value.
-func (s *TagForGetUpstreamOutput) SetValue(v string) *TagForGetUpstreamOutput {
-	s.Value = &v
-	return s
-}
-
 type TlsSettingsForGetUpstreamOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -810,11 +780,7 @@ type UpstreamForGetUpstreamOutput struct {
 
 	Protocol *string `type:"string" json:",omitempty"`
 
-	ResourceType *string `type:"string" json:",omitempty"`
-
 	SourceType *string `type:"string" json:",omitempty"`
-
-	Tags []*TagForGetUpstreamOutput `type:"list" json:",omitempty"`
 
 	TlsSettings *TlsSettingsForGetUpstreamOutput `type:"structure" json:",omitempty"`
 
@@ -889,21 +855,9 @@ func (s *UpstreamForGetUpstreamOutput) SetProtocol(v string) *UpstreamForGetUpst
 	return s
 }
 
-// SetResourceType sets the ResourceType field's value.
-func (s *UpstreamForGetUpstreamOutput) SetResourceType(v string) *UpstreamForGetUpstreamOutput {
-	s.ResourceType = &v
-	return s
-}
-
 // SetSourceType sets the SourceType field's value.
 func (s *UpstreamForGetUpstreamOutput) SetSourceType(v string) *UpstreamForGetUpstreamOutput {
 	s.SourceType = &v
-	return s
-}
-
-// SetTags sets the Tags field's value.
-func (s *UpstreamForGetUpstreamOutput) SetTags(v []*TagForGetUpstreamOutput) *UpstreamForGetUpstreamOutput {
-	s.Tags = v
 	return s
 }
 

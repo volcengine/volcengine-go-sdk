@@ -279,16 +279,6 @@ func (s *HealthCheckTemplateForCreateHealthCheckTemplatesInput) Validate() error
 	if s.Port != nil && *s.Port > 65535 {
 		invalidParams.Add(request.NewErrParamMaxValue("Port", 65535))
 	}
-	if s.Tags != nil {
-		for i, v := range s.Tags {
-			if v == nil {
-				continue
-			}
-			if err := v.Validate(); err != nil {
-				invalidParams.AddNested(fmt.Sprintf("%s[%v]", "Tags", i), err.(request.ErrInvalidParams))
-			}
-		}
-	}
 
 	if invalidParams.Len() > 0 {
 		return invalidParams
@@ -391,8 +381,7 @@ type HealthCheckTemplatesTagForCreateHealthCheckTemplatesInput struct {
 
 	Key *string `type:"string"`
 
-	// Value is a required field
-	Value *string `type:"string" required:"true"`
+	Value *string `type:"string"`
 }
 
 // String returns the string representation
@@ -403,19 +392,6 @@ func (s HealthCheckTemplatesTagForCreateHealthCheckTemplatesInput) String() stri
 // GoString returns the string representation
 func (s HealthCheckTemplatesTagForCreateHealthCheckTemplatesInput) GoString() string {
 	return s.String()
-}
-
-// Validate inspects the fields of the type to determine if they are valid.
-func (s *HealthCheckTemplatesTagForCreateHealthCheckTemplatesInput) Validate() error {
-	invalidParams := request.ErrInvalidParams{Context: "HealthCheckTemplatesTagForCreateHealthCheckTemplatesInput"}
-	if s.Value == nil {
-		invalidParams.Add(request.NewErrParamRequired("Value"))
-	}
-
-	if invalidParams.Len() > 0 {
-		return invalidParams
-	}
-	return nil
 }
 
 // SetKey sets the Key field's value.

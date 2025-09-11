@@ -190,6 +190,8 @@ type DescribeListenerAttributesOutput struct {
 
 	CACertificateId *string `type:"string"`
 
+	CACertificateSource *string `type:"string"`
+
 	CertCenterCertificateId *string `type:"string"`
 
 	CertificateId *string `type:"string"`
@@ -217,6 +219,12 @@ type DescribeListenerAttributesOutput struct {
 	ListenerName *string `type:"string"`
 
 	LoadBalancerId *string `type:"string"`
+
+	PcaLeafCertificateId *string `type:"string"`
+
+	PcaRootCACertificateId *string `type:"string"`
+
+	PcaSubCACertificateId *string `type:"string"`
 
 	Port *int64 `type:"integer"`
 
@@ -276,6 +284,12 @@ func (s *DescribeListenerAttributesOutput) SetAclType(v string) *DescribeListene
 // SetCACertificateId sets the CACertificateId field's value.
 func (s *DescribeListenerAttributesOutput) SetCACertificateId(v string) *DescribeListenerAttributesOutput {
 	s.CACertificateId = &v
+	return s
+}
+
+// SetCACertificateSource sets the CACertificateSource field's value.
+func (s *DescribeListenerAttributesOutput) SetCACertificateSource(v string) *DescribeListenerAttributesOutput {
+	s.CACertificateSource = &v
 	return s
 }
 
@@ -363,6 +377,24 @@ func (s *DescribeListenerAttributesOutput) SetLoadBalancerId(v string) *Describe
 	return s
 }
 
+// SetPcaLeafCertificateId sets the PcaLeafCertificateId field's value.
+func (s *DescribeListenerAttributesOutput) SetPcaLeafCertificateId(v string) *DescribeListenerAttributesOutput {
+	s.PcaLeafCertificateId = &v
+	return s
+}
+
+// SetPcaRootCACertificateId sets the PcaRootCACertificateId field's value.
+func (s *DescribeListenerAttributesOutput) SetPcaRootCACertificateId(v string) *DescribeListenerAttributesOutput {
+	s.PcaRootCACertificateId = &v
+	return s
+}
+
+// SetPcaSubCACertificateId sets the PcaSubCACertificateId field's value.
+func (s *DescribeListenerAttributesOutput) SetPcaSubCACertificateId(v string) *DescribeListenerAttributesOutput {
+	s.PcaSubCACertificateId = &v
+	return s
+}
+
 // SetPort sets the Port field's value.
 func (s *DescribeListenerAttributesOutput) SetPort(v int64) *DescribeListenerAttributesOutput {
 	s.Port = &v
@@ -438,6 +470,8 @@ type DomainExtensionForDescribeListenerAttributesOutput struct {
 
 	ListenerId *string `type:"string"`
 
+	PcaLeafCertificateId *string `type:"string"`
+
 	San *string `type:"string"`
 }
 
@@ -484,6 +518,12 @@ func (s *DomainExtensionForDescribeListenerAttributesOutput) SetDomainExtensionI
 // SetListenerId sets the ListenerId field's value.
 func (s *DomainExtensionForDescribeListenerAttributesOutput) SetListenerId(v string) *DomainExtensionForDescribeListenerAttributesOutput {
 	s.ListenerId = &v
+	return s
+}
+
+// SetPcaLeafCertificateId sets the PcaLeafCertificateId field's value.
+func (s *DomainExtensionForDescribeListenerAttributesOutput) SetPcaLeafCertificateId(v string) *DomainExtensionForDescribeListenerAttributesOutput {
+	s.PcaLeafCertificateId = &v
 	return s
 }
 

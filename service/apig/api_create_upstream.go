@@ -338,12 +338,8 @@ type CreateUpstreamInput struct {
 
 	Protocol *string `type:"string" json:",omitempty"`
 
-	ResourceType *string `type:"string" json:",omitempty"`
-
 	// SourceType is a required field
 	SourceType *string `type:"string" json:",omitempty" required:"true"`
-
-	Tags []*TagForCreateUpstreamInput `type:"list" json:",omitempty"`
 
 	TlsSettings *TlsSettingsForCreateUpstreamInput `type:"structure" json:",omitempty"`
 
@@ -415,21 +411,9 @@ func (s *CreateUpstreamInput) SetProtocol(v string) *CreateUpstreamInput {
 	return s
 }
 
-// SetResourceType sets the ResourceType field's value.
-func (s *CreateUpstreamInput) SetResourceType(v string) *CreateUpstreamInput {
-	s.ResourceType = &v
-	return s
-}
-
 // SetSourceType sets the SourceType field's value.
 func (s *CreateUpstreamInput) SetSourceType(v string) *CreateUpstreamInput {
 	s.SourceType = &v
-	return s
-}
-
-// SetTags sets the Tags field's value.
-func (s *CreateUpstreamInput) SetTags(v []*TagForCreateUpstreamInput) *CreateUpstreamInput {
-	s.Tags = v
 	return s
 }
 
@@ -746,36 +730,6 @@ func (s *NacosServiceForCreateUpstreamInput) SetService(v string) *NacosServiceF
 // SetUpstreamSourceId sets the UpstreamSourceId field's value.
 func (s *NacosServiceForCreateUpstreamInput) SetUpstreamSourceId(v string) *NacosServiceForCreateUpstreamInput {
 	s.UpstreamSourceId = &v
-	return s
-}
-
-type TagForCreateUpstreamInput struct {
-	_ struct{} `type:"structure" json:",omitempty"`
-
-	Key *string `type:"string" json:",omitempty"`
-
-	Value *string `type:"string" json:",omitempty"`
-}
-
-// String returns the string representation
-func (s TagForCreateUpstreamInput) String() string {
-	return volcengineutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s TagForCreateUpstreamInput) GoString() string {
-	return s.String()
-}
-
-// SetKey sets the Key field's value.
-func (s *TagForCreateUpstreamInput) SetKey(v string) *TagForCreateUpstreamInput {
-	s.Key = &v
-	return s
-}
-
-// SetValue sets the Value field's value.
-func (s *TagForCreateUpstreamInput) SetValue(v string) *TagForCreateUpstreamInput {
-	s.Value = &v
 	return s
 }
 

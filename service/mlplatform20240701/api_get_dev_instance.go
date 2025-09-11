@@ -196,11 +196,15 @@ type ConfigForGetDevInstanceOutput struct {
 
 	Nas *NasForGetDevInstanceOutput `type:"structure" json:",omitempty"`
 
+	NasAP *NasAPForGetDevInstanceOutput `type:"structure" json:",omitempty"`
+
 	Sfcs *SfcsForGetDevInstanceOutput `type:"structure" json:",omitempty"`
 
 	Tos *TosForGetDevInstanceOutput `type:"structure" json:",omitempty"`
 
 	Vepfs *VepfsForGetDevInstanceOutput `type:"structure" json:",omitempty"`
+
+	VepfsAP *VepfsAPForGetDevInstanceOutput `type:"structure" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -225,6 +229,12 @@ func (s *ConfigForGetDevInstanceOutput) SetNas(v *NasForGetDevInstanceOutput) *C
 	return s
 }
 
+// SetNasAP sets the NasAP field's value.
+func (s *ConfigForGetDevInstanceOutput) SetNasAP(v *NasAPForGetDevInstanceOutput) *ConfigForGetDevInstanceOutput {
+	s.NasAP = v
+	return s
+}
+
 // SetSfcs sets the Sfcs field's value.
 func (s *ConfigForGetDevInstanceOutput) SetSfcs(v *SfcsForGetDevInstanceOutput) *ConfigForGetDevInstanceOutput {
 	s.Sfcs = v
@@ -240,6 +250,12 @@ func (s *ConfigForGetDevInstanceOutput) SetTos(v *TosForGetDevInstanceOutput) *C
 // SetVepfs sets the Vepfs field's value.
 func (s *ConfigForGetDevInstanceOutput) SetVepfs(v *VepfsForGetDevInstanceOutput) *ConfigForGetDevInstanceOutput {
 	s.Vepfs = v
+	return s
+}
+
+// SetVepfsAP sets the VepfsAP field's value.
+func (s *ConfigForGetDevInstanceOutput) SetVepfsAP(v *VepfsAPForGetDevInstanceOutput) *ConfigForGetDevInstanceOutput {
+	s.VepfsAP = v
 	return s
 }
 
@@ -412,6 +428,8 @@ type GetDevInstanceOutput struct {
 
 	CreatorTrn *string `type:"string" json:",omitempty"`
 
+	DefaultFolder *string `type:"string" json:",omitempty"`
+
 	Description *string `type:"string" json:",omitempty"`
 
 	ExpectedStopTime *string `type:"string" json:",omitempty"`
@@ -434,9 +452,13 @@ type GetDevInstanceOutput struct {
 
 	Ports []*PortForGetDevInstanceOutput `type:"list" json:",omitempty"`
 
+	ProjectName *string `type:"string" json:",omitempty"`
+
 	ResourceClaim *ResourceClaimForGetDevInstanceOutput `type:"structure" json:",omitempty"`
 
 	ResourceQueueId *string `type:"string" json:",omitempty"`
+
+	ResourceReservationPlanId *string `type:"string" json:",omitempty"`
 
 	SshPublicKey *string `type:"string" json:",omitempty"`
 
@@ -480,6 +502,12 @@ func (s *GetDevInstanceOutput) SetCreateTime(v string) *GetDevInstanceOutput {
 // SetCreatorTrn sets the CreatorTrn field's value.
 func (s *GetDevInstanceOutput) SetCreatorTrn(v string) *GetDevInstanceOutput {
 	s.CreatorTrn = &v
+	return s
+}
+
+// SetDefaultFolder sets the DefaultFolder field's value.
+func (s *GetDevInstanceOutput) SetDefaultFolder(v string) *GetDevInstanceOutput {
+	s.DefaultFolder = &v
 	return s
 }
 
@@ -549,6 +577,12 @@ func (s *GetDevInstanceOutput) SetPorts(v []*PortForGetDevInstanceOutput) *GetDe
 	return s
 }
 
+// SetProjectName sets the ProjectName field's value.
+func (s *GetDevInstanceOutput) SetProjectName(v string) *GetDevInstanceOutput {
+	s.ProjectName = &v
+	return s
+}
+
 // SetResourceClaim sets the ResourceClaim field's value.
 func (s *GetDevInstanceOutput) SetResourceClaim(v *ResourceClaimForGetDevInstanceOutput) *GetDevInstanceOutput {
 	s.ResourceClaim = v
@@ -558,6 +592,12 @@ func (s *GetDevInstanceOutput) SetResourceClaim(v *ResourceClaimForGetDevInstanc
 // SetResourceQueueId sets the ResourceQueueId field's value.
 func (s *GetDevInstanceOutput) SetResourceQueueId(v string) *GetDevInstanceOutput {
 	s.ResourceQueueId = &v
+	return s
+}
+
+// SetResourceReservationPlanId sets the ResourceReservationPlanId field's value.
+func (s *GetDevInstanceOutput) SetResourceReservationPlanId(v string) *GetDevInstanceOutput {
+	s.ResourceReservationPlanId = &v
 	return s
 }
 
@@ -644,6 +684,36 @@ func (s *ImageForGetDevInstanceOutput) SetType(v string) *ImageForGetDevInstance
 // SetUrl sets the Url field's value.
 func (s *ImageForGetDevInstanceOutput) SetUrl(v string) *ImageForGetDevInstanceOutput {
 	s.Url = &v
+	return s
+}
+
+type NasAPForGetDevInstanceOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	AccessPointId *string `type:"string" json:",omitempty"`
+
+	Id *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s NasAPForGetDevInstanceOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s NasAPForGetDevInstanceOutput) GoString() string {
+	return s.String()
+}
+
+// SetAccessPointId sets the AccessPointId field's value.
+func (s *NasAPForGetDevInstanceOutput) SetAccessPointId(v string) *NasAPForGetDevInstanceOutput {
+	s.AccessPointId = &v
+	return s
+}
+
+// SetId sets the Id field's value.
+func (s *NasAPForGetDevInstanceOutput) SetId(v string) *NasAPForGetDevInstanceOutput {
+	s.Id = &v
 	return s
 }
 
@@ -1074,6 +1144,36 @@ func (s *TosForGetDevInstanceOutput) SetBucket(v string) *TosForGetDevInstanceOu
 // SetPrefix sets the Prefix field's value.
 func (s *TosForGetDevInstanceOutput) SetPrefix(v string) *TosForGetDevInstanceOutput {
 	s.Prefix = &v
+	return s
+}
+
+type VepfsAPForGetDevInstanceOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	AccessPointId *string `type:"string" json:",omitempty"`
+
+	Id *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s VepfsAPForGetDevInstanceOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s VepfsAPForGetDevInstanceOutput) GoString() string {
+	return s.String()
+}
+
+// SetAccessPointId sets the AccessPointId field's value.
+func (s *VepfsAPForGetDevInstanceOutput) SetAccessPointId(v string) *VepfsAPForGetDevInstanceOutput {
+	s.AccessPointId = &v
+	return s
+}
+
+// SetId sets the Id field's value.
+func (s *VepfsAPForGetDevInstanceOutput) SetId(v string) *VepfsAPForGetDevInstanceOutput {
+	s.Id = &v
 	return s
 }
 

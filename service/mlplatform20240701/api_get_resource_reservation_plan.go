@@ -148,6 +148,8 @@ type DesiredComputeResourceForGetResourceReservationPlanOutput struct {
 
 	Count *int64 `type:"int64" json:",omitempty"`
 
+	GpuCount *int64 `type:"int64" json:",omitempty"`
+
 	InstanceTypeId *string `type:"string" json:",omitempty"`
 
 	ZoneIds []*string `type:"list" json:",omitempty"`
@@ -166,6 +168,12 @@ func (s DesiredComputeResourceForGetResourceReservationPlanOutput) GoString() st
 // SetCount sets the Count field's value.
 func (s *DesiredComputeResourceForGetResourceReservationPlanOutput) SetCount(v int64) *DesiredComputeResourceForGetResourceReservationPlanOutput {
 	s.Count = &v
+	return s
+}
+
+// SetGpuCount sets the GpuCount field's value.
+func (s *DesiredComputeResourceForGetResourceReservationPlanOutput) SetGpuCount(v int64) *DesiredComputeResourceForGetResourceReservationPlanOutput {
+	s.GpuCount = &v
 	return s
 }
 
@@ -234,7 +242,11 @@ type GetResourceReservationPlanOutput struct {
 
 	Name *string `type:"string" json:",omitempty"`
 
+	ProjectName *string `type:"string" json:",omitempty"`
+
 	ReservationConfig *ReservationConfigForGetResourceReservationPlanOutput `type:"structure" json:",omitempty"`
+
+	ScheduleConfig *ScheduleConfigForGetResourceReservationPlanOutput `type:"structure" json:",omitempty"`
 
 	Status *StatusForGetResourceReservationPlanOutput `type:"structure" json:",omitempty"`
 
@@ -243,6 +255,8 @@ type GetResourceReservationPlanOutput struct {
 	UpdateTime *string `type:"string" json:",omitempty"`
 
 	WorkloadNetworkConfig *WorkloadNetworkConfigForGetResourceReservationPlanOutput `type:"structure" json:",omitempty"`
+
+	WorkloadNetworkMode *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -291,9 +305,21 @@ func (s *GetResourceReservationPlanOutput) SetName(v string) *GetResourceReserva
 	return s
 }
 
+// SetProjectName sets the ProjectName field's value.
+func (s *GetResourceReservationPlanOutput) SetProjectName(v string) *GetResourceReservationPlanOutput {
+	s.ProjectName = &v
+	return s
+}
+
 // SetReservationConfig sets the ReservationConfig field's value.
 func (s *GetResourceReservationPlanOutput) SetReservationConfig(v *ReservationConfigForGetResourceReservationPlanOutput) *GetResourceReservationPlanOutput {
 	s.ReservationConfig = v
+	return s
+}
+
+// SetScheduleConfig sets the ScheduleConfig field's value.
+func (s *GetResourceReservationPlanOutput) SetScheduleConfig(v *ScheduleConfigForGetResourceReservationPlanOutput) *GetResourceReservationPlanOutput {
+	s.ScheduleConfig = v
 	return s
 }
 
@@ -321,6 +347,12 @@ func (s *GetResourceReservationPlanOutput) SetWorkloadNetworkConfig(v *WorkloadN
 	return s
 }
 
+// SetWorkloadNetworkMode sets the WorkloadNetworkMode field's value.
+func (s *GetResourceReservationPlanOutput) SetWorkloadNetworkMode(v string) *GetResourceReservationPlanOutput {
+	s.WorkloadNetworkMode = &v
+	return s
+}
+
 type ReservationConfigForGetResourceReservationPlanOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -335,6 +367,8 @@ type ReservationConfigForGetResourceReservationPlanOutput struct {
 	RecurrenceStartTime *string `type:"string" json:",omitempty"`
 
 	ReservationType *string `type:"string" json:",omitempty"`
+
+	ResourceSegments []*ResourceSegmentForGetResourceReservationPlanOutput `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -380,6 +414,72 @@ func (s *ReservationConfigForGetResourceReservationPlanOutput) SetRecurrenceStar
 // SetReservationType sets the ReservationType field's value.
 func (s *ReservationConfigForGetResourceReservationPlanOutput) SetReservationType(v string) *ReservationConfigForGetResourceReservationPlanOutput {
 	s.ReservationType = &v
+	return s
+}
+
+// SetResourceSegments sets the ResourceSegments field's value.
+func (s *ReservationConfigForGetResourceReservationPlanOutput) SetResourceSegments(v []*ResourceSegmentForGetResourceReservationPlanOutput) *ReservationConfigForGetResourceReservationPlanOutput {
+	s.ResourceSegments = v
+	return s
+}
+
+type ResourceSegmentForGetResourceReservationPlanOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	AvailabilityZone *string `type:"string" json:",omitempty"`
+
+	EndTime *string `type:"string" json:",omitempty"`
+
+	StartTime *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s ResourceSegmentForGetResourceReservationPlanOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ResourceSegmentForGetResourceReservationPlanOutput) GoString() string {
+	return s.String()
+}
+
+// SetAvailabilityZone sets the AvailabilityZone field's value.
+func (s *ResourceSegmentForGetResourceReservationPlanOutput) SetAvailabilityZone(v string) *ResourceSegmentForGetResourceReservationPlanOutput {
+	s.AvailabilityZone = &v
+	return s
+}
+
+// SetEndTime sets the EndTime field's value.
+func (s *ResourceSegmentForGetResourceReservationPlanOutput) SetEndTime(v string) *ResourceSegmentForGetResourceReservationPlanOutput {
+	s.EndTime = &v
+	return s
+}
+
+// SetStartTime sets the StartTime field's value.
+func (s *ResourceSegmentForGetResourceReservationPlanOutput) SetStartTime(v string) *ResourceSegmentForGetResourceReservationPlanOutput {
+	s.StartTime = &v
+	return s
+}
+
+type ScheduleConfigForGetResourceReservationPlanOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	SplitSchedulingEnabled *bool `type:"boolean" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s ScheduleConfigForGetResourceReservationPlanOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ScheduleConfigForGetResourceReservationPlanOutput) GoString() string {
+	return s.String()
+}
+
+// SetSplitSchedulingEnabled sets the SplitSchedulingEnabled field's value.
+func (s *ScheduleConfigForGetResourceReservationPlanOutput) SetSplitSchedulingEnabled(v bool) *ScheduleConfigForGetResourceReservationPlanOutput {
+	s.SplitSchedulingEnabled = &v
 	return s
 }
 

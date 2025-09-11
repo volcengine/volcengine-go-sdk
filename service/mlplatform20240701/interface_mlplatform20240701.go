@@ -310,6 +310,14 @@ type MLPLATFORM20240701API interface {
 	ListResourceQueuesWithContext(volcengine.Context, *ListResourceQueuesInput, ...request.Option) (*ListResourceQueuesOutput, error)
 	ListResourceQueuesRequest(*ListResourceQueuesInput) (*request.Request, *ListResourceQueuesOutput)
 
+	ListResourceReservationPlanAvailableResourcesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListResourceReservationPlanAvailableResourcesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListResourceReservationPlanAvailableResourcesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListResourceReservationPlanAvailableResources(*ListResourceReservationPlanAvailableResourcesInput) (*ListResourceReservationPlanAvailableResourcesOutput, error)
+	ListResourceReservationPlanAvailableResourcesWithContext(volcengine.Context, *ListResourceReservationPlanAvailableResourcesInput, ...request.Option) (*ListResourceReservationPlanAvailableResourcesOutput, error)
+	ListResourceReservationPlanAvailableResourcesRequest(*ListResourceReservationPlanAvailableResourcesInput) (*request.Request, *ListResourceReservationPlanAvailableResourcesOutput)
+
 	ListResourceReservationPlansCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ListResourceReservationPlansCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	ListResourceReservationPlansCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -397,6 +405,14 @@ type MLPLATFORM20240701API interface {
 	ResumeResourceQueue(*ResumeResourceQueueInput) (*ResumeResourceQueueOutput, error)
 	ResumeResourceQueueWithContext(volcengine.Context, *ResumeResourceQueueInput, ...request.Option) (*ResumeResourceQueueOutput, error)
 	ResumeResourceQueueRequest(*ResumeResourceQueueInput) (*request.Request, *ResumeResourceQueueOutput)
+
+	SignJwtTokenCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	SignJwtTokenCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	SignJwtTokenCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	SignJwtToken(*SignJwtTokenInput) (*SignJwtTokenOutput, error)
+	SignJwtTokenWithContext(volcengine.Context, *SignJwtTokenInput, ...request.Option) (*SignJwtTokenOutput, error)
+	SignJwtTokenRequest(*SignJwtTokenInput) (*request.Request, *SignJwtTokenOutput)
 
 	StartDeploymentCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	StartDeploymentCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)

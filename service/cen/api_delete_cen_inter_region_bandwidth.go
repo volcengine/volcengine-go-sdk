@@ -179,8 +179,6 @@ type DeleteCenInterRegionBandwidthOutput struct {
 	_ struct{} `type:"structure"`
 
 	Metadata *response.ResponseMetadata
-
-	RequestId *string `type:"string"`
 }
 
 // String returns the string representation
@@ -191,10 +189,4 @@ func (s DeleteCenInterRegionBandwidthOutput) String() string {
 // GoString returns the string representation
 func (s DeleteCenInterRegionBandwidthOutput) GoString() string {
 	return s.String()
-}
-
-// SetRequestId sets the RequestId field's value.
-func (s *DeleteCenInterRegionBandwidthOutput) SetRequestId(v string) *DeleteCenInterRegionBandwidthOutput {
-	s.RequestId = &v
-	return s
 }

@@ -282,8 +282,6 @@ type DescribeCenAttachedInstancesOutput struct {
 
 	PageSize *int64 `type:"integer"`
 
-	RequestId *string `type:"string"`
-
 	TotalCount *int64 `type:"integer"`
 }
 
@@ -312,12 +310,6 @@ func (s *DescribeCenAttachedInstancesOutput) SetPageNumber(v int64) *DescribeCen
 // SetPageSize sets the PageSize field's value.
 func (s *DescribeCenAttachedInstancesOutput) SetPageSize(v int64) *DescribeCenAttachedInstancesOutput {
 	s.PageSize = &v
-	return s
-}
-
-// SetRequestId sets the RequestId field's value.
-func (s *DescribeCenAttachedInstancesOutput) SetRequestId(v string) *DescribeCenAttachedInstancesOutput {
-	s.RequestId = &v
 	return s
 }
 

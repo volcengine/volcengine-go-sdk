@@ -208,13 +208,13 @@ type LoginProfileForGetLoginProfileOutput struct {
 
 	LastLoginIp *string `type:"string"`
 
-	LastResetPasswordTime *int32 `type:"int32"`
+	LastResetPasswordTime *int64 `type:"int64"`
 
 	LoginAllowed *bool `type:"boolean"`
 
 	LoginLocked *bool `type:"boolean"`
 
-	PasswordExpireAt *int32 `type:"int32"`
+	PasswordExpireAt *int64 `type:"int64"`
 
 	PasswordResetRequired *bool `type:"boolean"`
 
@@ -264,7 +264,7 @@ func (s *LoginProfileForGetLoginProfileOutput) SetLastLoginIp(v string) *LoginPr
 }
 
 // SetLastResetPasswordTime sets the LastResetPasswordTime field's value.
-func (s *LoginProfileForGetLoginProfileOutput) SetLastResetPasswordTime(v int32) *LoginProfileForGetLoginProfileOutput {
+func (s *LoginProfileForGetLoginProfileOutput) SetLastResetPasswordTime(v int64) *LoginProfileForGetLoginProfileOutput {
 	s.LastResetPasswordTime = &v
 	return s
 }
@@ -282,7 +282,7 @@ func (s *LoginProfileForGetLoginProfileOutput) SetLoginLocked(v bool) *LoginProf
 }
 
 // SetPasswordExpireAt sets the PasswordExpireAt field's value.
-func (s *LoginProfileForGetLoginProfileOutput) SetPasswordExpireAt(v int32) *LoginProfileForGetLoginProfileOutput {
+func (s *LoginProfileForGetLoginProfileOutput) SetPasswordExpireAt(v int64) *LoginProfileForGetLoginProfileOutput {
 	s.PasswordExpireAt = &v
 	return s
 }

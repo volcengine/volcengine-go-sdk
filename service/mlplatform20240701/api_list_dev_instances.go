@@ -196,11 +196,15 @@ type ConfigForListDevInstancesOutput struct {
 
 	Nas *NasForListDevInstancesOutput `type:"structure" json:",omitempty"`
 
+	NasAP *NasAPForListDevInstancesOutput `type:"structure" json:",omitempty"`
+
 	Sfcs *SfcsForListDevInstancesOutput `type:"structure" json:",omitempty"`
 
 	Tos *TosForListDevInstancesOutput `type:"structure" json:",omitempty"`
 
 	Vepfs *VepfsForListDevInstancesOutput `type:"structure" json:",omitempty"`
+
+	VepfsAP *VepfsAPForListDevInstancesOutput `type:"structure" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -225,6 +229,12 @@ func (s *ConfigForListDevInstancesOutput) SetNas(v *NasForListDevInstancesOutput
 	return s
 }
 
+// SetNasAP sets the NasAP field's value.
+func (s *ConfigForListDevInstancesOutput) SetNasAP(v *NasAPForListDevInstancesOutput) *ConfigForListDevInstancesOutput {
+	s.NasAP = v
+	return s
+}
+
 // SetSfcs sets the Sfcs field's value.
 func (s *ConfigForListDevInstancesOutput) SetSfcs(v *SfcsForListDevInstancesOutput) *ConfigForListDevInstancesOutput {
 	s.Sfcs = v
@@ -240,6 +250,12 @@ func (s *ConfigForListDevInstancesOutput) SetTos(v *TosForListDevInstancesOutput
 // SetVepfs sets the Vepfs field's value.
 func (s *ConfigForListDevInstancesOutput) SetVepfs(v *VepfsForListDevInstancesOutput) *ConfigForListDevInstancesOutput {
 	s.Vepfs = v
+	return s
+}
+
+// SetVepfsAP sets the VepfsAP field's value.
+func (s *ConfigForListDevInstancesOutput) SetVepfsAP(v *VepfsAPForListDevInstancesOutput) *ConfigForListDevInstancesOutput {
+	s.VepfsAP = v
 	return s
 }
 
@@ -418,11 +434,15 @@ type ListDevInstancesInput struct {
 
 	PageSize *int32 `min:"10" max:"100" type:"int32" json:",omitempty"`
 
+	ProjectName *string `min:"1" max:"64" type:"string" json:",omitempty"`
+
 	Relationship *string `type:"string" json:",omitempty" enum:"EnumOfRelationshipForListDevInstancesInput"`
 
 	ResourceGroupIds []*string `type:"list" json:",omitempty"`
 
 	ResourceQueueIds []*string `type:"list" json:",omitempty"`
+
+	ResourceReservationPlanIds []*string `type:"list" json:",omitempty"`
 
 	SortBy *string `type:"string" json:",omitempty" enum:"EnumOfSortByForListDevInstancesInput"`
 
@@ -449,6 +469,12 @@ func (s *ListDevInstancesInput) Validate() error {
 	}
 	if s.PageSize != nil && *s.PageSize > 100 {
 		invalidParams.Add(request.NewErrParamMaxValue("PageSize", 100))
+	}
+	if s.ProjectName != nil && len(*s.ProjectName) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("ProjectName", 1))
+	}
+	if s.ProjectName != nil && len(*s.ProjectName) > 64 {
+		invalidParams.Add(request.NewErrParamMaxLen("ProjectName", 64, *s.ProjectName))
 	}
 
 	if invalidParams.Len() > 0 {
@@ -493,6 +519,12 @@ func (s *ListDevInstancesInput) SetPageSize(v int32) *ListDevInstancesInput {
 	return s
 }
 
+// SetProjectName sets the ProjectName field's value.
+func (s *ListDevInstancesInput) SetProjectName(v string) *ListDevInstancesInput {
+	s.ProjectName = &v
+	return s
+}
+
 // SetRelationship sets the Relationship field's value.
 func (s *ListDevInstancesInput) SetRelationship(v string) *ListDevInstancesInput {
 	s.Relationship = &v
@@ -508,6 +540,12 @@ func (s *ListDevInstancesInput) SetResourceGroupIds(v []*string) *ListDevInstanc
 // SetResourceQueueIds sets the ResourceQueueIds field's value.
 func (s *ListDevInstancesInput) SetResourceQueueIds(v []*string) *ListDevInstancesInput {
 	s.ResourceQueueIds = v
+	return s
+}
+
+// SetResourceReservationPlanIds sets the ResourceReservationPlanIds field's value.
+func (s *ListDevInstancesInput) SetResourceReservationPlanIds(v []*string) *ListDevInstancesInput {
+	s.ResourceReservationPlanIds = v
 	return s
 }
 
@@ -586,6 +624,8 @@ type ListForListDevInstancesOutput struct {
 
 	CreatorTrn *string `type:"string" json:",omitempty"`
 
+	DefaultFolder *string `type:"string" json:",omitempty"`
+
 	Description *string `type:"string" json:",omitempty"`
 
 	ExpectedStopTime *string `type:"string" json:",omitempty"`
@@ -608,9 +648,13 @@ type ListForListDevInstancesOutput struct {
 
 	Ports []*PortForListDevInstancesOutput `type:"list" json:",omitempty"`
 
+	ProjectName *string `min:"1" max:"64" type:"string" json:",omitempty"`
+
 	ResourceClaim *ResourceClaimForListDevInstancesOutput `type:"structure" json:",omitempty"`
 
 	ResourceQueueId *string `type:"string" json:",omitempty"`
+
+	ResourceReservationPlanId *string `type:"string" json:",omitempty"`
 
 	SshPublicKey *string `type:"string" json:",omitempty"`
 
@@ -654,6 +698,12 @@ func (s *ListForListDevInstancesOutput) SetCreateTime(v string) *ListForListDevI
 // SetCreatorTrn sets the CreatorTrn field's value.
 func (s *ListForListDevInstancesOutput) SetCreatorTrn(v string) *ListForListDevInstancesOutput {
 	s.CreatorTrn = &v
+	return s
+}
+
+// SetDefaultFolder sets the DefaultFolder field's value.
+func (s *ListForListDevInstancesOutput) SetDefaultFolder(v string) *ListForListDevInstancesOutput {
+	s.DefaultFolder = &v
 	return s
 }
 
@@ -723,6 +773,12 @@ func (s *ListForListDevInstancesOutput) SetPorts(v []*PortForListDevInstancesOut
 	return s
 }
 
+// SetProjectName sets the ProjectName field's value.
+func (s *ListForListDevInstancesOutput) SetProjectName(v string) *ListForListDevInstancesOutput {
+	s.ProjectName = &v
+	return s
+}
+
 // SetResourceClaim sets the ResourceClaim field's value.
 func (s *ListForListDevInstancesOutput) SetResourceClaim(v *ResourceClaimForListDevInstancesOutput) *ListForListDevInstancesOutput {
 	s.ResourceClaim = v
@@ -732,6 +788,12 @@ func (s *ListForListDevInstancesOutput) SetResourceClaim(v *ResourceClaimForList
 // SetResourceQueueId sets the ResourceQueueId field's value.
 func (s *ListForListDevInstancesOutput) SetResourceQueueId(v string) *ListForListDevInstancesOutput {
 	s.ResourceQueueId = &v
+	return s
+}
+
+// SetResourceReservationPlanId sets the ResourceReservationPlanId field's value.
+func (s *ListForListDevInstancesOutput) SetResourceReservationPlanId(v string) *ListForListDevInstancesOutput {
+	s.ResourceReservationPlanId = &v
 	return s
 }
 
@@ -780,6 +842,36 @@ func (s *ListForListDevInstancesOutput) SetVolume(v *VolumeForListDevInstancesOu
 // SetZoneID sets the ZoneID field's value.
 func (s *ListForListDevInstancesOutput) SetZoneID(v string) *ListForListDevInstancesOutput {
 	s.ZoneID = &v
+	return s
+}
+
+type NasAPForListDevInstancesOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	AccessPointId *string `type:"string" json:",omitempty"`
+
+	Id *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s NasAPForListDevInstancesOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s NasAPForListDevInstancesOutput) GoString() string {
+	return s.String()
+}
+
+// SetAccessPointId sets the AccessPointId field's value.
+func (s *NasAPForListDevInstancesOutput) SetAccessPointId(v string) *NasAPForListDevInstancesOutput {
+	s.AccessPointId = &v
+	return s
+}
+
+// SetId sets the Id field's value.
+func (s *NasAPForListDevInstancesOutput) SetId(v string) *NasAPForListDevInstancesOutput {
+	s.Id = &v
 	return s
 }
 
@@ -1210,6 +1302,36 @@ func (s *TosForListDevInstancesOutput) SetBucket(v string) *TosForListDevInstanc
 // SetPrefix sets the Prefix field's value.
 func (s *TosForListDevInstancesOutput) SetPrefix(v string) *TosForListDevInstancesOutput {
 	s.Prefix = &v
+	return s
+}
+
+type VepfsAPForListDevInstancesOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	AccessPointId *string `type:"string" json:",omitempty"`
+
+	Id *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s VepfsAPForListDevInstancesOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s VepfsAPForListDevInstancesOutput) GoString() string {
+	return s.String()
+}
+
+// SetAccessPointId sets the AccessPointId field's value.
+func (s *VepfsAPForListDevInstancesOutput) SetAccessPointId(v string) *VepfsAPForListDevInstancesOutput {
+	s.AccessPointId = &v
+	return s
+}
+
+// SetId sets the Id field's value.
+func (s *VepfsAPForListDevInstancesOutput) SetId(v string) *VepfsAPForListDevInstancesOutput {
+	s.Id = &v
 	return s
 }
 

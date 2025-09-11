@@ -234,11 +234,15 @@ type ConfigForCreateJobInput struct {
 
 	Nas *NasForCreateJobInput `type:"structure" json:",omitempty"`
 
+	NasAP *NasAPForCreateJobInput `type:"structure" json:",omitempty"`
+
 	Sfcs *SfcsForCreateJobInput `type:"structure" json:",omitempty"`
 
 	Tos *TosForCreateJobInput `type:"structure" json:",omitempty"`
 
 	Vepfs *VepfsForCreateJobInput `type:"structure" json:",omitempty"`
+
+	VepfsAP *VepfsAPForCreateJobInput `type:"structure" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -263,6 +267,12 @@ func (s *ConfigForCreateJobInput) SetNas(v *NasForCreateJobInput) *ConfigForCrea
 	return s
 }
 
+// SetNasAP sets the NasAP field's value.
+func (s *ConfigForCreateJobInput) SetNasAP(v *NasAPForCreateJobInput) *ConfigForCreateJobInput {
+	s.NasAP = v
+	return s
+}
+
 // SetSfcs sets the Sfcs field's value.
 func (s *ConfigForCreateJobInput) SetSfcs(v *SfcsForCreateJobInput) *ConfigForCreateJobInput {
 	s.Sfcs = v
@@ -278,6 +288,12 @@ func (s *ConfigForCreateJobInput) SetTos(v *TosForCreateJobInput) *ConfigForCrea
 // SetVepfs sets the Vepfs field's value.
 func (s *ConfigForCreateJobInput) SetVepfs(v *VepfsForCreateJobInput) *ConfigForCreateJobInput {
 	s.Vepfs = v
+	return s
+}
+
+// SetVepfsAP sets the VepfsAP field's value.
+func (s *ConfigForCreateJobInput) SetVepfsAP(v *VepfsAPForCreateJobInput) *ConfigForCreateJobInput {
+	s.VepfsAP = v
 	return s
 }
 
@@ -354,6 +370,8 @@ type CreateJobInput struct {
 
 	ObservableConfig *ObservableConfigForCreateJobInput `type:"structure" json:",omitempty"`
 
+	ProjectName *string `min:"1" max:"64" type:"string" json:",omitempty"`
+
 	ResourceConfig *ResourceConfigForCreateJobInput `type:"structure" json:",omitempty"`
 
 	RetryConfig *RetryConfigForCreateJobInput `type:"structure" json:",omitempty"`
@@ -371,6 +389,22 @@ func (s CreateJobInput) String() string {
 // GoString returns the string representation
 func (s CreateJobInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *CreateJobInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "CreateJobInput"}
+	if s.ProjectName != nil && len(*s.ProjectName) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("ProjectName", 1))
+	}
+	if s.ProjectName != nil && len(*s.ProjectName) > 64 {
+		invalidParams.Add(request.NewErrParamMaxLen("ProjectName", 64, *s.ProjectName))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetDescription sets the Description field's value.
@@ -400,6 +434,12 @@ func (s *CreateJobInput) SetName(v string) *CreateJobInput {
 // SetObservableConfig sets the ObservableConfig field's value.
 func (s *CreateJobInput) SetObservableConfig(v *ObservableConfigForCreateJobInput) *CreateJobInput {
 	s.ObservableConfig = v
+	return s
+}
+
+// SetProjectName sets the ProjectName field's value.
+func (s *CreateJobInput) SetProjectName(v string) *CreateJobInput {
+	s.ProjectName = &v
 	return s
 }
 
@@ -692,6 +732,36 @@ func (s *ImageForCreateJobInput) SetType(v string) *ImageForCreateJobInput {
 // SetUrl sets the Url field's value.
 func (s *ImageForCreateJobInput) SetUrl(v string) *ImageForCreateJobInput {
 	s.Url = &v
+	return s
+}
+
+type NasAPForCreateJobInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	AccessPointId *string `type:"string" json:",omitempty"`
+
+	Id *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s NasAPForCreateJobInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s NasAPForCreateJobInput) GoString() string {
+	return s.String()
+}
+
+// SetAccessPointId sets the AccessPointId field's value.
+func (s *NasAPForCreateJobInput) SetAccessPointId(v string) *NasAPForCreateJobInput {
+	s.AccessPointId = &v
+	return s
+}
+
+// SetId sets the Id field's value.
+func (s *NasAPForCreateJobInput) SetId(v string) *NasAPForCreateJobInput {
+	s.Id = &v
 	return s
 }
 
@@ -1360,6 +1430,36 @@ func (s *TosForCreateJobInput) SetBucket(v string) *TosForCreateJobInput {
 // SetPrefix sets the Prefix field's value.
 func (s *TosForCreateJobInput) SetPrefix(v string) *TosForCreateJobInput {
 	s.Prefix = &v
+	return s
+}
+
+type VepfsAPForCreateJobInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	AccessPointId *string `type:"string" json:",omitempty"`
+
+	Id *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s VepfsAPForCreateJobInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s VepfsAPForCreateJobInput) GoString() string {
+	return s.String()
+}
+
+// SetAccessPointId sets the AccessPointId field's value.
+func (s *VepfsAPForCreateJobInput) SetAccessPointId(v string) *VepfsAPForCreateJobInput {
+	s.AccessPointId = &v
+	return s
+}
+
+// SetId sets the Id field's value.
+func (s *VepfsAPForCreateJobInput) SetId(v string) *VepfsAPForCreateJobInput {
+	s.Id = &v
 	return s
 }
 

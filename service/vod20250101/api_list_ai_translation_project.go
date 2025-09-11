@@ -144,6 +144,8 @@ type InputVideoForListAITranslationProjectOutput struct {
 
 	DurationSecond *float64 `type:"double"`
 
+	FileName *string `type:"string"`
+
 	IsAudio *bool `type:"boolean"`
 
 	Uri *string `type:"string"`
@@ -166,6 +168,12 @@ func (s InputVideoForListAITranslationProjectOutput) GoString() string {
 // SetDurationSecond sets the DurationSecond field's value.
 func (s *InputVideoForListAITranslationProjectOutput) SetDurationSecond(v float64) *InputVideoForListAITranslationProjectOutput {
 	s.DurationSecond = &v
+	return s
+}
+
+// SetFileName sets the FileName field's value.
+func (s *InputVideoForListAITranslationProjectOutput) SetFileName(v string) *InputVideoForListAITranslationProjectOutput {
+	s.FileName = &v
 	return s
 }
 
@@ -336,6 +344,8 @@ type OutputVideoForListAITranslationProjectOutput struct {
 
 	DurationSecond *float64 `type:"double"`
 
+	FileName *string `type:"string"`
+
 	IsAudio *bool `type:"boolean"`
 
 	Uri *string `type:"string"`
@@ -358,6 +368,12 @@ func (s OutputVideoForListAITranslationProjectOutput) GoString() string {
 // SetDurationSecond sets the DurationSecond field's value.
 func (s *OutputVideoForListAITranslationProjectOutput) SetDurationSecond(v float64) *OutputVideoForListAITranslationProjectOutput {
 	s.DurationSecond = &v
+	return s
+}
+
+// SetFileName sets the FileName field's value.
+func (s *OutputVideoForListAITranslationProjectOutput) SetFileName(v string) *OutputVideoForListAITranslationProjectOutput {
+	s.FileName = &v
 	return s
 }
 

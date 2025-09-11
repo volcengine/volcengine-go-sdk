@@ -182,8 +182,6 @@ type DescribeNLBServerGroupAttributesOutput struct {
 
 	AccountId *string `type:"string"`
 
-	AddressIpVersion *string `type:"string"`
-
 	AnyPortEnabled *bool `type:"boolean"`
 
 	BypassSecurityGroupEnabled *bool `type:"boolean"`
@@ -252,12 +250,6 @@ func (s DescribeNLBServerGroupAttributesOutput) GoString() string {
 // SetAccountId sets the AccountId field's value.
 func (s *DescribeNLBServerGroupAttributesOutput) SetAccountId(v string) *DescribeNLBServerGroupAttributesOutput {
 	s.AccountId = &v
-	return s
-}
-
-// SetAddressIpVersion sets the AddressIpVersion field's value.
-func (s *DescribeNLBServerGroupAttributesOutput) SetAddressIpVersion(v string) *DescribeNLBServerGroupAttributesOutput {
-	s.AddressIpVersion = &v
 	return s
 }
 

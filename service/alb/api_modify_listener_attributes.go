@@ -153,6 +153,8 @@ type DomainExtensionForModifyListenerAttributesInput struct {
 	Domain *string `type:"string"`
 
 	DomainExtensionId *string `type:"string"`
+
+	PcaLeafCertificateId *string `type:"string"`
 }
 
 // String returns the string representation
@@ -201,6 +203,12 @@ func (s *DomainExtensionForModifyListenerAttributesInput) SetDomainExtensionId(v
 	return s
 }
 
+// SetPcaLeafCertificateId sets the PcaLeafCertificateId field's value.
+func (s *DomainExtensionForModifyListenerAttributesInput) SetPcaLeafCertificateId(v string) *DomainExtensionForModifyListenerAttributesInput {
+	s.PcaLeafCertificateId = &v
+	return s
+}
+
 type ModifyListenerAttributesInput struct {
 	_ struct{} `type:"structure"`
 
@@ -213,6 +221,8 @@ type ModifyListenerAttributesInput struct {
 	AclType *string `type:"string"`
 
 	CACertificateId *string `type:"string"`
+
+	CACertificateSource *string `type:"string"`
 
 	CertCenterCertificateId *string `type:"string"`
 
@@ -238,6 +248,12 @@ type ModifyListenerAttributesInput struct {
 	ListenerId *string `type:"string" required:"true"`
 
 	ListenerName *string `min:"1" max:"128" type:"string"`
+
+	PcaLeafCertificateId *string `type:"string"`
+
+	PcaRootCACertificateId *string `type:"string"`
+
+	PcaSubCACertificateId *string `type:"string"`
 
 	ProxyProtocolDisabled *string `type:"string"`
 
@@ -300,6 +316,12 @@ func (s *ModifyListenerAttributesInput) SetAclType(v string) *ModifyListenerAttr
 // SetCACertificateId sets the CACertificateId field's value.
 func (s *ModifyListenerAttributesInput) SetCACertificateId(v string) *ModifyListenerAttributesInput {
 	s.CACertificateId = &v
+	return s
+}
+
+// SetCACertificateSource sets the CACertificateSource field's value.
+func (s *ModifyListenerAttributesInput) SetCACertificateSource(v string) *ModifyListenerAttributesInput {
+	s.CACertificateSource = &v
 	return s
 }
 
@@ -372,6 +394,24 @@ func (s *ModifyListenerAttributesInput) SetListenerId(v string) *ModifyListenerA
 // SetListenerName sets the ListenerName field's value.
 func (s *ModifyListenerAttributesInput) SetListenerName(v string) *ModifyListenerAttributesInput {
 	s.ListenerName = &v
+	return s
+}
+
+// SetPcaLeafCertificateId sets the PcaLeafCertificateId field's value.
+func (s *ModifyListenerAttributesInput) SetPcaLeafCertificateId(v string) *ModifyListenerAttributesInput {
+	s.PcaLeafCertificateId = &v
+	return s
+}
+
+// SetPcaRootCACertificateId sets the PcaRootCACertificateId field's value.
+func (s *ModifyListenerAttributesInput) SetPcaRootCACertificateId(v string) *ModifyListenerAttributesInput {
+	s.PcaRootCACertificateId = &v
+	return s
+}
+
+// SetPcaSubCACertificateId sets the PcaSubCACertificateId field's value.
+func (s *ModifyListenerAttributesInput) SetPcaSubCACertificateId(v string) *ModifyListenerAttributesInput {
+	s.PcaSubCACertificateId = &v
 	return s
 }
 

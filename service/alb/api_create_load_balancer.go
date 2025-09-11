@@ -146,6 +146,8 @@ type CreateLoadBalancerInput struct {
 
 	BandwidthPackageId *string `type:"string"`
 
+	ClientToken *string `type:"string"`
+
 	DeleteProtection *string `type:"string"`
 
 	Description *string `type:"string"`
@@ -216,6 +218,12 @@ func (s *CreateLoadBalancerInput) SetAddressIpVersion(v string) *CreateLoadBalan
 // SetBandwidthPackageId sets the BandwidthPackageId field's value.
 func (s *CreateLoadBalancerInput) SetBandwidthPackageId(v string) *CreateLoadBalancerInput {
 	s.BandwidthPackageId = &v
+	return s
+}
+
+// SetClientToken sets the ClientToken field's value.
+func (s *CreateLoadBalancerInput) SetClientToken(v string) *CreateLoadBalancerInput {
+	s.ClientToken = &v
 	return s
 }
 

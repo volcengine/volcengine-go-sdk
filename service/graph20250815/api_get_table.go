@@ -202,9 +202,9 @@ type GetTableOutput struct {
 
 	State *string `type:"string" json:",omitempty"`
 
-	TabelName *string `type:"string" json:",omitempty"`
-
 	TableId *int64 `type:"int64" json:",omitempty"`
+
+	TableName *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -235,14 +235,14 @@ func (s *GetTableOutput) SetState(v string) *GetTableOutput {
 	return s
 }
 
-// SetTabelName sets the TabelName field's value.
-func (s *GetTableOutput) SetTabelName(v string) *GetTableOutput {
-	s.TabelName = &v
-	return s
-}
-
 // SetTableId sets the TableId field's value.
 func (s *GetTableOutput) SetTableId(v int64) *GetTableOutput {
 	s.TableId = &v
+	return s
+}
+
+// SetTableName sets the TableName field's value.
+func (s *GetTableOutput) SetTableName(v string) *GetTableOutput {
+	s.TableName = &v
 	return s
 }

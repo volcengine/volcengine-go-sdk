@@ -534,6 +534,14 @@ type CLBAPI interface {
 	ModifyNLBBackendServersAttributesWithContext(volcengine.Context, *ModifyNLBBackendServersAttributesInput, ...request.Option) (*ModifyNLBBackendServersAttributesOutput, error)
 	ModifyNLBBackendServersAttributesRequest(*ModifyNLBBackendServersAttributesInput) (*request.Request, *ModifyNLBBackendServersAttributesOutput)
 
+	ModifyNLBListenerAdditionalCertificatesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ModifyNLBListenerAdditionalCertificatesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ModifyNLBListenerAdditionalCertificatesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ModifyNLBListenerAdditionalCertificates(*ModifyNLBListenerAdditionalCertificatesInput) (*ModifyNLBListenerAdditionalCertificatesOutput, error)
+	ModifyNLBListenerAdditionalCertificatesWithContext(volcengine.Context, *ModifyNLBListenerAdditionalCertificatesInput, ...request.Option) (*ModifyNLBListenerAdditionalCertificatesOutput, error)
+	ModifyNLBListenerAdditionalCertificatesRequest(*ModifyNLBListenerAdditionalCertificatesInput) (*request.Request, *ModifyNLBListenerAdditionalCertificatesOutput)
+
 	ModifyNLBListenerAttributesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ModifyNLBListenerAttributesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	ModifyNLBListenerAttributesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})

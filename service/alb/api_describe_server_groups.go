@@ -388,6 +388,8 @@ type ServerGroupForDescribeServerGroupsOutput struct {
 
 	CreateTime *string `type:"string"`
 
+	CrossZoneEnabled *string `type:"string"`
+
 	Description *string `type:"string"`
 
 	HealthCheck *HealthCheckForDescribeServerGroupsOutput `type:"structure"`
@@ -434,6 +436,12 @@ func (s ServerGroupForDescribeServerGroupsOutput) GoString() string {
 // SetCreateTime sets the CreateTime field's value.
 func (s *ServerGroupForDescribeServerGroupsOutput) SetCreateTime(v string) *ServerGroupForDescribeServerGroupsOutput {
 	s.CreateTime = &v
+	return s
+}
+
+// SetCrossZoneEnabled sets the CrossZoneEnabled field's value.
+func (s *ServerGroupForDescribeServerGroupsOutput) SetCrossZoneEnabled(v string) *ServerGroupForDescribeServerGroupsOutput {
+	s.CrossZoneEnabled = &v
 	return s
 }
 

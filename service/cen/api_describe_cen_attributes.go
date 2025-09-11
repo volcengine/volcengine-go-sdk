@@ -194,8 +194,6 @@ type DescribeCenAttributesOutput struct {
 
 	ProjectName *string `type:"string"`
 
-	RequestId *string `type:"string"`
-
 	Status *string `type:"string"`
 
 	Tags []*TagForDescribeCenAttributesOutput `type:"list"`
@@ -252,12 +250,6 @@ func (s *DescribeCenAttributesOutput) SetDescription(v string) *DescribeCenAttri
 // SetProjectName sets the ProjectName field's value.
 func (s *DescribeCenAttributesOutput) SetProjectName(v string) *DescribeCenAttributesOutput {
 	s.ProjectName = &v
-	return s
-}
-
-// SetRequestId sets the RequestId field's value.
-func (s *DescribeCenAttributesOutput) SetRequestId(v string) *DescribeCenAttributesOutput {
-	s.RequestId = &v
 	return s
 }
 

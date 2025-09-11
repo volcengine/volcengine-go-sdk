@@ -144,6 +144,8 @@ type ModifyTransitRouterForwardPolicyEntryAttributesInput struct {
 
 	Description *string `type:"string"`
 
+	DestinationCidrBlock *string `type:"string"`
+
 	Priority *int32 `type:"int32"`
 
 	SourceCidrBlock *string `type:"string"`
@@ -180,6 +182,12 @@ func (s *ModifyTransitRouterForwardPolicyEntryAttributesInput) Validate() error 
 // SetDescription sets the Description field's value.
 func (s *ModifyTransitRouterForwardPolicyEntryAttributesInput) SetDescription(v string) *ModifyTransitRouterForwardPolicyEntryAttributesInput {
 	s.Description = &v
+	return s
+}
+
+// SetDestinationCidrBlock sets the DestinationCidrBlock field's value.
+func (s *ModifyTransitRouterForwardPolicyEntryAttributesInput) SetDestinationCidrBlock(v string) *ModifyTransitRouterForwardPolicyEntryAttributesInput {
+	s.DestinationCidrBlock = &v
 	return s
 }
 
