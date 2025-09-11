@@ -235,10 +235,52 @@ func (s *AdvancedSettingForCreateRouteInput) SetURLRewriteSetting(v *URLRewriteS
 	return s
 }
 
+type AllowOriginForCreateRouteInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	MatchType *string `type:"string" json:",omitempty"`
+
+	Value *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s AllowOriginForCreateRouteInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s AllowOriginForCreateRouteInput) GoString() string {
+	return s.String()
+}
+
+// SetMatchType sets the MatchType field's value.
+func (s *AllowOriginForCreateRouteInput) SetMatchType(v string) *AllowOriginForCreateRouteInput {
+	s.MatchType = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *AllowOriginForCreateRouteInput) SetValue(v string) *AllowOriginForCreateRouteInput {
+	s.Value = &v
+	return s
+}
+
 type CorsPolicySettingForCreateRouteInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	AllowCredentials *bool `type:"boolean" json:",omitempty"`
+
+	AllowHeaders []*string `type:"list" json:",omitempty"`
+
+	AllowMethods []*string `type:"list" json:",omitempty"`
+
+	AllowOrigins []*AllowOriginForCreateRouteInput `type:"list" json:",omitempty"`
+
 	Enable *bool `type:"boolean" json:",omitempty"`
+
+	ExposeHeaders []*string `type:"list" json:",omitempty"`
+
+	MaxAge *int64 `type:"int64" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -251,9 +293,45 @@ func (s CorsPolicySettingForCreateRouteInput) GoString() string {
 	return s.String()
 }
 
+// SetAllowCredentials sets the AllowCredentials field's value.
+func (s *CorsPolicySettingForCreateRouteInput) SetAllowCredentials(v bool) *CorsPolicySettingForCreateRouteInput {
+	s.AllowCredentials = &v
+	return s
+}
+
+// SetAllowHeaders sets the AllowHeaders field's value.
+func (s *CorsPolicySettingForCreateRouteInput) SetAllowHeaders(v []*string) *CorsPolicySettingForCreateRouteInput {
+	s.AllowHeaders = v
+	return s
+}
+
+// SetAllowMethods sets the AllowMethods field's value.
+func (s *CorsPolicySettingForCreateRouteInput) SetAllowMethods(v []*string) *CorsPolicySettingForCreateRouteInput {
+	s.AllowMethods = v
+	return s
+}
+
+// SetAllowOrigins sets the AllowOrigins field's value.
+func (s *CorsPolicySettingForCreateRouteInput) SetAllowOrigins(v []*AllowOriginForCreateRouteInput) *CorsPolicySettingForCreateRouteInput {
+	s.AllowOrigins = v
+	return s
+}
+
 // SetEnable sets the Enable field's value.
 func (s *CorsPolicySettingForCreateRouteInput) SetEnable(v bool) *CorsPolicySettingForCreateRouteInput {
 	s.Enable = &v
+	return s
+}
+
+// SetExposeHeaders sets the ExposeHeaders field's value.
+func (s *CorsPolicySettingForCreateRouteInput) SetExposeHeaders(v []*string) *CorsPolicySettingForCreateRouteInput {
+	s.ExposeHeaders = v
+	return s
+}
+
+// SetMaxAge sets the MaxAge field's value.
+func (s *CorsPolicySettingForCreateRouteInput) SetMaxAge(v int64) *CorsPolicySettingForCreateRouteInput {
+	s.MaxAge = &v
 	return s
 }
 
@@ -264,6 +342,8 @@ type CreateRouteInput struct {
 
 	Enable *bool `type:"boolean" json:",omitempty"`
 
+	FallbackSetting *FallbackSettingForCreateRouteInput `type:"structure" json:",omitempty"`
+
 	MatchRule *MatchRuleForCreateRouteInput `type:"structure" json:",omitempty"`
 
 	// Name is a required field
@@ -271,12 +351,8 @@ type CreateRouteInput struct {
 
 	Priority *int64 `type:"int64" json:",omitempty"`
 
-	ResourceType *string `type:"string" json:",omitempty"`
-
 	// ServiceId is a required field
 	ServiceId *string `type:"string" json:",omitempty" required:"true"`
-
-	Tags []*TagForCreateRouteInput `type:"list" json:",omitempty"`
 
 	UpstreamList []*UpstreamListForCreateRouteInput `type:"list" json:",omitempty"`
 }
@@ -319,6 +395,12 @@ func (s *CreateRouteInput) SetEnable(v bool) *CreateRouteInput {
 	return s
 }
 
+// SetFallbackSetting sets the FallbackSetting field's value.
+func (s *CreateRouteInput) SetFallbackSetting(v *FallbackSettingForCreateRouteInput) *CreateRouteInput {
+	s.FallbackSetting = v
+	return s
+}
+
 // SetMatchRule sets the MatchRule field's value.
 func (s *CreateRouteInput) SetMatchRule(v *MatchRuleForCreateRouteInput) *CreateRouteInput {
 	s.MatchRule = v
@@ -337,21 +419,9 @@ func (s *CreateRouteInput) SetPriority(v int64) *CreateRouteInput {
 	return s
 }
 
-// SetResourceType sets the ResourceType field's value.
-func (s *CreateRouteInput) SetResourceType(v string) *CreateRouteInput {
-	s.ResourceType = &v
-	return s
-}
-
 // SetServiceId sets the ServiceId field's value.
 func (s *CreateRouteInput) SetServiceId(v string) *CreateRouteInput {
 	s.ServiceId = &v
-	return s
-}
-
-// SetTags sets the Tags field's value.
-func (s *CreateRouteInput) SetTags(v []*TagForCreateRouteInput) *CreateRouteInput {
-	s.Tags = v
 	return s
 }
 
@@ -382,6 +452,90 @@ func (s CreateRouteOutput) GoString() string {
 // SetId sets the Id field's value.
 func (s *CreateRouteOutput) SetId(v string) *CreateRouteOutput {
 	s.Id = &v
+	return s
+}
+
+type FallbackSettingForCreateRouteInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Conditions []*string `type:"list" json:",omitempty"`
+
+	Enable *bool `type:"boolean" json:",omitempty"`
+
+	FallbackUpstreams []*FallbackUpstreamForCreateRouteInput `type:"list" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s FallbackSettingForCreateRouteInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s FallbackSettingForCreateRouteInput) GoString() string {
+	return s.String()
+}
+
+// SetConditions sets the Conditions field's value.
+func (s *FallbackSettingForCreateRouteInput) SetConditions(v []*string) *FallbackSettingForCreateRouteInput {
+	s.Conditions = v
+	return s
+}
+
+// SetEnable sets the Enable field's value.
+func (s *FallbackSettingForCreateRouteInput) SetEnable(v bool) *FallbackSettingForCreateRouteInput {
+	s.Enable = &v
+	return s
+}
+
+// SetFallbackUpstreams sets the FallbackUpstreams field's value.
+func (s *FallbackSettingForCreateRouteInput) SetFallbackUpstreams(v []*FallbackUpstreamForCreateRouteInput) *FallbackSettingForCreateRouteInput {
+	s.FallbackUpstreams = v
+	return s
+}
+
+type FallbackUpstreamForCreateRouteInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	AIProviderSettings *AIProviderSettingsForCreateRouteInput `type:"structure" json:",omitempty"`
+
+	UpstreamId *string `type:"string" json:",omitempty"`
+
+	Version *string `type:"string" json:",omitempty"`
+
+	Weight *int32 `type:"int32" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s FallbackUpstreamForCreateRouteInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s FallbackUpstreamForCreateRouteInput) GoString() string {
+	return s.String()
+}
+
+// SetAIProviderSettings sets the AIProviderSettings field's value.
+func (s *FallbackUpstreamForCreateRouteInput) SetAIProviderSettings(v *AIProviderSettingsForCreateRouteInput) *FallbackUpstreamForCreateRouteInput {
+	s.AIProviderSettings = v
+	return s
+}
+
+// SetUpstreamId sets the UpstreamId field's value.
+func (s *FallbackUpstreamForCreateRouteInput) SetUpstreamId(v string) *FallbackUpstreamForCreateRouteInput {
+	s.UpstreamId = &v
+	return s
+}
+
+// SetVersion sets the Version field's value.
+func (s *FallbackUpstreamForCreateRouteInput) SetVersion(v string) *FallbackUpstreamForCreateRouteInput {
+	s.Version = &v
+	return s
+}
+
+// SetWeight sets the Weight field's value.
+func (s *FallbackUpstreamForCreateRouteInput) SetWeight(v int32) *FallbackUpstreamForCreateRouteInput {
+	s.Weight = &v
 	return s
 }
 
@@ -418,8 +572,6 @@ func (s *HeaderForCreateRouteInput) SetValue(v *ValueForCreateRouteInput) *Heade
 type HeaderOperationForCreateRouteInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	DirectionType *string `type:"string" json:",omitempty"`
-
 	Key *string `type:"string" json:",omitempty"`
 
 	Operation *string `type:"string" json:",omitempty"`
@@ -435,12 +587,6 @@ func (s HeaderOperationForCreateRouteInput) String() string {
 // GoString returns the string representation
 func (s HeaderOperationForCreateRouteInput) GoString() string {
 	return s.String()
-}
-
-// SetDirectionType sets the DirectionType field's value.
-func (s *HeaderOperationForCreateRouteInput) SetDirectionType(v string) *HeaderOperationForCreateRouteInput {
-	s.DirectionType = &v
-	return s
 }
 
 // SetKey sets the Key field's value.
@@ -670,36 +816,6 @@ func (s *RetryPolicySettingForCreateRouteInput) SetPerTryTimeout(v int64) *Retry
 // SetRetryOn sets the RetryOn field's value.
 func (s *RetryPolicySettingForCreateRouteInput) SetRetryOn(v []*string) *RetryPolicySettingForCreateRouteInput {
 	s.RetryOn = v
-	return s
-}
-
-type TagForCreateRouteInput struct {
-	_ struct{} `type:"structure" json:",omitempty"`
-
-	Key *string `type:"string" json:",omitempty"`
-
-	Value *string `type:"string" json:",omitempty"`
-}
-
-// String returns the string representation
-func (s TagForCreateRouteInput) String() string {
-	return volcengineutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s TagForCreateRouteInput) GoString() string {
-	return s.String()
-}
-
-// SetKey sets the Key field's value.
-func (s *TagForCreateRouteInput) SetKey(v string) *TagForCreateRouteInput {
-	s.Key = &v
-	return s
-}
-
-// SetValue sets the Value field's value.
-func (s *TagForCreateRouteInput) SetValue(v string) *TagForCreateRouteInput {
-	s.Value = &v
 	return s
 }
 
