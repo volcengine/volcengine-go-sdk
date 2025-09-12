@@ -146,7 +146,7 @@ type ConvertForwardGroupConfigForModifyRulesInput struct {
 
 	ServerGroupStickySession *ServerGroupStickySessionForModifyRulesInput `type:"structure"`
 
-	ServerGroupTuples []*ConvertForwardGroupConfigServerGroupTupleForModifyRulesInput `type:"list"`
+	ServerGroupTuples []*ForwardGroupConfigServerGroupTupleForModifyRulesInput `type:"list"`
 }
 
 // String returns the string representation
@@ -166,38 +166,8 @@ func (s *ConvertForwardGroupConfigForModifyRulesInput) SetServerGroupStickySessi
 }
 
 // SetServerGroupTuples sets the ServerGroupTuples field's value.
-func (s *ConvertForwardGroupConfigForModifyRulesInput) SetServerGroupTuples(v []*ConvertForwardGroupConfigServerGroupTupleForModifyRulesInput) *ConvertForwardGroupConfigForModifyRulesInput {
+func (s *ConvertForwardGroupConfigForModifyRulesInput) SetServerGroupTuples(v []*ForwardGroupConfigServerGroupTupleForModifyRulesInput) *ConvertForwardGroupConfigForModifyRulesInput {
 	s.ServerGroupTuples = v
-	return s
-}
-
-type ConvertForwardGroupConfigServerGroupTupleForModifyRulesInput struct {
-	_ struct{} `type:"structure"`
-
-	ServerGroupId *string `type:"string"`
-
-	Weight *string `type:"string"`
-}
-
-// String returns the string representation
-func (s ConvertForwardGroupConfigServerGroupTupleForModifyRulesInput) String() string {
-	return volcengineutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s ConvertForwardGroupConfigServerGroupTupleForModifyRulesInput) GoString() string {
-	return s.String()
-}
-
-// SetServerGroupId sets the ServerGroupId field's value.
-func (s *ConvertForwardGroupConfigServerGroupTupleForModifyRulesInput) SetServerGroupId(v string) *ConvertForwardGroupConfigServerGroupTupleForModifyRulesInput {
-	s.ServerGroupId = &v
-	return s
-}
-
-// SetWeight sets the Weight field's value.
-func (s *ConvertForwardGroupConfigServerGroupTupleForModifyRulesInput) SetWeight(v string) *ConvertForwardGroupConfigServerGroupTupleForModifyRulesInput {
-	s.Weight = &v
 	return s
 }
 
@@ -979,7 +949,7 @@ type ServerGroupStickySessionForModifyRulesInput struct {
 
 	Enabled *string `type:"string"`
 
-	Timeout *string `type:"string"`
+	Timeout *int64 `type:"integer"`
 }
 
 // String returns the string representation
@@ -999,7 +969,7 @@ func (s *ServerGroupStickySessionForModifyRulesInput) SetEnabled(v string) *Serv
 }
 
 // SetTimeout sets the Timeout field's value.
-func (s *ServerGroupStickySessionForModifyRulesInput) SetTimeout(v string) *ServerGroupStickySessionForModifyRulesInput {
+func (s *ServerGroupStickySessionForModifyRulesInput) SetTimeout(v int64) *ServerGroupStickySessionForModifyRulesInput {
 	s.Timeout = &v
 	return s
 }
@@ -1007,7 +977,7 @@ func (s *ServerGroupStickySessionForModifyRulesInput) SetTimeout(v string) *Serv
 type TrafficLimitConfigForModifyRulesInput struct {
 	_ struct{} `type:"structure"`
 
-	QPS *string `type:"string"`
+	QPS *int64 `type:"integer"`
 }
 
 // String returns the string representation
@@ -1021,7 +991,7 @@ func (s TrafficLimitConfigForModifyRulesInput) GoString() string {
 }
 
 // SetQPS sets the QPS field's value.
-func (s *TrafficLimitConfigForModifyRulesInput) SetQPS(v string) *TrafficLimitConfigForModifyRulesInput {
+func (s *TrafficLimitConfigForModifyRulesInput) SetQPS(v int64) *TrafficLimitConfigForModifyRulesInput {
 	s.QPS = &v
 	return s
 }
