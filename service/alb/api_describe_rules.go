@@ -174,11 +174,11 @@ type ConvertRedirectConfigForDescribeRulesOutput struct {
 
 	Host *string `type:"string"`
 
-	HttpCode *int64 `type:"integer"`
+	HttpCode *string `type:"string"`
 
 	Path *string `type:"string"`
 
-	Port *int64 `type:"integer"`
+	Port *string `type:"string"`
 
 	Protocol *string `type:"string"`
 }
@@ -200,7 +200,7 @@ func (s *ConvertRedirectConfigForDescribeRulesOutput) SetHost(v string) *Convert
 }
 
 // SetHttpCode sets the HttpCode field's value.
-func (s *ConvertRedirectConfigForDescribeRulesOutput) SetHttpCode(v int64) *ConvertRedirectConfigForDescribeRulesOutput {
+func (s *ConvertRedirectConfigForDescribeRulesOutput) SetHttpCode(v string) *ConvertRedirectConfigForDescribeRulesOutput {
 	s.HttpCode = &v
 	return s
 }
@@ -212,7 +212,7 @@ func (s *ConvertRedirectConfigForDescribeRulesOutput) SetPath(v string) *Convert
 }
 
 // SetPort sets the Port field's value.
-func (s *ConvertRedirectConfigForDescribeRulesOutput) SetPort(v int64) *ConvertRedirectConfigForDescribeRulesOutput {
+func (s *ConvertRedirectConfigForDescribeRulesOutput) SetPort(v string) *ConvertRedirectConfigForDescribeRulesOutput {
 	s.Port = &v
 	return s
 }
@@ -846,7 +846,7 @@ type ServerGroupStickySessionForDescribeRulesOutput struct {
 
 	Enabled *string `type:"string"`
 
-	Timeout *string `type:"string"`
+	Timeout *int64 `type:"integer"`
 }
 
 // String returns the string representation
@@ -866,7 +866,7 @@ func (s *ServerGroupStickySessionForDescribeRulesOutput) SetEnabled(v string) *S
 }
 
 // SetTimeout sets the Timeout field's value.
-func (s *ServerGroupStickySessionForDescribeRulesOutput) SetTimeout(v string) *ServerGroupStickySessionForDescribeRulesOutput {
+func (s *ServerGroupStickySessionForDescribeRulesOutput) SetTimeout(v int64) *ServerGroupStickySessionForDescribeRulesOutput {
 	s.Timeout = &v
 	return s
 }
