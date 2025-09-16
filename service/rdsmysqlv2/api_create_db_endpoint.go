@@ -154,6 +154,8 @@ type CreateDBEndpointInput struct {
 
 	Description *string `type:"string" json:",omitempty"`
 
+	EnableConnectionPersistent *bool `type:"boolean" json:",omitempty"`
+
 	EndpointName *string `type:"string" json:",omitempty"`
 
 	// EndpointType is a required field
@@ -234,6 +236,12 @@ func (s *CreateDBEndpointInput) SetConnectionPoolType(v string) *CreateDBEndpoin
 // SetDescription sets the Description field's value.
 func (s *CreateDBEndpointInput) SetDescription(v string) *CreateDBEndpointInput {
 	s.Description = &v
+	return s
+}
+
+// SetEnableConnectionPersistent sets the EnableConnectionPersistent field's value.
+func (s *CreateDBEndpointInput) SetEnableConnectionPersistent(v bool) *CreateDBEndpointInput {
+	s.EnableConnectionPersistent = &v
 	return s
 }
 

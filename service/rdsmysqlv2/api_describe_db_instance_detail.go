@@ -228,14 +228,6 @@ type BasicInfoForDescribeDBInstanceDetailOutput struct {
 
 	AutoUpgradeMinorVersion *string `type:"string" json:",omitempty"`
 
-	BackupFreeQuotaSize *int64 `type:"int64" json:",omitempty"`
-
-	BackupUse *float64 `type:"double" json:",omitempty"`
-
-	BasicBackupBinlogSize *int64 `type:"int64" json:",omitempty"`
-
-	BasicBackupDataSize *int64 `type:"int64" json:",omitempty"`
-
 	CreateTime *string `type:"string" json:",omitempty"`
 
 	CurrentKernelVersion *string `type:"string" json:",omitempty"`
@@ -322,30 +314,6 @@ func (s *BasicInfoForDescribeDBInstanceDetailOutput) SetAllowListVersion(v strin
 // SetAutoUpgradeMinorVersion sets the AutoUpgradeMinorVersion field's value.
 func (s *BasicInfoForDescribeDBInstanceDetailOutput) SetAutoUpgradeMinorVersion(v string) *BasicInfoForDescribeDBInstanceDetailOutput {
 	s.AutoUpgradeMinorVersion = &v
-	return s
-}
-
-// SetBackupFreeQuotaSize sets the BackupFreeQuotaSize field's value.
-func (s *BasicInfoForDescribeDBInstanceDetailOutput) SetBackupFreeQuotaSize(v int64) *BasicInfoForDescribeDBInstanceDetailOutput {
-	s.BackupFreeQuotaSize = &v
-	return s
-}
-
-// SetBackupUse sets the BackupUse field's value.
-func (s *BasicInfoForDescribeDBInstanceDetailOutput) SetBackupUse(v float64) *BasicInfoForDescribeDBInstanceDetailOutput {
-	s.BackupUse = &v
-	return s
-}
-
-// SetBasicBackupBinlogSize sets the BasicBackupBinlogSize field's value.
-func (s *BasicInfoForDescribeDBInstanceDetailOutput) SetBasicBackupBinlogSize(v int64) *BasicInfoForDescribeDBInstanceDetailOutput {
-	s.BasicBackupBinlogSize = &v
-	return s
-}
-
-// SetBasicBackupDataSize sets the BasicBackupDataSize field's value.
-func (s *BasicInfoForDescribeDBInstanceDetailOutput) SetBasicBackupDataSize(v int64) *BasicInfoForDescribeDBInstanceDetailOutput {
-	s.BasicBackupDataSize = &v
 	return s
 }
 
@@ -834,6 +802,8 @@ type EndpointForDescribeDBInstanceDetailOutput struct {
 
 	Description *string `type:"string" json:",omitempty"`
 
+	EnableConnectionPersistent *bool `type:"boolean" json:",omitempty"`
+
 	EnableReadOnly *string `type:"string" json:",omitempty"`
 
 	EnableReadWriteSplitting *string `type:"string" json:",omitempty"`
@@ -908,6 +878,12 @@ func (s *EndpointForDescribeDBInstanceDetailOutput) SetConnectionPoolType(v stri
 // SetDescription sets the Description field's value.
 func (s *EndpointForDescribeDBInstanceDetailOutput) SetDescription(v string) *EndpointForDescribeDBInstanceDetailOutput {
 	s.Description = &v
+	return s
+}
+
+// SetEnableConnectionPersistent sets the EnableConnectionPersistent field's value.
+func (s *EndpointForDescribeDBInstanceDetailOutput) SetEnableConnectionPersistent(v bool) *EndpointForDescribeDBInstanceDetailOutput {
+	s.EnableConnectionPersistent = &v
 	return s
 }
 

@@ -160,6 +160,8 @@ type AllowListForDescribeAllowListsOutput struct {
 
 	AssociatedInstanceNum *int32 `type:"int32" json:",omitempty"`
 
+	IpList []*string `type:"list" json:",omitempty"`
+
 	SecurityGroupBindInfos []*SecurityGroupBindInfoForDescribeAllowListsOutput `type:"list" json:",omitempty"`
 }
 
@@ -215,6 +217,12 @@ func (s *AllowListForDescribeAllowListsOutput) SetAssociatedInstanceNum(v int32)
 	return s
 }
 
+// SetIpList sets the IpList field's value.
+func (s *AllowListForDescribeAllowListsOutput) SetIpList(v []*string) *AllowListForDescribeAllowListsOutput {
+	s.IpList = v
+	return s
+}
+
 // SetSecurityGroupBindInfos sets the SecurityGroupBindInfos field's value.
 func (s *AllowListForDescribeAllowListsOutput) SetSecurityGroupBindInfos(v []*SecurityGroupBindInfoForDescribeAllowListsOutput) *AllowListForDescribeAllowListsOutput {
 	s.SecurityGroupBindInfos = v
@@ -233,6 +241,8 @@ type DescribeAllowListsInput struct {
 	QueryDefault *bool `type:"boolean" json:",omitempty"`
 
 	RegionId *string `type:"string" json:",omitempty"`
+
+	WithIpList *bool `type:"boolean" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -272,6 +282,12 @@ func (s *DescribeAllowListsInput) SetQueryDefault(v bool) *DescribeAllowListsInp
 // SetRegionId sets the RegionId field's value.
 func (s *DescribeAllowListsInput) SetRegionId(v string) *DescribeAllowListsInput {
 	s.RegionId = &v
+	return s
+}
+
+// SetWithIpList sets the WithIpList field's value.
+func (s *DescribeAllowListsInput) SetWithIpList(v bool) *DescribeAllowListsInput {
+	s.WithIpList = &v
 	return s
 }
 

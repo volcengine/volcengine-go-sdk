@@ -180,6 +180,10 @@ type ModifyBackupPolicyInput struct {
 
 	DataKeepPolicyAfterReleased *string `type:"string" json:",omitempty"`
 
+	HighFrequencySnapshotBackupEnable *bool `type:"boolean" json:",omitempty"`
+
+	HighFrequencySnapshotBackupSecondPeriod *int32 `type:"int32" json:",omitempty"`
+
 	HourlyIncrBackupEnable *bool `type:"boolean" json:",omitempty"`
 
 	IncrBackupHourPeriod *int32 `type:"int32" json:",omitempty"`
@@ -319,6 +323,18 @@ func (s *ModifyBackupPolicyInput) SetDataKeepPolicyAfterReleased(v string) *Modi
 	return s
 }
 
+// SetHighFrequencySnapshotBackupEnable sets the HighFrequencySnapshotBackupEnable field's value.
+func (s *ModifyBackupPolicyInput) SetHighFrequencySnapshotBackupEnable(v bool) *ModifyBackupPolicyInput {
+	s.HighFrequencySnapshotBackupEnable = &v
+	return s
+}
+
+// SetHighFrequencySnapshotBackupSecondPeriod sets the HighFrequencySnapshotBackupSecondPeriod field's value.
+func (s *ModifyBackupPolicyInput) SetHighFrequencySnapshotBackupSecondPeriod(v int32) *ModifyBackupPolicyInput {
+	s.HighFrequencySnapshotBackupSecondPeriod = &v
+	return s
+}
+
 // SetHourlyIncrBackupEnable sets the HourlyIncrBackupEnable field's value.
 func (s *ModifyBackupPolicyInput) SetHourlyIncrBackupEnable(v bool) *ModifyBackupPolicyInput {
 	s.HourlyIncrBackupEnable = &v
@@ -393,6 +409,10 @@ type ModifyBackupPolicyOutput struct {
 	DataKeepDaysAfterReleased *int32 `type:"int32" json:",omitempty"`
 
 	DataKeepPolicyAfterReleased *string `type:"string" json:",omitempty"`
+
+	HighFrequencySnapshotBackupEnable *bool `type:"boolean" json:",omitempty"`
+
+	HighFrequencySnapshotBackupSecondPeriod *int32 `type:"int32" json:",omitempty"`
 
 	HourlyIncrBackupEnable *bool `type:"boolean" json:",omitempty"`
 
@@ -518,6 +538,18 @@ func (s *ModifyBackupPolicyOutput) SetDataKeepDaysAfterReleased(v int32) *Modify
 // SetDataKeepPolicyAfterReleased sets the DataKeepPolicyAfterReleased field's value.
 func (s *ModifyBackupPolicyOutput) SetDataKeepPolicyAfterReleased(v string) *ModifyBackupPolicyOutput {
 	s.DataKeepPolicyAfterReleased = &v
+	return s
+}
+
+// SetHighFrequencySnapshotBackupEnable sets the HighFrequencySnapshotBackupEnable field's value.
+func (s *ModifyBackupPolicyOutput) SetHighFrequencySnapshotBackupEnable(v bool) *ModifyBackupPolicyOutput {
+	s.HighFrequencySnapshotBackupEnable = &v
+	return s
+}
+
+// SetHighFrequencySnapshotBackupSecondPeriod sets the HighFrequencySnapshotBackupSecondPeriod field's value.
+func (s *ModifyBackupPolicyOutput) SetHighFrequencySnapshotBackupSecondPeriod(v int32) *ModifyBackupPolicyOutput {
+	s.HighFrequencySnapshotBackupSecondPeriod = &v
 	return s
 }
 
