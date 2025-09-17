@@ -150,12 +150,13 @@ type DescribeResourceSharesInput struct {
 
 	PermissionTrn *string `type:"string"`
 
-	// ResourceOwner is a required field
-	ResourceOwner *string `type:"string" required:"true"`
+	ResourceOwner *string `type:"string"`
 
 	ResourceShareStatus *string `type:"string"`
 
 	ResourceShareTrns *string `type:"string"`
+
+	TagFilters []*TagFilterForDescribeResourceSharesInput `type:"list"`
 }
 
 // String returns the string representation
@@ -166,19 +167,6 @@ func (s DescribeResourceSharesInput) String() string {
 // GoString returns the string representation
 func (s DescribeResourceSharesInput) GoString() string {
 	return s.String()
-}
-
-// Validate inspects the fields of the type to determine if they are valid.
-func (s *DescribeResourceSharesInput) Validate() error {
-	invalidParams := request.ErrInvalidParams{Context: "DescribeResourceSharesInput"}
-	if s.ResourceOwner == nil {
-		invalidParams.Add(request.NewErrParamRequired("ResourceOwner"))
-	}
-
-	if invalidParams.Len() > 0 {
-		return invalidParams
-	}
-	return nil
 }
 
 // SetMaxResults sets the MaxResults field's value.
@@ -220,6 +208,12 @@ func (s *DescribeResourceSharesInput) SetResourceShareStatus(v string) *Describe
 // SetResourceShareTrns sets the ResourceShareTrns field's value.
 func (s *DescribeResourceSharesInput) SetResourceShareTrns(v string) *DescribeResourceSharesInput {
 	s.ResourceShareTrns = &v
+	return s
+}
+
+// SetTagFilters sets the TagFilters field's value.
+func (s *DescribeResourceSharesInput) SetTagFilters(v []*TagFilterForDescribeResourceSharesInput) *DescribeResourceSharesInput {
+	s.TagFilters = v
 	return s
 }
 
@@ -271,6 +265,8 @@ type ResourceShareForDescribeResourceSharesOutput struct {
 	ResourceShareTrn *string `type:"string"`
 
 	Status *string `type:"string"`
+
+	Tags []*TagForDescribeResourceSharesOutput `type:"list"`
 
 	UpdateTime *string `type:"string"`
 }
@@ -327,8 +323,74 @@ func (s *ResourceShareForDescribeResourceSharesOutput) SetStatus(v string) *Reso
 	return s
 }
 
+// SetTags sets the Tags field's value.
+func (s *ResourceShareForDescribeResourceSharesOutput) SetTags(v []*TagForDescribeResourceSharesOutput) *ResourceShareForDescribeResourceSharesOutput {
+	s.Tags = v
+	return s
+}
+
 // SetUpdateTime sets the UpdateTime field's value.
 func (s *ResourceShareForDescribeResourceSharesOutput) SetUpdateTime(v string) *ResourceShareForDescribeResourceSharesOutput {
 	s.UpdateTime = &v
+	return s
+}
+
+type TagFilterForDescribeResourceSharesInput struct {
+	_ struct{} `type:"structure"`
+
+	Key *string `type:"string"`
+
+	Values []*string `type:"list"`
+}
+
+// String returns the string representation
+func (s TagFilterForDescribeResourceSharesInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagFilterForDescribeResourceSharesInput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagFilterForDescribeResourceSharesInput) SetKey(v string) *TagFilterForDescribeResourceSharesInput {
+	s.Key = &v
+	return s
+}
+
+// SetValues sets the Values field's value.
+func (s *TagFilterForDescribeResourceSharesInput) SetValues(v []*string) *TagFilterForDescribeResourceSharesInput {
+	s.Values = v
+	return s
+}
+
+type TagForDescribeResourceSharesOutput struct {
+	_ struct{} `type:"structure"`
+
+	Key *string `type:"string"`
+
+	Value *string `type:"string"`
+}
+
+// String returns the string representation
+func (s TagForDescribeResourceSharesOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagForDescribeResourceSharesOutput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagForDescribeResourceSharesOutput) SetKey(v string) *TagForDescribeResourceSharesOutput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *TagForDescribeResourceSharesOutput) SetValue(v string) *TagForDescribeResourceSharesOutput {
+	s.Value = &v
 	return s
 }
