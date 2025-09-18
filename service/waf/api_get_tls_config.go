@@ -236,9 +236,9 @@ type GetTLSConfigOutput struct {
 
 	TLSStorageTime *int32 `type:"int32" json:",omitempty"`
 
-	TLSTotalCapacity *int32 `type:"int32" json:",omitempty"`
+	TLSTotalCapacity *int64 `type:"int64" json:",omitempty"`
 
-	TLSTotalUsage *int32 `type:"int32" json:",omitempty"`
+	TLSTotalUsage *int64 `type:"int64" json:",omitempty"`
 
 	TopicID *string `type:"string" json:",omitempty"`
 
@@ -322,13 +322,13 @@ func (s *GetTLSConfigOutput) SetTLSStorageTime(v int32) *GetTLSConfigOutput {
 }
 
 // SetTLSTotalCapacity sets the TLSTotalCapacity field's value.
-func (s *GetTLSConfigOutput) SetTLSTotalCapacity(v int32) *GetTLSConfigOutput {
+func (s *GetTLSConfigOutput) SetTLSTotalCapacity(v int64) *GetTLSConfigOutput {
 	s.TLSTotalCapacity = &v
 	return s
 }
 
 // SetTLSTotalUsage sets the TLSTotalUsage field's value.
-func (s *GetTLSConfigOutput) SetTLSTotalUsage(v int32) *GetTLSConfigOutput {
+func (s *GetTLSConfigOutput) SetTLSTotalUsage(v int64) *GetTLSConfigOutput {
 	s.TLSTotalUsage = &v
 	return s
 }
