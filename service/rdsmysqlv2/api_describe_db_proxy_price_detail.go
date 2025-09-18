@@ -422,6 +422,8 @@ type DescribeDBProxyPriceDetailOutput struct {
 
 	DiscountPrice *float64 `type:"double" json:",omitempty"`
 
+	HidePriceInfo *bool `type:"boolean" json:",omitempty"`
+
 	OriginalPrice *float64 `type:"double" json:",omitempty"`
 
 	PayablePrice *float64 `type:"double" json:",omitempty"`
@@ -474,6 +476,12 @@ func (s *DescribeDBProxyPriceDetailOutput) SetDescribeDBProxyPriceDetailStr(v *D
 // SetDiscountPrice sets the DiscountPrice field's value.
 func (s *DescribeDBProxyPriceDetailOutput) SetDiscountPrice(v float64) *DescribeDBProxyPriceDetailOutput {
 	s.DiscountPrice = &v
+	return s
+}
+
+// SetHidePriceInfo sets the HidePriceInfo field's value.
+func (s *DescribeDBProxyPriceDetailOutput) SetHidePriceInfo(v bool) *DescribeDBProxyPriceDetailOutput {
+	s.HidePriceInfo = &v
 	return s
 }
 

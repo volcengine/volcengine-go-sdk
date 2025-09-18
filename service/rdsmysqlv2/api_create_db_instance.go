@@ -269,6 +269,8 @@ type CreateDBInstanceInput struct {
 
 	ProjectName *string `type:"string" json:",omitempty"`
 
+	ProxyNodeCustom *ProxyNodeCustomForCreateDBInstanceInput `type:"structure" json:",omitempty"`
+
 	// StorageSpace is a required field
 	StorageSpace *int32 `type:"int32" json:",omitempty" required:"true"`
 
@@ -408,6 +410,12 @@ func (s *CreateDBInstanceInput) SetPort(v int32) *CreateDBInstanceInput {
 // SetProjectName sets the ProjectName field's value.
 func (s *CreateDBInstanceInput) SetProjectName(v string) *CreateDBInstanceInput {
 	s.ProjectName = &v
+	return s
+}
+
+// SetProxyNodeCustom sets the ProxyNodeCustom field's value.
+func (s *CreateDBInstanceInput) SetProxyNodeCustom(v *ProxyNodeCustomForCreateDBInstanceInput) *CreateDBInstanceInput {
+	s.ProxyNodeCustom = v
 	return s
 }
 
@@ -598,5 +606,27 @@ func (s *NodeInfoForCreateDBInstanceInput) SetNodeType(v string) *NodeInfoForCre
 // SetZoneId sets the ZoneId field's value.
 func (s *NodeInfoForCreateDBInstanceInput) SetZoneId(v string) *NodeInfoForCreateDBInstanceInput {
 	s.ZoneId = &v
+	return s
+}
+
+type ProxyNodeCustomForCreateDBInstanceInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	CpuNum *int32 `type:"int32" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s ProxyNodeCustomForCreateDBInstanceInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ProxyNodeCustomForCreateDBInstanceInput) GoString() string {
+	return s.String()
+}
+
+// SetCpuNum sets the CpuNum field's value.
+func (s *ProxyNodeCustomForCreateDBInstanceInput) SetCpuNum(v int32) *ProxyNodeCustomForCreateDBInstanceInput {
+	s.CpuNum = &v
 	return s
 }

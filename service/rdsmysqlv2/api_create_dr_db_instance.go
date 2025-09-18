@@ -198,6 +198,8 @@ type CreateDrDBInstanceInput struct {
 
 	NodeInfo []*NodeInfoForCreateDrDBInstanceInput `type:"list" json:",omitempty"`
 
+	ProxyNodeCustom *ProxyNodeCustomForCreateDrDBInstanceInput `type:"structure" json:",omitempty"`
+
 	// StorageSpace is a required field
 	StorageSpace *int32 `type:"int32" json:",omitempty" required:"true"`
 
@@ -276,6 +278,12 @@ func (s *CreateDrDBInstanceInput) SetMasterRegion(v string) *CreateDrDBInstanceI
 // SetNodeInfo sets the NodeInfo field's value.
 func (s *CreateDrDBInstanceInput) SetNodeInfo(v []*NodeInfoForCreateDrDBInstanceInput) *CreateDrDBInstanceInput {
 	s.NodeInfo = v
+	return s
+}
+
+// SetProxyNodeCustom sets the ProxyNodeCustom field's value.
+func (s *CreateDrDBInstanceInput) SetProxyNodeCustom(v *ProxyNodeCustomForCreateDrDBInstanceInput) *CreateDrDBInstanceInput {
+	s.ProxyNodeCustom = v
 	return s
 }
 
@@ -372,5 +380,27 @@ func (s *NodeInfoForCreateDrDBInstanceInput) SetNodeType(v string) *NodeInfoForC
 // SetZoneId sets the ZoneId field's value.
 func (s *NodeInfoForCreateDrDBInstanceInput) SetZoneId(v string) *NodeInfoForCreateDrDBInstanceInput {
 	s.ZoneId = &v
+	return s
+}
+
+type ProxyNodeCustomForCreateDrDBInstanceInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	CpuNum *int32 `type:"int32" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s ProxyNodeCustomForCreateDrDBInstanceInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ProxyNodeCustomForCreateDrDBInstanceInput) GoString() string {
+	return s.String()
+}
+
+// SetCpuNum sets the CpuNum field's value.
+func (s *ProxyNodeCustomForCreateDrDBInstanceInput) SetCpuNum(v int32) *ProxyNodeCustomForCreateDrDBInstanceInput {
+	s.CpuNum = &v
 	return s
 }

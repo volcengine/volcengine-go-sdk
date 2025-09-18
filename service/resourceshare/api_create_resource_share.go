@@ -150,6 +150,8 @@ type CreateResourceShareInput struct {
 	Principals *string `type:"string"`
 
 	ResourceTrns *string `type:"string"`
+
+	Tags []*TagForCreateResourceShareInput `type:"list"`
 }
 
 // String returns the string representation
@@ -199,10 +201,18 @@ func (s *CreateResourceShareInput) SetResourceTrns(v string) *CreateResourceShar
 	return s
 }
 
+// SetTags sets the Tags field's value.
+func (s *CreateResourceShareInput) SetTags(v []*TagForCreateResourceShareInput) *CreateResourceShareInput {
+	s.Tags = v
+	return s
+}
+
 type CreateResourceShareOutput struct {
 	_ struct{} `type:"structure"`
 
 	Metadata *response.ResponseMetadata
+
+	ResourceShareTrn *string `type:"string"`
 }
 
 // String returns the string representation
@@ -213,4 +223,40 @@ func (s CreateResourceShareOutput) String() string {
 // GoString returns the string representation
 func (s CreateResourceShareOutput) GoString() string {
 	return s.String()
+}
+
+// SetResourceShareTrn sets the ResourceShareTrn field's value.
+func (s *CreateResourceShareOutput) SetResourceShareTrn(v string) *CreateResourceShareOutput {
+	s.ResourceShareTrn = &v
+	return s
+}
+
+type TagForCreateResourceShareInput struct {
+	_ struct{} `type:"structure"`
+
+	Key *string `type:"string"`
+
+	Value *string `type:"string"`
+}
+
+// String returns the string representation
+func (s TagForCreateResourceShareInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagForCreateResourceShareInput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagForCreateResourceShareInput) SetKey(v string) *TagForCreateResourceShareInput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *TagForCreateResourceShareInput) SetValue(v string) *TagForCreateResourceShareInput {
+	s.Value = &v
+	return s
 }
