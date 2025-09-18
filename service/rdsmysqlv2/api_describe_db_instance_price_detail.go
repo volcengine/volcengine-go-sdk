@@ -319,6 +319,8 @@ type DescribeDBInstancePriceDetailOutput struct {
 	Metadata *response.ResponseMetadata
 
 	DescribeDBInstancePriceDetailStr *DescribeDBInstancePriceDetailStrForDescribeDBInstancePriceDetailOutput `type:"structure" json:",omitempty"`
+
+	HidePriceInfo *bool `type:"boolean" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -334,6 +336,12 @@ func (s DescribeDBInstancePriceDetailOutput) GoString() string {
 // SetDescribeDBInstancePriceDetailStr sets the DescribeDBInstancePriceDetailStr field's value.
 func (s *DescribeDBInstancePriceDetailOutput) SetDescribeDBInstancePriceDetailStr(v *DescribeDBInstancePriceDetailStrForDescribeDBInstancePriceDetailOutput) *DescribeDBInstancePriceDetailOutput {
 	s.DescribeDBInstancePriceDetailStr = v
+	return s
+}
+
+// SetHidePriceInfo sets the HidePriceInfo field's value.
+func (s *DescribeDBInstancePriceDetailOutput) SetHidePriceInfo(v bool) *DescribeDBInstancePriceDetailOutput {
+	s.HidePriceInfo = &v
 	return s
 }
 

@@ -319,6 +319,28 @@ func (s *NodeInfoForRebuildDBInstanceInput) SetZoneId(v string) *NodeInfoForRebu
 	return s
 }
 
+type ProxyNodeCustomForRebuildDBInstanceInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	CpuNum *int32 `type:"int32" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s ProxyNodeCustomForRebuildDBInstanceInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ProxyNodeCustomForRebuildDBInstanceInput) GoString() string {
+	return s.String()
+}
+
+// SetCpuNum sets the CpuNum field's value.
+func (s *ProxyNodeCustomForRebuildDBInstanceInput) SetCpuNum(v int32) *ProxyNodeCustomForRebuildDBInstanceInput {
+	s.CpuNum = &v
+	return s
+}
+
 type RebuildDBInstanceInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -346,6 +368,8 @@ type RebuildDBInstanceInput struct {
 	Port *int32 `type:"int32" json:",omitempty"`
 
 	ProjectName *string `type:"string" json:",omitempty"`
+
+	ProxyNodeCustom *ProxyNodeCustomForRebuildDBInstanceInput `type:"structure" json:",omitempty"`
 
 	RequestSource *string `type:"string" json:",omitempty"`
 
@@ -450,6 +474,12 @@ func (s *RebuildDBInstanceInput) SetPort(v int32) *RebuildDBInstanceInput {
 // SetProjectName sets the ProjectName field's value.
 func (s *RebuildDBInstanceInput) SetProjectName(v string) *RebuildDBInstanceInput {
 	s.ProjectName = &v
+	return s
+}
+
+// SetProxyNodeCustom sets the ProxyNodeCustom field's value.
+func (s *RebuildDBInstanceInput) SetProxyNodeCustom(v *ProxyNodeCustomForRebuildDBInstanceInput) *RebuildDBInstanceInput {
+	s.ProxyNodeCustom = v
 	return s
 }
 

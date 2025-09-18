@@ -218,6 +218,10 @@ type DescribeBackupPolicyOutput struct {
 
 	DataKeepPolicyAfterReleased *string `type:"string" json:",omitempty"`
 
+	HighFrequencySnapshotBackupEnable *bool `type:"boolean" json:",omitempty"`
+
+	HighFrequencySnapshotBackupSecondPeriod *int32 `type:"int32" json:",omitempty"`
+
 	HourlyIncrBackupEnable *bool `type:"boolean" json:",omitempty"`
 
 	IncrBackupHourPeriod *int32 `type:"int32" json:",omitempty"`
@@ -342,6 +346,18 @@ func (s *DescribeBackupPolicyOutput) SetDataKeepDaysAfterReleased(v int32) *Desc
 // SetDataKeepPolicyAfterReleased sets the DataKeepPolicyAfterReleased field's value.
 func (s *DescribeBackupPolicyOutput) SetDataKeepPolicyAfterReleased(v string) *DescribeBackupPolicyOutput {
 	s.DataKeepPolicyAfterReleased = &v
+	return s
+}
+
+// SetHighFrequencySnapshotBackupEnable sets the HighFrequencySnapshotBackupEnable field's value.
+func (s *DescribeBackupPolicyOutput) SetHighFrequencySnapshotBackupEnable(v bool) *DescribeBackupPolicyOutput {
+	s.HighFrequencySnapshotBackupEnable = &v
+	return s
+}
+
+// SetHighFrequencySnapshotBackupSecondPeriod sets the HighFrequencySnapshotBackupSecondPeriod field's value.
+func (s *DescribeBackupPolicyOutput) SetHighFrequencySnapshotBackupSecondPeriod(v int32) *DescribeBackupPolicyOutput {
+	s.HighFrequencySnapshotBackupSecondPeriod = &v
 	return s
 }
 
