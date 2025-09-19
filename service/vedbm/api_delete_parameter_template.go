@@ -22,13 +22,13 @@ const opDeleteParameterTemplateCommon = "DeleteParameterTemplate"
 // See DeleteParameterTemplateCommon for more information on using the DeleteParameterTemplateCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the DeleteParameterTemplateCommonRequest method.
-//	req, resp := client.DeleteParameterTemplateCommonRequest(params)
+//    // Example sending a request using the DeleteParameterTemplateCommonRequest method.
+//    req, resp := client.DeleteParameterTemplateCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VEDBM) DeleteParameterTemplateCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDeleteParameterTemplateCommon,
@@ -89,13 +89,13 @@ const opDeleteParameterTemplate = "DeleteParameterTemplate"
 // See DeleteParameterTemplate for more information on using the DeleteParameterTemplate
 // API call, and error handling.
 //
-//	// Example sending a request using the DeleteParameterTemplateRequest method.
-//	req, resp := client.DeleteParameterTemplateRequest(params)
+//    // Example sending a request using the DeleteParameterTemplateRequest method.
+//    req, resp := client.DeleteParameterTemplateRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VEDBM) DeleteParameterTemplateRequest(input *DeleteParameterTemplateInput) (req *request.Request, output *DeleteParameterTemplateOutput) {
 	op := &request.Operation{
 		Name:       opDeleteParameterTemplate,

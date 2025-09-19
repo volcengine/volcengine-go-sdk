@@ -22,13 +22,13 @@ const opModifyCrossRegionBackupPolicyCommon = "ModifyCrossRegionBackupPolicy"
 // See ModifyCrossRegionBackupPolicyCommon for more information on using the ModifyCrossRegionBackupPolicyCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the ModifyCrossRegionBackupPolicyCommonRequest method.
-//	req, resp := client.ModifyCrossRegionBackupPolicyCommonRequest(params)
+//    // Example sending a request using the ModifyCrossRegionBackupPolicyCommonRequest method.
+//    req, resp := client.ModifyCrossRegionBackupPolicyCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VEDBM) ModifyCrossRegionBackupPolicyCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opModifyCrossRegionBackupPolicyCommon,
@@ -89,13 +89,13 @@ const opModifyCrossRegionBackupPolicy = "ModifyCrossRegionBackupPolicy"
 // See ModifyCrossRegionBackupPolicy for more information on using the ModifyCrossRegionBackupPolicy
 // API call, and error handling.
 //
-//	// Example sending a request using the ModifyCrossRegionBackupPolicyRequest method.
-//	req, resp := client.ModifyCrossRegionBackupPolicyRequest(params)
+//    // Example sending a request using the ModifyCrossRegionBackupPolicyRequest method.
+//    req, resp := client.ModifyCrossRegionBackupPolicyRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VEDBM) ModifyCrossRegionBackupPolicyRequest(input *ModifyCrossRegionBackupPolicyInput) (req *request.Request, output *ModifyCrossRegionBackupPolicyOutput) {
 	op := &request.Operation{
 		Name:       opModifyCrossRegionBackupPolicy,

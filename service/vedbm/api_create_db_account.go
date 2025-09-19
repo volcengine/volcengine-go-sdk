@@ -22,13 +22,13 @@ const opCreateDBAccountCommon = "CreateDBAccount"
 // See CreateDBAccountCommon for more information on using the CreateDBAccountCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the CreateDBAccountCommonRequest method.
-//	req, resp := client.CreateDBAccountCommonRequest(params)
+//    // Example sending a request using the CreateDBAccountCommonRequest method.
+//    req, resp := client.CreateDBAccountCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VEDBM) CreateDBAccountCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opCreateDBAccountCommon,
@@ -89,13 +89,13 @@ const opCreateDBAccount = "CreateDBAccount"
 // See CreateDBAccount for more information on using the CreateDBAccount
 // API call, and error handling.
 //
-//	// Example sending a request using the CreateDBAccountRequest method.
-//	req, resp := client.CreateDBAccountRequest(params)
+//    // Example sending a request using the CreateDBAccountRequest method.
+//    req, resp := client.CreateDBAccountRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VEDBM) CreateDBAccountRequest(input *CreateDBAccountInput) (req *request.Request, output *CreateDBAccountOutput) {
 	op := &request.Operation{
 		Name:       opCreateDBAccount,

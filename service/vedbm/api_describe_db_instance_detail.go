@@ -22,13 +22,13 @@ const opDescribeDBInstanceDetailCommon = "DescribeDBInstanceDetail"
 // See DescribeDBInstanceDetailCommon for more information on using the DescribeDBInstanceDetailCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeDBInstanceDetailCommonRequest method.
-//	req, resp := client.DescribeDBInstanceDetailCommonRequest(params)
+//    // Example sending a request using the DescribeDBInstanceDetailCommonRequest method.
+//    req, resp := client.DescribeDBInstanceDetailCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VEDBM) DescribeDBInstanceDetailCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeDBInstanceDetailCommon,
@@ -89,13 +89,13 @@ const opDescribeDBInstanceDetail = "DescribeDBInstanceDetail"
 // See DescribeDBInstanceDetail for more information on using the DescribeDBInstanceDetail
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeDBInstanceDetailRequest method.
-//	req, resp := client.DescribeDBInstanceDetailRequest(params)
+//    // Example sending a request using the DescribeDBInstanceDetailRequest method.
+//    req, resp := client.DescribeDBInstanceDetailRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VEDBM) DescribeDBInstanceDetailRequest(input *DescribeDBInstanceDetailInput) (req *request.Request, output *DescribeDBInstanceDetailOutput) {
 	op := &request.Operation{
 		Name:       opDescribeDBInstanceDetail,
@@ -746,6 +746,8 @@ func (s *MaintenanceWindowForDescribeDBInstanceDetailOutput) SetMaintenanceTime(
 type NodeForDescribeDBInstanceDetailOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	FailoverPriority *int32 `type:"int32" json:",omitempty"`
+
 	Memory *int32 `type:"int32" json:",omitempty"`
 
 	NodeId *string `type:"string" json:",omitempty"`
@@ -767,6 +769,12 @@ func (s NodeForDescribeDBInstanceDetailOutput) String() string {
 // GoString returns the string representation
 func (s NodeForDescribeDBInstanceDetailOutput) GoString() string {
 	return s.String()
+}
+
+// SetFailoverPriority sets the FailoverPriority field's value.
+func (s *NodeForDescribeDBInstanceDetailOutput) SetFailoverPriority(v int32) *NodeForDescribeDBInstanceDetailOutput {
+	s.FailoverPriority = &v
+	return s
 }
 
 // SetMemory sets the Memory field's value.
@@ -864,19 +872,19 @@ const (
 	// EnumOfConsistLevelForDescribeDBInstanceDetailOutputEventual is a EnumOfConsistLevelForDescribeDBInstanceDetailOutput enum value
 	EnumOfConsistLevelForDescribeDBInstanceDetailOutputEventual = "Eventual"
 
-	// EnumOfConsistLevelForDescribeDBInstanceDetailOutputSession is a EnumOfConsistLevelForDescribeDBInstanceDetailOutput enum value
-	EnumOfConsistLevelForDescribeDBInstanceDetailOutputSession = "Session"
-
 	// EnumOfConsistLevelForDescribeDBInstanceDetailOutputGlobal is a EnumOfConsistLevelForDescribeDBInstanceDetailOutput enum value
 	EnumOfConsistLevelForDescribeDBInstanceDetailOutputGlobal = "Global"
+
+	// EnumOfConsistLevelForDescribeDBInstanceDetailOutputSession is a EnumOfConsistLevelForDescribeDBInstanceDetailOutput enum value
+	EnumOfConsistLevelForDescribeDBInstanceDetailOutputSession = "Session"
 )
 
 const (
-	// EnumOfConsistTimeoutActionForDescribeDBInstanceDetailOutputReturnError is a EnumOfConsistTimeoutActionForDescribeDBInstanceDetailOutput enum value
-	EnumOfConsistTimeoutActionForDescribeDBInstanceDetailOutputReturnError = "ReturnError"
-
 	// EnumOfConsistTimeoutActionForDescribeDBInstanceDetailOutputReadMaster is a EnumOfConsistTimeoutActionForDescribeDBInstanceDetailOutput enum value
 	EnumOfConsistTimeoutActionForDescribeDBInstanceDetailOutputReadMaster = "ReadMaster"
+
+	// EnumOfConsistTimeoutActionForDescribeDBInstanceDetailOutputReturnError is a EnumOfConsistTimeoutActionForDescribeDBInstanceDetailOutput enum value
+	EnumOfConsistTimeoutActionForDescribeDBInstanceDetailOutputReturnError = "ReturnError"
 )
 
 const (
@@ -930,11 +938,11 @@ const (
 	// EnumOfEndpointTypeForDescribeDBInstanceDetailOutputCluster is a EnumOfEndpointTypeForDescribeDBInstanceDetailOutput enum value
 	EnumOfEndpointTypeForDescribeDBInstanceDetailOutputCluster = "Cluster"
 
-	// EnumOfEndpointTypeForDescribeDBInstanceDetailOutputPrimary is a EnumOfEndpointTypeForDescribeDBInstanceDetailOutput enum value
-	EnumOfEndpointTypeForDescribeDBInstanceDetailOutputPrimary = "Primary"
-
 	// EnumOfEndpointTypeForDescribeDBInstanceDetailOutputCustom is a EnumOfEndpointTypeForDescribeDBInstanceDetailOutput enum value
 	EnumOfEndpointTypeForDescribeDBInstanceDetailOutputCustom = "Custom"
+
+	// EnumOfEndpointTypeForDescribeDBInstanceDetailOutputPrimary is a EnumOfEndpointTypeForDescribeDBInstanceDetailOutput enum value
+	EnumOfEndpointTypeForDescribeDBInstanceDetailOutputPrimary = "Primary"
 )
 
 const (
@@ -1057,11 +1065,11 @@ const (
 )
 
 const (
-	// EnumOfReadWriteModeForDescribeDBInstanceDetailOutputReadWrite is a EnumOfReadWriteModeForDescribeDBInstanceDetailOutput enum value
-	EnumOfReadWriteModeForDescribeDBInstanceDetailOutputReadWrite = "ReadWrite"
-
 	// EnumOfReadWriteModeForDescribeDBInstanceDetailOutputReadOnly is a EnumOfReadWriteModeForDescribeDBInstanceDetailOutput enum value
 	EnumOfReadWriteModeForDescribeDBInstanceDetailOutputReadOnly = "ReadOnly"
+
+	// EnumOfReadWriteModeForDescribeDBInstanceDetailOutputReadWrite is a EnumOfReadWriteModeForDescribeDBInstanceDetailOutput enum value
+	EnumOfReadWriteModeForDescribeDBInstanceDetailOutputReadWrite = "ReadWrite"
 )
 
 const (

@@ -22,13 +22,13 @@ const opDescribeDatabasesCommon = "DescribeDatabases"
 // See DescribeDatabasesCommon for more information on using the DescribeDatabasesCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeDatabasesCommonRequest method.
-//	req, resp := client.DescribeDatabasesCommonRequest(params)
+//    // Example sending a request using the DescribeDatabasesCommonRequest method.
+//    req, resp := client.DescribeDatabasesCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VEDBM) DescribeDatabasesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeDatabasesCommon,
@@ -89,13 +89,13 @@ const opDescribeDatabases = "DescribeDatabases"
 // See DescribeDatabases for more information on using the DescribeDatabases
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeDatabasesRequest method.
-//	req, resp := client.DescribeDatabasesRequest(params)
+//    // Example sending a request using the DescribeDatabasesRequest method.
+//    req, resp := client.DescribeDatabasesRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VEDBM) DescribeDatabasesRequest(input *DescribeDatabasesInput) (req *request.Request, output *DescribeDatabasesOutput) {
 	op := &request.Operation{
 		Name:       opDescribeDatabases,

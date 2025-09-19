@@ -22,13 +22,13 @@ const opDescribeDBAccountsCommon = "DescribeDBAccounts"
 // See DescribeDBAccountsCommon for more information on using the DescribeDBAccountsCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeDBAccountsCommonRequest method.
-//	req, resp := client.DescribeDBAccountsCommonRequest(params)
+//    // Example sending a request using the DescribeDBAccountsCommonRequest method.
+//    req, resp := client.DescribeDBAccountsCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VEDBM) DescribeDBAccountsCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeDBAccountsCommon,
@@ -89,13 +89,13 @@ const opDescribeDBAccounts = "DescribeDBAccounts"
 // See DescribeDBAccounts for more information on using the DescribeDBAccounts
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeDBAccountsRequest method.
-//	req, resp := client.DescribeDBAccountsRequest(params)
+//    // Example sending a request using the DescribeDBAccountsRequest method.
+//    req, resp := client.DescribeDBAccountsRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VEDBM) DescribeDBAccountsRequest(input *DescribeDBAccountsInput) (req *request.Request, output *DescribeDBAccountsOutput) {
 	op := &request.Operation{
 		Name:       opDescribeDBAccounts,

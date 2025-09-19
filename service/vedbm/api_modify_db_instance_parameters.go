@@ -22,13 +22,13 @@ const opModifyDBInstanceParametersCommon = "ModifyDBInstanceParameters"
 // See ModifyDBInstanceParametersCommon for more information on using the ModifyDBInstanceParametersCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the ModifyDBInstanceParametersCommonRequest method.
-//	req, resp := client.ModifyDBInstanceParametersCommonRequest(params)
+//    // Example sending a request using the ModifyDBInstanceParametersCommonRequest method.
+//    req, resp := client.ModifyDBInstanceParametersCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VEDBM) ModifyDBInstanceParametersCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opModifyDBInstanceParametersCommon,
@@ -89,13 +89,13 @@ const opModifyDBInstanceParameters = "ModifyDBInstanceParameters"
 // See ModifyDBInstanceParameters for more information on using the ModifyDBInstanceParameters
 // API call, and error handling.
 //
-//	// Example sending a request using the ModifyDBInstanceParametersRequest method.
-//	req, resp := client.ModifyDBInstanceParametersRequest(params)
+//    // Example sending a request using the ModifyDBInstanceParametersRequest method.
+//    req, resp := client.ModifyDBInstanceParametersRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VEDBM) ModifyDBInstanceParametersRequest(input *ModifyDBInstanceParametersInput) (req *request.Request, output *ModifyDBInstanceParametersOutput) {
 	op := &request.Operation{
 		Name:       opModifyDBInstanceParameters,
