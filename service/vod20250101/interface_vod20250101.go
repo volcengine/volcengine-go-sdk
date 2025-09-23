@@ -54,6 +54,14 @@ type VOD20250101API interface {
 	CreateAITranslationSpeechWithContext(volcengine.Context, *CreateAITranslationSpeechInput, ...request.Option) (*CreateAITranslationSpeechOutput, error)
 	CreateAITranslationSpeechRequest(*CreateAITranslationSpeechInput) (*request.Request, *CreateAITranslationSpeechOutput)
 
+	CreateAITranslationUtteranceCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateAITranslationUtteranceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateAITranslationUtteranceCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateAITranslationUtterance(*CreateAITranslationUtteranceInput) (*CreateAITranslationUtteranceOutput, error)
+	CreateAITranslationUtteranceWithContext(volcengine.Context, *CreateAITranslationUtteranceInput, ...request.Option) (*CreateAITranslationUtteranceOutput, error)
+	CreateAITranslationUtteranceRequest(*CreateAITranslationUtteranceInput) (*request.Request, *CreateAITranslationUtteranceOutput)
+
 	DeleteAITranslationSpeechCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DeleteAITranslationSpeechCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DeleteAITranslationSpeechCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -109,6 +117,14 @@ type VOD20250101API interface {
 	RefreshAITranslationProject(*RefreshAITranslationProjectInput) (*RefreshAITranslationProjectOutput, error)
 	RefreshAITranslationProjectWithContext(volcengine.Context, *RefreshAITranslationProjectInput, ...request.Option) (*RefreshAITranslationProjectOutput, error)
 	RefreshAITranslationProjectRequest(*RefreshAITranslationProjectInput) (*request.Request, *RefreshAITranslationProjectOutput)
+
+	RemoveAITranslationUtteranceCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	RemoveAITranslationUtteranceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	RemoveAITranslationUtteranceCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	RemoveAITranslationUtterance(*RemoveAITranslationUtteranceInput) (*RemoveAITranslationUtteranceOutput, error)
+	RemoveAITranslationUtteranceWithContext(volcengine.Context, *RemoveAITranslationUtteranceInput, ...request.Option) (*RemoveAITranslationUtteranceOutput, error)
+	RemoveAITranslationUtteranceRequest(*RemoveAITranslationUtteranceInput) (*request.Request, *RemoveAITranslationUtteranceOutput)
 
 	StartExecutionCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	StartExecutionCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)

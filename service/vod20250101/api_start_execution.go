@@ -643,10 +643,60 @@ func (s *FileIdForStartExecutionInput) SetVid(v string) *FileIdForStartExecution
 	return s
 }
 
+type HighlightCutsForStartExecutionInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	MaxDuration *float64 `type:"double" json:",omitempty"`
+
+	MaxNumber *int32 `type:"int32" json:",omitempty"`
+
+	MinDuration *float64 `type:"double" json:",omitempty"`
+
+	WithStoryboard *bool `type:"boolean" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s HighlightCutsForStartExecutionInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s HighlightCutsForStartExecutionInput) GoString() string {
+	return s.String()
+}
+
+// SetMaxDuration sets the MaxDuration field's value.
+func (s *HighlightCutsForStartExecutionInput) SetMaxDuration(v float64) *HighlightCutsForStartExecutionInput {
+	s.MaxDuration = &v
+	return s
+}
+
+// SetMaxNumber sets the MaxNumber field's value.
+func (s *HighlightCutsForStartExecutionInput) SetMaxNumber(v int32) *HighlightCutsForStartExecutionInput {
+	s.MaxNumber = &v
+	return s
+}
+
+// SetMinDuration sets the MinDuration field's value.
+func (s *HighlightCutsForStartExecutionInput) SetMinDuration(v float64) *HighlightCutsForStartExecutionInput {
+	s.MinDuration = &v
+	return s
+}
+
+// SetWithStoryboard sets the WithStoryboard field's value.
+func (s *HighlightCutsForStartExecutionInput) SetWithStoryboard(v bool) *HighlightCutsForStartExecutionInput {
+	s.WithStoryboard = &v
+	return s
+}
+
 type HighlightForStartExecutionInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	HighlightCuts *HighlightCutsForStartExecutionInput `type:"structure" json:",omitempty"`
+
 	Mode *string `type:"string" json:",omitempty"`
+
+	OpeningHook *OpeningHookForStartExecutionInput `type:"structure" json:",omitempty"`
 
 	StorylineCuts *StorylineCutsForStartExecutionInput `type:"structure" json:",omitempty"`
 }
@@ -661,9 +711,21 @@ func (s HighlightForStartExecutionInput) GoString() string {
 	return s.String()
 }
 
+// SetHighlightCuts sets the HighlightCuts field's value.
+func (s *HighlightForStartExecutionInput) SetHighlightCuts(v *HighlightCutsForStartExecutionInput) *HighlightForStartExecutionInput {
+	s.HighlightCuts = v
+	return s
+}
+
 // SetMode sets the Mode field's value.
 func (s *HighlightForStartExecutionInput) SetMode(v string) *HighlightForStartExecutionInput {
 	s.Mode = &v
+	return s
+}
+
+// SetOpeningHook sets the OpeningHook field's value.
+func (s *HighlightForStartExecutionInput) SetOpeningHook(v *OpeningHookForStartExecutionInput) *HighlightForStartExecutionInput {
+	s.OpeningHook = v
 	return s
 }
 
@@ -960,6 +1022,60 @@ func (s *OcrForStartExecutionInput) SetMode(v string) *OcrForStartExecutionInput
 // SetWithImageSet sets the WithImageSet field's value.
 func (s *OcrForStartExecutionInput) SetWithImageSet(v bool) *OcrForStartExecutionInput {
 	s.WithImageSet = &v
+	return s
+}
+
+type OpeningHookForStartExecutionInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	MaxDuration *float64 `type:"double" json:",omitempty"`
+
+	MinClipDuration *float64 `type:"double" json:",omitempty"`
+
+	MinDuration *float64 `type:"double" json:",omitempty"`
+
+	MinScore *float64 `type:"double" json:",omitempty"`
+
+	WithOpeningHook *bool `type:"boolean" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s OpeningHookForStartExecutionInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s OpeningHookForStartExecutionInput) GoString() string {
+	return s.String()
+}
+
+// SetMaxDuration sets the MaxDuration field's value.
+func (s *OpeningHookForStartExecutionInput) SetMaxDuration(v float64) *OpeningHookForStartExecutionInput {
+	s.MaxDuration = &v
+	return s
+}
+
+// SetMinClipDuration sets the MinClipDuration field's value.
+func (s *OpeningHookForStartExecutionInput) SetMinClipDuration(v float64) *OpeningHookForStartExecutionInput {
+	s.MinClipDuration = &v
+	return s
+}
+
+// SetMinDuration sets the MinDuration field's value.
+func (s *OpeningHookForStartExecutionInput) SetMinDuration(v float64) *OpeningHookForStartExecutionInput {
+	s.MinDuration = &v
+	return s
+}
+
+// SetMinScore sets the MinScore field's value.
+func (s *OpeningHookForStartExecutionInput) SetMinScore(v float64) *OpeningHookForStartExecutionInput {
+	s.MinScore = &v
+	return s
+}
+
+// SetWithOpeningHook sets the WithOpeningHook field's value.
+func (s *OpeningHookForStartExecutionInput) SetWithOpeningHook(v bool) *OpeningHookForStartExecutionInput {
+	s.WithOpeningHook = &v
 	return s
 }
 
@@ -1696,7 +1812,11 @@ type VisionForStartExecutionInput struct {
 
 	Model *ModelForStartExecutionInput `type:"structure" json:",omitempty"`
 
+	NeedAsrSpeaker *bool `type:"boolean" json:",omitempty"`
+
 	Prompt *string `type:"string" json:",omitempty"`
+
+	ResponseFormatType *string `type:"string" json:",omitempty"`
 
 	Segment *ConvertSegmentForStartExecutionInput `type:"structure" json:",omitempty"`
 
@@ -1719,9 +1839,21 @@ func (s *VisionForStartExecutionInput) SetModel(v *ModelForStartExecutionInput) 
 	return s
 }
 
+// SetNeedAsrSpeaker sets the NeedAsrSpeaker field's value.
+func (s *VisionForStartExecutionInput) SetNeedAsrSpeaker(v bool) *VisionForStartExecutionInput {
+	s.NeedAsrSpeaker = &v
+	return s
+}
+
 // SetPrompt sets the Prompt field's value.
 func (s *VisionForStartExecutionInput) SetPrompt(v string) *VisionForStartExecutionInput {
 	s.Prompt = &v
+	return s
+}
+
+// SetResponseFormatType sets the ResponseFormatType field's value.
+func (s *VisionForStartExecutionInput) SetResponseFormatType(v string) *VisionForStartExecutionInput {
+	s.ResponseFormatType = &v
 	return s
 }
 

@@ -206,6 +206,8 @@ func (s *TrimForUpdateAITranslationUtterancesInput) SetStart(v int32) *TrimForUp
 type UpdateAITranslationUtterancesInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	BilingualSubtitleFileName *string `type:"string" json:",omitempty"`
+
 	InputSubtitleFileName *string `type:"string" json:",omitempty"`
 
 	OutputSubtitleFileName *string `type:"string" json:",omitempty"`
@@ -249,6 +251,12 @@ func (s *UpdateAITranslationUtterancesInput) Validate() error {
 		return invalidParams
 	}
 	return nil
+}
+
+// SetBilingualSubtitleFileName sets the BilingualSubtitleFileName field's value.
+func (s *UpdateAITranslationUtterancesInput) SetBilingualSubtitleFileName(v string) *UpdateAITranslationUtterancesInput {
+	s.BilingualSubtitleFileName = &v
+	return s
 }
 
 // SetInputSubtitleFileName sets the InputSubtitleFileName field's value.
