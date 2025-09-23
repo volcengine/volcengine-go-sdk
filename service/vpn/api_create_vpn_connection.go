@@ -139,7 +139,37 @@ func (c *VPN) CreateVpnConnectionWithContext(ctx volcengine.Context, input *Crea
 	return out, req.Send()
 }
 
-type BgpConfigForCreateVpnConnectionInput struct {
+type BGPConfigForCreateVpnConnectionInput struct {
+	_ struct{} `type:"structure"`
+
+	LocalBgpIp *string `type:"string"`
+
+	TunnelCidr *string `type:"string"`
+}
+
+// String returns the string representation
+func (s BGPConfigForCreateVpnConnectionInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s BGPConfigForCreateVpnConnectionInput) GoString() string {
+	return s.String()
+}
+
+// SetLocalBgpIp sets the LocalBgpIp field's value.
+func (s *BGPConfigForCreateVpnConnectionInput) SetLocalBgpIp(v string) *BGPConfigForCreateVpnConnectionInput {
+	s.LocalBgpIp = &v
+	return s
+}
+
+// SetTunnelCidr sets the TunnelCidr field's value.
+func (s *BGPConfigForCreateVpnConnectionInput) SetTunnelCidr(v string) *BGPConfigForCreateVpnConnectionInput {
+	s.TunnelCidr = &v
+	return s
+}
+
+type ConvertBgpConfigForCreateVpnConnectionInput struct {
 	_ struct{} `type:"structure"`
 
 	EnableBgp *bool `type:"boolean"`
@@ -150,29 +180,29 @@ type BgpConfigForCreateVpnConnectionInput struct {
 }
 
 // String returns the string representation
-func (s BgpConfigForCreateVpnConnectionInput) String() string {
+func (s ConvertBgpConfigForCreateVpnConnectionInput) String() string {
 	return volcengineutil.Prettify(s)
 }
 
 // GoString returns the string representation
-func (s BgpConfigForCreateVpnConnectionInput) GoString() string {
+func (s ConvertBgpConfigForCreateVpnConnectionInput) GoString() string {
 	return s.String()
 }
 
 // SetEnableBgp sets the EnableBgp field's value.
-func (s *BgpConfigForCreateVpnConnectionInput) SetEnableBgp(v bool) *BgpConfigForCreateVpnConnectionInput {
+func (s *ConvertBgpConfigForCreateVpnConnectionInput) SetEnableBgp(v bool) *ConvertBgpConfigForCreateVpnConnectionInput {
 	s.EnableBgp = &v
 	return s
 }
 
 // SetLocalBgpIp sets the LocalBgpIp field's value.
-func (s *BgpConfigForCreateVpnConnectionInput) SetLocalBgpIp(v string) *BgpConfigForCreateVpnConnectionInput {
+func (s *ConvertBgpConfigForCreateVpnConnectionInput) SetLocalBgpIp(v string) *ConvertBgpConfigForCreateVpnConnectionInput {
 	s.LocalBgpIp = &v
 	return s
 }
 
 // SetTunnelCidr sets the TunnelCidr field's value.
-func (s *BgpConfigForCreateVpnConnectionInput) SetTunnelCidr(v string) *BgpConfigForCreateVpnConnectionInput {
+func (s *ConvertBgpConfigForCreateVpnConnectionInput) SetTunnelCidr(v string) *ConvertBgpConfigForCreateVpnConnectionInput {
 	s.TunnelCidr = &v
 	return s
 }
@@ -182,7 +212,7 @@ type CreateVpnConnectionInput struct {
 
 	AttachType *string `type:"string"`
 
-	BgpConfig *BgpConfigForCreateVpnConnectionInput `type:"structure"`
+	BgpConfig *ConvertBgpConfigForCreateVpnConnectionInput `type:"structure"`
 
 	ClientToken *string `type:"string"`
 
@@ -191,6 +221,8 @@ type CreateVpnConnectionInput struct {
 	Description *string `type:"string"`
 
 	DpdAction *string `type:"string"`
+
+	EnableTunnelsBgp *bool `type:"boolean"`
 
 	IkeConfig *IkeConfigForCreateVpnConnectionInput `type:"structure"`
 
@@ -252,7 +284,7 @@ func (s *CreateVpnConnectionInput) SetAttachType(v string) *CreateVpnConnectionI
 }
 
 // SetBgpConfig sets the BgpConfig field's value.
-func (s *CreateVpnConnectionInput) SetBgpConfig(v *BgpConfigForCreateVpnConnectionInput) *CreateVpnConnectionInput {
+func (s *CreateVpnConnectionInput) SetBgpConfig(v *ConvertBgpConfigForCreateVpnConnectionInput) *CreateVpnConnectionInput {
 	s.BgpConfig = v
 	return s
 }
@@ -278,6 +310,12 @@ func (s *CreateVpnConnectionInput) SetDescription(v string) *CreateVpnConnection
 // SetDpdAction sets the DpdAction field's value.
 func (s *CreateVpnConnectionInput) SetDpdAction(v string) *CreateVpnConnectionInput {
 	s.DpdAction = &v
+	return s
+}
+
+// SetEnableTunnelsBgp sets the EnableTunnelsBgp field's value.
+func (s *CreateVpnConnectionInput) SetEnableTunnelsBgp(v bool) *CreateVpnConnectionInput {
+	s.EnableTunnelsBgp = &v
 	return s
 }
 
@@ -528,6 +566,8 @@ func (s *IpsecConfigForCreateVpnConnectionInput) SetLifetime(v int64) *IpsecConf
 type TunnelOptionForCreateVpnConnectionInput struct {
 	_ struct{} `type:"structure"`
 
+	BGPConfig *BGPConfigForCreateVpnConnectionInput `type:"structure"`
+
 	CustomerGatewayId *string `type:"string"`
 
 	DpdAction *string `type:"string"`
@@ -549,6 +589,12 @@ func (s TunnelOptionForCreateVpnConnectionInput) String() string {
 // GoString returns the string representation
 func (s TunnelOptionForCreateVpnConnectionInput) GoString() string {
 	return s.String()
+}
+
+// SetBGPConfig sets the BGPConfig field's value.
+func (s *TunnelOptionForCreateVpnConnectionInput) SetBGPConfig(v *BGPConfigForCreateVpnConnectionInput) *TunnelOptionForCreateVpnConnectionInput {
+	s.BGPConfig = v
+	return s
 }
 
 // SetCustomerGatewayId sets the CustomerGatewayId field's value.
