@@ -144,6 +144,8 @@ type GetTagsInput struct {
 
 	CountResources *bool `type:"boolean"`
 
+	MatchType *string `type:"string" enum:"EnumOfMatchTypeForGetTagsInput"`
+
 	MaxResults *int32 `type:"int32"`
 
 	NextToken *string `type:"string"`
@@ -166,6 +168,12 @@ func (s GetTagsInput) GoString() string {
 // SetCountResources sets the CountResources field's value.
 func (s *GetTagsInput) SetCountResources(v bool) *GetTagsInput {
 	s.CountResources = &v
+	return s
+}
+
+// SetMatchType sets the MatchType field's value.
+func (s *GetTagsInput) SetMatchType(v string) *GetTagsInput {
+	s.MatchType = &v
 	return s
 }
 
@@ -270,3 +278,14 @@ func (s *TagForGetTagsOutput) SetValue(v string) *TagForGetTagsOutput {
 	s.Value = &v
 	return s
 }
+
+const (
+	// EnumOfMatchTypeForGetTagsInputPrefix is a EnumOfMatchTypeForGetTagsInput enum value
+	EnumOfMatchTypeForGetTagsInputPrefix = "prefix"
+
+	// EnumOfMatchTypeForGetTagsInputEquals is a EnumOfMatchTypeForGetTagsInput enum value
+	EnumOfMatchTypeForGetTagsInputEquals = "equals"
+
+	// EnumOfMatchTypeForGetTagsInputContain is a EnumOfMatchTypeForGetTagsInput enum value
+	EnumOfMatchTypeForGetTagsInputContain = "contain"
+)

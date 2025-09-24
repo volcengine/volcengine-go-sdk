@@ -142,12 +142,16 @@ func (c *TAG) GetTagValuesWithContext(ctx volcengine.Context, input *GetTagValue
 type GetTagValuesInput struct {
 	_ struct{} `type:"structure"`
 
+	MatchType *string `type:"string" enum:"EnumOfMatchTypeForGetTagValuesInput"`
+
 	MaxResults *int32 `type:"int32"`
 
 	NextToken *string `type:"string"`
 
 	// TagKeys is a required field
 	TagKeys []*string `type:"list" required:"true"`
+
+	TagValue *string `type:"string"`
 }
 
 // String returns the string representation
@@ -173,6 +177,12 @@ func (s *GetTagValuesInput) Validate() error {
 	return nil
 }
 
+// SetMatchType sets the MatchType field's value.
+func (s *GetTagValuesInput) SetMatchType(v string) *GetTagValuesInput {
+	s.MatchType = &v
+	return s
+}
+
 // SetMaxResults sets the MaxResults field's value.
 func (s *GetTagValuesInput) SetMaxResults(v int32) *GetTagValuesInput {
 	s.MaxResults = &v
@@ -188,6 +198,12 @@ func (s *GetTagValuesInput) SetNextToken(v string) *GetTagValuesInput {
 // SetTagKeys sets the TagKeys field's value.
 func (s *GetTagValuesInput) SetTagKeys(v []*string) *GetTagValuesInput {
 	s.TagKeys = v
+	return s
+}
+
+// SetTagValue sets the TagValue field's value.
+func (s *GetTagValuesInput) SetTagValue(v string) *GetTagValuesInput {
+	s.TagValue = &v
 	return s
 }
 
@@ -260,3 +276,14 @@ func (s *TagForGetTagValuesOutput) SetValue(v string) *TagForGetTagValuesOutput 
 	s.Value = &v
 	return s
 }
+
+const (
+	// EnumOfMatchTypeForGetTagValuesInputPrefix is a EnumOfMatchTypeForGetTagValuesInput enum value
+	EnumOfMatchTypeForGetTagValuesInputPrefix = "prefix"
+
+	// EnumOfMatchTypeForGetTagValuesInputEquals is a EnumOfMatchTypeForGetTagValuesInput enum value
+	EnumOfMatchTypeForGetTagValuesInputEquals = "equals"
+
+	// EnumOfMatchTypeForGetTagValuesInputContain is a EnumOfMatchTypeForGetTagValuesInput enum value
+	EnumOfMatchTypeForGetTagValuesInputContain = "contain"
+)
