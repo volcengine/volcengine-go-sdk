@@ -192,6 +192,8 @@ func (s *AttachPointForCreateTransitRouterVpcAttachmentInput) SetZoneId(v string
 type CreateTransitRouterVpcAttachmentInput struct {
 	_ struct{} `type:"structure"`
 
+	ApplianceModeEnabled *bool `type:"boolean"`
+
 	AttachPoints []*AttachPointForCreateTransitRouterVpcAttachmentInput `type:"list"`
 
 	AutoPublishRouteEnabled *bool `type:"boolean"`
@@ -247,6 +249,12 @@ func (s *CreateTransitRouterVpcAttachmentInput) Validate() error {
 		return invalidParams
 	}
 	return nil
+}
+
+// SetApplianceModeEnabled sets the ApplianceModeEnabled field's value.
+func (s *CreateTransitRouterVpcAttachmentInput) SetApplianceModeEnabled(v bool) *CreateTransitRouterVpcAttachmentInput {
+	s.ApplianceModeEnabled = &v
+	return s
 }
 
 // SetAttachPoints sets the AttachPoints field's value.

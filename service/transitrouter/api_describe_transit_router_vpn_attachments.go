@@ -332,7 +332,9 @@ type TransitRouterAttachmentForDescribeTransitRouterVpnAttachmentsOutput struct 
 
 	Description *string `type:"string"`
 
-	Ipv6Enabled *string `type:"string"`
+	HealthCheckRevokeRouteEnabled *bool `type:"boolean"`
+
+	Ipv6Enabled *bool `type:"boolean"`
 
 	Status *string `type:"string"`
 
@@ -379,8 +381,14 @@ func (s *TransitRouterAttachmentForDescribeTransitRouterVpnAttachmentsOutput) Se
 	return s
 }
 
+// SetHealthCheckRevokeRouteEnabled sets the HealthCheckRevokeRouteEnabled field's value.
+func (s *TransitRouterAttachmentForDescribeTransitRouterVpnAttachmentsOutput) SetHealthCheckRevokeRouteEnabled(v bool) *TransitRouterAttachmentForDescribeTransitRouterVpnAttachmentsOutput {
+	s.HealthCheckRevokeRouteEnabled = &v
+	return s
+}
+
 // SetIpv6Enabled sets the Ipv6Enabled field's value.
-func (s *TransitRouterAttachmentForDescribeTransitRouterVpnAttachmentsOutput) SetIpv6Enabled(v string) *TransitRouterAttachmentForDescribeTransitRouterVpnAttachmentsOutput {
+func (s *TransitRouterAttachmentForDescribeTransitRouterVpnAttachmentsOutput) SetIpv6Enabled(v bool) *TransitRouterAttachmentForDescribeTransitRouterVpnAttachmentsOutput {
 	s.Ipv6Enabled = &v
 	return s
 }
