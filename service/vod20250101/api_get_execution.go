@@ -1455,12 +1455,44 @@ func (s *ConvertFileDeleteForGetExecutionOutput) SetInfo(v []*ConvertInfoForGetE
 	return s
 }
 
+type ConvertHighlightCutsForGetExecutionOutput struct {
+	_ struct{} `type:"structure"`
+
+	Cuts []*int32 `type:"list"`
+
+	Storyboard []*StoryboardForGetExecutionOutput `type:"list"`
+}
+
+// String returns the string representation
+func (s ConvertHighlightCutsForGetExecutionOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ConvertHighlightCutsForGetExecutionOutput) GoString() string {
+	return s.String()
+}
+
+// SetCuts sets the Cuts field's value.
+func (s *ConvertHighlightCutsForGetExecutionOutput) SetCuts(v []*int32) *ConvertHighlightCutsForGetExecutionOutput {
+	s.Cuts = v
+	return s
+}
+
+// SetStoryboard sets the Storyboard field's value.
+func (s *ConvertHighlightCutsForGetExecutionOutput) SetStoryboard(v []*StoryboardForGetExecutionOutput) *ConvertHighlightCutsForGetExecutionOutput {
+	s.Storyboard = v
+	return s
+}
+
 type ConvertHighlightForGetExecutionOutput struct {
 	_ struct{} `type:"structure"`
 
 	Clips []*ClipForGetExecutionOutput `type:"list"`
 
 	Duration *float64 `type:"double"`
+
+	HighlightCuts *ConvertHighlightCutsForGetExecutionOutput `type:"structure"`
 
 	StorylineCuts *ConvertStorylineCutsForGetExecutionOutput `type:"structure"`
 }
@@ -1484,6 +1516,12 @@ func (s *ConvertHighlightForGetExecutionOutput) SetClips(v []*ClipForGetExecutio
 // SetDuration sets the Duration field's value.
 func (s *ConvertHighlightForGetExecutionOutput) SetDuration(v float64) *ConvertHighlightForGetExecutionOutput {
 	s.Duration = &v
+	return s
+}
+
+// SetHighlightCuts sets the HighlightCuts field's value.
+func (s *ConvertHighlightForGetExecutionOutput) SetHighlightCuts(v *ConvertHighlightCutsForGetExecutionOutput) *ConvertHighlightForGetExecutionOutput {
+	s.HighlightCuts = v
 	return s
 }
 
@@ -2839,10 +2877,60 @@ func (s *GetExecutionOutput) SetStatus(v string) *GetExecutionOutput {
 	return s
 }
 
+type HighlightCutsForGetExecutionOutput struct {
+	_ struct{} `type:"structure"`
+
+	MaxDuration *float64 `type:"double"`
+
+	MaxNumber *int32 `type:"int32"`
+
+	MinDuration *float64 `type:"double"`
+
+	WithStoryboard *bool `type:"boolean"`
+}
+
+// String returns the string representation
+func (s HighlightCutsForGetExecutionOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s HighlightCutsForGetExecutionOutput) GoString() string {
+	return s.String()
+}
+
+// SetMaxDuration sets the MaxDuration field's value.
+func (s *HighlightCutsForGetExecutionOutput) SetMaxDuration(v float64) *HighlightCutsForGetExecutionOutput {
+	s.MaxDuration = &v
+	return s
+}
+
+// SetMaxNumber sets the MaxNumber field's value.
+func (s *HighlightCutsForGetExecutionOutput) SetMaxNumber(v int32) *HighlightCutsForGetExecutionOutput {
+	s.MaxNumber = &v
+	return s
+}
+
+// SetMinDuration sets the MinDuration field's value.
+func (s *HighlightCutsForGetExecutionOutput) SetMinDuration(v float64) *HighlightCutsForGetExecutionOutput {
+	s.MinDuration = &v
+	return s
+}
+
+// SetWithStoryboard sets the WithStoryboard field's value.
+func (s *HighlightCutsForGetExecutionOutput) SetWithStoryboard(v bool) *HighlightCutsForGetExecutionOutput {
+	s.WithStoryboard = &v
+	return s
+}
+
 type HighlightForGetExecutionOutput struct {
 	_ struct{} `type:"structure"`
 
+	HighlightCuts *HighlightCutsForGetExecutionOutput `type:"structure"`
+
 	Mode *string `type:"string"`
+
+	OpeningHook *OpeningHookForGetExecutionOutput `type:"structure"`
 
 	StorylineCuts *StorylineCutsForGetExecutionOutput `type:"structure"`
 }
@@ -2857,9 +2945,21 @@ func (s HighlightForGetExecutionOutput) GoString() string {
 	return s.String()
 }
 
+// SetHighlightCuts sets the HighlightCuts field's value.
+func (s *HighlightForGetExecutionOutput) SetHighlightCuts(v *HighlightCutsForGetExecutionOutput) *HighlightForGetExecutionOutput {
+	s.HighlightCuts = v
+	return s
+}
+
 // SetMode sets the Mode field's value.
 func (s *HighlightForGetExecutionOutput) SetMode(v string) *HighlightForGetExecutionOutput {
 	s.Mode = &v
+	return s
+}
+
+// SetOpeningHook sets the OpeningHook field's value.
+func (s *HighlightForGetExecutionOutput) SetOpeningHook(v *OpeningHookForGetExecutionOutput) *HighlightForGetExecutionOutput {
+	s.OpeningHook = v
 	return s
 }
 
@@ -3281,6 +3381,60 @@ func (s *OcrForGetExecutionOutput) SetWithImageSet(v bool) *OcrForGetExecutionOu
 	return s
 }
 
+type OpeningHookForGetExecutionOutput struct {
+	_ struct{} `type:"structure"`
+
+	MaxDuration *float64 `type:"double"`
+
+	MinClipDuration *float64 `type:"double"`
+
+	MinDuration *float64 `type:"double"`
+
+	MinScore *float64 `type:"double"`
+
+	WithOpeningHook *bool `type:"boolean"`
+}
+
+// String returns the string representation
+func (s OpeningHookForGetExecutionOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s OpeningHookForGetExecutionOutput) GoString() string {
+	return s.String()
+}
+
+// SetMaxDuration sets the MaxDuration field's value.
+func (s *OpeningHookForGetExecutionOutput) SetMaxDuration(v float64) *OpeningHookForGetExecutionOutput {
+	s.MaxDuration = &v
+	return s
+}
+
+// SetMinClipDuration sets the MinClipDuration field's value.
+func (s *OpeningHookForGetExecutionOutput) SetMinClipDuration(v float64) *OpeningHookForGetExecutionOutput {
+	s.MinClipDuration = &v
+	return s
+}
+
+// SetMinDuration sets the MinDuration field's value.
+func (s *OpeningHookForGetExecutionOutput) SetMinDuration(v float64) *OpeningHookForGetExecutionOutput {
+	s.MinDuration = &v
+	return s
+}
+
+// SetMinScore sets the MinScore field's value.
+func (s *OpeningHookForGetExecutionOutput) SetMinScore(v float64) *OpeningHookForGetExecutionOutput {
+	s.MinScore = &v
+	return s
+}
+
+// SetWithOpeningHook sets the WithOpeningHook field's value.
+func (s *OpeningHookForGetExecutionOutput) SetWithOpeningHook(v bool) *OpeningHookForGetExecutionOutput {
+	s.WithOpeningHook = &v
+	return s
+}
+
 type OperationForGetExecutionOutput struct {
 	_ struct{} `type:"structure"`
 
@@ -3512,6 +3666,68 @@ func (s *SnapshotParamForGetExecutionOutput) SetFps(v float64) *SnapshotParamFor
 // SetResolution sets the Resolution field's value.
 func (s *SnapshotParamForGetExecutionOutput) SetResolution(v string) *SnapshotParamForGetExecutionOutput {
 	s.Resolution = &v
+	return s
+}
+
+type StoryboardForGetExecutionOutput struct {
+	_ struct{} `type:"structure"`
+
+	Description *string `type:"string"`
+
+	End *float64 `type:"double"`
+
+	Ocr *string `type:"string"`
+
+	Score *float64 `type:"double"`
+
+	Start *float64 `type:"double"`
+
+	VideoIndex *int32 `type:"int32"`
+}
+
+// String returns the string representation
+func (s StoryboardForGetExecutionOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s StoryboardForGetExecutionOutput) GoString() string {
+	return s.String()
+}
+
+// SetDescription sets the Description field's value.
+func (s *StoryboardForGetExecutionOutput) SetDescription(v string) *StoryboardForGetExecutionOutput {
+	s.Description = &v
+	return s
+}
+
+// SetEnd sets the End field's value.
+func (s *StoryboardForGetExecutionOutput) SetEnd(v float64) *StoryboardForGetExecutionOutput {
+	s.End = &v
+	return s
+}
+
+// SetOcr sets the Ocr field's value.
+func (s *StoryboardForGetExecutionOutput) SetOcr(v string) *StoryboardForGetExecutionOutput {
+	s.Ocr = &v
+	return s
+}
+
+// SetScore sets the Score field's value.
+func (s *StoryboardForGetExecutionOutput) SetScore(v float64) *StoryboardForGetExecutionOutput {
+	s.Score = &v
+	return s
+}
+
+// SetStart sets the Start field's value.
+func (s *StoryboardForGetExecutionOutput) SetStart(v float64) *StoryboardForGetExecutionOutput {
+	s.Start = &v
+	return s
+}
+
+// SetVideoIndex sets the VideoIndex field's value.
+func (s *StoryboardForGetExecutionOutput) SetVideoIndex(v int32) *StoryboardForGetExecutionOutput {
+	s.VideoIndex = &v
 	return s
 }
 
@@ -4204,7 +4420,11 @@ type VisionForGetExecutionOutput struct {
 
 	Model *ModelForGetExecutionOutput `type:"structure"`
 
+	NeedAsrSpeaker *bool `type:"boolean"`
+
 	Prompt *string `type:"string"`
+
+	ResponseFormatType *string `type:"string"`
 
 	Segment *ConvertSegmentForGetExecutionOutput `type:"structure"`
 
@@ -4227,9 +4447,21 @@ func (s *VisionForGetExecutionOutput) SetModel(v *ModelForGetExecutionOutput) *V
 	return s
 }
 
+// SetNeedAsrSpeaker sets the NeedAsrSpeaker field's value.
+func (s *VisionForGetExecutionOutput) SetNeedAsrSpeaker(v bool) *VisionForGetExecutionOutput {
+	s.NeedAsrSpeaker = &v
+	return s
+}
+
 // SetPrompt sets the Prompt field's value.
 func (s *VisionForGetExecutionOutput) SetPrompt(v string) *VisionForGetExecutionOutput {
 	s.Prompt = &v
+	return s
+}
+
+// SetResponseFormatType sets the ResponseFormatType field's value.
+func (s *VisionForGetExecutionOutput) SetResponseFormatType(v string) *VisionForGetExecutionOutput {
+	s.ResponseFormatType = &v
 	return s
 }
 
