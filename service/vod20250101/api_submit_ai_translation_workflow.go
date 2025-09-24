@@ -394,9 +394,15 @@ func (s *SubtitleConfigForSubmitAITranslationWorkflowInput) SetShowLines(v int32
 type SubtitleRecognitionConfigForSubmitAITranslationWorkflowInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	BilingualSubtitleFileName *string `type:"string" json:",omitempty"`
+
 	RecognitionType *string `type:"string" json:",omitempty"`
 
+	SourceSubtitleFileName *string `type:"string" json:",omitempty"`
+
 	SubtitleFileName *string `type:"string" json:",omitempty"`
+
+	TargetSubtitleFileName *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -409,15 +415,33 @@ func (s SubtitleRecognitionConfigForSubmitAITranslationWorkflowInput) GoString()
 	return s.String()
 }
 
+// SetBilingualSubtitleFileName sets the BilingualSubtitleFileName field's value.
+func (s *SubtitleRecognitionConfigForSubmitAITranslationWorkflowInput) SetBilingualSubtitleFileName(v string) *SubtitleRecognitionConfigForSubmitAITranslationWorkflowInput {
+	s.BilingualSubtitleFileName = &v
+	return s
+}
+
 // SetRecognitionType sets the RecognitionType field's value.
 func (s *SubtitleRecognitionConfigForSubmitAITranslationWorkflowInput) SetRecognitionType(v string) *SubtitleRecognitionConfigForSubmitAITranslationWorkflowInput {
 	s.RecognitionType = &v
 	return s
 }
 
+// SetSourceSubtitleFileName sets the SourceSubtitleFileName field's value.
+func (s *SubtitleRecognitionConfigForSubmitAITranslationWorkflowInput) SetSourceSubtitleFileName(v string) *SubtitleRecognitionConfigForSubmitAITranslationWorkflowInput {
+	s.SourceSubtitleFileName = &v
+	return s
+}
+
 // SetSubtitleFileName sets the SubtitleFileName field's value.
 func (s *SubtitleRecognitionConfigForSubmitAITranslationWorkflowInput) SetSubtitleFileName(v string) *SubtitleRecognitionConfigForSubmitAITranslationWorkflowInput {
 	s.SubtitleFileName = &v
+	return s
+}
+
+// SetTargetSubtitleFileName sets the TargetSubtitleFileName field's value.
+func (s *SubtitleRecognitionConfigForSubmitAITranslationWorkflowInput) SetTargetSubtitleFileName(v string) *SubtitleRecognitionConfigForSubmitAITranslationWorkflowInput {
+	s.TargetSubtitleFileName = &v
 	return s
 }
 
