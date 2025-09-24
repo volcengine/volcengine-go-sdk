@@ -152,6 +152,10 @@ type DescribeHpcClustersInput struct {
 
 	NextToken *string `type:"string"`
 
+	ProjectName *string `type:"string"`
+
+	TagFilters []*TagFilterForDescribeHpcClustersInput `type:"list"`
+
 	ZoneId *string `type:"string"`
 }
 
@@ -192,6 +196,18 @@ func (s *DescribeHpcClustersInput) SetName(v string) *DescribeHpcClustersInput {
 // SetNextToken sets the NextToken field's value.
 func (s *DescribeHpcClustersInput) SetNextToken(v string) *DescribeHpcClustersInput {
 	s.NextToken = &v
+	return s
+}
+
+// SetProjectName sets the ProjectName field's value.
+func (s *DescribeHpcClustersInput) SetProjectName(v string) *DescribeHpcClustersInput {
+	s.ProjectName = &v
+	return s
+}
+
+// SetTagFilters sets the TagFilters field's value.
+func (s *DescribeHpcClustersInput) SetTagFilters(v []*TagFilterForDescribeHpcClustersInput) *DescribeHpcClustersInput {
+	s.TagFilters = v
 	return s
 }
 
@@ -244,6 +260,10 @@ type HpcClusterForDescribeHpcClustersOutput struct {
 
 	Name *string `type:"string"`
 
+	ProjectName *string `type:"string"`
+
+	Tags []*TagForDescribeHpcClustersOutput `type:"list"`
+
 	UpdatedAt *string `type:"string"`
 
 	VpcId *string `type:"string"`
@@ -285,6 +305,18 @@ func (s *HpcClusterForDescribeHpcClustersOutput) SetName(v string) *HpcClusterFo
 	return s
 }
 
+// SetProjectName sets the ProjectName field's value.
+func (s *HpcClusterForDescribeHpcClustersOutput) SetProjectName(v string) *HpcClusterForDescribeHpcClustersOutput {
+	s.ProjectName = &v
+	return s
+}
+
+// SetTags sets the Tags field's value.
+func (s *HpcClusterForDescribeHpcClustersOutput) SetTags(v []*TagForDescribeHpcClustersOutput) *HpcClusterForDescribeHpcClustersOutput {
+	s.Tags = v
+	return s
+}
+
 // SetUpdatedAt sets the UpdatedAt field's value.
 func (s *HpcClusterForDescribeHpcClustersOutput) SetUpdatedAt(v string) *HpcClusterForDescribeHpcClustersOutput {
 	s.UpdatedAt = &v
@@ -300,5 +332,65 @@ func (s *HpcClusterForDescribeHpcClustersOutput) SetVpcId(v string) *HpcClusterF
 // SetZoneId sets the ZoneId field's value.
 func (s *HpcClusterForDescribeHpcClustersOutput) SetZoneId(v string) *HpcClusterForDescribeHpcClustersOutput {
 	s.ZoneId = &v
+	return s
+}
+
+type TagFilterForDescribeHpcClustersInput struct {
+	_ struct{} `type:"structure"`
+
+	Key *string `type:"string"`
+
+	Values []*string `type:"list"`
+}
+
+// String returns the string representation
+func (s TagFilterForDescribeHpcClustersInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagFilterForDescribeHpcClustersInput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagFilterForDescribeHpcClustersInput) SetKey(v string) *TagFilterForDescribeHpcClustersInput {
+	s.Key = &v
+	return s
+}
+
+// SetValues sets the Values field's value.
+func (s *TagFilterForDescribeHpcClustersInput) SetValues(v []*string) *TagFilterForDescribeHpcClustersInput {
+	s.Values = v
+	return s
+}
+
+type TagForDescribeHpcClustersOutput struct {
+	_ struct{} `type:"structure"`
+
+	Key *string `type:"string"`
+
+	Value *string `type:"string"`
+}
+
+// String returns the string representation
+func (s TagForDescribeHpcClustersOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagForDescribeHpcClustersOutput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagForDescribeHpcClustersOutput) SetKey(v string) *TagForDescribeHpcClustersOutput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *TagForDescribeHpcClustersOutput) SetValue(v string) *TagForDescribeHpcClustersOutput {
+	s.Value = &v
 	return s
 }

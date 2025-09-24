@@ -149,6 +149,10 @@ type CreateHpcClusterInput struct {
 	// Name is a required field
 	Name *string `type:"string" required:"true"`
 
+	ProjectName *string `type:"string"`
+
+	Tags []*TagForCreateHpcClusterInput `type:"list"`
+
 	// ZoneId is a required field
 	ZoneId *string `type:"string" required:"true"`
 }
@@ -197,6 +201,18 @@ func (s *CreateHpcClusterInput) SetName(v string) *CreateHpcClusterInput {
 	return s
 }
 
+// SetProjectName sets the ProjectName field's value.
+func (s *CreateHpcClusterInput) SetProjectName(v string) *CreateHpcClusterInput {
+	s.ProjectName = &v
+	return s
+}
+
+// SetTags sets the Tags field's value.
+func (s *CreateHpcClusterInput) SetTags(v []*TagForCreateHpcClusterInput) *CreateHpcClusterInput {
+	s.Tags = v
+	return s
+}
+
 // SetZoneId sets the ZoneId field's value.
 func (s *CreateHpcClusterInput) SetZoneId(v string) *CreateHpcClusterInput {
 	s.ZoneId = &v
@@ -224,5 +240,35 @@ func (s CreateHpcClusterOutput) GoString() string {
 // SetHpcClusterId sets the HpcClusterId field's value.
 func (s *CreateHpcClusterOutput) SetHpcClusterId(v string) *CreateHpcClusterOutput {
 	s.HpcClusterId = &v
+	return s
+}
+
+type TagForCreateHpcClusterInput struct {
+	_ struct{} `type:"structure"`
+
+	Key *string `type:"string"`
+
+	Value *string `type:"string"`
+}
+
+// String returns the string representation
+func (s TagForCreateHpcClusterInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagForCreateHpcClusterInput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagForCreateHpcClusterInput) SetKey(v string) *TagForCreateHpcClusterInput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *TagForCreateHpcClusterInput) SetValue(v string) *TagForCreateHpcClusterInput {
+	s.Value = &v
 	return s
 }
