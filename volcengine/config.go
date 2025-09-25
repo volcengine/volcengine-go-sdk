@@ -4,6 +4,7 @@ package volcengine
 // May have been modified by Beijing Volcanoengine Technology Ltd.
 
 import (
+	"io"
 	"net/http"
 	"time"
 
@@ -94,6 +95,11 @@ type Config struct {
 	// is zero (LogOff), which represents no logging. To enable logging set
 	// to a LogLevel Value.
 	LogLevel *LogLevelType
+
+	LogWriter io.Writer
+
+	// if enable debug log
+	Debug *bool
 
 	// The logger writer interface to write logging messages to. Defaults to
 	// standard out.
@@ -503,6 +509,9 @@ func (c *Config) WithMaxRetries(max int) *Config {
 // chaining.
 func (c *Config) WithLogLevel(level LogLevelType) *Config {
 	c.LogLevel = &level
+	if c.Logger != nil {
+		c.Logger.SetDebugLogLevel(c.LogLevel)
+	}
 	return c
 }
 
@@ -510,6 +519,23 @@ func (c *Config) WithLogLevel(level LogLevelType) *Config {
 // chaining.
 func (c *Config) WithLogger(logger Logger) *Config {
 	c.Logger = logger
+	if c.Logger != nil {
+		if c.LogLevel != nil {
+			c.Logger.SetDebugLogLevel(c.LogLevel)
+		}
+
+		if c.Debug != nil {
+			c.Logger.SetDebug(c.Debug)
+		}
+	}
+	return c
+}
+
+func (c *Config) WithLogWriter(LogWriter io.Writer) *Config {
+	c.LogWriter = LogWriter
+	if c.Logger != nil {
+		c.Logger.SetIoWriter(LogWriter)
+	}
 	return c
 }
 
@@ -573,6 +599,14 @@ func (c *Config) WithEndpointConfigState(t bool) *Config {
 // WithEndpointConfigPath will set  fileEndpointResolver config path . This takes effect when EndpointConfigState is true.
 func (c *Config) WithEndpointConfigPath(path string) *Config {
 	c.EndpointConfigPath = &path
+	return c
+}
+
+func (c *Config) WithDebug(debug bool) *Config {
+	c.Debug = &debug
+	if c.Logger != nil {
+		c.Logger.SetDebug(c.Debug)
+	}
 	return c
 }
 
@@ -770,6 +804,27 @@ func mergeInConfig(dst *Config, other *Config) {
 
 	if other.EndpointConfigPath != nil {
 		dst.EndpointConfigPath = other.EndpointConfigPath
+	}
+
+	if other.LogLevel != nil {
+		dst.LogLevel = other.LogLevel
+		if dst.Logger != nil {
+			dst.Logger.SetDebugLogLevel(dst.LogLevel)
+		}
+	}
+
+	if other.Debug != nil {
+		dst.Debug = other.Debug
+		if dst.Logger != nil {
+			dst.Logger.SetDebug(dst.Debug)
+		}
+	}
+
+	if other.LogWriter != nil {
+		dst.LogWriter = other.LogWriter
+		if dst.Logger != nil {
+			dst.Logger.SetIoWriter(dst.LogWriter)
+		}
 	}
 
 	dst.Interceptors = other.Interceptors

@@ -1,6 +1,8 @@
 package volcengineutil
 
 import (
+	"fmt"
+	"github.com/volcengine/volcengine-go-sdk/volcengine"
 	"io/ioutil"
 	"os"
 	"path/filepath"
@@ -423,44 +425,55 @@ func standardizeDomainServiceCode(serviceCode string) string {
 // Note: Ensure the `defaultEndpoint` map is properly populated with service and region endpoint
 // information before calling this function.
 func GetDefaultEndpointByServiceInfo(service string, regionCode string,
-	customBootstrapRegion map[string]struct{}, useDualStack *bool) *string {
+	customBootstrapRegion map[string]struct{}, useDualStack *bool, logger volcengine.Logger) *string {
+
+	debug(logger, fmt.Sprintf("GetDefaultEndpointByServiceInfo start, service: %s, region: %s", service, regionCode))
 
 	resultEndpoint := endpoint
 
 	if !inBootstrapRegionList(regionCode, customBootstrapRegion) {
+		debug(logger, fmt.Sprintf("region %s not in bootstrap region list, use default endpoint: %s", regionCode, resultEndpoint))
 		return &resultEndpoint
 	}
 
 	defaultEndpointInfo, sExist := defaultEndpoint[service]
 	if !sExist {
+		debug(logger, fmt.Sprintf("service %s not found in default endpoint map, use default endpoint: %s", service, resultEndpoint))
 		return &resultEndpoint
 	}
 
 	suffix := endpointSuffix
 	if hasEnableDualStack(useDualStack) {
 		suffix = dualstackEndpointSuffix
+		debug(logger, fmt.Sprintf("dual stack enabled, use suffix: %s", suffix))
 	}
 
 	if defaultEndpointInfo.IsGlobal {
+		debug(logger, fmt.Sprintf("service %s is global", service))
 		if len(defaultEndpointInfo.GlobalEndpoint) > 0 {
 			resultEndpoint = defaultEndpointInfo.GlobalEndpoint
+			debug(logger, fmt.Sprintf("use predefined global endpoint: %s", resultEndpoint))
 			return &resultEndpoint
 		}
 		resultEndpoint = standardizeDomainServiceCode(service) + suffix
+		debug(logger, fmt.Sprintf("use constructed global endpoint: %s", resultEndpoint))
 		return &resultEndpoint
 	}
 
 	// regional endpoint
+	debug(logger, fmt.Sprintf("service %s is regional", service))
 	regionEndpointMp := defaultEndpointInfo.RegionEndpointMap
 	if regionEndpointMp != nil {
 		regionEndpointStr, rExist := regionEndpointMp[regionCode]
 		if rExist {
 			resultEndpoint = regionEndpointStr
+			debug(logger, fmt.Sprintf("found predefined regional endpoint for region %s: %s", regionCode, resultEndpoint))
 			return &resultEndpoint
 		}
 	}
 
 	resultEndpoint = standardizeDomainServiceCode(service) + separator + regionCode + suffix
+	debug(logger, fmt.Sprintf("use constructed regional endpoint: %s", resultEndpoint))
 	return &resultEndpoint
 
 }
@@ -511,4 +524,8 @@ func hasEnableDualStack(useDualStack *bool) bool {
 		return os.Getenv("VOLC_ENABLE_DUALSTACK") == "true"
 	}
 	return *useDualStack
+}
+
+func debug(logger volcengine.Logger, args ...interface{}) {
+	logger.DebugByLevel(volcengine.LogDebugWithEndpoint, append([]interface{}{"[Endpoint]"}, args...)...)
 }

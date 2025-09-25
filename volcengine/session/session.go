@@ -6,12 +6,15 @@ package session
 import (
 	"crypto/tls"
 	"crypto/x509"
+	"encoding/json"
 	"io"
 	"io/ioutil"
 	"net"
 	"net/http"
 	"net/url"
 	"os"
+	"reflect"
+	"strconv"
 	"strings"
 	"time"
 
@@ -407,6 +410,8 @@ func newSession(opts Options, envCfg envConfig, cfgs ...*volcengine.Config) (*Se
 		Handlers: handlers,
 	}
 
+	logConfig(*cfg)
+
 	initHandlers(s)
 
 	// Setup HTTP client with custom cert bundle if enabled
@@ -417,6 +422,70 @@ func newSession(opts Options, envCfg envConfig, cfgs ...*volcengine.Config) (*Se
 	}
 
 	return s, nil
+}
+
+func logConfig(cfg volcengine.Config) {
+	if !cfg.LogLevel.Matches(volcengine.LogDebugWithConfig) {
+		return
+	}
+
+	var logStr strings.Builder
+	logStr.WriteString("========================= SDK CONFIGURATION =========================" + "\n")
+	logStr.WriteString("SDK Version        : " + volcengine.SDKVersion + "\n")
+	if tr, ok := cfg.HTTPClient.Transport.(*http.Transport); ok && tr != nil {
+		logStr.WriteString("[Connection Pool]" + "\n")
+		logStr.WriteString("	MaxIdleConns          : " + strconv.Itoa(tr.MaxIdleConns) + "\n")
+		logStr.WriteString("	IdleConnTimeout       : " + tr.IdleConnTimeout.String() + "\n")
+		logStr.WriteString("	MaxIdleConnsPerHost   : " + strconv.Itoa(tr.MaxIdleConnsPerHost) + "\n")
+	}
+
+	logStr.WriteString("[SSL]" + "\n")
+	if cfg.DisableSSL != nil {
+		logStr.WriteString("  Disable SSL      : " + strconv.FormatBool(*cfg.DisableSSL) + "\n")
+	} else {
+		logStr.WriteString("  Disable SSL      : true" + "\n")
+	}
+
+	logStr.WriteString("[Proxy]" + "\n")
+	logStr.WriteString("  HTTP Proxy       : " + volcengine.StringValue(cfg.HTTPProxy) + "\n")
+	logStr.WriteString("  HTTPS Proxy      : " + volcengine.StringValue(cfg.HTTPSProxy) + "\n")
+
+	if cfg.HTTPClient.Timeout != 0 {
+		logStr.WriteString("[Timeout]" + "\n")
+		logStr.WriteString("  Timeout     : " + cfg.HTTPClient.Timeout.String() + "\n")
+	}
+
+	if cfg.MaxRetries != nil {
+		logStr.WriteString("[Retry]" + "\n")
+		logStr.WriteString("  Auto Retry       : " + strconv.FormatBool(*cfg.MaxRetries > 0) + "\n")
+		logStr.WriteString("  Max Retries   	  : " + strconv.Itoa(*cfg.MaxRetries) + "\n")
+	}
+
+	logStr.WriteString("[Endpoint Resolver]" + "\n")
+	logStr.WriteString("  Region           : " + volcengine.StringValue(cfg.Region) + "\n")
+	logStr.WriteString("  Endpoint         : " + volcengine.StringValue(cfg.Endpoint) + "\n")
+	if cfg.UseDualStack != nil {
+		logStr.WriteString("  Use DualStack    : " + strconv.FormatBool(*cfg.UseDualStack) + "\n")
+	}
+	logStr.WriteString("  site    		  : " + volcengine.StringValue(cfg.Site) + "\n")
+	logStr.WriteString("  IPVersion        : " + volcengine.StringValue(cfg.IPVersion) + "\n")
+	if cfg.BootstrapRegion != nil {
+		b, _ := json.Marshal(cfg.BootstrapRegion)
+		logStr.WriteString("  Bootstrap Region : " + string(b) + "\n")
+	}
+
+	if cfg.EndpointResolver != nil {
+		t := reflect.TypeOf(cfg.EndpointResolver)
+		if t.Kind() == reflect.Ptr {
+			logStr.WriteString("  Resolver    : " + t.Elem().Name() + "\n")
+		} else {
+			logStr.WriteString("  Resolver    : " + t.Name() + "\n")
+		}
+	}
+	logStr.WriteString("=======================================================")
+
+	cfg.Logger.Debug("[Config]", "\n", logStr.String())
+
 }
 
 func getCABundleTransport() *http.Transport {
@@ -600,7 +669,7 @@ func (s *Session) clientConfigWithErr(serviceName string, cfgs ...*volcengine.Co
 			endpoint = &endpointFor.URL
 		} else {
 			endpoint = volcengineutil.GetDefaultEndpointByServiceInfo(serviceName, region, s.Config.BootstrapRegion,
-				s.Config.UseDualStack)
+				s.Config.UseDualStack, s.Config.Logger)
 		}
 		s.Config.Endpoint = endpoint
 	}
