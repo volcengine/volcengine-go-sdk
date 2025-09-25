@@ -148,7 +148,7 @@ type BgpInfoForDescribeVpnConnectionsOutput struct {
 
 	LocalBgpIp *string `type:"string"`
 
-	PeerAsn *string `type:"string"`
+	PeerAsn *int64 `type:"integer"`
 
 	PeerBgpIp *string `type:"string"`
 
@@ -186,7 +186,7 @@ func (s *BgpInfoForDescribeVpnConnectionsOutput) SetLocalBgpIp(v string) *BgpInf
 }
 
 // SetPeerAsn sets the PeerAsn field's value.
-func (s *BgpInfoForDescribeVpnConnectionsOutput) SetPeerAsn(v string) *BgpInfoForDescribeVpnConnectionsOutput {
+func (s *BgpInfoForDescribeVpnConnectionsOutput) SetPeerAsn(v int64) *BgpInfoForDescribeVpnConnectionsOutput {
 	s.PeerAsn = &v
 	return s
 }
@@ -670,6 +670,8 @@ type TunnelOptionForDescribeVpnConnectionsOutput struct {
 
 	Role *string `type:"string"`
 
+	TunnelBgpInfo *BgpInfoForDescribeVpnConnectionsOutput `type:"structure"`
+
 	TunnelId *string `type:"string"`
 }
 
@@ -722,6 +724,12 @@ func (s *TunnelOptionForDescribeVpnConnectionsOutput) SetNatTraversal(v bool) *T
 // SetRole sets the Role field's value.
 func (s *TunnelOptionForDescribeVpnConnectionsOutput) SetRole(v string) *TunnelOptionForDescribeVpnConnectionsOutput {
 	s.Role = &v
+	return s
+}
+
+// SetTunnelBgpInfo sets the TunnelBgpInfo field's value.
+func (s *TunnelOptionForDescribeVpnConnectionsOutput) SetTunnelBgpInfo(v *BgpInfoForDescribeVpnConnectionsOutput) *TunnelOptionForDescribeVpnConnectionsOutput {
+	s.TunnelBgpInfo = v
 	return s
 }
 

@@ -298,6 +298,10 @@ type VpnGatewayForDescribeVpnGatewaysBillingOutput struct {
 
 	IpAddress *string `type:"string"`
 
+	IpStackType *string `type:"string"`
+
+	IpVersion *string `type:"string"`
+
 	IpsecEnabled *bool `type:"boolean"`
 
 	IsBlocked *bool `type:"boolean"`
@@ -412,6 +416,18 @@ func (s *VpnGatewayForDescribeVpnGatewaysBillingOutput) SetExpiredTime(v string)
 // SetIpAddress sets the IpAddress field's value.
 func (s *VpnGatewayForDescribeVpnGatewaysBillingOutput) SetIpAddress(v string) *VpnGatewayForDescribeVpnGatewaysBillingOutput {
 	s.IpAddress = &v
+	return s
+}
+
+// SetIpStackType sets the IpStackType field's value.
+func (s *VpnGatewayForDescribeVpnGatewaysBillingOutput) SetIpStackType(v string) *VpnGatewayForDescribeVpnGatewaysBillingOutput {
+	s.IpStackType = &v
+	return s
+}
+
+// SetIpVersion sets the IpVersion field's value.
+func (s *VpnGatewayForDescribeVpnGatewaysBillingOutput) SetIpVersion(v string) *VpnGatewayForDescribeVpnGatewaysBillingOutput {
+	s.IpVersion = &v
 	return s
 }
 

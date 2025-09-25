@@ -155,6 +155,10 @@ type CreateVpnGatewayInput struct {
 
 	DualTunnelEnabled *bool `type:"boolean"`
 
+	IpStackType *string `type:"string"`
+
+	IpVersion *string `type:"string"`
+
 	IpsecEnabled *bool `type:"boolean"`
 
 	Period *int64 `type:"integer"`
@@ -242,6 +246,18 @@ func (s *CreateVpnGatewayInput) SetDescription(v string) *CreateVpnGatewayInput 
 // SetDualTunnelEnabled sets the DualTunnelEnabled field's value.
 func (s *CreateVpnGatewayInput) SetDualTunnelEnabled(v bool) *CreateVpnGatewayInput {
 	s.DualTunnelEnabled = &v
+	return s
+}
+
+// SetIpStackType sets the IpStackType field's value.
+func (s *CreateVpnGatewayInput) SetIpStackType(v string) *CreateVpnGatewayInput {
+	s.IpStackType = &v
+	return s
+}
+
+// SetIpVersion sets the IpVersion field's value.
+func (s *CreateVpnGatewayInput) SetIpVersion(v string) *CreateVpnGatewayInput {
+	s.IpVersion = &v
 	return s
 }
 
