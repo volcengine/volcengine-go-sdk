@@ -148,7 +148,7 @@ type BgpInfoForDescribeVpnConnectionAttributesOutput struct {
 
 	LocalBgpIp *string `type:"string"`
 
-	PeerAsn *string `type:"string"`
+	PeerAsn *int64 `type:"integer"`
 
 	PeerBgpIp *string `type:"string"`
 
@@ -186,7 +186,7 @@ func (s *BgpInfoForDescribeVpnConnectionAttributesOutput) SetLocalBgpIp(v string
 }
 
 // SetPeerAsn sets the PeerAsn field's value.
-func (s *BgpInfoForDescribeVpnConnectionAttributesOutput) SetPeerAsn(v string) *BgpInfoForDescribeVpnConnectionAttributesOutput {
+func (s *BgpInfoForDescribeVpnConnectionAttributesOutput) SetPeerAsn(v int64) *BgpInfoForDescribeVpnConnectionAttributesOutput {
 	s.PeerAsn = &v
 	return s
 }
@@ -273,6 +273,8 @@ type DescribeVpnConnectionAttributesOutput struct {
 	DpdAction *string `type:"string"`
 
 	DualTunnelEnabled *bool `type:"boolean"`
+
+	EnableTunnelsBgp *bool `type:"boolean"`
 
 	HealthCheckers []*HealthCheckerForDescribeVpnConnectionAttributesOutput `type:"list"`
 
@@ -400,6 +402,12 @@ func (s *DescribeVpnConnectionAttributesOutput) SetDpdAction(v string) *Describe
 // SetDualTunnelEnabled sets the DualTunnelEnabled field's value.
 func (s *DescribeVpnConnectionAttributesOutput) SetDualTunnelEnabled(v bool) *DescribeVpnConnectionAttributesOutput {
 	s.DualTunnelEnabled = &v
+	return s
+}
+
+// SetEnableTunnelsBgp sets the EnableTunnelsBgp field's value.
+func (s *DescribeVpnConnectionAttributesOutput) SetEnableTunnelsBgp(v bool) *DescribeVpnConnectionAttributesOutput {
+	s.EnableTunnelsBgp = &v
 	return s
 }
 
@@ -781,6 +789,76 @@ func (s *TagForDescribeVpnConnectionAttributesOutput) SetValue(v string) *TagFor
 	return s
 }
 
+type TunnelBgpInfoForDescribeVpnConnectionAttributesOutput struct {
+	_ struct{} `type:"structure"`
+
+	EnableBgp *bool `type:"boolean"`
+
+	LocalAsn *int64 `type:"integer"`
+
+	LocalBgpIp *string `type:"string"`
+
+	PeerAsn *int64 `type:"integer"`
+
+	PeerBgpIp *string `type:"string"`
+
+	SessionStatus *string `type:"string" enum:"SessionStatusForDescribeVpnConnectionAttributesOutput"`
+
+	TunnelCidr *string `type:"string"`
+}
+
+// String returns the string representation
+func (s TunnelBgpInfoForDescribeVpnConnectionAttributesOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TunnelBgpInfoForDescribeVpnConnectionAttributesOutput) GoString() string {
+	return s.String()
+}
+
+// SetEnableBgp sets the EnableBgp field's value.
+func (s *TunnelBgpInfoForDescribeVpnConnectionAttributesOutput) SetEnableBgp(v bool) *TunnelBgpInfoForDescribeVpnConnectionAttributesOutput {
+	s.EnableBgp = &v
+	return s
+}
+
+// SetLocalAsn sets the LocalAsn field's value.
+func (s *TunnelBgpInfoForDescribeVpnConnectionAttributesOutput) SetLocalAsn(v int64) *TunnelBgpInfoForDescribeVpnConnectionAttributesOutput {
+	s.LocalAsn = &v
+	return s
+}
+
+// SetLocalBgpIp sets the LocalBgpIp field's value.
+func (s *TunnelBgpInfoForDescribeVpnConnectionAttributesOutput) SetLocalBgpIp(v string) *TunnelBgpInfoForDescribeVpnConnectionAttributesOutput {
+	s.LocalBgpIp = &v
+	return s
+}
+
+// SetPeerAsn sets the PeerAsn field's value.
+func (s *TunnelBgpInfoForDescribeVpnConnectionAttributesOutput) SetPeerAsn(v int64) *TunnelBgpInfoForDescribeVpnConnectionAttributesOutput {
+	s.PeerAsn = &v
+	return s
+}
+
+// SetPeerBgpIp sets the PeerBgpIp field's value.
+func (s *TunnelBgpInfoForDescribeVpnConnectionAttributesOutput) SetPeerBgpIp(v string) *TunnelBgpInfoForDescribeVpnConnectionAttributesOutput {
+	s.PeerBgpIp = &v
+	return s
+}
+
+// SetSessionStatus sets the SessionStatus field's value.
+func (s *TunnelBgpInfoForDescribeVpnConnectionAttributesOutput) SetSessionStatus(v string) *TunnelBgpInfoForDescribeVpnConnectionAttributesOutput {
+	s.SessionStatus = &v
+	return s
+}
+
+// SetTunnelCidr sets the TunnelCidr field's value.
+func (s *TunnelBgpInfoForDescribeVpnConnectionAttributesOutput) SetTunnelCidr(v string) *TunnelBgpInfoForDescribeVpnConnectionAttributesOutput {
+	s.TunnelCidr = &v
+	return s
+}
+
 type TunnelOptionForDescribeVpnConnectionAttributesOutput struct {
 	_ struct{} `type:"structure"`
 
@@ -797,6 +875,8 @@ type TunnelOptionForDescribeVpnConnectionAttributesOutput struct {
 	NatTraversal *bool `type:"boolean"`
 
 	Role *string `type:"string"`
+
+	TunnelBgpInfo *TunnelBgpInfoForDescribeVpnConnectionAttributesOutput `type:"structure"`
 
 	TunnelId *string `type:"string"`
 }
@@ -850,6 +930,12 @@ func (s *TunnelOptionForDescribeVpnConnectionAttributesOutput) SetNatTraversal(v
 // SetRole sets the Role field's value.
 func (s *TunnelOptionForDescribeVpnConnectionAttributesOutput) SetRole(v string) *TunnelOptionForDescribeVpnConnectionAttributesOutput {
 	s.Role = &v
+	return s
+}
+
+// SetTunnelBgpInfo sets the TunnelBgpInfo field's value.
+func (s *TunnelOptionForDescribeVpnConnectionAttributesOutput) SetTunnelBgpInfo(v *TunnelBgpInfoForDescribeVpnConnectionAttributesOutput) *TunnelOptionForDescribeVpnConnectionAttributesOutput {
+	s.TunnelBgpInfo = v
 	return s
 }
 

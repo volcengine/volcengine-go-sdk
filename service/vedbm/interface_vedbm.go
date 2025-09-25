@@ -16,18 +16,19 @@ import (
 // VEDBMAPI provides an interface to enable mocking the
 // vedbm.VEDBM service client's API operation,
 //
-//	// volcengine sdk func uses an SDK service client to make a request to
-//	// VEDBM.
-//	func myFunc(svc VEDBMAPI) bool {
-//	    // Make svc.AddTagsToResource request
-//	}
+//    // volcengine sdk func uses an SDK service client to make a request to
+//    // VEDBM.
+//    func myFunc(svc VEDBMAPI) bool {
+//        // Make svc.AddTagsToResource request
+//    }
 //
-//	func main() {
-//	    sess := session.New()
-//	    svc := vedbm.New(sess)
+//    func main() {
+//        sess := session.New()
+//        svc := vedbm.New(sess)
 //
-//	    myFunc(svc)
-//	}
+//        myFunc(svc)
+//    }
+//
 type VEDBMAPI interface {
 	AddTagsToResourceCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	AddTagsToResourceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -52,6 +53,22 @@ type VEDBMAPI interface {
 	AssociateAllowList(*AssociateAllowListInput) (*AssociateAllowListOutput, error)
 	AssociateAllowListWithContext(volcengine.Context, *AssociateAllowListInput, ...request.Option) (*AssociateAllowListOutput, error)
 	AssociateAllowListRequest(*AssociateAllowListInput) (*request.Request, *AssociateAllowListOutput)
+
+	CancelScheduleEventsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CancelScheduleEventsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CancelScheduleEventsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CancelScheduleEvents(*CancelScheduleEventsInput) (*CancelScheduleEventsOutput, error)
+	CancelScheduleEventsWithContext(volcengine.Context, *CancelScheduleEventsInput, ...request.Option) (*CancelScheduleEventsOutput, error)
+	CancelScheduleEventsRequest(*CancelScheduleEventsInput) (*request.Request, *CancelScheduleEventsOutput)
+
+	ChangeMasterCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ChangeMasterCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ChangeMasterCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ChangeMaster(*ChangeMasterInput) (*ChangeMasterOutput, error)
+	ChangeMasterWithContext(volcengine.Context, *ChangeMasterInput, ...request.Option) (*ChangeMasterOutput, error)
+	ChangeMasterRequest(*ChangeMasterInput) (*request.Request, *ChangeMasterOutput)
 
 	CreateAllowListCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	CreateAllowListCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -197,6 +214,14 @@ type VEDBMAPI interface {
 	DescribeAllowListsWithContext(volcengine.Context, *DescribeAllowListsInput, ...request.Option) (*DescribeAllowListsOutput, error)
 	DescribeAllowListsRequest(*DescribeAllowListsInput) (*request.Request, *DescribeAllowListsOutput)
 
+	DescribeAvailabilityZonesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeAvailabilityZonesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeAvailabilityZonesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeAvailabilityZones(*DescribeAvailabilityZonesInput) (*DescribeAvailabilityZonesOutput, error)
+	DescribeAvailabilityZonesWithContext(volcengine.Context, *DescribeAvailabilityZonesInput, ...request.Option) (*DescribeAvailabilityZonesOutput, error)
+	DescribeAvailabilityZonesRequest(*DescribeAvailabilityZonesInput) (*request.Request, *DescribeAvailabilityZonesOutput)
+
 	DescribeBackupPolicyCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DescribeBackupPolicyCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DescribeBackupPolicyCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -253,6 +278,14 @@ type VEDBMAPI interface {
 	DescribeDBInstanceDetailWithContext(volcengine.Context, *DescribeDBInstanceDetailInput, ...request.Option) (*DescribeDBInstanceDetailOutput, error)
 	DescribeDBInstanceDetailRequest(*DescribeDBInstanceDetailInput) (*request.Request, *DescribeDBInstanceDetailOutput)
 
+	DescribeDBInstanceParameterChangeHistoryCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeDBInstanceParameterChangeHistoryCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeDBInstanceParameterChangeHistoryCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeDBInstanceParameterChangeHistory(*DescribeDBInstanceParameterChangeHistoryInput) (*DescribeDBInstanceParameterChangeHistoryOutput, error)
+	DescribeDBInstanceParameterChangeHistoryWithContext(volcengine.Context, *DescribeDBInstanceParameterChangeHistoryInput, ...request.Option) (*DescribeDBInstanceParameterChangeHistoryOutput, error)
+	DescribeDBInstanceParameterChangeHistoryRequest(*DescribeDBInstanceParameterChangeHistoryInput) (*request.Request, *DescribeDBInstanceParameterChangeHistoryOutput)
+
 	DescribeDBInstanceParametersCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DescribeDBInstanceParametersCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DescribeDBInstanceParametersCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -260,6 +293,30 @@ type VEDBMAPI interface {
 	DescribeDBInstanceParameters(*DescribeDBInstanceParametersInput) (*DescribeDBInstanceParametersOutput, error)
 	DescribeDBInstanceParametersWithContext(volcengine.Context, *DescribeDBInstanceParametersInput, ...request.Option) (*DescribeDBInstanceParametersOutput, error)
 	DescribeDBInstanceParametersRequest(*DescribeDBInstanceParametersInput) (*request.Request, *DescribeDBInstanceParametersOutput)
+
+	DescribeDBInstancePriceDetailCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeDBInstancePriceDetailCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeDBInstancePriceDetailCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeDBInstancePriceDetail(*DescribeDBInstancePriceDetailInput) (*DescribeDBInstancePriceDetailOutput, error)
+	DescribeDBInstancePriceDetailWithContext(volcengine.Context, *DescribeDBInstancePriceDetailInput, ...request.Option) (*DescribeDBInstancePriceDetailOutput, error)
+	DescribeDBInstancePriceDetailRequest(*DescribeDBInstancePriceDetailInput) (*request.Request, *DescribeDBInstancePriceDetailOutput)
+
+	DescribeDBInstanceSpecsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeDBInstanceSpecsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeDBInstanceSpecsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeDBInstanceSpecs(*DescribeDBInstanceSpecsInput) (*DescribeDBInstanceSpecsOutput, error)
+	DescribeDBInstanceSpecsWithContext(volcengine.Context, *DescribeDBInstanceSpecsInput, ...request.Option) (*DescribeDBInstanceSpecsOutput, error)
+	DescribeDBInstanceSpecsRequest(*DescribeDBInstanceSpecsInput) (*request.Request, *DescribeDBInstanceSpecsOutput)
+
+	DescribeDBInstanceVersionCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeDBInstanceVersionCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeDBInstanceVersionCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeDBInstanceVersion(*DescribeDBInstanceVersionInput) (*DescribeDBInstanceVersionOutput, error)
+	DescribeDBInstanceVersionWithContext(volcengine.Context, *DescribeDBInstanceVersionInput, ...request.Option) (*DescribeDBInstanceVersionOutput, error)
+	DescribeDBInstanceVersionRequest(*DescribeDBInstanceVersionInput) (*request.Request, *DescribeDBInstanceVersionOutput)
 
 	DescribeDBInstancesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DescribeDBInstancesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -276,6 +333,30 @@ type VEDBMAPI interface {
 	DescribeDatabases(*DescribeDatabasesInput) (*DescribeDatabasesOutput, error)
 	DescribeDatabasesWithContext(volcengine.Context, *DescribeDatabasesInput, ...request.Option) (*DescribeDatabasesOutput, error)
 	DescribeDatabasesRequest(*DescribeDatabasesInput) (*request.Request, *DescribeDatabasesOutput)
+
+	DescribeExistDBInstancePriceCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeExistDBInstancePriceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeExistDBInstancePriceCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeExistDBInstancePrice(*DescribeExistDBInstancePriceInput) (*DescribeExistDBInstancePriceOutput, error)
+	DescribeExistDBInstancePriceWithContext(volcengine.Context, *DescribeExistDBInstancePriceInput, ...request.Option) (*DescribeExistDBInstancePriceOutput, error)
+	DescribeExistDBInstancePriceRequest(*DescribeExistDBInstancePriceInput) (*request.Request, *DescribeExistDBInstancePriceOutput)
+
+	DescribeInstanceAllowListsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeInstanceAllowListsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeInstanceAllowListsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeInstanceAllowLists(*DescribeInstanceAllowListsInput) (*DescribeInstanceAllowListsOutput, error)
+	DescribeInstanceAllowListsWithContext(volcengine.Context, *DescribeInstanceAllowListsInput, ...request.Option) (*DescribeInstanceAllowListsOutput, error)
+	DescribeInstanceAllowListsRequest(*DescribeInstanceAllowListsInput) (*request.Request, *DescribeInstanceAllowListsOutput)
+
+	DescribeModifiableParametersCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeModifiableParametersCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeModifiableParametersCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeModifiableParameters(*DescribeModifiableParametersInput) (*DescribeModifiableParametersOutput, error)
+	DescribeModifiableParametersWithContext(volcengine.Context, *DescribeModifiableParametersInput, ...request.Option) (*DescribeModifiableParametersOutput, error)
+	DescribeModifiableParametersRequest(*DescribeModifiableParametersInput) (*request.Request, *DescribeModifiableParametersOutput)
 
 	DescribeParameterTemplateDetailCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DescribeParameterTemplateDetailCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -300,6 +381,30 @@ type VEDBMAPI interface {
 	DescribeRecoverableTime(*DescribeRecoverableTimeInput) (*DescribeRecoverableTimeOutput, error)
 	DescribeRecoverableTimeWithContext(volcengine.Context, *DescribeRecoverableTimeInput, ...request.Option) (*DescribeRecoverableTimeOutput, error)
 	DescribeRecoverableTimeRequest(*DescribeRecoverableTimeInput) (*request.Request, *DescribeRecoverableTimeOutput)
+
+	DescribeRegionsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeRegionsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeRegionsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeRegions(*DescribeRegionsInput) (*DescribeRegionsOutput, error)
+	DescribeRegionsWithContext(volcengine.Context, *DescribeRegionsInput, ...request.Option) (*DescribeRegionsOutput, error)
+	DescribeRegionsRequest(*DescribeRegionsInput) (*request.Request, *DescribeRegionsOutput)
+
+	DescribeScheduleEventsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeScheduleEventsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeScheduleEventsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeScheduleEvents(*DescribeScheduleEventsInput) (*DescribeScheduleEventsOutput, error)
+	DescribeScheduleEventsWithContext(volcengine.Context, *DescribeScheduleEventsInput, ...request.Option) (*DescribeScheduleEventsOutput, error)
+	DescribeScheduleEventsRequest(*DescribeScheduleEventsInput) (*request.Request, *DescribeScheduleEventsOutput)
+
+	DescribeStoragePayablePriceCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeStoragePayablePriceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeStoragePayablePriceCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeStoragePayablePrice(*DescribeStoragePayablePriceInput) (*DescribeStoragePayablePriceOutput, error)
+	DescribeStoragePayablePriceWithContext(volcengine.Context, *DescribeStoragePayablePriceInput, ...request.Option) (*DescribeStoragePayablePriceOutput, error)
+	DescribeStoragePayablePriceRequest(*DescribeStoragePayablePriceInput) (*request.Request, *DescribeStoragePayablePriceOutput)
 
 	DisassociateAllowListCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DisassociateAllowListCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -357,6 +462,46 @@ type VEDBMAPI interface {
 	ModifyDBEndpointWithContext(volcengine.Context, *ModifyDBEndpointInput, ...request.Option) (*ModifyDBEndpointOutput, error)
 	ModifyDBEndpointRequest(*ModifyDBEndpointInput) (*request.Request, *ModifyDBEndpointOutput)
 
+	ModifyDBEndpointAddressCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ModifyDBEndpointAddressCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ModifyDBEndpointAddressCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ModifyDBEndpointAddress(*ModifyDBEndpointAddressInput) (*ModifyDBEndpointAddressOutput, error)
+	ModifyDBEndpointAddressWithContext(volcengine.Context, *ModifyDBEndpointAddressInput, ...request.Option) (*ModifyDBEndpointAddressOutput, error)
+	ModifyDBEndpointAddressRequest(*ModifyDBEndpointAddressInput) (*request.Request, *ModifyDBEndpointAddressOutput)
+
+	ModifyDBEndpointDNSCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ModifyDBEndpointDNSCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ModifyDBEndpointDNSCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ModifyDBEndpointDNS(*ModifyDBEndpointDNSInput) (*ModifyDBEndpointDNSOutput, error)
+	ModifyDBEndpointDNSWithContext(volcengine.Context, *ModifyDBEndpointDNSInput, ...request.Option) (*ModifyDBEndpointDNSOutput, error)
+	ModifyDBEndpointDNSRequest(*ModifyDBEndpointDNSInput) (*request.Request, *ModifyDBEndpointDNSOutput)
+
+	ModifyDBInstanceChargeTypeCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ModifyDBInstanceChargeTypeCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ModifyDBInstanceChargeTypeCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ModifyDBInstanceChargeType(*ModifyDBInstanceChargeTypeInput) (*ModifyDBInstanceChargeTypeOutput, error)
+	ModifyDBInstanceChargeTypeWithContext(volcengine.Context, *ModifyDBInstanceChargeTypeInput, ...request.Option) (*ModifyDBInstanceChargeTypeOutput, error)
+	ModifyDBInstanceChargeTypeRequest(*ModifyDBInstanceChargeTypeInput) (*request.Request, *ModifyDBInstanceChargeTypeOutput)
+
+	ModifyDBInstanceDeletionProtectionPolicyCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ModifyDBInstanceDeletionProtectionPolicyCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ModifyDBInstanceDeletionProtectionPolicyCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ModifyDBInstanceDeletionProtectionPolicy(*ModifyDBInstanceDeletionProtectionPolicyInput) (*ModifyDBInstanceDeletionProtectionPolicyOutput, error)
+	ModifyDBInstanceDeletionProtectionPolicyWithContext(volcengine.Context, *ModifyDBInstanceDeletionProtectionPolicyInput, ...request.Option) (*ModifyDBInstanceDeletionProtectionPolicyOutput, error)
+	ModifyDBInstanceDeletionProtectionPolicyRequest(*ModifyDBInstanceDeletionProtectionPolicyInput) (*request.Request, *ModifyDBInstanceDeletionProtectionPolicyOutput)
+
+	ModifyDBInstanceMaintenanceWindowCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ModifyDBInstanceMaintenanceWindowCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ModifyDBInstanceMaintenanceWindowCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ModifyDBInstanceMaintenanceWindow(*ModifyDBInstanceMaintenanceWindowInput) (*ModifyDBInstanceMaintenanceWindowOutput, error)
+	ModifyDBInstanceMaintenanceWindowWithContext(volcengine.Context, *ModifyDBInstanceMaintenanceWindowInput, ...request.Option) (*ModifyDBInstanceMaintenanceWindowOutput, error)
+	ModifyDBInstanceMaintenanceWindowRequest(*ModifyDBInstanceMaintenanceWindowInput) (*request.Request, *ModifyDBInstanceMaintenanceWindowOutput)
+
 	ModifyDBInstanceNameCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ModifyDBInstanceNameCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	ModifyDBInstanceNameCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -381,6 +526,14 @@ type VEDBMAPI interface {
 	ModifyDBInstanceSpecWithContext(volcengine.Context, *ModifyDBInstanceSpecInput, ...request.Option) (*ModifyDBInstanceSpecOutput, error)
 	ModifyDBInstanceSpecRequest(*ModifyDBInstanceSpecInput) (*request.Request, *ModifyDBInstanceSpecOutput)
 
+	ModifyDBNodeConfigCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ModifyDBNodeConfigCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ModifyDBNodeConfigCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ModifyDBNodeConfig(*ModifyDBNodeConfigInput) (*ModifyDBNodeConfigOutput, error)
+	ModifyDBNodeConfigWithContext(volcengine.Context, *ModifyDBNodeConfigInput, ...request.Option) (*ModifyDBNodeConfigOutput, error)
+	ModifyDBNodeConfigRequest(*ModifyDBNodeConfigInput) (*request.Request, *ModifyDBNodeConfigOutput)
+
 	ModifyDatabaseDescriptionCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ModifyDatabaseDescriptionCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	ModifyDatabaseDescriptionCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -388,6 +541,14 @@ type VEDBMAPI interface {
 	ModifyDatabaseDescription(*ModifyDatabaseDescriptionInput) (*ModifyDatabaseDescriptionOutput, error)
 	ModifyDatabaseDescriptionWithContext(volcengine.Context, *ModifyDatabaseDescriptionInput, ...request.Option) (*ModifyDatabaseDescriptionOutput, error)
 	ModifyDatabaseDescriptionRequest(*ModifyDatabaseDescriptionInput) (*request.Request, *ModifyDatabaseDescriptionOutput)
+
+	ModifyScheduleEventsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ModifyScheduleEventsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ModifyScheduleEventsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ModifyScheduleEvents(*ModifyScheduleEventsInput) (*ModifyScheduleEventsOutput, error)
+	ModifyScheduleEventsWithContext(volcengine.Context, *ModifyScheduleEventsInput, ...request.Option) (*ModifyScheduleEventsOutput, error)
+	ModifyScheduleEventsRequest(*ModifyScheduleEventsInput) (*request.Request, *ModifyScheduleEventsOutput)
 
 	RemoveTagsFromResourceCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	RemoveTagsFromResourceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)

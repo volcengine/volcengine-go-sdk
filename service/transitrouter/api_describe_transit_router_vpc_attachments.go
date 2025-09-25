@@ -364,9 +364,13 @@ func (s *TagForDescribeTransitRouterVpcAttachmentsOutput) SetValue(v string) *Ta
 type TransitRouterAttachmentForDescribeTransitRouterVpcAttachmentsOutput struct {
 	_ struct{} `type:"structure"`
 
+	ApplianceModeEnabled *bool `type:"boolean"`
+
 	AttachPoints []*AttachPointForDescribeTransitRouterVpcAttachmentsOutput `type:"list"`
 
 	AutoPublishRouteEnabled *bool `type:"boolean"`
+
+	Bandwidth *int32 `type:"int32"`
 
 	CreationTime *string `type:"string"`
 
@@ -399,6 +403,12 @@ func (s TransitRouterAttachmentForDescribeTransitRouterVpcAttachmentsOutput) GoS
 	return s.String()
 }
 
+// SetApplianceModeEnabled sets the ApplianceModeEnabled field's value.
+func (s *TransitRouterAttachmentForDescribeTransitRouterVpcAttachmentsOutput) SetApplianceModeEnabled(v bool) *TransitRouterAttachmentForDescribeTransitRouterVpcAttachmentsOutput {
+	s.ApplianceModeEnabled = &v
+	return s
+}
+
 // SetAttachPoints sets the AttachPoints field's value.
 func (s *TransitRouterAttachmentForDescribeTransitRouterVpcAttachmentsOutput) SetAttachPoints(v []*AttachPointForDescribeTransitRouterVpcAttachmentsOutput) *TransitRouterAttachmentForDescribeTransitRouterVpcAttachmentsOutput {
 	s.AttachPoints = v
@@ -408,6 +418,12 @@ func (s *TransitRouterAttachmentForDescribeTransitRouterVpcAttachmentsOutput) Se
 // SetAutoPublishRouteEnabled sets the AutoPublishRouteEnabled field's value.
 func (s *TransitRouterAttachmentForDescribeTransitRouterVpcAttachmentsOutput) SetAutoPublishRouteEnabled(v bool) *TransitRouterAttachmentForDescribeTransitRouterVpcAttachmentsOutput {
 	s.AutoPublishRouteEnabled = &v
+	return s
+}
+
+// SetBandwidth sets the Bandwidth field's value.
+func (s *TransitRouterAttachmentForDescribeTransitRouterVpcAttachmentsOutput) SetBandwidth(v int32) *TransitRouterAttachmentForDescribeTransitRouterVpcAttachmentsOutput {
+	s.Bandwidth = &v
 	return s
 }
 

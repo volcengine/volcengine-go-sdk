@@ -158,6 +158,8 @@ type CustomerGatewayForDescribeCustomerGatewaysOutput struct {
 
 	IpAddress *string `type:"string"`
 
+	IpVersion *string `type:"string"`
+
 	ProjectName *string `type:"string"`
 
 	Status *string `type:"string"`
@@ -223,6 +225,12 @@ func (s *CustomerGatewayForDescribeCustomerGatewaysOutput) SetIpAddress(v string
 	return s
 }
 
+// SetIpVersion sets the IpVersion field's value.
+func (s *CustomerGatewayForDescribeCustomerGatewaysOutput) SetIpVersion(v string) *CustomerGatewayForDescribeCustomerGatewaysOutput {
+	s.IpVersion = &v
+	return s
+}
+
 // SetProjectName sets the ProjectName field's value.
 func (s *CustomerGatewayForDescribeCustomerGatewaysOutput) SetProjectName(v string) *CustomerGatewayForDescribeCustomerGatewaysOutput {
 	s.ProjectName = &v
@@ -249,6 +257,8 @@ type DescribeCustomerGatewaysInput struct {
 	CustomerGatewayName *string `type:"string"`
 
 	IpAddress *string `type:"string"`
+
+	IpVersion *string `type:"string"`
 
 	PageNumber *int64 `type:"integer"`
 
@@ -286,6 +296,12 @@ func (s *DescribeCustomerGatewaysInput) SetCustomerGatewayName(v string) *Descri
 // SetIpAddress sets the IpAddress field's value.
 func (s *DescribeCustomerGatewaysInput) SetIpAddress(v string) *DescribeCustomerGatewaysInput {
 	s.IpAddress = &v
+	return s
+}
+
+// SetIpVersion sets the IpVersion field's value.
+func (s *DescribeCustomerGatewaysInput) SetIpVersion(v string) *DescribeCustomerGatewaysInput {
+	s.IpVersion = &v
 	return s
 }
 

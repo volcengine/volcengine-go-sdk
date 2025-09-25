@@ -139,6 +139,36 @@ func (c *VPN) ModifyVpnConnectionTunnelAttributesWithContext(ctx volcengine.Cont
 	return out, req.Send()
 }
 
+type BGPConfigForModifyVpnConnectionTunnelAttributesInput struct {
+	_ struct{} `type:"structure"`
+
+	LocalBgpIp *string `type:"string"`
+
+	TunnelCidr *string `type:"string"`
+}
+
+// String returns the string representation
+func (s BGPConfigForModifyVpnConnectionTunnelAttributesInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s BGPConfigForModifyVpnConnectionTunnelAttributesInput) GoString() string {
+	return s.String()
+}
+
+// SetLocalBgpIp sets the LocalBgpIp field's value.
+func (s *BGPConfigForModifyVpnConnectionTunnelAttributesInput) SetLocalBgpIp(v string) *BGPConfigForModifyVpnConnectionTunnelAttributesInput {
+	s.LocalBgpIp = &v
+	return s
+}
+
+// SetTunnelCidr sets the TunnelCidr field's value.
+func (s *BGPConfigForModifyVpnConnectionTunnelAttributesInput) SetTunnelCidr(v string) *BGPConfigForModifyVpnConnectionTunnelAttributesInput {
+	s.TunnelCidr = &v
+	return s
+}
+
 type IkeConfigForModifyVpnConnectionTunnelAttributesInput struct {
 	_ struct{} `type:"structure"`
 
@@ -274,6 +304,8 @@ func (s *IpsecConfigForModifyVpnConnectionTunnelAttributesInput) SetLifetime(v i
 type ModifyVpnConnectionTunnelAttributesInput struct {
 	_ struct{} `type:"structure"`
 
+	BGPConfig *BGPConfigForModifyVpnConnectionTunnelAttributesInput `type:"structure"`
+
 	CustomerGatewayId *string `type:"string"`
 
 	DpdAction *string `type:"string"`
@@ -315,6 +347,12 @@ func (s *ModifyVpnConnectionTunnelAttributesInput) Validate() error {
 		return invalidParams
 	}
 	return nil
+}
+
+// SetBGPConfig sets the BGPConfig field's value.
+func (s *ModifyVpnConnectionTunnelAttributesInput) SetBGPConfig(v *BGPConfigForModifyVpnConnectionTunnelAttributesInput) *ModifyVpnConnectionTunnelAttributesInput {
+	s.BGPConfig = v
+	return s
 }
 
 // SetCustomerGatewayId sets the CustomerGatewayId field's value.

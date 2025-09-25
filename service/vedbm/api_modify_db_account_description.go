@@ -22,13 +22,13 @@ const opModifyDBAccountDescriptionCommon = "ModifyDBAccountDescription"
 // See ModifyDBAccountDescriptionCommon for more information on using the ModifyDBAccountDescriptionCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the ModifyDBAccountDescriptionCommonRequest method.
-//	req, resp := client.ModifyDBAccountDescriptionCommonRequest(params)
+//    // Example sending a request using the ModifyDBAccountDescriptionCommonRequest method.
+//    req, resp := client.ModifyDBAccountDescriptionCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VEDBM) ModifyDBAccountDescriptionCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opModifyDBAccountDescriptionCommon,
@@ -89,13 +89,13 @@ const opModifyDBAccountDescription = "ModifyDBAccountDescription"
 // See ModifyDBAccountDescription for more information on using the ModifyDBAccountDescription
 // API call, and error handling.
 //
-//	// Example sending a request using the ModifyDBAccountDescriptionRequest method.
-//	req, resp := client.ModifyDBAccountDescriptionRequest(params)
+//    // Example sending a request using the ModifyDBAccountDescriptionRequest method.
+//    req, resp := client.ModifyDBAccountDescriptionRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VEDBM) ModifyDBAccountDescriptionRequest(input *ModifyDBAccountDescriptionInput) (req *request.Request, output *ModifyDBAccountDescriptionOutput) {
 	op := &request.Operation{
 		Name:       opModifyDBAccountDescription,

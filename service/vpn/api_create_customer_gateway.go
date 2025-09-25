@@ -153,6 +153,8 @@ type CreateCustomerGatewayInput struct {
 	// IpAddress is a required field
 	IpAddress *string `type:"string" required:"true"`
 
+	IpVersion *string `type:"string" enum:"IpVersionForCreateCustomerGatewayInput"`
+
 	ProjectName *string `type:"string"`
 }
 
@@ -209,6 +211,12 @@ func (s *CreateCustomerGatewayInput) SetIpAddress(v string) *CreateCustomerGatew
 	return s
 }
 
+// SetIpVersion sets the IpVersion field's value.
+func (s *CreateCustomerGatewayInput) SetIpVersion(v string) *CreateCustomerGatewayInput {
+	s.IpVersion = &v
+	return s
+}
+
 // SetProjectName sets the ProjectName field's value.
 func (s *CreateCustomerGatewayInput) SetProjectName(v string) *CreateCustomerGatewayInput {
 	s.ProjectName = &v
@@ -246,3 +254,11 @@ func (s *CreateCustomerGatewayOutput) SetRequestId(v string) *CreateCustomerGate
 	s.RequestId = &v
 	return s
 }
+
+const (
+	// IpVersionForCreateCustomerGatewayInputIpv4 is a IpVersionForCreateCustomerGatewayInput enum value
+	IpVersionForCreateCustomerGatewayInputIpv4 = "ipv4"
+
+	// IpVersionForCreateCustomerGatewayInputIpv6 is a IpVersionForCreateCustomerGatewayInput enum value
+	IpVersionForCreateCustomerGatewayInputIpv6 = "ipv6"
+)

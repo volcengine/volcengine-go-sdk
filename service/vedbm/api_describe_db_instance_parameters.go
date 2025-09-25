@@ -22,13 +22,13 @@ const opDescribeDBInstanceParametersCommon = "DescribeDBInstanceParameters"
 // See DescribeDBInstanceParametersCommon for more information on using the DescribeDBInstanceParametersCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeDBInstanceParametersCommonRequest method.
-//	req, resp := client.DescribeDBInstanceParametersCommonRequest(params)
+//    // Example sending a request using the DescribeDBInstanceParametersCommonRequest method.
+//    req, resp := client.DescribeDBInstanceParametersCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VEDBM) DescribeDBInstanceParametersCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeDBInstanceParametersCommon,
@@ -89,13 +89,13 @@ const opDescribeDBInstanceParameters = "DescribeDBInstanceParameters"
 // See DescribeDBInstanceParameters for more information on using the DescribeDBInstanceParameters
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeDBInstanceParametersRequest method.
-//	req, resp := client.DescribeDBInstanceParametersRequest(params)
+//    // Example sending a request using the DescribeDBInstanceParametersRequest method.
+//    req, resp := client.DescribeDBInstanceParametersRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VEDBM) DescribeDBInstanceParametersRequest(input *DescribeDBInstanceParametersInput) (req *request.Request, output *DescribeDBInstanceParametersOutput) {
 	op := &request.Operation{
 		Name:       opDescribeDBInstanceParameters,

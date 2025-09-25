@@ -22,13 +22,13 @@ const opDescribeCrossRegionBackupPolicyCommon = "DescribeCrossRegionBackupPolicy
 // See DescribeCrossRegionBackupPolicyCommon for more information on using the DescribeCrossRegionBackupPolicyCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeCrossRegionBackupPolicyCommonRequest method.
-//	req, resp := client.DescribeCrossRegionBackupPolicyCommonRequest(params)
+//    // Example sending a request using the DescribeCrossRegionBackupPolicyCommonRequest method.
+//    req, resp := client.DescribeCrossRegionBackupPolicyCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VEDBM) DescribeCrossRegionBackupPolicyCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeCrossRegionBackupPolicyCommon,
@@ -89,13 +89,13 @@ const opDescribeCrossRegionBackupPolicy = "DescribeCrossRegionBackupPolicy"
 // See DescribeCrossRegionBackupPolicy for more information on using the DescribeCrossRegionBackupPolicy
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeCrossRegionBackupPolicyRequest method.
-//	req, resp := client.DescribeCrossRegionBackupPolicyRequest(params)
+//    // Example sending a request using the DescribeCrossRegionBackupPolicyRequest method.
+//    req, resp := client.DescribeCrossRegionBackupPolicyRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VEDBM) DescribeCrossRegionBackupPolicyRequest(input *DescribeCrossRegionBackupPolicyInput) (req *request.Request, output *DescribeCrossRegionBackupPolicyOutput) {
 	op := &request.Operation{
 		Name:       opDescribeCrossRegionBackupPolicy,

@@ -526,6 +526,14 @@ type ECSAPI interface {
 	DescribeSubscriptionsWithContext(volcengine.Context, *DescribeSubscriptionsInput, ...request.Option) (*DescribeSubscriptionsOutput, error)
 	DescribeSubscriptionsRequest(*DescribeSubscriptionsInput) (*request.Request, *DescribeSubscriptionsOutput)
 
+	DescribeSystemEventDefaultActionCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeSystemEventDefaultActionCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeSystemEventDefaultActionCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeSystemEventDefaultAction(*DescribeSystemEventDefaultActionInput) (*DescribeSystemEventDefaultActionOutput, error)
+	DescribeSystemEventDefaultActionWithContext(volcengine.Context, *DescribeSystemEventDefaultActionInput, ...request.Option) (*DescribeSystemEventDefaultActionOutput, error)
+	DescribeSystemEventDefaultActionRequest(*DescribeSystemEventDefaultActionInput) (*request.Request, *DescribeSystemEventDefaultActionOutput)
+
 	DescribeSystemEventsCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DescribeSystemEventsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DescribeSystemEventsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -798,6 +806,14 @@ type ECSAPI interface {
 	ModifySubscriptionEventTypesWithContext(volcengine.Context, *ModifySubscriptionEventTypesInput, ...request.Option) (*ModifySubscriptionEventTypesOutput, error)
 	ModifySubscriptionEventTypesRequest(*ModifySubscriptionEventTypesInput) (*request.Request, *ModifySubscriptionEventTypesOutput)
 
+	ModifySystemEventDefaultActionCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ModifySystemEventDefaultActionCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ModifySystemEventDefaultActionCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ModifySystemEventDefaultAction(*ModifySystemEventDefaultActionInput) (*ModifySystemEventDefaultActionOutput, error)
+	ModifySystemEventDefaultActionWithContext(volcengine.Context, *ModifySystemEventDefaultActionInput, ...request.Option) (*ModifySystemEventDefaultActionOutput, error)
+	ModifySystemEventDefaultActionRequest(*ModifySystemEventDefaultActionInput) (*request.Request, *ModifySystemEventDefaultActionOutput)
+
 	ModifyTemplateDefaultVersionCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ModifyTemplateDefaultVersionCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	ModifyTemplateDefaultVersionCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -877,6 +893,14 @@ type ECSAPI interface {
 	ReplaceSystemVolume(*ReplaceSystemVolumeInput) (*ReplaceSystemVolumeOutput, error)
 	ReplaceSystemVolumeWithContext(volcengine.Context, *ReplaceSystemVolumeInput, ...request.Option) (*ReplaceSystemVolumeOutput, error)
 	ReplaceSystemVolumeRequest(*ReplaceSystemVolumeInput) (*request.Request, *ReplaceSystemVolumeOutput)
+
+	ReportInstancesStatusCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ReportInstancesStatusCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ReportInstancesStatusCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ReportInstancesStatus(*ReportInstancesStatusInput) (*ReportInstancesStatusOutput, error)
+	ReportInstancesStatusWithContext(volcengine.Context, *ReportInstancesStatusInput, ...request.Option) (*ReportInstancesStatusOutput, error)
+	ReportInstancesStatusRequest(*ReportInstancesStatusInput) (*request.Request, *ReportInstancesStatusOutput)
 
 	RunCommandCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	RunCommandCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)

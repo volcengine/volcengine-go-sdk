@@ -272,6 +272,8 @@ type SslVpnServerForDescribeSslVpnServersOutput struct {
 
 	Cipher *string `type:"string"`
 
+	ClientCertSessionPolicy *string `type:"string"`
+
 	ClientIpPool *string `type:"string"`
 
 	Compress *bool `type:"boolean"`
@@ -322,6 +324,12 @@ func (s *SslVpnServerForDescribeSslVpnServersOutput) SetAuth(v string) *SslVpnSe
 // SetCipher sets the Cipher field's value.
 func (s *SslVpnServerForDescribeSslVpnServersOutput) SetCipher(v string) *SslVpnServerForDescribeSslVpnServersOutput {
 	s.Cipher = &v
+	return s
+}
+
+// SetClientCertSessionPolicy sets the ClientCertSessionPolicy field's value.
+func (s *SslVpnServerForDescribeSslVpnServersOutput) SetClientCertSessionPolicy(v string) *SslVpnServerForDescribeSslVpnServersOutput {
+	s.ClientCertSessionPolicy = &v
 	return s
 }
 

@@ -22,13 +22,13 @@ const opRestoreToNewInstanceCommon = "RestoreToNewInstance"
 // See RestoreToNewInstanceCommon for more information on using the RestoreToNewInstanceCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the RestoreToNewInstanceCommonRequest method.
-//	req, resp := client.RestoreToNewInstanceCommonRequest(params)
+//    // Example sending a request using the RestoreToNewInstanceCommonRequest method.
+//    req, resp := client.RestoreToNewInstanceCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VEDBM) RestoreToNewInstanceCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opRestoreToNewInstanceCommon,
@@ -89,13 +89,13 @@ const opRestoreToNewInstance = "RestoreToNewInstance"
 // See RestoreToNewInstance for more information on using the RestoreToNewInstance
 // API call, and error handling.
 //
-//	// Example sending a request using the RestoreToNewInstanceRequest method.
-//	req, resp := client.RestoreToNewInstanceRequest(params)
+//    // Example sending a request using the RestoreToNewInstanceRequest method.
+//    req, resp := client.RestoreToNewInstanceRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VEDBM) RestoreToNewInstanceRequest(input *RestoreToNewInstanceInput) (req *request.Request, output *RestoreToNewInstanceOutput) {
 	op := &request.Operation{
 		Name:       opRestoreToNewInstance,
@@ -445,6 +445,9 @@ const (
 
 	// EnumOfDBMinorVersionForRestoreToNewInstanceInput32 is a EnumOfDBMinorVersionForRestoreToNewInstanceInput enum value
 	EnumOfDBMinorVersionForRestoreToNewInstanceInput32 = "3.2"
+
+	// EnumOfDBMinorVersionForRestoreToNewInstanceInput33 is a EnumOfDBMinorVersionForRestoreToNewInstanceInput enum value
+	EnumOfDBMinorVersionForRestoreToNewInstanceInput33 = "3.3"
 )
 
 const (

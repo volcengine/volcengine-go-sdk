@@ -142,7 +142,13 @@ func (c *VPN) DescribeVpnGatewaysWithContext(ctx volcengine.Context, input *Desc
 type DescribeVpnGatewaysInput struct {
 	_ struct{} `type:"structure"`
 
+	DualTunnelEnabled *bool `type:"boolean"`
+
 	IpAddress *string `type:"string"`
+
+	IpStackType *string `type:"string"`
+
+	IpVersion *string `type:"string"`
 
 	IpsecEnabled *bool `type:"boolean"`
 
@@ -175,9 +181,27 @@ func (s DescribeVpnGatewaysInput) GoString() string {
 	return s.String()
 }
 
+// SetDualTunnelEnabled sets the DualTunnelEnabled field's value.
+func (s *DescribeVpnGatewaysInput) SetDualTunnelEnabled(v bool) *DescribeVpnGatewaysInput {
+	s.DualTunnelEnabled = &v
+	return s
+}
+
 // SetIpAddress sets the IpAddress field's value.
 func (s *DescribeVpnGatewaysInput) SetIpAddress(v string) *DescribeVpnGatewaysInput {
 	s.IpAddress = &v
+	return s
+}
+
+// SetIpStackType sets the IpStackType field's value.
+func (s *DescribeVpnGatewaysInput) SetIpStackType(v string) *DescribeVpnGatewaysInput {
+	s.IpStackType = &v
+	return s
+}
+
+// SetIpVersion sets the IpVersion field's value.
+func (s *DescribeVpnGatewaysInput) SetIpVersion(v string) *DescribeVpnGatewaysInput {
+	s.IpVersion = &v
 	return s
 }
 
@@ -384,6 +408,10 @@ type VpnGatewayForDescribeVpnGatewaysOutput struct {
 
 	IpAddress *string `type:"string"`
 
+	IpStackType *string `type:"string"`
+
+	IpVersion *string `type:"string"`
+
 	IpsecEnabled *bool `type:"boolean"`
 
 	IsBlocked *bool `type:"boolean"`
@@ -498,6 +526,18 @@ func (s *VpnGatewayForDescribeVpnGatewaysOutput) SetExpiredTime(v string) *VpnGa
 // SetIpAddress sets the IpAddress field's value.
 func (s *VpnGatewayForDescribeVpnGatewaysOutput) SetIpAddress(v string) *VpnGatewayForDescribeVpnGatewaysOutput {
 	s.IpAddress = &v
+	return s
+}
+
+// SetIpStackType sets the IpStackType field's value.
+func (s *VpnGatewayForDescribeVpnGatewaysOutput) SetIpStackType(v string) *VpnGatewayForDescribeVpnGatewaysOutput {
+	s.IpStackType = &v
+	return s
+}
+
+// SetIpVersion sets the IpVersion field's value.
+func (s *VpnGatewayForDescribeVpnGatewaysOutput) SetIpVersion(v string) *VpnGatewayForDescribeVpnGatewaysOutput {
+	s.IpVersion = &v
 	return s
 }
 

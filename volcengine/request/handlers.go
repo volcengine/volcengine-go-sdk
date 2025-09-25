@@ -278,7 +278,7 @@ func HandlerListLogItem(item HandlerListRunItem) bool {
 	if item.Request.Config.Logger == nil {
 		return true
 	}
-	item.Request.Config.Logger.Log("DEBUG: RequestHandler",
+	item.Request.Config.Logger.Debug("RequestHandler",
 		item.Index, item.Handler.Name, item.Request.Error)
 
 	return true

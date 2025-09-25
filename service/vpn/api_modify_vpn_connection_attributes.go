@@ -139,7 +139,37 @@ func (c *VPN) ModifyVpnConnectionAttributesWithContext(ctx volcengine.Context, i
 	return out, req.Send()
 }
 
-type BgpConfigForModifyVpnConnectionAttributesInput struct {
+type BGPConfigForModifyVpnConnectionAttributesInput struct {
+	_ struct{} `type:"structure"`
+
+	LocalBgpIp *string `type:"string"`
+
+	TunnelCidr *string `type:"string"`
+}
+
+// String returns the string representation
+func (s BGPConfigForModifyVpnConnectionAttributesInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s BGPConfigForModifyVpnConnectionAttributesInput) GoString() string {
+	return s.String()
+}
+
+// SetLocalBgpIp sets the LocalBgpIp field's value.
+func (s *BGPConfigForModifyVpnConnectionAttributesInput) SetLocalBgpIp(v string) *BGPConfigForModifyVpnConnectionAttributesInput {
+	s.LocalBgpIp = &v
+	return s
+}
+
+// SetTunnelCidr sets the TunnelCidr field's value.
+func (s *BGPConfigForModifyVpnConnectionAttributesInput) SetTunnelCidr(v string) *BGPConfigForModifyVpnConnectionAttributesInput {
+	s.TunnelCidr = &v
+	return s
+}
+
+type ConvertBgpConfigForModifyVpnConnectionAttributesInput struct {
 	_ struct{} `type:"structure"`
 
 	EnableBgp *bool `type:"boolean"`
@@ -150,29 +180,29 @@ type BgpConfigForModifyVpnConnectionAttributesInput struct {
 }
 
 // String returns the string representation
-func (s BgpConfigForModifyVpnConnectionAttributesInput) String() string {
+func (s ConvertBgpConfigForModifyVpnConnectionAttributesInput) String() string {
 	return volcengineutil.Prettify(s)
 }
 
 // GoString returns the string representation
-func (s BgpConfigForModifyVpnConnectionAttributesInput) GoString() string {
+func (s ConvertBgpConfigForModifyVpnConnectionAttributesInput) GoString() string {
 	return s.String()
 }
 
 // SetEnableBgp sets the EnableBgp field's value.
-func (s *BgpConfigForModifyVpnConnectionAttributesInput) SetEnableBgp(v bool) *BgpConfigForModifyVpnConnectionAttributesInput {
+func (s *ConvertBgpConfigForModifyVpnConnectionAttributesInput) SetEnableBgp(v bool) *ConvertBgpConfigForModifyVpnConnectionAttributesInput {
 	s.EnableBgp = &v
 	return s
 }
 
 // SetLocalBgpIp sets the LocalBgpIp field's value.
-func (s *BgpConfigForModifyVpnConnectionAttributesInput) SetLocalBgpIp(v string) *BgpConfigForModifyVpnConnectionAttributesInput {
+func (s *ConvertBgpConfigForModifyVpnConnectionAttributesInput) SetLocalBgpIp(v string) *ConvertBgpConfigForModifyVpnConnectionAttributesInput {
 	s.LocalBgpIp = &v
 	return s
 }
 
 // SetTunnelCidr sets the TunnelCidr field's value.
-func (s *BgpConfigForModifyVpnConnectionAttributesInput) SetTunnelCidr(v string) *BgpConfigForModifyVpnConnectionAttributesInput {
+func (s *ConvertBgpConfigForModifyVpnConnectionAttributesInput) SetTunnelCidr(v string) *ConvertBgpConfigForModifyVpnConnectionAttributesInput {
 	s.TunnelCidr = &v
 	return s
 }
@@ -312,13 +342,15 @@ func (s *IpsecConfigForModifyVpnConnectionAttributesInput) SetLifetime(v int64) 
 type ModifyVpnConnectionAttributesInput struct {
 	_ struct{} `type:"structure"`
 
-	BgpConfig *BgpConfigForModifyVpnConnectionAttributesInput `type:"structure"`
+	BgpConfig *ConvertBgpConfigForModifyVpnConnectionAttributesInput `type:"structure"`
 
 	CustomerGatewayId *string `type:"string"`
 
 	Description *string `type:"string"`
 
 	DpdAction *string `type:"string"`
+
+	EnableTunnelsBgp *bool `type:"boolean"`
 
 	IkeConfig *IkeConfigForModifyVpnConnectionAttributesInput `type:"structure"`
 
@@ -333,6 +365,8 @@ type ModifyVpnConnectionAttributesInput struct {
 	NegotiateInstantly *bool `type:"boolean"`
 
 	RemoteSubnet []*string `type:"list"`
+
+	Spec *string `type:"string"`
 
 	TunnelOptions []*TunnelOptionForModifyVpnConnectionAttributesInput `type:"list"`
 
@@ -366,7 +400,7 @@ func (s *ModifyVpnConnectionAttributesInput) Validate() error {
 }
 
 // SetBgpConfig sets the BgpConfig field's value.
-func (s *ModifyVpnConnectionAttributesInput) SetBgpConfig(v *BgpConfigForModifyVpnConnectionAttributesInput) *ModifyVpnConnectionAttributesInput {
+func (s *ModifyVpnConnectionAttributesInput) SetBgpConfig(v *ConvertBgpConfigForModifyVpnConnectionAttributesInput) *ModifyVpnConnectionAttributesInput {
 	s.BgpConfig = v
 	return s
 }
@@ -386,6 +420,12 @@ func (s *ModifyVpnConnectionAttributesInput) SetDescription(v string) *ModifyVpn
 // SetDpdAction sets the DpdAction field's value.
 func (s *ModifyVpnConnectionAttributesInput) SetDpdAction(v string) *ModifyVpnConnectionAttributesInput {
 	s.DpdAction = &v
+	return s
+}
+
+// SetEnableTunnelsBgp sets the EnableTunnelsBgp field's value.
+func (s *ModifyVpnConnectionAttributesInput) SetEnableTunnelsBgp(v bool) *ModifyVpnConnectionAttributesInput {
+	s.EnableTunnelsBgp = &v
 	return s
 }
 
@@ -428,6 +468,12 @@ func (s *ModifyVpnConnectionAttributesInput) SetNegotiateInstantly(v bool) *Modi
 // SetRemoteSubnet sets the RemoteSubnet field's value.
 func (s *ModifyVpnConnectionAttributesInput) SetRemoteSubnet(v []*string) *ModifyVpnConnectionAttributesInput {
 	s.RemoteSubnet = v
+	return s
+}
+
+// SetSpec sets the Spec field's value.
+func (s *ModifyVpnConnectionAttributesInput) SetSpec(v string) *ModifyVpnConnectionAttributesInput {
+	s.Spec = &v
 	return s
 }
 
@@ -484,6 +530,8 @@ func (s *ModifyVpnConnectionAttributesOutput) SetRequestId(v string) *ModifyVpnC
 type TunnelOptionForModifyVpnConnectionAttributesInput struct {
 	_ struct{} `type:"structure"`
 
+	BGPConfig *BGPConfigForModifyVpnConnectionAttributesInput `type:"structure"`
+
 	CustomerGatewayId *string `type:"string"`
 
 	DpdAction *string `type:"string"`
@@ -505,6 +553,12 @@ func (s TunnelOptionForModifyVpnConnectionAttributesInput) String() string {
 // GoString returns the string representation
 func (s TunnelOptionForModifyVpnConnectionAttributesInput) GoString() string {
 	return s.String()
+}
+
+// SetBGPConfig sets the BGPConfig field's value.
+func (s *TunnelOptionForModifyVpnConnectionAttributesInput) SetBGPConfig(v *BGPConfigForModifyVpnConnectionAttributesInput) *TunnelOptionForModifyVpnConnectionAttributesInput {
+	s.BGPConfig = v
+	return s
 }
 
 // SetCustomerGatewayId sets the CustomerGatewayId field's value.

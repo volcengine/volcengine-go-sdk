@@ -22,13 +22,13 @@ const opRestoreTableCommon = "RestoreTable"
 // See RestoreTableCommon for more information on using the RestoreTableCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the RestoreTableCommonRequest method.
-//	req, resp := client.RestoreTableCommonRequest(params)
+//    // Example sending a request using the RestoreTableCommonRequest method.
+//    req, resp := client.RestoreTableCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VEDBM) RestoreTableCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opRestoreTableCommon,
@@ -89,13 +89,13 @@ const opRestoreTable = "RestoreTable"
 // See RestoreTable for more information on using the RestoreTable
 // API call, and error handling.
 //
-//	// Example sending a request using the RestoreTableRequest method.
-//	req, resp := client.RestoreTableRequest(params)
+//    // Example sending a request using the RestoreTableRequest method.
+//    req, resp := client.RestoreTableRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VEDBM) RestoreTableRequest(input *RestoreTableInput) (req *request.Request, output *RestoreTableOutput) {
 	op := &request.Operation{
 		Name:       opRestoreTable,

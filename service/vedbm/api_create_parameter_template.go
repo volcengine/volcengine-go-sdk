@@ -22,13 +22,13 @@ const opCreateParameterTemplateCommon = "CreateParameterTemplate"
 // See CreateParameterTemplateCommon for more information on using the CreateParameterTemplateCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the CreateParameterTemplateCommonRequest method.
-//	req, resp := client.CreateParameterTemplateCommonRequest(params)
+//    // Example sending a request using the CreateParameterTemplateCommonRequest method.
+//    req, resp := client.CreateParameterTemplateCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VEDBM) CreateParameterTemplateCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opCreateParameterTemplateCommon,
@@ -89,13 +89,13 @@ const opCreateParameterTemplate = "CreateParameterTemplate"
 // See CreateParameterTemplate for more information on using the CreateParameterTemplate
 // API call, and error handling.
 //
-//	// Example sending a request using the CreateParameterTemplateRequest method.
-//	req, resp := client.CreateParameterTemplateRequest(params)
+//    // Example sending a request using the CreateParameterTemplateRequest method.
+//    req, resp := client.CreateParameterTemplateRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VEDBM) CreateParameterTemplateRequest(input *CreateParameterTemplateInput) (req *request.Request, output *CreateParameterTemplateOutput) {
 	op := &request.Operation{
 		Name:       opCreateParameterTemplate,

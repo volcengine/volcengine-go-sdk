@@ -330,13 +330,15 @@ type TransitRouterAttachmentForDescribeTransitRouterDirectConnectGatewayAttachme
 
 	AutoPublishRouteEnabled *bool `type:"boolean"`
 
+	Bandwidth *int32 `type:"int32"`
+
 	CreationTime *string `type:"string"`
 
 	Description *string `type:"string"`
 
 	DirectConnectGatewayId *string `type:"string"`
 
-	Ipv6Enabled *string `type:"string"`
+	Ipv6Enabled *bool `type:"boolean"`
 
 	Status *string `type:"string"`
 
@@ -373,6 +375,12 @@ func (s *TransitRouterAttachmentForDescribeTransitRouterDirectConnectGatewayAtta
 	return s
 }
 
+// SetBandwidth sets the Bandwidth field's value.
+func (s *TransitRouterAttachmentForDescribeTransitRouterDirectConnectGatewayAttachmentsOutput) SetBandwidth(v int32) *TransitRouterAttachmentForDescribeTransitRouterDirectConnectGatewayAttachmentsOutput {
+	s.Bandwidth = &v
+	return s
+}
+
 // SetCreationTime sets the CreationTime field's value.
 func (s *TransitRouterAttachmentForDescribeTransitRouterDirectConnectGatewayAttachmentsOutput) SetCreationTime(v string) *TransitRouterAttachmentForDescribeTransitRouterDirectConnectGatewayAttachmentsOutput {
 	s.CreationTime = &v
@@ -392,7 +400,7 @@ func (s *TransitRouterAttachmentForDescribeTransitRouterDirectConnectGatewayAtta
 }
 
 // SetIpv6Enabled sets the Ipv6Enabled field's value.
-func (s *TransitRouterAttachmentForDescribeTransitRouterDirectConnectGatewayAttachmentsOutput) SetIpv6Enabled(v string) *TransitRouterAttachmentForDescribeTransitRouterDirectConnectGatewayAttachmentsOutput {
+func (s *TransitRouterAttachmentForDescribeTransitRouterDirectConnectGatewayAttachmentsOutput) SetIpv6Enabled(v bool) *TransitRouterAttachmentForDescribeTransitRouterDirectConnectGatewayAttachmentsOutput {
 	s.Ipv6Enabled = &v
 	return s
 }

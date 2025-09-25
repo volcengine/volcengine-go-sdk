@@ -22,13 +22,13 @@ const opDescribeDBInstancesCommon = "DescribeDBInstances"
 // See DescribeDBInstancesCommon for more information on using the DescribeDBInstancesCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeDBInstancesCommonRequest method.
-//	req, resp := client.DescribeDBInstancesCommonRequest(params)
+//    // Example sending a request using the DescribeDBInstancesCommonRequest method.
+//    req, resp := client.DescribeDBInstancesCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VEDBM) DescribeDBInstancesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeDBInstancesCommon,
@@ -89,13 +89,13 @@ const opDescribeDBInstances = "DescribeDBInstances"
 // See DescribeDBInstances for more information on using the DescribeDBInstances
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeDBInstancesRequest method.
-//	req, resp := client.DescribeDBInstancesRequest(params)
+//    // Example sending a request using the DescribeDBInstancesRequest method.
+//    req, resp := client.DescribeDBInstancesRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VEDBM) DescribeDBInstancesRequest(input *DescribeDBInstancesInput) (req *request.Request, output *DescribeDBInstancesOutput) {
 	op := &request.Operation{
 		Name:       opDescribeDBInstances,
@@ -556,6 +556,8 @@ func (s *InstanceForDescribeDBInstancesOutput) SetZoneIds(v string) *InstanceFor
 type NodeForDescribeDBInstancesOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	FailoverPriority *int32 `type:"int32" json:",omitempty"`
+
 	Memory *int32 `type:"int32" json:",omitempty"`
 
 	NodeId *string `type:"string" json:",omitempty"`
@@ -577,6 +579,12 @@ func (s NodeForDescribeDBInstancesOutput) String() string {
 // GoString returns the string representation
 func (s NodeForDescribeDBInstancesOutput) GoString() string {
 	return s.String()
+}
+
+// SetFailoverPriority sets the FailoverPriority field's value.
+func (s *NodeForDescribeDBInstancesOutput) SetFailoverPriority(v int32) *NodeForDescribeDBInstancesOutput {
+	s.FailoverPriority = &v
+	return s
 }
 
 // SetMemory sets the Memory field's value.

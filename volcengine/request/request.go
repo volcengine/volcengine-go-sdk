@@ -165,11 +165,11 @@ type Option func(*Request)
 //
 // This Option can be used multiple times with a single API operation.
 //
-//    var id2, versionID string
-//    svc.PutObjectWithContext(ctx, params,
-//        request.WithGetResponseHeader("x-top-id-2", &id2),
-//        request.WithGetResponseHeader("x-top-version-id", &versionID),
-//    )
+//	var id2, versionID string
+//	svc.PutObjectWithContext(ctx, params,
+//	    request.WithGetResponseHeader("x-top-id-2", &id2),
+//	    request.WithGetResponseHeader("x-top-version-id", &versionID),
+//	)
 func WithGetResponseHeader(key string, val *string) Option {
 	return func(r *Request) {
 		r.Handlers.Complete.PushBack(func(req *Request) {
@@ -182,8 +182,8 @@ func WithGetResponseHeader(key string, val *string) Option {
 // headers from the HTTP response and assign them to the passed in headers
 // variable. The passed in headers pointer must be non-nil.
 //
-//    var headers http.Header
-//    svc.PutObjectWithContext(ctx, params, request.WithGetResponseHeaders(&headers))
+//	var headers http.Header
+//	svc.PutObjectWithContext(ctx, params, request.WithGetResponseHeaders(&headers))
 func WithGetResponseHeaders(headers *http.Header) Option {
 	return func(r *Request) {
 		r.Handlers.Complete.PushBack(func(req *Request) {
@@ -195,7 +195,7 @@ func WithGetResponseHeaders(headers *http.Header) Option {
 // WithLogLevel is a request option that will set the request to use a specific
 // log level when the request is made.
 //
-//     svc.PutObjectWithContext(ctx, params, request.WithLogLevel(volcengine.LogDebugWithHTTPBody)
+//	svc.PutObjectWithContext(ctx, params, request.WithLogLevel(volcengine.LogDebugWithHTTPBody)
 func WithLogLevel(l volcengine.LogLevelType) Option {
 	return func(r *Request) {
 		r.Config.LogLevel = volcengine.LogLevel(l)
@@ -391,7 +391,7 @@ func debugLogReqError(r *Request, stage, retryStr string, err error) {
 		return
 	}
 
-	r.Config.Logger.Log(fmt.Sprintf("DEBUG: %s %s/%s failed, %s, error %v",
+	r.Config.Logger.Error(fmt.Sprintf("%s %s/%s failed, %s, error %v",
 		stage, r.ClientInfo.ServiceName, r.Operation.Name, retryStr, err))
 }
 
@@ -566,7 +566,7 @@ func (r *Request) Send() error {
 
 func (r *Request) prepareRetry() error {
 	if r.Config.LogLevel.Matches(volcengine.LogDebugWithRequestRetries) {
-		r.Config.Logger.Log(fmt.Sprintf("DEBUG: Retrying Request %s/%s, attempt %d",
+		r.Config.Logger.Debug(fmt.Sprintf("Retrying Request %s/%s, attempt %d",
 			r.ClientInfo.ServiceName, r.Operation.Name, r.RetryCount))
 	}
 
