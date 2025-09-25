@@ -368,6 +368,8 @@ type InstanceForDescribeDBInstancesOutput struct {
 
 	PrivateAddress *string `type:"string" json:",omitempty"`
 
+	PrivatePort *string `type:"string" json:",omitempty"`
+
 	ProjectName *string `type:"string" json:",omitempty"`
 
 	RegionId *string `type:"string" json:",omitempty"`
@@ -478,6 +480,12 @@ func (s *InstanceForDescribeDBInstancesOutput) SetNodeNumber(v int32) *InstanceF
 // SetPrivateAddress sets the PrivateAddress field's value.
 func (s *InstanceForDescribeDBInstancesOutput) SetPrivateAddress(v string) *InstanceForDescribeDBInstancesOutput {
 	s.PrivateAddress = &v
+	return s
+}
+
+// SetPrivatePort sets the PrivatePort field's value.
+func (s *InstanceForDescribeDBInstancesOutput) SetPrivatePort(v string) *InstanceForDescribeDBInstancesOutput {
+	s.PrivatePort = &v
 	return s
 }
 
