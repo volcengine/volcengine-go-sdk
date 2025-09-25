@@ -336,7 +336,7 @@ type TransitRouterAttachmentForDescribeTransitRouterPeerAttachmentsOutput struct
 
 	Description *string `type:"string"`
 
-	Ipv6Enabled *string `type:"string"`
+	Ipv6Enabled *bool `type:"boolean"`
 
 	PeerTransitRouterId *string `type:"string"`
 
@@ -400,7 +400,7 @@ func (s *TransitRouterAttachmentForDescribeTransitRouterPeerAttachmentsOutput) S
 }
 
 // SetIpv6Enabled sets the Ipv6Enabled field's value.
-func (s *TransitRouterAttachmentForDescribeTransitRouterPeerAttachmentsOutput) SetIpv6Enabled(v string) *TransitRouterAttachmentForDescribeTransitRouterPeerAttachmentsOutput {
+func (s *TransitRouterAttachmentForDescribeTransitRouterPeerAttachmentsOutput) SetIpv6Enabled(v bool) *TransitRouterAttachmentForDescribeTransitRouterPeerAttachmentsOutput {
 	s.Ipv6Enabled = &v
 	return s
 }
