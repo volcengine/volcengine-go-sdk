@@ -411,30 +411,30 @@ const (
 	// EnumOfConsistLevelForDescribeDBEndpointOutputEventual is a EnumOfConsistLevelForDescribeDBEndpointOutput enum value
 	EnumOfConsistLevelForDescribeDBEndpointOutputEventual = "Eventual"
 
-	// EnumOfConsistLevelForDescribeDBEndpointOutputSession is a EnumOfConsistLevelForDescribeDBEndpointOutput enum value
-	EnumOfConsistLevelForDescribeDBEndpointOutputSession = "Session"
-
 	// EnumOfConsistLevelForDescribeDBEndpointOutputGlobal is a EnumOfConsistLevelForDescribeDBEndpointOutput enum value
 	EnumOfConsistLevelForDescribeDBEndpointOutputGlobal = "Global"
+
+	// EnumOfConsistLevelForDescribeDBEndpointOutputSession is a EnumOfConsistLevelForDescribeDBEndpointOutput enum value
+	EnumOfConsistLevelForDescribeDBEndpointOutputSession = "Session"
 )
 
 const (
-	// EnumOfConsistTimeoutActionForDescribeDBEndpointOutputReturnError is a EnumOfConsistTimeoutActionForDescribeDBEndpointOutput enum value
-	EnumOfConsistTimeoutActionForDescribeDBEndpointOutputReturnError = "ReturnError"
-
 	// EnumOfConsistTimeoutActionForDescribeDBEndpointOutputReadMaster is a EnumOfConsistTimeoutActionForDescribeDBEndpointOutput enum value
 	EnumOfConsistTimeoutActionForDescribeDBEndpointOutputReadMaster = "ReadMaster"
+
+	// EnumOfConsistTimeoutActionForDescribeDBEndpointOutputReturnError is a EnumOfConsistTimeoutActionForDescribeDBEndpointOutput enum value
+	EnumOfConsistTimeoutActionForDescribeDBEndpointOutputReturnError = "ReturnError"
 )
 
 const (
 	// EnumOfEndpointTypeForDescribeDBEndpointOutputCluster is a EnumOfEndpointTypeForDescribeDBEndpointOutput enum value
 	EnumOfEndpointTypeForDescribeDBEndpointOutputCluster = "Cluster"
 
-	// EnumOfEndpointTypeForDescribeDBEndpointOutputPrimary is a EnumOfEndpointTypeForDescribeDBEndpointOutput enum value
-	EnumOfEndpointTypeForDescribeDBEndpointOutputPrimary = "Primary"
-
 	// EnumOfEndpointTypeForDescribeDBEndpointOutputCustom is a EnumOfEndpointTypeForDescribeDBEndpointOutput enum value
 	EnumOfEndpointTypeForDescribeDBEndpointOutputCustom = "Custom"
+
+	// EnumOfEndpointTypeForDescribeDBEndpointOutputPrimary is a EnumOfEndpointTypeForDescribeDBEndpointOutput enum value
+	EnumOfEndpointTypeForDescribeDBEndpointOutputPrimary = "Primary"
 )
 
 const (
@@ -446,9 +446,9 @@ const (
 )
 
 const (
-	// EnumOfReadWriteModeForDescribeDBEndpointOutputReadWrite is a EnumOfReadWriteModeForDescribeDBEndpointOutput enum value
-	EnumOfReadWriteModeForDescribeDBEndpointOutputReadWrite = "ReadWrite"
-
 	// EnumOfReadWriteModeForDescribeDBEndpointOutputReadOnly is a EnumOfReadWriteModeForDescribeDBEndpointOutput enum value
 	EnumOfReadWriteModeForDescribeDBEndpointOutputReadOnly = "ReadOnly"
+
+	// EnumOfReadWriteModeForDescribeDBEndpointOutputReadWrite is a EnumOfReadWriteModeForDescribeDBEndpointOutput enum value
+	EnumOfReadWriteModeForDescribeDBEndpointOutputReadWrite = "ReadWrite"
 )

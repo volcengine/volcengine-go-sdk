@@ -22,13 +22,13 @@ const opDescribeParameterTemplatesCommon = "DescribeParameterTemplates"
 // See DescribeParameterTemplatesCommon for more information on using the DescribeParameterTemplatesCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeParameterTemplatesCommonRequest method.
-//	req, resp := client.DescribeParameterTemplatesCommonRequest(params)
+//    // Example sending a request using the DescribeParameterTemplatesCommonRequest method.
+//    req, resp := client.DescribeParameterTemplatesCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VEDBM) DescribeParameterTemplatesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeParameterTemplatesCommon,
@@ -89,13 +89,13 @@ const opDescribeParameterTemplates = "DescribeParameterTemplates"
 // See DescribeParameterTemplates for more information on using the DescribeParameterTemplates
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeParameterTemplatesRequest method.
-//	req, resp := client.DescribeParameterTemplatesRequest(params)
+//    // Example sending a request using the DescribeParameterTemplatesRequest method.
+//    req, resp := client.DescribeParameterTemplatesRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VEDBM) DescribeParameterTemplatesRequest(input *DescribeParameterTemplatesInput) (req *request.Request, output *DescribeParameterTemplatesOutput) {
 	op := &request.Operation{
 		Name:       opDescribeParameterTemplates,

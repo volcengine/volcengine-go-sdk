@@ -22,13 +22,13 @@ const opDeleteBackupCommon = "DeleteBackup"
 // See DeleteBackupCommon for more information on using the DeleteBackupCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the DeleteBackupCommonRequest method.
-//	req, resp := client.DeleteBackupCommonRequest(params)
+//    // Example sending a request using the DeleteBackupCommonRequest method.
+//    req, resp := client.DeleteBackupCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VEDBM) DeleteBackupCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDeleteBackupCommon,
@@ -89,13 +89,13 @@ const opDeleteBackup = "DeleteBackup"
 // See DeleteBackup for more information on using the DeleteBackup
 // API call, and error handling.
 //
-//	// Example sending a request using the DeleteBackupRequest method.
-//	req, resp := client.DeleteBackupRequest(params)
+//    // Example sending a request using the DeleteBackupRequest method.
+//    req, resp := client.DeleteBackupRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VEDBM) DeleteBackupRequest(input *DeleteBackupInput) (req *request.Request, output *DeleteBackupOutput) {
 	op := &request.Operation{
 		Name:       opDeleteBackup,

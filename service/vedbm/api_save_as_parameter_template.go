@@ -22,13 +22,13 @@ const opSaveAsParameterTemplateCommon = "SaveAsParameterTemplate"
 // See SaveAsParameterTemplateCommon for more information on using the SaveAsParameterTemplateCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the SaveAsParameterTemplateCommonRequest method.
-//	req, resp := client.SaveAsParameterTemplateCommonRequest(params)
+//    // Example sending a request using the SaveAsParameterTemplateCommonRequest method.
+//    req, resp := client.SaveAsParameterTemplateCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VEDBM) SaveAsParameterTemplateCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opSaveAsParameterTemplateCommon,
@@ -89,13 +89,13 @@ const opSaveAsParameterTemplate = "SaveAsParameterTemplate"
 // See SaveAsParameterTemplate for more information on using the SaveAsParameterTemplate
 // API call, and error handling.
 //
-//	// Example sending a request using the SaveAsParameterTemplateRequest method.
-//	req, resp := client.SaveAsParameterTemplateRequest(params)
+//    // Example sending a request using the SaveAsParameterTemplateRequest method.
+//    req, resp := client.SaveAsParameterTemplateRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VEDBM) SaveAsParameterTemplateRequest(input *SaveAsParameterTemplateInput) (req *request.Request, output *SaveAsParameterTemplateOutput) {
 	op := &request.Operation{
 		Name:       opSaveAsParameterTemplate,

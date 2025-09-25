@@ -240,11 +240,11 @@ func (s ModifyAllowListOutput) GoString() string {
 }
 
 const (
-	// EnumOfModifyModeForModifyAllowListInputCover is a EnumOfModifyModeForModifyAllowListInput enum value
-	EnumOfModifyModeForModifyAllowListInputCover = "Cover"
-
 	// EnumOfModifyModeForModifyAllowListInputAppend is a EnumOfModifyModeForModifyAllowListInput enum value
 	EnumOfModifyModeForModifyAllowListInputAppend = "Append"
+
+	// EnumOfModifyModeForModifyAllowListInputCover is a EnumOfModifyModeForModifyAllowListInput enum value
+	EnumOfModifyModeForModifyAllowListInputCover = "Cover"
 
 	// EnumOfModifyModeForModifyAllowListInputDelete is a EnumOfModifyModeForModifyAllowListInput enum value
 	EnumOfModifyModeForModifyAllowListInputDelete = "Delete"

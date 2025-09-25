@@ -22,13 +22,13 @@ const opApplyParameterTemplateCommon = "ApplyParameterTemplate"
 // See ApplyParameterTemplateCommon for more information on using the ApplyParameterTemplateCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the ApplyParameterTemplateCommonRequest method.
-//	req, resp := client.ApplyParameterTemplateCommonRequest(params)
+//    // Example sending a request using the ApplyParameterTemplateCommonRequest method.
+//    req, resp := client.ApplyParameterTemplateCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VEDBM) ApplyParameterTemplateCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opApplyParameterTemplateCommon,
@@ -89,13 +89,13 @@ const opApplyParameterTemplate = "ApplyParameterTemplate"
 // See ApplyParameterTemplate for more information on using the ApplyParameterTemplate
 // API call, and error handling.
 //
-//	// Example sending a request using the ApplyParameterTemplateRequest method.
-//	req, resp := client.ApplyParameterTemplateRequest(params)
+//    // Example sending a request using the ApplyParameterTemplateRequest method.
+//    req, resp := client.ApplyParameterTemplateRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VEDBM) ApplyParameterTemplateRequest(input *ApplyParameterTemplateInput) (req *request.Request, output *ApplyParameterTemplateOutput) {
 	op := &request.Operation{
 		Name:       opApplyParameterTemplate,

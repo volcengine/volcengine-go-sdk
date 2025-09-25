@@ -22,13 +22,13 @@ const opDescribeParameterTemplateDetailCommon = "DescribeParameterTemplateDetail
 // See DescribeParameterTemplateDetailCommon for more information on using the DescribeParameterTemplateDetailCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeParameterTemplateDetailCommonRequest method.
-//	req, resp := client.DescribeParameterTemplateDetailCommonRequest(params)
+//    // Example sending a request using the DescribeParameterTemplateDetailCommonRequest method.
+//    req, resp := client.DescribeParameterTemplateDetailCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VEDBM) DescribeParameterTemplateDetailCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeParameterTemplateDetailCommon,
@@ -89,13 +89,13 @@ const opDescribeParameterTemplateDetail = "DescribeParameterTemplateDetail"
 // See DescribeParameterTemplateDetail for more information on using the DescribeParameterTemplateDetail
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeParameterTemplateDetailRequest method.
-//	req, resp := client.DescribeParameterTemplateDetailRequest(params)
+//    // Example sending a request using the DescribeParameterTemplateDetailRequest method.
+//    req, resp := client.DescribeParameterTemplateDetailRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VEDBM) DescribeParameterTemplateDetailRequest(input *DescribeParameterTemplateDetailInput) (req *request.Request, output *DescribeParameterTemplateDetailOutput) {
 	op := &request.Operation{
 		Name:       opDescribeParameterTemplateDetail,

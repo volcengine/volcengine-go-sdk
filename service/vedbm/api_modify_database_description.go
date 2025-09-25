@@ -22,13 +22,13 @@ const opModifyDatabaseDescriptionCommon = "ModifyDatabaseDescription"
 // See ModifyDatabaseDescriptionCommon for more information on using the ModifyDatabaseDescriptionCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the ModifyDatabaseDescriptionCommonRequest method.
-//	req, resp := client.ModifyDatabaseDescriptionCommonRequest(params)
+//    // Example sending a request using the ModifyDatabaseDescriptionCommonRequest method.
+//    req, resp := client.ModifyDatabaseDescriptionCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VEDBM) ModifyDatabaseDescriptionCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opModifyDatabaseDescriptionCommon,
@@ -89,13 +89,13 @@ const opModifyDatabaseDescription = "ModifyDatabaseDescription"
 // See ModifyDatabaseDescription for more information on using the ModifyDatabaseDescription
 // API call, and error handling.
 //
-//	// Example sending a request using the ModifyDatabaseDescriptionRequest method.
-//	req, resp := client.ModifyDatabaseDescriptionRequest(params)
+//    // Example sending a request using the ModifyDatabaseDescriptionRequest method.
+//    req, resp := client.ModifyDatabaseDescriptionRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VEDBM) ModifyDatabaseDescriptionRequest(input *ModifyDatabaseDescriptionInput) (req *request.Request, output *ModifyDatabaseDescriptionOutput) {
 	op := &request.Operation{
 		Name:       opModifyDatabaseDescription,
