@@ -143,7 +143,7 @@ func (c *PRIVATEZONE) UpdateResolverEndpointWithContext(ctx volcengine.Context, 
 	return out, req.Send()
 }
 
-type IpConfigsForUpdateResolverEndpointInput struct {
+type IpConfigForUpdateResolverEndpointInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
 	AzID *string `type:"string" json:",omitempty"`
@@ -156,35 +156,35 @@ type IpConfigsForUpdateResolverEndpointInput struct {
 }
 
 // String returns the string representation
-func (s IpConfigsForUpdateResolverEndpointInput) String() string {
+func (s IpConfigForUpdateResolverEndpointInput) String() string {
 	return volcengineutil.Prettify(s)
 }
 
 // GoString returns the string representation
-func (s IpConfigsForUpdateResolverEndpointInput) GoString() string {
+func (s IpConfigForUpdateResolverEndpointInput) GoString() string {
 	return s.String()
 }
 
 // SetAzID sets the AzID field's value.
-func (s *IpConfigsForUpdateResolverEndpointInput) SetAzID(v string) *IpConfigsForUpdateResolverEndpointInput {
+func (s *IpConfigForUpdateResolverEndpointInput) SetAzID(v string) *IpConfigForUpdateResolverEndpointInput {
 	s.AzID = &v
 	return s
 }
 
 // SetIP sets the IP field's value.
-func (s *IpConfigsForUpdateResolverEndpointInput) SetIP(v string) *IpConfigsForUpdateResolverEndpointInput {
+func (s *IpConfigForUpdateResolverEndpointInput) SetIP(v string) *IpConfigForUpdateResolverEndpointInput {
 	s.IP = &v
 	return s
 }
 
 // SetIPv6 sets the IPv6 field's value.
-func (s *IpConfigsForUpdateResolverEndpointInput) SetIPv6(v string) *IpConfigsForUpdateResolverEndpointInput {
+func (s *IpConfigForUpdateResolverEndpointInput) SetIPv6(v string) *IpConfigForUpdateResolverEndpointInput {
 	s.IPv6 = &v
 	return s
 }
 
 // SetSubnetID sets the SubnetID field's value.
-func (s *IpConfigsForUpdateResolverEndpointInput) SetSubnetID(v string) *IpConfigsForUpdateResolverEndpointInput {
+func (s *IpConfigForUpdateResolverEndpointInput) SetSubnetID(v string) *IpConfigForUpdateResolverEndpointInput {
 	s.SubnetID = &v
 	return s
 }
@@ -199,7 +199,7 @@ type UpdateResolverEndpointInput struct {
 
 	EndpointType *string `type:"string" json:",omitempty"`
 
-	IpConfigs *IpConfigsForUpdateResolverEndpointInput `type:"structure" json:",omitempty"`
+	IpConfigs []*IpConfigForUpdateResolverEndpointInput `type:"list" json:",omitempty"`
 
 	Name *string `type:"string" json:",omitempty"`
 }
@@ -246,7 +246,7 @@ func (s *UpdateResolverEndpointInput) SetEndpointType(v string) *UpdateResolverE
 }
 
 // SetIpConfigs sets the IpConfigs field's value.
-func (s *UpdateResolverEndpointInput) SetIpConfigs(v *IpConfigsForUpdateResolverEndpointInput) *UpdateResolverEndpointInput {
+func (s *UpdateResolverEndpointInput) SetIpConfigs(v []*IpConfigForUpdateResolverEndpointInput) *UpdateResolverEndpointInput {
 	s.IpConfigs = v
 	return s
 }
