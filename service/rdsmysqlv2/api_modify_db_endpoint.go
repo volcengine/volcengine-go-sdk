@@ -148,9 +148,13 @@ type ModifyDBEndpointInput struct {
 
 	AutoAddNewNodes *bool `type:"boolean" json:",omitempty"`
 
+	ConnectAllSlaveNodes *bool `type:"boolean" json:",omitempty"`
+
 	ConnectionPoolType *string `type:"string" json:",omitempty"`
 
 	Description *string `type:"string" json:",omitempty"`
+
+	EnableConnectionPersistent *bool `type:"boolean" json:",omitempty"`
 
 	// EndpointId is a required field
 	EndpointId *string `type:"string" json:",omitempty" required:"true"`
@@ -217,6 +221,12 @@ func (s *ModifyDBEndpointInput) SetAutoAddNewNodes(v bool) *ModifyDBEndpointInpu
 	return s
 }
 
+// SetConnectAllSlaveNodes sets the ConnectAllSlaveNodes field's value.
+func (s *ModifyDBEndpointInput) SetConnectAllSlaveNodes(v bool) *ModifyDBEndpointInput {
+	s.ConnectAllSlaveNodes = &v
+	return s
+}
+
 // SetConnectionPoolType sets the ConnectionPoolType field's value.
 func (s *ModifyDBEndpointInput) SetConnectionPoolType(v string) *ModifyDBEndpointInput {
 	s.ConnectionPoolType = &v
@@ -226,6 +236,12 @@ func (s *ModifyDBEndpointInput) SetConnectionPoolType(v string) *ModifyDBEndpoin
 // SetDescription sets the Description field's value.
 func (s *ModifyDBEndpointInput) SetDescription(v string) *ModifyDBEndpointInput {
 	s.Description = &v
+	return s
+}
+
+// SetEnableConnectionPersistent sets the EnableConnectionPersistent field's value.
+func (s *ModifyDBEndpointInput) SetEnableConnectionPersistent(v bool) *ModifyDBEndpointInput {
+	s.EnableConnectionPersistent = &v
 	return s
 }
 

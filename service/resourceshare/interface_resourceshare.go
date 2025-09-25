@@ -158,6 +158,14 @@ type RESOURCESHAREAPI interface {
 	ListResourcesWithContext(volcengine.Context, *ListResourcesInput, ...request.Option) (*ListResourcesOutput, error)
 	ListResourcesRequest(*ListResourcesInput) (*request.Request, *ListResourcesOutput)
 
+	ListTagsForResourcesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListTagsForResourcesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListTagsForResourcesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListTagsForResources(*ListTagsForResourcesInput) (*ListTagsForResourcesOutput, error)
+	ListTagsForResourcesWithContext(volcengine.Context, *ListTagsForResourcesInput, ...request.Option) (*ListTagsForResourcesOutput, error)
+	ListTagsForResourcesRequest(*ListTagsForResourcesInput) (*request.Request, *ListTagsForResourcesOutput)
+
 	RejectResourceShareInvitationCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	RejectResourceShareInvitationCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	RejectResourceShareInvitationCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -165,6 +173,22 @@ type RESOURCESHAREAPI interface {
 	RejectResourceShareInvitation(*RejectResourceShareInvitationInput) (*RejectResourceShareInvitationOutput, error)
 	RejectResourceShareInvitationWithContext(volcengine.Context, *RejectResourceShareInvitationInput, ...request.Option) (*RejectResourceShareInvitationOutput, error)
 	RejectResourceShareInvitationRequest(*RejectResourceShareInvitationInput) (*request.Request, *RejectResourceShareInvitationOutput)
+
+	TagResourcesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	TagResourcesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	TagResourcesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	TagResources(*TagResourcesInput) (*TagResourcesOutput, error)
+	TagResourcesWithContext(volcengine.Context, *TagResourcesInput, ...request.Option) (*TagResourcesOutput, error)
+	TagResourcesRequest(*TagResourcesInput) (*request.Request, *TagResourcesOutput)
+
+	UntagResourcesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	UntagResourcesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	UntagResourcesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	UntagResources(*UntagResourcesInput) (*UntagResourcesOutput, error)
+	UntagResourcesWithContext(volcengine.Context, *UntagResourcesInput, ...request.Option) (*UntagResourcesOutput, error)
+	UntagResourcesRequest(*UntagResourcesInput) (*request.Request, *UntagResourcesOutput)
 
 	UpdateResourceShareCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	UpdateResourceShareCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)

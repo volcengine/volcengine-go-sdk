@@ -319,6 +319,28 @@ func (s *NodeInfoForRestoreToNewInstanceInput) SetZoneId(v string) *NodeInfoForR
 	return s
 }
 
+type ProxyNodeCustomForRestoreToNewInstanceInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	CpuNum *int32 `type:"int32" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s ProxyNodeCustomForRestoreToNewInstanceInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ProxyNodeCustomForRestoreToNewInstanceInput) GoString() string {
+	return s.String()
+}
+
+// SetCpuNum sets the CpuNum field's value.
+func (s *ProxyNodeCustomForRestoreToNewInstanceInput) SetCpuNum(v int32) *ProxyNodeCustomForRestoreToNewInstanceInput {
+	s.CpuNum = &v
+	return s
+}
+
 type RestoreToNewInstanceInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -343,6 +365,8 @@ type RestoreToNewInstanceInput struct {
 	Port *int32 `type:"int32" json:",omitempty"`
 
 	ProjectName *string `type:"string" json:",omitempty"`
+
+	ProxyNodeCustom *ProxyNodeCustomForRestoreToNewInstanceInput `type:"structure" json:",omitempty"`
 
 	RestoreTime *string `type:"string" json:",omitempty"`
 
@@ -456,6 +480,12 @@ func (s *RestoreToNewInstanceInput) SetPort(v int32) *RestoreToNewInstanceInput 
 // SetProjectName sets the ProjectName field's value.
 func (s *RestoreToNewInstanceInput) SetProjectName(v string) *RestoreToNewInstanceInput {
 	s.ProjectName = &v
+	return s
+}
+
+// SetProxyNodeCustom sets the ProxyNodeCustom field's value.
+func (s *RestoreToNewInstanceInput) SetProxyNodeCustom(v *ProxyNodeCustomForRestoreToNewInstanceInput) *RestoreToNewInstanceInput {
+	s.ProxyNodeCustom = v
 	return s
 }
 

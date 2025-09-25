@@ -251,6 +251,68 @@ func (s *BackgroundClipForGetAITranslationProjectOutput) SetTranslationType(v st
 	return s
 }
 
+type BilingualSubtitleForGetAITranslationProjectOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	DurationSecond *float64 `type:"double" json:",omitempty"`
+
+	FileName *string `type:"string" json:",omitempty"`
+
+	IsAudio *bool `type:"boolean" json:",omitempty"`
+
+	Uri *string `type:"string" json:",omitempty"`
+
+	Url *string `type:"string" json:",omitempty"`
+
+	Vid *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s BilingualSubtitleForGetAITranslationProjectOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s BilingualSubtitleForGetAITranslationProjectOutput) GoString() string {
+	return s.String()
+}
+
+// SetDurationSecond sets the DurationSecond field's value.
+func (s *BilingualSubtitleForGetAITranslationProjectOutput) SetDurationSecond(v float64) *BilingualSubtitleForGetAITranslationProjectOutput {
+	s.DurationSecond = &v
+	return s
+}
+
+// SetFileName sets the FileName field's value.
+func (s *BilingualSubtitleForGetAITranslationProjectOutput) SetFileName(v string) *BilingualSubtitleForGetAITranslationProjectOutput {
+	s.FileName = &v
+	return s
+}
+
+// SetIsAudio sets the IsAudio field's value.
+func (s *BilingualSubtitleForGetAITranslationProjectOutput) SetIsAudio(v bool) *BilingualSubtitleForGetAITranslationProjectOutput {
+	s.IsAudio = &v
+	return s
+}
+
+// SetUri sets the Uri field's value.
+func (s *BilingualSubtitleForGetAITranslationProjectOutput) SetUri(v string) *BilingualSubtitleForGetAITranslationProjectOutput {
+	s.Uri = &v
+	return s
+}
+
+// SetUrl sets the Url field's value.
+func (s *BilingualSubtitleForGetAITranslationProjectOutput) SetUrl(v string) *BilingualSubtitleForGetAITranslationProjectOutput {
+	s.Url = &v
+	return s
+}
+
+// SetVid sets the Vid field's value.
+func (s *BilingualSubtitleForGetAITranslationProjectOutput) SetVid(v string) *BilingualSubtitleForGetAITranslationProjectOutput {
+	s.Vid = &v
+	return s
+}
+
 type ErasedSubtitleVideoForGetAITranslationProjectOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -918,6 +980,8 @@ type ProjectInfoForGetAITranslationProjectOutput struct {
 
 	BackgroundClip *BackgroundClipForGetAITranslationProjectOutput `type:"structure" json:",omitempty"`
 
+	BilingualSubtitle *BilingualSubtitleForGetAITranslationProjectOutput `type:"structure" json:",omitempty"`
+
 	CreatedAt *string `type:"string" json:",omitempty"`
 
 	ErasedSubtitleVideo *ErasedSubtitleVideoForGetAITranslationProjectOutput `type:"structure" json:",omitempty"`
@@ -998,6 +1062,12 @@ func (s *ProjectInfoForGetAITranslationProjectOutput) SetBackgroundAudio(v *Back
 // SetBackgroundClip sets the BackgroundClip field's value.
 func (s *ProjectInfoForGetAITranslationProjectOutput) SetBackgroundClip(v *BackgroundClipForGetAITranslationProjectOutput) *ProjectInfoForGetAITranslationProjectOutput {
 	s.BackgroundClip = v
+	return s
+}
+
+// SetBilingualSubtitle sets the BilingualSubtitle field's value.
+func (s *ProjectInfoForGetAITranslationProjectOutput) SetBilingualSubtitle(v *BilingualSubtitleForGetAITranslationProjectOutput) *ProjectInfoForGetAITranslationProjectOutput {
+	s.BilingualSubtitle = v
 	return s
 }
 
@@ -1494,9 +1564,15 @@ func (s *SpeakerForGetAITranslationProjectOutput) SetVoice(v string) *SpeakerFor
 type SubtitleRecognitionConfigForGetAITranslationProjectOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	BilingualSubtitleFileName *string `type:"string" json:",omitempty"`
+
 	RecognitionType *string `type:"string" json:",omitempty"`
 
+	SourceSubtitleFileName *string `type:"string" json:",omitempty"`
+
 	SubtitleFileName *string `type:"string" json:",omitempty"`
+
+	TargetSubtitleFileName *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -1509,15 +1585,33 @@ func (s SubtitleRecognitionConfigForGetAITranslationProjectOutput) GoString() st
 	return s.String()
 }
 
+// SetBilingualSubtitleFileName sets the BilingualSubtitleFileName field's value.
+func (s *SubtitleRecognitionConfigForGetAITranslationProjectOutput) SetBilingualSubtitleFileName(v string) *SubtitleRecognitionConfigForGetAITranslationProjectOutput {
+	s.BilingualSubtitleFileName = &v
+	return s
+}
+
 // SetRecognitionType sets the RecognitionType field's value.
 func (s *SubtitleRecognitionConfigForGetAITranslationProjectOutput) SetRecognitionType(v string) *SubtitleRecognitionConfigForGetAITranslationProjectOutput {
 	s.RecognitionType = &v
 	return s
 }
 
+// SetSourceSubtitleFileName sets the SourceSubtitleFileName field's value.
+func (s *SubtitleRecognitionConfigForGetAITranslationProjectOutput) SetSourceSubtitleFileName(v string) *SubtitleRecognitionConfigForGetAITranslationProjectOutput {
+	s.SourceSubtitleFileName = &v
+	return s
+}
+
 // SetSubtitleFileName sets the SubtitleFileName field's value.
 func (s *SubtitleRecognitionConfigForGetAITranslationProjectOutput) SetSubtitleFileName(v string) *SubtitleRecognitionConfigForGetAITranslationProjectOutput {
 	s.SubtitleFileName = &v
+	return s
+}
+
+// SetTargetSubtitleFileName sets the TargetSubtitleFileName field's value.
+func (s *SubtitleRecognitionConfigForGetAITranslationProjectOutput) SetTargetSubtitleFileName(v string) *SubtitleRecognitionConfigForGetAITranslationProjectOutput {
+	s.TargetSubtitleFileName = &v
 	return s
 }
 

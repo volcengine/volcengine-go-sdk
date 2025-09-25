@@ -670,9 +670,15 @@ func (s *SubtitleConfigForListAITranslationProjectOutput) SetShowLines(v int32) 
 type SubtitleRecognitionConfigForListAITranslationProjectOutput struct {
 	_ struct{} `type:"structure"`
 
+	BilingualSubtitleFileName *string `type:"string"`
+
 	RecognitionType *string `type:"string"`
 
+	SourceSubtitleFileName *string `type:"string"`
+
 	SubtitleFileName *string `type:"string"`
+
+	TargetSubtitleFileName *string `type:"string"`
 }
 
 // String returns the string representation
@@ -685,15 +691,33 @@ func (s SubtitleRecognitionConfigForListAITranslationProjectOutput) GoString() s
 	return s.String()
 }
 
+// SetBilingualSubtitleFileName sets the BilingualSubtitleFileName field's value.
+func (s *SubtitleRecognitionConfigForListAITranslationProjectOutput) SetBilingualSubtitleFileName(v string) *SubtitleRecognitionConfigForListAITranslationProjectOutput {
+	s.BilingualSubtitleFileName = &v
+	return s
+}
+
 // SetRecognitionType sets the RecognitionType field's value.
 func (s *SubtitleRecognitionConfigForListAITranslationProjectOutput) SetRecognitionType(v string) *SubtitleRecognitionConfigForListAITranslationProjectOutput {
 	s.RecognitionType = &v
 	return s
 }
 
+// SetSourceSubtitleFileName sets the SourceSubtitleFileName field's value.
+func (s *SubtitleRecognitionConfigForListAITranslationProjectOutput) SetSourceSubtitleFileName(v string) *SubtitleRecognitionConfigForListAITranslationProjectOutput {
+	s.SourceSubtitleFileName = &v
+	return s
+}
+
 // SetSubtitleFileName sets the SubtitleFileName field's value.
 func (s *SubtitleRecognitionConfigForListAITranslationProjectOutput) SetSubtitleFileName(v string) *SubtitleRecognitionConfigForListAITranslationProjectOutput {
 	s.SubtitleFileName = &v
+	return s
+}
+
+// SetTargetSubtitleFileName sets the TargetSubtitleFileName field's value.
+func (s *SubtitleRecognitionConfigForListAITranslationProjectOutput) SetTargetSubtitleFileName(v string) *SubtitleRecognitionConfigForListAITranslationProjectOutput {
+	s.TargetSubtitleFileName = &v
 	return s
 }
 
