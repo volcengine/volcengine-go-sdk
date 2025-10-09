@@ -527,5 +527,7 @@ func hasEnableDualStack(useDualStack *bool) bool {
 }
 
 func debug(logger volcengine.Logger, args ...interface{}) {
-	logger.DebugByLevel(volcengine.LogDebugWithEndpoint, append([]interface{}{"[Endpoint]"}, args...)...)
+	if logger != nil {
+		logger.DebugByLevel(volcengine.LogDebugWithEndpoint, append([]interface{}{"[Endpoint]"}, args...)...)
+	}
 }
