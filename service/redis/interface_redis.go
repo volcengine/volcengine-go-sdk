@@ -574,6 +574,14 @@ type REDISAPI interface {
 	ModifyDBInstanceParamsWithContext(volcengine.Context, *ModifyDBInstanceParamsInput, ...request.Option) (*ModifyDBInstanceParamsOutput, error)
 	ModifyDBInstanceParamsRequest(*ModifyDBInstanceParamsInput) (*request.Request, *ModifyDBInstanceParamsOutput)
 
+	ModifyDBInstancePrivateDNSVisibilityCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ModifyDBInstancePrivateDNSVisibilityCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ModifyDBInstancePrivateDNSVisibilityCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ModifyDBInstancePrivateDNSVisibility(*ModifyDBInstancePrivateDNSVisibilityInput) (*ModifyDBInstancePrivateDNSVisibilityOutput, error)
+	ModifyDBInstancePrivateDNSVisibilityWithContext(volcengine.Context, *ModifyDBInstancePrivateDNSVisibilityInput, ...request.Option) (*ModifyDBInstancePrivateDNSVisibilityOutput, error)
+	ModifyDBInstancePrivateDNSVisibilityRequest(*ModifyDBInstancePrivateDNSVisibilityInput) (*request.Request, *ModifyDBInstancePrivateDNSVisibilityOutput)
+
 	ModifyDBInstanceShardCapacityCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ModifyDBInstanceShardCapacityCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	ModifyDBInstanceShardCapacityCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})

@@ -523,6 +523,8 @@ type VisitAddrForDescribeDBInstanceDetailOutput struct {
 	VIP *string `type:"string" json:",omitempty"`
 
 	VIPv6 *string `type:"string" json:",omitempty"`
+
+	Zone *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -568,5 +570,11 @@ func (s *VisitAddrForDescribeDBInstanceDetailOutput) SetVIP(v string) *VisitAddr
 // SetVIPv6 sets the VIPv6 field's value.
 func (s *VisitAddrForDescribeDBInstanceDetailOutput) SetVIPv6(v string) *VisitAddrForDescribeDBInstanceDetailOutput {
 	s.VIPv6 = &v
+	return s
+}
+
+// SetZone sets the Zone field's value.
+func (s *VisitAddrForDescribeDBInstanceDetailOutput) SetZone(v string) *VisitAddrForDescribeDBInstanceDetailOutput {
+	s.Zone = &v
 	return s
 }
