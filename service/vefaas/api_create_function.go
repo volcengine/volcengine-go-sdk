@@ -173,6 +173,8 @@ type CreateFunctionInput struct {
 
 	NasStorage *NasStorageForCreateFunctionInput `type:"structure" json:",omitempty"`
 
+	Port *int32 `type:"int32" json:",omitempty"`
+
 	ProjectName *string `type:"string" json:",omitempty"`
 
 	RequestTimeout *int32 `type:"int32" json:",omitempty"`
@@ -298,6 +300,12 @@ func (s *CreateFunctionInput) SetName(v string) *CreateFunctionInput {
 // SetNasStorage sets the NasStorage field's value.
 func (s *CreateFunctionInput) SetNasStorage(v *NasStorageForCreateFunctionInput) *CreateFunctionInput {
 	s.NasStorage = v
+	return s
+}
+
+// SetPort sets the Port field's value.
+func (s *CreateFunctionInput) SetPort(v int32) *CreateFunctionInput {
+	s.Port = &v
 	return s
 }
 

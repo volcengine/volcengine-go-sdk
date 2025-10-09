@@ -218,7 +218,9 @@ func IsErrorExpiredCreds(err error) bool {
 //
 // Alias for the utility function IsErrorRetryable
 func (r *Request) IsErrorRetryable() bool {
+	logger := r.Config.Logger
 	if isErrCode(r.Error, r.RetryErrorCodes) {
+		logger.DebugByLevel(volcengine.LogDebugWithRequestRetries, "[Retry] retryable error code is contained in RetryErrorCodes list", r.Error)
 		return true
 	}
 
@@ -232,7 +234,13 @@ func (r *Request) IsErrorRetryable() bool {
 			return true
 		}
 	}
-	return IsErrorRetryable(r.Error)
+
+	if IsErrorRetryable(r.Error) {
+		logger.DebugByLevel(volcengine.LogDebugWithRequestRetries, "[Retry] error is retryable", r.Error)
+		return true
+	}
+
+	return false
 }
 
 // IsErrorThrottle returns whether the error is to be throttled based on its

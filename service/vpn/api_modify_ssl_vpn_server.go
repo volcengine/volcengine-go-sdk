@@ -146,6 +146,8 @@ type ModifySslVpnServerInput struct {
 
 	Cipher *string `type:"string"`
 
+	ClientCertSessionPolicy *string `type:"string" enum:"ClientCertSessionPolicyForModifySslVpnServerInput"`
+
 	ClientIpPool *string `type:"string"`
 
 	Compress *bool `type:"boolean"`
@@ -196,6 +198,12 @@ func (s *ModifySslVpnServerInput) SetAuth(v string) *ModifySslVpnServerInput {
 // SetCipher sets the Cipher field's value.
 func (s *ModifySslVpnServerInput) SetCipher(v string) *ModifySslVpnServerInput {
 	s.Cipher = &v
+	return s
+}
+
+// SetClientCertSessionPolicy sets the ClientCertSessionPolicy field's value.
+func (s *ModifySslVpnServerInput) SetClientCertSessionPolicy(v string) *ModifySslVpnServerInput {
+	s.ClientCertSessionPolicy = &v
 	return s
 }
 
@@ -270,3 +278,11 @@ func (s *ModifySslVpnServerOutput) SetRequestId(v string) *ModifySslVpnServerOut
 	s.RequestId = &v
 	return s
 }
+
+const (
+	// ClientCertSessionPolicyForModifySslVpnServerInputAllowConcurrent is a ClientCertSessionPolicyForModifySslVpnServerInput enum value
+	ClientCertSessionPolicyForModifySslVpnServerInputAllowConcurrent = "AllowConcurrent"
+
+	// ClientCertSessionPolicyForModifySslVpnServerInputPreemptExisting is a ClientCertSessionPolicyForModifySslVpnServerInput enum value
+	ClientCertSessionPolicyForModifySslVpnServerInputPreemptExisting = "PreemptExisting"
+)

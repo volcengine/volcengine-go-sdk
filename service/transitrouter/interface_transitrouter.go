@@ -19,7 +19,7 @@ import (
 //    // volcengine sdk func uses an SDK service client to make a request to
 //    // TRANSITROUTER.
 //    func myFunc(svc TRANSITROUTERAPI) bool {
-//        // Make svc.AcceptSharedTransitRouter request
+//        // Make svc.AssociateTransitRouterAttachmentToRouteTable request
 //    }
 //
 //    func main() {
@@ -30,14 +30,6 @@ import (
 //    }
 //
 type TRANSITROUTERAPI interface {
-	AcceptSharedTransitRouterCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	AcceptSharedTransitRouterCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	AcceptSharedTransitRouterCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	AcceptSharedTransitRouter(*AcceptSharedTransitRouterInput) (*AcceptSharedTransitRouterOutput, error)
-	AcceptSharedTransitRouterWithContext(volcengine.Context, *AcceptSharedTransitRouterInput, ...request.Option) (*AcceptSharedTransitRouterOutput, error)
-	AcceptSharedTransitRouterRequest(*AcceptSharedTransitRouterInput) (*request.Request, *AcceptSharedTransitRouterOutput)
-
 	AssociateTransitRouterAttachmentToRouteTableCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	AssociateTransitRouterAttachmentToRouteTableCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	AssociateTransitRouterAttachmentToRouteTableCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -133,14 +125,6 @@ type TRANSITROUTERAPI interface {
 	CreateTransitRouterForwardPolicyTable(*CreateTransitRouterForwardPolicyTableInput) (*CreateTransitRouterForwardPolicyTableOutput, error)
 	CreateTransitRouterForwardPolicyTableWithContext(volcengine.Context, *CreateTransitRouterForwardPolicyTableInput, ...request.Option) (*CreateTransitRouterForwardPolicyTableOutput, error)
 	CreateTransitRouterForwardPolicyTableRequest(*CreateTransitRouterForwardPolicyTableInput) (*request.Request, *CreateTransitRouterForwardPolicyTableOutput)
-
-	CreateTransitRouterGrantRuleCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	CreateTransitRouterGrantRuleCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	CreateTransitRouterGrantRuleCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	CreateTransitRouterGrantRule(*CreateTransitRouterGrantRuleInput) (*CreateTransitRouterGrantRuleOutput, error)
-	CreateTransitRouterGrantRuleWithContext(volcengine.Context, *CreateTransitRouterGrantRuleInput, ...request.Option) (*CreateTransitRouterGrantRuleOutput, error)
-	CreateTransitRouterGrantRuleRequest(*CreateTransitRouterGrantRuleInput) (*request.Request, *CreateTransitRouterGrantRuleOutput)
 
 	CreateTransitRouterMulticastDomainCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	CreateTransitRouterMulticastDomainCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -301,14 +285,6 @@ type TRANSITROUTERAPI interface {
 	DeleteTransitRouterForwardPolicyTable(*DeleteTransitRouterForwardPolicyTableInput) (*DeleteTransitRouterForwardPolicyTableOutput, error)
 	DeleteTransitRouterForwardPolicyTableWithContext(volcengine.Context, *DeleteTransitRouterForwardPolicyTableInput, ...request.Option) (*DeleteTransitRouterForwardPolicyTableOutput, error)
 	DeleteTransitRouterForwardPolicyTableRequest(*DeleteTransitRouterForwardPolicyTableInput) (*request.Request, *DeleteTransitRouterForwardPolicyTableOutput)
-
-	DeleteTransitRouterGrantRuleCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	DeleteTransitRouterGrantRuleCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	DeleteTransitRouterGrantRuleCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	DeleteTransitRouterGrantRule(*DeleteTransitRouterGrantRuleInput) (*DeleteTransitRouterGrantRuleOutput, error)
-	DeleteTransitRouterGrantRuleWithContext(volcengine.Context, *DeleteTransitRouterGrantRuleInput, ...request.Option) (*DeleteTransitRouterGrantRuleOutput, error)
-	DeleteTransitRouterGrantRuleRequest(*DeleteTransitRouterGrantRuleInput) (*request.Request, *DeleteTransitRouterGrantRuleOutput)
 
 	DeleteTransitRouterMulticastDomainCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DeleteTransitRouterMulticastDomainCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -477,14 +453,6 @@ type TRANSITROUTERAPI interface {
 	DescribeTransitRouterForwardPolicyTables(*DescribeTransitRouterForwardPolicyTablesInput) (*DescribeTransitRouterForwardPolicyTablesOutput, error)
 	DescribeTransitRouterForwardPolicyTablesWithContext(volcengine.Context, *DescribeTransitRouterForwardPolicyTablesInput, ...request.Option) (*DescribeTransitRouterForwardPolicyTablesOutput, error)
 	DescribeTransitRouterForwardPolicyTablesRequest(*DescribeTransitRouterForwardPolicyTablesInput) (*request.Request, *DescribeTransitRouterForwardPolicyTablesOutput)
-
-	DescribeTransitRouterGrantRulesCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	DescribeTransitRouterGrantRulesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	DescribeTransitRouterGrantRulesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	DescribeTransitRouterGrantRules(*DescribeTransitRouterGrantRulesInput) (*DescribeTransitRouterGrantRulesOutput, error)
-	DescribeTransitRouterGrantRulesWithContext(volcengine.Context, *DescribeTransitRouterGrantRulesInput, ...request.Option) (*DescribeTransitRouterGrantRulesOutput, error)
-	DescribeTransitRouterGrantRulesRequest(*DescribeTransitRouterGrantRulesInput) (*request.Request, *DescribeTransitRouterGrantRulesOutput)
 
 	DescribeTransitRouterMulticastDomainAssociationsCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DescribeTransitRouterMulticastDomainAssociationsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -758,14 +726,6 @@ type TRANSITROUTERAPI interface {
 	ModifyTransitRouterForwardPolicyTableAttributesWithContext(volcengine.Context, *ModifyTransitRouterForwardPolicyTableAttributesInput, ...request.Option) (*ModifyTransitRouterForwardPolicyTableAttributesOutput, error)
 	ModifyTransitRouterForwardPolicyTableAttributesRequest(*ModifyTransitRouterForwardPolicyTableAttributesInput) (*request.Request, *ModifyTransitRouterForwardPolicyTableAttributesOutput)
 
-	ModifyTransitRouterGrantRuleAttributesCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	ModifyTransitRouterGrantRuleAttributesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	ModifyTransitRouterGrantRuleAttributesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	ModifyTransitRouterGrantRuleAttributes(*ModifyTransitRouterGrantRuleAttributesInput) (*ModifyTransitRouterGrantRuleAttributesOutput, error)
-	ModifyTransitRouterGrantRuleAttributesWithContext(volcengine.Context, *ModifyTransitRouterGrantRuleAttributesInput, ...request.Option) (*ModifyTransitRouterGrantRuleAttributesOutput, error)
-	ModifyTransitRouterGrantRuleAttributesRequest(*ModifyTransitRouterGrantRuleAttributesInput) (*request.Request, *ModifyTransitRouterGrantRuleAttributesOutput)
-
 	ModifyTransitRouterMulticastDomainAttributesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ModifyTransitRouterMulticastDomainAttributesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	ModifyTransitRouterMulticastDomainAttributesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -877,14 +837,6 @@ type TRANSITROUTERAPI interface {
 	ModifyTransitRouterVpnAttachmentAttributes(*ModifyTransitRouterVpnAttachmentAttributesInput) (*ModifyTransitRouterVpnAttachmentAttributesOutput, error)
 	ModifyTransitRouterVpnAttachmentAttributesWithContext(volcengine.Context, *ModifyTransitRouterVpnAttachmentAttributesInput, ...request.Option) (*ModifyTransitRouterVpnAttachmentAttributesOutput, error)
 	ModifyTransitRouterVpnAttachmentAttributesRequest(*ModifyTransitRouterVpnAttachmentAttributesInput) (*request.Request, *ModifyTransitRouterVpnAttachmentAttributesOutput)
-
-	RejectSharedTransitRouterCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	RejectSharedTransitRouterCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	RejectSharedTransitRouterCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	RejectSharedTransitRouter(*RejectSharedTransitRouterInput) (*RejectSharedTransitRouterOutput, error)
-	RejectSharedTransitRouterWithContext(volcengine.Context, *RejectSharedTransitRouterInput, ...request.Option) (*RejectSharedTransitRouterOutput, error)
-	RejectSharedTransitRouterRequest(*RejectSharedTransitRouterInput) (*request.Request, *RejectSharedTransitRouterOutput)
 
 	RenewTransitRouterBandwidthPackageCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	RenewTransitRouterBandwidthPackageCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)

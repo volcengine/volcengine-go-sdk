@@ -22,13 +22,13 @@ const opDescribeCrossRegionBackupDBInstancesCommon = "DescribeCrossRegionBackupD
 // See DescribeCrossRegionBackupDBInstancesCommon for more information on using the DescribeCrossRegionBackupDBInstancesCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeCrossRegionBackupDBInstancesCommonRequest method.
-//	req, resp := client.DescribeCrossRegionBackupDBInstancesCommonRequest(params)
+//    // Example sending a request using the DescribeCrossRegionBackupDBInstancesCommonRequest method.
+//    req, resp := client.DescribeCrossRegionBackupDBInstancesCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VEDBM) DescribeCrossRegionBackupDBInstancesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeCrossRegionBackupDBInstancesCommon,
@@ -89,13 +89,13 @@ const opDescribeCrossRegionBackupDBInstances = "DescribeCrossRegionBackupDBInsta
 // See DescribeCrossRegionBackupDBInstances for more information on using the DescribeCrossRegionBackupDBInstances
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeCrossRegionBackupDBInstancesRequest method.
-//	req, resp := client.DescribeCrossRegionBackupDBInstancesRequest(params)
+//    // Example sending a request using the DescribeCrossRegionBackupDBInstancesRequest method.
+//    req, resp := client.DescribeCrossRegionBackupDBInstancesRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VEDBM) DescribeCrossRegionBackupDBInstancesRequest(input *DescribeCrossRegionBackupDBInstancesInput) (req *request.Request, output *DescribeCrossRegionBackupDBInstancesOutput) {
 	op := &request.Operation{
 		Name:       opDescribeCrossRegionBackupDBInstances,

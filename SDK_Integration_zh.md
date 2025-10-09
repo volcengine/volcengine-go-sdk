@@ -35,8 +35,8 @@
   - [自定义重试错误码](#自定义重试错误码)
 - [异常处理](#异常处理)
 - [Debug机制](#debug机制)
-- [指定日志Logger](#指定日志logger)
-  - [自定义Logger](#自定义logger)
+  - [开启Debug模式](#开启debug模式)
+- [指定日志输出位置](#指定日志输出位置)
 
 # 集成SDK
 
@@ -757,121 +757,55 @@ func main() {
 
 为便于客户在处理请求时进行问题排查和调试，SDK 支持日志功能，并提供多种日志级别设置。客户可根据实际需求配置日志级别，获取详细的请求与响应信息，以提升排障效率和系统可 observability（可观测性）。
 
-> 1. LogOff - 关闭调试日志(默认)
-> 2. LogDebug - 开启log调试日志
->    LogDebug又细分为：
->    - LogDebugWithSigning
->      记录请求签名和预签名事件
->      用于调试请求的签名细节
->      会同时启用 LogDebug
->    - LogDebugWithHTTPBody
->      记录 HTTP 请求和响应的 body（除 headers 和路径外）
->      用于查看 SDK 请求和响应的完整内容
->      会同时启用 LogDebug
->    - LogDebugWithRequestRetries
->      记录服务请求的重试情况
->      用于跟踪服务请求何时被重试
->      会同时启用 LogDebug
->    - LogDebugWithInputAndOutput
->      记录结构体(STRUCT)的输入和输出
->      会同时启用 LogDebug
+## 开启Debug模式
 
-```go
+debug日志默认是关闭的，开启可以用`WithDebug`方法开启
+
+> **默认**
+> * `debug` - `False`
+
+**代码示例：**
+```golang
+import (
+	"github.com/volcengine/volcengine-go-sdk/volcengine"
+    "github.com/volcengine/volcengine-go-sdk/volcengine/credentials"
+    "github.com/volcengine/volcengine-go-sdk/volcengine/session"
+)
+
 func main() {
     region :=  "cn-beijing"
     config := volcengine.NewConfig().
-       WithRegion(region).
-       WithLogLevel(volcengine.LogDebugWithInputAndOutput). // 设置日志打印级别，不设置默认LogOff 不打印日志
-       WithCredentials(credentials.NewEnvCredentials()) // 环境变量配置：VOLCSTACK_ACCESS_KEY_ID、VOLCSTACK_SECRET_ACCESS_KEY、VOLCSTACK_SESSION_TOKEN
-    sess, err := session.NewSession(config)
-    if err != nil {
-       panic(err)
-    }
-    svc := ecs.New(sess)
-
-    tags := make([]*ecs.TagForCreateKeyPairInput, 0, 2)
-    tags = append(tags, &ecs.TagForCreateKeyPairInput{Key: volcengine.String("test")})
-    createKeyPairInput := &ecs.CreateKeyPairInput{
-       KeyPairName: volcengine.String("test"),
-       Tags:        tags,
-    }
-
-    // 复制代码运行示例，请自行打印API返回值。
-    _, err = svc.CreateKeyPair(createKeyPairInput)
-    if err != nil {
-       // 复制代码运行示例，请自行打印API错误信息。
-       panic(err)
-    }
+		  WithRegion(region).
+          // 开启debug日志
+          WithDebug(true).
+          WithCredentials(credentials.NewEnvCredentials()) // 环境变量配置：VOLCSTACK_ACCESS_KEY_ID、VOLCSTACK_SECRET_ACCESS_KEY、VOLCSTACK_SESSION_TOKEN
 }
 ```
 
-# 指定日志Logger
+# 指定日志输出位置
+> **默认**
+> * `LogWriter` - `os.Stdout`
 
-> - 默认  
->   volcengine/logger.go
+默认情况下，SDK 会将日志输出到标准输出（stdout）。如果需要将日志输出到文件或其他位置，可以使用 `WithLogWriter` 方法指定日志输出位置。
+如果你用的其它日志库，传入其它日志库的Writer即可。
 
-在不指定logger的情况下默认使用的是volcengine/logger.go下的defaultLogger，核心代码如下：
-
+**代码示例：**
 ```go
-func NewDefaultLogger() Logger {
-    return &defaultLogger{
-       logger: log.New(os.Stdout, "", log.LstdFlags),
-    }
-}
-
-// A defaultLogger provides a minimalistic logger satisfying the Logger interface.
-type defaultLogger struct {
-    logger *log.Logger
-}
-
-// Log logs the parameters to the stdlib logger. See log.Println.
-func (l defaultLogger) Log(args ...interface{}) {
-    l.logger.Println(args...)
-}
-```
-
-## 自定义Logger
-
-客户可根据业务需求，参考 SDK 默认日志实现，自定义 Logger 的输出方式。例如，可以自定义日志前缀、自定义日志输出目标（如控制台、文件或日志系统），以及实现日志内容脱敏处理等功能，从而更好地满足自身的运维与安全要求。
-
-```go
-// 自定义Logger实现
-type myLogger struct {
-        logger *log.Logger
-}
-
-func (l *myLogger) Log(args ...interface{}) {
-       // 敏感信息过滤
-	for i, arg := range args {
-		if s, ok := arg.(string); ok {
-			args[i] = strings.Replace(s, "KeyWord", "***", -1)
-		}
-	}
-	l.logger.Println(args...)
-}
+package main
+import (
+    "github.com/volcengine/volcengine-go-sdk/volcengine"
+    "github.com/volcengine/volcengine-go-sdk/volcengine/credentials"
+    "github.com/volcengine/volcengine-go-sdk/volcengine/session"
+	"os"
+)
 
 func main() {
-        region := "cn-beijing"
-        // 定义输出文件路径
-        file, _ := os.Create("ecs_test.log")
-        // 同时输出到控制台和文件
-	multiWriter := io.MultiWriter(os.Stdout, file) 
-	customLogger := &myLogger{
-                // 第1个参数定义输出目标(os.Stdout表示控制台输出，可以定义文件输出)
-                // 第2个参数定义日志前缀
-		logger: log.New(multiWriter, "[MyApp] ", log.LstdFlags|log.Lshortfile),
-	}
-
-        config := volcengine.NewConfig().
-                WithRegion(region).
-                WithLogLevel(volcengine.LogDebugWithInputAndOutput).
-                WithCredentials(credentials.NewEnvCredentials()). //环境变量配置：VOLCSTACK_ACCESS_KEY_ID、VOLCSTACK_SECRET_ACCESS_KEY、VOLCSTACK_SESSION_TOKEN
-                WithLogger(customLogger)  // 设置自定义Logger
-
-        sess, err := session.NewSession(config)
-        if err != nil {
-                panic(err)
-        }
-        svc := ecs.New(sess)
+    region := "cn-beijing"
+    file, _ := os.Create("sdk.log")
+    config := volcengine.NewConfig().
+      WithRegion(region).
+      WithDebug(true).
+	  WithLogWriter(file).
+      WithCredentials(credentials.NewEnvCredentials()) // 环境变量配置：VOLCSTACK_ACCESS_KEY_ID、VOLCSTACK_SECRET_ACCESS_KEY、VOLCSTACK_SESSION_TOKEN
 }
 ```

@@ -148,6 +148,8 @@ type RestartDBInstanceInput struct {
 
 	// InstanceId is a required field
 	InstanceId *string `type:"string" json:",omitempty" required:"true"`
+
+	NodeId *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -176,6 +178,12 @@ func (s *RestartDBInstanceInput) Validate() error {
 // SetInstanceId sets the InstanceId field's value.
 func (s *RestartDBInstanceInput) SetInstanceId(v string) *RestartDBInstanceInput {
 	s.InstanceId = &v
+	return s
+}
+
+// SetNodeId sets the NodeId field's value.
+func (s *RestartDBInstanceInput) SetNodeId(v string) *RestartDBInstanceInput {
+	s.NodeId = &v
 	return s
 }
 

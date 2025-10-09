@@ -268,6 +268,12 @@ type DescribeTransitRouterFlowLogsOutput struct {
 
 	Metadata *response.ResponseMetadata
 
+	PageNumber *int32 `type:"int32"`
+
+	PageSize *int32 `type:"int32"`
+
+	TotalCount *int32 `type:"int32"`
+
 	TransitRouterFlowLogs []*TransitRouterFlowLogForDescribeTransitRouterFlowLogsOutput `type:"list"`
 }
 
@@ -279,6 +285,24 @@ func (s DescribeTransitRouterFlowLogsOutput) String() string {
 // GoString returns the string representation
 func (s DescribeTransitRouterFlowLogsOutput) GoString() string {
 	return s.String()
+}
+
+// SetPageNumber sets the PageNumber field's value.
+func (s *DescribeTransitRouterFlowLogsOutput) SetPageNumber(v int32) *DescribeTransitRouterFlowLogsOutput {
+	s.PageNumber = &v
+	return s
+}
+
+// SetPageSize sets the PageSize field's value.
+func (s *DescribeTransitRouterFlowLogsOutput) SetPageSize(v int32) *DescribeTransitRouterFlowLogsOutput {
+	s.PageSize = &v
+	return s
+}
+
+// SetTotalCount sets the TotalCount field's value.
+func (s *DescribeTransitRouterFlowLogsOutput) SetTotalCount(v int32) *DescribeTransitRouterFlowLogsOutput {
+	s.TotalCount = &v
+	return s
 }
 
 // SetTransitRouterFlowLogs sets the TransitRouterFlowLogs field's value.
@@ -317,6 +341,36 @@ func (s *TagFilterForDescribeTransitRouterFlowLogsInput) SetValues(v []*string) 
 	return s
 }
 
+type TagForDescribeTransitRouterFlowLogsOutput struct {
+	_ struct{} `type:"structure"`
+
+	Key *string `type:"string"`
+
+	Value *string `type:"string"`
+}
+
+// String returns the string representation
+func (s TagForDescribeTransitRouterFlowLogsOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagForDescribeTransitRouterFlowLogsOutput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagForDescribeTransitRouterFlowLogsOutput) SetKey(v string) *TagForDescribeTransitRouterFlowLogsOutput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *TagForDescribeTransitRouterFlowLogsOutput) SetValue(v string) *TagForDescribeTransitRouterFlowLogsOutput {
+	s.Value = &v
+	return s
+}
+
 type TransitRouterFlowLogForDescribeTransitRouterFlowLogsOutput struct {
 	_ struct{} `type:"structure"`
 
@@ -335,6 +389,8 @@ type TransitRouterFlowLogForDescribeTransitRouterFlowLogsOutput struct {
 	ResourceType *string `type:"string"`
 
 	Status *string `type:"string"`
+
+	Tags []*TagForDescribeTransitRouterFlowLogsOutput `type:"list"`
 
 	TlsProjectId *string `type:"string"`
 
@@ -408,6 +464,12 @@ func (s *TransitRouterFlowLogForDescribeTransitRouterFlowLogsOutput) SetResource
 // SetStatus sets the Status field's value.
 func (s *TransitRouterFlowLogForDescribeTransitRouterFlowLogsOutput) SetStatus(v string) *TransitRouterFlowLogForDescribeTransitRouterFlowLogsOutput {
 	s.Status = &v
+	return s
+}
+
+// SetTags sets the Tags field's value.
+func (s *TransitRouterFlowLogForDescribeTransitRouterFlowLogsOutput) SetTags(v []*TagForDescribeTransitRouterFlowLogsOutput) *TransitRouterFlowLogForDescribeTransitRouterFlowLogsOutput {
+	s.Tags = v
 	return s
 }
 

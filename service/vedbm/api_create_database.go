@@ -22,13 +22,13 @@ const opCreateDatabaseCommon = "CreateDatabase"
 // See CreateDatabaseCommon for more information on using the CreateDatabaseCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the CreateDatabaseCommonRequest method.
-//	req, resp := client.CreateDatabaseCommonRequest(params)
+//    // Example sending a request using the CreateDatabaseCommonRequest method.
+//    req, resp := client.CreateDatabaseCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VEDBM) CreateDatabaseCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opCreateDatabaseCommon,
@@ -89,13 +89,13 @@ const opCreateDatabase = "CreateDatabase"
 // See CreateDatabase for more information on using the CreateDatabase
 // API call, and error handling.
 //
-//	// Example sending a request using the CreateDatabaseRequest method.
-//	req, resp := client.CreateDatabaseRequest(params)
+//    // Example sending a request using the CreateDatabaseRequest method.
+//    req, resp := client.CreateDatabaseRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VEDBM) CreateDatabaseRequest(input *CreateDatabaseInput) (req *request.Request, output *CreateDatabaseOutput) {
 	op := &request.Operation{
 		Name:       opCreateDatabase,

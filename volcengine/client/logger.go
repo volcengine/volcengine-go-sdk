@@ -16,12 +16,12 @@ import (
 	"github.com/volcengine/volcengine-go-sdk/volcengine/request"
 )
 
-const logReqMsg = `DEBUG: Request %s/%s Details:
+const logReqMsg = `[Request] %s/%s %s:
 ---[ REQUEST POST-SIGN ]-----------------------------
 %s
 -----------------------------------------------------`
 
-const logReqErrMsg = `DEBUG ERROR: Request %s/%s:
+const logReqErrMsg = `[Request] %s/%s:
 ---[ REQUEST DUMP ERROR ]-----------------------------
 %s
 ------------------------------------------------------`
@@ -69,7 +69,7 @@ func logStructLog(r *request.Request, level string, logStruct LogStruct) {
 		logStruct.AccountId = *r.Config.LogAccount(r.Context())
 	}
 	//b, _ := json.Marshal(logStruct)
-	r.Config.Logger.Log(logStruct)
+	r.Config.Logger.Debug("["+logStruct.Type+" Struct"+"]", logStruct)
 }
 
 var LogInputHandler = request.NamedHandler{
@@ -88,9 +88,7 @@ func logInput(r *request.Request) {
 		Context:       r.Context(),
 	}
 
-	if logInfoStruct {
-		logStructLog(r, "INFO", logStruct)
-	} else if logDebugStruct {
+	if logInfoStruct || logDebugStruct {
 		logStructLog(r, "DEBUG", logStruct)
 	}
 }
@@ -111,9 +109,7 @@ func LogOutput(r *request.Request) {
 		Context:       r.Context(),
 	}
 
-	if logInfoStruct {
-		logStructLog(r, "INFO", logStruct)
-	} else if logDebugStruct {
+	if logInfoStruct || logDebugStruct {
 		logStructLog(r, "DEBUG", logStruct)
 	}
 }
@@ -127,17 +123,19 @@ var LogHTTPRequestHandler = request.NamedHandler{
 }
 
 func logRequest(r *request.Request) {
-	logBody := r.Config.LogLevel.Matches(volcengine.LogDebugWithHTTPBody)
+	logBasic := r.Config.LogLevel.Matches(volcengine.LogDebugWithRequest)
+	logBody := r.Config.LogLevel.Matches(volcengine.LogDebugWithRequestBody)
 	bodySeekable := volcengine.IsReaderSeekable(r.Body)
 
 	b, err := httputil.DumpRequestOut(r.HTTPRequest, logBody)
 	if err != nil {
-		r.Config.Logger.Log(fmt.Sprintf(logReqErrMsg,
+		r.Config.Logger.Error(fmt.Sprintf(logReqErrMsg,
 			r.ClientInfo.ServiceName, r.Operation.Name, err))
 		return
 	}
-
+	logWithBody := "NoBody"
 	if logBody {
+		logWithBody = "WithBody"
 		if !bodySeekable {
 			r.SetReaderBody(volcengine.ReadSeekCloser(r.HTTPRequest.Body))
 		}
@@ -145,14 +143,17 @@ func logRequest(r *request.Request) {
 		// r.HTTPRequest's Body as a NoOpCloser and will not be reset after
 		// read by the HTTP client reader.
 		if err := r.Error; err != nil {
-			r.Config.Logger.Log(fmt.Sprintf(logReqErrMsg,
+			r.Config.Logger.Error(fmt.Sprintf(logReqErrMsg,
 				r.ClientInfo.ServiceName, r.Operation.Name, err))
 			return
 		}
 	}
 
-	r.Config.Logger.Log(fmt.Sprintf(logReqMsg,
-		r.ClientInfo.ServiceName, r.Operation.Name, string(b)))
+	if logBasic || logBody {
+		r.Config.Logger.Debug(fmt.Sprintf(logReqMsg,
+			r.ClientInfo.ServiceName, r.Operation.Name, logWithBody, string(b)))
+	}
+
 }
 
 // LogHTTPRequestHeaderHandler is a SDK request handler to log the HTTP request sent
@@ -166,7 +167,7 @@ var LogHTTPRequestHeaderHandler = request.NamedHandler{
 func logRequestHeader(r *request.Request) {
 	b, err := httputil.DumpRequestOut(r.HTTPRequest, false)
 	if err != nil {
-		r.Config.Logger.Log(fmt.Sprintf(logReqErrMsg,
+		r.Config.Logger.Error(fmt.Sprintf(logReqErrMsg,
 			r.ClientInfo.ServiceName, r.Operation.Name, err))
 		return
 	}
@@ -175,15 +176,14 @@ func logRequestHeader(r *request.Request) {
 		r.ClientInfo.ServiceName, r.Operation.Name, string(b)))
 }
 
-const logRespMsg = `DEBUG: Response %s/%s Details:
----[ RESPONSE ]--------------------------------------
-%s
------------------------------------------------------`
+const logRespMsg = `[Response] %s/%s %s %s`
 
-const logRespErrMsg = `DEBUG ERROR: Response %s/%s:
+const logRespErrMsg = `Response %s/%s:
 ---[ RESPONSE DUMP ERROR ]-----------------------------
 %s
 -----------------------------------------------------`
+
+const traceIdKey = "X-Tt-Logid"
 
 // LogHTTPResponseHandler is a SDK request handler to log the HTTP response
 // received from a service. Will include the HTTP response volcenginebody if the LogLevel
@@ -197,12 +197,19 @@ func logResponse(r *request.Request) {
 	lw := &logWriter{r.Config.Logger, bytes.NewBuffer(nil)}
 
 	if r.HTTPResponse == nil {
-		lw.Logger.Log(fmt.Sprintf(logRespErrMsg,
+		lw.Logger.Error(fmt.Sprintf(logRespErrMsg,
 			r.ClientInfo.ServiceName, r.Operation.Name, "request's HTTPResponse is nil"))
 		return
 	}
 
-	logBody := r.Config.LogLevel.Matches(volcengine.LogDebugWithHTTPBody)
+	logRequestId := r.Config.LogLevel.Matches(volcengine.LogDebugWithRequestID)
+	logResponseBasic := r.Config.LogLevel.Matches(volcengine.LogDebugWithResponse)
+	logBody := r.Config.LogLevel.Matches(volcengine.LogDebugWithResponseBody)
+	if logRequestId {
+		lw.Logger.Debug(fmt.Sprintf(logRespMsg,
+			r.ClientInfo.ServiceName, r.Operation.Name, "RequestID:", r.HTTPResponse.Header.Get(traceIdKey)))
+	}
+
 	if logBody {
 		r.HTTPResponse.Body = &teeReaderCloser{
 			Reader: io.TeeReader(r.HTTPResponse.Body, lw),
@@ -213,24 +220,26 @@ func logResponse(r *request.Request) {
 	handlerFn := func(req *request.Request) {
 		b, err := httputil.DumpResponse(req.HTTPResponse, false)
 		if err != nil {
-			lw.Logger.Log(fmt.Sprintf(logRespErrMsg,
+			lw.Logger.Error(fmt.Sprintf(logRespErrMsg,
 				req.ClientInfo.ServiceName, req.Operation.Name, err))
 			return
 		}
 
-		lw.Logger.Log(fmt.Sprintf(logRespMsg,
-			req.ClientInfo.ServiceName, req.Operation.Name, string(b)))
-
 		if logBody {
-			b, err := ioutil.ReadAll(lw.buf)
+			b1, err := ioutil.ReadAll(lw.buf)
 			if err != nil {
-				lw.Logger.Log(fmt.Sprintf(logRespErrMsg,
+				lw.Logger.Error(fmt.Sprintf(logRespErrMsg,
 					req.ClientInfo.ServiceName, req.Operation.Name, err))
 				return
 			}
 
-			lw.Logger.Log(string(b))
+			lw.Logger.Debug(fmt.Sprintf(logRespMsg,
+				req.ClientInfo.ServiceName, req.Operation.Name, "WithBody: ", string(b)+string(b1)))
+		} else if logResponseBasic {
+			lw.Logger.Debug(fmt.Sprintf(logRespMsg,
+				req.ClientInfo.ServiceName, req.Operation.Name, "NoBody: ", string(b)))
 		}
+
 	}
 
 	const handlerName = "volcenginesdk.client.LogResponse.ResponseBody"
@@ -258,7 +267,7 @@ func logResponseHeader(r *request.Request) {
 
 	b, err := httputil.DumpResponse(r.HTTPResponse, false)
 	if err != nil {
-		r.Config.Logger.Log(fmt.Sprintf(logRespErrMsg,
+		r.Config.Logger.Error(fmt.Sprintf(logRespErrMsg,
 			r.ClientInfo.ServiceName, r.Operation.Name, err))
 		return
 	}

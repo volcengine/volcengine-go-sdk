@@ -4,6 +4,7 @@ package client
 // May have been modified by Beijing Volcanoengine Technology Ltd.
 
 import (
+	"github.com/volcengine/volcengine-go-sdk/volcengine"
 	"math"
 	"strconv"
 	"time"
@@ -15,7 +16,6 @@ import (
 // DefaultRetryer implements basic retry logic using exponential backoff for
 // most services. If you want to implement custom retry logic, you can implement the
 // request.Retryer interface.
-//
 type DefaultRetryer struct {
 	// Num max Retries is the number of max retries that will be performed.
 	// By default, this is zero.
@@ -132,9 +132,10 @@ func getJitterDelay(duration time.Duration) time.Duration {
 
 // ShouldRetry returns true if the request should be retried.
 func (d DefaultRetryer) ShouldRetry(r *request.Request) bool {
-
+	logger := r.Config.Logger
 	// ShouldRetry returns false if number of max retries is 0.
 	if d.NumMaxRetries == 0 {
+		logger.DebugByLevel(volcengine.LogDebugWithRequestRetries, "[Retry] max retries is 0, not retrying")
 		return false
 	}
 

@@ -144,6 +144,8 @@ type ModifyTransitRouterVpnAttachmentAttributesInput struct {
 
 	Description *string `type:"string"`
 
+	HealthCheckRevokeRouteEnabled *string `type:"string"`
+
 	// TransitRouterAttachmentId is a required field
 	TransitRouterAttachmentId *string `type:"string" required:"true"`
 
@@ -176,6 +178,12 @@ func (s *ModifyTransitRouterVpnAttachmentAttributesInput) Validate() error {
 // SetDescription sets the Description field's value.
 func (s *ModifyTransitRouterVpnAttachmentAttributesInput) SetDescription(v string) *ModifyTransitRouterVpnAttachmentAttributesInput {
 	s.Description = &v
+	return s
+}
+
+// SetHealthCheckRevokeRouteEnabled sets the HealthCheckRevokeRouteEnabled field's value.
+func (s *ModifyTransitRouterVpnAttachmentAttributesInput) SetHealthCheckRevokeRouteEnabled(v string) *ModifyTransitRouterVpnAttachmentAttributesInput {
+	s.HealthCheckRevokeRouteEnabled = &v
 	return s
 }
 

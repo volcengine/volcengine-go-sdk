@@ -324,6 +324,8 @@ type TransitRouterForDescribeTransitRoutersOutput struct {
 
 	Description *string `type:"string"`
 
+	GrantSourceType *string `type:"string"`
+
 	GrantStatus *string `type:"string"`
 
 	MulticastEnabled *bool `type:"boolean"`
@@ -386,6 +388,12 @@ func (s *TransitRouterForDescribeTransitRoutersOutput) SetDeletedTime(v string) 
 // SetDescription sets the Description field's value.
 func (s *TransitRouterForDescribeTransitRoutersOutput) SetDescription(v string) *TransitRouterForDescribeTransitRoutersOutput {
 	s.Description = &v
+	return s
+}
+
+// SetGrantSourceType sets the GrantSourceType field's value.
+func (s *TransitRouterForDescribeTransitRoutersOutput) SetGrantSourceType(v string) *TransitRouterForDescribeTransitRoutersOutput {
+	s.GrantSourceType = &v
 	return s
 }
 

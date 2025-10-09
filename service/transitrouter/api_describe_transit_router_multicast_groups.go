@@ -262,6 +262,12 @@ type DescribeTransitRouterMulticastGroupsOutput struct {
 
 	Metadata *response.ResponseMetadata
 
+	PageNumber *int32 `type:"int32"`
+
+	PageSize *int32 `type:"int32"`
+
+	TotalCount *int32 `type:"int32"`
+
 	TransitRouterMulticastGroups []*TransitRouterMulticastGroupForDescribeTransitRouterMulticastGroupsOutput `type:"list"`
 }
 
@@ -273,6 +279,24 @@ func (s DescribeTransitRouterMulticastGroupsOutput) String() string {
 // GoString returns the string representation
 func (s DescribeTransitRouterMulticastGroupsOutput) GoString() string {
 	return s.String()
+}
+
+// SetPageNumber sets the PageNumber field's value.
+func (s *DescribeTransitRouterMulticastGroupsOutput) SetPageNumber(v int32) *DescribeTransitRouterMulticastGroupsOutput {
+	s.PageNumber = &v
+	return s
+}
+
+// SetPageSize sets the PageSize field's value.
+func (s *DescribeTransitRouterMulticastGroupsOutput) SetPageSize(v int32) *DescribeTransitRouterMulticastGroupsOutput {
+	s.PageSize = &v
+	return s
+}
+
+// SetTotalCount sets the TotalCount field's value.
+func (s *DescribeTransitRouterMulticastGroupsOutput) SetTotalCount(v int32) *DescribeTransitRouterMulticastGroupsOutput {
+	s.TotalCount = &v
+	return s
 }
 
 // SetTransitRouterMulticastGroups sets the TransitRouterMulticastGroups field's value.
