@@ -800,9 +800,13 @@ func (s *TosMountConfigForUpdateFunctionOutput) SetMountPoints(v []*MountPointFo
 type UpdateFunctionInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	Command *string `type:"string" json:",omitempty"`
+
 	CpuMilli *int32 `type:"int32" json:",omitempty"`
 
 	Description *string `type:"string" json:",omitempty"`
+
+	EnableApmplus *bool `type:"boolean" json:",omitempty"`
 
 	Envs []*EnvForUpdateFunctionInput `type:"list" json:",omitempty"`
 
@@ -863,6 +867,12 @@ func (s *UpdateFunctionInput) Validate() error {
 	return nil
 }
 
+// SetCommand sets the Command field's value.
+func (s *UpdateFunctionInput) SetCommand(v string) *UpdateFunctionInput {
+	s.Command = &v
+	return s
+}
+
 // SetCpuMilli sets the CpuMilli field's value.
 func (s *UpdateFunctionInput) SetCpuMilli(v int32) *UpdateFunctionInput {
 	s.CpuMilli = &v
@@ -872,6 +882,12 @@ func (s *UpdateFunctionInput) SetCpuMilli(v int32) *UpdateFunctionInput {
 // SetDescription sets the Description field's value.
 func (s *UpdateFunctionInput) SetDescription(v string) *UpdateFunctionInput {
 	s.Description = &v
+	return s
+}
+
+// SetEnableApmplus sets the EnableApmplus field's value.
+func (s *UpdateFunctionInput) SetEnableApmplus(v bool) *UpdateFunctionInput {
+	s.EnableApmplus = &v
 	return s
 }
 
@@ -996,6 +1012,8 @@ type UpdateFunctionOutput struct {
 
 	Description *string `type:"string" json:",omitempty"`
 
+	EnableApmplus *bool `type:"boolean" json:",omitempty"`
+
 	Envs []*EnvForUpdateFunctionOutput `type:"list" json:",omitempty"`
 
 	ExclusiveMode *bool `type:"boolean" json:",omitempty"`
@@ -1096,6 +1114,12 @@ func (s *UpdateFunctionOutput) SetCreationTime(v string) *UpdateFunctionOutput {
 // SetDescription sets the Description field's value.
 func (s *UpdateFunctionOutput) SetDescription(v string) *UpdateFunctionOutput {
 	s.Description = &v
+	return s
+}
+
+// SetEnableApmplus sets the EnableApmplus field's value.
+func (s *UpdateFunctionOutput) SetEnableApmplus(v bool) *UpdateFunctionOutput {
+	s.EnableApmplus = &v
 	return s
 }
 

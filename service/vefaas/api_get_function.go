@@ -250,11 +250,15 @@ type GetFunctionOutput struct {
 
 	Command *string `type:"string" json:",omitempty"`
 
+	Cpu *int32 `type:"int32" json:",omitempty"`
+
 	CpuStrategy *string `type:"string" json:",omitempty"`
 
 	CreationTime *string `type:"string" json:",omitempty"`
 
 	Description *string `type:"string" json:",omitempty"`
+
+	EnableApmplus *bool `type:"boolean" json:",omitempty"`
 
 	Envs []*EnvForGetFunctionOutput `type:"list" json:",omitempty"`
 
@@ -331,6 +335,12 @@ func (s *GetFunctionOutput) SetCommand(v string) *GetFunctionOutput {
 	return s
 }
 
+// SetCpu sets the Cpu field's value.
+func (s *GetFunctionOutput) SetCpu(v int32) *GetFunctionOutput {
+	s.Cpu = &v
+	return s
+}
+
 // SetCpuStrategy sets the CpuStrategy field's value.
 func (s *GetFunctionOutput) SetCpuStrategy(v string) *GetFunctionOutput {
 	s.CpuStrategy = &v
@@ -346,6 +356,12 @@ func (s *GetFunctionOutput) SetCreationTime(v string) *GetFunctionOutput {
 // SetDescription sets the Description field's value.
 func (s *GetFunctionOutput) SetDescription(v string) *GetFunctionOutput {
 	s.Description = &v
+	return s
+}
+
+// SetEnableApmplus sets the EnableApmplus field's value.
+func (s *GetFunctionOutput) SetEnableApmplus(v bool) *GetFunctionOutput {
+	s.EnableApmplus = &v
 	return s
 }
 
