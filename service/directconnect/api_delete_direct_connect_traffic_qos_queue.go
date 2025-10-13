@@ -142,8 +142,8 @@ func (c *DIRECTCONNECT) DeleteDirectConnectTrafficQosQueueWithContext(ctx volcen
 type DeleteDirectConnectTrafficQosQueueInput struct {
 	_ struct{} `type:"structure"`
 
-	// DeleteDirectConnectTrafficQosQueue is a required field
-	DeleteDirectConnectTrafficQosQueue *string `type:"string" required:"true"`
+	// DirectConnectTrafficQosQueueId is a required field
+	DirectConnectTrafficQosQueueId *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -159,8 +159,8 @@ func (s DeleteDirectConnectTrafficQosQueueInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *DeleteDirectConnectTrafficQosQueueInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "DeleteDirectConnectTrafficQosQueueInput"}
-	if s.DeleteDirectConnectTrafficQosQueue == nil {
-		invalidParams.Add(request.NewErrParamRequired("DeleteDirectConnectTrafficQosQueue"))
+	if s.DirectConnectTrafficQosQueueId == nil {
+		invalidParams.Add(request.NewErrParamRequired("DirectConnectTrafficQosQueueId"))
 	}
 
 	if invalidParams.Len() > 0 {
@@ -169,9 +169,9 @@ func (s *DeleteDirectConnectTrafficQosQueueInput) Validate() error {
 	return nil
 }
 
-// SetDeleteDirectConnectTrafficQosQueue sets the DeleteDirectConnectTrafficQosQueue field's value.
-func (s *DeleteDirectConnectTrafficQosQueueInput) SetDeleteDirectConnectTrafficQosQueue(v string) *DeleteDirectConnectTrafficQosQueueInput {
-	s.DeleteDirectConnectTrafficQosQueue = &v
+// SetDirectConnectTrafficQosQueueId sets the DirectConnectTrafficQosQueueId field's value.
+func (s *DeleteDirectConnectTrafficQosQueueInput) SetDirectConnectTrafficQosQueueId(v string) *DeleteDirectConnectTrafficQosQueueInput {
+	s.DirectConnectTrafficQosQueueId = &v
 	return s
 }
 
