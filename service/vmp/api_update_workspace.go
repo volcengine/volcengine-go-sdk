@@ -150,6 +150,10 @@ type QuotaForUpdateWorkspaceInput struct {
 
 	IngestSamplesPerSecond *int32 `type:"int32" json:",omitempty"`
 
+	PublicQueryBandwidth *int64 `type:"int64" json:",omitempty"`
+
+	PublicWriteBandwidth *int64 `type:"int64" json:",omitempty"`
+
 	QueryPerSecond *int32 `type:"int32" json:",omitempty"`
 
 	ScanSamplesPerSecond *int64 `type:"int64" json:",omitempty"`
@@ -176,6 +180,18 @@ func (s *QuotaForUpdateWorkspaceInput) SetActiveSeries(v int32) *QuotaForUpdateW
 // SetIngestSamplesPerSecond sets the IngestSamplesPerSecond field's value.
 func (s *QuotaForUpdateWorkspaceInput) SetIngestSamplesPerSecond(v int32) *QuotaForUpdateWorkspaceInput {
 	s.IngestSamplesPerSecond = &v
+	return s
+}
+
+// SetPublicQueryBandwidth sets the PublicQueryBandwidth field's value.
+func (s *QuotaForUpdateWorkspaceInput) SetPublicQueryBandwidth(v int64) *QuotaForUpdateWorkspaceInput {
+	s.PublicQueryBandwidth = &v
+	return s
+}
+
+// SetPublicWriteBandwidth sets the PublicWriteBandwidth field's value.
+func (s *QuotaForUpdateWorkspaceInput) SetPublicWriteBandwidth(v int64) *QuotaForUpdateWorkspaceInput {
+	s.PublicWriteBandwidth = &v
 	return s
 }
 
@@ -207,11 +223,21 @@ type UpdateWorkspaceInput struct {
 	// Id is a required field
 	Id *string `type:"string" json:",omitempty" required:"true"`
 
+	InstanceTypeId *string `type:"string" json:",omitempty"`
+
 	Name *string `type:"string" json:",omitempty"`
 
 	Password *string `type:"string" json:",omitempty"`
 
+	PublicAccessEnabled *bool `type:"boolean" json:",omitempty"`
+
+	PublicQueryBandwidth *int64 `type:"int64" json:",omitempty"`
+
+	PublicWriteBandwidth *int64 `type:"int64" json:",omitempty"`
+
 	Quota *QuotaForUpdateWorkspaceInput `type:"structure" json:",omitempty"`
+
+	SearchLatencyOffset *string `type:"string" json:",omitempty"`
 
 	Username *string `type:"string" json:",omitempty"`
 }
@@ -257,6 +283,12 @@ func (s *UpdateWorkspaceInput) SetId(v string) *UpdateWorkspaceInput {
 	return s
 }
 
+// SetInstanceTypeId sets the InstanceTypeId field's value.
+func (s *UpdateWorkspaceInput) SetInstanceTypeId(v string) *UpdateWorkspaceInput {
+	s.InstanceTypeId = &v
+	return s
+}
+
 // SetName sets the Name field's value.
 func (s *UpdateWorkspaceInput) SetName(v string) *UpdateWorkspaceInput {
 	s.Name = &v
@@ -269,9 +301,33 @@ func (s *UpdateWorkspaceInput) SetPassword(v string) *UpdateWorkspaceInput {
 	return s
 }
 
+// SetPublicAccessEnabled sets the PublicAccessEnabled field's value.
+func (s *UpdateWorkspaceInput) SetPublicAccessEnabled(v bool) *UpdateWorkspaceInput {
+	s.PublicAccessEnabled = &v
+	return s
+}
+
+// SetPublicQueryBandwidth sets the PublicQueryBandwidth field's value.
+func (s *UpdateWorkspaceInput) SetPublicQueryBandwidth(v int64) *UpdateWorkspaceInput {
+	s.PublicQueryBandwidth = &v
+	return s
+}
+
+// SetPublicWriteBandwidth sets the PublicWriteBandwidth field's value.
+func (s *UpdateWorkspaceInput) SetPublicWriteBandwidth(v int64) *UpdateWorkspaceInput {
+	s.PublicWriteBandwidth = &v
+	return s
+}
+
 // SetQuota sets the Quota field's value.
 func (s *UpdateWorkspaceInput) SetQuota(v *QuotaForUpdateWorkspaceInput) *UpdateWorkspaceInput {
 	s.Quota = v
+	return s
+}
+
+// SetSearchLatencyOffset sets the SearchLatencyOffset field's value.
+func (s *UpdateWorkspaceInput) SetSearchLatencyOffset(v string) *UpdateWorkspaceInput {
+	s.SearchLatencyOffset = &v
 	return s
 }
 

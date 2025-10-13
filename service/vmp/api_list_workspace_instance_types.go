@@ -143,6 +143,74 @@ func (c *VMP) ListWorkspaceInstanceTypesWithContext(ctx volcengine.Context, inpu
 	return out, req.Send()
 }
 
+type CalChargeItemListForListWorkspaceInstanceTypesOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	AttrValue *string `type:"string" json:",omitempty"`
+
+	ChargeItemCode *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s CalChargeItemListForListWorkspaceInstanceTypesOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s CalChargeItemListForListWorkspaceInstanceTypesOutput) GoString() string {
+	return s.String()
+}
+
+// SetAttrValue sets the AttrValue field's value.
+func (s *CalChargeItemListForListWorkspaceInstanceTypesOutput) SetAttrValue(v string) *CalChargeItemListForListWorkspaceInstanceTypesOutput {
+	s.AttrValue = &v
+	return s
+}
+
+// SetChargeItemCode sets the ChargeItemCode field's value.
+func (s *CalChargeItemListForListWorkspaceInstanceTypesOutput) SetChargeItemCode(v string) *CalChargeItemListForListWorkspaceInstanceTypesOutput {
+	s.ChargeItemCode = &v
+	return s
+}
+
+type CalculatePriceParamForListWorkspaceInstanceTypesOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	CalChargeItemList []*CalChargeItemListForListWorkspaceInstanceTypesOutput `type:"list" json:",omitempty"`
+
+	ConfigurationCode *string `type:"string" json:",omitempty"`
+
+	Period *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s CalculatePriceParamForListWorkspaceInstanceTypesOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s CalculatePriceParamForListWorkspaceInstanceTypesOutput) GoString() string {
+	return s.String()
+}
+
+// SetCalChargeItemList sets the CalChargeItemList field's value.
+func (s *CalculatePriceParamForListWorkspaceInstanceTypesOutput) SetCalChargeItemList(v []*CalChargeItemListForListWorkspaceInstanceTypesOutput) *CalculatePriceParamForListWorkspaceInstanceTypesOutput {
+	s.CalChargeItemList = v
+	return s
+}
+
+// SetConfigurationCode sets the ConfigurationCode field's value.
+func (s *CalculatePriceParamForListWorkspaceInstanceTypesOutput) SetConfigurationCode(v string) *CalculatePriceParamForListWorkspaceInstanceTypesOutput {
+	s.ConfigurationCode = &v
+	return s
+}
+
+// SetPeriod sets the Period field's value.
+func (s *CalculatePriceParamForListWorkspaceInstanceTypesOutput) SetPeriod(v string) *CalculatePriceParamForListWorkspaceInstanceTypesOutput {
+	s.Period = &v
+	return s
+}
+
 type FiltersForListWorkspaceInstanceTypesInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -171,6 +239,8 @@ type ItemForListWorkspaceInstanceTypesOutput struct {
 	ActiveSeries *int32 `type:"int32" json:",omitempty"`
 
 	AvailabilityZoneReplicas *int32 `type:"int32" json:",omitempty"`
+
+	CalculatePriceParams []*CalculatePriceParamForListWorkspaceInstanceTypesOutput `type:"list" json:",omitempty"`
 
 	DownsamplingPeriods []*string `type:"list" json:",omitempty"`
 
@@ -210,6 +280,12 @@ func (s *ItemForListWorkspaceInstanceTypesOutput) SetActiveSeries(v int32) *Item
 // SetAvailabilityZoneReplicas sets the AvailabilityZoneReplicas field's value.
 func (s *ItemForListWorkspaceInstanceTypesOutput) SetAvailabilityZoneReplicas(v int32) *ItemForListWorkspaceInstanceTypesOutput {
 	s.AvailabilityZoneReplicas = &v
+	return s
+}
+
+// SetCalculatePriceParams sets the CalculatePriceParams field's value.
+func (s *ItemForListWorkspaceInstanceTypesOutput) SetCalculatePriceParams(v []*CalculatePriceParamForListWorkspaceInstanceTypesOutput) *ItemForListWorkspaceInstanceTypesOutput {
+	s.CalculatePriceParams = v
 	return s
 }
 

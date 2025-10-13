@@ -154,6 +154,8 @@ type UpdateRuleFileInput struct {
 
 	Name *string `type:"string" json:",omitempty"`
 
+	TargetWorkspaceId *string `type:"string" json:",omitempty"`
+
 	WorkspaceId *string `type:"string" json:",omitempty"`
 }
 
@@ -188,6 +190,12 @@ func (s *UpdateRuleFileInput) SetId(v string) *UpdateRuleFileInput {
 // SetName sets the Name field's value.
 func (s *UpdateRuleFileInput) SetName(v string) *UpdateRuleFileInput {
 	s.Name = &v
+	return s
+}
+
+// SetTargetWorkspaceId sets the TargetWorkspaceId field's value.
+func (s *UpdateRuleFileInput) SetTargetWorkspaceId(v string) *UpdateRuleFileInput {
+	s.TargetWorkspaceId = &v
 	return s
 }
 

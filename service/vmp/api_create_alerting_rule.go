@@ -192,7 +192,11 @@ type CreateAlertingRuleInput struct {
 
 	NotifyPolicyId *string `type:"string" json:",omitempty"`
 
+	ProjectName *string `type:"string" json:",omitempty"`
+
 	Query *QueryForCreateAlertingRuleInput `type:"structure" json:",omitempty"`
+
+	Tags []*TagForCreateAlertingRuleInput `type:"list" json:",omitempty"`
 
 	// Type is a required field
 	Type *string `type:"string" json:",omitempty" required:"true"`
@@ -269,9 +273,21 @@ func (s *CreateAlertingRuleInput) SetNotifyPolicyId(v string) *CreateAlertingRul
 	return s
 }
 
+// SetProjectName sets the ProjectName field's value.
+func (s *CreateAlertingRuleInput) SetProjectName(v string) *CreateAlertingRuleInput {
+	s.ProjectName = &v
+	return s
+}
+
 // SetQuery sets the Query field's value.
 func (s *CreateAlertingRuleInput) SetQuery(v *QueryForCreateAlertingRuleInput) *CreateAlertingRuleInput {
 	s.Query = v
+	return s
+}
+
+// SetTags sets the Tags field's value.
+func (s *CreateAlertingRuleInput) SetTags(v []*TagForCreateAlertingRuleInput) *CreateAlertingRuleInput {
+	s.Tags = v
 	return s
 }
 
@@ -408,5 +424,35 @@ func (s *QueryForCreateAlertingRuleInput) SetPromQL(v string) *QueryForCreateAle
 // SetWorkspaceId sets the WorkspaceId field's value.
 func (s *QueryForCreateAlertingRuleInput) SetWorkspaceId(v string) *QueryForCreateAlertingRuleInput {
 	s.WorkspaceId = &v
+	return s
+}
+
+type TagForCreateAlertingRuleInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Key *string `type:"string" json:",omitempty"`
+
+	Value *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s TagForCreateAlertingRuleInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagForCreateAlertingRuleInput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagForCreateAlertingRuleInput) SetKey(v string) *TagForCreateAlertingRuleInput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *TagForCreateAlertingRuleInput) SetValue(v string) *TagForCreateAlertingRuleInput {
+	s.Value = &v
 	return s
 }

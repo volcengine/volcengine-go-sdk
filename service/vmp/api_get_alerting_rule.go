@@ -234,9 +234,13 @@ type GetAlertingRuleOutput struct {
 
 	NotifyPolicyId *string `type:"string" json:",omitempty"`
 
+	ProjectName *string `type:"string" json:",omitempty"`
+
 	Query *QueryForGetAlertingRuleOutput `type:"structure" json:",omitempty"`
 
 	Status *string `type:"string" json:",omitempty"`
+
+	Tags []*TagForGetAlertingRuleOutput `type:"list" json:",omitempty"`
 
 	Type *string `type:"string" json:",omitempty"`
 
@@ -313,6 +317,12 @@ func (s *GetAlertingRuleOutput) SetNotifyPolicyId(v string) *GetAlertingRuleOutp
 	return s
 }
 
+// SetProjectName sets the ProjectName field's value.
+func (s *GetAlertingRuleOutput) SetProjectName(v string) *GetAlertingRuleOutput {
+	s.ProjectName = &v
+	return s
+}
+
 // SetQuery sets the Query field's value.
 func (s *GetAlertingRuleOutput) SetQuery(v *QueryForGetAlertingRuleOutput) *GetAlertingRuleOutput {
 	s.Query = v
@@ -322,6 +332,12 @@ func (s *GetAlertingRuleOutput) SetQuery(v *QueryForGetAlertingRuleOutput) *GetA
 // SetStatus sets the Status field's value.
 func (s *GetAlertingRuleOutput) SetStatus(v string) *GetAlertingRuleOutput {
 	s.Status = &v
+	return s
+}
+
+// SetTags sets the Tags field's value.
+func (s *GetAlertingRuleOutput) SetTags(v []*TagForGetAlertingRuleOutput) *GetAlertingRuleOutput {
+	s.Tags = v
 	return s
 }
 
@@ -440,5 +456,35 @@ func (s *QueryForGetAlertingRuleOutput) SetPromQL(v string) *QueryForGetAlerting
 // SetWorkspaceId sets the WorkspaceId field's value.
 func (s *QueryForGetAlertingRuleOutput) SetWorkspaceId(v string) *QueryForGetAlertingRuleOutput {
 	s.WorkspaceId = &v
+	return s
+}
+
+type TagForGetAlertingRuleOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Key *string `type:"string" json:",omitempty"`
+
+	Value *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s TagForGetAlertingRuleOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagForGetAlertingRuleOutput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagForGetAlertingRuleOutput) SetKey(v string) *TagForGetAlertingRuleOutput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *TagForGetAlertingRuleOutput) SetValue(v string) *TagForGetAlertingRuleOutput {
+	s.Value = &v
 	return s
 }
