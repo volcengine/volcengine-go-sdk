@@ -160,6 +160,8 @@ type CreateWorkspaceInput struct {
 
 	ProjectName *string `type:"string" json:",omitempty"`
 
+	PublicAccessEnabled *bool `type:"boolean" json:",omitempty"`
+
 	Tags []*TagForCreateWorkspaceInput `type:"list" json:",omitempty"`
 
 	Username *string `type:"string" json:",omitempty"`
@@ -224,6 +226,12 @@ func (s *CreateWorkspaceInput) SetPassword(v string) *CreateWorkspaceInput {
 // SetProjectName sets the ProjectName field's value.
 func (s *CreateWorkspaceInput) SetProjectName(v string) *CreateWorkspaceInput {
 	s.ProjectName = &v
+	return s
+}
+
+// SetPublicAccessEnabled sets the PublicAccessEnabled field's value.
+func (s *CreateWorkspaceInput) SetPublicAccessEnabled(v bool) *CreateWorkspaceInput {
+	s.PublicAccessEnabled = &v
 	return s
 }
 

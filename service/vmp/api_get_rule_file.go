@@ -201,6 +201,8 @@ type GetRuleFileOutput struct {
 	RuleCount *int64 `type:"int64" json:",omitempty"`
 
 	Status *string `type:"string" json:",omitempty"`
+
+	TargetWorkspaceId *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -258,5 +260,11 @@ func (s *GetRuleFileOutput) SetRuleCount(v int64) *GetRuleFileOutput {
 // SetStatus sets the Status field's value.
 func (s *GetRuleFileOutput) SetStatus(v string) *GetRuleFileOutput {
 	s.Status = &v
+	return s
+}
+
+// SetTargetWorkspaceId sets the TargetWorkspaceId field's value.
+func (s *GetRuleFileOutput) SetTargetWorkspaceId(v string) *GetRuleFileOutput {
+	s.TargetWorkspaceId = &v
 	return s
 }

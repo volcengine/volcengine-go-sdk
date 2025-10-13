@@ -142,6 +142,8 @@ func (c *DIRECTCONNECT) CreateDirectConnectGatewayWithContext(ctx volcengine.Con
 type CreateDirectConnectGatewayInput struct {
 	_ struct{} `type:"structure"`
 
+	BgpAsn *int64 `type:"integer"`
+
 	ClientToken *string `type:"string"`
 
 	Description *string `type:"string"`
@@ -163,6 +165,12 @@ func (s CreateDirectConnectGatewayInput) String() string {
 // GoString returns the string representation
 func (s CreateDirectConnectGatewayInput) GoString() string {
 	return s.String()
+}
+
+// SetBgpAsn sets the BgpAsn field's value.
+func (s *CreateDirectConnectGatewayInput) SetBgpAsn(v int64) *CreateDirectConnectGatewayInput {
+	s.BgpAsn = &v
+	return s
 }
 
 // SetClientToken sets the ClientToken field's value.

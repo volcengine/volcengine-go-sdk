@@ -156,6 +156,8 @@ type CreateFunctionInput struct {
 
 	Description *string `type:"string" json:",omitempty"`
 
+	EnableApmplus *bool `type:"boolean" json:",omitempty"`
+
 	Envs []*EnvForCreateFunctionInput `type:"list" json:",omitempty"`
 
 	ExclusiveMode *bool `type:"boolean" json:",omitempty"`
@@ -252,6 +254,12 @@ func (s *CreateFunctionInput) SetCpuStrategy(v string) *CreateFunctionInput {
 // SetDescription sets the Description field's value.
 func (s *CreateFunctionInput) SetDescription(v string) *CreateFunctionInput {
 	s.Description = &v
+	return s
+}
+
+// SetEnableApmplus sets the EnableApmplus field's value.
+func (s *CreateFunctionInput) SetEnableApmplus(v bool) *CreateFunctionInput {
+	s.EnableApmplus = &v
 	return s
 }
 
@@ -388,9 +396,13 @@ type CreateFunctionOutput struct {
 
 	Command *string `type:"string" json:",omitempty"`
 
+	Cpu *int32 `type:"int32" json:",omitempty"`
+
 	CreationTime *string `type:"string" json:",omitempty"`
 
 	Description *string `type:"string" json:",omitempty"`
+
+	EnableApmplus *bool `type:"boolean" json:",omitempty"`
 
 	Envs []*EnvForCreateFunctionOutput `type:"list" json:",omitempty"`
 
@@ -473,6 +485,12 @@ func (s *CreateFunctionOutput) SetCommand(v string) *CreateFunctionOutput {
 	return s
 }
 
+// SetCpu sets the Cpu field's value.
+func (s *CreateFunctionOutput) SetCpu(v int32) *CreateFunctionOutput {
+	s.Cpu = &v
+	return s
+}
+
 // SetCreationTime sets the CreationTime field's value.
 func (s *CreateFunctionOutput) SetCreationTime(v string) *CreateFunctionOutput {
 	s.CreationTime = &v
@@ -482,6 +500,12 @@ func (s *CreateFunctionOutput) SetCreationTime(v string) *CreateFunctionOutput {
 // SetDescription sets the Description field's value.
 func (s *CreateFunctionOutput) SetDescription(v string) *CreateFunctionOutput {
 	s.Description = &v
+	return s
+}
+
+// SetEnableApmplus sets the EnableApmplus field's value.
+func (s *CreateFunctionOutput) SetEnableApmplus(v bool) *CreateFunctionOutput {
+	s.EnableApmplus = &v
 	return s
 }
 

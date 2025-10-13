@@ -222,6 +222,8 @@ type DescribeDirectConnectGatewayAttributesOutput struct {
 
 	AssociateCens []*AssociateCenForDescribeDirectConnectGatewayAttributesOutput `type:"list"`
 
+	BgpAsn *int64 `type:"integer"`
+
 	BusinessStatus *string `type:"string"`
 
 	CreationTime *string `type:"string"`
@@ -268,6 +270,12 @@ func (s *DescribeDirectConnectGatewayAttributesOutput) SetAccountId(v string) *D
 // SetAssociateCens sets the AssociateCens field's value.
 func (s *DescribeDirectConnectGatewayAttributesOutput) SetAssociateCens(v []*AssociateCenForDescribeDirectConnectGatewayAttributesOutput) *DescribeDirectConnectGatewayAttributesOutput {
 	s.AssociateCens = v
+	return s
+}
+
+// SetBgpAsn sets the BgpAsn field's value.
+func (s *DescribeDirectConnectGatewayAttributesOutput) SetBgpAsn(v int64) *DescribeDirectConnectGatewayAttributesOutput {
+	s.BgpAsn = &v
 	return s
 }
 
