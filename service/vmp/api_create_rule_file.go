@@ -154,6 +154,8 @@ type CreateRuleFileInput struct {
 	// Name is a required field
 	Name *string `type:"string" json:",omitempty" required:"true"`
 
+	TargetWorkspaceId *string `type:"string" json:",omitempty"`
+
 	// WorkspaceId is a required field
 	WorkspaceId *string `type:"string" json:",omitempty" required:"true"`
 }
@@ -202,6 +204,12 @@ func (s *CreateRuleFileInput) SetDescription(v string) *CreateRuleFileInput {
 // SetName sets the Name field's value.
 func (s *CreateRuleFileInput) SetName(v string) *CreateRuleFileInput {
 	s.Name = &v
+	return s
+}
+
+// SetTargetWorkspaceId sets the TargetWorkspaceId field's value.
+func (s *CreateRuleFileInput) SetTargetWorkspaceId(v string) *CreateRuleFileInput {
+	s.TargetWorkspaceId = &v
 	return s
 }
 

@@ -143,6 +143,74 @@ func (c *VMP) GetWorkspaceWithContext(ctx volcengine.Context, input *GetWorkspac
 	return out, req.Send()
 }
 
+type CalChargeItemListForGetWorkspaceOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	AttrValue *string `type:"string" json:",omitempty"`
+
+	ChargeItemCode *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s CalChargeItemListForGetWorkspaceOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s CalChargeItemListForGetWorkspaceOutput) GoString() string {
+	return s.String()
+}
+
+// SetAttrValue sets the AttrValue field's value.
+func (s *CalChargeItemListForGetWorkspaceOutput) SetAttrValue(v string) *CalChargeItemListForGetWorkspaceOutput {
+	s.AttrValue = &v
+	return s
+}
+
+// SetChargeItemCode sets the ChargeItemCode field's value.
+func (s *CalChargeItemListForGetWorkspaceOutput) SetChargeItemCode(v string) *CalChargeItemListForGetWorkspaceOutput {
+	s.ChargeItemCode = &v
+	return s
+}
+
+type CalculatePriceParamForGetWorkspaceOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	CalChargeItemList []*CalChargeItemListForGetWorkspaceOutput `type:"list" json:",omitempty"`
+
+	ConfigurationCode *string `type:"string" json:",omitempty"`
+
+	Period *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s CalculatePriceParamForGetWorkspaceOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s CalculatePriceParamForGetWorkspaceOutput) GoString() string {
+	return s.String()
+}
+
+// SetCalChargeItemList sets the CalChargeItemList field's value.
+func (s *CalculatePriceParamForGetWorkspaceOutput) SetCalChargeItemList(v []*CalChargeItemListForGetWorkspaceOutput) *CalculatePriceParamForGetWorkspaceOutput {
+	s.CalChargeItemList = v
+	return s
+}
+
+// SetConfigurationCode sets the ConfigurationCode field's value.
+func (s *CalculatePriceParamForGetWorkspaceOutput) SetConfigurationCode(v string) *CalculatePriceParamForGetWorkspaceOutput {
+	s.ConfigurationCode = &v
+	return s
+}
+
+// SetPeriod sets the Period field's value.
+func (s *CalculatePriceParamForGetWorkspaceOutput) SetPeriod(v string) *CalculatePriceParamForGetWorkspaceOutput {
+	s.Period = &v
+	return s
+}
+
 type GetWorkspaceInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -208,7 +276,15 @@ type GetWorkspaceOutput struct {
 
 	PrometheusWriteIntranetEndpoint *string `type:"string" json:",omitempty"`
 
+	PublicAccessEnabled *bool `type:"boolean" json:",omitempty"`
+
+	PublicQueryBandwidth *int64 `type:"int64" json:",omitempty"`
+
+	PublicWriteBandwidth *int64 `type:"int64" json:",omitempty"`
+
 	Quota *QuotaForGetWorkspaceOutput `type:"structure" json:",omitempty"`
+
+	SearchLatencyOffset *string `type:"string" json:",omitempty"`
 
 	Status *string `type:"string" json:",omitempty"`
 
@@ -299,9 +375,33 @@ func (s *GetWorkspaceOutput) SetPrometheusWriteIntranetEndpoint(v string) *GetWo
 	return s
 }
 
+// SetPublicAccessEnabled sets the PublicAccessEnabled field's value.
+func (s *GetWorkspaceOutput) SetPublicAccessEnabled(v bool) *GetWorkspaceOutput {
+	s.PublicAccessEnabled = &v
+	return s
+}
+
+// SetPublicQueryBandwidth sets the PublicQueryBandwidth field's value.
+func (s *GetWorkspaceOutput) SetPublicQueryBandwidth(v int64) *GetWorkspaceOutput {
+	s.PublicQueryBandwidth = &v
+	return s
+}
+
+// SetPublicWriteBandwidth sets the PublicWriteBandwidth field's value.
+func (s *GetWorkspaceOutput) SetPublicWriteBandwidth(v int64) *GetWorkspaceOutput {
+	s.PublicWriteBandwidth = &v
+	return s
+}
+
 // SetQuota sets the Quota field's value.
 func (s *GetWorkspaceOutput) SetQuota(v *QuotaForGetWorkspaceOutput) *GetWorkspaceOutput {
 	s.Quota = v
+	return s
+}
+
+// SetSearchLatencyOffset sets the SearchLatencyOffset field's value.
+func (s *GetWorkspaceOutput) SetSearchLatencyOffset(v string) *GetWorkspaceOutput {
+	s.SearchLatencyOffset = &v
 	return s
 }
 
@@ -329,6 +429,8 @@ type InstanceTypeForGetWorkspaceOutput struct {
 	ActiveSeries *int32 `type:"int32" json:",omitempty"`
 
 	AvailabilityZoneReplicas *int32 `type:"int32" json:",omitempty"`
+
+	CalculatePriceParams []*CalculatePriceParamForGetWorkspaceOutput `type:"list" json:",omitempty"`
 
 	DownsamplingPeriods []*string `type:"list" json:",omitempty"`
 
@@ -368,6 +470,12 @@ func (s *InstanceTypeForGetWorkspaceOutput) SetActiveSeries(v int32) *InstanceTy
 // SetAvailabilityZoneReplicas sets the AvailabilityZoneReplicas field's value.
 func (s *InstanceTypeForGetWorkspaceOutput) SetAvailabilityZoneReplicas(v int32) *InstanceTypeForGetWorkspaceOutput {
 	s.AvailabilityZoneReplicas = &v
+	return s
+}
+
+// SetCalculatePriceParams sets the CalculatePriceParams field's value.
+func (s *InstanceTypeForGetWorkspaceOutput) SetCalculatePriceParams(v []*CalculatePriceParamForGetWorkspaceOutput) *InstanceTypeForGetWorkspaceOutput {
+	s.CalculatePriceParams = v
 	return s
 }
 
@@ -432,6 +540,10 @@ type QuotaForGetWorkspaceOutput struct {
 
 	IngestSamplesPerSecond *int32 `type:"int32" json:",omitempty"`
 
+	PublicQueryBandwidth *int64 `type:"int64" json:",omitempty"`
+
+	PublicWriteBandwidth *int64 `type:"int64" json:",omitempty"`
+
 	QueryPerSecond *int32 `type:"int32" json:",omitempty"`
 
 	ScanSamplesPerSecond *int64 `type:"int64" json:",omitempty"`
@@ -458,6 +570,18 @@ func (s *QuotaForGetWorkspaceOutput) SetActiveSeries(v int32) *QuotaForGetWorksp
 // SetIngestSamplesPerSecond sets the IngestSamplesPerSecond field's value.
 func (s *QuotaForGetWorkspaceOutput) SetIngestSamplesPerSecond(v int32) *QuotaForGetWorkspaceOutput {
 	s.IngestSamplesPerSecond = &v
+	return s
+}
+
+// SetPublicQueryBandwidth sets the PublicQueryBandwidth field's value.
+func (s *QuotaForGetWorkspaceOutput) SetPublicQueryBandwidth(v int64) *QuotaForGetWorkspaceOutput {
+	s.PublicQueryBandwidth = &v
+	return s
+}
+
+// SetPublicWriteBandwidth sets the PublicWriteBandwidth field's value.
+func (s *QuotaForGetWorkspaceOutput) SetPublicWriteBandwidth(v int64) *QuotaForGetWorkspaceOutput {
+	s.PublicWriteBandwidth = &v
 	return s
 }
 

@@ -282,9 +282,13 @@ type ItemForListAlertingRulesOutput struct {
 
 	NotifyPolicyId *string `type:"string" json:",omitempty"`
 
+	ProjectName *string `type:"string" json:",omitempty"`
+
 	Query *QueryForListAlertingRulesOutput `type:"structure" json:",omitempty"`
 
 	Status *string `type:"string" json:",omitempty"`
+
+	Tags []*TagForListAlertingRulesOutput `type:"list" json:",omitempty"`
 
 	Type *string `type:"string" json:",omitempty"`
 
@@ -361,6 +365,12 @@ func (s *ItemForListAlertingRulesOutput) SetNotifyPolicyId(v string) *ItemForLis
 	return s
 }
 
+// SetProjectName sets the ProjectName field's value.
+func (s *ItemForListAlertingRulesOutput) SetProjectName(v string) *ItemForListAlertingRulesOutput {
+	s.ProjectName = &v
+	return s
+}
+
 // SetQuery sets the Query field's value.
 func (s *ItemForListAlertingRulesOutput) SetQuery(v *QueryForListAlertingRulesOutput) *ItemForListAlertingRulesOutput {
 	s.Query = v
@@ -370,6 +380,12 @@ func (s *ItemForListAlertingRulesOutput) SetQuery(v *QueryForListAlertingRulesOu
 // SetStatus sets the Status field's value.
 func (s *ItemForListAlertingRulesOutput) SetStatus(v string) *ItemForListAlertingRulesOutput {
 	s.Status = &v
+	return s
+}
+
+// SetTags sets the Tags field's value.
+func (s *ItemForListAlertingRulesOutput) SetTags(v []*TagForListAlertingRulesOutput) *ItemForListAlertingRulesOutput {
+	s.Tags = v
 	return s
 }
 
@@ -470,9 +486,13 @@ type ListAlertingRulesInput struct {
 
 	PageSize *int64 `type:"int64" json:",omitempty"`
 
+	ProjectName *string `type:"string" json:",omitempty"`
+
 	SortBy *string `type:"string" json:",omitempty"`
 
 	SortOrder *string `type:"string" json:",omitempty"`
+
+	TagFilters []*TagFilterForListAlertingRulesInput `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -503,6 +523,12 @@ func (s *ListAlertingRulesInput) SetPageSize(v int64) *ListAlertingRulesInput {
 	return s
 }
 
+// SetProjectName sets the ProjectName field's value.
+func (s *ListAlertingRulesInput) SetProjectName(v string) *ListAlertingRulesInput {
+	s.ProjectName = &v
+	return s
+}
+
 // SetSortBy sets the SortBy field's value.
 func (s *ListAlertingRulesInput) SetSortBy(v string) *ListAlertingRulesInput {
 	s.SortBy = &v
@@ -512,6 +538,12 @@ func (s *ListAlertingRulesInput) SetSortBy(v string) *ListAlertingRulesInput {
 // SetSortOrder sets the SortOrder field's value.
 func (s *ListAlertingRulesInput) SetSortOrder(v string) *ListAlertingRulesInput {
 	s.SortOrder = &v
+	return s
+}
+
+// SetTagFilters sets the TagFilters field's value.
+func (s *ListAlertingRulesInput) SetTagFilters(v []*TagFilterForListAlertingRulesInput) *ListAlertingRulesInput {
+	s.TagFilters = v
 	return s
 }
 
@@ -574,5 +606,65 @@ func (s *QueryForListAlertingRulesOutput) SetPromQL(v string) *QueryForListAlert
 // SetWorkspaceId sets the WorkspaceId field's value.
 func (s *QueryForListAlertingRulesOutput) SetWorkspaceId(v string) *QueryForListAlertingRulesOutput {
 	s.WorkspaceId = &v
+	return s
+}
+
+type TagFilterForListAlertingRulesInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Key *string `type:"string" json:",omitempty"`
+
+	Values []*string `type:"list" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s TagFilterForListAlertingRulesInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagFilterForListAlertingRulesInput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagFilterForListAlertingRulesInput) SetKey(v string) *TagFilterForListAlertingRulesInput {
+	s.Key = &v
+	return s
+}
+
+// SetValues sets the Values field's value.
+func (s *TagFilterForListAlertingRulesInput) SetValues(v []*string) *TagFilterForListAlertingRulesInput {
+	s.Values = v
+	return s
+}
+
+type TagForListAlertingRulesOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Key *string `type:"string" json:",omitempty"`
+
+	Value *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s TagForListAlertingRulesOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagForListAlertingRulesOutput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagForListAlertingRulesOutput) SetKey(v string) *TagForListAlertingRulesOutput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *TagForListAlertingRulesOutput) SetValue(v string) *TagForListAlertingRulesOutput {
+	s.Value = &v
 	return s
 }

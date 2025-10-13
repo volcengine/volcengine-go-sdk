@@ -192,6 +192,10 @@ func (s *FiltersForListWorkspacesInput) SetStatuses(v []*string) *FiltersForList
 type ItemForListWorkspacesOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	AccountId *int32 `type:"int32" json:",omitempty"`
+
+	AccountName *string `type:"string" json:",omitempty"`
+
 	CreateTime *string `type:"string" json:",omitempty"`
 
 	DeleteProtectionEnabled *bool `type:"boolean" json:",omitempty"`
@@ -214,6 +218,12 @@ type ItemForListWorkspacesOutput struct {
 
 	PrometheusWriteIntranetEndpoint *string `type:"string" json:",omitempty"`
 
+	PublicAccessEnabled *bool `type:"boolean" json:",omitempty"`
+
+	Region *string `type:"string" json:",omitempty"`
+
+	SearchLatencyOffset *string `type:"string" json:",omitempty"`
+
 	Status *string `type:"string" json:",omitempty"`
 
 	Tags []*TagForListWorkspacesOutput `type:"list" json:",omitempty"`
@@ -229,6 +239,18 @@ func (s ItemForListWorkspacesOutput) String() string {
 // GoString returns the string representation
 func (s ItemForListWorkspacesOutput) GoString() string {
 	return s.String()
+}
+
+// SetAccountId sets the AccountId field's value.
+func (s *ItemForListWorkspacesOutput) SetAccountId(v int32) *ItemForListWorkspacesOutput {
+	s.AccountId = &v
+	return s
+}
+
+// SetAccountName sets the AccountName field's value.
+func (s *ItemForListWorkspacesOutput) SetAccountName(v string) *ItemForListWorkspacesOutput {
+	s.AccountName = &v
+	return s
 }
 
 // SetCreateTime sets the CreateTime field's value.
@@ -294,6 +316,24 @@ func (s *ItemForListWorkspacesOutput) SetPrometheusQueryIntranetEndpoint(v strin
 // SetPrometheusWriteIntranetEndpoint sets the PrometheusWriteIntranetEndpoint field's value.
 func (s *ItemForListWorkspacesOutput) SetPrometheusWriteIntranetEndpoint(v string) *ItemForListWorkspacesOutput {
 	s.PrometheusWriteIntranetEndpoint = &v
+	return s
+}
+
+// SetPublicAccessEnabled sets the PublicAccessEnabled field's value.
+func (s *ItemForListWorkspacesOutput) SetPublicAccessEnabled(v bool) *ItemForListWorkspacesOutput {
+	s.PublicAccessEnabled = &v
+	return s
+}
+
+// SetRegion sets the Region field's value.
+func (s *ItemForListWorkspacesOutput) SetRegion(v string) *ItemForListWorkspacesOutput {
+	s.Region = &v
+	return s
+}
+
+// SetSearchLatencyOffset sets the SearchLatencyOffset field's value.
+func (s *ItemForListWorkspacesOutput) SetSearchLatencyOffset(v string) *ItemForListWorkspacesOutput {
+	s.SearchLatencyOffset = &v
 	return s
 }
 

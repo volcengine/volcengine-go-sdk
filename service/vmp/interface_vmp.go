@@ -54,6 +54,14 @@ type VMPAPI interface {
 	CreateContactGroupWithContext(volcengine.Context, *CreateContactGroupInput, ...request.Option) (*CreateContactGroupOutput, error)
 	CreateContactGroupRequest(*CreateContactGroupInput) (*request.Request, *CreateContactGroupOutput)
 
+	CreateIntegrationTaskCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateIntegrationTaskCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateIntegrationTaskCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateIntegrationTask(*CreateIntegrationTaskInput) (*CreateIntegrationTaskOutput, error)
+	CreateIntegrationTaskWithContext(volcengine.Context, *CreateIntegrationTaskInput, ...request.Option) (*CreateIntegrationTaskOutput, error)
+	CreateIntegrationTaskRequest(*CreateIntegrationTaskInput) (*request.Request, *CreateIntegrationTaskOutput)
+
 	CreateNotifyGroupPolicyCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	CreateNotifyGroupPolicyCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	CreateNotifyGroupPolicyCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -85,6 +93,14 @@ type VMPAPI interface {
 	CreateRuleFile(*CreateRuleFileInput) (*CreateRuleFileOutput, error)
 	CreateRuleFileWithContext(volcengine.Context, *CreateRuleFileInput, ...request.Option) (*CreateRuleFileOutput, error)
 	CreateRuleFileRequest(*CreateRuleFileInput) (*request.Request, *CreateRuleFileOutput)
+
+	CreateSilencePolicyCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateSilencePolicyCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateSilencePolicyCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateSilencePolicy(*CreateSilencePolicyInput) (*CreateSilencePolicyOutput, error)
+	CreateSilencePolicyWithContext(volcengine.Context, *CreateSilencePolicyInput, ...request.Option) (*CreateSilencePolicyOutput, error)
+	CreateSilencePolicyRequest(*CreateSilencePolicyInput) (*request.Request, *CreateSilencePolicyOutput)
 
 	CreateWorkspaceCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	CreateWorkspaceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -118,6 +134,14 @@ type VMPAPI interface {
 	DeleteContactsWithContext(volcengine.Context, *DeleteContactsInput, ...request.Option) (*DeleteContactsOutput, error)
 	DeleteContactsRequest(*DeleteContactsInput) (*request.Request, *DeleteContactsOutput)
 
+	DeleteIntegrationTaskCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeleteIntegrationTaskCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeleteIntegrationTaskCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeleteIntegrationTask(*DeleteIntegrationTaskInput) (*DeleteIntegrationTaskOutput, error)
+	DeleteIntegrationTaskWithContext(volcengine.Context, *DeleteIntegrationTaskInput, ...request.Option) (*DeleteIntegrationTaskOutput, error)
+	DeleteIntegrationTaskRequest(*DeleteIntegrationTaskInput) (*request.Request, *DeleteIntegrationTaskOutput)
+
 	DeleteNotifyGroupPolicyCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DeleteNotifyGroupPolicyCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DeleteNotifyGroupPolicyCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -150,6 +174,14 @@ type VMPAPI interface {
 	DeleteRuleFileWithContext(volcengine.Context, *DeleteRuleFileInput, ...request.Option) (*DeleteRuleFileOutput, error)
 	DeleteRuleFileRequest(*DeleteRuleFileInput) (*request.Request, *DeleteRuleFileOutput)
 
+	DeleteSilencePoliciesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeleteSilencePoliciesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeleteSilencePoliciesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeleteSilencePolicies(*DeleteSilencePoliciesInput) (*DeleteSilencePoliciesOutput, error)
+	DeleteSilencePoliciesWithContext(volcengine.Context, *DeleteSilencePoliciesInput, ...request.Option) (*DeleteSilencePoliciesOutput, error)
+	DeleteSilencePoliciesRequest(*DeleteSilencePoliciesInput) (*request.Request, *DeleteSilencePoliciesOutput)
+
 	DeleteWorkspaceCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DeleteWorkspaceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DeleteWorkspaceCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -166,6 +198,22 @@ type VMPAPI interface {
 	DisableAlertingRulesWithContext(volcengine.Context, *DisableAlertingRulesInput, ...request.Option) (*DisableAlertingRulesOutput, error)
 	DisableAlertingRulesRequest(*DisableAlertingRulesInput) (*request.Request, *DisableAlertingRulesOutput)
 
+	DisableIntegrationTasksCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DisableIntegrationTasksCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DisableIntegrationTasksCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DisableIntegrationTasks(*DisableIntegrationTasksInput) (*DisableIntegrationTasksOutput, error)
+	DisableIntegrationTasksWithContext(volcengine.Context, *DisableIntegrationTasksInput, ...request.Option) (*DisableIntegrationTasksOutput, error)
+	DisableIntegrationTasksRequest(*DisableIntegrationTasksInput) (*request.Request, *DisableIntegrationTasksOutput)
+
+	DisableSilencePoliciesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DisableSilencePoliciesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DisableSilencePoliciesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DisableSilencePolicies(*DisableSilencePoliciesInput) (*DisableSilencePoliciesOutput, error)
+	DisableSilencePoliciesWithContext(volcengine.Context, *DisableSilencePoliciesInput, ...request.Option) (*DisableSilencePoliciesOutput, error)
+	DisableSilencePoliciesRequest(*DisableSilencePoliciesInput) (*request.Request, *DisableSilencePoliciesOutput)
+
 	EnableAlertingRulesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	EnableAlertingRulesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	EnableAlertingRulesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -173,6 +221,22 @@ type VMPAPI interface {
 	EnableAlertingRules(*EnableAlertingRulesInput) (*EnableAlertingRulesOutput, error)
 	EnableAlertingRulesWithContext(volcengine.Context, *EnableAlertingRulesInput, ...request.Option) (*EnableAlertingRulesOutput, error)
 	EnableAlertingRulesRequest(*EnableAlertingRulesInput) (*request.Request, *EnableAlertingRulesOutput)
+
+	EnableIntegrationTasksCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	EnableIntegrationTasksCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	EnableIntegrationTasksCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	EnableIntegrationTasks(*EnableIntegrationTasksInput) (*EnableIntegrationTasksOutput, error)
+	EnableIntegrationTasksWithContext(volcengine.Context, *EnableIntegrationTasksInput, ...request.Option) (*EnableIntegrationTasksOutput, error)
+	EnableIntegrationTasksRequest(*EnableIntegrationTasksInput) (*request.Request, *EnableIntegrationTasksOutput)
+
+	EnableSilencePoliciesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	EnableSilencePoliciesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	EnableSilencePoliciesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	EnableSilencePolicies(*EnableSilencePoliciesInput) (*EnableSilencePoliciesOutput, error)
+	EnableSilencePoliciesWithContext(volcengine.Context, *EnableSilencePoliciesInput, ...request.Option) (*EnableSilencePoliciesOutput, error)
+	EnableSilencePoliciesRequest(*EnableSilencePoliciesInput) (*request.Request, *EnableSilencePoliciesOutput)
 
 	GetAlertCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	GetAlertCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -205,6 +269,14 @@ type VMPAPI interface {
 	GetContactGroup(*GetContactGroupInput) (*GetContactGroupOutput, error)
 	GetContactGroupWithContext(volcengine.Context, *GetContactGroupInput, ...request.Option) (*GetContactGroupOutput, error)
 	GetContactGroupRequest(*GetContactGroupInput) (*request.Request, *GetContactGroupOutput)
+
+	GetIntegrationTaskCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	GetIntegrationTaskCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	GetIntegrationTaskCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	GetIntegrationTask(*GetIntegrationTaskInput) (*GetIntegrationTaskOutput, error)
+	GetIntegrationTaskWithContext(volcengine.Context, *GetIntegrationTaskInput, ...request.Option) (*GetIntegrationTaskOutput, error)
+	GetIntegrationTaskRequest(*GetIntegrationTaskInput) (*request.Request, *GetIntegrationTaskOutput)
 
 	GetNotifyGroupPolicyCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	GetNotifyGroupPolicyCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -278,6 +350,14 @@ type VMPAPI interface {
 	ListContactsWithContext(volcengine.Context, *ListContactsInput, ...request.Option) (*ListContactsOutput, error)
 	ListContactsRequest(*ListContactsInput) (*request.Request, *ListContactsOutput)
 
+	ListIntegrationTasksCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListIntegrationTasksCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListIntegrationTasksCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListIntegrationTasks(*ListIntegrationTasksInput) (*ListIntegrationTasksOutput, error)
+	ListIntegrationTasksWithContext(volcengine.Context, *ListIntegrationTasksInput, ...request.Option) (*ListIntegrationTasksOutput, error)
+	ListIntegrationTasksRequest(*ListIntegrationTasksInput) (*request.Request, *ListIntegrationTasksOutput)
+
 	ListNotifyGroupPoliciesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ListNotifyGroupPoliciesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	ListNotifyGroupPoliciesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -317,6 +397,14 @@ type VMPAPI interface {
 	ListRules(*ListRulesInput) (*ListRulesOutput, error)
 	ListRulesWithContext(volcengine.Context, *ListRulesInput, ...request.Option) (*ListRulesOutput, error)
 	ListRulesRequest(*ListRulesInput) (*request.Request, *ListRulesOutput)
+
+	ListSilencePoliciesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListSilencePoliciesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListSilencePoliciesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListSilencePolicies(*ListSilencePoliciesInput) (*ListSilencePoliciesOutput, error)
+	ListSilencePoliciesWithContext(volcengine.Context, *ListSilencePoliciesInput, ...request.Option) (*ListSilencePoliciesOutput, error)
+	ListSilencePoliciesRequest(*ListSilencePoliciesInput) (*request.Request, *ListSilencePoliciesOutput)
 
 	ListTagsForResourcesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ListTagsForResourcesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -430,6 +518,14 @@ type VMPAPI interface {
 	UpdateContactGroupWithContext(volcengine.Context, *UpdateContactGroupInput, ...request.Option) (*UpdateContactGroupOutput, error)
 	UpdateContactGroupRequest(*UpdateContactGroupInput) (*request.Request, *UpdateContactGroupOutput)
 
+	UpdateIntegrationTaskCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	UpdateIntegrationTaskCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	UpdateIntegrationTaskCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	UpdateIntegrationTask(*UpdateIntegrationTaskInput) (*UpdateIntegrationTaskOutput, error)
+	UpdateIntegrationTaskWithContext(volcengine.Context, *UpdateIntegrationTaskInput, ...request.Option) (*UpdateIntegrationTaskOutput, error)
+	UpdateIntegrationTaskRequest(*UpdateIntegrationTaskInput) (*request.Request, *UpdateIntegrationTaskOutput)
+
 	UpdateNotifyGroupPolicyCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	UpdateNotifyGroupPolicyCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	UpdateNotifyGroupPolicyCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -461,6 +557,14 @@ type VMPAPI interface {
 	UpdateRuleFile(*UpdateRuleFileInput) (*UpdateRuleFileOutput, error)
 	UpdateRuleFileWithContext(volcengine.Context, *UpdateRuleFileInput, ...request.Option) (*UpdateRuleFileOutput, error)
 	UpdateRuleFileRequest(*UpdateRuleFileInput) (*request.Request, *UpdateRuleFileOutput)
+
+	UpdateSilencePolicyCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	UpdateSilencePolicyCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	UpdateSilencePolicyCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	UpdateSilencePolicy(*UpdateSilencePolicyInput) (*UpdateSilencePolicyOutput, error)
+	UpdateSilencePolicyWithContext(volcengine.Context, *UpdateSilencePolicyInput, ...request.Option) (*UpdateSilencePolicyOutput, error)
+	UpdateSilencePolicyRequest(*UpdateSilencePolicyInput) (*request.Request, *UpdateSilencePolicyOutput)
 
 	UpdateWorkspaceCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	UpdateWorkspaceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
