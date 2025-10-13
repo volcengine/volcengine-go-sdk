@@ -244,6 +244,8 @@ type ItemForListFunctionsOutput struct {
 
 	Command *string `type:"string" json:",omitempty"`
 
+	Cpu *int32 `type:"int32" json:",omitempty"`
+
 	CpuStrategy *string `type:"string" json:",omitempty"`
 
 	CreationTime *string `type:"string" json:",omitempty"`
@@ -332,6 +334,12 @@ func (s *ItemForListFunctionsOutput) SetCodeSizeLimit(v int32) *ItemForListFunct
 // SetCommand sets the Command field's value.
 func (s *ItemForListFunctionsOutput) SetCommand(v string) *ItemForListFunctionsOutput {
 	s.Command = &v
+	return s
+}
+
+// SetCpu sets the Cpu field's value.
+func (s *ItemForListFunctionsOutput) SetCpu(v int32) *ItemForListFunctionsOutput {
+	s.Cpu = &v
 	return s
 }
 
