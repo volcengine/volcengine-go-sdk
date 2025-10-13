@@ -146,6 +146,8 @@ func (c *MONGODB) CreateDBEndpointWithContext(ctx volcengine.Context, input *Cre
 type CreateDBEndpointInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	AllShard *bool `type:"boolean" json:",omitempty"`
+
 	EipIds []*string `type:"list" json:",omitempty"`
 
 	// InstanceId is a required field
@@ -156,6 +158,8 @@ type CreateDBEndpointInput struct {
 	NetworkType *string `type:"string" json:",omitempty" enum:"EnumOfNetworkTypeForCreateDBEndpointInput"`
 
 	ObjectId *string `type:"string" json:",omitempty"`
+
+	ObjectIds []*string `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -179,6 +183,12 @@ func (s *CreateDBEndpointInput) Validate() error {
 		return invalidParams
 	}
 	return nil
+}
+
+// SetAllShard sets the AllShard field's value.
+func (s *CreateDBEndpointInput) SetAllShard(v bool) *CreateDBEndpointInput {
+	s.AllShard = &v
+	return s
 }
 
 // SetEipIds sets the EipIds field's value.
@@ -208,6 +218,12 @@ func (s *CreateDBEndpointInput) SetNetworkType(v string) *CreateDBEndpointInput 
 // SetObjectId sets the ObjectId field's value.
 func (s *CreateDBEndpointInput) SetObjectId(v string) *CreateDBEndpointInput {
 	s.ObjectId = &v
+	return s
+}
+
+// SetObjectIds sets the ObjectIds field's value.
+func (s *CreateDBEndpointInput) SetObjectIds(v []*string) *CreateDBEndpointInput {
+	s.ObjectIds = v
 	return s
 }
 
