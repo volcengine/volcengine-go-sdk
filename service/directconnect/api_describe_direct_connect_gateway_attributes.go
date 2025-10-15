@@ -177,6 +177,44 @@ func (s *AssociateCenForDescribeDirectConnectGatewayAttributesOutput) SetCenStat
 	return s
 }
 
+type AssociateEicForDescribeDirectConnectGatewayAttributesOutput struct {
+	_ struct{} `type:"structure"`
+
+	EicId *string `type:"string"`
+
+	EicOwnerId *string `type:"string"`
+
+	EicStatus *string `type:"string"`
+}
+
+// String returns the string representation
+func (s AssociateEicForDescribeDirectConnectGatewayAttributesOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s AssociateEicForDescribeDirectConnectGatewayAttributesOutput) GoString() string {
+	return s.String()
+}
+
+// SetEicId sets the EicId field's value.
+func (s *AssociateEicForDescribeDirectConnectGatewayAttributesOutput) SetEicId(v string) *AssociateEicForDescribeDirectConnectGatewayAttributesOutput {
+	s.EicId = &v
+	return s
+}
+
+// SetEicOwnerId sets the EicOwnerId field's value.
+func (s *AssociateEicForDescribeDirectConnectGatewayAttributesOutput) SetEicOwnerId(v string) *AssociateEicForDescribeDirectConnectGatewayAttributesOutput {
+	s.EicOwnerId = &v
+	return s
+}
+
+// SetEicStatus sets the EicStatus field's value.
+func (s *AssociateEicForDescribeDirectConnectGatewayAttributesOutput) SetEicStatus(v string) *AssociateEicForDescribeDirectConnectGatewayAttributesOutput {
+	s.EicStatus = &v
+	return s
+}
+
 type DescribeDirectConnectGatewayAttributesInput struct {
 	_ struct{} `type:"structure"`
 
@@ -221,6 +259,8 @@ type DescribeDirectConnectGatewayAttributesOutput struct {
 	AccountId *string `type:"string"`
 
 	AssociateCens []*AssociateCenForDescribeDirectConnectGatewayAttributesOutput `type:"list"`
+
+	AssociateEic *AssociateEicForDescribeDirectConnectGatewayAttributesOutput `type:"structure"`
 
 	BgpAsn *int64 `type:"integer"`
 
@@ -270,6 +310,12 @@ func (s *DescribeDirectConnectGatewayAttributesOutput) SetAccountId(v string) *D
 // SetAssociateCens sets the AssociateCens field's value.
 func (s *DescribeDirectConnectGatewayAttributesOutput) SetAssociateCens(v []*AssociateCenForDescribeDirectConnectGatewayAttributesOutput) *DescribeDirectConnectGatewayAttributesOutput {
 	s.AssociateCens = v
+	return s
+}
+
+// SetAssociateEic sets the AssociateEic field's value.
+func (s *DescribeDirectConnectGatewayAttributesOutput) SetAssociateEic(v *AssociateEicForDescribeDirectConnectGatewayAttributesOutput) *DescribeDirectConnectGatewayAttributesOutput {
+	s.AssociateEic = v
 	return s
 }
 
