@@ -639,6 +639,9 @@ const (
 
 	// EnumOfLogTypeForCreateClusterInputEtcd is a EnumOfLogTypeForCreateClusterInput enum value
 	EnumOfLogTypeForCreateClusterInputEtcd = "Etcd"
+
+	// EnumOfLogTypeForCreateClusterInputClusterAutoscaler is a EnumOfLogTypeForCreateClusterInput enum value
+	EnumOfLogTypeForCreateClusterInputClusterAutoscaler = "ClusterAutoscaler"
 )
 
 const (

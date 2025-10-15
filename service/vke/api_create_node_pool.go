@@ -217,6 +217,8 @@ type CreateNodePoolInput struct {
 
 	KubernetesConfig *KubernetesConfigForCreateNodePoolInput `type:"structure" json:",omitempty"`
 
+	Management *ManagementForCreateNodePoolInput `type:"structure" json:",omitempty"`
+
 	// Name is a required field
 	Name *string `type:"string" json:",omitempty" required:"true"`
 
@@ -277,6 +279,12 @@ func (s *CreateNodePoolInput) SetClusterId(v string) *CreateNodePoolInput {
 // SetKubernetesConfig sets the KubernetesConfig field's value.
 func (s *CreateNodePoolInput) SetKubernetesConfig(v *KubernetesConfigForCreateNodePoolInput) *CreateNodePoolInput {
 	s.KubernetesConfig = v
+	return s
+}
+
+// SetManagement sets the Management field's value.
+func (s *CreateNodePoolInput) SetManagement(v *ManagementForCreateNodePoolInput) *CreateNodePoolInput {
+	s.Management = v
 	return s
 }
 
@@ -433,6 +441,52 @@ func (s *FeatureGatesForCreateNodePoolInput) SetInPlacePodVerticalScaling(v bool
 // SetQoSResourceManager sets the QoSResourceManager field's value.
 func (s *FeatureGatesForCreateNodePoolInput) SetQoSResourceManager(v bool) *FeatureGatesForCreateNodePoolInput {
 	s.QoSResourceManager = &v
+	return s
+}
+
+type InstancesDistributionForCreateNodePoolInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	CapacityRebalance *bool `type:"boolean" json:",omitempty"`
+
+	CompensateWithOnDemand *bool `type:"boolean" json:",omitempty"`
+
+	OnDemandBaseCapacity *int32 `type:"int32" json:",omitempty"`
+
+	OnDemandPercentageAboveBaseCapacity *int32 `type:"int32" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s InstancesDistributionForCreateNodePoolInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s InstancesDistributionForCreateNodePoolInput) GoString() string {
+	return s.String()
+}
+
+// SetCapacityRebalance sets the CapacityRebalance field's value.
+func (s *InstancesDistributionForCreateNodePoolInput) SetCapacityRebalance(v bool) *InstancesDistributionForCreateNodePoolInput {
+	s.CapacityRebalance = &v
+	return s
+}
+
+// SetCompensateWithOnDemand sets the CompensateWithOnDemand field's value.
+func (s *InstancesDistributionForCreateNodePoolInput) SetCompensateWithOnDemand(v bool) *InstancesDistributionForCreateNodePoolInput {
+	s.CompensateWithOnDemand = &v
+	return s
+}
+
+// SetOnDemandBaseCapacity sets the OnDemandBaseCapacity field's value.
+func (s *InstancesDistributionForCreateNodePoolInput) SetOnDemandBaseCapacity(v int32) *InstancesDistributionForCreateNodePoolInput {
+	s.OnDemandBaseCapacity = &v
+	return s
+}
+
+// SetOnDemandPercentageAboveBaseCapacity sets the OnDemandPercentageAboveBaseCapacity field's value.
+func (s *InstancesDistributionForCreateNodePoolInput) SetOnDemandPercentageAboveBaseCapacity(v int32) *InstancesDistributionForCreateNodePoolInput {
+	s.OnDemandPercentageAboveBaseCapacity = &v
 	return s
 }
 
@@ -755,6 +809,36 @@ func (s *LoginForCreateNodePoolInput) SetSshKeyPairName(v string) *LoginForCreat
 	return s
 }
 
+type ManagementForCreateNodePoolInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Enabled *bool `type:"boolean" json:",omitempty"`
+
+	RemedyConfig *RemedyConfigForCreateNodePoolInput `type:"structure" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s ManagementForCreateNodePoolInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ManagementForCreateNodePoolInput) GoString() string {
+	return s.String()
+}
+
+// SetEnabled sets the Enabled field's value.
+func (s *ManagementForCreateNodePoolInput) SetEnabled(v bool) *ManagementForCreateNodePoolInput {
+	s.Enabled = &v
+	return s
+}
+
+// SetRemedyConfig sets the RemedyConfig field's value.
+func (s *ManagementForCreateNodePoolInput) SetRemedyConfig(v *RemedyConfigForCreateNodePoolInput) *ManagementForCreateNodePoolInput {
+	s.RemedyConfig = v
+	return s
+}
+
 type NodeConfigForCreateNodePoolInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -780,9 +864,13 @@ type NodeConfigForCreateNodePoolInput struct {
 
 	InstanceTypeIds []*string `type:"list" json:",omitempty"`
 
+	InstancesDistribution *InstancesDistributionForCreateNodePoolInput `type:"structure" json:",omitempty"`
+
 	NamePrefix *string `type:"string" json:",omitempty"`
 
 	Period *int32 `type:"int32" json:",omitempty"`
+
+	PreScript *string `type:"string" json:",omitempty"`
 
 	ProjectName *string `type:"string" json:",omitempty"`
 
@@ -791,6 +879,8 @@ type NodeConfigForCreateNodePoolInput struct {
 	PublicAccessEnabled *bool `type:"boolean" json:",omitempty"`
 
 	Security *SecurityForCreateNodePoolInput `type:"structure" json:",omitempty"`
+
+	SpotStrategy *string `type:"string" json:",omitempty" enum:"EnumOfSpotStrategyForCreateNodePoolInput"`
 
 	SubnetIds []*string `type:"list" json:",omitempty"`
 
@@ -875,6 +965,12 @@ func (s *NodeConfigForCreateNodePoolInput) SetInstanceTypeIds(v []*string) *Node
 	return s
 }
 
+// SetInstancesDistribution sets the InstancesDistribution field's value.
+func (s *NodeConfigForCreateNodePoolInput) SetInstancesDistribution(v *InstancesDistributionForCreateNodePoolInput) *NodeConfigForCreateNodePoolInput {
+	s.InstancesDistribution = v
+	return s
+}
+
 // SetNamePrefix sets the NamePrefix field's value.
 func (s *NodeConfigForCreateNodePoolInput) SetNamePrefix(v string) *NodeConfigForCreateNodePoolInput {
 	s.NamePrefix = &v
@@ -884,6 +980,12 @@ func (s *NodeConfigForCreateNodePoolInput) SetNamePrefix(v string) *NodeConfigFo
 // SetPeriod sets the Period field's value.
 func (s *NodeConfigForCreateNodePoolInput) SetPeriod(v int32) *NodeConfigForCreateNodePoolInput {
 	s.Period = &v
+	return s
+}
+
+// SetPreScript sets the PreScript field's value.
+func (s *NodeConfigForCreateNodePoolInput) SetPreScript(v string) *NodeConfigForCreateNodePoolInput {
+	s.PreScript = &v
 	return s
 }
 
@@ -908,6 +1010,12 @@ func (s *NodeConfigForCreateNodePoolInput) SetPublicAccessEnabled(v bool) *NodeC
 // SetSecurity sets the Security field's value.
 func (s *NodeConfigForCreateNodePoolInput) SetSecurity(v *SecurityForCreateNodePoolInput) *NodeConfigForCreateNodePoolInput {
 	s.Security = v
+	return s
+}
+
+// SetSpotStrategy sets the SpotStrategy field's value.
+func (s *NodeConfigForCreateNodePoolInput) SetSpotStrategy(v string) *NodeConfigForCreateNodePoolInput {
+	s.SpotStrategy = &v
 	return s
 }
 
@@ -964,6 +1072,36 @@ func (s *PublicAccessConfigForCreateNodePoolInput) SetBillingType(v int32) *Publ
 // SetIsp sets the Isp field's value.
 func (s *PublicAccessConfigForCreateNodePoolInput) SetIsp(v string) *PublicAccessConfigForCreateNodePoolInput {
 	s.Isp = &v
+	return s
+}
+
+type RemedyConfigForCreateNodePoolInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Enabled *bool `type:"boolean" json:",omitempty"`
+
+	Id *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s RemedyConfigForCreateNodePoolInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s RemedyConfigForCreateNodePoolInput) GoString() string {
+	return s.String()
+}
+
+// SetEnabled sets the Enabled field's value.
+func (s *RemedyConfigForCreateNodePoolInput) SetEnabled(v bool) *RemedyConfigForCreateNodePoolInput {
+	s.Enabled = &v
+	return s
+}
+
+// SetId sets the Id field's value.
+func (s *RemedyConfigForCreateNodePoolInput) SetId(v string) *RemedyConfigForCreateNodePoolInput {
+	s.Id = &v
 	return s
 }
 
@@ -1193,6 +1331,14 @@ const (
 const (
 	// EnumOfSecurityStrategyListForCreateNodePoolInputHids is a EnumOfSecurityStrategyListForCreateNodePoolInput enum value
 	EnumOfSecurityStrategyListForCreateNodePoolInputHids = "Hids"
+)
+
+const (
+	// EnumOfSpotStrategyForCreateNodePoolInputNoSpot is a EnumOfSpotStrategyForCreateNodePoolInput enum value
+	EnumOfSpotStrategyForCreateNodePoolInputNoSpot = "NoSpot"
+
+	// EnumOfSpotStrategyForCreateNodePoolInputSpotAsPriceGo is a EnumOfSpotStrategyForCreateNodePoolInput enum value
+	EnumOfSpotStrategyForCreateNodePoolInputSpotAsPriceGo = "SpotAsPriceGo"
 )
 
 const (
