@@ -457,6 +457,52 @@ func (s *FilterForListNodePoolsInput) SetUpdateClientToken(v string) *FilterForL
 	return s
 }
 
+type InstancesDistributionForListNodePoolsOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	CapacityRebalance *bool `type:"boolean" json:",omitempty"`
+
+	CompensateWithOnDemand *bool `type:"boolean" json:",omitempty"`
+
+	OnDemandBaseCapacity *int32 `type:"int32" json:",omitempty"`
+
+	OnDemandPercentageAboveBaseCapacity *int32 `type:"int32" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s InstancesDistributionForListNodePoolsOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s InstancesDistributionForListNodePoolsOutput) GoString() string {
+	return s.String()
+}
+
+// SetCapacityRebalance sets the CapacityRebalance field's value.
+func (s *InstancesDistributionForListNodePoolsOutput) SetCapacityRebalance(v bool) *InstancesDistributionForListNodePoolsOutput {
+	s.CapacityRebalance = &v
+	return s
+}
+
+// SetCompensateWithOnDemand sets the CompensateWithOnDemand field's value.
+func (s *InstancesDistributionForListNodePoolsOutput) SetCompensateWithOnDemand(v bool) *InstancesDistributionForListNodePoolsOutput {
+	s.CompensateWithOnDemand = &v
+	return s
+}
+
+// SetOnDemandBaseCapacity sets the OnDemandBaseCapacity field's value.
+func (s *InstancesDistributionForListNodePoolsOutput) SetOnDemandBaseCapacity(v int32) *InstancesDistributionForListNodePoolsOutput {
+	s.OnDemandBaseCapacity = &v
+	return s
+}
+
+// SetOnDemandPercentageAboveBaseCapacity sets the OnDemandPercentageAboveBaseCapacity field's value.
+func (s *InstancesDistributionForListNodePoolsOutput) SetOnDemandPercentageAboveBaseCapacity(v int32) *InstancesDistributionForListNodePoolsOutput {
+	s.OnDemandPercentageAboveBaseCapacity = &v
+	return s
+}
+
 type ItemForListNodePoolsOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -471,6 +517,8 @@ type ItemForListNodePoolsOutput struct {
 	Id *string `type:"string" json:",omitempty"`
 
 	KubernetesConfig *KubernetesConfigForListNodePoolsOutput `type:"structure" json:",omitempty"`
+
+	Management *ManagementForListNodePoolsOutput `type:"structure" json:",omitempty"`
 
 	Name *string `type:"string" json:",omitempty"`
 
@@ -530,6 +578,12 @@ func (s *ItemForListNodePoolsOutput) SetId(v string) *ItemForListNodePoolsOutput
 // SetKubernetesConfig sets the KubernetesConfig field's value.
 func (s *ItemForListNodePoolsOutput) SetKubernetesConfig(v *KubernetesConfigForListNodePoolsOutput) *ItemForListNodePoolsOutput {
 	s.KubernetesConfig = v
+	return s
+}
+
+// SetManagement sets the Management field's value.
+func (s *ItemForListNodePoolsOutput) SetManagement(v *ManagementForListNodePoolsOutput) *ItemForListNodePoolsOutput {
+	s.Management = v
 	return s
 }
 
@@ -939,6 +993,36 @@ func (s *LoginForListNodePoolsOutput) SetType(v string) *LoginForListNodePoolsOu
 	return s
 }
 
+type ManagementForListNodePoolsOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Enabled *bool `type:"boolean" json:",omitempty"`
+
+	RemedyConfig *RemedyConfigForListNodePoolsOutput `type:"structure" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s ManagementForListNodePoolsOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ManagementForListNodePoolsOutput) GoString() string {
+	return s.String()
+}
+
+// SetEnabled sets the Enabled field's value.
+func (s *ManagementForListNodePoolsOutput) SetEnabled(v bool) *ManagementForListNodePoolsOutput {
+	s.Enabled = &v
+	return s
+}
+
+// SetRemedyConfig sets the RemedyConfig field's value.
+func (s *ManagementForListNodePoolsOutput) SetRemedyConfig(v *RemedyConfigForListNodePoolsOutput) *ManagementForListNodePoolsOutput {
+	s.RemedyConfig = v
+	return s
+}
+
 type NodeConfigForListNodePoolsOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -964,9 +1048,13 @@ type NodeConfigForListNodePoolsOutput struct {
 
 	InstanceTypeIds []*string `type:"list" json:",omitempty"`
 
+	InstancesDistribution *InstancesDistributionForListNodePoolsOutput `type:"structure" json:",omitempty"`
+
 	NamePrefix *string `type:"string" json:",omitempty"`
 
 	Period *int32 `type:"int32" json:",omitempty"`
+
+	PreScript *string `type:"string" json:",omitempty"`
 
 	ProjectName *string `type:"string" json:",omitempty"`
 
@@ -975,6 +1063,8 @@ type NodeConfigForListNodePoolsOutput struct {
 	PublicAccessEnabled *bool `type:"boolean" json:",omitempty"`
 
 	Security *SecurityForListNodePoolsOutput `type:"structure" json:",omitempty"`
+
+	SpotStrategy *string `type:"string" json:",omitempty" enum:"EnumOfSpotStrategyForListNodePoolsOutput"`
 
 	SubnetIds []*string `type:"list" json:",omitempty"`
 
@@ -1059,6 +1149,12 @@ func (s *NodeConfigForListNodePoolsOutput) SetInstanceTypeIds(v []*string) *Node
 	return s
 }
 
+// SetInstancesDistribution sets the InstancesDistribution field's value.
+func (s *NodeConfigForListNodePoolsOutput) SetInstancesDistribution(v *InstancesDistributionForListNodePoolsOutput) *NodeConfigForListNodePoolsOutput {
+	s.InstancesDistribution = v
+	return s
+}
+
 // SetNamePrefix sets the NamePrefix field's value.
 func (s *NodeConfigForListNodePoolsOutput) SetNamePrefix(v string) *NodeConfigForListNodePoolsOutput {
 	s.NamePrefix = &v
@@ -1068,6 +1164,12 @@ func (s *NodeConfigForListNodePoolsOutput) SetNamePrefix(v string) *NodeConfigFo
 // SetPeriod sets the Period field's value.
 func (s *NodeConfigForListNodePoolsOutput) SetPeriod(v int32) *NodeConfigForListNodePoolsOutput {
 	s.Period = &v
+	return s
+}
+
+// SetPreScript sets the PreScript field's value.
+func (s *NodeConfigForListNodePoolsOutput) SetPreScript(v string) *NodeConfigForListNodePoolsOutput {
+	s.PreScript = &v
 	return s
 }
 
@@ -1092,6 +1194,12 @@ func (s *NodeConfigForListNodePoolsOutput) SetPublicAccessEnabled(v bool) *NodeC
 // SetSecurity sets the Security field's value.
 func (s *NodeConfigForListNodePoolsOutput) SetSecurity(v *SecurityForListNodePoolsOutput) *NodeConfigForListNodePoolsOutput {
 	s.Security = v
+	return s
+}
+
+// SetSpotStrategy sets the SpotStrategy field's value.
+func (s *NodeConfigForListNodePoolsOutput) SetSpotStrategy(v string) *NodeConfigForListNodePoolsOutput {
+	s.SpotStrategy = &v
 	return s
 }
 
@@ -1210,6 +1318,36 @@ func (s *PublicAccessConfigForListNodePoolsOutput) SetBillingType(v int32) *Publ
 // SetIsp sets the Isp field's value.
 func (s *PublicAccessConfigForListNodePoolsOutput) SetIsp(v string) *PublicAccessConfigForListNodePoolsOutput {
 	s.Isp = &v
+	return s
+}
+
+type RemedyConfigForListNodePoolsOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Enabled *bool `type:"boolean" json:",omitempty"`
+
+	Id *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s RemedyConfigForListNodePoolsOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s RemedyConfigForListNodePoolsOutput) GoString() string {
+	return s.String()
+}
+
+// SetEnabled sets the Enabled field's value.
+func (s *RemedyConfigForListNodePoolsOutput) SetEnabled(v bool) *RemedyConfigForListNodePoolsOutput {
+	s.Enabled = &v
+	return s
+}
+
+// SetId sets the Id field's value.
+func (s *RemedyConfigForListNodePoolsOutput) SetId(v string) *RemedyConfigForListNodePoolsOutput {
+	s.Id = &v
 	return s
 }
 
@@ -1595,6 +1733,14 @@ const (
 const (
 	// EnumOfSecurityStrategyListForListNodePoolsOutputHids is a EnumOfSecurityStrategyListForListNodePoolsOutput enum value
 	EnumOfSecurityStrategyListForListNodePoolsOutputHids = "Hids"
+)
+
+const (
+	// EnumOfSpotStrategyForListNodePoolsOutputNoSpot is a EnumOfSpotStrategyForListNodePoolsOutput enum value
+	EnumOfSpotStrategyForListNodePoolsOutputNoSpot = "NoSpot"
+
+	// EnumOfSpotStrategyForListNodePoolsOutputSpotAsPriceGo is a EnumOfSpotStrategyForListNodePoolsOutput enum value
+	EnumOfSpotStrategyForListNodePoolsOutputSpotAsPriceGo = "SpotAsPriceGo"
 )
 
 const (

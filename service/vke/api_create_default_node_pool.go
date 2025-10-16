@@ -610,6 +610,8 @@ type NodeConfigForCreateDefaultNodePoolInput struct {
 
 	NamePrefix *string `type:"string" json:",omitempty"`
 
+	PreScript *string `type:"string" json:",omitempty"`
+
 	Security *SecurityForCreateDefaultNodePoolInput `type:"structure" json:",omitempty"`
 
 	Tags []*TagForCreateDefaultNodePoolInput `type:"list" json:",omitempty"`
@@ -634,6 +636,12 @@ func (s *NodeConfigForCreateDefaultNodePoolInput) SetInitializeScript(v string) 
 // SetNamePrefix sets the NamePrefix field's value.
 func (s *NodeConfigForCreateDefaultNodePoolInput) SetNamePrefix(v string) *NodeConfigForCreateDefaultNodePoolInput {
 	s.NamePrefix = &v
+	return s
+}
+
+// SetPreScript sets the PreScript field's value.
+func (s *NodeConfigForCreateDefaultNodePoolInput) SetPreScript(v string) *NodeConfigForCreateDefaultNodePoolInput {
+	s.PreScript = &v
 	return s
 }
 

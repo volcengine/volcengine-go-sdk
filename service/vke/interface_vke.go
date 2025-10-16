@@ -19,7 +19,7 @@ import (
 //    // volcengine sdk func uses an SDK service client to make a request to
 //    // VKE.
 //    func myFunc(svc VKEAPI) bool {
-//        // Make svc.CreateAddon request
+//        // Make svc.BindingRemedyConfig request
 //    }
 //
 //    func main() {
@@ -30,6 +30,14 @@ import (
 //    }
 //
 type VKEAPI interface {
+	BindingRemedyConfigCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	BindingRemedyConfigCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	BindingRemedyConfigCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	BindingRemedyConfig(*BindingRemedyConfigInput) (*BindingRemedyConfigOutput, error)
+	BindingRemedyConfigWithContext(volcengine.Context, *BindingRemedyConfigInput, ...request.Option) (*BindingRemedyConfigOutput, error)
+	BindingRemedyConfigRequest(*BindingRemedyConfigInput) (*request.Request, *BindingRemedyConfigOutput)
+
 	CreateAddonCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	CreateAddonCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	CreateAddonCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -182,6 +190,14 @@ type VKEAPI interface {
 	ListClustersWithContext(volcengine.Context, *ListClustersInput, ...request.Option) (*ListClustersOutput, error)
 	ListClustersRequest(*ListClustersInput) (*request.Request, *ListClustersOutput)
 
+	ListInstanceTypeLabelsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListInstanceTypeLabelsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListInstanceTypeLabelsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListInstanceTypeLabels(*ListInstanceTypeLabelsInput) (*ListInstanceTypeLabelsOutput, error)
+	ListInstanceTypeLabelsWithContext(volcengine.Context, *ListInstanceTypeLabelsInput, ...request.Option) (*ListInstanceTypeLabelsOutput, error)
+	ListInstanceTypeLabelsRequest(*ListInstanceTypeLabelsInput) (*request.Request, *ListInstanceTypeLabelsOutput)
+
 	ListKubeconfigsCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ListKubeconfigsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	ListKubeconfigsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -214,6 +230,14 @@ type VKEAPI interface {
 	ListPermissionsWithContext(volcengine.Context, *ListPermissionsInput, ...request.Option) (*ListPermissionsOutput, error)
 	ListPermissionsRequest(*ListPermissionsInput) (*request.Request, *ListPermissionsOutput)
 
+	ListRemedyConfigsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListRemedyConfigsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListRemedyConfigsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListRemedyConfigs(*ListRemedyConfigsInput) (*ListRemedyConfigsOutput, error)
+	ListRemedyConfigsWithContext(volcengine.Context, *ListRemedyConfigsInput, ...request.Option) (*ListRemedyConfigsOutput, error)
+	ListRemedyConfigsRequest(*ListRemedyConfigsInput) (*request.Request, *ListRemedyConfigsOutput)
+
 	ListScalingEventsCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ListScalingEventsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	ListScalingEventsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -230,6 +254,14 @@ type VKEAPI interface {
 	ListScalingPoliciesWithContext(volcengine.Context, *ListScalingPoliciesInput, ...request.Option) (*ListScalingPoliciesOutput, error)
 	ListScalingPoliciesRequest(*ListScalingPoliciesInput) (*request.Request, *ListScalingPoliciesOutput)
 
+	ListSupportedAddInstanceTypesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListSupportedAddInstanceTypesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListSupportedAddInstanceTypesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListSupportedAddInstanceTypes(*ListSupportedAddInstanceTypesInput) (*ListSupportedAddInstanceTypesOutput, error)
+	ListSupportedAddInstanceTypesWithContext(volcengine.Context, *ListSupportedAddInstanceTypesInput, ...request.Option) (*ListSupportedAddInstanceTypesOutput, error)
+	ListSupportedAddInstanceTypesRequest(*ListSupportedAddInstanceTypesInput) (*request.Request, *ListSupportedAddInstanceTypesOutput)
+
 	ListSupportedAddonsCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ListSupportedAddonsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	ListSupportedAddonsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -237,6 +269,14 @@ type VKEAPI interface {
 	ListSupportedAddons(*ListSupportedAddonsInput) (*ListSupportedAddonsOutput, error)
 	ListSupportedAddonsWithContext(volcengine.Context, *ListSupportedAddonsInput, ...request.Option) (*ListSupportedAddonsOutput, error)
 	ListSupportedAddonsRequest(*ListSupportedAddonsInput) (*request.Request, *ListSupportedAddonsOutput)
+
+	ListSupportedImagesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListSupportedImagesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListSupportedImagesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListSupportedImages(*ListSupportedImagesInput) (*ListSupportedImagesOutput, error)
+	ListSupportedImagesWithContext(volcengine.Context, *ListSupportedImagesInput, ...request.Option) (*ListSupportedImagesOutput, error)
+	ListSupportedImagesRequest(*ListSupportedImagesInput) (*request.Request, *ListSupportedImagesOutput)
 
 	ListSupportedResourceTypesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ListSupportedResourceTypesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -277,6 +317,14 @@ type VKEAPI interface {
 	TagResources(*TagResourcesInput) (*TagResourcesOutput, error)
 	TagResourcesWithContext(volcengine.Context, *TagResourcesInput, ...request.Option) (*TagResourcesOutput, error)
 	TagResourcesRequest(*TagResourcesInput) (*request.Request, *TagResourcesOutput)
+
+	UnbindingRemedyConfigCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	UnbindingRemedyConfigCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	UnbindingRemedyConfigCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	UnbindingRemedyConfig(*UnbindingRemedyConfigInput) (*UnbindingRemedyConfigOutput, error)
+	UnbindingRemedyConfigWithContext(volcengine.Context, *UnbindingRemedyConfigInput, ...request.Option) (*UnbindingRemedyConfigOutput, error)
+	UnbindingRemedyConfigRequest(*UnbindingRemedyConfigInput) (*request.Request, *UnbindingRemedyConfigOutput)
 
 	UntagResourcesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	UntagResourcesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)

@@ -319,6 +319,52 @@ func (s *FeatureGatesForUpdateNodePoolConfigInput) SetQoSResourceManager(v bool)
 	return s
 }
 
+type InstancesDistributionForUpdateNodePoolConfigInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	CapacityRebalance *bool `type:"boolean" json:",omitempty"`
+
+	CompensateWithOnDemand *bool `type:"boolean" json:",omitempty"`
+
+	OnDemandBaseCapacity *int32 `type:"int32" json:",omitempty"`
+
+	OnDemandPercentageAboveBaseCapacity *int32 `type:"int32" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s InstancesDistributionForUpdateNodePoolConfigInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s InstancesDistributionForUpdateNodePoolConfigInput) GoString() string {
+	return s.String()
+}
+
+// SetCapacityRebalance sets the CapacityRebalance field's value.
+func (s *InstancesDistributionForUpdateNodePoolConfigInput) SetCapacityRebalance(v bool) *InstancesDistributionForUpdateNodePoolConfigInput {
+	s.CapacityRebalance = &v
+	return s
+}
+
+// SetCompensateWithOnDemand sets the CompensateWithOnDemand field's value.
+func (s *InstancesDistributionForUpdateNodePoolConfigInput) SetCompensateWithOnDemand(v bool) *InstancesDistributionForUpdateNodePoolConfigInput {
+	s.CompensateWithOnDemand = &v
+	return s
+}
+
+// SetOnDemandBaseCapacity sets the OnDemandBaseCapacity field's value.
+func (s *InstancesDistributionForUpdateNodePoolConfigInput) SetOnDemandBaseCapacity(v int32) *InstancesDistributionForUpdateNodePoolConfigInput {
+	s.OnDemandBaseCapacity = &v
+	return s
+}
+
+// SetOnDemandPercentageAboveBaseCapacity sets the OnDemandPercentageAboveBaseCapacity field's value.
+func (s *InstancesDistributionForUpdateNodePoolConfigInput) SetOnDemandPercentageAboveBaseCapacity(v int32) *InstancesDistributionForUpdateNodePoolConfigInput {
+	s.OnDemandPercentageAboveBaseCapacity = &v
+	return s
+}
+
 type KubeReservedForUpdateNodePoolConfigInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -638,6 +684,36 @@ func (s *LoginForUpdateNodePoolConfigInput) SetSshKeyPairName(v string) *LoginFo
 	return s
 }
 
+type ManagementForUpdateNodePoolConfigInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Enabled *bool `type:"boolean" json:",omitempty"`
+
+	RemedyConfig *RemedyConfigForUpdateNodePoolConfigInput `type:"structure" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s ManagementForUpdateNodePoolConfigInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ManagementForUpdateNodePoolConfigInput) GoString() string {
+	return s.String()
+}
+
+// SetEnabled sets the Enabled field's value.
+func (s *ManagementForUpdateNodePoolConfigInput) SetEnabled(v bool) *ManagementForUpdateNodePoolConfigInput {
+	s.Enabled = &v
+	return s
+}
+
+// SetRemedyConfig sets the RemedyConfig field's value.
+func (s *ManagementForUpdateNodePoolConfigInput) SetRemedyConfig(v *RemedyConfigForUpdateNodePoolConfigInput) *ManagementForUpdateNodePoolConfigInput {
+	s.RemedyConfig = v
+	return s
+}
+
 type NodeConfigForUpdateNodePoolConfigInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -657,9 +733,13 @@ type NodeConfigForUpdateNodePoolConfigInput struct {
 
 	InstanceTypeIds []*string `type:"list" json:",omitempty"`
 
+	InstancesDistribution *InstancesDistributionForUpdateNodePoolConfigInput `type:"structure" json:",omitempty"`
+
 	NamePrefix *string `type:"string" json:",omitempty"`
 
 	Period *int32 `type:"int32" json:",omitempty"`
+
+	PreScript *string `type:"string" json:",omitempty"`
 
 	ProjectName *string `type:"string" json:",omitempty"`
 
@@ -734,6 +814,12 @@ func (s *NodeConfigForUpdateNodePoolConfigInput) SetInstanceTypeIds(v []*string)
 	return s
 }
 
+// SetInstancesDistribution sets the InstancesDistribution field's value.
+func (s *NodeConfigForUpdateNodePoolConfigInput) SetInstancesDistribution(v *InstancesDistributionForUpdateNodePoolConfigInput) *NodeConfigForUpdateNodePoolConfigInput {
+	s.InstancesDistribution = v
+	return s
+}
+
 // SetNamePrefix sets the NamePrefix field's value.
 func (s *NodeConfigForUpdateNodePoolConfigInput) SetNamePrefix(v string) *NodeConfigForUpdateNodePoolConfigInput {
 	s.NamePrefix = &v
@@ -743,6 +829,12 @@ func (s *NodeConfigForUpdateNodePoolConfigInput) SetNamePrefix(v string) *NodeCo
 // SetPeriod sets the Period field's value.
 func (s *NodeConfigForUpdateNodePoolConfigInput) SetPeriod(v int32) *NodeConfigForUpdateNodePoolConfigInput {
 	s.Period = &v
+	return s
+}
+
+// SetPreScript sets the PreScript field's value.
+func (s *NodeConfigForUpdateNodePoolConfigInput) SetPreScript(v string) *NodeConfigForUpdateNodePoolConfigInput {
+	s.PreScript = &v
 	return s
 }
 
@@ -823,6 +915,36 @@ func (s *PublicAccessConfigForUpdateNodePoolConfigInput) SetBillingType(v int32)
 // SetIsp sets the Isp field's value.
 func (s *PublicAccessConfigForUpdateNodePoolConfigInput) SetIsp(v string) *PublicAccessConfigForUpdateNodePoolConfigInput {
 	s.Isp = &v
+	return s
+}
+
+type RemedyConfigForUpdateNodePoolConfigInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Enabled *bool `type:"boolean" json:",omitempty"`
+
+	Id *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s RemedyConfigForUpdateNodePoolConfigInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s RemedyConfigForUpdateNodePoolConfigInput) GoString() string {
+	return s.String()
+}
+
+// SetEnabled sets the Enabled field's value.
+func (s *RemedyConfigForUpdateNodePoolConfigInput) SetEnabled(v bool) *RemedyConfigForUpdateNodePoolConfigInput {
+	s.Enabled = &v
+	return s
+}
+
+// SetId sets the Id field's value.
+func (s *RemedyConfigForUpdateNodePoolConfigInput) SetId(v string) *RemedyConfigForUpdateNodePoolConfigInput {
+	s.Id = &v
 	return s
 }
 
@@ -1023,6 +1145,8 @@ type UpdateNodePoolConfigInput struct {
 
 	KubernetesConfig *KubernetesConfigForUpdateNodePoolConfigInput `type:"structure" json:",omitempty"`
 
+	Management *ManagementForUpdateNodePoolConfigInput `type:"structure" json:",omitempty"`
+
 	Name *string `type:"string" json:",omitempty"`
 
 	NodeConfig *NodeConfigForUpdateNodePoolConfigInput `type:"structure" json:",omitempty"`
@@ -1086,6 +1210,12 @@ func (s *UpdateNodePoolConfigInput) SetId(v string) *UpdateNodePoolConfigInput {
 // SetKubernetesConfig sets the KubernetesConfig field's value.
 func (s *UpdateNodePoolConfigInput) SetKubernetesConfig(v *KubernetesConfigForUpdateNodePoolConfigInput) *UpdateNodePoolConfigInput {
 	s.KubernetesConfig = v
+	return s
+}
+
+// SetManagement sets the Management field's value.
+func (s *UpdateNodePoolConfigInput) SetManagement(v *ManagementForUpdateNodePoolConfigInput) *UpdateNodePoolConfigInput {
+	s.Management = v
 	return s
 }
 
