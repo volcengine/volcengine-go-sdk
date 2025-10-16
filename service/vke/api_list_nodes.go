@@ -272,6 +272,8 @@ type ItemForListNodesOutput struct {
 
 	NodePoolId *string `type:"string" json:",omitempty"`
 
+	PreScript *string `type:"string" json:",omitempty"`
+
 	Roles []*string `type:"list" json:",omitempty"`
 
 	Status *StatusForListNodesOutput `type:"structure" json:",omitempty"`
@@ -366,6 +368,12 @@ func (s *ItemForListNodesOutput) SetName(v string) *ItemForListNodesOutput {
 // SetNodePoolId sets the NodePoolId field's value.
 func (s *ItemForListNodesOutput) SetNodePoolId(v string) *ItemForListNodesOutput {
 	s.NodePoolId = &v
+	return s
+}
+
+// SetPreScript sets the PreScript field's value.
+func (s *ItemForListNodesOutput) SetPreScript(v string) *ItemForListNodesOutput {
+	s.PreScript = &v
 	return s
 }
 
