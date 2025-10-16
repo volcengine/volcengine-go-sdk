@@ -242,6 +242,8 @@ type DirectConnectAccessPointForDescribeDirectConnectAccessPointsOutput struct {
 
 	DirectConnectAccessPointName *string `type:"string"`
 
+	IntegrationType *string `type:"string"`
+
 	LineOperators []*string `type:"list"`
 
 	Location *string `type:"string"`
@@ -274,6 +276,12 @@ func (s *DirectConnectAccessPointForDescribeDirectConnectAccessPointsOutput) Set
 // SetDirectConnectAccessPointName sets the DirectConnectAccessPointName field's value.
 func (s *DirectConnectAccessPointForDescribeDirectConnectAccessPointsOutput) SetDirectConnectAccessPointName(v string) *DirectConnectAccessPointForDescribeDirectConnectAccessPointsOutput {
 	s.DirectConnectAccessPointName = &v
+	return s
+}
+
+// SetIntegrationType sets the IntegrationType field's value.
+func (s *DirectConnectAccessPointForDescribeDirectConnectAccessPointsOutput) SetIntegrationType(v string) *DirectConnectAccessPointForDescribeDirectConnectAccessPointsOutput {
+	s.IntegrationType = &v
 	return s
 }
 
