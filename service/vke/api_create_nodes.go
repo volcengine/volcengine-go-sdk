@@ -166,6 +166,10 @@ type CreateNodesInput struct {
 	KubernetesConfig *KubernetesConfigForCreateNodesInput `type:"structure" json:",omitempty"`
 
 	NodePoolId *string `type:"string" json:",omitempty"`
+
+	PreScript *string `type:"string" json:",omitempty"`
+
+	SkipReplaceSystem *bool `type:"boolean" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -248,6 +252,18 @@ func (s *CreateNodesInput) SetKubernetesConfig(v *KubernetesConfigForCreateNodes
 // SetNodePoolId sets the NodePoolId field's value.
 func (s *CreateNodesInput) SetNodePoolId(v string) *CreateNodesInput {
 	s.NodePoolId = &v
+	return s
+}
+
+// SetPreScript sets the PreScript field's value.
+func (s *CreateNodesInput) SetPreScript(v string) *CreateNodesInput {
+	s.PreScript = &v
+	return s
+}
+
+// SetSkipReplaceSystem sets the SkipReplaceSystem field's value.
+func (s *CreateNodesInput) SetSkipReplaceSystem(v bool) *CreateNodesInput {
+	s.SkipReplaceSystem = &v
 	return s
 }
 

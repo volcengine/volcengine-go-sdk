@@ -443,6 +443,8 @@ type UpdateClusterConfigInput struct {
 	// Id is a required field
 	Id *string `type:"string" json:",omitempty" required:"true"`
 
+	IrsaEnabled *bool `type:"boolean" json:",omitempty"`
+
 	LoggingConfig *LoggingConfigForUpdateClusterConfigInput `type:"structure" json:",omitempty"`
 
 	MonitoringConfig *MonitoringConfigForUpdateClusterConfigInput `type:"structure" json:",omitempty"`
@@ -506,6 +508,12 @@ func (s *UpdateClusterConfigInput) SetDescription(v string) *UpdateClusterConfig
 // SetId sets the Id field's value.
 func (s *UpdateClusterConfigInput) SetId(v string) *UpdateClusterConfigInput {
 	s.Id = &v
+	return s
+}
+
+// SetIrsaEnabled sets the IrsaEnabled field's value.
+func (s *UpdateClusterConfigInput) SetIrsaEnabled(v bool) *UpdateClusterConfigInput {
+	s.IrsaEnabled = &v
 	return s
 }
 
@@ -615,6 +623,9 @@ const (
 
 	// EnumOfLogTypeForUpdateClusterConfigInputEtcd is a EnumOfLogTypeForUpdateClusterConfigInput enum value
 	EnumOfLogTypeForUpdateClusterConfigInputEtcd = "Etcd"
+
+	// EnumOfLogTypeForUpdateClusterConfigInputClusterAutoscaler is a EnumOfLogTypeForUpdateClusterConfigInput enum value
+	EnumOfLogTypeForUpdateClusterConfigInputClusterAutoscaler = "ClusterAutoscaler"
 )
 
 const (

@@ -167,6 +167,8 @@ type AlterTableInput struct {
 
 	// TableName is a required field
 	TableName *string `type:"string" json:",omitempty" required:"true"`
+
+	TableQuota *TableQuotaForAlterTableInput `type:"structure" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -255,6 +257,12 @@ func (s *AlterTableInput) SetTableName(v string) *AlterTableInput {
 	return s
 }
 
+// SetTableQuota sets the TableQuota field's value.
+func (s *AlterTableInput) SetTableQuota(v *TableQuotaForAlterTableInput) *AlterTableInput {
+	s.TableQuota = v
+	return s
+}
+
 type AlterTableOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -269,6 +277,52 @@ func (s AlterTableOutput) String() string {
 // GoString returns the string representation
 func (s AlterTableOutput) GoString() string {
 	return s.String()
+}
+
+type Gremlin_quota_configForAlterTableInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Caller_psm *string `type:"string" json:"caller_psm,omitempty"`
+
+	Fetch_size *int64 `type:"int64" json:"fetch_size,omitempty"`
+
+	Quota_size *int64 `type:"int64" json:"quota_size,omitempty"`
+
+	Template *string `type:"string" json:"template,omitempty"`
+}
+
+// String returns the string representation
+func (s Gremlin_quota_configForAlterTableInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s Gremlin_quota_configForAlterTableInput) GoString() string {
+	return s.String()
+}
+
+// SetCaller_psm sets the Caller_psm field's value.
+func (s *Gremlin_quota_configForAlterTableInput) SetCaller_psm(v string) *Gremlin_quota_configForAlterTableInput {
+	s.Caller_psm = &v
+	return s
+}
+
+// SetFetch_size sets the Fetch_size field's value.
+func (s *Gremlin_quota_configForAlterTableInput) SetFetch_size(v int64) *Gremlin_quota_configForAlterTableInput {
+	s.Fetch_size = &v
+	return s
+}
+
+// SetQuota_size sets the Quota_size field's value.
+func (s *Gremlin_quota_configForAlterTableInput) SetQuota_size(v int64) *Gremlin_quota_configForAlterTableInput {
+	s.Quota_size = &v
+	return s
+}
+
+// SetTemplate sets the Template field's value.
+func (s *Gremlin_quota_configForAlterTableInput) SetTemplate(v string) *Gremlin_quota_configForAlterTableInput {
+	s.Template = &v
+	return s
 }
 
 type IOQosOptionsForAlterTableInput struct {
@@ -374,5 +428,89 @@ func (s *IdcRoNumForAlterTableInput) SetIdc(v string) *IdcRoNumForAlterTableInpu
 // SetRoNum sets the RoNum field's value.
 func (s *IdcRoNumForAlterTableInput) SetRoNum(v int64) *IdcRoNumForAlterTableInput {
 	s.RoNum = &v
+	return s
+}
+
+type Psm_quota_configForAlterTableInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Caller_psm *string `type:"string" json:"caller_psm,omitempty"`
+
+	Read_fetch_size *int64 `type:"int64" json:"read_fetch_size,omitempty"`
+
+	Read_quota_size *int64 `type:"int64" json:"read_quota_size,omitempty"`
+
+	Write_fetch_size *int64 `type:"int64" json:"write_fetch_size,omitempty"`
+
+	Write_quota_size *int64 `type:"int64" json:"write_quota_size,omitempty"`
+}
+
+// String returns the string representation
+func (s Psm_quota_configForAlterTableInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s Psm_quota_configForAlterTableInput) GoString() string {
+	return s.String()
+}
+
+// SetCaller_psm sets the Caller_psm field's value.
+func (s *Psm_quota_configForAlterTableInput) SetCaller_psm(v string) *Psm_quota_configForAlterTableInput {
+	s.Caller_psm = &v
+	return s
+}
+
+// SetRead_fetch_size sets the Read_fetch_size field's value.
+func (s *Psm_quota_configForAlterTableInput) SetRead_fetch_size(v int64) *Psm_quota_configForAlterTableInput {
+	s.Read_fetch_size = &v
+	return s
+}
+
+// SetRead_quota_size sets the Read_quota_size field's value.
+func (s *Psm_quota_configForAlterTableInput) SetRead_quota_size(v int64) *Psm_quota_configForAlterTableInput {
+	s.Read_quota_size = &v
+	return s
+}
+
+// SetWrite_fetch_size sets the Write_fetch_size field's value.
+func (s *Psm_quota_configForAlterTableInput) SetWrite_fetch_size(v int64) *Psm_quota_configForAlterTableInput {
+	s.Write_fetch_size = &v
+	return s
+}
+
+// SetWrite_quota_size sets the Write_quota_size field's value.
+func (s *Psm_quota_configForAlterTableInput) SetWrite_quota_size(v int64) *Psm_quota_configForAlterTableInput {
+	s.Write_quota_size = &v
+	return s
+}
+
+type TableQuotaForAlterTableInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Gremlin_quota_configs []*Gremlin_quota_configForAlterTableInput `type:"list" json:"gremlin_quota_configs,omitempty"`
+
+	Psm_quota_configs []*Psm_quota_configForAlterTableInput `type:"list" json:"psm_quota_configs,omitempty"`
+}
+
+// String returns the string representation
+func (s TableQuotaForAlterTableInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TableQuotaForAlterTableInput) GoString() string {
+	return s.String()
+}
+
+// SetGremlin_quota_configs sets the Gremlin_quota_configs field's value.
+func (s *TableQuotaForAlterTableInput) SetGremlin_quota_configs(v []*Gremlin_quota_configForAlterTableInput) *TableQuotaForAlterTableInput {
+	s.Gremlin_quota_configs = v
+	return s
+}
+
+// SetPsm_quota_configs sets the Psm_quota_configs field's value.
+func (s *TableQuotaForAlterTableInput) SetPsm_quota_configs(v []*Psm_quota_configForAlterTableInput) *TableQuotaForAlterTableInput {
+	s.Psm_quota_configs = v
 	return s
 }

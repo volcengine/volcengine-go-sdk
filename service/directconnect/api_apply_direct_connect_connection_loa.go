@@ -3,8 +3,6 @@
 package directconnect
 
 import (
-	"fmt"
-
 	"github.com/volcengine/volcengine-go-sdk/volcengine"
 	"github.com/volcengine/volcengine-go-sdk/volcengine/request"
 	"github.com/volcengine/volcengine-go-sdk/volcengine/response"
@@ -202,16 +200,6 @@ func (s *ApplyDirectConnectConnectionLoaInput) Validate() error {
 	if s.SystemIntegrator == nil {
 		invalidParams.Add(request.NewErrParamRequired("SystemIntegrator"))
 	}
-	if s.Engineers != nil {
-		for i, v := range s.Engineers {
-			if v == nil {
-				continue
-			}
-			if err := v.Validate(); err != nil {
-				invalidParams.AddNested(fmt.Sprintf("%s[%v]", "Engineers", i), err.(request.ErrInvalidParams))
-			}
-		}
-	}
 
 	if invalidParams.Len() > 0 {
 		return invalidParams
@@ -306,17 +294,13 @@ func (s *ApplyDirectConnectConnectionLoaOutput) SetRequestId(v string) *ApplyDir
 type EngineerForApplyDirectConnectConnectionLoaInput struct {
 	_ struct{} `type:"structure"`
 
-	// CertificateNo is a required field
-	CertificateNo *string `type:"string" required:"true"`
+	CertificateNo *string `type:"string"`
 
-	// CertificateType is a required field
-	CertificateType *string `type:"string" required:"true"`
+	CertificateType *string `type:"string"`
 
-	// ContactPhone is a required field
-	ContactPhone *string `type:"string" required:"true"`
+	ContactPhone *string `type:"string"`
 
-	// Name is a required field
-	Name *string `type:"string" required:"true"`
+	Name *string `type:"string"`
 }
 
 // String returns the string representation
@@ -327,28 +311,6 @@ func (s EngineerForApplyDirectConnectConnectionLoaInput) String() string {
 // GoString returns the string representation
 func (s EngineerForApplyDirectConnectConnectionLoaInput) GoString() string {
 	return s.String()
-}
-
-// Validate inspects the fields of the type to determine if they are valid.
-func (s *EngineerForApplyDirectConnectConnectionLoaInput) Validate() error {
-	invalidParams := request.ErrInvalidParams{Context: "EngineerForApplyDirectConnectConnectionLoaInput"}
-	if s.CertificateNo == nil {
-		invalidParams.Add(request.NewErrParamRequired("CertificateNo"))
-	}
-	if s.CertificateType == nil {
-		invalidParams.Add(request.NewErrParamRequired("CertificateType"))
-	}
-	if s.ContactPhone == nil {
-		invalidParams.Add(request.NewErrParamRequired("ContactPhone"))
-	}
-	if s.Name == nil {
-		invalidParams.Add(request.NewErrParamRequired("Name"))
-	}
-
-	if invalidParams.Len() > 0 {
-		return invalidParams
-	}
-	return nil
 }
 
 // SetCertificateNo sets the CertificateNo field's value.
