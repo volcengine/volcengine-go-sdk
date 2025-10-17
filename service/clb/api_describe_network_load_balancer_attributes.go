@@ -139,6 +139,44 @@ func (c *CLB) DescribeNetworkLoadBalancerAttributesWithContext(ctx volcengine.Co
 	return out, req.Send()
 }
 
+type AccessLogForDescribeNetworkLoadBalancerAttributesOutput struct {
+	_ struct{} `type:"structure"`
+
+	AccessLogEnabled *bool `type:"boolean"`
+
+	ProjectId *string `type:"string"`
+
+	TopicId *string `type:"string"`
+}
+
+// String returns the string representation
+func (s AccessLogForDescribeNetworkLoadBalancerAttributesOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s AccessLogForDescribeNetworkLoadBalancerAttributesOutput) GoString() string {
+	return s.String()
+}
+
+// SetAccessLogEnabled sets the AccessLogEnabled field's value.
+func (s *AccessLogForDescribeNetworkLoadBalancerAttributesOutput) SetAccessLogEnabled(v bool) *AccessLogForDescribeNetworkLoadBalancerAttributesOutput {
+	s.AccessLogEnabled = &v
+	return s
+}
+
+// SetProjectId sets the ProjectId field's value.
+func (s *AccessLogForDescribeNetworkLoadBalancerAttributesOutput) SetProjectId(v string) *AccessLogForDescribeNetworkLoadBalancerAttributesOutput {
+	s.ProjectId = &v
+	return s
+}
+
+// SetTopicId sets the TopicId field's value.
+func (s *AccessLogForDescribeNetworkLoadBalancerAttributesOutput) SetTopicId(v string) *AccessLogForDescribeNetworkLoadBalancerAttributesOutput {
+	s.TopicId = &v
+	return s
+}
+
 type DescribeNetworkLoadBalancerAttributesInput struct {
 	_ struct{} `type:"structure"`
 
@@ -179,6 +217,8 @@ type DescribeNetworkLoadBalancerAttributesOutput struct {
 	_ struct{} `type:"structure"`
 
 	Metadata *response.ResponseMetadata
+
+	AccessLog *AccessLogForDescribeNetworkLoadBalancerAttributesOutput `type:"structure"`
 
 	AccountId *string `type:"string"`
 
@@ -243,6 +283,12 @@ func (s DescribeNetworkLoadBalancerAttributesOutput) String() string {
 // GoString returns the string representation
 func (s DescribeNetworkLoadBalancerAttributesOutput) GoString() string {
 	return s.String()
+}
+
+// SetAccessLog sets the AccessLog field's value.
+func (s *DescribeNetworkLoadBalancerAttributesOutput) SetAccessLog(v *AccessLogForDescribeNetworkLoadBalancerAttributesOutput) *DescribeNetworkLoadBalancerAttributesOutput {
+	s.AccessLog = v
+	return s
 }
 
 // SetAccountId sets the AccountId field's value.

@@ -142,6 +142,8 @@ func (c *CLB) DescribeNLBServerGroupsWithContext(ctx volcengine.Context, input *
 type DescribeNLBServerGroupsInput struct {
 	_ struct{} `type:"structure"`
 
+	InstanceIds []*string `type:"list"`
+
 	MaxResults *int64 `type:"integer"`
 
 	NextToken *string `type:"string"`
@@ -151,6 +153,8 @@ type DescribeNLBServerGroupsInput struct {
 	ServerGroupIds []*string `type:"list"`
 
 	ServerGroupName *string `type:"string"`
+
+	ServerIps []*string `type:"list"`
 
 	TagFilters []*TagFilterForDescribeNLBServerGroupsInput `type:"list"`
 
@@ -167,6 +171,12 @@ func (s DescribeNLBServerGroupsInput) String() string {
 // GoString returns the string representation
 func (s DescribeNLBServerGroupsInput) GoString() string {
 	return s.String()
+}
+
+// SetInstanceIds sets the InstanceIds field's value.
+func (s *DescribeNLBServerGroupsInput) SetInstanceIds(v []*string) *DescribeNLBServerGroupsInput {
+	s.InstanceIds = v
+	return s
 }
 
 // SetMaxResults sets the MaxResults field's value.
@@ -196,6 +206,12 @@ func (s *DescribeNLBServerGroupsInput) SetServerGroupIds(v []*string) *DescribeN
 // SetServerGroupName sets the ServerGroupName field's value.
 func (s *DescribeNLBServerGroupsInput) SetServerGroupName(v string) *DescribeNLBServerGroupsInput {
 	s.ServerGroupName = &v
+	return s
+}
+
+// SetServerIps sets the ServerIps field's value.
+func (s *DescribeNLBServerGroupsInput) SetServerIps(v []*string) *DescribeNLBServerGroupsInput {
+	s.ServerIps = v
 	return s
 }
 
