@@ -54,6 +54,14 @@ type BILLINGAPI interface {
 	CleanUpFinancialRelationWithContext(volcengine.Context, *CleanUpFinancialRelationInput, ...request.Option) (*CleanUpFinancialRelationOutput, error)
 	CleanUpFinancialRelationRequest(*CleanUpFinancialRelationInput) (*request.Request, *CleanUpFinancialRelationOutput)
 
+	CreateBudgetCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateBudgetCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateBudgetCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateBudget(*CreateBudgetInput) (*CreateBudgetOutput, error)
+	CreateBudgetWithContext(volcengine.Context, *CreateBudgetInput, ...request.Option) (*CreateBudgetOutput, error)
+	CreateBudgetRequest(*CreateBudgetInput) (*request.Request, *CreateBudgetOutput)
+
 	CreateFinancialRelationCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	CreateFinancialRelationCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	CreateFinancialRelationCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -61,6 +69,14 @@ type BILLINGAPI interface {
 	CreateFinancialRelation(*CreateFinancialRelationInput) (*CreateFinancialRelationOutput, error)
 	CreateFinancialRelationWithContext(volcengine.Context, *CreateFinancialRelationInput, ...request.Option) (*CreateFinancialRelationOutput, error)
 	CreateFinancialRelationRequest(*CreateFinancialRelationInput) (*request.Request, *CreateFinancialRelationOutput)
+
+	DeleteBudgetCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeleteBudgetCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeleteBudgetCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeleteBudget(*DeleteBudgetInput) (*DeleteBudgetOutput, error)
+	DeleteBudgetWithContext(volcengine.Context, *DeleteBudgetInput, ...request.Option) (*DeleteBudgetOutput, error)
+	DeleteBudgetRequest(*DeleteBudgetInput) (*request.Request, *DeleteBudgetOutput)
 
 	DeleteFinancialRelationCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DeleteFinancialRelationCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -150,6 +166,102 @@ type BILLINGAPI interface {
 	ListBillOverviewByProdWithContext(volcengine.Context, *ListBillOverviewByProdInput, ...request.Option) (*ListBillOverviewByProdOutput, error)
 	ListBillOverviewByProdRequest(*ListBillOverviewByProdInput) (*request.Request, *ListBillOverviewByProdOutput)
 
+	ListBudgetCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListBudgetCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListBudgetCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListBudget(*ListBudgetInput) (*ListBudgetOutput, error)
+	ListBudgetWithContext(volcengine.Context, *ListBudgetInput, ...request.Option) (*ListBudgetOutput, error)
+	ListBudgetRequest(*ListBudgetInput) (*request.Request, *ListBudgetOutput)
+
+	ListBudgetAmountByBudgetIDCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListBudgetAmountByBudgetIDCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListBudgetAmountByBudgetIDCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListBudgetAmountByBudgetID(*ListBudgetAmountByBudgetIDInput) (*ListBudgetAmountByBudgetIDOutput, error)
+	ListBudgetAmountByBudgetIDWithContext(volcengine.Context, *ListBudgetAmountByBudgetIDInput, ...request.Option) (*ListBudgetAmountByBudgetIDOutput, error)
+	ListBudgetAmountByBudgetIDRequest(*ListBudgetAmountByBudgetIDInput) (*request.Request, *ListBudgetAmountByBudgetIDOutput)
+
+	ListBudgetFilterBillingModeCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListBudgetFilterBillingModeCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListBudgetFilterBillingModeCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListBudgetFilterBillingMode(*ListBudgetFilterBillingModeInput) (*ListBudgetFilterBillingModeOutput, error)
+	ListBudgetFilterBillingModeWithContext(volcengine.Context, *ListBudgetFilterBillingModeInput, ...request.Option) (*ListBudgetFilterBillingModeOutput, error)
+	ListBudgetFilterBillingModeRequest(*ListBudgetFilterBillingModeInput) (*request.Request, *ListBudgetFilterBillingModeOutput)
+
+	ListBudgetFilterOwnerIDCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListBudgetFilterOwnerIDCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListBudgetFilterOwnerIDCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListBudgetFilterOwnerID(*ListBudgetFilterOwnerIDInput) (*ListBudgetFilterOwnerIDOutput, error)
+	ListBudgetFilterOwnerIDWithContext(volcengine.Context, *ListBudgetFilterOwnerIDInput, ...request.Option) (*ListBudgetFilterOwnerIDOutput, error)
+	ListBudgetFilterOwnerIDRequest(*ListBudgetFilterOwnerIDInput) (*request.Request, *ListBudgetFilterOwnerIDOutput)
+
+	ListBudgetFilterPayerIDCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListBudgetFilterPayerIDCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListBudgetFilterPayerIDCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListBudgetFilterPayerID(*ListBudgetFilterPayerIDInput) (*ListBudgetFilterPayerIDOutput, error)
+	ListBudgetFilterPayerIDWithContext(volcengine.Context, *ListBudgetFilterPayerIDInput, ...request.Option) (*ListBudgetFilterPayerIDOutput, error)
+	ListBudgetFilterPayerIDRequest(*ListBudgetFilterPayerIDInput) (*request.Request, *ListBudgetFilterPayerIDOutput)
+
+	ListBudgetFilterProductCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListBudgetFilterProductCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListBudgetFilterProductCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListBudgetFilterProduct(*ListBudgetFilterProductInput) (*ListBudgetFilterProductOutput, error)
+	ListBudgetFilterProductWithContext(volcengine.Context, *ListBudgetFilterProductInput, ...request.Option) (*ListBudgetFilterProductOutput, error)
+	ListBudgetFilterProductRequest(*ListBudgetFilterProductInput) (*request.Request, *ListBudgetFilterProductOutput)
+
+	ListBudgetFilterProjectCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListBudgetFilterProjectCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListBudgetFilterProjectCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListBudgetFilterProject(*ListBudgetFilterProjectInput) (*ListBudgetFilterProjectOutput, error)
+	ListBudgetFilterProjectWithContext(volcengine.Context, *ListBudgetFilterProjectInput, ...request.Option) (*ListBudgetFilterProjectOutput, error)
+	ListBudgetFilterProjectRequest(*ListBudgetFilterProjectInput) (*request.Request, *ListBudgetFilterProjectOutput)
+
+	ListBudgetFilterRegionCodeCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListBudgetFilterRegionCodeCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListBudgetFilterRegionCodeCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListBudgetFilterRegionCode(*ListBudgetFilterRegionCodeInput) (*ListBudgetFilterRegionCodeOutput, error)
+	ListBudgetFilterRegionCodeWithContext(volcengine.Context, *ListBudgetFilterRegionCodeInput, ...request.Option) (*ListBudgetFilterRegionCodeOutput, error)
+	ListBudgetFilterRegionCodeRequest(*ListBudgetFilterRegionCodeInput) (*request.Request, *ListBudgetFilterRegionCodeOutput)
+
+	ListBudgetFilterSubjectInfoCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListBudgetFilterSubjectInfoCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListBudgetFilterSubjectInfoCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListBudgetFilterSubjectInfo(*ListBudgetFilterSubjectInfoInput) (*ListBudgetFilterSubjectInfoOutput, error)
+	ListBudgetFilterSubjectInfoWithContext(volcengine.Context, *ListBudgetFilterSubjectInfoInput, ...request.Option) (*ListBudgetFilterSubjectInfoOutput, error)
+	ListBudgetFilterSubjectInfoRequest(*ListBudgetFilterSubjectInfoInput) (*request.Request, *ListBudgetFilterSubjectInfoOutput)
+
+	ListBudgetFilterTagKeyCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListBudgetFilterTagKeyCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListBudgetFilterTagKeyCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListBudgetFilterTagKey(*ListBudgetFilterTagKeyInput) (*ListBudgetFilterTagKeyOutput, error)
+	ListBudgetFilterTagKeyWithContext(volcengine.Context, *ListBudgetFilterTagKeyInput, ...request.Option) (*ListBudgetFilterTagKeyOutput, error)
+	ListBudgetFilterTagKeyRequest(*ListBudgetFilterTagKeyInput) (*request.Request, *ListBudgetFilterTagKeyOutput)
+
+	ListBudgetFilterTagValueCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListBudgetFilterTagValueCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListBudgetFilterTagValueCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListBudgetFilterTagValue(*ListBudgetFilterTagValueInput) (*ListBudgetFilterTagValueOutput, error)
+	ListBudgetFilterTagValueWithContext(volcengine.Context, *ListBudgetFilterTagValueInput, ...request.Option) (*ListBudgetFilterTagValueOutput, error)
+	ListBudgetFilterTagValueRequest(*ListBudgetFilterTagValueInput) (*request.Request, *ListBudgetFilterTagValueOutput)
+
+	ListBudgetFilterZoneCodeCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListBudgetFilterZoneCodeCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListBudgetFilterZoneCodeCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListBudgetFilterZoneCode(*ListBudgetFilterZoneCodeInput) (*ListBudgetFilterZoneCodeOutput, error)
+	ListBudgetFilterZoneCodeWithContext(volcengine.Context, *ListBudgetFilterZoneCodeInput, ...request.Option) (*ListBudgetFilterZoneCodeOutput, error)
+	ListBudgetFilterZoneCodeRequest(*ListBudgetFilterZoneCodeInput) (*request.Request, *ListBudgetFilterZoneCodeOutput)
+
 	ListCouponUsageRecordsCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ListCouponUsageRecordsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	ListCouponUsageRecordsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -206,6 +318,14 @@ type BILLINGAPI interface {
 	ListPackageUsageDetailsWithContext(volcengine.Context, *ListPackageUsageDetailsInput, ...request.Option) (*ListPackageUsageDetailsOutput, error)
 	ListPackageUsageDetailsRequest(*ListPackageUsageDetailsInput) (*request.Request, *ListPackageUsageDetailsOutput)
 
+	ListRecipientInformationCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListRecipientInformationCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListRecipientInformationCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListRecipientInformation(*ListRecipientInformationInput) (*ListRecipientInformationOutput, error)
+	ListRecipientInformationWithContext(volcengine.Context, *ListRecipientInformationInput, ...request.Option) (*ListRecipientInformationOutput, error)
+	ListRecipientInformationRequest(*ListRecipientInformationInput) (*request.Request, *ListRecipientInformationOutput)
+
 	ListResourcePackagesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ListResourcePackagesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	ListResourcePackagesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -237,6 +357,14 @@ type BILLINGAPI interface {
 	QueryBalanceAcct(*QueryBalanceAcctInput) (*QueryBalanceAcctOutput, error)
 	QueryBalanceAcctWithContext(volcengine.Context, *QueryBalanceAcctInput, ...request.Option) (*QueryBalanceAcctOutput, error)
 	QueryBalanceAcctRequest(*QueryBalanceAcctInput) (*request.Request, *QueryBalanceAcctOutput)
+
+	QueryBudgetDetailCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	QueryBudgetDetailCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	QueryBudgetDetailCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	QueryBudgetDetail(*QueryBudgetDetailInput) (*QueryBudgetDetailOutput, error)
+	QueryBudgetDetailWithContext(volcengine.Context, *QueryBudgetDetailInput, ...request.Option) (*QueryBudgetDetailOutput, error)
+	QueryBudgetDetailRequest(*QueryBudgetDetailInput) (*request.Request, *QueryBudgetDetailOutput)
 
 	QueryPriceForPayAsYouGoCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	QueryPriceForPayAsYouGoCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -293,6 +421,14 @@ type BILLINGAPI interface {
 	UpdateAuth(*UpdateAuthInput) (*UpdateAuthOutput, error)
 	UpdateAuthWithContext(volcengine.Context, *UpdateAuthInput, ...request.Option) (*UpdateAuthOutput, error)
 	UpdateAuthRequest(*UpdateAuthInput) (*request.Request, *UpdateAuthOutput)
+
+	UpdateBudgetCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	UpdateBudgetCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	UpdateBudgetCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	UpdateBudget(*UpdateBudgetInput) (*UpdateBudgetOutput, error)
+	UpdateBudgetWithContext(volcengine.Context, *UpdateBudgetInput, ...request.Option) (*UpdateBudgetOutput, error)
+	UpdateBudgetRequest(*UpdateBudgetInput) (*request.Request, *UpdateBudgetOutput)
 }
 
 var _ BILLINGAPI = (*BILLING)(nil)
