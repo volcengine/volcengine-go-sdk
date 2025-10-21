@@ -8,9 +8,33 @@ const (
 	GenerateImagesResponseFormatURL = "url"
 
 	GenerateImagesSizeAdaptive = "adaptive"
+
+	OptimizePromptThinkingAuto = "auto"
+
+	OptimizePromptThinkingEnabled = "enabled"
+
+	OptimizePromptThinkingDisabled = "disabled"
+
+	OptimizePromptModeStandard = "standard"
+
+	OptimizePromptModeFast = "fast"
+
+	SequentialImageGenerationAuto = "auto"
+
+	SequentialImageGenerationDisabled = "disabled"
+
+	ImageGenerationStreamEventPartialSucceeded = "image_generation.partial_succeeded"
+
+	ImageGenerationStreamEventPartialFailed = "image_generation.partial_failed"
+
+	ImageGenerationStreamEventCompleted = "image_generation.completed"
 )
 
 type SequentialImageGeneration string
+
+type OptimizePromptThinking string
+
+type OptimizePromptMode string
 
 type GenerateImagesRequest struct {
 	Model                            string                            `json:"model"`
@@ -22,6 +46,7 @@ type GenerateImagesRequest struct {
 	Size                             *string                           `json:"size,omitempty"`
 	Watermark                        *bool                             `json:"watermark,omitempty"`
 	OptimizePrompt                   *bool                             `json:"optimize_prompt,omitempty"`
+	OptimizePromptOptions            *OptimizePromptOptions            `json:"optimize_prompt_options,omitempty"`
 	SequentialImageGeneration        *SequentialImageGeneration        `json:"sequential_image_generation,omitempty"`
 	SequentialImageGenerationOptions *SequentialImageGenerationOptions `json:"sequential_image_generation_options,omitempty"`
 }
@@ -45,6 +70,11 @@ func (req *GenerateImagesRequest) NormalizeImages() error {
 		return fmt.Errorf("unsupported type for Image: %T", v)
 	}
 	return nil
+}
+
+type OptimizePromptOptions struct {
+	Thinking *OptimizePromptThinking `json:"thinking,omitempty"`
+	Mode     *OptimizePromptMode     `json:"mode,omitempty"`
 }
 
 type SequentialImageGenerationOptions struct {
