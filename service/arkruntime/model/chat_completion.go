@@ -19,6 +19,15 @@ const (
 	ImageURLDetailAuto ImageURLDetail = "auto"
 )
 
+type ReasoningEffort string
+
+const (
+	ReasoningEffortMinimal ReasoningEffort = "minimal"
+	ReasoningEffortLow     ReasoningEffort = "low"
+	ReasoningEffortMedium  ReasoningEffort = "medium"
+	ReasoningEffortHigh    ReasoningEffort = "high"
+)
+
 type ChatMessageImageURL struct {
 	URL    string         `json:"url,omitempty"`
 	Detail ImageURLDetail `json:"detail,omitempty"`
@@ -199,6 +208,7 @@ type CreateChatCompletionRequest struct {
 	ServiceTier         *string                  `json:"service_tier,omitempty"`
 	Thinking            *Thinking                `json:"thinking,omitempty"`
 	MaxCompletionTokens *int                     `json:"max_completion_tokens,omitempty"`
+	ReasoningEffort     *ReasoningEffort         `json:"reasoning_effort,omitempty"`
 }
 
 func (r CreateChatCompletionRequest) MarshalJSON() ([]byte, error) {
