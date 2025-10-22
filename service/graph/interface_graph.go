@@ -118,6 +118,14 @@ type GRAPHAPI interface {
 	GetAddTablesTicketOptionsWithContext(volcengine.Context, *GetAddTablesTicketOptionsInput, ...request.Option) (*GetAddTablesTicketOptionsOutput, error)
 	GetAddTablesTicketOptionsRequest(*GetAddTablesTicketOptionsInput) (*request.Request, *GetAddTablesTicketOptionsOutput)
 
+	GetConfCheckerCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	GetConfCheckerCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	GetConfCheckerCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	GetConfChecker(*GetConfCheckerInput) (*GetConfCheckerOutput, error)
+	GetConfCheckerWithContext(volcengine.Context, *GetConfCheckerInput, ...request.Option) (*GetConfCheckerOutput, error)
+	GetConfCheckerRequest(*GetConfCheckerInput) (*request.Request, *GetConfCheckerOutput)
+
 	GetInstanceSpecScopeCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	GetInstanceSpecScopeCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	GetInstanceSpecScopeCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -198,6 +206,14 @@ type GRAPHAPI interface {
 	GetVersionSetAndComponentsInfoWithContext(volcengine.Context, *GetVersionSetAndComponentsInfoInput, ...request.Option) (*GetVersionSetAndComponentsInfoOutput, error)
 	GetVersionSetAndComponentsInfoRequest(*GetVersionSetAndComponentsInfoInput) (*request.Request, *GetVersionSetAndComponentsInfoOutput)
 
+	GraphragAddKnowledgeBaseCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	GraphragAddKnowledgeBaseCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	GraphragAddKnowledgeBaseCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	GraphragAddKnowledgeBase(*GraphragAddKnowledgeBaseInput) (*GraphragAddKnowledgeBaseOutput, error)
+	GraphragAddKnowledgeBaseWithContext(volcengine.Context, *GraphragAddKnowledgeBaseInput, ...request.Option) (*GraphragAddKnowledgeBaseOutput, error)
+	GraphragAddKnowledgeBaseRequest(*GraphragAddKnowledgeBaseInput) (*request.Request, *GraphragAddKnowledgeBaseOutput)
+
 	ListClusterTablesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ListClusterTablesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	ListClusterTablesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -206,6 +222,14 @@ type GRAPHAPI interface {
 	ListClusterTablesWithContext(volcengine.Context, *ListClusterTablesInput, ...request.Option) (*ListClusterTablesOutput, error)
 	ListClusterTablesRequest(*ListClusterTablesInput) (*request.Request, *ListClusterTablesOutput)
 
+	ListGraphRagServiceCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListGraphRagServiceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListGraphRagServiceCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListGraphRagService(*ListGraphRagServiceInput) (*ListGraphRagServiceOutput, error)
+	ListGraphRagServiceWithContext(volcengine.Context, *ListGraphRagServiceInput, ...request.Option) (*ListGraphRagServiceOutput, error)
+	ListGraphRagServiceRequest(*ListGraphRagServiceInput) (*request.Request, *ListGraphRagServiceOutput)
+
 	ListInstanceCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ListInstanceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	ListInstanceCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -213,6 +237,38 @@ type GRAPHAPI interface {
 	ListInstance(*ListInstanceInput) (*ListInstanceOutput, error)
 	ListInstanceWithContext(volcengine.Context, *ListInstanceInput, ...request.Option) (*ListInstanceOutput, error)
 	ListInstanceRequest(*ListInstanceInput) (*request.Request, *ListInstanceOutput)
+
+	ListTabletServerCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListTabletServerCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListTabletServerCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListTabletServer(*ListTabletServerInput) (*ListTabletServerOutput, error)
+	ListTabletServerWithContext(volcengine.Context, *ListTabletServerInput, ...request.Option) (*ListTabletServerOutput, error)
+	ListTabletServerRequest(*ListTabletServerInput) (*request.Request, *ListTabletServerOutput)
+
+	ListTabletTaskCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListTabletTaskCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListTabletTaskCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListTabletTask(*ListTabletTaskInput) (*ListTabletTaskOutput, error)
+	ListTabletTaskWithContext(volcengine.Context, *ListTabletTaskInput, ...request.Option) (*ListTabletTaskOutput, error)
+	ListTabletTaskRequest(*ListTabletTaskInput) (*request.Request, *ListTabletTaskOutput)
+
+	ListTabletsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListTabletsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListTabletsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListTablets(*ListTabletsInput) (*ListTabletsOutput, error)
+	ListTabletsWithContext(volcengine.Context, *ListTabletsInput, ...request.Option) (*ListTabletsOutput, error)
+	ListTabletsRequest(*ListTabletsInput) (*request.Request, *ListTabletsOutput)
+
+	MigrateTabletReplicaCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	MigrateTabletReplicaCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	MigrateTabletReplicaCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	MigrateTabletReplica(*MigrateTabletReplicaInput) (*MigrateTabletReplicaOutput, error)
+	MigrateTabletReplicaWithContext(volcengine.Context, *MigrateTabletReplicaInput, ...request.Option) (*MigrateTabletReplicaOutput, error)
+	MigrateTabletReplicaRequest(*MigrateTabletReplicaInput) (*request.Request, *MigrateTabletReplicaOutput)
 
 	ModifyDBInstanceDeletionProtectionPolicyCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ModifyDBInstanceDeletionProtectionPolicyCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -245,6 +301,22 @@ type GRAPHAPI interface {
 	TruncateTable(*TruncateTableInput) (*TruncateTableOutput, error)
 	TruncateTableWithContext(volcengine.Context, *TruncateTableInput, ...request.Option) (*TruncateTableOutput, error)
 	TruncateTableRequest(*TruncateTableInput) (*request.Request, *TruncateTableOutput)
+
+	UpdateConfCheckerCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	UpdateConfCheckerCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	UpdateConfCheckerCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	UpdateConfChecker(*UpdateConfCheckerInput) (*UpdateConfCheckerOutput, error)
+	UpdateConfCheckerWithContext(volcengine.Context, *UpdateConfCheckerInput, ...request.Option) (*UpdateConfCheckerOutput, error)
+	UpdateConfCheckerRequest(*UpdateConfCheckerInput) (*request.Request, *UpdateConfCheckerOutput)
+
+	ValidateConfCheckerCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ValidateConfCheckerCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ValidateConfCheckerCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ValidateConfChecker(*ValidateConfCheckerInput) (*ValidateConfCheckerOutput, error)
+	ValidateConfCheckerWithContext(volcengine.Context, *ValidateConfCheckerInput, ...request.Option) (*ValidateConfCheckerOutput, error)
+	ValidateConfCheckerRequest(*ValidateConfCheckerInput) (*request.Request, *ValidateConfCheckerOutput)
 }
 
 var _ GRAPHAPI = (*GRAPH)(nil)
