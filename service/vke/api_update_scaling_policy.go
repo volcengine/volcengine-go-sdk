@@ -148,6 +148,8 @@ type ScheduledInstancePolicyForUpdateScalingPolicyInput struct {
 
 	AutoReleaseTime *string `type:"string" json:",omitempty"`
 
+	BestEffort *bool `type:"boolean" json:",omitempty"`
+
 	DeliveryType *string `type:"string" json:",omitempty" enum:"EnumOfDeliveryTypeForUpdateScalingPolicyInput"`
 
 	ElasticScheduledInstanceType *string `type:"string" json:",omitempty" enum:"EnumOfElasticScheduledInstanceTypeForUpdateScalingPolicyInput"`
@@ -170,6 +172,12 @@ func (s ScheduledInstancePolicyForUpdateScalingPolicyInput) GoString() string {
 // SetAutoReleaseTime sets the AutoReleaseTime field's value.
 func (s *ScheduledInstancePolicyForUpdateScalingPolicyInput) SetAutoReleaseTime(v string) *ScheduledInstancePolicyForUpdateScalingPolicyInput {
 	s.AutoReleaseTime = &v
+	return s
+}
+
+// SetBestEffort sets the BestEffort field's value.
+func (s *ScheduledInstancePolicyForUpdateScalingPolicyInput) SetBestEffort(v bool) *ScheduledInstancePolicyForUpdateScalingPolicyInput {
+	s.BestEffort = &v
 	return s
 }
 
