@@ -305,6 +305,8 @@ type CreateInstanceInput struct {
 	OneStep *bool `type:"boolean" json:",omitempty"`
 
 	VersionSetId *int32 `type:"int32" json:",omitempty"`
+
+	WithGraphRAG *bool `type:"boolean" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -356,6 +358,12 @@ func (s *CreateInstanceInput) SetOneStep(v bool) *CreateInstanceInput {
 // SetVersionSetId sets the VersionSetId field's value.
 func (s *CreateInstanceInput) SetVersionSetId(v int32) *CreateInstanceInput {
 	s.VersionSetId = &v
+	return s
+}
+
+// SetWithGraphRAG sets the WithGraphRAG field's value.
+func (s *CreateInstanceInput) SetWithGraphRAG(v bool) *CreateInstanceInput {
+	s.WithGraphRAG = &v
 	return s
 }
 

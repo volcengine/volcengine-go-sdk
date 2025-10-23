@@ -142,6 +142,8 @@ func (c *CLB) ConvertLoadBalancerBillingTypeWithContext(ctx volcengine.Context, 
 type ConvertLoadBalancerBillingTypeInput struct {
 	_ struct{} `type:"structure"`
 
+	AutoRenewal *bool `type:"boolean"`
+
 	// LoadBalancerBillingType is a required field
 	LoadBalancerBillingType *int64 `type:"integer" required:"true"`
 
@@ -179,6 +181,12 @@ func (s *ConvertLoadBalancerBillingTypeInput) Validate() error {
 		return invalidParams
 	}
 	return nil
+}
+
+// SetAutoRenewal sets the AutoRenewal field's value.
+func (s *ConvertLoadBalancerBillingTypeInput) SetAutoRenewal(v bool) *ConvertLoadBalancerBillingTypeInput {
+	s.AutoRenewal = &v
+	return s
 }
 
 // SetLoadBalancerBillingType sets the LoadBalancerBillingType field's value.

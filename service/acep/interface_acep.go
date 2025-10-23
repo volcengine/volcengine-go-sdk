@@ -38,6 +38,14 @@ type ACEPAPI interface {
 	AddCustomRouteWithContext(volcengine.Context, *AddCustomRouteInput, ...request.Option) (*AddCustomRouteOutput, error)
 	AddCustomRouteRequest(*AddCustomRouteInput) (*request.Request, *AddCustomRouteOutput)
 
+	BackupDataCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	BackupDataCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	BackupDataCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	BackupData(*BackupDataInput) (*BackupDataOutput, error)
+	BackupDataWithContext(volcengine.Context, *BackupDataInput, ...request.Option) (*BackupDataOutput, error)
+	BackupDataRequest(*BackupDataInput) (*request.Request, *BackupDataOutput)
+
 	BackupPodCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	BackupPodCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	BackupPodCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -62,6 +70,14 @@ type ACEPAPI interface {
 	CancelRestorePodWithContext(volcengine.Context, *CancelRestorePodInput, ...request.Option) (*CancelRestorePodOutput, error)
 	CancelRestorePodRequest(*CancelRestorePodInput) (*request.Request, *CancelRestorePodOutput)
 
+	DeleteBackupDataCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeleteBackupDataCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeleteBackupDataCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeleteBackupData(*DeleteBackupDataInput) (*DeleteBackupDataOutput, error)
+	DeleteBackupDataWithContext(volcengine.Context, *DeleteBackupDataInput, ...request.Option) (*DeleteBackupDataOutput, error)
+	DeleteBackupDataRequest(*DeleteBackupDataInput) (*request.Request, *DeleteBackupDataOutput)
+
 	DeleteCustomRouteCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DeleteCustomRouteCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DeleteCustomRouteCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -70,6 +86,14 @@ type ACEPAPI interface {
 	DeleteCustomRouteWithContext(volcengine.Context, *DeleteCustomRouteInput, ...request.Option) (*DeleteCustomRouteOutput, error)
 	DeleteCustomRouteRequest(*DeleteCustomRouteInput) (*request.Request, *DeleteCustomRouteOutput)
 
+	GetDcBandwidthDailyPeakCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	GetDcBandwidthDailyPeakCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	GetDcBandwidthDailyPeakCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	GetDcBandwidthDailyPeak(*GetDcBandwidthDailyPeakInput) (*GetDcBandwidthDailyPeakOutput, error)
+	GetDcBandwidthDailyPeakWithContext(volcengine.Context, *GetDcBandwidthDailyPeakInput, ...request.Option) (*GetDcBandwidthDailyPeakOutput, error)
+	GetDcBandwidthDailyPeakRequest(*GetDcBandwidthDailyPeakInput) (*request.Request, *GetDcBandwidthDailyPeakOutput)
+
 	ListAppCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ListAppCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	ListAppCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -77,6 +101,14 @@ type ACEPAPI interface {
 	ListApp(*ListAppInput) (*ListAppOutput, error)
 	ListAppWithContext(volcengine.Context, *ListAppInput, ...request.Option) (*ListAppOutput, error)
 	ListAppRequest(*ListAppInput) (*request.Request, *ListAppOutput)
+
+	ListBackupDataCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListBackupDataCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListBackupDataCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListBackupData(*ListBackupDataInput) (*ListBackupDataOutput, error)
+	ListBackupDataWithContext(volcengine.Context, *ListBackupDataInput, ...request.Option) (*ListBackupDataOutput, error)
+	ListBackupDataRequest(*ListBackupDataInput) (*request.Request, *ListBackupDataOutput)
 
 	ListCustomRouteCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ListCustomRouteCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -101,6 +133,14 @@ type ACEPAPI interface {
 	MigratePod(*MigratePodInput) (*MigratePodOutput, error)
 	MigratePodWithContext(volcengine.Context, *MigratePodInput, ...request.Option) (*MigratePodOutput, error)
 	MigratePodRequest(*MigratePodInput) (*request.Request, *MigratePodOutput)
+
+	RestoreDataCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	RestoreDataCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	RestoreDataCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	RestoreData(*RestoreDataInput) (*RestoreDataOutput, error)
+	RestoreDataWithContext(volcengine.Context, *RestoreDataInput, ...request.Option) (*RestoreDataOutput, error)
+	RestoreDataRequest(*RestoreDataInput) (*request.Request, *RestoreDataOutput)
 
 	RestorePodCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	RestorePodCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)

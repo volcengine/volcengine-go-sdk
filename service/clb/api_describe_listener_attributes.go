@@ -214,6 +214,8 @@ type DescribeListenerAttributesOutput struct {
 
 	Description *string `type:"string"`
 
+	DomainExtensions []*DomainExtensionForDescribeListenerAttributesOutput `type:"list"`
+
 	Enabled *string `type:"string"`
 
 	EndPort *int64 `type:"integer"`
@@ -386,6 +388,12 @@ func (s *DescribeListenerAttributesOutput) SetCreateTime(v string) *DescribeList
 // SetDescription sets the Description field's value.
 func (s *DescribeListenerAttributesOutput) SetDescription(v string) *DescribeListenerAttributesOutput {
 	s.Description = &v
+	return s
+}
+
+// SetDomainExtensions sets the DomainExtensions field's value.
+func (s *DescribeListenerAttributesOutput) SetDomainExtensions(v []*DomainExtensionForDescribeListenerAttributesOutput) *DescribeListenerAttributesOutput {
+	s.DomainExtensions = v
 	return s
 }
 
@@ -572,6 +580,52 @@ func (s *DescribeListenerAttributesOutput) SetUpdateTime(v string) *DescribeList
 // SetWafProtectionEnabled sets the WafProtectionEnabled field's value.
 func (s *DescribeListenerAttributesOutput) SetWafProtectionEnabled(v string) *DescribeListenerAttributesOutput {
 	s.WafProtectionEnabled = &v
+	return s
+}
+
+type DomainExtensionForDescribeListenerAttributesOutput struct {
+	_ struct{} `type:"structure"`
+
+	CertCenterCertificateId *string `type:"string"`
+
+	CertificateSource *string `type:"string"`
+
+	Domain *string `type:"string"`
+
+	DomainExtensionId *string `type:"string"`
+}
+
+// String returns the string representation
+func (s DomainExtensionForDescribeListenerAttributesOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DomainExtensionForDescribeListenerAttributesOutput) GoString() string {
+	return s.String()
+}
+
+// SetCertCenterCertificateId sets the CertCenterCertificateId field's value.
+func (s *DomainExtensionForDescribeListenerAttributesOutput) SetCertCenterCertificateId(v string) *DomainExtensionForDescribeListenerAttributesOutput {
+	s.CertCenterCertificateId = &v
+	return s
+}
+
+// SetCertificateSource sets the CertificateSource field's value.
+func (s *DomainExtensionForDescribeListenerAttributesOutput) SetCertificateSource(v string) *DomainExtensionForDescribeListenerAttributesOutput {
+	s.CertificateSource = &v
+	return s
+}
+
+// SetDomain sets the Domain field's value.
+func (s *DomainExtensionForDescribeListenerAttributesOutput) SetDomain(v string) *DomainExtensionForDescribeListenerAttributesOutput {
+	s.Domain = &v
+	return s
+}
+
+// SetDomainExtensionId sets the DomainExtensionId field's value.
+func (s *DomainExtensionForDescribeListenerAttributesOutput) SetDomainExtensionId(v string) *DomainExtensionForDescribeListenerAttributesOutput {
+	s.DomainExtensionId = &v
 	return s
 }
 

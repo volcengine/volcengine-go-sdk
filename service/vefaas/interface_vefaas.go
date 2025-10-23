@@ -118,6 +118,14 @@ type VEFAASAPI interface {
 	DescribeSandboxWithContext(volcengine.Context, *DescribeSandboxInput, ...request.Option) (*DescribeSandboxOutput, error)
 	DescribeSandboxRequest(*DescribeSandboxInput) (*request.Request, *DescribeSandboxOutput)
 
+	EnableUserCrVpcTunnelCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	EnableUserCrVpcTunnelCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	EnableUserCrVpcTunnelCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	EnableUserCrVpcTunnel(*EnableUserCrVpcTunnelInput) (*EnableUserCrVpcTunnelOutput, error)
+	EnableUserCrVpcTunnelWithContext(volcengine.Context, *EnableUserCrVpcTunnelInput, ...request.Option) (*EnableUserCrVpcTunnelOutput, error)
+	EnableUserCrVpcTunnelRequest(*EnableUserCrVpcTunnelInput) (*request.Request, *EnableUserCrVpcTunnelOutput)
+
 	GenWebshellEndpointCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	GenWebshellEndpointCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	GenWebshellEndpointCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -325,6 +333,14 @@ type VEFAASAPI interface {
 	PrecacheSandboxImages(*PrecacheSandboxImagesInput) (*PrecacheSandboxImagesOutput, error)
 	PrecacheSandboxImagesWithContext(volcengine.Context, *PrecacheSandboxImagesInput, ...request.Option) (*PrecacheSandboxImagesOutput, error)
 	PrecacheSandboxImagesRequest(*PrecacheSandboxImagesInput) (*request.Request, *PrecacheSandboxImagesOutput)
+
+	QueryUserCrVpcTunnelCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	QueryUserCrVpcTunnelCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	QueryUserCrVpcTunnelCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	QueryUserCrVpcTunnel(*QueryUserCrVpcTunnelInput) (*QueryUserCrVpcTunnelOutput, error)
+	QueryUserCrVpcTunnelWithContext(volcengine.Context, *QueryUserCrVpcTunnelInput, ...request.Option) (*QueryUserCrVpcTunnelOutput, error)
+	QueryUserCrVpcTunnelRequest(*QueryUserCrVpcTunnelInput) (*request.Request, *QueryUserCrVpcTunnelOutput)
 
 	ReleaseCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ReleaseCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
