@@ -518,6 +518,14 @@ type CLBAPI interface {
 	ModifyListenerAttributesWithContext(volcengine.Context, *ModifyListenerAttributesInput, ...request.Option) (*ModifyListenerAttributesOutput, error)
 	ModifyListenerAttributesRequest(*ModifyListenerAttributesInput) (*request.Request, *ModifyListenerAttributesOutput)
 
+	ModifyListenerDomainExtensionsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ModifyListenerDomainExtensionsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ModifyListenerDomainExtensionsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ModifyListenerDomainExtensions(*ModifyListenerDomainExtensionsInput) (*ModifyListenerDomainExtensionsOutput, error)
+	ModifyListenerDomainExtensionsWithContext(volcengine.Context, *ModifyListenerDomainExtensionsInput, ...request.Option) (*ModifyListenerDomainExtensionsOutput, error)
+	ModifyListenerDomainExtensionsRequest(*ModifyListenerDomainExtensionsInput) (*request.Request, *ModifyListenerDomainExtensionsOutput)
+
 	ModifyLoadBalancerAttributesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ModifyLoadBalancerAttributesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	ModifyLoadBalancerAttributesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -565,6 +573,14 @@ type CLBAPI interface {
 	ModifyNLBServerGroupAttributes(*ModifyNLBServerGroupAttributesInput) (*ModifyNLBServerGroupAttributesOutput, error)
 	ModifyNLBServerGroupAttributesWithContext(volcengine.Context, *ModifyNLBServerGroupAttributesInput, ...request.Option) (*ModifyNLBServerGroupAttributesOutput, error)
 	ModifyNLBServerGroupAttributesRequest(*ModifyNLBServerGroupAttributesInput) (*request.Request, *ModifyNLBServerGroupAttributesOutput)
+
+	ModifyNetworkLoadBalancerAccessLogCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ModifyNetworkLoadBalancerAccessLogCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ModifyNetworkLoadBalancerAccessLogCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ModifyNetworkLoadBalancerAccessLog(*ModifyNetworkLoadBalancerAccessLogInput) (*ModifyNetworkLoadBalancerAccessLogOutput, error)
+	ModifyNetworkLoadBalancerAccessLogWithContext(volcengine.Context, *ModifyNetworkLoadBalancerAccessLogInput, ...request.Option) (*ModifyNetworkLoadBalancerAccessLogOutput, error)
+	ModifyNetworkLoadBalancerAccessLogRequest(*ModifyNetworkLoadBalancerAccessLogInput) (*request.Request, *ModifyNetworkLoadBalancerAccessLogOutput)
 
 	ModifyNetworkLoadBalancerAttributesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ModifyNetworkLoadBalancerAttributesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)

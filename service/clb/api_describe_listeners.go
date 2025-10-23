@@ -265,6 +265,52 @@ func (s *DescribeListenersOutput) SetTotalCount(v int64) *DescribeListenersOutpu
 	return s
 }
 
+type DomainExtensionForDescribeListenersOutput struct {
+	_ struct{} `type:"structure"`
+
+	CertCenterCertificateId *string `type:"string"`
+
+	CertificateSource *string `type:"string"`
+
+	Domain *string `type:"string"`
+
+	DomainExtensionId *string `type:"string"`
+}
+
+// String returns the string representation
+func (s DomainExtensionForDescribeListenersOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DomainExtensionForDescribeListenersOutput) GoString() string {
+	return s.String()
+}
+
+// SetCertCenterCertificateId sets the CertCenterCertificateId field's value.
+func (s *DomainExtensionForDescribeListenersOutput) SetCertCenterCertificateId(v string) *DomainExtensionForDescribeListenersOutput {
+	s.CertCenterCertificateId = &v
+	return s
+}
+
+// SetCertificateSource sets the CertificateSource field's value.
+func (s *DomainExtensionForDescribeListenersOutput) SetCertificateSource(v string) *DomainExtensionForDescribeListenersOutput {
+	s.CertificateSource = &v
+	return s
+}
+
+// SetDomain sets the Domain field's value.
+func (s *DomainExtensionForDescribeListenersOutput) SetDomain(v string) *DomainExtensionForDescribeListenersOutput {
+	s.Domain = &v
+	return s
+}
+
+// SetDomainExtensionId sets the DomainExtensionId field's value.
+func (s *DomainExtensionForDescribeListenersOutput) SetDomainExtensionId(v string) *DomainExtensionForDescribeListenersOutput {
+	s.DomainExtensionId = &v
+	return s
+}
+
 type HealthCheckForDescribeListenersOutput struct {
 	_ struct{} `type:"structure"`
 
@@ -411,6 +457,8 @@ type ListenerForDescribeListenersOutput struct {
 	CreateTime *string `type:"string"`
 
 	Description *string `type:"string"`
+
+	DomainExtensions []*DomainExtensionForDescribeListenersOutput `type:"list"`
 
 	Enabled *string `type:"string"`
 
@@ -582,6 +630,12 @@ func (s *ListenerForDescribeListenersOutput) SetCreateTime(v string) *ListenerFo
 // SetDescription sets the Description field's value.
 func (s *ListenerForDescribeListenersOutput) SetDescription(v string) *ListenerForDescribeListenersOutput {
 	s.Description = &v
+	return s
+}
+
+// SetDomainExtensions sets the DomainExtensions field's value.
+func (s *ListenerForDescribeListenersOutput) SetDomainExtensions(v []*DomainExtensionForDescribeListenersOutput) *ListenerForDescribeListenersOutput {
+	s.DomainExtensions = v
 	return s
 }
 
