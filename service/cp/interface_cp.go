@@ -62,6 +62,14 @@ type CPAPI interface {
 	CreateResourceWithContext(volcengine.Context, *CreateResourceInput, ...request.Option) (*CreateResourceOutput, error)
 	CreateResourceRequest(*CreateResourceInput) (*request.Request, *CreateResourceOutput)
 
+	CreateServiceConnectionCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateServiceConnectionCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateServiceConnectionCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateServiceConnection(*CreateServiceConnectionInput) (*CreateServiceConnectionOutput, error)
+	CreateServiceConnectionWithContext(volcengine.Context, *CreateServiceConnectionInput, ...request.Option) (*CreateServiceConnectionOutput, error)
+	CreateServiceConnectionRequest(*CreateServiceConnectionInput) (*request.Request, *CreateServiceConnectionOutput)
+
 	CreateTriggerCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	CreateTriggerCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	CreateTriggerCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -102,6 +110,14 @@ type CPAPI interface {
 	DeleteResourceWithContext(volcengine.Context, *DeleteResourceInput, ...request.Option) (*DeleteResourceOutput, error)
 	DeleteResourceRequest(*DeleteResourceInput) (*request.Request, *DeleteResourceOutput)
 
+	DeleteServiceConnectionCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeleteServiceConnectionCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeleteServiceConnectionCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeleteServiceConnection(*DeleteServiceConnectionInput) (*DeleteServiceConnectionOutput, error)
+	DeleteServiceConnectionWithContext(volcengine.Context, *DeleteServiceConnectionInput, ...request.Option) (*DeleteServiceConnectionOutput, error)
+	DeleteServiceConnectionRequest(*DeleteServiceConnectionInput) (*request.Request, *DeleteServiceConnectionOutput)
+
 	DeleteTriggerCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DeleteTriggerCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DeleteTriggerCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -117,6 +133,14 @@ type CPAPI interface {
 	DeleteWorkspace(*DeleteWorkspaceInput) (*DeleteWorkspaceOutput, error)
 	DeleteWorkspaceWithContext(volcengine.Context, *DeleteWorkspaceInput, ...request.Option) (*DeleteWorkspaceOutput, error)
 	DeleteWorkspaceRequest(*DeleteWorkspaceInput) (*request.Request, *DeleteWorkspaceOutput)
+
+	GetServiceConnectionCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	GetServiceConnectionCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	GetServiceConnectionCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	GetServiceConnection(*GetServiceConnectionInput) (*GetServiceConnectionOutput, error)
+	GetServiceConnectionWithContext(volcengine.Context, *GetServiceConnectionInput, ...request.Option) (*GetServiceConnectionOutput, error)
+	GetServiceConnectionRequest(*GetServiceConnectionInput) (*request.Request, *GetServiceConnectionOutput)
 
 	GetTaskRunLogCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	GetTaskRunLogCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -166,6 +190,14 @@ type CPAPI interface {
 	ListResourcesWithContext(volcengine.Context, *ListResourcesInput, ...request.Option) (*ListResourcesOutput, error)
 	ListResourcesRequest(*ListResourcesInput) (*request.Request, *ListResourcesOutput)
 
+	ListServiceConnectionsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListServiceConnectionsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListServiceConnectionsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListServiceConnections(*ListServiceConnectionsInput) (*ListServiceConnectionsOutput, error)
+	ListServiceConnectionsWithContext(volcengine.Context, *ListServiceConnectionsInput, ...request.Option) (*ListServiceConnectionsOutput, error)
+	ListServiceConnectionsRequest(*ListServiceConnectionsInput) (*request.Request, *ListServiceConnectionsOutput)
+
 	ListTaskRunsCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ListTaskRunsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	ListTaskRunsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -213,6 +245,14 @@ type CPAPI interface {
 	UpdateResource(*UpdateResourceInput) (*UpdateResourceOutput, error)
 	UpdateResourceWithContext(volcengine.Context, *UpdateResourceInput, ...request.Option) (*UpdateResourceOutput, error)
 	UpdateResourceRequest(*UpdateResourceInput) (*request.Request, *UpdateResourceOutput)
+
+	UpdateServiceConnectionCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	UpdateServiceConnectionCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	UpdateServiceConnectionCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	UpdateServiceConnection(*UpdateServiceConnectionInput) (*UpdateServiceConnectionOutput, error)
+	UpdateServiceConnectionWithContext(volcengine.Context, *UpdateServiceConnectionInput, ...request.Option) (*UpdateServiceConnectionOutput, error)
+	UpdateServiceConnectionRequest(*UpdateServiceConnectionInput) (*request.Request, *UpdateServiceConnectionOutput)
 
 	UpdateTriggerCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	UpdateTriggerCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
