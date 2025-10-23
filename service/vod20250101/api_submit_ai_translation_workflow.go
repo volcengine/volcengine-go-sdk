@@ -168,6 +168,10 @@ func (s *OperatorConfigForSubmitAITranslationWorkflowInput) SetSubtitleRecogniti
 type ProcessConfigForSubmitAITranslationWorkflowInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	DisableSmartSubtitleRewrite *bool `type:"boolean" json:",omitempty"`
+
+	DisableSubtitlePunctSplit *bool `type:"boolean" json:",omitempty"`
+
 	SuspensionStageList []*string `type:"list" json:",omitempty"`
 }
 
@@ -179,6 +183,18 @@ func (s ProcessConfigForSubmitAITranslationWorkflowInput) String() string {
 // GoString returns the string representation
 func (s ProcessConfigForSubmitAITranslationWorkflowInput) GoString() string {
 	return s.String()
+}
+
+// SetDisableSmartSubtitleRewrite sets the DisableSmartSubtitleRewrite field's value.
+func (s *ProcessConfigForSubmitAITranslationWorkflowInput) SetDisableSmartSubtitleRewrite(v bool) *ProcessConfigForSubmitAITranslationWorkflowInput {
+	s.DisableSmartSubtitleRewrite = &v
+	return s
+}
+
+// SetDisableSubtitlePunctSplit sets the DisableSubtitlePunctSplit field's value.
+func (s *ProcessConfigForSubmitAITranslationWorkflowInput) SetDisableSubtitlePunctSplit(v bool) *ProcessConfigForSubmitAITranslationWorkflowInput {
+	s.DisableSubtitlePunctSplit = &v
+	return s
 }
 
 // SetSuspensionStageList sets the SuspensionStageList field's value.
@@ -445,12 +461,36 @@ func (s *SubtitleRecognitionConfigForSubmitAITranslationWorkflowInput) SetTarget
 	return s
 }
 
+type TermbaseConfigForSubmitAITranslationWorkflowInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	TranslationTermbaseIds []*string `type:"list" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s TermbaseConfigForSubmitAITranslationWorkflowInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TermbaseConfigForSubmitAITranslationWorkflowInput) GoString() string {
+	return s.String()
+}
+
+// SetTranslationTermbaseIds sets the TranslationTermbaseIds field's value.
+func (s *TermbaseConfigForSubmitAITranslationWorkflowInput) SetTranslationTermbaseIds(v []*string) *TermbaseConfigForSubmitAITranslationWorkflowInput {
+	s.TranslationTermbaseIds = v
+	return s
+}
+
 type TranslationConfigForSubmitAITranslationWorkflowInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
 	SourceLanguage *string `type:"string" json:",omitempty"`
 
 	TargetLanguage *string `type:"string" json:",omitempty"`
+
+	TermbaseConfig *TermbaseConfigForSubmitAITranslationWorkflowInput `type:"structure" json:",omitempty"`
 
 	TranslationTypeList []*string `type:"list" json:",omitempty"`
 }
@@ -474,6 +514,12 @@ func (s *TranslationConfigForSubmitAITranslationWorkflowInput) SetSourceLanguage
 // SetTargetLanguage sets the TargetLanguage field's value.
 func (s *TranslationConfigForSubmitAITranslationWorkflowInput) SetTargetLanguage(v string) *TranslationConfigForSubmitAITranslationWorkflowInput {
 	s.TargetLanguage = &v
+	return s
+}
+
+// SetTermbaseConfig sets the TermbaseConfig field's value.
+func (s *TranslationConfigForSubmitAITranslationWorkflowInput) SetTermbaseConfig(v *TermbaseConfigForSubmitAITranslationWorkflowInput) *TranslationConfigForSubmitAITranslationWorkflowInput {
+	s.TermbaseConfig = v
 	return s
 }
 
