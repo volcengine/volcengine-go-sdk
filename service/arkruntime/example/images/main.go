@@ -164,20 +164,20 @@ func main() {
 			break
 		}
 
-		if recv.Type == "image_generation.partial_failed" {
+		if recv.Type == model.ImageGenerationStreamEventPartialSucceeded {
 			fmt.Printf("Stream generate images error: %v\n", recv.Error)
 			if strings.EqualFold(recv.Error.Code, "InternalServiceError") {
 				break
 			}
 		}
 
-		if recv.Type == "image_generation.partial_succeeded" {
+		if recv.Type == model.ImageGenerationStreamEventPartialSucceeded {
 			if recv.Error == nil && recv.Url != nil {
 				fmt.Printf("recv.Size: %s, recv.Url: %s\n", recv.Size, *recv.Url)
 			}
 		}
 
-		if recv.Type == "image_generation.completed" {
+		if recv.Type == model.ImageGenerationStreamEventCompleted {
 			if recv.Error == nil {
 				fmt.Printf("recv.Usage: %v\n", *recv.Usage)
 			}
@@ -217,20 +217,20 @@ func main() {
 			break
 		}
 
-		if recv.Type == "image_generation.partial_failed" {
+		if recv.Type == model.ImageGenerationStreamEventPartialSucceeded {
 			fmt.Printf("Stream generate images error: %v\n", recv.Error)
 			if strings.EqualFold(recv.Error.Code, "InternalServiceError") {
 				break
 			}
 		}
 
-		if recv.Type == "image_generation.partial_succeeded" {
+		if recv.Type == model.ImageGenerationStreamEventPartialSucceeded {
 			if recv.Error == nil && recv.B64Json != nil {
 				fmt.Printf("recv.Size: %s, recv.B64Json: %s\n", recv.Size, *recv.B64Json)
 			}
 		}
 
-		if recv.Type == "image_generation.completed" {
+		if recv.Type == model.ImageGenerationStreamEventCompleted {
 			if recv.Error == nil {
 				fmt.Printf("recv.Usage: %v\n", *recv.Usage)
 			}
