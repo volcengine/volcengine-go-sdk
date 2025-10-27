@@ -38,6 +38,14 @@ type ACEPAPI interface {
 	AddCustomRouteWithContext(volcengine.Context, *AddCustomRouteInput, ...request.Option) (*AddCustomRouteOutput, error)
 	AddCustomRouteRequest(*AddCustomRouteInput) (*request.Request, *AddCustomRouteOutput)
 
+	AddPhoneTemplateCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	AddPhoneTemplateCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	AddPhoneTemplateCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	AddPhoneTemplate(*AddPhoneTemplateInput) (*AddPhoneTemplateOutput, error)
+	AddPhoneTemplateWithContext(volcengine.Context, *AddPhoneTemplateInput, ...request.Option) (*AddPhoneTemplateOutput, error)
+	AddPhoneTemplateRequest(*AddPhoneTemplateInput) (*request.Request, *AddPhoneTemplateOutput)
+
 	BackupDataCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	BackupDataCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	BackupDataCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -70,6 +78,22 @@ type ACEPAPI interface {
 	CancelRestorePodWithContext(volcengine.Context, *CancelRestorePodInput, ...request.Option) (*CancelRestorePodOutput, error)
 	CancelRestorePodRequest(*CancelRestorePodInput) (*request.Request, *CancelRestorePodOutput)
 
+	CreatePodCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreatePodCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreatePodCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreatePod(*CreatePodInput) (*CreatePodOutput, error)
+	CreatePodWithContext(volcengine.Context, *CreatePodInput, ...request.Option) (*CreatePodOutput, error)
+	CreatePodRequest(*CreatePodInput) (*request.Request, *CreatePodOutput)
+
+	CreatePodOneStepCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreatePodOneStepCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreatePodOneStepCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreatePodOneStep(*CreatePodOneStepInput) (*CreatePodOneStepOutput, error)
+	CreatePodOneStepWithContext(volcengine.Context, *CreatePodOneStepInput, ...request.Option) (*CreatePodOneStepOutput, error)
+	CreatePodOneStepRequest(*CreatePodOneStepInput) (*request.Request, *CreatePodOneStepOutput)
+
 	DeleteBackupDataCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DeleteBackupDataCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DeleteBackupDataCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -93,6 +117,14 @@ type ACEPAPI interface {
 	GetDcBandwidthDailyPeak(*GetDcBandwidthDailyPeakInput) (*GetDcBandwidthDailyPeakOutput, error)
 	GetDcBandwidthDailyPeakWithContext(volcengine.Context, *GetDcBandwidthDailyPeakInput, ...request.Option) (*GetDcBandwidthDailyPeakOutput, error)
 	GetDcBandwidthDailyPeakRequest(*GetDcBandwidthDailyPeakInput) (*request.Request, *GetDcBandwidthDailyPeakOutput)
+
+	GetPhoneTemplateCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	GetPhoneTemplateCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	GetPhoneTemplateCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	GetPhoneTemplate(*GetPhoneTemplateInput) (*GetPhoneTemplateOutput, error)
+	GetPhoneTemplateWithContext(volcengine.Context, *GetPhoneTemplateInput, ...request.Option) (*GetPhoneTemplateOutput, error)
+	GetPhoneTemplateRequest(*GetPhoneTemplateInput) (*request.Request, *GetPhoneTemplateOutput)
 
 	ListAppCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ListAppCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -118,6 +150,14 @@ type ACEPAPI interface {
 	ListCustomRouteWithContext(volcengine.Context, *ListCustomRouteInput, ...request.Option) (*ListCustomRouteOutput, error)
 	ListCustomRouteRequest(*ListCustomRouteInput) (*request.Request, *ListCustomRouteOutput)
 
+	ListPhoneTemplateCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListPhoneTemplateCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListPhoneTemplateCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListPhoneTemplate(*ListPhoneTemplateInput) (*ListPhoneTemplateOutput, error)
+	ListPhoneTemplateWithContext(volcengine.Context, *ListPhoneTemplateInput, ...request.Option) (*ListPhoneTemplateOutput, error)
+	ListPhoneTemplateRequest(*ListPhoneTemplateInput) (*request.Request, *ListPhoneTemplateOutput)
+
 	ListPodCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ListPodCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	ListPodCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -133,6 +173,22 @@ type ACEPAPI interface {
 	MigratePod(*MigratePodInput) (*MigratePodOutput, error)
 	MigratePodWithContext(volcengine.Context, *MigratePodInput, ...request.Option) (*MigratePodOutput, error)
 	MigratePodRequest(*MigratePodInput) (*request.Request, *MigratePodOutput)
+
+	RemovePhoneTemplateCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	RemovePhoneTemplateCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	RemovePhoneTemplateCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	RemovePhoneTemplate(*RemovePhoneTemplateInput) (*RemovePhoneTemplateOutput, error)
+	RemovePhoneTemplateWithContext(volcengine.Context, *RemovePhoneTemplateInput, ...request.Option) (*RemovePhoneTemplateOutput, error)
+	RemovePhoneTemplateRequest(*RemovePhoneTemplateInput) (*request.Request, *RemovePhoneTemplateOutput)
+
+	ResetPodCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ResetPodCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ResetPodCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ResetPod(*ResetPodInput) (*ResetPodOutput, error)
+	ResetPodWithContext(volcengine.Context, *ResetPodInput, ...request.Option) (*ResetPodOutput, error)
+	ResetPodRequest(*ResetPodInput) (*request.Request, *ResetPodOutput)
 
 	RestoreDataCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	RestoreDataCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -173,6 +229,22 @@ type ACEPAPI interface {
 	UpdateCustomRoute(*UpdateCustomRouteInput) (*UpdateCustomRouteOutput, error)
 	UpdateCustomRouteWithContext(volcengine.Context, *UpdateCustomRouteInput, ...request.Option) (*UpdateCustomRouteOutput, error)
 	UpdateCustomRouteRequest(*UpdateCustomRouteInput) (*request.Request, *UpdateCustomRouteOutput)
+
+	UpdatePhoneTemplateCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	UpdatePhoneTemplateCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	UpdatePhoneTemplateCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	UpdatePhoneTemplate(*UpdatePhoneTemplateInput) (*UpdatePhoneTemplateOutput, error)
+	UpdatePhoneTemplateWithContext(volcengine.Context, *UpdatePhoneTemplateInput, ...request.Option) (*UpdatePhoneTemplateOutput, error)
+	UpdatePhoneTemplateRequest(*UpdatePhoneTemplateInput) (*request.Request, *UpdatePhoneTemplateOutput)
+
+	UpdatePodPropertyCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	UpdatePodPropertyCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	UpdatePodPropertyCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	UpdatePodProperty(*UpdatePodPropertyInput) (*UpdatePodPropertyOutput, error)
+	UpdatePodPropertyWithContext(volcengine.Context, *UpdatePodPropertyInput, ...request.Option) (*UpdatePodPropertyOutput, error)
+	UpdatePodPropertyRequest(*UpdatePodPropertyInput) (*request.Request, *UpdatePodPropertyOutput)
 }
 
 var _ ACEPAPI = (*ACEP)(nil)
