@@ -6,6 +6,7 @@ import (
 	"io"
 	"os"
 
+	"github.com/samber/lo"
 	"github.com/volcengine/volcengine-go-sdk/service/arkruntime"
 	"github.com/volcengine/volcengine-go-sdk/service/arkruntime/model/responses"
 	"github.com/volcengine/volcengine-go-sdk/volcengine"
@@ -33,7 +34,7 @@ func main() {
 					Image: &responses.ContentItemImage{
 						Type:     responses.ContentItemType_input_image,
 						Detail:   responses.ContentItemImageDetail_auto.Enum(),
-						ImageUrl: "https://ark-project.tos-cn-beijing.volces.com/images/view.jpeg",
+						ImageUrl: lo.ToPtr("https://ark-project.tos-cn-beijing.volces.com/images/view.jpeg"),
 					},
 				},
 			},
