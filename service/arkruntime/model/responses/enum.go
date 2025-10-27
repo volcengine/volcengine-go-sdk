@@ -194,11 +194,11 @@ func (r *TextType_Enum) UnmarshalJSON(bytes []byte) error {
 }
 
 // MarshalJSON ...
-func (r IncludeType_Enum) MarshalJSON() ([]byte, error) {
+func (r TextType_Enum) MarshalJSON() ([]byte, error) {
 	if r == 0 {
 		return json.Marshal(nil)
 	}
-	return []byte(IncludeType_Enum_name[int32(r)]), nil
+	return json.Marshal(r.String())
 }
 
 // UnmarshalJSON ...
@@ -213,6 +213,14 @@ func (r *IncludeType_Enum) UnmarshalJSON(bytes []byte) error {
 	}
 	*r = IncludeType_Enum(enumValue)
 	return nil
+}
+
+// MarshalJSON ...
+func (r IncludeType_Enum) MarshalJSON() ([]byte, error) {
+	if r == 0 {
+		return json.Marshal(nil)
+	}
+	return []byte(IncludeType_Enum_name[int32(r)]), nil
 }
 
 // MarshalJSON ...
@@ -235,14 +243,6 @@ func (r *CacheType_Enum) UnmarshalJSON(bytes []byte) error {
 	}
 	*r = CacheType_Enum(enumValue)
 	return nil
-}
-
-// MarshalJSON ...
-func (r TextType_Enum) MarshalJSON() ([]byte, error) {
-	if r == 0 {
-		return json.Marshal(nil)
-	}
-	return json.Marshal(r.String())
 }
 
 // UnmarshalJSON ...
@@ -341,6 +341,7 @@ func (r ObjectType_Enum) MarshalJSON() ([]byte, error) {
 	return json.Marshal(r.String())
 }
 
+// UnmarshalJSON ...
 func (r *ObjectType_Enum) UnmarshalJSON(bytes []byte) error {
 	var value string
 	if err := json.Unmarshal(bytes, &value); err != nil {
@@ -362,6 +363,7 @@ func (r ResponseStatus_Enum) MarshalJSON() ([]byte, error) {
 	return json.Marshal(r.String())
 }
 
+// UnmarshalJSON ...
 func (r *ResponseStatus_Enum) UnmarshalJSON(bytes []byte) error {
 	var value string
 	if err := json.Unmarshal(bytes, &value); err != nil {
