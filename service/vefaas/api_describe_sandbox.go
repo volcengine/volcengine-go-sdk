@@ -224,6 +224,10 @@ type DescribeSandboxOutput struct {
 
 	MemoryMB *int32 `type:"int32" json:",omitempty"`
 
+	Metadata map[string]*string `type:"map" json:",omitempty"`
+
+	MetadataList []*MetadataListForDescribeSandboxOutput `type:"list" json:",omitempty"`
+
 	Pending *bool `type:"boolean" json:",omitempty"`
 
 	RequestTimeout *int32 `type:"int32" json:",omitempty"`
@@ -324,6 +328,18 @@ func (s *DescribeSandboxOutput) SetMaxConcurrency(v int32) *DescribeSandboxOutpu
 // SetMemoryMB sets the MemoryMB field's value.
 func (s *DescribeSandboxOutput) SetMemoryMB(v int32) *DescribeSandboxOutput {
 	s.MemoryMB = &v
+	return s
+}
+
+// SetMetadata sets the Metadata field's value.
+func (s *DescribeSandboxOutput) SetMetadata(v map[string]*string) *DescribeSandboxOutput {
+	s.Metadata = v
+	return s
+}
+
+// SetMetadataList sets the MetadataList field's value.
+func (s *DescribeSandboxOutput) SetMetadataList(v []*MetadataListForDescribeSandboxOutput) *DescribeSandboxOutput {
+	s.MetadataList = v
 	return s
 }
 
@@ -454,6 +470,36 @@ func (s *InstanceTosMountConfigForDescribeSandboxOutput) SetEnable(v bool) *Inst
 // SetTosMountPoints sets the TosMountPoints field's value.
 func (s *InstanceTosMountConfigForDescribeSandboxOutput) SetTosMountPoints(v []*TosMountPointForDescribeSandboxOutput) *InstanceTosMountConfigForDescribeSandboxOutput {
 	s.TosMountPoints = v
+	return s
+}
+
+type MetadataListForDescribeSandboxOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	MetaKey *string `type:"string" json:",omitempty"`
+
+	MetaValue *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s MetadataListForDescribeSandboxOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s MetadataListForDescribeSandboxOutput) GoString() string {
+	return s.String()
+}
+
+// SetMetaKey sets the MetaKey field's value.
+func (s *MetadataListForDescribeSandboxOutput) SetMetaKey(v string) *MetadataListForDescribeSandboxOutput {
+	s.MetaKey = &v
+	return s
+}
+
+// SetMetaValue sets the MetaValue field's value.
+func (s *MetadataListForDescribeSandboxOutput) SetMetaValue(v string) *MetadataListForDescribeSandboxOutput {
+	s.MetaValue = &v
 	return s
 }
 
