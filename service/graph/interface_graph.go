@@ -78,6 +78,14 @@ type GRAPHAPI interface {
 	DescribeInstanceWithContext(volcengine.Context, *DescribeInstanceInput, ...request.Option) (*DescribeInstanceOutput, error)
 	DescribeInstanceRequest(*DescribeInstanceInput) (*request.Request, *DescribeInstanceOutput)
 
+	DescribeVegraphConfigInK8sCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeVegraphConfigInK8sCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeVegraphConfigInK8sCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeVegraphConfigInK8s(*DescribeVegraphConfigInK8sInput) (*DescribeVegraphConfigInK8sOutput, error)
+	DescribeVegraphConfigInK8sWithContext(volcengine.Context, *DescribeVegraphConfigInK8sInput, ...request.Option) (*DescribeVegraphConfigInK8sOutput, error)
+	DescribeVegraphConfigInK8sRequest(*DescribeVegraphConfigInK8sInput) (*request.Request, *DescribeVegraphConfigInK8sOutput)
+
 	DescribeVegraphConfigInMetamysqlCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DescribeVegraphConfigInMetamysqlCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DescribeVegraphConfigInMetamysqlCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -309,6 +317,38 @@ type GRAPHAPI interface {
 	UpdateConfChecker(*UpdateConfCheckerInput) (*UpdateConfCheckerOutput, error)
 	UpdateConfCheckerWithContext(volcengine.Context, *UpdateConfCheckerInput, ...request.Option) (*UpdateConfCheckerOutput, error)
 	UpdateConfCheckerRequest(*UpdateConfCheckerInput) (*request.Request, *UpdateConfCheckerOutput)
+
+	UpdateGremlinKeywordBlackListConfCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	UpdateGremlinKeywordBlackListConfCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	UpdateGremlinKeywordBlackListConfCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	UpdateGremlinKeywordBlackListConf(*UpdateGremlinKeywordBlackListConfInput) (*UpdateGremlinKeywordBlackListConfOutput, error)
+	UpdateGremlinKeywordBlackListConfWithContext(volcengine.Context, *UpdateGremlinKeywordBlackListConfInput, ...request.Option) (*UpdateGremlinKeywordBlackListConfOutput, error)
+	UpdateGremlinKeywordBlackListConfRequest(*UpdateGremlinKeywordBlackListConfInput) (*request.Request, *UpdateGremlinKeywordBlackListConfOutput)
+
+	UpdateKeyBlackListConfCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	UpdateKeyBlackListConfCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	UpdateKeyBlackListConfCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	UpdateKeyBlackListConf(*UpdateKeyBlackListConfInput) (*UpdateKeyBlackListConfOutput, error)
+	UpdateKeyBlackListConfWithContext(volcengine.Context, *UpdateKeyBlackListConfInput, ...request.Option) (*UpdateKeyBlackListConfOutput, error)
+	UpdateKeyBlackListConfRequest(*UpdateKeyBlackListConfInput) (*request.Request, *UpdateKeyBlackListConfOutput)
+
+	UpdateTabletReadBlackListConfCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	UpdateTabletReadBlackListConfCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	UpdateTabletReadBlackListConfCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	UpdateTabletReadBlackListConf(*UpdateTabletReadBlackListConfInput) (*UpdateTabletReadBlackListConfOutput, error)
+	UpdateTabletReadBlackListConfWithContext(volcengine.Context, *UpdateTabletReadBlackListConfInput, ...request.Option) (*UpdateTabletReadBlackListConfOutput, error)
+	UpdateTabletReadBlackListConfRequest(*UpdateTabletReadBlackListConfInput) (*request.Request, *UpdateTabletReadBlackListConfOutput)
+
+	UpdateTabletWriteBlackListConfCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	UpdateTabletWriteBlackListConfCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	UpdateTabletWriteBlackListConfCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	UpdateTabletWriteBlackListConf(*UpdateTabletWriteBlackListConfInput) (*UpdateTabletWriteBlackListConfOutput, error)
+	UpdateTabletWriteBlackListConfWithContext(volcengine.Context, *UpdateTabletWriteBlackListConfInput, ...request.Option) (*UpdateTabletWriteBlackListConfOutput, error)
+	UpdateTabletWriteBlackListConfRequest(*UpdateTabletWriteBlackListConfInput) (*request.Request, *UpdateTabletWriteBlackListConfOutput)
 
 	ValidateConfCheckerCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ValidateConfCheckerCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
