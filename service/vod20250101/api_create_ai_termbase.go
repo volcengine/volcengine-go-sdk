@@ -151,7 +151,8 @@ type CreateAITermbaseInput struct {
 	// Name is a required field
 	Name *string `type:"string" json:",omitempty" required:"true"`
 
-	Scenario *ScenarioForCreateAITermbaseInput `type:"structure" json:",omitempty"`
+	// Scenario is a required field
+	Scenario *string `type:"string" json:",omitempty" required:"true"`
 
 	// SourceLanguage is a required field
 	SourceLanguage *string `type:"string" json:",omitempty" required:"true"`
@@ -177,6 +178,9 @@ func (s *CreateAITermbaseInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "CreateAITermbaseInput"}
 	if s.Name == nil {
 		invalidParams.Add(request.NewErrParamRequired("Name"))
+	}
+	if s.Scenario == nil {
+		invalidParams.Add(request.NewErrParamRequired("Scenario"))
 	}
 	if s.SourceLanguage == nil {
 		invalidParams.Add(request.NewErrParamRequired("SourceLanguage"))
@@ -204,8 +208,8 @@ func (s *CreateAITermbaseInput) SetName(v string) *CreateAITermbaseInput {
 }
 
 // SetScenario sets the Scenario field's value.
-func (s *CreateAITermbaseInput) SetScenario(v *ScenarioForCreateAITermbaseInput) *CreateAITermbaseInput {
-	s.Scenario = v
+func (s *CreateAITermbaseInput) SetScenario(v string) *CreateAITermbaseInput {
+	s.Scenario = &v
 	return s
 }
 
@@ -249,20 +253,6 @@ func (s CreateAITermbaseOutput) GoString() string {
 func (s *CreateAITermbaseOutput) SetTermbase(v *TermbaseForCreateAITermbaseOutput) *CreateAITermbaseOutput {
 	s.Termbase = v
 	return s
-}
-
-type ScenarioForCreateAITermbaseInput struct {
-	_ struct{} `type:"structure" json:",omitempty"`
-}
-
-// String returns the string representation
-func (s ScenarioForCreateAITermbaseInput) String() string {
-	return volcengineutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s ScenarioForCreateAITermbaseInput) GoString() string {
-	return s.String()
 }
 
 type TermItemForCreateAITermbaseOutput struct {
