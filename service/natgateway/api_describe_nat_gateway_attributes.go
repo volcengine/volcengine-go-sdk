@@ -202,6 +202,8 @@ type DescribeNatGatewayAttributesOutput struct {
 
 	NatGatewayName *string `type:"string"`
 
+	NatIpAddresses []*NatIpAddressForDescribeNatGatewayAttributesOutput `type:"list"`
+
 	NetworkInterfaceId *string `type:"string"`
 
 	NetworkType *string `type:"string"`
@@ -211,6 +213,10 @@ type DescribeNatGatewayAttributesOutput struct {
 	ProjectName *string `type:"string"`
 
 	RequestId *string `type:"string"`
+
+	SmartScheduleEnabled *bool `type:"boolean"`
+
+	SmartScheduleRule *string `type:"string"`
 
 	SnatEntryIds []*string `type:"list"`
 
@@ -305,6 +311,12 @@ func (s *DescribeNatGatewayAttributesOutput) SetNatGatewayName(v string) *Descri
 	return s
 }
 
+// SetNatIpAddresses sets the NatIpAddresses field's value.
+func (s *DescribeNatGatewayAttributesOutput) SetNatIpAddresses(v []*NatIpAddressForDescribeNatGatewayAttributesOutput) *DescribeNatGatewayAttributesOutput {
+	s.NatIpAddresses = v
+	return s
+}
+
 // SetNetworkInterfaceId sets the NetworkInterfaceId field's value.
 func (s *DescribeNatGatewayAttributesOutput) SetNetworkInterfaceId(v string) *DescribeNatGatewayAttributesOutput {
 	s.NetworkInterfaceId = &v
@@ -332,6 +344,18 @@ func (s *DescribeNatGatewayAttributesOutput) SetProjectName(v string) *DescribeN
 // SetRequestId sets the RequestId field's value.
 func (s *DescribeNatGatewayAttributesOutput) SetRequestId(v string) *DescribeNatGatewayAttributesOutput {
 	s.RequestId = &v
+	return s
+}
+
+// SetSmartScheduleEnabled sets the SmartScheduleEnabled field's value.
+func (s *DescribeNatGatewayAttributesOutput) SetSmartScheduleEnabled(v bool) *DescribeNatGatewayAttributesOutput {
+	s.SmartScheduleEnabled = &v
+	return s
+}
+
+// SetSmartScheduleRule sets the SmartScheduleRule field's value.
+func (s *DescribeNatGatewayAttributesOutput) SetSmartScheduleRule(v string) *DescribeNatGatewayAttributesOutput {
+	s.SmartScheduleRule = &v
 	return s
 }
 
@@ -418,6 +442,36 @@ func (s *EipAddressForDescribeNatGatewayAttributesOutput) SetEipAddress(v string
 // SetUsingStatus sets the UsingStatus field's value.
 func (s *EipAddressForDescribeNatGatewayAttributesOutput) SetUsingStatus(v string) *EipAddressForDescribeNatGatewayAttributesOutput {
 	s.UsingStatus = &v
+	return s
+}
+
+type NatIpAddressForDescribeNatGatewayAttributesOutput struct {
+	_ struct{} `type:"structure"`
+
+	NatIpAddress *string `type:"string"`
+
+	NatIpId *string `type:"string"`
+}
+
+// String returns the string representation
+func (s NatIpAddressForDescribeNatGatewayAttributesOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s NatIpAddressForDescribeNatGatewayAttributesOutput) GoString() string {
+	return s.String()
+}
+
+// SetNatIpAddress sets the NatIpAddress field's value.
+func (s *NatIpAddressForDescribeNatGatewayAttributesOutput) SetNatIpAddress(v string) *NatIpAddressForDescribeNatGatewayAttributesOutput {
+	s.NatIpAddress = &v
+	return s
+}
+
+// SetNatIpId sets the NatIpId field's value.
+func (s *NatIpAddressForDescribeNatGatewayAttributesOutput) SetNatIpId(v string) *NatIpAddressForDescribeNatGatewayAttributesOutput {
+	s.NatIpId = &v
 	return s
 }
 

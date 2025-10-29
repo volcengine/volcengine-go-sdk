@@ -141,6 +141,8 @@ func (c *NATGATEWAY) ListNatGatewayAvailableZonesWithContext(ctx volcengine.Cont
 
 type ListNatGatewayAvailableZonesInput struct {
 	_ struct{} `type:"structure"`
+
+	Product *string `type:"string"`
 }
 
 // String returns the string representation
@@ -151,6 +153,12 @@ func (s ListNatGatewayAvailableZonesInput) String() string {
 // GoString returns the string representation
 func (s ListNatGatewayAvailableZonesInput) GoString() string {
 	return s.String()
+}
+
+// SetProduct sets the Product field's value.
+func (s *ListNatGatewayAvailableZonesInput) SetProduct(v string) *ListNatGatewayAvailableZonesInput {
+	s.Product = &v
+	return s
 }
 
 type ListNatGatewayAvailableZonesOutput struct {

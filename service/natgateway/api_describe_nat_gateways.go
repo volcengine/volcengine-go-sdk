@@ -148,6 +148,8 @@ type DescribeNatGatewaysInput struct {
 
 	NatGatewayName *string `type:"string"`
 
+	NetworkType *string `type:"string"`
+
 	PageNumber *int64 `type:"integer"`
 
 	PageSize *int64 `max:"100" type:"integer"`
@@ -201,6 +203,12 @@ func (s *DescribeNatGatewaysInput) SetNatGatewayIds(v []*string) *DescribeNatGat
 // SetNatGatewayName sets the NatGatewayName field's value.
 func (s *DescribeNatGatewaysInput) SetNatGatewayName(v string) *DescribeNatGatewaysInput {
 	s.NatGatewayName = &v
+	return s
+}
+
+// SetNetworkType sets the NetworkType field's value.
+func (s *DescribeNatGatewaysInput) SetNetworkType(v string) *DescribeNatGatewaysInput {
+	s.NetworkType = &v
 	return s
 }
 
@@ -353,6 +361,8 @@ type NatGatewayForDescribeNatGatewaysOutput struct {
 
 	Description *string `type:"string"`
 
+	DirectMode *bool `type:"boolean"`
+
 	DnatEntryIds []*string `type:"list"`
 
 	EipAddresses []*EipAddressForDescribeNatGatewaysOutput `type:"list"`
@@ -372,6 +382,10 @@ type NatGatewayForDescribeNatGatewaysOutput struct {
 	OverdueTime *string `type:"string"`
 
 	ProjectName *string `type:"string"`
+
+	SmartScheduleEnabled *bool `type:"boolean"`
+
+	SmartScheduleRule *string `type:"string"`
 
 	SnatEntryIds []*string `type:"list"`
 
@@ -427,6 +441,12 @@ func (s *NatGatewayForDescribeNatGatewaysOutput) SetDeletedTime(v string) *NatGa
 // SetDescription sets the Description field's value.
 func (s *NatGatewayForDescribeNatGatewaysOutput) SetDescription(v string) *NatGatewayForDescribeNatGatewaysOutput {
 	s.Description = &v
+	return s
+}
+
+// SetDirectMode sets the DirectMode field's value.
+func (s *NatGatewayForDescribeNatGatewaysOutput) SetDirectMode(v bool) *NatGatewayForDescribeNatGatewaysOutput {
+	s.DirectMode = &v
 	return s
 }
 
@@ -487,6 +507,18 @@ func (s *NatGatewayForDescribeNatGatewaysOutput) SetOverdueTime(v string) *NatGa
 // SetProjectName sets the ProjectName field's value.
 func (s *NatGatewayForDescribeNatGatewaysOutput) SetProjectName(v string) *NatGatewayForDescribeNatGatewaysOutput {
 	s.ProjectName = &v
+	return s
+}
+
+// SetSmartScheduleEnabled sets the SmartScheduleEnabled field's value.
+func (s *NatGatewayForDescribeNatGatewaysOutput) SetSmartScheduleEnabled(v bool) *NatGatewayForDescribeNatGatewaysOutput {
+	s.SmartScheduleEnabled = &v
+	return s
+}
+
+// SetSmartScheduleRule sets the SmartScheduleRule field's value.
+func (s *NatGatewayForDescribeNatGatewaysOutput) SetSmartScheduleRule(v string) *NatGatewayForDescribeNatGatewaysOutput {
+	s.SmartScheduleRule = &v
 	return s
 }
 

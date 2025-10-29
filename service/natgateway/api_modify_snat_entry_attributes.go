@@ -144,6 +144,8 @@ type ModifySnatEntryAttributesInput struct {
 
 	EipId *string `type:"string"`
 
+	NatIpId *string `type:"string"`
+
 	// SnatEntryId is a required field
 	SnatEntryId *string `type:"string" required:"true"`
 
@@ -182,6 +184,12 @@ func (s *ModifySnatEntryAttributesInput) Validate() error {
 // SetEipId sets the EipId field's value.
 func (s *ModifySnatEntryAttributesInput) SetEipId(v string) *ModifySnatEntryAttributesInput {
 	s.EipId = &v
+	return s
+}
+
+// SetNatIpId sets the NatIpId field's value.
+func (s *ModifySnatEntryAttributesInput) SetNatIpId(v string) *ModifySnatEntryAttributesInput {
+	s.NatIpId = &v
 	return s
 }
 
