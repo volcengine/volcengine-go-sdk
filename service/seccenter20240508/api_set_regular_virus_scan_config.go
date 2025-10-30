@@ -165,7 +165,7 @@ type SetRegularVirusScanConfigInput struct {
 
 	OperateUser *string `type:"string" json:",omitempty"`
 
-	ScanInterval *int32 `type:"int32" json:",omitempty"`
+	ScanInterval *int64 `type:"int64" json:",omitempty"`
 
 	ScanSwitchOn *bool `type:"boolean" json:",omitempty"`
 
@@ -256,7 +256,7 @@ func (s *SetRegularVirusScanConfigInput) SetOperateUser(v string) *SetRegularVir
 }
 
 // SetScanInterval sets the ScanInterval field's value.
-func (s *SetRegularVirusScanConfigInput) SetScanInterval(v int32) *SetRegularVirusScanConfigInput {
+func (s *SetRegularVirusScanConfigInput) SetScanInterval(v int64) *SetRegularVirusScanConfigInput {
 	s.ScanInterval = &v
 	return s
 }

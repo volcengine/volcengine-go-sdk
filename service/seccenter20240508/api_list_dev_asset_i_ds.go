@@ -236,7 +236,7 @@ type ListDevAssetIDsOutput struct {
 
 	AssetIDs []*string `type:"list" json:",omitempty"`
 
-	Total *int32 `type:"int32" json:",omitempty"`
+	Total *int64 `type:"int64" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -256,7 +256,7 @@ func (s *ListDevAssetIDsOutput) SetAssetIDs(v []*string) *ListDevAssetIDsOutput 
 }
 
 // SetTotal sets the Total field's value.
-func (s *ListDevAssetIDsOutput) SetTotal(v int32) *ListDevAssetIDsOutput {
+func (s *ListDevAssetIDsOutput) SetTotal(v int64) *ListDevAssetIDsOutput {
 	s.Total = &v
 	return s
 }

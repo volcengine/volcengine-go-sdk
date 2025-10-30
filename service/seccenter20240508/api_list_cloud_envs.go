@@ -158,11 +158,11 @@ type DataForListCloudEnvsOutput struct {
 
 	KeyType *string `type:"string" json:",omitempty"`
 
-	Status *int32 `type:"int32" json:",omitempty"`
+	Status *int64 `type:"int64" json:",omitempty"`
 
-	SyncPeriod *int32 `type:"int32" json:",omitempty"`
+	SyncPeriod *int64 `type:"int64" json:",omitempty"`
 
-	SyncStatus *int32 `type:"int32" json:",omitempty"`
+	SyncStatus *int64 `type:"int64" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -212,19 +212,19 @@ func (s *DataForListCloudEnvsOutput) SetKeyType(v string) *DataForListCloudEnvsO
 }
 
 // SetStatus sets the Status field's value.
-func (s *DataForListCloudEnvsOutput) SetStatus(v int32) *DataForListCloudEnvsOutput {
+func (s *DataForListCloudEnvsOutput) SetStatus(v int64) *DataForListCloudEnvsOutput {
 	s.Status = &v
 	return s
 }
 
 // SetSyncPeriod sets the SyncPeriod field's value.
-func (s *DataForListCloudEnvsOutput) SetSyncPeriod(v int32) *DataForListCloudEnvsOutput {
+func (s *DataForListCloudEnvsOutput) SetSyncPeriod(v int64) *DataForListCloudEnvsOutput {
 	s.SyncPeriod = &v
 	return s
 }
 
 // SetSyncStatus sets the SyncStatus field's value.
-func (s *DataForListCloudEnvsOutput) SetSyncStatus(v int32) *DataForListCloudEnvsOutput {
+func (s *DataForListCloudEnvsOutput) SetSyncStatus(v int64) *DataForListCloudEnvsOutput {
 	s.SyncStatus = &v
 	return s
 }
@@ -239,18 +239,18 @@ type ListCloudEnvsInput struct {
 	Comment *string `type:"string" json:",omitempty"`
 
 	// PageNumber is a required field
-	PageNumber *int32 `min:"1" type:"int32" json:",omitempty" required:"true"`
+	PageNumber *int64 `min:"1" type:"int64" json:",omitempty" required:"true"`
 
 	// PageSize is a required field
-	PageSize *int32 `min:"1" max:"5000" type:"int32" json:",omitempty" required:"true"`
+	PageSize *int64 `min:"1" max:"5000" type:"int64" json:",omitempty" required:"true"`
 
 	SortBy *string `type:"string" json:",omitempty"`
 
 	SortOrder *string `type:"string" json:",omitempty"`
 
-	Status *int32 `type:"int32" json:",omitempty"`
+	Status *int64 `type:"int64" json:",omitempty"`
 
-	SyncStatus *int32 `type:"int32" json:",omitempty"`
+	SyncStatus *int64 `type:"int64" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -307,13 +307,13 @@ func (s *ListCloudEnvsInput) SetComment(v string) *ListCloudEnvsInput {
 }
 
 // SetPageNumber sets the PageNumber field's value.
-func (s *ListCloudEnvsInput) SetPageNumber(v int32) *ListCloudEnvsInput {
+func (s *ListCloudEnvsInput) SetPageNumber(v int64) *ListCloudEnvsInput {
 	s.PageNumber = &v
 	return s
 }
 
 // SetPageSize sets the PageSize field's value.
-func (s *ListCloudEnvsInput) SetPageSize(v int32) *ListCloudEnvsInput {
+func (s *ListCloudEnvsInput) SetPageSize(v int64) *ListCloudEnvsInput {
 	s.PageSize = &v
 	return s
 }
@@ -331,13 +331,13 @@ func (s *ListCloudEnvsInput) SetSortOrder(v string) *ListCloudEnvsInput {
 }
 
 // SetStatus sets the Status field's value.
-func (s *ListCloudEnvsInput) SetStatus(v int32) *ListCloudEnvsInput {
+func (s *ListCloudEnvsInput) SetStatus(v int64) *ListCloudEnvsInput {
 	s.Status = &v
 	return s
 }
 
 // SetSyncStatus sets the SyncStatus field's value.
-func (s *ListCloudEnvsInput) SetSyncStatus(v int32) *ListCloudEnvsInput {
+func (s *ListCloudEnvsInput) SetSyncStatus(v int64) *ListCloudEnvsInput {
 	s.SyncStatus = &v
 	return s
 }
@@ -349,11 +349,11 @@ type ListCloudEnvsOutput struct {
 
 	Data []*DataForListCloudEnvsOutput `type:"list" json:",omitempty"`
 
-	PageNumber *int32 `type:"int32" json:",omitempty"`
+	PageNumber *int64 `type:"int64" json:",omitempty"`
 
-	PageSize *int32 `type:"int32" json:",omitempty"`
+	PageSize *int64 `type:"int64" json:",omitempty"`
 
-	TotalCount *int32 `type:"int32" json:",omitempty"`
+	TotalCount *int64 `type:"int64" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -373,19 +373,19 @@ func (s *ListCloudEnvsOutput) SetData(v []*DataForListCloudEnvsOutput) *ListClou
 }
 
 // SetPageNumber sets the PageNumber field's value.
-func (s *ListCloudEnvsOutput) SetPageNumber(v int32) *ListCloudEnvsOutput {
+func (s *ListCloudEnvsOutput) SetPageNumber(v int64) *ListCloudEnvsOutput {
 	s.PageNumber = &v
 	return s
 }
 
 // SetPageSize sets the PageSize field's value.
-func (s *ListCloudEnvsOutput) SetPageSize(v int32) *ListCloudEnvsOutput {
+func (s *ListCloudEnvsOutput) SetPageSize(v int64) *ListCloudEnvsOutput {
 	s.PageSize = &v
 	return s
 }
 
 // SetTotalCount sets the TotalCount field's value.
-func (s *ListCloudEnvsOutput) SetTotalCount(v int32) *ListCloudEnvsOutput {
+func (s *ListCloudEnvsOutput) SetTotalCount(v int64) *ListCloudEnvsOutput {
 	s.TotalCount = &v
 	return s
 }

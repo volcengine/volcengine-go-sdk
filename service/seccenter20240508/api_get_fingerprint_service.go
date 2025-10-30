@@ -150,6 +150,8 @@ type DataForGetFingerprintServiceOutput struct {
 
 	AgentTags []*string `type:"list" json:",omitempty"`
 
+	BootState *string `type:"string" json:",omitempty"`
+
 	Checksum *string `type:"string" json:",omitempty"`
 
 	Command *string `type:"string" json:",omitempty"`
@@ -162,15 +164,17 @@ type DataForGetFingerprintServiceOutput struct {
 
 	Name *string `type:"string" json:",omitempty"`
 
+	OnBoot *string `type:"string" json:",omitempty"`
+
 	PrimaryIpAddress *string `type:"string" json:",omitempty"`
 
 	Restart *string `type:"string" json:",omitempty"`
 
-	StartTime *int32 `type:"int32" json:",omitempty"`
+	StartTime *int64 `type:"int64" json:",omitempty"`
 
 	Type *string `type:"string" json:",omitempty"`
 
-	UpdateTime *int32 `type:"int32" json:",omitempty"`
+	UpdateTime *int64 `type:"int64" json:",omitempty"`
 
 	WorkingDirectory *string `type:"string" json:",omitempty"`
 }
@@ -194,6 +198,12 @@ func (s *DataForGetFingerprintServiceOutput) SetAgentID(v string) *DataForGetFin
 // SetAgentTags sets the AgentTags field's value.
 func (s *DataForGetFingerprintServiceOutput) SetAgentTags(v []*string) *DataForGetFingerprintServiceOutput {
 	s.AgentTags = v
+	return s
+}
+
+// SetBootState sets the BootState field's value.
+func (s *DataForGetFingerprintServiceOutput) SetBootState(v string) *DataForGetFingerprintServiceOutput {
+	s.BootState = &v
 	return s
 }
 
@@ -233,6 +243,12 @@ func (s *DataForGetFingerprintServiceOutput) SetName(v string) *DataForGetFinger
 	return s
 }
 
+// SetOnBoot sets the OnBoot field's value.
+func (s *DataForGetFingerprintServiceOutput) SetOnBoot(v string) *DataForGetFingerprintServiceOutput {
+	s.OnBoot = &v
+	return s
+}
+
 // SetPrimaryIpAddress sets the PrimaryIpAddress field's value.
 func (s *DataForGetFingerprintServiceOutput) SetPrimaryIpAddress(v string) *DataForGetFingerprintServiceOutput {
 	s.PrimaryIpAddress = &v
@@ -246,7 +262,7 @@ func (s *DataForGetFingerprintServiceOutput) SetRestart(v string) *DataForGetFin
 }
 
 // SetStartTime sets the StartTime field's value.
-func (s *DataForGetFingerprintServiceOutput) SetStartTime(v int32) *DataForGetFingerprintServiceOutput {
+func (s *DataForGetFingerprintServiceOutput) SetStartTime(v int64) *DataForGetFingerprintServiceOutput {
 	s.StartTime = &v
 	return s
 }
@@ -258,7 +274,7 @@ func (s *DataForGetFingerprintServiceOutput) SetType(v string) *DataForGetFinger
 }
 
 // SetUpdateTime sets the UpdateTime field's value.
-func (s *DataForGetFingerprintServiceOutput) SetUpdateTime(v int32) *DataForGetFingerprintServiceOutput {
+func (s *DataForGetFingerprintServiceOutput) SetUpdateTime(v int64) *DataForGetFingerprintServiceOutput {
 	s.UpdateTime = &v
 	return s
 }
@@ -289,14 +305,14 @@ type GetFingerprintServiceInput struct {
 	Name *string `type:"string" json:",omitempty"`
 
 	// PageNumber is a required field
-	PageNumber *int32 `type:"int32" json:",omitempty" required:"true"`
+	PageNumber *int64 `type:"int64" json:",omitempty" required:"true"`
 
 	// PageSize is a required field
-	PageSize *int32 `type:"int32" json:",omitempty" required:"true"`
+	PageSize *int64 `type:"int64" json:",omitempty" required:"true"`
 
 	Path *string `type:"string" json:",omitempty"`
 
-	Restart *string `type:"string" json:",omitempty" enum:"EnumOfRestartForGetFingerprintServiceInput"`
+	Restart *string `type:"string" json:",omitempty"`
 
 	SortBy *string `type:"string" json:",omitempty"`
 
@@ -384,13 +400,13 @@ func (s *GetFingerprintServiceInput) SetName(v string) *GetFingerprintServiceInp
 }
 
 // SetPageNumber sets the PageNumber field's value.
-func (s *GetFingerprintServiceInput) SetPageNumber(v int32) *GetFingerprintServiceInput {
+func (s *GetFingerprintServiceInput) SetPageNumber(v int64) *GetFingerprintServiceInput {
 	s.PageNumber = &v
 	return s
 }
 
 // SetPageSize sets the PageSize field's value.
-func (s *GetFingerprintServiceInput) SetPageSize(v int32) *GetFingerprintServiceInput {
+func (s *GetFingerprintServiceInput) SetPageSize(v int64) *GetFingerprintServiceInput {
 	s.PageSize = &v
 	return s
 }
@@ -444,11 +460,11 @@ type GetFingerprintServiceOutput struct {
 
 	Data []*DataForGetFingerprintServiceOutput `type:"list" json:",omitempty"`
 
-	PageNumber *int32 `type:"int32" json:",omitempty"`
+	PageNumber *int64 `type:"int64" json:",omitempty"`
 
-	PageSize *int32 `type:"int32" json:",omitempty"`
+	PageSize *int64 `type:"int64" json:",omitempty"`
 
-	TotalCount *int32 `type:"int32" json:",omitempty"`
+	TotalCount *int64 `type:"int64" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -468,27 +484,19 @@ func (s *GetFingerprintServiceOutput) SetData(v []*DataForGetFingerprintServiceO
 }
 
 // SetPageNumber sets the PageNumber field's value.
-func (s *GetFingerprintServiceOutput) SetPageNumber(v int32) *GetFingerprintServiceOutput {
+func (s *GetFingerprintServiceOutput) SetPageNumber(v int64) *GetFingerprintServiceOutput {
 	s.PageNumber = &v
 	return s
 }
 
 // SetPageSize sets the PageSize field's value.
-func (s *GetFingerprintServiceOutput) SetPageSize(v int32) *GetFingerprintServiceOutput {
+func (s *GetFingerprintServiceOutput) SetPageSize(v int64) *GetFingerprintServiceOutput {
 	s.PageSize = &v
 	return s
 }
 
 // SetTotalCount sets the TotalCount field's value.
-func (s *GetFingerprintServiceOutput) SetTotalCount(v int32) *GetFingerprintServiceOutput {
+func (s *GetFingerprintServiceOutput) SetTotalCount(v int64) *GetFingerprintServiceOutput {
 	s.TotalCount = &v
 	return s
 }
-
-const (
-	// EnumOfRestartForGetFingerprintServiceInputFalse is a EnumOfRestartForGetFingerprintServiceInput enum value
-	EnumOfRestartForGetFingerprintServiceInputFalse = "false"
-
-	// EnumOfRestartForGetFingerprintServiceInputTrue is a EnumOfRestartForGetFingerprintServiceInput enum value
-	EnumOfRestartForGetFingerprintServiceInputTrue = "true"
-)

@@ -156,7 +156,7 @@ type ConditionsForExportHidsAlarmListDataInput struct {
 
 	AgentTags []*string `type:"list" json:",omitempty"`
 
-	AlarmHandleResultList []*int32 `type:"list" json:",omitempty"`
+	AlarmHandleResultList []*int64 `type:"list" json:",omitempty"`
 
 	AlarmID *string `type:"string" json:",omitempty"`
 
@@ -206,15 +206,15 @@ type ConditionsForExportHidsAlarmListDataInput struct {
 
 	RaspArgv *string `type:"string" json:",omitempty"`
 
-	Status []*int32 `type:"list" json:",omitempty"`
+	Status []*int64 `type:"list" json:",omitempty"`
 
 	Tags []*string `type:"list" json:",omitempty"`
 
 	TaskID *string `type:"string" json:",omitempty"`
 
-	TimeEnd *int32 `type:"int32" json:",omitempty"`
+	TimeEnd *int64 `type:"int64" json:",omitempty"`
 
-	TimeStart *int32 `type:"int32" json:",omitempty"`
+	TimeStart *int64 `type:"int64" json:",omitempty"`
 
 	TopGroupID *string `type:"string" json:",omitempty"`
 
@@ -268,7 +268,7 @@ func (s *ConditionsForExportHidsAlarmListDataInput) SetAgentTags(v []*string) *C
 }
 
 // SetAlarmHandleResultList sets the AlarmHandleResultList field's value.
-func (s *ConditionsForExportHidsAlarmListDataInput) SetAlarmHandleResultList(v []*int32) *ConditionsForExportHidsAlarmListDataInput {
+func (s *ConditionsForExportHidsAlarmListDataInput) SetAlarmHandleResultList(v []*int64) *ConditionsForExportHidsAlarmListDataInput {
 	s.AlarmHandleResultList = v
 	return s
 }
@@ -418,7 +418,7 @@ func (s *ConditionsForExportHidsAlarmListDataInput) SetRaspArgv(v string) *Condi
 }
 
 // SetStatus sets the Status field's value.
-func (s *ConditionsForExportHidsAlarmListDataInput) SetStatus(v []*int32) *ConditionsForExportHidsAlarmListDataInput {
+func (s *ConditionsForExportHidsAlarmListDataInput) SetStatus(v []*int64) *ConditionsForExportHidsAlarmListDataInput {
 	s.Status = v
 	return s
 }
@@ -436,13 +436,13 @@ func (s *ConditionsForExportHidsAlarmListDataInput) SetTaskID(v string) *Conditi
 }
 
 // SetTimeEnd sets the TimeEnd field's value.
-func (s *ConditionsForExportHidsAlarmListDataInput) SetTimeEnd(v int32) *ConditionsForExportHidsAlarmListDataInput {
+func (s *ConditionsForExportHidsAlarmListDataInput) SetTimeEnd(v int64) *ConditionsForExportHidsAlarmListDataInput {
 	s.TimeEnd = &v
 	return s
 }
 
 // SetTimeStart sets the TimeStart field's value.
-func (s *ConditionsForExportHidsAlarmListDataInput) SetTimeStart(v int32) *ConditionsForExportHidsAlarmListDataInput {
+func (s *ConditionsForExportHidsAlarmListDataInput) SetTimeStart(v int64) *ConditionsForExportHidsAlarmListDataInput {
 	s.TimeStart = &v
 	return s
 }

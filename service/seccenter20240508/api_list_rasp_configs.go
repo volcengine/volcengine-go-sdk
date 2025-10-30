@@ -148,7 +148,7 @@ type BlockForListRaspConfigsOutput struct {
 
 	HookFunc []*string `type:"list" json:",omitempty"`
 
-	HookParam *int32 `type:"int32" json:",omitempty"`
+	HookParam *int64 `type:"int64" json:",omitempty"`
 
 	Rules []*RuleForListRaspConfigsOutput `type:"list" json:",omitempty"`
 
@@ -172,7 +172,7 @@ func (s *BlockForListRaspConfigsOutput) SetHookFunc(v []*string) *BlockForListRa
 }
 
 // SetHookParam sets the HookParam field's value.
-func (s *BlockForListRaspConfigsOutput) SetHookParam(v int32) *BlockForListRaspConfigsOutput {
+func (s *BlockForListRaspConfigsOutput) SetHookParam(v int64) *BlockForListRaspConfigsOutput {
 	s.HookParam = &v
 	return s
 }
@@ -210,9 +210,9 @@ type DataForListRaspConfigsOutput struct {
 
 	ProtectMethod *string `type:"string" json:",omitempty"`
 
-	ProtectedAgentCount *int32 `type:"int32" json:",omitempty"`
+	ProtectedAgentCount *int64 `type:"int64" json:",omitempty"`
 
-	ProtectedProcessCount *int32 `type:"int32" json:",omitempty"`
+	ProtectedProcessCount *int64 `type:"int64" json:",omitempty"`
 
 	Range *RangeForListRaspConfigsOutput `type:"structure" json:",omitempty"`
 
@@ -220,9 +220,9 @@ type DataForListRaspConfigsOutput struct {
 
 	Switch *SwitchForListRaspConfigsOutput `type:"structure" json:",omitempty"`
 
-	ToBeProtectedAgentCount *int32 `type:"int32" json:",omitempty"`
+	ToBeProtectedAgentCount *int64 `type:"int64" json:",omitempty"`
 
-	ToBeProtectedProcessCount *int32 `type:"int32" json:",omitempty"`
+	ToBeProtectedProcessCount *int64 `type:"int64" json:",omitempty"`
 
 	TopGroupID *string `type:"string" json:",omitempty"`
 }
@@ -292,13 +292,13 @@ func (s *DataForListRaspConfigsOutput) SetProtectMethod(v string) *DataForListRa
 }
 
 // SetProtectedAgentCount sets the ProtectedAgentCount field's value.
-func (s *DataForListRaspConfigsOutput) SetProtectedAgentCount(v int32) *DataForListRaspConfigsOutput {
+func (s *DataForListRaspConfigsOutput) SetProtectedAgentCount(v int64) *DataForListRaspConfigsOutput {
 	s.ProtectedAgentCount = &v
 	return s
 }
 
 // SetProtectedProcessCount sets the ProtectedProcessCount field's value.
-func (s *DataForListRaspConfigsOutput) SetProtectedProcessCount(v int32) *DataForListRaspConfigsOutput {
+func (s *DataForListRaspConfigsOutput) SetProtectedProcessCount(v int64) *DataForListRaspConfigsOutput {
 	s.ProtectedProcessCount = &v
 	return s
 }
@@ -322,13 +322,13 @@ func (s *DataForListRaspConfigsOutput) SetSwitch(v *SwitchForListRaspConfigsOutp
 }
 
 // SetToBeProtectedAgentCount sets the ToBeProtectedAgentCount field's value.
-func (s *DataForListRaspConfigsOutput) SetToBeProtectedAgentCount(v int32) *DataForListRaspConfigsOutput {
+func (s *DataForListRaspConfigsOutput) SetToBeProtectedAgentCount(v int64) *DataForListRaspConfigsOutput {
 	s.ToBeProtectedAgentCount = &v
 	return s
 }
 
 // SetToBeProtectedProcessCount sets the ToBeProtectedProcessCount field's value.
-func (s *DataForListRaspConfigsOutput) SetToBeProtectedProcessCount(v int32) *DataForListRaspConfigsOutput {
+func (s *DataForListRaspConfigsOutput) SetToBeProtectedProcessCount(v int64) *DataForListRaspConfigsOutput {
 	s.ToBeProtectedProcessCount = &v
 	return s
 }
@@ -344,7 +344,7 @@ type FilterForListRaspConfigsOutput struct {
 
 	HookFunc []*string `type:"list" json:",omitempty"`
 
-	HookParam *int32 `type:"int32" json:",omitempty"`
+	HookParam *int64 `type:"int64" json:",omitempty"`
 
 	Rules []*RuleForListRaspConfigsOutput `type:"list" json:",omitempty"`
 
@@ -368,7 +368,7 @@ func (s *FilterForListRaspConfigsOutput) SetHookFunc(v []*string) *FilterForList
 }
 
 // SetHookParam sets the HookParam field's value.
-func (s *FilterForListRaspConfigsOutput) SetHookParam(v int32) *FilterForListRaspConfigsOutput {
+func (s *FilterForListRaspConfigsOutput) SetHookParam(v int64) *FilterForListRaspConfigsOutput {
 	s.HookParam = &v
 	return s
 }
@@ -392,7 +392,7 @@ type InjectConfigListForListRaspConfigsOutput struct {
 
 	MatchKey *string `type:"string" json:",omitempty"`
 
-	MatchType *int32 `type:"int32" json:",omitempty"`
+	MatchType *int64 `type:"int64" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -418,7 +418,7 @@ func (s *InjectConfigListForListRaspConfigsOutput) SetMatchKey(v string) *Inject
 }
 
 // SetMatchType sets the MatchType field's value.
-func (s *InjectConfigListForListRaspConfigsOutput) SetMatchType(v int32) *InjectConfigListForListRaspConfigsOutput {
+func (s *InjectConfigListForListRaspConfigsOutput) SetMatchType(v int64) *InjectConfigListForListRaspConfigsOutput {
 	s.MatchType = &v
 	return s
 }
@@ -447,10 +447,10 @@ type ListRaspConfigsInput struct {
 	Name *string `type:"string" json:",omitempty"`
 
 	// PageNumber is a required field
-	PageNumber *int32 `type:"int32" json:",omitempty" required:"true"`
+	PageNumber *int64 `type:"int64" json:",omitempty" required:"true"`
 
 	// PageSize is a required field
-	PageSize *int32 `type:"int32" json:",omitempty" required:"true"`
+	PageSize *int64 `type:"int64" json:",omitempty" required:"true"`
 
 	Runtime []*string `type:"list" json:",omitempty"`
 
@@ -550,13 +550,13 @@ func (s *ListRaspConfigsInput) SetName(v string) *ListRaspConfigsInput {
 }
 
 // SetPageNumber sets the PageNumber field's value.
-func (s *ListRaspConfigsInput) SetPageNumber(v int32) *ListRaspConfigsInput {
+func (s *ListRaspConfigsInput) SetPageNumber(v int64) *ListRaspConfigsInput {
 	s.PageNumber = &v
 	return s
 }
 
 // SetPageSize sets the PageSize field's value.
-func (s *ListRaspConfigsInput) SetPageSize(v int32) *ListRaspConfigsInput {
+func (s *ListRaspConfigsInput) SetPageSize(v int64) *ListRaspConfigsInput {
 	s.PageSize = &v
 	return s
 }
@@ -598,11 +598,11 @@ type ListRaspConfigsOutput struct {
 
 	Data []*DataForListRaspConfigsOutput `type:"list" json:",omitempty"`
 
-	PageNumber *int32 `type:"int32" json:",omitempty"`
+	PageNumber *int64 `type:"int64" json:",omitempty"`
 
-	PageSize *int32 `type:"int32" json:",omitempty"`
+	PageSize *int64 `type:"int64" json:",omitempty"`
 
-	TotalCount *int32 `type:"int32" json:",omitempty"`
+	TotalCount *int64 `type:"int64" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -622,19 +622,19 @@ func (s *ListRaspConfigsOutput) SetData(v []*DataForListRaspConfigsOutput) *List
 }
 
 // SetPageNumber sets the PageNumber field's value.
-func (s *ListRaspConfigsOutput) SetPageNumber(v int32) *ListRaspConfigsOutput {
+func (s *ListRaspConfigsOutput) SetPageNumber(v int64) *ListRaspConfigsOutput {
 	s.PageNumber = &v
 	return s
 }
 
 // SetPageSize sets the PageSize field's value.
-func (s *ListRaspConfigsOutput) SetPageSize(v int32) *ListRaspConfigsOutput {
+func (s *ListRaspConfigsOutput) SetPageSize(v int64) *ListRaspConfigsOutput {
 	s.PageSize = &v
 	return s
 }
 
 // SetTotalCount sets the TotalCount field's value.
-func (s *ListRaspConfigsOutput) SetTotalCount(v int32) *ListRaspConfigsOutput {
+func (s *ListRaspConfigsOutput) SetTotalCount(v int64) *ListRaspConfigsOutput {
 	s.TotalCount = &v
 	return s
 }

@@ -334,7 +334,7 @@ type DataForListAssetCenterHostsOutput struct {
 
 	EcsInstance *EcsInstanceForListAssetCenterHostsOutput `type:"structure" json:",omitempty"`
 
-	FirstHeartbeatTime *int32 `type:"int32" json:",omitempty"`
+	FirstHeartbeatTime *int64 `type:"int64" json:",omitempty"`
 
 	Gateway *string `type:"string" json:",omitempty"`
 
@@ -344,7 +344,7 @@ type DataForListAssetCenterHostsOutput struct {
 
 	KernelVersion *string `type:"string" json:",omitempty"`
 
-	LastHeartbeatTime *int32 `type:"int32" json:",omitempty"`
+	LastHeartbeatTime *int64 `type:"int64" json:",omitempty"`
 
 	MemUsage *float64 `type:"double" json:",omitempty"`
 
@@ -362,13 +362,13 @@ type DataForListAssetCenterHostsOutput struct {
 
 	SecurityEnhancement *bool `type:"boolean" json:",omitempty"`
 
-	StartTime *int32 `type:"int32" json:",omitempty"`
+	StartTime *int64 `type:"int64" json:",omitempty"`
 
 	Status *string `type:"string" json:",omitempty"`
 
 	Tags []*string `type:"list" json:",omitempty"`
 
-	TotalMem *int32 `type:"int32" json:",omitempty"`
+	TotalMem *int64 `type:"int64" json:",omitempty"`
 
 	UserStatus *string `type:"string" json:",omitempty"`
 
@@ -428,7 +428,7 @@ func (s *DataForListAssetCenterHostsOutput) SetEcsInstance(v *EcsInstanceForList
 }
 
 // SetFirstHeartbeatTime sets the FirstHeartbeatTime field's value.
-func (s *DataForListAssetCenterHostsOutput) SetFirstHeartbeatTime(v int32) *DataForListAssetCenterHostsOutput {
+func (s *DataForListAssetCenterHostsOutput) SetFirstHeartbeatTime(v int64) *DataForListAssetCenterHostsOutput {
 	s.FirstHeartbeatTime = &v
 	return s
 }
@@ -458,7 +458,7 @@ func (s *DataForListAssetCenterHostsOutput) SetKernelVersion(v string) *DataForL
 }
 
 // SetLastHeartbeatTime sets the LastHeartbeatTime field's value.
-func (s *DataForListAssetCenterHostsOutput) SetLastHeartbeatTime(v int32) *DataForListAssetCenterHostsOutput {
+func (s *DataForListAssetCenterHostsOutput) SetLastHeartbeatTime(v int64) *DataForListAssetCenterHostsOutput {
 	s.LastHeartbeatTime = &v
 	return s
 }
@@ -512,7 +512,7 @@ func (s *DataForListAssetCenterHostsOutput) SetSecurityEnhancement(v bool) *Data
 }
 
 // SetStartTime sets the StartTime field's value.
-func (s *DataForListAssetCenterHostsOutput) SetStartTime(v int32) *DataForListAssetCenterHostsOutput {
+func (s *DataForListAssetCenterHostsOutput) SetStartTime(v int64) *DataForListAssetCenterHostsOutput {
 	s.StartTime = &v
 	return s
 }
@@ -530,7 +530,7 @@ func (s *DataForListAssetCenterHostsOutput) SetTags(v []*string) *DataForListAss
 }
 
 // SetTotalMem sets the TotalMem field's value.
-func (s *DataForListAssetCenterHostsOutput) SetTotalMem(v int32) *DataForListAssetCenterHostsOutput {
+func (s *DataForListAssetCenterHostsOutput) SetTotalMem(v int64) *DataForListAssetCenterHostsOutput {
 	s.TotalMem = &v
 	return s
 }
@@ -554,7 +554,9 @@ type EcsInstanceForListAssetCenterHostsOutput struct {
 
 	AccountID *string `type:"string" json:",omitempty"`
 
-	Cpu *int32 `type:"int32" json:",omitempty"`
+	Cpu *int64 `type:"int64" json:",omitempty"`
+
+	CreatedAt *string `type:"string" json:",omitempty"`
 
 	ECSUpdateAt *string `type:"string" json:",omitempty"`
 
@@ -566,7 +568,7 @@ type EcsInstanceForListAssetCenterHostsOutput struct {
 
 	InstanceName *string `type:"string" json:",omitempty"`
 
-	Mem *int32 `type:"int32" json:",omitempty"`
+	Mem *int64 `type:"int64" json:",omitempty"`
 
 	OsName *string `type:"string" json:",omitempty"`
 
@@ -579,6 +581,8 @@ type EcsInstanceForListAssetCenterHostsOutput struct {
 	PrimaryIpAddress *string `type:"string" json:",omitempty"`
 
 	Region *string `type:"string" json:",omitempty"`
+
+	SecurityEnhancementStrategy *string `type:"string" json:",omitempty"`
 
 	Status *string `type:"string" json:",omitempty"`
 
@@ -614,8 +618,14 @@ func (s *EcsInstanceForListAssetCenterHostsOutput) SetAccountID(v string) *EcsIn
 }
 
 // SetCpu sets the Cpu field's value.
-func (s *EcsInstanceForListAssetCenterHostsOutput) SetCpu(v int32) *EcsInstanceForListAssetCenterHostsOutput {
+func (s *EcsInstanceForListAssetCenterHostsOutput) SetCpu(v int64) *EcsInstanceForListAssetCenterHostsOutput {
 	s.Cpu = &v
+	return s
+}
+
+// SetCreatedAt sets the CreatedAt field's value.
+func (s *EcsInstanceForListAssetCenterHostsOutput) SetCreatedAt(v string) *EcsInstanceForListAssetCenterHostsOutput {
+	s.CreatedAt = &v
 	return s
 }
 
@@ -650,7 +660,7 @@ func (s *EcsInstanceForListAssetCenterHostsOutput) SetInstanceName(v string) *Ec
 }
 
 // SetMem sets the Mem field's value.
-func (s *EcsInstanceForListAssetCenterHostsOutput) SetMem(v int32) *EcsInstanceForListAssetCenterHostsOutput {
+func (s *EcsInstanceForListAssetCenterHostsOutput) SetMem(v int64) *EcsInstanceForListAssetCenterHostsOutput {
 	s.Mem = &v
 	return s
 }
@@ -688,6 +698,12 @@ func (s *EcsInstanceForListAssetCenterHostsOutput) SetPrimaryIpAddress(v string)
 // SetRegion sets the Region field's value.
 func (s *EcsInstanceForListAssetCenterHostsOutput) SetRegion(v string) *EcsInstanceForListAssetCenterHostsOutput {
 	s.Region = &v
+	return s
+}
+
+// SetSecurityEnhancementStrategy sets the SecurityEnhancementStrategy field's value.
+func (s *EcsInstanceForListAssetCenterHostsOutput) SetSecurityEnhancementStrategy(v string) *EcsInstanceForListAssetCenterHostsOutput {
+	s.SecurityEnhancementStrategy = &v
 	return s
 }
 
@@ -729,10 +745,10 @@ type ListAssetCenterHostsInput struct {
 	IdList []*string `type:"list" json:",omitempty"`
 
 	// PageNumber is a required field
-	PageNumber *int32 `type:"int32" json:",omitempty" required:"true"`
+	PageNumber *int64 `type:"int64" json:",omitempty" required:"true"`
 
 	// PageSize is a required field
-	PageSize *int32 `type:"int32" json:",omitempty" required:"true"`
+	PageSize *int64 `type:"int64" json:",omitempty" required:"true"`
 
 	SortBy *string `type:"string" json:",omitempty"`
 
@@ -778,13 +794,13 @@ func (s *ListAssetCenterHostsInput) SetIdList(v []*string) *ListAssetCenterHosts
 }
 
 // SetPageNumber sets the PageNumber field's value.
-func (s *ListAssetCenterHostsInput) SetPageNumber(v int32) *ListAssetCenterHostsInput {
+func (s *ListAssetCenterHostsInput) SetPageNumber(v int64) *ListAssetCenterHostsInput {
 	s.PageNumber = &v
 	return s
 }
 
 // SetPageSize sets the PageSize field's value.
-func (s *ListAssetCenterHostsInput) SetPageSize(v int32) *ListAssetCenterHostsInput {
+func (s *ListAssetCenterHostsInput) SetPageSize(v int64) *ListAssetCenterHostsInput {
 	s.PageSize = &v
 	return s
 }
@@ -808,11 +824,11 @@ type ListAssetCenterHostsOutput struct {
 
 	Data []*DataForListAssetCenterHostsOutput `type:"list" json:",omitempty"`
 
-	PageNumber *int32 `type:"int32" json:",omitempty"`
+	PageNumber *int64 `type:"int64" json:",omitempty"`
 
-	PageSize *int32 `type:"int32" json:",omitempty"`
+	PageSize *int64 `type:"int64" json:",omitempty"`
 
-	TotalCount *int32 `type:"int32" json:",omitempty"`
+	TotalCount *int64 `type:"int64" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -832,19 +848,19 @@ func (s *ListAssetCenterHostsOutput) SetData(v []*DataForListAssetCenterHostsOut
 }
 
 // SetPageNumber sets the PageNumber field's value.
-func (s *ListAssetCenterHostsOutput) SetPageNumber(v int32) *ListAssetCenterHostsOutput {
+func (s *ListAssetCenterHostsOutput) SetPageNumber(v int64) *ListAssetCenterHostsOutput {
 	s.PageNumber = &v
 	return s
 }
 
 // SetPageSize sets the PageSize field's value.
-func (s *ListAssetCenterHostsOutput) SetPageSize(v int32) *ListAssetCenterHostsOutput {
+func (s *ListAssetCenterHostsOutput) SetPageSize(v int64) *ListAssetCenterHostsOutput {
 	s.PageSize = &v
 	return s
 }
 
 // SetTotalCount sets the TotalCount field's value.
-func (s *ListAssetCenterHostsOutput) SetTotalCount(v int32) *ListAssetCenterHostsOutput {
+func (s *ListAssetCenterHostsOutput) SetTotalCount(v int64) *ListAssetCenterHostsOutput {
 	s.TotalCount = &v
 	return s
 }
@@ -898,13 +914,13 @@ func (s *RiskForListAssetCenterHostsInput) SetVuln(v bool) *RiskForListAssetCent
 type RiskForListAssetCenterHostsOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	Alarm *int32 `type:"int32" json:",omitempty"`
+	Alarm *int64 `type:"int64" json:",omitempty"`
 
-	Baseline *int32 `type:"int32" json:",omitempty"`
+	Baseline *int64 `type:"int64" json:",omitempty"`
 
-	Virus *int32 `type:"int32" json:",omitempty"`
+	Virus *int64 `type:"int64" json:",omitempty"`
 
-	Vuln *int32 `type:"int32" json:",omitempty"`
+	Vuln *int64 `type:"int64" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -918,25 +934,25 @@ func (s RiskForListAssetCenterHostsOutput) GoString() string {
 }
 
 // SetAlarm sets the Alarm field's value.
-func (s *RiskForListAssetCenterHostsOutput) SetAlarm(v int32) *RiskForListAssetCenterHostsOutput {
+func (s *RiskForListAssetCenterHostsOutput) SetAlarm(v int64) *RiskForListAssetCenterHostsOutput {
 	s.Alarm = &v
 	return s
 }
 
 // SetBaseline sets the Baseline field's value.
-func (s *RiskForListAssetCenterHostsOutput) SetBaseline(v int32) *RiskForListAssetCenterHostsOutput {
+func (s *RiskForListAssetCenterHostsOutput) SetBaseline(v int64) *RiskForListAssetCenterHostsOutput {
 	s.Baseline = &v
 	return s
 }
 
 // SetVirus sets the Virus field's value.
-func (s *RiskForListAssetCenterHostsOutput) SetVirus(v int32) *RiskForListAssetCenterHostsOutput {
+func (s *RiskForListAssetCenterHostsOutput) SetVirus(v int64) *RiskForListAssetCenterHostsOutput {
 	s.Virus = &v
 	return s
 }
 
 // SetVuln sets the Vuln field's value.
-func (s *RiskForListAssetCenterHostsOutput) SetVuln(v int32) *RiskForListAssetCenterHostsOutput {
+func (s *RiskForListAssetCenterHostsOutput) SetVuln(v int64) *RiskForListAssetCenterHostsOutput {
 	s.Vuln = &v
 	return s
 }

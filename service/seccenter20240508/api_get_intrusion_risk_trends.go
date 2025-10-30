@@ -142,9 +142,9 @@ func (c *SECCENTER20240508) GetIntrusionRiskTrendsWithContext(ctx volcengine.Con
 type CriticalTrendForGetIntrusionRiskTrendsOutput struct {
 	_ struct{} `type:"structure"`
 
-	TimeStamp *int32 `type:"int32"`
+	TimeStamp *int64 `type:"int64"`
 
-	Value *int32 `type:"int32"`
+	Value *int64 `type:"int64"`
 }
 
 // String returns the string representation
@@ -158,13 +158,13 @@ func (s CriticalTrendForGetIntrusionRiskTrendsOutput) GoString() string {
 }
 
 // SetTimeStamp sets the TimeStamp field's value.
-func (s *CriticalTrendForGetIntrusionRiskTrendsOutput) SetTimeStamp(v int32) *CriticalTrendForGetIntrusionRiskTrendsOutput {
+func (s *CriticalTrendForGetIntrusionRiskTrendsOutput) SetTimeStamp(v int64) *CriticalTrendForGetIntrusionRiskTrendsOutput {
 	s.TimeStamp = &v
 	return s
 }
 
 // SetValue sets the Value field's value.
-func (s *CriticalTrendForGetIntrusionRiskTrendsOutput) SetValue(v int32) *CriticalTrendForGetIntrusionRiskTrendsOutput {
+func (s *CriticalTrendForGetIntrusionRiskTrendsOutput) SetValue(v int64) *CriticalTrendForGetIntrusionRiskTrendsOutput {
 	s.Value = &v
 	return s
 }
@@ -172,9 +172,9 @@ func (s *CriticalTrendForGetIntrusionRiskTrendsOutput) SetValue(v int32) *Critic
 type GetIntrusionRiskTrendsInput struct {
 	_ struct{} `type:"structure"`
 
-	EndTime *int32 `type:"int32"`
+	EndTime *int64 `type:"int64"`
 
-	StartTime *int32 `type:"int32"`
+	StartTime *int64 `type:"int64"`
 }
 
 // String returns the string representation
@@ -188,13 +188,13 @@ func (s GetIntrusionRiskTrendsInput) GoString() string {
 }
 
 // SetEndTime sets the EndTime field's value.
-func (s *GetIntrusionRiskTrendsInput) SetEndTime(v int32) *GetIntrusionRiskTrendsInput {
+func (s *GetIntrusionRiskTrendsInput) SetEndTime(v int64) *GetIntrusionRiskTrendsInput {
 	s.EndTime = &v
 	return s
 }
 
 // SetStartTime sets the StartTime field's value.
-func (s *GetIntrusionRiskTrendsInput) SetStartTime(v int32) *GetIntrusionRiskTrendsInput {
+func (s *GetIntrusionRiskTrendsInput) SetStartTime(v int64) *GetIntrusionRiskTrendsInput {
 	s.StartTime = &v
 	return s
 }
@@ -250,9 +250,9 @@ func (s *GetIntrusionRiskTrendsOutput) SetMediumTrends(v []*MediumTrendForGetInt
 type HighTrendForGetIntrusionRiskTrendsOutput struct {
 	_ struct{} `type:"structure"`
 
-	TimeStamp *int32 `type:"int32"`
+	TimeStamp *int64 `type:"int64"`
 
-	Value *int32 `type:"int32"`
+	Value *int64 `type:"int64"`
 }
 
 // String returns the string representation
@@ -266,13 +266,13 @@ func (s HighTrendForGetIntrusionRiskTrendsOutput) GoString() string {
 }
 
 // SetTimeStamp sets the TimeStamp field's value.
-func (s *HighTrendForGetIntrusionRiskTrendsOutput) SetTimeStamp(v int32) *HighTrendForGetIntrusionRiskTrendsOutput {
+func (s *HighTrendForGetIntrusionRiskTrendsOutput) SetTimeStamp(v int64) *HighTrendForGetIntrusionRiskTrendsOutput {
 	s.TimeStamp = &v
 	return s
 }
 
 // SetValue sets the Value field's value.
-func (s *HighTrendForGetIntrusionRiskTrendsOutput) SetValue(v int32) *HighTrendForGetIntrusionRiskTrendsOutput {
+func (s *HighTrendForGetIntrusionRiskTrendsOutput) SetValue(v int64) *HighTrendForGetIntrusionRiskTrendsOutput {
 	s.Value = &v
 	return s
 }
@@ -280,9 +280,9 @@ func (s *HighTrendForGetIntrusionRiskTrendsOutput) SetValue(v int32) *HighTrendF
 type LowTrendForGetIntrusionRiskTrendsOutput struct {
 	_ struct{} `type:"structure"`
 
-	TimeStamp *int32 `type:"int32"`
+	TimeStamp *int64 `type:"int64"`
 
-	Value *int32 `type:"int32"`
+	Value *int64 `type:"int64"`
 }
 
 // String returns the string representation
@@ -296,13 +296,13 @@ func (s LowTrendForGetIntrusionRiskTrendsOutput) GoString() string {
 }
 
 // SetTimeStamp sets the TimeStamp field's value.
-func (s *LowTrendForGetIntrusionRiskTrendsOutput) SetTimeStamp(v int32) *LowTrendForGetIntrusionRiskTrendsOutput {
+func (s *LowTrendForGetIntrusionRiskTrendsOutput) SetTimeStamp(v int64) *LowTrendForGetIntrusionRiskTrendsOutput {
 	s.TimeStamp = &v
 	return s
 }
 
 // SetValue sets the Value field's value.
-func (s *LowTrendForGetIntrusionRiskTrendsOutput) SetValue(v int32) *LowTrendForGetIntrusionRiskTrendsOutput {
+func (s *LowTrendForGetIntrusionRiskTrendsOutput) SetValue(v int64) *LowTrendForGetIntrusionRiskTrendsOutput {
 	s.Value = &v
 	return s
 }
@@ -310,9 +310,9 @@ func (s *LowTrendForGetIntrusionRiskTrendsOutput) SetValue(v int32) *LowTrendFor
 type MediumTrendForGetIntrusionRiskTrendsOutput struct {
 	_ struct{} `type:"structure"`
 
-	TimeStamp *int32 `type:"int32"`
+	TimeStamp *int64 `type:"int64"`
 
-	Value *int32 `type:"int32"`
+	Value *int64 `type:"int64"`
 }
 
 // String returns the string representation
@@ -326,13 +326,13 @@ func (s MediumTrendForGetIntrusionRiskTrendsOutput) GoString() string {
 }
 
 // SetTimeStamp sets the TimeStamp field's value.
-func (s *MediumTrendForGetIntrusionRiskTrendsOutput) SetTimeStamp(v int32) *MediumTrendForGetIntrusionRiskTrendsOutput {
+func (s *MediumTrendForGetIntrusionRiskTrendsOutput) SetTimeStamp(v int64) *MediumTrendForGetIntrusionRiskTrendsOutput {
 	s.TimeStamp = &v
 	return s
 }
 
 // SetValue sets the Value field's value.
-func (s *MediumTrendForGetIntrusionRiskTrendsOutput) SetValue(v int32) *MediumTrendForGetIntrusionRiskTrendsOutput {
+func (s *MediumTrendForGetIntrusionRiskTrendsOutput) SetValue(v int64) *MediumTrendForGetIntrusionRiskTrendsOutput {
 	s.Value = &v
 	return s
 }

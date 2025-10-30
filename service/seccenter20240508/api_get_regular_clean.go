@@ -162,7 +162,7 @@ type GetRegularCleanOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	CleanDays *int32 `type:"int32" json:",omitempty"`
+	CleanDays *int64 `type:"int64" json:",omitempty"`
 
 	Switch *bool `type:"boolean" json:",omitempty"`
 }
@@ -178,7 +178,7 @@ func (s GetRegularCleanOutput) GoString() string {
 }
 
 // SetCleanDays sets the CleanDays field's value.
-func (s *GetRegularCleanOutput) SetCleanDays(v int32) *GetRegularCleanOutput {
+func (s *GetRegularCleanOutput) SetCleanDays(v int64) *GetRegularCleanOutput {
 	s.CleanDays = &v
 	return s
 }

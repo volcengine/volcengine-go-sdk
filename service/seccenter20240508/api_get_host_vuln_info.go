@@ -176,9 +176,9 @@ type AffectForGetHostVulnInfoOutput struct {
 
 	ContainerState *string `type:"string" json:",omitempty"`
 
-	Control_time *int32 `type:"int32" json:"control_time,omitempty"`
+	Control_time *int64 `type:"int64" json:"control_time,omitempty"`
 
-	Create_time *int32 `type:"int32" json:"create_time,omitempty"`
+	Create_time *int64 `type:"int64" json:"create_time,omitempty"`
 
 	Cve_id *string `type:"string" json:"cve_id,omitempty"`
 
@@ -222,7 +222,7 @@ type AffectForGetHostVulnInfoOutput struct {
 
 	Type *string `type:"string" json:",omitempty"`
 
-	UpdateTime *int32 `type:"int32" json:",omitempty"`
+	UpdateTime *int64 `type:"int64" json:",omitempty"`
 
 	Vuln_name *string `type:"string" json:"vuln_name,omitempty"`
 
@@ -334,13 +334,13 @@ func (s *AffectForGetHostVulnInfoOutput) SetContainerState(v string) *AffectForG
 }
 
 // SetControl_time sets the Control_time field's value.
-func (s *AffectForGetHostVulnInfoOutput) SetControl_time(v int32) *AffectForGetHostVulnInfoOutput {
+func (s *AffectForGetHostVulnInfoOutput) SetControl_time(v int64) *AffectForGetHostVulnInfoOutput {
 	s.Control_time = &v
 	return s
 }
 
 // SetCreate_time sets the Create_time field's value.
-func (s *AffectForGetHostVulnInfoOutput) SetCreate_time(v int32) *AffectForGetHostVulnInfoOutput {
+func (s *AffectForGetHostVulnInfoOutput) SetCreate_time(v int64) *AffectForGetHostVulnInfoOutput {
 	s.Create_time = &v
 	return s
 }
@@ -472,7 +472,7 @@ func (s *AffectForGetHostVulnInfoOutput) SetType(v string) *AffectForGetHostVuln
 }
 
 // SetUpdateTime sets the UpdateTime field's value.
-func (s *AffectForGetHostVulnInfoOutput) SetUpdateTime(v int32) *AffectForGetHostVulnInfoOutput {
+func (s *AffectForGetHostVulnInfoOutput) SetUpdateTime(v int64) *AffectForGetHostVulnInfoOutput {
 	s.UpdateTime = &v
 	return s
 }

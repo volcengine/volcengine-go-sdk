@@ -224,8 +224,8 @@ const (
 	EnumOfFingerprintTypeForExportDevFingerprintDataInputProcess = "process"
 
 	// EnumOfFingerprintTypeForExportDevFingerprintDataInputPort is a EnumOfFingerprintTypeForExportDevFingerprintDataInput enum value
-	EnumOfFingerprintTypeForExportDevFingerprintDataInputPort = " port"
+	EnumOfFingerprintTypeForExportDevFingerprintDataInputPort = "port"
 
 	// EnumOfFingerprintTypeForExportDevFingerprintDataInputSoftware is a EnumOfFingerprintTypeForExportDevFingerprintDataInput enum value
-	EnumOfFingerprintTypeForExportDevFingerprintDataInputSoftware = " software"
+	EnumOfFingerprintTypeForExportDevFingerprintDataInputSoftware = "software"
 )

@@ -162,19 +162,19 @@ type GetDevAssetOverviewOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	Alarm *int32 `type:"int32" json:",omitempty"`
+	Alarm *int64 `type:"int64" json:",omitempty"`
 
-	Baseline *int32 `type:"int32" json:",omitempty"`
+	Baseline *int64 `type:"int64" json:",omitempty"`
 
-	HasRisk *int32 `type:"int32" json:",omitempty"`
+	HasRisk *int64 `type:"int64" json:",omitempty"`
 
-	Running *int32 `type:"int32" json:",omitempty"`
+	Running *int64 `type:"int64" json:",omitempty"`
 
-	Stopped *int32 `type:"int32" json:",omitempty"`
+	Stopped *int64 `type:"int64" json:",omitempty"`
 
-	Total *int32 `type:"int32" json:",omitempty"`
+	Total *int64 `type:"int64" json:",omitempty"`
 
-	Vul *int32 `type:"int32" json:",omitempty"`
+	Vul *int64 `type:"int64" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -188,43 +188,43 @@ func (s GetDevAssetOverviewOutput) GoString() string {
 }
 
 // SetAlarm sets the Alarm field's value.
-func (s *GetDevAssetOverviewOutput) SetAlarm(v int32) *GetDevAssetOverviewOutput {
+func (s *GetDevAssetOverviewOutput) SetAlarm(v int64) *GetDevAssetOverviewOutput {
 	s.Alarm = &v
 	return s
 }
 
 // SetBaseline sets the Baseline field's value.
-func (s *GetDevAssetOverviewOutput) SetBaseline(v int32) *GetDevAssetOverviewOutput {
+func (s *GetDevAssetOverviewOutput) SetBaseline(v int64) *GetDevAssetOverviewOutput {
 	s.Baseline = &v
 	return s
 }
 
 // SetHasRisk sets the HasRisk field's value.
-func (s *GetDevAssetOverviewOutput) SetHasRisk(v int32) *GetDevAssetOverviewOutput {
+func (s *GetDevAssetOverviewOutput) SetHasRisk(v int64) *GetDevAssetOverviewOutput {
 	s.HasRisk = &v
 	return s
 }
 
 // SetRunning sets the Running field's value.
-func (s *GetDevAssetOverviewOutput) SetRunning(v int32) *GetDevAssetOverviewOutput {
+func (s *GetDevAssetOverviewOutput) SetRunning(v int64) *GetDevAssetOverviewOutput {
 	s.Running = &v
 	return s
 }
 
 // SetStopped sets the Stopped field's value.
-func (s *GetDevAssetOverviewOutput) SetStopped(v int32) *GetDevAssetOverviewOutput {
+func (s *GetDevAssetOverviewOutput) SetStopped(v int64) *GetDevAssetOverviewOutput {
 	s.Stopped = &v
 	return s
 }
 
 // SetTotal sets the Total field's value.
-func (s *GetDevAssetOverviewOutput) SetTotal(v int32) *GetDevAssetOverviewOutput {
+func (s *GetDevAssetOverviewOutput) SetTotal(v int64) *GetDevAssetOverviewOutput {
 	s.Total = &v
 	return s
 }
 
 // SetVul sets the Vul field's value.
-func (s *GetDevAssetOverviewOutput) SetVul(v int32) *GetDevAssetOverviewOutput {
+func (s *GetDevAssetOverviewOutput) SetVul(v int64) *GetDevAssetOverviewOutput {
 	s.Vul = &v
 	return s
 }

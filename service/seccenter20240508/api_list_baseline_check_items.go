@@ -148,15 +148,15 @@ type BaselineInfoForListBaselineCheckItemsOutput struct {
 
 	BaselineCheck *string `type:"string" json:",omitempty"`
 
-	BaselineID *int32 `type:"int32" json:",omitempty"`
+	BaselineID *int64 `type:"int64" json:",omitempty"`
 
-	CheckID *int32 `type:"int32" json:",omitempty"`
+	CheckID *int64 `type:"int64" json:",omitempty"`
 
 	Description *string `type:"string" json:",omitempty"`
 
 	DescriptionCn *string `type:"string" json:",omitempty"`
 
-	PassRate *int32 `type:"int32" json:",omitempty"`
+	PassRate *int64 `type:"int64" json:",omitempty"`
 
 	Security *string `type:"string" json:",omitempty"`
 
@@ -174,7 +174,7 @@ type BaselineInfoForListBaselineCheckItemsOutput struct {
 
 	TypeCn *string `type:"string" json:",omitempty"`
 
-	UpdateTime *int32 `type:"int32" json:",omitempty"`
+	UpdateTime *int64 `type:"int64" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -194,13 +194,13 @@ func (s *BaselineInfoForListBaselineCheckItemsOutput) SetBaselineCheck(v string)
 }
 
 // SetBaselineID sets the BaselineID field's value.
-func (s *BaselineInfoForListBaselineCheckItemsOutput) SetBaselineID(v int32) *BaselineInfoForListBaselineCheckItemsOutput {
+func (s *BaselineInfoForListBaselineCheckItemsOutput) SetBaselineID(v int64) *BaselineInfoForListBaselineCheckItemsOutput {
 	s.BaselineID = &v
 	return s
 }
 
 // SetCheckID sets the CheckID field's value.
-func (s *BaselineInfoForListBaselineCheckItemsOutput) SetCheckID(v int32) *BaselineInfoForListBaselineCheckItemsOutput {
+func (s *BaselineInfoForListBaselineCheckItemsOutput) SetCheckID(v int64) *BaselineInfoForListBaselineCheckItemsOutput {
 	s.CheckID = &v
 	return s
 }
@@ -218,7 +218,7 @@ func (s *BaselineInfoForListBaselineCheckItemsOutput) SetDescriptionCn(v string)
 }
 
 // SetPassRate sets the PassRate field's value.
-func (s *BaselineInfoForListBaselineCheckItemsOutput) SetPassRate(v int32) *BaselineInfoForListBaselineCheckItemsOutput {
+func (s *BaselineInfoForListBaselineCheckItemsOutput) SetPassRate(v int64) *BaselineInfoForListBaselineCheckItemsOutput {
 	s.PassRate = &v
 	return s
 }
@@ -272,7 +272,7 @@ func (s *BaselineInfoForListBaselineCheckItemsOutput) SetTypeCn(v string) *Basel
 }
 
 // SetUpdateTime sets the UpdateTime field's value.
-func (s *BaselineInfoForListBaselineCheckItemsOutput) SetUpdateTime(v int32) *BaselineInfoForListBaselineCheckItemsOutput {
+func (s *BaselineInfoForListBaselineCheckItemsOutput) SetUpdateTime(v int64) *BaselineInfoForListBaselineCheckItemsOutput {
 	s.UpdateTime = &v
 	return s
 }
@@ -311,15 +311,15 @@ type ListBaselineCheckItemsInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
 	// BaselineID is a required field
-	BaselineID *int32 `type:"int32" json:",omitempty" required:"true"`
+	BaselineID *int64 `type:"int64" json:",omitempty" required:"true"`
 
 	CheckName *string `type:"string" json:",omitempty"`
 
 	// PageNumber is a required field
-	PageNumber *int32 `type:"int32" json:",omitempty" required:"true"`
+	PageNumber *int64 `type:"int64" json:",omitempty" required:"true"`
 
 	// PageSize is a required field
-	PageSize *int32 `type:"int32" json:",omitempty" required:"true"`
+	PageSize *int64 `type:"int64" json:",omitempty" required:"true"`
 
 	SortBy *string `type:"string" json:",omitempty"`
 
@@ -358,7 +358,7 @@ func (s *ListBaselineCheckItemsInput) Validate() error {
 }
 
 // SetBaselineID sets the BaselineID field's value.
-func (s *ListBaselineCheckItemsInput) SetBaselineID(v int32) *ListBaselineCheckItemsInput {
+func (s *ListBaselineCheckItemsInput) SetBaselineID(v int64) *ListBaselineCheckItemsInput {
 	s.BaselineID = &v
 	return s
 }
@@ -370,13 +370,13 @@ func (s *ListBaselineCheckItemsInput) SetCheckName(v string) *ListBaselineCheckI
 }
 
 // SetPageNumber sets the PageNumber field's value.
-func (s *ListBaselineCheckItemsInput) SetPageNumber(v int32) *ListBaselineCheckItemsInput {
+func (s *ListBaselineCheckItemsInput) SetPageNumber(v int64) *ListBaselineCheckItemsInput {
 	s.PageNumber = &v
 	return s
 }
 
 // SetPageSize sets the PageSize field's value.
-func (s *ListBaselineCheckItemsInput) SetPageSize(v int32) *ListBaselineCheckItemsInput {
+func (s *ListBaselineCheckItemsInput) SetPageSize(v int64) *ListBaselineCheckItemsInput {
 	s.PageSize = &v
 	return s
 }
@@ -406,11 +406,11 @@ type ListBaselineCheckItemsOutput struct {
 
 	Data *DataForListBaselineCheckItemsOutput `type:"structure" json:",omitempty"`
 
-	PageNumber *int32 `type:"int32" json:",omitempty"`
+	PageNumber *int64 `type:"int64" json:",omitempty"`
 
-	PageSize *int32 `type:"int32" json:",omitempty"`
+	PageSize *int64 `type:"int64" json:",omitempty"`
 
-	TotalCount *int32 `type:"int32" json:",omitempty"`
+	TotalCount *int64 `type:"int64" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -430,19 +430,19 @@ func (s *ListBaselineCheckItemsOutput) SetData(v *DataForListBaselineCheckItemsO
 }
 
 // SetPageNumber sets the PageNumber field's value.
-func (s *ListBaselineCheckItemsOutput) SetPageNumber(v int32) *ListBaselineCheckItemsOutput {
+func (s *ListBaselineCheckItemsOutput) SetPageNumber(v int64) *ListBaselineCheckItemsOutput {
 	s.PageNumber = &v
 	return s
 }
 
 // SetPageSize sets the PageSize field's value.
-func (s *ListBaselineCheckItemsOutput) SetPageSize(v int32) *ListBaselineCheckItemsOutput {
+func (s *ListBaselineCheckItemsOutput) SetPageSize(v int64) *ListBaselineCheckItemsOutput {
 	s.PageSize = &v
 	return s
 }
 
 // SetTotalCount sets the TotalCount field's value.
-func (s *ListBaselineCheckItemsOutput) SetTotalCount(v int32) *ListBaselineCheckItemsOutput {
+func (s *ListBaselineCheckItemsOutput) SetTotalCount(v int64) *ListBaselineCheckItemsOutput {
 	s.TotalCount = &v
 	return s
 }

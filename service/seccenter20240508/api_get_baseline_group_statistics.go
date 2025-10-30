@@ -148,11 +148,11 @@ type GetBaselineGroupStatisticsInput struct {
 
 	AssetType *string `type:"string" enum:"EnumOfAssetTypeForGetBaselineGroupStatisticsInput"`
 
-	BaselineID *int32 `type:"int32"`
+	BaselineID *int64 `type:"int64"`
 
 	ClusterID *string `type:"string"`
 
-	GroupID *int32 `type:"int32"`
+	GroupID *int64 `type:"int64"`
 
 	TopGroupID *string `type:"string"`
 }
@@ -186,7 +186,7 @@ func (s *GetBaselineGroupStatisticsInput) SetAssetType(v string) *GetBaselineGro
 }
 
 // SetBaselineID sets the BaselineID field's value.
-func (s *GetBaselineGroupStatisticsInput) SetBaselineID(v int32) *GetBaselineGroupStatisticsInput {
+func (s *GetBaselineGroupStatisticsInput) SetBaselineID(v int64) *GetBaselineGroupStatisticsInput {
 	s.BaselineID = &v
 	return s
 }
@@ -198,7 +198,7 @@ func (s *GetBaselineGroupStatisticsInput) SetClusterID(v string) *GetBaselineGro
 }
 
 // SetGroupID sets the GroupID field's value.
-func (s *GetBaselineGroupStatisticsInput) SetGroupID(v int32) *GetBaselineGroupStatisticsInput {
+func (s *GetBaselineGroupStatisticsInput) SetGroupID(v int64) *GetBaselineGroupStatisticsInput {
 	s.GroupID = &v
 	return s
 }
@@ -214,27 +214,27 @@ type GetBaselineGroupStatisticsOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	ChecklistNum *int32 `type:"int32"`
+	ChecklistNum *int64 `type:"int64"`
 
-	HighRiskNum *int32 `type:"int32"`
+	HighRiskNum *int64 `type:"int64"`
 
-	HostNum *int32 `type:"int32"`
+	HostNum *int64 `type:"int64"`
 
-	LastCheckTime *int32 `type:"int32"`
+	LastCheckTime *int64 `type:"int64"`
 
-	LowRiskNum *int32 `type:"int32"`
+	LowRiskNum *int64 `type:"int64"`
 
-	MidRiskNum *int32 `type:"int32"`
+	MidRiskNum *int64 `type:"int64"`
 
-	PassHostNum *int32 `type:"int32"`
+	PassHostNum *int64 `type:"int64"`
 
-	PassNum *int32 `type:"int32"`
+	PassNum *int64 `type:"int64"`
 
-	PassRate *int32 `type:"int32"`
+	PassRate *int64 `type:"int64"`
 
-	RiskHostNum *int32 `type:"int32"`
+	RiskHostNum *int64 `type:"int64"`
 
-	RiskNum *int32 `type:"int32"`
+	RiskNum *int64 `type:"int64"`
 
 	Status *string `type:"string"`
 }
@@ -250,67 +250,67 @@ func (s GetBaselineGroupStatisticsOutput) GoString() string {
 }
 
 // SetChecklistNum sets the ChecklistNum field's value.
-func (s *GetBaselineGroupStatisticsOutput) SetChecklistNum(v int32) *GetBaselineGroupStatisticsOutput {
+func (s *GetBaselineGroupStatisticsOutput) SetChecklistNum(v int64) *GetBaselineGroupStatisticsOutput {
 	s.ChecklistNum = &v
 	return s
 }
 
 // SetHighRiskNum sets the HighRiskNum field's value.
-func (s *GetBaselineGroupStatisticsOutput) SetHighRiskNum(v int32) *GetBaselineGroupStatisticsOutput {
+func (s *GetBaselineGroupStatisticsOutput) SetHighRiskNum(v int64) *GetBaselineGroupStatisticsOutput {
 	s.HighRiskNum = &v
 	return s
 }
 
 // SetHostNum sets the HostNum field's value.
-func (s *GetBaselineGroupStatisticsOutput) SetHostNum(v int32) *GetBaselineGroupStatisticsOutput {
+func (s *GetBaselineGroupStatisticsOutput) SetHostNum(v int64) *GetBaselineGroupStatisticsOutput {
 	s.HostNum = &v
 	return s
 }
 
 // SetLastCheckTime sets the LastCheckTime field's value.
-func (s *GetBaselineGroupStatisticsOutput) SetLastCheckTime(v int32) *GetBaselineGroupStatisticsOutput {
+func (s *GetBaselineGroupStatisticsOutput) SetLastCheckTime(v int64) *GetBaselineGroupStatisticsOutput {
 	s.LastCheckTime = &v
 	return s
 }
 
 // SetLowRiskNum sets the LowRiskNum field's value.
-func (s *GetBaselineGroupStatisticsOutput) SetLowRiskNum(v int32) *GetBaselineGroupStatisticsOutput {
+func (s *GetBaselineGroupStatisticsOutput) SetLowRiskNum(v int64) *GetBaselineGroupStatisticsOutput {
 	s.LowRiskNum = &v
 	return s
 }
 
 // SetMidRiskNum sets the MidRiskNum field's value.
-func (s *GetBaselineGroupStatisticsOutput) SetMidRiskNum(v int32) *GetBaselineGroupStatisticsOutput {
+func (s *GetBaselineGroupStatisticsOutput) SetMidRiskNum(v int64) *GetBaselineGroupStatisticsOutput {
 	s.MidRiskNum = &v
 	return s
 }
 
 // SetPassHostNum sets the PassHostNum field's value.
-func (s *GetBaselineGroupStatisticsOutput) SetPassHostNum(v int32) *GetBaselineGroupStatisticsOutput {
+func (s *GetBaselineGroupStatisticsOutput) SetPassHostNum(v int64) *GetBaselineGroupStatisticsOutput {
 	s.PassHostNum = &v
 	return s
 }
 
 // SetPassNum sets the PassNum field's value.
-func (s *GetBaselineGroupStatisticsOutput) SetPassNum(v int32) *GetBaselineGroupStatisticsOutput {
+func (s *GetBaselineGroupStatisticsOutput) SetPassNum(v int64) *GetBaselineGroupStatisticsOutput {
 	s.PassNum = &v
 	return s
 }
 
 // SetPassRate sets the PassRate field's value.
-func (s *GetBaselineGroupStatisticsOutput) SetPassRate(v int32) *GetBaselineGroupStatisticsOutput {
+func (s *GetBaselineGroupStatisticsOutput) SetPassRate(v int64) *GetBaselineGroupStatisticsOutput {
 	s.PassRate = &v
 	return s
 }
 
 // SetRiskHostNum sets the RiskHostNum field's value.
-func (s *GetBaselineGroupStatisticsOutput) SetRiskHostNum(v int32) *GetBaselineGroupStatisticsOutput {
+func (s *GetBaselineGroupStatisticsOutput) SetRiskHostNum(v int64) *GetBaselineGroupStatisticsOutput {
 	s.RiskHostNum = &v
 	return s
 }
 
 // SetRiskNum sets the RiskNum field's value.
-func (s *GetBaselineGroupStatisticsOutput) SetRiskNum(v int32) *GetBaselineGroupStatisticsOutput {
+func (s *GetBaselineGroupStatisticsOutput) SetRiskNum(v int64) *GetBaselineGroupStatisticsOutput {
 	s.RiskNum = &v
 	return s
 }

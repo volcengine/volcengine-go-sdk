@@ -150,9 +150,9 @@ type AuthInfoForGetMultiLevelInstitutionDetailOutput struct {
 
 	ClusterSecOpen *bool `type:"boolean" json:",omitempty"`
 
-	ExpireTime *int32 `type:"int32" json:",omitempty"`
+	ExpireTime *int64 `type:"int64" json:",omitempty"`
 
-	LastActiveTime *int32 `type:"int32" json:",omitempty"`
+	LastActiveTime *int64 `type:"int64" json:",omitempty"`
 
 	ProtectHost *ProtectHostForGetMultiLevelInstitutionDetailOutput `type:"structure" json:",omitempty"`
 }
@@ -180,13 +180,13 @@ func (s *AuthInfoForGetMultiLevelInstitutionDetailOutput) SetClusterSecOpen(v bo
 }
 
 // SetExpireTime sets the ExpireTime field's value.
-func (s *AuthInfoForGetMultiLevelInstitutionDetailOutput) SetExpireTime(v int32) *AuthInfoForGetMultiLevelInstitutionDetailOutput {
+func (s *AuthInfoForGetMultiLevelInstitutionDetailOutput) SetExpireTime(v int64) *AuthInfoForGetMultiLevelInstitutionDetailOutput {
 	s.ExpireTime = &v
 	return s
 }
 
 // SetLastActiveTime sets the LastActiveTime field's value.
-func (s *AuthInfoForGetMultiLevelInstitutionDetailOutput) SetLastActiveTime(v int32) *AuthInfoForGetMultiLevelInstitutionDetailOutput {
+func (s *AuthInfoForGetMultiLevelInstitutionDetailOutput) SetLastActiveTime(v int64) *AuthInfoForGetMultiLevelInstitutionDetailOutput {
 	s.LastActiveTime = &v
 	return s
 }
@@ -200,7 +200,7 @@ func (s *AuthInfoForGetMultiLevelInstitutionDetailOutput) SetProtectHost(v *Prot
 type BaseInfoForGetMultiLevelInstitutionDetailOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	CreateTime *int32 `type:"int32" json:",omitempty"`
+	CreateTime *int64 `type:"int64" json:",omitempty"`
 
 	ElkeidupID *string `type:"string" json:",omitempty"`
 
@@ -210,7 +210,7 @@ type BaseInfoForGetMultiLevelInstitutionDetailOutput struct {
 
 	Remark *string `type:"string" json:",omitempty"`
 
-	UpdateTime *int32 `type:"int32" json:",omitempty"`
+	UpdateTime *int64 `type:"int64" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -224,7 +224,7 @@ func (s BaseInfoForGetMultiLevelInstitutionDetailOutput) GoString() string {
 }
 
 // SetCreateTime sets the CreateTime field's value.
-func (s *BaseInfoForGetMultiLevelInstitutionDetailOutput) SetCreateTime(v int32) *BaseInfoForGetMultiLevelInstitutionDetailOutput {
+func (s *BaseInfoForGetMultiLevelInstitutionDetailOutput) SetCreateTime(v int64) *BaseInfoForGetMultiLevelInstitutionDetailOutput {
 	s.CreateTime = &v
 	return s
 }
@@ -254,7 +254,7 @@ func (s *BaseInfoForGetMultiLevelInstitutionDetailOutput) SetRemark(v string) *B
 }
 
 // SetUpdateTime sets the UpdateTime field's value.
-func (s *BaseInfoForGetMultiLevelInstitutionDetailOutput) SetUpdateTime(v int32) *BaseInfoForGetMultiLevelInstitutionDetailOutput {
+func (s *BaseInfoForGetMultiLevelInstitutionDetailOutput) SetUpdateTime(v int64) *BaseInfoForGetMultiLevelInstitutionDetailOutput {
 	s.UpdateTime = &v
 	return s
 }
@@ -266,7 +266,7 @@ type ConfigurationForGetMultiLevelInstitutionDetailOutput struct {
 
 	ReportContent []*string `type:"list" json:",omitempty"`
 
-	ReportPeriod *int32 `type:"int32" json:",omitempty"`
+	ReportPeriod *int64 `type:"int64" json:",omitempty"`
 
 	ReportSwitchOpen *bool `type:"boolean" json:",omitempty"`
 }
@@ -294,7 +294,7 @@ func (s *ConfigurationForGetMultiLevelInstitutionDetailOutput) SetReportContent(
 }
 
 // SetReportPeriod sets the ReportPeriod field's value.
-func (s *ConfigurationForGetMultiLevelInstitutionDetailOutput) SetReportPeriod(v int32) *ConfigurationForGetMultiLevelInstitutionDetailOutput {
+func (s *ConfigurationForGetMultiLevelInstitutionDetailOutput) SetReportPeriod(v int64) *ConfigurationForGetMultiLevelInstitutionDetailOutput {
 	s.ReportPeriod = &v
 	return s
 }
@@ -402,15 +402,15 @@ func (s *GetMultiLevelInstitutionDetailOutput) SetThreaten(v *ThreatenForGetMult
 type HostOverviewForGetMultiLevelInstitutionDetailOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	HostNum *int32 `type:"int32" json:",omitempty"`
+	HostNum *int64 `type:"int64" json:",omitempty"`
 
-	Offline *int32 `type:"int32" json:",omitempty"`
+	Offline *int64 `type:"int64" json:",omitempty"`
 
-	Protecting *int32 `type:"int32" json:",omitempty"`
+	Protecting *int64 `type:"int64" json:",omitempty"`
 
-	ProtectionException *int32 `type:"int32" json:",omitempty"`
+	ProtectionException *int64 `type:"int64" json:",omitempty"`
 
-	Unprotected *int32 `type:"int32" json:",omitempty"`
+	Unprotected *int64 `type:"int64" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -424,31 +424,31 @@ func (s HostOverviewForGetMultiLevelInstitutionDetailOutput) GoString() string {
 }
 
 // SetHostNum sets the HostNum field's value.
-func (s *HostOverviewForGetMultiLevelInstitutionDetailOutput) SetHostNum(v int32) *HostOverviewForGetMultiLevelInstitutionDetailOutput {
+func (s *HostOverviewForGetMultiLevelInstitutionDetailOutput) SetHostNum(v int64) *HostOverviewForGetMultiLevelInstitutionDetailOutput {
 	s.HostNum = &v
 	return s
 }
 
 // SetOffline sets the Offline field's value.
-func (s *HostOverviewForGetMultiLevelInstitutionDetailOutput) SetOffline(v int32) *HostOverviewForGetMultiLevelInstitutionDetailOutput {
+func (s *HostOverviewForGetMultiLevelInstitutionDetailOutput) SetOffline(v int64) *HostOverviewForGetMultiLevelInstitutionDetailOutput {
 	s.Offline = &v
 	return s
 }
 
 // SetProtecting sets the Protecting field's value.
-func (s *HostOverviewForGetMultiLevelInstitutionDetailOutput) SetProtecting(v int32) *HostOverviewForGetMultiLevelInstitutionDetailOutput {
+func (s *HostOverviewForGetMultiLevelInstitutionDetailOutput) SetProtecting(v int64) *HostOverviewForGetMultiLevelInstitutionDetailOutput {
 	s.Protecting = &v
 	return s
 }
 
 // SetProtectionException sets the ProtectionException field's value.
-func (s *HostOverviewForGetMultiLevelInstitutionDetailOutput) SetProtectionException(v int32) *HostOverviewForGetMultiLevelInstitutionDetailOutput {
+func (s *HostOverviewForGetMultiLevelInstitutionDetailOutput) SetProtectionException(v int64) *HostOverviewForGetMultiLevelInstitutionDetailOutput {
 	s.ProtectionException = &v
 	return s
 }
 
 // SetUnprotected sets the Unprotected field's value.
-func (s *HostOverviewForGetMultiLevelInstitutionDetailOutput) SetUnprotected(v int32) *HostOverviewForGetMultiLevelInstitutionDetailOutput {
+func (s *HostOverviewForGetMultiLevelInstitutionDetailOutput) SetUnprotected(v int64) *HostOverviewForGetMultiLevelInstitutionDetailOutput {
 	s.Unprotected = &v
 	return s
 }
@@ -456,11 +456,11 @@ func (s *HostOverviewForGetMultiLevelInstitutionDetailOutput) SetUnprotected(v i
 type ProtectHostForGetMultiLevelInstitutionDetailOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	ExpireTime *int32 `type:"int32" json:",omitempty"`
+	ExpireTime *int64 `type:"int64" json:",omitempty"`
 
-	TotalCount *int32 `type:"int32" json:",omitempty"`
+	TotalCount *int64 `type:"int64" json:",omitempty"`
 
-	UsedCount *int32 `type:"int32" json:",omitempty"`
+	UsedCount *int64 `type:"int64" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -474,19 +474,19 @@ func (s ProtectHostForGetMultiLevelInstitutionDetailOutput) GoString() string {
 }
 
 // SetExpireTime sets the ExpireTime field's value.
-func (s *ProtectHostForGetMultiLevelInstitutionDetailOutput) SetExpireTime(v int32) *ProtectHostForGetMultiLevelInstitutionDetailOutput {
+func (s *ProtectHostForGetMultiLevelInstitutionDetailOutput) SetExpireTime(v int64) *ProtectHostForGetMultiLevelInstitutionDetailOutput {
 	s.ExpireTime = &v
 	return s
 }
 
 // SetTotalCount sets the TotalCount field's value.
-func (s *ProtectHostForGetMultiLevelInstitutionDetailOutput) SetTotalCount(v int32) *ProtectHostForGetMultiLevelInstitutionDetailOutput {
+func (s *ProtectHostForGetMultiLevelInstitutionDetailOutput) SetTotalCount(v int64) *ProtectHostForGetMultiLevelInstitutionDetailOutput {
 	s.TotalCount = &v
 	return s
 }
 
 // SetUsedCount sets the UsedCount field's value.
-func (s *ProtectHostForGetMultiLevelInstitutionDetailOutput) SetUsedCount(v int32) *ProtectHostForGetMultiLevelInstitutionDetailOutput {
+func (s *ProtectHostForGetMultiLevelInstitutionDetailOutput) SetUsedCount(v int64) *ProtectHostForGetMultiLevelInstitutionDetailOutput {
 	s.UsedCount = &v
 	return s
 }
@@ -494,15 +494,15 @@ func (s *ProtectHostForGetMultiLevelInstitutionDetailOutput) SetUsedCount(v int3
 type ThreatenForGetMultiLevelInstitutionDetailOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	Alert *int32 `type:"int32" json:",omitempty"`
+	Alert *int64 `type:"int64" json:",omitempty"`
 
-	Baseline *int32 `type:"int32" json:",omitempty"`
+	Baseline *int64 `type:"int64" json:",omitempty"`
 
-	Hosts *int32 `type:"int32" json:",omitempty"`
+	Hosts *int64 `type:"int64" json:",omitempty"`
 
-	Virus *int32 `type:"int32" json:",omitempty"`
+	Virus *int64 `type:"int64" json:",omitempty"`
 
-	Vuln *int32 `type:"int32" json:",omitempty"`
+	Vuln *int64 `type:"int64" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -516,31 +516,31 @@ func (s ThreatenForGetMultiLevelInstitutionDetailOutput) GoString() string {
 }
 
 // SetAlert sets the Alert field's value.
-func (s *ThreatenForGetMultiLevelInstitutionDetailOutput) SetAlert(v int32) *ThreatenForGetMultiLevelInstitutionDetailOutput {
+func (s *ThreatenForGetMultiLevelInstitutionDetailOutput) SetAlert(v int64) *ThreatenForGetMultiLevelInstitutionDetailOutput {
 	s.Alert = &v
 	return s
 }
 
 // SetBaseline sets the Baseline field's value.
-func (s *ThreatenForGetMultiLevelInstitutionDetailOutput) SetBaseline(v int32) *ThreatenForGetMultiLevelInstitutionDetailOutput {
+func (s *ThreatenForGetMultiLevelInstitutionDetailOutput) SetBaseline(v int64) *ThreatenForGetMultiLevelInstitutionDetailOutput {
 	s.Baseline = &v
 	return s
 }
 
 // SetHosts sets the Hosts field's value.
-func (s *ThreatenForGetMultiLevelInstitutionDetailOutput) SetHosts(v int32) *ThreatenForGetMultiLevelInstitutionDetailOutput {
+func (s *ThreatenForGetMultiLevelInstitutionDetailOutput) SetHosts(v int64) *ThreatenForGetMultiLevelInstitutionDetailOutput {
 	s.Hosts = &v
 	return s
 }
 
 // SetVirus sets the Virus field's value.
-func (s *ThreatenForGetMultiLevelInstitutionDetailOutput) SetVirus(v int32) *ThreatenForGetMultiLevelInstitutionDetailOutput {
+func (s *ThreatenForGetMultiLevelInstitutionDetailOutput) SetVirus(v int64) *ThreatenForGetMultiLevelInstitutionDetailOutput {
 	s.Virus = &v
 	return s
 }
 
 // SetVuln sets the Vuln field's value.
-func (s *ThreatenForGetMultiLevelInstitutionDetailOutput) SetVuln(v int32) *ThreatenForGetMultiLevelInstitutionDetailOutput {
+func (s *ThreatenForGetMultiLevelInstitutionDetailOutput) SetVuln(v int64) *ThreatenForGetMultiLevelInstitutionDetailOutput {
 	s.Vuln = &v
 	return s
 }

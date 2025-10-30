@@ -179,7 +179,7 @@ type ListWeakPasswordCheckDetailInput struct {
 	AgentID *string `type:"string" json:",omitempty"`
 
 	// BaselineID is a required field
-	BaselineID *int32 `type:"int32" json:",omitempty" required:"true"`
+	BaselineID *int64 `type:"int64" json:",omitempty" required:"true"`
 
 	CheckName *string `type:"string" json:",omitempty"`
 
@@ -192,10 +192,10 @@ type ListWeakPasswordCheckDetailInput struct {
 	LeafGroupIDs []*string `type:"list" json:",omitempty"`
 
 	// PageNumber is a required field
-	PageNumber *int32 `type:"int32" json:",omitempty" required:"true"`
+	PageNumber *int64 `type:"int64" json:",omitempty" required:"true"`
 
 	// PageSize is a required field
-	PageSize *int32 `type:"int32" json:",omitempty" required:"true"`
+	PageSize *int64 `type:"int64" json:",omitempty" required:"true"`
 
 	SortBy *string `type:"string" json:",omitempty"`
 
@@ -242,7 +242,7 @@ func (s *ListWeakPasswordCheckDetailInput) SetAgentID(v string) *ListWeakPasswor
 }
 
 // SetBaselineID sets the BaselineID field's value.
-func (s *ListWeakPasswordCheckDetailInput) SetBaselineID(v int32) *ListWeakPasswordCheckDetailInput {
+func (s *ListWeakPasswordCheckDetailInput) SetBaselineID(v int64) *ListWeakPasswordCheckDetailInput {
 	s.BaselineID = &v
 	return s
 }
@@ -278,13 +278,13 @@ func (s *ListWeakPasswordCheckDetailInput) SetLeafGroupIDs(v []*string) *ListWea
 }
 
 // SetPageNumber sets the PageNumber field's value.
-func (s *ListWeakPasswordCheckDetailInput) SetPageNumber(v int32) *ListWeakPasswordCheckDetailInput {
+func (s *ListWeakPasswordCheckDetailInput) SetPageNumber(v int64) *ListWeakPasswordCheckDetailInput {
 	s.PageNumber = &v
 	return s
 }
 
 // SetPageSize sets the PageSize field's value.
-func (s *ListWeakPasswordCheckDetailInput) SetPageSize(v int32) *ListWeakPasswordCheckDetailInput {
+func (s *ListWeakPasswordCheckDetailInput) SetPageSize(v int64) *ListWeakPasswordCheckDetailInput {
 	s.PageSize = &v
 	return s
 }
@@ -320,11 +320,11 @@ type ListWeakPasswordCheckDetailOutput struct {
 
 	Data *DataForListWeakPasswordCheckDetailOutput `type:"structure" json:",omitempty"`
 
-	PageNumber *int32 `type:"int32" json:",omitempty"`
+	PageNumber *int64 `type:"int64" json:",omitempty"`
 
-	PageSize *int32 `type:"int32" json:",omitempty"`
+	PageSize *int64 `type:"int64" json:",omitempty"`
 
-	TotalCount *int32 `type:"int32" json:",omitempty"`
+	TotalCount *int64 `type:"int64" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -344,19 +344,19 @@ func (s *ListWeakPasswordCheckDetailOutput) SetData(v *DataForListWeakPasswordCh
 }
 
 // SetPageNumber sets the PageNumber field's value.
-func (s *ListWeakPasswordCheckDetailOutput) SetPageNumber(v int32) *ListWeakPasswordCheckDetailOutput {
+func (s *ListWeakPasswordCheckDetailOutput) SetPageNumber(v int64) *ListWeakPasswordCheckDetailOutput {
 	s.PageNumber = &v
 	return s
 }
 
 // SetPageSize sets the PageSize field's value.
-func (s *ListWeakPasswordCheckDetailOutput) SetPageSize(v int32) *ListWeakPasswordCheckDetailOutput {
+func (s *ListWeakPasswordCheckDetailOutput) SetPageSize(v int64) *ListWeakPasswordCheckDetailOutput {
 	s.PageSize = &v
 	return s
 }
 
 // SetTotalCount sets the TotalCount field's value.
-func (s *ListWeakPasswordCheckDetailOutput) SetTotalCount(v int32) *ListWeakPasswordCheckDetailOutput {
+func (s *ListWeakPasswordCheckDetailOutput) SetTotalCount(v int64) *ListWeakPasswordCheckDetailOutput {
 	s.TotalCount = &v
 	return s
 }
@@ -368,7 +368,7 @@ type WeakPasswordForListWeakPasswordCheckDetailOutput struct {
 
 	CheckNameCn *string `type:"string" json:",omitempty"`
 
-	Check_id *int32 `type:"int32" json:"check_id,omitempty"`
+	Check_id *int64 `type:"int64" json:"check_id,omitempty"`
 
 	Description_cn *string `type:"string" json:"description_cn,omitempty"`
 
@@ -408,7 +408,7 @@ func (s *WeakPasswordForListWeakPasswordCheckDetailOutput) SetCheckNameCn(v stri
 }
 
 // SetCheck_id sets the Check_id field's value.
-func (s *WeakPasswordForListWeakPasswordCheckDetailOutput) SetCheck_id(v int32) *WeakPasswordForListWeakPasswordCheckDetailOutput {
+func (s *WeakPasswordForListWeakPasswordCheckDetailOutput) SetCheck_id(v int64) *WeakPasswordForListWeakPasswordCheckDetailOutput {
 	s.Check_id = &v
 	return s
 }

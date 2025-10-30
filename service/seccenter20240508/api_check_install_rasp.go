@@ -170,13 +170,13 @@ type CheckInstallRaspOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	ChosenCount *int32 `type:"int32" json:",omitempty"`
+	ChosenCount *int64 `type:"int64" json:",omitempty"`
 
 	HitLimit *bool `type:"boolean" json:",omitempty"`
 
-	LeftAuthorizationCount *int32 `type:"int32" json:",omitempty"`
+	LeftAuthorizationCount *int64 `type:"int64" json:",omitempty"`
 
-	OpenCount *int32 `type:"int32" json:",omitempty"`
+	OpenCount *int64 `type:"int64" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -190,7 +190,7 @@ func (s CheckInstallRaspOutput) GoString() string {
 }
 
 // SetChosenCount sets the ChosenCount field's value.
-func (s *CheckInstallRaspOutput) SetChosenCount(v int32) *CheckInstallRaspOutput {
+func (s *CheckInstallRaspOutput) SetChosenCount(v int64) *CheckInstallRaspOutput {
 	s.ChosenCount = &v
 	return s
 }
@@ -202,13 +202,13 @@ func (s *CheckInstallRaspOutput) SetHitLimit(v bool) *CheckInstallRaspOutput {
 }
 
 // SetLeftAuthorizationCount sets the LeftAuthorizationCount field's value.
-func (s *CheckInstallRaspOutput) SetLeftAuthorizationCount(v int32) *CheckInstallRaspOutput {
+func (s *CheckInstallRaspOutput) SetLeftAuthorizationCount(v int64) *CheckInstallRaspOutput {
 	s.LeftAuthorizationCount = &v
 	return s
 }
 
 // SetOpenCount sets the OpenCount field's value.
-func (s *CheckInstallRaspOutput) SetOpenCount(v int32) *CheckInstallRaspOutput {
+func (s *CheckInstallRaspOutput) SetOpenCount(v int64) *CheckInstallRaspOutput {
 	s.OpenCount = &v
 	return s
 }

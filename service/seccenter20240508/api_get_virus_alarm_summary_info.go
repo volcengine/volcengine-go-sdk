@@ -250,7 +250,7 @@ func (s *AlarmContentForGetVirusAlarmSummaryInfoOutput) SetVirusHitDataList(v []
 type AlarmDescForGetVirusAlarmSummaryInfoOutput struct {
 	_ struct{} `type:"structure"`
 
-	AlarmHandleResult *int32 `type:"int32"`
+	AlarmHandleResult *int64 `type:"int64"`
 
 	AlarmID *string `type:"string"`
 
@@ -280,13 +280,13 @@ type AlarmDescForGetVirusAlarmSummaryInfoOutput struct {
 
 	ErrorReason *string `type:"string"`
 
-	HandleTime *int32 `type:"int32"`
+	HandleTime *int64 `type:"int64"`
 
 	HandleUser *string `type:"string"`
 
 	HidsLevel *string `type:"string"`
 
-	InsertTime *int32 `type:"int32"`
+	InsertTime *int64 `type:"int64"`
 
 	KubeLevel *string `type:"string"`
 
@@ -300,7 +300,7 @@ type AlarmDescForGetVirusAlarmSummaryInfoOutput struct {
 
 	RuleName *string `type:"string"`
 
-	Status *int32 `type:"int32"`
+	Status *int64 `type:"int64"`
 
 	Suggestion *string `type:"string"`
 
@@ -318,7 +318,7 @@ func (s AlarmDescForGetVirusAlarmSummaryInfoOutput) GoString() string {
 }
 
 // SetAlarmHandleResult sets the AlarmHandleResult field's value.
-func (s *AlarmDescForGetVirusAlarmSummaryInfoOutput) SetAlarmHandleResult(v int32) *AlarmDescForGetVirusAlarmSummaryInfoOutput {
+func (s *AlarmDescForGetVirusAlarmSummaryInfoOutput) SetAlarmHandleResult(v int64) *AlarmDescForGetVirusAlarmSummaryInfoOutput {
 	s.AlarmHandleResult = &v
 	return s
 }
@@ -408,7 +408,7 @@ func (s *AlarmDescForGetVirusAlarmSummaryInfoOutput) SetErrorReason(v string) *A
 }
 
 // SetHandleTime sets the HandleTime field's value.
-func (s *AlarmDescForGetVirusAlarmSummaryInfoOutput) SetHandleTime(v int32) *AlarmDescForGetVirusAlarmSummaryInfoOutput {
+func (s *AlarmDescForGetVirusAlarmSummaryInfoOutput) SetHandleTime(v int64) *AlarmDescForGetVirusAlarmSummaryInfoOutput {
 	s.HandleTime = &v
 	return s
 }
@@ -426,7 +426,7 @@ func (s *AlarmDescForGetVirusAlarmSummaryInfoOutput) SetHidsLevel(v string) *Ala
 }
 
 // SetInsertTime sets the InsertTime field's value.
-func (s *AlarmDescForGetVirusAlarmSummaryInfoOutput) SetInsertTime(v int32) *AlarmDescForGetVirusAlarmSummaryInfoOutput {
+func (s *AlarmDescForGetVirusAlarmSummaryInfoOutput) SetInsertTime(v int64) *AlarmDescForGetVirusAlarmSummaryInfoOutput {
 	s.InsertTime = &v
 	return s
 }
@@ -468,7 +468,7 @@ func (s *AlarmDescForGetVirusAlarmSummaryInfoOutput) SetRuleName(v string) *Alar
 }
 
 // SetStatus sets the Status field's value.
-func (s *AlarmDescForGetVirusAlarmSummaryInfoOutput) SetStatus(v int32) *AlarmDescForGetVirusAlarmSummaryInfoOutput {
+func (s *AlarmDescForGetVirusAlarmSummaryInfoOutput) SetStatus(v int64) *AlarmDescForGetVirusAlarmSummaryInfoOutput {
 	s.Status = &v
 	return s
 }
@@ -1946,7 +1946,7 @@ type ContainerInfoForGetVirusAlarmSummaryInfoOutput struct {
 
 	ContainerCreateTime *string `type:"string"`
 
-	ContainerCreateTimestamp *int32 `type:"int32"`
+	ContainerCreateTimestamp *int64 `type:"int64"`
 
 	ContainerHostName *string `type:"string"`
 
@@ -1992,7 +1992,7 @@ func (s *ContainerInfoForGetVirusAlarmSummaryInfoOutput) SetContainerCreateTime(
 }
 
 // SetContainerCreateTimestamp sets the ContainerCreateTimestamp field's value.
-func (s *ContainerInfoForGetVirusAlarmSummaryInfoOutput) SetContainerCreateTimestamp(v int32) *ContainerInfoForGetVirusAlarmSummaryInfoOutput {
+func (s *ContainerInfoForGetVirusAlarmSummaryInfoOutput) SetContainerCreateTimestamp(v int64) *ContainerInfoForGetVirusAlarmSummaryInfoOutput {
 	s.ContainerCreateTimestamp = &v
 	return s
 }
@@ -2246,7 +2246,7 @@ type HandlingRecordForGetVirusAlarmSummaryInfoOutput struct {
 
 	ExtraDescription *string `type:"string"`
 
-	HandleTime *int32 `type:"int32"`
+	HandleTime *int64 `type:"int64"`
 
 	Language *string `type:"string"`
 
@@ -2292,7 +2292,7 @@ func (s *HandlingRecordForGetVirusAlarmSummaryInfoOutput) SetExtraDescription(v 
 }
 
 // SetHandleTime sets the HandleTime field's value.
-func (s *HandlingRecordForGetVirusAlarmSummaryInfoOutput) SetHandleTime(v int32) *HandlingRecordForGetVirusAlarmSummaryInfoOutput {
+func (s *HandlingRecordForGetVirusAlarmSummaryInfoOutput) SetHandleTime(v int64) *HandlingRecordForGetVirusAlarmSummaryInfoOutput {
 	s.HandleTime = &v
 	return s
 }
@@ -3580,7 +3580,7 @@ type KillProcListForGetVirusAlarmSummaryInfoOutput struct {
 
 	Cmdline *string `type:"string"`
 
-	Pid *int32 `type:"int32"`
+	Pid *int64 `type:"int64"`
 }
 
 // String returns the string representation
@@ -3600,7 +3600,7 @@ func (s *KillProcListForGetVirusAlarmSummaryInfoOutput) SetCmdline(v string) *Ki
 }
 
 // SetPid sets the Pid field's value.
-func (s *KillProcListForGetVirusAlarmSummaryInfoOutput) SetPid(v int32) *KillProcListForGetVirusAlarmSummaryInfoOutput {
+func (s *KillProcListForGetVirusAlarmSummaryInfoOutput) SetPid(v int64) *KillProcListForGetVirusAlarmSummaryInfoOutput {
 	s.Pid = &v
 	return s
 }
@@ -3734,7 +3734,7 @@ type ResultListForGetVirusAlarmSummaryInfoOutput struct {
 
 	Pgid *string `type:"string"`
 
-	Pid *int32 `type:"int32"`
+	Pid *int64 `type:"int64"`
 
 	Port *string `type:"string"`
 
@@ -3896,7 +3896,7 @@ func (s *ResultListForGetVirusAlarmSummaryInfoOutput) SetPgid(v string) *ResultL
 }
 
 // SetPid sets the Pid field's value.
-func (s *ResultListForGetVirusAlarmSummaryInfoOutput) SetPid(v int32) *ResultListForGetVirusAlarmSummaryInfoOutput {
+func (s *ResultListForGetVirusAlarmSummaryInfoOutput) SetPid(v int64) *ResultListForGetVirusAlarmSummaryInfoOutput {
 	s.Pid = &v
 	return s
 }
@@ -3952,9 +3952,9 @@ func (s *ResultListForGetVirusAlarmSummaryInfoOutput) SetUser(v string) *ResultL
 type VirusHitDataListForGetVirusAlarmSummaryInfoOutput struct {
 	_ struct{} `type:"structure"`
 
-	HitLen *int32 `type:"int32"`
+	HitLen *int64 `type:"int64"`
 
-	Offset *int32 `type:"int32"`
+	Offset *int64 `type:"int64"`
 
 	RuleID *string `type:"string"`
 }
@@ -3970,13 +3970,13 @@ func (s VirusHitDataListForGetVirusAlarmSummaryInfoOutput) GoString() string {
 }
 
 // SetHitLen sets the HitLen field's value.
-func (s *VirusHitDataListForGetVirusAlarmSummaryInfoOutput) SetHitLen(v int32) *VirusHitDataListForGetVirusAlarmSummaryInfoOutput {
+func (s *VirusHitDataListForGetVirusAlarmSummaryInfoOutput) SetHitLen(v int64) *VirusHitDataListForGetVirusAlarmSummaryInfoOutput {
 	s.HitLen = &v
 	return s
 }
 
 // SetOffset sets the Offset field's value.
-func (s *VirusHitDataListForGetVirusAlarmSummaryInfoOutput) SetOffset(v int32) *VirusHitDataListForGetVirusAlarmSummaryInfoOutput {
+func (s *VirusHitDataListForGetVirusAlarmSummaryInfoOutput) SetOffset(v int64) *VirusHitDataListForGetVirusAlarmSummaryInfoOutput {
 	s.Offset = &v
 	return s
 }

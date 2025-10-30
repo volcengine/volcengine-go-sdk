@@ -186,7 +186,7 @@ type GetDevDetailOutput struct {
 
 	AssetName *string `type:"string"`
 
-	CreateTime *int32 `type:"int32"`
+	CreateTime *int64 `type:"int64"`
 
 	FlavorId *string `type:"string"`
 
@@ -240,7 +240,7 @@ func (s *GetDevDetailOutput) SetAssetName(v string) *GetDevDetailOutput {
 }
 
 // SetCreateTime sets the CreateTime field's value.
-func (s *GetDevDetailOutput) SetCreateTime(v int32) *GetDevDetailOutput {
+func (s *GetDevDetailOutput) SetCreateTime(v int64) *GetDevDetailOutput {
 	s.CreateTime = &v
 	return s
 }
@@ -318,11 +318,11 @@ type PortForGetDevDetailOutput struct {
 
 	ExternalIp *string `type:"string"`
 
-	ExternalPort *int32 `type:"int32"`
+	ExternalPort *int64 `type:"int64"`
 
 	InternalIp *string `type:"string"`
 
-	InternalPort *int32 `type:"int32"`
+	InternalPort *int64 `type:"int64"`
 
 	Name *string `type:"string"`
 
@@ -360,7 +360,7 @@ func (s *PortForGetDevDetailOutput) SetExternalIp(v string) *PortForGetDevDetail
 }
 
 // SetExternalPort sets the ExternalPort field's value.
-func (s *PortForGetDevDetailOutput) SetExternalPort(v int32) *PortForGetDevDetailOutput {
+func (s *PortForGetDevDetailOutput) SetExternalPort(v int64) *PortForGetDevDetailOutput {
 	s.ExternalPort = &v
 	return s
 }
@@ -372,7 +372,7 @@ func (s *PortForGetDevDetailOutput) SetInternalIp(v string) *PortForGetDevDetail
 }
 
 // SetInternalPort sets the InternalPort field's value.
-func (s *PortForGetDevDetailOutput) SetInternalPort(v int32) *PortForGetDevDetailOutput {
+func (s *PortForGetDevDetailOutput) SetInternalPort(v int64) *PortForGetDevDetailOutput {
 	s.InternalPort = &v
 	return s
 }
@@ -480,7 +480,7 @@ type VolumeForGetDevDetailOutput struct {
 
 	Id *string `type:"string"`
 
-	Size *int32 `type:"int32"`
+	Size *int64 `type:"int64"`
 
 	State *string `type:"string"`
 
@@ -508,7 +508,7 @@ func (s *VolumeForGetDevDetailOutput) SetId(v string) *VolumeForGetDevDetailOutp
 }
 
 // SetSize sets the Size field's value.
-func (s *VolumeForGetDevDetailOutput) SetSize(v int32) *VolumeForGetDevDetailOutput {
+func (s *VolumeForGetDevDetailOutput) SetSize(v int64) *VolumeForGetDevDetailOutput {
 	s.Size = &v
 	return s
 }

@@ -154,13 +154,13 @@ type CurrentForListInstallCommandsOutput struct {
 
 	CommandId *string `type:"string" json:",omitempty"`
 
-	ExpireTime *int32 `type:"int32" json:",omitempty"`
+	ExpireTime *int64 `type:"int64" json:",omitempty"`
 
 	GroupId *string `type:"string" json:",omitempty"`
 
 	GroupName *string `type:"string" json:",omitempty"`
 
-	HostEngine *int32 `type:"int32" json:",omitempty"`
+	HostEngine *int64 `type:"int64" json:",omitempty"`
 
 	InstallationMethod *string `type:"string" json:",omitempty"`
 
@@ -204,7 +204,7 @@ func (s *CurrentForListInstallCommandsOutput) SetCommandId(v string) *CurrentFor
 }
 
 // SetExpireTime sets the ExpireTime field's value.
-func (s *CurrentForListInstallCommandsOutput) SetExpireTime(v int32) *CurrentForListInstallCommandsOutput {
+func (s *CurrentForListInstallCommandsOutput) SetExpireTime(v int64) *CurrentForListInstallCommandsOutput {
 	s.ExpireTime = &v
 	return s
 }
@@ -222,7 +222,7 @@ func (s *CurrentForListInstallCommandsOutput) SetGroupName(v string) *CurrentFor
 }
 
 // SetHostEngine sets the HostEngine field's value.
-func (s *CurrentForListInstallCommandsOutput) SetHostEngine(v int32) *CurrentForListInstallCommandsOutput {
+func (s *CurrentForListInstallCommandsOutput) SetHostEngine(v int64) *CurrentForListInstallCommandsOutput {
 	s.HostEngine = &v
 	return s
 }
@@ -256,13 +256,13 @@ type HistoryForListInstallCommandsOutput struct {
 
 	CommandId *string `type:"string" json:",omitempty"`
 
-	ExpireTime *int32 `type:"int32" json:",omitempty"`
+	ExpireTime *int64 `type:"int64" json:",omitempty"`
 
 	GroupId *string `type:"string" json:",omitempty"`
 
 	GroupName *string `type:"string" json:",omitempty"`
 
-	HostEngine *int32 `type:"int32" json:",omitempty"`
+	HostEngine *int64 `type:"int64" json:",omitempty"`
 
 	InstallationMethod *string `type:"string" json:",omitempty"`
 
@@ -306,7 +306,7 @@ func (s *HistoryForListInstallCommandsOutput) SetCommandId(v string) *HistoryFor
 }
 
 // SetExpireTime sets the ExpireTime field's value.
-func (s *HistoryForListInstallCommandsOutput) SetExpireTime(v int32) *HistoryForListInstallCommandsOutput {
+func (s *HistoryForListInstallCommandsOutput) SetExpireTime(v int64) *HistoryForListInstallCommandsOutput {
 	s.ExpireTime = &v
 	return s
 }
@@ -324,7 +324,7 @@ func (s *HistoryForListInstallCommandsOutput) SetGroupName(v string) *HistoryFor
 }
 
 // SetHostEngine sets the HostEngine field's value.
-func (s *HistoryForListInstallCommandsOutput) SetHostEngine(v int32) *HistoryForListInstallCommandsOutput {
+func (s *HistoryForListInstallCommandsOutput) SetHostEngine(v int64) *HistoryForListInstallCommandsOutput {
 	s.HostEngine = &v
 	return s
 }
@@ -356,7 +356,7 @@ type ListInstallCommandsInput struct {
 
 	GroupId *string `type:"string" json:",omitempty"`
 
-	HostEngine *int32 `type:"int32" json:",omitempty"`
+	HostEngine *int64 `type:"int64" json:",omitempty"`
 
 	InstallationMethod *string `type:"string" json:",omitempty"`
 
@@ -394,7 +394,7 @@ func (s *ListInstallCommandsInput) SetGroupId(v string) *ListInstallCommandsInpu
 }
 
 // SetHostEngine sets the HostEngine field's value.
-func (s *ListInstallCommandsInput) SetHostEngine(v int32) *ListInstallCommandsInput {
+func (s *ListInstallCommandsInput) SetHostEngine(v int64) *ListInstallCommandsInput {
 	s.HostEngine = &v
 	return s
 }

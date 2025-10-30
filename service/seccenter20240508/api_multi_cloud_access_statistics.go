@@ -152,11 +152,11 @@ type DataForMultiCloudAccessStatisticsOutput struct {
 
 	CloudPlatform *string `type:"string" json:",omitempty"`
 
-	Count *int32 `type:"int32" json:",omitempty"`
+	Count *int64 `type:"int64" json:",omitempty"`
 
 	IsActive *bool `type:"boolean" json:",omitempty"`
 
-	LastSyncTime *int32 `type:"int32" json:",omitempty"`
+	LastSyncTime *int64 `type:"int64" json:",omitempty"`
 
 	Name *string `type:"string" json:",omitempty"`
 }
@@ -190,7 +190,7 @@ func (s *DataForMultiCloudAccessStatisticsOutput) SetCloudPlatform(v string) *Da
 }
 
 // SetCount sets the Count field's value.
-func (s *DataForMultiCloudAccessStatisticsOutput) SetCount(v int32) *DataForMultiCloudAccessStatisticsOutput {
+func (s *DataForMultiCloudAccessStatisticsOutput) SetCount(v int64) *DataForMultiCloudAccessStatisticsOutput {
 	s.Count = &v
 	return s
 }
@@ -202,7 +202,7 @@ func (s *DataForMultiCloudAccessStatisticsOutput) SetIsActive(v bool) *DataForMu
 }
 
 // SetLastSyncTime sets the LastSyncTime field's value.
-func (s *DataForMultiCloudAccessStatisticsOutput) SetLastSyncTime(v int32) *DataForMultiCloudAccessStatisticsOutput {
+func (s *DataForMultiCloudAccessStatisticsOutput) SetLastSyncTime(v int64) *DataForMultiCloudAccessStatisticsOutput {
 	s.LastSyncTime = &v
 	return s
 }

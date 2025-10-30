@@ -170,7 +170,7 @@ type DataForListLoginConfigsOutput struct {
 
 	TopGroupID *string `type:"string" json:",omitempty"`
 
-	UpdateTime *int32 `type:"int32" json:",omitempty"`
+	UpdateTime *int64 `type:"int64" json:",omitempty"`
 
 	UpdateUser *string `type:"string" json:",omitempty"`
 }
@@ -258,7 +258,7 @@ func (s *DataForListLoginConfigsOutput) SetTopGroupID(v string) *DataForListLogi
 }
 
 // SetUpdateTime sets the UpdateTime field's value.
-func (s *DataForListLoginConfigsOutput) SetUpdateTime(v int32) *DataForListLoginConfigsOutput {
+func (s *DataForListLoginConfigsOutput) SetUpdateTime(v int64) *DataForListLoginConfigsOutput {
 	s.UpdateTime = &v
 	return s
 }
@@ -273,10 +273,10 @@ type ListLoginConfigsInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
 	// PageNumber is a required field
-	PageNumber *int32 `type:"int32" json:",omitempty" required:"true"`
+	PageNumber *int64 `type:"int64" json:",omitempty" required:"true"`
 
 	// PageSize is a required field
-	PageSize *int32 `type:"int32" json:",omitempty" required:"true"`
+	PageSize *int64 `type:"int64" json:",omitempty" required:"true"`
 
 	SortBy *string `type:"string" json:",omitempty"`
 
@@ -312,13 +312,13 @@ func (s *ListLoginConfigsInput) Validate() error {
 }
 
 // SetPageNumber sets the PageNumber field's value.
-func (s *ListLoginConfigsInput) SetPageNumber(v int32) *ListLoginConfigsInput {
+func (s *ListLoginConfigsInput) SetPageNumber(v int64) *ListLoginConfigsInput {
 	s.PageNumber = &v
 	return s
 }
 
 // SetPageSize sets the PageSize field's value.
-func (s *ListLoginConfigsInput) SetPageSize(v int32) *ListLoginConfigsInput {
+func (s *ListLoginConfigsInput) SetPageSize(v int64) *ListLoginConfigsInput {
 	s.PageSize = &v
 	return s
 }
@@ -348,11 +348,11 @@ type ListLoginConfigsOutput struct {
 
 	Data []*DataForListLoginConfigsOutput `type:"list" json:",omitempty"`
 
-	PageNumber *int32 `type:"int32" json:",omitempty"`
+	PageNumber *int64 `type:"int64" json:",omitempty"`
 
-	PageSize *int32 `type:"int32" json:",omitempty"`
+	PageSize *int64 `type:"int64" json:",omitempty"`
 
-	TotalCount *int32 `type:"int32" json:",omitempty"`
+	TotalCount *int64 `type:"int64" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -372,19 +372,19 @@ func (s *ListLoginConfigsOutput) SetData(v []*DataForListLoginConfigsOutput) *Li
 }
 
 // SetPageNumber sets the PageNumber field's value.
-func (s *ListLoginConfigsOutput) SetPageNumber(v int32) *ListLoginConfigsOutput {
+func (s *ListLoginConfigsOutput) SetPageNumber(v int64) *ListLoginConfigsOutput {
 	s.PageNumber = &v
 	return s
 }
 
 // SetPageSize sets the PageSize field's value.
-func (s *ListLoginConfigsOutput) SetPageSize(v int32) *ListLoginConfigsOutput {
+func (s *ListLoginConfigsOutput) SetPageSize(v int64) *ListLoginConfigsOutput {
 	s.PageSize = &v
 	return s
 }
 
 // SetTotalCount sets the TotalCount field's value.
-func (s *ListLoginConfigsOutput) SetTotalCount(v int32) *ListLoginConfigsOutput {
+func (s *ListLoginConfigsOutput) SetTotalCount(v int64) *ListLoginConfigsOutput {
 	s.TotalCount = &v
 	return s
 }

@@ -143,6 +143,44 @@ func (c *SECCENTER20240508) UpdateLoginConfigWithContext(ctx volcengine.Context,
 	return out, req.Send()
 }
 
+type LoginLocationForUpdateLoginConfigInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	CityName *string `type:"string" json:",omitempty"`
+
+	CountryName *string `type:"string" json:",omitempty"`
+
+	DistrictName *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s LoginLocationForUpdateLoginConfigInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s LoginLocationForUpdateLoginConfigInput) GoString() string {
+	return s.String()
+}
+
+// SetCityName sets the CityName field's value.
+func (s *LoginLocationForUpdateLoginConfigInput) SetCityName(v string) *LoginLocationForUpdateLoginConfigInput {
+	s.CityName = &v
+	return s
+}
+
+// SetCountryName sets the CountryName field's value.
+func (s *LoginLocationForUpdateLoginConfigInput) SetCountryName(v string) *LoginLocationForUpdateLoginConfigInput {
+	s.CountryName = &v
+	return s
+}
+
+// SetDistrictName sets the DistrictName field's value.
+func (s *LoginLocationForUpdateLoginConfigInput) SetDistrictName(v string) *LoginLocationForUpdateLoginConfigInput {
+	s.DistrictName = &v
+	return s
+}
+
 type UpdateLoginConfigInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -162,6 +200,8 @@ type UpdateLoginConfigInput struct {
 	LegalUser []*string `type:"list" json:",omitempty"`
 
 	LoginConfigRules []*string `type:"list" json:",omitempty"`
+
+	LoginLocations []*LoginLocationForUpdateLoginConfigInput `type:"list" json:",omitempty"`
 
 	TimeIntervals []*string `type:"list" json:",omitempty"`
 
@@ -236,6 +276,12 @@ func (s *UpdateLoginConfigInput) SetLegalUser(v []*string) *UpdateLoginConfigInp
 // SetLoginConfigRules sets the LoginConfigRules field's value.
 func (s *UpdateLoginConfigInput) SetLoginConfigRules(v []*string) *UpdateLoginConfigInput {
 	s.LoginConfigRules = v
+	return s
+}
+
+// SetLoginLocations sets the LoginLocations field's value.
+func (s *UpdateLoginConfigInput) SetLoginLocations(v []*LoginLocationForUpdateLoginConfigInput) *UpdateLoginConfigInput {
+	s.LoginLocations = v
 	return s
 }
 

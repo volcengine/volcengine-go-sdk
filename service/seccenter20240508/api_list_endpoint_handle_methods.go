@@ -228,7 +228,7 @@ type ProcListForListEndpointHandleMethodsOutput struct {
 
 	Exe *string `type:"string" json:",omitempty"`
 
-	Pid *int32 `type:"int32" json:",omitempty"`
+	Pid *int64 `type:"int64" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -254,7 +254,7 @@ func (s *ProcListForListEndpointHandleMethodsOutput) SetExe(v string) *ProcListF
 }
 
 // SetPid sets the Pid field's value.
-func (s *ProcListForListEndpointHandleMethodsOutput) SetPid(v int32) *ProcListForListEndpointHandleMethodsOutput {
+func (s *ProcListForListEndpointHandleMethodsOutput) SetPid(v int64) *ProcListForListEndpointHandleMethodsOutput {
 	s.Pid = &v
 	return s
 }

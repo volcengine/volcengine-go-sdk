@@ -256,7 +256,7 @@ type CreatFileScanTaskOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	Count *int32 `type:"int32" json:",omitempty"`
+	Count *int64 `type:"int64" json:",omitempty"`
 
 	TaskID *string `type:"string" json:",omitempty"`
 }
@@ -272,7 +272,7 @@ func (s CreatFileScanTaskOutput) GoString() string {
 }
 
 // SetCount sets the Count field's value.
-func (s *CreatFileScanTaskOutput) SetCount(v int32) *CreatFileScanTaskOutput {
+func (s *CreatFileScanTaskOutput) SetCount(v int64) *CreatFileScanTaskOutput {
 	s.Count = &v
 	return s
 }
