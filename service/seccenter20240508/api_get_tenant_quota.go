@@ -146,13 +146,13 @@ func (c *SECCENTER20240508) GetTenantQuotaWithContext(ctx volcengine.Context, in
 type AppSecForGetTenantQuotaOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	ExpireTime *int32 `type:"int32" json:",omitempty"`
+	ExpireTime *int64 `type:"int64" json:",omitempty"`
 
-	TotalCount *int32 `type:"int32" json:",omitempty"`
+	TotalCount *int64 `type:"int64" json:",omitempty"`
 
-	UsedCount *int32 `type:"int32" json:",omitempty"`
+	UsedCount *int64 `type:"int64" json:",omitempty"`
 
-	Version *int32 `type:"int32" json:",omitempty"`
+	Version *int64 `type:"int64" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -166,25 +166,25 @@ func (s AppSecForGetTenantQuotaOutput) GoString() string {
 }
 
 // SetExpireTime sets the ExpireTime field's value.
-func (s *AppSecForGetTenantQuotaOutput) SetExpireTime(v int32) *AppSecForGetTenantQuotaOutput {
+func (s *AppSecForGetTenantQuotaOutput) SetExpireTime(v int64) *AppSecForGetTenantQuotaOutput {
 	s.ExpireTime = &v
 	return s
 }
 
 // SetTotalCount sets the TotalCount field's value.
-func (s *AppSecForGetTenantQuotaOutput) SetTotalCount(v int32) *AppSecForGetTenantQuotaOutput {
+func (s *AppSecForGetTenantQuotaOutput) SetTotalCount(v int64) *AppSecForGetTenantQuotaOutput {
 	s.TotalCount = &v
 	return s
 }
 
 // SetUsedCount sets the UsedCount field's value.
-func (s *AppSecForGetTenantQuotaOutput) SetUsedCount(v int32) *AppSecForGetTenantQuotaOutput {
+func (s *AppSecForGetTenantQuotaOutput) SetUsedCount(v int64) *AppSecForGetTenantQuotaOutput {
 	s.UsedCount = &v
 	return s
 }
 
 // SetVersion sets the Version field's value.
-func (s *AppSecForGetTenantQuotaOutput) SetVersion(v int32) *AppSecForGetTenantQuotaOutput {
+func (s *AppSecForGetTenantQuotaOutput) SetVersion(v int64) *AppSecForGetTenantQuotaOutput {
 	s.Version = &v
 	return s
 }
@@ -192,15 +192,15 @@ func (s *AppSecForGetTenantQuotaOutput) SetVersion(v int32) *AppSecForGetTenantQ
 type BasicQuotaForGetTenantQuotaOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	ExpireTime *int32 `type:"int32" json:",omitempty"`
+	ExpireTime *int64 `type:"int64" json:",omitempty"`
 
 	PaidType *string `type:"string" json:",omitempty"`
 
-	TotalCount *int32 `type:"int32" json:",omitempty"`
+	TotalCount *int64 `type:"int64" json:",omitempty"`
 
-	UsedCount *int32 `type:"int32" json:",omitempty"`
+	UsedCount *int64 `type:"int64" json:",omitempty"`
 
-	Version *int32 `type:"int32" json:",omitempty"`
+	Version *int64 `type:"int64" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -214,7 +214,7 @@ func (s BasicQuotaForGetTenantQuotaOutput) GoString() string {
 }
 
 // SetExpireTime sets the ExpireTime field's value.
-func (s *BasicQuotaForGetTenantQuotaOutput) SetExpireTime(v int32) *BasicQuotaForGetTenantQuotaOutput {
+func (s *BasicQuotaForGetTenantQuotaOutput) SetExpireTime(v int64) *BasicQuotaForGetTenantQuotaOutput {
 	s.ExpireTime = &v
 	return s
 }
@@ -226,19 +226,19 @@ func (s *BasicQuotaForGetTenantQuotaOutput) SetPaidType(v string) *BasicQuotaFor
 }
 
 // SetTotalCount sets the TotalCount field's value.
-func (s *BasicQuotaForGetTenantQuotaOutput) SetTotalCount(v int32) *BasicQuotaForGetTenantQuotaOutput {
+func (s *BasicQuotaForGetTenantQuotaOutput) SetTotalCount(v int64) *BasicQuotaForGetTenantQuotaOutput {
 	s.TotalCount = &v
 	return s
 }
 
 // SetUsedCount sets the UsedCount field's value.
-func (s *BasicQuotaForGetTenantQuotaOutput) SetUsedCount(v int32) *BasicQuotaForGetTenantQuotaOutput {
+func (s *BasicQuotaForGetTenantQuotaOutput) SetUsedCount(v int64) *BasicQuotaForGetTenantQuotaOutput {
 	s.UsedCount = &v
 	return s
 }
 
 // SetVersion sets the Version field's value.
-func (s *BasicQuotaForGetTenantQuotaOutput) SetVersion(v int32) *BasicQuotaForGetTenantQuotaOutput {
+func (s *BasicQuotaForGetTenantQuotaOutput) SetVersion(v int64) *BasicQuotaForGetTenantQuotaOutput {
 	s.Version = &v
 	return s
 }
@@ -246,13 +246,13 @@ func (s *BasicQuotaForGetTenantQuotaOutput) SetVersion(v int32) *BasicQuotaForGe
 type ClusterSecForGetTenantQuotaOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	ExpireTime *int32 `type:"int32" json:",omitempty"`
+	ExpireTime *int64 `type:"int64" json:",omitempty"`
 
-	TotalCount *int32 `type:"int32" json:",omitempty"`
+	TotalCount *int64 `type:"int64" json:",omitempty"`
 
-	UsedCount *int32 `type:"int32" json:",omitempty"`
+	UsedCount *int64 `type:"int64" json:",omitempty"`
 
-	Version *int32 `type:"int32" json:",omitempty"`
+	Version *int64 `type:"int64" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -266,25 +266,25 @@ func (s ClusterSecForGetTenantQuotaOutput) GoString() string {
 }
 
 // SetExpireTime sets the ExpireTime field's value.
-func (s *ClusterSecForGetTenantQuotaOutput) SetExpireTime(v int32) *ClusterSecForGetTenantQuotaOutput {
+func (s *ClusterSecForGetTenantQuotaOutput) SetExpireTime(v int64) *ClusterSecForGetTenantQuotaOutput {
 	s.ExpireTime = &v
 	return s
 }
 
 // SetTotalCount sets the TotalCount field's value.
-func (s *ClusterSecForGetTenantQuotaOutput) SetTotalCount(v int32) *ClusterSecForGetTenantQuotaOutput {
+func (s *ClusterSecForGetTenantQuotaOutput) SetTotalCount(v int64) *ClusterSecForGetTenantQuotaOutput {
 	s.TotalCount = &v
 	return s
 }
 
 // SetUsedCount sets the UsedCount field's value.
-func (s *ClusterSecForGetTenantQuotaOutput) SetUsedCount(v int32) *ClusterSecForGetTenantQuotaOutput {
+func (s *ClusterSecForGetTenantQuotaOutput) SetUsedCount(v int64) *ClusterSecForGetTenantQuotaOutput {
 	s.UsedCount = &v
 	return s
 }
 
 // SetVersion sets the Version field's value.
-func (s *ClusterSecForGetTenantQuotaOutput) SetVersion(v int32) *ClusterSecForGetTenantQuotaOutput {
+func (s *ClusterSecForGetTenantQuotaOutput) SetVersion(v int64) *ClusterSecForGetTenantQuotaOutput {
 	s.Version = &v
 	return s
 }
@@ -312,15 +312,15 @@ type GetTenantQuotaOutput struct {
 
 	BasicQuota *BasicQuotaForGetTenantQuotaOutput `type:"structure" json:",omitempty"`
 
-	ExpireTime *int32 `type:"int32" json:",omitempty"`
+	ExpireTime *int64 `type:"int64" json:",omitempty"`
 
 	ID *string `type:"string" json:",omitempty"`
 
-	InsertTime *int32 `type:"int32" json:",omitempty"`
+	InsertTime *int64 `type:"int64" json:",omitempty"`
 
 	Labels []*string `type:"list" json:",omitempty"`
 
-	UpdateTime *int32 `type:"int32" json:",omitempty"`
+	UpdateTime *int64 `type:"int64" json:",omitempty"`
 
 	ValueAdded *ValueAddedForGetTenantQuotaOutput `type:"structure" json:",omitempty"`
 }
@@ -348,7 +348,7 @@ func (s *GetTenantQuotaOutput) SetBasicQuota(v *BasicQuotaForGetTenantQuotaOutpu
 }
 
 // SetExpireTime sets the ExpireTime field's value.
-func (s *GetTenantQuotaOutput) SetExpireTime(v int32) *GetTenantQuotaOutput {
+func (s *GetTenantQuotaOutput) SetExpireTime(v int64) *GetTenantQuotaOutput {
 	s.ExpireTime = &v
 	return s
 }
@@ -360,7 +360,7 @@ func (s *GetTenantQuotaOutput) SetID(v string) *GetTenantQuotaOutput {
 }
 
 // SetInsertTime sets the InsertTime field's value.
-func (s *GetTenantQuotaOutput) SetInsertTime(v int32) *GetTenantQuotaOutput {
+func (s *GetTenantQuotaOutput) SetInsertTime(v int64) *GetTenantQuotaOutput {
 	s.InsertTime = &v
 	return s
 }
@@ -372,7 +372,7 @@ func (s *GetTenantQuotaOutput) SetLabels(v []*string) *GetTenantQuotaOutput {
 }
 
 // SetUpdateTime sets the UpdateTime field's value.
-func (s *GetTenantQuotaOutput) SetUpdateTime(v int32) *GetTenantQuotaOutput {
+func (s *GetTenantQuotaOutput) SetUpdateTime(v int64) *GetTenantQuotaOutput {
 	s.UpdateTime = &v
 	return s
 }
@@ -386,13 +386,13 @@ func (s *GetTenantQuotaOutput) SetValueAdded(v *ValueAddedForGetTenantQuotaOutpu
 type LogAnalysisQuotaForGetTenantQuotaOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	ExpireTime *int32 `type:"int32" json:",omitempty"`
+	ExpireTime *int64 `type:"int64" json:",omitempty"`
 
-	TotalCount *int32 `type:"int32" json:",omitempty"`
+	TotalCount *int64 `type:"int64" json:",omitempty"`
 
-	UsedCount *int32 `type:"int32" json:",omitempty"`
+	UsedCount *int64 `type:"int64" json:",omitempty"`
 
-	Version *int32 `type:"int32" json:",omitempty"`
+	Version *int64 `type:"int64" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -406,25 +406,25 @@ func (s LogAnalysisQuotaForGetTenantQuotaOutput) GoString() string {
 }
 
 // SetExpireTime sets the ExpireTime field's value.
-func (s *LogAnalysisQuotaForGetTenantQuotaOutput) SetExpireTime(v int32) *LogAnalysisQuotaForGetTenantQuotaOutput {
+func (s *LogAnalysisQuotaForGetTenantQuotaOutput) SetExpireTime(v int64) *LogAnalysisQuotaForGetTenantQuotaOutput {
 	s.ExpireTime = &v
 	return s
 }
 
 // SetTotalCount sets the TotalCount field's value.
-func (s *LogAnalysisQuotaForGetTenantQuotaOutput) SetTotalCount(v int32) *LogAnalysisQuotaForGetTenantQuotaOutput {
+func (s *LogAnalysisQuotaForGetTenantQuotaOutput) SetTotalCount(v int64) *LogAnalysisQuotaForGetTenantQuotaOutput {
 	s.TotalCount = &v
 	return s
 }
 
 // SetUsedCount sets the UsedCount field's value.
-func (s *LogAnalysisQuotaForGetTenantQuotaOutput) SetUsedCount(v int32) *LogAnalysisQuotaForGetTenantQuotaOutput {
+func (s *LogAnalysisQuotaForGetTenantQuotaOutput) SetUsedCount(v int64) *LogAnalysisQuotaForGetTenantQuotaOutput {
 	s.UsedCount = &v
 	return s
 }
 
 // SetVersion sets the Version field's value.
-func (s *LogAnalysisQuotaForGetTenantQuotaOutput) SetVersion(v int32) *LogAnalysisQuotaForGetTenantQuotaOutput {
+func (s *LogAnalysisQuotaForGetTenantQuotaOutput) SetVersion(v int64) *LogAnalysisQuotaForGetTenantQuotaOutput {
 	s.Version = &v
 	return s
 }
@@ -432,13 +432,13 @@ func (s *LogAnalysisQuotaForGetTenantQuotaOutput) SetVersion(v int32) *LogAnalys
 type MlpDefenderQuotaForGetTenantQuotaOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	ExpireTime *int32 `type:"int32" json:",omitempty"`
+	ExpireTime *int64 `type:"int64" json:",omitempty"`
 
-	TotalCount *int32 `type:"int32" json:",omitempty"`
+	TotalCount *int64 `type:"int64" json:",omitempty"`
 
-	UsedCount *int32 `type:"int32" json:",omitempty"`
+	UsedCount *int64 `type:"int64" json:",omitempty"`
 
-	Version *int32 `type:"int32" json:",omitempty"`
+	Version *int64 `type:"int64" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -452,25 +452,25 @@ func (s MlpDefenderQuotaForGetTenantQuotaOutput) GoString() string {
 }
 
 // SetExpireTime sets the ExpireTime field's value.
-func (s *MlpDefenderQuotaForGetTenantQuotaOutput) SetExpireTime(v int32) *MlpDefenderQuotaForGetTenantQuotaOutput {
+func (s *MlpDefenderQuotaForGetTenantQuotaOutput) SetExpireTime(v int64) *MlpDefenderQuotaForGetTenantQuotaOutput {
 	s.ExpireTime = &v
 	return s
 }
 
 // SetTotalCount sets the TotalCount field's value.
-func (s *MlpDefenderQuotaForGetTenantQuotaOutput) SetTotalCount(v int32) *MlpDefenderQuotaForGetTenantQuotaOutput {
+func (s *MlpDefenderQuotaForGetTenantQuotaOutput) SetTotalCount(v int64) *MlpDefenderQuotaForGetTenantQuotaOutput {
 	s.TotalCount = &v
 	return s
 }
 
 // SetUsedCount sets the UsedCount field's value.
-func (s *MlpDefenderQuotaForGetTenantQuotaOutput) SetUsedCount(v int32) *MlpDefenderQuotaForGetTenantQuotaOutput {
+func (s *MlpDefenderQuotaForGetTenantQuotaOutput) SetUsedCount(v int64) *MlpDefenderQuotaForGetTenantQuotaOutput {
 	s.UsedCount = &v
 	return s
 }
 
 // SetVersion sets the Version field's value.
-func (s *MlpDefenderQuotaForGetTenantQuotaOutput) SetVersion(v int32) *MlpDefenderQuotaForGetTenantQuotaOutput {
+func (s *MlpDefenderQuotaForGetTenantQuotaOutput) SetVersion(v int64) *MlpDefenderQuotaForGetTenantQuotaOutput {
 	s.Version = &v
 	return s
 }
@@ -516,13 +516,13 @@ func (s *MultiLevelManagementForGetTenantQuotaOutput) SetProtectHost(v *ProtectH
 type ProtectHostForGetTenantQuotaOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	ExpireTime *int32 `type:"int32" json:",omitempty"`
+	ExpireTime *int64 `type:"int64" json:",omitempty"`
 
-	TotalCount *int32 `type:"int32" json:",omitempty"`
+	TotalCount *int64 `type:"int64" json:",omitempty"`
 
-	UsedCount *int32 `type:"int32" json:",omitempty"`
+	UsedCount *int64 `type:"int64" json:",omitempty"`
 
-	Version *int32 `type:"int32" json:",omitempty"`
+	Version *int64 `type:"int64" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -536,25 +536,25 @@ func (s ProtectHostForGetTenantQuotaOutput) GoString() string {
 }
 
 // SetExpireTime sets the ExpireTime field's value.
-func (s *ProtectHostForGetTenantQuotaOutput) SetExpireTime(v int32) *ProtectHostForGetTenantQuotaOutput {
+func (s *ProtectHostForGetTenantQuotaOutput) SetExpireTime(v int64) *ProtectHostForGetTenantQuotaOutput {
 	s.ExpireTime = &v
 	return s
 }
 
 // SetTotalCount sets the TotalCount field's value.
-func (s *ProtectHostForGetTenantQuotaOutput) SetTotalCount(v int32) *ProtectHostForGetTenantQuotaOutput {
+func (s *ProtectHostForGetTenantQuotaOutput) SetTotalCount(v int64) *ProtectHostForGetTenantQuotaOutput {
 	s.TotalCount = &v
 	return s
 }
 
 // SetUsedCount sets the UsedCount field's value.
-func (s *ProtectHostForGetTenantQuotaOutput) SetUsedCount(v int32) *ProtectHostForGetTenantQuotaOutput {
+func (s *ProtectHostForGetTenantQuotaOutput) SetUsedCount(v int64) *ProtectHostForGetTenantQuotaOutput {
 	s.UsedCount = &v
 	return s
 }
 
 // SetVersion sets the Version field's value.
-func (s *ProtectHostForGetTenantQuotaOutput) SetVersion(v int32) *ProtectHostForGetTenantQuotaOutput {
+func (s *ProtectHostForGetTenantQuotaOutput) SetVersion(v int64) *ProtectHostForGetTenantQuotaOutput {
 	s.Version = &v
 	return s
 }
@@ -562,13 +562,13 @@ func (s *ProtectHostForGetTenantQuotaOutput) SetVersion(v int32) *ProtectHostFor
 type RaspAuthQuotaForGetTenantQuotaOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	ExpireTime *int32 `type:"int32" json:",omitempty"`
+	ExpireTime *int64 `type:"int64" json:",omitempty"`
 
-	TotalCount *int32 `type:"int32" json:",omitempty"`
+	TotalCount *int64 `type:"int64" json:",omitempty"`
 
-	UsedCount *int32 `type:"int32" json:",omitempty"`
+	UsedCount *int64 `type:"int64" json:",omitempty"`
 
-	Version *int32 `type:"int32" json:",omitempty"`
+	Version *int64 `type:"int64" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -582,25 +582,25 @@ func (s RaspAuthQuotaForGetTenantQuotaOutput) GoString() string {
 }
 
 // SetExpireTime sets the ExpireTime field's value.
-func (s *RaspAuthQuotaForGetTenantQuotaOutput) SetExpireTime(v int32) *RaspAuthQuotaForGetTenantQuotaOutput {
+func (s *RaspAuthQuotaForGetTenantQuotaOutput) SetExpireTime(v int64) *RaspAuthQuotaForGetTenantQuotaOutput {
 	s.ExpireTime = &v
 	return s
 }
 
 // SetTotalCount sets the TotalCount field's value.
-func (s *RaspAuthQuotaForGetTenantQuotaOutput) SetTotalCount(v int32) *RaspAuthQuotaForGetTenantQuotaOutput {
+func (s *RaspAuthQuotaForGetTenantQuotaOutput) SetTotalCount(v int64) *RaspAuthQuotaForGetTenantQuotaOutput {
 	s.TotalCount = &v
 	return s
 }
 
 // SetUsedCount sets the UsedCount field's value.
-func (s *RaspAuthQuotaForGetTenantQuotaOutput) SetUsedCount(v int32) *RaspAuthQuotaForGetTenantQuotaOutput {
+func (s *RaspAuthQuotaForGetTenantQuotaOutput) SetUsedCount(v int64) *RaspAuthQuotaForGetTenantQuotaOutput {
 	s.UsedCount = &v
 	return s
 }
 
 // SetVersion sets the Version field's value.
-func (s *RaspAuthQuotaForGetTenantQuotaOutput) SetVersion(v int32) *RaspAuthQuotaForGetTenantQuotaOutput {
+func (s *RaspAuthQuotaForGetTenantQuotaOutput) SetVersion(v int64) *RaspAuthQuotaForGetTenantQuotaOutput {
 	s.Version = &v
 	return s
 }

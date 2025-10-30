@@ -150,23 +150,23 @@ type DataForListScanTasksOutput struct {
 
 	Action *string `type:"string" json:",omitempty"`
 
-	CreateTime *int32 `type:"int32" json:",omitempty"`
+	CreateTime *int64 `type:"int64" json:",omitempty"`
 
 	FilePath *string `type:"string" json:",omitempty"`
 
-	IDCount *int32 `type:"int32" json:",omitempty"`
+	IDCount *int64 `type:"int64" json:",omitempty"`
 
-	ResultNum *int32 `type:"int32" json:",omitempty"`
+	ResultNum *int64 `type:"int64" json:",omitempty"`
 
-	SubTaskCreated *int32 `type:"int32" json:",omitempty"`
+	SubTaskCreated *int64 `type:"int64" json:",omitempty"`
 
-	SubTaskFailed *int32 `type:"int32" json:",omitempty"`
+	SubTaskFailed *int64 `type:"int64" json:",omitempty"`
 
-	SubTaskRunning *int32 `type:"int32" json:",omitempty"`
+	SubTaskRunning *int64 `type:"int64" json:",omitempty"`
 
-	SubTaskStopped *int32 `type:"int32" json:",omitempty"`
+	SubTaskStopped *int64 `type:"int64" json:",omitempty"`
 
-	SubTaskSucceed *int32 `type:"int32" json:",omitempty"`
+	SubTaskSucceed *int64 `type:"int64" json:",omitempty"`
 
 	Tag *string `type:"string" json:",omitempty"`
 
@@ -176,7 +176,7 @@ type DataForListScanTasksOutput struct {
 
 	TaskStatus *string `type:"string" json:",omitempty"`
 
-	TaskTimeout *int32 `type:"int32" json:",omitempty"`
+	TaskTimeout *int64 `type:"int64" json:",omitempty"`
 
 	TaskType *string `type:"string" json:",omitempty"`
 
@@ -184,7 +184,7 @@ type DataForListScanTasksOutput struct {
 
 	TopGroupID *string `type:"string" json:",omitempty"`
 
-	UpdateTime *int32 `type:"int32" json:",omitempty"`
+	UpdateTime *int64 `type:"int64" json:",omitempty"`
 
 	VirusTaskID *string `type:"string" json:",omitempty"`
 }
@@ -212,7 +212,7 @@ func (s *DataForListScanTasksOutput) SetAction(v string) *DataForListScanTasksOu
 }
 
 // SetCreateTime sets the CreateTime field's value.
-func (s *DataForListScanTasksOutput) SetCreateTime(v int32) *DataForListScanTasksOutput {
+func (s *DataForListScanTasksOutput) SetCreateTime(v int64) *DataForListScanTasksOutput {
 	s.CreateTime = &v
 	return s
 }
@@ -224,43 +224,43 @@ func (s *DataForListScanTasksOutput) SetFilePath(v string) *DataForListScanTasks
 }
 
 // SetIDCount sets the IDCount field's value.
-func (s *DataForListScanTasksOutput) SetIDCount(v int32) *DataForListScanTasksOutput {
+func (s *DataForListScanTasksOutput) SetIDCount(v int64) *DataForListScanTasksOutput {
 	s.IDCount = &v
 	return s
 }
 
 // SetResultNum sets the ResultNum field's value.
-func (s *DataForListScanTasksOutput) SetResultNum(v int32) *DataForListScanTasksOutput {
+func (s *DataForListScanTasksOutput) SetResultNum(v int64) *DataForListScanTasksOutput {
 	s.ResultNum = &v
 	return s
 }
 
 // SetSubTaskCreated sets the SubTaskCreated field's value.
-func (s *DataForListScanTasksOutput) SetSubTaskCreated(v int32) *DataForListScanTasksOutput {
+func (s *DataForListScanTasksOutput) SetSubTaskCreated(v int64) *DataForListScanTasksOutput {
 	s.SubTaskCreated = &v
 	return s
 }
 
 // SetSubTaskFailed sets the SubTaskFailed field's value.
-func (s *DataForListScanTasksOutput) SetSubTaskFailed(v int32) *DataForListScanTasksOutput {
+func (s *DataForListScanTasksOutput) SetSubTaskFailed(v int64) *DataForListScanTasksOutput {
 	s.SubTaskFailed = &v
 	return s
 }
 
 // SetSubTaskRunning sets the SubTaskRunning field's value.
-func (s *DataForListScanTasksOutput) SetSubTaskRunning(v int32) *DataForListScanTasksOutput {
+func (s *DataForListScanTasksOutput) SetSubTaskRunning(v int64) *DataForListScanTasksOutput {
 	s.SubTaskRunning = &v
 	return s
 }
 
 // SetSubTaskStopped sets the SubTaskStopped field's value.
-func (s *DataForListScanTasksOutput) SetSubTaskStopped(v int32) *DataForListScanTasksOutput {
+func (s *DataForListScanTasksOutput) SetSubTaskStopped(v int64) *DataForListScanTasksOutput {
 	s.SubTaskStopped = &v
 	return s
 }
 
 // SetSubTaskSucceed sets the SubTaskSucceed field's value.
-func (s *DataForListScanTasksOutput) SetSubTaskSucceed(v int32) *DataForListScanTasksOutput {
+func (s *DataForListScanTasksOutput) SetSubTaskSucceed(v int64) *DataForListScanTasksOutput {
 	s.SubTaskSucceed = &v
 	return s
 }
@@ -290,7 +290,7 @@ func (s *DataForListScanTasksOutput) SetTaskStatus(v string) *DataForListScanTas
 }
 
 // SetTaskTimeout sets the TaskTimeout field's value.
-func (s *DataForListScanTasksOutput) SetTaskTimeout(v int32) *DataForListScanTasksOutput {
+func (s *DataForListScanTasksOutput) SetTaskTimeout(v int64) *DataForListScanTasksOutput {
 	s.TaskTimeout = &v
 	return s
 }
@@ -314,7 +314,7 @@ func (s *DataForListScanTasksOutput) SetTopGroupID(v string) *DataForListScanTas
 }
 
 // SetUpdateTime sets the UpdateTime field's value.
-func (s *DataForListScanTasksOutput) SetUpdateTime(v int32) *DataForListScanTasksOutput {
+func (s *DataForListScanTasksOutput) SetUpdateTime(v int64) *DataForListScanTasksOutput {
 	s.UpdateTime = &v
 	return s
 }
@@ -333,10 +333,10 @@ type ListScanTasksInput struct {
 	FilePath *string `type:"string" json:",omitempty"`
 
 	// PageNumber is a required field
-	PageNumber *int32 `type:"int32" json:",omitempty" required:"true"`
+	PageNumber *int64 `type:"int64" json:",omitempty" required:"true"`
 
 	// PageSize is a required field
-	PageSize *int32 `type:"int32" json:",omitempty" required:"true"`
+	PageSize *int64 `type:"int64" json:",omitempty" required:"true"`
 
 	SortBy *string `type:"string" json:",omitempty"`
 
@@ -390,13 +390,13 @@ func (s *ListScanTasksInput) SetFilePath(v string) *ListScanTasksInput {
 }
 
 // SetPageNumber sets the PageNumber field's value.
-func (s *ListScanTasksInput) SetPageNumber(v int32) *ListScanTasksInput {
+func (s *ListScanTasksInput) SetPageNumber(v int64) *ListScanTasksInput {
 	s.PageNumber = &v
 	return s
 }
 
 // SetPageSize sets the PageSize field's value.
-func (s *ListScanTasksInput) SetPageSize(v int32) *ListScanTasksInput {
+func (s *ListScanTasksInput) SetPageSize(v int64) *ListScanTasksInput {
 	s.PageSize = &v
 	return s
 }
@@ -444,11 +444,11 @@ type ListScanTasksOutput struct {
 
 	Data []*DataForListScanTasksOutput `type:"list" json:",omitempty"`
 
-	PageNumber *int32 `type:"int32" json:",omitempty"`
+	PageNumber *int64 `type:"int64" json:",omitempty"`
 
-	PageSize *int32 `type:"int32" json:",omitempty"`
+	PageSize *int64 `type:"int64" json:",omitempty"`
 
-	TotalCount *int32 `type:"int32" json:",omitempty"`
+	TotalCount *int64 `type:"int64" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -468,19 +468,19 @@ func (s *ListScanTasksOutput) SetData(v []*DataForListScanTasksOutput) *ListScan
 }
 
 // SetPageNumber sets the PageNumber field's value.
-func (s *ListScanTasksOutput) SetPageNumber(v int32) *ListScanTasksOutput {
+func (s *ListScanTasksOutput) SetPageNumber(v int64) *ListScanTasksOutput {
 	s.PageNumber = &v
 	return s
 }
 
 // SetPageSize sets the PageSize field's value.
-func (s *ListScanTasksOutput) SetPageSize(v int32) *ListScanTasksOutput {
+func (s *ListScanTasksOutput) SetPageSize(v int64) *ListScanTasksOutput {
 	s.PageSize = &v
 	return s
 }
 
 // SetTotalCount sets the TotalCount field's value.
-func (s *ListScanTasksOutput) SetTotalCount(v int32) *ListScanTasksOutput {
+func (s *ListScanTasksOutput) SetTotalCount(v int64) *ListScanTasksOutput {
 	s.TotalCount = &v
 	return s
 }

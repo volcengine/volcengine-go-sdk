@@ -152,9 +152,9 @@ type ListBaselineCheckDetailInput struct {
 
 	AssetType *string `type:"string" json:",omitempty" enum:"EnumOfAssetTypeForListBaselineCheckDetailInput"`
 
-	BaselineID *int32 `type:"int32" json:",omitempty"`
+	BaselineID *int64 `type:"int64" json:",omitempty"`
 
-	ChecklistID *int32 `type:"int32" json:",omitempty"`
+	ChecklistID *int64 `type:"int64" json:",omitempty"`
 
 	TopGroupID *string `type:"string" json:",omitempty"`
 }
@@ -188,13 +188,13 @@ func (s *ListBaselineCheckDetailInput) SetAssetType(v string) *ListBaselineCheck
 }
 
 // SetBaselineID sets the BaselineID field's value.
-func (s *ListBaselineCheckDetailInput) SetBaselineID(v int32) *ListBaselineCheckDetailInput {
+func (s *ListBaselineCheckDetailInput) SetBaselineID(v int64) *ListBaselineCheckDetailInput {
 	s.BaselineID = &v
 	return s
 }
 
 // SetChecklistID sets the ChecklistID field's value.
-func (s *ListBaselineCheckDetailInput) SetChecklistID(v int32) *ListBaselineCheckDetailInput {
+func (s *ListBaselineCheckDetailInput) SetChecklistID(v int64) *ListBaselineCheckDetailInput {
 	s.ChecklistID = &v
 	return s
 }

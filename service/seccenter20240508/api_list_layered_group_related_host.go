@@ -172,7 +172,7 @@ type ListLayeredGroupRelatedHostOutput struct {
 
 	AgentIds []*string `type:"list" json:",omitempty"`
 
-	Total *int32 `type:"int32" json:",omitempty"`
+	Total *int64 `type:"int64" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -192,7 +192,7 @@ func (s *ListLayeredGroupRelatedHostOutput) SetAgentIds(v []*string) *ListLayere
 }
 
 // SetTotal sets the Total field's value.
-func (s *ListLayeredGroupRelatedHostOutput) SetTotal(v int32) *ListLayeredGroupRelatedHostOutput {
+func (s *ListLayeredGroupRelatedHostOutput) SetTotal(v int64) *ListLayeredGroupRelatedHostOutput {
 	s.Total = &v
 	return s
 }

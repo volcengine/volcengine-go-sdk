@@ -146,11 +146,11 @@ type GetMlpAlarmStatisticsInput struct {
 
 	ClusterID *string `type:"string"`
 
-	EndTime *int32 `type:"int32"`
+	EndTime *int64 `type:"int64"`
 
 	MlpInstanceID *string `type:"string"`
 
-	StartTime *int32 `type:"int32"`
+	StartTime *int64 `type:"int64"`
 }
 
 // String returns the string representation
@@ -176,7 +176,7 @@ func (s *GetMlpAlarmStatisticsInput) SetClusterID(v string) *GetMlpAlarmStatisti
 }
 
 // SetEndTime sets the EndTime field's value.
-func (s *GetMlpAlarmStatisticsInput) SetEndTime(v int32) *GetMlpAlarmStatisticsInput {
+func (s *GetMlpAlarmStatisticsInput) SetEndTime(v int64) *GetMlpAlarmStatisticsInput {
 	s.EndTime = &v
 	return s
 }
@@ -188,7 +188,7 @@ func (s *GetMlpAlarmStatisticsInput) SetMlpInstanceID(v string) *GetMlpAlarmStat
 }
 
 // SetStartTime sets the StartTime field's value.
-func (s *GetMlpAlarmStatisticsInput) SetStartTime(v int32) *GetMlpAlarmStatisticsInput {
+func (s *GetMlpAlarmStatisticsInput) SetStartTime(v int64) *GetMlpAlarmStatisticsInput {
 	s.StartTime = &v
 	return s
 }
@@ -198,29 +198,29 @@ type GetMlpAlarmStatisticsOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	AlarmCriticalCount *int32 `type:"int32"`
+	AlarmCriticalCount *int64 `type:"int64"`
 
-	AlarmHighCount *int32 `type:"int32"`
+	AlarmHighCount *int64 `type:"int64"`
 
-	AlarmLowCount *int32 `type:"int32"`
+	AlarmLowCount *int64 `type:"int64"`
 
-	AlarmMediumCount *int32 `type:"int32"`
+	AlarmMediumCount *int64 `type:"int64"`
 
-	AlarmProcessedCount *int32 `type:"int32"`
+	AlarmProcessedCount *int64 `type:"int64"`
 
-	AlarmTotal *int32 `type:"int32"`
+	AlarmTotal *int64 `type:"int64"`
 
-	AlarmWhiteCount *int32 `type:"int32"`
+	AlarmWhiteCount *int64 `type:"int64"`
 
-	IsolateFileCount *int32 `type:"int32"`
+	IsolateFileCount *int64 `type:"int64"`
 
-	IsolateTodayCount *int32 `type:"int32"`
+	IsolateTodayCount *int64 `type:"int64"`
 
-	PrecisionDefenseCount *int32 `type:"int32"`
+	PrecisionDefenseCount *int64 `type:"int64"`
 
-	PrecisionDefenseTodayCount *int32 `type:"int32"`
+	PrecisionDefenseTodayCount *int64 `type:"int64"`
 
-	UnhandledTodayCount *int32 `type:"int32"`
+	UnhandledTodayCount *int64 `type:"int64"`
 }
 
 // String returns the string representation
@@ -234,73 +234,73 @@ func (s GetMlpAlarmStatisticsOutput) GoString() string {
 }
 
 // SetAlarmCriticalCount sets the AlarmCriticalCount field's value.
-func (s *GetMlpAlarmStatisticsOutput) SetAlarmCriticalCount(v int32) *GetMlpAlarmStatisticsOutput {
+func (s *GetMlpAlarmStatisticsOutput) SetAlarmCriticalCount(v int64) *GetMlpAlarmStatisticsOutput {
 	s.AlarmCriticalCount = &v
 	return s
 }
 
 // SetAlarmHighCount sets the AlarmHighCount field's value.
-func (s *GetMlpAlarmStatisticsOutput) SetAlarmHighCount(v int32) *GetMlpAlarmStatisticsOutput {
+func (s *GetMlpAlarmStatisticsOutput) SetAlarmHighCount(v int64) *GetMlpAlarmStatisticsOutput {
 	s.AlarmHighCount = &v
 	return s
 }
 
 // SetAlarmLowCount sets the AlarmLowCount field's value.
-func (s *GetMlpAlarmStatisticsOutput) SetAlarmLowCount(v int32) *GetMlpAlarmStatisticsOutput {
+func (s *GetMlpAlarmStatisticsOutput) SetAlarmLowCount(v int64) *GetMlpAlarmStatisticsOutput {
 	s.AlarmLowCount = &v
 	return s
 }
 
 // SetAlarmMediumCount sets the AlarmMediumCount field's value.
-func (s *GetMlpAlarmStatisticsOutput) SetAlarmMediumCount(v int32) *GetMlpAlarmStatisticsOutput {
+func (s *GetMlpAlarmStatisticsOutput) SetAlarmMediumCount(v int64) *GetMlpAlarmStatisticsOutput {
 	s.AlarmMediumCount = &v
 	return s
 }
 
 // SetAlarmProcessedCount sets the AlarmProcessedCount field's value.
-func (s *GetMlpAlarmStatisticsOutput) SetAlarmProcessedCount(v int32) *GetMlpAlarmStatisticsOutput {
+func (s *GetMlpAlarmStatisticsOutput) SetAlarmProcessedCount(v int64) *GetMlpAlarmStatisticsOutput {
 	s.AlarmProcessedCount = &v
 	return s
 }
 
 // SetAlarmTotal sets the AlarmTotal field's value.
-func (s *GetMlpAlarmStatisticsOutput) SetAlarmTotal(v int32) *GetMlpAlarmStatisticsOutput {
+func (s *GetMlpAlarmStatisticsOutput) SetAlarmTotal(v int64) *GetMlpAlarmStatisticsOutput {
 	s.AlarmTotal = &v
 	return s
 }
 
 // SetAlarmWhiteCount sets the AlarmWhiteCount field's value.
-func (s *GetMlpAlarmStatisticsOutput) SetAlarmWhiteCount(v int32) *GetMlpAlarmStatisticsOutput {
+func (s *GetMlpAlarmStatisticsOutput) SetAlarmWhiteCount(v int64) *GetMlpAlarmStatisticsOutput {
 	s.AlarmWhiteCount = &v
 	return s
 }
 
 // SetIsolateFileCount sets the IsolateFileCount field's value.
-func (s *GetMlpAlarmStatisticsOutput) SetIsolateFileCount(v int32) *GetMlpAlarmStatisticsOutput {
+func (s *GetMlpAlarmStatisticsOutput) SetIsolateFileCount(v int64) *GetMlpAlarmStatisticsOutput {
 	s.IsolateFileCount = &v
 	return s
 }
 
 // SetIsolateTodayCount sets the IsolateTodayCount field's value.
-func (s *GetMlpAlarmStatisticsOutput) SetIsolateTodayCount(v int32) *GetMlpAlarmStatisticsOutput {
+func (s *GetMlpAlarmStatisticsOutput) SetIsolateTodayCount(v int64) *GetMlpAlarmStatisticsOutput {
 	s.IsolateTodayCount = &v
 	return s
 }
 
 // SetPrecisionDefenseCount sets the PrecisionDefenseCount field's value.
-func (s *GetMlpAlarmStatisticsOutput) SetPrecisionDefenseCount(v int32) *GetMlpAlarmStatisticsOutput {
+func (s *GetMlpAlarmStatisticsOutput) SetPrecisionDefenseCount(v int64) *GetMlpAlarmStatisticsOutput {
 	s.PrecisionDefenseCount = &v
 	return s
 }
 
 // SetPrecisionDefenseTodayCount sets the PrecisionDefenseTodayCount field's value.
-func (s *GetMlpAlarmStatisticsOutput) SetPrecisionDefenseTodayCount(v int32) *GetMlpAlarmStatisticsOutput {
+func (s *GetMlpAlarmStatisticsOutput) SetPrecisionDefenseTodayCount(v int64) *GetMlpAlarmStatisticsOutput {
 	s.PrecisionDefenseTodayCount = &v
 	return s
 }
 
 // SetUnhandledTodayCount sets the UnhandledTodayCount field's value.
-func (s *GetMlpAlarmStatisticsOutput) SetUnhandledTodayCount(v int32) *GetMlpAlarmStatisticsOutput {
+func (s *GetMlpAlarmStatisticsOutput) SetUnhandledTodayCount(v int64) *GetMlpAlarmStatisticsOutput {
 	s.UnhandledTodayCount = &v
 	return s
 }

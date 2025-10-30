@@ -166,9 +166,9 @@ type DataForGetFingerprintCronOutput struct {
 
 	Schedule *string `type:"string" json:",omitempty"`
 
-	StartTime *int32 `type:"int32" json:",omitempty"`
+	StartTime *int64 `type:"int64" json:",omitempty"`
 
-	UpdateTime *int32 `type:"int32" json:",omitempty"`
+	UpdateTime *int64 `type:"int64" json:",omitempty"`
 
 	Username *string `type:"string" json:",omitempty"`
 }
@@ -244,13 +244,13 @@ func (s *DataForGetFingerprintCronOutput) SetSchedule(v string) *DataForGetFinge
 }
 
 // SetStartTime sets the StartTime field's value.
-func (s *DataForGetFingerprintCronOutput) SetStartTime(v int32) *DataForGetFingerprintCronOutput {
+func (s *DataForGetFingerprintCronOutput) SetStartTime(v int64) *DataForGetFingerprintCronOutput {
 	s.StartTime = &v
 	return s
 }
 
 // SetUpdateTime sets the UpdateTime field's value.
-func (s *DataForGetFingerprintCronOutput) SetUpdateTime(v int32) *DataForGetFingerprintCronOutput {
+func (s *DataForGetFingerprintCronOutput) SetUpdateTime(v int64) *DataForGetFingerprintCronOutput {
 	s.UpdateTime = &v
 	return s
 }
@@ -279,10 +279,10 @@ type GetFingerprintCronInput struct {
 	LeafGroupIDs []*string `type:"list" json:",omitempty"`
 
 	// PageNumber is a required field
-	PageNumber *int32 `type:"int32" json:",omitempty" required:"true"`
+	PageNumber *int64 `type:"int64" json:",omitempty" required:"true"`
 
 	// PageSize is a required field
-	PageSize *int32 `type:"int32" json:",omitempty" required:"true"`
+	PageSize *int64 `type:"int64" json:",omitempty" required:"true"`
 
 	Path *string `type:"string" json:",omitempty"`
 
@@ -366,13 +366,13 @@ func (s *GetFingerprintCronInput) SetLeafGroupIDs(v []*string) *GetFingerprintCr
 }
 
 // SetPageNumber sets the PageNumber field's value.
-func (s *GetFingerprintCronInput) SetPageNumber(v int32) *GetFingerprintCronInput {
+func (s *GetFingerprintCronInput) SetPageNumber(v int64) *GetFingerprintCronInput {
 	s.PageNumber = &v
 	return s
 }
 
 // SetPageSize sets the PageSize field's value.
-func (s *GetFingerprintCronInput) SetPageSize(v int32) *GetFingerprintCronInput {
+func (s *GetFingerprintCronInput) SetPageSize(v int64) *GetFingerprintCronInput {
 	s.PageSize = &v
 	return s
 }
@@ -420,11 +420,11 @@ type GetFingerprintCronOutput struct {
 
 	Data []*DataForGetFingerprintCronOutput `type:"list" json:",omitempty"`
 
-	PageNumber *int32 `type:"int32" json:",omitempty"`
+	PageNumber *int64 `type:"int64" json:",omitempty"`
 
-	PageSize *int32 `type:"int32" json:",omitempty"`
+	PageSize *int64 `type:"int64" json:",omitempty"`
 
-	TotalCount *int32 `type:"int32" json:",omitempty"`
+	TotalCount *int64 `type:"int64" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -444,19 +444,19 @@ func (s *GetFingerprintCronOutput) SetData(v []*DataForGetFingerprintCronOutput)
 }
 
 // SetPageNumber sets the PageNumber field's value.
-func (s *GetFingerprintCronOutput) SetPageNumber(v int32) *GetFingerprintCronOutput {
+func (s *GetFingerprintCronOutput) SetPageNumber(v int64) *GetFingerprintCronOutput {
 	s.PageNumber = &v
 	return s
 }
 
 // SetPageSize sets the PageSize field's value.
-func (s *GetFingerprintCronOutput) SetPageSize(v int32) *GetFingerprintCronOutput {
+func (s *GetFingerprintCronOutput) SetPageSize(v int64) *GetFingerprintCronOutput {
 	s.PageSize = &v
 	return s
 }
 
 // SetTotalCount sets the TotalCount field's value.
-func (s *GetFingerprintCronOutput) SetTotalCount(v int32) *GetFingerprintCronOutput {
+func (s *GetFingerprintCronOutput) SetTotalCount(v int64) *GetFingerprintCronOutput {
 	s.TotalCount = &v
 	return s
 }

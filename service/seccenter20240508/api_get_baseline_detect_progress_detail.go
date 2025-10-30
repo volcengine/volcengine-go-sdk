@@ -198,9 +198,9 @@ func (s *FailedHostForGetBaselineDetectProgressDetailOutput) SetHostName(v strin
 type GetBaselineDetectProgressDetailInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	BaselineID *int32 `type:"int32" json:",omitempty"`
+	BaselineID *int64 `type:"int64" json:",omitempty"`
 
-	GroupID *int32 `type:"int32" json:",omitempty"`
+	GroupID *int64 `type:"int64" json:",omitempty"`
 
 	TopGroupID *string `type:"string" json:",omitempty"`
 }
@@ -216,13 +216,13 @@ func (s GetBaselineDetectProgressDetailInput) GoString() string {
 }
 
 // SetBaselineID sets the BaselineID field's value.
-func (s *GetBaselineDetectProgressDetailInput) SetBaselineID(v int32) *GetBaselineDetectProgressDetailInput {
+func (s *GetBaselineDetectProgressDetailInput) SetBaselineID(v int64) *GetBaselineDetectProgressDetailInput {
 	s.BaselineID = &v
 	return s
 }
 
 // SetGroupID sets the GroupID field's value.
-func (s *GetBaselineDetectProgressDetailInput) SetGroupID(v int32) *GetBaselineDetectProgressDetailInput {
+func (s *GetBaselineDetectProgressDetailInput) SetGroupID(v int64) *GetBaselineDetectProgressDetailInput {
 	s.GroupID = &v
 	return s
 }
@@ -330,9 +330,9 @@ func (s *HostDetailForGetBaselineDetectProgressDetailOutput) SetFailedHost(v []*
 type HostNumForGetBaselineDetectProgressDetailOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	Finished *int32 `type:"int32" json:",omitempty"`
+	Finished *int64 `type:"int64" json:",omitempty"`
 
-	Total *int32 `type:"int32" json:",omitempty"`
+	Total *int64 `type:"int64" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -346,13 +346,13 @@ func (s HostNumForGetBaselineDetectProgressDetailOutput) GoString() string {
 }
 
 // SetFinished sets the Finished field's value.
-func (s *HostNumForGetBaselineDetectProgressDetailOutput) SetFinished(v int32) *HostNumForGetBaselineDetectProgressDetailOutput {
+func (s *HostNumForGetBaselineDetectProgressDetailOutput) SetFinished(v int64) *HostNumForGetBaselineDetectProgressDetailOutput {
 	s.Finished = &v
 	return s
 }
 
 // SetTotal sets the Total field's value.
-func (s *HostNumForGetBaselineDetectProgressDetailOutput) SetTotal(v int32) *HostNumForGetBaselineDetectProgressDetailOutput {
+func (s *HostNumForGetBaselineDetectProgressDetailOutput) SetTotal(v int64) *HostNumForGetBaselineDetectProgressDetailOutput {
 	s.Total = &v
 	return s
 }
@@ -360,9 +360,9 @@ func (s *HostNumForGetBaselineDetectProgressDetailOutput) SetTotal(v int32) *Hos
 type ProgressDetailForGetBaselineDetectProgressDetailOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	Progress *int32 `type:"int32" json:",omitempty"`
+	Progress *int64 `type:"int64" json:",omitempty"`
 
-	TimeLeft *int32 `type:"int32" json:",omitempty"`
+	TimeLeft *int64 `type:"int64" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -376,13 +376,13 @@ func (s ProgressDetailForGetBaselineDetectProgressDetailOutput) GoString() strin
 }
 
 // SetProgress sets the Progress field's value.
-func (s *ProgressDetailForGetBaselineDetectProgressDetailOutput) SetProgress(v int32) *ProgressDetailForGetBaselineDetectProgressDetailOutput {
+func (s *ProgressDetailForGetBaselineDetectProgressDetailOutput) SetProgress(v int64) *ProgressDetailForGetBaselineDetectProgressDetailOutput {
 	s.Progress = &v
 	return s
 }
 
 // SetTimeLeft sets the TimeLeft field's value.
-func (s *ProgressDetailForGetBaselineDetectProgressDetailOutput) SetTimeLeft(v int32) *ProgressDetailForGetBaselineDetectProgressDetailOutput {
+func (s *ProgressDetailForGetBaselineDetectProgressDetailOutput) SetTimeLeft(v int64) *ProgressDetailForGetBaselineDetectProgressDetailOutput {
 	s.TimeLeft = &v
 	return s
 }
@@ -390,15 +390,15 @@ func (s *ProgressDetailForGetBaselineDetectProgressDetailOutput) SetTimeLeft(v i
 type RiskNumForGetBaselineDetectProgressDetailOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	FailedNum *int32 `type:"int32" json:",omitempty"`
+	FailedNum *int64 `type:"int64" json:",omitempty"`
 
-	HighNum *int32 `type:"int32" json:",omitempty"`
+	HighNum *int64 `type:"int64" json:",omitempty"`
 
-	LowNum *int32 `type:"int32" json:",omitempty"`
+	LowNum *int64 `type:"int64" json:",omitempty"`
 
-	MediumNum *int32 `type:"int32" json:",omitempty"`
+	MediumNum *int64 `type:"int64" json:",omitempty"`
 
-	PassNum *int32 `type:"int32" json:",omitempty"`
+	PassNum *int64 `type:"int64" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -412,31 +412,31 @@ func (s RiskNumForGetBaselineDetectProgressDetailOutput) GoString() string {
 }
 
 // SetFailedNum sets the FailedNum field's value.
-func (s *RiskNumForGetBaselineDetectProgressDetailOutput) SetFailedNum(v int32) *RiskNumForGetBaselineDetectProgressDetailOutput {
+func (s *RiskNumForGetBaselineDetectProgressDetailOutput) SetFailedNum(v int64) *RiskNumForGetBaselineDetectProgressDetailOutput {
 	s.FailedNum = &v
 	return s
 }
 
 // SetHighNum sets the HighNum field's value.
-func (s *RiskNumForGetBaselineDetectProgressDetailOutput) SetHighNum(v int32) *RiskNumForGetBaselineDetectProgressDetailOutput {
+func (s *RiskNumForGetBaselineDetectProgressDetailOutput) SetHighNum(v int64) *RiskNumForGetBaselineDetectProgressDetailOutput {
 	s.HighNum = &v
 	return s
 }
 
 // SetLowNum sets the LowNum field's value.
-func (s *RiskNumForGetBaselineDetectProgressDetailOutput) SetLowNum(v int32) *RiskNumForGetBaselineDetectProgressDetailOutput {
+func (s *RiskNumForGetBaselineDetectProgressDetailOutput) SetLowNum(v int64) *RiskNumForGetBaselineDetectProgressDetailOutput {
 	s.LowNum = &v
 	return s
 }
 
 // SetMediumNum sets the MediumNum field's value.
-func (s *RiskNumForGetBaselineDetectProgressDetailOutput) SetMediumNum(v int32) *RiskNumForGetBaselineDetectProgressDetailOutput {
+func (s *RiskNumForGetBaselineDetectProgressDetailOutput) SetMediumNum(v int64) *RiskNumForGetBaselineDetectProgressDetailOutput {
 	s.MediumNum = &v
 	return s
 }
 
 // SetPassNum sets the PassNum field's value.
-func (s *RiskNumForGetBaselineDetectProgressDetailOutput) SetPassNum(v int32) *RiskNumForGetBaselineDetectProgressDetailOutput {
+func (s *RiskNumForGetBaselineDetectProgressDetailOutput) SetPassNum(v int64) *RiskNumForGetBaselineDetectProgressDetailOutput {
 	s.PassNum = &v
 	return s
 }

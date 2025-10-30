@@ -152,13 +152,13 @@ type CreateMultiLevelInstitutionInput struct {
 
 	ClusterSec *bool `type:"boolean" json:",omitempty"`
 
-	ExpireTime *int32 `type:"int32" json:",omitempty"`
+	ExpireTime *int64 `type:"int64" json:",omitempty"`
 
 	InstitutionID *string `type:"string" json:",omitempty"`
 
 	InstitutionName *string `type:"string" json:",omitempty"`
 
-	Licenses *int32 `type:"int32" json:",omitempty"`
+	Licenses *int64 `type:"int64" json:",omitempty"`
 
 	Remark *string `type:"string" json:",omitempty"`
 }
@@ -192,7 +192,7 @@ func (s *CreateMultiLevelInstitutionInput) SetClusterSec(v bool) *CreateMultiLev
 }
 
 // SetExpireTime sets the ExpireTime field's value.
-func (s *CreateMultiLevelInstitutionInput) SetExpireTime(v int32) *CreateMultiLevelInstitutionInput {
+func (s *CreateMultiLevelInstitutionInput) SetExpireTime(v int64) *CreateMultiLevelInstitutionInput {
 	s.ExpireTime = &v
 	return s
 }
@@ -210,7 +210,7 @@ func (s *CreateMultiLevelInstitutionInput) SetInstitutionName(v string) *CreateM
 }
 
 // SetLicenses sets the Licenses field's value.
-func (s *CreateMultiLevelInstitutionInput) SetLicenses(v int32) *CreateMultiLevelInstitutionInput {
+func (s *CreateMultiLevelInstitutionInput) SetLicenses(v int64) *CreateMultiLevelInstitutionInput {
 	s.Licenses = &v
 	return s
 }

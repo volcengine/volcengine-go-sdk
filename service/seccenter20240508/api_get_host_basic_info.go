@@ -142,13 +142,13 @@ func (c *SECCENTER20240508) GetHostBasicInfoWithContext(ctx volcengine.Context, 
 type AlarmForGetHostBasicInfoOutput struct {
 	_ struct{} `type:"structure"`
 
-	Critical *int32 `type:"int32"`
+	Critical *int64 `type:"int64"`
 
-	High *int32 `type:"int32"`
+	High *int64 `type:"int64"`
 
-	Low *int32 `type:"int32"`
+	Low *int64 `type:"int64"`
 
-	Medium *int32 `type:"int32"`
+	Medium *int64 `type:"int64"`
 }
 
 // String returns the string representation
@@ -162,25 +162,25 @@ func (s AlarmForGetHostBasicInfoOutput) GoString() string {
 }
 
 // SetCritical sets the Critical field's value.
-func (s *AlarmForGetHostBasicInfoOutput) SetCritical(v int32) *AlarmForGetHostBasicInfoOutput {
+func (s *AlarmForGetHostBasicInfoOutput) SetCritical(v int64) *AlarmForGetHostBasicInfoOutput {
 	s.Critical = &v
 	return s
 }
 
 // SetHigh sets the High field's value.
-func (s *AlarmForGetHostBasicInfoOutput) SetHigh(v int32) *AlarmForGetHostBasicInfoOutput {
+func (s *AlarmForGetHostBasicInfoOutput) SetHigh(v int64) *AlarmForGetHostBasicInfoOutput {
 	s.High = &v
 	return s
 }
 
 // SetLow sets the Low field's value.
-func (s *AlarmForGetHostBasicInfoOutput) SetLow(v int32) *AlarmForGetHostBasicInfoOutput {
+func (s *AlarmForGetHostBasicInfoOutput) SetLow(v int64) *AlarmForGetHostBasicInfoOutput {
 	s.Low = &v
 	return s
 }
 
 // SetMedium sets the Medium field's value.
-func (s *AlarmForGetHostBasicInfoOutput) SetMedium(v int32) *AlarmForGetHostBasicInfoOutput {
+func (s *AlarmForGetHostBasicInfoOutput) SetMedium(v int64) *AlarmForGetHostBasicInfoOutput {
 	s.Medium = &v
 	return s
 }
@@ -188,13 +188,13 @@ func (s *AlarmForGetHostBasicInfoOutput) SetMedium(v int32) *AlarmForGetHostBasi
 type BaselineForGetHostBasicInfoOutput struct {
 	_ struct{} `type:"structure"`
 
-	High *int32 `type:"int32"`
+	High *int64 `type:"int64"`
 
-	Low *int32 `type:"int32"`
+	Low *int64 `type:"int64"`
 
-	Medium *int32 `type:"int32"`
+	Medium *int64 `type:"int64"`
 
-	Pass *int32 `type:"int32"`
+	Pass *int64 `type:"int64"`
 }
 
 // String returns the string representation
@@ -208,25 +208,25 @@ func (s BaselineForGetHostBasicInfoOutput) GoString() string {
 }
 
 // SetHigh sets the High field's value.
-func (s *BaselineForGetHostBasicInfoOutput) SetHigh(v int32) *BaselineForGetHostBasicInfoOutput {
+func (s *BaselineForGetHostBasicInfoOutput) SetHigh(v int64) *BaselineForGetHostBasicInfoOutput {
 	s.High = &v
 	return s
 }
 
 // SetLow sets the Low field's value.
-func (s *BaselineForGetHostBasicInfoOutput) SetLow(v int32) *BaselineForGetHostBasicInfoOutput {
+func (s *BaselineForGetHostBasicInfoOutput) SetLow(v int64) *BaselineForGetHostBasicInfoOutput {
 	s.Low = &v
 	return s
 }
 
 // SetMedium sets the Medium field's value.
-func (s *BaselineForGetHostBasicInfoOutput) SetMedium(v int32) *BaselineForGetHostBasicInfoOutput {
+func (s *BaselineForGetHostBasicInfoOutput) SetMedium(v int64) *BaselineForGetHostBasicInfoOutput {
 	s.Medium = &v
 	return s
 }
 
 // SetPass sets the Pass field's value.
-func (s *BaselineForGetHostBasicInfoOutput) SetPass(v int32) *BaselineForGetHostBasicInfoOutput {
+func (s *BaselineForGetHostBasicInfoOutput) SetPass(v int64) *BaselineForGetHostBasicInfoOutput {
 	s.Pass = &v
 	return s
 }
@@ -238,7 +238,9 @@ type EcsInstanceForGetHostBasicInfoOutput struct {
 
 	AccountID *string `type:"string"`
 
-	Cpu *int32 `type:"int32"`
+	Cpu *int64 `type:"int64"`
+
+	CreatedAt *string `type:"string"`
 
 	ECSUpdateAt *string `type:"string"`
 
@@ -250,7 +252,7 @@ type EcsInstanceForGetHostBasicInfoOutput struct {
 
 	InstanceName *string `type:"string"`
 
-	Mem *int32 `type:"int32"`
+	Mem *int64 `type:"int64"`
 
 	OsName *string `type:"string"`
 
@@ -263,6 +265,8 @@ type EcsInstanceForGetHostBasicInfoOutput struct {
 	PrimaryIpAddress *string `type:"string"`
 
 	Region *string `type:"string"`
+
+	SecurityEnhancementStrategy *string `type:"string"`
 
 	Status *string `type:"string"`
 
@@ -298,8 +302,14 @@ func (s *EcsInstanceForGetHostBasicInfoOutput) SetAccountID(v string) *EcsInstan
 }
 
 // SetCpu sets the Cpu field's value.
-func (s *EcsInstanceForGetHostBasicInfoOutput) SetCpu(v int32) *EcsInstanceForGetHostBasicInfoOutput {
+func (s *EcsInstanceForGetHostBasicInfoOutput) SetCpu(v int64) *EcsInstanceForGetHostBasicInfoOutput {
 	s.Cpu = &v
+	return s
+}
+
+// SetCreatedAt sets the CreatedAt field's value.
+func (s *EcsInstanceForGetHostBasicInfoOutput) SetCreatedAt(v string) *EcsInstanceForGetHostBasicInfoOutput {
+	s.CreatedAt = &v
 	return s
 }
 
@@ -334,7 +344,7 @@ func (s *EcsInstanceForGetHostBasicInfoOutput) SetInstanceName(v string) *EcsIns
 }
 
 // SetMem sets the Mem field's value.
-func (s *EcsInstanceForGetHostBasicInfoOutput) SetMem(v int32) *EcsInstanceForGetHostBasicInfoOutput {
+func (s *EcsInstanceForGetHostBasicInfoOutput) SetMem(v int64) *EcsInstanceForGetHostBasicInfoOutput {
 	s.Mem = &v
 	return s
 }
@@ -372,6 +382,12 @@ func (s *EcsInstanceForGetHostBasicInfoOutput) SetPrimaryIpAddress(v string) *Ec
 // SetRegion sets the Region field's value.
 func (s *EcsInstanceForGetHostBasicInfoOutput) SetRegion(v string) *EcsInstanceForGetHostBasicInfoOutput {
 	s.Region = &v
+	return s
+}
+
+// SetSecurityEnhancementStrategy sets the SecurityEnhancementStrategy field's value.
+func (s *EcsInstanceForGetHostBasicInfoOutput) SetSecurityEnhancementStrategy(v string) *EcsInstanceForGetHostBasicInfoOutput {
+	s.SecurityEnhancementStrategy = &v
 	return s
 }
 
@@ -458,7 +474,7 @@ type GetHostBasicInfoOutput struct {
 
 	EcsInstance *EcsInstanceForGetHostBasicInfoOutput `type:"structure"`
 
-	FirstHeartbeatTime *int32 `type:"int32"`
+	FirstHeartbeatTime *int64 `type:"int64"`
 
 	Gateway *string `type:"string"`
 
@@ -468,7 +484,7 @@ type GetHostBasicInfoOutput struct {
 
 	KernelVersion *string `type:"string"`
 
-	LastHeartbeatTime *int32 `type:"int32"`
+	LastHeartbeatTime *int64 `type:"int64"`
 
 	MemUsage *float64 `type:"double"`
 
@@ -484,13 +500,13 @@ type GetHostBasicInfoOutput struct {
 
 	SecurityEnhancement *bool `type:"boolean"`
 
-	StartTime *int32 `type:"int32"`
+	StartTime *int64 `type:"int64"`
 
 	Status *string `type:"string"`
 
 	Tags []*string `type:"list"`
 
-	TotalMem *int32 `type:"int32"`
+	TotalMem *int64 `type:"int64"`
 
 	UserStatus *string `type:"string"`
 
@@ -566,7 +582,7 @@ func (s *GetHostBasicInfoOutput) SetEcsInstance(v *EcsInstanceForGetHostBasicInf
 }
 
 // SetFirstHeartbeatTime sets the FirstHeartbeatTime field's value.
-func (s *GetHostBasicInfoOutput) SetFirstHeartbeatTime(v int32) *GetHostBasicInfoOutput {
+func (s *GetHostBasicInfoOutput) SetFirstHeartbeatTime(v int64) *GetHostBasicInfoOutput {
 	s.FirstHeartbeatTime = &v
 	return s
 }
@@ -596,7 +612,7 @@ func (s *GetHostBasicInfoOutput) SetKernelVersion(v string) *GetHostBasicInfoOut
 }
 
 // SetLastHeartbeatTime sets the LastHeartbeatTime field's value.
-func (s *GetHostBasicInfoOutput) SetLastHeartbeatTime(v int32) *GetHostBasicInfoOutput {
+func (s *GetHostBasicInfoOutput) SetLastHeartbeatTime(v int64) *GetHostBasicInfoOutput {
 	s.LastHeartbeatTime = &v
 	return s
 }
@@ -644,7 +660,7 @@ func (s *GetHostBasicInfoOutput) SetSecurityEnhancement(v bool) *GetHostBasicInf
 }
 
 // SetStartTime sets the StartTime field's value.
-func (s *GetHostBasicInfoOutput) SetStartTime(v int32) *GetHostBasicInfoOutput {
+func (s *GetHostBasicInfoOutput) SetStartTime(v int64) *GetHostBasicInfoOutput {
 	s.StartTime = &v
 	return s
 }
@@ -662,7 +678,7 @@ func (s *GetHostBasicInfoOutput) SetTags(v []*string) *GetHostBasicInfoOutput {
 }
 
 // SetTotalMem sets the TotalMem field's value.
-func (s *GetHostBasicInfoOutput) SetTotalMem(v int32) *GetHostBasicInfoOutput {
+func (s *GetHostBasicInfoOutput) SetTotalMem(v int64) *GetHostBasicInfoOutput {
 	s.TotalMem = &v
 	return s
 }
@@ -694,13 +710,13 @@ func (s *GetHostBasicInfoOutput) SetVuln(v *VulnForGetHostBasicInfoOutput) *GetH
 type VirusForGetHostBasicInfoOutput struct {
 	_ struct{} `type:"structure"`
 
-	Critical *int32 `type:"int32"`
+	Critical *int64 `type:"int64"`
 
-	High *int32 `type:"int32"`
+	High *int64 `type:"int64"`
 
-	Low *int32 `type:"int32"`
+	Low *int64 `type:"int64"`
 
-	Medium *int32 `type:"int32"`
+	Medium *int64 `type:"int64"`
 }
 
 // String returns the string representation
@@ -714,25 +730,25 @@ func (s VirusForGetHostBasicInfoOutput) GoString() string {
 }
 
 // SetCritical sets the Critical field's value.
-func (s *VirusForGetHostBasicInfoOutput) SetCritical(v int32) *VirusForGetHostBasicInfoOutput {
+func (s *VirusForGetHostBasicInfoOutput) SetCritical(v int64) *VirusForGetHostBasicInfoOutput {
 	s.Critical = &v
 	return s
 }
 
 // SetHigh sets the High field's value.
-func (s *VirusForGetHostBasicInfoOutput) SetHigh(v int32) *VirusForGetHostBasicInfoOutput {
+func (s *VirusForGetHostBasicInfoOutput) SetHigh(v int64) *VirusForGetHostBasicInfoOutput {
 	s.High = &v
 	return s
 }
 
 // SetLow sets the Low field's value.
-func (s *VirusForGetHostBasicInfoOutput) SetLow(v int32) *VirusForGetHostBasicInfoOutput {
+func (s *VirusForGetHostBasicInfoOutput) SetLow(v int64) *VirusForGetHostBasicInfoOutput {
 	s.Low = &v
 	return s
 }
 
 // SetMedium sets the Medium field's value.
-func (s *VirusForGetHostBasicInfoOutput) SetMedium(v int32) *VirusForGetHostBasicInfoOutput {
+func (s *VirusForGetHostBasicInfoOutput) SetMedium(v int64) *VirusForGetHostBasicInfoOutput {
 	s.Medium = &v
 	return s
 }
@@ -740,15 +756,15 @@ func (s *VirusForGetHostBasicInfoOutput) SetMedium(v int32) *VirusForGetHostBasi
 type VulnForGetHostBasicInfoOutput struct {
 	_ struct{} `type:"structure"`
 
-	Critical *int32 `type:"int32"`
+	Critical *int64 `type:"int64"`
 
-	High *int32 `type:"int32"`
+	High *int64 `type:"int64"`
 
-	Low *int32 `type:"int32"`
+	Low *int64 `type:"int64"`
 
-	Medium *int32 `type:"int32"`
+	Medium *int64 `type:"int64"`
 
-	Unknown *int32 `type:"int32"`
+	Unknown *int64 `type:"int64"`
 }
 
 // String returns the string representation
@@ -762,31 +778,31 @@ func (s VulnForGetHostBasicInfoOutput) GoString() string {
 }
 
 // SetCritical sets the Critical field's value.
-func (s *VulnForGetHostBasicInfoOutput) SetCritical(v int32) *VulnForGetHostBasicInfoOutput {
+func (s *VulnForGetHostBasicInfoOutput) SetCritical(v int64) *VulnForGetHostBasicInfoOutput {
 	s.Critical = &v
 	return s
 }
 
 // SetHigh sets the High field's value.
-func (s *VulnForGetHostBasicInfoOutput) SetHigh(v int32) *VulnForGetHostBasicInfoOutput {
+func (s *VulnForGetHostBasicInfoOutput) SetHigh(v int64) *VulnForGetHostBasicInfoOutput {
 	s.High = &v
 	return s
 }
 
 // SetLow sets the Low field's value.
-func (s *VulnForGetHostBasicInfoOutput) SetLow(v int32) *VulnForGetHostBasicInfoOutput {
+func (s *VulnForGetHostBasicInfoOutput) SetLow(v int64) *VulnForGetHostBasicInfoOutput {
 	s.Low = &v
 	return s
 }
 
 // SetMedium sets the Medium field's value.
-func (s *VulnForGetHostBasicInfoOutput) SetMedium(v int32) *VulnForGetHostBasicInfoOutput {
+func (s *VulnForGetHostBasicInfoOutput) SetMedium(v int64) *VulnForGetHostBasicInfoOutput {
 	s.Medium = &v
 	return s
 }
 
 // SetUnknown sets the Unknown field's value.
-func (s *VulnForGetHostBasicInfoOutput) SetUnknown(v int32) *VulnForGetHostBasicInfoOutput {
+func (s *VulnForGetHostBasicInfoOutput) SetUnknown(v int64) *VulnForGetHostBasicInfoOutput {
 	s.Unknown = &v
 	return s
 }

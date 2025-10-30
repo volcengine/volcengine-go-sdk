@@ -146,7 +146,7 @@ func (c *SECCENTER20240508) ListCleanHistoryWithContext(ctx volcengine.Context, 
 type DataForListCleanHistoryOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	CleanTime *int32 `type:"int32" json:",omitempty"`
+	CleanTime *int64 `type:"int64" json:",omitempty"`
 
 	CloudProvider *string `type:"string" json:",omitempty"`
 
@@ -156,7 +156,7 @@ type DataForListCleanHistoryOutput struct {
 
 	HostName *string `type:"string" json:",omitempty"`
 
-	OfflineTime *int32 `type:"int32" json:",omitempty"`
+	OfflineTime *int64 `type:"int64" json:",omitempty"`
 
 	Platform *string `type:"string" json:",omitempty"`
 
@@ -182,7 +182,7 @@ func (s DataForListCleanHistoryOutput) GoString() string {
 }
 
 // SetCleanTime sets the CleanTime field's value.
-func (s *DataForListCleanHistoryOutput) SetCleanTime(v int32) *DataForListCleanHistoryOutput {
+func (s *DataForListCleanHistoryOutput) SetCleanTime(v int64) *DataForListCleanHistoryOutput {
 	s.CleanTime = &v
 	return s
 }
@@ -212,7 +212,7 @@ func (s *DataForListCleanHistoryOutput) SetHostName(v string) *DataForListCleanH
 }
 
 // SetOfflineTime sets the OfflineTime field's value.
-func (s *DataForListCleanHistoryOutput) SetOfflineTime(v int32) *DataForListCleanHistoryOutput {
+func (s *DataForListCleanHistoryOutput) SetOfflineTime(v int64) *DataForListCleanHistoryOutput {
 	s.OfflineTime = &v
 	return s
 }
@@ -267,10 +267,10 @@ type ListCleanHistoryInput struct {
 	LeafGroupIDs []*string `type:"list" json:",omitempty"`
 
 	// PageNumber is a required field
-	PageNumber *int32 `type:"int32" json:",omitempty" required:"true"`
+	PageNumber *int64 `type:"int64" json:",omitempty" required:"true"`
 
 	// PageSize is a required field
-	PageSize *int32 `type:"int32" json:",omitempty" required:"true"`
+	PageSize *int64 `type:"int64" json:",omitempty" required:"true"`
 
 	Platforms []*string `type:"list" json:",omitempty"`
 
@@ -340,13 +340,13 @@ func (s *ListCleanHistoryInput) SetLeafGroupIDs(v []*string) *ListCleanHistoryIn
 }
 
 // SetPageNumber sets the PageNumber field's value.
-func (s *ListCleanHistoryInput) SetPageNumber(v int32) *ListCleanHistoryInput {
+func (s *ListCleanHistoryInput) SetPageNumber(v int64) *ListCleanHistoryInput {
 	s.PageNumber = &v
 	return s
 }
 
 // SetPageSize sets the PageSize field's value.
-func (s *ListCleanHistoryInput) SetPageSize(v int32) *ListCleanHistoryInput {
+func (s *ListCleanHistoryInput) SetPageSize(v int64) *ListCleanHistoryInput {
 	s.PageSize = &v
 	return s
 }
@@ -388,11 +388,11 @@ type ListCleanHistoryOutput struct {
 
 	Data []*DataForListCleanHistoryOutput `type:"list" json:",omitempty"`
 
-	PageNumber *int32 `type:"int32" json:",omitempty"`
+	PageNumber *int64 `type:"int64" json:",omitempty"`
 
-	PageSize *int32 `type:"int32" json:",omitempty"`
+	PageSize *int64 `type:"int64" json:",omitempty"`
 
-	TotalCount *int32 `type:"int32" json:",omitempty"`
+	TotalCount *int64 `type:"int64" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -412,19 +412,19 @@ func (s *ListCleanHistoryOutput) SetData(v []*DataForListCleanHistoryOutput) *Li
 }
 
 // SetPageNumber sets the PageNumber field's value.
-func (s *ListCleanHistoryOutput) SetPageNumber(v int32) *ListCleanHistoryOutput {
+func (s *ListCleanHistoryOutput) SetPageNumber(v int64) *ListCleanHistoryOutput {
 	s.PageNumber = &v
 	return s
 }
 
 // SetPageSize sets the PageSize field's value.
-func (s *ListCleanHistoryOutput) SetPageSize(v int32) *ListCleanHistoryOutput {
+func (s *ListCleanHistoryOutput) SetPageSize(v int64) *ListCleanHistoryOutput {
 	s.PageSize = &v
 	return s
 }
 
 // SetTotalCount sets the TotalCount field's value.
-func (s *ListCleanHistoryOutput) SetTotalCount(v int32) *ListCleanHistoryOutput {
+func (s *ListCleanHistoryOutput) SetTotalCount(v int64) *ListCleanHistoryOutput {
 	s.TotalCount = &v
 	return s
 }

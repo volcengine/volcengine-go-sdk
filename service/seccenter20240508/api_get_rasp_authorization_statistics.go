@@ -162,11 +162,11 @@ type GetRaspAuthorizationStatisticsOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	AuthorizationCount *int32 `type:"int32" json:",omitempty"`
+	AuthorizationCount *int64 `type:"int64" json:",omitempty"`
 
-	ExpireTime *int32 `type:"int32" json:",omitempty"`
+	ExpireTime *int64 `type:"int64" json:",omitempty"`
 
-	LeftAuthorizationCount *int32 `type:"int32" json:",omitempty"`
+	LeftAuthorizationCount *int64 `type:"int64" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -180,19 +180,19 @@ func (s GetRaspAuthorizationStatisticsOutput) GoString() string {
 }
 
 // SetAuthorizationCount sets the AuthorizationCount field's value.
-func (s *GetRaspAuthorizationStatisticsOutput) SetAuthorizationCount(v int32) *GetRaspAuthorizationStatisticsOutput {
+func (s *GetRaspAuthorizationStatisticsOutput) SetAuthorizationCount(v int64) *GetRaspAuthorizationStatisticsOutput {
 	s.AuthorizationCount = &v
 	return s
 }
 
 // SetExpireTime sets the ExpireTime field's value.
-func (s *GetRaspAuthorizationStatisticsOutput) SetExpireTime(v int32) *GetRaspAuthorizationStatisticsOutput {
+func (s *GetRaspAuthorizationStatisticsOutput) SetExpireTime(v int64) *GetRaspAuthorizationStatisticsOutput {
 	s.ExpireTime = &v
 	return s
 }
 
 // SetLeftAuthorizationCount sets the LeftAuthorizationCount field's value.
-func (s *GetRaspAuthorizationStatisticsOutput) SetLeftAuthorizationCount(v int32) *GetRaspAuthorizationStatisticsOutput {
+func (s *GetRaspAuthorizationStatisticsOutput) SetLeftAuthorizationCount(v int64) *GetRaspAuthorizationStatisticsOutput {
 	s.LeftAuthorizationCount = &v
 	return s
 }

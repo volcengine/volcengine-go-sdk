@@ -143,12 +143,82 @@ func (c *SECCENTER20240508) ModifyTLSConfigWithContext(ctx volcengine.Context, i
 	return out, req.Send()
 }
 
+type AlarmTopicConfigForModifyTLSConfigInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	StorageDays *int64 `type:"int64" json:",omitempty"`
+
+	Switch *bool `type:"boolean" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s AlarmTopicConfigForModifyTLSConfigInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s AlarmTopicConfigForModifyTLSConfigInput) GoString() string {
+	return s.String()
+}
+
+// SetStorageDays sets the StorageDays field's value.
+func (s *AlarmTopicConfigForModifyTLSConfigInput) SetStorageDays(v int64) *AlarmTopicConfigForModifyTLSConfigInput {
+	s.StorageDays = &v
+	return s
+}
+
+// SetSwitch sets the Switch field's value.
+func (s *AlarmTopicConfigForModifyTLSConfigInput) SetSwitch(v bool) *AlarmTopicConfigForModifyTLSConfigInput {
+	s.Switch = &v
+	return s
+}
+
+type LoginTopicConfigForModifyTLSConfigInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	StorageDays *int64 `type:"int64" json:",omitempty"`
+
+	Switch *bool `type:"boolean" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s LoginTopicConfigForModifyTLSConfigInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s LoginTopicConfigForModifyTLSConfigInput) GoString() string {
+	return s.String()
+}
+
+// SetStorageDays sets the StorageDays field's value.
+func (s *LoginTopicConfigForModifyTLSConfigInput) SetStorageDays(v int64) *LoginTopicConfigForModifyTLSConfigInput {
+	s.StorageDays = &v
+	return s
+}
+
+// SetSwitch sets the Switch field's value.
+func (s *LoginTopicConfigForModifyTLSConfigInput) SetSwitch(v bool) *LoginTopicConfigForModifyTLSConfigInput {
+	s.Switch = &v
+	return s
+}
+
 type ModifyTLSConfigInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	StorageDays *int32 `type:"int32" json:",omitempty"`
+	AlarmTopicConfig *AlarmTopicConfigForModifyTLSConfigInput `type:"structure" json:",omitempty"`
 
-	Threshold *int32 `type:"int32" json:",omitempty"`
+	LoginTopicConfig *LoginTopicConfigForModifyTLSConfigInput `type:"structure" json:",omitempty"`
+
+	PortChangeTopicConfig *PortChangeTopicConfigForModifyTLSConfigInput `type:"structure" json:",omitempty"`
+
+	ProcessStartTopicConfig *ProcessStartTopicConfigForModifyTLSConfigInput `type:"structure" json:",omitempty"`
+
+	StorageDays *int64 `type:"int64" json:",omitempty"`
+
+	Threshold *int64 `type:"int64" json:",omitempty"`
+
+	VulnTopicConfig *VulnTopicConfigForModifyTLSConfigInput `type:"structure" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -161,15 +231,45 @@ func (s ModifyTLSConfigInput) GoString() string {
 	return s.String()
 }
 
+// SetAlarmTopicConfig sets the AlarmTopicConfig field's value.
+func (s *ModifyTLSConfigInput) SetAlarmTopicConfig(v *AlarmTopicConfigForModifyTLSConfigInput) *ModifyTLSConfigInput {
+	s.AlarmTopicConfig = v
+	return s
+}
+
+// SetLoginTopicConfig sets the LoginTopicConfig field's value.
+func (s *ModifyTLSConfigInput) SetLoginTopicConfig(v *LoginTopicConfigForModifyTLSConfigInput) *ModifyTLSConfigInput {
+	s.LoginTopicConfig = v
+	return s
+}
+
+// SetPortChangeTopicConfig sets the PortChangeTopicConfig field's value.
+func (s *ModifyTLSConfigInput) SetPortChangeTopicConfig(v *PortChangeTopicConfigForModifyTLSConfigInput) *ModifyTLSConfigInput {
+	s.PortChangeTopicConfig = v
+	return s
+}
+
+// SetProcessStartTopicConfig sets the ProcessStartTopicConfig field's value.
+func (s *ModifyTLSConfigInput) SetProcessStartTopicConfig(v *ProcessStartTopicConfigForModifyTLSConfigInput) *ModifyTLSConfigInput {
+	s.ProcessStartTopicConfig = v
+	return s
+}
+
 // SetStorageDays sets the StorageDays field's value.
-func (s *ModifyTLSConfigInput) SetStorageDays(v int32) *ModifyTLSConfigInput {
+func (s *ModifyTLSConfigInput) SetStorageDays(v int64) *ModifyTLSConfigInput {
 	s.StorageDays = &v
 	return s
 }
 
 // SetThreshold sets the Threshold field's value.
-func (s *ModifyTLSConfigInput) SetThreshold(v int32) *ModifyTLSConfigInput {
+func (s *ModifyTLSConfigInput) SetThreshold(v int64) *ModifyTLSConfigInput {
 	s.Threshold = &v
+	return s
+}
+
+// SetVulnTopicConfig sets the VulnTopicConfig field's value.
+func (s *ModifyTLSConfigInput) SetVulnTopicConfig(v *VulnTopicConfigForModifyTLSConfigInput) *ModifyTLSConfigInput {
+	s.VulnTopicConfig = v
 	return s
 }
 
@@ -194,5 +294,95 @@ func (s ModifyTLSConfigOutput) GoString() string {
 // SetData sets the Data field's value.
 func (s *ModifyTLSConfigOutput) SetData(v string) *ModifyTLSConfigOutput {
 	s.Data = &v
+	return s
+}
+
+type PortChangeTopicConfigForModifyTLSConfigInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	StorageDays *int64 `type:"int64" json:",omitempty"`
+
+	Switch *bool `type:"boolean" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s PortChangeTopicConfigForModifyTLSConfigInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s PortChangeTopicConfigForModifyTLSConfigInput) GoString() string {
+	return s.String()
+}
+
+// SetStorageDays sets the StorageDays field's value.
+func (s *PortChangeTopicConfigForModifyTLSConfigInput) SetStorageDays(v int64) *PortChangeTopicConfigForModifyTLSConfigInput {
+	s.StorageDays = &v
+	return s
+}
+
+// SetSwitch sets the Switch field's value.
+func (s *PortChangeTopicConfigForModifyTLSConfigInput) SetSwitch(v bool) *PortChangeTopicConfigForModifyTLSConfigInput {
+	s.Switch = &v
+	return s
+}
+
+type ProcessStartTopicConfigForModifyTLSConfigInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	StorageDays *int64 `type:"int64" json:",omitempty"`
+
+	Switch *bool `type:"boolean" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s ProcessStartTopicConfigForModifyTLSConfigInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ProcessStartTopicConfigForModifyTLSConfigInput) GoString() string {
+	return s.String()
+}
+
+// SetStorageDays sets the StorageDays field's value.
+func (s *ProcessStartTopicConfigForModifyTLSConfigInput) SetStorageDays(v int64) *ProcessStartTopicConfigForModifyTLSConfigInput {
+	s.StorageDays = &v
+	return s
+}
+
+// SetSwitch sets the Switch field's value.
+func (s *ProcessStartTopicConfigForModifyTLSConfigInput) SetSwitch(v bool) *ProcessStartTopicConfigForModifyTLSConfigInput {
+	s.Switch = &v
+	return s
+}
+
+type VulnTopicConfigForModifyTLSConfigInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	StorageDays *int64 `type:"int64" json:",omitempty"`
+
+	Switch *bool `type:"boolean" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s VulnTopicConfigForModifyTLSConfigInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s VulnTopicConfigForModifyTLSConfigInput) GoString() string {
+	return s.String()
+}
+
+// SetStorageDays sets the StorageDays field's value.
+func (s *VulnTopicConfigForModifyTLSConfigInput) SetStorageDays(v int64) *VulnTopicConfigForModifyTLSConfigInput {
+	s.StorageDays = &v
+	return s
+}
+
+// SetSwitch sets the Switch field's value.
+func (s *VulnTopicConfigForModifyTLSConfigInput) SetSwitch(v bool) *VulnTopicConfigForModifyTLSConfigInput {
+	s.Switch = &v
 	return s
 }

@@ -189,10 +189,10 @@ type GetAlarmTraceRawDataInput struct {
 	OriginDataID []*string `type:"list" json:",omitempty"`
 
 	// PageNumber is a required field
-	PageNumber *int32 `type:"int32" json:",omitempty" required:"true"`
+	PageNumber *int64 `type:"int64" json:",omitempty" required:"true"`
 
 	// PageSize is a required field
-	PageSize *int32 `type:"int32" json:",omitempty" required:"true"`
+	PageSize *int64 `type:"int64" json:",omitempty" required:"true"`
 
 	RaspDataType []*string `type:"list" json:",omitempty"`
 
@@ -250,13 +250,13 @@ func (s *GetAlarmTraceRawDataInput) SetOriginDataID(v []*string) *GetAlarmTraceR
 }
 
 // SetPageNumber sets the PageNumber field's value.
-func (s *GetAlarmTraceRawDataInput) SetPageNumber(v int32) *GetAlarmTraceRawDataInput {
+func (s *GetAlarmTraceRawDataInput) SetPageNumber(v int64) *GetAlarmTraceRawDataInput {
 	s.PageNumber = &v
 	return s
 }
 
 // SetPageSize sets the PageSize field's value.
-func (s *GetAlarmTraceRawDataInput) SetPageSize(v int32) *GetAlarmTraceRawDataInput {
+func (s *GetAlarmTraceRawDataInput) SetPageSize(v int64) *GetAlarmTraceRawDataInput {
 	s.PageSize = &v
 	return s
 }
@@ -298,11 +298,11 @@ type GetAlarmTraceRawDataOutput struct {
 
 	Data []*ConvertDataForGetAlarmTraceRawDataOutput `type:"list" json:",omitempty"`
 
-	PageNumber *int32 `type:"int32" json:",omitempty"`
+	PageNumber *int64 `type:"int64" json:",omitempty"`
 
-	PageSize *int32 `type:"int32" json:",omitempty"`
+	PageSize *int64 `type:"int64" json:",omitempty"`
 
-	TotalCount *int32 `type:"int32" json:",omitempty"`
+	TotalCount *int64 `type:"int64" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -322,19 +322,19 @@ func (s *GetAlarmTraceRawDataOutput) SetData(v []*ConvertDataForGetAlarmTraceRaw
 }
 
 // SetPageNumber sets the PageNumber field's value.
-func (s *GetAlarmTraceRawDataOutput) SetPageNumber(v int32) *GetAlarmTraceRawDataOutput {
+func (s *GetAlarmTraceRawDataOutput) SetPageNumber(v int64) *GetAlarmTraceRawDataOutput {
 	s.PageNumber = &v
 	return s
 }
 
 // SetPageSize sets the PageSize field's value.
-func (s *GetAlarmTraceRawDataOutput) SetPageSize(v int32) *GetAlarmTraceRawDataOutput {
+func (s *GetAlarmTraceRawDataOutput) SetPageSize(v int64) *GetAlarmTraceRawDataOutput {
 	s.PageSize = &v
 	return s
 }
 
 // SetTotalCount sets the TotalCount field's value.
-func (s *GetAlarmTraceRawDataOutput) SetTotalCount(v int32) *GetAlarmTraceRawDataOutput {
+func (s *GetAlarmTraceRawDataOutput) SetTotalCount(v int64) *GetAlarmTraceRawDataOutput {
 	s.TotalCount = &v
 	return s
 }

@@ -219,10 +219,10 @@ type ListDevBasicInfosInput struct {
 	IsAll *bool `type:"boolean" json:",omitempty"`
 
 	// PageNumber is a required field
-	PageNumber *int32 `type:"int32" json:",omitempty" required:"true"`
+	PageNumber *int64 `type:"int64" json:",omitempty" required:"true"`
 
 	// PageSize is a required field
-	PageSize *int32 `type:"int32" json:",omitempty" required:"true"`
+	PageSize *int64 `type:"int64" json:",omitempty" required:"true"`
 
 	Platforms []*string `type:"list" json:",omitempty"`
 
@@ -294,13 +294,13 @@ func (s *ListDevBasicInfosInput) SetIsAll(v bool) *ListDevBasicInfosInput {
 }
 
 // SetPageNumber sets the PageNumber field's value.
-func (s *ListDevBasicInfosInput) SetPageNumber(v int32) *ListDevBasicInfosInput {
+func (s *ListDevBasicInfosInput) SetPageNumber(v int64) *ListDevBasicInfosInput {
 	s.PageNumber = &v
 	return s
 }
 
 // SetPageSize sets the PageSize field's value.
-func (s *ListDevBasicInfosInput) SetPageSize(v int32) *ListDevBasicInfosInput {
+func (s *ListDevBasicInfosInput) SetPageSize(v int64) *ListDevBasicInfosInput {
 	s.PageSize = &v
 	return s
 }
@@ -348,11 +348,11 @@ type ListDevBasicInfosOutput struct {
 
 	Data []*DataForListDevBasicInfosOutput `type:"list" json:",omitempty"`
 
-	PageNumber *int32 `type:"int32" json:",omitempty"`
+	PageNumber *int64 `type:"int64" json:",omitempty"`
 
-	PageSize *int32 `type:"int32" json:",omitempty"`
+	PageSize *int64 `type:"int64" json:",omitempty"`
 
-	TotalCount *int32 `type:"int32" json:",omitempty"`
+	TotalCount *int64 `type:"int64" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -372,19 +372,19 @@ func (s *ListDevBasicInfosOutput) SetData(v []*DataForListDevBasicInfosOutput) *
 }
 
 // SetPageNumber sets the PageNumber field's value.
-func (s *ListDevBasicInfosOutput) SetPageNumber(v int32) *ListDevBasicInfosOutput {
+func (s *ListDevBasicInfosOutput) SetPageNumber(v int64) *ListDevBasicInfosOutput {
 	s.PageNumber = &v
 	return s
 }
 
 // SetPageSize sets the PageSize field's value.
-func (s *ListDevBasicInfosOutput) SetPageSize(v int32) *ListDevBasicInfosOutput {
+func (s *ListDevBasicInfosOutput) SetPageSize(v int64) *ListDevBasicInfosOutput {
 	s.PageSize = &v
 	return s
 }
 
 // SetTotalCount sets the TotalCount field's value.
-func (s *ListDevBasicInfosOutput) SetTotalCount(v int32) *ListDevBasicInfosOutput {
+func (s *ListDevBasicInfosOutput) SetTotalCount(v int64) *ListDevBasicInfosOutput {
 	s.TotalCount = &v
 	return s
 }

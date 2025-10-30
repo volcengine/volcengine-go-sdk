@@ -160,11 +160,11 @@ type DataForGetFingerprintSoftwareOutput struct {
 
 	PrimaryIpAddress *string `type:"string" json:",omitempty"`
 
-	StartTime *int32 `type:"int32" json:",omitempty"`
+	StartTime *int64 `type:"int64" json:",omitempty"`
 
 	Type *string `type:"string" json:",omitempty"`
 
-	UpdateTime *int32 `type:"int32" json:",omitempty"`
+	UpdateTime *int64 `type:"int64" json:",omitempty"`
 
 	Version *string `type:"string" json:",omitempty"`
 }
@@ -222,7 +222,7 @@ func (s *DataForGetFingerprintSoftwareOutput) SetPrimaryIpAddress(v string) *Dat
 }
 
 // SetStartTime sets the StartTime field's value.
-func (s *DataForGetFingerprintSoftwareOutput) SetStartTime(v int32) *DataForGetFingerprintSoftwareOutput {
+func (s *DataForGetFingerprintSoftwareOutput) SetStartTime(v int64) *DataForGetFingerprintSoftwareOutput {
 	s.StartTime = &v
 	return s
 }
@@ -234,7 +234,7 @@ func (s *DataForGetFingerprintSoftwareOutput) SetType(v string) *DataForGetFinge
 }
 
 // SetUpdateTime sets the UpdateTime field's value.
-func (s *DataForGetFingerprintSoftwareOutput) SetUpdateTime(v int32) *DataForGetFingerprintSoftwareOutput {
+func (s *DataForGetFingerprintSoftwareOutput) SetUpdateTime(v int64) *DataForGetFingerprintSoftwareOutput {
 	s.UpdateTime = &v
 	return s
 }
@@ -261,10 +261,10 @@ type GetFingerprintSoftwareInput struct {
 	Name *string `type:"string" json:",omitempty"`
 
 	// PageNumber is a required field
-	PageNumber *int32 `type:"int32" json:",omitempty" required:"true"`
+	PageNumber *int64 `type:"int64" json:",omitempty" required:"true"`
 
 	// PageSize is a required field
-	PageSize *int32 `type:"int32" json:",omitempty" required:"true"`
+	PageSize *int64 `type:"int64" json:",omitempty" required:"true"`
 
 	SortBy *string `type:"string" json:",omitempty"`
 
@@ -342,13 +342,13 @@ func (s *GetFingerprintSoftwareInput) SetName(v string) *GetFingerprintSoftwareI
 }
 
 // SetPageNumber sets the PageNumber field's value.
-func (s *GetFingerprintSoftwareInput) SetPageNumber(v int32) *GetFingerprintSoftwareInput {
+func (s *GetFingerprintSoftwareInput) SetPageNumber(v int64) *GetFingerprintSoftwareInput {
 	s.PageNumber = &v
 	return s
 }
 
 // SetPageSize sets the PageSize field's value.
-func (s *GetFingerprintSoftwareInput) SetPageSize(v int32) *GetFingerprintSoftwareInput {
+func (s *GetFingerprintSoftwareInput) SetPageSize(v int64) *GetFingerprintSoftwareInput {
 	s.PageSize = &v
 	return s
 }
@@ -396,11 +396,11 @@ type GetFingerprintSoftwareOutput struct {
 
 	Data []*DataForGetFingerprintSoftwareOutput `type:"list" json:",omitempty"`
 
-	PageNumber *int32 `type:"int32" json:",omitempty"`
+	PageNumber *int64 `type:"int64" json:",omitempty"`
 
-	PageSize *int32 `type:"int32" json:",omitempty"`
+	PageSize *int64 `type:"int64" json:",omitempty"`
 
-	TotalCount *int32 `type:"int32" json:",omitempty"`
+	TotalCount *int64 `type:"int64" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -420,19 +420,19 @@ func (s *GetFingerprintSoftwareOutput) SetData(v []*DataForGetFingerprintSoftwar
 }
 
 // SetPageNumber sets the PageNumber field's value.
-func (s *GetFingerprintSoftwareOutput) SetPageNumber(v int32) *GetFingerprintSoftwareOutput {
+func (s *GetFingerprintSoftwareOutput) SetPageNumber(v int64) *GetFingerprintSoftwareOutput {
 	s.PageNumber = &v
 	return s
 }
 
 // SetPageSize sets the PageSize field's value.
-func (s *GetFingerprintSoftwareOutput) SetPageSize(v int32) *GetFingerprintSoftwareOutput {
+func (s *GetFingerprintSoftwareOutput) SetPageSize(v int64) *GetFingerprintSoftwareOutput {
 	s.PageSize = &v
 	return s
 }
 
 // SetTotalCount sets the TotalCount field's value.
-func (s *GetFingerprintSoftwareOutput) SetTotalCount(v int32) *GetFingerprintSoftwareOutput {
+func (s *GetFingerprintSoftwareOutput) SetTotalCount(v int64) *GetFingerprintSoftwareOutput {
 	s.TotalCount = &v
 	return s
 }

@@ -160,7 +160,7 @@ type DataForListRaspProcessesOutput struct {
 
 	InnerIPList []*string `type:"list" json:",omitempty"`
 
-	InspectPort *int32 `type:"int32" json:",omitempty"`
+	InspectPort *int64 `type:"int64" json:",omitempty"`
 
 	OuterIPList []*string `type:"list" json:",omitempty"`
 
@@ -178,7 +178,7 @@ type DataForListRaspProcessesOutput struct {
 
 	Runtime *string `type:"string" json:",omitempty"`
 
-	StartTimeUnix *int32 `type:"int32" json:",omitempty"`
+	StartTimeUnix *int64 `type:"int64" json:",omitempty"`
 
 	Status *string `type:"string" json:",omitempty"`
 }
@@ -236,7 +236,7 @@ func (s *DataForListRaspProcessesOutput) SetInnerIPList(v []*string) *DataForLis
 }
 
 // SetInspectPort sets the InspectPort field's value.
-func (s *DataForListRaspProcessesOutput) SetInspectPort(v int32) *DataForListRaspProcessesOutput {
+func (s *DataForListRaspProcessesOutput) SetInspectPort(v int64) *DataForListRaspProcessesOutput {
 	s.InspectPort = &v
 	return s
 }
@@ -290,7 +290,7 @@ func (s *DataForListRaspProcessesOutput) SetRuntime(v string) *DataForListRaspPr
 }
 
 // SetStartTimeUnix sets the StartTimeUnix field's value.
-func (s *DataForListRaspProcessesOutput) SetStartTimeUnix(v int32) *DataForListRaspProcessesOutput {
+func (s *DataForListRaspProcessesOutput) SetStartTimeUnix(v int64) *DataForListRaspProcessesOutput {
 	s.StartTimeUnix = &v
 	return s
 }
@@ -323,10 +323,10 @@ type ListRaspProcessesInput struct {
 	PID *string `type:"string" json:",omitempty"`
 
 	// PageNumber is a required field
-	PageNumber *int32 `type:"int32" json:",omitempty" required:"true"`
+	PageNumber *int64 `type:"int64" json:",omitempty" required:"true"`
 
 	// PageSize is a required field
-	PageSize *int32 `type:"int32" json:",omitempty" required:"true"`
+	PageSize *int64 `type:"int64" json:",omitempty" required:"true"`
 
 	RaspConfigName *string `type:"string" json:",omitempty"`
 
@@ -424,13 +424,13 @@ func (s *ListRaspProcessesInput) SetPID(v string) *ListRaspProcessesInput {
 }
 
 // SetPageNumber sets the PageNumber field's value.
-func (s *ListRaspProcessesInput) SetPageNumber(v int32) *ListRaspProcessesInput {
+func (s *ListRaspProcessesInput) SetPageNumber(v int64) *ListRaspProcessesInput {
 	s.PageNumber = &v
 	return s
 }
 
 // SetPageSize sets the PageSize field's value.
-func (s *ListRaspProcessesInput) SetPageSize(v int32) *ListRaspProcessesInput {
+func (s *ListRaspProcessesInput) SetPageSize(v int64) *ListRaspProcessesInput {
 	s.PageSize = &v
 	return s
 }
@@ -484,11 +484,11 @@ type ListRaspProcessesOutput struct {
 
 	Data []*DataForListRaspProcessesOutput `type:"list" json:",omitempty"`
 
-	PageNumber *int32 `type:"int32" json:",omitempty"`
+	PageNumber *int64 `type:"int64" json:",omitempty"`
 
-	PageSize *int32 `type:"int32" json:",omitempty"`
+	PageSize *int64 `type:"int64" json:",omitempty"`
 
-	TotalCount *int32 `type:"int32" json:",omitempty"`
+	TotalCount *int64 `type:"int64" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -508,19 +508,19 @@ func (s *ListRaspProcessesOutput) SetData(v []*DataForListRaspProcessesOutput) *
 }
 
 // SetPageNumber sets the PageNumber field's value.
-func (s *ListRaspProcessesOutput) SetPageNumber(v int32) *ListRaspProcessesOutput {
+func (s *ListRaspProcessesOutput) SetPageNumber(v int64) *ListRaspProcessesOutput {
 	s.PageNumber = &v
 	return s
 }
 
 // SetPageSize sets the PageSize field's value.
-func (s *ListRaspProcessesOutput) SetPageSize(v int32) *ListRaspProcessesOutput {
+func (s *ListRaspProcessesOutput) SetPageSize(v int64) *ListRaspProcessesOutput {
 	s.PageSize = &v
 	return s
 }
 
 // SetTotalCount sets the TotalCount field's value.
-func (s *ListRaspProcessesOutput) SetTotalCount(v int32) *ListRaspProcessesOutput {
+func (s *ListRaspProcessesOutput) SetTotalCount(v int64) *ListRaspProcessesOutput {
 	s.TotalCount = &v
 	return s
 }

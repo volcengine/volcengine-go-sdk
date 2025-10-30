@@ -160,19 +160,19 @@ type DataForListRaspConfigAgentInfosOutput struct {
 
 	GroupPath *string `type:"string" json:",omitempty"`
 
-	HitWhiteProcessCount *int32 `type:"int32" json:",omitempty"`
+	HitWhiteProcessCount *int64 `type:"int64" json:",omitempty"`
 
-	InsertTime *int32 `type:"int32" json:",omitempty"`
+	InsertTime *int64 `type:"int64" json:",omitempty"`
 
 	ManualClose *bool `type:"boolean" json:",omitempty"`
 
 	Platform *string `type:"string" json:",omitempty"`
 
-	ProcessCount *int32 `type:"int32" json:",omitempty"`
+	ProcessCount *int64 `type:"int64" json:",omitempty"`
 
-	ProtectAbnormalProcessCount *int32 `type:"int32" json:",omitempty"`
+	ProtectAbnormalProcessCount *int64 `type:"int64" json:",omitempty"`
 
-	ProtectedProcessCount *int32 `type:"int32" json:",omitempty"`
+	ProtectedProcessCount *int64 `type:"int64" json:",omitempty"`
 
 	RaspConfigs []*string `type:"list" json:",omitempty"`
 
@@ -182,11 +182,11 @@ type DataForListRaspConfigAgentInfosOutput struct {
 
 	Tags []*string `type:"list" json:",omitempty"`
 
-	ToBeProtectedProcessCount *int32 `type:"int32" json:",omitempty"`
+	ToBeProtectedProcessCount *int64 `type:"int64" json:",omitempty"`
 
 	TopGroupID *string `type:"string" json:",omitempty"`
 
-	UpdateTime *int32 `type:"int32" json:",omitempty"`
+	UpdateTime *int64 `type:"int64" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -242,13 +242,13 @@ func (s *DataForListRaspConfigAgentInfosOutput) SetGroupPath(v string) *DataForL
 }
 
 // SetHitWhiteProcessCount sets the HitWhiteProcessCount field's value.
-func (s *DataForListRaspConfigAgentInfosOutput) SetHitWhiteProcessCount(v int32) *DataForListRaspConfigAgentInfosOutput {
+func (s *DataForListRaspConfigAgentInfosOutput) SetHitWhiteProcessCount(v int64) *DataForListRaspConfigAgentInfosOutput {
 	s.HitWhiteProcessCount = &v
 	return s
 }
 
 // SetInsertTime sets the InsertTime field's value.
-func (s *DataForListRaspConfigAgentInfosOutput) SetInsertTime(v int32) *DataForListRaspConfigAgentInfosOutput {
+func (s *DataForListRaspConfigAgentInfosOutput) SetInsertTime(v int64) *DataForListRaspConfigAgentInfosOutput {
 	s.InsertTime = &v
 	return s
 }
@@ -266,19 +266,19 @@ func (s *DataForListRaspConfigAgentInfosOutput) SetPlatform(v string) *DataForLi
 }
 
 // SetProcessCount sets the ProcessCount field's value.
-func (s *DataForListRaspConfigAgentInfosOutput) SetProcessCount(v int32) *DataForListRaspConfigAgentInfosOutput {
+func (s *DataForListRaspConfigAgentInfosOutput) SetProcessCount(v int64) *DataForListRaspConfigAgentInfosOutput {
 	s.ProcessCount = &v
 	return s
 }
 
 // SetProtectAbnormalProcessCount sets the ProtectAbnormalProcessCount field's value.
-func (s *DataForListRaspConfigAgentInfosOutput) SetProtectAbnormalProcessCount(v int32) *DataForListRaspConfigAgentInfosOutput {
+func (s *DataForListRaspConfigAgentInfosOutput) SetProtectAbnormalProcessCount(v int64) *DataForListRaspConfigAgentInfosOutput {
 	s.ProtectAbnormalProcessCount = &v
 	return s
 }
 
 // SetProtectedProcessCount sets the ProtectedProcessCount field's value.
-func (s *DataForListRaspConfigAgentInfosOutput) SetProtectedProcessCount(v int32) *DataForListRaspConfigAgentInfosOutput {
+func (s *DataForListRaspConfigAgentInfosOutput) SetProtectedProcessCount(v int64) *DataForListRaspConfigAgentInfosOutput {
 	s.ProtectedProcessCount = &v
 	return s
 }
@@ -308,7 +308,7 @@ func (s *DataForListRaspConfigAgentInfosOutput) SetTags(v []*string) *DataForLis
 }
 
 // SetToBeProtectedProcessCount sets the ToBeProtectedProcessCount field's value.
-func (s *DataForListRaspConfigAgentInfosOutput) SetToBeProtectedProcessCount(v int32) *DataForListRaspConfigAgentInfosOutput {
+func (s *DataForListRaspConfigAgentInfosOutput) SetToBeProtectedProcessCount(v int64) *DataForListRaspConfigAgentInfosOutput {
 	s.ToBeProtectedProcessCount = &v
 	return s
 }
@@ -320,7 +320,7 @@ func (s *DataForListRaspConfigAgentInfosOutput) SetTopGroupID(v string) *DataFor
 }
 
 // SetUpdateTime sets the UpdateTime field's value.
-func (s *DataForListRaspConfigAgentInfosOutput) SetUpdateTime(v int32) *DataForListRaspConfigAgentInfosOutput {
+func (s *DataForListRaspConfigAgentInfosOutput) SetUpdateTime(v int64) *DataForListRaspConfigAgentInfosOutput {
 	s.UpdateTime = &v
 	return s
 }
@@ -332,7 +332,9 @@ type EcsInstanceForListRaspConfigAgentInfosOutput struct {
 
 	AccountID *string `type:"string" json:",omitempty"`
 
-	Cpu *int32 `type:"int32" json:",omitempty"`
+	Cpu *int64 `type:"int64" json:",omitempty"`
+
+	CreatedAt *string `type:"string" json:",omitempty"`
 
 	ECSUpdateAt *string `type:"string" json:",omitempty"`
 
@@ -344,7 +346,7 @@ type EcsInstanceForListRaspConfigAgentInfosOutput struct {
 
 	InstanceName *string `type:"string" json:",omitempty"`
 
-	Mem *int32 `type:"int32" json:",omitempty"`
+	Mem *int64 `type:"int64" json:",omitempty"`
 
 	OsName *string `type:"string" json:",omitempty"`
 
@@ -357,6 +359,8 @@ type EcsInstanceForListRaspConfigAgentInfosOutput struct {
 	PrimaryIpAddress *string `type:"string" json:",omitempty"`
 
 	Region *string `type:"string" json:",omitempty"`
+
+	SecurityEnhancementStrategy *string `type:"string" json:",omitempty"`
 
 	Status *string `type:"string" json:",omitempty"`
 
@@ -392,8 +396,14 @@ func (s *EcsInstanceForListRaspConfigAgentInfosOutput) SetAccountID(v string) *E
 }
 
 // SetCpu sets the Cpu field's value.
-func (s *EcsInstanceForListRaspConfigAgentInfosOutput) SetCpu(v int32) *EcsInstanceForListRaspConfigAgentInfosOutput {
+func (s *EcsInstanceForListRaspConfigAgentInfosOutput) SetCpu(v int64) *EcsInstanceForListRaspConfigAgentInfosOutput {
 	s.Cpu = &v
+	return s
+}
+
+// SetCreatedAt sets the CreatedAt field's value.
+func (s *EcsInstanceForListRaspConfigAgentInfosOutput) SetCreatedAt(v string) *EcsInstanceForListRaspConfigAgentInfosOutput {
+	s.CreatedAt = &v
 	return s
 }
 
@@ -428,7 +438,7 @@ func (s *EcsInstanceForListRaspConfigAgentInfosOutput) SetInstanceName(v string)
 }
 
 // SetMem sets the Mem field's value.
-func (s *EcsInstanceForListRaspConfigAgentInfosOutput) SetMem(v int32) *EcsInstanceForListRaspConfigAgentInfosOutput {
+func (s *EcsInstanceForListRaspConfigAgentInfosOutput) SetMem(v int64) *EcsInstanceForListRaspConfigAgentInfosOutput {
 	s.Mem = &v
 	return s
 }
@@ -466,6 +476,12 @@ func (s *EcsInstanceForListRaspConfigAgentInfosOutput) SetPrimaryIpAddress(v str
 // SetRegion sets the Region field's value.
 func (s *EcsInstanceForListRaspConfigAgentInfosOutput) SetRegion(v string) *EcsInstanceForListRaspConfigAgentInfosOutput {
 	s.Region = &v
+	return s
+}
+
+// SetSecurityEnhancementStrategy sets the SecurityEnhancementStrategy field's value.
+func (s *EcsInstanceForListRaspConfigAgentInfosOutput) SetSecurityEnhancementStrategy(v string) *EcsInstanceForListRaspConfigAgentInfosOutput {
+	s.SecurityEnhancementStrategy = &v
 	return s
 }
 
@@ -513,10 +529,10 @@ type ListRaspConfigAgentInfosInput struct {
 	LeafGroupIDs []*string `type:"list" json:",omitempty"`
 
 	// PageNumber is a required field
-	PageNumber *int32 `type:"int32" json:",omitempty" required:"true"`
+	PageNumber *int64 `type:"int64" json:",omitempty" required:"true"`
 
 	// PageSize is a required field
-	PageSize *int32 `type:"int32" json:",omitempty" required:"true"`
+	PageSize *int64 `type:"int64" json:",omitempty" required:"true"`
 
 	RaspEnableStatus []*string `type:"list" json:",omitempty"`
 
@@ -586,13 +602,13 @@ func (s *ListRaspConfigAgentInfosInput) SetLeafGroupIDs(v []*string) *ListRaspCo
 }
 
 // SetPageNumber sets the PageNumber field's value.
-func (s *ListRaspConfigAgentInfosInput) SetPageNumber(v int32) *ListRaspConfigAgentInfosInput {
+func (s *ListRaspConfigAgentInfosInput) SetPageNumber(v int64) *ListRaspConfigAgentInfosInput {
 	s.PageNumber = &v
 	return s
 }
 
 // SetPageSize sets the PageSize field's value.
-func (s *ListRaspConfigAgentInfosInput) SetPageSize(v int32) *ListRaspConfigAgentInfosInput {
+func (s *ListRaspConfigAgentInfosInput) SetPageSize(v int64) *ListRaspConfigAgentInfosInput {
 	s.PageSize = &v
 	return s
 }
@@ -634,11 +650,11 @@ type ListRaspConfigAgentInfosOutput struct {
 
 	Data []*DataForListRaspConfigAgentInfosOutput `type:"list" json:",omitempty"`
 
-	PageNumber *int32 `type:"int32" json:",omitempty"`
+	PageNumber *int64 `type:"int64" json:",omitempty"`
 
-	PageSize *int32 `type:"int32" json:",omitempty"`
+	PageSize *int64 `type:"int64" json:",omitempty"`
 
-	TotalCount *int32 `type:"int32" json:",omitempty"`
+	TotalCount *int64 `type:"int64" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -658,19 +674,19 @@ func (s *ListRaspConfigAgentInfosOutput) SetData(v []*DataForListRaspConfigAgent
 }
 
 // SetPageNumber sets the PageNumber field's value.
-func (s *ListRaspConfigAgentInfosOutput) SetPageNumber(v int32) *ListRaspConfigAgentInfosOutput {
+func (s *ListRaspConfigAgentInfosOutput) SetPageNumber(v int64) *ListRaspConfigAgentInfosOutput {
 	s.PageNumber = &v
 	return s
 }
 
 // SetPageSize sets the PageSize field's value.
-func (s *ListRaspConfigAgentInfosOutput) SetPageSize(v int32) *ListRaspConfigAgentInfosOutput {
+func (s *ListRaspConfigAgentInfosOutput) SetPageSize(v int64) *ListRaspConfigAgentInfosOutput {
 	s.PageSize = &v
 	return s
 }
 
 // SetTotalCount sets the TotalCount field's value.
-func (s *ListRaspConfigAgentInfosOutput) SetTotalCount(v int32) *ListRaspConfigAgentInfosOutput {
+func (s *ListRaspConfigAgentInfosOutput) SetTotalCount(v int64) *ListRaspConfigAgentInfosOutput {
 	s.TotalCount = &v
 	return s
 }

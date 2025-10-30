@@ -236,9 +236,9 @@ type DownloadBaselineCheckHostsInput struct {
 
 	AssetType *string `type:"string" json:",omitempty" enum:"EnumOfAssetTypeForDownloadBaselineCheckHostsInput"`
 
-	BaselineID *int32 `type:"int32" json:",omitempty"`
+	BaselineID *int64 `type:"int64" json:",omitempty"`
 
-	CheckID *int32 `type:"int32" json:",omitempty"`
+	CheckID *int64 `type:"int64" json:",omitempty"`
 
 	Conditions *ConditionsForDownloadBaselineCheckHostsInput `type:"structure" json:",omitempty"`
 
@@ -268,13 +268,13 @@ func (s *DownloadBaselineCheckHostsInput) SetAssetType(v string) *DownloadBaseli
 }
 
 // SetBaselineID sets the BaselineID field's value.
-func (s *DownloadBaselineCheckHostsInput) SetBaselineID(v int32) *DownloadBaselineCheckHostsInput {
+func (s *DownloadBaselineCheckHostsInput) SetBaselineID(v int64) *DownloadBaselineCheckHostsInput {
 	s.BaselineID = &v
 	return s
 }
 
 // SetCheckID sets the CheckID field's value.
-func (s *DownloadBaselineCheckHostsInput) SetCheckID(v int32) *DownloadBaselineCheckHostsInput {
+func (s *DownloadBaselineCheckHostsInput) SetCheckID(v int64) *DownloadBaselineCheckHostsInput {
 	s.CheckID = &v
 	return s
 }

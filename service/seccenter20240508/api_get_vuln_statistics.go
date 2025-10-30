@@ -202,31 +202,31 @@ type GetVulnStatisticsOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	AutoUpdateTime *int32 `type:"int32" json:",omitempty"`
+	AutoUpdateTime *int64 `type:"int64" json:",omitempty"`
 
-	Danger *int32 `type:"int32" json:",omitempty"`
+	Danger *int64 `type:"int64" json:",omitempty"`
 
-	High *int32 `type:"int32" json:",omitempty"`
+	High *int64 `type:"int64" json:",omitempty"`
 
 	IfAutoUpdate *bool `type:"boolean" json:",omitempty"`
 
 	IfLargeAgent *bool `type:"boolean" json:",omitempty"`
 
-	Ignore *int32 `type:"int32" json:",omitempty"`
+	Ignore *int64 `type:"int64" json:",omitempty"`
 
-	Increase *int32 `type:"int32" json:",omitempty"`
+	Increase *int64 `type:"int64" json:",omitempty"`
 
-	Low *int32 `type:"int32" json:",omitempty"`
+	Low *int64 `type:"int64" json:",omitempty"`
 
-	Mid *int32 `type:"int32" json:",omitempty"`
+	Mid *int64 `type:"int64" json:",omitempty"`
 
-	Processed *int32 `type:"int32" json:",omitempty"`
+	Processed *int64 `type:"int64" json:",omitempty"`
 
-	Unknown *int32 `type:"int32" json:",omitempty"`
+	Unknown *int64 `type:"int64" json:",omitempty"`
 
-	Unprocessed *int32 `type:"int32" json:",omitempty"`
+	Unprocessed *int64 `type:"int64" json:",omitempty"`
 
-	VulnLibVersion *int32 `type:"int32" json:",omitempty"`
+	VulnLibVersion *int64 `type:"int64" json:",omitempty"`
 
 	VulnType *VulnTypeForGetVulnStatisticsOutput `type:"structure" json:",omitempty"`
 }
@@ -242,19 +242,19 @@ func (s GetVulnStatisticsOutput) GoString() string {
 }
 
 // SetAutoUpdateTime sets the AutoUpdateTime field's value.
-func (s *GetVulnStatisticsOutput) SetAutoUpdateTime(v int32) *GetVulnStatisticsOutput {
+func (s *GetVulnStatisticsOutput) SetAutoUpdateTime(v int64) *GetVulnStatisticsOutput {
 	s.AutoUpdateTime = &v
 	return s
 }
 
 // SetDanger sets the Danger field's value.
-func (s *GetVulnStatisticsOutput) SetDanger(v int32) *GetVulnStatisticsOutput {
+func (s *GetVulnStatisticsOutput) SetDanger(v int64) *GetVulnStatisticsOutput {
 	s.Danger = &v
 	return s
 }
 
 // SetHigh sets the High field's value.
-func (s *GetVulnStatisticsOutput) SetHigh(v int32) *GetVulnStatisticsOutput {
+func (s *GetVulnStatisticsOutput) SetHigh(v int64) *GetVulnStatisticsOutput {
 	s.High = &v
 	return s
 }
@@ -272,49 +272,49 @@ func (s *GetVulnStatisticsOutput) SetIfLargeAgent(v bool) *GetVulnStatisticsOutp
 }
 
 // SetIgnore sets the Ignore field's value.
-func (s *GetVulnStatisticsOutput) SetIgnore(v int32) *GetVulnStatisticsOutput {
+func (s *GetVulnStatisticsOutput) SetIgnore(v int64) *GetVulnStatisticsOutput {
 	s.Ignore = &v
 	return s
 }
 
 // SetIncrease sets the Increase field's value.
-func (s *GetVulnStatisticsOutput) SetIncrease(v int32) *GetVulnStatisticsOutput {
+func (s *GetVulnStatisticsOutput) SetIncrease(v int64) *GetVulnStatisticsOutput {
 	s.Increase = &v
 	return s
 }
 
 // SetLow sets the Low field's value.
-func (s *GetVulnStatisticsOutput) SetLow(v int32) *GetVulnStatisticsOutput {
+func (s *GetVulnStatisticsOutput) SetLow(v int64) *GetVulnStatisticsOutput {
 	s.Low = &v
 	return s
 }
 
 // SetMid sets the Mid field's value.
-func (s *GetVulnStatisticsOutput) SetMid(v int32) *GetVulnStatisticsOutput {
+func (s *GetVulnStatisticsOutput) SetMid(v int64) *GetVulnStatisticsOutput {
 	s.Mid = &v
 	return s
 }
 
 // SetProcessed sets the Processed field's value.
-func (s *GetVulnStatisticsOutput) SetProcessed(v int32) *GetVulnStatisticsOutput {
+func (s *GetVulnStatisticsOutput) SetProcessed(v int64) *GetVulnStatisticsOutput {
 	s.Processed = &v
 	return s
 }
 
 // SetUnknown sets the Unknown field's value.
-func (s *GetVulnStatisticsOutput) SetUnknown(v int32) *GetVulnStatisticsOutput {
+func (s *GetVulnStatisticsOutput) SetUnknown(v int64) *GetVulnStatisticsOutput {
 	s.Unknown = &v
 	return s
 }
 
 // SetUnprocessed sets the Unprocessed field's value.
-func (s *GetVulnStatisticsOutput) SetUnprocessed(v int32) *GetVulnStatisticsOutput {
+func (s *GetVulnStatisticsOutput) SetUnprocessed(v int64) *GetVulnStatisticsOutput {
 	s.Unprocessed = &v
 	return s
 }
 
 // SetVulnLibVersion sets the VulnLibVersion field's value.
-func (s *GetVulnStatisticsOutput) SetVulnLibVersion(v int32) *GetVulnStatisticsOutput {
+func (s *GetVulnStatisticsOutput) SetVulnLibVersion(v int64) *GetVulnStatisticsOutput {
 	s.VulnLibVersion = &v
 	return s
 }
@@ -328,17 +328,17 @@ func (s *GetVulnStatisticsOutput) SetVulnType(v *VulnTypeForGetVulnStatisticsOut
 type VulnTypeForGetVulnStatisticsOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	App *int32 `type:"int32" json:",omitempty"`
+	App *int64 `type:"int64" json:",omitempty"`
 
-	DevLinux *int32 `type:"int32" json:",omitempty"`
+	DevLinux *int64 `type:"int64" json:",omitempty"`
 
-	DevPy *int32 `type:"int32" json:",omitempty"`
+	DevPy *int64 `type:"int64" json:",omitempty"`
 
-	Linux *int32 `type:"int32" json:",omitempty"`
+	Linux *int64 `type:"int64" json:",omitempty"`
 
-	Webcms *int32 `type:"int32" json:",omitempty"`
+	Webcms *int64 `type:"int64" json:",omitempty"`
 
-	Windows *int32 `type:"int32" json:",omitempty"`
+	Windows *int64 `type:"int64" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -352,37 +352,37 @@ func (s VulnTypeForGetVulnStatisticsOutput) GoString() string {
 }
 
 // SetApp sets the App field's value.
-func (s *VulnTypeForGetVulnStatisticsOutput) SetApp(v int32) *VulnTypeForGetVulnStatisticsOutput {
+func (s *VulnTypeForGetVulnStatisticsOutput) SetApp(v int64) *VulnTypeForGetVulnStatisticsOutput {
 	s.App = &v
 	return s
 }
 
 // SetDevLinux sets the DevLinux field's value.
-func (s *VulnTypeForGetVulnStatisticsOutput) SetDevLinux(v int32) *VulnTypeForGetVulnStatisticsOutput {
+func (s *VulnTypeForGetVulnStatisticsOutput) SetDevLinux(v int64) *VulnTypeForGetVulnStatisticsOutput {
 	s.DevLinux = &v
 	return s
 }
 
 // SetDevPy sets the DevPy field's value.
-func (s *VulnTypeForGetVulnStatisticsOutput) SetDevPy(v int32) *VulnTypeForGetVulnStatisticsOutput {
+func (s *VulnTypeForGetVulnStatisticsOutput) SetDevPy(v int64) *VulnTypeForGetVulnStatisticsOutput {
 	s.DevPy = &v
 	return s
 }
 
 // SetLinux sets the Linux field's value.
-func (s *VulnTypeForGetVulnStatisticsOutput) SetLinux(v int32) *VulnTypeForGetVulnStatisticsOutput {
+func (s *VulnTypeForGetVulnStatisticsOutput) SetLinux(v int64) *VulnTypeForGetVulnStatisticsOutput {
 	s.Linux = &v
 	return s
 }
 
 // SetWebcms sets the Webcms field's value.
-func (s *VulnTypeForGetVulnStatisticsOutput) SetWebcms(v int32) *VulnTypeForGetVulnStatisticsOutput {
+func (s *VulnTypeForGetVulnStatisticsOutput) SetWebcms(v int64) *VulnTypeForGetVulnStatisticsOutput {
 	s.Webcms = &v
 	return s
 }
 
 // SetWindows sets the Windows field's value.
-func (s *VulnTypeForGetVulnStatisticsOutput) SetWindows(v int32) *VulnTypeForGetVulnStatisticsOutput {
+func (s *VulnTypeForGetVulnStatisticsOutput) SetWindows(v int64) *VulnTypeForGetVulnStatisticsOutput {
 	s.Windows = &v
 	return s
 }

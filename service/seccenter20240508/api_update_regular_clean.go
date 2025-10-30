@@ -146,7 +146,7 @@ func (c *SECCENTER20240508) UpdateRegularCleanWithContext(ctx volcengine.Context
 type UpdateRegularCleanInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	CleanDays *int32 `type:"int32" json:",omitempty"`
+	CleanDays *int64 `type:"int64" json:",omitempty"`
 
 	Switch *bool `type:"boolean" json:",omitempty"`
 }
@@ -162,7 +162,7 @@ func (s UpdateRegularCleanInput) GoString() string {
 }
 
 // SetCleanDays sets the CleanDays field's value.
-func (s *UpdateRegularCleanInput) SetCleanDays(v int32) *UpdateRegularCleanInput {
+func (s *UpdateRegularCleanInput) SetCleanDays(v int64) *UpdateRegularCleanInput {
 	s.CleanDays = &v
 	return s
 }

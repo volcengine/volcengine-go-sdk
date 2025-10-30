@@ -182,11 +182,11 @@ type ExportBaselineCheckListInput struct {
 
 	AssetType *string `type:"string" json:",omitempty" enum:"EnumOfAssetTypeForExportBaselineCheckListInput"`
 
-	BaselineID *int32 `type:"int32" json:",omitempty"`
+	BaselineID *int64 `type:"int64" json:",omitempty"`
 
 	Conditions *ConditionsForExportBaselineCheckListInput `type:"structure" json:",omitempty"`
 
-	IDList []*int32 `type:"list" json:",omitempty"`
+	IDList []*int64 `type:"list" json:",omitempty"`
 
 	TopGroupID *string `type:"string" json:",omitempty"`
 }
@@ -220,7 +220,7 @@ func (s *ExportBaselineCheckListInput) SetAssetType(v string) *ExportBaselineChe
 }
 
 // SetBaselineID sets the BaselineID field's value.
-func (s *ExportBaselineCheckListInput) SetBaselineID(v int32) *ExportBaselineCheckListInput {
+func (s *ExportBaselineCheckListInput) SetBaselineID(v int64) *ExportBaselineCheckListInput {
 	s.BaselineID = &v
 	return s
 }
@@ -232,7 +232,7 @@ func (s *ExportBaselineCheckListInput) SetConditions(v *ConditionsForExportBasel
 }
 
 // SetIDList sets the IDList field's value.
-func (s *ExportBaselineCheckListInput) SetIDList(v []*int32) *ExportBaselineCheckListInput {
+func (s *ExportBaselineCheckListInput) SetIDList(v []*int64) *ExportBaselineCheckListInput {
 	s.IDList = v
 	return s
 }

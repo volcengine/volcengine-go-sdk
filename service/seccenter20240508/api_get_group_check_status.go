@@ -142,9 +142,9 @@ func (c *SECCENTER20240508) GetGroupCheckStatusWithContext(ctx volcengine.Contex
 type GetGroupCheckStatusInput struct {
 	_ struct{} `type:"structure"`
 
-	BaselineID *int32 `type:"int32"`
+	BaselineID *int64 `type:"int64"`
 
-	GroupID *int32 `type:"int32"`
+	GroupID *int64 `type:"int64"`
 
 	TopGroupID *string `type:"string"`
 }
@@ -160,13 +160,13 @@ func (s GetGroupCheckStatusInput) GoString() string {
 }
 
 // SetBaselineID sets the BaselineID field's value.
-func (s *GetGroupCheckStatusInput) SetBaselineID(v int32) *GetGroupCheckStatusInput {
+func (s *GetGroupCheckStatusInput) SetBaselineID(v int64) *GetGroupCheckStatusInput {
 	s.BaselineID = &v
 	return s
 }
 
 // SetGroupID sets the GroupID field's value.
-func (s *GetGroupCheckStatusInput) SetGroupID(v int32) *GetGroupCheckStatusInput {
+func (s *GetGroupCheckStatusInput) SetGroupID(v int64) *GetGroupCheckStatusInput {
 	s.GroupID = &v
 	return s
 }
@@ -182,9 +182,9 @@ type GetGroupCheckStatusOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	LastCheckTime *int32 `type:"int32"`
+	LastCheckTime *int64 `type:"int64"`
 
-	Progress *int32 `type:"int32"`
+	Progress *int64 `type:"int64"`
 
 	Status *string `type:"string"`
 }
@@ -200,13 +200,13 @@ func (s GetGroupCheckStatusOutput) GoString() string {
 }
 
 // SetLastCheckTime sets the LastCheckTime field's value.
-func (s *GetGroupCheckStatusOutput) SetLastCheckTime(v int32) *GetGroupCheckStatusOutput {
+func (s *GetGroupCheckStatusOutput) SetLastCheckTime(v int64) *GetGroupCheckStatusOutput {
 	s.LastCheckTime = &v
 	return s
 }
 
 // SetProgress sets the Progress field's value.
-func (s *GetGroupCheckStatusOutput) SetProgress(v int32) *GetGroupCheckStatusOutput {
+func (s *GetGroupCheckStatusOutput) SetProgress(v int64) *GetGroupCheckStatusOutput {
 	s.Progress = &v
 	return s
 }

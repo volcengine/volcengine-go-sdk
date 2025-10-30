@@ -166,9 +166,9 @@ type GetRaspConfigStatisticsOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	ProcessWhiteListCount *int32 `type:"int32"`
+	ProcessWhiteListCount *int64 `type:"int64"`
 
-	RaspCloseCount *int32 `type:"int32"`
+	RaspCloseCount *int64 `type:"int64"`
 }
 
 // String returns the string representation
@@ -182,13 +182,13 @@ func (s GetRaspConfigStatisticsOutput) GoString() string {
 }
 
 // SetProcessWhiteListCount sets the ProcessWhiteListCount field's value.
-func (s *GetRaspConfigStatisticsOutput) SetProcessWhiteListCount(v int32) *GetRaspConfigStatisticsOutput {
+func (s *GetRaspConfigStatisticsOutput) SetProcessWhiteListCount(v int64) *GetRaspConfigStatisticsOutput {
 	s.ProcessWhiteListCount = &v
 	return s
 }
 
 // SetRaspCloseCount sets the RaspCloseCount field's value.
-func (s *GetRaspConfigStatisticsOutput) SetRaspCloseCount(v int32) *GetRaspConfigStatisticsOutput {
+func (s *GetRaspConfigStatisticsOutput) SetRaspCloseCount(v int64) *GetRaspConfigStatisticsOutput {
 	s.RaspCloseCount = &v
 	return s
 }

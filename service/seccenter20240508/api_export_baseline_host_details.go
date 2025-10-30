@@ -236,7 +236,7 @@ type ExportBaselineHostDetailsInput struct {
 
 	AssetType *string `type:"string" json:",omitempty" enum:"EnumOfAssetTypeForExportBaselineHostDetailsInput"`
 
-	BaselineID *int32 `type:"int32" json:",omitempty"`
+	BaselineID *int64 `type:"int64" json:",omitempty"`
 
 	Conditions *ConditionsForExportBaselineHostDetailsInput `type:"structure" json:",omitempty"`
 
@@ -266,7 +266,7 @@ func (s *ExportBaselineHostDetailsInput) SetAssetType(v string) *ExportBaselineH
 }
 
 // SetBaselineID sets the BaselineID field's value.
-func (s *ExportBaselineHostDetailsInput) SetBaselineID(v int32) *ExportBaselineHostDetailsInput {
+func (s *ExportBaselineHostDetailsInput) SetBaselineID(v int64) *ExportBaselineHostDetailsInput {
 	s.BaselineID = &v
 	return s
 }

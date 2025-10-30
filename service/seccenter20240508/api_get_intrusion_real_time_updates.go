@@ -150,7 +150,7 @@ type DataForGetIntrusionRealTimeUpdatesOutput struct {
 
 	AlarmID *string `type:"string" json:",omitempty"`
 
-	AlarmTime *int32 `type:"int32" json:",omitempty"`
+	AlarmTime *int64 `type:"int64" json:",omitempty"`
 
 	AlarmType *string `type:"string" json:",omitempty"`
 
@@ -164,7 +164,7 @@ type DataForGetIntrusionRealTimeUpdatesOutput struct {
 
 	Name *string `type:"string" json:",omitempty"`
 
-	Status *int32 `type:"int32" json:",omitempty"`
+	Status *int64 `type:"int64" json:",omitempty"`
 
 	TraceID *string `type:"string" json:",omitempty"`
 }
@@ -192,7 +192,7 @@ func (s *DataForGetIntrusionRealTimeUpdatesOutput) SetAlarmID(v string) *DataFor
 }
 
 // SetAlarmTime sets the AlarmTime field's value.
-func (s *DataForGetIntrusionRealTimeUpdatesOutput) SetAlarmTime(v int32) *DataForGetIntrusionRealTimeUpdatesOutput {
+func (s *DataForGetIntrusionRealTimeUpdatesOutput) SetAlarmTime(v int64) *DataForGetIntrusionRealTimeUpdatesOutput {
 	s.AlarmTime = &v
 	return s
 }
@@ -234,7 +234,7 @@ func (s *DataForGetIntrusionRealTimeUpdatesOutput) SetName(v string) *DataForGet
 }
 
 // SetStatus sets the Status field's value.
-func (s *DataForGetIntrusionRealTimeUpdatesOutput) SetStatus(v int32) *DataForGetIntrusionRealTimeUpdatesOutput {
+func (s *DataForGetIntrusionRealTimeUpdatesOutput) SetStatus(v int64) *DataForGetIntrusionRealTimeUpdatesOutput {
 	s.Status = &v
 	return s
 }

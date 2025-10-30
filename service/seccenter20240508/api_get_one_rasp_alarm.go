@@ -146,13 +146,13 @@ type BaseAlarmInfoForGetOneRaspAlarmOutput struct {
 
 	AttackIDList []*string `type:"list"`
 
-	CreateTime *int32 `type:"int32"`
+	CreateTime *int64 `type:"int64"`
 
 	Desc *string `type:"string"`
 
 	Docker *string `type:"string"`
 
-	HandleTime *int32 `type:"int32"`
+	HandleTime *int64 `type:"int64"`
 
 	HandleUser *string `type:"string"`
 
@@ -160,13 +160,13 @@ type BaseAlarmInfoForGetOneRaspAlarmOutput struct {
 
 	Name *string `type:"string"`
 
-	Status *int32 `type:"int32"`
+	Status *int64 `type:"int64"`
 
 	Suggest *string `type:"string"`
 
 	TraceID *string `type:"string"`
 
-	UpdateTime *int32 `type:"int32"`
+	UpdateTime *int64 `type:"int64"`
 }
 
 // String returns the string representation
@@ -192,7 +192,7 @@ func (s *BaseAlarmInfoForGetOneRaspAlarmOutput) SetAttackIDList(v []*string) *Ba
 }
 
 // SetCreateTime sets the CreateTime field's value.
-func (s *BaseAlarmInfoForGetOneRaspAlarmOutput) SetCreateTime(v int32) *BaseAlarmInfoForGetOneRaspAlarmOutput {
+func (s *BaseAlarmInfoForGetOneRaspAlarmOutput) SetCreateTime(v int64) *BaseAlarmInfoForGetOneRaspAlarmOutput {
 	s.CreateTime = &v
 	return s
 }
@@ -210,7 +210,7 @@ func (s *BaseAlarmInfoForGetOneRaspAlarmOutput) SetDocker(v string) *BaseAlarmIn
 }
 
 // SetHandleTime sets the HandleTime field's value.
-func (s *BaseAlarmInfoForGetOneRaspAlarmOutput) SetHandleTime(v int32) *BaseAlarmInfoForGetOneRaspAlarmOutput {
+func (s *BaseAlarmInfoForGetOneRaspAlarmOutput) SetHandleTime(v int64) *BaseAlarmInfoForGetOneRaspAlarmOutput {
 	s.HandleTime = &v
 	return s
 }
@@ -234,7 +234,7 @@ func (s *BaseAlarmInfoForGetOneRaspAlarmOutput) SetName(v string) *BaseAlarmInfo
 }
 
 // SetStatus sets the Status field's value.
-func (s *BaseAlarmInfoForGetOneRaspAlarmOutput) SetStatus(v int32) *BaseAlarmInfoForGetOneRaspAlarmOutput {
+func (s *BaseAlarmInfoForGetOneRaspAlarmOutput) SetStatus(v int64) *BaseAlarmInfoForGetOneRaspAlarmOutput {
 	s.Status = &v
 	return s
 }
@@ -252,7 +252,7 @@ func (s *BaseAlarmInfoForGetOneRaspAlarmOutput) SetTraceID(v string) *BaseAlarmI
 }
 
 // SetUpdateTime sets the UpdateTime field's value.
-func (s *BaseAlarmInfoForGetOneRaspAlarmOutput) SetUpdateTime(v int32) *BaseAlarmInfoForGetOneRaspAlarmOutput {
+func (s *BaseAlarmInfoForGetOneRaspAlarmOutput) SetUpdateTime(v int64) *BaseAlarmInfoForGetOneRaspAlarmOutput {
 	s.UpdateTime = &v
 	return s
 }

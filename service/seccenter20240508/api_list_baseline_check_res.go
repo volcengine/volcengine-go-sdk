@@ -146,7 +146,7 @@ func (c *SECCENTER20240508) ListBaselineCheckResWithContext(ctx volcengine.Conte
 type DataForListBaselineCheckResOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	ChecklistID *int32 `type:"int32" json:",omitempty"`
+	ChecklistID *int64 `type:"int64" json:",omitempty"`
 
 	ChecklistName *string `type:"string" json:",omitempty"`
 
@@ -174,7 +174,7 @@ func (s DataForListBaselineCheckResOutput) GoString() string {
 }
 
 // SetChecklistID sets the ChecklistID field's value.
-func (s *DataForListBaselineCheckResOutput) SetChecklistID(v int32) *DataForListBaselineCheckResOutput {
+func (s *DataForListBaselineCheckResOutput) SetChecklistID(v int64) *DataForListBaselineCheckResOutput {
 	s.ChecklistID = &v
 	return s
 }
@@ -230,7 +230,7 @@ type ListBaselineCheckResInput struct {
 
 	AssetType *string `type:"string" json:",omitempty" enum:"EnumOfAssetTypeForListBaselineCheckResInput"`
 
-	BaselineID *int32 `type:"int32" json:",omitempty"`
+	BaselineID *int64 `type:"int64" json:",omitempty"`
 
 	ChecklistName *string `type:"string" json:",omitempty"`
 
@@ -241,10 +241,10 @@ type ListBaselineCheckResInput struct {
 	LeafGroupIDs []*string `type:"list" json:",omitempty"`
 
 	// PageNumber is a required field
-	PageNumber *int32 `type:"int32" json:",omitempty" required:"true"`
+	PageNumber *int64 `type:"int64" json:",omitempty" required:"true"`
 
 	// PageSize is a required field
-	PageSize *int32 `type:"int32" json:",omitempty" required:"true"`
+	PageSize *int64 `type:"int64" json:",omitempty" required:"true"`
 
 	Result []*string `type:"list" json:",omitempty"`
 
@@ -300,7 +300,7 @@ func (s *ListBaselineCheckResInput) SetAssetType(v string) *ListBaselineCheckRes
 }
 
 // SetBaselineID sets the BaselineID field's value.
-func (s *ListBaselineCheckResInput) SetBaselineID(v int32) *ListBaselineCheckResInput {
+func (s *ListBaselineCheckResInput) SetBaselineID(v int64) *ListBaselineCheckResInput {
 	s.BaselineID = &v
 	return s
 }
@@ -330,13 +330,13 @@ func (s *ListBaselineCheckResInput) SetLeafGroupIDs(v []*string) *ListBaselineCh
 }
 
 // SetPageNumber sets the PageNumber field's value.
-func (s *ListBaselineCheckResInput) SetPageNumber(v int32) *ListBaselineCheckResInput {
+func (s *ListBaselineCheckResInput) SetPageNumber(v int64) *ListBaselineCheckResInput {
 	s.PageNumber = &v
 	return s
 }
 
 // SetPageSize sets the PageSize field's value.
-func (s *ListBaselineCheckResInput) SetPageSize(v int32) *ListBaselineCheckResInput {
+func (s *ListBaselineCheckResInput) SetPageSize(v int64) *ListBaselineCheckResInput {
 	s.PageSize = &v
 	return s
 }
@@ -372,11 +372,11 @@ type ListBaselineCheckResOutput struct {
 
 	Data []*DataForListBaselineCheckResOutput `type:"list" json:",omitempty"`
 
-	PageNumber *int32 `type:"int32" json:",omitempty"`
+	PageNumber *int64 `type:"int64" json:",omitempty"`
 
-	PageSize *int32 `type:"int32" json:",omitempty"`
+	PageSize *int64 `type:"int64" json:",omitempty"`
 
-	TotalCount *int32 `type:"int32" json:",omitempty"`
+	TotalCount *int64 `type:"int64" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -396,19 +396,19 @@ func (s *ListBaselineCheckResOutput) SetData(v []*DataForListBaselineCheckResOut
 }
 
 // SetPageNumber sets the PageNumber field's value.
-func (s *ListBaselineCheckResOutput) SetPageNumber(v int32) *ListBaselineCheckResOutput {
+func (s *ListBaselineCheckResOutput) SetPageNumber(v int64) *ListBaselineCheckResOutput {
 	s.PageNumber = &v
 	return s
 }
 
 // SetPageSize sets the PageSize field's value.
-func (s *ListBaselineCheckResOutput) SetPageSize(v int32) *ListBaselineCheckResOutput {
+func (s *ListBaselineCheckResOutput) SetPageSize(v int64) *ListBaselineCheckResOutput {
 	s.PageSize = &v
 	return s
 }
 
 // SetTotalCount sets the TotalCount field's value.
-func (s *ListBaselineCheckResOutput) SetTotalCount(v int32) *ListBaselineCheckResOutput {
+func (s *ListBaselineCheckResOutput) SetTotalCount(v int64) *ListBaselineCheckResOutput {
 	s.TotalCount = &v
 	return s
 }

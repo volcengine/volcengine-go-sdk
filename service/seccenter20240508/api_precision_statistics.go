@@ -148,7 +148,7 @@ type DistributionForPrecisionStatisticsOutput struct {
 
 	Key *string `type:"string" json:",omitempty"`
 
-	Value *int32 `type:"int32" json:",omitempty"`
+	Value *int64 `type:"int64" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -168,7 +168,7 @@ func (s *DistributionForPrecisionStatisticsOutput) SetKey(v string) *Distributio
 }
 
 // SetValue sets the Value field's value.
-func (s *DistributionForPrecisionStatisticsOutput) SetValue(v int32) *DistributionForPrecisionStatisticsOutput {
+func (s *DistributionForPrecisionStatisticsOutput) SetValue(v int64) *DistributionForPrecisionStatisticsOutput {
 	s.Value = &v
 	return s
 }
@@ -194,9 +194,9 @@ type PrecisionStatisticsOutput struct {
 
 	Distribution []*DistributionForPrecisionStatisticsOutput `type:"list" json:",omitempty"`
 
-	TodayNewCount *int32 `type:"int32" json:",omitempty"`
+	TodayNewCount *int64 `type:"int64" json:",omitempty"`
 
-	TotalCount *int32 `type:"int32" json:",omitempty"`
+	TotalCount *int64 `type:"int64" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -216,13 +216,13 @@ func (s *PrecisionStatisticsOutput) SetDistribution(v []*DistributionForPrecisio
 }
 
 // SetTodayNewCount sets the TodayNewCount field's value.
-func (s *PrecisionStatisticsOutput) SetTodayNewCount(v int32) *PrecisionStatisticsOutput {
+func (s *PrecisionStatisticsOutput) SetTodayNewCount(v int64) *PrecisionStatisticsOutput {
 	s.TodayNewCount = &v
 	return s
 }
 
 // SetTotalCount sets the TotalCount field's value.
-func (s *PrecisionStatisticsOutput) SetTotalCount(v int32) *PrecisionStatisticsOutput {
+func (s *PrecisionStatisticsOutput) SetTotalCount(v int64) *PrecisionStatisticsOutput {
 	s.TotalCount = &v
 	return s
 }

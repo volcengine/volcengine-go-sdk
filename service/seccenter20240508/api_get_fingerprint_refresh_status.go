@@ -174,13 +174,13 @@ type GetFingerprintRefreshStatusOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	CooldownTime *int32 `type:"int32"`
+	CooldownTime *int64 `type:"int64"`
 
-	Percent *int32 `type:"int32"`
+	Percent *int64 `type:"int64"`
 
 	Status *string `type:"string"`
 
-	UpdateTime *int32 `type:"int32"`
+	UpdateTime *int64 `type:"int64"`
 }
 
 // String returns the string representation
@@ -194,13 +194,13 @@ func (s GetFingerprintRefreshStatusOutput) GoString() string {
 }
 
 // SetCooldownTime sets the CooldownTime field's value.
-func (s *GetFingerprintRefreshStatusOutput) SetCooldownTime(v int32) *GetFingerprintRefreshStatusOutput {
+func (s *GetFingerprintRefreshStatusOutput) SetCooldownTime(v int64) *GetFingerprintRefreshStatusOutput {
 	s.CooldownTime = &v
 	return s
 }
 
 // SetPercent sets the Percent field's value.
-func (s *GetFingerprintRefreshStatusOutput) SetPercent(v int32) *GetFingerprintRefreshStatusOutput {
+func (s *GetFingerprintRefreshStatusOutput) SetPercent(v int64) *GetFingerprintRefreshStatusOutput {
 	s.Percent = &v
 	return s
 }
@@ -212,7 +212,7 @@ func (s *GetFingerprintRefreshStatusOutput) SetStatus(v string) *GetFingerprintR
 }
 
 // SetUpdateTime sets the UpdateTime field's value.
-func (s *GetFingerprintRefreshStatusOutput) SetUpdateTime(v int32) *GetFingerprintRefreshStatusOutput {
+func (s *GetFingerprintRefreshStatusOutput) SetUpdateTime(v int64) *GetFingerprintRefreshStatusOutput {
 	s.UpdateTime = &v
 	return s
 }

@@ -164,7 +164,7 @@ type DataForGetAutoIsolateAgentListOutput struct {
 
 	Tags []*string `type:"list" json:",omitempty"`
 
-	UpdateTime *int32 `type:"int32" json:",omitempty"`
+	UpdateTime *int64 `type:"int64" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -232,7 +232,7 @@ func (s *DataForGetAutoIsolateAgentListOutput) SetTags(v []*string) *DataForGetA
 }
 
 // SetUpdateTime sets the UpdateTime field's value.
-func (s *DataForGetAutoIsolateAgentListOutput) SetUpdateTime(v int32) *DataForGetAutoIsolateAgentListOutput {
+func (s *DataForGetAutoIsolateAgentListOutput) SetUpdateTime(v int64) *DataForGetAutoIsolateAgentListOutput {
 	s.UpdateTime = &v
 	return s
 }
@@ -244,7 +244,9 @@ type EcsInstanceForGetAutoIsolateAgentListOutput struct {
 
 	AccountID *string `type:"string" json:",omitempty"`
 
-	Cpu *int32 `type:"int32" json:",omitempty"`
+	Cpu *int64 `type:"int64" json:",omitempty"`
+
+	CreatedAt *string `type:"string" json:",omitempty"`
 
 	ECSUpdateAt *string `type:"string" json:",omitempty"`
 
@@ -256,7 +258,7 @@ type EcsInstanceForGetAutoIsolateAgentListOutput struct {
 
 	InstanceName *string `type:"string" json:",omitempty"`
 
-	Mem *int32 `type:"int32" json:",omitempty"`
+	Mem *int64 `type:"int64" json:",omitempty"`
 
 	OsName *string `type:"string" json:",omitempty"`
 
@@ -269,6 +271,8 @@ type EcsInstanceForGetAutoIsolateAgentListOutput struct {
 	PrimaryIpAddress *string `type:"string" json:",omitempty"`
 
 	Region *string `type:"string" json:",omitempty"`
+
+	SecurityEnhancementStrategy *string `type:"string" json:",omitempty"`
 
 	Status *string `type:"string" json:",omitempty"`
 
@@ -304,8 +308,14 @@ func (s *EcsInstanceForGetAutoIsolateAgentListOutput) SetAccountID(v string) *Ec
 }
 
 // SetCpu sets the Cpu field's value.
-func (s *EcsInstanceForGetAutoIsolateAgentListOutput) SetCpu(v int32) *EcsInstanceForGetAutoIsolateAgentListOutput {
+func (s *EcsInstanceForGetAutoIsolateAgentListOutput) SetCpu(v int64) *EcsInstanceForGetAutoIsolateAgentListOutput {
 	s.Cpu = &v
+	return s
+}
+
+// SetCreatedAt sets the CreatedAt field's value.
+func (s *EcsInstanceForGetAutoIsolateAgentListOutput) SetCreatedAt(v string) *EcsInstanceForGetAutoIsolateAgentListOutput {
+	s.CreatedAt = &v
 	return s
 }
 
@@ -340,7 +350,7 @@ func (s *EcsInstanceForGetAutoIsolateAgentListOutput) SetInstanceName(v string) 
 }
 
 // SetMem sets the Mem field's value.
-func (s *EcsInstanceForGetAutoIsolateAgentListOutput) SetMem(v int32) *EcsInstanceForGetAutoIsolateAgentListOutput {
+func (s *EcsInstanceForGetAutoIsolateAgentListOutput) SetMem(v int64) *EcsInstanceForGetAutoIsolateAgentListOutput {
 	s.Mem = &v
 	return s
 }
@@ -378,6 +388,12 @@ func (s *EcsInstanceForGetAutoIsolateAgentListOutput) SetPrimaryIpAddress(v stri
 // SetRegion sets the Region field's value.
 func (s *EcsInstanceForGetAutoIsolateAgentListOutput) SetRegion(v string) *EcsInstanceForGetAutoIsolateAgentListOutput {
 	s.Region = &v
+	return s
+}
+
+// SetSecurityEnhancementStrategy sets the SecurityEnhancementStrategy field's value.
+func (s *EcsInstanceForGetAutoIsolateAgentListOutput) SetSecurityEnhancementStrategy(v string) *EcsInstanceForGetAutoIsolateAgentListOutput {
+	s.SecurityEnhancementStrategy = &v
 	return s
 }
 
@@ -425,10 +441,10 @@ type GetAutoIsolateAgentListInput struct {
 	LeafGroupIDs []*string `type:"list" json:",omitempty"`
 
 	// PageNumber is a required field
-	PageNumber *int32 `type:"int32" json:",omitempty" required:"true"`
+	PageNumber *int64 `type:"int64" json:",omitempty" required:"true"`
 
 	// PageSize is a required field
-	PageSize *int32 `type:"int32" json:",omitempty" required:"true"`
+	PageSize *int64 `type:"int64" json:",omitempty" required:"true"`
 
 	SortBy *string `type:"string" json:",omitempty"`
 
@@ -496,13 +512,13 @@ func (s *GetAutoIsolateAgentListInput) SetLeafGroupIDs(v []*string) *GetAutoIsol
 }
 
 // SetPageNumber sets the PageNumber field's value.
-func (s *GetAutoIsolateAgentListInput) SetPageNumber(v int32) *GetAutoIsolateAgentListInput {
+func (s *GetAutoIsolateAgentListInput) SetPageNumber(v int64) *GetAutoIsolateAgentListInput {
 	s.PageNumber = &v
 	return s
 }
 
 // SetPageSize sets the PageSize field's value.
-func (s *GetAutoIsolateAgentListInput) SetPageSize(v int32) *GetAutoIsolateAgentListInput {
+func (s *GetAutoIsolateAgentListInput) SetPageSize(v int64) *GetAutoIsolateAgentListInput {
 	s.PageSize = &v
 	return s
 }
@@ -538,11 +554,11 @@ type GetAutoIsolateAgentListOutput struct {
 
 	Data []*DataForGetAutoIsolateAgentListOutput `type:"list" json:",omitempty"`
 
-	PageNumber *int32 `type:"int32" json:",omitempty"`
+	PageNumber *int64 `type:"int64" json:",omitempty"`
 
-	PageSize *int32 `type:"int32" json:",omitempty"`
+	PageSize *int64 `type:"int64" json:",omitempty"`
 
-	TotalCount *int32 `type:"int32" json:",omitempty"`
+	TotalCount *int64 `type:"int64" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -562,19 +578,19 @@ func (s *GetAutoIsolateAgentListOutput) SetData(v []*DataForGetAutoIsolateAgentL
 }
 
 // SetPageNumber sets the PageNumber field's value.
-func (s *GetAutoIsolateAgentListOutput) SetPageNumber(v int32) *GetAutoIsolateAgentListOutput {
+func (s *GetAutoIsolateAgentListOutput) SetPageNumber(v int64) *GetAutoIsolateAgentListOutput {
 	s.PageNumber = &v
 	return s
 }
 
 // SetPageSize sets the PageSize field's value.
-func (s *GetAutoIsolateAgentListOutput) SetPageSize(v int32) *GetAutoIsolateAgentListOutput {
+func (s *GetAutoIsolateAgentListOutput) SetPageSize(v int64) *GetAutoIsolateAgentListOutput {
 	s.PageSize = &v
 	return s
 }
 
 // SetTotalCount sets the TotalCount field's value.
-func (s *GetAutoIsolateAgentListOutput) SetTotalCount(v int32) *GetAutoIsolateAgentListOutput {
+func (s *GetAutoIsolateAgentListOutput) SetTotalCount(v int64) *GetAutoIsolateAgentListOutput {
 	s.TotalCount = &v
 	return s
 }

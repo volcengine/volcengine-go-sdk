@@ -168,11 +168,11 @@ func (s *ConditionsForDownloadBaselineCheckInput) SetCheckName(v string) *Condit
 type DownloadBaselineCheckInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	BaselineID *int32 `type:"int32" json:",omitempty"`
+	BaselineID *int64 `type:"int64" json:",omitempty"`
 
 	Conditions *ConditionsForDownloadBaselineCheckInput `type:"structure" json:",omitempty"`
 
-	IDList []*int32 `type:"list" json:",omitempty"`
+	IDList []*int64 `type:"list" json:",omitempty"`
 
 	TopGroupID *string `type:"string" json:",omitempty"`
 }
@@ -188,7 +188,7 @@ func (s DownloadBaselineCheckInput) GoString() string {
 }
 
 // SetBaselineID sets the BaselineID field's value.
-func (s *DownloadBaselineCheckInput) SetBaselineID(v int32) *DownloadBaselineCheckInput {
+func (s *DownloadBaselineCheckInput) SetBaselineID(v int64) *DownloadBaselineCheckInput {
 	s.BaselineID = &v
 	return s
 }
@@ -200,7 +200,7 @@ func (s *DownloadBaselineCheckInput) SetConditions(v *ConditionsForDownloadBasel
 }
 
 // SetIDList sets the IDList field's value.
-func (s *DownloadBaselineCheckInput) SetIDList(v []*int32) *DownloadBaselineCheckInput {
+func (s *DownloadBaselineCheckInput) SetIDList(v []*int64) *DownloadBaselineCheckInput {
 	s.IDList = v
 	return s
 }
