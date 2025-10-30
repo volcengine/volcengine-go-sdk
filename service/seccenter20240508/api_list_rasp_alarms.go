@@ -242,13 +242,13 @@ type DataForListRaspAlarmsOutput struct {
 
 	AgentID *string `type:"string" json:",omitempty"`
 
-	AlarmHandleResult *int32 `type:"int32" json:",omitempty"`
+	AlarmHandleResult *int64 `type:"int64" json:",omitempty"`
 
 	AlarmHostname *string `type:"string" json:",omitempty"`
 
 	AlarmID *string `type:"string" json:",omitempty"`
 
-	AlarmTime *int32 `type:"int32" json:",omitempty"`
+	AlarmTime *int64 `type:"int64" json:",omitempty"`
 
 	AlertTags []*string `type:"list" json:",omitempty"`
 
@@ -282,7 +282,7 @@ type DataForListRaspAlarmsOutput struct {
 
 	GroupPath *string `type:"string" json:",omitempty"`
 
-	HandleTime *int32 `type:"int32" json:",omitempty"`
+	HandleTime *int64 `type:"int64" json:",omitempty"`
 
 	Host *HostForListRaspAlarmsOutput `type:"structure" json:",omitempty"`
 
@@ -318,7 +318,7 @@ type DataForListRaspAlarmsOutput struct {
 
 	StackTraceHash *string `type:"string" json:",omitempty"`
 
-	Status *int32 `type:"int32" json:",omitempty"`
+	Status *int64 `type:"int64" json:",omitempty"`
 
 	TraceID *string `type:"string" json:",omitempty"`
 
@@ -348,7 +348,7 @@ func (s *DataForListRaspAlarmsOutput) SetAgentID(v string) *DataForListRaspAlarm
 }
 
 // SetAlarmHandleResult sets the AlarmHandleResult field's value.
-func (s *DataForListRaspAlarmsOutput) SetAlarmHandleResult(v int32) *DataForListRaspAlarmsOutput {
+func (s *DataForListRaspAlarmsOutput) SetAlarmHandleResult(v int64) *DataForListRaspAlarmsOutput {
 	s.AlarmHandleResult = &v
 	return s
 }
@@ -366,7 +366,7 @@ func (s *DataForListRaspAlarmsOutput) SetAlarmID(v string) *DataForListRaspAlarm
 }
 
 // SetAlarmTime sets the AlarmTime field's value.
-func (s *DataForListRaspAlarmsOutput) SetAlarmTime(v int32) *DataForListRaspAlarmsOutput {
+func (s *DataForListRaspAlarmsOutput) SetAlarmTime(v int64) *DataForListRaspAlarmsOutput {
 	s.AlarmTime = &v
 	return s
 }
@@ -468,7 +468,7 @@ func (s *DataForListRaspAlarmsOutput) SetGroupPath(v string) *DataForListRaspAla
 }
 
 // SetHandleTime sets the HandleTime field's value.
-func (s *DataForListRaspAlarmsOutput) SetHandleTime(v int32) *DataForListRaspAlarmsOutput {
+func (s *DataForListRaspAlarmsOutput) SetHandleTime(v int64) *DataForListRaspAlarmsOutput {
 	s.HandleTime = &v
 	return s
 }
@@ -576,7 +576,7 @@ func (s *DataForListRaspAlarmsOutput) SetStackTraceHash(v string) *DataForListRa
 }
 
 // SetStatus sets the Status field's value.
-func (s *DataForListRaspAlarmsOutput) SetStatus(v int32) *DataForListRaspAlarmsOutput {
+func (s *DataForListRaspAlarmsOutput) SetStatus(v int64) *DataForListRaspAlarmsOutput {
 	s.Status = &v
 	return s
 }
@@ -660,7 +660,7 @@ type ListRaspAlarmsInput struct {
 
 	AgentTags []*string `type:"list" json:",omitempty"`
 
-	AlarmHandleResultList []*int32 `type:"list" json:",omitempty"`
+	AlarmHandleResultList []*int64 `type:"list" json:",omitempty"`
 
 	AlarmID *string `type:"string" json:",omitempty"`
 
@@ -709,10 +709,10 @@ type ListRaspAlarmsInput struct {
 	Name *string `type:"string" json:",omitempty"`
 
 	// PageNumber is a required field
-	PageNumber *int32 `type:"int32" json:",omitempty" required:"true"`
+	PageNumber *int64 `type:"int64" json:",omitempty" required:"true"`
 
 	// PageSize is a required field
-	PageSize *int32 `type:"int32" json:",omitempty" required:"true"`
+	PageSize *int64 `type:"int64" json:",omitempty" required:"true"`
 
 	ProbeHook *string `type:"string" json:",omitempty"`
 
@@ -722,13 +722,13 @@ type ListRaspAlarmsInput struct {
 
 	SortOrder *string `type:"string" json:",omitempty"`
 
-	Status []*int32 `type:"list" json:",omitempty"`
+	Status []*int64 `type:"list" json:",omitempty"`
 
 	TaskID *string `type:"string" json:",omitempty"`
 
-	TimeEnd *int32 `type:"int32" json:",omitempty"`
+	TimeEnd *int64 `type:"int64" json:",omitempty"`
 
-	TimeStart *int32 `type:"int32" json:",omitempty"`
+	TimeStart *int64 `type:"int64" json:",omitempty"`
 
 	TopGroupID *string `type:"string" json:",omitempty"`
 
@@ -798,7 +798,7 @@ func (s *ListRaspAlarmsInput) SetAgentTags(v []*string) *ListRaspAlarmsInput {
 }
 
 // SetAlarmHandleResultList sets the AlarmHandleResultList field's value.
-func (s *ListRaspAlarmsInput) SetAlarmHandleResultList(v []*int32) *ListRaspAlarmsInput {
+func (s *ListRaspAlarmsInput) SetAlarmHandleResultList(v []*int64) *ListRaspAlarmsInput {
 	s.AlarmHandleResultList = v
 	return s
 }
@@ -942,13 +942,13 @@ func (s *ListRaspAlarmsInput) SetName(v string) *ListRaspAlarmsInput {
 }
 
 // SetPageNumber sets the PageNumber field's value.
-func (s *ListRaspAlarmsInput) SetPageNumber(v int32) *ListRaspAlarmsInput {
+func (s *ListRaspAlarmsInput) SetPageNumber(v int64) *ListRaspAlarmsInput {
 	s.PageNumber = &v
 	return s
 }
 
 // SetPageSize sets the PageSize field's value.
-func (s *ListRaspAlarmsInput) SetPageSize(v int32) *ListRaspAlarmsInput {
+func (s *ListRaspAlarmsInput) SetPageSize(v int64) *ListRaspAlarmsInput {
 	s.PageSize = &v
 	return s
 }
@@ -978,7 +978,7 @@ func (s *ListRaspAlarmsInput) SetSortOrder(v string) *ListRaspAlarmsInput {
 }
 
 // SetStatus sets the Status field's value.
-func (s *ListRaspAlarmsInput) SetStatus(v []*int32) *ListRaspAlarmsInput {
+func (s *ListRaspAlarmsInput) SetStatus(v []*int64) *ListRaspAlarmsInput {
 	s.Status = v
 	return s
 }
@@ -990,13 +990,13 @@ func (s *ListRaspAlarmsInput) SetTaskID(v string) *ListRaspAlarmsInput {
 }
 
 // SetTimeEnd sets the TimeEnd field's value.
-func (s *ListRaspAlarmsInput) SetTimeEnd(v int32) *ListRaspAlarmsInput {
+func (s *ListRaspAlarmsInput) SetTimeEnd(v int64) *ListRaspAlarmsInput {
 	s.TimeEnd = &v
 	return s
 }
 
 // SetTimeStart sets the TimeStart field's value.
-func (s *ListRaspAlarmsInput) SetTimeStart(v int32) *ListRaspAlarmsInput {
+func (s *ListRaspAlarmsInput) SetTimeStart(v int64) *ListRaspAlarmsInput {
 	s.TimeStart = &v
 	return s
 }
@@ -1038,11 +1038,11 @@ type ListRaspAlarmsOutput struct {
 
 	Data []*DataForListRaspAlarmsOutput `type:"list" json:",omitempty"`
 
-	PageNumber *int32 `type:"int32" json:",omitempty"`
+	PageNumber *int64 `type:"int64" json:",omitempty"`
 
-	PageSize *int32 `type:"int32" json:",omitempty"`
+	PageSize *int64 `type:"int64" json:",omitempty"`
 
-	TotalCount *int32 `type:"int32" json:",omitempty"`
+	TotalCount *int64 `type:"int64" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -1062,19 +1062,19 @@ func (s *ListRaspAlarmsOutput) SetData(v []*DataForListRaspAlarmsOutput) *ListRa
 }
 
 // SetPageNumber sets the PageNumber field's value.
-func (s *ListRaspAlarmsOutput) SetPageNumber(v int32) *ListRaspAlarmsOutput {
+func (s *ListRaspAlarmsOutput) SetPageNumber(v int64) *ListRaspAlarmsOutput {
 	s.PageNumber = &v
 	return s
 }
 
 // SetPageSize sets the PageSize field's value.
-func (s *ListRaspAlarmsOutput) SetPageSize(v int32) *ListRaspAlarmsOutput {
+func (s *ListRaspAlarmsOutput) SetPageSize(v int64) *ListRaspAlarmsOutput {
 	s.PageSize = &v
 	return s
 }
 
 // SetTotalCount sets the TotalCount field's value.
-func (s *ListRaspAlarmsOutput) SetTotalCount(v int32) *ListRaspAlarmsOutput {
+func (s *ListRaspAlarmsOutput) SetTotalCount(v int64) *ListRaspAlarmsOutput {
 	s.TotalCount = &v
 	return s
 }

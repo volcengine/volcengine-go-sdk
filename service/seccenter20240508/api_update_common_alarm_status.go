@@ -156,7 +156,7 @@ type ConditionsForUpdateCommonAlarmStatusInput struct {
 
 	AgentTags []*string `type:"list" json:",omitempty"`
 
-	AlarmHandleResultList []*int32 `type:"list" json:",omitempty"`
+	AlarmHandleResultList []*int64 `type:"list" json:",omitempty"`
 
 	AlarmID *string `type:"string" json:",omitempty"`
 
@@ -206,15 +206,15 @@ type ConditionsForUpdateCommonAlarmStatusInput struct {
 
 	RaspArgv *string `type:"string" json:",omitempty"`
 
-	Status []*int32 `type:"list" json:",omitempty"`
+	Status []*int64 `type:"list" json:",omitempty"`
 
 	Tags []*string `type:"list" json:",omitempty"`
 
 	TaskID *string `type:"string" json:",omitempty"`
 
-	TimeEnd *int32 `type:"int32" json:",omitempty"`
+	TimeEnd *int64 `type:"int64" json:",omitempty"`
 
-	TimeStart *int32 `type:"int32" json:",omitempty"`
+	TimeStart *int64 `type:"int64" json:",omitempty"`
 
 	TopGroupID *string `type:"string" json:",omitempty"`
 
@@ -268,7 +268,7 @@ func (s *ConditionsForUpdateCommonAlarmStatusInput) SetAgentTags(v []*string) *C
 }
 
 // SetAlarmHandleResultList sets the AlarmHandleResultList field's value.
-func (s *ConditionsForUpdateCommonAlarmStatusInput) SetAlarmHandleResultList(v []*int32) *ConditionsForUpdateCommonAlarmStatusInput {
+func (s *ConditionsForUpdateCommonAlarmStatusInput) SetAlarmHandleResultList(v []*int64) *ConditionsForUpdateCommonAlarmStatusInput {
 	s.AlarmHandleResultList = v
 	return s
 }
@@ -418,7 +418,7 @@ func (s *ConditionsForUpdateCommonAlarmStatusInput) SetRaspArgv(v string) *Condi
 }
 
 // SetStatus sets the Status field's value.
-func (s *ConditionsForUpdateCommonAlarmStatusInput) SetStatus(v []*int32) *ConditionsForUpdateCommonAlarmStatusInput {
+func (s *ConditionsForUpdateCommonAlarmStatusInput) SetStatus(v []*int64) *ConditionsForUpdateCommonAlarmStatusInput {
 	s.Status = v
 	return s
 }
@@ -436,13 +436,13 @@ func (s *ConditionsForUpdateCommonAlarmStatusInput) SetTaskID(v string) *Conditi
 }
 
 // SetTimeEnd sets the TimeEnd field's value.
-func (s *ConditionsForUpdateCommonAlarmStatusInput) SetTimeEnd(v int32) *ConditionsForUpdateCommonAlarmStatusInput {
+func (s *ConditionsForUpdateCommonAlarmStatusInput) SetTimeEnd(v int64) *ConditionsForUpdateCommonAlarmStatusInput {
 	s.TimeEnd = &v
 	return s
 }
 
 // SetTimeStart sets the TimeStart field's value.
-func (s *ConditionsForUpdateCommonAlarmStatusInput) SetTimeStart(v int32) *ConditionsForUpdateCommonAlarmStatusInput {
+func (s *ConditionsForUpdateCommonAlarmStatusInput) SetTimeStart(v int64) *ConditionsForUpdateCommonAlarmStatusInput {
 	s.TimeStart = &v
 	return s
 }
@@ -482,7 +482,7 @@ type ResultForUpdateCommonAlarmStatusOutput struct {
 
 	AlarmID *string `type:"string" json:",omitempty"`
 
-	Code *int32 `type:"int32" json:",omitempty"`
+	Code *int64 `type:"int64" json:",omitempty"`
 
 	Msg *string `type:"string" json:",omitempty"`
 }
@@ -504,7 +504,7 @@ func (s *ResultForUpdateCommonAlarmStatusOutput) SetAlarmID(v string) *ResultFor
 }
 
 // SetCode sets the Code field's value.
-func (s *ResultForUpdateCommonAlarmStatusOutput) SetCode(v int32) *ResultForUpdateCommonAlarmStatusOutput {
+func (s *ResultForUpdateCommonAlarmStatusOutput) SetCode(v int64) *ResultForUpdateCommonAlarmStatusOutput {
 	s.Code = &v
 	return s
 }
@@ -524,7 +524,7 @@ type UpdateCommonAlarmStatusInput struct {
 
 	CustomTagList []*string `type:"list" json:",omitempty"`
 
-	HandleMethod *int32 `type:"int32" json:",omitempty"`
+	HandleMethod *int64 `type:"int64" json:",omitempty"`
 
 	// Type is a required field
 	Type *string `type:"string" json:",omitempty" required:"true"`
@@ -572,7 +572,7 @@ func (s *UpdateCommonAlarmStatusInput) SetCustomTagList(v []*string) *UpdateComm
 }
 
 // SetHandleMethod sets the HandleMethod field's value.
-func (s *UpdateCommonAlarmStatusInput) SetHandleMethod(v int32) *UpdateCommonAlarmStatusInput {
+func (s *UpdateCommonAlarmStatusInput) SetHandleMethod(v int64) *UpdateCommonAlarmStatusInput {
 	s.HandleMethod = &v
 	return s
 }

@@ -168,9 +168,9 @@ type GetMlpUpdateSoftwareTaskDetailOutput struct {
 
 	AccountId *string `type:"string"`
 
-	LastCheckTime *int32 `type:"int32"`
+	LastCheckTime *int64 `type:"int64"`
 
-	Progress *int32 `type:"int32"`
+	Progress *int64 `type:"int64"`
 
 	TaskId *string `type:"string"`
 }
@@ -192,13 +192,13 @@ func (s *GetMlpUpdateSoftwareTaskDetailOutput) SetAccountId(v string) *GetMlpUpd
 }
 
 // SetLastCheckTime sets the LastCheckTime field's value.
-func (s *GetMlpUpdateSoftwareTaskDetailOutput) SetLastCheckTime(v int32) *GetMlpUpdateSoftwareTaskDetailOutput {
+func (s *GetMlpUpdateSoftwareTaskDetailOutput) SetLastCheckTime(v int64) *GetMlpUpdateSoftwareTaskDetailOutput {
 	s.LastCheckTime = &v
 	return s
 }
 
 // SetProgress sets the Progress field's value.
-func (s *GetMlpUpdateSoftwareTaskDetailOutput) SetProgress(v int32) *GetMlpUpdateSoftwareTaskDetailOutput {
+func (s *GetMlpUpdateSoftwareTaskDetailOutput) SetProgress(v int64) *GetMlpUpdateSoftwareTaskDetailOutput {
 	s.Progress = &v
 	return s
 }

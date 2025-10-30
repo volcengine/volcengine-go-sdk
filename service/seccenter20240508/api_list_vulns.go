@@ -150,15 +150,15 @@ type DataForListVulnsOutput struct {
 
 	Action *string `type:"string" json:",omitempty"`
 
-	ControlTime *int32 `type:"int32" json:",omitempty"`
+	ControlTime *int64 `type:"int64" json:",omitempty"`
 
-	CreateTime *int32 `type:"int32" json:",omitempty"`
+	CreateTime *int64 `type:"int64" json:",omitempty"`
 
 	CveID []*string `type:"list" json:",omitempty"`
 
 	CwppID *string `type:"string" json:",omitempty"`
 
-	InfectNum *int32 `type:"int32" json:",omitempty"`
+	InfectNum *int64 `type:"int64" json:",omitempty"`
 
 	InfectStatus *InfectStatusForListVulnsOutput `type:"structure" json:",omitempty"`
 
@@ -170,7 +170,7 @@ type DataForListVulnsOutput struct {
 
 	Tag []*string `type:"list" json:",omitempty"`
 
-	UpdateTime *int32 `type:"int32" json:",omitempty"`
+	UpdateTime *int64 `type:"int64" json:",omitempty"`
 
 	VulnName *string `type:"string" json:",omitempty"`
 
@@ -202,13 +202,13 @@ func (s *DataForListVulnsOutput) SetAction(v string) *DataForListVulnsOutput {
 }
 
 // SetControlTime sets the ControlTime field's value.
-func (s *DataForListVulnsOutput) SetControlTime(v int32) *DataForListVulnsOutput {
+func (s *DataForListVulnsOutput) SetControlTime(v int64) *DataForListVulnsOutput {
 	s.ControlTime = &v
 	return s
 }
 
 // SetCreateTime sets the CreateTime field's value.
-func (s *DataForListVulnsOutput) SetCreateTime(v int32) *DataForListVulnsOutput {
+func (s *DataForListVulnsOutput) SetCreateTime(v int64) *DataForListVulnsOutput {
 	s.CreateTime = &v
 	return s
 }
@@ -226,7 +226,7 @@ func (s *DataForListVulnsOutput) SetCwppID(v string) *DataForListVulnsOutput {
 }
 
 // SetInfectNum sets the InfectNum field's value.
-func (s *DataForListVulnsOutput) SetInfectNum(v int32) *DataForListVulnsOutput {
+func (s *DataForListVulnsOutput) SetInfectNum(v int64) *DataForListVulnsOutput {
 	s.InfectNum = &v
 	return s
 }
@@ -262,7 +262,7 @@ func (s *DataForListVulnsOutput) SetTag(v []*string) *DataForListVulnsOutput {
 }
 
 // SetUpdateTime sets the UpdateTime field's value.
-func (s *DataForListVulnsOutput) SetUpdateTime(v int32) *DataForListVulnsOutput {
+func (s *DataForListVulnsOutput) SetUpdateTime(v int64) *DataForListVulnsOutput {
 	s.UpdateTime = &v
 	return s
 }
@@ -288,11 +288,11 @@ func (s *DataForListVulnsOutput) SetVulnType(v string) *DataForListVulnsOutput {
 type InfectStatusForListVulnsOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	Ignore *int32 `type:"int32" json:",omitempty"`
+	Ignore *int64 `type:"int64" json:",omitempty"`
 
-	Processed *int32 `type:"int32" json:",omitempty"`
+	Processed *int64 `type:"int64" json:",omitempty"`
 
-	UnProcessed *int32 `type:"int32" json:",omitempty"`
+	UnProcessed *int64 `type:"int64" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -306,19 +306,19 @@ func (s InfectStatusForListVulnsOutput) GoString() string {
 }
 
 // SetIgnore sets the Ignore field's value.
-func (s *InfectStatusForListVulnsOutput) SetIgnore(v int32) *InfectStatusForListVulnsOutput {
+func (s *InfectStatusForListVulnsOutput) SetIgnore(v int64) *InfectStatusForListVulnsOutput {
 	s.Ignore = &v
 	return s
 }
 
 // SetProcessed sets the Processed field's value.
-func (s *InfectStatusForListVulnsOutput) SetProcessed(v int32) *InfectStatusForListVulnsOutput {
+func (s *InfectStatusForListVulnsOutput) SetProcessed(v int64) *InfectStatusForListVulnsOutput {
 	s.Processed = &v
 	return s
 }
 
 // SetUnProcessed sets the UnProcessed field's value.
-func (s *InfectStatusForListVulnsOutput) SetUnProcessed(v int32) *InfectStatusForListVulnsOutput {
+func (s *InfectStatusForListVulnsOutput) SetUnProcessed(v int64) *InfectStatusForListVulnsOutput {
 	s.UnProcessed = &v
 	return s
 }
@@ -334,9 +334,9 @@ type ListVulnsInput struct {
 
 	CloudProviders []*string `type:"list" json:",omitempty"`
 
-	CreateTimeEnd *int32 `type:"int32" json:",omitempty"`
+	CreateTimeEnd *int64 `type:"int64" json:",omitempty"`
 
-	CreateTimeStart *int32 `type:"int32" json:",omitempty"`
+	CreateTimeStart *int64 `type:"int64" json:",omitempty"`
 
 	CveID *string `type:"string" json:",omitempty"`
 
@@ -347,10 +347,10 @@ type ListVulnsInput struct {
 	Level []*string `type:"list" json:",omitempty"`
 
 	// PageNumber is a required field
-	PageNumber *int32 `type:"int32" json:",omitempty" required:"true"`
+	PageNumber *int64 `type:"int64" json:",omitempty" required:"true"`
 
 	// PageSize is a required field
-	PageSize *int32 `type:"int32" json:",omitempty" required:"true"`
+	PageSize *int64 `type:"int64" json:",omitempty" required:"true"`
 
 	SortBy *string `type:"string" json:",omitempty"`
 
@@ -418,13 +418,13 @@ func (s *ListVulnsInput) SetCloudProviders(v []*string) *ListVulnsInput {
 }
 
 // SetCreateTimeEnd sets the CreateTimeEnd field's value.
-func (s *ListVulnsInput) SetCreateTimeEnd(v int32) *ListVulnsInput {
+func (s *ListVulnsInput) SetCreateTimeEnd(v int64) *ListVulnsInput {
 	s.CreateTimeEnd = &v
 	return s
 }
 
 // SetCreateTimeStart sets the CreateTimeStart field's value.
-func (s *ListVulnsInput) SetCreateTimeStart(v int32) *ListVulnsInput {
+func (s *ListVulnsInput) SetCreateTimeStart(v int64) *ListVulnsInput {
 	s.CreateTimeStart = &v
 	return s
 }
@@ -454,13 +454,13 @@ func (s *ListVulnsInput) SetLevel(v []*string) *ListVulnsInput {
 }
 
 // SetPageNumber sets the PageNumber field's value.
-func (s *ListVulnsInput) SetPageNumber(v int32) *ListVulnsInput {
+func (s *ListVulnsInput) SetPageNumber(v int64) *ListVulnsInput {
 	s.PageNumber = &v
 	return s
 }
 
 // SetPageSize sets the PageSize field's value.
-func (s *ListVulnsInput) SetPageSize(v int32) *ListVulnsInput {
+func (s *ListVulnsInput) SetPageSize(v int64) *ListVulnsInput {
 	s.PageSize = &v
 	return s
 }
@@ -514,11 +514,11 @@ type ListVulnsOutput struct {
 
 	Data []*DataForListVulnsOutput `type:"list" json:",omitempty"`
 
-	PageNumber *int32 `type:"int32" json:",omitempty"`
+	PageNumber *int64 `type:"int64" json:",omitempty"`
 
-	PageSize *int32 `type:"int32" json:",omitempty"`
+	PageSize *int64 `type:"int64" json:",omitempty"`
 
-	TotalCount *int32 `type:"int32" json:",omitempty"`
+	TotalCount *int64 `type:"int64" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -538,19 +538,19 @@ func (s *ListVulnsOutput) SetData(v []*DataForListVulnsOutput) *ListVulnsOutput 
 }
 
 // SetPageNumber sets the PageNumber field's value.
-func (s *ListVulnsOutput) SetPageNumber(v int32) *ListVulnsOutput {
+func (s *ListVulnsOutput) SetPageNumber(v int64) *ListVulnsOutput {
 	s.PageNumber = &v
 	return s
 }
 
 // SetPageSize sets the PageSize field's value.
-func (s *ListVulnsOutput) SetPageSize(v int32) *ListVulnsOutput {
+func (s *ListVulnsOutput) SetPageSize(v int64) *ListVulnsOutput {
 	s.PageSize = &v
 	return s
 }
 
 // SetTotalCount sets the TotalCount field's value.
-func (s *ListVulnsOutput) SetTotalCount(v int32) *ListVulnsOutput {
+func (s *ListVulnsOutput) SetTotalCount(v int64) *ListVulnsOutput {
 	s.TotalCount = &v
 	return s
 }

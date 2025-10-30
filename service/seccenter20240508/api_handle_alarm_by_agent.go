@@ -264,7 +264,7 @@ type ProcessForHandleAlarmByAgentInput struct {
 
 	Exe *string `type:"string" json:",omitempty"`
 
-	Pid *int32 `type:"int32" json:",omitempty"`
+	Pid *int64 `type:"int64" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -290,7 +290,7 @@ func (s *ProcessForHandleAlarmByAgentInput) SetExe(v string) *ProcessForHandleAl
 }
 
 // SetPid sets the Pid field's value.
-func (s *ProcessForHandleAlarmByAgentInput) SetPid(v int32) *ProcessForHandleAlarmByAgentInput {
+func (s *ProcessForHandleAlarmByAgentInput) SetPid(v int64) *ProcessForHandleAlarmByAgentInput {
 	s.Pid = &v
 	return s
 }

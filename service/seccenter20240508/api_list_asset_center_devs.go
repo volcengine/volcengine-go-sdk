@@ -148,7 +148,7 @@ type DataForListAssetCenterDevsOutput struct {
 
 	AccountId *string `type:"string" json:",omitempty"`
 
-	Alarm *int32 `type:"int32" json:",omitempty"`
+	Alarm *int64 `type:"int64" json:",omitempty"`
 
 	AssetId *string `type:"string" json:",omitempty"`
 
@@ -158,7 +158,7 @@ type DataForListAssetCenterDevsOutput struct {
 
 	AssetUk *string `type:"string" json:",omitempty"`
 
-	Baseline *int32 `type:"int32" json:",omitempty"`
+	Baseline *int64 `type:"int64" json:",omitempty"`
 
 	Ip *string `type:"string" json:",omitempty"`
 
@@ -168,7 +168,7 @@ type DataForListAssetCenterDevsOutput struct {
 
 	Status *string `type:"string" json:",omitempty"`
 
-	Vul *int32 `type:"int32" json:",omitempty"`
+	Vul *int64 `type:"int64" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -188,7 +188,7 @@ func (s *DataForListAssetCenterDevsOutput) SetAccountId(v string) *DataForListAs
 }
 
 // SetAlarm sets the Alarm field's value.
-func (s *DataForListAssetCenterDevsOutput) SetAlarm(v int32) *DataForListAssetCenterDevsOutput {
+func (s *DataForListAssetCenterDevsOutput) SetAlarm(v int64) *DataForListAssetCenterDevsOutput {
 	s.Alarm = &v
 	return s
 }
@@ -218,7 +218,7 @@ func (s *DataForListAssetCenterDevsOutput) SetAssetUk(v string) *DataForListAsse
 }
 
 // SetBaseline sets the Baseline field's value.
-func (s *DataForListAssetCenterDevsOutput) SetBaseline(v int32) *DataForListAssetCenterDevsOutput {
+func (s *DataForListAssetCenterDevsOutput) SetBaseline(v int64) *DataForListAssetCenterDevsOutput {
 	s.Baseline = &v
 	return s
 }
@@ -248,7 +248,7 @@ func (s *DataForListAssetCenterDevsOutput) SetStatus(v string) *DataForListAsset
 }
 
 // SetVul sets the Vul field's value.
-func (s *DataForListAssetCenterDevsOutput) SetVul(v int32) *DataForListAssetCenterDevsOutput {
+func (s *DataForListAssetCenterDevsOutput) SetVul(v int64) *DataForListAssetCenterDevsOutput {
 	s.Vul = &v
 	return s
 }
@@ -267,10 +267,10 @@ type ListAssetCenterDevsInput struct {
 	IsAll *bool `type:"boolean" json:",omitempty"`
 
 	// PageNumber is a required field
-	PageNumber *int32 `type:"int32" json:",omitempty" required:"true"`
+	PageNumber *int64 `type:"int64" json:",omitempty" required:"true"`
 
 	// PageSize is a required field
-	PageSize *int32 `type:"int32" json:",omitempty" required:"true"`
+	PageSize *int64 `type:"int64" json:",omitempty" required:"true"`
 
 	Platforms []*string `type:"list" json:",omitempty"`
 
@@ -342,13 +342,13 @@ func (s *ListAssetCenterDevsInput) SetIsAll(v bool) *ListAssetCenterDevsInput {
 }
 
 // SetPageNumber sets the PageNumber field's value.
-func (s *ListAssetCenterDevsInput) SetPageNumber(v int32) *ListAssetCenterDevsInput {
+func (s *ListAssetCenterDevsInput) SetPageNumber(v int64) *ListAssetCenterDevsInput {
 	s.PageNumber = &v
 	return s
 }
 
 // SetPageSize sets the PageSize field's value.
-func (s *ListAssetCenterDevsInput) SetPageSize(v int32) *ListAssetCenterDevsInput {
+func (s *ListAssetCenterDevsInput) SetPageSize(v int64) *ListAssetCenterDevsInput {
 	s.PageSize = &v
 	return s
 }
@@ -396,11 +396,11 @@ type ListAssetCenterDevsOutput struct {
 
 	Data []*DataForListAssetCenterDevsOutput `type:"list" json:",omitempty"`
 
-	PageNumber *int32 `type:"int32" json:",omitempty"`
+	PageNumber *int64 `type:"int64" json:",omitempty"`
 
-	PageSize *int32 `type:"int32" json:",omitempty"`
+	PageSize *int64 `type:"int64" json:",omitempty"`
 
-	TotalCount *int32 `type:"int32" json:",omitempty"`
+	TotalCount *int64 `type:"int64" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -420,19 +420,19 @@ func (s *ListAssetCenterDevsOutput) SetData(v []*DataForListAssetCenterDevsOutpu
 }
 
 // SetPageNumber sets the PageNumber field's value.
-func (s *ListAssetCenterDevsOutput) SetPageNumber(v int32) *ListAssetCenterDevsOutput {
+func (s *ListAssetCenterDevsOutput) SetPageNumber(v int64) *ListAssetCenterDevsOutput {
 	s.PageNumber = &v
 	return s
 }
 
 // SetPageSize sets the PageSize field's value.
-func (s *ListAssetCenterDevsOutput) SetPageSize(v int32) *ListAssetCenterDevsOutput {
+func (s *ListAssetCenterDevsOutput) SetPageSize(v int64) *ListAssetCenterDevsOutput {
 	s.PageSize = &v
 	return s
 }
 
 // SetTotalCount sets the TotalCount field's value.
-func (s *ListAssetCenterDevsOutput) SetTotalCount(v int32) *ListAssetCenterDevsOutput {
+func (s *ListAssetCenterDevsOutput) SetTotalCount(v int64) *ListAssetCenterDevsOutput {
 	s.TotalCount = &v
 	return s
 }

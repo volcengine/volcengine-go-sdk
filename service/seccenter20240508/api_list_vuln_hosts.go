@@ -154,9 +154,9 @@ type DataForListVulnHostsOutput struct {
 
 	AssetName *string `type:"string" json:",omitempty"`
 
-	ControlTime *int32 `type:"int32" json:",omitempty"`
+	ControlTime *int64 `type:"int64" json:",omitempty"`
 
-	CreateTime *int32 `type:"int32" json:",omitempty"`
+	CreateTime *int64 `type:"int64" json:",omitempty"`
 
 	CwppID *string `type:"string" json:",omitempty"`
 
@@ -170,7 +170,7 @@ type DataForListVulnHostsOutput struct {
 
 	Status *string `type:"string" json:",omitempty"`
 
-	UpdateTime *int32 `type:"int32" json:",omitempty"`
+	UpdateTime *int64 `type:"int64" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -208,13 +208,13 @@ func (s *DataForListVulnHostsOutput) SetAssetName(v string) *DataForListVulnHost
 }
 
 // SetControlTime sets the ControlTime field's value.
-func (s *DataForListVulnHostsOutput) SetControlTime(v int32) *DataForListVulnHostsOutput {
+func (s *DataForListVulnHostsOutput) SetControlTime(v int64) *DataForListVulnHostsOutput {
 	s.ControlTime = &v
 	return s
 }
 
 // SetCreateTime sets the CreateTime field's value.
-func (s *DataForListVulnHostsOutput) SetCreateTime(v int32) *DataForListVulnHostsOutput {
+func (s *DataForListVulnHostsOutput) SetCreateTime(v int64) *DataForListVulnHostsOutput {
 	s.CreateTime = &v
 	return s
 }
@@ -256,7 +256,7 @@ func (s *DataForListVulnHostsOutput) SetStatus(v string) *DataForListVulnHostsOu
 }
 
 // SetUpdateTime sets the UpdateTime field's value.
-func (s *DataForListVulnHostsOutput) SetUpdateTime(v int32) *DataForListVulnHostsOutput {
+func (s *DataForListVulnHostsOutput) SetUpdateTime(v int64) *DataForListVulnHostsOutput {
 	s.UpdateTime = &v
 	return s
 }
@@ -287,10 +287,10 @@ type ListVulnHostsInput struct {
 	LeafGroupIDs []*string `type:"list" json:",omitempty"`
 
 	// PageNumber is a required field
-	PageNumber *int32 `type:"int32" json:",omitempty" required:"true"`
+	PageNumber *int64 `type:"int64" json:",omitempty" required:"true"`
 
 	// PageSize is a required field
-	PageSize *int32 `type:"int32" json:",omitempty" required:"true"`
+	PageSize *int64 `type:"int64" json:",omitempty" required:"true"`
 
 	SortBy *string `type:"string" json:",omitempty"`
 
@@ -394,13 +394,13 @@ func (s *ListVulnHostsInput) SetLeafGroupIDs(v []*string) *ListVulnHostsInput {
 }
 
 // SetPageNumber sets the PageNumber field's value.
-func (s *ListVulnHostsInput) SetPageNumber(v int32) *ListVulnHostsInput {
+func (s *ListVulnHostsInput) SetPageNumber(v int64) *ListVulnHostsInput {
 	s.PageNumber = &v
 	return s
 }
 
 // SetPageSize sets the PageSize field's value.
-func (s *ListVulnHostsInput) SetPageSize(v int32) *ListVulnHostsInput {
+func (s *ListVulnHostsInput) SetPageSize(v int64) *ListVulnHostsInput {
 	s.PageSize = &v
 	return s
 }
@@ -436,11 +436,11 @@ type ListVulnHostsOutput struct {
 
 	Data []*DataForListVulnHostsOutput `type:"list" json:",omitempty"`
 
-	PageNumber *int32 `type:"int32" json:",omitempty"`
+	PageNumber *int64 `type:"int64" json:",omitempty"`
 
-	PageSize *int32 `type:"int32" json:",omitempty"`
+	PageSize *int64 `type:"int64" json:",omitempty"`
 
-	TotalCount *int32 `type:"int32" json:",omitempty"`
+	TotalCount *int64 `type:"int64" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -460,19 +460,19 @@ func (s *ListVulnHostsOutput) SetData(v []*DataForListVulnHostsOutput) *ListVuln
 }
 
 // SetPageNumber sets the PageNumber field's value.
-func (s *ListVulnHostsOutput) SetPageNumber(v int32) *ListVulnHostsOutput {
+func (s *ListVulnHostsOutput) SetPageNumber(v int64) *ListVulnHostsOutput {
 	s.PageNumber = &v
 	return s
 }
 
 // SetPageSize sets the PageSize field's value.
-func (s *ListVulnHostsOutput) SetPageSize(v int32) *ListVulnHostsOutput {
+func (s *ListVulnHostsOutput) SetPageSize(v int64) *ListVulnHostsOutput {
 	s.PageSize = &v
 	return s
 }
 
 // SetTotalCount sets the TotalCount field's value.
-func (s *ListVulnHostsOutput) SetTotalCount(v int32) *ListVulnHostsOutput {
+func (s *ListVulnHostsOutput) SetTotalCount(v int64) *ListVulnHostsOutput {
 	s.TotalCount = &v
 	return s
 }

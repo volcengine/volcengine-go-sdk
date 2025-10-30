@@ -151,7 +151,7 @@ type ModifyCloudEnvInput struct {
 	// ID is a required field
 	ID *string `type:"string" json:",omitempty" required:"true"`
 
-	SyncPeriod *int32 `type:"int32" json:",omitempty"`
+	SyncPeriod *int64 `type:"int64" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -190,7 +190,7 @@ func (s *ModifyCloudEnvInput) SetID(v string) *ModifyCloudEnvInput {
 }
 
 // SetSyncPeriod sets the SyncPeriod field's value.
-func (s *ModifyCloudEnvInput) SetSyncPeriod(v int32) *ModifyCloudEnvInput {
+func (s *ModifyCloudEnvInput) SetSyncPeriod(v int64) *ModifyCloudEnvInput {
 	s.SyncPeriod = &v
 	return s
 }

@@ -336,7 +336,7 @@ type DataForListMultiLevelAssetHostsOutput struct {
 
 	EcsInstance *EcsInstanceForListMultiLevelAssetHostsOutput `type:"structure" json:",omitempty"`
 
-	FirstHeartbeatTime *int32 `type:"int32" json:",omitempty"`
+	FirstHeartbeatTime *int64 `type:"int64" json:",omitempty"`
 
 	Gateway *string `type:"string" json:",omitempty"`
 
@@ -348,7 +348,7 @@ type DataForListMultiLevelAssetHostsOutput struct {
 
 	KernelVersion *string `type:"string" json:",omitempty"`
 
-	LastHeartbeatTime *int32 `type:"int32" json:",omitempty"`
+	LastHeartbeatTime *int64 `type:"int64" json:",omitempty"`
 
 	MemUsage *float64 `type:"double" json:",omitempty"`
 
@@ -366,15 +366,15 @@ type DataForListMultiLevelAssetHostsOutput struct {
 
 	SecurityEnhancement *bool `type:"boolean" json:",omitempty"`
 
-	StartTime *int32 `type:"int32" json:",omitempty"`
+	StartTime *int64 `type:"int64" json:",omitempty"`
 
 	Status *string `type:"string" json:",omitempty"`
 
 	Tags []*string `type:"list" json:",omitempty"`
 
-	TotalMem *int32 `type:"int32" json:",omitempty"`
+	TotalMem *int64 `type:"int64" json:",omitempty"`
 
-	UpdateTime *int32 `type:"int32" json:",omitempty"`
+	UpdateTime *int64 `type:"int64" json:",omitempty"`
 
 	UserStatus *string `type:"string" json:",omitempty"`
 
@@ -440,7 +440,7 @@ func (s *DataForListMultiLevelAssetHostsOutput) SetEcsInstance(v *EcsInstanceFor
 }
 
 // SetFirstHeartbeatTime sets the FirstHeartbeatTime field's value.
-func (s *DataForListMultiLevelAssetHostsOutput) SetFirstHeartbeatTime(v int32) *DataForListMultiLevelAssetHostsOutput {
+func (s *DataForListMultiLevelAssetHostsOutput) SetFirstHeartbeatTime(v int64) *DataForListMultiLevelAssetHostsOutput {
 	s.FirstHeartbeatTime = &v
 	return s
 }
@@ -476,7 +476,7 @@ func (s *DataForListMultiLevelAssetHostsOutput) SetKernelVersion(v string) *Data
 }
 
 // SetLastHeartbeatTime sets the LastHeartbeatTime field's value.
-func (s *DataForListMultiLevelAssetHostsOutput) SetLastHeartbeatTime(v int32) *DataForListMultiLevelAssetHostsOutput {
+func (s *DataForListMultiLevelAssetHostsOutput) SetLastHeartbeatTime(v int64) *DataForListMultiLevelAssetHostsOutput {
 	s.LastHeartbeatTime = &v
 	return s
 }
@@ -530,7 +530,7 @@ func (s *DataForListMultiLevelAssetHostsOutput) SetSecurityEnhancement(v bool) *
 }
 
 // SetStartTime sets the StartTime field's value.
-func (s *DataForListMultiLevelAssetHostsOutput) SetStartTime(v int32) *DataForListMultiLevelAssetHostsOutput {
+func (s *DataForListMultiLevelAssetHostsOutput) SetStartTime(v int64) *DataForListMultiLevelAssetHostsOutput {
 	s.StartTime = &v
 	return s
 }
@@ -548,13 +548,13 @@ func (s *DataForListMultiLevelAssetHostsOutput) SetTags(v []*string) *DataForLis
 }
 
 // SetTotalMem sets the TotalMem field's value.
-func (s *DataForListMultiLevelAssetHostsOutput) SetTotalMem(v int32) *DataForListMultiLevelAssetHostsOutput {
+func (s *DataForListMultiLevelAssetHostsOutput) SetTotalMem(v int64) *DataForListMultiLevelAssetHostsOutput {
 	s.TotalMem = &v
 	return s
 }
 
 // SetUpdateTime sets the UpdateTime field's value.
-func (s *DataForListMultiLevelAssetHostsOutput) SetUpdateTime(v int32) *DataForListMultiLevelAssetHostsOutput {
+func (s *DataForListMultiLevelAssetHostsOutput) SetUpdateTime(v int64) *DataForListMultiLevelAssetHostsOutput {
 	s.UpdateTime = &v
 	return s
 }
@@ -578,7 +578,9 @@ type EcsInstanceForListMultiLevelAssetHostsOutput struct {
 
 	AccountID *string `type:"string" json:",omitempty"`
 
-	Cpu *int32 `type:"int32" json:",omitempty"`
+	Cpu *int64 `type:"int64" json:",omitempty"`
+
+	CreatedAt *string `type:"string" json:",omitempty"`
 
 	ECSUpdateAt *string `type:"string" json:",omitempty"`
 
@@ -590,7 +592,7 @@ type EcsInstanceForListMultiLevelAssetHostsOutput struct {
 
 	InstanceName *string `type:"string" json:",omitempty"`
 
-	Mem *int32 `type:"int32" json:",omitempty"`
+	Mem *int64 `type:"int64" json:",omitempty"`
 
 	OsName *string `type:"string" json:",omitempty"`
 
@@ -603,6 +605,8 @@ type EcsInstanceForListMultiLevelAssetHostsOutput struct {
 	PrimaryIpAddress *string `type:"string" json:",omitempty"`
 
 	Region *string `type:"string" json:",omitempty"`
+
+	SecurityEnhancementStrategy *string `type:"string" json:",omitempty"`
 
 	Status *string `type:"string" json:",omitempty"`
 
@@ -638,8 +642,14 @@ func (s *EcsInstanceForListMultiLevelAssetHostsOutput) SetAccountID(v string) *E
 }
 
 // SetCpu sets the Cpu field's value.
-func (s *EcsInstanceForListMultiLevelAssetHostsOutput) SetCpu(v int32) *EcsInstanceForListMultiLevelAssetHostsOutput {
+func (s *EcsInstanceForListMultiLevelAssetHostsOutput) SetCpu(v int64) *EcsInstanceForListMultiLevelAssetHostsOutput {
 	s.Cpu = &v
+	return s
+}
+
+// SetCreatedAt sets the CreatedAt field's value.
+func (s *EcsInstanceForListMultiLevelAssetHostsOutput) SetCreatedAt(v string) *EcsInstanceForListMultiLevelAssetHostsOutput {
+	s.CreatedAt = &v
 	return s
 }
 
@@ -674,7 +684,7 @@ func (s *EcsInstanceForListMultiLevelAssetHostsOutput) SetInstanceName(v string)
 }
 
 // SetMem sets the Mem field's value.
-func (s *EcsInstanceForListMultiLevelAssetHostsOutput) SetMem(v int32) *EcsInstanceForListMultiLevelAssetHostsOutput {
+func (s *EcsInstanceForListMultiLevelAssetHostsOutput) SetMem(v int64) *EcsInstanceForListMultiLevelAssetHostsOutput {
 	s.Mem = &v
 	return s
 }
@@ -712,6 +722,12 @@ func (s *EcsInstanceForListMultiLevelAssetHostsOutput) SetPrimaryIpAddress(v str
 // SetRegion sets the Region field's value.
 func (s *EcsInstanceForListMultiLevelAssetHostsOutput) SetRegion(v string) *EcsInstanceForListMultiLevelAssetHostsOutput {
 	s.Region = &v
+	return s
+}
+
+// SetSecurityEnhancementStrategy sets the SecurityEnhancementStrategy field's value.
+func (s *EcsInstanceForListMultiLevelAssetHostsOutput) SetSecurityEnhancementStrategy(v string) *EcsInstanceForListMultiLevelAssetHostsOutput {
+	s.SecurityEnhancementStrategy = &v
 	return s
 }
 
@@ -757,10 +773,10 @@ type ListMultiLevelAssetHostsInput struct {
 	InstitutionID *string `type:"string" json:",omitempty"`
 
 	// PageNumber is a required field
-	PageNumber *int32 `type:"int32" json:",omitempty" required:"true"`
+	PageNumber *int64 `type:"int64" json:",omitempty" required:"true"`
 
 	// PageSize is a required field
-	PageSize *int32 `type:"int32" json:",omitempty" required:"true"`
+	PageSize *int64 `type:"int64" json:",omitempty" required:"true"`
 
 	SortBy *string `type:"string" json:",omitempty"`
 
@@ -818,13 +834,13 @@ func (s *ListMultiLevelAssetHostsInput) SetInstitutionID(v string) *ListMultiLev
 }
 
 // SetPageNumber sets the PageNumber field's value.
-func (s *ListMultiLevelAssetHostsInput) SetPageNumber(v int32) *ListMultiLevelAssetHostsInput {
+func (s *ListMultiLevelAssetHostsInput) SetPageNumber(v int64) *ListMultiLevelAssetHostsInput {
 	s.PageNumber = &v
 	return s
 }
 
 // SetPageSize sets the PageSize field's value.
-func (s *ListMultiLevelAssetHostsInput) SetPageSize(v int32) *ListMultiLevelAssetHostsInput {
+func (s *ListMultiLevelAssetHostsInput) SetPageSize(v int64) *ListMultiLevelAssetHostsInput {
 	s.PageSize = &v
 	return s
 }
@@ -848,11 +864,11 @@ type ListMultiLevelAssetHostsOutput struct {
 
 	Data []*DataForListMultiLevelAssetHostsOutput `type:"list" json:",omitempty"`
 
-	PageNumber *int32 `type:"int32" json:",omitempty"`
+	PageNumber *int64 `type:"int64" json:",omitempty"`
 
-	PageSize *int32 `type:"int32" json:",omitempty"`
+	PageSize *int64 `type:"int64" json:",omitempty"`
 
-	TotalCount *int32 `type:"int32" json:",omitempty"`
+	TotalCount *int64 `type:"int64" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -872,19 +888,19 @@ func (s *ListMultiLevelAssetHostsOutput) SetData(v []*DataForListMultiLevelAsset
 }
 
 // SetPageNumber sets the PageNumber field's value.
-func (s *ListMultiLevelAssetHostsOutput) SetPageNumber(v int32) *ListMultiLevelAssetHostsOutput {
+func (s *ListMultiLevelAssetHostsOutput) SetPageNumber(v int64) *ListMultiLevelAssetHostsOutput {
 	s.PageNumber = &v
 	return s
 }
 
 // SetPageSize sets the PageSize field's value.
-func (s *ListMultiLevelAssetHostsOutput) SetPageSize(v int32) *ListMultiLevelAssetHostsOutput {
+func (s *ListMultiLevelAssetHostsOutput) SetPageSize(v int64) *ListMultiLevelAssetHostsOutput {
 	s.PageSize = &v
 	return s
 }
 
 // SetTotalCount sets the TotalCount field's value.
-func (s *ListMultiLevelAssetHostsOutput) SetTotalCount(v int32) *ListMultiLevelAssetHostsOutput {
+func (s *ListMultiLevelAssetHostsOutput) SetTotalCount(v int64) *ListMultiLevelAssetHostsOutput {
 	s.TotalCount = &v
 	return s
 }
@@ -938,13 +954,13 @@ func (s *RiskForListMultiLevelAssetHostsInput) SetVuln(v bool) *RiskForListMulti
 type RiskForListMultiLevelAssetHostsOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	Alarm *int32 `type:"int32" json:",omitempty"`
+	Alarm *int64 `type:"int64" json:",omitempty"`
 
-	Baseline *int32 `type:"int32" json:",omitempty"`
+	Baseline *int64 `type:"int64" json:",omitempty"`
 
-	Virus *int32 `type:"int32" json:",omitempty"`
+	Virus *int64 `type:"int64" json:",omitempty"`
 
-	Vuln *int32 `type:"int32" json:",omitempty"`
+	Vuln *int64 `type:"int64" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -958,25 +974,25 @@ func (s RiskForListMultiLevelAssetHostsOutput) GoString() string {
 }
 
 // SetAlarm sets the Alarm field's value.
-func (s *RiskForListMultiLevelAssetHostsOutput) SetAlarm(v int32) *RiskForListMultiLevelAssetHostsOutput {
+func (s *RiskForListMultiLevelAssetHostsOutput) SetAlarm(v int64) *RiskForListMultiLevelAssetHostsOutput {
 	s.Alarm = &v
 	return s
 }
 
 // SetBaseline sets the Baseline field's value.
-func (s *RiskForListMultiLevelAssetHostsOutput) SetBaseline(v int32) *RiskForListMultiLevelAssetHostsOutput {
+func (s *RiskForListMultiLevelAssetHostsOutput) SetBaseline(v int64) *RiskForListMultiLevelAssetHostsOutput {
 	s.Baseline = &v
 	return s
 }
 
 // SetVirus sets the Virus field's value.
-func (s *RiskForListMultiLevelAssetHostsOutput) SetVirus(v int32) *RiskForListMultiLevelAssetHostsOutput {
+func (s *RiskForListMultiLevelAssetHostsOutput) SetVirus(v int64) *RiskForListMultiLevelAssetHostsOutput {
 	s.Virus = &v
 	return s
 }
 
 // SetVuln sets the Vuln field's value.
-func (s *RiskForListMultiLevelAssetHostsOutput) SetVuln(v int32) *RiskForListMultiLevelAssetHostsOutput {
+func (s *RiskForListMultiLevelAssetHostsOutput) SetVuln(v int64) *RiskForListMultiLevelAssetHostsOutput {
 	s.Vuln = &v
 	return s
 }

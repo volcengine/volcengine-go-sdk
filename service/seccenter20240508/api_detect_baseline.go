@@ -212,13 +212,13 @@ type DetectBaselineInput struct {
 
 	AssetType *string `type:"string" json:",omitempty" enum:"EnumOfAssetTypeForDetectBaselineInput"`
 
-	BaselineList []*int32 `type:"list" json:",omitempty"`
+	BaselineList []*int64 `type:"list" json:",omitempty"`
 
-	CheckList []*int32 `type:"list" json:",omitempty"`
+	CheckList []*int64 `type:"list" json:",omitempty"`
 
 	Conditions *ConditionsForDetectBaselineInput `type:"structure" json:",omitempty"`
 
-	GroupID *int32 `type:"int32" json:",omitempty"`
+	GroupID *int64 `type:"int64" json:",omitempty"`
 
 	HostList []*string `type:"list" json:",omitempty"`
 
@@ -254,13 +254,13 @@ func (s *DetectBaselineInput) SetAssetType(v string) *DetectBaselineInput {
 }
 
 // SetBaselineList sets the BaselineList field's value.
-func (s *DetectBaselineInput) SetBaselineList(v []*int32) *DetectBaselineInput {
+func (s *DetectBaselineInput) SetBaselineList(v []*int64) *DetectBaselineInput {
 	s.BaselineList = v
 	return s
 }
 
 // SetCheckList sets the CheckList field's value.
-func (s *DetectBaselineInput) SetCheckList(v []*int32) *DetectBaselineInput {
+func (s *DetectBaselineInput) SetCheckList(v []*int64) *DetectBaselineInput {
 	s.CheckList = v
 	return s
 }
@@ -272,7 +272,7 @@ func (s *DetectBaselineInput) SetConditions(v *ConditionsForDetectBaselineInput)
 }
 
 // SetGroupID sets the GroupID field's value.
-func (s *DetectBaselineInput) SetGroupID(v int32) *DetectBaselineInput {
+func (s *DetectBaselineInput) SetGroupID(v int64) *DetectBaselineInput {
 	s.GroupID = &v
 	return s
 }

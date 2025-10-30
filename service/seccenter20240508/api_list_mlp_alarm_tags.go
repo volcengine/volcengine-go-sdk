@@ -142,11 +142,11 @@ func (c *SECCENTER20240508) ListMlpAlarmTagsWithContext(ctx volcengine.Context, 
 type ListMlpAlarmTagsInput struct {
 	_ struct{} `type:"structure"`
 
-	AlarmIDList *string `type:"string"`
+	AlarmIDList []*string `type:"list"`
 
 	AlarmType *string `type:"string"`
 
-	AlertTags *string `type:"string"`
+	AlertTags []*string `type:"list"`
 
 	TopGroupID *string `type:"string"`
 }
@@ -162,8 +162,8 @@ func (s ListMlpAlarmTagsInput) GoString() string {
 }
 
 // SetAlarmIDList sets the AlarmIDList field's value.
-func (s *ListMlpAlarmTagsInput) SetAlarmIDList(v string) *ListMlpAlarmTagsInput {
-	s.AlarmIDList = &v
+func (s *ListMlpAlarmTagsInput) SetAlarmIDList(v []*string) *ListMlpAlarmTagsInput {
+	s.AlarmIDList = v
 	return s
 }
 
@@ -174,8 +174,8 @@ func (s *ListMlpAlarmTagsInput) SetAlarmType(v string) *ListMlpAlarmTagsInput {
 }
 
 // SetAlertTags sets the AlertTags field's value.
-func (s *ListMlpAlarmTagsInput) SetAlertTags(v string) *ListMlpAlarmTagsInput {
-	s.AlertTags = &v
+func (s *ListMlpAlarmTagsInput) SetAlertTags(v []*string) *ListMlpAlarmTagsInput {
+	s.AlertTags = v
 	return s
 }
 

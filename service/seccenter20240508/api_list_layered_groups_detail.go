@@ -156,9 +156,9 @@ type GroupForListLayeredGroupsDetailOutput struct {
 
 	GroupPath *string `type:"string" json:",omitempty"`
 
-	HostCount *int32 `type:"int32" json:",omitempty"`
+	HostCount *int64 `type:"int64" json:",omitempty"`
 
-	Level *int32 `type:"int32" json:",omitempty"`
+	Level *int64 `type:"int64" json:",omitempty"`
 
 	ParentID *string `type:"string" json:",omitempty"`
 
@@ -206,13 +206,13 @@ func (s *GroupForListLayeredGroupsDetailOutput) SetGroupPath(v string) *GroupFor
 }
 
 // SetHostCount sets the HostCount field's value.
-func (s *GroupForListLayeredGroupsDetailOutput) SetHostCount(v int32) *GroupForListLayeredGroupsDetailOutput {
+func (s *GroupForListLayeredGroupsDetailOutput) SetHostCount(v int64) *GroupForListLayeredGroupsDetailOutput {
 	s.HostCount = &v
 	return s
 }
 
 // SetLevel sets the Level field's value.
-func (s *GroupForListLayeredGroupsDetailOutput) SetLevel(v int32) *GroupForListLayeredGroupsDetailOutput {
+func (s *GroupForListLayeredGroupsDetailOutput) SetLevel(v int64) *GroupForListLayeredGroupsDetailOutput {
 	s.Level = &v
 	return s
 }
@@ -266,7 +266,7 @@ type ListLayeredGroupsDetailOutput struct {
 
 	Groups []*GroupForListLayeredGroupsDetailOutput `type:"list" json:",omitempty"`
 
-	Total *int32 `type:"int32" json:",omitempty"`
+	Total *int64 `type:"int64" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -286,7 +286,7 @@ func (s *ListLayeredGroupsDetailOutput) SetGroups(v []*GroupForListLayeredGroups
 }
 
 // SetTotal sets the Total field's value.
-func (s *ListLayeredGroupsDetailOutput) SetTotal(v int32) *ListLayeredGroupsDetailOutput {
+func (s *ListLayeredGroupsDetailOutput) SetTotal(v int64) *ListLayeredGroupsDetailOutput {
 	s.Total = &v
 	return s
 }

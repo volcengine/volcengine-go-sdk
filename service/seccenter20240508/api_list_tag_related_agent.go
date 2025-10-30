@@ -176,7 +176,7 @@ type ListTagRelatedAgentOutput struct {
 
 	AgentIdList []*string `type:"list"`
 
-	HostNum *int32 `type:"int32"`
+	HostNum *int64 `type:"int64"`
 }
 
 // String returns the string representation
@@ -196,7 +196,7 @@ func (s *ListTagRelatedAgentOutput) SetAgentIdList(v []*string) *ListTagRelatedA
 }
 
 // SetHostNum sets the HostNum field's value.
-func (s *ListTagRelatedAgentOutput) SetHostNum(v int32) *ListTagRelatedAgentOutput {
+func (s *ListTagRelatedAgentOutput) SetHostNum(v int64) *ListTagRelatedAgentOutput {
 	s.HostNum = &v
 	return s
 }

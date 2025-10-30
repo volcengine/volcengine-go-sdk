@@ -143,6 +143,44 @@ func (c *SECCENTER20240508) GetTLSInfoWithContext(ctx volcengine.Context, input 
 	return out, req.Send()
 }
 
+type AlarmTopicConfigForGetTLSInfoOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	StorageDays *int64 `type:"int64" json:",omitempty"`
+
+	Switch *bool `type:"boolean" json:",omitempty"`
+
+	TopicID *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s AlarmTopicConfigForGetTLSInfoOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s AlarmTopicConfigForGetTLSInfoOutput) GoString() string {
+	return s.String()
+}
+
+// SetStorageDays sets the StorageDays field's value.
+func (s *AlarmTopicConfigForGetTLSInfoOutput) SetStorageDays(v int64) *AlarmTopicConfigForGetTLSInfoOutput {
+	s.StorageDays = &v
+	return s
+}
+
+// SetSwitch sets the Switch field's value.
+func (s *AlarmTopicConfigForGetTLSInfoOutput) SetSwitch(v bool) *AlarmTopicConfigForGetTLSInfoOutput {
+	s.Switch = &v
+	return s
+}
+
+// SetTopicID sets the TopicID field's value.
+func (s *AlarmTopicConfigForGetTLSInfoOutput) SetTopicID(v string) *AlarmTopicConfigForGetTLSInfoOutput {
+	s.TopicID = &v
+	return s
+}
+
 type GetTLSInfoInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 }
@@ -162,23 +200,27 @@ type GetTLSInfoOutput struct {
 
 	Metadata *response.ResponseMetadata
 
+	AlarmTopicConfig *AlarmTopicConfigForGetTLSInfoOutput `type:"structure" json:",omitempty"`
+
 	Authorized *bool `type:"boolean" json:",omitempty"`
+
+	LoginTopicConfig *LoginTopicConfigForGetTLSInfoOutput `type:"structure" json:",omitempty"`
 
 	Open *bool `type:"boolean" json:",omitempty"`
 
-	ProjectId *string `type:"string" json:",omitempty"`
+	PortChangeTopicConfig *PortChangeTopicConfigForGetTLSInfoOutput `type:"structure" json:",omitempty"`
 
-	QuotaTotal *int32 `type:"int32" json:",omitempty"`
+	ProcessStartTopicConfig *ProcessStartTopicConfigForGetTLSInfoOutput `type:"structure" json:",omitempty"`
 
-	QuotaUsed *int32 `type:"int32" json:",omitempty"`
+	ProjectID *string `type:"string" json:",omitempty"`
 
-	StorageDays *int32 `type:"int32" json:",omitempty"`
+	QuotaTotal *int64 `type:"int64" json:",omitempty"`
 
-	Threshold *int32 `type:"int32" json:",omitempty"`
+	QuotaUsed *int64 `type:"int64" json:",omitempty"`
 
-	TopicId *string `type:"string" json:",omitempty"`
+	Threshold *int64 `type:"int64" json:",omitempty"`
 
-	VulnTopicId *string `type:"string" json:",omitempty"`
+	VulnTopicConfig *VulnTopicConfigForGetTLSInfoOutput `type:"structure" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -191,9 +233,21 @@ func (s GetTLSInfoOutput) GoString() string {
 	return s.String()
 }
 
+// SetAlarmTopicConfig sets the AlarmTopicConfig field's value.
+func (s *GetTLSInfoOutput) SetAlarmTopicConfig(v *AlarmTopicConfigForGetTLSInfoOutput) *GetTLSInfoOutput {
+	s.AlarmTopicConfig = v
+	return s
+}
+
 // SetAuthorized sets the Authorized field's value.
 func (s *GetTLSInfoOutput) SetAuthorized(v bool) *GetTLSInfoOutput {
 	s.Authorized = &v
+	return s
+}
+
+// SetLoginTopicConfig sets the LoginTopicConfig field's value.
+func (s *GetTLSInfoOutput) SetLoginTopicConfig(v *LoginTopicConfigForGetTLSInfoOutput) *GetTLSInfoOutput {
+	s.LoginTopicConfig = v
 	return s
 }
 
@@ -203,44 +257,196 @@ func (s *GetTLSInfoOutput) SetOpen(v bool) *GetTLSInfoOutput {
 	return s
 }
 
-// SetProjectId sets the ProjectId field's value.
-func (s *GetTLSInfoOutput) SetProjectId(v string) *GetTLSInfoOutput {
-	s.ProjectId = &v
+// SetPortChangeTopicConfig sets the PortChangeTopicConfig field's value.
+func (s *GetTLSInfoOutput) SetPortChangeTopicConfig(v *PortChangeTopicConfigForGetTLSInfoOutput) *GetTLSInfoOutput {
+	s.PortChangeTopicConfig = v
+	return s
+}
+
+// SetProcessStartTopicConfig sets the ProcessStartTopicConfig field's value.
+func (s *GetTLSInfoOutput) SetProcessStartTopicConfig(v *ProcessStartTopicConfigForGetTLSInfoOutput) *GetTLSInfoOutput {
+	s.ProcessStartTopicConfig = v
+	return s
+}
+
+// SetProjectID sets the ProjectID field's value.
+func (s *GetTLSInfoOutput) SetProjectID(v string) *GetTLSInfoOutput {
+	s.ProjectID = &v
 	return s
 }
 
 // SetQuotaTotal sets the QuotaTotal field's value.
-func (s *GetTLSInfoOutput) SetQuotaTotal(v int32) *GetTLSInfoOutput {
+func (s *GetTLSInfoOutput) SetQuotaTotal(v int64) *GetTLSInfoOutput {
 	s.QuotaTotal = &v
 	return s
 }
 
 // SetQuotaUsed sets the QuotaUsed field's value.
-func (s *GetTLSInfoOutput) SetQuotaUsed(v int32) *GetTLSInfoOutput {
+func (s *GetTLSInfoOutput) SetQuotaUsed(v int64) *GetTLSInfoOutput {
 	s.QuotaUsed = &v
 	return s
 }
 
-// SetStorageDays sets the StorageDays field's value.
-func (s *GetTLSInfoOutput) SetStorageDays(v int32) *GetTLSInfoOutput {
-	s.StorageDays = &v
-	return s
-}
-
 // SetThreshold sets the Threshold field's value.
-func (s *GetTLSInfoOutput) SetThreshold(v int32) *GetTLSInfoOutput {
+func (s *GetTLSInfoOutput) SetThreshold(v int64) *GetTLSInfoOutput {
 	s.Threshold = &v
 	return s
 }
 
-// SetTopicId sets the TopicId field's value.
-func (s *GetTLSInfoOutput) SetTopicId(v string) *GetTLSInfoOutput {
-	s.TopicId = &v
+// SetVulnTopicConfig sets the VulnTopicConfig field's value.
+func (s *GetTLSInfoOutput) SetVulnTopicConfig(v *VulnTopicConfigForGetTLSInfoOutput) *GetTLSInfoOutput {
+	s.VulnTopicConfig = v
 	return s
 }
 
-// SetVulnTopicId sets the VulnTopicId field's value.
-func (s *GetTLSInfoOutput) SetVulnTopicId(v string) *GetTLSInfoOutput {
-	s.VulnTopicId = &v
+type LoginTopicConfigForGetTLSInfoOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	StorageDays *int64 `type:"int64" json:",omitempty"`
+
+	Switch *bool `type:"boolean" json:",omitempty"`
+
+	TopicID *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s LoginTopicConfigForGetTLSInfoOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s LoginTopicConfigForGetTLSInfoOutput) GoString() string {
+	return s.String()
+}
+
+// SetStorageDays sets the StorageDays field's value.
+func (s *LoginTopicConfigForGetTLSInfoOutput) SetStorageDays(v int64) *LoginTopicConfigForGetTLSInfoOutput {
+	s.StorageDays = &v
+	return s
+}
+
+// SetSwitch sets the Switch field's value.
+func (s *LoginTopicConfigForGetTLSInfoOutput) SetSwitch(v bool) *LoginTopicConfigForGetTLSInfoOutput {
+	s.Switch = &v
+	return s
+}
+
+// SetTopicID sets the TopicID field's value.
+func (s *LoginTopicConfigForGetTLSInfoOutput) SetTopicID(v string) *LoginTopicConfigForGetTLSInfoOutput {
+	s.TopicID = &v
+	return s
+}
+
+type PortChangeTopicConfigForGetTLSInfoOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	StorageDays *int64 `type:"int64" json:",omitempty"`
+
+	Switch *bool `type:"boolean" json:",omitempty"`
+
+	TopicID *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s PortChangeTopicConfigForGetTLSInfoOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s PortChangeTopicConfigForGetTLSInfoOutput) GoString() string {
+	return s.String()
+}
+
+// SetStorageDays sets the StorageDays field's value.
+func (s *PortChangeTopicConfigForGetTLSInfoOutput) SetStorageDays(v int64) *PortChangeTopicConfigForGetTLSInfoOutput {
+	s.StorageDays = &v
+	return s
+}
+
+// SetSwitch sets the Switch field's value.
+func (s *PortChangeTopicConfigForGetTLSInfoOutput) SetSwitch(v bool) *PortChangeTopicConfigForGetTLSInfoOutput {
+	s.Switch = &v
+	return s
+}
+
+// SetTopicID sets the TopicID field's value.
+func (s *PortChangeTopicConfigForGetTLSInfoOutput) SetTopicID(v string) *PortChangeTopicConfigForGetTLSInfoOutput {
+	s.TopicID = &v
+	return s
+}
+
+type ProcessStartTopicConfigForGetTLSInfoOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	StorageDays *int64 `type:"int64" json:",omitempty"`
+
+	Switch *bool `type:"boolean" json:",omitempty"`
+
+	TopicID *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s ProcessStartTopicConfigForGetTLSInfoOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ProcessStartTopicConfigForGetTLSInfoOutput) GoString() string {
+	return s.String()
+}
+
+// SetStorageDays sets the StorageDays field's value.
+func (s *ProcessStartTopicConfigForGetTLSInfoOutput) SetStorageDays(v int64) *ProcessStartTopicConfigForGetTLSInfoOutput {
+	s.StorageDays = &v
+	return s
+}
+
+// SetSwitch sets the Switch field's value.
+func (s *ProcessStartTopicConfigForGetTLSInfoOutput) SetSwitch(v bool) *ProcessStartTopicConfigForGetTLSInfoOutput {
+	s.Switch = &v
+	return s
+}
+
+// SetTopicID sets the TopicID field's value.
+func (s *ProcessStartTopicConfigForGetTLSInfoOutput) SetTopicID(v string) *ProcessStartTopicConfigForGetTLSInfoOutput {
+	s.TopicID = &v
+	return s
+}
+
+type VulnTopicConfigForGetTLSInfoOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	StorageDays *int64 `type:"int64" json:",omitempty"`
+
+	Switch *bool `type:"boolean" json:",omitempty"`
+
+	TopicID *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s VulnTopicConfigForGetTLSInfoOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s VulnTopicConfigForGetTLSInfoOutput) GoString() string {
+	return s.String()
+}
+
+// SetStorageDays sets the StorageDays field's value.
+func (s *VulnTopicConfigForGetTLSInfoOutput) SetStorageDays(v int64) *VulnTopicConfigForGetTLSInfoOutput {
+	s.StorageDays = &v
+	return s
+}
+
+// SetSwitch sets the Switch field's value.
+func (s *VulnTopicConfigForGetTLSInfoOutput) SetSwitch(v bool) *VulnTopicConfigForGetTLSInfoOutput {
+	s.Switch = &v
+	return s
+}
+
+// SetTopicID sets the TopicID field's value.
+func (s *VulnTopicConfigForGetTLSInfoOutput) SetTopicID(v string) *VulnTopicConfigForGetTLSInfoOutput {
+	s.TopicID = &v
 	return s
 }

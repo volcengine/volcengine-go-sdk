@@ -180,9 +180,9 @@ type GetDownloadStatusOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	ExportCount *int32 `type:"int32"`
+	ExportCount *int64 `type:"int64"`
 
-	ExportTotal *int32 `type:"int32"`
+	ExportTotal *int64 `type:"int64"`
 
 	FileName *string `type:"string"`
 
@@ -200,13 +200,13 @@ func (s GetDownloadStatusOutput) GoString() string {
 }
 
 // SetExportCount sets the ExportCount field's value.
-func (s *GetDownloadStatusOutput) SetExportCount(v int32) *GetDownloadStatusOutput {
+func (s *GetDownloadStatusOutput) SetExportCount(v int64) *GetDownloadStatusOutput {
 	s.ExportCount = &v
 	return s
 }
 
 // SetExportTotal sets the ExportTotal field's value.
-func (s *GetDownloadStatusOutput) SetExportTotal(v int32) *GetDownloadStatusOutput {
+func (s *GetDownloadStatusOutput) SetExportTotal(v int64) *GetDownloadStatusOutput {
 	s.ExportTotal = &v
 	return s
 }

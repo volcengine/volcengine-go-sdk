@@ -178,29 +178,29 @@ type GetMultiLevelHostAssetOverviewOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	Alarm *int32 `type:"int32" json:",omitempty"`
+	Alarm *int64 `type:"int64" json:",omitempty"`
 
-	Baseline *int32 `type:"int32" json:",omitempty"`
+	Baseline *int64 `type:"int64" json:",omitempty"`
 
-	Cpu *int32 `type:"int32" json:",omitempty"`
+	Cpu *int64 `type:"int64" json:",omitempty"`
 
-	HostNum *int32 `type:"int32" json:",omitempty"`
+	HostNum *int64 `type:"int64" json:",omitempty"`
 
-	Offline *int32 `type:"int32" json:",omitempty"`
+	Offline *int64 `type:"int64" json:",omitempty"`
 
-	Protecting *int32 `type:"int32" json:",omitempty"`
+	Protecting *int64 `type:"int64" json:",omitempty"`
 
-	ProtectionException *int32 `type:"int32" json:",omitempty"`
+	ProtectionException *int64 `type:"int64" json:",omitempty"`
 
-	Risk *int32 `type:"int32" json:",omitempty"`
+	Risk *int64 `type:"int64" json:",omitempty"`
 
-	Unprotected *int32 `type:"int32" json:",omitempty"`
+	Unprotected *int64 `type:"int64" json:",omitempty"`
 
-	UnprotectedCpu *int32 `type:"int32" json:",omitempty"`
+	UnprotectedCpu *int64 `type:"int64" json:",omitempty"`
 
-	Virus *int32 `type:"int32" json:",omitempty"`
+	Virus *int64 `type:"int64" json:",omitempty"`
 
-	Vuln *int32 `type:"int32" json:",omitempty"`
+	Vuln *int64 `type:"int64" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -214,73 +214,73 @@ func (s GetMultiLevelHostAssetOverviewOutput) GoString() string {
 }
 
 // SetAlarm sets the Alarm field's value.
-func (s *GetMultiLevelHostAssetOverviewOutput) SetAlarm(v int32) *GetMultiLevelHostAssetOverviewOutput {
+func (s *GetMultiLevelHostAssetOverviewOutput) SetAlarm(v int64) *GetMultiLevelHostAssetOverviewOutput {
 	s.Alarm = &v
 	return s
 }
 
 // SetBaseline sets the Baseline field's value.
-func (s *GetMultiLevelHostAssetOverviewOutput) SetBaseline(v int32) *GetMultiLevelHostAssetOverviewOutput {
+func (s *GetMultiLevelHostAssetOverviewOutput) SetBaseline(v int64) *GetMultiLevelHostAssetOverviewOutput {
 	s.Baseline = &v
 	return s
 }
 
 // SetCpu sets the Cpu field's value.
-func (s *GetMultiLevelHostAssetOverviewOutput) SetCpu(v int32) *GetMultiLevelHostAssetOverviewOutput {
+func (s *GetMultiLevelHostAssetOverviewOutput) SetCpu(v int64) *GetMultiLevelHostAssetOverviewOutput {
 	s.Cpu = &v
 	return s
 }
 
 // SetHostNum sets the HostNum field's value.
-func (s *GetMultiLevelHostAssetOverviewOutput) SetHostNum(v int32) *GetMultiLevelHostAssetOverviewOutput {
+func (s *GetMultiLevelHostAssetOverviewOutput) SetHostNum(v int64) *GetMultiLevelHostAssetOverviewOutput {
 	s.HostNum = &v
 	return s
 }
 
 // SetOffline sets the Offline field's value.
-func (s *GetMultiLevelHostAssetOverviewOutput) SetOffline(v int32) *GetMultiLevelHostAssetOverviewOutput {
+func (s *GetMultiLevelHostAssetOverviewOutput) SetOffline(v int64) *GetMultiLevelHostAssetOverviewOutput {
 	s.Offline = &v
 	return s
 }
 
 // SetProtecting sets the Protecting field's value.
-func (s *GetMultiLevelHostAssetOverviewOutput) SetProtecting(v int32) *GetMultiLevelHostAssetOverviewOutput {
+func (s *GetMultiLevelHostAssetOverviewOutput) SetProtecting(v int64) *GetMultiLevelHostAssetOverviewOutput {
 	s.Protecting = &v
 	return s
 }
 
 // SetProtectionException sets the ProtectionException field's value.
-func (s *GetMultiLevelHostAssetOverviewOutput) SetProtectionException(v int32) *GetMultiLevelHostAssetOverviewOutput {
+func (s *GetMultiLevelHostAssetOverviewOutput) SetProtectionException(v int64) *GetMultiLevelHostAssetOverviewOutput {
 	s.ProtectionException = &v
 	return s
 }
 
 // SetRisk sets the Risk field's value.
-func (s *GetMultiLevelHostAssetOverviewOutput) SetRisk(v int32) *GetMultiLevelHostAssetOverviewOutput {
+func (s *GetMultiLevelHostAssetOverviewOutput) SetRisk(v int64) *GetMultiLevelHostAssetOverviewOutput {
 	s.Risk = &v
 	return s
 }
 
 // SetUnprotected sets the Unprotected field's value.
-func (s *GetMultiLevelHostAssetOverviewOutput) SetUnprotected(v int32) *GetMultiLevelHostAssetOverviewOutput {
+func (s *GetMultiLevelHostAssetOverviewOutput) SetUnprotected(v int64) *GetMultiLevelHostAssetOverviewOutput {
 	s.Unprotected = &v
 	return s
 }
 
 // SetUnprotectedCpu sets the UnprotectedCpu field's value.
-func (s *GetMultiLevelHostAssetOverviewOutput) SetUnprotectedCpu(v int32) *GetMultiLevelHostAssetOverviewOutput {
+func (s *GetMultiLevelHostAssetOverviewOutput) SetUnprotectedCpu(v int64) *GetMultiLevelHostAssetOverviewOutput {
 	s.UnprotectedCpu = &v
 	return s
 }
 
 // SetVirus sets the Virus field's value.
-func (s *GetMultiLevelHostAssetOverviewOutput) SetVirus(v int32) *GetMultiLevelHostAssetOverviewOutput {
+func (s *GetMultiLevelHostAssetOverviewOutput) SetVirus(v int64) *GetMultiLevelHostAssetOverviewOutput {
 	s.Virus = &v
 	return s
 }
 
 // SetVuln sets the Vuln field's value.
-func (s *GetMultiLevelHostAssetOverviewOutput) SetVuln(v int32) *GetMultiLevelHostAssetOverviewOutput {
+func (s *GetMultiLevelHostAssetOverviewOutput) SetVuln(v int64) *GetMultiLevelHostAssetOverviewOutput {
 	s.Vuln = &v
 	return s
 }

@@ -150,15 +150,15 @@ type DataForListVulByPodOutput struct {
 
 	Action *string `type:"string" json:",omitempty"`
 
-	ControlTime *int32 `type:"int32" json:",omitempty"`
+	ControlTime *int64 `type:"int64" json:",omitempty"`
 
-	CreateTime *int32 `type:"int32" json:",omitempty"`
+	CreateTime *int64 `type:"int64" json:",omitempty"`
 
 	CveID []*string `type:"list" json:",omitempty"`
 
 	CwppID *string `type:"string" json:",omitempty"`
 
-	InfectNum *int32 `type:"int32" json:",omitempty"`
+	InfectNum *int64 `type:"int64" json:",omitempty"`
 
 	InfectStatus *InfectStatusForListVulByPodOutput `type:"structure" json:",omitempty"`
 
@@ -170,7 +170,7 @@ type DataForListVulByPodOutput struct {
 
 	Tag []*string `type:"list" json:",omitempty"`
 
-	UpdateTime *int32 `type:"int32" json:",omitempty"`
+	UpdateTime *int64 `type:"int64" json:",omitempty"`
 
 	VulnName *string `type:"string" json:",omitempty"`
 
@@ -202,13 +202,13 @@ func (s *DataForListVulByPodOutput) SetAction(v string) *DataForListVulByPodOutp
 }
 
 // SetControlTime sets the ControlTime field's value.
-func (s *DataForListVulByPodOutput) SetControlTime(v int32) *DataForListVulByPodOutput {
+func (s *DataForListVulByPodOutput) SetControlTime(v int64) *DataForListVulByPodOutput {
 	s.ControlTime = &v
 	return s
 }
 
 // SetCreateTime sets the CreateTime field's value.
-func (s *DataForListVulByPodOutput) SetCreateTime(v int32) *DataForListVulByPodOutput {
+func (s *DataForListVulByPodOutput) SetCreateTime(v int64) *DataForListVulByPodOutput {
 	s.CreateTime = &v
 	return s
 }
@@ -226,7 +226,7 @@ func (s *DataForListVulByPodOutput) SetCwppID(v string) *DataForListVulByPodOutp
 }
 
 // SetInfectNum sets the InfectNum field's value.
-func (s *DataForListVulByPodOutput) SetInfectNum(v int32) *DataForListVulByPodOutput {
+func (s *DataForListVulByPodOutput) SetInfectNum(v int64) *DataForListVulByPodOutput {
 	s.InfectNum = &v
 	return s
 }
@@ -262,7 +262,7 @@ func (s *DataForListVulByPodOutput) SetTag(v []*string) *DataForListVulByPodOutp
 }
 
 // SetUpdateTime sets the UpdateTime field's value.
-func (s *DataForListVulByPodOutput) SetUpdateTime(v int32) *DataForListVulByPodOutput {
+func (s *DataForListVulByPodOutput) SetUpdateTime(v int64) *DataForListVulByPodOutput {
 	s.UpdateTime = &v
 	return s
 }
@@ -288,11 +288,11 @@ func (s *DataForListVulByPodOutput) SetVulnType(v string) *DataForListVulByPodOu
 type InfectStatusForListVulByPodOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	Ignore *int32 `type:"int32" json:",omitempty"`
+	Ignore *int64 `type:"int64" json:",omitempty"`
 
-	Processed *int32 `type:"int32" json:",omitempty"`
+	Processed *int64 `type:"int64" json:",omitempty"`
 
-	UnProcessed *int32 `type:"int32" json:",omitempty"`
+	UnProcessed *int64 `type:"int64" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -306,19 +306,19 @@ func (s InfectStatusForListVulByPodOutput) GoString() string {
 }
 
 // SetIgnore sets the Ignore field's value.
-func (s *InfectStatusForListVulByPodOutput) SetIgnore(v int32) *InfectStatusForListVulByPodOutput {
+func (s *InfectStatusForListVulByPodOutput) SetIgnore(v int64) *InfectStatusForListVulByPodOutput {
 	s.Ignore = &v
 	return s
 }
 
 // SetProcessed sets the Processed field's value.
-func (s *InfectStatusForListVulByPodOutput) SetProcessed(v int32) *InfectStatusForListVulByPodOutput {
+func (s *InfectStatusForListVulByPodOutput) SetProcessed(v int64) *InfectStatusForListVulByPodOutput {
 	s.Processed = &v
 	return s
 }
 
 // SetUnProcessed sets the UnProcessed field's value.
-func (s *InfectStatusForListVulByPodOutput) SetUnProcessed(v int32) *InfectStatusForListVulByPodOutput {
+func (s *InfectStatusForListVulByPodOutput) SetUnProcessed(v int64) *InfectStatusForListVulByPodOutput {
 	s.UnProcessed = &v
 	return s
 }
@@ -337,9 +337,9 @@ type ListVulByPodInput struct {
 	// ClusterID is a required field
 	ClusterID *string `type:"string" json:",omitempty" required:"true"`
 
-	CreateTimeEnd *int32 `type:"int32" json:",omitempty"`
+	CreateTimeEnd *int64 `type:"int64" json:",omitempty"`
 
-	CreateTimeStart *int32 `type:"int32" json:",omitempty"`
+	CreateTimeStart *int64 `type:"int64" json:",omitempty"`
 
 	CveID *string `type:"string" json:",omitempty"`
 
@@ -350,10 +350,10 @@ type ListVulByPodInput struct {
 	Level []*string `type:"list" json:",omitempty"`
 
 	// PageNumber is a required field
-	PageNumber *int32 `type:"int32" json:",omitempty" required:"true"`
+	PageNumber *int64 `type:"int64" json:",omitempty" required:"true"`
 
 	// PageSize is a required field
-	PageSize *int32 `type:"int32" json:",omitempty" required:"true"`
+	PageSize *int64 `type:"int64" json:",omitempty" required:"true"`
 
 	SortBy *string `type:"string" json:",omitempty"`
 
@@ -436,13 +436,13 @@ func (s *ListVulByPodInput) SetClusterID(v string) *ListVulByPodInput {
 }
 
 // SetCreateTimeEnd sets the CreateTimeEnd field's value.
-func (s *ListVulByPodInput) SetCreateTimeEnd(v int32) *ListVulByPodInput {
+func (s *ListVulByPodInput) SetCreateTimeEnd(v int64) *ListVulByPodInput {
 	s.CreateTimeEnd = &v
 	return s
 }
 
 // SetCreateTimeStart sets the CreateTimeStart field's value.
-func (s *ListVulByPodInput) SetCreateTimeStart(v int32) *ListVulByPodInput {
+func (s *ListVulByPodInput) SetCreateTimeStart(v int64) *ListVulByPodInput {
 	s.CreateTimeStart = &v
 	return s
 }
@@ -472,13 +472,13 @@ func (s *ListVulByPodInput) SetLevel(v []*string) *ListVulByPodInput {
 }
 
 // SetPageNumber sets the PageNumber field's value.
-func (s *ListVulByPodInput) SetPageNumber(v int32) *ListVulByPodInput {
+func (s *ListVulByPodInput) SetPageNumber(v int64) *ListVulByPodInput {
 	s.PageNumber = &v
 	return s
 }
 
 // SetPageSize sets the PageSize field's value.
-func (s *ListVulByPodInput) SetPageSize(v int32) *ListVulByPodInput {
+func (s *ListVulByPodInput) SetPageSize(v int64) *ListVulByPodInput {
 	s.PageSize = &v
 	return s
 }
@@ -538,11 +538,11 @@ type ListVulByPodOutput struct {
 
 	Data []*DataForListVulByPodOutput `type:"list" json:",omitempty"`
 
-	PageNumber *int32 `type:"int32" json:",omitempty"`
+	PageNumber *int64 `type:"int64" json:",omitempty"`
 
-	PageSize *int32 `type:"int32" json:",omitempty"`
+	PageSize *int64 `type:"int64" json:",omitempty"`
 
-	TotalCount *int32 `type:"int32" json:",omitempty"`
+	TotalCount *int64 `type:"int64" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -562,19 +562,19 @@ func (s *ListVulByPodOutput) SetData(v []*DataForListVulByPodOutput) *ListVulByP
 }
 
 // SetPageNumber sets the PageNumber field's value.
-func (s *ListVulByPodOutput) SetPageNumber(v int32) *ListVulByPodOutput {
+func (s *ListVulByPodOutput) SetPageNumber(v int64) *ListVulByPodOutput {
 	s.PageNumber = &v
 	return s
 }
 
 // SetPageSize sets the PageSize field's value.
-func (s *ListVulByPodOutput) SetPageSize(v int32) *ListVulByPodOutput {
+func (s *ListVulByPodOutput) SetPageSize(v int64) *ListVulByPodOutput {
 	s.PageSize = &v
 	return s
 }
 
 // SetTotalCount sets the TotalCount field's value.
-func (s *ListVulByPodOutput) SetTotalCount(v int32) *ListVulByPodOutput {
+func (s *ListVulByPodOutput) SetTotalCount(v int64) *ListVulByPodOutput {
 	s.TotalCount = &v
 	return s
 }

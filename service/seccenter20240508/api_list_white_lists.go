@@ -212,9 +212,9 @@ type ConditionsForListWhiteListsInput struct {
 
 	TopGroupID *string `type:"string" json:",omitempty"`
 
-	UpdateTimeEnd *int32 `type:"int32" json:",omitempty"`
+	UpdateTimeEnd *int64 `type:"int64" json:",omitempty"`
 
-	UpdateTimeStart *int32 `type:"int32" json:",omitempty"`
+	UpdateTimeStart *int64 `type:"int64" json:",omitempty"`
 
 	User *string `type:"string" json:",omitempty"`
 
@@ -292,13 +292,13 @@ func (s *ConditionsForListWhiteListsInput) SetTopGroupID(v string) *ConditionsFo
 }
 
 // SetUpdateTimeEnd sets the UpdateTimeEnd field's value.
-func (s *ConditionsForListWhiteListsInput) SetUpdateTimeEnd(v int32) *ConditionsForListWhiteListsInput {
+func (s *ConditionsForListWhiteListsInput) SetUpdateTimeEnd(v int64) *ConditionsForListWhiteListsInput {
 	s.UpdateTimeEnd = &v
 	return s
 }
 
 // SetUpdateTimeStart sets the UpdateTimeStart field's value.
-func (s *ConditionsForListWhiteListsInput) SetUpdateTimeStart(v int32) *ConditionsForListWhiteListsInput {
+func (s *ConditionsForListWhiteListsInput) SetUpdateTimeStart(v int64) *ConditionsForListWhiteListsInput {
 	s.UpdateTimeStart = &v
 	return s
 }
@@ -330,7 +330,7 @@ type DataForListWhiteListsOutput struct {
 
 	RuleList []*RuleListForListWhiteListsOutput `type:"list" json:",omitempty"`
 
-	UpdateTime *int32 `type:"int32" json:",omitempty"`
+	UpdateTime *int64 `type:"int64" json:",omitempty"`
 
 	User *string `type:"string" json:",omitempty"`
 }
@@ -382,7 +382,7 @@ func (s *DataForListWhiteListsOutput) SetRuleList(v []*RuleListForListWhiteLists
 }
 
 // SetUpdateTime sets the UpdateTime field's value.
-func (s *DataForListWhiteListsOutput) SetUpdateTime(v int32) *DataForListWhiteListsOutput {
+func (s *DataForListWhiteListsOutput) SetUpdateTime(v int64) *DataForListWhiteListsOutput {
 	s.UpdateTime = &v
 	return s
 }
@@ -461,10 +461,10 @@ type ListWhiteListsInput struct {
 	Conditions *ConditionsForListWhiteListsInput `type:"structure" json:",omitempty"`
 
 	// PageNumber is a required field
-	PageNumber *int32 `type:"int32" json:",omitempty" required:"true"`
+	PageNumber *int64 `type:"int64" json:",omitempty" required:"true"`
 
 	// PageSize is a required field
-	PageSize *int32 `type:"int32" json:",omitempty" required:"true"`
+	PageSize *int64 `type:"int64" json:",omitempty" required:"true"`
 
 	SortBy *string `type:"string" json:",omitempty"`
 
@@ -506,13 +506,13 @@ func (s *ListWhiteListsInput) SetConditions(v *ConditionsForListWhiteListsInput)
 }
 
 // SetPageNumber sets the PageNumber field's value.
-func (s *ListWhiteListsInput) SetPageNumber(v int32) *ListWhiteListsInput {
+func (s *ListWhiteListsInput) SetPageNumber(v int64) *ListWhiteListsInput {
 	s.PageNumber = &v
 	return s
 }
 
 // SetPageSize sets the PageSize field's value.
-func (s *ListWhiteListsInput) SetPageSize(v int32) *ListWhiteListsInput {
+func (s *ListWhiteListsInput) SetPageSize(v int64) *ListWhiteListsInput {
 	s.PageSize = &v
 	return s
 }
@@ -542,11 +542,11 @@ type ListWhiteListsOutput struct {
 
 	Data []*DataForListWhiteListsOutput `type:"list" json:",omitempty"`
 
-	PageNumber *int32 `type:"int32" json:",omitempty"`
+	PageNumber *int64 `type:"int64" json:",omitempty"`
 
-	PageSize *int32 `type:"int32" json:",omitempty"`
+	PageSize *int64 `type:"int64" json:",omitempty"`
 
-	TotalCount *int32 `type:"int32" json:",omitempty"`
+	TotalCount *int64 `type:"int64" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -566,19 +566,19 @@ func (s *ListWhiteListsOutput) SetData(v []*DataForListWhiteListsOutput) *ListWh
 }
 
 // SetPageNumber sets the PageNumber field's value.
-func (s *ListWhiteListsOutput) SetPageNumber(v int32) *ListWhiteListsOutput {
+func (s *ListWhiteListsOutput) SetPageNumber(v int64) *ListWhiteListsOutput {
 	s.PageNumber = &v
 	return s
 }
 
 // SetPageSize sets the PageSize field's value.
-func (s *ListWhiteListsOutput) SetPageSize(v int32) *ListWhiteListsOutput {
+func (s *ListWhiteListsOutput) SetPageSize(v int64) *ListWhiteListsOutput {
 	s.PageSize = &v
 	return s
 }
 
 // SetTotalCount sets the TotalCount field's value.
-func (s *ListWhiteListsOutput) SetTotalCount(v int32) *ListWhiteListsOutput {
+func (s *ListWhiteListsOutput) SetTotalCount(v int64) *ListWhiteListsOutput {
 	s.TotalCount = &v
 	return s
 }
@@ -712,7 +712,7 @@ type RuleListForListWhiteListsOutput struct {
 
 	MatchKey *string `type:"string" json:",omitempty"`
 
-	MatchType *int32 `type:"int32" json:",omitempty"`
+	MatchType *int64 `type:"int64" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -738,7 +738,7 @@ func (s *RuleListForListWhiteListsOutput) SetMatchKey(v string) *RuleListForList
 }
 
 // SetMatchType sets the MatchType field's value.
-func (s *RuleListForListWhiteListsOutput) SetMatchType(v int32) *RuleListForListWhiteListsOutput {
+func (s *RuleListForListWhiteListsOutput) SetMatchType(v int64) *RuleListForListWhiteListsOutput {
 	s.MatchType = &v
 	return s
 }

@@ -148,7 +148,7 @@ type BlockForEditRaspConfigInput struct {
 
 	HookFunc []*string `type:"list" json:",omitempty"`
 
-	HookParam *int32 `type:"int32" json:",omitempty"`
+	HookParam *int64 `type:"int64" json:",omitempty"`
 
 	Rules []*RuleForEditRaspConfigInput `type:"list" json:",omitempty"`
 
@@ -172,7 +172,7 @@ func (s *BlockForEditRaspConfigInput) SetHookFunc(v []*string) *BlockForEditRasp
 }
 
 // SetHookParam sets the HookParam field's value.
-func (s *BlockForEditRaspConfigInput) SetHookParam(v int32) *BlockForEditRaspConfigInput {
+func (s *BlockForEditRaspConfigInput) SetHookParam(v int64) *BlockForEditRaspConfigInput {
 	s.HookParam = &v
 	return s
 }
@@ -362,7 +362,7 @@ type FilterForEditRaspConfigInput struct {
 
 	HookFunc []*string `type:"list" json:",omitempty"`
 
-	HookParam *int32 `type:"int32" json:",omitempty"`
+	HookParam *int64 `type:"int64" json:",omitempty"`
 
 	Rules []*RuleForEditRaspConfigInput `type:"list" json:",omitempty"`
 
@@ -386,7 +386,7 @@ func (s *FilterForEditRaspConfigInput) SetHookFunc(v []*string) *FilterForEditRa
 }
 
 // SetHookParam sets the HookParam field's value.
-func (s *FilterForEditRaspConfigInput) SetHookParam(v int32) *FilterForEditRaspConfigInput {
+func (s *FilterForEditRaspConfigInput) SetHookParam(v int64) *FilterForEditRaspConfigInput {
 	s.HookParam = &v
 	return s
 }
@@ -410,7 +410,7 @@ type InjectConfigListForEditRaspConfigInput struct {
 
 	MatchKey *string `type:"string" json:",omitempty"`
 
-	MatchType *int32 `type:"int32" json:",omitempty"`
+	MatchType *int64 `type:"int64" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -436,7 +436,7 @@ func (s *InjectConfigListForEditRaspConfigInput) SetMatchKey(v string) *InjectCo
 }
 
 // SetMatchType sets the MatchType field's value.
-func (s *InjectConfigListForEditRaspConfigInput) SetMatchType(v int32) *InjectConfigListForEditRaspConfigInput {
+func (s *InjectConfigListForEditRaspConfigInput) SetMatchType(v int64) *InjectConfigListForEditRaspConfigInput {
 	s.MatchType = &v
 	return s
 }

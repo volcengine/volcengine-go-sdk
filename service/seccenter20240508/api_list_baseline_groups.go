@@ -142,7 +142,7 @@ func (c *SECCENTER20240508) ListBaselineGroupsWithContext(ctx volcengine.Context
 type DataForListBaselineGroupsOutput struct {
 	_ struct{} `type:"structure"`
 
-	GroupID *int32 `type:"int32"`
+	GroupID *int64 `type:"int64"`
 
 	GroupName *string `type:"string"`
 
@@ -160,7 +160,7 @@ func (s DataForListBaselineGroupsOutput) GoString() string {
 }
 
 // SetGroupID sets the GroupID field's value.
-func (s *DataForListBaselineGroupsOutput) SetGroupID(v int32) *DataForListBaselineGroupsOutput {
+func (s *DataForListBaselineGroupsOutput) SetGroupID(v int64) *DataForListBaselineGroupsOutput {
 	s.GroupID = &v
 	return s
 }

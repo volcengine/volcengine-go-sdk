@@ -184,7 +184,7 @@ type GetRegularVirusScanConfigOutput struct {
 
 	OperateUser *string `type:"string"`
 
-	ScanInterval *int32 `type:"int32"`
+	ScanInterval *int64 `type:"int64"`
 
 	ScanSwitchOn *bool `type:"boolean"`
 
@@ -262,7 +262,7 @@ func (s *GetRegularVirusScanConfigOutput) SetOperateUser(v string) *GetRegularVi
 }
 
 // SetScanInterval sets the ScanInterval field's value.
-func (s *GetRegularVirusScanConfigOutput) SetScanInterval(v int32) *GetRegularVirusScanConfigOutput {
+func (s *GetRegularVirusScanConfigOutput) SetScanInterval(v int64) *GetRegularVirusScanConfigOutput {
 	s.ScanInterval = &v
 	return s
 }

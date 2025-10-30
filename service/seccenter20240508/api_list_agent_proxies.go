@@ -148,11 +148,11 @@ type DataForListAgentProxiesOutput struct {
 
 	Address *string `type:"string" json:",omitempty"`
 
-	ClientNumber *int32 `type:"int32" json:",omitempty"`
+	ClientNumber *int64 `type:"int64" json:",omitempty"`
 
 	Name *string `type:"string" json:",omitempty"`
 
-	ServerNumber *int32 `type:"int32" json:",omitempty"`
+	ServerNumber *int64 `type:"int64" json:",omitempty"`
 
 	Status *string `type:"string" json:",omitempty"`
 }
@@ -174,7 +174,7 @@ func (s *DataForListAgentProxiesOutput) SetAddress(v string) *DataForListAgentPr
 }
 
 // SetClientNumber sets the ClientNumber field's value.
-func (s *DataForListAgentProxiesOutput) SetClientNumber(v int32) *DataForListAgentProxiesOutput {
+func (s *DataForListAgentProxiesOutput) SetClientNumber(v int64) *DataForListAgentProxiesOutput {
 	s.ClientNumber = &v
 	return s
 }
@@ -186,7 +186,7 @@ func (s *DataForListAgentProxiesOutput) SetName(v string) *DataForListAgentProxi
 }
 
 // SetServerNumber sets the ServerNumber field's value.
-func (s *DataForListAgentProxiesOutput) SetServerNumber(v int32) *DataForListAgentProxiesOutput {
+func (s *DataForListAgentProxiesOutput) SetServerNumber(v int64) *DataForListAgentProxiesOutput {
 	s.ServerNumber = &v
 	return s
 }
@@ -205,10 +205,10 @@ type ListAgentProxiesInput struct {
 	Name *string `type:"string" json:",omitempty"`
 
 	// PageNumber is a required field
-	PageNumber *int32 `type:"int32" json:",omitempty" required:"true"`
+	PageNumber *int64 `type:"int64" json:",omitempty" required:"true"`
 
 	// PageSize is a required field
-	PageSize *int32 `type:"int32" json:",omitempty" required:"true"`
+	PageSize *int64 `type:"int64" json:",omitempty" required:"true"`
 
 	Slim *bool `type:"boolean" json:",omitempty"`
 
@@ -256,13 +256,13 @@ func (s *ListAgentProxiesInput) SetName(v string) *ListAgentProxiesInput {
 }
 
 // SetPageNumber sets the PageNumber field's value.
-func (s *ListAgentProxiesInput) SetPageNumber(v int32) *ListAgentProxiesInput {
+func (s *ListAgentProxiesInput) SetPageNumber(v int64) *ListAgentProxiesInput {
 	s.PageNumber = &v
 	return s
 }
 
 // SetPageSize sets the PageSize field's value.
-func (s *ListAgentProxiesInput) SetPageSize(v int32) *ListAgentProxiesInput {
+func (s *ListAgentProxiesInput) SetPageSize(v int64) *ListAgentProxiesInput {
 	s.PageSize = &v
 	return s
 }
@@ -292,11 +292,11 @@ type ListAgentProxiesOutput struct {
 
 	Data []*DataForListAgentProxiesOutput `type:"list" json:",omitempty"`
 
-	PageNumber *int32 `type:"int32" json:",omitempty"`
+	PageNumber *int64 `type:"int64" json:",omitempty"`
 
-	PageSize *int32 `type:"int32" json:",omitempty"`
+	PageSize *int64 `type:"int64" json:",omitempty"`
 
-	TotalCount *int32 `type:"int32" json:",omitempty"`
+	TotalCount *int64 `type:"int64" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -316,19 +316,19 @@ func (s *ListAgentProxiesOutput) SetData(v []*DataForListAgentProxiesOutput) *Li
 }
 
 // SetPageNumber sets the PageNumber field's value.
-func (s *ListAgentProxiesOutput) SetPageNumber(v int32) *ListAgentProxiesOutput {
+func (s *ListAgentProxiesOutput) SetPageNumber(v int64) *ListAgentProxiesOutput {
 	s.PageNumber = &v
 	return s
 }
 
 // SetPageSize sets the PageSize field's value.
-func (s *ListAgentProxiesOutput) SetPageSize(v int32) *ListAgentProxiesOutput {
+func (s *ListAgentProxiesOutput) SetPageSize(v int64) *ListAgentProxiesOutput {
 	s.PageSize = &v
 	return s
 }
 
 // SetTotalCount sets the TotalCount field's value.
-func (s *ListAgentProxiesOutput) SetTotalCount(v int32) *ListAgentProxiesOutput {
+func (s *ListAgentProxiesOutput) SetTotalCount(v int64) *ListAgentProxiesOutput {
 	s.TotalCount = &v
 	return s
 }

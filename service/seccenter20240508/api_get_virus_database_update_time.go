@@ -162,7 +162,7 @@ type GetVirusDatabaseUpdateTimeOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	UpdateTime *int32 `type:"int32" json:",omitempty"`
+	UpdateTime *int64 `type:"int64" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -176,7 +176,7 @@ func (s GetVirusDatabaseUpdateTimeOutput) GoString() string {
 }
 
 // SetUpdateTime sets the UpdateTime field's value.
-func (s *GetVirusDatabaseUpdateTimeOutput) SetUpdateTime(v int32) *GetVirusDatabaseUpdateTimeOutput {
+func (s *GetVirusDatabaseUpdateTimeOutput) SetUpdateTime(v int64) *GetVirusDatabaseUpdateTimeOutput {
 	s.UpdateTime = &v
 	return s
 }

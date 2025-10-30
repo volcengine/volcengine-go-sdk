@@ -172,13 +172,21 @@ type CheckInstallAgentClientOutput struct {
 
 	AutoAgentIDs []*string `type:"list" json:",omitempty"`
 
-	AutoCount *int32 `type:"int32" json:",omitempty"`
+	AutoCount *int64 `type:"int64" json:",omitempty"`
+
+	AutoEnableCount *int64 `type:"int64" json:",omitempty"`
+
+	AutoEnableIDs []*string `type:"list" json:",omitempty"`
+
+	AutoInstallAndEnableCount *int64 `type:"int64" json:",omitempty"`
+
+	AutoInstallAndEnableIDs []*string `type:"list" json:",omitempty"`
 
 	CurrentQuota *CurrentQuotaForCheckInstallAgentClientOutput `type:"structure" json:",omitempty"`
 
 	HitLimit *bool `type:"boolean" json:",omitempty"`
 
-	ManualCount *int32 `type:"int32" json:",omitempty"`
+	ManualCount *int64 `type:"int64" json:",omitempty"`
 
 	RequestQuota *RequestQuotaForCheckInstallAgentClientOutput `type:"structure" json:",omitempty"`
 }
@@ -200,8 +208,32 @@ func (s *CheckInstallAgentClientOutput) SetAutoAgentIDs(v []*string) *CheckInsta
 }
 
 // SetAutoCount sets the AutoCount field's value.
-func (s *CheckInstallAgentClientOutput) SetAutoCount(v int32) *CheckInstallAgentClientOutput {
+func (s *CheckInstallAgentClientOutput) SetAutoCount(v int64) *CheckInstallAgentClientOutput {
 	s.AutoCount = &v
+	return s
+}
+
+// SetAutoEnableCount sets the AutoEnableCount field's value.
+func (s *CheckInstallAgentClientOutput) SetAutoEnableCount(v int64) *CheckInstallAgentClientOutput {
+	s.AutoEnableCount = &v
+	return s
+}
+
+// SetAutoEnableIDs sets the AutoEnableIDs field's value.
+func (s *CheckInstallAgentClientOutput) SetAutoEnableIDs(v []*string) *CheckInstallAgentClientOutput {
+	s.AutoEnableIDs = v
+	return s
+}
+
+// SetAutoInstallAndEnableCount sets the AutoInstallAndEnableCount field's value.
+func (s *CheckInstallAgentClientOutput) SetAutoInstallAndEnableCount(v int64) *CheckInstallAgentClientOutput {
+	s.AutoInstallAndEnableCount = &v
+	return s
+}
+
+// SetAutoInstallAndEnableIDs sets the AutoInstallAndEnableIDs field's value.
+func (s *CheckInstallAgentClientOutput) SetAutoInstallAndEnableIDs(v []*string) *CheckInstallAgentClientOutput {
+	s.AutoInstallAndEnableIDs = v
 	return s
 }
 
@@ -218,7 +250,7 @@ func (s *CheckInstallAgentClientOutput) SetHitLimit(v bool) *CheckInstallAgentCl
 }
 
 // SetManualCount sets the ManualCount field's value.
-func (s *CheckInstallAgentClientOutput) SetManualCount(v int32) *CheckInstallAgentClientOutput {
+func (s *CheckInstallAgentClientOutput) SetManualCount(v int64) *CheckInstallAgentClientOutput {
 	s.ManualCount = &v
 	return s
 }
@@ -232,9 +264,9 @@ func (s *CheckInstallAgentClientOutput) SetRequestQuota(v *RequestQuotaForCheckI
 type CurrentQuotaForCheckInstallAgentClientOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	Core *int32 `type:"int32" json:",omitempty"`
+	Core *int64 `type:"int64" json:",omitempty"`
 
-	HostsCount *int32 `type:"int32" json:",omitempty"`
+	HostsCount *int64 `type:"int64" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -248,13 +280,13 @@ func (s CurrentQuotaForCheckInstallAgentClientOutput) GoString() string {
 }
 
 // SetCore sets the Core field's value.
-func (s *CurrentQuotaForCheckInstallAgentClientOutput) SetCore(v int32) *CurrentQuotaForCheckInstallAgentClientOutput {
+func (s *CurrentQuotaForCheckInstallAgentClientOutput) SetCore(v int64) *CurrentQuotaForCheckInstallAgentClientOutput {
 	s.Core = &v
 	return s
 }
 
 // SetHostsCount sets the HostsCount field's value.
-func (s *CurrentQuotaForCheckInstallAgentClientOutput) SetHostsCount(v int32) *CurrentQuotaForCheckInstallAgentClientOutput {
+func (s *CurrentQuotaForCheckInstallAgentClientOutput) SetHostsCount(v int64) *CurrentQuotaForCheckInstallAgentClientOutput {
 	s.HostsCount = &v
 	return s
 }
@@ -262,9 +294,9 @@ func (s *CurrentQuotaForCheckInstallAgentClientOutput) SetHostsCount(v int32) *C
 type RequestQuotaForCheckInstallAgentClientOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	Core *int32 `type:"int32" json:",omitempty"`
+	Core *int64 `type:"int64" json:",omitempty"`
 
-	HostsCount *int32 `type:"int32" json:",omitempty"`
+	HostsCount *int64 `type:"int64" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -278,13 +310,13 @@ func (s RequestQuotaForCheckInstallAgentClientOutput) GoString() string {
 }
 
 // SetCore sets the Core field's value.
-func (s *RequestQuotaForCheckInstallAgentClientOutput) SetCore(v int32) *RequestQuotaForCheckInstallAgentClientOutput {
+func (s *RequestQuotaForCheckInstallAgentClientOutput) SetCore(v int64) *RequestQuotaForCheckInstallAgentClientOutput {
 	s.Core = &v
 	return s
 }
 
 // SetHostsCount sets the HostsCount field's value.
-func (s *RequestQuotaForCheckInstallAgentClientOutput) SetHostsCount(v int32) *RequestQuotaForCheckInstallAgentClientOutput {
+func (s *RequestQuotaForCheckInstallAgentClientOutput) SetHostsCount(v int64) *RequestQuotaForCheckInstallAgentClientOutput {
 	s.HostsCount = &v
 	return s
 }

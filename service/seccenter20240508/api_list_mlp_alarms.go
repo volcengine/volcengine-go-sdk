@@ -242,13 +242,13 @@ type DataForListMlpAlarmsOutput struct {
 
 	AgentID *string `type:"string" json:",omitempty"`
 
-	AlarmHandleResult *int32 `type:"int32" json:",omitempty"`
+	AlarmHandleResult *int64 `type:"int64" json:",omitempty"`
 
 	AlarmHostname *string `type:"string" json:",omitempty"`
 
 	AlarmID *string `type:"string" json:",omitempty"`
 
-	AlarmTime *int32 `type:"int32" json:",omitempty"`
+	AlarmTime *int64 `type:"int64" json:",omitempty"`
 
 	AlertTags []*string `type:"list" json:",omitempty"`
 
@@ -282,7 +282,7 @@ type DataForListMlpAlarmsOutput struct {
 
 	GroupPath *string `type:"string" json:",omitempty"`
 
-	HandleTime *int32 `type:"int32" json:",omitempty"`
+	HandleTime *int64 `type:"int64" json:",omitempty"`
 
 	Host *HostForListMlpAlarmsOutput `type:"structure" json:",omitempty"`
 
@@ -318,7 +318,7 @@ type DataForListMlpAlarmsOutput struct {
 
 	StackTraceHash *string `type:"string" json:",omitempty"`
 
-	Status *int32 `type:"int32" json:",omitempty"`
+	Status *int64 `type:"int64" json:",omitempty"`
 
 	TraceID *string `type:"string" json:",omitempty"`
 
@@ -348,7 +348,7 @@ func (s *DataForListMlpAlarmsOutput) SetAgentID(v string) *DataForListMlpAlarmsO
 }
 
 // SetAlarmHandleResult sets the AlarmHandleResult field's value.
-func (s *DataForListMlpAlarmsOutput) SetAlarmHandleResult(v int32) *DataForListMlpAlarmsOutput {
+func (s *DataForListMlpAlarmsOutput) SetAlarmHandleResult(v int64) *DataForListMlpAlarmsOutput {
 	s.AlarmHandleResult = &v
 	return s
 }
@@ -366,7 +366,7 @@ func (s *DataForListMlpAlarmsOutput) SetAlarmID(v string) *DataForListMlpAlarmsO
 }
 
 // SetAlarmTime sets the AlarmTime field's value.
-func (s *DataForListMlpAlarmsOutput) SetAlarmTime(v int32) *DataForListMlpAlarmsOutput {
+func (s *DataForListMlpAlarmsOutput) SetAlarmTime(v int64) *DataForListMlpAlarmsOutput {
 	s.AlarmTime = &v
 	return s
 }
@@ -468,7 +468,7 @@ func (s *DataForListMlpAlarmsOutput) SetGroupPath(v string) *DataForListMlpAlarm
 }
 
 // SetHandleTime sets the HandleTime field's value.
-func (s *DataForListMlpAlarmsOutput) SetHandleTime(v int32) *DataForListMlpAlarmsOutput {
+func (s *DataForListMlpAlarmsOutput) SetHandleTime(v int64) *DataForListMlpAlarmsOutput {
 	s.HandleTime = &v
 	return s
 }
@@ -576,7 +576,7 @@ func (s *DataForListMlpAlarmsOutput) SetStackTraceHash(v string) *DataForListMlp
 }
 
 // SetStatus sets the Status field's value.
-func (s *DataForListMlpAlarmsOutput) SetStatus(v int32) *DataForListMlpAlarmsOutput {
+func (s *DataForListMlpAlarmsOutput) SetStatus(v int64) *DataForListMlpAlarmsOutput {
 	s.Status = &v
 	return s
 }
@@ -660,7 +660,7 @@ type ListMlpAlarmsInput struct {
 
 	AgentTags []*string `type:"list" json:",omitempty"`
 
-	AlarmHandleResultList []*int32 `type:"list" json:",omitempty"`
+	AlarmHandleResultList []*int64 `type:"list" json:",omitempty"`
 
 	AlarmID *string `type:"string" json:",omitempty"`
 
@@ -709,10 +709,10 @@ type ListMlpAlarmsInput struct {
 	Name *string `type:"string" json:",omitempty"`
 
 	// PageNumber is a required field
-	PageNumber *int32 `type:"int32" json:",omitempty" required:"true"`
+	PageNumber *int64 `type:"int64" json:",omitempty" required:"true"`
 
 	// PageSize is a required field
-	PageSize *int32 `type:"int32" json:",omitempty" required:"true"`
+	PageSize *int64 `type:"int64" json:",omitempty" required:"true"`
 
 	ProbeHook *string `type:"string" json:",omitempty"`
 
@@ -722,13 +722,13 @@ type ListMlpAlarmsInput struct {
 
 	SortOrder *string `type:"string" json:",omitempty"`
 
-	Status []*int32 `type:"list" json:",omitempty"`
+	Status []*int64 `type:"list" json:",omitempty"`
 
 	TaskID *string `type:"string" json:",omitempty"`
 
-	TimeEnd *int32 `type:"int32" json:",omitempty"`
+	TimeEnd *int64 `type:"int64" json:",omitempty"`
 
-	TimeStart *int32 `type:"int32" json:",omitempty"`
+	TimeStart *int64 `type:"int64" json:",omitempty"`
 
 	TopGroupID *string `type:"string" json:",omitempty"`
 
@@ -798,7 +798,7 @@ func (s *ListMlpAlarmsInput) SetAgentTags(v []*string) *ListMlpAlarmsInput {
 }
 
 // SetAlarmHandleResultList sets the AlarmHandleResultList field's value.
-func (s *ListMlpAlarmsInput) SetAlarmHandleResultList(v []*int32) *ListMlpAlarmsInput {
+func (s *ListMlpAlarmsInput) SetAlarmHandleResultList(v []*int64) *ListMlpAlarmsInput {
 	s.AlarmHandleResultList = v
 	return s
 }
@@ -942,13 +942,13 @@ func (s *ListMlpAlarmsInput) SetName(v string) *ListMlpAlarmsInput {
 }
 
 // SetPageNumber sets the PageNumber field's value.
-func (s *ListMlpAlarmsInput) SetPageNumber(v int32) *ListMlpAlarmsInput {
+func (s *ListMlpAlarmsInput) SetPageNumber(v int64) *ListMlpAlarmsInput {
 	s.PageNumber = &v
 	return s
 }
 
 // SetPageSize sets the PageSize field's value.
-func (s *ListMlpAlarmsInput) SetPageSize(v int32) *ListMlpAlarmsInput {
+func (s *ListMlpAlarmsInput) SetPageSize(v int64) *ListMlpAlarmsInput {
 	s.PageSize = &v
 	return s
 }
@@ -978,7 +978,7 @@ func (s *ListMlpAlarmsInput) SetSortOrder(v string) *ListMlpAlarmsInput {
 }
 
 // SetStatus sets the Status field's value.
-func (s *ListMlpAlarmsInput) SetStatus(v []*int32) *ListMlpAlarmsInput {
+func (s *ListMlpAlarmsInput) SetStatus(v []*int64) *ListMlpAlarmsInput {
 	s.Status = v
 	return s
 }
@@ -990,13 +990,13 @@ func (s *ListMlpAlarmsInput) SetTaskID(v string) *ListMlpAlarmsInput {
 }
 
 // SetTimeEnd sets the TimeEnd field's value.
-func (s *ListMlpAlarmsInput) SetTimeEnd(v int32) *ListMlpAlarmsInput {
+func (s *ListMlpAlarmsInput) SetTimeEnd(v int64) *ListMlpAlarmsInput {
 	s.TimeEnd = &v
 	return s
 }
 
 // SetTimeStart sets the TimeStart field's value.
-func (s *ListMlpAlarmsInput) SetTimeStart(v int32) *ListMlpAlarmsInput {
+func (s *ListMlpAlarmsInput) SetTimeStart(v int64) *ListMlpAlarmsInput {
 	s.TimeStart = &v
 	return s
 }
@@ -1038,11 +1038,11 @@ type ListMlpAlarmsOutput struct {
 
 	Data []*DataForListMlpAlarmsOutput `type:"list" json:",omitempty"`
 
-	PageNumber *int32 `type:"int32" json:",omitempty"`
+	PageNumber *int64 `type:"int64" json:",omitempty"`
 
-	PageSize *int32 `type:"int32" json:",omitempty"`
+	PageSize *int64 `type:"int64" json:",omitempty"`
 
-	TotalCount *int32 `type:"int32" json:",omitempty"`
+	TotalCount *int64 `type:"int64" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -1062,19 +1062,19 @@ func (s *ListMlpAlarmsOutput) SetData(v []*DataForListMlpAlarmsOutput) *ListMlpA
 }
 
 // SetPageNumber sets the PageNumber field's value.
-func (s *ListMlpAlarmsOutput) SetPageNumber(v int32) *ListMlpAlarmsOutput {
+func (s *ListMlpAlarmsOutput) SetPageNumber(v int64) *ListMlpAlarmsOutput {
 	s.PageNumber = &v
 	return s
 }
 
 // SetPageSize sets the PageSize field's value.
-func (s *ListMlpAlarmsOutput) SetPageSize(v int32) *ListMlpAlarmsOutput {
+func (s *ListMlpAlarmsOutput) SetPageSize(v int64) *ListMlpAlarmsOutput {
 	s.PageSize = &v
 	return s
 }
 
 // SetTotalCount sets the TotalCount field's value.
-func (s *ListMlpAlarmsOutput) SetTotalCount(v int32) *ListMlpAlarmsOutput {
+func (s *ListMlpAlarmsOutput) SetTotalCount(v int64) *ListMlpAlarmsOutput {
 	s.TotalCount = &v
 	return s
 }

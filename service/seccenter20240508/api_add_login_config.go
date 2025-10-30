@@ -160,6 +160,8 @@ type AddLoginConfigInput struct {
 
 	LoginConfigRules []*string `type:"list" json:",omitempty"`
 
+	LoginLocations []*LoginLocationForAddLoginConfigInput `type:"list" json:",omitempty"`
+
 	TimeIntervals []*string `type:"list" json:",omitempty"`
 
 	TopGroupID *string `type:"string" json:",omitempty"`
@@ -217,6 +219,12 @@ func (s *AddLoginConfigInput) SetLoginConfigRules(v []*string) *AddLoginConfigIn
 	return s
 }
 
+// SetLoginLocations sets the LoginLocations field's value.
+func (s *AddLoginConfigInput) SetLoginLocations(v []*LoginLocationForAddLoginConfigInput) *AddLoginConfigInput {
+	s.LoginLocations = v
+	return s
+}
+
 // SetTimeIntervals sets the TimeIntervals field's value.
 func (s *AddLoginConfigInput) SetTimeIntervals(v []*string) *AddLoginConfigInput {
 	s.TimeIntervals = v
@@ -243,4 +251,42 @@ func (s AddLoginConfigOutput) String() string {
 // GoString returns the string representation
 func (s AddLoginConfigOutput) GoString() string {
 	return s.String()
+}
+
+type LoginLocationForAddLoginConfigInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	CityName *string `type:"string" json:",omitempty"`
+
+	CountryName *string `type:"string" json:",omitempty"`
+
+	DistrictName *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s LoginLocationForAddLoginConfigInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s LoginLocationForAddLoginConfigInput) GoString() string {
+	return s.String()
+}
+
+// SetCityName sets the CityName field's value.
+func (s *LoginLocationForAddLoginConfigInput) SetCityName(v string) *LoginLocationForAddLoginConfigInput {
+	s.CityName = &v
+	return s
+}
+
+// SetCountryName sets the CountryName field's value.
+func (s *LoginLocationForAddLoginConfigInput) SetCountryName(v string) *LoginLocationForAddLoginConfigInput {
+	s.CountryName = &v
+	return s
+}
+
+// SetDistrictName sets the DistrictName field's value.
+func (s *LoginLocationForAddLoginConfigInput) SetDistrictName(v string) *LoginLocationForAddLoginConfigInput {
+	s.DistrictName = &v
+	return s
 }

@@ -248,7 +248,7 @@ type ConditionsForGetNeighboringAlarmInput struct {
 
 	AgentTags []*string `type:"list" json:",omitempty"`
 
-	AlarmHandleResultList []*int32 `type:"list" json:",omitempty"`
+	AlarmHandleResultList []*int64 `type:"list" json:",omitempty"`
 
 	AlarmID *string `type:"string" json:",omitempty"`
 
@@ -298,15 +298,15 @@ type ConditionsForGetNeighboringAlarmInput struct {
 
 	RaspArgv *string `type:"string" json:",omitempty"`
 
-	Status []*int32 `type:"list" json:",omitempty"`
+	Status []*int64 `type:"list" json:",omitempty"`
 
 	Tags []*string `type:"list" json:",omitempty"`
 
 	TaskID *string `type:"string" json:",omitempty"`
 
-	TimeEnd *int32 `type:"int32" json:",omitempty"`
+	TimeEnd *int64 `type:"int64" json:",omitempty"`
 
-	TimeStart *int32 `type:"int32" json:",omitempty"`
+	TimeStart *int64 `type:"int64" json:",omitempty"`
 
 	TopGroupID *string `type:"string" json:",omitempty"`
 
@@ -360,7 +360,7 @@ func (s *ConditionsForGetNeighboringAlarmInput) SetAgentTags(v []*string) *Condi
 }
 
 // SetAlarmHandleResultList sets the AlarmHandleResultList field's value.
-func (s *ConditionsForGetNeighboringAlarmInput) SetAlarmHandleResultList(v []*int32) *ConditionsForGetNeighboringAlarmInput {
+func (s *ConditionsForGetNeighboringAlarmInput) SetAlarmHandleResultList(v []*int64) *ConditionsForGetNeighboringAlarmInput {
 	s.AlarmHandleResultList = v
 	return s
 }
@@ -510,7 +510,7 @@ func (s *ConditionsForGetNeighboringAlarmInput) SetRaspArgv(v string) *Condition
 }
 
 // SetStatus sets the Status field's value.
-func (s *ConditionsForGetNeighboringAlarmInput) SetStatus(v []*int32) *ConditionsForGetNeighboringAlarmInput {
+func (s *ConditionsForGetNeighboringAlarmInput) SetStatus(v []*int64) *ConditionsForGetNeighboringAlarmInput {
 	s.Status = v
 	return s
 }
@@ -528,13 +528,13 @@ func (s *ConditionsForGetNeighboringAlarmInput) SetTaskID(v string) *ConditionsF
 }
 
 // SetTimeEnd sets the TimeEnd field's value.
-func (s *ConditionsForGetNeighboringAlarmInput) SetTimeEnd(v int32) *ConditionsForGetNeighboringAlarmInput {
+func (s *ConditionsForGetNeighboringAlarmInput) SetTimeEnd(v int64) *ConditionsForGetNeighboringAlarmInput {
 	s.TimeEnd = &v
 	return s
 }
 
 // SetTimeStart sets the TimeStart field's value.
-func (s *ConditionsForGetNeighboringAlarmInput) SetTimeStart(v int32) *ConditionsForGetNeighboringAlarmInput {
+func (s *ConditionsForGetNeighboringAlarmInput) SetTimeStart(v int64) *ConditionsForGetNeighboringAlarmInput {
 	s.TimeStart = &v
 	return s
 }
@@ -714,13 +714,13 @@ type NextForGetNeighboringAlarmOutput struct {
 
 	AgentID *string `type:"string" json:",omitempty"`
 
-	AlarmHandleResult *int32 `type:"int32" json:",omitempty"`
+	AlarmHandleResult *int64 `type:"int64" json:",omitempty"`
 
 	AlarmHostname *string `type:"string" json:",omitempty"`
 
 	AlarmID *string `type:"string" json:",omitempty"`
 
-	AlarmTime *int32 `type:"int32" json:",omitempty"`
+	AlarmTime *int64 `type:"int64" json:",omitempty"`
 
 	AlertTags []*string `type:"list" json:",omitempty"`
 
@@ -754,7 +754,7 @@ type NextForGetNeighboringAlarmOutput struct {
 
 	GroupPath *string `type:"string" json:",omitempty"`
 
-	HandleTime *int32 `type:"int32" json:",omitempty"`
+	HandleTime *int64 `type:"int64" json:",omitempty"`
 
 	Host *HostForGetNeighboringAlarmOutput `type:"structure" json:",omitempty"`
 
@@ -790,7 +790,7 @@ type NextForGetNeighboringAlarmOutput struct {
 
 	StackTraceHash *string `type:"string" json:",omitempty"`
 
-	Status *int32 `type:"int32" json:",omitempty"`
+	Status *int64 `type:"int64" json:",omitempty"`
 
 	TraceID *string `type:"string" json:",omitempty"`
 
@@ -820,7 +820,7 @@ func (s *NextForGetNeighboringAlarmOutput) SetAgentID(v string) *NextForGetNeigh
 }
 
 // SetAlarmHandleResult sets the AlarmHandleResult field's value.
-func (s *NextForGetNeighboringAlarmOutput) SetAlarmHandleResult(v int32) *NextForGetNeighboringAlarmOutput {
+func (s *NextForGetNeighboringAlarmOutput) SetAlarmHandleResult(v int64) *NextForGetNeighboringAlarmOutput {
 	s.AlarmHandleResult = &v
 	return s
 }
@@ -838,7 +838,7 @@ func (s *NextForGetNeighboringAlarmOutput) SetAlarmID(v string) *NextForGetNeigh
 }
 
 // SetAlarmTime sets the AlarmTime field's value.
-func (s *NextForGetNeighboringAlarmOutput) SetAlarmTime(v int32) *NextForGetNeighboringAlarmOutput {
+func (s *NextForGetNeighboringAlarmOutput) SetAlarmTime(v int64) *NextForGetNeighboringAlarmOutput {
 	s.AlarmTime = &v
 	return s
 }
@@ -940,7 +940,7 @@ func (s *NextForGetNeighboringAlarmOutput) SetGroupPath(v string) *NextForGetNei
 }
 
 // SetHandleTime sets the HandleTime field's value.
-func (s *NextForGetNeighboringAlarmOutput) SetHandleTime(v int32) *NextForGetNeighboringAlarmOutput {
+func (s *NextForGetNeighboringAlarmOutput) SetHandleTime(v int64) *NextForGetNeighboringAlarmOutput {
 	s.HandleTime = &v
 	return s
 }
@@ -1048,7 +1048,7 @@ func (s *NextForGetNeighboringAlarmOutput) SetStackTraceHash(v string) *NextForG
 }
 
 // SetStatus sets the Status field's value.
-func (s *NextForGetNeighboringAlarmOutput) SetStatus(v int32) *NextForGetNeighboringAlarmOutput {
+func (s *NextForGetNeighboringAlarmOutput) SetStatus(v int64) *NextForGetNeighboringAlarmOutput {
 	s.Status = &v
 	return s
 }
@@ -1072,13 +1072,13 @@ type PrevForGetNeighboringAlarmOutput struct {
 
 	AgentID *string `type:"string" json:",omitempty"`
 
-	AlarmHandleResult *int32 `type:"int32" json:",omitempty"`
+	AlarmHandleResult *int64 `type:"int64" json:",omitempty"`
 
 	AlarmHostname *string `type:"string" json:",omitempty"`
 
 	AlarmID *string `type:"string" json:",omitempty"`
 
-	AlarmTime *int32 `type:"int32" json:",omitempty"`
+	AlarmTime *int64 `type:"int64" json:",omitempty"`
 
 	AlertTags []*string `type:"list" json:",omitempty"`
 
@@ -1112,7 +1112,7 @@ type PrevForGetNeighboringAlarmOutput struct {
 
 	GroupPath *string `type:"string" json:",omitempty"`
 
-	HandleTime *int32 `type:"int32" json:",omitempty"`
+	HandleTime *int64 `type:"int64" json:",omitempty"`
 
 	Host *HostForGetNeighboringAlarmOutput `type:"structure" json:",omitempty"`
 
@@ -1148,7 +1148,7 @@ type PrevForGetNeighboringAlarmOutput struct {
 
 	StackTraceHash *string `type:"string" json:",omitempty"`
 
-	Status *int32 `type:"int32" json:",omitempty"`
+	Status *int64 `type:"int64" json:",omitempty"`
 
 	TraceID *string `type:"string" json:",omitempty"`
 
@@ -1178,7 +1178,7 @@ func (s *PrevForGetNeighboringAlarmOutput) SetAgentID(v string) *PrevForGetNeigh
 }
 
 // SetAlarmHandleResult sets the AlarmHandleResult field's value.
-func (s *PrevForGetNeighboringAlarmOutput) SetAlarmHandleResult(v int32) *PrevForGetNeighboringAlarmOutput {
+func (s *PrevForGetNeighboringAlarmOutput) SetAlarmHandleResult(v int64) *PrevForGetNeighboringAlarmOutput {
 	s.AlarmHandleResult = &v
 	return s
 }
@@ -1196,7 +1196,7 @@ func (s *PrevForGetNeighboringAlarmOutput) SetAlarmID(v string) *PrevForGetNeigh
 }
 
 // SetAlarmTime sets the AlarmTime field's value.
-func (s *PrevForGetNeighboringAlarmOutput) SetAlarmTime(v int32) *PrevForGetNeighboringAlarmOutput {
+func (s *PrevForGetNeighboringAlarmOutput) SetAlarmTime(v int64) *PrevForGetNeighboringAlarmOutput {
 	s.AlarmTime = &v
 	return s
 }
@@ -1298,7 +1298,7 @@ func (s *PrevForGetNeighboringAlarmOutput) SetGroupPath(v string) *PrevForGetNei
 }
 
 // SetHandleTime sets the HandleTime field's value.
-func (s *PrevForGetNeighboringAlarmOutput) SetHandleTime(v int32) *PrevForGetNeighboringAlarmOutput {
+func (s *PrevForGetNeighboringAlarmOutput) SetHandleTime(v int64) *PrevForGetNeighboringAlarmOutput {
 	s.HandleTime = &v
 	return s
 }
@@ -1406,7 +1406,7 @@ func (s *PrevForGetNeighboringAlarmOutput) SetStackTraceHash(v string) *PrevForG
 }
 
 // SetStatus sets the Status field's value.
-func (s *PrevForGetNeighboringAlarmOutput) SetStatus(v int32) *PrevForGetNeighboringAlarmOutput {
+func (s *PrevForGetNeighboringAlarmOutput) SetStatus(v int64) *PrevForGetNeighboringAlarmOutput {
 	s.Status = &v
 	return s
 }

@@ -146,9 +146,9 @@ func (c *SECCENTER20240508) GetSecurityOverviewWithContext(ctx volcengine.Contex
 type BaselineRiskForGetSecurityOverviewOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	RiskCount *int32 `type:"int32" json:",omitempty"`
+	RiskCount *int64 `type:"int64" json:",omitempty"`
 
-	SubjectCount *int32 `type:"int32" json:",omitempty"`
+	SubjectCount *int64 `type:"int64" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -162,13 +162,13 @@ func (s BaselineRiskForGetSecurityOverviewOutput) GoString() string {
 }
 
 // SetRiskCount sets the RiskCount field's value.
-func (s *BaselineRiskForGetSecurityOverviewOutput) SetRiskCount(v int32) *BaselineRiskForGetSecurityOverviewOutput {
+func (s *BaselineRiskForGetSecurityOverviewOutput) SetRiskCount(v int64) *BaselineRiskForGetSecurityOverviewOutput {
 	s.RiskCount = &v
 	return s
 }
 
 // SetSubjectCount sets the SubjectCount field's value.
-func (s *BaselineRiskForGetSecurityOverviewOutput) SetSubjectCount(v int32) *BaselineRiskForGetSecurityOverviewOutput {
+func (s *BaselineRiskForGetSecurityOverviewOutput) SetSubjectCount(v int64) *BaselineRiskForGetSecurityOverviewOutput {
 	s.SubjectCount = &v
 	return s
 }
@@ -176,9 +176,9 @@ func (s *BaselineRiskForGetSecurityOverviewOutput) SetSubjectCount(v int32) *Bas
 type ContainerIntrusionForGetSecurityOverviewOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	RiskCount *int32 `type:"int32" json:",omitempty"`
+	RiskCount *int64 `type:"int64" json:",omitempty"`
 
-	SubjectCount *int32 `type:"int32" json:",omitempty"`
+	SubjectCount *int64 `type:"int64" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -192,13 +192,13 @@ func (s ContainerIntrusionForGetSecurityOverviewOutput) GoString() string {
 }
 
 // SetRiskCount sets the RiskCount field's value.
-func (s *ContainerIntrusionForGetSecurityOverviewOutput) SetRiskCount(v int32) *ContainerIntrusionForGetSecurityOverviewOutput {
+func (s *ContainerIntrusionForGetSecurityOverviewOutput) SetRiskCount(v int64) *ContainerIntrusionForGetSecurityOverviewOutput {
 	s.RiskCount = &v
 	return s
 }
 
 // SetSubjectCount sets the SubjectCount field's value.
-func (s *ContainerIntrusionForGetSecurityOverviewOutput) SetSubjectCount(v int32) *ContainerIntrusionForGetSecurityOverviewOutput {
+func (s *ContainerIntrusionForGetSecurityOverviewOutput) SetSubjectCount(v int64) *ContainerIntrusionForGetSecurityOverviewOutput {
 	s.SubjectCount = &v
 	return s
 }
@@ -284,9 +284,9 @@ func (s *GetSecurityOverviewOutput) SetVulnRisk(v *VulnRiskForGetSecurityOvervie
 type HostIntrusionForGetSecurityOverviewOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	RiskCount *int32 `type:"int32" json:",omitempty"`
+	RiskCount *int64 `type:"int64" json:",omitempty"`
 
-	SubjectCount *int32 `type:"int32" json:",omitempty"`
+	SubjectCount *int64 `type:"int64" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -300,13 +300,13 @@ func (s HostIntrusionForGetSecurityOverviewOutput) GoString() string {
 }
 
 // SetRiskCount sets the RiskCount field's value.
-func (s *HostIntrusionForGetSecurityOverviewOutput) SetRiskCount(v int32) *HostIntrusionForGetSecurityOverviewOutput {
+func (s *HostIntrusionForGetSecurityOverviewOutput) SetRiskCount(v int64) *HostIntrusionForGetSecurityOverviewOutput {
 	s.RiskCount = &v
 	return s
 }
 
 // SetSubjectCount sets the SubjectCount field's value.
-func (s *HostIntrusionForGetSecurityOverviewOutput) SetSubjectCount(v int32) *HostIntrusionForGetSecurityOverviewOutput {
+func (s *HostIntrusionForGetSecurityOverviewOutput) SetSubjectCount(v int64) *HostIntrusionForGetSecurityOverviewOutput {
 	s.SubjectCount = &v
 	return s
 }
@@ -314,9 +314,9 @@ func (s *HostIntrusionForGetSecurityOverviewOutput) SetSubjectCount(v int32) *Ho
 type RaspIntrusionForGetSecurityOverviewOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	RiskCount *int32 `type:"int32" json:",omitempty"`
+	RiskCount *int64 `type:"int64" json:",omitempty"`
 
-	SubjectCount *int32 `type:"int32" json:",omitempty"`
+	SubjectCount *int64 `type:"int64" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -330,13 +330,13 @@ func (s RaspIntrusionForGetSecurityOverviewOutput) GoString() string {
 }
 
 // SetRiskCount sets the RiskCount field's value.
-func (s *RaspIntrusionForGetSecurityOverviewOutput) SetRiskCount(v int32) *RaspIntrusionForGetSecurityOverviewOutput {
+func (s *RaspIntrusionForGetSecurityOverviewOutput) SetRiskCount(v int64) *RaspIntrusionForGetSecurityOverviewOutput {
 	s.RiskCount = &v
 	return s
 }
 
 // SetSubjectCount sets the SubjectCount field's value.
-func (s *RaspIntrusionForGetSecurityOverviewOutput) SetSubjectCount(v int32) *RaspIntrusionForGetSecurityOverviewOutput {
+func (s *RaspIntrusionForGetSecurityOverviewOutput) SetSubjectCount(v int64) *RaspIntrusionForGetSecurityOverviewOutput {
 	s.SubjectCount = &v
 	return s
 }
@@ -344,9 +344,9 @@ func (s *RaspIntrusionForGetSecurityOverviewOutput) SetSubjectCount(v int32) *Ra
 type VirusFileForGetSecurityOverviewOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	RiskCount *int32 `type:"int32" json:",omitempty"`
+	RiskCount *int64 `type:"int64" json:",omitempty"`
 
-	SubjectCount *int32 `type:"int32" json:",omitempty"`
+	SubjectCount *int64 `type:"int64" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -360,13 +360,13 @@ func (s VirusFileForGetSecurityOverviewOutput) GoString() string {
 }
 
 // SetRiskCount sets the RiskCount field's value.
-func (s *VirusFileForGetSecurityOverviewOutput) SetRiskCount(v int32) *VirusFileForGetSecurityOverviewOutput {
+func (s *VirusFileForGetSecurityOverviewOutput) SetRiskCount(v int64) *VirusFileForGetSecurityOverviewOutput {
 	s.RiskCount = &v
 	return s
 }
 
 // SetSubjectCount sets the SubjectCount field's value.
-func (s *VirusFileForGetSecurityOverviewOutput) SetSubjectCount(v int32) *VirusFileForGetSecurityOverviewOutput {
+func (s *VirusFileForGetSecurityOverviewOutput) SetSubjectCount(v int64) *VirusFileForGetSecurityOverviewOutput {
 	s.SubjectCount = &v
 	return s
 }
@@ -374,9 +374,9 @@ func (s *VirusFileForGetSecurityOverviewOutput) SetSubjectCount(v int32) *VirusF
 type VulnRiskForGetSecurityOverviewOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	RiskCount *int32 `type:"int32" json:",omitempty"`
+	RiskCount *int64 `type:"int64" json:",omitempty"`
 
-	SubjectCount *int32 `type:"int32" json:",omitempty"`
+	SubjectCount *int64 `type:"int64" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -390,13 +390,13 @@ func (s VulnRiskForGetSecurityOverviewOutput) GoString() string {
 }
 
 // SetRiskCount sets the RiskCount field's value.
-func (s *VulnRiskForGetSecurityOverviewOutput) SetRiskCount(v int32) *VulnRiskForGetSecurityOverviewOutput {
+func (s *VulnRiskForGetSecurityOverviewOutput) SetRiskCount(v int64) *VulnRiskForGetSecurityOverviewOutput {
 	s.RiskCount = &v
 	return s
 }
 
 // SetSubjectCount sets the SubjectCount field's value.
-func (s *VulnRiskForGetSecurityOverviewOutput) SetSubjectCount(v int32) *VulnRiskForGetSecurityOverviewOutput {
+func (s *VulnRiskForGetSecurityOverviewOutput) SetSubjectCount(v int64) *VulnRiskForGetSecurityOverviewOutput {
 	s.SubjectCount = &v
 	return s
 }

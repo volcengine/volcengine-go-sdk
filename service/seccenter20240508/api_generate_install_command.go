@@ -150,11 +150,11 @@ type GenerateInstallCommandInput struct {
 
 	CloudProvider *string `type:"string" json:",omitempty"`
 
-	ExpireTime *int32 `type:"int32" json:",omitempty"`
+	ExpireTime *int64 `type:"int64" json:",omitempty"`
 
 	GroupId *string `type:"string" json:",omitempty"`
 
-	HostEngine *int32 `type:"int32" json:",omitempty"`
+	HostEngine *int64 `type:"int64" json:",omitempty"`
 
 	InstallationMethod *string `type:"string" json:",omitempty"`
 
@@ -186,7 +186,7 @@ func (s *GenerateInstallCommandInput) SetCloudProvider(v string) *GenerateInstal
 }
 
 // SetExpireTime sets the ExpireTime field's value.
-func (s *GenerateInstallCommandInput) SetExpireTime(v int32) *GenerateInstallCommandInput {
+func (s *GenerateInstallCommandInput) SetExpireTime(v int64) *GenerateInstallCommandInput {
 	s.ExpireTime = &v
 	return s
 }
@@ -198,7 +198,7 @@ func (s *GenerateInstallCommandInput) SetGroupId(v string) *GenerateInstallComma
 }
 
 // SetHostEngine sets the HostEngine field's value.
-func (s *GenerateInstallCommandInput) SetHostEngine(v int32) *GenerateInstallCommandInput {
+func (s *GenerateInstallCommandInput) SetHostEngine(v int64) *GenerateInstallCommandInput {
 	s.HostEngine = &v
 	return s
 }
@@ -232,13 +232,13 @@ type GenerateInstallCommandOutput struct {
 
 	Command *string `type:"string" json:",omitempty"`
 
-	ExpireTime *int32 `type:"int32" json:",omitempty"`
+	ExpireTime *int64 `type:"int64" json:",omitempty"`
 
 	GroupId *string `type:"string" json:",omitempty"`
 
 	GroupName *string `type:"string" json:",omitempty"`
 
-	HostEngine *int32 `type:"int32" json:",omitempty"`
+	HostEngine *int64 `type:"int64" json:",omitempty"`
 
 	Id *string `type:"string" json:",omitempty"`
 
@@ -278,7 +278,7 @@ func (s *GenerateInstallCommandOutput) SetCommand(v string) *GenerateInstallComm
 }
 
 // SetExpireTime sets the ExpireTime field's value.
-func (s *GenerateInstallCommandOutput) SetExpireTime(v int32) *GenerateInstallCommandOutput {
+func (s *GenerateInstallCommandOutput) SetExpireTime(v int64) *GenerateInstallCommandOutput {
 	s.ExpireTime = &v
 	return s
 }
@@ -296,7 +296,7 @@ func (s *GenerateInstallCommandOutput) SetGroupName(v string) *GenerateInstallCo
 }
 
 // SetHostEngine sets the HostEngine field's value.
-func (s *GenerateInstallCommandOutput) SetHostEngine(v int32) *GenerateInstallCommandOutput {
+func (s *GenerateInstallCommandOutput) SetHostEngine(v int64) *GenerateInstallCommandOutput {
 	s.HostEngine = &v
 	return s
 }

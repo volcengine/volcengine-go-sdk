@@ -166,27 +166,29 @@ type GetFingerprintStatisticsOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	App *int32 `type:"int32"`
+	App *int64 `type:"int64"`
 
-	Container *int32 `type:"int32"`
+	Container *int64 `type:"int64"`
 
-	Cron *int32 `type:"int32"`
+	Cron *int64 `type:"int64"`
 
-	Integrity *int32 `type:"int32"`
+	Env *int64 `type:"int64"`
 
-	Kmod *int32 `type:"int32"`
+	Integrity *int64 `type:"int64"`
 
-	Port *int32 `type:"int32"`
+	Kmod *int64 `type:"int64"`
 
-	Process *int32 `type:"int32"`
+	Port *int64 `type:"int64"`
 
-	Service *int32 `type:"int32"`
+	Process *int64 `type:"int64"`
 
-	Software *int32 `type:"int32"`
+	Service *int64 `type:"int64"`
 
-	User *int32 `type:"int32"`
+	Software *int64 `type:"int64"`
 
-	Web *int32 `type:"int32"`
+	User *int64 `type:"int64"`
+
+	Web *int64 `type:"int64"`
 }
 
 // String returns the string representation
@@ -200,67 +202,73 @@ func (s GetFingerprintStatisticsOutput) GoString() string {
 }
 
 // SetApp sets the App field's value.
-func (s *GetFingerprintStatisticsOutput) SetApp(v int32) *GetFingerprintStatisticsOutput {
+func (s *GetFingerprintStatisticsOutput) SetApp(v int64) *GetFingerprintStatisticsOutput {
 	s.App = &v
 	return s
 }
 
 // SetContainer sets the Container field's value.
-func (s *GetFingerprintStatisticsOutput) SetContainer(v int32) *GetFingerprintStatisticsOutput {
+func (s *GetFingerprintStatisticsOutput) SetContainer(v int64) *GetFingerprintStatisticsOutput {
 	s.Container = &v
 	return s
 }
 
 // SetCron sets the Cron field's value.
-func (s *GetFingerprintStatisticsOutput) SetCron(v int32) *GetFingerprintStatisticsOutput {
+func (s *GetFingerprintStatisticsOutput) SetCron(v int64) *GetFingerprintStatisticsOutput {
 	s.Cron = &v
 	return s
 }
 
+// SetEnv sets the Env field's value.
+func (s *GetFingerprintStatisticsOutput) SetEnv(v int64) *GetFingerprintStatisticsOutput {
+	s.Env = &v
+	return s
+}
+
 // SetIntegrity sets the Integrity field's value.
-func (s *GetFingerprintStatisticsOutput) SetIntegrity(v int32) *GetFingerprintStatisticsOutput {
+func (s *GetFingerprintStatisticsOutput) SetIntegrity(v int64) *GetFingerprintStatisticsOutput {
 	s.Integrity = &v
 	return s
 }
 
 // SetKmod sets the Kmod field's value.
-func (s *GetFingerprintStatisticsOutput) SetKmod(v int32) *GetFingerprintStatisticsOutput {
+func (s *GetFingerprintStatisticsOutput) SetKmod(v int64) *GetFingerprintStatisticsOutput {
 	s.Kmod = &v
 	return s
 }
 
 // SetPort sets the Port field's value.
-func (s *GetFingerprintStatisticsOutput) SetPort(v int32) *GetFingerprintStatisticsOutput {
+func (s *GetFingerprintStatisticsOutput) SetPort(v int64) *GetFingerprintStatisticsOutput {
 	s.Port = &v
 	return s
 }
 
 // SetProcess sets the Process field's value.
-func (s *GetFingerprintStatisticsOutput) SetProcess(v int32) *GetFingerprintStatisticsOutput {
+func (s *GetFingerprintStatisticsOutput) SetProcess(v int64) *GetFingerprintStatisticsOutput {
 	s.Process = &v
 	return s
 }
 
 // SetService sets the Service field's value.
-func (s *GetFingerprintStatisticsOutput) SetService(v int32) *GetFingerprintStatisticsOutput {
+func (s *GetFingerprintStatisticsOutput) SetService(v int64) *GetFingerprintStatisticsOutput {
 	s.Service = &v
 	return s
 }
 
 // SetSoftware sets the Software field's value.
-func (s *GetFingerprintStatisticsOutput) SetSoftware(v int32) *GetFingerprintStatisticsOutput {
+func (s *GetFingerprintStatisticsOutput) SetSoftware(v int64) *GetFingerprintStatisticsOutput {
 	s.Software = &v
 	return s
 }
 
 // SetUser sets the User field's value.
-func (s *GetFingerprintStatisticsOutput) SetUser(v int32) *GetFingerprintStatisticsOutput {
+func (s *GetFingerprintStatisticsOutput) SetUser(v int64) *GetFingerprintStatisticsOutput {
 	s.User = &v
 	return s
 }
 
 // SetWeb sets the Web field's value.
-func (s *GetFingerprintStatisticsOutput) SetWeb(v int32) *GetFingerprintStatisticsOutput {
+func (s *GetFingerprintStatisticsOutput) SetWeb(v int64) *GetFingerprintStatisticsOutput {
 	s.Web = &v
 	return s
 }

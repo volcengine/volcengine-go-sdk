@@ -166,9 +166,9 @@ type ConditionsForDeleteWhiteListsInput struct {
 
 	TopGroupID *string `type:"string" json:",omitempty"`
 
-	UpdateTimeEnd *int32 `type:"int32" json:",omitempty"`
+	UpdateTimeEnd *int64 `type:"int64" json:",omitempty"`
 
-	UpdateTimeStart *int32 `type:"int32" json:",omitempty"`
+	UpdateTimeStart *int64 `type:"int64" json:",omitempty"`
 
 	User *string `type:"string" json:",omitempty"`
 
@@ -246,13 +246,13 @@ func (s *ConditionsForDeleteWhiteListsInput) SetTopGroupID(v string) *Conditions
 }
 
 // SetUpdateTimeEnd sets the UpdateTimeEnd field's value.
-func (s *ConditionsForDeleteWhiteListsInput) SetUpdateTimeEnd(v int32) *ConditionsForDeleteWhiteListsInput {
+func (s *ConditionsForDeleteWhiteListsInput) SetUpdateTimeEnd(v int64) *ConditionsForDeleteWhiteListsInput {
 	s.UpdateTimeEnd = &v
 	return s
 }
 
 // SetUpdateTimeStart sets the UpdateTimeStart field's value.
-func (s *ConditionsForDeleteWhiteListsInput) SetUpdateTimeStart(v int32) *ConditionsForDeleteWhiteListsInput {
+func (s *ConditionsForDeleteWhiteListsInput) SetUpdateTimeStart(v int64) *ConditionsForDeleteWhiteListsInput {
 	s.UpdateTimeStart = &v
 	return s
 }

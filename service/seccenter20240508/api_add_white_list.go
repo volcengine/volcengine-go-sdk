@@ -306,7 +306,7 @@ type RuleListForAddWhiteListInput struct {
 
 	MatchKey *string `type:"string" json:",omitempty"`
 
-	MatchType *int32 `type:"int32" json:",omitempty"`
+	MatchType *int64 `type:"int64" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -332,7 +332,7 @@ func (s *RuleListForAddWhiteListInput) SetMatchKey(v string) *RuleListForAddWhit
 }
 
 // SetMatchType sets the MatchType field's value.
-func (s *RuleListForAddWhiteListInput) SetMatchType(v int32) *RuleListForAddWhiteListInput {
+func (s *RuleListForAddWhiteListInput) SetMatchType(v int64) *RuleListForAddWhiteListInput {
 	s.MatchType = &v
 	return s
 }

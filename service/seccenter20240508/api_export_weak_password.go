@@ -148,7 +148,7 @@ type ExportWeakPasswordInput struct {
 
 	AgentID *string `type:"string" json:",omitempty"`
 
-	BaselineID *int32 `type:"int32" json:",omitempty"`
+	BaselineID *int64 `type:"int64" json:",omitempty"`
 
 	CloudProviders []*string `type:"list" json:",omitempty"`
 
@@ -182,7 +182,7 @@ func (s *ExportWeakPasswordInput) SetAgentID(v string) *ExportWeakPasswordInput 
 }
 
 // SetBaselineID sets the BaselineID field's value.
-func (s *ExportWeakPasswordInput) SetBaselineID(v int32) *ExportWeakPasswordInput {
+func (s *ExportWeakPasswordInput) SetBaselineID(v int64) *ExportWeakPasswordInput {
 	s.BaselineID = &v
 	return s
 }
