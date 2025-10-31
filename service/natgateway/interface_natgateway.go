@@ -46,6 +46,22 @@ type NATGATEWAYAPI interface {
 	CreateNatGatewayWithContext(volcengine.Context, *CreateNatGatewayInput, ...request.Option) (*CreateNatGatewayOutput, error)
 	CreateNatGatewayRequest(*CreateNatGatewayInput) (*request.Request, *CreateNatGatewayOutput)
 
+	CreateNatIpCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateNatIpCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateNatIpCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateNatIp(*CreateNatIpInput) (*CreateNatIpOutput, error)
+	CreateNatIpWithContext(volcengine.Context, *CreateNatIpInput, ...request.Option) (*CreateNatIpOutput, error)
+	CreateNatIpRequest(*CreateNatIpInput) (*request.Request, *CreateNatIpOutput)
+
+	CreateNatIpLimitRuleCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateNatIpLimitRuleCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateNatIpLimitRuleCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateNatIpLimitRule(*CreateNatIpLimitRuleInput) (*CreateNatIpLimitRuleOutput, error)
+	CreateNatIpLimitRuleWithContext(volcengine.Context, *CreateNatIpLimitRuleInput, ...request.Option) (*CreateNatIpLimitRuleOutput, error)
+	CreateNatIpLimitRuleRequest(*CreateNatIpLimitRuleInput) (*request.Request, *CreateNatIpLimitRuleOutput)
+
 	CreateSnatEntryCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	CreateSnatEntryCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	CreateSnatEntryCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -69,6 +85,22 @@ type NATGATEWAYAPI interface {
 	DeleteNatGateway(*DeleteNatGatewayInput) (*DeleteNatGatewayOutput, error)
 	DeleteNatGatewayWithContext(volcengine.Context, *DeleteNatGatewayInput, ...request.Option) (*DeleteNatGatewayOutput, error)
 	DeleteNatGatewayRequest(*DeleteNatGatewayInput) (*request.Request, *DeleteNatGatewayOutput)
+
+	DeleteNatIpCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeleteNatIpCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeleteNatIpCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeleteNatIp(*DeleteNatIpInput) (*DeleteNatIpOutput, error)
+	DeleteNatIpWithContext(volcengine.Context, *DeleteNatIpInput, ...request.Option) (*DeleteNatIpOutput, error)
+	DeleteNatIpRequest(*DeleteNatIpInput) (*request.Request, *DeleteNatIpOutput)
+
+	DeleteNatIpLimitRuleCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeleteNatIpLimitRuleCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeleteNatIpLimitRuleCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeleteNatIpLimitRule(*DeleteNatIpLimitRuleInput) (*DeleteNatIpLimitRuleOutput, error)
+	DeleteNatIpLimitRuleWithContext(volcengine.Context, *DeleteNatIpLimitRuleInput, ...request.Option) (*DeleteNatIpLimitRuleOutput, error)
+	DeleteNatIpLimitRuleRequest(*DeleteNatIpLimitRuleInput) (*request.Request, *DeleteNatIpLimitRuleOutput)
 
 	DeleteSnatEntryCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DeleteSnatEntryCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -110,6 +142,30 @@ type NATGATEWAYAPI interface {
 	DescribeNatGatewaysWithContext(volcengine.Context, *DescribeNatGatewaysInput, ...request.Option) (*DescribeNatGatewaysOutput, error)
 	DescribeNatGatewaysRequest(*DescribeNatGatewaysInput) (*request.Request, *DescribeNatGatewaysOutput)
 
+	DescribeNatIpAttributesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeNatIpAttributesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeNatIpAttributesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeNatIpAttributes(*DescribeNatIpAttributesInput) (*DescribeNatIpAttributesOutput, error)
+	DescribeNatIpAttributesWithContext(volcengine.Context, *DescribeNatIpAttributesInput, ...request.Option) (*DescribeNatIpAttributesOutput, error)
+	DescribeNatIpAttributesRequest(*DescribeNatIpAttributesInput) (*request.Request, *DescribeNatIpAttributesOutput)
+
+	DescribeNatIpLimitRulesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeNatIpLimitRulesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeNatIpLimitRulesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeNatIpLimitRules(*DescribeNatIpLimitRulesInput) (*DescribeNatIpLimitRulesOutput, error)
+	DescribeNatIpLimitRulesWithContext(volcengine.Context, *DescribeNatIpLimitRulesInput, ...request.Option) (*DescribeNatIpLimitRulesOutput, error)
+	DescribeNatIpLimitRulesRequest(*DescribeNatIpLimitRulesInput) (*request.Request, *DescribeNatIpLimitRulesOutput)
+
+	DescribeNatIpsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeNatIpsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeNatIpsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeNatIps(*DescribeNatIpsInput) (*DescribeNatIpsOutput, error)
+	DescribeNatIpsWithContext(volcengine.Context, *DescribeNatIpsInput, ...request.Option) (*DescribeNatIpsOutput, error)
+	DescribeNatIpsRequest(*DescribeNatIpsInput) (*request.Request, *DescribeNatIpsOutput)
+
 	DescribeSnatEntriesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DescribeSnatEntriesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DescribeSnatEntriesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -134,6 +190,14 @@ type NATGATEWAYAPI interface {
 	ListNatGatewayAvailableZonesWithContext(volcengine.Context, *ListNatGatewayAvailableZonesInput, ...request.Option) (*ListNatGatewayAvailableZonesOutput, error)
 	ListNatGatewayAvailableZonesRequest(*ListNatGatewayAvailableZonesInput) (*request.Request, *ListNatGatewayAvailableZonesOutput)
 
+	ListTagsForResourcesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListTagsForResourcesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListTagsForResourcesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListTagsForResources(*ListTagsForResourcesInput) (*ListTagsForResourcesOutput, error)
+	ListTagsForResourcesWithContext(volcengine.Context, *ListTagsForResourcesInput, ...request.Option) (*ListTagsForResourcesOutput, error)
+	ListTagsForResourcesRequest(*ListTagsForResourcesInput) (*request.Request, *ListTagsForResourcesOutput)
+
 	ModifyDnatEntryAttributesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ModifyDnatEntryAttributesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	ModifyDnatEntryAttributesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -150,6 +214,22 @@ type NATGATEWAYAPI interface {
 	ModifyNatGatewayAttributesWithContext(volcengine.Context, *ModifyNatGatewayAttributesInput, ...request.Option) (*ModifyNatGatewayAttributesOutput, error)
 	ModifyNatGatewayAttributesRequest(*ModifyNatGatewayAttributesInput) (*request.Request, *ModifyNatGatewayAttributesOutput)
 
+	ModifyNatIpAttributesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ModifyNatIpAttributesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ModifyNatIpAttributesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ModifyNatIpAttributes(*ModifyNatIpAttributesInput) (*ModifyNatIpAttributesOutput, error)
+	ModifyNatIpAttributesWithContext(volcengine.Context, *ModifyNatIpAttributesInput, ...request.Option) (*ModifyNatIpAttributesOutput, error)
+	ModifyNatIpAttributesRequest(*ModifyNatIpAttributesInput) (*request.Request, *ModifyNatIpAttributesOutput)
+
+	ModifyNatIpLimitRuleAttributesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ModifyNatIpLimitRuleAttributesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ModifyNatIpLimitRuleAttributesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ModifyNatIpLimitRuleAttributes(*ModifyNatIpLimitRuleAttributesInput) (*ModifyNatIpLimitRuleAttributesOutput, error)
+	ModifyNatIpLimitRuleAttributesWithContext(volcengine.Context, *ModifyNatIpLimitRuleAttributesInput, ...request.Option) (*ModifyNatIpLimitRuleAttributesOutput, error)
+	ModifyNatIpLimitRuleAttributesRequest(*ModifyNatIpLimitRuleAttributesInput) (*request.Request, *ModifyNatIpLimitRuleAttributesOutput)
+
 	ModifySnatEntryAttributesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ModifySnatEntryAttributesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	ModifySnatEntryAttributesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -157,6 +237,22 @@ type NATGATEWAYAPI interface {
 	ModifySnatEntryAttributes(*ModifySnatEntryAttributesInput) (*ModifySnatEntryAttributesOutput, error)
 	ModifySnatEntryAttributesWithContext(volcengine.Context, *ModifySnatEntryAttributesInput, ...request.Option) (*ModifySnatEntryAttributesOutput, error)
 	ModifySnatEntryAttributesRequest(*ModifySnatEntryAttributesInput) (*request.Request, *ModifySnatEntryAttributesOutput)
+
+	TagResourcesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	TagResourcesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	TagResourcesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	TagResources(*TagResourcesInput) (*TagResourcesOutput, error)
+	TagResourcesWithContext(volcengine.Context, *TagResourcesInput, ...request.Option) (*TagResourcesOutput, error)
+	TagResourcesRequest(*TagResourcesInput) (*request.Request, *TagResourcesOutput)
+
+	UntagResourcesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	UntagResourcesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	UntagResourcesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	UntagResources(*UntagResourcesInput) (*UntagResourcesOutput, error)
+	UntagResourcesWithContext(volcengine.Context, *UntagResourcesInput, ...request.Option) (*UntagResourcesOutput, error)
+	UntagResourcesRequest(*UntagResourcesInput) (*request.Request, *UntagResourcesOutput)
 }
 
 var _ NATGATEWAYAPI = (*NATGATEWAY)(nil)

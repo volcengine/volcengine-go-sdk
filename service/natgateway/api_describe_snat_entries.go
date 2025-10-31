@@ -146,6 +146,8 @@ type DescribeSnatEntriesInput struct {
 
 	NatGatewayId *string `type:"string"`
 
+	NatIpId *string `type:"string"`
+
 	PageNumber *int64 `type:"integer"`
 
 	PageSize *int64 `max:"100" type:"integer"`
@@ -191,6 +193,12 @@ func (s *DescribeSnatEntriesInput) SetEipId(v string) *DescribeSnatEntriesInput 
 // SetNatGatewayId sets the NatGatewayId field's value.
 func (s *DescribeSnatEntriesInput) SetNatGatewayId(v string) *DescribeSnatEntriesInput {
 	s.NatGatewayId = &v
+	return s
+}
+
+// SetNatIpId sets the NatIpId field's value.
+func (s *DescribeSnatEntriesInput) SetNatIpId(v string) *DescribeSnatEntriesInput {
+	s.NatIpId = &v
 	return s
 }
 

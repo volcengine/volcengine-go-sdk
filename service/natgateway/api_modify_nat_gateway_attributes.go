@@ -144,10 +144,16 @@ type ModifyNatGatewayAttributesInput struct {
 
 	Description *string `min:"1" max:"255" type:"string"`
 
+	DirectMode *bool `type:"boolean"`
+
 	// NatGatewayId is a required field
 	NatGatewayId *string `type:"string" required:"true"`
 
 	NatGatewayName *string `min:"1" max:"128" type:"string"`
+
+	SmartScheduleEnabled *bool `type:"boolean"`
+
+	SmartScheduleRule *string `type:"string"`
 
 	Spec *string `type:"string"`
 }
@@ -193,6 +199,12 @@ func (s *ModifyNatGatewayAttributesInput) SetDescription(v string) *ModifyNatGat
 	return s
 }
 
+// SetDirectMode sets the DirectMode field's value.
+func (s *ModifyNatGatewayAttributesInput) SetDirectMode(v bool) *ModifyNatGatewayAttributesInput {
+	s.DirectMode = &v
+	return s
+}
+
 // SetNatGatewayId sets the NatGatewayId field's value.
 func (s *ModifyNatGatewayAttributesInput) SetNatGatewayId(v string) *ModifyNatGatewayAttributesInput {
 	s.NatGatewayId = &v
@@ -202,6 +214,18 @@ func (s *ModifyNatGatewayAttributesInput) SetNatGatewayId(v string) *ModifyNatGa
 // SetNatGatewayName sets the NatGatewayName field's value.
 func (s *ModifyNatGatewayAttributesInput) SetNatGatewayName(v string) *ModifyNatGatewayAttributesInput {
 	s.NatGatewayName = &v
+	return s
+}
+
+// SetSmartScheduleEnabled sets the SmartScheduleEnabled field's value.
+func (s *ModifyNatGatewayAttributesInput) SetSmartScheduleEnabled(v bool) *ModifyNatGatewayAttributesInput {
+	s.SmartScheduleEnabled = &v
+	return s
+}
+
+// SetSmartScheduleRule sets the SmartScheduleRule field's value.
+func (s *ModifyNatGatewayAttributesInput) SetSmartScheduleRule(v string) *ModifyNatGatewayAttributesInput {
+	s.SmartScheduleRule = &v
 	return s
 }
 
