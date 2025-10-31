@@ -147,6 +147,8 @@ type CreateSnatEntryInput struct {
 	// NatGatewayId is a required field
 	NatGatewayId *string `type:"string" required:"true"`
 
+	NatIpId *string `type:"string"`
+
 	SnatEntryName *string `min:"1" max:"128" type:"string"`
 
 	SourceCidr *string `type:"string"`
@@ -192,6 +194,12 @@ func (s *CreateSnatEntryInput) SetEipId(v string) *CreateSnatEntryInput {
 // SetNatGatewayId sets the NatGatewayId field's value.
 func (s *CreateSnatEntryInput) SetNatGatewayId(v string) *CreateSnatEntryInput {
 	s.NatGatewayId = &v
+	return s
+}
+
+// SetNatIpId sets the NatIpId field's value.
+func (s *CreateSnatEntryInput) SetNatIpId(v string) *CreateSnatEntryInput {
+	s.NatIpId = &v
 	return s
 }
 
