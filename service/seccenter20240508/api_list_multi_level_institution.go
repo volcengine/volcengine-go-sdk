@@ -152,13 +152,13 @@ type DataForListMultiLevelInstitutionOutput struct {
 
 	ClusterSecOpen *bool `type:"boolean" json:",omitempty"`
 
-	CreateTime *int32 `type:"int32" json:",omitempty"`
+	CreateTime *int64 `type:"int64" json:",omitempty"`
 
-	ExpireTime *int32 `type:"int32" json:",omitempty"`
+	ExpireTime *int64 `type:"int64" json:",omitempty"`
 
-	HostTotalCount *int32 `type:"int32" json:",omitempty"`
+	HostTotalCount *int64 `type:"int64" json:",omitempty"`
 
-	HostUsedCount *int32 `type:"int32" json:",omitempty"`
+	HostUsedCount *int64 `type:"int64" json:",omitempty"`
 
 	ID *string `type:"string" json:",omitempty"`
 
@@ -168,13 +168,13 @@ type DataForListMultiLevelInstitutionOutput struct {
 
 	InstitutionStatus *string `type:"string" json:",omitempty"`
 
-	LastActiveTime *int32 `type:"int32" json:",omitempty"`
+	LastActiveTime *int64 `type:"int64" json:",omitempty"`
 
 	Remark *string `type:"string" json:",omitempty"`
 
 	ReportSwitchOpen *bool `type:"boolean" json:",omitempty"`
 
-	UpdateTime *int32 `type:"int32" json:",omitempty"`
+	UpdateTime *int64 `type:"int64" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -206,25 +206,25 @@ func (s *DataForListMultiLevelInstitutionOutput) SetClusterSecOpen(v bool) *Data
 }
 
 // SetCreateTime sets the CreateTime field's value.
-func (s *DataForListMultiLevelInstitutionOutput) SetCreateTime(v int32) *DataForListMultiLevelInstitutionOutput {
+func (s *DataForListMultiLevelInstitutionOutput) SetCreateTime(v int64) *DataForListMultiLevelInstitutionOutput {
 	s.CreateTime = &v
 	return s
 }
 
 // SetExpireTime sets the ExpireTime field's value.
-func (s *DataForListMultiLevelInstitutionOutput) SetExpireTime(v int32) *DataForListMultiLevelInstitutionOutput {
+func (s *DataForListMultiLevelInstitutionOutput) SetExpireTime(v int64) *DataForListMultiLevelInstitutionOutput {
 	s.ExpireTime = &v
 	return s
 }
 
 // SetHostTotalCount sets the HostTotalCount field's value.
-func (s *DataForListMultiLevelInstitutionOutput) SetHostTotalCount(v int32) *DataForListMultiLevelInstitutionOutput {
+func (s *DataForListMultiLevelInstitutionOutput) SetHostTotalCount(v int64) *DataForListMultiLevelInstitutionOutput {
 	s.HostTotalCount = &v
 	return s
 }
 
 // SetHostUsedCount sets the HostUsedCount field's value.
-func (s *DataForListMultiLevelInstitutionOutput) SetHostUsedCount(v int32) *DataForListMultiLevelInstitutionOutput {
+func (s *DataForListMultiLevelInstitutionOutput) SetHostUsedCount(v int64) *DataForListMultiLevelInstitutionOutput {
 	s.HostUsedCount = &v
 	return s
 }
@@ -254,7 +254,7 @@ func (s *DataForListMultiLevelInstitutionOutput) SetInstitutionStatus(v string) 
 }
 
 // SetLastActiveTime sets the LastActiveTime field's value.
-func (s *DataForListMultiLevelInstitutionOutput) SetLastActiveTime(v int32) *DataForListMultiLevelInstitutionOutput {
+func (s *DataForListMultiLevelInstitutionOutput) SetLastActiveTime(v int64) *DataForListMultiLevelInstitutionOutput {
 	s.LastActiveTime = &v
 	return s
 }
@@ -272,7 +272,7 @@ func (s *DataForListMultiLevelInstitutionOutput) SetReportSwitchOpen(v bool) *Da
 }
 
 // SetUpdateTime sets the UpdateTime field's value.
-func (s *DataForListMultiLevelInstitutionOutput) SetUpdateTime(v int32) *DataForListMultiLevelInstitutionOutput {
+func (s *DataForListMultiLevelInstitutionOutput) SetUpdateTime(v int64) *DataForListMultiLevelInstitutionOutput {
 	s.UpdateTime = &v
 	return s
 }
@@ -287,10 +287,10 @@ type ListMultiLevelInstitutionInput struct {
 	InstitutionStatus *string `type:"string" json:",omitempty"`
 
 	// PageNumber is a required field
-	PageNumber *int32 `type:"int32" json:",omitempty" required:"true"`
+	PageNumber *int64 `type:"int64" json:",omitempty" required:"true"`
 
 	// PageSize is a required field
-	PageSize *int32 `type:"int32" json:",omitempty" required:"true"`
+	PageSize *int64 `type:"int64" json:",omitempty" required:"true"`
 
 	SortBy *string `type:"string" json:",omitempty"`
 
@@ -342,13 +342,13 @@ func (s *ListMultiLevelInstitutionInput) SetInstitutionStatus(v string) *ListMul
 }
 
 // SetPageNumber sets the PageNumber field's value.
-func (s *ListMultiLevelInstitutionInput) SetPageNumber(v int32) *ListMultiLevelInstitutionInput {
+func (s *ListMultiLevelInstitutionInput) SetPageNumber(v int64) *ListMultiLevelInstitutionInput {
 	s.PageNumber = &v
 	return s
 }
 
 // SetPageSize sets the PageSize field's value.
-func (s *ListMultiLevelInstitutionInput) SetPageSize(v int32) *ListMultiLevelInstitutionInput {
+func (s *ListMultiLevelInstitutionInput) SetPageSize(v int64) *ListMultiLevelInstitutionInput {
 	s.PageSize = &v
 	return s
 }
@@ -372,11 +372,11 @@ type ListMultiLevelInstitutionOutput struct {
 
 	Data []*DataForListMultiLevelInstitutionOutput `type:"list" json:",omitempty"`
 
-	PageNumber *int32 `type:"int32" json:",omitempty"`
+	PageNumber *int64 `type:"int64" json:",omitempty"`
 
-	PageSize *int32 `type:"int32" json:",omitempty"`
+	PageSize *int64 `type:"int64" json:",omitempty"`
 
-	TotalCount *int32 `type:"int32" json:",omitempty"`
+	TotalCount *int64 `type:"int64" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -396,19 +396,19 @@ func (s *ListMultiLevelInstitutionOutput) SetData(v []*DataForListMultiLevelInst
 }
 
 // SetPageNumber sets the PageNumber field's value.
-func (s *ListMultiLevelInstitutionOutput) SetPageNumber(v int32) *ListMultiLevelInstitutionOutput {
+func (s *ListMultiLevelInstitutionOutput) SetPageNumber(v int64) *ListMultiLevelInstitutionOutput {
 	s.PageNumber = &v
 	return s
 }
 
 // SetPageSize sets the PageSize field's value.
-func (s *ListMultiLevelInstitutionOutput) SetPageSize(v int32) *ListMultiLevelInstitutionOutput {
+func (s *ListMultiLevelInstitutionOutput) SetPageSize(v int64) *ListMultiLevelInstitutionOutput {
 	s.PageSize = &v
 	return s
 }
 
 // SetTotalCount sets the TotalCount field's value.
-func (s *ListMultiLevelInstitutionOutput) SetTotalCount(v int32) *ListMultiLevelInstitutionOutput {
+func (s *ListMultiLevelInstitutionOutput) SetTotalCount(v int64) *ListMultiLevelInstitutionOutput {
 	s.TotalCount = &v
 	return s
 }

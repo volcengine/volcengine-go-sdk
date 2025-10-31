@@ -152,9 +152,9 @@ type BaselineChecklistWhiteInput struct {
 
 	AssetType *string `type:"string" json:",omitempty" enum:"EnumOfAssetTypeForBaselineChecklistWhiteInput"`
 
-	BaselineID *int32 `type:"int32" json:",omitempty"`
+	BaselineID *int64 `type:"int64" json:",omitempty"`
 
-	ChecklistIdList []*int32 `type:"list" json:",omitempty"`
+	ChecklistIdList []*int64 `type:"list" json:",omitempty"`
 
 	Conditions *ConditionsForBaselineChecklistWhiteInput `type:"structure" json:",omitempty"`
 
@@ -192,13 +192,13 @@ func (s *BaselineChecklistWhiteInput) SetAssetType(v string) *BaselineChecklistW
 }
 
 // SetBaselineID sets the BaselineID field's value.
-func (s *BaselineChecklistWhiteInput) SetBaselineID(v int32) *BaselineChecklistWhiteInput {
+func (s *BaselineChecklistWhiteInput) SetBaselineID(v int64) *BaselineChecklistWhiteInput {
 	s.BaselineID = &v
 	return s
 }
 
 // SetChecklistIdList sets the ChecklistIdList field's value.
-func (s *BaselineChecklistWhiteInput) SetChecklistIdList(v []*int32) *BaselineChecklistWhiteInput {
+func (s *BaselineChecklistWhiteInput) SetChecklistIdList(v []*int64) *BaselineChecklistWhiteInput {
 	s.ChecklistIdList = v
 	return s
 }

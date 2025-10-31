@@ -336,7 +336,7 @@ type DataForListHostsBasicInfosOutput struct {
 
 	EcsInstance *EcsInstanceForListHostsBasicInfosOutput `type:"structure" json:",omitempty"`
 
-	FirstHeartbeatTime *int32 `type:"int32" json:",omitempty"`
+	FirstHeartbeatTime *int64 `type:"int64" json:",omitempty"`
 
 	Gateway *string `type:"string" json:",omitempty"`
 
@@ -346,7 +346,7 @@ type DataForListHostsBasicInfosOutput struct {
 
 	KernelVersion *string `type:"string" json:",omitempty"`
 
-	LastHeartbeatTime *int32 `type:"int32" json:",omitempty"`
+	LastHeartbeatTime *int64 `type:"int64" json:",omitempty"`
 
 	MemUsage *float64 `type:"double" json:",omitempty"`
 
@@ -362,13 +362,13 @@ type DataForListHostsBasicInfosOutput struct {
 
 	SecurityEnhancement *bool `type:"boolean" json:",omitempty"`
 
-	StartTime *int32 `type:"int32" json:",omitempty"`
+	StartTime *int64 `type:"int64" json:",omitempty"`
 
 	Status *string `type:"string" json:",omitempty"`
 
 	Tags []*string `type:"list" json:",omitempty"`
 
-	TotalMem *int32 `type:"int32" json:",omitempty"`
+	TotalMem *int64 `type:"int64" json:",omitempty"`
 
 	UserStatus *string `type:"string" json:",omitempty"`
 
@@ -434,7 +434,7 @@ func (s *DataForListHostsBasicInfosOutput) SetEcsInstance(v *EcsInstanceForListH
 }
 
 // SetFirstHeartbeatTime sets the FirstHeartbeatTime field's value.
-func (s *DataForListHostsBasicInfosOutput) SetFirstHeartbeatTime(v int32) *DataForListHostsBasicInfosOutput {
+func (s *DataForListHostsBasicInfosOutput) SetFirstHeartbeatTime(v int64) *DataForListHostsBasicInfosOutput {
 	s.FirstHeartbeatTime = &v
 	return s
 }
@@ -464,7 +464,7 @@ func (s *DataForListHostsBasicInfosOutput) SetKernelVersion(v string) *DataForLi
 }
 
 // SetLastHeartbeatTime sets the LastHeartbeatTime field's value.
-func (s *DataForListHostsBasicInfosOutput) SetLastHeartbeatTime(v int32) *DataForListHostsBasicInfosOutput {
+func (s *DataForListHostsBasicInfosOutput) SetLastHeartbeatTime(v int64) *DataForListHostsBasicInfosOutput {
 	s.LastHeartbeatTime = &v
 	return s
 }
@@ -512,7 +512,7 @@ func (s *DataForListHostsBasicInfosOutput) SetSecurityEnhancement(v bool) *DataF
 }
 
 // SetStartTime sets the StartTime field's value.
-func (s *DataForListHostsBasicInfosOutput) SetStartTime(v int32) *DataForListHostsBasicInfosOutput {
+func (s *DataForListHostsBasicInfosOutput) SetStartTime(v int64) *DataForListHostsBasicInfosOutput {
 	s.StartTime = &v
 	return s
 }
@@ -530,7 +530,7 @@ func (s *DataForListHostsBasicInfosOutput) SetTags(v []*string) *DataForListHost
 }
 
 // SetTotalMem sets the TotalMem field's value.
-func (s *DataForListHostsBasicInfosOutput) SetTotalMem(v int32) *DataForListHostsBasicInfosOutput {
+func (s *DataForListHostsBasicInfosOutput) SetTotalMem(v int64) *DataForListHostsBasicInfosOutput {
 	s.TotalMem = &v
 	return s
 }
@@ -554,7 +554,9 @@ type EcsInstanceForListHostsBasicInfosOutput struct {
 
 	AccountID *string `type:"string" json:",omitempty"`
 
-	Cpu *int32 `type:"int32" json:",omitempty"`
+	Cpu *int64 `type:"int64" json:",omitempty"`
+
+	CreatedAt *string `type:"string" json:",omitempty"`
 
 	ECSUpdateAt *string `type:"string" json:",omitempty"`
 
@@ -566,7 +568,7 @@ type EcsInstanceForListHostsBasicInfosOutput struct {
 
 	InstanceName *string `type:"string" json:",omitempty"`
 
-	Mem *int32 `type:"int32" json:",omitempty"`
+	Mem *int64 `type:"int64" json:",omitempty"`
 
 	OsName *string `type:"string" json:",omitempty"`
 
@@ -579,6 +581,8 @@ type EcsInstanceForListHostsBasicInfosOutput struct {
 	PrimaryIpAddress *string `type:"string" json:",omitempty"`
 
 	Region *string `type:"string" json:",omitempty"`
+
+	SecurityEnhancementStrategy *string `type:"string" json:",omitempty"`
 
 	Status *string `type:"string" json:",omitempty"`
 
@@ -614,8 +618,14 @@ func (s *EcsInstanceForListHostsBasicInfosOutput) SetAccountID(v string) *EcsIns
 }
 
 // SetCpu sets the Cpu field's value.
-func (s *EcsInstanceForListHostsBasicInfosOutput) SetCpu(v int32) *EcsInstanceForListHostsBasicInfosOutput {
+func (s *EcsInstanceForListHostsBasicInfosOutput) SetCpu(v int64) *EcsInstanceForListHostsBasicInfosOutput {
 	s.Cpu = &v
+	return s
+}
+
+// SetCreatedAt sets the CreatedAt field's value.
+func (s *EcsInstanceForListHostsBasicInfosOutput) SetCreatedAt(v string) *EcsInstanceForListHostsBasicInfosOutput {
+	s.CreatedAt = &v
 	return s
 }
 
@@ -650,7 +660,7 @@ func (s *EcsInstanceForListHostsBasicInfosOutput) SetInstanceName(v string) *Ecs
 }
 
 // SetMem sets the Mem field's value.
-func (s *EcsInstanceForListHostsBasicInfosOutput) SetMem(v int32) *EcsInstanceForListHostsBasicInfosOutput {
+func (s *EcsInstanceForListHostsBasicInfosOutput) SetMem(v int64) *EcsInstanceForListHostsBasicInfosOutput {
 	s.Mem = &v
 	return s
 }
@@ -688,6 +698,12 @@ func (s *EcsInstanceForListHostsBasicInfosOutput) SetPrimaryIpAddress(v string) 
 // SetRegion sets the Region field's value.
 func (s *EcsInstanceForListHostsBasicInfosOutput) SetRegion(v string) *EcsInstanceForListHostsBasicInfosOutput {
 	s.Region = &v
+	return s
+}
+
+// SetSecurityEnhancementStrategy sets the SecurityEnhancementStrategy field's value.
+func (s *EcsInstanceForListHostsBasicInfosOutput) SetSecurityEnhancementStrategy(v string) *EcsInstanceForListHostsBasicInfosOutput {
+	s.SecurityEnhancementStrategy = &v
 	return s
 }
 
@@ -729,10 +745,10 @@ type ListHostsBasicInfosInput struct {
 	IdList []*string `type:"list" json:",omitempty"`
 
 	// PageNumber is a required field
-	PageNumber *int32 `type:"int32" json:",omitempty" required:"true"`
+	PageNumber *int64 `type:"int64" json:",omitempty" required:"true"`
 
 	// PageSize is a required field
-	PageSize *int32 `type:"int32" json:",omitempty" required:"true"`
+	PageSize *int64 `type:"int64" json:",omitempty" required:"true"`
 
 	SortBy *string `type:"string" json:",omitempty"`
 
@@ -778,13 +794,13 @@ func (s *ListHostsBasicInfosInput) SetIdList(v []*string) *ListHostsBasicInfosIn
 }
 
 // SetPageNumber sets the PageNumber field's value.
-func (s *ListHostsBasicInfosInput) SetPageNumber(v int32) *ListHostsBasicInfosInput {
+func (s *ListHostsBasicInfosInput) SetPageNumber(v int64) *ListHostsBasicInfosInput {
 	s.PageNumber = &v
 	return s
 }
 
 // SetPageSize sets the PageSize field's value.
-func (s *ListHostsBasicInfosInput) SetPageSize(v int32) *ListHostsBasicInfosInput {
+func (s *ListHostsBasicInfosInput) SetPageSize(v int64) *ListHostsBasicInfosInput {
 	s.PageSize = &v
 	return s
 }
@@ -808,11 +824,11 @@ type ListHostsBasicInfosOutput struct {
 
 	Data []*DataForListHostsBasicInfosOutput `type:"list" json:",omitempty"`
 
-	PageNumber *int32 `type:"int32" json:",omitempty"`
+	PageNumber *int64 `type:"int64" json:",omitempty"`
 
-	PageSize *int32 `type:"int32" json:",omitempty"`
+	PageSize *int64 `type:"int64" json:",omitempty"`
 
-	TotalCount *int32 `type:"int32" json:",omitempty"`
+	TotalCount *int64 `type:"int64" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -832,19 +848,19 @@ func (s *ListHostsBasicInfosOutput) SetData(v []*DataForListHostsBasicInfosOutpu
 }
 
 // SetPageNumber sets the PageNumber field's value.
-func (s *ListHostsBasicInfosOutput) SetPageNumber(v int32) *ListHostsBasicInfosOutput {
+func (s *ListHostsBasicInfosOutput) SetPageNumber(v int64) *ListHostsBasicInfosOutput {
 	s.PageNumber = &v
 	return s
 }
 
 // SetPageSize sets the PageSize field's value.
-func (s *ListHostsBasicInfosOutput) SetPageSize(v int32) *ListHostsBasicInfosOutput {
+func (s *ListHostsBasicInfosOutput) SetPageSize(v int64) *ListHostsBasicInfosOutput {
 	s.PageSize = &v
 	return s
 }
 
 // SetTotalCount sets the TotalCount field's value.
-func (s *ListHostsBasicInfosOutput) SetTotalCount(v int32) *ListHostsBasicInfosOutput {
+func (s *ListHostsBasicInfosOutput) SetTotalCount(v int64) *ListHostsBasicInfosOutput {
 	s.TotalCount = &v
 	return s
 }

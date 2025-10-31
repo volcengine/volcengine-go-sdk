@@ -300,7 +300,7 @@ type GetVulnInfoOutput struct {
 
 	ExploitLink *string `type:"string" json:",omitempty"`
 
-	IfExp *int32 `type:"int32" json:",omitempty"`
+	IfExp *int64 `type:"int64" json:",omitempty"`
 
 	IfRasp *bool `type:"boolean" json:",omitempty"`
 
@@ -318,9 +318,9 @@ type GetVulnInfoOutput struct {
 
 	SuggestEn *string `type:"string" json:",omitempty"`
 
-	UpdateTime *int32 `type:"int32" json:",omitempty"`
+	UpdateTime *int64 `type:"int64" json:",omitempty"`
 
-	UploadAt *int32 `type:"int32" json:",omitempty"`
+	UploadAt *int64 `type:"int64" json:",omitempty"`
 
 	UploadName *string `type:"string" json:",omitempty"`
 
@@ -424,7 +424,7 @@ func (s *GetVulnInfoOutput) SetExploitLink(v string) *GetVulnInfoOutput {
 }
 
 // SetIfExp sets the IfExp field's value.
-func (s *GetVulnInfoOutput) SetIfExp(v int32) *GetVulnInfoOutput {
+func (s *GetVulnInfoOutput) SetIfExp(v int64) *GetVulnInfoOutput {
 	s.IfExp = &v
 	return s
 }
@@ -478,13 +478,13 @@ func (s *GetVulnInfoOutput) SetSuggestEn(v string) *GetVulnInfoOutput {
 }
 
 // SetUpdateTime sets the UpdateTime field's value.
-func (s *GetVulnInfoOutput) SetUpdateTime(v int32) *GetVulnInfoOutput {
+func (s *GetVulnInfoOutput) SetUpdateTime(v int64) *GetVulnInfoOutput {
 	s.UpdateTime = &v
 	return s
 }
 
 // SetUploadAt sets the UploadAt field's value.
-func (s *GetVulnInfoOutput) SetUploadAt(v int32) *GetVulnInfoOutput {
+func (s *GetVulnInfoOutput) SetUploadAt(v int64) *GetVulnInfoOutput {
 	s.UploadAt = &v
 	return s
 }

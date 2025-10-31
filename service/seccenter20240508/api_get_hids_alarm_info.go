@@ -208,13 +208,13 @@ type BaseAlarmInfoForGetHidsAlarmInfoOutput struct {
 
 	AttackIDList []*string `type:"list"`
 
-	CreateTime *int32 `type:"int32"`
+	CreateTime *int64 `type:"int64"`
 
 	Desc *string `type:"string"`
 
 	Docker *string `type:"string"`
 
-	HandleTime *int32 `type:"int32"`
+	HandleTime *int64 `type:"int64"`
 
 	HandleUser *string `type:"string"`
 
@@ -222,13 +222,13 @@ type BaseAlarmInfoForGetHidsAlarmInfoOutput struct {
 
 	Name *string `type:"string"`
 
-	Status *int32 `type:"int32"`
+	Status *int64 `type:"int64"`
 
 	Suggest *string `type:"string"`
 
 	TraceID *string `type:"string"`
 
-	UpdateTime *int32 `type:"int32"`
+	UpdateTime *int64 `type:"int64"`
 }
 
 // String returns the string representation
@@ -254,7 +254,7 @@ func (s *BaseAlarmInfoForGetHidsAlarmInfoOutput) SetAttackIDList(v []*string) *B
 }
 
 // SetCreateTime sets the CreateTime field's value.
-func (s *BaseAlarmInfoForGetHidsAlarmInfoOutput) SetCreateTime(v int32) *BaseAlarmInfoForGetHidsAlarmInfoOutput {
+func (s *BaseAlarmInfoForGetHidsAlarmInfoOutput) SetCreateTime(v int64) *BaseAlarmInfoForGetHidsAlarmInfoOutput {
 	s.CreateTime = &v
 	return s
 }
@@ -272,7 +272,7 @@ func (s *BaseAlarmInfoForGetHidsAlarmInfoOutput) SetDocker(v string) *BaseAlarmI
 }
 
 // SetHandleTime sets the HandleTime field's value.
-func (s *BaseAlarmInfoForGetHidsAlarmInfoOutput) SetHandleTime(v int32) *BaseAlarmInfoForGetHidsAlarmInfoOutput {
+func (s *BaseAlarmInfoForGetHidsAlarmInfoOutput) SetHandleTime(v int64) *BaseAlarmInfoForGetHidsAlarmInfoOutput {
 	s.HandleTime = &v
 	return s
 }
@@ -296,7 +296,7 @@ func (s *BaseAlarmInfoForGetHidsAlarmInfoOutput) SetName(v string) *BaseAlarmInf
 }
 
 // SetStatus sets the Status field's value.
-func (s *BaseAlarmInfoForGetHidsAlarmInfoOutput) SetStatus(v int32) *BaseAlarmInfoForGetHidsAlarmInfoOutput {
+func (s *BaseAlarmInfoForGetHidsAlarmInfoOutput) SetStatus(v int64) *BaseAlarmInfoForGetHidsAlarmInfoOutput {
 	s.Status = &v
 	return s
 }
@@ -314,7 +314,7 @@ func (s *BaseAlarmInfoForGetHidsAlarmInfoOutput) SetTraceID(v string) *BaseAlarm
 }
 
 // SetUpdateTime sets the UpdateTime field's value.
-func (s *BaseAlarmInfoForGetHidsAlarmInfoOutput) SetUpdateTime(v int32) *BaseAlarmInfoForGetHidsAlarmInfoOutput {
+func (s *BaseAlarmInfoForGetHidsAlarmInfoOutput) SetUpdateTime(v int64) *BaseAlarmInfoForGetHidsAlarmInfoOutput {
 	s.UpdateTime = &v
 	return s
 }

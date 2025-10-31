@@ -148,7 +148,7 @@ type BatchDetectWeakPasswordInput struct {
 
 	AgentID *string `type:"string" json:",omitempty"`
 
-	BaselineID *int32 `type:"int32" json:",omitempty"`
+	BaselineID *int64 `type:"int64" json:",omitempty"`
 
 	CloudProviders []*string `type:"list" json:",omitempty"`
 
@@ -182,7 +182,7 @@ func (s *BatchDetectWeakPasswordInput) SetAgentID(v string) *BatchDetectWeakPass
 }
 
 // SetBaselineID sets the BaselineID field's value.
-func (s *BatchDetectWeakPasswordInput) SetBaselineID(v int32) *BatchDetectWeakPasswordInput {
+func (s *BatchDetectWeakPasswordInput) SetBaselineID(v int64) *BatchDetectWeakPasswordInput {
 	s.BaselineID = &v
 	return s
 }

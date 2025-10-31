@@ -166,11 +166,11 @@ type DataForGetFingerprintKmodOutput struct {
 
 	Size *string `type:"string" json:",omitempty"`
 
-	StartTime *int32 `type:"int32" json:",omitempty"`
+	StartTime *int64 `type:"int64" json:",omitempty"`
 
 	State *string `type:"string" json:",omitempty"`
 
-	UpdateTime *int32 `type:"int32" json:",omitempty"`
+	UpdateTime *int64 `type:"int64" json:",omitempty"`
 
 	UsedBy *string `type:"string" json:",omitempty"`
 }
@@ -246,7 +246,7 @@ func (s *DataForGetFingerprintKmodOutput) SetSize(v string) *DataForGetFingerpri
 }
 
 // SetStartTime sets the StartTime field's value.
-func (s *DataForGetFingerprintKmodOutput) SetStartTime(v int32) *DataForGetFingerprintKmodOutput {
+func (s *DataForGetFingerprintKmodOutput) SetStartTime(v int64) *DataForGetFingerprintKmodOutput {
 	s.StartTime = &v
 	return s
 }
@@ -258,7 +258,7 @@ func (s *DataForGetFingerprintKmodOutput) SetState(v string) *DataForGetFingerpr
 }
 
 // SetUpdateTime sets the UpdateTime field's value.
-func (s *DataForGetFingerprintKmodOutput) SetUpdateTime(v int32) *DataForGetFingerprintKmodOutput {
+func (s *DataForGetFingerprintKmodOutput) SetUpdateTime(v int64) *DataForGetFingerprintKmodOutput {
 	s.UpdateTime = &v
 	return s
 }
@@ -285,10 +285,10 @@ type GetFingerprintKmodInput struct {
 	Name *string `type:"string" json:",omitempty"`
 
 	// PageNumber is a required field
-	PageNumber *int32 `type:"int32" json:",omitempty" required:"true"`
+	PageNumber *int64 `type:"int64" json:",omitempty" required:"true"`
 
 	// PageSize is a required field
-	PageSize *int32 `type:"int32" json:",omitempty" required:"true"`
+	PageSize *int64 `type:"int64" json:",omitempty" required:"true"`
 
 	SortBy *string `type:"string" json:",omitempty"`
 
@@ -364,13 +364,13 @@ func (s *GetFingerprintKmodInput) SetName(v string) *GetFingerprintKmodInput {
 }
 
 // SetPageNumber sets the PageNumber field's value.
-func (s *GetFingerprintKmodInput) SetPageNumber(v int32) *GetFingerprintKmodInput {
+func (s *GetFingerprintKmodInput) SetPageNumber(v int64) *GetFingerprintKmodInput {
 	s.PageNumber = &v
 	return s
 }
 
 // SetPageSize sets the PageSize field's value.
-func (s *GetFingerprintKmodInput) SetPageSize(v int32) *GetFingerprintKmodInput {
+func (s *GetFingerprintKmodInput) SetPageSize(v int64) *GetFingerprintKmodInput {
 	s.PageSize = &v
 	return s
 }
@@ -412,11 +412,11 @@ type GetFingerprintKmodOutput struct {
 
 	Data []*DataForGetFingerprintKmodOutput `type:"list" json:",omitempty"`
 
-	PageNumber *int32 `type:"int32" json:",omitempty"`
+	PageNumber *int64 `type:"int64" json:",omitempty"`
 
-	PageSize *int32 `type:"int32" json:",omitempty"`
+	PageSize *int64 `type:"int64" json:",omitempty"`
 
-	TotalCount *int32 `type:"int32" json:",omitempty"`
+	TotalCount *int64 `type:"int64" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -436,19 +436,19 @@ func (s *GetFingerprintKmodOutput) SetData(v []*DataForGetFingerprintKmodOutput)
 }
 
 // SetPageNumber sets the PageNumber field's value.
-func (s *GetFingerprintKmodOutput) SetPageNumber(v int32) *GetFingerprintKmodOutput {
+func (s *GetFingerprintKmodOutput) SetPageNumber(v int64) *GetFingerprintKmodOutput {
 	s.PageNumber = &v
 	return s
 }
 
 // SetPageSize sets the PageSize field's value.
-func (s *GetFingerprintKmodOutput) SetPageSize(v int32) *GetFingerprintKmodOutput {
+func (s *GetFingerprintKmodOutput) SetPageSize(v int64) *GetFingerprintKmodOutput {
 	s.PageSize = &v
 	return s
 }
 
 // SetTotalCount sets the TotalCount field's value.
-func (s *GetFingerprintKmodOutput) SetTotalCount(v int32) *GetFingerprintKmodOutput {
+func (s *GetFingerprintKmodOutput) SetTotalCount(v int64) *GetFingerprintKmodOutput {
 	s.TotalCount = &v
 	return s
 }

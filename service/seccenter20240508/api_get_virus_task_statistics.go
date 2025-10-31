@@ -162,11 +162,11 @@ type GetVirusTaskStatisticsOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	FininshedTaskNum *int32 `type:"int32" json:",omitempty"`
+	FininshedTaskNum *int64 `type:"int64" json:",omitempty"`
 
-	LastScanTime *int32 `type:"int32" json:",omitempty"`
+	LastScanTime *int64 `type:"int64" json:",omitempty"`
 
-	RunningTaskNum *int32 `type:"int32" json:",omitempty"`
+	RunningTaskNum *int64 `type:"int64" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -180,19 +180,19 @@ func (s GetVirusTaskStatisticsOutput) GoString() string {
 }
 
 // SetFininshedTaskNum sets the FininshedTaskNum field's value.
-func (s *GetVirusTaskStatisticsOutput) SetFininshedTaskNum(v int32) *GetVirusTaskStatisticsOutput {
+func (s *GetVirusTaskStatisticsOutput) SetFininshedTaskNum(v int64) *GetVirusTaskStatisticsOutput {
 	s.FininshedTaskNum = &v
 	return s
 }
 
 // SetLastScanTime sets the LastScanTime field's value.
-func (s *GetVirusTaskStatisticsOutput) SetLastScanTime(v int32) *GetVirusTaskStatisticsOutput {
+func (s *GetVirusTaskStatisticsOutput) SetLastScanTime(v int64) *GetVirusTaskStatisticsOutput {
 	s.LastScanTime = &v
 	return s
 }
 
 // SetRunningTaskNum sets the RunningTaskNum field's value.
-func (s *GetVirusTaskStatisticsOutput) SetRunningTaskNum(v int32) *GetVirusTaskStatisticsOutput {
+func (s *GetVirusTaskStatisticsOutput) SetRunningTaskNum(v int64) *GetVirusTaskStatisticsOutput {
 	s.RunningTaskNum = &v
 	return s
 }

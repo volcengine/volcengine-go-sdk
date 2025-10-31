@@ -242,13 +242,13 @@ type DataForListHidsAlarmsOutput struct {
 
 	AgentID *string `type:"string" json:",omitempty"`
 
-	AlarmHandleResult *int32 `type:"int32" json:",omitempty"`
+	AlarmHandleResult *int64 `type:"int64" json:",omitempty"`
 
 	AlarmHostname *string `type:"string" json:",omitempty"`
 
 	AlarmID *string `type:"string" json:",omitempty"`
 
-	AlarmTime *int32 `type:"int32" json:",omitempty"`
+	AlarmTime *int64 `type:"int64" json:",omitempty"`
 
 	AlertTags []*string `type:"list" json:",omitempty"`
 
@@ -282,7 +282,7 @@ type DataForListHidsAlarmsOutput struct {
 
 	GroupPath *string `type:"string" json:",omitempty"`
 
-	HandleTime *int32 `type:"int32" json:",omitempty"`
+	HandleTime *int64 `type:"int64" json:",omitempty"`
 
 	Host *HostForListHidsAlarmsOutput `type:"structure" json:",omitempty"`
 
@@ -318,7 +318,7 @@ type DataForListHidsAlarmsOutput struct {
 
 	StackTraceHash *string `type:"string" json:",omitempty"`
 
-	Status *int32 `type:"int32" json:",omitempty"`
+	Status *int64 `type:"int64" json:",omitempty"`
 
 	TraceID *string `type:"string" json:",omitempty"`
 
@@ -348,7 +348,7 @@ func (s *DataForListHidsAlarmsOutput) SetAgentID(v string) *DataForListHidsAlarm
 }
 
 // SetAlarmHandleResult sets the AlarmHandleResult field's value.
-func (s *DataForListHidsAlarmsOutput) SetAlarmHandleResult(v int32) *DataForListHidsAlarmsOutput {
+func (s *DataForListHidsAlarmsOutput) SetAlarmHandleResult(v int64) *DataForListHidsAlarmsOutput {
 	s.AlarmHandleResult = &v
 	return s
 }
@@ -366,7 +366,7 @@ func (s *DataForListHidsAlarmsOutput) SetAlarmID(v string) *DataForListHidsAlarm
 }
 
 // SetAlarmTime sets the AlarmTime field's value.
-func (s *DataForListHidsAlarmsOutput) SetAlarmTime(v int32) *DataForListHidsAlarmsOutput {
+func (s *DataForListHidsAlarmsOutput) SetAlarmTime(v int64) *DataForListHidsAlarmsOutput {
 	s.AlarmTime = &v
 	return s
 }
@@ -468,7 +468,7 @@ func (s *DataForListHidsAlarmsOutput) SetGroupPath(v string) *DataForListHidsAla
 }
 
 // SetHandleTime sets the HandleTime field's value.
-func (s *DataForListHidsAlarmsOutput) SetHandleTime(v int32) *DataForListHidsAlarmsOutput {
+func (s *DataForListHidsAlarmsOutput) SetHandleTime(v int64) *DataForListHidsAlarmsOutput {
 	s.HandleTime = &v
 	return s
 }
@@ -576,7 +576,7 @@ func (s *DataForListHidsAlarmsOutput) SetStackTraceHash(v string) *DataForListHi
 }
 
 // SetStatus sets the Status field's value.
-func (s *DataForListHidsAlarmsOutput) SetStatus(v int32) *DataForListHidsAlarmsOutput {
+func (s *DataForListHidsAlarmsOutput) SetStatus(v int64) *DataForListHidsAlarmsOutput {
 	s.Status = &v
 	return s
 }
@@ -660,7 +660,7 @@ type ListHidsAlarmsInput struct {
 
 	AgentTags []*string `type:"list" json:",omitempty"`
 
-	AlarmHandleResultList []*int32 `type:"list" json:",omitempty"`
+	AlarmHandleResultList []*int64 `type:"list" json:",omitempty"`
 
 	AlarmID *string `type:"string" json:",omitempty"`
 
@@ -709,10 +709,10 @@ type ListHidsAlarmsInput struct {
 	Name *string `type:"string" json:",omitempty"`
 
 	// PageNumber is a required field
-	PageNumber *int32 `type:"int32" json:",omitempty" required:"true"`
+	PageNumber *int64 `type:"int64" json:",omitempty" required:"true"`
 
 	// PageSize is a required field
-	PageSize *int32 `type:"int32" json:",omitempty" required:"true"`
+	PageSize *int64 `type:"int64" json:",omitempty" required:"true"`
 
 	ProbeHook *string `type:"string" json:",omitempty"`
 
@@ -722,13 +722,13 @@ type ListHidsAlarmsInput struct {
 
 	SortOrder *string `type:"string" json:",omitempty"`
 
-	Status []*int32 `type:"list" json:",omitempty"`
+	Status []*int64 `type:"list" json:",omitempty"`
 
 	TaskID *string `type:"string" json:",omitempty"`
 
-	TimeEnd *int32 `type:"int32" json:",omitempty"`
+	TimeEnd *int64 `type:"int64" json:",omitempty"`
 
-	TimeStart *int32 `type:"int32" json:",omitempty"`
+	TimeStart *int64 `type:"int64" json:",omitempty"`
 
 	TopGroupID *string `type:"string" json:",omitempty"`
 
@@ -798,7 +798,7 @@ func (s *ListHidsAlarmsInput) SetAgentTags(v []*string) *ListHidsAlarmsInput {
 }
 
 // SetAlarmHandleResultList sets the AlarmHandleResultList field's value.
-func (s *ListHidsAlarmsInput) SetAlarmHandleResultList(v []*int32) *ListHidsAlarmsInput {
+func (s *ListHidsAlarmsInput) SetAlarmHandleResultList(v []*int64) *ListHidsAlarmsInput {
 	s.AlarmHandleResultList = v
 	return s
 }
@@ -942,13 +942,13 @@ func (s *ListHidsAlarmsInput) SetName(v string) *ListHidsAlarmsInput {
 }
 
 // SetPageNumber sets the PageNumber field's value.
-func (s *ListHidsAlarmsInput) SetPageNumber(v int32) *ListHidsAlarmsInput {
+func (s *ListHidsAlarmsInput) SetPageNumber(v int64) *ListHidsAlarmsInput {
 	s.PageNumber = &v
 	return s
 }
 
 // SetPageSize sets the PageSize field's value.
-func (s *ListHidsAlarmsInput) SetPageSize(v int32) *ListHidsAlarmsInput {
+func (s *ListHidsAlarmsInput) SetPageSize(v int64) *ListHidsAlarmsInput {
 	s.PageSize = &v
 	return s
 }
@@ -978,7 +978,7 @@ func (s *ListHidsAlarmsInput) SetSortOrder(v string) *ListHidsAlarmsInput {
 }
 
 // SetStatus sets the Status field's value.
-func (s *ListHidsAlarmsInput) SetStatus(v []*int32) *ListHidsAlarmsInput {
+func (s *ListHidsAlarmsInput) SetStatus(v []*int64) *ListHidsAlarmsInput {
 	s.Status = v
 	return s
 }
@@ -990,13 +990,13 @@ func (s *ListHidsAlarmsInput) SetTaskID(v string) *ListHidsAlarmsInput {
 }
 
 // SetTimeEnd sets the TimeEnd field's value.
-func (s *ListHidsAlarmsInput) SetTimeEnd(v int32) *ListHidsAlarmsInput {
+func (s *ListHidsAlarmsInput) SetTimeEnd(v int64) *ListHidsAlarmsInput {
 	s.TimeEnd = &v
 	return s
 }
 
 // SetTimeStart sets the TimeStart field's value.
-func (s *ListHidsAlarmsInput) SetTimeStart(v int32) *ListHidsAlarmsInput {
+func (s *ListHidsAlarmsInput) SetTimeStart(v int64) *ListHidsAlarmsInput {
 	s.TimeStart = &v
 	return s
 }
@@ -1038,11 +1038,11 @@ type ListHidsAlarmsOutput struct {
 
 	Data []*DataForListHidsAlarmsOutput `type:"list" json:",omitempty"`
 
-	PageNumber *int32 `type:"int32" json:",omitempty"`
+	PageNumber *int64 `type:"int64" json:",omitempty"`
 
-	PageSize *int32 `type:"int32" json:",omitempty"`
+	PageSize *int64 `type:"int64" json:",omitempty"`
 
-	TotalCount *int32 `type:"int32" json:",omitempty"`
+	TotalCount *int64 `type:"int64" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -1062,19 +1062,19 @@ func (s *ListHidsAlarmsOutput) SetData(v []*DataForListHidsAlarmsOutput) *ListHi
 }
 
 // SetPageNumber sets the PageNumber field's value.
-func (s *ListHidsAlarmsOutput) SetPageNumber(v int32) *ListHidsAlarmsOutput {
+func (s *ListHidsAlarmsOutput) SetPageNumber(v int64) *ListHidsAlarmsOutput {
 	s.PageNumber = &v
 	return s
 }
 
 // SetPageSize sets the PageSize field's value.
-func (s *ListHidsAlarmsOutput) SetPageSize(v int32) *ListHidsAlarmsOutput {
+func (s *ListHidsAlarmsOutput) SetPageSize(v int64) *ListHidsAlarmsOutput {
 	s.PageSize = &v
 	return s
 }
 
 // SetTotalCount sets the TotalCount field's value.
-func (s *ListHidsAlarmsOutput) SetTotalCount(v int32) *ListHidsAlarmsOutput {
+func (s *ListHidsAlarmsOutput) SetTotalCount(v int64) *ListHidsAlarmsOutput {
 	s.TotalCount = &v
 	return s
 }

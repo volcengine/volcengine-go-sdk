@@ -146,21 +146,21 @@ func (c *SECCENTER20240508) ListBaselinesWithContext(ctx volcengine.Context, inp
 type BaselineListForListBaselinesOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	AffectedHost *int32 `type:"int32" json:",omitempty"`
+	AffectedHost *int64 `type:"int64" json:",omitempty"`
 
-	BaselineID *int32 `type:"int32" json:",omitempty"`
+	BaselineID *int64 `type:"int64" json:",omitempty"`
 
 	BaselineName *string `type:"string" json:",omitempty"`
 
 	BaselineNameEn *string `type:"string" json:",omitempty"`
 
-	CheckListNum *int32 `type:"int32" json:",omitempty"`
+	CheckListNum *int64 `type:"int64" json:",omitempty"`
 
-	DetectProgress *int32 `type:"int32" json:",omitempty"`
+	DetectProgress *int64 `type:"int64" json:",omitempty"`
 
 	DetectStatus *string `type:"string" json:",omitempty"`
 
-	LastDetectedTime *int32 `type:"int32" json:",omitempty"`
+	LastDetectedTime *int64 `type:"int64" json:",omitempty"`
 
 	RiskNum *RiskNumForListBaselinesOutput `type:"structure" json:",omitempty"`
 }
@@ -176,13 +176,13 @@ func (s BaselineListForListBaselinesOutput) GoString() string {
 }
 
 // SetAffectedHost sets the AffectedHost field's value.
-func (s *BaselineListForListBaselinesOutput) SetAffectedHost(v int32) *BaselineListForListBaselinesOutput {
+func (s *BaselineListForListBaselinesOutput) SetAffectedHost(v int64) *BaselineListForListBaselinesOutput {
 	s.AffectedHost = &v
 	return s
 }
 
 // SetBaselineID sets the BaselineID field's value.
-func (s *BaselineListForListBaselinesOutput) SetBaselineID(v int32) *BaselineListForListBaselinesOutput {
+func (s *BaselineListForListBaselinesOutput) SetBaselineID(v int64) *BaselineListForListBaselinesOutput {
 	s.BaselineID = &v
 	return s
 }
@@ -200,13 +200,13 @@ func (s *BaselineListForListBaselinesOutput) SetBaselineNameEn(v string) *Baseli
 }
 
 // SetCheckListNum sets the CheckListNum field's value.
-func (s *BaselineListForListBaselinesOutput) SetCheckListNum(v int32) *BaselineListForListBaselinesOutput {
+func (s *BaselineListForListBaselinesOutput) SetCheckListNum(v int64) *BaselineListForListBaselinesOutput {
 	s.CheckListNum = &v
 	return s
 }
 
 // SetDetectProgress sets the DetectProgress field's value.
-func (s *BaselineListForListBaselinesOutput) SetDetectProgress(v int32) *BaselineListForListBaselinesOutput {
+func (s *BaselineListForListBaselinesOutput) SetDetectProgress(v int64) *BaselineListForListBaselinesOutput {
 	s.DetectProgress = &v
 	return s
 }
@@ -218,7 +218,7 @@ func (s *BaselineListForListBaselinesOutput) SetDetectStatus(v string) *Baseline
 }
 
 // SetLastDetectedTime sets the LastDetectedTime field's value.
-func (s *BaselineListForListBaselinesOutput) SetLastDetectedTime(v int32) *BaselineListForListBaselinesOutput {
+func (s *BaselineListForListBaselinesOutput) SetLastDetectedTime(v int64) *BaselineListForListBaselinesOutput {
 	s.LastDetectedTime = &v
 	return s
 }
@@ -274,19 +274,19 @@ type ListBaselinesInput struct {
 
 	ClusterID *string `type:"string" json:",omitempty"`
 
-	GroupID *int32 `type:"int32" json:",omitempty"`
+	GroupID *int64 `type:"int64" json:",omitempty"`
 
-	LastDetectedTimeEnd *int32 `type:"int32" json:",omitempty"`
+	LastDetectedTimeEnd *int64 `type:"int64" json:",omitempty"`
 
-	LastDetectedTimeStart *int32 `type:"int32" json:",omitempty"`
+	LastDetectedTimeStart *int64 `type:"int64" json:",omitempty"`
 
 	LeafGroupIDs []*string `type:"list" json:",omitempty"`
 
 	// PageNumber is a required field
-	PageNumber *int32 `type:"int32" json:",omitempty" required:"true"`
+	PageNumber *int64 `type:"int64" json:",omitempty" required:"true"`
 
 	// PageSize is a required field
-	PageSize *int32 `type:"int32" json:",omitempty" required:"true"`
+	PageSize *int64 `type:"int64" json:",omitempty" required:"true"`
 
 	SortBy *string `type:"string" json:",omitempty"`
 
@@ -360,19 +360,19 @@ func (s *ListBaselinesInput) SetClusterID(v string) *ListBaselinesInput {
 }
 
 // SetGroupID sets the GroupID field's value.
-func (s *ListBaselinesInput) SetGroupID(v int32) *ListBaselinesInput {
+func (s *ListBaselinesInput) SetGroupID(v int64) *ListBaselinesInput {
 	s.GroupID = &v
 	return s
 }
 
 // SetLastDetectedTimeEnd sets the LastDetectedTimeEnd field's value.
-func (s *ListBaselinesInput) SetLastDetectedTimeEnd(v int32) *ListBaselinesInput {
+func (s *ListBaselinesInput) SetLastDetectedTimeEnd(v int64) *ListBaselinesInput {
 	s.LastDetectedTimeEnd = &v
 	return s
 }
 
 // SetLastDetectedTimeStart sets the LastDetectedTimeStart field's value.
-func (s *ListBaselinesInput) SetLastDetectedTimeStart(v int32) *ListBaselinesInput {
+func (s *ListBaselinesInput) SetLastDetectedTimeStart(v int64) *ListBaselinesInput {
 	s.LastDetectedTimeStart = &v
 	return s
 }
@@ -384,13 +384,13 @@ func (s *ListBaselinesInput) SetLeafGroupIDs(v []*string) *ListBaselinesInput {
 }
 
 // SetPageNumber sets the PageNumber field's value.
-func (s *ListBaselinesInput) SetPageNumber(v int32) *ListBaselinesInput {
+func (s *ListBaselinesInput) SetPageNumber(v int64) *ListBaselinesInput {
 	s.PageNumber = &v
 	return s
 }
 
 // SetPageSize sets the PageSize field's value.
-func (s *ListBaselinesInput) SetPageSize(v int32) *ListBaselinesInput {
+func (s *ListBaselinesInput) SetPageSize(v int64) *ListBaselinesInput {
 	s.PageSize = &v
 	return s
 }
@@ -426,11 +426,11 @@ type ListBaselinesOutput struct {
 
 	Data *DataForListBaselinesOutput `type:"structure" json:",omitempty"`
 
-	PageNumber *int32 `type:"int32" json:",omitempty"`
+	PageNumber *int64 `type:"int64" json:",omitempty"`
 
-	PageSize *int32 `type:"int32" json:",omitempty"`
+	PageSize *int64 `type:"int64" json:",omitempty"`
 
-	TotalCount *int32 `type:"int32" json:",omitempty"`
+	TotalCount *int64 `type:"int64" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -450,19 +450,19 @@ func (s *ListBaselinesOutput) SetData(v *DataForListBaselinesOutput) *ListBaseli
 }
 
 // SetPageNumber sets the PageNumber field's value.
-func (s *ListBaselinesOutput) SetPageNumber(v int32) *ListBaselinesOutput {
+func (s *ListBaselinesOutput) SetPageNumber(v int64) *ListBaselinesOutput {
 	s.PageNumber = &v
 	return s
 }
 
 // SetPageSize sets the PageSize field's value.
-func (s *ListBaselinesOutput) SetPageSize(v int32) *ListBaselinesOutput {
+func (s *ListBaselinesOutput) SetPageSize(v int64) *ListBaselinesOutput {
 	s.PageSize = &v
 	return s
 }
 
 // SetTotalCount sets the TotalCount field's value.
-func (s *ListBaselinesOutput) SetTotalCount(v int32) *ListBaselinesOutput {
+func (s *ListBaselinesOutput) SetTotalCount(v int64) *ListBaselinesOutput {
 	s.TotalCount = &v
 	return s
 }
@@ -470,11 +470,11 @@ func (s *ListBaselinesOutput) SetTotalCount(v int32) *ListBaselinesOutput {
 type RiskNumForListBaselinesOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	HighNum *int32 `type:"int32" json:",omitempty"`
+	HighNum *int64 `type:"int64" json:",omitempty"`
 
-	LowNum *int32 `type:"int32" json:",omitempty"`
+	LowNum *int64 `type:"int64" json:",omitempty"`
 
-	MediumNum *int32 `type:"int32" json:",omitempty"`
+	MediumNum *int64 `type:"int64" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -488,19 +488,19 @@ func (s RiskNumForListBaselinesOutput) GoString() string {
 }
 
 // SetHighNum sets the HighNum field's value.
-func (s *RiskNumForListBaselinesOutput) SetHighNum(v int32) *RiskNumForListBaselinesOutput {
+func (s *RiskNumForListBaselinesOutput) SetHighNum(v int64) *RiskNumForListBaselinesOutput {
 	s.HighNum = &v
 	return s
 }
 
 // SetLowNum sets the LowNum field's value.
-func (s *RiskNumForListBaselinesOutput) SetLowNum(v int32) *RiskNumForListBaselinesOutput {
+func (s *RiskNumForListBaselinesOutput) SetLowNum(v int64) *RiskNumForListBaselinesOutput {
 	s.LowNum = &v
 	return s
 }
 
 // SetMediumNum sets the MediumNum field's value.
-func (s *RiskNumForListBaselinesOutput) SetMediumNum(v int32) *RiskNumForListBaselinesOutput {
+func (s *RiskNumForListBaselinesOutput) SetMediumNum(v int64) *RiskNumForListBaselinesOutput {
 	s.MediumNum = &v
 	return s
 }

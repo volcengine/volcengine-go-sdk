@@ -208,21 +208,21 @@ type GetVirusTaskInfoOutput struct {
 
 	Config *ConfigForGetVirusTaskInfoOutput `type:"structure"`
 
-	CreateTime *int32 `type:"int32"`
+	CreateTime *int64 `type:"int64"`
 
-	DistributedCount *int32 `type:"int32"`
+	DistributedCount *int64 `type:"int64"`
 
 	IDCount *float64 `type:"double"`
 
 	IDList []*string `type:"list"`
 
-	SubTaskCreated *int32 `type:"int32"`
+	SubTaskCreated *int64 `type:"int64"`
 
-	SubTaskFailed *int32 `type:"int32"`
+	SubTaskFailed *int64 `type:"int64"`
 
-	SubTaskRunning *int32 `type:"int32"`
+	SubTaskRunning *int64 `type:"int64"`
 
-	SubTaskSucceed *int32 `type:"int32"`
+	SubTaskSucceed *int64 `type:"int64"`
 
 	Tag *string `type:"string"`
 
@@ -236,7 +236,7 @@ type GetVirusTaskInfoOutput struct {
 
 	TaskUser *string `type:"string"`
 
-	UpdateTime *int32 `type:"int32"`
+	UpdateTime *int64 `type:"int64"`
 }
 
 // String returns the string representation
@@ -262,13 +262,13 @@ func (s *GetVirusTaskInfoOutput) SetConfig(v *ConfigForGetVirusTaskInfoOutput) *
 }
 
 // SetCreateTime sets the CreateTime field's value.
-func (s *GetVirusTaskInfoOutput) SetCreateTime(v int32) *GetVirusTaskInfoOutput {
+func (s *GetVirusTaskInfoOutput) SetCreateTime(v int64) *GetVirusTaskInfoOutput {
 	s.CreateTime = &v
 	return s
 }
 
 // SetDistributedCount sets the DistributedCount field's value.
-func (s *GetVirusTaskInfoOutput) SetDistributedCount(v int32) *GetVirusTaskInfoOutput {
+func (s *GetVirusTaskInfoOutput) SetDistributedCount(v int64) *GetVirusTaskInfoOutput {
 	s.DistributedCount = &v
 	return s
 }
@@ -286,25 +286,25 @@ func (s *GetVirusTaskInfoOutput) SetIDList(v []*string) *GetVirusTaskInfoOutput 
 }
 
 // SetSubTaskCreated sets the SubTaskCreated field's value.
-func (s *GetVirusTaskInfoOutput) SetSubTaskCreated(v int32) *GetVirusTaskInfoOutput {
+func (s *GetVirusTaskInfoOutput) SetSubTaskCreated(v int64) *GetVirusTaskInfoOutput {
 	s.SubTaskCreated = &v
 	return s
 }
 
 // SetSubTaskFailed sets the SubTaskFailed field's value.
-func (s *GetVirusTaskInfoOutput) SetSubTaskFailed(v int32) *GetVirusTaskInfoOutput {
+func (s *GetVirusTaskInfoOutput) SetSubTaskFailed(v int64) *GetVirusTaskInfoOutput {
 	s.SubTaskFailed = &v
 	return s
 }
 
 // SetSubTaskRunning sets the SubTaskRunning field's value.
-func (s *GetVirusTaskInfoOutput) SetSubTaskRunning(v int32) *GetVirusTaskInfoOutput {
+func (s *GetVirusTaskInfoOutput) SetSubTaskRunning(v int64) *GetVirusTaskInfoOutput {
 	s.SubTaskRunning = &v
 	return s
 }
 
 // SetSubTaskSucceed sets the SubTaskSucceed field's value.
-func (s *GetVirusTaskInfoOutput) SetSubTaskSucceed(v int32) *GetVirusTaskInfoOutput {
+func (s *GetVirusTaskInfoOutput) SetSubTaskSucceed(v int64) *GetVirusTaskInfoOutput {
 	s.SubTaskSucceed = &v
 	return s
 }
@@ -346,7 +346,7 @@ func (s *GetVirusTaskInfoOutput) SetTaskUser(v string) *GetVirusTaskInfoOutput {
 }
 
 // SetUpdateTime sets the UpdateTime field's value.
-func (s *GetVirusTaskInfoOutput) SetUpdateTime(v int32) *GetVirusTaskInfoOutput {
+func (s *GetVirusTaskInfoOutput) SetUpdateTime(v int64) *GetVirusTaskInfoOutput {
 	s.UpdateTime = &v
 	return s
 }

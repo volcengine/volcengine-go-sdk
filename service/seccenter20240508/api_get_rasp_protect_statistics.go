@@ -166,21 +166,21 @@ type GetRaspProtectStatisticsOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	HitWhiteProcessCount *int32 `type:"int32"`
+	HitWhiteProcessCount *int64 `type:"int64"`
 
-	ProcessCount *int32 `type:"int32"`
+	ProcessCount *int64 `type:"int64"`
 
-	ProtectAbnormalProcessCount *int32 `type:"int32"`
+	ProtectAbnormalProcessCount *int64 `type:"int64"`
 
-	ProtectedProcessCount *int32 `type:"int32"`
+	ProtectedProcessCount *int64 `type:"int64"`
 
-	RaspCloseCount *int32 `type:"int32"`
+	RaspCloseCount *int64 `type:"int64"`
 
-	RaspOpenCount *int32 `type:"int32"`
+	RaspOpenCount *int64 `type:"int64"`
 
-	RaspOpenFailCount *int32 `type:"int32"`
+	RaspOpenFailCount *int64 `type:"int64"`
 
-	ToBeProtectedProcessCount *int32 `type:"int32"`
+	ToBeProtectedProcessCount *int64 `type:"int64"`
 }
 
 // String returns the string representation
@@ -194,49 +194,49 @@ func (s GetRaspProtectStatisticsOutput) GoString() string {
 }
 
 // SetHitWhiteProcessCount sets the HitWhiteProcessCount field's value.
-func (s *GetRaspProtectStatisticsOutput) SetHitWhiteProcessCount(v int32) *GetRaspProtectStatisticsOutput {
+func (s *GetRaspProtectStatisticsOutput) SetHitWhiteProcessCount(v int64) *GetRaspProtectStatisticsOutput {
 	s.HitWhiteProcessCount = &v
 	return s
 }
 
 // SetProcessCount sets the ProcessCount field's value.
-func (s *GetRaspProtectStatisticsOutput) SetProcessCount(v int32) *GetRaspProtectStatisticsOutput {
+func (s *GetRaspProtectStatisticsOutput) SetProcessCount(v int64) *GetRaspProtectStatisticsOutput {
 	s.ProcessCount = &v
 	return s
 }
 
 // SetProtectAbnormalProcessCount sets the ProtectAbnormalProcessCount field's value.
-func (s *GetRaspProtectStatisticsOutput) SetProtectAbnormalProcessCount(v int32) *GetRaspProtectStatisticsOutput {
+func (s *GetRaspProtectStatisticsOutput) SetProtectAbnormalProcessCount(v int64) *GetRaspProtectStatisticsOutput {
 	s.ProtectAbnormalProcessCount = &v
 	return s
 }
 
 // SetProtectedProcessCount sets the ProtectedProcessCount field's value.
-func (s *GetRaspProtectStatisticsOutput) SetProtectedProcessCount(v int32) *GetRaspProtectStatisticsOutput {
+func (s *GetRaspProtectStatisticsOutput) SetProtectedProcessCount(v int64) *GetRaspProtectStatisticsOutput {
 	s.ProtectedProcessCount = &v
 	return s
 }
 
 // SetRaspCloseCount sets the RaspCloseCount field's value.
-func (s *GetRaspProtectStatisticsOutput) SetRaspCloseCount(v int32) *GetRaspProtectStatisticsOutput {
+func (s *GetRaspProtectStatisticsOutput) SetRaspCloseCount(v int64) *GetRaspProtectStatisticsOutput {
 	s.RaspCloseCount = &v
 	return s
 }
 
 // SetRaspOpenCount sets the RaspOpenCount field's value.
-func (s *GetRaspProtectStatisticsOutput) SetRaspOpenCount(v int32) *GetRaspProtectStatisticsOutput {
+func (s *GetRaspProtectStatisticsOutput) SetRaspOpenCount(v int64) *GetRaspProtectStatisticsOutput {
 	s.RaspOpenCount = &v
 	return s
 }
 
 // SetRaspOpenFailCount sets the RaspOpenFailCount field's value.
-func (s *GetRaspProtectStatisticsOutput) SetRaspOpenFailCount(v int32) *GetRaspProtectStatisticsOutput {
+func (s *GetRaspProtectStatisticsOutput) SetRaspOpenFailCount(v int64) *GetRaspProtectStatisticsOutput {
 	s.RaspOpenFailCount = &v
 	return s
 }
 
 // SetToBeProtectedProcessCount sets the ToBeProtectedProcessCount field's value.
-func (s *GetRaspProtectStatisticsOutput) SetToBeProtectedProcessCount(v int32) *GetRaspProtectStatisticsOutput {
+func (s *GetRaspProtectStatisticsOutput) SetToBeProtectedProcessCount(v int64) *GetRaspProtectStatisticsOutput {
 	s.ToBeProtectedProcessCount = &v
 	return s
 }

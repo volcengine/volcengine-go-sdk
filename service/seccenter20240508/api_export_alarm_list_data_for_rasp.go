@@ -156,7 +156,7 @@ type ConditionsForExportAlarmListDataForRaspInput struct {
 
 	AgentTags []*string `type:"list" json:",omitempty"`
 
-	AlarmHandleResultList []*int32 `type:"list" json:",omitempty"`
+	AlarmHandleResultList []*int64 `type:"list" json:",omitempty"`
 
 	AlarmID *string `type:"string" json:",omitempty"`
 
@@ -206,15 +206,15 @@ type ConditionsForExportAlarmListDataForRaspInput struct {
 
 	RaspArgv *string `type:"string" json:",omitempty"`
 
-	Status []*int32 `type:"list" json:",omitempty"`
+	Status []*int64 `type:"list" json:",omitempty"`
 
 	Tags []*string `type:"list" json:",omitempty"`
 
 	TaskID *string `type:"string" json:",omitempty"`
 
-	TimeEnd *int32 `type:"int32" json:",omitempty"`
+	TimeEnd *int64 `type:"int64" json:",omitempty"`
 
-	TimeStart *int32 `type:"int32" json:",omitempty"`
+	TimeStart *int64 `type:"int64" json:",omitempty"`
 
 	TopGroupID *string `type:"string" json:",omitempty"`
 
@@ -268,7 +268,7 @@ func (s *ConditionsForExportAlarmListDataForRaspInput) SetAgentTags(v []*string)
 }
 
 // SetAlarmHandleResultList sets the AlarmHandleResultList field's value.
-func (s *ConditionsForExportAlarmListDataForRaspInput) SetAlarmHandleResultList(v []*int32) *ConditionsForExportAlarmListDataForRaspInput {
+func (s *ConditionsForExportAlarmListDataForRaspInput) SetAlarmHandleResultList(v []*int64) *ConditionsForExportAlarmListDataForRaspInput {
 	s.AlarmHandleResultList = v
 	return s
 }
@@ -418,7 +418,7 @@ func (s *ConditionsForExportAlarmListDataForRaspInput) SetRaspArgv(v string) *Co
 }
 
 // SetStatus sets the Status field's value.
-func (s *ConditionsForExportAlarmListDataForRaspInput) SetStatus(v []*int32) *ConditionsForExportAlarmListDataForRaspInput {
+func (s *ConditionsForExportAlarmListDataForRaspInput) SetStatus(v []*int64) *ConditionsForExportAlarmListDataForRaspInput {
 	s.Status = v
 	return s
 }
@@ -436,13 +436,13 @@ func (s *ConditionsForExportAlarmListDataForRaspInput) SetTaskID(v string) *Cond
 }
 
 // SetTimeEnd sets the TimeEnd field's value.
-func (s *ConditionsForExportAlarmListDataForRaspInput) SetTimeEnd(v int32) *ConditionsForExportAlarmListDataForRaspInput {
+func (s *ConditionsForExportAlarmListDataForRaspInput) SetTimeEnd(v int64) *ConditionsForExportAlarmListDataForRaspInput {
 	s.TimeEnd = &v
 	return s
 }
 
 // SetTimeStart sets the TimeStart field's value.
-func (s *ConditionsForExportAlarmListDataForRaspInput) SetTimeStart(v int32) *ConditionsForExportAlarmListDataForRaspInput {
+func (s *ConditionsForExportAlarmListDataForRaspInput) SetTimeStart(v int64) *ConditionsForExportAlarmListDataForRaspInput {
 	s.TimeStart = &v
 	return s
 }

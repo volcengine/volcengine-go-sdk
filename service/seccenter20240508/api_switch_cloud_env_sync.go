@@ -150,7 +150,7 @@ type SwitchCloudEnvSyncInput struct {
 	ID *string `type:"string" json:",omitempty" required:"true"`
 
 	// Status is a required field
-	Status *int32 `type:"int32" json:",omitempty" required:"true"`
+	Status *int64 `type:"int64" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -186,7 +186,7 @@ func (s *SwitchCloudEnvSyncInput) SetID(v string) *SwitchCloudEnvSyncInput {
 }
 
 // SetStatus sets the Status field's value.
-func (s *SwitchCloudEnvSyncInput) SetStatus(v int32) *SwitchCloudEnvSyncInput {
+func (s *SwitchCloudEnvSyncInput) SetStatus(v int64) *SwitchCloudEnvSyncInput {
 	s.Status = &v
 	return s
 }

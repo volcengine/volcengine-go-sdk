@@ -148,11 +148,11 @@ type DataForListAutoDefenseRulesOutput struct {
 
 	Action *string `type:"string" json:",omitempty"`
 
-	CreateTime *int32 `type:"int32" json:",omitempty"`
+	CreateTime *int64 `type:"int64" json:",omitempty"`
 
 	CreateUser *string `type:"string" json:",omitempty"`
 
-	DataType *int32 `type:"int32" json:",omitempty"`
+	DataType *int64 `type:"int64" json:",omitempty"`
 
 	Enable *bool `type:"boolean" json:",omitempty"`
 
@@ -166,7 +166,7 @@ type DataForListAutoDefenseRulesOutput struct {
 
 	Type *string `type:"string" json:",omitempty"`
 
-	UpdateTime *int32 `type:"int32" json:",omitempty"`
+	UpdateTime *int64 `type:"int64" json:",omitempty"`
 
 	UpdateUser *string `type:"string" json:",omitempty"`
 }
@@ -188,7 +188,7 @@ func (s *DataForListAutoDefenseRulesOutput) SetAction(v string) *DataForListAuto
 }
 
 // SetCreateTime sets the CreateTime field's value.
-func (s *DataForListAutoDefenseRulesOutput) SetCreateTime(v int32) *DataForListAutoDefenseRulesOutput {
+func (s *DataForListAutoDefenseRulesOutput) SetCreateTime(v int64) *DataForListAutoDefenseRulesOutput {
 	s.CreateTime = &v
 	return s
 }
@@ -200,7 +200,7 @@ func (s *DataForListAutoDefenseRulesOutput) SetCreateUser(v string) *DataForList
 }
 
 // SetDataType sets the DataType field's value.
-func (s *DataForListAutoDefenseRulesOutput) SetDataType(v int32) *DataForListAutoDefenseRulesOutput {
+func (s *DataForListAutoDefenseRulesOutput) SetDataType(v int64) *DataForListAutoDefenseRulesOutput {
 	s.DataType = &v
 	return s
 }
@@ -242,7 +242,7 @@ func (s *DataForListAutoDefenseRulesOutput) SetType(v string) *DataForListAutoDe
 }
 
 // SetUpdateTime sets the UpdateTime field's value.
-func (s *DataForListAutoDefenseRulesOutput) SetUpdateTime(v int32) *DataForListAutoDefenseRulesOutput {
+func (s *DataForListAutoDefenseRulesOutput) SetUpdateTime(v int64) *DataForListAutoDefenseRulesOutput {
 	s.UpdateTime = &v
 	return s
 }
@@ -311,10 +311,10 @@ type ListAutoDefenseRulesInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
 	// PageNumber is a required field
-	PageNumber *int32 `type:"int32" json:",omitempty" required:"true"`
+	PageNumber *int64 `type:"int64" json:",omitempty" required:"true"`
 
 	// PageSize is a required field
-	PageSize *int32 `type:"int32" json:",omitempty" required:"true"`
+	PageSize *int64 `type:"int64" json:",omitempty" required:"true"`
 
 	SortBy *string `type:"string" json:",omitempty"`
 
@@ -350,13 +350,13 @@ func (s *ListAutoDefenseRulesInput) Validate() error {
 }
 
 // SetPageNumber sets the PageNumber field's value.
-func (s *ListAutoDefenseRulesInput) SetPageNumber(v int32) *ListAutoDefenseRulesInput {
+func (s *ListAutoDefenseRulesInput) SetPageNumber(v int64) *ListAutoDefenseRulesInput {
 	s.PageNumber = &v
 	return s
 }
 
 // SetPageSize sets the PageSize field's value.
-func (s *ListAutoDefenseRulesInput) SetPageSize(v int32) *ListAutoDefenseRulesInput {
+func (s *ListAutoDefenseRulesInput) SetPageSize(v int64) *ListAutoDefenseRulesInput {
 	s.PageSize = &v
 	return s
 }
@@ -386,11 +386,11 @@ type ListAutoDefenseRulesOutput struct {
 
 	Data []*DataForListAutoDefenseRulesOutput `type:"list" json:",omitempty"`
 
-	PageNumber *int32 `type:"int32" json:",omitempty"`
+	PageNumber *int64 `type:"int64" json:",omitempty"`
 
-	PageSize *int32 `type:"int32" json:",omitempty"`
+	PageSize *int64 `type:"int64" json:",omitempty"`
 
-	TotalCount *int32 `type:"int32" json:",omitempty"`
+	TotalCount *int64 `type:"int64" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -410,19 +410,19 @@ func (s *ListAutoDefenseRulesOutput) SetData(v []*DataForListAutoDefenseRulesOut
 }
 
 // SetPageNumber sets the PageNumber field's value.
-func (s *ListAutoDefenseRulesOutput) SetPageNumber(v int32) *ListAutoDefenseRulesOutput {
+func (s *ListAutoDefenseRulesOutput) SetPageNumber(v int64) *ListAutoDefenseRulesOutput {
 	s.PageNumber = &v
 	return s
 }
 
 // SetPageSize sets the PageSize field's value.
-func (s *ListAutoDefenseRulesOutput) SetPageSize(v int32) *ListAutoDefenseRulesOutput {
+func (s *ListAutoDefenseRulesOutput) SetPageSize(v int64) *ListAutoDefenseRulesOutput {
 	s.PageSize = &v
 	return s
 }
 
 // SetTotalCount sets the TotalCount field's value.
-func (s *ListAutoDefenseRulesOutput) SetTotalCount(v int32) *ListAutoDefenseRulesOutput {
+func (s *ListAutoDefenseRulesOutput) SetTotalCount(v int64) *ListAutoDefenseRulesOutput {
 	s.TotalCount = &v
 	return s
 }
@@ -432,7 +432,7 @@ type RangeForListAutoDefenseRulesOutput struct {
 
 	HostList []*HostListForListAutoDefenseRulesOutput `type:"list" json:",omitempty"`
 
-	HostNum *int32 `type:"int32" json:",omitempty"`
+	HostNum *int64 `type:"int64" json:",omitempty"`
 
 	IfAllHost *bool `type:"boolean" json:",omitempty"`
 
@@ -458,7 +458,7 @@ func (s *RangeForListAutoDefenseRulesOutput) SetHostList(v []*HostListForListAut
 }
 
 // SetHostNum sets the HostNum field's value.
-func (s *RangeForListAutoDefenseRulesOutput) SetHostNum(v int32) *RangeForListAutoDefenseRulesOutput {
+func (s *RangeForListAutoDefenseRulesOutput) SetHostNum(v int64) *RangeForListAutoDefenseRulesOutput {
 	s.HostNum = &v
 	return s
 }

@@ -176,19 +176,21 @@ type DataForGetFingerprintProcessOutput struct {
 
 	Integrity *bool `type:"boolean" json:",omitempty"`
 
+	Pexe *string `type:"string" json:",omitempty"`
+
 	Pid *string `type:"string" json:",omitempty"`
 
 	Ppid *string `type:"string" json:",omitempty"`
 
 	PrimaryIpAddress *string `type:"string" json:",omitempty"`
 
-	StartTime *int32 `type:"int32" json:",omitempty"`
+	StartTime *int64 `type:"int64" json:",omitempty"`
 
 	State *string `type:"string" json:",omitempty"`
 
 	Uid *string `type:"string" json:",omitempty"`
 
-	UpdateTime *int32 `type:"int32" json:",omitempty"`
+	UpdateTime *int64 `type:"int64" json:",omitempty"`
 
 	Username *string `type:"string" json:",omitempty"`
 }
@@ -293,6 +295,12 @@ func (s *DataForGetFingerprintProcessOutput) SetIntegrity(v bool) *DataForGetFin
 	return s
 }
 
+// SetPexe sets the Pexe field's value.
+func (s *DataForGetFingerprintProcessOutput) SetPexe(v string) *DataForGetFingerprintProcessOutput {
+	s.Pexe = &v
+	return s
+}
+
 // SetPid sets the Pid field's value.
 func (s *DataForGetFingerprintProcessOutput) SetPid(v string) *DataForGetFingerprintProcessOutput {
 	s.Pid = &v
@@ -312,7 +320,7 @@ func (s *DataForGetFingerprintProcessOutput) SetPrimaryIpAddress(v string) *Data
 }
 
 // SetStartTime sets the StartTime field's value.
-func (s *DataForGetFingerprintProcessOutput) SetStartTime(v int32) *DataForGetFingerprintProcessOutput {
+func (s *DataForGetFingerprintProcessOutput) SetStartTime(v int64) *DataForGetFingerprintProcessOutput {
 	s.StartTime = &v
 	return s
 }
@@ -330,7 +338,7 @@ func (s *DataForGetFingerprintProcessOutput) SetUid(v string) *DataForGetFingerp
 }
 
 // SetUpdateTime sets the UpdateTime field's value.
-func (s *DataForGetFingerprintProcessOutput) SetUpdateTime(v int32) *DataForGetFingerprintProcessOutput {
+func (s *DataForGetFingerprintProcessOutput) SetUpdateTime(v int64) *DataForGetFingerprintProcessOutput {
 	s.UpdateTime = &v
 	return s
 }
@@ -371,18 +379,18 @@ type GetFingerprintProcessInput struct {
 	LeafGroupIDs []*string `type:"list" json:",omitempty"`
 
 	// PageNumber is a required field
-	PageNumber *int32 `type:"int32" json:",omitempty" required:"true"`
+	PageNumber *int64 `type:"int64" json:",omitempty" required:"true"`
 
 	// PageSize is a required field
-	PageSize *int32 `type:"int32" json:",omitempty" required:"true"`
+	PageSize *int64 `type:"int64" json:",omitempty" required:"true"`
 
 	SortBy *string `type:"string" json:",omitempty"`
 
 	SortOrder *string `type:"string" json:",omitempty"`
 
-	StartTimeEnd *int32 `type:"int32" json:",omitempty"`
+	StartTimeEnd *int64 `type:"int64" json:",omitempty"`
 
-	StartTimeStart *int32 `type:"int32" json:",omitempty"`
+	StartTimeStart *int64 `type:"int64" json:",omitempty"`
 
 	Tags []*string `type:"list" json:",omitempty"`
 
@@ -496,13 +504,13 @@ func (s *GetFingerprintProcessInput) SetLeafGroupIDs(v []*string) *GetFingerprin
 }
 
 // SetPageNumber sets the PageNumber field's value.
-func (s *GetFingerprintProcessInput) SetPageNumber(v int32) *GetFingerprintProcessInput {
+func (s *GetFingerprintProcessInput) SetPageNumber(v int64) *GetFingerprintProcessInput {
 	s.PageNumber = &v
 	return s
 }
 
 // SetPageSize sets the PageSize field's value.
-func (s *GetFingerprintProcessInput) SetPageSize(v int32) *GetFingerprintProcessInput {
+func (s *GetFingerprintProcessInput) SetPageSize(v int64) *GetFingerprintProcessInput {
 	s.PageSize = &v
 	return s
 }
@@ -520,13 +528,13 @@ func (s *GetFingerprintProcessInput) SetSortOrder(v string) *GetFingerprintProce
 }
 
 // SetStartTimeEnd sets the StartTimeEnd field's value.
-func (s *GetFingerprintProcessInput) SetStartTimeEnd(v int32) *GetFingerprintProcessInput {
+func (s *GetFingerprintProcessInput) SetStartTimeEnd(v int64) *GetFingerprintProcessInput {
 	s.StartTimeEnd = &v
 	return s
 }
 
 // SetStartTimeStart sets the StartTimeStart field's value.
-func (s *GetFingerprintProcessInput) SetStartTimeStart(v int32) *GetFingerprintProcessInput {
+func (s *GetFingerprintProcessInput) SetStartTimeStart(v int64) *GetFingerprintProcessInput {
 	s.StartTimeStart = &v
 	return s
 }
@@ -556,11 +564,11 @@ type GetFingerprintProcessOutput struct {
 
 	Data []*DataForGetFingerprintProcessOutput `type:"list" json:",omitempty"`
 
-	PageNumber *int32 `type:"int32" json:",omitempty"`
+	PageNumber *int64 `type:"int64" json:",omitempty"`
 
-	PageSize *int32 `type:"int32" json:",omitempty"`
+	PageSize *int64 `type:"int64" json:",omitempty"`
 
-	TotalCount *int32 `type:"int32" json:",omitempty"`
+	TotalCount *int64 `type:"int64" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -580,19 +588,19 @@ func (s *GetFingerprintProcessOutput) SetData(v []*DataForGetFingerprintProcessO
 }
 
 // SetPageNumber sets the PageNumber field's value.
-func (s *GetFingerprintProcessOutput) SetPageNumber(v int32) *GetFingerprintProcessOutput {
+func (s *GetFingerprintProcessOutput) SetPageNumber(v int64) *GetFingerprintProcessOutput {
 	s.PageNumber = &v
 	return s
 }
 
 // SetPageSize sets the PageSize field's value.
-func (s *GetFingerprintProcessOutput) SetPageSize(v int32) *GetFingerprintProcessOutput {
+func (s *GetFingerprintProcessOutput) SetPageSize(v int64) *GetFingerprintProcessOutput {
 	s.PageSize = &v
 	return s
 }
 
 // SetTotalCount sets the TotalCount field's value.
-func (s *GetFingerprintProcessOutput) SetTotalCount(v int32) *GetFingerprintProcessOutput {
+func (s *GetFingerprintProcessOutput) SetTotalCount(v int64) *GetFingerprintProcessOutput {
 	s.TotalCount = &v
 	return s
 }

@@ -146,7 +146,7 @@ func (c *SECCENTER20240508) ListAgentProxyServersWithContext(ctx volcengine.Cont
 type DataForListAgentProxyServersOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	ClientNumber *int32 `type:"int32" json:",omitempty"`
+	ClientNumber *int64 `type:"int64" json:",omitempty"`
 
 	Hostname *string `type:"string" json:",omitempty"`
 
@@ -170,7 +170,7 @@ func (s DataForListAgentProxyServersOutput) GoString() string {
 }
 
 // SetClientNumber sets the ClientNumber field's value.
-func (s *DataForListAgentProxyServersOutput) SetClientNumber(v int32) *DataForListAgentProxyServersOutput {
+func (s *DataForListAgentProxyServersOutput) SetClientNumber(v int64) *DataForListAgentProxyServersOutput {
 	s.ClientNumber = &v
 	return s
 }
@@ -209,10 +209,10 @@ type ListAgentProxyServersInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
 	// PageNumber is a required field
-	PageNumber *int32 `type:"int32" json:",omitempty" required:"true"`
+	PageNumber *int64 `type:"int64" json:",omitempty" required:"true"`
 
 	// PageSize is a required field
-	PageSize *int32 `type:"int32" json:",omitempty" required:"true"`
+	PageSize *int64 `type:"int64" json:",omitempty" required:"true"`
 
 	ProxyName *string `type:"string" json:",omitempty"`
 
@@ -248,13 +248,13 @@ func (s *ListAgentProxyServersInput) Validate() error {
 }
 
 // SetPageNumber sets the PageNumber field's value.
-func (s *ListAgentProxyServersInput) SetPageNumber(v int32) *ListAgentProxyServersInput {
+func (s *ListAgentProxyServersInput) SetPageNumber(v int64) *ListAgentProxyServersInput {
 	s.PageNumber = &v
 	return s
 }
 
 // SetPageSize sets the PageSize field's value.
-func (s *ListAgentProxyServersInput) SetPageSize(v int32) *ListAgentProxyServersInput {
+func (s *ListAgentProxyServersInput) SetPageSize(v int64) *ListAgentProxyServersInput {
 	s.PageSize = &v
 	return s
 }
@@ -284,11 +284,11 @@ type ListAgentProxyServersOutput struct {
 
 	Data []*DataForListAgentProxyServersOutput `type:"list" json:",omitempty"`
 
-	PageNumber *int32 `type:"int32" json:",omitempty"`
+	PageNumber *int64 `type:"int64" json:",omitempty"`
 
-	PageSize *int32 `type:"int32" json:",omitempty"`
+	PageSize *int64 `type:"int64" json:",omitempty"`
 
-	TotalCount *int32 `type:"int32" json:",omitempty"`
+	TotalCount *int64 `type:"int64" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -308,19 +308,19 @@ func (s *ListAgentProxyServersOutput) SetData(v []*DataForListAgentProxyServersO
 }
 
 // SetPageNumber sets the PageNumber field's value.
-func (s *ListAgentProxyServersOutput) SetPageNumber(v int32) *ListAgentProxyServersOutput {
+func (s *ListAgentProxyServersOutput) SetPageNumber(v int64) *ListAgentProxyServersOutput {
 	s.PageNumber = &v
 	return s
 }
 
 // SetPageSize sets the PageSize field's value.
-func (s *ListAgentProxyServersOutput) SetPageSize(v int32) *ListAgentProxyServersOutput {
+func (s *ListAgentProxyServersOutput) SetPageSize(v int64) *ListAgentProxyServersOutput {
 	s.PageSize = &v
 	return s
 }
 
 // SetTotalCount sets the TotalCount field's value.
-func (s *ListAgentProxyServersOutput) SetTotalCount(v int32) *ListAgentProxyServersOutput {
+func (s *ListAgentProxyServersOutput) SetTotalCount(v int64) *ListAgentProxyServersOutput {
 	s.TotalCount = &v
 	return s
 }

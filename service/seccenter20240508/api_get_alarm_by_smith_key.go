@@ -208,13 +208,13 @@ type BaseAlarmInfoForGetAlarmBySmithKeyOutput struct {
 
 	AttackIDList []*string `type:"list"`
 
-	CreateTime *int32 `type:"int32"`
+	CreateTime *int64 `type:"int64"`
 
 	Desc *string `type:"string"`
 
 	Docker *string `type:"string"`
 
-	HandleTime *int32 `type:"int32"`
+	HandleTime *int64 `type:"int64"`
 
 	HandleUser *string `type:"string"`
 
@@ -222,13 +222,13 @@ type BaseAlarmInfoForGetAlarmBySmithKeyOutput struct {
 
 	Name *string `type:"string"`
 
-	Status *int32 `type:"int32"`
+	Status *int64 `type:"int64"`
 
 	Suggest *string `type:"string"`
 
 	TraceID *string `type:"string"`
 
-	UpdateTime *int32 `type:"int32"`
+	UpdateTime *int64 `type:"int64"`
 }
 
 // String returns the string representation
@@ -254,7 +254,7 @@ func (s *BaseAlarmInfoForGetAlarmBySmithKeyOutput) SetAttackIDList(v []*string) 
 }
 
 // SetCreateTime sets the CreateTime field's value.
-func (s *BaseAlarmInfoForGetAlarmBySmithKeyOutput) SetCreateTime(v int32) *BaseAlarmInfoForGetAlarmBySmithKeyOutput {
+func (s *BaseAlarmInfoForGetAlarmBySmithKeyOutput) SetCreateTime(v int64) *BaseAlarmInfoForGetAlarmBySmithKeyOutput {
 	s.CreateTime = &v
 	return s
 }
@@ -272,7 +272,7 @@ func (s *BaseAlarmInfoForGetAlarmBySmithKeyOutput) SetDocker(v string) *BaseAlar
 }
 
 // SetHandleTime sets the HandleTime field's value.
-func (s *BaseAlarmInfoForGetAlarmBySmithKeyOutput) SetHandleTime(v int32) *BaseAlarmInfoForGetAlarmBySmithKeyOutput {
+func (s *BaseAlarmInfoForGetAlarmBySmithKeyOutput) SetHandleTime(v int64) *BaseAlarmInfoForGetAlarmBySmithKeyOutput {
 	s.HandleTime = &v
 	return s
 }
@@ -296,7 +296,7 @@ func (s *BaseAlarmInfoForGetAlarmBySmithKeyOutput) SetName(v string) *BaseAlarmI
 }
 
 // SetStatus sets the Status field's value.
-func (s *BaseAlarmInfoForGetAlarmBySmithKeyOutput) SetStatus(v int32) *BaseAlarmInfoForGetAlarmBySmithKeyOutput {
+func (s *BaseAlarmInfoForGetAlarmBySmithKeyOutput) SetStatus(v int64) *BaseAlarmInfoForGetAlarmBySmithKeyOutput {
 	s.Status = &v
 	return s
 }
@@ -314,7 +314,7 @@ func (s *BaseAlarmInfoForGetAlarmBySmithKeyOutput) SetTraceID(v string) *BaseAla
 }
 
 // SetUpdateTime sets the UpdateTime field's value.
-func (s *BaseAlarmInfoForGetAlarmBySmithKeyOutput) SetUpdateTime(v int32) *BaseAlarmInfoForGetAlarmBySmithKeyOutput {
+func (s *BaseAlarmInfoForGetAlarmBySmithKeyOutput) SetUpdateTime(v int64) *BaseAlarmInfoForGetAlarmBySmithKeyOutput {
 	s.UpdateTime = &v
 	return s
 }

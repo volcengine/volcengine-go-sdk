@@ -170,13 +170,13 @@ type DataForGetDevFingerprintPortOutput struct {
 
 	Sport *string `type:"string" json:",omitempty"`
 
-	StartTime *int32 `type:"int32" json:",omitempty"`
+	StartTime *int64 `type:"int64" json:",omitempty"`
 
 	Status *string `type:"string" json:",omitempty"`
 
 	Uid *string `type:"string" json:",omitempty"`
 
-	UpdateTime *int32 `type:"int32" json:",omitempty"`
+	UpdateTime *int64 `type:"int64" json:",omitempty"`
 
 	Username *string `type:"string" json:",omitempty"`
 }
@@ -264,7 +264,7 @@ func (s *DataForGetDevFingerprintPortOutput) SetSport(v string) *DataForGetDevFi
 }
 
 // SetStartTime sets the StartTime field's value.
-func (s *DataForGetDevFingerprintPortOutput) SetStartTime(v int32) *DataForGetDevFingerprintPortOutput {
+func (s *DataForGetDevFingerprintPortOutput) SetStartTime(v int64) *DataForGetDevFingerprintPortOutput {
 	s.StartTime = &v
 	return s
 }
@@ -282,7 +282,7 @@ func (s *DataForGetDevFingerprintPortOutput) SetUid(v string) *DataForGetDevFing
 }
 
 // SetUpdateTime sets the UpdateTime field's value.
-func (s *DataForGetDevFingerprintPortOutput) SetUpdateTime(v int32) *DataForGetDevFingerprintPortOutput {
+func (s *DataForGetDevFingerprintPortOutput) SetUpdateTime(v int64) *DataForGetDevFingerprintPortOutput {
 	s.UpdateTime = &v
 	return s
 }
@@ -303,10 +303,10 @@ type GetDevFingerprintPortInput struct {
 	Comm *string `type:"string" json:",omitempty"`
 
 	// PageNumber is a required field
-	PageNumber *int32 `type:"int32" json:",omitempty" required:"true"`
+	PageNumber *int64 `type:"int64" json:",omitempty" required:"true"`
 
 	// PageSize is a required field
-	PageSize *int32 `type:"int32" json:",omitempty" required:"true"`
+	PageSize *int64 `type:"int64" json:",omitempty" required:"true"`
 
 	Sip *string `type:"string" json:",omitempty"`
 
@@ -364,13 +364,13 @@ func (s *GetDevFingerprintPortInput) SetComm(v string) *GetDevFingerprintPortInp
 }
 
 // SetPageNumber sets the PageNumber field's value.
-func (s *GetDevFingerprintPortInput) SetPageNumber(v int32) *GetDevFingerprintPortInput {
+func (s *GetDevFingerprintPortInput) SetPageNumber(v int64) *GetDevFingerprintPortInput {
 	s.PageNumber = &v
 	return s
 }
 
 // SetPageSize sets the PageSize field's value.
-func (s *GetDevFingerprintPortInput) SetPageSize(v int32) *GetDevFingerprintPortInput {
+func (s *GetDevFingerprintPortInput) SetPageSize(v int64) *GetDevFingerprintPortInput {
 	s.PageSize = &v
 	return s
 }
@@ -412,11 +412,11 @@ type GetDevFingerprintPortOutput struct {
 
 	Data []*DataForGetDevFingerprintPortOutput `type:"list" json:",omitempty"`
 
-	PageNumber *int32 `type:"int32" json:",omitempty"`
+	PageNumber *int64 `type:"int64" json:",omitempty"`
 
-	PageSize *int32 `type:"int32" json:",omitempty"`
+	PageSize *int64 `type:"int64" json:",omitempty"`
 
-	TotalCount *int32 `type:"int32" json:",omitempty"`
+	TotalCount *int64 `type:"int64" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -436,19 +436,19 @@ func (s *GetDevFingerprintPortOutput) SetData(v []*DataForGetDevFingerprintPortO
 }
 
 // SetPageNumber sets the PageNumber field's value.
-func (s *GetDevFingerprintPortOutput) SetPageNumber(v int32) *GetDevFingerprintPortOutput {
+func (s *GetDevFingerprintPortOutput) SetPageNumber(v int64) *GetDevFingerprintPortOutput {
 	s.PageNumber = &v
 	return s
 }
 
 // SetPageSize sets the PageSize field's value.
-func (s *GetDevFingerprintPortOutput) SetPageSize(v int32) *GetDevFingerprintPortOutput {
+func (s *GetDevFingerprintPortOutput) SetPageSize(v int64) *GetDevFingerprintPortOutput {
 	s.PageSize = &v
 	return s
 }
 
 // SetTotalCount sets the TotalCount field's value.
-func (s *GetDevFingerprintPortOutput) SetTotalCount(v int32) *GetDevFingerprintPortOutput {
+func (s *GetDevFingerprintPortOutput) SetTotalCount(v int64) *GetDevFingerprintPortOutput {
 	s.TotalCount = &v
 	return s
 }

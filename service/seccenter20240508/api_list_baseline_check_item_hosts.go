@@ -355,9 +355,9 @@ type ListBaselineCheckItemHostsInput struct {
 	AssetType *string `type:"string" json:",omitempty" enum:"EnumOfAssetTypeForListBaselineCheckItemHostsInput"`
 
 	// BaselineID is a required field
-	BaselineID *int32 `type:"int32" json:",omitempty" required:"true"`
+	BaselineID *int64 `type:"int64" json:",omitempty" required:"true"`
 
-	CheckID *int32 `type:"int32" json:",omitempty"`
+	CheckID *int64 `type:"int64" json:",omitempty"`
 
 	CloudProviders []*string `type:"list" json:",omitempty"`
 
@@ -374,10 +374,10 @@ type ListBaselineCheckItemHostsInput struct {
 	NodeName *string `type:"string" json:",omitempty"`
 
 	// PageNumber is a required field
-	PageNumber *int32 `type:"int32" json:",omitempty" required:"true"`
+	PageNumber *int64 `type:"int64" json:",omitempty" required:"true"`
 
 	// PageSize is a required field
-	PageSize *int32 `type:"int32" json:",omitempty" required:"true"`
+	PageSize *int64 `type:"int64" json:",omitempty" required:"true"`
 
 	Region *string `type:"string" json:",omitempty"`
 
@@ -458,13 +458,13 @@ func (s *ListBaselineCheckItemHostsInput) SetAssetType(v string) *ListBaselineCh
 }
 
 // SetBaselineID sets the BaselineID field's value.
-func (s *ListBaselineCheckItemHostsInput) SetBaselineID(v int32) *ListBaselineCheckItemHostsInput {
+func (s *ListBaselineCheckItemHostsInput) SetBaselineID(v int64) *ListBaselineCheckItemHostsInput {
 	s.BaselineID = &v
 	return s
 }
 
 // SetCheckID sets the CheckID field's value.
-func (s *ListBaselineCheckItemHostsInput) SetCheckID(v int32) *ListBaselineCheckItemHostsInput {
+func (s *ListBaselineCheckItemHostsInput) SetCheckID(v int64) *ListBaselineCheckItemHostsInput {
 	s.CheckID = &v
 	return s
 }
@@ -512,13 +512,13 @@ func (s *ListBaselineCheckItemHostsInput) SetNodeName(v string) *ListBaselineChe
 }
 
 // SetPageNumber sets the PageNumber field's value.
-func (s *ListBaselineCheckItemHostsInput) SetPageNumber(v int32) *ListBaselineCheckItemHostsInput {
+func (s *ListBaselineCheckItemHostsInput) SetPageNumber(v int64) *ListBaselineCheckItemHostsInput {
 	s.PageNumber = &v
 	return s
 }
 
 // SetPageSize sets the PageSize field's value.
-func (s *ListBaselineCheckItemHostsInput) SetPageSize(v int32) *ListBaselineCheckItemHostsInput {
+func (s *ListBaselineCheckItemHostsInput) SetPageSize(v int64) *ListBaselineCheckItemHostsInput {
 	s.PageSize = &v
 	return s
 }
@@ -566,11 +566,11 @@ type ListBaselineCheckItemHostsOutput struct {
 
 	Data *DataForListBaselineCheckItemHostsOutput `type:"structure" json:",omitempty"`
 
-	PageNumber *int32 `type:"int32" json:",omitempty"`
+	PageNumber *int64 `type:"int64" json:",omitempty"`
 
-	PageSize *int32 `type:"int32" json:",omitempty"`
+	PageSize *int64 `type:"int64" json:",omitempty"`
 
-	TotalCount *int32 `type:"int32" json:",omitempty"`
+	TotalCount *int64 `type:"int64" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -590,19 +590,19 @@ func (s *ListBaselineCheckItemHostsOutput) SetData(v *DataForListBaselineCheckIt
 }
 
 // SetPageNumber sets the PageNumber field's value.
-func (s *ListBaselineCheckItemHostsOutput) SetPageNumber(v int32) *ListBaselineCheckItemHostsOutput {
+func (s *ListBaselineCheckItemHostsOutput) SetPageNumber(v int64) *ListBaselineCheckItemHostsOutput {
 	s.PageNumber = &v
 	return s
 }
 
 // SetPageSize sets the PageSize field's value.
-func (s *ListBaselineCheckItemHostsOutput) SetPageSize(v int32) *ListBaselineCheckItemHostsOutput {
+func (s *ListBaselineCheckItemHostsOutput) SetPageSize(v int64) *ListBaselineCheckItemHostsOutput {
 	s.PageSize = &v
 	return s
 }
 
 // SetTotalCount sets the TotalCount field's value.
-func (s *ListBaselineCheckItemHostsOutput) SetTotalCount(v int32) *ListBaselineCheckItemHostsOutput {
+func (s *ListBaselineCheckItemHostsOutput) SetTotalCount(v int64) *ListBaselineCheckItemHostsOutput {
 	s.TotalCount = &v
 	return s
 }

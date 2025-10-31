@@ -148,7 +148,7 @@ type DetailForUninstallAgentClientOutput struct {
 
 	AgentID *string `type:"string" json:",omitempty"`
 
-	Code *int32 `type:"int32" json:",omitempty"`
+	Code *int64 `type:"int64" json:",omitempty"`
 
 	Msg *string `type:"string" json:",omitempty"`
 }
@@ -170,7 +170,7 @@ func (s *DetailForUninstallAgentClientOutput) SetAgentID(v string) *DetailForUni
 }
 
 // SetCode sets the Code field's value.
-func (s *DetailForUninstallAgentClientOutput) SetCode(v int32) *DetailForUninstallAgentClientOutput {
+func (s *DetailForUninstallAgentClientOutput) SetCode(v int64) *DetailForUninstallAgentClientOutput {
 	s.Code = &v
 	return s
 }
@@ -234,9 +234,9 @@ type UninstallAgentClientOutput struct {
 
 	Detail []*DetailForUninstallAgentClientOutput `type:"list" json:",omitempty"`
 
-	FailureCount *int32 `type:"int32" json:",omitempty"`
+	FailureCount *int64 `type:"int64" json:",omitempty"`
 
-	SuccessCount *int32 `type:"int32" json:",omitempty"`
+	SuccessCount *int64 `type:"int64" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -256,13 +256,13 @@ func (s *UninstallAgentClientOutput) SetDetail(v []*DetailForUninstallAgentClien
 }
 
 // SetFailureCount sets the FailureCount field's value.
-func (s *UninstallAgentClientOutput) SetFailureCount(v int32) *UninstallAgentClientOutput {
+func (s *UninstallAgentClientOutput) SetFailureCount(v int64) *UninstallAgentClientOutput {
 	s.FailureCount = &v
 	return s
 }
 
 // SetSuccessCount sets the SuccessCount field's value.
-func (s *UninstallAgentClientOutput) SetSuccessCount(v int32) *UninstallAgentClientOutput {
+func (s *UninstallAgentClientOutput) SetSuccessCount(v int64) *UninstallAgentClientOutput {
 	s.SuccessCount = &v
 	return s
 }

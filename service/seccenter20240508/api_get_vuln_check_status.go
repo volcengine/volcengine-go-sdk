@@ -174,9 +174,9 @@ type GetVulnCheckStatusOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	LastCheckTime *int32 `type:"int32"`
+	LastCheckTime *int64 `type:"int64"`
 
-	Progress *int32 `type:"int32"`
+	Progress *int64 `type:"int64"`
 
 	Status *string `type:"string"`
 }
@@ -192,13 +192,13 @@ func (s GetVulnCheckStatusOutput) GoString() string {
 }
 
 // SetLastCheckTime sets the LastCheckTime field's value.
-func (s *GetVulnCheckStatusOutput) SetLastCheckTime(v int32) *GetVulnCheckStatusOutput {
+func (s *GetVulnCheckStatusOutput) SetLastCheckTime(v int64) *GetVulnCheckStatusOutput {
 	s.LastCheckTime = &v
 	return s
 }
 
 // SetProgress sets the Progress field's value.
-func (s *GetVulnCheckStatusOutput) SetProgress(v int32) *GetVulnCheckStatusOutput {
+func (s *GetVulnCheckStatusOutput) SetProgress(v int64) *GetVulnCheckStatusOutput {
 	s.Progress = &v
 	return s
 }

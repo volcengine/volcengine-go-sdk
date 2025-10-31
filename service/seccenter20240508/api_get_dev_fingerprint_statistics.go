@@ -166,11 +166,11 @@ type GetDevFingerprintStatisticsOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	Port *int32 `type:"int32"`
+	Port *int64 `type:"int64"`
 
-	Process *int32 `type:"int32"`
+	Process *int64 `type:"int64"`
 
-	Software *int32 `type:"int32"`
+	Software *int64 `type:"int64"`
 }
 
 // String returns the string representation
@@ -184,19 +184,19 @@ func (s GetDevFingerprintStatisticsOutput) GoString() string {
 }
 
 // SetPort sets the Port field's value.
-func (s *GetDevFingerprintStatisticsOutput) SetPort(v int32) *GetDevFingerprintStatisticsOutput {
+func (s *GetDevFingerprintStatisticsOutput) SetPort(v int64) *GetDevFingerprintStatisticsOutput {
 	s.Port = &v
 	return s
 }
 
 // SetProcess sets the Process field's value.
-func (s *GetDevFingerprintStatisticsOutput) SetProcess(v int32) *GetDevFingerprintStatisticsOutput {
+func (s *GetDevFingerprintStatisticsOutput) SetProcess(v int64) *GetDevFingerprintStatisticsOutput {
 	s.Process = &v
 	return s
 }
 
 // SetSoftware sets the Software field's value.
-func (s *GetDevFingerprintStatisticsOutput) SetSoftware(v int32) *GetDevFingerprintStatisticsOutput {
+func (s *GetDevFingerprintStatisticsOutput) SetSoftware(v int64) *GetDevFingerprintStatisticsOutput {
 	s.Software = &v
 	return s
 }

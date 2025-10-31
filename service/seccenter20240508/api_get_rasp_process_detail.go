@@ -206,13 +206,13 @@ type GetRaspProcessDetailOutput struct {
 
 	ExePath *string `type:"string"`
 
-	InspectPort *int32 `type:"int32"`
+	InspectPort *int64 `type:"int64"`
 
 	Pid *string `type:"string"`
 
 	ProcessState *string `type:"string"`
 
-	ProtectTime *int32 `type:"int32"`
+	ProtectTime *int64 `type:"int64"`
 
 	Reason *string `type:"string"`
 
@@ -224,11 +224,11 @@ type GetRaspProcessDetailOutput struct {
 
 	RuntimeVersion *string `type:"string"`
 
-	StartTimeUnix *int32 `type:"int32"`
+	StartTimeUnix *int64 `type:"int64"`
 
 	Status *string `type:"string"`
 
-	UpdateTime *int32 `type:"int32"`
+	UpdateTime *int64 `type:"int64"`
 }
 
 // String returns the string representation
@@ -272,7 +272,7 @@ func (s *GetRaspProcessDetailOutput) SetExePath(v string) *GetRaspProcessDetailO
 }
 
 // SetInspectPort sets the InspectPort field's value.
-func (s *GetRaspProcessDetailOutput) SetInspectPort(v int32) *GetRaspProcessDetailOutput {
+func (s *GetRaspProcessDetailOutput) SetInspectPort(v int64) *GetRaspProcessDetailOutput {
 	s.InspectPort = &v
 	return s
 }
@@ -290,7 +290,7 @@ func (s *GetRaspProcessDetailOutput) SetProcessState(v string) *GetRaspProcessDe
 }
 
 // SetProtectTime sets the ProtectTime field's value.
-func (s *GetRaspProcessDetailOutput) SetProtectTime(v int32) *GetRaspProcessDetailOutput {
+func (s *GetRaspProcessDetailOutput) SetProtectTime(v int64) *GetRaspProcessDetailOutput {
 	s.ProtectTime = &v
 	return s
 }
@@ -326,7 +326,7 @@ func (s *GetRaspProcessDetailOutput) SetRuntimeVersion(v string) *GetRaspProcess
 }
 
 // SetStartTimeUnix sets the StartTimeUnix field's value.
-func (s *GetRaspProcessDetailOutput) SetStartTimeUnix(v int32) *GetRaspProcessDetailOutput {
+func (s *GetRaspProcessDetailOutput) SetStartTimeUnix(v int64) *GetRaspProcessDetailOutput {
 	s.StartTimeUnix = &v
 	return s
 }
@@ -338,7 +338,7 @@ func (s *GetRaspProcessDetailOutput) SetStatus(v string) *GetRaspProcessDetailOu
 }
 
 // SetUpdateTime sets the UpdateTime field's value.
-func (s *GetRaspProcessDetailOutput) SetUpdateTime(v int32) *GetRaspProcessDetailOutput {
+func (s *GetRaspProcessDetailOutput) SetUpdateTime(v int64) *GetRaspProcessDetailOutput {
 	s.UpdateTime = &v
 	return s
 }

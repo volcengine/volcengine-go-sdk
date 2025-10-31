@@ -160,7 +160,7 @@ type DataForListAutoDefenseHostsOutput struct {
 
 	EcsInstance *EcsInstanceForListAutoDefenseHostsOutput `type:"structure" json:",omitempty"`
 
-	FirstHeartbeatTime *int32 `type:"int32" json:",omitempty"`
+	FirstHeartbeatTime *int64 `type:"int64" json:",omitempty"`
 
 	Gateway *string `type:"string" json:",omitempty"`
 
@@ -170,7 +170,7 @@ type DataForListAutoDefenseHostsOutput struct {
 
 	KernelVersion *string `type:"string" json:",omitempty"`
 
-	LastHeartbeatTime *int32 `type:"int32" json:",omitempty"`
+	LastHeartbeatTime *int64 `type:"int64" json:",omitempty"`
 
 	MemUsage *float64 `type:"double" json:",omitempty"`
 
@@ -188,13 +188,13 @@ type DataForListAutoDefenseHostsOutput struct {
 
 	SecurityEnhancement *bool `type:"boolean" json:",omitempty"`
 
-	StartTime *int32 `type:"int32" json:",omitempty"`
+	StartTime *int64 `type:"int64" json:",omitempty"`
 
 	Status *string `type:"string" json:",omitempty"`
 
 	Tags []*string `type:"list" json:",omitempty"`
 
-	TotalMem *int32 `type:"int32" json:",omitempty"`
+	TotalMem *int64 `type:"int64" json:",omitempty"`
 
 	UserStatus *string `type:"string" json:",omitempty"`
 
@@ -254,7 +254,7 @@ func (s *DataForListAutoDefenseHostsOutput) SetEcsInstance(v *EcsInstanceForList
 }
 
 // SetFirstHeartbeatTime sets the FirstHeartbeatTime field's value.
-func (s *DataForListAutoDefenseHostsOutput) SetFirstHeartbeatTime(v int32) *DataForListAutoDefenseHostsOutput {
+func (s *DataForListAutoDefenseHostsOutput) SetFirstHeartbeatTime(v int64) *DataForListAutoDefenseHostsOutput {
 	s.FirstHeartbeatTime = &v
 	return s
 }
@@ -284,7 +284,7 @@ func (s *DataForListAutoDefenseHostsOutput) SetKernelVersion(v string) *DataForL
 }
 
 // SetLastHeartbeatTime sets the LastHeartbeatTime field's value.
-func (s *DataForListAutoDefenseHostsOutput) SetLastHeartbeatTime(v int32) *DataForListAutoDefenseHostsOutput {
+func (s *DataForListAutoDefenseHostsOutput) SetLastHeartbeatTime(v int64) *DataForListAutoDefenseHostsOutput {
 	s.LastHeartbeatTime = &v
 	return s
 }
@@ -338,7 +338,7 @@ func (s *DataForListAutoDefenseHostsOutput) SetSecurityEnhancement(v bool) *Data
 }
 
 // SetStartTime sets the StartTime field's value.
-func (s *DataForListAutoDefenseHostsOutput) SetStartTime(v int32) *DataForListAutoDefenseHostsOutput {
+func (s *DataForListAutoDefenseHostsOutput) SetStartTime(v int64) *DataForListAutoDefenseHostsOutput {
 	s.StartTime = &v
 	return s
 }
@@ -356,7 +356,7 @@ func (s *DataForListAutoDefenseHostsOutput) SetTags(v []*string) *DataForListAut
 }
 
 // SetTotalMem sets the TotalMem field's value.
-func (s *DataForListAutoDefenseHostsOutput) SetTotalMem(v int32) *DataForListAutoDefenseHostsOutput {
+func (s *DataForListAutoDefenseHostsOutput) SetTotalMem(v int64) *DataForListAutoDefenseHostsOutput {
 	s.TotalMem = &v
 	return s
 }
@@ -380,7 +380,9 @@ type EcsInstanceForListAutoDefenseHostsOutput struct {
 
 	AccountID *string `type:"string" json:",omitempty"`
 
-	Cpu *int32 `type:"int32" json:",omitempty"`
+	Cpu *int64 `type:"int64" json:",omitempty"`
+
+	CreatedAt *string `type:"string" json:",omitempty"`
 
 	ECSUpdateAt *string `type:"string" json:",omitempty"`
 
@@ -392,7 +394,7 @@ type EcsInstanceForListAutoDefenseHostsOutput struct {
 
 	InstanceName *string `type:"string" json:",omitempty"`
 
-	Mem *int32 `type:"int32" json:",omitempty"`
+	Mem *int64 `type:"int64" json:",omitempty"`
 
 	OsName *string `type:"string" json:",omitempty"`
 
@@ -405,6 +407,8 @@ type EcsInstanceForListAutoDefenseHostsOutput struct {
 	PrimaryIpAddress *string `type:"string" json:",omitempty"`
 
 	Region *string `type:"string" json:",omitempty"`
+
+	SecurityEnhancementStrategy *string `type:"string" json:",omitempty"`
 
 	Status *string `type:"string" json:",omitempty"`
 
@@ -440,8 +444,14 @@ func (s *EcsInstanceForListAutoDefenseHostsOutput) SetAccountID(v string) *EcsIn
 }
 
 // SetCpu sets the Cpu field's value.
-func (s *EcsInstanceForListAutoDefenseHostsOutput) SetCpu(v int32) *EcsInstanceForListAutoDefenseHostsOutput {
+func (s *EcsInstanceForListAutoDefenseHostsOutput) SetCpu(v int64) *EcsInstanceForListAutoDefenseHostsOutput {
 	s.Cpu = &v
+	return s
+}
+
+// SetCreatedAt sets the CreatedAt field's value.
+func (s *EcsInstanceForListAutoDefenseHostsOutput) SetCreatedAt(v string) *EcsInstanceForListAutoDefenseHostsOutput {
+	s.CreatedAt = &v
 	return s
 }
 
@@ -476,7 +486,7 @@ func (s *EcsInstanceForListAutoDefenseHostsOutput) SetInstanceName(v string) *Ec
 }
 
 // SetMem sets the Mem field's value.
-func (s *EcsInstanceForListAutoDefenseHostsOutput) SetMem(v int32) *EcsInstanceForListAutoDefenseHostsOutput {
+func (s *EcsInstanceForListAutoDefenseHostsOutput) SetMem(v int64) *EcsInstanceForListAutoDefenseHostsOutput {
 	s.Mem = &v
 	return s
 }
@@ -514,6 +524,12 @@ func (s *EcsInstanceForListAutoDefenseHostsOutput) SetPrimaryIpAddress(v string)
 // SetRegion sets the Region field's value.
 func (s *EcsInstanceForListAutoDefenseHostsOutput) SetRegion(v string) *EcsInstanceForListAutoDefenseHostsOutput {
 	s.Region = &v
+	return s
+}
+
+// SetSecurityEnhancementStrategy sets the SecurityEnhancementStrategy field's value.
+func (s *EcsInstanceForListAutoDefenseHostsOutput) SetSecurityEnhancementStrategy(v string) *EcsInstanceForListAutoDefenseHostsOutput {
+	s.SecurityEnhancementStrategy = &v
 	return s
 }
 
@@ -555,10 +571,10 @@ type ListAutoDefenseHostsInput struct {
 	LeafGroupIDs []*string `type:"list" json:",omitempty"`
 
 	// PageNumber is a required field
-	PageNumber *int32 `type:"int32" json:",omitempty" required:"true"`
+	PageNumber *int64 `type:"int64" json:",omitempty" required:"true"`
 
 	// PageSize is a required field
-	PageSize *int32 `type:"int32" json:",omitempty" required:"true"`
+	PageSize *int64 `type:"int64" json:",omitempty" required:"true"`
 
 	RuleID *string `type:"string" json:",omitempty"`
 
@@ -608,13 +624,13 @@ func (s *ListAutoDefenseHostsInput) SetLeafGroupIDs(v []*string) *ListAutoDefens
 }
 
 // SetPageNumber sets the PageNumber field's value.
-func (s *ListAutoDefenseHostsInput) SetPageNumber(v int32) *ListAutoDefenseHostsInput {
+func (s *ListAutoDefenseHostsInput) SetPageNumber(v int64) *ListAutoDefenseHostsInput {
 	s.PageNumber = &v
 	return s
 }
 
 // SetPageSize sets the PageSize field's value.
-func (s *ListAutoDefenseHostsInput) SetPageSize(v int32) *ListAutoDefenseHostsInput {
+func (s *ListAutoDefenseHostsInput) SetPageSize(v int64) *ListAutoDefenseHostsInput {
 	s.PageSize = &v
 	return s
 }
@@ -650,11 +666,11 @@ type ListAutoDefenseHostsOutput struct {
 
 	Data []*DataForListAutoDefenseHostsOutput `type:"list" json:",omitempty"`
 
-	PageNumber *int32 `type:"int32" json:",omitempty"`
+	PageNumber *int64 `type:"int64" json:",omitempty"`
 
-	PageSize *int32 `type:"int32" json:",omitempty"`
+	PageSize *int64 `type:"int64" json:",omitempty"`
 
-	TotalCount *int32 `type:"int32" json:",omitempty"`
+	TotalCount *int64 `type:"int64" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -674,19 +690,19 @@ func (s *ListAutoDefenseHostsOutput) SetData(v []*DataForListAutoDefenseHostsOut
 }
 
 // SetPageNumber sets the PageNumber field's value.
-func (s *ListAutoDefenseHostsOutput) SetPageNumber(v int32) *ListAutoDefenseHostsOutput {
+func (s *ListAutoDefenseHostsOutput) SetPageNumber(v int64) *ListAutoDefenseHostsOutput {
 	s.PageNumber = &v
 	return s
 }
 
 // SetPageSize sets the PageSize field's value.
-func (s *ListAutoDefenseHostsOutput) SetPageSize(v int32) *ListAutoDefenseHostsOutput {
+func (s *ListAutoDefenseHostsOutput) SetPageSize(v int64) *ListAutoDefenseHostsOutput {
 	s.PageSize = &v
 	return s
 }
 
 // SetTotalCount sets the TotalCount field's value.
-func (s *ListAutoDefenseHostsOutput) SetTotalCount(v int32) *ListAutoDefenseHostsOutput {
+func (s *ListAutoDefenseHostsOutput) SetTotalCount(v int64) *ListAutoDefenseHostsOutput {
 	s.TotalCount = &v
 	return s
 }
@@ -694,13 +710,13 @@ func (s *ListAutoDefenseHostsOutput) SetTotalCount(v int32) *ListAutoDefenseHost
 type RiskForListAutoDefenseHostsOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	Alarm *int32 `type:"int32" json:",omitempty"`
+	Alarm *int64 `type:"int64" json:",omitempty"`
 
-	Baseline *int32 `type:"int32" json:",omitempty"`
+	Baseline *int64 `type:"int64" json:",omitempty"`
 
-	Virus *int32 `type:"int32" json:",omitempty"`
+	Virus *int64 `type:"int64" json:",omitempty"`
 
-	Vuln *int32 `type:"int32" json:",omitempty"`
+	Vuln *int64 `type:"int64" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -714,25 +730,25 @@ func (s RiskForListAutoDefenseHostsOutput) GoString() string {
 }
 
 // SetAlarm sets the Alarm field's value.
-func (s *RiskForListAutoDefenseHostsOutput) SetAlarm(v int32) *RiskForListAutoDefenseHostsOutput {
+func (s *RiskForListAutoDefenseHostsOutput) SetAlarm(v int64) *RiskForListAutoDefenseHostsOutput {
 	s.Alarm = &v
 	return s
 }
 
 // SetBaseline sets the Baseline field's value.
-func (s *RiskForListAutoDefenseHostsOutput) SetBaseline(v int32) *RiskForListAutoDefenseHostsOutput {
+func (s *RiskForListAutoDefenseHostsOutput) SetBaseline(v int64) *RiskForListAutoDefenseHostsOutput {
 	s.Baseline = &v
 	return s
 }
 
 // SetVirus sets the Virus field's value.
-func (s *RiskForListAutoDefenseHostsOutput) SetVirus(v int32) *RiskForListAutoDefenseHostsOutput {
+func (s *RiskForListAutoDefenseHostsOutput) SetVirus(v int64) *RiskForListAutoDefenseHostsOutput {
 	s.Virus = &v
 	return s
 }
 
 // SetVuln sets the Vuln field's value.
-func (s *RiskForListAutoDefenseHostsOutput) SetVuln(v int32) *RiskForListAutoDefenseHostsOutput {
+func (s *RiskForListAutoDefenseHostsOutput) SetVuln(v int64) *RiskForListAutoDefenseHostsOutput {
 	s.Vuln = &v
 	return s
 }

@@ -142,7 +142,7 @@ func (c *SECCENTER20240508) GetFingerprintAppGroupWithContext(ctx volcengine.Con
 type DataForGetFingerprintAppGroupOutput struct {
 	_ struct{} `type:"structure"`
 
-	Count *int32 `type:"int32"`
+	Count *int64 `type:"int64"`
 
 	Name *string `type:"string"`
 }
@@ -158,7 +158,7 @@ func (s DataForGetFingerprintAppGroupOutput) GoString() string {
 }
 
 // SetCount sets the Count field's value.
-func (s *DataForGetFingerprintAppGroupOutput) SetCount(v int32) *DataForGetFingerprintAppGroupOutput {
+func (s *DataForGetFingerprintAppGroupOutput) SetCount(v int64) *DataForGetFingerprintAppGroupOutput {
 	s.Count = &v
 	return s
 }

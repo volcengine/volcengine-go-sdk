@@ -168,19 +168,19 @@ type DataForListIsolationFilesOutput struct {
 
 	Host *HostForListIsolationFilesOutput `type:"structure" json:",omitempty"`
 
-	InsertTime *int32 `type:"int32" json:",omitempty"`
+	InsertTime *int64 `type:"int64" json:",omitempty"`
 
 	IsUpload *bool `type:"boolean" json:",omitempty"`
 
 	SavedFileName *string `type:"string" json:",omitempty"`
 
-	Status *int32 `type:"int32" json:",omitempty"`
+	Status *int64 `type:"int64" json:",omitempty"`
 
 	TaskID *string `type:"string" json:",omitempty"`
 
 	TopGroupID *string `type:"string" json:",omitempty"`
 
-	UpdateTime *int32 `type:"int32" json:",omitempty"`
+	UpdateTime *int64 `type:"int64" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -260,7 +260,7 @@ func (s *DataForListIsolationFilesOutput) SetHost(v *HostForListIsolationFilesOu
 }
 
 // SetInsertTime sets the InsertTime field's value.
-func (s *DataForListIsolationFilesOutput) SetInsertTime(v int32) *DataForListIsolationFilesOutput {
+func (s *DataForListIsolationFilesOutput) SetInsertTime(v int64) *DataForListIsolationFilesOutput {
 	s.InsertTime = &v
 	return s
 }
@@ -278,7 +278,7 @@ func (s *DataForListIsolationFilesOutput) SetSavedFileName(v string) *DataForLis
 }
 
 // SetStatus sets the Status field's value.
-func (s *DataForListIsolationFilesOutput) SetStatus(v int32) *DataForListIsolationFilesOutput {
+func (s *DataForListIsolationFilesOutput) SetStatus(v int64) *DataForListIsolationFilesOutput {
 	s.Status = &v
 	return s
 }
@@ -296,7 +296,7 @@ func (s *DataForListIsolationFilesOutput) SetTopGroupID(v string) *DataForListIs
 }
 
 // SetUpdateTime sets the UpdateTime field's value.
-func (s *DataForListIsolationFilesOutput) SetUpdateTime(v int32) *DataForListIsolationFilesOutput {
+func (s *DataForListIsolationFilesOutput) SetUpdateTime(v int64) *DataForListIsolationFilesOutput {
 	s.UpdateTime = &v
 	return s
 }
@@ -375,20 +375,20 @@ type ListIsolationFilesInput struct {
 	LeafGroupIDs []*string `type:"list" json:",omitempty"`
 
 	// PageNumber is a required field
-	PageNumber *int32 `type:"int32" json:",omitempty" required:"true"`
+	PageNumber *int64 `type:"int64" json:",omitempty" required:"true"`
 
 	// PageSize is a required field
-	PageSize *int32 `type:"int32" json:",omitempty" required:"true"`
+	PageSize *int64 `type:"int64" json:",omitempty" required:"true"`
 
 	SortBy *string `type:"string" json:",omitempty"`
 
 	SortOrder *string `type:"string" json:",omitempty"`
 
-	Status []*int32 `type:"list" json:",omitempty"`
+	Status []*int64 `type:"list" json:",omitempty"`
 
-	TimeEnd *int32 `type:"int32" json:",omitempty"`
+	TimeEnd *int64 `type:"int64" json:",omitempty"`
 
-	TimeStart *int32 `type:"int32" json:",omitempty"`
+	TimeStart *int64 `type:"int64" json:",omitempty"`
 
 	TopGroupID *string `type:"string" json:",omitempty"`
 }
@@ -468,13 +468,13 @@ func (s *ListIsolationFilesInput) SetLeafGroupIDs(v []*string) *ListIsolationFil
 }
 
 // SetPageNumber sets the PageNumber field's value.
-func (s *ListIsolationFilesInput) SetPageNumber(v int32) *ListIsolationFilesInput {
+func (s *ListIsolationFilesInput) SetPageNumber(v int64) *ListIsolationFilesInput {
 	s.PageNumber = &v
 	return s
 }
 
 // SetPageSize sets the PageSize field's value.
-func (s *ListIsolationFilesInput) SetPageSize(v int32) *ListIsolationFilesInput {
+func (s *ListIsolationFilesInput) SetPageSize(v int64) *ListIsolationFilesInput {
 	s.PageSize = &v
 	return s
 }
@@ -492,19 +492,19 @@ func (s *ListIsolationFilesInput) SetSortOrder(v string) *ListIsolationFilesInpu
 }
 
 // SetStatus sets the Status field's value.
-func (s *ListIsolationFilesInput) SetStatus(v []*int32) *ListIsolationFilesInput {
+func (s *ListIsolationFilesInput) SetStatus(v []*int64) *ListIsolationFilesInput {
 	s.Status = v
 	return s
 }
 
 // SetTimeEnd sets the TimeEnd field's value.
-func (s *ListIsolationFilesInput) SetTimeEnd(v int32) *ListIsolationFilesInput {
+func (s *ListIsolationFilesInput) SetTimeEnd(v int64) *ListIsolationFilesInput {
 	s.TimeEnd = &v
 	return s
 }
 
 // SetTimeStart sets the TimeStart field's value.
-func (s *ListIsolationFilesInput) SetTimeStart(v int32) *ListIsolationFilesInput {
+func (s *ListIsolationFilesInput) SetTimeStart(v int64) *ListIsolationFilesInput {
 	s.TimeStart = &v
 	return s
 }
@@ -522,11 +522,11 @@ type ListIsolationFilesOutput struct {
 
 	Data []*DataForListIsolationFilesOutput `type:"list" json:",omitempty"`
 
-	PageNumber *int32 `type:"int32" json:",omitempty"`
+	PageNumber *int64 `type:"int64" json:",omitempty"`
 
-	PageSize *int32 `type:"int32" json:",omitempty"`
+	PageSize *int64 `type:"int64" json:",omitempty"`
 
-	TotalCount *int32 `type:"int32" json:",omitempty"`
+	TotalCount *int64 `type:"int64" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -546,19 +546,19 @@ func (s *ListIsolationFilesOutput) SetData(v []*DataForListIsolationFilesOutput)
 }
 
 // SetPageNumber sets the PageNumber field's value.
-func (s *ListIsolationFilesOutput) SetPageNumber(v int32) *ListIsolationFilesOutput {
+func (s *ListIsolationFilesOutput) SetPageNumber(v int64) *ListIsolationFilesOutput {
 	s.PageNumber = &v
 	return s
 }
 
 // SetPageSize sets the PageSize field's value.
-func (s *ListIsolationFilesOutput) SetPageSize(v int32) *ListIsolationFilesOutput {
+func (s *ListIsolationFilesOutput) SetPageSize(v int64) *ListIsolationFilesOutput {
 	s.PageSize = &v
 	return s
 }
 
 // SetTotalCount sets the TotalCount field's value.
-func (s *ListIsolationFilesOutput) SetTotalCount(v int32) *ListIsolationFilesOutput {
+func (s *ListIsolationFilesOutput) SetTotalCount(v int64) *ListIsolationFilesOutput {
 	s.TotalCount = &v
 	return s
 }

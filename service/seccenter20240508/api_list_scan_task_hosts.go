@@ -197,10 +197,10 @@ type ListScanTaskHostsInput struct {
 	FilePath *string `type:"string" json:",omitempty"`
 
 	// PageNumber is a required field
-	PageNumber *int32 `type:"int32" json:",omitempty" required:"true"`
+	PageNumber *int64 `type:"int64" json:",omitempty" required:"true"`
 
 	// PageSize is a required field
-	PageSize *int32 `type:"int32" json:",omitempty" required:"true"`
+	PageSize *int64 `type:"int64" json:",omitempty" required:"true"`
 
 	SortBy *string `type:"string" json:",omitempty"`
 
@@ -254,13 +254,13 @@ func (s *ListScanTaskHostsInput) SetFilePath(v string) *ListScanTaskHostsInput {
 }
 
 // SetPageNumber sets the PageNumber field's value.
-func (s *ListScanTaskHostsInput) SetPageNumber(v int32) *ListScanTaskHostsInput {
+func (s *ListScanTaskHostsInput) SetPageNumber(v int64) *ListScanTaskHostsInput {
 	s.PageNumber = &v
 	return s
 }
 
 // SetPageSize sets the PageSize field's value.
-func (s *ListScanTaskHostsInput) SetPageSize(v int32) *ListScanTaskHostsInput {
+func (s *ListScanTaskHostsInput) SetPageSize(v int64) *ListScanTaskHostsInput {
 	s.PageSize = &v
 	return s
 }
@@ -308,11 +308,11 @@ type ListScanTaskHostsOutput struct {
 
 	Data []*DataForListScanTaskHostsOutput `type:"list" json:",omitempty"`
 
-	PageNumber *int32 `type:"int32" json:",omitempty"`
+	PageNumber *int64 `type:"int64" json:",omitempty"`
 
-	PageSize *int32 `type:"int32" json:",omitempty"`
+	PageSize *int64 `type:"int64" json:",omitempty"`
 
-	TotalCount *int32 `type:"int32" json:",omitempty"`
+	TotalCount *int64 `type:"int64" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -332,19 +332,19 @@ func (s *ListScanTaskHostsOutput) SetData(v []*DataForListScanTaskHostsOutput) *
 }
 
 // SetPageNumber sets the PageNumber field's value.
-func (s *ListScanTaskHostsOutput) SetPageNumber(v int32) *ListScanTaskHostsOutput {
+func (s *ListScanTaskHostsOutput) SetPageNumber(v int64) *ListScanTaskHostsOutput {
 	s.PageNumber = &v
 	return s
 }
 
 // SetPageSize sets the PageSize field's value.
-func (s *ListScanTaskHostsOutput) SetPageSize(v int32) *ListScanTaskHostsOutput {
+func (s *ListScanTaskHostsOutput) SetPageSize(v int64) *ListScanTaskHostsOutput {
 	s.PageSize = &v
 	return s
 }
 
 // SetTotalCount sets the TotalCount field's value.
-func (s *ListScanTaskHostsOutput) SetTotalCount(v int32) *ListScanTaskHostsOutput {
+func (s *ListScanTaskHostsOutput) SetTotalCount(v int64) *ListScanTaskHostsOutput {
 	s.TotalCount = &v
 	return s
 }

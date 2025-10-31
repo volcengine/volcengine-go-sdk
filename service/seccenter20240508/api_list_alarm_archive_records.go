@@ -148,11 +148,11 @@ type DataForListAlarmArchiveRecordsOutput struct {
 
 	AccountID *string `type:"string" json:",omitempty"`
 
-	AlarmCount *int32 `type:"int32" json:",omitempty"`
+	AlarmCount *int64 `type:"int64" json:",omitempty"`
 
 	AlarmType *string `type:"string" json:",omitempty"`
 
-	ArchiveTime *int32 `type:"int32" json:",omitempty"`
+	ArchiveTime *int64 `type:"int64" json:",omitempty"`
 
 	FileName *string `type:"string" json:",omitempty"`
 }
@@ -174,7 +174,7 @@ func (s *DataForListAlarmArchiveRecordsOutput) SetAccountID(v string) *DataForLi
 }
 
 // SetAlarmCount sets the AlarmCount field's value.
-func (s *DataForListAlarmArchiveRecordsOutput) SetAlarmCount(v int32) *DataForListAlarmArchiveRecordsOutput {
+func (s *DataForListAlarmArchiveRecordsOutput) SetAlarmCount(v int64) *DataForListAlarmArchiveRecordsOutput {
 	s.AlarmCount = &v
 	return s
 }
@@ -186,7 +186,7 @@ func (s *DataForListAlarmArchiveRecordsOutput) SetAlarmType(v string) *DataForLi
 }
 
 // SetArchiveTime sets the ArchiveTime field's value.
-func (s *DataForListAlarmArchiveRecordsOutput) SetArchiveTime(v int32) *DataForListAlarmArchiveRecordsOutput {
+func (s *DataForListAlarmArchiveRecordsOutput) SetArchiveTime(v int64) *DataForListAlarmArchiveRecordsOutput {
 	s.ArchiveTime = &v
 	return s
 }
@@ -203,18 +203,18 @@ type ListAlarmArchiveRecordsInput struct {
 	AlarmType *string `type:"string" json:",omitempty"`
 
 	// PageNumber is a required field
-	PageNumber *int32 `type:"int32" json:",omitempty" required:"true"`
+	PageNumber *int64 `type:"int64" json:",omitempty" required:"true"`
 
 	// PageSize is a required field
-	PageSize *int32 `type:"int32" json:",omitempty" required:"true"`
+	PageSize *int64 `type:"int64" json:",omitempty" required:"true"`
 
 	SortBy *string `type:"string" json:",omitempty"`
 
 	SortOrder *string `type:"string" json:",omitempty"`
 
-	TimeEnd *int32 `type:"int32" json:",omitempty"`
+	TimeEnd *int64 `type:"int64" json:",omitempty"`
 
-	TimeStart *int32 `type:"int32" json:",omitempty"`
+	TimeStart *int64 `type:"int64" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -250,13 +250,13 @@ func (s *ListAlarmArchiveRecordsInput) SetAlarmType(v string) *ListAlarmArchiveR
 }
 
 // SetPageNumber sets the PageNumber field's value.
-func (s *ListAlarmArchiveRecordsInput) SetPageNumber(v int32) *ListAlarmArchiveRecordsInput {
+func (s *ListAlarmArchiveRecordsInput) SetPageNumber(v int64) *ListAlarmArchiveRecordsInput {
 	s.PageNumber = &v
 	return s
 }
 
 // SetPageSize sets the PageSize field's value.
-func (s *ListAlarmArchiveRecordsInput) SetPageSize(v int32) *ListAlarmArchiveRecordsInput {
+func (s *ListAlarmArchiveRecordsInput) SetPageSize(v int64) *ListAlarmArchiveRecordsInput {
 	s.PageSize = &v
 	return s
 }
@@ -274,13 +274,13 @@ func (s *ListAlarmArchiveRecordsInput) SetSortOrder(v string) *ListAlarmArchiveR
 }
 
 // SetTimeEnd sets the TimeEnd field's value.
-func (s *ListAlarmArchiveRecordsInput) SetTimeEnd(v int32) *ListAlarmArchiveRecordsInput {
+func (s *ListAlarmArchiveRecordsInput) SetTimeEnd(v int64) *ListAlarmArchiveRecordsInput {
 	s.TimeEnd = &v
 	return s
 }
 
 // SetTimeStart sets the TimeStart field's value.
-func (s *ListAlarmArchiveRecordsInput) SetTimeStart(v int32) *ListAlarmArchiveRecordsInput {
+func (s *ListAlarmArchiveRecordsInput) SetTimeStart(v int64) *ListAlarmArchiveRecordsInput {
 	s.TimeStart = &v
 	return s
 }
@@ -292,11 +292,11 @@ type ListAlarmArchiveRecordsOutput struct {
 
 	Data []*DataForListAlarmArchiveRecordsOutput `type:"list" json:",omitempty"`
 
-	PageNumber *int32 `type:"int32" json:",omitempty"`
+	PageNumber *int64 `type:"int64" json:",omitempty"`
 
-	PageSize *int32 `type:"int32" json:",omitempty"`
+	PageSize *int64 `type:"int64" json:",omitempty"`
 
-	TotalCount *int32 `type:"int32" json:",omitempty"`
+	TotalCount *int64 `type:"int64" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -316,19 +316,19 @@ func (s *ListAlarmArchiveRecordsOutput) SetData(v []*DataForListAlarmArchiveReco
 }
 
 // SetPageNumber sets the PageNumber field's value.
-func (s *ListAlarmArchiveRecordsOutput) SetPageNumber(v int32) *ListAlarmArchiveRecordsOutput {
+func (s *ListAlarmArchiveRecordsOutput) SetPageNumber(v int64) *ListAlarmArchiveRecordsOutput {
 	s.PageNumber = &v
 	return s
 }
 
 // SetPageSize sets the PageSize field's value.
-func (s *ListAlarmArchiveRecordsOutput) SetPageSize(v int32) *ListAlarmArchiveRecordsOutput {
+func (s *ListAlarmArchiveRecordsOutput) SetPageSize(v int64) *ListAlarmArchiveRecordsOutput {
 	s.PageSize = &v
 	return s
 }
 
 // SetTotalCount sets the TotalCount field's value.
-func (s *ListAlarmArchiveRecordsOutput) SetTotalCount(v int32) *ListAlarmArchiveRecordsOutput {
+func (s *ListAlarmArchiveRecordsOutput) SetTotalCount(v int64) *ListAlarmArchiveRecordsOutput {
 	s.TotalCount = &v
 	return s
 }

@@ -146,11 +146,11 @@ func (c *SECCENTER20240508) GetMultiLevelAuthDetailWithContext(ctx volcengine.Co
 type AppSecForGetMultiLevelAuthDetailOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	ExpireTime *int32 `type:"int32" json:",omitempty"`
+	ExpireTime *int64 `type:"int64" json:",omitempty"`
 
-	TotalCount *int32 `type:"int32" json:",omitempty"`
+	TotalCount *int64 `type:"int64" json:",omitempty"`
 
-	UsedCount *int32 `type:"int32" json:",omitempty"`
+	UsedCount *int64 `type:"int64" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -164,19 +164,19 @@ func (s AppSecForGetMultiLevelAuthDetailOutput) GoString() string {
 }
 
 // SetExpireTime sets the ExpireTime field's value.
-func (s *AppSecForGetMultiLevelAuthDetailOutput) SetExpireTime(v int32) *AppSecForGetMultiLevelAuthDetailOutput {
+func (s *AppSecForGetMultiLevelAuthDetailOutput) SetExpireTime(v int64) *AppSecForGetMultiLevelAuthDetailOutput {
 	s.ExpireTime = &v
 	return s
 }
 
 // SetTotalCount sets the TotalCount field's value.
-func (s *AppSecForGetMultiLevelAuthDetailOutput) SetTotalCount(v int32) *AppSecForGetMultiLevelAuthDetailOutput {
+func (s *AppSecForGetMultiLevelAuthDetailOutput) SetTotalCount(v int64) *AppSecForGetMultiLevelAuthDetailOutput {
 	s.TotalCount = &v
 	return s
 }
 
 // SetUsedCount sets the UsedCount field's value.
-func (s *AppSecForGetMultiLevelAuthDetailOutput) SetUsedCount(v int32) *AppSecForGetMultiLevelAuthDetailOutput {
+func (s *AppSecForGetMultiLevelAuthDetailOutput) SetUsedCount(v int64) *AppSecForGetMultiLevelAuthDetailOutput {
 	s.UsedCount = &v
 	return s
 }
@@ -184,11 +184,11 @@ func (s *AppSecForGetMultiLevelAuthDetailOutput) SetUsedCount(v int32) *AppSecFo
 type ClusterSecForGetMultiLevelAuthDetailOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	ExpireTime *int32 `type:"int32" json:",omitempty"`
+	ExpireTime *int64 `type:"int64" json:",omitempty"`
 
-	TotalCount *int32 `type:"int32" json:",omitempty"`
+	TotalCount *int64 `type:"int64" json:",omitempty"`
 
-	UsedCount *int32 `type:"int32" json:",omitempty"`
+	UsedCount *int64 `type:"int64" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -202,19 +202,19 @@ func (s ClusterSecForGetMultiLevelAuthDetailOutput) GoString() string {
 }
 
 // SetExpireTime sets the ExpireTime field's value.
-func (s *ClusterSecForGetMultiLevelAuthDetailOutput) SetExpireTime(v int32) *ClusterSecForGetMultiLevelAuthDetailOutput {
+func (s *ClusterSecForGetMultiLevelAuthDetailOutput) SetExpireTime(v int64) *ClusterSecForGetMultiLevelAuthDetailOutput {
 	s.ExpireTime = &v
 	return s
 }
 
 // SetTotalCount sets the TotalCount field's value.
-func (s *ClusterSecForGetMultiLevelAuthDetailOutput) SetTotalCount(v int32) *ClusterSecForGetMultiLevelAuthDetailOutput {
+func (s *ClusterSecForGetMultiLevelAuthDetailOutput) SetTotalCount(v int64) *ClusterSecForGetMultiLevelAuthDetailOutput {
 	s.TotalCount = &v
 	return s
 }
 
 // SetUsedCount sets the UsedCount field's value.
-func (s *ClusterSecForGetMultiLevelAuthDetailOutput) SetUsedCount(v int32) *ClusterSecForGetMultiLevelAuthDetailOutput {
+func (s *ClusterSecForGetMultiLevelAuthDetailOutput) SetUsedCount(v int64) *ClusterSecForGetMultiLevelAuthDetailOutput {
 	s.UsedCount = &v
 	return s
 }
@@ -284,11 +284,11 @@ func (s *GetMultiLevelAuthDetailOutput) SetProtectHost(v *ProtectHostForGetMulti
 type ProtectHostForGetMultiLevelAuthDetailOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	ExpireTime *int32 `type:"int32" json:",omitempty"`
+	ExpireTime *int64 `type:"int64" json:",omitempty"`
 
-	TotalCount *int32 `type:"int32" json:",omitempty"`
+	TotalCount *int64 `type:"int64" json:",omitempty"`
 
-	UsedCount *int32 `type:"int32" json:",omitempty"`
+	UsedCount *int64 `type:"int64" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -302,19 +302,19 @@ func (s ProtectHostForGetMultiLevelAuthDetailOutput) GoString() string {
 }
 
 // SetExpireTime sets the ExpireTime field's value.
-func (s *ProtectHostForGetMultiLevelAuthDetailOutput) SetExpireTime(v int32) *ProtectHostForGetMultiLevelAuthDetailOutput {
+func (s *ProtectHostForGetMultiLevelAuthDetailOutput) SetExpireTime(v int64) *ProtectHostForGetMultiLevelAuthDetailOutput {
 	s.ExpireTime = &v
 	return s
 }
 
 // SetTotalCount sets the TotalCount field's value.
-func (s *ProtectHostForGetMultiLevelAuthDetailOutput) SetTotalCount(v int32) *ProtectHostForGetMultiLevelAuthDetailOutput {
+func (s *ProtectHostForGetMultiLevelAuthDetailOutput) SetTotalCount(v int64) *ProtectHostForGetMultiLevelAuthDetailOutput {
 	s.TotalCount = &v
 	return s
 }
 
 // SetUsedCount sets the UsedCount field's value.
-func (s *ProtectHostForGetMultiLevelAuthDetailOutput) SetUsedCount(v int32) *ProtectHostForGetMultiLevelAuthDetailOutput {
+func (s *ProtectHostForGetMultiLevelAuthDetailOutput) SetUsedCount(v int64) *ProtectHostForGetMultiLevelAuthDetailOutput {
 	s.UsedCount = &v
 	return s
 }

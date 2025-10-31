@@ -304,7 +304,7 @@ type BlockForAddRaspConfigInput struct {
 
 	HookFunc []*string `type:"list" json:",omitempty"`
 
-	HookParam *int32 `type:"int32" json:",omitempty"`
+	HookParam *int64 `type:"int64" json:",omitempty"`
 
 	Rules []*RuleForAddRaspConfigInput `type:"list" json:",omitempty"`
 
@@ -328,7 +328,7 @@ func (s *BlockForAddRaspConfigInput) SetHookFunc(v []*string) *BlockForAddRaspCo
 }
 
 // SetHookParam sets the HookParam field's value.
-func (s *BlockForAddRaspConfigInput) SetHookParam(v int32) *BlockForAddRaspConfigInput {
+func (s *BlockForAddRaspConfigInput) SetHookParam(v int64) *BlockForAddRaspConfigInput {
 	s.HookParam = &v
 	return s
 }
@@ -350,7 +350,7 @@ type FilterForAddRaspConfigInput struct {
 
 	HookFunc []*string `type:"list" json:",omitempty"`
 
-	HookParam *int32 `type:"int32" json:",omitempty"`
+	HookParam *int64 `type:"int64" json:",omitempty"`
 
 	Rules []*RuleForAddRaspConfigInput `type:"list" json:",omitempty"`
 
@@ -374,7 +374,7 @@ func (s *FilterForAddRaspConfigInput) SetHookFunc(v []*string) *FilterForAddRasp
 }
 
 // SetHookParam sets the HookParam field's value.
-func (s *FilterForAddRaspConfigInput) SetHookParam(v int32) *FilterForAddRaspConfigInput {
+func (s *FilterForAddRaspConfigInput) SetHookParam(v int64) *FilterForAddRaspConfigInput {
 	s.HookParam = &v
 	return s
 }
@@ -398,7 +398,7 @@ type InjectConfigListForAddRaspConfigInput struct {
 
 	MatchKey *string `type:"string" json:",omitempty"`
 
-	MatchType *int32 `type:"int32" json:",omitempty"`
+	MatchType *int64 `type:"int64" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -424,7 +424,7 @@ func (s *InjectConfigListForAddRaspConfigInput) SetMatchKey(v string) *InjectCon
 }
 
 // SetMatchType sets the MatchType field's value.
-func (s *InjectConfigListForAddRaspConfigInput) SetMatchType(v int32) *InjectConfigListForAddRaspConfigInput {
+func (s *InjectConfigListForAddRaspConfigInput) SetMatchType(v int64) *InjectConfigListForAddRaspConfigInput {
 	s.MatchType = &v
 	return s
 }

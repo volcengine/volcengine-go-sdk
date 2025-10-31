@@ -148,7 +148,7 @@ type DetailForInstallAgentClientOutput struct {
 
 	AgentID *string `type:"string" json:",omitempty"`
 
-	Code *int32 `type:"int32" json:",omitempty"`
+	Code *int64 `type:"int64" json:",omitempty"`
 
 	Msg *string `type:"string" json:",omitempty"`
 }
@@ -170,7 +170,7 @@ func (s *DetailForInstallAgentClientOutput) SetAgentID(v string) *DetailForInsta
 }
 
 // SetCode sets the Code field's value.
-func (s *DetailForInstallAgentClientOutput) SetCode(v int32) *DetailForInstallAgentClientOutput {
+func (s *DetailForInstallAgentClientOutput) SetCode(v int64) *DetailForInstallAgentClientOutput {
 	s.Code = &v
 	return s
 }
@@ -210,9 +210,9 @@ type InstallAgentClientOutput struct {
 
 	Detail []*DetailForInstallAgentClientOutput `type:"list" json:",omitempty"`
 
-	FailureCount *int32 `type:"int32" json:",omitempty"`
+	FailureCount *int64 `type:"int64" json:",omitempty"`
 
-	SuccessCount *int32 `type:"int32" json:",omitempty"`
+	SuccessCount *int64 `type:"int64" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -232,13 +232,13 @@ func (s *InstallAgentClientOutput) SetDetail(v []*DetailForInstallAgentClientOut
 }
 
 // SetFailureCount sets the FailureCount field's value.
-func (s *InstallAgentClientOutput) SetFailureCount(v int32) *InstallAgentClientOutput {
+func (s *InstallAgentClientOutput) SetFailureCount(v int64) *InstallAgentClientOutput {
 	s.FailureCount = &v
 	return s
 }
 
 // SetSuccessCount sets the SuccessCount field's value.
-func (s *InstallAgentClientOutput) SetSuccessCount(v int32) *InstallAgentClientOutput {
+func (s *InstallAgentClientOutput) SetSuccessCount(v int64) *InstallAgentClientOutput {
 	s.SuccessCount = &v
 	return s
 }

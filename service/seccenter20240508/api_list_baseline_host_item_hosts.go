@@ -172,7 +172,7 @@ type BaselineInfoForListBaselineHostItemHostsOutput struct {
 
 	NodeName *string `type:"string" json:",omitempty"`
 
-	PassNum *int32 `type:"int32" json:",omitempty"`
+	PassNum *int64 `type:"int64" json:",omitempty"`
 
 	PrimaryIpAddress *string `type:"string" json:",omitempty"`
 
@@ -270,7 +270,7 @@ func (s *BaselineInfoForListBaselineHostItemHostsOutput) SetNodeName(v string) *
 }
 
 // SetPassNum sets the PassNum field's value.
-func (s *BaselineInfoForListBaselineHostItemHostsOutput) SetPassNum(v int32) *BaselineInfoForListBaselineHostItemHostsOutput {
+func (s *BaselineInfoForListBaselineHostItemHostsOutput) SetPassNum(v int64) *BaselineInfoForListBaselineHostItemHostsOutput {
 	s.PassNum = &v
 	return s
 }
@@ -334,7 +334,7 @@ type ListBaselineHostItemHostsInput struct {
 
 	AssetType *string `type:"string" json:",omitempty" enum:"EnumOfAssetTypeForListBaselineHostItemHostsInput"`
 
-	BaselineID *int32 `type:"int32" json:",omitempty"`
+	BaselineID *int64 `type:"int64" json:",omitempty"`
 
 	CloudProviders []*string `type:"list" json:",omitempty"`
 
@@ -353,10 +353,10 @@ type ListBaselineHostItemHostsInput struct {
 	NodeName *string `type:"string" json:",omitempty"`
 
 	// PageNumber is a required field
-	PageNumber *int32 `type:"int32" json:",omitempty" required:"true"`
+	PageNumber *int64 `type:"int64" json:",omitempty" required:"true"`
 
 	// PageSize is a required field
-	PageSize *int32 `type:"int32" json:",omitempty" required:"true"`
+	PageSize *int64 `type:"int64" json:",omitempty" required:"true"`
 
 	Region *string `type:"string" json:",omitempty"`
 
@@ -420,7 +420,7 @@ func (s *ListBaselineHostItemHostsInput) SetAssetType(v string) *ListBaselineHos
 }
 
 // SetBaselineID sets the BaselineID field's value.
-func (s *ListBaselineHostItemHostsInput) SetBaselineID(v int32) *ListBaselineHostItemHostsInput {
+func (s *ListBaselineHostItemHostsInput) SetBaselineID(v int64) *ListBaselineHostItemHostsInput {
 	s.BaselineID = &v
 	return s
 }
@@ -474,13 +474,13 @@ func (s *ListBaselineHostItemHostsInput) SetNodeName(v string) *ListBaselineHost
 }
 
 // SetPageNumber sets the PageNumber field's value.
-func (s *ListBaselineHostItemHostsInput) SetPageNumber(v int32) *ListBaselineHostItemHostsInput {
+func (s *ListBaselineHostItemHostsInput) SetPageNumber(v int64) *ListBaselineHostItemHostsInput {
 	s.PageNumber = &v
 	return s
 }
 
 // SetPageSize sets the PageSize field's value.
-func (s *ListBaselineHostItemHostsInput) SetPageSize(v int32) *ListBaselineHostItemHostsInput {
+func (s *ListBaselineHostItemHostsInput) SetPageSize(v int64) *ListBaselineHostItemHostsInput {
 	s.PageSize = &v
 	return s
 }
@@ -522,11 +522,11 @@ type ListBaselineHostItemHostsOutput struct {
 
 	Data *DataForListBaselineHostItemHostsOutput `type:"structure" json:",omitempty"`
 
-	PageNumber *int32 `type:"int32" json:",omitempty"`
+	PageNumber *int64 `type:"int64" json:",omitempty"`
 
-	PageSize *int32 `type:"int32" json:",omitempty"`
+	PageSize *int64 `type:"int64" json:",omitempty"`
 
-	TotalCount *int32 `type:"int32" json:",omitempty"`
+	TotalCount *int64 `type:"int64" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -546,19 +546,19 @@ func (s *ListBaselineHostItemHostsOutput) SetData(v *DataForListBaselineHostItem
 }
 
 // SetPageNumber sets the PageNumber field's value.
-func (s *ListBaselineHostItemHostsOutput) SetPageNumber(v int32) *ListBaselineHostItemHostsOutput {
+func (s *ListBaselineHostItemHostsOutput) SetPageNumber(v int64) *ListBaselineHostItemHostsOutput {
 	s.PageNumber = &v
 	return s
 }
 
 // SetPageSize sets the PageSize field's value.
-func (s *ListBaselineHostItemHostsOutput) SetPageSize(v int32) *ListBaselineHostItemHostsOutput {
+func (s *ListBaselineHostItemHostsOutput) SetPageSize(v int64) *ListBaselineHostItemHostsOutput {
 	s.PageSize = &v
 	return s
 }
 
 // SetTotalCount sets the TotalCount field's value.
-func (s *ListBaselineHostItemHostsOutput) SetTotalCount(v int32) *ListBaselineHostItemHostsOutput {
+func (s *ListBaselineHostItemHostsOutput) SetTotalCount(v int64) *ListBaselineHostItemHostsOutput {
 	s.TotalCount = &v
 	return s
 }
@@ -566,11 +566,11 @@ func (s *ListBaselineHostItemHostsOutput) SetTotalCount(v int32) *ListBaselineHo
 type RiskNumForListBaselineHostItemHostsOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	HighNum *int32 `type:"int32" json:",omitempty"`
+	HighNum *int64 `type:"int64" json:",omitempty"`
 
-	LowNum *int32 `type:"int32" json:",omitempty"`
+	LowNum *int64 `type:"int64" json:",omitempty"`
 
-	MediumNum *int32 `type:"int32" json:",omitempty"`
+	MediumNum *int64 `type:"int64" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -584,19 +584,19 @@ func (s RiskNumForListBaselineHostItemHostsOutput) GoString() string {
 }
 
 // SetHighNum sets the HighNum field's value.
-func (s *RiskNumForListBaselineHostItemHostsOutput) SetHighNum(v int32) *RiskNumForListBaselineHostItemHostsOutput {
+func (s *RiskNumForListBaselineHostItemHostsOutput) SetHighNum(v int64) *RiskNumForListBaselineHostItemHostsOutput {
 	s.HighNum = &v
 	return s
 }
 
 // SetLowNum sets the LowNum field's value.
-func (s *RiskNumForListBaselineHostItemHostsOutput) SetLowNum(v int32) *RiskNumForListBaselineHostItemHostsOutput {
+func (s *RiskNumForListBaselineHostItemHostsOutput) SetLowNum(v int64) *RiskNumForListBaselineHostItemHostsOutput {
 	s.LowNum = &v
 	return s
 }
 
 // SetMediumNum sets the MediumNum field's value.
-func (s *RiskNumForListBaselineHostItemHostsOutput) SetMediumNum(v int32) *RiskNumForListBaselineHostItemHostsOutput {
+func (s *RiskNumForListBaselineHostItemHostsOutput) SetMediumNum(v int64) *RiskNumForListBaselineHostItemHostsOutput {
 	s.MediumNum = &v
 	return s
 }

@@ -142,7 +142,7 @@ func (c *SECCENTER20240508) ListTagsDetailWithContext(ctx volcengine.Context, in
 type DataForListTagsDetailOutput struct {
 	_ struct{} `type:"structure"`
 
-	TagHostNum *int32 `type:"int32"`
+	TagHostNum *int64 `type:"int64"`
 
 	TagName *string `type:"string"`
 }
@@ -158,7 +158,7 @@ func (s DataForListTagsDetailOutput) GoString() string {
 }
 
 // SetTagHostNum sets the TagHostNum field's value.
-func (s *DataForListTagsDetailOutput) SetTagHostNum(v int32) *DataForListTagsDetailOutput {
+func (s *DataForListTagsDetailOutput) SetTagHostNum(v int64) *DataForListTagsDetailOutput {
 	s.TagHostNum = &v
 	return s
 }

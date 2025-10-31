@@ -150,9 +150,9 @@ type DataForListVulHostByPodOutput struct {
 
 	AgentTags []*string `type:"list" json:",omitempty"`
 
-	ControlTime *int32 `type:"int32" json:",omitempty"`
+	ControlTime *int64 `type:"int64" json:",omitempty"`
 
-	CreateTime *int32 `type:"int32" json:",omitempty"`
+	CreateTime *int64 `type:"int64" json:",omitempty"`
 
 	CwppID *string `type:"string" json:",omitempty"`
 
@@ -166,7 +166,7 @@ type DataForListVulHostByPodOutput struct {
 
 	Status *string `type:"string" json:",omitempty"`
 
-	UpdateTime *int32 `type:"int32" json:",omitempty"`
+	UpdateTime *int64 `type:"int64" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -192,13 +192,13 @@ func (s *DataForListVulHostByPodOutput) SetAgentTags(v []*string) *DataForListVu
 }
 
 // SetControlTime sets the ControlTime field's value.
-func (s *DataForListVulHostByPodOutput) SetControlTime(v int32) *DataForListVulHostByPodOutput {
+func (s *DataForListVulHostByPodOutput) SetControlTime(v int64) *DataForListVulHostByPodOutput {
 	s.ControlTime = &v
 	return s
 }
 
 // SetCreateTime sets the CreateTime field's value.
-func (s *DataForListVulHostByPodOutput) SetCreateTime(v int32) *DataForListVulHostByPodOutput {
+func (s *DataForListVulHostByPodOutput) SetCreateTime(v int64) *DataForListVulHostByPodOutput {
 	s.CreateTime = &v
 	return s
 }
@@ -240,7 +240,7 @@ func (s *DataForListVulHostByPodOutput) SetStatus(v string) *DataForListVulHostB
 }
 
 // SetUpdateTime sets the UpdateTime field's value.
-func (s *DataForListVulHostByPodOutput) SetUpdateTime(v int32) *DataForListVulHostByPodOutput {
+func (s *DataForListVulHostByPodOutput) SetUpdateTime(v int64) *DataForListVulHostByPodOutput {
 	s.UpdateTime = &v
 	return s
 }
@@ -262,10 +262,10 @@ type ListVulHostByPodInput struct {
 	LeafGroupIDs []*string `type:"list" json:",omitempty"`
 
 	// PageNumber is a required field
-	PageNumber *int32 `type:"int32" json:",omitempty" required:"true"`
+	PageNumber *int64 `type:"int64" json:",omitempty" required:"true"`
 
 	// PageSize is a required field
-	PageSize *int32 `type:"int32" json:",omitempty" required:"true"`
+	PageSize *int64 `type:"int64" json:",omitempty" required:"true"`
 
 	SortBy *string `type:"string" json:",omitempty"`
 
@@ -348,13 +348,13 @@ func (s *ListVulHostByPodInput) SetLeafGroupIDs(v []*string) *ListVulHostByPodIn
 }
 
 // SetPageNumber sets the PageNumber field's value.
-func (s *ListVulHostByPodInput) SetPageNumber(v int32) *ListVulHostByPodInput {
+func (s *ListVulHostByPodInput) SetPageNumber(v int64) *ListVulHostByPodInput {
 	s.PageNumber = &v
 	return s
 }
 
 // SetPageSize sets the PageSize field's value.
-func (s *ListVulHostByPodInput) SetPageSize(v int32) *ListVulHostByPodInput {
+func (s *ListVulHostByPodInput) SetPageSize(v int64) *ListVulHostByPodInput {
 	s.PageSize = &v
 	return s
 }
@@ -396,11 +396,11 @@ type ListVulHostByPodOutput struct {
 
 	Data []*DataForListVulHostByPodOutput `type:"list" json:",omitempty"`
 
-	PageNumber *int32 `type:"int32" json:",omitempty"`
+	PageNumber *int64 `type:"int64" json:",omitempty"`
 
-	PageSize *int32 `type:"int32" json:",omitempty"`
+	PageSize *int64 `type:"int64" json:",omitempty"`
 
-	TotalCount *int32 `type:"int32" json:",omitempty"`
+	TotalCount *int64 `type:"int64" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -420,19 +420,19 @@ func (s *ListVulHostByPodOutput) SetData(v []*DataForListVulHostByPodOutput) *Li
 }
 
 // SetPageNumber sets the PageNumber field's value.
-func (s *ListVulHostByPodOutput) SetPageNumber(v int32) *ListVulHostByPodOutput {
+func (s *ListVulHostByPodOutput) SetPageNumber(v int64) *ListVulHostByPodOutput {
 	s.PageNumber = &v
 	return s
 }
 
 // SetPageSize sets the PageSize field's value.
-func (s *ListVulHostByPodOutput) SetPageSize(v int32) *ListVulHostByPodOutput {
+func (s *ListVulHostByPodOutput) SetPageSize(v int64) *ListVulHostByPodOutput {
 	s.PageSize = &v
 	return s
 }
 
 // SetTotalCount sets the TotalCount field's value.
-func (s *ListVulHostByPodOutput) SetTotalCount(v int32) *ListVulHostByPodOutput {
+func (s *ListVulHostByPodOutput) SetTotalCount(v int64) *ListVulHostByPodOutput {
 	s.TotalCount = &v
 	return s
 }

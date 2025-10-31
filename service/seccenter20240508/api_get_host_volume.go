@@ -219,10 +219,10 @@ type GetHostVolumeInput struct {
 	AgentID *string `type:"string" json:",omitempty"`
 
 	// PageNumber is a required field
-	PageNumber *int32 `type:"int32" json:",omitempty" required:"true"`
+	PageNumber *int64 `type:"int64" json:",omitempty" required:"true"`
 
 	// PageSize is a required field
-	PageSize *int32 `type:"int32" json:",omitempty" required:"true"`
+	PageSize *int64 `type:"int64" json:",omitempty" required:"true"`
 
 	SortBy *string `type:"string" json:",omitempty"`
 
@@ -262,13 +262,13 @@ func (s *GetHostVolumeInput) SetAgentID(v string) *GetHostVolumeInput {
 }
 
 // SetPageNumber sets the PageNumber field's value.
-func (s *GetHostVolumeInput) SetPageNumber(v int32) *GetHostVolumeInput {
+func (s *GetHostVolumeInput) SetPageNumber(v int64) *GetHostVolumeInput {
 	s.PageNumber = &v
 	return s
 }
 
 // SetPageSize sets the PageSize field's value.
-func (s *GetHostVolumeInput) SetPageSize(v int32) *GetHostVolumeInput {
+func (s *GetHostVolumeInput) SetPageSize(v int64) *GetHostVolumeInput {
 	s.PageSize = &v
 	return s
 }
@@ -292,11 +292,11 @@ type GetHostVolumeOutput struct {
 
 	Data []*DataForGetHostVolumeOutput `type:"list" json:",omitempty"`
 
-	PageNumber *int32 `type:"int32" json:",omitempty"`
+	PageNumber *int64 `type:"int64" json:",omitempty"`
 
-	PageSize *int32 `type:"int32" json:",omitempty"`
+	PageSize *int64 `type:"int64" json:",omitempty"`
 
-	TotalCount *int32 `type:"int32" json:",omitempty"`
+	TotalCount *int64 `type:"int64" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -316,19 +316,19 @@ func (s *GetHostVolumeOutput) SetData(v []*DataForGetHostVolumeOutput) *GetHostV
 }
 
 // SetPageNumber sets the PageNumber field's value.
-func (s *GetHostVolumeOutput) SetPageNumber(v int32) *GetHostVolumeOutput {
+func (s *GetHostVolumeOutput) SetPageNumber(v int64) *GetHostVolumeOutput {
 	s.PageNumber = &v
 	return s
 }
 
 // SetPageSize sets the PageSize field's value.
-func (s *GetHostVolumeOutput) SetPageSize(v int32) *GetHostVolumeOutput {
+func (s *GetHostVolumeOutput) SetPageSize(v int64) *GetHostVolumeOutput {
 	s.PageSize = &v
 	return s
 }
 
 // SetTotalCount sets the TotalCount field's value.
-func (s *GetHostVolumeOutput) SetTotalCount(v int32) *GetHostVolumeOutput {
+func (s *GetHostVolumeOutput) SetTotalCount(v int64) *GetHostVolumeOutput {
 	s.TotalCount = &v
 	return s
 }

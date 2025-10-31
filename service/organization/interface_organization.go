@@ -302,6 +302,22 @@ type ORGANIZATIONAPI interface {
 	ListTagResourcesWithContext(volcengine.Context, *ListTagResourcesInput, ...request.Option) (*ListTagResourcesOutput, error)
 	ListTagResourcesRequest(*ListTagResourcesInput) (*request.Request, *ListTagResourcesOutput)
 
+	ListTagsKeysCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListTagsKeysCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListTagsKeysCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListTagsKeys(*ListTagsKeysInput) (*ListTagsKeysOutput, error)
+	ListTagsKeysWithContext(volcengine.Context, *ListTagsKeysInput, ...request.Option) (*ListTagsKeysOutput, error)
+	ListTagsKeysRequest(*ListTagsKeysInput) (*request.Request, *ListTagsKeysOutput)
+
+	ListTagsValuesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListTagsValuesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListTagsValuesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListTagsValues(*ListTagsValuesInput) (*ListTagsValuesOutput, error)
+	ListTagsValuesWithContext(volcengine.Context, *ListTagsValuesInput, ...request.Option) (*ListTagsValuesOutput, error)
+	ListTagsValuesRequest(*ListTagsValuesInput) (*request.Request, *ListTagsValuesOutput)
+
 	ListTargetsForPolicyCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ListTargetsForPolicyCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	ListTargetsForPolicyCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})

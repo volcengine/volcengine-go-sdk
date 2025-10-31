@@ -170,7 +170,7 @@ type GetAlarmTraceOutput struct {
 
 	FullData *bool `type:"boolean"`
 
-	InsertTime *int32 `type:"int32"`
+	InsertTime *int64 `type:"int64"`
 
 	Status *string `type:"string"`
 
@@ -178,7 +178,7 @@ type GetAlarmTraceOutput struct {
 
 	TraceRes *TraceResForGetAlarmTraceOutput `type:"structure"`
 
-	UpdateTime *int32 `type:"int32"`
+	UpdateTime *int64 `type:"int64"`
 }
 
 // String returns the string representation
@@ -204,7 +204,7 @@ func (s *GetAlarmTraceOutput) SetFullData(v bool) *GetAlarmTraceOutput {
 }
 
 // SetInsertTime sets the InsertTime field's value.
-func (s *GetAlarmTraceOutput) SetInsertTime(v int32) *GetAlarmTraceOutput {
+func (s *GetAlarmTraceOutput) SetInsertTime(v int64) *GetAlarmTraceOutput {
 	s.InsertTime = &v
 	return s
 }
@@ -228,7 +228,7 @@ func (s *GetAlarmTraceOutput) SetTraceRes(v *TraceResForGetAlarmTraceOutput) *Ge
 }
 
 // SetUpdateTime sets the UpdateTime field's value.
-func (s *GetAlarmTraceOutput) SetUpdateTime(v int32) *GetAlarmTraceOutput {
+func (s *GetAlarmTraceOutput) SetUpdateTime(v int64) *GetAlarmTraceOutput {
 	s.UpdateTime = &v
 	return s
 }
