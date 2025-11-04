@@ -502,6 +502,14 @@ type REDISAPI interface {
 	ModifyBackupPlanWithContext(volcengine.Context, *ModifyBackupPlanInput, ...request.Option) (*ModifyBackupPlanOutput, error)
 	ModifyBackupPlanRequest(*ModifyBackupPlanInput) (*request.Request, *ModifyBackupPlanOutput)
 
+	ModifyBackupPointNameCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ModifyBackupPointNameCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ModifyBackupPointNameCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ModifyBackupPointName(*ModifyBackupPointNameInput) (*ModifyBackupPointNameOutput, error)
+	ModifyBackupPointNameWithContext(volcengine.Context, *ModifyBackupPointNameInput, ...request.Option) (*ModifyBackupPointNameOutput, error)
+	ModifyBackupPointNameRequest(*ModifyBackupPointNameInput) (*request.Request, *ModifyBackupPointNameOutput)
+
 	ModifyCrossRegionBackupPolicyCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ModifyCrossRegionBackupPolicyCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	ModifyCrossRegionBackupPolicyCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
