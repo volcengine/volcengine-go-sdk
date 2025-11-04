@@ -148,6 +148,8 @@ type CompleteLifecycleActivityInput struct {
 	LifecycleActivityId *string `type:"string" required:"true"`
 
 	LifecycleActivityPolicy *string `type:"string"`
+
+	LifecycleHookId *string `type:"string"`
 }
 
 // String returns the string representation
@@ -188,6 +190,12 @@ func (s *CompleteLifecycleActivityInput) SetLifecycleActivityId(v string) *Compl
 // SetLifecycleActivityPolicy sets the LifecycleActivityPolicy field's value.
 func (s *CompleteLifecycleActivityInput) SetLifecycleActivityPolicy(v string) *CompleteLifecycleActivityInput {
 	s.LifecycleActivityPolicy = &v
+	return s
+}
+
+// SetLifecycleHookId sets the LifecycleHookId field's value.
+func (s *CompleteLifecycleActivityInput) SetLifecycleHookId(v string) *CompleteLifecycleActivityInput {
+	s.LifecycleHookId = &v
 	return s
 }
 

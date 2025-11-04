@@ -3,6 +3,8 @@
 package autoscaling
 
 import (
+	"fmt"
+
 	"github.com/volcengine/volcengine-go-sdk/volcengine"
 	"github.com/volcengine/volcengine-go-sdk/volcengine/request"
 	"github.com/volcengine/volcengine-go-sdk/volcengine/response"
@@ -148,7 +150,8 @@ type AlarmPolicyConditionForCreateScalingPolicyInput struct {
 
 	MetricUnit *string `type:"string"`
 
-	Threshold *string `type:"string"`
+	// Threshold is a required field
+	Threshold *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -159,6 +162,19 @@ func (s AlarmPolicyConditionForCreateScalingPolicyInput) String() string {
 // GoString returns the string representation
 func (s AlarmPolicyConditionForCreateScalingPolicyInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *AlarmPolicyConditionForCreateScalingPolicyInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "AlarmPolicyConditionForCreateScalingPolicyInput"}
+	if s.Threshold == nil {
+		invalidParams.Add(request.NewErrParamRequired("Threshold"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetComparisonOperator sets the ComparisonOperator field's value.
@@ -188,7 +204,13 @@ func (s *AlarmPolicyConditionForCreateScalingPolicyInput) SetThreshold(v string)
 type AlarmPolicyForCreateScalingPolicyInput struct {
 	_ struct{} `type:"structure"`
 
-	Condition *AlarmPolicyConditionForCreateScalingPolicyInput `type:"structure"`
+	Condition *ConditionForCreateScalingPolicyInput `type:"structure"`
+
+	ConditionOperator *string `type:"string"`
+
+	Conditions []*AlarmPolicyConditionForCreateScalingPolicyInput `type:"list"`
+
+	Effective *string `type:"string"`
 
 	EvaluationCount *int32 `min:"1" max:"180" type:"int32"`
 
@@ -214,6 +236,16 @@ func (s *AlarmPolicyForCreateScalingPolicyInput) Validate() error {
 	if s.EvaluationCount != nil && *s.EvaluationCount > 180 {
 		invalidParams.Add(request.NewErrParamMaxValue("EvaluationCount", 180))
 	}
+	if s.Conditions != nil {
+		for i, v := range s.Conditions {
+			if v == nil {
+				continue
+			}
+			if err := v.Validate(); err != nil {
+				invalidParams.AddNested(fmt.Sprintf("%s[%v]", "Conditions", i), err.(request.ErrInvalidParams))
+			}
+		}
+	}
 
 	if invalidParams.Len() > 0 {
 		return invalidParams
@@ -222,8 +254,26 @@ func (s *AlarmPolicyForCreateScalingPolicyInput) Validate() error {
 }
 
 // SetCondition sets the Condition field's value.
-func (s *AlarmPolicyForCreateScalingPolicyInput) SetCondition(v *AlarmPolicyConditionForCreateScalingPolicyInput) *AlarmPolicyForCreateScalingPolicyInput {
+func (s *AlarmPolicyForCreateScalingPolicyInput) SetCondition(v *ConditionForCreateScalingPolicyInput) *AlarmPolicyForCreateScalingPolicyInput {
 	s.Condition = v
+	return s
+}
+
+// SetConditionOperator sets the ConditionOperator field's value.
+func (s *AlarmPolicyForCreateScalingPolicyInput) SetConditionOperator(v string) *AlarmPolicyForCreateScalingPolicyInput {
+	s.ConditionOperator = &v
+	return s
+}
+
+// SetConditions sets the Conditions field's value.
+func (s *AlarmPolicyForCreateScalingPolicyInput) SetConditions(v []*AlarmPolicyConditionForCreateScalingPolicyInput) *AlarmPolicyForCreateScalingPolicyInput {
+	s.Conditions = v
+	return s
+}
+
+// SetEffective sets the Effective field's value.
+func (s *AlarmPolicyForCreateScalingPolicyInput) SetEffective(v string) *AlarmPolicyForCreateScalingPolicyInput {
+	s.Effective = &v
 	return s
 }
 
@@ -239,6 +289,52 @@ func (s *AlarmPolicyForCreateScalingPolicyInput) SetRuleType(v string) *AlarmPol
 	return s
 }
 
+type ConditionForCreateScalingPolicyInput struct {
+	_ struct{} `type:"structure"`
+
+	ComparisonOperator *string `type:"string"`
+
+	MetricName *string `type:"string"`
+
+	MetricUnit *string `type:"string"`
+
+	Threshold *string `type:"string"`
+}
+
+// String returns the string representation
+func (s ConditionForCreateScalingPolicyInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ConditionForCreateScalingPolicyInput) GoString() string {
+	return s.String()
+}
+
+// SetComparisonOperator sets the ComparisonOperator field's value.
+func (s *ConditionForCreateScalingPolicyInput) SetComparisonOperator(v string) *ConditionForCreateScalingPolicyInput {
+	s.ComparisonOperator = &v
+	return s
+}
+
+// SetMetricName sets the MetricName field's value.
+func (s *ConditionForCreateScalingPolicyInput) SetMetricName(v string) *ConditionForCreateScalingPolicyInput {
+	s.MetricName = &v
+	return s
+}
+
+// SetMetricUnit sets the MetricUnit field's value.
+func (s *ConditionForCreateScalingPolicyInput) SetMetricUnit(v string) *ConditionForCreateScalingPolicyInput {
+	s.MetricUnit = &v
+	return s
+}
+
+// SetThreshold sets the Threshold field's value.
+func (s *ConditionForCreateScalingPolicyInput) SetThreshold(v string) *ConditionForCreateScalingPolicyInput {
+	s.Threshold = &v
+	return s
+}
+
 type CreateScalingPolicyInput struct {
 	_ struct{} `type:"structure"`
 
@@ -247,6 +343,8 @@ type CreateScalingPolicyInput struct {
 	AdjustmentValue *int32 `type:"int32"`
 
 	AlarmPolicy *AlarmPolicyForCreateScalingPolicyInput `type:"structure"`
+
+	ClientToken *string `type:"string"`
 
 	Cooldown *int32 `type:"int32"`
 
@@ -259,8 +357,7 @@ type CreateScalingPolicyInput struct {
 	// ScalingPolicyType is a required field
 	ScalingPolicyType *string `type:"string" required:"true"`
 
-	// ScheduledPolicy is a required field
-	ScheduledPolicy *ScheduledPolicyForCreateScalingPolicyInput `type:"structure" required:"true"`
+	ScheduledPolicy *ScheduledPolicyForCreateScalingPolicyInput `type:"structure"`
 }
 
 // String returns the string representation
@@ -285,17 +382,9 @@ func (s *CreateScalingPolicyInput) Validate() error {
 	if s.ScalingPolicyType == nil {
 		invalidParams.Add(request.NewErrParamRequired("ScalingPolicyType"))
 	}
-	if s.ScheduledPolicy == nil {
-		invalidParams.Add(request.NewErrParamRequired("ScheduledPolicy"))
-	}
 	if s.AlarmPolicy != nil {
 		if err := s.AlarmPolicy.Validate(); err != nil {
 			invalidParams.AddNested("AlarmPolicy", err.(request.ErrInvalidParams))
-		}
-	}
-	if s.ScheduledPolicy != nil {
-		if err := s.ScheduledPolicy.Validate(); err != nil {
-			invalidParams.AddNested("ScheduledPolicy", err.(request.ErrInvalidParams))
 		}
 	}
 
@@ -320,6 +409,12 @@ func (s *CreateScalingPolicyInput) SetAdjustmentValue(v int32) *CreateScalingPol
 // SetAlarmPolicy sets the AlarmPolicy field's value.
 func (s *CreateScalingPolicyInput) SetAlarmPolicy(v *AlarmPolicyForCreateScalingPolicyInput) *CreateScalingPolicyInput {
 	s.AlarmPolicy = v
+	return s
+}
+
+// SetClientToken sets the ClientToken field's value.
+func (s *CreateScalingPolicyInput) SetClientToken(v string) *CreateScalingPolicyInput {
+	s.ClientToken = &v
 	return s
 }
 
@@ -380,8 +475,7 @@ func (s *CreateScalingPolicyOutput) SetScalingPolicyId(v string) *CreateScalingP
 type ScheduledPolicyForCreateScalingPolicyInput struct {
 	_ struct{} `type:"structure"`
 
-	// LaunchTime is a required field
-	LaunchTime *string `type:"string" required:"true"`
+	LaunchTime *string `type:"string"`
 
 	RecurrenceEndTime *string `type:"string"`
 
@@ -398,19 +492,6 @@ func (s ScheduledPolicyForCreateScalingPolicyInput) String() string {
 // GoString returns the string representation
 func (s ScheduledPolicyForCreateScalingPolicyInput) GoString() string {
 	return s.String()
-}
-
-// Validate inspects the fields of the type to determine if they are valid.
-func (s *ScheduledPolicyForCreateScalingPolicyInput) Validate() error {
-	invalidParams := request.ErrInvalidParams{Context: "ScheduledPolicyForCreateScalingPolicyInput"}
-	if s.LaunchTime == nil {
-		invalidParams.Add(request.NewErrParamRequired("LaunchTime"))
-	}
-
-	if invalidParams.Len() > 0 {
-		return invalidParams
-	}
-	return nil
 }
 
 // SetLaunchTime sets the LaunchTime field's value.

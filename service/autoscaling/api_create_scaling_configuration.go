@@ -189,8 +189,7 @@ type CreateScalingConfigurationInput struct {
 
 	UserData *string `type:"string"`
 
-	// Volumes is a required field
-	Volumes []*VolumeForCreateScalingConfigurationInput `type:"list" required:"true"`
+	Volumes []*VolumeForCreateScalingConfigurationInput `type:"list"`
 
 	ZoneId *string `type:"string"`
 }
@@ -237,9 +236,6 @@ func (s *CreateScalingConfigurationInput) Validate() error {
 	}
 	if s.SecurityGroupIds == nil {
 		invalidParams.Add(request.NewErrParamRequired("SecurityGroupIds"))
-	}
-	if s.Volumes == nil {
-		invalidParams.Add(request.NewErrParamRequired("Volumes"))
 	}
 	if s.Volumes != nil {
 		for i, v := range s.Volumes {
@@ -425,6 +421,8 @@ type EipForCreateScalingConfigurationInput struct {
 
 	ISP *string `type:"string"`
 
+	ReleaseWithInstance *bool `type:"boolean"`
+
 	SecurityProtectionInstanceId *int32 `type:"int32"`
 
 	SecurityProtectionTypes []*string `type:"list"`
@@ -461,6 +459,12 @@ func (s *EipForCreateScalingConfigurationInput) SetBillingType(v string) *EipFor
 // SetISP sets the ISP field's value.
 func (s *EipForCreateScalingConfigurationInput) SetISP(v string) *EipForCreateScalingConfigurationInput {
 	s.ISP = &v
+	return s
+}
+
+// SetReleaseWithInstance sets the ReleaseWithInstance field's value.
+func (s *EipForCreateScalingConfigurationInput) SetReleaseWithInstance(v bool) *EipForCreateScalingConfigurationInput {
+	s.ReleaseWithInstance = &v
 	return s
 }
 
@@ -511,6 +515,12 @@ type VolumeForCreateScalingConfigurationInput struct {
 
 	DeleteWithInstance *bool `type:"boolean"`
 
+	ExtraPerformanceIOPS *int32 `type:"int32"`
+
+	ExtraPerformanceThroughputMB *int32 `type:"int32"`
+
+	ExtraPerformanceTypeId *string `type:"string"`
+
 	// Size is a required field
 	Size *int32 `type:"int32" required:"true"`
 
@@ -547,6 +557,24 @@ func (s *VolumeForCreateScalingConfigurationInput) Validate() error {
 // SetDeleteWithInstance sets the DeleteWithInstance field's value.
 func (s *VolumeForCreateScalingConfigurationInput) SetDeleteWithInstance(v bool) *VolumeForCreateScalingConfigurationInput {
 	s.DeleteWithInstance = &v
+	return s
+}
+
+// SetExtraPerformanceIOPS sets the ExtraPerformanceIOPS field's value.
+func (s *VolumeForCreateScalingConfigurationInput) SetExtraPerformanceIOPS(v int32) *VolumeForCreateScalingConfigurationInput {
+	s.ExtraPerformanceIOPS = &v
+	return s
+}
+
+// SetExtraPerformanceThroughputMB sets the ExtraPerformanceThroughputMB field's value.
+func (s *VolumeForCreateScalingConfigurationInput) SetExtraPerformanceThroughputMB(v int32) *VolumeForCreateScalingConfigurationInput {
+	s.ExtraPerformanceThroughputMB = &v
+	return s
+}
+
+// SetExtraPerformanceTypeId sets the ExtraPerformanceTypeId field's value.
+func (s *VolumeForCreateScalingConfigurationInput) SetExtraPerformanceTypeId(v string) *VolumeForCreateScalingConfigurationInput {
+	s.ExtraPerformanceTypeId = &v
 	return s
 }
 
