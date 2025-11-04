@@ -480,7 +480,9 @@ type PortForCreateServiceInput struct {
 
 	Path *string `type:"string" json:",omitempty"`
 
-	Type *string `type:"string" json:",omitempty" enum:"EnumOfTypeForCreateServiceInput"`
+	Source *string `type:"string" json:",omitempty"`
+
+	Type *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -508,6 +510,12 @@ func (s *PortForCreateServiceInput) SetListenPort(v string) *PortForCreateServic
 // SetPath sets the Path field's value.
 func (s *PortForCreateServiceInput) SetPath(v string) *PortForCreateServiceInput {
 	s.Path = &v
+	return s
+}
+
+// SetSource sets the Source field's value.
+func (s *PortForCreateServiceInput) SetSource(v string) *PortForCreateServiceInput {
+	s.Source = &v
 	return s
 }
 
@@ -687,21 +695,4 @@ const (
 
 	// EnumOfSchedulerForCreateServiceInputSh is a EnumOfSchedulerForCreateServiceInput enum value
 	EnumOfSchedulerForCreateServiceInputSh = "sh"
-)
-
-const (
-	// EnumOfTypeForCreateServiceInputHttp11 is a EnumOfTypeForCreateServiceInput enum value
-	EnumOfTypeForCreateServiceInputHttp11 = "HTTP/1.1"
-
-	// EnumOfTypeForCreateServiceInputHttp2 is a EnumOfTypeForCreateServiceInput enum value
-	EnumOfTypeForCreateServiceInputHttp2 = "HTTP2"
-
-	// EnumOfTypeForCreateServiceInputGrpc is a EnumOfTypeForCreateServiceInput enum value
-	EnumOfTypeForCreateServiceInputGrpc = "GRPC"
-
-	// EnumOfTypeForCreateServiceInputMetrics is a EnumOfTypeForCreateServiceInput enum value
-	EnumOfTypeForCreateServiceInputMetrics = "Metrics"
-
-	// EnumOfTypeForCreateServiceInputOther is a EnumOfTypeForCreateServiceInput enum value
-	EnumOfTypeForCreateServiceInputOther = "Other"
 )
