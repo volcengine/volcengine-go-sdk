@@ -158,12 +158,16 @@ type CreateVolumeInput struct {
 
 	Kind *string `type:"string"`
 
+	PlacementGroupId *string `type:"string"`
+
 	ProjectName *string `type:"string"`
 
 	// Size is a required field
 	Size *json.Number `type:"json_number" required:"true"`
 
 	SnapshotId *string `type:"string"`
+
+	SubgroupNumber *int32 `type:"int32"`
 
 	Tags []*TagForCreateVolumeInput `type:"list"`
 
@@ -249,6 +253,12 @@ func (s *CreateVolumeInput) SetKind(v string) *CreateVolumeInput {
 	return s
 }
 
+// SetPlacementGroupId sets the PlacementGroupId field's value.
+func (s *CreateVolumeInput) SetPlacementGroupId(v string) *CreateVolumeInput {
+	s.PlacementGroupId = &v
+	return s
+}
+
 // SetProjectName sets the ProjectName field's value.
 func (s *CreateVolumeInput) SetProjectName(v string) *CreateVolumeInput {
 	s.ProjectName = &v
@@ -264,6 +274,12 @@ func (s *CreateVolumeInput) SetSize(v json.Number) *CreateVolumeInput {
 // SetSnapshotId sets the SnapshotId field's value.
 func (s *CreateVolumeInput) SetSnapshotId(v string) *CreateVolumeInput {
 	s.SnapshotId = &v
+	return s
+}
+
+// SetSubgroupNumber sets the SubgroupNumber field's value.
+func (s *CreateVolumeInput) SetSubgroupNumber(v int32) *CreateVolumeInput {
+	s.SubgroupNumber = &v
 	return s
 }
 

@@ -150,8 +150,6 @@ type PurchaseReservedStorageCapacityInput struct {
 
 	PeriodUnit *string `type:"string"`
 
-	RSCAutoRenew *bool `type:"boolean"`
-
 	ReservedCapacity *int32 `type:"int32"`
 
 	ReservedStorageCapacityName *string `type:"string"`
@@ -192,12 +190,6 @@ func (s *PurchaseReservedStorageCapacityInput) SetPeriod(v int32) *PurchaseReser
 // SetPeriodUnit sets the PeriodUnit field's value.
 func (s *PurchaseReservedStorageCapacityInput) SetPeriodUnit(v string) *PurchaseReservedStorageCapacityInput {
 	s.PeriodUnit = &v
-	return s
-}
-
-// SetRSCAutoRenew sets the RSCAutoRenew field's value.
-func (s *PurchaseReservedStorageCapacityInput) SetRSCAutoRenew(v bool) *PurchaseReservedStorageCapacityInput {
-	s.RSCAutoRenew = &v
 	return s
 }
 

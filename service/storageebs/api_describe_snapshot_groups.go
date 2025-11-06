@@ -155,6 +155,8 @@ type DescribeSnapshotGroupsInput struct {
 	SnapshotGroupIds []*string `type:"list"`
 
 	Status []*string `type:"list"`
+
+	TagFilters []*TagFilterForDescribeSnapshotGroupsInput `type:"list"`
 }
 
 // String returns the string representation
@@ -219,6 +221,12 @@ func (s *DescribeSnapshotGroupsInput) SetSnapshotGroupIds(v []*string) *Describe
 // SetStatus sets the Status field's value.
 func (s *DescribeSnapshotGroupsInput) SetStatus(v []*string) *DescribeSnapshotGroupsInput {
 	s.Status = v
+	return s
+}
+
+// SetTagFilters sets the TagFilters field's value.
+func (s *DescribeSnapshotGroupsInput) SetTagFilters(v []*TagFilterForDescribeSnapshotGroupsInput) *DescribeSnapshotGroupsInput {
+	s.TagFilters = v
 	return s
 }
 
@@ -543,6 +551,36 @@ func (s *SnapshotGroupForDescribeSnapshotGroupsOutput) SetStatus(v string) *Snap
 // SetTags sets the Tags field's value.
 func (s *SnapshotGroupForDescribeSnapshotGroupsOutput) SetTags(v []*TagForDescribeSnapshotGroupsOutput) *SnapshotGroupForDescribeSnapshotGroupsOutput {
 	s.Tags = v
+	return s
+}
+
+type TagFilterForDescribeSnapshotGroupsInput struct {
+	_ struct{} `type:"structure"`
+
+	Key *string `type:"string"`
+
+	Values []*string `type:"list"`
+}
+
+// String returns the string representation
+func (s TagFilterForDescribeSnapshotGroupsInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagFilterForDescribeSnapshotGroupsInput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagFilterForDescribeSnapshotGroupsInput) SetKey(v string) *TagFilterForDescribeSnapshotGroupsInput {
+	s.Key = &v
+	return s
+}
+
+// SetValues sets the Values field's value.
+func (s *TagFilterForDescribeSnapshotGroupsInput) SetValues(v []*string) *TagFilterForDescribeSnapshotGroupsInput {
+	s.Values = v
 	return s
 }
 
