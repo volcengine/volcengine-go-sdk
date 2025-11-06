@@ -656,6 +656,9 @@ func (s *Session) clientConfigWithErr(serviceName string, cfgs ...*volcengine.Co
 			if s.Config.Site != nil {
 				opts = append(opts, endpoints.WithSite(*s.Config.Site))
 			}
+			if s.Config.UseDualStack != nil && *s.Config.UseDualStack {
+				opts = append(opts, endpoints.WithIPVersion(endpoints.IPVersionDualStack))
+			}
 			if s.Config.IPVersion != nil {
 				opts = append(opts, endpoints.WithIPVersion(*s.Config.IPVersion))
 			}
@@ -670,6 +673,9 @@ func (s *Session) clientConfigWithErr(serviceName string, cfgs ...*volcengine.Co
 		} else {
 			endpoint = volcengineutil.GetDefaultEndpointByServiceInfo(serviceName, region, s.Config.BootstrapRegion,
 				s.Config.UseDualStack, s.Config.Logger)
+		}
+		if s.Config.Logger != nil {
+			s.Config.Logger.DebugByLevel(volcengine.LogDebugWithEndpoint, "[Endpoint] Using endpoint: ", *endpoint)
 		}
 		s.Config.Endpoint = endpoint
 	}

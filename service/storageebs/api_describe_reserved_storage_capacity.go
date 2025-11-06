@@ -282,11 +282,7 @@ type RscInfoForDescribeReservedStorageCapacityOutput struct {
 
 	Name *string `type:"string"`
 
-	RSCAutoRenewPeriod *int32 `type:"int32"`
-
 	RemainingSize *int32 `type:"int32"`
-
-	RenewalStatus *string `type:"string"`
 
 	Size *int64 `type:"int64"`
 
@@ -333,21 +329,9 @@ func (s *RscInfoForDescribeReservedStorageCapacityOutput) SetName(v string) *Rsc
 	return s
 }
 
-// SetRSCAutoRenewPeriod sets the RSCAutoRenewPeriod field's value.
-func (s *RscInfoForDescribeReservedStorageCapacityOutput) SetRSCAutoRenewPeriod(v int32) *RscInfoForDescribeReservedStorageCapacityOutput {
-	s.RSCAutoRenewPeriod = &v
-	return s
-}
-
 // SetRemainingSize sets the RemainingSize field's value.
 func (s *RscInfoForDescribeReservedStorageCapacityOutput) SetRemainingSize(v int32) *RscInfoForDescribeReservedStorageCapacityOutput {
 	s.RemainingSize = &v
-	return s
-}
-
-// SetRenewalStatus sets the RenewalStatus field's value.
-func (s *RscInfoForDescribeReservedStorageCapacityOutput) SetRenewalStatus(v string) *RscInfoForDescribeReservedStorageCapacityOutput {
-	s.RenewalStatus = &v
 	return s
 }
 

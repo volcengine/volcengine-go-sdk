@@ -32,7 +32,7 @@ const opModifyReservedStorageCapacityEffectiveAtCommon = "ModifyReservedStorageC
 func (c *STORAGEEBS) ModifyReservedStorageCapacityEffectiveAtCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opModifyReservedStorageCapacityEffectiveAtCommon,
-		HTTPMethod: "GET",
+		HTTPMethod: "POST",
 		HTTPPath:   "/",
 	}
 
@@ -42,6 +42,8 @@ func (c *STORAGEEBS) ModifyReservedStorageCapacityEffectiveAtCommonRequest(input
 
 	output = &map[string]interface{}{}
 	req = c.newRequest(op, input, output)
+
+	req.HTTPRequest.Header.Set("Content-Type", "application/json; charset=utf-8")
 
 	return
 }
@@ -97,7 +99,7 @@ const opModifyReservedStorageCapacityEffectiveAt = "ModifyReservedStorageCapacit
 func (c *STORAGEEBS) ModifyReservedStorageCapacityEffectiveAtRequest(input *ModifyReservedStorageCapacityEffectiveAtInput) (req *request.Request, output *ModifyReservedStorageCapacityEffectiveAtOutput) {
 	op := &request.Operation{
 		Name:       opModifyReservedStorageCapacityEffectiveAt,
-		HTTPMethod: "GET",
+		HTTPMethod: "POST",
 		HTTPPath:   "/",
 	}
 
@@ -107,6 +109,8 @@ func (c *STORAGEEBS) ModifyReservedStorageCapacityEffectiveAtRequest(input *Modi
 
 	output = &ModifyReservedStorageCapacityEffectiveAtOutput{}
 	req = c.newRequest(op, input, output)
+
+	req.HTTPRequest.Header.Set("Content-Type", "application/json; charset=utf-8")
 
 	return
 }
@@ -140,12 +144,12 @@ func (c *STORAGEEBS) ModifyReservedStorageCapacityEffectiveAtWithContext(ctx vol
 }
 
 type ModifyReservedStorageCapacityEffectiveAtInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	EffectiveAt *string `type:"string"`
+	EffectiveAt *string `type:"string" json:",omitempty"`
 
 	// RSCId is a required field
-	RSCId *string `type:"string" required:"true"`
+	RSCId *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -184,7 +188,7 @@ func (s *ModifyReservedStorageCapacityEffectiveAtInput) SetRSCId(v string) *Modi
 }
 
 type ModifyReservedStorageCapacityEffectiveAtOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 }

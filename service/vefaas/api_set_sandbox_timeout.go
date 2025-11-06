@@ -154,6 +154,8 @@ type SetSandboxTimeoutInput struct {
 
 	// Timeout is a required field
 	Timeout *int32 `type:"int32" json:",omitempty" required:"true"`
+
+	TimeoutUnit *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -200,6 +202,12 @@ func (s *SetSandboxTimeoutInput) SetSandboxId(v string) *SetSandboxTimeoutInput 
 // SetTimeout sets the Timeout field's value.
 func (s *SetSandboxTimeoutInput) SetTimeout(v int32) *SetSandboxTimeoutInput {
 	s.Timeout = &v
+	return s
+}
+
+// SetTimeoutUnit sets the TimeoutUnit field's value.
+func (s *SetSandboxTimeoutInput) SetTimeoutUnit(v string) *SetSandboxTimeoutInput {
+	s.TimeoutUnit = &v
 	return s
 }
 

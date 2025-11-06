@@ -150,8 +150,6 @@ type DescribeVolumeTypeInput struct {
 
 	PageSize *int32 `type:"int32"`
 
-	ResourceClass *string `type:"string"`
-
 	VolumeTypeIds []*string `type:"list"`
 
 	ZoneId *string `type:"string"`
@@ -188,12 +186,6 @@ func (s *DescribeVolumeTypeInput) SetPageNumber(v int32) *DescribeVolumeTypeInpu
 // SetPageSize sets the PageSize field's value.
 func (s *DescribeVolumeTypeInput) SetPageSize(v int32) *DescribeVolumeTypeInput {
 	s.PageSize = &v
-	return s
-}
-
-// SetResourceClass sets the ResourceClass field's value.
-func (s *DescribeVolumeTypeInput) SetResourceClass(v string) *DescribeVolumeTypeInput {
-	s.ResourceClass = &v
 	return s
 }
 
@@ -260,10 +252,6 @@ func (s *DescribeVolumeTypeOutput) SetVolumeTypes(v []*VolumeTypeForDescribeVolu
 type ExtraPerformanceTypeForDescribeVolumeTypeOutput struct {
 	_ struct{} `type:"structure"`
 
-	BaseQosType *string `type:"string"`
-
-	ConversionRatio *string `type:"string"`
-
 	Id *string `type:"string"`
 
 	MaxIops *string `type:"string"`
@@ -279,18 +267,6 @@ func (s ExtraPerformanceTypeForDescribeVolumeTypeOutput) String() string {
 // GoString returns the string representation
 func (s ExtraPerformanceTypeForDescribeVolumeTypeOutput) GoString() string {
 	return s.String()
-}
-
-// SetBaseQosType sets the BaseQosType field's value.
-func (s *ExtraPerformanceTypeForDescribeVolumeTypeOutput) SetBaseQosType(v string) *ExtraPerformanceTypeForDescribeVolumeTypeOutput {
-	s.BaseQosType = &v
-	return s
-}
-
-// SetConversionRatio sets the ConversionRatio field's value.
-func (s *ExtraPerformanceTypeForDescribeVolumeTypeOutput) SetConversionRatio(v string) *ExtraPerformanceTypeForDescribeVolumeTypeOutput {
-	s.ConversionRatio = &v
-	return s
 }
 
 // SetId sets the Id field's value.

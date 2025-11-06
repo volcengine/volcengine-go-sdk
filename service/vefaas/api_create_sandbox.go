@@ -166,6 +166,8 @@ type CreateSandboxInput struct {
 	RequestTimeout *int32 `type:"int32" json:",omitempty"`
 
 	Timeout *int32 `type:"int32" json:",omitempty"`
+
+	TimeoutUnit *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -248,6 +250,12 @@ func (s *CreateSandboxInput) SetRequestTimeout(v int32) *CreateSandboxInput {
 // SetTimeout sets the Timeout field's value.
 func (s *CreateSandboxInput) SetTimeout(v int32) *CreateSandboxInput {
 	s.Timeout = &v
+	return s
+}
+
+// SetTimeoutUnit sets the TimeoutUnit field's value.
+func (s *CreateSandboxInput) SetTimeoutUnit(v string) *CreateSandboxInput {
+	s.TimeoutUnit = &v
 	return s
 }
 

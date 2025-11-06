@@ -148,12 +148,6 @@ type AutoSnapshotPolicyForDescribeAutoSnapshotPolicyOutput struct {
 
 	CreatedAt *string `type:"string"`
 
-	DestinationRegion *string `type:"string"`
-
-	DestinationRetentionDays *int32 `max:"65536" type:"int32"`
-
-	EnableCopy *bool `type:"boolean"`
-
 	ProjectName *string `type:"string"`
 
 	RepeatDays *int32 `type:"int32"`
@@ -198,24 +192,6 @@ func (s *AutoSnapshotPolicyForDescribeAutoSnapshotPolicyOutput) SetAutoSnapshotP
 // SetCreatedAt sets the CreatedAt field's value.
 func (s *AutoSnapshotPolicyForDescribeAutoSnapshotPolicyOutput) SetCreatedAt(v string) *AutoSnapshotPolicyForDescribeAutoSnapshotPolicyOutput {
 	s.CreatedAt = &v
-	return s
-}
-
-// SetDestinationRegion sets the DestinationRegion field's value.
-func (s *AutoSnapshotPolicyForDescribeAutoSnapshotPolicyOutput) SetDestinationRegion(v string) *AutoSnapshotPolicyForDescribeAutoSnapshotPolicyOutput {
-	s.DestinationRegion = &v
-	return s
-}
-
-// SetDestinationRetentionDays sets the DestinationRetentionDays field's value.
-func (s *AutoSnapshotPolicyForDescribeAutoSnapshotPolicyOutput) SetDestinationRetentionDays(v int32) *AutoSnapshotPolicyForDescribeAutoSnapshotPolicyOutput {
-	s.DestinationRetentionDays = &v
-	return s
-}
-
-// SetEnableCopy sets the EnableCopy field's value.
-func (s *AutoSnapshotPolicyForDescribeAutoSnapshotPolicyOutput) SetEnableCopy(v bool) *AutoSnapshotPolicyForDescribeAutoSnapshotPolicyOutput {
-	s.EnableCopy = &v
 	return s
 }
 
@@ -283,6 +259,8 @@ type DescribeAutoSnapshotPolicyInput struct {
 	PageSize *int32 `max:"100" type:"int32"`
 
 	ProjectName *string `type:"string"`
+
+	TagFilters []*TagFilterForDescribeAutoSnapshotPolicyInput `type:"list"`
 }
 
 // String returns the string representation
@@ -332,6 +310,12 @@ func (s *DescribeAutoSnapshotPolicyInput) SetProjectName(v string) *DescribeAuto
 	return s
 }
 
+// SetTagFilters sets the TagFilters field's value.
+func (s *DescribeAutoSnapshotPolicyInput) SetTagFilters(v []*TagFilterForDescribeAutoSnapshotPolicyInput) *DescribeAutoSnapshotPolicyInput {
+	s.TagFilters = v
+	return s
+}
+
 type DescribeAutoSnapshotPolicyOutput struct {
 	_ struct{} `type:"structure"`
 
@@ -377,6 +361,36 @@ func (s *DescribeAutoSnapshotPolicyOutput) SetPageSize(v int32) *DescribeAutoSna
 // SetTotalCount sets the TotalCount field's value.
 func (s *DescribeAutoSnapshotPolicyOutput) SetTotalCount(v int32) *DescribeAutoSnapshotPolicyOutput {
 	s.TotalCount = &v
+	return s
+}
+
+type TagFilterForDescribeAutoSnapshotPolicyInput struct {
+	_ struct{} `type:"structure"`
+
+	Key *string `type:"string"`
+
+	Values []*string `type:"list"`
+}
+
+// String returns the string representation
+func (s TagFilterForDescribeAutoSnapshotPolicyInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagFilterForDescribeAutoSnapshotPolicyInput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagFilterForDescribeAutoSnapshotPolicyInput) SetKey(v string) *TagFilterForDescribeAutoSnapshotPolicyInput {
+	s.Key = &v
+	return s
+}
+
+// SetValues sets the Values field's value.
+func (s *TagFilterForDescribeAutoSnapshotPolicyInput) SetValues(v []*string) *TagFilterForDescribeAutoSnapshotPolicyInput {
+	s.Values = v
 	return s
 }
 

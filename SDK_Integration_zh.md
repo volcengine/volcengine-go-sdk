@@ -18,6 +18,7 @@
   - [自定义RegionId](#自定义regionid)
   - [自动化Endpoint寻址](#自动化endpoint寻址)
     - [Endpoint默认寻址](#endpoint默认寻址)
+    - [Endpoint标准寻址](#endpoint标准寻址)
 - [Http连接池配置](#http连接池配置)
 - [Https请求配置](#https请求配置)
   - [指定scheme](#指定scheme)
@@ -238,7 +239,7 @@ func main() {
 >   默认支持自动寻址，无需手动指定Endpoint
 
 为了简化用户配置，Volcengine 提供了灵活的 Endpoint 自动寻址机制。用户无需手动指定服务地址，SDK 会根据服务名称、区域（Region）等信息自动拼接出合理的访问地址，并支持用户自定义DualStack（双栈）支持。  
-### Endpoint默认寻址 
+### Endpoint默认寻址
 **Endpoint默认寻址逻辑**
 1. 是否自动寻址Region  
 内置自动寻址Region列表代码:[./volcengine/volcengineutil/url.go#bootstrapRegion](./volcengine/volcengineutil/url.go#L463)  
@@ -275,6 +276,46 @@ func main() {
     }
 }
 ```
+
+### Endpoint标准寻址
+**标准寻址规则**
+
+| Global服务 | 双栈 | 格式                                                                                                               |
+|----------|----|------------------------------------------------------------------------------------------------------------------|
+| 是        | 是  | `{Service}.volcengine-api.com`                                                                                   |
+| 是        | 否  | `{Service}.volcengineapi.com`                                                                                    |
+| 否        | 是  | `{Service}.{region}.volcengine-api.com`|
+| 否        | 否  | `{Service}.{region}.volcengineapi.com` |
+
+**代码示例：**
+
+是否global服务根据具体调用的服务决定的，是否global无法修改的。  
+可以参考列表：[./volcengine/endpoints/standard_resolver.go#ServiceInfos](./volcengine/endpoints/standard_resolver.go#L69)
+```go
+package main
+
+import (
+  "github.com/volcengine/volcengine-go-sdk/volcengine"
+  "github.com/volcengine/volcengine-go-sdk/volcengine/credentials"
+  "github.com/volcengine/volcengine-go-sdk/volcengine/endpoints"
+  "github.com/volcengine/volcengine-go-sdk/volcengine/session"
+)
+
+func main() {
+  regionId := "cn-beijing"
+  config := volcengine.NewConfig().
+    WithCredentials(credentials.NewEnvCredentials()).
+    WithEndpointResolver(endpoints.NewStandardEndpointResolver()). // 配置标准寻址
+    WithRegion(regionId).                                          // 配置regionId
+    WithUseDualStack(true)                                         // 配置是否双栈
+  sess, err := session.NewSession(config)
+  if err != nil {
+    panic(err)
+  }
+}
+
+```
+
 
 # Http连接池配置
 

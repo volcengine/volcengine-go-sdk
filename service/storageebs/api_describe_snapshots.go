@@ -144,6 +144,10 @@ type DescribeSnapshotsInput struct {
 
 	Filter []*FilterForDescribeSnapshotsInput `type:"list"`
 
+	MaxResults *int32 `type:"int32"`
+
+	NextToken *string `type:"string"`
+
 	PageNumber *int32 `type:"int32"`
 
 	PageSize *int32 `max:"100" type:"int32"`
@@ -157,6 +161,8 @@ type DescribeSnapshotsInput struct {
 	SnapshotStatus []*string `type:"list"`
 
 	SnapshotTypes []*string `type:"list"`
+
+	TagFilters []*TagFilterForDescribeSnapshotsInput `type:"list"`
 
 	VolumeId *string `type:"string"`
 
@@ -189,6 +195,18 @@ func (s *DescribeSnapshotsInput) Validate() error {
 // SetFilter sets the Filter field's value.
 func (s *DescribeSnapshotsInput) SetFilter(v []*FilterForDescribeSnapshotsInput) *DescribeSnapshotsInput {
 	s.Filter = v
+	return s
+}
+
+// SetMaxResults sets the MaxResults field's value.
+func (s *DescribeSnapshotsInput) SetMaxResults(v int32) *DescribeSnapshotsInput {
+	s.MaxResults = &v
+	return s
+}
+
+// SetNextToken sets the NextToken field's value.
+func (s *DescribeSnapshotsInput) SetNextToken(v string) *DescribeSnapshotsInput {
+	s.NextToken = &v
 	return s
 }
 
@@ -231,6 +249,12 @@ func (s *DescribeSnapshotsInput) SetSnapshotStatus(v []*string) *DescribeSnapsho
 // SetSnapshotTypes sets the SnapshotTypes field's value.
 func (s *DescribeSnapshotsInput) SetSnapshotTypes(v []*string) *DescribeSnapshotsInput {
 	s.SnapshotTypes = v
+	return s
+}
+
+// SetTagFilters sets the TagFilters field's value.
+func (s *DescribeSnapshotsInput) SetTagFilters(v []*TagFilterForDescribeSnapshotsInput) *DescribeSnapshotsInput {
+	s.TagFilters = v
 	return s
 }
 
@@ -503,6 +527,36 @@ func (s *SnapshotForDescribeSnapshotsOutput) SetVolumeType(v string) *SnapshotFo
 // SetZoneId sets the ZoneId field's value.
 func (s *SnapshotForDescribeSnapshotsOutput) SetZoneId(v string) *SnapshotForDescribeSnapshotsOutput {
 	s.ZoneId = &v
+	return s
+}
+
+type TagFilterForDescribeSnapshotsInput struct {
+	_ struct{} `type:"structure"`
+
+	Key *string `type:"string"`
+
+	Values []*string `type:"list"`
+}
+
+// String returns the string representation
+func (s TagFilterForDescribeSnapshotsInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagFilterForDescribeSnapshotsInput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagFilterForDescribeSnapshotsInput) SetKey(v string) *TagFilterForDescribeSnapshotsInput {
+	s.Key = &v
+	return s
+}
+
+// SetValues sets the Values field's value.
+func (s *TagFilterForDescribeSnapshotsInput) SetValues(v []*string) *TagFilterForDescribeSnapshotsInput {
+	s.Values = v
 	return s
 }
 
