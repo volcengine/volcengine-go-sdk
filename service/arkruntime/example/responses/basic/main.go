@@ -7,7 +7,6 @@ import (
 	"os"
 
 	"github.com/volcengine/volcengine-go-sdk/service/arkruntime"
-	"github.com/volcengine/volcengine-go-sdk/service/arkruntime/model/file"
 	"github.com/volcengine/volcengine-go-sdk/service/arkruntime/model/responses"
 	"github.com/volcengine/volcengine-go-sdk/volcengine"
 )
@@ -24,21 +23,6 @@ func main() {
 	client := arkruntime.NewClientWithApiKey(os.Getenv("ARK_API_KEY"))
 	ctx := context.Background()
 
-	fmt.Println("----- upload image data -----")
-	data, err := os.Open("view.jpeg")
-	if err != nil {
-		fmt.Printf("read file error: %v\n", err)
-		return
-	}
-	fileInfo, err := client.UploadFile(ctx, &file.UploadFileRequest{
-		File:    data,
-		Purpose: file.PurposeUserData,
-	})
-	if err != nil {
-		fmt.Printf("upload file error: %v\n", err)
-		return
-	}
-
 	fmt.Println("----- round 1 message -----")
 	// round 1 message
 	inputMessage := &responses.ItemInputMessage{
@@ -47,8 +31,9 @@ func main() {
 			{
 				Union: &responses.ContentItem_Image{
 					Image: &responses.ContentItemImage{
-						Type:   responses.ContentItemType_input_image,
-						FileId: volcengine.String(fileInfo.ID), // ref to uploaded file id
+						Type: responses.ContentItemType_input_image,
+						// upload local image file
+						ImageUrl: volcengine.String(fmt.Sprintf("file://view.jpeg")),
 					},
 				},
 			},

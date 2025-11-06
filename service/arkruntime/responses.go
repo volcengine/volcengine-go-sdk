@@ -15,6 +15,10 @@ import (
 func (c *Client) CreateResponses(ctx context.Context, body *responses.ResponsesRequest, opts ...requestOption) (res *responses.ResponseObject, err error) {
 	path := "/responses"
 	opts = append(opts, withBody(body))
+	// preprocess input multi modal files
+	if err := c.preprocessResponseInput(ctx, body.Input); err != nil {
+		return nil, err
+	}
 	res = &responses.ResponseObject{}
 	err = c.Do(ctx, http.MethodPost, c.fullURL(path), resourceTypeEndpoint, body.Model, res, opts...)
 	return
@@ -24,6 +28,10 @@ func (c *Client) CreateResponses(ctx context.Context, body *responses.ResponsesR
 func (c *Client) CreateResponsesStream(ctx context.Context, body *responses.ResponsesRequest, opts ...requestOption) (stream *utils.ResponsesStreamReader, err error) {
 	body.Stream = volcengine.Bool(true)
 	opts = append(opts, withBody(body))
+	// preprocess input multi modal files
+	if err := c.preprocessResponseInput(ctx, body.Input); err != nil {
+		return nil, err
+	}
 	path := "/responses"
 	return c.ResponsesRequestStreamDo(ctx, http.MethodPost, c.fullURL(path), resourceTypeEndpoint, body.Model, opts...)
 }
