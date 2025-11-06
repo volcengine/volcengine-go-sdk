@@ -229,6 +229,8 @@ type ColumnForAddTablesInput struct {
 	Enable_default_value *bool `type:"boolean" json:"enable_default_value,omitempty"`
 
 	Schema_column_type *string `type:"string" json:"schema_column_type,omitempty"`
+
+	Vector_size *int32 `type:"int32" json:"vector_size,omitempty"`
 }
 
 // String returns the string representation
@@ -262,6 +264,12 @@ func (s *ColumnForAddTablesInput) SetEnable_default_value(v bool) *ColumnForAddT
 // SetSchema_column_type sets the Schema_column_type field's value.
 func (s *ColumnForAddTablesInput) SetSchema_column_type(v string) *ColumnForAddTablesInput {
 	s.Schema_column_type = &v
+	return s
+}
+
+// SetVector_size sets the Vector_size field's value.
+func (s *ColumnForAddTablesInput) SetVector_size(v int32) *ColumnForAddTablesInput {
+	s.Vector_size = &v
 	return s
 }
 
