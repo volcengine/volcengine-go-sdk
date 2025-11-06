@@ -37,6 +37,14 @@ type STSAPI interface {
 	AssumeRole(*AssumeRoleInput) (*AssumeRoleOutput, error)
 	AssumeRoleWithContext(volcengine.Context, *AssumeRoleInput, ...request.Option) (*AssumeRoleOutput, error)
 	AssumeRoleRequest(*AssumeRoleInput) (*request.Request, *AssumeRoleOutput)
+
+	GetCallerIdentityCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	GetCallerIdentityCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	GetCallerIdentityCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	GetCallerIdentity(*GetCallerIdentityInput) (*GetCallerIdentityOutput, error)
+	GetCallerIdentityWithContext(volcengine.Context, *GetCallerIdentityInput, ...request.Option) (*GetCallerIdentityOutput, error)
+	GetCallerIdentityRequest(*GetCallerIdentityInput) (*request.Request, *GetCallerIdentityOutput)
 }
 
 var _ STSAPI = (*STS)(nil)
