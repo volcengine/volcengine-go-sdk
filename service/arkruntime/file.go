@@ -122,13 +122,13 @@ func (c *Client) preprocessResponseFile(ctx context.Context, contentItem *respon
 		}
 	}
 
-	if len(contentItem.GetVideo().GetVideoUrl()) > 0 {
+	if contentItem.GetVideo() != nil && len(contentItem.GetVideo().GetVideoUrl()) > 0 {
 		contentItem.GetVideo().VideoUrl = ""
 		contentItem.GetVideo().FileId = volcengine.String(fileMeta.ID)
-	} else if len(contentItem.GetImage().GetImageUrl()) > 0 {
+	} else if contentItem.GetImage() != nil && len(contentItem.GetImage().GetImageUrl()) > 0 {
 		contentItem.GetImage().ImageUrl = nil
 		contentItem.GetImage().FileId = volcengine.String(fileMeta.ID)
-	} else if len(contentItem.GetFile().GetFileData()) > 0 {
+	} else if contentItem.GetFile() != nil && len(contentItem.GetFile().GetFileData()) > 0 {
 		contentItem.GetFile().FileData = nil
 		contentItem.GetFile().FileId = volcengine.String(fileMeta.ID)
 	}
