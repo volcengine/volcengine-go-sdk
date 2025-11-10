@@ -128,8 +128,8 @@ func (c *Client) preprocessResponseFile(ctx context.Context, contentItem *respon
 	} else if contentItem.GetImage() != nil && len(contentItem.GetImage().GetImageUrl()) > 0 {
 		contentItem.GetImage().ImageUrl = nil
 		contentItem.GetImage().FileId = volcengine.String(fileMeta.ID)
-	} else if contentItem.GetFile() != nil && len(contentItem.GetFile().GetFileData()) > 0 {
-		contentItem.GetFile().FileData = nil
+	} else if contentItem.GetFile() != nil && len(contentItem.GetFile().GetFileUrl()) > 0 {
+		contentItem.GetFile().FileUrl = nil
 		contentItem.GetFile().FileId = volcengine.String(fileMeta.ID)
 	}
 	return nil
@@ -140,8 +140,8 @@ func getMultiModalFile(contentItem *responses.ContentItem) (io.Reader, error) {
 		return parseFile(contentItem.GetVideo().GetVideoUrl())
 	} else if len(contentItem.GetImage().GetImageUrl()) > 0 {
 		return parseFile(contentItem.GetImage().GetImageUrl())
-	} else if len(contentItem.GetFile().GetFileData()) > 0 {
-		return parseFile(contentItem.GetFile().GetFileData())
+	} else if len(contentItem.GetFile().GetFileUrl()) > 0 {
+		return parseFile(contentItem.GetFile().GetFileUrl())
 	}
 	return nil, nil
 }
