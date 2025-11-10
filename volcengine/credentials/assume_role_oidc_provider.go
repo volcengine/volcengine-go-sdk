@@ -174,7 +174,8 @@ func (p *OIDCCredentialsProvider) fetchOnce() (Value, error) {
 	if err != nil {
 		return Value{}, fmt.Errorf("failed to parse expiration time: %v", err)
 	}
-	p.expirationTimestamp = expirationTime.Unix()
+	earlyExpirationTime := expirationTime.Add(time.Duration(-60) * time.Second)
+	p.expirationTimestamp = earlyExpirationTime.Unix()
 	p.sessionValue = &creds
 	return creds, nil
 }
