@@ -142,8 +142,6 @@ func (c *AIOTVIDEO) CancelStreamTemplateWithContext(ctx volcengine.Context, inpu
 type CancelStreamTemplateInput struct {
 	_ struct{} `type:"structure"`
 
-	SpaceID *string `type:"string"`
-
 	// StreamID is a required field
 	StreamID *string `type:"string" required:"true"`
 
@@ -175,12 +173,6 @@ func (s *CancelStreamTemplateInput) Validate() error {
 		return invalidParams
 	}
 	return nil
-}
-
-// SetSpaceID sets the SpaceID field's value.
-func (s *CancelStreamTemplateInput) SetSpaceID(v string) *CancelStreamTemplateInput {
-	s.SpaceID = &v
-	return s
 }
 
 // SetStreamID sets the StreamID field's value.
