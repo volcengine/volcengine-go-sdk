@@ -647,6 +647,8 @@ type TagFilterForDescribeScalingGroupsInput struct {
 	Key *string `type:"string"`
 
 	Value *string `type:"string"`
+
+	Values []*string `type:"list"`
 }
 
 // String returns the string representation
@@ -668,6 +670,12 @@ func (s *TagFilterForDescribeScalingGroupsInput) SetKey(v string) *TagFilterForD
 // SetValue sets the Value field's value.
 func (s *TagFilterForDescribeScalingGroupsInput) SetValue(v string) *TagFilterForDescribeScalingGroupsInput {
 	s.Value = &v
+	return s
+}
+
+// SetValues sets the Values field's value.
+func (s *TagFilterForDescribeScalingGroupsInput) SetValues(v []*string) *TagFilterForDescribeScalingGroupsInput {
+	s.Values = v
 	return s
 }
 

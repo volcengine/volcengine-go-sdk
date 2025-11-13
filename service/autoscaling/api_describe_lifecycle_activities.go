@@ -146,11 +146,15 @@ type DescribeLifecycleActivitiesInput struct {
 
 	LifecycleActivityStatus *string `type:"string"`
 
+	LifecycleHookIds []*string `type:"list"`
+
 	PageNumber *int32 `type:"int32"`
 
 	PageSize *int32 `type:"int32"`
 
 	ScalingActivityId *string `type:"string"`
+
+	ScalingGroupId *string `type:"string"`
 }
 
 // String returns the string representation
@@ -175,6 +179,12 @@ func (s *DescribeLifecycleActivitiesInput) SetLifecycleActivityStatus(v string) 
 	return s
 }
 
+// SetLifecycleHookIds sets the LifecycleHookIds field's value.
+func (s *DescribeLifecycleActivitiesInput) SetLifecycleHookIds(v []*string) *DescribeLifecycleActivitiesInput {
+	s.LifecycleHookIds = v
+	return s
+}
+
 // SetPageNumber sets the PageNumber field's value.
 func (s *DescribeLifecycleActivitiesInput) SetPageNumber(v int32) *DescribeLifecycleActivitiesInput {
 	s.PageNumber = &v
@@ -190,6 +200,12 @@ func (s *DescribeLifecycleActivitiesInput) SetPageSize(v int32) *DescribeLifecyc
 // SetScalingActivityId sets the ScalingActivityId field's value.
 func (s *DescribeLifecycleActivitiesInput) SetScalingActivityId(v string) *DescribeLifecycleActivitiesInput {
 	s.ScalingActivityId = &v
+	return s
+}
+
+// SetScalingGroupId sets the ScalingGroupId field's value.
+func (s *DescribeLifecycleActivitiesInput) SetScalingGroupId(v string) *DescribeLifecycleActivitiesInput {
+	s.ScalingGroupId = &v
 	return s
 }
 

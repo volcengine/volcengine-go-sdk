@@ -188,7 +188,13 @@ func (s *AlarmPolicyConditionForModifyScalingPolicyInput) SetThreshold(v string)
 type AlarmPolicyForModifyScalingPolicyInput struct {
 	_ struct{} `type:"structure"`
 
-	Condition *AlarmPolicyConditionForModifyScalingPolicyInput `type:"structure"`
+	Condition *ConditionForModifyScalingPolicyInput `type:"structure"`
+
+	ConditionOperator *string `type:"string"`
+
+	Conditions []*AlarmPolicyConditionForModifyScalingPolicyInput `type:"list"`
+
+	Effective *string `type:"string"`
 
 	EvaluationCount *int32 `min:"1" max:"180" type:"int32"`
 
@@ -222,8 +228,26 @@ func (s *AlarmPolicyForModifyScalingPolicyInput) Validate() error {
 }
 
 // SetCondition sets the Condition field's value.
-func (s *AlarmPolicyForModifyScalingPolicyInput) SetCondition(v *AlarmPolicyConditionForModifyScalingPolicyInput) *AlarmPolicyForModifyScalingPolicyInput {
+func (s *AlarmPolicyForModifyScalingPolicyInput) SetCondition(v *ConditionForModifyScalingPolicyInput) *AlarmPolicyForModifyScalingPolicyInput {
 	s.Condition = v
+	return s
+}
+
+// SetConditionOperator sets the ConditionOperator field's value.
+func (s *AlarmPolicyForModifyScalingPolicyInput) SetConditionOperator(v string) *AlarmPolicyForModifyScalingPolicyInput {
+	s.ConditionOperator = &v
+	return s
+}
+
+// SetConditions sets the Conditions field's value.
+func (s *AlarmPolicyForModifyScalingPolicyInput) SetConditions(v []*AlarmPolicyConditionForModifyScalingPolicyInput) *AlarmPolicyForModifyScalingPolicyInput {
+	s.Conditions = v
+	return s
+}
+
+// SetEffective sets the Effective field's value.
+func (s *AlarmPolicyForModifyScalingPolicyInput) SetEffective(v string) *AlarmPolicyForModifyScalingPolicyInput {
+	s.Effective = &v
 	return s
 }
 
@@ -236,6 +260,52 @@ func (s *AlarmPolicyForModifyScalingPolicyInput) SetEvaluationCount(v int32) *Al
 // SetRuleType sets the RuleType field's value.
 func (s *AlarmPolicyForModifyScalingPolicyInput) SetRuleType(v string) *AlarmPolicyForModifyScalingPolicyInput {
 	s.RuleType = &v
+	return s
+}
+
+type ConditionForModifyScalingPolicyInput struct {
+	_ struct{} `type:"structure"`
+
+	ComparisonOperator *string `type:"string"`
+
+	MetricName *string `type:"string"`
+
+	MetricUnit *string `type:"string"`
+
+	Threshold *string `type:"string"`
+}
+
+// String returns the string representation
+func (s ConditionForModifyScalingPolicyInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ConditionForModifyScalingPolicyInput) GoString() string {
+	return s.String()
+}
+
+// SetComparisonOperator sets the ComparisonOperator field's value.
+func (s *ConditionForModifyScalingPolicyInput) SetComparisonOperator(v string) *ConditionForModifyScalingPolicyInput {
+	s.ComparisonOperator = &v
+	return s
+}
+
+// SetMetricName sets the MetricName field's value.
+func (s *ConditionForModifyScalingPolicyInput) SetMetricName(v string) *ConditionForModifyScalingPolicyInput {
+	s.MetricName = &v
+	return s
+}
+
+// SetMetricUnit sets the MetricUnit field's value.
+func (s *ConditionForModifyScalingPolicyInput) SetMetricUnit(v string) *ConditionForModifyScalingPolicyInput {
+	s.MetricUnit = &v
+	return s
+}
+
+// SetThreshold sets the Threshold field's value.
+func (s *ConditionForModifyScalingPolicyInput) SetThreshold(v string) *ConditionForModifyScalingPolicyInput {
+	s.Threshold = &v
 	return s
 }
 

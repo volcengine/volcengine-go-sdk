@@ -144,6 +144,12 @@ type AlarmPolicyForDescribeScalingPoliciesOutput struct {
 
 	Condition *ConditionForDescribeScalingPoliciesOutput `type:"structure"`
 
+	ConditionOperator *string `type:"string"`
+
+	Conditions []*ConditionForDescribeScalingPoliciesOutput `type:"list"`
+
+	Effective *string `type:"string"`
+
 	EvaluationCount *int32 `type:"int32"`
 
 	RuleType *string `type:"string"`
@@ -162,6 +168,24 @@ func (s AlarmPolicyForDescribeScalingPoliciesOutput) GoString() string {
 // SetCondition sets the Condition field's value.
 func (s *AlarmPolicyForDescribeScalingPoliciesOutput) SetCondition(v *ConditionForDescribeScalingPoliciesOutput) *AlarmPolicyForDescribeScalingPoliciesOutput {
 	s.Condition = v
+	return s
+}
+
+// SetConditionOperator sets the ConditionOperator field's value.
+func (s *AlarmPolicyForDescribeScalingPoliciesOutput) SetConditionOperator(v string) *AlarmPolicyForDescribeScalingPoliciesOutput {
+	s.ConditionOperator = &v
+	return s
+}
+
+// SetConditions sets the Conditions field's value.
+func (s *AlarmPolicyForDescribeScalingPoliciesOutput) SetConditions(v []*ConditionForDescribeScalingPoliciesOutput) *AlarmPolicyForDescribeScalingPoliciesOutput {
+	s.Conditions = v
+	return s
+}
+
+// SetEffective sets the Effective field's value.
+func (s *AlarmPolicyForDescribeScalingPoliciesOutput) SetEffective(v string) *AlarmPolicyForDescribeScalingPoliciesOutput {
+	s.Effective = &v
 	return s
 }
 

@@ -149,8 +149,7 @@ type DetachServerGroupsInput struct {
 	// ScalingGroupId is a required field
 	ScalingGroupId *string `type:"string" required:"true"`
 
-	// ServerGroupAttributes is a required field
-	ServerGroupAttributes []*ServerGroupAttributeForDetachServerGroupsInput `type:"list" required:"true"`
+	ServerGroupAttributes []*ServerGroupAttributeForDetachServerGroupsInput `type:"list"`
 }
 
 // String returns the string representation
@@ -171,9 +170,6 @@ func (s *DetachServerGroupsInput) Validate() error {
 	}
 	if s.ScalingGroupId == nil {
 		invalidParams.Add(request.NewErrParamRequired("ScalingGroupId"))
-	}
-	if s.ServerGroupAttributes == nil {
-		invalidParams.Add(request.NewErrParamRequired("ServerGroupAttributes"))
 	}
 	if s.ServerGroupAttributes != nil {
 		for i, v := range s.ServerGroupAttributes {
