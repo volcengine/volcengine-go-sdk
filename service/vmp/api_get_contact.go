@@ -242,6 +242,8 @@ type GetContactOutput struct {
 
 	Id *string `type:"string" json:",omitempty"`
 
+	LarkBot *LarkBotForGetContactOutput `type:"structure" json:",omitempty"`
+
 	LarkBotWebhook *LarkBotWebhookForGetContactOutput `type:"structure" json:",omitempty"`
 
 	Name *string `type:"string" json:",omitempty"`
@@ -297,6 +299,12 @@ func (s *GetContactOutput) SetId(v string) *GetContactOutput {
 	return s
 }
 
+// SetLarkBot sets the LarkBot field's value.
+func (s *GetContactOutput) SetLarkBot(v *LarkBotForGetContactOutput) *GetContactOutput {
+	s.LarkBot = v
+	return s
+}
+
 // SetLarkBotWebhook sets the LarkBotWebhook field's value.
 func (s *GetContactOutput) SetLarkBotWebhook(v *LarkBotWebhookForGetContactOutput) *GetContactOutput {
 	s.LarkBotWebhook = v
@@ -318,6 +326,44 @@ func (s *GetContactOutput) SetWeComBotWebhook(v *WeComBotWebhookForGetContactOut
 // SetWebhook sets the Webhook field's value.
 func (s *GetContactOutput) SetWebhook(v *WebhookForGetContactOutput) *GetContactOutput {
 	s.Webhook = v
+	return s
+}
+
+type LarkBotForGetContactOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	ChatID *string `type:"string" json:",omitempty"`
+
+	GroupName *string `type:"string" json:",omitempty"`
+
+	TenantKey *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s LarkBotForGetContactOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s LarkBotForGetContactOutput) GoString() string {
+	return s.String()
+}
+
+// SetChatID sets the ChatID field's value.
+func (s *LarkBotForGetContactOutput) SetChatID(v string) *LarkBotForGetContactOutput {
+	s.ChatID = &v
+	return s
+}
+
+// SetGroupName sets the GroupName field's value.
+func (s *LarkBotForGetContactOutput) SetGroupName(v string) *LarkBotForGetContactOutput {
+	s.GroupName = &v
+	return s
+}
+
+// SetTenantKey sets the TenantKey field's value.
+func (s *LarkBotForGetContactOutput) SetTenantKey(v string) *LarkBotForGetContactOutput {
+	s.TenantKey = &v
 	return s
 }
 

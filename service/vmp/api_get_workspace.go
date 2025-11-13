@@ -270,9 +270,15 @@ type GetWorkspaceOutput struct {
 
 	ProjectName *string `type:"string" json:",omitempty"`
 
+	PrometheusPushEndpoint *string `type:"string" json:",omitempty"`
+
 	PrometheusPushIntranetEndpoint *string `type:"string" json:",omitempty"`
 
+	PrometheusQueryEndpoint *string `type:"string" json:",omitempty"`
+
 	PrometheusQueryIntranetEndpoint *string `type:"string" json:",omitempty"`
+
+	PrometheusWriteEndpoint *string `type:"string" json:",omitempty"`
 
 	PrometheusWriteIntranetEndpoint *string `type:"string" json:",omitempty"`
 
@@ -357,15 +363,33 @@ func (s *GetWorkspaceOutput) SetProjectName(v string) *GetWorkspaceOutput {
 	return s
 }
 
+// SetPrometheusPushEndpoint sets the PrometheusPushEndpoint field's value.
+func (s *GetWorkspaceOutput) SetPrometheusPushEndpoint(v string) *GetWorkspaceOutput {
+	s.PrometheusPushEndpoint = &v
+	return s
+}
+
 // SetPrometheusPushIntranetEndpoint sets the PrometheusPushIntranetEndpoint field's value.
 func (s *GetWorkspaceOutput) SetPrometheusPushIntranetEndpoint(v string) *GetWorkspaceOutput {
 	s.PrometheusPushIntranetEndpoint = &v
 	return s
 }
 
+// SetPrometheusQueryEndpoint sets the PrometheusQueryEndpoint field's value.
+func (s *GetWorkspaceOutput) SetPrometheusQueryEndpoint(v string) *GetWorkspaceOutput {
+	s.PrometheusQueryEndpoint = &v
+	return s
+}
+
 // SetPrometheusQueryIntranetEndpoint sets the PrometheusQueryIntranetEndpoint field's value.
 func (s *GetWorkspaceOutput) SetPrometheusQueryIntranetEndpoint(v string) *GetWorkspaceOutput {
 	s.PrometheusQueryIntranetEndpoint = &v
+	return s
+}
+
+// SetPrometheusWriteEndpoint sets the PrometheusWriteEndpoint field's value.
+func (s *GetWorkspaceOutput) SetPrometheusWriteEndpoint(v string) *GetWorkspaceOutput {
+	s.PrometheusWriteEndpoint = &v
 	return s
 }
 
