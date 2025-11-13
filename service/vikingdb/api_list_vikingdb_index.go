@@ -143,19 +143,21 @@ func (c *VIKINGDB) ListVikingdbIndexWithContext(ctx volcengine.Context, input *L
 	return out, req.Send()
 }
 
+/*
 type DefaultValueForListVikingdbIndexOutput struct {
-	_ struct{} `type:"structure" json:",omitempty"`
+    _ struct{} `type:"structure" json:",omitempty"`
 }
 
 // String returns the string representation
 func (s DefaultValueForListVikingdbIndexOutput) String() string {
-	return volcengineutil.Prettify(s)
+    return volcengineutil.Prettify(s)
 }
 
 // GoString returns the string representation
 func (s DefaultValueForListVikingdbIndexOutput) GoString() string {
-	return s.String()
+    return s.String()
 }
+*/
 
 type FilterForListVikingdbIndexInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
@@ -410,7 +412,7 @@ func (s *ListVikingdbIndexOutput) SetTotalCount(v int32) *ListVikingdbIndexOutpu
 type ScalarIndexForListVikingdbIndexOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	DefaultValue *DefaultValueForListVikingdbIndexOutput `type:"structure" json:",omitempty"`
+	DefaultValue interface{} `json:",omitempty"`
 
 	Dim *int32 `type:"int32" json:",omitempty"`
 
@@ -432,9 +434,9 @@ func (s ScalarIndexForListVikingdbIndexOutput) GoString() string {
 }
 
 // SetDefaultValue sets the DefaultValue field's value.
-func (s *ScalarIndexForListVikingdbIndexOutput) SetDefaultValue(v *DefaultValueForListVikingdbIndexOutput) *ScalarIndexForListVikingdbIndexOutput {
-	s.DefaultValue = v
-	return s
+func (s *ScalarIndexForListVikingdbIndexOutput) SetDefaultValue(v interface{}) *ScalarIndexForListVikingdbIndexOutput {
+    s.DefaultValue = v
+    return s
 }
 
 // SetDim sets the Dim field's value.

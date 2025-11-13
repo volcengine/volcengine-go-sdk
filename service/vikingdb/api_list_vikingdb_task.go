@@ -143,6 +143,7 @@ func (c *VIKINGDB) ListVikingdbTaskWithContext(ctx volcengine.Context, input *Li
 	return out, req.Send()
 }
 
+/*
 type FilterCondForListVikingdbTaskOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 }
@@ -156,6 +157,7 @@ func (s FilterCondForListVikingdbTaskOutput) String() string {
 func (s FilterCondForListVikingdbTaskOutput) GoString() string {
 	return s.String()
 }
+*/
 
 type ListVikingdbTaskInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
@@ -170,11 +172,9 @@ type ListVikingdbTaskInput struct {
 
 	ResourceId *string `type:"string" json:",omitempty"`
 
-	// TaskStatus is a required field
-	TaskStatus *string `type:"string" json:",omitempty" required:"true" enum:"EnumOfTaskStatusForListVikingdbTaskInput"`
+	TaskStatus *string `type:"string" json:",omitempty" enum:"EnumOfTaskStatusForListVikingdbTaskInput"`
 
-	// TaskType is a required field
-	TaskType *string `type:"string" json:",omitempty" required:"true" enum:"EnumOfTaskTypeForListVikingdbTaskInput"`
+	TaskType *string `type:"string" json:",omitempty" enum:"EnumOfTaskTypeForListVikingdbTaskInput"`
 }
 
 // String returns the string representation
@@ -195,12 +195,6 @@ func (s *ListVikingdbTaskInput) Validate() error {
 	}
 	if s.PageSize != nil && *s.PageSize > 100 {
 		invalidParams.Add(request.NewErrParamMaxValue("PageSize", 100))
-	}
-	if s.TaskStatus == nil {
-		invalidParams.Add(request.NewErrParamRequired("TaskStatus"))
-	}
-	if s.TaskType == nil {
-		invalidParams.Add(request.NewErrParamRequired("TaskType"))
 	}
 
 	if invalidParams.Len() > 0 {
@@ -299,6 +293,7 @@ func (s *ListVikingdbTaskOutput) SetTotalCount(v int32) *ListVikingdbTaskOutput 
 	return s
 }
 
+/*
 type SampleDataForListVikingdbTaskOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 }
@@ -312,6 +307,7 @@ func (s SampleDataForListVikingdbTaskOutput) String() string {
 func (s SampleDataForListVikingdbTaskOutput) GoString() string {
 	return s.String()
 }
+*/
 
 type TaskConfigForListVikingdbTaskOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
@@ -322,7 +318,7 @@ type TaskConfigForListVikingdbTaskOutput struct {
 
 	FileType *string `type:"string" json:",omitempty" enum:"EnumOfFileTypeForListVikingdbTaskOutput"`
 
-	FilterConds []*FilterCondForListVikingdbTaskOutput `type:"list" json:",omitempty"`
+	FilterConds []interface{} `type:"list" json:",omitempty"`
 
 	IgnoreError *bool `type:"boolean" json:",omitempty"`
 
@@ -334,7 +330,7 @@ type TaskConfigForListVikingdbTaskOutput struct {
 
 	TosPath *string `type:"string" json:",omitempty"`
 
-	UpdateFields *UpdateFieldsForListVikingdbTaskOutput `type:"structure" json:",omitempty"`
+	UpdateFields interface{} `json:",omitempty"`
 
 	UsePublic *bool `type:"boolean" json:",omitempty"`
 }
@@ -368,9 +364,9 @@ func (s *TaskConfigForListVikingdbTaskOutput) SetFileType(v string) *TaskConfigF
 }
 
 // SetFilterConds sets the FilterConds field's value.
-func (s *TaskConfigForListVikingdbTaskOutput) SetFilterConds(v []*FilterCondForListVikingdbTaskOutput) *TaskConfigForListVikingdbTaskOutput {
-	s.FilterConds = v
-	return s
+func (s *TaskConfigForListVikingdbTaskOutput) SetFilterConds(v []interface{}) *TaskConfigForListVikingdbTaskOutput {
+    s.FilterConds = v
+    return s
 }
 
 // SetIgnoreError sets the IgnoreError field's value.
@@ -404,9 +400,9 @@ func (s *TaskConfigForListVikingdbTaskOutput) SetTosPath(v string) *TaskConfigFo
 }
 
 // SetUpdateFields sets the UpdateFields field's value.
-func (s *TaskConfigForListVikingdbTaskOutput) SetUpdateFields(v *UpdateFieldsForListVikingdbTaskOutput) *TaskConfigForListVikingdbTaskOutput {
-	s.UpdateFields = v
-	return s
+func (s *TaskConfigForListVikingdbTaskOutput) SetUpdateFields(v interface{}) *TaskConfigForListVikingdbTaskOutput {
+    s.UpdateFields = v
+    return s
 }
 
 // SetUsePublic sets the UsePublic field's value.
@@ -498,9 +494,9 @@ type TaskProcessInfoForListVikingdbTaskOutput struct {
 
 	ErrorMessage *string `type:"string" json:",omitempty"`
 
-	SampleData []*SampleDataForListVikingdbTaskOutput `type:"list" json:",omitempty"`
+	SampleData []interface{} `type:"list" json:",omitempty"`
 
-	SampleTimestamp *string `type:"string" json:",omitempty"`
+	SampleTimestamp *int64 `type:"int64" json:",omitempty"`
 
 	ScanDataCount *int64 `type:"int64" json:",omitempty"`
 
@@ -528,13 +524,13 @@ func (s *TaskProcessInfoForListVikingdbTaskOutput) SetErrorMessage(v string) *Ta
 }
 
 // SetSampleData sets the SampleData field's value.
-func (s *TaskProcessInfoForListVikingdbTaskOutput) SetSampleData(v []*SampleDataForListVikingdbTaskOutput) *TaskProcessInfoForListVikingdbTaskOutput {
-	s.SampleData = v
-	return s
+func (s *TaskProcessInfoForListVikingdbTaskOutput) SetSampleData(v []interface{}) *TaskProcessInfoForListVikingdbTaskOutput {
+    s.SampleData = v
+    return s
 }
 
 // SetSampleTimestamp sets the SampleTimestamp field's value.
-func (s *TaskProcessInfoForListVikingdbTaskOutput) SetSampleTimestamp(v string) *TaskProcessInfoForListVikingdbTaskOutput {
+func (s *TaskProcessInfoForListVikingdbTaskOutput) SetSampleTimestamp(v int64) *TaskProcessInfoForListVikingdbTaskOutput {
 	s.SampleTimestamp = &v
 	return s
 }
@@ -563,6 +559,7 @@ func (s *TaskProcessInfoForListVikingdbTaskOutput) SetTotalFilterCount(v int64) 
 	return s
 }
 
+/*
 type UpdateFieldsForListVikingdbTaskOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 }
@@ -576,6 +573,7 @@ func (s UpdateFieldsForListVikingdbTaskOutput) String() string {
 func (s UpdateFieldsForListVikingdbTaskOutput) GoString() string {
 	return s.String()
 }
+*/
 
 const (
 	// EnumOfFileTypeForListVikingdbTaskOutputParquet is a EnumOfFileTypeForListVikingdbTaskOutput enum value

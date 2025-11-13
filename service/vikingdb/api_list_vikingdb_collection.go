@@ -299,19 +299,21 @@ func (s *CollectionStatsForListVikingdbCollectionOutput) SetDataStorage(v int64)
 	return s
 }
 
+/*
 type DefaultValueForListVikingdbCollectionOutput struct {
-	_ struct{} `type:"structure" json:",omitempty"`
+    _ struct{} `type:"structure" json:",omitempty"`
 }
 
 // String returns the string representation
 func (s DefaultValueForListVikingdbCollectionOutput) String() string {
-	return volcengineutil.Prettify(s)
+    return volcengineutil.Prettify(s)
 }
 
 // GoString returns the string representation
 func (s DefaultValueForListVikingdbCollectionOutput) GoString() string {
-	return s.String()
+    return s.String()
 }
+*/
 
 type DenseForListVikingdbCollectionOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
@@ -378,7 +380,7 @@ func (s *DenseForListVikingdbCollectionOutput) SetVideoField(v string) *DenseFor
 type FieldForListVikingdbCollectionOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	DefaultValue *DefaultValueForListVikingdbCollectionOutput `type:"structure" json:",omitempty"`
+	DefaultValue interface{} `json:",omitempty"`
 
 	Dim *int32 `type:"int32" json:",omitempty"`
 
@@ -400,9 +402,9 @@ func (s FieldForListVikingdbCollectionOutput) GoString() string {
 }
 
 // SetDefaultValue sets the DefaultValue field's value.
-func (s *FieldForListVikingdbCollectionOutput) SetDefaultValue(v *DefaultValueForListVikingdbCollectionOutput) *FieldForListVikingdbCollectionOutput {
-	s.DefaultValue = v
-	return s
+func (s *FieldForListVikingdbCollectionOutput) SetDefaultValue(v interface{}) *FieldForListVikingdbCollectionOutput {
+    s.DefaultValue = v
+    return s
 }
 
 // SetDim sets the Dim field's value.
