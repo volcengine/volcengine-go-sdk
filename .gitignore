@@ -4,3 +4,4 @@
 doc
 .idea
 !/main.go
+.DS_Store

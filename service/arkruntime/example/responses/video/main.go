@@ -5,8 +5,10 @@ import (
 	"fmt"
 	"io"
 	"os"
+	"time"
 
 	"github.com/volcengine/volcengine-go-sdk/service/arkruntime"
+	"github.com/volcengine/volcengine-go-sdk/service/arkruntime/model/file"
 	"github.com/volcengine/volcengine-go-sdk/service/arkruntime/model/responses"
 	"github.com/volcengine/volcengine-go-sdk/volcengine"
 )
@@ -23,17 +25,43 @@ func main() {
 	client := arkruntime.NewClientWithApiKey(os.Getenv("ARK_API_KEY"))
 	ctx := context.Background()
 
+	fmt.Println("----- upload video data -----")
+	data, err := os.Open("ark_vlm_video_input.mp4")
+	if err != nil {
+		fmt.Printf("read file error: %v\n", err)
+		return
+	}
+	fileInfo, err := client.UploadFile(ctx, &file.UploadFileRequest{
+		File:    data,
+		Purpose: file.PurposeUserData,
+	})
+	if err != nil {
+		fmt.Printf("upload file error: %v\n", err)
+		return
+	}
+
+	// Wait for the file to finish processing
+	for fileInfo.Status == file.StatusProcessing {
+		fmt.Println("Waiting for video to be processed...")
+		time.Sleep(2 * time.Second)
+		fileInfo, err = client.RetrieveFile(ctx, fileInfo.ID) // update file info
+		if err != nil {
+			fmt.Printf("get file status error: %v\n", err)
+			return
+		}
+	}
+	fmt.Printf("Video processing completed: %s, status: %s\n", fileInfo.ID, fileInfo.Status)
+
 	fmt.Println("----- round 1 message -----")
 	// round 1 message
 	inputMessage := &responses.ItemInputMessage{
 		Role: responses.MessageRole_user,
 		Content: []*responses.ContentItem{
 			{
-				Union: &responses.ContentItem_Image{
-					Image: &responses.ContentItemImage{
-						Type: responses.ContentItemType_input_image,
-						// upload local image file
-						ImageUrl: volcengine.String(fmt.Sprintf("file://view.jpeg")),
+				Union: &responses.ContentItem_Video{
+					Video: &responses.ContentItemVideo{
+						Type:   responses.ContentItemType_input_video,
+						FileId: volcengine.String(fileInfo.ID),
 					},
 				},
 			},
@@ -41,7 +69,7 @@ func main() {
 				Union: &responses.ContentItem_Text{
 					Text: &responses.ContentItemText{
 						Type: responses.ContentItemType_input_text,
-						Text: "请给出图片的描述",
+						Text: "请逐帧给出视频中每一秒的描述",
 					},
 				},
 			},
@@ -85,7 +113,7 @@ func main() {
 	fmt.Println()
 	// round 2 messages
 	fmt.Println("-----round 2---------")
-	createResponsesReq.Input.Union = &responses.ResponsesInput_StringValue{StringValue: "上述对话中有几幅图片，每幅图片的描述是？"}
+	createResponsesReq.Input.Union = &responses.ResponsesInput_StringValue{StringValue: "上述对话中有什么？"}
 	createResponsesReq.PreviousResponseId = volcengine.String(responseId)
 	resp, err = client.CreateResponsesStream(ctx, createResponsesReq)
 	if err != nil {
@@ -114,11 +142,11 @@ func handleEvent(event *responses.Event) {
 	case responses.EventType_response_reasoning_summary_text_delta.String():
 		print(event.GetReasoningText().GetDelta())
 	case responses.EventType_response_reasoning_summary_text_done.String(): // aggregated reasoning text
-		fmt.Printf("\naggregated reasoning text: %s\n", event.GetReasoningText().GetText())
+		fmt.Printf("\nAggregated reasoning text: %s\n", event.GetReasoningText().GetText())
 	case responses.EventType_response_output_text_delta.String():
 		print(event.GetText().GetDelta())
 	case responses.EventType_response_output_text_done.String(): // aggregated output text
-		fmt.Printf("\naggregated output text: %s\n", event.GetText().GetText())
+		fmt.Printf("\nAggregated output text: %s\n", event.GetText().GetText())
 	default:
 		return
 	}
