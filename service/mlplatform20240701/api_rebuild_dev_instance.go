@@ -143,7 +143,7 @@ func (c *MLPLATFORM20240701) RebuildDevInstanceWithContext(ctx volcengine.Contex
 	return out, req.Send()
 }
 
-type CredentialForRebuildDevInstanceInput struct {
+type ImageCredentialForRebuildDevInstanceInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
 	RegistryToken *string `type:"string" json:",omitempty"`
@@ -152,23 +152,23 @@ type CredentialForRebuildDevInstanceInput struct {
 }
 
 // String returns the string representation
-func (s CredentialForRebuildDevInstanceInput) String() string {
+func (s ImageCredentialForRebuildDevInstanceInput) String() string {
 	return volcengineutil.Prettify(s)
 }
 
 // GoString returns the string representation
-func (s CredentialForRebuildDevInstanceInput) GoString() string {
+func (s ImageCredentialForRebuildDevInstanceInput) GoString() string {
 	return s.String()
 }
 
 // SetRegistryToken sets the RegistryToken field's value.
-func (s *CredentialForRebuildDevInstanceInput) SetRegistryToken(v string) *CredentialForRebuildDevInstanceInput {
+func (s *ImageCredentialForRebuildDevInstanceInput) SetRegistryToken(v string) *ImageCredentialForRebuildDevInstanceInput {
 	s.RegistryToken = &v
 	return s
 }
 
 // SetRegistryUsername sets the RegistryUsername field's value.
-func (s *CredentialForRebuildDevInstanceInput) SetRegistryUsername(v string) *CredentialForRebuildDevInstanceInput {
+func (s *ImageCredentialForRebuildDevInstanceInput) SetRegistryUsername(v string) *ImageCredentialForRebuildDevInstanceInput {
 	s.RegistryUsername = &v
 	return s
 }
@@ -176,7 +176,9 @@ func (s *CredentialForRebuildDevInstanceInput) SetRegistryUsername(v string) *Cr
 type ImageForRebuildDevInstanceInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	Credential *CredentialForRebuildDevInstanceInput `type:"structure" json:",omitempty"`
+	Id *string `type:"string" json:",omitempty"`
+
+	ImageCredential *ImageCredentialForRebuildDevInstanceInput `type:"structure" json:",omitempty"`
 
 	Type *string `type:"string" json:",omitempty"`
 
@@ -193,9 +195,15 @@ func (s ImageForRebuildDevInstanceInput) GoString() string {
 	return s.String()
 }
 
-// SetCredential sets the Credential field's value.
-func (s *ImageForRebuildDevInstanceInput) SetCredential(v *CredentialForRebuildDevInstanceInput) *ImageForRebuildDevInstanceInput {
-	s.Credential = v
+// SetId sets the Id field's value.
+func (s *ImageForRebuildDevInstanceInput) SetId(v string) *ImageForRebuildDevInstanceInput {
+	s.Id = &v
+	return s
+}
+
+// SetImageCredential sets the ImageCredential field's value.
+func (s *ImageForRebuildDevInstanceInput) SetImageCredential(v *ImageCredentialForRebuildDevInstanceInput) *ImageForRebuildDevInstanceInput {
+	s.ImageCredential = v
 	return s
 }
 

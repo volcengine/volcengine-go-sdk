@@ -143,179 +143,49 @@ func (c *MLPLATFORM20240701) CreateDevInstanceWithContext(ctx volcengine.Context
 	return out, req.Send()
 }
 
-type CfsForCreateDevInstanceInput struct {
-	_ struct{} `type:"structure" json:",omitempty"`
-
-	FileSystemName *string `type:"string" json:",omitempty"`
-
-	NamespaceId *string `type:"string" json:",omitempty"`
-
-	Options *OptionsForCreateDevInstanceInput `type:"structure" json:",omitempty"`
-
-	Tos *TosForCreateDevInstanceInput `type:"structure" json:",omitempty"`
-}
-
-// String returns the string representation
-func (s CfsForCreateDevInstanceInput) String() string {
-	return volcengineutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s CfsForCreateDevInstanceInput) GoString() string {
-	return s.String()
-}
-
-// SetFileSystemName sets the FileSystemName field's value.
-func (s *CfsForCreateDevInstanceInput) SetFileSystemName(v string) *CfsForCreateDevInstanceInput {
-	s.FileSystemName = &v
-	return s
-}
-
-// SetNamespaceId sets the NamespaceId field's value.
-func (s *CfsForCreateDevInstanceInput) SetNamespaceId(v string) *CfsForCreateDevInstanceInput {
-	s.NamespaceId = &v
-	return s
-}
-
-// SetOptions sets the Options field's value.
-func (s *CfsForCreateDevInstanceInput) SetOptions(v *OptionsForCreateDevInstanceInput) *CfsForCreateDevInstanceInput {
-	s.Options = v
-	return s
-}
-
-// SetTos sets the Tos field's value.
-func (s *CfsForCreateDevInstanceInput) SetTos(v *TosForCreateDevInstanceInput) *CfsForCreateDevInstanceInput {
-	s.Tos = v
-	return s
-}
-
-type ConfigForCreateDevInstanceInput struct {
-	_ struct{} `type:"structure" json:",omitempty"`
-
-	Cfs *CfsForCreateDevInstanceInput `type:"structure" json:",omitempty"`
-
-	Nas *NasForCreateDevInstanceInput `type:"structure" json:",omitempty"`
-
-	NasAP *NasAPForCreateDevInstanceInput `type:"structure" json:",omitempty"`
-
-	Sfcs *SfcsForCreateDevInstanceInput `type:"structure" json:",omitempty"`
-
-	Tos *TosForCreateDevInstanceInput `type:"structure" json:",omitempty"`
-
-	Vepfs *VepfsForCreateDevInstanceInput `type:"structure" json:",omitempty"`
-
-	VepfsAP *VepfsAPForCreateDevInstanceInput `type:"structure" json:",omitempty"`
-}
-
-// String returns the string representation
-func (s ConfigForCreateDevInstanceInput) String() string {
-	return volcengineutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s ConfigForCreateDevInstanceInput) GoString() string {
-	return s.String()
-}
-
-// SetCfs sets the Cfs field's value.
-func (s *ConfigForCreateDevInstanceInput) SetCfs(v *CfsForCreateDevInstanceInput) *ConfigForCreateDevInstanceInput {
-	s.Cfs = v
-	return s
-}
-
-// SetNas sets the Nas field's value.
-func (s *ConfigForCreateDevInstanceInput) SetNas(v *NasForCreateDevInstanceInput) *ConfigForCreateDevInstanceInput {
-	s.Nas = v
-	return s
-}
-
-// SetNasAP sets the NasAP field's value.
-func (s *ConfigForCreateDevInstanceInput) SetNasAP(v *NasAPForCreateDevInstanceInput) *ConfigForCreateDevInstanceInput {
-	s.NasAP = v
-	return s
-}
-
-// SetSfcs sets the Sfcs field's value.
-func (s *ConfigForCreateDevInstanceInput) SetSfcs(v *SfcsForCreateDevInstanceInput) *ConfigForCreateDevInstanceInput {
-	s.Sfcs = v
-	return s
-}
-
-// SetTos sets the Tos field's value.
-func (s *ConfigForCreateDevInstanceInput) SetTos(v *TosForCreateDevInstanceInput) *ConfigForCreateDevInstanceInput {
-	s.Tos = v
-	return s
-}
-
-// SetVepfs sets the Vepfs field's value.
-func (s *ConfigForCreateDevInstanceInput) SetVepfs(v *VepfsForCreateDevInstanceInput) *ConfigForCreateDevInstanceInput {
-	s.Vepfs = v
-	return s
-}
-
-// SetVepfsAP sets the VepfsAP field's value.
-func (s *ConfigForCreateDevInstanceInput) SetVepfsAP(v *VepfsAPForCreateDevInstanceInput) *ConfigForCreateDevInstanceInput {
-	s.VepfsAP = v
-	return s
-}
-
-type ConvertCredentialForCreateDevInstanceInput struct {
-	_ struct{} `type:"structure" json:",omitempty"`
-
-	RegistryToken *string `type:"string" json:",omitempty"`
-
-	RegistryUsername *string `type:"string" json:",omitempty"`
-}
-
-// String returns the string representation
-func (s ConvertCredentialForCreateDevInstanceInput) String() string {
-	return volcengineutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s ConvertCredentialForCreateDevInstanceInput) GoString() string {
-	return s.String()
-}
-
-// SetRegistryToken sets the RegistryToken field's value.
-func (s *ConvertCredentialForCreateDevInstanceInput) SetRegistryToken(v string) *ConvertCredentialForCreateDevInstanceInput {
-	s.RegistryToken = &v
-	return s
-}
-
-// SetRegistryUsername sets the RegistryUsername field's value.
-func (s *ConvertCredentialForCreateDevInstanceInput) SetRegistryUsername(v string) *ConvertCredentialForCreateDevInstanceInput {
-	s.RegistryUsername = &v
-	return s
-}
-
-type ConvertOptionsForCreateDevInstanceInput struct {
+type AdvancedOptionsForCreateDevInstanceInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
 	InternalSync *int64 `type:"int64" json:",omitempty"`
 
-	Replicas *int64 `type:"int64" json:",omitempty"`
+	MetaCacheCapacity *string `type:"string" json:",omitempty"`
+
+	MetaCacheExpiryMinutes *string `type:"string" json:",omitempty"`
+
+	MetaCacheExpiryMsec *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
-func (s ConvertOptionsForCreateDevInstanceInput) String() string {
+func (s AdvancedOptionsForCreateDevInstanceInput) String() string {
 	return volcengineutil.Prettify(s)
 }
 
 // GoString returns the string representation
-func (s ConvertOptionsForCreateDevInstanceInput) GoString() string {
+func (s AdvancedOptionsForCreateDevInstanceInput) GoString() string {
 	return s.String()
 }
 
 // SetInternalSync sets the InternalSync field's value.
-func (s *ConvertOptionsForCreateDevInstanceInput) SetInternalSync(v int64) *ConvertOptionsForCreateDevInstanceInput {
+func (s *AdvancedOptionsForCreateDevInstanceInput) SetInternalSync(v int64) *AdvancedOptionsForCreateDevInstanceInput {
 	s.InternalSync = &v
 	return s
 }
 
-// SetReplicas sets the Replicas field's value.
-func (s *ConvertOptionsForCreateDevInstanceInput) SetReplicas(v int64) *ConvertOptionsForCreateDevInstanceInput {
-	s.Replicas = &v
+// SetMetaCacheCapacity sets the MetaCacheCapacity field's value.
+func (s *AdvancedOptionsForCreateDevInstanceInput) SetMetaCacheCapacity(v string) *AdvancedOptionsForCreateDevInstanceInput {
+	s.MetaCacheCapacity = &v
+	return s
+}
+
+// SetMetaCacheExpiryMinutes sets the MetaCacheExpiryMinutes field's value.
+func (s *AdvancedOptionsForCreateDevInstanceInput) SetMetaCacheExpiryMinutes(v string) *AdvancedOptionsForCreateDevInstanceInput {
+	s.MetaCacheExpiryMinutes = &v
+	return s
+}
+
+// SetMetaCacheExpiryMsec sets the MetaCacheExpiryMsec field's value.
+func (s *AdvancedOptionsForCreateDevInstanceInput) SetMetaCacheExpiryMsec(v string) *AdvancedOptionsForCreateDevInstanceInput {
+	s.MetaCacheExpiryMsec = &v
 	return s
 }
 
@@ -500,7 +370,7 @@ func (s *CreateDevInstanceOutput) SetId(v string) *CreateDevInstanceOutput {
 type CredentialForCreateDevInstanceInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	AccessKey *string `type:"string" json:",omitempty"`
+	AccessKeyId *string `type:"string" json:",omitempty"`
 
 	SecretAccessKey *string `type:"string" json:",omitempty"`
 }
@@ -515,9 +385,9 @@ func (s CredentialForCreateDevInstanceInput) GoString() string {
 	return s.String()
 }
 
-// SetAccessKey sets the AccessKey field's value.
-func (s *CredentialForCreateDevInstanceInput) SetAccessKey(v string) *CredentialForCreateDevInstanceInput {
-	s.AccessKey = &v
+// SetAccessKeyId sets the AccessKeyId field's value.
+func (s *CredentialForCreateDevInstanceInput) SetAccessKeyId(v string) *CredentialForCreateDevInstanceInput {
+	s.AccessKeyId = &v
 	return s
 }
 
@@ -589,10 +459,42 @@ func (s *FlexibleResourceClaimForCreateDevInstanceInput) SetRdmaEniCount(v int32
 	return s
 }
 
+type ImageCredentialForCreateDevInstanceInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	RegistryToken *string `type:"string" json:",omitempty"`
+
+	RegistryUsername *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s ImageCredentialForCreateDevInstanceInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ImageCredentialForCreateDevInstanceInput) GoString() string {
+	return s.String()
+}
+
+// SetRegistryToken sets the RegistryToken field's value.
+func (s *ImageCredentialForCreateDevInstanceInput) SetRegistryToken(v string) *ImageCredentialForCreateDevInstanceInput {
+	s.RegistryToken = &v
+	return s
+}
+
+// SetRegistryUsername sets the RegistryUsername field's value.
+func (s *ImageCredentialForCreateDevInstanceInput) SetRegistryUsername(v string) *ImageCredentialForCreateDevInstanceInput {
+	s.RegistryUsername = &v
+	return s
+}
+
 type ImageForCreateDevInstanceInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	Credential *ConvertCredentialForCreateDevInstanceInput `type:"structure" json:",omitempty"`
+	Id *string `type:"string" json:",omitempty"`
+
+	ImageCredential *ImageCredentialForCreateDevInstanceInput `type:"structure" json:",omitempty"`
 
 	Type *string `type:"string" json:",omitempty"`
 
@@ -609,9 +511,15 @@ func (s ImageForCreateDevInstanceInput) GoString() string {
 	return s.String()
 }
 
-// SetCredential sets the Credential field's value.
-func (s *ImageForCreateDevInstanceInput) SetCredential(v *ConvertCredentialForCreateDevInstanceInput) *ImageForCreateDevInstanceInput {
-	s.Credential = v
+// SetId sets the Id field's value.
+func (s *ImageForCreateDevInstanceInput) SetId(v string) *ImageForCreateDevInstanceInput {
+	s.Id = &v
+	return s
+}
+
+// SetImageCredential sets the ImageCredential field's value.
+func (s *ImageForCreateDevInstanceInput) SetImageCredential(v *ImageCredentialForCreateDevInstanceInput) *ImageForCreateDevInstanceInput {
+	s.ImageCredential = v
 	return s
 }
 
@@ -627,96 +535,82 @@ func (s *ImageForCreateDevInstanceInput) SetUrl(v string) *ImageForCreateDevInst
 	return s
 }
 
-type NasAPForCreateDevInstanceInput struct {
+type NasAccessPointOptionsForCreateDevInstanceInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
+
+	AccessPointDomain *string `type:"string" json:",omitempty"`
 
 	AccessPointId *string `type:"string" json:",omitempty"`
 
-	Id *string `type:"string" json:",omitempty"`
+	AccessPointName *string `type:"string" json:",omitempty"`
+
+	EnabledIam *bool `type:"boolean" json:",omitempty"`
+
+	MountOptions []*string `type:"list" json:",omitempty"`
+
+	RootPath *string `type:"string" json:",omitempty"`
+
+	VpcId *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
-func (s NasAPForCreateDevInstanceInput) String() string {
+func (s NasAccessPointOptionsForCreateDevInstanceInput) String() string {
 	return volcengineutil.Prettify(s)
 }
 
 // GoString returns the string representation
-func (s NasAPForCreateDevInstanceInput) GoString() string {
+func (s NasAccessPointOptionsForCreateDevInstanceInput) GoString() string {
 	return s.String()
 }
 
+// SetAccessPointDomain sets the AccessPointDomain field's value.
+func (s *NasAccessPointOptionsForCreateDevInstanceInput) SetAccessPointDomain(v string) *NasAccessPointOptionsForCreateDevInstanceInput {
+	s.AccessPointDomain = &v
+	return s
+}
+
 // SetAccessPointId sets the AccessPointId field's value.
-func (s *NasAPForCreateDevInstanceInput) SetAccessPointId(v string) *NasAPForCreateDevInstanceInput {
+func (s *NasAccessPointOptionsForCreateDevInstanceInput) SetAccessPointId(v string) *NasAccessPointOptionsForCreateDevInstanceInput {
 	s.AccessPointId = &v
 	return s
 }
 
-// SetId sets the Id field's value.
-func (s *NasAPForCreateDevInstanceInput) SetId(v string) *NasAPForCreateDevInstanceInput {
-	s.Id = &v
+// SetAccessPointName sets the AccessPointName field's value.
+func (s *NasAccessPointOptionsForCreateDevInstanceInput) SetAccessPointName(v string) *NasAccessPointOptionsForCreateDevInstanceInput {
+	s.AccessPointName = &v
 	return s
 }
 
-type NasForCreateDevInstanceInput struct {
-	_ struct{} `type:"structure" json:",omitempty"`
-
-	Addr *string `type:"string" json:",omitempty"`
-
-	FileSystemName *string `type:"string" json:",omitempty"`
-
-	Id *string `type:"string" json:",omitempty"`
-
-	NasType *string `type:"string" json:",omitempty"`
-
-	SubPath *string `type:"string" json:",omitempty"`
-}
-
-// String returns the string representation
-func (s NasForCreateDevInstanceInput) String() string {
-	return volcengineutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s NasForCreateDevInstanceInput) GoString() string {
-	return s.String()
-}
-
-// SetAddr sets the Addr field's value.
-func (s *NasForCreateDevInstanceInput) SetAddr(v string) *NasForCreateDevInstanceInput {
-	s.Addr = &v
+// SetEnabledIam sets the EnabledIam field's value.
+func (s *NasAccessPointOptionsForCreateDevInstanceInput) SetEnabledIam(v bool) *NasAccessPointOptionsForCreateDevInstanceInput {
+	s.EnabledIam = &v
 	return s
 }
 
-// SetFileSystemName sets the FileSystemName field's value.
-func (s *NasForCreateDevInstanceInput) SetFileSystemName(v string) *NasForCreateDevInstanceInput {
-	s.FileSystemName = &v
+// SetMountOptions sets the MountOptions field's value.
+func (s *NasAccessPointOptionsForCreateDevInstanceInput) SetMountOptions(v []*string) *NasAccessPointOptionsForCreateDevInstanceInput {
+	s.MountOptions = v
 	return s
 }
 
-// SetId sets the Id field's value.
-func (s *NasForCreateDevInstanceInput) SetId(v string) *NasForCreateDevInstanceInput {
-	s.Id = &v
+// SetRootPath sets the RootPath field's value.
+func (s *NasAccessPointOptionsForCreateDevInstanceInput) SetRootPath(v string) *NasAccessPointOptionsForCreateDevInstanceInput {
+	s.RootPath = &v
 	return s
 }
 
-// SetNasType sets the NasType field's value.
-func (s *NasForCreateDevInstanceInput) SetNasType(v string) *NasForCreateDevInstanceInput {
-	s.NasType = &v
-	return s
-}
-
-// SetSubPath sets the SubPath field's value.
-func (s *NasForCreateDevInstanceInput) SetSubPath(v string) *NasForCreateDevInstanceInput {
-	s.SubPath = &v
+// SetVpcId sets the VpcId field's value.
+func (s *NasAccessPointOptionsForCreateDevInstanceInput) SetVpcId(v string) *NasAccessPointOptionsForCreateDevInstanceInput {
+	s.VpcId = &v
 	return s
 }
 
 type NodeAffinitySpecForCreateDevInstanceInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	GPUCPUNodePreference *string `type:"string" json:",omitempty" enum:"EnumOfGPUCPUNodePreferenceForCreateDevInstanceInput"`
+	GPUCPUNodePreference *string `type:"string" json:",omitempty"`
 
-	StrategyType *string `type:"string" json:",omitempty"`
+	Source *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -735,55 +629,9 @@ func (s *NodeAffinitySpecForCreateDevInstanceInput) SetGPUCPUNodePreference(v st
 	return s
 }
 
-// SetStrategyType sets the StrategyType field's value.
-func (s *NodeAffinitySpecForCreateDevInstanceInput) SetStrategyType(v string) *NodeAffinitySpecForCreateDevInstanceInput {
-	s.StrategyType = &v
-	return s
-}
-
-type OptionsForCreateDevInstanceInput struct {
-	_ struct{} `type:"structure" json:",omitempty"`
-
-	InternalSync *int64 `type:"int64" json:",omitempty"`
-
-	MetaCacheCapacity *int64 `type:"int64" json:",omitempty"`
-
-	MetaCacheExpiryMinutes *int64 `type:"int64" json:",omitempty"`
-
-	MetaCacheExpiryMsec *int64 `type:"int64" json:",omitempty"`
-}
-
-// String returns the string representation
-func (s OptionsForCreateDevInstanceInput) String() string {
-	return volcengineutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s OptionsForCreateDevInstanceInput) GoString() string {
-	return s.String()
-}
-
-// SetInternalSync sets the InternalSync field's value.
-func (s *OptionsForCreateDevInstanceInput) SetInternalSync(v int64) *OptionsForCreateDevInstanceInput {
-	s.InternalSync = &v
-	return s
-}
-
-// SetMetaCacheCapacity sets the MetaCacheCapacity field's value.
-func (s *OptionsForCreateDevInstanceInput) SetMetaCacheCapacity(v int64) *OptionsForCreateDevInstanceInput {
-	s.MetaCacheCapacity = &v
-	return s
-}
-
-// SetMetaCacheExpiryMinutes sets the MetaCacheExpiryMinutes field's value.
-func (s *OptionsForCreateDevInstanceInput) SetMetaCacheExpiryMinutes(v int64) *OptionsForCreateDevInstanceInput {
-	s.MetaCacheExpiryMinutes = &v
-	return s
-}
-
-// SetMetaCacheExpiryMsec sets the MetaCacheExpiryMsec field's value.
-func (s *OptionsForCreateDevInstanceInput) SetMetaCacheExpiryMsec(v int64) *OptionsForCreateDevInstanceInput {
-	s.MetaCacheExpiryMsec = &v
+// SetSource sets the Source field's value.
+func (s *NodeAffinitySpecForCreateDevInstanceInput) SetSource(v string) *NodeAffinitySpecForCreateDevInstanceInput {
+	s.Source = &v
 	return s
 }
 
@@ -797,8 +645,6 @@ type PortForCreateDevInstanceInput struct {
 	InternalPort *int32 `type:"int32" json:",omitempty"`
 
 	Name *string `type:"string" json:",omitempty"`
-
-	Type *string `type:"string" json:",omitempty" enum:"EnumOfTypeForCreateDevInstanceInput"`
 }
 
 // String returns the string representation
@@ -832,12 +678,6 @@ func (s *PortForCreateDevInstanceInput) SetInternalPort(v int32) *PortForCreateD
 // SetName sets the Name field's value.
 func (s *PortForCreateDevInstanceInput) SetName(v string) *PortForCreateDevInstanceInput {
 	s.Name = &v
-	return s
-}
-
-// SetType sets the Type field's value.
-func (s *PortForCreateDevInstanceInput) SetType(v string) *PortForCreateDevInstanceInput {
-	s.Type = &v
 	return s
 }
 
@@ -887,62 +727,92 @@ func (s *ResourceClaimForCreateDevInstanceInput) SetZoneId(v string) *ResourceCl
 	return s
 }
 
-type SfcsForCreateDevInstanceInput struct {
+type SfcsAdvancedOptionsForCreateDevInstanceInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	CachePolicyId *string `type:"string" json:",omitempty"`
+	InternalSync *int64 `type:"int64" json:",omitempty"`
 
-	FileSystemName *string `type:"string" json:",omitempty"`
-
-	Options *ConvertOptionsForCreateDevInstanceInput `type:"structure" json:",omitempty"`
-
-	Tos *TosForCreateDevInstanceInput `type:"structure" json:",omitempty"`
+	Replicas *int64 `type:"int64" json:"replicas,omitempty"`
 }
 
 // String returns the string representation
-func (s SfcsForCreateDevInstanceInput) String() string {
+func (s SfcsAdvancedOptionsForCreateDevInstanceInput) String() string {
 	return volcengineutil.Prettify(s)
 }
 
 // GoString returns the string representation
-func (s SfcsForCreateDevInstanceInput) GoString() string {
+func (s SfcsAdvancedOptionsForCreateDevInstanceInput) GoString() string {
 	return s.String()
 }
 
-// SetCachePolicyId sets the CachePolicyId field's value.
-func (s *SfcsForCreateDevInstanceInput) SetCachePolicyId(v string) *SfcsForCreateDevInstanceInput {
-	s.CachePolicyId = &v
+// SetInternalSync sets the InternalSync field's value.
+func (s *SfcsAdvancedOptionsForCreateDevInstanceInput) SetInternalSync(v int64) *SfcsAdvancedOptionsForCreateDevInstanceInput {
+	s.InternalSync = &v
 	return s
 }
 
-// SetFileSystemName sets the FileSystemName field's value.
-func (s *SfcsForCreateDevInstanceInput) SetFileSystemName(v string) *SfcsForCreateDevInstanceInput {
-	s.FileSystemName = &v
-	return s
-}
-
-// SetOptions sets the Options field's value.
-func (s *SfcsForCreateDevInstanceInput) SetOptions(v *ConvertOptionsForCreateDevInstanceInput) *SfcsForCreateDevInstanceInput {
-	s.Options = v
-	return s
-}
-
-// SetTos sets the Tos field's value.
-func (s *SfcsForCreateDevInstanceInput) SetTos(v *TosForCreateDevInstanceInput) *SfcsForCreateDevInstanceInput {
-	s.Tos = v
+// SetReplicas sets the Replicas field's value.
+func (s *SfcsAdvancedOptionsForCreateDevInstanceInput) SetReplicas(v int64) *SfcsAdvancedOptionsForCreateDevInstanceInput {
+	s.Replicas = &v
 	return s
 }
 
 type StorageForCreateDevInstanceInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	Config *ConfigForCreateDevInstanceInput `type:"structure" json:",omitempty"`
+	AdvancedOptions *AdvancedOptionsForCreateDevInstanceInput `type:"structure" json:",omitempty"`
+
+	AnnotationId *string `type:"string" json:",omitempty"`
+
+	AssetId *string `type:"string" json:",omitempty"`
+
+	AssetName *string `type:"string" json:",omitempty"`
+
+	AssetVersion *string `type:"string" json:",omitempty"`
+
+	Bucket *string `type:"string" json:",omitempty"`
+
+	CachePolicyId *string `type:"string" json:",omitempty"`
+
+	CloudfsType *string `type:"string" json:",omitempty"`
+
+	DatasetId *string `type:"string" json:",omitempty"`
+
+	FsName *string `type:"string" json:",omitempty"`
 
 	MountPath *string `type:"string" json:",omitempty"`
 
+	NasAccessPointOptions *NasAccessPointOptionsForCreateDevInstanceInput `type:"structure" json:",omitempty"`
+
+	NasAddr *string `type:"string" json:",omitempty"`
+
+	NasId *string `type:"string" json:",omitempty"`
+
+	NasName *string `type:"string" json:",omitempty"`
+
+	NsId *string `type:"string" json:",omitempty"`
+
+	Prefix *string `type:"string" json:",omitempty"`
+
 	ReadOnly *bool `type:"boolean" json:",omitempty"`
 
+	SfcsAdvancedOptions *SfcsAdvancedOptionsForCreateDevInstanceInput `type:"structure" json:",omitempty"`
+
+	SfcsId *string `type:"string" json:",omitempty"`
+
+	SubPath *string `type:"string" json:",omitempty"`
+
 	Type *string `type:"string" json:",omitempty"`
+
+	UseAsDefaultMountPath *bool `type:"boolean" json:",omitempty"`
+
+	UseEic *bool `type:"boolean" json:",omitempty"`
+
+	VepfsAccessPointOptions *VepfsAccessPointOptionsForCreateDevInstanceInput `type:"structure" json:",omitempty"`
+
+	VepfsHostPath *string `type:"string" json:",omitempty"`
+
+	VepfsId *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -955,9 +825,63 @@ func (s StorageForCreateDevInstanceInput) GoString() string {
 	return s.String()
 }
 
-// SetConfig sets the Config field's value.
-func (s *StorageForCreateDevInstanceInput) SetConfig(v *ConfigForCreateDevInstanceInput) *StorageForCreateDevInstanceInput {
-	s.Config = v
+// SetAdvancedOptions sets the AdvancedOptions field's value.
+func (s *StorageForCreateDevInstanceInput) SetAdvancedOptions(v *AdvancedOptionsForCreateDevInstanceInput) *StorageForCreateDevInstanceInput {
+	s.AdvancedOptions = v
+	return s
+}
+
+// SetAnnotationId sets the AnnotationId field's value.
+func (s *StorageForCreateDevInstanceInput) SetAnnotationId(v string) *StorageForCreateDevInstanceInput {
+	s.AnnotationId = &v
+	return s
+}
+
+// SetAssetId sets the AssetId field's value.
+func (s *StorageForCreateDevInstanceInput) SetAssetId(v string) *StorageForCreateDevInstanceInput {
+	s.AssetId = &v
+	return s
+}
+
+// SetAssetName sets the AssetName field's value.
+func (s *StorageForCreateDevInstanceInput) SetAssetName(v string) *StorageForCreateDevInstanceInput {
+	s.AssetName = &v
+	return s
+}
+
+// SetAssetVersion sets the AssetVersion field's value.
+func (s *StorageForCreateDevInstanceInput) SetAssetVersion(v string) *StorageForCreateDevInstanceInput {
+	s.AssetVersion = &v
+	return s
+}
+
+// SetBucket sets the Bucket field's value.
+func (s *StorageForCreateDevInstanceInput) SetBucket(v string) *StorageForCreateDevInstanceInput {
+	s.Bucket = &v
+	return s
+}
+
+// SetCachePolicyId sets the CachePolicyId field's value.
+func (s *StorageForCreateDevInstanceInput) SetCachePolicyId(v string) *StorageForCreateDevInstanceInput {
+	s.CachePolicyId = &v
+	return s
+}
+
+// SetCloudfsType sets the CloudfsType field's value.
+func (s *StorageForCreateDevInstanceInput) SetCloudfsType(v string) *StorageForCreateDevInstanceInput {
+	s.CloudfsType = &v
+	return s
+}
+
+// SetDatasetId sets the DatasetId field's value.
+func (s *StorageForCreateDevInstanceInput) SetDatasetId(v string) *StorageForCreateDevInstanceInput {
+	s.DatasetId = &v
+	return s
+}
+
+// SetFsName sets the FsName field's value.
+func (s *StorageForCreateDevInstanceInput) SetFsName(v string) *StorageForCreateDevInstanceInput {
+	s.FsName = &v
 	return s
 }
 
@@ -967,9 +891,63 @@ func (s *StorageForCreateDevInstanceInput) SetMountPath(v string) *StorageForCre
 	return s
 }
 
+// SetNasAccessPointOptions sets the NasAccessPointOptions field's value.
+func (s *StorageForCreateDevInstanceInput) SetNasAccessPointOptions(v *NasAccessPointOptionsForCreateDevInstanceInput) *StorageForCreateDevInstanceInput {
+	s.NasAccessPointOptions = v
+	return s
+}
+
+// SetNasAddr sets the NasAddr field's value.
+func (s *StorageForCreateDevInstanceInput) SetNasAddr(v string) *StorageForCreateDevInstanceInput {
+	s.NasAddr = &v
+	return s
+}
+
+// SetNasId sets the NasId field's value.
+func (s *StorageForCreateDevInstanceInput) SetNasId(v string) *StorageForCreateDevInstanceInput {
+	s.NasId = &v
+	return s
+}
+
+// SetNasName sets the NasName field's value.
+func (s *StorageForCreateDevInstanceInput) SetNasName(v string) *StorageForCreateDevInstanceInput {
+	s.NasName = &v
+	return s
+}
+
+// SetNsId sets the NsId field's value.
+func (s *StorageForCreateDevInstanceInput) SetNsId(v string) *StorageForCreateDevInstanceInput {
+	s.NsId = &v
+	return s
+}
+
+// SetPrefix sets the Prefix field's value.
+func (s *StorageForCreateDevInstanceInput) SetPrefix(v string) *StorageForCreateDevInstanceInput {
+	s.Prefix = &v
+	return s
+}
+
 // SetReadOnly sets the ReadOnly field's value.
 func (s *StorageForCreateDevInstanceInput) SetReadOnly(v bool) *StorageForCreateDevInstanceInput {
 	s.ReadOnly = &v
+	return s
+}
+
+// SetSfcsAdvancedOptions sets the SfcsAdvancedOptions field's value.
+func (s *StorageForCreateDevInstanceInput) SetSfcsAdvancedOptions(v *SfcsAdvancedOptionsForCreateDevInstanceInput) *StorageForCreateDevInstanceInput {
+	s.SfcsAdvancedOptions = v
+	return s
+}
+
+// SetSfcsId sets the SfcsId field's value.
+func (s *StorageForCreateDevInstanceInput) SetSfcsId(v string) *StorageForCreateDevInstanceInput {
+	s.SfcsId = &v
+	return s
+}
+
+// SetSubPath sets the SubPath field's value.
+func (s *StorageForCreateDevInstanceInput) SetSubPath(v string) *StorageForCreateDevInstanceInput {
+	s.SubPath = &v
 	return s
 }
 
@@ -979,109 +957,95 @@ func (s *StorageForCreateDevInstanceInput) SetType(v string) *StorageForCreateDe
 	return s
 }
 
-type TosForCreateDevInstanceInput struct {
-	_ struct{} `type:"structure" json:",omitempty"`
-
-	Bucket *string `type:"string" json:",omitempty"`
-
-	Prefix *string `type:"string" json:",omitempty"`
-}
-
-// String returns the string representation
-func (s TosForCreateDevInstanceInput) String() string {
-	return volcengineutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s TosForCreateDevInstanceInput) GoString() string {
-	return s.String()
-}
-
-// SetBucket sets the Bucket field's value.
-func (s *TosForCreateDevInstanceInput) SetBucket(v string) *TosForCreateDevInstanceInput {
-	s.Bucket = &v
+// SetUseAsDefaultMountPath sets the UseAsDefaultMountPath field's value.
+func (s *StorageForCreateDevInstanceInput) SetUseAsDefaultMountPath(v bool) *StorageForCreateDevInstanceInput {
+	s.UseAsDefaultMountPath = &v
 	return s
 }
 
-// SetPrefix sets the Prefix field's value.
-func (s *TosForCreateDevInstanceInput) SetPrefix(v string) *TosForCreateDevInstanceInput {
-	s.Prefix = &v
+// SetUseEic sets the UseEic field's value.
+func (s *StorageForCreateDevInstanceInput) SetUseEic(v bool) *StorageForCreateDevInstanceInput {
+	s.UseEic = &v
 	return s
 }
 
-type VepfsAPForCreateDevInstanceInput struct {
+// SetVepfsAccessPointOptions sets the VepfsAccessPointOptions field's value.
+func (s *StorageForCreateDevInstanceInput) SetVepfsAccessPointOptions(v *VepfsAccessPointOptionsForCreateDevInstanceInput) *StorageForCreateDevInstanceInput {
+	s.VepfsAccessPointOptions = v
+	return s
+}
+
+// SetVepfsHostPath sets the VepfsHostPath field's value.
+func (s *StorageForCreateDevInstanceInput) SetVepfsHostPath(v string) *StorageForCreateDevInstanceInput {
+	s.VepfsHostPath = &v
+	return s
+}
+
+// SetVepfsId sets the VepfsId field's value.
+func (s *StorageForCreateDevInstanceInput) SetVepfsId(v string) *StorageForCreateDevInstanceInput {
+	s.VepfsId = &v
+	return s
+}
+
+type VepfsAccessPointOptionsForCreateDevInstanceInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
+
+	AccessPointDomain *string `type:"string" json:",omitempty"`
 
 	AccessPointId *string `type:"string" json:",omitempty"`
 
-	Id *string `type:"string" json:",omitempty"`
+	AccessPointName *string `type:"string" json:",omitempty"`
+
+	EnabledIam *bool `type:"boolean" json:",omitempty"`
+
+	MountOptions []*string `type:"list" json:",omitempty"`
+
+	RootPath *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
-func (s VepfsAPForCreateDevInstanceInput) String() string {
+func (s VepfsAccessPointOptionsForCreateDevInstanceInput) String() string {
 	return volcengineutil.Prettify(s)
 }
 
 // GoString returns the string representation
-func (s VepfsAPForCreateDevInstanceInput) GoString() string {
+func (s VepfsAccessPointOptionsForCreateDevInstanceInput) GoString() string {
 	return s.String()
 }
 
+// SetAccessPointDomain sets the AccessPointDomain field's value.
+func (s *VepfsAccessPointOptionsForCreateDevInstanceInput) SetAccessPointDomain(v string) *VepfsAccessPointOptionsForCreateDevInstanceInput {
+	s.AccessPointDomain = &v
+	return s
+}
+
 // SetAccessPointId sets the AccessPointId field's value.
-func (s *VepfsAPForCreateDevInstanceInput) SetAccessPointId(v string) *VepfsAPForCreateDevInstanceInput {
+func (s *VepfsAccessPointOptionsForCreateDevInstanceInput) SetAccessPointId(v string) *VepfsAccessPointOptionsForCreateDevInstanceInput {
 	s.AccessPointId = &v
 	return s
 }
 
-// SetId sets the Id field's value.
-func (s *VepfsAPForCreateDevInstanceInput) SetId(v string) *VepfsAPForCreateDevInstanceInput {
-	s.Id = &v
+// SetAccessPointName sets the AccessPointName field's value.
+func (s *VepfsAccessPointOptionsForCreateDevInstanceInput) SetAccessPointName(v string) *VepfsAccessPointOptionsForCreateDevInstanceInput {
+	s.AccessPointName = &v
 	return s
 }
 
-type VepfsForCreateDevInstanceInput struct {
-	_ struct{} `type:"structure" json:",omitempty"`
-
-	FileSystemName *string `type:"string" json:",omitempty"`
-
-	HostPath *string `type:"string" json:",omitempty"`
-
-	Id *string `type:"string" json:",omitempty"`
-
-	SubPath *string `type:"string" json:",omitempty"`
-}
-
-// String returns the string representation
-func (s VepfsForCreateDevInstanceInput) String() string {
-	return volcengineutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s VepfsForCreateDevInstanceInput) GoString() string {
-	return s.String()
-}
-
-// SetFileSystemName sets the FileSystemName field's value.
-func (s *VepfsForCreateDevInstanceInput) SetFileSystemName(v string) *VepfsForCreateDevInstanceInput {
-	s.FileSystemName = &v
+// SetEnabledIam sets the EnabledIam field's value.
+func (s *VepfsAccessPointOptionsForCreateDevInstanceInput) SetEnabledIam(v bool) *VepfsAccessPointOptionsForCreateDevInstanceInput {
+	s.EnabledIam = &v
 	return s
 }
 
-// SetHostPath sets the HostPath field's value.
-func (s *VepfsForCreateDevInstanceInput) SetHostPath(v string) *VepfsForCreateDevInstanceInput {
-	s.HostPath = &v
+// SetMountOptions sets the MountOptions field's value.
+func (s *VepfsAccessPointOptionsForCreateDevInstanceInput) SetMountOptions(v []*string) *VepfsAccessPointOptionsForCreateDevInstanceInput {
+	s.MountOptions = v
 	return s
 }
 
-// SetId sets the Id field's value.
-func (s *VepfsForCreateDevInstanceInput) SetId(v string) *VepfsForCreateDevInstanceInput {
-	s.Id = &v
-	return s
-}
-
-// SetSubPath sets the SubPath field's value.
-func (s *VepfsForCreateDevInstanceInput) SetSubPath(v string) *VepfsForCreateDevInstanceInput {
-	s.SubPath = &v
+// SetRootPath sets the RootPath field's value.
+func (s *VepfsAccessPointOptionsForCreateDevInstanceInput) SetRootPath(v string) *VepfsAccessPointOptionsForCreateDevInstanceInput {
+	s.RootPath = &v
 	return s
 }
 
@@ -1090,7 +1054,7 @@ type VolumeForCreateDevInstanceInput struct {
 
 	Size *int32 `type:"int32" json:",omitempty"`
 
-	VolumeTypeId *string `type:"string" json:",omitempty"`
+	Type *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -1109,30 +1073,8 @@ func (s *VolumeForCreateDevInstanceInput) SetSize(v int32) *VolumeForCreateDevIn
 	return s
 }
 
-// SetVolumeTypeId sets the VolumeTypeId field's value.
-func (s *VolumeForCreateDevInstanceInput) SetVolumeTypeId(v string) *VolumeForCreateDevInstanceInput {
-	s.VolumeTypeId = &v
+// SetType sets the Type field's value.
+func (s *VolumeForCreateDevInstanceInput) SetType(v string) *VolumeForCreateDevInstanceInput {
+	s.Type = &v
 	return s
 }
-
-const (
-	// EnumOfGPUCPUNodePreferenceForCreateDevInstanceInputGpurequired is a EnumOfGPUCPUNodePreferenceForCreateDevInstanceInput enum value
-	EnumOfGPUCPUNodePreferenceForCreateDevInstanceInputGpurequired = "GPURequired"
-
-	// EnumOfGPUCPUNodePreferenceForCreateDevInstanceInputGpupreferred is a EnumOfGPUCPUNodePreferenceForCreateDevInstanceInput enum value
-	EnumOfGPUCPUNodePreferenceForCreateDevInstanceInputGpupreferred = "GPUPreferred"
-
-	// EnumOfGPUCPUNodePreferenceForCreateDevInstanceInputCpurequired is a EnumOfGPUCPUNodePreferenceForCreateDevInstanceInput enum value
-	EnumOfGPUCPUNodePreferenceForCreateDevInstanceInputCpurequired = "CPURequired"
-
-	// EnumOfGPUCPUNodePreferenceForCreateDevInstanceInputCpupreferred is a EnumOfGPUCPUNodePreferenceForCreateDevInstanceInput enum value
-	EnumOfGPUCPUNodePreferenceForCreateDevInstanceInputCpupreferred = "CPUPreferred"
-)
-
-const (
-	// EnumOfTypeForCreateDevInstanceInputSystem is a EnumOfTypeForCreateDevInstanceInput enum value
-	EnumOfTypeForCreateDevInstanceInputSystem = "system"
-
-	// EnumOfTypeForCreateDevInstanceInputCustom is a EnumOfTypeForCreateDevInstanceInput enum value
-	EnumOfTypeForCreateDevInstanceInputCustom = "custom"
-)

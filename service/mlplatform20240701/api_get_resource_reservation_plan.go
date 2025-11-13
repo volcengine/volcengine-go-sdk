@@ -143,6 +143,52 @@ func (c *MLPLATFORM20240701) GetResourceReservationPlanWithContext(ctx volcengin
 	return out, req.Send()
 }
 
+type CustomComputeResourceForGetResourceReservationPlanOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	GpuCount *int64 `type:"int64" json:",omitempty"`
+
+	GpuType *string `type:"string" json:",omitempty"`
+
+	NeedRdma *bool `type:"boolean" json:",omitempty"`
+
+	WorkerCount *int64 `type:"int64" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s CustomComputeResourceForGetResourceReservationPlanOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s CustomComputeResourceForGetResourceReservationPlanOutput) GoString() string {
+	return s.String()
+}
+
+// SetGpuCount sets the GpuCount field's value.
+func (s *CustomComputeResourceForGetResourceReservationPlanOutput) SetGpuCount(v int64) *CustomComputeResourceForGetResourceReservationPlanOutput {
+	s.GpuCount = &v
+	return s
+}
+
+// SetGpuType sets the GpuType field's value.
+func (s *CustomComputeResourceForGetResourceReservationPlanOutput) SetGpuType(v string) *CustomComputeResourceForGetResourceReservationPlanOutput {
+	s.GpuType = &v
+	return s
+}
+
+// SetNeedRdma sets the NeedRdma field's value.
+func (s *CustomComputeResourceForGetResourceReservationPlanOutput) SetNeedRdma(v bool) *CustomComputeResourceForGetResourceReservationPlanOutput {
+	s.NeedRdma = &v
+	return s
+}
+
+// SetWorkerCount sets the WorkerCount field's value.
+func (s *CustomComputeResourceForGetResourceReservationPlanOutput) SetWorkerCount(v int64) *CustomComputeResourceForGetResourceReservationPlanOutput {
+	s.WorkerCount = &v
+	return s
+}
+
 type DesiredComputeResourceForGetResourceReservationPlanOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -234,6 +280,8 @@ type GetResourceReservationPlanOutput struct {
 
 	CreatorTrn *string `type:"string" json:",omitempty"`
 
+	CustomComputeResource []*CustomComputeResourceForGetResourceReservationPlanOutput `type:"list" json:",omitempty"`
+
 	Description *string `type:"string" json:",omitempty"`
 
 	DesiredComputeResource *DesiredComputeResourceForGetResourceReservationPlanOutput `type:"structure" json:",omitempty"`
@@ -278,6 +326,12 @@ func (s *GetResourceReservationPlanOutput) SetCreateTime(v string) *GetResourceR
 // SetCreatorTrn sets the CreatorTrn field's value.
 func (s *GetResourceReservationPlanOutput) SetCreatorTrn(v string) *GetResourceReservationPlanOutput {
 	s.CreatorTrn = &v
+	return s
+}
+
+// SetCustomComputeResource sets the CustomComputeResource field's value.
+func (s *GetResourceReservationPlanOutput) SetCustomComputeResource(v []*CustomComputeResourceForGetResourceReservationPlanOutput) *GetResourceReservationPlanOutput {
+	s.CustomComputeResource = v
 	return s
 }
 
@@ -358,6 +412,10 @@ type ReservationConfigForGetResourceReservationPlanOutput struct {
 
 	MaxDurationHours *int64 `min:"4" max:"12" type:"int64" json:",omitempty"`
 
+	MaxTaskLifetimeSeconds *int64 `type:"int64" json:",omitempty"`
+
+	MinContinuousResourceDurationSeconds *int64 `type:"int64" json:",omitempty"`
+
 	MinDurationHours *int64 `min:"4" max:"12" type:"int64" json:",omitempty"`
 
 	RecurrenceEndTime *string `type:"string" json:",omitempty"`
@@ -384,6 +442,18 @@ func (s ReservationConfigForGetResourceReservationPlanOutput) GoString() string 
 // SetMaxDurationHours sets the MaxDurationHours field's value.
 func (s *ReservationConfigForGetResourceReservationPlanOutput) SetMaxDurationHours(v int64) *ReservationConfigForGetResourceReservationPlanOutput {
 	s.MaxDurationHours = &v
+	return s
+}
+
+// SetMaxTaskLifetimeSeconds sets the MaxTaskLifetimeSeconds field's value.
+func (s *ReservationConfigForGetResourceReservationPlanOutput) SetMaxTaskLifetimeSeconds(v int64) *ReservationConfigForGetResourceReservationPlanOutput {
+	s.MaxTaskLifetimeSeconds = &v
+	return s
+}
+
+// SetMinContinuousResourceDurationSeconds sets the MinContinuousResourceDurationSeconds field's value.
+func (s *ReservationConfigForGetResourceReservationPlanOutput) SetMinContinuousResourceDurationSeconds(v int64) *ReservationConfigForGetResourceReservationPlanOutput {
+	s.MinContinuousResourceDurationSeconds = &v
 	return s
 }
 

@@ -143,6 +143,36 @@ func (c *MLPLATFORM20240701) UpdateResourceReservationPlanWithContext(ctx volcen
 	return out, req.Send()
 }
 
+type MatchingReservationPlanTimeConfigForUpdateResourceReservationPlanInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	MaxTaskLifetimeSeconds *int64 `type:"int64" json:",omitempty"`
+
+	MinContinuousResourceDurationSeconds *int64 `type:"int64" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s MatchingReservationPlanTimeConfigForUpdateResourceReservationPlanInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s MatchingReservationPlanTimeConfigForUpdateResourceReservationPlanInput) GoString() string {
+	return s.String()
+}
+
+// SetMaxTaskLifetimeSeconds sets the MaxTaskLifetimeSeconds field's value.
+func (s *MatchingReservationPlanTimeConfigForUpdateResourceReservationPlanInput) SetMaxTaskLifetimeSeconds(v int64) *MatchingReservationPlanTimeConfigForUpdateResourceReservationPlanInput {
+	s.MaxTaskLifetimeSeconds = &v
+	return s
+}
+
+// SetMinContinuousResourceDurationSeconds sets the MinContinuousResourceDurationSeconds field's value.
+func (s *MatchingReservationPlanTimeConfigForUpdateResourceReservationPlanInput) SetMinContinuousResourceDurationSeconds(v int64) *MatchingReservationPlanTimeConfigForUpdateResourceReservationPlanInput {
+	s.MinContinuousResourceDurationSeconds = &v
+	return s
+}
+
 type ScheduleConfigForUpdateResourceReservationPlanInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -235,6 +265,8 @@ type UpdateResourceReservationPlanInput struct {
 	// Id is a required field
 	Id *string `type:"string" json:",omitempty" required:"true"`
 
+	MatchingReservationPlanTimeConfig *MatchingReservationPlanTimeConfigForUpdateResourceReservationPlanInput `type:"structure" json:",omitempty"`
+
 	Name *string `min:"1" max:"200" type:"string" json:",omitempty"`
 
 	ScheduleConfig *ScheduleConfigForUpdateResourceReservationPlanInput `type:"structure" json:",omitempty"`
@@ -296,6 +328,12 @@ func (s *UpdateResourceReservationPlanInput) SetDryRun(v bool) *UpdateResourceRe
 // SetId sets the Id field's value.
 func (s *UpdateResourceReservationPlanInput) SetId(v string) *UpdateResourceReservationPlanInput {
 	s.Id = &v
+	return s
+}
+
+// SetMatchingReservationPlanTimeConfig sets the MatchingReservationPlanTimeConfig field's value.
+func (s *UpdateResourceReservationPlanInput) SetMatchingReservationPlanTimeConfig(v *MatchingReservationPlanTimeConfigForUpdateResourceReservationPlanInput) *UpdateResourceReservationPlanInput {
+	s.MatchingReservationPlanTimeConfig = v
 	return s
 }
 
