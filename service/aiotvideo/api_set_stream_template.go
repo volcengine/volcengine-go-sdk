@@ -146,8 +146,6 @@ func (c *AIOTVIDEO) SetStreamTemplateWithContext(ctx volcengine.Context, input *
 type SetStreamTemplateInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	SpaceID *string `type:"string" json:",omitempty"`
-
 	// StreamID is a required field
 	StreamID *string `type:"string" json:",omitempty" required:"true"`
 
@@ -179,12 +177,6 @@ func (s *SetStreamTemplateInput) Validate() error {
 		return invalidParams
 	}
 	return nil
-}
-
-// SetSpaceID sets the SpaceID field's value.
-func (s *SetStreamTemplateInput) SetSpaceID(v string) *SetStreamTemplateInput {
-	s.SpaceID = &v
-	return s
 }
 
 // SetStreamID sets the StreamID field's value.

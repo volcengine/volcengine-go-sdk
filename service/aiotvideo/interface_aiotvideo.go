@@ -19,7 +19,7 @@ import (
 //    // volcengine sdk func uses an SDK service client to make a request to
 //    // AIOTVIDEO.
 //    func myFunc(svc AIOTVIDEOAPI) bool {
-//        // Make svc.CancelStreamTemplate request
+//        // Make svc.CancelBindTemplate request
 //    }
 //
 //    func main() {
@@ -30,6 +30,14 @@ import (
 //    }
 //
 type AIOTVIDEOAPI interface {
+	CancelBindTemplateCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CancelBindTemplateCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CancelBindTemplateCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CancelBindTemplate(*CancelBindTemplateInput) (*CancelBindTemplateOutput, error)
+	CancelBindTemplateWithContext(volcengine.Context, *CancelBindTemplateInput, ...request.Option) (*CancelBindTemplateOutput, error)
+	CancelBindTemplateRequest(*CancelBindTemplateInput) (*request.Request, *CancelBindTemplateOutput)
+
 	CancelStreamTemplateCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	CancelStreamTemplateCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	CancelStreamTemplateCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -46,13 +54,21 @@ type AIOTVIDEOAPI interface {
 	CreateDeviceWithContext(volcengine.Context, *CreateDeviceInput, ...request.Option) (*CreateDeviceOutput, error)
 	CreateDeviceRequest(*CreateDeviceInput) (*request.Request, *CreateDeviceOutput)
 
-	CreateRecordPlanCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	CreateRecordPlanCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	CreateRecordPlanCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+	CreateScreenshotTemplateCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateScreenshotTemplateCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateScreenshotTemplateCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
 
-	CreateRecordPlan(*CreateRecordPlanInput) (*CreateRecordPlanOutput, error)
-	CreateRecordPlanWithContext(volcengine.Context, *CreateRecordPlanInput, ...request.Option) (*CreateRecordPlanOutput, error)
-	CreateRecordPlanRequest(*CreateRecordPlanInput) (*request.Request, *CreateRecordPlanOutput)
+	CreateScreenshotTemplate(*CreateScreenshotTemplateInput) (*CreateScreenshotTemplateOutput, error)
+	CreateScreenshotTemplateWithContext(volcengine.Context, *CreateScreenshotTemplateInput, ...request.Option) (*CreateScreenshotTemplateOutput, error)
+	CreateScreenshotTemplateRequest(*CreateScreenshotTemplateInput) (*request.Request, *CreateScreenshotTemplateOutput)
+
+	CreateSpaceCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateSpaceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateSpaceCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateSpace(*CreateSpaceInput) (*CreateSpaceOutput, error)
+	CreateSpaceWithContext(volcengine.Context, *CreateSpaceInput, ...request.Option) (*CreateSpaceOutput, error)
+	CreateSpaceRequest(*CreateSpaceInput) (*request.Request, *CreateSpaceOutput)
 
 	CreateStreamCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	CreateStreamCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -70,13 +86,13 @@ type AIOTVIDEOAPI interface {
 	DeleteDeviceWithContext(volcengine.Context, *DeleteDeviceInput, ...request.Option) (*DeleteDeviceOutput, error)
 	DeleteDeviceRequest(*DeleteDeviceInput) (*request.Request, *DeleteDeviceOutput)
 
-	DeleteRecordPlanCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	DeleteRecordPlanCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	DeleteRecordPlanCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+	DeleteScreenshotTemplateCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeleteScreenshotTemplateCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeleteScreenshotTemplateCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
 
-	DeleteRecordPlan(*DeleteRecordPlanInput) (*DeleteRecordPlanOutput, error)
-	DeleteRecordPlanWithContext(volcengine.Context, *DeleteRecordPlanInput, ...request.Option) (*DeleteRecordPlanOutput, error)
-	DeleteRecordPlanRequest(*DeleteRecordPlanInput) (*request.Request, *DeleteRecordPlanOutput)
+	DeleteScreenshotTemplate(*DeleteScreenshotTemplateInput) (*DeleteScreenshotTemplateOutput, error)
+	DeleteScreenshotTemplateWithContext(volcengine.Context, *DeleteScreenshotTemplateInput, ...request.Option) (*DeleteScreenshotTemplateOutput, error)
+	DeleteScreenshotTemplateRequest(*DeleteScreenshotTemplateInput) (*request.Request, *DeleteScreenshotTemplateOutput)
 
 	DeleteSpaceCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DeleteSpaceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -109,14 +125,6 @@ type AIOTVIDEOAPI interface {
 	FreshDevice(*FreshDeviceInput) (*FreshDeviceOutput, error)
 	FreshDeviceWithContext(volcengine.Context, *FreshDeviceInput, ...request.Option) (*FreshDeviceOutput, error)
 	FreshDeviceRequest(*FreshDeviceInput) (*request.Request, *FreshDeviceOutput)
-
-	GenSipIDCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	GenSipIDCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	GenSipIDCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	GenSipID(*GenSipIDInput) (*GenSipIDOutput, error)
-	GenSipIDWithContext(volcengine.Context, *GenSipIDInput, ...request.Option) (*GenSipIDOutput, error)
-	GenSipIDRequest(*GenSipIDInput) (*request.Request, *GenSipIDOutput)
 
 	GetDataProjectWithBindWidthAndFlowCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	GetDataProjectWithBindWidthAndFlowCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -158,13 +166,13 @@ type AIOTVIDEOAPI interface {
 	GetPushStreamCntWithContext(volcengine.Context, *GetPushStreamCntInput, ...request.Option) (*GetPushStreamCntOutput, error)
 	GetPushStreamCntRequest(*GetPushStreamCntInput) (*request.Request, *GetPushStreamCntOutput)
 
-	GetRecordPlanCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	GetRecordPlanCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	GetRecordPlanCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+	GetScreenshotTemplateCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	GetScreenshotTemplateCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	GetScreenshotTemplateCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
 
-	GetRecordPlan(*GetRecordPlanInput) (*GetRecordPlanOutput, error)
-	GetRecordPlanWithContext(volcengine.Context, *GetRecordPlanInput, ...request.Option) (*GetRecordPlanOutput, error)
-	GetRecordPlanRequest(*GetRecordPlanInput) (*request.Request, *GetRecordPlanOutput)
+	GetScreenshotTemplate(*GetScreenshotTemplateInput) (*GetScreenshotTemplateOutput, error)
+	GetScreenshotTemplateWithContext(volcengine.Context, *GetScreenshotTemplateInput, ...request.Option) (*GetScreenshotTemplateOutput, error)
+	GetScreenshotTemplateRequest(*GetScreenshotTemplateInput) (*request.Request, *GetScreenshotTemplateOutput)
 
 	GetSpaceCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	GetSpaceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -173,6 +181,14 @@ type AIOTVIDEOAPI interface {
 	GetSpace(*GetSpaceInput) (*GetSpaceOutput, error)
 	GetSpaceWithContext(volcengine.Context, *GetSpaceInput, ...request.Option) (*GetSpaceOutput, error)
 	GetSpaceRequest(*GetSpaceInput) (*request.Request, *GetSpaceOutput)
+
+	GetSpaceTemplateCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	GetSpaceTemplateCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	GetSpaceTemplateCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	GetSpaceTemplate(*GetSpaceTemplateInput) (*GetSpaceTemplateOutput, error)
+	GetSpaceTemplateWithContext(volcengine.Context, *GetSpaceTemplateInput, ...request.Option) (*GetSpaceTemplateOutput, error)
+	GetSpaceTemplateRequest(*GetSpaceTemplateInput) (*request.Request, *GetSpaceTemplateOutput)
 
 	GetStreamCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	GetStreamCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -198,13 +214,13 @@ type AIOTVIDEOAPI interface {
 	GetStreamRecordWithContext(volcengine.Context, *GetStreamRecordInput, ...request.Option) (*GetStreamRecordOutput, error)
 	GetStreamRecordRequest(*GetStreamRecordInput) (*request.Request, *GetStreamRecordOutput)
 
-	GetTotalDataCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	GetTotalDataCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	GetTotalDataCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+	ListDeviceScreenshotsV2Common(*map[string]interface{}) (*map[string]interface{}, error)
+	ListDeviceScreenshotsV2CommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListDeviceScreenshotsV2CommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
 
-	GetTotalData(*GetTotalDataInput) (*GetTotalDataOutput, error)
-	GetTotalDataWithContext(volcengine.Context, *GetTotalDataInput, ...request.Option) (*GetTotalDataOutput, error)
-	GetTotalDataRequest(*GetTotalDataInput) (*request.Request, *GetTotalDataOutput)
+	ListDeviceScreenshotsV2(*ListDeviceScreenshotsV2Input) (*ListDeviceScreenshotsV2Output, error)
+	ListDeviceScreenshotsV2WithContext(volcengine.Context, *ListDeviceScreenshotsV2Input, ...request.Option) (*ListDeviceScreenshotsV2Output, error)
+	ListDeviceScreenshotsV2Request(*ListDeviceScreenshotsV2Input) (*request.Request, *ListDeviceScreenshotsV2Output)
 
 	ListDevicesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ListDevicesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -214,21 +230,13 @@ type AIOTVIDEOAPI interface {
 	ListDevicesWithContext(volcengine.Context, *ListDevicesInput, ...request.Option) (*ListDevicesOutput, error)
 	ListDevicesRequest(*ListDevicesInput) (*request.Request, *ListDevicesOutput)
 
-	ListRecordPlanChannelsCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	ListRecordPlanChannelsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	ListRecordPlanChannelsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+	ListScreenshotTemplatesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListScreenshotTemplatesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListScreenshotTemplatesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
 
-	ListRecordPlanChannels(*ListRecordPlanChannelsInput) (*ListRecordPlanChannelsOutput, error)
-	ListRecordPlanChannelsWithContext(volcengine.Context, *ListRecordPlanChannelsInput, ...request.Option) (*ListRecordPlanChannelsOutput, error)
-	ListRecordPlanChannelsRequest(*ListRecordPlanChannelsInput) (*request.Request, *ListRecordPlanChannelsOutput)
-
-	ListRecordPlansCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	ListRecordPlansCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	ListRecordPlansCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	ListRecordPlans(*ListRecordPlansInput) (*ListRecordPlansOutput, error)
-	ListRecordPlansWithContext(volcengine.Context, *ListRecordPlansInput, ...request.Option) (*ListRecordPlansOutput, error)
-	ListRecordPlansRequest(*ListRecordPlansInput) (*request.Request, *ListRecordPlansOutput)
+	ListScreenshotTemplates(*ListScreenshotTemplatesInput) (*ListScreenshotTemplatesOutput, error)
+	ListScreenshotTemplatesWithContext(volcengine.Context, *ListScreenshotTemplatesInput, ...request.Option) (*ListScreenshotTemplatesOutput, error)
+	ListScreenshotTemplatesRequest(*ListScreenshotTemplatesInput) (*request.Request, *ListScreenshotTemplatesOutput)
 
 	ListSpacesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ListSpacesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -246,6 +254,14 @@ type AIOTVIDEOAPI interface {
 	ListStreamsWithContext(volcengine.Context, *ListStreamsInput, ...request.Option) (*ListStreamsOutput, error)
 	ListStreamsRequest(*ListStreamsInput) (*request.Request, *ListStreamsOutput)
 
+	SetSpaceTemplateCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	SetSpaceTemplateCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	SetSpaceTemplateCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	SetSpaceTemplate(*SetSpaceTemplateInput) (*SetSpaceTemplateOutput, error)
+	SetSpaceTemplateWithContext(volcengine.Context, *SetSpaceTemplateInput, ...request.Option) (*SetSpaceTemplateOutput, error)
+	SetSpaceTemplateRequest(*SetSpaceTemplateInput) (*request.Request, *SetSpaceTemplateOutput)
+
 	SetStreamTemplateCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	SetStreamTemplateCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	SetStreamTemplateCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -253,6 +269,14 @@ type AIOTVIDEOAPI interface {
 	SetStreamTemplate(*SetStreamTemplateInput) (*SetStreamTemplateOutput, error)
 	SetStreamTemplateWithContext(volcengine.Context, *SetStreamTemplateInput, ...request.Option) (*SetStreamTemplateOutput, error)
 	SetStreamTemplateRequest(*SetStreamTemplateInput) (*request.Request, *SetStreamTemplateOutput)
+
+	StartSpaceCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	StartSpaceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	StartSpaceCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	StartSpace(*StartSpaceInput) (*StartSpaceOutput, error)
+	StartSpaceWithContext(volcengine.Context, *StartSpaceInput, ...request.Option) (*StartSpaceOutput, error)
+	StartSpaceRequest(*StartSpaceInput) (*request.Request, *StartSpaceOutput)
 
 	StartStreamCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	StartStreamCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -277,6 +301,14 @@ type AIOTVIDEOAPI interface {
 	StatStream(*StatStreamInput) (*StatStreamOutput, error)
 	StatStreamWithContext(volcengine.Context, *StatStreamInput, ...request.Option) (*StatStreamOutput, error)
 	StatStreamRequest(*StatStreamInput) (*request.Request, *StatStreamOutput)
+
+	StopSpaceCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	StopSpaceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	StopSpaceCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	StopSpace(*StopSpaceInput) (*StopSpaceOutput, error)
+	StopSpaceWithContext(volcengine.Context, *StopSpaceInput, ...request.Option) (*StopSpaceOutput, error)
+	StopSpaceRequest(*StopSpaceInput) (*request.Request, *StopSpaceOutput)
 
 	StopStreamCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	StopStreamCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -317,14 +349,6 @@ type AIOTVIDEOAPI interface {
 	UpdateDevice(*UpdateDeviceInput) (*UpdateDeviceOutput, error)
 	UpdateDeviceWithContext(volcengine.Context, *UpdateDeviceInput, ...request.Option) (*UpdateDeviceOutput, error)
 	UpdateDeviceRequest(*UpdateDeviceInput) (*request.Request, *UpdateDeviceOutput)
-
-	UpdateRecordPlanCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	UpdateRecordPlanCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	UpdateRecordPlanCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	UpdateRecordPlan(*UpdateRecordPlanInput) (*UpdateRecordPlanOutput, error)
-	UpdateRecordPlanWithContext(volcengine.Context, *UpdateRecordPlanInput, ...request.Option) (*UpdateRecordPlanOutput, error)
-	UpdateRecordPlanRequest(*UpdateRecordPlanInput) (*request.Request, *UpdateRecordPlanOutput)
 
 	UpdateSpaceCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	UpdateSpaceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)

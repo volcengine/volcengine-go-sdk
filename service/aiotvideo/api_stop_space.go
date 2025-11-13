@@ -9,29 +9,29 @@ import (
 	"github.com/volcengine/volcengine-go-sdk/volcengine/volcengineutil"
 )
 
-const opDeleteSpaceCommon = "DeleteSpace"
+const opStopSpaceCommon = "StopSpace"
 
-// DeleteSpaceCommonRequest generates a "volcengine/request.Request" representing the
-// client's request for the DeleteSpaceCommon operation. The "output" return
-// value will be populated with the DeleteSpaceCommon request's response once the request completes
+// StopSpaceCommonRequest generates a "volcengine/request.Request" representing the
+// client's request for the StopSpaceCommon operation. The "output" return
+// value will be populated with the StopSpaceCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned DeleteSpaceCommon Request to send the API call to the service.
-// the "output" return value is not valid until after DeleteSpaceCommon Send returns without error.
+// Use "Send" method on the returned StopSpaceCommon Request to send the API call to the service.
+// the "output" return value is not valid until after StopSpaceCommon Send returns without error.
 //
-// See DeleteSpaceCommon for more information on using the DeleteSpaceCommon
+// See StopSpaceCommon for more information on using the StopSpaceCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the DeleteSpaceCommonRequest method.
-//    req, resp := client.DeleteSpaceCommonRequest(params)
+//    // Example sending a request using the StopSpaceCommonRequest method.
+//    req, resp := client.StopSpaceCommonRequest(params)
 //
 //    err := req.Send()
 //    if err == nil { // resp is now filled
 //        fmt.Println(resp)
 //    }
-func (c *AIOTVIDEO) DeleteSpaceCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
+func (c *AIOTVIDEO) StopSpaceCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
-		Name:       opDeleteSpaceCommon,
+		Name:       opStopSpaceCommon,
 		HTTPMethod: "POST",
 		HTTPPath:   "/",
 	}
@@ -48,66 +48,66 @@ func (c *AIOTVIDEO) DeleteSpaceCommonRequest(input *map[string]interface{}) (req
 	return
 }
 
-// DeleteSpaceCommon API operation for AIOTVIDEO.
+// StopSpaceCommon API operation for AIOTVIDEO.
 //
 // Returns volcengineerr.Error for service API and SDK errors. Use runtime type assertions
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
 // See the VOLCENGINE API reference guide for AIOTVIDEO's
-// API operation DeleteSpaceCommon for usage and error information.
-func (c *AIOTVIDEO) DeleteSpaceCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
-	req, out := c.DeleteSpaceCommonRequest(input)
+// API operation StopSpaceCommon for usage and error information.
+func (c *AIOTVIDEO) StopSpaceCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
+	req, out := c.StopSpaceCommonRequest(input)
 	return out, req.Send()
 }
 
-// DeleteSpaceCommonWithContext is the same as DeleteSpaceCommon with the addition of
+// StopSpaceCommonWithContext is the same as StopSpaceCommon with the addition of
 // the ability to pass a context and additional request options.
 //
-// See DeleteSpaceCommon for details on how to use this API operation.
+// See StopSpaceCommon for details on how to use this API operation.
 //
 // The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
 // In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
-func (c *AIOTVIDEO) DeleteSpaceCommonWithContext(ctx volcengine.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
-	req, out := c.DeleteSpaceCommonRequest(input)
+func (c *AIOTVIDEO) StopSpaceCommonWithContext(ctx volcengine.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
+	req, out := c.StopSpaceCommonRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
 	return out, req.Send()
 }
 
-const opDeleteSpace = "DeleteSpace"
+const opStopSpace = "StopSpace"
 
-// DeleteSpaceRequest generates a "volcengine/request.Request" representing the
-// client's request for the DeleteSpace operation. The "output" return
-// value will be populated with the DeleteSpaceCommon request's response once the request completes
+// StopSpaceRequest generates a "volcengine/request.Request" representing the
+// client's request for the StopSpace operation. The "output" return
+// value will be populated with the StopSpaceCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned DeleteSpaceCommon Request to send the API call to the service.
-// the "output" return value is not valid until after DeleteSpaceCommon Send returns without error.
+// Use "Send" method on the returned StopSpaceCommon Request to send the API call to the service.
+// the "output" return value is not valid until after StopSpaceCommon Send returns without error.
 //
-// See DeleteSpace for more information on using the DeleteSpace
+// See StopSpace for more information on using the StopSpace
 // API call, and error handling.
 //
-//    // Example sending a request using the DeleteSpaceRequest method.
-//    req, resp := client.DeleteSpaceRequest(params)
+//    // Example sending a request using the StopSpaceRequest method.
+//    req, resp := client.StopSpaceRequest(params)
 //
 //    err := req.Send()
 //    if err == nil { // resp is now filled
 //        fmt.Println(resp)
 //    }
-func (c *AIOTVIDEO) DeleteSpaceRequest(input *DeleteSpaceInput) (req *request.Request, output *DeleteSpaceOutput) {
+func (c *AIOTVIDEO) StopSpaceRequest(input *StopSpaceInput) (req *request.Request, output *StopSpaceOutput) {
 	op := &request.Operation{
-		Name:       opDeleteSpace,
+		Name:       opStopSpace,
 		HTTPMethod: "POST",
 		HTTPPath:   "/",
 	}
 
 	if input == nil {
-		input = &DeleteSpaceInput{}
+		input = &StopSpaceInput{}
 	}
 
-	output = &DeleteSpaceOutput{}
+	output = &StopSpaceOutput{}
 	req = c.newRequest(op, input, output)
 
 	req.HTTPRequest.Header.Set("Content-Type", "application/json; charset=utf-8")
@@ -115,35 +115,35 @@ func (c *AIOTVIDEO) DeleteSpaceRequest(input *DeleteSpaceInput) (req *request.Re
 	return
 }
 
-// DeleteSpace API operation for AIOTVIDEO.
+// StopSpace API operation for AIOTVIDEO.
 //
 // Returns volcengineerr.Error for service API and SDK errors. Use runtime type assertions
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
 // See the VOLCENGINE API reference guide for AIOTVIDEO's
-// API operation DeleteSpace for usage and error information.
-func (c *AIOTVIDEO) DeleteSpace(input *DeleteSpaceInput) (*DeleteSpaceOutput, error) {
-	req, out := c.DeleteSpaceRequest(input)
+// API operation StopSpace for usage and error information.
+func (c *AIOTVIDEO) StopSpace(input *StopSpaceInput) (*StopSpaceOutput, error) {
+	req, out := c.StopSpaceRequest(input)
 	return out, req.Send()
 }
 
-// DeleteSpaceWithContext is the same as DeleteSpace with the addition of
+// StopSpaceWithContext is the same as StopSpace with the addition of
 // the ability to pass a context and additional request options.
 //
-// See DeleteSpace for details on how to use this API operation.
+// See StopSpace for details on how to use this API operation.
 //
 // The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
 // In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
-func (c *AIOTVIDEO) DeleteSpaceWithContext(ctx volcengine.Context, input *DeleteSpaceInput, opts ...request.Option) (*DeleteSpaceOutput, error) {
-	req, out := c.DeleteSpaceRequest(input)
+func (c *AIOTVIDEO) StopSpaceWithContext(ctx volcengine.Context, input *StopSpaceInput, opts ...request.Option) (*StopSpaceOutput, error) {
+	req, out := c.StopSpaceRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
 	return out, req.Send()
 }
 
-type DeleteSpaceInput struct {
+type StopSpaceInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
 	// SpaceID is a required field
@@ -151,18 +151,18 @@ type DeleteSpaceInput struct {
 }
 
 // String returns the string representation
-func (s DeleteSpaceInput) String() string {
+func (s StopSpaceInput) String() string {
 	return volcengineutil.Prettify(s)
 }
 
 // GoString returns the string representation
-func (s DeleteSpaceInput) GoString() string {
+func (s StopSpaceInput) GoString() string {
 	return s.String()
 }
 
 // Validate inspects the fields of the type to determine if they are valid.
-func (s *DeleteSpaceInput) Validate() error {
-	invalidParams := request.ErrInvalidParams{Context: "DeleteSpaceInput"}
+func (s *StopSpaceInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "StopSpaceInput"}
 	if s.SpaceID == nil {
 		invalidParams.Add(request.NewErrParamRequired("SpaceID"))
 	}
@@ -174,12 +174,12 @@ func (s *DeleteSpaceInput) Validate() error {
 }
 
 // SetSpaceID sets the SpaceID field's value.
-func (s *DeleteSpaceInput) SetSpaceID(v string) *DeleteSpaceInput {
+func (s *StopSpaceInput) SetSpaceID(v string) *StopSpaceInput {
 	s.SpaceID = &v
 	return s
 }
 
-type DeleteSpaceOutput struct {
+type StopSpaceOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
@@ -188,17 +188,17 @@ type DeleteSpaceOutput struct {
 }
 
 // String returns the string representation
-func (s DeleteSpaceOutput) String() string {
+func (s StopSpaceOutput) String() string {
 	return volcengineutil.Prettify(s)
 }
 
 // GoString returns the string representation
-func (s DeleteSpaceOutput) GoString() string {
+func (s StopSpaceOutput) GoString() string {
 	return s.String()
 }
 
 // SetID sets the ID field's value.
-func (s *DeleteSpaceOutput) SetID(v string) *DeleteSpaceOutput {
+func (s *StopSpaceOutput) SetID(v string) *StopSpaceOutput {
 	s.ID = &v
 	return s
 }
