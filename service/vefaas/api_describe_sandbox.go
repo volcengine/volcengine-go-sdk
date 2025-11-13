@@ -224,8 +224,6 @@ type DescribeSandboxOutput struct {
 
 	MemoryMB *int32 `type:"int32" json:",omitempty"`
 
-	Metadata map[string]*string `type:"map" json:",omitempty"`
-
 	MetadataList []*MetadataListForDescribeSandboxOutput `type:"list" json:",omitempty"`
 
 	Pending *bool `type:"boolean" json:",omitempty"`
@@ -328,12 +326,6 @@ func (s *DescribeSandboxOutput) SetMaxConcurrency(v int32) *DescribeSandboxOutpu
 // SetMemoryMB sets the MemoryMB field's value.
 func (s *DescribeSandboxOutput) SetMemoryMB(v int32) *DescribeSandboxOutput {
 	s.MemoryMB = &v
-	return s
-}
-
-// SetMetadata sets the Metadata field's value.
-func (s *DescribeSandboxOutput) SetMetadata(v map[string]*string) *DescribeSandboxOutput {
-	s.Metadata = v
 	return s
 }
 
