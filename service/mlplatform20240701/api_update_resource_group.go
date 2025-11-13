@@ -214,11 +214,21 @@ func (s *ResourceConfigForUpdateResourceGroupInput) SetVolumeResources(v []*Volu
 type SfcsForUpdateResourceGroupInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	Description *string `type:"string" json:",omitempty"`
-
-	Name *string `type:"string" json:",omitempty"`
-
 	Replicas *int64 `type:"int64" json:",omitempty"`
+
+	SfcsDescription *string `type:"string" json:",omitempty"`
+
+	SfcsExisted *bool `type:"boolean" json:",omitempty"`
+
+	SfcsId *string `type:"string" json:",omitempty"`
+
+	SfcsName *string `type:"string" json:",omitempty"`
+
+	SfcsResourceGroupId *string `type:"string" json:",omitempty"`
+
+	SfcsStatus *string `type:"string" json:",omitempty"`
+
+	SfcsZoneId *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -231,21 +241,51 @@ func (s SfcsForUpdateResourceGroupInput) GoString() string {
 	return s.String()
 }
 
-// SetDescription sets the Description field's value.
-func (s *SfcsForUpdateResourceGroupInput) SetDescription(v string) *SfcsForUpdateResourceGroupInput {
-	s.Description = &v
-	return s
-}
-
-// SetName sets the Name field's value.
-func (s *SfcsForUpdateResourceGroupInput) SetName(v string) *SfcsForUpdateResourceGroupInput {
-	s.Name = &v
-	return s
-}
-
 // SetReplicas sets the Replicas field's value.
 func (s *SfcsForUpdateResourceGroupInput) SetReplicas(v int64) *SfcsForUpdateResourceGroupInput {
 	s.Replicas = &v
+	return s
+}
+
+// SetSfcsDescription sets the SfcsDescription field's value.
+func (s *SfcsForUpdateResourceGroupInput) SetSfcsDescription(v string) *SfcsForUpdateResourceGroupInput {
+	s.SfcsDescription = &v
+	return s
+}
+
+// SetSfcsExisted sets the SfcsExisted field's value.
+func (s *SfcsForUpdateResourceGroupInput) SetSfcsExisted(v bool) *SfcsForUpdateResourceGroupInput {
+	s.SfcsExisted = &v
+	return s
+}
+
+// SetSfcsId sets the SfcsId field's value.
+func (s *SfcsForUpdateResourceGroupInput) SetSfcsId(v string) *SfcsForUpdateResourceGroupInput {
+	s.SfcsId = &v
+	return s
+}
+
+// SetSfcsName sets the SfcsName field's value.
+func (s *SfcsForUpdateResourceGroupInput) SetSfcsName(v string) *SfcsForUpdateResourceGroupInput {
+	s.SfcsName = &v
+	return s
+}
+
+// SetSfcsResourceGroupId sets the SfcsResourceGroupId field's value.
+func (s *SfcsForUpdateResourceGroupInput) SetSfcsResourceGroupId(v string) *SfcsForUpdateResourceGroupInput {
+	s.SfcsResourceGroupId = &v
+	return s
+}
+
+// SetSfcsStatus sets the SfcsStatus field's value.
+func (s *SfcsForUpdateResourceGroupInput) SetSfcsStatus(v string) *SfcsForUpdateResourceGroupInput {
+	s.SfcsStatus = &v
+	return s
+}
+
+// SetSfcsZoneId sets the SfcsZoneId field's value.
+func (s *SfcsForUpdateResourceGroupInput) SetSfcsZoneId(v string) *SfcsForUpdateResourceGroupInput {
+	s.SfcsZoneId = &v
 	return s
 }
 
@@ -292,6 +332,8 @@ type StorageNetworkConfigForUpdateResourceGroupInput struct {
 
 	SecurityGroupIds []*string `type:"list" json:",omitempty"`
 
+	SubnetId *string `type:"string" json:",omitempty"`
+
 	SubnetIds []*string `type:"list" json:",omitempty"`
 
 	VpcId *string `type:"string" json:",omitempty"`
@@ -310,6 +352,12 @@ func (s StorageNetworkConfigForUpdateResourceGroupInput) GoString() string {
 // SetSecurityGroupIds sets the SecurityGroupIds field's value.
 func (s *StorageNetworkConfigForUpdateResourceGroupInput) SetSecurityGroupIds(v []*string) *StorageNetworkConfigForUpdateResourceGroupInput {
 	s.SecurityGroupIds = v
+	return s
+}
+
+// SetSubnetId sets the SubnetId field's value.
+func (s *StorageNetworkConfigForUpdateResourceGroupInput) SetSubnetId(v string) *StorageNetworkConfigForUpdateResourceGroupInput {
+	s.SubnetId = &v
 	return s
 }
 
@@ -448,11 +496,17 @@ func (s *UpdateResourceGroupOutput) SetId(v string) *UpdateResourceGroupOutput {
 type VepfsForUpdateResourceGroupInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	AvailableNum *int32 `type:"int32" json:",omitempty"`
+
 	EnablePrefetch *bool `type:"boolean" json:",omitempty"`
 
 	FileSystemIds []*string `type:"list" json:",omitempty"`
 
 	MountServiceId *string `type:"string" json:",omitempty"`
+
+	TotalNum *int32 `type:"int32" json:",omitempty"`
+
+	UnavailableNum *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -463,6 +517,12 @@ func (s VepfsForUpdateResourceGroupInput) String() string {
 // GoString returns the string representation
 func (s VepfsForUpdateResourceGroupInput) GoString() string {
 	return s.String()
+}
+
+// SetAvailableNum sets the AvailableNum field's value.
+func (s *VepfsForUpdateResourceGroupInput) SetAvailableNum(v int32) *VepfsForUpdateResourceGroupInput {
+	s.AvailableNum = &v
+	return s
 }
 
 // SetEnablePrefetch sets the EnablePrefetch field's value.
@@ -480,6 +540,18 @@ func (s *VepfsForUpdateResourceGroupInput) SetFileSystemIds(v []*string) *VepfsF
 // SetMountServiceId sets the MountServiceId field's value.
 func (s *VepfsForUpdateResourceGroupInput) SetMountServiceId(v string) *VepfsForUpdateResourceGroupInput {
 	s.MountServiceId = &v
+	return s
+}
+
+// SetTotalNum sets the TotalNum field's value.
+func (s *VepfsForUpdateResourceGroupInput) SetTotalNum(v int32) *VepfsForUpdateResourceGroupInput {
+	s.TotalNum = &v
+	return s
+}
+
+// SetUnavailableNum sets the UnavailableNum field's value.
+func (s *VepfsForUpdateResourceGroupInput) SetUnavailableNum(v int32) *VepfsForUpdateResourceGroupInput {
+	s.UnavailableNum = &v
 	return s
 }
 
@@ -526,6 +598,8 @@ type WorkloadNetworkConfigForUpdateResourceGroupInput struct {
 
 	SecurityGroupIds []*string `type:"list" json:",omitempty"`
 
+	SubnetId *string `type:"string" json:",omitempty"`
+
 	SubnetIds []*string `type:"list" json:",omitempty"`
 
 	VpcId *string `type:"string" json:",omitempty"`
@@ -544,6 +618,12 @@ func (s WorkloadNetworkConfigForUpdateResourceGroupInput) GoString() string {
 // SetSecurityGroupIds sets the SecurityGroupIds field's value.
 func (s *WorkloadNetworkConfigForUpdateResourceGroupInput) SetSecurityGroupIds(v []*string) *WorkloadNetworkConfigForUpdateResourceGroupInput {
 	s.SecurityGroupIds = v
+	return s
+}
+
+// SetSubnetId sets the SubnetId field's value.
+func (s *WorkloadNetworkConfigForUpdateResourceGroupInput) SetSubnetId(v string) *WorkloadNetworkConfigForUpdateResourceGroupInput {
+	s.SubnetId = &v
 	return s
 }
 

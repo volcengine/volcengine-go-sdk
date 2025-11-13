@@ -192,7 +192,7 @@ func (s *FiltersForListWorkspacesInput) SetStatuses(v []*string) *FiltersForList
 type ItemForListWorkspacesOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	AccountId *int32 `type:"int32" json:",omitempty"`
+	AccountId *int64 `type:"int64" json:",omitempty"`
 
 	AccountName *string `type:"string" json:",omitempty"`
 
@@ -212,9 +212,15 @@ type ItemForListWorkspacesOutput struct {
 
 	ProjectName *string `type:"string" json:",omitempty"`
 
+	PrometheusPushEndpoint *string `type:"string" json:",omitempty"`
+
 	PrometheusPushIntranetEndpoint *string `type:"string" json:",omitempty"`
 
+	PrometheusQueryEndpoint *string `type:"string" json:",omitempty"`
+
 	PrometheusQueryIntranetEndpoint *string `type:"string" json:",omitempty"`
+
+	PrometheusWriteEndpoint *string `type:"string" json:",omitempty"`
 
 	PrometheusWriteIntranetEndpoint *string `type:"string" json:",omitempty"`
 
@@ -242,7 +248,7 @@ func (s ItemForListWorkspacesOutput) GoString() string {
 }
 
 // SetAccountId sets the AccountId field's value.
-func (s *ItemForListWorkspacesOutput) SetAccountId(v int32) *ItemForListWorkspacesOutput {
+func (s *ItemForListWorkspacesOutput) SetAccountId(v int64) *ItemForListWorkspacesOutput {
 	s.AccountId = &v
 	return s
 }
@@ -301,15 +307,33 @@ func (s *ItemForListWorkspacesOutput) SetProjectName(v string) *ItemForListWorks
 	return s
 }
 
+// SetPrometheusPushEndpoint sets the PrometheusPushEndpoint field's value.
+func (s *ItemForListWorkspacesOutput) SetPrometheusPushEndpoint(v string) *ItemForListWorkspacesOutput {
+	s.PrometheusPushEndpoint = &v
+	return s
+}
+
 // SetPrometheusPushIntranetEndpoint sets the PrometheusPushIntranetEndpoint field's value.
 func (s *ItemForListWorkspacesOutput) SetPrometheusPushIntranetEndpoint(v string) *ItemForListWorkspacesOutput {
 	s.PrometheusPushIntranetEndpoint = &v
 	return s
 }
 
+// SetPrometheusQueryEndpoint sets the PrometheusQueryEndpoint field's value.
+func (s *ItemForListWorkspacesOutput) SetPrometheusQueryEndpoint(v string) *ItemForListWorkspacesOutput {
+	s.PrometheusQueryEndpoint = &v
+	return s
+}
+
 // SetPrometheusQueryIntranetEndpoint sets the PrometheusQueryIntranetEndpoint field's value.
 func (s *ItemForListWorkspacesOutput) SetPrometheusQueryIntranetEndpoint(v string) *ItemForListWorkspacesOutput {
 	s.PrometheusQueryIntranetEndpoint = &v
+	return s
+}
+
+// SetPrometheusWriteEndpoint sets the PrometheusWriteEndpoint field's value.
+func (s *ItemForListWorkspacesOutput) SetPrometheusWriteEndpoint(v string) *ItemForListWorkspacesOutput {
+	s.PrometheusWriteEndpoint = &v
 	return s
 }
 
@@ -366,6 +390,10 @@ type ListWorkspacesInput struct {
 
 	ProjectName *string `type:"string" json:",omitempty"`
 
+	ShowAggregateQueryWorkspaces *bool `type:"boolean" json:",omitempty"`
+
+	ShowExternalPromWorkspaces *bool `type:"boolean" json:",omitempty"`
+
 	TagFilters []*TagFilterForListWorkspacesInput `type:"list" json:",omitempty"`
 }
 
@@ -400,6 +428,18 @@ func (s *ListWorkspacesInput) SetPageSize(v int64) *ListWorkspacesInput {
 // SetProjectName sets the ProjectName field's value.
 func (s *ListWorkspacesInput) SetProjectName(v string) *ListWorkspacesInput {
 	s.ProjectName = &v
+	return s
+}
+
+// SetShowAggregateQueryWorkspaces sets the ShowAggregateQueryWorkspaces field's value.
+func (s *ListWorkspacesInput) SetShowAggregateQueryWorkspaces(v bool) *ListWorkspacesInput {
+	s.ShowAggregateQueryWorkspaces = &v
+	return s
+}
+
+// SetShowExternalPromWorkspaces sets the ShowExternalPromWorkspaces field's value.
+func (s *ListWorkspacesInput) SetShowExternalPromWorkspaces(v bool) *ListWorkspacesInput {
+	s.ShowExternalPromWorkspaces = &v
 	return s
 }
 

@@ -150,6 +150,8 @@ type EipForModifyScalingConfigurationInput struct {
 
 	ISP *string `type:"string"`
 
+	ReleaseWithInstance *bool `type:"boolean"`
+
 	SecurityProtectionInstanceId *int32 `type:"int32"`
 
 	SecurityProtectionTypes []*string `type:"list"`
@@ -186,6 +188,12 @@ func (s *EipForModifyScalingConfigurationInput) SetBillingType(v string) *EipFor
 // SetISP sets the ISP field's value.
 func (s *EipForModifyScalingConfigurationInput) SetISP(v string) *EipForModifyScalingConfigurationInput {
 	s.ISP = &v
+	return s
+}
+
+// SetReleaseWithInstance sets the ReleaseWithInstance field's value.
+func (s *EipForModifyScalingConfigurationInput) SetReleaseWithInstance(v bool) *EipForModifyScalingConfigurationInput {
+	s.ReleaseWithInstance = &v
 	return s
 }
 
@@ -462,6 +470,12 @@ type VolumeForModifyScalingConfigurationInput struct {
 
 	DeleteWithInstance *bool `type:"boolean"`
 
+	ExtraPerformanceIOPS *int32 `type:"int32"`
+
+	ExtraPerformanceThroughputMB *int32 `type:"int32"`
+
+	ExtraPerformanceTypeId *string `type:"string"`
+
 	Size *int32 `type:"int32"`
 
 	VolumeType *string `type:"string"`
@@ -480,6 +494,24 @@ func (s VolumeForModifyScalingConfigurationInput) GoString() string {
 // SetDeleteWithInstance sets the DeleteWithInstance field's value.
 func (s *VolumeForModifyScalingConfigurationInput) SetDeleteWithInstance(v bool) *VolumeForModifyScalingConfigurationInput {
 	s.DeleteWithInstance = &v
+	return s
+}
+
+// SetExtraPerformanceIOPS sets the ExtraPerformanceIOPS field's value.
+func (s *VolumeForModifyScalingConfigurationInput) SetExtraPerformanceIOPS(v int32) *VolumeForModifyScalingConfigurationInput {
+	s.ExtraPerformanceIOPS = &v
+	return s
+}
+
+// SetExtraPerformanceThroughputMB sets the ExtraPerformanceThroughputMB field's value.
+func (s *VolumeForModifyScalingConfigurationInput) SetExtraPerformanceThroughputMB(v int32) *VolumeForModifyScalingConfigurationInput {
+	s.ExtraPerformanceThroughputMB = &v
+	return s
+}
+
+// SetExtraPerformanceTypeId sets the ExtraPerformanceTypeId field's value.
+func (s *VolumeForModifyScalingConfigurationInput) SetExtraPerformanceTypeId(v string) *VolumeForModifyScalingConfigurationInput {
+	s.ExtraPerformanceTypeId = &v
 	return s
 }
 

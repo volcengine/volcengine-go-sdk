@@ -144,7 +144,7 @@ type ChannelForGetDeviceChannelsV2Output struct {
 
 	CreateAt *string `type:"string"`
 
-	DeviceItem []*DeviceItemForGetDeviceChannelsV2Output `type:"list"`
+	DeviceItem *DeviceItemForGetDeviceChannelsV2Output `type:"structure"`
 
 	StreamID *string `type:"string"`
 }
@@ -166,7 +166,7 @@ func (s *ChannelForGetDeviceChannelsV2Output) SetCreateAt(v string) *ChannelForG
 }
 
 // SetDeviceItem sets the DeviceItem field's value.
-func (s *ChannelForGetDeviceChannelsV2Output) SetDeviceItem(v []*DeviceItemForGetDeviceChannelsV2Output) *ChannelForGetDeviceChannelsV2Output {
+func (s *ChannelForGetDeviceChannelsV2Output) SetDeviceItem(v *DeviceItemForGetDeviceChannelsV2Output) *ChannelForGetDeviceChannelsV2Output {
 	s.DeviceItem = v
 	return s
 }

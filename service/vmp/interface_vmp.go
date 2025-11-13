@@ -19,7 +19,7 @@ import (
 //    // volcengine sdk func uses an SDK service client to make a request to
 //    // VMP.
 //    func myFunc(svc VMPAPI) bool {
-//        // Make svc.CreateAlertingRule request
+//        // Make svc.CreateAggregateWorkspace request
 //    }
 //
 //    func main() {
@@ -30,6 +30,14 @@ import (
 //    }
 //
 type VMPAPI interface {
+	CreateAggregateWorkspaceCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateAggregateWorkspaceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateAggregateWorkspaceCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateAggregateWorkspace(*CreateAggregateWorkspaceInput) (*CreateAggregateWorkspaceOutput, error)
+	CreateAggregateWorkspaceWithContext(volcengine.Context, *CreateAggregateWorkspaceInput, ...request.Option) (*CreateAggregateWorkspaceOutput, error)
+	CreateAggregateWorkspaceRequest(*CreateAggregateWorkspaceInput) (*request.Request, *CreateAggregateWorkspaceOutput)
+
 	CreateAlertingRuleCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	CreateAlertingRuleCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	CreateAlertingRuleCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -53,6 +61,14 @@ type VMPAPI interface {
 	CreateContactGroup(*CreateContactGroupInput) (*CreateContactGroupOutput, error)
 	CreateContactGroupWithContext(volcengine.Context, *CreateContactGroupInput, ...request.Option) (*CreateContactGroupOutput, error)
 	CreateContactGroupRequest(*CreateContactGroupInput) (*request.Request, *CreateContactGroupOutput)
+
+	CreateExternalPrometheusCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateExternalPrometheusCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateExternalPrometheusCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateExternalPrometheus(*CreateExternalPrometheusInput) (*CreateExternalPrometheusOutput, error)
+	CreateExternalPrometheusWithContext(volcengine.Context, *CreateExternalPrometheusInput, ...request.Option) (*CreateExternalPrometheusOutput, error)
+	CreateExternalPrometheusRequest(*CreateExternalPrometheusInput) (*request.Request, *CreateExternalPrometheusOutput)
 
 	CreateIntegrationTaskCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	CreateIntegrationTaskCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -110,6 +126,14 @@ type VMPAPI interface {
 	CreateWorkspaceWithContext(volcengine.Context, *CreateWorkspaceInput, ...request.Option) (*CreateWorkspaceOutput, error)
 	CreateWorkspaceRequest(*CreateWorkspaceInput) (*request.Request, *CreateWorkspaceOutput)
 
+	DeleteAggregateWorkspaceCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeleteAggregateWorkspaceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeleteAggregateWorkspaceCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeleteAggregateWorkspace(*DeleteAggregateWorkspaceInput) (*DeleteAggregateWorkspaceOutput, error)
+	DeleteAggregateWorkspaceWithContext(volcengine.Context, *DeleteAggregateWorkspaceInput, ...request.Option) (*DeleteAggregateWorkspaceOutput, error)
+	DeleteAggregateWorkspaceRequest(*DeleteAggregateWorkspaceInput) (*request.Request, *DeleteAggregateWorkspaceOutput)
+
 	DeleteAlertingRulesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DeleteAlertingRulesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DeleteAlertingRulesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -133,6 +157,14 @@ type VMPAPI interface {
 	DeleteContacts(*DeleteContactsInput) (*DeleteContactsOutput, error)
 	DeleteContactsWithContext(volcengine.Context, *DeleteContactsInput, ...request.Option) (*DeleteContactsOutput, error)
 	DeleteContactsRequest(*DeleteContactsInput) (*request.Request, *DeleteContactsOutput)
+
+	DeleteExternalPrometheusCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeleteExternalPrometheusCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeleteExternalPrometheusCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeleteExternalPrometheus(*DeleteExternalPrometheusInput) (*DeleteExternalPrometheusOutput, error)
+	DeleteExternalPrometheusWithContext(volcengine.Context, *DeleteExternalPrometheusInput, ...request.Option) (*DeleteExternalPrometheusOutput, error)
+	DeleteExternalPrometheusRequest(*DeleteExternalPrometheusInput) (*request.Request, *DeleteExternalPrometheusOutput)
 
 	DeleteIntegrationTaskCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DeleteIntegrationTaskCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -238,6 +270,14 @@ type VMPAPI interface {
 	EnableSilencePoliciesWithContext(volcengine.Context, *EnableSilencePoliciesInput, ...request.Option) (*EnableSilencePoliciesOutput, error)
 	EnableSilencePoliciesRequest(*EnableSilencePoliciesInput) (*request.Request, *EnableSilencePoliciesOutput)
 
+	GetAggregateWorkspaceCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	GetAggregateWorkspaceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	GetAggregateWorkspaceCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	GetAggregateWorkspace(*GetAggregateWorkspaceInput) (*GetAggregateWorkspaceOutput, error)
+	GetAggregateWorkspaceWithContext(volcengine.Context, *GetAggregateWorkspaceInput, ...request.Option) (*GetAggregateWorkspaceOutput, error)
+	GetAggregateWorkspaceRequest(*GetAggregateWorkspaceInput) (*request.Request, *GetAggregateWorkspaceOutput)
+
 	GetAlertCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	GetAlertCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	GetAlertCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -269,6 +309,14 @@ type VMPAPI interface {
 	GetContactGroup(*GetContactGroupInput) (*GetContactGroupOutput, error)
 	GetContactGroupWithContext(volcengine.Context, *GetContactGroupInput, ...request.Option) (*GetContactGroupOutput, error)
 	GetContactGroupRequest(*GetContactGroupInput) (*request.Request, *GetContactGroupOutput)
+
+	GetExternalPrometheusCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	GetExternalPrometheusCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	GetExternalPrometheusCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	GetExternalPrometheus(*GetExternalPrometheusInput) (*GetExternalPrometheusOutput, error)
+	GetExternalPrometheusWithContext(volcengine.Context, *GetExternalPrometheusInput, ...request.Option) (*GetExternalPrometheusOutput, error)
+	GetExternalPrometheusRequest(*GetExternalPrometheusInput) (*request.Request, *GetExternalPrometheusOutput)
 
 	GetIntegrationTaskCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	GetIntegrationTaskCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -494,6 +542,14 @@ type VMPAPI interface {
 	UntagResourcesWithContext(volcengine.Context, *UntagResourcesInput, ...request.Option) (*UntagResourcesOutput, error)
 	UntagResourcesRequest(*UntagResourcesInput) (*request.Request, *UntagResourcesOutput)
 
+	UpdateAggregateWorkspaceCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	UpdateAggregateWorkspaceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	UpdateAggregateWorkspaceCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	UpdateAggregateWorkspace(*UpdateAggregateWorkspaceInput) (*UpdateAggregateWorkspaceOutput, error)
+	UpdateAggregateWorkspaceWithContext(volcengine.Context, *UpdateAggregateWorkspaceInput, ...request.Option) (*UpdateAggregateWorkspaceOutput, error)
+	UpdateAggregateWorkspaceRequest(*UpdateAggregateWorkspaceInput) (*request.Request, *UpdateAggregateWorkspaceOutput)
+
 	UpdateAlertingRuleCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	UpdateAlertingRuleCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	UpdateAlertingRuleCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -517,6 +573,14 @@ type VMPAPI interface {
 	UpdateContactGroup(*UpdateContactGroupInput) (*UpdateContactGroupOutput, error)
 	UpdateContactGroupWithContext(volcengine.Context, *UpdateContactGroupInput, ...request.Option) (*UpdateContactGroupOutput, error)
 	UpdateContactGroupRequest(*UpdateContactGroupInput) (*request.Request, *UpdateContactGroupOutput)
+
+	UpdateExternalPrometheusCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	UpdateExternalPrometheusCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	UpdateExternalPrometheusCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	UpdateExternalPrometheus(*UpdateExternalPrometheusInput) (*UpdateExternalPrometheusOutput, error)
+	UpdateExternalPrometheusWithContext(volcengine.Context, *UpdateExternalPrometheusInput, ...request.Option) (*UpdateExternalPrometheusOutput, error)
+	UpdateExternalPrometheusRequest(*UpdateExternalPrometheusInput) (*request.Request, *UpdateExternalPrometheusOutput)
 
 	UpdateIntegrationTaskCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	UpdateIntegrationTaskCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)

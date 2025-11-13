@@ -268,6 +268,8 @@ type EipForDescribeScalingConfigurationsOutput struct {
 
 	ISP *string `type:"string"`
 
+	ReleaseWithInstance *bool `type:"boolean"`
+
 	SecurityProtectionInstanceId *int32 `type:"int32"`
 
 	SecurityProtectionTypes []*string `type:"list"`
@@ -304,6 +306,12 @@ func (s *EipForDescribeScalingConfigurationsOutput) SetBillingType(v string) *Ei
 // SetISP sets the ISP field's value.
 func (s *EipForDescribeScalingConfigurationsOutput) SetISP(v string) *EipForDescribeScalingConfigurationsOutput {
 	s.ISP = &v
+	return s
+}
+
+// SetReleaseWithInstance sets the ReleaseWithInstance field's value.
+func (s *EipForDescribeScalingConfigurationsOutput) SetReleaseWithInstance(v bool) *EipForDescribeScalingConfigurationsOutput {
+	s.ReleaseWithInstance = &v
 	return s
 }
 
@@ -598,6 +606,12 @@ type VolumeForDescribeScalingConfigurationsOutput struct {
 
 	DeleteWithInstance *bool `type:"boolean"`
 
+	ExtraPerformanceIOPS *int32 `type:"int32"`
+
+	ExtraPerformanceThroughputMB *int32 `type:"int32"`
+
+	ExtraPerformanceTypeId *string `type:"string"`
+
 	Size *int32 `type:"int32"`
 
 	VolumeType *string `type:"string"`
@@ -616,6 +630,24 @@ func (s VolumeForDescribeScalingConfigurationsOutput) GoString() string {
 // SetDeleteWithInstance sets the DeleteWithInstance field's value.
 func (s *VolumeForDescribeScalingConfigurationsOutput) SetDeleteWithInstance(v bool) *VolumeForDescribeScalingConfigurationsOutput {
 	s.DeleteWithInstance = &v
+	return s
+}
+
+// SetExtraPerformanceIOPS sets the ExtraPerformanceIOPS field's value.
+func (s *VolumeForDescribeScalingConfigurationsOutput) SetExtraPerformanceIOPS(v int32) *VolumeForDescribeScalingConfigurationsOutput {
+	s.ExtraPerformanceIOPS = &v
+	return s
+}
+
+// SetExtraPerformanceThroughputMB sets the ExtraPerformanceThroughputMB field's value.
+func (s *VolumeForDescribeScalingConfigurationsOutput) SetExtraPerformanceThroughputMB(v int32) *VolumeForDescribeScalingConfigurationsOutput {
+	s.ExtraPerformanceThroughputMB = &v
+	return s
+}
+
+// SetExtraPerformanceTypeId sets the ExtraPerformanceTypeId field's value.
+func (s *VolumeForDescribeScalingConfigurationsOutput) SetExtraPerformanceTypeId(v string) *VolumeForDescribeScalingConfigurationsOutput {
+	s.ExtraPerformanceTypeId = &v
 	return s
 }
 

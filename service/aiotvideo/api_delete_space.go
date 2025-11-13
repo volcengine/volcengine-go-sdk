@@ -32,7 +32,7 @@ const opDeleteSpaceCommon = "DeleteSpace"
 func (c *AIOTVIDEO) DeleteSpaceCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDeleteSpaceCommon,
-		HTTPMethod: "GET",
+		HTTPMethod: "POST",
 		HTTPPath:   "/",
 	}
 
@@ -42,6 +42,8 @@ func (c *AIOTVIDEO) DeleteSpaceCommonRequest(input *map[string]interface{}) (req
 
 	output = &map[string]interface{}{}
 	req = c.newRequest(op, input, output)
+
+	req.HTTPRequest.Header.Set("Content-Type", "application/json; charset=utf-8")
 
 	return
 }
@@ -97,7 +99,7 @@ const opDeleteSpace = "DeleteSpace"
 func (c *AIOTVIDEO) DeleteSpaceRequest(input *DeleteSpaceInput) (req *request.Request, output *DeleteSpaceOutput) {
 	op := &request.Operation{
 		Name:       opDeleteSpace,
-		HTTPMethod: "GET",
+		HTTPMethod: "POST",
 		HTTPPath:   "/",
 	}
 
@@ -107,6 +109,8 @@ func (c *AIOTVIDEO) DeleteSpaceRequest(input *DeleteSpaceInput) (req *request.Re
 
 	output = &DeleteSpaceOutput{}
 	req = c.newRequest(op, input, output)
+
+	req.HTTPRequest.Header.Set("Content-Type", "application/json; charset=utf-8")
 
 	return
 }
@@ -140,10 +144,10 @@ func (c *AIOTVIDEO) DeleteSpaceWithContext(ctx volcengine.Context, input *Delete
 }
 
 type DeleteSpaceInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// SpaceID is a required field
-	SpaceID *string `type:"string" required:"true"`
+	SpaceID *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -176,11 +180,11 @@ func (s *DeleteSpaceInput) SetSpaceID(v string) *DeleteSpaceInput {
 }
 
 type DeleteSpaceOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	ID *string `type:"string"`
+	ID *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation

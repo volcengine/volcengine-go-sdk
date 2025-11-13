@@ -146,30 +146,30 @@ func (e *encoder) newPrimitiveTypeEncoder(t reflect.Type) encoderFunc {
 	// code more and this current code shouldn't cause any issues
 	case reflect.String:
 		return func(key string, v reflect.Value, writer *multipart.Writer) error {
-			return writer.WriteField(key, v.String())
+			return writer.WriteField(convertDotToBracket(key), v.String())
 		}
 	case reflect.Bool:
 		return func(key string, v reflect.Value, writer *multipart.Writer) error {
 			if v.Bool() {
-				return writer.WriteField(key, "true")
+				return writer.WriteField(convertDotToBracket(key), "true")
 			}
-			return writer.WriteField(key, "false")
+			return writer.WriteField(convertDotToBracket(key), "false")
 		}
 	case reflect.Int, reflect.Int16, reflect.Int32, reflect.Int64:
 		return func(key string, v reflect.Value, writer *multipart.Writer) error {
-			return writer.WriteField(key, strconv.FormatInt(v.Int(), 10))
+			return writer.WriteField(convertDotToBracket(key), strconv.FormatInt(v.Int(), 10))
 		}
 	case reflect.Uint, reflect.Uint16, reflect.Uint32, reflect.Uint64:
 		return func(key string, v reflect.Value, writer *multipart.Writer) error {
-			return writer.WriteField(key, strconv.FormatUint(v.Uint(), 10))
+			return writer.WriteField(convertDotToBracket(key), strconv.FormatUint(v.Uint(), 10))
 		}
 	case reflect.Float32:
 		return func(key string, v reflect.Value, writer *multipart.Writer) error {
-			return writer.WriteField(key, strconv.FormatFloat(v.Float(), 'f', -1, 32))
+			return writer.WriteField(convertDotToBracket(key), strconv.FormatFloat(v.Float(), 'f', -1, 32))
 		}
 	case reflect.Float64:
 		return func(key string, v reflect.Value, writer *multipart.Writer) error {
-			return writer.WriteField(key, strconv.FormatFloat(v.Float(), 'f', -1, 64))
+			return writer.WriteField(convertDotToBracket(key), strconv.FormatFloat(v.Float(), 'f', -1, 64))
 		}
 	default:
 		return func(key string, v reflect.Value, writer *multipart.Writer) error {
@@ -372,6 +372,19 @@ func escapeQuotes(s string) string {
 	return quoteEscaper.Replace(s)
 }
 
+func convertDotToBracket(s string) string {
+	parts := strings.Split(s, ".")
+	if len(parts) == 0 {
+		return s
+	}
+	// first part stays as is
+	result := parts[0]
+	for _, seg := range parts[1:] {
+		result += "[" + seg + "]"
+	}
+	return result
+}
+
 func (e *encoder) newReaderTypeEncoder() encoderFunc {
 	return func(key string, value reflect.Value, writer *multipart.Writer) error {
 		reader, ok := value.Convert(reflect.TypeOf((*io.Reader)(nil)).Elem()).Interface().(io.Reader)
@@ -391,7 +404,7 @@ func (e *encoder) newReaderTypeEncoder() encoderFunc {
 
 		// Below is taken almost 1-for-1 from [multipart.CreateFormFile]
 		h := make(textproto.MIMEHeader)
-		h.Set("Content-Disposition", fmt.Sprintf(`form-data; name="%s"; filename="%s"`, escapeQuotes(key), escapeQuotes(filename)))
+		h.Set("Content-Disposition", fmt.Sprintf(`form-data; name="%s"; filename="%s"`, convertDotToBracket(escapeQuotes(key)), escapeQuotes(filename)))
 		h.Set("Content-Type", contentType)
 		filewriter, err := writer.CreatePart(h)
 		if err != nil {

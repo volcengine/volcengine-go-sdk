@@ -146,7 +146,8 @@ func (c *REDIS) DescribeDBInstanceBandwidthPerShardWithContext(ctx volcengine.Co
 type DescribeDBInstanceBandwidthPerShardInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	InstanceId *string `type:"string" json:",omitempty"`
+	// InstanceId is a required field
+	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -157,6 +158,19 @@ func (s DescribeDBInstanceBandwidthPerShardInput) String() string {
 // GoString returns the string representation
 func (s DescribeDBInstanceBandwidthPerShardInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DescribeDBInstanceBandwidthPerShardInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DescribeDBInstanceBandwidthPerShardInput"}
+	if s.InstanceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("InstanceId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetInstanceId sets the InstanceId field's value.
@@ -171,6 +185,10 @@ type DescribeDBInstanceBandwidthPerShardOutput struct {
 	Metadata *response.ResponseMetadata
 
 	AdditionalBandwidthPerShard *int32 `type:"int32" json:",omitempty"`
+
+	AdditionalReadBandwidthPerShard *int32 `type:"int32" json:",omitempty"`
+
+	AdditionalWriteBandwidthPerShard *int32 `type:"int32" json:",omitempty"`
 
 	DefaultBandwidthPerShard *int32 `type:"int32" json:",omitempty"`
 }
@@ -188,6 +206,18 @@ func (s DescribeDBInstanceBandwidthPerShardOutput) GoString() string {
 // SetAdditionalBandwidthPerShard sets the AdditionalBandwidthPerShard field's value.
 func (s *DescribeDBInstanceBandwidthPerShardOutput) SetAdditionalBandwidthPerShard(v int32) *DescribeDBInstanceBandwidthPerShardOutput {
 	s.AdditionalBandwidthPerShard = &v
+	return s
+}
+
+// SetAdditionalReadBandwidthPerShard sets the AdditionalReadBandwidthPerShard field's value.
+func (s *DescribeDBInstanceBandwidthPerShardOutput) SetAdditionalReadBandwidthPerShard(v int32) *DescribeDBInstanceBandwidthPerShardOutput {
+	s.AdditionalReadBandwidthPerShard = &v
+	return s
+}
+
+// SetAdditionalWriteBandwidthPerShard sets the AdditionalWriteBandwidthPerShard field's value.
+func (s *DescribeDBInstanceBandwidthPerShardOutput) SetAdditionalWriteBandwidthPerShard(v int32) *DescribeDBInstanceBandwidthPerShardOutput {
+	s.AdditionalWriteBandwidthPerShard = &v
 	return s
 }
 

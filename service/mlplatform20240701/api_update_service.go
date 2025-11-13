@@ -325,7 +325,9 @@ type PortForUpdateServiceInput struct {
 
 	Path *string `type:"string" json:",omitempty"`
 
-	Type *string `type:"string" json:",omitempty" enum:"EnumOfTypeForUpdateServiceInput"`
+	Source *string `type:"string" json:",omitempty"`
+
+	Type *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -353,6 +355,12 @@ func (s *PortForUpdateServiceInput) SetListenPort(v string) *PortForUpdateServic
 // SetPath sets the Path field's value.
 func (s *PortForUpdateServiceInput) SetPath(v string) *PortForUpdateServiceInput {
 	s.Path = &v
+	return s
+}
+
+// SetSource sets the Source field's value.
+func (s *PortForUpdateServiceInput) SetSource(v string) *PortForUpdateServiceInput {
+	s.Source = &v
 	return s
 }
 
@@ -669,21 +677,4 @@ const (
 
 	// EnumOfSchedulerForUpdateServiceInputSh is a EnumOfSchedulerForUpdateServiceInput enum value
 	EnumOfSchedulerForUpdateServiceInputSh = "sh"
-)
-
-const (
-	// EnumOfTypeForUpdateServiceInputHttp11 is a EnumOfTypeForUpdateServiceInput enum value
-	EnumOfTypeForUpdateServiceInputHttp11 = "HTTP/1.1"
-
-	// EnumOfTypeForUpdateServiceInputHttp2 is a EnumOfTypeForUpdateServiceInput enum value
-	EnumOfTypeForUpdateServiceInputHttp2 = "HTTP2"
-
-	// EnumOfTypeForUpdateServiceInputGrpc is a EnumOfTypeForUpdateServiceInput enum value
-	EnumOfTypeForUpdateServiceInputGrpc = "GRPC"
-
-	// EnumOfTypeForUpdateServiceInputMetrics is a EnumOfTypeForUpdateServiceInput enum value
-	EnumOfTypeForUpdateServiceInputMetrics = "Metrics"
-
-	// EnumOfTypeForUpdateServiceInputOther is a EnumOfTypeForUpdateServiceInput enum value
-	EnumOfTypeForUpdateServiceInputOther = "Other"
 )

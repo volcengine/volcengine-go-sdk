@@ -146,8 +146,11 @@ func (c *REDIS) ModifyDBInstanceAdditionalBandwidthPerShardWithContext(ctx volce
 type ModifyDBInstanceAdditionalBandwidthPerShardInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	// AdditionalBandwidth is a required field
-	AdditionalBandwidth *int32 `type:"int32" json:",omitempty" required:"true"`
+	AdditionalBandwidth *int32 `type:"int32" json:",omitempty"`
+
+	AdditionalReadBandwidth *int32 `type:"int32" json:",omitempty"`
+
+	AdditionalWriteBandwidth *int32 `type:"int32" json:",omitempty"`
 
 	ClientToken *string `type:"string" json:",omitempty"`
 
@@ -168,9 +171,6 @@ func (s ModifyDBInstanceAdditionalBandwidthPerShardInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *ModifyDBInstanceAdditionalBandwidthPerShardInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "ModifyDBInstanceAdditionalBandwidthPerShardInput"}
-	if s.AdditionalBandwidth == nil {
-		invalidParams.Add(request.NewErrParamRequired("AdditionalBandwidth"))
-	}
 	if s.InstanceId == nil {
 		invalidParams.Add(request.NewErrParamRequired("InstanceId"))
 	}
@@ -184,6 +184,18 @@ func (s *ModifyDBInstanceAdditionalBandwidthPerShardInput) Validate() error {
 // SetAdditionalBandwidth sets the AdditionalBandwidth field's value.
 func (s *ModifyDBInstanceAdditionalBandwidthPerShardInput) SetAdditionalBandwidth(v int32) *ModifyDBInstanceAdditionalBandwidthPerShardInput {
 	s.AdditionalBandwidth = &v
+	return s
+}
+
+// SetAdditionalReadBandwidth sets the AdditionalReadBandwidth field's value.
+func (s *ModifyDBInstanceAdditionalBandwidthPerShardInput) SetAdditionalReadBandwidth(v int32) *ModifyDBInstanceAdditionalBandwidthPerShardInput {
+	s.AdditionalReadBandwidth = &v
+	return s
+}
+
+// SetAdditionalWriteBandwidth sets the AdditionalWriteBandwidth field's value.
+func (s *ModifyDBInstanceAdditionalBandwidthPerShardInput) SetAdditionalWriteBandwidth(v int32) *ModifyDBInstanceAdditionalBandwidthPerShardInput {
+	s.AdditionalWriteBandwidth = &v
 	return s
 }
 

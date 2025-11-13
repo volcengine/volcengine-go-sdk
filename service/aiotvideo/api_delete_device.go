@@ -32,7 +32,7 @@ const opDeleteDeviceCommon = "DeleteDevice"
 func (c *AIOTVIDEO) DeleteDeviceCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDeleteDeviceCommon,
-		HTTPMethod: "GET",
+		HTTPMethod: "POST",
 		HTTPPath:   "/",
 	}
 
@@ -42,6 +42,8 @@ func (c *AIOTVIDEO) DeleteDeviceCommonRequest(input *map[string]interface{}) (re
 
 	output = &map[string]interface{}{}
 	req = c.newRequest(op, input, output)
+
+	req.HTTPRequest.Header.Set("Content-Type", "application/json; charset=utf-8")
 
 	return
 }
@@ -97,7 +99,7 @@ const opDeleteDevice = "DeleteDevice"
 func (c *AIOTVIDEO) DeleteDeviceRequest(input *DeleteDeviceInput) (req *request.Request, output *DeleteDeviceOutput) {
 	op := &request.Operation{
 		Name:       opDeleteDevice,
-		HTTPMethod: "GET",
+		HTTPMethod: "POST",
 		HTTPPath:   "/",
 	}
 
@@ -107,6 +109,8 @@ func (c *AIOTVIDEO) DeleteDeviceRequest(input *DeleteDeviceInput) (req *request.
 
 	output = &DeleteDeviceOutput{}
 	req = c.newRequest(op, input, output)
+
+	req.HTTPRequest.Header.Set("Content-Type", "application/json; charset=utf-8")
 
 	return
 }
@@ -140,12 +144,12 @@ func (c *AIOTVIDEO) DeleteDeviceWithContext(ctx volcengine.Context, input *Delet
 }
 
 type DeleteDeviceInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// DeviceID is a required field
-	DeviceID *string `type:"string" required:"true"`
+	DeviceID *string `type:"string" json:",omitempty" required:"true"`
 
-	SpaceID *string `type:"string"`
+	SpaceID *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -184,11 +188,11 @@ func (s *DeleteDeviceInput) SetSpaceID(v string) *DeleteDeviceInput {
 }
 
 type DeleteDeviceOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	ID *string `type:"string"`
+	ID *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation

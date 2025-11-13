@@ -32,7 +32,7 @@ const opStartVoiceTalkCommon = "StartVoiceTalk"
 func (c *AIOTVIDEO) StartVoiceTalkCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opStartVoiceTalkCommon,
-		HTTPMethod: "GET",
+		HTTPMethod: "POST",
 		HTTPPath:   "/",
 	}
 
@@ -42,6 +42,8 @@ func (c *AIOTVIDEO) StartVoiceTalkCommonRequest(input *map[string]interface{}) (
 
 	output = &map[string]interface{}{}
 	req = c.newRequest(op, input, output)
+
+	req.HTTPRequest.Header.Set("Content-Type", "application/json; charset=utf-8")
 
 	return
 }
@@ -97,7 +99,7 @@ const opStartVoiceTalk = "StartVoiceTalk"
 func (c *AIOTVIDEO) StartVoiceTalkRequest(input *StartVoiceTalkInput) (req *request.Request, output *StartVoiceTalkOutput) {
 	op := &request.Operation{
 		Name:       opStartVoiceTalk,
-		HTTPMethod: "GET",
+		HTTPMethod: "POST",
 		HTTPPath:   "/",
 	}
 
@@ -107,6 +109,8 @@ func (c *AIOTVIDEO) StartVoiceTalkRequest(input *StartVoiceTalkInput) (req *requ
 
 	output = &StartVoiceTalkOutput{}
 	req = c.newRequest(op, input, output)
+
+	req.HTTPRequest.Header.Set("Content-Type", "application/json; charset=utf-8")
 
 	return
 }
@@ -140,15 +144,15 @@ func (c *AIOTVIDEO) StartVoiceTalkWithContext(ctx volcengine.Context, input *Sta
 }
 
 type StartVoiceTalkInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// DeviceNSID is a required field
-	DeviceNSID *string `type:"string" required:"true"`
+	DeviceNSID *string `type:"string" json:",omitempty" required:"true"`
 
 	// SpaceID is a required field
-	SpaceID *string `type:"string" required:"true"`
+	SpaceID *string `type:"string" json:",omitempty" required:"true"`
 
-	Transport *string `type:"string"`
+	Transport *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -196,11 +200,11 @@ func (s *StartVoiceTalkInput) SetTransport(v string) *StartVoiceTalkInput {
 }
 
 type StartVoiceTalkOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	AudioSendUrl *string `type:"string"`
+	AudioSendUrl *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation

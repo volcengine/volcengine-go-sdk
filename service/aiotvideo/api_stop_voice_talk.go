@@ -32,7 +32,7 @@ const opStopVoiceTalkCommon = "StopVoiceTalk"
 func (c *AIOTVIDEO) StopVoiceTalkCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opStopVoiceTalkCommon,
-		HTTPMethod: "GET",
+		HTTPMethod: "POST",
 		HTTPPath:   "/",
 	}
 
@@ -42,6 +42,8 @@ func (c *AIOTVIDEO) StopVoiceTalkCommonRequest(input *map[string]interface{}) (r
 
 	output = &map[string]interface{}{}
 	req = c.newRequest(op, input, output)
+
+	req.HTTPRequest.Header.Set("Content-Type", "application/json; charset=utf-8")
 
 	return
 }
@@ -97,7 +99,7 @@ const opStopVoiceTalk = "StopVoiceTalk"
 func (c *AIOTVIDEO) StopVoiceTalkRequest(input *StopVoiceTalkInput) (req *request.Request, output *StopVoiceTalkOutput) {
 	op := &request.Operation{
 		Name:       opStopVoiceTalk,
-		HTTPMethod: "GET",
+		HTTPMethod: "POST",
 		HTTPPath:   "/",
 	}
 
@@ -107,6 +109,8 @@ func (c *AIOTVIDEO) StopVoiceTalkRequest(input *StopVoiceTalkInput) (req *reques
 
 	output = &StopVoiceTalkOutput{}
 	req = c.newRequest(op, input, output)
+
+	req.HTTPRequest.Header.Set("Content-Type", "application/json; charset=utf-8")
 
 	return
 }
@@ -140,13 +144,13 @@ func (c *AIOTVIDEO) StopVoiceTalkWithContext(ctx volcengine.Context, input *Stop
 }
 
 type StopVoiceTalkInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// DeviceNSID is a required field
-	DeviceNSID *string `type:"string" required:"true"`
+	DeviceNSID *string `type:"string" json:",omitempty" required:"true"`
 
 	// SpaceID is a required field
-	SpaceID *string `type:"string" required:"true"`
+	SpaceID *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -188,7 +192,7 @@ func (s *StopVoiceTalkInput) SetSpaceID(v string) *StopVoiceTalkInput {
 }
 
 type StopVoiceTalkOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 }
