@@ -6,6 +6,7 @@ import (
 	"fmt"
 	"io"
 	"net/http"
+	purl "net/url"
 	"time"
 )
 
@@ -15,6 +16,29 @@ func New(url string, ak string, sk string, region string, timeout time.Duration)
 		url: url,
 		httpClient: &http.Client{
 			Timeout: timeout,
+		},
+		ak:     ak,
+		sk:     sk,
+		region: region,
+	}
+}
+
+func NewProxy(url string, ak string, sk string, region string, timeout time.Duration, proxyAddr string) *Client {
+	proxyHandler, err := purl.Parse(proxyAddr)
+	if err != nil {
+		fmt.Printf("NewProxy Parse proxy addr error:%v\n", err)
+		return nil
+	}
+
+	transport := &http.Transport{
+		Proxy: http.ProxyURL(proxyHandler), // 使用指定的代理
+	}
+
+	return &Client{
+		url: url,
+		httpClient: &http.Client{
+			Transport: transport,
+			Timeout:   timeout,
 		},
 		ak:     ak,
 		sk:     sk,
