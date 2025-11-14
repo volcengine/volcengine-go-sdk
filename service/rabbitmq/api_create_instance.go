@@ -192,8 +192,6 @@ func (s *ChargeInfoForCreateInstanceInput) SetPeriodUnit(v string) *ChargeInfoFo
 type CreateInstanceInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	ApplyPrivateDNSToPublic *bool `type:"boolean" json:",omitempty"`
-
 	ChargeInfo *ChargeInfoForCreateInstanceInput `type:"structure" json:",omitempty"`
 
 	// ClientToken is a required field
@@ -279,12 +277,6 @@ func (s *CreateInstanceInput) Validate() error {
 		return invalidParams
 	}
 	return nil
-}
-
-// SetApplyPrivateDNSToPublic sets the ApplyPrivateDNSToPublic field's value.
-func (s *CreateInstanceInput) SetApplyPrivateDNSToPublic(v bool) *CreateInstanceInput {
-	s.ApplyPrivateDNSToPublic = &v
-	return s
 }
 
 // SetChargeInfo sets the ChargeInfo field's value.
