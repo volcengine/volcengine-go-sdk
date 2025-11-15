@@ -49,6 +49,15 @@ type MessageV2 struct {
 	Content string `thrift:"content,2" form:"Content" json:"Content"`
 	// 内容类型
 	ContentType ContentTypeV2 `thrift:"contentType,3" form:"ContentType" json:"ContentType"`
+	// 多模态送检内容
+	MultiPart []*MultiPart `thrift:"multiPart,4,optional" form:"MultiPart" json:"MultiPart,omitempty"`
+}
+
+type MultiPart struct {
+	// 内容文本或链接
+	Content string `thrift:"content,1" form:"Content" json:"Content"`
+	// 内容类型
+	ContentType ContentTypeV2 `thrift:"contentType,2" form:"ContentType" json:"ContentType"`
 }
 
 type ModerateV2Request struct {

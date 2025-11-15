@@ -46,6 +46,18 @@ func NewProxy(url string, ak string, sk string, region string, timeout time.Dura
 	}
 }
 
+func SetServiceCode(IsDev bool) {
+	if IsDev {
+		Service = ServiceCodeDev
+	} else {
+		Service = ServiceCodeOnline
+	}
+}
+
+func GetServiceCode() string {
+	return Service
+}
+
 // Moderate 方法，根据传入的 Request 结构体反序列成 JSON 并发送请求，读取响应并转化为 Response 结构体
 func (c *Client) Moderate(request *ModerateV2Request) (*ModerateV2Response, error) {
 	if request == nil {
