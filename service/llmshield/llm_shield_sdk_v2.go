@@ -46,7 +46,7 @@ func NewProxy(url string, ak string, sk string, region string, timeout time.Dura
 	}
 }
 
-func SetServiceCode(IsDev bool) {
+func SetServiceDev(IsDev bool) {
 	if IsDev {
 		Service = ServiceCodeDev
 	} else {
