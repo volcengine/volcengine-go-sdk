@@ -685,6 +685,10 @@ type KubernetesConfigForCreateNodePoolInput struct {
 
 	NamePrefix *string `type:"string" json:",omitempty"`
 
+	NameSuffix *string `type:"string" json:",omitempty"`
+
+	NameUseHostname *bool `type:"boolean" json:",omitempty"`
+
 	Taints []*TaintForCreateNodePoolInput `type:"list" json:",omitempty"`
 }
 
@@ -740,6 +744,18 @@ func (s *KubernetesConfigForCreateNodePoolInput) SetLabels(v []*LabelForCreateNo
 // SetNamePrefix sets the NamePrefix field's value.
 func (s *KubernetesConfigForCreateNodePoolInput) SetNamePrefix(v string) *KubernetesConfigForCreateNodePoolInput {
 	s.NamePrefix = &v
+	return s
+}
+
+// SetNameSuffix sets the NameSuffix field's value.
+func (s *KubernetesConfigForCreateNodePoolInput) SetNameSuffix(v string) *KubernetesConfigForCreateNodePoolInput {
+	s.NameSuffix = &v
+	return s
+}
+
+// SetNameUseHostname sets the NameUseHostname field's value.
+func (s *KubernetesConfigForCreateNodePoolInput) SetNameUseHostname(v bool) *KubernetesConfigForCreateNodePoolInput {
+	s.NameUseHostname = &v
 	return s
 }
 
@@ -854,6 +870,8 @@ type NodeConfigForCreateNodePoolInput struct {
 
 	DeploymentSetId *string `type:"string" json:",omitempty"`
 
+	Hostname *string `type:"string" json:",omitempty"`
+
 	HpcClusterIds []*string `type:"list" json:",omitempty"`
 
 	ImageId *string `type:"string" json:",omitempty"`
@@ -862,11 +880,15 @@ type NodeConfigForCreateNodePoolInput struct {
 
 	InstanceChargeType *string `type:"string" json:",omitempty" enum:"EnumOfInstanceChargeTypeForCreateNodePoolInput"`
 
+	InstanceName *string `type:"string" json:",omitempty"`
+
 	InstanceTypeIds []*string `type:"list" json:",omitempty"`
 
 	InstancesDistribution *InstancesDistributionForCreateNodePoolInput `type:"structure" json:",omitempty"`
 
 	NamePrefix *string `type:"string" json:",omitempty"`
+
+	NetworkTrafficMode *string `type:"string" json:",omitempty"`
 
 	Period *int32 `type:"int32" json:",omitempty"`
 
@@ -935,6 +957,12 @@ func (s *NodeConfigForCreateNodePoolInput) SetDeploymentSetId(v string) *NodeCon
 	return s
 }
 
+// SetHostname sets the Hostname field's value.
+func (s *NodeConfigForCreateNodePoolInput) SetHostname(v string) *NodeConfigForCreateNodePoolInput {
+	s.Hostname = &v
+	return s
+}
+
 // SetHpcClusterIds sets the HpcClusterIds field's value.
 func (s *NodeConfigForCreateNodePoolInput) SetHpcClusterIds(v []*string) *NodeConfigForCreateNodePoolInput {
 	s.HpcClusterIds = v
@@ -959,6 +987,12 @@ func (s *NodeConfigForCreateNodePoolInput) SetInstanceChargeType(v string) *Node
 	return s
 }
 
+// SetInstanceName sets the InstanceName field's value.
+func (s *NodeConfigForCreateNodePoolInput) SetInstanceName(v string) *NodeConfigForCreateNodePoolInput {
+	s.InstanceName = &v
+	return s
+}
+
 // SetInstanceTypeIds sets the InstanceTypeIds field's value.
 func (s *NodeConfigForCreateNodePoolInput) SetInstanceTypeIds(v []*string) *NodeConfigForCreateNodePoolInput {
 	s.InstanceTypeIds = v
@@ -974,6 +1008,12 @@ func (s *NodeConfigForCreateNodePoolInput) SetInstancesDistribution(v *Instances
 // SetNamePrefix sets the NamePrefix field's value.
 func (s *NodeConfigForCreateNodePoolInput) SetNamePrefix(v string) *NodeConfigForCreateNodePoolInput {
 	s.NamePrefix = &v
+	return s
+}
+
+// SetNetworkTrafficMode sets the NetworkTrafficMode field's value.
+func (s *NodeConfigForCreateNodePoolInput) SetNetworkTrafficMode(v string) *NodeConfigForCreateNodePoolInput {
+	s.NetworkTrafficMode = &v
 	return s
 }
 
