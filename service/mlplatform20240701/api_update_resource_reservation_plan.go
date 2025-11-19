@@ -143,6 +143,28 @@ func (c *MLPLATFORM20240701) UpdateResourceReservationPlanWithContext(ctx volcen
 	return out, req.Send()
 }
 
+type ComputeResourceForUpdateResourceReservationPlanInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Count *int64 `type:"int64" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s ComputeResourceForUpdateResourceReservationPlanInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ComputeResourceForUpdateResourceReservationPlanInput) GoString() string {
+	return s.String()
+}
+
+// SetCount sets the Count field's value.
+func (s *ComputeResourceForUpdateResourceReservationPlanInput) SetCount(v int64) *ComputeResourceForUpdateResourceReservationPlanInput {
+	s.Count = &v
+	return s
+}
+
 type MatchingReservationPlanTimeConfigForUpdateResourceReservationPlanInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -170,6 +192,128 @@ func (s *MatchingReservationPlanTimeConfigForUpdateResourceReservationPlanInput)
 // SetMinContinuousResourceDurationSeconds sets the MinContinuousResourceDurationSeconds field's value.
 func (s *MatchingReservationPlanTimeConfigForUpdateResourceReservationPlanInput) SetMinContinuousResourceDurationSeconds(v int64) *MatchingReservationPlanTimeConfigForUpdateResourceReservationPlanInput {
 	s.MinContinuousResourceDurationSeconds = &v
+	return s
+}
+
+type RecurrenceResourceSegmentForUpdateResourceReservationPlanInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	EndTime *string `type:"string" json:",omitempty"`
+
+	MinDeliveryCount *int64 `type:"int64" json:",omitempty"`
+
+	StartTime *string `type:"string" json:",omitempty"`
+
+	StopReservationSeconds *int64 `type:"int64" json:",omitempty"`
+
+	TargetDeliveryCount *int64 `type:"int64" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s RecurrenceResourceSegmentForUpdateResourceReservationPlanInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s RecurrenceResourceSegmentForUpdateResourceReservationPlanInput) GoString() string {
+	return s.String()
+}
+
+// SetEndTime sets the EndTime field's value.
+func (s *RecurrenceResourceSegmentForUpdateResourceReservationPlanInput) SetEndTime(v string) *RecurrenceResourceSegmentForUpdateResourceReservationPlanInput {
+	s.EndTime = &v
+	return s
+}
+
+// SetMinDeliveryCount sets the MinDeliveryCount field's value.
+func (s *RecurrenceResourceSegmentForUpdateResourceReservationPlanInput) SetMinDeliveryCount(v int64) *RecurrenceResourceSegmentForUpdateResourceReservationPlanInput {
+	s.MinDeliveryCount = &v
+	return s
+}
+
+// SetStartTime sets the StartTime field's value.
+func (s *RecurrenceResourceSegmentForUpdateResourceReservationPlanInput) SetStartTime(v string) *RecurrenceResourceSegmentForUpdateResourceReservationPlanInput {
+	s.StartTime = &v
+	return s
+}
+
+// SetStopReservationSeconds sets the StopReservationSeconds field's value.
+func (s *RecurrenceResourceSegmentForUpdateResourceReservationPlanInput) SetStopReservationSeconds(v int64) *RecurrenceResourceSegmentForUpdateResourceReservationPlanInput {
+	s.StopReservationSeconds = &v
+	return s
+}
+
+// SetTargetDeliveryCount sets the TargetDeliveryCount field's value.
+func (s *RecurrenceResourceSegmentForUpdateResourceReservationPlanInput) SetTargetDeliveryCount(v int64) *RecurrenceResourceSegmentForUpdateResourceReservationPlanInput {
+	s.TargetDeliveryCount = &v
+	return s
+}
+
+type ReservationConfigForUpdateResourceReservationPlanInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	MaxDurationHours *int64 `min:"4" max:"12" type:"int64" json:",omitempty"`
+
+	MinDurationHours *int64 `min:"4" max:"12" type:"int64" json:",omitempty"`
+
+	RecurrenceEndTime *string `type:"string" json:",omitempty"`
+
+	RecurrenceResourceSegments []*RecurrenceResourceSegmentForUpdateResourceReservationPlanInput `type:"list" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s ReservationConfigForUpdateResourceReservationPlanInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ReservationConfigForUpdateResourceReservationPlanInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *ReservationConfigForUpdateResourceReservationPlanInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "ReservationConfigForUpdateResourceReservationPlanInput"}
+	if s.MaxDurationHours != nil && *s.MaxDurationHours < 4 {
+		invalidParams.Add(request.NewErrParamMinValue("MaxDurationHours", 4))
+	}
+	if s.MaxDurationHours != nil && *s.MaxDurationHours > 12 {
+		invalidParams.Add(request.NewErrParamMaxValue("MaxDurationHours", 12))
+	}
+	if s.MinDurationHours != nil && *s.MinDurationHours < 4 {
+		invalidParams.Add(request.NewErrParamMinValue("MinDurationHours", 4))
+	}
+	if s.MinDurationHours != nil && *s.MinDurationHours > 12 {
+		invalidParams.Add(request.NewErrParamMaxValue("MinDurationHours", 12))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetMaxDurationHours sets the MaxDurationHours field's value.
+func (s *ReservationConfigForUpdateResourceReservationPlanInput) SetMaxDurationHours(v int64) *ReservationConfigForUpdateResourceReservationPlanInput {
+	s.MaxDurationHours = &v
+	return s
+}
+
+// SetMinDurationHours sets the MinDurationHours field's value.
+func (s *ReservationConfigForUpdateResourceReservationPlanInput) SetMinDurationHours(v int64) *ReservationConfigForUpdateResourceReservationPlanInput {
+	s.MinDurationHours = &v
+	return s
+}
+
+// SetRecurrenceEndTime sets the RecurrenceEndTime field's value.
+func (s *ReservationConfigForUpdateResourceReservationPlanInput) SetRecurrenceEndTime(v string) *ReservationConfigForUpdateResourceReservationPlanInput {
+	s.RecurrenceEndTime = &v
+	return s
+}
+
+// SetRecurrenceResourceSegments sets the RecurrenceResourceSegments field's value.
+func (s *ReservationConfigForUpdateResourceReservationPlanInput) SetRecurrenceResourceSegments(v []*RecurrenceResourceSegmentForUpdateResourceReservationPlanInput) *ReservationConfigForUpdateResourceReservationPlanInput {
+	s.RecurrenceResourceSegments = v
 	return s
 }
 
@@ -258,6 +402,8 @@ func (s *StorageNetworkConfigForUpdateResourceReservationPlanInput) SetVpcId(v s
 type UpdateResourceReservationPlanInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	ComputeResource *ComputeResourceForUpdateResourceReservationPlanInput `type:"structure" json:",omitempty"`
+
 	Description *string `min:"1" max:"500" type:"string" json:",omitempty"`
 
 	DryRun *bool `type:"boolean" json:",omitempty"`
@@ -268,6 +414,8 @@ type UpdateResourceReservationPlanInput struct {
 	MatchingReservationPlanTimeConfig *MatchingReservationPlanTimeConfigForUpdateResourceReservationPlanInput `type:"structure" json:",omitempty"`
 
 	Name *string `min:"1" max:"200" type:"string" json:",omitempty"`
+
+	ReservationConfig *ReservationConfigForUpdateResourceReservationPlanInput `type:"structure" json:",omitempty"`
 
 	ScheduleConfig *ScheduleConfigForUpdateResourceReservationPlanInput `type:"structure" json:",omitempty"`
 
@@ -306,11 +454,22 @@ func (s *UpdateResourceReservationPlanInput) Validate() error {
 	if s.Name != nil && len(*s.Name) > 200 {
 		invalidParams.Add(request.NewErrParamMaxLen("Name", 200, *s.Name))
 	}
+	if s.ReservationConfig != nil {
+		if err := s.ReservationConfig.Validate(); err != nil {
+			invalidParams.AddNested("ReservationConfig", err.(request.ErrInvalidParams))
+		}
+	}
 
 	if invalidParams.Len() > 0 {
 		return invalidParams
 	}
 	return nil
+}
+
+// SetComputeResource sets the ComputeResource field's value.
+func (s *UpdateResourceReservationPlanInput) SetComputeResource(v *ComputeResourceForUpdateResourceReservationPlanInput) *UpdateResourceReservationPlanInput {
+	s.ComputeResource = v
+	return s
 }
 
 // SetDescription sets the Description field's value.
@@ -340,6 +499,12 @@ func (s *UpdateResourceReservationPlanInput) SetMatchingReservationPlanTimeConfi
 // SetName sets the Name field's value.
 func (s *UpdateResourceReservationPlanInput) SetName(v string) *UpdateResourceReservationPlanInput {
 	s.Name = &v
+	return s
+}
+
+// SetReservationConfig sets the ReservationConfig field's value.
+func (s *UpdateResourceReservationPlanInput) SetReservationConfig(v *ReservationConfigForUpdateResourceReservationPlanInput) *UpdateResourceReservationPlanInput {
+	s.ReservationConfig = v
 	return s
 }
 

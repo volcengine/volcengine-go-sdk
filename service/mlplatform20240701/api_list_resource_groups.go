@@ -181,6 +181,36 @@ func (s *ComputeResourceForListResourceGroupsOutput) SetZoneId(v string) *Comput
 	return s
 }
 
+type EicForListResourceGroupsOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	EicId *string `type:"string" json:",omitempty"`
+
+	EicStatus *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s EicForListResourceGroupsOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s EicForListResourceGroupsOutput) GoString() string {
+	return s.String()
+}
+
+// SetEicId sets the EicId field's value.
+func (s *EicForListResourceGroupsOutput) SetEicId(v string) *EicForListResourceGroupsOutput {
+	s.EicId = &v
+	return s
+}
+
+// SetEicStatus sets the EicStatus field's value.
+func (s *EicForListResourceGroupsOutput) SetEicStatus(v string) *EicForListResourceGroupsOutput {
+	s.EicStatus = &v
+	return s
+}
+
 type ItemForListResourceGroupsOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -642,6 +672,8 @@ func (s *StatusForListResourceGroupsOutput) SetState(v string) *StatusForListRes
 type StorageConfigForListResourceGroupsOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	Eic *EicForListResourceGroupsOutput `type:"structure" json:",omitempty"`
+
 	Sfcs *SfcsForListResourceGroupsOutput `type:"structure" json:",omitempty"`
 
 	StorageNetworkConfig *StorageNetworkConfigForListResourceGroupsOutput `type:"structure" json:",omitempty"`
@@ -657,6 +689,12 @@ func (s StorageConfigForListResourceGroupsOutput) String() string {
 // GoString returns the string representation
 func (s StorageConfigForListResourceGroupsOutput) GoString() string {
 	return s.String()
+}
+
+// SetEic sets the Eic field's value.
+func (s *StorageConfigForListResourceGroupsOutput) SetEic(v *EicForListResourceGroupsOutput) *StorageConfigForListResourceGroupsOutput {
+	s.Eic = v
+	return s
 }
 
 // SetSfcs sets the Sfcs field's value.
