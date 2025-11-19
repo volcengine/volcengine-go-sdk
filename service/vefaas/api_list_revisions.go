@@ -143,6 +143,44 @@ func (c *VEFAAS) ListRevisionsWithContext(ctx volcengine.Context, input *ListRev
 	return out, req.Send()
 }
 
+type AsyncTaskConfigForListRevisionsOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	DestinationConfig *DestinationConfigForListRevisionsOutput `type:"structure" json:",omitempty"`
+
+	EnableAsyncTask *bool `type:"boolean" json:",omitempty"`
+
+	MaxRetry *int32 `type:"int32" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s AsyncTaskConfigForListRevisionsOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s AsyncTaskConfigForListRevisionsOutput) GoString() string {
+	return s.String()
+}
+
+// SetDestinationConfig sets the DestinationConfig field's value.
+func (s *AsyncTaskConfigForListRevisionsOutput) SetDestinationConfig(v *DestinationConfigForListRevisionsOutput) *AsyncTaskConfigForListRevisionsOutput {
+	s.DestinationConfig = v
+	return s
+}
+
+// SetEnableAsyncTask sets the EnableAsyncTask field's value.
+func (s *AsyncTaskConfigForListRevisionsOutput) SetEnableAsyncTask(v bool) *AsyncTaskConfigForListRevisionsOutput {
+	s.EnableAsyncTask = &v
+	return s
+}
+
+// SetMaxRetry sets the MaxRetry field's value.
+func (s *AsyncTaskConfigForListRevisionsOutput) SetMaxRetry(v int32) *AsyncTaskConfigForListRevisionsOutput {
+	s.MaxRetry = &v
+	return s
+}
+
 type CredentialsForListRevisionsOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -170,6 +208,36 @@ func (s *CredentialsForListRevisionsOutput) SetAccessKeyId(v string) *Credential
 // SetSecretAccessKey sets the SecretAccessKey field's value.
 func (s *CredentialsForListRevisionsOutput) SetSecretAccessKey(v string) *CredentialsForListRevisionsOutput {
 	s.SecretAccessKey = &v
+	return s
+}
+
+type DestinationConfigForListRevisionsOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	OnFailure *OnFailureForListRevisionsOutput `type:"structure" json:",omitempty"`
+
+	OnSuccess *OnSuccessForListRevisionsOutput `type:"structure" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s DestinationConfigForListRevisionsOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DestinationConfigForListRevisionsOutput) GoString() string {
+	return s.String()
+}
+
+// SetOnFailure sets the OnFailure field's value.
+func (s *DestinationConfigForListRevisionsOutput) SetOnFailure(v *OnFailureForListRevisionsOutput) *DestinationConfigForListRevisionsOutput {
+	s.OnFailure = v
+	return s
+}
+
+// SetOnSuccess sets the OnSuccess field's value.
+func (s *DestinationConfigForListRevisionsOutput) SetOnSuccess(v *OnSuccessForListRevisionsOutput) *DestinationConfigForListRevisionsOutput {
+	s.OnSuccess = v
 	return s
 }
 
@@ -382,6 +450,8 @@ func (s *HealthCheckConfigForListRevisionsOutput) SetTimeoutSeconds(v int32) *He
 type ItemForListRevisionsOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	AsyncTaskConfig *AsyncTaskConfigForListRevisionsOutput `type:"structure" json:",omitempty"`
+
 	CodeSize *int32 `type:"int32" json:",omitempty"`
 
 	CodeSizeLimit *int32 `type:"int32" json:",omitempty"`
@@ -447,6 +517,12 @@ func (s ItemForListRevisionsOutput) String() string {
 // GoString returns the string representation
 func (s ItemForListRevisionsOutput) GoString() string {
 	return s.String()
+}
+
+// SetAsyncTaskConfig sets the AsyncTaskConfig field's value.
+func (s *ItemForListRevisionsOutput) SetAsyncTaskConfig(v *AsyncTaskConfigForListRevisionsOutput) *ItemForListRevisionsOutput {
+	s.AsyncTaskConfig = v
+	return s
 }
 
 // SetCodeSize sets the CodeSize field's value.
@@ -852,6 +928,50 @@ func (s *NasStorageForListRevisionsOutput) SetEnableNas(v bool) *NasStorageForLi
 // SetNasConfigs sets the NasConfigs field's value.
 func (s *NasStorageForListRevisionsOutput) SetNasConfigs(v []*NasConfigForListRevisionsOutput) *NasStorageForListRevisionsOutput {
 	s.NasConfigs = v
+	return s
+}
+
+type OnFailureForListRevisionsOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Destination *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s OnFailureForListRevisionsOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s OnFailureForListRevisionsOutput) GoString() string {
+	return s.String()
+}
+
+// SetDestination sets the Destination field's value.
+func (s *OnFailureForListRevisionsOutput) SetDestination(v string) *OnFailureForListRevisionsOutput {
+	s.Destination = &v
+	return s
+}
+
+type OnSuccessForListRevisionsOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Destination *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s OnSuccessForListRevisionsOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s OnSuccessForListRevisionsOutput) GoString() string {
+	return s.String()
+}
+
+// SetDestination sets the Destination field's value.
+func (s *OnSuccessForListRevisionsOutput) SetDestination(v string) *OnSuccessForListRevisionsOutput {
+	s.Destination = &v
 	return s
 }
 
