@@ -430,6 +430,14 @@ func (r *ContentItem) MarshalJSON() ([]byte, error) {
 	return json.Marshal(nil)
 }
 
+// MarshalJSON ...
+func (r *ResponsesToolChoice) MarshalJSON() ([]byte, error) {
+	if v := r.GetFunctionToolChoice(); v != nil {
+		return json.Marshal(v)
+	}
+	return json.Marshal(r.GetMode())
+}
+
 // UnmarshalJSON ...
 func (r *ResponsesToolChoice) UnmarshalJSON(bytes []byte) error {
 	var err error
