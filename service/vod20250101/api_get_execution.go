@@ -2438,6 +2438,8 @@ type ConvertTaskForGetExecutionOutput struct {
 
 	VideoGeneration *ConvertVideoGenerationForGetExecutionOutput `type:"structure"`
 
+	VideoMatting *ConvertVideoMattingForGetExecutionOutput `type:"structure"`
+
 	VideoSummary *ConvertVideoSummaryForGetExecutionOutput `type:"structure"`
 
 	VideoUnderstanding *ConvertVideoUnderstandingForGetExecutionOutput `type:"structure"`
@@ -2524,6 +2526,12 @@ func (s *ConvertTaskForGetExecutionOutput) SetType(v string) *ConvertTaskForGetE
 // SetVideoGeneration sets the VideoGeneration field's value.
 func (s *ConvertTaskForGetExecutionOutput) SetVideoGeneration(v *ConvertVideoGenerationForGetExecutionOutput) *ConvertTaskForGetExecutionOutput {
 	s.VideoGeneration = v
+	return s
+}
+
+// SetVideoMatting sets the VideoMatting field's value.
+func (s *ConvertTaskForGetExecutionOutput) SetVideoMatting(v *ConvertVideoMattingForGetExecutionOutput) *ConvertTaskForGetExecutionOutput {
+	s.VideoMatting = v
 	return s
 }
 
@@ -2926,6 +2934,66 @@ func (s *ConvertVideoGenerationForGetExecutionOutput) SetResolution(v string) *C
 // SetVideo sets the Video field's value.
 func (s *ConvertVideoGenerationForGetExecutionOutput) SetVideo(v *VideoForGetExecutionOutput) *ConvertVideoGenerationForGetExecutionOutput {
 	s.Video = v
+	return s
+}
+
+type ConvertVideoMattingForGetExecutionOutput struct {
+	_ struct{} `type:"structure"`
+
+	Duration *float64 `type:"double"`
+
+	Model *string `type:"string"`
+
+	Video *VideoForGetExecutionOutput `type:"structure"`
+}
+
+// String returns the string representation
+func (s ConvertVideoMattingForGetExecutionOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ConvertVideoMattingForGetExecutionOutput) GoString() string {
+	return s.String()
+}
+
+// SetDuration sets the Duration field's value.
+func (s *ConvertVideoMattingForGetExecutionOutput) SetDuration(v float64) *ConvertVideoMattingForGetExecutionOutput {
+	s.Duration = &v
+	return s
+}
+
+// SetModel sets the Model field's value.
+func (s *ConvertVideoMattingForGetExecutionOutput) SetModel(v string) *ConvertVideoMattingForGetExecutionOutput {
+	s.Model = &v
+	return s
+}
+
+// SetVideo sets the Video field's value.
+func (s *ConvertVideoMattingForGetExecutionOutput) SetVideo(v *VideoForGetExecutionOutput) *ConvertVideoMattingForGetExecutionOutput {
+	s.Video = v
+	return s
+}
+
+type ConvertVideoOptionForGetExecutionOutput struct {
+	_ struct{} `type:"structure"`
+
+	Format *string `type:"string"`
+}
+
+// String returns the string representation
+func (s ConvertVideoOptionForGetExecutionOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ConvertVideoOptionForGetExecutionOutput) GoString() string {
+	return s.String()
+}
+
+// SetFormat sets the Format field's value.
+func (s *ConvertVideoOptionForGetExecutionOutput) SetFormat(v string) *ConvertVideoOptionForGetExecutionOutput {
+	s.Format = &v
 	return s
 }
 
@@ -4770,6 +4838,8 @@ type TaskForGetExecutionOutput struct {
 
 	VideoGeneration *VideoGenerationForGetExecutionOutput `type:"structure"`
 
+	VideoMatting *VideoMattingForGetExecutionOutput `type:"structure"`
+
 	VideoSummary *VideoSummaryForGetExecutionOutput `type:"structure"`
 
 	VideoUnderstanding *VideoUnderstandingForGetExecutionOutput `type:"structure"`
@@ -4856,6 +4926,12 @@ func (s *TaskForGetExecutionOutput) SetType(v string) *TaskForGetExecutionOutput
 // SetVideoGeneration sets the VideoGeneration field's value.
 func (s *TaskForGetExecutionOutput) SetVideoGeneration(v *VideoGenerationForGetExecutionOutput) *TaskForGetExecutionOutput {
 	s.VideoGeneration = v
+	return s
+}
+
+// SetVideoMatting sets the VideoMatting field's value.
+func (s *TaskForGetExecutionOutput) SetVideoMatting(v *VideoMattingForGetExecutionOutput) *TaskForGetExecutionOutput {
+	s.VideoMatting = v
 	return s
 }
 
@@ -5139,6 +5215,44 @@ func (s *VideoGenerationForGetExecutionOutput) SetPrompt(v string) *VideoGenerat
 
 // SetVideoOption sets the VideoOption field's value.
 func (s *VideoGenerationForGetExecutionOutput) SetVideoOption(v *VideoOptionForGetExecutionOutput) *VideoGenerationForGetExecutionOutput {
+	s.VideoOption = v
+	return s
+}
+
+type VideoMattingForGetExecutionOutput struct {
+	_ struct{} `type:"structure"`
+
+	Model *string `type:"string"`
+
+	NewVid *bool `type:"boolean"`
+
+	VideoOption *ConvertVideoOptionForGetExecutionOutput `type:"structure"`
+}
+
+// String returns the string representation
+func (s VideoMattingForGetExecutionOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s VideoMattingForGetExecutionOutput) GoString() string {
+	return s.String()
+}
+
+// SetModel sets the Model field's value.
+func (s *VideoMattingForGetExecutionOutput) SetModel(v string) *VideoMattingForGetExecutionOutput {
+	s.Model = &v
+	return s
+}
+
+// SetNewVid sets the NewVid field's value.
+func (s *VideoMattingForGetExecutionOutput) SetNewVid(v bool) *VideoMattingForGetExecutionOutput {
+	s.NewVid = &v
+	return s
+}
+
+// SetVideoOption sets the VideoOption field's value.
+func (s *VideoMattingForGetExecutionOutput) SetVideoOption(v *ConvertVideoOptionForGetExecutionOutput) *VideoMattingForGetExecutionOutput {
 	s.VideoOption = v
 	return s
 }
