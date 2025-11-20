@@ -142,11 +142,11 @@ func handleEvent(event *responses.Event) {
 	case responses.EventType_response_reasoning_summary_text_delta.String():
 		print(event.GetReasoningText().GetDelta())
 	case responses.EventType_response_reasoning_summary_text_done.String(): // aggregated reasoning text
-		fmt.Printf("\nAggregated reasoning text: %s\n", event.GetReasoningText().GetText())
+		fmt.Printf("\nAggregated reasoning text: %s\n", event.GetReasoningTextDone().GetText())
 	case responses.EventType_response_output_text_delta.String():
 		print(event.GetText().GetDelta())
 	case responses.EventType_response_output_text_done.String(): // aggregated output text
-		fmt.Printf("\nAggregated output text: %s\n", event.GetText().GetText())
+		fmt.Printf("\nAggregated output text: %s\n", event.GetTextDone().GetText())
 	default:
 		return
 	}
