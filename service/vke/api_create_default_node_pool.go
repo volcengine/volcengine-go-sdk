@@ -479,6 +479,10 @@ type KubernetesConfigForCreateDefaultNodePoolInput struct {
 
 	NamePrefix *string `type:"string" json:",omitempty"`
 
+	NameSuffix *string `type:"string" json:",omitempty"`
+
+	NameUseHostname *bool `type:"boolean" json:",omitempty"`
+
 	Taints []*TaintForCreateDefaultNodePoolInput `type:"list" json:",omitempty"`
 }
 
@@ -534,6 +538,18 @@ func (s *KubernetesConfigForCreateDefaultNodePoolInput) SetLabels(v []*LabelForC
 // SetNamePrefix sets the NamePrefix field's value.
 func (s *KubernetesConfigForCreateDefaultNodePoolInput) SetNamePrefix(v string) *KubernetesConfigForCreateDefaultNodePoolInput {
 	s.NamePrefix = &v
+	return s
+}
+
+// SetNameSuffix sets the NameSuffix field's value.
+func (s *KubernetesConfigForCreateDefaultNodePoolInput) SetNameSuffix(v string) *KubernetesConfigForCreateDefaultNodePoolInput {
+	s.NameSuffix = &v
+	return s
+}
+
+// SetNameUseHostname sets the NameUseHostname field's value.
+func (s *KubernetesConfigForCreateDefaultNodePoolInput) SetNameUseHostname(v bool) *KubernetesConfigForCreateDefaultNodePoolInput {
+	s.NameUseHostname = &v
 	return s
 }
 

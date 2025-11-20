@@ -407,6 +407,60 @@ func (s *GetResourceReservationPlanOutput) SetWorkloadNetworkMode(v string) *Get
 	return s
 }
 
+type RecurrenceResourceSegmentForGetResourceReservationPlanOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	EndTime *string `type:"string" json:",omitempty"`
+
+	MinDeliveryCount *int64 `type:"int64" json:",omitempty"`
+
+	StartTime *string `type:"string" json:",omitempty"`
+
+	StopReservationSeconds *int64 `type:"int64" json:",omitempty"`
+
+	TargetDeliveryCount *int64 `type:"int64" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s RecurrenceResourceSegmentForGetResourceReservationPlanOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s RecurrenceResourceSegmentForGetResourceReservationPlanOutput) GoString() string {
+	return s.String()
+}
+
+// SetEndTime sets the EndTime field's value.
+func (s *RecurrenceResourceSegmentForGetResourceReservationPlanOutput) SetEndTime(v string) *RecurrenceResourceSegmentForGetResourceReservationPlanOutput {
+	s.EndTime = &v
+	return s
+}
+
+// SetMinDeliveryCount sets the MinDeliveryCount field's value.
+func (s *RecurrenceResourceSegmentForGetResourceReservationPlanOutput) SetMinDeliveryCount(v int64) *RecurrenceResourceSegmentForGetResourceReservationPlanOutput {
+	s.MinDeliveryCount = &v
+	return s
+}
+
+// SetStartTime sets the StartTime field's value.
+func (s *RecurrenceResourceSegmentForGetResourceReservationPlanOutput) SetStartTime(v string) *RecurrenceResourceSegmentForGetResourceReservationPlanOutput {
+	s.StartTime = &v
+	return s
+}
+
+// SetStopReservationSeconds sets the StopReservationSeconds field's value.
+func (s *RecurrenceResourceSegmentForGetResourceReservationPlanOutput) SetStopReservationSeconds(v int64) *RecurrenceResourceSegmentForGetResourceReservationPlanOutput {
+	s.StopReservationSeconds = &v
+	return s
+}
+
+// SetTargetDeliveryCount sets the TargetDeliveryCount field's value.
+func (s *RecurrenceResourceSegmentForGetResourceReservationPlanOutput) SetTargetDeliveryCount(v int64) *RecurrenceResourceSegmentForGetResourceReservationPlanOutput {
+	s.TargetDeliveryCount = &v
+	return s
+}
+
 type ReservationConfigForGetResourceReservationPlanOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -421,6 +475,8 @@ type ReservationConfigForGetResourceReservationPlanOutput struct {
 	RecurrenceEndTime *string `type:"string" json:",omitempty"`
 
 	RecurrenceInterval *string `type:"string" json:",omitempty"`
+
+	RecurrenceResourceSegments []*RecurrenceResourceSegmentForGetResourceReservationPlanOutput `type:"list" json:",omitempty"`
 
 	RecurrenceStartTime *string `type:"string" json:",omitempty"`
 
@@ -472,6 +528,12 @@ func (s *ReservationConfigForGetResourceReservationPlanOutput) SetRecurrenceEndT
 // SetRecurrenceInterval sets the RecurrenceInterval field's value.
 func (s *ReservationConfigForGetResourceReservationPlanOutput) SetRecurrenceInterval(v string) *ReservationConfigForGetResourceReservationPlanOutput {
 	s.RecurrenceInterval = &v
+	return s
+}
+
+// SetRecurrenceResourceSegments sets the RecurrenceResourceSegments field's value.
+func (s *ReservationConfigForGetResourceReservationPlanOutput) SetRecurrenceResourceSegments(v []*RecurrenceResourceSegmentForGetResourceReservationPlanOutput) *ReservationConfigForGetResourceReservationPlanOutput {
+	s.RecurrenceResourceSegments = v
 	return s
 }
 

@@ -303,6 +303,8 @@ type ConvertCredentialForCreateJobInput struct {
 	AccessKey *string `type:"string" json:",omitempty"`
 
 	SecretAccessKey *string `type:"string" json:",omitempty"`
+
+	UseServiceLinkedRole *bool `type:"boolean" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -324,6 +326,12 @@ func (s *ConvertCredentialForCreateJobInput) SetAccessKey(v string) *ConvertCred
 // SetSecretAccessKey sets the SecretAccessKey field's value.
 func (s *ConvertCredentialForCreateJobInput) SetSecretAccessKey(v string) *ConvertCredentialForCreateJobInput {
 	s.SecretAccessKey = &v
+	return s
+}
+
+// SetUseServiceLinkedRole sets the UseServiceLinkedRole field's value.
+func (s *ConvertCredentialForCreateJobInput) SetUseServiceLinkedRole(v bool) *ConvertCredentialForCreateJobInput {
+	s.UseServiceLinkedRole = &v
 	return s
 }
 
@@ -1439,6 +1447,8 @@ type VepfsAPForCreateJobInput struct {
 	AccessPointId *string `type:"string" json:",omitempty"`
 
 	Id *string `type:"string" json:",omitempty"`
+
+	UseEic *bool `type:"boolean" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -1460,6 +1470,12 @@ func (s *VepfsAPForCreateJobInput) SetAccessPointId(v string) *VepfsAPForCreateJ
 // SetId sets the Id field's value.
 func (s *VepfsAPForCreateJobInput) SetId(v string) *VepfsAPForCreateJobInput {
 	s.Id = &v
+	return s
+}
+
+// SetUseEic sets the UseEic field's value.
+func (s *VepfsAPForCreateJobInput) SetUseEic(v bool) *VepfsAPForCreateJobInput {
+	s.UseEic = &v
 	return s
 }
 

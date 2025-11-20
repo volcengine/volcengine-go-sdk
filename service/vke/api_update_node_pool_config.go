@@ -560,6 +560,10 @@ type KubernetesConfigForUpdateNodePoolConfigInput struct {
 
 	NamePrefix *string `type:"string" json:",omitempty"`
 
+	NameSuffix *string `type:"string" json:",omitempty"`
+
+	NameUseHostname *bool `type:"boolean" json:",omitempty"`
+
 	Taints []*TaintForUpdateNodePoolConfigInput `type:"list" json:",omitempty"`
 }
 
@@ -615,6 +619,18 @@ func (s *KubernetesConfigForUpdateNodePoolConfigInput) SetLabels(v []*LabelForUp
 // SetNamePrefix sets the NamePrefix field's value.
 func (s *KubernetesConfigForUpdateNodePoolConfigInput) SetNamePrefix(v string) *KubernetesConfigForUpdateNodePoolConfigInput {
 	s.NamePrefix = &v
+	return s
+}
+
+// SetNameSuffix sets the NameSuffix field's value.
+func (s *KubernetesConfigForUpdateNodePoolConfigInput) SetNameSuffix(v string) *KubernetesConfigForUpdateNodePoolConfigInput {
+	s.NameSuffix = &v
+	return s
+}
+
+// SetNameUseHostname sets the NameUseHostname field's value.
+func (s *KubernetesConfigForUpdateNodePoolConfigInput) SetNameUseHostname(v bool) *KubernetesConfigForUpdateNodePoolConfigInput {
+	s.NameUseHostname = &v
 	return s
 }
 
@@ -725,17 +741,25 @@ type NodeConfigForUpdateNodePoolConfigInput struct {
 
 	DataVolumes []*DataVolumeForUpdateNodePoolConfigInput `type:"list" json:",omitempty"`
 
+	Hostname *string `type:"string" json:",omitempty"`
+
 	HpcClusterIds []*string `type:"list" json:",omitempty"`
 
 	ImageId *string `type:"string" json:",omitempty"`
 
 	InitializeScript *string `type:"string" json:",omitempty"`
 
+	InstanceChargeType *string `type:"string" json:",omitempty" enum:"EnumOfInstanceChargeTypeForUpdateNodePoolConfigInput"`
+
+	InstanceName *string `type:"string" json:",omitempty"`
+
 	InstanceTypeIds []*string `type:"list" json:",omitempty"`
 
 	InstancesDistribution *InstancesDistributionForUpdateNodePoolConfigInput `type:"structure" json:",omitempty"`
 
 	NamePrefix *string `type:"string" json:",omitempty"`
+
+	NetworkTrafficMode *string `type:"string" json:",omitempty"`
 
 	Period *int32 `type:"int32" json:",omitempty"`
 
@@ -790,6 +814,12 @@ func (s *NodeConfigForUpdateNodePoolConfigInput) SetDataVolumes(v []*DataVolumeF
 	return s
 }
 
+// SetHostname sets the Hostname field's value.
+func (s *NodeConfigForUpdateNodePoolConfigInput) SetHostname(v string) *NodeConfigForUpdateNodePoolConfigInput {
+	s.Hostname = &v
+	return s
+}
+
 // SetHpcClusterIds sets the HpcClusterIds field's value.
 func (s *NodeConfigForUpdateNodePoolConfigInput) SetHpcClusterIds(v []*string) *NodeConfigForUpdateNodePoolConfigInput {
 	s.HpcClusterIds = v
@@ -808,6 +838,18 @@ func (s *NodeConfigForUpdateNodePoolConfigInput) SetInitializeScript(v string) *
 	return s
 }
 
+// SetInstanceChargeType sets the InstanceChargeType field's value.
+func (s *NodeConfigForUpdateNodePoolConfigInput) SetInstanceChargeType(v string) *NodeConfigForUpdateNodePoolConfigInput {
+	s.InstanceChargeType = &v
+	return s
+}
+
+// SetInstanceName sets the InstanceName field's value.
+func (s *NodeConfigForUpdateNodePoolConfigInput) SetInstanceName(v string) *NodeConfigForUpdateNodePoolConfigInput {
+	s.InstanceName = &v
+	return s
+}
+
 // SetInstanceTypeIds sets the InstanceTypeIds field's value.
 func (s *NodeConfigForUpdateNodePoolConfigInput) SetInstanceTypeIds(v []*string) *NodeConfigForUpdateNodePoolConfigInput {
 	s.InstanceTypeIds = v
@@ -823,6 +865,12 @@ func (s *NodeConfigForUpdateNodePoolConfigInput) SetInstancesDistribution(v *Ins
 // SetNamePrefix sets the NamePrefix field's value.
 func (s *NodeConfigForUpdateNodePoolConfigInput) SetNamePrefix(v string) *NodeConfigForUpdateNodePoolConfigInput {
 	s.NamePrefix = &v
+	return s
+}
+
+// SetNetworkTrafficMode sets the NetworkTrafficMode field's value.
+func (s *NodeConfigForUpdateNodePoolConfigInput) SetNetworkTrafficMode(v string) *NodeConfigForUpdateNodePoolConfigInput {
+	s.NetworkTrafficMode = &v
 	return s
 }
 
@@ -1264,6 +1312,14 @@ const (
 
 	// EnumOfFileSystemForUpdateNodePoolConfigInputXfs is a EnumOfFileSystemForUpdateNodePoolConfigInput enum value
 	EnumOfFileSystemForUpdateNodePoolConfigInputXfs = "Xfs"
+)
+
+const (
+	// EnumOfInstanceChargeTypeForUpdateNodePoolConfigInputPostPaid is a EnumOfInstanceChargeTypeForUpdateNodePoolConfigInput enum value
+	EnumOfInstanceChargeTypeForUpdateNodePoolConfigInputPostPaid = "PostPaid"
+
+	// EnumOfInstanceChargeTypeForUpdateNodePoolConfigInputPrePaid is a EnumOfInstanceChargeTypeForUpdateNodePoolConfigInput enum value
+	EnumOfInstanceChargeTypeForUpdateNodePoolConfigInputPrePaid = "PrePaid"
 )
 
 const (

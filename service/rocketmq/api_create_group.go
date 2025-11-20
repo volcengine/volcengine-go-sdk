@@ -146,6 +146,8 @@ func (c *ROCKETMQ) CreateGroupWithContext(ctx volcengine.Context, input *CreateG
 type CreateGroupInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	ConsumeMessageOrderly *bool `type:"boolean" json:",omitempty"`
+
 	Description *string `type:"string" json:",omitempty"`
 
 	// GroupId is a required field
@@ -156,6 +158,8 @@ type CreateGroupInput struct {
 
 	// InstanceId is a required field
 	InstanceId *string `type:"string" json:",omitempty" required:"true"`
+
+	RetryMaxTimes *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -187,6 +191,12 @@ func (s *CreateGroupInput) Validate() error {
 	return nil
 }
 
+// SetConsumeMessageOrderly sets the ConsumeMessageOrderly field's value.
+func (s *CreateGroupInput) SetConsumeMessageOrderly(v bool) *CreateGroupInput {
+	s.ConsumeMessageOrderly = &v
+	return s
+}
+
 // SetDescription sets the Description field's value.
 func (s *CreateGroupInput) SetDescription(v string) *CreateGroupInput {
 	s.Description = &v
@@ -208,6 +218,12 @@ func (s *CreateGroupInput) SetGroupType(v string) *CreateGroupInput {
 // SetInstanceId sets the InstanceId field's value.
 func (s *CreateGroupInput) SetInstanceId(v string) *CreateGroupInput {
 	s.InstanceId = &v
+	return s
+}
+
+// SetRetryMaxTimes sets the RetryMaxTimes field's value.
+func (s *CreateGroupInput) SetRetryMaxTimes(v int32) *CreateGroupInput {
+	s.RetryMaxTimes = &v
 	return s
 }
 

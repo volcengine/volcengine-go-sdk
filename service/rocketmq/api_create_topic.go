@@ -311,6 +311,10 @@ type CreateTopicOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
+
+	CreateSuccess *bool `type:"boolean" json:",omitempty"`
+
+	ExpectMinimalTopicQueueNumber *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -321,4 +325,16 @@ func (s CreateTopicOutput) String() string {
 // GoString returns the string representation
 func (s CreateTopicOutput) GoString() string {
 	return s.String()
+}
+
+// SetCreateSuccess sets the CreateSuccess field's value.
+func (s *CreateTopicOutput) SetCreateSuccess(v bool) *CreateTopicOutput {
+	s.CreateSuccess = &v
+	return s
+}
+
+// SetExpectMinimalTopicQueueNumber sets the ExpectMinimalTopicQueueNumber field's value.
+func (s *CreateTopicOutput) SetExpectMinimalTopicQueueNumber(v int32) *CreateTopicOutput {
+	s.ExpectMinimalTopicQueueNumber = &v
+	return s
 }

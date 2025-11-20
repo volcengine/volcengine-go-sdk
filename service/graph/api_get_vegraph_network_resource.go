@@ -218,6 +218,8 @@ type NetworkResourceForGetVegraphNetworkResourceOutput struct {
 
 	LBId *string `type:"string" json:",omitempty"`
 
+	NetworkResourceType *string `type:"string" json:",omitempty"`
+
 	NetworkType *string `type:"string" json:"networkType,omitempty"`
 
 	Region *string `type:"string" json:",omitempty"`
@@ -274,6 +276,12 @@ func (s *NetworkResourceForGetVegraphNetworkResourceOutput) SetIpVersionType(v s
 // SetLBId sets the LBId field's value.
 func (s *NetworkResourceForGetVegraphNetworkResourceOutput) SetLBId(v string) *NetworkResourceForGetVegraphNetworkResourceOutput {
 	s.LBId = &v
+	return s
+}
+
+// SetNetworkResourceType sets the NetworkResourceType field's value.
+func (s *NetworkResourceForGetVegraphNetworkResourceOutput) SetNetworkResourceType(v string) *NetworkResourceForGetVegraphNetworkResourceOutput {
+	s.NetworkResourceType = &v
 	return s
 }
 

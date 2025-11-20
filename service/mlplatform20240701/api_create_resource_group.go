@@ -381,6 +381,28 @@ func (s *CreateResourceGroupOutput) SetId(v string) *CreateResourceGroupOutput {
 	return s
 }
 
+type EicForCreateResourceGroupInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	EicId *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s EicForCreateResourceGroupInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s EicForCreateResourceGroupInput) GoString() string {
+	return s.String()
+}
+
+// SetEicId sets the EicId field's value.
+func (s *EicForCreateResourceGroupInput) SetEicId(v string) *EicForCreateResourceGroupInput {
+	s.EicId = &v
+	return s
+}
+
 type ResourceConfigForCreateResourceGroupInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -414,21 +436,11 @@ func (s *ResourceConfigForCreateResourceGroupInput) SetVolumeResources(v []*Volu
 type SfcsForCreateResourceGroupInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	Description *string `type:"string" json:",omitempty"`
+
+	Name *string `type:"string" json:",omitempty"`
+
 	Replicas *int64 `type:"int64" json:",omitempty"`
-
-	SfcsDescription *string `type:"string" json:",omitempty"`
-
-	SfcsExisted *bool `type:"boolean" json:",omitempty"`
-
-	SfcsId *string `type:"string" json:",omitempty"`
-
-	SfcsName *string `type:"string" json:",omitempty"`
-
-	SfcsResourceGroupId *string `type:"string" json:",omitempty"`
-
-	SfcsStatus *string `type:"string" json:",omitempty"`
-
-	SfcsZoneId *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -441,56 +453,28 @@ func (s SfcsForCreateResourceGroupInput) GoString() string {
 	return s.String()
 }
 
+// SetDescription sets the Description field's value.
+func (s *SfcsForCreateResourceGroupInput) SetDescription(v string) *SfcsForCreateResourceGroupInput {
+	s.Description = &v
+	return s
+}
+
+// SetName sets the Name field's value.
+func (s *SfcsForCreateResourceGroupInput) SetName(v string) *SfcsForCreateResourceGroupInput {
+	s.Name = &v
+	return s
+}
+
 // SetReplicas sets the Replicas field's value.
 func (s *SfcsForCreateResourceGroupInput) SetReplicas(v int64) *SfcsForCreateResourceGroupInput {
 	s.Replicas = &v
 	return s
 }
 
-// SetSfcsDescription sets the SfcsDescription field's value.
-func (s *SfcsForCreateResourceGroupInput) SetSfcsDescription(v string) *SfcsForCreateResourceGroupInput {
-	s.SfcsDescription = &v
-	return s
-}
-
-// SetSfcsExisted sets the SfcsExisted field's value.
-func (s *SfcsForCreateResourceGroupInput) SetSfcsExisted(v bool) *SfcsForCreateResourceGroupInput {
-	s.SfcsExisted = &v
-	return s
-}
-
-// SetSfcsId sets the SfcsId field's value.
-func (s *SfcsForCreateResourceGroupInput) SetSfcsId(v string) *SfcsForCreateResourceGroupInput {
-	s.SfcsId = &v
-	return s
-}
-
-// SetSfcsName sets the SfcsName field's value.
-func (s *SfcsForCreateResourceGroupInput) SetSfcsName(v string) *SfcsForCreateResourceGroupInput {
-	s.SfcsName = &v
-	return s
-}
-
-// SetSfcsResourceGroupId sets the SfcsResourceGroupId field's value.
-func (s *SfcsForCreateResourceGroupInput) SetSfcsResourceGroupId(v string) *SfcsForCreateResourceGroupInput {
-	s.SfcsResourceGroupId = &v
-	return s
-}
-
-// SetSfcsStatus sets the SfcsStatus field's value.
-func (s *SfcsForCreateResourceGroupInput) SetSfcsStatus(v string) *SfcsForCreateResourceGroupInput {
-	s.SfcsStatus = &v
-	return s
-}
-
-// SetSfcsZoneId sets the SfcsZoneId field's value.
-func (s *SfcsForCreateResourceGroupInput) SetSfcsZoneId(v string) *SfcsForCreateResourceGroupInput {
-	s.SfcsZoneId = &v
-	return s
-}
-
 type StorageConfigForCreateResourceGroupInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
+
+	Eic *EicForCreateResourceGroupInput `type:"structure" json:",omitempty"`
 
 	Sfcs *SfcsForCreateResourceGroupInput `type:"structure" json:",omitempty"`
 
@@ -507,6 +491,12 @@ func (s StorageConfigForCreateResourceGroupInput) String() string {
 // GoString returns the string representation
 func (s StorageConfigForCreateResourceGroupInput) GoString() string {
 	return s.String()
+}
+
+// SetEic sets the Eic field's value.
+func (s *StorageConfigForCreateResourceGroupInput) SetEic(v *EicForCreateResourceGroupInput) *StorageConfigForCreateResourceGroupInput {
+	s.Eic = v
+	return s
 }
 
 // SetSfcs sets the Sfcs field's value.
@@ -532,8 +522,6 @@ type StorageNetworkConfigForCreateResourceGroupInput struct {
 
 	SecurityGroupIds []*string `type:"list" json:",omitempty"`
 
-	SubnetId *string `type:"string" json:",omitempty"`
-
 	SubnetIds []*string `type:"list" json:",omitempty"`
 
 	VpcId *string `type:"string" json:",omitempty"`
@@ -555,12 +543,6 @@ func (s *StorageNetworkConfigForCreateResourceGroupInput) SetSecurityGroupIds(v 
 	return s
 }
 
-// SetSubnetId sets the SubnetId field's value.
-func (s *StorageNetworkConfigForCreateResourceGroupInput) SetSubnetId(v string) *StorageNetworkConfigForCreateResourceGroupInput {
-	s.SubnetId = &v
-	return s
-}
-
 // SetSubnetIds sets the SubnetIds field's value.
 func (s *StorageNetworkConfigForCreateResourceGroupInput) SetSubnetIds(v []*string) *StorageNetworkConfigForCreateResourceGroupInput {
 	s.SubnetIds = v
@@ -576,17 +558,11 @@ func (s *StorageNetworkConfigForCreateResourceGroupInput) SetVpcId(v string) *St
 type VepfsForCreateResourceGroupInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	AvailableNum *int32 `type:"int32" json:",omitempty"`
-
 	EnablePrefetch *bool `type:"boolean" json:",omitempty"`
 
 	FileSystemIds []*string `type:"list" json:",omitempty"`
 
 	MountServiceId *string `type:"string" json:",omitempty"`
-
-	TotalNum *int32 `type:"int32" json:",omitempty"`
-
-	UnavailableNum *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -597,12 +573,6 @@ func (s VepfsForCreateResourceGroupInput) String() string {
 // GoString returns the string representation
 func (s VepfsForCreateResourceGroupInput) GoString() string {
 	return s.String()
-}
-
-// SetAvailableNum sets the AvailableNum field's value.
-func (s *VepfsForCreateResourceGroupInput) SetAvailableNum(v int32) *VepfsForCreateResourceGroupInput {
-	s.AvailableNum = &v
-	return s
 }
 
 // SetEnablePrefetch sets the EnablePrefetch field's value.
@@ -623,26 +593,12 @@ func (s *VepfsForCreateResourceGroupInput) SetMountServiceId(v string) *VepfsFor
 	return s
 }
 
-// SetTotalNum sets the TotalNum field's value.
-func (s *VepfsForCreateResourceGroupInput) SetTotalNum(v int32) *VepfsForCreateResourceGroupInput {
-	s.TotalNum = &v
-	return s
-}
-
-// SetUnavailableNum sets the UnavailableNum field's value.
-func (s *VepfsForCreateResourceGroupInput) SetUnavailableNum(v int32) *VepfsForCreateResourceGroupInput {
-	s.UnavailableNum = &v
-	return s
-}
-
 type VolumeResourceForCreateResourceGroupInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	Id *string `type:"string" json:",omitempty"`
+	Size *int32 `type:"int32" json:",omitempty"`
 
-	Name *string `type:"string" json:",omitempty"`
-
-	Num *int32 `type:"int32" json:",omitempty"`
+	VolumeTypeId *string `type:"string" json:",omitempty"`
 
 	ZoneId *string `type:"string" json:",omitempty"`
 }
@@ -657,21 +613,15 @@ func (s VolumeResourceForCreateResourceGroupInput) GoString() string {
 	return s.String()
 }
 
-// SetId sets the Id field's value.
-func (s *VolumeResourceForCreateResourceGroupInput) SetId(v string) *VolumeResourceForCreateResourceGroupInput {
-	s.Id = &v
+// SetSize sets the Size field's value.
+func (s *VolumeResourceForCreateResourceGroupInput) SetSize(v int32) *VolumeResourceForCreateResourceGroupInput {
+	s.Size = &v
 	return s
 }
 
-// SetName sets the Name field's value.
-func (s *VolumeResourceForCreateResourceGroupInput) SetName(v string) *VolumeResourceForCreateResourceGroupInput {
-	s.Name = &v
-	return s
-}
-
-// SetNum sets the Num field's value.
-func (s *VolumeResourceForCreateResourceGroupInput) SetNum(v int32) *VolumeResourceForCreateResourceGroupInput {
-	s.Num = &v
+// SetVolumeTypeId sets the VolumeTypeId field's value.
+func (s *VolumeResourceForCreateResourceGroupInput) SetVolumeTypeId(v string) *VolumeResourceForCreateResourceGroupInput {
+	s.VolumeTypeId = &v
 	return s
 }
 
@@ -685,8 +635,6 @@ type WorkloadNetworkConfigForCreateResourceGroupInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
 	SecurityGroupIds []*string `type:"list" json:",omitempty"`
-
-	SubnetId *string `type:"string" json:",omitempty"`
 
 	SubnetIds []*string `type:"list" json:",omitempty"`
 
@@ -706,12 +654,6 @@ func (s WorkloadNetworkConfigForCreateResourceGroupInput) GoString() string {
 // SetSecurityGroupIds sets the SecurityGroupIds field's value.
 func (s *WorkloadNetworkConfigForCreateResourceGroupInput) SetSecurityGroupIds(v []*string) *WorkloadNetworkConfigForCreateResourceGroupInput {
 	s.SecurityGroupIds = v
-	return s
-}
-
-// SetSubnetId sets the SubnetId field's value.
-func (s *WorkloadNetworkConfigForCreateResourceGroupInput) SetSubnetId(v string) *WorkloadNetworkConfigForCreateResourceGroupInput {
-	s.SubnetId = &v
 	return s
 }
 

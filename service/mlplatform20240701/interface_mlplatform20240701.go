@@ -182,6 +182,14 @@ type MLPLATFORM20240701API interface {
 	GetInstanceTypeWithContext(volcengine.Context, *GetInstanceTypeInput, ...request.Option) (*GetInstanceTypeOutput, error)
 	GetInstanceTypeRequest(*GetInstanceTypeInput) (*request.Request, *GetInstanceTypeOutput)
 
+	GetJobCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	GetJobCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	GetJobCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	GetJob(*GetJobInput) (*GetJobOutput, error)
+	GetJobWithContext(volcengine.Context, *GetJobInput, ...request.Option) (*GetJobOutput, error)
+	GetJobRequest(*GetJobInput) (*request.Request, *GetJobOutput)
+
 	GetResourceGroupCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	GetResourceGroupCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	GetResourceGroupCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})

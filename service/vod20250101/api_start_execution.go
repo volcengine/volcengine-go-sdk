@@ -783,6 +783,28 @@ func (s *ConvertSegmentForStartExecutionInput) SetThreshold(v float64) *ConvertS
 	return s
 }
 
+type ConvertVideoOptionForStartExecutionInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Format *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s ConvertVideoOptionForStartExecutionInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ConvertVideoOptionForStartExecutionInput) GoString() string {
+	return s.String()
+}
+
+// SetFormat sets the Format field's value.
+func (s *ConvertVideoOptionForStartExecutionInput) SetFormat(v string) *ConvertVideoOptionForStartExecutionInput {
+	s.Format = &v
+	return s
+}
+
 type CustomEditForStartExecutionInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -2100,6 +2122,8 @@ type TaskForStartExecutionInput struct {
 
 	VideoGeneration *VideoGenerationForStartExecutionInput `type:"structure" json:",omitempty"`
 
+	VideoMatting *VideoMattingForStartExecutionInput `type:"structure" json:",omitempty"`
+
 	VideoSummary *VideoSummaryForStartExecutionInput `type:"structure" json:",omitempty"`
 
 	VideoUnderstanding *VideoUnderstandingForStartExecutionInput `type:"structure" json:",omitempty"`
@@ -2186,6 +2210,12 @@ func (s *TaskForStartExecutionInput) SetType(v string) *TaskForStartExecutionInp
 // SetVideoGeneration sets the VideoGeneration field's value.
 func (s *TaskForStartExecutionInput) SetVideoGeneration(v *VideoGenerationForStartExecutionInput) *TaskForStartExecutionInput {
 	s.VideoGeneration = v
+	return s
+}
+
+// SetVideoMatting sets the VideoMatting field's value.
+func (s *TaskForStartExecutionInput) SetVideoMatting(v *VideoMattingForStartExecutionInput) *TaskForStartExecutionInput {
+	s.VideoMatting = v
 	return s
 }
 
@@ -2347,6 +2377,44 @@ func (s *VideoGenerationForStartExecutionInput) SetPrompt(v string) *VideoGenera
 
 // SetVideoOption sets the VideoOption field's value.
 func (s *VideoGenerationForStartExecutionInput) SetVideoOption(v *VideoOptionForStartExecutionInput) *VideoGenerationForStartExecutionInput {
+	s.VideoOption = v
+	return s
+}
+
+type VideoMattingForStartExecutionInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Model *string `type:"string" json:",omitempty"`
+
+	NewVid *bool `type:"boolean" json:",omitempty"`
+
+	VideoOption *ConvertVideoOptionForStartExecutionInput `type:"structure" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s VideoMattingForStartExecutionInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s VideoMattingForStartExecutionInput) GoString() string {
+	return s.String()
+}
+
+// SetModel sets the Model field's value.
+func (s *VideoMattingForStartExecutionInput) SetModel(v string) *VideoMattingForStartExecutionInput {
+	s.Model = &v
+	return s
+}
+
+// SetNewVid sets the NewVid field's value.
+func (s *VideoMattingForStartExecutionInput) SetNewVid(v bool) *VideoMattingForStartExecutionInput {
+	s.NewVid = &v
+	return s
+}
+
+// SetVideoOption sets the VideoOption field's value.
+func (s *VideoMattingForStartExecutionInput) SetVideoOption(v *ConvertVideoOptionForStartExecutionInput) *VideoMattingForStartExecutionInput {
 	s.VideoOption = v
 	return s
 }

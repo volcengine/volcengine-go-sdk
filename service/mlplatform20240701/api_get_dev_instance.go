@@ -259,6 +259,36 @@ func (s *ConfigForGetDevInstanceOutput) SetVepfsAP(v *VepfsAPForGetDevInstanceOu
 	return s
 }
 
+type ConvertCredentialForGetDevInstanceOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	RegistryToken *string `type:"string" json:",omitempty"`
+
+	RegistryUsername *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s ConvertCredentialForGetDevInstanceOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ConvertCredentialForGetDevInstanceOutput) GoString() string {
+	return s.String()
+}
+
+// SetRegistryToken sets the RegistryToken field's value.
+func (s *ConvertCredentialForGetDevInstanceOutput) SetRegistryToken(v string) *ConvertCredentialForGetDevInstanceOutput {
+	s.RegistryToken = &v
+	return s
+}
+
+// SetRegistryUsername sets the RegistryUsername field's value.
+func (s *ConvertCredentialForGetDevInstanceOutput) SetRegistryUsername(v string) *ConvertCredentialForGetDevInstanceOutput {
+	s.RegistryUsername = &v
+	return s
+}
+
 type ConvertOptionsForGetDevInstanceOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -292,9 +322,11 @@ func (s *ConvertOptionsForGetDevInstanceOutput) SetReplicas(v int64) *ConvertOpt
 type CredentialForGetDevInstanceOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	RegistryToken *string `type:"string" json:",omitempty"`
+	AccessKey *string `type:"string" json:",omitempty"`
 
-	RegistryUsername *string `type:"string" json:",omitempty"`
+	SecretAccessKey *string `type:"string" json:",omitempty"`
+
+	UseServiceLinkedRole *bool `type:"boolean" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -307,15 +339,21 @@ func (s CredentialForGetDevInstanceOutput) GoString() string {
 	return s.String()
 }
 
-// SetRegistryToken sets the RegistryToken field's value.
-func (s *CredentialForGetDevInstanceOutput) SetRegistryToken(v string) *CredentialForGetDevInstanceOutput {
-	s.RegistryToken = &v
+// SetAccessKey sets the AccessKey field's value.
+func (s *CredentialForGetDevInstanceOutput) SetAccessKey(v string) *CredentialForGetDevInstanceOutput {
+	s.AccessKey = &v
 	return s
 }
 
-// SetRegistryUsername sets the RegistryUsername field's value.
-func (s *CredentialForGetDevInstanceOutput) SetRegistryUsername(v string) *CredentialForGetDevInstanceOutput {
-	s.RegistryUsername = &v
+// SetSecretAccessKey sets the SecretAccessKey field's value.
+func (s *CredentialForGetDevInstanceOutput) SetSecretAccessKey(v string) *CredentialForGetDevInstanceOutput {
+	s.SecretAccessKey = &v
+	return s
+}
+
+// SetUseServiceLinkedRole sets the UseServiceLinkedRole field's value.
+func (s *CredentialForGetDevInstanceOutput) SetUseServiceLinkedRole(v bool) *CredentialForGetDevInstanceOutput {
+	s.UseServiceLinkedRole = &v
 	return s
 }
 
@@ -428,6 +466,8 @@ type GetDevInstanceOutput struct {
 
 	CreatorTrn *string `type:"string" json:",omitempty"`
 
+	Credential *CredentialForGetDevInstanceOutput `type:"structure" json:",omitempty"`
+
 	DefaultFolder *string `type:"string" json:",omitempty"`
 
 	Description *string `type:"string" json:",omitempty"`
@@ -502,6 +542,12 @@ func (s *GetDevInstanceOutput) SetCreateTime(v string) *GetDevInstanceOutput {
 // SetCreatorTrn sets the CreatorTrn field's value.
 func (s *GetDevInstanceOutput) SetCreatorTrn(v string) *GetDevInstanceOutput {
 	s.CreatorTrn = &v
+	return s
+}
+
+// SetCredential sets the Credential field's value.
+func (s *GetDevInstanceOutput) SetCredential(v *CredentialForGetDevInstanceOutput) *GetDevInstanceOutput {
+	s.Credential = v
 	return s
 }
 
@@ -652,7 +698,7 @@ func (s *GetDevInstanceOutput) SetZoneID(v string) *GetDevInstanceOutput {
 type ImageForGetDevInstanceOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	Credential *CredentialForGetDevInstanceOutput `type:"structure" json:",omitempty"`
+	Credential *ConvertCredentialForGetDevInstanceOutput `type:"structure" json:",omitempty"`
 
 	Type *string `type:"string" json:",omitempty"`
 
@@ -670,7 +716,7 @@ func (s ImageForGetDevInstanceOutput) GoString() string {
 }
 
 // SetCredential sets the Credential field's value.
-func (s *ImageForGetDevInstanceOutput) SetCredential(v *CredentialForGetDevInstanceOutput) *ImageForGetDevInstanceOutput {
+func (s *ImageForGetDevInstanceOutput) SetCredential(v *ConvertCredentialForGetDevInstanceOutput) *ImageForGetDevInstanceOutput {
 	s.Credential = v
 	return s
 }
@@ -1153,6 +1199,8 @@ type VepfsAPForGetDevInstanceOutput struct {
 	AccessPointId *string `type:"string" json:",omitempty"`
 
 	Id *string `type:"string" json:",omitempty"`
+
+	UseEic *bool `type:"boolean" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -1174,6 +1222,12 @@ func (s *VepfsAPForGetDevInstanceOutput) SetAccessPointId(v string) *VepfsAPForG
 // SetId sets the Id field's value.
 func (s *VepfsAPForGetDevInstanceOutput) SetId(v string) *VepfsAPForGetDevInstanceOutput {
 	s.Id = &v
+	return s
+}
+
+// SetUseEic sets the UseEic field's value.
+func (s *VepfsAPForGetDevInstanceOutput) SetUseEic(v bool) *VepfsAPForGetDevInstanceOutput {
+	s.UseEic = &v
 	return s
 }
 

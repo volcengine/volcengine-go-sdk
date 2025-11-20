@@ -294,6 +294,10 @@ type ItemForListResourceReservationRecordsOutput struct {
 
 	Id *string `type:"string" json:",omitempty"`
 
+	LockedComputeResource *LockedComputeResourceForListResourceReservationRecordsOutput `type:"structure" json:",omitempty"`
+
+	MinComputeResource *MinComputeResourceForListResourceReservationRecordsOutput `type:"structure" json:",omitempty"`
+
 	ResourceEndTime *string `type:"string" json:",omitempty"`
 
 	ResourceStartTime *string `type:"string" json:",omitempty"`
@@ -301,6 +305,8 @@ type ItemForListResourceReservationRecordsOutput struct {
 	ResourceZoneId *string `type:"string" json:",omitempty"`
 
 	Status *StatusForListResourceReservationRecordsOutput `type:"structure" json:",omitempty"`
+
+	TargetComputeResource *TargetComputeResourceForListResourceReservationRecordsOutput `type:"structure" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -343,6 +349,18 @@ func (s *ItemForListResourceReservationRecordsOutput) SetId(v string) *ItemForLi
 	return s
 }
 
+// SetLockedComputeResource sets the LockedComputeResource field's value.
+func (s *ItemForListResourceReservationRecordsOutput) SetLockedComputeResource(v *LockedComputeResourceForListResourceReservationRecordsOutput) *ItemForListResourceReservationRecordsOutput {
+	s.LockedComputeResource = v
+	return s
+}
+
+// SetMinComputeResource sets the MinComputeResource field's value.
+func (s *ItemForListResourceReservationRecordsOutput) SetMinComputeResource(v *MinComputeResourceForListResourceReservationRecordsOutput) *ItemForListResourceReservationRecordsOutput {
+	s.MinComputeResource = v
+	return s
+}
+
 // SetResourceEndTime sets the ResourceEndTime field's value.
 func (s *ItemForListResourceReservationRecordsOutput) SetResourceEndTime(v string) *ItemForListResourceReservationRecordsOutput {
 	s.ResourceEndTime = &v
@@ -367,15 +385,26 @@ func (s *ItemForListResourceReservationRecordsOutput) SetStatus(v *StatusForList
 	return s
 }
 
+// SetTargetComputeResource sets the TargetComputeResource field's value.
+func (s *ItemForListResourceReservationRecordsOutput) SetTargetComputeResource(v *TargetComputeResourceForListResourceReservationRecordsOutput) *ItemForListResourceReservationRecordsOutput {
+	s.TargetComputeResource = v
+	return s
+}
+
 type ListResourceReservationRecordsInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
+
+	ActivationEndTime *string `type:"string" json:",omitempty"`
+
+	ActivationStartTime *string `type:"string" json:",omitempty"`
+
+	JobId *string `type:"string" json:",omitempty"`
 
 	PageNumber *int32 `type:"int32" json:",omitempty"`
 
 	PageSize *int32 `min:"10" max:"100" type:"int32" json:",omitempty"`
 
-	// ReservationPlanId is a required field
-	ReservationPlanId *string `type:"string" json:",omitempty" required:"true"`
+	ReservationPlanId *string `type:"string" json:",omitempty"`
 
 	SortBy *string `type:"string" json:",omitempty" enum:"EnumOfSortByForListResourceReservationRecordsInput"`
 
@@ -403,14 +432,29 @@ func (s *ListResourceReservationRecordsInput) Validate() error {
 	if s.PageSize != nil && *s.PageSize > 100 {
 		invalidParams.Add(request.NewErrParamMaxValue("PageSize", 100))
 	}
-	if s.ReservationPlanId == nil {
-		invalidParams.Add(request.NewErrParamRequired("ReservationPlanId"))
-	}
 
 	if invalidParams.Len() > 0 {
 		return invalidParams
 	}
 	return nil
+}
+
+// SetActivationEndTime sets the ActivationEndTime field's value.
+func (s *ListResourceReservationRecordsInput) SetActivationEndTime(v string) *ListResourceReservationRecordsInput {
+	s.ActivationEndTime = &v
+	return s
+}
+
+// SetActivationStartTime sets the ActivationStartTime field's value.
+func (s *ListResourceReservationRecordsInput) SetActivationStartTime(v string) *ListResourceReservationRecordsInput {
+	s.ActivationStartTime = &v
+	return s
+}
+
+// SetJobId sets the JobId field's value.
+func (s *ListResourceReservationRecordsInput) SetJobId(v string) *ListResourceReservationRecordsInput {
+	s.JobId = &v
+	return s
 }
 
 // SetPageNumber sets the PageNumber field's value.
@@ -497,6 +541,98 @@ func (s *ListResourceReservationRecordsOutput) SetTotalCount(v int32) *ListResou
 	return s
 }
 
+type LockedComputeResourceForListResourceReservationRecordsOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Count *int64 `type:"int64" json:",omitempty"`
+
+	GpuCount *int64 `type:"int64" json:",omitempty"`
+
+	InstanceTypeId *string `type:"string" json:",omitempty"`
+
+	ZoneIds []*string `type:"list" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s LockedComputeResourceForListResourceReservationRecordsOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s LockedComputeResourceForListResourceReservationRecordsOutput) GoString() string {
+	return s.String()
+}
+
+// SetCount sets the Count field's value.
+func (s *LockedComputeResourceForListResourceReservationRecordsOutput) SetCount(v int64) *LockedComputeResourceForListResourceReservationRecordsOutput {
+	s.Count = &v
+	return s
+}
+
+// SetGpuCount sets the GpuCount field's value.
+func (s *LockedComputeResourceForListResourceReservationRecordsOutput) SetGpuCount(v int64) *LockedComputeResourceForListResourceReservationRecordsOutput {
+	s.GpuCount = &v
+	return s
+}
+
+// SetInstanceTypeId sets the InstanceTypeId field's value.
+func (s *LockedComputeResourceForListResourceReservationRecordsOutput) SetInstanceTypeId(v string) *LockedComputeResourceForListResourceReservationRecordsOutput {
+	s.InstanceTypeId = &v
+	return s
+}
+
+// SetZoneIds sets the ZoneIds field's value.
+func (s *LockedComputeResourceForListResourceReservationRecordsOutput) SetZoneIds(v []*string) *LockedComputeResourceForListResourceReservationRecordsOutput {
+	s.ZoneIds = v
+	return s
+}
+
+type MinComputeResourceForListResourceReservationRecordsOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Count *int64 `type:"int64" json:",omitempty"`
+
+	GpuCount *int64 `type:"int64" json:",omitempty"`
+
+	InstanceTypeId *string `type:"string" json:",omitempty"`
+
+	ZoneIds []*string `type:"list" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s MinComputeResourceForListResourceReservationRecordsOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s MinComputeResourceForListResourceReservationRecordsOutput) GoString() string {
+	return s.String()
+}
+
+// SetCount sets the Count field's value.
+func (s *MinComputeResourceForListResourceReservationRecordsOutput) SetCount(v int64) *MinComputeResourceForListResourceReservationRecordsOutput {
+	s.Count = &v
+	return s
+}
+
+// SetGpuCount sets the GpuCount field's value.
+func (s *MinComputeResourceForListResourceReservationRecordsOutput) SetGpuCount(v int64) *MinComputeResourceForListResourceReservationRecordsOutput {
+	s.GpuCount = &v
+	return s
+}
+
+// SetInstanceTypeId sets the InstanceTypeId field's value.
+func (s *MinComputeResourceForListResourceReservationRecordsOutput) SetInstanceTypeId(v string) *MinComputeResourceForListResourceReservationRecordsOutput {
+	s.InstanceTypeId = &v
+	return s
+}
+
+// SetZoneIds sets the ZoneIds field's value.
+func (s *MinComputeResourceForListResourceReservationRecordsOutput) SetZoneIds(v []*string) *MinComputeResourceForListResourceReservationRecordsOutput {
+	s.ZoneIds = v
+	return s
+}
+
 type StatusForListResourceReservationRecordsOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -532,6 +668,52 @@ func (s *StatusForListResourceReservationRecordsOutput) SetSecondaryState(v stri
 // SetState sets the State field's value.
 func (s *StatusForListResourceReservationRecordsOutput) SetState(v string) *StatusForListResourceReservationRecordsOutput {
 	s.State = &v
+	return s
+}
+
+type TargetComputeResourceForListResourceReservationRecordsOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Count *int64 `type:"int64" json:",omitempty"`
+
+	GpuCount *int64 `type:"int64" json:",omitempty"`
+
+	InstanceTypeId *string `type:"string" json:",omitempty"`
+
+	ZoneIds []*string `type:"list" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s TargetComputeResourceForListResourceReservationRecordsOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TargetComputeResourceForListResourceReservationRecordsOutput) GoString() string {
+	return s.String()
+}
+
+// SetCount sets the Count field's value.
+func (s *TargetComputeResourceForListResourceReservationRecordsOutput) SetCount(v int64) *TargetComputeResourceForListResourceReservationRecordsOutput {
+	s.Count = &v
+	return s
+}
+
+// SetGpuCount sets the GpuCount field's value.
+func (s *TargetComputeResourceForListResourceReservationRecordsOutput) SetGpuCount(v int64) *TargetComputeResourceForListResourceReservationRecordsOutput {
+	s.GpuCount = &v
+	return s
+}
+
+// SetInstanceTypeId sets the InstanceTypeId field's value.
+func (s *TargetComputeResourceForListResourceReservationRecordsOutput) SetInstanceTypeId(v string) *TargetComputeResourceForListResourceReservationRecordsOutput {
+	s.InstanceTypeId = &v
+	return s
+}
+
+// SetZoneIds sets the ZoneIds field's value.
+func (s *TargetComputeResourceForListResourceReservationRecordsOutput) SetZoneIds(v []*string) *TargetComputeResourceForListResourceReservationRecordsOutput {
+	s.ZoneIds = v
 	return s
 }
 

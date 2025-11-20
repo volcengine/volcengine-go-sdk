@@ -224,11 +224,15 @@ type GetInstanceInspectResultOutput struct {
 
 	Metadata *response.ResponseMetadata
 
+	InspectCnt *int32 `type:"int32" json:",omitempty"`
+
 	InstanceId *string `type:"string" json:",omitempty"`
 
 	Results []*ResultForGetInstanceInspectResultOutput `type:"list" json:",omitempty"`
 
 	Total *int32 `type:"int32" json:",omitempty"`
+
+	UnExpectedCnt *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -239,6 +243,12 @@ func (s GetInstanceInspectResultOutput) String() string {
 // GoString returns the string representation
 func (s GetInstanceInspectResultOutput) GoString() string {
 	return s.String()
+}
+
+// SetInspectCnt sets the InspectCnt field's value.
+func (s *GetInstanceInspectResultOutput) SetInspectCnt(v int32) *GetInstanceInspectResultOutput {
+	s.InspectCnt = &v
+	return s
 }
 
 // SetInstanceId sets the InstanceId field's value.
@@ -256,6 +266,12 @@ func (s *GetInstanceInspectResultOutput) SetResults(v []*ResultForGetInstanceIns
 // SetTotal sets the Total field's value.
 func (s *GetInstanceInspectResultOutput) SetTotal(v int32) *GetInstanceInspectResultOutput {
 	s.Total = &v
+	return s
+}
+
+// SetUnExpectedCnt sets the UnExpectedCnt field's value.
+func (s *GetInstanceInspectResultOutput) SetUnExpectedCnt(v int32) *GetInstanceInspectResultOutput {
+	s.UnExpectedCnt = &v
 	return s
 }
 
