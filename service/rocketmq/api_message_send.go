@@ -154,6 +154,8 @@ type MessageSendInput struct {
 
 	Key *string `type:"string" json:",omitempty"`
 
+	Properties []*string `type:"list" json:",omitempty"`
+
 	Tag *string `type:"string" json:",omitempty"`
 
 	// Topic is a required field
@@ -207,6 +209,12 @@ func (s *MessageSendInput) SetKey(v string) *MessageSendInput {
 	return s
 }
 
+// SetProperties sets the Properties field's value.
+func (s *MessageSendInput) SetProperties(v []*string) *MessageSendInput {
+	s.Properties = v
+	return s
+}
+
 // SetTag sets the Tag field's value.
 func (s *MessageSendInput) SetTag(v string) *MessageSendInput {
 	s.Tag = &v
@@ -225,6 +233,8 @@ type MessageSendOutput struct {
 	Metadata *response.ResponseMetadata
 
 	MsgId *string `type:"string" json:",omitempty"`
+
+	Msgqueue *MsgqueueForMessageSendOutput `type:"structure" json:",omitempty"`
 
 	OffsetMsgId *string `type:"string" json:",omitempty"`
 
@@ -249,6 +259,12 @@ func (s *MessageSendOutput) SetMsgId(v string) *MessageSendOutput {
 	return s
 }
 
+// SetMsgqueue sets the Msgqueue field's value.
+func (s *MessageSendOutput) SetMsgqueue(v *MsgqueueForMessageSendOutput) *MessageSendOutput {
+	s.Msgqueue = v
+	return s
+}
+
 // SetOffsetMsgId sets the OffsetMsgId field's value.
 func (s *MessageSendOutput) SetOffsetMsgId(v string) *MessageSendOutput {
 	s.OffsetMsgId = &v
@@ -264,5 +280,43 @@ func (s *MessageSendOutput) SetQeueueOffset(v int32) *MessageSendOutput {
 // SetSendStatus sets the SendStatus field's value.
 func (s *MessageSendOutput) SetSendStatus(v string) *MessageSendOutput {
 	s.SendStatus = &v
+	return s
+}
+
+type MsgqueueForMessageSendOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	BrokerName *string `type:"string" json:",omitempty"`
+
+	QueueId *int32 `type:"int32" json:",omitempty"`
+
+	TopicName *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s MsgqueueForMessageSendOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s MsgqueueForMessageSendOutput) GoString() string {
+	return s.String()
+}
+
+// SetBrokerName sets the BrokerName field's value.
+func (s *MsgqueueForMessageSendOutput) SetBrokerName(v string) *MsgqueueForMessageSendOutput {
+	s.BrokerName = &v
+	return s
+}
+
+// SetQueueId sets the QueueId field's value.
+func (s *MsgqueueForMessageSendOutput) SetQueueId(v int32) *MsgqueueForMessageSendOutput {
+	s.QueueId = &v
+	return s
+}
+
+// SetTopicName sets the TopicName field's value.
+func (s *MsgqueueForMessageSendOutput) SetTopicName(v string) *MsgqueueForMessageSendOutput {
+	s.TopicName = &v
 	return s
 }

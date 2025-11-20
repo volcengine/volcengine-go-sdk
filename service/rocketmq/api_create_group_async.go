@@ -9,29 +9,29 @@ import (
 	"github.com/volcengine/volcengine-go-sdk/volcengine/volcengineutil"
 )
 
-const opCreateGroupCommon = "CreateGroup"
+const opCreateGroupAsyncCommon = "CreateGroupAsync"
 
-// CreateGroupCommonRequest generates a "volcengine/request.Request" representing the
-// client's request for the CreateGroupCommon operation. The "output" return
-// value will be populated with the CreateGroupCommon request's response once the request completes
+// CreateGroupAsyncCommonRequest generates a "volcengine/request.Request" representing the
+// client's request for the CreateGroupAsyncCommon operation. The "output" return
+// value will be populated with the CreateGroupAsyncCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned CreateGroupCommon Request to send the API call to the service.
-// the "output" return value is not valid until after CreateGroupCommon Send returns without error.
+// Use "Send" method on the returned CreateGroupAsyncCommon Request to send the API call to the service.
+// the "output" return value is not valid until after CreateGroupAsyncCommon Send returns without error.
 //
-// See CreateGroupCommon for more information on using the CreateGroupCommon
+// See CreateGroupAsyncCommon for more information on using the CreateGroupAsyncCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the CreateGroupCommonRequest method.
-//    req, resp := client.CreateGroupCommonRequest(params)
+//    // Example sending a request using the CreateGroupAsyncCommonRequest method.
+//    req, resp := client.CreateGroupAsyncCommonRequest(params)
 //
 //    err := req.Send()
 //    if err == nil { // resp is now filled
 //        fmt.Println(resp)
 //    }
-func (c *ROCKETMQ) CreateGroupCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
+func (c *ROCKETMQ) CreateGroupAsyncCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
-		Name:       opCreateGroupCommon,
+		Name:       opCreateGroupAsyncCommon,
 		HTTPMethod: "POST",
 		HTTPPath:   "/",
 	}
@@ -48,66 +48,66 @@ func (c *ROCKETMQ) CreateGroupCommonRequest(input *map[string]interface{}) (req 
 	return
 }
 
-// CreateGroupCommon API operation for ROCKETMQ.
+// CreateGroupAsyncCommon API operation for ROCKETMQ.
 //
 // Returns volcengineerr.Error for service API and SDK errors. Use runtime type assertions
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
 // See the VOLCENGINE API reference guide for ROCKETMQ's
-// API operation CreateGroupCommon for usage and error information.
-func (c *ROCKETMQ) CreateGroupCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
-	req, out := c.CreateGroupCommonRequest(input)
+// API operation CreateGroupAsyncCommon for usage and error information.
+func (c *ROCKETMQ) CreateGroupAsyncCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
+	req, out := c.CreateGroupAsyncCommonRequest(input)
 	return out, req.Send()
 }
 
-// CreateGroupCommonWithContext is the same as CreateGroupCommon with the addition of
+// CreateGroupAsyncCommonWithContext is the same as CreateGroupAsyncCommon with the addition of
 // the ability to pass a context and additional request options.
 //
-// See CreateGroupCommon for details on how to use this API operation.
+// See CreateGroupAsyncCommon for details on how to use this API operation.
 //
 // The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
 // In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
-func (c *ROCKETMQ) CreateGroupCommonWithContext(ctx volcengine.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
-	req, out := c.CreateGroupCommonRequest(input)
+func (c *ROCKETMQ) CreateGroupAsyncCommonWithContext(ctx volcengine.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
+	req, out := c.CreateGroupAsyncCommonRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
 	return out, req.Send()
 }
 
-const opCreateGroup = "CreateGroup"
+const opCreateGroupAsync = "CreateGroupAsync"
 
-// CreateGroupRequest generates a "volcengine/request.Request" representing the
-// client's request for the CreateGroup operation. The "output" return
-// value will be populated with the CreateGroupCommon request's response once the request completes
+// CreateGroupAsyncRequest generates a "volcengine/request.Request" representing the
+// client's request for the CreateGroupAsync operation. The "output" return
+// value will be populated with the CreateGroupAsyncCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned CreateGroupCommon Request to send the API call to the service.
-// the "output" return value is not valid until after CreateGroupCommon Send returns without error.
+// Use "Send" method on the returned CreateGroupAsyncCommon Request to send the API call to the service.
+// the "output" return value is not valid until after CreateGroupAsyncCommon Send returns without error.
 //
-// See CreateGroup for more information on using the CreateGroup
+// See CreateGroupAsync for more information on using the CreateGroupAsync
 // API call, and error handling.
 //
-//    // Example sending a request using the CreateGroupRequest method.
-//    req, resp := client.CreateGroupRequest(params)
+//    // Example sending a request using the CreateGroupAsyncRequest method.
+//    req, resp := client.CreateGroupAsyncRequest(params)
 //
 //    err := req.Send()
 //    if err == nil { // resp is now filled
 //        fmt.Println(resp)
 //    }
-func (c *ROCKETMQ) CreateGroupRequest(input *CreateGroupInput) (req *request.Request, output *CreateGroupOutput) {
+func (c *ROCKETMQ) CreateGroupAsyncRequest(input *CreateGroupAsyncInput) (req *request.Request, output *CreateGroupAsyncOutput) {
 	op := &request.Operation{
-		Name:       opCreateGroup,
+		Name:       opCreateGroupAsync,
 		HTTPMethod: "POST",
 		HTTPPath:   "/",
 	}
 
 	if input == nil {
-		input = &CreateGroupInput{}
+		input = &CreateGroupAsyncInput{}
 	}
 
-	output = &CreateGroupOutput{}
+	output = &CreateGroupAsyncOutput{}
 	req = c.newRequest(op, input, output)
 
 	req.HTTPRequest.Header.Set("Content-Type", "application/json; charset=utf-8")
@@ -115,35 +115,35 @@ func (c *ROCKETMQ) CreateGroupRequest(input *CreateGroupInput) (req *request.Req
 	return
 }
 
-// CreateGroup API operation for ROCKETMQ.
+// CreateGroupAsync API operation for ROCKETMQ.
 //
 // Returns volcengineerr.Error for service API and SDK errors. Use runtime type assertions
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
 // See the VOLCENGINE API reference guide for ROCKETMQ's
-// API operation CreateGroup for usage and error information.
-func (c *ROCKETMQ) CreateGroup(input *CreateGroupInput) (*CreateGroupOutput, error) {
-	req, out := c.CreateGroupRequest(input)
+// API operation CreateGroupAsync for usage and error information.
+func (c *ROCKETMQ) CreateGroupAsync(input *CreateGroupAsyncInput) (*CreateGroupAsyncOutput, error) {
+	req, out := c.CreateGroupAsyncRequest(input)
 	return out, req.Send()
 }
 
-// CreateGroupWithContext is the same as CreateGroup with the addition of
+// CreateGroupAsyncWithContext is the same as CreateGroupAsync with the addition of
 // the ability to pass a context and additional request options.
 //
-// See CreateGroup for details on how to use this API operation.
+// See CreateGroupAsync for details on how to use this API operation.
 //
 // The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
 // In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
-func (c *ROCKETMQ) CreateGroupWithContext(ctx volcengine.Context, input *CreateGroupInput, opts ...request.Option) (*CreateGroupOutput, error) {
-	req, out := c.CreateGroupRequest(input)
+func (c *ROCKETMQ) CreateGroupAsyncWithContext(ctx volcengine.Context, input *CreateGroupAsyncInput, opts ...request.Option) (*CreateGroupAsyncOutput, error) {
+	req, out := c.CreateGroupAsyncRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
 	return out, req.Send()
 }
 
-type CreateGroupInput struct {
+type CreateGroupAsyncInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
 	ConsumeMessageOrderly *bool `type:"boolean" json:",omitempty"`
@@ -163,18 +163,18 @@ type CreateGroupInput struct {
 }
 
 // String returns the string representation
-func (s CreateGroupInput) String() string {
+func (s CreateGroupAsyncInput) String() string {
 	return volcengineutil.Prettify(s)
 }
 
 // GoString returns the string representation
-func (s CreateGroupInput) GoString() string {
+func (s CreateGroupAsyncInput) GoString() string {
 	return s.String()
 }
 
 // Validate inspects the fields of the type to determine if they are valid.
-func (s *CreateGroupInput) Validate() error {
-	invalidParams := request.ErrInvalidParams{Context: "CreateGroupInput"}
+func (s *CreateGroupAsyncInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "CreateGroupAsyncInput"}
 	if s.GroupId == nil {
 		invalidParams.Add(request.NewErrParamRequired("GroupId"))
 	}
@@ -192,53 +192,53 @@ func (s *CreateGroupInput) Validate() error {
 }
 
 // SetConsumeMessageOrderly sets the ConsumeMessageOrderly field's value.
-func (s *CreateGroupInput) SetConsumeMessageOrderly(v bool) *CreateGroupInput {
+func (s *CreateGroupAsyncInput) SetConsumeMessageOrderly(v bool) *CreateGroupAsyncInput {
 	s.ConsumeMessageOrderly = &v
 	return s
 }
 
 // SetDescription sets the Description field's value.
-func (s *CreateGroupInput) SetDescription(v string) *CreateGroupInput {
+func (s *CreateGroupAsyncInput) SetDescription(v string) *CreateGroupAsyncInput {
 	s.Description = &v
 	return s
 }
 
 // SetGroupId sets the GroupId field's value.
-func (s *CreateGroupInput) SetGroupId(v string) *CreateGroupInput {
+func (s *CreateGroupAsyncInput) SetGroupId(v string) *CreateGroupAsyncInput {
 	s.GroupId = &v
 	return s
 }
 
 // SetGroupType sets the GroupType field's value.
-func (s *CreateGroupInput) SetGroupType(v string) *CreateGroupInput {
+func (s *CreateGroupAsyncInput) SetGroupType(v string) *CreateGroupAsyncInput {
 	s.GroupType = &v
 	return s
 }
 
 // SetInstanceId sets the InstanceId field's value.
-func (s *CreateGroupInput) SetInstanceId(v string) *CreateGroupInput {
+func (s *CreateGroupAsyncInput) SetInstanceId(v string) *CreateGroupAsyncInput {
 	s.InstanceId = &v
 	return s
 }
 
 // SetRetryMaxTimes sets the RetryMaxTimes field's value.
-func (s *CreateGroupInput) SetRetryMaxTimes(v int32) *CreateGroupInput {
+func (s *CreateGroupAsyncInput) SetRetryMaxTimes(v int32) *CreateGroupAsyncInput {
 	s.RetryMaxTimes = &v
 	return s
 }
 
-type CreateGroupOutput struct {
+type CreateGroupAsyncOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 }
 
 // String returns the string representation
-func (s CreateGroupOutput) String() string {
+func (s CreateGroupAsyncOutput) String() string {
 	return volcengineutil.Prettify(s)
 }
 
 // GoString returns the string representation
-func (s CreateGroupOutput) GoString() string {
+func (s CreateGroupAsyncOutput) GoString() string {
 	return s.String()
 }

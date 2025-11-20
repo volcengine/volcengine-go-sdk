@@ -196,6 +196,8 @@ type DescribeGroupsDetailOutput struct {
 
 	Metadata *response.ResponseMetadata
 
+	ConsumeMessageOrderly *bool `type:"boolean" json:",omitempty"`
+
 	CreateTime *string `type:"string" json:",omitempty"`
 
 	Description *string `type:"string" json:",omitempty"`
@@ -206,9 +208,17 @@ type DescribeGroupsDetailOutput struct {
 
 	IsSubSame *bool `type:"boolean" json:",omitempty"`
 
+	LastUpdateTimestamp *string `type:"string" json:",omitempty"`
+
 	MessageDelayTime *string `type:"string" json:",omitempty"`
 
 	MessageModel *string `type:"string" json:",omitempty"`
+
+	RetryMaxTimes *int32 `type:"int32" json:",omitempty"`
+
+	RocketmqVersion *string `type:"string" json:",omitempty"`
+
+	ServiceStatus *string `type:"string" json:",omitempty"`
 
 	Status *string `type:"string" json:",omitempty"`
 
@@ -225,6 +235,12 @@ func (s DescribeGroupsDetailOutput) String() string {
 // GoString returns the string representation
 func (s DescribeGroupsDetailOutput) GoString() string {
 	return s.String()
+}
+
+// SetConsumeMessageOrderly sets the ConsumeMessageOrderly field's value.
+func (s *DescribeGroupsDetailOutput) SetConsumeMessageOrderly(v bool) *DescribeGroupsDetailOutput {
+	s.ConsumeMessageOrderly = &v
+	return s
 }
 
 // SetCreateTime sets the CreateTime field's value.
@@ -257,6 +273,12 @@ func (s *DescribeGroupsDetailOutput) SetIsSubSame(v bool) *DescribeGroupsDetailO
 	return s
 }
 
+// SetLastUpdateTimestamp sets the LastUpdateTimestamp field's value.
+func (s *DescribeGroupsDetailOutput) SetLastUpdateTimestamp(v string) *DescribeGroupsDetailOutput {
+	s.LastUpdateTimestamp = &v
+	return s
+}
+
 // SetMessageDelayTime sets the MessageDelayTime field's value.
 func (s *DescribeGroupsDetailOutput) SetMessageDelayTime(v string) *DescribeGroupsDetailOutput {
 	s.MessageDelayTime = &v
@@ -266,6 +288,24 @@ func (s *DescribeGroupsDetailOutput) SetMessageDelayTime(v string) *DescribeGrou
 // SetMessageModel sets the MessageModel field's value.
 func (s *DescribeGroupsDetailOutput) SetMessageModel(v string) *DescribeGroupsDetailOutput {
 	s.MessageModel = &v
+	return s
+}
+
+// SetRetryMaxTimes sets the RetryMaxTimes field's value.
+func (s *DescribeGroupsDetailOutput) SetRetryMaxTimes(v int32) *DescribeGroupsDetailOutput {
+	s.RetryMaxTimes = &v
+	return s
+}
+
+// SetRocketmqVersion sets the RocketmqVersion field's value.
+func (s *DescribeGroupsDetailOutput) SetRocketmqVersion(v string) *DescribeGroupsDetailOutput {
+	s.RocketmqVersion = &v
+	return s
+}
+
+// SetServiceStatus sets the ServiceStatus field's value.
+func (s *DescribeGroupsDetailOutput) SetServiceStatus(v string) *DescribeGroupsDetailOutput {
+	s.ServiceStatus = &v
 	return s
 }
 
