@@ -11,29 +11,29 @@ import (
 	"github.com/volcengine/volcengine-go-sdk/volcengine/volcengineutil"
 )
 
-const opCreateTopicCommon = "CreateTopic"
+const opCreateTopicAsyncCommon = "CreateTopicAsync"
 
-// CreateTopicCommonRequest generates a "volcengine/request.Request" representing the
-// client's request for the CreateTopicCommon operation. The "output" return
-// value will be populated with the CreateTopicCommon request's response once the request completes
+// CreateTopicAsyncCommonRequest generates a "volcengine/request.Request" representing the
+// client's request for the CreateTopicAsyncCommon operation. The "output" return
+// value will be populated with the CreateTopicAsyncCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned CreateTopicCommon Request to send the API call to the service.
-// the "output" return value is not valid until after CreateTopicCommon Send returns without error.
+// Use "Send" method on the returned CreateTopicAsyncCommon Request to send the API call to the service.
+// the "output" return value is not valid until after CreateTopicAsyncCommon Send returns without error.
 //
-// See CreateTopicCommon for more information on using the CreateTopicCommon
+// See CreateTopicAsyncCommon for more information on using the CreateTopicAsyncCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the CreateTopicCommonRequest method.
-//    req, resp := client.CreateTopicCommonRequest(params)
+//    // Example sending a request using the CreateTopicAsyncCommonRequest method.
+//    req, resp := client.CreateTopicAsyncCommonRequest(params)
 //
 //    err := req.Send()
 //    if err == nil { // resp is now filled
 //        fmt.Println(resp)
 //    }
-func (c *ROCKETMQ) CreateTopicCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
+func (c *ROCKETMQ) CreateTopicAsyncCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
-		Name:       opCreateTopicCommon,
+		Name:       opCreateTopicAsyncCommon,
 		HTTPMethod: "POST",
 		HTTPPath:   "/",
 	}
@@ -50,66 +50,66 @@ func (c *ROCKETMQ) CreateTopicCommonRequest(input *map[string]interface{}) (req 
 	return
 }
 
-// CreateTopicCommon API operation for ROCKETMQ.
+// CreateTopicAsyncCommon API operation for ROCKETMQ.
 //
 // Returns volcengineerr.Error for service API and SDK errors. Use runtime type assertions
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
 // See the VOLCENGINE API reference guide for ROCKETMQ's
-// API operation CreateTopicCommon for usage and error information.
-func (c *ROCKETMQ) CreateTopicCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
-	req, out := c.CreateTopicCommonRequest(input)
+// API operation CreateTopicAsyncCommon for usage and error information.
+func (c *ROCKETMQ) CreateTopicAsyncCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
+	req, out := c.CreateTopicAsyncCommonRequest(input)
 	return out, req.Send()
 }
 
-// CreateTopicCommonWithContext is the same as CreateTopicCommon with the addition of
+// CreateTopicAsyncCommonWithContext is the same as CreateTopicAsyncCommon with the addition of
 // the ability to pass a context and additional request options.
 //
-// See CreateTopicCommon for details on how to use this API operation.
+// See CreateTopicAsyncCommon for details on how to use this API operation.
 //
 // The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
 // In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
-func (c *ROCKETMQ) CreateTopicCommonWithContext(ctx volcengine.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
-	req, out := c.CreateTopicCommonRequest(input)
+func (c *ROCKETMQ) CreateTopicAsyncCommonWithContext(ctx volcengine.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
+	req, out := c.CreateTopicAsyncCommonRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
 	return out, req.Send()
 }
 
-const opCreateTopic = "CreateTopic"
+const opCreateTopicAsync = "CreateTopicAsync"
 
-// CreateTopicRequest generates a "volcengine/request.Request" representing the
-// client's request for the CreateTopic operation. The "output" return
-// value will be populated with the CreateTopicCommon request's response once the request completes
+// CreateTopicAsyncRequest generates a "volcengine/request.Request" representing the
+// client's request for the CreateTopicAsync operation. The "output" return
+// value will be populated with the CreateTopicAsyncCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned CreateTopicCommon Request to send the API call to the service.
-// the "output" return value is not valid until after CreateTopicCommon Send returns without error.
+// Use "Send" method on the returned CreateTopicAsyncCommon Request to send the API call to the service.
+// the "output" return value is not valid until after CreateTopicAsyncCommon Send returns without error.
 //
-// See CreateTopic for more information on using the CreateTopic
+// See CreateTopicAsync for more information on using the CreateTopicAsync
 // API call, and error handling.
 //
-//    // Example sending a request using the CreateTopicRequest method.
-//    req, resp := client.CreateTopicRequest(params)
+//    // Example sending a request using the CreateTopicAsyncRequest method.
+//    req, resp := client.CreateTopicAsyncRequest(params)
 //
 //    err := req.Send()
 //    if err == nil { // resp is now filled
 //        fmt.Println(resp)
 //    }
-func (c *ROCKETMQ) CreateTopicRequest(input *CreateTopicInput) (req *request.Request, output *CreateTopicOutput) {
+func (c *ROCKETMQ) CreateTopicAsyncRequest(input *CreateTopicAsyncInput) (req *request.Request, output *CreateTopicAsyncOutput) {
 	op := &request.Operation{
-		Name:       opCreateTopic,
+		Name:       opCreateTopicAsync,
 		HTTPMethod: "POST",
 		HTTPPath:   "/",
 	}
 
 	if input == nil {
-		input = &CreateTopicInput{}
+		input = &CreateTopicAsyncInput{}
 	}
 
-	output = &CreateTopicOutput{}
+	output = &CreateTopicAsyncOutput{}
 	req = c.newRequest(op, input, output)
 
 	req.HTTPRequest.Header.Set("Content-Type", "application/json; charset=utf-8")
@@ -117,35 +117,35 @@ func (c *ROCKETMQ) CreateTopicRequest(input *CreateTopicInput) (req *request.Req
 	return
 }
 
-// CreateTopic API operation for ROCKETMQ.
+// CreateTopicAsync API operation for ROCKETMQ.
 //
 // Returns volcengineerr.Error for service API and SDK errors. Use runtime type assertions
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
 // See the VOLCENGINE API reference guide for ROCKETMQ's
-// API operation CreateTopic for usage and error information.
-func (c *ROCKETMQ) CreateTopic(input *CreateTopicInput) (*CreateTopicOutput, error) {
-	req, out := c.CreateTopicRequest(input)
+// API operation CreateTopicAsync for usage and error information.
+func (c *ROCKETMQ) CreateTopicAsync(input *CreateTopicAsyncInput) (*CreateTopicAsyncOutput, error) {
+	req, out := c.CreateTopicAsyncRequest(input)
 	return out, req.Send()
 }
 
-// CreateTopicWithContext is the same as CreateTopic with the addition of
+// CreateTopicAsyncWithContext is the same as CreateTopicAsync with the addition of
 // the ability to pass a context and additional request options.
 //
-// See CreateTopic for details on how to use this API operation.
+// See CreateTopicAsync for details on how to use this API operation.
 //
 // The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
 // In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
-func (c *ROCKETMQ) CreateTopicWithContext(ctx volcengine.Context, input *CreateTopicInput, opts ...request.Option) (*CreateTopicOutput, error) {
-	req, out := c.CreateTopicRequest(input)
+func (c *ROCKETMQ) CreateTopicAsyncWithContext(ctx volcengine.Context, input *CreateTopicAsyncInput, opts ...request.Option) (*CreateTopicAsyncOutput, error) {
+	req, out := c.CreateTopicAsyncRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
 	return out, req.Send()
 }
 
-type AccessPolicyForCreateTopicInput struct {
+type AccessPolicyForCreateTopicAsyncInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
 	AccessKey *string `min:"24" max:"24" type:"string" json:",omitempty"`
@@ -154,18 +154,18 @@ type AccessPolicyForCreateTopicInput struct {
 }
 
 // String returns the string representation
-func (s AccessPolicyForCreateTopicInput) String() string {
+func (s AccessPolicyForCreateTopicAsyncInput) String() string {
 	return volcengineutil.Prettify(s)
 }
 
 // GoString returns the string representation
-func (s AccessPolicyForCreateTopicInput) GoString() string {
+func (s AccessPolicyForCreateTopicAsyncInput) GoString() string {
 	return s.String()
 }
 
 // Validate inspects the fields of the type to determine if they are valid.
-func (s *AccessPolicyForCreateTopicInput) Validate() error {
-	invalidParams := request.ErrInvalidParams{Context: "AccessPolicyForCreateTopicInput"}
+func (s *AccessPolicyForCreateTopicAsyncInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "AccessPolicyForCreateTopicAsyncInput"}
 	if s.AccessKey != nil && len(*s.AccessKey) < 24 {
 		invalidParams.Add(request.NewErrParamMinLen("AccessKey", 24))
 	}
@@ -186,21 +186,21 @@ func (s *AccessPolicyForCreateTopicInput) Validate() error {
 }
 
 // SetAccessKey sets the AccessKey field's value.
-func (s *AccessPolicyForCreateTopicInput) SetAccessKey(v string) *AccessPolicyForCreateTopicInput {
+func (s *AccessPolicyForCreateTopicAsyncInput) SetAccessKey(v string) *AccessPolicyForCreateTopicAsyncInput {
 	s.AccessKey = &v
 	return s
 }
 
 // SetAuthority sets the Authority field's value.
-func (s *AccessPolicyForCreateTopicInput) SetAuthority(v string) *AccessPolicyForCreateTopicInput {
+func (s *AccessPolicyForCreateTopicAsyncInput) SetAuthority(v string) *AccessPolicyForCreateTopicAsyncInput {
 	s.Authority = &v
 	return s
 }
 
-type CreateTopicInput struct {
+type CreateTopicAsyncInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	AccessPolicies []*AccessPolicyForCreateTopicInput `type:"list" json:",omitempty"`
+	AccessPolicies []*AccessPolicyForCreateTopicAsyncInput `type:"list" json:",omitempty"`
 
 	Description *string `type:"string" json:",omitempty"`
 
@@ -208,51 +208,39 @@ type CreateTopicInput struct {
 	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 
 	// MessageType is a required field
-	MessageType *int32 `max:"4" type:"int32" json:",omitempty" required:"true"`
+	MessageType *int32 `type:"int32" json:",omitempty" required:"true"`
 
 	// QueueNumber is a required field
-	QueueNumber *int32 `min:"1" max:"120" type:"int32" json:",omitempty" required:"true"`
+	QueueNumber *int32 `type:"int32" json:",omitempty" required:"true"`
 
 	// TopicName is a required field
-	TopicName *string `max:"128" type:"string" json:",omitempty" required:"true"`
+	TopicName *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
-func (s CreateTopicInput) String() string {
+func (s CreateTopicAsyncInput) String() string {
 	return volcengineutil.Prettify(s)
 }
 
 // GoString returns the string representation
-func (s CreateTopicInput) GoString() string {
+func (s CreateTopicAsyncInput) GoString() string {
 	return s.String()
 }
 
 // Validate inspects the fields of the type to determine if they are valid.
-func (s *CreateTopicInput) Validate() error {
-	invalidParams := request.ErrInvalidParams{Context: "CreateTopicInput"}
+func (s *CreateTopicAsyncInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "CreateTopicAsyncInput"}
 	if s.InstanceId == nil {
 		invalidParams.Add(request.NewErrParamRequired("InstanceId"))
 	}
 	if s.MessageType == nil {
 		invalidParams.Add(request.NewErrParamRequired("MessageType"))
 	}
-	if s.MessageType != nil && *s.MessageType > 4 {
-		invalidParams.Add(request.NewErrParamMaxValue("MessageType", 4))
-	}
 	if s.QueueNumber == nil {
 		invalidParams.Add(request.NewErrParamRequired("QueueNumber"))
 	}
-	if s.QueueNumber != nil && *s.QueueNumber < 1 {
-		invalidParams.Add(request.NewErrParamMinValue("QueueNumber", 1))
-	}
-	if s.QueueNumber != nil && *s.QueueNumber > 120 {
-		invalidParams.Add(request.NewErrParamMaxValue("QueueNumber", 120))
-	}
 	if s.TopicName == nil {
 		invalidParams.Add(request.NewErrParamRequired("TopicName"))
-	}
-	if s.TopicName != nil && len(*s.TopicName) > 128 {
-		invalidParams.Add(request.NewErrParamMaxLen("TopicName", 128, *s.TopicName))
 	}
 	if s.AccessPolicies != nil {
 		for i, v := range s.AccessPolicies {
@@ -272,69 +260,53 @@ func (s *CreateTopicInput) Validate() error {
 }
 
 // SetAccessPolicies sets the AccessPolicies field's value.
-func (s *CreateTopicInput) SetAccessPolicies(v []*AccessPolicyForCreateTopicInput) *CreateTopicInput {
+func (s *CreateTopicAsyncInput) SetAccessPolicies(v []*AccessPolicyForCreateTopicAsyncInput) *CreateTopicAsyncInput {
 	s.AccessPolicies = v
 	return s
 }
 
 // SetDescription sets the Description field's value.
-func (s *CreateTopicInput) SetDescription(v string) *CreateTopicInput {
+func (s *CreateTopicAsyncInput) SetDescription(v string) *CreateTopicAsyncInput {
 	s.Description = &v
 	return s
 }
 
 // SetInstanceId sets the InstanceId field's value.
-func (s *CreateTopicInput) SetInstanceId(v string) *CreateTopicInput {
+func (s *CreateTopicAsyncInput) SetInstanceId(v string) *CreateTopicAsyncInput {
 	s.InstanceId = &v
 	return s
 }
 
 // SetMessageType sets the MessageType field's value.
-func (s *CreateTopicInput) SetMessageType(v int32) *CreateTopicInput {
+func (s *CreateTopicAsyncInput) SetMessageType(v int32) *CreateTopicAsyncInput {
 	s.MessageType = &v
 	return s
 }
 
 // SetQueueNumber sets the QueueNumber field's value.
-func (s *CreateTopicInput) SetQueueNumber(v int32) *CreateTopicInput {
+func (s *CreateTopicAsyncInput) SetQueueNumber(v int32) *CreateTopicAsyncInput {
 	s.QueueNumber = &v
 	return s
 }
 
 // SetTopicName sets the TopicName field's value.
-func (s *CreateTopicInput) SetTopicName(v string) *CreateTopicInput {
+func (s *CreateTopicAsyncInput) SetTopicName(v string) *CreateTopicAsyncInput {
 	s.TopicName = &v
 	return s
 }
 
-type CreateTopicOutput struct {
+type CreateTopicAsyncOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
-
-	CreateSuccess *bool `type:"boolean" json:",omitempty"`
-
-	ExpectMinimalTopicQueueNumber *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation
-func (s CreateTopicOutput) String() string {
+func (s CreateTopicAsyncOutput) String() string {
 	return volcengineutil.Prettify(s)
 }
 
 // GoString returns the string representation
-func (s CreateTopicOutput) GoString() string {
+func (s CreateTopicAsyncOutput) GoString() string {
 	return s.String()
-}
-
-// SetCreateSuccess sets the CreateSuccess field's value.
-func (s *CreateTopicOutput) SetCreateSuccess(v bool) *CreateTopicOutput {
-	s.CreateSuccess = &v
-	return s
-}
-
-// SetExpectMinimalTopicQueueNumber sets the ExpectMinimalTopicQueueNumber field's value.
-func (s *CreateTopicOutput) SetExpectMinimalTopicQueueNumber(v int32) *CreateTopicOutput {
-	s.ExpectMinimalTopicQueueNumber = &v
-	return s
 }

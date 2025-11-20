@@ -208,8 +208,33 @@ func (s *AllowListForDescribeAllowListsOutput) SetAssociatedInstanceNum(v int64)
 type DescribeAllowListsInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	// RegionID is a required field
-	RegionID *string `type:"string" json:",omitempty" required:"true"`
+	AllowListDesc *string `type:"string" json:",omitempty"`
+
+	AllowListId *string `type:"string" json:",omitempty"`
+
+	// AllowListName is a required field
+	AllowListName *string `type:"string" json:",omitempty" required:"true"`
+
+	Ascending *bool `type:"boolean" json:",omitempty"`
+
+	FilterInfo *FilterInfoForDescribeAllowListsInput `type:"structure" json:",omitempty"`
+
+	IPAddress *string `type:"string" json:",omitempty"`
+
+	// InstanceId is a required field
+	InstanceId *string `type:"string" json:",omitempty" required:"true"`
+
+	LBId *string `type:"string" json:",omitempty"`
+
+	PLBAddressType *string `type:"string" json:",omitempty"`
+
+	PageNumber *int64 `type:"int64" json:",omitempty"`
+
+	PageSize *int64 `type:"int64" json:",omitempty"`
+
+	ProjectName *string `type:"string" json:",omitempty"`
+
+	RegionId *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -225,8 +250,11 @@ func (s DescribeAllowListsInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *DescribeAllowListsInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "DescribeAllowListsInput"}
-	if s.RegionID == nil {
-		invalidParams.Add(request.NewErrParamRequired("RegionID"))
+	if s.AllowListName == nil {
+		invalidParams.Add(request.NewErrParamRequired("AllowListName"))
+	}
+	if s.InstanceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("InstanceId"))
 	}
 
 	if invalidParams.Len() > 0 {
@@ -235,9 +263,81 @@ func (s *DescribeAllowListsInput) Validate() error {
 	return nil
 }
 
-// SetRegionID sets the RegionID field's value.
-func (s *DescribeAllowListsInput) SetRegionID(v string) *DescribeAllowListsInput {
-	s.RegionID = &v
+// SetAllowListDesc sets the AllowListDesc field's value.
+func (s *DescribeAllowListsInput) SetAllowListDesc(v string) *DescribeAllowListsInput {
+	s.AllowListDesc = &v
+	return s
+}
+
+// SetAllowListId sets the AllowListId field's value.
+func (s *DescribeAllowListsInput) SetAllowListId(v string) *DescribeAllowListsInput {
+	s.AllowListId = &v
+	return s
+}
+
+// SetAllowListName sets the AllowListName field's value.
+func (s *DescribeAllowListsInput) SetAllowListName(v string) *DescribeAllowListsInput {
+	s.AllowListName = &v
+	return s
+}
+
+// SetAscending sets the Ascending field's value.
+func (s *DescribeAllowListsInput) SetAscending(v bool) *DescribeAllowListsInput {
+	s.Ascending = &v
+	return s
+}
+
+// SetFilterInfo sets the FilterInfo field's value.
+func (s *DescribeAllowListsInput) SetFilterInfo(v *FilterInfoForDescribeAllowListsInput) *DescribeAllowListsInput {
+	s.FilterInfo = v
+	return s
+}
+
+// SetIPAddress sets the IPAddress field's value.
+func (s *DescribeAllowListsInput) SetIPAddress(v string) *DescribeAllowListsInput {
+	s.IPAddress = &v
+	return s
+}
+
+// SetInstanceId sets the InstanceId field's value.
+func (s *DescribeAllowListsInput) SetInstanceId(v string) *DescribeAllowListsInput {
+	s.InstanceId = &v
+	return s
+}
+
+// SetLBId sets the LBId field's value.
+func (s *DescribeAllowListsInput) SetLBId(v string) *DescribeAllowListsInput {
+	s.LBId = &v
+	return s
+}
+
+// SetPLBAddressType sets the PLBAddressType field's value.
+func (s *DescribeAllowListsInput) SetPLBAddressType(v string) *DescribeAllowListsInput {
+	s.PLBAddressType = &v
+	return s
+}
+
+// SetPageNumber sets the PageNumber field's value.
+func (s *DescribeAllowListsInput) SetPageNumber(v int64) *DescribeAllowListsInput {
+	s.PageNumber = &v
+	return s
+}
+
+// SetPageSize sets the PageSize field's value.
+func (s *DescribeAllowListsInput) SetPageSize(v int64) *DescribeAllowListsInput {
+	s.PageSize = &v
+	return s
+}
+
+// SetProjectName sets the ProjectName field's value.
+func (s *DescribeAllowListsInput) SetProjectName(v string) *DescribeAllowListsInput {
+	s.ProjectName = &v
+	return s
+}
+
+// SetRegionId sets the RegionId field's value.
+func (s *DescribeAllowListsInput) SetRegionId(v string) *DescribeAllowListsInput {
+	s.RegionId = &v
 	return s
 }
 
@@ -263,4 +363,18 @@ func (s DescribeAllowListsOutput) GoString() string {
 func (s *DescribeAllowListsOutput) SetAllowLists(v []*AllowListForDescribeAllowListsOutput) *DescribeAllowListsOutput {
 	s.AllowLists = v
 	return s
+}
+
+type FilterInfoForDescribeAllowListsInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s FilterInfoForDescribeAllowListsInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s FilterInfoForDescribeAllowListsInput) GoString() string {
+	return s.String()
 }

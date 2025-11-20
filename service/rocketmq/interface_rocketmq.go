@@ -54,14 +54,6 @@ type ROCKETMQAPI interface {
 	AssociateAllowListWithContext(volcengine.Context, *AssociateAllowListInput, ...request.Option) (*AssociateAllowListOutput, error)
 	AssociateAllowListRequest(*AssociateAllowListInput) (*request.Request, *AssociateAllowListOutput)
 
-	CreateAccessKeyCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	CreateAccessKeyCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	CreateAccessKeyCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	CreateAccessKey(*CreateAccessKeyInput) (*CreateAccessKeyOutput, error)
-	CreateAccessKeyWithContext(volcengine.Context, *CreateAccessKeyInput, ...request.Option) (*CreateAccessKeyOutput, error)
-	CreateAccessKeyRequest(*CreateAccessKeyInput) (*request.Request, *CreateAccessKeyOutput)
-
 	CreateAllowListCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	CreateAllowListCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	CreateAllowListCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -77,6 +69,14 @@ type ROCKETMQAPI interface {
 	CreateGroup(*CreateGroupInput) (*CreateGroupOutput, error)
 	CreateGroupWithContext(volcengine.Context, *CreateGroupInput, ...request.Option) (*CreateGroupOutput, error)
 	CreateGroupRequest(*CreateGroupInput) (*request.Request, *CreateGroupOutput)
+
+	CreateGroupAsyncCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateGroupAsyncCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateGroupAsyncCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateGroupAsync(*CreateGroupAsyncInput) (*CreateGroupAsyncOutput, error)
+	CreateGroupAsyncWithContext(volcengine.Context, *CreateGroupAsyncInput, ...request.Option) (*CreateGroupAsyncOutput, error)
+	CreateGroupAsyncRequest(*CreateGroupAsyncInput) (*request.Request, *CreateGroupAsyncOutput)
 
 	CreateInstanceCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	CreateInstanceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -110,6 +110,14 @@ type ROCKETMQAPI interface {
 	CreateTopicWithContext(volcengine.Context, *CreateTopicInput, ...request.Option) (*CreateTopicOutput, error)
 	CreateTopicRequest(*CreateTopicInput) (*request.Request, *CreateTopicOutput)
 
+	CreateTopicAsyncCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateTopicAsyncCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateTopicAsyncCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateTopicAsync(*CreateTopicAsyncInput) (*CreateTopicAsyncOutput, error)
+	CreateTopicAsyncWithContext(volcengine.Context, *CreateTopicAsyncInput, ...request.Option) (*CreateTopicAsyncOutput, error)
+	CreateTopicAsyncRequest(*CreateTopicAsyncInput) (*request.Request, *CreateTopicAsyncOutput)
+
 	DeleteAccessKeyCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DeleteAccessKeyCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DeleteAccessKeyCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -133,6 +141,14 @@ type ROCKETMQAPI interface {
 	DeleteGroup(*DeleteGroupInput) (*DeleteGroupOutput, error)
 	DeleteGroupWithContext(volcengine.Context, *DeleteGroupInput, ...request.Option) (*DeleteGroupOutput, error)
 	DeleteGroupRequest(*DeleteGroupInput) (*request.Request, *DeleteGroupOutput)
+
+	DeleteGroupAsyncCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeleteGroupAsyncCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeleteGroupAsyncCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeleteGroupAsync(*DeleteGroupAsyncInput) (*DeleteGroupAsyncOutput, error)
+	DeleteGroupAsyncWithContext(volcengine.Context, *DeleteGroupAsyncInput, ...request.Option) (*DeleteGroupAsyncOutput, error)
+	DeleteGroupAsyncRequest(*DeleteGroupAsyncInput) (*request.Request, *DeleteGroupAsyncOutput)
 
 	DeleteGroupsCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DeleteGroupsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -173,6 +189,14 @@ type ROCKETMQAPI interface {
 	DeleteTopic(*DeleteTopicInput) (*DeleteTopicOutput, error)
 	DeleteTopicWithContext(volcengine.Context, *DeleteTopicInput, ...request.Option) (*DeleteTopicOutput, error)
 	DeleteTopicRequest(*DeleteTopicInput) (*request.Request, *DeleteTopicOutput)
+
+	DeleteTopicAsyncCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeleteTopicAsyncCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeleteTopicAsyncCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeleteTopicAsync(*DeleteTopicAsyncInput) (*DeleteTopicAsyncOutput, error)
+	DeleteTopicAsyncWithContext(volcengine.Context, *DeleteTopicAsyncInput, ...request.Option) (*DeleteTopicAsyncOutput, error)
+	DeleteTopicAsyncRequest(*DeleteTopicAsyncInput) (*request.Request, *DeleteTopicAsyncOutput)
 
 	DescribeAccessKeyDetailCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DescribeAccessKeyDetailCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -310,6 +334,14 @@ type ROCKETMQAPI interface {
 	DescribeTopicAccessPoliciesWithContext(volcengine.Context, *DescribeTopicAccessPoliciesInput, ...request.Option) (*DescribeTopicAccessPoliciesOutput, error)
 	DescribeTopicAccessPoliciesRequest(*DescribeTopicAccessPoliciesInput) (*request.Request, *DescribeTopicAccessPoliciesOutput)
 
+	DescribeTopicDetailCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeTopicDetailCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeTopicDetailCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeTopicDetail(*DescribeTopicDetailInput) (*DescribeTopicDetailOutput, error)
+	DescribeTopicDetailWithContext(volcengine.Context, *DescribeTopicDetailInput, ...request.Option) (*DescribeTopicDetailOutput, error)
+	DescribeTopicDetailRequest(*DescribeTopicDetailInput) (*request.Request, *DescribeTopicDetailOutput)
+
 	DescribeTopicGroupsCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DescribeTopicGroupsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DescribeTopicGroupsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -349,6 +381,14 @@ type ROCKETMQAPI interface {
 	EnableAutoCreateGroup(*EnableAutoCreateGroupInput) (*EnableAutoCreateGroupOutput, error)
 	EnableAutoCreateGroupWithContext(volcengine.Context, *EnableAutoCreateGroupInput, ...request.Option) (*EnableAutoCreateGroupOutput, error)
 	EnableAutoCreateGroupRequest(*EnableAutoCreateGroupInput) (*request.Request, *EnableAutoCreateGroupOutput)
+
+	EnableInstanceBurstTpsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	EnableInstanceBurstTpsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	EnableInstanceBurstTpsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	EnableInstanceBurstTps(*EnableInstanceBurstTpsInput) (*EnableInstanceBurstTpsOutput, error)
+	EnableInstanceBurstTpsWithContext(volcengine.Context, *EnableInstanceBurstTpsInput, ...request.Option) (*EnableInstanceBurstTpsOutput, error)
+	EnableInstanceBurstTpsRequest(*EnableInstanceBurstTpsInput) (*request.Request, *EnableInstanceBurstTpsOutput)
 
 	EnableInstanceInspectCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	EnableInstanceInspectCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -422,6 +462,14 @@ type ROCKETMQAPI interface {
 	ModifyAllowListWithContext(volcengine.Context, *ModifyAllowListInput, ...request.Option) (*ModifyAllowListOutput, error)
 	ModifyAllowListRequest(*ModifyAllowListInput) (*request.Request, *ModifyAllowListOutput)
 
+	ModifyGroupDescriptionCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ModifyGroupDescriptionCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ModifyGroupDescriptionCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ModifyGroupDescription(*ModifyGroupDescriptionInput) (*ModifyGroupDescriptionOutput, error)
+	ModifyGroupDescriptionWithContext(volcengine.Context, *ModifyGroupDescriptionInput, ...request.Option) (*ModifyGroupDescriptionOutput, error)
+	ModifyGroupDescriptionRequest(*ModifyGroupDescriptionInput) (*request.Request, *ModifyGroupDescriptionOutput)
+
 	ModifyInstanceAttributesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ModifyInstanceAttributesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	ModifyInstanceAttributesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -453,6 +501,14 @@ type ROCKETMQAPI interface {
 	ModifyTopicAccessPolicies(*ModifyTopicAccessPoliciesInput) (*ModifyTopicAccessPoliciesOutput, error)
 	ModifyTopicAccessPoliciesWithContext(volcengine.Context, *ModifyTopicAccessPoliciesInput, ...request.Option) (*ModifyTopicAccessPoliciesOutput, error)
 	ModifyTopicAccessPoliciesRequest(*ModifyTopicAccessPoliciesInput) (*request.Request, *ModifyTopicAccessPoliciesOutput)
+
+	ModifyTopicDescriptionCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ModifyTopicDescriptionCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ModifyTopicDescriptionCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ModifyTopicDescription(*ModifyTopicDescriptionInput) (*ModifyTopicDescriptionOutput, error)
+	ModifyTopicDescriptionWithContext(volcengine.Context, *ModifyTopicDescriptionInput, ...request.Option) (*ModifyTopicDescriptionOutput, error)
+	ModifyTopicDescriptionRequest(*ModifyTopicDescriptionInput) (*request.Request, *ModifyTopicDescriptionOutput)
 
 	QueryDLQMessageByGroupIdCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	QueryDLQMessageByGroupIdCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
