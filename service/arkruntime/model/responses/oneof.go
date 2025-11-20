@@ -7,8 +7,6 @@ import (
 
 	"github.com/bytedance/sonic/decoder"
 	"go.mongodb.org/mongo-driver/bson"
-	"go.mongodb.org/mongo-driver/bson/bsontype"
-	"go.mongodb.org/mongo-driver/bson/primitive"
 )
 
 // Config holds marshal/unmarshal configuration options
@@ -552,76 +550,6 @@ func (r *ResponsesToolChoice) MarshalJSON() ([]byte, error) {
 		return json.Marshal(v)
 	}
 	return json.Marshal(r.GetMode())
-}
-
-// UnmarshalBSON ...
-func (r *ResponsesToolChoice) UnmarshalBSON(data []byte) error {
-	if string(data) == "null" {
-		return nil
-	}
-	bin := primitive.Binary{}
-	if err := bson.UnmarshalValue(bson.TypeBinary, data, &bin); err != nil {
-		return err
-	}
-	if len(bin.Data) > 0 {
-		err := r.UnmarshalJSON(bin.Data)
-		if err != nil {
-			return err
-		}
-	}
-	return nil
-}
-
-// MarshalBSONValue ...
-func (r *ResponsesToolChoice) MarshalBSONValue() (bsontype.Type, []byte, error) {
-	if r == nil {
-		return bson.TypeUndefined, nil, nil
-	}
-	jsonBytes, err := r.MarshalJSON()
-	if err != nil {
-		return bson.TypeUndefined, nil, err
-	}
-	bin := primitive.Binary{
-		Subtype: bson.TypeBinaryGeneric,
-		Data:    jsonBytes,
-	}
-	return bson.MarshalValue(bin)
-}
-
-// MarshalBSONValue ...
-func (r *ResponsesTool) MarshalBSONValue() (bsontype.Type, []byte, error) {
-	jsonBytes, err := json.Marshal(r)
-	// to avoid the parameter order problem, we handle it as raw bytes
-	if err != nil {
-		return bson.TypeUndefined, nil, err
-	}
-	bin := primitive.Binary{
-		Subtype: bson.TypeBinaryGeneric,
-		Data:    jsonBytes,
-	}
-	return bson.MarshalValue(bin)
-}
-
-// UnmarshalBSON ...
-func (r *ResponsesTool) UnmarshalBSON(data []byte) error {
-	// 1: try bson.M (for history compatibility)
-	bsonVal := bson.M{}
-	if err := bson.Unmarshal(data, &bsonVal); err != nil {
-		// 2. try bson.Bytes
-		binVal := primitive.Binary{}
-		if err := bson.UnmarshalValue(bson.TypeBinary, data, &binVal); err != nil {
-			// totally failed
-			return err
-		}
-		return json.Unmarshal(binVal.Data, r)
-	}
-
-	// concern: one more marshal here...
-	jsonBytes, err := bson.MarshalExtJSON(bsonVal, false, false)
-	if err != nil {
-		return err
-	}
-	return json.Unmarshal(jsonBytes, r)
 }
 
 // UnmarshalJSON ...
