@@ -363,6 +363,8 @@ type CredentialForGetDeploymentOutput struct {
 	AccessKey *string `type:"string" json:",omitempty"`
 
 	SecretAccessKey *string `type:"string" json:",omitempty"`
+
+	UseServiceLinkedRole *bool `type:"boolean" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -384,6 +386,12 @@ func (s *CredentialForGetDeploymentOutput) SetAccessKey(v string) *CredentialFor
 // SetSecretAccessKey sets the SecretAccessKey field's value.
 func (s *CredentialForGetDeploymentOutput) SetSecretAccessKey(v string) *CredentialForGetDeploymentOutput {
 	s.SecretAccessKey = &v
+	return s
+}
+
+// SetUseServiceLinkedRole sets the UseServiceLinkedRole field's value.
+func (s *CredentialForGetDeploymentOutput) SetUseServiceLinkedRole(v bool) *CredentialForGetDeploymentOutput {
+	s.UseServiceLinkedRole = &v
 	return s
 }
 
@@ -1894,6 +1902,8 @@ type VepfsAPForGetDeploymentOutput struct {
 	AccessPointId *string `type:"string" json:",omitempty"`
 
 	Id *string `type:"string" json:",omitempty"`
+
+	UseEic *bool `type:"boolean" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -1915,6 +1925,12 @@ func (s *VepfsAPForGetDeploymentOutput) SetAccessPointId(v string) *VepfsAPForGe
 // SetId sets the Id field's value.
 func (s *VepfsAPForGetDeploymentOutput) SetId(v string) *VepfsAPForGetDeploymentOutput {
 	s.Id = &v
+	return s
+}
+
+// SetUseEic sets the UseEic field's value.
+func (s *VepfsAPForGetDeploymentOutput) SetUseEic(v bool) *VepfsAPForGetDeploymentOutput {
+	s.UseEic = &v
 	return s
 }
 

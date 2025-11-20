@@ -143,58 +143,160 @@ func (c *MLPLATFORM20240701) UpdateDevInstanceWithContext(ctx volcengine.Context
 	return out, req.Send()
 }
 
-type AdvancedOptionsForUpdateDevInstanceInput struct {
+type CfsForUpdateDevInstanceInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	InternalSync *int64 `type:"int64" json:",omitempty"`
+	FileSystemName *string `type:"string" json:",omitempty"`
 
-	MetaCacheCapacity *string `type:"string" json:",omitempty"`
+	NamespaceId *string `type:"string" json:",omitempty"`
 
-	MetaCacheExpiryMinutes *string `type:"string" json:",omitempty"`
+	Options *OptionsForUpdateDevInstanceInput `type:"structure" json:",omitempty"`
 
-	MetaCacheExpiryMsec *string `type:"string" json:",omitempty"`
+	Tos *TosForUpdateDevInstanceInput `type:"structure" json:",omitempty"`
 }
 
 // String returns the string representation
-func (s AdvancedOptionsForUpdateDevInstanceInput) String() string {
+func (s CfsForUpdateDevInstanceInput) String() string {
 	return volcengineutil.Prettify(s)
 }
 
 // GoString returns the string representation
-func (s AdvancedOptionsForUpdateDevInstanceInput) GoString() string {
+func (s CfsForUpdateDevInstanceInput) GoString() string {
+	return s.String()
+}
+
+// SetFileSystemName sets the FileSystemName field's value.
+func (s *CfsForUpdateDevInstanceInput) SetFileSystemName(v string) *CfsForUpdateDevInstanceInput {
+	s.FileSystemName = &v
+	return s
+}
+
+// SetNamespaceId sets the NamespaceId field's value.
+func (s *CfsForUpdateDevInstanceInput) SetNamespaceId(v string) *CfsForUpdateDevInstanceInput {
+	s.NamespaceId = &v
+	return s
+}
+
+// SetOptions sets the Options field's value.
+func (s *CfsForUpdateDevInstanceInput) SetOptions(v *OptionsForUpdateDevInstanceInput) *CfsForUpdateDevInstanceInput {
+	s.Options = v
+	return s
+}
+
+// SetTos sets the Tos field's value.
+func (s *CfsForUpdateDevInstanceInput) SetTos(v *TosForUpdateDevInstanceInput) *CfsForUpdateDevInstanceInput {
+	s.Tos = v
+	return s
+}
+
+type ConfigForUpdateDevInstanceInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Cfs *CfsForUpdateDevInstanceInput `type:"structure" json:",omitempty"`
+
+	Nas *NasForUpdateDevInstanceInput `type:"structure" json:",omitempty"`
+
+	NasAP *NasAPForUpdateDevInstanceInput `type:"structure" json:",omitempty"`
+
+	Sfcs *SfcsForUpdateDevInstanceInput `type:"structure" json:",omitempty"`
+
+	Tos *TosForUpdateDevInstanceInput `type:"structure" json:",omitempty"`
+
+	Vepfs *VepfsForUpdateDevInstanceInput `type:"structure" json:",omitempty"`
+
+	VepfsAP *VepfsAPForUpdateDevInstanceInput `type:"structure" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s ConfigForUpdateDevInstanceInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ConfigForUpdateDevInstanceInput) GoString() string {
+	return s.String()
+}
+
+// SetCfs sets the Cfs field's value.
+func (s *ConfigForUpdateDevInstanceInput) SetCfs(v *CfsForUpdateDevInstanceInput) *ConfigForUpdateDevInstanceInput {
+	s.Cfs = v
+	return s
+}
+
+// SetNas sets the Nas field's value.
+func (s *ConfigForUpdateDevInstanceInput) SetNas(v *NasForUpdateDevInstanceInput) *ConfigForUpdateDevInstanceInput {
+	s.Nas = v
+	return s
+}
+
+// SetNasAP sets the NasAP field's value.
+func (s *ConfigForUpdateDevInstanceInput) SetNasAP(v *NasAPForUpdateDevInstanceInput) *ConfigForUpdateDevInstanceInput {
+	s.NasAP = v
+	return s
+}
+
+// SetSfcs sets the Sfcs field's value.
+func (s *ConfigForUpdateDevInstanceInput) SetSfcs(v *SfcsForUpdateDevInstanceInput) *ConfigForUpdateDevInstanceInput {
+	s.Sfcs = v
+	return s
+}
+
+// SetTos sets the Tos field's value.
+func (s *ConfigForUpdateDevInstanceInput) SetTos(v *TosForUpdateDevInstanceInput) *ConfigForUpdateDevInstanceInput {
+	s.Tos = v
+	return s
+}
+
+// SetVepfs sets the Vepfs field's value.
+func (s *ConfigForUpdateDevInstanceInput) SetVepfs(v *VepfsForUpdateDevInstanceInput) *ConfigForUpdateDevInstanceInput {
+	s.Vepfs = v
+	return s
+}
+
+// SetVepfsAP sets the VepfsAP field's value.
+func (s *ConfigForUpdateDevInstanceInput) SetVepfsAP(v *VepfsAPForUpdateDevInstanceInput) *ConfigForUpdateDevInstanceInput {
+	s.VepfsAP = v
+	return s
+}
+
+type ConvertOptionsForUpdateDevInstanceInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	InternalSync *int64 `type:"int64" json:",omitempty"`
+
+	Replicas *int64 `type:"int64" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s ConvertOptionsForUpdateDevInstanceInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ConvertOptionsForUpdateDevInstanceInput) GoString() string {
 	return s.String()
 }
 
 // SetInternalSync sets the InternalSync field's value.
-func (s *AdvancedOptionsForUpdateDevInstanceInput) SetInternalSync(v int64) *AdvancedOptionsForUpdateDevInstanceInput {
+func (s *ConvertOptionsForUpdateDevInstanceInput) SetInternalSync(v int64) *ConvertOptionsForUpdateDevInstanceInput {
 	s.InternalSync = &v
 	return s
 }
 
-// SetMetaCacheCapacity sets the MetaCacheCapacity field's value.
-func (s *AdvancedOptionsForUpdateDevInstanceInput) SetMetaCacheCapacity(v string) *AdvancedOptionsForUpdateDevInstanceInput {
-	s.MetaCacheCapacity = &v
-	return s
-}
-
-// SetMetaCacheExpiryMinutes sets the MetaCacheExpiryMinutes field's value.
-func (s *AdvancedOptionsForUpdateDevInstanceInput) SetMetaCacheExpiryMinutes(v string) *AdvancedOptionsForUpdateDevInstanceInput {
-	s.MetaCacheExpiryMinutes = &v
-	return s
-}
-
-// SetMetaCacheExpiryMsec sets the MetaCacheExpiryMsec field's value.
-func (s *AdvancedOptionsForUpdateDevInstanceInput) SetMetaCacheExpiryMsec(v string) *AdvancedOptionsForUpdateDevInstanceInput {
-	s.MetaCacheExpiryMsec = &v
+// SetReplicas sets the Replicas field's value.
+func (s *ConvertOptionsForUpdateDevInstanceInput) SetReplicas(v int64) *ConvertOptionsForUpdateDevInstanceInput {
+	s.Replicas = &v
 	return s
 }
 
 type CredentialForUpdateDevInstanceInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	AccessKeyId *string `type:"string" json:",omitempty"`
+	AccessKey *string `type:"string" json:",omitempty"`
 
 	SecretAccessKey *string `type:"string" json:",omitempty"`
+
+	UseServiceLinkedRole *bool `type:"boolean" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -207,15 +309,21 @@ func (s CredentialForUpdateDevInstanceInput) GoString() string {
 	return s.String()
 }
 
-// SetAccessKeyId sets the AccessKeyId field's value.
-func (s *CredentialForUpdateDevInstanceInput) SetAccessKeyId(v string) *CredentialForUpdateDevInstanceInput {
-	s.AccessKeyId = &v
+// SetAccessKey sets the AccessKey field's value.
+func (s *CredentialForUpdateDevInstanceInput) SetAccessKey(v string) *CredentialForUpdateDevInstanceInput {
+	s.AccessKey = &v
 	return s
 }
 
 // SetSecretAccessKey sets the SecretAccessKey field's value.
 func (s *CredentialForUpdateDevInstanceInput) SetSecretAccessKey(v string) *CredentialForUpdateDevInstanceInput {
 	s.SecretAccessKey = &v
+	return s
+}
+
+// SetUseServiceLinkedRole sets the UseServiceLinkedRole field's value.
+func (s *CredentialForUpdateDevInstanceInput) SetUseServiceLinkedRole(v bool) *CredentialForUpdateDevInstanceInput {
+	s.UseServiceLinkedRole = &v
 	return s
 }
 
@@ -281,82 +389,96 @@ func (s *FlexibleResourceClaimForUpdateDevInstanceInput) SetRdmaEniCount(v int32
 	return s
 }
 
-type NasAccessPointOptionsForUpdateDevInstanceInput struct {
+type NasAPForUpdateDevInstanceInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
-
-	AccessPointDomain *string `type:"string" json:",omitempty"`
 
 	AccessPointId *string `type:"string" json:",omitempty"`
 
-	AccessPointName *string `type:"string" json:",omitempty"`
-
-	EnabledIam *bool `type:"boolean" json:",omitempty"`
-
-	MountOptions []*string `type:"list" json:",omitempty"`
-
-	RootPath *string `type:"string" json:",omitempty"`
-
-	VpcId *string `type:"string" json:",omitempty"`
+	Id *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
-func (s NasAccessPointOptionsForUpdateDevInstanceInput) String() string {
+func (s NasAPForUpdateDevInstanceInput) String() string {
 	return volcengineutil.Prettify(s)
 }
 
 // GoString returns the string representation
-func (s NasAccessPointOptionsForUpdateDevInstanceInput) GoString() string {
+func (s NasAPForUpdateDevInstanceInput) GoString() string {
 	return s.String()
 }
 
-// SetAccessPointDomain sets the AccessPointDomain field's value.
-func (s *NasAccessPointOptionsForUpdateDevInstanceInput) SetAccessPointDomain(v string) *NasAccessPointOptionsForUpdateDevInstanceInput {
-	s.AccessPointDomain = &v
-	return s
-}
-
 // SetAccessPointId sets the AccessPointId field's value.
-func (s *NasAccessPointOptionsForUpdateDevInstanceInput) SetAccessPointId(v string) *NasAccessPointOptionsForUpdateDevInstanceInput {
+func (s *NasAPForUpdateDevInstanceInput) SetAccessPointId(v string) *NasAPForUpdateDevInstanceInput {
 	s.AccessPointId = &v
 	return s
 }
 
-// SetAccessPointName sets the AccessPointName field's value.
-func (s *NasAccessPointOptionsForUpdateDevInstanceInput) SetAccessPointName(v string) *NasAccessPointOptionsForUpdateDevInstanceInput {
-	s.AccessPointName = &v
+// SetId sets the Id field's value.
+func (s *NasAPForUpdateDevInstanceInput) SetId(v string) *NasAPForUpdateDevInstanceInput {
+	s.Id = &v
 	return s
 }
 
-// SetEnabledIam sets the EnabledIam field's value.
-func (s *NasAccessPointOptionsForUpdateDevInstanceInput) SetEnabledIam(v bool) *NasAccessPointOptionsForUpdateDevInstanceInput {
-	s.EnabledIam = &v
+type NasForUpdateDevInstanceInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Addr *string `type:"string" json:",omitempty"`
+
+	FileSystemName *string `type:"string" json:",omitempty"`
+
+	Id *string `type:"string" json:",omitempty"`
+
+	NasType *string `type:"string" json:",omitempty"`
+
+	SubPath *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s NasForUpdateDevInstanceInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s NasForUpdateDevInstanceInput) GoString() string {
+	return s.String()
+}
+
+// SetAddr sets the Addr field's value.
+func (s *NasForUpdateDevInstanceInput) SetAddr(v string) *NasForUpdateDevInstanceInput {
+	s.Addr = &v
 	return s
 }
 
-// SetMountOptions sets the MountOptions field's value.
-func (s *NasAccessPointOptionsForUpdateDevInstanceInput) SetMountOptions(v []*string) *NasAccessPointOptionsForUpdateDevInstanceInput {
-	s.MountOptions = v
+// SetFileSystemName sets the FileSystemName field's value.
+func (s *NasForUpdateDevInstanceInput) SetFileSystemName(v string) *NasForUpdateDevInstanceInput {
+	s.FileSystemName = &v
 	return s
 }
 
-// SetRootPath sets the RootPath field's value.
-func (s *NasAccessPointOptionsForUpdateDevInstanceInput) SetRootPath(v string) *NasAccessPointOptionsForUpdateDevInstanceInput {
-	s.RootPath = &v
+// SetId sets the Id field's value.
+func (s *NasForUpdateDevInstanceInput) SetId(v string) *NasForUpdateDevInstanceInput {
+	s.Id = &v
 	return s
 }
 
-// SetVpcId sets the VpcId field's value.
-func (s *NasAccessPointOptionsForUpdateDevInstanceInput) SetVpcId(v string) *NasAccessPointOptionsForUpdateDevInstanceInput {
-	s.VpcId = &v
+// SetNasType sets the NasType field's value.
+func (s *NasForUpdateDevInstanceInput) SetNasType(v string) *NasForUpdateDevInstanceInput {
+	s.NasType = &v
+	return s
+}
+
+// SetSubPath sets the SubPath field's value.
+func (s *NasForUpdateDevInstanceInput) SetSubPath(v string) *NasForUpdateDevInstanceInput {
+	s.SubPath = &v
 	return s
 }
 
 type NodeAffinitySpecForUpdateDevInstanceInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	GPUCPUNodePreference *string `type:"string" json:",omitempty"`
+	GPUCPUNodePreference *string `type:"string" json:",omitempty" enum:"EnumOfGPUCPUNodePreferenceForUpdateDevInstanceInput"`
 
-	Source *string `type:"string" json:",omitempty"`
+	StrategyType *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -375,9 +497,55 @@ func (s *NodeAffinitySpecForUpdateDevInstanceInput) SetGPUCPUNodePreference(v st
 	return s
 }
 
-// SetSource sets the Source field's value.
-func (s *NodeAffinitySpecForUpdateDevInstanceInput) SetSource(v string) *NodeAffinitySpecForUpdateDevInstanceInput {
-	s.Source = &v
+// SetStrategyType sets the StrategyType field's value.
+func (s *NodeAffinitySpecForUpdateDevInstanceInput) SetStrategyType(v string) *NodeAffinitySpecForUpdateDevInstanceInput {
+	s.StrategyType = &v
+	return s
+}
+
+type OptionsForUpdateDevInstanceInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	InternalSync *int64 `type:"int64" json:",omitempty"`
+
+	MetaCacheCapacity *int64 `type:"int64" json:",omitempty"`
+
+	MetaCacheExpiryMinutes *int64 `type:"int64" json:",omitempty"`
+
+	MetaCacheExpiryMsec *int64 `type:"int64" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s OptionsForUpdateDevInstanceInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s OptionsForUpdateDevInstanceInput) GoString() string {
+	return s.String()
+}
+
+// SetInternalSync sets the InternalSync field's value.
+func (s *OptionsForUpdateDevInstanceInput) SetInternalSync(v int64) *OptionsForUpdateDevInstanceInput {
+	s.InternalSync = &v
+	return s
+}
+
+// SetMetaCacheCapacity sets the MetaCacheCapacity field's value.
+func (s *OptionsForUpdateDevInstanceInput) SetMetaCacheCapacity(v int64) *OptionsForUpdateDevInstanceInput {
+	s.MetaCacheCapacity = &v
+	return s
+}
+
+// SetMetaCacheExpiryMinutes sets the MetaCacheExpiryMinutes field's value.
+func (s *OptionsForUpdateDevInstanceInput) SetMetaCacheExpiryMinutes(v int64) *OptionsForUpdateDevInstanceInput {
+	s.MetaCacheExpiryMinutes = &v
+	return s
+}
+
+// SetMetaCacheExpiryMsec sets the MetaCacheExpiryMsec field's value.
+func (s *OptionsForUpdateDevInstanceInput) SetMetaCacheExpiryMsec(v int64) *OptionsForUpdateDevInstanceInput {
+	s.MetaCacheExpiryMsec = &v
 	return s
 }
 
@@ -391,6 +559,8 @@ type PortForUpdateDevInstanceInput struct {
 	InternalPort *int32 `type:"int32" json:",omitempty"`
 
 	Name *string `type:"string" json:",omitempty"`
+
+	Type *string `type:"string" json:",omitempty" enum:"EnumOfTypeForUpdateDevInstanceInput"`
 }
 
 // String returns the string representation
@@ -424,6 +594,12 @@ func (s *PortForUpdateDevInstanceInput) SetInternalPort(v int32) *PortForUpdateD
 // SetName sets the Name field's value.
 func (s *PortForUpdateDevInstanceInput) SetName(v string) *PortForUpdateDevInstanceInput {
 	s.Name = &v
+	return s
+}
+
+// SetType sets the Type field's value.
+func (s *PortForUpdateDevInstanceInput) SetType(v string) *PortForUpdateDevInstanceInput {
+	s.Type = &v
 	return s
 }
 
@@ -473,92 +649,62 @@ func (s *ResourceClaimForUpdateDevInstanceInput) SetZoneId(v string) *ResourceCl
 	return s
 }
 
-type SfcsAdvancedOptionsForUpdateDevInstanceInput struct {
+type SfcsForUpdateDevInstanceInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	InternalSync *int64 `type:"int64" json:",omitempty"`
+	CachePolicyId *string `type:"string" json:",omitempty"`
 
-	Replicas *int64 `type:"int64" json:"replicas,omitempty"`
+	FileSystemName *string `type:"string" json:",omitempty"`
+
+	Options *ConvertOptionsForUpdateDevInstanceInput `type:"structure" json:",omitempty"`
+
+	Tos *TosForUpdateDevInstanceInput `type:"structure" json:",omitempty"`
 }
 
 // String returns the string representation
-func (s SfcsAdvancedOptionsForUpdateDevInstanceInput) String() string {
+func (s SfcsForUpdateDevInstanceInput) String() string {
 	return volcengineutil.Prettify(s)
 }
 
 // GoString returns the string representation
-func (s SfcsAdvancedOptionsForUpdateDevInstanceInput) GoString() string {
+func (s SfcsForUpdateDevInstanceInput) GoString() string {
 	return s.String()
 }
 
-// SetInternalSync sets the InternalSync field's value.
-func (s *SfcsAdvancedOptionsForUpdateDevInstanceInput) SetInternalSync(v int64) *SfcsAdvancedOptionsForUpdateDevInstanceInput {
-	s.InternalSync = &v
+// SetCachePolicyId sets the CachePolicyId field's value.
+func (s *SfcsForUpdateDevInstanceInput) SetCachePolicyId(v string) *SfcsForUpdateDevInstanceInput {
+	s.CachePolicyId = &v
 	return s
 }
 
-// SetReplicas sets the Replicas field's value.
-func (s *SfcsAdvancedOptionsForUpdateDevInstanceInput) SetReplicas(v int64) *SfcsAdvancedOptionsForUpdateDevInstanceInput {
-	s.Replicas = &v
+// SetFileSystemName sets the FileSystemName field's value.
+func (s *SfcsForUpdateDevInstanceInput) SetFileSystemName(v string) *SfcsForUpdateDevInstanceInput {
+	s.FileSystemName = &v
+	return s
+}
+
+// SetOptions sets the Options field's value.
+func (s *SfcsForUpdateDevInstanceInput) SetOptions(v *ConvertOptionsForUpdateDevInstanceInput) *SfcsForUpdateDevInstanceInput {
+	s.Options = v
+	return s
+}
+
+// SetTos sets the Tos field's value.
+func (s *SfcsForUpdateDevInstanceInput) SetTos(v *TosForUpdateDevInstanceInput) *SfcsForUpdateDevInstanceInput {
+	s.Tos = v
 	return s
 }
 
 type StorageForUpdateDevInstanceInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	AdvancedOptions *AdvancedOptionsForUpdateDevInstanceInput `type:"structure" json:",omitempty"`
-
-	AnnotationId *string `type:"string" json:",omitempty"`
-
-	AssetId *string `type:"string" json:",omitempty"`
-
-	AssetName *string `type:"string" json:",omitempty"`
-
-	AssetVersion *string `type:"string" json:",omitempty"`
-
-	Bucket *string `type:"string" json:",omitempty"`
-
-	CachePolicyId *string `type:"string" json:",omitempty"`
-
-	CloudfsType *string `type:"string" json:",omitempty"`
-
-	DatasetId *string `type:"string" json:",omitempty"`
-
-	FsName *string `type:"string" json:",omitempty"`
+	Config *ConfigForUpdateDevInstanceInput `type:"structure" json:",omitempty"`
 
 	MountPath *string `type:"string" json:",omitempty"`
 
-	NasAccessPointOptions *NasAccessPointOptionsForUpdateDevInstanceInput `type:"structure" json:",omitempty"`
-
-	NasAddr *string `type:"string" json:",omitempty"`
-
-	NasId *string `type:"string" json:",omitempty"`
-
-	NasName *string `type:"string" json:",omitempty"`
-
-	NsId *string `type:"string" json:",omitempty"`
-
-	Prefix *string `type:"string" json:",omitempty"`
-
 	ReadOnly *bool `type:"boolean" json:",omitempty"`
 
-	SfcsAdvancedOptions *SfcsAdvancedOptionsForUpdateDevInstanceInput `type:"structure" json:",omitempty"`
-
-	SfcsId *string `type:"string" json:",omitempty"`
-
-	SubPath *string `type:"string" json:",omitempty"`
-
 	Type *string `type:"string" json:",omitempty"`
-
-	UseAsDefaultMountPath *bool `type:"boolean" json:",omitempty"`
-
-	UseEic *bool `type:"boolean" json:",omitempty"`
-
-	VepfsAccessPointOptions *VepfsAccessPointOptionsForUpdateDevInstanceInput `type:"structure" json:",omitempty"`
-
-	VepfsHostPath *string `type:"string" json:",omitempty"`
-
-	VepfsId *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -571,63 +717,9 @@ func (s StorageForUpdateDevInstanceInput) GoString() string {
 	return s.String()
 }
 
-// SetAdvancedOptions sets the AdvancedOptions field's value.
-func (s *StorageForUpdateDevInstanceInput) SetAdvancedOptions(v *AdvancedOptionsForUpdateDevInstanceInput) *StorageForUpdateDevInstanceInput {
-	s.AdvancedOptions = v
-	return s
-}
-
-// SetAnnotationId sets the AnnotationId field's value.
-func (s *StorageForUpdateDevInstanceInput) SetAnnotationId(v string) *StorageForUpdateDevInstanceInput {
-	s.AnnotationId = &v
-	return s
-}
-
-// SetAssetId sets the AssetId field's value.
-func (s *StorageForUpdateDevInstanceInput) SetAssetId(v string) *StorageForUpdateDevInstanceInput {
-	s.AssetId = &v
-	return s
-}
-
-// SetAssetName sets the AssetName field's value.
-func (s *StorageForUpdateDevInstanceInput) SetAssetName(v string) *StorageForUpdateDevInstanceInput {
-	s.AssetName = &v
-	return s
-}
-
-// SetAssetVersion sets the AssetVersion field's value.
-func (s *StorageForUpdateDevInstanceInput) SetAssetVersion(v string) *StorageForUpdateDevInstanceInput {
-	s.AssetVersion = &v
-	return s
-}
-
-// SetBucket sets the Bucket field's value.
-func (s *StorageForUpdateDevInstanceInput) SetBucket(v string) *StorageForUpdateDevInstanceInput {
-	s.Bucket = &v
-	return s
-}
-
-// SetCachePolicyId sets the CachePolicyId field's value.
-func (s *StorageForUpdateDevInstanceInput) SetCachePolicyId(v string) *StorageForUpdateDevInstanceInput {
-	s.CachePolicyId = &v
-	return s
-}
-
-// SetCloudfsType sets the CloudfsType field's value.
-func (s *StorageForUpdateDevInstanceInput) SetCloudfsType(v string) *StorageForUpdateDevInstanceInput {
-	s.CloudfsType = &v
-	return s
-}
-
-// SetDatasetId sets the DatasetId field's value.
-func (s *StorageForUpdateDevInstanceInput) SetDatasetId(v string) *StorageForUpdateDevInstanceInput {
-	s.DatasetId = &v
-	return s
-}
-
-// SetFsName sets the FsName field's value.
-func (s *StorageForUpdateDevInstanceInput) SetFsName(v string) *StorageForUpdateDevInstanceInput {
-	s.FsName = &v
+// SetConfig sets the Config field's value.
+func (s *StorageForUpdateDevInstanceInput) SetConfig(v *ConfigForUpdateDevInstanceInput) *StorageForUpdateDevInstanceInput {
+	s.Config = v
 	return s
 }
 
@@ -637,63 +729,9 @@ func (s *StorageForUpdateDevInstanceInput) SetMountPath(v string) *StorageForUpd
 	return s
 }
 
-// SetNasAccessPointOptions sets the NasAccessPointOptions field's value.
-func (s *StorageForUpdateDevInstanceInput) SetNasAccessPointOptions(v *NasAccessPointOptionsForUpdateDevInstanceInput) *StorageForUpdateDevInstanceInput {
-	s.NasAccessPointOptions = v
-	return s
-}
-
-// SetNasAddr sets the NasAddr field's value.
-func (s *StorageForUpdateDevInstanceInput) SetNasAddr(v string) *StorageForUpdateDevInstanceInput {
-	s.NasAddr = &v
-	return s
-}
-
-// SetNasId sets the NasId field's value.
-func (s *StorageForUpdateDevInstanceInput) SetNasId(v string) *StorageForUpdateDevInstanceInput {
-	s.NasId = &v
-	return s
-}
-
-// SetNasName sets the NasName field's value.
-func (s *StorageForUpdateDevInstanceInput) SetNasName(v string) *StorageForUpdateDevInstanceInput {
-	s.NasName = &v
-	return s
-}
-
-// SetNsId sets the NsId field's value.
-func (s *StorageForUpdateDevInstanceInput) SetNsId(v string) *StorageForUpdateDevInstanceInput {
-	s.NsId = &v
-	return s
-}
-
-// SetPrefix sets the Prefix field's value.
-func (s *StorageForUpdateDevInstanceInput) SetPrefix(v string) *StorageForUpdateDevInstanceInput {
-	s.Prefix = &v
-	return s
-}
-
 // SetReadOnly sets the ReadOnly field's value.
 func (s *StorageForUpdateDevInstanceInput) SetReadOnly(v bool) *StorageForUpdateDevInstanceInput {
 	s.ReadOnly = &v
-	return s
-}
-
-// SetSfcsAdvancedOptions sets the SfcsAdvancedOptions field's value.
-func (s *StorageForUpdateDevInstanceInput) SetSfcsAdvancedOptions(v *SfcsAdvancedOptionsForUpdateDevInstanceInput) *StorageForUpdateDevInstanceInput {
-	s.SfcsAdvancedOptions = v
-	return s
-}
-
-// SetSfcsId sets the SfcsId field's value.
-func (s *StorageForUpdateDevInstanceInput) SetSfcsId(v string) *StorageForUpdateDevInstanceInput {
-	s.SfcsId = &v
-	return s
-}
-
-// SetSubPath sets the SubPath field's value.
-func (s *StorageForUpdateDevInstanceInput) SetSubPath(v string) *StorageForUpdateDevInstanceInput {
-	s.SubPath = &v
 	return s
 }
 
@@ -703,33 +741,33 @@ func (s *StorageForUpdateDevInstanceInput) SetType(v string) *StorageForUpdateDe
 	return s
 }
 
-// SetUseAsDefaultMountPath sets the UseAsDefaultMountPath field's value.
-func (s *StorageForUpdateDevInstanceInput) SetUseAsDefaultMountPath(v bool) *StorageForUpdateDevInstanceInput {
-	s.UseAsDefaultMountPath = &v
+type TosForUpdateDevInstanceInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Bucket *string `type:"string" json:",omitempty"`
+
+	Prefix *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s TosForUpdateDevInstanceInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TosForUpdateDevInstanceInput) GoString() string {
+	return s.String()
+}
+
+// SetBucket sets the Bucket field's value.
+func (s *TosForUpdateDevInstanceInput) SetBucket(v string) *TosForUpdateDevInstanceInput {
+	s.Bucket = &v
 	return s
 }
 
-// SetUseEic sets the UseEic field's value.
-func (s *StorageForUpdateDevInstanceInput) SetUseEic(v bool) *StorageForUpdateDevInstanceInput {
-	s.UseEic = &v
-	return s
-}
-
-// SetVepfsAccessPointOptions sets the VepfsAccessPointOptions field's value.
-func (s *StorageForUpdateDevInstanceInput) SetVepfsAccessPointOptions(v *VepfsAccessPointOptionsForUpdateDevInstanceInput) *StorageForUpdateDevInstanceInput {
-	s.VepfsAccessPointOptions = v
-	return s
-}
-
-// SetVepfsHostPath sets the VepfsHostPath field's value.
-func (s *StorageForUpdateDevInstanceInput) SetVepfsHostPath(v string) *StorageForUpdateDevInstanceInput {
-	s.VepfsHostPath = &v
-	return s
-}
-
-// SetVepfsId sets the VepfsId field's value.
-func (s *StorageForUpdateDevInstanceInput) SetVepfsId(v string) *StorageForUpdateDevInstanceInput {
-	s.VepfsId = &v
+// SetPrefix sets the Prefix field's value.
+func (s *TosForUpdateDevInstanceInput) SetPrefix(v string) *TosForUpdateDevInstanceInput {
+	s.Prefix = &v
 	return s
 }
 
@@ -897,64 +935,108 @@ func (s *UpdateDevInstanceOutput) SetId(v string) *UpdateDevInstanceOutput {
 	return s
 }
 
-type VepfsAccessPointOptionsForUpdateDevInstanceInput struct {
+type VepfsAPForUpdateDevInstanceInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
-
-	AccessPointDomain *string `type:"string" json:",omitempty"`
 
 	AccessPointId *string `type:"string" json:",omitempty"`
 
-	AccessPointName *string `type:"string" json:",omitempty"`
+	Id *string `type:"string" json:",omitempty"`
 
-	EnabledIam *bool `type:"boolean" json:",omitempty"`
-
-	MountOptions []*string `type:"list" json:",omitempty"`
-
-	RootPath *string `type:"string" json:",omitempty"`
+	UseEic *bool `type:"boolean" json:",omitempty"`
 }
 
 // String returns the string representation
-func (s VepfsAccessPointOptionsForUpdateDevInstanceInput) String() string {
+func (s VepfsAPForUpdateDevInstanceInput) String() string {
 	return volcengineutil.Prettify(s)
 }
 
 // GoString returns the string representation
-func (s VepfsAccessPointOptionsForUpdateDevInstanceInput) GoString() string {
+func (s VepfsAPForUpdateDevInstanceInput) GoString() string {
 	return s.String()
 }
 
-// SetAccessPointDomain sets the AccessPointDomain field's value.
-func (s *VepfsAccessPointOptionsForUpdateDevInstanceInput) SetAccessPointDomain(v string) *VepfsAccessPointOptionsForUpdateDevInstanceInput {
-	s.AccessPointDomain = &v
-	return s
-}
-
 // SetAccessPointId sets the AccessPointId field's value.
-func (s *VepfsAccessPointOptionsForUpdateDevInstanceInput) SetAccessPointId(v string) *VepfsAccessPointOptionsForUpdateDevInstanceInput {
+func (s *VepfsAPForUpdateDevInstanceInput) SetAccessPointId(v string) *VepfsAPForUpdateDevInstanceInput {
 	s.AccessPointId = &v
 	return s
 }
 
-// SetAccessPointName sets the AccessPointName field's value.
-func (s *VepfsAccessPointOptionsForUpdateDevInstanceInput) SetAccessPointName(v string) *VepfsAccessPointOptionsForUpdateDevInstanceInput {
-	s.AccessPointName = &v
+// SetId sets the Id field's value.
+func (s *VepfsAPForUpdateDevInstanceInput) SetId(v string) *VepfsAPForUpdateDevInstanceInput {
+	s.Id = &v
 	return s
 }
 
-// SetEnabledIam sets the EnabledIam field's value.
-func (s *VepfsAccessPointOptionsForUpdateDevInstanceInput) SetEnabledIam(v bool) *VepfsAccessPointOptionsForUpdateDevInstanceInput {
-	s.EnabledIam = &v
+// SetUseEic sets the UseEic field's value.
+func (s *VepfsAPForUpdateDevInstanceInput) SetUseEic(v bool) *VepfsAPForUpdateDevInstanceInput {
+	s.UseEic = &v
 	return s
 }
 
-// SetMountOptions sets the MountOptions field's value.
-func (s *VepfsAccessPointOptionsForUpdateDevInstanceInput) SetMountOptions(v []*string) *VepfsAccessPointOptionsForUpdateDevInstanceInput {
-	s.MountOptions = v
+type VepfsForUpdateDevInstanceInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	FileSystemName *string `type:"string" json:",omitempty"`
+
+	HostPath *string `type:"string" json:",omitempty"`
+
+	Id *string `type:"string" json:",omitempty"`
+
+	SubPath *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s VepfsForUpdateDevInstanceInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s VepfsForUpdateDevInstanceInput) GoString() string {
+	return s.String()
+}
+
+// SetFileSystemName sets the FileSystemName field's value.
+func (s *VepfsForUpdateDevInstanceInput) SetFileSystemName(v string) *VepfsForUpdateDevInstanceInput {
+	s.FileSystemName = &v
 	return s
 }
 
-// SetRootPath sets the RootPath field's value.
-func (s *VepfsAccessPointOptionsForUpdateDevInstanceInput) SetRootPath(v string) *VepfsAccessPointOptionsForUpdateDevInstanceInput {
-	s.RootPath = &v
+// SetHostPath sets the HostPath field's value.
+func (s *VepfsForUpdateDevInstanceInput) SetHostPath(v string) *VepfsForUpdateDevInstanceInput {
+	s.HostPath = &v
 	return s
 }
+
+// SetId sets the Id field's value.
+func (s *VepfsForUpdateDevInstanceInput) SetId(v string) *VepfsForUpdateDevInstanceInput {
+	s.Id = &v
+	return s
+}
+
+// SetSubPath sets the SubPath field's value.
+func (s *VepfsForUpdateDevInstanceInput) SetSubPath(v string) *VepfsForUpdateDevInstanceInput {
+	s.SubPath = &v
+	return s
+}
+
+const (
+	// EnumOfGPUCPUNodePreferenceForUpdateDevInstanceInputGpurequired is a EnumOfGPUCPUNodePreferenceForUpdateDevInstanceInput enum value
+	EnumOfGPUCPUNodePreferenceForUpdateDevInstanceInputGpurequired = "GPURequired"
+
+	// EnumOfGPUCPUNodePreferenceForUpdateDevInstanceInputGpupreferred is a EnumOfGPUCPUNodePreferenceForUpdateDevInstanceInput enum value
+	EnumOfGPUCPUNodePreferenceForUpdateDevInstanceInputGpupreferred = "GPUPreferred"
+
+	// EnumOfGPUCPUNodePreferenceForUpdateDevInstanceInputCpurequired is a EnumOfGPUCPUNodePreferenceForUpdateDevInstanceInput enum value
+	EnumOfGPUCPUNodePreferenceForUpdateDevInstanceInputCpurequired = "CPURequired"
+
+	// EnumOfGPUCPUNodePreferenceForUpdateDevInstanceInputCpupreferred is a EnumOfGPUCPUNodePreferenceForUpdateDevInstanceInput enum value
+	EnumOfGPUCPUNodePreferenceForUpdateDevInstanceInputCpupreferred = "CPUPreferred"
+)
+
+const (
+	// EnumOfTypeForUpdateDevInstanceInputSystem is a EnumOfTypeForUpdateDevInstanceInput enum value
+	EnumOfTypeForUpdateDevInstanceInputSystem = "system"
+
+	// EnumOfTypeForUpdateDevInstanceInputCustom is a EnumOfTypeForUpdateDevInstanceInput enum value
+	EnumOfTypeForUpdateDevInstanceInputCustom = "custom"
+)

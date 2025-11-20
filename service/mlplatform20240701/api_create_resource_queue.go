@@ -626,11 +626,9 @@ func (s *RulesForCreateResourceQueueInput) SetGpuUtilizationRule(v *GpuUtilizati
 type VolumeResourceForCreateResourceQueueInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	Id *string `type:"string" json:",omitempty"`
+	Size *int32 `type:"int32" json:",omitempty"`
 
-	Name *string `type:"string" json:",omitempty"`
-
-	Num *int32 `type:"int32" json:",omitempty"`
+	VolumeTypeId *string `type:"string" json:",omitempty"`
 
 	ZoneId *string `type:"string" json:",omitempty"`
 }
@@ -645,21 +643,15 @@ func (s VolumeResourceForCreateResourceQueueInput) GoString() string {
 	return s.String()
 }
 
-// SetId sets the Id field's value.
-func (s *VolumeResourceForCreateResourceQueueInput) SetId(v string) *VolumeResourceForCreateResourceQueueInput {
-	s.Id = &v
+// SetSize sets the Size field's value.
+func (s *VolumeResourceForCreateResourceQueueInput) SetSize(v int32) *VolumeResourceForCreateResourceQueueInput {
+	s.Size = &v
 	return s
 }
 
-// SetName sets the Name field's value.
-func (s *VolumeResourceForCreateResourceQueueInput) SetName(v string) *VolumeResourceForCreateResourceQueueInput {
-	s.Name = &v
-	return s
-}
-
-// SetNum sets the Num field's value.
-func (s *VolumeResourceForCreateResourceQueueInput) SetNum(v int32) *VolumeResourceForCreateResourceQueueInput {
-	s.Num = &v
+// SetVolumeTypeId sets the VolumeTypeId field's value.
+func (s *VolumeResourceForCreateResourceQueueInput) SetVolumeTypeId(v string) *VolumeResourceForCreateResourceQueueInput {
+	s.VolumeTypeId = &v
 	return s
 }
 

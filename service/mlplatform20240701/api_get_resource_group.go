@@ -181,6 +181,36 @@ func (s *ComputeResourceForGetResourceGroupOutput) SetZoneId(v string) *ComputeR
 	return s
 }
 
+type EicForGetResourceGroupOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	EicId *string `type:"string" json:",omitempty"`
+
+	EicStatus *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s EicForGetResourceGroupOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s EicForGetResourceGroupOutput) GoString() string {
+	return s.String()
+}
+
+// SetEicId sets the EicId field's value.
+func (s *EicForGetResourceGroupOutput) SetEicId(v string) *EicForGetResourceGroupOutput {
+	s.EicId = &v
+	return s
+}
+
+// SetEicStatus sets the EicStatus field's value.
+func (s *EicForGetResourceGroupOutput) SetEicStatus(v string) *EicForGetResourceGroupOutput {
+	s.EicStatus = &v
+	return s
+}
+
 type GetResourceGroupInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -548,6 +578,8 @@ func (s *StatusForGetResourceGroupOutput) SetState(v string) *StatusForGetResour
 type StorageConfigForGetResourceGroupOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	Eic *EicForGetResourceGroupOutput `type:"structure" json:",omitempty"`
+
 	Sfcs *SfcsForGetResourceGroupOutput `type:"structure" json:",omitempty"`
 
 	StorageNetworkConfig *StorageNetworkConfigForGetResourceGroupOutput `type:"structure" json:",omitempty"`
@@ -563,6 +595,12 @@ func (s StorageConfigForGetResourceGroupOutput) String() string {
 // GoString returns the string representation
 func (s StorageConfigForGetResourceGroupOutput) GoString() string {
 	return s.String()
+}
+
+// SetEic sets the Eic field's value.
+func (s *StorageConfigForGetResourceGroupOutput) SetEic(v *EicForGetResourceGroupOutput) *StorageConfigForGetResourceGroupOutput {
+	s.Eic = v
+	return s
 }
 
 // SetSfcs sets the Sfcs field's value.

@@ -143,60 +143,12 @@ func (c *MLPLATFORM20240701) CreateDeploymentWithContext(ctx volcengine.Context,
 	return out, req.Send()
 }
 
-type AdvancedOptionsForCreateDeploymentInput struct {
-	_ struct{} `type:"structure" json:",omitempty"`
-
-	InternalSync *int64 `type:"int64" json:",omitempty"`
-
-	MetaCacheCapacity *string `type:"string" json:",omitempty"`
-
-	MetaCacheExpiryMinutes *string `type:"string" json:",omitempty"`
-
-	MetaCacheExpiryMsec *string `type:"string" json:",omitempty"`
-}
-
-// String returns the string representation
-func (s AdvancedOptionsForCreateDeploymentInput) String() string {
-	return volcengineutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s AdvancedOptionsForCreateDeploymentInput) GoString() string {
-	return s.String()
-}
-
-// SetInternalSync sets the InternalSync field's value.
-func (s *AdvancedOptionsForCreateDeploymentInput) SetInternalSync(v int64) *AdvancedOptionsForCreateDeploymentInput {
-	s.InternalSync = &v
-	return s
-}
-
-// SetMetaCacheCapacity sets the MetaCacheCapacity field's value.
-func (s *AdvancedOptionsForCreateDeploymentInput) SetMetaCacheCapacity(v string) *AdvancedOptionsForCreateDeploymentInput {
-	s.MetaCacheCapacity = &v
-	return s
-}
-
-// SetMetaCacheExpiryMinutes sets the MetaCacheExpiryMinutes field's value.
-func (s *AdvancedOptionsForCreateDeploymentInput) SetMetaCacheExpiryMinutes(v string) *AdvancedOptionsForCreateDeploymentInput {
-	s.MetaCacheExpiryMinutes = &v
-	return s
-}
-
-// SetMetaCacheExpiryMsec sets the MetaCacheExpiryMsec field's value.
-func (s *AdvancedOptionsForCreateDeploymentInput) SetMetaCacheExpiryMsec(v string) *AdvancedOptionsForCreateDeploymentInput {
-	s.MetaCacheExpiryMsec = &v
-	return s
-}
-
 type ApigConfigForCreateDeploymentInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
 	InstanceID *string `type:"string" json:",omitempty"`
 
 	UpstreamConfig *UpstreamConfigForCreateDeploymentInput `type:"structure" json:",omitempty"`
-
-	UsePublicInstance *bool `type:"boolean" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -218,12 +170,6 @@ func (s *ApigConfigForCreateDeploymentInput) SetInstanceID(v string) *ApigConfig
 // SetUpstreamConfig sets the UpstreamConfig field's value.
 func (s *ApigConfigForCreateDeploymentInput) SetUpstreamConfig(v *UpstreamConfigForCreateDeploymentInput) *ApigConfigForCreateDeploymentInput {
 	s.UpstreamConfig = v
-	return s
-}
-
-// SetUsePublicInstance sets the UsePublicInstance field's value.
-func (s *ApigConfigForCreateDeploymentInput) SetUsePublicInstance(v bool) *ApigConfigForCreateDeploymentInput {
-	s.UsePublicInstance = &v
 	return s
 }
 
@@ -257,10 +203,126 @@ func (s *CLBConfigForCreateDeploymentInput) SetScheduler(v string) *CLBConfigFor
 	return s
 }
 
+type CfsForCreateDeploymentInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	FileSystemName *string `type:"string" json:",omitempty"`
+
+	NamespaceId *string `type:"string" json:",omitempty"`
+
+	Options *OptionsForCreateDeploymentInput `type:"structure" json:",omitempty"`
+
+	Tos *TosForCreateDeploymentInput `type:"structure" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s CfsForCreateDeploymentInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s CfsForCreateDeploymentInput) GoString() string {
+	return s.String()
+}
+
+// SetFileSystemName sets the FileSystemName field's value.
+func (s *CfsForCreateDeploymentInput) SetFileSystemName(v string) *CfsForCreateDeploymentInput {
+	s.FileSystemName = &v
+	return s
+}
+
+// SetNamespaceId sets the NamespaceId field's value.
+func (s *CfsForCreateDeploymentInput) SetNamespaceId(v string) *CfsForCreateDeploymentInput {
+	s.NamespaceId = &v
+	return s
+}
+
+// SetOptions sets the Options field's value.
+func (s *CfsForCreateDeploymentInput) SetOptions(v *OptionsForCreateDeploymentInput) *CfsForCreateDeploymentInput {
+	s.Options = v
+	return s
+}
+
+// SetTos sets the Tos field's value.
+func (s *CfsForCreateDeploymentInput) SetTos(v *TosForCreateDeploymentInput) *CfsForCreateDeploymentInput {
+	s.Tos = v
+	return s
+}
+
+type ConfigForCreateDeploymentInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Cfs *CfsForCreateDeploymentInput `type:"structure" json:",omitempty"`
+
+	Nas *NasForCreateDeploymentInput `type:"structure" json:",omitempty"`
+
+	NasAP *NasAPForCreateDeploymentInput `type:"structure" json:",omitempty"`
+
+	Sfcs *SfcsForCreateDeploymentInput `type:"structure" json:",omitempty"`
+
+	Tos *TosForCreateDeploymentInput `type:"structure" json:",omitempty"`
+
+	Vepfs *VepfsForCreateDeploymentInput `type:"structure" json:",omitempty"`
+
+	VepfsAP *VepfsAPForCreateDeploymentInput `type:"structure" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s ConfigForCreateDeploymentInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ConfigForCreateDeploymentInput) GoString() string {
+	return s.String()
+}
+
+// SetCfs sets the Cfs field's value.
+func (s *ConfigForCreateDeploymentInput) SetCfs(v *CfsForCreateDeploymentInput) *ConfigForCreateDeploymentInput {
+	s.Cfs = v
+	return s
+}
+
+// SetNas sets the Nas field's value.
+func (s *ConfigForCreateDeploymentInput) SetNas(v *NasForCreateDeploymentInput) *ConfigForCreateDeploymentInput {
+	s.Nas = v
+	return s
+}
+
+// SetNasAP sets the NasAP field's value.
+func (s *ConfigForCreateDeploymentInput) SetNasAP(v *NasAPForCreateDeploymentInput) *ConfigForCreateDeploymentInput {
+	s.NasAP = v
+	return s
+}
+
+// SetSfcs sets the Sfcs field's value.
+func (s *ConfigForCreateDeploymentInput) SetSfcs(v *SfcsForCreateDeploymentInput) *ConfigForCreateDeploymentInput {
+	s.Sfcs = v
+	return s
+}
+
+// SetTos sets the Tos field's value.
+func (s *ConfigForCreateDeploymentInput) SetTos(v *TosForCreateDeploymentInput) *ConfigForCreateDeploymentInput {
+	s.Tos = v
+	return s
+}
+
+// SetVepfs sets the Vepfs field's value.
+func (s *ConfigForCreateDeploymentInput) SetVepfs(v *VepfsForCreateDeploymentInput) *ConfigForCreateDeploymentInput {
+	s.Vepfs = v
+	return s
+}
+
+// SetVepfsAP sets the VepfsAP field's value.
+func (s *ConfigForCreateDeploymentInput) SetVepfsAP(v *VepfsAPForCreateDeploymentInput) *ConfigForCreateDeploymentInput {
+	s.VepfsAP = v
+	return s
+}
+
 type ConsistentHashConfigForCreateDeploymentInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	HashKeyType *string `type:"string" json:",omitempty"`
+	HashKeyType *string `type:"string" json:",omitempty" enum:"EnumOfHashKeyTypeForCreateDeploymentInput"`
 
 	HttpHeaderName *string `type:"string" json:",omitempty"`
 }
@@ -290,9 +352,9 @@ func (s *ConsistentHashConfigForCreateDeploymentInput) SetHttpHeaderName(v strin
 type ConvertCredentialForCreateDeploymentInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	AccessKeyId *string `type:"string" json:",omitempty"`
+	RegistryToken *string `type:"string" json:",omitempty"`
 
-	SecretAccessKey *string `type:"string" json:",omitempty"`
+	RegistryUsername *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -305,15 +367,45 @@ func (s ConvertCredentialForCreateDeploymentInput) GoString() string {
 	return s.String()
 }
 
-// SetAccessKeyId sets the AccessKeyId field's value.
-func (s *ConvertCredentialForCreateDeploymentInput) SetAccessKeyId(v string) *ConvertCredentialForCreateDeploymentInput {
-	s.AccessKeyId = &v
+// SetRegistryToken sets the RegistryToken field's value.
+func (s *ConvertCredentialForCreateDeploymentInput) SetRegistryToken(v string) *ConvertCredentialForCreateDeploymentInput {
+	s.RegistryToken = &v
 	return s
 }
 
-// SetSecretAccessKey sets the SecretAccessKey field's value.
-func (s *ConvertCredentialForCreateDeploymentInput) SetSecretAccessKey(v string) *ConvertCredentialForCreateDeploymentInput {
-	s.SecretAccessKey = &v
+// SetRegistryUsername sets the RegistryUsername field's value.
+func (s *ConvertCredentialForCreateDeploymentInput) SetRegistryUsername(v string) *ConvertCredentialForCreateDeploymentInput {
+	s.RegistryUsername = &v
+	return s
+}
+
+type ConvertOptionsForCreateDeploymentInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	InternalSync *int64 `type:"int64" json:",omitempty"`
+
+	Replicas *int64 `type:"int64" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s ConvertOptionsForCreateDeploymentInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ConvertOptionsForCreateDeploymentInput) GoString() string {
+	return s.String()
+}
+
+// SetInternalSync sets the InternalSync field's value.
+func (s *ConvertOptionsForCreateDeploymentInput) SetInternalSync(v int64) *ConvertOptionsForCreateDeploymentInput {
+	s.InternalSync = &v
+	return s
+}
+
+// SetReplicas sets the Replicas field's value.
+func (s *ConvertOptionsForCreateDeploymentInput) SetReplicas(v int64) *ConvertOptionsForCreateDeploymentInput {
+	s.Replicas = &v
 	return s
 }
 
@@ -487,6 +579,8 @@ type CredentialForCreateDeploymentInput struct {
 	AccessKey *string `type:"string" json:",omitempty"`
 
 	SecretAccessKey *string `type:"string" json:",omitempty"`
+
+	UseServiceLinkedRole *bool `type:"boolean" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -511,10 +605,14 @@ func (s *CredentialForCreateDeploymentInput) SetSecretAccessKey(v string) *Crede
 	return s
 }
 
+// SetUseServiceLinkedRole sets the UseServiceLinkedRole field's value.
+func (s *CredentialForCreateDeploymentInput) SetUseServiceLinkedRole(v bool) *CredentialForCreateDeploymentInput {
+	s.UseServiceLinkedRole = &v
+	return s
+}
+
 type EnvForCreateDeploymentInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
-
-	IsPrivate *bool `type:"boolean" json:",omitempty"`
 
 	Name *string `type:"string" json:",omitempty"`
 
@@ -529,12 +627,6 @@ func (s EnvForCreateDeploymentInput) String() string {
 // GoString returns the string representation
 func (s EnvForCreateDeploymentInput) GoString() string {
 	return s.String()
-}
-
-// SetIsPrivate sets the IsPrivate field's value.
-func (s *EnvForCreateDeploymentInput) SetIsPrivate(v bool) *EnvForCreateDeploymentInput {
-	s.IsPrivate = &v
-	return s
 }
 
 // SetName sets the Name field's value.
@@ -642,7 +734,7 @@ type HTTPGetForCreateDeploymentInput struct {
 
 	Port *int32 `type:"int32" json:",omitempty"`
 
-	Scheme *string `type:"string" json:",omitempty"`
+	Scheme *string `type:"string" json:",omitempty" enum:"EnumOfSchemeForCreateDeploymentInput"`
 }
 
 // String returns the string representation
@@ -709,50 +801,14 @@ func (s *HTTPHeaderForCreateDeploymentInput) SetValue(v string) *HTTPHeaderForCr
 	return s
 }
 
-type ImageCredentialForCreateDeploymentInput struct {
-	_ struct{} `type:"structure" json:",omitempty"`
-
-	RegistryToken *string `type:"string" json:",omitempty"`
-
-	RegistryUsername *string `type:"string" json:",omitempty"`
-}
-
-// String returns the string representation
-func (s ImageCredentialForCreateDeploymentInput) String() string {
-	return volcengineutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s ImageCredentialForCreateDeploymentInput) GoString() string {
-	return s.String()
-}
-
-// SetRegistryToken sets the RegistryToken field's value.
-func (s *ImageCredentialForCreateDeploymentInput) SetRegistryToken(v string) *ImageCredentialForCreateDeploymentInput {
-	s.RegistryToken = &v
-	return s
-}
-
-// SetRegistryUsername sets the RegistryUsername field's value.
-func (s *ImageCredentialForCreateDeploymentInput) SetRegistryUsername(v string) *ImageCredentialForCreateDeploymentInput {
-	s.RegistryUsername = &v
-	return s
-}
-
 type ImageForCreateDeploymentInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	Description *string `type:"string" json:",omitempty"`
-
-	Id *string `type:"string" json:",omitempty"`
-
-	ImageCredential *ImageCredentialForCreateDeploymentInput `type:"structure" json:",omitempty"`
+	Credential *ConvertCredentialForCreateDeploymentInput `type:"structure" json:",omitempty"`
 
 	Type *string `type:"string" json:",omitempty"`
 
 	Url *string `type:"string" json:",omitempty"`
-
-	Version *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -765,21 +821,9 @@ func (s ImageForCreateDeploymentInput) GoString() string {
 	return s.String()
 }
 
-// SetDescription sets the Description field's value.
-func (s *ImageForCreateDeploymentInput) SetDescription(v string) *ImageForCreateDeploymentInput {
-	s.Description = &v
-	return s
-}
-
-// SetId sets the Id field's value.
-func (s *ImageForCreateDeploymentInput) SetId(v string) *ImageForCreateDeploymentInput {
-	s.Id = &v
-	return s
-}
-
-// SetImageCredential sets the ImageCredential field's value.
-func (s *ImageForCreateDeploymentInput) SetImageCredential(v *ImageCredentialForCreateDeploymentInput) *ImageForCreateDeploymentInput {
-	s.ImageCredential = v
+// SetCredential sets the Credential field's value.
+func (s *ImageForCreateDeploymentInput) SetCredential(v *ConvertCredentialForCreateDeploymentInput) *ImageForCreateDeploymentInput {
+	s.Credential = v
 	return s
 }
 
@@ -792,50 +836,6 @@ func (s *ImageForCreateDeploymentInput) SetType(v string) *ImageForCreateDeploym
 // SetUrl sets the Url field's value.
 func (s *ImageForCreateDeploymentInput) SetUrl(v string) *ImageForCreateDeploymentInput {
 	s.Url = &v
-	return s
-}
-
-// SetVersion sets the Version field's value.
-func (s *ImageForCreateDeploymentInput) SetVersion(v string) *ImageForCreateDeploymentInput {
-	s.Version = &v
-	return s
-}
-
-type InputForCreateDeploymentInput struct {
-	_ struct{} `type:"structure" json:",omitempty"`
-
-	DType *string `type:"string" json:",omitempty"`
-
-	Shape []*int32 `type:"list" json:",omitempty"`
-
-	TensorName *string `type:"string" json:",omitempty"`
-}
-
-// String returns the string representation
-func (s InputForCreateDeploymentInput) String() string {
-	return volcengineutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s InputForCreateDeploymentInput) GoString() string {
-	return s.String()
-}
-
-// SetDType sets the DType field's value.
-func (s *InputForCreateDeploymentInput) SetDType(v string) *InputForCreateDeploymentInput {
-	s.DType = &v
-	return s
-}
-
-// SetShape sets the Shape field's value.
-func (s *InputForCreateDeploymentInput) SetShape(v []*int32) *InputForCreateDeploymentInput {
-	s.Shape = v
-	return s
-}
-
-// SetTensorName sets the TensorName field's value.
-func (s *InputForCreateDeploymentInput) SetTensorName(v string) *InputForCreateDeploymentInput {
-	s.TensorName = &v
 	return s
 }
 
@@ -928,23 +928,9 @@ func (s *LivenessProbeForCreateDeploymentInput) SetTimeoutSeconds(v int32) *Live
 type ModelForCreateDeploymentInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	Format *string `type:"string" json:",omitempty"`
-
 	ModelID *string `type:"string" json:",omitempty"`
 
 	ModelVersionID *string `type:"string" json:",omitempty"`
-
-	Name *string `type:"string" json:",omitempty"`
-
-	Path *string `type:"string" json:",omitempty"`
-
-	Source *string `type:"string" json:",omitempty"`
-
-	TensorConfig *TensorConfigForCreateDeploymentInput `type:"structure" json:",omitempty"`
-
-	Type *string `type:"string" json:",omitempty"`
-
-	Version *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -955,12 +941,6 @@ func (s ModelForCreateDeploymentInput) String() string {
 // GoString returns the string representation
 func (s ModelForCreateDeploymentInput) GoString() string {
 	return s.String()
-}
-
-// SetFormat sets the Format field's value.
-func (s *ModelForCreateDeploymentInput) SetFormat(v string) *ModelForCreateDeploymentInput {
-	s.Format = &v
-	return s
 }
 
 // SetModelID sets the ModelID field's value.
@@ -975,118 +955,96 @@ func (s *ModelForCreateDeploymentInput) SetModelVersionID(v string) *ModelForCre
 	return s
 }
 
-// SetName sets the Name field's value.
-func (s *ModelForCreateDeploymentInput) SetName(v string) *ModelForCreateDeploymentInput {
-	s.Name = &v
-	return s
-}
-
-// SetPath sets the Path field's value.
-func (s *ModelForCreateDeploymentInput) SetPath(v string) *ModelForCreateDeploymentInput {
-	s.Path = &v
-	return s
-}
-
-// SetSource sets the Source field's value.
-func (s *ModelForCreateDeploymentInput) SetSource(v string) *ModelForCreateDeploymentInput {
-	s.Source = &v
-	return s
-}
-
-// SetTensorConfig sets the TensorConfig field's value.
-func (s *ModelForCreateDeploymentInput) SetTensorConfig(v *TensorConfigForCreateDeploymentInput) *ModelForCreateDeploymentInput {
-	s.TensorConfig = v
-	return s
-}
-
-// SetType sets the Type field's value.
-func (s *ModelForCreateDeploymentInput) SetType(v string) *ModelForCreateDeploymentInput {
-	s.Type = &v
-	return s
-}
-
-// SetVersion sets the Version field's value.
-func (s *ModelForCreateDeploymentInput) SetVersion(v string) *ModelForCreateDeploymentInput {
-	s.Version = &v
-	return s
-}
-
-type NasAccessPointOptionsForCreateDeploymentInput struct {
+type NasAPForCreateDeploymentInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
-
-	AccessPointDomain *string `type:"string" json:",omitempty"`
 
 	AccessPointId *string `type:"string" json:",omitempty"`
 
-	AccessPointName *string `type:"string" json:",omitempty"`
-
-	EnabledIam *bool `type:"boolean" json:",omitempty"`
-
-	MountOptions []*string `type:"list" json:",omitempty"`
-
-	RootPath *string `type:"string" json:",omitempty"`
-
-	VpcId *string `type:"string" json:",omitempty"`
+	Id *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
-func (s NasAccessPointOptionsForCreateDeploymentInput) String() string {
+func (s NasAPForCreateDeploymentInput) String() string {
 	return volcengineutil.Prettify(s)
 }
 
 // GoString returns the string representation
-func (s NasAccessPointOptionsForCreateDeploymentInput) GoString() string {
+func (s NasAPForCreateDeploymentInput) GoString() string {
 	return s.String()
 }
 
-// SetAccessPointDomain sets the AccessPointDomain field's value.
-func (s *NasAccessPointOptionsForCreateDeploymentInput) SetAccessPointDomain(v string) *NasAccessPointOptionsForCreateDeploymentInput {
-	s.AccessPointDomain = &v
-	return s
-}
-
 // SetAccessPointId sets the AccessPointId field's value.
-func (s *NasAccessPointOptionsForCreateDeploymentInput) SetAccessPointId(v string) *NasAccessPointOptionsForCreateDeploymentInput {
+func (s *NasAPForCreateDeploymentInput) SetAccessPointId(v string) *NasAPForCreateDeploymentInput {
 	s.AccessPointId = &v
 	return s
 }
 
-// SetAccessPointName sets the AccessPointName field's value.
-func (s *NasAccessPointOptionsForCreateDeploymentInput) SetAccessPointName(v string) *NasAccessPointOptionsForCreateDeploymentInput {
-	s.AccessPointName = &v
+// SetId sets the Id field's value.
+func (s *NasAPForCreateDeploymentInput) SetId(v string) *NasAPForCreateDeploymentInput {
+	s.Id = &v
 	return s
 }
 
-// SetEnabledIam sets the EnabledIam field's value.
-func (s *NasAccessPointOptionsForCreateDeploymentInput) SetEnabledIam(v bool) *NasAccessPointOptionsForCreateDeploymentInput {
-	s.EnabledIam = &v
+type NasForCreateDeploymentInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Addr *string `type:"string" json:",omitempty"`
+
+	FileSystemName *string `type:"string" json:",omitempty"`
+
+	Id *string `type:"string" json:",omitempty"`
+
+	NasType *string `type:"string" json:",omitempty"`
+
+	SubPath *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s NasForCreateDeploymentInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s NasForCreateDeploymentInput) GoString() string {
+	return s.String()
+}
+
+// SetAddr sets the Addr field's value.
+func (s *NasForCreateDeploymentInput) SetAddr(v string) *NasForCreateDeploymentInput {
+	s.Addr = &v
 	return s
 }
 
-// SetMountOptions sets the MountOptions field's value.
-func (s *NasAccessPointOptionsForCreateDeploymentInput) SetMountOptions(v []*string) *NasAccessPointOptionsForCreateDeploymentInput {
-	s.MountOptions = v
+// SetFileSystemName sets the FileSystemName field's value.
+func (s *NasForCreateDeploymentInput) SetFileSystemName(v string) *NasForCreateDeploymentInput {
+	s.FileSystemName = &v
 	return s
 }
 
-// SetRootPath sets the RootPath field's value.
-func (s *NasAccessPointOptionsForCreateDeploymentInput) SetRootPath(v string) *NasAccessPointOptionsForCreateDeploymentInput {
-	s.RootPath = &v
+// SetId sets the Id field's value.
+func (s *NasForCreateDeploymentInput) SetId(v string) *NasForCreateDeploymentInput {
+	s.Id = &v
 	return s
 }
 
-// SetVpcId sets the VpcId field's value.
-func (s *NasAccessPointOptionsForCreateDeploymentInput) SetVpcId(v string) *NasAccessPointOptionsForCreateDeploymentInput {
-	s.VpcId = &v
+// SetNasType sets the NasType field's value.
+func (s *NasForCreateDeploymentInput) SetNasType(v string) *NasForCreateDeploymentInput {
+	s.NasType = &v
+	return s
+}
+
+// SetSubPath sets the SubPath field's value.
+func (s *NasForCreateDeploymentInput) SetSubPath(v string) *NasForCreateDeploymentInput {
+	s.SubPath = &v
 	return s
 }
 
 type NodeAffinitySpecForCreateDeploymentInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	GPUCPUNodePreference *string `type:"string" json:",omitempty"`
+	GPUCPUNodePreference *string `type:"string" json:",omitempty" enum:"EnumOfGPUCPUNodePreferenceForCreateDeploymentInput"`
 
-	Source *string `type:"string" json:",omitempty"`
+	StrategyType *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -1105,47 +1063,55 @@ func (s *NodeAffinitySpecForCreateDeploymentInput) SetGPUCPUNodePreference(v str
 	return s
 }
 
-// SetSource sets the Source field's value.
-func (s *NodeAffinitySpecForCreateDeploymentInput) SetSource(v string) *NodeAffinitySpecForCreateDeploymentInput {
-	s.Source = &v
+// SetStrategyType sets the StrategyType field's value.
+func (s *NodeAffinitySpecForCreateDeploymentInput) SetStrategyType(v string) *NodeAffinitySpecForCreateDeploymentInput {
+	s.StrategyType = &v
 	return s
 }
 
-type OutputForCreateDeploymentInput struct {
+type OptionsForCreateDeploymentInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	DType *string `type:"string" json:",omitempty"`
+	InternalSync *int64 `type:"int64" json:",omitempty"`
 
-	Shape []*int32 `type:"list" json:",omitempty"`
+	MetaCacheCapacity *int64 `type:"int64" json:",omitempty"`
 
-	TensorName *string `type:"string" json:",omitempty"`
+	MetaCacheExpiryMinutes *int64 `type:"int64" json:",omitempty"`
+
+	MetaCacheExpiryMsec *int64 `type:"int64" json:",omitempty"`
 }
 
 // String returns the string representation
-func (s OutputForCreateDeploymentInput) String() string {
+func (s OptionsForCreateDeploymentInput) String() string {
 	return volcengineutil.Prettify(s)
 }
 
 // GoString returns the string representation
-func (s OutputForCreateDeploymentInput) GoString() string {
+func (s OptionsForCreateDeploymentInput) GoString() string {
 	return s.String()
 }
 
-// SetDType sets the DType field's value.
-func (s *OutputForCreateDeploymentInput) SetDType(v string) *OutputForCreateDeploymentInput {
-	s.DType = &v
+// SetInternalSync sets the InternalSync field's value.
+func (s *OptionsForCreateDeploymentInput) SetInternalSync(v int64) *OptionsForCreateDeploymentInput {
+	s.InternalSync = &v
 	return s
 }
 
-// SetShape sets the Shape field's value.
-func (s *OutputForCreateDeploymentInput) SetShape(v []*int32) *OutputForCreateDeploymentInput {
-	s.Shape = v
+// SetMetaCacheCapacity sets the MetaCacheCapacity field's value.
+func (s *OptionsForCreateDeploymentInput) SetMetaCacheCapacity(v int64) *OptionsForCreateDeploymentInput {
+	s.MetaCacheCapacity = &v
 	return s
 }
 
-// SetTensorName sets the TensorName field's value.
-func (s *OutputForCreateDeploymentInput) SetTensorName(v string) *OutputForCreateDeploymentInput {
-	s.TensorName = &v
+// SetMetaCacheExpiryMinutes sets the MetaCacheExpiryMinutes field's value.
+func (s *OptionsForCreateDeploymentInput) SetMetaCacheExpiryMinutes(v int64) *OptionsForCreateDeploymentInput {
+	s.MetaCacheExpiryMinutes = &v
+	return s
+}
+
+// SetMetaCacheExpiryMsec sets the MetaCacheExpiryMsec field's value.
+func (s *OptionsForCreateDeploymentInput) SetMetaCacheExpiryMsec(v int64) *OptionsForCreateDeploymentInput {
+	s.MetaCacheExpiryMsec = &v
 	return s
 }
 
@@ -1158,9 +1124,7 @@ type PortForCreateDeploymentInput struct {
 
 	Path *string `type:"string" json:",omitempty"`
 
-	Source *string `type:"string" json:",omitempty"`
-
-	Type *string `type:"string" json:",omitempty"`
+	Type *string `type:"string" json:",omitempty" enum:"EnumOfTypeForCreateDeploymentInput"`
 }
 
 // String returns the string representation
@@ -1191,12 +1155,6 @@ func (s *PortForCreateDeploymentInput) SetPath(v string) *PortForCreateDeploymen
 	return s
 }
 
-// SetSource sets the Source field's value.
-func (s *PortForCreateDeploymentInput) SetSource(v string) *PortForCreateDeploymentInput {
-	s.Source = &v
-	return s
-}
-
 // SetType sets the Type field's value.
 func (s *PortForCreateDeploymentInput) SetType(v string) *PortForCreateDeploymentInput {
 	s.Type = &v
@@ -1206,15 +1164,23 @@ func (s *PortForCreateDeploymentInput) SetType(v string) *PortForCreateDeploymen
 type ReadinessProbeForCreateDeploymentInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	Command *string `type:"string" json:",omitempty"`
-
 	Enabled *bool `type:"boolean" json:",omitempty"`
 
+	Exec *ExecForCreateDeploymentInput `type:"structure" json:",omitempty"`
+
 	FailureThreshold *int32 `type:"int32" json:",omitempty"`
+
+	HTTPGet *HTTPGetForCreateDeploymentInput `type:"structure" json:",omitempty"`
 
 	InitialDelaySeconds *int32 `type:"int32" json:",omitempty"`
 
 	PeriodSeconds *int32 `type:"int32" json:",omitempty"`
+
+	SuccessThreshold *int32 `type:"int32" json:",omitempty"`
+
+	TCPSocket *TCPSocketForCreateDeploymentInput `type:"structure" json:",omitempty"`
+
+	TimeoutSeconds *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -1227,21 +1193,27 @@ func (s ReadinessProbeForCreateDeploymentInput) GoString() string {
 	return s.String()
 }
 
-// SetCommand sets the Command field's value.
-func (s *ReadinessProbeForCreateDeploymentInput) SetCommand(v string) *ReadinessProbeForCreateDeploymentInput {
-	s.Command = &v
-	return s
-}
-
 // SetEnabled sets the Enabled field's value.
 func (s *ReadinessProbeForCreateDeploymentInput) SetEnabled(v bool) *ReadinessProbeForCreateDeploymentInput {
 	s.Enabled = &v
 	return s
 }
 
+// SetExec sets the Exec field's value.
+func (s *ReadinessProbeForCreateDeploymentInput) SetExec(v *ExecForCreateDeploymentInput) *ReadinessProbeForCreateDeploymentInput {
+	s.Exec = v
+	return s
+}
+
 // SetFailureThreshold sets the FailureThreshold field's value.
 func (s *ReadinessProbeForCreateDeploymentInput) SetFailureThreshold(v int32) *ReadinessProbeForCreateDeploymentInput {
 	s.FailureThreshold = &v
+	return s
+}
+
+// SetHTTPGet sets the HTTPGet field's value.
+func (s *ReadinessProbeForCreateDeploymentInput) SetHTTPGet(v *HTTPGetForCreateDeploymentInput) *ReadinessProbeForCreateDeploymentInput {
+	s.HTTPGet = v
 	return s
 }
 
@@ -1254,6 +1226,24 @@ func (s *ReadinessProbeForCreateDeploymentInput) SetInitialDelaySeconds(v int32)
 // SetPeriodSeconds sets the PeriodSeconds field's value.
 func (s *ReadinessProbeForCreateDeploymentInput) SetPeriodSeconds(v int32) *ReadinessProbeForCreateDeploymentInput {
 	s.PeriodSeconds = &v
+	return s
+}
+
+// SetSuccessThreshold sets the SuccessThreshold field's value.
+func (s *ReadinessProbeForCreateDeploymentInput) SetSuccessThreshold(v int32) *ReadinessProbeForCreateDeploymentInput {
+	s.SuccessThreshold = &v
+	return s
+}
+
+// SetTCPSocket sets the TCPSocket field's value.
+func (s *ReadinessProbeForCreateDeploymentInput) SetTCPSocket(v *TCPSocketForCreateDeploymentInput) *ReadinessProbeForCreateDeploymentInput {
+	s.TCPSocket = v
+	return s
+}
+
+// SetTimeoutSeconds sets the TimeoutSeconds field's value.
+func (s *ReadinessProbeForCreateDeploymentInput) SetTimeoutSeconds(v int32) *ReadinessProbeForCreateDeploymentInput {
+	s.TimeoutSeconds = &v
 	return s
 }
 
@@ -1499,33 +1489,49 @@ func (s *RollingUpdateStrategyForCreateDeploymentInput) SetMaxUnavailable(v int3
 	return s
 }
 
-type SfcsAdvancedOptionsForCreateDeploymentInput struct {
+type SfcsForCreateDeploymentInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	InternalSync *int64 `type:"int64" json:",omitempty"`
+	CachePolicyId *string `type:"string" json:",omitempty"`
 
-	Replicas *int64 `type:"int64" json:"replicas,omitempty"`
+	FileSystemName *string `type:"string" json:",omitempty"`
+
+	Options *ConvertOptionsForCreateDeploymentInput `type:"structure" json:",omitempty"`
+
+	Tos *TosForCreateDeploymentInput `type:"structure" json:",omitempty"`
 }
 
 // String returns the string representation
-func (s SfcsAdvancedOptionsForCreateDeploymentInput) String() string {
+func (s SfcsForCreateDeploymentInput) String() string {
 	return volcengineutil.Prettify(s)
 }
 
 // GoString returns the string representation
-func (s SfcsAdvancedOptionsForCreateDeploymentInput) GoString() string {
+func (s SfcsForCreateDeploymentInput) GoString() string {
 	return s.String()
 }
 
-// SetInternalSync sets the InternalSync field's value.
-func (s *SfcsAdvancedOptionsForCreateDeploymentInput) SetInternalSync(v int64) *SfcsAdvancedOptionsForCreateDeploymentInput {
-	s.InternalSync = &v
+// SetCachePolicyId sets the CachePolicyId field's value.
+func (s *SfcsForCreateDeploymentInput) SetCachePolicyId(v string) *SfcsForCreateDeploymentInput {
+	s.CachePolicyId = &v
 	return s
 }
 
-// SetReplicas sets the Replicas field's value.
-func (s *SfcsAdvancedOptionsForCreateDeploymentInput) SetReplicas(v int64) *SfcsAdvancedOptionsForCreateDeploymentInput {
-	s.Replicas = &v
+// SetFileSystemName sets the FileSystemName field's value.
+func (s *SfcsForCreateDeploymentInput) SetFileSystemName(v string) *SfcsForCreateDeploymentInput {
+	s.FileSystemName = &v
+	return s
+}
+
+// SetOptions sets the Options field's value.
+func (s *SfcsForCreateDeploymentInput) SetOptions(v *ConvertOptionsForCreateDeploymentInput) *SfcsForCreateDeploymentInput {
+	s.Options = v
+	return s
+}
+
+// SetTos sets the Tos field's value.
+func (s *SfcsForCreateDeploymentInput) SetTos(v *TosForCreateDeploymentInput) *SfcsForCreateDeploymentInput {
+	s.Tos = v
 	return s
 }
 
@@ -1656,77 +1662,13 @@ func (s *StatusForCreateDeploymentOutput) SetState(v string) *StatusForCreateDep
 type StorageForCreateDeploymentInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	AdvancedOptions *AdvancedOptionsForCreateDeploymentInput `type:"structure" json:",omitempty"`
-
-	AnnotationId *string `type:"string" json:",omitempty"`
-
-	AssetId *string `type:"string" json:",omitempty"`
-
-	AssetName *string `type:"string" json:",omitempty"`
-
-	AssetVersion *string `type:"string" json:",omitempty"`
-
-	Bucket *string `type:"string" json:",omitempty"`
-
-	CachePolicyId *string `type:"string" json:",omitempty"`
-
-	CloudfsType *string `type:"string" json:",omitempty"`
-
-	Credential *ConvertCredentialForCreateDeploymentInput `type:"structure" json:",omitempty"`
-
-	DatasetId *string `type:"string" json:",omitempty"`
-
-	ExternalCFS *bool `type:"boolean" json:",omitempty"`
-
-	ExternalSfcs *bool `type:"boolean" json:",omitempty"`
-
-	ExternalTos *bool `type:"boolean" json:",omitempty"`
-
-	FsName *string `type:"string" json:",omitempty"`
-
-	MetaURL *string `type:"string" json:",omitempty"`
-
-	MountOptions []*string `type:"list" json:",omitempty"`
+	Config *ConfigForCreateDeploymentInput `type:"structure" json:",omitempty"`
 
 	MountPath *string `type:"string" json:",omitempty"`
 
-	NasAccessPointOptions *NasAccessPointOptionsForCreateDeploymentInput `type:"structure" json:",omitempty"`
-
-	NasAddr *string `type:"string" json:",omitempty"`
-
-	NasId *string `type:"string" json:",omitempty"`
-
-	NasName *string `type:"string" json:",omitempty"`
-
-	NsId *string `type:"string" json:",omitempty"`
-
-	Prefix *string `type:"string" json:",omitempty"`
-
 	ReadOnly *bool `type:"boolean" json:",omitempty"`
 
-	RoleName *string `type:"string" json:",omitempty"`
-
-	SfcsAdvancedOptions *SfcsAdvancedOptionsForCreateDeploymentInput `type:"structure" json:",omitempty"`
-
-	SfcsId *string `type:"string" json:",omitempty"`
-
-	SubPath *string `type:"string" json:",omitempty"`
-
-	TenantAccount *int64 `type:"int64" json:",omitempty"`
-
 	Type *string `type:"string" json:",omitempty"`
-
-	UseAsDefaultMountPath *bool `type:"boolean" json:",omitempty"`
-
-	UseEic *bool `type:"boolean" json:",omitempty"`
-
-	VepfsAccessPointOptions *VepfsAccessPointOptionsForCreateDeploymentInput `type:"structure" json:",omitempty"`
-
-	VepfsHostPath *string `type:"string" json:",omitempty"`
-
-	VepfsId *string `type:"string" json:",omitempty"`
-
-	VepfsName *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -1739,99 +1681,9 @@ func (s StorageForCreateDeploymentInput) GoString() string {
 	return s.String()
 }
 
-// SetAdvancedOptions sets the AdvancedOptions field's value.
-func (s *StorageForCreateDeploymentInput) SetAdvancedOptions(v *AdvancedOptionsForCreateDeploymentInput) *StorageForCreateDeploymentInput {
-	s.AdvancedOptions = v
-	return s
-}
-
-// SetAnnotationId sets the AnnotationId field's value.
-func (s *StorageForCreateDeploymentInput) SetAnnotationId(v string) *StorageForCreateDeploymentInput {
-	s.AnnotationId = &v
-	return s
-}
-
-// SetAssetId sets the AssetId field's value.
-func (s *StorageForCreateDeploymentInput) SetAssetId(v string) *StorageForCreateDeploymentInput {
-	s.AssetId = &v
-	return s
-}
-
-// SetAssetName sets the AssetName field's value.
-func (s *StorageForCreateDeploymentInput) SetAssetName(v string) *StorageForCreateDeploymentInput {
-	s.AssetName = &v
-	return s
-}
-
-// SetAssetVersion sets the AssetVersion field's value.
-func (s *StorageForCreateDeploymentInput) SetAssetVersion(v string) *StorageForCreateDeploymentInput {
-	s.AssetVersion = &v
-	return s
-}
-
-// SetBucket sets the Bucket field's value.
-func (s *StorageForCreateDeploymentInput) SetBucket(v string) *StorageForCreateDeploymentInput {
-	s.Bucket = &v
-	return s
-}
-
-// SetCachePolicyId sets the CachePolicyId field's value.
-func (s *StorageForCreateDeploymentInput) SetCachePolicyId(v string) *StorageForCreateDeploymentInput {
-	s.CachePolicyId = &v
-	return s
-}
-
-// SetCloudfsType sets the CloudfsType field's value.
-func (s *StorageForCreateDeploymentInput) SetCloudfsType(v string) *StorageForCreateDeploymentInput {
-	s.CloudfsType = &v
-	return s
-}
-
-// SetCredential sets the Credential field's value.
-func (s *StorageForCreateDeploymentInput) SetCredential(v *ConvertCredentialForCreateDeploymentInput) *StorageForCreateDeploymentInput {
-	s.Credential = v
-	return s
-}
-
-// SetDatasetId sets the DatasetId field's value.
-func (s *StorageForCreateDeploymentInput) SetDatasetId(v string) *StorageForCreateDeploymentInput {
-	s.DatasetId = &v
-	return s
-}
-
-// SetExternalCFS sets the ExternalCFS field's value.
-func (s *StorageForCreateDeploymentInput) SetExternalCFS(v bool) *StorageForCreateDeploymentInput {
-	s.ExternalCFS = &v
-	return s
-}
-
-// SetExternalSfcs sets the ExternalSfcs field's value.
-func (s *StorageForCreateDeploymentInput) SetExternalSfcs(v bool) *StorageForCreateDeploymentInput {
-	s.ExternalSfcs = &v
-	return s
-}
-
-// SetExternalTos sets the ExternalTos field's value.
-func (s *StorageForCreateDeploymentInput) SetExternalTos(v bool) *StorageForCreateDeploymentInput {
-	s.ExternalTos = &v
-	return s
-}
-
-// SetFsName sets the FsName field's value.
-func (s *StorageForCreateDeploymentInput) SetFsName(v string) *StorageForCreateDeploymentInput {
-	s.FsName = &v
-	return s
-}
-
-// SetMetaURL sets the MetaURL field's value.
-func (s *StorageForCreateDeploymentInput) SetMetaURL(v string) *StorageForCreateDeploymentInput {
-	s.MetaURL = &v
-	return s
-}
-
-// SetMountOptions sets the MountOptions field's value.
-func (s *StorageForCreateDeploymentInput) SetMountOptions(v []*string) *StorageForCreateDeploymentInput {
-	s.MountOptions = v
+// SetConfig sets the Config field's value.
+func (s *StorageForCreateDeploymentInput) SetConfig(v *ConfigForCreateDeploymentInput) *StorageForCreateDeploymentInput {
+	s.Config = v
 	return s
 }
 
@@ -1841,117 +1693,15 @@ func (s *StorageForCreateDeploymentInput) SetMountPath(v string) *StorageForCrea
 	return s
 }
 
-// SetNasAccessPointOptions sets the NasAccessPointOptions field's value.
-func (s *StorageForCreateDeploymentInput) SetNasAccessPointOptions(v *NasAccessPointOptionsForCreateDeploymentInput) *StorageForCreateDeploymentInput {
-	s.NasAccessPointOptions = v
-	return s
-}
-
-// SetNasAddr sets the NasAddr field's value.
-func (s *StorageForCreateDeploymentInput) SetNasAddr(v string) *StorageForCreateDeploymentInput {
-	s.NasAddr = &v
-	return s
-}
-
-// SetNasId sets the NasId field's value.
-func (s *StorageForCreateDeploymentInput) SetNasId(v string) *StorageForCreateDeploymentInput {
-	s.NasId = &v
-	return s
-}
-
-// SetNasName sets the NasName field's value.
-func (s *StorageForCreateDeploymentInput) SetNasName(v string) *StorageForCreateDeploymentInput {
-	s.NasName = &v
-	return s
-}
-
-// SetNsId sets the NsId field's value.
-func (s *StorageForCreateDeploymentInput) SetNsId(v string) *StorageForCreateDeploymentInput {
-	s.NsId = &v
-	return s
-}
-
-// SetPrefix sets the Prefix field's value.
-func (s *StorageForCreateDeploymentInput) SetPrefix(v string) *StorageForCreateDeploymentInput {
-	s.Prefix = &v
-	return s
-}
-
 // SetReadOnly sets the ReadOnly field's value.
 func (s *StorageForCreateDeploymentInput) SetReadOnly(v bool) *StorageForCreateDeploymentInput {
 	s.ReadOnly = &v
 	return s
 }
 
-// SetRoleName sets the RoleName field's value.
-func (s *StorageForCreateDeploymentInput) SetRoleName(v string) *StorageForCreateDeploymentInput {
-	s.RoleName = &v
-	return s
-}
-
-// SetSfcsAdvancedOptions sets the SfcsAdvancedOptions field's value.
-func (s *StorageForCreateDeploymentInput) SetSfcsAdvancedOptions(v *SfcsAdvancedOptionsForCreateDeploymentInput) *StorageForCreateDeploymentInput {
-	s.SfcsAdvancedOptions = v
-	return s
-}
-
-// SetSfcsId sets the SfcsId field's value.
-func (s *StorageForCreateDeploymentInput) SetSfcsId(v string) *StorageForCreateDeploymentInput {
-	s.SfcsId = &v
-	return s
-}
-
-// SetSubPath sets the SubPath field's value.
-func (s *StorageForCreateDeploymentInput) SetSubPath(v string) *StorageForCreateDeploymentInput {
-	s.SubPath = &v
-	return s
-}
-
-// SetTenantAccount sets the TenantAccount field's value.
-func (s *StorageForCreateDeploymentInput) SetTenantAccount(v int64) *StorageForCreateDeploymentInput {
-	s.TenantAccount = &v
-	return s
-}
-
 // SetType sets the Type field's value.
 func (s *StorageForCreateDeploymentInput) SetType(v string) *StorageForCreateDeploymentInput {
 	s.Type = &v
-	return s
-}
-
-// SetUseAsDefaultMountPath sets the UseAsDefaultMountPath field's value.
-func (s *StorageForCreateDeploymentInput) SetUseAsDefaultMountPath(v bool) *StorageForCreateDeploymentInput {
-	s.UseAsDefaultMountPath = &v
-	return s
-}
-
-// SetUseEic sets the UseEic field's value.
-func (s *StorageForCreateDeploymentInput) SetUseEic(v bool) *StorageForCreateDeploymentInput {
-	s.UseEic = &v
-	return s
-}
-
-// SetVepfsAccessPointOptions sets the VepfsAccessPointOptions field's value.
-func (s *StorageForCreateDeploymentInput) SetVepfsAccessPointOptions(v *VepfsAccessPointOptionsForCreateDeploymentInput) *StorageForCreateDeploymentInput {
-	s.VepfsAccessPointOptions = v
-	return s
-}
-
-// SetVepfsHostPath sets the VepfsHostPath field's value.
-func (s *StorageForCreateDeploymentInput) SetVepfsHostPath(v string) *StorageForCreateDeploymentInput {
-	s.VepfsHostPath = &v
-	return s
-}
-
-// SetVepfsId sets the VepfsId field's value.
-func (s *StorageForCreateDeploymentInput) SetVepfsId(v string) *StorageForCreateDeploymentInput {
-	s.VepfsId = &v
-	return s
-}
-
-// SetVepfsName sets the VepfsName field's value.
-func (s *StorageForCreateDeploymentInput) SetVepfsName(v string) *StorageForCreateDeploymentInput {
-	s.VepfsName = &v
 	return s
 }
 
@@ -1977,33 +1727,33 @@ func (s *TCPSocketForCreateDeploymentInput) SetPort(v int32) *TCPSocketForCreate
 	return s
 }
 
-type TensorConfigForCreateDeploymentInput struct {
+type TosForCreateDeploymentInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	Inputs []*InputForCreateDeploymentInput `type:"list" json:",omitempty"`
+	Bucket *string `type:"string" json:",omitempty"`
 
-	Outputs []*OutputForCreateDeploymentInput `type:"list" json:",omitempty"`
+	Prefix *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
-func (s TensorConfigForCreateDeploymentInput) String() string {
+func (s TosForCreateDeploymentInput) String() string {
 	return volcengineutil.Prettify(s)
 }
 
 // GoString returns the string representation
-func (s TensorConfigForCreateDeploymentInput) GoString() string {
+func (s TosForCreateDeploymentInput) GoString() string {
 	return s.String()
 }
 
-// SetInputs sets the Inputs field's value.
-func (s *TensorConfigForCreateDeploymentInput) SetInputs(v []*InputForCreateDeploymentInput) *TensorConfigForCreateDeploymentInput {
-	s.Inputs = v
+// SetBucket sets the Bucket field's value.
+func (s *TosForCreateDeploymentInput) SetBucket(v string) *TosForCreateDeploymentInput {
+	s.Bucket = &v
 	return s
 }
 
-// SetOutputs sets the Outputs field's value.
-func (s *TensorConfigForCreateDeploymentInput) SetOutputs(v []*OutputForCreateDeploymentInput) *TensorConfigForCreateDeploymentInput {
-	s.Outputs = v
+// SetPrefix sets the Prefix field's value.
+func (s *TosForCreateDeploymentInput) SetPrefix(v string) *TosForCreateDeploymentInput {
+	s.Prefix = &v
 	return s
 }
 
@@ -2012,7 +1762,7 @@ type UpstreamConfigForCreateDeploymentInput struct {
 
 	ConsistentHashConfig *ConsistentHashConfigForCreateDeploymentInput `type:"structure" json:",omitempty"`
 
-	LoadBalancePolicy *string `type:"string" json:",omitempty"`
+	LoadBalancePolicy *string `type:"string" json:",omitempty" enum:"EnumOfLoadBalancePolicyForCreateDeploymentInput"`
 }
 
 // String returns the string representation
@@ -2037,67 +1787,122 @@ func (s *UpstreamConfigForCreateDeploymentInput) SetLoadBalancePolicy(v string) 
 	return s
 }
 
-type VepfsAccessPointOptionsForCreateDeploymentInput struct {
+type VepfsAPForCreateDeploymentInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
-
-	AccessPointDomain *string `type:"string" json:",omitempty"`
 
 	AccessPointId *string `type:"string" json:",omitempty"`
 
-	AccessPointName *string `type:"string" json:",omitempty"`
+	Id *string `type:"string" json:",omitempty"`
 
-	EnabledIam *bool `type:"boolean" json:",omitempty"`
-
-	MountOptions []*string `type:"list" json:",omitempty"`
-
-	RootPath *string `type:"string" json:",omitempty"`
+	UseEic *bool `type:"boolean" json:",omitempty"`
 }
 
 // String returns the string representation
-func (s VepfsAccessPointOptionsForCreateDeploymentInput) String() string {
+func (s VepfsAPForCreateDeploymentInput) String() string {
 	return volcengineutil.Prettify(s)
 }
 
 // GoString returns the string representation
-func (s VepfsAccessPointOptionsForCreateDeploymentInput) GoString() string {
+func (s VepfsAPForCreateDeploymentInput) GoString() string {
 	return s.String()
 }
 
-// SetAccessPointDomain sets the AccessPointDomain field's value.
-func (s *VepfsAccessPointOptionsForCreateDeploymentInput) SetAccessPointDomain(v string) *VepfsAccessPointOptionsForCreateDeploymentInput {
-	s.AccessPointDomain = &v
-	return s
-}
-
 // SetAccessPointId sets the AccessPointId field's value.
-func (s *VepfsAccessPointOptionsForCreateDeploymentInput) SetAccessPointId(v string) *VepfsAccessPointOptionsForCreateDeploymentInput {
+func (s *VepfsAPForCreateDeploymentInput) SetAccessPointId(v string) *VepfsAPForCreateDeploymentInput {
 	s.AccessPointId = &v
 	return s
 }
 
-// SetAccessPointName sets the AccessPointName field's value.
-func (s *VepfsAccessPointOptionsForCreateDeploymentInput) SetAccessPointName(v string) *VepfsAccessPointOptionsForCreateDeploymentInput {
-	s.AccessPointName = &v
+// SetId sets the Id field's value.
+func (s *VepfsAPForCreateDeploymentInput) SetId(v string) *VepfsAPForCreateDeploymentInput {
+	s.Id = &v
 	return s
 }
 
-// SetEnabledIam sets the EnabledIam field's value.
-func (s *VepfsAccessPointOptionsForCreateDeploymentInput) SetEnabledIam(v bool) *VepfsAccessPointOptionsForCreateDeploymentInput {
-	s.EnabledIam = &v
+// SetUseEic sets the UseEic field's value.
+func (s *VepfsAPForCreateDeploymentInput) SetUseEic(v bool) *VepfsAPForCreateDeploymentInput {
+	s.UseEic = &v
 	return s
 }
 
-// SetMountOptions sets the MountOptions field's value.
-func (s *VepfsAccessPointOptionsForCreateDeploymentInput) SetMountOptions(v []*string) *VepfsAccessPointOptionsForCreateDeploymentInput {
-	s.MountOptions = v
+type VepfsForCreateDeploymentInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	FileSystemName *string `type:"string" json:",omitempty"`
+
+	HostPath *string `type:"string" json:",omitempty"`
+
+	Id *string `type:"string" json:",omitempty"`
+
+	SubPath *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s VepfsForCreateDeploymentInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s VepfsForCreateDeploymentInput) GoString() string {
+	return s.String()
+}
+
+// SetFileSystemName sets the FileSystemName field's value.
+func (s *VepfsForCreateDeploymentInput) SetFileSystemName(v string) *VepfsForCreateDeploymentInput {
+	s.FileSystemName = &v
 	return s
 }
 
-// SetRootPath sets the RootPath field's value.
-func (s *VepfsAccessPointOptionsForCreateDeploymentInput) SetRootPath(v string) *VepfsAccessPointOptionsForCreateDeploymentInput {
-	s.RootPath = &v
+// SetHostPath sets the HostPath field's value.
+func (s *VepfsForCreateDeploymentInput) SetHostPath(v string) *VepfsForCreateDeploymentInput {
+	s.HostPath = &v
 	return s
 }
+
+// SetId sets the Id field's value.
+func (s *VepfsForCreateDeploymentInput) SetId(v string) *VepfsForCreateDeploymentInput {
+	s.Id = &v
+	return s
+}
+
+// SetSubPath sets the SubPath field's value.
+func (s *VepfsForCreateDeploymentInput) SetSubPath(v string) *VepfsForCreateDeploymentInput {
+	s.SubPath = &v
+	return s
+}
+
+const (
+	// EnumOfGPUCPUNodePreferenceForCreateDeploymentInputGpurequired is a EnumOfGPUCPUNodePreferenceForCreateDeploymentInput enum value
+	EnumOfGPUCPUNodePreferenceForCreateDeploymentInputGpurequired = "GPURequired"
+
+	// EnumOfGPUCPUNodePreferenceForCreateDeploymentInputGpupreferred is a EnumOfGPUCPUNodePreferenceForCreateDeploymentInput enum value
+	EnumOfGPUCPUNodePreferenceForCreateDeploymentInputGpupreferred = "GPUPreferred"
+
+	// EnumOfGPUCPUNodePreferenceForCreateDeploymentInputCpurequired is a EnumOfGPUCPUNodePreferenceForCreateDeploymentInput enum value
+	EnumOfGPUCPUNodePreferenceForCreateDeploymentInputCpurequired = "CPURequired"
+
+	// EnumOfGPUCPUNodePreferenceForCreateDeploymentInputCpupreferred is a EnumOfGPUCPUNodePreferenceForCreateDeploymentInput enum value
+	EnumOfGPUCPUNodePreferenceForCreateDeploymentInputCpupreferred = "CPUPreferred"
+)
+
+const (
+	// EnumOfHashKeyTypeForCreateDeploymentInputHttpHeaderName is a EnumOfHashKeyTypeForCreateDeploymentInput enum value
+	EnumOfHashKeyTypeForCreateDeploymentInputHttpHeaderName = "HttpHeaderName"
+)
+
+const (
+	// EnumOfLoadBalancePolicyForCreateDeploymentInputRoundRobin is a EnumOfLoadBalancePolicyForCreateDeploymentInput enum value
+	EnumOfLoadBalancePolicyForCreateDeploymentInputRoundRobin = "ROUND_ROBIN"
+
+	// EnumOfLoadBalancePolicyForCreateDeploymentInputLeastConn is a EnumOfLoadBalancePolicyForCreateDeploymentInput enum value
+	EnumOfLoadBalancePolicyForCreateDeploymentInputLeastConn = "LEAST_CONN"
+
+	// EnumOfLoadBalancePolicyForCreateDeploymentInputRandom is a EnumOfLoadBalancePolicyForCreateDeploymentInput enum value
+	EnumOfLoadBalancePolicyForCreateDeploymentInputRandom = "RANDOM"
+
+	// EnumOfLoadBalancePolicyForCreateDeploymentInputConsistentHash is a EnumOfLoadBalancePolicyForCreateDeploymentInput enum value
+	EnumOfLoadBalancePolicyForCreateDeploymentInputConsistentHash = "CONSISTENT_HASH"
+)
 
 const (
 	// EnumOfSchedulerForCreateDeploymentInputWrr is a EnumOfSchedulerForCreateDeploymentInput enum value
@@ -2108,4 +1913,29 @@ const (
 
 	// EnumOfSchedulerForCreateDeploymentInputSh is a EnumOfSchedulerForCreateDeploymentInput enum value
 	EnumOfSchedulerForCreateDeploymentInputSh = "sh"
+)
+
+const (
+	// EnumOfSchemeForCreateDeploymentInputHttp is a EnumOfSchemeForCreateDeploymentInput enum value
+	EnumOfSchemeForCreateDeploymentInputHttp = "HTTP"
+
+	// EnumOfSchemeForCreateDeploymentInputHttps is a EnumOfSchemeForCreateDeploymentInput enum value
+	EnumOfSchemeForCreateDeploymentInputHttps = "HTTPS"
+)
+
+const (
+	// EnumOfTypeForCreateDeploymentInputHttp11 is a EnumOfTypeForCreateDeploymentInput enum value
+	EnumOfTypeForCreateDeploymentInputHttp11 = "HTTP/1.1"
+
+	// EnumOfTypeForCreateDeploymentInputHttp2 is a EnumOfTypeForCreateDeploymentInput enum value
+	EnumOfTypeForCreateDeploymentInputHttp2 = "HTTP2"
+
+	// EnumOfTypeForCreateDeploymentInputGrpc is a EnumOfTypeForCreateDeploymentInput enum value
+	EnumOfTypeForCreateDeploymentInputGrpc = "GRPC"
+
+	// EnumOfTypeForCreateDeploymentInputMetrics is a EnumOfTypeForCreateDeploymentInput enum value
+	EnumOfTypeForCreateDeploymentInputMetrics = "Metrics"
+
+	// EnumOfTypeForCreateDeploymentInputOther is a EnumOfTypeForCreateDeploymentInput enum value
+	EnumOfTypeForCreateDeploymentInputOther = "Other"
 )

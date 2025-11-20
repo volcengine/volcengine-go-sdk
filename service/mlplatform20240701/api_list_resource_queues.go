@@ -1432,17 +1432,14 @@ func (s *WorkloadInfoForListResourceQueuesOutput) SetWorkloadType(v string) *Wor
 }
 
 const (
-	// EnumOfChargeTypeForListResourceQueuesInputPaused is a EnumOfChargeTypeForListResourceQueuesInput enum value
-	EnumOfChargeTypeForListResourceQueuesInputPaused = "Paused"
+	// EnumOfChargeTypeForListResourceQueuesInputPrePaid is a EnumOfChargeTypeForListResourceQueuesInput enum value
+	EnumOfChargeTypeForListResourceQueuesInputPrePaid = "PrePaid"
 
-	// EnumOfChargeTypeForListResourceQueuesInputRunning is a EnumOfChargeTypeForListResourceQueuesInput enum value
-	EnumOfChargeTypeForListResourceQueuesInputRunning = "Running"
+	// EnumOfChargeTypeForListResourceQueuesInputPostPaid is a EnumOfChargeTypeForListResourceQueuesInput enum value
+	EnumOfChargeTypeForListResourceQueuesInputPostPaid = "PostPaid"
 
-	// EnumOfChargeTypeForListResourceQueuesInputClosed is a EnumOfChargeTypeForListResourceQueuesInput enum value
-	EnumOfChargeTypeForListResourceQueuesInputClosed = "Closed"
-
-	// EnumOfChargeTypeForListResourceQueuesInputClosing is a EnumOfChargeTypeForListResourceQueuesInput enum value
-	EnumOfChargeTypeForListResourceQueuesInputClosing = "Closing"
+	// EnumOfChargeTypeForListResourceQueuesInputOnDemand is a EnumOfChargeTypeForListResourceQueuesInput enum value
+	EnumOfChargeTypeForListResourceQueuesInputOnDemand = "OnDemand"
 )
 
 const (
@@ -1475,11 +1472,17 @@ const (
 )
 
 const (
-	// EnumOfStatusListForListResourceQueuesInputPrePaid is a EnumOfStatusListForListResourceQueuesInput enum value
-	EnumOfStatusListForListResourceQueuesInputPrePaid = "PrePaid"
+	// EnumOfStatusListForListResourceQueuesInputPaused is a EnumOfStatusListForListResourceQueuesInput enum value
+	EnumOfStatusListForListResourceQueuesInputPaused = "Paused"
 
-	// EnumOfStatusListForListResourceQueuesInputPostPaid is a EnumOfStatusListForListResourceQueuesInput enum value
-	EnumOfStatusListForListResourceQueuesInputPostPaid = "PostPaid"
+	// EnumOfStatusListForListResourceQueuesInputRunning is a EnumOfStatusListForListResourceQueuesInput enum value
+	EnumOfStatusListForListResourceQueuesInputRunning = "Running"
+
+	// EnumOfStatusListForListResourceQueuesInputClosed is a EnumOfStatusListForListResourceQueuesInput enum value
+	EnumOfStatusListForListResourceQueuesInputClosed = "Closed"
+
+	// EnumOfStatusListForListResourceQueuesInputClosing is a EnumOfStatusListForListResourceQueuesInput enum value
+	EnumOfStatusListForListResourceQueuesInputClosing = "Closing"
 )
 
 const (
