@@ -14,6 +14,7 @@ import (
 	"google.golang.org/protobuf/runtime/protoimpl"
 	"google.golang.org/protobuf/types/known/structpb"
 
+	"github.com/volcengine/volcengine-go-sdk/service/arkruntime/model"
 	"github.com/volcengine/volcengine-go-sdk/service/arkruntime/model/doubao_app"
 )
 
@@ -8227,6 +8228,7 @@ type ResponseObject struct {
 	MaxToolCalls *int64 `protobuf:"varint,24,opt,name=max_tool_calls,json=maxToolCalls,proto3,oneof" json:"max_tool_calls,omitempty"`
 	// Configuration options for reasoning models
 	Reasoning *ResponsesReasoning `protobuf:"bytes,25,opt,name=reasoning,proto3,oneof" json:"reasoning,omitempty"`
+	model.HttpHeader
 }
 
 func (x *ResponseObject) Reset() {
@@ -15577,6 +15579,7 @@ type ListInputItemsResponse struct {
 	FirstId string          `protobuf:"bytes,3,opt,name=first_id,json=firstId,proto3" json:"first_id,omitempty"`
 	LastId  string          `protobuf:"bytes,4,opt,name=last_id,json=lastId,proto3" json:"last_id,omitempty"`
 	HasMore *bool           `protobuf:"varint,5,opt,name=has_more,json=hasMore,proto3,oneof" json:"has_more"` // @inject_tag: json:"has_more"
+	model.HttpHeader
 }
 
 func (x *ListInputItemsResponse) Reset() {
