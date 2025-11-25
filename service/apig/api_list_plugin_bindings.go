@@ -148,6 +148,8 @@ type FilterForListPluginBindingsInput struct {
 
 	Enable *bool `type:"boolean" json:",omitempty"`
 
+	GatewayId *string `type:"string" json:",omitempty"`
+
 	Name *string `type:"string" json:",omitempty"`
 
 	Scope *string `type:"string" json:",omitempty"`
@@ -166,6 +168,12 @@ func (s FilterForListPluginBindingsInput) GoString() string {
 // SetEnable sets the Enable field's value.
 func (s *FilterForListPluginBindingsInput) SetEnable(v bool) *FilterForListPluginBindingsInput {
 	s.Enable = &v
+	return s
+}
+
+// SetGatewayId sets the GatewayId field's value.
+func (s *FilterForListPluginBindingsInput) SetGatewayId(v string) *FilterForListPluginBindingsInput {
+	s.GatewayId = &v
 	return s
 }
 

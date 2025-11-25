@@ -274,6 +274,8 @@ type GatewayServiceForGetGatewayServiceOutput struct {
 
 	Protocol []*string `type:"list" json:",omitempty"`
 
+	ServiceType *string `type:"string" json:",omitempty"`
+
 	Status *string `type:"string" json:",omitempty"`
 }
 
@@ -356,6 +358,12 @@ func (s *GatewayServiceForGetGatewayServiceOutput) SetName(v string) *GatewaySer
 // SetProtocol sets the Protocol field's value.
 func (s *GatewayServiceForGetGatewayServiceOutput) SetProtocol(v []*string) *GatewayServiceForGetGatewayServiceOutput {
 	s.Protocol = v
+	return s
+}
+
+// SetServiceType sets the ServiceType field's value.
+func (s *GatewayServiceForGetGatewayServiceOutput) SetServiceType(v string) *GatewayServiceForGetGatewayServiceOutput {
+	s.ServiceType = &v
 	return s
 }
 

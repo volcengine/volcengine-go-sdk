@@ -172,6 +172,10 @@ type CreateGatewayServiceInput struct {
 
 	Comments *string `type:"string" json:",omitempty"`
 
+	CustomDomains []*CustomDomainForCreateGatewayServiceInput `type:"list" json:",omitempty"`
+
+	DomainType *string `type:"string" json:",omitempty"`
+
 	// GatewayId is a required field
 	GatewayId *string `type:"string" json:",omitempty" required:"true"`
 
@@ -179,6 +183,10 @@ type CreateGatewayServiceInput struct {
 
 	// ServiceName is a required field
 	ServiceName *string `type:"string" json:",omitempty" required:"true"`
+
+	ServiceNetworkSpec *ServiceNetworkSpecForCreateGatewayServiceInput `type:"structure" json:",omitempty"`
+
+	ServiceType *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -219,6 +227,18 @@ func (s *CreateGatewayServiceInput) SetComments(v string) *CreateGatewayServiceI
 	return s
 }
 
+// SetCustomDomains sets the CustomDomains field's value.
+func (s *CreateGatewayServiceInput) SetCustomDomains(v []*CustomDomainForCreateGatewayServiceInput) *CreateGatewayServiceInput {
+	s.CustomDomains = v
+	return s
+}
+
+// SetDomainType sets the DomainType field's value.
+func (s *CreateGatewayServiceInput) SetDomainType(v string) *CreateGatewayServiceInput {
+	s.DomainType = &v
+	return s
+}
+
 // SetGatewayId sets the GatewayId field's value.
 func (s *CreateGatewayServiceInput) SetGatewayId(v string) *CreateGatewayServiceInput {
 	s.GatewayId = &v
@@ -234,6 +254,18 @@ func (s *CreateGatewayServiceInput) SetProtocol(v []*string) *CreateGatewayServi
 // SetServiceName sets the ServiceName field's value.
 func (s *CreateGatewayServiceInput) SetServiceName(v string) *CreateGatewayServiceInput {
 	s.ServiceName = &v
+	return s
+}
+
+// SetServiceNetworkSpec sets the ServiceNetworkSpec field's value.
+func (s *CreateGatewayServiceInput) SetServiceNetworkSpec(v *ServiceNetworkSpecForCreateGatewayServiceInput) *CreateGatewayServiceInput {
+	s.ServiceNetworkSpec = v
+	return s
+}
+
+// SetServiceType sets the ServiceType field's value.
+func (s *CreateGatewayServiceInput) SetServiceType(v string) *CreateGatewayServiceInput {
+	s.ServiceType = &v
 	return s
 }
 
@@ -258,5 +290,135 @@ func (s CreateGatewayServiceOutput) GoString() string {
 // SetId sets the Id field's value.
 func (s *CreateGatewayServiceOutput) SetId(v string) *CreateGatewayServiceOutput {
 	s.Id = &v
+	return s
+}
+
+type CustomDomainForCreateGatewayServiceInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	CertificateId *string `type:"string" json:",omitempty"`
+
+	Comments *string `type:"string" json:",omitempty"`
+
+	Domain *string `type:"string" json:",omitempty"`
+
+	Protocol []*string `type:"list" json:",omitempty"`
+
+	SSLRedirect *bool `type:"boolean" json:",omitempty"`
+
+	Tags []*TagForCreateGatewayServiceInput `type:"list" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s CustomDomainForCreateGatewayServiceInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s CustomDomainForCreateGatewayServiceInput) GoString() string {
+	return s.String()
+}
+
+// SetCertificateId sets the CertificateId field's value.
+func (s *CustomDomainForCreateGatewayServiceInput) SetCertificateId(v string) *CustomDomainForCreateGatewayServiceInput {
+	s.CertificateId = &v
+	return s
+}
+
+// SetComments sets the Comments field's value.
+func (s *CustomDomainForCreateGatewayServiceInput) SetComments(v string) *CustomDomainForCreateGatewayServiceInput {
+	s.Comments = &v
+	return s
+}
+
+// SetDomain sets the Domain field's value.
+func (s *CustomDomainForCreateGatewayServiceInput) SetDomain(v string) *CustomDomainForCreateGatewayServiceInput {
+	s.Domain = &v
+	return s
+}
+
+// SetProtocol sets the Protocol field's value.
+func (s *CustomDomainForCreateGatewayServiceInput) SetProtocol(v []*string) *CustomDomainForCreateGatewayServiceInput {
+	s.Protocol = v
+	return s
+}
+
+// SetSSLRedirect sets the SSLRedirect field's value.
+func (s *CustomDomainForCreateGatewayServiceInput) SetSSLRedirect(v bool) *CustomDomainForCreateGatewayServiceInput {
+	s.SSLRedirect = &v
+	return s
+}
+
+// SetTags sets the Tags field's value.
+func (s *CustomDomainForCreateGatewayServiceInput) SetTags(v []*TagForCreateGatewayServiceInput) *CustomDomainForCreateGatewayServiceInput {
+	s.Tags = v
+	return s
+}
+
+type ServiceNetworkSpecForCreateGatewayServiceInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	EnablePrivateNetwork *bool `type:"boolean" json:",omitempty"`
+
+	EnablePublicNetwork *bool `type:"boolean" json:",omitempty"`
+
+	PrivateNetworkIP []*string `type:"list" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s ServiceNetworkSpecForCreateGatewayServiceInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ServiceNetworkSpecForCreateGatewayServiceInput) GoString() string {
+	return s.String()
+}
+
+// SetEnablePrivateNetwork sets the EnablePrivateNetwork field's value.
+func (s *ServiceNetworkSpecForCreateGatewayServiceInput) SetEnablePrivateNetwork(v bool) *ServiceNetworkSpecForCreateGatewayServiceInput {
+	s.EnablePrivateNetwork = &v
+	return s
+}
+
+// SetEnablePublicNetwork sets the EnablePublicNetwork field's value.
+func (s *ServiceNetworkSpecForCreateGatewayServiceInput) SetEnablePublicNetwork(v bool) *ServiceNetworkSpecForCreateGatewayServiceInput {
+	s.EnablePublicNetwork = &v
+	return s
+}
+
+// SetPrivateNetworkIP sets the PrivateNetworkIP field's value.
+func (s *ServiceNetworkSpecForCreateGatewayServiceInput) SetPrivateNetworkIP(v []*string) *ServiceNetworkSpecForCreateGatewayServiceInput {
+	s.PrivateNetworkIP = v
+	return s
+}
+
+type TagForCreateGatewayServiceInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Key *string `type:"string" json:",omitempty"`
+
+	Value *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s TagForCreateGatewayServiceInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagForCreateGatewayServiceInput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagForCreateGatewayServiceInput) SetKey(v string) *TagForCreateGatewayServiceInput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *TagForCreateGatewayServiceInput) SetValue(v string) *TagForCreateGatewayServiceInput {
+	s.Value = &v
 	return s
 }

@@ -187,6 +187,44 @@ func (s *DomainSpecForUpdateGatewayServiceInput) SetEnablePublicResolution(v boo
 	return s
 }
 
+type ServiceNetworkSpecForUpdateGatewayServiceInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	EnablePrivateNetwork *bool `type:"boolean" json:",omitempty"`
+
+	EnablePublicNetwork *bool `type:"boolean" json:",omitempty"`
+
+	PrivateNetworkIP []*string `type:"list" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s ServiceNetworkSpecForUpdateGatewayServiceInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ServiceNetworkSpecForUpdateGatewayServiceInput) GoString() string {
+	return s.String()
+}
+
+// SetEnablePrivateNetwork sets the EnablePrivateNetwork field's value.
+func (s *ServiceNetworkSpecForUpdateGatewayServiceInput) SetEnablePrivateNetwork(v bool) *ServiceNetworkSpecForUpdateGatewayServiceInput {
+	s.EnablePrivateNetwork = &v
+	return s
+}
+
+// SetEnablePublicNetwork sets the EnablePublicNetwork field's value.
+func (s *ServiceNetworkSpecForUpdateGatewayServiceInput) SetEnablePublicNetwork(v bool) *ServiceNetworkSpecForUpdateGatewayServiceInput {
+	s.EnablePublicNetwork = &v
+	return s
+}
+
+// SetPrivateNetworkIP sets the PrivateNetworkIP field's value.
+func (s *ServiceNetworkSpecForUpdateGatewayServiceInput) SetPrivateNetworkIP(v []*string) *ServiceNetworkSpecForUpdateGatewayServiceInput {
+	s.PrivateNetworkIP = v
+	return s
+}
+
 type UpdateGatewayServiceInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -200,6 +238,8 @@ type UpdateGatewayServiceInput struct {
 	Id *string `type:"string" json:",omitempty" required:"true"`
 
 	Protocol []*string `type:"list" json:",omitempty"`
+
+	ServiceNetworkSpec *ServiceNetworkSpecForUpdateGatewayServiceInput `type:"structure" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -252,6 +292,12 @@ func (s *UpdateGatewayServiceInput) SetId(v string) *UpdateGatewayServiceInput {
 // SetProtocol sets the Protocol field's value.
 func (s *UpdateGatewayServiceInput) SetProtocol(v []*string) *UpdateGatewayServiceInput {
 	s.Protocol = v
+	return s
+}
+
+// SetServiceNetworkSpec sets the ServiceNetworkSpec field's value.
+func (s *UpdateGatewayServiceInput) SetServiceNetworkSpec(v *ServiceNetworkSpecForUpdateGatewayServiceInput) *UpdateGatewayServiceInput {
+	s.ServiceNetworkSpec = v
 	return s
 }
 

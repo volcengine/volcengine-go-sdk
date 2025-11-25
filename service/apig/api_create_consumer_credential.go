@@ -155,6 +155,8 @@ type CreateConsumerCredentialInput struct {
 	HmacAuthCredential *HmacAuthCredentialForCreateConsumerCredentialInput `type:"structure" json:",omitempty"`
 
 	KeyAuthCredential *KeyAuthCredentialForCreateConsumerCredentialInput `type:"structure" json:",omitempty"`
+
+	Oauth2Credential *Oauth2CredentialForCreateConsumerCredentialInput `type:"structure" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -204,6 +206,12 @@ func (s *CreateConsumerCredentialInput) SetHmacAuthCredential(v *HmacAuthCredent
 // SetKeyAuthCredential sets the KeyAuthCredential field's value.
 func (s *CreateConsumerCredentialInput) SetKeyAuthCredential(v *KeyAuthCredentialForCreateConsumerCredentialInput) *CreateConsumerCredentialInput {
 	s.KeyAuthCredential = v
+	return s
+}
+
+// SetOauth2Credential sets the Oauth2Credential field's value.
+func (s *CreateConsumerCredentialInput) SetOauth2Credential(v *Oauth2CredentialForCreateConsumerCredentialInput) *CreateConsumerCredentialInput {
+	s.Oauth2Credential = v
 	return s
 }
 
@@ -280,5 +288,27 @@ func (s KeyAuthCredentialForCreateConsumerCredentialInput) GoString() string {
 // SetAPIKey sets the APIKey field's value.
 func (s *KeyAuthCredentialForCreateConsumerCredentialInput) SetAPIKey(v string) *KeyAuthCredentialForCreateConsumerCredentialInput {
 	s.APIKey = &v
+	return s
+}
+
+type Oauth2CredentialForCreateConsumerCredentialInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	ClientId *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s Oauth2CredentialForCreateConsumerCredentialInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s Oauth2CredentialForCreateConsumerCredentialInput) GoString() string {
+	return s.String()
+}
+
+// SetClientId sets the ClientId field's value.
+func (s *Oauth2CredentialForCreateConsumerCredentialInput) SetClientId(v string) *Oauth2CredentialForCreateConsumerCredentialInput {
+	s.ClientId = &v
 	return s
 }
