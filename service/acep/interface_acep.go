@@ -206,6 +206,14 @@ type ACEPAPI interface {
 	RestorePodWithContext(volcengine.Context, *RestorePodInput, ...request.Option) (*RestorePodOutput, error)
 	RestorePodRequest(*RestorePodInput) (*request.Request, *RestorePodOutput)
 
+	StartRecordingCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	StartRecordingCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	StartRecordingCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	StartRecording(*StartRecordingInput) (*StartRecordingOutput, error)
+	StartRecordingWithContext(volcengine.Context, *StartRecordingInput, ...request.Option) (*StartRecordingOutput, error)
+	StartRecordingRequest(*StartRecordingInput) (*request.Request, *StartRecordingOutput)
+
 	StartScreenShotCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	StartScreenShotCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	StartScreenShotCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -213,6 +221,14 @@ type ACEPAPI interface {
 	StartScreenShot(*StartScreenShotInput) (*StartScreenShotOutput, error)
 	StartScreenShotWithContext(volcengine.Context, *StartScreenShotInput, ...request.Option) (*StartScreenShotOutput, error)
 	StartScreenShotRequest(*StartScreenShotInput) (*request.Request, *StartScreenShotOutput)
+
+	StopRecordingCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	StopRecordingCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	StopRecordingCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	StopRecording(*StopRecordingInput) (*StopRecordingOutput, error)
+	StopRecordingWithContext(volcengine.Context, *StopRecordingInput, ...request.Option) (*StopRecordingOutput, error)
+	StopRecordingRequest(*StopRecordingInput) (*request.Request, *StopRecordingOutput)
 
 	StopScreenShotCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	StopScreenShotCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
