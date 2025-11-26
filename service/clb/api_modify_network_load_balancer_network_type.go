@@ -236,6 +236,10 @@ type ZoneMappingForModifyNetworkLoadBalancerNetworkTypeInput struct {
 
 	EipId *string `type:"string"`
 
+	EipIsp *string `type:"string"`
+
+	EipSpecificEgress *string `type:"string"`
+
 	ZoneId *string `type:"string"`
 }
 
@@ -252,6 +256,18 @@ func (s ZoneMappingForModifyNetworkLoadBalancerNetworkTypeInput) GoString() stri
 // SetEipId sets the EipId field's value.
 func (s *ZoneMappingForModifyNetworkLoadBalancerNetworkTypeInput) SetEipId(v string) *ZoneMappingForModifyNetworkLoadBalancerNetworkTypeInput {
 	s.EipId = &v
+	return s
+}
+
+// SetEipIsp sets the EipIsp field's value.
+func (s *ZoneMappingForModifyNetworkLoadBalancerNetworkTypeInput) SetEipIsp(v string) *ZoneMappingForModifyNetworkLoadBalancerNetworkTypeInput {
+	s.EipIsp = &v
+	return s
+}
+
+// SetEipSpecificEgress sets the EipSpecificEgress field's value.
+func (s *ZoneMappingForModifyNetworkLoadBalancerNetworkTypeInput) SetEipSpecificEgress(v string) *ZoneMappingForModifyNetworkLoadBalancerNetworkTypeInput {
+	s.EipSpecificEgress = &v
 	return s
 }
 
