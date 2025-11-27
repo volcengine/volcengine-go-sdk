@@ -231,6 +231,8 @@ type StartScreenShotInput struct {
 
 	Rotation *int32 `type:"int32" json:",omitempty"`
 
+	RoundId *string `type:"string" json:",omitempty"`
+
 	Scale *float64 `type:"double" json:",omitempty"`
 
 	TosInfo *TosInfoForStartScreenShotInput `type:"structure" json:",omitempty"`
@@ -300,6 +302,12 @@ func (s *StartScreenShotInput) SetQuality(v int32) *StartScreenShotInput {
 // SetRotation sets the Rotation field's value.
 func (s *StartScreenShotInput) SetRotation(v int32) *StartScreenShotInput {
 	s.Rotation = &v
+	return s
+}
+
+// SetRoundId sets the RoundId field's value.
+func (s *StartScreenShotInput) SetRoundId(v string) *StartScreenShotInput {
+	s.RoundId = &v
 	return s
 }
 
