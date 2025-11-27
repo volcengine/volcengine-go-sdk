@@ -154,6 +154,10 @@ type DataForListUserPoolsOutput struct {
 
 	Name *string `type:"string" json:",omitempty"`
 
+	ProjectName *string `type:"string" json:",omitempty"`
+
+	Tags []*TagForListUserPoolsOutput `type:"list" json:",omitempty"`
+
 	Trn *string `type:"string" json:",omitempty"`
 
 	Uid *string `type:"string" json:",omitempty"`
@@ -195,6 +199,18 @@ func (s *DataForListUserPoolsOutput) SetName(v string) *DataForListUserPoolsOutp
 	return s
 }
 
+// SetProjectName sets the ProjectName field's value.
+func (s *DataForListUserPoolsOutput) SetProjectName(v string) *DataForListUserPoolsOutput {
+	s.ProjectName = &v
+	return s
+}
+
+// SetTags sets the Tags field's value.
+func (s *DataForListUserPoolsOutput) SetTags(v []*TagForListUserPoolsOutput) *DataForListUserPoolsOutput {
+	s.Tags = v
+	return s
+}
+
 // SetTrn sets the Trn field's value.
 func (s *DataForListUserPoolsOutput) SetTrn(v string) *DataForListUserPoolsOutput {
 	s.Trn = &v
@@ -219,6 +235,8 @@ type FilterForListUserPoolsInput struct {
 	Description *string `type:"string" json:",omitempty"`
 
 	Name *string `type:"string" json:",omitempty"`
+
+	TagFilters []*TagFilterForListUserPoolsInput `type:"list" json:",omitempty"`
 
 	Trn *string `type:"string" json:",omitempty"`
 
@@ -247,6 +265,12 @@ func (s *FilterForListUserPoolsInput) SetName(v string) *FilterForListUserPoolsI
 	return s
 }
 
+// SetTagFilters sets the TagFilters field's value.
+func (s *FilterForListUserPoolsInput) SetTagFilters(v []*TagFilterForListUserPoolsInput) *FilterForListUserPoolsInput {
+	s.TagFilters = v
+	return s
+}
+
 // SetTrn sets the Trn field's value.
 func (s *FilterForListUserPoolsInput) SetTrn(v string) *FilterForListUserPoolsInput {
 	s.Trn = &v
@@ -269,6 +293,8 @@ type ListUserPoolsInput struct {
 
 	// PageSize is a required field
 	PageSize *int32 `type:"int32" json:",omitempty" required:"true"`
+
+	ProjectName *string `max:"255" type:"string" json:",omitempty"`
 
 	SortDirection *string `type:"string" json:",omitempty"`
 
@@ -294,6 +320,9 @@ func (s *ListUserPoolsInput) Validate() error {
 	if s.PageSize == nil {
 		invalidParams.Add(request.NewErrParamRequired("PageSize"))
 	}
+	if s.ProjectName != nil && len(*s.ProjectName) > 255 {
+		invalidParams.Add(request.NewErrParamMaxLen("ProjectName", 255, *s.ProjectName))
+	}
 
 	if invalidParams.Len() > 0 {
 		return invalidParams
@@ -316,6 +345,12 @@ func (s *ListUserPoolsInput) SetPageNumber(v int32) *ListUserPoolsInput {
 // SetPageSize sets the PageSize field's value.
 func (s *ListUserPoolsInput) SetPageSize(v int32) *ListUserPoolsInput {
 	s.PageSize = &v
+	return s
+}
+
+// SetProjectName sets the ProjectName field's value.
+func (s *ListUserPoolsInput) SetProjectName(v string) *ListUserPoolsInput {
+	s.ProjectName = &v
 	return s
 }
 
@@ -376,5 +411,65 @@ func (s *ListUserPoolsOutput) SetPageSize(v int32) *ListUserPoolsOutput {
 // SetTotalCount sets the TotalCount field's value.
 func (s *ListUserPoolsOutput) SetTotalCount(v int32) *ListUserPoolsOutput {
 	s.TotalCount = &v
+	return s
+}
+
+type TagFilterForListUserPoolsInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Key *string `type:"string" json:",omitempty"`
+
+	Values []*string `type:"list" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s TagFilterForListUserPoolsInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagFilterForListUserPoolsInput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagFilterForListUserPoolsInput) SetKey(v string) *TagFilterForListUserPoolsInput {
+	s.Key = &v
+	return s
+}
+
+// SetValues sets the Values field's value.
+func (s *TagFilterForListUserPoolsInput) SetValues(v []*string) *TagFilterForListUserPoolsInput {
+	s.Values = v
+	return s
+}
+
+type TagForListUserPoolsOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Key *string `type:"string" json:",omitempty"`
+
+	Value *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s TagForListUserPoolsOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagForListUserPoolsOutput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagForListUserPoolsOutput) SetKey(v string) *TagForListUserPoolsOutput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *TagForListUserPoolsOutput) SetValue(v string) *TagForListUserPoolsOutput {
+	s.Value = &v
 	return s
 }

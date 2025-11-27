@@ -143,12 +143,68 @@ func (c *ID) ListNamespacesWithContext(ctx volcengine.Context, input *ListNamesp
 	return out, req.Send()
 }
 
+type FilterForListNamespacesInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Description *string `type:"string" json:",omitempty"`
+
+	Id *string `type:"string" json:",omitempty"`
+
+	Name *string `type:"string" json:",omitempty"`
+
+	Trn *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s FilterForListNamespacesInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s FilterForListNamespacesInput) GoString() string {
+	return s.String()
+}
+
+// SetDescription sets the Description field's value.
+func (s *FilterForListNamespacesInput) SetDescription(v string) *FilterForListNamespacesInput {
+	s.Description = &v
+	return s
+}
+
+// SetId sets the Id field's value.
+func (s *FilterForListNamespacesInput) SetId(v string) *FilterForListNamespacesInput {
+	s.Id = &v
+	return s
+}
+
+// SetName sets the Name field's value.
+func (s *FilterForListNamespacesInput) SetName(v string) *FilterForListNamespacesInput {
+	s.Name = &v
+	return s
+}
+
+// SetTrn sets the Trn field's value.
+func (s *FilterForListNamespacesInput) SetTrn(v string) *FilterForListNamespacesInput {
+	s.Trn = &v
+	return s
+}
+
 type ListNamespacesInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
+
+	Filter *FilterForListNamespacesInput `type:"structure" json:",omitempty"`
 
 	PageNumber *int32 `type:"int32" json:",omitempty"`
 
 	PageSize *int32 `type:"int32" json:",omitempty"`
+
+	ProjectName *string `type:"string" json:",omitempty"`
+
+	SortDirection *string `type:"string" json:",omitempty"`
+
+	SortField *string `type:"string" json:",omitempty"`
+
+	TagFilters []*TagFilterForListNamespacesInput `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -159,6 +215,12 @@ func (s ListNamespacesInput) String() string {
 // GoString returns the string representation
 func (s ListNamespacesInput) GoString() string {
 	return s.String()
+}
+
+// SetFilter sets the Filter field's value.
+func (s *ListNamespacesInput) SetFilter(v *FilterForListNamespacesInput) *ListNamespacesInput {
+	s.Filter = v
+	return s
 }
 
 // SetPageNumber sets the PageNumber field's value.
@@ -173,12 +235,36 @@ func (s *ListNamespacesInput) SetPageSize(v int32) *ListNamespacesInput {
 	return s
 }
 
+// SetProjectName sets the ProjectName field's value.
+func (s *ListNamespacesInput) SetProjectName(v string) *ListNamespacesInput {
+	s.ProjectName = &v
+	return s
+}
+
+// SetSortDirection sets the SortDirection field's value.
+func (s *ListNamespacesInput) SetSortDirection(v string) *ListNamespacesInput {
+	s.SortDirection = &v
+	return s
+}
+
+// SetSortField sets the SortField field's value.
+func (s *ListNamespacesInput) SetSortField(v string) *ListNamespacesInput {
+	s.SortField = &v
+	return s
+}
+
+// SetTagFilters sets the TagFilters field's value.
+func (s *ListNamespacesInput) SetTagFilters(v []*TagFilterForListNamespacesInput) *ListNamespacesInput {
+	s.TagFilters = v
+	return s
+}
+
 type ListNamespacesOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	Data []*string `type:"list" json:",omitempty"`
+	Namespaces []*NamespaceForListNamespacesOutput `type:"list" json:",omitempty"`
 
 	PageNumber *int32 `type:"int32" json:",omitempty"`
 
@@ -197,9 +283,9 @@ func (s ListNamespacesOutput) GoString() string {
 	return s.String()
 }
 
-// SetData sets the Data field's value.
-func (s *ListNamespacesOutput) SetData(v []*string) *ListNamespacesOutput {
-	s.Data = v
+// SetNamespaces sets the Namespaces field's value.
+func (s *ListNamespacesOutput) SetNamespaces(v []*NamespaceForListNamespacesOutput) *ListNamespacesOutput {
+	s.Namespaces = v
 	return s
 }
 
@@ -218,5 +304,143 @@ func (s *ListNamespacesOutput) SetPageSize(v int32) *ListNamespacesOutput {
 // SetTotalCount sets the TotalCount field's value.
 func (s *ListNamespacesOutput) SetTotalCount(v int32) *ListNamespacesOutput {
 	s.TotalCount = &v
+	return s
+}
+
+type NamespaceForListNamespacesOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	CreateTime *string `type:"string" json:",omitempty"`
+
+	Description *string `type:"string" json:",omitempty"`
+
+	NamespaceId *string `type:"string" json:",omitempty"`
+
+	NamespaceName *string `type:"string" json:",omitempty"`
+
+	ProjectName *string `type:"string" json:",omitempty"`
+
+	Tags []*TagForListNamespacesOutput `type:"list" json:",omitempty"`
+
+	Trn *string `type:"string" json:",omitempty"`
+
+	UpdateTime *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s NamespaceForListNamespacesOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s NamespaceForListNamespacesOutput) GoString() string {
+	return s.String()
+}
+
+// SetCreateTime sets the CreateTime field's value.
+func (s *NamespaceForListNamespacesOutput) SetCreateTime(v string) *NamespaceForListNamespacesOutput {
+	s.CreateTime = &v
+	return s
+}
+
+// SetDescription sets the Description field's value.
+func (s *NamespaceForListNamespacesOutput) SetDescription(v string) *NamespaceForListNamespacesOutput {
+	s.Description = &v
+	return s
+}
+
+// SetNamespaceId sets the NamespaceId field's value.
+func (s *NamespaceForListNamespacesOutput) SetNamespaceId(v string) *NamespaceForListNamespacesOutput {
+	s.NamespaceId = &v
+	return s
+}
+
+// SetNamespaceName sets the NamespaceName field's value.
+func (s *NamespaceForListNamespacesOutput) SetNamespaceName(v string) *NamespaceForListNamespacesOutput {
+	s.NamespaceName = &v
+	return s
+}
+
+// SetProjectName sets the ProjectName field's value.
+func (s *NamespaceForListNamespacesOutput) SetProjectName(v string) *NamespaceForListNamespacesOutput {
+	s.ProjectName = &v
+	return s
+}
+
+// SetTags sets the Tags field's value.
+func (s *NamespaceForListNamespacesOutput) SetTags(v []*TagForListNamespacesOutput) *NamespaceForListNamespacesOutput {
+	s.Tags = v
+	return s
+}
+
+// SetTrn sets the Trn field's value.
+func (s *NamespaceForListNamespacesOutput) SetTrn(v string) *NamespaceForListNamespacesOutput {
+	s.Trn = &v
+	return s
+}
+
+// SetUpdateTime sets the UpdateTime field's value.
+func (s *NamespaceForListNamespacesOutput) SetUpdateTime(v string) *NamespaceForListNamespacesOutput {
+	s.UpdateTime = &v
+	return s
+}
+
+type TagFilterForListNamespacesInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Key *string `type:"string" json:",omitempty"`
+
+	Values []*string `type:"list" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s TagFilterForListNamespacesInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagFilterForListNamespacesInput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagFilterForListNamespacesInput) SetKey(v string) *TagFilterForListNamespacesInput {
+	s.Key = &v
+	return s
+}
+
+// SetValues sets the Values field's value.
+func (s *TagFilterForListNamespacesInput) SetValues(v []*string) *TagFilterForListNamespacesInput {
+	s.Values = v
+	return s
+}
+
+type TagForListNamespacesOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Key *string `type:"string" json:",omitempty"`
+
+	Value *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s TagForListNamespacesOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagForListNamespacesOutput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagForListNamespacesOutput) SetKey(v string) *TagForListNamespacesOutput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *TagForListNamespacesOutput) SetValue(v string) *TagForListNamespacesOutput {
+	s.Value = &v
 	return s
 }

@@ -214,6 +214,8 @@ type GetResourceOauth2TokenInput struct {
 
 	RedirectUrl *string `type:"string" json:",omitempty"`
 
+	ResourceOauth2ReturnUrl *string `type:"string" json:",omitempty"`
+
 	Scopes []*string `type:"list" json:",omitempty"`
 }
 
@@ -282,6 +284,12 @@ func (s *GetResourceOauth2TokenInput) SetProviderName(v string) *GetResourceOaut
 // SetRedirectUrl sets the RedirectUrl field's value.
 func (s *GetResourceOauth2TokenInput) SetRedirectUrl(v string) *GetResourceOauth2TokenInput {
 	s.RedirectUrl = &v
+	return s
+}
+
+// SetResourceOauth2ReturnUrl sets the ResourceOauth2ReturnUrl field's value.
+func (s *GetResourceOauth2TokenInput) SetResourceOauth2ReturnUrl(v string) *GetResourceOauth2TokenInput {
+	s.ResourceOauth2ReturnUrl = &v
 	return s
 }
 

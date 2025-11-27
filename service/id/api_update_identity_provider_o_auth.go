@@ -416,6 +416,8 @@ type UpdateIdentityProviderOAuthOutput struct {
 
 	Name *string `type:"string" json:",omitempty"`
 
+	Provider *string `type:"string" json:",omitempty"`
+
 	ProviderOptions *ProviderOptionsForUpdateIdentityProviderOAuthOutput `type:"structure" json:",omitempty"`
 
 	ScopesList []*string `type:"list" json:",omitempty"`
@@ -472,6 +474,12 @@ func (s *UpdateIdentityProviderOAuthOutput) SetIdAttribute(v string) *UpdateIden
 // SetName sets the Name field's value.
 func (s *UpdateIdentityProviderOAuthOutput) SetName(v string) *UpdateIdentityProviderOAuthOutput {
 	s.Name = &v
+	return s
+}
+
+// SetProvider sets the Provider field's value.
+func (s *UpdateIdentityProviderOAuthOutput) SetProvider(v string) *UpdateIdentityProviderOAuthOutput {
+	s.Provider = &v
 	return s
 }
 

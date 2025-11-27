@@ -182,6 +182,8 @@ type CreateUsersCSVOutput struct {
 
 	Errors []*string `type:"list"`
 
+	ErrorsStructured []*ErrorsStructuredForCreateUsersCSVOutput `type:"list"`
+
 	FailureCount *int32 `type:"int32"`
 
 	SuccessCount *int32 `type:"int32"`
@@ -205,6 +207,12 @@ func (s *CreateUsersCSVOutput) SetErrors(v []*string) *CreateUsersCSVOutput {
 	return s
 }
 
+// SetErrorsStructured sets the ErrorsStructured field's value.
+func (s *CreateUsersCSVOutput) SetErrorsStructured(v []*ErrorsStructuredForCreateUsersCSVOutput) *CreateUsersCSVOutput {
+	s.ErrorsStructured = v
+	return s
+}
+
 // SetFailureCount sets the FailureCount field's value.
 func (s *CreateUsersCSVOutput) SetFailureCount(v int32) *CreateUsersCSVOutput {
 	s.FailureCount = &v
@@ -220,5 +228,43 @@ func (s *CreateUsersCSVOutput) SetSuccessCount(v int32) *CreateUsersCSVOutput {
 // SetSuccessfulUids sets the SuccessfulUids field's value.
 func (s *CreateUsersCSVOutput) SetSuccessfulUids(v []*string) *CreateUsersCSVOutput {
 	s.SuccessfulUids = v
+	return s
+}
+
+type ErrorsStructuredForCreateUsersCSVOutput struct {
+	_ struct{} `type:"structure"`
+
+	Error *string `type:"string"`
+
+	Field *string `type:"string"`
+
+	Index *int32 `type:"int32"`
+}
+
+// String returns the string representation
+func (s ErrorsStructuredForCreateUsersCSVOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ErrorsStructuredForCreateUsersCSVOutput) GoString() string {
+	return s.String()
+}
+
+// SetError sets the Error field's value.
+func (s *ErrorsStructuredForCreateUsersCSVOutput) SetError(v string) *ErrorsStructuredForCreateUsersCSVOutput {
+	s.Error = &v
+	return s
+}
+
+// SetField sets the Field field's value.
+func (s *ErrorsStructuredForCreateUsersCSVOutput) SetField(v string) *ErrorsStructuredForCreateUsersCSVOutput {
+	s.Field = &v
+	return s
+}
+
+// SetIndex sets the Index field's value.
+func (s *ErrorsStructuredForCreateUsersCSVOutput) SetIndex(v int32) *ErrorsStructuredForCreateUsersCSVOutput {
+	s.Index = &v
 	return s
 }

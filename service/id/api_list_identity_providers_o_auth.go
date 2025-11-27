@@ -158,6 +158,8 @@ type DataForListIdentityProvidersOAuthOutput struct {
 
 	Name *string `type:"string" json:",omitempty"`
 
+	Provider *string `type:"string" json:",omitempty"`
+
 	ProviderOptions *ProviderOptionsForListIdentityProvidersOAuthOutput `type:"structure" json:",omitempty"`
 
 	ScopesList []*string `type:"list" json:",omitempty"`
@@ -214,6 +216,12 @@ func (s *DataForListIdentityProvidersOAuthOutput) SetIdAttribute(v string) *Data
 // SetName sets the Name field's value.
 func (s *DataForListIdentityProvidersOAuthOutput) SetName(v string) *DataForListIdentityProvidersOAuthOutput {
 	s.Name = &v
+	return s
+}
+
+// SetProvider sets the Provider field's value.
+func (s *DataForListIdentityProvidersOAuthOutput) SetProvider(v string) *DataForListIdentityProvidersOAuthOutput {
+	s.Provider = &v
 	return s
 }
 

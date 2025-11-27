@@ -158,6 +158,8 @@ type DataForListIdentityProvidersOIDCOutput struct {
 
 	Name *string `type:"string" json:",omitempty"`
 
+	Provider *string `type:"string" json:",omitempty"`
+
 	ProviderOptions *ProviderOptionsForListIdentityProvidersOIDCOutput `type:"structure" json:",omitempty"`
 
 	ScopesList []*string `type:"list" json:",omitempty"`
@@ -210,6 +212,12 @@ func (s *DataForListIdentityProvidersOIDCOutput) SetIssuer(v string) *DataForLis
 // SetName sets the Name field's value.
 func (s *DataForListIdentityProvidersOIDCOutput) SetName(v string) *DataForListIdentityProvidersOIDCOutput {
 	s.Name = &v
+	return s
+}
+
+// SetProvider sets the Provider field's value.
+func (s *DataForListIdentityProvidersOIDCOutput) SetProvider(v string) *DataForListIdentityProvidersOIDCOutput {
+	s.Provider = &v
 	return s
 }
 

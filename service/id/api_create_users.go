@@ -194,6 +194,8 @@ type CreateUsersOutput struct {
 
 	Errors []*string `type:"list" json:",omitempty"`
 
+	ErrorsStructured []*ErrorsStructuredForCreateUsersOutput `type:"list" json:",omitempty"`
+
 	FailureCount *int32 `type:"int32" json:",omitempty"`
 
 	SuccessCount *int32 `type:"int32" json:",omitempty"`
@@ -217,6 +219,12 @@ func (s *CreateUsersOutput) SetErrors(v []*string) *CreateUsersOutput {
 	return s
 }
 
+// SetErrorsStructured sets the ErrorsStructured field's value.
+func (s *CreateUsersOutput) SetErrorsStructured(v []*ErrorsStructuredForCreateUsersOutput) *CreateUsersOutput {
+	s.ErrorsStructured = v
+	return s
+}
+
 // SetFailureCount sets the FailureCount field's value.
 func (s *CreateUsersOutput) SetFailureCount(v int32) *CreateUsersOutput {
 	s.FailureCount = &v
@@ -235,8 +243,48 @@ func (s *CreateUsersOutput) SetSuccessfulUids(v []*string) *CreateUsersOutput {
 	return s
 }
 
+type ErrorsStructuredForCreateUsersOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Error *string `type:"string" json:",omitempty"`
+
+	Field *string `type:"string" json:",omitempty"`
+
+	Index *int32 `type:"int32" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s ErrorsStructuredForCreateUsersOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ErrorsStructuredForCreateUsersOutput) GoString() string {
+	return s.String()
+}
+
+// SetError sets the Error field's value.
+func (s *ErrorsStructuredForCreateUsersOutput) SetError(v string) *ErrorsStructuredForCreateUsersOutput {
+	s.Error = &v
+	return s
+}
+
+// SetField sets the Field field's value.
+func (s *ErrorsStructuredForCreateUsersOutput) SetField(v string) *ErrorsStructuredForCreateUsersOutput {
+	s.Field = &v
+	return s
+}
+
+// SetIndex sets the Index field's value.
+func (s *ErrorsStructuredForCreateUsersOutput) SetIndex(v int32) *ErrorsStructuredForCreateUsersOutput {
+	s.Index = &v
+	return s
+}
+
 type UserForCreateUsersInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
+
+	Birthdate *string `type:"string" json:",omitempty"`
 
 	Email *string `type:"string" json:",omitempty"`
 
@@ -244,11 +292,17 @@ type UserForCreateUsersInput struct {
 
 	FamilyName *string `type:"string" json:",omitempty"`
 
+	Gender *string `type:"string" json:",omitempty"`
+
 	GivenName *string `type:"string" json:",omitempty"`
+
+	Locale *string `type:"string" json:",omitempty"`
 
 	MiddleName *string `type:"string" json:",omitempty"`
 
 	Name *string `type:"string" json:",omitempty"`
+
+	Nickname *string `type:"string" json:",omitempty"`
 
 	Password *string `type:"string" json:",omitempty"`
 
@@ -256,9 +310,17 @@ type UserForCreateUsersInput struct {
 
 	PhoneNumberVerified *bool `type:"boolean" json:",omitempty"`
 
+	Picture *string `type:"string" json:",omitempty"`
+
 	PreferredUsername *string `type:"string" json:",omitempty"`
 
+	Profile *string `type:"string" json:",omitempty"`
+
 	UserMetadata *string `type:"string" json:",omitempty"`
+
+	Website *string `type:"string" json:",omitempty"`
+
+	Zoneinfo *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -269,6 +331,12 @@ func (s UserForCreateUsersInput) String() string {
 // GoString returns the string representation
 func (s UserForCreateUsersInput) GoString() string {
 	return s.String()
+}
+
+// SetBirthdate sets the Birthdate field's value.
+func (s *UserForCreateUsersInput) SetBirthdate(v string) *UserForCreateUsersInput {
+	s.Birthdate = &v
+	return s
 }
 
 // SetEmail sets the Email field's value.
@@ -289,9 +357,21 @@ func (s *UserForCreateUsersInput) SetFamilyName(v string) *UserForCreateUsersInp
 	return s
 }
 
+// SetGender sets the Gender field's value.
+func (s *UserForCreateUsersInput) SetGender(v string) *UserForCreateUsersInput {
+	s.Gender = &v
+	return s
+}
+
 // SetGivenName sets the GivenName field's value.
 func (s *UserForCreateUsersInput) SetGivenName(v string) *UserForCreateUsersInput {
 	s.GivenName = &v
+	return s
+}
+
+// SetLocale sets the Locale field's value.
+func (s *UserForCreateUsersInput) SetLocale(v string) *UserForCreateUsersInput {
+	s.Locale = &v
 	return s
 }
 
@@ -304,6 +384,12 @@ func (s *UserForCreateUsersInput) SetMiddleName(v string) *UserForCreateUsersInp
 // SetName sets the Name field's value.
 func (s *UserForCreateUsersInput) SetName(v string) *UserForCreateUsersInput {
 	s.Name = &v
+	return s
+}
+
+// SetNickname sets the Nickname field's value.
+func (s *UserForCreateUsersInput) SetNickname(v string) *UserForCreateUsersInput {
+	s.Nickname = &v
 	return s
 }
 
@@ -325,14 +411,38 @@ func (s *UserForCreateUsersInput) SetPhoneNumberVerified(v bool) *UserForCreateU
 	return s
 }
 
+// SetPicture sets the Picture field's value.
+func (s *UserForCreateUsersInput) SetPicture(v string) *UserForCreateUsersInput {
+	s.Picture = &v
+	return s
+}
+
 // SetPreferredUsername sets the PreferredUsername field's value.
 func (s *UserForCreateUsersInput) SetPreferredUsername(v string) *UserForCreateUsersInput {
 	s.PreferredUsername = &v
 	return s
 }
 
+// SetProfile sets the Profile field's value.
+func (s *UserForCreateUsersInput) SetProfile(v string) *UserForCreateUsersInput {
+	s.Profile = &v
+	return s
+}
+
 // SetUserMetadata sets the UserMetadata field's value.
 func (s *UserForCreateUsersInput) SetUserMetadata(v string) *UserForCreateUsersInput {
 	s.UserMetadata = &v
+	return s
+}
+
+// SetWebsite sets the Website field's value.
+func (s *UserForCreateUsersInput) SetWebsite(v string) *UserForCreateUsersInput {
+	s.Website = &v
+	return s
+}
+
+// SetZoneinfo sets the Zoneinfo field's value.
+func (s *UserForCreateUsersInput) SetZoneinfo(v string) *UserForCreateUsersInput {
+	s.Zoneinfo = &v
 	return s
 }

@@ -164,6 +164,8 @@ type CreateIdentityProviderOAuthInput struct {
 	// Name is a required field
 	Name *string `type:"string" json:",omitempty" required:"true"`
 
+	Provider *string `type:"string" json:",omitempty"`
+
 	ProviderOptions *ProviderOptionsForCreateIdentityProviderOAuthInput `type:"structure" json:",omitempty"`
 
 	ScopesList []*string `type:"list" json:",omitempty"`
@@ -267,6 +269,12 @@ func (s *CreateIdentityProviderOAuthInput) SetName(v string) *CreateIdentityProv
 	return s
 }
 
+// SetProvider sets the Provider field's value.
+func (s *CreateIdentityProviderOAuthInput) SetProvider(v string) *CreateIdentityProviderOAuthInput {
+	s.Provider = &v
+	return s
+}
+
 // SetProviderOptions sets the ProviderOptions field's value.
 func (s *CreateIdentityProviderOAuthInput) SetProviderOptions(v *ProviderOptionsForCreateIdentityProviderOAuthInput) *CreateIdentityProviderOAuthInput {
 	s.ProviderOptions = v
@@ -319,6 +327,8 @@ type CreateIdentityProviderOAuthOutput struct {
 	IdAttribute *string `type:"string" json:",omitempty"`
 
 	Name *string `type:"string" json:",omitempty"`
+
+	Provider *string `type:"string" json:",omitempty"`
 
 	ProviderOptions *ProviderOptionsForCreateIdentityProviderOAuthOutput `type:"structure" json:",omitempty"`
 
@@ -376,6 +386,12 @@ func (s *CreateIdentityProviderOAuthOutput) SetIdAttribute(v string) *CreateIden
 // SetName sets the Name field's value.
 func (s *CreateIdentityProviderOAuthOutput) SetName(v string) *CreateIdentityProviderOAuthOutput {
 	s.Name = &v
+	return s
+}
+
+// SetProvider sets the Provider field's value.
+func (s *CreateIdentityProviderOAuthOutput) SetProvider(v string) *CreateIdentityProviderOAuthOutput {
+	s.Provider = &v
 	return s
 }
 

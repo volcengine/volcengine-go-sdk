@@ -149,6 +149,10 @@ type CreateNamespaceInput struct {
 	Description *string `type:"string" json:",omitempty"`
 
 	NamespaceName *string `type:"string" json:",omitempty"`
+
+	ProjectName *string `type:"string" json:",omitempty"`
+
+	Tags []*TagForCreateNamespaceInput `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -173,16 +177,38 @@ func (s *CreateNamespaceInput) SetNamespaceName(v string) *CreateNamespaceInput 
 	return s
 }
 
+// SetProjectName sets the ProjectName field's value.
+func (s *CreateNamespaceInput) SetProjectName(v string) *CreateNamespaceInput {
+	s.ProjectName = &v
+	return s
+}
+
+// SetTags sets the Tags field's value.
+func (s *CreateNamespaceInput) SetTags(v []*TagForCreateNamespaceInput) *CreateNamespaceInput {
+	s.Tags = v
+	return s
+}
+
 type CreateNamespaceOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
+	CreateTime *string `type:"string" json:",omitempty"`
+
+	Description *string `type:"string" json:",omitempty"`
+
 	NamespaceId *string `type:"string" json:",omitempty"`
 
 	NamespaceName *string `type:"string" json:",omitempty"`
 
+	ProjectName *string `type:"string" json:",omitempty"`
+
+	Tags []*TagForCreateNamespaceOutput `type:"list" json:",omitempty"`
+
 	Trn *string `type:"string" json:",omitempty"`
+
+	UpdateTime *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -193,6 +219,18 @@ func (s CreateNamespaceOutput) String() string {
 // GoString returns the string representation
 func (s CreateNamespaceOutput) GoString() string {
 	return s.String()
+}
+
+// SetCreateTime sets the CreateTime field's value.
+func (s *CreateNamespaceOutput) SetCreateTime(v string) *CreateNamespaceOutput {
+	s.CreateTime = &v
+	return s
+}
+
+// SetDescription sets the Description field's value.
+func (s *CreateNamespaceOutput) SetDescription(v string) *CreateNamespaceOutput {
+	s.Description = &v
+	return s
 }
 
 // SetNamespaceId sets the NamespaceId field's value.
@@ -207,8 +245,86 @@ func (s *CreateNamespaceOutput) SetNamespaceName(v string) *CreateNamespaceOutpu
 	return s
 }
 
+// SetProjectName sets the ProjectName field's value.
+func (s *CreateNamespaceOutput) SetProjectName(v string) *CreateNamespaceOutput {
+	s.ProjectName = &v
+	return s
+}
+
+// SetTags sets the Tags field's value.
+func (s *CreateNamespaceOutput) SetTags(v []*TagForCreateNamespaceOutput) *CreateNamespaceOutput {
+	s.Tags = v
+	return s
+}
+
 // SetTrn sets the Trn field's value.
 func (s *CreateNamespaceOutput) SetTrn(v string) *CreateNamespaceOutput {
 	s.Trn = &v
+	return s
+}
+
+// SetUpdateTime sets the UpdateTime field's value.
+func (s *CreateNamespaceOutput) SetUpdateTime(v string) *CreateNamespaceOutput {
+	s.UpdateTime = &v
+	return s
+}
+
+type TagForCreateNamespaceInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Key *string `type:"string" json:",omitempty"`
+
+	Value *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s TagForCreateNamespaceInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagForCreateNamespaceInput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagForCreateNamespaceInput) SetKey(v string) *TagForCreateNamespaceInput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *TagForCreateNamespaceInput) SetValue(v string) *TagForCreateNamespaceInput {
+	s.Value = &v
+	return s
+}
+
+type TagForCreateNamespaceOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Key *string `type:"string" json:",omitempty"`
+
+	Value *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s TagForCreateNamespaceOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagForCreateNamespaceOutput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagForCreateNamespaceOutput) SetKey(v string) *TagForCreateNamespaceOutput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *TagForCreateNamespaceOutput) SetValue(v string) *TagForCreateNamespaceOutput {
+	s.Value = &v
 	return s
 }

@@ -146,12 +146,17 @@ func (c *ID) GrantPermissionWithContext(ctx volcengine.Context, input *GrantPerm
 type GrantPermissionInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	// NamespaceName is a required field
-	NamespaceName *string `type:"string" json:",omitempty" required:"true"`
+	Description *string `type:"string" json:",omitempty"`
+
+	Effect *string `type:"string" json:",omitempty"`
+
+	NamespaceName *string `type:"string" json:",omitempty"`
 
 	Operation *OperationForGrantPermissionInput `type:"structure" json:",omitempty"`
 
 	OriginalCallers []*OriginalCallerForGrantPermissionInput `type:"list" json:",omitempty"`
+
+	PolicyName *string `type:"string" json:",omitempty"`
 
 	Principal *PrincipalForGrantPermissionInput `type:"structure" json:",omitempty"`
 
@@ -168,17 +173,16 @@ func (s GrantPermissionInput) GoString() string {
 	return s.String()
 }
 
-// Validate inspects the fields of the type to determine if they are valid.
-func (s *GrantPermissionInput) Validate() error {
-	invalidParams := request.ErrInvalidParams{Context: "GrantPermissionInput"}
-	if s.NamespaceName == nil {
-		invalidParams.Add(request.NewErrParamRequired("NamespaceName"))
-	}
+// SetDescription sets the Description field's value.
+func (s *GrantPermissionInput) SetDescription(v string) *GrantPermissionInput {
+	s.Description = &v
+	return s
+}
 
-	if invalidParams.Len() > 0 {
-		return invalidParams
-	}
-	return nil
+// SetEffect sets the Effect field's value.
+func (s *GrantPermissionInput) SetEffect(v string) *GrantPermissionInput {
+	s.Effect = &v
+	return s
 }
 
 // SetNamespaceName sets the NamespaceName field's value.
@@ -199,6 +203,12 @@ func (s *GrantPermissionInput) SetOriginalCallers(v []*OriginalCallerForGrantPer
 	return s
 }
 
+// SetPolicyName sets the PolicyName field's value.
+func (s *GrantPermissionInput) SetPolicyName(v string) *GrantPermissionInput {
+	s.PolicyName = &v
+	return s
+}
+
 // SetPrincipal sets the Principal field's value.
 func (s *GrantPermissionInput) SetPrincipal(v *PrincipalForGrantPermissionInput) *GrantPermissionInput {
 	s.Principal = v
@@ -216,11 +226,21 @@ type GrantPermissionOutput struct {
 
 	Metadata *response.ResponseMetadata
 
+	CreateTime *string `type:"string" json:",omitempty"`
+
+	Description *string `type:"string" json:",omitempty"`
+
 	NamespaceId *string `type:"string" json:",omitempty"`
 
 	Policy *string `type:"string" json:",omitempty"`
 
 	PolicyId *string `type:"string" json:",omitempty"`
+
+	PolicyName *string `type:"string" json:",omitempty"`
+
+	Trn *string `type:"string" json:",omitempty"`
+
+	UpdateTime *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -231,6 +251,18 @@ func (s GrantPermissionOutput) String() string {
 // GoString returns the string representation
 func (s GrantPermissionOutput) GoString() string {
 	return s.String()
+}
+
+// SetCreateTime sets the CreateTime field's value.
+func (s *GrantPermissionOutput) SetCreateTime(v string) *GrantPermissionOutput {
+	s.CreateTime = &v
+	return s
+}
+
+// SetDescription sets the Description field's value.
+func (s *GrantPermissionOutput) SetDescription(v string) *GrantPermissionOutput {
+	s.Description = &v
+	return s
 }
 
 // SetNamespaceId sets the NamespaceId field's value.
@@ -248,6 +280,24 @@ func (s *GrantPermissionOutput) SetPolicy(v string) *GrantPermissionOutput {
 // SetPolicyId sets the PolicyId field's value.
 func (s *GrantPermissionOutput) SetPolicyId(v string) *GrantPermissionOutput {
 	s.PolicyId = &v
+	return s
+}
+
+// SetPolicyName sets the PolicyName field's value.
+func (s *GrantPermissionOutput) SetPolicyName(v string) *GrantPermissionOutput {
+	s.PolicyName = &v
+	return s
+}
+
+// SetTrn sets the Trn field's value.
+func (s *GrantPermissionOutput) SetTrn(v string) *GrantPermissionOutput {
+	s.Trn = &v
+	return s
+}
+
+// SetUpdateTime sets the UpdateTime field's value.
+func (s *GrantPermissionOutput) SetUpdateTime(v string) *GrantPermissionOutput {
+	s.UpdateTime = &v
 	return s
 }
 
