@@ -144,6 +144,10 @@ type AddZoneMappingForModifyNetworkLoadBalancerZonesInput struct {
 
 	EipId *string `type:"string"`
 
+	EipIsp *string `type:"string"`
+
+	EipSpecificEgress *string `type:"string"`
+
 	Ipv4Address *string `type:"string"`
 
 	SubnetId *string `type:"string"`
@@ -164,6 +168,18 @@ func (s AddZoneMappingForModifyNetworkLoadBalancerZonesInput) GoString() string 
 // SetEipId sets the EipId field's value.
 func (s *AddZoneMappingForModifyNetworkLoadBalancerZonesInput) SetEipId(v string) *AddZoneMappingForModifyNetworkLoadBalancerZonesInput {
 	s.EipId = &v
+	return s
+}
+
+// SetEipIsp sets the EipIsp field's value.
+func (s *AddZoneMappingForModifyNetworkLoadBalancerZonesInput) SetEipIsp(v string) *AddZoneMappingForModifyNetworkLoadBalancerZonesInput {
+	s.EipIsp = &v
+	return s
+}
+
+// SetEipSpecificEgress sets the EipSpecificEgress field's value.
+func (s *AddZoneMappingForModifyNetworkLoadBalancerZonesInput) SetEipSpecificEgress(v string) *AddZoneMappingForModifyNetworkLoadBalancerZonesInput {
+	s.EipSpecificEgress = &v
 	return s
 }
 
