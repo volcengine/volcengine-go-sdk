@@ -86,6 +86,14 @@ type CLOUDMONITORAPI interface {
 	CreateNotifyTemplateWithContext(volcengine.Context, *CreateNotifyTemplateInput, ...request.Option) (*CreateNotifyTemplateOutput, error)
 	CreateNotifyTemplateRequest(*CreateNotifyTemplateInput) (*request.Request, *CreateNotifyTemplateOutput)
 
+	CreateO11yAgentECSDeployTaskCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateO11yAgentECSDeployTaskCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateO11yAgentECSDeployTaskCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateO11yAgentECSDeployTask(*CreateO11yAgentECSDeployTaskInput) (*CreateO11yAgentECSDeployTaskOutput, error)
+	CreateO11yAgentECSDeployTaskWithContext(volcengine.Context, *CreateO11yAgentECSDeployTaskInput, ...request.Option) (*CreateO11yAgentECSDeployTaskOutput, error)
+	CreateO11yAgentECSDeployTaskRequest(*CreateO11yAgentECSDeployTaskInput) (*request.Request, *CreateO11yAgentECSDeployTaskOutput)
+
 	CreateObjectGroupCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	CreateObjectGroupCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	CreateObjectGroupCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -238,6 +246,14 @@ type CLOUDMONITORAPI interface {
 	GetMetricDataWithContext(volcengine.Context, *GetMetricDataInput, ...request.Option) (*GetMetricDataOutput, error)
 	GetMetricDataRequest(*GetMetricDataInput) (*request.Request, *GetMetricDataOutput)
 
+	GetO11yAgentECSAutoInstallCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	GetO11yAgentECSAutoInstallCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	GetO11yAgentECSAutoInstallCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	GetO11yAgentECSAutoInstall(*GetO11yAgentECSAutoInstallInput) (*GetO11yAgentECSAutoInstallOutput, error)
+	GetO11yAgentECSAutoInstallWithContext(volcengine.Context, *GetO11yAgentECSAutoInstallInput, ...request.Option) (*GetO11yAgentECSAutoInstallOutput, error)
+	GetO11yAgentECSAutoInstallRequest(*GetO11yAgentECSAutoInstallInput) (*request.Request, *GetO11yAgentECSAutoInstallOutput)
+
 	GetTopDataCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	GetTopDataCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	GetTopDataCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -334,6 +350,38 @@ type CLOUDMONITORAPI interface {
 	ListNotifyTemplatesWithContext(volcengine.Context, *ListNotifyTemplatesInput, ...request.Option) (*ListNotifyTemplatesOutput, error)
 	ListNotifyTemplatesRequest(*ListNotifyTemplatesInput) (*request.Request, *ListNotifyTemplatesOutput)
 
+	ListO11yAgentECSInstanceMetadataCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListO11yAgentECSInstanceMetadataCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListO11yAgentECSInstanceMetadataCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListO11yAgentECSInstanceMetadata(*ListO11yAgentECSInstanceMetadataInput) (*ListO11yAgentECSInstanceMetadataOutput, error)
+	ListO11yAgentECSInstanceMetadataWithContext(volcengine.Context, *ListO11yAgentECSInstanceMetadataInput, ...request.Option) (*ListO11yAgentECSInstanceMetadataOutput, error)
+	ListO11yAgentECSInstanceMetadataRequest(*ListO11yAgentECSInstanceMetadataInput) (*request.Request, *ListO11yAgentECSInstanceMetadataOutput)
+
+	ListO11yAgentECSInstancesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListO11yAgentECSInstancesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListO11yAgentECSInstancesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListO11yAgentECSInstances(*ListO11yAgentECSInstancesInput) (*ListO11yAgentECSInstancesOutput, error)
+	ListO11yAgentECSInstancesWithContext(volcengine.Context, *ListO11yAgentECSInstancesInput, ...request.Option) (*ListO11yAgentECSInstancesOutput, error)
+	ListO11yAgentECSInstancesRequest(*ListO11yAgentECSInstancesInput) (*request.Request, *ListO11yAgentECSInstancesOutput)
+
+	ListO11yAgentECSProcessConfigsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListO11yAgentECSProcessConfigsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListO11yAgentECSProcessConfigsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListO11yAgentECSProcessConfigs(*ListO11yAgentECSProcessConfigsInput) (*ListO11yAgentECSProcessConfigsOutput, error)
+	ListO11yAgentECSProcessConfigsWithContext(volcengine.Context, *ListO11yAgentECSProcessConfigsInput, ...request.Option) (*ListO11yAgentECSProcessConfigsOutput, error)
+	ListO11yAgentECSProcessConfigsRequest(*ListO11yAgentECSProcessConfigsInput) (*request.Request, *ListO11yAgentECSProcessConfigsOutput)
+
+	ListO11yAgentVpcEndpointsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListO11yAgentVpcEndpointsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListO11yAgentVpcEndpointsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListO11yAgentVpcEndpoints(*ListO11yAgentVpcEndpointsInput) (*ListO11yAgentVpcEndpointsOutput, error)
+	ListO11yAgentVpcEndpointsWithContext(volcengine.Context, *ListO11yAgentVpcEndpointsInput, ...request.Option) (*ListO11yAgentVpcEndpointsOutput, error)
+	ListO11yAgentVpcEndpointsRequest(*ListO11yAgentVpcEndpointsInput) (*request.Request, *ListO11yAgentVpcEndpointsOutput)
+
 	ListObjectGroupsCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ListObjectGroupsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	ListObjectGroupsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -405,6 +453,14 @@ type CLOUDMONITORAPI interface {
 	ModifyStateOfSilencePolicyByIds(*ModifyStateOfSilencePolicyByIdsInput) (*ModifyStateOfSilencePolicyByIdsOutput, error)
 	ModifyStateOfSilencePolicyByIdsWithContext(volcengine.Context, *ModifyStateOfSilencePolicyByIdsInput, ...request.Option) (*ModifyStateOfSilencePolicyByIdsOutput, error)
 	ModifyStateOfSilencePolicyByIdsRequest(*ModifyStateOfSilencePolicyByIdsInput) (*request.Request, *ModifyStateOfSilencePolicyByIdsOutput)
+
+	PerformO11yAgentECSDeployTaskCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	PerformO11yAgentECSDeployTaskCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	PerformO11yAgentECSDeployTaskCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	PerformO11yAgentECSDeployTask(*PerformO11yAgentECSDeployTaskInput) (*PerformO11yAgentECSDeployTaskOutput, error)
+	PerformO11yAgentECSDeployTaskWithContext(volcengine.Context, *PerformO11yAgentECSDeployTaskInput, ...request.Option) (*PerformO11yAgentECSDeployTaskOutput, error)
+	PerformO11yAgentECSDeployTaskRequest(*PerformO11yAgentECSDeployTaskInput) (*request.Request, *PerformO11yAgentECSDeployTaskOutput)
 
 	SetStateOfRulesByIdsCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	SetStateOfRulesByIdsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -493,6 +549,22 @@ type CLOUDMONITORAPI interface {
 	UpdateNotifyTemplate(*UpdateNotifyTemplateInput) (*UpdateNotifyTemplateOutput, error)
 	UpdateNotifyTemplateWithContext(volcengine.Context, *UpdateNotifyTemplateInput, ...request.Option) (*UpdateNotifyTemplateOutput, error)
 	UpdateNotifyTemplateRequest(*UpdateNotifyTemplateInput) (*request.Request, *UpdateNotifyTemplateOutput)
+
+	UpdateO11yAgentECSAutoInstallCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	UpdateO11yAgentECSAutoInstallCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	UpdateO11yAgentECSAutoInstallCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	UpdateO11yAgentECSAutoInstall(*UpdateO11yAgentECSAutoInstallInput) (*UpdateO11yAgentECSAutoInstallOutput, error)
+	UpdateO11yAgentECSAutoInstallWithContext(volcengine.Context, *UpdateO11yAgentECSAutoInstallInput, ...request.Option) (*UpdateO11yAgentECSAutoInstallOutput, error)
+	UpdateO11yAgentECSAutoInstallRequest(*UpdateO11yAgentECSAutoInstallInput) (*request.Request, *UpdateO11yAgentECSAutoInstallOutput)
+
+	UpdateO11yAgentECSProcessConfigCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	UpdateO11yAgentECSProcessConfigCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	UpdateO11yAgentECSProcessConfigCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	UpdateO11yAgentECSProcessConfig(*UpdateO11yAgentECSProcessConfigInput) (*UpdateO11yAgentECSProcessConfigOutput, error)
+	UpdateO11yAgentECSProcessConfigWithContext(volcengine.Context, *UpdateO11yAgentECSProcessConfigInput, ...request.Option) (*UpdateO11yAgentECSProcessConfigOutput, error)
+	UpdateO11yAgentECSProcessConfigRequest(*UpdateO11yAgentECSProcessConfigInput) (*request.Request, *UpdateO11yAgentECSProcessConfigOutput)
 
 	UpdateObjectGroupCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	UpdateObjectGroupCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
