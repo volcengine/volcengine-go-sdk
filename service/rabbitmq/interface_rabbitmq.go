@@ -38,6 +38,22 @@ type RABBITMQAPI interface {
 	AddTagsToResourceWithContext(volcengine.Context, *AddTagsToResourceInput, ...request.Option) (*AddTagsToResourceOutput, error)
 	AddTagsToResourceRequest(*AddTagsToResourceInput) (*request.Request, *AddTagsToResourceOutput)
 
+	AssociateAllowListCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	AssociateAllowListCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	AssociateAllowListCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	AssociateAllowList(*AssociateAllowListInput) (*AssociateAllowListOutput, error)
+	AssociateAllowListWithContext(volcengine.Context, *AssociateAllowListInput, ...request.Option) (*AssociateAllowListOutput, error)
+	AssociateAllowListRequest(*AssociateAllowListInput) (*request.Request, *AssociateAllowListOutput)
+
+	CreateAllowListCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateAllowListCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateAllowListCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateAllowList(*CreateAllowListInput) (*CreateAllowListOutput, error)
+	CreateAllowListWithContext(volcengine.Context, *CreateAllowListInput, ...request.Option) (*CreateAllowListOutput, error)
+	CreateAllowListRequest(*CreateAllowListInput) (*request.Request, *CreateAllowListOutput)
+
 	CreateInstanceCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	CreateInstanceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	CreateInstanceCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -53,6 +69,14 @@ type RABBITMQAPI interface {
 	CreatePublicAddress(*CreatePublicAddressInput) (*CreatePublicAddressOutput, error)
 	CreatePublicAddressWithContext(volcengine.Context, *CreatePublicAddressInput, ...request.Option) (*CreatePublicAddressOutput, error)
 	CreatePublicAddressRequest(*CreatePublicAddressInput) (*request.Request, *CreatePublicAddressOutput)
+
+	DeleteAllowListCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeleteAllowListCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeleteAllowListCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeleteAllowList(*DeleteAllowListInput) (*DeleteAllowListOutput, error)
+	DeleteAllowListWithContext(volcengine.Context, *DeleteAllowListInput, ...request.Option) (*DeleteAllowListOutput, error)
+	DeleteAllowListRequest(*DeleteAllowListInput) (*request.Request, *DeleteAllowListOutput)
 
 	DeleteInstanceCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DeleteInstanceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -70,6 +94,22 @@ type RABBITMQAPI interface {
 	DeletePublicAddressWithContext(volcengine.Context, *DeletePublicAddressInput, ...request.Option) (*DeletePublicAddressOutput, error)
 	DeletePublicAddressRequest(*DeletePublicAddressInput) (*request.Request, *DeletePublicAddressOutput)
 
+	DescribeAllowListDetailCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeAllowListDetailCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeAllowListDetailCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeAllowListDetail(*DescribeAllowListDetailInput) (*DescribeAllowListDetailOutput, error)
+	DescribeAllowListDetailWithContext(volcengine.Context, *DescribeAllowListDetailInput, ...request.Option) (*DescribeAllowListDetailOutput, error)
+	DescribeAllowListDetailRequest(*DescribeAllowListDetailInput) (*request.Request, *DescribeAllowListDetailOutput)
+
+	DescribeAllowListsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeAllowListsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeAllowListsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeAllowLists(*DescribeAllowListsInput) (*DescribeAllowListsOutput, error)
+	DescribeAllowListsWithContext(volcengine.Context, *DescribeAllowListsInput, ...request.Option) (*DescribeAllowListsOutput, error)
+	DescribeAllowListsRequest(*DescribeAllowListsInput) (*request.Request, *DescribeAllowListsOutput)
+
 	DescribeAvailabilityZonesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DescribeAvailabilityZonesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DescribeAvailabilityZonesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -77,6 +117,14 @@ type RABBITMQAPI interface {
 	DescribeAvailabilityZones(*DescribeAvailabilityZonesInput) (*DescribeAvailabilityZonesOutput, error)
 	DescribeAvailabilityZonesWithContext(volcengine.Context, *DescribeAvailabilityZonesInput, ...request.Option) (*DescribeAvailabilityZonesOutput, error)
 	DescribeAvailabilityZonesRequest(*DescribeAvailabilityZonesInput) (*request.Request, *DescribeAvailabilityZonesOutput)
+
+	DescribeInstanceConfigsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeInstanceConfigsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeInstanceConfigsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeInstanceConfigs(*DescribeInstanceConfigsInput) (*DescribeInstanceConfigsOutput, error)
+	DescribeInstanceConfigsWithContext(volcengine.Context, *DescribeInstanceConfigsInput, ...request.Option) (*DescribeInstanceConfigsOutput, error)
+	DescribeInstanceConfigsRequest(*DescribeInstanceConfigsInput) (*request.Request, *DescribeInstanceConfigsOutput)
 
 	DescribeInstanceDetailCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DescribeInstanceDetailCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -117,6 +165,22 @@ type RABBITMQAPI interface {
 	DescribeTagsByResource(*DescribeTagsByResourceInput) (*DescribeTagsByResourceOutput, error)
 	DescribeTagsByResourceWithContext(volcengine.Context, *DescribeTagsByResourceInput, ...request.Option) (*DescribeTagsByResourceOutput, error)
 	DescribeTagsByResourceRequest(*DescribeTagsByResourceInput) (*request.Request, *DescribeTagsByResourceOutput)
+
+	DisassociateAllowListCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DisassociateAllowListCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DisassociateAllowListCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DisassociateAllowList(*DisassociateAllowListInput) (*DisassociateAllowListOutput, error)
+	DisassociateAllowListWithContext(volcengine.Context, *DisassociateAllowListInput, ...request.Option) (*DisassociateAllowListOutput, error)
+	DisassociateAllowListRequest(*DisassociateAllowListInput) (*request.Request, *DisassociateAllowListOutput)
+
+	ModifyAllowListCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ModifyAllowListCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ModifyAllowListCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ModifyAllowList(*ModifyAllowListInput) (*ModifyAllowListOutput, error)
+	ModifyAllowListWithContext(volcengine.Context, *ModifyAllowListInput, ...request.Option) (*ModifyAllowListOutput, error)
+	ModifyAllowListRequest(*ModifyAllowListInput) (*request.Request, *ModifyAllowListOutput)
 
 	ModifyInstanceAttributesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ModifyInstanceAttributesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
