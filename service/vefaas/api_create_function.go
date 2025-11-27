@@ -143,8 +143,86 @@ func (c *VEFAAS) CreateFunctionWithContext(ctx volcengine.Context, input *Create
 	return out, req.Send()
 }
 
+type AsyncTaskConfigForCreateFunctionInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	DestinationConfig *DestinationConfigForCreateFunctionInput `type:"structure" json:",omitempty"`
+
+	EnableAsyncTask *bool `type:"boolean" json:",omitempty"`
+
+	MaxRetry *int32 `type:"int32" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s AsyncTaskConfigForCreateFunctionInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s AsyncTaskConfigForCreateFunctionInput) GoString() string {
+	return s.String()
+}
+
+// SetDestinationConfig sets the DestinationConfig field's value.
+func (s *AsyncTaskConfigForCreateFunctionInput) SetDestinationConfig(v *DestinationConfigForCreateFunctionInput) *AsyncTaskConfigForCreateFunctionInput {
+	s.DestinationConfig = v
+	return s
+}
+
+// SetEnableAsyncTask sets the EnableAsyncTask field's value.
+func (s *AsyncTaskConfigForCreateFunctionInput) SetEnableAsyncTask(v bool) *AsyncTaskConfigForCreateFunctionInput {
+	s.EnableAsyncTask = &v
+	return s
+}
+
+// SetMaxRetry sets the MaxRetry field's value.
+func (s *AsyncTaskConfigForCreateFunctionInput) SetMaxRetry(v int32) *AsyncTaskConfigForCreateFunctionInput {
+	s.MaxRetry = &v
+	return s
+}
+
+type AsyncTaskConfigForCreateFunctionOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	DestinationConfig *DestinationConfigForCreateFunctionOutput `type:"structure" json:",omitempty"`
+
+	EnableAsyncTask *bool `type:"boolean" json:",omitempty"`
+
+	MaxRetry *int32 `type:"int32" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s AsyncTaskConfigForCreateFunctionOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s AsyncTaskConfigForCreateFunctionOutput) GoString() string {
+	return s.String()
+}
+
+// SetDestinationConfig sets the DestinationConfig field's value.
+func (s *AsyncTaskConfigForCreateFunctionOutput) SetDestinationConfig(v *DestinationConfigForCreateFunctionOutput) *AsyncTaskConfigForCreateFunctionOutput {
+	s.DestinationConfig = v
+	return s
+}
+
+// SetEnableAsyncTask sets the EnableAsyncTask field's value.
+func (s *AsyncTaskConfigForCreateFunctionOutput) SetEnableAsyncTask(v bool) *AsyncTaskConfigForCreateFunctionOutput {
+	s.EnableAsyncTask = &v
+	return s
+}
+
+// SetMaxRetry sets the MaxRetry field's value.
+func (s *AsyncTaskConfigForCreateFunctionOutput) SetMaxRetry(v int32) *AsyncTaskConfigForCreateFunctionOutput {
+	s.MaxRetry = &v
+	return s
+}
+
 type CreateFunctionInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
+
+	AsyncTaskConfig *AsyncTaskConfigForCreateFunctionInput `type:"structure" json:",omitempty"`
 
 	Cell *string `type:"string" json:",omitempty"`
 
@@ -225,6 +303,12 @@ func (s *CreateFunctionInput) Validate() error {
 		return invalidParams
 	}
 	return nil
+}
+
+// SetAsyncTaskConfig sets the AsyncTaskConfig field's value.
+func (s *CreateFunctionInput) SetAsyncTaskConfig(v *AsyncTaskConfigForCreateFunctionInput) *CreateFunctionInput {
+	s.AsyncTaskConfig = v
+	return s
 }
 
 // SetCell sets the Cell field's value.
@@ -388,6 +472,8 @@ type CreateFunctionOutput struct {
 
 	Metadata *response.ResponseMetadata
 
+	AsyncTaskConfig *AsyncTaskConfigForCreateFunctionOutput `type:"structure" json:",omitempty"`
+
 	Cell *string `type:"string" json:",omitempty"`
 
 	CodeSize *int32 `type:"int32" json:",omitempty"`
@@ -397,6 +483,8 @@ type CreateFunctionOutput struct {
 	Command *string `type:"string" json:",omitempty"`
 
 	Cpu *int32 `type:"int32" json:",omitempty"`
+
+	CpuStrategy *string `type:"string" json:",omitempty"`
 
 	CreationTime *string `type:"string" json:",omitempty"`
 
@@ -428,6 +516,8 @@ type CreateFunctionOutput struct {
 
 	Owner *string `type:"string" json:",omitempty"`
 
+	Port *int32 `type:"int32" json:",omitempty"`
+
 	ProjectName *string `type:"string" json:",omitempty"`
 
 	RequestTimeout *int32 `type:"int32" json:",omitempty"`
@@ -435,6 +525,8 @@ type CreateFunctionOutput struct {
 	Role *string `type:"string" json:",omitempty"`
 
 	Runtime *string `type:"string" json:",omitempty"`
+
+	Source *string `type:"string" json:",omitempty"`
 
 	SourceLocation *string `type:"string" json:",omitempty"`
 
@@ -459,6 +551,12 @@ func (s CreateFunctionOutput) String() string {
 // GoString returns the string representation
 func (s CreateFunctionOutput) GoString() string {
 	return s.String()
+}
+
+// SetAsyncTaskConfig sets the AsyncTaskConfig field's value.
+func (s *CreateFunctionOutput) SetAsyncTaskConfig(v *AsyncTaskConfigForCreateFunctionOutput) *CreateFunctionOutput {
+	s.AsyncTaskConfig = v
+	return s
 }
 
 // SetCell sets the Cell field's value.
@@ -488,6 +586,12 @@ func (s *CreateFunctionOutput) SetCommand(v string) *CreateFunctionOutput {
 // SetCpu sets the Cpu field's value.
 func (s *CreateFunctionOutput) SetCpu(v int32) *CreateFunctionOutput {
 	s.Cpu = &v
+	return s
+}
+
+// SetCpuStrategy sets the CpuStrategy field's value.
+func (s *CreateFunctionOutput) SetCpuStrategy(v string) *CreateFunctionOutput {
+	s.CpuStrategy = &v
 	return s
 }
 
@@ -581,6 +685,12 @@ func (s *CreateFunctionOutput) SetOwner(v string) *CreateFunctionOutput {
 	return s
 }
 
+// SetPort sets the Port field's value.
+func (s *CreateFunctionOutput) SetPort(v int32) *CreateFunctionOutput {
+	s.Port = &v
+	return s
+}
+
 // SetProjectName sets the ProjectName field's value.
 func (s *CreateFunctionOutput) SetProjectName(v string) *CreateFunctionOutput {
 	s.ProjectName = &v
@@ -602,6 +712,12 @@ func (s *CreateFunctionOutput) SetRole(v string) *CreateFunctionOutput {
 // SetRuntime sets the Runtime field's value.
 func (s *CreateFunctionOutput) SetRuntime(v string) *CreateFunctionOutput {
 	s.Runtime = &v
+	return s
+}
+
+// SetSource sets the Source field's value.
+func (s *CreateFunctionOutput) SetSource(v string) *CreateFunctionOutput {
+	s.Source = &v
 	return s
 }
 
@@ -704,6 +820,66 @@ func (s *CredentialsForCreateFunctionOutput) SetAccessKeyId(v string) *Credentia
 // SetSecretAccessKey sets the SecretAccessKey field's value.
 func (s *CredentialsForCreateFunctionOutput) SetSecretAccessKey(v string) *CredentialsForCreateFunctionOutput {
 	s.SecretAccessKey = &v
+	return s
+}
+
+type DestinationConfigForCreateFunctionInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	OnFailure *OnFailureForCreateFunctionInput `type:"structure" json:",omitempty"`
+
+	OnSuccess *OnSuccessForCreateFunctionInput `type:"structure" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s DestinationConfigForCreateFunctionInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DestinationConfigForCreateFunctionInput) GoString() string {
+	return s.String()
+}
+
+// SetOnFailure sets the OnFailure field's value.
+func (s *DestinationConfigForCreateFunctionInput) SetOnFailure(v *OnFailureForCreateFunctionInput) *DestinationConfigForCreateFunctionInput {
+	s.OnFailure = v
+	return s
+}
+
+// SetOnSuccess sets the OnSuccess field's value.
+func (s *DestinationConfigForCreateFunctionInput) SetOnSuccess(v *OnSuccessForCreateFunctionInput) *DestinationConfigForCreateFunctionInput {
+	s.OnSuccess = v
+	return s
+}
+
+type DestinationConfigForCreateFunctionOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	OnFailure *OnFailureForCreateFunctionOutput `type:"structure" json:",omitempty"`
+
+	OnSuccess *OnSuccessForCreateFunctionOutput `type:"structure" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s DestinationConfigForCreateFunctionOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DestinationConfigForCreateFunctionOutput) GoString() string {
+	return s.String()
+}
+
+// SetOnFailure sets the OnFailure field's value.
+func (s *DestinationConfigForCreateFunctionOutput) SetOnFailure(v *OnFailureForCreateFunctionOutput) *DestinationConfigForCreateFunctionOutput {
+	s.OnFailure = v
+	return s
+}
+
+// SetOnSuccess sets the OnSuccess field's value.
+func (s *DestinationConfigForCreateFunctionOutput) SetOnSuccess(v *OnSuccessForCreateFunctionOutput) *DestinationConfigForCreateFunctionOutput {
+	s.OnSuccess = v
 	return s
 }
 
@@ -1056,6 +1232,94 @@ func (s *NasStorageForCreateFunctionOutput) SetEnableNas(v bool) *NasStorageForC
 // SetNasConfigs sets the NasConfigs field's value.
 func (s *NasStorageForCreateFunctionOutput) SetNasConfigs(v []*NasConfigForCreateFunctionOutput) *NasStorageForCreateFunctionOutput {
 	s.NasConfigs = v
+	return s
+}
+
+type OnFailureForCreateFunctionInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Destination *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s OnFailureForCreateFunctionInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s OnFailureForCreateFunctionInput) GoString() string {
+	return s.String()
+}
+
+// SetDestination sets the Destination field's value.
+func (s *OnFailureForCreateFunctionInput) SetDestination(v string) *OnFailureForCreateFunctionInput {
+	s.Destination = &v
+	return s
+}
+
+type OnFailureForCreateFunctionOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Destination *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s OnFailureForCreateFunctionOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s OnFailureForCreateFunctionOutput) GoString() string {
+	return s.String()
+}
+
+// SetDestination sets the Destination field's value.
+func (s *OnFailureForCreateFunctionOutput) SetDestination(v string) *OnFailureForCreateFunctionOutput {
+	s.Destination = &v
+	return s
+}
+
+type OnSuccessForCreateFunctionInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Destination *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s OnSuccessForCreateFunctionInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s OnSuccessForCreateFunctionInput) GoString() string {
+	return s.String()
+}
+
+// SetDestination sets the Destination field's value.
+func (s *OnSuccessForCreateFunctionInput) SetDestination(v string) *OnSuccessForCreateFunctionInput {
+	s.Destination = &v
+	return s
+}
+
+type OnSuccessForCreateFunctionOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Destination *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s OnSuccessForCreateFunctionOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s OnSuccessForCreateFunctionOutput) GoString() string {
+	return s.String()
+}
+
+// SetDestination sets the Destination field's value.
+func (s *OnSuccessForCreateFunctionOutput) SetDestination(v string) *OnSuccessForCreateFunctionOutput {
+	s.Destination = &v
 	return s
 }
 

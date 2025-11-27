@@ -143,6 +143,82 @@ func (c *VEFAAS) UpdateFunctionWithContext(ctx volcengine.Context, input *Update
 	return out, req.Send()
 }
 
+type AsyncTaskConfigForUpdateFunctionInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	DestinationConfig *DestinationConfigForUpdateFunctionInput `type:"structure" json:",omitempty"`
+
+	EnableAsyncTask *bool `type:"boolean" json:",omitempty"`
+
+	MaxRetry *int32 `type:"int32" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s AsyncTaskConfigForUpdateFunctionInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s AsyncTaskConfigForUpdateFunctionInput) GoString() string {
+	return s.String()
+}
+
+// SetDestinationConfig sets the DestinationConfig field's value.
+func (s *AsyncTaskConfigForUpdateFunctionInput) SetDestinationConfig(v *DestinationConfigForUpdateFunctionInput) *AsyncTaskConfigForUpdateFunctionInput {
+	s.DestinationConfig = v
+	return s
+}
+
+// SetEnableAsyncTask sets the EnableAsyncTask field's value.
+func (s *AsyncTaskConfigForUpdateFunctionInput) SetEnableAsyncTask(v bool) *AsyncTaskConfigForUpdateFunctionInput {
+	s.EnableAsyncTask = &v
+	return s
+}
+
+// SetMaxRetry sets the MaxRetry field's value.
+func (s *AsyncTaskConfigForUpdateFunctionInput) SetMaxRetry(v int32) *AsyncTaskConfigForUpdateFunctionInput {
+	s.MaxRetry = &v
+	return s
+}
+
+type AsyncTaskConfigForUpdateFunctionOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	DestinationConfig *DestinationConfigForUpdateFunctionOutput `type:"structure" json:",omitempty"`
+
+	EnableAsyncTask *bool `type:"boolean" json:",omitempty"`
+
+	MaxRetry *int32 `type:"int32" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s AsyncTaskConfigForUpdateFunctionOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s AsyncTaskConfigForUpdateFunctionOutput) GoString() string {
+	return s.String()
+}
+
+// SetDestinationConfig sets the DestinationConfig field's value.
+func (s *AsyncTaskConfigForUpdateFunctionOutput) SetDestinationConfig(v *DestinationConfigForUpdateFunctionOutput) *AsyncTaskConfigForUpdateFunctionOutput {
+	s.DestinationConfig = v
+	return s
+}
+
+// SetEnableAsyncTask sets the EnableAsyncTask field's value.
+func (s *AsyncTaskConfigForUpdateFunctionOutput) SetEnableAsyncTask(v bool) *AsyncTaskConfigForUpdateFunctionOutput {
+	s.EnableAsyncTask = &v
+	return s
+}
+
+// SetMaxRetry sets the MaxRetry field's value.
+func (s *AsyncTaskConfigForUpdateFunctionOutput) SetMaxRetry(v int32) *AsyncTaskConfigForUpdateFunctionOutput {
+	s.MaxRetry = &v
+	return s
+}
+
 type CredentialsForUpdateFunctionInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -200,6 +276,66 @@ func (s *CredentialsForUpdateFunctionOutput) SetAccessKeyId(v string) *Credentia
 // SetSecretAccessKey sets the SecretAccessKey field's value.
 func (s *CredentialsForUpdateFunctionOutput) SetSecretAccessKey(v string) *CredentialsForUpdateFunctionOutput {
 	s.SecretAccessKey = &v
+	return s
+}
+
+type DestinationConfigForUpdateFunctionInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	OnFailure *OnFailureForUpdateFunctionInput `type:"structure" json:",omitempty"`
+
+	OnSuccess *OnSuccessForUpdateFunctionInput `type:"structure" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s DestinationConfigForUpdateFunctionInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DestinationConfigForUpdateFunctionInput) GoString() string {
+	return s.String()
+}
+
+// SetOnFailure sets the OnFailure field's value.
+func (s *DestinationConfigForUpdateFunctionInput) SetOnFailure(v *OnFailureForUpdateFunctionInput) *DestinationConfigForUpdateFunctionInput {
+	s.OnFailure = v
+	return s
+}
+
+// SetOnSuccess sets the OnSuccess field's value.
+func (s *DestinationConfigForUpdateFunctionInput) SetOnSuccess(v *OnSuccessForUpdateFunctionInput) *DestinationConfigForUpdateFunctionInput {
+	s.OnSuccess = v
+	return s
+}
+
+type DestinationConfigForUpdateFunctionOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	OnFailure *OnFailureForUpdateFunctionOutput `type:"structure" json:",omitempty"`
+
+	OnSuccess *OnSuccessForUpdateFunctionOutput `type:"structure" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s DestinationConfigForUpdateFunctionOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DestinationConfigForUpdateFunctionOutput) GoString() string {
+	return s.String()
+}
+
+// SetOnFailure sets the OnFailure field's value.
+func (s *DestinationConfigForUpdateFunctionOutput) SetOnFailure(v *OnFailureForUpdateFunctionOutput) *DestinationConfigForUpdateFunctionOutput {
+	s.OnFailure = v
+	return s
+}
+
+// SetOnSuccess sets the OnSuccess field's value.
+func (s *DestinationConfigForUpdateFunctionOutput) SetOnSuccess(v *OnSuccessForUpdateFunctionOutput) *DestinationConfigForUpdateFunctionOutput {
+	s.OnSuccess = v
 	return s
 }
 
@@ -555,6 +691,94 @@ func (s *NasStorageForUpdateFunctionOutput) SetNasConfigs(v []*NasConfigForUpdat
 	return s
 }
 
+type OnFailureForUpdateFunctionInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Destination *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s OnFailureForUpdateFunctionInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s OnFailureForUpdateFunctionInput) GoString() string {
+	return s.String()
+}
+
+// SetDestination sets the Destination field's value.
+func (s *OnFailureForUpdateFunctionInput) SetDestination(v string) *OnFailureForUpdateFunctionInput {
+	s.Destination = &v
+	return s
+}
+
+type OnFailureForUpdateFunctionOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Destination *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s OnFailureForUpdateFunctionOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s OnFailureForUpdateFunctionOutput) GoString() string {
+	return s.String()
+}
+
+// SetDestination sets the Destination field's value.
+func (s *OnFailureForUpdateFunctionOutput) SetDestination(v string) *OnFailureForUpdateFunctionOutput {
+	s.Destination = &v
+	return s
+}
+
+type OnSuccessForUpdateFunctionInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Destination *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s OnSuccessForUpdateFunctionInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s OnSuccessForUpdateFunctionInput) GoString() string {
+	return s.String()
+}
+
+// SetDestination sets the Destination field's value.
+func (s *OnSuccessForUpdateFunctionInput) SetDestination(v string) *OnSuccessForUpdateFunctionInput {
+	s.Destination = &v
+	return s
+}
+
+type OnSuccessForUpdateFunctionOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Destination *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s OnSuccessForUpdateFunctionOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s OnSuccessForUpdateFunctionOutput) GoString() string {
+	return s.String()
+}
+
+// SetDestination sets the Destination field's value.
+func (s *OnSuccessForUpdateFunctionOutput) SetDestination(v string) *OnSuccessForUpdateFunctionOutput {
+	s.Destination = &v
+	return s
+}
+
 type SourceAccessConfigForUpdateFunctionInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -800,6 +1024,8 @@ func (s *TosMountConfigForUpdateFunctionOutput) SetMountPoints(v []*MountPointFo
 type UpdateFunctionInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	AsyncTaskConfig *AsyncTaskConfigForUpdateFunctionInput `type:"structure" json:",omitempty"`
+
 	Command *string `type:"string" json:",omitempty"`
 
 	CpuMilli *int32 `type:"int32" json:",omitempty"`
@@ -865,6 +1091,12 @@ func (s *UpdateFunctionInput) Validate() error {
 		return invalidParams
 	}
 	return nil
+}
+
+// SetAsyncTaskConfig sets the AsyncTaskConfig field's value.
+func (s *UpdateFunctionInput) SetAsyncTaskConfig(v *AsyncTaskConfigForUpdateFunctionInput) *UpdateFunctionInput {
+	s.AsyncTaskConfig = v
+	return s
 }
 
 // SetCommand sets the Command field's value.
@@ -998,6 +1230,8 @@ type UpdateFunctionOutput struct {
 
 	Metadata *response.ResponseMetadata
 
+	AsyncTaskConfig *AsyncTaskConfigForUpdateFunctionOutput `type:"structure" json:",omitempty"`
+
 	Cell *string `type:"string" json:",omitempty"`
 
 	CodeSize *int32 `type:"int32" json:",omitempty"`
@@ -1073,6 +1307,12 @@ func (s UpdateFunctionOutput) String() string {
 // GoString returns the string representation
 func (s UpdateFunctionOutput) GoString() string {
 	return s.String()
+}
+
+// SetAsyncTaskConfig sets the AsyncTaskConfig field's value.
+func (s *UpdateFunctionOutput) SetAsyncTaskConfig(v *AsyncTaskConfigForUpdateFunctionOutput) *UpdateFunctionOutput {
+	s.AsyncTaskConfig = v
+	return s
 }
 
 // SetCell sets the Cell field's value.
