@@ -146,31 +146,49 @@ func (c *ID) UpdateUserWithContext(ctx volcengine.Context, input *UpdateUserInpu
 type UpdateUserInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	Birthdate *string `type:"string" json:",omitempty"`
+
 	Email *string `type:"string" json:",omitempty"`
 
 	EmailVerified *bool `type:"boolean" json:",omitempty"`
 
 	FamilyName *string `type:"string" json:",omitempty"`
 
+	Gender *string `type:"string" json:",omitempty"`
+
 	GivenName *string `type:"string" json:",omitempty"`
+
+	Locale *string `type:"string" json:",omitempty"`
 
 	MiddleName *string `type:"string" json:",omitempty"`
 
 	Name *string `type:"string" json:",omitempty"`
 
+	Nickname *string `type:"string" json:",omitempty"`
+
 	PhoneNumber *string `type:"string" json:",omitempty"`
 
 	PhoneNumberVerified *bool `type:"boolean" json:",omitempty"`
 
+	Picture *string `type:"string" json:",omitempty"`
+
 	PreferredUsername *string `type:"string" json:",omitempty"`
+
+	Profile *string `type:"string" json:",omitempty"`
 
 	UserMetadata *string `type:"string" json:",omitempty"`
 
 	// UserPoolUid is a required field
 	UserPoolUid *string `type:"string" json:",omitempty" required:"true"`
 
+	UserState *string `type:"string" json:",omitempty"`
+
 	// UserUid is a required field
 	UserUid *string `type:"string" json:",omitempty" required:"true"`
+
+	Website *string `type:"string" json:",omitempty"`
+
+	Zoneinfo *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -199,6 +217,12 @@ func (s *UpdateUserInput) Validate() error {
 	return nil
 }
 
+// SetBirthdate sets the Birthdate field's value.
+func (s *UpdateUserInput) SetBirthdate(v string) *UpdateUserInput {
+	s.Birthdate = &v
+	return s
+}
+
 // SetEmail sets the Email field's value.
 func (s *UpdateUserInput) SetEmail(v string) *UpdateUserInput {
 	s.Email = &v
@@ -217,9 +241,21 @@ func (s *UpdateUserInput) SetFamilyName(v string) *UpdateUserInput {
 	return s
 }
 
+// SetGender sets the Gender field's value.
+func (s *UpdateUserInput) SetGender(v string) *UpdateUserInput {
+	s.Gender = &v
+	return s
+}
+
 // SetGivenName sets the GivenName field's value.
 func (s *UpdateUserInput) SetGivenName(v string) *UpdateUserInput {
 	s.GivenName = &v
+	return s
+}
+
+// SetLocale sets the Locale field's value.
+func (s *UpdateUserInput) SetLocale(v string) *UpdateUserInput {
+	s.Locale = &v
 	return s
 }
 
@@ -235,6 +271,12 @@ func (s *UpdateUserInput) SetName(v string) *UpdateUserInput {
 	return s
 }
 
+// SetNickname sets the Nickname field's value.
+func (s *UpdateUserInput) SetNickname(v string) *UpdateUserInput {
+	s.Nickname = &v
+	return s
+}
+
 // SetPhoneNumber sets the PhoneNumber field's value.
 func (s *UpdateUserInput) SetPhoneNumber(v string) *UpdateUserInput {
 	s.PhoneNumber = &v
@@ -247,9 +289,21 @@ func (s *UpdateUserInput) SetPhoneNumberVerified(v bool) *UpdateUserInput {
 	return s
 }
 
+// SetPicture sets the Picture field's value.
+func (s *UpdateUserInput) SetPicture(v string) *UpdateUserInput {
+	s.Picture = &v
+	return s
+}
+
 // SetPreferredUsername sets the PreferredUsername field's value.
 func (s *UpdateUserInput) SetPreferredUsername(v string) *UpdateUserInput {
 	s.PreferredUsername = &v
+	return s
+}
+
+// SetProfile sets the Profile field's value.
+func (s *UpdateUserInput) SetProfile(v string) *UpdateUserInput {
+	s.Profile = &v
 	return s
 }
 
@@ -265,9 +319,27 @@ func (s *UpdateUserInput) SetUserPoolUid(v string) *UpdateUserInput {
 	return s
 }
 
+// SetUserState sets the UserState field's value.
+func (s *UpdateUserInput) SetUserState(v string) *UpdateUserInput {
+	s.UserState = &v
+	return s
+}
+
 // SetUserUid sets the UserUid field's value.
 func (s *UpdateUserInput) SetUserUid(v string) *UpdateUserInput {
 	s.UserUid = &v
+	return s
+}
+
+// SetWebsite sets the Website field's value.
+func (s *UpdateUserInput) SetWebsite(v string) *UpdateUserInput {
+	s.Website = &v
+	return s
+}
+
+// SetZoneinfo sets the Zoneinfo field's value.
+func (s *UpdateUserInput) SetZoneinfo(v string) *UpdateUserInput {
+	s.Zoneinfo = &v
 	return s
 }
 
@@ -302,7 +374,7 @@ type UpdateUserOutput struct {
 
 	Name *string `type:"string" json:",omitempty"`
 
-	NickName *string `type:"string" json:",omitempty"`
+	Nickname *string `type:"string" json:",omitempty"`
 
 	NumLogins *int32 `type:"int32" json:",omitempty"`
 
@@ -323,6 +395,8 @@ type UpdateUserOutput struct {
 	UpdateTime *string `type:"string" json:",omitempty"`
 
 	UserMetadata *string `type:"string" json:",omitempty"`
+
+	UserState *string `type:"string" json:",omitempty"`
 
 	Website *string `type:"string" json:",omitempty"`
 
@@ -417,9 +491,9 @@ func (s *UpdateUserOutput) SetName(v string) *UpdateUserOutput {
 	return s
 }
 
-// SetNickName sets the NickName field's value.
-func (s *UpdateUserOutput) SetNickName(v string) *UpdateUserOutput {
-	s.NickName = &v
+// SetNickname sets the Nickname field's value.
+func (s *UpdateUserOutput) SetNickname(v string) *UpdateUserOutput {
+	s.Nickname = &v
 	return s
 }
 
@@ -480,6 +554,12 @@ func (s *UpdateUserOutput) SetUpdateTime(v string) *UpdateUserOutput {
 // SetUserMetadata sets the UserMetadata field's value.
 func (s *UpdateUserOutput) SetUserMetadata(v string) *UpdateUserOutput {
 	s.UserMetadata = &v
+	return s
+}
+
+// SetUserState sets the UserState field's value.
+func (s *UpdateUserOutput) SetUserState(v string) *UpdateUserOutput {
+	s.UserState = &v
 	return s
 }
 

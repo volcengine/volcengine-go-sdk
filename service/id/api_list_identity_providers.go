@@ -152,6 +152,8 @@ type DataForListIdentityProvidersOutput struct {
 
 	Name *string `type:"string" json:",omitempty"`
 
+	Provider *string `type:"string" json:",omitempty"`
+
 	Uid *string `type:"string" json:",omitempty"`
 
 	UpdateTime *string `type:"string" json:",omitempty"`
@@ -182,6 +184,12 @@ func (s *DataForListIdentityProvidersOutput) SetCreateTime(v string) *DataForLis
 // SetName sets the Name field's value.
 func (s *DataForListIdentityProvidersOutput) SetName(v string) *DataForListIdentityProvidersOutput {
 	s.Name = &v
+	return s
+}
+
+// SetProvider sets the Provider field's value.
+func (s *DataForListIdentityProvidersOutput) SetProvider(v string) *DataForListIdentityProvidersOutput {
+	s.Provider = &v
 	return s
 }
 

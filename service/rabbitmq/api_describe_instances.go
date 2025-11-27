@@ -584,7 +584,7 @@ type TagFilterForDescribeInstancesInput struct {
 
 	Key *string `type:"string" json:",omitempty"`
 
-	Value *string `type:"string" json:",omitempty"`
+	Values []*string `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -603,9 +603,9 @@ func (s *TagFilterForDescribeInstancesInput) SetKey(v string) *TagFilterForDescr
 	return s
 }
 
-// SetValue sets the Value field's value.
-func (s *TagFilterForDescribeInstancesInput) SetValue(v string) *TagFilterForDescribeInstancesInput {
-	s.Value = &v
+// SetValues sets the Values field's value.
+func (s *TagFilterForDescribeInstancesInput) SetValues(v []*string) *TagFilterForDescribeInstancesInput {
+	s.Values = v
 	return s
 }
 

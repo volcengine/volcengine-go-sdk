@@ -568,6 +568,8 @@ type RowForListPodOutput struct {
 
 	CreateAt *int64 `type:"int64" json:",omitempty"`
 
+	CustomRouteId *string `type:"string" json:",omitempty"`
+
 	DNSId *string `type:"string" json:",omitempty"`
 
 	DataSize *string `type:"string" json:",omitempty"`
@@ -668,6 +670,12 @@ func (s *RowForListPodOutput) SetConfiguration(v *ConfigurationForListPodOutput)
 // SetCreateAt sets the CreateAt field's value.
 func (s *RowForListPodOutput) SetCreateAt(v int64) *RowForListPodOutput {
 	s.CreateAt = &v
+	return s
+}
+
+// SetCustomRouteId sets the CustomRouteId field's value.
+func (s *RowForListPodOutput) SetCustomRouteId(v string) *RowForListPodOutput {
+	s.CustomRouteId = &v
 	return s
 }
 

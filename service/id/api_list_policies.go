@@ -146,11 +146,21 @@ func (c *ID) ListPoliciesWithContext(ctx volcengine.Context, input *ListPolicies
 type DataForListPoliciesOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	Namespace *string `type:"string" json:",omitempty"`
+	CreateTime *string `type:"string" json:",omitempty"`
+
+	Description *string `type:"string" json:",omitempty"`
+
+	NamespaceId *string `type:"string" json:",omitempty"`
 
 	Policy *string `type:"string" json:",omitempty"`
 
 	PolicyId *string `type:"string" json:",omitempty"`
+
+	PolicyName *string `type:"string" json:",omitempty"`
+
+	Trn *string `type:"string" json:",omitempty"`
+
+	UpdateTime *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -163,9 +173,21 @@ func (s DataForListPoliciesOutput) GoString() string {
 	return s.String()
 }
 
-// SetNamespace sets the Namespace field's value.
-func (s *DataForListPoliciesOutput) SetNamespace(v string) *DataForListPoliciesOutput {
-	s.Namespace = &v
+// SetCreateTime sets the CreateTime field's value.
+func (s *DataForListPoliciesOutput) SetCreateTime(v string) *DataForListPoliciesOutput {
+	s.CreateTime = &v
+	return s
+}
+
+// SetDescription sets the Description field's value.
+func (s *DataForListPoliciesOutput) SetDescription(v string) *DataForListPoliciesOutput {
+	s.Description = &v
+	return s
+}
+
+// SetNamespaceId sets the NamespaceId field's value.
+func (s *DataForListPoliciesOutput) SetNamespaceId(v string) *DataForListPoliciesOutput {
+	s.NamespaceId = &v
 	return s
 }
 
@@ -181,10 +203,84 @@ func (s *DataForListPoliciesOutput) SetPolicyId(v string) *DataForListPoliciesOu
 	return s
 }
 
+// SetPolicyName sets the PolicyName field's value.
+func (s *DataForListPoliciesOutput) SetPolicyName(v string) *DataForListPoliciesOutput {
+	s.PolicyName = &v
+	return s
+}
+
+// SetTrn sets the Trn field's value.
+func (s *DataForListPoliciesOutput) SetTrn(v string) *DataForListPoliciesOutput {
+	s.Trn = &v
+	return s
+}
+
+// SetUpdateTime sets the UpdateTime field's value.
+func (s *DataForListPoliciesOutput) SetUpdateTime(v string) *DataForListPoliciesOutput {
+	s.UpdateTime = &v
+	return s
+}
+
+type FilterForListPoliciesInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Description *string `type:"string" json:",omitempty"`
+
+	Id *string `type:"string" json:",omitempty"`
+
+	Name *string `type:"string" json:",omitempty"`
+
+	Trn *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s FilterForListPoliciesInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s FilterForListPoliciesInput) GoString() string {
+	return s.String()
+}
+
+// SetDescription sets the Description field's value.
+func (s *FilterForListPoliciesInput) SetDescription(v string) *FilterForListPoliciesInput {
+	s.Description = &v
+	return s
+}
+
+// SetId sets the Id field's value.
+func (s *FilterForListPoliciesInput) SetId(v string) *FilterForListPoliciesInput {
+	s.Id = &v
+	return s
+}
+
+// SetName sets the Name field's value.
+func (s *FilterForListPoliciesInput) SetName(v string) *FilterForListPoliciesInput {
+	s.Name = &v
+	return s
+}
+
+// SetTrn sets the Trn field's value.
+func (s *FilterForListPoliciesInput) SetTrn(v string) *FilterForListPoliciesInput {
+	s.Trn = &v
+	return s
+}
+
 type ListPoliciesInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	Filter *FilterForListPoliciesInput `type:"structure" json:",omitempty"`
+
 	NamespaceName *string `type:"string" json:",omitempty"`
+
+	PageNumber *int32 `type:"int32" json:",omitempty"`
+
+	PageSize *int32 `type:"int32" json:",omitempty"`
+
+	SortDirection *string `type:"string" json:",omitempty"`
+
+	SortField *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -197,9 +293,39 @@ func (s ListPoliciesInput) GoString() string {
 	return s.String()
 }
 
+// SetFilter sets the Filter field's value.
+func (s *ListPoliciesInput) SetFilter(v *FilterForListPoliciesInput) *ListPoliciesInput {
+	s.Filter = v
+	return s
+}
+
 // SetNamespaceName sets the NamespaceName field's value.
 func (s *ListPoliciesInput) SetNamespaceName(v string) *ListPoliciesInput {
 	s.NamespaceName = &v
+	return s
+}
+
+// SetPageNumber sets the PageNumber field's value.
+func (s *ListPoliciesInput) SetPageNumber(v int32) *ListPoliciesInput {
+	s.PageNumber = &v
+	return s
+}
+
+// SetPageSize sets the PageSize field's value.
+func (s *ListPoliciesInput) SetPageSize(v int32) *ListPoliciesInput {
+	s.PageSize = &v
+	return s
+}
+
+// SetSortDirection sets the SortDirection field's value.
+func (s *ListPoliciesInput) SetSortDirection(v string) *ListPoliciesInput {
+	s.SortDirection = &v
+	return s
+}
+
+// SetSortField sets the SortField field's value.
+func (s *ListPoliciesInput) SetSortField(v string) *ListPoliciesInput {
+	s.SortField = &v
 	return s
 }
 
@@ -209,6 +335,12 @@ type ListPoliciesOutput struct {
 	Metadata *response.ResponseMetadata
 
 	Data []*DataForListPoliciesOutput `type:"list" json:",omitempty"`
+
+	PageNumber *int32 `type:"int32" json:",omitempty"`
+
+	PageSize *int32 `type:"int32" json:",omitempty"`
+
+	TotalCount *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -224,5 +356,23 @@ func (s ListPoliciesOutput) GoString() string {
 // SetData sets the Data field's value.
 func (s *ListPoliciesOutput) SetData(v []*DataForListPoliciesOutput) *ListPoliciesOutput {
 	s.Data = v
+	return s
+}
+
+// SetPageNumber sets the PageNumber field's value.
+func (s *ListPoliciesOutput) SetPageNumber(v int32) *ListPoliciesOutput {
+	s.PageNumber = &v
+	return s
+}
+
+// SetPageSize sets the PageSize field's value.
+func (s *ListPoliciesOutput) SetPageSize(v int32) *ListPoliciesOutput {
+	s.PageSize = &v
+	return s
+}
+
+// SetTotalCount sets the TotalCount field's value.
+func (s *ListPoliciesOutput) SetTotalCount(v int32) *ListPoliciesOutput {
+	s.TotalCount = &v
 	return s
 }

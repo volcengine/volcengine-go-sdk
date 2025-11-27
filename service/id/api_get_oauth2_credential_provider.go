@@ -150,6 +150,8 @@ type AuthorizationServerMetadataForGetOauth2CredentialProviderOutput struct {
 
 	Issuer *string `type:"string" json:",omitempty"`
 
+	RegistrationEndpoint *string `type:"string" json:",omitempty"`
+
 	ResponseTypes []*string `type:"list" json:",omitempty"`
 
 	TokenEndpoint *string `type:"string" json:",omitempty"`
@@ -174,6 +176,12 @@ func (s *AuthorizationServerMetadataForGetOauth2CredentialProviderOutput) SetAut
 // SetIssuer sets the Issuer field's value.
 func (s *AuthorizationServerMetadataForGetOauth2CredentialProviderOutput) SetIssuer(v string) *AuthorizationServerMetadataForGetOauth2CredentialProviderOutput {
 	s.Issuer = &v
+	return s
+}
+
+// SetRegistrationEndpoint sets the RegistrationEndpoint field's value.
+func (s *AuthorizationServerMetadataForGetOauth2CredentialProviderOutput) SetRegistrationEndpoint(v string) *AuthorizationServerMetadataForGetOauth2CredentialProviderOutput {
+	s.RegistrationEndpoint = &v
 	return s
 }
 
@@ -390,7 +398,7 @@ type GetOauth2CredentialProviderOutput struct {
 
 	UpdatedAt *string `type:"string" json:",omitempty"`
 
-	Vendor *string `type:"string" json:",omitempty"`
+	Vendor *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -446,7 +454,7 @@ func (s *GetOauth2CredentialProviderOutput) SetUpdatedAt(v string) *GetOauth2Cre
 }
 
 // SetVendor sets the Vendor field's value.
-func (s *GetOauth2CredentialProviderOutput) SetVendor(v string) *GetOauth2CredentialProviderOutput {
+func (s *GetOauth2CredentialProviderOutput) SetVendor(v int32) *GetOauth2CredentialProviderOutput {
 	s.Vendor = &v
 	return s
 }

@@ -370,6 +370,10 @@ type ZoneMappingForCreateNetworkLoadBalancerInput struct {
 
 	EipId *string `type:"string"`
 
+	EipIsp *string `type:"string"`
+
+	EipSpecificEgress *string `type:"string"`
+
 	Ipv4Address *string `type:"string"`
 
 	// SubnetId is a required field
@@ -408,6 +412,18 @@ func (s *ZoneMappingForCreateNetworkLoadBalancerInput) Validate() error {
 // SetEipId sets the EipId field's value.
 func (s *ZoneMappingForCreateNetworkLoadBalancerInput) SetEipId(v string) *ZoneMappingForCreateNetworkLoadBalancerInput {
 	s.EipId = &v
+	return s
+}
+
+// SetEipIsp sets the EipIsp field's value.
+func (s *ZoneMappingForCreateNetworkLoadBalancerInput) SetEipIsp(v string) *ZoneMappingForCreateNetworkLoadBalancerInput {
+	s.EipIsp = &v
+	return s
+}
+
+// SetEipSpecificEgress sets the EipSpecificEgress field's value.
+func (s *ZoneMappingForCreateNetworkLoadBalancerInput) SetEipSpecificEgress(v string) *ZoneMappingForCreateNetworkLoadBalancerInput {
+	s.EipSpecificEgress = &v
 	return s
 }
 

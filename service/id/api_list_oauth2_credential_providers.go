@@ -210,7 +210,7 @@ type ListOauth2CredentialProvidersOutput struct {
 
 	PageSize *int32 `type:"int32" json:",omitempty"`
 
-	TotalCount []*int32 `type:"list" json:",omitempty"`
+	TotalCount *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -242,8 +242,8 @@ func (s *ListOauth2CredentialProvidersOutput) SetPageSize(v int32) *ListOauth2Cr
 }
 
 // SetTotalCount sets the TotalCount field's value.
-func (s *ListOauth2CredentialProvidersOutput) SetTotalCount(v []*int32) *ListOauth2CredentialProvidersOutput {
-	s.TotalCount = v
+func (s *ListOauth2CredentialProvidersOutput) SetTotalCount(v int32) *ListOauth2CredentialProvidersOutput {
+	s.TotalCount = &v
 	return s
 }
 

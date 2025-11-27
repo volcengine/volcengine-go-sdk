@@ -146,9 +146,14 @@ func (c *ID) CreatePolicyWithContext(ctx volcengine.Context, input *CreatePolicy
 type CreatePolicyInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	// Description is a required field
+	Description *string `type:"string" json:",omitempty" required:"true"`
+
 	NamespaceName *string `type:"string" json:",omitempty"`
 
 	Policy *string `type:"string" json:",omitempty"`
+
+	PolicyName *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -159,6 +164,25 @@ func (s CreatePolicyInput) String() string {
 // GoString returns the string representation
 func (s CreatePolicyInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *CreatePolicyInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "CreatePolicyInput"}
+	if s.Description == nil {
+		invalidParams.Add(request.NewErrParamRequired("Description"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetDescription sets the Description field's value.
+func (s *CreatePolicyInput) SetDescription(v string) *CreatePolicyInput {
+	s.Description = &v
+	return s
 }
 
 // SetNamespaceName sets the NamespaceName field's value.
@@ -173,16 +197,32 @@ func (s *CreatePolicyInput) SetPolicy(v string) *CreatePolicyInput {
 	return s
 }
 
+// SetPolicyName sets the PolicyName field's value.
+func (s *CreatePolicyInput) SetPolicyName(v string) *CreatePolicyInput {
+	s.PolicyName = &v
+	return s
+}
+
 type CreatePolicyOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
+
+	CreateTime *string `type:"string" json:",omitempty"`
+
+	Description *string `type:"string" json:",omitempty"`
 
 	NamespaceId *string `type:"string" json:",omitempty"`
 
 	Policy *string `type:"string" json:",omitempty"`
 
 	PolicyId *string `type:"string" json:",omitempty"`
+
+	PolicyName *string `type:"string" json:",omitempty"`
+
+	Trn *string `type:"string" json:",omitempty"`
+
+	UpdateTime *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -193,6 +233,18 @@ func (s CreatePolicyOutput) String() string {
 // GoString returns the string representation
 func (s CreatePolicyOutput) GoString() string {
 	return s.String()
+}
+
+// SetCreateTime sets the CreateTime field's value.
+func (s *CreatePolicyOutput) SetCreateTime(v string) *CreatePolicyOutput {
+	s.CreateTime = &v
+	return s
+}
+
+// SetDescription sets the Description field's value.
+func (s *CreatePolicyOutput) SetDescription(v string) *CreatePolicyOutput {
+	s.Description = &v
+	return s
 }
 
 // SetNamespaceId sets the NamespaceId field's value.
@@ -210,5 +262,23 @@ func (s *CreatePolicyOutput) SetPolicy(v string) *CreatePolicyOutput {
 // SetPolicyId sets the PolicyId field's value.
 func (s *CreatePolicyOutput) SetPolicyId(v string) *CreatePolicyOutput {
 	s.PolicyId = &v
+	return s
+}
+
+// SetPolicyName sets the PolicyName field's value.
+func (s *CreatePolicyOutput) SetPolicyName(v string) *CreatePolicyOutput {
+	s.PolicyName = &v
+	return s
+}
+
+// SetTrn sets the Trn field's value.
+func (s *CreatePolicyOutput) SetTrn(v string) *CreatePolicyOutput {
+	s.Trn = &v
+	return s
+}
+
+// SetUpdateTime sets the UpdateTime field's value.
+func (s *CreatePolicyOutput) SetUpdateTime(v string) *CreatePolicyOutput {
+	s.UpdateTime = &v
 	return s
 }

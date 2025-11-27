@@ -254,7 +254,15 @@ type ListenerForDescribeNLBListenersOutput struct {
 
 	AccountId *string `type:"string"`
 
+	CACertificateId *string `type:"string"`
+
+	CACertificateSource *string `type:"string"`
+
+	CAEnabled *bool `type:"boolean"`
+
 	CertificateId *string `type:"string"`
+
+	CertificateSource *string `type:"string"`
 
 	ConnectionTimeout *int64 `type:"integer"`
 
@@ -271,6 +279,8 @@ type ListenerForDescribeNLBListenersOutput struct {
 	ListenerName *string `type:"string"`
 
 	LoadBalancerId *string `type:"string"`
+
+	PCACertificateId *string `type:"string"`
 
 	Port *int64 `type:"integer"`
 
@@ -307,9 +317,33 @@ func (s *ListenerForDescribeNLBListenersOutput) SetAccountId(v string) *Listener
 	return s
 }
 
+// SetCACertificateId sets the CACertificateId field's value.
+func (s *ListenerForDescribeNLBListenersOutput) SetCACertificateId(v string) *ListenerForDescribeNLBListenersOutput {
+	s.CACertificateId = &v
+	return s
+}
+
+// SetCACertificateSource sets the CACertificateSource field's value.
+func (s *ListenerForDescribeNLBListenersOutput) SetCACertificateSource(v string) *ListenerForDescribeNLBListenersOutput {
+	s.CACertificateSource = &v
+	return s
+}
+
+// SetCAEnabled sets the CAEnabled field's value.
+func (s *ListenerForDescribeNLBListenersOutput) SetCAEnabled(v bool) *ListenerForDescribeNLBListenersOutput {
+	s.CAEnabled = &v
+	return s
+}
+
 // SetCertificateId sets the CertificateId field's value.
 func (s *ListenerForDescribeNLBListenersOutput) SetCertificateId(v string) *ListenerForDescribeNLBListenersOutput {
 	s.CertificateId = &v
+	return s
+}
+
+// SetCertificateSource sets the CertificateSource field's value.
+func (s *ListenerForDescribeNLBListenersOutput) SetCertificateSource(v string) *ListenerForDescribeNLBListenersOutput {
+	s.CertificateSource = &v
 	return s
 }
 
@@ -358,6 +392,12 @@ func (s *ListenerForDescribeNLBListenersOutput) SetListenerName(v string) *Liste
 // SetLoadBalancerId sets the LoadBalancerId field's value.
 func (s *ListenerForDescribeNLBListenersOutput) SetLoadBalancerId(v string) *ListenerForDescribeNLBListenersOutput {
 	s.LoadBalancerId = &v
+	return s
+}
+
+// SetPCACertificateId sets the PCACertificateId field's value.
+func (s *ListenerForDescribeNLBListenersOutput) SetPCACertificateId(v string) *ListenerForDescribeNLBListenersOutput {
+	s.PCACertificateId = &v
 	return s
 }
 

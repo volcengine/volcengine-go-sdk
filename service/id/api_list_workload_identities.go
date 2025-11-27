@@ -148,11 +148,19 @@ type ListWorkloadIdentitiesInput struct {
 
 	Category *string `type:"string" json:",omitempty"`
 
+	Name *string `type:"string" json:",omitempty"`
+
 	// PageNumber is a required field
 	PageNumber *int32 `min:"1" type:"int32" json:",omitempty" required:"true"`
 
 	// PageSize is a required field
 	PageSize *int32 `max:"100" type:"int32" json:",omitempty" required:"true"`
+
+	SortBy *string `type:"string" json:",omitempty"`
+
+	SortOrder *string `type:"string" json:",omitempty"`
+
+	Trn *string `type:"string" json:",omitempty"`
 
 	WorkloadPoolName *string `type:"string" json:",omitempty"`
 }
@@ -195,6 +203,12 @@ func (s *ListWorkloadIdentitiesInput) SetCategory(v string) *ListWorkloadIdentit
 	return s
 }
 
+// SetName sets the Name field's value.
+func (s *ListWorkloadIdentitiesInput) SetName(v string) *ListWorkloadIdentitiesInput {
+	s.Name = &v
+	return s
+}
+
 // SetPageNumber sets the PageNumber field's value.
 func (s *ListWorkloadIdentitiesInput) SetPageNumber(v int32) *ListWorkloadIdentitiesInput {
 	s.PageNumber = &v
@@ -204,6 +218,24 @@ func (s *ListWorkloadIdentitiesInput) SetPageNumber(v int32) *ListWorkloadIdenti
 // SetPageSize sets the PageSize field's value.
 func (s *ListWorkloadIdentitiesInput) SetPageSize(v int32) *ListWorkloadIdentitiesInput {
 	s.PageSize = &v
+	return s
+}
+
+// SetSortBy sets the SortBy field's value.
+func (s *ListWorkloadIdentitiesInput) SetSortBy(v string) *ListWorkloadIdentitiesInput {
+	s.SortBy = &v
+	return s
+}
+
+// SetSortOrder sets the SortOrder field's value.
+func (s *ListWorkloadIdentitiesInput) SetSortOrder(v string) *ListWorkloadIdentitiesInput {
+	s.SortOrder = &v
+	return s
+}
+
+// SetTrn sets the Trn field's value.
+func (s *ListWorkloadIdentitiesInput) SetTrn(v string) *ListWorkloadIdentitiesInput {
+	s.Trn = &v
 	return s
 }
 

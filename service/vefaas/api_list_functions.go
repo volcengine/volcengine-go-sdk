@@ -252,6 +252,8 @@ type ItemForListFunctionsOutput struct {
 
 	Description *string `type:"string" json:",omitempty"`
 
+	EnableApmplus *string `type:"string" json:",omitempty"`
+
 	Envs []*EnvForListFunctionsOutput `type:"list" json:",omitempty"`
 
 	ExclusiveMode *bool `type:"boolean" json:",omitempty"`
@@ -358,6 +360,12 @@ func (s *ItemForListFunctionsOutput) SetCreationTime(v string) *ItemForListFunct
 // SetDescription sets the Description field's value.
 func (s *ItemForListFunctionsOutput) SetDescription(v string) *ItemForListFunctionsOutput {
 	s.Description = &v
+	return s
+}
+
+// SetEnableApmplus sets the EnableApmplus field's value.
+func (s *ItemForListFunctionsOutput) SetEnableApmplus(v string) *ItemForListFunctionsOutput {
+	s.EnableApmplus = &v
 	return s
 }
 

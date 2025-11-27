@@ -148,8 +148,24 @@ type CreateUserPoolInput struct {
 
 	Description *string `type:"string" json:",omitempty"`
 
+	EmailPasswordlessSignInEnabled *bool `type:"boolean" json:",omitempty"`
+
 	// Name is a required field
 	Name *string `type:"string" json:",omitempty" required:"true"`
+
+	PasswordSignInEnabled *bool `type:"boolean" json:",omitempty"`
+
+	ProjectName *string `max:"255" type:"string" json:",omitempty"`
+
+	RequiredSignUpAttributes []*string `type:"list" json:",omitempty"`
+
+	SelfSignUpEnabled *bool `type:"boolean" json:",omitempty"`
+
+	SignInAttributes []*string `type:"list" json:",omitempty"`
+
+	SmsPasswordlessSignInEnabled *bool `type:"boolean" json:",omitempty"`
+
+	Tags []*TagForCreateUserPoolInput `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -168,6 +184,9 @@ func (s *CreateUserPoolInput) Validate() error {
 	if s.Name == nil {
 		invalidParams.Add(request.NewErrParamRequired("Name"))
 	}
+	if s.ProjectName != nil && len(*s.ProjectName) > 255 {
+		invalidParams.Add(request.NewErrParamMaxLen("ProjectName", 255, *s.ProjectName))
+	}
 
 	if invalidParams.Len() > 0 {
 		return invalidParams
@@ -181,9 +200,57 @@ func (s *CreateUserPoolInput) SetDescription(v string) *CreateUserPoolInput {
 	return s
 }
 
+// SetEmailPasswordlessSignInEnabled sets the EmailPasswordlessSignInEnabled field's value.
+func (s *CreateUserPoolInput) SetEmailPasswordlessSignInEnabled(v bool) *CreateUserPoolInput {
+	s.EmailPasswordlessSignInEnabled = &v
+	return s
+}
+
 // SetName sets the Name field's value.
 func (s *CreateUserPoolInput) SetName(v string) *CreateUserPoolInput {
 	s.Name = &v
+	return s
+}
+
+// SetPasswordSignInEnabled sets the PasswordSignInEnabled field's value.
+func (s *CreateUserPoolInput) SetPasswordSignInEnabled(v bool) *CreateUserPoolInput {
+	s.PasswordSignInEnabled = &v
+	return s
+}
+
+// SetProjectName sets the ProjectName field's value.
+func (s *CreateUserPoolInput) SetProjectName(v string) *CreateUserPoolInput {
+	s.ProjectName = &v
+	return s
+}
+
+// SetRequiredSignUpAttributes sets the RequiredSignUpAttributes field's value.
+func (s *CreateUserPoolInput) SetRequiredSignUpAttributes(v []*string) *CreateUserPoolInput {
+	s.RequiredSignUpAttributes = v
+	return s
+}
+
+// SetSelfSignUpEnabled sets the SelfSignUpEnabled field's value.
+func (s *CreateUserPoolInput) SetSelfSignUpEnabled(v bool) *CreateUserPoolInput {
+	s.SelfSignUpEnabled = &v
+	return s
+}
+
+// SetSignInAttributes sets the SignInAttributes field's value.
+func (s *CreateUserPoolInput) SetSignInAttributes(v []*string) *CreateUserPoolInput {
+	s.SignInAttributes = v
+	return s
+}
+
+// SetSmsPasswordlessSignInEnabled sets the SmsPasswordlessSignInEnabled field's value.
+func (s *CreateUserPoolInput) SetSmsPasswordlessSignInEnabled(v bool) *CreateUserPoolInput {
+	s.SmsPasswordlessSignInEnabled = &v
+	return s
+}
+
+// SetTags sets the Tags field's value.
+func (s *CreateUserPoolInput) SetTags(v []*TagForCreateUserPoolInput) *CreateUserPoolInput {
+	s.Tags = v
 	return s
 }
 
@@ -196,9 +263,39 @@ type CreateUserPoolOutput struct {
 
 	Description *string `type:"string" json:",omitempty"`
 
+	DiscoveryUrl *string `type:"string" json:",omitempty"`
+
 	Domain *string `type:"string" json:",omitempty"`
 
+	EmailPasswordlessSignInEnabled *bool `type:"boolean" json:",omitempty"`
+
 	Name *string `type:"string" json:",omitempty"`
+
+	OauthLoginCallbackUrl *string `type:"string" json:",omitempty"`
+
+	OauthSignUpCallbackUrl *string `type:"string" json:",omitempty"`
+
+	OidcLoginCallbackUrl *string `type:"string" json:",omitempty"`
+
+	OidcSignUpCallbackUrl *string `type:"string" json:",omitempty"`
+
+	PasswordSignInEnabled *bool `type:"boolean" json:",omitempty"`
+
+	ProjectName *string `type:"string" json:",omitempty"`
+
+	RequiredSignUpAttributes []*string `type:"list" json:",omitempty"`
+
+	SamlLoginCallbackUrl *string `type:"string" json:",omitempty"`
+
+	SamlSignUpCallbackUrl *string `type:"string" json:",omitempty"`
+
+	SelfSignUpEnabled *bool `type:"boolean" json:",omitempty"`
+
+	SignInAttributes []*string `type:"list" json:",omitempty"`
+
+	SmsPasswordlessSignInEnabled *bool `type:"boolean" json:",omitempty"`
+
+	Tags []*TagForCreateUserPoolOutput `type:"list" json:",omitempty"`
 
 	TokenSigningKeyUrl *string `type:"string" json:",omitempty"`
 
@@ -237,15 +334,105 @@ func (s *CreateUserPoolOutput) SetDescription(v string) *CreateUserPoolOutput {
 	return s
 }
 
+// SetDiscoveryUrl sets the DiscoveryUrl field's value.
+func (s *CreateUserPoolOutput) SetDiscoveryUrl(v string) *CreateUserPoolOutput {
+	s.DiscoveryUrl = &v
+	return s
+}
+
 // SetDomain sets the Domain field's value.
 func (s *CreateUserPoolOutput) SetDomain(v string) *CreateUserPoolOutput {
 	s.Domain = &v
 	return s
 }
 
+// SetEmailPasswordlessSignInEnabled sets the EmailPasswordlessSignInEnabled field's value.
+func (s *CreateUserPoolOutput) SetEmailPasswordlessSignInEnabled(v bool) *CreateUserPoolOutput {
+	s.EmailPasswordlessSignInEnabled = &v
+	return s
+}
+
 // SetName sets the Name field's value.
 func (s *CreateUserPoolOutput) SetName(v string) *CreateUserPoolOutput {
 	s.Name = &v
+	return s
+}
+
+// SetOauthLoginCallbackUrl sets the OauthLoginCallbackUrl field's value.
+func (s *CreateUserPoolOutput) SetOauthLoginCallbackUrl(v string) *CreateUserPoolOutput {
+	s.OauthLoginCallbackUrl = &v
+	return s
+}
+
+// SetOauthSignUpCallbackUrl sets the OauthSignUpCallbackUrl field's value.
+func (s *CreateUserPoolOutput) SetOauthSignUpCallbackUrl(v string) *CreateUserPoolOutput {
+	s.OauthSignUpCallbackUrl = &v
+	return s
+}
+
+// SetOidcLoginCallbackUrl sets the OidcLoginCallbackUrl field's value.
+func (s *CreateUserPoolOutput) SetOidcLoginCallbackUrl(v string) *CreateUserPoolOutput {
+	s.OidcLoginCallbackUrl = &v
+	return s
+}
+
+// SetOidcSignUpCallbackUrl sets the OidcSignUpCallbackUrl field's value.
+func (s *CreateUserPoolOutput) SetOidcSignUpCallbackUrl(v string) *CreateUserPoolOutput {
+	s.OidcSignUpCallbackUrl = &v
+	return s
+}
+
+// SetPasswordSignInEnabled sets the PasswordSignInEnabled field's value.
+func (s *CreateUserPoolOutput) SetPasswordSignInEnabled(v bool) *CreateUserPoolOutput {
+	s.PasswordSignInEnabled = &v
+	return s
+}
+
+// SetProjectName sets the ProjectName field's value.
+func (s *CreateUserPoolOutput) SetProjectName(v string) *CreateUserPoolOutput {
+	s.ProjectName = &v
+	return s
+}
+
+// SetRequiredSignUpAttributes sets the RequiredSignUpAttributes field's value.
+func (s *CreateUserPoolOutput) SetRequiredSignUpAttributes(v []*string) *CreateUserPoolOutput {
+	s.RequiredSignUpAttributes = v
+	return s
+}
+
+// SetSamlLoginCallbackUrl sets the SamlLoginCallbackUrl field's value.
+func (s *CreateUserPoolOutput) SetSamlLoginCallbackUrl(v string) *CreateUserPoolOutput {
+	s.SamlLoginCallbackUrl = &v
+	return s
+}
+
+// SetSamlSignUpCallbackUrl sets the SamlSignUpCallbackUrl field's value.
+func (s *CreateUserPoolOutput) SetSamlSignUpCallbackUrl(v string) *CreateUserPoolOutput {
+	s.SamlSignUpCallbackUrl = &v
+	return s
+}
+
+// SetSelfSignUpEnabled sets the SelfSignUpEnabled field's value.
+func (s *CreateUserPoolOutput) SetSelfSignUpEnabled(v bool) *CreateUserPoolOutput {
+	s.SelfSignUpEnabled = &v
+	return s
+}
+
+// SetSignInAttributes sets the SignInAttributes field's value.
+func (s *CreateUserPoolOutput) SetSignInAttributes(v []*string) *CreateUserPoolOutput {
+	s.SignInAttributes = v
+	return s
+}
+
+// SetSmsPasswordlessSignInEnabled sets the SmsPasswordlessSignInEnabled field's value.
+func (s *CreateUserPoolOutput) SetSmsPasswordlessSignInEnabled(v bool) *CreateUserPoolOutput {
+	s.SmsPasswordlessSignInEnabled = &v
+	return s
+}
+
+// SetTags sets the Tags field's value.
+func (s *CreateUserPoolOutput) SetTags(v []*TagForCreateUserPoolOutput) *CreateUserPoolOutput {
+	s.Tags = v
 	return s
 }
 
@@ -288,5 +475,65 @@ func (s *CreateUserPoolOutput) SetUid(v string) *CreateUserPoolOutput {
 // SetUpdateTime sets the UpdateTime field's value.
 func (s *CreateUserPoolOutput) SetUpdateTime(v string) *CreateUserPoolOutput {
 	s.UpdateTime = &v
+	return s
+}
+
+type TagForCreateUserPoolInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Key *string `type:"string" json:",omitempty"`
+
+	Value *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s TagForCreateUserPoolInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagForCreateUserPoolInput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagForCreateUserPoolInput) SetKey(v string) *TagForCreateUserPoolInput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *TagForCreateUserPoolInput) SetValue(v string) *TagForCreateUserPoolInput {
+	s.Value = &v
+	return s
+}
+
+type TagForCreateUserPoolOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Key *string `type:"string" json:",omitempty"`
+
+	Value *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s TagForCreateUserPoolOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagForCreateUserPoolOutput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagForCreateUserPoolOutput) SetKey(v string) *TagForCreateUserPoolOutput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *TagForCreateUserPoolOutput) SetValue(v string) *TagForCreateUserPoolOutput {
+	s.Value = &v
 	return s
 }

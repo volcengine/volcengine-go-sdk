@@ -150,6 +150,8 @@ type AuthorizationServerMetadataForUpdateOauth2CredentialProviderInput struct {
 
 	Issuer *string `type:"string" json:",omitempty"`
 
+	RegistrationEndpoint *string `type:"string" json:",omitempty"`
+
 	ResponseTypes []*string `type:"list" json:",omitempty"`
 
 	TokenEndpoint *string `type:"string" json:",omitempty"`
@@ -174,6 +176,12 @@ func (s *AuthorizationServerMetadataForUpdateOauth2CredentialProviderInput) SetA
 // SetIssuer sets the Issuer field's value.
 func (s *AuthorizationServerMetadataForUpdateOauth2CredentialProviderInput) SetIssuer(v string) *AuthorizationServerMetadataForUpdateOauth2CredentialProviderInput {
 	s.Issuer = &v
+	return s
+}
+
+// SetRegistrationEndpoint sets the RegistrationEndpoint field's value.
+func (s *AuthorizationServerMetadataForUpdateOauth2CredentialProviderInput) SetRegistrationEndpoint(v string) *AuthorizationServerMetadataForUpdateOauth2CredentialProviderInput {
+	s.RegistrationEndpoint = &v
 	return s
 }
 

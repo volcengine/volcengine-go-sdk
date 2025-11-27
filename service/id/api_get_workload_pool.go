@@ -182,6 +182,10 @@ type GetWorkloadPoolOutput struct {
 
 	Description *string `type:"string" json:",omitempty"`
 
+	ProjectName *string `type:"string" json:",omitempty"`
+
+	Tags []*TagForGetWorkloadPoolOutput `type:"list" json:",omitempty"`
+
 	Trn *string `type:"string" json:",omitempty"`
 
 	UpdatedAt *string `type:"string" json:",omitempty"`
@@ -213,6 +217,18 @@ func (s *GetWorkloadPoolOutput) SetDescription(v string) *GetWorkloadPoolOutput 
 	return s
 }
 
+// SetProjectName sets the ProjectName field's value.
+func (s *GetWorkloadPoolOutput) SetProjectName(v string) *GetWorkloadPoolOutput {
+	s.ProjectName = &v
+	return s
+}
+
+// SetTags sets the Tags field's value.
+func (s *GetWorkloadPoolOutput) SetTags(v []*TagForGetWorkloadPoolOutput) *GetWorkloadPoolOutput {
+	s.Tags = v
+	return s
+}
+
 // SetTrn sets the Trn field's value.
 func (s *GetWorkloadPoolOutput) SetTrn(v string) *GetWorkloadPoolOutput {
 	s.Trn = &v
@@ -234,5 +250,35 @@ func (s *GetWorkloadPoolOutput) SetWorkloadPoolId(v string) *GetWorkloadPoolOutp
 // SetWorkloadPoolName sets the WorkloadPoolName field's value.
 func (s *GetWorkloadPoolOutput) SetWorkloadPoolName(v string) *GetWorkloadPoolOutput {
 	s.WorkloadPoolName = &v
+	return s
+}
+
+type TagForGetWorkloadPoolOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Key *string `type:"string" json:",omitempty"`
+
+	Value *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s TagForGetWorkloadPoolOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagForGetWorkloadPoolOutput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagForGetWorkloadPoolOutput) SetKey(v string) *TagForGetWorkloadPoolOutput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *TagForGetWorkloadPoolOutput) SetValue(v string) *TagForGetWorkloadPoolOutput {
+	s.Value = &v
 	return s
 }
