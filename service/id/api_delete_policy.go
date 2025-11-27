@@ -148,7 +148,7 @@ type DeletePolicyInput struct {
 
 	NamespaceName *string `type:"string" json:",omitempty"`
 
-	PolicyId *string `type:"string" json:",omitempty"`
+	PolicyName *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -167,9 +167,9 @@ func (s *DeletePolicyInput) SetNamespaceName(v string) *DeletePolicyInput {
 	return s
 }
 
-// SetPolicyId sets the PolicyId field's value.
-func (s *DeletePolicyInput) SetPolicyId(v string) *DeletePolicyInput {
-	s.PolicyId = &v
+// SetPolicyName sets the PolicyName field's value.
+func (s *DeletePolicyInput) SetPolicyName(v string) *DeletePolicyInput {
+	s.PolicyName = &v
 	return s
 }
 

@@ -151,6 +151,18 @@ type ListWorkloadPoolsInput struct {
 
 	// PageSize is a required field
 	PageSize *int32 `max:"100" type:"int32" json:",omitempty" required:"true"`
+
+	ProjectName *string `type:"string" json:",omitempty"`
+
+	SortBy *string `type:"string" json:",omitempty"`
+
+	SortOrder *string `type:"string" json:",omitempty"`
+
+	TagFilters []*TagFilterForListWorkloadPoolsInput `type:"list" json:",omitempty"`
+
+	WorkloadPoolId *string `type:"string" json:",omitempty"`
+
+	WorkloadPoolName *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -194,6 +206,42 @@ func (s *ListWorkloadPoolsInput) SetPageNumber(v int32) *ListWorkloadPoolsInput 
 // SetPageSize sets the PageSize field's value.
 func (s *ListWorkloadPoolsInput) SetPageSize(v int32) *ListWorkloadPoolsInput {
 	s.PageSize = &v
+	return s
+}
+
+// SetProjectName sets the ProjectName field's value.
+func (s *ListWorkloadPoolsInput) SetProjectName(v string) *ListWorkloadPoolsInput {
+	s.ProjectName = &v
+	return s
+}
+
+// SetSortBy sets the SortBy field's value.
+func (s *ListWorkloadPoolsInput) SetSortBy(v string) *ListWorkloadPoolsInput {
+	s.SortBy = &v
+	return s
+}
+
+// SetSortOrder sets the SortOrder field's value.
+func (s *ListWorkloadPoolsInput) SetSortOrder(v string) *ListWorkloadPoolsInput {
+	s.SortOrder = &v
+	return s
+}
+
+// SetTagFilters sets the TagFilters field's value.
+func (s *ListWorkloadPoolsInput) SetTagFilters(v []*TagFilterForListWorkloadPoolsInput) *ListWorkloadPoolsInput {
+	s.TagFilters = v
+	return s
+}
+
+// SetWorkloadPoolId sets the WorkloadPoolId field's value.
+func (s *ListWorkloadPoolsInput) SetWorkloadPoolId(v string) *ListWorkloadPoolsInput {
+	s.WorkloadPoolId = &v
+	return s
+}
+
+// SetWorkloadPoolName sets the WorkloadPoolName field's value.
+func (s *ListWorkloadPoolsInput) SetWorkloadPoolName(v string) *ListWorkloadPoolsInput {
+	s.WorkloadPoolName = &v
 	return s
 }
 
@@ -245,12 +293,76 @@ func (s *ListWorkloadPoolsOutput) SetWorkloadPools(v []*WorkloadPoolForListWorkl
 	return s
 }
 
+type TagFilterForListWorkloadPoolsInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Key *string `type:"string" json:",omitempty"`
+
+	Values []*string `type:"list" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s TagFilterForListWorkloadPoolsInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagFilterForListWorkloadPoolsInput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagFilterForListWorkloadPoolsInput) SetKey(v string) *TagFilterForListWorkloadPoolsInput {
+	s.Key = &v
+	return s
+}
+
+// SetValues sets the Values field's value.
+func (s *TagFilterForListWorkloadPoolsInput) SetValues(v []*string) *TagFilterForListWorkloadPoolsInput {
+	s.Values = v
+	return s
+}
+
+type TagForListWorkloadPoolsOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Key *string `type:"string" json:",omitempty"`
+
+	Value *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s TagForListWorkloadPoolsOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagForListWorkloadPoolsOutput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagForListWorkloadPoolsOutput) SetKey(v string) *TagForListWorkloadPoolsOutput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *TagForListWorkloadPoolsOutput) SetValue(v string) *TagForListWorkloadPoolsOutput {
+	s.Value = &v
+	return s
+}
+
 type WorkloadPoolForListWorkloadPoolsOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
 	CreatedAt *string `type:"string" json:",omitempty"`
 
 	Description *string `type:"string" json:",omitempty"`
+
+	ProjectName *string `type:"string" json:",omitempty"`
+
+	Tags []*TagForListWorkloadPoolsOutput `type:"list" json:",omitempty"`
 
 	Trn *string `type:"string" json:",omitempty"`
 
@@ -280,6 +392,18 @@ func (s *WorkloadPoolForListWorkloadPoolsOutput) SetCreatedAt(v string) *Workloa
 // SetDescription sets the Description field's value.
 func (s *WorkloadPoolForListWorkloadPoolsOutput) SetDescription(v string) *WorkloadPoolForListWorkloadPoolsOutput {
 	s.Description = &v
+	return s
+}
+
+// SetProjectName sets the ProjectName field's value.
+func (s *WorkloadPoolForListWorkloadPoolsOutput) SetProjectName(v string) *WorkloadPoolForListWorkloadPoolsOutput {
+	s.ProjectName = &v
+	return s
+}
+
+// SetTags sets the Tags field's value.
+func (s *WorkloadPoolForListWorkloadPoolsOutput) SetTags(v []*TagForListWorkloadPoolsOutput) *WorkloadPoolForListWorkloadPoolsOutput {
+	s.Tags = v
 	return s
 }
 

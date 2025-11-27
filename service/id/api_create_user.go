@@ -146,30 +146,47 @@ func (c *ID) CreateUserWithContext(ctx volcengine.Context, input *CreateUserInpu
 type CreateUserInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	Birthdate *string `type:"string" json:",omitempty"`
+
 	Email *string `type:"string" json:",omitempty"`
 
 	EmailVerified *bool `type:"boolean" json:",omitempty"`
 
 	FamilyName *string `type:"string" json:",omitempty"`
 
+	Gender *string `type:"string" json:",omitempty"`
+
 	GivenName *string `type:"string" json:",omitempty"`
+
+	Locale *string `type:"string" json:",omitempty"`
 
 	MiddleName *string `type:"string" json:",omitempty"`
 
 	Name *string `type:"string" json:",omitempty"`
 
-	Password *string `type:"string" json:",omitempty"`
+	Nickname *string `type:"string" json:",omitempty"`
+
+	// Password is a required field
+	Password *string `type:"string" json:",omitempty" required:"true"`
 
 	PhoneNumber *string `type:"string" json:",omitempty"`
 
 	PhoneNumberVerified *bool `type:"boolean" json:",omitempty"`
 
+	Picture *string `type:"string" json:",omitempty"`
+
 	PreferredUsername *string `type:"string" json:",omitempty"`
+
+	Profile *string `type:"string" json:",omitempty"`
 
 	UserMetadata *string `type:"string" json:",omitempty"`
 
 	// UserPoolUid is a required field
 	UserPoolUid *string `type:"string" json:",omitempty" required:"true"`
+
+	Website *string `type:"string" json:",omitempty"`
+
+	Zoneinfo *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -185,6 +202,9 @@ func (s CreateUserInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *CreateUserInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "CreateUserInput"}
+	if s.Password == nil {
+		invalidParams.Add(request.NewErrParamRequired("Password"))
+	}
 	if s.UserPoolUid == nil {
 		invalidParams.Add(request.NewErrParamRequired("UserPoolUid"))
 	}
@@ -193,6 +213,12 @@ func (s *CreateUserInput) Validate() error {
 		return invalidParams
 	}
 	return nil
+}
+
+// SetBirthdate sets the Birthdate field's value.
+func (s *CreateUserInput) SetBirthdate(v string) *CreateUserInput {
+	s.Birthdate = &v
+	return s
 }
 
 // SetEmail sets the Email field's value.
@@ -213,9 +239,21 @@ func (s *CreateUserInput) SetFamilyName(v string) *CreateUserInput {
 	return s
 }
 
+// SetGender sets the Gender field's value.
+func (s *CreateUserInput) SetGender(v string) *CreateUserInput {
+	s.Gender = &v
+	return s
+}
+
 // SetGivenName sets the GivenName field's value.
 func (s *CreateUserInput) SetGivenName(v string) *CreateUserInput {
 	s.GivenName = &v
+	return s
+}
+
+// SetLocale sets the Locale field's value.
+func (s *CreateUserInput) SetLocale(v string) *CreateUserInput {
+	s.Locale = &v
 	return s
 }
 
@@ -228,6 +266,12 @@ func (s *CreateUserInput) SetMiddleName(v string) *CreateUserInput {
 // SetName sets the Name field's value.
 func (s *CreateUserInput) SetName(v string) *CreateUserInput {
 	s.Name = &v
+	return s
+}
+
+// SetNickname sets the Nickname field's value.
+func (s *CreateUserInput) SetNickname(v string) *CreateUserInput {
+	s.Nickname = &v
 	return s
 }
 
@@ -249,9 +293,21 @@ func (s *CreateUserInput) SetPhoneNumberVerified(v bool) *CreateUserInput {
 	return s
 }
 
+// SetPicture sets the Picture field's value.
+func (s *CreateUserInput) SetPicture(v string) *CreateUserInput {
+	s.Picture = &v
+	return s
+}
+
 // SetPreferredUsername sets the PreferredUsername field's value.
 func (s *CreateUserInput) SetPreferredUsername(v string) *CreateUserInput {
 	s.PreferredUsername = &v
+	return s
+}
+
+// SetProfile sets the Profile field's value.
+func (s *CreateUserInput) SetProfile(v string) *CreateUserInput {
+	s.Profile = &v
 	return s
 }
 
@@ -264,6 +320,18 @@ func (s *CreateUserInput) SetUserMetadata(v string) *CreateUserInput {
 // SetUserPoolUid sets the UserPoolUid field's value.
 func (s *CreateUserInput) SetUserPoolUid(v string) *CreateUserInput {
 	s.UserPoolUid = &v
+	return s
+}
+
+// SetWebsite sets the Website field's value.
+func (s *CreateUserInput) SetWebsite(v string) *CreateUserInput {
+	s.Website = &v
+	return s
+}
+
+// SetZoneinfo sets the Zoneinfo field's value.
+func (s *CreateUserInput) SetZoneinfo(v string) *CreateUserInput {
+	s.Zoneinfo = &v
 	return s
 }
 
@@ -298,7 +366,7 @@ type CreateUserOutput struct {
 
 	Name *string `type:"string" json:",omitempty"`
 
-	NickName *string `type:"string" json:",omitempty"`
+	Nickname *string `type:"string" json:",omitempty"`
 
 	NumLogins *int32 `type:"int32" json:",omitempty"`
 
@@ -320,9 +388,11 @@ type CreateUserOutput struct {
 
 	UserMetadata *string `type:"string" json:",omitempty"`
 
+	UserState *string `type:"string" json:",omitempty"`
+
 	Website *string `type:"string" json:",omitempty"`
 
-	ZoneInfo *string `type:"string" json:",omitempty"`
+	Zoneinfo *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -413,9 +483,9 @@ func (s *CreateUserOutput) SetName(v string) *CreateUserOutput {
 	return s
 }
 
-// SetNickName sets the NickName field's value.
-func (s *CreateUserOutput) SetNickName(v string) *CreateUserOutput {
-	s.NickName = &v
+// SetNickname sets the Nickname field's value.
+func (s *CreateUserOutput) SetNickname(v string) *CreateUserOutput {
+	s.Nickname = &v
 	return s
 }
 
@@ -479,14 +549,20 @@ func (s *CreateUserOutput) SetUserMetadata(v string) *CreateUserOutput {
 	return s
 }
 
+// SetUserState sets the UserState field's value.
+func (s *CreateUserOutput) SetUserState(v string) *CreateUserOutput {
+	s.UserState = &v
+	return s
+}
+
 // SetWebsite sets the Website field's value.
 func (s *CreateUserOutput) SetWebsite(v string) *CreateUserOutput {
 	s.Website = &v
 	return s
 }
 
-// SetZoneInfo sets the ZoneInfo field's value.
-func (s *CreateUserOutput) SetZoneInfo(v string) *CreateUserOutput {
-	s.ZoneInfo = &v
+// SetZoneinfo sets the Zoneinfo field's value.
+func (s *CreateUserOutput) SetZoneinfo(v string) *CreateUserOutput {
+	s.Zoneinfo = &v
 	return s
 }

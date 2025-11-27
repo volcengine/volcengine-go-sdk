@@ -148,7 +148,8 @@ type GetPolicyInput struct {
 
 	NamespaceName *string `type:"string" json:",omitempty"`
 
-	PolicyId *string `type:"string" json:",omitempty"`
+	// PolicyName is a required field
+	PolicyName *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -161,15 +162,28 @@ func (s GetPolicyInput) GoString() string {
 	return s.String()
 }
 
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *GetPolicyInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "GetPolicyInput"}
+	if s.PolicyName == nil {
+		invalidParams.Add(request.NewErrParamRequired("PolicyName"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
 // SetNamespaceName sets the NamespaceName field's value.
 func (s *GetPolicyInput) SetNamespaceName(v string) *GetPolicyInput {
 	s.NamespaceName = &v
 	return s
 }
 
-// SetPolicyId sets the PolicyId field's value.
-func (s *GetPolicyInput) SetPolicyId(v string) *GetPolicyInput {
-	s.PolicyId = &v
+// SetPolicyName sets the PolicyName field's value.
+func (s *GetPolicyInput) SetPolicyName(v string) *GetPolicyInput {
+	s.PolicyName = &v
 	return s
 }
 
@@ -178,11 +192,21 @@ type GetPolicyOutput struct {
 
 	Metadata *response.ResponseMetadata
 
+	CreateTime *string `type:"string" json:",omitempty"`
+
+	Description *string `type:"string" json:",omitempty"`
+
 	NamespaceId *string `type:"string" json:",omitempty"`
 
 	Policy *string `type:"string" json:",omitempty"`
 
 	PolicyId *string `type:"string" json:",omitempty"`
+
+	PolicyName *string `type:"string" json:",omitempty"`
+
+	Trn *string `type:"string" json:",omitempty"`
+
+	UpdateTime *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -193,6 +217,18 @@ func (s GetPolicyOutput) String() string {
 // GoString returns the string representation
 func (s GetPolicyOutput) GoString() string {
 	return s.String()
+}
+
+// SetCreateTime sets the CreateTime field's value.
+func (s *GetPolicyOutput) SetCreateTime(v string) *GetPolicyOutput {
+	s.CreateTime = &v
+	return s
+}
+
+// SetDescription sets the Description field's value.
+func (s *GetPolicyOutput) SetDescription(v string) *GetPolicyOutput {
+	s.Description = &v
+	return s
 }
 
 // SetNamespaceId sets the NamespaceId field's value.
@@ -210,5 +246,23 @@ func (s *GetPolicyOutput) SetPolicy(v string) *GetPolicyOutput {
 // SetPolicyId sets the PolicyId field's value.
 func (s *GetPolicyOutput) SetPolicyId(v string) *GetPolicyOutput {
 	s.PolicyId = &v
+	return s
+}
+
+// SetPolicyName sets the PolicyName field's value.
+func (s *GetPolicyOutput) SetPolicyName(v string) *GetPolicyOutput {
+	s.PolicyName = &v
+	return s
+}
+
+// SetTrn sets the Trn field's value.
+func (s *GetPolicyOutput) SetTrn(v string) *GetPolicyOutput {
+	s.Trn = &v
+	return s
+}
+
+// SetUpdateTime sets the UpdateTime field's value.
+func (s *GetPolicyOutput) SetUpdateTime(v string) *GetPolicyOutput {
+	s.UpdateTime = &v
 	return s
 }

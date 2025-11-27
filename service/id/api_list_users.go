@@ -172,7 +172,7 @@ type DataForListUsersOutput struct {
 
 	Name *string `type:"string" json:",omitempty"`
 
-	NickName *string `type:"string" json:",omitempty"`
+	Nickname *string `type:"string" json:",omitempty"`
 
 	NumLogins *int32 `type:"int32" json:",omitempty"`
 
@@ -194,9 +194,11 @@ type DataForListUsersOutput struct {
 
 	UserMetadata *string `type:"string" json:",omitempty"`
 
+	UserState *string `type:"string" json:",omitempty"`
+
 	Website *string `type:"string" json:",omitempty"`
 
-	ZoneInfo *string `type:"string" json:",omitempty"`
+	Zoneinfo *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -287,9 +289,9 @@ func (s *DataForListUsersOutput) SetName(v string) *DataForListUsersOutput {
 	return s
 }
 
-// SetNickName sets the NickName field's value.
-func (s *DataForListUsersOutput) SetNickName(v string) *DataForListUsersOutput {
-	s.NickName = &v
+// SetNickname sets the Nickname field's value.
+func (s *DataForListUsersOutput) SetNickname(v string) *DataForListUsersOutput {
+	s.Nickname = &v
 	return s
 }
 
@@ -353,15 +355,21 @@ func (s *DataForListUsersOutput) SetUserMetadata(v string) *DataForListUsersOutp
 	return s
 }
 
+// SetUserState sets the UserState field's value.
+func (s *DataForListUsersOutput) SetUserState(v string) *DataForListUsersOutput {
+	s.UserState = &v
+	return s
+}
+
 // SetWebsite sets the Website field's value.
 func (s *DataForListUsersOutput) SetWebsite(v string) *DataForListUsersOutput {
 	s.Website = &v
 	return s
 }
 
-// SetZoneInfo sets the ZoneInfo field's value.
-func (s *DataForListUsersOutput) SetZoneInfo(v string) *DataForListUsersOutput {
-	s.ZoneInfo = &v
+// SetZoneinfo sets the Zoneinfo field's value.
+func (s *DataForListUsersOutput) SetZoneinfo(v string) *DataForListUsersOutput {
+	s.Zoneinfo = &v
 	return s
 }
 

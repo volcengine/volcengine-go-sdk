@@ -205,8 +205,48 @@ func (s *CredentialProviderForListCredentialProvidersOutput) SetVendor(v int32) 
 	return s
 }
 
+type FilterForListCredentialProvidersInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Name *string `type:"string" json:",omitempty"`
+
+	Type *string `type:"string" json:",omitempty"`
+
+	Vendor *int32 `type:"int32" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s FilterForListCredentialProvidersInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s FilterForListCredentialProvidersInput) GoString() string {
+	return s.String()
+}
+
+// SetName sets the Name field's value.
+func (s *FilterForListCredentialProvidersInput) SetName(v string) *FilterForListCredentialProvidersInput {
+	s.Name = &v
+	return s
+}
+
+// SetType sets the Type field's value.
+func (s *FilterForListCredentialProvidersInput) SetType(v string) *FilterForListCredentialProvidersInput {
+	s.Type = &v
+	return s
+}
+
+// SetVendor sets the Vendor field's value.
+func (s *FilterForListCredentialProvidersInput) SetVendor(v int32) *FilterForListCredentialProvidersInput {
+	s.Vendor = &v
+	return s
+}
+
 type ListCredentialProvidersInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
+
+	Filter *FilterForListCredentialProvidersInput `type:"structure" json:",omitempty"`
 
 	// PageNumber is a required field
 	PageNumber *int32 `type:"int32" json:",omitempty" required:"true"`
@@ -215,6 +255,10 @@ type ListCredentialProvidersInput struct {
 	PageSize *int32 `type:"int32" json:",omitempty" required:"true"`
 
 	PoolName *string `type:"string" json:",omitempty"`
+
+	SortDesc *bool `type:"boolean" json:",omitempty"`
+
+	SortField *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -243,6 +287,12 @@ func (s *ListCredentialProvidersInput) Validate() error {
 	return nil
 }
 
+// SetFilter sets the Filter field's value.
+func (s *ListCredentialProvidersInput) SetFilter(v *FilterForListCredentialProvidersInput) *ListCredentialProvidersInput {
+	s.Filter = v
+	return s
+}
+
 // SetPageNumber sets the PageNumber field's value.
 func (s *ListCredentialProvidersInput) SetPageNumber(v int32) *ListCredentialProvidersInput {
 	s.PageNumber = &v
@@ -258,6 +308,18 @@ func (s *ListCredentialProvidersInput) SetPageSize(v int32) *ListCredentialProvi
 // SetPoolName sets the PoolName field's value.
 func (s *ListCredentialProvidersInput) SetPoolName(v string) *ListCredentialProvidersInput {
 	s.PoolName = &v
+	return s
+}
+
+// SetSortDesc sets the SortDesc field's value.
+func (s *ListCredentialProvidersInput) SetSortDesc(v bool) *ListCredentialProvidersInput {
+	s.SortDesc = &v
+	return s
+}
+
+// SetSortField sets the SortField field's value.
+func (s *ListCredentialProvidersInput) SetSortField(v string) *ListCredentialProvidersInput {
+	s.SortField = &v
 	return s
 }
 

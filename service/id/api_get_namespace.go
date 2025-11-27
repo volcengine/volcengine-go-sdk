@@ -178,13 +178,21 @@ type GetNamespaceOutput struct {
 
 	Metadata *response.ResponseMetadata
 
+	CreateTime *string `type:"string" json:",omitempty"`
+
 	Description *string `type:"string" json:",omitempty"`
 
 	NamespaceId *string `type:"string" json:",omitempty"`
 
 	NamespaceName *string `type:"string" json:",omitempty"`
 
+	ProjectName *string `type:"string" json:",omitempty"`
+
+	Tags []*TagForGetNamespaceOutput `type:"list" json:",omitempty"`
+
 	Trn *string `type:"string" json:",omitempty"`
+
+	UpdateTime *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -195,6 +203,12 @@ func (s GetNamespaceOutput) String() string {
 // GoString returns the string representation
 func (s GetNamespaceOutput) GoString() string {
 	return s.String()
+}
+
+// SetCreateTime sets the CreateTime field's value.
+func (s *GetNamespaceOutput) SetCreateTime(v string) *GetNamespaceOutput {
+	s.CreateTime = &v
+	return s
 }
 
 // SetDescription sets the Description field's value.
@@ -215,8 +229,56 @@ func (s *GetNamespaceOutput) SetNamespaceName(v string) *GetNamespaceOutput {
 	return s
 }
 
+// SetProjectName sets the ProjectName field's value.
+func (s *GetNamespaceOutput) SetProjectName(v string) *GetNamespaceOutput {
+	s.ProjectName = &v
+	return s
+}
+
+// SetTags sets the Tags field's value.
+func (s *GetNamespaceOutput) SetTags(v []*TagForGetNamespaceOutput) *GetNamespaceOutput {
+	s.Tags = v
+	return s
+}
+
 // SetTrn sets the Trn field's value.
 func (s *GetNamespaceOutput) SetTrn(v string) *GetNamespaceOutput {
 	s.Trn = &v
+	return s
+}
+
+// SetUpdateTime sets the UpdateTime field's value.
+func (s *GetNamespaceOutput) SetUpdateTime(v string) *GetNamespaceOutput {
+	s.UpdateTime = &v
+	return s
+}
+
+type TagForGetNamespaceOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Key *string `type:"string" json:",omitempty"`
+
+	Value *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s TagForGetNamespaceOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagForGetNamespaceOutput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagForGetNamespaceOutput) SetKey(v string) *TagForGetNamespaceOutput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *TagForGetNamespaceOutput) SetValue(v string) *TagForGetNamespaceOutput {
+	s.Value = &v
 	return s
 }

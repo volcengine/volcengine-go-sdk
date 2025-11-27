@@ -148,6 +148,10 @@ type CreateWorkloadPoolInput struct {
 
 	Description *string `type:"string" json:",omitempty"`
 
+	ProjectName *string `type:"string" json:",omitempty"`
+
+	Tags []*TagForCreateWorkloadPoolInput `type:"list" json:",omitempty"`
+
 	WorkloadPoolName *string `type:"string" json:",omitempty"`
 }
 
@@ -167,6 +171,18 @@ func (s *CreateWorkloadPoolInput) SetDescription(v string) *CreateWorkloadPoolIn
 	return s
 }
 
+// SetProjectName sets the ProjectName field's value.
+func (s *CreateWorkloadPoolInput) SetProjectName(v string) *CreateWorkloadPoolInput {
+	s.ProjectName = &v
+	return s
+}
+
+// SetTags sets the Tags field's value.
+func (s *CreateWorkloadPoolInput) SetTags(v []*TagForCreateWorkloadPoolInput) *CreateWorkloadPoolInput {
+	s.Tags = v
+	return s
+}
+
 // SetWorkloadPoolName sets the WorkloadPoolName field's value.
 func (s *CreateWorkloadPoolInput) SetWorkloadPoolName(v string) *CreateWorkloadPoolInput {
 	s.WorkloadPoolName = &v
@@ -181,6 +197,10 @@ type CreateWorkloadPoolOutput struct {
 	CreatedAt *string `type:"string" json:",omitempty"`
 
 	Description *string `type:"string" json:",omitempty"`
+
+	ProjectName *string `type:"string" json:",omitempty"`
+
+	Tags []*TagForCreateWorkloadPoolOutput `type:"list" json:",omitempty"`
 
 	Trn *string `type:"string" json:",omitempty"`
 
@@ -213,6 +233,18 @@ func (s *CreateWorkloadPoolOutput) SetDescription(v string) *CreateWorkloadPoolO
 	return s
 }
 
+// SetProjectName sets the ProjectName field's value.
+func (s *CreateWorkloadPoolOutput) SetProjectName(v string) *CreateWorkloadPoolOutput {
+	s.ProjectName = &v
+	return s
+}
+
+// SetTags sets the Tags field's value.
+func (s *CreateWorkloadPoolOutput) SetTags(v []*TagForCreateWorkloadPoolOutput) *CreateWorkloadPoolOutput {
+	s.Tags = v
+	return s
+}
+
 // SetTrn sets the Trn field's value.
 func (s *CreateWorkloadPoolOutput) SetTrn(v string) *CreateWorkloadPoolOutput {
 	s.Trn = &v
@@ -234,5 +266,65 @@ func (s *CreateWorkloadPoolOutput) SetWorkloadPoolId(v string) *CreateWorkloadPo
 // SetWorkloadPoolName sets the WorkloadPoolName field's value.
 func (s *CreateWorkloadPoolOutput) SetWorkloadPoolName(v string) *CreateWorkloadPoolOutput {
 	s.WorkloadPoolName = &v
+	return s
+}
+
+type TagForCreateWorkloadPoolInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Key *string `type:"string" json:",omitempty"`
+
+	Value *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s TagForCreateWorkloadPoolInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagForCreateWorkloadPoolInput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagForCreateWorkloadPoolInput) SetKey(v string) *TagForCreateWorkloadPoolInput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *TagForCreateWorkloadPoolInput) SetValue(v string) *TagForCreateWorkloadPoolInput {
+	s.Value = &v
+	return s
+}
+
+type TagForCreateWorkloadPoolOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Key *string `type:"string" json:",omitempty"`
+
+	Value *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s TagForCreateWorkloadPoolOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagForCreateWorkloadPoolOutput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagForCreateWorkloadPoolOutput) SetKey(v string) *TagForCreateWorkloadPoolOutput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *TagForCreateWorkloadPoolOutput) SetValue(v string) *TagForCreateWorkloadPoolOutput {
+	s.Value = &v
 	return s
 }

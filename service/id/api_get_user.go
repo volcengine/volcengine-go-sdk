@@ -222,7 +222,7 @@ type GetUserOutput struct {
 
 	Name *string `type:"string" json:",omitempty"`
 
-	NickName *string `type:"string" json:",omitempty"`
+	Nickname *string `type:"string" json:",omitempty"`
 
 	NumLogins *int32 `type:"int32" json:",omitempty"`
 
@@ -244,9 +244,11 @@ type GetUserOutput struct {
 
 	UserMetadata *string `type:"string" json:",omitempty"`
 
+	UserState *string `type:"string" json:",omitempty"`
+
 	Website *string `type:"string" json:",omitempty"`
 
-	ZoneInfo *string `type:"string" json:",omitempty"`
+	Zoneinfo *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -337,9 +339,9 @@ func (s *GetUserOutput) SetName(v string) *GetUserOutput {
 	return s
 }
 
-// SetNickName sets the NickName field's value.
-func (s *GetUserOutput) SetNickName(v string) *GetUserOutput {
-	s.NickName = &v
+// SetNickname sets the Nickname field's value.
+func (s *GetUserOutput) SetNickname(v string) *GetUserOutput {
+	s.Nickname = &v
 	return s
 }
 
@@ -403,14 +405,20 @@ func (s *GetUserOutput) SetUserMetadata(v string) *GetUserOutput {
 	return s
 }
 
+// SetUserState sets the UserState field's value.
+func (s *GetUserOutput) SetUserState(v string) *GetUserOutput {
+	s.UserState = &v
+	return s
+}
+
 // SetWebsite sets the Website field's value.
 func (s *GetUserOutput) SetWebsite(v string) *GetUserOutput {
 	s.Website = &v
 	return s
 }
 
-// SetZoneInfo sets the ZoneInfo field's value.
-func (s *GetUserOutput) SetZoneInfo(v string) *GetUserOutput {
-	s.ZoneInfo = &v
+// SetZoneinfo sets the Zoneinfo field's value.
+func (s *GetUserOutput) SetZoneinfo(v string) *GetUserOutput {
+	s.Zoneinfo = &v
 	return s
 }
