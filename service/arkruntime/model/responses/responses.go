@@ -7,12 +7,14 @@
 package responses
 
 import (
-	reflect "reflect"
-	sync "sync"
+	"reflect"
+	"sync"
 
-	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
-	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	structpb "google.golang.org/protobuf/types/known/structpb"
+	"google.golang.org/protobuf/reflect/protoreflect"
+	"google.golang.org/protobuf/runtime/protoimpl"
+	"google.golang.org/protobuf/types/known/structpb"
+
+	"github.com/volcengine/volcengine-go-sdk/service/arkruntime/model"
 )
 
 const (
@@ -1159,7 +1161,7 @@ var (
 		23:   "response.web_search_call.in_progress",
 		24:   "response.web_search_call.searching",
 		25:   "response.web_search_call.completed",
-		26:   "response.output_text.annotation.added",
+		26:   "response.output_text_annotation.added",
 		30:   "response.image_process_call.in_progress",
 		31:   "response.image_process_call.progressing",
 		32:   "response.image_process_call.completed",
@@ -1179,18 +1181,18 @@ var (
 		1000: "response.doubao_app_call.in_progress",
 		1001: "response.doubao_app_call.failed",
 		1002: "response.doubao_app_call.completed",
-		1003: "response.doubao_app_call_block.added",
-		1004: "response.doubao_app_call_block.done",
-		1005: "response.doubao_app_call_reasoning_text.delta",
-		1006: "response.doubao_app_call_reasoning_text.done",
-		1007: "response.doubao_app_call_output_text.delta",
-		1008: "response.doubao_app_call_output_text.done",
-		1009: "response.doubao_app_call_search.in_progress",
-		1010: "response.doubao_app_call_search.searching",
-		1011: "response.doubao_app_call_search.completed",
-		1012: "response.doubao_app_call_reasoning_search.in_progress",
-		1013: "response.doubao_app_call_reasoning_search.searching",
-		1014: "response.doubao_app_call_reasoning_search.completed",
+		1003: "response.doubao_app_call.block.added",
+		1004: "response.doubao_app_call.block.done",
+		1005: "response.doubao_app_call.reasoning_text.delta",
+		1006: "response.doubao_app_call.reasoning_text.done",
+		1007: "response.doubao_app_call.output_text.delta",
+		1008: "response.doubao_app_call.output_text.done",
+		1009: "response.doubao_app_call.search.in_progress",
+		1010: "response.doubao_app_call.search.searching",
+		1011: "response.doubao_app_call.search.completed",
+		1012: "response.doubao_app_call.reasoning_search.in_progress",
+		1013: "response.doubao_app_call.reasoning_search.searching",
+		1014: "response.doubao_app_call.reasoning_search.completed",
 	}
 	EventType_Enum_value = map[string]int32{
 		"unspecified":                                           0,
@@ -1219,7 +1221,7 @@ var (
 		"response.web_search_call.in_progress":                  23,
 		"response.web_search_call.searching":                    24,
 		"response.web_search_call.completed":                    25,
-		"response.output_text.annotation.added":                 26,
+		"response.output_text_annotation.added":                 26,
 		"response.image_process_call.in_progress":               30,
 		"response.image_process_call.progressing":               31,
 		"response.image_process_call.completed":                 32,
@@ -1239,18 +1241,18 @@ var (
 		"response.doubao_app_call.in_progress":                  1000,
 		"response.doubao_app_call.failed":                       1001,
 		"response.doubao_app_call.completed":                    1002,
-		"response.doubao_app_call_block.added":                  1003,
-		"response.doubao_app_call_block.done":                   1004,
-		"response.doubao_app_call_reasoning_text.delta":         1005,
-		"response.doubao_app_call_reasoning_text.done":          1006,
-		"response.doubao_app_call_output_text.delta":            1007,
-		"response.doubao_app_call_output_text.done":             1008,
-		"response.doubao_app_call_search.in_progress":           1009,
-		"response.doubao_app_call_search.searching":             1010,
-		"response.doubao_app_call_search.completed":             1011,
-		"response.doubao_app_call_reasoning_search.in_progress": 1012,
-		"response.doubao_app_call_reasoning_search.searching":   1013,
-		"response.doubao_app_call_reasoning_search.completed":   1014,
+		"response.doubao_app_call.block.added":                  1003,
+		"response.doubao_app_call.block.done":                   1004,
+		"response.doubao_app_call.reasoning_text.delta":         1005,
+		"response.doubao_app_call.reasoning_text.done":          1006,
+		"response.doubao_app_call.output_text.delta":            1007,
+		"response.doubao_app_call.output_text.done":             1008,
+		"response.doubao_app_call.search.in_progress":           1009,
+		"response.doubao_app_call.search.searching":             1010,
+		"response.doubao_app_call.search.completed":             1011,
+		"response.doubao_app_call.reasoning_search.in_progress": 1012,
+		"response.doubao_app_call.reasoning_search.searching":   1013,
+		"response.doubao_app_call.reasoning_search.completed":   1014,
 	}
 )
 
@@ -8439,6 +8441,7 @@ type ResponseObject struct {
 	MaxToolCalls *int64 `protobuf:"varint,24,opt,name=max_tool_calls,json=maxToolCalls,proto3,oneof" json:"max_tool_calls,omitempty"`
 	// Configuration options for reasoning models
 	Reasoning *ResponsesReasoning `protobuf:"bytes,25,opt,name=reasoning,proto3,oneof" json:"reasoning,omitempty"` // sdk: {"import_path": {"python_output": {"file": "volcenginesdkarkruntime.types.shared.reasoning"}}}
+	model.HttpHeader
 }
 
 func (x *ResponseObject) Reset() {
@@ -15790,6 +15793,7 @@ type ListInputItemsResponse struct {
 	FirstId string          `protobuf:"bytes,3,opt,name=first_id,json=firstId,proto3" json:"first_id,omitempty"`
 	LastId  string          `protobuf:"bytes,4,opt,name=last_id,json=lastId,proto3" json:"last_id,omitempty"`
 	HasMore *bool           `protobuf:"varint,5,opt,name=has_more,json=hasMore,proto3,oneof" json:"has_more"` // @inject_tag: json:"has_more"
+	model.HttpHeader
 }
 
 func (x *ListInputItemsResponse) Reset() {
