@@ -176,7 +176,9 @@ type DataForVideoProjectTaskDetailOutput struct {
 
 	Task *TaskForVideoProjectTaskDetailOutput `type:"structure" json:"task"`
 
-	VideoDetails *VideoDetailsForVideoProjectTaskDetailOutput `type:"structure" json:"videoDetails"`
+	VideoDetails []*VideoDetailForVideoProjectTaskDetailOutput `type:"list" json:"videoDetails"`
+
+	VideoDetailsWithAiRemove []*VideoDetailsWithAiRemoveForVideoProjectTaskDetailOutput `type:"list" json:"videoDetailsWithAiRemove"`
 }
 
 // String returns the string representation
@@ -202,8 +204,60 @@ func (s *DataForVideoProjectTaskDetailOutput) SetTask(v *TaskForVideoProjectTask
 }
 
 // SetVideoDetails sets the VideoDetails field's value.
-func (s *DataForVideoProjectTaskDetailOutput) SetVideoDetails(v *VideoDetailsForVideoProjectTaskDetailOutput) *DataForVideoProjectTaskDetailOutput {
+func (s *DataForVideoProjectTaskDetailOutput) SetVideoDetails(v []*VideoDetailForVideoProjectTaskDetailOutput) *DataForVideoProjectTaskDetailOutput {
 	s.VideoDetails = v
+	return s
+}
+
+// SetVideoDetailsWithAiRemove sets the VideoDetailsWithAiRemove field's value.
+func (s *DataForVideoProjectTaskDetailOutput) SetVideoDetailsWithAiRemove(v []*VideoDetailsWithAiRemoveForVideoProjectTaskDetailOutput) *DataForVideoProjectTaskDetailOutput {
+	s.VideoDetailsWithAiRemove = v
+	return s
+}
+
+type SourceSubtitleFileInfoForVideoProjectTaskDetailOutput struct {
+	_ struct{} `type:"structure"`
+
+	CreateTime *string `type:"string" json:"createTime"`
+
+	FileName *string `type:"string" json:"fileName"`
+
+	FileUri *string `type:"string" json:"fileUri"`
+
+	UpdateTime *string `type:"string" json:"updateTime"`
+}
+
+// String returns the string representation
+func (s SourceSubtitleFileInfoForVideoProjectTaskDetailOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s SourceSubtitleFileInfoForVideoProjectTaskDetailOutput) GoString() string {
+	return s.String()
+}
+
+// SetCreateTime sets the CreateTime field's value.
+func (s *SourceSubtitleFileInfoForVideoProjectTaskDetailOutput) SetCreateTime(v string) *SourceSubtitleFileInfoForVideoProjectTaskDetailOutput {
+	s.CreateTime = &v
+	return s
+}
+
+// SetFileName sets the FileName field's value.
+func (s *SourceSubtitleFileInfoForVideoProjectTaskDetailOutput) SetFileName(v string) *SourceSubtitleFileInfoForVideoProjectTaskDetailOutput {
+	s.FileName = &v
+	return s
+}
+
+// SetFileUri sets the FileUri field's value.
+func (s *SourceSubtitleFileInfoForVideoProjectTaskDetailOutput) SetFileUri(v string) *SourceSubtitleFileInfoForVideoProjectTaskDetailOutput {
+	s.FileUri = &v
+	return s
+}
+
+// SetUpdateTime sets the UpdateTime field's value.
+func (s *SourceSubtitleFileInfoForVideoProjectTaskDetailOutput) SetUpdateTime(v string) *SourceSubtitleFileInfoForVideoProjectTaskDetailOutput {
+	s.UpdateTime = &v
 	return s
 }
 
@@ -214,17 +268,47 @@ type SubTaskForVideoProjectTaskDetailOutput struct {
 
 	CurrentStage *string `type:"string" json:"currentStage"`
 
+	DefaultStyle *string `type:"string" json:"defaultStyle"`
+
+	EpisodeNum *int32 `type:"int32" json:"episodeNum"`
+
 	Id *string `type:"string" json:"id"`
 
 	OpStatus *string `type:"string" json:"opStatus"`
 
 	SourceLanguage *string `type:"string" json:"sourceLanguage"`
 
+	SourceSubtitleFileInfo *SourceSubtitleFileInfoForVideoProjectTaskDetailOutput `type:"structure" json:"sourceSubtitleFileInfo"`
+
 	Status *string `type:"string" json:"status"`
+
+	SubtaskType *int32 `type:"int32" json:"subtaskType"`
+
+	SuppressionStatus *int32 `type:"int32" json:"suppressionStatus"`
+
+	SuppressionVideoInfo *SuppressionVideoInfoForVideoProjectTaskDetailOutput `type:"structure" json:"suppressionVideoInfo"`
+
+	TargetLanguage *string `type:"string" json:"targetLanguage"`
+
+	TargetSubtitleFileInfo *TargetSubtitleFileInfoForVideoProjectTaskDetailOutput `type:"structure" json:"targetSubtitleFileInfo"`
+
+	TextAiRemove *bool `type:"boolean" json:"textAiRemove"`
+
+	TranslateOcrText *bool `type:"boolean" json:"translateOcrText"`
 
 	UpdateTime *string `type:"string" json:"updateTime"`
 
 	UseDubTask *string `type:"string" json:"useDubTask"`
+
+	UseMt *bool `type:"boolean" json:"useMt"`
+
+	UseOcr *bool `type:"boolean" json:"useOcr"`
+
+	VidWithAiRemove *string `type:"string" json:"vidWithAiRemove"`
+
+	VideoId *string `type:"string" json:"videoId"`
+
+	Workflow *int32 `type:"int32" json:"workflow"`
 }
 
 // String returns the string representation
@@ -249,6 +333,18 @@ func (s *SubTaskForVideoProjectTaskDetailOutput) SetCurrentStage(v string) *SubT
 	return s
 }
 
+// SetDefaultStyle sets the DefaultStyle field's value.
+func (s *SubTaskForVideoProjectTaskDetailOutput) SetDefaultStyle(v string) *SubTaskForVideoProjectTaskDetailOutput {
+	s.DefaultStyle = &v
+	return s
+}
+
+// SetEpisodeNum sets the EpisodeNum field's value.
+func (s *SubTaskForVideoProjectTaskDetailOutput) SetEpisodeNum(v int32) *SubTaskForVideoProjectTaskDetailOutput {
+	s.EpisodeNum = &v
+	return s
+}
+
 // SetId sets the Id field's value.
 func (s *SubTaskForVideoProjectTaskDetailOutput) SetId(v string) *SubTaskForVideoProjectTaskDetailOutput {
 	s.Id = &v
@@ -267,9 +363,57 @@ func (s *SubTaskForVideoProjectTaskDetailOutput) SetSourceLanguage(v string) *Su
 	return s
 }
 
+// SetSourceSubtitleFileInfo sets the SourceSubtitleFileInfo field's value.
+func (s *SubTaskForVideoProjectTaskDetailOutput) SetSourceSubtitleFileInfo(v *SourceSubtitleFileInfoForVideoProjectTaskDetailOutput) *SubTaskForVideoProjectTaskDetailOutput {
+	s.SourceSubtitleFileInfo = v
+	return s
+}
+
 // SetStatus sets the Status field's value.
 func (s *SubTaskForVideoProjectTaskDetailOutput) SetStatus(v string) *SubTaskForVideoProjectTaskDetailOutput {
 	s.Status = &v
+	return s
+}
+
+// SetSubtaskType sets the SubtaskType field's value.
+func (s *SubTaskForVideoProjectTaskDetailOutput) SetSubtaskType(v int32) *SubTaskForVideoProjectTaskDetailOutput {
+	s.SubtaskType = &v
+	return s
+}
+
+// SetSuppressionStatus sets the SuppressionStatus field's value.
+func (s *SubTaskForVideoProjectTaskDetailOutput) SetSuppressionStatus(v int32) *SubTaskForVideoProjectTaskDetailOutput {
+	s.SuppressionStatus = &v
+	return s
+}
+
+// SetSuppressionVideoInfo sets the SuppressionVideoInfo field's value.
+func (s *SubTaskForVideoProjectTaskDetailOutput) SetSuppressionVideoInfo(v *SuppressionVideoInfoForVideoProjectTaskDetailOutput) *SubTaskForVideoProjectTaskDetailOutput {
+	s.SuppressionVideoInfo = v
+	return s
+}
+
+// SetTargetLanguage sets the TargetLanguage field's value.
+func (s *SubTaskForVideoProjectTaskDetailOutput) SetTargetLanguage(v string) *SubTaskForVideoProjectTaskDetailOutput {
+	s.TargetLanguage = &v
+	return s
+}
+
+// SetTargetSubtitleFileInfo sets the TargetSubtitleFileInfo field's value.
+func (s *SubTaskForVideoProjectTaskDetailOutput) SetTargetSubtitleFileInfo(v *TargetSubtitleFileInfoForVideoProjectTaskDetailOutput) *SubTaskForVideoProjectTaskDetailOutput {
+	s.TargetSubtitleFileInfo = v
+	return s
+}
+
+// SetTextAiRemove sets the TextAiRemove field's value.
+func (s *SubTaskForVideoProjectTaskDetailOutput) SetTextAiRemove(v bool) *SubTaskForVideoProjectTaskDetailOutput {
+	s.TextAiRemove = &v
+	return s
+}
+
+// SetTranslateOcrText sets the TranslateOcrText field's value.
+func (s *SubTaskForVideoProjectTaskDetailOutput) SetTranslateOcrText(v bool) *SubTaskForVideoProjectTaskDetailOutput {
+	s.TranslateOcrText = &v
 	return s
 }
 
@@ -282,6 +426,176 @@ func (s *SubTaskForVideoProjectTaskDetailOutput) SetUpdateTime(v string) *SubTas
 // SetUseDubTask sets the UseDubTask field's value.
 func (s *SubTaskForVideoProjectTaskDetailOutput) SetUseDubTask(v string) *SubTaskForVideoProjectTaskDetailOutput {
 	s.UseDubTask = &v
+	return s
+}
+
+// SetUseMt sets the UseMt field's value.
+func (s *SubTaskForVideoProjectTaskDetailOutput) SetUseMt(v bool) *SubTaskForVideoProjectTaskDetailOutput {
+	s.UseMt = &v
+	return s
+}
+
+// SetUseOcr sets the UseOcr field's value.
+func (s *SubTaskForVideoProjectTaskDetailOutput) SetUseOcr(v bool) *SubTaskForVideoProjectTaskDetailOutput {
+	s.UseOcr = &v
+	return s
+}
+
+// SetVidWithAiRemove sets the VidWithAiRemove field's value.
+func (s *SubTaskForVideoProjectTaskDetailOutput) SetVidWithAiRemove(v string) *SubTaskForVideoProjectTaskDetailOutput {
+	s.VidWithAiRemove = &v
+	return s
+}
+
+// SetVideoId sets the VideoId field's value.
+func (s *SubTaskForVideoProjectTaskDetailOutput) SetVideoId(v string) *SubTaskForVideoProjectTaskDetailOutput {
+	s.VideoId = &v
+	return s
+}
+
+// SetWorkflow sets the Workflow field's value.
+func (s *SubTaskForVideoProjectTaskDetailOutput) SetWorkflow(v int32) *SubTaskForVideoProjectTaskDetailOutput {
+	s.Workflow = &v
+	return s
+}
+
+type SuppressionVideoInfoForVideoProjectTaskDetailOutput struct {
+	_ struct{} `type:"structure"`
+
+	PosterUrl *string `type:"string" json:"posterUrl"`
+
+	SourceLastTime *string `type:"string" json:"sourceLastTime"`
+
+	SourceName *string `type:"string" json:"sourceName"`
+
+	SourceVid *string `type:"string" json:"sourceVid"`
+
+	SourceVideoUrl *string `type:"string" json:"sourceVideoUrl"`
+
+	TargetDownloadUrl *string `type:"string" json:"targetDownloadUrl"`
+
+	TargetLastTime *string `type:"string" json:"targetLastTime"`
+
+	TargetName *string `type:"string" json:"targetName"`
+
+	TargetVid *string `type:"string" json:"targetVid"`
+
+	TargetVideoUrl *string `type:"string" json:"targetVideoUrl"`
+}
+
+// String returns the string representation
+func (s SuppressionVideoInfoForVideoProjectTaskDetailOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s SuppressionVideoInfoForVideoProjectTaskDetailOutput) GoString() string {
+	return s.String()
+}
+
+// SetPosterUrl sets the PosterUrl field's value.
+func (s *SuppressionVideoInfoForVideoProjectTaskDetailOutput) SetPosterUrl(v string) *SuppressionVideoInfoForVideoProjectTaskDetailOutput {
+	s.PosterUrl = &v
+	return s
+}
+
+// SetSourceLastTime sets the SourceLastTime field's value.
+func (s *SuppressionVideoInfoForVideoProjectTaskDetailOutput) SetSourceLastTime(v string) *SuppressionVideoInfoForVideoProjectTaskDetailOutput {
+	s.SourceLastTime = &v
+	return s
+}
+
+// SetSourceName sets the SourceName field's value.
+func (s *SuppressionVideoInfoForVideoProjectTaskDetailOutput) SetSourceName(v string) *SuppressionVideoInfoForVideoProjectTaskDetailOutput {
+	s.SourceName = &v
+	return s
+}
+
+// SetSourceVid sets the SourceVid field's value.
+func (s *SuppressionVideoInfoForVideoProjectTaskDetailOutput) SetSourceVid(v string) *SuppressionVideoInfoForVideoProjectTaskDetailOutput {
+	s.SourceVid = &v
+	return s
+}
+
+// SetSourceVideoUrl sets the SourceVideoUrl field's value.
+func (s *SuppressionVideoInfoForVideoProjectTaskDetailOutput) SetSourceVideoUrl(v string) *SuppressionVideoInfoForVideoProjectTaskDetailOutput {
+	s.SourceVideoUrl = &v
+	return s
+}
+
+// SetTargetDownloadUrl sets the TargetDownloadUrl field's value.
+func (s *SuppressionVideoInfoForVideoProjectTaskDetailOutput) SetTargetDownloadUrl(v string) *SuppressionVideoInfoForVideoProjectTaskDetailOutput {
+	s.TargetDownloadUrl = &v
+	return s
+}
+
+// SetTargetLastTime sets the TargetLastTime field's value.
+func (s *SuppressionVideoInfoForVideoProjectTaskDetailOutput) SetTargetLastTime(v string) *SuppressionVideoInfoForVideoProjectTaskDetailOutput {
+	s.TargetLastTime = &v
+	return s
+}
+
+// SetTargetName sets the TargetName field's value.
+func (s *SuppressionVideoInfoForVideoProjectTaskDetailOutput) SetTargetName(v string) *SuppressionVideoInfoForVideoProjectTaskDetailOutput {
+	s.TargetName = &v
+	return s
+}
+
+// SetTargetVid sets the TargetVid field's value.
+func (s *SuppressionVideoInfoForVideoProjectTaskDetailOutput) SetTargetVid(v string) *SuppressionVideoInfoForVideoProjectTaskDetailOutput {
+	s.TargetVid = &v
+	return s
+}
+
+// SetTargetVideoUrl sets the TargetVideoUrl field's value.
+func (s *SuppressionVideoInfoForVideoProjectTaskDetailOutput) SetTargetVideoUrl(v string) *SuppressionVideoInfoForVideoProjectTaskDetailOutput {
+	s.TargetVideoUrl = &v
+	return s
+}
+
+type TargetSubtitleFileInfoForVideoProjectTaskDetailOutput struct {
+	_ struct{} `type:"structure"`
+
+	CreateTime *string `type:"string" json:"createTime"`
+
+	FileName *string `type:"string" json:"fileName"`
+
+	FileUri *string `type:"string" json:"fileUri"`
+
+	UpdateTime *string `type:"string" json:"updateTime"`
+}
+
+// String returns the string representation
+func (s TargetSubtitleFileInfoForVideoProjectTaskDetailOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TargetSubtitleFileInfoForVideoProjectTaskDetailOutput) GoString() string {
+	return s.String()
+}
+
+// SetCreateTime sets the CreateTime field's value.
+func (s *TargetSubtitleFileInfoForVideoProjectTaskDetailOutput) SetCreateTime(v string) *TargetSubtitleFileInfoForVideoProjectTaskDetailOutput {
+	s.CreateTime = &v
+	return s
+}
+
+// SetFileName sets the FileName field's value.
+func (s *TargetSubtitleFileInfoForVideoProjectTaskDetailOutput) SetFileName(v string) *TargetSubtitleFileInfoForVideoProjectTaskDetailOutput {
+	s.FileName = &v
+	return s
+}
+
+// SetFileUri sets the FileUri field's value.
+func (s *TargetSubtitleFileInfoForVideoProjectTaskDetailOutput) SetFileUri(v string) *TargetSubtitleFileInfoForVideoProjectTaskDetailOutput {
+	s.FileUri = &v
+	return s
+}
+
+// SetUpdateTime sets the UpdateTime field's value.
+func (s *TargetSubtitleFileInfoForVideoProjectTaskDetailOutput) SetUpdateTime(v string) *TargetSubtitleFileInfoForVideoProjectTaskDetailOutput {
+	s.UpdateTime = &v
 	return s
 }
 
@@ -459,8 +773,12 @@ func (s *TaskForVideoProjectTaskDetailOutput) SetWorkflowType(v string) *TaskFor
 	return s
 }
 
-type VideoDetailsForVideoProjectTaskDetailOutput struct {
+type VideoDetailForVideoProjectTaskDetailOutput struct {
 	_ struct{} `type:"structure"`
+
+	AudioUrl *string `type:"string" json:"audioUrl"`
+
+	CompressedVideoUrl *string `type:"string" json:"compressedVideoUrl"`
 
 	CreateTime *string `type:"string" json:"createTime"`
 
@@ -488,83 +806,221 @@ type VideoDetailsForVideoProjectTaskDetailOutput struct {
 }
 
 // String returns the string representation
-func (s VideoDetailsForVideoProjectTaskDetailOutput) String() string {
+func (s VideoDetailForVideoProjectTaskDetailOutput) String() string {
 	return volcengineutil.Prettify(s)
 }
 
 // GoString returns the string representation
-func (s VideoDetailsForVideoProjectTaskDetailOutput) GoString() string {
+func (s VideoDetailForVideoProjectTaskDetailOutput) GoString() string {
 	return s.String()
 }
 
+// SetAudioUrl sets the AudioUrl field's value.
+func (s *VideoDetailForVideoProjectTaskDetailOutput) SetAudioUrl(v string) *VideoDetailForVideoProjectTaskDetailOutput {
+	s.AudioUrl = &v
+	return s
+}
+
+// SetCompressedVideoUrl sets the CompressedVideoUrl field's value.
+func (s *VideoDetailForVideoProjectTaskDetailOutput) SetCompressedVideoUrl(v string) *VideoDetailForVideoProjectTaskDetailOutput {
+	s.CompressedVideoUrl = &v
+	return s
+}
+
 // SetCreateTime sets the CreateTime field's value.
-func (s *VideoDetailsForVideoProjectTaskDetailOutput) SetCreateTime(v string) *VideoDetailsForVideoProjectTaskDetailOutput {
+func (s *VideoDetailForVideoProjectTaskDetailOutput) SetCreateTime(v string) *VideoDetailForVideoProjectTaskDetailOutput {
 	s.CreateTime = &v
 	return s
 }
 
 // SetCreator sets the Creator field's value.
-func (s *VideoDetailsForVideoProjectTaskDetailOutput) SetCreator(v *CreatorForVideoProjectTaskDetailOutput) *VideoDetailsForVideoProjectTaskDetailOutput {
+func (s *VideoDetailForVideoProjectTaskDetailOutput) SetCreator(v *CreatorForVideoProjectTaskDetailOutput) *VideoDetailForVideoProjectTaskDetailOutput {
 	s.Creator = v
 	return s
 }
 
 // SetDuration sets the Duration field's value.
-func (s *VideoDetailsForVideoProjectTaskDetailOutput) SetDuration(v string) *VideoDetailsForVideoProjectTaskDetailOutput {
+func (s *VideoDetailForVideoProjectTaskDetailOutput) SetDuration(v string) *VideoDetailForVideoProjectTaskDetailOutput {
 	s.Duration = &v
 	return s
 }
 
 // SetHeight sets the Height field's value.
-func (s *VideoDetailsForVideoProjectTaskDetailOutput) SetHeight(v string) *VideoDetailsForVideoProjectTaskDetailOutput {
+func (s *VideoDetailForVideoProjectTaskDetailOutput) SetHeight(v string) *VideoDetailForVideoProjectTaskDetailOutput {
 	s.Height = &v
 	return s
 }
 
 // SetLanguage sets the Language field's value.
-func (s *VideoDetailsForVideoProjectTaskDetailOutput) SetLanguage(v string) *VideoDetailsForVideoProjectTaskDetailOutput {
+func (s *VideoDetailForVideoProjectTaskDetailOutput) SetLanguage(v string) *VideoDetailForVideoProjectTaskDetailOutput {
 	s.Language = &v
 	return s
 }
 
 // SetName sets the Name field's value.
-func (s *VideoDetailsForVideoProjectTaskDetailOutput) SetName(v string) *VideoDetailsForVideoProjectTaskDetailOutput {
+func (s *VideoDetailForVideoProjectTaskDetailOutput) SetName(v string) *VideoDetailForVideoProjectTaskDetailOutput {
 	s.Name = &v
 	return s
 }
 
 // SetPosterUrl sets the PosterUrl field's value.
-func (s *VideoDetailsForVideoProjectTaskDetailOutput) SetPosterUrl(v string) *VideoDetailsForVideoProjectTaskDetailOutput {
+func (s *VideoDetailForVideoProjectTaskDetailOutput) SetPosterUrl(v string) *VideoDetailForVideoProjectTaskDetailOutput {
 	s.PosterUrl = &v
 	return s
 }
 
 // SetUpdateTime sets the UpdateTime field's value.
-func (s *VideoDetailsForVideoProjectTaskDetailOutput) SetUpdateTime(v string) *VideoDetailsForVideoProjectTaskDetailOutput {
+func (s *VideoDetailForVideoProjectTaskDetailOutput) SetUpdateTime(v string) *VideoDetailForVideoProjectTaskDetailOutput {
 	s.UpdateTime = &v
 	return s
 }
 
 // SetVideoDownloadUrl sets the VideoDownloadUrl field's value.
-func (s *VideoDetailsForVideoProjectTaskDetailOutput) SetVideoDownloadUrl(v string) *VideoDetailsForVideoProjectTaskDetailOutput {
+func (s *VideoDetailForVideoProjectTaskDetailOutput) SetVideoDownloadUrl(v string) *VideoDetailForVideoProjectTaskDetailOutput {
 	s.VideoDownloadUrl = &v
 	return s
 }
 
 // SetVideoId sets the VideoId field's value.
-func (s *VideoDetailsForVideoProjectTaskDetailOutput) SetVideoId(v string) *VideoDetailsForVideoProjectTaskDetailOutput {
+func (s *VideoDetailForVideoProjectTaskDetailOutput) SetVideoId(v string) *VideoDetailForVideoProjectTaskDetailOutput {
 	s.VideoId = &v
 	return s
 }
 
 // SetVideoUrl sets the VideoUrl field's value.
-func (s *VideoDetailsForVideoProjectTaskDetailOutput) SetVideoUrl(v string) *VideoDetailsForVideoProjectTaskDetailOutput {
+func (s *VideoDetailForVideoProjectTaskDetailOutput) SetVideoUrl(v string) *VideoDetailForVideoProjectTaskDetailOutput {
 	s.VideoUrl = &v
 	return s
 }
 
 // SetWidth sets the Width field's value.
-func (s *VideoDetailsForVideoProjectTaskDetailOutput) SetWidth(v string) *VideoDetailsForVideoProjectTaskDetailOutput {
+func (s *VideoDetailForVideoProjectTaskDetailOutput) SetWidth(v string) *VideoDetailForVideoProjectTaskDetailOutput {
+	s.Width = &v
+	return s
+}
+
+type VideoDetailsWithAiRemoveForVideoProjectTaskDetailOutput struct {
+	_ struct{} `type:"structure"`
+
+	AudioUrl *string `type:"string" json:"audioUrl"`
+
+	CompressedVideoUrl *string `type:"string" json:"compressedVideoUrl"`
+
+	CreateTime *string `type:"string" json:"createTime"`
+
+	Creator *CreatorForVideoProjectTaskDetailOutput `type:"structure" json:"creator"`
+
+	Duration *string `type:"string" json:"duration"`
+
+	Height *string `type:"string" json:"height"`
+
+	Language *string `type:"string" json:"language"`
+
+	Name *string `type:"string" json:"name"`
+
+	PosterUrl *string `type:"string" json:"posterUrl"`
+
+	UpdateTime *string `type:"string" json:"updateTime"`
+
+	VideoDownloadUrl *string `type:"string" json:"videoDownloadUrl"`
+
+	VideoId *string `type:"string" json:"videoId"`
+
+	VideoUrl *string `type:"string" json:"videoUrl"`
+
+	Width *string `type:"string" json:"width"`
+}
+
+// String returns the string representation
+func (s VideoDetailsWithAiRemoveForVideoProjectTaskDetailOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s VideoDetailsWithAiRemoveForVideoProjectTaskDetailOutput) GoString() string {
+	return s.String()
+}
+
+// SetAudioUrl sets the AudioUrl field's value.
+func (s *VideoDetailsWithAiRemoveForVideoProjectTaskDetailOutput) SetAudioUrl(v string) *VideoDetailsWithAiRemoveForVideoProjectTaskDetailOutput {
+	s.AudioUrl = &v
+	return s
+}
+
+// SetCompressedVideoUrl sets the CompressedVideoUrl field's value.
+func (s *VideoDetailsWithAiRemoveForVideoProjectTaskDetailOutput) SetCompressedVideoUrl(v string) *VideoDetailsWithAiRemoveForVideoProjectTaskDetailOutput {
+	s.CompressedVideoUrl = &v
+	return s
+}
+
+// SetCreateTime sets the CreateTime field's value.
+func (s *VideoDetailsWithAiRemoveForVideoProjectTaskDetailOutput) SetCreateTime(v string) *VideoDetailsWithAiRemoveForVideoProjectTaskDetailOutput {
+	s.CreateTime = &v
+	return s
+}
+
+// SetCreator sets the Creator field's value.
+func (s *VideoDetailsWithAiRemoveForVideoProjectTaskDetailOutput) SetCreator(v *CreatorForVideoProjectTaskDetailOutput) *VideoDetailsWithAiRemoveForVideoProjectTaskDetailOutput {
+	s.Creator = v
+	return s
+}
+
+// SetDuration sets the Duration field's value.
+func (s *VideoDetailsWithAiRemoveForVideoProjectTaskDetailOutput) SetDuration(v string) *VideoDetailsWithAiRemoveForVideoProjectTaskDetailOutput {
+	s.Duration = &v
+	return s
+}
+
+// SetHeight sets the Height field's value.
+func (s *VideoDetailsWithAiRemoveForVideoProjectTaskDetailOutput) SetHeight(v string) *VideoDetailsWithAiRemoveForVideoProjectTaskDetailOutput {
+	s.Height = &v
+	return s
+}
+
+// SetLanguage sets the Language field's value.
+func (s *VideoDetailsWithAiRemoveForVideoProjectTaskDetailOutput) SetLanguage(v string) *VideoDetailsWithAiRemoveForVideoProjectTaskDetailOutput {
+	s.Language = &v
+	return s
+}
+
+// SetName sets the Name field's value.
+func (s *VideoDetailsWithAiRemoveForVideoProjectTaskDetailOutput) SetName(v string) *VideoDetailsWithAiRemoveForVideoProjectTaskDetailOutput {
+	s.Name = &v
+	return s
+}
+
+// SetPosterUrl sets the PosterUrl field's value.
+func (s *VideoDetailsWithAiRemoveForVideoProjectTaskDetailOutput) SetPosterUrl(v string) *VideoDetailsWithAiRemoveForVideoProjectTaskDetailOutput {
+	s.PosterUrl = &v
+	return s
+}
+
+// SetUpdateTime sets the UpdateTime field's value.
+func (s *VideoDetailsWithAiRemoveForVideoProjectTaskDetailOutput) SetUpdateTime(v string) *VideoDetailsWithAiRemoveForVideoProjectTaskDetailOutput {
+	s.UpdateTime = &v
+	return s
+}
+
+// SetVideoDownloadUrl sets the VideoDownloadUrl field's value.
+func (s *VideoDetailsWithAiRemoveForVideoProjectTaskDetailOutput) SetVideoDownloadUrl(v string) *VideoDetailsWithAiRemoveForVideoProjectTaskDetailOutput {
+	s.VideoDownloadUrl = &v
+	return s
+}
+
+// SetVideoId sets the VideoId field's value.
+func (s *VideoDetailsWithAiRemoveForVideoProjectTaskDetailOutput) SetVideoId(v string) *VideoDetailsWithAiRemoveForVideoProjectTaskDetailOutput {
+	s.VideoId = &v
+	return s
+}
+
+// SetVideoUrl sets the VideoUrl field's value.
+func (s *VideoDetailsWithAiRemoveForVideoProjectTaskDetailOutput) SetVideoUrl(v string) *VideoDetailsWithAiRemoveForVideoProjectTaskDetailOutput {
+	s.VideoUrl = &v
+	return s
+}
+
+// SetWidth sets the Width field's value.
+func (s *VideoDetailsWithAiRemoveForVideoProjectTaskDetailOutput) SetWidth(v string) *VideoDetailsWithAiRemoveForVideoProjectTaskDetailOutput {
 	s.Width = &v
 	return s
 }
