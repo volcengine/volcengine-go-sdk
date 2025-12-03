@@ -38,6 +38,38 @@ type VEIAPIAPI interface {
 	AddIotModelsWithContext(volcengine.Context, *AddIotModelsInput, ...request.Option) (*AddIotModelsOutput, error)
 	AddIotModelsRequest(*AddIotModelsInput) (*request.Request, *AddIotModelsOutput)
 
+	ApplyVideoAnalysisTaskTokenCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ApplyVideoAnalysisTaskTokenCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ApplyVideoAnalysisTaskTokenCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ApplyVideoAnalysisTaskToken(*ApplyVideoAnalysisTaskTokenInput) (*ApplyVideoAnalysisTaskTokenOutput, error)
+	ApplyVideoAnalysisTaskTokenWithContext(volcengine.Context, *ApplyVideoAnalysisTaskTokenInput, ...request.Option) (*ApplyVideoAnalysisTaskTokenOutput, error)
+	ApplyVideoAnalysisTaskTokenRequest(*ApplyVideoAnalysisTaskTokenInput) (*request.Request, *ApplyVideoAnalysisTaskTokenOutput)
+
+	CommitVideoAnalysisTaskCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CommitVideoAnalysisTaskCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CommitVideoAnalysisTaskCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CommitVideoAnalysisTask(*CommitVideoAnalysisTaskInput) (*CommitVideoAnalysisTaskOutput, error)
+	CommitVideoAnalysisTaskWithContext(volcengine.Context, *CommitVideoAnalysisTaskInput, ...request.Option) (*CommitVideoAnalysisTaskOutput, error)
+	CommitVideoAnalysisTaskRequest(*CommitVideoAnalysisTaskInput) (*request.Request, *CommitVideoAnalysisTaskOutput)
+
+	CreateAIGatewayModelCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateAIGatewayModelCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateAIGatewayModelCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateAIGatewayModel(*CreateAIGatewayModelInput) (*CreateAIGatewayModelOutput, error)
+	CreateAIGatewayModelWithContext(volcengine.Context, *CreateAIGatewayModelInput, ...request.Option) (*CreateAIGatewayModelOutput, error)
+	CreateAIGatewayModelRequest(*CreateAIGatewayModelInput) (*request.Request, *CreateAIGatewayModelOutput)
+
+	CreateChannelCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateChannelCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateChannelCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateChannel(*CreateChannelInput) (*CreateChannelOutput, error)
+	CreateChannelWithContext(volcengine.Context, *CreateChannelInput, ...request.Option) (*CreateChannelOutput, error)
+	CreateChannelRequest(*CreateChannelInput) (*request.Request, *CreateChannelOutput)
+
 	CreateIotLlmTokenCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	CreateIotLlmTokenCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	CreateIotLlmTokenCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -70,6 +102,14 @@ type VEIAPIAPI interface {
 	CreateSNInOneStepWithContext(volcengine.Context, *CreateSNInOneStepInput, ...request.Option) (*CreateSNInOneStepOutput, error)
 	CreateSNInOneStepRequest(*CreateSNInOneStepInput) (*request.Request, *CreateSNInOneStepOutput)
 
+	CreateVideoAnalysisTaskCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateVideoAnalysisTaskCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateVideoAnalysisTaskCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateVideoAnalysisTask(*CreateVideoAnalysisTaskInput) (*CreateVideoAnalysisTaskOutput, error)
+	CreateVideoAnalysisTaskWithContext(volcengine.Context, *CreateVideoAnalysisTaskInput, ...request.Option) (*CreateVideoAnalysisTaskOutput, error)
+	CreateVideoAnalysisTaskRequest(*CreateVideoAnalysisTaskInput) (*request.Request, *CreateVideoAnalysisTaskOutput)
+
 	DeleteIotLlmTokensCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DeleteIotLlmTokensCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DeleteIotLlmTokensCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -93,6 +133,22 @@ type VEIAPIAPI interface {
 	DeleteNodeGroup(*DeleteNodeGroupInput) (*DeleteNodeGroupOutput, error)
 	DeleteNodeGroupWithContext(volcengine.Context, *DeleteNodeGroupInput, ...request.Option) (*DeleteNodeGroupOutput, error)
 	DeleteNodeGroupRequest(*DeleteNodeGroupInput) (*request.Request, *DeleteNodeGroupOutput)
+
+	DeleteVideoAnalysisTaskCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeleteVideoAnalysisTaskCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeleteVideoAnalysisTaskCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeleteVideoAnalysisTask(*DeleteVideoAnalysisTaskInput) (*DeleteVideoAnalysisTaskOutput, error)
+	DeleteVideoAnalysisTaskWithContext(volcengine.Context, *DeleteVideoAnalysisTaskInput, ...request.Option) (*DeleteVideoAnalysisTaskOutput, error)
+	DeleteVideoAnalysisTaskRequest(*DeleteVideoAnalysisTaskInput) (*request.Request, *DeleteVideoAnalysisTaskOutput)
+
+	DeleteVideoAnalysisTaskDataCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeleteVideoAnalysisTaskDataCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeleteVideoAnalysisTaskDataCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeleteVideoAnalysisTaskData(*DeleteVideoAnalysisTaskDataInput) (*DeleteVideoAnalysisTaskDataOutput, error)
+	DeleteVideoAnalysisTaskDataWithContext(volcengine.Context, *DeleteVideoAnalysisTaskDataInput, ...request.Option) (*DeleteVideoAnalysisTaskDataOutput, error)
+	DeleteVideoAnalysisTaskDataRequest(*DeleteVideoAnalysisTaskDataInput) (*request.Request, *DeleteVideoAnalysisTaskDataOutput)
 
 	DeviceContinuousMoveCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DeviceContinuousMoveCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -141,6 +197,46 @@ type VEIAPIAPI interface {
 	GetNodeGroup(*GetNodeGroupInput) (*GetNodeGroupOutput, error)
 	GetNodeGroupWithContext(volcengine.Context, *GetNodeGroupInput, ...request.Option) (*GetNodeGroupOutput, error)
 	GetNodeGroupRequest(*GetNodeGroupInput) (*request.Request, *GetNodeGroupOutput)
+
+	GetVideoAnalysisStatisticsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	GetVideoAnalysisStatisticsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	GetVideoAnalysisStatisticsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	GetVideoAnalysisStatistics(*GetVideoAnalysisStatisticsInput) (*GetVideoAnalysisStatisticsOutput, error)
+	GetVideoAnalysisStatisticsWithContext(volcengine.Context, *GetVideoAnalysisStatisticsInput, ...request.Option) (*GetVideoAnalysisStatisticsOutput, error)
+	GetVideoAnalysisStatisticsRequest(*GetVideoAnalysisStatisticsInput) (*request.Request, *GetVideoAnalysisStatisticsOutput)
+
+	GetVideoAnalysisTaskCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	GetVideoAnalysisTaskCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	GetVideoAnalysisTaskCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	GetVideoAnalysisTask(*GetVideoAnalysisTaskInput) (*GetVideoAnalysisTaskOutput, error)
+	GetVideoAnalysisTaskWithContext(volcengine.Context, *GetVideoAnalysisTaskInput, ...request.Option) (*GetVideoAnalysisTaskOutput, error)
+	GetVideoAnalysisTaskRequest(*GetVideoAnalysisTaskInput) (*request.Request, *GetVideoAnalysisTaskOutput)
+
+	GetVideoAnalysisTaskDataCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	GetVideoAnalysisTaskDataCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	GetVideoAnalysisTaskDataCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	GetVideoAnalysisTaskData(*GetVideoAnalysisTaskDataInput) (*GetVideoAnalysisTaskDataOutput, error)
+	GetVideoAnalysisTaskDataWithContext(volcengine.Context, *GetVideoAnalysisTaskDataInput, ...request.Option) (*GetVideoAnalysisTaskDataOutput, error)
+	GetVideoAnalysisTaskDataRequest(*GetVideoAnalysisTaskDataInput) (*request.Request, *GetVideoAnalysisTaskDataOutput)
+
+	GetVideoAnalysisTaskMediaMetaCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	GetVideoAnalysisTaskMediaMetaCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	GetVideoAnalysisTaskMediaMetaCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	GetVideoAnalysisTaskMediaMeta(*GetVideoAnalysisTaskMediaMetaInput) (*GetVideoAnalysisTaskMediaMetaOutput, error)
+	GetVideoAnalysisTaskMediaMetaWithContext(volcengine.Context, *GetVideoAnalysisTaskMediaMetaInput, ...request.Option) (*GetVideoAnalysisTaskMediaMetaOutput, error)
+	GetVideoAnalysisTaskMediaMetaRequest(*GetVideoAnalysisTaskMediaMetaInput) (*request.Request, *GetVideoAnalysisTaskMediaMetaOutput)
+
+	GetVideoFirstFrameCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	GetVideoFirstFrameCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	GetVideoFirstFrameCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	GetVideoFirstFrame(*GetVideoFirstFrameInput) (*GetVideoFirstFrameOutput, error)
+	GetVideoFirstFrameWithContext(volcengine.Context, *GetVideoFirstFrameInput, ...request.Option) (*GetVideoFirstFrameOutput, error)
+	GetVideoFirstFrameRequest(*GetVideoFirstFrameInput) (*request.Request, *GetVideoFirstFrameOutput)
 
 	ListDeploymentCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ListDeploymentCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -230,6 +326,46 @@ type VEIAPIAPI interface {
 	ListProjectWithContext(volcengine.Context, *ListProjectInput, ...request.Option) (*ListProjectOutput, error)
 	ListProjectRequest(*ListProjectInput) (*request.Request, *ListProjectOutput)
 
+	ListVideoAnalysisTaskCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListVideoAnalysisTaskCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListVideoAnalysisTaskCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListVideoAnalysisTask(*ListVideoAnalysisTaskInput) (*ListVideoAnalysisTaskOutput, error)
+	ListVideoAnalysisTaskWithContext(volcengine.Context, *ListVideoAnalysisTaskInput, ...request.Option) (*ListVideoAnalysisTaskOutput, error)
+	ListVideoAnalysisTaskRequest(*ListVideoAnalysisTaskInput) (*request.Request, *ListVideoAnalysisTaskOutput)
+
+	ListVideoAnalysisTaskDataCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListVideoAnalysisTaskDataCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListVideoAnalysisTaskDataCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListVideoAnalysisTaskData(*ListVideoAnalysisTaskDataInput) (*ListVideoAnalysisTaskDataOutput, error)
+	ListVideoAnalysisTaskDataWithContext(volcengine.Context, *ListVideoAnalysisTaskDataInput, ...request.Option) (*ListVideoAnalysisTaskDataOutput, error)
+	ListVideoAnalysisTaskDataRequest(*ListVideoAnalysisTaskDataInput) (*request.Request, *ListVideoAnalysisTaskDataOutput)
+
+	ListVideoAnalysisTaskObjectClassesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListVideoAnalysisTaskObjectClassesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListVideoAnalysisTaskObjectClassesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListVideoAnalysisTaskObjectClasses(*ListVideoAnalysisTaskObjectClassesInput) (*ListVideoAnalysisTaskObjectClassesOutput, error)
+	ListVideoAnalysisTaskObjectClassesWithContext(volcengine.Context, *ListVideoAnalysisTaskObjectClassesInput, ...request.Option) (*ListVideoAnalysisTaskObjectClassesOutput, error)
+	ListVideoAnalysisTaskObjectClassesRequest(*ListVideoAnalysisTaskObjectClassesInput) (*request.Request, *ListVideoAnalysisTaskObjectClassesOutput)
+
+	StartVideoStreamAnalysisTaskCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	StartVideoStreamAnalysisTaskCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	StartVideoStreamAnalysisTaskCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	StartVideoStreamAnalysisTask(*StartVideoStreamAnalysisTaskInput) (*StartVideoStreamAnalysisTaskOutput, error)
+	StartVideoStreamAnalysisTaskWithContext(volcengine.Context, *StartVideoStreamAnalysisTaskInput, ...request.Option) (*StartVideoStreamAnalysisTaskOutput, error)
+	StartVideoStreamAnalysisTaskRequest(*StartVideoStreamAnalysisTaskInput) (*request.Request, *StartVideoStreamAnalysisTaskOutput)
+
+	StopVideoStreamAnalysisTaskCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	StopVideoStreamAnalysisTaskCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	StopVideoStreamAnalysisTaskCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	StopVideoStreamAnalysisTask(*StopVideoStreamAnalysisTaskInput) (*StopVideoStreamAnalysisTaskOutput, error)
+	StopVideoStreamAnalysisTaskWithContext(volcengine.Context, *StopVideoStreamAnalysisTaskInput, ...request.Option) (*StopVideoStreamAnalysisTaskOutput, error)
+	StopVideoStreamAnalysisTaskRequest(*StopVideoStreamAnalysisTaskInput) (*request.Request, *StopVideoStreamAnalysisTaskOutput)
+
 	TagResourcesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	TagResourcesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	TagResourcesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -245,6 +381,22 @@ type VEIAPIAPI interface {
 	UntagResources(*UntagResourcesInput) (*UntagResourcesOutput, error)
 	UntagResourcesWithContext(volcengine.Context, *UntagResourcesInput, ...request.Option) (*UntagResourcesOutput, error)
 	UntagResourcesRequest(*UntagResourcesInput) (*request.Request, *UntagResourcesOutput)
+
+	UpdateAIGatewayModelCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	UpdateAIGatewayModelCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	UpdateAIGatewayModelCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	UpdateAIGatewayModel(*UpdateAIGatewayModelInput) (*UpdateAIGatewayModelOutput, error)
+	UpdateAIGatewayModelWithContext(volcengine.Context, *UpdateAIGatewayModelInput, ...request.Option) (*UpdateAIGatewayModelOutput, error)
+	UpdateAIGatewayModelRequest(*UpdateAIGatewayModelInput) (*request.Request, *UpdateAIGatewayModelOutput)
+
+	UpdateChannelCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	UpdateChannelCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	UpdateChannelCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	UpdateChannel(*UpdateChannelInput) (*UpdateChannelOutput, error)
+	UpdateChannelWithContext(volcengine.Context, *UpdateChannelInput, ...request.Option) (*UpdateChannelOutput, error)
+	UpdateChannelRequest(*UpdateChannelInput) (*request.Request, *UpdateChannelOutput)
 
 	UpdateDeploymentCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	UpdateDeploymentCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -285,6 +437,14 @@ type VEIAPIAPI interface {
 	UpdateNodeGroup(*UpdateNodeGroupInput) (*UpdateNodeGroupOutput, error)
 	UpdateNodeGroupWithContext(volcengine.Context, *UpdateNodeGroupInput, ...request.Option) (*UpdateNodeGroupOutput, error)
 	UpdateNodeGroupRequest(*UpdateNodeGroupInput) (*request.Request, *UpdateNodeGroupOutput)
+
+	UpdateVideoAnalysisTaskCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	UpdateVideoAnalysisTaskCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	UpdateVideoAnalysisTaskCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	UpdateVideoAnalysisTask(*UpdateVideoAnalysisTaskInput) (*UpdateVideoAnalysisTaskOutput, error)
+	UpdateVideoAnalysisTaskWithContext(volcengine.Context, *UpdateVideoAnalysisTaskInput, ...request.Option) (*UpdateVideoAnalysisTaskOutput, error)
+	UpdateVideoAnalysisTaskRequest(*UpdateVideoAnalysisTaskInput) (*request.Request, *UpdateVideoAnalysisTaskOutput)
 }
 
 var _ VEIAPIAPI = (*VEIAPI)(nil)
