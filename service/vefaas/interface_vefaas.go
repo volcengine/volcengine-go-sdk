@@ -38,6 +38,14 @@ type VEFAASAPI interface {
 	AbortReleaseWithContext(volcengine.Context, *AbortReleaseInput, ...request.Option) (*AbortReleaseOutput, error)
 	AbortReleaseRequest(*AbortReleaseInput) (*request.Request, *AbortReleaseOutput)
 
+	CancelSandboxImagePrecacheTicketCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CancelSandboxImagePrecacheTicketCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CancelSandboxImagePrecacheTicketCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CancelSandboxImagePrecacheTicket(*CancelSandboxImagePrecacheTicketInput) (*CancelSandboxImagePrecacheTicketOutput, error)
+	CancelSandboxImagePrecacheTicketWithContext(volcengine.Context, *CancelSandboxImagePrecacheTicketInput, ...request.Option) (*CancelSandboxImagePrecacheTicketOutput, error)
+	CancelSandboxImagePrecacheTicketRequest(*CancelSandboxImagePrecacheTicketInput) (*request.Request, *CancelSandboxImagePrecacheTicketOutput)
+
 	CreateDependencyInstallTaskCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	CreateDependencyInstallTaskCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	CreateDependencyInstallTaskCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -133,6 +141,14 @@ type VEFAASAPI interface {
 	GenWebshellEndpoint(*GenWebshellEndpointInput) (*GenWebshellEndpointOutput, error)
 	GenWebshellEndpointWithContext(volcengine.Context, *GenWebshellEndpointInput, ...request.Option) (*GenWebshellEndpointOutput, error)
 	GenWebshellEndpointRequest(*GenWebshellEndpointInput) (*request.Request, *GenWebshellEndpointOutput)
+
+	GetAvailabilityZonesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	GetAvailabilityZonesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	GetAvailabilityZonesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	GetAvailabilityZones(*GetAvailabilityZonesInput) (*GetAvailabilityZonesOutput, error)
+	GetAvailabilityZonesWithContext(volcengine.Context, *GetAvailabilityZonesInput, ...request.Option) (*GetAvailabilityZonesOutput, error)
+	GetAvailabilityZonesRequest(*GetAvailabilityZonesInput) (*request.Request, *GetAvailabilityZonesOutput)
 
 	GetCodeUploadAddressCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	GetCodeUploadAddressCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -301,6 +317,14 @@ type VEFAASAPI interface {
 	ListRevisions(*ListRevisionsInput) (*ListRevisionsOutput, error)
 	ListRevisionsWithContext(volcengine.Context, *ListRevisionsInput, ...request.Option) (*ListRevisionsOutput, error)
 	ListRevisionsRequest(*ListRevisionsInput) (*request.Request, *ListRevisionsOutput)
+
+	ListSandboxImagePrecacheTicketsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListSandboxImagePrecacheTicketsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListSandboxImagePrecacheTicketsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListSandboxImagePrecacheTickets(*ListSandboxImagePrecacheTicketsInput) (*ListSandboxImagePrecacheTicketsOutput, error)
+	ListSandboxImagePrecacheTicketsWithContext(volcengine.Context, *ListSandboxImagePrecacheTicketsInput, ...request.Option) (*ListSandboxImagePrecacheTicketsOutput, error)
+	ListSandboxImagePrecacheTicketsRequest(*ListSandboxImagePrecacheTicketsInput) (*request.Request, *ListSandboxImagePrecacheTicketsOutput)
 
 	ListSandboxImagesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ListSandboxImagesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
