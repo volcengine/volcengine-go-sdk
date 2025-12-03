@@ -16,10 +16,12 @@ const (
 )
 
 type CreateContentGenerationTaskRequest struct {
-	Model           string                                `json:"model"`
-	Content         []*CreateContentGenerationContentItem `json:"content"`
-	CallbackUrl     *string                               `json:"callback_url,omitempty"`
-	ReturnLastFrame *bool                                 `json:"return_last_frame,omitempty"`
+	Model                 string                                `json:"model"`
+	Content               []*CreateContentGenerationContentItem `json:"content"`
+	CallbackUrl           *string                               `json:"callback_url,omitempty"`
+	ReturnLastFrame       *bool                                 `json:"return_last_frame,omitempty"`
+	ServiceTier           *string                               `json:"service_tier,omitempty"`
+	ExecutionExpiresAfter *int64                                `json:"execution_expires_after,omitempty"`
 }
 
 type CreateContentGenerationTaskResponse struct {
@@ -33,20 +35,22 @@ type GetContentGenerationTaskRequest struct {
 }
 
 type GetContentGenerationTaskResponse struct {
-	ID               string                  `json:"id"`
-	Model            string                  `json:"model"`
-	Status           string                  `json:"status"`
-	Error            *ContentGenerationError `json:"error,omitempty"`
-	Content          Content                 `json:"content"`
-	Usage            Usage                   `json:"usage"`
-	SubdivisionLevel *string                 `json:"subdivisionlevel,omitempty"`
-	FileFormat       *string                 `json:"fileformat,omitempty"`
-	Frames           *int64                  `json:"frames"`
-	FramesPerSecond  *int64                  `json:"framespersecond"`
-	CreatedAt        int64                   `json:"created_at"`
-	UpdatedAt        int64                   `json:"updated_at"`
-	Seed             *int64                  `json:"seed,omitempty"`
-	RevisedPrompt    *string                 `json:"revised_prompt,omitempty"`
+	ID                    string                  `json:"id"`
+	Model                 string                  `json:"model"`
+	Status                string                  `json:"status"`
+	Error                 *ContentGenerationError `json:"error,omitempty"`
+	Content               Content                 `json:"content"`
+	Usage                 Usage                   `json:"usage"`
+	SubdivisionLevel      *string                 `json:"subdivisionlevel,omitempty"`
+	FileFormat            *string                 `json:"fileformat,omitempty"`
+	Frames                *int64                  `json:"frames"`
+	FramesPerSecond       *int64                  `json:"framespersecond"`
+	CreatedAt             int64                   `json:"created_at"`
+	UpdatedAt             int64                   `json:"updated_at"`
+	Seed                  *int64                  `json:"seed,omitempty"`
+	RevisedPrompt         *string                 `json:"revised_prompt,omitempty"`
+	ServiceTier           *string                 `json:"service_tier,omitempty"`
+	ExecutionExpiresAfter *int64                  `json:"execution_expires_after,omitempty"`
 
 	HttpHeader
 }
@@ -62,9 +66,10 @@ type DeleteContentGenerationTaskRequest struct {
 }
 
 type ListContentGenerationTasksFilter struct {
-	Status  *string   `json:"status,omitempty"`
-	TaskIDs []*string `json:"task_ids,omitempty"`
-	Model   *string   `json:"model,omitempty"`
+	Status      *string   `json:"status,omitempty"`
+	TaskIDs     []*string `json:"task_ids,omitempty"`
+	Model       *string   `json:"model,omitempty"`
+	ServiceTier *string   `json:"service_tier,omitempty"`
 }
 
 type CreateContentGenerationContentItem struct {
@@ -94,20 +99,22 @@ type ListContentGenerationTasksResponse struct {
 }
 
 type ListContentGenerationTaskItem struct {
-	ID               string                  `json:"id"`
-	Model            string                  `json:"model"`
-	Status           string                  `json:"status"`
-	FailureReason    *ContentGenerationError `json:"failure_reason,omitempty"`
-	Content          Content                 `json:"content"`
-	Usage            Usage                   `json:"usage"`
-	SubdivisionLevel *string                 `json:"subdivisionlevel,omitempty"`
-	FileFormat       *string                 `json:"fileformat,omitempty"`
-	Frames           *int64                  `json:"frames"`
-	FramesPerSecond  *int64                  `json:"framespersecond"`
-	CreatedAt        int64                   `json:"created_at"`
-	UpdatedAt        int64                   `json:"updated_at"`
-	Seed             *int64                  `json:"seed,omitempty"`
-	RevisedPrompt    *string                 `json:"revised_prompt,omitempty"`
+	ID                    string                  `json:"id"`
+	Model                 string                  `json:"model"`
+	Status                string                  `json:"status"`
+	FailureReason         *ContentGenerationError `json:"failure_reason,omitempty"`
+	Content               Content                 `json:"content"`
+	Usage                 Usage                   `json:"usage"`
+	SubdivisionLevel      *string                 `json:"subdivisionlevel,omitempty"`
+	FileFormat            *string                 `json:"fileformat,omitempty"`
+	Frames                *int64                  `json:"frames"`
+	FramesPerSecond       *int64                  `json:"framespersecond"`
+	CreatedAt             int64                   `json:"created_at"`
+	UpdatedAt             int64                   `json:"updated_at"`
+	Seed                  *int64                  `json:"seed,omitempty"`
+	RevisedPrompt         *string                 `json:"revised_prompt,omitempty"`
+	ServiceTier           *string                 `json:"service_tier,omitempty"`
+	ExecutionExpiresAfter *int64                  `json:"execution_expires_after,omitempty"`
 }
 
 type ContentGenerationError struct {
