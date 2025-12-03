@@ -530,6 +530,7 @@ func (r *ResponseDoubaoAppFeatureType_Enum) MarshalJSON() ([]byte, error) {
 	return json.Marshal(r.String())
 }
 
+// UnmarshalJSON ...
 func (r *DoubaoAppBlockType_Enum) UnmarshalJSON(bytes []byte) error {
 	var value string
 	if err := json.Unmarshal(bytes, &value); err != nil {
@@ -543,8 +544,9 @@ func (r *DoubaoAppBlockType_Enum) UnmarshalJSON(bytes []byte) error {
 	return nil
 }
 
-func (r *DoubaoAppBlockType_Enum) MarshalJSON() ([]byte, error) {
-	if r == nil || *r == 0 {
+// MarshalJSON ...
+func (r DoubaoAppBlockType_Enum) MarshalJSON() ([]byte, error) {
+	if r == 0 {
 		return json.Marshal(nil)
 	}
 	return json.Marshal(r.String())
