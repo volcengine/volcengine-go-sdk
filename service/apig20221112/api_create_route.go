@@ -774,8 +774,6 @@ type RetryPolicySettingForCreateRouteInput struct {
 
 	HttpCodes []*string `type:"list" json:",omitempty"`
 
-	PerTryTimeout *int64 `type:"int64" json:",omitempty"`
-
 	RetryOn []*string `type:"list" json:",omitempty"`
 }
 
@@ -804,12 +802,6 @@ func (s *RetryPolicySettingForCreateRouteInput) SetEnable(v bool) *RetryPolicySe
 // SetHttpCodes sets the HttpCodes field's value.
 func (s *RetryPolicySettingForCreateRouteInput) SetHttpCodes(v []*string) *RetryPolicySettingForCreateRouteInput {
 	s.HttpCodes = v
-	return s
-}
-
-// SetPerTryTimeout sets the PerTryTimeout field's value.
-func (s *RetryPolicySettingForCreateRouteInput) SetPerTryTimeout(v int64) *RetryPolicySettingForCreateRouteInput {
-	s.PerTryTimeout = &v
 	return s
 }
 
