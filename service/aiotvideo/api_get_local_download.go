@@ -32,7 +32,7 @@ const opGetLocalDownloadCommon = "GetLocalDownload"
 func (c *AIOTVIDEO) GetLocalDownloadCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opGetLocalDownloadCommon,
-		HTTPMethod: "GET",
+		HTTPMethod: "POST",
 		HTTPPath:   "/",
 	}
 
@@ -42,6 +42,8 @@ func (c *AIOTVIDEO) GetLocalDownloadCommonRequest(input *map[string]interface{})
 
 	output = &map[string]interface{}{}
 	req = c.newRequest(op, input, output)
+
+	req.HTTPRequest.Header.Set("Content-Type", "application/json; charset=utf-8")
 
 	return
 }
@@ -97,7 +99,7 @@ const opGetLocalDownload = "GetLocalDownload"
 func (c *AIOTVIDEO) GetLocalDownloadRequest(input *GetLocalDownloadInput) (req *request.Request, output *GetLocalDownloadOutput) {
 	op := &request.Operation{
 		Name:       opGetLocalDownload,
-		HTTPMethod: "GET",
+		HTTPMethod: "POST",
 		HTTPPath:   "/",
 	}
 
@@ -107,6 +109,8 @@ func (c *AIOTVIDEO) GetLocalDownloadRequest(input *GetLocalDownloadInput) (req *
 
 	output = &GetLocalDownloadOutput{}
 	req = c.newRequest(op, input, output)
+
+	req.HTTPRequest.Header.Set("Content-Type", "application/json; charset=utf-8")
 
 	return
 }
@@ -140,29 +144,29 @@ func (c *AIOTVIDEO) GetLocalDownloadWithContext(ctx volcengine.Context, input *G
 }
 
 type GBMediaForGetLocalDownloadOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	CallID *string `type:"string"`
+	CallID *string `type:"string" json:",omitempty"`
 
-	EndTime *int64 `type:"int64"`
+	EndTime *int64 `type:"int64" json:",omitempty"`
 
-	FileName *string `type:"string"`
+	FileName *string `type:"string" json:",omitempty"`
 
-	FileSize *int64 `type:"int64"`
+	FileSize *int64 `type:"int64" json:",omitempty"`
 
-	FileStreamLength *int64 `type:"int64"`
+	FileStreamLength *int64 `type:"int64" json:",omitempty"`
 
-	ID *string `type:"string"`
+	ID *string `type:"string" json:",omitempty"`
 
-	Msg *string `type:"string"`
+	Msg *string `type:"string" json:",omitempty"`
 
-	StartTime *int64 `type:"int64"`
+	StartTime *int64 `type:"int64" json:",omitempty"`
 
-	Status *string `type:"string"`
+	Status *string `type:"string" json:",omitempty"`
 
-	SubtitleUrl *string `type:"string"`
+	SubtitleUrl *string `type:"string" json:",omitempty"`
 
-	Url *string `type:"string"`
+	Url *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -242,11 +246,11 @@ func (s *GBMediaForGetLocalDownloadOutput) SetUrl(v string) *GBMediaForGetLocalD
 }
 
 type GetLocalDownloadInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	ID *string `type:"string"`
+	ID *string `type:"string" json:",omitempty"`
 
-	SpaceID *string `type:"string"`
+	SpaceID *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -272,17 +276,17 @@ func (s *GetLocalDownloadInput) SetSpaceID(v string) *GetLocalDownloadInput {
 }
 
 type GetLocalDownloadOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	GBMedias []*GBMediaForGetLocalDownloadOutput `type:"list"`
+	GBMedias []*GBMediaForGetLocalDownloadOutput `type:"list" json:",omitempty"`
 
-	PageNumber *int32 `type:"int32"`
+	PageNumber *int32 `type:"int32" json:",omitempty"`
 
-	PageSize *int32 `type:"int32"`
+	PageSize *int32 `type:"int32" json:",omitempty"`
 
-	TotalCount *int32 `type:"int32"`
+	TotalCount *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation
