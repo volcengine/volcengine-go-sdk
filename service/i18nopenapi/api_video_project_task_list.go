@@ -345,6 +345,8 @@ type VideoProjectTaskListInput struct {
 	// ProjectId is a required field
 	ProjectId *string `locationName:"projectId" type:"string" required:"true"`
 
+	SourceLanguages *string `locationName:"sourceLanguages" type:"string"`
+
 	StartTime *int32 `locationName:"startTime" type:"int32"`
 
 	Status *string `locationName:"status" type:"string"`
@@ -359,7 +361,7 @@ type VideoProjectTaskListInput struct {
 
 	TaskType *string `locationName:"taskType" type:"string"`
 
-	TaskTypes *int32 `locationName:"taskTypes" type:"int32"`
+	TaskTypes *string `locationName:"taskTypes" type:"string"`
 }
 
 // String returns the string representation
@@ -409,6 +411,12 @@ func (s *VideoProjectTaskListInput) SetProjectId(v string) *VideoProjectTaskList
 	return s
 }
 
+// SetSourceLanguages sets the SourceLanguages field's value.
+func (s *VideoProjectTaskListInput) SetSourceLanguages(v string) *VideoProjectTaskListInput {
+	s.SourceLanguages = &v
+	return s
+}
+
 // SetStartTime sets the StartTime field's value.
 func (s *VideoProjectTaskListInput) SetStartTime(v int32) *VideoProjectTaskListInput {
 	s.StartTime = &v
@@ -452,7 +460,7 @@ func (s *VideoProjectTaskListInput) SetTaskType(v string) *VideoProjectTaskListI
 }
 
 // SetTaskTypes sets the TaskTypes field's value.
-func (s *VideoProjectTaskListInput) SetTaskTypes(v int32) *VideoProjectTaskListInput {
+func (s *VideoProjectTaskListInput) SetTaskTypes(v string) *VideoProjectTaskListInput {
 	s.TaskTypes = &v
 	return s
 }
