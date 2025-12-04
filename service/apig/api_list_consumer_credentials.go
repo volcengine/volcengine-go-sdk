@@ -191,6 +191,8 @@ type ItemForListConsumerCredentialsOutput struct {
 	Id *string `type:"string" json:",omitempty"`
 
 	KeyAuthCredential *KeyAuthCredentialForListConsumerCredentialsOutput `type:"structure" json:",omitempty"`
+
+	Oauth2Credential *Oauth2CredentialForListConsumerCredentialsOutput `type:"structure" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -224,6 +226,12 @@ func (s *ItemForListConsumerCredentialsOutput) SetId(v string) *ItemForListConsu
 // SetKeyAuthCredential sets the KeyAuthCredential field's value.
 func (s *ItemForListConsumerCredentialsOutput) SetKeyAuthCredential(v *KeyAuthCredentialForListConsumerCredentialsOutput) *ItemForListConsumerCredentialsOutput {
 	s.KeyAuthCredential = v
+	return s
+}
+
+// SetOauth2Credential sets the Oauth2Credential field's value.
+func (s *ItemForListConsumerCredentialsOutput) SetOauth2Credential(v *Oauth2CredentialForListConsumerCredentialsOutput) *ItemForListConsumerCredentialsOutput {
+	s.Oauth2Credential = v
 	return s
 }
 
@@ -350,5 +358,35 @@ func (s *ListConsumerCredentialsOutput) SetItems(v []*ItemForListConsumerCredent
 // SetTotal sets the Total field's value.
 func (s *ListConsumerCredentialsOutput) SetTotal(v int64) *ListConsumerCredentialsOutput {
 	s.Total = &v
+	return s
+}
+
+type Oauth2CredentialForListConsumerCredentialsOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	ClientId *string `type:"string" json:",omitempty"`
+
+	Enable *bool `type:"boolean" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s Oauth2CredentialForListConsumerCredentialsOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s Oauth2CredentialForListConsumerCredentialsOutput) GoString() string {
+	return s.String()
+}
+
+// SetClientId sets the ClientId field's value.
+func (s *Oauth2CredentialForListConsumerCredentialsOutput) SetClientId(v string) *Oauth2CredentialForListConsumerCredentialsOutput {
+	s.ClientId = &v
+	return s
+}
+
+// SetEnable sets the Enable field's value.
+func (s *Oauth2CredentialForListConsumerCredentialsOutput) SetEnable(v bool) *Oauth2CredentialForListConsumerCredentialsOutput {
+	s.Enable = &v
 	return s
 }

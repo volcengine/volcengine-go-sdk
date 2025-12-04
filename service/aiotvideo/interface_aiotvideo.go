@@ -46,6 +46,14 @@ type AIOTVIDEOAPI interface {
 	CancelStreamTemplateWithContext(volcengine.Context, *CancelStreamTemplateInput, ...request.Option) (*CancelStreamTemplateOutput, error)
 	CancelStreamTemplateRequest(*CancelStreamTemplateInput) (*request.Request, *CancelStreamTemplateOutput)
 
+	CancelStreamTemplateV2Common(*map[string]interface{}) (*map[string]interface{}, error)
+	CancelStreamTemplateV2CommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CancelStreamTemplateV2CommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CancelStreamTemplateV2(*CancelStreamTemplateV2Input) (*CancelStreamTemplateV2Output, error)
+	CancelStreamTemplateV2WithContext(volcengine.Context, *CancelStreamTemplateV2Input, ...request.Option) (*CancelStreamTemplateV2Output, error)
+	CancelStreamTemplateV2Request(*CancelStreamTemplateV2Input) (*request.Request, *CancelStreamTemplateV2Output)
+
 	CreateDeviceCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	CreateDeviceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	CreateDeviceCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -269,6 +277,14 @@ type AIOTVIDEOAPI interface {
 	SetStreamTemplate(*SetStreamTemplateInput) (*SetStreamTemplateOutput, error)
 	SetStreamTemplateWithContext(volcengine.Context, *SetStreamTemplateInput, ...request.Option) (*SetStreamTemplateOutput, error)
 	SetStreamTemplateRequest(*SetStreamTemplateInput) (*request.Request, *SetStreamTemplateOutput)
+
+	SetStreamTemplateV2Common(*map[string]interface{}) (*map[string]interface{}, error)
+	SetStreamTemplateV2CommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	SetStreamTemplateV2CommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	SetStreamTemplateV2(*SetStreamTemplateV2Input) (*SetStreamTemplateV2Output, error)
+	SetStreamTemplateV2WithContext(volcengine.Context, *SetStreamTemplateV2Input, ...request.Option) (*SetStreamTemplateV2Output, error)
+	SetStreamTemplateV2Request(*SetStreamTemplateV2Input) (*request.Request, *SetStreamTemplateV2Output)
 
 	StartSpaceCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	StartSpaceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)

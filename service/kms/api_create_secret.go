@@ -307,6 +307,8 @@ type SecretForCreateSecretOutput struct {
 
 	Managed *bool `type:"boolean" json:",omitempty"`
 
+	OwningService *string `type:"string" json:",omitempty"`
+
 	ProjectName *string `type:"string" json:",omitempty"`
 
 	RotationInterval *int32 `type:"int32" json:",omitempty"`
@@ -379,6 +381,12 @@ func (s *SecretForCreateSecretOutput) SetLastRotationTime(v string) *SecretForCr
 // SetManaged sets the Managed field's value.
 func (s *SecretForCreateSecretOutput) SetManaged(v bool) *SecretForCreateSecretOutput {
 	s.Managed = &v
+	return s
+}
+
+// SetOwningService sets the OwningService field's value.
+func (s *SecretForCreateSecretOutput) SetOwningService(v string) *SecretForCreateSecretOutput {
+	s.OwningService = &v
 	return s
 }
 

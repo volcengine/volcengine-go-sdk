@@ -143,6 +143,36 @@ func (c *I18NOPENAPI) VideoProjectCreateWithContext(ctx volcengine.Context, inpu
 	return out, req.Send()
 }
 
+type DataForVideoProjectCreateOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	ProjectId *string `type:"string" json:"projectId,omitempty"`
+
+	ProjectName *string `type:"string" json:"projectName,omitempty"`
+}
+
+// String returns the string representation
+func (s DataForVideoProjectCreateOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DataForVideoProjectCreateOutput) GoString() string {
+	return s.String()
+}
+
+// SetProjectId sets the ProjectId field's value.
+func (s *DataForVideoProjectCreateOutput) SetProjectId(v string) *DataForVideoProjectCreateOutput {
+	s.ProjectId = &v
+	return s
+}
+
+// SetProjectName sets the ProjectName field's value.
+func (s *DataForVideoProjectCreateOutput) SetProjectName(v string) *DataForVideoProjectCreateOutput {
+	s.ProjectName = &v
+	return s
+}
+
 type VideoProjectCreateInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -228,9 +258,7 @@ type VideoProjectCreateOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	ProjectId *int32 `type:"int32" json:"projectId,omitempty"`
-
-	ProjectName *string `type:"string" json:"projectName,omitempty"`
+	Data *DataForVideoProjectCreateOutput `type:"structure" json:"data,omitempty"`
 }
 
 // String returns the string representation
@@ -243,14 +271,8 @@ func (s VideoProjectCreateOutput) GoString() string {
 	return s.String()
 }
 
-// SetProjectId sets the ProjectId field's value.
-func (s *VideoProjectCreateOutput) SetProjectId(v int32) *VideoProjectCreateOutput {
-	s.ProjectId = &v
-	return s
-}
-
-// SetProjectName sets the ProjectName field's value.
-func (s *VideoProjectCreateOutput) SetProjectName(v string) *VideoProjectCreateOutput {
-	s.ProjectName = &v
+// SetData sets the Data field's value.
+func (s *VideoProjectCreateOutput) SetData(v *DataForVideoProjectCreateOutput) *VideoProjectCreateOutput {
+	s.Data = v
 	return s
 }

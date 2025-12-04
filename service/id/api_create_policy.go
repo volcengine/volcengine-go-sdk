@@ -146,8 +146,7 @@ func (c *ID) CreatePolicyWithContext(ctx volcengine.Context, input *CreatePolicy
 type CreatePolicyInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	// Description is a required field
-	Description *string `type:"string" json:",omitempty" required:"true"`
+	Description *string `type:"string" json:",omitempty"`
 
 	NamespaceName *string `type:"string" json:",omitempty"`
 
@@ -164,19 +163,6 @@ func (s CreatePolicyInput) String() string {
 // GoString returns the string representation
 func (s CreatePolicyInput) GoString() string {
 	return s.String()
-}
-
-// Validate inspects the fields of the type to determine if they are valid.
-func (s *CreatePolicyInput) Validate() error {
-	invalidParams := request.ErrInvalidParams{Context: "CreatePolicyInput"}
-	if s.Description == nil {
-		invalidParams.Add(request.NewErrParamRequired("Description"))
-	}
-
-	if invalidParams.Len() > 0 {
-		return invalidParams
-	}
-	return nil
 }
 
 // SetDescription sets the Description field's value.

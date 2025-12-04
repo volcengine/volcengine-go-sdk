@@ -267,10 +267,58 @@ func (s *CircuitBreakingSettingsForCreateUpstreamInput) SetMinHealthPercent(v in
 	return s
 }
 
+type ConnectionPoolSettingsForCreateUpstreamInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Enable *bool `type:"boolean" json:",omitempty"`
+
+	Http1MaxPendingRequests *int32 `type:"int32" json:",omitempty"`
+
+	IdleTimeout *int32 `type:"int32" json:",omitempty"`
+
+	MaxConnections *int32 `type:"int32" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s ConnectionPoolSettingsForCreateUpstreamInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ConnectionPoolSettingsForCreateUpstreamInput) GoString() string {
+	return s.String()
+}
+
+// SetEnable sets the Enable field's value.
+func (s *ConnectionPoolSettingsForCreateUpstreamInput) SetEnable(v bool) *ConnectionPoolSettingsForCreateUpstreamInput {
+	s.Enable = &v
+	return s
+}
+
+// SetHttp1MaxPendingRequests sets the Http1MaxPendingRequests field's value.
+func (s *ConnectionPoolSettingsForCreateUpstreamInput) SetHttp1MaxPendingRequests(v int32) *ConnectionPoolSettingsForCreateUpstreamInput {
+	s.Http1MaxPendingRequests = &v
+	return s
+}
+
+// SetIdleTimeout sets the IdleTimeout field's value.
+func (s *ConnectionPoolSettingsForCreateUpstreamInput) SetIdleTimeout(v int32) *ConnectionPoolSettingsForCreateUpstreamInput {
+	s.IdleTimeout = &v
+	return s
+}
+
+// SetMaxConnections sets the MaxConnections field's value.
+func (s *ConnectionPoolSettingsForCreateUpstreamInput) SetMaxConnections(v int32) *ConnectionPoolSettingsForCreateUpstreamInput {
+	s.MaxConnections = &v
+	return s
+}
+
 type ConsistentHashLBForCreateUpstreamInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
 	HTTPCookie *HTTPCookieForCreateUpstreamInput `type:"structure" json:",omitempty"`
+
+	HashBalanceFactor *int32 `type:"int32" json:",omitempty"`
 
 	HashKey *string `type:"string" json:",omitempty"`
 
@@ -294,6 +342,12 @@ func (s ConsistentHashLBForCreateUpstreamInput) GoString() string {
 // SetHTTPCookie sets the HTTPCookie field's value.
 func (s *ConsistentHashLBForCreateUpstreamInput) SetHTTPCookie(v *HTTPCookieForCreateUpstreamInput) *ConsistentHashLBForCreateUpstreamInput {
 	s.HTTPCookie = v
+	return s
+}
+
+// SetHashBalanceFactor sets the HashBalanceFactor field's value.
+func (s *ConsistentHashLBForCreateUpstreamInput) SetHashBalanceFactor(v int32) *ConsistentHashLBForCreateUpstreamInput {
+	s.HashBalanceFactor = &v
 	return s
 }
 
@@ -327,6 +381,8 @@ type CreateUpstreamInput struct {
 	CircuitBreakingSettings *CircuitBreakingSettingsForCreateUpstreamInput `type:"structure" json:",omitempty"`
 
 	Comments *string `type:"string" json:",omitempty"`
+
+	ConnectionPoolSettings *ConnectionPoolSettingsForCreateUpstreamInput `type:"structure" json:",omitempty"`
 
 	// GatewayId is a required field
 	GatewayId *string `type:"string" json:",omitempty" required:"true"`
@@ -384,6 +440,12 @@ func (s *CreateUpstreamInput) SetCircuitBreakingSettings(v *CircuitBreakingSetti
 // SetComments sets the Comments field's value.
 func (s *CreateUpstreamInput) SetComments(v string) *CreateUpstreamInput {
 	s.Comments = &v
+	return s
+}
+
+// SetConnectionPoolSettings sets the ConnectionPoolSettings field's value.
+func (s *CreateUpstreamInput) SetConnectionPoolSettings(v *ConnectionPoolSettingsForCreateUpstreamInput) *CreateUpstreamInput {
+	s.ConnectionPoolSettings = v
 	return s
 }
 
@@ -515,6 +577,58 @@ func (s *CustomModelServiceForCreateUpstreamInput) SetNamespace(v string) *Custo
 
 // SetPort sets the Port field's value.
 func (s *CustomModelServiceForCreateUpstreamInput) SetPort(v int32) *CustomModelServiceForCreateUpstreamInput {
+	s.Port = &v
+	return s
+}
+
+type DomainForCreateUpstreamInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	DomainList []*DomainListForCreateUpstreamInput `type:"list" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s DomainForCreateUpstreamInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DomainForCreateUpstreamInput) GoString() string {
+	return s.String()
+}
+
+// SetDomainList sets the DomainList field's value.
+func (s *DomainForCreateUpstreamInput) SetDomainList(v []*DomainListForCreateUpstreamInput) *DomainForCreateUpstreamInput {
+	s.DomainList = v
+	return s
+}
+
+type DomainListForCreateUpstreamInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Domain *string `type:"string" json:",omitempty"`
+
+	Port *int32 `type:"int32" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s DomainListForCreateUpstreamInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DomainListForCreateUpstreamInput) GoString() string {
+	return s.String()
+}
+
+// SetDomain sets the Domain field's value.
+func (s *DomainListForCreateUpstreamInput) SetDomain(v string) *DomainListForCreateUpstreamInput {
+	s.Domain = &v
+	return s
+}
+
+// SetPort sets the Port field's value.
+func (s *DomainListForCreateUpstreamInput) SetPort(v int32) *DomainListForCreateUpstreamInput {
 	s.Port = &v
 	return s
 }
@@ -768,6 +882,8 @@ type UpstreamSpecForCreateUpstreamInput struct {
 
 	AIProvider *AIProviderForCreateUpstreamInput `type:"structure" json:",omitempty"`
 
+	Domain *DomainForCreateUpstreamInput `type:"structure" json:",omitempty"`
+
 	EcsList []*EcsListForCreateUpstreamInput `type:"list" json:",omitempty"`
 
 	K8SService *K8SServiceForCreateUpstreamInput `type:"structure" json:",omitempty"`
@@ -790,6 +906,12 @@ func (s UpstreamSpecForCreateUpstreamInput) GoString() string {
 // SetAIProvider sets the AIProvider field's value.
 func (s *UpstreamSpecForCreateUpstreamInput) SetAIProvider(v *AIProviderForCreateUpstreamInput) *UpstreamSpecForCreateUpstreamInput {
 	s.AIProvider = v
+	return s
+}
+
+// SetDomain sets the Domain field's value.
+func (s *UpstreamSpecForCreateUpstreamInput) SetDomain(v *DomainForCreateUpstreamInput) *UpstreamSpecForCreateUpstreamInput {
+	s.Domain = v
 	return s
 }
 
