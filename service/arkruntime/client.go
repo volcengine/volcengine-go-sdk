@@ -73,11 +73,11 @@ func newClientWithConfig(config clientConfig) *Client {
 }
 
 func (c *Client) GetEndpointStsToken(ctx context.Context, endpointId string) (string, error) {
-	return c.GetResourceStsToken(ctx, resourceTypeEndpoint, endpointId)
+	return c.GetResourceStsToken(ctx, resourceTypeEndpoint, endpointId, "")
 }
 
-func (c *Client) GetResourceStsToken(ctx context.Context, resourceType string, resourceId string) (string, error) {
-	err := c.refresh(ctx, resourceType, resourceId)
+func (c *Client) GetResourceStsToken(ctx context.Context, resourceType string, resourceId string, projectName string) (string, error) {
+	err := c.refresh(ctx, resourceType, resourceId, projectName)
 	if err != nil {
 		return "", err
 	}
@@ -89,7 +89,7 @@ func (c *Client) GetResourceStsToken(ctx context.Context, resourceType string, r
 	return "", nil
 }
 
-func (c *Client) refresh(ctx context.Context, resourceType string, resourceId string) error {
+func (c *Client) refresh(ctx context.Context, resourceType string, resourceId string, projectName string) error {
 	if !c.needRefresh(resourceType, resourceId, c.advisoryRefreshTimeout) {
 		return nil
 	}
@@ -101,14 +101,14 @@ func (c *Client) refresh(ctx context.Context, resourceType string, resourceId st
 		}
 
 		isMandatoryRefresh := c.needRefresh(resourceType, resourceId, c.mandatoryRefreshTimeout)
-		return c.protectedRefresh(ctx, resourceType, resourceId, isMandatoryRefresh)
+		return c.protectedRefresh(ctx, resourceType, resourceId, projectName, isMandatoryRefresh)
 	} else if c.needRefresh(resourceType, resourceId, c.mandatoryRefreshTimeout) {
 		c.rwLock.Lock()
 		defer c.rwLock.Unlock()
 		if !c.needRefresh(resourceType, resourceId, c.mandatoryRefreshTimeout) {
 			return nil
 		}
-		return c.protectedRefresh(ctx, resourceType, resourceId, true)
+		return c.protectedRefresh(ctx, resourceType, resourceId, projectName, true)
 	}
 	return nil
 }
@@ -126,12 +126,18 @@ func (c *Client) needRefresh(resourceType string, resourceId string, refreshIn i
 	return true
 }
 
-func (c *Client) protectedRefresh(ctx context.Context, resourceType string, resourceId string, isMandatory bool) error {
-	resp, err := c.arkClient.GetApiKeyWithContext(ctx, &ark.GetApiKeyInput{
+func (c *Client) protectedRefresh(ctx context.Context, resourceType string, resourceId string, projectName string, isMandatory bool) error {
+	input := ark.GetApiKeyInput{
 		DurationSeconds: volcengine.Int32(model.DefaultStsTimeout),
 		ResourceIds:     []*string{volcengine.String(resourceId)},
 		ResourceType:    volcengine.String(resourceType),
-	})
+	}
+
+	if projectName != "" {
+		input.ProjectName = volcengine.String(projectName)
+	}
+
+	resp, err := c.arkClient.GetApiKeyWithContext(ctx, &input)
 	if err != nil {
 		if isMandatory {
 			return err
@@ -177,6 +183,12 @@ func withContentType(contentType string) requestOption {
 	}
 }
 
+func WithProjectName(project string) requestOption {
+	return func(args *requestOptions) {
+		args.header.Set("X-Project-Name", project)
+	}
+}
+
 func WithCustomHeader(key, value string) requestOption {
 	return func(args *requestOptions) {
 		args.header.Set(key, value)
@@ -208,13 +220,20 @@ func (c *Client) newRequest(ctx context.Context, method, url, resourceType, reso
 
 	requestID := utils.GenRequestId()
 	args.header.Set(model.ClientRequestHeader, requestID)
-	errH := c.setCommonHeaders(ctx, args, resourceType, resourceId)
-	if errH != nil {
-		return nil, errH
-	}
+
+	// parse resource type by resourceId
+	// - endpoint: ep-*
+	// - bot: bot-*
+	// - presetendpoint: ep-m-* or modelID such as doubao-pro-32k-240525
+	resourceType = c.getResourceTypeById(resourceId)
 
 	for _, setter := range setters {
 		setter(args)
+	}
+
+	errH := c.setCommonHeaders(ctx, args, resourceType, resourceId)
+	if errH != nil {
+		return nil, errH
 	}
 
 	// add query args
@@ -541,7 +560,13 @@ func (c *Client) setCommonHeaders(ctx context.Context, args *requestOptions, res
 		} else if resourceTypeBot == resourceType && !strings.HasPrefix(resourceId, "bot-") {
 			return model.NewRequestError(http.StatusBadRequest, model.ErrBodyWithoutBot, requestID)
 		}
-		token, err := c.GetResourceStsToken(ctx, resourceType, resourceId)
+
+		projectName := args.header.Get("X-Project-Name")
+		if resourceTypePresetEndpoint == resourceType && projectName == "" {
+			return model.NewRequestError(http.StatusBadRequest, model.ErrBodyWithoutProjectName, requestID)
+		}
+
+		token, err := c.GetResourceStsToken(ctx, resourceType, resourceId, projectName)
 		if err != nil {
 			if volcErr, ok := err.(volcengineerr.RequestFailure); ok {
 				return model.NewRequestError(volcErr.StatusCode(), fmt.Errorf("failed to get resource sts token. err=%w", volcErr), volcErr.RequestID())
@@ -551,6 +576,19 @@ func (c *Client) setCommonHeaders(ctx context.Context, args *requestOptions, res
 		args.header.Set("Authorization", fmt.Sprintf("Bearer %s", token))
 	}
 	return nil
+}
+
+func (c *Client) getResourceTypeById(resourceId string) string {
+	switch {
+	case strings.HasPrefix(resourceId, "ep-m-"):
+		return resourceTypePresetEndpoint
+	case strings.HasPrefix(resourceId, "ep-"):
+		return resourceTypeEndpoint
+	case strings.HasPrefix(resourceId, "bot-"):
+		return resourceTypeBot
+	default:
+		return resourceTypePresetEndpoint
+	}
 }
 
 func isFailureStatusCode(resp *http.Response) bool {
