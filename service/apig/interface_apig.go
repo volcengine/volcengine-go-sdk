@@ -38,6 +38,70 @@ type APIGAPI interface {
 	AttachGatewayLBWithContext(volcengine.Context, *AttachGatewayLBInput, ...request.Option) (*AttachGatewayLBOutput, error)
 	AttachGatewayLBRequest(*AttachGatewayLBInput) (*request.Request, *AttachGatewayLBOutput)
 
+	CheckConsumerCredentialExistCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CheckConsumerCredentialExistCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CheckConsumerCredentialExistCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CheckConsumerCredentialExist(*CheckConsumerCredentialExistInput) (*CheckConsumerCredentialExistOutput, error)
+	CheckConsumerCredentialExistWithContext(volcengine.Context, *CheckConsumerCredentialExistInput, ...request.Option) (*CheckConsumerCredentialExistOutput, error)
+	CheckConsumerCredentialExistRequest(*CheckConsumerCredentialExistInput) (*request.Request, *CheckConsumerCredentialExistOutput)
+
+	CheckConsumerExistCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CheckConsumerExistCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CheckConsumerExistCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CheckConsumerExist(*CheckConsumerExistInput) (*CheckConsumerExistOutput, error)
+	CheckConsumerExistWithContext(volcengine.Context, *CheckConsumerExistInput, ...request.Option) (*CheckConsumerExistOutput, error)
+	CheckConsumerExistRequest(*CheckConsumerExistInput) (*request.Request, *CheckConsumerExistOutput)
+
+	CheckConsumerUsedCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CheckConsumerUsedCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CheckConsumerUsedCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CheckConsumerUsed(*CheckConsumerUsedInput) (*CheckConsumerUsedOutput, error)
+	CheckConsumerUsedWithContext(volcengine.Context, *CheckConsumerUsedInput, ...request.Option) (*CheckConsumerUsedOutput, error)
+	CheckConsumerUsedRequest(*CheckConsumerUsedInput) (*request.Request, *CheckConsumerUsedOutput)
+
+	CheckCustomDomainExistCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CheckCustomDomainExistCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CheckCustomDomainExistCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CheckCustomDomainExist(*CheckCustomDomainExistInput) (*CheckCustomDomainExistOutput, error)
+	CheckCustomDomainExistWithContext(volcengine.Context, *CheckCustomDomainExistInput, ...request.Option) (*CheckCustomDomainExistOutput, error)
+	CheckCustomDomainExistRequest(*CheckCustomDomainExistInput) (*request.Request, *CheckCustomDomainExistOutput)
+
+	CheckGatewayExistCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CheckGatewayExistCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CheckGatewayExistCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CheckGatewayExist(*CheckGatewayExistInput) (*CheckGatewayExistOutput, error)
+	CheckGatewayExistWithContext(volcengine.Context, *CheckGatewayExistInput, ...request.Option) (*CheckGatewayExistOutput, error)
+	CheckGatewayExistRequest(*CheckGatewayExistInput) (*request.Request, *CheckGatewayExistOutput)
+
+	CheckGatewayServiceExistCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CheckGatewayServiceExistCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CheckGatewayServiceExistCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CheckGatewayServiceExist(*CheckGatewayServiceExistInput) (*CheckGatewayServiceExistOutput, error)
+	CheckGatewayServiceExistWithContext(volcengine.Context, *CheckGatewayServiceExistInput, ...request.Option) (*CheckGatewayServiceExistOutput, error)
+	CheckGatewayServiceExistRequest(*CheckGatewayServiceExistInput) (*request.Request, *CheckGatewayServiceExistOutput)
+
+	CheckUpstreamExistCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CheckUpstreamExistCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CheckUpstreamExistCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CheckUpstreamExist(*CheckUpstreamExistInput) (*CheckUpstreamExistOutput, error)
+	CheckUpstreamExistWithContext(volcengine.Context, *CheckUpstreamExistInput, ...request.Option) (*CheckUpstreamExistOutput, error)
+	CheckUpstreamExistRequest(*CheckUpstreamExistInput) (*request.Request, *CheckUpstreamExistOutput)
+
+	CheckUpstreamVersionExistCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CheckUpstreamVersionExistCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CheckUpstreamVersionExistCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CheckUpstreamVersionExist(*CheckUpstreamVersionExistInput) (*CheckUpstreamVersionExistOutput, error)
+	CheckUpstreamVersionExistWithContext(volcengine.Context, *CheckUpstreamVersionExistInput, ...request.Option) (*CheckUpstreamVersionExistOutput, error)
+	CheckUpstreamVersionExistRequest(*CheckUpstreamVersionExistInput) (*request.Request, *CheckUpstreamVersionExistOutput)
+
 	CreateConsumerCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	CreateConsumerCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	CreateConsumerCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
