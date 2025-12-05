@@ -18,6 +18,8 @@ const (
 	ContentTypeV2_IMAGE ContentTypeV2 = 3
 	// 视频
 	ContentTypeV2_VIDEO ContentTypeV2 = 4
+	// 文件
+	ContentTypeV2_FILE ContentTypeV2 = 5
 )
 
 type DecisionTypeV2 int64
@@ -47,6 +49,15 @@ type MessageV2 struct {
 	Content string `thrift:"content,2" form:"Content" json:"Content"`
 	// 内容类型
 	ContentType ContentTypeV2 `thrift:"contentType,3" form:"ContentType" json:"ContentType"`
+	// 多模态送检内容
+	MultiPart []*MultiPart `thrift:"multiPart,4,optional" form:"MultiPart" json:"MultiPart,omitempty"`
+}
+
+type MultiPart struct {
+	// 内容文本或链接
+	Content string `thrift:"content,1" form:"Content" json:"Content"`
+	// 内容类型
+	ContentType ContentTypeV2 `thrift:"contentType,2" form:"ContentType" json:"ContentType"`
 }
 
 type ModerateV2Request struct {
@@ -91,6 +102,8 @@ type ModerateV2Result struct {
 	Decision *DecisionV2 `thrift:"decision,3" form:"Decision" json:"Decision"`
 	// 放行信息
 	PermitInfo *PermitInfoV2 `thrift:"permitInfo,4" form:"PermitInfo" json:"PermitInfo"`
+	// 提交内容信息
+	ContentInfo string `thrift:"ContentInfo,5" form:"ContentInfo" json:"ContentInfo"`
 	// 是否降级
 	Degraded bool `thrift:"degraded,101" form:"Degraded" json:"Degraded"`
 	// 降级原因

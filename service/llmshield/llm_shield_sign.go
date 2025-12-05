@@ -28,9 +28,12 @@ import (
 
 const (
 	// 请求接口信息
-	Service = "llmshield"
-	Version = "2025-08-31"
+	ServiceCodeDev    = "llmshield_dev"
+	ServiceCodeOnline = "llmshield"
+	Version           = "2025-08-31"
 )
+
+var Service string = ServiceCodeOnline
 
 func hmacSHA256(key []byte, content string) []byte {
 	mac := hmac.New(sha256.New, key)

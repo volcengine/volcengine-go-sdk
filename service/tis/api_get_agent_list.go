@@ -146,6 +146,10 @@ func (c *TIS) GetAgentListWithContext(ctx volcengine.Context, input *GetAgentLis
 type AgentForGetAgentListOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	AsrLang *string `type:"string" json:",omitempty"`
+
+	Description *string `type:"string" json:",omitempty"`
+
 	ID *string `type:"string" json:",omitempty"`
 
 	Name *string `type:"string" json:",omitempty"`
@@ -163,6 +167,18 @@ func (s AgentForGetAgentListOutput) String() string {
 // GoString returns the string representation
 func (s AgentForGetAgentListOutput) GoString() string {
 	return s.String()
+}
+
+// SetAsrLang sets the AsrLang field's value.
+func (s *AgentForGetAgentListOutput) SetAsrLang(v string) *AgentForGetAgentListOutput {
+	s.AsrLang = &v
+	return s
+}
+
+// SetDescription sets the Description field's value.
+func (s *AgentForGetAgentListOutput) SetDescription(v string) *AgentForGetAgentListOutput {
+	s.Description = &v
+	return s
 }
 
 // SetID sets the ID field's value.
@@ -192,6 +208,8 @@ func (s *AgentForGetAgentListOutput) SetSpeakerType(v string) *AgentForGetAgentL
 type GetAgentListInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	AgentID *string `type:"string" json:",omitempty"`
+
 	AppID *string `type:"string" json:",omitempty"`
 }
 
@@ -203,6 +221,12 @@ func (s GetAgentListInput) String() string {
 // GoString returns the string representation
 func (s GetAgentListInput) GoString() string {
 	return s.String()
+}
+
+// SetAgentID sets the AgentID field's value.
+func (s *GetAgentListInput) SetAgentID(v string) *GetAgentListInput {
+	s.AgentID = &v
+	return s
 }
 
 // SetAppID sets the AppID field's value.
