@@ -6,6 +6,7 @@ import (
 	"fmt"
 	"io"
 	"net/http"
+	purl "net/url"
 	"time"
 )
 
@@ -20,6 +21,50 @@ func New(url string, ak string, sk string, region string, timeout time.Duration)
 		sk:     sk,
 		region: region,
 	}
+}
+
+func NewAdvanced(url string, ak string, sk string, region string, timeout time.Duration, proxyAddr string, connMax int) *Client {
+	transport := &http.Transport{}
+
+	if len(proxyAddr) > 0 {
+		proxyHandler, err := purl.Parse(proxyAddr)
+		if err != nil {
+			fmt.Printf("NewProxy Parse proxy addr error:%v\n", err)
+			return nil
+		}
+
+		transport.Proxy = http.ProxyURL(proxyHandler)
+	}
+
+	// 设置最大连接数
+	if connMax > 0 {
+		transport.MaxIdleConns = connMax
+		transport.MaxConnsPerHost = connMax
+		transport.MaxIdleConnsPerHost = connMax
+	}
+
+	return &Client{
+		url: url,
+		httpClient: &http.Client{
+			Transport: transport,
+			Timeout:   timeout,
+		},
+		ak:     ak,
+		sk:     sk,
+		region: region,
+	}
+}
+
+func SetServiceDev(IsDev bool) {
+	if IsDev {
+		Service = ServiceCodeDev
+	} else {
+		Service = ServiceCodeOnline
+	}
+}
+
+func GetServiceCode() string {
+	return Service
 }
 
 // Moderate 方法，根据传入的 Request 结构体反序列成 JSON 并发送请求，读取响应并转化为 Response 结构体
