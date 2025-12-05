@@ -143,6 +143,36 @@ func (c *TIS) GetSpeakerListWithContext(ctx volcengine.Context, input *GetSpeake
 	return out, req.Send()
 }
 
+type CategoryForGetSpeakerListOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Level1 *string `type:"string" json:",omitempty"`
+
+	Level2 *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s CategoryForGetSpeakerListOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s CategoryForGetSpeakerListOutput) GoString() string {
+	return s.String()
+}
+
+// SetLevel1 sets the Level1 field's value.
+func (s *CategoryForGetSpeakerListOutput) SetLevel1(v string) *CategoryForGetSpeakerListOutput {
+	s.Level1 = &v
+	return s
+}
+
+// SetLevel2 sets the Level2 field's value.
+func (s *CategoryForGetSpeakerListOutput) SetLevel2(v string) *CategoryForGetSpeakerListOutput {
+	s.Level2 = &v
+	return s
+}
+
 type GetSpeakerListInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -189,18 +219,44 @@ func (s *GetSpeakerListOutput) SetSpeakers(v []*SpeakerForGetSpeakerListOutput) 
 	return s
 }
 
+type LanguageForGetSpeakerListOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s LanguageForGetSpeakerListOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s LanguageForGetSpeakerListOutput) GoString() string {
+	return s.String()
+}
+
 type SpeakerForGetSpeakerListOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	Avatar *string `type:"string" json:",omitempty"`
+
+	Category []*CategoryForGetSpeakerListOutput `type:"list" json:",omitempty"`
+
 	Description *string `type:"string" json:",omitempty"`
+
+	Gender *string `type:"string" json:",omitempty"`
 
 	ID *string `type:"string" json:",omitempty"`
 
+	Labels []*string `type:"list" json:",omitempty"`
+
 	Language *string `type:"string" json:",omitempty"`
+
+	Languages []*LanguageForGetSpeakerListOutput `type:"list" json:",omitempty"`
 
 	Name *string `type:"string" json:",omitempty"`
 
 	Type *string `type:"string" json:",omitempty"`
+
+	VoiceConfigs []*VoiceConfigForGetSpeakerListOutput `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -213,9 +269,27 @@ func (s SpeakerForGetSpeakerListOutput) GoString() string {
 	return s.String()
 }
 
+// SetAvatar sets the Avatar field's value.
+func (s *SpeakerForGetSpeakerListOutput) SetAvatar(v string) *SpeakerForGetSpeakerListOutput {
+	s.Avatar = &v
+	return s
+}
+
+// SetCategory sets the Category field's value.
+func (s *SpeakerForGetSpeakerListOutput) SetCategory(v []*CategoryForGetSpeakerListOutput) *SpeakerForGetSpeakerListOutput {
+	s.Category = v
+	return s
+}
+
 // SetDescription sets the Description field's value.
 func (s *SpeakerForGetSpeakerListOutput) SetDescription(v string) *SpeakerForGetSpeakerListOutput {
 	s.Description = &v
+	return s
+}
+
+// SetGender sets the Gender field's value.
+func (s *SpeakerForGetSpeakerListOutput) SetGender(v string) *SpeakerForGetSpeakerListOutput {
+	s.Gender = &v
 	return s
 }
 
@@ -225,9 +299,21 @@ func (s *SpeakerForGetSpeakerListOutput) SetID(v string) *SpeakerForGetSpeakerLi
 	return s
 }
 
+// SetLabels sets the Labels field's value.
+func (s *SpeakerForGetSpeakerListOutput) SetLabels(v []*string) *SpeakerForGetSpeakerListOutput {
+	s.Labels = v
+	return s
+}
+
 // SetLanguage sets the Language field's value.
 func (s *SpeakerForGetSpeakerListOutput) SetLanguage(v string) *SpeakerForGetSpeakerListOutput {
 	s.Language = &v
+	return s
+}
+
+// SetLanguages sets the Languages field's value.
+func (s *SpeakerForGetSpeakerListOutput) SetLanguages(v []*LanguageForGetSpeakerListOutput) *SpeakerForGetSpeakerListOutput {
+	s.Languages = v
 	return s
 }
 
@@ -240,6 +326,50 @@ func (s *SpeakerForGetSpeakerListOutput) SetName(v string) *SpeakerForGetSpeaker
 // SetType sets the Type field's value.
 func (s *SpeakerForGetSpeakerListOutput) SetType(v string) *SpeakerForGetSpeakerListOutput {
 	s.Type = &v
+	return s
+}
+
+// SetVoiceConfigs sets the VoiceConfigs field's value.
+func (s *SpeakerForGetSpeakerListOutput) SetVoiceConfigs(v []*VoiceConfigForGetSpeakerListOutput) *SpeakerForGetSpeakerListOutput {
+	s.VoiceConfigs = v
+	return s
+}
+
+type VoiceConfigForGetSpeakerListOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Lang *string `type:"string" json:",omitempty"`
+
+	Text *string `type:"string" json:",omitempty"`
+
+	TrialURL *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s VoiceConfigForGetSpeakerListOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s VoiceConfigForGetSpeakerListOutput) GoString() string {
+	return s.String()
+}
+
+// SetLang sets the Lang field's value.
+func (s *VoiceConfigForGetSpeakerListOutput) SetLang(v string) *VoiceConfigForGetSpeakerListOutput {
+	s.Lang = &v
+	return s
+}
+
+// SetText sets the Text field's value.
+func (s *VoiceConfigForGetSpeakerListOutput) SetText(v string) *VoiceConfigForGetSpeakerListOutput {
+	s.Text = &v
+	return s
+}
+
+// SetTrialURL sets the TrialURL field's value.
+func (s *VoiceConfigForGetSpeakerListOutput) SetTrialURL(v string) *VoiceConfigForGetSpeakerListOutput {
+	s.TrialURL = &v
 	return s
 }
 
