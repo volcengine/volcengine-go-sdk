@@ -152,6 +152,8 @@ type AddressObjectForDescribeDBInstancesOutput struct {
 
 	EipId *string `type:"string" json:",omitempty"`
 
+	EipLocked *bool `type:"boolean" json:",omitempty"`
+
 	IPAddress *string `type:"string" json:",omitempty"`
 
 	InternetProtocol *string `type:"string" json:",omitempty"`
@@ -188,6 +190,12 @@ func (s *AddressObjectForDescribeDBInstancesOutput) SetDomain(v string) *Address
 // SetEipId sets the EipId field's value.
 func (s *AddressObjectForDescribeDBInstancesOutput) SetEipId(v string) *AddressObjectForDescribeDBInstancesOutput {
 	s.EipId = &v
+	return s
+}
+
+// SetEipLocked sets the EipLocked field's value.
+func (s *AddressObjectForDescribeDBInstancesOutput) SetEipLocked(v bool) *AddressObjectForDescribeDBInstancesOutput {
+	s.EipLocked = &v
 	return s
 }
 
@@ -334,6 +342,8 @@ type DescribeDBInstancesInput struct {
 
 	DBEngineVersion *string `type:"string" json:",omitempty"`
 
+	EngineType *string `type:"string" json:",omitempty"`
+
 	InstanceId *string `type:"string" json:",omitempty"`
 
 	InstanceName *string `type:"string" json:",omitempty"`
@@ -394,6 +404,12 @@ func (s *DescribeDBInstancesInput) SetCreateTimeStart(v string) *DescribeDBInsta
 // SetDBEngineVersion sets the DBEngineVersion field's value.
 func (s *DescribeDBInstancesInput) SetDBEngineVersion(v string) *DescribeDBInstancesInput {
 	s.DBEngineVersion = &v
+	return s
+}
+
+// SetEngineType sets the EngineType field's value.
+func (s *DescribeDBInstancesInput) SetEngineType(v string) *DescribeDBInstancesInput {
+	s.EngineType = &v
 	return s
 }
 
@@ -532,6 +548,8 @@ type InstanceForDescribeDBInstancesOutput struct {
 
 	DrDtsTaskId *string `type:"string" json:",omitempty"`
 
+	EngineType *string `type:"string" json:",omitempty"`
+
 	InstanceId *string `type:"string" json:",omitempty"`
 
 	InstanceName *string `type:"string" json:",omitempty"`
@@ -543,6 +561,8 @@ type InstanceForDescribeDBInstancesOutput struct {
 	LowerCaseTableNames *string `type:"string" json:",omitempty"`
 
 	MaintenanceWindow *MaintenanceWindowForDescribeDBInstancesOutput `type:"structure" json:",omitempty"`
+
+	NewNodeSpec *string `type:"string" json:",omitempty"`
 
 	NodeCPUUsedPercentage *float64 `type:"double" json:",omitempty"`
 
@@ -557,6 +577,8 @@ type InstanceForDescribeDBInstancesOutput struct {
 	ProjectName *string `type:"string" json:",omitempty"`
 
 	RegionId *string `type:"string" json:",omitempty"`
+
+	SecondsMonitorConfig *string `type:"string" json:",omitempty"`
 
 	StorageSpace *int32 `type:"int32" json:",omitempty"`
 
@@ -633,6 +655,12 @@ func (s *InstanceForDescribeDBInstancesOutput) SetDrDtsTaskId(v string) *Instanc
 	return s
 }
 
+// SetEngineType sets the EngineType field's value.
+func (s *InstanceForDescribeDBInstancesOutput) SetEngineType(v string) *InstanceForDescribeDBInstancesOutput {
+	s.EngineType = &v
+	return s
+}
+
 // SetInstanceId sets the InstanceId field's value.
 func (s *InstanceForDescribeDBInstancesOutput) SetInstanceId(v string) *InstanceForDescribeDBInstancesOutput {
 	s.InstanceId = &v
@@ -666,6 +694,12 @@ func (s *InstanceForDescribeDBInstancesOutput) SetLowerCaseTableNames(v string) 
 // SetMaintenanceWindow sets the MaintenanceWindow field's value.
 func (s *InstanceForDescribeDBInstancesOutput) SetMaintenanceWindow(v *MaintenanceWindowForDescribeDBInstancesOutput) *InstanceForDescribeDBInstancesOutput {
 	s.MaintenanceWindow = v
+	return s
+}
+
+// SetNewNodeSpec sets the NewNodeSpec field's value.
+func (s *InstanceForDescribeDBInstancesOutput) SetNewNodeSpec(v string) *InstanceForDescribeDBInstancesOutput {
+	s.NewNodeSpec = &v
 	return s
 }
 
@@ -708,6 +742,12 @@ func (s *InstanceForDescribeDBInstancesOutput) SetProjectName(v string) *Instanc
 // SetRegionId sets the RegionId field's value.
 func (s *InstanceForDescribeDBInstancesOutput) SetRegionId(v string) *InstanceForDescribeDBInstancesOutput {
 	s.RegionId = &v
+	return s
+}
+
+// SetSecondsMonitorConfig sets the SecondsMonitorConfig field's value.
+func (s *InstanceForDescribeDBInstancesOutput) SetSecondsMonitorConfig(v string) *InstanceForDescribeDBInstancesOutput {
+	s.SecondsMonitorConfig = &v
 	return s
 }
 

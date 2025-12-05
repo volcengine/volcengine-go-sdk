@@ -218,6 +218,8 @@ type TemplateInfoForDescribeParameterTemplateOutput struct {
 
 	CreateTime *string `type:"string" json:",omitempty"`
 
+	EngineType *string `type:"string" json:",omitempty"`
+
 	NeedRestart *bool `type:"boolean" json:",omitempty"`
 
 	ParameterNum *int64 `type:"int64" json:",omitempty"`
@@ -262,6 +264,12 @@ func (s *TemplateInfoForDescribeParameterTemplateOutput) SetAccountId(v string) 
 // SetCreateTime sets the CreateTime field's value.
 func (s *TemplateInfoForDescribeParameterTemplateOutput) SetCreateTime(v string) *TemplateInfoForDescribeParameterTemplateOutput {
 	s.CreateTime = &v
+	return s
+}
+
+// SetEngineType sets the EngineType field's value.
+func (s *TemplateInfoForDescribeParameterTemplateOutput) SetEngineType(v string) *TemplateInfoForDescribeParameterTemplateOutput {
+	s.EngineType = &v
 	return s
 }
 

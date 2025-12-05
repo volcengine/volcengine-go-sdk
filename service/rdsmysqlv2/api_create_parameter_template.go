@@ -146,6 +146,8 @@ func (c *RDSMYSQLV2) CreateParameterTemplateWithContext(ctx volcengine.Context, 
 type CreateParameterTemplateInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	EngineType *string `type:"string" json:",omitempty"`
+
 	ProjectName *string `type:"string" json:",omitempty"`
 
 	TemplateDesc *string `type:"string" json:",omitempty"`
@@ -181,6 +183,12 @@ func (s *CreateParameterTemplateInput) Validate() error {
 		return invalidParams
 	}
 	return nil
+}
+
+// SetEngineType sets the EngineType field's value.
+func (s *CreateParameterTemplateInput) SetEngineType(v string) *CreateParameterTemplateInput {
+	s.EngineType = &v
+	return s
 }
 
 // SetProjectName sets the ProjectName field's value.

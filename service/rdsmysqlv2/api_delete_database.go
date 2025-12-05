@@ -151,6 +151,8 @@ type DeleteDatabaseInput struct {
 
 	// InstanceId is a required field
 	InstanceId *string `type:"string" json:",omitempty" required:"true"`
+
+	KeepAccountPrivileges *bool `type:"boolean" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -188,6 +190,12 @@ func (s *DeleteDatabaseInput) SetDBName(v string) *DeleteDatabaseInput {
 // SetInstanceId sets the InstanceId field's value.
 func (s *DeleteDatabaseInput) SetInstanceId(v string) *DeleteDatabaseInput {
 	s.InstanceId = &v
+	return s
+}
+
+// SetKeepAccountPrivileges sets the KeepAccountPrivileges field's value.
+func (s *DeleteDatabaseInput) SetKeepAccountPrivileges(v bool) *DeleteDatabaseInput {
+	s.KeepAccountPrivileges = &v
 	return s
 }
 

@@ -156,6 +156,8 @@ type BackupForDescribeBackupsOutput struct {
 
 	BackupMethod *string `type:"string" json:",omitempty"`
 
+	BackupName *string `type:"string" json:",omitempty"`
+
 	BackupRegion *string `type:"string" json:",omitempty"`
 
 	BackupStartTime *string `type:"string" json:",omitempty"`
@@ -173,6 +175,8 @@ type BackupForDescribeBackupsOutput struct {
 	DBTableInfos []*DBTableInfoForDescribeBackupsOutput `type:"list" json:",omitempty"`
 
 	DownloadStatus *string `type:"string" json:",omitempty"`
+
+	EngineType *string `type:"string" json:",omitempty"`
 
 	ErrorMessage *string `type:"string" json:",omitempty"`
 
@@ -220,6 +224,12 @@ func (s *BackupForDescribeBackupsOutput) SetBackupId(v string) *BackupForDescrib
 // SetBackupMethod sets the BackupMethod field's value.
 func (s *BackupForDescribeBackupsOutput) SetBackupMethod(v string) *BackupForDescribeBackupsOutput {
 	s.BackupMethod = &v
+	return s
+}
+
+// SetBackupName sets the BackupName field's value.
+func (s *BackupForDescribeBackupsOutput) SetBackupName(v string) *BackupForDescribeBackupsOutput {
+	s.BackupName = &v
 	return s
 }
 
@@ -274,6 +284,12 @@ func (s *BackupForDescribeBackupsOutput) SetDBTableInfos(v []*DBTableInfoForDesc
 // SetDownloadStatus sets the DownloadStatus field's value.
 func (s *BackupForDescribeBackupsOutput) SetDownloadStatus(v string) *BackupForDescribeBackupsOutput {
 	s.DownloadStatus = &v
+	return s
+}
+
+// SetEngineType sets the EngineType field's value.
+func (s *BackupForDescribeBackupsOutput) SetEngineType(v string) *BackupForDescribeBackupsOutput {
+	s.EngineType = &v
 	return s
 }
 
@@ -340,6 +356,8 @@ type DescribeBackupsInput struct {
 
 	BackupMethod *string `type:"string" json:",omitempty"`
 
+	BackupName *string `type:"string" json:",omitempty"`
+
 	BackupStartTime *string `type:"string" json:",omitempty"`
 
 	BackupStatus *string `type:"string" json:",omitempty"`
@@ -384,6 +402,12 @@ func (s *DescribeBackupsInput) SetBackupId(v string) *DescribeBackupsInput {
 // SetBackupMethod sets the BackupMethod field's value.
 func (s *DescribeBackupsInput) SetBackupMethod(v string) *DescribeBackupsInput {
 	s.BackupMethod = &v
+	return s
+}
+
+// SetBackupName sets the BackupName field's value.
+func (s *DescribeBackupsInput) SetBackupName(v string) *DescribeBackupsInput {
+	s.BackupName = &v
 	return s
 }
 

@@ -356,6 +356,8 @@ type RestoreToNewInstanceInput struct {
 
 	DeletionProtection *string `type:"string" json:",omitempty"`
 
+	EnableExternalReplication *bool `type:"boolean" json:",omitempty"`
+
 	InstanceName *string `type:"string" json:",omitempty"`
 
 	InstanceTags []*InstanceTagForRestoreToNewInstanceInput `type:"list" json:",omitempty"`
@@ -450,6 +452,12 @@ func (s *RestoreToNewInstanceInput) SetDBParamGroupId(v string) *RestoreToNewIns
 // SetDeletionProtection sets the DeletionProtection field's value.
 func (s *RestoreToNewInstanceInput) SetDeletionProtection(v string) *RestoreToNewInstanceInput {
 	s.DeletionProtection = &v
+	return s
+}
+
+// SetEnableExternalReplication sets the EnableExternalReplication field's value.
+func (s *RestoreToNewInstanceInput) SetEnableExternalReplication(v bool) *RestoreToNewInstanceInput {
+	s.EnableExternalReplication = &v
 	return s
 }
 

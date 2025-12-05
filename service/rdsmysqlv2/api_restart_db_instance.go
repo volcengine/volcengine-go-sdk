@@ -150,8 +150,12 @@ type RestartDBInstanceInput struct {
 
 	CustomNodeIds []*string `type:"list" json:",omitempty"`
 
+	ForceRestartMaster *bool `type:"boolean" json:",omitempty"`
+
 	// InstanceId is a required field
 	InstanceId *string `type:"string" json:",omitempty" required:"true"`
+
+	RestartWithProxy *bool `type:"boolean" json:",omitempty"`
 
 	SpecifiedSwitchEndTime *string `type:"string" json:",omitempty"`
 
@@ -195,9 +199,21 @@ func (s *RestartDBInstanceInput) SetCustomNodeIds(v []*string) *RestartDBInstanc
 	return s
 }
 
+// SetForceRestartMaster sets the ForceRestartMaster field's value.
+func (s *RestartDBInstanceInput) SetForceRestartMaster(v bool) *RestartDBInstanceInput {
+	s.ForceRestartMaster = &v
+	return s
+}
+
 // SetInstanceId sets the InstanceId field's value.
 func (s *RestartDBInstanceInput) SetInstanceId(v string) *RestartDBInstanceInput {
 	s.InstanceId = &v
+	return s
+}
+
+// SetRestartWithProxy sets the RestartWithProxy field's value.
+func (s *RestartDBInstanceInput) SetRestartWithProxy(v bool) *RestartDBInstanceInput {
+	s.RestartWithProxy = &v
 	return s
 }
 

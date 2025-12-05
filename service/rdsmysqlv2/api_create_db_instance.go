@@ -253,6 +253,10 @@ type CreateDBInstanceInput struct {
 
 	DeletionProtection *string `type:"string" json:",omitempty"`
 
+	EnableExternalReplication *bool `type:"boolean" json:",omitempty"`
+
+	EngineType *string `type:"string" json:",omitempty"`
+
 	InstanceName *string `type:"string" json:",omitempty"`
 
 	InstanceTags []*InstanceTagForCreateDBInstanceInput `type:"list" json:",omitempty"`
@@ -362,6 +366,18 @@ func (s *CreateDBInstanceInput) SetDBTimeZone(v string) *CreateDBInstanceInput {
 // SetDeletionProtection sets the DeletionProtection field's value.
 func (s *CreateDBInstanceInput) SetDeletionProtection(v string) *CreateDBInstanceInput {
 	s.DeletionProtection = &v
+	return s
+}
+
+// SetEnableExternalReplication sets the EnableExternalReplication field's value.
+func (s *CreateDBInstanceInput) SetEnableExternalReplication(v bool) *CreateDBInstanceInput {
+	s.EnableExternalReplication = &v
+	return s
+}
+
+// SetEngineType sets the EngineType field's value.
+func (s *CreateDBInstanceInput) SetEngineType(v string) *CreateDBInstanceInput {
+	s.EngineType = &v
 	return s
 }
 
