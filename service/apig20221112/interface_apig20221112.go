@@ -19,7 +19,7 @@ import (
 //    // volcengine sdk func uses an SDK service client to make a request to
 //    // APIG20221112.
 //    func myFunc(svc APIG20221112API) bool {
-//        // Make svc.CreateRoute request
+//        // Make svc.CheckRouteExist request
 //    }
 //
 //    func main() {
@@ -30,6 +30,14 @@ import (
 //    }
 //
 type APIG20221112API interface {
+	CheckRouteExistCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CheckRouteExistCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CheckRouteExistCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CheckRouteExist(*CheckRouteExistInput) (*CheckRouteExistOutput, error)
+	CheckRouteExistWithContext(volcengine.Context, *CheckRouteExistInput, ...request.Option) (*CheckRouteExistOutput, error)
+	CheckRouteExistRequest(*CheckRouteExistInput) (*request.Request, *CheckRouteExistOutput)
+
 	CreateRouteCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	CreateRouteCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	CreateRouteCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})

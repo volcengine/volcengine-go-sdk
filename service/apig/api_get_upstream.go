@@ -305,10 +305,58 @@ func (s *CircuitBreakingSettingsForGetUpstreamOutput) SetMinHealthPercent(v int3
 	return s
 }
 
+type ConnectionPoolSettingsForGetUpstreamOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Enable *bool `type:"boolean" json:",omitempty"`
+
+	Http1MaxPendingRequests *int32 `type:"int32" json:",omitempty"`
+
+	IdleTimeout *int32 `type:"int32" json:",omitempty"`
+
+	MaxConnections *int32 `type:"int32" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s ConnectionPoolSettingsForGetUpstreamOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ConnectionPoolSettingsForGetUpstreamOutput) GoString() string {
+	return s.String()
+}
+
+// SetEnable sets the Enable field's value.
+func (s *ConnectionPoolSettingsForGetUpstreamOutput) SetEnable(v bool) *ConnectionPoolSettingsForGetUpstreamOutput {
+	s.Enable = &v
+	return s
+}
+
+// SetHttp1MaxPendingRequests sets the Http1MaxPendingRequests field's value.
+func (s *ConnectionPoolSettingsForGetUpstreamOutput) SetHttp1MaxPendingRequests(v int32) *ConnectionPoolSettingsForGetUpstreamOutput {
+	s.Http1MaxPendingRequests = &v
+	return s
+}
+
+// SetIdleTimeout sets the IdleTimeout field's value.
+func (s *ConnectionPoolSettingsForGetUpstreamOutput) SetIdleTimeout(v int32) *ConnectionPoolSettingsForGetUpstreamOutput {
+	s.IdleTimeout = &v
+	return s
+}
+
+// SetMaxConnections sets the MaxConnections field's value.
+func (s *ConnectionPoolSettingsForGetUpstreamOutput) SetMaxConnections(v int32) *ConnectionPoolSettingsForGetUpstreamOutput {
+	s.MaxConnections = &v
+	return s
+}
+
 type ConsistentHashLBForGetUpstreamOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
 	HTTPCookie *HTTPCookieForGetUpstreamOutput `type:"structure" json:",omitempty"`
+
+	HashBalanceFactor *int32 `type:"int32" json:",omitempty"`
 
 	HashKey *string `type:"string" json:",omitempty"`
 
@@ -332,6 +380,12 @@ func (s ConsistentHashLBForGetUpstreamOutput) GoString() string {
 // SetHTTPCookie sets the HTTPCookie field's value.
 func (s *ConsistentHashLBForGetUpstreamOutput) SetHTTPCookie(v *HTTPCookieForGetUpstreamOutput) *ConsistentHashLBForGetUpstreamOutput {
 	s.HTTPCookie = v
+	return s
+}
+
+// SetHashBalanceFactor sets the HashBalanceFactor field's value.
+func (s *ConsistentHashLBForGetUpstreamOutput) SetHashBalanceFactor(v int32) *ConsistentHashLBForGetUpstreamOutput {
+	s.HashBalanceFactor = &v
 	return s
 }
 
@@ -421,6 +475,58 @@ func (s *CustomModelServiceForGetUpstreamOutput) SetNamespace(v string) *CustomM
 
 // SetPort sets the Port field's value.
 func (s *CustomModelServiceForGetUpstreamOutput) SetPort(v int32) *CustomModelServiceForGetUpstreamOutput {
+	s.Port = &v
+	return s
+}
+
+type DomainForGetUpstreamOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	DomainList []*DomainListForGetUpstreamOutput `type:"list" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s DomainForGetUpstreamOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DomainForGetUpstreamOutput) GoString() string {
+	return s.String()
+}
+
+// SetDomainList sets the DomainList field's value.
+func (s *DomainForGetUpstreamOutput) SetDomainList(v []*DomainListForGetUpstreamOutput) *DomainForGetUpstreamOutput {
+	s.DomainList = v
+	return s
+}
+
+type DomainListForGetUpstreamOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Domain *string `type:"string" json:",omitempty"`
+
+	Port *int32 `type:"int32" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s DomainListForGetUpstreamOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DomainListForGetUpstreamOutput) GoString() string {
+	return s.String()
+}
+
+// SetDomain sets the Domain field's value.
+func (s *DomainListForGetUpstreamOutput) SetDomain(v string) *DomainListForGetUpstreamOutput {
+	s.Domain = &v
+	return s
+}
+
+// SetPort sets the Port field's value.
+func (s *DomainListForGetUpstreamOutput) SetPort(v int32) *DomainListForGetUpstreamOutput {
 	s.Port = &v
 	return s
 }
@@ -768,6 +874,8 @@ type UpstreamForGetUpstreamOutput struct {
 
 	Comments *string `type:"string" json:",omitempty"`
 
+	ConnectionPoolSettings *ConnectionPoolSettingsForGetUpstreamOutput `type:"structure" json:",omitempty"`
+
 	CreateTime *string `type:"string" json:",omitempty"`
 
 	GatewayId *string `type:"string" json:",omitempty"`
@@ -816,6 +924,12 @@ func (s *UpstreamForGetUpstreamOutput) SetCircuitBreakingSettings(v *CircuitBrea
 // SetComments sets the Comments field's value.
 func (s *UpstreamForGetUpstreamOutput) SetComments(v string) *UpstreamForGetUpstreamOutput {
 	s.Comments = &v
+	return s
+}
+
+// SetConnectionPoolSettings sets the ConnectionPoolSettings field's value.
+func (s *UpstreamForGetUpstreamOutput) SetConnectionPoolSettings(v *ConnectionPoolSettingsForGetUpstreamOutput) *UpstreamForGetUpstreamOutput {
+	s.ConnectionPoolSettings = v
 	return s
 }
 
@@ -890,6 +1004,8 @@ type UpstreamSpecForGetUpstreamOutput struct {
 
 	AIProvider *AIProviderForGetUpstreamOutput `type:"structure" json:",omitempty"`
 
+	Domain *DomainForGetUpstreamOutput `type:"structure" json:",omitempty"`
+
 	EcsList []*EcsListForGetUpstreamOutput `type:"list" json:",omitempty"`
 
 	K8SService *K8SServiceForGetUpstreamOutput `type:"structure" json:",omitempty"`
@@ -912,6 +1028,12 @@ func (s UpstreamSpecForGetUpstreamOutput) GoString() string {
 // SetAIProvider sets the AIProvider field's value.
 func (s *UpstreamSpecForGetUpstreamOutput) SetAIProvider(v *AIProviderForGetUpstreamOutput) *UpstreamSpecForGetUpstreamOutput {
 	s.AIProvider = v
+	return s
+}
+
+// SetDomain sets the Domain field's value.
+func (s *UpstreamSpecForGetUpstreamOutput) SetDomain(v *DomainForGetUpstreamOutput) *UpstreamSpecForGetUpstreamOutput {
+	s.Domain = v
 	return s
 }
 

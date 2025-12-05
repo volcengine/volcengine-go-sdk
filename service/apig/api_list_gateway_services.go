@@ -252,6 +252,8 @@ type FilterForListGatewayServicesInput struct {
 
 	Name *string `type:"string" json:",omitempty"`
 
+	ServiceType *string `type:"string" json:",omitempty"`
+
 	Status *string `type:"string" json:",omitempty"`
 }
 
@@ -268,6 +270,12 @@ func (s FilterForListGatewayServicesInput) GoString() string {
 // SetName sets the Name field's value.
 func (s *FilterForListGatewayServicesInput) SetName(v string) *FilterForListGatewayServicesInput {
 	s.Name = &v
+	return s
+}
+
+// SetServiceType sets the ServiceType field's value.
+func (s *FilterForListGatewayServicesInput) SetServiceType(v string) *FilterForListGatewayServicesInput {
+	s.ServiceType = &v
 	return s
 }
 
@@ -303,6 +311,8 @@ type ItemForListGatewayServicesOutput struct {
 	Name *string `type:"string" json:",omitempty"`
 
 	Protocol []*string `type:"list" json:",omitempty"`
+
+	ServiceType *string `type:"string" json:",omitempty"`
 
 	Status *string `type:"string" json:",omitempty"`
 }
@@ -386,6 +396,12 @@ func (s *ItemForListGatewayServicesOutput) SetName(v string) *ItemForListGateway
 // SetProtocol sets the Protocol field's value.
 func (s *ItemForListGatewayServicesOutput) SetProtocol(v []*string) *ItemForListGatewayServicesOutput {
 	s.Protocol = v
+	return s
+}
+
+// SetServiceType sets the ServiceType field's value.
+func (s *ItemForListGatewayServicesOutput) SetServiceType(v string) *ItemForListGatewayServicesOutput {
+	s.ServiceType = &v
 	return s
 }
 

@@ -150,6 +150,14 @@ type KMSAPI interface {
 	CreateSecretWithContext(volcengine.Context, *CreateSecretInput, ...request.Option) (*CreateSecretOutput, error)
 	CreateSecretRequest(*CreateSecretInput) (*request.Request, *CreateSecretOutput)
 
+	CreateSecretOrderCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateSecretOrderCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateSecretOrderCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateSecretOrder(*CreateSecretOrderInput) (*CreateSecretOrderOutput, error)
+	CreateSecretOrderWithContext(volcengine.Context, *CreateSecretOrderInput, ...request.Option) (*CreateSecretOrderOutput, error)
+	CreateSecretOrderRequest(*CreateSecretOrderInput) (*request.Request, *CreateSecretOrderOutput)
+
 	DecryptCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DecryptCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DecryptCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})

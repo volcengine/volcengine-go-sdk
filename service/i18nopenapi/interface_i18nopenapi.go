@@ -110,6 +110,14 @@ type I18NOPENAPIAPI interface {
 	VideoProjectListWithContext(volcengine.Context, *VideoProjectListInput, ...request.Option) (*VideoProjectListOutput, error)
 	VideoProjectListRequest(*VideoProjectListInput) (*request.Request, *VideoProjectListOutput)
 
+	VideoProjectSerialTaskCreateCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	VideoProjectSerialTaskCreateCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	VideoProjectSerialTaskCreateCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	VideoProjectSerialTaskCreate(*VideoProjectSerialTaskCreateInput) (*VideoProjectSerialTaskCreateOutput, error)
+	VideoProjectSerialTaskCreateWithContext(volcengine.Context, *VideoProjectSerialTaskCreateInput, ...request.Option) (*VideoProjectSerialTaskCreateOutput, error)
+	VideoProjectSerialTaskCreateRequest(*VideoProjectSerialTaskCreateInput) (*request.Request, *VideoProjectSerialTaskCreateOutput)
+
 	VideoProjectTaskDetailCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	VideoProjectTaskDetailCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	VideoProjectTaskDetailCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})

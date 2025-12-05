@@ -80,6 +80,9 @@ func (c *Client) ListContentGenerationTasks(
 		if model := filter.Model; model != nil && *model != "" {
 			values.Add("filter.model", *model)
 		}
+		if serviceTier := filter.ServiceTier; serviceTier != nil && *serviceTier != "" {
+			values.Add("filter.service_tier", *serviceTier)
+		}
 		for _, taskID := range filter.TaskIDs {
 			values.Add("filter.task_ids", *taskID)
 		}
