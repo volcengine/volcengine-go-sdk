@@ -1176,6 +1176,96 @@ func (e *Event) UnmarshalJSON(bytes []byte) error {
 			return err
 		}
 		e.Event = &oneof
+	case EventType_response_doubao_app_call_in_progress:
+		oneof := Event_ResponseDoubaoAppCallInProgress{}
+		if err := unmarshal(bytes, &oneof.ResponseDoubaoAppCallInProgress); err != nil {
+			return err
+		}
+		e.Event = &oneof
+	case EventType_response_doubao_app_call_completed:
+		oneof := Event_ResponseDoubaoAppCallCompleted{}
+		if err := unmarshal(bytes, &oneof.ResponseDoubaoAppCallCompleted); err != nil {
+			return err
+		}
+		e.Event = &oneof
+	case EventType_response_doubao_app_call_failed:
+		oneof := Event_ResponseDoubaoAppCallFailed{}
+		if err := unmarshal(bytes, &oneof.ResponseDoubaoAppCallFailed); err != nil {
+			return err
+		}
+		e.Event = &oneof
+	case EventType_response_doubao_app_call_output_text_delta:
+		oneof := Event_ResponseDoubaoAppCallOutputTextDelta{}
+		if err := unmarshal(bytes, &oneof.ResponseDoubaoAppCallOutputTextDelta); err != nil {
+			return err
+		}
+		e.Event = &oneof
+	case EventType_response_doubao_app_call_output_text_done:
+		oneof := Event_ResponseDoubaoAppCallOutputTextDone{}
+		if err := unmarshal(bytes, &oneof.ResponseDoubaoAppCallOutputTextDone); err != nil {
+			return err
+		}
+		e.Event = &oneof
+	case EventType_response_doubao_app_call_search_in_progress:
+		oneof := Event_ResponseDoubaoAppCallSearchInProgress{}
+		if err := unmarshal(bytes, &oneof.ResponseDoubaoAppCallSearchInProgress); err != nil {
+			return err
+		}
+		e.Event = &oneof
+	case EventType_response_doubao_app_call_search_searching:
+		oneof := Event_ResponseDoubaoAppCallSearchSearching{}
+		if err := unmarshal(bytes, &oneof.ResponseDoubaoAppCallSearchSearching); err != nil {
+			return err
+		}
+		e.Event = &oneof
+	case EventType_response_doubao_app_call_search_completed:
+		oneof := Event_ResponseDoubaoAppCallSearchCompleted{}
+		if err := unmarshal(bytes, &oneof.ResponseDoubaoAppCallSearchCompleted); err != nil {
+			return err
+		}
+		e.Event = &oneof
+	case EventType_response_doubao_app_call_reasoning_text_delta:
+		oneof := Event_ResponseDoubaoAppCallReasoningTextDelta{}
+		if err := unmarshal(bytes, &oneof.ResponseDoubaoAppCallReasoningTextDelta); err != nil {
+			return err
+		}
+		e.Event = &oneof
+	case EventType_response_doubao_app_call_reasoning_text_done:
+		oneof := Event_ResponseDoubaoAppCallReasoningTextDone{}
+		if err := unmarshal(bytes, &oneof.ResponseDoubaoAppCallReasoningTextDone); err != nil {
+			return err
+		}
+		e.Event = &oneof
+	case EventType_response_doubao_app_call_reasoning_search_in_progress:
+		oneof := Event_ResponseDoubaoAppCallReasoningSearchInProgress{}
+		if err := unmarshal(bytes, &oneof.ResponseDoubaoAppCallReasoningSearchInProgress); err != nil {
+			return err
+		}
+		e.Event = &oneof
+	case EventType_response_doubao_app_call_reasoning_search_searching:
+		oneof := Event_ResponseDoubaoAppCallReasoningSearchSearching{}
+		if err := unmarshal(bytes, &oneof.ResponseDoubaoAppCallReasoningSearchSearching); err != nil {
+			return err
+		}
+		e.Event = &oneof
+	case EventType_response_doubao_app_call_reasoning_search_completed:
+		oneof := Event_ResponseDoubaoAppCallReasoningSearchCompleted{}
+		if err := unmarshal(bytes, &oneof.ResponseDoubaoAppCallReasoningSearchCompleted); err != nil {
+			return err
+		}
+		e.Event = &oneof
+	case EventType_response_doubao_app_call_block_added:
+		oneof := Event_ResponseDoubaoAppCallBlockAdded{}
+		if err := unmarshal(bytes, &oneof.ResponseDoubaoAppCallBlockAdded); err != nil {
+			return err
+		}
+		e.Event = &oneof
+	case EventType_response_doubao_app_call_block_done:
+		oneof := Event_ResponseDoubaoAppCallBlockDone{}
+		if err := unmarshal(bytes, &oneof.ResponseDoubaoAppCallBlockDone); err != nil {
+			return err
+		}
+		e.Event = &oneof
 	default:
 		return &json.InvalidUnmarshalError{Type: reflect.TypeOf(e)}
 	}
