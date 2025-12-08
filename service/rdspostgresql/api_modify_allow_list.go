@@ -148,6 +148,8 @@ type ModifyAllowListInput struct {
 
 	AllowList *string `type:"string" json:",omitempty"`
 
+	AllowListCategory *string `type:"string" json:",omitempty"`
+
 	AllowListDesc *string `type:"string" json:",omitempty"`
 
 	// AllowListId is a required field
@@ -159,6 +161,12 @@ type ModifyAllowListInput struct {
 	ApplyInstanceNum *int32 `type:"int32" json:",omitempty"`
 
 	ModifyMode *string `type:"string" json:",omitempty"`
+
+	SecurityGroupBindInfos []*SecurityGroupBindInfoForModifyAllowListInput `type:"list" json:",omitempty"`
+
+	UpdateSecurityGroup *bool `type:"boolean" json:",omitempty"`
+
+	UserAllowList *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -193,6 +201,12 @@ func (s *ModifyAllowListInput) SetAllowList(v string) *ModifyAllowListInput {
 	return s
 }
 
+// SetAllowListCategory sets the AllowListCategory field's value.
+func (s *ModifyAllowListInput) SetAllowListCategory(v string) *ModifyAllowListInput {
+	s.AllowListCategory = &v
+	return s
+}
+
 // SetAllowListDesc sets the AllowListDesc field's value.
 func (s *ModifyAllowListInput) SetAllowListDesc(v string) *ModifyAllowListInput {
 	s.AllowListDesc = &v
@@ -223,6 +237,24 @@ func (s *ModifyAllowListInput) SetModifyMode(v string) *ModifyAllowListInput {
 	return s
 }
 
+// SetSecurityGroupBindInfos sets the SecurityGroupBindInfos field's value.
+func (s *ModifyAllowListInput) SetSecurityGroupBindInfos(v []*SecurityGroupBindInfoForModifyAllowListInput) *ModifyAllowListInput {
+	s.SecurityGroupBindInfos = v
+	return s
+}
+
+// SetUpdateSecurityGroup sets the UpdateSecurityGroup field's value.
+func (s *ModifyAllowListInput) SetUpdateSecurityGroup(v bool) *ModifyAllowListInput {
+	s.UpdateSecurityGroup = &v
+	return s
+}
+
+// SetUserAllowList sets the UserAllowList field's value.
+func (s *ModifyAllowListInput) SetUserAllowList(v string) *ModifyAllowListInput {
+	s.UserAllowList = &v
+	return s
+}
+
 type ModifyAllowListOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -237,4 +269,50 @@ func (s ModifyAllowListOutput) String() string {
 // GoString returns the string representation
 func (s ModifyAllowListOutput) GoString() string {
 	return s.String()
+}
+
+type SecurityGroupBindInfoForModifyAllowListInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	BindMode *string `type:"string" json:",omitempty"`
+
+	IpList []*string `type:"list" json:",omitempty"`
+
+	SecurityGroupId *string `type:"string" json:",omitempty"`
+
+	SecurityGroupName *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s SecurityGroupBindInfoForModifyAllowListInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s SecurityGroupBindInfoForModifyAllowListInput) GoString() string {
+	return s.String()
+}
+
+// SetBindMode sets the BindMode field's value.
+func (s *SecurityGroupBindInfoForModifyAllowListInput) SetBindMode(v string) *SecurityGroupBindInfoForModifyAllowListInput {
+	s.BindMode = &v
+	return s
+}
+
+// SetIpList sets the IpList field's value.
+func (s *SecurityGroupBindInfoForModifyAllowListInput) SetIpList(v []*string) *SecurityGroupBindInfoForModifyAllowListInput {
+	s.IpList = v
+	return s
+}
+
+// SetSecurityGroupId sets the SecurityGroupId field's value.
+func (s *SecurityGroupBindInfoForModifyAllowListInput) SetSecurityGroupId(v string) *SecurityGroupBindInfoForModifyAllowListInput {
+	s.SecurityGroupId = &v
+	return s
+}
+
+// SetSecurityGroupName sets the SecurityGroupName field's value.
+func (s *SecurityGroupBindInfoForModifyAllowListInput) SetSecurityGroupName(v string) *SecurityGroupBindInfoForModifyAllowListInput {
+	s.SecurityGroupName = &v
+	return s
 }

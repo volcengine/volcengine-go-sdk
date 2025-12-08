@@ -224,6 +224,8 @@ type DescribeAllowListDetailOutput struct {
 
 	AllowList *string `type:"string" json:",omitempty"`
 
+	AllowListCategory *string `type:"string" json:",omitempty"`
+
 	AllowListDesc *string `type:"string" json:",omitempty"`
 
 	AllowListId *string `type:"string" json:",omitempty"`
@@ -232,7 +234,13 @@ type DescribeAllowListDetailOutput struct {
 
 	AllowListType *string `type:"string" json:",omitempty"`
 
+	AssociatedInstanceNum *int64 `type:"int64" json:",omitempty"`
+
 	AssociatedInstances []*AssociatedInstanceForDescribeAllowListDetailOutput `type:"list" json:",omitempty"`
+
+	SecurityGroupBindInfos []*SecurityGroupBindInfoForDescribeAllowListDetailOutput `type:"list" json:",omitempty"`
+
+	UserAllowList *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -248,6 +256,12 @@ func (s DescribeAllowListDetailOutput) GoString() string {
 // SetAllowList sets the AllowList field's value.
 func (s *DescribeAllowListDetailOutput) SetAllowList(v string) *DescribeAllowListDetailOutput {
 	s.AllowList = &v
+	return s
+}
+
+// SetAllowListCategory sets the AllowListCategory field's value.
+func (s *DescribeAllowListDetailOutput) SetAllowListCategory(v string) *DescribeAllowListDetailOutput {
+	s.AllowListCategory = &v
 	return s
 }
 
@@ -275,8 +289,72 @@ func (s *DescribeAllowListDetailOutput) SetAllowListType(v string) *DescribeAllo
 	return s
 }
 
+// SetAssociatedInstanceNum sets the AssociatedInstanceNum field's value.
+func (s *DescribeAllowListDetailOutput) SetAssociatedInstanceNum(v int64) *DescribeAllowListDetailOutput {
+	s.AssociatedInstanceNum = &v
+	return s
+}
+
 // SetAssociatedInstances sets the AssociatedInstances field's value.
 func (s *DescribeAllowListDetailOutput) SetAssociatedInstances(v []*AssociatedInstanceForDescribeAllowListDetailOutput) *DescribeAllowListDetailOutput {
 	s.AssociatedInstances = v
+	return s
+}
+
+// SetSecurityGroupBindInfos sets the SecurityGroupBindInfos field's value.
+func (s *DescribeAllowListDetailOutput) SetSecurityGroupBindInfos(v []*SecurityGroupBindInfoForDescribeAllowListDetailOutput) *DescribeAllowListDetailOutput {
+	s.SecurityGroupBindInfos = v
+	return s
+}
+
+// SetUserAllowList sets the UserAllowList field's value.
+func (s *DescribeAllowListDetailOutput) SetUserAllowList(v string) *DescribeAllowListDetailOutput {
+	s.UserAllowList = &v
+	return s
+}
+
+type SecurityGroupBindInfoForDescribeAllowListDetailOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	BindMode *string `type:"string" json:",omitempty"`
+
+	IpList []*string `type:"list" json:",omitempty"`
+
+	SecurityGroupId *string `type:"string" json:",omitempty"`
+
+	SecurityGroupName *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s SecurityGroupBindInfoForDescribeAllowListDetailOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s SecurityGroupBindInfoForDescribeAllowListDetailOutput) GoString() string {
+	return s.String()
+}
+
+// SetBindMode sets the BindMode field's value.
+func (s *SecurityGroupBindInfoForDescribeAllowListDetailOutput) SetBindMode(v string) *SecurityGroupBindInfoForDescribeAllowListDetailOutput {
+	s.BindMode = &v
+	return s
+}
+
+// SetIpList sets the IpList field's value.
+func (s *SecurityGroupBindInfoForDescribeAllowListDetailOutput) SetIpList(v []*string) *SecurityGroupBindInfoForDescribeAllowListDetailOutput {
+	s.IpList = v
+	return s
+}
+
+// SetSecurityGroupId sets the SecurityGroupId field's value.
+func (s *SecurityGroupBindInfoForDescribeAllowListDetailOutput) SetSecurityGroupId(v string) *SecurityGroupBindInfoForDescribeAllowListDetailOutput {
+	s.SecurityGroupId = &v
+	return s
+}
+
+// SetSecurityGroupName sets the SecurityGroupName field's value.
+func (s *SecurityGroupBindInfoForDescribeAllowListDetailOutput) SetSecurityGroupName(v string) *SecurityGroupBindInfoForDescribeAllowListDetailOutput {
+	s.SecurityGroupName = &v
 	return s
 }

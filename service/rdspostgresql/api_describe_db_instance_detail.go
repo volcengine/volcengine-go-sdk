@@ -146,9 +146,13 @@ func (c *RDSPOSTGRESQL) DescribeDBInstanceDetailWithContext(ctx volcengine.Conte
 type AddressForDescribeDBInstanceDetailOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	CrossRegionDomain *string `type:"string" json:",omitempty"`
+
 	DNSVisibility *bool `type:"boolean" json:",omitempty"`
 
 	Domain *string `type:"string" json:",omitempty"`
+
+	DomainVisibilitySetting *string `type:"string" json:",omitempty"`
 
 	EipId *string `type:"string" json:",omitempty"`
 
@@ -171,6 +175,12 @@ func (s AddressForDescribeDBInstanceDetailOutput) GoString() string {
 	return s.String()
 }
 
+// SetCrossRegionDomain sets the CrossRegionDomain field's value.
+func (s *AddressForDescribeDBInstanceDetailOutput) SetCrossRegionDomain(v string) *AddressForDescribeDBInstanceDetailOutput {
+	s.CrossRegionDomain = &v
+	return s
+}
+
 // SetDNSVisibility sets the DNSVisibility field's value.
 func (s *AddressForDescribeDBInstanceDetailOutput) SetDNSVisibility(v bool) *AddressForDescribeDBInstanceDetailOutput {
 	s.DNSVisibility = &v
@@ -180,6 +190,12 @@ func (s *AddressForDescribeDBInstanceDetailOutput) SetDNSVisibility(v bool) *Add
 // SetDomain sets the Domain field's value.
 func (s *AddressForDescribeDBInstanceDetailOutput) SetDomain(v string) *AddressForDescribeDBInstanceDetailOutput {
 	s.Domain = &v
+	return s
+}
+
+// SetDomainVisibilitySetting sets the DomainVisibilitySetting field's value.
+func (s *AddressForDescribeDBInstanceDetailOutput) SetDomainVisibilitySetting(v string) *AddressForDescribeDBInstanceDetailOutput {
+	s.DomainVisibilitySetting = &v
 	return s
 }
 
@@ -231,6 +247,8 @@ type BasicInfoForDescribeDBInstanceDetailOutput struct {
 	InstanceTag []*InstanceTagForDescribeDBInstanceDetailOutput `type:"list" json:",omitempty"`
 
 	InstanceType *string `type:"string" json:",omitempty"`
+
+	MaintenanceWindow *MaintenanceWindowForDescribeDBInstanceDetailOutput `type:"structure" json:",omitempty"`
 
 	Memory *int32 `type:"int32" json:",omitempty"`
 
@@ -322,6 +340,12 @@ func (s *BasicInfoForDescribeDBInstanceDetailOutput) SetInstanceTag(v []*Instanc
 // SetInstanceType sets the InstanceType field's value.
 func (s *BasicInfoForDescribeDBInstanceDetailOutput) SetInstanceType(v string) *BasicInfoForDescribeDBInstanceDetailOutput {
 	s.InstanceType = &v
+	return s
+}
+
+// SetMaintenanceWindow sets the MaintenanceWindow field's value.
+func (s *BasicInfoForDescribeDBInstanceDetailOutput) SetMaintenanceWindow(v *MaintenanceWindowForDescribeDBInstanceDetailOutput) *BasicInfoForDescribeDBInstanceDetailOutput {
+	s.MaintenanceWindow = v
 	return s
 }
 
@@ -537,6 +561,44 @@ func (s *ChargeDetailForDescribeDBInstanceDetailOutput) SetTempModifyStartTime(v
 	return s
 }
 
+type DayOfWeekMaintenanceTimeForDescribeDBInstanceDetailOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	DayOfWeek *string `type:"string" json:",omitempty"`
+
+	MaintenanceWindowStartTime *string `type:"string" json:",omitempty"`
+
+	Period *int32 `type:"int32" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s DayOfWeekMaintenanceTimeForDescribeDBInstanceDetailOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DayOfWeekMaintenanceTimeForDescribeDBInstanceDetailOutput) GoString() string {
+	return s.String()
+}
+
+// SetDayOfWeek sets the DayOfWeek field's value.
+func (s *DayOfWeekMaintenanceTimeForDescribeDBInstanceDetailOutput) SetDayOfWeek(v string) *DayOfWeekMaintenanceTimeForDescribeDBInstanceDetailOutput {
+	s.DayOfWeek = &v
+	return s
+}
+
+// SetMaintenanceWindowStartTime sets the MaintenanceWindowStartTime field's value.
+func (s *DayOfWeekMaintenanceTimeForDescribeDBInstanceDetailOutput) SetMaintenanceWindowStartTime(v string) *DayOfWeekMaintenanceTimeForDescribeDBInstanceDetailOutput {
+	s.MaintenanceWindowStartTime = &v
+	return s
+}
+
+// SetPeriod sets the Period field's value.
+func (s *DayOfWeekMaintenanceTimeForDescribeDBInstanceDetailOutput) SetPeriod(v int32) *DayOfWeekMaintenanceTimeForDescribeDBInstanceDetailOutput {
+	s.Period = &v
+	return s
+}
+
 type DescribeDBInstanceDetailInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -647,6 +709,10 @@ type EndpointForDescribeDBInstanceDetailOutput struct {
 	ReadOnlyNodeWeight []*ReadOnlyNodeWeightForDescribeDBInstanceDetailOutput `type:"list" json:",omitempty"`
 
 	ReadWriteMode *string `type:"string" json:",omitempty"`
+
+	ReadWriteProxyConnection *int32 `type:"int32" json:",omitempty"`
+
+	WriteNodeHaltWriting *bool `type:"boolean" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -731,6 +797,18 @@ func (s *EndpointForDescribeDBInstanceDetailOutput) SetReadWriteMode(v string) *
 	return s
 }
 
+// SetReadWriteProxyConnection sets the ReadWriteProxyConnection field's value.
+func (s *EndpointForDescribeDBInstanceDetailOutput) SetReadWriteProxyConnection(v int32) *EndpointForDescribeDBInstanceDetailOutput {
+	s.ReadWriteProxyConnection = &v
+	return s
+}
+
+// SetWriteNodeHaltWriting sets the WriteNodeHaltWriting field's value.
+func (s *EndpointForDescribeDBInstanceDetailOutput) SetWriteNodeHaltWriting(v bool) *EndpointForDescribeDBInstanceDetailOutput {
+	s.WriteNodeHaltWriting = &v
+	return s
+}
+
 type InstanceTagForDescribeDBInstanceDetailOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -758,6 +836,36 @@ func (s *InstanceTagForDescribeDBInstanceDetailOutput) SetKey(v string) *Instanc
 // SetValue sets the Value field's value.
 func (s *InstanceTagForDescribeDBInstanceDetailOutput) SetValue(v string) *InstanceTagForDescribeDBInstanceDetailOutput {
 	s.Value = &v
+	return s
+}
+
+type MaintenanceWindowForDescribeDBInstanceDetailOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	DayKind *string `type:"string" json:",omitempty"`
+
+	DayOfWeekMaintenanceTime []*DayOfWeekMaintenanceTimeForDescribeDBInstanceDetailOutput `type:"list" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s MaintenanceWindowForDescribeDBInstanceDetailOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s MaintenanceWindowForDescribeDBInstanceDetailOutput) GoString() string {
+	return s.String()
+}
+
+// SetDayKind sets the DayKind field's value.
+func (s *MaintenanceWindowForDescribeDBInstanceDetailOutput) SetDayKind(v string) *MaintenanceWindowForDescribeDBInstanceDetailOutput {
+	s.DayKind = &v
+	return s
+}
+
+// SetDayOfWeekMaintenanceTime sets the DayOfWeekMaintenanceTime field's value.
+func (s *MaintenanceWindowForDescribeDBInstanceDetailOutput) SetDayOfWeekMaintenanceTime(v []*DayOfWeekMaintenanceTimeForDescribeDBInstanceDetailOutput) *MaintenanceWindowForDescribeDBInstanceDetailOutput {
+	s.DayOfWeekMaintenanceTime = v
 	return s
 }
 

@@ -146,8 +146,9 @@ func (c *RDSPOSTGRESQL) CreateAllowListWithContext(ctx volcengine.Context, input
 type CreateAllowListInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	// AllowList is a required field
-	AllowList *string `type:"string" json:",omitempty" required:"true"`
+	AllowList *string `type:"string" json:",omitempty"`
+
+	AllowListCategory *string `type:"string" json:",omitempty"`
 
 	AllowListDesc *string `type:"string" json:",omitempty"`
 
@@ -155,6 +156,10 @@ type CreateAllowListInput struct {
 	AllowListName *string `type:"string" json:",omitempty" required:"true"`
 
 	AllowListType *string `type:"string" json:",omitempty"`
+
+	SecurityGroupBindInfos []*SecurityGroupBindInfoForCreateAllowListInput `type:"list" json:",omitempty"`
+
+	UserAllowList *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -170,9 +175,6 @@ func (s CreateAllowListInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *CreateAllowListInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "CreateAllowListInput"}
-	if s.AllowList == nil {
-		invalidParams.Add(request.NewErrParamRequired("AllowList"))
-	}
 	if s.AllowListName == nil {
 		invalidParams.Add(request.NewErrParamRequired("AllowListName"))
 	}
@@ -186,6 +188,12 @@ func (s *CreateAllowListInput) Validate() error {
 // SetAllowList sets the AllowList field's value.
 func (s *CreateAllowListInput) SetAllowList(v string) *CreateAllowListInput {
 	s.AllowList = &v
+	return s
+}
+
+// SetAllowListCategory sets the AllowListCategory field's value.
+func (s *CreateAllowListInput) SetAllowListCategory(v string) *CreateAllowListInput {
+	s.AllowListCategory = &v
 	return s
 }
 
@@ -204,6 +212,18 @@ func (s *CreateAllowListInput) SetAllowListName(v string) *CreateAllowListInput 
 // SetAllowListType sets the AllowListType field's value.
 func (s *CreateAllowListInput) SetAllowListType(v string) *CreateAllowListInput {
 	s.AllowListType = &v
+	return s
+}
+
+// SetSecurityGroupBindInfos sets the SecurityGroupBindInfos field's value.
+func (s *CreateAllowListInput) SetSecurityGroupBindInfos(v []*SecurityGroupBindInfoForCreateAllowListInput) *CreateAllowListInput {
+	s.SecurityGroupBindInfos = v
+	return s
+}
+
+// SetUserAllowList sets the UserAllowList field's value.
+func (s *CreateAllowListInput) SetUserAllowList(v string) *CreateAllowListInput {
+	s.UserAllowList = &v
 	return s
 }
 
@@ -228,5 +248,51 @@ func (s CreateAllowListOutput) GoString() string {
 // SetAllowListId sets the AllowListId field's value.
 func (s *CreateAllowListOutput) SetAllowListId(v string) *CreateAllowListOutput {
 	s.AllowListId = &v
+	return s
+}
+
+type SecurityGroupBindInfoForCreateAllowListInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	BindMode *string `type:"string" json:",omitempty"`
+
+	IpList []*string `type:"list" json:",omitempty"`
+
+	SecurityGroupId *string `type:"string" json:",omitempty"`
+
+	SecurityGroupName *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s SecurityGroupBindInfoForCreateAllowListInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s SecurityGroupBindInfoForCreateAllowListInput) GoString() string {
+	return s.String()
+}
+
+// SetBindMode sets the BindMode field's value.
+func (s *SecurityGroupBindInfoForCreateAllowListInput) SetBindMode(v string) *SecurityGroupBindInfoForCreateAllowListInput {
+	s.BindMode = &v
+	return s
+}
+
+// SetIpList sets the IpList field's value.
+func (s *SecurityGroupBindInfoForCreateAllowListInput) SetIpList(v []*string) *SecurityGroupBindInfoForCreateAllowListInput {
+	s.IpList = v
+	return s
+}
+
+// SetSecurityGroupId sets the SecurityGroupId field's value.
+func (s *SecurityGroupBindInfoForCreateAllowListInput) SetSecurityGroupId(v string) *SecurityGroupBindInfoForCreateAllowListInput {
+	s.SecurityGroupId = &v
+	return s
+}
+
+// SetSecurityGroupName sets the SecurityGroupName field's value.
+func (s *SecurityGroupBindInfoForCreateAllowListInput) SetSecurityGroupName(v string) *SecurityGroupBindInfoForCreateAllowListInput {
+	s.SecurityGroupName = &v
 	return s
 }

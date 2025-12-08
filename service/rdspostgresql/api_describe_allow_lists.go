@@ -146,6 +146,8 @@ func (c *RDSPOSTGRESQL) DescribeAllowListsWithContext(ctx volcengine.Context, in
 type AllowListForDescribeAllowListsOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	AllowListCategory *string `type:"string" json:",omitempty"`
+
 	AllowListDesc *string `type:"string" json:",omitempty"`
 
 	AllowListIPNum *int32 `type:"int32" json:",omitempty"`
@@ -157,6 +159,8 @@ type AllowListForDescribeAllowListsOutput struct {
 	AllowListType *string `type:"string" json:",omitempty"`
 
 	AssociatedInstanceNum *int32 `type:"int32" json:",omitempty"`
+
+	SecurityGroupBindInfos []*SecurityGroupBindInfoForDescribeAllowListsOutput `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -167,6 +171,12 @@ func (s AllowListForDescribeAllowListsOutput) String() string {
 // GoString returns the string representation
 func (s AllowListForDescribeAllowListsOutput) GoString() string {
 	return s.String()
+}
+
+// SetAllowListCategory sets the AllowListCategory field's value.
+func (s *AllowListForDescribeAllowListsOutput) SetAllowListCategory(v string) *AllowListForDescribeAllowListsOutput {
+	s.AllowListCategory = &v
+	return s
 }
 
 // SetAllowListDesc sets the AllowListDesc field's value.
@@ -205,10 +215,30 @@ func (s *AllowListForDescribeAllowListsOutput) SetAssociatedInstanceNum(v int32)
 	return s
 }
 
+// SetSecurityGroupBindInfos sets the SecurityGroupBindInfos field's value.
+func (s *AllowListForDescribeAllowListsOutput) SetSecurityGroupBindInfos(v []*SecurityGroupBindInfoForDescribeAllowListsOutput) *AllowListForDescribeAllowListsOutput {
+	s.SecurityGroupBindInfos = v
+	return s
+}
+
 type DescribeAllowListsInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	AllowListCategory *string `type:"string" json:",omitempty"`
+
+	AllowListDesc *string `type:"string" json:",omitempty"`
+
+	AllowListId *string `type:"string" json:",omitempty"`
+
+	AllowListName *string `type:"string" json:",omitempty"`
+
+	IPAddress *string `type:"string" json:",omitempty"`
+
 	InstanceId *string `type:"string" json:",omitempty"`
+
+	PageNumber *int64 `type:"int64" json:",omitempty"`
+
+	PageSize *int64 `type:"int64" json:",omitempty"`
 
 	// RegionId is a required field
 	RegionId *string `type:"string" json:",omitempty" required:"true"`
@@ -237,9 +267,51 @@ func (s *DescribeAllowListsInput) Validate() error {
 	return nil
 }
 
+// SetAllowListCategory sets the AllowListCategory field's value.
+func (s *DescribeAllowListsInput) SetAllowListCategory(v string) *DescribeAllowListsInput {
+	s.AllowListCategory = &v
+	return s
+}
+
+// SetAllowListDesc sets the AllowListDesc field's value.
+func (s *DescribeAllowListsInput) SetAllowListDesc(v string) *DescribeAllowListsInput {
+	s.AllowListDesc = &v
+	return s
+}
+
+// SetAllowListId sets the AllowListId field's value.
+func (s *DescribeAllowListsInput) SetAllowListId(v string) *DescribeAllowListsInput {
+	s.AllowListId = &v
+	return s
+}
+
+// SetAllowListName sets the AllowListName field's value.
+func (s *DescribeAllowListsInput) SetAllowListName(v string) *DescribeAllowListsInput {
+	s.AllowListName = &v
+	return s
+}
+
+// SetIPAddress sets the IPAddress field's value.
+func (s *DescribeAllowListsInput) SetIPAddress(v string) *DescribeAllowListsInput {
+	s.IPAddress = &v
+	return s
+}
+
 // SetInstanceId sets the InstanceId field's value.
 func (s *DescribeAllowListsInput) SetInstanceId(v string) *DescribeAllowListsInput {
 	s.InstanceId = &v
+	return s
+}
+
+// SetPageNumber sets the PageNumber field's value.
+func (s *DescribeAllowListsInput) SetPageNumber(v int64) *DescribeAllowListsInput {
+	s.PageNumber = &v
+	return s
+}
+
+// SetPageSize sets the PageSize field's value.
+func (s *DescribeAllowListsInput) SetPageSize(v int64) *DescribeAllowListsInput {
+	s.PageSize = &v
 	return s
 }
 
@@ -255,6 +327,8 @@ type DescribeAllowListsOutput struct {
 	Metadata *response.ResponseMetadata
 
 	AllowLists []*AllowListForDescribeAllowListsOutput `type:"list" json:",omitempty"`
+
+	Total *int64 `type:"int64" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -270,5 +344,57 @@ func (s DescribeAllowListsOutput) GoString() string {
 // SetAllowLists sets the AllowLists field's value.
 func (s *DescribeAllowListsOutput) SetAllowLists(v []*AllowListForDescribeAllowListsOutput) *DescribeAllowListsOutput {
 	s.AllowLists = v
+	return s
+}
+
+// SetTotal sets the Total field's value.
+func (s *DescribeAllowListsOutput) SetTotal(v int64) *DescribeAllowListsOutput {
+	s.Total = &v
+	return s
+}
+
+type SecurityGroupBindInfoForDescribeAllowListsOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	BindMode *string `type:"string" json:",omitempty"`
+
+	IpList []*string `type:"list" json:",omitempty"`
+
+	SecurityGroupId *string `type:"string" json:",omitempty"`
+
+	SecurityGroupName *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s SecurityGroupBindInfoForDescribeAllowListsOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s SecurityGroupBindInfoForDescribeAllowListsOutput) GoString() string {
+	return s.String()
+}
+
+// SetBindMode sets the BindMode field's value.
+func (s *SecurityGroupBindInfoForDescribeAllowListsOutput) SetBindMode(v string) *SecurityGroupBindInfoForDescribeAllowListsOutput {
+	s.BindMode = &v
+	return s
+}
+
+// SetIpList sets the IpList field's value.
+func (s *SecurityGroupBindInfoForDescribeAllowListsOutput) SetIpList(v []*string) *SecurityGroupBindInfoForDescribeAllowListsOutput {
+	s.IpList = v
+	return s
+}
+
+// SetSecurityGroupId sets the SecurityGroupId field's value.
+func (s *SecurityGroupBindInfoForDescribeAllowListsOutput) SetSecurityGroupId(v string) *SecurityGroupBindInfoForDescribeAllowListsOutput {
+	s.SecurityGroupId = &v
+	return s
+}
+
+// SetSecurityGroupName sets the SecurityGroupName field's value.
+func (s *SecurityGroupBindInfoForDescribeAllowListsOutput) SetSecurityGroupName(v string) *SecurityGroupBindInfoForDescribeAllowListsOutput {
+	s.SecurityGroupName = &v
 	return s
 }

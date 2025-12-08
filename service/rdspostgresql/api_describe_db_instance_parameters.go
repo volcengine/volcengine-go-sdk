@@ -196,6 +196,8 @@ type DescribeDBInstanceParametersOutput struct {
 
 	InstanceId *string `type:"string" json:",omitempty"`
 
+	NoneKernelParameters []*NoneKernelParameterForDescribeDBInstanceParametersOutput `type:"list" json:",omitempty"`
+
 	ParameterCount *string `type:"string" json:",omitempty"`
 
 	Parameters []*ParameterForDescribeDBInstanceParametersOutput `type:"list" json:",omitempty"`
@@ -223,6 +225,12 @@ func (s *DescribeDBInstanceParametersOutput) SetInstanceId(v string) *DescribeDB
 	return s
 }
 
+// SetNoneKernelParameters sets the NoneKernelParameters field's value.
+func (s *DescribeDBInstanceParametersOutput) SetNoneKernelParameters(v []*NoneKernelParameterForDescribeDBInstanceParametersOutput) *DescribeDBInstanceParametersOutput {
+	s.NoneKernelParameters = v
+	return s
+}
+
 // SetParameterCount sets the ParameterCount field's value.
 func (s *DescribeDBInstanceParametersOutput) SetParameterCount(v string) *DescribeDBInstanceParametersOutput {
 	s.ParameterCount = &v
@@ -232,6 +240,84 @@ func (s *DescribeDBInstanceParametersOutput) SetParameterCount(v string) *Descri
 // SetParameters sets the Parameters field's value.
 func (s *DescribeDBInstanceParametersOutput) SetParameters(v []*ParameterForDescribeDBInstanceParametersOutput) *DescribeDBInstanceParametersOutput {
 	s.Parameters = v
+	return s
+}
+
+type NoneKernelParameterForDescribeDBInstanceParametersOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	CheckingCode *string `type:"string" json:",omitempty"`
+
+	DefaultValue *string `type:"string" json:",omitempty"`
+
+	Description *string `type:"string" json:",omitempty"`
+
+	DescriptionZH *string `type:"string" json:",omitempty"`
+
+	ForceRestart *bool `type:"boolean" json:",omitempty"`
+
+	Name *string `type:"string" json:",omitempty"`
+
+	Type *string `type:"string" json:",omitempty"`
+
+	Value *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s NoneKernelParameterForDescribeDBInstanceParametersOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s NoneKernelParameterForDescribeDBInstanceParametersOutput) GoString() string {
+	return s.String()
+}
+
+// SetCheckingCode sets the CheckingCode field's value.
+func (s *NoneKernelParameterForDescribeDBInstanceParametersOutput) SetCheckingCode(v string) *NoneKernelParameterForDescribeDBInstanceParametersOutput {
+	s.CheckingCode = &v
+	return s
+}
+
+// SetDefaultValue sets the DefaultValue field's value.
+func (s *NoneKernelParameterForDescribeDBInstanceParametersOutput) SetDefaultValue(v string) *NoneKernelParameterForDescribeDBInstanceParametersOutput {
+	s.DefaultValue = &v
+	return s
+}
+
+// SetDescription sets the Description field's value.
+func (s *NoneKernelParameterForDescribeDBInstanceParametersOutput) SetDescription(v string) *NoneKernelParameterForDescribeDBInstanceParametersOutput {
+	s.Description = &v
+	return s
+}
+
+// SetDescriptionZH sets the DescriptionZH field's value.
+func (s *NoneKernelParameterForDescribeDBInstanceParametersOutput) SetDescriptionZH(v string) *NoneKernelParameterForDescribeDBInstanceParametersOutput {
+	s.DescriptionZH = &v
+	return s
+}
+
+// SetForceRestart sets the ForceRestart field's value.
+func (s *NoneKernelParameterForDescribeDBInstanceParametersOutput) SetForceRestart(v bool) *NoneKernelParameterForDescribeDBInstanceParametersOutput {
+	s.ForceRestart = &v
+	return s
+}
+
+// SetName sets the Name field's value.
+func (s *NoneKernelParameterForDescribeDBInstanceParametersOutput) SetName(v string) *NoneKernelParameterForDescribeDBInstanceParametersOutput {
+	s.Name = &v
+	return s
+}
+
+// SetType sets the Type field's value.
+func (s *NoneKernelParameterForDescribeDBInstanceParametersOutput) SetType(v string) *NoneKernelParameterForDescribeDBInstanceParametersOutput {
+	s.Type = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *NoneKernelParameterForDescribeDBInstanceParametersOutput) SetValue(v string) *NoneKernelParameterForDescribeDBInstanceParametersOutput {
+	s.Value = &v
 	return s
 }
 

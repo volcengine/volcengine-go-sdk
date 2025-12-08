@@ -146,6 +146,10 @@ func (c *RDSPOSTGRESQL) DescribeBackupsWithContext(ctx volcengine.Context, input
 type BackupForDescribeBackupsOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	BackupDataSize *int64 `type:"int64" json:",omitempty"`
+
+	BackupDescription *string `type:"string" json:",omitempty"`
+
 	BackupEndTime *string `type:"string" json:",omitempty"`
 
 	BackupFileName *string `type:"string" json:",omitempty"`
@@ -154,7 +158,13 @@ type BackupForDescribeBackupsOutput struct {
 
 	BackupId *string `type:"string" json:",omitempty"`
 
+	BackupMeta []*BackupMetaForDescribeBackupsOutput `type:"list" json:",omitempty"`
+
+	BackupMethod *string `type:"string" json:",omitempty"`
+
 	BackupProgress *int32 `type:"int32" json:",omitempty"`
+
+	BackupScope *string `type:"string" json:",omitempty"`
 
 	BackupStartTime *string `type:"string" json:",omitempty"`
 
@@ -163,6 +173,8 @@ type BackupForDescribeBackupsOutput struct {
 	BackupType *string `type:"string" json:",omitempty"`
 
 	CreateType *string `type:"string" json:",omitempty"`
+
+	DownloadStatus *string `type:"string" json:",omitempty"`
 
 	InstanceInfo *InstanceInfoForDescribeBackupsOutput `type:"structure" json:",omitempty"`
 }
@@ -175,6 +187,18 @@ func (s BackupForDescribeBackupsOutput) String() string {
 // GoString returns the string representation
 func (s BackupForDescribeBackupsOutput) GoString() string {
 	return s.String()
+}
+
+// SetBackupDataSize sets the BackupDataSize field's value.
+func (s *BackupForDescribeBackupsOutput) SetBackupDataSize(v int64) *BackupForDescribeBackupsOutput {
+	s.BackupDataSize = &v
+	return s
+}
+
+// SetBackupDescription sets the BackupDescription field's value.
+func (s *BackupForDescribeBackupsOutput) SetBackupDescription(v string) *BackupForDescribeBackupsOutput {
+	s.BackupDescription = &v
+	return s
 }
 
 // SetBackupEndTime sets the BackupEndTime field's value.
@@ -201,9 +225,27 @@ func (s *BackupForDescribeBackupsOutput) SetBackupId(v string) *BackupForDescrib
 	return s
 }
 
+// SetBackupMeta sets the BackupMeta field's value.
+func (s *BackupForDescribeBackupsOutput) SetBackupMeta(v []*BackupMetaForDescribeBackupsOutput) *BackupForDescribeBackupsOutput {
+	s.BackupMeta = v
+	return s
+}
+
+// SetBackupMethod sets the BackupMethod field's value.
+func (s *BackupForDescribeBackupsOutput) SetBackupMethod(v string) *BackupForDescribeBackupsOutput {
+	s.BackupMethod = &v
+	return s
+}
+
 // SetBackupProgress sets the BackupProgress field's value.
 func (s *BackupForDescribeBackupsOutput) SetBackupProgress(v int32) *BackupForDescribeBackupsOutput {
 	s.BackupProgress = &v
+	return s
+}
+
+// SetBackupScope sets the BackupScope field's value.
+func (s *BackupForDescribeBackupsOutput) SetBackupScope(v string) *BackupForDescribeBackupsOutput {
+	s.BackupScope = &v
 	return s
 }
 
@@ -231,9 +273,37 @@ func (s *BackupForDescribeBackupsOutput) SetCreateType(v string) *BackupForDescr
 	return s
 }
 
+// SetDownloadStatus sets the DownloadStatus field's value.
+func (s *BackupForDescribeBackupsOutput) SetDownloadStatus(v string) *BackupForDescribeBackupsOutput {
+	s.DownloadStatus = &v
+	return s
+}
+
 // SetInstanceInfo sets the InstanceInfo field's value.
 func (s *BackupForDescribeBackupsOutput) SetInstanceInfo(v *InstanceInfoForDescribeBackupsOutput) *BackupForDescribeBackupsOutput {
 	s.InstanceInfo = v
+	return s
+}
+
+type BackupMetaForDescribeBackupsOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	DBName *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s BackupMetaForDescribeBackupsOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s BackupMetaForDescribeBackupsOutput) GoString() string {
+	return s.String()
+}
+
+// SetDBName sets the DBName field's value.
+func (s *BackupMetaForDescribeBackupsOutput) SetDBName(v string) *BackupMetaForDescribeBackupsOutput {
+	s.DBName = &v
 	return s
 }
 
@@ -350,15 +420,27 @@ func (s *ChargeDetailForDescribeBackupsOutput) SetTempModifyStartTime(v string) 
 type DescribeBackupsInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	BackupDatabaseName *string `type:"string" json:",omitempty"`
+
+	BackupDescription *string `type:"string" json:",omitempty"`
+
 	BackupEndTime *string `type:"string" json:",omitempty"`
 
 	BackupId *string `type:"string" json:",omitempty"`
+
+	BackupMethod *string `type:"string" json:",omitempty"`
+
+	BackupScope *string `type:"string" json:",omitempty"`
 
 	BackupStartTime *string `type:"string" json:",omitempty"`
 
 	BackupStatus *string `type:"string" json:",omitempty"`
 
 	BackupType *string `type:"string" json:",omitempty"`
+
+	CreateType *string `type:"string" json:",omitempty"`
+
+	DownloadStatus *string `type:"string" json:",omitempty"`
 
 	// InstanceId is a required field
 	InstanceId *string `type:"string" json:",omitempty" required:"true"`
@@ -391,6 +473,18 @@ func (s *DescribeBackupsInput) Validate() error {
 	return nil
 }
 
+// SetBackupDatabaseName sets the BackupDatabaseName field's value.
+func (s *DescribeBackupsInput) SetBackupDatabaseName(v string) *DescribeBackupsInput {
+	s.BackupDatabaseName = &v
+	return s
+}
+
+// SetBackupDescription sets the BackupDescription field's value.
+func (s *DescribeBackupsInput) SetBackupDescription(v string) *DescribeBackupsInput {
+	s.BackupDescription = &v
+	return s
+}
+
 // SetBackupEndTime sets the BackupEndTime field's value.
 func (s *DescribeBackupsInput) SetBackupEndTime(v string) *DescribeBackupsInput {
 	s.BackupEndTime = &v
@@ -400,6 +494,18 @@ func (s *DescribeBackupsInput) SetBackupEndTime(v string) *DescribeBackupsInput 
 // SetBackupId sets the BackupId field's value.
 func (s *DescribeBackupsInput) SetBackupId(v string) *DescribeBackupsInput {
 	s.BackupId = &v
+	return s
+}
+
+// SetBackupMethod sets the BackupMethod field's value.
+func (s *DescribeBackupsInput) SetBackupMethod(v string) *DescribeBackupsInput {
+	s.BackupMethod = &v
+	return s
+}
+
+// SetBackupScope sets the BackupScope field's value.
+func (s *DescribeBackupsInput) SetBackupScope(v string) *DescribeBackupsInput {
+	s.BackupScope = &v
 	return s
 }
 
@@ -418,6 +524,18 @@ func (s *DescribeBackupsInput) SetBackupStatus(v string) *DescribeBackupsInput {
 // SetBackupType sets the BackupType field's value.
 func (s *DescribeBackupsInput) SetBackupType(v string) *DescribeBackupsInput {
 	s.BackupType = &v
+	return s
+}
+
+// SetCreateType sets the CreateType field's value.
+func (s *DescribeBackupsInput) SetCreateType(v string) *DescribeBackupsInput {
+	s.CreateType = &v
+	return s
+}
+
+// SetDownloadStatus sets the DownloadStatus field's value.
+func (s *DescribeBackupsInput) SetDownloadStatus(v string) *DescribeBackupsInput {
+	s.DownloadStatus = &v
 	return s
 }
 
@@ -474,6 +592,8 @@ func (s *DescribeBackupsOutput) SetTotal(v int32) *DescribeBackupsOutput {
 type InstanceInfoForDescribeBackupsOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	AllowListIds []*string `type:"list" json:",omitempty"`
+
 	ChargeDetail *ChargeDetailForDescribeBackupsOutput `type:"structure" json:",omitempty"`
 
 	DBEngineVersion *string `type:"string" json:",omitempty"`
@@ -513,6 +633,12 @@ func (s InstanceInfoForDescribeBackupsOutput) String() string {
 // GoString returns the string representation
 func (s InstanceInfoForDescribeBackupsOutput) GoString() string {
 	return s.String()
+}
+
+// SetAllowListIds sets the AllowListIds field's value.
+func (s *InstanceInfoForDescribeBackupsOutput) SetAllowListIds(v []*string) *InstanceInfoForDescribeBackupsOutput {
+	s.AllowListIds = v
+	return s
 }
 
 // SetChargeDetail sets the ChargeDetail field's value.

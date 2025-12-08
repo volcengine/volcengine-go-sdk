@@ -155,6 +155,8 @@ type ModifyDBEndpointReadWeightInput struct {
 	ReadOnlyNodeDistributionType *string `type:"string" json:",omitempty"`
 
 	ReadOnlyNodeWeight []*ReadOnlyNodeWeightForModifyDBEndpointReadWeightInput `type:"list" json:",omitempty"`
+
+	WriteNodeHaltWriting *bool `type:"boolean" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -204,6 +206,12 @@ func (s *ModifyDBEndpointReadWeightInput) SetReadOnlyNodeDistributionType(v stri
 // SetReadOnlyNodeWeight sets the ReadOnlyNodeWeight field's value.
 func (s *ModifyDBEndpointReadWeightInput) SetReadOnlyNodeWeight(v []*ReadOnlyNodeWeightForModifyDBEndpointReadWeightInput) *ModifyDBEndpointReadWeightInput {
 	s.ReadOnlyNodeWeight = v
+	return s
+}
+
+// SetWriteNodeHaltWriting sets the WriteNodeHaltWriting field's value.
+func (s *ModifyDBEndpointReadWeightInput) SetWriteNodeHaltWriting(v bool) *ModifyDBEndpointReadWeightInput {
+	s.WriteNodeHaltWriting = &v
 	return s
 }
 
