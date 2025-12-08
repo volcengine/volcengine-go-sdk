@@ -4,49 +4,10 @@ import (
 	"bytes"
 	"encoding/json"
 	"reflect"
-
-	"github.com/bytedance/sonic/decoder"
-	"go.mongodb.org/mongo-driver/bson"
 )
-
-// Config holds marshal/unmarshal configuration options
-type Config struct {
-	DisallowUnknownFields bool
-}
-
-// Global config for marshal/unmarshal behavior
-var (
-	defaultConfig = Config{
-		DisallowUnknownFields: true,
-	}
-)
-
-// Option defines a function type for configuring marshal/unmarshal behavior
-type Option func(*Config)
-
-// WithDisallowUnknownFields sets whether to disallow unknown fields
-func WithDisallowUnknownFields(disallow bool) Option {
-	return func(c *Config) {
-		c.DisallowUnknownFields = disallow
-	}
-}
-
-// Configure updates the global marshal config with provided options
-func Configure(opts ...Option) {
-	c := defaultConfig
-	for _, opt := range opts {
-		opt(&c)
-	}
-	defaultConfig = c
-}
 
 func unmarshal(message []byte, val interface{}) error {
-	d := decoder.NewDecoder(string(message))
-	if defaultConfig.DisallowUnknownFields {
-		d.DisallowUnknownFields()
-	}
-	err := d.Decode(val)
-	return err
+	return json.Unmarshal(message, val)
 }
 
 // UnmarshalJSON ...
@@ -207,33 +168,6 @@ func (r *InputItem) UnmarshalJSON(bytes []byte) error {
 
 	}
 	return err
-}
-
-// MarshalBSON ...
-func (r *InputItem) MarshalBSON() ([]byte, error) {
-	jsonBytes, err := json.Marshal(r)
-	if err != nil {
-		return nil, err
-	}
-
-	var raw bson.Raw
-	// concern: one more unmarshal here ...
-	err = bson.UnmarshalExtJSON(jsonBytes, false, &raw)
-	return raw, err
-}
-
-// UnmarshalBSON ...
-func (r *InputItem) UnmarshalBSON(data []byte) error {
-	bsonVal := bson.M{}
-	if err := bson.Unmarshal(data, &bsonVal); err != nil {
-		return err
-	}
-	// concern: one more marshal here...
-	jsonBytes, err := bson.MarshalExtJSON(bsonVal, false, false)
-	if err != nil {
-		return err
-	}
-	return json.Unmarshal(jsonBytes, r)
 }
 
 // MarshalJSON ...

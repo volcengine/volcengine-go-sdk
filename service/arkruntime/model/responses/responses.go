@@ -1900,15 +1900,15 @@ func (x *Annotation) GetType() AnnotationType_Enum {
 }
 
 func (x *Annotation) GetTitle() string {
-	if x != nil && x.Title != nil {
-		return *x.Title
+	if x != nil {
+		return x.Title
 	}
 	return ""
 }
 
 func (x *Annotation) GetUrl() string {
-	if x != nil && x.Url != nil {
-		return *x.Url
+	if x != nil {
+		return x.Url
 	}
 	return ""
 }
@@ -2879,6 +2879,7 @@ type ResponsesInput struct {
 	unknownFields protoimpl.UnknownFields
 
 	// Types that are assignable to Union:
+	//
 	//	*ResponsesInput_StringValue
 	//	*ResponsesInput_ListValue
 	Union isResponsesInput_Union `protobuf_oneof:"union"`
@@ -3053,6 +3054,7 @@ type InputItem struct {
 	unknownFields protoimpl.UnknownFields
 
 	// Types that are assignable to Union:
+	//
 	//	*InputItem_EasyMessage
 	//	*InputItem_InputMessage
 	//	*InputItem_OutputMessage
@@ -3397,6 +3399,7 @@ type MessageContent struct {
 	unknownFields protoimpl.UnknownFields
 
 	// Types that are assignable to Union:
+	//
 	//	*MessageContent_StringValue
 	//	*MessageContent_ListValue
 	Union isMessageContent_Union `protobuf_oneof:"union"`
@@ -3524,6 +3527,7 @@ type ContentItem struct {
 	unknownFields protoimpl.UnknownFields
 
 	// Types that are assignable to Union:
+	//
 	//	*ContentItem_Text
 	//	*ContentItem_Image
 	//	*ContentItem_Video
@@ -3646,6 +3650,7 @@ type OutputContentItem struct {
 	unknownFields protoimpl.UnknownFields
 
 	// Types that are assignable to Union:
+	//
 	//	*OutputContentItem_Text
 	Union isOutputContentItem_Union `protobuf_oneof:"union"`
 }
@@ -6476,6 +6481,7 @@ type ResponsesToolChoice struct {
 	unknownFields protoimpl.UnknownFields
 
 	// Types that are assignable to Union:
+	//
 	//	*ResponsesToolChoice_Mode
 	//	*ResponsesToolChoice_FunctionToolChoice
 	//	*ResponsesToolChoice_McpToolChoice
@@ -6813,6 +6819,7 @@ type ResponsesTool struct {
 	unknownFields protoimpl.UnknownFields
 
 	// Types that are assignable to Union:
+	//
 	//	*ResponsesTool_ToolFunction
 	//	*ResponsesTool_ToolWebSearch
 	//	*ResponsesTool_ToolImageProcess
@@ -7520,6 +7527,7 @@ type McpAllowedTools struct {
 	unknownFields protoimpl.UnknownFields
 
 	// Types that are assignable to Union:
+	//
 	//	*McpAllowedTools_List
 	//	*McpAllowedTools_Filter
 	Union isMcpAllowedTools_Union `protobuf_oneof:"union"`
@@ -7600,6 +7608,7 @@ type McpRequireApproval struct {
 	unknownFields protoimpl.UnknownFields
 
 	// Types that are assignable to Union:
+	//
 	//	*McpRequireApproval_Mode
 	//	*McpRequireApproval_Filter
 	Union isMcpRequireApproval_Union `protobuf_oneof:"union"`
@@ -8657,6 +8666,7 @@ type OutputItem struct {
 	unknownFields protoimpl.UnknownFields
 
 	// Types that are assignable to Union:
+	//
 	//	*OutputItem_OutputMessage
 	//	*OutputItem_FunctionToolCall
 	//	*OutputItem_Reasoning
@@ -9373,6 +9383,7 @@ type Event struct {
 	unknownFields protoimpl.UnknownFields
 
 	// Types that are assignable to Event:
+	//
 	//	*Event_Response
 	//	*Event_Item
 	//	*Event_ContentPart
@@ -10839,6 +10850,7 @@ type ResponseImageProcessArgs struct {
 	unknownFields protoimpl.UnknownFields
 
 	// Types that are assignable to Union:
+	//
 	//	*ResponseImageProcessArgs_PointArgs
 	//	*ResponseImageProcessArgs_GroundingArgs
 	//	*ResponseImageProcessArgs_RotateArgs
