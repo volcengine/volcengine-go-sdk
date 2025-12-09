@@ -159,6 +159,8 @@ type CreateDBAccountInput struct {
 
 	// InstanceId is a required field
 	InstanceId *string `type:"string" json:",omitempty" required:"true"`
+
+	NotAllowPrivileges []*string `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -220,6 +222,12 @@ func (s *CreateDBAccountInput) SetAccountType(v string) *CreateDBAccountInput {
 // SetInstanceId sets the InstanceId field's value.
 func (s *CreateDBAccountInput) SetInstanceId(v string) *CreateDBAccountInput {
 	s.InstanceId = &v
+	return s
+}
+
+// SetNotAllowPrivileges sets the NotAllowPrivileges field's value.
+func (s *CreateDBAccountInput) SetNotAllowPrivileges(v []*string) *CreateDBAccountInput {
+	s.NotAllowPrivileges = v
 	return s
 }
 

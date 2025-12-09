@@ -158,8 +158,12 @@ type ModifyDBEndpointReadWriteFlagInput struct {
 
 	ReadOnlyNodeWeight []*ReadOnlyNodeWeightForModifyDBEndpointReadWriteFlagInput `type:"list" json:",omitempty"`
 
+	ReadWriteProxyConnection *int32 `type:"int32" json:",omitempty"`
+
 	// ReadWriteSpliting is a required field
 	ReadWriteSpliting *bool `type:"boolean" json:",omitempty" required:"true"`
+
+	WriteNodeHaltWriting *bool `type:"boolean" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -221,9 +225,21 @@ func (s *ModifyDBEndpointReadWriteFlagInput) SetReadOnlyNodeWeight(v []*ReadOnly
 	return s
 }
 
+// SetReadWriteProxyConnection sets the ReadWriteProxyConnection field's value.
+func (s *ModifyDBEndpointReadWriteFlagInput) SetReadWriteProxyConnection(v int32) *ModifyDBEndpointReadWriteFlagInput {
+	s.ReadWriteProxyConnection = &v
+	return s
+}
+
 // SetReadWriteSpliting sets the ReadWriteSpliting field's value.
 func (s *ModifyDBEndpointReadWriteFlagInput) SetReadWriteSpliting(v bool) *ModifyDBEndpointReadWriteFlagInput {
 	s.ReadWriteSpliting = &v
+	return s
+}
+
+// SetWriteNodeHaltWriting sets the WriteNodeHaltWriting field's value.
+func (s *ModifyDBEndpointReadWriteFlagInput) SetWriteNodeHaltWriting(v bool) *ModifyDBEndpointReadWriteFlagInput {
+	s.WriteNodeHaltWriting = &v
 	return s
 }
 

@@ -186,9 +186,13 @@ type DescribeBackupPolicyOutput struct {
 
 	BackupRetentionPeriod *int32 `type:"int32" json:",omitempty"`
 
+	DataIncrBackupPeriods *string `type:"string" json:",omitempty"`
+
 	FullBackupPeriod *string `type:"string" json:",omitempty"`
 
 	FullBackupTime *string `type:"string" json:",omitempty"`
+
+	HourlyIncrBackupEnable *bool `type:"boolean" json:",omitempty"`
 
 	IncrementBackupFrequency *int32 `type:"int32" json:",omitempty"`
 
@@ -213,6 +217,12 @@ func (s *DescribeBackupPolicyOutput) SetBackupRetentionPeriod(v int32) *Describe
 	return s
 }
 
+// SetDataIncrBackupPeriods sets the DataIncrBackupPeriods field's value.
+func (s *DescribeBackupPolicyOutput) SetDataIncrBackupPeriods(v string) *DescribeBackupPolicyOutput {
+	s.DataIncrBackupPeriods = &v
+	return s
+}
+
 // SetFullBackupPeriod sets the FullBackupPeriod field's value.
 func (s *DescribeBackupPolicyOutput) SetFullBackupPeriod(v string) *DescribeBackupPolicyOutput {
 	s.FullBackupPeriod = &v
@@ -222,6 +232,12 @@ func (s *DescribeBackupPolicyOutput) SetFullBackupPeriod(v string) *DescribeBack
 // SetFullBackupTime sets the FullBackupTime field's value.
 func (s *DescribeBackupPolicyOutput) SetFullBackupTime(v string) *DescribeBackupPolicyOutput {
 	s.FullBackupTime = &v
+	return s
+}
+
+// SetHourlyIncrBackupEnable sets the HourlyIncrBackupEnable field's value.
+func (s *DescribeBackupPolicyOutput) SetHourlyIncrBackupEnable(v bool) *DescribeBackupPolicyOutput {
+	s.HourlyIncrBackupEnable = &v
 	return s
 }
 

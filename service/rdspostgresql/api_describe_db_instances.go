@@ -146,9 +146,13 @@ func (c *RDSPOSTGRESQL) DescribeDBInstancesWithContext(ctx volcengine.Context, i
 type AddressObjectForDescribeDBInstancesOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	CrossRegionDomain *string `type:"string" json:",omitempty"`
+
 	DNSVisibility *bool `type:"boolean" json:",omitempty"`
 
 	Domain *string `type:"string" json:",omitempty"`
+
+	DomainVisibilitySetting *string `type:"string" json:",omitempty"`
 
 	EipId *string `type:"string" json:",omitempty"`
 
@@ -171,6 +175,12 @@ func (s AddressObjectForDescribeDBInstancesOutput) GoString() string {
 	return s.String()
 }
 
+// SetCrossRegionDomain sets the CrossRegionDomain field's value.
+func (s *AddressObjectForDescribeDBInstancesOutput) SetCrossRegionDomain(v string) *AddressObjectForDescribeDBInstancesOutput {
+	s.CrossRegionDomain = &v
+	return s
+}
+
 // SetDNSVisibility sets the DNSVisibility field's value.
 func (s *AddressObjectForDescribeDBInstancesOutput) SetDNSVisibility(v bool) *AddressObjectForDescribeDBInstancesOutput {
 	s.DNSVisibility = &v
@@ -180,6 +190,12 @@ func (s *AddressObjectForDescribeDBInstancesOutput) SetDNSVisibility(v bool) *Ad
 // SetDomain sets the Domain field's value.
 func (s *AddressObjectForDescribeDBInstancesOutput) SetDomain(v string) *AddressObjectForDescribeDBInstancesOutput {
 	s.Domain = &v
+	return s
+}
+
+// SetDomainVisibilitySetting sets the DomainVisibilitySetting field's value.
+func (s *AddressObjectForDescribeDBInstancesOutput) SetDomainVisibilitySetting(v string) *AddressObjectForDescribeDBInstancesOutput {
+	s.DomainVisibilitySetting = &v
 	return s
 }
 
@@ -323,6 +339,44 @@ func (s *ChargeDetailForDescribeDBInstancesOutput) SetTempModifyStartTime(v stri
 	return s
 }
 
+type DayOfWeekMaintenanceTimeForDescribeDBInstancesOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	DayOfWeek *string `type:"string" json:",omitempty"`
+
+	MaintenanceWindowStartTime *string `type:"string" json:",omitempty"`
+
+	Period *int32 `type:"int32" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s DayOfWeekMaintenanceTimeForDescribeDBInstancesOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DayOfWeekMaintenanceTimeForDescribeDBInstancesOutput) GoString() string {
+	return s.String()
+}
+
+// SetDayOfWeek sets the DayOfWeek field's value.
+func (s *DayOfWeekMaintenanceTimeForDescribeDBInstancesOutput) SetDayOfWeek(v string) *DayOfWeekMaintenanceTimeForDescribeDBInstancesOutput {
+	s.DayOfWeek = &v
+	return s
+}
+
+// SetMaintenanceWindowStartTime sets the MaintenanceWindowStartTime field's value.
+func (s *DayOfWeekMaintenanceTimeForDescribeDBInstancesOutput) SetMaintenanceWindowStartTime(v string) *DayOfWeekMaintenanceTimeForDescribeDBInstancesOutput {
+	s.MaintenanceWindowStartTime = &v
+	return s
+}
+
+// SetPeriod sets the Period field's value.
+func (s *DayOfWeekMaintenanceTimeForDescribeDBInstancesOutput) SetPeriod(v int32) *DayOfWeekMaintenanceTimeForDescribeDBInstancesOutput {
+	s.Period = &v
+	return s
+}
+
 type DescribeDBInstancesInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -344,7 +398,11 @@ type DescribeDBInstancesInput struct {
 
 	PageSize *int32 `type:"int32" json:",omitempty"`
 
+	PrivateNetworkVpcId *string `type:"string" json:",omitempty"`
+
 	ProjectName *string `type:"string" json:",omitempty"`
+
+	StorageType *string `type:"string" json:",omitempty"`
 
 	TagFilters []*TagFilterForDescribeDBInstancesInput `type:"list" json:",omitempty"`
 
@@ -415,9 +473,21 @@ func (s *DescribeDBInstancesInput) SetPageSize(v int32) *DescribeDBInstancesInpu
 	return s
 }
 
+// SetPrivateNetworkVpcId sets the PrivateNetworkVpcId field's value.
+func (s *DescribeDBInstancesInput) SetPrivateNetworkVpcId(v string) *DescribeDBInstancesInput {
+	s.PrivateNetworkVpcId = &v
+	return s
+}
+
 // SetProjectName sets the ProjectName field's value.
 func (s *DescribeDBInstancesInput) SetProjectName(v string) *DescribeDBInstancesInput {
 	s.ProjectName = &v
+	return s
+}
+
+// SetStorageType sets the StorageType field's value.
+func (s *DescribeDBInstancesInput) SetStorageType(v string) *DescribeDBInstancesInput {
+	s.StorageType = &v
 	return s
 }
 
@@ -465,6 +535,132 @@ func (s *DescribeDBInstancesOutput) SetTotal(v int32) *DescribeDBInstancesOutput
 	return s
 }
 
+type EndpointForDescribeDBInstancesOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Address []*AddressObjectForDescribeDBInstancesOutput `type:"list" json:",omitempty"`
+
+	AutoAddNewNodes *string `type:"string" json:",omitempty"`
+
+	Description *string `type:"string" json:",omitempty"`
+
+	EnableReadOnly *string `type:"string" json:",omitempty"`
+
+	EnableReadWriteSplitting *string `type:"string" json:",omitempty"`
+
+	EndpointId *string `type:"string" json:",omitempty"`
+
+	EndpointName *string `type:"string" json:",omitempty"`
+
+	EndpointType *string `type:"string" json:",omitempty"`
+
+	ReadOnlyNodeDistributionType *string `type:"string" json:",omitempty"`
+
+	ReadOnlyNodeMaxDelayTime *int32 `type:"int32" json:",omitempty"`
+
+	ReadOnlyNodeWeight []*ReadOnlyNodeWeightForDescribeDBInstancesOutput `type:"list" json:",omitempty"`
+
+	ReadWriteMode *string `type:"string" json:",omitempty"`
+
+	ReadWriteProxyConnection *int32 `type:"int32" json:",omitempty"`
+
+	WriteNodeHaltWriting *bool `type:"boolean" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s EndpointForDescribeDBInstancesOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s EndpointForDescribeDBInstancesOutput) GoString() string {
+	return s.String()
+}
+
+// SetAddress sets the Address field's value.
+func (s *EndpointForDescribeDBInstancesOutput) SetAddress(v []*AddressObjectForDescribeDBInstancesOutput) *EndpointForDescribeDBInstancesOutput {
+	s.Address = v
+	return s
+}
+
+// SetAutoAddNewNodes sets the AutoAddNewNodes field's value.
+func (s *EndpointForDescribeDBInstancesOutput) SetAutoAddNewNodes(v string) *EndpointForDescribeDBInstancesOutput {
+	s.AutoAddNewNodes = &v
+	return s
+}
+
+// SetDescription sets the Description field's value.
+func (s *EndpointForDescribeDBInstancesOutput) SetDescription(v string) *EndpointForDescribeDBInstancesOutput {
+	s.Description = &v
+	return s
+}
+
+// SetEnableReadOnly sets the EnableReadOnly field's value.
+func (s *EndpointForDescribeDBInstancesOutput) SetEnableReadOnly(v string) *EndpointForDescribeDBInstancesOutput {
+	s.EnableReadOnly = &v
+	return s
+}
+
+// SetEnableReadWriteSplitting sets the EnableReadWriteSplitting field's value.
+func (s *EndpointForDescribeDBInstancesOutput) SetEnableReadWriteSplitting(v string) *EndpointForDescribeDBInstancesOutput {
+	s.EnableReadWriteSplitting = &v
+	return s
+}
+
+// SetEndpointId sets the EndpointId field's value.
+func (s *EndpointForDescribeDBInstancesOutput) SetEndpointId(v string) *EndpointForDescribeDBInstancesOutput {
+	s.EndpointId = &v
+	return s
+}
+
+// SetEndpointName sets the EndpointName field's value.
+func (s *EndpointForDescribeDBInstancesOutput) SetEndpointName(v string) *EndpointForDescribeDBInstancesOutput {
+	s.EndpointName = &v
+	return s
+}
+
+// SetEndpointType sets the EndpointType field's value.
+func (s *EndpointForDescribeDBInstancesOutput) SetEndpointType(v string) *EndpointForDescribeDBInstancesOutput {
+	s.EndpointType = &v
+	return s
+}
+
+// SetReadOnlyNodeDistributionType sets the ReadOnlyNodeDistributionType field's value.
+func (s *EndpointForDescribeDBInstancesOutput) SetReadOnlyNodeDistributionType(v string) *EndpointForDescribeDBInstancesOutput {
+	s.ReadOnlyNodeDistributionType = &v
+	return s
+}
+
+// SetReadOnlyNodeMaxDelayTime sets the ReadOnlyNodeMaxDelayTime field's value.
+func (s *EndpointForDescribeDBInstancesOutput) SetReadOnlyNodeMaxDelayTime(v int32) *EndpointForDescribeDBInstancesOutput {
+	s.ReadOnlyNodeMaxDelayTime = &v
+	return s
+}
+
+// SetReadOnlyNodeWeight sets the ReadOnlyNodeWeight field's value.
+func (s *EndpointForDescribeDBInstancesOutput) SetReadOnlyNodeWeight(v []*ReadOnlyNodeWeightForDescribeDBInstancesOutput) *EndpointForDescribeDBInstancesOutput {
+	s.ReadOnlyNodeWeight = v
+	return s
+}
+
+// SetReadWriteMode sets the ReadWriteMode field's value.
+func (s *EndpointForDescribeDBInstancesOutput) SetReadWriteMode(v string) *EndpointForDescribeDBInstancesOutput {
+	s.ReadWriteMode = &v
+	return s
+}
+
+// SetReadWriteProxyConnection sets the ReadWriteProxyConnection field's value.
+func (s *EndpointForDescribeDBInstancesOutput) SetReadWriteProxyConnection(v int32) *EndpointForDescribeDBInstancesOutput {
+	s.ReadWriteProxyConnection = &v
+	return s
+}
+
+// SetWriteNodeHaltWriting sets the WriteNodeHaltWriting field's value.
+func (s *EndpointForDescribeDBInstancesOutput) SetWriteNodeHaltWriting(v bool) *EndpointForDescribeDBInstancesOutput {
+	s.WriteNodeHaltWriting = &v
+	return s
+}
+
 type InstanceForDescribeDBInstancesOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -476,6 +672,8 @@ type InstanceForDescribeDBInstancesOutput struct {
 
 	DBEngineVersion *string `type:"string" json:",omitempty"`
 
+	Endpoints []*EndpointForDescribeDBInstancesOutput `type:"list" json:",omitempty"`
+
 	InstanceId *string `type:"string" json:",omitempty"`
 
 	InstanceName *string `type:"string" json:",omitempty"`
@@ -483,6 +681,8 @@ type InstanceForDescribeDBInstancesOutput struct {
 	InstanceStatus *string `type:"string" json:",omitempty"`
 
 	InstanceType *string `type:"string" json:",omitempty"`
+
+	MaintenanceWindow *MaintenanceWindowForDescribeDBInstancesOutput `type:"structure" json:",omitempty"`
 
 	NodeNumber *int32 `type:"int32" json:",omitempty"`
 
@@ -541,6 +741,12 @@ func (s *InstanceForDescribeDBInstancesOutput) SetDBEngineVersion(v string) *Ins
 	return s
 }
 
+// SetEndpoints sets the Endpoints field's value.
+func (s *InstanceForDescribeDBInstancesOutput) SetEndpoints(v []*EndpointForDescribeDBInstancesOutput) *InstanceForDescribeDBInstancesOutput {
+	s.Endpoints = v
+	return s
+}
+
 // SetInstanceId sets the InstanceId field's value.
 func (s *InstanceForDescribeDBInstancesOutput) SetInstanceId(v string) *InstanceForDescribeDBInstancesOutput {
 	s.InstanceId = &v
@@ -562,6 +768,12 @@ func (s *InstanceForDescribeDBInstancesOutput) SetInstanceStatus(v string) *Inst
 // SetInstanceType sets the InstanceType field's value.
 func (s *InstanceForDescribeDBInstancesOutput) SetInstanceType(v string) *InstanceForDescribeDBInstancesOutput {
 	s.InstanceType = &v
+	return s
+}
+
+// SetMaintenanceWindow sets the MaintenanceWindow field's value.
+func (s *InstanceForDescribeDBInstancesOutput) SetMaintenanceWindow(v *MaintenanceWindowForDescribeDBInstancesOutput) *InstanceForDescribeDBInstancesOutput {
+	s.MaintenanceWindow = v
 	return s
 }
 
@@ -628,6 +840,74 @@ func (s *InstanceForDescribeDBInstancesOutput) SetZoneId(v string) *InstanceForD
 // SetZoneIds sets the ZoneIds field's value.
 func (s *InstanceForDescribeDBInstancesOutput) SetZoneIds(v []*string) *InstanceForDescribeDBInstancesOutput {
 	s.ZoneIds = v
+	return s
+}
+
+type MaintenanceWindowForDescribeDBInstancesOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	DayKind *string `type:"string" json:",omitempty"`
+
+	DayOfWeekMaintenanceTime []*DayOfWeekMaintenanceTimeForDescribeDBInstancesOutput `type:"list" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s MaintenanceWindowForDescribeDBInstancesOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s MaintenanceWindowForDescribeDBInstancesOutput) GoString() string {
+	return s.String()
+}
+
+// SetDayKind sets the DayKind field's value.
+func (s *MaintenanceWindowForDescribeDBInstancesOutput) SetDayKind(v string) *MaintenanceWindowForDescribeDBInstancesOutput {
+	s.DayKind = &v
+	return s
+}
+
+// SetDayOfWeekMaintenanceTime sets the DayOfWeekMaintenanceTime field's value.
+func (s *MaintenanceWindowForDescribeDBInstancesOutput) SetDayOfWeekMaintenanceTime(v []*DayOfWeekMaintenanceTimeForDescribeDBInstancesOutput) *MaintenanceWindowForDescribeDBInstancesOutput {
+	s.DayOfWeekMaintenanceTime = v
+	return s
+}
+
+type ReadOnlyNodeWeightForDescribeDBInstancesOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	NodeId *string `type:"string" json:",omitempty"`
+
+	NodeType *string `type:"string" json:",omitempty"`
+
+	Weight *int32 `type:"int32" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s ReadOnlyNodeWeightForDescribeDBInstancesOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ReadOnlyNodeWeightForDescribeDBInstancesOutput) GoString() string {
+	return s.String()
+}
+
+// SetNodeId sets the NodeId field's value.
+func (s *ReadOnlyNodeWeightForDescribeDBInstancesOutput) SetNodeId(v string) *ReadOnlyNodeWeightForDescribeDBInstancesOutput {
+	s.NodeId = &v
+	return s
+}
+
+// SetNodeType sets the NodeType field's value.
+func (s *ReadOnlyNodeWeightForDescribeDBInstancesOutput) SetNodeType(v string) *ReadOnlyNodeWeightForDescribeDBInstancesOutput {
+	s.NodeType = &v
+	return s
+}
+
+// SetWeight sets the Weight field's value.
+func (s *ReadOnlyNodeWeightForDescribeDBInstancesOutput) SetWeight(v int32) *ReadOnlyNodeWeightForDescribeDBInstancesOutput {
+	s.Weight = &v
 	return s
 }
 

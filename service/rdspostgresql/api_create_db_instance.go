@@ -200,12 +200,16 @@ func (s *ChargeInfoForCreateDBInstanceInput) SetPeriodUnit(v string) *ChargeInfo
 type CreateDBInstanceInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	AllowListIds []*string `type:"list" json:",omitempty"`
+
 	ChargeInfo *ChargeInfoForCreateDBInstanceInput `type:"structure" json:",omitempty"`
 
 	// DBEngineVersion is a required field
 	DBEngineVersion *string `type:"string" json:",omitempty" required:"true"`
 
 	InstanceName *string `type:"string" json:",omitempty"`
+
+	MaintenanceWindow *MaintenanceWindowForCreateDBInstanceInput `type:"structure" json:",omitempty"`
 
 	NodeInfo []*NodeInfoForCreateDBInstanceInput `type:"list" json:",omitempty"`
 
@@ -257,6 +261,12 @@ func (s *CreateDBInstanceInput) Validate() error {
 	return nil
 }
 
+// SetAllowListIds sets the AllowListIds field's value.
+func (s *CreateDBInstanceInput) SetAllowListIds(v []*string) *CreateDBInstanceInput {
+	s.AllowListIds = v
+	return s
+}
+
 // SetChargeInfo sets the ChargeInfo field's value.
 func (s *CreateDBInstanceInput) SetChargeInfo(v *ChargeInfoForCreateDBInstanceInput) *CreateDBInstanceInput {
 	s.ChargeInfo = v
@@ -272,6 +282,12 @@ func (s *CreateDBInstanceInput) SetDBEngineVersion(v string) *CreateDBInstanceIn
 // SetInstanceName sets the InstanceName field's value.
 func (s *CreateDBInstanceInput) SetInstanceName(v string) *CreateDBInstanceInput {
 	s.InstanceName = &v
+	return s
+}
+
+// SetMaintenanceWindow sets the MaintenanceWindow field's value.
+func (s *CreateDBInstanceInput) SetMaintenanceWindow(v *MaintenanceWindowForCreateDBInstanceInput) *CreateDBInstanceInput {
+	s.MaintenanceWindow = v
 	return s
 }
 
@@ -346,6 +362,74 @@ func (s *CreateDBInstanceOutput) SetInstanceId(v string) *CreateDBInstanceOutput
 // SetOrderId sets the OrderId field's value.
 func (s *CreateDBInstanceOutput) SetOrderId(v string) *CreateDBInstanceOutput {
 	s.OrderId = &v
+	return s
+}
+
+type DayOfWeekMaintenanceTimeForCreateDBInstanceInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	DayOfWeek *string `type:"string" json:",omitempty"`
+
+	MaintenanceWindowStartTime *string `type:"string" json:",omitempty"`
+
+	Period *int32 `type:"int32" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s DayOfWeekMaintenanceTimeForCreateDBInstanceInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DayOfWeekMaintenanceTimeForCreateDBInstanceInput) GoString() string {
+	return s.String()
+}
+
+// SetDayOfWeek sets the DayOfWeek field's value.
+func (s *DayOfWeekMaintenanceTimeForCreateDBInstanceInput) SetDayOfWeek(v string) *DayOfWeekMaintenanceTimeForCreateDBInstanceInput {
+	s.DayOfWeek = &v
+	return s
+}
+
+// SetMaintenanceWindowStartTime sets the MaintenanceWindowStartTime field's value.
+func (s *DayOfWeekMaintenanceTimeForCreateDBInstanceInput) SetMaintenanceWindowStartTime(v string) *DayOfWeekMaintenanceTimeForCreateDBInstanceInput {
+	s.MaintenanceWindowStartTime = &v
+	return s
+}
+
+// SetPeriod sets the Period field's value.
+func (s *DayOfWeekMaintenanceTimeForCreateDBInstanceInput) SetPeriod(v int32) *DayOfWeekMaintenanceTimeForCreateDBInstanceInput {
+	s.Period = &v
+	return s
+}
+
+type MaintenanceWindowForCreateDBInstanceInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	DayKind *string `type:"string" json:",omitempty"`
+
+	DayOfWeekMaintenanceTime []*DayOfWeekMaintenanceTimeForCreateDBInstanceInput `type:"list" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s MaintenanceWindowForCreateDBInstanceInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s MaintenanceWindowForCreateDBInstanceInput) GoString() string {
+	return s.String()
+}
+
+// SetDayKind sets the DayKind field's value.
+func (s *MaintenanceWindowForCreateDBInstanceInput) SetDayKind(v string) *MaintenanceWindowForCreateDBInstanceInput {
+	s.DayKind = &v
+	return s
+}
+
+// SetDayOfWeekMaintenanceTime sets the DayOfWeekMaintenanceTime field's value.
+func (s *MaintenanceWindowForCreateDBInstanceInput) SetDayOfWeekMaintenanceTime(v []*DayOfWeekMaintenanceTimeForCreateDBInstanceInput) *MaintenanceWindowForCreateDBInstanceInput {
+	s.DayOfWeekMaintenanceTime = v
 	return s
 }
 

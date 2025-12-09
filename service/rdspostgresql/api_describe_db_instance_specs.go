@@ -150,6 +150,8 @@ type DescribeDBInstanceSpecsInput struct {
 
 	SpecCode *string `type:"string" json:",omitempty"`
 
+	StorageType *string `type:"string" json:",omitempty"`
+
 	ZoneId *string `type:"string" json:",omitempty"`
 }
 
@@ -172,6 +174,12 @@ func (s *DescribeDBInstanceSpecsInput) SetDBEngineVersion(v string) *DescribeDBI
 // SetSpecCode sets the SpecCode field's value.
 func (s *DescribeDBInstanceSpecsInput) SetSpecCode(v string) *DescribeDBInstanceSpecsInput {
 	s.SpecCode = &v
+	return s
+}
+
+// SetStorageType sets the StorageType field's value.
+func (s *DescribeDBInstanceSpecsInput) SetStorageType(v string) *DescribeDBInstanceSpecsInput {
+	s.StorageType = &v
 	return s
 }
 
@@ -228,6 +236,8 @@ type InstanceSpecForDescribeDBInstanceSpecsOutput struct {
 
 	SpecStatus *string `type:"string" json:",omitempty"`
 
+	StorageType *string `type:"string" json:",omitempty"`
+
 	VCPU *int32 `type:"int32" json:",omitempty"`
 
 	ZoneId *string `type:"string" json:",omitempty"`
@@ -276,6 +286,12 @@ func (s *InstanceSpecForDescribeDBInstanceSpecsOutput) SetSpecCode(v string) *In
 // SetSpecStatus sets the SpecStatus field's value.
 func (s *InstanceSpecForDescribeDBInstanceSpecsOutput) SetSpecStatus(v string) *InstanceSpecForDescribeDBInstanceSpecsOutput {
 	s.SpecStatus = &v
+	return s
+}
+
+// SetStorageType sets the StorageType field's value.
+func (s *InstanceSpecForDescribeDBInstanceSpecsOutput) SetStorageType(v string) *InstanceSpecForDescribeDBInstanceSpecsOutput {
+	s.StorageType = &v
 	return s
 }
 

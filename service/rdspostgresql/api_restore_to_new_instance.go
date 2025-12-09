@@ -197,6 +197,74 @@ func (s *ChargeInfoForRestoreToNewInstanceInput) SetPeriodUnit(v string) *Charge
 	return s
 }
 
+type DayOfWeekMaintenanceTimeForRestoreToNewInstanceInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	DayOfWeek *string `type:"string" json:",omitempty"`
+
+	MaintenanceWindowStartTime *string `type:"string" json:",omitempty"`
+
+	Period *int32 `type:"int32" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s DayOfWeekMaintenanceTimeForRestoreToNewInstanceInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DayOfWeekMaintenanceTimeForRestoreToNewInstanceInput) GoString() string {
+	return s.String()
+}
+
+// SetDayOfWeek sets the DayOfWeek field's value.
+func (s *DayOfWeekMaintenanceTimeForRestoreToNewInstanceInput) SetDayOfWeek(v string) *DayOfWeekMaintenanceTimeForRestoreToNewInstanceInput {
+	s.DayOfWeek = &v
+	return s
+}
+
+// SetMaintenanceWindowStartTime sets the MaintenanceWindowStartTime field's value.
+func (s *DayOfWeekMaintenanceTimeForRestoreToNewInstanceInput) SetMaintenanceWindowStartTime(v string) *DayOfWeekMaintenanceTimeForRestoreToNewInstanceInput {
+	s.MaintenanceWindowStartTime = &v
+	return s
+}
+
+// SetPeriod sets the Period field's value.
+func (s *DayOfWeekMaintenanceTimeForRestoreToNewInstanceInput) SetPeriod(v int32) *DayOfWeekMaintenanceTimeForRestoreToNewInstanceInput {
+	s.Period = &v
+	return s
+}
+
+type MaintenanceWindowForRestoreToNewInstanceInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	DayKind *string `type:"string" json:",omitempty"`
+
+	DayOfWeekMaintenanceTime []*DayOfWeekMaintenanceTimeForRestoreToNewInstanceInput `type:"list" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s MaintenanceWindowForRestoreToNewInstanceInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s MaintenanceWindowForRestoreToNewInstanceInput) GoString() string {
+	return s.String()
+}
+
+// SetDayKind sets the DayKind field's value.
+func (s *MaintenanceWindowForRestoreToNewInstanceInput) SetDayKind(v string) *MaintenanceWindowForRestoreToNewInstanceInput {
+	s.DayKind = &v
+	return s
+}
+
+// SetDayOfWeekMaintenanceTime sets the DayOfWeekMaintenanceTime field's value.
+func (s *MaintenanceWindowForRestoreToNewInstanceInput) SetDayOfWeekMaintenanceTime(v []*DayOfWeekMaintenanceTimeForRestoreToNewInstanceInput) *MaintenanceWindowForRestoreToNewInstanceInput {
+	s.DayOfWeekMaintenanceTime = v
+	return s
+}
+
 type NodeInfoForRestoreToNewInstanceInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -254,11 +322,15 @@ func (s *NodeInfoForRestoreToNewInstanceInput) SetZoneId(v string) *NodeInfoForR
 type RestoreToNewInstanceInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	AllowListIds []*string `type:"list" json:",omitempty"`
+
 	BackupId *string `type:"string" json:",omitempty"`
 
 	ChargeInfo *ChargeInfoForRestoreToNewInstanceInput `type:"structure" json:",omitempty"`
 
 	InstanceName *string `type:"string" json:",omitempty"`
+
+	MaintenanceWindow *MaintenanceWindowForRestoreToNewInstanceInput `type:"structure" json:",omitempty"`
 
 	NodeInfo []*NodeInfoForRestoreToNewInstanceInput `type:"list" json:",omitempty"`
 
@@ -315,6 +387,12 @@ func (s *RestoreToNewInstanceInput) Validate() error {
 	return nil
 }
 
+// SetAllowListIds sets the AllowListIds field's value.
+func (s *RestoreToNewInstanceInput) SetAllowListIds(v []*string) *RestoreToNewInstanceInput {
+	s.AllowListIds = v
+	return s
+}
+
 // SetBackupId sets the BackupId field's value.
 func (s *RestoreToNewInstanceInput) SetBackupId(v string) *RestoreToNewInstanceInput {
 	s.BackupId = &v
@@ -330,6 +408,12 @@ func (s *RestoreToNewInstanceInput) SetChargeInfo(v *ChargeInfoForRestoreToNewIn
 // SetInstanceName sets the InstanceName field's value.
 func (s *RestoreToNewInstanceInput) SetInstanceName(v string) *RestoreToNewInstanceInput {
 	s.InstanceName = &v
+	return s
+}
+
+// SetMaintenanceWindow sets the MaintenanceWindow field's value.
+func (s *RestoreToNewInstanceInput) SetMaintenanceWindow(v *MaintenanceWindowForRestoreToNewInstanceInput) *RestoreToNewInstanceInput {
+	s.MaintenanceWindow = v
 	return s
 }
 

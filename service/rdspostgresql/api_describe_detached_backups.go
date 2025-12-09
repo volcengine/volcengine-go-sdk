@@ -476,6 +476,8 @@ func (s *DescribeDetachedBackupsOutput) SetTotal(v int32) *DescribeDetachedBacku
 type InstanceInfoForDescribeDetachedBackupsOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	AllowListIds []*string `type:"list" json:",omitempty"`
+
 	ChargeDetail *ChargeDetailForDescribeDetachedBackupsOutput `type:"structure" json:",omitempty"`
 
 	DBEngineVersion *string `type:"string" json:",omitempty"`
@@ -515,6 +517,12 @@ func (s InstanceInfoForDescribeDetachedBackupsOutput) String() string {
 // GoString returns the string representation
 func (s InstanceInfoForDescribeDetachedBackupsOutput) GoString() string {
 	return s.String()
+}
+
+// SetAllowListIds sets the AllowListIds field's value.
+func (s *InstanceInfoForDescribeDetachedBackupsOutput) SetAllowListIds(v []*string) *InstanceInfoForDescribeDetachedBackupsOutput {
+	s.AllowListIds = v
+	return s
 }
 
 // SetChargeDetail sets the ChargeDetail field's value.

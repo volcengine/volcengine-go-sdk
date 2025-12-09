@@ -46,6 +46,22 @@ type RDSPOSTGRESQLAPI interface {
 	AssociateAllowListWithContext(volcengine.Context, *AssociateAllowListInput, ...request.Option) (*AssociateAllowListOutput, error)
 	AssociateAllowListRequest(*AssociateAllowListInput) (*request.Request, *AssociateAllowListOutput)
 
+	CloneDatabaseCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CloneDatabaseCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CloneDatabaseCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CloneDatabase(*CloneDatabaseInput) (*CloneDatabaseOutput, error)
+	CloneDatabaseWithContext(volcengine.Context, *CloneDatabaseInput, ...request.Option) (*CloneDatabaseOutput, error)
+	CloneDatabaseRequest(*CloneDatabaseInput) (*request.Request, *CloneDatabaseOutput)
+
+	CloneParameterTemplateCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CloneParameterTemplateCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CloneParameterTemplateCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CloneParameterTemplate(*CloneParameterTemplateInput) (*CloneParameterTemplateOutput, error)
+	CloneParameterTemplateWithContext(volcengine.Context, *CloneParameterTemplateInput, ...request.Option) (*CloneParameterTemplateOutput, error)
+	CloneParameterTemplateRequest(*CloneParameterTemplateInput) (*request.Request, *CloneParameterTemplateOutput)
+
 	CreateAllowListCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	CreateAllowListCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	CreateAllowListCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -102,6 +118,14 @@ type RDSPOSTGRESQLAPI interface {
 	CreateDatabaseWithContext(volcengine.Context, *CreateDatabaseInput, ...request.Option) (*CreateDatabaseOutput, error)
 	CreateDatabaseRequest(*CreateDatabaseInput) (*request.Request, *CreateDatabaseOutput)
 
+	CreateParameterTemplateCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateParameterTemplateCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateParameterTemplateCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateParameterTemplate(*CreateParameterTemplateInput) (*CreateParameterTemplateOutput, error)
+	CreateParameterTemplateWithContext(volcengine.Context, *CreateParameterTemplateInput, ...request.Option) (*CreateParameterTemplateOutput, error)
+	CreateParameterTemplateRequest(*CreateParameterTemplateInput) (*request.Request, *CreateParameterTemplateOutput)
+
 	CreateSchemaCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	CreateSchemaCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	CreateSchemaCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -117,6 +141,14 @@ type RDSPOSTGRESQLAPI interface {
 	DeleteAllowList(*DeleteAllowListInput) (*DeleteAllowListOutput, error)
 	DeleteAllowListWithContext(volcengine.Context, *DeleteAllowListInput, ...request.Option) (*DeleteAllowListOutput, error)
 	DeleteAllowListRequest(*DeleteAllowListInput) (*request.Request, *DeleteAllowListOutput)
+
+	DeleteBackupCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeleteBackupCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeleteBackupCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeleteBackup(*DeleteBackupInput) (*DeleteBackupOutput, error)
+	DeleteBackupWithContext(volcengine.Context, *DeleteBackupInput, ...request.Option) (*DeleteBackupOutput, error)
+	DeleteBackupRequest(*DeleteBackupInput) (*request.Request, *DeleteBackupOutput)
 
 	DeleteDBAccountCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DeleteDBAccountCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -158,6 +190,14 @@ type RDSPOSTGRESQLAPI interface {
 	DeleteDatabaseWithContext(volcengine.Context, *DeleteDatabaseInput, ...request.Option) (*DeleteDatabaseOutput, error)
 	DeleteDatabaseRequest(*DeleteDatabaseInput) (*request.Request, *DeleteDatabaseOutput)
 
+	DeleteParameterTemplateCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeleteParameterTemplateCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeleteParameterTemplateCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeleteParameterTemplate(*DeleteParameterTemplateInput) (*DeleteParameterTemplateOutput, error)
+	DeleteParameterTemplateWithContext(volcengine.Context, *DeleteParameterTemplateInput, ...request.Option) (*DeleteParameterTemplateOutput, error)
+	DeleteParameterTemplateRequest(*DeleteParameterTemplateInput) (*request.Request, *DeleteParameterTemplateOutput)
+
 	DeleteSchemaCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DeleteSchemaCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DeleteSchemaCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -190,6 +230,14 @@ type RDSPOSTGRESQLAPI interface {
 	DescribeAllowListsWithContext(volcengine.Context, *DescribeAllowListsInput, ...request.Option) (*DescribeAllowListsOutput, error)
 	DescribeAllowListsRequest(*DescribeAllowListsInput) (*request.Request, *DescribeAllowListsOutput)
 
+	DescribeApplyParameterTemplateCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeApplyParameterTemplateCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeApplyParameterTemplateCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeApplyParameterTemplate(*DescribeApplyParameterTemplateInput) (*DescribeApplyParameterTemplateOutput, error)
+	DescribeApplyParameterTemplateWithContext(volcengine.Context, *DescribeApplyParameterTemplateInput, ...request.Option) (*DescribeApplyParameterTemplateOutput, error)
+	DescribeApplyParameterTemplateRequest(*DescribeApplyParameterTemplateInput) (*request.Request, *DescribeApplyParameterTemplateOutput)
+
 	DescribeAvailabilityZonesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DescribeAvailabilityZonesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DescribeAvailabilityZonesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -221,6 +269,14 @@ type RDSPOSTGRESQLAPI interface {
 	DescribeDBAccounts(*DescribeDBAccountsInput) (*DescribeDBAccountsOutput, error)
 	DescribeDBAccountsWithContext(volcengine.Context, *DescribeDBAccountsInput, ...request.Option) (*DescribeDBAccountsOutput, error)
 	DescribeDBAccountsRequest(*DescribeDBAccountsInput) (*request.Request, *DescribeDBAccountsOutput)
+
+	DescribeDBEngineVersionParametersCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeDBEngineVersionParametersCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeDBEngineVersionParametersCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeDBEngineVersionParameters(*DescribeDBEngineVersionParametersInput) (*DescribeDBEngineVersionParametersOutput, error)
+	DescribeDBEngineVersionParametersWithContext(volcengine.Context, *DescribeDBEngineVersionParametersInput, ...request.Option) (*DescribeDBEngineVersionParametersOutput, error)
+	DescribeDBEngineVersionParametersRequest(*DescribeDBEngineVersionParametersInput) (*request.Request, *DescribeDBEngineVersionParametersOutput)
 
 	DescribeDBInstanceDetailCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DescribeDBInstanceDetailCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -262,6 +318,22 @@ type RDSPOSTGRESQLAPI interface {
 	DescribeDBInstancePriceDifferenceWithContext(volcengine.Context, *DescribeDBInstancePriceDifferenceInput, ...request.Option) (*DescribeDBInstancePriceDifferenceOutput, error)
 	DescribeDBInstancePriceDifferenceRequest(*DescribeDBInstancePriceDifferenceInput) (*request.Request, *DescribeDBInstancePriceDifferenceOutput)
 
+	DescribeDBInstanceProxyParametersCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeDBInstanceProxyParametersCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeDBInstanceProxyParametersCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeDBInstanceProxyParameters(*DescribeDBInstanceProxyParametersInput) (*DescribeDBInstanceProxyParametersOutput, error)
+	DescribeDBInstanceProxyParametersWithContext(volcengine.Context, *DescribeDBInstanceProxyParametersInput, ...request.Option) (*DescribeDBInstanceProxyParametersOutput, error)
+	DescribeDBInstanceProxyParametersRequest(*DescribeDBInstanceProxyParametersInput) (*request.Request, *DescribeDBInstanceProxyParametersOutput)
+
+	DescribeDBInstanceSSLCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeDBInstanceSSLCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeDBInstanceSSLCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeDBInstanceSSL(*DescribeDBInstanceSSLInput) (*DescribeDBInstanceSSLOutput, error)
+	DescribeDBInstanceSSLWithContext(volcengine.Context, *DescribeDBInstanceSSLInput, ...request.Option) (*DescribeDBInstanceSSLOutput, error)
+	DescribeDBInstanceSSLRequest(*DescribeDBInstanceSSLInput) (*request.Request, *DescribeDBInstanceSSLOutput)
+
 	DescribeDBInstanceSpecsCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DescribeDBInstanceSpecsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DescribeDBInstanceSpecsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -302,6 +374,22 @@ type RDSPOSTGRESQLAPI interface {
 	DescribeFailoverLogsWithContext(volcengine.Context, *DescribeFailoverLogsInput, ...request.Option) (*DescribeFailoverLogsOutput, error)
 	DescribeFailoverLogsRequest(*DescribeFailoverLogsInput) (*request.Request, *DescribeFailoverLogsOutput)
 
+	DescribeParameterTemplateCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeParameterTemplateCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeParameterTemplateCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeParameterTemplate(*DescribeParameterTemplateInput) (*DescribeParameterTemplateOutput, error)
+	DescribeParameterTemplateWithContext(volcengine.Context, *DescribeParameterTemplateInput, ...request.Option) (*DescribeParameterTemplateOutput, error)
+	DescribeParameterTemplateRequest(*DescribeParameterTemplateInput) (*request.Request, *DescribeParameterTemplateOutput)
+
+	DescribePlannedEventsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribePlannedEventsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribePlannedEventsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribePlannedEvents(*DescribePlannedEventsInput) (*DescribePlannedEventsOutput, error)
+	DescribePlannedEventsWithContext(volcengine.Context, *DescribePlannedEventsInput, ...request.Option) (*DescribePlannedEventsOutput, error)
+	DescribePlannedEventsRequest(*DescribePlannedEventsInput) (*request.Request, *DescribePlannedEventsOutput)
+
 	DescribeRecoverableTimeCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DescribeRecoverableTimeCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DescribeRecoverableTimeCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -334,6 +422,22 @@ type RDSPOSTGRESQLAPI interface {
 	DescribeSlotsWithContext(volcengine.Context, *DescribeSlotsInput, ...request.Option) (*DescribeSlotsOutput, error)
 	DescribeSlotsRequest(*DescribeSlotsInput) (*request.Request, *DescribeSlotsOutput)
 
+	DescribeTasksCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeTasksCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeTasksCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeTasks(*DescribeTasksInput) (*DescribeTasksOutput, error)
+	DescribeTasksWithContext(volcengine.Context, *DescribeTasksInput, ...request.Option) (*DescribeTasksOutput, error)
+	DescribeTasksRequest(*DescribeTasksInput) (*request.Request, *DescribeTasksOutput)
+
+	DescribeWALLogBackupsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeWALLogBackupsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeWALLogBackupsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeWALLogBackups(*DescribeWALLogBackupsInput) (*DescribeWALLogBackupsOutput, error)
+	DescribeWALLogBackupsWithContext(volcengine.Context, *DescribeWALLogBackupsInput, ...request.Option) (*DescribeWALLogBackupsOutput, error)
+	DescribeWALLogBackupsRequest(*DescribeWALLogBackupsInput) (*request.Request, *DescribeWALLogBackupsOutput)
+
 	DisassociateAllowListCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DisassociateAllowListCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DisassociateAllowListCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -341,6 +445,38 @@ type RDSPOSTGRESQLAPI interface {
 	DisassociateAllowList(*DisassociateAllowListInput) (*DisassociateAllowListOutput, error)
 	DisassociateAllowListWithContext(volcengine.Context, *DisassociateAllowListInput, ...request.Option) (*DisassociateAllowListOutput, error)
 	DisassociateAllowListRequest(*DisassociateAllowListInput) (*request.Request, *DisassociateAllowListOutput)
+
+	DownloadBackupCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DownloadBackupCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DownloadBackupCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DownloadBackup(*DownloadBackupInput) (*DownloadBackupOutput, error)
+	DownloadBackupWithContext(volcengine.Context, *DownloadBackupInput, ...request.Option) (*DownloadBackupOutput, error)
+	DownloadBackupRequest(*DownloadBackupInput) (*request.Request, *DownloadBackupOutput)
+
+	DownloadSSLCertificateCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DownloadSSLCertificateCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DownloadSSLCertificateCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DownloadSSLCertificate(*DownloadSSLCertificateInput) (*DownloadSSLCertificateOutput, error)
+	DownloadSSLCertificateWithContext(volcengine.Context, *DownloadSSLCertificateInput, ...request.Option) (*DownloadSSLCertificateOutput, error)
+	DownloadSSLCertificateRequest(*DownloadSSLCertificateInput) (*request.Request, *DownloadSSLCertificateOutput)
+
+	GetBackupDownloadLinkCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	GetBackupDownloadLinkCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	GetBackupDownloadLinkCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	GetBackupDownloadLink(*GetBackupDownloadLinkInput) (*GetBackupDownloadLinkOutput, error)
+	GetBackupDownloadLinkWithContext(volcengine.Context, *GetBackupDownloadLinkInput, ...request.Option) (*GetBackupDownloadLinkOutput, error)
+	GetBackupDownloadLinkRequest(*GetBackupDownloadLinkInput) (*request.Request, *GetBackupDownloadLinkOutput)
+
+	ListParameterTemplatesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListParameterTemplatesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListParameterTemplatesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListParameterTemplates(*ListParameterTemplatesInput) (*ListParameterTemplatesOutput, error)
+	ListParameterTemplatesWithContext(volcengine.Context, *ListParameterTemplatesInput, ...request.Option) (*ListParameterTemplatesOutput, error)
+	ListParameterTemplatesRequest(*ListParameterTemplatesInput) (*request.Request, *ListParameterTemplatesOutput)
 
 	ModifyAllowListCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ModifyAllowListCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -390,6 +526,14 @@ type RDSPOSTGRESQLAPI interface {
 	ModifyDBEndpointNameWithContext(volcengine.Context, *ModifyDBEndpointNameInput, ...request.Option) (*ModifyDBEndpointNameOutput, error)
 	ModifyDBEndpointNameRequest(*ModifyDBEndpointNameInput) (*request.Request, *ModifyDBEndpointNameOutput)
 
+	ModifyDBEndpointProxyConfigCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ModifyDBEndpointProxyConfigCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ModifyDBEndpointProxyConfigCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ModifyDBEndpointProxyConfig(*ModifyDBEndpointProxyConfigInput) (*ModifyDBEndpointProxyConfigOutput, error)
+	ModifyDBEndpointProxyConfigWithContext(volcengine.Context, *ModifyDBEndpointProxyConfigInput, ...request.Option) (*ModifyDBEndpointProxyConfigOutput, error)
+	ModifyDBEndpointProxyConfigRequest(*ModifyDBEndpointProxyConfigInput) (*request.Request, *ModifyDBEndpointProxyConfigOutput)
+
 	ModifyDBEndpointReadWeightCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ModifyDBEndpointReadWeightCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	ModifyDBEndpointReadWeightCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -438,6 +582,14 @@ type RDSPOSTGRESQLAPI interface {
 	ModifyDBInstanceConfigWithContext(volcengine.Context, *ModifyDBInstanceConfigInput, ...request.Option) (*ModifyDBInstanceConfigOutput, error)
 	ModifyDBInstanceConfigRequest(*ModifyDBInstanceConfigInput) (*request.Request, *ModifyDBInstanceConfigOutput)
 
+	ModifyDBInstanceMaintenanceWindowCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ModifyDBInstanceMaintenanceWindowCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ModifyDBInstanceMaintenanceWindowCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ModifyDBInstanceMaintenanceWindow(*ModifyDBInstanceMaintenanceWindowInput) (*ModifyDBInstanceMaintenanceWindowOutput, error)
+	ModifyDBInstanceMaintenanceWindowWithContext(volcengine.Context, *ModifyDBInstanceMaintenanceWindowInput, ...request.Option) (*ModifyDBInstanceMaintenanceWindowOutput, error)
+	ModifyDBInstanceMaintenanceWindowRequest(*ModifyDBInstanceMaintenanceWindowInput) (*request.Request, *ModifyDBInstanceMaintenanceWindowOutput)
+
 	ModifyDBInstanceNameCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ModifyDBInstanceNameCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	ModifyDBInstanceNameCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -453,6 +605,14 @@ type RDSPOSTGRESQLAPI interface {
 	ModifyDBInstanceParameters(*ModifyDBInstanceParametersInput) (*ModifyDBInstanceParametersOutput, error)
 	ModifyDBInstanceParametersWithContext(volcengine.Context, *ModifyDBInstanceParametersInput, ...request.Option) (*ModifyDBInstanceParametersOutput, error)
 	ModifyDBInstanceParametersRequest(*ModifyDBInstanceParametersInput) (*request.Request, *ModifyDBInstanceParametersOutput)
+
+	ModifyDBInstanceSSLCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ModifyDBInstanceSSLCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ModifyDBInstanceSSLCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ModifyDBInstanceSSL(*ModifyDBInstanceSSLInput) (*ModifyDBInstanceSSLOutput, error)
+	ModifyDBInstanceSSLWithContext(volcengine.Context, *ModifyDBInstanceSSLInput, ...request.Option) (*ModifyDBInstanceSSLOutput, error)
+	ModifyDBInstanceSSLRequest(*ModifyDBInstanceSSLInput) (*request.Request, *ModifyDBInstanceSSLOutput)
 
 	ModifyDBInstanceSpecCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ModifyDBInstanceSpecCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -470,6 +630,22 @@ type RDSPOSTGRESQLAPI interface {
 	ModifyDatabaseOwnerWithContext(volcengine.Context, *ModifyDatabaseOwnerInput, ...request.Option) (*ModifyDatabaseOwnerOutput, error)
 	ModifyDatabaseOwnerRequest(*ModifyDatabaseOwnerInput) (*request.Request, *ModifyDatabaseOwnerOutput)
 
+	ModifyParameterTemplateCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ModifyParameterTemplateCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ModifyParameterTemplateCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ModifyParameterTemplate(*ModifyParameterTemplateInput) (*ModifyParameterTemplateOutput, error)
+	ModifyParameterTemplateWithContext(volcengine.Context, *ModifyParameterTemplateInput, ...request.Option) (*ModifyParameterTemplateOutput, error)
+	ModifyParameterTemplateRequest(*ModifyParameterTemplateInput) (*request.Request, *ModifyParameterTemplateOutput)
+
+	ModifyPlannedEventExecuteTimeCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ModifyPlannedEventExecuteTimeCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ModifyPlannedEventExecuteTimeCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ModifyPlannedEventExecuteTime(*ModifyPlannedEventExecuteTimeInput) (*ModifyPlannedEventExecuteTimeOutput, error)
+	ModifyPlannedEventExecuteTimeWithContext(volcengine.Context, *ModifyPlannedEventExecuteTimeInput, ...request.Option) (*ModifyPlannedEventExecuteTimeOutput, error)
+	ModifyPlannedEventExecuteTimeRequest(*ModifyPlannedEventExecuteTimeInput) (*request.Request, *ModifyPlannedEventExecuteTimeOutput)
+
 	ModifySchemaOwnerCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ModifySchemaOwnerCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	ModifySchemaOwnerCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -477,6 +653,14 @@ type RDSPOSTGRESQLAPI interface {
 	ModifySchemaOwner(*ModifySchemaOwnerInput) (*ModifySchemaOwnerOutput, error)
 	ModifySchemaOwnerWithContext(volcengine.Context, *ModifySchemaOwnerInput, ...request.Option) (*ModifySchemaOwnerOutput, error)
 	ModifySchemaOwnerRequest(*ModifySchemaOwnerInput) (*request.Request, *ModifySchemaOwnerOutput)
+
+	ModifyTaskCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ModifyTaskCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ModifyTaskCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ModifyTask(*ModifyTaskInput) (*ModifyTaskOutput, error)
+	ModifyTaskWithContext(volcengine.Context, *ModifyTaskInput, ...request.Option) (*ModifyTaskOutput, error)
+	ModifyTaskRequest(*ModifyTaskInput) (*request.Request, *ModifyTaskOutput)
 
 	RemoveTagsFromResourceCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	RemoveTagsFromResourceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -502,6 +686,14 @@ type RDSPOSTGRESQLAPI interface {
 	RestartDBInstanceWithContext(volcengine.Context, *RestartDBInstanceInput, ...request.Option) (*RestartDBInstanceOutput, error)
 	RestartDBInstanceRequest(*RestartDBInstanceInput) (*request.Request, *RestartDBInstanceOutput)
 
+	RestoreToExistedInstanceCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	RestoreToExistedInstanceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	RestoreToExistedInstanceCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	RestoreToExistedInstance(*RestoreToExistedInstanceInput) (*RestoreToExistedInstanceOutput, error)
+	RestoreToExistedInstanceWithContext(volcengine.Context, *RestoreToExistedInstanceInput, ...request.Option) (*RestoreToExistedInstanceOutput, error)
+	RestoreToExistedInstanceRequest(*RestoreToExistedInstanceInput) (*request.Request, *RestoreToExistedInstanceOutput)
+
 	RestoreToNewInstanceCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	RestoreToNewInstanceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	RestoreToNewInstanceCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -517,6 +709,14 @@ type RDSPOSTGRESQLAPI interface {
 	RevokeDBAccountPrivilege(*RevokeDBAccountPrivilegeInput) (*RevokeDBAccountPrivilegeOutput, error)
 	RevokeDBAccountPrivilegeWithContext(volcengine.Context, *RevokeDBAccountPrivilegeInput, ...request.Option) (*RevokeDBAccountPrivilegeOutput, error)
 	RevokeDBAccountPrivilegeRequest(*RevokeDBAccountPrivilegeInput) (*request.Request, *RevokeDBAccountPrivilegeOutput)
+
+	SaveAsParameterTemplateCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	SaveAsParameterTemplateCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	SaveAsParameterTemplateCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	SaveAsParameterTemplate(*SaveAsParameterTemplateInput) (*SaveAsParameterTemplateOutput, error)
+	SaveAsParameterTemplateWithContext(volcengine.Context, *SaveAsParameterTemplateInput, ...request.Option) (*SaveAsParameterTemplateOutput, error)
+	SaveAsParameterTemplateRequest(*SaveAsParameterTemplateInput) (*request.Request, *SaveAsParameterTemplateOutput)
 
 	UnifyNewAllowListCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	UnifyNewAllowListCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
