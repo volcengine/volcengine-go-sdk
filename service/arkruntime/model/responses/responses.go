@@ -14325,7 +14325,7 @@ type ResponseDoubaoAppCallBlockAddedEvent struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	Type           EventType_Enum      `protobuf:"varint,1,opt,name=type,proto3,enum=responses.EventType_Enum" json:"type,omitempty"` // sdk:  {"enum": {"const": "response.doubao_app_call.block.added"}}
+	Type           EventType_Enum      `protobuf:"varint,1,opt,name=type,proto3,enum=responses.EventType_Enum" json:"type,omitempty"` // sdk:  {"enum": {"const": "response.doubao_app_call_block.added"}}
 	ItemId         string              `protobuf:"bytes,2,opt,name=item_id,json=itemId,proto3" json:"item_id,omitempty"`
 	OutputIndex    int64               `protobuf:"varint,3,opt,name=output_index,json=outputIndex,proto3" json:"output_index,omitempty"`
 	SequenceNumber int64               `protobuf:"varint,4,opt,name=sequence_number,json=sequenceNumber,proto3" json:"sequence_number"` // @inject_tag: json:"sequence_number"
@@ -14404,7 +14404,7 @@ type ResponseDoubaoAppCallBlockDoneEvent struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	Type           EventType_Enum      `protobuf:"varint,1,opt,name=type,proto3,enum=responses.EventType_Enum" json:"type,omitempty"` // sdk:  {"enum": {"const": "response.doubao_app_call.block.done"}}
+	Type           EventType_Enum      `protobuf:"varint,1,opt,name=type,proto3,enum=responses.EventType_Enum" json:"type,omitempty"` // sdk:  {"enum": {"const": "response.doubao_app_call_block.done"}}
 	ItemId         string              `protobuf:"bytes,2,opt,name=item_id,json=itemId,proto3" json:"item_id,omitempty"`
 	OutputIndex    int64               `protobuf:"varint,3,opt,name=output_index,json=outputIndex,proto3" json:"output_index,omitempty"`
 	SequenceNumber int64               `protobuf:"varint,4,opt,name=sequence_number,json=sequenceNumber,proto3" json:"sequence_number"` // @inject_tag: json:"sequence_number"
@@ -14483,7 +14483,7 @@ type ResponseDoubaoAppCallReasoningTextDeltaEvent struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	Type           EventType_Enum `protobuf:"varint,1,opt,name=type,proto3,enum=responses.EventType_Enum" json:"type,omitempty"` // sdk:  {"enum": {"const": "response.doubao_app_call.reasoning_text.delta"}}
+	Type           EventType_Enum `protobuf:"varint,1,opt,name=type,proto3,enum=responses.EventType_Enum" json:"type,omitempty"` // sdk:  {"enum": {"const": "response.doubao_app_call_reasoning_text.delta"}}
 	ItemId         string         `protobuf:"bytes,2,opt,name=item_id,json=itemId,proto3" json:"item_id,omitempty"`
 	OutputIndex    int64          `protobuf:"varint,3,opt,name=output_index,json=outputIndex,proto3" json:"output_index,omitempty"`
 	BlockIndex     int64          `protobuf:"varint,4,opt,name=block_index,json=blockIndex,proto3" json:"block_index,omitempty"`
@@ -14570,7 +14570,7 @@ type ResponseDoubaoAppCallReasoningTextDoneEvent struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	Type           EventType_Enum `protobuf:"varint,1,opt,name=type,proto3,enum=responses.EventType_Enum" json:"type,omitempty"` // sdk:  {"enum": {"const": "response.doubao_app_call.reasoning_text.done"}}
+	Type           EventType_Enum `protobuf:"varint,1,opt,name=type,proto3,enum=responses.EventType_Enum" json:"type,omitempty"` // sdk:  {"enum": {"const": "response.doubao_app_call_reasoning_text.done"}}
 	ItemId         string         `protobuf:"bytes,2,opt,name=item_id,json=itemId,proto3" json:"item_id,omitempty"`
 	OutputIndex    int64          `protobuf:"varint,3,opt,name=output_index,json=outputIndex,proto3" json:"output_index,omitempty"`
 	BlockIndex     int64          `protobuf:"varint,4,opt,name=block_index,json=blockIndex,proto3" json:"block_index,omitempty"`
@@ -14657,7 +14657,7 @@ type ResponseDoubaoAppCallOutputTextDeltaEvent struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	Type           EventType_Enum `protobuf:"varint,1,opt,name=type,proto3,enum=responses.EventType_Enum" json:"type,omitempty"` // sdk:  {"enum": {"const": "response.doubao_app_call.output_text.delta"}}
+	Type           EventType_Enum `protobuf:"varint,1,opt,name=type,proto3,enum=responses.EventType_Enum" json:"type,omitempty"` // sdk:  {"enum": {"const": "response.doubao_app_call_output_text.delta"}}
 	ItemId         string         `protobuf:"bytes,2,opt,name=item_id,json=itemId,proto3" json:"item_id,omitempty"`
 	OutputIndex    int64          `protobuf:"varint,3,opt,name=output_index,json=outputIndex,proto3" json:"output_index,omitempty"`
 	BlockIndex     int64          `protobuf:"varint,4,opt,name=block_index,json=blockIndex,proto3" json:"block_index,omitempty"`
@@ -14744,7 +14744,7 @@ type ResponseDoubaoAppCallOutputTextDoneEvent struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	Type           EventType_Enum `protobuf:"varint,1,opt,name=type,proto3,enum=responses.EventType_Enum" json:"type,omitempty"` // sdk:  {"enum": {"const": "response.doubao_app_call.output_text.done"}}
+	Type           EventType_Enum `protobuf:"varint,1,opt,name=type,proto3,enum=responses.EventType_Enum" json:"type,omitempty"` // sdk:  {"enum": {"const": "response.doubao_app_call_output_text.done"}}
 	ItemId         string         `protobuf:"bytes,2,opt,name=item_id,json=itemId,proto3" json:"item_id,omitempty"`
 	OutputIndex    int64          `protobuf:"varint,3,opt,name=output_index,json=outputIndex,proto3" json:"output_index,omitempty"`
 	BlockIndex     int64          `protobuf:"varint,4,opt,name=block_index,json=blockIndex,proto3" json:"block_index,omitempty"`
@@ -14831,7 +14831,7 @@ type ResponseDoubaoAppCallReasoningSearchInProgressEvent struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	Type           EventType_Enum `protobuf:"varint,1,opt,name=type,proto3,enum=responses.EventType_Enum" json:"type,omitempty"` // sdk:  {"enum": {"const": "response.doubao_app_call.search.in_progress"}}
+	Type           EventType_Enum `protobuf:"varint,1,opt,name=type,proto3,enum=responses.EventType_Enum" json:"type,omitempty"` // sdk:  {"enum": {"const": "response.doubao_app_call_search.in_progress"}}
 	ItemId         string         `protobuf:"bytes,2,opt,name=item_id,json=itemId,proto3" json:"item_id,omitempty"`
 	OutputIndex    int64          `protobuf:"varint,3,opt,name=output_index,json=outputIndex,proto3" json:"output_index,omitempty"`
 	BlockIndex     int64          `protobuf:"varint,4,opt,name=block_index,json=blockIndex,proto3" json:"block_index,omitempty"`
@@ -14910,7 +14910,7 @@ type ResponseDoubaoAppCallReasoningSearchSearchingEvent struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	Type           EventType_Enum `protobuf:"varint,1,opt,name=type,proto3,enum=responses.EventType_Enum" json:"type,omitempty"` // sdk:  {"enum": {"const": "response.doubao_app_call.search.searching"}}
+	Type           EventType_Enum `protobuf:"varint,1,opt,name=type,proto3,enum=responses.EventType_Enum" json:"type,omitempty"` // sdk:  {"enum": {"const": "response.doubao_app_call_search.searching"}}
 	ItemId         string         `protobuf:"bytes,2,opt,name=item_id,json=itemId,proto3" json:"item_id,omitempty"`
 	OutputIndex    int64          `protobuf:"varint,3,opt,name=output_index,json=outputIndex,proto3" json:"output_index,omitempty"`
 	BlockIndex     int64          `protobuf:"varint,4,opt,name=block_index,json=blockIndex,proto3" json:"block_index,omitempty"`
@@ -14997,7 +14997,7 @@ type ResponseDoubaoAppCallReasoningSearchCompletedEvent struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	Type           EventType_Enum           `protobuf:"varint,1,opt,name=type,proto3,enum=responses.EventType_Enum" json:"type,omitempty"` // sdk:  {"enum": {"const": "response.doubao_app_call.search.completed"}}
+	Type           EventType_Enum           `protobuf:"varint,1,opt,name=type,proto3,enum=responses.EventType_Enum" json:"type,omitempty"` // sdk:  {"enum": {"const": "response.doubao_app_call_search.completed"}}
 	ItemId         string                   `protobuf:"bytes,2,opt,name=item_id,json=itemId,proto3" json:"item_id,omitempty"`
 	OutputIndex    int64                    `protobuf:"varint,3,opt,name=output_index,json=outputIndex,proto3" json:"output_index,omitempty"`
 	BlockIndex     int64                    `protobuf:"varint,4,opt,name=block_index,json=blockIndex,proto3" json:"block_index,omitempty"`
@@ -15100,7 +15100,7 @@ type ResponseDoubaoAppCallSearchInProgressEvent struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	Type           EventType_Enum `protobuf:"varint,1,opt,name=type,proto3,enum=responses.EventType_Enum" json:"type,omitempty"` // sdk:  {"enum": {"const": "response.doubao_app_call.reasoning_search.in_progress"}}
+	Type           EventType_Enum `protobuf:"varint,1,opt,name=type,proto3,enum=responses.EventType_Enum" json:"type,omitempty"` // sdk:  {"enum": {"const": "response.doubao_app_call_reasoning_search.in_progress"}}
 	ItemId         string         `protobuf:"bytes,2,opt,name=item_id,json=itemId,proto3" json:"item_id,omitempty"`
 	OutputIndex    int64          `protobuf:"varint,3,opt,name=output_index,json=outputIndex,proto3" json:"output_index,omitempty"`
 	BlockIndex     int64          `protobuf:"varint,4,opt,name=block_index,json=blockIndex,proto3" json:"block_index,omitempty"`
@@ -15179,7 +15179,7 @@ type ResponseDoubaoAppCallSearchSearchingEvent struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	Type           EventType_Enum `protobuf:"varint,1,opt,name=type,proto3,enum=responses.EventType_Enum" json:"type,omitempty"` // sdk:  {"enum": {"const": "response.doubao_app_call.reasoning_search.searching"}}
+	Type           EventType_Enum `protobuf:"varint,1,opt,name=type,proto3,enum=responses.EventType_Enum" json:"type,omitempty"` // sdk:  {"enum": {"const": "response.doubao_app_call_reasoning_search.searching"}}
 	ItemId         string         `protobuf:"bytes,2,opt,name=item_id,json=itemId,proto3" json:"item_id,omitempty"`
 	OutputIndex    int64          `protobuf:"varint,3,opt,name=output_index,json=outputIndex,proto3" json:"output_index,omitempty"`
 	BlockIndex     int64          `protobuf:"varint,4,opt,name=block_index,json=blockIndex,proto3" json:"block_index,omitempty"`
@@ -15266,7 +15266,7 @@ type ResponseDoubaoAppCallSearchCompletedEvent struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	Type           EventType_Enum           `protobuf:"varint,1,opt,name=type,proto3,enum=responses.EventType_Enum" json:"type,omitempty"` // sdk:  {"enum": {"const": "response.doubao_app_call.reasoning_search.completed"}}
+	Type           EventType_Enum           `protobuf:"varint,1,opt,name=type,proto3,enum=responses.EventType_Enum" json:"type,omitempty"` // sdk:  {"enum": {"const": "response.doubao_app_call_reasoning_search.completed"}}
 	ItemId         string                   `protobuf:"bytes,2,opt,name=item_id,json=itemId,proto3" json:"item_id,omitempty"`
 	OutputIndex    int64                    `protobuf:"varint,3,opt,name=output_index,json=outputIndex,proto3" json:"output_index,omitempty"`
 	BlockIndex     int64                    `protobuf:"varint,4,opt,name=block_index,json=blockIndex,proto3" json:"block_index,omitempty"`

@@ -27,6 +27,11 @@ const (
 
 var enabeld = responses.ResponseDoubaoAppFeatureType_enabled
 
+/**
+ * Doubao features:
+ * 从ChatFeature， DeepChatFeature，AiSearchFeature，ReasoningSearchFeature 四个feature中选择一个
+ * 你可以选择自定义身份角色
+ */
 // var optionalRoleDescription = "你是小明"
 var setting = responses.DoubaoAppFeatureItem{
 	Type: &enabeld,
