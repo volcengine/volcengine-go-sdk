@@ -143,8 +143,40 @@ func (c *RDSPOSTGRESQL) ModifyDBInstanceSpecWithContext(ctx volcengine.Context, 
 	return out, req.Send()
 }
 
+type EstimationResultForModifyDBInstanceSpecOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Effects []*string `type:"list" json:",omitempty"`
+
+	Plans []*string `type:"list" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s EstimationResultForModifyDBInstanceSpecOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s EstimationResultForModifyDBInstanceSpecOutput) GoString() string {
+	return s.String()
+}
+
+// SetEffects sets the Effects field's value.
+func (s *EstimationResultForModifyDBInstanceSpecOutput) SetEffects(v []*string) *EstimationResultForModifyDBInstanceSpecOutput {
+	s.Effects = v
+	return s
+}
+
+// SetPlans sets the Plans field's value.
+func (s *EstimationResultForModifyDBInstanceSpecOutput) SetPlans(v []*string) *EstimationResultForModifyDBInstanceSpecOutput {
+	s.Plans = v
+	return s
+}
+
 type ModifyDBInstanceSpecInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
+
+	EstimateOnly *bool `type:"boolean" json:",omitempty"`
 
 	// InstanceId is a required field
 	InstanceId *string `type:"string" json:",omitempty" required:"true"`
@@ -154,6 +186,10 @@ type ModifyDBInstanceSpecInput struct {
 	NodeInfo []*NodeInfoForModifyDBInstanceSpecInput `type:"list" json:",omitempty"`
 
 	RollbackTime *string `type:"string" json:",omitempty"`
+
+	SpecifiedSwitchEndTime *string `type:"string" json:",omitempty"`
+
+	SpecifiedSwitchStartTime *string `type:"string" json:",omitempty"`
 
 	StorageSpace *int32 `type:"int32" json:",omitempty"`
 
@@ -183,6 +219,12 @@ func (s *ModifyDBInstanceSpecInput) Validate() error {
 	return nil
 }
 
+// SetEstimateOnly sets the EstimateOnly field's value.
+func (s *ModifyDBInstanceSpecInput) SetEstimateOnly(v bool) *ModifyDBInstanceSpecInput {
+	s.EstimateOnly = &v
+	return s
+}
+
 // SetInstanceId sets the InstanceId field's value.
 func (s *ModifyDBInstanceSpecInput) SetInstanceId(v string) *ModifyDBInstanceSpecInput {
 	s.InstanceId = &v
@@ -207,6 +249,18 @@ func (s *ModifyDBInstanceSpecInput) SetRollbackTime(v string) *ModifyDBInstanceS
 	return s
 }
 
+// SetSpecifiedSwitchEndTime sets the SpecifiedSwitchEndTime field's value.
+func (s *ModifyDBInstanceSpecInput) SetSpecifiedSwitchEndTime(v string) *ModifyDBInstanceSpecInput {
+	s.SpecifiedSwitchEndTime = &v
+	return s
+}
+
+// SetSpecifiedSwitchStartTime sets the SpecifiedSwitchStartTime field's value.
+func (s *ModifyDBInstanceSpecInput) SetSpecifiedSwitchStartTime(v string) *ModifyDBInstanceSpecInput {
+	s.SpecifiedSwitchStartTime = &v
+	return s
+}
+
 // SetStorageSpace sets the StorageSpace field's value.
 func (s *ModifyDBInstanceSpecInput) SetStorageSpace(v int32) *ModifyDBInstanceSpecInput {
 	s.StorageSpace = &v
@@ -224,6 +278,8 @@ type ModifyDBInstanceSpecOutput struct {
 
 	Metadata *response.ResponseMetadata
 
+	EstimationResult *EstimationResultForModifyDBInstanceSpecOutput `type:"structure" json:",omitempty"`
+
 	InstanceId *string `type:"string" json:",omitempty"`
 
 	OrderId *string `type:"string" json:",omitempty"`
@@ -237,6 +293,12 @@ func (s ModifyDBInstanceSpecOutput) String() string {
 // GoString returns the string representation
 func (s ModifyDBInstanceSpecOutput) GoString() string {
 	return s.String()
+}
+
+// SetEstimationResult sets the EstimationResult field's value.
+func (s *ModifyDBInstanceSpecOutput) SetEstimationResult(v *EstimationResultForModifyDBInstanceSpecOutput) *ModifyDBInstanceSpecOutput {
+	s.EstimationResult = v
+	return s
 }
 
 // SetInstanceId sets the InstanceId field's value.

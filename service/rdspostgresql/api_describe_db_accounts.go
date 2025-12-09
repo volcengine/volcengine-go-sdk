@@ -153,6 +153,8 @@ type AccountForDescribeDBAccountsOutput struct {
 	AccountStatus *string `type:"string" json:",omitempty"`
 
 	AccountType *string `type:"string" json:",omitempty"`
+
+	NotAllowPrivileges []*string `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -186,6 +188,12 @@ func (s *AccountForDescribeDBAccountsOutput) SetAccountStatus(v string) *Account
 // SetAccountType sets the AccountType field's value.
 func (s *AccountForDescribeDBAccountsOutput) SetAccountType(v string) *AccountForDescribeDBAccountsOutput {
 	s.AccountType = &v
+	return s
+}
+
+// SetNotAllowPrivileges sets the NotAllowPrivileges field's value.
+func (s *AccountForDescribeDBAccountsOutput) SetNotAllowPrivileges(v []*string) *AccountForDescribeDBAccountsOutput {
+	s.NotAllowPrivileges = v
 	return s
 }
 

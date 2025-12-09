@@ -143,8 +143,38 @@ func (c *RDSPOSTGRESQL) CreateBackupWithContext(ctx volcengine.Context, input *C
 	return out, req.Send()
 }
 
+type BackupMetaForCreateBackupInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	DBName *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s BackupMetaForCreateBackupInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s BackupMetaForCreateBackupInput) GoString() string {
+	return s.String()
+}
+
+// SetDBName sets the DBName field's value.
+func (s *BackupMetaForCreateBackupInput) SetDBName(v string) *BackupMetaForCreateBackupInput {
+	s.DBName = &v
+	return s
+}
+
 type CreateBackupInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
+
+	BackupDescription *string `type:"string" json:",omitempty"`
+
+	BackupMeta []*BackupMetaForCreateBackupInput `type:"list" json:",omitempty"`
+
+	BackupMethod *string `type:"string" json:",omitempty"`
+
+	BackupScope *string `type:"string" json:",omitempty"`
 
 	BackupType *string `type:"string" json:",omitempty"`
 
@@ -175,6 +205,30 @@ func (s *CreateBackupInput) Validate() error {
 	return nil
 }
 
+// SetBackupDescription sets the BackupDescription field's value.
+func (s *CreateBackupInput) SetBackupDescription(v string) *CreateBackupInput {
+	s.BackupDescription = &v
+	return s
+}
+
+// SetBackupMeta sets the BackupMeta field's value.
+func (s *CreateBackupInput) SetBackupMeta(v []*BackupMetaForCreateBackupInput) *CreateBackupInput {
+	s.BackupMeta = v
+	return s
+}
+
+// SetBackupMethod sets the BackupMethod field's value.
+func (s *CreateBackupInput) SetBackupMethod(v string) *CreateBackupInput {
+	s.BackupMethod = &v
+	return s
+}
+
+// SetBackupScope sets the BackupScope field's value.
+func (s *CreateBackupInput) SetBackupScope(v string) *CreateBackupInput {
+	s.BackupScope = &v
+	return s
+}
+
 // SetBackupType sets the BackupType field's value.
 func (s *CreateBackupInput) SetBackupType(v string) *CreateBackupInput {
 	s.BackupType = &v
@@ -191,6 +245,8 @@ type CreateBackupOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
+
+	BackupId *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -201,4 +257,10 @@ func (s CreateBackupOutput) String() string {
 // GoString returns the string representation
 func (s CreateBackupOutput) GoString() string {
 	return s.String()
+}
+
+// SetBackupId sets the BackupId field's value.
+func (s *CreateBackupOutput) SetBackupId(v string) *CreateBackupOutput {
+	s.BackupId = &v
+	return s
 }
