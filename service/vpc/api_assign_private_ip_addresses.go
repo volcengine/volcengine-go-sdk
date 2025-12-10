@@ -142,6 +142,8 @@ func (c *VPC) AssignPrivateIpAddressesWithContext(ctx volcengine.Context, input 
 type AssignPrivateIpAddressesInput struct {
 	_ struct{} `type:"structure"`
 
+	ClientToken *string `type:"string"`
+
 	// NetworkInterfaceId is a required field
 	NetworkInterfaceId *string `type:"string" required:"true"`
 
@@ -173,6 +175,12 @@ func (s *AssignPrivateIpAddressesInput) Validate() error {
 	return nil
 }
 
+// SetClientToken sets the ClientToken field's value.
+func (s *AssignPrivateIpAddressesInput) SetClientToken(v string) *AssignPrivateIpAddressesInput {
+	s.ClientToken = &v
+	return s
+}
+
 // SetNetworkInterfaceId sets the NetworkInterfaceId field's value.
 func (s *AssignPrivateIpAddressesInput) SetNetworkInterfaceId(v string) *AssignPrivateIpAddressesInput {
 	s.NetworkInterfaceId = &v
@@ -196,6 +204,8 @@ type AssignPrivateIpAddressesOutput struct {
 
 	Metadata *response.ResponseMetadata
 
+	AsyncTaskId *string `type:"string"`
+
 	NetworkInterfaceId *string `type:"string"`
 
 	PrivateIpSet []*string `type:"list"`
@@ -211,6 +221,12 @@ func (s AssignPrivateIpAddressesOutput) String() string {
 // GoString returns the string representation
 func (s AssignPrivateIpAddressesOutput) GoString() string {
 	return s.String()
+}
+
+// SetAsyncTaskId sets the AsyncTaskId field's value.
+func (s *AssignPrivateIpAddressesOutput) SetAsyncTaskId(v string) *AssignPrivateIpAddressesOutput {
+	s.AsyncTaskId = &v
+	return s
 }
 
 // SetNetworkInterfaceId sets the NetworkInterfaceId field's value.

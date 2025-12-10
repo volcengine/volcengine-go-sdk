@@ -158,9 +158,9 @@ type DescribeTrafficMirrorSessionsInput struct {
 
 	TrafficMirrorFilterId *string `type:"string"`
 
-	TrafficMirrorSessionIds *string `type:"string"`
+	TrafficMirrorSessionIds []*string `type:"list"`
 
-	TrafficMirrorSessionNames *string `type:"string"`
+	TrafficMirrorSessionNames []*string `type:"list"`
 
 	TrafficMirrorTargetId *string `type:"string"`
 
@@ -226,14 +226,14 @@ func (s *DescribeTrafficMirrorSessionsInput) SetTrafficMirrorFilterId(v string) 
 }
 
 // SetTrafficMirrorSessionIds sets the TrafficMirrorSessionIds field's value.
-func (s *DescribeTrafficMirrorSessionsInput) SetTrafficMirrorSessionIds(v string) *DescribeTrafficMirrorSessionsInput {
-	s.TrafficMirrorSessionIds = &v
+func (s *DescribeTrafficMirrorSessionsInput) SetTrafficMirrorSessionIds(v []*string) *DescribeTrafficMirrorSessionsInput {
+	s.TrafficMirrorSessionIds = v
 	return s
 }
 
 // SetTrafficMirrorSessionNames sets the TrafficMirrorSessionNames field's value.
-func (s *DescribeTrafficMirrorSessionsInput) SetTrafficMirrorSessionNames(v string) *DescribeTrafficMirrorSessionsInput {
-	s.TrafficMirrorSessionNames = &v
+func (s *DescribeTrafficMirrorSessionsInput) SetTrafficMirrorSessionNames(v []*string) *DescribeTrafficMirrorSessionsInput {
+	s.TrafficMirrorSessionNames = v
 	return s
 }
 

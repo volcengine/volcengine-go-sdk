@@ -256,6 +256,8 @@ type CreatePrefixListOutput struct {
 
 	Metadata *response.ResponseMetadata
 
+	AsyncTaskId *string `type:"string"`
+
 	PrefixListId *string `type:"string"`
 
 	RequestId *string `type:"string"`
@@ -269,6 +271,12 @@ func (s CreatePrefixListOutput) String() string {
 // GoString returns the string representation
 func (s CreatePrefixListOutput) GoString() string {
 	return s.String()
+}
+
+// SetAsyncTaskId sets the AsyncTaskId field's value.
+func (s *CreatePrefixListOutput) SetAsyncTaskId(v string) *CreatePrefixListOutput {
+	s.AsyncTaskId = &v
+	return s
 }
 
 // SetPrefixListId sets the PrefixListId field's value.

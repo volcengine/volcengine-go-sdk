@@ -180,6 +180,8 @@ type DeleteIpv6GatewayOutput struct {
 
 	Metadata *response.ResponseMetadata
 
+	AsyncTaskId *string `type:"string"`
+
 	RequestId *string `type:"string"`
 }
 
@@ -191,6 +193,12 @@ func (s DeleteIpv6GatewayOutput) String() string {
 // GoString returns the string representation
 func (s DeleteIpv6GatewayOutput) GoString() string {
 	return s.String()
+}
+
+// SetAsyncTaskId sets the AsyncTaskId field's value.
+func (s *DeleteIpv6GatewayOutput) SetAsyncTaskId(v string) *DeleteIpv6GatewayOutput {
+	s.AsyncTaskId = &v
+	return s
 }
 
 // SetRequestId sets the RequestId field's value.

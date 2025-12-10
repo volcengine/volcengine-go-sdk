@@ -180,6 +180,8 @@ type DeleteVpcOutput struct {
 
 	Metadata *response.ResponseMetadata
 
+	AsyncTaskId *string `type:"string"`
+
 	RequestId *string `type:"string"`
 }
 
@@ -191,6 +193,12 @@ func (s DeleteVpcOutput) String() string {
 // GoString returns the string representation
 func (s DeleteVpcOutput) GoString() string {
 	return s.String()
+}
+
+// SetAsyncTaskId sets the AsyncTaskId field's value.
+func (s *DeleteVpcOutput) SetAsyncTaskId(v string) *DeleteVpcOutput {
+	s.AsyncTaskId = &v
+	return s
 }
 
 // SetRequestId sets the RequestId field's value.

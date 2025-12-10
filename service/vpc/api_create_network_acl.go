@@ -232,6 +232,8 @@ type CreateNetworkAclOutput struct {
 
 	Metadata *response.ResponseMetadata
 
+	AsyncTaskId *string `type:"string"`
+
 	NetworkAclId *string `type:"string"`
 
 	RequestId *string `type:"string"`
@@ -245,6 +247,12 @@ func (s CreateNetworkAclOutput) String() string {
 // GoString returns the string representation
 func (s CreateNetworkAclOutput) GoString() string {
 	return s.String()
+}
+
+// SetAsyncTaskId sets the AsyncTaskId field's value.
+func (s *CreateNetworkAclOutput) SetAsyncTaskId(v string) *CreateNetworkAclOutput {
+	s.AsyncTaskId = &v
+	return s
 }
 
 // SetNetworkAclId sets the NetworkAclId field's value.

@@ -220,6 +220,8 @@ type CreateSecurityGroupOutput struct {
 
 	Metadata *response.ResponseMetadata
 
+	AsyncTaskId *string `type:"string"`
+
 	RequestId *string `type:"string"`
 
 	SecurityGroupId *string `type:"string"`
@@ -233,6 +235,12 @@ func (s CreateSecurityGroupOutput) String() string {
 // GoString returns the string representation
 func (s CreateSecurityGroupOutput) GoString() string {
 	return s.String()
+}
+
+// SetAsyncTaskId sets the AsyncTaskId field's value.
+func (s *CreateSecurityGroupOutput) SetAsyncTaskId(v string) *CreateSecurityGroupOutput {
+	s.AsyncTaskId = &v
+	return s
 }
 
 // SetRequestId sets the RequestId field's value.

@@ -280,6 +280,8 @@ type CreateTrafficMirrorFilterRuleOutput struct {
 
 	Metadata *response.ResponseMetadata
 
+	AsyncTaskId *string `type:"string"`
+
 	RequestId *string `type:"string"`
 
 	TrafficMirrorFilterRuleId *string `type:"string"`
@@ -293,6 +295,12 @@ func (s CreateTrafficMirrorFilterRuleOutput) String() string {
 // GoString returns the string representation
 func (s CreateTrafficMirrorFilterRuleOutput) GoString() string {
 	return s.String()
+}
+
+// SetAsyncTaskId sets the AsyncTaskId field's value.
+func (s *CreateTrafficMirrorFilterRuleOutput) SetAsyncTaskId(v string) *CreateTrafficMirrorFilterRuleOutput {
+	s.AsyncTaskId = &v
+	return s
 }
 
 // SetRequestId sets the RequestId field's value.
@@ -330,9 +338,9 @@ const (
 )
 
 const (
-	// TrafficDirectionForCreateTrafficMirrorFilterRuleInputEgress is a TrafficDirectionForCreateTrafficMirrorFilterRuleInput enum value
-	TrafficDirectionForCreateTrafficMirrorFilterRuleInputEgress = "egress"
-
 	// TrafficDirectionForCreateTrafficMirrorFilterRuleInputIngress is a TrafficDirectionForCreateTrafficMirrorFilterRuleInput enum value
 	TrafficDirectionForCreateTrafficMirrorFilterRuleInputIngress = "ingress"
+
+	// TrafficDirectionForCreateTrafficMirrorFilterRuleInputEgress is a TrafficDirectionForCreateTrafficMirrorFilterRuleInput enum value
+	TrafficDirectionForCreateTrafficMirrorFilterRuleInputEgress = "egress"
 )

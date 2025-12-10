@@ -272,6 +272,8 @@ type AuthorizeSecurityGroupIngressOutput struct {
 
 	Metadata *response.ResponseMetadata
 
+	AsyncTaskId *string `type:"string"`
+
 	RequestId *string `type:"string"`
 }
 
@@ -283,6 +285,12 @@ func (s AuthorizeSecurityGroupIngressOutput) String() string {
 // GoString returns the string representation
 func (s AuthorizeSecurityGroupIngressOutput) GoString() string {
 	return s.String()
+}
+
+// SetAsyncTaskId sets the AsyncTaskId field's value.
+func (s *AuthorizeSecurityGroupIngressOutput) SetAsyncTaskId(v string) *AuthorizeSecurityGroupIngressOutput {
+	s.AsyncTaskId = &v
+	return s
 }
 
 // SetRequestId sets the RequestId field's value.

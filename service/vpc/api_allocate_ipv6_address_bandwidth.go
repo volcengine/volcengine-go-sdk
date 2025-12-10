@@ -237,6 +237,8 @@ type AllocateIpv6AddressBandwidthOutput struct {
 
 	AllocationId *string `type:"string"`
 
+	AllocationIds []*string `type:"list"`
+
 	RequestId *string `type:"string"`
 }
 
@@ -253,6 +255,12 @@ func (s AllocateIpv6AddressBandwidthOutput) GoString() string {
 // SetAllocationId sets the AllocationId field's value.
 func (s *AllocateIpv6AddressBandwidthOutput) SetAllocationId(v string) *AllocateIpv6AddressBandwidthOutput {
 	s.AllocationId = &v
+	return s
+}
+
+// SetAllocationIds sets the AllocationIds field's value.
+func (s *AllocateIpv6AddressBandwidthOutput) SetAllocationIds(v []*string) *AllocateIpv6AddressBandwidthOutput {
+	s.AllocationIds = v
 	return s
 }
 

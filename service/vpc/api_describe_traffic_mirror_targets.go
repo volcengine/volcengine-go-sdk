@@ -150,7 +150,7 @@ type DescribeTrafficMirrorTargetsInput struct {
 
 	TagFilters []*TagFilterForDescribeTrafficMirrorTargetsInput `type:"list"`
 
-	TrafficMirrorTargetIds *string `type:"string"`
+	TrafficMirrorTargetIds []*string `type:"list"`
 
 	TrafficMirrorTargetName *string `type:"string"`
 }
@@ -190,8 +190,8 @@ func (s *DescribeTrafficMirrorTargetsInput) SetTagFilters(v []*TagFilterForDescr
 }
 
 // SetTrafficMirrorTargetIds sets the TrafficMirrorTargetIds field's value.
-func (s *DescribeTrafficMirrorTargetsInput) SetTrafficMirrorTargetIds(v string) *DescribeTrafficMirrorTargetsInput {
-	s.TrafficMirrorTargetIds = &v
+func (s *DescribeTrafficMirrorTargetsInput) SetTrafficMirrorTargetIds(v []*string) *DescribeTrafficMirrorTargetsInput {
+	s.TrafficMirrorTargetIds = v
 	return s
 }
 

@@ -142,7 +142,7 @@ func (c *VPC) DescribePrefixListsWithContext(ctx volcengine.Context, input *Desc
 type DescribePrefixListsInput struct {
 	_ struct{} `type:"structure"`
 
-	IpVersion *string `type:"string"`
+	IpVersion *string `type:"string" enum:"IpVersionForDescribePrefixListsInput"`
 
 	MaxResults *int64 `min:"1" max:"100" type:"integer"`
 
@@ -474,3 +474,11 @@ func (s *TagForDescribePrefixListsOutput) SetValue(v string) *TagForDescribePref
 	s.Value = &v
 	return s
 }
+
+const (
+	// IpVersionForDescribePrefixListsInputIpv4 is a IpVersionForDescribePrefixListsInput enum value
+	IpVersionForDescribePrefixListsInputIpv4 = "IPv4"
+
+	// IpVersionForDescribePrefixListsInputIpv6 is a IpVersionForDescribePrefixListsInput enum value
+	IpVersionForDescribePrefixListsInputIpv6 = "IPv6"
+)

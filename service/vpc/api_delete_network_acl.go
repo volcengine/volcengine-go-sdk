@@ -180,6 +180,8 @@ type DeleteNetworkAclOutput struct {
 
 	Metadata *response.ResponseMetadata
 
+	AsyncTaskId *string `type:"string"`
+
 	RequestId *string `type:"string"`
 }
 
@@ -191,6 +193,12 @@ func (s DeleteNetworkAclOutput) String() string {
 // GoString returns the string representation
 func (s DeleteNetworkAclOutput) GoString() string {
 	return s.String()
+}
+
+// SetAsyncTaskId sets the AsyncTaskId field's value.
+func (s *DeleteNetworkAclOutput) SetAsyncTaskId(v string) *DeleteNetworkAclOutput {
+	s.AsyncTaskId = &v
+	return s
 }
 
 // SetRequestId sets the RequestId field's value.
