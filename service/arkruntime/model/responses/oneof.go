@@ -235,28 +235,55 @@ func (i *ResponseImageProcessArgs) MarshalJSON() ([]byte, error) {
 }
 
 // UnmarshalJSON ...
-func (i *ResponseImageProcessArgs) UnmarshalJSON(bytes []byte) error {
+func (i *ItemFunctionImageProcess) UnmarshalJSON(bytes []byte) error {
+	type Plain struct {
+		Type      ItemType_Enum               `protobuf:"varint,1,opt,name=type,proto3,enum=responses.ItemType_Enum" json:"type,omitempty"` // p2p: {"const": "image_process"}
+		Action    *ResponseImageProcessAction `protobuf:"bytes,2,opt,name=action,proto3" json:"action,omitempty"`
+		Arguments *ResponseImageProcessArgs   `protobuf:"bytes,3,opt,name=arguments,proto3" json:"arguments,omitempty"`
+		Status    ItemStatus_Enum             `protobuf:"varint,4,opt,name=status,proto3,enum=responses.ItemStatus_Enum" json:"status,omitempty"`
+		ID        string                      `protobuf:"bytes,5,opt,name=id,proto3" json:"id,omitempty"`
+		Error     *ResponseImageProcessError  `protobuf:"bytes,6,opt,name=error,proto3,oneof" json:"error,omitempty"`
+	}
+	var plain Plain
+	if err := json.Unmarshal(bytes, &plain); err != nil {
+		return err
+	}
+	i.Type = plain.Type
+	i.Action = plain.Action
+	i.Status = plain.Status
+	i.Id = plain.ID
+	i.Error = plain.Error
+
+	// following parse arguments
+	i.Arguments = &ResponseImageProcessArgs{}
 	var err error
-	oneof1 := ResponseImageProcessArgs_PointArgs{}
-	if err = unmarshal(bytes, &oneof1.PointArgs); err == nil {
-		i.Union = &oneof1
-		return nil
+	switch i.GetAction().GetType() {
+	case ResponseImageProcessType_point.String():
+		oneof1 := ResponseImageProcessArgs_PointArgs{}
+		if err = unmarshal(bytes, &oneof1.PointArgs); err == nil {
+			i.Arguments.Union = &oneof1
+			return nil
+		}
+	case ResponseImageProcessType_grounding.String():
+		oneof2 := ResponseImageProcessArgs_GroundingArgs{}
+		if err = unmarshal(bytes, &oneof2.GroundingArgs); err == nil {
+			i.Arguments.Union = &oneof2
+			return nil
+		}
+	case ResponseImageProcessType_rotate.String():
+		oneof3 := ResponseImageProcessArgs_RotateArgs{}
+		if err = unmarshal(bytes, &oneof3.RotateArgs); err == nil {
+			i.Arguments.Union = &oneof3
+			return nil
+		}
+	case ResponseImageProcessType_zoom.String():
+		oneof4 := ResponseImageProcessArgs_ZoomArgs{}
+		if err = unmarshal(bytes, &oneof4.ZoomArgs); err == nil {
+			i.Arguments.Union = &oneof4
+			return nil
+		}
 	}
-	oneof2 := ResponseImageProcessArgs_GroundingArgs{}
-	if err = unmarshal(bytes, &oneof2.GroundingArgs); err == nil {
-		i.Union = &oneof2
-		return nil
-	}
-	oneof3 := ResponseImageProcessArgs_RotateArgs{}
-	if err = unmarshal(bytes, &oneof3.RotateArgs); err == nil {
-		i.Union = &oneof3
-		return nil
-	}
-	oneof4 := ResponseImageProcessArgs_ZoomArgs{}
-	if err = unmarshal(bytes, &oneof4.ZoomArgs); err == nil {
-		i.Union = &oneof4
-		return nil
-	}
+
 	return err
 }
 
@@ -545,6 +572,15 @@ func (r *ResponsesToolChoice) UnmarshalJSON(bytes []byte) error {
 // MarshalJSON ...
 func (r *ResponsesToolChoice) MarshalJSON() ([]byte, error) {
 	if v := r.GetFunctionToolChoice(); v != nil {
+		return json.Marshal(v)
+	}
+	if v := r.GetWebSearchToolChoice(); v != nil {
+		return json.Marshal(v)
+	}
+	if v := r.GetKnowledgeSearchToolChoice(); v != nil {
+		return json.Marshal(v)
+	}
+	if v := r.GetMcpToolChoice(); v != nil {
 		return json.Marshal(v)
 	}
 	return json.Marshal(r.GetMode())
