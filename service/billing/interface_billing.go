@@ -110,14 +110,6 @@ type BILLINGAPI interface {
 	ListAmortizedCostBillDailyWithContext(volcengine.Context, *ListAmortizedCostBillDailyInput, ...request.Option) (*ListAmortizedCostBillDailyOutput, error)
 	ListAmortizedCostBillDailyRequest(*ListAmortizedCostBillDailyInput) (*request.Request, *ListAmortizedCostBillDailyOutput)
 
-	ListAmortizedCostBillDetailCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	ListAmortizedCostBillDetailCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	ListAmortizedCostBillDetailCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	ListAmortizedCostBillDetail(*ListAmortizedCostBillDetailInput) (*ListAmortizedCostBillDetailOutput, error)
-	ListAmortizedCostBillDetailWithContext(volcengine.Context, *ListAmortizedCostBillDetailInput, ...request.Option) (*ListAmortizedCostBillDetailOutput, error)
-	ListAmortizedCostBillDetailRequest(*ListAmortizedCostBillDetailInput) (*request.Request, *ListAmortizedCostBillDetailOutput)
-
 	ListAmortizedCostBillMonthlyCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ListAmortizedCostBillMonthlyCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	ListAmortizedCostBillMonthlyCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})

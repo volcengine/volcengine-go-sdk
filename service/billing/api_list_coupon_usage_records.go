@@ -248,6 +248,8 @@ type ListForListCouponUsageRecordsOutput struct {
 
 	AccountID *int64 `type:"int64" json:",omitempty"`
 
+	BillingCycle *string `type:"string" json:",omitempty"`
+
 	ChangeAmount *float64 `type:"double" json:",omitempty"`
 
 	ChangeType *int32 `type:"int32" json:",omitempty"`
@@ -280,6 +282,12 @@ func (s ListForListCouponUsageRecordsOutput) GoString() string {
 // SetAccountID sets the AccountID field's value.
 func (s *ListForListCouponUsageRecordsOutput) SetAccountID(v int64) *ListForListCouponUsageRecordsOutput {
 	s.AccountID = &v
+	return s
+}
+
+// SetBillingCycle sets the BillingCycle field's value.
+func (s *ListForListCouponUsageRecordsOutput) SetBillingCycle(v string) *ListForListCouponUsageRecordsOutput {
+	s.BillingCycle = &v
 	return s
 }
 
