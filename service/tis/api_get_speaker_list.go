@@ -221,6 +221,10 @@ func (s *GetSpeakerListOutput) SetSpeakers(v []*SpeakerForGetSpeakerListOutput) 
 
 type LanguageForGetSpeakerListOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
+
+	Name *string `type:"string" json:",omitempty"`
+
+	Value *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -231,6 +235,18 @@ func (s LanguageForGetSpeakerListOutput) String() string {
 // GoString returns the string representation
 func (s LanguageForGetSpeakerListOutput) GoString() string {
 	return s.String()
+}
+
+// SetName sets the Name field's value.
+func (s *LanguageForGetSpeakerListOutput) SetName(v string) *LanguageForGetSpeakerListOutput {
+	s.Name = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *LanguageForGetSpeakerListOutput) SetValue(v string) *LanguageForGetSpeakerListOutput {
+	s.Value = &v
+	return s
 }
 
 type SpeakerForGetSpeakerListOutput struct {
