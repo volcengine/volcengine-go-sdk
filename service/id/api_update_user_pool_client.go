@@ -313,6 +313,8 @@ type UpdateUserPoolClientInput struct {
 
 	IdToken *IdTokenForUpdateUserPoolClientInput `type:"structure" json:",omitempty"`
 
+	LogoUri *string `type:"string" json:",omitempty"`
+
 	Name *string `type:"string" json:",omitempty"`
 
 	RefreshToken *RefreshTokenForUpdateUserPoolClientInput `type:"structure" json:",omitempty"`
@@ -389,6 +391,12 @@ func (s *UpdateUserPoolClientInput) SetIdToken(v *IdTokenForUpdateUserPoolClient
 	return s
 }
 
+// SetLogoUri sets the LogoUri field's value.
+func (s *UpdateUserPoolClientInput) SetLogoUri(v string) *UpdateUserPoolClientInput {
+	s.LogoUri = &v
+	return s
+}
+
 // SetName sets the Name field's value.
 func (s *UpdateUserPoolClientInput) SetName(v string) *UpdateUserPoolClientInput {
 	s.Name = &v
@@ -431,6 +439,8 @@ type UpdateUserPoolClientOutput struct {
 	IdToken *IdTokenForUpdateUserPoolClientOutput `type:"structure" json:",omitempty"`
 
 	LoginPageUrl *string `type:"string" json:",omitempty"`
+
+	LogoUri *string `type:"string" json:",omitempty"`
 
 	Name *string `type:"string" json:",omitempty"`
 
@@ -508,6 +518,12 @@ func (s *UpdateUserPoolClientOutput) SetIdToken(v *IdTokenForUpdateUserPoolClien
 // SetLoginPageUrl sets the LoginPageUrl field's value.
 func (s *UpdateUserPoolClientOutput) SetLoginPageUrl(v string) *UpdateUserPoolClientOutput {
 	s.LoginPageUrl = &v
+	return s
+}
+
+// SetLogoUri sets the LogoUri field's value.
+func (s *UpdateUserPoolClientOutput) SetLogoUri(v string) *UpdateUserPoolClientOutput {
+	s.LogoUri = &v
 	return s
 }
 

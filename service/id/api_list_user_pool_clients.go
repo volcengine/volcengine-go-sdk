@@ -152,6 +152,8 @@ type DataForListUserPoolClientsOutput struct {
 
 	Description *string `type:"string" json:",omitempty"`
 
+	LogoUri *string `type:"string" json:",omitempty"`
+
 	Name *string `type:"string" json:",omitempty"`
 
 	Uid *string `type:"string" json:",omitempty"`
@@ -184,6 +186,12 @@ func (s *DataForListUserPoolClientsOutput) SetCreateTime(v string) *DataForListU
 // SetDescription sets the Description field's value.
 func (s *DataForListUserPoolClientsOutput) SetDescription(v string) *DataForListUserPoolClientsOutput {
 	s.Description = &v
+	return s
+}
+
+// SetLogoUri sets the LogoUri field's value.
+func (s *DataForListUserPoolClientsOutput) SetLogoUri(v string) *DataForListUserPoolClientsOutput {
+	s.LogoUri = &v
 	return s
 }
 

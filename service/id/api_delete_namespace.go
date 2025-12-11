@@ -146,7 +146,8 @@ func (c *ID) DeleteNamespaceWithContext(ctx volcengine.Context, input *DeleteNam
 type DeleteNamespaceInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	NamespaceName *string `type:"string" json:",omitempty"`
+	// NamespaceName is a required field
+	NamespaceName *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -157,6 +158,19 @@ func (s DeleteNamespaceInput) String() string {
 // GoString returns the string representation
 func (s DeleteNamespaceInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DeleteNamespaceInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DeleteNamespaceInput"}
+	if s.NamespaceName == nil {
+		invalidParams.Add(request.NewErrParamRequired("NamespaceName"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetNamespaceName sets the NamespaceName field's value.

@@ -38,6 +38,14 @@ type IDAPI interface {
 	AttachInboundAuthConfigWithContext(volcengine.Context, *AttachInboundAuthConfigInput, ...request.Option) (*AttachInboundAuthConfigOutput, error)
 	AttachInboundAuthConfigRequest(*AttachInboundAuthConfigInput) (*request.Request, *AttachInboundAuthConfigOutput)
 
+	BatchCreateRoutesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	BatchCreateRoutesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	BatchCreateRoutesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	BatchCreateRoutes(*BatchCreateRoutesInput) (*BatchCreateRoutesOutput, error)
+	BatchCreateRoutesWithContext(volcengine.Context, *BatchCreateRoutesInput, ...request.Option) (*BatchCreateRoutesOutput, error)
+	BatchCreateRoutesRequest(*BatchCreateRoutesInput) (*request.Request, *BatchCreateRoutesOutput)
+
 	BatchGetApiKeyCredentialProvidersCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	BatchGetApiKeyCredentialProvidersCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	BatchGetApiKeyCredentialProvidersCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -77,6 +85,14 @@ type IDAPI interface {
 	CheckPermission(*CheckPermissionInput) (*CheckPermissionOutput, error)
 	CheckPermissionWithContext(volcengine.Context, *CheckPermissionInput, ...request.Option) (*CheckPermissionOutput, error)
 	CheckPermissionRequest(*CheckPermissionInput) (*request.Request, *CheckPermissionOutput)
+
+	CheckServiceNameCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CheckServiceNameCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CheckServiceNameCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CheckServiceName(*CheckServiceNameInput) (*CheckServiceNameOutput, error)
+	CheckServiceNameWithContext(volcengine.Context, *CheckServiceNameInput, ...request.Option) (*CheckServiceNameOutput, error)
+	CheckServiceNameRequest(*CheckServiceNameInput) (*request.Request, *CheckServiceNameOutput)
 
 	CreateApiKeyCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	CreateApiKeyCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -157,6 +173,38 @@ type IDAPI interface {
 	CreatePolicy(*CreatePolicyInput) (*CreatePolicyOutput, error)
 	CreatePolicyWithContext(volcengine.Context, *CreatePolicyInput, ...request.Option) (*CreatePolicyOutput, error)
 	CreatePolicyRequest(*CreatePolicyInput) (*request.Request, *CreatePolicyOutput)
+
+	CreateRouteCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateRouteCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateRouteCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateRoute(*CreateRouteInput) (*CreateRouteOutput, error)
+	CreateRouteWithContext(volcengine.Context, *CreateRouteInput, ...request.Option) (*CreateRouteOutput, error)
+	CreateRouteRequest(*CreateRouteInput) (*request.Request, *CreateRouteOutput)
+
+	CreateRouteFromTemplateCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateRouteFromTemplateCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateRouteFromTemplateCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateRouteFromTemplate(*CreateRouteFromTemplateInput) (*CreateRouteFromTemplateOutput, error)
+	CreateRouteFromTemplateWithContext(volcengine.Context, *CreateRouteFromTemplateInput, ...request.Option) (*CreateRouteFromTemplateOutput, error)
+	CreateRouteFromTemplateRequest(*CreateRouteFromTemplateInput) (*request.Request, *CreateRouteFromTemplateOutput)
+
+	CreateServiceCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateServiceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateServiceCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateService(*CreateServiceInput) (*CreateServiceOutput, error)
+	CreateServiceWithContext(volcengine.Context, *CreateServiceInput, ...request.Option) (*CreateServiceOutput, error)
+	CreateServiceRequest(*CreateServiceInput) (*request.Request, *CreateServiceOutput)
+
+	CreateServiceFromTemplateCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateServiceFromTemplateCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateServiceFromTemplateCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateServiceFromTemplate(*CreateServiceFromTemplateInput) (*CreateServiceFromTemplateOutput, error)
+	CreateServiceFromTemplateWithContext(volcengine.Context, *CreateServiceFromTemplateInput, ...request.Option) (*CreateServiceFromTemplateOutput, error)
+	CreateServiceFromTemplateRequest(*CreateServiceFromTemplateInput) (*request.Request, *CreateServiceFromTemplateOutput)
 
 	CreateUserCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	CreateUserCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -294,6 +342,22 @@ type IDAPI interface {
 	DeletePolicyWithContext(volcengine.Context, *DeletePolicyInput, ...request.Option) (*DeletePolicyOutput, error)
 	DeletePolicyRequest(*DeletePolicyInput) (*request.Request, *DeletePolicyOutput)
 
+	DeleteRouteCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeleteRouteCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeleteRouteCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeleteRoute(*DeleteRouteInput) (*DeleteRouteOutput, error)
+	DeleteRouteWithContext(volcengine.Context, *DeleteRouteInput, ...request.Option) (*DeleteRouteOutput, error)
+	DeleteRouteRequest(*DeleteRouteInput) (*request.Request, *DeleteRouteOutput)
+
+	DeleteServiceCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeleteServiceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeleteServiceCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeleteService(*DeleteServiceInput) (*DeleteServiceOutput, error)
+	DeleteServiceWithContext(volcengine.Context, *DeleteServiceInput, ...request.Option) (*DeleteServiceOutput, error)
+	DeleteServiceRequest(*DeleteServiceInput) (*request.Request, *DeleteServiceOutput)
+
 	DeleteUserPoolCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DeleteUserPoolCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DeleteUserPoolCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -334,6 +398,30 @@ type IDAPI interface {
 	DeleteWorkloadPoolWithContext(volcengine.Context, *DeleteWorkloadPoolInput, ...request.Option) (*DeleteWorkloadPoolOutput, error)
 	DeleteWorkloadPoolRequest(*DeleteWorkloadPoolInput) (*request.Request, *DeleteWorkloadPoolOutput)
 
+	DescribeRouteTemplateOptionsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeRouteTemplateOptionsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeRouteTemplateOptionsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeRouteTemplateOptions(*DescribeRouteTemplateOptionsInput) (*DescribeRouteTemplateOptionsOutput, error)
+	DescribeRouteTemplateOptionsWithContext(volcengine.Context, *DescribeRouteTemplateOptionsInput, ...request.Option) (*DescribeRouteTemplateOptionsOutput, error)
+	DescribeRouteTemplateOptionsRequest(*DescribeRouteTemplateOptionsInput) (*request.Request, *DescribeRouteTemplateOptionsOutput)
+
+	DescribeTagOptionsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeTagOptionsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeTagOptionsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeTagOptions(*DescribeTagOptionsInput) (*DescribeTagOptionsOutput, error)
+	DescribeTagOptionsWithContext(volcengine.Context, *DescribeTagOptionsInput, ...request.Option) (*DescribeTagOptionsOutput, error)
+	DescribeTagOptionsRequest(*DescribeTagOptionsInput) (*request.Request, *DescribeTagOptionsOutput)
+
+	DescribeTemplateOptionsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeTemplateOptionsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeTemplateOptionsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeTemplateOptions(*DescribeTemplateOptionsInput) (*DescribeTemplateOptionsOutput, error)
+	DescribeTemplateOptionsWithContext(volcengine.Context, *DescribeTemplateOptionsInput, ...request.Option) (*DescribeTemplateOptionsOutput, error)
+	DescribeTemplateOptionsRequest(*DescribeTemplateOptionsInput) (*request.Request, *DescribeTemplateOptionsOutput)
+
 	DetachInboundAuthConfigCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DetachInboundAuthConfigCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DetachInboundAuthConfigCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -342,6 +430,14 @@ type IDAPI interface {
 	DetachInboundAuthConfigWithContext(volcengine.Context, *DetachInboundAuthConfigInput, ...request.Option) (*DetachInboundAuthConfigOutput, error)
 	DetachInboundAuthConfigRequest(*DetachInboundAuthConfigInput) (*request.Request, *DetachInboundAuthConfigOutput)
 
+	DisableRouteCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DisableRouteCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DisableRouteCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DisableRoute(*DisableRouteInput) (*DisableRouteOutput, error)
+	DisableRouteWithContext(volcengine.Context, *DisableRouteInput, ...request.Option) (*DisableRouteOutput, error)
+	DisableRouteRequest(*DisableRouteInput) (*request.Request, *DisableRouteOutput)
+
 	GetApiKeyCredentialProviderCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	GetApiKeyCredentialProviderCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	GetApiKeyCredentialProviderCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -349,6 +445,14 @@ type IDAPI interface {
 	GetApiKeyCredentialProvider(*GetApiKeyCredentialProviderInput) (*GetApiKeyCredentialProviderOutput, error)
 	GetApiKeyCredentialProviderWithContext(volcengine.Context, *GetApiKeyCredentialProviderInput, ...request.Option) (*GetApiKeyCredentialProviderOutput, error)
 	GetApiKeyCredentialProviderRequest(*GetApiKeyCredentialProviderInput) (*request.Request, *GetApiKeyCredentialProviderOutput)
+
+	GetDocumentStatusCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	GetDocumentStatusCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	GetDocumentStatusCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	GetDocumentStatus(*GetDocumentStatusInput) (*GetDocumentStatusOutput, error)
+	GetDocumentStatusWithContext(volcengine.Context, *GetDocumentStatusInput, ...request.Option) (*GetDocumentStatusOutput, error)
+	GetDocumentStatusRequest(*GetDocumentStatusInput) (*request.Request, *GetDocumentStatusOutput)
 
 	GetIdentityProviderOAuthCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	GetIdentityProviderOAuthCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -421,6 +525,22 @@ type IDAPI interface {
 	GetResourceOauth2Token(*GetResourceOauth2TokenInput) (*GetResourceOauth2TokenOutput, error)
 	GetResourceOauth2TokenWithContext(volcengine.Context, *GetResourceOauth2TokenInput, ...request.Option) (*GetResourceOauth2TokenOutput, error)
 	GetResourceOauth2TokenRequest(*GetResourceOauth2TokenInput) (*request.Request, *GetResourceOauth2TokenOutput)
+
+	GetRouteCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	GetRouteCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	GetRouteCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	GetRoute(*GetRouteInput) (*GetRouteOutput, error)
+	GetRouteWithContext(volcengine.Context, *GetRouteInput, ...request.Option) (*GetRouteOutput, error)
+	GetRouteRequest(*GetRouteInput) (*request.Request, *GetRouteOutput)
+
+	GetServiceCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	GetServiceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	GetServiceCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	GetService(*GetServiceInput) (*GetServiceOutput, error)
+	GetServiceWithContext(volcengine.Context, *GetServiceInput, ...request.Option) (*GetServiceOutput, error)
+	GetServiceRequest(*GetServiceInput) (*request.Request, *GetServiceOutput)
 
 	GetSmsServiceCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	GetSmsServiceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -598,6 +718,22 @@ type IDAPI interface {
 	ListPoliciesWithContext(volcengine.Context, *ListPoliciesInput, ...request.Option) (*ListPoliciesOutput, error)
 	ListPoliciesRequest(*ListPoliciesInput) (*request.Request, *ListPoliciesOutput)
 
+	ListRoutesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListRoutesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListRoutesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListRoutes(*ListRoutesInput) (*ListRoutesOutput, error)
+	ListRoutesWithContext(volcengine.Context, *ListRoutesInput, ...request.Option) (*ListRoutesOutput, error)
+	ListRoutesRequest(*ListRoutesInput) (*request.Request, *ListRoutesOutput)
+
+	ListServicesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListServicesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListServicesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListServices(*ListServicesInput) (*ListServicesOutput, error)
+	ListServicesWithContext(volcengine.Context, *ListServicesInput, ...request.Option) (*ListServicesOutput, error)
+	ListServicesRequest(*ListServicesInput) (*request.Request, *ListServicesOutput)
+
 	ListTagsForResourcesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ListTagsForResourcesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	ListTagsForResourcesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -653,6 +789,22 @@ type IDAPI interface {
 	Oauth2Callback(*Oauth2CallbackInput) (*Oauth2CallbackOutput, error)
 	Oauth2CallbackWithContext(volcengine.Context, *Oauth2CallbackInput, ...request.Option) (*Oauth2CallbackOutput, error)
 	Oauth2CallbackRequest(*Oauth2CallbackInput) (*request.Request, *Oauth2CallbackOutput)
+
+	PublishRouteCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	PublishRouteCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	PublishRouteCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	PublishRoute(*PublishRouteInput) (*PublishRouteOutput, error)
+	PublishRouteWithContext(volcengine.Context, *PublishRouteInput, ...request.Option) (*PublishRouteOutput, error)
+	PublishRouteRequest(*PublishRouteInput) (*request.Request, *PublishRouteOutput)
+
+	PublishServiceCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	PublishServiceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	PublishServiceCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	PublishService(*PublishServiceInput) (*PublishServiceOutput, error)
+	PublishServiceWithContext(volcengine.Context, *PublishServiceInput, ...request.Option) (*PublishServiceOutput, error)
+	PublishServiceRequest(*PublishServiceInput) (*request.Request, *PublishServiceOutput)
 
 	RegisterServiceCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	RegisterServiceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -734,6 +886,22 @@ type IDAPI interface {
 	UpdateOauth2CredentialProviderWithContext(volcengine.Context, *UpdateOauth2CredentialProviderInput, ...request.Option) (*UpdateOauth2CredentialProviderOutput, error)
 	UpdateOauth2CredentialProviderRequest(*UpdateOauth2CredentialProviderInput) (*request.Request, *UpdateOauth2CredentialProviderOutput)
 
+	UpdateRouteCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	UpdateRouteCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	UpdateRouteCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	UpdateRoute(*UpdateRouteInput) (*UpdateRouteOutput, error)
+	UpdateRouteWithContext(volcengine.Context, *UpdateRouteInput, ...request.Option) (*UpdateRouteOutput, error)
+	UpdateRouteRequest(*UpdateRouteInput) (*request.Request, *UpdateRouteOutput)
+
+	UpdateServiceCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	UpdateServiceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	UpdateServiceCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	UpdateService(*UpdateServiceInput) (*UpdateServiceOutput, error)
+	UpdateServiceWithContext(volcengine.Context, *UpdateServiceInput, ...request.Option) (*UpdateServiceOutput, error)
+	UpdateServiceRequest(*UpdateServiceInput) (*request.Request, *UpdateServiceOutput)
+
 	UpdateSmsServiceCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	UpdateSmsServiceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	UpdateSmsServiceCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -781,6 +949,14 @@ type IDAPI interface {
 	UpdateWorkloadPool(*UpdateWorkloadPoolInput) (*UpdateWorkloadPoolOutput, error)
 	UpdateWorkloadPoolWithContext(volcengine.Context, *UpdateWorkloadPoolInput, ...request.Option) (*UpdateWorkloadPoolOutput, error)
 	UpdateWorkloadPoolRequest(*UpdateWorkloadPoolInput) (*request.Request, *UpdateWorkloadPoolOutput)
+
+	ValidateBackendCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ValidateBackendCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ValidateBackendCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ValidateBackend(*ValidateBackendInput) (*ValidateBackendOutput, error)
+	ValidateBackendWithContext(volcengine.Context, *ValidateBackendInput, ...request.Option) (*ValidateBackendOutput, error)
+	ValidateBackendRequest(*ValidateBackendInput) (*request.Request, *ValidateBackendOutput)
 }
 
 var _ IDAPI = (*ID)(nil)
