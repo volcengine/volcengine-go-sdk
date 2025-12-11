@@ -197,6 +197,84 @@ func (s *AuthorizationServerMetadataForGetOauth2CredentialProviderOutput) SetTok
 	return s
 }
 
+type ClientMetadataForGetOauth2CredentialProviderOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	ClientName *string `type:"string" json:",omitempty"`
+
+	ClientUri *string `type:"string" json:",omitempty"`
+
+	GrantTypes []*string `type:"list" json:",omitempty"`
+
+	LogoUri *string `type:"string" json:",omitempty"`
+
+	RedirectUris []*string `type:"list" json:",omitempty"`
+
+	ResponseTypes []*string `type:"list" json:",omitempty"`
+
+	Scope *string `type:"string" json:",omitempty"`
+
+	TokenEndpointAuthMethod *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s ClientMetadataForGetOauth2CredentialProviderOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ClientMetadataForGetOauth2CredentialProviderOutput) GoString() string {
+	return s.String()
+}
+
+// SetClientName sets the ClientName field's value.
+func (s *ClientMetadataForGetOauth2CredentialProviderOutput) SetClientName(v string) *ClientMetadataForGetOauth2CredentialProviderOutput {
+	s.ClientName = &v
+	return s
+}
+
+// SetClientUri sets the ClientUri field's value.
+func (s *ClientMetadataForGetOauth2CredentialProviderOutput) SetClientUri(v string) *ClientMetadataForGetOauth2CredentialProviderOutput {
+	s.ClientUri = &v
+	return s
+}
+
+// SetGrantTypes sets the GrantTypes field's value.
+func (s *ClientMetadataForGetOauth2CredentialProviderOutput) SetGrantTypes(v []*string) *ClientMetadataForGetOauth2CredentialProviderOutput {
+	s.GrantTypes = v
+	return s
+}
+
+// SetLogoUri sets the LogoUri field's value.
+func (s *ClientMetadataForGetOauth2CredentialProviderOutput) SetLogoUri(v string) *ClientMetadataForGetOauth2CredentialProviderOutput {
+	s.LogoUri = &v
+	return s
+}
+
+// SetRedirectUris sets the RedirectUris field's value.
+func (s *ClientMetadataForGetOauth2CredentialProviderOutput) SetRedirectUris(v []*string) *ClientMetadataForGetOauth2CredentialProviderOutput {
+	s.RedirectUris = v
+	return s
+}
+
+// SetResponseTypes sets the ResponseTypes field's value.
+func (s *ClientMetadataForGetOauth2CredentialProviderOutput) SetResponseTypes(v []*string) *ClientMetadataForGetOauth2CredentialProviderOutput {
+	s.ResponseTypes = v
+	return s
+}
+
+// SetScope sets the Scope field's value.
+func (s *ClientMetadataForGetOauth2CredentialProviderOutput) SetScope(v string) *ClientMetadataForGetOauth2CredentialProviderOutput {
+	s.Scope = &v
+	return s
+}
+
+// SetTokenEndpointAuthMethod sets the TokenEndpointAuthMethod field's value.
+func (s *ClientMetadataForGetOauth2CredentialProviderOutput) SetTokenEndpointAuthMethod(v string) *ClientMetadataForGetOauth2CredentialProviderOutput {
+	s.TokenEndpointAuthMethod = &v
+	return s
+}
+
 type ConfigForGetOauth2CredentialProviderOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -305,6 +383,84 @@ func (s *CustomParametersForGetOauth2CredentialProviderOutput) SetEntries(v []*E
 	return s
 }
 
+type DcrClientInfoForGetOauth2CredentialProviderOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	ClientId *string `type:"string" json:",omitempty"`
+
+	ClientIdIssuedAt *int64 `type:"int64" json:",omitempty"`
+
+	ClientMetadata *ClientMetadataForGetOauth2CredentialProviderOutput `type:"structure" json:",omitempty"`
+
+	ClientSecret *string `type:"string" json:",omitempty"`
+
+	ClientSecretExpiresAt *int64 `type:"int64" json:",omitempty"`
+
+	RegistrationAccessToken *string `type:"string" json:",omitempty"`
+
+	RegistrationClientUri *string `type:"string" json:",omitempty"`
+
+	RegistrationEndpoint *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s DcrClientInfoForGetOauth2CredentialProviderOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DcrClientInfoForGetOauth2CredentialProviderOutput) GoString() string {
+	return s.String()
+}
+
+// SetClientId sets the ClientId field's value.
+func (s *DcrClientInfoForGetOauth2CredentialProviderOutput) SetClientId(v string) *DcrClientInfoForGetOauth2CredentialProviderOutput {
+	s.ClientId = &v
+	return s
+}
+
+// SetClientIdIssuedAt sets the ClientIdIssuedAt field's value.
+func (s *DcrClientInfoForGetOauth2CredentialProviderOutput) SetClientIdIssuedAt(v int64) *DcrClientInfoForGetOauth2CredentialProviderOutput {
+	s.ClientIdIssuedAt = &v
+	return s
+}
+
+// SetClientMetadata sets the ClientMetadata field's value.
+func (s *DcrClientInfoForGetOauth2CredentialProviderOutput) SetClientMetadata(v *ClientMetadataForGetOauth2CredentialProviderOutput) *DcrClientInfoForGetOauth2CredentialProviderOutput {
+	s.ClientMetadata = v
+	return s
+}
+
+// SetClientSecret sets the ClientSecret field's value.
+func (s *DcrClientInfoForGetOauth2CredentialProviderOutput) SetClientSecret(v string) *DcrClientInfoForGetOauth2CredentialProviderOutput {
+	s.ClientSecret = &v
+	return s
+}
+
+// SetClientSecretExpiresAt sets the ClientSecretExpiresAt field's value.
+func (s *DcrClientInfoForGetOauth2CredentialProviderOutput) SetClientSecretExpiresAt(v int64) *DcrClientInfoForGetOauth2CredentialProviderOutput {
+	s.ClientSecretExpiresAt = &v
+	return s
+}
+
+// SetRegistrationAccessToken sets the RegistrationAccessToken field's value.
+func (s *DcrClientInfoForGetOauth2CredentialProviderOutput) SetRegistrationAccessToken(v string) *DcrClientInfoForGetOauth2CredentialProviderOutput {
+	s.RegistrationAccessToken = &v
+	return s
+}
+
+// SetRegistrationClientUri sets the RegistrationClientUri field's value.
+func (s *DcrClientInfoForGetOauth2CredentialProviderOutput) SetRegistrationClientUri(v string) *DcrClientInfoForGetOauth2CredentialProviderOutput {
+	s.RegistrationClientUri = &v
+	return s
+}
+
+// SetRegistrationEndpoint sets the RegistrationEndpoint field's value.
+func (s *DcrClientInfoForGetOauth2CredentialProviderOutput) SetRegistrationEndpoint(v string) *DcrClientInfoForGetOauth2CredentialProviderOutput {
+	s.RegistrationEndpoint = &v
+	return s
+}
+
 type EntryForGetOauth2CredentialProviderOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -390,6 +546,8 @@ type GetOauth2CredentialProviderOutput struct {
 
 	CredentialProviderTrn *string `type:"string" json:",omitempty"`
 
+	DcrClientInfo *DcrClientInfoForGetOauth2CredentialProviderOutput `type:"structure" json:",omitempty"`
+
 	Name *string `type:"string" json:",omitempty"`
 
 	PoolName *string `type:"string" json:",omitempty"`
@@ -426,6 +584,12 @@ func (s *GetOauth2CredentialProviderOutput) SetCreatedAt(v string) *GetOauth2Cre
 // SetCredentialProviderTrn sets the CredentialProviderTrn field's value.
 func (s *GetOauth2CredentialProviderOutput) SetCredentialProviderTrn(v string) *GetOauth2CredentialProviderOutput {
 	s.CredentialProviderTrn = &v
+	return s
+}
+
+// SetDcrClientInfo sets the DcrClientInfo field's value.
+func (s *GetOauth2CredentialProviderOutput) SetDcrClientInfo(v *DcrClientInfoForGetOauth2CredentialProviderOutput) *GetOauth2CredentialProviderOutput {
+	s.DcrClientInfo = v
 	return s
 }
 

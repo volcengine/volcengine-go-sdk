@@ -148,7 +148,8 @@ type DeletePolicyInput struct {
 
 	NamespaceName *string `type:"string" json:",omitempty"`
 
-	PolicyName *string `type:"string" json:",omitempty"`
+	// PolicyName is a required field
+	PolicyName *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -159,6 +160,19 @@ func (s DeletePolicyInput) String() string {
 // GoString returns the string representation
 func (s DeletePolicyInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DeletePolicyInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DeletePolicyInput"}
+	if s.PolicyName == nil {
+		invalidParams.Add(request.NewErrParamRequired("PolicyName"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetNamespaceName sets the NamespaceName field's value.

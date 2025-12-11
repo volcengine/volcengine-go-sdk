@@ -143,6 +143,36 @@ func (c *ID) GetUserPoolWithContext(ctx volcengine.Context, input *GetUserPoolIn
 	return out, req.Send()
 }
 
+type BrandForGetUserPoolOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	LogoUri *string `type:"string" json:",omitempty"`
+
+	Name *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s BrandForGetUserPoolOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s BrandForGetUserPoolOutput) GoString() string {
+	return s.String()
+}
+
+// SetLogoUri sets the LogoUri field's value.
+func (s *BrandForGetUserPoolOutput) SetLogoUri(v string) *BrandForGetUserPoolOutput {
+	s.LogoUri = &v
+	return s
+}
+
+// SetName sets the Name field's value.
+func (s *BrandForGetUserPoolOutput) SetName(v string) *BrandForGetUserPoolOutput {
+	s.Name = &v
+	return s
+}
+
 type GetUserPoolInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -184,6 +214,8 @@ type GetUserPoolOutput struct {
 
 	Metadata *response.ResponseMetadata
 
+	Brand *BrandForGetUserPoolOutput `type:"structure" json:",omitempty"`
+
 	CreateTime *string `type:"string" json:",omitempty"`
 
 	Description *string `type:"string" json:",omitempty"`
@@ -214,9 +246,13 @@ type GetUserPoolOutput struct {
 
 	SamlSignUpCallbackUrl *string `type:"string" json:",omitempty"`
 
+	SelfAccountRecoveryEnabled *bool `type:"boolean" json:",omitempty"`
+
 	SelfSignUpEnabled *bool `type:"boolean" json:",omitempty"`
 
 	SignInAttributes []*string `type:"list" json:",omitempty"`
+
+	SignUpAutoVerificationEnabled *bool `type:"boolean" json:",omitempty"`
 
 	SmsPasswordlessSignInEnabled *bool `type:"boolean" json:",omitempty"`
 
@@ -234,6 +270,8 @@ type GetUserPoolOutput struct {
 
 	Uid *string `type:"string" json:",omitempty"`
 
+	UnconfirmedUserSignInEnabled *bool `type:"boolean" json:",omitempty"`
+
 	UpdateTime *string `type:"string" json:",omitempty"`
 }
 
@@ -245,6 +283,12 @@ func (s GetUserPoolOutput) String() string {
 // GoString returns the string representation
 func (s GetUserPoolOutput) GoString() string {
 	return s.String()
+}
+
+// SetBrand sets the Brand field's value.
+func (s *GetUserPoolOutput) SetBrand(v *BrandForGetUserPoolOutput) *GetUserPoolOutput {
+	s.Brand = v
+	return s
 }
 
 // SetCreateTime sets the CreateTime field's value.
@@ -337,6 +381,12 @@ func (s *GetUserPoolOutput) SetSamlSignUpCallbackUrl(v string) *GetUserPoolOutpu
 	return s
 }
 
+// SetSelfAccountRecoveryEnabled sets the SelfAccountRecoveryEnabled field's value.
+func (s *GetUserPoolOutput) SetSelfAccountRecoveryEnabled(v bool) *GetUserPoolOutput {
+	s.SelfAccountRecoveryEnabled = &v
+	return s
+}
+
 // SetSelfSignUpEnabled sets the SelfSignUpEnabled field's value.
 func (s *GetUserPoolOutput) SetSelfSignUpEnabled(v bool) *GetUserPoolOutput {
 	s.SelfSignUpEnabled = &v
@@ -346,6 +396,12 @@ func (s *GetUserPoolOutput) SetSelfSignUpEnabled(v bool) *GetUserPoolOutput {
 // SetSignInAttributes sets the SignInAttributes field's value.
 func (s *GetUserPoolOutput) SetSignInAttributes(v []*string) *GetUserPoolOutput {
 	s.SignInAttributes = v
+	return s
+}
+
+// SetSignUpAutoVerificationEnabled sets the SignUpAutoVerificationEnabled field's value.
+func (s *GetUserPoolOutput) SetSignUpAutoVerificationEnabled(v bool) *GetUserPoolOutput {
+	s.SignUpAutoVerificationEnabled = &v
 	return s
 }
 
@@ -394,6 +450,12 @@ func (s *GetUserPoolOutput) SetTrn(v string) *GetUserPoolOutput {
 // SetUid sets the Uid field's value.
 func (s *GetUserPoolOutput) SetUid(v string) *GetUserPoolOutput {
 	s.Uid = &v
+	return s
+}
+
+// SetUnconfirmedUserSignInEnabled sets the UnconfirmedUserSignInEnabled field's value.
+func (s *GetUserPoolOutput) SetUnconfirmedUserSignInEnabled(v bool) *GetUserPoolOutput {
+	s.UnconfirmedUserSignInEnabled = &v
 	return s
 }
 

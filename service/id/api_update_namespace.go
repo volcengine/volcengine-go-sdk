@@ -146,9 +146,12 @@ func (c *ID) UpdateNamespaceWithContext(ctx volcengine.Context, input *UpdateNam
 type UpdateNamespaceInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	Associates []*string `type:"list" json:",omitempty"`
+
 	Description *string `type:"string" json:",omitempty"`
 
-	NamespaceName *string `type:"string" json:",omitempty"`
+	// NamespaceName is a required field
+	NamespaceName *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -159,6 +162,25 @@ func (s UpdateNamespaceInput) String() string {
 // GoString returns the string representation
 func (s UpdateNamespaceInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *UpdateNamespaceInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "UpdateNamespaceInput"}
+	if s.NamespaceName == nil {
+		invalidParams.Add(request.NewErrParamRequired("NamespaceName"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetAssociates sets the Associates field's value.
+func (s *UpdateNamespaceInput) SetAssociates(v []*string) *UpdateNamespaceInput {
+	s.Associates = v
+	return s
 }
 
 // SetDescription sets the Description field's value.

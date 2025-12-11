@@ -166,6 +166,8 @@ type UpdateUserInput struct {
 
 	Nickname *string `type:"string" json:",omitempty"`
 
+	Password *string `type:"string" json:",omitempty"`
+
 	PhoneNumber *string `type:"string" json:",omitempty"`
 
 	PhoneNumberVerified *bool `type:"boolean" json:",omitempty"`
@@ -274,6 +276,12 @@ func (s *UpdateUserInput) SetName(v string) *UpdateUserInput {
 // SetNickname sets the Nickname field's value.
 func (s *UpdateUserInput) SetNickname(v string) *UpdateUserInput {
 	s.Nickname = &v
+	return s
+}
+
+// SetPassword sets the Password field's value.
+func (s *UpdateUserInput) SetPassword(v string) *UpdateUserInput {
+	s.Password = &v
 	return s
 }
 

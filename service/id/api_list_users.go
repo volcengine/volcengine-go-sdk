@@ -166,6 +166,8 @@ type DataForListUsersOutput struct {
 
 	LatestLogin *string `type:"string" json:",omitempty"`
 
+	LatestLoginMethod *string `type:"string" json:",omitempty"`
+
 	Locale *string `type:"string" json:",omitempty"`
 
 	MiddleName *string `type:"string" json:",omitempty"`
@@ -268,6 +270,12 @@ func (s *DataForListUsersOutput) SetLatestBrowser(v string) *DataForListUsersOut
 // SetLatestLogin sets the LatestLogin field's value.
 func (s *DataForListUsersOutput) SetLatestLogin(v string) *DataForListUsersOutput {
 	s.LatestLogin = &v
+	return s
+}
+
+// SetLatestLoginMethod sets the LatestLoginMethod field's value.
+func (s *DataForListUsersOutput) SetLatestLoginMethod(v string) *DataForListUsersOutput {
+	s.LatestLoginMethod = &v
 	return s
 }
 
@@ -388,6 +396,8 @@ type FilterForListUsersInput struct {
 
 	LatestBrowser *string `type:"string" json:",omitempty"`
 
+	LatestLoginMethod *string `type:"string" json:",omitempty"`
+
 	Locale *string `type:"string" json:",omitempty"`
 
 	MiddleName *string `type:"string" json:",omitempty"`
@@ -446,6 +456,12 @@ func (s *FilterForListUsersInput) SetGivenName(v string) *FilterForListUsersInpu
 // SetLatestBrowser sets the LatestBrowser field's value.
 func (s *FilterForListUsersInput) SetLatestBrowser(v string) *FilterForListUsersInput {
 	s.LatestBrowser = &v
+	return s
+}
+
+// SetLatestLoginMethod sets the LatestLoginMethod field's value.
+func (s *FilterForListUsersInput) SetLatestLoginMethod(v string) *FilterForListUsersInput {
+	s.LatestLoginMethod = &v
 	return s
 }
 
