@@ -162,7 +162,8 @@ type CreateNetworkInterfaceInput struct {
 
 	SecondaryPrivateIpAddressCount *int64 `type:"integer"`
 
-	SecurityGroupIds []*string `type:"list"`
+	// SecurityGroupIds is a required field
+	SecurityGroupIds []*string `type:"list" required:"true"`
 
 	// SubnetId is a required field
 	SubnetId *string `type:"string" required:"true"`
@@ -194,6 +195,9 @@ func (s *CreateNetworkInterfaceInput) Validate() error {
 	}
 	if s.NetworkInterfaceName != nil && len(*s.NetworkInterfaceName) > 128 {
 		invalidParams.Add(request.NewErrParamMaxLen("NetworkInterfaceName", 128, *s.NetworkInterfaceName))
+	}
+	if s.SecurityGroupIds == nil {
+		invalidParams.Add(request.NewErrParamRequired("SecurityGroupIds"))
 	}
 	if s.SubnetId == nil {
 		invalidParams.Add(request.NewErrParamRequired("SubnetId"))
@@ -288,6 +292,8 @@ type CreateNetworkInterfaceOutput struct {
 
 	Metadata *response.ResponseMetadata
 
+	AsyncTaskId *string `type:"string"`
+
 	NetworkInterfaceId *string `type:"string"`
 
 	RequestId *string `type:"string"`
@@ -301,6 +307,12 @@ func (s CreateNetworkInterfaceOutput) String() string {
 // GoString returns the string representation
 func (s CreateNetworkInterfaceOutput) GoString() string {
 	return s.String()
+}
+
+// SetAsyncTaskId sets the AsyncTaskId field's value.
+func (s *CreateNetworkInterfaceOutput) SetAsyncTaskId(v string) *CreateNetworkInterfaceOutput {
+	s.AsyncTaskId = &v
+	return s
 }
 
 // SetNetworkInterfaceId sets the NetworkInterfaceId field's value.

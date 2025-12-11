@@ -142,6 +142,8 @@ func (c *VPC) AssignIpv6AddressesWithContext(ctx volcengine.Context, input *Assi
 type AssignIpv6AddressesInput struct {
 	_ struct{} `type:"structure"`
 
+	ClientToken *string `type:"string"`
+
 	Ipv6Address []*string `type:"list"`
 
 	Ipv6AddressCount *int64 `type:"integer"`
@@ -173,6 +175,12 @@ func (s *AssignIpv6AddressesInput) Validate() error {
 	return nil
 }
 
+// SetClientToken sets the ClientToken field's value.
+func (s *AssignIpv6AddressesInput) SetClientToken(v string) *AssignIpv6AddressesInput {
+	s.ClientToken = &v
+	return s
+}
+
 // SetIpv6Address sets the Ipv6Address field's value.
 func (s *AssignIpv6AddressesInput) SetIpv6Address(v []*string) *AssignIpv6AddressesInput {
 	s.Ipv6Address = v
@@ -196,6 +204,8 @@ type AssignIpv6AddressesOutput struct {
 
 	Metadata *response.ResponseMetadata
 
+	AsyncTaskId *string `type:"string"`
+
 	Ipv6Set []*string `type:"list"`
 
 	NetworkInterfaceId *string `type:"string"`
@@ -211,6 +221,12 @@ func (s AssignIpv6AddressesOutput) String() string {
 // GoString returns the string representation
 func (s AssignIpv6AddressesOutput) GoString() string {
 	return s.String()
+}
+
+// SetAsyncTaskId sets the AsyncTaskId field's value.
+func (s *AssignIpv6AddressesOutput) SetAsyncTaskId(v string) *AssignIpv6AddressesOutput {
+	s.AsyncTaskId = &v
+	return s
 }
 
 // SetIpv6Set sets the Ipv6Set field's value.

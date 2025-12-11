@@ -232,6 +232,8 @@ type CreateHaVipOutput struct {
 
 	Metadata *response.ResponseMetadata
 
+	AsyncTaskId *string `type:"string"`
+
 	HaVipId *string `type:"string"`
 
 	IpAddress *string `type:"string"`
@@ -247,6 +249,12 @@ func (s CreateHaVipOutput) String() string {
 // GoString returns the string representation
 func (s CreateHaVipOutput) GoString() string {
 	return s.String()
+}
+
+// SetAsyncTaskId sets the AsyncTaskId field's value.
+func (s *CreateHaVipOutput) SetAsyncTaskId(v string) *CreateHaVipOutput {
+	s.AsyncTaskId = &v
+	return s
 }
 
 // SetHaVipId sets the HaVipId field's value.

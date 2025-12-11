@@ -227,6 +227,8 @@ type ModifySubnetAttributesOutput struct {
 
 	Metadata *response.ResponseMetadata
 
+	AsyncTaskId *string `type:"string"`
+
 	RequestId *string `type:"string"`
 }
 
@@ -238,6 +240,12 @@ func (s ModifySubnetAttributesOutput) String() string {
 // GoString returns the string representation
 func (s ModifySubnetAttributesOutput) GoString() string {
 	return s.String()
+}
+
+// SetAsyncTaskId sets the AsyncTaskId field's value.
+func (s *ModifySubnetAttributesOutput) SetAsyncTaskId(v string) *ModifySubnetAttributesOutput {
+	s.AsyncTaskId = &v
+	return s
 }
 
 // SetRequestId sets the RequestId field's value.

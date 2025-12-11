@@ -146,6 +146,8 @@ func (c *RDSMYSQLV2) ListParameterTemplatesWithContext(ctx volcengine.Context, i
 type ListParameterTemplatesInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	EngineType *string `type:"string" json:",omitempty"`
+
 	Limit *int32 `type:"int32" json:",omitempty"`
 
 	Offset *int32 `type:"int32" json:",omitempty"`
@@ -171,6 +173,12 @@ func (s ListParameterTemplatesInput) String() string {
 // GoString returns the string representation
 func (s ListParameterTemplatesInput) GoString() string {
 	return s.String()
+}
+
+// SetEngineType sets the EngineType field's value.
+func (s *ListParameterTemplatesInput) SetEngineType(v string) *ListParameterTemplatesInput {
+	s.EngineType = &v
+	return s
 }
 
 // SetLimit sets the Limit field's value.
@@ -260,6 +268,8 @@ type TemplateInfoForListParameterTemplatesOutput struct {
 
 	CreateTime *string `type:"string" json:",omitempty"`
 
+	EngineType *string `type:"string" json:",omitempty"`
+
 	NeedRestart *bool `type:"boolean" json:",omitempty"`
 
 	ParameterNum *int64 `type:"int64" json:",omitempty"`
@@ -304,6 +314,12 @@ func (s *TemplateInfoForListParameterTemplatesOutput) SetAccountId(v string) *Te
 // SetCreateTime sets the CreateTime field's value.
 func (s *TemplateInfoForListParameterTemplatesOutput) SetCreateTime(v string) *TemplateInfoForListParameterTemplatesOutput {
 	s.CreateTime = &v
+	return s
+}
+
+// SetEngineType sets the EngineType field's value.
+func (s *TemplateInfoForListParameterTemplatesOutput) SetEngineType(v string) *TemplateInfoForListParameterTemplatesOutput {
+	s.EngineType = &v
 	return s
 }
 

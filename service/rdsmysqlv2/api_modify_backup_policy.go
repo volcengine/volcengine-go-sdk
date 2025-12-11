@@ -191,6 +191,8 @@ type ModifyBackupPolicyInput struct {
 	// InstanceId is a required field
 	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 
+	KeepCrossBackupEnableAfterReleased *bool `type:"boolean" json:",omitempty"`
+
 	LockDDLTime *int32 `type:"int32" json:",omitempty"`
 
 	LogBackupRetentionDay *int32 `type:"int32" json:",omitempty"`
@@ -353,6 +355,12 @@ func (s *ModifyBackupPolicyInput) SetInstanceId(v string) *ModifyBackupPolicyInp
 	return s
 }
 
+// SetKeepCrossBackupEnableAfterReleased sets the KeepCrossBackupEnableAfterReleased field's value.
+func (s *ModifyBackupPolicyInput) SetKeepCrossBackupEnableAfterReleased(v bool) *ModifyBackupPolicyInput {
+	s.KeepCrossBackupEnableAfterReleased = &v
+	return s
+}
+
 // SetLockDDLTime sets the LockDDLTime field's value.
 func (s *ModifyBackupPolicyInput) SetLockDDLTime(v int32) *ModifyBackupPolicyInput {
 	s.LockDDLTime = &v
@@ -419,6 +427,8 @@ type ModifyBackupPolicyOutput struct {
 	IncrBackupHourPeriod *int32 `type:"int32" json:",omitempty"`
 
 	InstanceId *string `type:"string" json:",omitempty"`
+
+	KeepCrossBackupEnableAfterReleased *bool `type:"boolean" json:",omitempty"`
 
 	LockDDLTime *int32 `type:"int32" json:",omitempty"`
 
@@ -568,6 +578,12 @@ func (s *ModifyBackupPolicyOutput) SetIncrBackupHourPeriod(v int32) *ModifyBacku
 // SetInstanceId sets the InstanceId field's value.
 func (s *ModifyBackupPolicyOutput) SetInstanceId(v string) *ModifyBackupPolicyOutput {
 	s.InstanceId = &v
+	return s
+}
+
+// SetKeepCrossBackupEnableAfterReleased sets the KeepCrossBackupEnableAfterReleased field's value.
+func (s *ModifyBackupPolicyOutput) SetKeepCrossBackupEnableAfterReleased(v bool) *ModifyBackupPolicyOutput {
+	s.KeepCrossBackupEnableAfterReleased = &v
 	return s
 }
 

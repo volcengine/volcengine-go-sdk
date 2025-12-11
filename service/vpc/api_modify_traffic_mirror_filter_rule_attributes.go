@@ -252,6 +252,8 @@ type ModifyTrafficMirrorFilterRuleAttributesOutput struct {
 
 	Metadata *response.ResponseMetadata
 
+	AsyncTaskId *string `type:"string"`
+
 	RequestId *string `type:"string"`
 }
 
@@ -263,6 +265,12 @@ func (s ModifyTrafficMirrorFilterRuleAttributesOutput) String() string {
 // GoString returns the string representation
 func (s ModifyTrafficMirrorFilterRuleAttributesOutput) GoString() string {
 	return s.String()
+}
+
+// SetAsyncTaskId sets the AsyncTaskId field's value.
+func (s *ModifyTrafficMirrorFilterRuleAttributesOutput) SetAsyncTaskId(v string) *ModifyTrafficMirrorFilterRuleAttributesOutput {
+	s.AsyncTaskId = &v
+	return s
 }
 
 // SetRequestId sets the RequestId field's value.
@@ -280,26 +288,23 @@ const (
 )
 
 const (
-	// ProtocolForModifyTrafficMirrorFilterRuleAttributesInputIcmp is a ProtocolForModifyTrafficMirrorFilterRuleAttributesInput enum value
-	ProtocolForModifyTrafficMirrorFilterRuleAttributesInputIcmp = "icmp"
-
-	// ProtocolForModifyTrafficMirrorFilterRuleAttributesInputIcmpv6 is a ProtocolForModifyTrafficMirrorFilterRuleAttributesInput enum value
-	ProtocolForModifyTrafficMirrorFilterRuleAttributesInputIcmpv6 = "icmpv6"
-
 	// ProtocolForModifyTrafficMirrorFilterRuleAttributesInputTcp is a ProtocolForModifyTrafficMirrorFilterRuleAttributesInput enum value
 	ProtocolForModifyTrafficMirrorFilterRuleAttributesInputTcp = "tcp"
 
 	// ProtocolForModifyTrafficMirrorFilterRuleAttributesInputUdp is a ProtocolForModifyTrafficMirrorFilterRuleAttributesInput enum value
-	ProtocolForModifyTrafficMirrorFilterRuleAttributesInputUdp = "udp"
+	ProtocolForModifyTrafficMirrorFilterRuleAttributesInputUdp = " udp"
+
+	// ProtocolForModifyTrafficMirrorFilterRuleAttributesInputIcmp is a ProtocolForModifyTrafficMirrorFilterRuleAttributesInput enum value
+	ProtocolForModifyTrafficMirrorFilterRuleAttributesInputIcmp = " icmp"
 
 	// ProtocolForModifyTrafficMirrorFilterRuleAttributesInputAll is a ProtocolForModifyTrafficMirrorFilterRuleAttributesInput enum value
-	ProtocolForModifyTrafficMirrorFilterRuleAttributesInputAll = "all"
+	ProtocolForModifyTrafficMirrorFilterRuleAttributesInputAll = " all"
 )
 
 const (
-	// TrafficDirectionForModifyTrafficMirrorFilterRuleAttributesInputEgress is a TrafficDirectionForModifyTrafficMirrorFilterRuleAttributesInput enum value
-	TrafficDirectionForModifyTrafficMirrorFilterRuleAttributesInputEgress = "egress"
-
 	// TrafficDirectionForModifyTrafficMirrorFilterRuleAttributesInputIngress is a TrafficDirectionForModifyTrafficMirrorFilterRuleAttributesInput enum value
 	TrafficDirectionForModifyTrafficMirrorFilterRuleAttributesInputIngress = "ingress"
+
+	// TrafficDirectionForModifyTrafficMirrorFilterRuleAttributesInputEgress is a TrafficDirectionForModifyTrafficMirrorFilterRuleAttributesInput enum value
+	TrafficDirectionForModifyTrafficMirrorFilterRuleAttributesInputEgress = "egress"
 )

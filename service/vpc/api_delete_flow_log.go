@@ -180,6 +180,8 @@ type DeleteFlowLogOutput struct {
 
 	Metadata *response.ResponseMetadata
 
+	AsyncTaskId *string `type:"string"`
+
 	RequestId *string `type:"string"`
 }
 
@@ -191,6 +193,12 @@ func (s DeleteFlowLogOutput) String() string {
 // GoString returns the string representation
 func (s DeleteFlowLogOutput) GoString() string {
 	return s.String()
+}
+
+// SetAsyncTaskId sets the AsyncTaskId field's value.
+func (s *DeleteFlowLogOutput) SetAsyncTaskId(v string) *DeleteFlowLogOutput {
+	s.AsyncTaskId = &v
+	return s
 }
 
 // SetRequestId sets the RequestId field's value.

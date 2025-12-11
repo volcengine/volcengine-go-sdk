@@ -146,8 +146,9 @@ func (c *ID) Oauth2CallbackWithContext(ctx volcengine.Context, input *Oauth2Call
 type Oauth2CallbackInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	// Code is a required field
-	Code *string `type:"string" json:",omitempty" required:"true"`
+	Code *string `type:"string" json:",omitempty"`
+
+	Error *string `type:"string" json:",omitempty"`
 
 	// IdentityToken is a required field
 	IdentityToken *string `type:"string" json:",omitempty" required:"true"`
@@ -169,9 +170,6 @@ func (s Oauth2CallbackInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *Oauth2CallbackInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "Oauth2CallbackInput"}
-	if s.Code == nil {
-		invalidParams.Add(request.NewErrParamRequired("Code"))
-	}
 	if s.IdentityToken == nil {
 		invalidParams.Add(request.NewErrParamRequired("IdentityToken"))
 	}
@@ -188,6 +186,12 @@ func (s *Oauth2CallbackInput) Validate() error {
 // SetCode sets the Code field's value.
 func (s *Oauth2CallbackInput) SetCode(v string) *Oauth2CallbackInput {
 	s.Code = &v
+	return s
+}
+
+// SetError sets the Error field's value.
+func (s *Oauth2CallbackInput) SetError(v string) *Oauth2CallbackInput {
+	s.Error = &v
 	return s
 }
 

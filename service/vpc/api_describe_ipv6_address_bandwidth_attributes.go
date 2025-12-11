@@ -216,6 +216,8 @@ type DescribeIpv6AddressBandwidthAttributesOutput struct {
 
 	ServiceManaged *bool `type:"boolean"`
 
+	SpecificEgress *string `type:"string"`
+
 	Status *string `type:"string"`
 
 	Tags []*TagForDescribeIpv6AddressBandwidthAttributesOutput `type:"list"`
@@ -338,6 +340,12 @@ func (s *DescribeIpv6AddressBandwidthAttributesOutput) SetRequestId(v string) *D
 // SetServiceManaged sets the ServiceManaged field's value.
 func (s *DescribeIpv6AddressBandwidthAttributesOutput) SetServiceManaged(v bool) *DescribeIpv6AddressBandwidthAttributesOutput {
 	s.ServiceManaged = &v
+	return s
+}
+
+// SetSpecificEgress sets the SpecificEgress field's value.
+func (s *DescribeIpv6AddressBandwidthAttributesOutput) SetSpecificEgress(v string) *DescribeIpv6AddressBandwidthAttributesOutput {
+	s.SpecificEgress = &v
 	return s
 }
 

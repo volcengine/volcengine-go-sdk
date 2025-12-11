@@ -153,6 +153,8 @@ type CreateUserPoolClientInput struct {
 
 	Description *string `type:"string" json:",omitempty"`
 
+	LogoUri *string `type:"string" json:",omitempty"`
+
 	// Name is a required field
 	Name *string `type:"string" json:",omitempty" required:"true"`
 
@@ -207,6 +209,12 @@ func (s *CreateUserPoolClientInput) SetDescription(v string) *CreateUserPoolClie
 	return s
 }
 
+// SetLogoUri sets the LogoUri field's value.
+func (s *CreateUserPoolClientInput) SetLogoUri(v string) *CreateUserPoolClientInput {
+	s.LogoUri = &v
+	return s
+}
+
 // SetName sets the Name field's value.
 func (s *CreateUserPoolClientInput) SetName(v string) *CreateUserPoolClientInput {
 	s.Name = &v
@@ -243,6 +251,8 @@ type CreateUserPoolClientOutput struct {
 	IdToken *IdTokenForCreateUserPoolClientOutput `type:"structure" json:",omitempty"`
 
 	LoginPageUrl *string `type:"string" json:",omitempty"`
+
+	LogoUri *string `type:"string" json:",omitempty"`
 
 	Name *string `type:"string" json:",omitempty"`
 
@@ -320,6 +330,12 @@ func (s *CreateUserPoolClientOutput) SetIdToken(v *IdTokenForCreateUserPoolClien
 // SetLoginPageUrl sets the LoginPageUrl field's value.
 func (s *CreateUserPoolClientOutput) SetLoginPageUrl(v string) *CreateUserPoolClientOutput {
 	s.LoginPageUrl = &v
+	return s
+}
+
+// SetLogoUri sets the LogoUri field's value.
+func (s *CreateUserPoolClientOutput) SetLogoUri(v string) *CreateUserPoolClientOutput {
+	s.LogoUri = &v
 	return s
 }
 

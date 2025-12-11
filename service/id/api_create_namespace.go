@@ -146,6 +146,8 @@ func (c *ID) CreateNamespaceWithContext(ctx volcengine.Context, input *CreateNam
 type CreateNamespaceInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	Associates []*string `type:"list" json:",omitempty"`
+
 	Description *string `type:"string" json:",omitempty"`
 
 	NamespaceName *string `type:"string" json:",omitempty"`
@@ -163,6 +165,12 @@ func (s CreateNamespaceInput) String() string {
 // GoString returns the string representation
 func (s CreateNamespaceInput) GoString() string {
 	return s.String()
+}
+
+// SetAssociates sets the Associates field's value.
+func (s *CreateNamespaceInput) SetAssociates(v []*string) *CreateNamespaceInput {
+	s.Associates = v
+	return s
 }
 
 // SetDescription sets the Description field's value.

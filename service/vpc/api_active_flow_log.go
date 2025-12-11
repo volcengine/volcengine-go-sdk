@@ -142,8 +142,7 @@ func (c *VPC) ActiveFlowLogWithContext(ctx volcengine.Context, input *ActiveFlow
 type ActiveFlowLogInput struct {
 	_ struct{} `type:"structure"`
 
-	// ClientToken is a required field
-	ClientToken *string `type:"string" required:"true"`
+	ClientToken *string `type:"string"`
 
 	// FlowLogId is a required field
 	FlowLogId *string `type:"string" required:"true"`
@@ -162,9 +161,6 @@ func (s ActiveFlowLogInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *ActiveFlowLogInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "ActiveFlowLogInput"}
-	if s.ClientToken == nil {
-		invalidParams.Add(request.NewErrParamRequired("ClientToken"))
-	}
 	if s.FlowLogId == nil {
 		invalidParams.Add(request.NewErrParamRequired("FlowLogId"))
 	}
@@ -192,6 +188,8 @@ type ActiveFlowLogOutput struct {
 
 	Metadata *response.ResponseMetadata
 
+	AsyncTaskId *string `type:"string"`
+
 	RequestId *string `type:"string"`
 }
 
@@ -203,6 +201,12 @@ func (s ActiveFlowLogOutput) String() string {
 // GoString returns the string representation
 func (s ActiveFlowLogOutput) GoString() string {
 	return s.String()
+}
+
+// SetAsyncTaskId sets the AsyncTaskId field's value.
+func (s *ActiveFlowLogOutput) SetAsyncTaskId(v string) *ActiveFlowLogOutput {
+	s.AsyncTaskId = &v
+	return s
 }
 
 // SetRequestId sets the RequestId field's value.

@@ -192,6 +192,8 @@ type UnassignIpv6AddressesOutput struct {
 
 	Metadata *response.ResponseMetadata
 
+	AsyncTaskId *string `type:"string"`
+
 	RequestId *string `type:"string"`
 }
 
@@ -203,6 +205,12 @@ func (s UnassignIpv6AddressesOutput) String() string {
 // GoString returns the string representation
 func (s UnassignIpv6AddressesOutput) GoString() string {
 	return s.String()
+}
+
+// SetAsyncTaskId sets the AsyncTaskId field's value.
+func (s *UnassignIpv6AddressesOutput) SetAsyncTaskId(v string) *UnassignIpv6AddressesOutput {
+	s.AsyncTaskId = &v
+	return s
 }
 
 // SetRequestId sets the RequestId field's value.

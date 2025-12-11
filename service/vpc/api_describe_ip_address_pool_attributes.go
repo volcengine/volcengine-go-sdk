@@ -180,6 +180,8 @@ type DescribeIpAddressPoolAttributesOutput struct {
 
 	Metadata *response.ResponseMetadata
 
+	AddressSource *string `type:"string"`
+
 	BusinessStatus *string `type:"string"`
 
 	CidrBlocks []*string `type:"list"`
@@ -202,6 +204,8 @@ type DescribeIpAddressPoolAttributesOutput struct {
 
 	RequestId *string `type:"string"`
 
+	SpecificEgress *string `type:"string"`
+
 	Status *string `type:"string"`
 
 	Tags []*TagForDescribeIpAddressPoolAttributesOutput `type:"list"`
@@ -221,6 +225,12 @@ func (s DescribeIpAddressPoolAttributesOutput) String() string {
 // GoString returns the string representation
 func (s DescribeIpAddressPoolAttributesOutput) GoString() string {
 	return s.String()
+}
+
+// SetAddressSource sets the AddressSource field's value.
+func (s *DescribeIpAddressPoolAttributesOutput) SetAddressSource(v string) *DescribeIpAddressPoolAttributesOutput {
+	s.AddressSource = &v
+	return s
 }
 
 // SetBusinessStatus sets the BusinessStatus field's value.
@@ -286,6 +296,12 @@ func (s *DescribeIpAddressPoolAttributesOutput) SetProjectName(v string) *Descri
 // SetRequestId sets the RequestId field's value.
 func (s *DescribeIpAddressPoolAttributesOutput) SetRequestId(v string) *DescribeIpAddressPoolAttributesOutput {
 	s.RequestId = &v
+	return s
+}
+
+// SetSpecificEgress sets the SpecificEgress field's value.
+func (s *DescribeIpAddressPoolAttributesOutput) SetSpecificEgress(v string) *DescribeIpAddressPoolAttributesOutput {
+	s.SpecificEgress = &v
 	return s
 }
 

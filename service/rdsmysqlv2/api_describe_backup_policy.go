@@ -228,6 +228,8 @@ type DescribeBackupPolicyOutput struct {
 
 	InstanceId *string `type:"string" json:",omitempty"`
 
+	KeepCrossBackupEnableAfterReleased *bool `type:"boolean" json:",omitempty"`
+
 	LockDDLTime *int32 `type:"int32" json:",omitempty"`
 
 	LogBackupRetentionDay *int32 `type:"int32" json:",omitempty"`
@@ -376,6 +378,12 @@ func (s *DescribeBackupPolicyOutput) SetIncrBackupHourPeriod(v int32) *DescribeB
 // SetInstanceId sets the InstanceId field's value.
 func (s *DescribeBackupPolicyOutput) SetInstanceId(v string) *DescribeBackupPolicyOutput {
 	s.InstanceId = &v
+	return s
+}
+
+// SetKeepCrossBackupEnableAfterReleased sets the KeepCrossBackupEnableAfterReleased field's value.
+func (s *DescribeBackupPolicyOutput) SetKeepCrossBackupEnableAfterReleased(v bool) *DescribeBackupPolicyOutput {
+	s.KeepCrossBackupEnableAfterReleased = &v
 	return s
 }
 

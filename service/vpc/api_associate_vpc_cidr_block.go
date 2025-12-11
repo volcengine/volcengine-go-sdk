@@ -188,6 +188,8 @@ type AssociateVpcCidrBlockOutput struct {
 
 	Metadata *response.ResponseMetadata
 
+	AsyncTaskId *string `type:"string"`
+
 	RequestId *string `type:"string"`
 
 	SecondaryCidrBlocks []*string `type:"list"`
@@ -203,6 +205,12 @@ func (s AssociateVpcCidrBlockOutput) String() string {
 // GoString returns the string representation
 func (s AssociateVpcCidrBlockOutput) GoString() string {
 	return s.String()
+}
+
+// SetAsyncTaskId sets the AsyncTaskId field's value.
+func (s *AssociateVpcCidrBlockOutput) SetAsyncTaskId(v string) *AssociateVpcCidrBlockOutput {
+	s.AsyncTaskId = &v
+	return s
 }
 
 // SetRequestId sets the RequestId field's value.

@@ -203,6 +203,8 @@ type CreateDrDBInstanceInput struct {
 	// StorageSpace is a required field
 	StorageSpace *int32 `type:"int32" json:",omitempty" required:"true"`
 
+	StorageType *string `type:"string" json:",omitempty"`
+
 	// SubnetId is a required field
 	SubnetId *string `type:"string" json:",omitempty" required:"true"`
 
@@ -290,6 +292,12 @@ func (s *CreateDrDBInstanceInput) SetProxyNodeCustom(v *ProxyNodeCustomForCreate
 // SetStorageSpace sets the StorageSpace field's value.
 func (s *CreateDrDBInstanceInput) SetStorageSpace(v int32) *CreateDrDBInstanceInput {
 	s.StorageSpace = &v
+	return s
+}
+
+// SetStorageType sets the StorageType field's value.
+func (s *CreateDrDBInstanceInput) SetStorageType(v string) *CreateDrDBInstanceInput {
+	s.StorageType = &v
 	return s
 }
 

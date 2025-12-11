@@ -152,6 +152,8 @@ type AddressForDescribeDBInstanceDetailOutput struct {
 
 	EipId *string `type:"string" json:",omitempty"`
 
+	EipLocked *bool `type:"boolean" json:",omitempty"`
+
 	IPAddress *string `type:"string" json:",omitempty"`
 
 	InternetProtocol *string `type:"string" json:",omitempty"`
@@ -188,6 +190,12 @@ func (s *AddressForDescribeDBInstanceDetailOutput) SetDomain(v string) *AddressF
 // SetEipId sets the EipId field's value.
 func (s *AddressForDescribeDBInstanceDetailOutput) SetEipId(v string) *AddressForDescribeDBInstanceDetailOutput {
 	s.EipId = &v
+	return s
+}
+
+// SetEipLocked sets the EipLocked field's value.
+func (s *AddressForDescribeDBInstanceDetailOutput) SetEipLocked(v bool) *AddressForDescribeDBInstanceDetailOutput {
+	s.EipLocked = &v
 	return s
 }
 
@@ -617,6 +625,28 @@ func (s *ChargeDetailForDescribeDBInstanceDetailOutput) SetTempModifyStartTime(v
 	return s
 }
 
+type CustomRouteStrategyForDescribeDBInstanceDetailOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	KeywordRouteStrategy []*KeywordRouteStrategyForDescribeDBInstanceDetailOutput `type:"list" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s CustomRouteStrategyForDescribeDBInstanceDetailOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s CustomRouteStrategyForDescribeDBInstanceDetailOutput) GoString() string {
+	return s.String()
+}
+
+// SetKeywordRouteStrategy sets the KeywordRouteStrategy field's value.
+func (s *CustomRouteStrategyForDescribeDBInstanceDetailOutput) SetKeywordRouteStrategy(v []*KeywordRouteStrategyForDescribeDBInstanceDetailOutput) *CustomRouteStrategyForDescribeDBInstanceDetailOutput {
+	s.KeywordRouteStrategy = v
+	return s
+}
+
 type DescribeDBInstanceDetailInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -800,6 +830,8 @@ type EndpointForDescribeDBInstanceDetailOutput struct {
 
 	ConnectionPoolType *string `type:"string" json:",omitempty"`
 
+	CustomRouteStrategy *CustomRouteStrategyForDescribeDBInstanceDetailOutput `type:"structure" json:",omitempty"`
+
 	Description *string `type:"string" json:",omitempty"`
 
 	EnableConnectionPersistent *bool `type:"boolean" json:",omitempty"`
@@ -872,6 +904,12 @@ func (s *EndpointForDescribeDBInstanceDetailOutput) SetConnectionMode(v string) 
 // SetConnectionPoolType sets the ConnectionPoolType field's value.
 func (s *EndpointForDescribeDBInstanceDetailOutput) SetConnectionPoolType(v string) *EndpointForDescribeDBInstanceDetailOutput {
 	s.ConnectionPoolType = &v
+	return s
+}
+
+// SetCustomRouteStrategy sets the CustomRouteStrategy field's value.
+func (s *EndpointForDescribeDBInstanceDetailOutput) SetCustomRouteStrategy(v *CustomRouteStrategyForDescribeDBInstanceDetailOutput) *EndpointForDescribeDBInstanceDetailOutput {
+	s.CustomRouteStrategy = v
 	return s
 }
 
@@ -974,6 +1012,36 @@ func (s *EndpointForDescribeDBInstanceDetailOutput) SetReadOnlyNodeWeight(v []*R
 // SetReadWriteMode sets the ReadWriteMode field's value.
 func (s *EndpointForDescribeDBInstanceDetailOutput) SetReadWriteMode(v string) *EndpointForDescribeDBInstanceDetailOutput {
 	s.ReadWriteMode = &v
+	return s
+}
+
+type KeywordRouteStrategyForDescribeDBInstanceDetailOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	NodeType *string `type:"string" json:",omitempty"`
+
+	SQLKeyword *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s KeywordRouteStrategyForDescribeDBInstanceDetailOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s KeywordRouteStrategyForDescribeDBInstanceDetailOutput) GoString() string {
+	return s.String()
+}
+
+// SetNodeType sets the NodeType field's value.
+func (s *KeywordRouteStrategyForDescribeDBInstanceDetailOutput) SetNodeType(v string) *KeywordRouteStrategyForDescribeDBInstanceDetailOutput {
+	s.NodeType = &v
+	return s
+}
+
+// SetSQLKeyword sets the SQLKeyword field's value.
+func (s *KeywordRouteStrategyForDescribeDBInstanceDetailOutput) SetSQLKeyword(v string) *KeywordRouteStrategyForDescribeDBInstanceDetailOutput {
+	s.SQLKeyword = &v
 	return s
 }
 

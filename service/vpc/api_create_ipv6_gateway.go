@@ -212,6 +212,8 @@ type CreateIpv6GatewayOutput struct {
 
 	Metadata *response.ResponseMetadata
 
+	AsyncTaskId *string `type:"string"`
+
 	Ipv6GatewayId *string `type:"string"`
 
 	RequestId *string `type:"string"`
@@ -225,6 +227,12 @@ func (s CreateIpv6GatewayOutput) String() string {
 // GoString returns the string representation
 func (s CreateIpv6GatewayOutput) GoString() string {
 	return s.String()
+}
+
+// SetAsyncTaskId sets the AsyncTaskId field's value.
+func (s *CreateIpv6GatewayOutput) SetAsyncTaskId(v string) *CreateIpv6GatewayOutput {
+	s.AsyncTaskId = &v
+	return s
 }
 
 // SetIpv6GatewayId sets the Ipv6GatewayId field's value.
