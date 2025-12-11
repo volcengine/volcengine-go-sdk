@@ -208,6 +208,8 @@ type ModifyRouteEntryOutput struct {
 
 	Metadata *response.ResponseMetadata
 
+	AsyncTaskId *string `type:"string"`
+
 	RequestId *string `type:"string"`
 }
 
@@ -219,6 +221,12 @@ func (s ModifyRouteEntryOutput) String() string {
 // GoString returns the string representation
 func (s ModifyRouteEntryOutput) GoString() string {
 	return s.String()
+}
+
+// SetAsyncTaskId sets the AsyncTaskId field's value.
+func (s *ModifyRouteEntryOutput) SetAsyncTaskId(v string) *ModifyRouteEntryOutput {
+	s.AsyncTaskId = &v
+	return s
 }
 
 // SetRequestId sets the RequestId field's value.

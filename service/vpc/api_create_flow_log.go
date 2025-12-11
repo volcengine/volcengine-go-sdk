@@ -293,6 +293,8 @@ type CreateFlowLogOutput struct {
 
 	Metadata *response.ResponseMetadata
 
+	AsyncTaskId *string `type:"string"`
+
 	FlowLogId *string `type:"string"`
 
 	RequestId *string `type:"string"`
@@ -306,6 +308,12 @@ func (s CreateFlowLogOutput) String() string {
 // GoString returns the string representation
 func (s CreateFlowLogOutput) GoString() string {
 	return s.String()
+}
+
+// SetAsyncTaskId sets the AsyncTaskId field's value.
+func (s *CreateFlowLogOutput) SetAsyncTaskId(v string) *CreateFlowLogOutput {
+	s.AsyncTaskId = &v
+	return s
 }
 
 // SetFlowLogId sets the FlowLogId field's value.

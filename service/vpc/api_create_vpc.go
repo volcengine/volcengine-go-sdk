@@ -256,6 +256,8 @@ type CreateVpcOutput struct {
 
 	Metadata *response.ResponseMetadata
 
+	AsyncTaskId *string `type:"string"`
+
 	RequestId *string `type:"string"`
 
 	RouteTableId *string `type:"string"`
@@ -271,6 +273,12 @@ func (s CreateVpcOutput) String() string {
 // GoString returns the string representation
 func (s CreateVpcOutput) GoString() string {
 	return s.String()
+}
+
+// SetAsyncTaskId sets the AsyncTaskId field's value.
+func (s *CreateVpcOutput) SetAsyncTaskId(v string) *CreateVpcOutput {
+	s.AsyncTaskId = &v
+	return s
 }
 
 // SetRequestId sets the RequestId field's value.

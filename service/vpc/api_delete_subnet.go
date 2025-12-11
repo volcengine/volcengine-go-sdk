@@ -180,6 +180,8 @@ type DeleteSubnetOutput struct {
 
 	Metadata *response.ResponseMetadata
 
+	AsyncTaskId *string `type:"string"`
+
 	RequestId *string `type:"string"`
 }
 
@@ -191,6 +193,12 @@ func (s DeleteSubnetOutput) String() string {
 // GoString returns the string representation
 func (s DeleteSubnetOutput) GoString() string {
 	return s.String()
+}
+
+// SetAsyncTaskId sets the AsyncTaskId field's value.
+func (s *DeleteSubnetOutput) SetAsyncTaskId(v string) *DeleteSubnetOutput {
+	s.AsyncTaskId = &v
+	return s
 }
 
 // SetRequestId sets the RequestId field's value.

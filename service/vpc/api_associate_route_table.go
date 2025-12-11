@@ -212,6 +212,8 @@ type AssociateRouteTableOutput struct {
 
 	Metadata *response.ResponseMetadata
 
+	AsyncTaskId *string `type:"string"`
+
 	RequestId *string `type:"string"`
 }
 
@@ -223,6 +225,12 @@ func (s AssociateRouteTableOutput) String() string {
 // GoString returns the string representation
 func (s AssociateRouteTableOutput) GoString() string {
 	return s.String()
+}
+
+// SetAsyncTaskId sets the AsyncTaskId field's value.
+func (s *AssociateRouteTableOutput) SetAsyncTaskId(v string) *AssociateRouteTableOutput {
+	s.AsyncTaskId = &v
+	return s
 }
 
 // SetRequestId sets the RequestId field's value.

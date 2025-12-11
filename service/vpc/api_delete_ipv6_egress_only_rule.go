@@ -180,6 +180,8 @@ type DeleteIpv6EgressOnlyRuleOutput struct {
 
 	Metadata *response.ResponseMetadata
 
+	AsyncTaskId *string `type:"string"`
+
 	RequestId *string `type:"string"`
 }
 
@@ -191,6 +193,12 @@ func (s DeleteIpv6EgressOnlyRuleOutput) String() string {
 // GoString returns the string representation
 func (s DeleteIpv6EgressOnlyRuleOutput) GoString() string {
 	return s.String()
+}
+
+// SetAsyncTaskId sets the AsyncTaskId field's value.
+func (s *DeleteIpv6EgressOnlyRuleOutput) SetAsyncTaskId(v string) *DeleteIpv6EgressOnlyRuleOutput {
+	s.AsyncTaskId = &v
+	return s
 }
 
 // SetRequestId sets the RequestId field's value.

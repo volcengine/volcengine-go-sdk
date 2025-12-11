@@ -264,6 +264,8 @@ type RevokeSecurityGroupIngressOutput struct {
 
 	Metadata *response.ResponseMetadata
 
+	AsyncTaskId *string `type:"string"`
+
 	RequestId *string `type:"string"`
 }
 
@@ -275,6 +277,12 @@ func (s RevokeSecurityGroupIngressOutput) String() string {
 // GoString returns the string representation
 func (s RevokeSecurityGroupIngressOutput) GoString() string {
 	return s.String()
+}
+
+// SetAsyncTaskId sets the AsyncTaskId field's value.
+func (s *RevokeSecurityGroupIngressOutput) SetAsyncTaskId(v string) *RevokeSecurityGroupIngressOutput {
+	s.AsyncTaskId = &v
+	return s
 }
 
 // SetRequestId sets the RequestId field's value.

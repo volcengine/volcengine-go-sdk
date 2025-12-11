@@ -208,6 +208,8 @@ type ModifyHaVipAttributesOutput struct {
 
 	Metadata *response.ResponseMetadata
 
+	AsyncTaskId *string `type:"string"`
+
 	RequestId *string `type:"string"`
 }
 
@@ -219,6 +221,12 @@ func (s ModifyHaVipAttributesOutput) String() string {
 // GoString returns the string representation
 func (s ModifyHaVipAttributesOutput) GoString() string {
 	return s.String()
+}
+
+// SetAsyncTaskId sets the AsyncTaskId field's value.
+func (s *ModifyHaVipAttributesOutput) SetAsyncTaskId(v string) *ModifyHaVipAttributesOutput {
+	s.AsyncTaskId = &v
+	return s
 }
 
 // SetRequestId sets the RequestId field's value.

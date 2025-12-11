@@ -324,6 +324,8 @@ type Ipv6AddressBandwidthForDescribeIpv6AddressBandwidthsOutput struct {
 
 	ProjectName *string `type:"string"`
 
+	SpecificEgress *string `type:"string"`
+
 	Status *string `type:"string"`
 
 	Tags []*TagForDescribeIpv6AddressBandwidthsOutput `type:"list"`
@@ -434,6 +436,12 @@ func (s *Ipv6AddressBandwidthForDescribeIpv6AddressBandwidthsOutput) SetOverdueT
 // SetProjectName sets the ProjectName field's value.
 func (s *Ipv6AddressBandwidthForDescribeIpv6AddressBandwidthsOutput) SetProjectName(v string) *Ipv6AddressBandwidthForDescribeIpv6AddressBandwidthsOutput {
 	s.ProjectName = &v
+	return s
+}
+
+// SetSpecificEgress sets the SpecificEgress field's value.
+func (s *Ipv6AddressBandwidthForDescribeIpv6AddressBandwidthsOutput) SetSpecificEgress(v string) *Ipv6AddressBandwidthForDescribeIpv6AddressBandwidthsOutput {
+	s.SpecificEgress = &v
 	return s
 }
 

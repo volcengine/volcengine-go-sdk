@@ -272,6 +272,8 @@ type CreateTrafficMirrorSessionOutput struct {
 
 	Metadata *response.ResponseMetadata
 
+	AsyncTaskId *string `type:"string"`
+
 	OrderId *string `type:"string"`
 
 	RequestId *string `type:"string"`
@@ -287,6 +289,12 @@ func (s CreateTrafficMirrorSessionOutput) String() string {
 // GoString returns the string representation
 func (s CreateTrafficMirrorSessionOutput) GoString() string {
 	return s.String()
+}
+
+// SetAsyncTaskId sets the AsyncTaskId field's value.
+func (s *CreateTrafficMirrorSessionOutput) SetAsyncTaskId(v string) *CreateTrafficMirrorSessionOutput {
+	s.AsyncTaskId = &v
+	return s
 }
 
 // SetOrderId sets the OrderId field's value.

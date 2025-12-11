@@ -360,6 +360,8 @@ type UpdateNetworkAclEntriesOutput struct {
 
 	Metadata *response.ResponseMetadata
 
+	AsyncTaskId *string `type:"string"`
+
 	RequestId *string `type:"string"`
 }
 
@@ -371,6 +373,12 @@ func (s UpdateNetworkAclEntriesOutput) String() string {
 // GoString returns the string representation
 func (s UpdateNetworkAclEntriesOutput) GoString() string {
 	return s.String()
+}
+
+// SetAsyncTaskId sets the AsyncTaskId field's value.
+func (s *UpdateNetworkAclEntriesOutput) SetAsyncTaskId(v string) *UpdateNetworkAclEntriesOutput {
+	s.AsyncTaskId = &v
+	return s
 }
 
 // SetRequestId sets the RequestId field's value.

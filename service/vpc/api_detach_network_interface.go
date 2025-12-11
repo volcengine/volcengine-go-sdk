@@ -192,6 +192,8 @@ type DetachNetworkInterfaceOutput struct {
 
 	Metadata *response.ResponseMetadata
 
+	AsyncTaskId *string `type:"string"`
+
 	RequestId *string `type:"string"`
 }
 
@@ -203,6 +205,12 @@ func (s DetachNetworkInterfaceOutput) String() string {
 // GoString returns the string representation
 func (s DetachNetworkInterfaceOutput) GoString() string {
 	return s.String()
+}
+
+// SetAsyncTaskId sets the AsyncTaskId field's value.
+func (s *DetachNetworkInterfaceOutput) SetAsyncTaskId(v string) *DetachNetworkInterfaceOutput {
+	s.AsyncTaskId = &v
+	return s
 }
 
 // SetRequestId sets the RequestId field's value.
