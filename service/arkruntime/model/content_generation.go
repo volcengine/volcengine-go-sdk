@@ -22,6 +22,7 @@ type CreateContentGenerationTaskRequest struct {
 	ReturnLastFrame       *bool                                 `json:"return_last_frame,omitempty"`
 	ServiceTier           *string                               `json:"service_tier,omitempty"`
 	ExecutionExpiresAfter *int64                                `json:"execution_expires_after,omitempty"`
+	GenerateAudio         *bool                                 `json:"generate_audio,omitempty"`
 }
 
 type CreateContentGenerationTaskResponse struct {
@@ -51,6 +52,7 @@ type GetContentGenerationTaskResponse struct {
 	RevisedPrompt         *string                 `json:"revised_prompt,omitempty"`
 	ServiceTier           *string                 `json:"service_tier,omitempty"`
 	ExecutionExpiresAfter *int64                  `json:"execution_expires_after,omitempty"`
+	GenerateAudio         *bool                   `json:"generate_audio,omitempty"`
 
 	HttpHeader
 }
@@ -115,6 +117,7 @@ type ListContentGenerationTaskItem struct {
 	RevisedPrompt         *string                 `json:"revised_prompt,omitempty"`
 	ServiceTier           *string                 `json:"service_tier,omitempty"`
 	ExecutionExpiresAfter *int64                  `json:"execution_expires_after,omitempty"`
+	GenerateAudio         *bool                   `json:"generate_audio,omitempty"`
 }
 
 type ContentGenerationError struct {
