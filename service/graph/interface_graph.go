@@ -230,6 +230,14 @@ type GRAPHAPI interface {
 	GraphragAddKnowledgeBaseWithContext(volcengine.Context, *GraphragAddKnowledgeBaseInput, ...request.Option) (*GraphragAddKnowledgeBaseOutput, error)
 	GraphragAddKnowledgeBaseRequest(*GraphragAddKnowledgeBaseInput) (*request.Request, *GraphragAddKnowledgeBaseOutput)
 
+	ListAllTablesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListAllTablesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListAllTablesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListAllTables(*ListAllTablesInput) (*ListAllTablesOutput, error)
+	ListAllTablesWithContext(volcengine.Context, *ListAllTablesInput, ...request.Option) (*ListAllTablesOutput, error)
+	ListAllTablesRequest(*ListAllTablesInput) (*request.Request, *ListAllTablesOutput)
+
 	ListClusterTablesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ListClusterTablesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	ListClusterTablesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
