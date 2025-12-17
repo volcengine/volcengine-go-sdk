@@ -151,6 +151,8 @@ type EnableKeyRotationInput struct {
 	KeyName *string `min:"2" max:"31" type:"string" json:",omitempty"`
 
 	KeyringName *string `min:"2" max:"31" type:"string" json:",omitempty"`
+
+	RotateInterval *int32 `min:"90" max:"2560" type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -178,6 +180,12 @@ func (s *EnableKeyRotationInput) Validate() error {
 	if s.KeyringName != nil && len(*s.KeyringName) > 31 {
 		invalidParams.Add(request.NewErrParamMaxLen("KeyringName", 31, *s.KeyringName))
 	}
+	if s.RotateInterval != nil && *s.RotateInterval < 90 {
+		invalidParams.Add(request.NewErrParamMinValue("RotateInterval", 90))
+	}
+	if s.RotateInterval != nil && *s.RotateInterval > 2560 {
+		invalidParams.Add(request.NewErrParamMaxValue("RotateInterval", 2560))
+	}
 
 	if invalidParams.Len() > 0 {
 		return invalidParams
@@ -200,6 +208,12 @@ func (s *EnableKeyRotationInput) SetKeyName(v string) *EnableKeyRotationInput {
 // SetKeyringName sets the KeyringName field's value.
 func (s *EnableKeyRotationInput) SetKeyringName(v string) *EnableKeyRotationInput {
 	s.KeyringName = &v
+	return s
+}
+
+// SetRotateInterval sets the RotateInterval field's value.
+func (s *EnableKeyRotationInput) SetRotateInterval(v int32) *EnableKeyRotationInput {
+	s.RotateInterval = &v
 	return s
 }
 

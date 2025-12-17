@@ -166,6 +166,8 @@ type CreateKeyInput struct {
 
 	ProtectionLevel *string `type:"string" json:",omitempty"`
 
+	RotateInterval *int32 `min:"90" max:"2560" type:"int32" json:",omitempty"`
+
 	RotateState *string `type:"string" json:",omitempty"`
 
 	Tags []*TagForCreateKeyInput `type:"list" json:",omitempty"`
@@ -212,6 +214,12 @@ func (s *CreateKeyInput) Validate() error {
 	}
 	if s.KeyringName != nil && len(*s.KeyringName) > 31 {
 		invalidParams.Add(request.NewErrParamMaxLen("KeyringName", 31, *s.KeyringName))
+	}
+	if s.RotateInterval != nil && *s.RotateInterval < 90 {
+		invalidParams.Add(request.NewErrParamMinValue("RotateInterval", 90))
+	}
+	if s.RotateInterval != nil && *s.RotateInterval > 2560 {
+		invalidParams.Add(request.NewErrParamMaxValue("RotateInterval", 2560))
 	}
 	if s.XksKeyID != nil && len(*s.XksKeyID) < 1 {
 		invalidParams.Add(request.NewErrParamMinLen("XksKeyID", 1))
@@ -277,6 +285,12 @@ func (s *CreateKeyInput) SetOrigin(v string) *CreateKeyInput {
 // SetProtectionLevel sets the ProtectionLevel field's value.
 func (s *CreateKeyInput) SetProtectionLevel(v string) *CreateKeyInput {
 	s.ProtectionLevel = &v
+	return s
+}
+
+// SetRotateInterval sets the RotateInterval field's value.
+func (s *CreateKeyInput) SetRotateInterval(v int32) *CreateKeyInput {
+	s.RotateInterval = &v
 	return s
 }
 
