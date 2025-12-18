@@ -229,7 +229,6 @@ func (c *Client) newRequest(ctx context.Context, method, url, resourceType, reso
 	// - presetendpoint: ep-m-* or modelID such as doubao-pro-32k-240525
 	resourceType = c.getResourceTypeById(resourceId)
 
-	// 在此之前修改body
 	for _, setter := range setters {
 		setter(args)
 	}
@@ -240,7 +239,7 @@ func (c *Client) newRequest(ctx context.Context, method, url, resourceType, reso
 	}
 
 	if args.header.Get("x-is-encrypted") == "true" {
-		// 在这里加密body
+		// c.getCertificate()
 	}
 
 	// add query args
