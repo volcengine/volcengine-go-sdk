@@ -13,6 +13,7 @@ import (
 	"fmt"
 	"hash"
 	"math/big"
+	"strings"
 
 	"golang.org/x/crypto/hkdf"
 )
@@ -72,13 +73,13 @@ func NewP256KeyAgreementClient(pemString string) (*KeyAgreementClient, error) {
 	}
 }
 
-// GenerateECIESKeyPair generate ECIES key pair and return the tuple (key, nonce, session token, error)
-func (k *KeyAgreementClient) GenerateECIESKeyPair() ([]byte, []byte, string, error) {
+// GenerateECIESKeyPair generate ECIES key pair and return the tuple (keyNonce, session token, error)
+func (k *KeyAgreementClient) GenerateECIESKeyPair() ([]byte, string, error) {
 	hash := sha256.New
 	// Generate an ephemeral elliptic curve scalar and point
 	r, R, err := GenerateKey(k.publicKey.Curve)
 	if err != nil {
-		return nil, nil, "", err
+		return nil, "", err
 	}
 	// Compute shared DH key
 	dh := &ecdsa.PublicKey{Curve: k.publicKey.Curve}
@@ -87,12 +88,10 @@ func (k *KeyAgreementClient) GenerateECIESKeyPair() ([]byte, []byte, string, err
 	len := aesKeySize + aesNonceSize
 	buf, err := deriveKeyBasic(hash, dh, len)
 	if err != nil {
-		return nil, nil, "", err
+		return nil, "", err
 	}
-	key := buf[:aesKeySize]
-	nonce := buf[aesKeySize:len]
 	token := MarshalBinary(R)
-	return key, nonce, base64.StdEncoding.EncodeToString(token), nil
+	return buf, base64.StdEncoding.EncodeToString(token), nil
 }
 
 // AesGcmEncryptBytes encrypt message using AES-GCM
@@ -179,6 +178,18 @@ func ReadCertFromBytes(pemBytes []byte) (*x509.Certificate, error) {
 
 func ReadCertFromString(pemString string) (*x509.Certificate, error) {
 	return ReadCertFromBytes([]byte(pemString))
+}
+
+func GetCertInfo(certPem string) (string, string, int64) {
+	cert, err := ReadCertFromString(certPem)
+	if err != nil {
+		return "", "", 0
+	}
+	dns := cert.DNSNames
+	if len(dns) > 1 && strings.HasPrefix(dns[0], "ring.") && strings.HasPrefix(dns[1], "key.") {
+		return dns[0][5:], dns[1][4:], cert.NotAfter.UTC().Unix()
+	}
+	return "", "", cert.NotAfter.UTC().Unix()
 }
 
 func deriveKeyBasic(hash func() hash.Hash, dh *ecdsa.PublicKey, len int) ([]byte, error) {

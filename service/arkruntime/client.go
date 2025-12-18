@@ -34,7 +34,8 @@ type Client struct {
 	rwLock                  *sync.RWMutex
 	advisoryRefreshTimeout  int
 	mandatoryRefreshTimeout int
-	certManager             sync.Map
+	e2eeManager             sync.Map
+	keyNonce                sync.Map
 
 	batchHTTPClient      *http.Client
 	modelBreakerProvider *utils.ModelBreakerProvider
@@ -68,7 +69,8 @@ func newClientWithConfig(config clientConfig) *Client {
 		rwLock:                  &sync.RWMutex{},
 		advisoryRefreshTimeout:  model.DefaultAdvisoryRefreshTimeout,
 		mandatoryRefreshTimeout: model.DefaultMandatoryRefreshTimeout,
-		certManager:             sync.Map{},
+		e2eeManager:             sync.Map{},
+		keyNonce:                sync.Map{},
 		batchHTTPClient:         newBatchHTTPClient(config.batchMaxParallel),
 		modelBreakerProvider:    utils.NewModelBreakerProvider(),
 	}
@@ -238,8 +240,8 @@ func (c *Client) newRequest(ctx context.Context, method, url, resourceType, reso
 		return nil, errH
 	}
 
-	if args.header.Get("x-is-encrypted") == "true" {
-		// c.getCertificate()
+	if args.header.Get(model.ClientIsEncryptedHeader) == "true" {
+		c.encryptRequest(ctx, resourceId, args)
 	}
 
 	// add query args
@@ -675,10 +677,40 @@ func (c *Client) isAPIKeyAuthentication() bool {
 	return c.config.apiKey != ""
 }
 
-func (c *Client) getCertificate(ctx context.Context, resourceId string) (string, error) {
-	cert, ok := c.certManager.Load(ctx)
-	if ok {
-		return cert.(string), nil
+func (c *Client) encryptRequest(ctx context.Context, resourceId string, args *requestOptions) error {
+	e2eeClient, err := c.getE2eeClient(ctx, resourceId, args.header.Get("Authorization"))
+	if err != nil {
+		return err
 	}
-	return "", fmt.Errorf("certificate not found")
+	keyNonce, sessionToken, err := e2eeClient.GenerateECIESKeyPair()
+	if err != nil {
+		return err
+	}
+	// add session token to header
+	args.header.Set("X-Session-Token", sessionToken)
+	// store keyNonce to map
+	c.rwLock.Lock()
+	c.keyNonce.Store(args.header.Get(model.ClientRequestHeader), keyNonce)
+	c.rwLock.Unlock()
+	// encrypt request body
+	err = EncryptChatRequest(ctx, keyNonce, args.body.(model.ChatRequest))
+	if err != nil {
+		return err
+	}
+	return nil
+}
+
+func (c *Client) getE2eeClient(ctx context.Context, resourceId, auth string) (*E2eeClient, error) {
+	cert, ok := c.e2eeManager.Load(ctx)
+	if ok {
+		return cert.(*E2eeClient), nil
+	}
+	// load by local file
+	// cert, err := c.loadE2eeCertificate(ctx, resourceId)
+	// if err != nil {
+	// 	return nil, err
+	// }
+	// load from client request and save file to local
+	// store to e2eeManager
+	return nil, fmt.Errorf("certificate not found")
 }
