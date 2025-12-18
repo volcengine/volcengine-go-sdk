@@ -34,6 +34,7 @@ type Client struct {
 	rwLock                  *sync.RWMutex
 	advisoryRefreshTimeout  int
 	mandatoryRefreshTimeout int
+	certManager             sync.Map
 
 	batchHTTPClient      *http.Client
 	modelBreakerProvider *utils.ModelBreakerProvider
@@ -67,6 +68,7 @@ func newClientWithConfig(config clientConfig) *Client {
 		rwLock:                  &sync.RWMutex{},
 		advisoryRefreshTimeout:  model.DefaultAdvisoryRefreshTimeout,
 		mandatoryRefreshTimeout: model.DefaultMandatoryRefreshTimeout,
+		certManager:             sync.Map{},
 		batchHTTPClient:         newBatchHTTPClient(config.batchMaxParallel),
 		modelBreakerProvider:    utils.NewModelBreakerProvider(),
 	}
@@ -227,6 +229,7 @@ func (c *Client) newRequest(ctx context.Context, method, url, resourceType, reso
 	// - presetendpoint: ep-m-* or modelID such as doubao-pro-32k-240525
 	resourceType = c.getResourceTypeById(resourceId)
 
+	// 在此之前修改body
 	for _, setter := range setters {
 		setter(args)
 	}
@@ -426,7 +429,6 @@ func sendCreateResponsesRequestStream(client *Client, httpClient *http.Client, r
 }
 
 func sendImageGenerationStream(client *Client, httpClient *http.Client, req *http.Request) (*utils.ImageGenerationStreamReader, error) {
-
 	requestID := req.Header.Get(model.ClientRequestHeader)
 	req.Header.Set("Content-Type", "application/json")
 	req.Header.Set("Accept", "text/event-stream")
@@ -525,6 +527,7 @@ func (c *Client) ResponsesRequestStreamDo(ctx context.Context, method, url, reso
 	)
 	return
 }
+
 func (c *Client) ImageGenerationStreamDo(ctx context.Context, method, url, resourceId string, setters ...requestOption) (streamReader *utils.ImageGenerationStreamReader, err error) {
 	err = utils.Retry(
 		ctx,
@@ -666,4 +669,12 @@ func (c *Client) getRetryAfter(v model.Response) int64 {
 
 func (c *Client) isAPIKeyAuthentication() bool {
 	return c.config.apiKey != ""
+}
+
+func (c *Client) getCertificate(ctx context.Context, resourceId string) (string, error) {
+	cert, ok := c.certManager.Load(ctx)
+	if ok {
+		return cert.(string), nil
+	}
+	return "", fmt.Errorf("certificate not found")
 }

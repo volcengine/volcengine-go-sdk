@@ -70,6 +70,7 @@ func (stream *ResponsesStreamReader) Recv() (response *responses.Event, err erro
 	response, err = stream.processLines()
 	return
 }
+
 func (stream *ImageGenerationStreamReader) Recv() (response model.ImagesStreamResponse, err error) {
 	if stream.IsFinished {
 		err = io.EOF
@@ -123,7 +124,7 @@ func (stream *ChatCompletionStreamReader) processLines() (model.ChatCompletionSt
 			stream.IsFinished = true
 			return model.ChatCompletionStreamResponse{}, io.EOF
 		}
-
+		// 在这里解密也许是个好主意
 		var response model.ChatCompletionStreamResponse
 		unmarshalErr := stream.Unmarshaler.Unmarshal(trimedLine, &response)
 		if unmarshalErr != nil {
@@ -189,9 +190,7 @@ func (stream *BotChatCompletionStreamReader) processLines() (model.BotChatComple
 }
 
 func (stream *ResponsesStreamReader) processLines() (*responses.Event, error) {
-	var (
-		emptyMessagesCount uint
-	)
+	var emptyMessagesCount uint
 
 	for stream.Decoder.Next() {
 
@@ -276,7 +275,6 @@ func (stream *ImageGenerationStreamReader) processLines() (model.ImagesStreamRes
 		unmarshalErr := stream.Unmarshaler.Unmarshal(trimedLine, &response)
 		if unmarshalErr != nil {
 			return model.ImagesStreamResponse{}, unmarshalErr
-
 		}
 
 		return response, nil
