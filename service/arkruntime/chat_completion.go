@@ -40,7 +40,6 @@ func (c *Client) CreateChatCompletionStream(
 ) (stream *utils.ChatCompletionStreamReader, err error) {
 	request = request.WithStream(true)
 
-	// 在此之前修改body
 	requestOptions := append(setters, withBody(request))
 
 	resp, err := c.ChatCompletionRequestStreamDo(ctx, http.MethodPost, c.fullURL(chatCompletionsSuffix), request.GetModel(), requestOptions...)

@@ -239,6 +239,10 @@ func (c *Client) newRequest(ctx context.Context, method, url, resourceType, reso
 		return nil, errH
 	}
 
+	if args.header.Get("x-is-encrypted") == "true" {
+		// 在这里加密body
+	}
+
 	// add query args
 	if len(args.query) > 0 {
 		url = url + "?" + args.query.Encode()
@@ -286,6 +290,7 @@ func (c *Client) sendRequest(client *http.Client, req *http.Request, v model.Res
 			RequestId:      requestID,
 		}
 	}
+	// 在这里解密也许是个好主意
 	return err
 }
 
