@@ -95,16 +95,6 @@ func (k *KeyAgreementClient) GenerateECIESKeyPair() ([]byte, []byte, string, err
 	return key, nonce, base64.StdEncoding.EncodeToString(token), nil
 }
 
-// CheckChain validate cert and cert chain
-func (k *KeyAgreementClient) CheckChain(pemChainString string) error {
-	chainCert, err := ReadCertFromString(pemChainString)
-	if err != nil {
-		return err
-	}
-	// tdb: more check maybe here
-	return k.cert.CheckSignatureFrom(chainCert)
-}
-
 // AesGcmEncryptBytes encrypt message using AES-GCM
 func AesGcmEncryptBytes(key, nonce, plain []byte) ([]byte, error) {
 	aes, err := aes.NewCipher(key)
@@ -123,56 +113,6 @@ func AesGcmEncryptBase64String(key, nonce []byte, plaintext string) (string, err
 	plainBytes := []byte(plaintext)
 	c, err := AesGcmEncryptBytes(key, nonce, plainBytes)
 	return base64.StdEncoding.EncodeToString(c), err
-}
-
-type KeyAgreementVendor struct {
-	privateKey *ecdsa.PrivateKey
-}
-
-// NewP256KeyAgreementVendor Load private key
-func NewP256KeyAgreementVendor(key string) (*KeyAgreementVendor, error) {
-	p256NistKey := &KeyAgreementVendor{}
-	ecdsaKey, err := ReadEcdsaPrivKeyFromString(key)
-	if err != nil {
-		return nil, fmt.Errorf("failed to read ecdsa private key: %w", err)
-	}
-	p256NistKey.privateKey = ecdsaKey
-	return p256NistKey, nil
-}
-
-// DecryptString decide ciphered text with ECIES DH protocol and return the
-// tuple of (key, nonce, decrypted text)
-func (k *KeyAgreementVendor) DecryptString(sessionToken string, ciphertext string) ([]byte, []byte, string, error) {
-	key, nonce, err := k.ExtractECIESKeyPair(sessionToken)
-	if err != nil {
-		return nil, nil, "", fmt.Errorf("failed to extract ECIES key from session token: %w", err)
-	}
-	// Decrypt message using AES-GCM
-	plaintext, err := AesGcmDecryptBase64String(key, nonce, ciphertext)
-	return key, nonce, plaintext, err
-}
-
-// ExtractECIESKeyPair extract ECIES key pair from session token and return the
-// tuple of (key, nonce)
-func (k *KeyAgreementVendor) ExtractECIESKeyPair(sessionToken string) ([]byte, []byte, error) {
-	token, err := base64.StdEncoding.DecodeString(sessionToken)
-	if err != nil {
-		return nil, nil, fmt.Errorf("provided session token is not a valid base64 string: %w", err)
-	}
-	hash := sha256.New
-	x, y := UnmarshalBinary(k.privateKey.Curve, token)
-	R := ecdsa.PublicKey{X: x, Y: y, Curve: k.privateKey.Curve}
-	// Compute shared DH key and derive the symmetric key and nonce via HKDF
-	dh := &ecdsa.PublicKey{Curve: k.privateKey.Curve}
-	dh.X, dh.Y = R.Curve.ScalarMult(R.X, R.Y, k.privateKey.D.Bytes())
-	len := aesKeySize + aesNonceSize
-	buf, err := deriveKeyBasic(hash, dh, len)
-	if err != nil {
-		return nil, nil, fmt.Errorf("failed to derive key: %w", err)
-	}
-	key := buf[:aesKeySize]
-	nonce := buf[aesKeySize:len]
-	return key, nonce, nil
 }
 
 // AesGcmDecryptBytes Decrypt message using AES-GCM
