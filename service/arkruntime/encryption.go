@@ -12,7 +12,7 @@ type E2eeClient struct {
 	cipher      *encryption.KeyAgreementClient
 }
 
-func NewE2EE(certificate string) (*E2eeClient, error) {
+func NewE2eeClient(certificate string) (*E2eeClient, error) {
 	cipher, err := encryption.NewP256KeyAgreementClient(certificate)
 	if err != nil {
 		return nil, err

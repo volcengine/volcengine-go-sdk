@@ -2,6 +2,7 @@ package arkruntime
 
 import (
 	"bufio"
+	"bytes"
 	"context"
 	"encoding/json"
 	"errors"
@@ -17,6 +18,7 @@ import (
 
 	"github.com/volcengine/volcengine-go-sdk/service/ark"
 	"github.com/volcengine/volcengine-go-sdk/service/arkruntime/model"
+	"github.com/volcengine/volcengine-go-sdk/service/arkruntime/pkg/encryption"
 	"github.com/volcengine/volcengine-go-sdk/service/arkruntime/utils"
 	"github.com/volcengine/volcengine-go-sdk/volcengine"
 	"github.com/volcengine/volcengine-go-sdk/volcengine/credentials"
@@ -706,11 +708,60 @@ func (c *Client) getE2eeClient(ctx context.Context, resourceId, auth string) (*E
 		return cert.(*E2eeClient), nil
 	}
 	// load by local file
-	// cert, err := c.loadE2eeCertificate(ctx, resourceId)
-	// if err != nil {
-	// 	return nil, err
-	// }
-	// load from client request and save file to local
+	certPem, err := encryption.LoadLocalCertificate(resourceId)
+	if err != nil || certPem == "" {
+		// load from client request and save file to local
+		certPem, err = c.loadServerCertificate(ctx, resourceId, auth)
+		if err != nil {
+			return nil, fmt.Errorf("loading Certificate failed: %w", err)
+		}
+		// save to local file
+		err = encryption.SaveToLocalCertificate(resourceId, certPem)
+		if err != nil {
+			return nil, fmt.Errorf("saving Certificate failed: %w", err)
+		}
+	}
+	e2eeClient, err := NewE2eeClient(certPem)
+	if err != nil {
+		return nil, fmt.Errorf("creating E2eeClient failed: %w", err)
+	}
 	// store to e2eeManager
-	return nil, fmt.Errorf("certificate not found")
+	c.rwLock.Lock()
+	defer c.rwLock.Unlock()
+	c.e2eeManager.Store(ctx, e2eeClient)
+	return e2eeClient, nil
+}
+
+type certificateResponse struct {
+	Error       map[string]string `json:"error,omitempty"`
+	Certificate string            `json:"Certificate"`
+}
+
+func (c *Client) loadServerCertificate(ctx context.Context, resourceId, auth string) (string, error) {
+	url := c.fullURL("/e2e/get/certificate")
+	body := map[string]string{"model": resourceId}
+	b, err := json.Marshal(body)
+	if err != nil {
+		return "", fmt.Errorf("getting Certificate failed: %w", err)
+	}
+	req, err := http.NewRequestWithContext(ctx, "POST", url, bytes.NewReader(b))
+	if err != nil {
+		return "", fmt.Errorf("getting Certificate failed: %w", err)
+	}
+	req.Header.Set("Content-Type", "application/json")
+	req.Header.Set("Accept", "application/json")
+	req.Header.Set("Authorization", auth)
+	res, err := c.config.HTTPClient.Do(req)
+	if err != nil {
+		return "", fmt.Errorf("getting Certificate failed: %w", err)
+	}
+	defer res.Body.Close()
+	var cr certificateResponse
+	if err := json.NewDecoder(res.Body).Decode(&cr); err != nil {
+		return "", fmt.Errorf("getting Certificate failed: %w", err)
+	}
+	if len(cr.Error) > 0 {
+		return "", fmt.Errorf("getting Certificate failed: %v", cr.Error)
+	}
+	return cr.Certificate, nil
 }

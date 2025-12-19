@@ -13,7 +13,10 @@ import (
 	"fmt"
 	"hash"
 	"math/big"
+	"os"
+	"path/filepath"
 	"strings"
+	"time"
 
 	"golang.org/x/crypto/hkdf"
 )
@@ -201,4 +204,47 @@ func deriveKeyBasic(hash func() hash.Hash, dh *ecdsa.PublicKey, len int) ([]byte
 		return nil, err
 	}
 	return key, nil
+}
+
+func LoadLocalCertificate(model string) (string, error) {
+	var dir string
+	home, herr := os.UserHomeDir()
+	if herr == nil && home != "" {
+		dir = filepath.Join(home, ".ark", "certificates")
+	} else {
+		return "", fmt.Errorf("failed to get user home dir. err=%w", herr)
+	}
+	certFilePath := filepath.Join(dir, model+".pem")
+	fi, err := os.Stat(certFilePath)
+	if err != nil {
+		return "", err
+	}
+	lastModified := fi.ModTime()
+	current := time.Now()
+	if current.Sub(lastModified) <= 14*24*time.Hour {
+		b, err := os.ReadFile(certFilePath)
+		_ = os.Remove(certFilePath)
+		if err != nil {
+			return "", err
+		}
+		return string(b), nil
+	}
+	_ = os.Remove(certFilePath)
+	return "", nil
+}
+
+func SaveToLocalCertificate(model, certPem string) error {
+	var dir string
+	home, herr := os.UserHomeDir()
+	if herr == nil && home != "" {
+		dir = filepath.Join(home, ".ark", "certificates")
+	} else {
+		return fmt.Errorf("failed to get user home dir. err=%w", herr)
+	}
+	certFilePath := filepath.Join(dir, model+".pem")
+	err := os.MkdirAll(dir, 0o755)
+	if err != nil {
+		return err
+	}
+	return os.WriteFile(certFilePath, []byte(certPem), 0o644)
 }
