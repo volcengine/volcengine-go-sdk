@@ -46,6 +46,14 @@ type VEPFSAPI interface {
 	CancelDataFlowTaskWithContext(volcengine.Context, *CancelDataFlowTaskInput, ...request.Option) (*CancelDataFlowTaskOutput, error)
 	CancelDataFlowTaskRequest(*CancelDataFlowTaskInput) (*request.Request, *CancelDataFlowTaskOutput)
 
+	CancelLensTaskCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CancelLensTaskCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CancelLensTaskCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CancelLensTask(*CancelLensTaskInput) (*CancelLensTaskOutput, error)
+	CancelLensTaskWithContext(volcengine.Context, *CancelLensTaskInput, ...request.Option) (*CancelLensTaskOutput, error)
+	CancelLensTaskRequest(*CancelLensTaskInput) (*request.Request, *CancelLensTaskOutput)
+
 	ConfigDataFlowBandwidthCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ConfigDataFlowBandwidthCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	ConfigDataFlowBandwidthCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -77,6 +85,22 @@ type VEPFSAPI interface {
 	CreateFileset(*CreateFilesetInput) (*CreateFilesetOutput, error)
 	CreateFilesetWithContext(volcengine.Context, *CreateFilesetInput, ...request.Option) (*CreateFilesetOutput, error)
 	CreateFilesetRequest(*CreateFilesetInput) (*request.Request, *CreateFilesetOutput)
+
+	CreateLensPolicyCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateLensPolicyCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateLensPolicyCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateLensPolicy(*CreateLensPolicyInput) (*CreateLensPolicyOutput, error)
+	CreateLensPolicyWithContext(volcengine.Context, *CreateLensPolicyInput, ...request.Option) (*CreateLensPolicyOutput, error)
+	CreateLensPolicyRequest(*CreateLensPolicyInput) (*request.Request, *CreateLensPolicyOutput)
+
+	CreateLensTaskCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateLensTaskCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateLensTaskCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateLensTask(*CreateLensTaskInput) (*CreateLensTaskOutput, error)
+	CreateLensTaskWithContext(volcengine.Context, *CreateLensTaskInput, ...request.Option) (*CreateLensTaskOutput, error)
+	CreateLensTaskRequest(*CreateLensTaskInput) (*request.Request, *CreateLensTaskOutput)
 
 	CreateMountServiceCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	CreateMountServiceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -117,6 +141,22 @@ type VEPFSAPI interface {
 	DeleteFileset(*DeleteFilesetInput) (*DeleteFilesetOutput, error)
 	DeleteFilesetWithContext(volcengine.Context, *DeleteFilesetInput, ...request.Option) (*DeleteFilesetOutput, error)
 	DeleteFilesetRequest(*DeleteFilesetInput) (*request.Request, *DeleteFilesetOutput)
+
+	DeleteLensPolicyCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeleteLensPolicyCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeleteLensPolicyCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeleteLensPolicy(*DeleteLensPolicyInput) (*DeleteLensPolicyOutput, error)
+	DeleteLensPolicyWithContext(volcengine.Context, *DeleteLensPolicyInput, ...request.Option) (*DeleteLensPolicyOutput, error)
+	DeleteLensPolicyRequest(*DeleteLensPolicyInput) (*request.Request, *DeleteLensPolicyOutput)
+
+	DeleteLensTaskCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeleteLensTaskCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeleteLensTaskCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeleteLensTask(*DeleteLensTaskInput) (*DeleteLensTaskOutput, error)
+	DeleteLensTaskWithContext(volcengine.Context, *DeleteLensTaskInput, ...request.Option) (*DeleteLensTaskOutput, error)
+	DeleteLensTaskRequest(*DeleteLensTaskInput) (*request.Request, *DeleteLensTaskOutput)
 
 	DeleteMountServiceCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DeleteMountServiceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -173,6 +213,30 @@ type VEPFSAPI interface {
 	DescribeFilesets(*DescribeFilesetsInput) (*DescribeFilesetsOutput, error)
 	DescribeFilesetsWithContext(volcengine.Context, *DescribeFilesetsInput, ...request.Option) (*DescribeFilesetsOutput, error)
 	DescribeFilesetsRequest(*DescribeFilesetsInput) (*request.Request, *DescribeFilesetsOutput)
+
+	DescribeLensPoliciesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeLensPoliciesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeLensPoliciesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeLensPolicies(*DescribeLensPoliciesInput) (*DescribeLensPoliciesOutput, error)
+	DescribeLensPoliciesWithContext(volcengine.Context, *DescribeLensPoliciesInput, ...request.Option) (*DescribeLensPoliciesOutput, error)
+	DescribeLensPoliciesRequest(*DescribeLensPoliciesInput) (*request.Request, *DescribeLensPoliciesOutput)
+
+	DescribeLensServicesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeLensServicesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeLensServicesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeLensServices(*DescribeLensServicesInput) (*DescribeLensServicesOutput, error)
+	DescribeLensServicesWithContext(volcengine.Context, *DescribeLensServicesInput, ...request.Option) (*DescribeLensServicesOutput, error)
+	DescribeLensServicesRequest(*DescribeLensServicesInput) (*request.Request, *DescribeLensServicesOutput)
+
+	DescribeLensTasksCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeLensTasksCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeLensTasksCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeLensTasks(*DescribeLensTasksInput) (*DescribeLensTasksOutput, error)
+	DescribeLensTasksWithContext(volcengine.Context, *DescribeLensTasksInput, ...request.Option) (*DescribeLensTasksOutput, error)
+	DescribeLensTasksRequest(*DescribeLensTasksInput) (*request.Request, *DescribeLensTasksOutput)
 
 	DescribeMountServiceNodeTypesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DescribeMountServiceNodeTypesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -246,6 +310,22 @@ type VEPFSAPI interface {
 	SetFilesetQuotaWithContext(volcengine.Context, *SetFilesetQuotaInput, ...request.Option) (*SetFilesetQuotaOutput, error)
 	SetFilesetQuotaRequest(*SetFilesetQuotaInput) (*request.Request, *SetFilesetQuotaOutput)
 
+	StartLensServiceCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	StartLensServiceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	StartLensServiceCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	StartLensService(*StartLensServiceInput) (*StartLensServiceOutput, error)
+	StartLensServiceWithContext(volcengine.Context, *StartLensServiceInput, ...request.Option) (*StartLensServiceOutput, error)
+	StartLensServiceRequest(*StartLensServiceInput) (*request.Request, *StartLensServiceOutput)
+
+	StopLensServiceCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	StopLensServiceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	StopLensServiceCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	StopLensService(*StopLensServiceInput) (*StopLensServiceOutput, error)
+	StopLensServiceWithContext(volcengine.Context, *StopLensServiceInput, ...request.Option) (*StopLensServiceOutput, error)
+	StopLensServiceRequest(*StopLensServiceInput) (*request.Request, *StopLensServiceOutput)
+
 	TagResourcesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	TagResourcesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	TagResourcesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -277,6 +357,22 @@ type VEPFSAPI interface {
 	UpdateFileset(*UpdateFilesetInput) (*UpdateFilesetOutput, error)
 	UpdateFilesetWithContext(volcengine.Context, *UpdateFilesetInput, ...request.Option) (*UpdateFilesetOutput, error)
 	UpdateFilesetRequest(*UpdateFilesetInput) (*request.Request, *UpdateFilesetOutput)
+
+	UpdateLensPolicyCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	UpdateLensPolicyCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	UpdateLensPolicyCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	UpdateLensPolicy(*UpdateLensPolicyInput) (*UpdateLensPolicyOutput, error)
+	UpdateLensPolicyWithContext(volcengine.Context, *UpdateLensPolicyInput, ...request.Option) (*UpdateLensPolicyOutput, error)
+	UpdateLensPolicyRequest(*UpdateLensPolicyInput) (*request.Request, *UpdateLensPolicyOutput)
+
+	UpdateLensTaskCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	UpdateLensTaskCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	UpdateLensTaskCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	UpdateLensTask(*UpdateLensTaskInput) (*UpdateLensTaskOutput, error)
+	UpdateLensTaskWithContext(volcengine.Context, *UpdateLensTaskInput, ...request.Option) (*UpdateLensTaskOutput, error)
+	UpdateLensTaskRequest(*UpdateLensTaskInput) (*request.Request, *UpdateLensTaskOutput)
 
 	UpdateMountServiceCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	UpdateMountServiceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
