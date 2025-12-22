@@ -145,7 +145,7 @@ type DescribeListenerHealthInput struct {
 	// ListenerIds is a required field
 	ListenerIds []*string `type:"list" required:"true"`
 
-	OnlyUnHealthy *string `type:"string"`
+	OnlyUnHealthy *bool `type:"boolean"`
 
 	ProjectName *string `type:"string"`
 }
@@ -180,7 +180,7 @@ func (s *DescribeListenerHealthInput) SetListenerIds(v []*string) *DescribeListe
 }
 
 // SetOnlyUnHealthy sets the OnlyUnHealthy field's value.
-func (s *DescribeListenerHealthInput) SetOnlyUnHealthy(v string) *DescribeListenerHealthInput {
+func (s *DescribeListenerHealthInput) SetOnlyUnHealthy(v bool) *DescribeListenerHealthInput {
 	s.OnlyUnHealthy = &v
 	return s
 }

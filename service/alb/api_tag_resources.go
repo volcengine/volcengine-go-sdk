@@ -147,7 +147,8 @@ type TagForTagResourcesInput struct {
 	// Key is a required field
 	Key *string `type:"string" required:"true"`
 
-	Value *string `type:"string"`
+	// Value is a required field
+	Value *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -165,6 +166,9 @@ func (s *TagForTagResourcesInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "TagForTagResourcesInput"}
 	if s.Key == nil {
 		invalidParams.Add(request.NewErrParamRequired("Key"))
+	}
+	if s.Value == nil {
+		invalidParams.Add(request.NewErrParamRequired("Value"))
 	}
 
 	if invalidParams.Len() > 0 {

@@ -158,6 +158,8 @@ type DescribeLoadBalancersInput struct {
 
 	TagFilters []*TagFilterForDescribeLoadBalancersInput `type:"list"`
 
+	Type *string `type:"string"`
+
 	VpcId *string `type:"string"`
 }
 
@@ -216,6 +218,12 @@ func (s *DescribeLoadBalancersInput) SetProjectName(v string) *DescribeLoadBalan
 // SetTagFilters sets the TagFilters field's value.
 func (s *DescribeLoadBalancersInput) SetTagFilters(v []*TagFilterForDescribeLoadBalancersInput) *DescribeLoadBalancersInput {
 	s.TagFilters = v
+	return s
+}
+
+// SetType sets the Type field's value.
+func (s *DescribeLoadBalancersInput) SetType(v string) *DescribeLoadBalancersInput {
+	s.Type = &v
 	return s
 }
 
@@ -520,6 +528,8 @@ type LoadBalancerForDescribeLoadBalancersOutput struct {
 
 	ProjectName *string `type:"string"`
 
+	ProxyProtocolEnabled *string `type:"string"`
+
 	SniAutoMatch *string `type:"string"`
 
 	Status *string `type:"string"`
@@ -674,6 +684,12 @@ func (s *LoadBalancerForDescribeLoadBalancersOutput) SetOverdueTime(v string) *L
 // SetProjectName sets the ProjectName field's value.
 func (s *LoadBalancerForDescribeLoadBalancersOutput) SetProjectName(v string) *LoadBalancerForDescribeLoadBalancersOutput {
 	s.ProjectName = &v
+	return s
+}
+
+// SetProxyProtocolEnabled sets the ProxyProtocolEnabled field's value.
+func (s *LoadBalancerForDescribeLoadBalancersOutput) SetProxyProtocolEnabled(v string) *LoadBalancerForDescribeLoadBalancersOutput {
+	s.ProxyProtocolEnabled = &v
 	return s
 }
 

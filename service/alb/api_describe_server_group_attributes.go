@@ -186,7 +186,7 @@ type DescribeServerGroupAttributesOutput struct {
 
 	HealthCheck *HealthCheckForDescribeServerGroupAttributesOutput `type:"structure"`
 
-	IPAddressType *string `type:"string"`
+	IpAddressType *string `type:"string"`
 
 	Listeners []*string `type:"list"`
 
@@ -243,9 +243,9 @@ func (s *DescribeServerGroupAttributesOutput) SetHealthCheck(v *HealthCheckForDe
 	return s
 }
 
-// SetIPAddressType sets the IPAddressType field's value.
-func (s *DescribeServerGroupAttributesOutput) SetIPAddressType(v string) *DescribeServerGroupAttributesOutput {
-	s.IPAddressType = &v
+// SetIpAddressType sets the IpAddressType field's value.
+func (s *DescribeServerGroupAttributesOutput) SetIpAddressType(v string) *DescribeServerGroupAttributesOutput {
+	s.IpAddressType = &v
 	return s
 }
 

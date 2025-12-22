@@ -142,8 +142,7 @@ func (c *ALB) ReplaceCACertificateWithContext(ctx volcengine.Context, input *Rep
 type ReplaceCACertificateInput struct {
 	_ struct{} `type:"structure"`
 
-	// CACertificate is a required field
-	CACertificate *string `type:"string" required:"true"`
+	CACertificate *string `type:"string"`
 
 	CACertificateId *string `type:"string"`
 
@@ -175,9 +174,6 @@ func (s ReplaceCACertificateInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *ReplaceCACertificateInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "ReplaceCACertificateInput"}
-	if s.CACertificate == nil {
-		invalidParams.Add(request.NewErrParamRequired("CACertificate"))
-	}
 	if s.CACertificateName != nil && len(*s.CACertificateName) < 1 {
 		invalidParams.Add(request.NewErrParamMinLen("CACertificateName", 1))
 	}

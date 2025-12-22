@@ -238,7 +238,7 @@ type DescribeLoadBalancerAttributesOutput struct {
 
 	EniId *string `type:"string"`
 
-	GlobalAccelerators *GlobalAcceleratorsForDescribeLoadBalancerAttributesOutput `type:"structure"`
+	GlobalAccelerators []*GlobalAcceleratorForDescribeLoadBalancerAttributesOutput `type:"list"`
 
 	HealthLog *HealthLogForDescribeLoadBalancerAttributesOutput `type:"structure"`
 
@@ -384,7 +384,7 @@ func (s *DescribeLoadBalancerAttributesOutput) SetEniId(v string) *DescribeLoadB
 }
 
 // SetGlobalAccelerators sets the GlobalAccelerators field's value.
-func (s *DescribeLoadBalancerAttributesOutput) SetGlobalAccelerators(v *GlobalAcceleratorsForDescribeLoadBalancerAttributesOutput) *DescribeLoadBalancerAttributesOutput {
+func (s *DescribeLoadBalancerAttributesOutput) SetGlobalAccelerators(v []*GlobalAcceleratorForDescribeLoadBalancerAttributesOutput) *DescribeLoadBalancerAttributesOutput {
 	s.GlobalAccelerators = v
 	return s
 }
@@ -611,7 +611,7 @@ func (s *EipForDescribeLoadBalancerAttributesOutput) SetSecurityProtectionTypes(
 	return s
 }
 
-type GlobalAcceleratorsForDescribeLoadBalancerAttributesOutput struct {
+type GlobalAcceleratorForDescribeLoadBalancerAttributesOutput struct {
 	_ struct{} `type:"structure"`
 
 	AcceleratorId *string `type:"string"`
@@ -620,23 +620,23 @@ type GlobalAcceleratorsForDescribeLoadBalancerAttributesOutput struct {
 }
 
 // String returns the string representation
-func (s GlobalAcceleratorsForDescribeLoadBalancerAttributesOutput) String() string {
+func (s GlobalAcceleratorForDescribeLoadBalancerAttributesOutput) String() string {
 	return volcengineutil.Prettify(s)
 }
 
 // GoString returns the string representation
-func (s GlobalAcceleratorsForDescribeLoadBalancerAttributesOutput) GoString() string {
+func (s GlobalAcceleratorForDescribeLoadBalancerAttributesOutput) GoString() string {
 	return s.String()
 }
 
 // SetAcceleratorId sets the AcceleratorId field's value.
-func (s *GlobalAcceleratorsForDescribeLoadBalancerAttributesOutput) SetAcceleratorId(v string) *GlobalAcceleratorsForDescribeLoadBalancerAttributesOutput {
+func (s *GlobalAcceleratorForDescribeLoadBalancerAttributesOutput) SetAcceleratorId(v string) *GlobalAcceleratorForDescribeLoadBalancerAttributesOutput {
 	s.AcceleratorId = &v
 	return s
 }
 
 // SetAcceleratorName sets the AcceleratorName field's value.
-func (s *GlobalAcceleratorsForDescribeLoadBalancerAttributesOutput) SetAcceleratorName(v string) *GlobalAcceleratorsForDescribeLoadBalancerAttributesOutput {
+func (s *GlobalAcceleratorForDescribeLoadBalancerAttributesOutput) SetAcceleratorName(v string) *GlobalAcceleratorForDescribeLoadBalancerAttributesOutput {
 	s.AcceleratorName = &v
 	return s
 }

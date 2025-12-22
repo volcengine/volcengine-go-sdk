@@ -289,6 +289,8 @@ type DomainExtensionForDescribeListenersOutput struct {
 	ListenerId *string `type:"string"`
 
 	PcaLeafCertificateId *string `type:"string"`
+
+	San *string `type:"string"`
 }
 
 // String returns the string representation
@@ -343,8 +345,16 @@ func (s *DomainExtensionForDescribeListenersOutput) SetPcaLeafCertificateId(v st
 	return s
 }
 
+// SetSan sets the San field's value.
+func (s *DomainExtensionForDescribeListenersOutput) SetSan(v string) *DomainExtensionForDescribeListenersOutput {
+	s.San = &v
+	return s
+}
+
 type ListenerForDescribeListenersOutput struct {
 	_ struct{} `type:"structure"`
+
+	AccessLogRecordCustomizedHeadersEnabled *string `type:"string"`
 
 	AclIds []*string `type:"list"`
 
@@ -361,8 +371,6 @@ type ListenerForDescribeListenersOutput struct {
 	CertificateId *string `type:"string"`
 
 	CertificateSource *string `type:"string"`
-
-	ClientAddressTransmissionProtocol *string `type:"string"`
 
 	CreateTime *string `type:"string"`
 
@@ -396,8 +404,6 @@ type ListenerForDescribeListenersOutput struct {
 
 	Protocol *string `type:"string"`
 
-	ProxyProtocolDisabled *string `type:"string"`
-
 	ServerGroupId *string `type:"string"`
 
 	ServerGroups []*ServerGroupForDescribeListenersOutput `type:"list"`
@@ -417,6 +423,12 @@ func (s ListenerForDescribeListenersOutput) String() string {
 // GoString returns the string representation
 func (s ListenerForDescribeListenersOutput) GoString() string {
 	return s.String()
+}
+
+// SetAccessLogRecordCustomizedHeadersEnabled sets the AccessLogRecordCustomizedHeadersEnabled field's value.
+func (s *ListenerForDescribeListenersOutput) SetAccessLogRecordCustomizedHeadersEnabled(v string) *ListenerForDescribeListenersOutput {
+	s.AccessLogRecordCustomizedHeadersEnabled = &v
+	return s
 }
 
 // SetAclIds sets the AclIds field's value.
@@ -464,12 +476,6 @@ func (s *ListenerForDescribeListenersOutput) SetCertificateId(v string) *Listene
 // SetCertificateSource sets the CertificateSource field's value.
 func (s *ListenerForDescribeListenersOutput) SetCertificateSource(v string) *ListenerForDescribeListenersOutput {
 	s.CertificateSource = &v
-	return s
-}
-
-// SetClientAddressTransmissionProtocol sets the ClientAddressTransmissionProtocol field's value.
-func (s *ListenerForDescribeListenersOutput) SetClientAddressTransmissionProtocol(v string) *ListenerForDescribeListenersOutput {
-	s.ClientAddressTransmissionProtocol = &v
 	return s
 }
 
@@ -566,12 +572,6 @@ func (s *ListenerForDescribeListenersOutput) SetProjectName(v string) *ListenerF
 // SetProtocol sets the Protocol field's value.
 func (s *ListenerForDescribeListenersOutput) SetProtocol(v string) *ListenerForDescribeListenersOutput {
 	s.Protocol = &v
-	return s
-}
-
-// SetProxyProtocolDisabled sets the ProxyProtocolDisabled field's value.
-func (s *ListenerForDescribeListenersOutput) SetProxyProtocolDisabled(v string) *ListenerForDescribeListenersOutput {
-	s.ProxyProtocolDisabled = &v
 	return s
 }
 

@@ -156,7 +156,7 @@ type DescribeServerGroupsInput struct {
 
 	TagFilters []*TagFilterForDescribeServerGroupsInput `type:"list"`
 
-	VpcID *string `type:"string"`
+	VpcId *string `type:"string"`
 }
 
 // String returns the string representation
@@ -211,9 +211,9 @@ func (s *DescribeServerGroupsInput) SetTagFilters(v []*TagFilterForDescribeServe
 	return s
 }
 
-// SetVpcID sets the VpcID field's value.
-func (s *DescribeServerGroupsInput) SetVpcID(v string) *DescribeServerGroupsInput {
-	s.VpcID = &v
+// SetVpcId sets the VpcId field's value.
+func (s *DescribeServerGroupsInput) SetVpcId(v string) *DescribeServerGroupsInput {
+	s.VpcId = &v
 	return s
 }
 
@@ -394,7 +394,7 @@ type ServerGroupForDescribeServerGroupsOutput struct {
 
 	HealthCheck *HealthCheckForDescribeServerGroupsOutput `type:"structure"`
 
-	IPAddressType *string `type:"string"`
+	IpAddressType *string `type:"string"`
 
 	Listeners []*string `type:"list"`
 
@@ -457,9 +457,9 @@ func (s *ServerGroupForDescribeServerGroupsOutput) SetHealthCheck(v *HealthCheck
 	return s
 }
 
-// SetIPAddressType sets the IPAddressType field's value.
-func (s *ServerGroupForDescribeServerGroupsOutput) SetIPAddressType(v string) *ServerGroupForDescribeServerGroupsOutput {
-	s.IPAddressType = &v
+// SetIpAddressType sets the IpAddressType field's value.
+func (s *ServerGroupForDescribeServerGroupsOutput) SetIpAddressType(v string) *ServerGroupForDescribeServerGroupsOutput {
+	s.IpAddressType = &v
 	return s
 }
 
