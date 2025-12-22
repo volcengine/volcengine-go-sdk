@@ -478,6 +478,14 @@ type REDISAPI interface {
 	IncreaseDBInstanceNodeNumberWithContext(volcengine.Context, *IncreaseDBInstanceNodeNumberInput, ...request.Option) (*IncreaseDBInstanceNodeNumberOutput, error)
 	IncreaseDBInstanceNodeNumberRequest(*IncreaseDBInstanceNodeNumberInput) (*request.Request, *IncreaseDBInstanceNodeNumberOutput)
 
+	InterruptKeyScanJobCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	InterruptKeyScanJobCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	InterruptKeyScanJobCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	InterruptKeyScanJob(*InterruptKeyScanJobInput) (*InterruptKeyScanJobOutput, error)
+	InterruptKeyScanJobWithContext(volcengine.Context, *InterruptKeyScanJobInput, ...request.Option) (*InterruptKeyScanJobOutput, error)
+	InterruptKeyScanJobRequest(*InterruptKeyScanJobInput) (*request.Request, *InterruptKeyScanJobOutput)
+
 	ListDBAccountCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ListDBAccountCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	ListDBAccountCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})

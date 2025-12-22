@@ -146,8 +146,7 @@ func (c *REDIS) ModifyBackupPlanWithContext(ctx volcengine.Context, input *Modif
 type ModifyBackupPlanInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	// Active is a required field
-	Active *bool `type:"boolean" json:",omitempty" required:"true"`
+	Active *bool `type:"boolean" json:",omitempty"`
 
 	BackupHour *int32 `type:"int32" json:",omitempty"`
 
@@ -172,9 +171,6 @@ func (s ModifyBackupPlanInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *ModifyBackupPlanInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "ModifyBackupPlanInput"}
-	if s.Active == nil {
-		invalidParams.Add(request.NewErrParamRequired("Active"))
-	}
 	if s.InstanceId == nil {
 		invalidParams.Add(request.NewErrParamRequired("InstanceId"))
 	}
