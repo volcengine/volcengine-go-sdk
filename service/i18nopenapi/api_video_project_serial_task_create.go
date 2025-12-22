@@ -354,6 +354,8 @@ type TaskInfoForVideoProjectSerialTaskCreateInput struct {
 
 	AsrModel *int32 `type:"int32" json:"asrModel,omitempty"`
 
+	BgmPolicy *int32 `type:"int32" json:"bgmPolicy,omitempty"`
+
 	Comment *string `type:"string" json:"comment,omitempty"`
 
 	Deadline *int32 `type:"int32" json:"deadline,omitempty"`
@@ -364,7 +366,7 @@ type TaskInfoForVideoProjectSerialTaskCreateInput struct {
 
 	DramaTitle *string `type:"string" json:"dramaTitle,omitempty"`
 
-	IsDub *int32 `type:"int32" json:"isDub,omitempty"`
+	IsDub *bool `type:"boolean" json:"isDub,omitempty"`
 
 	NeedTranslateCover *bool `type:"boolean" json:"needTranslateCover,omitempty"`
 
@@ -409,6 +411,12 @@ func (s *TaskInfoForVideoProjectSerialTaskCreateInput) SetAsrModel(v int32) *Tas
 	return s
 }
 
+// SetBgmPolicy sets the BgmPolicy field's value.
+func (s *TaskInfoForVideoProjectSerialTaskCreateInput) SetBgmPolicy(v int32) *TaskInfoForVideoProjectSerialTaskCreateInput {
+	s.BgmPolicy = &v
+	return s
+}
+
 // SetComment sets the Comment field's value.
 func (s *TaskInfoForVideoProjectSerialTaskCreateInput) SetComment(v string) *TaskInfoForVideoProjectSerialTaskCreateInput {
 	s.Comment = &v
@@ -440,7 +448,7 @@ func (s *TaskInfoForVideoProjectSerialTaskCreateInput) SetDramaTitle(v string) *
 }
 
 // SetIsDub sets the IsDub field's value.
-func (s *TaskInfoForVideoProjectSerialTaskCreateInput) SetIsDub(v int32) *TaskInfoForVideoProjectSerialTaskCreateInput {
+func (s *TaskInfoForVideoProjectSerialTaskCreateInput) SetIsDub(v bool) *TaskInfoForVideoProjectSerialTaskCreateInput {
 	s.IsDub = &v
 	return s
 }
