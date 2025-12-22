@@ -485,10 +485,40 @@ func (s *PathConfigForDescribeRulesOutput) SetValues(v []*string) *PathConfigFor
 	return s
 }
 
+type ValueForDescribeRulesOutput struct {
+	_ struct{} `type:"structure"`
+
+	Key *string `type:"string"`
+
+	Value *string `type:"string"`
+}
+
+// String returns the string representation
+func (s *ValueForDescribeRulesOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s *ValueForDescribeRulesOutput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *ValueForDescribeRulesOutput) SetKey(v string) *ValueForDescribeRulesOutput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *ValueForDescribeRulesOutput) SetValue(v string) *ValueForDescribeRulesOutput {
+	s.Value = &v
+	return s
+}
+
 type QueryStringConfigForDescribeRulesOutput struct {
 	_ struct{} `type:"structure"`
 
-	Values []*string `type:"list"`
+	Values []*ValueForDescribeRulesOutput `type:"list"`
 }
 
 // String returns the string representation
@@ -502,7 +532,7 @@ func (s QueryStringConfigForDescribeRulesOutput) GoString() string {
 }
 
 // SetValues sets the Values field's value.
-func (s *QueryStringConfigForDescribeRulesOutput) SetValues(v []*string) *QueryStringConfigForDescribeRulesOutput {
+func (s *QueryStringConfigForDescribeRulesOutput) SetValues(v []*ValueForDescribeRulesOutput) *QueryStringConfigForDescribeRulesOutput {
 	s.Values = v
 	return s
 }
