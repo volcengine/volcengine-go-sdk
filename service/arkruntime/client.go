@@ -708,7 +708,10 @@ func (c *Client) encryptRequest(ctx context.Context, resourceId string, args *re
 func (c *Client) getE2eeClient(ctx context.Context, resourceId, auth string) (*E2eeClient, error) {
 	cert, ok := c.e2eeManager.Load(resourceId)
 	if ok {
-		return cert.(*E2eeClient), nil
+		client := cert.(*E2eeClient)
+		if client.isAICC == encryption.CheckIsModeAICC() {
+			return client, nil
+		}
 	}
 	// load by local file
 	certPem, err := encryption.LoadLocalCertificate(resourceId)
