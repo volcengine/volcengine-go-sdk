@@ -41,7 +41,41 @@ func (c *E2eeClient) GenerateECIESKeyPair() ([]byte, string, error) {
 	return c.cipher.GenerateECIESKeyPair()
 }
 
-func EncryptChatRequest(ctx context.Context, keyNonce []byte, request model.ChatRequest) error {
+func EncryptChatRequest(ctx context.Context, keyNonce []byte, request model.CreateChatCompletionRequest) error {
+	key := keyNonce[:32]
+	nonce := keyNonce[32:]
+	err := TraversalChatCompletionMessageHandler(ctx, request.Messages, func(text string) (string, error) {
+		return encryption.AesGcmEncryptBase64String(key, nonce, text)
+	})
+	if err != nil {
+		return err
+	}
+	return nil
+}
+
+// TraversalChatCompletionMessageHandler traversal chat messages handler
+func TraversalChatCompletionMessageHandler(ctx context.Context, msgs []*model.ChatCompletionMessage, fn func(text string) (string, error)) error {
+	var err error
+	for _, m := range msgs {
+		if m.Content == nil {
+			continue
+		}
+		if m.Content.StringValue != nil {
+			text, err := fn(*m.Content.StringValue)
+			if err != nil {
+				return err
+			}
+			m.Content.StringValue = &text
+		}
+		for _, p := range m.Content.ListValue {
+			if len(p.Text) != 0 {
+				p.Text, err = fn(p.Text)
+				if err != nil {
+					return err
+				}
+			}
+		}
+	}
 	return nil
 }
 
