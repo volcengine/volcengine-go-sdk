@@ -202,6 +202,8 @@ type ConfigForCreateDevInstanceInput struct {
 
 	Tos *TosForCreateDevInstanceInput `type:"structure" json:",omitempty"`
 
+	TosAP *TosAPForCreateDevInstanceInput `type:"structure" json:",omitempty"`
+
 	Vepfs *VepfsForCreateDevInstanceInput `type:"structure" json:",omitempty"`
 
 	VepfsAP *VepfsAPForCreateDevInstanceInput `type:"structure" json:",omitempty"`
@@ -244,6 +246,12 @@ func (s *ConfigForCreateDevInstanceInput) SetSfcs(v *SfcsForCreateDevInstanceInp
 // SetTos sets the Tos field's value.
 func (s *ConfigForCreateDevInstanceInput) SetTos(v *TosForCreateDevInstanceInput) *ConfigForCreateDevInstanceInput {
 	s.Tos = v
+	return s
+}
+
+// SetTosAP sets the TosAP field's value.
+func (s *ConfigForCreateDevInstanceInput) SetTosAP(v *TosAPForCreateDevInstanceInput) *ConfigForCreateDevInstanceInput {
+	s.TosAP = v
 	return s
 }
 
@@ -984,6 +992,68 @@ func (s *StorageForCreateDevInstanceInput) SetReadOnly(v bool) *StorageForCreate
 // SetType sets the Type field's value.
 func (s *StorageForCreateDevInstanceInput) SetType(v string) *StorageForCreateDevInstanceInput {
 	s.Type = &v
+	return s
+}
+
+type TosAPForCreateDevInstanceInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	AcceleratorId *string `type:"string" json:",omitempty"`
+
+	AcceleratorName *string `type:"string" json:",omitempty"`
+
+	AccessPointId *string `type:"string" json:",omitempty"`
+
+	AccessPointName *string `type:"string" json:",omitempty"`
+
+	Region *string `type:"string" json:",omitempty"`
+
+	Server *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s TosAPForCreateDevInstanceInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TosAPForCreateDevInstanceInput) GoString() string {
+	return s.String()
+}
+
+// SetAcceleratorId sets the AcceleratorId field's value.
+func (s *TosAPForCreateDevInstanceInput) SetAcceleratorId(v string) *TosAPForCreateDevInstanceInput {
+	s.AcceleratorId = &v
+	return s
+}
+
+// SetAcceleratorName sets the AcceleratorName field's value.
+func (s *TosAPForCreateDevInstanceInput) SetAcceleratorName(v string) *TosAPForCreateDevInstanceInput {
+	s.AcceleratorName = &v
+	return s
+}
+
+// SetAccessPointId sets the AccessPointId field's value.
+func (s *TosAPForCreateDevInstanceInput) SetAccessPointId(v string) *TosAPForCreateDevInstanceInput {
+	s.AccessPointId = &v
+	return s
+}
+
+// SetAccessPointName sets the AccessPointName field's value.
+func (s *TosAPForCreateDevInstanceInput) SetAccessPointName(v string) *TosAPForCreateDevInstanceInput {
+	s.AccessPointName = &v
+	return s
+}
+
+// SetRegion sets the Region field's value.
+func (s *TosAPForCreateDevInstanceInput) SetRegion(v string) *TosAPForCreateDevInstanceInput {
+	s.Region = &v
+	return s
+}
+
+// SetServer sets the Server field's value.
+func (s *TosAPForCreateDevInstanceInput) SetServer(v string) *TosAPForCreateDevInstanceInput {
+	s.Server = &v
 	return s
 }
 
