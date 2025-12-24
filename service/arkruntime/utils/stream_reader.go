@@ -24,6 +24,7 @@ type ChatCompletionStreamReader struct {
 	Response       *http.Response
 	ErrAccumulator ErrorAccumulator
 	Unmarshaler    Unmarshaler
+	KeyNonce       []byte
 
 	model.HttpHeader
 }
