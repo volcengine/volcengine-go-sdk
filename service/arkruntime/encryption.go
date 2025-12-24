@@ -26,9 +26,20 @@ func NewE2eeClient(certificate string) (*E2eeClient, error) {
 	if err != nil {
 		return nil, err
 	}
+	ringID, keyID, expireTime := encryption.GetCertInfo(certificate)
 	client := &E2eeClient{
 		certificate: certificate,
 		cipher:      cipher,
+		info: EncryptInfo{
+			ExpireTime: expireTime,
+		},
+		isAICC: false,
+	}
+	if ringID != "" && keyID != "" {
+		client.info.Version = "AICCv0.1"
+		client.info.RingID = ringID
+		client.info.KeyID = keyID
+		client.isAICC = true
 	}
 	return client, nil
 }

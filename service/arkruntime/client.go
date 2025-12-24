@@ -242,8 +242,11 @@ func (c *Client) newRequest(ctx context.Context, method, url, resourceType, reso
 		return nil, errH
 	}
 
+	// encrypt request body if is necessary
 	if args.header.Get(model.ClientIsEncryptedHeader) == "true" {
-		c.encryptRequest(ctx, resourceId, args)
+		if err := c.encryptRequest(ctx, resourceId, args); err != nil {
+			return nil, model.NewRequestError(http.StatusBadRequest, err, requestID)
+		}
 	}
 
 	// add query args

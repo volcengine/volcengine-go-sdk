@@ -248,3 +248,7 @@ func SaveToLocalCertificate(model, certPem string) error {
 	}
 	return os.WriteFile(certFilePath, []byte(certPem), 0o644)
 }
+
+func CheckIsModeAICC() bool {
+	return os.Getenv("VOLC_ARK_ENCRYPTION") == "AICC"
+}
