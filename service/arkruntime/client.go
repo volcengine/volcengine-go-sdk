@@ -698,7 +698,7 @@ func (c *Client) encryptRequest(ctx context.Context, resourceId string, args *re
 	c.keyNonce.Store(args.header.Get(model.ClientRequestHeader), keyNonce)
 	c.rwLock.Unlock()
 	// encrypt request body
-	err = EncryptChatRequest(ctx, keyNonce, args.body.(model.ChatRequest))
+	err = EncryptChatRequest(ctx, keyNonce, args.body.(model.CreateChatCompletionRequest))
 	if err != nil {
 		return err
 	}
