@@ -326,14 +326,6 @@ type AIOTVIDEOAPI interface {
 	StopSpaceWithContext(volcengine.Context, *StopSpaceInput, ...request.Option) (*StopSpaceOutput, error)
 	StopSpaceRequest(*StopSpaceInput) (*request.Request, *StopSpaceOutput)
 
-	StopStreamCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	StopStreamCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	StopStreamCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	StopStream(*StopStreamInput) (*StopStreamOutput, error)
-	StopStreamWithContext(volcengine.Context, *StopStreamInput, ...request.Option) (*StopStreamOutput, error)
-	StopStreamRequest(*StopStreamInput) (*request.Request, *StopStreamOutput)
-
 	StopVoiceTalkCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	StopVoiceTalkCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	StopVoiceTalkCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -365,6 +357,14 @@ type AIOTVIDEOAPI interface {
 	UpdateDevice(*UpdateDeviceInput) (*UpdateDeviceOutput, error)
 	UpdateDeviceWithContext(volcengine.Context, *UpdateDeviceInput, ...request.Option) (*UpdateDeviceOutput, error)
 	UpdateDeviceRequest(*UpdateDeviceInput) (*request.Request, *UpdateDeviceOutput)
+
+	UpdateScreenshotTemplateCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	UpdateScreenshotTemplateCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	UpdateScreenshotTemplateCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	UpdateScreenshotTemplate(*UpdateScreenshotTemplateInput) (*UpdateScreenshotTemplateOutput, error)
+	UpdateScreenshotTemplateWithContext(volcengine.Context, *UpdateScreenshotTemplateInput, ...request.Option) (*UpdateScreenshotTemplateOutput, error)
+	UpdateScreenshotTemplateRequest(*UpdateScreenshotTemplateInput) (*request.Request, *UpdateScreenshotTemplateOutput)
 
 	UpdateSpaceCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	UpdateSpaceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
