@@ -9,16 +9,9 @@ import (
 
 type E2eeClient struct {
 	certificate string
-	info        EncryptInfo
+	info        model.EncryptInfo
 	isAICC      bool
 	cipher      *encryption.KeyAgreementClient
-}
-
-type EncryptInfo struct {
-	Version    string `thrift:"Version,1,optional" header:"Version" json:"Version,omitempty"`
-	RingID     string `thrift:"RingID,2,optional" header:"RingID" json:"RingID,omitempty"`
-	KeyID      string `thrift:"KeyID,3,optional" header:"KeyID" json:"KeyID,omitempty"`
-	ExpireTime int64  `thrift:"ExpireTime,4,optional" header:"ExpireTime" json:"ExpireTime,omitempty"`
 }
 
 func NewE2eeClient(certificate string) (*E2eeClient, error) {
@@ -30,7 +23,7 @@ func NewE2eeClient(certificate string) (*E2eeClient, error) {
 	client := &E2eeClient{
 		certificate: certificate,
 		cipher:      cipher,
-		info: EncryptInfo{
+		info: model.EncryptInfo{
 			ExpireTime: expireTime,
 		},
 		isAICC: false,
