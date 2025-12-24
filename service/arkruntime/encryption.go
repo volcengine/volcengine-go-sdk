@@ -2,6 +2,8 @@ package arkruntime
 
 import (
 	"context"
+	"fmt"
+	"net/url"
 
 	"github.com/volcengine/volcengine-go-sdk/service/arkruntime/model"
 	"github.com/volcengine/volcengine-go-sdk/service/arkruntime/pkg/encryption"
@@ -74,9 +76,50 @@ func TraversalChatCompletionMessageHandler(ctx context.Context, msgs []*model.Ch
 					return err
 				}
 			}
+			if p.ImageURL != nil {
+				p.ImageURL.URL, err = fn(p.ImageURL.URL)
+				if err != nil {
+					return err
+				}
+			}
+			if p.VideoURL != nil {
+				p.VideoURL.URL, err = fn(p.VideoURL.URL)
+				if err != nil {
+					return err
+				}
+			}
 		}
 	}
 	return nil
+}
+
+func EncryptURL(urlString string, fn func(text string) (string, error)) (string, error) {
+	res, err := url.Parse(urlString)
+	if err != nil {
+		return "", err
+	}
+	if StringInSlice(res.Scheme, []string{"https", "http", "file", "ftp"}) {
+		fmt.Println("encryption is not supported for image url, please use base64 image if you want encryption")
+		return urlString, nil
+	} else if res.Scheme == "data" {
+		var newURL string
+		newURL, err = fn(res.Opaque)
+		if err != nil {
+			return "", err
+		}
+		return newURL, nil
+	} else {
+		return "", fmt.Errorf("encryption is not supported for image url scheme: %s", res.Scheme)
+	}
+}
+
+func StringInSlice(str string, list []string) bool {
+	for _, val := range list {
+		if val == str {
+			return true
+		}
+	}
+	return false
 }
 
 func DecryptChatResponse(ctx context.Context, keyNonce []byte, response model.Response) error {
