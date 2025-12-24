@@ -738,11 +738,6 @@ func (c *Client) getE2eeClient(ctx context.Context, resourceId, auth string) (*E
 	return e2eeClient, nil
 }
 
-type certificateResponse struct {
-	Error       map[string]string `json:"error,omitempty"`
-	Certificate string            `json:"Certificate"`
-}
-
 func (c *Client) loadServerCertificate(ctx context.Context, resourceId, auth string) (string, error) {
 	url := c.fullURL("/e2e/get/certificate")
 	body := map[string]string{"model": resourceId}
@@ -762,7 +757,7 @@ func (c *Client) loadServerCertificate(ctx context.Context, resourceId, auth str
 		return "", fmt.Errorf("getting Certificate failed: %w", err)
 	}
 	defer res.Body.Close()
-	var cr certificateResponse
+	var cr model.CertificateResponse
 	if err := json.NewDecoder(res.Body).Decode(&cr); err != nil {
 		return "", fmt.Errorf("getting Certificate failed: %w", err)
 	}
