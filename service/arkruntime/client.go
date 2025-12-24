@@ -689,7 +689,7 @@ func (c *Client) encryptRequest(ctx context.Context, resourceId string, args *re
 		return err
 	}
 	// add session token to header
-	args.header.Set("X-Session-Token", sessionToken)
+	args.header.Set(model.ClientSessionTokenHeader, sessionToken)
 	// store keyNonce to map
 	c.rwLock.Lock()
 	c.keyNonce.Store(args.header.Get(model.ClientRequestHeader), keyNonce)
@@ -703,7 +703,7 @@ func (c *Client) encryptRequest(ctx context.Context, resourceId string, args *re
 }
 
 func (c *Client) getE2eeClient(ctx context.Context, resourceId, auth string) (*E2eeClient, error) {
-	cert, ok := c.e2eeManager.Load(ctx)
+	cert, ok := c.e2eeManager.Load(resourceId)
 	if ok {
 		return cert.(*E2eeClient), nil
 	}
@@ -728,7 +728,7 @@ func (c *Client) getE2eeClient(ctx context.Context, resourceId, auth string) (*E
 	// store to e2eeManager
 	c.rwLock.Lock()
 	defer c.rwLock.Unlock()
-	c.e2eeManager.Store(ctx, e2eeClient)
+	c.e2eeManager.Store(resourceId, e2eeClient)
 	return e2eeClient, nil
 }
 
