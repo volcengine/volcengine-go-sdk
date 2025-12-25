@@ -44,10 +44,8 @@ func (c *E2eeClient) GenerateECIESKeyPair() ([]byte, string, error) {
 }
 
 func EncryptChatRequest(ctx context.Context, keyNonce []byte, request model.CreateChatCompletionRequest) error {
-	key := keyNonce[:32]
-	nonce := keyNonce[32:]
 	err := TraversalChatCompletionMessageHandler(ctx, request.Messages, func(text string) (string, error) {
-		return encryption.AesGcmEncryptBase64String(key, nonce, text)
+		return encryption.AesGcmEncryptBase64String(keyNonce[:32], keyNonce[32:], text)
 	})
 	if err != nil {
 		return err
