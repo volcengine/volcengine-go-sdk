@@ -1,6 +1,7 @@
 package encryption
 
 import (
+	"context"
 	"crypto/aes"
 	"crypto/cipher"
 	"crypto/ecdsa"
@@ -13,6 +14,7 @@ import (
 	"fmt"
 	"hash"
 	"math/big"
+	"net/url"
 	"os"
 	"path/filepath"
 	"strings"
@@ -252,6 +254,112 @@ func SaveToLocalCertificate(model, certPem string) error {
 
 func CheckIsModeAICC() bool {
 	return os.Getenv("VOLC_ARK_ENCRYPTION") == "AICC"
+}
+
+func EncryptChatRequest(ctx context.Context, keyNonce []byte, request model.CreateChatCompletionRequest) error {
+	err := ProcessChatCompletionRequest(ctx, request.Messages, func(text string) (string, error) {
+		return AesGcmEncryptBase64String(keyNonce[:32], keyNonce[32:], text)
+	})
+	if err != nil {
+		return err
+	}
+	return nil
+}
+
+// ProcessChatCompletionRequest process chat completion request
+func ProcessChatCompletionRequest(ctx context.Context, msgs []*model.ChatCompletionMessage, fn func(text string) (string, error)) error {
+	var err error
+	for _, m := range msgs {
+		if m.Content == nil {
+			continue
+		}
+		err = ProcessChatCompletionMessageContent(m.Content, fn)
+		if err != nil {
+			return err
+		}
+	}
+	return nil
+}
+
+func ProcessChatCompletionMessageContent(content *model.ChatCompletionMessageContent, fn func(text string) (string, error)) error {
+	var err error
+	if content.StringValue != nil {
+		var text string
+		text, err = fn(*content.StringValue)
+		if err != nil {
+			return err
+		}
+		content.StringValue = &text
+	}
+	for _, p := range content.ListValue {
+		if len(p.Text) != 0 {
+			p.Text, err = fn(p.Text)
+			if err != nil {
+				return err
+			}
+		}
+		if p.ImageURL != nil {
+			p.ImageURL.URL, err = fn(p.ImageURL.URL)
+			if err != nil {
+				return err
+			}
+		}
+		if p.VideoURL != nil {
+			p.VideoURL.URL, err = fn(p.VideoURL.URL)
+			if err != nil {
+				return err
+			}
+		}
+	}
+	return nil
+}
+
+func EncryptURL(urlString string, fn func(text string) (string, error)) (string, error) {
+	res, err := url.Parse(urlString)
+	if err != nil {
+		return urlString, err
+	}
+	if StringInSlice(res.Scheme, []string{"https", "http", "file", "ftp"}) {
+		// tbd
+		fmt.Println("encryption is not supported for image url, please use base64 image if you want encryption")
+		return urlString, nil
+	} else if res.Scheme == "data" {
+		var newURL string
+		newURL, err = fn(res.Opaque)
+		if err != nil {
+			return urlString, err
+		}
+		return newURL, nil
+	} else {
+		return urlString, fmt.Errorf("encryption is not supported for image url scheme: %s", res.Scheme)
+	}
+}
+
+func StringInSlice(str string, list []string) bool {
+	for _, val := range list {
+		if val == str {
+			return true
+		}
+	}
+	return false
+}
+
+func DecryptChatResponse(keyNonce []byte, response model.Response) error {
+	var err error
+	fn := func(text string) (string, error) {
+		return AesGcmDecryptBase64String(keyNonce[:32], keyNonce[32:], text)
+	}
+	if cr, ok := response.(*model.ChatCompletionResponse); ok {
+		for _, choice := range cr.Choices {
+			if choice.FinishReason != model.FinishReasonContentFilter && choice.Message.Content != nil {
+				err = ProcessChatCompletionMessageContent(choice.Message.Content, fn)
+				if err != nil {
+					return err
+				}
+			}
+		}
+	}
+	return nil
 }
 
 func DecryptChatStreamResponse(keyNonce []byte, response model.ChatCompletionStreamResponse) error {

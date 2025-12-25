@@ -296,9 +296,10 @@ func (c *Client) sendRequest(client *http.Client, req *http.Request, v model.Res
 			RequestId:      requestID,
 		}
 	}
+	// tbd need to delete keyNonce after decrypt
 	keyNonce, ok := c.keyNonce.Load(requestID)
 	if ok {
-		err = DecryptChatResponse(keyNonce.([]byte), v)
+		err = encryption.DecryptChatResponse(keyNonce.([]byte), v)
 		if err != nil {
 			err = &model.RequestError{
 				HTTPStatusCode: res.StatusCode,
@@ -714,7 +715,7 @@ func (c *Client) encryptRequest(ctx context.Context, resourceId string, args *re
 	c.keyNonce.Store(args.header.Get(model.ClientRequestHeader), keyNonce)
 	c.rwLock.Unlock()
 	// encrypt request body
-	err = EncryptChatRequest(ctx, keyNonce, args.body.(model.CreateChatCompletionRequest))
+	err = encryption.EncryptChatRequest(ctx, keyNonce, args.body.(model.CreateChatCompletionRequest))
 	if err != nil {
 		return err
 	}
