@@ -260,7 +260,7 @@ func DecryptChatStreamResponse(keyNonce []byte, response model.ChatCompletionStr
 		return AesGcmDecryptBase64String(keyNonce[:32], keyNonce[32:], text)
 	}
 	for _, choice := range response.Choices {
-		if len(choice.Delta.Content) > 0 {
+		if choice.FinishReason != model.FinishReasonContentFilter && len(choice.Delta.Content) > 0 {
 			choice.Delta.Content, err = fn(choice.Delta.Content)
 			if err != nil {
 				return err
