@@ -296,7 +296,17 @@ func (c *Client) sendRequest(client *http.Client, req *http.Request, v model.Res
 			RequestId:      requestID,
 		}
 	}
-	// 在这里解密也许是个好主意
+	keyNonce, ok := c.keyNonce.Load(requestID)
+	if ok {
+		err = DecryptChatResponse(keyNonce.([]byte), v)
+		if err != nil {
+			err = &model.RequestError{
+				HTTPStatusCode: res.StatusCode,
+				Err:            err,
+				RequestId:      requestID,
+			}
+		}
+	}
 	return err
 }
 
