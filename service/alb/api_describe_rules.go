@@ -494,12 +494,12 @@ type ValueForDescribeRulesOutput struct {
 }
 
 // String returns the string representation
-func (s *ValueForDescribeRulesOutput) String() string {
+func (s ValueForDescribeRulesOutput) String() string {
 	return volcengineutil.Prettify(s)
 }
 
 // GoString returns the string representation
-func (s *ValueForDescribeRulesOutput) GoString() string {
+func (s ValueForDescribeRulesOutput) GoString() string {
 	return s.String()
 }
 
