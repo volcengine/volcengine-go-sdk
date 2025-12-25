@@ -198,8 +198,6 @@ type DescribeListenerAttributesOutput struct {
 
 	CertificateSource *string `type:"string"`
 
-	ClientAddressTransmissionProtocol *string `type:"string"`
-
 	CreateTime *string `type:"string"`
 
 	CustomizedCfgId *string `type:"string"`
@@ -231,8 +229,6 @@ type DescribeListenerAttributesOutput struct {
 	ProjectName *string `type:"string"`
 
 	Protocol *string `type:"string"`
-
-	ProxyProtocolDisabled *string `type:"string"`
 
 	RequestId *string `type:"string"`
 
@@ -308,12 +304,6 @@ func (s *DescribeListenerAttributesOutput) SetCertificateId(v string) *DescribeL
 // SetCertificateSource sets the CertificateSource field's value.
 func (s *DescribeListenerAttributesOutput) SetCertificateSource(v string) *DescribeListenerAttributesOutput {
 	s.CertificateSource = &v
-	return s
-}
-
-// SetClientAddressTransmissionProtocol sets the ClientAddressTransmissionProtocol field's value.
-func (s *DescribeListenerAttributesOutput) SetClientAddressTransmissionProtocol(v string) *DescribeListenerAttributesOutput {
-	s.ClientAddressTransmissionProtocol = &v
 	return s
 }
 
@@ -410,12 +400,6 @@ func (s *DescribeListenerAttributesOutput) SetProjectName(v string) *DescribeLis
 // SetProtocol sets the Protocol field's value.
 func (s *DescribeListenerAttributesOutput) SetProtocol(v string) *DescribeListenerAttributesOutput {
 	s.Protocol = &v
-	return s
-}
-
-// SetProxyProtocolDisabled sets the ProxyProtocolDisabled field's value.
-func (s *DescribeListenerAttributesOutput) SetProxyProtocolDisabled(v string) *DescribeListenerAttributesOutput {
-	s.ProxyProtocolDisabled = &v
 	return s
 }
 

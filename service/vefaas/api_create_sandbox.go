@@ -146,6 +146,8 @@ func (c *VEFAAS) CreateSandboxWithContext(ctx volcengine.Context, input *CreateS
 type CreateSandboxInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	Async *bool `type:"boolean" json:",omitempty"`
+
 	CpuMilli *int32 `type:"int32" json:",omitempty"`
 
 	Envs []*EnvForCreateSandboxInput `type:"list" json:",omitempty"`
@@ -154,6 +156,8 @@ type CreateSandboxInput struct {
 	FunctionId *string `type:"string" json:",omitempty" required:"true"`
 
 	InstanceImageInfo *InstanceImageInfoForCreateSandboxInput `type:"structure" json:",omitempty"`
+
+	InstanceNasMountConfig *InstanceNasMountConfigForCreateSandboxInput `type:"structure" json:",omitempty"`
 
 	InstanceTosMountConfig *InstanceTosMountConfigForCreateSandboxInput `type:"structure" json:",omitempty"`
 
@@ -164,6 +168,8 @@ type CreateSandboxInput struct {
 	Metadata map[string]*string `type:"map" json:",omitempty"`
 
 	RequestTimeout *int32 `type:"int32" json:",omitempty"`
+
+	SessionId *string `type:"string" json:",omitempty"`
 
 	Timeout *int32 `type:"int32" json:",omitempty"`
 
@@ -193,6 +199,12 @@ func (s *CreateSandboxInput) Validate() error {
 	return nil
 }
 
+// SetAsync sets the Async field's value.
+func (s *CreateSandboxInput) SetAsync(v bool) *CreateSandboxInput {
+	s.Async = &v
+	return s
+}
+
 // SetCpuMilli sets the CpuMilli field's value.
 func (s *CreateSandboxInput) SetCpuMilli(v int32) *CreateSandboxInput {
 	s.CpuMilli = &v
@@ -214,6 +226,12 @@ func (s *CreateSandboxInput) SetFunctionId(v string) *CreateSandboxInput {
 // SetInstanceImageInfo sets the InstanceImageInfo field's value.
 func (s *CreateSandboxInput) SetInstanceImageInfo(v *InstanceImageInfoForCreateSandboxInput) *CreateSandboxInput {
 	s.InstanceImageInfo = v
+	return s
+}
+
+// SetInstanceNasMountConfig sets the InstanceNasMountConfig field's value.
+func (s *CreateSandboxInput) SetInstanceNasMountConfig(v *InstanceNasMountConfigForCreateSandboxInput) *CreateSandboxInput {
+	s.InstanceNasMountConfig = v
 	return s
 }
 
@@ -244,6 +262,12 @@ func (s *CreateSandboxInput) SetMetadata(v map[string]*string) *CreateSandboxInp
 // SetRequestTimeout sets the RequestTimeout field's value.
 func (s *CreateSandboxInput) SetRequestTimeout(v int32) *CreateSandboxInput {
 	s.RequestTimeout = &v
+	return s
+}
+
+// SetSessionId sets the SessionId field's value.
+func (s *CreateSandboxInput) SetSessionId(v string) *CreateSandboxInput {
+	s.SessionId = &v
 	return s
 }
 
@@ -359,6 +383,36 @@ func (s *InstanceImageInfoForCreateSandboxInput) SetPort(v int32) *InstanceImage
 	return s
 }
 
+type InstanceNasMountConfigForCreateSandboxInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Enable *bool `type:"boolean" json:",omitempty"`
+
+	NasMountPoints []*NasMountPointForCreateSandboxInput `type:"list" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s InstanceNasMountConfigForCreateSandboxInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s InstanceNasMountConfigForCreateSandboxInput) GoString() string {
+	return s.String()
+}
+
+// SetEnable sets the Enable field's value.
+func (s *InstanceNasMountConfigForCreateSandboxInput) SetEnable(v bool) *InstanceNasMountConfigForCreateSandboxInput {
+	s.Enable = &v
+	return s
+}
+
+// SetNasMountPoints sets the NasMountPoints field's value.
+func (s *InstanceNasMountConfigForCreateSandboxInput) SetNasMountPoints(v []*NasMountPointForCreateSandboxInput) *InstanceNasMountConfigForCreateSandboxInput {
+	s.NasMountPoints = v
+	return s
+}
+
 type InstanceTosMountConfigForCreateSandboxInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -386,6 +440,36 @@ func (s *InstanceTosMountConfigForCreateSandboxInput) SetEnable(v bool) *Instanc
 // SetTosMountPoints sets the TosMountPoints field's value.
 func (s *InstanceTosMountConfigForCreateSandboxInput) SetTosMountPoints(v []*TosMountPointForCreateSandboxInput) *InstanceTosMountConfigForCreateSandboxInput {
 	s.TosMountPoints = v
+	return s
+}
+
+type NasMountPointForCreateSandboxInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	LocalMountPath *string `type:"string" json:",omitempty"`
+
+	RemotePath *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s NasMountPointForCreateSandboxInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s NasMountPointForCreateSandboxInput) GoString() string {
+	return s.String()
+}
+
+// SetLocalMountPath sets the LocalMountPath field's value.
+func (s *NasMountPointForCreateSandboxInput) SetLocalMountPath(v string) *NasMountPointForCreateSandboxInput {
+	s.LocalMountPath = &v
+	return s
+}
+
+// SetRemotePath sets the RemotePath field's value.
+func (s *NasMountPointForCreateSandboxInput) SetRemotePath(v string) *NasMountPointForCreateSandboxInput {
+	s.RemotePath = &v
 	return s
 }
 

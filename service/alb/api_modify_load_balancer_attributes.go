@@ -203,6 +203,8 @@ type ModifyLoadBalancerAttributesInput struct {
 
 	ModificationProtectionStatus *string `type:"string"`
 
+	ProxyProtocolEnabled *string `type:"string"`
+
 	WafInstanceId *string `type:"string"`
 
 	WafProtectedDomain *string `type:"string"`
@@ -272,6 +274,12 @@ func (s *ModifyLoadBalancerAttributesInput) SetModificationProtectionReason(v st
 // SetModificationProtectionStatus sets the ModificationProtectionStatus field's value.
 func (s *ModifyLoadBalancerAttributesInput) SetModificationProtectionStatus(v string) *ModifyLoadBalancerAttributesInput {
 	s.ModificationProtectionStatus = &v
+	return s
+}
+
+// SetProxyProtocolEnabled sets the ProxyProtocolEnabled field's value.
+func (s *ModifyLoadBalancerAttributesInput) SetProxyProtocolEnabled(v string) *ModifyLoadBalancerAttributesInput {
+	s.ProxyProtocolEnabled = &v
 	return s
 }
 

@@ -202,6 +202,8 @@ type ConfigForListDevInstancesOutput struct {
 
 	Tos *TosForListDevInstancesOutput `type:"structure" json:",omitempty"`
 
+	TosAP *TosAPForListDevInstancesOutput `type:"structure" json:",omitempty"`
+
 	Vepfs *VepfsForListDevInstancesOutput `type:"structure" json:",omitempty"`
 
 	VepfsAP *VepfsAPForListDevInstancesOutput `type:"structure" json:",omitempty"`
@@ -244,6 +246,12 @@ func (s *ConfigForListDevInstancesOutput) SetSfcs(v *SfcsForListDevInstancesOutp
 // SetTos sets the Tos field's value.
 func (s *ConfigForListDevInstancesOutput) SetTos(v *TosForListDevInstancesOutput) *ConfigForListDevInstancesOutput {
 	s.Tos = v
+	return s
+}
+
+// SetTosAP sets the TosAP field's value.
+func (s *ConfigForListDevInstancesOutput) SetTosAP(v *TosAPForListDevInstancesOutput) *ConfigForListDevInstancesOutput {
+	s.TosAP = v
 	return s
 }
 
@@ -676,6 +684,8 @@ type ListForListDevInstancesOutput struct {
 
 	IsBuildingImage *bool `type:"boolean" json:",omitempty"`
 
+	IsaacApiKey *string `type:"string" json:",omitempty"`
+
 	LaunchTime *string `type:"string" json:",omitempty"`
 
 	Name *string `type:"string" json:",omitempty"`
@@ -780,6 +790,12 @@ func (s *ListForListDevInstancesOutput) SetImage(v *ImageForListDevInstancesOutp
 // SetIsBuildingImage sets the IsBuildingImage field's value.
 func (s *ListForListDevInstancesOutput) SetIsBuildingImage(v bool) *ListForListDevInstancesOutput {
 	s.IsBuildingImage = &v
+	return s
+}
+
+// SetIsaacApiKey sets the IsaacApiKey field's value.
+func (s *ListForListDevInstancesOutput) SetIsaacApiKey(v string) *ListForListDevInstancesOutput {
+	s.IsaacApiKey = &v
 	return s
 }
 
@@ -1318,6 +1334,68 @@ func (s *StorageForListDevInstancesOutput) SetReadOnly(v bool) *StorageForListDe
 // SetType sets the Type field's value.
 func (s *StorageForListDevInstancesOutput) SetType(v string) *StorageForListDevInstancesOutput {
 	s.Type = &v
+	return s
+}
+
+type TosAPForListDevInstancesOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	AcceleratorId *string `type:"string" json:",omitempty"`
+
+	AcceleratorName *string `type:"string" json:",omitempty"`
+
+	AccessPointId *string `type:"string" json:",omitempty"`
+
+	AccessPointName *string `type:"string" json:",omitempty"`
+
+	Region *string `type:"string" json:",omitempty"`
+
+	Server *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s TosAPForListDevInstancesOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TosAPForListDevInstancesOutput) GoString() string {
+	return s.String()
+}
+
+// SetAcceleratorId sets the AcceleratorId field's value.
+func (s *TosAPForListDevInstancesOutput) SetAcceleratorId(v string) *TosAPForListDevInstancesOutput {
+	s.AcceleratorId = &v
+	return s
+}
+
+// SetAcceleratorName sets the AcceleratorName field's value.
+func (s *TosAPForListDevInstancesOutput) SetAcceleratorName(v string) *TosAPForListDevInstancesOutput {
+	s.AcceleratorName = &v
+	return s
+}
+
+// SetAccessPointId sets the AccessPointId field's value.
+func (s *TosAPForListDevInstancesOutput) SetAccessPointId(v string) *TosAPForListDevInstancesOutput {
+	s.AccessPointId = &v
+	return s
+}
+
+// SetAccessPointName sets the AccessPointName field's value.
+func (s *TosAPForListDevInstancesOutput) SetAccessPointName(v string) *TosAPForListDevInstancesOutput {
+	s.AccessPointName = &v
+	return s
+}
+
+// SetRegion sets the Region field's value.
+func (s *TosAPForListDevInstancesOutput) SetRegion(v string) *TosAPForListDevInstancesOutput {
+	s.Region = &v
+	return s
+}
+
+// SetServer sets the Server field's value.
+func (s *TosAPForListDevInstancesOutput) SetServer(v string) *TosAPForListDevInstancesOutput {
+	s.Server = &v
 	return s
 }
 

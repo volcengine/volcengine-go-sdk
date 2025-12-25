@@ -150,6 +150,8 @@ type CloneLoadBalancerInput struct {
 
 	EipBillingConfig *EipBillingConfigForCloneLoadBalancerInput `type:"structure"`
 
+	Ipv6BandwidthPackageId *string `type:"string"`
+
 	Ipv6EipBillingConfig *Ipv6EipBillingConfigForCloneLoadBalancerInput `type:"structure"`
 
 	// LoadBalancerId is a required field
@@ -212,6 +214,12 @@ func (s *CloneLoadBalancerInput) SetDescription(v string) *CloneLoadBalancerInpu
 // SetEipBillingConfig sets the EipBillingConfig field's value.
 func (s *CloneLoadBalancerInput) SetEipBillingConfig(v *EipBillingConfigForCloneLoadBalancerInput) *CloneLoadBalancerInput {
 	s.EipBillingConfig = v
+	return s
+}
+
+// SetIpv6BandwidthPackageId sets the Ipv6BandwidthPackageId field's value.
+func (s *CloneLoadBalancerInput) SetIpv6BandwidthPackageId(v string) *CloneLoadBalancerInput {
+	s.Ipv6BandwidthPackageId = &v
 	return s
 }
 

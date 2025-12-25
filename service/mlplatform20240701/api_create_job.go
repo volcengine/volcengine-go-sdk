@@ -240,6 +240,8 @@ type ConfigForCreateJobInput struct {
 
 	Tos *TosForCreateJobInput `type:"structure" json:",omitempty"`
 
+	TosAP *TosAPForCreateJobInput `type:"structure" json:",omitempty"`
+
 	Vepfs *VepfsForCreateJobInput `type:"structure" json:",omitempty"`
 
 	VepfsAP *VepfsAPForCreateJobInput `type:"structure" json:",omitempty"`
@@ -282,6 +284,12 @@ func (s *ConfigForCreateJobInput) SetSfcs(v *SfcsForCreateJobInput) *ConfigForCr
 // SetTos sets the Tos field's value.
 func (s *ConfigForCreateJobInput) SetTos(v *TosForCreateJobInput) *ConfigForCreateJobInput {
 	s.Tos = v
+	return s
+}
+
+// SetTosAP sets the TosAP field's value.
+func (s *ConfigForCreateJobInput) SetTosAP(v *TosAPForCreateJobInput) *ConfigForCreateJobInput {
+	s.TosAP = v
 	return s
 }
 
@@ -1408,6 +1416,68 @@ func (s *TensorboardStorageForCreateJobInput) SetReadOnly(v bool) *TensorboardSt
 // SetType sets the Type field's value.
 func (s *TensorboardStorageForCreateJobInput) SetType(v string) *TensorboardStorageForCreateJobInput {
 	s.Type = &v
+	return s
+}
+
+type TosAPForCreateJobInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	AcceleratorId *string `type:"string" json:",omitempty"`
+
+	AcceleratorName *string `type:"string" json:",omitempty"`
+
+	AccessPointId *string `type:"string" json:",omitempty"`
+
+	AccessPointName *string `type:"string" json:",omitempty"`
+
+	Region *string `type:"string" json:",omitempty"`
+
+	Server *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s TosAPForCreateJobInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TosAPForCreateJobInput) GoString() string {
+	return s.String()
+}
+
+// SetAcceleratorId sets the AcceleratorId field's value.
+func (s *TosAPForCreateJobInput) SetAcceleratorId(v string) *TosAPForCreateJobInput {
+	s.AcceleratorId = &v
+	return s
+}
+
+// SetAcceleratorName sets the AcceleratorName field's value.
+func (s *TosAPForCreateJobInput) SetAcceleratorName(v string) *TosAPForCreateJobInput {
+	s.AcceleratorName = &v
+	return s
+}
+
+// SetAccessPointId sets the AccessPointId field's value.
+func (s *TosAPForCreateJobInput) SetAccessPointId(v string) *TosAPForCreateJobInput {
+	s.AccessPointId = &v
+	return s
+}
+
+// SetAccessPointName sets the AccessPointName field's value.
+func (s *TosAPForCreateJobInput) SetAccessPointName(v string) *TosAPForCreateJobInput {
+	s.AccessPointName = &v
+	return s
+}
+
+// SetRegion sets the Region field's value.
+func (s *TosAPForCreateJobInput) SetRegion(v string) *TosAPForCreateJobInput {
+	s.Region = &v
+	return s
+}
+
+// SetServer sets the Server field's value.
+func (s *TosAPForCreateJobInput) SetServer(v string) *TosAPForCreateJobInput {
+	s.Server = &v
 	return s
 }
 

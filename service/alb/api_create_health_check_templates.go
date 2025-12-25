@@ -230,6 +230,8 @@ type HealthCheckTemplateForCreateHealthCheckTemplatesInput struct {
 
 	HealthCheckMethod *string `type:"string"`
 
+	HealthCheckPort *int64 `type:"integer"`
+
 	HealthCheckProtocol *string `type:"string"`
 
 	// HealthCheckTemplateName is a required field
@@ -240,9 +242,6 @@ type HealthCheckTemplateForCreateHealthCheckTemplatesInput struct {
 	HealthCheckURI *string `type:"string"`
 
 	HealthyThreshold *int64 `type:"integer"`
-
-	// Port is a required field
-	Port *int64 `max:"65535" type:"integer" required:"true"`
 
 	ProjectName *string `type:"string"`
 
@@ -272,12 +271,6 @@ func (s *HealthCheckTemplateForCreateHealthCheckTemplatesInput) Validate() error
 	}
 	if s.HealthCheckTemplateName != nil && len(*s.HealthCheckTemplateName) > 128 {
 		invalidParams.Add(request.NewErrParamMaxLen("HealthCheckTemplateName", 128, *s.HealthCheckTemplateName))
-	}
-	if s.Port == nil {
-		invalidParams.Add(request.NewErrParamRequired("Port"))
-	}
-	if s.Port != nil && *s.Port > 65535 {
-		invalidParams.Add(request.NewErrParamMaxValue("Port", 65535))
 	}
 
 	if invalidParams.Len() > 0 {
@@ -322,6 +315,12 @@ func (s *HealthCheckTemplateForCreateHealthCheckTemplatesInput) SetHealthCheckMe
 	return s
 }
 
+// SetHealthCheckPort sets the HealthCheckPort field's value.
+func (s *HealthCheckTemplateForCreateHealthCheckTemplatesInput) SetHealthCheckPort(v int64) *HealthCheckTemplateForCreateHealthCheckTemplatesInput {
+	s.HealthCheckPort = &v
+	return s
+}
+
 // SetHealthCheckProtocol sets the HealthCheckProtocol field's value.
 func (s *HealthCheckTemplateForCreateHealthCheckTemplatesInput) SetHealthCheckProtocol(v string) *HealthCheckTemplateForCreateHealthCheckTemplatesInput {
 	s.HealthCheckProtocol = &v
@@ -349,12 +348,6 @@ func (s *HealthCheckTemplateForCreateHealthCheckTemplatesInput) SetHealthCheckUR
 // SetHealthyThreshold sets the HealthyThreshold field's value.
 func (s *HealthCheckTemplateForCreateHealthCheckTemplatesInput) SetHealthyThreshold(v int64) *HealthCheckTemplateForCreateHealthCheckTemplatesInput {
 	s.HealthyThreshold = &v
-	return s
-}
-
-// SetPort sets the Port field's value.
-func (s *HealthCheckTemplateForCreateHealthCheckTemplatesInput) SetPort(v int64) *HealthCheckTemplateForCreateHealthCheckTemplatesInput {
-	s.Port = &v
 	return s
 }
 

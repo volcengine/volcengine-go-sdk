@@ -1049,6 +1049,8 @@ type UpdateFunctionInput struct {
 
 	NasStorage *NasStorageForUpdateFunctionInput `type:"structure" json:",omitempty"`
 
+	Port *int32 `type:"int32" json:",omitempty"`
+
 	ProjectName *string `type:"string" json:",omitempty"`
 
 	RequestTimeout *int32 `type:"int32" json:",omitempty"`
@@ -1162,6 +1164,12 @@ func (s *UpdateFunctionInput) SetMemoryMB(v int32) *UpdateFunctionInput {
 // SetNasStorage sets the NasStorage field's value.
 func (s *UpdateFunctionInput) SetNasStorage(v *NasStorageForUpdateFunctionInput) *UpdateFunctionInput {
 	s.NasStorage = v
+	return s
+}
+
+// SetPort sets the Port field's value.
+func (s *UpdateFunctionInput) SetPort(v int32) *UpdateFunctionInput {
+	s.Port = &v
 	return s
 }
 

@@ -146,9 +146,9 @@ type DescribeServerGroupBackendServersInput struct {
 
 	Ips []*string `type:"list"`
 
-	PageNumber *string `type:"string"`
+	PageNumber *int64 `type:"integer"`
 
-	PageSize *string `type:"string"`
+	PageSize *int64 `type:"integer"`
 
 	// ServerGroupId is a required field
 	ServerGroupId *string `type:"string" required:"true"`
@@ -190,13 +190,13 @@ func (s *DescribeServerGroupBackendServersInput) SetIps(v []*string) *DescribeSe
 }
 
 // SetPageNumber sets the PageNumber field's value.
-func (s *DescribeServerGroupBackendServersInput) SetPageNumber(v string) *DescribeServerGroupBackendServersInput {
+func (s *DescribeServerGroupBackendServersInput) SetPageNumber(v int64) *DescribeServerGroupBackendServersInput {
 	s.PageNumber = &v
 	return s
 }
 
 // SetPageSize sets the PageSize field's value.
-func (s *DescribeServerGroupBackendServersInput) SetPageSize(v string) *DescribeServerGroupBackendServersInput {
+func (s *DescribeServerGroupBackendServersInput) SetPageSize(v int64) *DescribeServerGroupBackendServersInput {
 	s.PageSize = &v
 	return s
 }

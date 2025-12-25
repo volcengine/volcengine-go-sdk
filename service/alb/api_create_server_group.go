@@ -148,7 +148,7 @@ type CreateServerGroupInput struct {
 
 	HealthCheck *HealthCheckForCreateServerGroupInput `type:"structure"`
 
-	IPAddressType *string `type:"string"`
+	IpAddressType *string `type:"string"`
 
 	ProjectName *string `type:"string"`
 
@@ -220,9 +220,9 @@ func (s *CreateServerGroupInput) SetHealthCheck(v *HealthCheckForCreateServerGro
 	return s
 }
 
-// SetIPAddressType sets the IPAddressType field's value.
-func (s *CreateServerGroupInput) SetIPAddressType(v string) *CreateServerGroupInput {
-	s.IPAddressType = &v
+// SetIpAddressType sets the IpAddressType field's value.
+func (s *CreateServerGroupInput) SetIpAddressType(v string) *CreateServerGroupInput {
+	s.IpAddressType = &v
 	return s
 }
 
@@ -313,13 +313,13 @@ type HealthCheckForCreateServerGroupInput struct {
 
 	Enabled *string `type:"string"`
 
-	HealthyThreshold *string `type:"string"`
+	HealthyThreshold *int64 `type:"integer"`
 
 	HttpCode *string `type:"string"`
 
 	HttpVersion *string `type:"string"`
 
-	Interval *string `type:"string"`
+	Interval *int64 `type:"integer"`
 
 	Method *string `type:"string"`
 
@@ -327,11 +327,11 @@ type HealthCheckForCreateServerGroupInput struct {
 
 	Protocol *string `type:"string"`
 
-	Timeout *string `type:"string"`
+	Timeout *int64 `type:"integer"`
 
 	URI *string `type:"string"`
 
-	UnhealthyThreshold *string `type:"string"`
+	UnhealthyThreshold *int64 `type:"integer"`
 }
 
 // String returns the string representation
@@ -370,7 +370,7 @@ func (s *HealthCheckForCreateServerGroupInput) SetEnabled(v string) *HealthCheck
 }
 
 // SetHealthyThreshold sets the HealthyThreshold field's value.
-func (s *HealthCheckForCreateServerGroupInput) SetHealthyThreshold(v string) *HealthCheckForCreateServerGroupInput {
+func (s *HealthCheckForCreateServerGroupInput) SetHealthyThreshold(v int64) *HealthCheckForCreateServerGroupInput {
 	s.HealthyThreshold = &v
 	return s
 }
@@ -388,7 +388,7 @@ func (s *HealthCheckForCreateServerGroupInput) SetHttpVersion(v string) *HealthC
 }
 
 // SetInterval sets the Interval field's value.
-func (s *HealthCheckForCreateServerGroupInput) SetInterval(v string) *HealthCheckForCreateServerGroupInput {
+func (s *HealthCheckForCreateServerGroupInput) SetInterval(v int64) *HealthCheckForCreateServerGroupInput {
 	s.Interval = &v
 	return s
 }
@@ -412,7 +412,7 @@ func (s *HealthCheckForCreateServerGroupInput) SetProtocol(v string) *HealthChec
 }
 
 // SetTimeout sets the Timeout field's value.
-func (s *HealthCheckForCreateServerGroupInput) SetTimeout(v string) *HealthCheckForCreateServerGroupInput {
+func (s *HealthCheckForCreateServerGroupInput) SetTimeout(v int64) *HealthCheckForCreateServerGroupInput {
 	s.Timeout = &v
 	return s
 }
@@ -424,7 +424,7 @@ func (s *HealthCheckForCreateServerGroupInput) SetURI(v string) *HealthCheckForC
 }
 
 // SetUnhealthyThreshold sets the UnhealthyThreshold field's value.
-func (s *HealthCheckForCreateServerGroupInput) SetUnhealthyThreshold(v string) *HealthCheckForCreateServerGroupInput {
+func (s *HealthCheckForCreateServerGroupInput) SetUnhealthyThreshold(v int64) *HealthCheckForCreateServerGroupInput {
 	s.UnhealthyThreshold = &v
 	return s
 }
@@ -434,7 +434,7 @@ type StickySessionConfigForCreateServerGroupInput struct {
 
 	Cookie *string `type:"string"`
 
-	CookieTimeout *string `type:"string"`
+	CookieTimeout *int64 `type:"integer"`
 
 	StickySessionEnabled *string `type:"string"`
 
@@ -458,7 +458,7 @@ func (s *StickySessionConfigForCreateServerGroupInput) SetCookie(v string) *Stic
 }
 
 // SetCookieTimeout sets the CookieTimeout field's value.
-func (s *StickySessionConfigForCreateServerGroupInput) SetCookieTimeout(v string) *StickySessionConfigForCreateServerGroupInput {
+func (s *StickySessionConfigForCreateServerGroupInput) SetCookieTimeout(v int64) *StickySessionConfigForCreateServerGroupInput {
 	s.CookieTimeout = &v
 	return s
 }

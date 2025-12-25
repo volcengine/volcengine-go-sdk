@@ -142,6 +142,8 @@ func (c *ALB) CreateListenerWithContext(ctx volcengine.Context, input *CreateLis
 type CreateListenerInput struct {
 	_ struct{} `type:"structure"`
 
+	AccessLogRecordCustomizedHeadersEnabled *string `type:"string"`
+
 	AclIds []*string `type:"list"`
 
 	AclStatus *string `type:"string"`
@@ -157,8 +159,6 @@ type CreateListenerInput struct {
 	CertificateId *string `type:"string"`
 
 	CertificateSource *string `type:"string"`
-
-	ClientAddressTransmissionProtocol *string `type:"string"`
 
 	Description *string `type:"string"`
 
@@ -186,8 +186,6 @@ type CreateListenerInput struct {
 
 	// Protocol is a required field
 	Protocol *string `type:"string" required:"true"`
-
-	ProxyProtocolDisabled *string `type:"string"`
 
 	// ServerGroupId is a required field
 	ServerGroupId *string `type:"string" required:"true"`
@@ -231,6 +229,12 @@ func (s *CreateListenerInput) Validate() error {
 		return invalidParams
 	}
 	return nil
+}
+
+// SetAccessLogRecordCustomizedHeadersEnabled sets the AccessLogRecordCustomizedHeadersEnabled field's value.
+func (s *CreateListenerInput) SetAccessLogRecordCustomizedHeadersEnabled(v string) *CreateListenerInput {
+	s.AccessLogRecordCustomizedHeadersEnabled = &v
+	return s
 }
 
 // SetAclIds sets the AclIds field's value.
@@ -278,12 +282,6 @@ func (s *CreateListenerInput) SetCertificateId(v string) *CreateListenerInput {
 // SetCertificateSource sets the CertificateSource field's value.
 func (s *CreateListenerInput) SetCertificateSource(v string) *CreateListenerInput {
 	s.CertificateSource = &v
-	return s
-}
-
-// SetClientAddressTransmissionProtocol sets the ClientAddressTransmissionProtocol field's value.
-func (s *CreateListenerInput) SetClientAddressTransmissionProtocol(v string) *CreateListenerInput {
-	s.ClientAddressTransmissionProtocol = &v
 	return s
 }
 
@@ -356,12 +354,6 @@ func (s *CreateListenerInput) SetPort(v int64) *CreateListenerInput {
 // SetProtocol sets the Protocol field's value.
 func (s *CreateListenerInput) SetProtocol(v string) *CreateListenerInput {
 	s.Protocol = &v
-	return s
-}
-
-// SetProxyProtocolDisabled sets the ProxyProtocolDisabled field's value.
-func (s *CreateListenerInput) SetProxyProtocolDisabled(v string) *CreateListenerInput {
-	s.ProxyProtocolDisabled = &v
 	return s
 }
 

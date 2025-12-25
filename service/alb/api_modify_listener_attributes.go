@@ -230,8 +230,6 @@ type ModifyListenerAttributesInput struct {
 
 	CertificateSource *string `type:"string"`
 
-	ClientAddressTransmissionProtocol *string `type:"string"`
-
 	CustomizedCfgId *string `type:"string"`
 
 	Description *string `type:"string"`
@@ -254,8 +252,6 @@ type ModifyListenerAttributesInput struct {
 	PcaRootCACertificateId *string `type:"string"`
 
 	PcaSubCACertificateId *string `type:"string"`
-
-	ProxyProtocolDisabled *string `type:"string"`
 
 	ServerGroupId *string `type:"string"`
 }
@@ -343,12 +339,6 @@ func (s *ModifyListenerAttributesInput) SetCertificateSource(v string) *ModifyLi
 	return s
 }
 
-// SetClientAddressTransmissionProtocol sets the ClientAddressTransmissionProtocol field's value.
-func (s *ModifyListenerAttributesInput) SetClientAddressTransmissionProtocol(v string) *ModifyListenerAttributesInput {
-	s.ClientAddressTransmissionProtocol = &v
-	return s
-}
-
 // SetCustomizedCfgId sets the CustomizedCfgId field's value.
 func (s *ModifyListenerAttributesInput) SetCustomizedCfgId(v string) *ModifyListenerAttributesInput {
 	s.CustomizedCfgId = &v
@@ -412,12 +402,6 @@ func (s *ModifyListenerAttributesInput) SetPcaRootCACertificateId(v string) *Mod
 // SetPcaSubCACertificateId sets the PcaSubCACertificateId field's value.
 func (s *ModifyListenerAttributesInput) SetPcaSubCACertificateId(v string) *ModifyListenerAttributesInput {
 	s.PcaSubCACertificateId = &v
-	return s
-}
-
-// SetProxyProtocolDisabled sets the ProxyProtocolDisabled field's value.
-func (s *ModifyListenerAttributesInput) SetProxyProtocolDisabled(v string) *ModifyListenerAttributesInput {
-	s.ProxyProtocolDisabled = &v
 	return s
 }
 

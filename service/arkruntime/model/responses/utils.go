@@ -3,6 +3,7 @@ package responses
 import (
 	"encoding/json"
 	"net/url"
+	"reflect"
 	"strings"
 
 	"github.com/volcengine/volcengine-go-sdk/service/arkruntime/pkg/apiquery"
@@ -63,91 +64,50 @@ func (e *Event) GetEventType() string {
 	if e == nil {
 		return ""
 	}
-	eventType := EventType_unspecified
-	if e.GetResponse() != nil {
-		eventType = e.GetResponse().GetType()
-	} else if e.GetResponseInProgress() != nil {
-		eventType = e.GetResponseInProgress().GetType()
-	} else if e.GetResponseCompleted() != nil {
-		eventType = e.GetResponseCompleted().GetType()
-	} else if e.GetResponseFailed() != nil {
-		eventType = e.GetResponseFailed().GetType()
-	} else if e.GetResponseIncomplete() != nil {
-		eventType = e.GetResponseIncomplete().GetType()
-	} else if e.GetText() != nil {
-		eventType = e.GetText().GetType()
-	} else if e.GetTextDone() != nil {
-		eventType = e.GetTextDone().GetType()
-	} else if e.GetReasoningText() != nil {
-		eventType = e.GetReasoningText().GetType()
-	} else if e.GetReasoningTextDone() != nil {
-		eventType = e.GetReasoningTextDone().GetType()
-	} else if e.GetItem() != nil {
-		eventType = e.GetItem().GetType()
-	} else if e.GetItemDone() != nil {
-		eventType = e.GetItemDone().GetType()
-	} else if e.GetFunctionCallArguments() != nil {
-		eventType = e.GetFunctionCallArguments().GetType()
-	} else if e.GetFunctionCallArgumentsDone() != nil {
-		eventType = e.GetFunctionCallArgumentsDone().GetType()
-	} else if e.GetError() != nil {
-		eventType = e.GetError().GetType()
-	} else if e.GetContentPart() != nil {
-		eventType = e.GetContentPart().GetType()
-	} else if e.GetContentPartDone() != nil {
-		eventType = e.GetContentPartDone().GetType()
-	} else if e.GetReasoningPart() != nil {
-		eventType = e.GetReasoningPart().GetType()
-	} else if e.GetReasoningPartDone() != nil {
-		eventType = e.GetReasoningPartDone().GetType()
-	} else if e.GetTranscriptionPart() != nil {
-		eventType = e.GetTranscriptionPart().GetType()
-	} else if e.GetTranscriptionPartDone() != nil {
-		eventType = e.GetTranscriptionPartDone().GetType()
-	} else if e.GetTranscriptionText() != nil {
-		eventType = e.GetTranscriptionText().GetType()
-	} else if e.GetTranscriptionTextDone() != nil {
-		eventType = e.GetTranscriptionTextDone().GetType()
-	} else if e.GetResponseAnnotationAdded() != nil {
-		eventType = e.GetResponseAnnotationAdded().GetType()
-	} else if e.GetResponseWebSearchCallInProgress() != nil {
-		eventType = e.GetResponseWebSearchCallInProgress().GetType()
-	} else if e.GetResponseWebSearchCallSearching() != nil {
-		eventType = e.GetResponseWebSearchCallSearching().GetType()
-	} else if e.GetResponseWebSearchCallCompleted() != nil {
-		eventType = e.GetResponseWebSearchCallCompleted().GetType()
-	} else if e.GetResponseImageProcessCallInProgress() != nil {
-		eventType = e.GetResponseImageProcessCallInProgress().GetType()
-	} else if e.GetResponseImageProcessCallProcessing() != nil {
-		eventType = e.GetResponseImageProcessCallProcessing().GetType()
-	} else if e.GetResponseImageProcessCallCompleted() != nil {
-		eventType = e.GetResponseImageProcessCallCompleted().GetType()
-	} else if e.GetResponseMcpListToolsInProgress() != nil {
-		eventType = e.GetResponseMcpListToolsInProgress().GetType()
-	} else if e.GetResponseMcpListToolsCompleted() != nil {
-		eventType = e.GetResponseMcpListToolsCompleted().GetType()
-	} else if e.GetResponseMcpCallInProgress() != nil {
-		eventType = e.GetResponseMcpCallInProgress().GetType()
-	} else if e.GetResponseMcpCallArgumentsDelta() != nil {
-		eventType = e.GetResponseMcpCallArgumentsDelta().GetType()
-	} else if e.GetResponseMcpCallArgumentsDone() != nil {
-		eventType = e.GetResponseMcpCallArgumentsDone().GetType()
-	} else if e.GetResponseMcpCallCompleted() != nil {
-		eventType = e.GetResponseMcpCallCompleted().GetType()
-	} else if e.GetResponseMcpCallFailed() != nil {
-		eventType = e.GetResponseMcpCallFailed().GetType()
-	} else if e.GetResponseKnowledgeSearchCallInProgress() != nil {
-		eventType = e.GetResponseKnowledgeSearchCallInProgress().GetType()
-	} else if e.GetResponseKnowledgeSearchCallSearching() != nil {
-		eventType = e.GetResponseKnowledgeSearchCallSearching().GetType()
-	} else if e.GetResponseKnowledgeSearchCallCompleted() != nil {
-		eventType = e.GetResponseKnowledgeSearchCallCompleted().GetType()
-	} else if e.GetResponseKnowledgeSearchCallFailed() != nil {
-		eventType = e.GetResponseKnowledgeSearchCallFailed().GetType()
+	// 1. Detect which oneof is set
+	ev := e.GetEvent()
+	if ev == nil {
+		return ""
 	}
-	marshaled, _ := json.Marshal(eventType)
-	eventTypeString := string(marshaled)
-	return strings.Trim(eventTypeString, "\"")
+
+	// 2. Find the underlying GetXxx method name
+	oneofType := reflect.TypeOf(ev)
+	if oneofType.Kind() == reflect.Ptr {
+		oneofType = oneofType.Elem()
+	}
+	name := oneofType.Name()
+	if !strings.HasPrefix(name, "Event_") {
+		return ""
+	}
+	suffix := name[len("Event_"):]
+	getterName := "Get" + suffix
+
+	// 3. Call event.GetXxx() → underlying message (with .GetType())
+	method := reflect.ValueOf(e).MethodByName(getterName)
+	if !method.IsValid() {
+		return ""
+	}
+	res := method.Call(nil)
+	if len(res) == 0 || res[0].IsNil() {
+		return ""
+	}
+	inner := res[0]
+
+	// 4. Call inner.GetType()
+	getType := inner.MethodByName("GetType")
+	if !getType.IsValid() {
+		return ""
+	}
+
+	typeRes := getType.Call(nil)
+	if len(typeRes) == 0 {
+		return ""
+	}
+
+	enumValue := typeRes[0].Interface()
+	// 5. Marshal with Sonic
+	raw, _ := json.Marshal(enumValue)
+	return strings.Trim(string(raw), "\"")
 }
 
 // IsDelta ...

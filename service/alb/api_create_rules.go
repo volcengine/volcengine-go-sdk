@@ -714,7 +714,7 @@ type RuleForCreateRulesInput struct {
 
 	TrafficLimitQPS *int64 `type:"integer"`
 
-	URL *string `type:"string"`
+	Url *string `type:"string"`
 }
 
 // String returns the string representation
@@ -826,9 +826,9 @@ func (s *RuleForCreateRulesInput) SetTrafficLimitQPS(v int64) *RuleForCreateRule
 	return s
 }
 
-// SetURL sets the URL field's value.
-func (s *RuleForCreateRulesInput) SetURL(v string) *RuleForCreateRulesInput {
-	s.URL = &v
+// SetUrl sets the Url field's value.
+func (s *RuleForCreateRulesInput) SetUrl(v string) *RuleForCreateRulesInput {
+	s.Url = &v
 	return s
 }
 

@@ -274,6 +274,8 @@ type HealthCheckTemplateForDescribeHealthCheckTemplatesOutput struct {
 
 	HealthCheckMethod *string `type:"string"`
 
+	HealthCheckPort *int64 `max:"65535" type:"integer"`
+
 	HealthCheckProtocol *string `type:"string"`
 
 	HealthCheckTemplateId *string `type:"string"`
@@ -285,8 +287,6 @@ type HealthCheckTemplateForDescribeHealthCheckTemplatesOutput struct {
 	HealthCheckURI *string `type:"string"`
 
 	HealthyThreshold *int64 `type:"integer"`
-
-	Port *int64 `max:"65535" type:"integer"`
 
 	ProjectName *string `type:"string"`
 
@@ -349,6 +349,12 @@ func (s *HealthCheckTemplateForDescribeHealthCheckTemplatesOutput) SetHealthChec
 	return s
 }
 
+// SetHealthCheckPort sets the HealthCheckPort field's value.
+func (s *HealthCheckTemplateForDescribeHealthCheckTemplatesOutput) SetHealthCheckPort(v int64) *HealthCheckTemplateForDescribeHealthCheckTemplatesOutput {
+	s.HealthCheckPort = &v
+	return s
+}
+
 // SetHealthCheckProtocol sets the HealthCheckProtocol field's value.
 func (s *HealthCheckTemplateForDescribeHealthCheckTemplatesOutput) SetHealthCheckProtocol(v string) *HealthCheckTemplateForDescribeHealthCheckTemplatesOutput {
 	s.HealthCheckProtocol = &v
@@ -382,12 +388,6 @@ func (s *HealthCheckTemplateForDescribeHealthCheckTemplatesOutput) SetHealthChec
 // SetHealthyThreshold sets the HealthyThreshold field's value.
 func (s *HealthCheckTemplateForDescribeHealthCheckTemplatesOutput) SetHealthyThreshold(v int64) *HealthCheckTemplateForDescribeHealthCheckTemplatesOutput {
 	s.HealthyThreshold = &v
-	return s
-}
-
-// SetPort sets the Port field's value.
-func (s *HealthCheckTemplateForDescribeHealthCheckTemplatesOutput) SetPort(v int64) *HealthCheckTemplateForDescribeHealthCheckTemplatesOutput {
-	s.Port = &v
 	return s
 }
 

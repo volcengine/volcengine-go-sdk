@@ -268,8 +268,6 @@ type ScreenshotForCreateScreenshotTemplateInput struct {
 
 	TTL *TTLForCreateScreenshotTemplateInput `type:"structure" json:",omitempty"`
 
-	TemplateTTLConfig *TemplateTTLConfigForCreateScreenshotTemplateInput `type:"structure" json:",omitempty"`
-
 	Type []*string `type:"list" json:",omitempty"`
 }
 
@@ -307,12 +305,6 @@ func (s *ScreenshotForCreateScreenshotTemplateInput) SetTTL(v *TTLForCreateScree
 	return s
 }
 
-// SetTemplateTTLConfig sets the TemplateTTLConfig field's value.
-func (s *ScreenshotForCreateScreenshotTemplateInput) SetTemplateTTLConfig(v *TemplateTTLConfigForCreateScreenshotTemplateInput) *ScreenshotForCreateScreenshotTemplateInput {
-	s.TemplateTTLConfig = v
-	return s
-}
-
 // SetType sets the Type field's value.
 func (s *ScreenshotForCreateScreenshotTemplateInput) SetType(v []*string) *ScreenshotForCreateScreenshotTemplateInput {
 	s.Type = v
@@ -337,28 +329,6 @@ func (s TTLForCreateScreenshotTemplateInput) GoString() string {
 
 // SetDays sets the Days field's value.
 func (s *TTLForCreateScreenshotTemplateInput) SetDays(v int32) *TTLForCreateScreenshotTemplateInput {
-	s.Days = &v
-	return s
-}
-
-type TemplateTTLConfigForCreateScreenshotTemplateInput struct {
-	_ struct{} `type:"structure" json:",omitempty"`
-
-	Days *int32 `type:"int32" json:",omitempty"`
-}
-
-// String returns the string representation
-func (s TemplateTTLConfigForCreateScreenshotTemplateInput) String() string {
-	return volcengineutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s TemplateTTLConfigForCreateScreenshotTemplateInput) GoString() string {
-	return s.String()
-}
-
-// SetDays sets the Days field's value.
-func (s *TemplateTTLConfigForCreateScreenshotTemplateInput) SetDays(v int32) *TemplateTTLConfigForCreateScreenshotTemplateInput {
 	s.Days = &v
 	return s
 }

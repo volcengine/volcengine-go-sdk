@@ -202,6 +202,8 @@ type ConfigForUpdateDeploymentInput struct {
 
 	Tos *TosForUpdateDeploymentInput `type:"structure" json:",omitempty"`
 
+	TosAP *TosAPForUpdateDeploymentInput `type:"structure" json:",omitempty"`
+
 	Vepfs *VepfsForUpdateDeploymentInput `type:"structure" json:",omitempty"`
 
 	VepfsAP *VepfsAPForUpdateDeploymentInput `type:"structure" json:",omitempty"`
@@ -244,6 +246,12 @@ func (s *ConfigForUpdateDeploymentInput) SetSfcs(v *SfcsForUpdateDeploymentInput
 // SetTos sets the Tos field's value.
 func (s *ConfigForUpdateDeploymentInput) SetTos(v *TosForUpdateDeploymentInput) *ConfigForUpdateDeploymentInput {
 	s.Tos = v
+	return s
+}
+
+// SetTosAP sets the TosAP field's value.
+func (s *ConfigForUpdateDeploymentInput) SetTosAP(v *TosAPForUpdateDeploymentInput) *ConfigForUpdateDeploymentInput {
+	s.TosAP = v
 	return s
 }
 
@@ -1478,6 +1486,68 @@ func (s TCPSocketForUpdateDeploymentInput) GoString() string {
 // SetPort sets the Port field's value.
 func (s *TCPSocketForUpdateDeploymentInput) SetPort(v int32) *TCPSocketForUpdateDeploymentInput {
 	s.Port = &v
+	return s
+}
+
+type TosAPForUpdateDeploymentInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	AcceleratorId *string `type:"string" json:",omitempty"`
+
+	AcceleratorName *string `type:"string" json:",omitempty"`
+
+	AccessPointId *string `type:"string" json:",omitempty"`
+
+	AccessPointName *string `type:"string" json:",omitempty"`
+
+	Region *string `type:"string" json:",omitempty"`
+
+	Server *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s TosAPForUpdateDeploymentInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TosAPForUpdateDeploymentInput) GoString() string {
+	return s.String()
+}
+
+// SetAcceleratorId sets the AcceleratorId field's value.
+func (s *TosAPForUpdateDeploymentInput) SetAcceleratorId(v string) *TosAPForUpdateDeploymentInput {
+	s.AcceleratorId = &v
+	return s
+}
+
+// SetAcceleratorName sets the AcceleratorName field's value.
+func (s *TosAPForUpdateDeploymentInput) SetAcceleratorName(v string) *TosAPForUpdateDeploymentInput {
+	s.AcceleratorName = &v
+	return s
+}
+
+// SetAccessPointId sets the AccessPointId field's value.
+func (s *TosAPForUpdateDeploymentInput) SetAccessPointId(v string) *TosAPForUpdateDeploymentInput {
+	s.AccessPointId = &v
+	return s
+}
+
+// SetAccessPointName sets the AccessPointName field's value.
+func (s *TosAPForUpdateDeploymentInput) SetAccessPointName(v string) *TosAPForUpdateDeploymentInput {
+	s.AccessPointName = &v
+	return s
+}
+
+// SetRegion sets the Region field's value.
+func (s *TosAPForUpdateDeploymentInput) SetRegion(v string) *TosAPForUpdateDeploymentInput {
+	s.Region = &v
+	return s
+}
+
+// SetServer sets the Server field's value.
+func (s *TosAPForUpdateDeploymentInput) SetServer(v string) *TosAPForUpdateDeploymentInput {
+	s.Server = &v
 	return s
 }
 

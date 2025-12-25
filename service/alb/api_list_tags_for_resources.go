@@ -250,7 +250,7 @@ func (s *ListTagsForResourcesOutput) SetResourceTags(v []*ResourceTagForListTags
 type ResourceTagForListTagsForResourcesOutput struct {
 	_ struct{} `type:"structure"`
 
-	ResourceId *string `type:"string"`
+	ResourceID *string `type:"string"`
 
 	ResourceType *string `type:"string"`
 
@@ -269,9 +269,9 @@ func (s ResourceTagForListTagsForResourcesOutput) GoString() string {
 	return s.String()
 }
 
-// SetResourceId sets the ResourceId field's value.
-func (s *ResourceTagForListTagsForResourcesOutput) SetResourceId(v string) *ResourceTagForListTagsForResourcesOutput {
-	s.ResourceId = &v
+// SetResourceID sets the ResourceID field's value.
+func (s *ResourceTagForListTagsForResourcesOutput) SetResourceID(v string) *ResourceTagForListTagsForResourcesOutput {
+	s.ResourceID = &v
 	return s
 }
 

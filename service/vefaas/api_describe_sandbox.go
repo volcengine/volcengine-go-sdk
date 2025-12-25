@@ -216,6 +216,8 @@ type DescribeSandboxOutput struct {
 
 	ImageInfo *ImageInfoForDescribeSandboxOutput `type:"structure" json:",omitempty"`
 
+	InstanceNasMountConfig *InstanceNasMountConfigForDescribeSandboxOutput `type:"structure" json:",omitempty"`
+
 	InstanceTosMountConfig *InstanceTosMountConfigForDescribeSandboxOutput `type:"structure" json:",omitempty"`
 
 	InstanceType *string `type:"string" json:",omitempty"`
@@ -223,6 +225,8 @@ type DescribeSandboxOutput struct {
 	MaxConcurrency *int32 `type:"int32" json:",omitempty"`
 
 	MemoryMB *int32 `type:"int32" json:",omitempty"`
+
+	Metadata map[string]*string `type:"map" json:",omitempty"`
 
 	MetadataList []*MetadataListForDescribeSandboxOutput `type:"list" json:",omitempty"`
 
@@ -305,6 +309,12 @@ func (s *DescribeSandboxOutput) SetImageInfo(v *ImageInfoForDescribeSandboxOutpu
 	return s
 }
 
+// SetInstanceNasMountConfig sets the InstanceNasMountConfig field's value.
+func (s *DescribeSandboxOutput) SetInstanceNasMountConfig(v *InstanceNasMountConfigForDescribeSandboxOutput) *DescribeSandboxOutput {
+	s.InstanceNasMountConfig = v
+	return s
+}
+
 // SetInstanceTosMountConfig sets the InstanceTosMountConfig field's value.
 func (s *DescribeSandboxOutput) SetInstanceTosMountConfig(v *InstanceTosMountConfigForDescribeSandboxOutput) *DescribeSandboxOutput {
 	s.InstanceTosMountConfig = v
@@ -326,6 +336,12 @@ func (s *DescribeSandboxOutput) SetMaxConcurrency(v int32) *DescribeSandboxOutpu
 // SetMemoryMB sets the MemoryMB field's value.
 func (s *DescribeSandboxOutput) SetMemoryMB(v int32) *DescribeSandboxOutput {
 	s.MemoryMB = &v
+	return s
+}
+
+// SetMetadata sets the Metadata field's value.
+func (s *DescribeSandboxOutput) SetMetadata(v map[string]*string) *DescribeSandboxOutput {
+	s.Metadata = v
 	return s
 }
 
@@ -435,6 +451,36 @@ func (s *ImageInfoForDescribeSandboxOutput) SetPort(v int32) *ImageInfoForDescri
 	return s
 }
 
+type InstanceNasMountConfigForDescribeSandboxOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Enable *bool `type:"boolean" json:",omitempty"`
+
+	NasMountPoints []*NasMountPointForDescribeSandboxOutput `type:"list" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s InstanceNasMountConfigForDescribeSandboxOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s InstanceNasMountConfigForDescribeSandboxOutput) GoString() string {
+	return s.String()
+}
+
+// SetEnable sets the Enable field's value.
+func (s *InstanceNasMountConfigForDescribeSandboxOutput) SetEnable(v bool) *InstanceNasMountConfigForDescribeSandboxOutput {
+	s.Enable = &v
+	return s
+}
+
+// SetNasMountPoints sets the NasMountPoints field's value.
+func (s *InstanceNasMountConfigForDescribeSandboxOutput) SetNasMountPoints(v []*NasMountPointForDescribeSandboxOutput) *InstanceNasMountConfigForDescribeSandboxOutput {
+	s.NasMountPoints = v
+	return s
+}
+
 type InstanceTosMountConfigForDescribeSandboxOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -492,6 +538,36 @@ func (s *MetadataListForDescribeSandboxOutput) SetMetaKey(v string) *MetadataLis
 // SetMetaValue sets the MetaValue field's value.
 func (s *MetadataListForDescribeSandboxOutput) SetMetaValue(v string) *MetadataListForDescribeSandboxOutput {
 	s.MetaValue = &v
+	return s
+}
+
+type NasMountPointForDescribeSandboxOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	LocalMountPath *string `type:"string" json:",omitempty"`
+
+	RemotePath *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s NasMountPointForDescribeSandboxOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s NasMountPointForDescribeSandboxOutput) GoString() string {
+	return s.String()
+}
+
+// SetLocalMountPath sets the LocalMountPath field's value.
+func (s *NasMountPointForDescribeSandboxOutput) SetLocalMountPath(v string) *NasMountPointForDescribeSandboxOutput {
+	s.LocalMountPath = &v
+	return s
+}
+
+// SetRemotePath sets the RemotePath field's value.
+func (s *NasMountPointForDescribeSandboxOutput) SetRemotePath(v string) *NasMountPointForDescribeSandboxOutput {
+	s.RemotePath = &v
 	return s
 }
 

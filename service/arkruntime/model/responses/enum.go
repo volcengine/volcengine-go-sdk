@@ -507,3 +507,47 @@ func (r ApprovalMode_Enum) MarshalJSON() ([]byte, error) {
 	}
 	return json.Marshal(r.String())
 }
+
+// UnmarshalJSON ...
+func (r *ResponseDoubaoAppFeatureType_Enum) UnmarshalJSON(bytes []byte) error {
+	var value string
+	if err := json.Unmarshal(bytes, &value); err != nil {
+		return err
+	}
+	enumValue, ok := ResponseDoubaoAppFeatureType_Enum_value[value]
+	if !ok || enumValue == 0 {
+		return &json.InvalidUnmarshalError{Type: reflect.TypeOf(r)}
+	}
+	*r = ResponseDoubaoAppFeatureType_Enum(enumValue)
+	return nil
+}
+
+// MarshalJSON ...
+func (r *ResponseDoubaoAppFeatureType_Enum) MarshalJSON() ([]byte, error) {
+	if r == nil || *r == 0 {
+		return json.Marshal(nil)
+	}
+	return json.Marshal(r.String())
+}
+
+// UnmarshalJSON ...
+func (r *DoubaoAppBlockType_Enum) UnmarshalJSON(bytes []byte) error {
+	var value string
+	if err := json.Unmarshal(bytes, &value); err != nil {
+		return err
+	}
+	enumValue, ok := DoubaoAppBlockType_Enum_value[value]
+	if !ok || enumValue == 0 {
+		return &json.InvalidUnmarshalError{Type: reflect.TypeOf(r)}
+	}
+	*r = DoubaoAppBlockType_Enum(enumValue)
+	return nil
+}
+
+// MarshalJSON ...
+func (r DoubaoAppBlockType_Enum) MarshalJSON() ([]byte, error) {
+	if r == 0 {
+		return json.Marshal(nil)
+	}
+	return json.Marshal(r.String())
+}

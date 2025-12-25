@@ -146,13 +146,13 @@ type HealthCheckForModifyServerGroupAttributesInput struct {
 
 	Enabled *string `type:"string"`
 
-	HealthyThreshold *string `type:"string"`
+	HealthyThreshold *int64 `type:"integer"`
 
 	HttpCode *string `type:"string"`
 
 	HttpVersion *string `type:"string"`
 
-	Interval *string `type:"string"`
+	Interval *int64 `type:"integer"`
 
 	Method *string `type:"string"`
 
@@ -160,11 +160,11 @@ type HealthCheckForModifyServerGroupAttributesInput struct {
 
 	Protocol *string `type:"string"`
 
-	Timeout *string `type:"string"`
+	Timeout *int64 `type:"integer"`
 
 	URI *string `type:"string"`
 
-	UnhealthyThreshold *string `type:"string"`
+	UnhealthyThreshold *int64 `type:"integer"`
 }
 
 // String returns the string representation
@@ -203,7 +203,7 @@ func (s *HealthCheckForModifyServerGroupAttributesInput) SetEnabled(v string) *H
 }
 
 // SetHealthyThreshold sets the HealthyThreshold field's value.
-func (s *HealthCheckForModifyServerGroupAttributesInput) SetHealthyThreshold(v string) *HealthCheckForModifyServerGroupAttributesInput {
+func (s *HealthCheckForModifyServerGroupAttributesInput) SetHealthyThreshold(v int64) *HealthCheckForModifyServerGroupAttributesInput {
 	s.HealthyThreshold = &v
 	return s
 }
@@ -221,7 +221,7 @@ func (s *HealthCheckForModifyServerGroupAttributesInput) SetHttpVersion(v string
 }
 
 // SetInterval sets the Interval field's value.
-func (s *HealthCheckForModifyServerGroupAttributesInput) SetInterval(v string) *HealthCheckForModifyServerGroupAttributesInput {
+func (s *HealthCheckForModifyServerGroupAttributesInput) SetInterval(v int64) *HealthCheckForModifyServerGroupAttributesInput {
 	s.Interval = &v
 	return s
 }
@@ -245,7 +245,7 @@ func (s *HealthCheckForModifyServerGroupAttributesInput) SetProtocol(v string) *
 }
 
 // SetTimeout sets the Timeout field's value.
-func (s *HealthCheckForModifyServerGroupAttributesInput) SetTimeout(v string) *HealthCheckForModifyServerGroupAttributesInput {
+func (s *HealthCheckForModifyServerGroupAttributesInput) SetTimeout(v int64) *HealthCheckForModifyServerGroupAttributesInput {
 	s.Timeout = &v
 	return s
 }
@@ -257,7 +257,7 @@ func (s *HealthCheckForModifyServerGroupAttributesInput) SetURI(v string) *Healt
 }
 
 // SetUnhealthyThreshold sets the UnhealthyThreshold field's value.
-func (s *HealthCheckForModifyServerGroupAttributesInput) SetUnhealthyThreshold(v string) *HealthCheckForModifyServerGroupAttributesInput {
+func (s *HealthCheckForModifyServerGroupAttributesInput) SetUnhealthyThreshold(v int64) *HealthCheckForModifyServerGroupAttributesInput {
 	s.UnhealthyThreshold = &v
 	return s
 }
@@ -380,7 +380,7 @@ type StickySessionConfigForModifyServerGroupAttributesInput struct {
 
 	Cookie *string `type:"string"`
 
-	CookieTimeout *string `type:"string"`
+	CookieTimeout *int64 `type:"integer"`
 
 	StickySessionEnabled *string `type:"string"`
 
@@ -404,7 +404,7 @@ func (s *StickySessionConfigForModifyServerGroupAttributesInput) SetCookie(v str
 }
 
 // SetCookieTimeout sets the CookieTimeout field's value.
-func (s *StickySessionConfigForModifyServerGroupAttributesInput) SetCookieTimeout(v string) *StickySessionConfigForModifyServerGroupAttributesInput {
+func (s *StickySessionConfigForModifyServerGroupAttributesInput) SetCookieTimeout(v int64) *StickySessionConfigForModifyServerGroupAttributesInput {
 	s.CookieTimeout = &v
 	return s
 }
