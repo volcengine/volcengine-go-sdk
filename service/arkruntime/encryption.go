@@ -122,7 +122,7 @@ func StringInSlice(str string, list []string) bool {
 	return false
 }
 
-func DecryptChatResponse(ctx context.Context, keyNonce []byte, response model.Response) error {
+func DecryptChatResponse(keyNonce []byte, response model.Response) error {
 	if cr, ok := response.(*model.ChatCompletionResponse); ok {
 		for i := range cr.Choices {
 			if cr.Choices[i] != nil {
