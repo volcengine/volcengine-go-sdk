@@ -18,6 +18,7 @@ import (
 	"strings"
 	"time"
 
+	"github.com/volcengine/volcengine-go-sdk/service/arkruntime/model"
 	"golang.org/x/crypto/hkdf"
 )
 
@@ -251,4 +252,20 @@ func SaveToLocalCertificate(model, certPem string) error {
 
 func CheckIsModeAICC() bool {
 	return os.Getenv("VOLC_ARK_ENCRYPTION") == "AICC"
+}
+
+func DecryptChatStreamResponse(keyNonce []byte, response model.ChatCompletionStreamResponse) error {
+	var err error
+	fn := func(text string) (string, error) {
+		return AesGcmDecryptBase64String(keyNonce[:32], keyNonce[32:], text)
+	}
+	for _, choice := range response.Choices {
+		if len(choice.Delta.Content) > 0 {
+			choice.Delta.Content, err = fn(choice.Delta.Content)
+			if err != nil {
+				return err
+			}
+		}
+	}
+	return nil
 }
