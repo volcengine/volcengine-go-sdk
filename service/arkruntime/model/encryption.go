@@ -11,3 +11,5 @@ type CertificateResponse struct {
 	Error       map[string]string `json:"error,omitempty"`
 	Certificate string            `json:"Certificate"`
 }
+
+const CipherVersionAICCv01 = "AICCv0.1"

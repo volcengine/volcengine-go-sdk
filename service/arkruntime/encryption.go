@@ -1,6 +1,8 @@
 package arkruntime
 
 import (
+	"encoding/json"
+
 	"github.com/volcengine/volcengine-go-sdk/service/arkruntime/model"
 	"github.com/volcengine/volcengine-go-sdk/service/arkruntime/pkg/encryption"
 )
@@ -27,7 +29,7 @@ func NewE2eeClient(certificate string) (*E2eeClient, error) {
 		isAICC: false,
 	}
 	if ringID != "" && keyID != "" {
-		client.info.Version = "AICCv0.1"
+		client.info.Version = model.CipherVersionAICCv01
 		client.info.RingID = ringID
 		client.info.KeyID = keyID
 		client.isAICC = true
@@ -37,4 +39,12 @@ func NewE2eeClient(certificate string) (*E2eeClient, error) {
 
 func (c *E2eeClient) GenerateECIESKeyPair() ([]byte, string, error) {
 	return c.cipher.GenerateECIESKeyPair()
+}
+
+func (c *E2eeClient) GetEncryptInfo() string {
+	info, err := json.Marshal(c.info) // tbd marshal method
+	if err != nil {
+		return ""
+	}
+	return string(info)
 }
