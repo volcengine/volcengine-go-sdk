@@ -62,31 +62,40 @@ func TraversalChatCompletionMessageHandler(ctx context.Context, msgs []*model.Ch
 		if m.Content == nil {
 			continue
 		}
-		if m.Content.StringValue != nil {
-			text, err := fn(*m.Content.StringValue)
+		err = ProcessChatCompletionMessageContent(m.Content, fn)
+		if err != nil {
+			return err
+		}
+	}
+	return nil
+}
+
+func ProcessChatCompletionMessageContent(content *model.ChatCompletionMessageContent, fn func(text string) (string, error)) error {
+	var err error
+	if content.StringValue != nil {
+		text, err := fn(*content.StringValue)
+		if err != nil {
+			return err
+		}
+		content.StringValue = &text
+	}
+	for _, p := range content.ListValue {
+		if len(p.Text) != 0 {
+			p.Text, err = fn(p.Text)
 			if err != nil {
 				return err
 			}
-			m.Content.StringValue = &text
 		}
-		for _, p := range m.Content.ListValue {
-			if len(p.Text) != 0 {
-				p.Text, err = fn(p.Text)
-				if err != nil {
-					return err
-				}
+		if p.ImageURL != nil {
+			p.ImageURL.URL, err = fn(p.ImageURL.URL)
+			if err != nil {
+				return err
 			}
-			if p.ImageURL != nil {
-				p.ImageURL.URL, err = fn(p.ImageURL.URL)
-				if err != nil {
-					return err
-				}
-			}
-			if p.VideoURL != nil {
-				p.VideoURL.URL, err = fn(p.VideoURL.URL)
-				if err != nil {
-					return err
-				}
+		}
+		if p.VideoURL != nil {
+			p.VideoURL.URL, err = fn(p.VideoURL.URL)
+			if err != nil {
+				return err
 			}
 		}
 	}
@@ -123,10 +132,17 @@ func StringInSlice(str string, list []string) bool {
 }
 
 func DecryptChatResponse(keyNonce []byte, response model.Response) error {
+	var err error
+	fn := func(text string) (string, error) {
+		return encryption.AesGcmDecryptBase64String(keyNonce[:32], keyNonce[32:], text)
+	}
 	if cr, ok := response.(*model.ChatCompletionResponse); ok {
-		for i := range cr.Choices {
-			if cr.Choices[i] != nil {
-				cr.Choices[i].Index = i
+		for _, choice := range cr.Choices {
+			if choice.FinishReason != model.FinishReasonContentFilter && choice.Message.Content != nil {
+				err = ProcessChatCompletionMessageContent(choice.Message.Content, fn)
+				if err != nil {
+					return err
+				}
 			}
 		}
 	}
