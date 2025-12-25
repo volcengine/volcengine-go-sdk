@@ -9,6 +9,7 @@ import (
 
 	"github.com/volcengine/volcengine-go-sdk/service/arkruntime/model"
 	"github.com/volcengine/volcengine-go-sdk/service/arkruntime/model/responses"
+	"github.com/volcengine/volcengine-go-sdk/service/arkruntime/pkg/encryption"
 )
 
 var (
@@ -125,11 +126,16 @@ func (stream *ChatCompletionStreamReader) processLines() (model.ChatCompletionSt
 			stream.IsFinished = true
 			return model.ChatCompletionStreamResponse{}, io.EOF
 		}
-		// 在这里解密也许是个好主意
 		var response model.ChatCompletionStreamResponse
 		unmarshalErr := stream.Unmarshaler.Unmarshal(trimedLine, &response)
 		if unmarshalErr != nil {
 			return model.ChatCompletionStreamResponse{}, unmarshalErr
+		}
+		if len(stream.KeyNonce) > 0 {
+			err := encryption.DecryptChatStreamResponse(stream.KeyNonce, response)
+			if err != nil {
+				return model.ChatCompletionStreamResponse{}, err
+			}
 		}
 
 		return response, nil
