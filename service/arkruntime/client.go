@@ -377,6 +377,11 @@ func sendChatCompletionRequestStream(client *Client, httpClient *http.Client, re
 	if isFailureStatusCode(resp) {
 		return &utils.ChatCompletionStreamReader{}, client.handleErrorResp(resp)
 	}
+
+	keyNonce, ok := client.keyNonce.Load(resp.Header.Get(model.ClientRequestHeader))
+	if !ok {
+		keyNonce = []byte{}
+	}
 	return &utils.ChatCompletionStreamReader{
 		EmptyMessagesLimit: client.config.EmptyMessagesLimit,
 		Reader:             bufio.NewReader(resp.Body),
@@ -384,6 +389,7 @@ func sendChatCompletionRequestStream(client *Client, httpClient *http.Client, re
 		ErrAccumulator:     utils.NewErrorAccumulator(),
 		Unmarshaler:        &utils.JSONUnmarshaler{},
 		HttpHeader:         model.HttpHeader(resp.Header),
+		KeyNonce:           keyNonce.([]byte),
 	}, nil
 }
 
