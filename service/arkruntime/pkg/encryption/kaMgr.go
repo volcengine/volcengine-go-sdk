@@ -45,10 +45,6 @@ func ECDHMarshalBinary(pub *ecdsa.PublicKey) []byte {
 	return ecdh
 }
 
-func UnmarshalBinary(curve elliptic.Curve, data []byte) (*big.Int, *big.Int) {
-	return elliptic.Unmarshal(curve, data)
-}
-
 // GenerateKey is the constructor for Private-Public key pair
 func GenerateKey(curve elliptic.Curve) (*ecdsa.PrivateKey, *ecdsa.PublicKey, error) {
 	rand := rand.Reader
@@ -232,7 +228,7 @@ func LoadLocalCertificate(model string) (string, error) {
 		}
 		return string(b), nil
 	}
-	_ = os.Remove(certFilePath)
+	_ = os.Remove(certFilePath) // tbd, it has security issue, maybe delete is not necessary
 	return "", nil
 }
 
@@ -240,7 +236,7 @@ func SaveToLocalCertificate(model, certPem string) error {
 	var dir string
 	home, herr := os.UserHomeDir()
 	if herr == nil && home != "" {
-		dir = filepath.Join(home, ".ark", "certificates")
+		dir = filepath.Join(home, ".ark", "certificates") // tbd to be const
 	} else {
 		return fmt.Errorf("failed to get user home dir. err=%w", herr)
 	}
@@ -253,7 +249,7 @@ func SaveToLocalCertificate(model, certPem string) error {
 }
 
 func CheckIsModeAICC() bool {
-	return os.Getenv("VOLC_ARK_ENCRYPTION") == "AICC"
+	return os.Getenv("VOLC_ARK_ENCRYPTION") == "AICC" // tbd to be const
 }
 
 func EncryptChatRequest(ctx context.Context, keyNonce []byte, request model.CreateChatCompletionRequest) error {
