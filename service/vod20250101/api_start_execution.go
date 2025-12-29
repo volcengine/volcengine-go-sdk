@@ -565,6 +565,8 @@ type ControlForStartExecutionInput struct {
 	EnableLowPriority *bool `type:"boolean" json:",omitempty"`
 
 	Priority *int32 `type:"int32" json:",omitempty"`
+
+	TaskListId *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -598,6 +600,12 @@ func (s *ControlForStartExecutionInput) SetEnableLowPriority(v bool) *ControlFor
 // SetPriority sets the Priority field's value.
 func (s *ControlForStartExecutionInput) SetPriority(v int32) *ControlForStartExecutionInput {
 	s.Priority = &v
+	return s
+}
+
+// SetTaskListId sets the TaskListId field's value.
+func (s *ControlForStartExecutionInput) SetTaskListId(v string) *ControlForStartExecutionInput {
+	s.TaskListId = &v
 	return s
 }
 
@@ -878,6 +886,8 @@ type EditForStartExecutionInput struct {
 
 	CustomEdit *CustomEditForStartExecutionInput `type:"structure" json:",omitempty"`
 
+	MiniseriesEdit *MiniseriesEditForStartExecutionInput `type:"structure" json:",omitempty"`
+
 	Mode *string `type:"string" json:",omitempty"`
 }
 
@@ -894,6 +904,12 @@ func (s EditForStartExecutionInput) GoString() string {
 // SetCustomEdit sets the CustomEdit field's value.
 func (s *EditForStartExecutionInput) SetCustomEdit(v *CustomEditForStartExecutionInput) *EditForStartExecutionInput {
 	s.CustomEdit = v
+	return s
+}
+
+// SetMiniseriesEdit sets the MiniseriesEdit field's value.
+func (s *EditForStartExecutionInput) SetMiniseriesEdit(v *MiniseriesEditForStartExecutionInput) *EditForStartExecutionInput {
+	s.MiniseriesEdit = v
 	return s
 }
 
@@ -1086,6 +1102,8 @@ type HighlightCutsForStartExecutionInput struct {
 
 	MinDuration *float64 `type:"double" json:",omitempty"`
 
+	MiniseriesOption *MiniseriesOptionForStartExecutionInput `type:"structure" json:",omitempty"`
+
 	WithStoryboard *bool `type:"boolean" json:",omitempty"`
 }
 
@@ -1117,6 +1135,12 @@ func (s *HighlightCutsForStartExecutionInput) SetMinDuration(v float64) *Highlig
 	return s
 }
 
+// SetMiniseriesOption sets the MiniseriesOption field's value.
+func (s *HighlightCutsForStartExecutionInput) SetMiniseriesOption(v *MiniseriesOptionForStartExecutionInput) *HighlightCutsForStartExecutionInput {
+	s.MiniseriesOption = v
+	return s
+}
+
 // SetWithStoryboard sets the WithStoryboard field's value.
 func (s *HighlightCutsForStartExecutionInput) SetWithStoryboard(v bool) *HighlightCutsForStartExecutionInput {
 	s.WithStoryboard = &v
@@ -1130,7 +1154,11 @@ type HighlightForStartExecutionInput struct {
 
 	HighlightCuts *HighlightCutsForStartExecutionInput `type:"structure" json:",omitempty"`
 
+	MiniGame *MiniGameForStartExecutionInput `type:"structure" json:",omitempty"`
+
 	Mode *string `type:"string" json:",omitempty"`
+
+	Model *string `type:"string" json:",omitempty"`
 
 	OpeningHook *OpeningHookForStartExecutionInput `type:"structure" json:",omitempty"`
 
@@ -1159,9 +1187,21 @@ func (s *HighlightForStartExecutionInput) SetHighlightCuts(v *HighlightCutsForSt
 	return s
 }
 
+// SetMiniGame sets the MiniGame field's value.
+func (s *HighlightForStartExecutionInput) SetMiniGame(v *MiniGameForStartExecutionInput) *HighlightForStartExecutionInput {
+	s.MiniGame = v
+	return s
+}
+
 // SetMode sets the Mode field's value.
 func (s *HighlightForStartExecutionInput) SetMode(v string) *HighlightForStartExecutionInput {
 	s.Mode = &v
+	return s
+}
+
+// SetModel sets the Model field's value.
+func (s *HighlightForStartExecutionInput) SetModel(v string) *HighlightForStartExecutionInput {
+	s.Model = &v
 	return s
 }
 
@@ -1280,6 +1320,104 @@ func (s ManualForStartExecutionInput) GoString() string {
 // SetLocations sets the Locations field's value.
 func (s *ManualForStartExecutionInput) SetLocations(v []*LocationForStartExecutionInput) *ManualForStartExecutionInput {
 	s.Locations = v
+	return s
+}
+
+type MiniGameForStartExecutionInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	HighlightDefinition *string `type:"string" json:",omitempty"`
+
+	Name *string `type:"string" json:",omitempty"`
+
+	PlayDefinition *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s MiniGameForStartExecutionInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s MiniGameForStartExecutionInput) GoString() string {
+	return s.String()
+}
+
+// SetHighlightDefinition sets the HighlightDefinition field's value.
+func (s *MiniGameForStartExecutionInput) SetHighlightDefinition(v string) *MiniGameForStartExecutionInput {
+	s.HighlightDefinition = &v
+	return s
+}
+
+// SetName sets the Name field's value.
+func (s *MiniGameForStartExecutionInput) SetName(v string) *MiniGameForStartExecutionInput {
+	s.Name = &v
+	return s
+}
+
+// SetPlayDefinition sets the PlayDefinition field's value.
+func (s *MiniGameForStartExecutionInput) SetPlayDefinition(v string) *MiniGameForStartExecutionInput {
+	s.PlayDefinition = &v
+	return s
+}
+
+type MiniseriesEditForStartExecutionInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Hint *string `type:"string" json:",omitempty"`
+
+	Template *string `type:"string" json:",omitempty"`
+
+	Title *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s MiniseriesEditForStartExecutionInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s MiniseriesEditForStartExecutionInput) GoString() string {
+	return s.String()
+}
+
+// SetHint sets the Hint field's value.
+func (s *MiniseriesEditForStartExecutionInput) SetHint(v string) *MiniseriesEditForStartExecutionInput {
+	s.Hint = &v
+	return s
+}
+
+// SetTemplate sets the Template field's value.
+func (s *MiniseriesEditForStartExecutionInput) SetTemplate(v string) *MiniseriesEditForStartExecutionInput {
+	s.Template = &v
+	return s
+}
+
+// SetTitle sets the Title field's value.
+func (s *MiniseriesEditForStartExecutionInput) SetTitle(v string) *MiniseriesEditForStartExecutionInput {
+	s.Title = &v
+	return s
+}
+
+type MiniseriesOptionForStartExecutionInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	CutMode *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s MiniseriesOptionForStartExecutionInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s MiniseriesOptionForStartExecutionInput) GoString() string {
+	return s.String()
+}
+
+// SetCutMode sets the CutMode field's value.
+func (s *MiniseriesOptionForStartExecutionInput) SetCutMode(v string) *MiniseriesOptionForStartExecutionInput {
+	s.CutMode = &v
 	return s
 }
 
