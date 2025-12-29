@@ -475,6 +475,9 @@ const (
 
 	// EnumOfEngineVersionForStartApplicationInstanceInputFlinkVersion116 is a EnumOfEngineVersionForStartApplicationInstanceInput enum value
 	EnumOfEngineVersionForStartApplicationInstanceInputFlinkVersion116 = "FLINK_VERSION_1_16"
+
+	// EnumOfEngineVersionForStartApplicationInstanceInputFlinkVersion117 is a EnumOfEngineVersionForStartApplicationInstanceInput enum value
+	EnumOfEngineVersionForStartApplicationInstanceInputFlinkVersion117 = "FLINK_VERSION_1_17"
 )
 
 const (
