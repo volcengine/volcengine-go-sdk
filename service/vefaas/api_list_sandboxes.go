@@ -143,8 +143,40 @@ func (c *VEFAAS) ListSandboxesWithContext(ctx volcengine.Context, input *ListSan
 	return out, req.Send()
 }
 
+type FilterForListSandboxesInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Name *string `type:"string" json:",omitempty"`
+
+	Values []*string `type:"list" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s FilterForListSandboxesInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s FilterForListSandboxesInput) GoString() string {
+	return s.String()
+}
+
+// SetName sets the Name field's value.
+func (s *FilterForListSandboxesInput) SetName(v string) *FilterForListSandboxesInput {
+	s.Name = &v
+	return s
+}
+
+// SetValues sets the Values field's value.
+func (s *FilterForListSandboxesInput) SetValues(v []*string) *FilterForListSandboxesInput {
+	s.Values = v
+	return s
+}
+
 type ListSandboxesInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
+
+	Filters []*FilterForListSandboxesInput `type:"list" json:",omitempty"`
 
 	// FunctionId is a required field
 	FunctionId *string `type:"string" json:",omitempty" required:"true"`
@@ -183,6 +215,12 @@ func (s *ListSandboxesInput) Validate() error {
 		return invalidParams
 	}
 	return nil
+}
+
+// SetFilters sets the Filters field's value.
+func (s *ListSandboxesInput) SetFilters(v []*FilterForListSandboxesInput) *ListSandboxesInput {
+	s.Filters = v
+	return s
 }
 
 // SetFunctionId sets the FunctionId field's value.
@@ -298,6 +336,8 @@ type SandboxForListSandboxesOutput struct {
 
 	RevisionNumber *int32 `type:"int32" json:",omitempty"`
 
+	SessionId *string `type:"string" json:",omitempty"`
+
 	Status *string `type:"string" json:",omitempty"`
 }
 
@@ -392,6 +432,12 @@ func (s *SandboxForListSandboxesOutput) SetPending(v bool) *SandboxForListSandbo
 // SetRevisionNumber sets the RevisionNumber field's value.
 func (s *SandboxForListSandboxesOutput) SetRevisionNumber(v int32) *SandboxForListSandboxesOutput {
 	s.RevisionNumber = &v
+	return s
+}
+
+// SetSessionId sets the SessionId field's value.
+func (s *SandboxForListSandboxesOutput) SetSessionId(v string) *SandboxForListSandboxesOutput {
+	s.SessionId = &v
 	return s
 }
 

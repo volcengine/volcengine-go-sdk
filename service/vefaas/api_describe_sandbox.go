@@ -226,8 +226,6 @@ type DescribeSandboxOutput struct {
 
 	MemoryMB *int32 `type:"int32" json:",omitempty"`
 
-	Metadata map[string]*string `type:"map" json:",omitempty"`
-
 	MetadataList []*MetadataListForDescribeSandboxOutput `type:"list" json:",omitempty"`
 
 	Pending *bool `type:"boolean" json:",omitempty"`
@@ -235,6 +233,8 @@ type DescribeSandboxOutput struct {
 	RequestTimeout *int32 `type:"int32" json:",omitempty"`
 
 	RevisionNumber *int32 `type:"int32" json:",omitempty"`
+
+	SessionId *string `type:"string" json:",omitempty"`
 
 	Status *string `type:"string" json:",omitempty"`
 }
@@ -339,12 +339,6 @@ func (s *DescribeSandboxOutput) SetMemoryMB(v int32) *DescribeSandboxOutput {
 	return s
 }
 
-// SetMetadata sets the Metadata field's value.
-func (s *DescribeSandboxOutput) SetMetadata(v map[string]*string) *DescribeSandboxOutput {
-	s.Metadata = v
-	return s
-}
-
 // SetMetadataList sets the MetadataList field's value.
 func (s *DescribeSandboxOutput) SetMetadataList(v []*MetadataListForDescribeSandboxOutput) *DescribeSandboxOutput {
 	s.MetadataList = v
@@ -366,6 +360,12 @@ func (s *DescribeSandboxOutput) SetRequestTimeout(v int32) *DescribeSandboxOutpu
 // SetRevisionNumber sets the RevisionNumber field's value.
 func (s *DescribeSandboxOutput) SetRevisionNumber(v int32) *DescribeSandboxOutput {
 	s.RevisionNumber = &v
+	return s
+}
+
+// SetSessionId sets the SessionId field's value.
+func (s *DescribeSandboxOutput) SetSessionId(v string) *DescribeSandboxOutput {
+	s.SessionId = &v
 	return s
 }
 
