@@ -54,6 +54,14 @@ type BILLINGAPI interface {
 	CleanUpFinancialRelationWithContext(volcengine.Context, *CleanUpFinancialRelationInput, ...request.Option) (*CleanUpFinancialRelationOutput, error)
 	CleanUpFinancialRelationRequest(*CleanUpFinancialRelationInput) (*request.Request, *CleanUpFinancialRelationOutput)
 
+	CommonBuyCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CommonBuyCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CommonBuyCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CommonBuy(*CommonBuyInput) (*CommonBuyOutput, error)
+	CommonBuyWithContext(volcengine.Context, *CommonBuyInput, ...request.Option) (*CommonBuyOutput, error)
+	CommonBuyRequest(*CommonBuyInput) (*request.Request, *CommonBuyOutput)
+
 	CreateBudgetCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	CreateBudgetCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	CreateBudgetCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -109,6 +117,14 @@ type BILLINGAPI interface {
 	ListAmortizedCostBillDaily(*ListAmortizedCostBillDailyInput) (*ListAmortizedCostBillDailyOutput, error)
 	ListAmortizedCostBillDailyWithContext(volcengine.Context, *ListAmortizedCostBillDailyInput, ...request.Option) (*ListAmortizedCostBillDailyOutput, error)
 	ListAmortizedCostBillDailyRequest(*ListAmortizedCostBillDailyInput) (*request.Request, *ListAmortizedCostBillDailyOutput)
+
+	ListAmortizedCostBillDetailCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListAmortizedCostBillDetailCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListAmortizedCostBillDetailCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListAmortizedCostBillDetail(*ListAmortizedCostBillDetailInput) (*ListAmortizedCostBillDetailOutput, error)
+	ListAmortizedCostBillDetailWithContext(volcengine.Context, *ListAmortizedCostBillDetailInput, ...request.Option) (*ListAmortizedCostBillDetailOutput, error)
+	ListAmortizedCostBillDetailRequest(*ListAmortizedCostBillDetailInput) (*request.Request, *ListAmortizedCostBillDetailOutput)
 
 	ListAmortizedCostBillMonthlyCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ListAmortizedCostBillMonthlyCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -253,6 +269,14 @@ type BILLINGAPI interface {
 	ListBudgetFilterZoneCode(*ListBudgetFilterZoneCodeInput) (*ListBudgetFilterZoneCodeOutput, error)
 	ListBudgetFilterZoneCodeWithContext(volcengine.Context, *ListBudgetFilterZoneCodeInput, ...request.Option) (*ListBudgetFilterZoneCodeOutput, error)
 	ListBudgetFilterZoneCodeRequest(*ListBudgetFilterZoneCodeInput) (*request.Request, *ListBudgetFilterZoneCodeOutput)
+
+	ListCostAnalysisCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListCostAnalysisCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListCostAnalysisCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListCostAnalysis(*ListCostAnalysisInput) (*ListCostAnalysisOutput, error)
+	ListCostAnalysisWithContext(volcengine.Context, *ListCostAnalysisInput, ...request.Option) (*ListCostAnalysisOutput, error)
+	ListCostAnalysisRequest(*ListCostAnalysisInput) (*request.Request, *ListCostAnalysisOutput)
 
 	ListCouponUsageRecordsCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ListCouponUsageRecordsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
