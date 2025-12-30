@@ -354,6 +354,8 @@ type ListForListAmortizedCostBillDailyOutput struct {
 
 	BillPeriod *string `type:"string" json:",omitempty"`
 
+	BillingFunction *string `type:"string" json:",omitempty"`
+
 	BillingMethodCode *string `type:"string" json:",omitempty"`
 
 	BillingMode *string `type:"string" json:",omitempty"`
@@ -421,6 +423,8 @@ type ListForListAmortizedCostBillDailyOutput struct {
 	DeductionUseDuration *string `type:"string" json:",omitempty"`
 
 	DiscountBillAmount *string `type:"string" json:",omitempty"`
+
+	DiscountBizBillingFunction *string `type:"string" json:",omitempty"`
 
 	EffectiveFactor *string `type:"string" json:",omitempty"`
 
@@ -637,6 +641,12 @@ func (s *ListForListAmortizedCostBillDailyOutput) SetBillPeriod(v string) *ListF
 	return s
 }
 
+// SetBillingFunction sets the BillingFunction field's value.
+func (s *ListForListAmortizedCostBillDailyOutput) SetBillingFunction(v string) *ListForListAmortizedCostBillDailyOutput {
+	s.BillingFunction = &v
+	return s
+}
+
 // SetBillingMethodCode sets the BillingMethodCode field's value.
 func (s *ListForListAmortizedCostBillDailyOutput) SetBillingMethodCode(v string) *ListForListAmortizedCostBillDailyOutput {
 	s.BillingMethodCode = &v
@@ -838,6 +848,12 @@ func (s *ListForListAmortizedCostBillDailyOutput) SetDeductionUseDuration(v stri
 // SetDiscountBillAmount sets the DiscountBillAmount field's value.
 func (s *ListForListAmortizedCostBillDailyOutput) SetDiscountBillAmount(v string) *ListForListAmortizedCostBillDailyOutput {
 	s.DiscountBillAmount = &v
+	return s
+}
+
+// SetDiscountBizBillingFunction sets the DiscountBizBillingFunction field's value.
+func (s *ListForListAmortizedCostBillDailyOutput) SetDiscountBizBillingFunction(v string) *ListForListAmortizedCostBillDailyOutput {
+	s.DiscountBizBillingFunction = &v
 	return s
 }
 
