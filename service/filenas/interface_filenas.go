@@ -46,6 +46,14 @@ type FILENASAPI interface {
 	CancelDirQuotaWithContext(volcengine.Context, *CancelDirQuotaInput, ...request.Option) (*CancelDirQuotaOutput, error)
 	CancelDirQuotaRequest(*CancelDirQuotaInput) (*request.Request, *CancelDirQuotaOutput)
 
+	CreateAccessPointCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateAccessPointCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateAccessPointCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateAccessPoint(*CreateAccessPointInput) (*CreateAccessPointOutput, error)
+	CreateAccessPointWithContext(volcengine.Context, *CreateAccessPointInput, ...request.Option) (*CreateAccessPointOutput, error)
+	CreateAccessPointRequest(*CreateAccessPointInput) (*request.Request, *CreateAccessPointOutput)
+
 	CreateDataFlowCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	CreateDataFlowCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	CreateDataFlowCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -94,6 +102,14 @@ type FILENASAPI interface {
 	CreatePreSignedUrlWithContext(volcengine.Context, *CreatePreSignedUrlInput, ...request.Option) (*CreatePreSignedUrlOutput, error)
 	CreatePreSignedUrlRequest(*CreatePreSignedUrlInput) (*request.Request, *CreatePreSignedUrlOutput)
 
+	CreateReservedCapacityCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateReservedCapacityCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateReservedCapacityCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateReservedCapacity(*CreateReservedCapacityInput) (*CreateReservedCapacityOutput, error)
+	CreateReservedCapacityWithContext(volcengine.Context, *CreateReservedCapacityInput, ...request.Option) (*CreateReservedCapacityOutput, error)
+	CreateReservedCapacityRequest(*CreateReservedCapacityInput) (*request.Request, *CreateReservedCapacityOutput)
+
 	CreateSnapshotCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	CreateSnapshotCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	CreateSnapshotCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -101,6 +117,14 @@ type FILENASAPI interface {
 	CreateSnapshot(*CreateSnapshotInput) (*CreateSnapshotOutput, error)
 	CreateSnapshotWithContext(volcengine.Context, *CreateSnapshotInput, ...request.Option) (*CreateSnapshotOutput, error)
 	CreateSnapshotRequest(*CreateSnapshotInput) (*request.Request, *CreateSnapshotOutput)
+
+	DeleteAccessPointCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeleteAccessPointCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeleteAccessPointCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeleteAccessPoint(*DeleteAccessPointInput) (*DeleteAccessPointOutput, error)
+	DeleteAccessPointWithContext(volcengine.Context, *DeleteAccessPointInput, ...request.Option) (*DeleteAccessPointOutput, error)
+	DeleteAccessPointRequest(*DeleteAccessPointInput) (*request.Request, *DeleteAccessPointOutput)
 
 	DeleteDataFlowCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DeleteDataFlowCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -149,6 +173,14 @@ type FILENASAPI interface {
 	DeleteSnapshot(*DeleteSnapshotInput) (*DeleteSnapshotOutput, error)
 	DeleteSnapshotWithContext(volcengine.Context, *DeleteSnapshotInput, ...request.Option) (*DeleteSnapshotOutput, error)
 	DeleteSnapshotRequest(*DeleteSnapshotInput) (*request.Request, *DeleteSnapshotOutput)
+
+	DescribeAccessPointsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeAccessPointsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeAccessPointsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeAccessPoints(*DescribeAccessPointsInput) (*DescribeAccessPointsOutput, error)
+	DescribeAccessPointsWithContext(volcengine.Context, *DescribeAccessPointsInput, ...request.Option) (*DescribeAccessPointsOutput, error)
+	DescribeAccessPointsRequest(*DescribeAccessPointsInput) (*request.Request, *DescribeAccessPointsOutput)
 
 	DescribeDataFlowTasksCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DescribeDataFlowTasksCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -206,6 +238,14 @@ type FILENASAPI interface {
 	DescribeMountPointsWithContext(volcengine.Context, *DescribeMountPointsInput, ...request.Option) (*DescribeMountPointsOutput, error)
 	DescribeMountPointsRequest(*DescribeMountPointsInput) (*request.Request, *DescribeMountPointsOutput)
 
+	DescribeMountedClientsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeMountedClientsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeMountedClientsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeMountedClients(*DescribeMountedClientsInput) (*DescribeMountedClientsOutput, error)
+	DescribeMountedClientsWithContext(volcengine.Context, *DescribeMountedClientsInput, ...request.Option) (*DescribeMountedClientsOutput, error)
+	DescribeMountedClientsRequest(*DescribeMountedClientsInput) (*request.Request, *DescribeMountedClientsOutput)
+
 	DescribePermissionGroupsCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DescribePermissionGroupsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DescribePermissionGroupsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -230,6 +270,14 @@ type FILENASAPI interface {
 	DescribeRegionsWithContext(volcengine.Context, *DescribeRegionsInput, ...request.Option) (*DescribeRegionsOutput, error)
 	DescribeRegionsRequest(*DescribeRegionsInput) (*request.Request, *DescribeRegionsOutput)
 
+	DescribeReservedCapacitysCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeReservedCapacitysCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeReservedCapacitysCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeReservedCapacitys(*DescribeReservedCapacitysInput) (*DescribeReservedCapacitysOutput, error)
+	DescribeReservedCapacitysWithContext(volcengine.Context, *DescribeReservedCapacitysInput, ...request.Option) (*DescribeReservedCapacitysOutput, error)
+	DescribeReservedCapacitysRequest(*DescribeReservedCapacitysInput) (*request.Request, *DescribeReservedCapacitysOutput)
+
 	DescribeSnapshotsCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DescribeSnapshotsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DescribeSnapshotsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -253,6 +301,14 @@ type FILENASAPI interface {
 	ExpandFileSystem(*ExpandFileSystemInput) (*ExpandFileSystemOutput, error)
 	ExpandFileSystemWithContext(volcengine.Context, *ExpandFileSystemInput, ...request.Option) (*ExpandFileSystemOutput, error)
 	ExpandFileSystemRequest(*ExpandFileSystemInput) (*request.Request, *ExpandFileSystemOutput)
+
+	ModifyAccessPointCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ModifyAccessPointCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ModifyAccessPointCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ModifyAccessPoint(*ModifyAccessPointInput) (*ModifyAccessPointOutput, error)
+	ModifyAccessPointWithContext(volcengine.Context, *ModifyAccessPointInput, ...request.Option) (*ModifyAccessPointOutput, error)
+	ModifyAccessPointRequest(*ModifyAccessPointInput) (*request.Request, *ModifyAccessPointOutput)
 
 	ModifyFileSystemSpecCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ModifyFileSystemSpecCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
