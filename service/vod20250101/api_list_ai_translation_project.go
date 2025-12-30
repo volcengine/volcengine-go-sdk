@@ -321,6 +321,8 @@ type OperatorConfigForListAITranslationProjectOutput struct {
 	_ struct{} `type:"structure"`
 
 	SubtitleRecognitionConfig *SubtitleRecognitionConfigForListAITranslationProjectOutput `type:"structure"`
+
+	VoiceCloneConfig *VoiceCloneConfigForListAITranslationProjectOutput `type:"structure"`
 }
 
 // String returns the string representation
@@ -336,6 +338,12 @@ func (s OperatorConfigForListAITranslationProjectOutput) GoString() string {
 // SetSubtitleRecognitionConfig sets the SubtitleRecognitionConfig field's value.
 func (s *OperatorConfigForListAITranslationProjectOutput) SetSubtitleRecognitionConfig(v *SubtitleRecognitionConfigForListAITranslationProjectOutput) *OperatorConfigForListAITranslationProjectOutput {
 	s.SubtitleRecognitionConfig = v
+	return s
+}
+
+// SetVoiceCloneConfig sets the VoiceCloneConfig field's value.
+func (s *OperatorConfigForListAITranslationProjectOutput) SetVoiceCloneConfig(v *VoiceCloneConfigForListAITranslationProjectOutput) *OperatorConfigForListAITranslationProjectOutput {
+	s.VoiceCloneConfig = v
 	return s
 }
 
@@ -672,6 +680,8 @@ type SubtitleRecognitionConfigForListAITranslationProjectOutput struct {
 
 	BilingualSubtitleFileName *string `type:"string"`
 
+	IsVision *bool `type:"boolean"`
+
 	RecognitionType *string `type:"string"`
 
 	SourceSubtitleFileName *string `type:"string"`
@@ -694,6 +704,12 @@ func (s SubtitleRecognitionConfigForListAITranslationProjectOutput) GoString() s
 // SetBilingualSubtitleFileName sets the BilingualSubtitleFileName field's value.
 func (s *SubtitleRecognitionConfigForListAITranslationProjectOutput) SetBilingualSubtitleFileName(v string) *SubtitleRecognitionConfigForListAITranslationProjectOutput {
 	s.BilingualSubtitleFileName = &v
+	return s
+}
+
+// SetIsVision sets the IsVision field's value.
+func (s *SubtitleRecognitionConfigForListAITranslationProjectOutput) SetIsVision(v bool) *SubtitleRecognitionConfigForListAITranslationProjectOutput {
+	s.IsVision = &v
 	return s
 }
 
@@ -764,5 +780,27 @@ func (s *TargetBlueprintForListAITranslationProjectOutput) SetProjectId(v string
 // SetTranslationType sets the TranslationType field's value.
 func (s *TargetBlueprintForListAITranslationProjectOutput) SetTranslationType(v string) *TargetBlueprintForListAITranslationProjectOutput {
 	s.TranslationType = &v
+	return s
+}
+
+type VoiceCloneConfigForListAITranslationProjectOutput struct {
+	_ struct{} `type:"structure"`
+
+	BackgroundVolume *int32 `type:"int32"`
+}
+
+// String returns the string representation
+func (s VoiceCloneConfigForListAITranslationProjectOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s VoiceCloneConfigForListAITranslationProjectOutput) GoString() string {
+	return s.String()
+}
+
+// SetBackgroundVolume sets the BackgroundVolume field's value.
+func (s *VoiceCloneConfigForListAITranslationProjectOutput) SetBackgroundVolume(v int32) *VoiceCloneConfigForListAITranslationProjectOutput {
+	s.BackgroundVolume = &v
 	return s
 }
