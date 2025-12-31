@@ -152,6 +152,8 @@ type CreateDataFlowTaskInput struct {
 
 	DataFlowId *string `type:"string" json:",omitempty"`
 
+	EntryListFileBucket *string `type:"string" json:",omitempty"`
+
 	EntryListFileKey *string `type:"string" json:",omitempty"`
 
 	EntryListFileName *string `type:"string" json:",omitempty"`
@@ -198,6 +200,12 @@ func (s *CreateDataFlowTaskInput) SetBucketPrefix(v string) *CreateDataFlowTaskI
 // SetDataFlowId sets the DataFlowId field's value.
 func (s *CreateDataFlowTaskInput) SetDataFlowId(v string) *CreateDataFlowTaskInput {
 	s.DataFlowId = &v
+	return s
+}
+
+// SetEntryListFileBucket sets the EntryListFileBucket field's value.
+func (s *CreateDataFlowTaskInput) SetEntryListFileBucket(v string) *CreateDataFlowTaskInput {
+	s.EntryListFileBucket = &v
 	return s
 }
 
