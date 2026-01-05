@@ -358,6 +358,14 @@ type VMPAPI interface {
 	GetWorkspaceWithContext(volcengine.Context, *GetWorkspaceInput, ...request.Option) (*GetWorkspaceOutput, error)
 	GetWorkspaceRequest(*GetWorkspaceInput) (*request.Request, *GetWorkspaceOutput)
 
+	GetWorkspaceAuthInfoCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	GetWorkspaceAuthInfoCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	GetWorkspaceAuthInfoCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	GetWorkspaceAuthInfo(*GetWorkspaceAuthInfoInput) (*GetWorkspaceAuthInfoOutput, error)
+	GetWorkspaceAuthInfoWithContext(volcengine.Context, *GetWorkspaceAuthInfoInput, ...request.Option) (*GetWorkspaceAuthInfoOutput, error)
+	GetWorkspaceAuthInfoRequest(*GetWorkspaceAuthInfoInput) (*request.Request, *GetWorkspaceAuthInfoOutput)
+
 	ListAlertSamplesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ListAlertSamplesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	ListAlertSamplesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})

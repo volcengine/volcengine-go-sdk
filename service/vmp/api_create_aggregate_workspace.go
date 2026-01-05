@@ -146,6 +146,10 @@ func (c *VMP) CreateAggregateWorkspaceWithContext(ctx volcengine.Context, input 
 type CreateAggregateWorkspaceInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	AuthType *string `type:"string" json:",omitempty"`
+
+	BearerToken *string `type:"string" json:",omitempty"`
+
 	CrossWorkspaces []*CrossWorkspaceForCreateAggregateWorkspaceInput `type:"list" json:",omitempty"`
 
 	Description *string `type:"string" json:",omitempty"`
@@ -191,6 +195,18 @@ func (s *CreateAggregateWorkspaceInput) Validate() error {
 		return invalidParams
 	}
 	return nil
+}
+
+// SetAuthType sets the AuthType field's value.
+func (s *CreateAggregateWorkspaceInput) SetAuthType(v string) *CreateAggregateWorkspaceInput {
+	s.AuthType = &v
+	return s
+}
+
+// SetBearerToken sets the BearerToken field's value.
+func (s *CreateAggregateWorkspaceInput) SetBearerToken(v string) *CreateAggregateWorkspaceInput {
+	s.BearerToken = &v
+	return s
 }
 
 // SetCrossWorkspaces sets the CrossWorkspaces field's value.

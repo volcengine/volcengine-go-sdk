@@ -148,7 +148,7 @@ type CreateExternalPrometheusInput struct {
 
 	AuthType *string `type:"string" json:",omitempty"`
 
-	CustomHeaders *CustomHeadersForCreateExternalPrometheusInput `type:"structure" json:",omitempty"`
+	CustomHeaderKVs []*CustomHeaderKVForCreateExternalPrometheusInput `type:"list" json:",omitempty"`
 
 	Description *string `type:"string" json:",omitempty"`
 
@@ -209,9 +209,9 @@ func (s *CreateExternalPrometheusInput) SetAuthType(v string) *CreateExternalPro
 	return s
 }
 
-// SetCustomHeaders sets the CustomHeaders field's value.
-func (s *CreateExternalPrometheusInput) SetCustomHeaders(v *CustomHeadersForCreateExternalPrometheusInput) *CreateExternalPrometheusInput {
-	s.CustomHeaders = v
+// SetCustomHeaderKVs sets the CustomHeaderKVs field's value.
+func (s *CreateExternalPrometheusInput) SetCustomHeaderKVs(v []*CustomHeaderKVForCreateExternalPrometheusInput) *CreateExternalPrometheusInput {
+	s.CustomHeaderKVs = v
 	return s
 }
 
@@ -311,18 +311,34 @@ func (s *CreateExternalPrometheusOutput) SetId(v string) *CreateExternalPromethe
 	return s
 }
 
-type CustomHeadersForCreateExternalPrometheusInput struct {
+type CustomHeaderKVForCreateExternalPrometheusInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
+
+	Key *string `type:"string" json:",omitempty"`
+
+	Value *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
-func (s CustomHeadersForCreateExternalPrometheusInput) String() string {
+func (s CustomHeaderKVForCreateExternalPrometheusInput) String() string {
 	return volcengineutil.Prettify(s)
 }
 
 // GoString returns the string representation
-func (s CustomHeadersForCreateExternalPrometheusInput) GoString() string {
+func (s CustomHeaderKVForCreateExternalPrometheusInput) GoString() string {
 	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *CustomHeaderKVForCreateExternalPrometheusInput) SetKey(v string) *CustomHeaderKVForCreateExternalPrometheusInput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *CustomHeaderKVForCreateExternalPrometheusInput) SetValue(v string) *CustomHeaderKVForCreateExternalPrometheusInput {
+	s.Value = &v
+	return s
 }
 
 type TagForCreateExternalPrometheusInput struct {
