@@ -142,6 +142,10 @@ func (c *NA) DescribeDiagnosisInstancesWithContext(ctx volcengine.Context, input
 type DescribeDiagnosisInstancesInput struct {
 	_ struct{} `type:"structure"`
 
+	PageNumber *int32 `type:"int32"`
+
+	PageSize *int32 `type:"int32"`
+
 	ResourceInstanceId *string `type:"string"`
 
 	ResourceType *string `type:"string"`
@@ -155,6 +159,18 @@ func (s DescribeDiagnosisInstancesInput) String() string {
 // GoString returns the string representation
 func (s DescribeDiagnosisInstancesInput) GoString() string {
 	return s.String()
+}
+
+// SetPageNumber sets the PageNumber field's value.
+func (s *DescribeDiagnosisInstancesInput) SetPageNumber(v int32) *DescribeDiagnosisInstancesInput {
+	s.PageNumber = &v
+	return s
+}
+
+// SetPageSize sets the PageSize field's value.
+func (s *DescribeDiagnosisInstancesInput) SetPageSize(v int32) *DescribeDiagnosisInstancesInput {
+	s.PageSize = &v
+	return s
 }
 
 // SetResourceInstanceId sets the ResourceInstanceId field's value.
@@ -236,8 +252,6 @@ type DiagnosisInstanceForDescribeDiagnosisInstancesOutput struct {
 
 	DiagnosisInstanceStatus *string `type:"string"`
 
-	EipAddress *string `type:"string"`
-
 	ResourceDeleted *bool `type:"boolean"`
 
 	ResourceInstanceId *string `type:"string"`
@@ -280,12 +294,6 @@ func (s *DiagnosisInstanceForDescribeDiagnosisInstancesOutput) SetDiagnosisInsta
 // SetDiagnosisInstanceStatus sets the DiagnosisInstanceStatus field's value.
 func (s *DiagnosisInstanceForDescribeDiagnosisInstancesOutput) SetDiagnosisInstanceStatus(v string) *DiagnosisInstanceForDescribeDiagnosisInstancesOutput {
 	s.DiagnosisInstanceStatus = &v
-	return s
-}
-
-// SetEipAddress sets the EipAddress field's value.
-func (s *DiagnosisInstanceForDescribeDiagnosisInstancesOutput) SetEipAddress(v string) *DiagnosisInstanceForDescribeDiagnosisInstancesOutput {
-	s.EipAddress = &v
 	return s
 }
 

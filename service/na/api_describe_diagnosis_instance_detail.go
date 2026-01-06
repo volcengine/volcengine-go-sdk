@@ -188,8 +188,6 @@ type DescribeDiagnosisInstanceDetailOutput struct {
 
 	DiagnosisInstanceStatus *string `type:"string"`
 
-	HaveFeedback *bool `type:"boolean"`
-
 	RequestId *string `type:"string"`
 
 	ResourceDeleted *bool `type:"boolean"`
@@ -234,12 +232,6 @@ func (s *DescribeDiagnosisInstanceDetailOutput) SetDiagnosisInstanceId(v string)
 // SetDiagnosisInstanceStatus sets the DiagnosisInstanceStatus field's value.
 func (s *DescribeDiagnosisInstanceDetailOutput) SetDiagnosisInstanceStatus(v string) *DescribeDiagnosisInstanceDetailOutput {
 	s.DiagnosisInstanceStatus = &v
-	return s
-}
-
-// SetHaveFeedback sets the HaveFeedback field's value.
-func (s *DescribeDiagnosisInstanceDetailOutput) SetHaveFeedback(v bool) *DescribeDiagnosisInstanceDetailOutput {
-	s.HaveFeedback = &v
 	return s
 }
 
