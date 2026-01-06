@@ -148,7 +148,7 @@ type BackupPolicyForDescribeBackupPoliciesOutput struct {
 
 	AccountId *string `type:"string" json:",omitempty"`
 
-	BackupType *string `type:"string" json:",omitempty"`
+	BackupType *string `type:"string" json:",omitempty" enum:"EnumOfBackupTypeForDescribeBackupPoliciesOutput"`
 
 	CreatedAt *string `type:"string" json:",omitempty"`
 
@@ -344,3 +344,11 @@ func (s *FiltersForDescribeBackupPoliciesInput) SetPolicyId(v string) *FiltersFo
 	s.PolicyId = &v
 	return s
 }
+
+const (
+	// EnumOfBackupTypeForDescribeBackupPoliciesOutputFull is a EnumOfBackupTypeForDescribeBackupPoliciesOutput enum value
+	EnumOfBackupTypeForDescribeBackupPoliciesOutputFull = "FULL"
+
+	// EnumOfBackupTypeForDescribeBackupPoliciesOutputIncremental is a EnumOfBackupTypeForDescribeBackupPoliciesOutput enum value
+	EnumOfBackupTypeForDescribeBackupPoliciesOutputIncremental = "INCREMENTAL"
+)

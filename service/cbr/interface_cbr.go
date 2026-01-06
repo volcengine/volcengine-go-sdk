@@ -174,6 +174,14 @@ type CBRAPI interface {
 	DescribeVaultsWithContext(volcengine.Context, *DescribeVaultsInput, ...request.Option) (*DescribeVaultsOutput, error)
 	DescribeVaultsRequest(*DescribeVaultsInput) (*request.Request, *DescribeVaultsOutput)
 
+	DescribeZonesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeZonesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeZonesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeZones(*DescribeZonesInput) (*DescribeZonesOutput, error)
+	DescribeZonesWithContext(volcengine.Context, *DescribeZonesInput, ...request.Option) (*DescribeZonesOutput, error)
+	DescribeZonesRequest(*DescribeZonesInput) (*request.Request, *DescribeZonesOutput)
+
 	DisableBackupPolicyCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DisableBackupPolicyCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DisableBackupPolicyCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -189,6 +197,30 @@ type CBRAPI interface {
 	EnableBackupPolicy(*EnableBackupPolicyInput) (*EnableBackupPolicyOutput, error)
 	EnableBackupPolicyWithContext(volcengine.Context, *EnableBackupPolicyInput, ...request.Option) (*EnableBackupPolicyOutput, error)
 	EnableBackupPolicyRequest(*EnableBackupPolicyInput) (*request.Request, *EnableBackupPolicyOutput)
+
+	ListTagsForResourcesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListTagsForResourcesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListTagsForResourcesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListTagsForResources(*ListTagsForResourcesInput) (*ListTagsForResourcesOutput, error)
+	ListTagsForResourcesWithContext(volcengine.Context, *ListTagsForResourcesInput, ...request.Option) (*ListTagsForResourcesOutput, error)
+	ListTagsForResourcesRequest(*ListTagsForResourcesInput) (*request.Request, *ListTagsForResourcesOutput)
+
+	TagResourcesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	TagResourcesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	TagResourcesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	TagResources(*TagResourcesInput) (*TagResourcesOutput, error)
+	TagResourcesWithContext(volcengine.Context, *TagResourcesInput, ...request.Option) (*TagResourcesOutput, error)
+	TagResourcesRequest(*TagResourcesInput) (*request.Request, *TagResourcesOutput)
+
+	UntagResourcesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	UntagResourcesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	UntagResourcesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	UntagResources(*UntagResourcesInput) (*UntagResourcesOutput, error)
+	UntagResourcesWithContext(volcengine.Context, *UntagResourcesInput, ...request.Option) (*UntagResourcesOutput, error)
+	UntagResourcesRequest(*UntagResourcesInput) (*request.Request, *UntagResourcesOutput)
 
 	UpdateBackupPlanCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	UpdateBackupPlanCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)

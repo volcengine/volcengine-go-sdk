@@ -148,6 +148,8 @@ type CreateVaultInput struct {
 
 	ProjectName *string `type:"string" json:",omitempty"`
 
+	Tags []*TagForCreateVaultInput `type:"list" json:",omitempty"`
+
 	// VaultName is a required field
 	VaultName *string `type:"string" json:",omitempty" required:"true"`
 }
@@ -181,6 +183,12 @@ func (s *CreateVaultInput) SetProjectName(v string) *CreateVaultInput {
 	return s
 }
 
+// SetTags sets the Tags field's value.
+func (s *CreateVaultInput) SetTags(v []*TagForCreateVaultInput) *CreateVaultInput {
+	s.Tags = v
+	return s
+}
+
 // SetVaultName sets the VaultName field's value.
 func (s *CreateVaultInput) SetVaultName(v string) *CreateVaultInput {
 	s.VaultName = &v
@@ -208,5 +216,35 @@ func (s CreateVaultOutput) GoString() string {
 // SetVaultId sets the VaultId field's value.
 func (s *CreateVaultOutput) SetVaultId(v string) *CreateVaultOutput {
 	s.VaultId = &v
+	return s
+}
+
+type TagForCreateVaultInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Key *string `type:"string" json:",omitempty"`
+
+	Value *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s TagForCreateVaultInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagForCreateVaultInput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagForCreateVaultInput) SetKey(v string) *TagForCreateVaultInput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *TagForCreateVaultInput) SetValue(v string) *TagForCreateVaultInput {
+	s.Value = &v
 	return s
 }
