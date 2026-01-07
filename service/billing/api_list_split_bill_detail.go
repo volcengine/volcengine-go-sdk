@@ -168,6 +168,8 @@ type ListForListSplitBillDetailOutput struct {
 
 	ConfigurationCode *string `type:"string" json:",omitempty"`
 
+	CostUnit *string `type:"string" json:",omitempty"`
+
 	CountryRegion *string `type:"string" json:",omitempty"`
 
 	CouponDeductionAmount *string `type:"string" json:",omitempty"`
@@ -410,6 +412,12 @@ func (s *ListForListSplitBillDetailOutput) SetConfigName(v string) *ListForListS
 // SetConfigurationCode sets the ConfigurationCode field's value.
 func (s *ListForListSplitBillDetailOutput) SetConfigurationCode(v string) *ListForListSplitBillDetailOutput {
 	s.ConfigurationCode = &v
+	return s
+}
+
+// SetCostUnit sets the CostUnit field's value.
+func (s *ListForListSplitBillDetailOutput) SetCostUnit(v string) *ListForListSplitBillDetailOutput {
+	s.CostUnit = &v
 	return s
 }
 
@@ -948,6 +956,9 @@ type ListSplitBillDetailInput struct {
 
 	Product []*string `type:"list" json:",omitempty"`
 
+	// SplitDimension is a required field
+	SplitDimension *string `type:"string" json:",omitempty" required:"true"`
+
 	SplitItemID *string `type:"string" json:",omitempty"`
 }
 
@@ -969,6 +980,9 @@ func (s *ListSplitBillDetailInput) Validate() error {
 	}
 	if s.Limit == nil {
 		invalidParams.Add(request.NewErrParamRequired("Limit"))
+	}
+	if s.SplitDimension == nil {
+		invalidParams.Add(request.NewErrParamRequired("SplitDimension"))
 	}
 
 	if invalidParams.Len() > 0 {
@@ -1052,6 +1066,12 @@ func (s *ListSplitBillDetailInput) SetPayerID(v []*int64) *ListSplitBillDetailIn
 // SetProduct sets the Product field's value.
 func (s *ListSplitBillDetailInput) SetProduct(v []*string) *ListSplitBillDetailInput {
 	s.Product = v
+	return s
+}
+
+// SetSplitDimension sets the SplitDimension field's value.
+func (s *ListSplitBillDetailInput) SetSplitDimension(v string) *ListSplitBillDetailInput {
+	s.SplitDimension = &v
 	return s
 }
 
