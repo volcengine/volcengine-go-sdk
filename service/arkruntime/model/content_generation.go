@@ -1,5 +1,7 @@
 package model
 
+import "encoding/json"
+
 type ContentGenerationContentItemType string
 
 const (
@@ -32,7 +34,30 @@ type CreateContentGenerationTaskRequest struct {
 	Ratio                 *string                               `json:"ratio,omitempty"`
 	Duration              *int64                                `json:"duration,omitempty"`
 	Frames                *int64                                `json:"frames,omitempty"`
+	ExtraBody             `json:"-"`
 }
+
+func (r CreateContentGenerationTaskRequest) MarshalJSON() ([]byte, error) {
+	type Alias CreateContentGenerationTaskRequest
+	aliasValue := Alias(r)
+	data, err := json.Marshal(&aliasValue)
+	if err != nil {
+		return nil, err
+	}
+
+	var jsonObj map[string]interface{}
+	if err := json.Unmarshal(data, &jsonObj); err != nil {
+		return nil, err
+	}
+
+	for k, v := range r.ExtraBody {
+		jsonObj[k] = v
+	}
+
+	return json.Marshal(jsonObj)
+}
+
+type ExtraBody map[string]interface{}
 
 type CreateContentGenerationTaskResponse struct {
 	ID string `json:"id"`
