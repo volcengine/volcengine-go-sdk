@@ -1,5 +1,7 @@
 # 目录
 
+中文 | [English](SDK_Integration.md)
+
 - [目录](#目录)
 - [集成SDK](#集成sdk)
 - [环境要求](#环境要求)
