@@ -707,6 +707,8 @@ type OperatorConfigForGetAITranslationProjectOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
 	SubtitleRecognitionConfig *SubtitleRecognitionConfigForGetAITranslationProjectOutput `type:"structure" json:",omitempty"`
+
+	VoiceCloneConfig *VoiceCloneConfigForGetAITranslationProjectOutput `type:"structure" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -722,6 +724,12 @@ func (s OperatorConfigForGetAITranslationProjectOutput) GoString() string {
 // SetSubtitleRecognitionConfig sets the SubtitleRecognitionConfig field's value.
 func (s *OperatorConfigForGetAITranslationProjectOutput) SetSubtitleRecognitionConfig(v *SubtitleRecognitionConfigForGetAITranslationProjectOutput) *OperatorConfigForGetAITranslationProjectOutput {
 	s.SubtitleRecognitionConfig = v
+	return s
+}
+
+// SetVoiceCloneConfig sets the VoiceCloneConfig field's value.
+func (s *OperatorConfigForGetAITranslationProjectOutput) SetVoiceCloneConfig(v *VoiceCloneConfigForGetAITranslationProjectOutput) *OperatorConfigForGetAITranslationProjectOutput {
+	s.VoiceCloneConfig = v
 	return s
 }
 
@@ -1566,6 +1574,8 @@ type SubtitleRecognitionConfigForGetAITranslationProjectOutput struct {
 
 	BilingualSubtitleFileName *string `type:"string" json:",omitempty"`
 
+	IsVision *bool `type:"boolean" json:",omitempty"`
+
 	RecognitionType *string `type:"string" json:",omitempty"`
 
 	SourceSubtitleFileName *string `type:"string" json:",omitempty"`
@@ -1588,6 +1598,12 @@ func (s SubtitleRecognitionConfigForGetAITranslationProjectOutput) GoString() st
 // SetBilingualSubtitleFileName sets the BilingualSubtitleFileName field's value.
 func (s *SubtitleRecognitionConfigForGetAITranslationProjectOutput) SetBilingualSubtitleFileName(v string) *SubtitleRecognitionConfigForGetAITranslationProjectOutput {
 	s.BilingualSubtitleFileName = &v
+	return s
+}
+
+// SetIsVision sets the IsVision field's value.
+func (s *SubtitleRecognitionConfigForGetAITranslationProjectOutput) SetIsVision(v bool) *SubtitleRecognitionConfigForGetAITranslationProjectOutput {
+	s.IsVision = &v
 	return s
 }
 
@@ -1898,6 +1914,28 @@ func (s *TrimForGetAITranslationProjectOutput) SetEnd(v int32) *TrimForGetAITran
 // SetStart sets the Start field's value.
 func (s *TrimForGetAITranslationProjectOutput) SetStart(v int32) *TrimForGetAITranslationProjectOutput {
 	s.Start = &v
+	return s
+}
+
+type VoiceCloneConfigForGetAITranslationProjectOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	BackgroundVolume *int32 `type:"int32" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s VoiceCloneConfigForGetAITranslationProjectOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s VoiceCloneConfigForGetAITranslationProjectOutput) GoString() string {
+	return s.String()
+}
+
+// SetBackgroundVolume sets the BackgroundVolume field's value.
+func (s *VoiceCloneConfigForGetAITranslationProjectOutput) SetBackgroundVolume(v int32) *VoiceCloneConfigForGetAITranslationProjectOutput {
+	s.BackgroundVolume = &v
 	return s
 }
 
