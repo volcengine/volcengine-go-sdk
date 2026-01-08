@@ -86,6 +86,14 @@ type SPEECHSAASPRODAPI interface {
 	ListBigModelTTSTimbresWithContext(volcengine.Context, *ListBigModelTTSTimbresInput, ...request.Option) (*ListBigModelTTSTimbresOutput, error)
 	ListBigModelTTSTimbresRequest(*ListBigModelTTSTimbresInput) (*request.Request, *ListBigModelTTSTimbresOutput)
 
+	ListSpeakersCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListSpeakersCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListSpeakersCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListSpeakers(*ListSpeakersInput) (*ListSpeakersOutput, error)
+	ListSpeakersWithContext(volcengine.Context, *ListSpeakersInput, ...request.Option) (*ListSpeakersOutput, error)
+	ListSpeakersRequest(*ListSpeakersInput) (*request.Request, *ListSpeakersOutput)
+
 	OrderResourcePacksCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	OrderResourcePacksCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	OrderResourcePacksCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
