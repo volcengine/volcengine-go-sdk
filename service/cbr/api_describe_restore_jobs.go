@@ -272,7 +272,7 @@ type JobForDescribeRestoreJobsOutput struct {
 
 	RecoveryPointName *string `type:"string" json:",omitempty"`
 
-	ResourceType *string `type:"string" json:",omitempty"`
+	ResourceType *string `type:"string" json:",omitempty" enum:"EnumOfResourceTypeForDescribeRestoreJobsOutput"`
 
 	Status *string `type:"string" json:",omitempty" enum:"EnumOfStatusForDescribeRestoreJobsOutput"`
 }
@@ -328,6 +328,14 @@ func (s *JobForDescribeRestoreJobsOutput) SetStatus(v string) *JobForDescribeRes
 	s.Status = &v
 	return s
 }
+
+const (
+	// EnumOfResourceTypeForDescribeRestoreJobsOutputEcs is a EnumOfResourceTypeForDescribeRestoreJobsOutput enum value
+	EnumOfResourceTypeForDescribeRestoreJobsOutputEcs = "ECS"
+
+	// EnumOfResourceTypeForDescribeRestoreJobsOutputVePfs is a EnumOfResourceTypeForDescribeRestoreJobsOutput enum value
+	EnumOfResourceTypeForDescribeRestoreJobsOutputVePfs = "vePFS"
+)
 
 const (
 	// EnumOfStatusForDescribeRestoreJobsOutputCompleted is a EnumOfStatusForDescribeRestoreJobsOutput enum value

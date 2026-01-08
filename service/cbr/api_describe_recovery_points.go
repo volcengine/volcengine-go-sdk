@@ -224,9 +224,9 @@ type FiltersForDescribeRecoveryPointsInput struct {
 
 	ResourceId *string `type:"string" json:",omitempty"`
 
-	ResourceType *string `type:"string" json:",omitempty"`
+	ResourceType *string `type:"string" json:",omitempty" enum:"EnumOfResourceTypeForDescribeRecoveryPointsInput"`
 
-	Status *string `type:"string" json:",omitempty"`
+	Status *string `type:"string" json:",omitempty" enum:"EnumOfStatusForDescribeRecoveryPointsInput"`
 }
 
 // String returns the string representation
@@ -416,3 +416,31 @@ func (s *RecoveryPointForDescribeRecoveryPointsOutput) SetUpdatedAt(v string) *R
 	s.UpdatedAt = &v
 	return s
 }
+
+const (
+	// EnumOfResourceTypeForDescribeRecoveryPointsInputEcs is a EnumOfResourceTypeForDescribeRecoveryPointsInput enum value
+	EnumOfResourceTypeForDescribeRecoveryPointsInputEcs = "ECS"
+
+	// EnumOfResourceTypeForDescribeRecoveryPointsInputVePfs is a EnumOfResourceTypeForDescribeRecoveryPointsInput enum value
+	EnumOfResourceTypeForDescribeRecoveryPointsInputVePfs = "vePFS"
+)
+
+const (
+	// EnumOfStatusForDescribeRecoveryPointsInputAvailable is a EnumOfStatusForDescribeRecoveryPointsInput enum value
+	EnumOfStatusForDescribeRecoveryPointsInputAvailable = "AVAILABLE"
+
+	// EnumOfStatusForDescribeRecoveryPointsInputDeleting is a EnumOfStatusForDescribeRecoveryPointsInput enum value
+	EnumOfStatusForDescribeRecoveryPointsInputDeleting = "DELETING"
+
+	// EnumOfStatusForDescribeRecoveryPointsInputBeingBackup is a EnumOfStatusForDescribeRecoveryPointsInput enum value
+	EnumOfStatusForDescribeRecoveryPointsInputBeingBackup = "BEING_BACKUP"
+
+	// EnumOfStatusForDescribeRecoveryPointsInputRecovering is a EnumOfStatusForDescribeRecoveryPointsInput enum value
+	EnumOfStatusForDescribeRecoveryPointsInputRecovering = "RECOVERING"
+
+	// EnumOfStatusForDescribeRecoveryPointsInputError is a EnumOfStatusForDescribeRecoveryPointsInput enum value
+	EnumOfStatusForDescribeRecoveryPointsInputError = "ERROR"
+
+	// EnumOfStatusForDescribeRecoveryPointsInputWaiting is a EnumOfStatusForDescribeRecoveryPointsInput enum value
+	EnumOfStatusForDescribeRecoveryPointsInputWaiting = "WAITING"
+)

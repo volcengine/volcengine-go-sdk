@@ -160,12 +160,6 @@ type CreateBackupPolicyInput struct {
 
 	// RetentionDay is a required field
 	RetentionDay *int32 `type:"int32" json:",omitempty" required:"true"`
-
-	// RetentionNumMax is a required field
-	RetentionNumMax *int32 `type:"int32" json:",omitempty" required:"true"`
-
-	// RetentionNumMin is a required field
-	RetentionNumMin *int32 `type:"int32" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -195,12 +189,6 @@ func (s *CreateBackupPolicyInput) Validate() error {
 	}
 	if s.RetentionDay == nil {
 		invalidParams.Add(request.NewErrParamRequired("RetentionDay"))
-	}
-	if s.RetentionNumMax == nil {
-		invalidParams.Add(request.NewErrParamRequired("RetentionNumMax"))
-	}
-	if s.RetentionNumMin == nil {
-		invalidParams.Add(request.NewErrParamRequired("RetentionNumMin"))
 	}
 
 	if invalidParams.Len() > 0 {
@@ -236,18 +224,6 @@ func (s *CreateBackupPolicyInput) SetName(v string) *CreateBackupPolicyInput {
 // SetRetentionDay sets the RetentionDay field's value.
 func (s *CreateBackupPolicyInput) SetRetentionDay(v int32) *CreateBackupPolicyInput {
 	s.RetentionDay = &v
-	return s
-}
-
-// SetRetentionNumMax sets the RetentionNumMax field's value.
-func (s *CreateBackupPolicyInput) SetRetentionNumMax(v int32) *CreateBackupPolicyInput {
-	s.RetentionNumMax = &v
-	return s
-}
-
-// SetRetentionNumMin sets the RetentionNumMin field's value.
-func (s *CreateBackupPolicyInput) SetRetentionNumMin(v int32) *CreateBackupPolicyInput {
-	s.RetentionNumMin = &v
 	return s
 }
 
