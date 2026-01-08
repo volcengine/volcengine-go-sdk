@@ -220,6 +220,8 @@ type IndexForListVikingdbIndexOutput struct {
 
 	ShardPolicy *string `type:"string" json:",omitempty"`
 
+	Status *string `type:"string" json:",omitempty"`
+
 	VectorIndex *VectorIndexForListVikingdbIndexOutput `type:"structure" json:",omitempty"`
 }
 
@@ -290,6 +292,12 @@ func (s *IndexForListVikingdbIndexOutput) SetShardCount(v int32) *IndexForListVi
 // SetShardPolicy sets the ShardPolicy field's value.
 func (s *IndexForListVikingdbIndexOutput) SetShardPolicy(v string) *IndexForListVikingdbIndexOutput {
 	s.ShardPolicy = &v
+	return s
+}
+
+// SetStatus sets the Status field's value.
+func (s *IndexForListVikingdbIndexOutput) SetStatus(v string) *IndexForListVikingdbIndexOutput {
+	s.Status = &v
 	return s
 }
 

@@ -38,6 +38,30 @@ type NAAPI interface {
 	CreateDiagnosisInstanceWithContext(volcengine.Context, *CreateDiagnosisInstanceInput, ...request.Option) (*CreateDiagnosisInstanceOutput, error)
 	CreateDiagnosisInstanceRequest(*CreateDiagnosisInstanceInput) (*request.Request, *CreateDiagnosisInstanceOutput)
 
+	CreatePathAnalysisCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreatePathAnalysisCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreatePathAnalysisCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreatePathAnalysis(*CreatePathAnalysisInput) (*CreatePathAnalysisOutput, error)
+	CreatePathAnalysisWithContext(volcengine.Context, *CreatePathAnalysisInput, ...request.Option) (*CreatePathAnalysisOutput, error)
+	CreatePathAnalysisRequest(*CreatePathAnalysisInput) (*request.Request, *CreatePathAnalysisOutput)
+
+	DeleteAnalysisPathCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeleteAnalysisPathCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeleteAnalysisPathCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeleteAnalysisPath(*DeleteAnalysisPathInput) (*DeleteAnalysisPathOutput, error)
+	DeleteAnalysisPathWithContext(volcengine.Context, *DeleteAnalysisPathInput, ...request.Option) (*DeleteAnalysisPathOutput, error)
+	DeleteAnalysisPathRequest(*DeleteAnalysisPathInput) (*request.Request, *DeleteAnalysisPathOutput)
+
+	DeleteAnalysisPathReportCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeleteAnalysisPathReportCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeleteAnalysisPathReportCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeleteAnalysisPathReport(*DeleteAnalysisPathReportInput) (*DeleteAnalysisPathReportOutput, error)
+	DeleteAnalysisPathReportWithContext(volcengine.Context, *DeleteAnalysisPathReportInput, ...request.Option) (*DeleteAnalysisPathReportOutput, error)
+	DeleteAnalysisPathReportRequest(*DeleteAnalysisPathReportInput) (*request.Request, *DeleteAnalysisPathReportOutput)
+
 	DescribeDiagnosisInstanceDetailCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DescribeDiagnosisInstanceDetailCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DescribeDiagnosisInstanceDetailCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -61,6 +85,38 @@ type NAAPI interface {
 	DescribeHistoryDiagnosis(*DescribeHistoryDiagnosisInput) (*DescribeHistoryDiagnosisOutput, error)
 	DescribeHistoryDiagnosisWithContext(volcengine.Context, *DescribeHistoryDiagnosisInput, ...request.Option) (*DescribeHistoryDiagnosisOutput, error)
 	DescribeHistoryDiagnosisRequest(*DescribeHistoryDiagnosisInput) (*request.Request, *DescribeHistoryDiagnosisOutput)
+
+	GetAnalysisPathReportCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	GetAnalysisPathReportCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	GetAnalysisPathReportCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	GetAnalysisPathReport(*GetAnalysisPathReportInput) (*GetAnalysisPathReportOutput, error)
+	GetAnalysisPathReportWithContext(volcengine.Context, *GetAnalysisPathReportInput, ...request.Option) (*GetAnalysisPathReportOutput, error)
+	GetAnalysisPathReportRequest(*GetAnalysisPathReportInput) (*request.Request, *GetAnalysisPathReportOutput)
+
+	GetNetworkTrafficMetricsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	GetNetworkTrafficMetricsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	GetNetworkTrafficMetricsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	GetNetworkTrafficMetrics(*GetNetworkTrafficMetricsInput) (*GetNetworkTrafficMetricsOutput, error)
+	GetNetworkTrafficMetricsWithContext(volcengine.Context, *GetNetworkTrafficMetricsInput, ...request.Option) (*GetNetworkTrafficMetricsOutput, error)
+	GetNetworkTrafficMetricsRequest(*GetNetworkTrafficMetricsInput) (*request.Request, *GetNetworkTrafficMetricsOutput)
+
+	GetNetworkTrafficTopNCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	GetNetworkTrafficTopNCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	GetNetworkTrafficTopNCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	GetNetworkTrafficTopN(*GetNetworkTrafficTopNInput) (*GetNetworkTrafficTopNOutput, error)
+	GetNetworkTrafficTopNWithContext(volcengine.Context, *GetNetworkTrafficTopNInput, ...request.Option) (*GetNetworkTrafficTopNOutput, error)
+	GetNetworkTrafficTopNRequest(*GetNetworkTrafficTopNInput) (*request.Request, *GetNetworkTrafficTopNOutput)
+
+	ReanalysisPathCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ReanalysisPathCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ReanalysisPathCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ReanalysisPath(*ReanalysisPathInput) (*ReanalysisPathOutput, error)
+	ReanalysisPathWithContext(volcengine.Context, *ReanalysisPathInput, ...request.Option) (*ReanalysisPathOutput, error)
+	ReanalysisPathRequest(*ReanalysisPathInput) (*request.Request, *ReanalysisPathOutput)
 }
 
 var _ NAAPI = (*NA)(nil)

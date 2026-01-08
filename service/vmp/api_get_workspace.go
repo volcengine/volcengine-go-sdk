@@ -252,6 +252,8 @@ type GetWorkspaceOutput struct {
 
 	Metadata *response.ResponseMetadata
 
+	AuthType *string `type:"string" json:",omitempty"`
+
 	CreateTime *string `type:"string" json:",omitempty"`
 
 	DeleteProtectionEnabled *bool `type:"boolean" json:",omitempty"`
@@ -307,6 +309,12 @@ func (s GetWorkspaceOutput) String() string {
 // GoString returns the string representation
 func (s GetWorkspaceOutput) GoString() string {
 	return s.String()
+}
+
+// SetAuthType sets the AuthType field's value.
+func (s *GetWorkspaceOutput) SetAuthType(v string) *GetWorkspaceOutput {
+	s.AuthType = &v
+	return s
 }
 
 // SetCreateTime sets the CreateTime field's value.

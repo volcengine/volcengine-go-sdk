@@ -173,21 +173,19 @@ func (s *CollectionStatsForGetVikingdbCollectionOutput) SetDataStorage(v int64) 
 	return s
 }
 
-/*
 type DefaultValueForGetVikingdbCollectionOutput struct {
-    _ struct{} `type:"structure" json:",omitempty"`
+	_ struct{} `type:"structure" json:",omitempty"`
 }
 
 // String returns the string representation
 func (s DefaultValueForGetVikingdbCollectionOutput) String() string {
-    return volcengineutil.Prettify(s)
+	return volcengineutil.Prettify(s)
 }
 
 // GoString returns the string representation
 func (s DefaultValueForGetVikingdbCollectionOutput) GoString() string {
-    return s.String()
+	return s.String()
 }
-*/
 
 type DenseForGetVikingdbCollectionOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
@@ -196,9 +194,17 @@ type DenseForGetVikingdbCollectionOutput struct {
 
 	ImageField *string `type:"string" json:",omitempty"`
 
+	Instruction *InstructionForGetVikingdbCollectionOutput `type:"structure" json:",omitempty"`
+
 	ModelName *string `type:"string" json:",omitempty" enum:"EnumOfModelNameForGetVikingdbCollectionOutput"`
 
 	ModelVersion *string `type:"string" json:",omitempty"`
+
+	NDim *int32 `type:"int32" json:",omitempty"`
+
+	Shape []*int32 `type:"list" json:",omitempty"`
+
+	TensorQuantType *string `type:"string" json:",omitempty" enum:"EnumOfTensorQuantTypeForGetVikingdbCollectionOutput"`
 
 	TextField *string `type:"string" json:",omitempty"`
 
@@ -227,6 +233,12 @@ func (s *DenseForGetVikingdbCollectionOutput) SetImageField(v string) *DenseForG
 	return s
 }
 
+// SetInstruction sets the Instruction field's value.
+func (s *DenseForGetVikingdbCollectionOutput) SetInstruction(v *InstructionForGetVikingdbCollectionOutput) *DenseForGetVikingdbCollectionOutput {
+	s.Instruction = v
+	return s
+}
+
 // SetModelName sets the ModelName field's value.
 func (s *DenseForGetVikingdbCollectionOutput) SetModelName(v string) *DenseForGetVikingdbCollectionOutput {
 	s.ModelName = &v
@@ -236,6 +248,24 @@ func (s *DenseForGetVikingdbCollectionOutput) SetModelName(v string) *DenseForGe
 // SetModelVersion sets the ModelVersion field's value.
 func (s *DenseForGetVikingdbCollectionOutput) SetModelVersion(v string) *DenseForGetVikingdbCollectionOutput {
 	s.ModelVersion = &v
+	return s
+}
+
+// SetNDim sets the NDim field's value.
+func (s *DenseForGetVikingdbCollectionOutput) SetNDim(v int32) *DenseForGetVikingdbCollectionOutput {
+	s.NDim = &v
+	return s
+}
+
+// SetShape sets the Shape field's value.
+func (s *DenseForGetVikingdbCollectionOutput) SetShape(v []*int32) *DenseForGetVikingdbCollectionOutput {
+	s.Shape = v
+	return s
+}
+
+// SetTensorQuantType sets the TensorQuantType field's value.
+func (s *DenseForGetVikingdbCollectionOutput) SetTensorQuantType(v string) *DenseForGetVikingdbCollectionOutput {
+	s.TensorQuantType = &v
 	return s
 }
 
@@ -477,6 +507,36 @@ func (s *GetVikingdbCollectionOutput) SetVectorize(v *VectorizeForGetVikingdbCol
 	return s
 }
 
+type InstructionForGetVikingdbCollectionOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	AutoFill *bool `type:"boolean" json:",omitempty"`
+
+	Content *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s InstructionForGetVikingdbCollectionOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s InstructionForGetVikingdbCollectionOutput) GoString() string {
+	return s.String()
+}
+
+// SetAutoFill sets the AutoFill field's value.
+func (s *InstructionForGetVikingdbCollectionOutput) SetAutoFill(v bool) *InstructionForGetVikingdbCollectionOutput {
+	s.AutoFill = &v
+	return s
+}
+
+// SetContent sets the Content field's value.
+func (s *InstructionForGetVikingdbCollectionOutput) SetContent(v string) *InstructionForGetVikingdbCollectionOutput {
+	s.Content = &v
+	return s
+}
+
 type SparseForGetVikingdbCollectionOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -484,9 +544,17 @@ type SparseForGetVikingdbCollectionOutput struct {
 
 	ImageField *string `type:"string" json:",omitempty"`
 
+	Instruction *InstructionForGetVikingdbCollectionOutput `type:"structure" json:",omitempty"`
+
 	ModelName *string `type:"string" json:",omitempty" enum:"EnumOfModelNameForGetVikingdbCollectionOutput"`
 
 	ModelVersion *string `type:"string" json:",omitempty"`
+
+	NDim *int32 `type:"int32" json:",omitempty"`
+
+	Shape []*int32 `type:"list" json:",omitempty"`
+
+	TensorQuantType *string `type:"string" json:",omitempty" enum:"EnumOfTensorQuantTypeForGetVikingdbCollectionOutput"`
 
 	TextField *string `type:"string" json:",omitempty"`
 
@@ -515,6 +583,12 @@ func (s *SparseForGetVikingdbCollectionOutput) SetImageField(v string) *SparseFo
 	return s
 }
 
+// SetInstruction sets the Instruction field's value.
+func (s *SparseForGetVikingdbCollectionOutput) SetInstruction(v *InstructionForGetVikingdbCollectionOutput) *SparseForGetVikingdbCollectionOutput {
+	s.Instruction = v
+	return s
+}
+
 // SetModelName sets the ModelName field's value.
 func (s *SparseForGetVikingdbCollectionOutput) SetModelName(v string) *SparseForGetVikingdbCollectionOutput {
 	s.ModelName = &v
@@ -524,6 +598,24 @@ func (s *SparseForGetVikingdbCollectionOutput) SetModelName(v string) *SparseFor
 // SetModelVersion sets the ModelVersion field's value.
 func (s *SparseForGetVikingdbCollectionOutput) SetModelVersion(v string) *SparseForGetVikingdbCollectionOutput {
 	s.ModelVersion = &v
+	return s
+}
+
+// SetNDim sets the NDim field's value.
+func (s *SparseForGetVikingdbCollectionOutput) SetNDim(v int32) *SparseForGetVikingdbCollectionOutput {
+	s.NDim = &v
+	return s
+}
+
+// SetShape sets the Shape field's value.
+func (s *SparseForGetVikingdbCollectionOutput) SetShape(v []*int32) *SparseForGetVikingdbCollectionOutput {
+	s.Shape = v
+	return s
+}
+
+// SetTensorQuantType sets the TensorQuantType field's value.
+func (s *SparseForGetVikingdbCollectionOutput) SetTensorQuantType(v string) *SparseForGetVikingdbCollectionOutput {
+	s.TensorQuantType = &v
 	return s
 }
 
@@ -539,12 +631,108 @@ func (s *SparseForGetVikingdbCollectionOutput) SetVideoField(v string) *SparseFo
 	return s
 }
 
+type TensorForGetVikingdbCollectionOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Dim *int32 `type:"int32" json:",omitempty"`
+
+	ImageField *string `type:"string" json:",omitempty"`
+
+	Instruction *InstructionForGetVikingdbCollectionOutput `type:"structure" json:",omitempty"`
+
+	ModelName *string `type:"string" json:",omitempty" enum:"EnumOfModelNameForGetVikingdbCollectionOutput"`
+
+	ModelVersion *string `type:"string" json:",omitempty"`
+
+	NDim *int32 `type:"int32" json:",omitempty"`
+
+	Shape []*int32 `type:"list" json:",omitempty"`
+
+	TensorQuantType *string `type:"string" json:",omitempty" enum:"EnumOfTensorQuantTypeForGetVikingdbCollectionOutput"`
+
+	TextField *string `type:"string" json:",omitempty"`
+
+	VideoField *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s TensorForGetVikingdbCollectionOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TensorForGetVikingdbCollectionOutput) GoString() string {
+	return s.String()
+}
+
+// SetDim sets the Dim field's value.
+func (s *TensorForGetVikingdbCollectionOutput) SetDim(v int32) *TensorForGetVikingdbCollectionOutput {
+	s.Dim = &v
+	return s
+}
+
+// SetImageField sets the ImageField field's value.
+func (s *TensorForGetVikingdbCollectionOutput) SetImageField(v string) *TensorForGetVikingdbCollectionOutput {
+	s.ImageField = &v
+	return s
+}
+
+// SetInstruction sets the Instruction field's value.
+func (s *TensorForGetVikingdbCollectionOutput) SetInstruction(v *InstructionForGetVikingdbCollectionOutput) *TensorForGetVikingdbCollectionOutput {
+	s.Instruction = v
+	return s
+}
+
+// SetModelName sets the ModelName field's value.
+func (s *TensorForGetVikingdbCollectionOutput) SetModelName(v string) *TensorForGetVikingdbCollectionOutput {
+	s.ModelName = &v
+	return s
+}
+
+// SetModelVersion sets the ModelVersion field's value.
+func (s *TensorForGetVikingdbCollectionOutput) SetModelVersion(v string) *TensorForGetVikingdbCollectionOutput {
+	s.ModelVersion = &v
+	return s
+}
+
+// SetNDim sets the NDim field's value.
+func (s *TensorForGetVikingdbCollectionOutput) SetNDim(v int32) *TensorForGetVikingdbCollectionOutput {
+	s.NDim = &v
+	return s
+}
+
+// SetShape sets the Shape field's value.
+func (s *TensorForGetVikingdbCollectionOutput) SetShape(v []*int32) *TensorForGetVikingdbCollectionOutput {
+	s.Shape = v
+	return s
+}
+
+// SetTensorQuantType sets the TensorQuantType field's value.
+func (s *TensorForGetVikingdbCollectionOutput) SetTensorQuantType(v string) *TensorForGetVikingdbCollectionOutput {
+	s.TensorQuantType = &v
+	return s
+}
+
+// SetTextField sets the TextField field's value.
+func (s *TensorForGetVikingdbCollectionOutput) SetTextField(v string) *TensorForGetVikingdbCollectionOutput {
+	s.TextField = &v
+	return s
+}
+
+// SetVideoField sets the VideoField field's value.
+func (s *TensorForGetVikingdbCollectionOutput) SetVideoField(v string) *TensorForGetVikingdbCollectionOutput {
+	s.VideoField = &v
+	return s
+}
+
 type VectorizeForGetVikingdbCollectionOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
 	Dense *DenseForGetVikingdbCollectionOutput `type:"structure" json:",omitempty"`
 
 	Sparse *SparseForGetVikingdbCollectionOutput `type:"structure" json:",omitempty"`
+
+	Tensor *TensorForGetVikingdbCollectionOutput `type:"structure" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -566,6 +754,12 @@ func (s *VectorizeForGetVikingdbCollectionOutput) SetDense(v *DenseForGetVikingd
 // SetSparse sets the Sparse field's value.
 func (s *VectorizeForGetVikingdbCollectionOutput) SetSparse(v *SparseForGetVikingdbCollectionOutput) *VectorizeForGetVikingdbCollectionOutput {
 	s.Sparse = v
+	return s
+}
+
+// SetTensor sets the Tensor field's value.
+func (s *VectorizeForGetVikingdbCollectionOutput) SetTensor(v *TensorForGetVikingdbCollectionOutput) *VectorizeForGetVikingdbCollectionOutput {
+	s.Tensor = v
 	return s
 }
 
@@ -631,4 +825,9 @@ const (
 
 	// EnumOfModelNameForGetVikingdbCollectionOutputSkylarkEmbeddingVision is a EnumOfModelNameForGetVikingdbCollectionOutput enum value
 	EnumOfModelNameForGetVikingdbCollectionOutputSkylarkEmbeddingVision = "skylark-embedding-vision"
+)
+
+const (
+	// EnumOfTensorQuantTypeForGetVikingdbCollectionOutputInt8 is a EnumOfTensorQuantTypeForGetVikingdbCollectionOutput enum value
+	EnumOfTensorQuantTypeForGetVikingdbCollectionOutputInt8 = "int8"
 )

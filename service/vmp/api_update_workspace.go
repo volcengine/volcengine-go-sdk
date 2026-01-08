@@ -216,6 +216,10 @@ func (s *QuotaForUpdateWorkspaceInput) SetScanSeriesPerSecond(v int32) *QuotaFor
 type UpdateWorkspaceInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	AuthType *string `type:"string" json:",omitempty"`
+
+	BearerToken *string `type:"string" json:",omitempty"`
+
 	DeleteProtectionEnabled *bool `type:"boolean" json:",omitempty"`
 
 	Description *string `type:"string" json:",omitempty"`
@@ -263,6 +267,18 @@ func (s *UpdateWorkspaceInput) Validate() error {
 		return invalidParams
 	}
 	return nil
+}
+
+// SetAuthType sets the AuthType field's value.
+func (s *UpdateWorkspaceInput) SetAuthType(v string) *UpdateWorkspaceInput {
+	s.AuthType = &v
+	return s
+}
+
+// SetBearerToken sets the BearerToken field's value.
+func (s *UpdateWorkspaceInput) SetBearerToken(v string) *UpdateWorkspaceInput {
+	s.BearerToken = &v
+	return s
 }
 
 // SetDeleteProtectionEnabled sets the DeleteProtectionEnabled field's value.

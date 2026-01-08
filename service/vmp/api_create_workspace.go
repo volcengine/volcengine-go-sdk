@@ -146,6 +146,10 @@ func (c *VMP) CreateWorkspaceWithContext(ctx volcengine.Context, input *CreateWo
 type CreateWorkspaceInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	AuthType *string `type:"string" json:",omitempty"`
+
+	BearerToken *string `type:"string" json:",omitempty"`
+
 	DeleteProtectionEnabled *bool `type:"boolean" json:",omitempty"`
 
 	Description *string `type:"string" json:",omitempty"`
@@ -191,6 +195,18 @@ func (s *CreateWorkspaceInput) Validate() error {
 		return invalidParams
 	}
 	return nil
+}
+
+// SetAuthType sets the AuthType field's value.
+func (s *CreateWorkspaceInput) SetAuthType(v string) *CreateWorkspaceInput {
+	s.AuthType = &v
+	return s
+}
+
+// SetBearerToken sets the BearerToken field's value.
+func (s *CreateWorkspaceInput) SetBearerToken(v string) *CreateWorkspaceInput {
+	s.BearerToken = &v
+	return s
 }
 
 // SetDeleteProtectionEnabled sets the DeleteProtectionEnabled field's value.

@@ -394,6 +394,10 @@ type ListWorkspacesInput struct {
 
 	ShowExternalPromWorkspaces *bool `type:"boolean" json:",omitempty"`
 
+	ShowWorkspaceInstanceType *bool `type:"boolean" json:",omitempty"`
+
+	ShowWorkspaceQuota *bool `type:"boolean" json:",omitempty"`
+
 	TagFilters []*TagFilterForListWorkspacesInput `type:"list" json:",omitempty"`
 }
 
@@ -440,6 +444,18 @@ func (s *ListWorkspacesInput) SetShowAggregateQueryWorkspaces(v bool) *ListWorks
 // SetShowExternalPromWorkspaces sets the ShowExternalPromWorkspaces field's value.
 func (s *ListWorkspacesInput) SetShowExternalPromWorkspaces(v bool) *ListWorkspacesInput {
 	s.ShowExternalPromWorkspaces = &v
+	return s
+}
+
+// SetShowWorkspaceInstanceType sets the ShowWorkspaceInstanceType field's value.
+func (s *ListWorkspacesInput) SetShowWorkspaceInstanceType(v bool) *ListWorkspacesInput {
+	s.ShowWorkspaceInstanceType = &v
+	return s
+}
+
+// SetShowWorkspaceQuota sets the ShowWorkspaceQuota field's value.
+func (s *ListWorkspacesInput) SetShowWorkspaceQuota(v bool) *ListWorkspacesInput {
+	s.ShowWorkspaceQuota = &v
 	return s
 }
 

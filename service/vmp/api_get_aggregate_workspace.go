@@ -298,6 +298,8 @@ type GetAggregateWorkspaceOutput struct {
 
 	Metadata *response.ResponseMetadata
 
+	AuthType *string `type:"string" json:",omitempty"`
+
 	CreateTime *string `type:"string" json:",omitempty"`
 
 	CrossWorkspaces []*CrossWorkspaceForGetAggregateWorkspaceOutput `type:"list" json:",omitempty"`
@@ -337,6 +339,12 @@ func (s GetAggregateWorkspaceOutput) String() string {
 // GoString returns the string representation
 func (s GetAggregateWorkspaceOutput) GoString() string {
 	return s.String()
+}
+
+// SetAuthType sets the AuthType field's value.
+func (s *GetAggregateWorkspaceOutput) SetAuthType(v string) *GetAggregateWorkspaceOutput {
+	s.AuthType = &v
+	return s
 }
 
 // SetCreateTime sets the CreateTime field's value.
