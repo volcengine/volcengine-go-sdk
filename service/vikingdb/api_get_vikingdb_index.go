@@ -332,7 +332,7 @@ func (s *GetVikingdbIndexOutput) SetVectorIndex(v *VectorIndexForGetVikingdbInde
 type ScalarIndexForGetVikingdbIndexOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	DefaultValue *DefaultValueForGetVikingdbIndexOutput `type:"structure" json:",omitempty"`
+	DefaultValue interface{} `json:",omitempty"`
 
 	Dim *int32 `type:"int32" json:",omitempty"`
 
@@ -354,7 +354,7 @@ func (s ScalarIndexForGetVikingdbIndexOutput) GoString() string {
 }
 
 // SetDefaultValue sets the DefaultValue field's value.
-func (s *ScalarIndexForGetVikingdbIndexOutput) SetDefaultValue(v *DefaultValueForGetVikingdbIndexOutput) *ScalarIndexForGetVikingdbIndexOutput {
+func (s *ScalarIndexForGetVikingdbIndexOutput) SetDefaultValue(v interface{}) *ScalarIndexForGetVikingdbIndexOutput {
 	s.DefaultValue = v
 	return s
 }

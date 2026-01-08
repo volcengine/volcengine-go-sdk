@@ -284,7 +284,7 @@ func (s *DenseForGetVikingdbCollectionOutput) SetVideoField(v string) *DenseForG
 type FieldForGetVikingdbCollectionOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	DefaultValue *DefaultValueForGetVikingdbCollectionOutput `type:"structure" json:",omitempty"`
+	DefaultValue interface{} `json:",omitempty"`
 
 	Dim *int32 `type:"int32" json:",omitempty"`
 
@@ -306,7 +306,7 @@ func (s FieldForGetVikingdbCollectionOutput) GoString() string {
 }
 
 // SetDefaultValue sets the DefaultValue field's value.
-func (s *FieldForGetVikingdbCollectionOutput) SetDefaultValue(v *DefaultValueForGetVikingdbCollectionOutput) *FieldForGetVikingdbCollectionOutput {
+func (s *FieldForGetVikingdbCollectionOutput) SetDefaultValue(v interface{}) *FieldForGetVikingdbCollectionOutput {
 	s.DefaultValue = v
 	return s
 }
