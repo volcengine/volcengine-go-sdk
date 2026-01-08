@@ -143,21 +143,19 @@ func (c *VIKINGDB) GetVikingdbIndexWithContext(ctx volcengine.Context, input *Ge
 	return out, req.Send()
 }
 
-/*
 type DefaultValueForGetVikingdbIndexOutput struct {
-    _ struct{} `type:"structure" json:",omitempty"`
+	_ struct{} `type:"structure" json:",omitempty"`
 }
 
 // String returns the string representation
 func (s DefaultValueForGetVikingdbIndexOutput) String() string {
-    return volcengineutil.Prettify(s)
+	return volcengineutil.Prettify(s)
 }
 
 // GoString returns the string representation
 func (s DefaultValueForGetVikingdbIndexOutput) GoString() string {
-    return s.String()
+	return s.String()
 }
-*/
 
 type GetVikingdbIndexInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
@@ -244,6 +242,8 @@ type GetVikingdbIndexOutput struct {
 
 	ShardPolicy *string `type:"string" json:",omitempty"`
 
+	Status *string `type:"string" json:",omitempty"`
+
 	VectorIndex *VectorIndexForGetVikingdbIndexOutput `type:"structure" json:",omitempty"`
 }
 
@@ -317,6 +317,12 @@ func (s *GetVikingdbIndexOutput) SetShardPolicy(v string) *GetVikingdbIndexOutpu
 	return s
 }
 
+// SetStatus sets the Status field's value.
+func (s *GetVikingdbIndexOutput) SetStatus(v string) *GetVikingdbIndexOutput {
+	s.Status = &v
+	return s
+}
+
 // SetVectorIndex sets the VectorIndex field's value.
 func (s *GetVikingdbIndexOutput) SetVectorIndex(v *VectorIndexForGetVikingdbIndexOutput) *GetVikingdbIndexOutput {
 	s.VectorIndex = v
@@ -349,8 +355,8 @@ func (s ScalarIndexForGetVikingdbIndexOutput) GoString() string {
 
 // SetDefaultValue sets the DefaultValue field's value.
 func (s *ScalarIndexForGetVikingdbIndexOutput) SetDefaultValue(v interface{}) *ScalarIndexForGetVikingdbIndexOutput {
-    s.DefaultValue = v
-    return s
+	s.DefaultValue = v
+	return s
 }
 
 // SetDim sets the Dim field's value.
