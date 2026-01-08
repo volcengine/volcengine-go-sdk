@@ -184,6 +184,10 @@ func (s *CrossWorkspaceForUpdateAggregateWorkspaceInput) SetRegion(v string) *Cr
 type UpdateAggregateWorkspaceInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	AuthType *string `type:"string" json:",omitempty"`
+
+	BearerToken *string `type:"string" json:",omitempty"`
+
 	CrossWorkspaces []*CrossWorkspaceForUpdateAggregateWorkspaceInput `type:"list" json:",omitempty"`
 
 	Description *string `type:"string" json:",omitempty"`
@@ -227,6 +231,18 @@ func (s *UpdateAggregateWorkspaceInput) Validate() error {
 		return invalidParams
 	}
 	return nil
+}
+
+// SetAuthType sets the AuthType field's value.
+func (s *UpdateAggregateWorkspaceInput) SetAuthType(v string) *UpdateAggregateWorkspaceInput {
+	s.AuthType = &v
+	return s
+}
+
+// SetBearerToken sets the BearerToken field's value.
+func (s *UpdateAggregateWorkspaceInput) SetBearerToken(v string) *UpdateAggregateWorkspaceInput {
+	s.BearerToken = &v
+	return s
 }
 
 // SetCrossWorkspaces sets the CrossWorkspaces field's value.
