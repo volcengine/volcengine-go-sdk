@@ -1,10 +1,13 @@
 package model
 
+import "encoding/json"
+
 type ContentGenerationContentItemType string
 
 const (
-	ContentGenerationContentItemTypeText  ContentGenerationContentItemType = "text"
-	ContentGenerationContentItemTypeImage ContentGenerationContentItemType = "image_url"
+	ContentGenerationContentItemTypeText      ContentGenerationContentItemType = "text"
+	ContentGenerationContentItemTypeImage     ContentGenerationContentItemType = "image_url"
+	ContentGenerationContentItemTypeDraftTask ContentGenerationContentItemType = "draft_task"
 )
 
 const (
@@ -23,7 +26,38 @@ type CreateContentGenerationTaskRequest struct {
 	ServiceTier           *string                               `json:"service_tier,omitempty"`
 	ExecutionExpiresAfter *int64                                `json:"execution_expires_after,omitempty"`
 	GenerateAudio         *bool                                 `json:"generate_audio,omitempty"`
+	Draft                 *bool                                 `json:"draft,omitempty"`
+	CameraFixed           *bool                                 `json:"camera_fixed,omitempty"`
+	Watermark             *bool                                 `json:"watermark,omitempty"`
+	Seed                  *int64                                `json:"seed,omitempty"`
+	Resolution            *string                               `json:"resolution,omitempty"`
+	Ratio                 *string                               `json:"ratio,omitempty"`
+	Duration              *int64                                `json:"duration,omitempty"`
+	Frames                *int64                                `json:"frames,omitempty"`
+	ExtraBody             `json:"-"`
 }
+
+func (r CreateContentGenerationTaskRequest) MarshalJSON() ([]byte, error) {
+	type Alias CreateContentGenerationTaskRequest
+	aliasValue := Alias(r)
+	data, err := json.Marshal(&aliasValue)
+	if err != nil {
+		return nil, err
+	}
+
+	var jsonObj map[string]interface{}
+	if err := json.Unmarshal(data, &jsonObj); err != nil {
+		return nil, err
+	}
+
+	for k, v := range r.ExtraBody {
+		jsonObj[k] = v
+	}
+
+	return json.Marshal(jsonObj)
+}
+
+type ExtraBody map[string]interface{}
 
 type CreateContentGenerationTaskResponse struct {
 	ID string `json:"id"`
@@ -46,6 +80,9 @@ type GetContentGenerationTaskResponse struct {
 	FileFormat            *string                 `json:"fileformat,omitempty"`
 	Frames                *int64                  `json:"frames"`
 	FramesPerSecond       *int64                  `json:"framespersecond"`
+	Resolution            *string                 `json:"resolution,omitempty"`
+	Ratio                 *string                 `json:"ratio,omitempty"`
+	Duration              *int64                  `json:"duration,omitempty"`
 	CreatedAt             int64                   `json:"created_at"`
 	UpdatedAt             int64                   `json:"updated_at"`
 	Seed                  *int64                  `json:"seed,omitempty"`
@@ -53,6 +90,8 @@ type GetContentGenerationTaskResponse struct {
 	ServiceTier           *string                 `json:"service_tier,omitempty"`
 	ExecutionExpiresAfter *int64                  `json:"execution_expires_after,omitempty"`
 	GenerateAudio         *bool                   `json:"generate_audio,omitempty"`
+	Draft                 *bool                   `json:"draft,omitempty"`
+	DraftTaskID           *string                 `json:"draft_task_id,omitempty"`
 
 	HttpHeader
 }
@@ -75,10 +114,15 @@ type ListContentGenerationTasksFilter struct {
 }
 
 type CreateContentGenerationContentItem struct {
-	Type     ContentGenerationContentItemType `json:"type"`
-	Text     *string                          `json:"text,omitempty"`
-	ImageURL *ImageURL                        `json:"image_url,omitempty"`
-	Role     *string                          `json:"role,omitempty"`
+	Type      ContentGenerationContentItemType `json:"type"`
+	Text      *string                          `json:"text,omitempty"`
+	ImageURL  *ImageURL                        `json:"image_url,omitempty"`
+	Role      *string                          `json:"role,omitempty"`
+	DraftTask *DraftTask                       `json:"draft_task,omitempty"`
+}
+
+type DraftTask struct {
+	ID string `json:"id"`
 }
 
 type ImageURL struct {
@@ -118,6 +162,8 @@ type ListContentGenerationTaskItem struct {
 	ServiceTier           *string                 `json:"service_tier,omitempty"`
 	ExecutionExpiresAfter *int64                  `json:"execution_expires_after,omitempty"`
 	GenerateAudio         *bool                   `json:"generate_audio,omitempty"`
+	Draft                 *bool                   `json:"draft,omitempty"`
+	DraftTaskID           *string                 `json:"draft_task_id,omitempty"`
 }
 
 type ContentGenerationError struct {
