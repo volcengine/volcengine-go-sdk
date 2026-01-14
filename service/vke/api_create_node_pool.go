@@ -205,6 +205,36 @@ func (s *AutoScalingForCreateNodePoolInput) SetSubnetPolicy(v string) *AutoScali
 	return s
 }
 
+type ContainerdConfigForCreateNodePoolInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	InsecureRegistries []*string `type:"list" json:",omitempty"`
+
+	RegistryProxyConfigs []*RegistryProxyConfigForCreateNodePoolInput `type:"list" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s ContainerdConfigForCreateNodePoolInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ContainerdConfigForCreateNodePoolInput) GoString() string {
+	return s.String()
+}
+
+// SetInsecureRegistries sets the InsecureRegistries field's value.
+func (s *ContainerdConfigForCreateNodePoolInput) SetInsecureRegistries(v []*string) *ContainerdConfigForCreateNodePoolInput {
+	s.InsecureRegistries = v
+	return s
+}
+
+// SetRegistryProxyConfigs sets the RegistryProxyConfigs field's value.
+func (s *ContainerdConfigForCreateNodePoolInput) SetRegistryProxyConfigs(v []*RegistryProxyConfigForCreateNodePoolInput) *ContainerdConfigForCreateNodePoolInput {
+	s.RegistryProxyConfigs = v
+	return s
+}
+
 type CreateNodePoolInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -245,11 +275,6 @@ func (s *CreateNodePoolInput) Validate() error {
 	}
 	if s.Name == nil {
 		invalidParams.Add(request.NewErrParamRequired("Name"))
-	}
-	if s.KubernetesConfig != nil {
-		if err := s.KubernetesConfig.Validate(); err != nil {
-			invalidParams.AddNested("KubernetesConfig", err.(request.ErrInvalidParams))
-		}
 	}
 
 	if invalidParams.Len() > 0 {
@@ -402,6 +427,10 @@ func (s *DataVolumeForCreateNodePoolInput) SetType(v string) *DataVolumeForCreat
 
 type EvictionHardForCreateNodePoolInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
+
+	Key *string `type:"string" json:",omitempty" enum:"EnumOfKeyForCreateNodePoolInput"`
+
+	Value *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -412,6 +441,18 @@ func (s EvictionHardForCreateNodePoolInput) String() string {
 // GoString returns the string representation
 func (s EvictionHardForCreateNodePoolInput) GoString() string {
 	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *EvictionHardForCreateNodePoolInput) SetKey(v string) *EvictionHardForCreateNodePoolInput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *EvictionHardForCreateNodePoolInput) SetValue(v string) *EvictionHardForCreateNodePoolInput {
+	s.Value = &v
+	return s
 }
 
 type FeatureGatesForCreateNodePoolInput struct {
@@ -493,7 +534,7 @@ func (s *InstancesDistributionForCreateNodePoolInput) SetOnDemandPercentageAbove
 type KubeReservedForCreateNodePoolInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	Name *string `type:"string" json:",omitempty"`
+	Name *string `type:"string" json:",omitempty" enum:"EnumOfNameForCreateNodePoolInput"`
 
 	Quantity *string `type:"string" json:",omitempty"`
 }
@@ -523,23 +564,23 @@ func (s *KubeReservedForCreateNodePoolInput) SetQuantity(v string) *KubeReserved
 type KubeletConfigForCreateNodePoolInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	CpuManagerPolicy *string `type:"string" json:",omitempty"`
+	CpuManagerPolicy *string `type:"string" json:",omitempty" enum:"EnumOfCpuManagerPolicyForCreateNodePoolInput"`
 
 	EvictionHard []*EvictionHardForCreateNodePoolInput `type:"list" json:",omitempty"`
 
 	FeatureGates *FeatureGatesForCreateNodePoolInput `type:"structure" json:",omitempty"`
 
-	KubeApiBurst *int32 `min:"1" max:"100" type:"int32" json:",omitempty"`
+	KubeApiBurst *int32 `type:"int32" json:",omitempty"`
 
-	KubeApiQps *int32 `min:"1" max:"50" type:"int32" json:",omitempty"`
+	KubeApiQps *int32 `type:"int32" json:",omitempty"`
 
 	KubeReserved []*KubeReservedForCreateNodePoolInput `type:"list" json:",omitempty"`
 
 	MaxPods *int32 `type:"int32" json:",omitempty"`
 
-	RegistryBurst *int32 `min:"1" max:"100" type:"int32" json:",omitempty"`
+	RegistryBurst *int32 `type:"int32" json:",omitempty"`
 
-	RegistryPullQps *int32 `min:"1" max:"50" type:"int32" json:",omitempty"`
+	RegistryPullQps *int32 `type:"int32" json:",omitempty"`
 
 	SerializeImagePulls *bool `type:"boolean" json:",omitempty"`
 
@@ -558,40 +599,6 @@ func (s KubeletConfigForCreateNodePoolInput) String() string {
 // GoString returns the string representation
 func (s KubeletConfigForCreateNodePoolInput) GoString() string {
 	return s.String()
-}
-
-// Validate inspects the fields of the type to determine if they are valid.
-func (s *KubeletConfigForCreateNodePoolInput) Validate() error {
-	invalidParams := request.ErrInvalidParams{Context: "KubeletConfigForCreateNodePoolInput"}
-	if s.KubeApiBurst != nil && *s.KubeApiBurst < 1 {
-		invalidParams.Add(request.NewErrParamMinValue("KubeApiBurst", 1))
-	}
-	if s.KubeApiBurst != nil && *s.KubeApiBurst > 100 {
-		invalidParams.Add(request.NewErrParamMaxValue("KubeApiBurst", 100))
-	}
-	if s.KubeApiQps != nil && *s.KubeApiQps < 1 {
-		invalidParams.Add(request.NewErrParamMinValue("KubeApiQps", 1))
-	}
-	if s.KubeApiQps != nil && *s.KubeApiQps > 50 {
-		invalidParams.Add(request.NewErrParamMaxValue("KubeApiQps", 50))
-	}
-	if s.RegistryBurst != nil && *s.RegistryBurst < 1 {
-		invalidParams.Add(request.NewErrParamMinValue("RegistryBurst", 1))
-	}
-	if s.RegistryBurst != nil && *s.RegistryBurst > 100 {
-		invalidParams.Add(request.NewErrParamMaxValue("RegistryBurst", 100))
-	}
-	if s.RegistryPullQps != nil && *s.RegistryPullQps < 1 {
-		invalidParams.Add(request.NewErrParamMinValue("RegistryPullQps", 1))
-	}
-	if s.RegistryPullQps != nil && *s.RegistryPullQps > 50 {
-		invalidParams.Add(request.NewErrParamMaxValue("RegistryPullQps", 50))
-	}
-
-	if invalidParams.Len() > 0 {
-		return invalidParams
-	}
-	return nil
 }
 
 // SetCpuManagerPolicy sets the CpuManagerPolicy field's value.
@@ -677,6 +684,8 @@ type KubernetesConfigForCreateNodePoolInput struct {
 
 	AutoSyncDisabled *bool `type:"boolean" json:",omitempty"`
 
+	ContainerdConfig *ContainerdConfigForCreateNodePoolInput `type:"structure" json:",omitempty"`
+
 	Cordon *bool `type:"boolean" json:",omitempty"`
 
 	KubeletConfig *KubeletConfigForCreateNodePoolInput `type:"structure" json:",omitempty"`
@@ -702,24 +711,15 @@ func (s KubernetesConfigForCreateNodePoolInput) GoString() string {
 	return s.String()
 }
 
-// Validate inspects the fields of the type to determine if they are valid.
-func (s *KubernetesConfigForCreateNodePoolInput) Validate() error {
-	invalidParams := request.ErrInvalidParams{Context: "KubernetesConfigForCreateNodePoolInput"}
-	if s.KubeletConfig != nil {
-		if err := s.KubeletConfig.Validate(); err != nil {
-			invalidParams.AddNested("KubeletConfig", err.(request.ErrInvalidParams))
-		}
-	}
-
-	if invalidParams.Len() > 0 {
-		return invalidParams
-	}
-	return nil
-}
-
 // SetAutoSyncDisabled sets the AutoSyncDisabled field's value.
 func (s *KubernetesConfigForCreateNodePoolInput) SetAutoSyncDisabled(v bool) *KubernetesConfigForCreateNodePoolInput {
 	s.AutoSyncDisabled = &v
+	return s
+}
+
+// SetContainerdConfig sets the ContainerdConfig field's value.
+func (s *KubernetesConfigForCreateNodePoolInput) SetContainerdConfig(v *ContainerdConfigForCreateNodePoolInput) *KubernetesConfigForCreateNodePoolInput {
+	s.ContainerdConfig = v
 	return s
 }
 
@@ -1115,6 +1115,36 @@ func (s *PublicAccessConfigForCreateNodePoolInput) SetIsp(v string) *PublicAcces
 	return s
 }
 
+type RegistryProxyConfigForCreateNodePoolInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	ProxyEndpoints []*string `type:"list" json:",omitempty"`
+
+	Registry *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s RegistryProxyConfigForCreateNodePoolInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s RegistryProxyConfigForCreateNodePoolInput) GoString() string {
+	return s.String()
+}
+
+// SetProxyEndpoints sets the ProxyEndpoints field's value.
+func (s *RegistryProxyConfigForCreateNodePoolInput) SetProxyEndpoints(v []*string) *RegistryProxyConfigForCreateNodePoolInput {
+	s.ProxyEndpoints = v
+	return s
+}
+
+// SetRegistry sets the Registry field's value.
+func (s *RegistryProxyConfigForCreateNodePoolInput) SetRegistry(v string) *RegistryProxyConfigForCreateNodePoolInput {
+	s.Registry = &v
+	return s
+}
+
 type RemedyConfigForCreateNodePoolInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -1186,7 +1216,7 @@ func (s *SecurityForCreateNodePoolInput) SetSecurityStrategies(v []*string) *Sec
 type SystemReservedForCreateNodePoolInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	Name *string `type:"string" json:",omitempty"`
+	Name *string `type:"string" json:",omitempty" enum:"EnumOfNameForCreateNodePoolInput"`
 
 	Quantity *string `type:"string" json:",omitempty"`
 }
@@ -1328,6 +1358,14 @@ func (s *TaintForCreateNodePoolInput) SetValue(v string) *TaintForCreateNodePool
 }
 
 const (
+	// EnumOfCpuManagerPolicyForCreateNodePoolInputNone is a EnumOfCpuManagerPolicyForCreateNodePoolInput enum value
+	EnumOfCpuManagerPolicyForCreateNodePoolInputNone = "none"
+
+	// EnumOfCpuManagerPolicyForCreateNodePoolInputStatic is a EnumOfCpuManagerPolicyForCreateNodePoolInput enum value
+	EnumOfCpuManagerPolicyForCreateNodePoolInputStatic = "static"
+)
+
+const (
 	// EnumOfEffectForCreateNodePoolInputNoSchedule is a EnumOfEffectForCreateNodePoolInput enum value
 	EnumOfEffectForCreateNodePoolInputNoSchedule = "NoSchedule"
 
@@ -1361,11 +1399,60 @@ const (
 	// EnumOfIspForCreateNodePoolInputChinaMobile is a EnumOfIspForCreateNodePoolInput enum value
 	EnumOfIspForCreateNodePoolInputChinaMobile = "ChinaMobile"
 
+	// EnumOfIspForCreateNodePoolInputChinaUnicom is a EnumOfIspForCreateNodePoolInput enum value
+	EnumOfIspForCreateNodePoolInputChinaUnicom = "ChinaUnicom"
+
 	// EnumOfIspForCreateNodePoolInputChinaTelecom is a EnumOfIspForCreateNodePoolInput enum value
 	EnumOfIspForCreateNodePoolInputChinaTelecom = "ChinaTelecom"
 
-	// EnumOfIspForCreateNodePoolInputChinaUnicom is a EnumOfIspForCreateNodePoolInput enum value
-	EnumOfIspForCreateNodePoolInputChinaUnicom = "ChinaUnicom"
+	// EnumOfIspForCreateNodePoolInputSingleLineBgp is a EnumOfIspForCreateNodePoolInput enum value
+	EnumOfIspForCreateNodePoolInputSingleLineBgp = "SingleLine_BGP"
+
+	// EnumOfIspForCreateNodePoolInputFusionBgp is a EnumOfIspForCreateNodePoolInput enum value
+	EnumOfIspForCreateNodePoolInputFusionBgp = "Fusion_BGP"
+
+	// EnumOfIspForCreateNodePoolInputStaticBgp is a EnumOfIspForCreateNodePoolInput enum value
+	EnumOfIspForCreateNodePoolInputStaticBgp = "Static_BGP"
+
+	// EnumOfIspForCreateNodePoolInputChinaMobileValue is a EnumOfIspForCreateNodePoolInput enum value
+	EnumOfIspForCreateNodePoolInputChinaMobileValue = "ChinaMobile_Value"
+
+	// EnumOfIspForCreateNodePoolInputChinaUnicomValue is a EnumOfIspForCreateNodePoolInput enum value
+	EnumOfIspForCreateNodePoolInputChinaUnicomValue = "ChinaUnicom_Value"
+
+	// EnumOfIspForCreateNodePoolInputChinaTelecomValue is a EnumOfIspForCreateNodePoolInput enum value
+	EnumOfIspForCreateNodePoolInputChinaTelecomValue = "ChinaTelecom_Value"
+)
+
+const (
+	// EnumOfKeyForCreateNodePoolInputMemoryAvailable is a EnumOfKeyForCreateNodePoolInput enum value
+	EnumOfKeyForCreateNodePoolInputMemoryAvailable = "memory.available"
+
+	// EnumOfKeyForCreateNodePoolInputNodefsAvailable is a EnumOfKeyForCreateNodePoolInput enum value
+	EnumOfKeyForCreateNodePoolInputNodefsAvailable = "nodefs.available"
+
+	// EnumOfKeyForCreateNodePoolInputNodefsInodesFree is a EnumOfKeyForCreateNodePoolInput enum value
+	EnumOfKeyForCreateNodePoolInputNodefsInodesFree = "nodefs.inodesFree"
+
+	// EnumOfKeyForCreateNodePoolInputImagefsAvailable is a EnumOfKeyForCreateNodePoolInput enum value
+	EnumOfKeyForCreateNodePoolInputImagefsAvailable = "imagefs.available"
+
+	// EnumOfKeyForCreateNodePoolInputImagefsInodesFree is a EnumOfKeyForCreateNodePoolInput enum value
+	EnumOfKeyForCreateNodePoolInputImagefsInodesFree = "imagefs.inodesFree"
+
+	// EnumOfKeyForCreateNodePoolInputAllocatableMemoryAvailable is a EnumOfKeyForCreateNodePoolInput enum value
+	EnumOfKeyForCreateNodePoolInputAllocatableMemoryAvailable = "allocatableMemory.available"
+
+	// EnumOfKeyForCreateNodePoolInputPidAvailable is a EnumOfKeyForCreateNodePoolInput enum value
+	EnumOfKeyForCreateNodePoolInputPidAvailable = "pid.available"
+)
+
+const (
+	// EnumOfNameForCreateNodePoolInputCpu is a EnumOfNameForCreateNodePoolInput enum value
+	EnumOfNameForCreateNodePoolInputCpu = "cpu"
+
+	// EnumOfNameForCreateNodePoolInputMemory is a EnumOfNameForCreateNodePoolInput enum value
+	EnumOfNameForCreateNodePoolInputMemory = "memory"
 )
 
 const (
@@ -1412,9 +1499,33 @@ const (
 )
 
 const (
+	// EnumOfTypeForCreateNodePoolInputEssd is a EnumOfTypeForCreateNodePoolInput enum value
+	EnumOfTypeForCreateNodePoolInputEssd = "ESSD"
+
 	// EnumOfTypeForCreateNodePoolInputEssdPl0 is a EnumOfTypeForCreateNodePoolInput enum value
 	EnumOfTypeForCreateNodePoolInputEssdPl0 = "ESSD_PL0"
 
 	// EnumOfTypeForCreateNodePoolInputEssdFlexPl is a EnumOfTypeForCreateNodePoolInput enum value
 	EnumOfTypeForCreateNodePoolInputEssdFlexPl = "ESSD_FlexPL"
+
+	// EnumOfTypeForCreateNodePoolInputUltraDisk is a EnumOfTypeForCreateNodePoolInput enum value
+	EnumOfTypeForCreateNodePoolInputUltraDisk = "Ultra_Disk"
+
+	// EnumOfTypeForCreateNodePoolInputTssdTl0 is a EnumOfTypeForCreateNodePoolInput enum value
+	EnumOfTypeForCreateNodePoolInputTssdTl0 = "TSSD_TL0"
+
+	// EnumOfTypeForCreateNodePoolInputRssdRl0 is a EnumOfTypeForCreateNodePoolInput enum value
+	EnumOfTypeForCreateNodePoolInputRssdRl0 = "RSSD_RL0"
+
+	// EnumOfTypeForCreateNodePoolInputLocalSsd is a EnumOfTypeForCreateNodePoolInput enum value
+	EnumOfTypeForCreateNodePoolInputLocalSsd = "LOCAL_SSD"
+
+	// EnumOfTypeForCreateNodePoolInputLocalHdd is a EnumOfTypeForCreateNodePoolInput enum value
+	EnumOfTypeForCreateNodePoolInputLocalHdd = "LOCAL_HDD"
+
+	// EnumOfTypeForCreateNodePoolInputLocalSsdSriov is a EnumOfTypeForCreateNodePoolInput enum value
+	EnumOfTypeForCreateNodePoolInputLocalSsdSriov = "LOCAL_SSD_SRIOV"
+
+	// EnumOfTypeForCreateNodePoolInputLocalLvmSsd is a EnumOfTypeForCreateNodePoolInput enum value
+	EnumOfTypeForCreateNodePoolInputLocalLvmSsd = "LOCAL_LVM_SSD"
 )

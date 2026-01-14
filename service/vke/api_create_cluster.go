@@ -614,11 +614,29 @@ const (
 	// EnumOfIspForCreateClusterInputChinaMobile is a EnumOfIspForCreateClusterInput enum value
 	EnumOfIspForCreateClusterInputChinaMobile = "ChinaMobile"
 
+	// EnumOfIspForCreateClusterInputChinaUnicom is a EnumOfIspForCreateClusterInput enum value
+	EnumOfIspForCreateClusterInputChinaUnicom = "ChinaUnicom"
+
 	// EnumOfIspForCreateClusterInputChinaTelecom is a EnumOfIspForCreateClusterInput enum value
 	EnumOfIspForCreateClusterInputChinaTelecom = "ChinaTelecom"
 
-	// EnumOfIspForCreateClusterInputChinaUnicom is a EnumOfIspForCreateClusterInput enum value
-	EnumOfIspForCreateClusterInputChinaUnicom = "ChinaUnicom"
+	// EnumOfIspForCreateClusterInputSingleLineBgp is a EnumOfIspForCreateClusterInput enum value
+	EnumOfIspForCreateClusterInputSingleLineBgp = "SingleLine_BGP"
+
+	// EnumOfIspForCreateClusterInputFusionBgp is a EnumOfIspForCreateClusterInput enum value
+	EnumOfIspForCreateClusterInputFusionBgp = "Fusion_BGP"
+
+	// EnumOfIspForCreateClusterInputStaticBgp is a EnumOfIspForCreateClusterInput enum value
+	EnumOfIspForCreateClusterInputStaticBgp = "Static_BGP"
+
+	// EnumOfIspForCreateClusterInputChinaMobileValue is a EnumOfIspForCreateClusterInput enum value
+	EnumOfIspForCreateClusterInputChinaMobileValue = "ChinaMobile_Value"
+
+	// EnumOfIspForCreateClusterInputChinaUnicomValue is a EnumOfIspForCreateClusterInput enum value
+	EnumOfIspForCreateClusterInputChinaUnicomValue = "ChinaUnicom_Value"
+
+	// EnumOfIspForCreateClusterInputChinaTelecomValue is a EnumOfIspForCreateClusterInput enum value
+	EnumOfIspForCreateClusterInputChinaTelecomValue = "ChinaTelecom_Value"
 )
 
 const (
