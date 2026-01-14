@@ -956,8 +956,7 @@ type ListSplitBillDetailInput struct {
 
 	Product []*string `type:"list" json:",omitempty"`
 
-	// SplitDimension is a required field
-	SplitDimension *string `type:"string" json:",omitempty" required:"true"`
+	SplitDimension *string `type:"string" json:",omitempty"`
 
 	SplitItemID *string `type:"string" json:",omitempty"`
 }
@@ -980,9 +979,6 @@ func (s *ListSplitBillDetailInput) Validate() error {
 	}
 	if s.Limit == nil {
 		invalidParams.Add(request.NewErrParamRequired("Limit"))
-	}
-	if s.SplitDimension == nil {
-		invalidParams.Add(request.NewErrParamRequired("SplitDimension"))
 	}
 
 	if invalidParams.Len() > 0 {
