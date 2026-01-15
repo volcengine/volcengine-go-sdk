@@ -212,6 +212,8 @@ type ExecuteQueryOutput struct {
 
 	Metadata *response.ResponseMetadata
 
+	ExecutionTimeMs *int64 `type:"int64" json:",omitempty"`
+
 	ValueJsonString *string `type:"string" json:",omitempty"`
 }
 
@@ -223,6 +225,12 @@ func (s ExecuteQueryOutput) String() string {
 // GoString returns the string representation
 func (s ExecuteQueryOutput) GoString() string {
 	return s.String()
+}
+
+// SetExecutionTimeMs sets the ExecutionTimeMs field's value.
+func (s *ExecuteQueryOutput) SetExecutionTimeMs(v int64) *ExecuteQueryOutput {
+	s.ExecutionTimeMs = &v
+	return s
 }
 
 // SetValueJsonString sets the ValueJsonString field's value.
