@@ -216,7 +216,7 @@ func (s *AutoScalingForListNodePoolsOutput) SetSubnetPolicy(v string) *AutoScali
 type ConditionForListNodePoolsOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	Type *string `type:"string" json:",omitempty"`
+	Type *string `type:"string" json:",omitempty" enum:"ConvertConvertEnumOfTypeForListNodePoolsOutput"`
 }
 
 // String returns the string representation
@@ -235,12 +235,42 @@ func (s *ConditionForListNodePoolsOutput) SetType(v string) *ConditionForListNod
 	return s
 }
 
+type ContainerdConfigForListNodePoolsOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	InsecureRegistries []*string `type:"list" json:",omitempty"`
+
+	RegistryProxyConfigs []*RegistryProxyConfigForListNodePoolsOutput `type:"list" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s ContainerdConfigForListNodePoolsOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ContainerdConfigForListNodePoolsOutput) GoString() string {
+	return s.String()
+}
+
+// SetInsecureRegistries sets the InsecureRegistries field's value.
+func (s *ContainerdConfigForListNodePoolsOutput) SetInsecureRegistries(v []*string) *ContainerdConfigForListNodePoolsOutput {
+	s.InsecureRegistries = v
+	return s
+}
+
+// SetRegistryProxyConfigs sets the RegistryProxyConfigs field's value.
+func (s *ContainerdConfigForListNodePoolsOutput) SetRegistryProxyConfigs(v []*RegistryProxyConfigForListNodePoolsOutput) *ContainerdConfigForListNodePoolsOutput {
+	s.RegistryProxyConfigs = v
+	return s
+}
+
 type ConvertTagForListNodePoolsOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
 	Key *string `type:"string" json:",omitempty"`
 
-	Type *string `type:"string" json:",omitempty"`
+	Type *string `type:"string" json:",omitempty" enum:"ConvertConvertConvertEnumOfTypeForListNodePoolsOutput"`
 
 	Value *string `type:"string" json:",omitempty"`
 }
@@ -345,6 +375,10 @@ func (s *DataVolumeForListNodePoolsOutput) SetType(v string) *DataVolumeForListN
 
 type EvictionHardForListNodePoolsOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
+
+	Key *string `type:"string" json:",omitempty" enum:"EnumOfKeyForListNodePoolsOutput"`
+
+	Value *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -355,6 +389,18 @@ func (s EvictionHardForListNodePoolsOutput) String() string {
 // GoString returns the string representation
 func (s EvictionHardForListNodePoolsOutput) GoString() string {
 	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *EvictionHardForListNodePoolsOutput) SetKey(v string) *EvictionHardForListNodePoolsOutput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *EvictionHardForListNodePoolsOutput) SetValue(v string) *EvictionHardForListNodePoolsOutput {
+	s.Value = &v
+	return s
 }
 
 type FeatureGatesForListNodePoolsOutput struct {
@@ -632,7 +678,7 @@ func (s *ItemForListNodePoolsOutput) SetUpdateTime(v string) *ItemForListNodePoo
 type KubeReservedForListNodePoolsOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	Name *string `type:"string" json:",omitempty"`
+	Name *string `type:"string" json:",omitempty" enum:"EnumOfNameForListNodePoolsOutput"`
 
 	Quantity *string `type:"string" json:",omitempty"`
 }
@@ -662,23 +708,23 @@ func (s *KubeReservedForListNodePoolsOutput) SetQuantity(v string) *KubeReserved
 type KubeletConfigForListNodePoolsOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	CpuManagerPolicy *string `type:"string" json:",omitempty"`
+	CpuManagerPolicy *string `type:"string" json:",omitempty" enum:"EnumOfCpuManagerPolicyForListNodePoolsOutput"`
 
 	EvictionHard []*EvictionHardForListNodePoolsOutput `type:"list" json:",omitempty"`
 
 	FeatureGates *FeatureGatesForListNodePoolsOutput `type:"structure" json:",omitempty"`
 
-	KubeApiBurst *int32 `min:"1" max:"100" type:"int32" json:",omitempty"`
+	KubeApiBurst *int32 `type:"int32" json:",omitempty"`
 
-	KubeApiQps *int32 `min:"1" max:"50" type:"int32" json:",omitempty"`
+	KubeApiQps *int32 `type:"int32" json:",omitempty"`
 
 	KubeReserved []*KubeReservedForListNodePoolsOutput `type:"list" json:",omitempty"`
 
 	MaxPods *int32 `type:"int32" json:",omitempty"`
 
-	RegistryBurst *int32 `min:"1" max:"100" type:"int32" json:",omitempty"`
+	RegistryBurst *int32 `type:"int32" json:",omitempty"`
 
-	RegistryPullQps *int32 `min:"1" max:"50" type:"int32" json:",omitempty"`
+	RegistryPullQps *int32 `type:"int32" json:",omitempty"`
 
 	SerializeImagePulls *bool `type:"boolean" json:",omitempty"`
 
@@ -782,6 +828,8 @@ type KubernetesConfigForListNodePoolsOutput struct {
 
 	AutoSyncDisabled *bool `type:"boolean" json:",omitempty"`
 
+	ContainerdConfig *ContainerdConfigForListNodePoolsOutput `type:"structure" json:",omitempty"`
+
 	Cordon *bool `type:"boolean" json:",omitempty"`
 
 	KubeletConfig *KubeletConfigForListNodePoolsOutput `type:"structure" json:",omitempty"`
@@ -789,6 +837,10 @@ type KubernetesConfigForListNodePoolsOutput struct {
 	Labels []*LabelForListNodePoolsOutput `type:"list" json:",omitempty"`
 
 	NamePrefix *string `type:"string" json:",omitempty"`
+
+	NameSuffix *string `type:"string" json:",omitempty"`
+
+	NameUseHostname *bool `type:"boolean" json:",omitempty"`
 
 	Taints []*TaintForListNodePoolsOutput `type:"list" json:",omitempty"`
 }
@@ -806,6 +858,12 @@ func (s KubernetesConfigForListNodePoolsOutput) GoString() string {
 // SetAutoSyncDisabled sets the AutoSyncDisabled field's value.
 func (s *KubernetesConfigForListNodePoolsOutput) SetAutoSyncDisabled(v bool) *KubernetesConfigForListNodePoolsOutput {
 	s.AutoSyncDisabled = &v
+	return s
+}
+
+// SetContainerdConfig sets the ContainerdConfig field's value.
+func (s *KubernetesConfigForListNodePoolsOutput) SetContainerdConfig(v *ContainerdConfigForListNodePoolsOutput) *KubernetesConfigForListNodePoolsOutput {
+	s.ContainerdConfig = v
 	return s
 }
 
@@ -830,6 +888,18 @@ func (s *KubernetesConfigForListNodePoolsOutput) SetLabels(v []*LabelForListNode
 // SetNamePrefix sets the NamePrefix field's value.
 func (s *KubernetesConfigForListNodePoolsOutput) SetNamePrefix(v string) *KubernetesConfigForListNodePoolsOutput {
 	s.NamePrefix = &v
+	return s
+}
+
+// SetNameSuffix sets the NameSuffix field's value.
+func (s *KubernetesConfigForListNodePoolsOutput) SetNameSuffix(v string) *KubernetesConfigForListNodePoolsOutput {
+	s.NameSuffix = &v
+	return s
+}
+
+// SetNameUseHostname sets the NameUseHostname field's value.
+func (s *KubernetesConfigForListNodePoolsOutput) SetNameUseHostname(v bool) *KubernetesConfigForListNodePoolsOutput {
+	s.NameUseHostname = &v
 	return s
 }
 
@@ -968,7 +1038,7 @@ type LoginForListNodePoolsOutput struct {
 
 	SshKeyPairName *string `type:"string" json:",omitempty"`
 
-	Type *string `type:"string" json:",omitempty"`
+	Type *string `type:"string" json:",omitempty" enum:"ConvertEnumOfTypeForListNodePoolsOutput"`
 }
 
 // String returns the string representation
@@ -1038,6 +1108,8 @@ type NodeConfigForListNodePoolsOutput struct {
 
 	DeploymentSetId *string `type:"string" json:",omitempty"`
 
+	Hostname *string `type:"string" json:",omitempty"`
+
 	HpcClusterIds []*string `type:"list" json:",omitempty"`
 
 	ImageId *string `type:"string" json:",omitempty"`
@@ -1046,11 +1118,15 @@ type NodeConfigForListNodePoolsOutput struct {
 
 	InstanceChargeType *string `type:"string" json:",omitempty" enum:"EnumOfInstanceChargeTypeForListNodePoolsOutput"`
 
+	InstanceName *string `type:"string" json:",omitempty"`
+
 	InstanceTypeIds []*string `type:"list" json:",omitempty"`
 
 	InstancesDistribution *InstancesDistributionForListNodePoolsOutput `type:"structure" json:",omitempty"`
 
 	NamePrefix *string `type:"string" json:",omitempty"`
+
+	NetworkTrafficMode *string `type:"string" json:",omitempty"`
 
 	Period *int32 `type:"int32" json:",omitempty"`
 
@@ -1119,6 +1195,12 @@ func (s *NodeConfigForListNodePoolsOutput) SetDeploymentSetId(v string) *NodeCon
 	return s
 }
 
+// SetHostname sets the Hostname field's value.
+func (s *NodeConfigForListNodePoolsOutput) SetHostname(v string) *NodeConfigForListNodePoolsOutput {
+	s.Hostname = &v
+	return s
+}
+
 // SetHpcClusterIds sets the HpcClusterIds field's value.
 func (s *NodeConfigForListNodePoolsOutput) SetHpcClusterIds(v []*string) *NodeConfigForListNodePoolsOutput {
 	s.HpcClusterIds = v
@@ -1143,6 +1225,12 @@ func (s *NodeConfigForListNodePoolsOutput) SetInstanceChargeType(v string) *Node
 	return s
 }
 
+// SetInstanceName sets the InstanceName field's value.
+func (s *NodeConfigForListNodePoolsOutput) SetInstanceName(v string) *NodeConfigForListNodePoolsOutput {
+	s.InstanceName = &v
+	return s
+}
+
 // SetInstanceTypeIds sets the InstanceTypeIds field's value.
 func (s *NodeConfigForListNodePoolsOutput) SetInstanceTypeIds(v []*string) *NodeConfigForListNodePoolsOutput {
 	s.InstanceTypeIds = v
@@ -1158,6 +1246,12 @@ func (s *NodeConfigForListNodePoolsOutput) SetInstancesDistribution(v *Instances
 // SetNamePrefix sets the NamePrefix field's value.
 func (s *NodeConfigForListNodePoolsOutput) SetNamePrefix(v string) *NodeConfigForListNodePoolsOutput {
 	s.NamePrefix = &v
+	return s
+}
+
+// SetNetworkTrafficMode sets the NetworkTrafficMode field's value.
+func (s *NodeConfigForListNodePoolsOutput) SetNetworkTrafficMode(v string) *NodeConfigForListNodePoolsOutput {
+	s.NetworkTrafficMode = &v
 	return s
 }
 
@@ -1290,7 +1384,7 @@ type PublicAccessConfigForListNodePoolsOutput struct {
 
 	BillingType *int32 `type:"int32" json:",omitempty"`
 
-	Isp *string `type:"string" json:",omitempty"`
+	Isp *string `type:"string" json:",omitempty" enum:"EnumOfIspForListNodePoolsOutput"`
 }
 
 // String returns the string representation
@@ -1318,6 +1412,36 @@ func (s *PublicAccessConfigForListNodePoolsOutput) SetBillingType(v int32) *Publ
 // SetIsp sets the Isp field's value.
 func (s *PublicAccessConfigForListNodePoolsOutput) SetIsp(v string) *PublicAccessConfigForListNodePoolsOutput {
 	s.Isp = &v
+	return s
+}
+
+type RegistryProxyConfigForListNodePoolsOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	ProxyEndpoints []*string `type:"list" json:",omitempty"`
+
+	Registry *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s RegistryProxyConfigForListNodePoolsOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s RegistryProxyConfigForListNodePoolsOutput) GoString() string {
+	return s.String()
+}
+
+// SetProxyEndpoints sets the ProxyEndpoints field's value.
+func (s *RegistryProxyConfigForListNodePoolsOutput) SetProxyEndpoints(v []*string) *RegistryProxyConfigForListNodePoolsOutput {
+	s.ProxyEndpoints = v
+	return s
+}
+
+// SetRegistry sets the Registry field's value.
+func (s *RegistryProxyConfigForListNodePoolsOutput) SetRegistry(v string) *RegistryProxyConfigForListNodePoolsOutput {
+	s.Registry = &v
 	return s
 }
 
@@ -1460,7 +1584,7 @@ func (s *StatusForListNodePoolsOutput) SetPhase(v string) *StatusForListNodePool
 type SystemReservedForListNodePoolsOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	Name *string `type:"string" json:",omitempty"`
+	Name *string `type:"string" json:",omitempty" enum:"EnumOfNameForListNodePoolsOutput"`
 
 	Quantity *string `type:"string" json:",omitempty"`
 }
@@ -1632,6 +1756,57 @@ func (s *TaintForListNodePoolsOutput) SetValue(v string) *TaintForListNodePoolsO
 }
 
 const (
+	// ConvertConvertConvertEnumOfTypeForListNodePoolsOutputSystem is a ConvertConvertConvertEnumOfTypeForListNodePoolsOutput enum value
+	ConvertConvertConvertEnumOfTypeForListNodePoolsOutputSystem = "System"
+
+	// ConvertConvertConvertEnumOfTypeForListNodePoolsOutputCustom is a ConvertConvertConvertEnumOfTypeForListNodePoolsOutput enum value
+	ConvertConvertConvertEnumOfTypeForListNodePoolsOutputCustom = "Custom"
+)
+
+const (
+	// ConvertConvertEnumOfTypeForListNodePoolsOutputOk is a ConvertConvertEnumOfTypeForListNodePoolsOutput enum value
+	ConvertConvertEnumOfTypeForListNodePoolsOutputOk = "Ok"
+
+	// ConvertConvertEnumOfTypeForListNodePoolsOutputStockOut is a ConvertConvertEnumOfTypeForListNodePoolsOutput enum value
+	ConvertConvertEnumOfTypeForListNodePoolsOutputStockOut = "StockOut"
+
+	// ConvertConvertEnumOfTypeForListNodePoolsOutputLimitedByQuota is a ConvertConvertEnumOfTypeForListNodePoolsOutput enum value
+	ConvertConvertEnumOfTypeForListNodePoolsOutputLimitedByQuota = "LimitedByQuota"
+
+	// ConvertConvertEnumOfTypeForListNodePoolsOutputBalance is a ConvertConvertEnumOfTypeForListNodePoolsOutput enum value
+	ConvertConvertEnumOfTypeForListNodePoolsOutputBalance = "Balance"
+
+	// ConvertConvertEnumOfTypeForListNodePoolsOutputVersionPartlyUpgraded is a ConvertConvertEnumOfTypeForListNodePoolsOutput enum value
+	ConvertConvertEnumOfTypeForListNodePoolsOutputVersionPartlyUpgraded = "VersionPartlyUpgraded"
+
+	// ConvertConvertEnumOfTypeForListNodePoolsOutputResourceCleanupFailed is a ConvertConvertEnumOfTypeForListNodePoolsOutput enum value
+	ConvertConvertEnumOfTypeForListNodePoolsOutputResourceCleanupFailed = "ResourceCleanupFailed"
+
+	// ConvertConvertEnumOfTypeForListNodePoolsOutputClusterNotRunning is a ConvertConvertEnumOfTypeForListNodePoolsOutput enum value
+	ConvertConvertEnumOfTypeForListNodePoolsOutputClusterNotRunning = "ClusterNotRunning"
+
+	// ConvertConvertEnumOfTypeForListNodePoolsOutputUnknown is a ConvertConvertEnumOfTypeForListNodePoolsOutput enum value
+	ConvertConvertEnumOfTypeForListNodePoolsOutputUnknown = "Unknown"
+
+	// ConvertConvertEnumOfTypeForListNodePoolsOutputProgressing is a ConvertConvertEnumOfTypeForListNodePoolsOutput enum value
+	ConvertConvertEnumOfTypeForListNodePoolsOutputProgressing = "Progressing"
+
+	// ConvertConvertEnumOfTypeForListNodePoolsOutputClusterVersionUpgrading is a ConvertConvertEnumOfTypeForListNodePoolsOutput enum value
+	ConvertConvertEnumOfTypeForListNodePoolsOutputClusterVersionUpgrading = "ClusterVersionUpgrading"
+
+	// ConvertConvertEnumOfTypeForListNodePoolsOutputScalingFailed is a ConvertConvertEnumOfTypeForListNodePoolsOutput enum value
+	ConvertConvertEnumOfTypeForListNodePoolsOutputScalingFailed = "ScalingFailed"
+)
+
+const (
+	// ConvertEnumOfTypeForListNodePoolsOutputPassword is a ConvertEnumOfTypeForListNodePoolsOutput enum value
+	ConvertEnumOfTypeForListNodePoolsOutputPassword = "Password"
+
+	// ConvertEnumOfTypeForListNodePoolsOutputSshKeyPair is a ConvertEnumOfTypeForListNodePoolsOutput enum value
+	ConvertEnumOfTypeForListNodePoolsOutputSshKeyPair = "SshKeyPair"
+)
+
+const (
 	// EnumOfConditionsTypeForListNodePoolsInputOk is a EnumOfConditionsTypeForListNodePoolsInput enum value
 	EnumOfConditionsTypeForListNodePoolsInputOk = "Ok"
 
@@ -1661,6 +1836,17 @@ const (
 
 	// EnumOfConditionsTypeForListNodePoolsInputClusterVersionUpgrading is a EnumOfConditionsTypeForListNodePoolsInput enum value
 	EnumOfConditionsTypeForListNodePoolsInputClusterVersionUpgrading = "ClusterVersionUpgrading"
+
+	// EnumOfConditionsTypeForListNodePoolsInputScalingFailed is a EnumOfConditionsTypeForListNodePoolsInput enum value
+	EnumOfConditionsTypeForListNodePoolsInputScalingFailed = "ScalingFailed"
+)
+
+const (
+	// EnumOfCpuManagerPolicyForListNodePoolsOutputNone is a EnumOfCpuManagerPolicyForListNodePoolsOutput enum value
+	EnumOfCpuManagerPolicyForListNodePoolsOutputNone = "none"
+
+	// EnumOfCpuManagerPolicyForListNodePoolsOutputStatic is a EnumOfCpuManagerPolicyForListNodePoolsOutput enum value
+	EnumOfCpuManagerPolicyForListNodePoolsOutputStatic = "static"
 )
 
 const (
@@ -1688,6 +1874,69 @@ const (
 
 	// EnumOfInstanceChargeTypeForListNodePoolsOutputPrePaid is a EnumOfInstanceChargeTypeForListNodePoolsOutput enum value
 	EnumOfInstanceChargeTypeForListNodePoolsOutputPrePaid = "PrePaid"
+)
+
+const (
+	// EnumOfIspForListNodePoolsOutputBgp is a EnumOfIspForListNodePoolsOutput enum value
+	EnumOfIspForListNodePoolsOutputBgp = "BGP"
+
+	// EnumOfIspForListNodePoolsOutputChinaMobile is a EnumOfIspForListNodePoolsOutput enum value
+	EnumOfIspForListNodePoolsOutputChinaMobile = "ChinaMobile"
+
+	// EnumOfIspForListNodePoolsOutputChinaUnicom is a EnumOfIspForListNodePoolsOutput enum value
+	EnumOfIspForListNodePoolsOutputChinaUnicom = "ChinaUnicom"
+
+	// EnumOfIspForListNodePoolsOutputChinaTelecom is a EnumOfIspForListNodePoolsOutput enum value
+	EnumOfIspForListNodePoolsOutputChinaTelecom = "ChinaTelecom"
+
+	// EnumOfIspForListNodePoolsOutputSingleLineBgp is a EnumOfIspForListNodePoolsOutput enum value
+	EnumOfIspForListNodePoolsOutputSingleLineBgp = "SingleLine_BGP"
+
+	// EnumOfIspForListNodePoolsOutputFusionBgp is a EnumOfIspForListNodePoolsOutput enum value
+	EnumOfIspForListNodePoolsOutputFusionBgp = "Fusion_BGP"
+
+	// EnumOfIspForListNodePoolsOutputStaticBgp is a EnumOfIspForListNodePoolsOutput enum value
+	EnumOfIspForListNodePoolsOutputStaticBgp = "Static_BGP"
+
+	// EnumOfIspForListNodePoolsOutputChinaMobileValue is a EnumOfIspForListNodePoolsOutput enum value
+	EnumOfIspForListNodePoolsOutputChinaMobileValue = "ChinaMobile_Value"
+
+	// EnumOfIspForListNodePoolsOutputChinaUnicomValue is a EnumOfIspForListNodePoolsOutput enum value
+	EnumOfIspForListNodePoolsOutputChinaUnicomValue = "ChinaUnicom_Value"
+
+	// EnumOfIspForListNodePoolsOutputChinaTelecomValue is a EnumOfIspForListNodePoolsOutput enum value
+	EnumOfIspForListNodePoolsOutputChinaTelecomValue = "ChinaTelecom_Value"
+)
+
+const (
+	// EnumOfKeyForListNodePoolsOutputMemoryAvailable is a EnumOfKeyForListNodePoolsOutput enum value
+	EnumOfKeyForListNodePoolsOutputMemoryAvailable = "memory.available"
+
+	// EnumOfKeyForListNodePoolsOutputNodefsAvailable is a EnumOfKeyForListNodePoolsOutput enum value
+	EnumOfKeyForListNodePoolsOutputNodefsAvailable = "nodefs.available"
+
+	// EnumOfKeyForListNodePoolsOutputNodefsInodesFree is a EnumOfKeyForListNodePoolsOutput enum value
+	EnumOfKeyForListNodePoolsOutputNodefsInodesFree = "nodefs.inodesFree"
+
+	// EnumOfKeyForListNodePoolsOutputImagefsAvailable is a EnumOfKeyForListNodePoolsOutput enum value
+	EnumOfKeyForListNodePoolsOutputImagefsAvailable = "imagefs.available"
+
+	// EnumOfKeyForListNodePoolsOutputImagefsInodesFree is a EnumOfKeyForListNodePoolsOutput enum value
+	EnumOfKeyForListNodePoolsOutputImagefsInodesFree = "imagefs.inodesFree"
+
+	// EnumOfKeyForListNodePoolsOutputAllocatableMemoryAvailable is a EnumOfKeyForListNodePoolsOutput enum value
+	EnumOfKeyForListNodePoolsOutputAllocatableMemoryAvailable = "allocatableMemory.available"
+
+	// EnumOfKeyForListNodePoolsOutputPidAvailable is a EnumOfKeyForListNodePoolsOutput enum value
+	EnumOfKeyForListNodePoolsOutputPidAvailable = "pid.available"
+)
+
+const (
+	// EnumOfNameForListNodePoolsOutputCpu is a EnumOfNameForListNodePoolsOutput enum value
+	EnumOfNameForListNodePoolsOutputCpu = "cpu"
+
+	// EnumOfNameForListNodePoolsOutputMemory is a EnumOfNameForListNodePoolsOutput enum value
+	EnumOfNameForListNodePoolsOutputMemory = "memory"
 )
 
 const (
@@ -1774,9 +2023,33 @@ const (
 )
 
 const (
+	// EnumOfTypeForListNodePoolsOutputEssd is a EnumOfTypeForListNodePoolsOutput enum value
+	EnumOfTypeForListNodePoolsOutputEssd = "ESSD"
+
 	// EnumOfTypeForListNodePoolsOutputEssdPl0 is a EnumOfTypeForListNodePoolsOutput enum value
 	EnumOfTypeForListNodePoolsOutputEssdPl0 = "ESSD_PL0"
 
 	// EnumOfTypeForListNodePoolsOutputEssdFlexPl is a EnumOfTypeForListNodePoolsOutput enum value
 	EnumOfTypeForListNodePoolsOutputEssdFlexPl = "ESSD_FlexPL"
+
+	// EnumOfTypeForListNodePoolsOutputUltraDisk is a EnumOfTypeForListNodePoolsOutput enum value
+	EnumOfTypeForListNodePoolsOutputUltraDisk = "Ultra_Disk"
+
+	// EnumOfTypeForListNodePoolsOutputTssdTl0 is a EnumOfTypeForListNodePoolsOutput enum value
+	EnumOfTypeForListNodePoolsOutputTssdTl0 = "TSSD_TL0"
+
+	// EnumOfTypeForListNodePoolsOutputRssdRl0 is a EnumOfTypeForListNodePoolsOutput enum value
+	EnumOfTypeForListNodePoolsOutputRssdRl0 = "RSSD_RL0"
+
+	// EnumOfTypeForListNodePoolsOutputLocalSsd is a EnumOfTypeForListNodePoolsOutput enum value
+	EnumOfTypeForListNodePoolsOutputLocalSsd = "LOCAL_SSD"
+
+	// EnumOfTypeForListNodePoolsOutputLocalHdd is a EnumOfTypeForListNodePoolsOutput enum value
+	EnumOfTypeForListNodePoolsOutputLocalHdd = "LOCAL_HDD"
+
+	// EnumOfTypeForListNodePoolsOutputLocalSsdSriov is a EnumOfTypeForListNodePoolsOutput enum value
+	EnumOfTypeForListNodePoolsOutputLocalSsdSriov = "LOCAL_SSD_SRIOV"
+
+	// EnumOfTypeForListNodePoolsOutputLocalLvmSsd is a EnumOfTypeForListNodePoolsOutput enum value
+	EnumOfTypeForListNodePoolsOutputLocalLvmSsd = "LOCAL_LVM_SSD"
 )

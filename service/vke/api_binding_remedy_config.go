@@ -146,6 +146,8 @@ func (c *VKE) BindingRemedyConfigWithContext(ctx volcengine.Context, input *Bind
 type BindingRemedyConfigInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	ClientToken *string `type:"string" json:",omitempty"`
+
 	// ClusterId is a required field
 	ClusterId *string `type:"string" json:",omitempty" required:"true"`
 
@@ -183,6 +185,12 @@ func (s *BindingRemedyConfigInput) Validate() error {
 		return invalidParams
 	}
 	return nil
+}
+
+// SetClientToken sets the ClientToken field's value.
+func (s *BindingRemedyConfigInput) SetClientToken(v string) *BindingRemedyConfigInput {
+	s.ClientToken = &v
+	return s
 }
 
 // SetClusterId sets the ClusterId field's value.
