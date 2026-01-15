@@ -146,6 +146,10 @@ func (c *VMP) ListWorkspaceStatusWithContext(ctx volcengine.Context, input *List
 type FiltersForListWorkspaceStatusInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	CrossAccount *bool `type:"boolean" json:",omitempty"`
+
+	CrossRegion *bool `type:"boolean" json:",omitempty"`
+
 	Ids []*string `type:"list" json:",omitempty"`
 
 	InstanceTypeIds []*string `type:"list" json:",omitempty"`
@@ -163,6 +167,18 @@ func (s FiltersForListWorkspaceStatusInput) String() string {
 // GoString returns the string representation
 func (s FiltersForListWorkspaceStatusInput) GoString() string {
 	return s.String()
+}
+
+// SetCrossAccount sets the CrossAccount field's value.
+func (s *FiltersForListWorkspaceStatusInput) SetCrossAccount(v bool) *FiltersForListWorkspaceStatusInput {
+	s.CrossAccount = &v
+	return s
+}
+
+// SetCrossRegion sets the CrossRegion field's value.
+func (s *FiltersForListWorkspaceStatusInput) SetCrossRegion(v bool) *FiltersForListWorkspaceStatusInput {
+	s.CrossRegion = &v
+	return s
 }
 
 // SetIds sets the Ids field's value.

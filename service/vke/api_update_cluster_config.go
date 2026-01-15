@@ -295,6 +295,28 @@ func (s *ComponentConfigForUpdateClusterConfigInput) SetName(v string) *Componen
 	return s
 }
 
+type FlannelConfigForUpdateClusterConfigInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	SubnetIds []*string `type:"list" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s FlannelConfigForUpdateClusterConfigInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s FlannelConfigForUpdateClusterConfigInput) GoString() string {
+	return s.String()
+}
+
+// SetSubnetIds sets the SubnetIds field's value.
+func (s *FlannelConfigForUpdateClusterConfigInput) SetSubnetIds(v []*string) *FlannelConfigForUpdateClusterConfigInput {
+	s.SubnetIds = v
+	return s
+}
+
 type LogSetupForUpdateClusterConfigInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -368,6 +390,8 @@ type MonitoringConfigForUpdateClusterConfigInput struct {
 
 	ComponentConfigs []*ComponentConfigForUpdateClusterConfigInput `type:"list" json:",omitempty"`
 
+	EnableMetricsExternalCollection *bool `type:"boolean" json:",omitempty"`
+
 	WorkspaceId *string `type:"string" json:",omitempty"`
 }
 
@@ -387,6 +411,12 @@ func (s *MonitoringConfigForUpdateClusterConfigInput) SetComponentConfigs(v []*C
 	return s
 }
 
+// SetEnableMetricsExternalCollection sets the EnableMetricsExternalCollection field's value.
+func (s *MonitoringConfigForUpdateClusterConfigInput) SetEnableMetricsExternalCollection(v bool) *MonitoringConfigForUpdateClusterConfigInput {
+	s.EnableMetricsExternalCollection = &v
+	return s
+}
+
 // SetWorkspaceId sets the WorkspaceId field's value.
 func (s *MonitoringConfigForUpdateClusterConfigInput) SetWorkspaceId(v string) *MonitoringConfigForUpdateClusterConfigInput {
 	s.WorkspaceId = &v
@@ -395,6 +425,8 @@ func (s *MonitoringConfigForUpdateClusterConfigInput) SetWorkspaceId(v string) *
 
 type PodsConfigForUpdateClusterConfigInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
+
+	FlannelConfig *FlannelConfigForUpdateClusterConfigInput `type:"structure" json:",omitempty"`
 
 	VpcCniConfig *VpcCniConfigForUpdateClusterConfigInput `type:"structure" json:",omitempty"`
 }
@@ -407,6 +439,12 @@ func (s PodsConfigForUpdateClusterConfigInput) String() string {
 // GoString returns the string representation
 func (s PodsConfigForUpdateClusterConfigInput) GoString() string {
 	return s.String()
+}
+
+// SetFlannelConfig sets the FlannelConfig field's value.
+func (s *PodsConfigForUpdateClusterConfigInput) SetFlannelConfig(v *FlannelConfigForUpdateClusterConfigInput) *PodsConfigForUpdateClusterConfigInput {
+	s.FlannelConfig = v
+	return s
 }
 
 // SetVpcCniConfig sets the VpcCniConfig field's value.
@@ -714,11 +752,29 @@ const (
 	// EnumOfIspForUpdateClusterConfigInputChinaMobile is a EnumOfIspForUpdateClusterConfigInput enum value
 	EnumOfIspForUpdateClusterConfigInputChinaMobile = "ChinaMobile"
 
+	// EnumOfIspForUpdateClusterConfigInputChinaUnicom is a EnumOfIspForUpdateClusterConfigInput enum value
+	EnumOfIspForUpdateClusterConfigInputChinaUnicom = "ChinaUnicom"
+
 	// EnumOfIspForUpdateClusterConfigInputChinaTelecom is a EnumOfIspForUpdateClusterConfigInput enum value
 	EnumOfIspForUpdateClusterConfigInputChinaTelecom = "ChinaTelecom"
 
-	// EnumOfIspForUpdateClusterConfigInputChinaUnicom is a EnumOfIspForUpdateClusterConfigInput enum value
-	EnumOfIspForUpdateClusterConfigInputChinaUnicom = "ChinaUnicom"
+	// EnumOfIspForUpdateClusterConfigInputSingleLineBgp is a EnumOfIspForUpdateClusterConfigInput enum value
+	EnumOfIspForUpdateClusterConfigInputSingleLineBgp = "SingleLine_BGP"
+
+	// EnumOfIspForUpdateClusterConfigInputFusionBgp is a EnumOfIspForUpdateClusterConfigInput enum value
+	EnumOfIspForUpdateClusterConfigInputFusionBgp = "Fusion_BGP"
+
+	// EnumOfIspForUpdateClusterConfigInputStaticBgp is a EnumOfIspForUpdateClusterConfigInput enum value
+	EnumOfIspForUpdateClusterConfigInputStaticBgp = "Static_BGP"
+
+	// EnumOfIspForUpdateClusterConfigInputChinaMobileValue is a EnumOfIspForUpdateClusterConfigInput enum value
+	EnumOfIspForUpdateClusterConfigInputChinaMobileValue = "ChinaMobile_Value"
+
+	// EnumOfIspForUpdateClusterConfigInputChinaUnicomValue is a EnumOfIspForUpdateClusterConfigInput enum value
+	EnumOfIspForUpdateClusterConfigInputChinaUnicomValue = "ChinaUnicom_Value"
+
+	// EnumOfIspForUpdateClusterConfigInputChinaTelecomValue is a EnumOfIspForUpdateClusterConfigInput enum value
+	EnumOfIspForUpdateClusterConfigInputChinaTelecomValue = "ChinaTelecom_Value"
 )
 
 const (
@@ -777,6 +833,12 @@ const (
 )
 
 const (
+	// EnumOfProviderForUpdateClusterConfigInputVeStack is a EnumOfProviderForUpdateClusterConfigInput enum value
+	EnumOfProviderForUpdateClusterConfigInputVeStack = "VeStack"
+
+	// EnumOfProviderForUpdateClusterConfigInputVke is a EnumOfProviderForUpdateClusterConfigInput enum value
+	EnumOfProviderForUpdateClusterConfigInputVke = "Vke"
+
 	// EnumOfProviderForUpdateClusterConfigInputAck is a EnumOfProviderForUpdateClusterConfigInput enum value
 	EnumOfProviderForUpdateClusterConfigInputAck = "Ack"
 
@@ -786,17 +848,17 @@ const (
 	// EnumOfProviderForUpdateClusterConfigInputCce is a EnumOfProviderForUpdateClusterConfigInput enum value
 	EnumOfProviderForUpdateClusterConfigInputCce = "Cce"
 
+	// EnumOfProviderForUpdateClusterConfigInputNone is a EnumOfProviderForUpdateClusterConfigInput enum value
+	EnumOfProviderForUpdateClusterConfigInputNone = "None"
+
+	// EnumOfProviderForUpdateClusterConfigInputBaiduCce is a EnumOfProviderForUpdateClusterConfigInput enum value
+	EnumOfProviderForUpdateClusterConfigInputBaiduCce = "BaiduCce"
+
 	// EnumOfProviderForUpdateClusterConfigInputGke is a EnumOfProviderForUpdateClusterConfigInput enum value
 	EnumOfProviderForUpdateClusterConfigInputGke = "Gke"
 
 	// EnumOfProviderForUpdateClusterConfigInputEks is a EnumOfProviderForUpdateClusterConfigInput enum value
 	EnumOfProviderForUpdateClusterConfigInputEks = "Eks"
-
-	// EnumOfProviderForUpdateClusterConfigInputBaiduCce is a EnumOfProviderForUpdateClusterConfigInput enum value
-	EnumOfProviderForUpdateClusterConfigInputBaiduCce = "BaiduCce"
-
-	// EnumOfProviderForUpdateClusterConfigInputNone is a EnumOfProviderForUpdateClusterConfigInput enum value
-	EnumOfProviderForUpdateClusterConfigInputNone = "None"
 )
 
 const (
@@ -805,4 +867,7 @@ const (
 
 	// EnumOfTypeForUpdateClusterConfigInputProxy is a EnumOfTypeForUpdateClusterConfigInput enum value
 	EnumOfTypeForUpdateClusterConfigInputProxy = "Proxy"
+
+	// EnumOfTypeForUpdateClusterConfigInputAgent is a EnumOfTypeForUpdateClusterConfigInput enum value
+	EnumOfTypeForUpdateClusterConfigInputAgent = "Agent"
 )

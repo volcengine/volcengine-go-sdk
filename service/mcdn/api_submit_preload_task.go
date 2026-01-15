@@ -146,6 +146,8 @@ func (c *MCDN) SubmitPreloadTaskWithContext(ctx volcengine.Context, input *Submi
 type SubmitPreloadTaskInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	Region *string `type:"string" json:",omitempty"`
+
 	// Urls is a required field
 	Urls *string `type:"string" json:",omitempty" required:"true"`
 
@@ -173,6 +175,12 @@ func (s *SubmitPreloadTaskInput) Validate() error {
 		return invalidParams
 	}
 	return nil
+}
+
+// SetRegion sets the Region field's value.
+func (s *SubmitPreloadTaskInput) SetRegion(v string) *SubmitPreloadTaskInput {
+	s.Region = &v
+	return s
 }
 
 // SetUrls sets the Urls field's value.
