@@ -573,6 +573,12 @@ func (c *Client) ChatCompletionRequestStreamDo(ctx context.Context, method, url,
 
 				c.keyNonce.Store(requestID, keyNonce)
 
+				defer func() {
+					if err != nil {
+						c.keyNonce.Delete(requestID)
+					}
+				}()
+
 				streamReader, err = sendChatCompletionRequestStream(c, c.config.HTTPClient, req)
 				return err
 			}
