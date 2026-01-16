@@ -72,6 +72,7 @@ var credsExpiredCodes = map[string]struct{}{
 	"ExpiredToken":          {},
 	"ExpiredTokenException": {},
 	"RequestExpired":        {}, // EC2 Only
+	"InvalidAccessKey":      {},
 }
 
 func isCodeThrottle(code string) bool {
