@@ -6,6 +6,7 @@ import (
 	"crypto/cipher"
 	"crypto/ecdsa"
 	"crypto/elliptic"
+	"crypto/hmac"
 	"crypto/rand"
 	"crypto/sha256"
 	"crypto/x509"
@@ -13,6 +14,7 @@ import (
 	"encoding/pem"
 	"fmt"
 	"hash"
+	"io"
 	"math/big"
 	"net/url"
 	"os"
@@ -21,7 +23,6 @@ import (
 	"time"
 
 	"github.com/volcengine/volcengine-go-sdk/service/arkruntime/model"
-	"golang.org/x/crypto/hkdf"
 )
 
 const (
@@ -194,18 +195,114 @@ func GetCertInfo(certPem string) (string, string, int64) {
 	return "", "", cert.NotAfter.UTC().Unix()
 }
 
+// hkdfReader implements the io.Reader interface for HKDF expansion
+// This is a simplified implementation compatible with the standard library
+// Based on RFC 5869 (HKDF: HMAC-based Extract-and-Expand Key Derivation Function)
+type hkdfReader struct {
+	mac  hash.Hash
+	hmac []byte
+	info []byte
+	i    uint8
+	temp []byte
+	out  []byte
+}
+
+// NewHKDF creates a new HKDF reader for extracting and expanding keys
+func NewHKDF(hash func() hash.Hash, secret, salt, info []byte) io.Reader {
+	// Extract step
+	if salt == nil {
+		// Use an all-zero salt if none is provided
+		salt = make([]byte, hash().Size())
+	}
+	extract := hmac.New(hash, salt)
+	extract.Write(secret)
+	prk := extract.Sum(nil)
+
+	// Expand step preparation
+	return &hkdfReader{
+		mac:  hmac.New(hash, prk),
+		hmac: prk,
+		info: info,
+		i:    1,
+		temp: make([]byte, hash().Size()),
+		out:  nil,
+	}
+}
+
+// Read implements io.Reader for hkdfReader
+func (r *hkdfReader) Read(p []byte) (n int, err error) {
+	if len(p) == 0 {
+		return 0, nil
+	}
+
+	// If we have leftover bytes from previous expansion, use them first
+	if r.out != nil {
+		n = copy(p, r.out)
+		if len(r.out) == n {
+			r.out = nil
+		} else {
+			r.out = r.out[n:]
+		}
+		return n, nil
+	}
+
+	// Calculate how many expansion rounds we need
+	hashSize := r.mac.Size()
+	remaining := len(p)
+	written := 0
+
+	for remaining > 0 {
+		// Reset the MAC for a new round of expansion
+		r.mac.Reset()
+
+		// Write previous HMAC output if this isn't the first round
+		if r.i > 1 {
+			r.mac.Write(r.temp)
+		}
+
+		// Write the info and the round counter
+		r.mac.Write(r.info)
+		r.mac.Write([]byte{r.i})
+
+		// Calculate the HMAC for this round
+		copy(r.temp, r.mac.Sum(nil))
+
+		// Copy as much as we can to the output buffer
+		toCopy := hashSize
+		if toCopy > remaining {
+			toCopy = remaining
+		}
+
+		written = copy(p[written:], r.temp[:toCopy])
+		remaining -= written
+
+		// Increment the round counter
+		r.i++
+
+		// Check if we've reached the maximum number of rounds (255)
+		if r.i > 255 {
+			return len(p) - remaining, io.EOF
+		}
+	}
+
+	return len(p), nil
+}
+
 func deriveKeyBasic(hash func() hash.Hash, dh *ecdsa.PublicKey, len int) ([]byte, error) {
 	dhb := ECDHMarshalBinary(dh)
-	hkdf := hkdf.New(hash, dhb, nil, nil)
+	hkdf := NewHKDF(hash, dhb, nil, nil)
 	key := make([]byte, len)
 	_, err := hkdf.Read(key)
-	if err != nil {
+	if err != nil && err != io.EOF {
 		return nil, err
 	}
 	return key, nil
 }
 
 func LoadLocalCertificate(model string) (string, error) {
+	if model == "" || strings.ContainsAny(model, "/\\:..") {
+		return "", fmt.Errorf("invalid model parameter: %s", model)
+	}
 	var dir string
 	home, herr := os.UserHomeDir()
 	if herr == nil && home != "" {
@@ -213,7 +310,9 @@ func LoadLocalCertificate(model string) (string, error) {
 	} else {
 		return "", fmt.Errorf("failed to get user home dir. err=%w", herr)
 	}
-	certFilePath := filepath.Join(dir, model+".pem")
+
+	certFileName := filepath.Clean(model) + ".pem"
+	certFilePath := filepath.Join(dir, certFileName)
 	fi, err := os.Stat(certFilePath)
 	if err != nil {
 		return "", err
@@ -222,17 +321,28 @@ func LoadLocalCertificate(model string) (string, error) {
 	current := time.Now()
 	if current.Sub(lastModified) <= 14*24*time.Hour {
 		b, err := os.ReadFile(certFilePath)
-		_ = os.Remove(certFilePath)
 		if err != nil {
 			return "", err
 		}
-		return string(b), nil
+		certPem := string(b)
+		ringID, keyID, _ := GetCertInfo(certPem)
+		aiccEnabled := CheckIsModeAICC()
+
+		if (ringID == "" || keyID == "") && !aiccEnabled {
+			return certPem, nil
+		}
+		if ringID != "" && keyID != "" && aiccEnabled {
+			return certPem, nil
+		}
 	}
-	_ = os.Remove(certFilePath) // tbd, it has security issue, maybe delete is not necessary
+	_ = os.Remove(certFilePath)
 	return "", nil
 }
 
 func SaveToLocalCertificate(model, certPem string) error {
+	if model == "" || strings.ContainsAny(model, "/\\:..") {
+		return fmt.Errorf("invalid model parameter: %s", model)
+	}
 	var dir string
 	home, herr := os.UserHomeDir()
 	if herr == nil && home != "" {
@@ -240,7 +350,9 @@ func SaveToLocalCertificate(model, certPem string) error {
 	} else {
 		return fmt.Errorf("failed to get user home dir. err=%w", herr)
 	}
-	certFilePath := filepath.Join(dir, model+".pem")
+
+	certFileName := filepath.Clean(model) + ".pem"
+	certFilePath := filepath.Join(dir, certFileName)
 	err := os.MkdirAll(dir, 0o755)
 	if err != nil {
 		return err
@@ -253,8 +365,12 @@ func CheckIsModeAICC() bool {
 }
 
 func EncryptChatRequest(ctx context.Context, keyNonce []byte, request model.CreateChatCompletionRequest) error {
+	expectedLen := aesKeySize + aesNonceSize
+	if len(keyNonce) != expectedLen {
+		return fmt.Errorf("keyNonce must be %d bytes long, got %d", expectedLen, len(keyNonce))
+	}
 	err := ProcessChatCompletionRequest(ctx, request.Messages, func(text string) (string, error) {
-		return AesGcmEncryptBase64String(keyNonce[:32], keyNonce[32:], text)
+		return AesGcmEncryptBase64String(keyNonce[:aesKeySize], keyNonce[aesKeySize:], text)
 	})
 	if err != nil {
 		return err
@@ -359,9 +475,13 @@ func DecryptChatResponse(keyNonce []byte, response model.Response) error {
 }
 
 func DecryptChatStreamResponse(keyNonce []byte, response model.ChatCompletionStreamResponse) error {
+	expectedLen := aesKeySize + aesNonceSize
+	if len(keyNonce) != expectedLen {
+		return fmt.Errorf("keyNonce must be %d bytes long, got %d", expectedLen, len(keyNonce))
+	}
 	var err error
 	fn := func(text string) (string, error) {
-		return AesGcmDecryptBase64String(keyNonce[:32], keyNonce[32:], text)
+		return AesGcmDecryptBase64String(keyNonce[:aesKeySize], keyNonce[aesKeySize:], text)
 	}
 	for _, choice := range response.Choices {
 		if choice.FinishReason != model.FinishReasonContentFilter && len(choice.Delta.Content) > 0 {

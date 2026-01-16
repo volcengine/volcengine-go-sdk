@@ -296,7 +296,6 @@ func (c *Client) sendRequest(client *http.Client, req *http.Request, v model.Res
 			RequestId:      requestID,
 		}
 	}
-	// tbd need to delete keyNonce after decrypt
 	keyNonce, ok := c.keyNonce.Load(requestID)
 	if ok {
 		err = encryption.DecryptChatResponse(keyNonce.([]byte), v)
@@ -393,6 +392,11 @@ func sendChatCompletionRequestStream(client *Client, httpClient *http.Client, re
 	if !ok {
 		keyNonce = []byte{}
 	}
+
+	cleanup := func() {
+		client.keyNonce.Delete(requestID)
+	}
+
 	return &utils.ChatCompletionStreamReader{
 		EmptyMessagesLimit: client.config.EmptyMessagesLimit,
 		Reader:             bufio.NewReader(resp.Body),
@@ -401,6 +405,8 @@ func sendChatCompletionRequestStream(client *Client, httpClient *http.Client, re
 		Unmarshaler:        &utils.JSONUnmarshaler{},
 		HttpHeader:         model.HttpHeader(resp.Header),
 		KeyNonce:           keyNonce.([]byte),
+		RequestID:          requestID,
+		Cleanup:            cleanup,
 	}, nil
 }
 
@@ -517,6 +523,59 @@ func (c *Client) ChatCompletionRequestStreamDo(ctx context.Context, method, url,
 		},
 		func() bool { return true },
 		func() error {
+			args := &requestOptions{
+				body:   nil,
+				header: make(http.Header),
+			}
+			for _, setter := range setters {
+				setter(args)
+			}
+
+			isEncrypted := args.header.Get(model.ClientIsEncryptedHeader) == "true"
+
+			if isEncrypted {
+				resourceType := c.getResourceTypeById(resourceId)
+				requestID := utils.GenRequestId()
+				args.header.Set(model.ClientRequestHeader, requestID)
+
+				if errH := c.setCommonHeaders(ctx, args, resourceType, resourceId); errH != nil {
+					return errH
+				}
+
+				e2eeClient, err := c.getE2eeClient(ctx, resourceId, args.header.Get("Authorization"))
+				if err != nil {
+					return err
+				}
+
+				keyNonce, sessionToken, err := e2eeClient.GenerateECIESKeyPair()
+				if err != nil {
+					return err
+				}
+
+				args.header.Set(model.ClientSessionTokenHeader, sessionToken)
+
+				if encryption.CheckIsModeAICC() {
+					args.header.Set(model.ClientEncryptInfoHeader, e2eeClient.GetEncryptInfo())
+				}
+
+				if args.body != nil {
+					// Encrypt request body
+					if err := encryption.EncryptChatRequest(ctx, keyNonce, args.body.(model.CreateChatCompletionRequest)); err != nil {
+						return err
+					}
+
+				}
+
+				req, innerErr := c.requestBuilder.Build(ctx, method, url, args.body, args.header)
+				if innerErr != nil {
+					return innerErr
+				}
+
+				c.keyNonce.Store(requestID, keyNonce)
+
+				streamReader, err = sendChatCompletionRequestStream(c, c.config.HTTPClient, req)
+				return err
+			}
 			req, innerErr := c.newRequest(ctx, method, url, resourceTypeEndpoint, resourceId, setters...)
 			if innerErr != nil {
 				return innerErr
@@ -757,8 +816,12 @@ func (c *Client) getE2eeClient(ctx context.Context, resourceId, auth string) (*E
 
 func (c *Client) loadServerCertificate(ctx context.Context, resourceId, auth string) (string, error) {
 	url := c.fullURL("/e2e/get/certificate")
-	body := map[string]string{"model": resourceId}
-	b, err := json.Marshal(body)
+	requestBody := map[string]interface{}{"model": resourceId}
+	// Check if AICC mode is enabled
+	if encryption.CheckIsModeAICC() {
+		requestBody["type"] = "AICCv0.1"
+	}
+	b, err := json.Marshal(requestBody)
 	if err != nil {
 		return "", fmt.Errorf("getting Certificate failed: %w", err)
 	}
@@ -769,6 +832,7 @@ func (c *Client) loadServerCertificate(ctx context.Context, resourceId, auth str
 	req.Header.Set("Content-Type", "application/json")
 	req.Header.Set("Accept", "application/json")
 	req.Header.Set("Authorization", auth)
+	req.Header.Set("X-Session-Token", "/e2e/get/certificate")
 	res, err := c.config.HTTPClient.Do(req)
 	if err != nil {
 		return "", fmt.Errorf("getting Certificate failed: %w", err)
