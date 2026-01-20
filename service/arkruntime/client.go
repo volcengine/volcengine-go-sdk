@@ -725,6 +725,9 @@ func (c *Client) encryptRequest(ctx context.Context, resourceId string, args *re
 	}
 	// add session token to header
 	args.header.Set(model.ClientSessionTokenHeader, sessionToken)
+	if encryption.CheckIsModeAICC() {
+		args.header.Set(model.ClientEncryptInfoHeader, e2eeClient.GetEncryptInfo())
+	}
 	// store keyNonce to map
 	c.rwLock.Lock()
 	c.keyNonce.Store(args.header.Get(model.ClientRequestHeader), keyNonce)
