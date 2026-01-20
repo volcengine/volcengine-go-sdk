@@ -244,8 +244,16 @@ func (c *Client) newRequest(ctx context.Context, method, url, resourceType, reso
 
 	// encrypt request body if is necessary
 	if args.header.Get(model.ClientIsEncryptedHeader) == "true" {
-		if err := c.encryptRequest(ctx, resourceId, args); err != nil {
-			return nil, model.NewRequestError(http.StatusBadRequest, err, requestID)
+		isStreaming := false
+		if args.body != nil {
+			if chatRequest, ok := args.body.(model.ChatRequest); ok {
+				isStreaming = chatRequest.IsStream()
+			}
+		}
+		if isStreaming {
+			if err := c.encryptRequest(ctx, resourceId, args); err != nil {
+				return nil, model.NewRequestError(http.StatusBadRequest, err, requestID)
+			}
 		}
 	}
 
