@@ -273,8 +273,9 @@ func (r *hkdfReader) Read(p []byte) (n int, err error) {
 			toCopy = remaining
 		}
 
-		written = copy(p[written:], r.temp[:toCopy])
-		remaining -= written
+		nCopied := copy(p[written:], r.temp[:toCopy])
+		written += nCopied
+		remaining -= nCopied
 
 		// Increment the round counter
 		r.i++
