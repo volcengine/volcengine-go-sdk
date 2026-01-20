@@ -523,65 +523,7 @@ func (c *Client) ChatCompletionRequestStreamDo(ctx context.Context, method, url,
 		},
 		func() bool { return true },
 		func() error {
-			args := &requestOptions{
-				body:   nil,
-				header: make(http.Header),
-			}
-			for _, setter := range setters {
-				setter(args)
-			}
 
-			isEncrypted := args.header.Get(model.ClientIsEncryptedHeader) == "true"
-
-			if isEncrypted {
-				resourceType := c.getResourceTypeById(resourceId)
-				requestID := utils.GenRequestId()
-				args.header.Set(model.ClientRequestHeader, requestID)
-
-				if errH := c.setCommonHeaders(ctx, args, resourceType, resourceId); errH != nil {
-					return errH
-				}
-
-				e2eeClient, err := c.getE2eeClient(ctx, resourceId, args.header.Get("Authorization"))
-				if err != nil {
-					return err
-				}
-
-				keyNonce, sessionToken, err := e2eeClient.GenerateECIESKeyPair()
-				if err != nil {
-					return err
-				}
-
-				args.header.Set(model.ClientSessionTokenHeader, sessionToken)
-
-				if encryption.CheckIsModeAICC() {
-					args.header.Set(model.ClientEncryptInfoHeader, e2eeClient.GetEncryptInfo())
-				}
-
-				if args.body != nil {
-					// Encrypt request body
-					if err := encryption.EncryptChatRequest(ctx, keyNonce, args.body.(model.CreateChatCompletionRequest)); err != nil {
-						return err
-					}
-
-				}
-
-				req, innerErr := c.requestBuilder.Build(ctx, method, url, args.body, args.header)
-				if innerErr != nil {
-					return innerErr
-				}
-
-				c.keyNonce.Store(requestID, keyNonce)
-
-				defer func() {
-					if err != nil {
-						c.keyNonce.Delete(requestID)
-					}
-				}()
-
-				streamReader, err = sendChatCompletionRequestStream(c, c.config.HTTPClient, req)
-				return err
-			}
 			req, innerErr := c.newRequest(ctx, method, url, resourceTypeEndpoint, resourceId, setters...)
 			if innerErr != nil {
 				return innerErr

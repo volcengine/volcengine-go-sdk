@@ -292,9 +292,12 @@ func deriveKeyBasic(hash func() hash.Hash, dh *ecdsa.PublicKey, len int) ([]byte
 	dhb := ECDHMarshalBinary(dh)
 	hkdf := NewHKDF(hash, dhb, nil, nil)
 	key := make([]byte, len)
-	_, err := hkdf.Read(key)
+	n, err := hkdf.Read(key)
 	if err != nil && err != io.EOF {
 		return nil, err
+	}
+	if n != len {
+		return nil, fmt.Errorf("hkdf.Read returned incomplete key: expected %d bytes, got %d bytes", len, n)
 	}
 	return key, nil
 }
