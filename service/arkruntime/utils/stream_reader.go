@@ -26,6 +26,8 @@ type ChatCompletionStreamReader struct {
 	ErrAccumulator ErrorAccumulator
 	Unmarshaler    Unmarshaler
 	KeyNonce       []byte
+	RequestID      string
+	Cleanup        func()
 
 	model.HttpHeader
 }
@@ -124,6 +126,10 @@ func (stream *ChatCompletionStreamReader) processLines() (model.ChatCompletionSt
 
 		if string(trimedLine) == "[DONE]" {
 			stream.IsFinished = true
+			if stream.Cleanup != nil {
+				stream.Cleanup()
+				stream.Cleanup = nil
+			}
 			return model.ChatCompletionStreamResponse{}, io.EOF
 		}
 		var response model.ChatCompletionStreamResponse
@@ -309,6 +315,9 @@ func (stream *ChatCompletionStreamReader) unmarshalError() (errResp *model.Error
 }
 
 func (stream *ChatCompletionStreamReader) Close() error {
+	if stream.Cleanup != nil {
+		stream.Cleanup()
+	}
 	return stream.Response.Body.Close()
 }
 
