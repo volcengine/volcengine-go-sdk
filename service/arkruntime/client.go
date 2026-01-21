@@ -388,21 +388,23 @@ func sendChatCompletionRequestStream(client *Client, httpClient *http.Client, re
 	req.Header.Set("Cache-Control", "no-cache")
 	req.Header.Set("Connection", "keep-alive")
 
+	cleanup := func() {
+		client.keyNonce.Delete(requestID)
+	}
+
 	resp, err := httpClient.Do(req) //nolint:bodyclose // body is closed in stream.Close()
 	if err != nil {
+		cleanup()
 		return &utils.ChatCompletionStreamReader{}, model.NewRequestError(http.StatusInternalServerError, err, requestID)
 	}
 	if isFailureStatusCode(resp) {
+		cleanup()
 		return &utils.ChatCompletionStreamReader{}, client.handleErrorResp(resp)
 	}
 
 	keyNonce, ok := client.keyNonce.Load(resp.Header.Get(model.ClientRequestHeader))
 	if !ok {
 		keyNonce = []byte{}
-	}
-
-	cleanup := func() {
-		client.keyNonce.Delete(requestID)
 	}
 
 	return &utils.ChatCompletionStreamReader{
