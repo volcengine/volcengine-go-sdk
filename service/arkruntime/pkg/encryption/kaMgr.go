@@ -370,7 +370,10 @@ func CheckIsModeAICC() bool {
 
 func EncryptChatRequest(ctx context.Context, keyNonce []byte, request model.CreateChatCompletionRequest) error {
 	err := ProcessChatCompletionRequest(ctx, request.Messages, func(text string) (string, error) {
-		return AesGcmEncryptBase64String(keyNonce[:32], keyNonce[32:], text)
+		if len(keyNonce) != aesKeySize+aesNonceSize {
+			return "", fmt.Errorf("keyNonce must be %d bytes long, got %d", aesKeySize+aesNonceSize, len(keyNonce))
+		}
+		return AesGcmEncryptBase64String(keyNonce[:aesKeySize], keyNonce[aesKeySize:], text)
 	})
 	if err != nil {
 		return err
