@@ -414,13 +414,7 @@ func ProcessChatCompletionMessageContent(content *model.ChatCompletionMessageCon
 			}
 		}
 		if p.ImageURL != nil {
-			p.ImageURL.URL, err = fn(p.ImageURL.URL)
-			if err != nil {
-				return err
-			}
-		}
-		if p.VideoURL != nil {
-			p.VideoURL.URL, err = fn(p.VideoURL.URL)
+			p.ImageURL.URL, err = EncryptURL(p.ImageURL.URL, fn)
 			if err != nil {
 				return err
 			}
