@@ -42,7 +42,7 @@ func (c *E2eeClient) GenerateECIESKeyPair() ([]byte, string, error) {
 }
 
 func (c *E2eeClient) GetEncryptInfo() string {
-	info, err := json.Marshal(c.info) // tbd marshal method
+	info, err := json.Marshal(c.info)
 	if err != nil {
 		return ""
 	}

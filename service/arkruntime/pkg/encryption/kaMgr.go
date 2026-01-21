@@ -350,7 +350,7 @@ func SaveToLocalCertificate(model, certPem string) error {
 	var dir string
 	home, herr := os.UserHomeDir()
 	if herr == nil && home != "" {
-		dir = filepath.Join(home, ".ark", "certificates") // tbd to be const
+		dir = filepath.Join(home, ".ark", "certificates")
 	} else {
 		return fmt.Errorf("failed to get user home dir. err=%w", herr)
 	}
@@ -365,7 +365,7 @@ func SaveToLocalCertificate(model, certPem string) error {
 }
 
 func CheckIsModeAICC() bool {
-	return os.Getenv("VOLC_ARK_ENCRYPTION") == "AICC" // tbd to be const
+	return os.Getenv("VOLC_ARK_ENCRYPTION") == "AICC"
 }
 
 func EncryptChatRequest(ctx context.Context, keyNonce []byte, request model.CreateChatCompletionRequest) error {
@@ -432,8 +432,8 @@ func EncryptURL(urlString string, fn func(text string) (string, error)) (string,
 		return urlString, err
 	}
 	if StringInSlice(res.Scheme, []string{"https", "http", "file", "ftp"}) {
-		// tbd
-		fmt.Println("encryption is not supported for image url, please use base64 image if you want encryption")
+		// TBD: warn info
+		// fmt.Println("encryption is not supported for image url, please use base64 image if you want encryption")
 		return urlString, nil
 	} else if res.Scheme == "data" {
 		var newURL string
