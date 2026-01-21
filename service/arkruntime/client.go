@@ -404,7 +404,6 @@ func sendChatCompletionRequestStream(client *Client, httpClient *http.Client, re
 		Unmarshaler:        &utils.JSONUnmarshaler{},
 		HttpHeader:         model.HttpHeader(resp.Header),
 		KeyNonce:           keyNonce.([]byte),
-		RequestID:          requestID,
 		Cleanup:            cleanup,
 	}, nil
 }

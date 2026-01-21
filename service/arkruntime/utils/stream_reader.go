@@ -26,7 +26,6 @@ type ChatCompletionStreamReader struct {
 	ErrAccumulator ErrorAccumulator
 	Unmarshaler    Unmarshaler
 	KeyNonce       []byte
-	RequestID      string
 	Cleanup        func()
 
 	model.HttpHeader
