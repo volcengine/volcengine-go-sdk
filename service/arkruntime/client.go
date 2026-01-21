@@ -304,17 +304,6 @@ func (c *Client) sendRequest(client *http.Client, req *http.Request, v model.Res
 			RequestId:      requestID,
 		}
 	}
-	keyNonce, ok := c.keyNonce.Load(requestID)
-	if ok {
-		err = encryption.DecryptChatResponse(keyNonce.([]byte), v)
-		if err != nil {
-			err = &model.RequestError{
-				HTTPStatusCode: res.StatusCode,
-				Err:            err,
-				RequestId:      requestID,
-			}
-		}
-	}
 	return err
 }
 
@@ -533,7 +522,6 @@ func (c *Client) ChatCompletionRequestStreamDo(ctx context.Context, method, url,
 		},
 		func() bool { return true },
 		func() error {
-
 			req, innerErr := c.newRequest(ctx, method, url, resourceTypeEndpoint, resourceId, setters...)
 			if innerErr != nil {
 				return innerErr
