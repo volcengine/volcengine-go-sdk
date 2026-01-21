@@ -2,6 +2,7 @@ package arkruntime
 
 import (
 	"encoding/json"
+	"fmt"
 
 	"github.com/volcengine/volcengine-go-sdk/service/arkruntime/model"
 	"github.com/volcengine/volcengine-go-sdk/service/arkruntime/pkg/encryption"
@@ -38,10 +39,16 @@ func NewE2eeClient(certificate string) (*E2eeClient, error) {
 }
 
 func (c *E2eeClient) GenerateECIESKeyPair() ([]byte, string, error) {
+	if c == nil {
+		return nil, "", fmt.Errorf("E2eeClient is nil")
+	}
 	return c.cipher.GenerateECIESKeyPair()
 }
 
 func (c *E2eeClient) GetEncryptInfo() string {
+	if c == nil {
+		return ""
+	}
 	info, err := json.Marshal(c.info)
 	if err != nil {
 		return ""
