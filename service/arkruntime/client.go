@@ -26,6 +26,18 @@ import (
 	"github.com/volcengine/volcengine-go-sdk/volcengine/volcengineerr"
 )
 
+func deepCopyRequest(request model.CreateChatCompletionRequest) (model.CreateChatCompletionRequest, error) {
+	data, err := json.Marshal(request)
+	if err != nil {
+		return request, err
+	}
+	var copy model.CreateChatCompletionRequest
+	if err := json.Unmarshal(data, &copy); err != nil {
+		return request, err
+	}
+	return copy, nil
+}
+
 type Client struct {
 	config clientConfig
 
@@ -721,11 +733,17 @@ func (c *Client) encryptRequest(ctx context.Context, resourceId string, args *re
 	c.rwLock.Lock()
 	c.keyNonce.Store(args.header.Get(model.ClientRequestHeader), keyNonce)
 	c.rwLock.Unlock()
-	// encrypt request body
-	err = encryption.EncryptChatRequest(ctx, keyNonce, args.body.(model.CreateChatCompletionRequest))
+
+	// 对请求体进行深拷贝，避免多重加密
+	requestCopy, err := deepCopyRequest(args.body.(model.CreateChatCompletionRequest))
 	if err != nil {
 		return err
 	}
+	err = encryption.EncryptChatRequest(ctx, keyNonce, requestCopy)
+	if err != nil {
+		return err
+	}
+	args.body = requestCopy
 	return nil
 }
 
