@@ -458,8 +458,11 @@ func StringInSlice(str string, list []string) bool {
 
 func DecryptChatResponse(keyNonce []byte, response model.Response) error {
 	var err error
+	if len(keyNonce) != aesKeySize+aesNonceSize {
+		return fmt.Errorf("keyNonce must be %d bytes long, got %d", aesKeySize+aesNonceSize, len(keyNonce))
+	}
 	fn := func(text string) (string, error) {
-		return AesGcmDecryptBase64String(keyNonce[:32], keyNonce[32:], text)
+		return AesGcmDecryptBase64String(keyNonce[:aesKeySize], keyNonce[aesKeySize:], text)
 	}
 	if cr, ok := response.(*model.ChatCompletionResponse); ok {
 		for _, choice := range cr.Choices {
