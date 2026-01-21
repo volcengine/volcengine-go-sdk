@@ -39,7 +39,7 @@ func NewE2eeClient(certificate string) (*E2eeClient, error) {
 }
 
 func (c *E2eeClient) GenerateECIESKeyPair() ([]byte, string, error) {
-	if c == nil {
+	if c == nil || c.cipher == nil {
 		return nil, "", fmt.Errorf("E2eeClient is nil")
 	}
 	return c.cipher.GenerateECIESKeyPair()
