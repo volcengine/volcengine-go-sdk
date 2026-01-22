@@ -147,6 +147,8 @@ type ListRolesInput struct {
 	Offset *int32 `type:"int32"`
 
 	Query *string `type:"string"`
+
+	RoleName *string `type:"string"`
 }
 
 // String returns the string representation
@@ -174,6 +176,12 @@ func (s *ListRolesInput) SetOffset(v int32) *ListRolesInput {
 // SetQuery sets the Query field's value.
 func (s *ListRolesInput) SetQuery(v string) *ListRolesInput {
 	s.Query = &v
+	return s
+}
+
+// SetRoleName sets the RoleName field's value.
+func (s *ListRolesInput) SetRoleName(v string) *ListRolesInput {
+	s.RoleName = &v
 	return s
 }
 
