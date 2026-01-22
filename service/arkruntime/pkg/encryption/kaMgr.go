@@ -435,7 +435,7 @@ func EncryptURL(urlString string, fn func(text string) (string, error)) (string,
 		return urlString, nil
 	} else if res.Scheme == "data" {
 		var newURL string
-		newURL, err = fn(res.Opaque)
+		newURL, err = fn(urlString)
 		if err != nil {
 			return urlString, err
 		}
