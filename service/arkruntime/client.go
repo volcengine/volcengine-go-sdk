@@ -722,7 +722,7 @@ func (c *Client) encryptRequest(ctx context.Context, resourceId string, args *re
 	c.keyNonce.Store(args.header.Get(model.ClientRequestHeader), keyNonce)
 	c.rwLock.Unlock()
 
-	// 对请求体进行深拷贝，避免多重加密
+	// deep copy request body to avoid encrypting multiple times
 	requestCopy, err := encryption.DeepCopyRequest(args.body.(model.CreateChatCompletionRequest))
 	if err != nil {
 		return err

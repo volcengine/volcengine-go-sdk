@@ -498,11 +498,11 @@ func DecryptChatStreamResponse(keyNonce []byte, response model.ChatCompletionStr
 func DeepCopyRequest(request model.CreateChatCompletionRequest) (model.CreateChatCompletionRequest, error) {
 	data, err := json.Marshal(request)
 	if err != nil {
-		return request, err
+		return model.CreateChatCompletionRequest{}, err
 	}
 	var copy model.CreateChatCompletionRequest
 	if err := json.Unmarshal(data, &copy); err != nil {
-		return request, err
+		return model.CreateChatCompletionRequest{}, err
 	}
 	return copy, nil
 }
