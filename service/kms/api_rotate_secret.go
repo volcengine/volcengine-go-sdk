@@ -148,6 +148,8 @@ type RotateSecretInput struct {
 
 	// SecretName is a required field
 	SecretName *string `min:"2" max:"128" type:"string" json:",omitempty" required:"true"`
+
+	VersionName *string `min:"2" max:"128" type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -172,6 +174,12 @@ func (s *RotateSecretInput) Validate() error {
 	if s.SecretName != nil && len(*s.SecretName) > 128 {
 		invalidParams.Add(request.NewErrParamMaxLen("SecretName", 128, *s.SecretName))
 	}
+	if s.VersionName != nil && len(*s.VersionName) < 2 {
+		invalidParams.Add(request.NewErrParamMinLen("VersionName", 2))
+	}
+	if s.VersionName != nil && len(*s.VersionName) > 128 {
+		invalidParams.Add(request.NewErrParamMaxLen("VersionName", 128, *s.VersionName))
+	}
 
 	if invalidParams.Len() > 0 {
 		return invalidParams
@@ -182,6 +190,12 @@ func (s *RotateSecretInput) Validate() error {
 // SetSecretName sets the SecretName field's value.
 func (s *RotateSecretInput) SetSecretName(v string) *RotateSecretInput {
 	s.SecretName = &v
+	return s
+}
+
+// SetVersionName sets the VersionName field's value.
+func (s *RotateSecretInput) SetVersionName(v string) *RotateSecretInput {
+	s.VersionName = &v
 	return s
 }
 
