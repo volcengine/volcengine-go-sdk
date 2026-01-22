@@ -11,6 +11,7 @@ import (
 	"crypto/sha256"
 	"crypto/x509"
 	"encoding/base64"
+	"encoding/json"
 	"encoding/pem"
 	"fmt"
 	"hash"
@@ -492,4 +493,16 @@ func DecryptChatStreamResponse(keyNonce []byte, response model.ChatCompletionStr
 		}
 	}
 	return nil
+}
+
+func DeepCopyRequest(request model.CreateChatCompletionRequest) (model.CreateChatCompletionRequest, error) {
+	data, err := json.Marshal(request)
+	if err != nil {
+		return request, err
+	}
+	var copy model.CreateChatCompletionRequest
+	if err := json.Unmarshal(data, &copy); err != nil {
+		return request, err
+	}
+	return copy, nil
 }
