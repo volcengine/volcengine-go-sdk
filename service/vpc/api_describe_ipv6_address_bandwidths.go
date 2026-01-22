@@ -294,7 +294,7 @@ type Ipv6AddressBandwidthForDescribeIpv6AddressBandwidthsOutput struct {
 
 	AllocationId *string `type:"string"`
 
-	Bandwidth *string `type:"string"`
+	Bandwidth *int64 `type:"integer"`
 
 	BandwidthPackageId *string `type:"string"`
 
@@ -350,7 +350,7 @@ func (s *Ipv6AddressBandwidthForDescribeIpv6AddressBandwidthsOutput) SetAllocati
 }
 
 // SetBandwidth sets the Bandwidth field's value.
-func (s *Ipv6AddressBandwidthForDescribeIpv6AddressBandwidthsOutput) SetBandwidth(v string) *Ipv6AddressBandwidthForDescribeIpv6AddressBandwidthsOutput {
+func (s *Ipv6AddressBandwidthForDescribeIpv6AddressBandwidthsOutput) SetBandwidth(v int64) *Ipv6AddressBandwidthForDescribeIpv6AddressBandwidthsOutput {
 	s.Bandwidth = &v
 	return s
 }

@@ -142,6 +142,8 @@ func (c *VPC) UnassignPrivateIpAddressesWithContext(ctx volcengine.Context, inpu
 type UnassignPrivateIpAddressesInput struct {
 	_ struct{} `type:"structure"`
 
+	ClientToken *string `type:"string"`
+
 	// NetworkInterfaceId is a required field
 	NetworkInterfaceId *string `type:"string" required:"true"`
 
@@ -173,6 +175,12 @@ func (s *UnassignPrivateIpAddressesInput) Validate() error {
 		return invalidParams
 	}
 	return nil
+}
+
+// SetClientToken sets the ClientToken field's value.
+func (s *UnassignPrivateIpAddressesInput) SetClientToken(v string) *UnassignPrivateIpAddressesInput {
+	s.ClientToken = &v
+	return s
 }
 
 // SetNetworkInterfaceId sets the NetworkInterfaceId field's value.

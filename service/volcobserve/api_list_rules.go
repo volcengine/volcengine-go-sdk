@@ -280,9 +280,13 @@ type DataForListRulesOutput struct {
 
 	Namespace *string `type:"string" json:",omitempty"`
 
+	NoData *NoDataForListRulesOutput `type:"structure" json:",omitempty"`
+
 	NotificationId *string `type:"string" json:",omitempty"`
 
 	NotifyTemplates []*NotifyTemplateForListRulesOutput `type:"list" json:",omitempty"`
+
+	ObjectGroupId *string `type:"string" json:",omitempty"`
 
 	OriginalDimensions map[string][]*string `type:"map" json:",omitempty"`
 
@@ -423,6 +427,12 @@ func (s *DataForListRulesOutput) SetNamespace(v string) *DataForListRulesOutput 
 	return s
 }
 
+// SetNoData sets the NoData field's value.
+func (s *DataForListRulesOutput) SetNoData(v *NoDataForListRulesOutput) *DataForListRulesOutput {
+	s.NoData = v
+	return s
+}
+
 // SetNotificationId sets the NotificationId field's value.
 func (s *DataForListRulesOutput) SetNotificationId(v string) *DataForListRulesOutput {
 	s.NotificationId = &v
@@ -432,6 +442,12 @@ func (s *DataForListRulesOutput) SetNotificationId(v string) *DataForListRulesOu
 // SetNotifyTemplates sets the NotifyTemplates field's value.
 func (s *DataForListRulesOutput) SetNotifyTemplates(v []*NotifyTemplateForListRulesOutput) *DataForListRulesOutput {
 	s.NotifyTemplates = v
+	return s
+}
+
+// SetObjectGroupId sets the ObjectGroupId field's value.
+func (s *DataForListRulesOutput) SetObjectGroupId(v string) *DataForListRulesOutput {
+	s.ObjectGroupId = &v
 	return s
 }
 
@@ -594,11 +610,15 @@ type ListRulesInput struct {
 
 	AlertState []*string `type:"list" json:",omitempty"`
 
+	AlertTemplateIds []*string `type:"list" json:",omitempty"`
+
 	EnableState []*string `type:"list" json:",omitempty"`
 
 	Level []*string `type:"list" json:",omitempty"`
 
 	Namespace []*string `type:"list" json:",omitempty"`
+
+	ObjectGroupIds []*string `type:"list" json:",omitempty"`
 
 	PageNumber *int64 `type:"integer" json:",omitempty"`
 
@@ -625,6 +645,12 @@ func (s *ListRulesInput) SetAlertState(v []*string) *ListRulesInput {
 	return s
 }
 
+// SetAlertTemplateIds sets the AlertTemplateIds field's value.
+func (s *ListRulesInput) SetAlertTemplateIds(v []*string) *ListRulesInput {
+	s.AlertTemplateIds = v
+	return s
+}
+
 // SetEnableState sets the EnableState field's value.
 func (s *ListRulesInput) SetEnableState(v []*string) *ListRulesInput {
 	s.EnableState = v
@@ -640,6 +666,12 @@ func (s *ListRulesInput) SetLevel(v []*string) *ListRulesInput {
 // SetNamespace sets the Namespace field's value.
 func (s *ListRulesInput) SetNamespace(v []*string) *ListRulesInput {
 	s.Namespace = v
+	return s
+}
+
+// SetObjectGroupIds sets the ObjectGroupIds field's value.
+func (s *ListRulesInput) SetObjectGroupIds(v []*string) *ListRulesInput {
+	s.ObjectGroupIds = v
 	return s
 }
 
@@ -788,6 +820,44 @@ func (s *MetaForListRulesOutput) SetKey(v string) *MetaForListRulesOutput {
 // SetValues sets the Values field's value.
 func (s *MetaForListRulesOutput) SetValues(v []*string) *MetaForListRulesOutput {
 	s.Values = v
+	return s
+}
+
+type NoDataForListRulesOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Enable *bool `type:"boolean" json:",omitempty"`
+
+	EvaluationCount *int64 `type:"integer" json:",omitempty"`
+
+	Level *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s NoDataForListRulesOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s NoDataForListRulesOutput) GoString() string {
+	return s.String()
+}
+
+// SetEnable sets the Enable field's value.
+func (s *NoDataForListRulesOutput) SetEnable(v bool) *NoDataForListRulesOutput {
+	s.Enable = &v
+	return s
+}
+
+// SetEvaluationCount sets the EvaluationCount field's value.
+func (s *NoDataForListRulesOutput) SetEvaluationCount(v int64) *NoDataForListRulesOutput {
+	s.EvaluationCount = &v
+	return s
+}
+
+// SetLevel sets the Level field's value.
+func (s *NoDataForListRulesOutput) SetLevel(v string) *NoDataForListRulesOutput {
+	s.Level = &v
 	return s
 }
 

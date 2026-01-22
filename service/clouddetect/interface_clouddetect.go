@@ -78,14 +78,6 @@ type CLOUDDETECTAPI interface {
 	ListTaskWithContext(volcengine.Context, *ListTaskInput, ...request.Option) (*ListTaskOutput, error)
 	ListTaskRequest(*ListTaskInput) (*request.Request, *ListTaskOutput)
 
-	ListTaskGroupsCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	ListTaskGroupsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	ListTaskGroupsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	ListTaskGroups(*ListTaskGroupsInput) (*ListTaskGroupsOutput, error)
-	ListTaskGroupsWithContext(volcengine.Context, *ListTaskGroupsInput, ...request.Option) (*ListTaskGroupsOutput, error)
-	ListTaskGroupsRequest(*ListTaskGroupsInput) (*request.Request, *ListTaskGroupsOutput)
-
 	RestartTaskCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	RestartTaskCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	RestartTaskCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -101,6 +93,14 @@ type CLOUDDETECTAPI interface {
 	StopTask(*StopTaskInput) (*StopTaskOutput, error)
 	StopTaskWithContext(volcengine.Context, *StopTaskInput, ...request.Option) (*StopTaskOutput, error)
 	StopTaskRequest(*StopTaskInput) (*request.Request, *StopTaskOutput)
+
+	UpdateTaskCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	UpdateTaskCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	UpdateTaskCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	UpdateTask(*UpdateTaskInput) (*UpdateTaskOutput, error)
+	UpdateTaskWithContext(volcengine.Context, *UpdateTaskInput, ...request.Option) (*UpdateTaskOutput, error)
+	UpdateTaskRequest(*UpdateTaskInput) (*request.Request, *UpdateTaskOutput)
 }
 
 var _ CLOUDDETECTAPI = (*CLOUDDETECT)(nil)
