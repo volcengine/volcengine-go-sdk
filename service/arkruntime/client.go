@@ -2,6 +2,7 @@ package arkruntime
 
 import (
 	"bufio"
+	"bytes"
 	"context"
 	"encoding/json"
 	"errors"
@@ -17,6 +18,7 @@ import (
 
 	"github.com/volcengine/volcengine-go-sdk/service/ark"
 	"github.com/volcengine/volcengine-go-sdk/service/arkruntime/model"
+	"github.com/volcengine/volcengine-go-sdk/service/arkruntime/pkg/encryption"
 	"github.com/volcengine/volcengine-go-sdk/service/arkruntime/utils"
 	"github.com/volcengine/volcengine-go-sdk/volcengine"
 	"github.com/volcengine/volcengine-go-sdk/volcengine/credentials"
@@ -34,6 +36,9 @@ type Client struct {
 	rwLock                  *sync.RWMutex
 	advisoryRefreshTimeout  int
 	mandatoryRefreshTimeout int
+	e2eeManager             sync.Map
+	keyNonce                sync.Map
+	flightMap               sync.Map
 
 	batchHTTPClient      *http.Client
 	modelBreakerProvider *utils.ModelBreakerProvider
@@ -67,6 +72,8 @@ func newClientWithConfig(config clientConfig) *Client {
 		rwLock:                  &sync.RWMutex{},
 		advisoryRefreshTimeout:  model.DefaultAdvisoryRefreshTimeout,
 		mandatoryRefreshTimeout: model.DefaultMandatoryRefreshTimeout,
+		e2eeManager:             sync.Map{},
+		keyNonce:                sync.Map{},
 		batchHTTPClient:         newBatchHTTPClient(config.batchMaxParallel),
 		modelBreakerProvider:    utils.NewModelBreakerProvider(),
 	}
@@ -236,6 +243,21 @@ func (c *Client) newRequest(ctx context.Context, method, url, resourceType, reso
 		return nil, errH
 	}
 
+	// encrypt request body if is necessary
+	if args.header.Get(model.ClientIsEncryptedHeader) == "true" {
+		isStreaming := false
+		if args.body != nil {
+			if chatRequest, ok := args.body.(model.ChatRequest); ok {
+				isStreaming = chatRequest.IsStream()
+			}
+		}
+		if isStreaming {
+			if err := c.encryptRequest(ctx, resourceId, args); err != nil {
+				return nil, model.NewRequestError(http.StatusBadRequest, err, requestID)
+			}
+		}
+	}
+
 	// add query args
 	if len(args.query) > 0 {
 		url = url + "?" + args.query.Encode()
@@ -356,13 +378,25 @@ func sendChatCompletionRequestStream(client *Client, httpClient *http.Client, re
 	req.Header.Set("Cache-Control", "no-cache")
 	req.Header.Set("Connection", "keep-alive")
 
+	cleanup := func() {
+		client.keyNonce.Delete(requestID)
+	}
+
 	resp, err := httpClient.Do(req) //nolint:bodyclose // body is closed in stream.Close()
 	if err != nil {
+		cleanup()
 		return &utils.ChatCompletionStreamReader{}, model.NewRequestError(http.StatusInternalServerError, err, requestID)
 	}
 	if isFailureStatusCode(resp) {
+		cleanup()
 		return &utils.ChatCompletionStreamReader{}, client.handleErrorResp(resp)
 	}
+
+	keyNonce, ok := client.keyNonce.Load(resp.Header.Get(model.ClientRequestHeader))
+	if !ok {
+		keyNonce = []byte{}
+	}
+
 	return &utils.ChatCompletionStreamReader{
 		EmptyMessagesLimit: client.config.EmptyMessagesLimit,
 		Reader:             bufio.NewReader(resp.Body),
@@ -370,6 +404,8 @@ func sendChatCompletionRequestStream(client *Client, httpClient *http.Client, re
 		ErrAccumulator:     utils.NewErrorAccumulator(),
 		Unmarshaler:        &utils.JSONUnmarshaler{},
 		HttpHeader:         model.HttpHeader(resp.Header),
+		KeyNonce:           keyNonce.([]byte),
+		Cleanup:            cleanup,
 	}, nil
 }
 
@@ -426,7 +462,6 @@ func sendCreateResponsesRequestStream(client *Client, httpClient *http.Client, r
 }
 
 func sendImageGenerationStream(client *Client, httpClient *http.Client, req *http.Request) (*utils.ImageGenerationStreamReader, error) {
-
 	requestID := req.Header.Get(model.ClientRequestHeader)
 	req.Header.Set("Content-Type", "application/json")
 	req.Header.Set("Accept", "text/event-stream")
@@ -525,6 +560,7 @@ func (c *Client) ResponsesRequestStreamDo(ctx context.Context, method, url, reso
 	)
 	return
 }
+
 func (c *Client) ImageGenerationStreamDo(ctx context.Context, method, url, resourceId string, setters ...requestOption) (streamReader *utils.ImageGenerationStreamReader, err error) {
 	err = utils.Retry(
 		ctx,
@@ -666,4 +702,139 @@ func (c *Client) getRetryAfter(v model.Response) int64 {
 
 func (c *Client) isAPIKeyAuthentication() bool {
 	return c.config.apiKey != ""
+}
+
+func (c *Client) encryptRequest(ctx context.Context, resourceId string, args *requestOptions) error {
+	e2eeClient, err := c.getE2eeClient(ctx, resourceId, args.header.Get("Authorization"))
+	if err != nil {
+		return err
+	}
+	keyNonce, sessionToken, err := e2eeClient.GenerateECIESKeyPair()
+	if err != nil {
+		return err
+	}
+	// add session token to header
+	args.header.Set(model.ClientSessionTokenHeader, sessionToken)
+	if encryption.CheckIsModeAICC() {
+		args.header.Set(model.ClientEncryptInfoHeader, e2eeClient.GetEncryptInfo())
+	}
+	// store keyNonce to map
+	c.rwLock.Lock()
+	c.keyNonce.Store(args.header.Get(model.ClientRequestHeader), keyNonce)
+	c.rwLock.Unlock()
+
+	// deep copy request body to avoid encrypting multiple times
+	requestCopy, err := encryption.DeepCopyRequest(args.body.(model.CreateChatCompletionRequest))
+	if err != nil {
+		return err
+	}
+	err = encryption.EncryptChatRequest(ctx, keyNonce, requestCopy)
+	if err != nil {
+		return err
+	}
+	args.body = requestCopy
+	return nil
+}
+
+func (c *Client) getE2eeClient(ctx context.Context, resourceId, auth string) (*E2eeClient, error) {
+	cert, ok := c.e2eeManager.Load(resourceId)
+	if ok {
+		client := cert.(*E2eeClient)
+		if client.isAICC == encryption.CheckIsModeAICC() {
+			return client, nil
+		}
+	}
+
+	// check if it has new flight
+	if f, ok := c.flightMap.Load(resourceId); ok {
+		flight := f.(*flight)
+		flight.wg.Wait()
+		return flight.client, flight.err
+	}
+
+	// create new flight
+	f := &flight{}
+	f.wg.Add(1)
+	if actual, loaded := c.flightMap.LoadOrStore(resourceId, f); loaded {
+		flight := actual.(*flight)
+		flight.wg.Wait()
+		return flight.client, flight.err
+	}
+
+	defer func() {
+		f.wg.Done()
+		c.flightMap.Delete(resourceId)
+	}()
+
+	if cert, ok := c.e2eeManager.Load(resourceId); ok {
+		client := cert.(*E2eeClient)
+		if client.isAICC == encryption.CheckIsModeAICC() {
+			f.client = client
+			f.err = nil
+			return client, nil
+		}
+	}
+
+	// load by local file
+	certPem, err := encryption.LoadLocalCertificate(resourceId)
+	if err != nil || certPem == "" {
+		// load from client request and save file to local
+		certPem, err = c.loadServerCertificate(ctx, resourceId, auth)
+		if err != nil {
+			f.err = fmt.Errorf("loading Certificate failed: %w", err)
+			return nil, f.err
+		}
+		// save to local file
+		err = encryption.SaveToLocalCertificate(resourceId, certPem)
+		if err != nil {
+			f.err = fmt.Errorf("saving Certificate failed: %w", err)
+			return nil, f.err
+		}
+	}
+	e2eeClient, err := NewE2eeClient(certPem)
+	if err != nil {
+		f.err = fmt.Errorf("creating E2eeClient failed: %w", err)
+		return nil, f.err
+	}
+	// store to e2eeManager
+	c.rwLock.Lock()
+	defer c.rwLock.Unlock()
+	c.e2eeManager.Store(resourceId, e2eeClient)
+	f.client = e2eeClient
+	f.err = nil
+	return e2eeClient, nil
+}
+
+func (c *Client) loadServerCertificate(ctx context.Context, resourceId, auth string) (string, error) {
+	url := c.fullURL("/e2e/get/certificate")
+	requestBody := map[string]interface{}{"model": resourceId}
+	// Check if AICC mode is enabled
+	if encryption.CheckIsModeAICC() {
+		requestBody["type"] = "AICCv0.1"
+	}
+	b, err := json.Marshal(requestBody)
+	if err != nil {
+		return "", fmt.Errorf("getting Certificate failed: %w", err)
+	}
+	req, err := http.NewRequestWithContext(ctx, "POST", url, bytes.NewReader(b))
+	if err != nil {
+		return "", fmt.Errorf("getting Certificate failed: %w", err)
+	}
+	req.Header.Set("Content-Type", "application/json")
+	req.Header.Set("Accept", "application/json")
+	req.Header.Set("Authorization", auth)
+	req.Header.Set("X-Session-Token", "/e2e/get/certificate")
+	res, err := c.config.HTTPClient.Do(req)
+	if err != nil {
+		return "", fmt.Errorf("getting Certificate failed: %w", err)
+	}
+	defer res.Body.Close()
+	var cr model.CertificateResponse
+	if err := json.NewDecoder(res.Body).Decode(&cr); err != nil {
+		return "", fmt.Errorf("getting Certificate failed: %w", err)
+	}
+	if len(cr.Error) > 0 {
+		return "", fmt.Errorf("getting Certificate failed: %v", cr.Error)
+	}
+	return cr.Certificate, nil
 }
