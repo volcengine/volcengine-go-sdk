@@ -3,10 +3,17 @@ package arkruntime
 import (
 	"encoding/json"
 	"fmt"
+	"sync"
 
 	"github.com/volcengine/volcengine-go-sdk/service/arkruntime/model"
 	"github.com/volcengine/volcengine-go-sdk/service/arkruntime/pkg/encryption"
 )
+
+type flight struct {
+	wg     sync.WaitGroup
+	client *E2eeClient
+	err    error
+}
 
 type E2eeClient struct {
 	certificate string
