@@ -38,6 +38,7 @@ type Client struct {
 	mandatoryRefreshTimeout int
 	e2eeManager             sync.Map
 	keyNonce                sync.Map
+	flightMap               sync.Map
 
 	batchHTTPClient      *http.Client
 	modelBreakerProvider *utils.ModelBreakerProvider
@@ -743,28 +744,64 @@ func (c *Client) getE2eeClient(ctx context.Context, resourceId, auth string) (*E
 			return client, nil
 		}
 	}
+
+	// check if it has new flight
+	if f, ok := c.flightMap.Load(resourceId); ok {
+		flight := f.(*flight)
+		flight.wg.Wait()
+		return flight.client, flight.err
+	}
+
+	// create new flight
+	f := &flight{}
+	f.wg.Add(1)
+	if actual, loaded := c.flightMap.LoadOrStore(resourceId, f); loaded {
+		flight := actual.(*flight)
+		flight.wg.Wait()
+		return flight.client, flight.err
+	}
+
+	defer func() {
+		f.wg.Done()
+		c.flightMap.Delete(resourceId)
+	}()
+
+	if cert, ok := c.e2eeManager.Load(resourceId); ok {
+		client := cert.(*E2eeClient)
+		if client.isAICC == encryption.CheckIsModeAICC() {
+			f.client = client
+			f.err = nil
+			return client, nil
+		}
+	}
+
 	// load by local file
 	certPem, err := encryption.LoadLocalCertificate(resourceId)
 	if err != nil || certPem == "" {
 		// load from client request and save file to local
 		certPem, err = c.loadServerCertificate(ctx, resourceId, auth)
 		if err != nil {
-			return nil, fmt.Errorf("loading Certificate failed: %w", err)
+			f.err = fmt.Errorf("loading Certificate failed: %w", err)
+			return nil, f.err
 		}
 		// save to local file
 		err = encryption.SaveToLocalCertificate(resourceId, certPem)
 		if err != nil {
-			return nil, fmt.Errorf("saving Certificate failed: %w", err)
+			f.err = fmt.Errorf("saving Certificate failed: %w", err)
+			return nil, f.err
 		}
 	}
 	e2eeClient, err := NewE2eeClient(certPem)
 	if err != nil {
-		return nil, fmt.Errorf("creating E2eeClient failed: %w", err)
+		f.err = fmt.Errorf("creating E2eeClient failed: %w", err)
+		return nil, f.err
 	}
 	// store to e2eeManager
 	c.rwLock.Lock()
 	defer c.rwLock.Unlock()
 	c.e2eeManager.Store(resourceId, e2eeClient)
+	f.client = e2eeClient
+	f.err = nil
 	return e2eeClient, nil
 }
 
