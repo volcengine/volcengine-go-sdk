@@ -25,6 +25,7 @@ func BuildAuthToken(ctx context.Context, credentials *base.Credentials, dbUser, 
 	if dbUser == "" || instanceId == "" {
 		return "", fmt.Errorf("dbUser or instanceId must not be empty")
 	}
+	credentials.Service = "rds_mysql"
 	endpoint := volcengineutil.NewEndpoint().GetEndpoint()
 	req, err := http.NewRequestWithContext(ctx, "GET", endpoint, nil)
 	if err != nil {
