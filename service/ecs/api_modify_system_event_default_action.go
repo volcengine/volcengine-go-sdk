@@ -143,7 +143,7 @@ type ModifySystemEventDefaultActionInput struct {
 	_ struct{} `type:"structure"`
 
 	// DefaultAction is a required field
-	DefaultAction *string `type:"string" required:"true" enum:"DefaultActionForModifySystemEventDefaultActionInput"`
+	DefaultAction *string `type:"string" required:"true"`
 
 	// EventId is a required field
 	EventId *string `type:"string" required:"true"`
@@ -234,11 +234,3 @@ func (s *ModifySystemEventDefaultActionOutput) SetRelatedEventId(v string) *Modi
 	s.RelatedEventId = &v
 	return s
 }
-
-const (
-	// DefaultActionForModifySystemEventDefaultActionInputColdMigrate is a DefaultActionForModifySystemEventDefaultActionInput enum value
-	DefaultActionForModifySystemEventDefaultActionInputColdMigrate = "ColdMigrate"
-
-	// DefaultActionForModifySystemEventDefaultActionInputReplaceDisk is a DefaultActionForModifySystemEventDefaultActionInput enum value
-	DefaultActionForModifySystemEventDefaultActionInputReplaceDisk = "ReplaceDisk"
-)
