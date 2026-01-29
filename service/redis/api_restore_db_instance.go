@@ -148,7 +148,7 @@ type RestoreDBInstanceInput struct {
 
 	BackupPointId *string `type:"string" json:",omitempty"`
 
-	BackupType *string `type:"string" json:",omitempty"`
+	BackupType *string `type:"string" json:",omitempty" enum:"EnumOfBackupTypeForRestoreDBInstanceInput"`
 
 	ClientToken *string `type:"string" json:",omitempty"`
 
@@ -226,3 +226,17 @@ func (s RestoreDBInstanceOutput) String() string {
 func (s RestoreDBInstanceOutput) GoString() string {
 	return s.String()
 }
+
+const (
+	// EnumOfBackupTypeForRestoreDBInstanceInputInvalid is a EnumOfBackupTypeForRestoreDBInstanceInput enum value
+	EnumOfBackupTypeForRestoreDBInstanceInputInvalid = "Invalid"
+
+	// EnumOfBackupTypeForRestoreDBInstanceInputFull is a EnumOfBackupTypeForRestoreDBInstanceInput enum value
+	EnumOfBackupTypeForRestoreDBInstanceInputFull = "Full"
+
+	// EnumOfBackupTypeForRestoreDBInstanceInputInc is a EnumOfBackupTypeForRestoreDBInstanceInput enum value
+	EnumOfBackupTypeForRestoreDBInstanceInputInc = "Inc"
+
+	// EnumOfBackupTypeForRestoreDBInstanceInputAll is a EnumOfBackupTypeForRestoreDBInstanceInput enum value
+	EnumOfBackupTypeForRestoreDBInstanceInputAll = "All"
+)
