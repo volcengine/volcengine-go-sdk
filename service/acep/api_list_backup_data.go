@@ -282,11 +282,15 @@ type RowForListBackupDataOutput struct {
 
 	Detail *string `type:"string" json:",omitempty"`
 
+	ExcludePathList []*string `type:"list" json:",omitempty"`
+
 	ExpireTime *int64 `type:"int64" json:",omitempty"`
 
 	FinishedTime *int64 `type:"int64" json:",omitempty"`
 
 	InUseCount *int64 `type:"int64" json:",omitempty"`
+
+	IncludePathList []*string `type:"list" json:",omitempty"`
 
 	Md5Sum *string `type:"string" json:",omitempty"`
 
@@ -403,6 +407,12 @@ func (s *RowForListBackupDataOutput) SetDetail(v string) *RowForListBackupDataOu
 	return s
 }
 
+// SetExcludePathList sets the ExcludePathList field's value.
+func (s *RowForListBackupDataOutput) SetExcludePathList(v []*string) *RowForListBackupDataOutput {
+	s.ExcludePathList = v
+	return s
+}
+
 // SetExpireTime sets the ExpireTime field's value.
 func (s *RowForListBackupDataOutput) SetExpireTime(v int64) *RowForListBackupDataOutput {
 	s.ExpireTime = &v
@@ -418,6 +428,12 @@ func (s *RowForListBackupDataOutput) SetFinishedTime(v int64) *RowForListBackupD
 // SetInUseCount sets the InUseCount field's value.
 func (s *RowForListBackupDataOutput) SetInUseCount(v int64) *RowForListBackupDataOutput {
 	s.InUseCount = &v
+	return s
+}
+
+// SetIncludePathList sets the IncludePathList field's value.
+func (s *RowForListBackupDataOutput) SetIncludePathList(v []*string) *RowForListBackupDataOutput {
+	s.IncludePathList = v
 	return s
 }
 
