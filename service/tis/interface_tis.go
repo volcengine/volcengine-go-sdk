@@ -19,7 +19,7 @@ import (
 //    // volcengine sdk func uses an SDK service client to make a request to
 //    // TIS.
 //    func myFunc(svc TISAPI) bool {
-//        // Make svc.BuyResourcePackage request
+//        // Make svc.BuyPoolPackage request
 //    }
 //
 //    func main() {
@@ -30,6 +30,14 @@ import (
 //    }
 //
 type TISAPI interface {
+	BuyPoolPackageCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	BuyPoolPackageCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	BuyPoolPackageCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	BuyPoolPackage(*BuyPoolPackageInput) (*BuyPoolPackageOutput, error)
+	BuyPoolPackageWithContext(volcengine.Context, *BuyPoolPackageInput, ...request.Option) (*BuyPoolPackageOutput, error)
+	BuyPoolPackageRequest(*BuyPoolPackageInput) (*request.Request, *BuyPoolPackageOutput)
+
 	BuyResourcePackageCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	BuyResourcePackageCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	BuyResourcePackageCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -53,6 +61,30 @@ type TISAPI interface {
 	GetAgentList(*GetAgentListInput) (*GetAgentListOutput, error)
 	GetAgentListWithContext(volcengine.Context, *GetAgentListInput, ...request.Option) (*GetAgentListOutput, error)
 	GetAgentListRequest(*GetAgentListInput) (*request.Request, *GetAgentListOutput)
+
+	GetDeviceBindTcOrderIDCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	GetDeviceBindTcOrderIDCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	GetDeviceBindTcOrderIDCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	GetDeviceBindTcOrderID(*GetDeviceBindTcOrderIDInput) (*GetDeviceBindTcOrderIDOutput, error)
+	GetDeviceBindTcOrderIDWithContext(volcengine.Context, *GetDeviceBindTcOrderIDInput, ...request.Option) (*GetDeviceBindTcOrderIDOutput, error)
+	GetDeviceBindTcOrderIDRequest(*GetDeviceBindTcOrderIDInput) (*request.Request, *GetDeviceBindTcOrderIDOutput)
+
+	GetPoolDetailListCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	GetPoolDetailListCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	GetPoolDetailListCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	GetPoolDetailList(*GetPoolDetailListInput) (*GetPoolDetailListOutput, error)
+	GetPoolDetailListWithContext(volcengine.Context, *GetPoolDetailListInput, ...request.Option) (*GetPoolDetailListOutput, error)
+	GetPoolDetailListRequest(*GetPoolDetailListInput) (*request.Request, *GetPoolDetailListOutput)
+
+	GetPoolQuotaInfoCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	GetPoolQuotaInfoCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	GetPoolQuotaInfoCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	GetPoolQuotaInfo(*GetPoolQuotaInfoInput) (*GetPoolQuotaInfoOutput, error)
+	GetPoolQuotaInfoWithContext(volcengine.Context, *GetPoolQuotaInfoInput, ...request.Option) (*GetPoolQuotaInfoOutput, error)
+	GetPoolQuotaInfoRequest(*GetPoolQuotaInfoInput) (*request.Request, *GetPoolQuotaInfoOutput)
 
 	GetQuotaInfoCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	GetQuotaInfoCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
