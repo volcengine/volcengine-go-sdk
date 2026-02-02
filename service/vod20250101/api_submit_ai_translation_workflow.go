@@ -176,6 +176,8 @@ func (s *OperatorConfigForSubmitAITranslationWorkflowInput) SetVoiceCloneConfig(
 type ProcessConfigForSubmitAITranslationWorkflowInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	DisableCloneVoiceByScene *bool `type:"boolean" json:",omitempty"`
+
 	DisableSmartSubtitleRewrite *bool `type:"boolean" json:",omitempty"`
 
 	DisableSubtitlePunctSplit *bool `type:"boolean" json:",omitempty"`
@@ -191,6 +193,12 @@ func (s ProcessConfigForSubmitAITranslationWorkflowInput) String() string {
 // GoString returns the string representation
 func (s ProcessConfigForSubmitAITranslationWorkflowInput) GoString() string {
 	return s.String()
+}
+
+// SetDisableCloneVoiceByScene sets the DisableCloneVoiceByScene field's value.
+func (s *ProcessConfigForSubmitAITranslationWorkflowInput) SetDisableCloneVoiceByScene(v bool) *ProcessConfigForSubmitAITranslationWorkflowInput {
+	s.DisableCloneVoiceByScene = &v
+	return s
 }
 
 // SetDisableSmartSubtitleRewrite sets the DisableSmartSubtitleRewrite field's value.
