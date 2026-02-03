@@ -19,7 +19,7 @@ const (
 	// defaultPortalPageSize 为分页查询的默认页大小。
 	defaultPortalPageSize = 50
 	// portalBaseURLTemplate 为 Portal 服务基础地址模板
-	portalBaseURLTemplate = "https://cloudidentity-portal-stable.%s.bytedance.com"
+	portalBaseURLTemplate = "https://cloudidentity-portal.%s.volces.com"
 	// Portal API 的路径常量。
 	portalGetRoleCredentials = "/federation/credentials"
 	// portalAccessTokenHeader 为 Portal 访问令牌在请求头中的名称。
