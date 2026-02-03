@@ -318,6 +318,14 @@ type CLBAPI interface {
 	DescribeLoadBalancerSpecsWithContext(volcengine.Context, *DescribeLoadBalancerSpecsInput, ...request.Option) (*DescribeLoadBalancerSpecsOutput, error)
 	DescribeLoadBalancerSpecsRequest(*DescribeLoadBalancerSpecsInput) (*request.Request, *DescribeLoadBalancerSpecsOutput)
 
+	DescribeLoadBalancerStatusCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeLoadBalancerStatusCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeLoadBalancerStatusCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeLoadBalancerStatus(*DescribeLoadBalancerStatusInput) (*DescribeLoadBalancerStatusOutput, error)
+	DescribeLoadBalancerStatusWithContext(volcengine.Context, *DescribeLoadBalancerStatusInput, ...request.Option) (*DescribeLoadBalancerStatusOutput, error)
+	DescribeLoadBalancerStatusRequest(*DescribeLoadBalancerStatusInput) (*request.Request, *DescribeLoadBalancerStatusOutput)
+
 	DescribeLoadBalancersCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DescribeLoadBalancersCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DescribeLoadBalancersCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
