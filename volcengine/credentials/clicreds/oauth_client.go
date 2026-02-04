@@ -173,10 +173,8 @@ func doOAuthPost(ctx context.Context, client *http.Client, url string, payload i
 		if err != nil {
 			return fmt.Errorf("failed to read response: %w", err)
 		}
-
+		requestId := resp.Header.Get("X-Tt-Logid")
 		if resp.StatusCode/100 != 2 {
-			requestId := resp.Header.Get("X-Tt-Logid")
-			fmt.Printf("requestId: %s\n", requestId)
 			var errResp oauthErrorResponse
 			if len(respBytes) > 0 && json.Unmarshal(respBytes, &errResp) == nil && (errResp.Error != "" || errResp.ErrorDescription != "") {
 				errResp.ErrorDescription = fmt.Sprintf("%s, (requestId: %s)", errResp.ErrorDescription, requestId)
@@ -186,20 +184,25 @@ func doOAuthPost(ctx context.Context, client *http.Client, url string, payload i
 					RawBody:    string(respBytes),
 				}
 			}
-			if len(respBytes) == 0 {
+			rawBody := ""
+			if len(respBytes) > 0 {
+				rawBody = string(respBytes)
+			}
+			if rawBody != "" {
 				return &OAuthAPIError{
 					StatusCode: resp.StatusCode,
+					RawBody:    fmt.Sprintf("%s (requestId: %s)", rawBody, requestId),
 				}
 			}
 			return &OAuthAPIError{
 				StatusCode: resp.StatusCode,
-				RawBody:    string(respBytes),
+				RawBody:    fmt.Sprintf("requestId: %s", requestId),
 			}
 		}
 
 		if len(respBytes) > 0 && out != nil {
 			if err := json.Unmarshal(respBytes, out); err != nil {
-				return fmt.Errorf("failed to decode response (status %d): %w", resp.StatusCode, err)
+				return fmt.Errorf("failed to decode response (status %d, requestId: %s): %w", resp.StatusCode, requestId, err)
 			}
 		}
 
