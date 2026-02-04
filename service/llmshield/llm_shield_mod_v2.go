@@ -73,24 +73,28 @@ type ModerateV2Request struct {
 	History []*MessageV2 `thrift:"history,6,optional" form:"History" json:"History,omitempty"`
 }
 type Error struct {
-	CodeN   int
-	Code    string
-	Message string
+	CodeN   int    `json:"CodeN"`
+	Code    string `json:"Code"`
+	Message string `json:"Message"`
 }
 
 type ResponseMetadata struct {
-	RequestId string
-	Action    string
-	Version   string
-	Service   string
-	Region    string
-	HTTPCode  int
-	Error     *Error
+	RequestId string `json:"RequestId"`
+	Action    string `json:"Action"`
+	Version   string `json:"Version"`
+	Service   string `json:"Service"`
+	Region    string `json:"Region"`
+	HTTPCode  int    `json:"HTTPCode"`
+	Error     *Error `json:"Error"`
 }
 
 type ModerateV2Response struct {
 	ResponseMetadata ResponseMetadata `json:"ResponseMetadata"`
 	Result           ModerateV2Result `json:"Result"`
+}
+
+type StreamDetail struct {
+	SafeChunk string `json:"SafeChunk"`
 }
 
 type ModerateV2Result struct {

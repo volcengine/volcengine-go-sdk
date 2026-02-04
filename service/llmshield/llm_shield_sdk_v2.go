@@ -1,12 +1,14 @@
 package llmshield
 
 import (
+	"bufio"
 	"bytes"
 	"encoding/json"
 	"fmt"
 	"io"
 	"net/http"
 	purl "net/url"
+	"strings"
 	"time"
 )
 
@@ -94,7 +96,7 @@ func (c *Client) Moderate(request *ModerateV2Request) (*ModerateV2Response, erro
 	req.URL.RawQuery = queries.Encode()
 	// 发送 HTTP 请求
 	//req.Header.Set("x-api-key", c.api_key)
-	c.doRequestSign(req, requestBody)
+	c.DoRequestSign(req, requestBody)
 	// 4. 打印请求，发起请求
 	//requestRaw, err := httputil.DumpRequest(req, true)
 	//if err != nil {
@@ -182,7 +184,7 @@ func (c *Client) ModerateStream(request *ModerateV2Request, session *ModerateV2S
 	// 发送 HTTP 请求
 	//req.Header.Set("x-api-key", c.api_key)
 	req.URL.RawQuery = queries.Encode()
-	c.doRequestSign(req, requestBody)
+	c.DoRequestSign(req, requestBody)
 
 	// 发送 HTTP 请求
 	//req.Header.Set("x-api-key", c.api_key)
@@ -212,6 +214,107 @@ func (c *Client) ModerateStream(request *ModerateV2Request, session *ModerateV2S
 	return response, nil
 }
 
+// ModerateStreamSync 使用 HTTP POST 建立流式审核连接，并在同步模式下获取结果
+func (c *Client) ModerateStreamSync(request *ModerateV2Request, isSync bool) (<-chan *ModerateV2Response, error) {
+	if request == nil {
+		return nil, fmt.Errorf("request cannot be nil")
+	}
+
+	// 1. 准备请求体
+	requestBody, err := json.Marshal(request)
+	if err != nil {
+		return nil, fmt.Errorf("failed to marshal request: %w", err)
+	}
+
+	// 2. 构造请求 URL
+	u, err := purl.Parse(c.url)
+	if err != nil {
+		return nil, fmt.Errorf("invalid url: %w", err)
+	}
+	u.Path = "/v2/moderatestream"
+
+	q := u.Query()
+	q.Set("Action", "ModerateStream")
+	q.Set("Version", Version)
+	q.Set("isSyncCheck", fmt.Sprintf("%v", isSync))
+	u.RawQuery = q.Encode()
+
+	// 3. 创建 HTTP 请求
+	req, err := http.NewRequest("POST", u.String(), bytes.NewBuffer(requestBody))
+	if err != nil {
+		return nil, fmt.Errorf("failed to create request: %w", err)
+	}
+	req.Header.Set("Content-Type", "application/json")
+	req.Header.Set("X-Scene", request.Scene)
+	req.Header.Set("Accept", "text/event-stream")
+
+	// 4. 对请求进行签名
+	if err := c.DoRequestSign(req, requestBody); err != nil {
+		return nil, fmt.Errorf("failed to sign request: %w", err)
+	}
+
+	// 5. 发送 HTTP 请求
+	resp, err := c.httpClient.Do(req)
+	if err != nil {
+		return nil, fmt.Errorf("failed to send request: %w", err)
+	}
+
+	if resp.StatusCode != http.StatusOK {
+		body, _ := io.ReadAll(resp.Body)
+		resp.Body.Close()
+		return nil, fmt.Errorf("request failed, status: %d, body: %s", resp.StatusCode, string(body))
+	}
+
+	resChan := make(chan *ModerateV2Response, 100)
+
+	go func() {
+		defer close(resChan)
+		defer resp.Body.Close()
+
+		scanner := bufio.NewScanner(resp.Body)
+		// 设置较大的缓冲区，防止单行 JSON 过大导致解析失败（默认 64KB，这里设置为 1MB）
+		buf := make([]byte, 0, 64*1024)
+		scanner.Buffer(buf, 1024*1024)
+		for scanner.Scan() {
+			line := scanner.Text()
+			line = strings.TrimSpace(line)
+			if line == "" {
+				continue
+			}
+
+			// 处理 SSE 格式，去掉 "data: " 前缀
+			if strings.HasPrefix(line, "data:") {
+				line = strings.TrimPrefix(line, "data:")
+				line = strings.TrimSpace(line)
+			}
+
+			// 如果不是 JSON 对象开头，则跳过（如 heartbeat 或 event 类型行）
+			if line == "" || line[0] != '{' {
+				continue
+			}
+
+			response := &ModerateV2Response{}
+			if err := json.Unmarshal([]byte(line), response); err != nil {
+				fmt.Printf("unmarshal error: %v, line: %s\n", err, line)
+				continue
+			}
+
+			// 如果 ResponseMetadata 为空，手动填充 HTTP 状态码
+			if response.ResponseMetadata.HTTPCode == 0 {
+				response.ResponseMetadata.HTTPCode = resp.StatusCode
+			}
+
+			resChan <- response
+		}
+
+		if err := scanner.Err(); err != nil {
+			fmt.Printf("stream scan error: %v\n", err)
+		}
+	}()
+
+	return resChan, nil
+}
+
 func (c *Client) GenerateV2Stream(request *GenerateStreamV2Request) (*GenerateStreamV2Response, error) {
 	if request == nil {
 		request = &GenerateStreamV2Request{}
@@ -237,7 +340,7 @@ func (c *Client) GenerateV2Stream(request *GenerateStreamV2Request) (*GenerateSt
 	// 发送 HTTP 请求
 	//req.Header.Set("x-api-key", c.api_key)
 	req.URL.RawQuery = queries.Encode()
-	c.doRequestSign(req, requestBody)
+	c.DoRequestSign(req, requestBody)
 
 	// 发送 HTTP 请求
 	//req.Header.Set("x-api-key", c.api_key)
