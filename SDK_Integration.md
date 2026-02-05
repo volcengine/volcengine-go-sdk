@@ -14,6 +14,7 @@ English | [中文](SDK_Integration_zh.md)
   - [AK/SK](#aksk)
   - [STS Token](#sts-token)
   - [AssumeRole](#assumerole)
+  - [STS AssumeRoleWithOIDC Example](#sts-assumerolewithoidc-example)
 - [Endpoint Configuration](#endpoint-configuration)
   - [Custom Endpoint](#custom-endpoint)
   - [Custom RegionId](#custom-regionid)
@@ -167,6 +168,15 @@ AssumeRole supports dynamic credentials with automatic refresh. The SDK refreshe
 > 3. Use fine-grained roles and policies.
 
 ```go
+package main
+
+import (
+    "time"
+    "github.com/volcengine/volcengine-go-sdk/volcengine"
+    "github.com/volcengine/volcengine-go-sdk/volcengine/credentials"
+    "github.com/volcengine/volcengine-go-sdk/volcengine/session"
+)
+
 func main() {
     ak, sk, region := "Your AK", "Your SK", "cn-beijing"
     config := volcengine.NewConfig().
@@ -187,6 +197,69 @@ func main() {
     if err != nil {
         panic(err)
     }
+    _ = sess
+}
+```
+
+## STS AssumeRoleWithOIDC Example
+
+STS AssumeRoleOIDC (Security Token Service) is a temporary access credential mechanism provided by Volcengine. Developers use an `oidc_token` to call the STS interface on the server side to obtain temporary credentials (temporary AK, SK, and Token). The validity period is configurable, making it suitable for scenarios with high security requirements.
+
+> ⚠️ Notes
+>
+> 1. **Least Privilege**: Grant only the minimum permissions required for the caller to access resources, avoiding the use of `*` wildcards to grant full resource and operation permissions.
+> 2. **Reasonable Validity Period**: Set a reasonable validity period based on actual conditions. Shorter periods are safer; it is recommended not to exceed 1 hour.
+> 3. **OIDC Token Storage**: In the Go SDK, the OIDC Token must be stored in a file.
+
+**Code Example:**
+
+```go
+package main
+
+import (
+	"fmt"
+
+	"github.com/volcengine/volcengine-go-sdk/service/vpc"
+	"github.com/volcengine/volcengine-go-sdk/volcengine"
+	"github.com/volcengine/volcengine-go-sdk/volcengine/credentials"
+	"github.com/volcengine/volcengine-go-sdk/volcengine/session"
+)
+
+func main() {
+	// Your OIDC Token file path
+	// Note: The Go SDK currently supports reading OIDC Token only from a file
+	oidcTokenFile := "/path/to/oidc_token_file"
+	roleTrn := "Your Role Trn" // Your Role TRN
+
+	// Create OIDC credentials provider
+	p := &credentials.OIDCCredentialsProvider{
+		OIDCTokenFilePath: oidcTokenFile,
+		RoleTrn:           roleTrn,
+		DurationSeconds:   3600, // Validity period
+	}
+
+	// Configure SDK to use OIDC credentials
+	config := volcengine.NewConfig().
+		WithRegion("cn-beijing").
+		WithCredentials(credentials.NewCredentials(p))
+
+	sess, err := session.NewSession(config)
+	if err != nil {
+		panic(err)
+	}
+
+	svc := vpc.New(sess)
+	// Use DescribeVpcs as an example, no extra parameters needed
+	describeVpcsInput := &vpc.DescribeVpcsInput{}
+
+	// Copy the code to run the example, please print the API return value yourself.
+	resp, err := svc.DescribeVpcs(describeVpcsInput)
+	if err != nil {
+		// Copy the code to run the example, please print the API error info yourself.
+		panic(err)
+	}
+	// Print the result to verify success
+	fmt.Println(resp)
 }
 ```
 

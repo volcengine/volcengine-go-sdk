@@ -15,6 +15,7 @@
   - [AK、SK设置](#aksk设置)
   - [STS Token设置](#sts-token设置)
   - [AssumeRole](#assumerole)
+  - [AssumeRoleOidc](#assumeroleoidc)
 - [EndPoint配置](#endpoint配置)
   - [自定义Endpoint](#自定义endpoint)
   - [自定义RegionId](#自定义regionid)
@@ -193,6 +194,56 @@ func main() {
     if err != nil {
         panic(err)
     }
+}
+```
+## AssumeRoleOIDC
+
+STS AssumeRoleOIDC（Security Token Service）是火山引擎提供的临时访问凭证机制。开发者通过oidc_token在服务端调用 STS 接口获取临时凭证（临时 AK、SK 和 Token），有效期可配置，适用于安全要求较高的场景。
+
+> ⚠️ 注意事项
+>
+> 1. 最小权限： 仅授予调用方访问所需资源的最小权限，避免使用 * 通配符授予全资源、全操作权限。
+> 2. 设置合理的有效期: 请根据实际情况设置合理有效期，越短越安全，建议不要超过1小时。
+> 3. Go SDK 中 OIDC Token 需要存储在文件中。
+
+**代码示例：**
+
+```go
+func main() {
+	// 你的OIDC Token文件路径
+	// 注意：Go SDK目前仅支持从文件读取OIDC Token
+	oidcTokenFile := "/path/to/oidc_token_file"
+	roleTrn := "Your Role Trn" // 你的角色TRN
+
+	// 创建 OIDC 凭证提供者
+	p := &credentials.OIDCCredentialsProvider{
+		OIDCTokenFilePath: oidcTokenFile,
+		RoleTrn:           roleTrn,
+		DurationSeconds:   3600, // 有效期
+	}
+
+	// 配置 SDK 使用 OIDC 凭证
+	config := volcengine.NewConfig().
+		WithRegion("cn-beijing").
+		WithCredentials(credentials.NewCredentials(p))
+
+	sess, err := session.NewSession(config)
+	if err != nil {
+		panic(err)
+	}
+
+	svc := vpc.New(sess)
+	// 使用 DescribeVpcs 作为示例，无需额外参数
+	describeVpcsInput := &vpc.DescribeVpcsInput{}
+
+	// 复制代码运行示例，请自行打印API返回值。
+	resp, err := svc.DescribeVpcs(describeVpcsInput)
+	if err != nil {
+		// 复制代码运行示例，请自行打印API错误信息。
+		panic(err)
+	}
+	// 打印返回结果，验证调用成功
+	fmt.Println(resp)
 }
 ```
 
