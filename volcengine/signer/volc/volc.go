@@ -77,5 +77,5 @@ func SignSDKRequest(req *request.Request) {
 }
 
 func SignUrl(request *http.Request, credential *base.Credentials) string {
-	return credential.SignUrl(request)
+	return request.URL.Scheme + "://" + request.URL.Host + "?" + credential.SignUrl(request)
 }

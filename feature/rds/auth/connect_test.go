@@ -5,13 +5,14 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/volcengine/volc-sdk-golang/base"
+	"github.com/volcengine/volcengine-go-sdk/volcengine"
+	"github.com/volcengine/volcengine-go-sdk/volcengine/credentials"
 )
 
 func TestBuildAuthToken(t *testing.T) {
 	tests := []struct {
 		name        string
-		credentials *base.Credentials
+		config      *volcengine.Config
 		dbUser      string
 		instanceId  string
 		expires     int
@@ -19,96 +20,90 @@ func TestBuildAuthToken(t *testing.T) {
 		errContains string
 	}{
 		{
-			name: "valid credentials and parameters with custom expires",
-			credentials: &base.Credentials{
-				AccessKeyID:     "test-access-key-id",
-				SecretAccessKey: "test-secret-access-key",
-				Region:          "cn-beijing",
-			},
+			name: "valid config and parameters with custom expires",
+			config: volcengine.NewConfig().
+				WithCredentials(credentials.NewStaticCredentials("test-access-key-id", "test-secret-access-key", "")).
+				WithRegion("cn-beijing"),
 			dbUser:     "testuser",
 			instanceId: "mysql-instance-123",
 			expires:    1800,
 			wantErr:    false,
 		},
 		{
-			name: "valid credentials with default expires",
-			credentials: &base.Credentials{
-				AccessKeyID:     "test-access-key-id",
-				SecretAccessKey: "test-secret-access-key",
-				Region:          "cn-beijing",
-			},
+			name: "valid config with default expires",
+			config: volcengine.NewConfig().
+				WithCredentials(credentials.NewStaticCredentials("test-access-key-id", "test-secret-access-key", "")).
+				WithRegion("cn-beijing"),
 			dbUser:     "testuser",
 			instanceId: "mysql-instance-123",
 			expires:    0,
 			wantErr:    false,
 		},
 		{
-			name: "valid credentials with negative expires",
-			credentials: &base.Credentials{
-				AccessKeyID:     "test-access-key-id",
-				SecretAccessKey: "test-secret-access-key",
-				Region:          "cn-beijing",
-			},
+			name: "valid config with negative expires",
+			config: volcengine.NewConfig().
+				WithCredentials(credentials.NewStaticCredentials("test-access-key-id", "test-secret-access-key", "")).
+				WithRegion("cn-beijing"),
 			dbUser:     "testuser",
 			instanceId: "mysql-instance-123",
 			expires:    -1,
 			wantErr:    false,
 		},
 		{
+			name: "valid config with DisableSSL true",
+			config: volcengine.NewConfig().
+				WithCredentials(credentials.NewStaticCredentials("test-access-key-id", "test-secret-access-key", "")).
+				WithRegion("cn-beijing").
+				WithDisableSSL(true),
+			dbUser:     "testuser",
+			instanceId: "mysql-instance-123",
+			expires:    900,
+			wantErr:    false,
+		},
+		{
+			name:        "nil config",
+			config:      nil,
+			dbUser:      "testuser",
+			instanceId:  "mysql-instance-123",
+			expires:     900,
+			wantErr:     true,
+			errContains: "config must not be nil",
+		},
+		{
 			name:        "nil credentials",
-			credentials: nil,
+			config:      volcengine.NewConfig().WithRegion("cn-beijing"),
 			dbUser:      "testuser",
 			instanceId:  "mysql-instance-123",
 			expires:     900,
 			wantErr:     true,
-			errContains: "credentials provider must not be nil",
+			errContains: "credentials must not be nil",
 		},
 		{
-			name: "empty AccessKeyID",
-			credentials: &base.Credentials{
-				AccessKeyID:     "",
-				SecretAccessKey: "test-secret-access-key",
-				Region:          "cn-beijing",
-			},
+			name: "nil region",
+			config: volcengine.NewConfig().
+				WithCredentials(credentials.NewStaticCredentials("test-access-key-id", "test-secret-access-key", "")),
 			dbUser:      "testuser",
 			instanceId:  "mysql-instance-123",
 			expires:     900,
 			wantErr:     true,
-			errContains: "credentials provider must not be nil",
+			errContains: "region must not be empty",
 		},
 		{
-			name: "empty SecretAccessKey",
-			credentials: &base.Credentials{
-				AccessKeyID:     "test-access-key-id",
-				SecretAccessKey: "",
-				Region:          "cn-beijing",
-			},
+			name: "empty region",
+			config: volcengine.NewConfig().
+				WithCredentials(credentials.NewStaticCredentials("test-access-key-id", "test-secret-access-key", "")).
+				WithRegion(""),
 			dbUser:      "testuser",
 			instanceId:  "mysql-instance-123",
 			expires:     900,
 			wantErr:     true,
-			errContains: "credentials provider must not be nil",
-		},
-		{
-			name: "empty Region",
-			credentials: &base.Credentials{
-				AccessKeyID:     "test-access-key-id",
-				SecretAccessKey: "test-secret-access-key",
-				Region:          "",
-			},
-			dbUser:      "testuser",
-			instanceId:  "mysql-instance-123",
-			expires:     900,
-			wantErr:     true,
-			errContains: "credentials provider must not be nil",
+			errContains: "region must not be empty",
 		},
 		{
 			name: "empty dbUser",
-			credentials: &base.Credentials{
-				AccessKeyID:     "test-access-key-id",
-				SecretAccessKey: "test-secret-access-key",
-				Region:          "cn-beijing",
-			},
+			config: volcengine.NewConfig().
+				WithCredentials(credentials.NewStaticCredentials("test-access-key-id", "test-secret-access-key", "")).
+				WithRegion("cn-beijing"),
 			dbUser:      "",
 			instanceId:  "mysql-instance-123",
 			expires:     900,
@@ -117,11 +112,9 @@ func TestBuildAuthToken(t *testing.T) {
 		},
 		{
 			name: "empty instanceId",
-			credentials: &base.Credentials{
-				AccessKeyID:     "test-access-key-id",
-				SecretAccessKey: "test-secret-access-key",
-				Region:          "cn-beijing",
-			},
+			config: volcengine.NewConfig().
+				WithCredentials(credentials.NewStaticCredentials("test-access-key-id", "test-secret-access-key", "")).
+				WithRegion("cn-beijing"),
 			dbUser:      "testuser",
 			instanceId:  "",
 			expires:     900,
@@ -133,7 +126,7 @@ func TestBuildAuthToken(t *testing.T) {
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
 			ctx := context.Background()
-			token, err := BuildAuthToken(ctx, tt.credentials, tt.dbUser, tt.instanceId, tt.expires)
+			token, err := BuildAuthToken(ctx, tt.config, tt.dbUser, tt.instanceId, tt.expires)
 
 			if tt.wantErr {
 				if err == nil {
@@ -167,6 +160,25 @@ func TestBuildAuthToken(t *testing.T) {
 			}
 			if tt.expires <= 0 && !strings.Contains(token, "X-Expires=900") {
 				t.Error("BuildAuthToken() token should contain X-Expires=900 when expires <= 0")
+			}
+
+			// Verify scheme based on DisableSSL
+			if tt.config != nil && tt.config.DisableSSL != nil && *tt.config.DisableSSL {
+				if !strings.HasPrefix(token, "http://") {
+					t.Error("BuildAuthToken() token should start with http:// when DisableSSL is true")
+				}
+			} else {
+				if !strings.HasPrefix(token, "https://") {
+					t.Error("BuildAuthToken() token should start with https:// when DisableSSL is false")
+				}
+			}
+
+			// Verify regional endpoint format
+			if tt.config != nil && tt.config.Region != nil {
+				expectedHost := "rds-mysql." + *tt.config.Region + ".volcengineapi.com"
+				if !strings.Contains(token, expectedHost) {
+					t.Errorf("BuildAuthToken() token should contain regional endpoint %s", expectedHost)
+				}
 			}
 		})
 	}
