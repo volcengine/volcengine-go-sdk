@@ -331,6 +331,8 @@ type CreateNodeGroupOutput struct {
 
 	ClusterId *string `type:"string" json:",omitempty"`
 
+	NodeGroupId *string `type:"string" json:",omitempty"`
+
 	OperationId *string `type:"string" json:",omitempty"`
 }
 
@@ -347,6 +349,12 @@ func (s CreateNodeGroupOutput) GoString() string {
 // SetClusterId sets the ClusterId field's value.
 func (s *CreateNodeGroupOutput) SetClusterId(v string) *CreateNodeGroupOutput {
 	s.ClusterId = &v
+	return s
+}
+
+// SetNodeGroupId sets the NodeGroupId field's value.
+func (s *CreateNodeGroupOutput) SetNodeGroupId(v string) *CreateNodeGroupOutput {
+	s.NodeGroupId = &v
 	return s
 }
 
