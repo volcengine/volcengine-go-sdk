@@ -247,6 +247,7 @@ type StreamSession struct {
 	StreamId    int64
 	ReqDataChan *streamReader
 	RspDataChan chan *ModerateV2Response
+	IsSync      bool
 	Started     bool
 	once        sync.Once
 	Connected   chan bool // 信号：连接已建立

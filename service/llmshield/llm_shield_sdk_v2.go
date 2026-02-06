@@ -211,7 +211,7 @@ func (c *Client) ModerateStream(request *ModerateV2Request, session *ModerateV2S
 	return response, nil
 }
 
-func StreamSessionInit(streamId int64, chanSize int) (stream *StreamSession) {
+func StreamSessionInit(streamId int64, chanSize int, isSync bool) (stream *StreamSession) {
 	if chanSize <= 0 {
 		chanSize = RespChanSize
 	}
@@ -224,13 +224,14 @@ func StreamSessionInit(streamId int64, chanSize int) (stream *StreamSession) {
 			closed:   false,
 		},
 		RspDataChan: make(chan *ModerateV2Response, chanSize),
+		IsSync:      isSync,
 	}
 
 	return
 }
 
 // ModerateStreamSync 使用 HTTP POST 建立流式审核连接， 打点多的并在同步模式下获取结果
-func (c *Client) ModerateStreamSync(session *StreamSession, request *ModerateV2Request, isSync bool) ([]*ModerateV2Response, error) {
+func (c *Client) ModerateStreamSync(session *StreamSession, request *ModerateV2Request) ([]*ModerateV2Response, error) {
 	if session == nil {
 		return nil, fmt.Errorf("ModerateStreamSync session cannot be nil")
 	}
@@ -269,7 +270,7 @@ func (c *Client) ModerateStreamSync(session *StreamSession, request *ModerateV2R
 		queries.Set("Action", "ModerateStream")
 		queries.Set("Version", Version)
 		queries.Set("X-NotSignBody", "stream")
-		queries.Set("isSyncCheck", fmt.Sprintf("%v", isSync))
+		queries.Set("isSyncCheck", fmt.Sprintf("%v", session.IsSync))
 
 		// 将修改后的参数重新赋值给URL
 		req.URL.RawQuery = queries.Encode()
