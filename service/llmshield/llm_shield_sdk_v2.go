@@ -122,7 +122,7 @@ func (c *Client) Moderate(request *ModerateV2Request) (*ModerateV2Response, erro
 }
 
 // ModerateStream 方法，根据传入的 Request 结构体反序列成 JSON 并发送请求，读取响应并转化为 Response 结构体
-func (c *Client) ModerateStream(request *ModerateV2Request, session *ModerateV2StreamSession) (*ModerateV2Response, error) {
+func (c *Client) ModerateStreamOld(request *ModerateV2Request, session *ModerateV2StreamSession) (*ModerateV2Response, error) {
 	if request == nil {
 		request = &ModerateV2Request{}
 	}
@@ -230,10 +230,15 @@ func StreamSessionInit(streamId int64, chanSize int, isSync bool) (stream *Strea
 	return
 }
 
-// ModerateStreamSync 使用 HTTP POST 建立流式审核连接， 打点多的并在同步模式下获取结果
-func (c *Client) ModerateStreamSync(session *StreamSession, request *ModerateV2Request) ([]*ModerateV2Response, error) {
-	if session == nil {
-		return nil, fmt.Errorf("ModerateStreamSync session cannot be nil")
+// ModerateStreamSync 使用 HTTP POST 建立流式审核连接，并在同步模式下获取结果
+func (c *Client) ModerateStream(request *ModerateV2Request, ssn interface{}) (*ModerateV2Response, error) {
+	var session *StreamSession
+
+	switch newssn := ssn.(type) {
+	case *ModerateV2StreamSession:
+		return c.ModerateStreamOld(request, newssn)
+	case *StreamSession:
+		session = newssn
 	}
 
 	var startErr error
@@ -350,31 +355,100 @@ func (c *Client) ModerateStreamSync(session *StreamSession, request *ModerateV2R
 		session.ReqDataChan.Close()
 	}
 
-	// 4. 读取当前已有的响应
-	var results []*ModerateV2Response
+	// 4. 读取当前已有的响应并整合
+	var mergedResponse *ModerateV2Response
+
+	mergeFunc := func(base *ModerateV2Response, next *ModerateV2Response) *ModerateV2Response {
+		if base == nil {
+			return next
+		}
+		if next == nil {
+			return base
+		}
+
+		// 整合 Result 中的字段
+		// 字符串直接拼接
+		base.Result.ContentInfo += next.Result.ContentInfo
+		base.Result.DegradeReason += next.Result.DegradeReason
+
+		// 列表 append
+		if next.Result.RiskInfo != nil {
+			if base.Result.RiskInfo == nil {
+				base.Result.RiskInfo = next.Result.RiskInfo
+			} else {
+				base.Result.RiskInfo.Risks = append(base.Result.RiskInfo.Risks, next.Result.RiskInfo.Risks...)
+			}
+		}
+
+		if next.Result.PermitInfo != nil {
+			if base.Result.PermitInfo == nil {
+				base.Result.PermitInfo = next.Result.PermitInfo
+			} else {
+				base.Result.PermitInfo.Permits = append(base.Result.PermitInfo.Permits, next.Result.PermitInfo.Permits...)
+			}
+		}
+
+		if next.Result.Decision != nil {
+			if base.Result.Decision == nil {
+				base.Result.Decision = next.Result.Decision
+			} else {
+				// 列表 append
+				base.Result.Decision.HitStrategyIDs = append(base.Result.Decision.HitStrategyIDs, next.Result.Decision.HitStrategyIDs...)
+
+				// 决策类型以最新的为准
+				if next.Result.Decision.DecisionType != 0 {
+					base.Result.Decision.DecisionType = next.Result.Decision.DecisionType
+				}
+
+				// 整合替换详情
+				if next.Result.Decision.Detail != nil && next.Result.Decision.Detail.ReplaceDetail != nil {
+					if base.Result.Decision.Detail == nil {
+						base.Result.Decision.Detail = next.Result.Decision.Detail
+					} else if base.Result.Decision.Detail.ReplaceDetail == nil {
+						base.Result.Decision.Detail.ReplaceDetail = next.Result.Decision.Detail.ReplaceDetail
+					} else if next.Result.Decision.Detail.ReplaceDetail.Replacement != nil {
+						if base.Result.Decision.Detail.ReplaceDetail.Replacement == nil {
+							base.Result.Decision.Detail.ReplaceDetail.Replacement = next.Result.Decision.Detail.ReplaceDetail.Replacement
+						} else {
+							// 字符串拼接
+							base.Result.Decision.Detail.ReplaceDetail.Replacement.Content += next.Result.Decision.Detail.ReplaceDetail.Replacement.Content
+							// 列表 append
+							base.Result.Decision.Detail.ReplaceDetail.Replacement.MultiPart = append(base.Result.Decision.Detail.ReplaceDetail.Replacement.MultiPart, next.Result.Decision.Detail.ReplaceDetail.Replacement.MultiPart...)
+						}
+					}
+				}
+			}
+		}
+
+		base.Result.Degraded = next.Result.Degraded
+		// 元数据以最新的为准
+		base.ResponseMetadata = next.ResponseMetadata
+
+		return base
+	}
+
 	if request != nil && request.UseStream == 2 {
 		// 只有最后一个请求需要一直持续等待（阻塞直到通道关闭）
 		for resp := range session.RspDataChan {
-			results = append(results, resp)
+			mergedResponse = mergeFunc(mergedResponse, resp)
 		}
-
 	} else {
 		// 非最后一个请求，尝试非阻塞地读取当前所有可用响应
 		for {
 			select {
 			case resp, ok := <-session.RspDataChan:
 				if !ok {
-					return results, nil
+					return mergedResponse, nil
 				}
-				results = append(results, resp)
+				mergedResponse = mergeFunc(mergedResponse, resp)
 			default:
 				// 无更多可用数据，立即返回
-				return results, nil
+				return mergedResponse, nil
 			}
 		}
 	}
 
-	return results, nil
+	return mergedResponse, nil
 }
 
 func (c *Client) GenerateV2Stream(request *GenerateStreamV2Request) (*GenerateStreamV2Response, error) {
