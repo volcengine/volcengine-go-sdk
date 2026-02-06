@@ -1,14 +1,12 @@
 package llmshield
 
 import (
-	"bufio"
 	"bytes"
 	"encoding/json"
 	"fmt"
 	"io"
 	"net/http"
 	purl "net/url"
-	"strings"
 	"time"
 )
 
@@ -149,7 +147,6 @@ func (c *Client) ModerateStream(request *ModerateV2Request, session *ModerateV2S
 	} else {
 		session.Request.Message.Content += request.Message.Content
 		session.Request.UseStream = request.UseStream
-
 	}
 
 	session.StreamSendLen += int64(len(request.Message.Content))
@@ -214,105 +211,169 @@ func (c *Client) ModerateStream(request *ModerateV2Request, session *ModerateV2S
 	return response, nil
 }
 
-// ModerateStreamSync 使用 HTTP POST 建立流式审核连接，并在同步模式下获取结果
-func (c *Client) ModerateStreamSync(request *ModerateV2Request, isSync bool) (<-chan *ModerateV2Response, error) {
-	if request == nil {
-		return nil, fmt.Errorf("request cannot be nil")
+func StreamSessionInit(streamId int64, chanSize int) (stream *StreamSession) {
+	if chanSize <= 0 {
+		chanSize = RespChanSize
 	}
 
-	// 1. 准备请求体
-	requestBody, err := json.Marshal(request)
-	if err != nil {
-		return nil, fmt.Errorf("failed to marshal request: %w", err)
+	stream = &StreamSession{
+		StreamId: streamId,
+		ChanSize: chanSize,
+		ReqDataChan: &streamReader{
+			dataChan: make(chan []byte, chanSize),
+			closed:   false,
+		},
+		RspDataChan: make(chan *ModerateV2Response, chanSize),
 	}
 
-	// 2. 构造请求 URL
-	u, err := purl.Parse(c.url)
-	if err != nil {
-		return nil, fmt.Errorf("invalid url: %w", err)
-	}
-	u.Path = "/v2/moderatestream"
+	return
+}
 
-	q := u.Query()
-	q.Set("Action", "ModerateStream")
-	q.Set("Version", Version)
-	q.Set("isSyncCheck", fmt.Sprintf("%v", isSync))
-	u.RawQuery = q.Encode()
-
-	// 3. 创建 HTTP 请求
-	req, err := http.NewRequest("POST", u.String(), bytes.NewBuffer(requestBody))
-	if err != nil {
-		return nil, fmt.Errorf("failed to create request: %w", err)
-	}
-	req.Header.Set("Content-Type", "application/json")
-	req.Header.Set("X-Scene", request.Scene)
-	req.Header.Set("Accept", "text/event-stream")
-
-	// 4. 对请求进行签名
-	if err := c.DoRequestSign(req, requestBody); err != nil {
-		return nil, fmt.Errorf("failed to sign request: %w", err)
+// ModerateStreamSync 使用 HTTP POST 建立流式审核连接， 打点多的并在同步模式下获取结果
+func (c *Client) ModerateStreamSync(session *StreamSession, request *ModerateV2Request, isSync bool) ([]*ModerateV2Response, error) {
+	if session == nil {
+		return nil, fmt.Errorf("ModerateStreamSync session cannot be nil")
 	}
 
-	// 5. 发送 HTTP 请求
-	resp, err := c.httpClient.Do(req)
-	if err != nil {
-		return nil, fmt.Errorf("failed to send request: %w", err)
-	}
+	var startErr error
+	isFirstCall := false
+	session.once.Do(func() {
+		isFirstCall = true
+		session.Started = true
 
-	if resp.StatusCode != http.StatusOK {
-		body, _ := io.ReadAll(resp.Body)
-		resp.Body.Close()
-		return nil, fmt.Errorf("request failed, status: %d, body: %s", resp.StatusCode, string(body))
-	}
-
-	resChan := make(chan *ModerateV2Response, 100)
-
-	go func() {
-		defer close(resChan)
-		defer resp.Body.Close()
-
-		scanner := bufio.NewScanner(resp.Body)
-		// 设置较大的缓冲区，防止单行 JSON 过大导致解析失败（默认 64KB，这里设置为 1MB）
-		buf := make([]byte, 0, 64*1024)
-		scanner.Buffer(buf, 1024*1024)
-		for scanner.Scan() {
-			line := scanner.Text()
-			line = strings.TrimSpace(line)
-			if line == "" {
-				continue
-			}
-
-			// 处理 SSE 格式，去掉 "data: " 前缀
-			if strings.HasPrefix(line, "data:") {
-				line = strings.TrimPrefix(line, "data:")
-				line = strings.TrimSpace(line)
-			}
-
-			// 如果不是 JSON 对象开头，则跳过（如 heartbeat 或 event 类型行）
-			if line == "" || line[0] != '{' {
-				continue
-			}
-
-			response := &ModerateV2Response{}
-			if err := json.Unmarshal([]byte(line), response); err != nil {
-				fmt.Printf("unmarshal error: %v, line: %s\n", err, line)
-				continue
-			}
-
-			// 如果 ResponseMetadata 为空，手动填充 HTTP 状态码
-			if response.ResponseMetadata.HTTPCode == 0 {
-				response.ResponseMetadata.HTTPCode = resp.StatusCode
-			}
-
-			resChan <- response
+		if request == nil {
+			startErr = fmt.Errorf("ModerateStreamSync request cannot be nil")
+			return
 		}
 
-		if err := scanner.Err(); err != nil {
-			fmt.Printf("stream scan error: %v\n", err)
+		// 准备初始请求体并塞入通道
+		requestBody, err := json.Marshal(request)
+		if err != nil {
+			startErr = fmt.Errorf("ModerateStreamSync failed to marshal request: %v", err)
+			return
 		}
-	}()
+		session.ReqDataChan.Send(requestBody)
 
-	return resChan, nil
+		// 创建 HTTP 请求，直接使用 ReqDataChan
+		targetURL := c.url + "/v2/moderatestream"
+		req, err := http.NewRequest("POST", targetURL, session.ReqDataChan)
+		if err != nil {
+			startErr = fmt.Errorf("ModerateStreamSync failed to create request: %v", err)
+			return
+		}
+
+		req.Header.Set("X-Scene", request.Scene)
+		req.Header.Set("Content-Type", "application/json")
+
+		queries := req.URL.Query()
+		queries.Set("Action", "ModerateStream")
+		queries.Set("Version", Version)
+		queries.Set("X-NotSignBody", "stream")
+		queries.Set("isSyncCheck", fmt.Sprintf("%v", isSync))
+
+		// 将修改后的参数重新赋值给URL
+		req.URL.RawQuery = queries.Encode()
+
+		// 签名 (流式请求不进行 body 鉴权，传 nil 以触发 UNSIGNED-PAYLOAD)
+		if err := c.DoRequestSign(req, nil); err != nil {
+			startErr = fmt.Errorf("ModerateStreamSync failed to sign request: %v", err)
+			return
+		}
+
+		// 将发送请求的操作放在独立协程中，确保不阻塞主流程
+		go func() {
+			if c.httpClient == nil {
+				startErr = fmt.Errorf("ModerateStreamSync httpClient is nil")
+				return
+			}
+			resp, err := c.httpClient.Do(req)
+			if err != nil {
+				startErr = fmt.Errorf("ModerateStreamSync httpClient.Do: %v\n", err)
+				session.RspDataChan <- &ModerateV2Response{
+					ResponseMetadata: ResponseMetadata{
+						Error: &Error{
+							Code:    "SDK_HTTP_ERROR",
+							Message: err.Error(),
+						},
+					},
+				}
+				close(session.RspDataChan)
+				return
+			}
+			defer resp.Body.Close()
+			defer close(session.RspDataChan)
+
+			if resp.StatusCode != http.StatusOK {
+				body, _ := io.ReadAll(resp.Body)
+				startErr = fmt.Errorf("ModerateStreamSync Server RespCode:%d,error:%v\n", resp.StatusCode, string(body))
+				return
+			}
+
+			// 解析 chunked JSON 响应
+			decoder := json.NewDecoder(resp.Body)
+			for {
+				response := &ModerateV2Response{}
+				if err := decoder.Decode(response); err != nil {
+					if err == io.EOF {
+						fmt.Printf("ModerateStreamSync response stream parsing finished (EOF)\n")
+						break
+					}
+					fmt.Printf("ModerateStreamSync JSON parsing exception: %v\n", err)
+					break
+				}
+
+				if response.ResponseMetadata.HTTPCode == 0 {
+					response.ResponseMetadata.HTTPCode = resp.StatusCode
+				}
+				session.RspDataChan <- response
+			}
+		}()
+	})
+
+	if startErr != nil {
+		return nil, startErr
+	}
+
+	// 2. 如果不是第一次进入此函数的调用，且有新数据，则写入数据通道发送给服务端
+	if !isFirstCall && request != nil && request.Message != nil {
+		if request.Message.Content != "" || len(request.Message.MultiPart) > 0 {
+			requestBody, err := json.Marshal(request)
+			if err == nil {
+				session.ReqDataChan.Send(requestBody)
+			}
+		}
+	}
+
+	// 3. 处理流结束标识
+	if request != nil && request.UseStream == 2 {
+		session.ReqDataChan.Close()
+	}
+
+	// 4. 读取当前已有的响应
+	var results []*ModerateV2Response
+	if request != nil && request.UseStream == 2 {
+		// 只有最后一个请求需要一直持续等待（阻塞直到通道关闭）
+		for resp := range session.RspDataChan {
+			results = append(results, resp)
+		}
+
+	} else {
+		// 非最后一个请求，尝试非阻塞地读取当前所有可用响应
+		for {
+			select {
+			case resp, ok := <-session.RspDataChan:
+				if !ok {
+					return results, nil
+				}
+				results = append(results, resp)
+			default:
+				// 无更多可用数据，立即返回
+				return results, nil
+			}
+		}
+	}
+
+	return results, nil
 }
 
 func (c *Client) GenerateV2Stream(request *GenerateStreamV2Request) (*GenerateStreamV2Response, error) {
@@ -357,5 +418,70 @@ func (c *Client) GenerateV2Stream(request *GenerateStreamV2Request) (*GenerateSt
 			Reader: resp.Body,
 		}, nil
 	}
+}
 
+// Read 实现 io.Reader 接口（核心：每次读取通道中的数据，实现流式发送）
+func (sr *streamReader) Read(p []byte) (n int, err error) {
+	sr.mu.Lock()
+	if len(sr.buffer) > 0 {
+		n = copy(p, sr.buffer)
+		sr.buffer = sr.buffer[n:]
+		sr.mu.Unlock()
+		return n, nil
+	}
+
+	if sr.closed {
+		sr.mu.Unlock()
+		return 0, io.EOF
+	}
+	sr.mu.Unlock()
+
+	for {
+		// 从通道中获取数据
+		data, ok := <-sr.dataChan
+		if !ok {
+			sr.mu.Lock()
+			sr.closed = true
+			sr.mu.Unlock()
+			return 0, io.EOF
+		}
+
+		// 只有拿到有效数据才返回，否则继续等待
+		if len(data) == 0 {
+			continue
+		}
+
+		sr.mu.Lock()
+		n = copy(p, data)
+		if n < len(data) {
+			sr.buffer = data[n:]
+		}
+		sr.mu.Unlock()
+		return n, nil
+	}
+}
+
+// Send 向通道中写入数据（供外部调用，发送流式数据）
+func (sr *streamReader) Send(data []byte) {
+	sr.mu.Lock()
+	if sr.closed {
+		sr.mu.Unlock()
+		return
+	}
+	ch := sr.dataChan
+	sr.mu.Unlock()
+	ch <- data
+}
+
+// Close 关闭通道（结束流式发送）
+func (sr *streamReader) Close() {
+	sr.mu.Lock()
+	if sr.closed {
+		sr.mu.Unlock()
+		return
+	}
+	sr.closed = true
+	ch := sr.dataChan
+	sr.mu.Unlock()
+	close(ch)
 }
