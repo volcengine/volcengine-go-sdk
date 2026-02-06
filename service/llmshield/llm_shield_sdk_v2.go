@@ -230,7 +230,7 @@ func StreamSessionInit(streamId int64, chanSize int, isSync bool) (stream *Strea
 	return
 }
 
-// ModerateStreamSync 使用 HTTP POST 建立流式审核连接，并在同步模式下获取结果
+// ModerateStream 使用 HTTP POST 建立流式审核连接，并在同步模式下获取结果
 func (c *Client) ModerateStream(request *ModerateV2Request, ssn interface{}) (*ModerateV2Response, error) {
 	var session *StreamSession
 
@@ -239,6 +239,12 @@ func (c *Client) ModerateStream(request *ModerateV2Request, ssn interface{}) (*M
 		return c.ModerateStreamOld(request, newssn)
 	case *StreamSession:
 		session = newssn
+	default:
+		return nil, fmt.Errorf("ssn is error")
+	}
+
+	if session == nil {
+		return nil, fmt.Errorf("session is error")
 	}
 
 	var startErr error
