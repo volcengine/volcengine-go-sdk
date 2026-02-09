@@ -376,6 +376,8 @@ type UpdateUserOutput struct {
 
 	LatestLogin *string `type:"string" json:",omitempty"`
 
+	LatestLoginMethod *string `type:"string" json:",omitempty"`
+
 	Locale *string `type:"string" json:",omitempty"`
 
 	MiddleName *string `type:"string" json:",omitempty"`
@@ -408,7 +410,7 @@ type UpdateUserOutput struct {
 
 	Website *string `type:"string" json:",omitempty"`
 
-	ZoneInfo *string `type:"string" json:",omitempty"`
+	Zoneinfo *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -478,6 +480,12 @@ func (s *UpdateUserOutput) SetLatestBrowser(v string) *UpdateUserOutput {
 // SetLatestLogin sets the LatestLogin field's value.
 func (s *UpdateUserOutput) SetLatestLogin(v string) *UpdateUserOutput {
 	s.LatestLogin = &v
+	return s
+}
+
+// SetLatestLoginMethod sets the LatestLoginMethod field's value.
+func (s *UpdateUserOutput) SetLatestLoginMethod(v string) *UpdateUserOutput {
+	s.LatestLoginMethod = &v
 	return s
 }
 
@@ -577,8 +585,8 @@ func (s *UpdateUserOutput) SetWebsite(v string) *UpdateUserOutput {
 	return s
 }
 
-// SetZoneInfo sets the ZoneInfo field's value.
-func (s *UpdateUserOutput) SetZoneInfo(v string) *UpdateUserOutput {
-	s.ZoneInfo = &v
+// SetZoneinfo sets the Zoneinfo field's value.
+func (s *UpdateUserOutput) SetZoneinfo(v string) *UpdateUserOutput {
+	s.Zoneinfo = &v
 	return s
 }

@@ -202,6 +202,8 @@ type CreateNamespaceOutput struct {
 
 	Metadata *response.ResponseMetadata
 
+	Associates *string `type:"string" json:",omitempty"`
+
 	CreateTime *string `type:"string" json:",omitempty"`
 
 	Description *string `type:"string" json:",omitempty"`
@@ -227,6 +229,12 @@ func (s CreateNamespaceOutput) String() string {
 // GoString returns the string representation
 func (s CreateNamespaceOutput) GoString() string {
 	return s.String()
+}
+
+// SetAssociates sets the Associates field's value.
+func (s *CreateNamespaceOutput) SetAssociates(v string) *CreateNamespaceOutput {
+	s.Associates = &v
+	return s
 }
 
 // SetCreateTime sets the CreateTime field's value.

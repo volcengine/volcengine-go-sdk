@@ -146,6 +146,10 @@ func (c *ID) GetWorkloadAccessTokenForUserIdWithContext(ctx volcengine.Context, 
 type GetWorkloadAccessTokenForUserIdInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	Audience []*string `type:"list" json:",omitempty"`
+
+	DurationSeconds *int64 `type:"int64" json:",omitempty"`
+
 	Name *string `type:"string" json:",omitempty"`
 
 	// UserId is a required field
@@ -175,6 +179,18 @@ func (s *GetWorkloadAccessTokenForUserIdInput) Validate() error {
 		return invalidParams
 	}
 	return nil
+}
+
+// SetAudience sets the Audience field's value.
+func (s *GetWorkloadAccessTokenForUserIdInput) SetAudience(v []*string) *GetWorkloadAccessTokenForUserIdInput {
+	s.Audience = v
+	return s
+}
+
+// SetDurationSeconds sets the DurationSeconds field's value.
+func (s *GetWorkloadAccessTokenForUserIdInput) SetDurationSeconds(v int64) *GetWorkloadAccessTokenForUserIdInput {
+	s.DurationSeconds = &v
+	return s
 }
 
 // SetName sets the Name field's value.

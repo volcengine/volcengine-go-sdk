@@ -148,11 +148,15 @@ type AuthorizationServerMetadataForGetOauth2CredentialProviderOutput struct {
 
 	AuthorizationEndpoint *string `type:"string" json:",omitempty"`
 
+	CodeChallengeMethodsSupported []*string `type:"list" json:",omitempty"`
+
 	Issuer *string `type:"string" json:",omitempty"`
 
 	RegistrationEndpoint *string `type:"string" json:",omitempty"`
 
 	ResponseTypes []*string `type:"list" json:",omitempty"`
+
+	RevocationEndpoint *string `type:"string" json:",omitempty"`
 
 	TokenEndpoint *string `type:"string" json:",omitempty"`
 }
@@ -173,6 +177,12 @@ func (s *AuthorizationServerMetadataForGetOauth2CredentialProviderOutput) SetAut
 	return s
 }
 
+// SetCodeChallengeMethodsSupported sets the CodeChallengeMethodsSupported field's value.
+func (s *AuthorizationServerMetadataForGetOauth2CredentialProviderOutput) SetCodeChallengeMethodsSupported(v []*string) *AuthorizationServerMetadataForGetOauth2CredentialProviderOutput {
+	s.CodeChallengeMethodsSupported = v
+	return s
+}
+
 // SetIssuer sets the Issuer field's value.
 func (s *AuthorizationServerMetadataForGetOauth2CredentialProviderOutput) SetIssuer(v string) *AuthorizationServerMetadataForGetOauth2CredentialProviderOutput {
 	s.Issuer = &v
@@ -188,6 +198,12 @@ func (s *AuthorizationServerMetadataForGetOauth2CredentialProviderOutput) SetReg
 // SetResponseTypes sets the ResponseTypes field's value.
 func (s *AuthorizationServerMetadataForGetOauth2CredentialProviderOutput) SetResponseTypes(v []*string) *AuthorizationServerMetadataForGetOauth2CredentialProviderOutput {
 	s.ResponseTypes = v
+	return s
+}
+
+// SetRevocationEndpoint sets the RevocationEndpoint field's value.
+func (s *AuthorizationServerMetadataForGetOauth2CredentialProviderOutput) SetRevocationEndpoint(v string) *AuthorizationServerMetadataForGetOauth2CredentialProviderOutput {
+	s.RevocationEndpoint = &v
 	return s
 }
 
@@ -284,11 +300,13 @@ type ConfigForGetOauth2CredentialProviderOutput struct {
 
 	CustomParameters *CustomParametersForGetOauth2CredentialProviderOutput `type:"structure" json:",omitempty"`
 
-	Flow *string `type:"string" json:",omitempty"`
+	Flow *string `type:"string" json:",omitempty" enum:"EnumOfFlowForGetOauth2CredentialProviderOutput"`
 
 	ForceAuthentication *bool `type:"boolean" json:",omitempty"`
 
 	MaxExpires *int64 `type:"int64" json:",omitempty"`
+
+	Metadata *string `type:"string" json:",omitempty"`
 
 	Oauth2Discovery *Oauth2DiscoveryForGetOauth2CredentialProviderOutput `type:"structure" json:",omitempty"`
 
@@ -340,6 +358,12 @@ func (s *ConfigForGetOauth2CredentialProviderOutput) SetForceAuthentication(v bo
 // SetMaxExpires sets the MaxExpires field's value.
 func (s *ConfigForGetOauth2CredentialProviderOutput) SetMaxExpires(v int64) *ConfigForGetOauth2CredentialProviderOutput {
 	s.MaxExpires = &v
+	return s
+}
+
+// SetMetadata sets the Metadata field's value.
+func (s *ConfigForGetOauth2CredentialProviderOutput) SetMetadata(v string) *ConfigForGetOauth2CredentialProviderOutput {
+	s.Metadata = &v
 	return s
 }
 
@@ -652,3 +676,11 @@ func (s *Oauth2DiscoveryForGetOauth2CredentialProviderOutput) SetDiscoveryUrl(v 
 	s.DiscoveryUrl = &v
 	return s
 }
+
+const (
+	// EnumOfFlowForGetOauth2CredentialProviderOutputUserFederation is a EnumOfFlowForGetOauth2CredentialProviderOutput enum value
+	EnumOfFlowForGetOauth2CredentialProviderOutputUserFederation = "USER_FEDERATION"
+
+	// EnumOfFlowForGetOauth2CredentialProviderOutputM2m is a EnumOfFlowForGetOauth2CredentialProviderOutput enum value
+	EnumOfFlowForGetOauth2CredentialProviderOutputM2m = "M2M"
+)

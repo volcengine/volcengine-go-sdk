@@ -146,6 +146,10 @@ func (c *ID) GetWorkloadAccessTokenForJWTWithContext(ctx volcengine.Context, inp
 type GetWorkloadAccessTokenForJWTInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	Audience []*string `type:"list" json:",omitempty"`
+
+	DurationSeconds *int64 `type:"int64" json:",omitempty"`
+
 	Name *string `type:"string" json:",omitempty"`
 
 	// UserToken is a required field
@@ -175,6 +179,18 @@ func (s *GetWorkloadAccessTokenForJWTInput) Validate() error {
 		return invalidParams
 	}
 	return nil
+}
+
+// SetAudience sets the Audience field's value.
+func (s *GetWorkloadAccessTokenForJWTInput) SetAudience(v []*string) *GetWorkloadAccessTokenForJWTInput {
+	s.Audience = v
+	return s
+}
+
+// SetDurationSeconds sets the DurationSeconds field's value.
+func (s *GetWorkloadAccessTokenForJWTInput) SetDurationSeconds(v int64) *GetWorkloadAccessTokenForJWTInput {
+	s.DurationSeconds = &v
+	return s
 }
 
 // SetName sets the Name field's value.

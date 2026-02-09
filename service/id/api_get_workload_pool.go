@@ -182,9 +182,15 @@ type GetWorkloadPoolOutput struct {
 
 	Description *string `type:"string" json:",omitempty"`
 
+	DiscoveryUrl *string `type:"string" json:",omitempty"`
+
 	ProjectName *string `type:"string" json:",omitempty"`
 
 	Tags []*TagForGetWorkloadPoolOutput `type:"list" json:",omitempty"`
+
+	TotalCredentials *int64 `type:"int64" json:",omitempty"`
+
+	TotalWorkloads *int64 `type:"int64" json:",omitempty"`
 
 	Trn *string `type:"string" json:",omitempty"`
 
@@ -217,6 +223,12 @@ func (s *GetWorkloadPoolOutput) SetDescription(v string) *GetWorkloadPoolOutput 
 	return s
 }
 
+// SetDiscoveryUrl sets the DiscoveryUrl field's value.
+func (s *GetWorkloadPoolOutput) SetDiscoveryUrl(v string) *GetWorkloadPoolOutput {
+	s.DiscoveryUrl = &v
+	return s
+}
+
 // SetProjectName sets the ProjectName field's value.
 func (s *GetWorkloadPoolOutput) SetProjectName(v string) *GetWorkloadPoolOutput {
 	s.ProjectName = &v
@@ -226,6 +238,18 @@ func (s *GetWorkloadPoolOutput) SetProjectName(v string) *GetWorkloadPoolOutput 
 // SetTags sets the Tags field's value.
 func (s *GetWorkloadPoolOutput) SetTags(v []*TagForGetWorkloadPoolOutput) *GetWorkloadPoolOutput {
 	s.Tags = v
+	return s
+}
+
+// SetTotalCredentials sets the TotalCredentials field's value.
+func (s *GetWorkloadPoolOutput) SetTotalCredentials(v int64) *GetWorkloadPoolOutput {
+	s.TotalCredentials = &v
+	return s
+}
+
+// SetTotalWorkloads sets the TotalWorkloads field's value.
+func (s *GetWorkloadPoolOutput) SetTotalWorkloads(v int64) *GetWorkloadPoolOutput {
+	s.TotalWorkloads = &v
 	return s
 }
 

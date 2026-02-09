@@ -226,6 +226,10 @@ type GetUserPoolOutput struct {
 
 	EmailPasswordlessSignInEnabled *bool `type:"boolean" json:",omitempty"`
 
+	Enabled *bool `type:"boolean" json:",omitempty"`
+
+	IssuerUrl *string `type:"string" json:",omitempty"`
+
 	Name *string `type:"string" json:",omitempty"`
 
 	OauthLoginCallbackUrl *string `type:"string" json:",omitempty"`
@@ -254,11 +258,15 @@ type GetUserPoolOutput struct {
 
 	SignUpAutoVerificationEnabled *bool `type:"boolean" json:",omitempty"`
 
+	SmsAnonymousSignUpEnabled *bool `type:"boolean" json:",omitempty"`
+
 	SmsPasswordlessSignInEnabled *bool `type:"boolean" json:",omitempty"`
 
 	Tags []*TagForGetUserPoolOutput `type:"list" json:",omitempty"`
 
 	TokenSigningKeyUrl *string `type:"string" json:",omitempty"`
+
+	TokenUrl *string `type:"string" json:",omitempty"`
 
 	TotalClients *int32 `type:"int32" json:",omitempty"`
 
@@ -318,6 +326,18 @@ func (s *GetUserPoolOutput) SetDomain(v string) *GetUserPoolOutput {
 // SetEmailPasswordlessSignInEnabled sets the EmailPasswordlessSignInEnabled field's value.
 func (s *GetUserPoolOutput) SetEmailPasswordlessSignInEnabled(v bool) *GetUserPoolOutput {
 	s.EmailPasswordlessSignInEnabled = &v
+	return s
+}
+
+// SetEnabled sets the Enabled field's value.
+func (s *GetUserPoolOutput) SetEnabled(v bool) *GetUserPoolOutput {
+	s.Enabled = &v
+	return s
+}
+
+// SetIssuerUrl sets the IssuerUrl field's value.
+func (s *GetUserPoolOutput) SetIssuerUrl(v string) *GetUserPoolOutput {
+	s.IssuerUrl = &v
 	return s
 }
 
@@ -405,6 +425,12 @@ func (s *GetUserPoolOutput) SetSignUpAutoVerificationEnabled(v bool) *GetUserPoo
 	return s
 }
 
+// SetSmsAnonymousSignUpEnabled sets the SmsAnonymousSignUpEnabled field's value.
+func (s *GetUserPoolOutput) SetSmsAnonymousSignUpEnabled(v bool) *GetUserPoolOutput {
+	s.SmsAnonymousSignUpEnabled = &v
+	return s
+}
+
 // SetSmsPasswordlessSignInEnabled sets the SmsPasswordlessSignInEnabled field's value.
 func (s *GetUserPoolOutput) SetSmsPasswordlessSignInEnabled(v bool) *GetUserPoolOutput {
 	s.SmsPasswordlessSignInEnabled = &v
@@ -420,6 +446,12 @@ func (s *GetUserPoolOutput) SetTags(v []*TagForGetUserPoolOutput) *GetUserPoolOu
 // SetTokenSigningKeyUrl sets the TokenSigningKeyUrl field's value.
 func (s *GetUserPoolOutput) SetTokenSigningKeyUrl(v string) *GetUserPoolOutput {
 	s.TokenSigningKeyUrl = &v
+	return s
+}
+
+// SetTokenUrl sets the TokenUrl field's value.
+func (s *GetUserPoolOutput) SetTokenUrl(v string) *GetUserPoolOutput {
+	s.TokenUrl = &v
 	return s
 }
 

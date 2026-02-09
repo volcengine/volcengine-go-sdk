@@ -194,6 +194,8 @@ type DeleteUsersOutput struct {
 
 	Errors []*string `type:"list" json:",omitempty"`
 
+	ErrorsStructured []*ErrorsStructuredForDeleteUsersOutput `type:"list" json:",omitempty"`
+
 	FailureCount *int32 `type:"int32" json:",omitempty"`
 
 	SuccessCount *int32 `type:"int32" json:",omitempty"`
@@ -217,6 +219,12 @@ func (s *DeleteUsersOutput) SetErrors(v []*string) *DeleteUsersOutput {
 	return s
 }
 
+// SetErrorsStructured sets the ErrorsStructured field's value.
+func (s *DeleteUsersOutput) SetErrorsStructured(v []*ErrorsStructuredForDeleteUsersOutput) *DeleteUsersOutput {
+	s.ErrorsStructured = v
+	return s
+}
+
 // SetFailureCount sets the FailureCount field's value.
 func (s *DeleteUsersOutput) SetFailureCount(v int32) *DeleteUsersOutput {
 	s.FailureCount = &v
@@ -232,5 +240,43 @@ func (s *DeleteUsersOutput) SetSuccessCount(v int32) *DeleteUsersOutput {
 // SetSuccessfulUids sets the SuccessfulUids field's value.
 func (s *DeleteUsersOutput) SetSuccessfulUids(v []*string) *DeleteUsersOutput {
 	s.SuccessfulUids = v
+	return s
+}
+
+type ErrorsStructuredForDeleteUsersOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Error *string `type:"string" json:",omitempty"`
+
+	Field *string `type:"string" json:",omitempty"`
+
+	Index *int32 `type:"int32" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s ErrorsStructuredForDeleteUsersOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ErrorsStructuredForDeleteUsersOutput) GoString() string {
+	return s.String()
+}
+
+// SetError sets the Error field's value.
+func (s *ErrorsStructuredForDeleteUsersOutput) SetError(v string) *ErrorsStructuredForDeleteUsersOutput {
+	s.Error = &v
+	return s
+}
+
+// SetField sets the Field field's value.
+func (s *ErrorsStructuredForDeleteUsersOutput) SetField(v string) *ErrorsStructuredForDeleteUsersOutput {
+	s.Field = &v
+	return s
+}
+
+// SetIndex sets the Index field's value.
+func (s *ErrorsStructuredForDeleteUsersOutput) SetIndex(v int32) *ErrorsStructuredForDeleteUsersOutput {
+	s.Index = &v
 	return s
 }
