@@ -144,6 +144,9 @@ func (c *OAuthClient) CreateToken(ctx context.Context, req *CreateTokenRequest) 
 	if apiResp.AccessToken == "" && apiResp.TokenType == "" && apiResp.RefreshToken == "" && apiResp.ExpiresIn == 0 {
 		return nil, fmt.Errorf("CreateToken succeeded but response was empty")
 	}
+	if apiResp.AccessToken == "" || apiResp.TokenType == "" {
+		return nil, fmt.Errorf("CreateToken succeeded but AccessToken or TokenType was empty")
+	}
 	return &apiResp, nil
 }
 
