@@ -5,15 +5,21 @@ import (
 	"fmt"
 	"net/http"
 	"strconv"
+	"time"
 
 	"github.com/volcengine/volcengine-go-sdk/volcengine"
+	"github.com/volcengine/volcengine-go-sdk/volcengine/client/metadata"
 	"github.com/volcengine/volcengine-go-sdk/volcengine/endpoints"
+	"github.com/volcengine/volcengine-go-sdk/volcengine/request"
 	"github.com/volcengine/volcengine-go-sdk/volcengine/signer/volc"
 	"github.com/volcengine/volcengine-go-sdk/volcengine/volcengineutil"
 )
 
 const (
-	defaultService = "rds_mysql"
+	defaultService    = "rds_mysql"
+	defaultAPIVersion = "2022-01-01"
+	defaultAPI        = "ConnectDatabase"
+	defaultExpires    = 900
 )
 
 // BuildAuthToken will return an authorization token used as the password for a DB connection.
@@ -38,16 +44,6 @@ func BuildAuthToken(ctx context.Context, config *volcengine.Config, dbUser, inst
 
 	region := *config.Region
 
-	// Get base credentials for signing
-	baseCreds, err := config.Credentials.GetBase(region, defaultService)
-	if err != nil {
-		return "", fmt.Errorf("unable to get credentials: %w", err)
-	}
-
-	if baseCreds.AccessKeyID == "" || baseCreds.SecretAccessKey == "" {
-		return "", fmt.Errorf("accessKeyID or secretAccessKey must not be empty")
-	}
-
 	// Build regional endpoint
 	host := volcengineutil.NewEndpoint().GetRegionalEndpoint(defaultService, region)
 
@@ -56,26 +52,50 @@ func BuildAuthToken(ctx context.Context, config *volcengine.Config, dbUser, inst
 	if config.DisableSSL != nil {
 		disableSSL = *config.DisableSSL
 	}
-	url := endpoints.AddScheme(host, disableSSL)
+	endpoint := endpoints.AddScheme(host, disableSSL)
 
-	req, err := http.NewRequestWithContext(ctx, http.MethodGet, url, nil)
-	if err != nil {
-		return "", fmt.Errorf("unable to build request: %w", err)
+	// Set up handlers - only need Sign
+	var handlers request.Handlers
+	handlers.Sign.PushBackNamed(volc.SignRequestHandler)
+
+	// Create request
+	op := &request.Operation{
+		Name:       defaultAPI,
+		HTTPMethod: http.MethodGet,
+		HTTPPath:   "",
 	}
 
-	q := req.URL.Query()
-	q.Set("Action", "ConnectDatabase")
-	q.Set("Version", "2022-01-01")
+	req := request.New(*config, metadata.ClientInfo{
+		ServiceName:   defaultService,
+		ServiceID:     defaultService,
+		SigningName:   defaultService,
+		SigningRegion: region,
+		Endpoint:      endpoint,
+		APIVersion:    defaultAPIVersion,
+	}, handlers, nil, op, nil, nil)
+
+	req.SetContext(ctx)
+
+	// Set query params
+	q := req.HTTPRequest.URL.Query()
+	q.Set("Action", defaultAPI)
+	q.Set("Version", defaultAPIVersion)
+	q.Set("DBUser", dbUser)
+	q.Set("InstanceId", instanceId)
 	if expires > 0 {
 		q.Set("X-Expires", strconv.Itoa(expires))
 	} else {
-		// Expire Time: 15 minute
-		q.Set("X-Expires", "900")
+		expires = defaultExpires
+		q.Set("X-Expires", strconv.Itoa(defaultExpires))
 	}
-	q.Set("DBUser", dbUser)
-	q.Set("InstanceId", instanceId)
-	req.URL.RawQuery = q.Encode()
+	req.HTTPRequest.URL.RawQuery = q.Encode()
 
-	signedUrl := volc.SignUrl(req, &baseCreds)
+	// Presign the request
+	expireDuration := time.Duration(expires) * time.Second
+	signedUrl, _, err := req.PresignRequest(expireDuration)
+	if err != nil {
+		return "", fmt.Errorf("unable to presign request: %w", err)
+	}
+
 	return signedUrl, nil
 }

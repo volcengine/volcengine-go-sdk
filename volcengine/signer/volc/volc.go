@@ -1,8 +1,6 @@
 package volc
 
 import (
-	"net/http"
-
 	"github.com/volcengine/volc-sdk-golang/base"
 	"github.com/volcengine/volcengine-go-sdk/volcengine"
 	"github.com/volcengine/volcengine-go-sdk/volcengine/credentials"
@@ -72,10 +70,11 @@ func SignSDKRequest(req *request.Request) {
 		return
 	}
 
-	r := c1.Sign(req.HTTPRequest)
-	req.HTTPRequest.Header = r.Header
-}
-
-func SignUrl(request *http.Request, credential *base.Credentials) string {
-	return request.URL.Scheme + "://" + request.URL.Host + "?" + credential.SignUrl(request)
+	if req.IsPresigned() {
+		signedQuery := c1.SignUrl(req.HTTPRequest)
+		req.HTTPRequest.URL.RawQuery = signedQuery
+	} else {
+		r := c1.Sign(req.HTTPRequest)
+		req.HTTPRequest.Header = r.Header
+	}
 }
