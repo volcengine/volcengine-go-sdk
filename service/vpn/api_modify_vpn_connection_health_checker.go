@@ -142,26 +142,24 @@ func (c *VPN) ModifyVpnConnectionHealthCheckerWithContext(ctx volcengine.Context
 type ModifyVpnConnectionHealthCheckerInput struct {
 	_ struct{} `type:"structure"`
 
-	// CheckInterval is a required field
-	CheckInterval *int64 `min:"3" max:"300" type:"integer" required:"true"`
+	CheckInterval *int64 `type:"integer"`
 
 	// CheckerId is a required field
 	CheckerId *string `type:"string" required:"true"`
 
 	ClientToken *string `type:"string"`
 
-	DownTime *int64 `min:"1" max:"10" type:"integer"`
+	DownTime *int64 `type:"integer"`
 
 	LocalIp *string `type:"string"`
 
 	RemoteIp *string `type:"string"`
 
-	Timeout *int64 `min:"1" max:"300" type:"integer"`
+	Timeout *int64 `type:"integer"`
 
 	UpTime *int64 `type:"integer"`
 
-	// VpnConnectionId is a required field
-	VpnConnectionId *string `type:"string" required:"true"`
+	VpnConnectionId *string `type:"string"`
 }
 
 // String returns the string representation
@@ -177,32 +175,8 @@ func (s ModifyVpnConnectionHealthCheckerInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *ModifyVpnConnectionHealthCheckerInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "ModifyVpnConnectionHealthCheckerInput"}
-	if s.CheckInterval == nil {
-		invalidParams.Add(request.NewErrParamRequired("CheckInterval"))
-	}
-	if s.CheckInterval != nil && *s.CheckInterval < 3 {
-		invalidParams.Add(request.NewErrParamMinValue("CheckInterval", 3))
-	}
-	if s.CheckInterval != nil && *s.CheckInterval > 300 {
-		invalidParams.Add(request.NewErrParamMaxValue("CheckInterval", 300))
-	}
 	if s.CheckerId == nil {
 		invalidParams.Add(request.NewErrParamRequired("CheckerId"))
-	}
-	if s.DownTime != nil && *s.DownTime < 1 {
-		invalidParams.Add(request.NewErrParamMinValue("DownTime", 1))
-	}
-	if s.DownTime != nil && *s.DownTime > 10 {
-		invalidParams.Add(request.NewErrParamMaxValue("DownTime", 10))
-	}
-	if s.Timeout != nil && *s.Timeout < 1 {
-		invalidParams.Add(request.NewErrParamMinValue("Timeout", 1))
-	}
-	if s.Timeout != nil && *s.Timeout > 300 {
-		invalidParams.Add(request.NewErrParamMaxValue("Timeout", 300))
-	}
-	if s.VpnConnectionId == nil {
-		invalidParams.Add(request.NewErrParamRequired("VpnConnectionId"))
 	}
 
 	if invalidParams.Len() > 0 {

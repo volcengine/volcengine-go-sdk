@@ -153,9 +153,11 @@ type CreateCustomerGatewayInput struct {
 	// IpAddress is a required field
 	IpAddress *string `type:"string" required:"true"`
 
-	IpVersion *string `type:"string" enum:"IpVersionForCreateCustomerGatewayInput"`
+	IpVersion *string `type:"string"`
 
 	ProjectName *string `type:"string"`
+
+	Tags []*TagForCreateCustomerGatewayInput `type:"list"`
 }
 
 // String returns the string representation
@@ -223,6 +225,12 @@ func (s *CreateCustomerGatewayInput) SetProjectName(v string) *CreateCustomerGat
 	return s
 }
 
+// SetTags sets the Tags field's value.
+func (s *CreateCustomerGatewayInput) SetTags(v []*TagForCreateCustomerGatewayInput) *CreateCustomerGatewayInput {
+	s.Tags = v
+	return s
+}
+
 type CreateCustomerGatewayOutput struct {
 	_ struct{} `type:"structure"`
 
@@ -255,10 +263,32 @@ func (s *CreateCustomerGatewayOutput) SetRequestId(v string) *CreateCustomerGate
 	return s
 }
 
-const (
-	// IpVersionForCreateCustomerGatewayInputIpv4 is a IpVersionForCreateCustomerGatewayInput enum value
-	IpVersionForCreateCustomerGatewayInputIpv4 = "ipv4"
+type TagForCreateCustomerGatewayInput struct {
+	_ struct{} `type:"structure"`
 
-	// IpVersionForCreateCustomerGatewayInputIpv6 is a IpVersionForCreateCustomerGatewayInput enum value
-	IpVersionForCreateCustomerGatewayInputIpv6 = "ipv6"
-)
+	Key *string `type:"string"`
+
+	Value *string `type:"string"`
+}
+
+// String returns the string representation
+func (s TagForCreateCustomerGatewayInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagForCreateCustomerGatewayInput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagForCreateCustomerGatewayInput) SetKey(v string) *TagForCreateCustomerGatewayInput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *TagForCreateCustomerGatewayInput) SetValue(v string) *TagForCreateCustomerGatewayInput {
+	s.Value = &v
+	return s
+}

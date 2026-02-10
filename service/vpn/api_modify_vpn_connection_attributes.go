@@ -142,6 +142,8 @@ func (c *VPN) ModifyVpnConnectionAttributesWithContext(ctx volcengine.Context, i
 type BGPConfigForModifyVpnConnectionAttributesInput struct {
 	_ struct{} `type:"structure"`
 
+	LocalBgpIP *string `type:"string"`
+
 	LocalBgpIp *string `type:"string"`
 
 	TunnelCidr *string `type:"string"`
@@ -155,6 +157,12 @@ func (s BGPConfigForModifyVpnConnectionAttributesInput) String() string {
 // GoString returns the string representation
 func (s BGPConfigForModifyVpnConnectionAttributesInput) GoString() string {
 	return s.String()
+}
+
+// SetLocalBgpIP sets the LocalBgpIP field's value.
+func (s *BGPConfigForModifyVpnConnectionAttributesInput) SetLocalBgpIP(v string) *BGPConfigForModifyVpnConnectionAttributesInput {
+	s.LocalBgpIP = &v
+	return s
 }
 
 // SetLocalBgpIp sets the LocalBgpIp field's value.
@@ -210,23 +218,23 @@ func (s *ConvertBgpConfigForModifyVpnConnectionAttributesInput) SetTunnelCidr(v 
 type IkeConfigForModifyVpnConnectionAttributesInput struct {
 	_ struct{} `type:"structure"`
 
-	AuthAlg *string `type:"string"`
+	AuthAlg *string `type:"string" enum:"AuthAlgForModifyVpnConnectionAttributesInput"`
 
-	DhGroup *string `type:"string"`
+	DhGroup *string `type:"string" enum:"DhGroupForModifyVpnConnectionAttributesInput"`
 
-	EncAlg *string `type:"string"`
+	EncAlg *string `type:"string" enum:"EncAlgForModifyVpnConnectionAttributesInput"`
 
 	Lifetime *int64 `type:"integer"`
 
 	LocalId *string `type:"string"`
 
-	Mode *string `type:"string"`
+	Mode *string `type:"string" enum:"ModeForModifyVpnConnectionAttributesInput"`
 
 	Psk *string `type:"string"`
 
 	RemoteId *string `type:"string"`
 
-	Version *string `type:"string"`
+	Version *string `type:"string" enum:"VersionForModifyVpnConnectionAttributesInput"`
 }
 
 // String returns the string representation
@@ -296,11 +304,11 @@ func (s *IkeConfigForModifyVpnConnectionAttributesInput) SetVersion(v string) *I
 type IpsecConfigForModifyVpnConnectionAttributesInput struct {
 	_ struct{} `type:"structure"`
 
-	AuthAlg *string `type:"string"`
+	AuthAlg *string `type:"string" enum:"AuthAlgForModifyVpnConnectionAttributesInput"`
 
-	DhGroup *string `type:"string"`
+	DhGroup *string `type:"string" enum:"DhGroupForModifyVpnConnectionAttributesInput"`
 
-	EncAlg *string `type:"string"`
+	EncAlg *string `type:"string" enum:"EncAlgForModifyVpnConnectionAttributesInput"`
 
 	Lifetime *int64 `type:"integer"`
 }
@@ -348,7 +356,7 @@ type ModifyVpnConnectionAttributesInput struct {
 
 	Description *string `type:"string"`
 
-	DpdAction *string `type:"string"`
+	DpdAction *string `type:"string" enum:"DpdActionForModifyVpnConnectionAttributesInput"`
 
 	EnableTunnelsBgp *bool `type:"boolean"`
 
@@ -534,7 +542,7 @@ type TunnelOptionForModifyVpnConnectionAttributesInput struct {
 
 	CustomerGatewayId *string `type:"string"`
 
-	DpdAction *string `type:"string"`
+	DpdAction *string `type:"string" enum:"DpdActionForModifyVpnConnectionAttributesInput"`
 
 	IkeConfig *IkeConfigForModifyVpnConnectionAttributesInput `type:"structure"`
 
@@ -596,3 +604,87 @@ func (s *TunnelOptionForModifyVpnConnectionAttributesInput) SetTunnelId(v string
 	s.TunnelId = &v
 	return s
 }
+
+const (
+	// AuthAlgForModifyVpnConnectionAttributesInputSha1 is a AuthAlgForModifyVpnConnectionAttributesInput enum value
+	AuthAlgForModifyVpnConnectionAttributesInputSha1 = "sha1"
+
+	// AuthAlgForModifyVpnConnectionAttributesInputMd5 is a AuthAlgForModifyVpnConnectionAttributesInput enum value
+	AuthAlgForModifyVpnConnectionAttributesInputMd5 = "md5"
+
+	// AuthAlgForModifyVpnConnectionAttributesInputSha256 is a AuthAlgForModifyVpnConnectionAttributesInput enum value
+	AuthAlgForModifyVpnConnectionAttributesInputSha256 = "sha256"
+
+	// AuthAlgForModifyVpnConnectionAttributesInputSha384 is a AuthAlgForModifyVpnConnectionAttributesInput enum value
+	AuthAlgForModifyVpnConnectionAttributesInputSha384 = "sha384"
+
+	// AuthAlgForModifyVpnConnectionAttributesInputSha512 is a AuthAlgForModifyVpnConnectionAttributesInput enum value
+	AuthAlgForModifyVpnConnectionAttributesInputSha512 = "sha512"
+
+	// AuthAlgForModifyVpnConnectionAttributesInputSm3 is a AuthAlgForModifyVpnConnectionAttributesInput enum value
+	AuthAlgForModifyVpnConnectionAttributesInputSm3 = "sm3"
+)
+
+const (
+	// DhGroupForModifyVpnConnectionAttributesInputGroup1 is a DhGroupForModifyVpnConnectionAttributesInput enum value
+	DhGroupForModifyVpnConnectionAttributesInputGroup1 = "group1"
+
+	// DhGroupForModifyVpnConnectionAttributesInputGroup2 is a DhGroupForModifyVpnConnectionAttributesInput enum value
+	DhGroupForModifyVpnConnectionAttributesInputGroup2 = "group2"
+
+	// DhGroupForModifyVpnConnectionAttributesInputGroup5 is a DhGroupForModifyVpnConnectionAttributesInput enum value
+	DhGroupForModifyVpnConnectionAttributesInputGroup5 = "group5"
+
+	// DhGroupForModifyVpnConnectionAttributesInputGroup14 is a DhGroupForModifyVpnConnectionAttributesInput enum value
+	DhGroupForModifyVpnConnectionAttributesInputGroup14 = "group14"
+)
+
+const (
+	// DpdActionForModifyVpnConnectionAttributesInputNone is a DpdActionForModifyVpnConnectionAttributesInput enum value
+	DpdActionForModifyVpnConnectionAttributesInputNone = "none"
+
+	// DpdActionForModifyVpnConnectionAttributesInputClear is a DpdActionForModifyVpnConnectionAttributesInput enum value
+	DpdActionForModifyVpnConnectionAttributesInputClear = "clear"
+
+	// DpdActionForModifyVpnConnectionAttributesInputHold is a DpdActionForModifyVpnConnectionAttributesInput enum value
+	DpdActionForModifyVpnConnectionAttributesInputHold = "hold"
+
+	// DpdActionForModifyVpnConnectionAttributesInputRestart is a DpdActionForModifyVpnConnectionAttributesInput enum value
+	DpdActionForModifyVpnConnectionAttributesInputRestart = "restart"
+)
+
+const (
+	// EncAlgForModifyVpnConnectionAttributesInputAes is a EncAlgForModifyVpnConnectionAttributesInput enum value
+	EncAlgForModifyVpnConnectionAttributesInputAes = "aes"
+
+	// EncAlgForModifyVpnConnectionAttributesInputAes192 is a EncAlgForModifyVpnConnectionAttributesInput enum value
+	EncAlgForModifyVpnConnectionAttributesInputAes192 = "aes192"
+
+	// EncAlgForModifyVpnConnectionAttributesInputAes256 is a EncAlgForModifyVpnConnectionAttributesInput enum value
+	EncAlgForModifyVpnConnectionAttributesInputAes256 = "aes256"
+
+	// EncAlgForModifyVpnConnectionAttributesInputDes is a EncAlgForModifyVpnConnectionAttributesInput enum value
+	EncAlgForModifyVpnConnectionAttributesInputDes = "des"
+
+	// EncAlgForModifyVpnConnectionAttributesInput3des is a EncAlgForModifyVpnConnectionAttributesInput enum value
+	EncAlgForModifyVpnConnectionAttributesInput3des = "3des"
+
+	// EncAlgForModifyVpnConnectionAttributesInputSm4 is a EncAlgForModifyVpnConnectionAttributesInput enum value
+	EncAlgForModifyVpnConnectionAttributesInputSm4 = "sm4"
+)
+
+const (
+	// ModeForModifyVpnConnectionAttributesInputMain is a ModeForModifyVpnConnectionAttributesInput enum value
+	ModeForModifyVpnConnectionAttributesInputMain = "main"
+
+	// ModeForModifyVpnConnectionAttributesInputAggressive is a ModeForModifyVpnConnectionAttributesInput enum value
+	ModeForModifyVpnConnectionAttributesInputAggressive = "aggressive"
+)
+
+const (
+	// VersionForModifyVpnConnectionAttributesInputIkev1 is a VersionForModifyVpnConnectionAttributesInput enum value
+	VersionForModifyVpnConnectionAttributesInputIkev1 = "ikev1"
+
+	// VersionForModifyVpnConnectionAttributesInputIkev2 is a VersionForModifyVpnConnectionAttributesInput enum value
+	VersionForModifyVpnConnectionAttributesInputIkev2 = "ikev2"
+)

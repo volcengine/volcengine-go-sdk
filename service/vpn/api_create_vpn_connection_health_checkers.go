@@ -3,6 +3,8 @@
 package vpn
 
 import (
+	"fmt"
+
 	"github.com/volcengine/volcengine-go-sdk/volcengine"
 	"github.com/volcengine/volcengine-go-sdk/volcengine/request"
 	"github.com/volcengine/volcengine-go-sdk/volcengine/response"
@@ -166,6 +168,16 @@ func (s *CreateVpnConnectionHealthCheckersInput) Validate() error {
 	if s.VpnConnectionId == nil {
 		invalidParams.Add(request.NewErrParamRequired("VpnConnectionId"))
 	}
+	if s.HealthCheckConfigs != nil {
+		for i, v := range s.HealthCheckConfigs {
+			if v == nil {
+				continue
+			}
+			if err := v.Validate(); err != nil {
+				invalidParams.AddNested(fmt.Sprintf("%s[%v]", "HealthCheckConfigs", i), err.(request.ErrInvalidParams))
+			}
+		}
+	}
 
 	if invalidParams.Len() > 0 {
 		return invalidParams
@@ -230,9 +242,11 @@ type HealthCheckConfigForCreateVpnConnectionHealthCheckersInput struct {
 
 	DownTime *int64 `type:"integer"`
 
-	LocalIp *string `type:"string"`
+	// LocalIp is a required field
+	LocalIp *string `type:"string" required:"true"`
 
-	RemoteIp *string `type:"string"`
+	// RemoteIp is a required field
+	RemoteIp *string `type:"string" required:"true"`
 
 	Timeout *int64 `type:"integer"`
 
@@ -247,6 +261,22 @@ func (s HealthCheckConfigForCreateVpnConnectionHealthCheckersInput) String() str
 // GoString returns the string representation
 func (s HealthCheckConfigForCreateVpnConnectionHealthCheckersInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *HealthCheckConfigForCreateVpnConnectionHealthCheckersInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "HealthCheckConfigForCreateVpnConnectionHealthCheckersInput"}
+	if s.LocalIp == nil {
+		invalidParams.Add(request.NewErrParamRequired("LocalIp"))
+	}
+	if s.RemoteIp == nil {
+		invalidParams.Add(request.NewErrParamRequired("RemoteIp"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetCheckInterval sets the CheckInterval field's value.

@@ -142,9 +142,9 @@ func (c *VPN) ModifySslVpnServerWithContext(ctx volcengine.Context, input *Modif
 type ModifySslVpnServerInput struct {
 	_ struct{} `type:"structure"`
 
-	Auth *string `type:"string"`
+	Auth *string `type:"string" enum:"AuthForModifySslVpnServerInput"`
 
-	Cipher *string `type:"string"`
+	Cipher *string `type:"string" enum:"CipherForModifySslVpnServerInput"`
 
 	ClientCertSessionPolicy *string `type:"string" enum:"ClientCertSessionPolicyForModifySslVpnServerInput"`
 
@@ -158,7 +158,7 @@ type ModifySslVpnServerInput struct {
 
 	Port *int64 `type:"integer"`
 
-	Protocol *string `type:"string"`
+	Protocol *string `type:"string" enum:"ProtocolForModifySslVpnServerInput"`
 
 	// SslVpnServerId is a required field
 	SslVpnServerId *string `type:"string" required:"true"`
@@ -280,9 +280,42 @@ func (s *ModifySslVpnServerOutput) SetRequestId(v string) *ModifySslVpnServerOut
 }
 
 const (
+	// AuthForModifySslVpnServerInputSha1 is a AuthForModifySslVpnServerInput enum value
+	AuthForModifySslVpnServerInputSha1 = "SHA1"
+
+	// AuthForModifySslVpnServerInputMd5 is a AuthForModifySslVpnServerInput enum value
+	AuthForModifySslVpnServerInputMd5 = "MD5"
+
+	// AuthForModifySslVpnServerInputNone is a AuthForModifySslVpnServerInput enum value
+	AuthForModifySslVpnServerInputNone = "None"
+)
+
+const (
+	// CipherForModifySslVpnServerInputAes128Cbc is a CipherForModifySslVpnServerInput enum value
+	CipherForModifySslVpnServerInputAes128Cbc = "AES-128-CBC"
+
+	// CipherForModifySslVpnServerInputAes192Cbc is a CipherForModifySslVpnServerInput enum value
+	CipherForModifySslVpnServerInputAes192Cbc = "AES-192-CBC"
+
+	// CipherForModifySslVpnServerInputAes256Cbc is a CipherForModifySslVpnServerInput enum value
+	CipherForModifySslVpnServerInputAes256Cbc = "AES-256-CBC"
+
+	// CipherForModifySslVpnServerInputNone is a CipherForModifySslVpnServerInput enum value
+	CipherForModifySslVpnServerInputNone = "None"
+)
+
+const (
 	// ClientCertSessionPolicyForModifySslVpnServerInputAllowConcurrent is a ClientCertSessionPolicyForModifySslVpnServerInput enum value
 	ClientCertSessionPolicyForModifySslVpnServerInputAllowConcurrent = "AllowConcurrent"
 
 	// ClientCertSessionPolicyForModifySslVpnServerInputPreemptExisting is a ClientCertSessionPolicyForModifySslVpnServerInput enum value
 	ClientCertSessionPolicyForModifySslVpnServerInputPreemptExisting = "PreemptExisting"
+)
+
+const (
+	// ProtocolForModifySslVpnServerInputTcp is a ProtocolForModifySslVpnServerInput enum value
+	ProtocolForModifySslVpnServerInputTcp = "TCP"
+
+	// ProtocolForModifySslVpnServerInputUdp is a ProtocolForModifySslVpnServerInput enum value
+	ProtocolForModifySslVpnServerInputUdp = "UDP"
 )
