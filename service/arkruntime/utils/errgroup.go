@@ -91,33 +91,3 @@ func (g *Group) Go(f func() error) {
 		}
 	}()
 }
-
-// TryGo calls the given function in a new goroutine only if the number of
-// active goroutines in the group is currently below the configured limit.
-//
-// The return value reports whether the goroutine was started.
-func (g *Group) TryGo(f func() error) bool {
-	if g.sem != nil {
-		select {
-		case g.sem <- token{}:
-			// Note: this allows barging iff channels in general allow barging.
-		default:
-			return false
-		}
-	}
-
-	g.wg.Add(1)
-	go func() {
-		defer g.done()
-
-		if err := f(); err != nil {
-			g.errOnce.Do(func() {
-				g.err = err
-				if g.cancel != nil {
-					g.cancel()
-				}
-			})
-		}
-	}()
-	return true
-}
