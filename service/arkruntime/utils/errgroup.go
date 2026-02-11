@@ -11,8 +11,6 @@ package utils
 
 import (
 	"context"
-	"fmt"
-	"runtime/debug"
 	"sync"
 )
 
@@ -74,12 +72,7 @@ func (g *Group) Go(f func() error) {
 
 	g.wg.Add(1)
 	go func() {
-		defer func() {
-			if r := recover(); r != nil {
-				g.err = fmt.Errorf("panic: %v,stack is: %s", r, string(debug.Stack()))
-			}
-			g.done()
-		}()
+		defer g.done()
 
 		if err := f(); err != nil {
 			g.errOnce.Do(func() {
