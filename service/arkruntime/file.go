@@ -10,11 +10,11 @@ import (
 	"os"
 	"runtime"
 	"strings"
-	"sync"
 	"time"
 
 	"github.com/volcengine/volcengine-go-sdk/service/arkruntime/model/file"
 	"github.com/volcengine/volcengine-go-sdk/service/arkruntime/model/responses"
+	"github.com/volcengine/volcengine-go-sdk/service/arkruntime/utils"
 	"github.com/volcengine/volcengine-go-sdk/volcengine"
 )
 
@@ -75,24 +75,28 @@ func (c *Client) preprocessResponseMultiModal(ctx context.Context, input *respon
 	ctx, cancel := context.WithTimeout(ctx, maxWaitTime)
 	defer cancel()
 
-	wg := sync.WaitGroup{}
+	eg, ctx := utils.WithContext(ctx)
 	inputList := input.GetListValue().GetListValue()
 	for _, item := range inputList {
 		for _, contentItem := range item.GetInputMessage().GetContent() {
-			if multiModalFile, err := getMultiModalFile(contentItem); err == nil && multiModalFile != nil {
-				wg.Add(1)
-				go func(contentItem *responses.ContentItem, multiModalFile io.Reader) {
-					defer wg.Done()
-					if err := c.preprocessResponseFile(ctx, contentItem, multiModalFile); err != nil {
-						cancel()
-					}
-				}(contentItem, multiModalFile)
+			multiModalFile, err := getMultiModalFile(contentItem)
+			if err != nil {
+				return err
 			}
+
+			contentItem := contentItem
+			eg.Go(func() error {
+				defer func() {
+					if multiModalFile != nil {
+						_ = multiModalFile.Close()
+					}
+				}()
+				return c.preprocessResponseFile(ctx, contentItem, multiModalFile)
+			})
 		}
 	}
 	// wait for all files to be processed
-	wg.Wait()
-	return nil
+	return eg.Wait()
 }
 
 func (c *Client) preprocessResponseFile(ctx context.Context, contentItem *responses.ContentItem, fileReader io.Reader) (err error) {
@@ -135,7 +139,7 @@ func (c *Client) preprocessResponseFile(ctx context.Context, contentItem *respon
 	return nil
 }
 
-func getMultiModalFile(contentItem *responses.ContentItem) (io.Reader, error) {
+func getMultiModalFile(contentItem *responses.ContentItem) (io.ReadCloser, error) {
 	if len(contentItem.GetVideo().GetVideoUrl()) > 0 {
 		return parseFile(contentItem.GetVideo().GetVideoUrl())
 	} else if len(contentItem.GetImage().GetImageUrl()) > 0 {
@@ -146,7 +150,7 @@ func getMultiModalFile(contentItem *responses.ContentItem) (io.Reader, error) {
 	return nil, nil
 }
 
-func parseFile(rawURL string) (io.Reader, error) {
+func parseFile(rawURL string) (io.ReadCloser, error) {
 	u, err := url.Parse(rawURL)
 	if err != nil {
 		return nil, err
