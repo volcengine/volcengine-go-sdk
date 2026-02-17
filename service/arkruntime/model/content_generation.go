@@ -7,6 +7,8 @@ type ContentGenerationContentItemType string
 const (
 	ContentGenerationContentItemTypeText      ContentGenerationContentItemType = "text"
 	ContentGenerationContentItemTypeImage     ContentGenerationContentItemType = "image_url"
+	ContentGenerationContentItemTypeAudio     ContentGenerationContentItemType = "audio_url"
+	ContentGenerationContentItemTypeVideo     ContentGenerationContentItemType = "video_url"
 	ContentGenerationContentItemTypeDraftTask ContentGenerationContentItemType = "draft_task"
 )
 
@@ -34,6 +36,7 @@ type CreateContentGenerationTaskRequest struct {
 	Ratio                 *string                               `json:"ratio,omitempty"`
 	Duration              *int64                                `json:"duration,omitempty"`
 	Frames                *int64                                `json:"frames,omitempty"`
+	Tools                 []*ContentGenerationTool              `json:"tools,omitempty"`
 	ExtraBody             `json:"-"`
 }
 
@@ -70,28 +73,29 @@ type GetContentGenerationTaskRequest struct {
 }
 
 type GetContentGenerationTaskResponse struct {
-	ID                    string                  `json:"id"`
-	Model                 string                  `json:"model"`
-	Status                string                  `json:"status"`
-	Error                 *ContentGenerationError `json:"error,omitempty"`
-	Content               Content                 `json:"content"`
-	Usage                 Usage                   `json:"usage"`
-	SubdivisionLevel      *string                 `json:"subdivisionlevel,omitempty"`
-	FileFormat            *string                 `json:"fileformat,omitempty"`
-	Frames                *int64                  `json:"frames"`
-	FramesPerSecond       *int64                  `json:"framespersecond"`
-	Resolution            *string                 `json:"resolution,omitempty"`
-	Ratio                 *string                 `json:"ratio,omitempty"`
-	Duration              *int64                  `json:"duration,omitempty"`
-	CreatedAt             int64                   `json:"created_at"`
-	UpdatedAt             int64                   `json:"updated_at"`
-	Seed                  *int64                  `json:"seed,omitempty"`
-	RevisedPrompt         *string                 `json:"revised_prompt,omitempty"`
-	ServiceTier           *string                 `json:"service_tier,omitempty"`
-	ExecutionExpiresAfter *int64                  `json:"execution_expires_after,omitempty"`
-	GenerateAudio         *bool                   `json:"generate_audio,omitempty"`
-	Draft                 *bool                   `json:"draft,omitempty"`
-	DraftTaskID           *string                 `json:"draft_task_id,omitempty"`
+	ID                    string                   `json:"id"`
+	Model                 string                   `json:"model"`
+	Status                string                   `json:"status"`
+	Error                 *ContentGenerationError  `json:"error,omitempty"`
+	Content               Content                  `json:"content"`
+	Usage                 Usage                    `json:"usage"`
+	SubdivisionLevel      *string                  `json:"subdivisionlevel,omitempty"`
+	FileFormat            *string                  `json:"fileformat,omitempty"`
+	Frames                *int64                   `json:"frames"`
+	FramesPerSecond       *int64                   `json:"framespersecond"`
+	Resolution            *string                  `json:"resolution,omitempty"`
+	Ratio                 *string                  `json:"ratio,omitempty"`
+	Duration              *int64                   `json:"duration,omitempty"`
+	CreatedAt             int64                    `json:"created_at"`
+	UpdatedAt             int64                    `json:"updated_at"`
+	Seed                  *int64                   `json:"seed,omitempty"`
+	RevisedPrompt         *string                  `json:"revised_prompt,omitempty"`
+	ServiceTier           *string                  `json:"service_tier,omitempty"`
+	ExecutionExpiresAfter *int64                   `json:"execution_expires_after,omitempty"`
+	GenerateAudio         *bool                    `json:"generate_audio,omitempty"`
+	Draft                 *bool                    `json:"draft,omitempty"`
+	DraftTaskID           *string                  `json:"draft_task_id,omitempty"`
+	Tools                 []*ContentGenerationTool `json:"tools,omitempty"`
 
 	HttpHeader
 }
@@ -117,6 +121,8 @@ type CreateContentGenerationContentItem struct {
 	Type      ContentGenerationContentItemType `json:"type"`
 	Text      *string                          `json:"text,omitempty"`
 	ImageURL  *ImageURL                        `json:"image_url,omitempty"`
+	AudioURL  *AudioUrl                        `json:"audio_url,omitempty"`
+	VideoURL  *VideoUrl                        `json:"video_url,omitempty"`
 	Role      *string                          `json:"role,omitempty"`
 	DraftTask *DraftTask                       `json:"draft_task,omitempty"`
 }
@@ -128,6 +134,15 @@ type DraftTask struct {
 type ImageURL struct {
 	URL string `json:"url"`
 }
+
+type AudioUrl struct {
+	Url string `json:"url"`
+}
+
+type VideoUrl struct {
+	Url string `json:"url"`
+}
+
 type Content struct {
 	VideoURL     string `json:"video_url"`
 	LastFrameURL string `json:"last_frame_url"`
@@ -145,25 +160,26 @@ type ListContentGenerationTasksResponse struct {
 }
 
 type ListContentGenerationTaskItem struct {
-	ID                    string                  `json:"id"`
-	Model                 string                  `json:"model"`
-	Status                string                  `json:"status"`
-	FailureReason         *ContentGenerationError `json:"failure_reason,omitempty"`
-	Content               Content                 `json:"content"`
-	Usage                 Usage                   `json:"usage"`
-	SubdivisionLevel      *string                 `json:"subdivisionlevel,omitempty"`
-	FileFormat            *string                 `json:"fileformat,omitempty"`
-	Frames                *int64                  `json:"frames"`
-	FramesPerSecond       *int64                  `json:"framespersecond"`
-	CreatedAt             int64                   `json:"created_at"`
-	UpdatedAt             int64                   `json:"updated_at"`
-	Seed                  *int64                  `json:"seed,omitempty"`
-	RevisedPrompt         *string                 `json:"revised_prompt,omitempty"`
-	ServiceTier           *string                 `json:"service_tier,omitempty"`
-	ExecutionExpiresAfter *int64                  `json:"execution_expires_after,omitempty"`
-	GenerateAudio         *bool                   `json:"generate_audio,omitempty"`
-	Draft                 *bool                   `json:"draft,omitempty"`
-	DraftTaskID           *string                 `json:"draft_task_id,omitempty"`
+	ID                    string                   `json:"id"`
+	Model                 string                   `json:"model"`
+	Status                string                   `json:"status"`
+	FailureReason         *ContentGenerationError  `json:"failure_reason,omitempty"`
+	Content               Content                  `json:"content"`
+	Usage                 Usage                    `json:"usage"`
+	SubdivisionLevel      *string                  `json:"subdivisionlevel,omitempty"`
+	FileFormat            *string                  `json:"fileformat,omitempty"`
+	Frames                *int64                   `json:"frames"`
+	FramesPerSecond       *int64                   `json:"framespersecond"`
+	CreatedAt             int64                    `json:"created_at"`
+	UpdatedAt             int64                    `json:"updated_at"`
+	Seed                  *int64                   `json:"seed,omitempty"`
+	RevisedPrompt         *string                  `json:"revised_prompt,omitempty"`
+	ServiceTier           *string                  `json:"service_tier,omitempty"`
+	ExecutionExpiresAfter *int64                   `json:"execution_expires_after,omitempty"`
+	GenerateAudio         *bool                    `json:"generate_audio,omitempty"`
+	Draft                 *bool                    `json:"draft,omitempty"`
+	DraftTaskID           *string                  `json:"draft_task_id,omitempty"`
+	Tools                 []*ContentGenerationTool `json:"tools,omitempty"`
 }
 
 type ContentGenerationError struct {
