@@ -28,7 +28,17 @@ const (
 	ImageGenerationStreamEventPartialFailed = "image_generation.partial_failed"
 
 	ImageGenerationStreamEventCompleted = "image_generation.completed"
+
+	ToolTypeWebSearch ContentGenerationToolType = "web_search"
+
+	OutputFormatJPEG OutputFormat = "jpeg"
+
+	OutputFormatPNG OutputFormat = "png"
 )
+
+type OutputFormat string
+
+type ContentGenerationToolType string
 
 type SequentialImageGeneration string
 
@@ -49,6 +59,8 @@ type GenerateImagesRequest struct {
 	OptimizePromptOptions            *OptimizePromptOptions            `json:"optimize_prompt_options,omitempty"`
 	SequentialImageGeneration        *SequentialImageGeneration        `json:"sequential_image_generation,omitempty"`
 	SequentialImageGenerationOptions *SequentialImageGenerationOptions `json:"sequential_image_generation_options,omitempty"`
+	Tools                            []*ContentGenerationTool          `json:"tools,omitempty"`
+	OutputFormat                     *OutputFormat                     `json:"output_format,omitempty"`
 }
 
 func (req *GenerateImagesRequest) NormalizeImages() error {
@@ -88,9 +100,10 @@ type Image struct {
 }
 
 type GenerateImagesUsage struct {
-	GeneratedImages int64 `json:"generated_images"`
-	OutputTokens    int64 `json:"output_tokens"`
-	TotalTokens     int64 `json:"total_tokens"`
+	GeneratedImages int64      `json:"generated_images"`
+	OutputTokens    int64      `json:"output_tokens"`
+	TotalTokens     int64      `json:"total_tokens"`
+	ToolUsage       *ToolUsage `json:"tool_usage,omitempty"`
 }
 
 type GenerateImagesError struct {
@@ -99,25 +112,35 @@ type GenerateImagesError struct {
 }
 
 type ImagesResponse struct {
-	Model   string               `json:"model"`
-	Created int64                `json:"created"`
-	Data    []*Image             `json:"data"`
-	Usage   *GenerateImagesUsage `json:"usage,omitempty"`
-	Error   *GenerateImagesError `json:"error,omitempty"`
+	Model   string                   `json:"model"`
+	Created int64                    `json:"created"`
+	Data    []*Image                 `json:"data"`
+	Usage   *GenerateImagesUsage     `json:"usage,omitempty"`
+	Error   *GenerateImagesError     `json:"error,omitempty"`
+	Tools   []*ContentGenerationTool `json:"tools,omitempty"`
 
 	HttpHeader
 }
 
 type ImagesStreamResponse struct {
-	Type       string               `json:"type"`
-	Model      string               `json:"model"`
-	Created    int64                `json:"created"`
-	ImageIndex int64                `json:"image_index"`
-	Url        *string              `json:"url,omitempty"`
-	B64Json    *string              `json:"b64_json,omitempty"`
-	Size       string               `json:"size"`
-	Usage      *GenerateImagesUsage `json:"usage,omitempty"`
-	Error      *GenerateImagesError `json:"error,omitempty"`
+	Type       string                   `json:"type"`
+	Model      string                   `json:"model"`
+	Created    int64                    `json:"created"`
+	ImageIndex int64                    `json:"image_index"`
+	Url        *string                  `json:"url,omitempty"`
+	B64Json    *string                  `json:"b64_json,omitempty"`
+	Size       string                   `json:"size"`
+	Usage      *GenerateImagesUsage     `json:"usage,omitempty"`
+	Error      *GenerateImagesError     `json:"error,omitempty"`
+	Tools      []*ContentGenerationTool `json:"tools,omitempty"`
 
 	HttpHeader
+}
+
+type ContentGenerationTool struct {
+	Type ContentGenerationToolType `json:"type,required"`
+}
+
+type ToolUsage struct {
+	WebSearch *int64 `json:"web_search,omitempty"`
 }
