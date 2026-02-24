@@ -146,7 +146,7 @@ func (c *CLOUDDETECT20251031) GetTaskWithContext(ctx volcengine.Context, input *
 type AlarmListForGetTaskOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	ID *int64 `type:"int64" json:",omitempty"`
+	Id *int64 `type:"int64" json:",omitempty"`
 
 	Name *string `type:"string" json:",omitempty"`
 
@@ -163,9 +163,9 @@ func (s AlarmListForGetTaskOutput) GoString() string {
 	return s.String()
 }
 
-// SetID sets the ID field's value.
-func (s *AlarmListForGetTaskOutput) SetID(v int64) *AlarmListForGetTaskOutput {
-	s.ID = &v
+// SetId sets the Id field's value.
+func (s *AlarmListForGetTaskOutput) SetId(v int64) *AlarmListForGetTaskOutput {
+	s.Id = &v
 	return s
 }
 
@@ -363,162 +363,10 @@ func (s *CustomHostForGetTaskOutput) SetResolveList(v []*string) *CustomHostForG
 	return s
 }
 
-type DNSConfigForGetTaskOutput struct {
-	_ struct{} `type:"structure" json:",omitempty"`
-
-	EnableDig *bool `type:"boolean" json:",omitempty"`
-
-	RecordType *int32 `type:"int32" json:",omitempty"`
-
-	SearchType *int32 `type:"int32" json:",omitempty"`
-
-	Server *string `type:"string" json:",omitempty"`
-
-	ServerType *int32 `type:"int32" json:",omitempty"`
-
-	Timeout *int32 `type:"int32" json:",omitempty"`
-}
-
-// String returns the string representation
-func (s DNSConfigForGetTaskOutput) String() string {
-	return volcengineutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s DNSConfigForGetTaskOutput) GoString() string {
-	return s.String()
-}
-
-// SetEnableDig sets the EnableDig field's value.
-func (s *DNSConfigForGetTaskOutput) SetEnableDig(v bool) *DNSConfigForGetTaskOutput {
-	s.EnableDig = &v
-	return s
-}
-
-// SetRecordType sets the RecordType field's value.
-func (s *DNSConfigForGetTaskOutput) SetRecordType(v int32) *DNSConfigForGetTaskOutput {
-	s.RecordType = &v
-	return s
-}
-
-// SetSearchType sets the SearchType field's value.
-func (s *DNSConfigForGetTaskOutput) SetSearchType(v int32) *DNSConfigForGetTaskOutput {
-	s.SearchType = &v
-	return s
-}
-
-// SetServer sets the Server field's value.
-func (s *DNSConfigForGetTaskOutput) SetServer(v string) *DNSConfigForGetTaskOutput {
-	s.Server = &v
-	return s
-}
-
-// SetServerType sets the ServerType field's value.
-func (s *DNSConfigForGetTaskOutput) SetServerType(v int32) *DNSConfigForGetTaskOutput {
-	s.ServerType = &v
-	return s
-}
-
-// SetTimeout sets the Timeout field's value.
-func (s *DNSConfigForGetTaskOutput) SetTimeout(v int32) *DNSConfigForGetTaskOutput {
-	s.Timeout = &v
-	return s
-}
-
-type DNSHijackAllowListForGetTaskOutput struct {
-	_ struct{} `type:"structure" json:",omitempty"`
-
-	HijackList []*string `type:"list" json:",omitempty"`
-
-	Host *string `type:"string" json:",omitempty"`
-}
-
-// String returns the string representation
-func (s DNSHijackAllowListForGetTaskOutput) String() string {
-	return volcengineutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s DNSHijackAllowListForGetTaskOutput) GoString() string {
-	return s.String()
-}
-
-// SetHijackList sets the HijackList field's value.
-func (s *DNSHijackAllowListForGetTaskOutput) SetHijackList(v []*string) *DNSHijackAllowListForGetTaskOutput {
-	s.HijackList = v
-	return s
-}
-
-// SetHost sets the Host field's value.
-func (s *DNSHijackAllowListForGetTaskOutput) SetHost(v string) *DNSHijackAllowListForGetTaskOutput {
-	s.Host = &v
-	return s
-}
-
-type DNSHijackBlockListForGetTaskOutput struct {
-	_ struct{} `type:"structure" json:",omitempty"`
-
-	HijackList []*string `type:"list" json:",omitempty"`
-
-	Host *string `type:"string" json:",omitempty"`
-}
-
-// String returns the string representation
-func (s DNSHijackBlockListForGetTaskOutput) String() string {
-	return volcengineutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s DNSHijackBlockListForGetTaskOutput) GoString() string {
-	return s.String()
-}
-
-// SetHijackList sets the HijackList field's value.
-func (s *DNSHijackBlockListForGetTaskOutput) SetHijackList(v []*string) *DNSHijackBlockListForGetTaskOutput {
-	s.HijackList = v
-	return s
-}
-
-// SetHost sets the Host field's value.
-func (s *DNSHijackBlockListForGetTaskOutput) SetHost(v string) *DNSHijackBlockListForGetTaskOutput {
-	s.Host = &v
-	return s
-}
-
-type DNSHijackConfigForGetTaskOutput struct {
-	_ struct{} `type:"structure" json:",omitempty"`
-
-	DNSHijackAllowList []*DNSHijackAllowListForGetTaskOutput `type:"list" json:",omitempty"`
-
-	DNSHijackBlockList []*DNSHijackBlockListForGetTaskOutput `type:"list" json:",omitempty"`
-}
-
-// String returns the string representation
-func (s DNSHijackConfigForGetTaskOutput) String() string {
-	return volcengineutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s DNSHijackConfigForGetTaskOutput) GoString() string {
-	return s.String()
-}
-
-// SetDNSHijackAllowList sets the DNSHijackAllowList field's value.
-func (s *DNSHijackConfigForGetTaskOutput) SetDNSHijackAllowList(v []*DNSHijackAllowListForGetTaskOutput) *DNSHijackConfigForGetTaskOutput {
-	s.DNSHijackAllowList = v
-	return s
-}
-
-// SetDNSHijackBlockList sets the DNSHijackBlockList field's value.
-func (s *DNSHijackConfigForGetTaskOutput) SetDNSHijackBlockList(v []*DNSHijackBlockListForGetTaskOutput) *DNSHijackConfigForGetTaskOutput {
-	s.DNSHijackBlockList = v
-	return s
-}
-
 type DiagnoseConfigForGetTaskOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	DNSConfig *DNSConfigForGetTaskOutput `type:"structure" json:",omitempty"`
+	DnsConfig *DnsConfigForGetTaskOutput `type:"structure" json:",omitempty"`
 
 	MethodList []*int32 `type:"list" json:",omitempty"`
 
@@ -539,9 +387,9 @@ func (s DiagnoseConfigForGetTaskOutput) GoString() string {
 	return s.String()
 }
 
-// SetDNSConfig sets the DNSConfig field's value.
-func (s *DiagnoseConfigForGetTaskOutput) SetDNSConfig(v *DNSConfigForGetTaskOutput) *DiagnoseConfigForGetTaskOutput {
-	s.DNSConfig = v
+// SetDnsConfig sets the DnsConfig field's value.
+func (s *DiagnoseConfigForGetTaskOutput) SetDnsConfig(v *DnsConfigForGetTaskOutput) *DiagnoseConfigForGetTaskOutput {
+	s.DnsConfig = v
 	return s
 }
 
@@ -569,18 +417,170 @@ func (s *DiagnoseConfigForGetTaskOutput) SetPingConfig(v *PingConfigForGetTaskOu
 	return s
 }
 
+type DnsConfigForGetTaskOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	EnableDig *bool `type:"boolean" json:",omitempty"`
+
+	RecordType *int32 `type:"int32" json:",omitempty"`
+
+	SearchType *int32 `type:"int32" json:",omitempty"`
+
+	Server *string `type:"string" json:",omitempty"`
+
+	ServerType *int32 `type:"int32" json:",omitempty"`
+
+	Timeout *int32 `type:"int32" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s DnsConfigForGetTaskOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DnsConfigForGetTaskOutput) GoString() string {
+	return s.String()
+}
+
+// SetEnableDig sets the EnableDig field's value.
+func (s *DnsConfigForGetTaskOutput) SetEnableDig(v bool) *DnsConfigForGetTaskOutput {
+	s.EnableDig = &v
+	return s
+}
+
+// SetRecordType sets the RecordType field's value.
+func (s *DnsConfigForGetTaskOutput) SetRecordType(v int32) *DnsConfigForGetTaskOutput {
+	s.RecordType = &v
+	return s
+}
+
+// SetSearchType sets the SearchType field's value.
+func (s *DnsConfigForGetTaskOutput) SetSearchType(v int32) *DnsConfigForGetTaskOutput {
+	s.SearchType = &v
+	return s
+}
+
+// SetServer sets the Server field's value.
+func (s *DnsConfigForGetTaskOutput) SetServer(v string) *DnsConfigForGetTaskOutput {
+	s.Server = &v
+	return s
+}
+
+// SetServerType sets the ServerType field's value.
+func (s *DnsConfigForGetTaskOutput) SetServerType(v int32) *DnsConfigForGetTaskOutput {
+	s.ServerType = &v
+	return s
+}
+
+// SetTimeout sets the Timeout field's value.
+func (s *DnsConfigForGetTaskOutput) SetTimeout(v int32) *DnsConfigForGetTaskOutput {
+	s.Timeout = &v
+	return s
+}
+
+type DnsHijackAllowListForGetTaskOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	HijackList []*string `type:"list" json:",omitempty"`
+
+	Host *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s DnsHijackAllowListForGetTaskOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DnsHijackAllowListForGetTaskOutput) GoString() string {
+	return s.String()
+}
+
+// SetHijackList sets the HijackList field's value.
+func (s *DnsHijackAllowListForGetTaskOutput) SetHijackList(v []*string) *DnsHijackAllowListForGetTaskOutput {
+	s.HijackList = v
+	return s
+}
+
+// SetHost sets the Host field's value.
+func (s *DnsHijackAllowListForGetTaskOutput) SetHost(v string) *DnsHijackAllowListForGetTaskOutput {
+	s.Host = &v
+	return s
+}
+
+type DnsHijackBlockListForGetTaskOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	HijackList []*string `type:"list" json:",omitempty"`
+
+	Host *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s DnsHijackBlockListForGetTaskOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DnsHijackBlockListForGetTaskOutput) GoString() string {
+	return s.String()
+}
+
+// SetHijackList sets the HijackList field's value.
+func (s *DnsHijackBlockListForGetTaskOutput) SetHijackList(v []*string) *DnsHijackBlockListForGetTaskOutput {
+	s.HijackList = v
+	return s
+}
+
+// SetHost sets the Host field's value.
+func (s *DnsHijackBlockListForGetTaskOutput) SetHost(v string) *DnsHijackBlockListForGetTaskOutput {
+	s.Host = &v
+	return s
+}
+
+type DnsHijackConfigForGetTaskOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	DnsHijackAllowList []*DnsHijackAllowListForGetTaskOutput `type:"list" json:",omitempty"`
+
+	DnsHijackBlockList []*DnsHijackBlockListForGetTaskOutput `type:"list" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s DnsHijackConfigForGetTaskOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DnsHijackConfigForGetTaskOutput) GoString() string {
+	return s.String()
+}
+
+// SetDnsHijackAllowList sets the DnsHijackAllowList field's value.
+func (s *DnsHijackConfigForGetTaskOutput) SetDnsHijackAllowList(v []*DnsHijackAllowListForGetTaskOutput) *DnsHijackConfigForGetTaskOutput {
+	s.DnsHijackAllowList = v
+	return s
+}
+
+// SetDnsHijackBlockList sets the DnsHijackBlockList field's value.
+func (s *DnsHijackConfigForGetTaskOutput) SetDnsHijackBlockList(v []*DnsHijackBlockListForGetTaskOutput) *DnsHijackConfigForGetTaskOutput {
+	s.DnsHijackBlockList = v
+	return s
+}
+
 type DownloadConfigForGetTaskOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
 	CustomHostConfig *CustomHostConfigForGetTaskOutput `type:"structure" json:",omitempty"`
 
-	DNSServer *string `type:"string" json:",omitempty"`
+	DnsServer *string `type:"string" json:",omitempty"`
 
-	DNSType *string `type:"string" json:",omitempty"`
-
-	HTTPVersion *string `type:"string" json:",omitempty"`
+	DnsType *string `type:"string" json:",omitempty"`
 
 	Headers []*HeaderForGetTaskOutput `type:"list" json:",omitempty"`
+
+	HttpVersion *string `type:"string" json:",omitempty"`
 
 	IgnoreCertificate *bool `type:"boolean" json:",omitempty"`
 
@@ -594,7 +594,7 @@ type DownloadConfigForGetTaskOutput struct {
 
 	Timeout *int32 `type:"int32" json:",omitempty"`
 
-	UploadFileURL *string `type:"string" json:",omitempty"`
+	UploadFileUrl *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -613,27 +613,27 @@ func (s *DownloadConfigForGetTaskOutput) SetCustomHostConfig(v *CustomHostConfig
 	return s
 }
 
-// SetDNSServer sets the DNSServer field's value.
-func (s *DownloadConfigForGetTaskOutput) SetDNSServer(v string) *DownloadConfigForGetTaskOutput {
-	s.DNSServer = &v
+// SetDnsServer sets the DnsServer field's value.
+func (s *DownloadConfigForGetTaskOutput) SetDnsServer(v string) *DownloadConfigForGetTaskOutput {
+	s.DnsServer = &v
 	return s
 }
 
-// SetDNSType sets the DNSType field's value.
-func (s *DownloadConfigForGetTaskOutput) SetDNSType(v string) *DownloadConfigForGetTaskOutput {
-	s.DNSType = &v
-	return s
-}
-
-// SetHTTPVersion sets the HTTPVersion field's value.
-func (s *DownloadConfigForGetTaskOutput) SetHTTPVersion(v string) *DownloadConfigForGetTaskOutput {
-	s.HTTPVersion = &v
+// SetDnsType sets the DnsType field's value.
+func (s *DownloadConfigForGetTaskOutput) SetDnsType(v string) *DownloadConfigForGetTaskOutput {
+	s.DnsType = &v
 	return s
 }
 
 // SetHeaders sets the Headers field's value.
 func (s *DownloadConfigForGetTaskOutput) SetHeaders(v []*HeaderForGetTaskOutput) *DownloadConfigForGetTaskOutput {
 	s.Headers = v
+	return s
+}
+
+// SetHttpVersion sets the HttpVersion field's value.
+func (s *DownloadConfigForGetTaskOutput) SetHttpVersion(v string) *DownloadConfigForGetTaskOutput {
+	s.HttpVersion = &v
 	return s
 }
 
@@ -673,39 +673,9 @@ func (s *DownloadConfigForGetTaskOutput) SetTimeout(v int32) *DownloadConfigForG
 	return s
 }
 
-// SetUploadFileURL sets the UploadFileURL field's value.
-func (s *DownloadConfigForGetTaskOutput) SetUploadFileURL(v string) *DownloadConfigForGetTaskOutput {
-	s.UploadFileURL = &v
-	return s
-}
-
-type EndCustomHostConfigTimeForGetTaskOutput struct {
-	_ struct{} `type:"structure" json:",omitempty"`
-
-	CustomHosts []*CustomHostForGetTaskOutput `type:"list" json:",omitempty"`
-
-	Strategy *int32 `type:"int32" json:",omitempty"`
-}
-
-// String returns the string representation
-func (s EndCustomHostConfigTimeForGetTaskOutput) String() string {
-	return volcengineutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s EndCustomHostConfigTimeForGetTaskOutput) GoString() string {
-	return s.String()
-}
-
-// SetCustomHosts sets the CustomHosts field's value.
-func (s *EndCustomHostConfigTimeForGetTaskOutput) SetCustomHosts(v []*CustomHostForGetTaskOutput) *EndCustomHostConfigTimeForGetTaskOutput {
-	s.CustomHosts = v
-	return s
-}
-
-// SetStrategy sets the Strategy field's value.
-func (s *EndCustomHostConfigTimeForGetTaskOutput) SetStrategy(v int32) *EndCustomHostConfigTimeForGetTaskOutput {
-	s.Strategy = &v
+// SetUploadFileUrl sets the UploadFileUrl field's value.
+func (s *DownloadConfigForGetTaskOutput) SetUploadFileUrl(v string) *DownloadConfigForGetTaskOutput {
+	s.UploadFileUrl = &v
 	return s
 }
 
@@ -742,8 +712,8 @@ func (s *EndTimeForGetTaskOutput) SetMinute(v int32) *EndTimeForGetTaskOutput {
 type GetTaskInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	// ID is a required field
-	ID *int64 `type:"int64" json:",omitempty" required:"true"`
+	// Id is a required field
+	Id *int64 `type:"int64" json:",omitempty" required:"true"`
 
 	ProjectName *string `type:"string" json:",omitempty"`
 }
@@ -761,8 +731,8 @@ func (s GetTaskInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *GetTaskInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "GetTaskInput"}
-	if s.ID == nil {
-		invalidParams.Add(request.NewErrParamRequired("ID"))
+	if s.Id == nil {
+		invalidParams.Add(request.NewErrParamRequired("Id"))
 	}
 
 	if invalidParams.Len() > 0 {
@@ -771,9 +741,9 @@ func (s *GetTaskInput) Validate() error {
 	return nil
 }
 
-// SetID sets the ID field's value.
-func (s *GetTaskInput) SetID(v int64) *GetTaskInput {
-	s.ID = &v
+// SetId sets the Id field's value.
+func (s *GetTaskInput) SetId(v int64) *GetTaskInput {
+	s.Id = &v
 	return s
 }
 
@@ -804,154 +774,6 @@ func (s GetTaskOutput) GoString() string {
 // SetTask sets the Task field's value.
 func (s *GetTaskOutput) SetTask(v *TaskForGetTaskOutput) *GetTaskOutput {
 	s.Task = v
-	return s
-}
-
-type HTTPConfigForGetTaskOutput struct {
-	_ struct{} `type:"structure" json:",omitempty"`
-
-	BodyType *int32 `type:"int32" json:",omitempty"`
-
-	CustomHostConfig *CustomHostConfigForGetTaskOutput `type:"structure" json:",omitempty"`
-
-	DNSServer *string `type:"string" json:",omitempty"`
-
-	DNSType *string `type:"string" json:",omitempty"`
-
-	HTTPHeaders []*HTTPHeaderForGetTaskOutput `type:"list" json:",omitempty"`
-
-	HTTPMethod *int32 `type:"int32" json:",omitempty"`
-
-	HTTPVersion *string `type:"string" json:",omitempty"`
-
-	IgnoreCertificate *bool `type:"boolean" json:",omitempty"`
-
-	MaxBodySize *int64 `type:"int64" json:",omitempty"`
-
-	ProxyURL *string `type:"string" json:",omitempty"`
-
-	Redirect *bool `type:"boolean" json:",omitempty"`
-
-	RequestBody *string `type:"string" json:",omitempty"`
-
-	Timeout *int32 `type:"int32" json:",omitempty"`
-}
-
-// String returns the string representation
-func (s HTTPConfigForGetTaskOutput) String() string {
-	return volcengineutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s HTTPConfigForGetTaskOutput) GoString() string {
-	return s.String()
-}
-
-// SetBodyType sets the BodyType field's value.
-func (s *HTTPConfigForGetTaskOutput) SetBodyType(v int32) *HTTPConfigForGetTaskOutput {
-	s.BodyType = &v
-	return s
-}
-
-// SetCustomHostConfig sets the CustomHostConfig field's value.
-func (s *HTTPConfigForGetTaskOutput) SetCustomHostConfig(v *CustomHostConfigForGetTaskOutput) *HTTPConfigForGetTaskOutput {
-	s.CustomHostConfig = v
-	return s
-}
-
-// SetDNSServer sets the DNSServer field's value.
-func (s *HTTPConfigForGetTaskOutput) SetDNSServer(v string) *HTTPConfigForGetTaskOutput {
-	s.DNSServer = &v
-	return s
-}
-
-// SetDNSType sets the DNSType field's value.
-func (s *HTTPConfigForGetTaskOutput) SetDNSType(v string) *HTTPConfigForGetTaskOutput {
-	s.DNSType = &v
-	return s
-}
-
-// SetHTTPHeaders sets the HTTPHeaders field's value.
-func (s *HTTPConfigForGetTaskOutput) SetHTTPHeaders(v []*HTTPHeaderForGetTaskOutput) *HTTPConfigForGetTaskOutput {
-	s.HTTPHeaders = v
-	return s
-}
-
-// SetHTTPMethod sets the HTTPMethod field's value.
-func (s *HTTPConfigForGetTaskOutput) SetHTTPMethod(v int32) *HTTPConfigForGetTaskOutput {
-	s.HTTPMethod = &v
-	return s
-}
-
-// SetHTTPVersion sets the HTTPVersion field's value.
-func (s *HTTPConfigForGetTaskOutput) SetHTTPVersion(v string) *HTTPConfigForGetTaskOutput {
-	s.HTTPVersion = &v
-	return s
-}
-
-// SetIgnoreCertificate sets the IgnoreCertificate field's value.
-func (s *HTTPConfigForGetTaskOutput) SetIgnoreCertificate(v bool) *HTTPConfigForGetTaskOutput {
-	s.IgnoreCertificate = &v
-	return s
-}
-
-// SetMaxBodySize sets the MaxBodySize field's value.
-func (s *HTTPConfigForGetTaskOutput) SetMaxBodySize(v int64) *HTTPConfigForGetTaskOutput {
-	s.MaxBodySize = &v
-	return s
-}
-
-// SetProxyURL sets the ProxyURL field's value.
-func (s *HTTPConfigForGetTaskOutput) SetProxyURL(v string) *HTTPConfigForGetTaskOutput {
-	s.ProxyURL = &v
-	return s
-}
-
-// SetRedirect sets the Redirect field's value.
-func (s *HTTPConfigForGetTaskOutput) SetRedirect(v bool) *HTTPConfigForGetTaskOutput {
-	s.Redirect = &v
-	return s
-}
-
-// SetRequestBody sets the RequestBody field's value.
-func (s *HTTPConfigForGetTaskOutput) SetRequestBody(v string) *HTTPConfigForGetTaskOutput {
-	s.RequestBody = &v
-	return s
-}
-
-// SetTimeout sets the Timeout field's value.
-func (s *HTTPConfigForGetTaskOutput) SetTimeout(v int32) *HTTPConfigForGetTaskOutput {
-	s.Timeout = &v
-	return s
-}
-
-type HTTPHeaderForGetTaskOutput struct {
-	_ struct{} `type:"structure" json:",omitempty"`
-
-	Key *string `type:"string" json:",omitempty"`
-
-	Value *string `type:"string" json:",omitempty"`
-}
-
-// String returns the string representation
-func (s HTTPHeaderForGetTaskOutput) String() string {
-	return volcengineutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s HTTPHeaderForGetTaskOutput) GoString() string {
-	return s.String()
-}
-
-// SetKey sets the Key field's value.
-func (s *HTTPHeaderForGetTaskOutput) SetKey(v string) *HTTPHeaderForGetTaskOutput {
-	s.Key = &v
-	return s
-}
-
-// SetValue sets the Value field's value.
-func (s *HTTPHeaderForGetTaskOutput) SetValue(v string) *HTTPHeaderForGetTaskOutput {
-	s.Value = &v
 	return s
 }
 
@@ -988,7 +810,7 @@ func (s *HeaderForGetTaskOutput) SetValue(v string) *HeaderForGetTaskOutput {
 type MtrConfigForGetTaskOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	DNSReverseResolution *bool `type:"boolean" json:",omitempty"`
+	DnsReverseResolution *bool `type:"boolean" json:",omitempty"`
 
 	Interval *float64 `type:"double" json:",omitempty"`
 
@@ -1015,9 +837,9 @@ func (s MtrConfigForGetTaskOutput) GoString() string {
 	return s.String()
 }
 
-// SetDNSReverseResolution sets the DNSReverseResolution field's value.
-func (s *MtrConfigForGetTaskOutput) SetDNSReverseResolution(v bool) *MtrConfigForGetTaskOutput {
-	s.DNSReverseResolution = &v
+// SetDnsReverseResolution sets the DnsReverseResolution field's value.
+func (s *MtrConfigForGetTaskOutput) SetDnsReverseResolution(v bool) *MtrConfigForGetTaskOutput {
+	s.DnsReverseResolution = &v
 	return s
 }
 
@@ -1072,13 +894,13 @@ type PageConfigForGetTaskOutput struct {
 
 	CustomHeader *CustomHeaderForGetTaskOutput `type:"structure" json:",omitempty"`
 
+	CustomHostConfig *CustomHostConfigForGetTaskOutput `type:"structure" json:",omitempty"`
+
 	DisableCompress *bool `type:"boolean" json:",omitempty"`
 
 	EnableCache *bool `type:"boolean" json:",omitempty"`
 
 	EnableRedirect *bool `type:"boolean" json:",omitempty"`
-
-	EndCustomHostConfigTime *EndCustomHostConfigTimeForGetTaskOutput `type:"structure" json:",omitempty"`
 
 	IgnoreCertificate *bool `type:"boolean" json:",omitempty"`
 
@@ -1123,6 +945,12 @@ func (s *PageConfigForGetTaskOutput) SetCustomHeader(v *CustomHeaderForGetTaskOu
 	return s
 }
 
+// SetCustomHostConfig sets the CustomHostConfig field's value.
+func (s *PageConfigForGetTaskOutput) SetCustomHostConfig(v *CustomHostConfigForGetTaskOutput) *PageConfigForGetTaskOutput {
+	s.CustomHostConfig = v
+	return s
+}
+
 // SetDisableCompress sets the DisableCompress field's value.
 func (s *PageConfigForGetTaskOutput) SetDisableCompress(v bool) *PageConfigForGetTaskOutput {
 	s.DisableCompress = &v
@@ -1138,12 +966,6 @@ func (s *PageConfigForGetTaskOutput) SetEnableCache(v bool) *PageConfigForGetTas
 // SetEnableRedirect sets the EnableRedirect field's value.
 func (s *PageConfigForGetTaskOutput) SetEnableRedirect(v bool) *PageConfigForGetTaskOutput {
 	s.EnableRedirect = &v
-	return s
-}
-
-// SetEndCustomHostConfigTime sets the EndCustomHostConfigTime field's value.
-func (s *PageConfigForGetTaskOutput) SetEndCustomHostConfigTime(v *EndCustomHostConfigTimeForGetTaskOutput) *PageConfigForGetTaskOutput {
-	s.EndCustomHostConfigTime = v
 	return s
 }
 
@@ -1230,8 +1052,6 @@ func (s *PeriodConfigForGetTaskOutput) SetTimeRangeConfig(v []*TimeRangeConfigFo
 type PingConfigForGetTaskOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	Common_typesProtocolType *int32 `type:"int32" json:"common_types.ProtocolType,omitempty"`
-
 	ConnectTimeout *float64 `type:"double" json:",omitempty"`
 
 	EnableDividePackage *bool `type:"boolean" json:",omitempty"`
@@ -1255,12 +1075,6 @@ func (s PingConfigForGetTaskOutput) String() string {
 // GoString returns the string representation
 func (s PingConfigForGetTaskOutput) GoString() string {
 	return s.String()
-}
-
-// SetCommon_typesProtocolType sets the Common_typesProtocolType field's value.
-func (s *PingConfigForGetTaskOutput) SetCommon_typesProtocolType(v int32) *PingConfigForGetTaskOutput {
-	s.Common_typesProtocolType = &v
-	return s
 }
 
 // SetConnectTimeout sets the ConnectTimeout field's value.
@@ -1425,44 +1239,6 @@ func (s *StartTimeForGetTaskOutput) SetMinute(v int32) *StartTimeForGetTaskOutpu
 	return s
 }
 
-type TCPConfigForGetTaskOutput struct {
-	_ struct{} `type:"structure" json:",omitempty"`
-
-	Payload *string `type:"string" json:",omitempty"`
-
-	PayloadType *int32 `type:"int32" json:",omitempty"`
-
-	Timeout *int32 `type:"int32" json:",omitempty"`
-}
-
-// String returns the string representation
-func (s TCPConfigForGetTaskOutput) String() string {
-	return volcengineutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s TCPConfigForGetTaskOutput) GoString() string {
-	return s.String()
-}
-
-// SetPayload sets the Payload field's value.
-func (s *TCPConfigForGetTaskOutput) SetPayload(v string) *TCPConfigForGetTaskOutput {
-	s.Payload = &v
-	return s
-}
-
-// SetPayloadType sets the PayloadType field's value.
-func (s *TCPConfigForGetTaskOutput) SetPayloadType(v int32) *TCPConfigForGetTaskOutput {
-	s.PayloadType = &v
-	return s
-}
-
-// SetTimeout sets the Timeout field's value.
-func (s *TCPConfigForGetTaskOutput) SetTimeout(v int32) *TCPConfigForGetTaskOutput {
-	s.Timeout = &v
-	return s
-}
-
 type TagForGetTaskOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -1498,23 +1274,17 @@ type TaskForGetTaskOutput struct {
 
 	Address *string `type:"string" json:",omitempty"`
 
-	AlarmIDList []*int64 `type:"list" json:",omitempty"`
+	AlarmIdList []*int64 `type:"list" json:",omitempty"`
 
 	AlarmList []*AlarmListForGetTaskOutput `type:"list" json:",omitempty"`
-
-	BindGroupID *int64 `type:"int64" json:",omitempty"`
-
-	BindGroupName *string `type:"string" json:",omitempty"`
 
 	CreateTime *int64 `type:"int64" json:",omitempty"`
 
 	CreateTimeStr *string `type:"string" json:",omitempty"`
 
-	DNSConfig *DNSConfigForGetTaskOutput `type:"structure" json:",omitempty"`
-
-	DNSHijackConfig *DNSHijackConfigForGetTaskOutput `type:"structure" json:",omitempty"`
-
 	DiagnoseConfig *DiagnoseConfigForGetTaskOutput `type:"structure" json:",omitempty"`
+
+	DnsHijackConfig *DnsHijackConfigForGetTaskOutput `type:"structure" json:",omitempty"`
 
 	DownloadConfig *DownloadConfigForGetTaskOutput `type:"structure" json:",omitempty"`
 
@@ -1522,17 +1292,15 @@ type TaskForGetTaskOutput struct {
 
 	FinishTime *int64 `type:"int64" json:",omitempty"`
 
-	HTTPConfig *HTTPConfigForGetTaskOutput `type:"structure" json:",omitempty"`
+	HttpMethod *int32 `type:"int32" json:",omitempty"`
 
-	HTTPMethod *int32 `type:"int32" json:",omitempty"`
+	Id *int64 `type:"int64" json:",omitempty"`
 
-	ID *int64 `type:"int64" json:",omitempty"`
-
-	IDStr *string `type:"string" json:",omitempty"`
+	IdStr *string `type:"string" json:",omitempty"`
 
 	IntervalSeconds *int32 `type:"int32" json:",omitempty"`
 
-	LineIDList []*int64 `type:"list" json:",omitempty"`
+	LineIdList []*int64 `type:"list" json:",omitempty"`
 
 	Name *string `type:"string" json:",omitempty"`
 
@@ -1548,27 +1316,21 @@ type TaskForGetTaskOutput struct {
 
 	ResultAssert *ResultAssertForGetTaskOutput `type:"structure" json:",omitempty"`
 
-	RunnerIDList []*int64 `type:"list" json:",omitempty"`
-
 	Status *int32 `type:"int32" json:",omitempty"`
 
 	SubTaskType *int32 `type:"int32" json:",omitempty"`
-
-	TCPConfig *TCPConfigForGetTaskOutput `type:"structure" json:",omitempty"`
 
 	Tags []*TagForGetTaskOutput `type:"list" json:",omitempty"`
 
 	TargetServerType *int32 `type:"int32" json:",omitempty"`
 
-	TaskGroupID *int64 `type:"int64" json:",omitempty"`
+	TaskGroupId *int64 `type:"int64" json:",omitempty"`
 
 	TaskGroupName *string `type:"string" json:",omitempty"`
 
 	TaskType *int32 `type:"int32" json:",omitempty"`
 
 	Type *int32 `type:"int32" json:",omitempty"`
-
-	UDPConfig *UDPConfigForGetTaskOutput `type:"structure" json:",omitempty"`
 
 	UpdateTime *int64 `type:"int64" json:",omitempty"`
 
@@ -1591,27 +1353,15 @@ func (s *TaskForGetTaskOutput) SetAddress(v string) *TaskForGetTaskOutput {
 	return s
 }
 
-// SetAlarmIDList sets the AlarmIDList field's value.
-func (s *TaskForGetTaskOutput) SetAlarmIDList(v []*int64) *TaskForGetTaskOutput {
-	s.AlarmIDList = v
+// SetAlarmIdList sets the AlarmIdList field's value.
+func (s *TaskForGetTaskOutput) SetAlarmIdList(v []*int64) *TaskForGetTaskOutput {
+	s.AlarmIdList = v
 	return s
 }
 
 // SetAlarmList sets the AlarmList field's value.
 func (s *TaskForGetTaskOutput) SetAlarmList(v []*AlarmListForGetTaskOutput) *TaskForGetTaskOutput {
 	s.AlarmList = v
-	return s
-}
-
-// SetBindGroupID sets the BindGroupID field's value.
-func (s *TaskForGetTaskOutput) SetBindGroupID(v int64) *TaskForGetTaskOutput {
-	s.BindGroupID = &v
-	return s
-}
-
-// SetBindGroupName sets the BindGroupName field's value.
-func (s *TaskForGetTaskOutput) SetBindGroupName(v string) *TaskForGetTaskOutput {
-	s.BindGroupName = &v
 	return s
 }
 
@@ -1627,21 +1377,15 @@ func (s *TaskForGetTaskOutput) SetCreateTimeStr(v string) *TaskForGetTaskOutput 
 	return s
 }
 
-// SetDNSConfig sets the DNSConfig field's value.
-func (s *TaskForGetTaskOutput) SetDNSConfig(v *DNSConfigForGetTaskOutput) *TaskForGetTaskOutput {
-	s.DNSConfig = v
-	return s
-}
-
-// SetDNSHijackConfig sets the DNSHijackConfig field's value.
-func (s *TaskForGetTaskOutput) SetDNSHijackConfig(v *DNSHijackConfigForGetTaskOutput) *TaskForGetTaskOutput {
-	s.DNSHijackConfig = v
-	return s
-}
-
 // SetDiagnoseConfig sets the DiagnoseConfig field's value.
 func (s *TaskForGetTaskOutput) SetDiagnoseConfig(v *DiagnoseConfigForGetTaskOutput) *TaskForGetTaskOutput {
 	s.DiagnoseConfig = v
+	return s
+}
+
+// SetDnsHijackConfig sets the DnsHijackConfig field's value.
+func (s *TaskForGetTaskOutput) SetDnsHijackConfig(v *DnsHijackConfigForGetTaskOutput) *TaskForGetTaskOutput {
+	s.DnsHijackConfig = v
 	return s
 }
 
@@ -1663,27 +1407,21 @@ func (s *TaskForGetTaskOutput) SetFinishTime(v int64) *TaskForGetTaskOutput {
 	return s
 }
 
-// SetHTTPConfig sets the HTTPConfig field's value.
-func (s *TaskForGetTaskOutput) SetHTTPConfig(v *HTTPConfigForGetTaskOutput) *TaskForGetTaskOutput {
-	s.HTTPConfig = v
+// SetHttpMethod sets the HttpMethod field's value.
+func (s *TaskForGetTaskOutput) SetHttpMethod(v int32) *TaskForGetTaskOutput {
+	s.HttpMethod = &v
 	return s
 }
 
-// SetHTTPMethod sets the HTTPMethod field's value.
-func (s *TaskForGetTaskOutput) SetHTTPMethod(v int32) *TaskForGetTaskOutput {
-	s.HTTPMethod = &v
+// SetId sets the Id field's value.
+func (s *TaskForGetTaskOutput) SetId(v int64) *TaskForGetTaskOutput {
+	s.Id = &v
 	return s
 }
 
-// SetID sets the ID field's value.
-func (s *TaskForGetTaskOutput) SetID(v int64) *TaskForGetTaskOutput {
-	s.ID = &v
-	return s
-}
-
-// SetIDStr sets the IDStr field's value.
-func (s *TaskForGetTaskOutput) SetIDStr(v string) *TaskForGetTaskOutput {
-	s.IDStr = &v
+// SetIdStr sets the IdStr field's value.
+func (s *TaskForGetTaskOutput) SetIdStr(v string) *TaskForGetTaskOutput {
+	s.IdStr = &v
 	return s
 }
 
@@ -1693,9 +1431,9 @@ func (s *TaskForGetTaskOutput) SetIntervalSeconds(v int32) *TaskForGetTaskOutput
 	return s
 }
 
-// SetLineIDList sets the LineIDList field's value.
-func (s *TaskForGetTaskOutput) SetLineIDList(v []*int64) *TaskForGetTaskOutput {
-	s.LineIDList = v
+// SetLineIdList sets the LineIdList field's value.
+func (s *TaskForGetTaskOutput) SetLineIdList(v []*int64) *TaskForGetTaskOutput {
+	s.LineIdList = v
 	return s
 }
 
@@ -1741,12 +1479,6 @@ func (s *TaskForGetTaskOutput) SetResultAssert(v *ResultAssertForGetTaskOutput) 
 	return s
 }
 
-// SetRunnerIDList sets the RunnerIDList field's value.
-func (s *TaskForGetTaskOutput) SetRunnerIDList(v []*int64) *TaskForGetTaskOutput {
-	s.RunnerIDList = v
-	return s
-}
-
 // SetStatus sets the Status field's value.
 func (s *TaskForGetTaskOutput) SetStatus(v int32) *TaskForGetTaskOutput {
 	s.Status = &v
@@ -1756,12 +1488,6 @@ func (s *TaskForGetTaskOutput) SetStatus(v int32) *TaskForGetTaskOutput {
 // SetSubTaskType sets the SubTaskType field's value.
 func (s *TaskForGetTaskOutput) SetSubTaskType(v int32) *TaskForGetTaskOutput {
 	s.SubTaskType = &v
-	return s
-}
-
-// SetTCPConfig sets the TCPConfig field's value.
-func (s *TaskForGetTaskOutput) SetTCPConfig(v *TCPConfigForGetTaskOutput) *TaskForGetTaskOutput {
-	s.TCPConfig = v
 	return s
 }
 
@@ -1777,9 +1503,9 @@ func (s *TaskForGetTaskOutput) SetTargetServerType(v int32) *TaskForGetTaskOutpu
 	return s
 }
 
-// SetTaskGroupID sets the TaskGroupID field's value.
-func (s *TaskForGetTaskOutput) SetTaskGroupID(v int64) *TaskForGetTaskOutput {
-	s.TaskGroupID = &v
+// SetTaskGroupId sets the TaskGroupId field's value.
+func (s *TaskForGetTaskOutput) SetTaskGroupId(v int64) *TaskForGetTaskOutput {
+	s.TaskGroupId = &v
 	return s
 }
 
@@ -1798,12 +1524,6 @@ func (s *TaskForGetTaskOutput) SetTaskType(v int32) *TaskForGetTaskOutput {
 // SetType sets the Type field's value.
 func (s *TaskForGetTaskOutput) SetType(v int32) *TaskForGetTaskOutput {
 	s.Type = &v
-	return s
-}
-
-// SetUDPConfig sets the UDPConfig field's value.
-func (s *TaskForGetTaskOutput) SetUDPConfig(v *UDPConfigForGetTaskOutput) *TaskForGetTaskOutput {
-	s.UDPConfig = v
 	return s
 }
 
@@ -1857,64 +1577,18 @@ func (s *TimeRangeConfigForGetTaskOutput) SetStartTime(v *StartTimeForGetTaskOut
 	return s
 }
 
-type UDPConfigForGetTaskOutput struct {
-	_ struct{} `type:"structure" json:",omitempty"`
-
-	Mode *int32 `type:"int32" json:",omitempty"`
-
-	Payload *string `type:"string" json:",omitempty"`
-
-	PayloadType *int32 `type:"int32" json:",omitempty"`
-
-	Timeout *int32 `type:"int32" json:",omitempty"`
-}
-
-// String returns the string representation
-func (s UDPConfigForGetTaskOutput) String() string {
-	return volcengineutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s UDPConfigForGetTaskOutput) GoString() string {
-	return s.String()
-}
-
-// SetMode sets the Mode field's value.
-func (s *UDPConfigForGetTaskOutput) SetMode(v int32) *UDPConfigForGetTaskOutput {
-	s.Mode = &v
-	return s
-}
-
-// SetPayload sets the Payload field's value.
-func (s *UDPConfigForGetTaskOutput) SetPayload(v string) *UDPConfigForGetTaskOutput {
-	s.Payload = &v
-	return s
-}
-
-// SetPayloadType sets the PayloadType field's value.
-func (s *UDPConfigForGetTaskOutput) SetPayloadType(v int32) *UDPConfigForGetTaskOutput {
-	s.PayloadType = &v
-	return s
-}
-
-// SetTimeout sets the Timeout field's value.
-func (s *UDPConfigForGetTaskOutput) SetTimeout(v int32) *UDPConfigForGetTaskOutput {
-	s.Timeout = &v
-	return s
-}
-
 type UploadConfigForGetTaskOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
 	CustomHostConfig *CustomHostConfigForGetTaskOutput `type:"structure" json:",omitempty"`
 
-	DNSServer *string `type:"string" json:",omitempty"`
+	DnsServer *string `type:"string" json:",omitempty"`
 
-	DNSType *string `type:"string" json:",omitempty"`
-
-	HTTPVersion *string `type:"string" json:",omitempty"`
+	DnsType *string `type:"string" json:",omitempty"`
 
 	Headers []*HeaderForGetTaskOutput `type:"list" json:",omitempty"`
+
+	HttpVersion *string `type:"string" json:",omitempty"`
 
 	IgnoreCertificate *bool `type:"boolean" json:",omitempty"`
 
@@ -1928,7 +1602,7 @@ type UploadConfigForGetTaskOutput struct {
 
 	Timeout *int32 `type:"int32" json:",omitempty"`
 
-	UploadFileURL *string `type:"string" json:",omitempty"`
+	UploadFileUrl *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -1947,27 +1621,27 @@ func (s *UploadConfigForGetTaskOutput) SetCustomHostConfig(v *CustomHostConfigFo
 	return s
 }
 
-// SetDNSServer sets the DNSServer field's value.
-func (s *UploadConfigForGetTaskOutput) SetDNSServer(v string) *UploadConfigForGetTaskOutput {
-	s.DNSServer = &v
+// SetDnsServer sets the DnsServer field's value.
+func (s *UploadConfigForGetTaskOutput) SetDnsServer(v string) *UploadConfigForGetTaskOutput {
+	s.DnsServer = &v
 	return s
 }
 
-// SetDNSType sets the DNSType field's value.
-func (s *UploadConfigForGetTaskOutput) SetDNSType(v string) *UploadConfigForGetTaskOutput {
-	s.DNSType = &v
-	return s
-}
-
-// SetHTTPVersion sets the HTTPVersion field's value.
-func (s *UploadConfigForGetTaskOutput) SetHTTPVersion(v string) *UploadConfigForGetTaskOutput {
-	s.HTTPVersion = &v
+// SetDnsType sets the DnsType field's value.
+func (s *UploadConfigForGetTaskOutput) SetDnsType(v string) *UploadConfigForGetTaskOutput {
+	s.DnsType = &v
 	return s
 }
 
 // SetHeaders sets the Headers field's value.
 func (s *UploadConfigForGetTaskOutput) SetHeaders(v []*HeaderForGetTaskOutput) *UploadConfigForGetTaskOutput {
 	s.Headers = v
+	return s
+}
+
+// SetHttpVersion sets the HttpVersion field's value.
+func (s *UploadConfigForGetTaskOutput) SetHttpVersion(v string) *UploadConfigForGetTaskOutput {
+	s.HttpVersion = &v
 	return s
 }
 
@@ -2007,9 +1681,9 @@ func (s *UploadConfigForGetTaskOutput) SetTimeout(v int32) *UploadConfigForGetTa
 	return s
 }
 
-// SetUploadFileURL sets the UploadFileURL field's value.
-func (s *UploadConfigForGetTaskOutput) SetUploadFileURL(v string) *UploadConfigForGetTaskOutput {
-	s.UploadFileURL = &v
+// SetUploadFileUrl sets the UploadFileUrl field's value.
+func (s *UploadConfigForGetTaskOutput) SetUploadFileUrl(v string) *UploadConfigForGetTaskOutput {
+	s.UploadFileUrl = &v
 	return s
 }
 
