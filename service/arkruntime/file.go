@@ -14,7 +14,7 @@ import (
 
 	"github.com/volcengine/volcengine-go-sdk/service/arkruntime/model/file"
 	"github.com/volcengine/volcengine-go-sdk/service/arkruntime/model/responses"
-	"github.com/volcengine/volcengine-go-sdk/service/arkruntime/utils"
+	"github.com/volcengine/volcengine-go-sdk/service/arkruntime/pkg/errgroup"
 	"github.com/volcengine/volcengine-go-sdk/volcengine"
 )
 
@@ -75,7 +75,7 @@ func (c *Client) preprocessResponseMultiModal(ctx context.Context, input *respon
 	ctx, cancel := context.WithTimeout(ctx, maxWaitTime)
 	defer cancel()
 
-	eg, ctx := utils.WithContext(ctx)
+	eg, ctx := errgroup.WithContext(ctx)
 	inputList := input.GetListValue().GetListValue()
 	for _, item := range inputList {
 		for _, contentItem := range item.GetInputMessage().GetContent() {

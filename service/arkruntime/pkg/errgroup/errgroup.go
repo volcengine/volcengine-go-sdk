@@ -7,7 +7,7 @@
 //
 // [errgroup.Group] is related to [sync.WaitGroup] but adds handling of tasks
 // returning errors.
-package utils
+package errgroup
 
 import (
 	"context"
