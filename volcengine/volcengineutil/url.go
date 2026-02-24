@@ -44,17 +44,6 @@ func (c *Endpoint) GetEndpoint() string {
 	}
 }
 
-// GetRegionalEndpoint returns the regional endpoint for a given service and region.
-// Format: {service}.{region}.volcengineapi.com or {service}.{region}.volcengine-api.com (dual-stack)
-// Dual-stack is automatically detected from VOLC_ENABLE_DUALSTACK environment variable.
-func (c *Endpoint) GetRegionalEndpoint(service, region string) string {
-	suffix := endpointSuffix
-	if hasEnableDualStack(nil) {
-		suffix = dualstackEndpointSuffix
-	}
-	return standardizeDomainServiceCode(service) + separator + region + suffix
-}
-
 const (
 	separator               = "."
 	openPrefix              = "open"

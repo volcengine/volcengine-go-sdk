@@ -11,8 +11,8 @@ import (
 	"github.com/volcengine/volcengine-go-sdk/volcengine/client/metadata"
 	"github.com/volcengine/volcengine-go-sdk/volcengine/endpoints"
 	"github.com/volcengine/volcengine-go-sdk/volcengine/request"
+	"github.com/volcengine/volcengine-go-sdk/volcengine/session"
 	"github.com/volcengine/volcengine-go-sdk/volcengine/signer/volc"
-	"github.com/volcengine/volcengine-go-sdk/volcengine/volcengineutil"
 )
 
 const (
@@ -42,17 +42,15 @@ func BuildAuthToken(ctx context.Context, config *volcengine.Config, dbUser, inst
 		return "", fmt.Errorf("dbUser or instanceId must not be empty")
 	}
 
-	region := *config.Region
+	// Use StandardEndpointResolver to get regional endpoint
+	config.EndpointResolver = endpoints.NewStandardEndpointResolver()
 
-	// Build regional endpoint
-	host := volcengineutil.NewEndpoint().GetRegionalEndpoint(defaultService, region)
-
-	// Add scheme based on DisableSSL config
-	disableSSL := false
-	if config.DisableSSL != nil {
-		disableSSL = *config.DisableSSL
+	// Create session and resolve endpoint via standard path
+	sess, err := session.NewSession(config)
+	if err != nil {
+		return "", fmt.Errorf("unable to create session: %w", err)
 	}
-	endpoint := endpoints.AddScheme(host, disableSSL)
+	clientCfg := sess.ClientConfig(defaultService)
 
 	// Set up handlers - only need Sign
 	var handlers request.Handlers
@@ -69,8 +67,8 @@ func BuildAuthToken(ctx context.Context, config *volcengine.Config, dbUser, inst
 		ServiceName:   defaultService,
 		ServiceID:     defaultService,
 		SigningName:   defaultService,
-		SigningRegion: region,
-		Endpoint:      endpoint,
+		SigningRegion: *config.Region,
+		Endpoint:      clientCfg.Endpoint,
 		APIVersion:    defaultAPIVersion,
 	}, handlers, nil, op, nil, nil)
 
