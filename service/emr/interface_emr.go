@@ -206,6 +206,14 @@ type EMRAPI interface {
 	ListOperationsWithContext(volcengine.Context, *ListOperationsInput, ...request.Option) (*ListOperationsOutput, error)
 	ListOperationsRequest(*ListOperationsInput) (*request.Request, *ListOperationsOutput)
 
+	ListTagsForResourcesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListTagsForResourcesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListTagsForResourcesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListTagsForResources(*ListTagsForResourcesInput) (*ListTagsForResourcesOutput, error)
+	ListTagsForResourcesWithContext(volcengine.Context, *ListTagsForResourcesInput, ...request.Option) (*ListTagsForResourcesOutput, error)
+	ListTagsForResourcesRequest(*ListTagsForResourcesInput) (*request.Request, *ListTagsForResourcesOutput)
+
 	ReleaseClusterCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ReleaseClusterCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	ReleaseClusterCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -245,6 +253,22 @@ type EMRAPI interface {
 	ScaleUpNodeGroupDisk(*ScaleUpNodeGroupDiskInput) (*ScaleUpNodeGroupDiskOutput, error)
 	ScaleUpNodeGroupDiskWithContext(volcengine.Context, *ScaleUpNodeGroupDiskInput, ...request.Option) (*ScaleUpNodeGroupDiskOutput, error)
 	ScaleUpNodeGroupDiskRequest(*ScaleUpNodeGroupDiskInput) (*request.Request, *ScaleUpNodeGroupDiskOutput)
+
+	TagResourcesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	TagResourcesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	TagResourcesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	TagResources(*TagResourcesInput) (*TagResourcesOutput, error)
+	TagResourcesWithContext(volcengine.Context, *TagResourcesInput, ...request.Option) (*TagResourcesOutput, error)
+	TagResourcesRequest(*TagResourcesInput) (*request.Request, *TagResourcesOutput)
+
+	UntagResourcesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	UntagResourcesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	UntagResourcesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	UntagResources(*UntagResourcesInput) (*UntagResourcesOutput, error)
+	UntagResourcesWithContext(volcengine.Context, *UntagResourcesInput, ...request.Option) (*UntagResourcesOutput, error)
+	UntagResourcesRequest(*UntagResourcesInput) (*request.Request, *UntagResourcesOutput)
 
 	UpdateApplicationConfigCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	UpdateApplicationConfigCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)

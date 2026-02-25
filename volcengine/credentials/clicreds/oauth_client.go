@@ -29,7 +29,7 @@ const (
 	// deviceCodeGrantType 为设备码授权的 grant_type 标识。
 	deviceCodeGrantType = "urn:ietf:params:oauth:grant-type:device_code"
 	// oAuthBaseURLTemplate 为 OAuth 服务基础地址。
-	oAuthBaseURLTemplate = "https://cloudidentity-oauth-stable.%s.bytedance.net"
+	oAuthBaseURLTemplate = "https://cloudidentity-oauth.%s.volces.com"
 )
 
 // OAuthClient 缓存拼好的 URL 和 HTTP 客户端，避免每次调用重新计算。
@@ -143,6 +143,9 @@ func (c *OAuthClient) CreateToken(ctx context.Context, req *CreateTokenRequest) 
 	}
 	if apiResp.AccessToken == "" && apiResp.TokenType == "" && apiResp.RefreshToken == "" && apiResp.ExpiresIn == 0 {
 		return nil, fmt.Errorf("CreateToken succeeded but response was empty")
+	}
+	if apiResp.AccessToken == "" || apiResp.TokenType == "" {
+		return nil, fmt.Errorf("CreateToken succeeded but AccessToken or TokenType was empty")
 	}
 	return &apiResp, nil
 }

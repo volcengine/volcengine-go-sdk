@@ -493,7 +493,7 @@ type CreateClusterInput struct {
 
 	SecurityMode *string `type:"string" json:",omitempty"`
 
-	Tags []*string `type:"list" json:",omitempty"`
+	Tags []*TagForCreateClusterInput `type:"list" json:",omitempty"`
 
 	// VpcId is a required field
 	VpcId *string `type:"string" json:",omitempty" required:"true"`
@@ -638,7 +638,7 @@ func (s *CreateClusterInput) SetSecurityMode(v string) *CreateClusterInput {
 }
 
 // SetTags sets the Tags field's value.
-func (s *CreateClusterInput) SetTags(v []*string) *CreateClusterInput {
+func (s *CreateClusterInput) SetTags(v []*TagForCreateClusterInput) *CreateClusterInput {
 	s.Tags = v
 	return s
 }
@@ -986,6 +986,36 @@ func (s *SystemDiskForCreateClusterInput) SetSize(v int32) *SystemDiskForCreateC
 // SetVolumeType sets the VolumeType field's value.
 func (s *SystemDiskForCreateClusterInput) SetVolumeType(v string) *SystemDiskForCreateClusterInput {
 	s.VolumeType = &v
+	return s
+}
+
+type TagForCreateClusterInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Key *string `type:"string" json:",omitempty"`
+
+	Value *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s TagForCreateClusterInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagForCreateClusterInput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagForCreateClusterInput) SetKey(v string) *TagForCreateClusterInput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *TagForCreateClusterInput) SetValue(v string) *TagForCreateClusterInput {
+	s.Value = &v
 	return s
 }
 

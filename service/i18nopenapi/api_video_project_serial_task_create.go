@@ -173,6 +173,68 @@ func (s *BaseRespForVideoProjectSerialTaskCreateOutput) SetStatusMessage(v strin
 	return s
 }
 
+type ConvertsubtitleForVideoProjectSerialTaskCreateInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Arrangement *int32 `type:"int32" json:"arrangement,omitempty"`
+
+	FileType *int32 `type:"int32" json:"fileType,omitempty"`
+
+	Name *string `type:"string" json:"name,omitempty"`
+
+	SubtitleLang *int32 `type:"int32" json:"subtitleLang,omitempty"`
+
+	TargetLang *string `type:"string" json:"targetLang,omitempty"`
+
+	Uri *string `type:"string" json:"uri,omitempty"`
+}
+
+// String returns the string representation
+func (s ConvertsubtitleForVideoProjectSerialTaskCreateInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ConvertsubtitleForVideoProjectSerialTaskCreateInput) GoString() string {
+	return s.String()
+}
+
+// SetArrangement sets the Arrangement field's value.
+func (s *ConvertsubtitleForVideoProjectSerialTaskCreateInput) SetArrangement(v int32) *ConvertsubtitleForVideoProjectSerialTaskCreateInput {
+	s.Arrangement = &v
+	return s
+}
+
+// SetFileType sets the FileType field's value.
+func (s *ConvertsubtitleForVideoProjectSerialTaskCreateInput) SetFileType(v int32) *ConvertsubtitleForVideoProjectSerialTaskCreateInput {
+	s.FileType = &v
+	return s
+}
+
+// SetName sets the Name field's value.
+func (s *ConvertsubtitleForVideoProjectSerialTaskCreateInput) SetName(v string) *ConvertsubtitleForVideoProjectSerialTaskCreateInput {
+	s.Name = &v
+	return s
+}
+
+// SetSubtitleLang sets the SubtitleLang field's value.
+func (s *ConvertsubtitleForVideoProjectSerialTaskCreateInput) SetSubtitleLang(v int32) *ConvertsubtitleForVideoProjectSerialTaskCreateInput {
+	s.SubtitleLang = &v
+	return s
+}
+
+// SetTargetLang sets the TargetLang field's value.
+func (s *ConvertsubtitleForVideoProjectSerialTaskCreateInput) SetTargetLang(v string) *ConvertsubtitleForVideoProjectSerialTaskCreateInput {
+	s.TargetLang = &v
+	return s
+}
+
+// SetUri sets the Uri field's value.
+func (s *ConvertsubtitleForVideoProjectSerialTaskCreateInput) SetUri(v string) *ConvertsubtitleForVideoProjectSerialTaskCreateInput {
+	s.Uri = &v
+	return s
+}
+
 type DataForVideoProjectSerialTaskCreateOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -250,6 +312,8 @@ type SerialInfoForVideoProjectSerialTaskCreateInput struct {
 
 	Subtitle *SubtitleForVideoProjectSerialTaskCreateInput `type:"structure" json:"subtitle,omitempty"`
 
+	Subtitles []*ConvertsubtitleForVideoProjectSerialTaskCreateInput `type:"list" json:"subtitles,omitempty"`
+
 	Video *VideoForVideoProjectSerialTaskCreateInput `type:"structure" json:"video,omitempty"`
 }
 
@@ -278,6 +342,12 @@ func (s *SerialInfoForVideoProjectSerialTaskCreateInput) SetPureVideo(v *PureVid
 // SetSubtitle sets the Subtitle field's value.
 func (s *SerialInfoForVideoProjectSerialTaskCreateInput) SetSubtitle(v *SubtitleForVideoProjectSerialTaskCreateInput) *SerialInfoForVideoProjectSerialTaskCreateInput {
 	s.Subtitle = v
+	return s
+}
+
+// SetSubtitles sets the Subtitles field's value.
+func (s *SerialInfoForVideoProjectSerialTaskCreateInput) SetSubtitles(v []*ConvertsubtitleForVideoProjectSerialTaskCreateInput) *SerialInfoForVideoProjectSerialTaskCreateInput {
+	s.Subtitles = v
 	return s
 }
 

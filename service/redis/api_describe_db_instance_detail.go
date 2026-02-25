@@ -238,6 +238,8 @@ type DescribeDBInstanceDetailOutput struct {
 
 	AutoRenew *bool `type:"boolean" json:",omitempty"`
 
+	BlueGreenRole *string `type:"string" json:",omitempty"`
+
 	Capacity *CapacityForDescribeDBInstanceDetailOutput `type:"structure" json:",omitempty"`
 
 	ChargeType *string `type:"string" json:",omitempty"`
@@ -308,6 +310,12 @@ func (s DescribeDBInstanceDetailOutput) GoString() string {
 // SetAutoRenew sets the AutoRenew field's value.
 func (s *DescribeDBInstanceDetailOutput) SetAutoRenew(v bool) *DescribeDBInstanceDetailOutput {
 	s.AutoRenew = &v
+	return s
+}
+
+// SetBlueGreenRole sets the BlueGreenRole field's value.
+func (s *DescribeDBInstanceDetailOutput) SetBlueGreenRole(v string) *DescribeDBInstanceDetailOutput {
+	s.BlueGreenRole = &v
 	return s
 }
 

@@ -156,6 +156,8 @@ type ItemForListClusterUsersOutput struct {
 
 	UpdateTime *int64 `type:"int64" json:",omitempty"`
 
+	UserGroupNames []*string `type:"list" json:",omitempty"`
+
 	UserName *string `type:"string" json:",omitempty"`
 }
 
@@ -199,6 +201,12 @@ func (s *ItemForListClusterUsersOutput) SetUpdateTime(v int64) *ItemForListClust
 	return s
 }
 
+// SetUserGroupNames sets the UserGroupNames field's value.
+func (s *ItemForListClusterUsersOutput) SetUserGroupNames(v []*string) *ItemForListClusterUsersOutput {
+	s.UserGroupNames = v
+	return s
+}
+
 // SetUserName sets the UserName field's value.
 func (s *ItemForListClusterUsersOutput) SetUserName(v string) *ItemForListClusterUsersOutput {
 	s.UserName = &v
@@ -214,6 +222,8 @@ type ListClusterUsersInput struct {
 	CreateTimeOrder *string `type:"string" json:",omitempty"`
 
 	CreateorName *string `type:"string" json:",omitempty"`
+
+	IncludeUserGroup *bool `type:"boolean" json:",omitempty"`
 
 	Keyword *string `type:"string" json:",omitempty"`
 
@@ -266,6 +276,12 @@ func (s *ListClusterUsersInput) SetCreateTimeOrder(v string) *ListClusterUsersIn
 // SetCreateorName sets the CreateorName field's value.
 func (s *ListClusterUsersInput) SetCreateorName(v string) *ListClusterUsersInput {
 	s.CreateorName = &v
+	return s
+}
+
+// SetIncludeUserGroup sets the IncludeUserGroup field's value.
+func (s *ListClusterUsersInput) SetIncludeUserGroup(v bool) *ListClusterUsersInput {
+	s.IncludeUserGroup = &v
 	return s
 }
 

@@ -203,7 +203,7 @@ type RunApplicationActionInput struct {
 
 	CommandParams []*CommandParamForRunApplicationActionInput `type:"list" json:",omitempty"`
 
-	ComponentName *string `type:"string" json:"componentName,omitempty"`
+	ComponentName *string `type:"string" json:",omitempty"`
 
 	// Remark is a required field
 	Remark *string `type:"string" json:",omitempty" required:"true"`
