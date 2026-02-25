@@ -144,7 +144,7 @@ type AddressForListRulesOutput struct {
 
 	Active *bool `type:"boolean"`
 
-	Capacity *int64 `type:"int64"`
+	Capacity *int32 `type:"int32"`
 
 	Geo *string `type:"string"`
 
@@ -176,7 +176,7 @@ func (s *AddressForListRulesOutput) SetActive(v bool) *AddressForListRulesOutput
 }
 
 // SetCapacity sets the Capacity field's value.
-func (s *AddressForListRulesOutput) SetCapacity(v int64) *AddressForListRulesOutput {
+func (s *AddressForListRulesOutput) SetCapacity(v int32) *AddressForListRulesOutput {
 	s.Capacity = &v
 	return s
 }
@@ -220,7 +220,7 @@ func (s *AddressForListRulesOutput) SetWeight(v int32) *AddressForListRulesOutpu
 type DataForListRulesOutput struct {
 	_ struct{} `type:"structure"`
 
-	CreatedTime *string `type:"string"`
+	CreateTime *string `type:"string"`
 
 	Disable *bool `type:"boolean"`
 
@@ -242,7 +242,11 @@ type DataForListRulesOutput struct {
 
 	RuleId *string `type:"string"`
 
-	UpdatedTime *string `type:"string"`
+	UpdateTime *string `type:"string"`
+
+	UsePolicyProbeNodes *bool `type:"boolean"`
+
+	UseRuleProbeConfig *bool `type:"boolean"`
 
 	Weight *int32 `type:"int32"`
 }
@@ -257,9 +261,9 @@ func (s DataForListRulesOutput) GoString() string {
 	return s.String()
 }
 
-// SetCreatedTime sets the CreatedTime field's value.
-func (s *DataForListRulesOutput) SetCreatedTime(v string) *DataForListRulesOutput {
-	s.CreatedTime = &v
+// SetCreateTime sets the CreateTime field's value.
+func (s *DataForListRulesOutput) SetCreateTime(v string) *DataForListRulesOutput {
+	s.CreateTime = &v
 	return s
 }
 
@@ -323,9 +327,21 @@ func (s *DataForListRulesOutput) SetRuleId(v string) *DataForListRulesOutput {
 	return s
 }
 
-// SetUpdatedTime sets the UpdatedTime field's value.
-func (s *DataForListRulesOutput) SetUpdatedTime(v string) *DataForListRulesOutput {
-	s.UpdatedTime = &v
+// SetUpdateTime sets the UpdateTime field's value.
+func (s *DataForListRulesOutput) SetUpdateTime(v string) *DataForListRulesOutput {
+	s.UpdateTime = &v
+	return s
+}
+
+// SetUsePolicyProbeNodes sets the UsePolicyProbeNodes field's value.
+func (s *DataForListRulesOutput) SetUsePolicyProbeNodes(v bool) *DataForListRulesOutput {
+	s.UsePolicyProbeNodes = &v
+	return s
+}
+
+// SetUseRuleProbeConfig sets the UseRuleProbeConfig field's value.
+func (s *DataForListRulesOutput) SetUseRuleProbeConfig(v bool) *DataForListRulesOutput {
+	s.UseRuleProbeConfig = &v
 	return s
 }
 
