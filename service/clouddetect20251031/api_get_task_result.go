@@ -190,7 +190,7 @@ type BasicDetailForGetTaskResultOutput struct {
 
 	ClientInfo *ClientInfoForGetTaskResultOutput `type:"structure" json:",omitempty"`
 
-	DNSServer *string `type:"string" json:",omitempty"`
+	DnsServer *string `type:"string" json:",omitempty"`
 
 	ErrorMsg *string `type:"string" json:",omitempty"`
 
@@ -229,9 +229,9 @@ func (s *BasicDetailForGetTaskResultOutput) SetClientInfo(v *ClientInfoForGetTas
 	return s
 }
 
-// SetDNSServer sets the DNSServer field's value.
-func (s *BasicDetailForGetTaskResultOutput) SetDNSServer(v string) *BasicDetailForGetTaskResultOutput {
-	s.DNSServer = &v
+// SetDnsServer sets the DnsServer field's value.
+func (s *BasicDetailForGetTaskResultOutput) SetDnsServer(v string) *BasicDetailForGetTaskResultOutput {
+	s.DnsServer = &v
 	return s
 }
 
@@ -264,17 +264,15 @@ type ClientInfoForGetTaskResultOutput struct {
 
 	City *string `type:"string" json:",omitempty"`
 
-	DNSLocalDNSIP *string `type:"string" json:",omitempty"`
+	DnsLocalDnsIp *string `type:"string" json:",omitempty"`
 
-	IP *string `type:"string" json:",omitempty"`
+	Ip *string `type:"string" json:",omitempty"`
 
 	Ipv6 *string `type:"string" json:",omitempty"`
 
 	Isp *string `type:"string" json:",omitempty"`
 
 	Region *string `type:"string" json:",omitempty"`
-
-	Tupe *string `type:"string" json:",omitempty"`
 
 	Type *string `type:"string" json:",omitempty"`
 }
@@ -295,15 +293,15 @@ func (s *ClientInfoForGetTaskResultOutput) SetCity(v string) *ClientInfoForGetTa
 	return s
 }
 
-// SetDNSLocalDNSIP sets the DNSLocalDNSIP field's value.
-func (s *ClientInfoForGetTaskResultOutput) SetDNSLocalDNSIP(v string) *ClientInfoForGetTaskResultOutput {
-	s.DNSLocalDNSIP = &v
+// SetDnsLocalDnsIp sets the DnsLocalDnsIp field's value.
+func (s *ClientInfoForGetTaskResultOutput) SetDnsLocalDnsIp(v string) *ClientInfoForGetTaskResultOutput {
+	s.DnsLocalDnsIp = &v
 	return s
 }
 
-// SetIP sets the IP field's value.
-func (s *ClientInfoForGetTaskResultOutput) SetIP(v string) *ClientInfoForGetTaskResultOutput {
-	s.IP = &v
+// SetIp sets the Ip field's value.
+func (s *ClientInfoForGetTaskResultOutput) SetIp(v string) *ClientInfoForGetTaskResultOutput {
+	s.Ip = &v
 	return s
 }
 
@@ -325,93 +323,9 @@ func (s *ClientInfoForGetTaskResultOutput) SetRegion(v string) *ClientInfoForGet
 	return s
 }
 
-// SetTupe sets the Tupe field's value.
-func (s *ClientInfoForGetTaskResultOutput) SetTupe(v string) *ClientInfoForGetTaskResultOutput {
-	s.Tupe = &v
-	return s
-}
-
 // SetType sets the Type field's value.
 func (s *ClientInfoForGetTaskResultOutput) SetType(v string) *ClientInfoForGetTaskResultOutput {
 	s.Type = &v
-	return s
-}
-
-type DNSDetailForGetTaskResultOutput struct {
-	_ struct{} `type:"structure" json:",omitempty"`
-
-	ARecord []*string `type:"list" json:",omitempty"`
-
-	AaaaRecord []*string `type:"list" json:",omitempty"`
-
-	CnameRecord []*string `type:"list" json:",omitempty"`
-
-	DNSCost *int64 `type:"int64" json:",omitempty"`
-
-	Detail *string `type:"string" json:",omitempty"`
-
-	DiagnoseDetail *DiagnoseDetailForGetTaskResultOutput `type:"structure" json:",omitempty"`
-
-	RecordCount *int32 `type:"int32" json:",omitempty"`
-
-	Records []*string `type:"list" json:",omitempty"`
-}
-
-// String returns the string representation
-func (s DNSDetailForGetTaskResultOutput) String() string {
-	return volcengineutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s DNSDetailForGetTaskResultOutput) GoString() string {
-	return s.String()
-}
-
-// SetARecord sets the ARecord field's value.
-func (s *DNSDetailForGetTaskResultOutput) SetARecord(v []*string) *DNSDetailForGetTaskResultOutput {
-	s.ARecord = v
-	return s
-}
-
-// SetAaaaRecord sets the AaaaRecord field's value.
-func (s *DNSDetailForGetTaskResultOutput) SetAaaaRecord(v []*string) *DNSDetailForGetTaskResultOutput {
-	s.AaaaRecord = v
-	return s
-}
-
-// SetCnameRecord sets the CnameRecord field's value.
-func (s *DNSDetailForGetTaskResultOutput) SetCnameRecord(v []*string) *DNSDetailForGetTaskResultOutput {
-	s.CnameRecord = v
-	return s
-}
-
-// SetDNSCost sets the DNSCost field's value.
-func (s *DNSDetailForGetTaskResultOutput) SetDNSCost(v int64) *DNSDetailForGetTaskResultOutput {
-	s.DNSCost = &v
-	return s
-}
-
-// SetDetail sets the Detail field's value.
-func (s *DNSDetailForGetTaskResultOutput) SetDetail(v string) *DNSDetailForGetTaskResultOutput {
-	s.Detail = &v
-	return s
-}
-
-// SetDiagnoseDetail sets the DiagnoseDetail field's value.
-func (s *DNSDetailForGetTaskResultOutput) SetDiagnoseDetail(v *DiagnoseDetailForGetTaskResultOutput) *DNSDetailForGetTaskResultOutput {
-	s.DiagnoseDetail = v
-	return s
-}
-
-// SetRecordCount sets the RecordCount field's value.
-func (s *DNSDetailForGetTaskResultOutput) SetRecordCount(v int32) *DNSDetailForGetTaskResultOutput {
-	s.RecordCount = &v
-	return s
-}
-
-// SetRecords sets the Records field's value.
-func (s *DNSDetailForGetTaskResultOutput) SetRecords(v []*string) *DNSDetailForGetTaskResultOutput {
-	s.Records = v
 	return s
 }
 
@@ -420,21 +334,21 @@ type DataForGetTaskResultOutput struct {
 
 	BasicDetail *BasicDetailForGetTaskResultOutput `type:"structure" json:",omitempty"`
 
-	DNSDetail *DNSDetailForGetTaskResultOutput `type:"structure" json:",omitempty"`
+	DnsDetail *DnsDetailForGetTaskResultOutput `type:"structure" json:",omitempty"`
 
 	DownloadDetail *DownloadDetailForGetTaskResultOutput `type:"structure" json:",omitempty"`
 
-	HTTPDetail *HTTPDetailForGetTaskResultOutput `type:"structure" json:",omitempty"`
+	HttpDetail *HttpDetailForGetTaskResultOutput `type:"structure" json:",omitempty"`
 
 	PageDetail *PageDetailForGetTaskResultOutput `type:"structure" json:",omitempty"`
 
 	PingDetail *PingDetailForGetTaskResultOutput `type:"structure" json:",omitempty"`
 
-	TCPDetail *TCPDetailForGetTaskResultOutput `type:"structure" json:",omitempty"`
+	TaskId *int64 `type:"int64" json:",omitempty"`
 
-	TaskID *int64 `type:"int64" json:",omitempty"`
+	TcpDetail *TcpDetailForGetTaskResultOutput `type:"structure" json:",omitempty"`
 
-	UDPDetail *UDPDetailForGetTaskResultOutput `type:"structure" json:",omitempty"`
+	UdpDetail *UdpDetailForGetTaskResultOutput `type:"structure" json:",omitempty"`
 
 	UploadDetail *UploadDetailForGetTaskResultOutput `type:"structure" json:",omitempty"`
 }
@@ -455,9 +369,9 @@ func (s *DataForGetTaskResultOutput) SetBasicDetail(v *BasicDetailForGetTaskResu
 	return s
 }
 
-// SetDNSDetail sets the DNSDetail field's value.
-func (s *DataForGetTaskResultOutput) SetDNSDetail(v *DNSDetailForGetTaskResultOutput) *DataForGetTaskResultOutput {
-	s.DNSDetail = v
+// SetDnsDetail sets the DnsDetail field's value.
+func (s *DataForGetTaskResultOutput) SetDnsDetail(v *DnsDetailForGetTaskResultOutput) *DataForGetTaskResultOutput {
+	s.DnsDetail = v
 	return s
 }
 
@@ -467,9 +381,9 @@ func (s *DataForGetTaskResultOutput) SetDownloadDetail(v *DownloadDetailForGetTa
 	return s
 }
 
-// SetHTTPDetail sets the HTTPDetail field's value.
-func (s *DataForGetTaskResultOutput) SetHTTPDetail(v *HTTPDetailForGetTaskResultOutput) *DataForGetTaskResultOutput {
-	s.HTTPDetail = v
+// SetHttpDetail sets the HttpDetail field's value.
+func (s *DataForGetTaskResultOutput) SetHttpDetail(v *HttpDetailForGetTaskResultOutput) *DataForGetTaskResultOutput {
+	s.HttpDetail = v
 	return s
 }
 
@@ -485,21 +399,21 @@ func (s *DataForGetTaskResultOutput) SetPingDetail(v *PingDetailForGetTaskResult
 	return s
 }
 
-// SetTCPDetail sets the TCPDetail field's value.
-func (s *DataForGetTaskResultOutput) SetTCPDetail(v *TCPDetailForGetTaskResultOutput) *DataForGetTaskResultOutput {
-	s.TCPDetail = v
+// SetTaskId sets the TaskId field's value.
+func (s *DataForGetTaskResultOutput) SetTaskId(v int64) *DataForGetTaskResultOutput {
+	s.TaskId = &v
 	return s
 }
 
-// SetTaskID sets the TaskID field's value.
-func (s *DataForGetTaskResultOutput) SetTaskID(v int64) *DataForGetTaskResultOutput {
-	s.TaskID = &v
+// SetTcpDetail sets the TcpDetail field's value.
+func (s *DataForGetTaskResultOutput) SetTcpDetail(v *TcpDetailForGetTaskResultOutput) *DataForGetTaskResultOutput {
+	s.TcpDetail = v
 	return s
 }
 
-// SetUDPDetail sets the UDPDetail field's value.
-func (s *DataForGetTaskResultOutput) SetUDPDetail(v *UDPDetailForGetTaskResultOutput) *DataForGetTaskResultOutput {
-	s.UDPDetail = v
+// SetUdpDetail sets the UdpDetail field's value.
+func (s *DataForGetTaskResultOutput) SetUdpDetail(v *UdpDetailForGetTaskResultOutput) *DataForGetTaskResultOutput {
+	s.UdpDetail = v
 	return s
 }
 
@@ -512,7 +426,7 @@ func (s *DataForGetTaskResultOutput) SetUploadDetail(v *UploadDetailForGetTaskRe
 type DiagnoseDetailForGetTaskResultOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	DNSDetail *string `type:"string" json:",omitempty"`
+	DnsDetail *string `type:"string" json:",omitempty"`
 
 	MtrDetail *string `type:"string" json:",omitempty"`
 
@@ -529,9 +443,9 @@ func (s DiagnoseDetailForGetTaskResultOutput) GoString() string {
 	return s.String()
 }
 
-// SetDNSDetail sets the DNSDetail field's value.
-func (s *DiagnoseDetailForGetTaskResultOutput) SetDNSDetail(v string) *DiagnoseDetailForGetTaskResultOutput {
-	s.DNSDetail = &v
+// SetDnsDetail sets the DnsDetail field's value.
+func (s *DiagnoseDetailForGetTaskResultOutput) SetDnsDetail(v string) *DiagnoseDetailForGetTaskResultOutput {
+	s.DnsDetail = &v
 	return s
 }
 
@@ -547,30 +461,116 @@ func (s *DiagnoseDetailForGetTaskResultOutput) SetPingDetail(v string) *Diagnose
 	return s
 }
 
+type DnsDetailForGetTaskResultOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	ARecord []*string `type:"list" json:",omitempty"`
+
+	AaaaRecord []*string `type:"list" json:",omitempty"`
+
+	CnameRecord []*string `type:"list" json:",omitempty"`
+
+	Detail *string `type:"string" json:",omitempty"`
+
+	DiagnoseDetail *DiagnoseDetailForGetTaskResultOutput `type:"structure" json:",omitempty"`
+
+	DnsCost *int64 `type:"int64" json:",omitempty"`
+
+	PcapUri *string `type:"string" json:",omitempty"`
+
+	RecordCount *int32 `type:"int32" json:",omitempty"`
+
+	Records []*string `type:"list" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s DnsDetailForGetTaskResultOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DnsDetailForGetTaskResultOutput) GoString() string {
+	return s.String()
+}
+
+// SetARecord sets the ARecord field's value.
+func (s *DnsDetailForGetTaskResultOutput) SetARecord(v []*string) *DnsDetailForGetTaskResultOutput {
+	s.ARecord = v
+	return s
+}
+
+// SetAaaaRecord sets the AaaaRecord field's value.
+func (s *DnsDetailForGetTaskResultOutput) SetAaaaRecord(v []*string) *DnsDetailForGetTaskResultOutput {
+	s.AaaaRecord = v
+	return s
+}
+
+// SetCnameRecord sets the CnameRecord field's value.
+func (s *DnsDetailForGetTaskResultOutput) SetCnameRecord(v []*string) *DnsDetailForGetTaskResultOutput {
+	s.CnameRecord = v
+	return s
+}
+
+// SetDetail sets the Detail field's value.
+func (s *DnsDetailForGetTaskResultOutput) SetDetail(v string) *DnsDetailForGetTaskResultOutput {
+	s.Detail = &v
+	return s
+}
+
+// SetDiagnoseDetail sets the DiagnoseDetail field's value.
+func (s *DnsDetailForGetTaskResultOutput) SetDiagnoseDetail(v *DiagnoseDetailForGetTaskResultOutput) *DnsDetailForGetTaskResultOutput {
+	s.DiagnoseDetail = v
+	return s
+}
+
+// SetDnsCost sets the DnsCost field's value.
+func (s *DnsDetailForGetTaskResultOutput) SetDnsCost(v int64) *DnsDetailForGetTaskResultOutput {
+	s.DnsCost = &v
+	return s
+}
+
+// SetPcapUri sets the PcapUri field's value.
+func (s *DnsDetailForGetTaskResultOutput) SetPcapUri(v string) *DnsDetailForGetTaskResultOutput {
+	s.PcapUri = &v
+	return s
+}
+
+// SetRecordCount sets the RecordCount field's value.
+func (s *DnsDetailForGetTaskResultOutput) SetRecordCount(v int32) *DnsDetailForGetTaskResultOutput {
+	s.RecordCount = &v
+	return s
+}
+
+// SetRecords sets the Records field's value.
+func (s *DnsDetailForGetTaskResultOutput) SetRecords(v []*string) *DnsDetailForGetTaskResultOutput {
+	s.Records = v
+	return s
+}
+
 type DownloadDetailForGetTaskResultOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	DNSCost *int64 `type:"int64" json:",omitempty"`
-
 	DiagnoseDetail *DiagnoseDetailForGetTaskResultOutput `type:"structure" json:",omitempty"`
+
+	DnsCost *int64 `type:"int64" json:",omitempty"`
 
 	DownloadSize *int64 `type:"int64" json:",omitempty"`
 
 	DownloadSpeed *int64 `type:"int64" json:",omitempty"`
 
-	HTTPCode *int64 `type:"int64" json:",omitempty"`
+	HttpCode *int64 `type:"int64" json:",omitempty"`
 
-	HTTPRequestHeader *string `type:"string" json:",omitempty"`
+	HttpRequestHeader *string `type:"string" json:",omitempty"`
 
-	HTTPResponseBody *string `type:"string" json:",omitempty"`
+	HttpResponseBody *string `type:"string" json:",omitempty"`
 
-	HTTPResponseHeader *string `type:"string" json:",omitempty"`
+	HttpResponseHeader *string `type:"string" json:",omitempty"`
 
-	HTTPVersion *string `type:"string" json:",omitempty"`
+	HttpVersion *string `type:"string" json:",omitempty"`
 
 	LocationDetail []*LocationDetailForGetTaskResultOutput `type:"list" json:",omitempty"`
 
-	PcapURI *string `type:"string" json:",omitempty"`
+	PcapUri *string `type:"string" json:",omitempty"`
 
 	RecvCost *int64 `type:"int64" json:",omitempty"`
 
@@ -582,7 +582,7 @@ type DownloadDetailForGetTaskResultOutput struct {
 
 	SslCost *int64 `type:"int64" json:",omitempty"`
 
-	TCPCost *int64 `type:"int64" json:",omitempty"`
+	TcpCost *int64 `type:"int64" json:",omitempty"`
 
 	TotalCost *int64 `type:"int64" json:",omitempty"`
 
@@ -605,15 +605,15 @@ func (s DownloadDetailForGetTaskResultOutput) GoString() string {
 	return s.String()
 }
 
-// SetDNSCost sets the DNSCost field's value.
-func (s *DownloadDetailForGetTaskResultOutput) SetDNSCost(v int64) *DownloadDetailForGetTaskResultOutput {
-	s.DNSCost = &v
-	return s
-}
-
 // SetDiagnoseDetail sets the DiagnoseDetail field's value.
 func (s *DownloadDetailForGetTaskResultOutput) SetDiagnoseDetail(v *DiagnoseDetailForGetTaskResultOutput) *DownloadDetailForGetTaskResultOutput {
 	s.DiagnoseDetail = v
+	return s
+}
+
+// SetDnsCost sets the DnsCost field's value.
+func (s *DownloadDetailForGetTaskResultOutput) SetDnsCost(v int64) *DownloadDetailForGetTaskResultOutput {
+	s.DnsCost = &v
 	return s
 }
 
@@ -629,33 +629,33 @@ func (s *DownloadDetailForGetTaskResultOutput) SetDownloadSpeed(v int64) *Downlo
 	return s
 }
 
-// SetHTTPCode sets the HTTPCode field's value.
-func (s *DownloadDetailForGetTaskResultOutput) SetHTTPCode(v int64) *DownloadDetailForGetTaskResultOutput {
-	s.HTTPCode = &v
+// SetHttpCode sets the HttpCode field's value.
+func (s *DownloadDetailForGetTaskResultOutput) SetHttpCode(v int64) *DownloadDetailForGetTaskResultOutput {
+	s.HttpCode = &v
 	return s
 }
 
-// SetHTTPRequestHeader sets the HTTPRequestHeader field's value.
-func (s *DownloadDetailForGetTaskResultOutput) SetHTTPRequestHeader(v string) *DownloadDetailForGetTaskResultOutput {
-	s.HTTPRequestHeader = &v
+// SetHttpRequestHeader sets the HttpRequestHeader field's value.
+func (s *DownloadDetailForGetTaskResultOutput) SetHttpRequestHeader(v string) *DownloadDetailForGetTaskResultOutput {
+	s.HttpRequestHeader = &v
 	return s
 }
 
-// SetHTTPResponseBody sets the HTTPResponseBody field's value.
-func (s *DownloadDetailForGetTaskResultOutput) SetHTTPResponseBody(v string) *DownloadDetailForGetTaskResultOutput {
-	s.HTTPResponseBody = &v
+// SetHttpResponseBody sets the HttpResponseBody field's value.
+func (s *DownloadDetailForGetTaskResultOutput) SetHttpResponseBody(v string) *DownloadDetailForGetTaskResultOutput {
+	s.HttpResponseBody = &v
 	return s
 }
 
-// SetHTTPResponseHeader sets the HTTPResponseHeader field's value.
-func (s *DownloadDetailForGetTaskResultOutput) SetHTTPResponseHeader(v string) *DownloadDetailForGetTaskResultOutput {
-	s.HTTPResponseHeader = &v
+// SetHttpResponseHeader sets the HttpResponseHeader field's value.
+func (s *DownloadDetailForGetTaskResultOutput) SetHttpResponseHeader(v string) *DownloadDetailForGetTaskResultOutput {
+	s.HttpResponseHeader = &v
 	return s
 }
 
-// SetHTTPVersion sets the HTTPVersion field's value.
-func (s *DownloadDetailForGetTaskResultOutput) SetHTTPVersion(v string) *DownloadDetailForGetTaskResultOutput {
-	s.HTTPVersion = &v
+// SetHttpVersion sets the HttpVersion field's value.
+func (s *DownloadDetailForGetTaskResultOutput) SetHttpVersion(v string) *DownloadDetailForGetTaskResultOutput {
+	s.HttpVersion = &v
 	return s
 }
 
@@ -665,9 +665,9 @@ func (s *DownloadDetailForGetTaskResultOutput) SetLocationDetail(v []*LocationDe
 	return s
 }
 
-// SetPcapURI sets the PcapURI field's value.
-func (s *DownloadDetailForGetTaskResultOutput) SetPcapURI(v string) *DownloadDetailForGetTaskResultOutput {
-	s.PcapURI = &v
+// SetPcapUri sets the PcapUri field's value.
+func (s *DownloadDetailForGetTaskResultOutput) SetPcapUri(v string) *DownloadDetailForGetTaskResultOutput {
+	s.PcapUri = &v
 	return s
 }
 
@@ -701,9 +701,9 @@ func (s *DownloadDetailForGetTaskResultOutput) SetSslCost(v int64) *DownloadDeta
 	return s
 }
 
-// SetTCPCost sets the TCPCost field's value.
-func (s *DownloadDetailForGetTaskResultOutput) SetTCPCost(v int64) *DownloadDetailForGetTaskResultOutput {
-	s.TCPCost = &v
+// SetTcpCost sets the TcpCost field's value.
+func (s *DownloadDetailForGetTaskResultOutput) SetTcpCost(v int64) *DownloadDetailForGetTaskResultOutput {
+	s.TcpCost = &v
 	return s
 }
 
@@ -754,8 +754,8 @@ type GetTaskResultInput struct {
 	// StartTime is a required field
 	StartTime *int64 `type:"int64" json:",omitempty" required:"true"`
 
-	// TaskID is a required field
-	TaskID *int64 `type:"int64" json:",omitempty" required:"true"`
+	// TaskId is a required field
+	TaskId *int64 `type:"int64" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -783,8 +783,8 @@ func (s *GetTaskResultInput) Validate() error {
 	if s.StartTime == nil {
 		invalidParams.Add(request.NewErrParamRequired("StartTime"))
 	}
-	if s.TaskID == nil {
-		invalidParams.Add(request.NewErrParamRequired("TaskID"))
+	if s.TaskId == nil {
+		invalidParams.Add(request.NewErrParamRequired("TaskId"))
 	}
 
 	if invalidParams.Len() > 0 {
@@ -823,9 +823,9 @@ func (s *GetTaskResultInput) SetStartTime(v int64) *GetTaskResultInput {
 	return s
 }
 
-// SetTaskID sets the TaskID field's value.
-func (s *GetTaskResultInput) SetTaskID(v int64) *GetTaskResultInput {
-	s.TaskID = &v
+// SetTaskId sets the TaskId field's value.
+func (s *GetTaskResultInput) SetTaskId(v int64) *GetTaskResultInput {
+	s.TaskId = &v
 	return s
 }
 
@@ -861,28 +861,30 @@ func (s *GetTaskResultOutput) SetPagination(v *PaginationForGetTaskResultOutput)
 	return s
 }
 
-type HTTPDetailForGetTaskResultOutput struct {
+type HttpDetailForGetTaskResultOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	DNSCost *int64 `type:"int64" json:",omitempty"`
-
 	DiagnoseDetail *DiagnoseDetailForGetTaskResultOutput `type:"structure" json:",omitempty"`
+
+	DnsCost *int64 `type:"int64" json:",omitempty"`
 
 	DownloadSize *int64 `type:"int64" json:",omitempty"`
 
 	DownloadSpeed *int64 `type:"int64" json:",omitempty"`
 
-	HTTPCode *int64 `type:"int64" json:",omitempty"`
+	HttpCode *int64 `type:"int64" json:",omitempty"`
 
-	HTTPRequestHeader *string `type:"string" json:",omitempty"`
+	HttpRequestHeader *string `type:"string" json:",omitempty"`
 
-	HTTPResponseBody *string `type:"string" json:",omitempty"`
+	HttpResponseBody *string `type:"string" json:",omitempty"`
 
-	HTTPResponseHeader *string `type:"string" json:",omitempty"`
+	HttpResponseHeader *string `type:"string" json:",omitempty"`
 
-	HTTPVersion *string `type:"string" json:",omitempty"`
+	HttpVersion *string `type:"string" json:",omitempty"`
 
 	LocationDetail []*LocationDetailForGetTaskResultOutput `type:"list" json:",omitempty"`
+
+	PcapUri *string `type:"string" json:",omitempty"`
 
 	RecvCost *int64 `type:"int64" json:",omitempty"`
 
@@ -894,7 +896,7 @@ type HTTPDetailForGetTaskResultOutput struct {
 
 	SslCost *int64 `type:"int64" json:",omitempty"`
 
-	TCPCost *int64 `type:"int64" json:",omitempty"`
+	TcpCost *int64 `type:"int64" json:",omitempty"`
 
 	TotalCost *int64 `type:"int64" json:",omitempty"`
 
@@ -902,119 +904,125 @@ type HTTPDetailForGetTaskResultOutput struct {
 }
 
 // String returns the string representation
-func (s HTTPDetailForGetTaskResultOutput) String() string {
+func (s HttpDetailForGetTaskResultOutput) String() string {
 	return volcengineutil.Prettify(s)
 }
 
 // GoString returns the string representation
-func (s HTTPDetailForGetTaskResultOutput) GoString() string {
+func (s HttpDetailForGetTaskResultOutput) GoString() string {
 	return s.String()
 }
 
-// SetDNSCost sets the DNSCost field's value.
-func (s *HTTPDetailForGetTaskResultOutput) SetDNSCost(v int64) *HTTPDetailForGetTaskResultOutput {
-	s.DNSCost = &v
-	return s
-}
-
 // SetDiagnoseDetail sets the DiagnoseDetail field's value.
-func (s *HTTPDetailForGetTaskResultOutput) SetDiagnoseDetail(v *DiagnoseDetailForGetTaskResultOutput) *HTTPDetailForGetTaskResultOutput {
+func (s *HttpDetailForGetTaskResultOutput) SetDiagnoseDetail(v *DiagnoseDetailForGetTaskResultOutput) *HttpDetailForGetTaskResultOutput {
 	s.DiagnoseDetail = v
 	return s
 }
 
+// SetDnsCost sets the DnsCost field's value.
+func (s *HttpDetailForGetTaskResultOutput) SetDnsCost(v int64) *HttpDetailForGetTaskResultOutput {
+	s.DnsCost = &v
+	return s
+}
+
 // SetDownloadSize sets the DownloadSize field's value.
-func (s *HTTPDetailForGetTaskResultOutput) SetDownloadSize(v int64) *HTTPDetailForGetTaskResultOutput {
+func (s *HttpDetailForGetTaskResultOutput) SetDownloadSize(v int64) *HttpDetailForGetTaskResultOutput {
 	s.DownloadSize = &v
 	return s
 }
 
 // SetDownloadSpeed sets the DownloadSpeed field's value.
-func (s *HTTPDetailForGetTaskResultOutput) SetDownloadSpeed(v int64) *HTTPDetailForGetTaskResultOutput {
+func (s *HttpDetailForGetTaskResultOutput) SetDownloadSpeed(v int64) *HttpDetailForGetTaskResultOutput {
 	s.DownloadSpeed = &v
 	return s
 }
 
-// SetHTTPCode sets the HTTPCode field's value.
-func (s *HTTPDetailForGetTaskResultOutput) SetHTTPCode(v int64) *HTTPDetailForGetTaskResultOutput {
-	s.HTTPCode = &v
+// SetHttpCode sets the HttpCode field's value.
+func (s *HttpDetailForGetTaskResultOutput) SetHttpCode(v int64) *HttpDetailForGetTaskResultOutput {
+	s.HttpCode = &v
 	return s
 }
 
-// SetHTTPRequestHeader sets the HTTPRequestHeader field's value.
-func (s *HTTPDetailForGetTaskResultOutput) SetHTTPRequestHeader(v string) *HTTPDetailForGetTaskResultOutput {
-	s.HTTPRequestHeader = &v
+// SetHttpRequestHeader sets the HttpRequestHeader field's value.
+func (s *HttpDetailForGetTaskResultOutput) SetHttpRequestHeader(v string) *HttpDetailForGetTaskResultOutput {
+	s.HttpRequestHeader = &v
 	return s
 }
 
-// SetHTTPResponseBody sets the HTTPResponseBody field's value.
-func (s *HTTPDetailForGetTaskResultOutput) SetHTTPResponseBody(v string) *HTTPDetailForGetTaskResultOutput {
-	s.HTTPResponseBody = &v
+// SetHttpResponseBody sets the HttpResponseBody field's value.
+func (s *HttpDetailForGetTaskResultOutput) SetHttpResponseBody(v string) *HttpDetailForGetTaskResultOutput {
+	s.HttpResponseBody = &v
 	return s
 }
 
-// SetHTTPResponseHeader sets the HTTPResponseHeader field's value.
-func (s *HTTPDetailForGetTaskResultOutput) SetHTTPResponseHeader(v string) *HTTPDetailForGetTaskResultOutput {
-	s.HTTPResponseHeader = &v
+// SetHttpResponseHeader sets the HttpResponseHeader field's value.
+func (s *HttpDetailForGetTaskResultOutput) SetHttpResponseHeader(v string) *HttpDetailForGetTaskResultOutput {
+	s.HttpResponseHeader = &v
 	return s
 }
 
-// SetHTTPVersion sets the HTTPVersion field's value.
-func (s *HTTPDetailForGetTaskResultOutput) SetHTTPVersion(v string) *HTTPDetailForGetTaskResultOutput {
-	s.HTTPVersion = &v
+// SetHttpVersion sets the HttpVersion field's value.
+func (s *HttpDetailForGetTaskResultOutput) SetHttpVersion(v string) *HttpDetailForGetTaskResultOutput {
+	s.HttpVersion = &v
 	return s
 }
 
 // SetLocationDetail sets the LocationDetail field's value.
-func (s *HTTPDetailForGetTaskResultOutput) SetLocationDetail(v []*LocationDetailForGetTaskResultOutput) *HTTPDetailForGetTaskResultOutput {
+func (s *HttpDetailForGetTaskResultOutput) SetLocationDetail(v []*LocationDetailForGetTaskResultOutput) *HttpDetailForGetTaskResultOutput {
 	s.LocationDetail = v
 	return s
 }
 
+// SetPcapUri sets the PcapUri field's value.
+func (s *HttpDetailForGetTaskResultOutput) SetPcapUri(v string) *HttpDetailForGetTaskResultOutput {
+	s.PcapUri = &v
+	return s
+}
+
 // SetRecvCost sets the RecvCost field's value.
-func (s *HTTPDetailForGetTaskResultOutput) SetRecvCost(v int64) *HTTPDetailForGetTaskResultOutput {
+func (s *HttpDetailForGetTaskResultOutput) SetRecvCost(v int64) *HttpDetailForGetTaskResultOutput {
 	s.RecvCost = &v
 	return s
 }
 
 // SetRedirectCost sets the RedirectCost field's value.
-func (s *HTTPDetailForGetTaskResultOutput) SetRedirectCost(v int64) *HTTPDetailForGetTaskResultOutput {
+func (s *HttpDetailForGetTaskResultOutput) SetRedirectCost(v int64) *HttpDetailForGetTaskResultOutput {
 	s.RedirectCost = &v
 	return s
 }
 
 // SetRedirectNums sets the RedirectNums field's value.
-func (s *HTTPDetailForGetTaskResultOutput) SetRedirectNums(v int64) *HTTPDetailForGetTaskResultOutput {
+func (s *HttpDetailForGetTaskResultOutput) SetRedirectNums(v int64) *HttpDetailForGetTaskResultOutput {
 	s.RedirectNums = &v
 	return s
 }
 
 // SetSendCost sets the SendCost field's value.
-func (s *HTTPDetailForGetTaskResultOutput) SetSendCost(v int64) *HTTPDetailForGetTaskResultOutput {
+func (s *HttpDetailForGetTaskResultOutput) SetSendCost(v int64) *HttpDetailForGetTaskResultOutput {
 	s.SendCost = &v
 	return s
 }
 
 // SetSslCost sets the SslCost field's value.
-func (s *HTTPDetailForGetTaskResultOutput) SetSslCost(v int64) *HTTPDetailForGetTaskResultOutput {
+func (s *HttpDetailForGetTaskResultOutput) SetSslCost(v int64) *HttpDetailForGetTaskResultOutput {
 	s.SslCost = &v
 	return s
 }
 
-// SetTCPCost sets the TCPCost field's value.
-func (s *HTTPDetailForGetTaskResultOutput) SetTCPCost(v int64) *HTTPDetailForGetTaskResultOutput {
-	s.TCPCost = &v
+// SetTcpCost sets the TcpCost field's value.
+func (s *HttpDetailForGetTaskResultOutput) SetTcpCost(v int64) *HttpDetailForGetTaskResultOutput {
+	s.TcpCost = &v
 	return s
 }
 
 // SetTotalCost sets the TotalCost field's value.
-func (s *HTTPDetailForGetTaskResultOutput) SetTotalCost(v int64) *HTTPDetailForGetTaskResultOutput {
+func (s *HttpDetailForGetTaskResultOutput) SetTotalCost(v int64) *HttpDetailForGetTaskResultOutput {
 	s.TotalCost = &v
 	return s
 }
 
 // SetTtfbCost sets the TtfbCost field's value.
-func (s *HTTPDetailForGetTaskResultOutput) SetTtfbCost(v int64) *HTTPDetailForGetTaskResultOutput {
+func (s *HttpDetailForGetTaskResultOutput) SetTtfbCost(v int64) *HttpDetailForGetTaskResultOutput {
 	s.TtfbCost = &v
 	return s
 }
@@ -1126,9 +1134,9 @@ type PageDetailForGetTaskResultOutput struct {
 
 	DiagnoseDetail *DiagnoseDetailForGetTaskResultOutput `type:"structure" json:",omitempty"`
 
-	HTTPRequestHeader *string `type:"string" json:",omitempty"`
+	HttpRequestHeader *string `type:"string" json:",omitempty"`
 
-	HTTPResponseHeader *string `type:"string" json:",omitempty"`
+	HttpResponseHeader *string `type:"string" json:",omitempty"`
 
 	PageCountElement *int64 `type:"int64" json:",omitempty"`
 
@@ -1144,11 +1152,13 @@ type PageDetailForGetTaskResultOutput struct {
 
 	PageErrorElementProportion *int64 `type:"int64" json:",omitempty"`
 
-	PageRequestID *string `type:"string" json:",omitempty"`
+	PageRequestId *string `type:"string" json:",omitempty"`
 
 	PageTimeFirstScreen *int64 `type:"int64" json:",omitempty"`
 
 	PageTimeTotal *int64 `type:"int64" json:",omitempty"`
+
+	PcapUri *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -1167,15 +1177,15 @@ func (s *PageDetailForGetTaskResultOutput) SetDiagnoseDetail(v *DiagnoseDetailFo
 	return s
 }
 
-// SetHTTPRequestHeader sets the HTTPRequestHeader field's value.
-func (s *PageDetailForGetTaskResultOutput) SetHTTPRequestHeader(v string) *PageDetailForGetTaskResultOutput {
-	s.HTTPRequestHeader = &v
+// SetHttpRequestHeader sets the HttpRequestHeader field's value.
+func (s *PageDetailForGetTaskResultOutput) SetHttpRequestHeader(v string) *PageDetailForGetTaskResultOutput {
+	s.HttpRequestHeader = &v
 	return s
 }
 
-// SetHTTPResponseHeader sets the HTTPResponseHeader field's value.
-func (s *PageDetailForGetTaskResultOutput) SetHTTPResponseHeader(v string) *PageDetailForGetTaskResultOutput {
-	s.HTTPResponseHeader = &v
+// SetHttpResponseHeader sets the HttpResponseHeader field's value.
+func (s *PageDetailForGetTaskResultOutput) SetHttpResponseHeader(v string) *PageDetailForGetTaskResultOutput {
+	s.HttpResponseHeader = &v
 	return s
 }
 
@@ -1221,9 +1231,9 @@ func (s *PageDetailForGetTaskResultOutput) SetPageErrorElementProportion(v int64
 	return s
 }
 
-// SetPageRequestID sets the PageRequestID field's value.
-func (s *PageDetailForGetTaskResultOutput) SetPageRequestID(v string) *PageDetailForGetTaskResultOutput {
-	s.PageRequestID = &v
+// SetPageRequestId sets the PageRequestId field's value.
+func (s *PageDetailForGetTaskResultOutput) SetPageRequestId(v string) *PageDetailForGetTaskResultOutput {
+	s.PageRequestId = &v
 	return s
 }
 
@@ -1239,14 +1249,20 @@ func (s *PageDetailForGetTaskResultOutput) SetPageTimeTotal(v int64) *PageDetail
 	return s
 }
 
+// SetPcapUri sets the PcapUri field's value.
+func (s *PageDetailForGetTaskResultOutput) SetPcapUri(v string) *PageDetailForGetTaskResultOutput {
+	s.PcapUri = &v
+	return s
+}
+
 type PaginationForGetTaskResultOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	PageNum *int64 `type:"int64" json:",omitempty"`
+	PageNumber *int64 `type:"int64" json:",omitempty"`
 
 	PageSize *int64 `type:"int64" json:",omitempty"`
 
-	Total *int64 `type:"int64" json:",omitempty"`
+	TotalCount *int64 `type:"int64" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -1259,9 +1275,9 @@ func (s PaginationForGetTaskResultOutput) GoString() string {
 	return s.String()
 }
 
-// SetPageNum sets the PageNum field's value.
-func (s *PaginationForGetTaskResultOutput) SetPageNum(v int64) *PaginationForGetTaskResultOutput {
-	s.PageNum = &v
+// SetPageNumber sets the PageNumber field's value.
+func (s *PaginationForGetTaskResultOutput) SetPageNumber(v int64) *PaginationForGetTaskResultOutput {
+	s.PageNumber = &v
 	return s
 }
 
@@ -1271,22 +1287,22 @@ func (s *PaginationForGetTaskResultOutput) SetPageSize(v int64) *PaginationForGe
 	return s
 }
 
-// SetTotal sets the Total field's value.
-func (s *PaginationForGetTaskResultOutput) SetTotal(v int64) *PaginationForGetTaskResultOutput {
-	s.Total = &v
+// SetTotalCount sets the TotalCount field's value.
+func (s *PaginationForGetTaskResultOutput) SetTotalCount(v int64) *PaginationForGetTaskResultOutput {
+	s.TotalCount = &v
 	return s
 }
 
 type PingDetailForGetTaskResultOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	DNSCost *int64 `type:"int64" json:",omitempty"`
-
 	DiagnoseDetail *DiagnoseDetailForGetTaskResultOutput `type:"structure" json:",omitempty"`
+
+	DnsCost *int64 `type:"int64" json:",omitempty"`
 
 	MtrHops *int64 `type:"int64" json:",omitempty"`
 
-	PcapURI *string `type:"string" json:",omitempty"`
+	PcapUri *string `type:"string" json:",omitempty"`
 
 	PingAvgCost *int64 `type:"int64" json:",omitempty"`
 
@@ -1315,15 +1331,15 @@ func (s PingDetailForGetTaskResultOutput) GoString() string {
 	return s.String()
 }
 
-// SetDNSCost sets the DNSCost field's value.
-func (s *PingDetailForGetTaskResultOutput) SetDNSCost(v int64) *PingDetailForGetTaskResultOutput {
-	s.DNSCost = &v
-	return s
-}
-
 // SetDiagnoseDetail sets the DiagnoseDetail field's value.
 func (s *PingDetailForGetTaskResultOutput) SetDiagnoseDetail(v *DiagnoseDetailForGetTaskResultOutput) *PingDetailForGetTaskResultOutput {
 	s.DiagnoseDetail = v
+	return s
+}
+
+// SetDnsCost sets the DnsCost field's value.
+func (s *PingDetailForGetTaskResultOutput) SetDnsCost(v int64) *PingDetailForGetTaskResultOutput {
+	s.DnsCost = &v
 	return s
 }
 
@@ -1333,9 +1349,9 @@ func (s *PingDetailForGetTaskResultOutput) SetMtrHops(v int64) *PingDetailForGet
 	return s
 }
 
-// SetPcapURI sets the PcapURI field's value.
-func (s *PingDetailForGetTaskResultOutput) SetPcapURI(v string) *PingDetailForGetTaskResultOutput {
-	s.PcapURI = &v
+// SetPcapUri sets the PcapUri field's value.
+func (s *PingDetailForGetTaskResultOutput) SetPcapUri(v string) *PingDetailForGetTaskResultOutput {
+	s.PcapUri = &v
 	return s
 }
 
@@ -1447,84 +1463,14 @@ func (s *ResponseHeaderForGetTaskResultOutput) SetValue(v string) *ResponseHeade
 	return s
 }
 
-type TCPDetailForGetTaskResultOutput struct {
-	_ struct{} `type:"structure" json:",omitempty"`
-
-	DiagnoseDetail *DiagnoseDetailForGetTaskResultOutput `type:"structure" json:",omitempty"`
-
-	TCPResponse *string `type:"string" json:",omitempty"`
-
-	TCPTimeConnect *int64 `type:"int64" json:",omitempty"`
-
-	TCPTimeDNS *int64 `type:"int64" json:",omitempty"`
-
-	TCPTimeReceive *int64 `type:"int64" json:",omitempty"`
-
-	TCPTimeResponse *int64 `type:"int64" json:",omitempty"`
-
-	TCPTimeTotal *int64 `type:"int64" json:",omitempty"`
-}
-
-// String returns the string representation
-func (s TCPDetailForGetTaskResultOutput) String() string {
-	return volcengineutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s TCPDetailForGetTaskResultOutput) GoString() string {
-	return s.String()
-}
-
-// SetDiagnoseDetail sets the DiagnoseDetail field's value.
-func (s *TCPDetailForGetTaskResultOutput) SetDiagnoseDetail(v *DiagnoseDetailForGetTaskResultOutput) *TCPDetailForGetTaskResultOutput {
-	s.DiagnoseDetail = v
-	return s
-}
-
-// SetTCPResponse sets the TCPResponse field's value.
-func (s *TCPDetailForGetTaskResultOutput) SetTCPResponse(v string) *TCPDetailForGetTaskResultOutput {
-	s.TCPResponse = &v
-	return s
-}
-
-// SetTCPTimeConnect sets the TCPTimeConnect field's value.
-func (s *TCPDetailForGetTaskResultOutput) SetTCPTimeConnect(v int64) *TCPDetailForGetTaskResultOutput {
-	s.TCPTimeConnect = &v
-	return s
-}
-
-// SetTCPTimeDNS sets the TCPTimeDNS field's value.
-func (s *TCPDetailForGetTaskResultOutput) SetTCPTimeDNS(v int64) *TCPDetailForGetTaskResultOutput {
-	s.TCPTimeDNS = &v
-	return s
-}
-
-// SetTCPTimeReceive sets the TCPTimeReceive field's value.
-func (s *TCPDetailForGetTaskResultOutput) SetTCPTimeReceive(v int64) *TCPDetailForGetTaskResultOutput {
-	s.TCPTimeReceive = &v
-	return s
-}
-
-// SetTCPTimeResponse sets the TCPTimeResponse field's value.
-func (s *TCPDetailForGetTaskResultOutput) SetTCPTimeResponse(v int64) *TCPDetailForGetTaskResultOutput {
-	s.TCPTimeResponse = &v
-	return s
-}
-
-// SetTCPTimeTotal sets the TCPTimeTotal field's value.
-func (s *TCPDetailForGetTaskResultOutput) SetTCPTimeTotal(v int64) *TCPDetailForGetTaskResultOutput {
-	s.TCPTimeTotal = &v
-	return s
-}
-
 type TargetInfoForGetTaskResultOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
 	City *string `type:"string" json:",omitempty"`
 
-	DetectURL *string `type:"string" json:",omitempty"`
+	DetectUrl *string `type:"string" json:",omitempty"`
 
-	IP *string `type:"string" json:",omitempty"`
+	Ip *string `type:"string" json:",omitempty"`
 
 	Ipv6 *string `type:"string" json:",omitempty"`
 
@@ -1549,15 +1495,15 @@ func (s *TargetInfoForGetTaskResultOutput) SetCity(v string) *TargetInfoForGetTa
 	return s
 }
 
-// SetDetectURL sets the DetectURL field's value.
-func (s *TargetInfoForGetTaskResultOutput) SetDetectURL(v string) *TargetInfoForGetTaskResultOutput {
-	s.DetectURL = &v
+// SetDetectUrl sets the DetectUrl field's value.
+func (s *TargetInfoForGetTaskResultOutput) SetDetectUrl(v string) *TargetInfoForGetTaskResultOutput {
+	s.DetectUrl = &v
 	return s
 }
 
-// SetIP sets the IP field's value.
-func (s *TargetInfoForGetTaskResultOutput) SetIP(v string) *TargetInfoForGetTaskResultOutput {
-	s.IP = &v
+// SetIp sets the Ip field's value.
+func (s *TargetInfoForGetTaskResultOutput) SetIp(v string) *TargetInfoForGetTaskResultOutput {
+	s.Ip = &v
 	return s
 }
 
@@ -1579,92 +1525,178 @@ func (s *TargetInfoForGetTaskResultOutput) SetRegion(v string) *TargetInfoForGet
 	return s
 }
 
-type UDPDetailForGetTaskResultOutput struct {
+type TcpDetailForGetTaskResultOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
 	DiagnoseDetail *DiagnoseDetailForGetTaskResultOutput `type:"structure" json:",omitempty"`
 
-	UDPResponse *string `type:"string" json:",omitempty"`
+	PcapUri *string `type:"string" json:",omitempty"`
 
-	UDPTimeDNS *int64 `type:"int64" json:",omitempty"`
+	TcpResponse *string `type:"string" json:",omitempty"`
 
-	UDPTimeReceive *int64 `type:"int64" json:",omitempty"`
+	TcpTimeConnect *int64 `type:"int64" json:",omitempty"`
 
-	UDPTimeTotal *int64 `type:"int64" json:",omitempty"`
+	TcpTimeDns *int64 `type:"int64" json:",omitempty"`
 
-	UDPTimeWait *int64 `type:"int64" json:",omitempty"`
+	TcpTimeReceive *int64 `type:"int64" json:",omitempty"`
+
+	TcpTimeResponse *int64 `type:"int64" json:",omitempty"`
+
+	TcpTimeTotal *int64 `type:"int64" json:",omitempty"`
 }
 
 // String returns the string representation
-func (s UDPDetailForGetTaskResultOutput) String() string {
+func (s TcpDetailForGetTaskResultOutput) String() string {
 	return volcengineutil.Prettify(s)
 }
 
 // GoString returns the string representation
-func (s UDPDetailForGetTaskResultOutput) GoString() string {
+func (s TcpDetailForGetTaskResultOutput) GoString() string {
 	return s.String()
 }
 
 // SetDiagnoseDetail sets the DiagnoseDetail field's value.
-func (s *UDPDetailForGetTaskResultOutput) SetDiagnoseDetail(v *DiagnoseDetailForGetTaskResultOutput) *UDPDetailForGetTaskResultOutput {
+func (s *TcpDetailForGetTaskResultOutput) SetDiagnoseDetail(v *DiagnoseDetailForGetTaskResultOutput) *TcpDetailForGetTaskResultOutput {
 	s.DiagnoseDetail = v
 	return s
 }
 
-// SetUDPResponse sets the UDPResponse field's value.
-func (s *UDPDetailForGetTaskResultOutput) SetUDPResponse(v string) *UDPDetailForGetTaskResultOutput {
-	s.UDPResponse = &v
+// SetPcapUri sets the PcapUri field's value.
+func (s *TcpDetailForGetTaskResultOutput) SetPcapUri(v string) *TcpDetailForGetTaskResultOutput {
+	s.PcapUri = &v
 	return s
 }
 
-// SetUDPTimeDNS sets the UDPTimeDNS field's value.
-func (s *UDPDetailForGetTaskResultOutput) SetUDPTimeDNS(v int64) *UDPDetailForGetTaskResultOutput {
-	s.UDPTimeDNS = &v
+// SetTcpResponse sets the TcpResponse field's value.
+func (s *TcpDetailForGetTaskResultOutput) SetTcpResponse(v string) *TcpDetailForGetTaskResultOutput {
+	s.TcpResponse = &v
 	return s
 }
 
-// SetUDPTimeReceive sets the UDPTimeReceive field's value.
-func (s *UDPDetailForGetTaskResultOutput) SetUDPTimeReceive(v int64) *UDPDetailForGetTaskResultOutput {
-	s.UDPTimeReceive = &v
+// SetTcpTimeConnect sets the TcpTimeConnect field's value.
+func (s *TcpDetailForGetTaskResultOutput) SetTcpTimeConnect(v int64) *TcpDetailForGetTaskResultOutput {
+	s.TcpTimeConnect = &v
 	return s
 }
 
-// SetUDPTimeTotal sets the UDPTimeTotal field's value.
-func (s *UDPDetailForGetTaskResultOutput) SetUDPTimeTotal(v int64) *UDPDetailForGetTaskResultOutput {
-	s.UDPTimeTotal = &v
+// SetTcpTimeDns sets the TcpTimeDns field's value.
+func (s *TcpDetailForGetTaskResultOutput) SetTcpTimeDns(v int64) *TcpDetailForGetTaskResultOutput {
+	s.TcpTimeDns = &v
 	return s
 }
 
-// SetUDPTimeWait sets the UDPTimeWait field's value.
-func (s *UDPDetailForGetTaskResultOutput) SetUDPTimeWait(v int64) *UDPDetailForGetTaskResultOutput {
-	s.UDPTimeWait = &v
+// SetTcpTimeReceive sets the TcpTimeReceive field's value.
+func (s *TcpDetailForGetTaskResultOutput) SetTcpTimeReceive(v int64) *TcpDetailForGetTaskResultOutput {
+	s.TcpTimeReceive = &v
+	return s
+}
+
+// SetTcpTimeResponse sets the TcpTimeResponse field's value.
+func (s *TcpDetailForGetTaskResultOutput) SetTcpTimeResponse(v int64) *TcpDetailForGetTaskResultOutput {
+	s.TcpTimeResponse = &v
+	return s
+}
+
+// SetTcpTimeTotal sets the TcpTimeTotal field's value.
+func (s *TcpDetailForGetTaskResultOutput) SetTcpTimeTotal(v int64) *TcpDetailForGetTaskResultOutput {
+	s.TcpTimeTotal = &v
+	return s
+}
+
+type UdpDetailForGetTaskResultOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	DiagnoseDetail *DiagnoseDetailForGetTaskResultOutput `type:"structure" json:",omitempty"`
+
+	PcapUri *string `type:"string" json:",omitempty"`
+
+	UdpResponse *string `type:"string" json:",omitempty"`
+
+	UdpTimeDns *int64 `type:"int64" json:",omitempty"`
+
+	UdpTimeReceive *int64 `type:"int64" json:",omitempty"`
+
+	UdpTimeTotal *int64 `type:"int64" json:",omitempty"`
+
+	UdpTimeWait *int64 `type:"int64" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s UdpDetailForGetTaskResultOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s UdpDetailForGetTaskResultOutput) GoString() string {
+	return s.String()
+}
+
+// SetDiagnoseDetail sets the DiagnoseDetail field's value.
+func (s *UdpDetailForGetTaskResultOutput) SetDiagnoseDetail(v *DiagnoseDetailForGetTaskResultOutput) *UdpDetailForGetTaskResultOutput {
+	s.DiagnoseDetail = v
+	return s
+}
+
+// SetPcapUri sets the PcapUri field's value.
+func (s *UdpDetailForGetTaskResultOutput) SetPcapUri(v string) *UdpDetailForGetTaskResultOutput {
+	s.PcapUri = &v
+	return s
+}
+
+// SetUdpResponse sets the UdpResponse field's value.
+func (s *UdpDetailForGetTaskResultOutput) SetUdpResponse(v string) *UdpDetailForGetTaskResultOutput {
+	s.UdpResponse = &v
+	return s
+}
+
+// SetUdpTimeDns sets the UdpTimeDns field's value.
+func (s *UdpDetailForGetTaskResultOutput) SetUdpTimeDns(v int64) *UdpDetailForGetTaskResultOutput {
+	s.UdpTimeDns = &v
+	return s
+}
+
+// SetUdpTimeReceive sets the UdpTimeReceive field's value.
+func (s *UdpDetailForGetTaskResultOutput) SetUdpTimeReceive(v int64) *UdpDetailForGetTaskResultOutput {
+	s.UdpTimeReceive = &v
+	return s
+}
+
+// SetUdpTimeTotal sets the UdpTimeTotal field's value.
+func (s *UdpDetailForGetTaskResultOutput) SetUdpTimeTotal(v int64) *UdpDetailForGetTaskResultOutput {
+	s.UdpTimeTotal = &v
+	return s
+}
+
+// SetUdpTimeWait sets the UdpTimeWait field's value.
+func (s *UdpDetailForGetTaskResultOutput) SetUdpTimeWait(v int64) *UdpDetailForGetTaskResultOutput {
+	s.UdpTimeWait = &v
 	return s
 }
 
 type UploadDetailForGetTaskResultOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	DNSCost *int64 `type:"int64" json:",omitempty"`
-
 	DiagnoseDetail *DiagnoseDetailForGetTaskResultOutput `type:"structure" json:",omitempty"`
+
+	DnsCost *int64 `type:"int64" json:",omitempty"`
 
 	DownloadSize *int64 `type:"int64" json:",omitempty"`
 
 	DownloadSpeed *int64 `type:"int64" json:",omitempty"`
 
-	HTTPCode *int64 `type:"int64" json:",omitempty"`
+	HttpCode *int64 `type:"int64" json:",omitempty"`
 
-	HTTPRequestHeader *string `type:"string" json:",omitempty"`
+	HttpRequestHeader *string `type:"string" json:",omitempty"`
 
-	HTTPResponseBody *string `type:"string" json:",omitempty"`
+	HttpResponseBody *string `type:"string" json:",omitempty"`
 
-	HTTPResponseHeader *string `type:"string" json:",omitempty"`
+	HttpResponseHeader *string `type:"string" json:",omitempty"`
 
-	HTTPVersion *string `type:"string" json:",omitempty"`
+	HttpVersion *string `type:"string" json:",omitempty"`
 
 	LocationDetail []*LocationDetailForGetTaskResultOutput `type:"list" json:",omitempty"`
 
-	PcapURI *string `type:"string" json:",omitempty"`
+	PcapUri *string `type:"string" json:",omitempty"`
 
 	RecvCost *int64 `type:"int64" json:",omitempty"`
 
@@ -1676,7 +1708,7 @@ type UploadDetailForGetTaskResultOutput struct {
 
 	SslCost *int64 `type:"int64" json:",omitempty"`
 
-	TCPCost *int64 `type:"int64" json:",omitempty"`
+	TcpCost *int64 `type:"int64" json:",omitempty"`
 
 	TotalCost *int64 `type:"int64" json:",omitempty"`
 
@@ -1699,15 +1731,15 @@ func (s UploadDetailForGetTaskResultOutput) GoString() string {
 	return s.String()
 }
 
-// SetDNSCost sets the DNSCost field's value.
-func (s *UploadDetailForGetTaskResultOutput) SetDNSCost(v int64) *UploadDetailForGetTaskResultOutput {
-	s.DNSCost = &v
-	return s
-}
-
 // SetDiagnoseDetail sets the DiagnoseDetail field's value.
 func (s *UploadDetailForGetTaskResultOutput) SetDiagnoseDetail(v *DiagnoseDetailForGetTaskResultOutput) *UploadDetailForGetTaskResultOutput {
 	s.DiagnoseDetail = v
+	return s
+}
+
+// SetDnsCost sets the DnsCost field's value.
+func (s *UploadDetailForGetTaskResultOutput) SetDnsCost(v int64) *UploadDetailForGetTaskResultOutput {
+	s.DnsCost = &v
 	return s
 }
 
@@ -1723,33 +1755,33 @@ func (s *UploadDetailForGetTaskResultOutput) SetDownloadSpeed(v int64) *UploadDe
 	return s
 }
 
-// SetHTTPCode sets the HTTPCode field's value.
-func (s *UploadDetailForGetTaskResultOutput) SetHTTPCode(v int64) *UploadDetailForGetTaskResultOutput {
-	s.HTTPCode = &v
+// SetHttpCode sets the HttpCode field's value.
+func (s *UploadDetailForGetTaskResultOutput) SetHttpCode(v int64) *UploadDetailForGetTaskResultOutput {
+	s.HttpCode = &v
 	return s
 }
 
-// SetHTTPRequestHeader sets the HTTPRequestHeader field's value.
-func (s *UploadDetailForGetTaskResultOutput) SetHTTPRequestHeader(v string) *UploadDetailForGetTaskResultOutput {
-	s.HTTPRequestHeader = &v
+// SetHttpRequestHeader sets the HttpRequestHeader field's value.
+func (s *UploadDetailForGetTaskResultOutput) SetHttpRequestHeader(v string) *UploadDetailForGetTaskResultOutput {
+	s.HttpRequestHeader = &v
 	return s
 }
 
-// SetHTTPResponseBody sets the HTTPResponseBody field's value.
-func (s *UploadDetailForGetTaskResultOutput) SetHTTPResponseBody(v string) *UploadDetailForGetTaskResultOutput {
-	s.HTTPResponseBody = &v
+// SetHttpResponseBody sets the HttpResponseBody field's value.
+func (s *UploadDetailForGetTaskResultOutput) SetHttpResponseBody(v string) *UploadDetailForGetTaskResultOutput {
+	s.HttpResponseBody = &v
 	return s
 }
 
-// SetHTTPResponseHeader sets the HTTPResponseHeader field's value.
-func (s *UploadDetailForGetTaskResultOutput) SetHTTPResponseHeader(v string) *UploadDetailForGetTaskResultOutput {
-	s.HTTPResponseHeader = &v
+// SetHttpResponseHeader sets the HttpResponseHeader field's value.
+func (s *UploadDetailForGetTaskResultOutput) SetHttpResponseHeader(v string) *UploadDetailForGetTaskResultOutput {
+	s.HttpResponseHeader = &v
 	return s
 }
 
-// SetHTTPVersion sets the HTTPVersion field's value.
-func (s *UploadDetailForGetTaskResultOutput) SetHTTPVersion(v string) *UploadDetailForGetTaskResultOutput {
-	s.HTTPVersion = &v
+// SetHttpVersion sets the HttpVersion field's value.
+func (s *UploadDetailForGetTaskResultOutput) SetHttpVersion(v string) *UploadDetailForGetTaskResultOutput {
+	s.HttpVersion = &v
 	return s
 }
 
@@ -1759,9 +1791,9 @@ func (s *UploadDetailForGetTaskResultOutput) SetLocationDetail(v []*LocationDeta
 	return s
 }
 
-// SetPcapURI sets the PcapURI field's value.
-func (s *UploadDetailForGetTaskResultOutput) SetPcapURI(v string) *UploadDetailForGetTaskResultOutput {
-	s.PcapURI = &v
+// SetPcapUri sets the PcapUri field's value.
+func (s *UploadDetailForGetTaskResultOutput) SetPcapUri(v string) *UploadDetailForGetTaskResultOutput {
+	s.PcapUri = &v
 	return s
 }
 
@@ -1795,9 +1827,9 @@ func (s *UploadDetailForGetTaskResultOutput) SetSslCost(v int64) *UploadDetailFo
 	return s
 }
 
-// SetTCPCost sets the TCPCost field's value.
-func (s *UploadDetailForGetTaskResultOutput) SetTCPCost(v int64) *UploadDetailForGetTaskResultOutput {
-	s.TCPCost = &v
+// SetTcpCost sets the TcpCost field's value.
+func (s *UploadDetailForGetTaskResultOutput) SetTcpCost(v int64) *UploadDetailForGetTaskResultOutput {
+	s.TcpCost = &v
 	return s
 }
 
