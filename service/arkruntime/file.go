@@ -83,6 +83,9 @@ func (c *Client) preprocessResponseMultiModal(ctx context.Context, input *respon
 			if err != nil {
 				return err
 			}
+			if multiModalFile == nil {
+				continue
+			}
 
 			contentItem := contentItem
 			eg.Go(func() error {
