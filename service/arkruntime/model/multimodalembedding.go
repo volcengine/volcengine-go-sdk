@@ -57,6 +57,9 @@ type MultiModalEmbeddingRequest struct {
 
 	// SparseEmbedding stands for whether to return sparse embedding.
 	SparseEmbedding *SparseEmbeddingInput `json:"sparse_embedding,omitempty"`
+
+	// Instructions stands for the system prompt for the model.
+	Instructions *string `json:"instructions,omitempty"`
 }
 
 type MultimodalEmbedding struct {
