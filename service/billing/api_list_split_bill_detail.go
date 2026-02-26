@@ -170,6 +170,8 @@ type ListForListSplitBillDetailOutput struct {
 
 	CostUnit *string `type:"string" json:",omitempty"`
 
+	Count *string `type:"string" json:",omitempty"`
+
 	CountryRegion *string `type:"string" json:",omitempty"`
 
 	CouponDeductionAmount *string `type:"string" json:",omitempty"`
@@ -271,6 +273,8 @@ type ListForListSplitBillDetailOutput struct {
 	RegionCode *string `type:"string" json:",omitempty"`
 
 	ReservationInstance *string `type:"string" json:",omitempty"`
+
+	ResourceID *string `type:"string" json:",omitempty"`
 
 	RoundAmount *string `type:"string" json:",omitempty"`
 
@@ -418,6 +422,12 @@ func (s *ListForListSplitBillDetailOutput) SetConfigurationCode(v string) *ListF
 // SetCostUnit sets the CostUnit field's value.
 func (s *ListForListSplitBillDetailOutput) SetCostUnit(v string) *ListForListSplitBillDetailOutput {
 	s.CostUnit = &v
+	return s
+}
+
+// SetCount sets the Count field's value.
+func (s *ListForListSplitBillDetailOutput) SetCount(v string) *ListForListSplitBillDetailOutput {
+	s.Count = &v
 	return s
 }
 
@@ -724,6 +734,12 @@ func (s *ListForListSplitBillDetailOutput) SetRegionCode(v string) *ListForListS
 // SetReservationInstance sets the ReservationInstance field's value.
 func (s *ListForListSplitBillDetailOutput) SetReservationInstance(v string) *ListForListSplitBillDetailOutput {
 	s.ReservationInstance = &v
+	return s
+}
+
+// SetResourceID sets the ResourceID field's value.
+func (s *ListForListSplitBillDetailOutput) SetResourceID(v string) *ListForListSplitBillDetailOutput {
+	s.ResourceID = &v
 	return s
 }
 

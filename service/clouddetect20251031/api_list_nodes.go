@@ -146,7 +146,7 @@ func (c *CLOUDDETECT20251031) ListNodesWithContext(ctx volcengine.Context, input
 type LineListForListNodesOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	ID *int64 `type:"int64" json:",omitempty"`
+	Id *int64 `type:"int64" json:",omitempty"`
 
 	Name *string `type:"string" json:",omitempty"`
 }
@@ -161,9 +161,9 @@ func (s LineListForListNodesOutput) GoString() string {
 	return s.String()
 }
 
-// SetID sets the ID field's value.
-func (s *LineListForListNodesOutput) SetID(v int64) *LineListForListNodesOutput {
-	s.ID = &v
+// SetId sets the Id field's value.
+func (s *LineListForListNodesOutput) SetId(v int64) *LineListForListNodesOutput {
+	s.Id = &v
 	return s
 }
 

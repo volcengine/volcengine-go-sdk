@@ -494,9 +494,11 @@ type RuleForCreateRuleInput struct {
 
 	Probe *ProbeForCreateRuleInput `type:"structure" json:",omitempty"`
 
-	ProbeMode *string `type:"string" json:",omitempty"`
-
 	Remark *string `type:"string" json:",omitempty"`
+
+	UsePolicyProbeNodes *bool `type:"boolean" json:",omitempty"`
+
+	UseRuleProbeConfig *bool `type:"boolean" json:",omitempty"`
 
 	Weight *int32 `type:"int32" json:",omitempty"`
 }
@@ -553,15 +555,21 @@ func (s *RuleForCreateRuleInput) SetProbe(v *ProbeForCreateRuleInput) *RuleForCr
 	return s
 }
 
-// SetProbeMode sets the ProbeMode field's value.
-func (s *RuleForCreateRuleInput) SetProbeMode(v string) *RuleForCreateRuleInput {
-	s.ProbeMode = &v
-	return s
-}
-
 // SetRemark sets the Remark field's value.
 func (s *RuleForCreateRuleInput) SetRemark(v string) *RuleForCreateRuleInput {
 	s.Remark = &v
+	return s
+}
+
+// SetUsePolicyProbeNodes sets the UsePolicyProbeNodes field's value.
+func (s *RuleForCreateRuleInput) SetUsePolicyProbeNodes(v bool) *RuleForCreateRuleInput {
+	s.UsePolicyProbeNodes = &v
+	return s
+}
+
+// SetUseRuleProbeConfig sets the UseRuleProbeConfig field's value.
+func (s *RuleForCreateRuleInput) SetUseRuleProbeConfig(v bool) *RuleForCreateRuleInput {
+	s.UseRuleProbeConfig = &v
 	return s
 }
 
