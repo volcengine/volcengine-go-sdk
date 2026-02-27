@@ -241,6 +241,8 @@ type ApiKeyMetadataForCreateInboundAuthConfigInput struct {
 	Location *string `type:"string" json:",omitempty"`
 
 	ParameterName *string `type:"string" json:",omitempty"`
+
+	Prefix *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -265,12 +267,20 @@ func (s *ApiKeyMetadataForCreateInboundAuthConfigInput) SetParameterName(v strin
 	return s
 }
 
+// SetPrefix sets the Prefix field's value.
+func (s *ApiKeyMetadataForCreateInboundAuthConfigInput) SetPrefix(v string) *ApiKeyMetadataForCreateInboundAuthConfigInput {
+	s.Prefix = &v
+	return s
+}
+
 type ApiKeyMetadataForCreateInboundAuthConfigOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
 	Location *string `type:"string" json:",omitempty"`
 
 	ParameterName *string `type:"string" json:",omitempty"`
+
+	Prefix *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -292,6 +302,12 @@ func (s *ApiKeyMetadataForCreateInboundAuthConfigOutput) SetLocation(v string) *
 // SetParameterName sets the ParameterName field's value.
 func (s *ApiKeyMetadataForCreateInboundAuthConfigOutput) SetParameterName(v string) *ApiKeyMetadataForCreateInboundAuthConfigOutput {
 	s.ParameterName = &v
+	return s
+}
+
+// SetPrefix sets the Prefix field's value.
+func (s *ApiKeyMetadataForCreateInboundAuthConfigOutput) SetPrefix(v string) *ApiKeyMetadataForCreateInboundAuthConfigOutput {
+	s.Prefix = &v
 	return s
 }
 

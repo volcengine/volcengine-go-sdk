@@ -158,6 +158,12 @@ type DataForListUserPoolsOutput struct {
 
 	Tags []*TagForListUserPoolsOutput `type:"list" json:",omitempty"`
 
+	TotalClients *int32 `type:"int32" json:",omitempty"`
+
+	TotalConnections *int32 `type:"int32" json:",omitempty"`
+
+	TotalUsers *int32 `type:"int32" json:",omitempty"`
+
 	Trn *string `type:"string" json:",omitempty"`
 
 	Uid *string `type:"string" json:",omitempty"`
@@ -208,6 +214,24 @@ func (s *DataForListUserPoolsOutput) SetProjectName(v string) *DataForListUserPo
 // SetTags sets the Tags field's value.
 func (s *DataForListUserPoolsOutput) SetTags(v []*TagForListUserPoolsOutput) *DataForListUserPoolsOutput {
 	s.Tags = v
+	return s
+}
+
+// SetTotalClients sets the TotalClients field's value.
+func (s *DataForListUserPoolsOutput) SetTotalClients(v int32) *DataForListUserPoolsOutput {
+	s.TotalClients = &v
+	return s
+}
+
+// SetTotalConnections sets the TotalConnections field's value.
+func (s *DataForListUserPoolsOutput) SetTotalConnections(v int32) *DataForListUserPoolsOutput {
+	s.TotalConnections = &v
+	return s
+}
+
+// SetTotalUsers sets the TotalUsers field's value.
+func (s *DataForListUserPoolsOutput) SetTotalUsers(v int32) *DataForListUserPoolsOutput {
+	s.TotalUsers = &v
 	return s
 }
 

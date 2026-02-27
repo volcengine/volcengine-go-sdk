@@ -216,6 +216,8 @@ type GetUserOutput struct {
 
 	LatestLogin *string `type:"string" json:",omitempty"`
 
+	LatestLoginMethod *string `type:"string" json:",omitempty"`
+
 	Locale *string `type:"string" json:",omitempty"`
 
 	MiddleName *string `type:"string" json:",omitempty"`
@@ -318,6 +320,12 @@ func (s *GetUserOutput) SetLatestBrowser(v string) *GetUserOutput {
 // SetLatestLogin sets the LatestLogin field's value.
 func (s *GetUserOutput) SetLatestLogin(v string) *GetUserOutput {
 	s.LatestLogin = &v
+	return s
+}
+
+// SetLatestLoginMethod sets the LatestLoginMethod field's value.
+func (s *GetUserOutput) SetLatestLoginMethod(v string) *GetUserOutput {
+	s.LatestLoginMethod = &v
 	return s
 }
 

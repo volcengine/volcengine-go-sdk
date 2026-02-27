@@ -252,6 +252,8 @@ type UpdateUserPoolInput struct {
 
 	SignUpAutoVerificationEnabled *bool `type:"boolean" json:",omitempty"`
 
+	SmsAnonymousSignUpEnabled *string `type:"string" json:",omitempty"`
+
 	SmsPasswordlessSignInEnabled *bool `type:"boolean" json:",omitempty"`
 
 	UnconfirmedUserSignInEnabled *bool `type:"boolean" json:",omitempty"`
@@ -331,6 +333,12 @@ func (s *UpdateUserPoolInput) SetSignUpAutoVerificationEnabled(v bool) *UpdateUs
 	return s
 }
 
+// SetSmsAnonymousSignUpEnabled sets the SmsAnonymousSignUpEnabled field's value.
+func (s *UpdateUserPoolInput) SetSmsAnonymousSignUpEnabled(v string) *UpdateUserPoolInput {
+	s.SmsAnonymousSignUpEnabled = &v
+	return s
+}
+
 // SetSmsPasswordlessSignInEnabled sets the SmsPasswordlessSignInEnabled field's value.
 func (s *UpdateUserPoolInput) SetSmsPasswordlessSignInEnabled(v bool) *UpdateUserPoolInput {
 	s.SmsPasswordlessSignInEnabled = &v
@@ -366,6 +374,10 @@ type UpdateUserPoolOutput struct {
 
 	EmailPasswordlessSignInEnabled *bool `type:"boolean" json:",omitempty"`
 
+	Enabled *bool `type:"boolean" json:",omitempty"`
+
+	IssuerUrl *string `type:"string" json:",omitempty"`
+
 	Name *string `type:"string" json:",omitempty"`
 
 	OauthLoginCallbackUrl *string `type:"string" json:",omitempty"`
@@ -394,11 +406,15 @@ type UpdateUserPoolOutput struct {
 
 	SignUpAutoVerificationEnabled *bool `type:"boolean" json:",omitempty"`
 
+	SmsAnonymousSignUpEnabled *bool `type:"boolean" json:",omitempty"`
+
 	SmsPasswordlessSignInEnabled *bool `type:"boolean" json:",omitempty"`
 
 	Tags []*TagForUpdateUserPoolOutput `type:"list" json:",omitempty"`
 
 	TokenSigningKeyUrl *string `type:"string" json:",omitempty"`
+
+	TokenUrl *string `type:"string" json:",omitempty"`
 
 	TotalClients *int32 `type:"int32" json:",omitempty"`
 
@@ -458,6 +474,18 @@ func (s *UpdateUserPoolOutput) SetDomain(v string) *UpdateUserPoolOutput {
 // SetEmailPasswordlessSignInEnabled sets the EmailPasswordlessSignInEnabled field's value.
 func (s *UpdateUserPoolOutput) SetEmailPasswordlessSignInEnabled(v bool) *UpdateUserPoolOutput {
 	s.EmailPasswordlessSignInEnabled = &v
+	return s
+}
+
+// SetEnabled sets the Enabled field's value.
+func (s *UpdateUserPoolOutput) SetEnabled(v bool) *UpdateUserPoolOutput {
+	s.Enabled = &v
+	return s
+}
+
+// SetIssuerUrl sets the IssuerUrl field's value.
+func (s *UpdateUserPoolOutput) SetIssuerUrl(v string) *UpdateUserPoolOutput {
+	s.IssuerUrl = &v
 	return s
 }
 
@@ -545,6 +573,12 @@ func (s *UpdateUserPoolOutput) SetSignUpAutoVerificationEnabled(v bool) *UpdateU
 	return s
 }
 
+// SetSmsAnonymousSignUpEnabled sets the SmsAnonymousSignUpEnabled field's value.
+func (s *UpdateUserPoolOutput) SetSmsAnonymousSignUpEnabled(v bool) *UpdateUserPoolOutput {
+	s.SmsAnonymousSignUpEnabled = &v
+	return s
+}
+
 // SetSmsPasswordlessSignInEnabled sets the SmsPasswordlessSignInEnabled field's value.
 func (s *UpdateUserPoolOutput) SetSmsPasswordlessSignInEnabled(v bool) *UpdateUserPoolOutput {
 	s.SmsPasswordlessSignInEnabled = &v
@@ -560,6 +594,12 @@ func (s *UpdateUserPoolOutput) SetTags(v []*TagForUpdateUserPoolOutput) *UpdateU
 // SetTokenSigningKeyUrl sets the TokenSigningKeyUrl field's value.
 func (s *UpdateUserPoolOutput) SetTokenSigningKeyUrl(v string) *UpdateUserPoolOutput {
 	s.TokenSigningKeyUrl = &v
+	return s
+}
+
+// SetTokenUrl sets the TokenUrl field's value.
+func (s *UpdateUserPoolOutput) SetTokenUrl(v string) *UpdateUserPoolOutput {
+	s.TokenUrl = &v
 	return s
 }
 

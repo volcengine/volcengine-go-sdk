@@ -148,11 +148,15 @@ type AuthorizationServerMetadataForCreateOauth2CredentialProviderInput struct {
 
 	AuthorizationEndpoint *string `type:"string" json:",omitempty"`
 
+	CodeChallengeMethodsSupported []*string `type:"list" json:",omitempty"`
+
 	Issuer *string `type:"string" json:",omitempty"`
 
 	RegistrationEndpoint *string `type:"string" json:",omitempty"`
 
 	ResponseTypes []*string `type:"list" json:",omitempty"`
+
+	RevocationEndpoint *string `type:"string" json:",omitempty"`
 
 	TokenEndpoint *string `type:"string" json:",omitempty"`
 }
@@ -170,6 +174,12 @@ func (s AuthorizationServerMetadataForCreateOauth2CredentialProviderInput) GoStr
 // SetAuthorizationEndpoint sets the AuthorizationEndpoint field's value.
 func (s *AuthorizationServerMetadataForCreateOauth2CredentialProviderInput) SetAuthorizationEndpoint(v string) *AuthorizationServerMetadataForCreateOauth2CredentialProviderInput {
 	s.AuthorizationEndpoint = &v
+	return s
+}
+
+// SetCodeChallengeMethodsSupported sets the CodeChallengeMethodsSupported field's value.
+func (s *AuthorizationServerMetadataForCreateOauth2CredentialProviderInput) SetCodeChallengeMethodsSupported(v []*string) *AuthorizationServerMetadataForCreateOauth2CredentialProviderInput {
+	s.CodeChallengeMethodsSupported = v
 	return s
 }
 
@@ -191,6 +201,12 @@ func (s *AuthorizationServerMetadataForCreateOauth2CredentialProviderInput) SetR
 	return s
 }
 
+// SetRevocationEndpoint sets the RevocationEndpoint field's value.
+func (s *AuthorizationServerMetadataForCreateOauth2CredentialProviderInput) SetRevocationEndpoint(v string) *AuthorizationServerMetadataForCreateOauth2CredentialProviderInput {
+	s.RevocationEndpoint = &v
+	return s
+}
+
 // SetTokenEndpoint sets the TokenEndpoint field's value.
 func (s *AuthorizationServerMetadataForCreateOauth2CredentialProviderInput) SetTokenEndpoint(v string) *AuthorizationServerMetadataForCreateOauth2CredentialProviderInput {
 	s.TokenEndpoint = &v
@@ -206,11 +222,13 @@ type ConfigForCreateOauth2CredentialProviderInput struct {
 
 	CustomParameters *CustomParametersForCreateOauth2CredentialProviderInput `type:"structure" json:",omitempty"`
 
-	Flow *string `type:"string" json:",omitempty"`
+	Flow *string `type:"string" json:",omitempty" enum:"EnumOfFlowForCreateOauth2CredentialProviderInput"`
 
 	ForceAuthentication *bool `type:"boolean" json:",omitempty"`
 
 	MaxExpires *int64 `type:"int64" json:",omitempty"`
+
+	Metadata *string `type:"string" json:",omitempty"`
 
 	Oauth2Discovery *Oauth2DiscoveryForCreateOauth2CredentialProviderInput `type:"structure" json:",omitempty"`
 
@@ -262,6 +280,12 @@ func (s *ConfigForCreateOauth2CredentialProviderInput) SetForceAuthentication(v 
 // SetMaxExpires sets the MaxExpires field's value.
 func (s *ConfigForCreateOauth2CredentialProviderInput) SetMaxExpires(v int64) *ConfigForCreateOauth2CredentialProviderInput {
 	s.MaxExpires = &v
+	return s
+}
+
+// SetMetadata sets the Metadata field's value.
+func (s *ConfigForCreateOauth2CredentialProviderInput) SetMetadata(v string) *ConfigForCreateOauth2CredentialProviderInput {
+	s.Metadata = &v
 	return s
 }
 
@@ -352,6 +376,8 @@ type CreateOauth2CredentialProviderOutput struct {
 
 	Metadata *response.ResponseMetadata
 
+	CallbackUrl *string `type:"string" json:",omitempty"`
+
 	CredentialProviderTrn *string `type:"string" json:",omitempty"`
 
 	Name *string `type:"string" json:",omitempty"`
@@ -367,6 +393,12 @@ func (s CreateOauth2CredentialProviderOutput) String() string {
 // GoString returns the string representation
 func (s CreateOauth2CredentialProviderOutput) GoString() string {
 	return s.String()
+}
+
+// SetCallbackUrl sets the CallbackUrl field's value.
+func (s *CreateOauth2CredentialProviderOutput) SetCallbackUrl(v string) *CreateOauth2CredentialProviderOutput {
+	s.CallbackUrl = &v
+	return s
 }
 
 // SetCredentialProviderTrn sets the CredentialProviderTrn field's value.
@@ -468,3 +500,11 @@ func (s *Oauth2DiscoveryForCreateOauth2CredentialProviderInput) SetDiscoveryUrl(
 	s.DiscoveryUrl = &v
 	return s
 }
+
+const (
+	// EnumOfFlowForCreateOauth2CredentialProviderInputUserFederation is a EnumOfFlowForCreateOauth2CredentialProviderInput enum value
+	EnumOfFlowForCreateOauth2CredentialProviderInputUserFederation = "USER_FEDERATION"
+
+	// EnumOfFlowForCreateOauth2CredentialProviderInputM2m is a EnumOfFlowForCreateOauth2CredentialProviderInput enum value
+	EnumOfFlowForCreateOauth2CredentialProviderInputM2m = "M2M"
+)
