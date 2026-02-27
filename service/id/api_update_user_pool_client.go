@@ -311,6 +311,8 @@ type UpdateUserPoolClientInput struct {
 
 	Description *string `type:"string" json:",omitempty"`
 
+	DevelopmentModeEnabled *bool `type:"boolean" json:",omitempty"`
+
 	IdToken *IdTokenForUpdateUserPoolClientInput `type:"structure" json:",omitempty"`
 
 	LogoUri *string `type:"string" json:",omitempty"`
@@ -385,6 +387,12 @@ func (s *UpdateUserPoolClientInput) SetDescription(v string) *UpdateUserPoolClie
 	return s
 }
 
+// SetDevelopmentModeEnabled sets the DevelopmentModeEnabled field's value.
+func (s *UpdateUserPoolClientInput) SetDevelopmentModeEnabled(v bool) *UpdateUserPoolClientInput {
+	s.DevelopmentModeEnabled = &v
+	return s
+}
+
 // SetIdToken sets the IdToken field's value.
 func (s *UpdateUserPoolClientInput) SetIdToken(v *IdTokenForUpdateUserPoolClientInput) *UpdateUserPoolClientInput {
 	s.IdToken = v
@@ -435,6 +443,8 @@ type UpdateUserPoolClientOutput struct {
 	CreateTime *string `type:"string" json:",omitempty"`
 
 	Description *string `type:"string" json:",omitempty"`
+
+	DevelopmentModeEnabled *bool `type:"boolean" json:",omitempty"`
 
 	IdToken *IdTokenForUpdateUserPoolClientOutput `type:"structure" json:",omitempty"`
 
@@ -506,6 +516,12 @@ func (s *UpdateUserPoolClientOutput) SetCreateTime(v string) *UpdateUserPoolClie
 // SetDescription sets the Description field's value.
 func (s *UpdateUserPoolClientOutput) SetDescription(v string) *UpdateUserPoolClientOutput {
 	s.Description = &v
+	return s
+}
+
+// SetDevelopmentModeEnabled sets the DevelopmentModeEnabled field's value.
+func (s *UpdateUserPoolClientOutput) SetDevelopmentModeEnabled(v bool) *UpdateUserPoolClientOutput {
+	s.DevelopmentModeEnabled = &v
 	return s
 }
 

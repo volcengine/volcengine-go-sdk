@@ -554,7 +554,7 @@ type HealthCheckerForDescribeVpnConnectionAttributesOutput struct {
 
 	CheckInterval *int64 `type:"integer"`
 
-	CheckResult *string `type:"string" enum:"CheckResultForDescribeVpnConnectionAttributesOutput"`
+	CheckResult *string `type:"string"`
 
 	CheckerId *string `type:"string"`
 
@@ -944,14 +944,6 @@ func (s *TunnelOptionForDescribeVpnConnectionAttributesOutput) SetTunnelId(v str
 	s.TunnelId = &v
 	return s
 }
-
-const (
-	// CheckResultForDescribeVpnConnectionAttributesOutputDown is a CheckResultForDescribeVpnConnectionAttributesOutput enum value
-	CheckResultForDescribeVpnConnectionAttributesOutputDown = "Down"
-
-	// CheckResultForDescribeVpnConnectionAttributesOutputUp is a CheckResultForDescribeVpnConnectionAttributesOutput enum value
-	CheckResultForDescribeVpnConnectionAttributesOutputUp = " Up"
-)
 
 const (
 	// SessionStatusForDescribeVpnConnectionAttributesOutputUp is a SessionStatusForDescribeVpnConnectionAttributesOutput enum value

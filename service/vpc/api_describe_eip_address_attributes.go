@@ -231,6 +231,8 @@ type DescribeEipAddressAttributesOutput struct {
 	Tags []*TagForDescribeEipAddressAttributesOutput `type:"list"`
 
 	UpdatedAt *string `type:"string"`
+
+	VpcId *string `type:"string"`
 }
 
 // String returns the string representation
@@ -396,6 +398,12 @@ func (s *DescribeEipAddressAttributesOutput) SetTags(v []*TagForDescribeEipAddre
 // SetUpdatedAt sets the UpdatedAt field's value.
 func (s *DescribeEipAddressAttributesOutput) SetUpdatedAt(v string) *DescribeEipAddressAttributesOutput {
 	s.UpdatedAt = &v
+	return s
+}
+
+// SetVpcId sets the VpcId field's value.
+func (s *DescribeEipAddressAttributesOutput) SetVpcId(v string) *DescribeEipAddressAttributesOutput {
+	s.VpcId = &v
 	return s
 }
 

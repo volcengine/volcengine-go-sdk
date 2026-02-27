@@ -232,8 +232,9 @@ type UpdateServiceInput struct {
 
 	Description *string `type:"string" json:",omitempty"`
 
-	// ServiceName is a required field
-	ServiceName *string `type:"string" json:",omitempty" required:"true"`
+	ServiceId *string `type:"string" json:",omitempty"`
+
+	ServiceName *string `type:"string" json:",omitempty"`
 
 	Status *string `type:"string" json:",omitempty"`
 }
@@ -248,22 +249,15 @@ func (s UpdateServiceInput) GoString() string {
 	return s.String()
 }
 
-// Validate inspects the fields of the type to determine if they are valid.
-func (s *UpdateServiceInput) Validate() error {
-	invalidParams := request.ErrInvalidParams{Context: "UpdateServiceInput"}
-	if s.ServiceName == nil {
-		invalidParams.Add(request.NewErrParamRequired("ServiceName"))
-	}
-
-	if invalidParams.Len() > 0 {
-		return invalidParams
-	}
-	return nil
-}
-
 // SetDescription sets the Description field's value.
 func (s *UpdateServiceInput) SetDescription(v string) *UpdateServiceInput {
 	s.Description = &v
+	return s
+}
+
+// SetServiceId sets the ServiceId field's value.
+func (s *UpdateServiceInput) SetServiceId(v string) *UpdateServiceInput {
+	s.ServiceId = &v
 	return s
 }
 

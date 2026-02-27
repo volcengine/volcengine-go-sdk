@@ -195,6 +195,8 @@ type ApiKeyMetadataForCreateApiKeyInput struct {
 	Location *string `type:"string" json:",omitempty"`
 
 	ParameterName *string `type:"string" json:",omitempty"`
+
+	Prefix *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -216,6 +218,12 @@ func (s *ApiKeyMetadataForCreateApiKeyInput) SetLocation(v string) *ApiKeyMetada
 // SetParameterName sets the ParameterName field's value.
 func (s *ApiKeyMetadataForCreateApiKeyInput) SetParameterName(v string) *ApiKeyMetadataForCreateApiKeyInput {
 	s.ParameterName = &v
+	return s
+}
+
+// SetPrefix sets the Prefix field's value.
+func (s *ApiKeyMetadataForCreateApiKeyInput) SetPrefix(v string) *ApiKeyMetadataForCreateApiKeyInput {
+	s.Prefix = &v
 	return s
 }
 

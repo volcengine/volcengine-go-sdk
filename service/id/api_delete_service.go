@@ -146,8 +146,9 @@ func (c *ID) DeleteServiceWithContext(ctx volcengine.Context, input *DeleteServi
 type DeleteServiceInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	// ServiceName is a required field
-	ServiceName *string `type:"string" json:",omitempty" required:"true"`
+	ServiceId *string `type:"string" json:",omitempty"`
+
+	ServiceName *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -160,17 +161,10 @@ func (s DeleteServiceInput) GoString() string {
 	return s.String()
 }
 
-// Validate inspects the fields of the type to determine if they are valid.
-func (s *DeleteServiceInput) Validate() error {
-	invalidParams := request.ErrInvalidParams{Context: "DeleteServiceInput"}
-	if s.ServiceName == nil {
-		invalidParams.Add(request.NewErrParamRequired("ServiceName"))
-	}
-
-	if invalidParams.Len() > 0 {
-		return invalidParams
-	}
-	return nil
+// SetServiceId sets the ServiceId field's value.
+func (s *DeleteServiceInput) SetServiceId(v string) *DeleteServiceInput {
+	s.ServiceId = &v
+	return s
 }
 
 // SetServiceName sets the ServiceName field's value.
