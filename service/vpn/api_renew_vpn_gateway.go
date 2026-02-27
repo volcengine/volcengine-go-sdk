@@ -144,7 +144,7 @@ type RenewVpnGatewayInput struct {
 
 	Period *int64 `type:"integer"`
 
-	PeriodUnit *string `type:"string"`
+	PeriodUnit *string `type:"string" enum:"PeriodUnitForRenewVpnGatewayInput"`
 
 	// VpnGatewayId is a required field
 	VpnGatewayId *string `type:"string" required:"true"`
@@ -214,3 +214,11 @@ func (s *RenewVpnGatewayOutput) SetRequestId(v string) *RenewVpnGatewayOutput {
 	s.RequestId = &v
 	return s
 }
+
+const (
+	// PeriodUnitForRenewVpnGatewayInputMonth is a PeriodUnitForRenewVpnGatewayInput enum value
+	PeriodUnitForRenewVpnGatewayInputMonth = "Month"
+
+	// PeriodUnitForRenewVpnGatewayInputYear is a PeriodUnitForRenewVpnGatewayInput enum value
+	PeriodUnitForRenewVpnGatewayInputYear = "Year"
+)

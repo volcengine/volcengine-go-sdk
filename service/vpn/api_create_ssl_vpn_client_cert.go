@@ -150,6 +150,8 @@ type CreateSslVpnClientCertInput struct {
 
 	// SslVpnServerId is a required field
 	SslVpnServerId *string `type:"string" required:"true"`
+
+	Tags []*TagForCreateSslVpnClientCertInput `type:"list"`
 }
 
 // String returns the string representation
@@ -199,6 +201,12 @@ func (s *CreateSslVpnClientCertInput) SetSslVpnServerId(v string) *CreateSslVpnC
 	return s
 }
 
+// SetTags sets the Tags field's value.
+func (s *CreateSslVpnClientCertInput) SetTags(v []*TagForCreateSslVpnClientCertInput) *CreateSslVpnClientCertInput {
+	s.Tags = v
+	return s
+}
+
 type CreateSslVpnClientCertOutput struct {
 	_ struct{} `type:"structure"`
 
@@ -228,5 +236,35 @@ func (s *CreateSslVpnClientCertOutput) SetRequestId(v string) *CreateSslVpnClien
 // SetSslVpnClientCertId sets the SslVpnClientCertId field's value.
 func (s *CreateSslVpnClientCertOutput) SetSslVpnClientCertId(v string) *CreateSslVpnClientCertOutput {
 	s.SslVpnClientCertId = &v
+	return s
+}
+
+type TagForCreateSslVpnClientCertInput struct {
+	_ struct{} `type:"structure"`
+
+	Key *string `type:"string"`
+
+	Value *string `type:"string"`
+}
+
+// String returns the string representation
+func (s TagForCreateSslVpnClientCertInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagForCreateSslVpnClientCertInput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagForCreateSslVpnClientCertInput) SetKey(v string) *TagForCreateSslVpnClientCertInput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *TagForCreateSslVpnClientCertInput) SetValue(v string) *TagForCreateSslVpnClientCertInput {
+	s.Value = &v
 	return s
 }

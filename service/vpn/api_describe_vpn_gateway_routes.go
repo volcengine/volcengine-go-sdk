@@ -144,7 +144,7 @@ type AsPathForDescribeVpnGatewayRoutesOutput struct {
 
 	Numbers []*int64 `type:"list"`
 
-	Type *string `type:"string" enum:"TypeForDescribeVpnGatewayRoutesOutput"`
+	Type *string `type:"string"`
 }
 
 // String returns the string representation
@@ -316,7 +316,7 @@ type VpnGatewayRouteForDescribeVpnGatewayRoutesOutput struct {
 
 	NextTunnelId *string `type:"string"`
 
-	RouteType *string `type:"string" enum:"RouteTypeForDescribeVpnGatewayRoutesOutput"`
+	RouteType *string `type:"string"`
 
 	Status *string `type:"string"`
 
@@ -398,31 +398,12 @@ func (s *VpnGatewayRouteForDescribeVpnGatewayRoutesOutput) SetVpnGatewayRouteId(
 }
 
 const (
+	// RouteTypeForDescribeVpnGatewayRoutesInputStatic is a RouteTypeForDescribeVpnGatewayRoutesInput enum value
+	RouteTypeForDescribeVpnGatewayRoutesInputStatic = "Static"
+
 	// RouteTypeForDescribeVpnGatewayRoutesInputBgp is a RouteTypeForDescribeVpnGatewayRoutesInput enum value
 	RouteTypeForDescribeVpnGatewayRoutesInputBgp = "BGP"
 
-	// RouteTypeForDescribeVpnGatewayRoutesInputStatic is a RouteTypeForDescribeVpnGatewayRoutesInput enum value
-	RouteTypeForDescribeVpnGatewayRoutesInputStatic = " Static"
-
 	// RouteTypeForDescribeVpnGatewayRoutesInputCloud is a RouteTypeForDescribeVpnGatewayRoutesInput enum value
-	RouteTypeForDescribeVpnGatewayRoutesInputCloud = " Cloud"
-)
-
-const (
-	// RouteTypeForDescribeVpnGatewayRoutesOutputBgp is a RouteTypeForDescribeVpnGatewayRoutesOutput enum value
-	RouteTypeForDescribeVpnGatewayRoutesOutputBgp = "BGP"
-
-	// RouteTypeForDescribeVpnGatewayRoutesOutputStatic is a RouteTypeForDescribeVpnGatewayRoutesOutput enum value
-	RouteTypeForDescribeVpnGatewayRoutesOutputStatic = " Static"
-
-	// RouteTypeForDescribeVpnGatewayRoutesOutputCloud is a RouteTypeForDescribeVpnGatewayRoutesOutput enum value
-	RouteTypeForDescribeVpnGatewayRoutesOutputCloud = " Cloud"
-)
-
-const (
-	// TypeForDescribeVpnGatewayRoutesOutputSequence is a TypeForDescribeVpnGatewayRoutesOutput enum value
-	TypeForDescribeVpnGatewayRoutesOutputSequence = "Sequence"
-
-	// TypeForDescribeVpnGatewayRoutesOutputSet is a TypeForDescribeVpnGatewayRoutesOutput enum value
-	TypeForDescribeVpnGatewayRoutesOutputSet = " Set"
+	RouteTypeForDescribeVpnGatewayRoutesInputCloud = "Cloud"
 )

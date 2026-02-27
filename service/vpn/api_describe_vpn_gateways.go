@@ -160,6 +160,8 @@ type DescribeVpnGatewaysInput struct {
 
 	SslEnabled *bool `type:"boolean"`
 
+	Status *string `type:"string"`
+
 	SubnetId *string `type:"string"`
 
 	TagFilters []*TagFilterForDescribeVpnGatewaysInput `type:"list"`
@@ -232,6 +234,12 @@ func (s *DescribeVpnGatewaysInput) SetProjectName(v string) *DescribeVpnGateways
 // SetSslEnabled sets the SslEnabled field's value.
 func (s *DescribeVpnGatewaysInput) SetSslEnabled(v bool) *DescribeVpnGatewaysInput {
 	s.SslEnabled = &v
+	return s
+}
+
+// SetStatus sets the Status field's value.
+func (s *DescribeVpnGatewaysInput) SetStatus(v string) *DescribeVpnGatewaysInput {
+	s.Status = &v
 	return s
 }
 

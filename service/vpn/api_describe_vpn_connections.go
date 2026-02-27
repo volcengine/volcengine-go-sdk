@@ -212,9 +212,9 @@ func (s *BgpInfoForDescribeVpnConnectionsOutput) SetTunnelCidr(v string) *BgpInf
 type DescribeVpnConnectionsInput struct {
 	_ struct{} `type:"structure"`
 
-	AttachStatus *string `type:"string"`
+	AttachStatus *string `type:"string" enum:"AttachStatusForDescribeVpnConnectionsInput"`
 
-	AttachType *string `type:"string"`
+	AttachType *string `type:"string" enum:"AttachTypeForDescribeVpnConnectionsInput"`
 
 	CustomerGatewayId *string `type:"string"`
 
@@ -224,7 +224,7 @@ type DescribeVpnConnectionsInput struct {
 
 	ProjectName *string `type:"string"`
 
-	Spec *string `type:"string"`
+	Spec *string `type:"string" enum:"SpecForDescribeVpnConnectionsInput"`
 
 	Status *string `type:"string"`
 
@@ -388,7 +388,7 @@ type HealthCheckerForDescribeVpnConnectionsOutput struct {
 
 	CheckInterval *int64 `type:"integer"`
 
-	CheckResult *string `type:"string" enum:"CheckResultForDescribeVpnConnectionsOutput"`
+	CheckResult *string `type:"string"`
 
 	CheckerId *string `type:"string"`
 
@@ -766,6 +766,8 @@ type VpnConnectionForDescribeVpnConnectionsOutput struct {
 
 	DualTunnelEnabled *bool `type:"boolean"`
 
+	EnableTunnelsBgp *bool `type:"boolean"`
+
 	HealthCheckers []*HealthCheckerForDescribeVpnConnectionsOutput `type:"list"`
 
 	IkeConfig *IkeConfigForDescribeVpnConnectionsOutput `type:"structure"`
@@ -892,6 +894,12 @@ func (s *VpnConnectionForDescribeVpnConnectionsOutput) SetDpdAction(v string) *V
 // SetDualTunnelEnabled sets the DualTunnelEnabled field's value.
 func (s *VpnConnectionForDescribeVpnConnectionsOutput) SetDualTunnelEnabled(v bool) *VpnConnectionForDescribeVpnConnectionsOutput {
 	s.DualTunnelEnabled = &v
+	return s
+}
+
+// SetEnableTunnelsBgp sets the EnableTunnelsBgp field's value.
+func (s *VpnConnectionForDescribeVpnConnectionsOutput) SetEnableTunnelsBgp(v bool) *VpnConnectionForDescribeVpnConnectionsOutput {
+	s.EnableTunnelsBgp = &v
 	return s
 }
 
@@ -1034,11 +1042,25 @@ func (s *VpnConnectionForDescribeVpnConnectionsOutput) SetZoneId(v string) *VpnC
 }
 
 const (
-	// CheckResultForDescribeVpnConnectionsOutputDown is a CheckResultForDescribeVpnConnectionsOutput enum value
-	CheckResultForDescribeVpnConnectionsOutputDown = "Down"
+	// AttachStatusForDescribeVpnConnectionsInputAttached is a AttachStatusForDescribeVpnConnectionsInput enum value
+	AttachStatusForDescribeVpnConnectionsInputAttached = "Attached"
 
-	// CheckResultForDescribeVpnConnectionsOutputUp is a CheckResultForDescribeVpnConnectionsOutput enum value
-	CheckResultForDescribeVpnConnectionsOutputUp = " Up"
+	// AttachStatusForDescribeVpnConnectionsInputAttaching is a AttachStatusForDescribeVpnConnectionsInput enum value
+	AttachStatusForDescribeVpnConnectionsInputAttaching = "Attaching"
+
+	// AttachStatusForDescribeVpnConnectionsInputDetached is a AttachStatusForDescribeVpnConnectionsInput enum value
+	AttachStatusForDescribeVpnConnectionsInputDetached = "Detached"
+
+	// AttachStatusForDescribeVpnConnectionsInputDetaching is a AttachStatusForDescribeVpnConnectionsInput enum value
+	AttachStatusForDescribeVpnConnectionsInputDetaching = "Detaching"
+)
+
+const (
+	// AttachTypeForDescribeVpnConnectionsInputVpnGateway is a AttachTypeForDescribeVpnConnectionsInput enum value
+	AttachTypeForDescribeVpnConnectionsInputVpnGateway = "VpnGateway"
+
+	// AttachTypeForDescribeVpnConnectionsInputTransitRouter is a AttachTypeForDescribeVpnConnectionsInput enum value
+	AttachTypeForDescribeVpnConnectionsInputTransitRouter = "TransitRouter"
 )
 
 const (
@@ -1047,4 +1069,15 @@ const (
 
 	// SessionStatusForDescribeVpnConnectionsOutputDown is a SessionStatusForDescribeVpnConnectionsOutput enum value
 	SessionStatusForDescribeVpnConnectionsOutputDown = " Down"
+)
+
+const (
+	// SpecForDescribeVpnConnectionsInputDefault is a SpecForDescribeVpnConnectionsInput enum value
+	SpecForDescribeVpnConnectionsInputDefault = "default"
+
+	// SpecForDescribeVpnConnectionsInputLarge is a SpecForDescribeVpnConnectionsInput enum value
+	SpecForDescribeVpnConnectionsInputLarge = "large"
+
+	// SpecForDescribeVpnConnectionsInputXlarge is a SpecForDescribeVpnConnectionsInput enum value
+	SpecForDescribeVpnConnectionsInputXlarge = "xlarge"
 )
