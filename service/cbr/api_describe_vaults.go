@@ -153,6 +153,8 @@ type DescribeVaultsInput struct {
 	PageSize *int32 `type:"int32" json:",omitempty"`
 
 	ProjectName *string `type:"string" json:",omitempty"`
+
+	TagFilters []*TagFilterForDescribeVaultsInput `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -186,6 +188,12 @@ func (s *DescribeVaultsInput) SetPageSize(v int32) *DescribeVaultsInput {
 // SetProjectName sets the ProjectName field's value.
 func (s *DescribeVaultsInput) SetProjectName(v string) *DescribeVaultsInput {
 	s.ProjectName = &v
+	return s
+}
+
+// SetTagFilters sets the TagFilters field's value.
+func (s *DescribeVaultsInput) SetTagFilters(v []*TagFilterForDescribeVaultsInput) *DescribeVaultsInput {
+	s.TagFilters = v
 	return s
 }
 
@@ -248,6 +256,36 @@ func (s *FiltersForDescribeVaultsInput) SetVaultId(v string) *FiltersForDescribe
 // SetVaultName sets the VaultName field's value.
 func (s *FiltersForDescribeVaultsInput) SetVaultName(v string) *FiltersForDescribeVaultsInput {
 	s.VaultName = &v
+	return s
+}
+
+type TagFilterForDescribeVaultsInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Key *string `type:"string" json:",omitempty"`
+
+	Values []*string `type:"list" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s TagFilterForDescribeVaultsInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagFilterForDescribeVaultsInput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagFilterForDescribeVaultsInput) SetKey(v string) *TagFilterForDescribeVaultsInput {
+	s.Key = &v
+	return s
+}
+
+// SetValues sets the Values field's value.
+func (s *TagFilterForDescribeVaultsInput) SetValues(v []*string) *TagFilterForDescribeVaultsInput {
+	s.Values = v
 	return s
 }
 

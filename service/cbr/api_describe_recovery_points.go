@@ -224,9 +224,9 @@ type FiltersForDescribeRecoveryPointsInput struct {
 
 	ResourceId *string `type:"string" json:",omitempty"`
 
-	ResourceType *string `type:"string" json:",omitempty"`
+	ResourceType *string `type:"string" json:",omitempty" enum:"EnumOfResourceTypeForDescribeRecoveryPointsInput"`
 
-	Status *string `type:"string" json:",omitempty"`
+	Status *string `type:"string" json:",omitempty" enum:"EnumOfStatusForDescribeRecoveryPointsInput"`
 }
 
 // String returns the string representation
@@ -282,6 +282,8 @@ type RecoveryPointForDescribeRecoveryPointsOutput struct {
 
 	BackupCompletedTime *string `type:"string" json:",omitempty"`
 
+	BackupOptions *string `type:"string" json:",omitempty"`
+
 	CapacityInBytes *int32 `type:"int32" json:",omitempty"`
 
 	CreatedAt *string `type:"string" json:",omitempty"`
@@ -302,11 +304,11 @@ type RecoveryPointForDescribeRecoveryPointsOutput struct {
 
 	RecoveryPointId *string `type:"string" json:",omitempty"`
 
-	ResourceType *string `type:"string" json:",omitempty"`
+	ResourceType *string `type:"string" json:",omitempty" enum:"EnumOfResourceTypeForDescribeRecoveryPointsOutput"`
 
 	RetentionDay *int32 `type:"int32" json:",omitempty"`
 
-	Status *string `type:"string" json:",omitempty"`
+	Status *string `type:"string" json:",omitempty" enum:"EnumOfStatusForDescribeRecoveryPointsOutput"`
 
 	UpdatedAt *string `type:"string" json:",omitempty"`
 }
@@ -330,6 +332,12 @@ func (s *RecoveryPointForDescribeRecoveryPointsOutput) SetAccountId(v string) *R
 // SetBackupCompletedTime sets the BackupCompletedTime field's value.
 func (s *RecoveryPointForDescribeRecoveryPointsOutput) SetBackupCompletedTime(v string) *RecoveryPointForDescribeRecoveryPointsOutput {
 	s.BackupCompletedTime = &v
+	return s
+}
+
+// SetBackupOptions sets the BackupOptions field's value.
+func (s *RecoveryPointForDescribeRecoveryPointsOutput) SetBackupOptions(v string) *RecoveryPointForDescribeRecoveryPointsOutput {
+	s.BackupOptions = &v
 	return s
 }
 
@@ -416,3 +424,59 @@ func (s *RecoveryPointForDescribeRecoveryPointsOutput) SetUpdatedAt(v string) *R
 	s.UpdatedAt = &v
 	return s
 }
+
+const (
+	// EnumOfResourceTypeForDescribeRecoveryPointsInputEcs is a EnumOfResourceTypeForDescribeRecoveryPointsInput enum value
+	EnumOfResourceTypeForDescribeRecoveryPointsInputEcs = "ECS"
+
+	// EnumOfResourceTypeForDescribeRecoveryPointsInputVePfs is a EnumOfResourceTypeForDescribeRecoveryPointsInput enum value
+	EnumOfResourceTypeForDescribeRecoveryPointsInputVePfs = "vePFS"
+)
+
+const (
+	// EnumOfResourceTypeForDescribeRecoveryPointsOutputEcs is a EnumOfResourceTypeForDescribeRecoveryPointsOutput enum value
+	EnumOfResourceTypeForDescribeRecoveryPointsOutputEcs = "ECS"
+
+	// EnumOfResourceTypeForDescribeRecoveryPointsOutputVePfs is a EnumOfResourceTypeForDescribeRecoveryPointsOutput enum value
+	EnumOfResourceTypeForDescribeRecoveryPointsOutputVePfs = "vePFS"
+)
+
+const (
+	// EnumOfStatusForDescribeRecoveryPointsInputAvailable is a EnumOfStatusForDescribeRecoveryPointsInput enum value
+	EnumOfStatusForDescribeRecoveryPointsInputAvailable = "AVAILABLE"
+
+	// EnumOfStatusForDescribeRecoveryPointsInputDeleting is a EnumOfStatusForDescribeRecoveryPointsInput enum value
+	EnumOfStatusForDescribeRecoveryPointsInputDeleting = "DELETING"
+
+	// EnumOfStatusForDescribeRecoveryPointsInputBeingBackup is a EnumOfStatusForDescribeRecoveryPointsInput enum value
+	EnumOfStatusForDescribeRecoveryPointsInputBeingBackup = "BEING_BACKUP"
+
+	// EnumOfStatusForDescribeRecoveryPointsInputRecovering is a EnumOfStatusForDescribeRecoveryPointsInput enum value
+	EnumOfStatusForDescribeRecoveryPointsInputRecovering = "RECOVERING"
+
+	// EnumOfStatusForDescribeRecoveryPointsInputError is a EnumOfStatusForDescribeRecoveryPointsInput enum value
+	EnumOfStatusForDescribeRecoveryPointsInputError = "ERROR"
+
+	// EnumOfStatusForDescribeRecoveryPointsInputWaiting is a EnumOfStatusForDescribeRecoveryPointsInput enum value
+	EnumOfStatusForDescribeRecoveryPointsInputWaiting = "WAITING"
+)
+
+const (
+	// EnumOfStatusForDescribeRecoveryPointsOutputAvailable is a EnumOfStatusForDescribeRecoveryPointsOutput enum value
+	EnumOfStatusForDescribeRecoveryPointsOutputAvailable = "AVAILABLE"
+
+	// EnumOfStatusForDescribeRecoveryPointsOutputDeleting is a EnumOfStatusForDescribeRecoveryPointsOutput enum value
+	EnumOfStatusForDescribeRecoveryPointsOutputDeleting = "DELETING"
+
+	// EnumOfStatusForDescribeRecoveryPointsOutputBeingBackup is a EnumOfStatusForDescribeRecoveryPointsOutput enum value
+	EnumOfStatusForDescribeRecoveryPointsOutputBeingBackup = "BEING_BACKUP"
+
+	// EnumOfStatusForDescribeRecoveryPointsOutputRecovering is a EnumOfStatusForDescribeRecoveryPointsOutput enum value
+	EnumOfStatusForDescribeRecoveryPointsOutputRecovering = "RECOVERING"
+
+	// EnumOfStatusForDescribeRecoveryPointsOutputError is a EnumOfStatusForDescribeRecoveryPointsOutput enum value
+	EnumOfStatusForDescribeRecoveryPointsOutputError = "ERROR"
+
+	// EnumOfStatusForDescribeRecoveryPointsOutputWaiting is a EnumOfStatusForDescribeRecoveryPointsOutput enum value
+	EnumOfStatusForDescribeRecoveryPointsOutputWaiting = "WAITING"
+)

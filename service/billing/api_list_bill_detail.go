@@ -472,6 +472,8 @@ type ListForListBillDetailOutput struct {
 
 	ReservationInstance *string `type:"string" json:",omitempty"`
 
+	ResourceID *string `type:"string" json:",omitempty"`
+
 	RoundAmount *float64 `type:"double" json:",omitempty"`
 
 	SavingPlanDeductionDiscountAmount *string `type:"string" json:",omitempty"`
@@ -938,6 +940,12 @@ func (s *ListForListBillDetailOutput) SetRegionCode(v string) *ListForListBillDe
 // SetReservationInstance sets the ReservationInstance field's value.
 func (s *ListForListBillDetailOutput) SetReservationInstance(v string) *ListForListBillDetailOutput {
 	s.ReservationInstance = &v
+	return s
+}
+
+// SetResourceID sets the ResourceID field's value.
+func (s *ListForListBillDetailOutput) SetResourceID(v string) *ListForListBillDetailOutput {
+	s.ResourceID = &v
 	return s
 }
 

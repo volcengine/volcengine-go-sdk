@@ -212,6 +212,8 @@ type ClusterConfigForListClustersOutput struct {
 
 	ApiServerPublicAccessEnabled *bool `type:"boolean" json:",omitempty"`
 
+	IpFamily *string `type:"string" json:",omitempty" enum:"EnumOfIpFamilyForListClustersOutput"`
+
 	ResourcePublicAccessDefaultEnabled *bool `type:"boolean" json:",omitempty"`
 
 	SecurityGroupIds []*string `type:"list" json:",omitempty"`
@@ -249,6 +251,12 @@ func (s *ClusterConfigForListClustersOutput) SetApiServerPublicAccessEnabled(v b
 	return s
 }
 
+// SetIpFamily sets the IpFamily field's value.
+func (s *ClusterConfigForListClustersOutput) SetIpFamily(v string) *ClusterConfigForListClustersOutput {
+	s.IpFamily = &v
+	return s
+}
+
 // SetResourcePublicAccessDefaultEnabled sets the ResourcePublicAccessDefaultEnabled field's value.
 func (s *ClusterConfigForListClustersOutput) SetResourcePublicAccessDefaultEnabled(v bool) *ClusterConfigForListClustersOutput {
 	s.ResourcePublicAccessDefaultEnabled = &v
@@ -278,7 +286,7 @@ type ComponentConfigForListClustersOutput struct {
 
 	Enabled *bool `type:"boolean" json:",omitempty"`
 
-	Name *string `type:"string" json:",omitempty"`
+	Name *string `type:"string" json:",omitempty" enum:"EnumOfNameForListClustersOutput"`
 }
 
 // String returns the string representation
@@ -306,7 +314,7 @@ func (s *ComponentConfigForListClustersOutput) SetName(v string) *ComponentConfi
 type ConditionForListClustersOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	Type *string `type:"string" json:",omitempty"`
+	Type *string `type:"string" json:",omitempty" enum:"ConvertEnumOfTypeForListClustersOutput"`
 }
 
 // String returns the string representation
@@ -447,6 +455,8 @@ type FlannelConfigForListClustersOutput struct {
 	MaxPodsPerNode *int32 `type:"int32" json:",omitempty"`
 
 	PodCidrs []*string `type:"list" json:",omitempty"`
+
+	SubnetIds []*string `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -471,6 +481,74 @@ func (s *FlannelConfigForListClustersOutput) SetPodCidrs(v []*string) *FlannelCo
 	return s
 }
 
+// SetSubnetIds sets the SubnetIds field's value.
+func (s *FlannelConfigForListClustersOutput) SetSubnetIds(v []*string) *FlannelConfigForListClustersOutput {
+	s.SubnetIds = v
+	return s
+}
+
+type IrsaConfigForListClustersOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Audience *string `type:"string" json:",omitempty"`
+
+	Enabled *bool `type:"boolean" json:",omitempty"`
+
+	Issuer *string `type:"string" json:",omitempty"`
+
+	JwksUrl *string `type:"string" json:",omitempty"`
+
+	OidcTrn *string `type:"string" json:",omitempty"`
+
+	OpenIdConfigUrl *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s IrsaConfigForListClustersOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s IrsaConfigForListClustersOutput) GoString() string {
+	return s.String()
+}
+
+// SetAudience sets the Audience field's value.
+func (s *IrsaConfigForListClustersOutput) SetAudience(v string) *IrsaConfigForListClustersOutput {
+	s.Audience = &v
+	return s
+}
+
+// SetEnabled sets the Enabled field's value.
+func (s *IrsaConfigForListClustersOutput) SetEnabled(v bool) *IrsaConfigForListClustersOutput {
+	s.Enabled = &v
+	return s
+}
+
+// SetIssuer sets the Issuer field's value.
+func (s *IrsaConfigForListClustersOutput) SetIssuer(v string) *IrsaConfigForListClustersOutput {
+	s.Issuer = &v
+	return s
+}
+
+// SetJwksUrl sets the JwksUrl field's value.
+func (s *IrsaConfigForListClustersOutput) SetJwksUrl(v string) *IrsaConfigForListClustersOutput {
+	s.JwksUrl = &v
+	return s
+}
+
+// SetOidcTrn sets the OidcTrn field's value.
+func (s *IrsaConfigForListClustersOutput) SetOidcTrn(v string) *IrsaConfigForListClustersOutput {
+	s.OidcTrn = &v
+	return s
+}
+
+// SetOpenIdConfigUrl sets the OpenIdConfigUrl field's value.
+func (s *IrsaConfigForListClustersOutput) SetOpenIdConfigUrl(v string) *IrsaConfigForListClustersOutput {
+	s.OpenIdConfigUrl = &v
+	return s
+}
+
 type ItemForListClustersOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -487,6 +565,8 @@ type ItemForListClustersOutput struct {
 	Description *string `type:"string" json:",omitempty"`
 
 	Id *string `type:"string" json:",omitempty"`
+
+	IrsaConfig *IrsaConfigForListClustersOutput `type:"structure" json:",omitempty"`
 
 	KubernetesVersion *string `type:"string" json:",omitempty"`
 
@@ -512,7 +592,7 @@ type ItemForListClustersOutput struct {
 
 	Tags []*TagForListClustersOutput `type:"list" json:",omitempty"`
 
-	Type *string `type:"string" json:",omitempty" enum:"ConvertEnumOfTypeForListClustersOutput"`
+	Type *string `type:"string" json:",omitempty" enum:"ConvertConvertConvertEnumOfTypeForListClustersOutput"`
 
 	UpdateClientToken *string `type:"string" json:",omitempty"`
 
@@ -568,6 +648,12 @@ func (s *ItemForListClustersOutput) SetDescription(v string) *ItemForListCluster
 // SetId sets the Id field's value.
 func (s *ItemForListClustersOutput) SetId(v string) *ItemForListClustersOutput {
 	s.Id = &v
+	return s
+}
+
+// SetIrsaConfig sets the IrsaConfig field's value.
+func (s *ItemForListClustersOutput) SetIrsaConfig(v *IrsaConfigForListClustersOutput) *ItemForListClustersOutput {
+	s.IrsaConfig = v
 	return s
 }
 
@@ -844,6 +930,8 @@ type MonitoringConfigForListClustersOutput struct {
 
 	ComponentConfigs []*ComponentConfigForListClustersOutput `type:"list" json:",omitempty"`
 
+	EnableMetricsExternalCollection *bool `type:"boolean" json:",omitempty"`
+
 	WorkspaceId *string `type:"string" json:",omitempty"`
 }
 
@@ -860,6 +948,12 @@ func (s MonitoringConfigForListClustersOutput) GoString() string {
 // SetComponentConfigs sets the ComponentConfigs field's value.
 func (s *MonitoringConfigForListClustersOutput) SetComponentConfigs(v []*ComponentConfigForListClustersOutput) *MonitoringConfigForListClustersOutput {
 	s.ComponentConfigs = v
+	return s
+}
+
+// SetEnableMetricsExternalCollection sets the EnableMetricsExternalCollection field's value.
+func (s *MonitoringConfigForListClustersOutput) SetEnableMetricsExternalCollection(v bool) *MonitoringConfigForListClustersOutput {
+	s.EnableMetricsExternalCollection = &v
 	return s
 }
 
@@ -936,7 +1030,7 @@ type PodsConfigForListClustersOutput struct {
 
 	FlannelConfig *FlannelConfigForListClustersOutput `type:"structure" json:",omitempty"`
 
-	PodNetworkMode *string `type:"string" json:",omitempty"`
+	PodNetworkMode *string `type:"string" json:",omitempty" enum:"EnumOfPodNetworkModeForListClustersOutput"`
 
 	VpcCniConfig *VpcCniConfigForListClustersOutput `type:"structure" json:",omitempty"`
 }
@@ -1068,7 +1162,7 @@ type PublicAccessNetworkConfigForListClustersOutput struct {
 
 	BillingType *int32 `type:"int32" json:",omitempty"`
 
-	Isp *string `type:"string" json:",omitempty"`
+	Isp *string `type:"string" json:",omitempty" enum:"EnumOfIspForListClustersOutput"`
 }
 
 // String returns the string representation
@@ -1216,7 +1310,7 @@ type StatusForListClustersOutput struct {
 
 	Conditions []*ConditionForListClustersOutput `type:"list" json:",omitempty"`
 
-	Phase *string `type:"string" json:",omitempty"`
+	Phase *string `type:"string" json:",omitempty" enum:"EnumOfPhaseForListClustersOutput"`
 }
 
 // String returns the string representation
@@ -1276,7 +1370,7 @@ type TagForListClustersOutput struct {
 
 	Key *string `type:"string" json:",omitempty"`
 
-	Type *string `type:"string" json:",omitempty"`
+	Type *string `type:"string" json:",omitempty" enum:"ConvertConvertEnumOfTypeForListClustersOutput"`
 
 	Value *string `type:"string" json:",omitempty"`
 }
@@ -1340,17 +1434,87 @@ func (s *VpcCniConfigForListClustersOutput) SetTrunkEniEnabled(v bool) *VpcCniCo
 }
 
 const (
-	// ConvertEnumOfTypeForListClustersOutputManaged is a ConvertEnumOfTypeForListClustersOutput enum value
-	ConvertEnumOfTypeForListClustersOutputManaged = "Managed"
+	// ConvertConvertConvertEnumOfTypeForListClustersOutputManaged is a ConvertConvertConvertEnumOfTypeForListClustersOutput enum value
+	ConvertConvertConvertEnumOfTypeForListClustersOutputManaged = "Managed"
 
-	// ConvertEnumOfTypeForListClustersOutputStandard is a ConvertEnumOfTypeForListClustersOutput enum value
-	ConvertEnumOfTypeForListClustersOutputStandard = "Standard"
+	// ConvertConvertConvertEnumOfTypeForListClustersOutputStandard is a ConvertConvertConvertEnumOfTypeForListClustersOutput enum value
+	ConvertConvertConvertEnumOfTypeForListClustersOutputStandard = "Standard"
 
-	// ConvertEnumOfTypeForListClustersOutputRegistered is a ConvertEnumOfTypeForListClustersOutput enum value
-	ConvertEnumOfTypeForListClustersOutputRegistered = "Registered"
+	// ConvertConvertConvertEnumOfTypeForListClustersOutputRegistered is a ConvertConvertConvertEnumOfTypeForListClustersOutput enum value
+	ConvertConvertConvertEnumOfTypeForListClustersOutputRegistered = "Registered"
 
-	// ConvertEnumOfTypeForListClustersOutputOnPremise is a ConvertEnumOfTypeForListClustersOutput enum value
-	ConvertEnumOfTypeForListClustersOutputOnPremise = "OnPremise"
+	// ConvertConvertConvertEnumOfTypeForListClustersOutputOnPremise is a ConvertConvertConvertEnumOfTypeForListClustersOutput enum value
+	ConvertConvertConvertEnumOfTypeForListClustersOutputOnPremise = "OnPremise"
+)
+
+const (
+	// ConvertConvertEnumOfTypeForListClustersOutputSystem is a ConvertConvertEnumOfTypeForListClustersOutput enum value
+	ConvertConvertEnumOfTypeForListClustersOutputSystem = "System"
+
+	// ConvertConvertEnumOfTypeForListClustersOutputCustom is a ConvertConvertEnumOfTypeForListClustersOutput enum value
+	ConvertConvertEnumOfTypeForListClustersOutputCustom = "Custom"
+)
+
+const (
+	// ConvertEnumOfTypeForListClustersOutputOk is a ConvertEnumOfTypeForListClustersOutput enum value
+	ConvertEnumOfTypeForListClustersOutputOk = "Ok"
+
+	// ConvertEnumOfTypeForListClustersOutputCreateError is a ConvertEnumOfTypeForListClustersOutput enum value
+	ConvertEnumOfTypeForListClustersOutputCreateError = "CreateError"
+
+	// ConvertEnumOfTypeForListClustersOutputProgressing is a ConvertEnumOfTypeForListClustersOutput enum value
+	ConvertEnumOfTypeForListClustersOutputProgressing = "Progressing"
+
+	// ConvertEnumOfTypeForListClustersOutputClusterVersionUpgrading is a ConvertEnumOfTypeForListClustersOutput enum value
+	ConvertEnumOfTypeForListClustersOutputClusterVersionUpgrading = "ClusterVersionUpgrading"
+
+	// ConvertEnumOfTypeForListClustersOutputDisconnected is a ConvertEnumOfTypeForListClustersOutput enum value
+	ConvertEnumOfTypeForListClustersOutputDisconnected = "Disconnected"
+
+	// ConvertEnumOfTypeForListClustersOutputInvalidCertificate is a ConvertEnumOfTypeForListClustersOutput enum value
+	ConvertEnumOfTypeForListClustersOutputInvalidCertificate = "InvalidCertificate"
+
+	// ConvertEnumOfTypeForListClustersOutputSetByProvider is a ConvertEnumOfTypeForListClustersOutput enum value
+	ConvertEnumOfTypeForListClustersOutputSetByProvider = "SetByProvider"
+
+	// ConvertEnumOfTypeForListClustersOutputStockOut is a ConvertEnumOfTypeForListClustersOutput enum value
+	ConvertEnumOfTypeForListClustersOutputStockOut = "StockOut"
+
+	// ConvertEnumOfTypeForListClustersOutputLimitedByQuota is a ConvertEnumOfTypeForListClustersOutput enum value
+	ConvertEnumOfTypeForListClustersOutputLimitedByQuota = "LimitedByQuota"
+
+	// ConvertEnumOfTypeForListClustersOutputSetByUser is a ConvertEnumOfTypeForListClustersOutput enum value
+	ConvertEnumOfTypeForListClustersOutputSetByUser = "SetByUser"
+
+	// ConvertEnumOfTypeForListClustersOutputSecurity is a ConvertEnumOfTypeForListClustersOutput enum value
+	ConvertEnumOfTypeForListClustersOutputSecurity = "Security"
+
+	// ConvertEnumOfTypeForListClustersOutputBalance is a ConvertEnumOfTypeForListClustersOutput enum value
+	ConvertEnumOfTypeForListClustersOutputBalance = "Balance"
+
+	// ConvertEnumOfTypeForListClustersOutputDegraded is a ConvertEnumOfTypeForListClustersOutput enum value
+	ConvertEnumOfTypeForListClustersOutputDegraded = "Degraded"
+
+	// ConvertEnumOfTypeForListClustersOutputWaiting is a ConvertEnumOfTypeForListClustersOutput enum value
+	ConvertEnumOfTypeForListClustersOutputWaiting = "Waiting"
+
+	// ConvertEnumOfTypeForListClustersOutputResourceCleanupFailed is a ConvertEnumOfTypeForListClustersOutput enum value
+	ConvertEnumOfTypeForListClustersOutputResourceCleanupFailed = "ResourceCleanupFailed"
+
+	// ConvertEnumOfTypeForListClustersOutputUnknown is a ConvertEnumOfTypeForListClustersOutput enum value
+	ConvertEnumOfTypeForListClustersOutputUnknown = "Unknown"
+
+	// ConvertEnumOfTypeForListClustersOutputUpdatingCluster is a ConvertEnumOfTypeForListClustersOutput enum value
+	ConvertEnumOfTypeForListClustersOutputUpdatingCluster = "UpdatingCluster"
+
+	// ConvertEnumOfTypeForListClustersOutputSyncingAddon is a ConvertEnumOfTypeForListClustersOutput enum value
+	ConvertEnumOfTypeForListClustersOutputSyncingAddon = "SyncingAddon"
+
+	// ConvertEnumOfTypeForListClustersOutputSyncingNode is a ConvertEnumOfTypeForListClustersOutput enum value
+	ConvertEnumOfTypeForListClustersOutputSyncingNode = "SyncingNode"
+
+	// ConvertEnumOfTypeForListClustersOutputSyncingNodePool is a ConvertEnumOfTypeForListClustersOutput enum value
+	ConvertEnumOfTypeForListClustersOutputSyncingNodePool = "SyncingNodePool"
 )
 
 const (
@@ -1401,6 +1565,93 @@ const (
 
 	// EnumOfConditionsTypeForListClustersInputUnknown is a EnumOfConditionsTypeForListClustersInput enum value
 	EnumOfConditionsTypeForListClustersInputUnknown = "Unknown"
+
+	// EnumOfConditionsTypeForListClustersInputUpdatingCluster is a EnumOfConditionsTypeForListClustersInput enum value
+	EnumOfConditionsTypeForListClustersInputUpdatingCluster = "UpdatingCluster"
+
+	// EnumOfConditionsTypeForListClustersInputSyncingAddon is a EnumOfConditionsTypeForListClustersInput enum value
+	EnumOfConditionsTypeForListClustersInputSyncingAddon = "SyncingAddon"
+
+	// EnumOfConditionsTypeForListClustersInputSyncingNode is a EnumOfConditionsTypeForListClustersInput enum value
+	EnumOfConditionsTypeForListClustersInputSyncingNode = "SyncingNode"
+
+	// EnumOfConditionsTypeForListClustersInputSyncingNodePool is a EnumOfConditionsTypeForListClustersInput enum value
+	EnumOfConditionsTypeForListClustersInputSyncingNodePool = "SyncingNodePool"
+)
+
+const (
+	// EnumOfIpFamilyForListClustersOutputIpv4 is a EnumOfIpFamilyForListClustersOutput enum value
+	EnumOfIpFamilyForListClustersOutputIpv4 = "Ipv4"
+
+	// EnumOfIpFamilyForListClustersOutputIpv6 is a EnumOfIpFamilyForListClustersOutput enum value
+	EnumOfIpFamilyForListClustersOutputIpv6 = "Ipv6"
+
+	// EnumOfIpFamilyForListClustersOutputDualStack is a EnumOfIpFamilyForListClustersOutput enum value
+	EnumOfIpFamilyForListClustersOutputDualStack = "DualStack"
+)
+
+const (
+	// EnumOfIspForListClustersOutputBgp is a EnumOfIspForListClustersOutput enum value
+	EnumOfIspForListClustersOutputBgp = "BGP"
+
+	// EnumOfIspForListClustersOutputChinaMobile is a EnumOfIspForListClustersOutput enum value
+	EnumOfIspForListClustersOutputChinaMobile = "ChinaMobile"
+
+	// EnumOfIspForListClustersOutputChinaUnicom is a EnumOfIspForListClustersOutput enum value
+	EnumOfIspForListClustersOutputChinaUnicom = "ChinaUnicom"
+
+	// EnumOfIspForListClustersOutputChinaTelecom is a EnumOfIspForListClustersOutput enum value
+	EnumOfIspForListClustersOutputChinaTelecom = "ChinaTelecom"
+
+	// EnumOfIspForListClustersOutputSingleLineBgp is a EnumOfIspForListClustersOutput enum value
+	EnumOfIspForListClustersOutputSingleLineBgp = "SingleLine_BGP"
+
+	// EnumOfIspForListClustersOutputFusionBgp is a EnumOfIspForListClustersOutput enum value
+	EnumOfIspForListClustersOutputFusionBgp = "Fusion_BGP"
+
+	// EnumOfIspForListClustersOutputStaticBgp is a EnumOfIspForListClustersOutput enum value
+	EnumOfIspForListClustersOutputStaticBgp = "Static_BGP"
+
+	// EnumOfIspForListClustersOutputChinaMobileValue is a EnumOfIspForListClustersOutput enum value
+	EnumOfIspForListClustersOutputChinaMobileValue = "ChinaMobile_Value"
+
+	// EnumOfIspForListClustersOutputChinaUnicomValue is a EnumOfIspForListClustersOutput enum value
+	EnumOfIspForListClustersOutputChinaUnicomValue = "ChinaUnicom_Value"
+
+	// EnumOfIspForListClustersOutputChinaTelecomValue is a EnumOfIspForListClustersOutput enum value
+	EnumOfIspForListClustersOutputChinaTelecomValue = "ChinaTelecom_Value"
+)
+
+const (
+	// EnumOfNameForListClustersOutputKubelet is a EnumOfNameForListClustersOutput enum value
+	EnumOfNameForListClustersOutputKubelet = "Kubelet"
+
+	// EnumOfNameForListClustersOutputKubeApiServer is a EnumOfNameForListClustersOutput enum value
+	EnumOfNameForListClustersOutputKubeApiServer = "KubeApiServer"
+
+	// EnumOfNameForListClustersOutputKubeControllerManager is a EnumOfNameForListClustersOutput enum value
+	EnumOfNameForListClustersOutputKubeControllerManager = "KubeControllerManager"
+
+	// EnumOfNameForListClustersOutputKubeScheduler is a EnumOfNameForListClustersOutput enum value
+	EnumOfNameForListClustersOutputKubeScheduler = "KubeScheduler"
+
+	// EnumOfNameForListClustersOutputEtcd is a EnumOfNameForListClustersOutput enum value
+	EnumOfNameForListClustersOutputEtcd = "Etcd"
+
+	// EnumOfNameForListClustersOutputClusterAutoscaler is a EnumOfNameForListClustersOutput enum value
+	EnumOfNameForListClustersOutputClusterAutoscaler = "ClusterAutoscaler"
+
+	// EnumOfNameForListClustersOutputKubeBrain is a EnumOfNameForListClustersOutput enum value
+	EnumOfNameForListClustersOutputKubeBrain = "KubeBrain"
+
+	// EnumOfNameForListClustersOutputGodelScheduler is a EnumOfNameForListClustersOutput enum value
+	EnumOfNameForListClustersOutputGodelScheduler = "GodelScheduler"
+
+	// EnumOfNameForListClustersOutputGodelDispatcher is a EnumOfNameForListClustersOutput enum value
+	EnumOfNameForListClustersOutputGodelDispatcher = "GodelDispatcher"
+
+	// EnumOfNameForListClustersOutputGodelBinder is a EnumOfNameForListClustersOutput enum value
+	EnumOfNameForListClustersOutputGodelBinder = "GodelBinder"
 )
 
 const (
@@ -1427,14 +1678,99 @@ const (
 )
 
 const (
+	// EnumOfPhaseForListClustersOutputRunning is a EnumOfPhaseForListClustersOutput enum value
+	EnumOfPhaseForListClustersOutputRunning = "Running"
+
+	// EnumOfPhaseForListClustersOutputStarting is a EnumOfPhaseForListClustersOutput enum value
+	EnumOfPhaseForListClustersOutputStarting = "Starting"
+
+	// EnumOfPhaseForListClustersOutputStopped is a EnumOfPhaseForListClustersOutput enum value
+	EnumOfPhaseForListClustersOutputStopped = "Stopped"
+
+	// EnumOfPhaseForListClustersOutputFailed is a EnumOfPhaseForListClustersOutput enum value
+	EnumOfPhaseForListClustersOutputFailed = "Failed"
+
+	// EnumOfPhaseForListClustersOutputUpdating is a EnumOfPhaseForListClustersOutput enum value
+	EnumOfPhaseForListClustersOutputUpdating = "Updating"
+
+	// EnumOfPhaseForListClustersOutputCreating is a EnumOfPhaseForListClustersOutput enum value
+	EnumOfPhaseForListClustersOutputCreating = "Creating"
+
+	// EnumOfPhaseForListClustersOutputDeleting is a EnumOfPhaseForListClustersOutput enum value
+	EnumOfPhaseForListClustersOutputDeleting = "Deleting"
+)
+
+const (
+	// EnumOfPodNetworkModeForListClustersOutputFlannel is a EnumOfPodNetworkModeForListClustersOutput enum value
+	EnumOfPodNetworkModeForListClustersOutputFlannel = "Flannel"
+
+	// EnumOfPodNetworkModeForListClustersOutputVpcCniShared is a EnumOfPodNetworkModeForListClustersOutput enum value
+	EnumOfPodNetworkModeForListClustersOutputVpcCniShared = "VpcCniShared"
+
+	// EnumOfPodNetworkModeForListClustersOutputVpcCniDedicated is a EnumOfPodNetworkModeForListClustersOutput enum value
+	EnumOfPodNetworkModeForListClustersOutputVpcCniDedicated = "VpcCniDedicated"
+
+	// EnumOfPodNetworkModeForListClustersOutputVpcCniHybrid is a EnumOfPodNetworkModeForListClustersOutput enum value
+	EnumOfPodNetworkModeForListClustersOutputVpcCniHybrid = "VpcCniHybrid"
+
+	// EnumOfPodNetworkModeForListClustersOutputCarma is a EnumOfPodNetworkModeForListClustersOutput enum value
+	EnumOfPodNetworkModeForListClustersOutputCarma = "Carma"
+
+	// EnumOfPodNetworkModeForListClustersOutputDefault is a EnumOfPodNetworkModeForListClustersOutput enum value
+	EnumOfPodNetworkModeForListClustersOutputDefault = "Default"
+
+	// EnumOfPodNetworkModeForListClustersOutputCalicoVxlan is a EnumOfPodNetworkModeForListClustersOutput enum value
+	EnumOfPodNetworkModeForListClustersOutputCalicoVxlan = "CalicoVxlan"
+
+	// EnumOfPodNetworkModeForListClustersOutputCalicoBgp is a EnumOfPodNetworkModeForListClustersOutput enum value
+	EnumOfPodNetworkModeForListClustersOutputCalicoBgp = "CalicoBgp"
+
+	// EnumOfPodNetworkModeForListClustersOutputCilium is a EnumOfPodNetworkModeForListClustersOutput enum value
+	EnumOfPodNetworkModeForListClustersOutputCilium = "Cilium"
+
+	// EnumOfPodNetworkModeForListClustersOutputKubeOvn is a EnumOfPodNetworkModeForListClustersOutput enum value
+	EnumOfPodNetworkModeForListClustersOutputKubeOvn = "KubeOvn"
+)
+
+const (
 	// EnumOfPodsConfigPodNetworkModeForListClustersInputFlannel is a EnumOfPodsConfigPodNetworkModeForListClustersInput enum value
 	EnumOfPodsConfigPodNetworkModeForListClustersInputFlannel = "Flannel"
 
 	// EnumOfPodsConfigPodNetworkModeForListClustersInputVpcCniShared is a EnumOfPodsConfigPodNetworkModeForListClustersInput enum value
 	EnumOfPodsConfigPodNetworkModeForListClustersInputVpcCniShared = "VpcCniShared"
+
+	// EnumOfPodsConfigPodNetworkModeForListClustersInputVpcCniDedicated is a EnumOfPodsConfigPodNetworkModeForListClustersInput enum value
+	EnumOfPodsConfigPodNetworkModeForListClustersInputVpcCniDedicated = "VpcCniDedicated"
+
+	// EnumOfPodsConfigPodNetworkModeForListClustersInputVpcCniHybrid is a EnumOfPodsConfigPodNetworkModeForListClustersInput enum value
+	EnumOfPodsConfigPodNetworkModeForListClustersInputVpcCniHybrid = "VpcCniHybrid"
+
+	// EnumOfPodsConfigPodNetworkModeForListClustersInputCarma is a EnumOfPodsConfigPodNetworkModeForListClustersInput enum value
+	EnumOfPodsConfigPodNetworkModeForListClustersInputCarma = "Carma"
+
+	// EnumOfPodsConfigPodNetworkModeForListClustersInputDefault is a EnumOfPodsConfigPodNetworkModeForListClustersInput enum value
+	EnumOfPodsConfigPodNetworkModeForListClustersInputDefault = "Default"
+
+	// EnumOfPodsConfigPodNetworkModeForListClustersInputCalicoVxlan is a EnumOfPodsConfigPodNetworkModeForListClustersInput enum value
+	EnumOfPodsConfigPodNetworkModeForListClustersInputCalicoVxlan = "CalicoVxlan"
+
+	// EnumOfPodsConfigPodNetworkModeForListClustersInputCalicoBgp is a EnumOfPodsConfigPodNetworkModeForListClustersInput enum value
+	EnumOfPodsConfigPodNetworkModeForListClustersInputCalicoBgp = "CalicoBgp"
+
+	// EnumOfPodsConfigPodNetworkModeForListClustersInputCilium is a EnumOfPodsConfigPodNetworkModeForListClustersInput enum value
+	EnumOfPodsConfigPodNetworkModeForListClustersInputCilium = "Cilium"
+
+	// EnumOfPodsConfigPodNetworkModeForListClustersInputKubeOvn is a EnumOfPodsConfigPodNetworkModeForListClustersInput enum value
+	EnumOfPodsConfigPodNetworkModeForListClustersInputKubeOvn = "KubeOvn"
 )
 
 const (
+	// EnumOfProviderForListClustersOutputVeStack is a EnumOfProviderForListClustersOutput enum value
+	EnumOfProviderForListClustersOutputVeStack = "VeStack"
+
+	// EnumOfProviderForListClustersOutputVke is a EnumOfProviderForListClustersOutput enum value
+	EnumOfProviderForListClustersOutputVke = "Vke"
+
 	// EnumOfProviderForListClustersOutputAck is a EnumOfProviderForListClustersOutput enum value
 	EnumOfProviderForListClustersOutputAck = "Ack"
 
@@ -1444,22 +1780,25 @@ const (
 	// EnumOfProviderForListClustersOutputCce is a EnumOfProviderForListClustersOutput enum value
 	EnumOfProviderForListClustersOutputCce = "Cce"
 
+	// EnumOfProviderForListClustersOutputNone is a EnumOfProviderForListClustersOutput enum value
+	EnumOfProviderForListClustersOutputNone = "None"
+
+	// EnumOfProviderForListClustersOutputBaiduCce is a EnumOfProviderForListClustersOutput enum value
+	EnumOfProviderForListClustersOutputBaiduCce = "BaiduCce"
+
 	// EnumOfProviderForListClustersOutputGke is a EnumOfProviderForListClustersOutput enum value
 	EnumOfProviderForListClustersOutputGke = "Gke"
 
 	// EnumOfProviderForListClustersOutputEks is a EnumOfProviderForListClustersOutput enum value
 	EnumOfProviderForListClustersOutputEks = "Eks"
-
-	// EnumOfProviderForListClustersOutputBaiduCce is a EnumOfProviderForListClustersOutput enum value
-	EnumOfProviderForListClustersOutputBaiduCce = "BaiduCce"
-
-	// EnumOfProviderForListClustersOutputNone is a EnumOfProviderForListClustersOutput enum value
-	EnumOfProviderForListClustersOutputNone = "None"
 )
 
 const (
 	// EnumOfTypeForListClustersOutputDirect is a EnumOfTypeForListClustersOutput enum value
 	EnumOfTypeForListClustersOutputDirect = "Direct"
+
+	// EnumOfTypeForListClustersOutputProxy is a EnumOfTypeForListClustersOutput enum value
+	EnumOfTypeForListClustersOutputProxy = "Proxy"
 
 	// EnumOfTypeForListClustersOutputAgent is a EnumOfTypeForListClustersOutput enum value
 	EnumOfTypeForListClustersOutputAgent = "Agent"

@@ -1302,6 +1302,12 @@ func (e *Event) UnmarshalJSON(bytes []byte) error {
 			return err
 		}
 		e.Event = &oneof
+	case EventType_error:
+		oneof := Event_Error{}
+		if err := unmarshal(bytes, &oneof.Error); err != nil {
+			return err
+		}
+		e.Event = &oneof
 	default:
 		return &json.InvalidUnmarshalError{Type: reflect.TypeOf(e)}
 	}

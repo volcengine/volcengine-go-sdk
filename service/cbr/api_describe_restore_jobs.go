@@ -218,7 +218,7 @@ type FiltersForDescribeRestoreJobsInput struct {
 
 	RecoveryPointId *string `type:"string" json:",omitempty"`
 
-	ResourceType *string `type:"string" json:",omitempty"`
+	ResourceType *string `type:"string" json:",omitempty" enum:"EnumOfResourceTypeForDescribeRestoreJobsInput"`
 
 	RestoreJobId *string `type:"string" json:",omitempty"`
 
@@ -272,7 +272,9 @@ type JobForDescribeRestoreJobsOutput struct {
 
 	RecoveryPointName *string `type:"string" json:",omitempty"`
 
-	ResourceType *string `type:"string" json:",omitempty"`
+	ResourceType *string `type:"string" json:",omitempty" enum:"EnumOfResourceTypeForDescribeRestoreJobsOutput"`
+
+	RestoreOptions *string `type:"string" json:",omitempty"`
 
 	Status *string `type:"string" json:",omitempty" enum:"EnumOfStatusForDescribeRestoreJobsOutput"`
 }
@@ -323,11 +325,33 @@ func (s *JobForDescribeRestoreJobsOutput) SetResourceType(v string) *JobForDescr
 	return s
 }
 
+// SetRestoreOptions sets the RestoreOptions field's value.
+func (s *JobForDescribeRestoreJobsOutput) SetRestoreOptions(v string) *JobForDescribeRestoreJobsOutput {
+	s.RestoreOptions = &v
+	return s
+}
+
 // SetStatus sets the Status field's value.
 func (s *JobForDescribeRestoreJobsOutput) SetStatus(v string) *JobForDescribeRestoreJobsOutput {
 	s.Status = &v
 	return s
 }
+
+const (
+	// EnumOfResourceTypeForDescribeRestoreJobsInputEcs is a EnumOfResourceTypeForDescribeRestoreJobsInput enum value
+	EnumOfResourceTypeForDescribeRestoreJobsInputEcs = "ECS"
+
+	// EnumOfResourceTypeForDescribeRestoreJobsInputVePfs is a EnumOfResourceTypeForDescribeRestoreJobsInput enum value
+	EnumOfResourceTypeForDescribeRestoreJobsInputVePfs = "vePFS"
+)
+
+const (
+	// EnumOfResourceTypeForDescribeRestoreJobsOutputEcs is a EnumOfResourceTypeForDescribeRestoreJobsOutput enum value
+	EnumOfResourceTypeForDescribeRestoreJobsOutputEcs = "ECS"
+
+	// EnumOfResourceTypeForDescribeRestoreJobsOutputVePfs is a EnumOfResourceTypeForDescribeRestoreJobsOutput enum value
+	EnumOfResourceTypeForDescribeRestoreJobsOutputVePfs = "vePFS"
+)
 
 const (
 	// EnumOfStatusForDescribeRestoreJobsOutputCompleted is a EnumOfStatusForDescribeRestoreJobsOutput enum value

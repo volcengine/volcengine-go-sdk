@@ -356,6 +356,8 @@ type AudioStreamMetaForGetExecutionOutput struct {
 
 	Bitrate *int32 `type:"int32"`
 
+	Channels *int32 `type:"int32"`
+
 	Codec *string `type:"string"`
 
 	Duration *float64 `type:"float"`
@@ -378,6 +380,12 @@ func (s AudioStreamMetaForGetExecutionOutput) GoString() string {
 // SetBitrate sets the Bitrate field's value.
 func (s *AudioStreamMetaForGetExecutionOutput) SetBitrate(v int32) *AudioStreamMetaForGetExecutionOutput {
 	s.Bitrate = &v
+	return s
+}
+
+// SetChannels sets the Channels field's value.
+func (s *AudioStreamMetaForGetExecutionOutput) SetChannels(v int32) *AudioStreamMetaForGetExecutionOutput {
+	s.Channels = &v
 	return s
 }
 
@@ -713,6 +721,8 @@ type ControlForGetExecutionOutput struct {
 	EnableLowPriority *bool `type:"boolean"`
 
 	Priority *int32 `type:"int32"`
+
+	TaskListId *string `type:"string"`
 }
 
 // String returns the string representation
@@ -746,6 +756,12 @@ func (s *ControlForGetExecutionOutput) SetEnableLowPriority(v bool) *ControlForG
 // SetPriority sets the Priority field's value.
 func (s *ControlForGetExecutionOutput) SetPriority(v int32) *ControlForGetExecutionOutput {
 	s.Priority = &v
+	return s
+}
+
+// SetTaskListId sets the TaskListId field's value.
+func (s *ControlForGetExecutionOutput) SetTaskListId(v string) *ControlForGetExecutionOutput {
+	s.TaskListId = &v
 	return s
 }
 
@@ -3072,6 +3088,8 @@ type ConvertVisionForGetExecutionOutput struct {
 
 	Duration *float64 `type:"double"`
 
+	Mode *string `type:"string"`
+
 	Model *ConvertConvertModelForGetExecutionOutput `type:"structure"`
 
 	SnapshotsNumber *int32 `type:"int32"`
@@ -3096,6 +3114,12 @@ func (s *ConvertVisionForGetExecutionOutput) SetContent(v string) *ConvertVision
 // SetDuration sets the Duration field's value.
 func (s *ConvertVisionForGetExecutionOutput) SetDuration(v float64) *ConvertVisionForGetExecutionOutput {
 	s.Duration = &v
+	return s
+}
+
+// SetMode sets the Mode field's value.
+func (s *ConvertVisionForGetExecutionOutput) SetMode(v string) *ConvertVisionForGetExecutionOutput {
+	s.Mode = &v
 	return s
 }
 
@@ -3207,6 +3231,36 @@ func (s *CutSegmentForGetExecutionOutput) SetSegments(v []*int32) *CutSegmentFor
 	return s
 }
 
+type DetailedInfoForGetExecutionOutput struct {
+	_ struct{} `type:"structure"`
+
+	Label *string `type:"string"`
+
+	PixelRectangle *PixelRectangleForGetExecutionOutput `type:"structure"`
+}
+
+// String returns the string representation
+func (s DetailedInfoForGetExecutionOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DetailedInfoForGetExecutionOutput) GoString() string {
+	return s.String()
+}
+
+// SetLabel sets the Label field's value.
+func (s *DetailedInfoForGetExecutionOutput) SetLabel(v string) *DetailedInfoForGetExecutionOutput {
+	s.Label = &v
+	return s
+}
+
+// SetPixelRectangle sets the PixelRectangle field's value.
+func (s *DetailedInfoForGetExecutionOutput) SetPixelRectangle(v *PixelRectangleForGetExecutionOutput) *DetailedInfoForGetExecutionOutput {
+	s.PixelRectangle = v
+	return s
+}
+
 type DirectUrlForGetExecutionOutput struct {
 	_ struct{} `type:"structure"`
 
@@ -3250,6 +3304,8 @@ type EditForGetExecutionOutput struct {
 
 	CustomEdit *CustomEditForGetExecutionOutput `type:"structure"`
 
+	MiniseriesEdit *MiniseriesEditForGetExecutionOutput `type:"structure"`
+
 	Mode *string `type:"string"`
 }
 
@@ -3266,6 +3322,12 @@ func (s EditForGetExecutionOutput) GoString() string {
 // SetCustomEdit sets the CustomEdit field's value.
 func (s *EditForGetExecutionOutput) SetCustomEdit(v *CustomEditForGetExecutionOutput) *EditForGetExecutionOutput {
 	s.CustomEdit = v
+	return s
+}
+
+// SetMiniseriesEdit sets the MiniseriesEdit field's value.
+func (s *EditForGetExecutionOutput) SetMiniseriesEdit(v *MiniseriesEditForGetExecutionOutput) *EditForGetExecutionOutput {
+	s.MiniseriesEdit = v
 	return s
 }
 
@@ -3650,6 +3712,8 @@ type HighlightCutsForGetExecutionOutput struct {
 
 	MinDuration *float64 `type:"double"`
 
+	MiniseriesOption *MiniseriesOptionForGetExecutionOutput `type:"structure"`
+
 	WithStoryboard *bool `type:"boolean"`
 }
 
@@ -3681,6 +3745,12 @@ func (s *HighlightCutsForGetExecutionOutput) SetMinDuration(v float64) *Highligh
 	return s
 }
 
+// SetMiniseriesOption sets the MiniseriesOption field's value.
+func (s *HighlightCutsForGetExecutionOutput) SetMiniseriesOption(v *MiniseriesOptionForGetExecutionOutput) *HighlightCutsForGetExecutionOutput {
+	s.MiniseriesOption = v
+	return s
+}
+
 // SetWithStoryboard sets the WithStoryboard field's value.
 func (s *HighlightCutsForGetExecutionOutput) SetWithStoryboard(v bool) *HighlightCutsForGetExecutionOutput {
 	s.WithStoryboard = &v
@@ -3694,7 +3764,11 @@ type HighlightForGetExecutionOutput struct {
 
 	HighlightCuts *HighlightCutsForGetExecutionOutput `type:"structure"`
 
+	MiniGame *MiniGameForGetExecutionOutput `type:"structure"`
+
 	Mode *string `type:"string"`
+
+	Model *string `type:"string"`
 
 	OpeningHook *OpeningHookForGetExecutionOutput `type:"structure"`
 
@@ -3723,9 +3797,21 @@ func (s *HighlightForGetExecutionOutput) SetHighlightCuts(v *HighlightCutsForGet
 	return s
 }
 
+// SetMiniGame sets the MiniGame field's value.
+func (s *HighlightForGetExecutionOutput) SetMiniGame(v *MiniGameForGetExecutionOutput) *HighlightForGetExecutionOutput {
+	s.MiniGame = v
+	return s
+}
+
 // SetMode sets the Mode field's value.
 func (s *HighlightForGetExecutionOutput) SetMode(v string) *HighlightForGetExecutionOutput {
 	s.Mode = &v
+	return s
+}
+
+// SetModel sets the Model field's value.
+func (s *HighlightForGetExecutionOutput) SetModel(v string) *HighlightForGetExecutionOutput {
+	s.Model = &v
 	return s
 }
 
@@ -3966,6 +4052,104 @@ func (s *MetaForGetExecutionOutput) SetStartTime(v string) *MetaForGetExecutionO
 // SetTrigger sets the Trigger field's value.
 func (s *MetaForGetExecutionOutput) SetTrigger(v string) *MetaForGetExecutionOutput {
 	s.Trigger = &v
+	return s
+}
+
+type MiniGameForGetExecutionOutput struct {
+	_ struct{} `type:"structure"`
+
+	HighlightDefinition *string `type:"string"`
+
+	Name *string `type:"string"`
+
+	PlayDefinition *string `type:"string"`
+}
+
+// String returns the string representation
+func (s MiniGameForGetExecutionOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s MiniGameForGetExecutionOutput) GoString() string {
+	return s.String()
+}
+
+// SetHighlightDefinition sets the HighlightDefinition field's value.
+func (s *MiniGameForGetExecutionOutput) SetHighlightDefinition(v string) *MiniGameForGetExecutionOutput {
+	s.HighlightDefinition = &v
+	return s
+}
+
+// SetName sets the Name field's value.
+func (s *MiniGameForGetExecutionOutput) SetName(v string) *MiniGameForGetExecutionOutput {
+	s.Name = &v
+	return s
+}
+
+// SetPlayDefinition sets the PlayDefinition field's value.
+func (s *MiniGameForGetExecutionOutput) SetPlayDefinition(v string) *MiniGameForGetExecutionOutput {
+	s.PlayDefinition = &v
+	return s
+}
+
+type MiniseriesEditForGetExecutionOutput struct {
+	_ struct{} `type:"structure"`
+
+	Hint *string `type:"string"`
+
+	Template *string `type:"string"`
+
+	Title *string `type:"string"`
+}
+
+// String returns the string representation
+func (s MiniseriesEditForGetExecutionOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s MiniseriesEditForGetExecutionOutput) GoString() string {
+	return s.String()
+}
+
+// SetHint sets the Hint field's value.
+func (s *MiniseriesEditForGetExecutionOutput) SetHint(v string) *MiniseriesEditForGetExecutionOutput {
+	s.Hint = &v
+	return s
+}
+
+// SetTemplate sets the Template field's value.
+func (s *MiniseriesEditForGetExecutionOutput) SetTemplate(v string) *MiniseriesEditForGetExecutionOutput {
+	s.Template = &v
+	return s
+}
+
+// SetTitle sets the Title field's value.
+func (s *MiniseriesEditForGetExecutionOutput) SetTitle(v string) *MiniseriesEditForGetExecutionOutput {
+	s.Title = &v
+	return s
+}
+
+type MiniseriesOptionForGetExecutionOutput struct {
+	_ struct{} `type:"structure"`
+
+	CutMode *string `type:"string"`
+}
+
+// String returns the string representation
+func (s MiniseriesOptionForGetExecutionOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s MiniseriesOptionForGetExecutionOutput) GoString() string {
+	return s.String()
+}
+
+// SetCutMode sets the CutMode field's value.
+func (s *MiniseriesOptionForGetExecutionOutput) SetCutMode(v string) *MiniseriesOptionForGetExecutionOutput {
+	s.CutMode = &v
 	return s
 }
 
@@ -5010,6 +5194,8 @@ func (s *TemplateForGetExecutionOutput) SetType(v string) *TemplateForGetExecuti
 type TextForGetExecutionOutput struct {
 	_ struct{} `type:"structure"`
 
+	DetailedInfo *DetailedInfoForGetExecutionOutput `type:"structure"`
+
 	End *float64 `type:"double"`
 
 	Start *float64 `type:"double"`
@@ -5025,6 +5211,12 @@ func (s TextForGetExecutionOutput) String() string {
 // GoString returns the string representation
 func (s TextForGetExecutionOutput) GoString() string {
 	return s.String()
+}
+
+// SetDetailedInfo sets the DetailedInfo field's value.
+func (s *TextForGetExecutionOutput) SetDetailedInfo(v *DetailedInfoForGetExecutionOutput) *TextForGetExecutionOutput {
+	s.DetailedInfo = v
+	return s
 }
 
 // SetEnd sets the End field's value.

@@ -146,6 +146,10 @@ func (c *VMP) ListWorkspacesWithContext(ctx volcengine.Context, input *ListWorks
 type FiltersForListWorkspacesInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	CrossAccount *bool `type:"boolean" json:",omitempty"`
+
+	CrossRegion *bool `type:"boolean" json:",omitempty"`
+
 	Ids []*string `type:"list" json:",omitempty"`
 
 	InstanceTypeIds []*string `type:"list" json:",omitempty"`
@@ -163,6 +167,18 @@ func (s FiltersForListWorkspacesInput) String() string {
 // GoString returns the string representation
 func (s FiltersForListWorkspacesInput) GoString() string {
 	return s.String()
+}
+
+// SetCrossAccount sets the CrossAccount field's value.
+func (s *FiltersForListWorkspacesInput) SetCrossAccount(v bool) *FiltersForListWorkspacesInput {
+	s.CrossAccount = &v
+	return s
+}
+
+// SetCrossRegion sets the CrossRegion field's value.
+func (s *FiltersForListWorkspacesInput) SetCrossRegion(v bool) *FiltersForListWorkspacesInput {
+	s.CrossRegion = &v
+	return s
 }
 
 // SetIds sets the Ids field's value.
@@ -394,6 +410,10 @@ type ListWorkspacesInput struct {
 
 	ShowExternalPromWorkspaces *bool `type:"boolean" json:",omitempty"`
 
+	ShowWorkspaceInstanceType *bool `type:"boolean" json:",omitempty"`
+
+	ShowWorkspaceQuota *bool `type:"boolean" json:",omitempty"`
+
 	TagFilters []*TagFilterForListWorkspacesInput `type:"list" json:",omitempty"`
 }
 
@@ -440,6 +460,18 @@ func (s *ListWorkspacesInput) SetShowAggregateQueryWorkspaces(v bool) *ListWorks
 // SetShowExternalPromWorkspaces sets the ShowExternalPromWorkspaces field's value.
 func (s *ListWorkspacesInput) SetShowExternalPromWorkspaces(v bool) *ListWorkspacesInput {
 	s.ShowExternalPromWorkspaces = &v
+	return s
+}
+
+// SetShowWorkspaceInstanceType sets the ShowWorkspaceInstanceType field's value.
+func (s *ListWorkspacesInput) SetShowWorkspaceInstanceType(v bool) *ListWorkspacesInput {
+	s.ShowWorkspaceInstanceType = &v
+	return s
+}
+
+// SetShowWorkspaceQuota sets the ShowWorkspaceQuota field's value.
+func (s *ListWorkspacesInput) SetShowWorkspaceQuota(v bool) *ListWorkspacesInput {
+	s.ShowWorkspaceQuota = &v
 	return s
 }
 

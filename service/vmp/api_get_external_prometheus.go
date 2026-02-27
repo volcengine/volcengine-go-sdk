@@ -143,18 +143,34 @@ func (c *VMP) GetExternalPrometheusWithContext(ctx volcengine.Context, input *Ge
 	return out, req.Send()
 }
 
-type CustomHeadersForGetExternalPrometheusOutput struct {
+type CustomHeaderKVForGetExternalPrometheusOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
+
+	Key *string `type:"string" json:",omitempty"`
+
+	Value *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
-func (s CustomHeadersForGetExternalPrometheusOutput) String() string {
+func (s CustomHeaderKVForGetExternalPrometheusOutput) String() string {
 	return volcengineutil.Prettify(s)
 }
 
 // GoString returns the string representation
-func (s CustomHeadersForGetExternalPrometheusOutput) GoString() string {
+func (s CustomHeaderKVForGetExternalPrometheusOutput) GoString() string {
 	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *CustomHeaderKVForGetExternalPrometheusOutput) SetKey(v string) *CustomHeaderKVForGetExternalPrometheusOutput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *CustomHeaderKVForGetExternalPrometheusOutput) SetValue(v string) *CustomHeaderKVForGetExternalPrometheusOutput {
+	s.Value = &v
+	return s
 }
 
 type GetExternalPrometheusInput struct {
@@ -202,7 +218,7 @@ type GetExternalPrometheusOutput struct {
 
 	CreateTime *string `type:"string" json:",omitempty"`
 
-	CustomHeaders *CustomHeadersForGetExternalPrometheusOutput `type:"structure" json:",omitempty"`
+	CustomHeaderKVs []*CustomHeaderKVForGetExternalPrometheusOutput `type:"list" json:",omitempty"`
 
 	Description *string `type:"string" json:",omitempty"`
 
@@ -251,9 +267,9 @@ func (s *GetExternalPrometheusOutput) SetCreateTime(v string) *GetExternalPromet
 	return s
 }
 
-// SetCustomHeaders sets the CustomHeaders field's value.
-func (s *GetExternalPrometheusOutput) SetCustomHeaders(v *CustomHeadersForGetExternalPrometheusOutput) *GetExternalPrometheusOutput {
-	s.CustomHeaders = v
+// SetCustomHeaderKVs sets the CustomHeaderKVs field's value.
+func (s *GetExternalPrometheusOutput) SetCustomHeaderKVs(v []*CustomHeaderKVForGetExternalPrometheusOutput) *GetExternalPrometheusOutput {
+	s.CustomHeaderKVs = v
 	return s
 }
 

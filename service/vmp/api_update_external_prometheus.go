@@ -143,18 +143,34 @@ func (c *VMP) UpdateExternalPrometheusWithContext(ctx volcengine.Context, input 
 	return out, req.Send()
 }
 
-type CustomHeadersForUpdateExternalPrometheusInput struct {
+type CustomHeaderKVForUpdateExternalPrometheusInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
+
+	Key *string `type:"string" json:",omitempty"`
+
+	Value *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
-func (s CustomHeadersForUpdateExternalPrometheusInput) String() string {
+func (s CustomHeaderKVForUpdateExternalPrometheusInput) String() string {
 	return volcengineutil.Prettify(s)
 }
 
 // GoString returns the string representation
-func (s CustomHeadersForUpdateExternalPrometheusInput) GoString() string {
+func (s CustomHeaderKVForUpdateExternalPrometheusInput) GoString() string {
 	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *CustomHeaderKVForUpdateExternalPrometheusInput) SetKey(v string) *CustomHeaderKVForUpdateExternalPrometheusInput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *CustomHeaderKVForUpdateExternalPrometheusInput) SetValue(v string) *CustomHeaderKVForUpdateExternalPrometheusInput {
+	s.Value = &v
+	return s
 }
 
 type UpdateExternalPrometheusInput struct {
@@ -162,7 +178,7 @@ type UpdateExternalPrometheusInput struct {
 
 	AuthType *string `type:"string" json:",omitempty"`
 
-	CustomHeaders *CustomHeadersForUpdateExternalPrometheusInput `type:"structure" json:",omitempty"`
+	CustomHeaderKVs []*CustomHeaderKVForUpdateExternalPrometheusInput `type:"list" json:",omitempty"`
 
 	Description *string `type:"string" json:",omitempty"`
 
@@ -211,9 +227,9 @@ func (s *UpdateExternalPrometheusInput) SetAuthType(v string) *UpdateExternalPro
 	return s
 }
 
-// SetCustomHeaders sets the CustomHeaders field's value.
-func (s *UpdateExternalPrometheusInput) SetCustomHeaders(v *CustomHeadersForUpdateExternalPrometheusInput) *UpdateExternalPrometheusInput {
-	s.CustomHeaders = v
+// SetCustomHeaderKVs sets the CustomHeaderKVs field's value.
+func (s *UpdateExternalPrometheusInput) SetCustomHeaderKVs(v []*CustomHeaderKVForUpdateExternalPrometheusInput) *UpdateExternalPrometheusInput {
+	s.CustomHeaderKVs = v
 	return s
 }
 

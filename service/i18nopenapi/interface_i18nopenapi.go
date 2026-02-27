@@ -110,6 +110,14 @@ type I18NOPENAPIAPI interface {
 	VideoProjectListWithContext(volcengine.Context, *VideoProjectListInput, ...request.Option) (*VideoProjectListOutput, error)
 	VideoProjectListRequest(*VideoProjectListInput) (*request.Request, *VideoProjectListOutput)
 
+	VideoProjectSerialDubTaskCreateCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	VideoProjectSerialDubTaskCreateCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	VideoProjectSerialDubTaskCreateCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	VideoProjectSerialDubTaskCreate(*VideoProjectSerialDubTaskCreateInput) (*VideoProjectSerialDubTaskCreateOutput, error)
+	VideoProjectSerialDubTaskCreateWithContext(volcengine.Context, *VideoProjectSerialDubTaskCreateInput, ...request.Option) (*VideoProjectSerialDubTaskCreateOutput, error)
+	VideoProjectSerialDubTaskCreateRequest(*VideoProjectSerialDubTaskCreateInput) (*request.Request, *VideoProjectSerialDubTaskCreateOutput)
+
 	VideoProjectSerialTaskCreateCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	VideoProjectSerialTaskCreateCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	VideoProjectSerialTaskCreateCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -117,6 +125,14 @@ type I18NOPENAPIAPI interface {
 	VideoProjectSerialTaskCreate(*VideoProjectSerialTaskCreateInput) (*VideoProjectSerialTaskCreateOutput, error)
 	VideoProjectSerialTaskCreateWithContext(volcengine.Context, *VideoProjectSerialTaskCreateInput, ...request.Option) (*VideoProjectSerialTaskCreateOutput, error)
 	VideoProjectSerialTaskCreateRequest(*VideoProjectSerialTaskCreateInput) (*request.Request, *VideoProjectSerialTaskCreateOutput)
+
+	VideoProjectSuppressionStartCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	VideoProjectSuppressionStartCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	VideoProjectSuppressionStartCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	VideoProjectSuppressionStart(*VideoProjectSuppressionStartInput) (*VideoProjectSuppressionStartOutput, error)
+	VideoProjectSuppressionStartWithContext(volcengine.Context, *VideoProjectSuppressionStartInput, ...request.Option) (*VideoProjectSuppressionStartOutput, error)
+	VideoProjectSuppressionStartRequest(*VideoProjectSuppressionStartInput) (*request.Request, *VideoProjectSuppressionStartOutput)
 
 	VideoProjectTaskDetailCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	VideoProjectTaskDetailCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)

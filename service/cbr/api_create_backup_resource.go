@@ -152,8 +152,6 @@ type CreateBackupResourceInput struct {
 	// InstanceName is a required field
 	InstanceName *string `type:"string" json:",omitempty" required:"true"`
 
-	MetaInformation *MetaInformationForCreateBackupResourceInput `type:"structure" json:",omitempty"`
-
 	// ResourceType is a required field
 	ResourceType *string `type:"string" json:",omitempty" required:"true" enum:"EnumOfResourceTypeForCreateBackupResourceInput"`
 }
@@ -199,12 +197,6 @@ func (s *CreateBackupResourceInput) SetInstanceName(v string) *CreateBackupResou
 	return s
 }
 
-// SetMetaInformation sets the MetaInformation field's value.
-func (s *CreateBackupResourceInput) SetMetaInformation(v *MetaInformationForCreateBackupResourceInput) *CreateBackupResourceInput {
-	s.MetaInformation = v
-	return s
-}
-
 // SetResourceType sets the ResourceType field's value.
 func (s *CreateBackupResourceInput) SetResourceType(v string) *CreateBackupResourceInput {
 	s.ResourceType = &v
@@ -232,36 +224,6 @@ func (s CreateBackupResourceOutput) GoString() string {
 // SetResourceId sets the ResourceId field's value.
 func (s *CreateBackupResourceOutput) SetResourceId(v string) *CreateBackupResourceOutput {
 	s.ResourceId = &v
-	return s
-}
-
-type MetaInformationForCreateBackupResourceInput struct {
-	_ struct{} `type:"structure" json:",omitempty"`
-
-	EcsMeta *string `type:"string" json:",omitempty"`
-
-	VepfsMeta *string `type:"string" json:",omitempty"`
-}
-
-// String returns the string representation
-func (s MetaInformationForCreateBackupResourceInput) String() string {
-	return volcengineutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s MetaInformationForCreateBackupResourceInput) GoString() string {
-	return s.String()
-}
-
-// SetEcsMeta sets the EcsMeta field's value.
-func (s *MetaInformationForCreateBackupResourceInput) SetEcsMeta(v string) *MetaInformationForCreateBackupResourceInput {
-	s.EcsMeta = &v
-	return s
-}
-
-// SetVepfsMeta sets the VepfsMeta field's value.
-func (s *MetaInformationForCreateBackupResourceInput) SetVepfsMeta(v string) *MetaInformationForCreateBackupResourceInput {
-	s.VepfsMeta = &v
 	return s
 }
 

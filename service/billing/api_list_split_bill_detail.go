@@ -168,6 +168,10 @@ type ListForListSplitBillDetailOutput struct {
 
 	ConfigurationCode *string `type:"string" json:",omitempty"`
 
+	CostUnit *string `type:"string" json:",omitempty"`
+
+	Count *string `type:"string" json:",omitempty"`
+
 	CountryRegion *string `type:"string" json:",omitempty"`
 
 	CouponDeductionAmount *string `type:"string" json:",omitempty"`
@@ -269,6 +273,8 @@ type ListForListSplitBillDetailOutput struct {
 	RegionCode *string `type:"string" json:",omitempty"`
 
 	ReservationInstance *string `type:"string" json:",omitempty"`
+
+	ResourceID *string `type:"string" json:",omitempty"`
 
 	RoundAmount *string `type:"string" json:",omitempty"`
 
@@ -410,6 +416,18 @@ func (s *ListForListSplitBillDetailOutput) SetConfigName(v string) *ListForListS
 // SetConfigurationCode sets the ConfigurationCode field's value.
 func (s *ListForListSplitBillDetailOutput) SetConfigurationCode(v string) *ListForListSplitBillDetailOutput {
 	s.ConfigurationCode = &v
+	return s
+}
+
+// SetCostUnit sets the CostUnit field's value.
+func (s *ListForListSplitBillDetailOutput) SetCostUnit(v string) *ListForListSplitBillDetailOutput {
+	s.CostUnit = &v
+	return s
+}
+
+// SetCount sets the Count field's value.
+func (s *ListForListSplitBillDetailOutput) SetCount(v string) *ListForListSplitBillDetailOutput {
+	s.Count = &v
 	return s
 }
 
@@ -719,6 +737,12 @@ func (s *ListForListSplitBillDetailOutput) SetReservationInstance(v string) *Lis
 	return s
 }
 
+// SetResourceID sets the ResourceID field's value.
+func (s *ListForListSplitBillDetailOutput) SetResourceID(v string) *ListForListSplitBillDetailOutput {
+	s.ResourceID = &v
+	return s
+}
+
 // SetRoundAmount sets the RoundAmount field's value.
 func (s *ListForListSplitBillDetailOutput) SetRoundAmount(v string) *ListForListSplitBillDetailOutput {
 	s.RoundAmount = &v
@@ -948,6 +972,8 @@ type ListSplitBillDetailInput struct {
 
 	Product []*string `type:"list" json:",omitempty"`
 
+	SplitDimension *string `type:"string" json:",omitempty"`
+
 	SplitItemID *string `type:"string" json:",omitempty"`
 }
 
@@ -1052,6 +1078,12 @@ func (s *ListSplitBillDetailInput) SetPayerID(v []*int64) *ListSplitBillDetailIn
 // SetProduct sets the Product field's value.
 func (s *ListSplitBillDetailInput) SetProduct(v []*string) *ListSplitBillDetailInput {
 	s.Product = v
+	return s
+}
+
+// SetSplitDimension sets the SplitDimension field's value.
+func (s *ListSplitBillDetailInput) SetSplitDimension(v string) *ListSplitBillDetailInput {
+	s.SplitDimension = &v
 	return s
 }
 

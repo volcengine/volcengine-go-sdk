@@ -187,6 +187,7 @@ var defaultEndpoint = map[string]*ServiceEndpointInfo{
 	"vms":                         {Service: "vms", IsGlobal: false},
 	"eco_partner":                 {Service: "eco_partner", IsGlobal: true},
 	"smc":                         {Service: "smc", IsGlobal: true},
+	"livesaas":                    {Service: "livesaas", IsGlobal: true},
 }
 
 func standardizeDomainServiceCode(serviceCode string) string {

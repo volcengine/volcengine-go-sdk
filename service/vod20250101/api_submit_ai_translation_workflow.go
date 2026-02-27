@@ -147,6 +147,8 @@ type OperatorConfigForSubmitAITranslationWorkflowInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
 	SubtitleRecognitionConfig *SubtitleRecognitionConfigForSubmitAITranslationWorkflowInput `type:"structure" json:",omitempty"`
+
+	VoiceCloneConfig *VoiceCloneConfigForSubmitAITranslationWorkflowInput `type:"structure" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -165,8 +167,16 @@ func (s *OperatorConfigForSubmitAITranslationWorkflowInput) SetSubtitleRecogniti
 	return s
 }
 
+// SetVoiceCloneConfig sets the VoiceCloneConfig field's value.
+func (s *OperatorConfigForSubmitAITranslationWorkflowInput) SetVoiceCloneConfig(v *VoiceCloneConfigForSubmitAITranslationWorkflowInput) *OperatorConfigForSubmitAITranslationWorkflowInput {
+	s.VoiceCloneConfig = v
+	return s
+}
+
 type ProcessConfigForSubmitAITranslationWorkflowInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
+
+	DisableCloneVoiceByScene *bool `type:"boolean" json:",omitempty"`
 
 	DisableSmartSubtitleRewrite *bool `type:"boolean" json:",omitempty"`
 
@@ -183,6 +193,12 @@ func (s ProcessConfigForSubmitAITranslationWorkflowInput) String() string {
 // GoString returns the string representation
 func (s ProcessConfigForSubmitAITranslationWorkflowInput) GoString() string {
 	return s.String()
+}
+
+// SetDisableCloneVoiceByScene sets the DisableCloneVoiceByScene field's value.
+func (s *ProcessConfigForSubmitAITranslationWorkflowInput) SetDisableCloneVoiceByScene(v bool) *ProcessConfigForSubmitAITranslationWorkflowInput {
+	s.DisableCloneVoiceByScene = &v
+	return s
 }
 
 // SetDisableSmartSubtitleRewrite sets the DisableSmartSubtitleRewrite field's value.
@@ -412,6 +428,8 @@ type SubtitleRecognitionConfigForSubmitAITranslationWorkflowInput struct {
 
 	BilingualSubtitleFileName *string `type:"string" json:",omitempty"`
 
+	IsVision *bool `type:"boolean" json:",omitempty"`
+
 	RecognitionType *string `type:"string" json:",omitempty"`
 
 	SourceSubtitleFileName *string `type:"string" json:",omitempty"`
@@ -434,6 +452,12 @@ func (s SubtitleRecognitionConfigForSubmitAITranslationWorkflowInput) GoString()
 // SetBilingualSubtitleFileName sets the BilingualSubtitleFileName field's value.
 func (s *SubtitleRecognitionConfigForSubmitAITranslationWorkflowInput) SetBilingualSubtitleFileName(v string) *SubtitleRecognitionConfigForSubmitAITranslationWorkflowInput {
 	s.BilingualSubtitleFileName = &v
+	return s
+}
+
+// SetIsVision sets the IsVision field's value.
+func (s *SubtitleRecognitionConfigForSubmitAITranslationWorkflowInput) SetIsVision(v bool) *SubtitleRecognitionConfigForSubmitAITranslationWorkflowInput {
+	s.IsVision = &v
 	return s
 }
 
@@ -526,5 +550,27 @@ func (s *TranslationConfigForSubmitAITranslationWorkflowInput) SetTermbaseConfig
 // SetTranslationTypeList sets the TranslationTypeList field's value.
 func (s *TranslationConfigForSubmitAITranslationWorkflowInput) SetTranslationTypeList(v []*string) *TranslationConfigForSubmitAITranslationWorkflowInput {
 	s.TranslationTypeList = v
+	return s
+}
+
+type VoiceCloneConfigForSubmitAITranslationWorkflowInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	BackgroundVolume *int32 `type:"int32" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s VoiceCloneConfigForSubmitAITranslationWorkflowInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s VoiceCloneConfigForSubmitAITranslationWorkflowInput) GoString() string {
+	return s.String()
+}
+
+// SetBackgroundVolume sets the BackgroundVolume field's value.
+func (s *VoiceCloneConfigForSubmitAITranslationWorkflowInput) SetBackgroundVolume(v int32) *VoiceCloneConfigForSubmitAITranslationWorkflowInput {
+	s.BackgroundVolume = &v
 	return s
 }

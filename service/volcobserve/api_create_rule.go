@@ -278,6 +278,8 @@ type CreateRuleInput struct {
 
 	NotifyTemplates []*NotifyTemplateForCreateRuleInput `type:"list" json:",omitempty"`
 
+	ObjectGroupId *string `type:"string" json:",omitempty"`
+
 	OriginalDimensions map[string][]*string `type:"map" json:",omitempty"`
 
 	ProjectName *string `type:"string" json:",omitempty"`
@@ -454,6 +456,12 @@ func (s *CreateRuleInput) SetNotificationId(v string) *CreateRuleInput {
 // SetNotifyTemplates sets the NotifyTemplates field's value.
 func (s *CreateRuleInput) SetNotifyTemplates(v []*NotifyTemplateForCreateRuleInput) *CreateRuleInput {
 	s.NotifyTemplates = v
+	return s
+}
+
+// SetObjectGroupId sets the ObjectGroupId field's value.
+func (s *CreateRuleInput) SetObjectGroupId(v string) *CreateRuleInput {
+	s.ObjectGroupId = &v
 	return s
 }
 
