@@ -24,33 +24,23 @@ const (
 
 // BuildAuthToken will return an authorization token used as the password for a DB connection.
 //
-// * config - volcengine.Config containing Credentials, Region, and DisableSSL settings
+// * sess - session.Session containing Credentials, Region, and DisableSSL settings
 // * dbUser - User account within the database to sign in with
 // * instanceId - The database instance identifier
 // * expires - Expiration time in seconds (if <= 0, defaults to 900 seconds/15 minutes)
-func BuildAuthToken(ctx context.Context, config *volcengine.Config, dbUser, instanceId string, expires int) (string, error) {
-	if config == nil {
-		return "", fmt.Errorf("config must not be nil")
-	}
-	if config.Credentials == nil {
-		return "", fmt.Errorf("credentials must not be nil")
-	}
-	if config.Region == nil || *config.Region == "" {
-		return "", fmt.Errorf("region must not be empty")
+func BuildAuthToken(ctx context.Context, sess *session.Session, dbUser, instanceId string, expires int) (string, error) {
+	if sess == nil {
+		return "", fmt.Errorf("session must not be nil")
 	}
 	if dbUser == "" || instanceId == "" {
 		return "", fmt.Errorf("dbUser or instanceId must not be empty")
 	}
 
-	// Use StandardEndpointResolver to get regional endpoint
-	config.EndpointResolver = endpoints.NewStandardEndpointResolver()
-
-	// Create session and resolve endpoint via standard path
-	sess, err := session.NewSession(config)
-	if err != nil {
-		return "", fmt.Errorf("unable to create session: %w", err)
+	// Use StandardEndpointResolver to get correct regional endpoint, passed as override to avoid modifying user's session
+	resolverCfg := &volcengine.Config{
+		EndpointResolver: endpoints.NewStandardEndpointResolver(),
 	}
-	clientCfg := sess.ClientConfig(defaultService)
+	clientCfg := sess.ClientConfig(defaultService, resolverCfg)
 
 	// Set up handlers - only need Sign
 	var handlers request.Handlers
@@ -63,11 +53,11 @@ func BuildAuthToken(ctx context.Context, config *volcengine.Config, dbUser, inst
 		HTTPPath:   "",
 	}
 
-	req := request.New(*config, metadata.ClientInfo{
+	req := request.New(*sess.Config, metadata.ClientInfo{
 		ServiceName:   defaultService,
 		ServiceID:     defaultService,
 		SigningName:   defaultService,
-		SigningRegion: *config.Region,
+		SigningRegion: clientCfg.SigningRegion,
 		Endpoint:      clientCfg.Endpoint,
 		APIVersion:    defaultAPIVersion,
 	}, handlers, nil, op, nil, nil)
