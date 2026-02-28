@@ -62,7 +62,7 @@ func BuildAuthToken(ctx context.Context, sess *session.Session, dbUser, instance
 		HTTPPath:   "",
 	}
 
-	req := request.New(*sess.Config, metadata.ClientInfo{
+	req := request.New(*clientCfg.Config, metadata.ClientInfo{
 		ServiceName:   defaultService,
 		ServiceID:     defaultService,
 		SigningName:   defaultService,
