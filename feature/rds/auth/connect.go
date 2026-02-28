@@ -32,6 +32,15 @@ func BuildAuthToken(ctx context.Context, sess *session.Session, dbUser, instance
 	if sess == nil {
 		return "", fmt.Errorf("session must not be nil")
 	}
+	if sess.Config == nil {
+		return "", fmt.Errorf("config must not be nil")
+	}
+	if sess.Config.Credentials == nil {
+		return "", fmt.Errorf("credentials must not be nil")
+	}
+	if sess.Config.Region == nil || *sess.Config.Region == "" {
+		return "", fmt.Errorf("region must not be empty")
+	}
 	if dbUser == "" || instanceId == "" {
 		return "", fmt.Errorf("dbUser or instanceId must not be empty")
 	}
