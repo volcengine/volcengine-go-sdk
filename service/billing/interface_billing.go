@@ -94,6 +94,14 @@ type BILLINGAPI interface {
 	DeleteFinancialRelationWithContext(volcengine.Context, *DeleteFinancialRelationInput, ...request.Option) (*DeleteFinancialRelationOutput, error)
 	DeleteFinancialRelationRequest(*DeleteFinancialRelationInput) (*request.Request, *DeleteFinancialRelationOutput)
 
+	GetFilterInfoForCostAnalysisCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	GetFilterInfoForCostAnalysisCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	GetFilterInfoForCostAnalysisCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	GetFilterInfoForCostAnalysis(*GetFilterInfoForCostAnalysisInput) (*GetFilterInfoForCostAnalysisOutput, error)
+	GetFilterInfoForCostAnalysisWithContext(volcengine.Context, *GetFilterInfoForCostAnalysisInput, ...request.Option) (*GetFilterInfoForCostAnalysisOutput, error)
+	GetFilterInfoForCostAnalysisRequest(*GetFilterInfoForCostAnalysisInput) (*request.Request, *GetFilterInfoForCostAnalysisOutput)
+
 	GetOrderCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	GetOrderCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	GetOrderCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -270,6 +278,14 @@ type BILLINGAPI interface {
 	ListBudgetFilterZoneCodeWithContext(volcengine.Context, *ListBudgetFilterZoneCodeInput, ...request.Option) (*ListBudgetFilterZoneCodeOutput, error)
 	ListBudgetFilterZoneCodeRequest(*ListBudgetFilterZoneCodeInput) (*request.Request, *ListBudgetFilterZoneCodeOutput)
 
+	ListCostAnalysisOpenApiCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListCostAnalysisOpenApiCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListCostAnalysisOpenApiCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListCostAnalysisOpenApi(*ListCostAnalysisOpenApiInput) (*ListCostAnalysisOpenApiOutput, error)
+	ListCostAnalysisOpenApiWithContext(volcengine.Context, *ListCostAnalysisOpenApiInput, ...request.Option) (*ListCostAnalysisOpenApiOutput, error)
+	ListCostAnalysisOpenApiRequest(*ListCostAnalysisOpenApiInput) (*request.Request, *ListCostAnalysisOpenApiOutput)
+
 	ListCouponUsageRecordsCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ListCouponUsageRecordsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	ListCouponUsageRecordsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -397,6 +413,14 @@ type BILLINGAPI interface {
 	QueryPriceForSubscription(*QueryPriceForSubscriptionInput) (*QueryPriceForSubscriptionOutput, error)
 	QueryPriceForSubscriptionWithContext(volcengine.Context, *QueryPriceForSubscriptionInput, ...request.Option) (*QueryPriceForSubscriptionOutput, error)
 	QueryPriceForSubscriptionRequest(*QueryPriceForSubscriptionInput) (*request.Request, *QueryPriceForSubscriptionOutput)
+
+	QueryTagValueByTagKeyCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	QueryTagValueByTagKeyCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	QueryTagValueByTagKeyCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	QueryTagValueByTagKey(*QueryTagValueByTagKeyInput) (*QueryTagValueByTagKeyOutput, error)
+	QueryTagValueByTagKeyWithContext(volcengine.Context, *QueryTagValueByTagKeyInput, ...request.Option) (*QueryTagValueByTagKeyOutput, error)
+	QueryTagValueByTagKeyRequest(*QueryTagValueByTagKeyInput) (*request.Request, *QueryTagValueByTagKeyOutput)
 
 	RenewInstanceCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	RenewInstanceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
