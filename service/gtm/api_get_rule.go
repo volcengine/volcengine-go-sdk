@@ -144,7 +144,7 @@ type AddressForGetRuleOutput struct {
 
 	Active *bool `type:"boolean"`
 
-	Capacity *int64 `type:"int64"`
+	Capacity *int32 `type:"int32"`
 
 	Geo *string `type:"string"`
 
@@ -176,7 +176,7 @@ func (s *AddressForGetRuleOutput) SetActive(v bool) *AddressForGetRuleOutput {
 }
 
 // SetCapacity sets the Capacity field's value.
-func (s *AddressForGetRuleOutput) SetCapacity(v int64) *AddressForGetRuleOutput {
+func (s *AddressForGetRuleOutput) SetCapacity(v int32) *AddressForGetRuleOutput {
 	s.Capacity = &v
 	return s
 }
@@ -304,6 +304,10 @@ type GetRuleOutput struct {
 
 	UpdateTime *string `type:"string"`
 
+	UsePolicyProbeNodes *bool `type:"boolean"`
+
+	UseRuleProbeConfig *bool `type:"boolean"`
+
 	Weight *int32 `type:"int32"`
 }
 
@@ -380,6 +384,18 @@ func (s *GetRuleOutput) SetRuleId(v string) *GetRuleOutput {
 // SetUpdateTime sets the UpdateTime field's value.
 func (s *GetRuleOutput) SetUpdateTime(v string) *GetRuleOutput {
 	s.UpdateTime = &v
+	return s
+}
+
+// SetUsePolicyProbeNodes sets the UsePolicyProbeNodes field's value.
+func (s *GetRuleOutput) SetUsePolicyProbeNodes(v bool) *GetRuleOutput {
+	s.UsePolicyProbeNodes = &v
+	return s
+}
+
+// SetUseRuleProbeConfig sets the UseRuleProbeConfig field's value.
+func (s *GetRuleOutput) SetUseRuleProbeConfig(v bool) *GetRuleOutput {
+	s.UseRuleProbeConfig = &v
 	return s
 }
 

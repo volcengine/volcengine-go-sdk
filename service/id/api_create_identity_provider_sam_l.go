@@ -143,11 +143,165 @@ func (c *ID) CreateIdentityProviderSAMLWithContext(ctx volcengine.Context, input
 	return out, req.Send()
 }
 
+type ClaimRuleForCreateIdentityProviderSAMLInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	ClaimType *string `type:"string" json:",omitempty"`
+
+	Required *bool `type:"boolean" json:",omitempty"`
+
+	SourceClaimPath *string `type:"string" json:",omitempty"`
+
+	TargetClaim *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s ClaimRuleForCreateIdentityProviderSAMLInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ClaimRuleForCreateIdentityProviderSAMLInput) GoString() string {
+	return s.String()
+}
+
+// SetClaimType sets the ClaimType field's value.
+func (s *ClaimRuleForCreateIdentityProviderSAMLInput) SetClaimType(v string) *ClaimRuleForCreateIdentityProviderSAMLInput {
+	s.ClaimType = &v
+	return s
+}
+
+// SetRequired sets the Required field's value.
+func (s *ClaimRuleForCreateIdentityProviderSAMLInput) SetRequired(v bool) *ClaimRuleForCreateIdentityProviderSAMLInput {
+	s.Required = &v
+	return s
+}
+
+// SetSourceClaimPath sets the SourceClaimPath field's value.
+func (s *ClaimRuleForCreateIdentityProviderSAMLInput) SetSourceClaimPath(v string) *ClaimRuleForCreateIdentityProviderSAMLInput {
+	s.SourceClaimPath = &v
+	return s
+}
+
+// SetTargetClaim sets the TargetClaim field's value.
+func (s *ClaimRuleForCreateIdentityProviderSAMLInput) SetTargetClaim(v string) *ClaimRuleForCreateIdentityProviderSAMLInput {
+	s.TargetClaim = &v
+	return s
+}
+
+type ClaimRuleForCreateIdentityProviderSAMLOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	ClaimType *string `type:"string" json:",omitempty"`
+
+	Required *bool `type:"boolean" json:",omitempty"`
+
+	SourceClaimPath *string `type:"string" json:",omitempty"`
+
+	TargetClaim *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s ClaimRuleForCreateIdentityProviderSAMLOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ClaimRuleForCreateIdentityProviderSAMLOutput) GoString() string {
+	return s.String()
+}
+
+// SetClaimType sets the ClaimType field's value.
+func (s *ClaimRuleForCreateIdentityProviderSAMLOutput) SetClaimType(v string) *ClaimRuleForCreateIdentityProviderSAMLOutput {
+	s.ClaimType = &v
+	return s
+}
+
+// SetRequired sets the Required field's value.
+func (s *ClaimRuleForCreateIdentityProviderSAMLOutput) SetRequired(v bool) *ClaimRuleForCreateIdentityProviderSAMLOutput {
+	s.Required = &v
+	return s
+}
+
+// SetSourceClaimPath sets the SourceClaimPath field's value.
+func (s *ClaimRuleForCreateIdentityProviderSAMLOutput) SetSourceClaimPath(v string) *ClaimRuleForCreateIdentityProviderSAMLOutput {
+	s.SourceClaimPath = &v
+	return s
+}
+
+// SetTargetClaim sets the TargetClaim field's value.
+func (s *ClaimRuleForCreateIdentityProviderSAMLOutput) SetTargetClaim(v string) *ClaimRuleForCreateIdentityProviderSAMLOutput {
+	s.TargetClaim = &v
+	return s
+}
+
+type ClaimsPropagationConfigForCreateIdentityProviderSAMLInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	ClaimRules []*ClaimRuleForCreateIdentityProviderSAMLInput `type:"list" json:",omitempty"`
+
+	Mode *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s ClaimsPropagationConfigForCreateIdentityProviderSAMLInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ClaimsPropagationConfigForCreateIdentityProviderSAMLInput) GoString() string {
+	return s.String()
+}
+
+// SetClaimRules sets the ClaimRules field's value.
+func (s *ClaimsPropagationConfigForCreateIdentityProviderSAMLInput) SetClaimRules(v []*ClaimRuleForCreateIdentityProviderSAMLInput) *ClaimsPropagationConfigForCreateIdentityProviderSAMLInput {
+	s.ClaimRules = v
+	return s
+}
+
+// SetMode sets the Mode field's value.
+func (s *ClaimsPropagationConfigForCreateIdentityProviderSAMLInput) SetMode(v string) *ClaimsPropagationConfigForCreateIdentityProviderSAMLInput {
+	s.Mode = &v
+	return s
+}
+
+type ClaimsPropagationConfigForCreateIdentityProviderSAMLOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	ClaimRules []*ClaimRuleForCreateIdentityProviderSAMLOutput `type:"list" json:",omitempty"`
+
+	Mode *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s ClaimsPropagationConfigForCreateIdentityProviderSAMLOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ClaimsPropagationConfigForCreateIdentityProviderSAMLOutput) GoString() string {
+	return s.String()
+}
+
+// SetClaimRules sets the ClaimRules field's value.
+func (s *ClaimsPropagationConfigForCreateIdentityProviderSAMLOutput) SetClaimRules(v []*ClaimRuleForCreateIdentityProviderSAMLOutput) *ClaimsPropagationConfigForCreateIdentityProviderSAMLOutput {
+	s.ClaimRules = v
+	return s
+}
+
+// SetMode sets the Mode field's value.
+func (s *ClaimsPropagationConfigForCreateIdentityProviderSAMLOutput) SetMode(v string) *ClaimsPropagationConfigForCreateIdentityProviderSAMLOutput {
+	s.Mode = &v
+	return s
+}
+
 type CreateIdentityProviderSAMLInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
 	// AttributeMapping is a required field
 	AttributeMapping *string `type:"string" json:",omitempty" required:"true"`
+
+	ClaimsPropagationConfig *ClaimsPropagationConfigForCreateIdentityProviderSAMLInput `type:"structure" json:",omitempty"`
 
 	// Enabled is a required field
 	Enabled *bool `type:"boolean" json:",omitempty" required:"true"`
@@ -228,6 +382,12 @@ func (s *CreateIdentityProviderSAMLInput) SetAttributeMapping(v string) *CreateI
 	return s
 }
 
+// SetClaimsPropagationConfig sets the ClaimsPropagationConfig field's value.
+func (s *CreateIdentityProviderSAMLInput) SetClaimsPropagationConfig(v *ClaimsPropagationConfigForCreateIdentityProviderSAMLInput) *CreateIdentityProviderSAMLInput {
+	s.ClaimsPropagationConfig = v
+	return s
+}
+
 // SetEnabled sets the Enabled field's value.
 func (s *CreateIdentityProviderSAMLInput) SetEnabled(v bool) *CreateIdentityProviderSAMLInput {
 	s.Enabled = &v
@@ -291,6 +451,8 @@ type CreateIdentityProviderSAMLOutput struct {
 
 	Certificate *string `type:"string" json:",omitempty"`
 
+	ClaimsPropagationConfig *ClaimsPropagationConfigForCreateIdentityProviderSAMLOutput `type:"structure" json:",omitempty"`
+
 	Enabled *bool `type:"boolean" json:",omitempty"`
 
 	EnabledEncryption *bool `type:"boolean" json:",omitempty"`
@@ -302,6 +464,8 @@ type CreateIdentityProviderSAMLOutput struct {
 	IdpMetadata *string `type:"string" json:",omitempty"`
 
 	Name *string `type:"string" json:",omitempty"`
+
+	Provider *string `type:"string" json:",omitempty"`
 
 	ProviderOptions *ProviderOptionsForCreateIdentityProviderSAMLOutput `type:"structure" json:",omitempty"`
 
@@ -327,6 +491,12 @@ func (s *CreateIdentityProviderSAMLOutput) SetAttributeMapping(v string) *Create
 // SetCertificate sets the Certificate field's value.
 func (s *CreateIdentityProviderSAMLOutput) SetCertificate(v string) *CreateIdentityProviderSAMLOutput {
 	s.Certificate = &v
+	return s
+}
+
+// SetClaimsPropagationConfig sets the ClaimsPropagationConfig field's value.
+func (s *CreateIdentityProviderSAMLOutput) SetClaimsPropagationConfig(v *ClaimsPropagationConfigForCreateIdentityProviderSAMLOutput) *CreateIdentityProviderSAMLOutput {
+	s.ClaimsPropagationConfig = v
 	return s
 }
 
@@ -363,6 +533,12 @@ func (s *CreateIdentityProviderSAMLOutput) SetIdpMetadata(v string) *CreateIdent
 // SetName sets the Name field's value.
 func (s *CreateIdentityProviderSAMLOutput) SetName(v string) *CreateIdentityProviderSAMLOutput {
 	s.Name = &v
+	return s
+}
+
+// SetProvider sets the Provider field's value.
+func (s *CreateIdentityProviderSAMLOutput) SetProvider(v string) *CreateIdentityProviderSAMLOutput {
+	s.Provider = &v
 	return s
 }
 

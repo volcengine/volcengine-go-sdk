@@ -202,6 +202,8 @@ type GetWorkloadIdentityOutput struct {
 
 	Name *string `type:"string" json:",omitempty"`
 
+	Source *string `type:"string" json:",omitempty"`
+
 	Trn *string `type:"string" json:",omitempty"`
 
 	UpdatedAt *string `type:"string" json:",omitempty"`
@@ -246,6 +248,12 @@ func (s *GetWorkloadIdentityOutput) SetDescription(v string) *GetWorkloadIdentit
 // SetName sets the Name field's value.
 func (s *GetWorkloadIdentityOutput) SetName(v string) *GetWorkloadIdentityOutput {
 	s.Name = &v
+	return s
+}
+
+// SetSource sets the Source field's value.
+func (s *GetWorkloadIdentityOutput) SetSource(v string) *GetWorkloadIdentityOutput {
+	s.Source = &v
 	return s
 }
 

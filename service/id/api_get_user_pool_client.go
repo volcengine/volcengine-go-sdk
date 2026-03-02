@@ -212,6 +212,8 @@ type GetUserPoolClientOutput struct {
 
 	Description *string `type:"string" json:",omitempty"`
 
+	DevelopmentModeEnabled *bool `type:"boolean" json:",omitempty"`
+
 	IdToken *IdTokenForGetUserPoolClientOutput `type:"structure" json:",omitempty"`
 
 	LoginPageUrl *string `type:"string" json:",omitempty"`
@@ -282,6 +284,12 @@ func (s *GetUserPoolClientOutput) SetCreateTime(v string) *GetUserPoolClientOutp
 // SetDescription sets the Description field's value.
 func (s *GetUserPoolClientOutput) SetDescription(v string) *GetUserPoolClientOutput {
 	s.Description = &v
+	return s
+}
+
+// SetDevelopmentModeEnabled sets the DevelopmentModeEnabled field's value.
+func (s *GetUserPoolClientOutput) SetDevelopmentModeEnabled(v bool) *GetUserPoolClientOutput {
+	s.DevelopmentModeEnabled = &v
 	return s
 }
 

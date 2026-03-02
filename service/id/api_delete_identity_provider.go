@@ -146,11 +146,11 @@ func (c *ID) DeleteIdentityProviderWithContext(ctx volcengine.Context, input *De
 type DeleteIdentityProviderInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	// ConnectionUID is a required field
-	ConnectionUID *string `type:"string" json:",omitempty" required:"true"`
+	// ConnectionUid is a required field
+	ConnectionUid *string `type:"string" json:",omitempty" required:"true"`
 
-	// UserPoolUID is a required field
-	UserPoolUID *string `type:"string" json:",omitempty" required:"true"`
+	// UserPoolUid is a required field
+	UserPoolUid *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -166,11 +166,11 @@ func (s DeleteIdentityProviderInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *DeleteIdentityProviderInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "DeleteIdentityProviderInput"}
-	if s.ConnectionUID == nil {
-		invalidParams.Add(request.NewErrParamRequired("ConnectionUID"))
+	if s.ConnectionUid == nil {
+		invalidParams.Add(request.NewErrParamRequired("ConnectionUid"))
 	}
-	if s.UserPoolUID == nil {
-		invalidParams.Add(request.NewErrParamRequired("UserPoolUID"))
+	if s.UserPoolUid == nil {
+		invalidParams.Add(request.NewErrParamRequired("UserPoolUid"))
 	}
 
 	if invalidParams.Len() > 0 {
@@ -179,15 +179,15 @@ func (s *DeleteIdentityProviderInput) Validate() error {
 	return nil
 }
 
-// SetConnectionUID sets the ConnectionUID field's value.
-func (s *DeleteIdentityProviderInput) SetConnectionUID(v string) *DeleteIdentityProviderInput {
-	s.ConnectionUID = &v
+// SetConnectionUid sets the ConnectionUid field's value.
+func (s *DeleteIdentityProviderInput) SetConnectionUid(v string) *DeleteIdentityProviderInput {
+	s.ConnectionUid = &v
 	return s
 }
 
-// SetUserPoolUID sets the UserPoolUID field's value.
-func (s *DeleteIdentityProviderInput) SetUserPoolUID(v string) *DeleteIdentityProviderInput {
-	s.UserPoolUID = &v
+// SetUserPoolUid sets the UserPoolUid field's value.
+func (s *DeleteIdentityProviderInput) SetUserPoolUid(v string) *DeleteIdentityProviderInput {
+	s.UserPoolUid = &v
 	return s
 }
 

@@ -143,44 +143,14 @@ func (c *CBR) UpdateBackupPlanWithContext(ctx volcengine.Context, input *UpdateB
 	return out, req.Send()
 }
 
-type MetaInformationForUpdateBackupPlanInput struct {
-	_ struct{} `type:"structure" json:",omitempty"`
-
-	EcsMeta *string `type:"string" json:",omitempty"`
-
-	VepfsMeta *string `type:"string" json:",omitempty"`
-}
-
-// String returns the string representation
-func (s MetaInformationForUpdateBackupPlanInput) String() string {
-	return volcengineutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s MetaInformationForUpdateBackupPlanInput) GoString() string {
-	return s.String()
-}
-
-// SetEcsMeta sets the EcsMeta field's value.
-func (s *MetaInformationForUpdateBackupPlanInput) SetEcsMeta(v string) *MetaInformationForUpdateBackupPlanInput {
-	s.EcsMeta = &v
-	return s
-}
-
-// SetVepfsMeta sets the VepfsMeta field's value.
-func (s *MetaInformationForUpdateBackupPlanInput) SetVepfsMeta(v string) *MetaInformationForUpdateBackupPlanInput {
-	s.VepfsMeta = &v
-	return s
-}
-
 type ResourceListForUpdateBackupPlanInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	MetaInformation *MetaInformationForUpdateBackupPlanInput `type:"structure" json:",omitempty"`
+	BackupOptions *string `type:"string" json:",omitempty"`
 
 	ResourceId *string `type:"string" json:",omitempty"`
 
-	ResourceType *string `type:"string" json:",omitempty"`
+	ResourceType *string `type:"string" json:",omitempty" enum:"EnumOfResourceTypeForUpdateBackupPlanInput"`
 }
 
 // String returns the string representation
@@ -193,9 +163,9 @@ func (s ResourceListForUpdateBackupPlanInput) GoString() string {
 	return s.String()
 }
 
-// SetMetaInformation sets the MetaInformation field's value.
-func (s *ResourceListForUpdateBackupPlanInput) SetMetaInformation(v *MetaInformationForUpdateBackupPlanInput) *ResourceListForUpdateBackupPlanInput {
-	s.MetaInformation = v
+// SetBackupOptions sets the BackupOptions field's value.
+func (s *ResourceListForUpdateBackupPlanInput) SetBackupOptions(v string) *ResourceListForUpdateBackupPlanInput {
+	s.BackupOptions = &v
 	return s
 }
 
@@ -286,3 +256,11 @@ func (s UpdateBackupPlanOutput) String() string {
 func (s UpdateBackupPlanOutput) GoString() string {
 	return s.String()
 }
+
+const (
+	// EnumOfResourceTypeForUpdateBackupPlanInputEcs is a EnumOfResourceTypeForUpdateBackupPlanInput enum value
+	EnumOfResourceTypeForUpdateBackupPlanInputEcs = "ECS"
+
+	// EnumOfResourceTypeForUpdateBackupPlanInputVePfs is a EnumOfResourceTypeForUpdateBackupPlanInput enum value
+	EnumOfResourceTypeForUpdateBackupPlanInputVePfs = "vePFS"
+)

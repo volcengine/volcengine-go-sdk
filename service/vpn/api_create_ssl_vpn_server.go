@@ -142,9 +142,9 @@ func (c *VPN) CreateSslVpnServerWithContext(ctx volcengine.Context, input *Creat
 type CreateSslVpnServerInput struct {
 	_ struct{} `type:"structure"`
 
-	Auth *string `type:"string"`
+	Auth *string `type:"string" enum:"AuthForCreateSslVpnServerInput"`
 
-	Cipher *string `type:"string"`
+	Cipher *string `type:"string" enum:"CipherForCreateSslVpnServerInput"`
 
 	ClientCertSessionPolicy *string `type:"string" enum:"ClientCertSessionPolicyForCreateSslVpnServerInput"`
 
@@ -164,9 +164,11 @@ type CreateSslVpnServerInput struct {
 
 	ProjectName *string `type:"string"`
 
-	Protocol *string `type:"string"`
+	Protocol *string `type:"string" enum:"ProtocolForCreateSslVpnServerInput"`
 
 	SslVpnServerName *string `type:"string"`
+
+	Tags []*TagForCreateSslVpnServerInput `type:"list"`
 
 	// VpnGatewayId is a required field
 	VpnGatewayId *string `type:"string" required:"true"`
@@ -273,6 +275,12 @@ func (s *CreateSslVpnServerInput) SetSslVpnServerName(v string) *CreateSslVpnSer
 	return s
 }
 
+// SetTags sets the Tags field's value.
+func (s *CreateSslVpnServerInput) SetTags(v []*TagForCreateSslVpnServerInput) *CreateSslVpnServerInput {
+	s.Tags = v
+	return s
+}
+
 // SetVpnGatewayId sets the VpnGatewayId field's value.
 func (s *CreateSslVpnServerInput) SetVpnGatewayId(v string) *CreateSslVpnServerInput {
 	s.VpnGatewayId = &v
@@ -311,10 +319,73 @@ func (s *CreateSslVpnServerOutput) SetSslVpnServerId(v string) *CreateSslVpnServ
 	return s
 }
 
+type TagForCreateSslVpnServerInput struct {
+	_ struct{} `type:"structure"`
+
+	Key *string `type:"string"`
+
+	Value *string `type:"string"`
+}
+
+// String returns the string representation
+func (s TagForCreateSslVpnServerInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagForCreateSslVpnServerInput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagForCreateSslVpnServerInput) SetKey(v string) *TagForCreateSslVpnServerInput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *TagForCreateSslVpnServerInput) SetValue(v string) *TagForCreateSslVpnServerInput {
+	s.Value = &v
+	return s
+}
+
+const (
+	// AuthForCreateSslVpnServerInputSha1 is a AuthForCreateSslVpnServerInput enum value
+	AuthForCreateSslVpnServerInputSha1 = "SHA1"
+
+	// AuthForCreateSslVpnServerInputMd5 is a AuthForCreateSslVpnServerInput enum value
+	AuthForCreateSslVpnServerInputMd5 = "MD5"
+
+	// AuthForCreateSslVpnServerInputNone is a AuthForCreateSslVpnServerInput enum value
+	AuthForCreateSslVpnServerInputNone = "None"
+)
+
+const (
+	// CipherForCreateSslVpnServerInputAes128Cbc is a CipherForCreateSslVpnServerInput enum value
+	CipherForCreateSslVpnServerInputAes128Cbc = "AES-128-CBC"
+
+	// CipherForCreateSslVpnServerInputAes192Cbc is a CipherForCreateSslVpnServerInput enum value
+	CipherForCreateSslVpnServerInputAes192Cbc = "AES-192-CBC"
+
+	// CipherForCreateSslVpnServerInputAes256Cbc is a CipherForCreateSslVpnServerInput enum value
+	CipherForCreateSslVpnServerInputAes256Cbc = "AES-256-CBC"
+
+	// CipherForCreateSslVpnServerInputNone is a CipherForCreateSslVpnServerInput enum value
+	CipherForCreateSslVpnServerInputNone = "None"
+)
+
 const (
 	// ClientCertSessionPolicyForCreateSslVpnServerInputAllowConcurrent is a ClientCertSessionPolicyForCreateSslVpnServerInput enum value
 	ClientCertSessionPolicyForCreateSslVpnServerInputAllowConcurrent = "AllowConcurrent"
 
 	// ClientCertSessionPolicyForCreateSslVpnServerInputPreemptExisting is a ClientCertSessionPolicyForCreateSslVpnServerInput enum value
 	ClientCertSessionPolicyForCreateSslVpnServerInputPreemptExisting = "PreemptExisting"
+)
+
+const (
+	// ProtocolForCreateSslVpnServerInputTcp is a ProtocolForCreateSslVpnServerInput enum value
+	ProtocolForCreateSslVpnServerInputTcp = "TCP"
+
+	// ProtocolForCreateSslVpnServerInputUdp is a ProtocolForCreateSslVpnServerInput enum value
+	ProtocolForCreateSslVpnServerInputUdp = "UDP"
 )

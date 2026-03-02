@@ -142,6 +142,8 @@ func (c *GTM) ListPoolsWithContext(ctx volcengine.Context, input *ListPoolsInput
 type AddressForListPoolsOutput struct {
 	_ struct{} `type:"structure"`
 
+	Capacity *int32 `type:"int32"`
+
 	Geo *string `type:"string"`
 
 	Mode *string `type:"string"`
@@ -161,6 +163,12 @@ func (s AddressForListPoolsOutput) String() string {
 // GoString returns the string representation
 func (s AddressForListPoolsOutput) GoString() string {
 	return s.String()
+}
+
+// SetCapacity sets the Capacity field's value.
+func (s *AddressForListPoolsOutput) SetCapacity(v int32) *AddressForListPoolsOutput {
+	s.Capacity = &v
+	return s
 }
 
 // SetGeo sets the Geo field's value.

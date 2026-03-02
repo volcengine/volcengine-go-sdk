@@ -143,12 +143,90 @@ func (c *ID) ListIdentityProvidersSAMLWithContext(ctx volcengine.Context, input 
 	return out, req.Send()
 }
 
-type GenericSAMLResponseForListIdentityProvidersSAMLOutput struct {
+type ClaimRuleForListIdentityProvidersSAMLOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	ClaimType *string `type:"string" json:",omitempty"`
+
+	Required *bool `type:"boolean" json:",omitempty"`
+
+	SourceClaimPath *string `type:"string" json:",omitempty"`
+
+	TargetClaim *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s ClaimRuleForListIdentityProvidersSAMLOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ClaimRuleForListIdentityProvidersSAMLOutput) GoString() string {
+	return s.String()
+}
+
+// SetClaimType sets the ClaimType field's value.
+func (s *ClaimRuleForListIdentityProvidersSAMLOutput) SetClaimType(v string) *ClaimRuleForListIdentityProvidersSAMLOutput {
+	s.ClaimType = &v
+	return s
+}
+
+// SetRequired sets the Required field's value.
+func (s *ClaimRuleForListIdentityProvidersSAMLOutput) SetRequired(v bool) *ClaimRuleForListIdentityProvidersSAMLOutput {
+	s.Required = &v
+	return s
+}
+
+// SetSourceClaimPath sets the SourceClaimPath field's value.
+func (s *ClaimRuleForListIdentityProvidersSAMLOutput) SetSourceClaimPath(v string) *ClaimRuleForListIdentityProvidersSAMLOutput {
+	s.SourceClaimPath = &v
+	return s
+}
+
+// SetTargetClaim sets the TargetClaim field's value.
+func (s *ClaimRuleForListIdentityProvidersSAMLOutput) SetTargetClaim(v string) *ClaimRuleForListIdentityProvidersSAMLOutput {
+	s.TargetClaim = &v
+	return s
+}
+
+type ClaimsPropagationConfigForListIdentityProvidersSAMLOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	ClaimRules []*ClaimRuleForListIdentityProvidersSAMLOutput `type:"list" json:",omitempty"`
+
+	Mode *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s ClaimsPropagationConfigForListIdentityProvidersSAMLOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ClaimsPropagationConfigForListIdentityProvidersSAMLOutput) GoString() string {
+	return s.String()
+}
+
+// SetClaimRules sets the ClaimRules field's value.
+func (s *ClaimsPropagationConfigForListIdentityProvidersSAMLOutput) SetClaimRules(v []*ClaimRuleForListIdentityProvidersSAMLOutput) *ClaimsPropagationConfigForListIdentityProvidersSAMLOutput {
+	s.ClaimRules = v
+	return s
+}
+
+// SetMode sets the Mode field's value.
+func (s *ClaimsPropagationConfigForListIdentityProvidersSAMLOutput) SetMode(v string) *ClaimsPropagationConfigForListIdentityProvidersSAMLOutput {
+	s.Mode = &v
+	return s
+}
+
+type DataForListIdentityProvidersSAMLOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
 	AttributeMapping *string `type:"string" json:",omitempty"`
 
 	Certificate *string `type:"string" json:",omitempty"`
+
+	ClaimsPropagationConfig *ClaimsPropagationConfigForListIdentityProvidersSAMLOutput `type:"structure" json:",omitempty"`
 
 	Enabled *bool `type:"boolean" json:",omitempty"`
 
@@ -170,77 +248,83 @@ type GenericSAMLResponseForListIdentityProvidersSAMLOutput struct {
 }
 
 // String returns the string representation
-func (s GenericSAMLResponseForListIdentityProvidersSAMLOutput) String() string {
+func (s DataForListIdentityProvidersSAMLOutput) String() string {
 	return volcengineutil.Prettify(s)
 }
 
 // GoString returns the string representation
-func (s GenericSAMLResponseForListIdentityProvidersSAMLOutput) GoString() string {
+func (s DataForListIdentityProvidersSAMLOutput) GoString() string {
 	return s.String()
 }
 
 // SetAttributeMapping sets the AttributeMapping field's value.
-func (s *GenericSAMLResponseForListIdentityProvidersSAMLOutput) SetAttributeMapping(v string) *GenericSAMLResponseForListIdentityProvidersSAMLOutput {
+func (s *DataForListIdentityProvidersSAMLOutput) SetAttributeMapping(v string) *DataForListIdentityProvidersSAMLOutput {
 	s.AttributeMapping = &v
 	return s
 }
 
 // SetCertificate sets the Certificate field's value.
-func (s *GenericSAMLResponseForListIdentityProvidersSAMLOutput) SetCertificate(v string) *GenericSAMLResponseForListIdentityProvidersSAMLOutput {
+func (s *DataForListIdentityProvidersSAMLOutput) SetCertificate(v string) *DataForListIdentityProvidersSAMLOutput {
 	s.Certificate = &v
 	return s
 }
 
+// SetClaimsPropagationConfig sets the ClaimsPropagationConfig field's value.
+func (s *DataForListIdentityProvidersSAMLOutput) SetClaimsPropagationConfig(v *ClaimsPropagationConfigForListIdentityProvidersSAMLOutput) *DataForListIdentityProvidersSAMLOutput {
+	s.ClaimsPropagationConfig = v
+	return s
+}
+
 // SetEnabled sets the Enabled field's value.
-func (s *GenericSAMLResponseForListIdentityProvidersSAMLOutput) SetEnabled(v bool) *GenericSAMLResponseForListIdentityProvidersSAMLOutput {
+func (s *DataForListIdentityProvidersSAMLOutput) SetEnabled(v bool) *DataForListIdentityProvidersSAMLOutput {
 	s.Enabled = &v
 	return s
 }
 
 // SetEnabledEncryption sets the EnabledEncryption field's value.
-func (s *GenericSAMLResponseForListIdentityProvidersSAMLOutput) SetEnabledEncryption(v bool) *GenericSAMLResponseForListIdentityProvidersSAMLOutput {
+func (s *DataForListIdentityProvidersSAMLOutput) SetEnabledEncryption(v bool) *DataForListIdentityProvidersSAMLOutput {
 	s.EnabledEncryption = &v
 	return s
 }
 
 // SetEnabledSign sets the EnabledSign field's value.
-func (s *GenericSAMLResponseForListIdentityProvidersSAMLOutput) SetEnabledSign(v bool) *GenericSAMLResponseForListIdentityProvidersSAMLOutput {
+func (s *DataForListIdentityProvidersSAMLOutput) SetEnabledSign(v bool) *DataForListIdentityProvidersSAMLOutput {
 	s.EnabledSign = &v
 	return s
 }
 
 // SetIdAttribute sets the IdAttribute field's value.
-func (s *GenericSAMLResponseForListIdentityProvidersSAMLOutput) SetIdAttribute(v string) *GenericSAMLResponseForListIdentityProvidersSAMLOutput {
+func (s *DataForListIdentityProvidersSAMLOutput) SetIdAttribute(v string) *DataForListIdentityProvidersSAMLOutput {
 	s.IdAttribute = &v
 	return s
 }
 
 // SetIdpMetadata sets the IdpMetadata field's value.
-func (s *GenericSAMLResponseForListIdentityProvidersSAMLOutput) SetIdpMetadata(v string) *GenericSAMLResponseForListIdentityProvidersSAMLOutput {
+func (s *DataForListIdentityProvidersSAMLOutput) SetIdpMetadata(v string) *DataForListIdentityProvidersSAMLOutput {
 	s.IdpMetadata = &v
 	return s
 }
 
 // SetName sets the Name field's value.
-func (s *GenericSAMLResponseForListIdentityProvidersSAMLOutput) SetName(v string) *GenericSAMLResponseForListIdentityProvidersSAMLOutput {
+func (s *DataForListIdentityProvidersSAMLOutput) SetName(v string) *DataForListIdentityProvidersSAMLOutput {
 	s.Name = &v
 	return s
 }
 
 // SetProvider sets the Provider field's value.
-func (s *GenericSAMLResponseForListIdentityProvidersSAMLOutput) SetProvider(v string) *GenericSAMLResponseForListIdentityProvidersSAMLOutput {
+func (s *DataForListIdentityProvidersSAMLOutput) SetProvider(v string) *DataForListIdentityProvidersSAMLOutput {
 	s.Provider = &v
 	return s
 }
 
 // SetProviderOptions sets the ProviderOptions field's value.
-func (s *GenericSAMLResponseForListIdentityProvidersSAMLOutput) SetProviderOptions(v *ProviderOptionsForListIdentityProvidersSAMLOutput) *GenericSAMLResponseForListIdentityProvidersSAMLOutput {
+func (s *DataForListIdentityProvidersSAMLOutput) SetProviderOptions(v *ProviderOptionsForListIdentityProvidersSAMLOutput) *DataForListIdentityProvidersSAMLOutput {
 	s.ProviderOptions = v
 	return s
 }
 
 // SetUid sets the Uid field's value.
-func (s *GenericSAMLResponseForListIdentityProvidersSAMLOutput) SetUid(v string) *GenericSAMLResponseForListIdentityProvidersSAMLOutput {
+func (s *DataForListIdentityProvidersSAMLOutput) SetUid(v string) *DataForListIdentityProvidersSAMLOutput {
 	s.Uid = &v
 	return s
 }
@@ -286,7 +370,7 @@ type ListIdentityProvidersSAMLOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	GenericSAMLResponse *GenericSAMLResponseForListIdentityProvidersSAMLOutput `type:"structure" json:",omitempty"`
+	Data []*DataForListIdentityProvidersSAMLOutput `type:"list" json:",omitempty"`
 
 	PageNumber *int32 `type:"int32" json:",omitempty"`
 
@@ -305,9 +389,9 @@ func (s ListIdentityProvidersSAMLOutput) GoString() string {
 	return s.String()
 }
 
-// SetGenericSAMLResponse sets the GenericSAMLResponse field's value.
-func (s *ListIdentityProvidersSAMLOutput) SetGenericSAMLResponse(v *GenericSAMLResponseForListIdentityProvidersSAMLOutput) *ListIdentityProvidersSAMLOutput {
-	s.GenericSAMLResponse = v
+// SetData sets the Data field's value.
+func (s *ListIdentityProvidersSAMLOutput) SetData(v []*DataForListIdentityProvidersSAMLOutput) *ListIdentityProvidersSAMLOutput {
+	s.Data = v
 	return s
 }
 

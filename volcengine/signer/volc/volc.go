@@ -3,6 +3,7 @@ package volc
 import (
 	"github.com/volcengine/volc-sdk-golang/base"
 	"github.com/volcengine/volcengine-go-sdk/volcengine"
+	v2base "github.com/volcengine/volcengine-go-sdk/volcengine/base"
 	"github.com/volcengine/volcengine-go-sdk/volcengine/credentials"
 	"github.com/volcengine/volcengine-go-sdk/volcengine/custom"
 	"github.com/volcengine/volcengine-go-sdk/volcengine/request"
@@ -70,6 +71,18 @@ func SignSDKRequest(req *request.Request) {
 		return
 	}
 
-	r := c1.Sign(req.HTTPRequest)
-	req.HTTPRequest.Header = r.Header
+	if req.IsPresigned() {
+		newCreds := v2base.Credentials{
+			AccessKeyID:     c1.AccessKeyID,
+			SecretAccessKey: c1.SecretAccessKey,
+			Service:         c1.Service,
+			Region:          c1.Region,
+			SessionToken:    c1.SessionToken,
+		}
+		signedQuery := newCreds.SignUrl(req.HTTPRequest)
+		req.HTTPRequest.URL.RawQuery = signedQuery
+	} else {
+		r := c1.Sign(req.HTTPRequest)
+		req.HTTPRequest.Header = r.Header
+	}
 }

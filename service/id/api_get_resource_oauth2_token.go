@@ -200,6 +200,8 @@ type GetResourceOauth2TokenInput struct {
 
 	CustomParameters *CustomParametersForGetResourceOauth2TokenInput `type:"structure" json:",omitempty"`
 
+	CustomState *string `type:"string" json:",omitempty"`
+
 	Flow *string `type:"string" json:",omitempty"`
 
 	ForceAuthentication *bool `type:"boolean" json:",omitempty"`
@@ -217,6 +219,8 @@ type GetResourceOauth2TokenInput struct {
 	ResourceOauth2ReturnUrl *string `type:"string" json:",omitempty"`
 
 	Scopes []*string `type:"list" json:",omitempty"`
+
+	SessionUri *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -248,6 +252,12 @@ func (s *GetResourceOauth2TokenInput) Validate() error {
 // SetCustomParameters sets the CustomParameters field's value.
 func (s *GetResourceOauth2TokenInput) SetCustomParameters(v *CustomParametersForGetResourceOauth2TokenInput) *GetResourceOauth2TokenInput {
 	s.CustomParameters = v
+	return s
+}
+
+// SetCustomState sets the CustomState field's value.
+func (s *GetResourceOauth2TokenInput) SetCustomState(v string) *GetResourceOauth2TokenInput {
+	s.CustomState = &v
 	return s
 }
 
@@ -299,6 +309,12 @@ func (s *GetResourceOauth2TokenInput) SetScopes(v []*string) *GetResourceOauth2T
 	return s
 }
 
+// SetSessionUri sets the SessionUri field's value.
+func (s *GetResourceOauth2TokenInput) SetSessionUri(v string) *GetResourceOauth2TokenInput {
+	s.SessionUri = &v
+	return s
+}
+
 type GetResourceOauth2TokenOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -307,6 +323,10 @@ type GetResourceOauth2TokenOutput struct {
 	AccessToken *string `type:"string" json:",omitempty"`
 
 	AuthorizationUrl *string `type:"string" json:",omitempty"`
+
+	ExpiresIn *int64 `type:"int64" json:",omitempty"`
+
+	SessionUri *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -328,5 +348,17 @@ func (s *GetResourceOauth2TokenOutput) SetAccessToken(v string) *GetResourceOaut
 // SetAuthorizationUrl sets the AuthorizationUrl field's value.
 func (s *GetResourceOauth2TokenOutput) SetAuthorizationUrl(v string) *GetResourceOauth2TokenOutput {
 	s.AuthorizationUrl = &v
+	return s
+}
+
+// SetExpiresIn sets the ExpiresIn field's value.
+func (s *GetResourceOauth2TokenOutput) SetExpiresIn(v int64) *GetResourceOauth2TokenOutput {
+	s.ExpiresIn = &v
+	return s
+}
+
+// SetSessionUri sets the SessionUri field's value.
+func (s *GetResourceOauth2TokenOutput) SetSessionUri(v string) *GetResourceOauth2TokenOutput {
+	s.SessionUri = &v
 	return s
 }

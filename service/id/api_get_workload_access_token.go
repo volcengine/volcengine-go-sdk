@@ -146,6 +146,10 @@ func (c *ID) GetWorkloadAccessTokenWithContext(ctx volcengine.Context, input *Ge
 type GetWorkloadAccessTokenInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	Audience []*string `type:"list" json:",omitempty"`
+
+	DurationSeconds *int64 `type:"int64" json:",omitempty"`
+
 	Name *string `type:"string" json:",omitempty"`
 
 	WorkloadPoolName *string `type:"string" json:",omitempty"`
@@ -159,6 +163,18 @@ func (s GetWorkloadAccessTokenInput) String() string {
 // GoString returns the string representation
 func (s GetWorkloadAccessTokenInput) GoString() string {
 	return s.String()
+}
+
+// SetAudience sets the Audience field's value.
+func (s *GetWorkloadAccessTokenInput) SetAudience(v []*string) *GetWorkloadAccessTokenInput {
+	s.Audience = v
+	return s
+}
+
+// SetDurationSeconds sets the DurationSeconds field's value.
+func (s *GetWorkloadAccessTokenInput) SetDurationSeconds(v int64) *GetWorkloadAccessTokenInput {
+	s.DurationSeconds = &v
+	return s
 }
 
 // SetName sets the Name field's value.

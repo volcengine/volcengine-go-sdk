@@ -219,44 +219,14 @@ func (s *CreateBackupPlanOutput) SetPlanId(v string) *CreateBackupPlanOutput {
 	return s
 }
 
-type MetaInformationForCreateBackupPlanInput struct {
-	_ struct{} `type:"structure" json:",omitempty"`
-
-	EcsMeta *string `type:"string" json:",omitempty"`
-
-	VepfsMeta *string `type:"string" json:",omitempty"`
-}
-
-// String returns the string representation
-func (s MetaInformationForCreateBackupPlanInput) String() string {
-	return volcengineutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s MetaInformationForCreateBackupPlanInput) GoString() string {
-	return s.String()
-}
-
-// SetEcsMeta sets the EcsMeta field's value.
-func (s *MetaInformationForCreateBackupPlanInput) SetEcsMeta(v string) *MetaInformationForCreateBackupPlanInput {
-	s.EcsMeta = &v
-	return s
-}
-
-// SetVepfsMeta sets the VepfsMeta field's value.
-func (s *MetaInformationForCreateBackupPlanInput) SetVepfsMeta(v string) *MetaInformationForCreateBackupPlanInput {
-	s.VepfsMeta = &v
-	return s
-}
-
 type ResourceListForCreateBackupPlanInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	MetaInformation *MetaInformationForCreateBackupPlanInput `type:"structure" json:",omitempty"`
+	BackupOptions *string `type:"string" json:",omitempty"`
 
 	ResourceId *string `type:"string" json:",omitempty"`
 
-	ResourceType *string `type:"string" json:",omitempty"`
+	ResourceType *string `type:"string" json:",omitempty" enum:"EnumOfResourceTypeForCreateBackupPlanInput"`
 }
 
 // String returns the string representation
@@ -269,9 +239,9 @@ func (s ResourceListForCreateBackupPlanInput) GoString() string {
 	return s.String()
 }
 
-// SetMetaInformation sets the MetaInformation field's value.
-func (s *ResourceListForCreateBackupPlanInput) SetMetaInformation(v *MetaInformationForCreateBackupPlanInput) *ResourceListForCreateBackupPlanInput {
-	s.MetaInformation = v
+// SetBackupOptions sets the BackupOptions field's value.
+func (s *ResourceListForCreateBackupPlanInput) SetBackupOptions(v string) *ResourceListForCreateBackupPlanInput {
+	s.BackupOptions = &v
 	return s
 }
 
@@ -286,3 +256,11 @@ func (s *ResourceListForCreateBackupPlanInput) SetResourceType(v string) *Resour
 	s.ResourceType = &v
 	return s
 }
+
+const (
+	// EnumOfResourceTypeForCreateBackupPlanInputEcs is a EnumOfResourceTypeForCreateBackupPlanInput enum value
+	EnumOfResourceTypeForCreateBackupPlanInputEcs = "ECS"
+
+	// EnumOfResourceTypeForCreateBackupPlanInputVePfs is a EnumOfResourceTypeForCreateBackupPlanInput enum value
+	EnumOfResourceTypeForCreateBackupPlanInputVePfs = "vePFS"
+)

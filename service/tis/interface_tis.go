@@ -54,6 +54,14 @@ type TISAPI interface {
 	ClearDeviceLongMemoryWithContext(volcengine.Context, *ClearDeviceLongMemoryInput, ...request.Option) (*ClearDeviceLongMemoryOutput, error)
 	ClearDeviceLongMemoryRequest(*ClearDeviceLongMemoryInput) (*request.Request, *ClearDeviceLongMemoryOutput)
 
+	CreateDeviceWithoutApprovalCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateDeviceWithoutApprovalCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateDeviceWithoutApprovalCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateDeviceWithoutApproval(*CreateDeviceWithoutApprovalInput) (*CreateDeviceWithoutApprovalOutput, error)
+	CreateDeviceWithoutApprovalWithContext(volcengine.Context, *CreateDeviceWithoutApprovalInput, ...request.Option) (*CreateDeviceWithoutApprovalOutput, error)
+	CreateDeviceWithoutApprovalRequest(*CreateDeviceWithoutApprovalInput) (*request.Request, *CreateDeviceWithoutApprovalOutput)
+
 	GetAgentListCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	GetAgentListCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	GetAgentListCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})

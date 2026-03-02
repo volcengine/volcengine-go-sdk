@@ -149,8 +149,7 @@ type DescribeZonesInput struct {
 	// AccountId is a required field
 	AccountId *string `type:"string" json:",omitempty" required:"true"`
 
-	// LanguageCode is a required field
-	LanguageCode *string `type:"string" json:",omitempty" required:"true"`
+	LanguageCode *string `type:"string" json:",omitempty"`
 
 	// RegionId is a required field
 	RegionId *string `type:"string" json:",omitempty" required:"true"`
@@ -171,9 +170,6 @@ func (s *DescribeZonesInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "DescribeZonesInput"}
 	if s.AccountId == nil {
 		invalidParams.Add(request.NewErrParamRequired("AccountId"))
-	}
-	if s.LanguageCode == nil {
-		invalidParams.Add(request.NewErrParamRequired("LanguageCode"))
 	}
 	if s.RegionId == nil {
 		invalidParams.Add(request.NewErrParamRequired("RegionId"))

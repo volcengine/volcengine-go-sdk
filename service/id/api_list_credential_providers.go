@@ -150,9 +150,13 @@ type CredentialProviderForListCredentialProvidersOutput struct {
 
 	CredentialProviderTrn *string `type:"string" json:",omitempty"`
 
+	Flow *string `type:"string" json:",omitempty" enum:"EnumOfFlowForListCredentialProvidersOutput"`
+
 	Name *string `type:"string" json:",omitempty"`
 
-	Type *string `type:"string" json:",omitempty"`
+	PoolName *string `type:"string" json:",omitempty"`
+
+	Type *string `type:"string" json:",omitempty" enum:"EnumOfTypeForListCredentialProvidersOutput"`
 
 	UpdatedAt *string `type:"string" json:",omitempty"`
 
@@ -181,9 +185,21 @@ func (s *CredentialProviderForListCredentialProvidersOutput) SetCredentialProvid
 	return s
 }
 
+// SetFlow sets the Flow field's value.
+func (s *CredentialProviderForListCredentialProvidersOutput) SetFlow(v string) *CredentialProviderForListCredentialProvidersOutput {
+	s.Flow = &v
+	return s
+}
+
 // SetName sets the Name field's value.
 func (s *CredentialProviderForListCredentialProvidersOutput) SetName(v string) *CredentialProviderForListCredentialProvidersOutput {
 	s.Name = &v
+	return s
+}
+
+// SetPoolName sets the PoolName field's value.
+func (s *CredentialProviderForListCredentialProvidersOutput) SetPoolName(v string) *CredentialProviderForListCredentialProvidersOutput {
+	s.PoolName = &v
 	return s
 }
 
@@ -208,9 +224,13 @@ func (s *CredentialProviderForListCredentialProvidersOutput) SetVendor(v int32) 
 type FilterForListCredentialProvidersInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	Flow *string `type:"string" json:",omitempty" enum:"EnumOfFlowForListCredentialProvidersInput"`
+
 	Name *string `type:"string" json:",omitempty"`
 
-	Type *string `type:"string" json:",omitempty"`
+	PoolName *string `type:"string" json:",omitempty"`
+
+	Type *string `type:"string" json:",omitempty" enum:"EnumOfTypeForListCredentialProvidersInput"`
 
 	Vendor *int32 `type:"int32" json:",omitempty"`
 }
@@ -225,9 +245,21 @@ func (s FilterForListCredentialProvidersInput) GoString() string {
 	return s.String()
 }
 
+// SetFlow sets the Flow field's value.
+func (s *FilterForListCredentialProvidersInput) SetFlow(v string) *FilterForListCredentialProvidersInput {
+	s.Flow = &v
+	return s
+}
+
 // SetName sets the Name field's value.
 func (s *FilterForListCredentialProvidersInput) SetName(v string) *FilterForListCredentialProvidersInput {
 	s.Name = &v
+	return s
+}
+
+// SetPoolName sets the PoolName field's value.
+func (s *FilterForListCredentialProvidersInput) SetPoolName(v string) *FilterForListCredentialProvidersInput {
+	s.PoolName = &v
 	return s
 }
 
@@ -370,3 +402,35 @@ func (s *ListCredentialProvidersOutput) SetTotalCount(v int32) *ListCredentialPr
 	s.TotalCount = &v
 	return s
 }
+
+const (
+	// EnumOfFlowForListCredentialProvidersInputUserFederation is a EnumOfFlowForListCredentialProvidersInput enum value
+	EnumOfFlowForListCredentialProvidersInputUserFederation = "USER_FEDERATION"
+
+	// EnumOfFlowForListCredentialProvidersInputM2m is a EnumOfFlowForListCredentialProvidersInput enum value
+	EnumOfFlowForListCredentialProvidersInputM2m = "M2M"
+)
+
+const (
+	// EnumOfFlowForListCredentialProvidersOutputUserFederation is a EnumOfFlowForListCredentialProvidersOutput enum value
+	EnumOfFlowForListCredentialProvidersOutputUserFederation = "USER_FEDERATION"
+
+	// EnumOfFlowForListCredentialProvidersOutputM2m is a EnumOfFlowForListCredentialProvidersOutput enum value
+	EnumOfFlowForListCredentialProvidersOutputM2m = "M2M"
+)
+
+const (
+	// EnumOfTypeForListCredentialProvidersInputApiKey is a EnumOfTypeForListCredentialProvidersInput enum value
+	EnumOfTypeForListCredentialProvidersInputApiKey = "api_key"
+
+	// EnumOfTypeForListCredentialProvidersInputOauth2 is a EnumOfTypeForListCredentialProvidersInput enum value
+	EnumOfTypeForListCredentialProvidersInputOauth2 = "oauth2"
+)
+
+const (
+	// EnumOfTypeForListCredentialProvidersOutputApiKey is a EnumOfTypeForListCredentialProvidersOutput enum value
+	EnumOfTypeForListCredentialProvidersOutputApiKey = "api_key"
+
+	// EnumOfTypeForListCredentialProvidersOutputOauth2 is a EnumOfTypeForListCredentialProvidersOutput enum value
+	EnumOfTypeForListCredentialProvidersOutputOauth2 = "oauth2"
+)
