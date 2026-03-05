@@ -202,7 +202,7 @@ type GetPolicyOutput struct {
 
 	Statistics *StatisticsForGetPolicyOutput `type:"structure"`
 
-	Targets *TargetsForGetPolicyOutput `type:"structure"`
+	Targets []*TargetForGetPolicyOutput `type:"list"`
 }
 
 // String returns the string representation
@@ -246,7 +246,7 @@ func (s *GetPolicyOutput) SetStatistics(v *StatisticsForGetPolicyOutput) *GetPol
 }
 
 // SetTargets sets the Targets field's value.
-func (s *GetPolicyOutput) SetTargets(v *TargetsForGetPolicyOutput) *GetPolicyOutput {
+func (s *GetPolicyOutput) SetTargets(v []*TargetForGetPolicyOutput) *GetPolicyOutput {
 	s.Targets = v
 	return s
 }
@@ -295,24 +295,24 @@ func (s *StatisticsForGetPolicyOutput) SetInactiveAddr(v int32) *StatisticsForGe
 	return s
 }
 
-type TargetsForGetPolicyOutput struct {
+type TargetForGetPolicyOutput struct {
 	_ struct{} `type:"structure"`
 
 	PoolId *string `type:"string"`
 }
 
 // String returns the string representation
-func (s TargetsForGetPolicyOutput) String() string {
+func (s TargetForGetPolicyOutput) String() string {
 	return volcengineutil.Prettify(s)
 }
 
 // GoString returns the string representation
-func (s TargetsForGetPolicyOutput) GoString() string {
+func (s TargetForGetPolicyOutput) GoString() string {
 	return s.String()
 }
 
 // SetPoolId sets the PoolId field's value.
-func (s *TargetsForGetPolicyOutput) SetPoolId(v string) *TargetsForGetPolicyOutput {
+func (s *TargetForGetPolicyOutput) SetPoolId(v string) *TargetForGetPolicyOutput {
 	s.PoolId = &v
 	return s
 }
