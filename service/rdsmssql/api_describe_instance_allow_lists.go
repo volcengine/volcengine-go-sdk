@@ -241,6 +241,8 @@ type DescribeInstanceAllowListsInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
 	InstanceId *string `type:"string" json:",omitempty"`
+
+	RegionId *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -256,6 +258,12 @@ func (s DescribeInstanceAllowListsInput) GoString() string {
 // SetInstanceId sets the InstanceId field's value.
 func (s *DescribeInstanceAllowListsInput) SetInstanceId(v string) *DescribeInstanceAllowListsInput {
 	s.InstanceId = &v
+	return s
+}
+
+// SetRegionId sets the RegionId field's value.
+func (s *DescribeInstanceAllowListsInput) SetRegionId(v string) *DescribeInstanceAllowListsInput {
+	s.RegionId = &v
 	return s
 }
 
