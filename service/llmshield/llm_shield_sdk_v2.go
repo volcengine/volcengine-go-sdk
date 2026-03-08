@@ -121,7 +121,7 @@ func (c *Client) Moderate(request *ModerateV2Request) (*ModerateV2Response, erro
 	return response, nil
 }
 
-// ModerateStream 方法，根据传入的 Request 结构体反序列成 JSON 并发送请求，读取响应并转化为 Response 结构体
+// ModerateStreamOld 方法，根据传入的 Request 结构体反序列成 JSON 并发送请求，读取响应并转化为 Response 结构体
 func (c *Client) ModerateStreamOld(request *ModerateV2Request, session *ModerateV2StreamSession) (*ModerateV2Response, error) {
 	if request == nil {
 		request = &ModerateV2Request{}
