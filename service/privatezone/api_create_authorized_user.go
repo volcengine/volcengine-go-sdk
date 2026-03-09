@@ -152,7 +152,7 @@ type CreateAuthorizedUserInput struct {
 	// AuthType is a required field
 	AuthType *int32 `type:"int32" json:",omitempty" required:"true"`
 
-	VerifyCode *int32 `type:"int32" json:",omitempty"`
+	VerifyCode *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -194,7 +194,7 @@ func (s *CreateAuthorizedUserInput) SetAuthType(v int32) *CreateAuthorizedUserIn
 }
 
 // SetVerifyCode sets the VerifyCode field's value.
-func (s *CreateAuthorizedUserInput) SetVerifyCode(v int32) *CreateAuthorizedUserInput {
+func (s *CreateAuthorizedUserInput) SetVerifyCode(v string) *CreateAuthorizedUserInput {
 	s.VerifyCode = &v
 	return s
 }
