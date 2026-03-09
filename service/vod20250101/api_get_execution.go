@@ -139,6 +139,52 @@ func (c *VOD20250101) GetExecutionWithContext(ctx volcengine.Context, input *Get
 	return out, req.Send()
 }
 
+type ABRTranscodeForGetExecutionOutput struct {
+	_ struct{} `type:"structure"`
+
+	Container *ContainerForGetExecutionOutput `type:"structure"`
+
+	Metadata *MetadataForGetExecutionOutput `type:"structure"`
+
+	Outputs []*OutputForGetExecutionOutput `type:"list"`
+
+	Type *string `type:"string" enum:"ConvertEnumOfTypeForGetExecutionOutput"`
+}
+
+// String returns the string representation
+func (s ABRTranscodeForGetExecutionOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ABRTranscodeForGetExecutionOutput) GoString() string {
+	return s.String()
+}
+
+// SetContainer sets the Container field's value.
+func (s *ABRTranscodeForGetExecutionOutput) SetContainer(v *ContainerForGetExecutionOutput) *ABRTranscodeForGetExecutionOutput {
+	s.Container = v
+	return s
+}
+
+// SetMetadata sets the Metadata field's value.
+func (s *ABRTranscodeForGetExecutionOutput) SetMetadata(v *MetadataForGetExecutionOutput) *ABRTranscodeForGetExecutionOutput {
+	s.Metadata = v
+	return s
+}
+
+// SetOutputs sets the Outputs field's value.
+func (s *ABRTranscodeForGetExecutionOutput) SetOutputs(v []*OutputForGetExecutionOutput) *ABRTranscodeForGetExecutionOutput {
+	s.Outputs = v
+	return s
+}
+
+// SetType sets the Type field's value.
+func (s *ABRTranscodeForGetExecutionOutput) SetType(v string) *ABRTranscodeForGetExecutionOutput {
+	s.Type = &v
+	return s
+}
+
 type AdAuditForGetExecutionOutput struct {
 	_ struct{} `type:"structure"`
 
@@ -166,6 +212,36 @@ func (s *AdAuditForGetExecutionOutput) SetAdvertiserId(v string) *AdAuditForGetE
 // SetBusinessType sets the BusinessType field's value.
 func (s *AdAuditForGetExecutionOutput) SetBusinessType(v string) *AdAuditForGetExecutionOutput {
 	s.BusinessType = &v
+	return s
+}
+
+type AddTagForGetExecutionOutput struct {
+	_ struct{} `type:"structure"`
+
+	Key *string `type:"string"`
+
+	Value *string `type:"string"`
+}
+
+// String returns the string representation
+func (s AddTagForGetExecutionOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s AddTagForGetExecutionOutput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *AddTagForGetExecutionOutput) SetKey(v string) *AddTagForGetExecutionOutput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *AddTagForGetExecutionOutput) SetValue(v string) *AddTagForGetExecutionOutput {
+	s.Value = &v
 	return s
 }
 
@@ -351,6 +427,68 @@ func (s *AudioExtractForGetExecutionOutput) SetVoice(v bool) *AudioExtractForGet
 	return s
 }
 
+type AudioForGetExecutionOutput struct {
+	_ struct{} `type:"structure"`
+
+	BitrateControl *BitrateControlForGetExecutionOutput `type:"structure"`
+
+	Channels *int32 `type:"int32"`
+
+	Codec *string `type:"string" enum:"EnumOfCodecForGetExecutionOutput"`
+
+	Profile *string `type:"string" enum:"EnumOfProfileForGetExecutionOutput"`
+
+	SampleRate *int32 `type:"int32"`
+
+	Volume *VolumeForGetExecutionOutput `type:"structure"`
+}
+
+// String returns the string representation
+func (s AudioForGetExecutionOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s AudioForGetExecutionOutput) GoString() string {
+	return s.String()
+}
+
+// SetBitrateControl sets the BitrateControl field's value.
+func (s *AudioForGetExecutionOutput) SetBitrateControl(v *BitrateControlForGetExecutionOutput) *AudioForGetExecutionOutput {
+	s.BitrateControl = v
+	return s
+}
+
+// SetChannels sets the Channels field's value.
+func (s *AudioForGetExecutionOutput) SetChannels(v int32) *AudioForGetExecutionOutput {
+	s.Channels = &v
+	return s
+}
+
+// SetCodec sets the Codec field's value.
+func (s *AudioForGetExecutionOutput) SetCodec(v string) *AudioForGetExecutionOutput {
+	s.Codec = &v
+	return s
+}
+
+// SetProfile sets the Profile field's value.
+func (s *AudioForGetExecutionOutput) SetProfile(v string) *AudioForGetExecutionOutput {
+	s.Profile = &v
+	return s
+}
+
+// SetSampleRate sets the SampleRate field's value.
+func (s *AudioForGetExecutionOutput) SetSampleRate(v int32) *AudioForGetExecutionOutput {
+	s.SampleRate = &v
+	return s
+}
+
+// SetVolume sets the Volume field's value.
+func (s *AudioForGetExecutionOutput) SetVolume(v *VolumeForGetExecutionOutput) *AudioForGetExecutionOutput {
+	s.Volume = v
+	return s
+}
+
 type AudioStreamMetaForGetExecutionOutput struct {
 	_ struct{} `type:"structure"`
 
@@ -486,6 +624,36 @@ func (s *BackgroundForGetExecutionOutput) SetSize(v string) *BackgroundForGetExe
 // SetVid sets the Vid field's value.
 func (s *BackgroundForGetExecutionOutput) SetVid(v string) *BackgroundForGetExecutionOutput {
 	s.Vid = &v
+	return s
+}
+
+type BitrateControlForGetExecutionOutput struct {
+	_ struct{} `type:"structure"`
+
+	Bitrate *int32 `min:"10" max:"500" type:"int32"`
+
+	Mode *string `type:"string" enum:"EnumOfModeForGetExecutionOutput"`
+}
+
+// String returns the string representation
+func (s BitrateControlForGetExecutionOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s BitrateControlForGetExecutionOutput) GoString() string {
+	return s.String()
+}
+
+// SetBitrate sets the Bitrate field's value.
+func (s *BitrateControlForGetExecutionOutput) SetBitrate(v int32) *BitrateControlForGetExecutionOutput {
+	s.Bitrate = &v
+	return s
+}
+
+// SetMode sets the Mode field's value.
+func (s *BitrateControlForGetExecutionOutput) SetMode(v string) *BitrateControlForGetExecutionOutput {
+	s.Mode = &v
 	return s
 }
 
@@ -711,6 +879,90 @@ func (s *CodecForGetExecutionOutput) SetVideoCodec(v string) *CodecForGetExecuti
 	return s
 }
 
+type ConcatForGetExecutionOutput struct {
+	_ struct{} `type:"structure"`
+
+	Mid *string `type:"string"`
+
+	Position *string `type:"string" enum:"EnumOfPositionForGetExecutionOutput"`
+
+	Type *string `type:"string" enum:"ConvertConvertConvertEnumOfTypeForGetExecutionOutput"`
+}
+
+// String returns the string representation
+func (s ConcatForGetExecutionOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ConcatForGetExecutionOutput) GoString() string {
+	return s.String()
+}
+
+// SetMid sets the Mid field's value.
+func (s *ConcatForGetExecutionOutput) SetMid(v string) *ConcatForGetExecutionOutput {
+	s.Mid = &v
+	return s
+}
+
+// SetPosition sets the Position field's value.
+func (s *ConcatForGetExecutionOutput) SetPosition(v string) *ConcatForGetExecutionOutput {
+	s.Position = &v
+	return s
+}
+
+// SetType sets the Type field's value.
+func (s *ConcatForGetExecutionOutput) SetType(v string) *ConcatForGetExecutionOutput {
+	s.Type = &v
+	return s
+}
+
+type ContainerForGetExecutionOutput struct {
+	_ struct{} `type:"structure"`
+
+	Container *string `type:"string" enum:"EnumOfContainerForGetExecutionOutput"`
+
+	Encryption *EncryptionForGetExecutionOutput `type:"structure"`
+
+	FileName *string `max:"696" type:"string"`
+
+	Segment *SegmentForGetExecutionOutput `type:"structure"`
+}
+
+// String returns the string representation
+func (s ContainerForGetExecutionOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ContainerForGetExecutionOutput) GoString() string {
+	return s.String()
+}
+
+// SetContainer sets the Container field's value.
+func (s *ContainerForGetExecutionOutput) SetContainer(v string) *ContainerForGetExecutionOutput {
+	s.Container = &v
+	return s
+}
+
+// SetEncryption sets the Encryption field's value.
+func (s *ContainerForGetExecutionOutput) SetEncryption(v *EncryptionForGetExecutionOutput) *ContainerForGetExecutionOutput {
+	s.Encryption = v
+	return s
+}
+
+// SetFileName sets the FileName field's value.
+func (s *ContainerForGetExecutionOutput) SetFileName(v string) *ContainerForGetExecutionOutput {
+	s.FileName = &v
+	return s
+}
+
+// SetSegment sets the Segment field's value.
+func (s *ContainerForGetExecutionOutput) SetSegment(v *SegmentForGetExecutionOutput) *ContainerForGetExecutionOutput {
+	s.Segment = v
+	return s
+}
+
 type ControlForGetExecutionOutput struct {
 	_ struct{} `type:"structure"`
 
@@ -762,6 +1014,36 @@ func (s *ControlForGetExecutionOutput) SetPriority(v int32) *ControlForGetExecut
 // SetTaskListId sets the TaskListId field's value.
 func (s *ControlForGetExecutionOutput) SetTaskListId(v string) *ControlForGetExecutionOutput {
 	s.TaskListId = &v
+	return s
+}
+
+type ConvertABRTranscodeForGetExecutionOutput struct {
+	_ struct{} `type:"structure"`
+
+	FileName *string `type:"string"`
+
+	Size *string `type:"string"`
+}
+
+// String returns the string representation
+func (s ConvertABRTranscodeForGetExecutionOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ConvertABRTranscodeForGetExecutionOutput) GoString() string {
+	return s.String()
+}
+
+// SetFileName sets the FileName field's value.
+func (s *ConvertABRTranscodeForGetExecutionOutput) SetFileName(v string) *ConvertABRTranscodeForGetExecutionOutput {
+	s.FileName = &v
+	return s
+}
+
+// SetSize sets the Size field's value.
+func (s *ConvertABRTranscodeForGetExecutionOutput) SetSize(v string) *ConvertABRTranscodeForGetExecutionOutput {
+	s.Size = &v
 	return s
 }
 
@@ -941,6 +1223,106 @@ func (s *ConvertAudioExtractForGetExecutionOutput) SetVoice(v *VoiceForGetExecut
 	return s
 }
 
+type ConvertAudioForGetExecutionOutput struct {
+	_ struct{} `type:"structure"`
+
+	BitrateControl *ConvertConvertBitrateControlForGetExecutionOutput `type:"structure"`
+
+	Channels *int32 `type:"int32"`
+
+	Codec *string `type:"string" enum:"ConvertConvertEnumOfCodecForGetExecutionOutput"`
+
+	Profile *string `type:"string" enum:"EnumOfProfileForGetExecutionOutput"`
+
+	SampleRate *int32 `type:"int32"`
+
+	Volume *ConvertVolumeForGetExecutionOutput `type:"structure"`
+}
+
+// String returns the string representation
+func (s ConvertAudioForGetExecutionOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ConvertAudioForGetExecutionOutput) GoString() string {
+	return s.String()
+}
+
+// SetBitrateControl sets the BitrateControl field's value.
+func (s *ConvertAudioForGetExecutionOutput) SetBitrateControl(v *ConvertConvertBitrateControlForGetExecutionOutput) *ConvertAudioForGetExecutionOutput {
+	s.BitrateControl = v
+	return s
+}
+
+// SetChannels sets the Channels field's value.
+func (s *ConvertAudioForGetExecutionOutput) SetChannels(v int32) *ConvertAudioForGetExecutionOutput {
+	s.Channels = &v
+	return s
+}
+
+// SetCodec sets the Codec field's value.
+func (s *ConvertAudioForGetExecutionOutput) SetCodec(v string) *ConvertAudioForGetExecutionOutput {
+	s.Codec = &v
+	return s
+}
+
+// SetProfile sets the Profile field's value.
+func (s *ConvertAudioForGetExecutionOutput) SetProfile(v string) *ConvertAudioForGetExecutionOutput {
+	s.Profile = &v
+	return s
+}
+
+// SetSampleRate sets the SampleRate field's value.
+func (s *ConvertAudioForGetExecutionOutput) SetSampleRate(v int32) *ConvertAudioForGetExecutionOutput {
+	s.SampleRate = &v
+	return s
+}
+
+// SetVolume sets the Volume field's value.
+func (s *ConvertAudioForGetExecutionOutput) SetVolume(v *ConvertVolumeForGetExecutionOutput) *ConvertAudioForGetExecutionOutput {
+	s.Volume = v
+	return s
+}
+
+type ConvertBitrateControlForGetExecutionOutput struct {
+	_ struct{} `type:"structure"`
+
+	Bitrate *int32 `min:"10" max:"50000" type:"int32"`
+
+	Crf *float64 `max:"51" type:"float"`
+
+	Mode *string `type:"string" enum:"ConvertEnumOfModeForGetExecutionOutput"`
+}
+
+// String returns the string representation
+func (s ConvertBitrateControlForGetExecutionOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ConvertBitrateControlForGetExecutionOutput) GoString() string {
+	return s.String()
+}
+
+// SetBitrate sets the Bitrate field's value.
+func (s *ConvertBitrateControlForGetExecutionOutput) SetBitrate(v int32) *ConvertBitrateControlForGetExecutionOutput {
+	s.Bitrate = &v
+	return s
+}
+
+// SetCrf sets the Crf field's value.
+func (s *ConvertBitrateControlForGetExecutionOutput) SetCrf(v float64) *ConvertBitrateControlForGetExecutionOutput {
+	s.Crf = &v
+	return s
+}
+
+// SetMode sets the Mode field's value.
+func (s *ConvertBitrateControlForGetExecutionOutput) SetMode(v string) *ConvertBitrateControlForGetExecutionOutput {
+	s.Mode = &v
+	return s
+}
+
 type ConvertByteHDForGetExecutionOutput struct {
 	_ struct{} `type:"structure"`
 
@@ -956,7 +1338,7 @@ type ConvertByteHDForGetExecutionOutput struct {
 
 	Encrypt *bool `type:"boolean"`
 
-	Encryption *EncryptionForGetExecutionOutput `type:"structure"`
+	Encryption *ConvertEncryptionForGetExecutionOutput `type:"structure"`
 
 	FileId *string `type:"string"`
 
@@ -1024,7 +1406,7 @@ func (s *ConvertByteHDForGetExecutionOutput) SetEncrypt(v bool) *ConvertByteHDFo
 }
 
 // SetEncryption sets the Encryption field's value.
-func (s *ConvertByteHDForGetExecutionOutput) SetEncryption(v *EncryptionForGetExecutionOutput) *ConvertByteHDForGetExecutionOutput {
+func (s *ConvertByteHDForGetExecutionOutput) SetEncryption(v *ConvertEncryptionForGetExecutionOutput) *ConvertByteHDForGetExecutionOutput {
 	s.Encryption = v
 	return s
 }
@@ -1086,11 +1468,9 @@ func (s *ConvertByteHDForGetExecutionOutput) SetVideoStreamMeta(v *VideoStreamMe
 type ConvertClipForGetExecutionOutput struct {
 	_ struct{} `type:"structure"`
 
-	End *float64 `type:"double"`
+	EndTime *int32 `type:"int32"`
 
-	Start *float64 `type:"double"`
-
-	VideoIndex *int32 `type:"int32"`
+	StartTime *int32 `type:"int32"`
 }
 
 // String returns the string representation
@@ -1103,25 +1483,255 @@ func (s ConvertClipForGetExecutionOutput) GoString() string {
 	return s.String()
 }
 
+// SetEndTime sets the EndTime field's value.
+func (s *ConvertClipForGetExecutionOutput) SetEndTime(v int32) *ConvertClipForGetExecutionOutput {
+	s.EndTime = &v
+	return s
+}
+
+// SetStartTime sets the StartTime field's value.
+func (s *ConvertClipForGetExecutionOutput) SetStartTime(v int32) *ConvertClipForGetExecutionOutput {
+	s.StartTime = &v
+	return s
+}
+
+type ConvertConcatForGetExecutionOutput struct {
+	_ struct{} `type:"structure"`
+
+	Concat *ConcatForGetExecutionOutput `type:"structure"`
+}
+
+// String returns the string representation
+func (s ConvertConcatForGetExecutionOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ConvertConcatForGetExecutionOutput) GoString() string {
+	return s.String()
+}
+
+// SetConcat sets the Concat field's value.
+func (s *ConvertConcatForGetExecutionOutput) SetConcat(v *ConcatForGetExecutionOutput) *ConvertConcatForGetExecutionOutput {
+	s.Concat = v
+	return s
+}
+
+type ConvertContainerForGetExecutionOutput struct {
+	_ struct{} `type:"structure"`
+
+	Container *string `type:"string" enum:"ConvertEnumOfContainerForGetExecutionOutput"`
+
+	Encryption *EncryptionForGetExecutionOutput `type:"structure"`
+
+	FileName *string `max:"696" type:"string"`
+
+	Segment *SegmentForGetExecutionOutput `type:"structure"`
+
+	StreamControl *StreamControlForGetExecutionOutput `type:"structure"`
+}
+
+// String returns the string representation
+func (s ConvertContainerForGetExecutionOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ConvertContainerForGetExecutionOutput) GoString() string {
+	return s.String()
+}
+
+// SetContainer sets the Container field's value.
+func (s *ConvertContainerForGetExecutionOutput) SetContainer(v string) *ConvertContainerForGetExecutionOutput {
+	s.Container = &v
+	return s
+}
+
+// SetEncryption sets the Encryption field's value.
+func (s *ConvertContainerForGetExecutionOutput) SetEncryption(v *EncryptionForGetExecutionOutput) *ConvertContainerForGetExecutionOutput {
+	s.Encryption = v
+	return s
+}
+
+// SetFileName sets the FileName field's value.
+func (s *ConvertContainerForGetExecutionOutput) SetFileName(v string) *ConvertContainerForGetExecutionOutput {
+	s.FileName = &v
+	return s
+}
+
+// SetSegment sets the Segment field's value.
+func (s *ConvertContainerForGetExecutionOutput) SetSegment(v *SegmentForGetExecutionOutput) *ConvertContainerForGetExecutionOutput {
+	s.Segment = v
+	return s
+}
+
+// SetStreamControl sets the StreamControl field's value.
+func (s *ConvertContainerForGetExecutionOutput) SetStreamControl(v *StreamControlForGetExecutionOutput) *ConvertContainerForGetExecutionOutput {
+	s.StreamControl = v
+	return s
+}
+
+type ConvertConvertBitrateControlForGetExecutionOutput struct {
+	_ struct{} `type:"structure"`
+
+	Bitrate *int32 `min:"10" max:"500" type:"int32"`
+
+	Mode *string `type:"string" enum:"EnumOfModeForGetExecutionOutput"`
+}
+
+// String returns the string representation
+func (s ConvertConvertBitrateControlForGetExecutionOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ConvertConvertBitrateControlForGetExecutionOutput) GoString() string {
+	return s.String()
+}
+
+// SetBitrate sets the Bitrate field's value.
+func (s *ConvertConvertBitrateControlForGetExecutionOutput) SetBitrate(v int32) *ConvertConvertBitrateControlForGetExecutionOutput {
+	s.Bitrate = &v
+	return s
+}
+
+// SetMode sets the Mode field's value.
+func (s *ConvertConvertBitrateControlForGetExecutionOutput) SetMode(v string) *ConvertConvertBitrateControlForGetExecutionOutput {
+	s.Mode = &v
+	return s
+}
+
+type ConvertConvertClipForGetExecutionOutput struct {
+	_ struct{} `type:"structure"`
+
+	End *float64 `type:"double"`
+
+	Start *float64 `type:"double"`
+
+	VideoIndex *int32 `type:"int32"`
+}
+
+// String returns the string representation
+func (s ConvertConvertClipForGetExecutionOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ConvertConvertClipForGetExecutionOutput) GoString() string {
+	return s.String()
+}
+
 // SetEnd sets the End field's value.
-func (s *ConvertClipForGetExecutionOutput) SetEnd(v float64) *ConvertClipForGetExecutionOutput {
+func (s *ConvertConvertClipForGetExecutionOutput) SetEnd(v float64) *ConvertConvertClipForGetExecutionOutput {
 	s.End = &v
 	return s
 }
 
 // SetStart sets the Start field's value.
-func (s *ConvertClipForGetExecutionOutput) SetStart(v float64) *ConvertClipForGetExecutionOutput {
+func (s *ConvertConvertClipForGetExecutionOutput) SetStart(v float64) *ConvertConvertClipForGetExecutionOutput {
 	s.Start = &v
 	return s
 }
 
 // SetVideoIndex sets the VideoIndex field's value.
-func (s *ConvertClipForGetExecutionOutput) SetVideoIndex(v int32) *ConvertClipForGetExecutionOutput {
+func (s *ConvertConvertClipForGetExecutionOutput) SetVideoIndex(v int32) *ConvertConvertClipForGetExecutionOutput {
 	s.VideoIndex = &v
 	return s
 }
 
-type ConvertConvertClipForGetExecutionOutput struct {
+type ConvertConvertContainerForGetExecutionOutput struct {
+	_ struct{} `type:"structure"`
+
+	Container *string `type:"string" enum:"ConvertEnumOfContainerForGetExecutionOutput"`
+
+	Encryption *EncryptionForGetExecutionOutput `type:"structure"`
+
+	FileName *string `max:"696" type:"string"`
+
+	Segment *SegmentForGetExecutionOutput `type:"structure"`
+
+	StreamControl *StreamControlForGetExecutionOutput `type:"structure"`
+}
+
+// String returns the string representation
+func (s ConvertConvertContainerForGetExecutionOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ConvertConvertContainerForGetExecutionOutput) GoString() string {
+	return s.String()
+}
+
+// SetContainer sets the Container field's value.
+func (s *ConvertConvertContainerForGetExecutionOutput) SetContainer(v string) *ConvertConvertContainerForGetExecutionOutput {
+	s.Container = &v
+	return s
+}
+
+// SetEncryption sets the Encryption field's value.
+func (s *ConvertConvertContainerForGetExecutionOutput) SetEncryption(v *EncryptionForGetExecutionOutput) *ConvertConvertContainerForGetExecutionOutput {
+	s.Encryption = v
+	return s
+}
+
+// SetFileName sets the FileName field's value.
+func (s *ConvertConvertContainerForGetExecutionOutput) SetFileName(v string) *ConvertConvertContainerForGetExecutionOutput {
+	s.FileName = &v
+	return s
+}
+
+// SetSegment sets the Segment field's value.
+func (s *ConvertConvertContainerForGetExecutionOutput) SetSegment(v *SegmentForGetExecutionOutput) *ConvertConvertContainerForGetExecutionOutput {
+	s.Segment = v
+	return s
+}
+
+// SetStreamControl sets the StreamControl field's value.
+func (s *ConvertConvertContainerForGetExecutionOutput) SetStreamControl(v *StreamControlForGetExecutionOutput) *ConvertConvertContainerForGetExecutionOutput {
+	s.StreamControl = v
+	return s
+}
+
+type ConvertConvertConvertBitrateControlForGetExecutionOutput struct {
+	_ struct{} `type:"structure"`
+
+	Bitrate *int32 `min:"10" max:"50000" type:"int32"`
+
+	Crf *float64 `max:"51" type:"float"`
+
+	Mode *string `type:"string" enum:"ConvertEnumOfModeForGetExecutionOutput"`
+}
+
+// String returns the string representation
+func (s ConvertConvertConvertBitrateControlForGetExecutionOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ConvertConvertConvertBitrateControlForGetExecutionOutput) GoString() string {
+	return s.String()
+}
+
+// SetBitrate sets the Bitrate field's value.
+func (s *ConvertConvertConvertBitrateControlForGetExecutionOutput) SetBitrate(v int32) *ConvertConvertConvertBitrateControlForGetExecutionOutput {
+	s.Bitrate = &v
+	return s
+}
+
+// SetCrf sets the Crf field's value.
+func (s *ConvertConvertConvertBitrateControlForGetExecutionOutput) SetCrf(v float64) *ConvertConvertConvertBitrateControlForGetExecutionOutput {
+	s.Crf = &v
+	return s
+}
+
+// SetMode sets the Mode field's value.
+func (s *ConvertConvertConvertBitrateControlForGetExecutionOutput) SetMode(v string) *ConvertConvertConvertBitrateControlForGetExecutionOutput {
+	s.Mode = &v
+	return s
+}
+
+type ConvertConvertConvertClipForGetExecutionOutput struct {
 	_ struct{} `type:"structure"`
 
 	CutEnd *float64 `type:"double"`
@@ -1140,58 +1750,58 @@ type ConvertConvertClipForGetExecutionOutput struct {
 }
 
 // String returns the string representation
-func (s ConvertConvertClipForGetExecutionOutput) String() string {
+func (s ConvertConvertConvertClipForGetExecutionOutput) String() string {
 	return volcengineutil.Prettify(s)
 }
 
 // GoString returns the string representation
-func (s ConvertConvertClipForGetExecutionOutput) GoString() string {
+func (s ConvertConvertConvertClipForGetExecutionOutput) GoString() string {
 	return s.String()
 }
 
 // SetCutEnd sets the CutEnd field's value.
-func (s *ConvertConvertClipForGetExecutionOutput) SetCutEnd(v float64) *ConvertConvertClipForGetExecutionOutput {
+func (s *ConvertConvertConvertClipForGetExecutionOutput) SetCutEnd(v float64) *ConvertConvertConvertClipForGetExecutionOutput {
 	s.CutEnd = &v
 	return s
 }
 
 // SetCutStart sets the CutStart field's value.
-func (s *ConvertConvertClipForGetExecutionOutput) SetCutStart(v float64) *ConvertConvertClipForGetExecutionOutput {
+func (s *ConvertConvertConvertClipForGetExecutionOutput) SetCutStart(v float64) *ConvertConvertConvertClipForGetExecutionOutput {
 	s.CutStart = &v
 	return s
 }
 
 // SetEnd sets the End field's value.
-func (s *ConvertConvertClipForGetExecutionOutput) SetEnd(v float64) *ConvertConvertClipForGetExecutionOutput {
+func (s *ConvertConvertConvertClipForGetExecutionOutput) SetEnd(v float64) *ConvertConvertConvertClipForGetExecutionOutput {
 	s.End = &v
 	return s
 }
 
 // SetScore sets the Score field's value.
-func (s *ConvertConvertClipForGetExecutionOutput) SetScore(v float64) *ConvertConvertClipForGetExecutionOutput {
+func (s *ConvertConvertConvertClipForGetExecutionOutput) SetScore(v float64) *ConvertConvertConvertClipForGetExecutionOutput {
 	s.Score = &v
 	return s
 }
 
 // SetStart sets the Start field's value.
-func (s *ConvertConvertClipForGetExecutionOutput) SetStart(v float64) *ConvertConvertClipForGetExecutionOutput {
+func (s *ConvertConvertConvertClipForGetExecutionOutput) SetStart(v float64) *ConvertConvertConvertClipForGetExecutionOutput {
 	s.Start = &v
 	return s
 }
 
 // SetType sets the Type field's value.
-func (s *ConvertConvertClipForGetExecutionOutput) SetType(v string) *ConvertConvertClipForGetExecutionOutput {
+func (s *ConvertConvertConvertClipForGetExecutionOutput) SetType(v string) *ConvertConvertConvertClipForGetExecutionOutput {
 	s.Type = &v
 	return s
 }
 
 // SetVideoIndex sets the VideoIndex field's value.
-func (s *ConvertConvertClipForGetExecutionOutput) SetVideoIndex(v int32) *ConvertConvertClipForGetExecutionOutput {
+func (s *ConvertConvertConvertClipForGetExecutionOutput) SetVideoIndex(v int32) *ConvertConvertConvertClipForGetExecutionOutput {
 	s.VideoIndex = &v
 	return s
 }
 
-type ConvertConvertConvertClipForGetExecutionOutput struct {
+type ConvertConvertConvertConvertClipForGetExecutionOutput struct {
 	_ struct{} `type:"structure"`
 
 	Dialogue *string `type:"string"`
@@ -1214,81 +1824,129 @@ type ConvertConvertConvertClipForGetExecutionOutput struct {
 }
 
 // String returns the string representation
-func (s ConvertConvertConvertClipForGetExecutionOutput) String() string {
+func (s ConvertConvertConvertConvertClipForGetExecutionOutput) String() string {
 	return volcengineutil.Prettify(s)
 }
 
 // GoString returns the string representation
-func (s ConvertConvertConvertClipForGetExecutionOutput) GoString() string {
+func (s ConvertConvertConvertConvertClipForGetExecutionOutput) GoString() string {
 	return s.String()
 }
 
 // SetDialogue sets the Dialogue field's value.
-func (s *ConvertConvertConvertClipForGetExecutionOutput) SetDialogue(v string) *ConvertConvertConvertClipForGetExecutionOutput {
+func (s *ConvertConvertConvertConvertClipForGetExecutionOutput) SetDialogue(v string) *ConvertConvertConvertConvertClipForGetExecutionOutput {
 	s.Dialogue = &v
 	return s
 }
 
 // SetEnd sets the End field's value.
-func (s *ConvertConvertConvertClipForGetExecutionOutput) SetEnd(v float64) *ConvertConvertConvertClipForGetExecutionOutput {
+func (s *ConvertConvertConvertConvertClipForGetExecutionOutput) SetEnd(v float64) *ConvertConvertConvertConvertClipForGetExecutionOutput {
 	s.End = &v
 	return s
 }
 
 // SetOffset sets the Offset field's value.
-func (s *ConvertConvertConvertClipForGetExecutionOutput) SetOffset(v int32) *ConvertConvertConvertClipForGetExecutionOutput {
+func (s *ConvertConvertConvertConvertClipForGetExecutionOutput) SetOffset(v int32) *ConvertConvertConvertConvertClipForGetExecutionOutput {
 	s.Offset = &v
 	return s
 }
 
 // SetScore sets the Score field's value.
-func (s *ConvertConvertConvertClipForGetExecutionOutput) SetScore(v float64) *ConvertConvertConvertClipForGetExecutionOutput {
+func (s *ConvertConvertConvertConvertClipForGetExecutionOutput) SetScore(v float64) *ConvertConvertConvertConvertClipForGetExecutionOutput {
 	s.Score = &v
 	return s
 }
 
 // SetSnapshot sets the Snapshot field's value.
-func (s *ConvertConvertConvertClipForGetExecutionOutput) SetSnapshot(v string) *ConvertConvertConvertClipForGetExecutionOutput {
+func (s *ConvertConvertConvertConvertClipForGetExecutionOutput) SetSnapshot(v string) *ConvertConvertConvertConvertClipForGetExecutionOutput {
 	s.Snapshot = &v
 	return s
 }
 
 // SetStart sets the Start field's value.
-func (s *ConvertConvertConvertClipForGetExecutionOutput) SetStart(v float64) *ConvertConvertConvertClipForGetExecutionOutput {
+func (s *ConvertConvertConvertConvertClipForGetExecutionOutput) SetStart(v float64) *ConvertConvertConvertConvertClipForGetExecutionOutput {
 	s.Start = &v
 	return s
 }
 
 // SetSummary sets the Summary field's value.
-func (s *ConvertConvertConvertClipForGetExecutionOutput) SetSummary(v string) *ConvertConvertConvertClipForGetExecutionOutput {
+func (s *ConvertConvertConvertConvertClipForGetExecutionOutput) SetSummary(v string) *ConvertConvertConvertConvertClipForGetExecutionOutput {
 	s.Summary = &v
 	return s
 }
 
 // SetTitle sets the Title field's value.
-func (s *ConvertConvertConvertClipForGetExecutionOutput) SetTitle(v string) *ConvertConvertConvertClipForGetExecutionOutput {
+func (s *ConvertConvertConvertConvertClipForGetExecutionOutput) SetTitle(v string) *ConvertConvertConvertConvertClipForGetExecutionOutput {
 	s.Title = &v
 	return s
 }
 
 // SetVideoIndex sets the VideoIndex field's value.
-func (s *ConvertConvertConvertClipForGetExecutionOutput) SetVideoIndex(v int32) *ConvertConvertConvertClipForGetExecutionOutput {
+func (s *ConvertConvertConvertConvertClipForGetExecutionOutput) SetVideoIndex(v int32) *ConvertConvertConvertConvertClipForGetExecutionOutput {
 	s.VideoIndex = &v
 	return s
 }
 
-type ConvertConvertConvertConvertConvertConvertSegmentForGetExecutionOutput struct {
+type ConvertConvertConvertConvertConvertConvertConvertSegmentForGetExecutionOutput struct {
 	_ struct{} `type:"structure"`
 
 	Content *string `type:"string"`
 
 	End *float64 `type:"double"`
 
-	File *VideoForGetExecutionOutput `type:"structure"`
+	File *ConvertConvertVideoForGetExecutionOutput `type:"structure"`
 
 	Frames []*int32 `type:"list"`
 
 	Start *float64 `type:"double"`
+}
+
+// String returns the string representation
+func (s ConvertConvertConvertConvertConvertConvertConvertSegmentForGetExecutionOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ConvertConvertConvertConvertConvertConvertConvertSegmentForGetExecutionOutput) GoString() string {
+	return s.String()
+}
+
+// SetContent sets the Content field's value.
+func (s *ConvertConvertConvertConvertConvertConvertConvertSegmentForGetExecutionOutput) SetContent(v string) *ConvertConvertConvertConvertConvertConvertConvertSegmentForGetExecutionOutput {
+	s.Content = &v
+	return s
+}
+
+// SetEnd sets the End field's value.
+func (s *ConvertConvertConvertConvertConvertConvertConvertSegmentForGetExecutionOutput) SetEnd(v float64) *ConvertConvertConvertConvertConvertConvertConvertSegmentForGetExecutionOutput {
+	s.End = &v
+	return s
+}
+
+// SetFile sets the File field's value.
+func (s *ConvertConvertConvertConvertConvertConvertConvertSegmentForGetExecutionOutput) SetFile(v *ConvertConvertVideoForGetExecutionOutput) *ConvertConvertConvertConvertConvertConvertConvertSegmentForGetExecutionOutput {
+	s.File = v
+	return s
+}
+
+// SetFrames sets the Frames field's value.
+func (s *ConvertConvertConvertConvertConvertConvertConvertSegmentForGetExecutionOutput) SetFrames(v []*int32) *ConvertConvertConvertConvertConvertConvertConvertSegmentForGetExecutionOutput {
+	s.Frames = v
+	return s
+}
+
+// SetStart sets the Start field's value.
+func (s *ConvertConvertConvertConvertConvertConvertConvertSegmentForGetExecutionOutput) SetStart(v float64) *ConvertConvertConvertConvertConvertConvertConvertSegmentForGetExecutionOutput {
+	s.Start = &v
+	return s
+}
+
+type ConvertConvertConvertConvertConvertConvertSegmentForGetExecutionOutput struct {
+	_ struct{} `type:"structure"`
+
+	Duration *float64 `type:"double"`
+
+	Segments []*ConvertConvertConvertConvertConvertSegmentForGetExecutionOutput `type:"list"`
 }
 
 // String returns the string representation
@@ -1301,67 +1959,19 @@ func (s ConvertConvertConvertConvertConvertConvertSegmentForGetExecutionOutput) 
 	return s.String()
 }
 
-// SetContent sets the Content field's value.
-func (s *ConvertConvertConvertConvertConvertConvertSegmentForGetExecutionOutput) SetContent(v string) *ConvertConvertConvertConvertConvertConvertSegmentForGetExecutionOutput {
-	s.Content = &v
-	return s
-}
-
-// SetEnd sets the End field's value.
-func (s *ConvertConvertConvertConvertConvertConvertSegmentForGetExecutionOutput) SetEnd(v float64) *ConvertConvertConvertConvertConvertConvertSegmentForGetExecutionOutput {
-	s.End = &v
-	return s
-}
-
-// SetFile sets the File field's value.
-func (s *ConvertConvertConvertConvertConvertConvertSegmentForGetExecutionOutput) SetFile(v *VideoForGetExecutionOutput) *ConvertConvertConvertConvertConvertConvertSegmentForGetExecutionOutput {
-	s.File = v
-	return s
-}
-
-// SetFrames sets the Frames field's value.
-func (s *ConvertConvertConvertConvertConvertConvertSegmentForGetExecutionOutput) SetFrames(v []*int32) *ConvertConvertConvertConvertConvertConvertSegmentForGetExecutionOutput {
-	s.Frames = v
-	return s
-}
-
-// SetStart sets the Start field's value.
-func (s *ConvertConvertConvertConvertConvertConvertSegmentForGetExecutionOutput) SetStart(v float64) *ConvertConvertConvertConvertConvertConvertSegmentForGetExecutionOutput {
-	s.Start = &v
-	return s
-}
-
-type ConvertConvertConvertConvertConvertSegmentForGetExecutionOutput struct {
-	_ struct{} `type:"structure"`
-
-	Duration *float64 `type:"double"`
-
-	Segments []*ConvertConvertConvertConvertSegmentForGetExecutionOutput `type:"list"`
-}
-
-// String returns the string representation
-func (s ConvertConvertConvertConvertConvertSegmentForGetExecutionOutput) String() string {
-	return volcengineutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s ConvertConvertConvertConvertConvertSegmentForGetExecutionOutput) GoString() string {
-	return s.String()
-}
-
 // SetDuration sets the Duration field's value.
-func (s *ConvertConvertConvertConvertConvertSegmentForGetExecutionOutput) SetDuration(v float64) *ConvertConvertConvertConvertConvertSegmentForGetExecutionOutput {
+func (s *ConvertConvertConvertConvertConvertConvertSegmentForGetExecutionOutput) SetDuration(v float64) *ConvertConvertConvertConvertConvertConvertSegmentForGetExecutionOutput {
 	s.Duration = &v
 	return s
 }
 
 // SetSegments sets the Segments field's value.
-func (s *ConvertConvertConvertConvertConvertSegmentForGetExecutionOutput) SetSegments(v []*ConvertConvertConvertConvertSegmentForGetExecutionOutput) *ConvertConvertConvertConvertConvertSegmentForGetExecutionOutput {
+func (s *ConvertConvertConvertConvertConvertConvertSegmentForGetExecutionOutput) SetSegments(v []*ConvertConvertConvertConvertConvertSegmentForGetExecutionOutput) *ConvertConvertConvertConvertConvertConvertSegmentForGetExecutionOutput {
 	s.Segments = v
 	return s
 }
 
-type ConvertConvertConvertConvertSegmentForGetExecutionOutput struct {
+type ConvertConvertConvertConvertConvertSegmentForGetExecutionOutput struct {
 	_ struct{} `type:"structure"`
 
 	End *float64 `type:"double"`
@@ -1374,40 +1984,40 @@ type ConvertConvertConvertConvertSegmentForGetExecutionOutput struct {
 }
 
 // String returns the string representation
-func (s ConvertConvertConvertConvertSegmentForGetExecutionOutput) String() string {
+func (s ConvertConvertConvertConvertConvertSegmentForGetExecutionOutput) String() string {
 	return volcengineutil.Prettify(s)
 }
 
 // GoString returns the string representation
-func (s ConvertConvertConvertConvertSegmentForGetExecutionOutput) GoString() string {
+func (s ConvertConvertConvertConvertConvertSegmentForGetExecutionOutput) GoString() string {
 	return s.String()
 }
 
 // SetEnd sets the End field's value.
-func (s *ConvertConvertConvertConvertSegmentForGetExecutionOutput) SetEnd(v float64) *ConvertConvertConvertConvertSegmentForGetExecutionOutput {
+func (s *ConvertConvertConvertConvertConvertSegmentForGetExecutionOutput) SetEnd(v float64) *ConvertConvertConvertConvertConvertSegmentForGetExecutionOutput {
 	s.End = &v
 	return s
 }
 
 // SetFile sets the File field's value.
-func (s *ConvertConvertConvertConvertSegmentForGetExecutionOutput) SetFile(v *ConvertEditForGetExecutionOutput) *ConvertConvertConvertConvertSegmentForGetExecutionOutput {
+func (s *ConvertConvertConvertConvertConvertSegmentForGetExecutionOutput) SetFile(v *ConvertEditForGetExecutionOutput) *ConvertConvertConvertConvertConvertSegmentForGetExecutionOutput {
 	s.File = v
 	return s
 }
 
 // SetFrames sets the Frames field's value.
-func (s *ConvertConvertConvertConvertSegmentForGetExecutionOutput) SetFrames(v []*int32) *ConvertConvertConvertConvertSegmentForGetExecutionOutput {
+func (s *ConvertConvertConvertConvertConvertSegmentForGetExecutionOutput) SetFrames(v []*int32) *ConvertConvertConvertConvertConvertSegmentForGetExecutionOutput {
 	s.Frames = v
 	return s
 }
 
 // SetStart sets the Start field's value.
-func (s *ConvertConvertConvertConvertSegmentForGetExecutionOutput) SetStart(v float64) *ConvertConvertConvertConvertSegmentForGetExecutionOutput {
+func (s *ConvertConvertConvertConvertConvertSegmentForGetExecutionOutput) SetStart(v float64) *ConvertConvertConvertConvertConvertSegmentForGetExecutionOutput {
 	s.Start = &v
 	return s
 }
 
-type ConvertConvertConvertSegmentForGetExecutionOutput struct {
+type ConvertConvertConvertConvertSegmentForGetExecutionOutput struct {
 	_ struct{} `type:"structure"`
 
 	Description *string `type:"string"`
@@ -1428,6 +2038,260 @@ type ConvertConvertConvertSegmentForGetExecutionOutput struct {
 }
 
 // String returns the string representation
+func (s ConvertConvertConvertConvertSegmentForGetExecutionOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ConvertConvertConvertConvertSegmentForGetExecutionOutput) GoString() string {
+	return s.String()
+}
+
+// SetDescription sets the Description field's value.
+func (s *ConvertConvertConvertConvertSegmentForGetExecutionOutput) SetDescription(v string) *ConvertConvertConvertConvertSegmentForGetExecutionOutput {
+	s.Description = &v
+	return s
+}
+
+// SetEnd sets the End field's value.
+func (s *ConvertConvertConvertConvertSegmentForGetExecutionOutput) SetEnd(v float64) *ConvertConvertConvertConvertSegmentForGetExecutionOutput {
+	s.End = &v
+	return s
+}
+
+// SetLocation sets the Location field's value.
+func (s *ConvertConvertConvertConvertSegmentForGetExecutionOutput) SetLocation(v string) *ConvertConvertConvertConvertSegmentForGetExecutionOutput {
+	s.Location = &v
+	return s
+}
+
+// SetOcr sets the Ocr field's value.
+func (s *ConvertConvertConvertConvertSegmentForGetExecutionOutput) SetOcr(v string) *ConvertConvertConvertConvertSegmentForGetExecutionOutput {
+	s.Ocr = &v
+	return s
+}
+
+// SetScore sets the Score field's value.
+func (s *ConvertConvertConvertConvertSegmentForGetExecutionOutput) SetScore(v float64) *ConvertConvertConvertConvertSegmentForGetExecutionOutput {
+	s.Score = &v
+	return s
+}
+
+// SetShot sets the Shot field's value.
+func (s *ConvertConvertConvertConvertSegmentForGetExecutionOutput) SetShot(v string) *ConvertConvertConvertConvertSegmentForGetExecutionOutput {
+	s.Shot = &v
+	return s
+}
+
+// SetStart sets the Start field's value.
+func (s *ConvertConvertConvertConvertSegmentForGetExecutionOutput) SetStart(v float64) *ConvertConvertConvertConvertSegmentForGetExecutionOutput {
+	s.Start = &v
+	return s
+}
+
+// SetVideoIndex sets the VideoIndex field's value.
+func (s *ConvertConvertConvertConvertSegmentForGetExecutionOutput) SetVideoIndex(v int32) *ConvertConvertConvertConvertSegmentForGetExecutionOutput {
+	s.VideoIndex = &v
+	return s
+}
+
+type ConvertConvertConvertEnhanceForGetExecutionOutput struct {
+	_ struct{} `type:"structure"`
+
+	AudioStreamMeta *AudioStreamMetaForGetExecutionOutput `type:"structure"`
+
+	CreateTime *string `type:"string"`
+
+	Duration *float64 `type:"float"`
+
+	DynamicRange *string `type:"string"`
+
+	EncodedType *string `type:"string"`
+
+	Encrypt *bool `type:"boolean"`
+
+	Encryption *ConvertEncryptionForGetExecutionOutput `type:"structure"`
+
+	FileId *string `type:"string"`
+
+	FileType *string `type:"string"`
+
+	Format *string `type:"string"`
+
+	LogoType *string `type:"string"`
+
+	Md5 *string `type:"string"`
+
+	Size *float64 `type:"double"`
+
+	StoreUri *string `type:"string"`
+
+	TosStorageClass *string `type:"string"`
+
+	VideoStreamMeta *VideoStreamMetaForGetExecutionOutput `type:"structure"`
+}
+
+// String returns the string representation
+func (s ConvertConvertConvertEnhanceForGetExecutionOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ConvertConvertConvertEnhanceForGetExecutionOutput) GoString() string {
+	return s.String()
+}
+
+// SetAudioStreamMeta sets the AudioStreamMeta field's value.
+func (s *ConvertConvertConvertEnhanceForGetExecutionOutput) SetAudioStreamMeta(v *AudioStreamMetaForGetExecutionOutput) *ConvertConvertConvertEnhanceForGetExecutionOutput {
+	s.AudioStreamMeta = v
+	return s
+}
+
+// SetCreateTime sets the CreateTime field's value.
+func (s *ConvertConvertConvertEnhanceForGetExecutionOutput) SetCreateTime(v string) *ConvertConvertConvertEnhanceForGetExecutionOutput {
+	s.CreateTime = &v
+	return s
+}
+
+// SetDuration sets the Duration field's value.
+func (s *ConvertConvertConvertEnhanceForGetExecutionOutput) SetDuration(v float64) *ConvertConvertConvertEnhanceForGetExecutionOutput {
+	s.Duration = &v
+	return s
+}
+
+// SetDynamicRange sets the DynamicRange field's value.
+func (s *ConvertConvertConvertEnhanceForGetExecutionOutput) SetDynamicRange(v string) *ConvertConvertConvertEnhanceForGetExecutionOutput {
+	s.DynamicRange = &v
+	return s
+}
+
+// SetEncodedType sets the EncodedType field's value.
+func (s *ConvertConvertConvertEnhanceForGetExecutionOutput) SetEncodedType(v string) *ConvertConvertConvertEnhanceForGetExecutionOutput {
+	s.EncodedType = &v
+	return s
+}
+
+// SetEncrypt sets the Encrypt field's value.
+func (s *ConvertConvertConvertEnhanceForGetExecutionOutput) SetEncrypt(v bool) *ConvertConvertConvertEnhanceForGetExecutionOutput {
+	s.Encrypt = &v
+	return s
+}
+
+// SetEncryption sets the Encryption field's value.
+func (s *ConvertConvertConvertEnhanceForGetExecutionOutput) SetEncryption(v *ConvertEncryptionForGetExecutionOutput) *ConvertConvertConvertEnhanceForGetExecutionOutput {
+	s.Encryption = v
+	return s
+}
+
+// SetFileId sets the FileId field's value.
+func (s *ConvertConvertConvertEnhanceForGetExecutionOutput) SetFileId(v string) *ConvertConvertConvertEnhanceForGetExecutionOutput {
+	s.FileId = &v
+	return s
+}
+
+// SetFileType sets the FileType field's value.
+func (s *ConvertConvertConvertEnhanceForGetExecutionOutput) SetFileType(v string) *ConvertConvertConvertEnhanceForGetExecutionOutput {
+	s.FileType = &v
+	return s
+}
+
+// SetFormat sets the Format field's value.
+func (s *ConvertConvertConvertEnhanceForGetExecutionOutput) SetFormat(v string) *ConvertConvertConvertEnhanceForGetExecutionOutput {
+	s.Format = &v
+	return s
+}
+
+// SetLogoType sets the LogoType field's value.
+func (s *ConvertConvertConvertEnhanceForGetExecutionOutput) SetLogoType(v string) *ConvertConvertConvertEnhanceForGetExecutionOutput {
+	s.LogoType = &v
+	return s
+}
+
+// SetMd5 sets the Md5 field's value.
+func (s *ConvertConvertConvertEnhanceForGetExecutionOutput) SetMd5(v string) *ConvertConvertConvertEnhanceForGetExecutionOutput {
+	s.Md5 = &v
+	return s
+}
+
+// SetSize sets the Size field's value.
+func (s *ConvertConvertConvertEnhanceForGetExecutionOutput) SetSize(v float64) *ConvertConvertConvertEnhanceForGetExecutionOutput {
+	s.Size = &v
+	return s
+}
+
+// SetStoreUri sets the StoreUri field's value.
+func (s *ConvertConvertConvertEnhanceForGetExecutionOutput) SetStoreUri(v string) *ConvertConvertConvertEnhanceForGetExecutionOutput {
+	s.StoreUri = &v
+	return s
+}
+
+// SetTosStorageClass sets the TosStorageClass field's value.
+func (s *ConvertConvertConvertEnhanceForGetExecutionOutput) SetTosStorageClass(v string) *ConvertConvertConvertEnhanceForGetExecutionOutput {
+	s.TosStorageClass = &v
+	return s
+}
+
+// SetVideoStreamMeta sets the VideoStreamMeta field's value.
+func (s *ConvertConvertConvertEnhanceForGetExecutionOutput) SetVideoStreamMeta(v *VideoStreamMetaForGetExecutionOutput) *ConvertConvertConvertEnhanceForGetExecutionOutput {
+	s.VideoStreamMeta = v
+	return s
+}
+
+type ConvertConvertConvertOutputForGetExecutionOutput struct {
+	_ struct{} `type:"structure"`
+
+	Task *ConvertTaskForGetExecutionOutput `type:"structure"`
+
+	Template *ConvertTemplateForGetExecutionOutput `type:"structure"`
+
+	Type *string `type:"string"`
+
+	Workflow *ConvertWorkflowForGetExecutionOutput `type:"structure"`
+}
+
+// String returns the string representation
+func (s ConvertConvertConvertOutputForGetExecutionOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ConvertConvertConvertOutputForGetExecutionOutput) GoString() string {
+	return s.String()
+}
+
+// SetTask sets the Task field's value.
+func (s *ConvertConvertConvertOutputForGetExecutionOutput) SetTask(v *ConvertTaskForGetExecutionOutput) *ConvertConvertConvertOutputForGetExecutionOutput {
+	s.Task = v
+	return s
+}
+
+// SetTemplate sets the Template field's value.
+func (s *ConvertConvertConvertOutputForGetExecutionOutput) SetTemplate(v *ConvertTemplateForGetExecutionOutput) *ConvertConvertConvertOutputForGetExecutionOutput {
+	s.Template = v
+	return s
+}
+
+// SetType sets the Type field's value.
+func (s *ConvertConvertConvertOutputForGetExecutionOutput) SetType(v string) *ConvertConvertConvertOutputForGetExecutionOutput {
+	s.Type = &v
+	return s
+}
+
+// SetWorkflow sets the Workflow field's value.
+func (s *ConvertConvertConvertOutputForGetExecutionOutput) SetWorkflow(v *ConvertWorkflowForGetExecutionOutput) *ConvertConvertConvertOutputForGetExecutionOutput {
+	s.Workflow = v
+	return s
+}
+
+type ConvertConvertConvertSegmentForGetExecutionOutput struct {
+	_ struct{} `type:"structure"`
+
+	End *float64 `type:"double"`
+
+	Start *float64 `type:"double"`
+}
+
+// String returns the string representation
 func (s ConvertConvertConvertSegmentForGetExecutionOutput) String() string {
 	return volcengineutil.Prettify(s)
 }
@@ -1437,39 +2301,9 @@ func (s ConvertConvertConvertSegmentForGetExecutionOutput) GoString() string {
 	return s.String()
 }
 
-// SetDescription sets the Description field's value.
-func (s *ConvertConvertConvertSegmentForGetExecutionOutput) SetDescription(v string) *ConvertConvertConvertSegmentForGetExecutionOutput {
-	s.Description = &v
-	return s
-}
-
 // SetEnd sets the End field's value.
 func (s *ConvertConvertConvertSegmentForGetExecutionOutput) SetEnd(v float64) *ConvertConvertConvertSegmentForGetExecutionOutput {
 	s.End = &v
-	return s
-}
-
-// SetLocation sets the Location field's value.
-func (s *ConvertConvertConvertSegmentForGetExecutionOutput) SetLocation(v string) *ConvertConvertConvertSegmentForGetExecutionOutput {
-	s.Location = &v
-	return s
-}
-
-// SetOcr sets the Ocr field's value.
-func (s *ConvertConvertConvertSegmentForGetExecutionOutput) SetOcr(v string) *ConvertConvertConvertSegmentForGetExecutionOutput {
-	s.Ocr = &v
-	return s
-}
-
-// SetScore sets the Score field's value.
-func (s *ConvertConvertConvertSegmentForGetExecutionOutput) SetScore(v float64) *ConvertConvertConvertSegmentForGetExecutionOutput {
-	s.Score = &v
-	return s
-}
-
-// SetShot sets the Shot field's value.
-func (s *ConvertConvertConvertSegmentForGetExecutionOutput) SetShot(v string) *ConvertConvertConvertSegmentForGetExecutionOutput {
-	s.Shot = &v
 	return s
 }
 
@@ -1479,18 +2313,12 @@ func (s *ConvertConvertConvertSegmentForGetExecutionOutput) SetStart(v float64) 
 	return s
 }
 
-// SetVideoIndex sets the VideoIndex field's value.
-func (s *ConvertConvertConvertSegmentForGetExecutionOutput) SetVideoIndex(v int32) *ConvertConvertConvertSegmentForGetExecutionOutput {
-	s.VideoIndex = &v
-	return s
-}
-
 type ConvertConvertConvertStorylineForGetExecutionOutput struct {
 	_ struct{} `type:"structure"`
 
 	AllTags []*AllTagForGetExecutionOutput `type:"list"`
 
-	Clips []*ConvertConvertConvertClipForGetExecutionOutput `type:"list"`
+	Clips []*ConvertConvertConvertConvertClipForGetExecutionOutput `type:"list"`
 
 	Duration *float64 `type:"double"`
 
@@ -1518,7 +2346,7 @@ func (s *ConvertConvertConvertStorylineForGetExecutionOutput) SetAllTags(v []*Al
 }
 
 // SetClips sets the Clips field's value.
-func (s *ConvertConvertConvertStorylineForGetExecutionOutput) SetClips(v []*ConvertConvertConvertClipForGetExecutionOutput) *ConvertConvertConvertStorylineForGetExecutionOutput {
+func (s *ConvertConvertConvertStorylineForGetExecutionOutput) SetClips(v []*ConvertConvertConvertConvertClipForGetExecutionOutput) *ConvertConvertConvertStorylineForGetExecutionOutput {
 	s.Clips = v
 	return s
 }
@@ -1550,37 +2378,7 @@ func (s *ConvertConvertConvertStorylineForGetExecutionOutput) SetTitles(v []*str
 type ConvertConvertEnhanceForGetExecutionOutput struct {
 	_ struct{} `type:"structure"`
 
-	AudioStreamMeta *AudioStreamMetaForGetExecutionOutput `type:"structure"`
-
-	CreateTime *string `type:"string"`
-
-	Duration *float64 `type:"float"`
-
-	DynamicRange *string `type:"string"`
-
-	EncodedType *string `type:"string"`
-
-	Encrypt *bool `type:"boolean"`
-
-	Encryption *EncryptionForGetExecutionOutput `type:"structure"`
-
-	FileId *string `type:"string"`
-
-	FileType *string `type:"string"`
-
-	Format *string `type:"string"`
-
-	LogoType *string `type:"string"`
-
-	Md5 *string `type:"string"`
-
-	Size *float64 `type:"double"`
-
-	StoreUri *string `type:"string"`
-
-	TosStorageClass *string `type:"string"`
-
-	VideoStreamMeta *VideoStreamMetaForGetExecutionOutput `type:"structure"`
+	TemplateId *string `type:"string"`
 }
 
 // String returns the string representation
@@ -1593,99 +2391,39 @@ func (s ConvertConvertEnhanceForGetExecutionOutput) GoString() string {
 	return s.String()
 }
 
-// SetAudioStreamMeta sets the AudioStreamMeta field's value.
-func (s *ConvertConvertEnhanceForGetExecutionOutput) SetAudioStreamMeta(v *AudioStreamMetaForGetExecutionOutput) *ConvertConvertEnhanceForGetExecutionOutput {
-	s.AudioStreamMeta = v
+// SetTemplateId sets the TemplateId field's value.
+func (s *ConvertConvertEnhanceForGetExecutionOutput) SetTemplateId(v string) *ConvertConvertEnhanceForGetExecutionOutput {
+	s.TemplateId = &v
 	return s
 }
 
-// SetCreateTime sets the CreateTime field's value.
-func (s *ConvertConvertEnhanceForGetExecutionOutput) SetCreateTime(v string) *ConvertConvertEnhanceForGetExecutionOutput {
-	s.CreateTime = &v
-	return s
+type ConvertConvertFormatForGetExecutionOutput struct {
+	_ struct{} `type:"structure"`
+
+	FileName *string `type:"string"`
+
+	Size *string `type:"string"`
 }
 
-// SetDuration sets the Duration field's value.
-func (s *ConvertConvertEnhanceForGetExecutionOutput) SetDuration(v float64) *ConvertConvertEnhanceForGetExecutionOutput {
-	s.Duration = &v
-	return s
+// String returns the string representation
+func (s ConvertConvertFormatForGetExecutionOutput) String() string {
+	return volcengineutil.Prettify(s)
 }
 
-// SetDynamicRange sets the DynamicRange field's value.
-func (s *ConvertConvertEnhanceForGetExecutionOutput) SetDynamicRange(v string) *ConvertConvertEnhanceForGetExecutionOutput {
-	s.DynamicRange = &v
-	return s
+// GoString returns the string representation
+func (s ConvertConvertFormatForGetExecutionOutput) GoString() string {
+	return s.String()
 }
 
-// SetEncodedType sets the EncodedType field's value.
-func (s *ConvertConvertEnhanceForGetExecutionOutput) SetEncodedType(v string) *ConvertConvertEnhanceForGetExecutionOutput {
-	s.EncodedType = &v
-	return s
-}
-
-// SetEncrypt sets the Encrypt field's value.
-func (s *ConvertConvertEnhanceForGetExecutionOutput) SetEncrypt(v bool) *ConvertConvertEnhanceForGetExecutionOutput {
-	s.Encrypt = &v
-	return s
-}
-
-// SetEncryption sets the Encryption field's value.
-func (s *ConvertConvertEnhanceForGetExecutionOutput) SetEncryption(v *EncryptionForGetExecutionOutput) *ConvertConvertEnhanceForGetExecutionOutput {
-	s.Encryption = v
-	return s
-}
-
-// SetFileId sets the FileId field's value.
-func (s *ConvertConvertEnhanceForGetExecutionOutput) SetFileId(v string) *ConvertConvertEnhanceForGetExecutionOutput {
-	s.FileId = &v
-	return s
-}
-
-// SetFileType sets the FileType field's value.
-func (s *ConvertConvertEnhanceForGetExecutionOutput) SetFileType(v string) *ConvertConvertEnhanceForGetExecutionOutput {
-	s.FileType = &v
-	return s
-}
-
-// SetFormat sets the Format field's value.
-func (s *ConvertConvertEnhanceForGetExecutionOutput) SetFormat(v string) *ConvertConvertEnhanceForGetExecutionOutput {
-	s.Format = &v
-	return s
-}
-
-// SetLogoType sets the LogoType field's value.
-func (s *ConvertConvertEnhanceForGetExecutionOutput) SetLogoType(v string) *ConvertConvertEnhanceForGetExecutionOutput {
-	s.LogoType = &v
-	return s
-}
-
-// SetMd5 sets the Md5 field's value.
-func (s *ConvertConvertEnhanceForGetExecutionOutput) SetMd5(v string) *ConvertConvertEnhanceForGetExecutionOutput {
-	s.Md5 = &v
+// SetFileName sets the FileName field's value.
+func (s *ConvertConvertFormatForGetExecutionOutput) SetFileName(v string) *ConvertConvertFormatForGetExecutionOutput {
+	s.FileName = &v
 	return s
 }
 
 // SetSize sets the Size field's value.
-func (s *ConvertConvertEnhanceForGetExecutionOutput) SetSize(v float64) *ConvertConvertEnhanceForGetExecutionOutput {
+func (s *ConvertConvertFormatForGetExecutionOutput) SetSize(v string) *ConvertConvertFormatForGetExecutionOutput {
 	s.Size = &v
-	return s
-}
-
-// SetStoreUri sets the StoreUri field's value.
-func (s *ConvertConvertEnhanceForGetExecutionOutput) SetStoreUri(v string) *ConvertConvertEnhanceForGetExecutionOutput {
-	s.StoreUri = &v
-	return s
-}
-
-// SetTosStorageClass sets the TosStorageClass field's value.
-func (s *ConvertConvertEnhanceForGetExecutionOutput) SetTosStorageClass(v string) *ConvertConvertEnhanceForGetExecutionOutput {
-	s.TosStorageClass = &v
-	return s
-}
-
-// SetVideoStreamMeta sets the VideoStreamMeta field's value.
-func (s *ConvertConvertEnhanceForGetExecutionOutput) SetVideoStreamMeta(v *VideoStreamMetaForGetExecutionOutput) *ConvertConvertEnhanceForGetExecutionOutput {
-	s.VideoStreamMeta = v
 	return s
 }
 
@@ -1756,11 +2494,7 @@ type ConvertConvertOutputForGetExecutionOutput struct {
 
 	Task *ConvertTaskForGetExecutionOutput `type:"structure"`
 
-	Template *ConvertTemplateForGetExecutionOutput `type:"structure"`
-
 	Type *string `type:"string"`
-
-	Workflow *ConvertWorkflowForGetExecutionOutput `type:"structure"`
 }
 
 // String returns the string representation
@@ -1779,30 +2513,20 @@ func (s *ConvertConvertOutputForGetExecutionOutput) SetTask(v *ConvertTaskForGet
 	return s
 }
 
-// SetTemplate sets the Template field's value.
-func (s *ConvertConvertOutputForGetExecutionOutput) SetTemplate(v *ConvertTemplateForGetExecutionOutput) *ConvertConvertOutputForGetExecutionOutput {
-	s.Template = v
-	return s
-}
-
 // SetType sets the Type field's value.
 func (s *ConvertConvertOutputForGetExecutionOutput) SetType(v string) *ConvertConvertOutputForGetExecutionOutput {
 	s.Type = &v
 	return s
 }
 
-// SetWorkflow sets the Workflow field's value.
-func (s *ConvertConvertOutputForGetExecutionOutput) SetWorkflow(v *ConvertWorkflowForGetExecutionOutput) *ConvertConvertOutputForGetExecutionOutput {
-	s.Workflow = v
-	return s
-}
-
 type ConvertConvertSegmentForGetExecutionOutput struct {
 	_ struct{} `type:"structure"`
 
-	End *float64 `type:"double"`
+	MaxDuration *float64 `type:"double"`
 
-	Start *float64 `type:"double"`
+	MinDuration *float64 `type:"double"`
+
+	Threshold *float64 `type:"double"`
 }
 
 // String returns the string representation
@@ -1815,15 +2539,21 @@ func (s ConvertConvertSegmentForGetExecutionOutput) GoString() string {
 	return s.String()
 }
 
-// SetEnd sets the End field's value.
-func (s *ConvertConvertSegmentForGetExecutionOutput) SetEnd(v float64) *ConvertConvertSegmentForGetExecutionOutput {
-	s.End = &v
+// SetMaxDuration sets the MaxDuration field's value.
+func (s *ConvertConvertSegmentForGetExecutionOutput) SetMaxDuration(v float64) *ConvertConvertSegmentForGetExecutionOutput {
+	s.MaxDuration = &v
 	return s
 }
 
-// SetStart sets the Start field's value.
-func (s *ConvertConvertSegmentForGetExecutionOutput) SetStart(v float64) *ConvertConvertSegmentForGetExecutionOutput {
-	s.Start = &v
+// SetMinDuration sets the MinDuration field's value.
+func (s *ConvertConvertSegmentForGetExecutionOutput) SetMinDuration(v float64) *ConvertConvertSegmentForGetExecutionOutput {
+	s.MinDuration = &v
+	return s
+}
+
+// SetThreshold sets the Threshold field's value.
+func (s *ConvertConvertSegmentForGetExecutionOutput) SetThreshold(v float64) *ConvertConvertSegmentForGetExecutionOutput {
+	s.Threshold = &v
 	return s
 }
 
@@ -1865,6 +2595,44 @@ func (s *ConvertConvertStorylineForGetExecutionOutput) SetTitle(v string) *Conve
 	return s
 }
 
+type ConvertConvertVideoForGetExecutionOutput struct {
+	_ struct{} `type:"structure"`
+
+	FileName *string `type:"string"`
+
+	Size *string `type:"string"`
+
+	Vid *string `type:"string"`
+}
+
+// String returns the string representation
+func (s ConvertConvertVideoForGetExecutionOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ConvertConvertVideoForGetExecutionOutput) GoString() string {
+	return s.String()
+}
+
+// SetFileName sets the FileName field's value.
+func (s *ConvertConvertVideoForGetExecutionOutput) SetFileName(v string) *ConvertConvertVideoForGetExecutionOutput {
+	s.FileName = &v
+	return s
+}
+
+// SetSize sets the Size field's value.
+func (s *ConvertConvertVideoForGetExecutionOutput) SetSize(v string) *ConvertConvertVideoForGetExecutionOutput {
+	s.Size = &v
+	return s
+}
+
+// SetVid sets the Vid field's value.
+func (s *ConvertConvertVideoForGetExecutionOutput) SetVid(v string) *ConvertConvertVideoForGetExecutionOutput {
+	s.Vid = &v
+	return s
+}
+
 type ConvertEditForGetExecutionOutput struct {
 	_ struct{} `type:"structure"`
 
@@ -1903,10 +2671,34 @@ func (s *ConvertEditForGetExecutionOutput) SetVid(v string) *ConvertEditForGetEx
 	return s
 }
 
+type ConvertEncryptionForGetExecutionOutput struct {
+	_ struct{} `type:"structure"`
+
+	Kid *string `type:"string"`
+}
+
+// String returns the string representation
+func (s ConvertEncryptionForGetExecutionOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ConvertEncryptionForGetExecutionOutput) GoString() string {
+	return s.String()
+}
+
+// SetKid sets the Kid field's value.
+func (s *ConvertEncryptionForGetExecutionOutput) SetKid(v string) *ConvertEncryptionForGetExecutionOutput {
+	s.Kid = &v
+	return s
+}
+
 type ConvertEnhanceForGetExecutionOutput struct {
 	_ struct{} `type:"structure"`
 
-	TemplateId *string `type:"string"`
+	MoeEnhance *ConvertMoeEnhanceForGetExecutionOutput `type:"structure"`
+
+	Type *string `type:"string" enum:"ConvertConvertEnumOfTypeForGetExecutionOutput"`
 }
 
 // String returns the string representation
@@ -1919,9 +2711,15 @@ func (s ConvertEnhanceForGetExecutionOutput) GoString() string {
 	return s.String()
 }
 
-// SetTemplateId sets the TemplateId field's value.
-func (s *ConvertEnhanceForGetExecutionOutput) SetTemplateId(v string) *ConvertEnhanceForGetExecutionOutput {
-	s.TemplateId = &v
+// SetMoeEnhance sets the MoeEnhance field's value.
+func (s *ConvertEnhanceForGetExecutionOutput) SetMoeEnhance(v *ConvertMoeEnhanceForGetExecutionOutput) *ConvertEnhanceForGetExecutionOutput {
+	s.MoeEnhance = v
+	return s
+}
+
+// SetType sets the Type field's value.
+func (s *ConvertEnhanceForGetExecutionOutput) SetType(v string) *ConvertEnhanceForGetExecutionOutput {
+	s.Type = &v
 	return s
 }
 
@@ -1985,6 +2783,66 @@ func (s *ConvertFileDeleteForGetExecutionOutput) SetInfo(v []*ConvertInfoForGetE
 	return s
 }
 
+type ConvertFormatForGetExecutionOutput struct {
+	_ struct{} `type:"structure"`
+
+	Container *ConvertContainerForGetExecutionOutput `type:"structure"`
+
+	Metadata *MetadataForGetExecutionOutput `type:"structure"`
+}
+
+// String returns the string representation
+func (s ConvertFormatForGetExecutionOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ConvertFormatForGetExecutionOutput) GoString() string {
+	return s.String()
+}
+
+// SetContainer sets the Container field's value.
+func (s *ConvertFormatForGetExecutionOutput) SetContainer(v *ConvertContainerForGetExecutionOutput) *ConvertFormatForGetExecutionOutput {
+	s.Container = v
+	return s
+}
+
+// SetMetadata sets the Metadata field's value.
+func (s *ConvertFormatForGetExecutionOutput) SetMetadata(v *MetadataForGetExecutionOutput) *ConvertFormatForGetExecutionOutput {
+	s.Metadata = v
+	return s
+}
+
+type ConvertFpsControlForGetExecutionOutput struct {
+	_ struct{} `type:"structure"`
+
+	Fps *float64 `min:"1" max:"240" type:"float"`
+
+	Mode *string `type:"string" enum:"ConvertConvertEnumOfModeForGetExecutionOutput"`
+}
+
+// String returns the string representation
+func (s ConvertFpsControlForGetExecutionOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ConvertFpsControlForGetExecutionOutput) GoString() string {
+	return s.String()
+}
+
+// SetFps sets the Fps field's value.
+func (s *ConvertFpsControlForGetExecutionOutput) SetFps(v float64) *ConvertFpsControlForGetExecutionOutput {
+	s.Fps = &v
+	return s
+}
+
+// SetMode sets the Mode field's value.
+func (s *ConvertFpsControlForGetExecutionOutput) SetMode(v string) *ConvertFpsControlForGetExecutionOutput {
+	s.Mode = &v
+	return s
+}
+
 type ConvertHighlightCutsForGetExecutionOutput struct {
 	_ struct{} `type:"structure"`
 
@@ -2018,7 +2876,7 @@ func (s *ConvertHighlightCutsForGetExecutionOutput) SetStoryboard(v []*Storyboar
 type ConvertHighlightForGetExecutionOutput struct {
 	_ struct{} `type:"structure"`
 
-	Clips []*ConvertClipForGetExecutionOutput `type:"list"`
+	Clips []*ConvertConvertClipForGetExecutionOutput `type:"list"`
 
 	Duration *float64 `type:"double"`
 
@@ -2040,7 +2898,7 @@ func (s ConvertHighlightForGetExecutionOutput) GoString() string {
 }
 
 // SetClips sets the Clips field's value.
-func (s *ConvertHighlightForGetExecutionOutput) SetClips(v []*ConvertClipForGetExecutionOutput) *ConvertHighlightForGetExecutionOutput {
+func (s *ConvertHighlightForGetExecutionOutput) SetClips(v []*ConvertConvertClipForGetExecutionOutput) *ConvertHighlightForGetExecutionOutput {
 	s.Clips = v
 	return s
 }
@@ -2091,6 +2949,44 @@ func (s *ConvertInfoForGetExecutionOutput) SetStatus(v string) *ConvertInfoForGe
 	return s
 }
 
+type ConvertLogoForGetExecutionOutput struct {
+	_ struct{} `type:"structure"`
+
+	Concats []*ConvertConcatForGetExecutionOutput `type:"list"`
+
+	LogoType *string `type:"string"`
+
+	Logos []*LogoForGetExecutionOutput `type:"list"`
+}
+
+// String returns the string representation
+func (s ConvertLogoForGetExecutionOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ConvertLogoForGetExecutionOutput) GoString() string {
+	return s.String()
+}
+
+// SetConcats sets the Concats field's value.
+func (s *ConvertLogoForGetExecutionOutput) SetConcats(v []*ConvertConcatForGetExecutionOutput) *ConvertLogoForGetExecutionOutput {
+	s.Concats = v
+	return s
+}
+
+// SetLogoType sets the LogoType field's value.
+func (s *ConvertLogoForGetExecutionOutput) SetLogoType(v string) *ConvertLogoForGetExecutionOutput {
+	s.LogoType = &v
+	return s
+}
+
+// SetLogos sets the Logos field's value.
+func (s *ConvertLogoForGetExecutionOutput) SetLogos(v []*LogoForGetExecutionOutput) *ConvertLogoForGetExecutionOutput {
+	s.Logos = v
+	return s
+}
+
 type ConvertModelForGetExecutionOutput struct {
 	_ struct{} `type:"structure"`
 
@@ -2137,6 +3033,36 @@ func (s *ConvertModelForGetExecutionOutput) SetDoubaoVisionEndpoint(v string) *C
 	return s
 }
 
+type ConvertMoeEnhanceForGetExecutionOutput struct {
+	_ struct{} `type:"structure"`
+
+	Config *string `type:"string" enum:"EnumOfConfigForGetExecutionOutput"`
+
+	VideoStrategy *VideoStrategyForGetExecutionOutput `type:"structure"`
+}
+
+// String returns the string representation
+func (s ConvertMoeEnhanceForGetExecutionOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ConvertMoeEnhanceForGetExecutionOutput) GoString() string {
+	return s.String()
+}
+
+// SetConfig sets the Config field's value.
+func (s *ConvertMoeEnhanceForGetExecutionOutput) SetConfig(v string) *ConvertMoeEnhanceForGetExecutionOutput {
+	s.Config = &v
+	return s
+}
+
+// SetVideoStrategy sets the VideoStrategy field's value.
+func (s *ConvertMoeEnhanceForGetExecutionOutput) SetVideoStrategy(v *VideoStrategyForGetExecutionOutput) *ConvertMoeEnhanceForGetExecutionOutput {
+	s.VideoStrategy = v
+	return s
+}
+
 type ConvertNodeForGetExecutionOutput struct {
 	_ struct{} `type:"structure"`
 
@@ -2144,7 +3070,7 @@ type ConvertNodeForGetExecutionOutput struct {
 
 	Name *string `type:"string"`
 
-	Output *ConvertOutputForGetExecutionOutput `type:"structure"`
+	Output *ConvertConvertOutputForGetExecutionOutput `type:"structure"`
 
 	Status *string `type:"string"`
 }
@@ -2172,7 +3098,7 @@ func (s *ConvertNodeForGetExecutionOutput) SetName(v string) *ConvertNodeForGetE
 }
 
 // SetOutput sets the Output field's value.
-func (s *ConvertNodeForGetExecutionOutput) SetOutput(v *ConvertOutputForGetExecutionOutput) *ConvertNodeForGetExecutionOutput {
+func (s *ConvertNodeForGetExecutionOutput) SetOutput(v *ConvertConvertOutputForGetExecutionOutput) *ConvertNodeForGetExecutionOutput {
 	s.Output = v
 	return s
 }
@@ -2278,9 +3204,23 @@ func (s *ConvertOperationForGetExecutionOutput) SetWorkflow(v *WorkflowForGetExe
 type ConvertOutputForGetExecutionOutput struct {
 	_ struct{} `type:"structure"`
 
-	Task *ConvertTaskForGetExecutionOutput `type:"structure"`
+	Alpha *bool `type:"boolean"`
 
-	Type *string `type:"string"`
+	AudioPhaseDetect *bool `type:"boolean"`
+
+	CanvasWithMax *bool `type:"boolean"`
+
+	CanvasWithRatio *bool `type:"boolean"`
+
+	Codec *CodecForGetExecutionOutput `type:"structure"`
+
+	DisableAudio *bool `type:"boolean"`
+
+	DisableVideo *bool `type:"boolean"`
+
+	Format *string `type:"string"`
+
+	Fps *float64 `type:"double"`
 }
 
 // String returns the string representation
@@ -2293,24 +3233,132 @@ func (s ConvertOutputForGetExecutionOutput) GoString() string {
 	return s.String()
 }
 
-// SetTask sets the Task field's value.
-func (s *ConvertOutputForGetExecutionOutput) SetTask(v *ConvertTaskForGetExecutionOutput) *ConvertOutputForGetExecutionOutput {
-	s.Task = v
+// SetAlpha sets the Alpha field's value.
+func (s *ConvertOutputForGetExecutionOutput) SetAlpha(v bool) *ConvertOutputForGetExecutionOutput {
+	s.Alpha = &v
 	return s
 }
 
-// SetType sets the Type field's value.
-func (s *ConvertOutputForGetExecutionOutput) SetType(v string) *ConvertOutputForGetExecutionOutput {
-	s.Type = &v
+// SetAudioPhaseDetect sets the AudioPhaseDetect field's value.
+func (s *ConvertOutputForGetExecutionOutput) SetAudioPhaseDetect(v bool) *ConvertOutputForGetExecutionOutput {
+	s.AudioPhaseDetect = &v
+	return s
+}
+
+// SetCanvasWithMax sets the CanvasWithMax field's value.
+func (s *ConvertOutputForGetExecutionOutput) SetCanvasWithMax(v bool) *ConvertOutputForGetExecutionOutput {
+	s.CanvasWithMax = &v
+	return s
+}
+
+// SetCanvasWithRatio sets the CanvasWithRatio field's value.
+func (s *ConvertOutputForGetExecutionOutput) SetCanvasWithRatio(v bool) *ConvertOutputForGetExecutionOutput {
+	s.CanvasWithRatio = &v
+	return s
+}
+
+// SetCodec sets the Codec field's value.
+func (s *ConvertOutputForGetExecutionOutput) SetCodec(v *CodecForGetExecutionOutput) *ConvertOutputForGetExecutionOutput {
+	s.Codec = v
+	return s
+}
+
+// SetDisableAudio sets the DisableAudio field's value.
+func (s *ConvertOutputForGetExecutionOutput) SetDisableAudio(v bool) *ConvertOutputForGetExecutionOutput {
+	s.DisableAudio = &v
+	return s
+}
+
+// SetDisableVideo sets the DisableVideo field's value.
+func (s *ConvertOutputForGetExecutionOutput) SetDisableVideo(v bool) *ConvertOutputForGetExecutionOutput {
+	s.DisableVideo = &v
+	return s
+}
+
+// SetFormat sets the Format field's value.
+func (s *ConvertOutputForGetExecutionOutput) SetFormat(v string) *ConvertOutputForGetExecutionOutput {
+	s.Format = &v
+	return s
+}
+
+// SetFps sets the Fps field's value.
+func (s *ConvertOutputForGetExecutionOutput) SetFps(v float64) *ConvertOutputForGetExecutionOutput {
+	s.Fps = &v
+	return s
+}
+
+type ConvertScaleControlForGetExecutionOutput struct {
+	_ struct{} `type:"structure"`
+
+	ScaleHeight *int32 `max:"4320" type:"int32"`
+
+	ScaleLong *int32 `max:"4320" type:"int32"`
+
+	ScaleMode *int32 `type:"int32"`
+
+	ScaleShort *int32 `max:"4320" type:"int32"`
+
+	ScaleType *int32 `type:"int32"`
+
+	ScaleWidth *int32 `max:"4320" type:"int32"`
+}
+
+// String returns the string representation
+func (s ConvertScaleControlForGetExecutionOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ConvertScaleControlForGetExecutionOutput) GoString() string {
+	return s.String()
+}
+
+// SetScaleHeight sets the ScaleHeight field's value.
+func (s *ConvertScaleControlForGetExecutionOutput) SetScaleHeight(v int32) *ConvertScaleControlForGetExecutionOutput {
+	s.ScaleHeight = &v
+	return s
+}
+
+// SetScaleLong sets the ScaleLong field's value.
+func (s *ConvertScaleControlForGetExecutionOutput) SetScaleLong(v int32) *ConvertScaleControlForGetExecutionOutput {
+	s.ScaleLong = &v
+	return s
+}
+
+// SetScaleMode sets the ScaleMode field's value.
+func (s *ConvertScaleControlForGetExecutionOutput) SetScaleMode(v int32) *ConvertScaleControlForGetExecutionOutput {
+	s.ScaleMode = &v
+	return s
+}
+
+// SetScaleShort sets the ScaleShort field's value.
+func (s *ConvertScaleControlForGetExecutionOutput) SetScaleShort(v int32) *ConvertScaleControlForGetExecutionOutput {
+	s.ScaleShort = &v
+	return s
+}
+
+// SetScaleType sets the ScaleType field's value.
+func (s *ConvertScaleControlForGetExecutionOutput) SetScaleType(v int32) *ConvertScaleControlForGetExecutionOutput {
+	s.ScaleType = &v
+	return s
+}
+
+// SetScaleWidth sets the ScaleWidth field's value.
+func (s *ConvertScaleControlForGetExecutionOutput) SetScaleWidth(v int32) *ConvertScaleControlForGetExecutionOutput {
+	s.ScaleWidth = &v
 	return s
 }
 
 type ConvertSegmentForGetExecutionOutput struct {
 	_ struct{} `type:"structure"`
 
+	ClipFade *bool `type:"boolean"`
+
 	MaxDuration *float64 `type:"double"`
 
 	MinDuration *float64 `type:"double"`
+
+	NoFile *bool `type:"boolean"`
 
 	Threshold *float64 `type:"double"`
 }
@@ -2325,6 +3373,12 @@ func (s ConvertSegmentForGetExecutionOutput) GoString() string {
 	return s.String()
 }
 
+// SetClipFade sets the ClipFade field's value.
+func (s *ConvertSegmentForGetExecutionOutput) SetClipFade(v bool) *ConvertSegmentForGetExecutionOutput {
+	s.ClipFade = &v
+	return s
+}
+
 // SetMaxDuration sets the MaxDuration field's value.
 func (s *ConvertSegmentForGetExecutionOutput) SetMaxDuration(v float64) *ConvertSegmentForGetExecutionOutput {
 	s.MaxDuration = &v
@@ -2334,6 +3388,12 @@ func (s *ConvertSegmentForGetExecutionOutput) SetMaxDuration(v float64) *Convert
 // SetMinDuration sets the MinDuration field's value.
 func (s *ConvertSegmentForGetExecutionOutput) SetMinDuration(v float64) *ConvertSegmentForGetExecutionOutput {
 	s.MinDuration = &v
+	return s
+}
+
+// SetNoFile sets the NoFile field's value.
+func (s *ConvertSegmentForGetExecutionOutput) SetNoFile(v bool) *ConvertSegmentForGetExecutionOutput {
+	s.NoFile = &v
 	return s
 }
 
@@ -2348,7 +3408,7 @@ type ConvertStorylineCutsForGetExecutionOutput struct {
 
 	CutSegments []*CutSegmentForGetExecutionOutput `type:"list"`
 
-	Segments []*ConvertConvertConvertSegmentForGetExecutionOutput `type:"list"`
+	Segments []*ConvertConvertConvertConvertSegmentForGetExecutionOutput `type:"list"`
 
 	Storylines []*ConvertStorylineForGetExecutionOutput `type:"list"`
 }
@@ -2370,7 +3430,7 @@ func (s *ConvertStorylineCutsForGetExecutionOutput) SetCutSegments(v []*CutSegme
 }
 
 // SetSegments sets the Segments field's value.
-func (s *ConvertStorylineCutsForGetExecutionOutput) SetSegments(v []*ConvertConvertConvertSegmentForGetExecutionOutput) *ConvertStorylineCutsForGetExecutionOutput {
+func (s *ConvertStorylineCutsForGetExecutionOutput) SetSegments(v []*ConvertConvertConvertConvertSegmentForGetExecutionOutput) *ConvertStorylineCutsForGetExecutionOutput {
 	s.Segments = v
 	return s
 }
@@ -2430,13 +3490,17 @@ func (s *ConvertStorylineForGetExecutionOutput) SetTitle(v string) *ConvertStory
 type ConvertTaskForGetExecutionOutput struct {
 	_ struct{} `type:"structure"`
 
+	ABRTranscode *ConvertABRTranscodeForGetExecutionOutput `type:"structure"`
+
 	AdAudit *ConvertAdAuditForGetExecutionOutput `type:"structure"`
 
 	Asr *ConvertAsrForGetExecutionOutput `type:"structure"`
 
 	AudioExtract *ConvertAudioExtractForGetExecutionOutput `type:"structure"`
 
-	Enhance *ConvertConvertEnhanceForGetExecutionOutput `type:"structure"`
+	ConvertFormat *ConvertConvertFormatForGetExecutionOutput `type:"structure"`
+
+	Enhance *ConvertConvertConvertEnhanceForGetExecutionOutput `type:"structure"`
 
 	Erase *ConvertEraseForGetExecutionOutput `type:"structure"`
 
@@ -2446,9 +3510,11 @@ type ConvertTaskForGetExecutionOutput struct {
 
 	Ocr *ConvertOcrForGetExecutionOutput `type:"structure"`
 
-	Segment *ConvertConvertConvertConvertConvertSegmentForGetExecutionOutput `type:"structure"`
+	Segment *ConvertConvertConvertConvertConvertConvertSegmentForGetExecutionOutput `type:"structure"`
 
 	Storyline *ConvertConvertConvertStorylineForGetExecutionOutput `type:"structure"`
+
+	Transcode *ConvertTranscodeForGetExecutionOutput `type:"structure"`
 
 	Type *string `type:"string"`
 
@@ -2473,6 +3539,12 @@ func (s ConvertTaskForGetExecutionOutput) GoString() string {
 	return s.String()
 }
 
+// SetABRTranscode sets the ABRTranscode field's value.
+func (s *ConvertTaskForGetExecutionOutput) SetABRTranscode(v *ConvertABRTranscodeForGetExecutionOutput) *ConvertTaskForGetExecutionOutput {
+	s.ABRTranscode = v
+	return s
+}
+
 // SetAdAudit sets the AdAudit field's value.
 func (s *ConvertTaskForGetExecutionOutput) SetAdAudit(v *ConvertAdAuditForGetExecutionOutput) *ConvertTaskForGetExecutionOutput {
 	s.AdAudit = v
@@ -2491,8 +3563,14 @@ func (s *ConvertTaskForGetExecutionOutput) SetAudioExtract(v *ConvertAudioExtrac
 	return s
 }
 
+// SetConvertFormat sets the ConvertFormat field's value.
+func (s *ConvertTaskForGetExecutionOutput) SetConvertFormat(v *ConvertConvertFormatForGetExecutionOutput) *ConvertTaskForGetExecutionOutput {
+	s.ConvertFormat = v
+	return s
+}
+
 // SetEnhance sets the Enhance field's value.
-func (s *ConvertTaskForGetExecutionOutput) SetEnhance(v *ConvertConvertEnhanceForGetExecutionOutput) *ConvertTaskForGetExecutionOutput {
+func (s *ConvertTaskForGetExecutionOutput) SetEnhance(v *ConvertConvertConvertEnhanceForGetExecutionOutput) *ConvertTaskForGetExecutionOutput {
 	s.Enhance = v
 	return s
 }
@@ -2522,7 +3600,7 @@ func (s *ConvertTaskForGetExecutionOutput) SetOcr(v *ConvertOcrForGetExecutionOu
 }
 
 // SetSegment sets the Segment field's value.
-func (s *ConvertTaskForGetExecutionOutput) SetSegment(v *ConvertConvertConvertConvertConvertSegmentForGetExecutionOutput) *ConvertTaskForGetExecutionOutput {
+func (s *ConvertTaskForGetExecutionOutput) SetSegment(v *ConvertConvertConvertConvertConvertConvertSegmentForGetExecutionOutput) *ConvertTaskForGetExecutionOutput {
 	s.Segment = v
 	return s
 }
@@ -2530,6 +3608,12 @@ func (s *ConvertTaskForGetExecutionOutput) SetSegment(v *ConvertConvertConvertCo
 // SetStoryline sets the Storyline field's value.
 func (s *ConvertTaskForGetExecutionOutput) SetStoryline(v *ConvertConvertConvertStorylineForGetExecutionOutput) *ConvertTaskForGetExecutionOutput {
 	s.Storyline = v
+	return s
+}
+
+// SetTranscode sets the Transcode field's value.
+func (s *ConvertTaskForGetExecutionOutput) SetTranscode(v *ConvertTranscodeForGetExecutionOutput) *ConvertTaskForGetExecutionOutput {
+	s.Transcode = v
 	return s
 }
 
@@ -2574,7 +3658,7 @@ type ConvertTemplateForGetExecutionOutput struct {
 
 	ByteHD *ConvertByteHDForGetExecutionOutput `type:"structure"`
 
-	Enhance *ConvertConvertEnhanceForGetExecutionOutput `type:"structure"`
+	Enhance *ConvertConvertConvertEnhanceForGetExecutionOutput `type:"structure"`
 
 	TranscodeAudio *ConvertTranscodeAudioForGetExecutionOutput `type:"structure"`
 
@@ -2600,7 +3684,7 @@ func (s *ConvertTemplateForGetExecutionOutput) SetByteHD(v *ConvertByteHDForGetE
 }
 
 // SetEnhance sets the Enhance field's value.
-func (s *ConvertTemplateForGetExecutionOutput) SetEnhance(v *ConvertConvertEnhanceForGetExecutionOutput) *ConvertTemplateForGetExecutionOutput {
+func (s *ConvertTemplateForGetExecutionOutput) SetEnhance(v *ConvertConvertConvertEnhanceForGetExecutionOutput) *ConvertTemplateForGetExecutionOutput {
 	s.Enhance = v
 	return s
 }
@@ -2638,7 +3722,7 @@ type ConvertTranscodeAudioForGetExecutionOutput struct {
 
 	Encrypt *bool `type:"boolean"`
 
-	Encryption *EncryptionForGetExecutionOutput `type:"structure"`
+	Encryption *ConvertEncryptionForGetExecutionOutput `type:"structure"`
 
 	FileId *string `type:"string"`
 
@@ -2706,7 +3790,7 @@ func (s *ConvertTranscodeAudioForGetExecutionOutput) SetEncrypt(v bool) *Convert
 }
 
 // SetEncryption sets the Encryption field's value.
-func (s *ConvertTranscodeAudioForGetExecutionOutput) SetEncryption(v *EncryptionForGetExecutionOutput) *ConvertTranscodeAudioForGetExecutionOutput {
+func (s *ConvertTranscodeAudioForGetExecutionOutput) SetEncryption(v *ConvertEncryptionForGetExecutionOutput) *ConvertTranscodeAudioForGetExecutionOutput {
 	s.Encryption = v
 	return s
 }
@@ -2765,6 +3849,28 @@ func (s *ConvertTranscodeAudioForGetExecutionOutput) SetVideoStreamMeta(v *Video
 	return s
 }
 
+type ConvertTranscodeForGetExecutionOutput struct {
+	_ struct{} `type:"structure"`
+
+	MediaInfos []*MediaInfoForGetExecutionOutput `type:"list"`
+}
+
+// String returns the string representation
+func (s ConvertTranscodeForGetExecutionOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ConvertTranscodeForGetExecutionOutput) GoString() string {
+	return s.String()
+}
+
+// SetMediaInfos sets the MediaInfos field's value.
+func (s *ConvertTranscodeForGetExecutionOutput) SetMediaInfos(v []*MediaInfoForGetExecutionOutput) *ConvertTranscodeForGetExecutionOutput {
+	s.MediaInfos = v
+	return s
+}
+
 type ConvertTranscodeVideoForGetExecutionOutput struct {
 	_ struct{} `type:"structure"`
 
@@ -2780,7 +3886,7 @@ type ConvertTranscodeVideoForGetExecutionOutput struct {
 
 	Encrypt *bool `type:"boolean"`
 
-	Encryption *EncryptionForGetExecutionOutput `type:"structure"`
+	Encryption *ConvertEncryptionForGetExecutionOutput `type:"structure"`
 
 	FileId *string `type:"string"`
 
@@ -2848,7 +3954,7 @@ func (s *ConvertTranscodeVideoForGetExecutionOutput) SetEncrypt(v bool) *Convert
 }
 
 // SetEncryption sets the Encryption field's value.
-func (s *ConvertTranscodeVideoForGetExecutionOutput) SetEncryption(v *EncryptionForGetExecutionOutput) *ConvertTranscodeVideoForGetExecutionOutput {
+func (s *ConvertTranscodeVideoForGetExecutionOutput) SetEncryption(v *ConvertEncryptionForGetExecutionOutput) *ConvertTranscodeVideoForGetExecutionOutput {
 	s.Encryption = v
 	return s
 }
@@ -2907,6 +4013,68 @@ func (s *ConvertTranscodeVideoForGetExecutionOutput) SetVideoStreamMeta(v *Video
 	return s
 }
 
+type ConvertVideoForGetExecutionOutput struct {
+	_ struct{} `type:"structure"`
+
+	BitDepth *int32 `type:"int32"`
+
+	BitrateControl *ConvertConvertConvertBitrateControlForGetExecutionOutput `type:"structure"`
+
+	Codec *string `type:"string" enum:"ConvertEnumOfCodecForGetExecutionOutput"`
+
+	FpsControl *ConvertFpsControlForGetExecutionOutput `type:"structure"`
+
+	HDRMode *int32 `type:"int32"`
+
+	ScaleControl *ConvertScaleControlForGetExecutionOutput `type:"structure"`
+}
+
+// String returns the string representation
+func (s ConvertVideoForGetExecutionOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ConvertVideoForGetExecutionOutput) GoString() string {
+	return s.String()
+}
+
+// SetBitDepth sets the BitDepth field's value.
+func (s *ConvertVideoForGetExecutionOutput) SetBitDepth(v int32) *ConvertVideoForGetExecutionOutput {
+	s.BitDepth = &v
+	return s
+}
+
+// SetBitrateControl sets the BitrateControl field's value.
+func (s *ConvertVideoForGetExecutionOutput) SetBitrateControl(v *ConvertConvertConvertBitrateControlForGetExecutionOutput) *ConvertVideoForGetExecutionOutput {
+	s.BitrateControl = v
+	return s
+}
+
+// SetCodec sets the Codec field's value.
+func (s *ConvertVideoForGetExecutionOutput) SetCodec(v string) *ConvertVideoForGetExecutionOutput {
+	s.Codec = &v
+	return s
+}
+
+// SetFpsControl sets the FpsControl field's value.
+func (s *ConvertVideoForGetExecutionOutput) SetFpsControl(v *ConvertFpsControlForGetExecutionOutput) *ConvertVideoForGetExecutionOutput {
+	s.FpsControl = v
+	return s
+}
+
+// SetHDRMode sets the HDRMode field's value.
+func (s *ConvertVideoForGetExecutionOutput) SetHDRMode(v int32) *ConvertVideoForGetExecutionOutput {
+	s.HDRMode = &v
+	return s
+}
+
+// SetScaleControl sets the ScaleControl field's value.
+func (s *ConvertVideoForGetExecutionOutput) SetScaleControl(v *ConvertScaleControlForGetExecutionOutput) *ConvertVideoForGetExecutionOutput {
+	s.ScaleControl = v
+	return s
+}
+
 type ConvertVideoGenerationForGetExecutionOutput struct {
 	_ struct{} `type:"structure"`
 
@@ -2916,7 +4084,7 @@ type ConvertVideoGenerationForGetExecutionOutput struct {
 
 	Resolution *string `type:"string"`
 
-	Video *VideoForGetExecutionOutput `type:"structure"`
+	Video *ConvertConvertVideoForGetExecutionOutput `type:"structure"`
 }
 
 // String returns the string representation
@@ -2948,7 +4116,7 @@ func (s *ConvertVideoGenerationForGetExecutionOutput) SetResolution(v string) *C
 }
 
 // SetVideo sets the Video field's value.
-func (s *ConvertVideoGenerationForGetExecutionOutput) SetVideo(v *VideoForGetExecutionOutput) *ConvertVideoGenerationForGetExecutionOutput {
+func (s *ConvertVideoGenerationForGetExecutionOutput) SetVideo(v *ConvertConvertVideoForGetExecutionOutput) *ConvertVideoGenerationForGetExecutionOutput {
 	s.Video = v
 	return s
 }
@@ -2960,7 +4128,7 @@ type ConvertVideoMattingForGetExecutionOutput struct {
 
 	Model *string `type:"string"`
 
-	Video *VideoForGetExecutionOutput `type:"structure"`
+	Video *ConvertConvertVideoForGetExecutionOutput `type:"structure"`
 }
 
 // String returns the string representation
@@ -2986,7 +4154,7 @@ func (s *ConvertVideoMattingForGetExecutionOutput) SetModel(v string) *ConvertVi
 }
 
 // SetVideo sets the Video field's value.
-func (s *ConvertVideoMattingForGetExecutionOutput) SetVideo(v *VideoForGetExecutionOutput) *ConvertVideoMattingForGetExecutionOutput {
+func (s *ConvertVideoMattingForGetExecutionOutput) SetVideo(v *ConvertConvertVideoForGetExecutionOutput) *ConvertVideoMattingForGetExecutionOutput {
 	s.Video = v
 	return s
 }
@@ -3050,7 +4218,7 @@ type ConvertVideoUnderstandingForGetExecutionOutput struct {
 
 	Duration *float64 `type:"double"`
 
-	Segments []*ConvertConvertConvertConvertConvertConvertSegmentForGetExecutionOutput `type:"list"`
+	Segments []*ConvertConvertConvertConvertConvertConvertConvertSegmentForGetExecutionOutput `type:"list"`
 }
 
 // String returns the string representation
@@ -3076,7 +4244,7 @@ func (s *ConvertVideoUnderstandingForGetExecutionOutput) SetDuration(v float64) 
 }
 
 // SetSegments sets the Segments field's value.
-func (s *ConvertVideoUnderstandingForGetExecutionOutput) SetSegments(v []*ConvertConvertConvertConvertConvertConvertSegmentForGetExecutionOutput) *ConvertVideoUnderstandingForGetExecutionOutput {
+func (s *ConvertVideoUnderstandingForGetExecutionOutput) SetSegments(v []*ConvertConvertConvertConvertConvertConvertConvertSegmentForGetExecutionOutput) *ConvertVideoUnderstandingForGetExecutionOutput {
 	s.Segments = v
 	return s
 }
@@ -3135,6 +4303,52 @@ func (s *ConvertVisionForGetExecutionOutput) SetSnapshotsNumber(v int32) *Conver
 	return s
 }
 
+type ConvertVolumeForGetExecutionOutput struct {
+	_ struct{} `type:"structure"`
+
+	IntegratedLoudness *float64 `type:"float"`
+
+	LoudnessRange *float64 `min:"1" max:"20" type:"float"`
+
+	Method *string `type:"string" enum:"EnumOfMethodForGetExecutionOutput"`
+
+	TruePeak *float64 `type:"float"`
+}
+
+// String returns the string representation
+func (s ConvertVolumeForGetExecutionOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ConvertVolumeForGetExecutionOutput) GoString() string {
+	return s.String()
+}
+
+// SetIntegratedLoudness sets the IntegratedLoudness field's value.
+func (s *ConvertVolumeForGetExecutionOutput) SetIntegratedLoudness(v float64) *ConvertVolumeForGetExecutionOutput {
+	s.IntegratedLoudness = &v
+	return s
+}
+
+// SetLoudnessRange sets the LoudnessRange field's value.
+func (s *ConvertVolumeForGetExecutionOutput) SetLoudnessRange(v float64) *ConvertVolumeForGetExecutionOutput {
+	s.LoudnessRange = &v
+	return s
+}
+
+// SetMethod sets the Method field's value.
+func (s *ConvertVolumeForGetExecutionOutput) SetMethod(v string) *ConvertVolumeForGetExecutionOutput {
+	s.Method = &v
+	return s
+}
+
+// SetTruePeak sets the TruePeak field's value.
+func (s *ConvertVolumeForGetExecutionOutput) SetTruePeak(v float64) *ConvertVolumeForGetExecutionOutput {
+	s.TruePeak = &v
+	return s
+}
+
 type ConvertWorkflowForGetExecutionOutput struct {
 	_ struct{} `type:"structure"`
 
@@ -3157,12 +4371,58 @@ func (s *ConvertWorkflowForGetExecutionOutput) SetNodes(v []*ConvertNodeForGetEx
 	return s
 }
 
+type CropForGetExecutionOutput struct {
+	_ struct{} `type:"structure"`
+
+	PosX *int32 `max:"4320" type:"int32"`
+
+	PosY *int32 `max:"4320" type:"int32"`
+
+	SizeX *int32 `max:"4320" type:"int32"`
+
+	SizeY *int32 `max:"4320" type:"int32"`
+}
+
+// String returns the string representation
+func (s CropForGetExecutionOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s CropForGetExecutionOutput) GoString() string {
+	return s.String()
+}
+
+// SetPosX sets the PosX field's value.
+func (s *CropForGetExecutionOutput) SetPosX(v int32) *CropForGetExecutionOutput {
+	s.PosX = &v
+	return s
+}
+
+// SetPosY sets the PosY field's value.
+func (s *CropForGetExecutionOutput) SetPosY(v int32) *CropForGetExecutionOutput {
+	s.PosY = &v
+	return s
+}
+
+// SetSizeX sets the SizeX field's value.
+func (s *CropForGetExecutionOutput) SetSizeX(v int32) *CropForGetExecutionOutput {
+	s.SizeX = &v
+	return s
+}
+
+// SetSizeY sets the SizeY field's value.
+func (s *CropForGetExecutionOutput) SetSizeY(v int32) *CropForGetExecutionOutput {
+	s.SizeY = &v
+	return s
+}
+
 type CustomEditForGetExecutionOutput struct {
 	_ struct{} `type:"structure"`
 
 	Canvas *CanvasForGetExecutionOutput `type:"structure"`
 
-	Output *OutputForGetExecutionOutput `type:"structure"`
+	Output *ConvertOutputForGetExecutionOutput `type:"structure"`
 }
 
 // String returns the string representation
@@ -3182,7 +4442,7 @@ func (s *CustomEditForGetExecutionOutput) SetCanvas(v *CanvasForGetExecutionOutp
 }
 
 // SetOutput sets the Output field's value.
-func (s *CustomEditForGetExecutionOutput) SetOutput(v *OutputForGetExecutionOutput) *CustomEditForGetExecutionOutput {
+func (s *CustomEditForGetExecutionOutput) SetOutput(v *ConvertOutputForGetExecutionOutput) *CustomEditForGetExecutionOutput {
 	s.Output = v
 	return s
 }
@@ -3190,7 +4450,7 @@ func (s *CustomEditForGetExecutionOutput) SetOutput(v *OutputForGetExecutionOutp
 type CutForGetExecutionOutput struct {
 	_ struct{} `type:"structure"`
 
-	Clips []*ConvertConvertClipForGetExecutionOutput `type:"list"`
+	Clips []*ConvertConvertConvertClipForGetExecutionOutput `type:"list"`
 }
 
 // String returns the string representation
@@ -3204,7 +4464,7 @@ func (s CutForGetExecutionOutput) GoString() string {
 }
 
 // SetClips sets the Clips field's value.
-func (s *CutForGetExecutionOutput) SetClips(v []*ConvertConvertClipForGetExecutionOutput) *CutForGetExecutionOutput {
+func (s *CutForGetExecutionOutput) SetClips(v []*ConvertConvertConvertClipForGetExecutionOutput) *CutForGetExecutionOutput {
 	s.Clips = v
 	return s
 }
@@ -3340,7 +4600,11 @@ func (s *EditForGetExecutionOutput) SetMode(v string) *EditForGetExecutionOutput
 type EncryptionForGetExecutionOutput struct {
 	_ struct{} `type:"structure"`
 
+	Host *string `type:"string"`
+
 	Kid *string `type:"string"`
+
+	Type *string `type:"string" enum:"EnumOfTypeForGetExecutionOutput"`
 }
 
 // String returns the string representation
@@ -3353,9 +4617,21 @@ func (s EncryptionForGetExecutionOutput) GoString() string {
 	return s.String()
 }
 
+// SetHost sets the Host field's value.
+func (s *EncryptionForGetExecutionOutput) SetHost(v string) *EncryptionForGetExecutionOutput {
+	s.Host = &v
+	return s
+}
+
 // SetKid sets the Kid field's value.
 func (s *EncryptionForGetExecutionOutput) SetKid(v string) *EncryptionForGetExecutionOutput {
 	s.Kid = &v
+	return s
+}
+
+// SetType sets the Type field's value.
+func (s *EncryptionForGetExecutionOutput) SetType(v string) *EncryptionForGetExecutionOutput {
+	s.Type = &v
 	return s
 }
 
@@ -3571,6 +4847,74 @@ func (s *FileIdForGetExecutionOutput) SetVid(v string) *FileIdForGetExecutionOut
 	return s
 }
 
+type FontShadowForGetExecutionOutput struct {
+	_ struct{} `type:"structure"`
+
+	Color *string `type:"string"`
+
+	OffsetX *float64 `type:"float"`
+
+	OffsetY *float64 `type:"float"`
+}
+
+// String returns the string representation
+func (s FontShadowForGetExecutionOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s FontShadowForGetExecutionOutput) GoString() string {
+	return s.String()
+}
+
+// SetColor sets the Color field's value.
+func (s *FontShadowForGetExecutionOutput) SetColor(v string) *FontShadowForGetExecutionOutput {
+	s.Color = &v
+	return s
+}
+
+// SetOffsetX sets the OffsetX field's value.
+func (s *FontShadowForGetExecutionOutput) SetOffsetX(v float64) *FontShadowForGetExecutionOutput {
+	s.OffsetX = &v
+	return s
+}
+
+// SetOffsetY sets the OffsetY field's value.
+func (s *FontShadowForGetExecutionOutput) SetOffsetY(v float64) *FontShadowForGetExecutionOutput {
+	s.OffsetY = &v
+	return s
+}
+
+type FpsControlForGetExecutionOutput struct {
+	_ struct{} `type:"structure"`
+
+	Fps *float64 `min:"1" max:"240" type:"float"`
+
+	Mode *string `type:"string" enum:"ConvertConvertEnumOfModeForGetExecutionOutput"`
+}
+
+// String returns the string representation
+func (s FpsControlForGetExecutionOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s FpsControlForGetExecutionOutput) GoString() string {
+	return s.String()
+}
+
+// SetFps sets the Fps field's value.
+func (s *FpsControlForGetExecutionOutput) SetFps(v float64) *FpsControlForGetExecutionOutput {
+	s.Fps = &v
+	return s
+}
+
+// SetMode sets the Mode field's value.
+func (s *FpsControlForGetExecutionOutput) SetMode(v string) *FpsControlForGetExecutionOutput {
+	s.Mode = &v
+	return s
+}
+
 type GetExecutionInput struct {
 	_ struct{} `type:"structure"`
 
@@ -3624,7 +4968,7 @@ type GetExecutionOutput struct {
 
 	Operation *ConvertOperationForGetExecutionOutput `type:"structure"`
 
-	Output *ConvertConvertOutputForGetExecutionOutput `type:"structure"`
+	Output *ConvertConvertConvertOutputForGetExecutionOutput `type:"structure"`
 
 	RunId *string `type:"string"`
 
@@ -3680,7 +5024,7 @@ func (s *GetExecutionOutput) SetOperation(v *ConvertOperationForGetExecutionOutp
 }
 
 // SetOutput sets the Output field's value.
-func (s *GetExecutionOutput) SetOutput(v *ConvertConvertOutputForGetExecutionOutput) *GetExecutionOutput {
+func (s *GetExecutionOutput) SetOutput(v *ConvertConvertConvertOutputForGetExecutionOutput) *GetExecutionOutput {
 	s.Output = v
 	return s
 }
@@ -3979,6 +5323,178 @@ func (s *LocationForGetExecutionOutput) SetRatioLocation(v *RatioLocationForGetE
 	return s
 }
 
+type LogoForGetExecutionOutput struct {
+	_ struct{} `type:"structure"`
+
+	Logos *LogosForGetExecutionOutput `type:"structure"`
+}
+
+// String returns the string representation
+func (s LogoForGetExecutionOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s LogoForGetExecutionOutput) GoString() string {
+	return s.String()
+}
+
+// SetLogos sets the Logos field's value.
+func (s *LogoForGetExecutionOutput) SetLogos(v *LogosForGetExecutionOutput) *LogoForGetExecutionOutput {
+	s.Logos = v
+	return s
+}
+
+type LogosForGetExecutionOutput struct {
+	_ struct{} `type:"structure"`
+
+	AdaptMode *string `type:"string"`
+
+	EndTime *float64 `type:"float"`
+
+	FontColor *string `type:"string"`
+
+	FontShadow *FontShadowForGetExecutionOutput `type:"structure"`
+
+	FontSize *float64 `type:"float"`
+
+	FontType *string `type:"string" enum:"EnumOfFontTypeForGetExecutionOutput"`
+
+	Locate *string `type:"string" enum:"EnumOfLocateForGetExecutionOutput"`
+
+	LoopTimes *float64 `type:"float"`
+
+	MaxLines *string `type:"string"`
+
+	MaxWidth *string `type:"string"`
+
+	Mid *string `type:"string"`
+
+	PosX *float64 `max:"4320" type:"float"`
+
+	PosY *float64 `max:"4320" type:"float"`
+
+	SizeX *float64 `max:"4320" type:"float"`
+
+	SizeY *float64 `max:"4320" type:"float"`
+
+	StartTime *float64 `type:"float"`
+
+	Type *string `type:"string" enum:"ConvertConvertConvertConvertEnumOfTypeForGetExecutionOutput"`
+}
+
+// String returns the string representation
+func (s LogosForGetExecutionOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s LogosForGetExecutionOutput) GoString() string {
+	return s.String()
+}
+
+// SetAdaptMode sets the AdaptMode field's value.
+func (s *LogosForGetExecutionOutput) SetAdaptMode(v string) *LogosForGetExecutionOutput {
+	s.AdaptMode = &v
+	return s
+}
+
+// SetEndTime sets the EndTime field's value.
+func (s *LogosForGetExecutionOutput) SetEndTime(v float64) *LogosForGetExecutionOutput {
+	s.EndTime = &v
+	return s
+}
+
+// SetFontColor sets the FontColor field's value.
+func (s *LogosForGetExecutionOutput) SetFontColor(v string) *LogosForGetExecutionOutput {
+	s.FontColor = &v
+	return s
+}
+
+// SetFontShadow sets the FontShadow field's value.
+func (s *LogosForGetExecutionOutput) SetFontShadow(v *FontShadowForGetExecutionOutput) *LogosForGetExecutionOutput {
+	s.FontShadow = v
+	return s
+}
+
+// SetFontSize sets the FontSize field's value.
+func (s *LogosForGetExecutionOutput) SetFontSize(v float64) *LogosForGetExecutionOutput {
+	s.FontSize = &v
+	return s
+}
+
+// SetFontType sets the FontType field's value.
+func (s *LogosForGetExecutionOutput) SetFontType(v string) *LogosForGetExecutionOutput {
+	s.FontType = &v
+	return s
+}
+
+// SetLocate sets the Locate field's value.
+func (s *LogosForGetExecutionOutput) SetLocate(v string) *LogosForGetExecutionOutput {
+	s.Locate = &v
+	return s
+}
+
+// SetLoopTimes sets the LoopTimes field's value.
+func (s *LogosForGetExecutionOutput) SetLoopTimes(v float64) *LogosForGetExecutionOutput {
+	s.LoopTimes = &v
+	return s
+}
+
+// SetMaxLines sets the MaxLines field's value.
+func (s *LogosForGetExecutionOutput) SetMaxLines(v string) *LogosForGetExecutionOutput {
+	s.MaxLines = &v
+	return s
+}
+
+// SetMaxWidth sets the MaxWidth field's value.
+func (s *LogosForGetExecutionOutput) SetMaxWidth(v string) *LogosForGetExecutionOutput {
+	s.MaxWidth = &v
+	return s
+}
+
+// SetMid sets the Mid field's value.
+func (s *LogosForGetExecutionOutput) SetMid(v string) *LogosForGetExecutionOutput {
+	s.Mid = &v
+	return s
+}
+
+// SetPosX sets the PosX field's value.
+func (s *LogosForGetExecutionOutput) SetPosX(v float64) *LogosForGetExecutionOutput {
+	s.PosX = &v
+	return s
+}
+
+// SetPosY sets the PosY field's value.
+func (s *LogosForGetExecutionOutput) SetPosY(v float64) *LogosForGetExecutionOutput {
+	s.PosY = &v
+	return s
+}
+
+// SetSizeX sets the SizeX field's value.
+func (s *LogosForGetExecutionOutput) SetSizeX(v float64) *LogosForGetExecutionOutput {
+	s.SizeX = &v
+	return s
+}
+
+// SetSizeY sets the SizeY field's value.
+func (s *LogosForGetExecutionOutput) SetSizeY(v float64) *LogosForGetExecutionOutput {
+	s.SizeY = &v
+	return s
+}
+
+// SetStartTime sets the StartTime field's value.
+func (s *LogosForGetExecutionOutput) SetStartTime(v float64) *LogosForGetExecutionOutput {
+	s.StartTime = &v
+	return s
+}
+
+// SetType sets the Type field's value.
+func (s *LogosForGetExecutionOutput) SetType(v string) *LogosForGetExecutionOutput {
+	s.Type = &v
+	return s
+}
+
 type ManualForGetExecutionOutput struct {
 	_ struct{} `type:"structure"`
 
@@ -3998,6 +5514,36 @@ func (s ManualForGetExecutionOutput) GoString() string {
 // SetLocations sets the Locations field's value.
 func (s *ManualForGetExecutionOutput) SetLocations(v []*LocationForGetExecutionOutput) *ManualForGetExecutionOutput {
 	s.Locations = v
+	return s
+}
+
+type MediaInfoForGetExecutionOutput struct {
+	_ struct{} `type:"structure"`
+
+	FileName *string `type:"string"`
+
+	Size *string `type:"string"`
+}
+
+// String returns the string representation
+func (s MediaInfoForGetExecutionOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s MediaInfoForGetExecutionOutput) GoString() string {
+	return s.String()
+}
+
+// SetFileName sets the FileName field's value.
+func (s *MediaInfoForGetExecutionOutput) SetFileName(v string) *MediaInfoForGetExecutionOutput {
+	s.FileName = &v
+	return s
+}
+
+// SetSize sets the Size field's value.
+func (s *MediaInfoForGetExecutionOutput) SetSize(v string) *MediaInfoForGetExecutionOutput {
+	s.Size = &v
 	return s
 }
 
@@ -4052,6 +5598,36 @@ func (s *MetaForGetExecutionOutput) SetStartTime(v string) *MetaForGetExecutionO
 // SetTrigger sets the Trigger field's value.
 func (s *MetaForGetExecutionOutput) SetTrigger(v string) *MetaForGetExecutionOutput {
 	s.Trigger = &v
+	return s
+}
+
+type MetadataForGetExecutionOutput struct {
+	_ struct{} `type:"structure"`
+
+	AddTags []*AddTagForGetExecutionOutput `type:"list"`
+
+	KeepTags []*string `type:"list"`
+}
+
+// String returns the string representation
+func (s MetadataForGetExecutionOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s MetadataForGetExecutionOutput) GoString() string {
+	return s.String()
+}
+
+// SetAddTags sets the AddTags field's value.
+func (s *MetadataForGetExecutionOutput) SetAddTags(v []*AddTagForGetExecutionOutput) *MetadataForGetExecutionOutput {
+	s.AddTags = v
+	return s
+}
+
+// SetKeepTags sets the KeepTags field's value.
+func (s *MetadataForGetExecutionOutput) SetKeepTags(v []*string) *MetadataForGetExecutionOutput {
+	s.KeepTags = v
 	return s
 }
 
@@ -4492,23 +6068,9 @@ func (s *OperationForGetExecutionOutput) SetType(v string) *OperationForGetExecu
 type OutputForGetExecutionOutput struct {
 	_ struct{} `type:"structure"`
 
-	Alpha *bool `type:"boolean"`
+	Audio *AudioForGetExecutionOutput `type:"structure"`
 
-	AudioPhaseDetect *bool `type:"boolean"`
-
-	CanvasWithMax *bool `type:"boolean"`
-
-	CanvasWithRatio *bool `type:"boolean"`
-
-	Codec *CodecForGetExecutionOutput `type:"structure"`
-
-	DisableAudio *bool `type:"boolean"`
-
-	DisableVideo *bool `type:"boolean"`
-
-	Format *string `type:"string"`
-
-	Fps *float64 `type:"double"`
+	Video *VideoForGetExecutionOutput `type:"structure"`
 }
 
 // String returns the string representation
@@ -4521,57 +6083,15 @@ func (s OutputForGetExecutionOutput) GoString() string {
 	return s.String()
 }
 
-// SetAlpha sets the Alpha field's value.
-func (s *OutputForGetExecutionOutput) SetAlpha(v bool) *OutputForGetExecutionOutput {
-	s.Alpha = &v
+// SetAudio sets the Audio field's value.
+func (s *OutputForGetExecutionOutput) SetAudio(v *AudioForGetExecutionOutput) *OutputForGetExecutionOutput {
+	s.Audio = v
 	return s
 }
 
-// SetAudioPhaseDetect sets the AudioPhaseDetect field's value.
-func (s *OutputForGetExecutionOutput) SetAudioPhaseDetect(v bool) *OutputForGetExecutionOutput {
-	s.AudioPhaseDetect = &v
-	return s
-}
-
-// SetCanvasWithMax sets the CanvasWithMax field's value.
-func (s *OutputForGetExecutionOutput) SetCanvasWithMax(v bool) *OutputForGetExecutionOutput {
-	s.CanvasWithMax = &v
-	return s
-}
-
-// SetCanvasWithRatio sets the CanvasWithRatio field's value.
-func (s *OutputForGetExecutionOutput) SetCanvasWithRatio(v bool) *OutputForGetExecutionOutput {
-	s.CanvasWithRatio = &v
-	return s
-}
-
-// SetCodec sets the Codec field's value.
-func (s *OutputForGetExecutionOutput) SetCodec(v *CodecForGetExecutionOutput) *OutputForGetExecutionOutput {
-	s.Codec = v
-	return s
-}
-
-// SetDisableAudio sets the DisableAudio field's value.
-func (s *OutputForGetExecutionOutput) SetDisableAudio(v bool) *OutputForGetExecutionOutput {
-	s.DisableAudio = &v
-	return s
-}
-
-// SetDisableVideo sets the DisableVideo field's value.
-func (s *OutputForGetExecutionOutput) SetDisableVideo(v bool) *OutputForGetExecutionOutput {
-	s.DisableVideo = &v
-	return s
-}
-
-// SetFormat sets the Format field's value.
-func (s *OutputForGetExecutionOutput) SetFormat(v string) *OutputForGetExecutionOutput {
-	s.Format = &v
-	return s
-}
-
-// SetFps sets the Fps field's value.
-func (s *OutputForGetExecutionOutput) SetFps(v float64) *OutputForGetExecutionOutput {
-	s.Fps = &v
+// SetVideo sets the Video field's value.
+func (s *OutputForGetExecutionOutput) SetVideo(v *VideoForGetExecutionOutput) *OutputForGetExecutionOutput {
+	s.Video = v
 	return s
 }
 
@@ -4689,18 +6209,76 @@ func (s *RatioLocationForGetExecutionOutput) SetTopLeftY(v float64) *RatioLocati
 	return s
 }
 
+type ScaleControlForGetExecutionOutput struct {
+	_ struct{} `type:"structure"`
+
+	ScaleHeight *int32 `max:"4320" type:"int32"`
+
+	ScaleLong *int32 `max:"4320" type:"int32"`
+
+	ScaleMode *int32 `type:"int32"`
+
+	ScaleShort *int32 `max:"4320" type:"int32"`
+
+	ScaleType *int32 `type:"int32"`
+
+	ScaleWidth *int32 `max:"4320" type:"int32"`
+}
+
+// String returns the string representation
+func (s ScaleControlForGetExecutionOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ScaleControlForGetExecutionOutput) GoString() string {
+	return s.String()
+}
+
+// SetScaleHeight sets the ScaleHeight field's value.
+func (s *ScaleControlForGetExecutionOutput) SetScaleHeight(v int32) *ScaleControlForGetExecutionOutput {
+	s.ScaleHeight = &v
+	return s
+}
+
+// SetScaleLong sets the ScaleLong field's value.
+func (s *ScaleControlForGetExecutionOutput) SetScaleLong(v int32) *ScaleControlForGetExecutionOutput {
+	s.ScaleLong = &v
+	return s
+}
+
+// SetScaleMode sets the ScaleMode field's value.
+func (s *ScaleControlForGetExecutionOutput) SetScaleMode(v int32) *ScaleControlForGetExecutionOutput {
+	s.ScaleMode = &v
+	return s
+}
+
+// SetScaleShort sets the ScaleShort field's value.
+func (s *ScaleControlForGetExecutionOutput) SetScaleShort(v int32) *ScaleControlForGetExecutionOutput {
+	s.ScaleShort = &v
+	return s
+}
+
+// SetScaleType sets the ScaleType field's value.
+func (s *ScaleControlForGetExecutionOutput) SetScaleType(v int32) *ScaleControlForGetExecutionOutput {
+	s.ScaleType = &v
+	return s
+}
+
+// SetScaleWidth sets the ScaleWidth field's value.
+func (s *ScaleControlForGetExecutionOutput) SetScaleWidth(v int32) *ScaleControlForGetExecutionOutput {
+	s.ScaleWidth = &v
+	return s
+}
+
 type SegmentForGetExecutionOutput struct {
 	_ struct{} `type:"structure"`
 
-	ClipFade *bool `type:"boolean"`
+	Duration *int32 `type:"int32"`
 
-	MaxDuration *float64 `type:"double"`
+	Format *string `type:"string"`
 
-	MinDuration *float64 `type:"double"`
-
-	NoFile *bool `type:"boolean"`
-
-	Threshold *float64 `type:"double"`
+	Type *string `type:"string"`
 }
 
 // String returns the string representation
@@ -4713,33 +6291,21 @@ func (s SegmentForGetExecutionOutput) GoString() string {
 	return s.String()
 }
 
-// SetClipFade sets the ClipFade field's value.
-func (s *SegmentForGetExecutionOutput) SetClipFade(v bool) *SegmentForGetExecutionOutput {
-	s.ClipFade = &v
+// SetDuration sets the Duration field's value.
+func (s *SegmentForGetExecutionOutput) SetDuration(v int32) *SegmentForGetExecutionOutput {
+	s.Duration = &v
 	return s
 }
 
-// SetMaxDuration sets the MaxDuration field's value.
-func (s *SegmentForGetExecutionOutput) SetMaxDuration(v float64) *SegmentForGetExecutionOutput {
-	s.MaxDuration = &v
+// SetFormat sets the Format field's value.
+func (s *SegmentForGetExecutionOutput) SetFormat(v string) *SegmentForGetExecutionOutput {
+	s.Format = &v
 	return s
 }
 
-// SetMinDuration sets the MinDuration field's value.
-func (s *SegmentForGetExecutionOutput) SetMinDuration(v float64) *SegmentForGetExecutionOutput {
-	s.MinDuration = &v
-	return s
-}
-
-// SetNoFile sets the NoFile field's value.
-func (s *SegmentForGetExecutionOutput) SetNoFile(v bool) *SegmentForGetExecutionOutput {
-	s.NoFile = &v
-	return s
-}
-
-// SetThreshold sets the Threshold field's value.
-func (s *SegmentForGetExecutionOutput) SetThreshold(v float64) *SegmentForGetExecutionOutput {
-	s.Threshold = &v
+// SetType sets the Type field's value.
+func (s *SegmentForGetExecutionOutput) SetType(v string) *SegmentForGetExecutionOutput {
+	s.Type = &v
 	return s
 }
 
@@ -4919,6 +6485,44 @@ func (s *StorylineForGetExecutionOutput) SetWithSnapshot(v bool) *StorylineForGe
 	return s
 }
 
+type StreamControlForGetExecutionOutput struct {
+	_ struct{} `type:"structure"`
+
+	KeepAudioStreams *string `type:"string" enum:"EnumOfKeepAudioStreamsForGetExecutionOutput"`
+
+	KeepDataStreams *string `type:"string" enum:"EnumOfKeepDataStreamsForGetExecutionOutput"`
+
+	KeepVideoStreams *string `type:"string" enum:"EnumOfKeepVideoStreamsForGetExecutionOutput"`
+}
+
+// String returns the string representation
+func (s StreamControlForGetExecutionOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s StreamControlForGetExecutionOutput) GoString() string {
+	return s.String()
+}
+
+// SetKeepAudioStreams sets the KeepAudioStreams field's value.
+func (s *StreamControlForGetExecutionOutput) SetKeepAudioStreams(v string) *StreamControlForGetExecutionOutput {
+	s.KeepAudioStreams = &v
+	return s
+}
+
+// SetKeepDataStreams sets the KeepDataStreams field's value.
+func (s *StreamControlForGetExecutionOutput) SetKeepDataStreams(v string) *StreamControlForGetExecutionOutput {
+	s.KeepDataStreams = &v
+	return s
+}
+
+// SetKeepVideoStreams sets the KeepVideoStreams field's value.
+func (s *StreamControlForGetExecutionOutput) SetKeepVideoStreams(v string) *StreamControlForGetExecutionOutput {
+	s.KeepVideoStreams = &v
+	return s
+}
+
 type SubtitleFilterForGetExecutionOutput struct {
 	_ struct{} `type:"structure"`
 
@@ -4998,11 +6602,15 @@ func (s *TargetForGetExecutionOutput) SetResLimit(v int32) *TargetForGetExecutio
 type TaskForGetExecutionOutput struct {
 	_ struct{} `type:"structure"`
 
+	ABRTranscode *ABRTranscodeForGetExecutionOutput `type:"structure"`
+
 	AdAudit *AdAuditForGetExecutionOutput `type:"structure"`
 
 	Asr *AsrForGetExecutionOutput `type:"structure"`
 
 	AudioExtract *AudioExtractForGetExecutionOutput `type:"structure"`
+
+	ConvertFormat *ConvertFormatForGetExecutionOutput `type:"structure"`
 
 	Enhance *EnhanceForGetExecutionOutput `type:"structure"`
 
@@ -5014,9 +6622,13 @@ type TaskForGetExecutionOutput struct {
 
 	Ocr *OcrForGetExecutionOutput `type:"structure"`
 
-	Segment *SegmentForGetExecutionOutput `type:"structure"`
+	Segment *ConvertSegmentForGetExecutionOutput `type:"structure"`
 
 	Storyline *StorylineForGetExecutionOutput `type:"structure"`
+
+	StrategyTag *string `type:"string"`
+
+	Transcode *TranscodeForGetExecutionOutput `type:"structure"`
 
 	Type *string `type:"string"`
 
@@ -5041,6 +6653,12 @@ func (s TaskForGetExecutionOutput) GoString() string {
 	return s.String()
 }
 
+// SetABRTranscode sets the ABRTranscode field's value.
+func (s *TaskForGetExecutionOutput) SetABRTranscode(v *ABRTranscodeForGetExecutionOutput) *TaskForGetExecutionOutput {
+	s.ABRTranscode = v
+	return s
+}
+
 // SetAdAudit sets the AdAudit field's value.
 func (s *TaskForGetExecutionOutput) SetAdAudit(v *AdAuditForGetExecutionOutput) *TaskForGetExecutionOutput {
 	s.AdAudit = v
@@ -5056,6 +6674,12 @@ func (s *TaskForGetExecutionOutput) SetAsr(v *AsrForGetExecutionOutput) *TaskFor
 // SetAudioExtract sets the AudioExtract field's value.
 func (s *TaskForGetExecutionOutput) SetAudioExtract(v *AudioExtractForGetExecutionOutput) *TaskForGetExecutionOutput {
 	s.AudioExtract = v
+	return s
+}
+
+// SetConvertFormat sets the ConvertFormat field's value.
+func (s *TaskForGetExecutionOutput) SetConvertFormat(v *ConvertFormatForGetExecutionOutput) *TaskForGetExecutionOutput {
+	s.ConvertFormat = v
 	return s
 }
 
@@ -5090,7 +6714,7 @@ func (s *TaskForGetExecutionOutput) SetOcr(v *OcrForGetExecutionOutput) *TaskFor
 }
 
 // SetSegment sets the Segment field's value.
-func (s *TaskForGetExecutionOutput) SetSegment(v *SegmentForGetExecutionOutput) *TaskForGetExecutionOutput {
+func (s *TaskForGetExecutionOutput) SetSegment(v *ConvertSegmentForGetExecutionOutput) *TaskForGetExecutionOutput {
 	s.Segment = v
 	return s
 }
@@ -5098,6 +6722,18 @@ func (s *TaskForGetExecutionOutput) SetSegment(v *SegmentForGetExecutionOutput) 
 // SetStoryline sets the Storyline field's value.
 func (s *TaskForGetExecutionOutput) SetStoryline(v *StorylineForGetExecutionOutput) *TaskForGetExecutionOutput {
 	s.Storyline = v
+	return s
+}
+
+// SetStrategyTag sets the StrategyTag field's value.
+func (s *TaskForGetExecutionOutput) SetStrategyTag(v string) *TaskForGetExecutionOutput {
+	s.StrategyTag = &v
+	return s
+}
+
+// SetTranscode sets the Transcode field's value.
+func (s *TaskForGetExecutionOutput) SetTranscode(v *TranscodeForGetExecutionOutput) *TaskForGetExecutionOutput {
+	s.Transcode = v
 	return s
 }
 
@@ -5142,7 +6778,7 @@ type TemplateForGetExecutionOutput struct {
 
 	ByteHD *ByteHDForGetExecutionOutput `type:"structure"`
 
-	Enhance *ConvertEnhanceForGetExecutionOutput `type:"structure"`
+	Enhance *ConvertConvertEnhanceForGetExecutionOutput `type:"structure"`
 
 	TranscodeAudio *TranscodeAudioForGetExecutionOutput `type:"structure"`
 
@@ -5168,7 +6804,7 @@ func (s *TemplateForGetExecutionOutput) SetByteHD(v *ByteHDForGetExecutionOutput
 }
 
 // SetEnhance sets the Enhance field's value.
-func (s *TemplateForGetExecutionOutput) SetEnhance(v *ConvertEnhanceForGetExecutionOutput) *TemplateForGetExecutionOutput {
+func (s *TemplateForGetExecutionOutput) SetEnhance(v *ConvertConvertEnhanceForGetExecutionOutput) *TemplateForGetExecutionOutput {
 	s.Enhance = v
 	return s
 }
@@ -5259,6 +6895,92 @@ func (s *TranscodeAudioForGetExecutionOutput) SetTemplateId(v string) *Transcode
 	return s
 }
 
+type TranscodeForGetExecutionOutput struct {
+	_ struct{} `type:"structure"`
+
+	Audio *ConvertAudioForGetExecutionOutput `type:"structure"`
+
+	Clip *ConvertClipForGetExecutionOutput `type:"structure"`
+
+	Containers []*ConvertConvertContainerForGetExecutionOutput `type:"list"`
+
+	Crop *CropForGetExecutionOutput `type:"structure"`
+
+	Enhance *ConvertEnhanceForGetExecutionOutput `type:"structure"`
+
+	Logo *ConvertLogoForGetExecutionOutput `type:"structure"`
+
+	Metadata *MetadataForGetExecutionOutput `type:"structure"`
+
+	Type *string `type:"string" enum:"ConvertConvertConvertConvertConvertEnumOfTypeForGetExecutionOutput"`
+
+	Video *ConvertVideoForGetExecutionOutput `type:"structure"`
+}
+
+// String returns the string representation
+func (s TranscodeForGetExecutionOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TranscodeForGetExecutionOutput) GoString() string {
+	return s.String()
+}
+
+// SetAudio sets the Audio field's value.
+func (s *TranscodeForGetExecutionOutput) SetAudio(v *ConvertAudioForGetExecutionOutput) *TranscodeForGetExecutionOutput {
+	s.Audio = v
+	return s
+}
+
+// SetClip sets the Clip field's value.
+func (s *TranscodeForGetExecutionOutput) SetClip(v *ConvertClipForGetExecutionOutput) *TranscodeForGetExecutionOutput {
+	s.Clip = v
+	return s
+}
+
+// SetContainers sets the Containers field's value.
+func (s *TranscodeForGetExecutionOutput) SetContainers(v []*ConvertConvertContainerForGetExecutionOutput) *TranscodeForGetExecutionOutput {
+	s.Containers = v
+	return s
+}
+
+// SetCrop sets the Crop field's value.
+func (s *TranscodeForGetExecutionOutput) SetCrop(v *CropForGetExecutionOutput) *TranscodeForGetExecutionOutput {
+	s.Crop = v
+	return s
+}
+
+// SetEnhance sets the Enhance field's value.
+func (s *TranscodeForGetExecutionOutput) SetEnhance(v *ConvertEnhanceForGetExecutionOutput) *TranscodeForGetExecutionOutput {
+	s.Enhance = v
+	return s
+}
+
+// SetLogo sets the Logo field's value.
+func (s *TranscodeForGetExecutionOutput) SetLogo(v *ConvertLogoForGetExecutionOutput) *TranscodeForGetExecutionOutput {
+	s.Logo = v
+	return s
+}
+
+// SetMetadata sets the Metadata field's value.
+func (s *TranscodeForGetExecutionOutput) SetMetadata(v *MetadataForGetExecutionOutput) *TranscodeForGetExecutionOutput {
+	s.Metadata = v
+	return s
+}
+
+// SetType sets the Type field's value.
+func (s *TranscodeForGetExecutionOutput) SetType(v string) *TranscodeForGetExecutionOutput {
+	s.Type = &v
+	return s
+}
+
+// SetVideo sets the Video field's value.
+func (s *TranscodeForGetExecutionOutput) SetVideo(v *ConvertVideoForGetExecutionOutput) *TranscodeForGetExecutionOutput {
+	s.Video = v
+	return s
+}
+
 type TranscodeVideoForGetExecutionOutput struct {
 	_ struct{} `type:"structure"`
 
@@ -5338,11 +7060,17 @@ func (s *UtteranceForGetExecutionOutput) SetText(v string) *UtteranceForGetExecu
 type VideoForGetExecutionOutput struct {
 	_ struct{} `type:"structure"`
 
-	FileName *string `type:"string"`
+	BitDepth *int32 `type:"int32"`
 
-	Size *string `type:"string"`
+	BitrateControl *ConvertBitrateControlForGetExecutionOutput `type:"structure"`
 
-	Vid *string `type:"string"`
+	Codec *string `type:"string" enum:"ConvertEnumOfCodecForGetExecutionOutput"`
+
+	FpsControl *FpsControlForGetExecutionOutput `type:"structure"`
+
+	HDRMode *int32 `type:"int32"`
+
+	ScaleControl *ScaleControlForGetExecutionOutput `type:"structure"`
 }
 
 // String returns the string representation
@@ -5355,21 +7083,39 @@ func (s VideoForGetExecutionOutput) GoString() string {
 	return s.String()
 }
 
-// SetFileName sets the FileName field's value.
-func (s *VideoForGetExecutionOutput) SetFileName(v string) *VideoForGetExecutionOutput {
-	s.FileName = &v
+// SetBitDepth sets the BitDepth field's value.
+func (s *VideoForGetExecutionOutput) SetBitDepth(v int32) *VideoForGetExecutionOutput {
+	s.BitDepth = &v
 	return s
 }
 
-// SetSize sets the Size field's value.
-func (s *VideoForGetExecutionOutput) SetSize(v string) *VideoForGetExecutionOutput {
-	s.Size = &v
+// SetBitrateControl sets the BitrateControl field's value.
+func (s *VideoForGetExecutionOutput) SetBitrateControl(v *ConvertBitrateControlForGetExecutionOutput) *VideoForGetExecutionOutput {
+	s.BitrateControl = v
 	return s
 }
 
-// SetVid sets the Vid field's value.
-func (s *VideoForGetExecutionOutput) SetVid(v string) *VideoForGetExecutionOutput {
-	s.Vid = &v
+// SetCodec sets the Codec field's value.
+func (s *VideoForGetExecutionOutput) SetCodec(v string) *VideoForGetExecutionOutput {
+	s.Codec = &v
+	return s
+}
+
+// SetFpsControl sets the FpsControl field's value.
+func (s *VideoForGetExecutionOutput) SetFpsControl(v *FpsControlForGetExecutionOutput) *VideoForGetExecutionOutput {
+	s.FpsControl = v
+	return s
+}
+
+// SetHDRMode sets the HDRMode field's value.
+func (s *VideoForGetExecutionOutput) SetHDRMode(v int32) *VideoForGetExecutionOutput {
+	s.HDRMode = &v
+	return s
+}
+
+// SetScaleControl sets the ScaleControl field's value.
+func (s *VideoForGetExecutionOutput) SetScaleControl(v *ScaleControlForGetExecutionOutput) *VideoForGetExecutionOutput {
+	s.ScaleControl = v
 	return s
 }
 
@@ -5672,7 +7418,7 @@ type VideoUnderstandingForGetExecutionOutput struct {
 
 	Prompt *string `type:"string"`
 
-	Segment *ConvertSegmentForGetExecutionOutput `type:"structure"`
+	Segment *ConvertConvertSegmentForGetExecutionOutput `type:"structure"`
 
 	WithSegment *bool `type:"boolean"`
 }
@@ -5700,7 +7446,7 @@ func (s *VideoUnderstandingForGetExecutionOutput) SetPrompt(v string) *VideoUnde
 }
 
 // SetSegment sets the Segment field's value.
-func (s *VideoUnderstandingForGetExecutionOutput) SetSegment(v *ConvertSegmentForGetExecutionOutput) *VideoUnderstandingForGetExecutionOutput {
+func (s *VideoUnderstandingForGetExecutionOutput) SetSegment(v *ConvertConvertSegmentForGetExecutionOutput) *VideoUnderstandingForGetExecutionOutput {
 	s.Segment = v
 	return s
 }
@@ -5722,7 +7468,7 @@ type VisionForGetExecutionOutput struct {
 
 	ResponseFormatType *string `type:"string"`
 
-	Segment *ConvertConvertSegmentForGetExecutionOutput `type:"structure"`
+	Segment *ConvertConvertConvertSegmentForGetExecutionOutput `type:"structure"`
 
 	SnapshotParam *SnapshotParamForGetExecutionOutput `type:"structure"`
 }
@@ -5762,7 +7508,7 @@ func (s *VisionForGetExecutionOutput) SetResponseFormatType(v string) *VisionFor
 }
 
 // SetSegment sets the Segment field's value.
-func (s *VisionForGetExecutionOutput) SetSegment(v *ConvertConvertSegmentForGetExecutionOutput) *VisionForGetExecutionOutput {
+func (s *VisionForGetExecutionOutput) SetSegment(v *ConvertConvertConvertSegmentForGetExecutionOutput) *VisionForGetExecutionOutput {
 	s.Segment = v
 	return s
 }
@@ -5811,6 +7557,52 @@ func (s *VoiceForGetExecutionOutput) SetVid(v string) *VoiceForGetExecutionOutpu
 	return s
 }
 
+type VolumeForGetExecutionOutput struct {
+	_ struct{} `type:"structure"`
+
+	IntegratedLoudness *float64 `type:"float"`
+
+	LoudnessRange *float64 `min:"1" max:"20" type:"float"`
+
+	Method *string `type:"string" enum:"EnumOfMethodForGetExecutionOutput"`
+
+	TruePeak *float64 `type:"float"`
+}
+
+// String returns the string representation
+func (s VolumeForGetExecutionOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s VolumeForGetExecutionOutput) GoString() string {
+	return s.String()
+}
+
+// SetIntegratedLoudness sets the IntegratedLoudness field's value.
+func (s *VolumeForGetExecutionOutput) SetIntegratedLoudness(v float64) *VolumeForGetExecutionOutput {
+	s.IntegratedLoudness = &v
+	return s
+}
+
+// SetLoudnessRange sets the LoudnessRange field's value.
+func (s *VolumeForGetExecutionOutput) SetLoudnessRange(v float64) *VolumeForGetExecutionOutput {
+	s.LoudnessRange = &v
+	return s
+}
+
+// SetMethod sets the Method field's value.
+func (s *VolumeForGetExecutionOutput) SetMethod(v string) *VolumeForGetExecutionOutput {
+	s.Method = &v
+	return s
+}
+
+// SetTruePeak sets the TruePeak field's value.
+func (s *VolumeForGetExecutionOutput) SetTruePeak(v float64) *VolumeForGetExecutionOutput {
+	s.TruePeak = &v
+	return s
+}
+
 type WorkflowForGetExecutionOutput struct {
 	_ struct{} `type:"structure"`
 
@@ -5832,3 +7624,268 @@ func (s *WorkflowForGetExecutionOutput) SetNodes(v []*NodeForGetExecutionOutput)
 	s.Nodes = v
 	return s
 }
+
+const (
+	// ConvertConvertConvertConvertConvertEnumOfTypeForGetExecutionOutputLowCost is a ConvertConvertConvertConvertConvertEnumOfTypeForGetExecutionOutput enum value
+	ConvertConvertConvertConvertConvertEnumOfTypeForGetExecutionOutputLowCost = "LowCost"
+
+	// ConvertConvertConvertConvertConvertEnumOfTypeForGetExecutionOutputNormal is a ConvertConvertConvertConvertConvertEnumOfTypeForGetExecutionOutput enum value
+	ConvertConvertConvertConvertConvertEnumOfTypeForGetExecutionOutputNormal = "Normal"
+
+	// ConvertConvertConvertConvertConvertEnumOfTypeForGetExecutionOutputByteHd is a ConvertConvertConvertConvertConvertEnumOfTypeForGetExecutionOutput enum value
+	ConvertConvertConvertConvertConvertEnumOfTypeForGetExecutionOutputByteHd = "ByteHD"
+
+	// ConvertConvertConvertConvertConvertEnumOfTypeForGetExecutionOutputEnhance is a ConvertConvertConvertConvertConvertEnumOfTypeForGetExecutionOutput enum value
+	ConvertConvertConvertConvertConvertEnumOfTypeForGetExecutionOutputEnhance = "Enhance"
+)
+
+const (
+	// ConvertConvertConvertConvertEnumOfTypeForGetExecutionOutputImage is a ConvertConvertConvertConvertEnumOfTypeForGetExecutionOutput enum value
+	ConvertConvertConvertConvertEnumOfTypeForGetExecutionOutputImage = "Image"
+
+	// ConvertConvertConvertConvertEnumOfTypeForGetExecutionOutputVideo is a ConvertConvertConvertConvertEnumOfTypeForGetExecutionOutput enum value
+	ConvertConvertConvertConvertEnumOfTypeForGetExecutionOutputVideo = "Video"
+
+	// ConvertConvertConvertConvertEnumOfTypeForGetExecutionOutputText is a ConvertConvertConvertConvertEnumOfTypeForGetExecutionOutput enum value
+	ConvertConvertConvertConvertEnumOfTypeForGetExecutionOutputText = "Text"
+)
+
+const (
+	// ConvertConvertConvertEnumOfTypeForGetExecutionOutputVideo is a ConvertConvertConvertEnumOfTypeForGetExecutionOutput enum value
+	ConvertConvertConvertEnumOfTypeForGetExecutionOutputVideo = "Video"
+)
+
+const (
+	// ConvertConvertEnumOfCodecForGetExecutionOutputAac is a ConvertConvertEnumOfCodecForGetExecutionOutput enum value
+	ConvertConvertEnumOfCodecForGetExecutionOutputAac = "aac"
+
+	// ConvertConvertEnumOfCodecForGetExecutionOutputMp3 is a ConvertConvertEnumOfCodecForGetExecutionOutput enum value
+	ConvertConvertEnumOfCodecForGetExecutionOutputMp3 = "mp3"
+
+	// ConvertConvertEnumOfCodecForGetExecutionOutputOpus is a ConvertConvertEnumOfCodecForGetExecutionOutput enum value
+	ConvertConvertEnumOfCodecForGetExecutionOutputOpus = "opus"
+)
+
+const (
+	// ConvertConvertEnumOfModeForGetExecutionOutputVfr is a ConvertConvertEnumOfModeForGetExecutionOutput enum value
+	ConvertConvertEnumOfModeForGetExecutionOutputVfr = "vfr"
+
+	// ConvertConvertEnumOfModeForGetExecutionOutputCfr is a ConvertConvertEnumOfModeForGetExecutionOutput enum value
+	ConvertConvertEnumOfModeForGetExecutionOutputCfr = "cfr"
+)
+
+const (
+	// ConvertConvertEnumOfTypeForGetExecutionOutputMoe is a ConvertConvertEnumOfTypeForGetExecutionOutput enum value
+	ConvertConvertEnumOfTypeForGetExecutionOutputMoe = "Moe"
+)
+
+const (
+	// ConvertEnumOfCodecForGetExecutionOutputH264 is a ConvertEnumOfCodecForGetExecutionOutput enum value
+	ConvertEnumOfCodecForGetExecutionOutputH264 = "h264"
+
+	// ConvertEnumOfCodecForGetExecutionOutputH265 is a ConvertEnumOfCodecForGetExecutionOutput enum value
+	ConvertEnumOfCodecForGetExecutionOutputH265 = "h265"
+
+	// ConvertEnumOfCodecForGetExecutionOutputH266 is a ConvertEnumOfCodecForGetExecutionOutput enum value
+	ConvertEnumOfCodecForGetExecutionOutputH266 = "h266"
+)
+
+const (
+	// ConvertEnumOfContainerForGetExecutionOutputMp4 is a ConvertEnumOfContainerForGetExecutionOutput enum value
+	ConvertEnumOfContainerForGetExecutionOutputMp4 = "MP4"
+
+	// ConvertEnumOfContainerForGetExecutionOutputHls is a ConvertEnumOfContainerForGetExecutionOutput enum value
+	ConvertEnumOfContainerForGetExecutionOutputHls = "HLS"
+
+	// ConvertEnumOfContainerForGetExecutionOutputDash is a ConvertEnumOfContainerForGetExecutionOutput enum value
+	ConvertEnumOfContainerForGetExecutionOutputDash = "DASH"
+
+	// ConvertEnumOfContainerForGetExecutionOutputFlv is a ConvertEnumOfContainerForGetExecutionOutput enum value
+	ConvertEnumOfContainerForGetExecutionOutputFlv = "FLV"
+
+	// ConvertEnumOfContainerForGetExecutionOutputMpegts is a ConvertEnumOfContainerForGetExecutionOutput enum value
+	ConvertEnumOfContainerForGetExecutionOutputMpegts = "MPEGTS"
+
+	// ConvertEnumOfContainerForGetExecutionOutputMp3 is a ConvertEnumOfContainerForGetExecutionOutput enum value
+	ConvertEnumOfContainerForGetExecutionOutputMp3 = "MP3"
+
+	// ConvertEnumOfContainerForGetExecutionOutputM4a is a ConvertEnumOfContainerForGetExecutionOutput enum value
+	ConvertEnumOfContainerForGetExecutionOutputM4a = "M4A"
+
+	// ConvertEnumOfContainerForGetExecutionOutputOgg is a ConvertEnumOfContainerForGetExecutionOutput enum value
+	ConvertEnumOfContainerForGetExecutionOutputOgg = "OGG"
+)
+
+const (
+	// ConvertEnumOfModeForGetExecutionOutputCrf is a ConvertEnumOfModeForGetExecutionOutput enum value
+	ConvertEnumOfModeForGetExecutionOutputCrf = "crf"
+
+	// ConvertEnumOfModeForGetExecutionOutputAbr is a ConvertEnumOfModeForGetExecutionOutput enum value
+	ConvertEnumOfModeForGetExecutionOutputAbr = "abr"
+
+	// ConvertEnumOfModeForGetExecutionOutputCbr is a ConvertEnumOfModeForGetExecutionOutput enum value
+	ConvertEnumOfModeForGetExecutionOutputCbr = "cbr"
+)
+
+const (
+	// ConvertEnumOfTypeForGetExecutionOutputNormal is a ConvertEnumOfTypeForGetExecutionOutput enum value
+	ConvertEnumOfTypeForGetExecutionOutputNormal = "Normal"
+
+	// ConvertEnumOfTypeForGetExecutionOutputByteHd is a ConvertEnumOfTypeForGetExecutionOutput enum value
+	ConvertEnumOfTypeForGetExecutionOutputByteHd = "ByteHD"
+)
+
+const (
+	// EnumOfCodecForGetExecutionOutputAac is a EnumOfCodecForGetExecutionOutput enum value
+	EnumOfCodecForGetExecutionOutputAac = "aac"
+)
+
+const (
+	// EnumOfConfigForGetExecutionOutputCommon is a EnumOfConfigForGetExecutionOutput enum value
+	EnumOfConfigForGetExecutionOutputCommon = "common"
+
+	// EnumOfConfigForGetExecutionOutputUgc is a EnumOfConfigForGetExecutionOutput enum value
+	EnumOfConfigForGetExecutionOutputUgc = "ugc"
+
+	// EnumOfConfigForGetExecutionOutputAigc is a EnumOfConfigForGetExecutionOutput enum value
+	EnumOfConfigForGetExecutionOutputAigc = "aigc"
+
+	// EnumOfConfigForGetExecutionOutputShortSeries is a EnumOfConfigForGetExecutionOutput enum value
+	EnumOfConfigForGetExecutionOutputShortSeries = "short_series"
+
+	// EnumOfConfigForGetExecutionOutputOldFilm is a EnumOfConfigForGetExecutionOutput enum value
+	EnumOfConfigForGetExecutionOutputOldFilm = "old_film"
+)
+
+const (
+	// EnumOfContainerForGetExecutionOutputHls is a EnumOfContainerForGetExecutionOutput enum value
+	EnumOfContainerForGetExecutionOutputHls = "HLS"
+
+	// EnumOfContainerForGetExecutionOutputDash is a EnumOfContainerForGetExecutionOutput enum value
+	EnumOfContainerForGetExecutionOutputDash = "DASH"
+)
+
+const (
+	// EnumOfFontTypeForGetExecutionOutputPingFangScsemiBold is a EnumOfFontTypeForGetExecutionOutput enum value
+	EnumOfFontTypeForGetExecutionOutputPingFangScsemiBold = "PingFangSCSemiBold"
+
+	// EnumOfFontTypeForGetExecutionOutputPingFangScmedium is a EnumOfFontTypeForGetExecutionOutput enum value
+	EnumOfFontTypeForGetExecutionOutputPingFangScmedium = "PingFangSCMedium"
+
+	// EnumOfFontTypeForGetExecutionOutputPingFangScregular is a EnumOfFontTypeForGetExecutionOutput enum value
+	EnumOfFontTypeForGetExecutionOutputPingFangScregular = "PingFangSCRegular"
+
+	// EnumOfFontTypeForGetExecutionOutputMsyhBold is a EnumOfFontTypeForGetExecutionOutput enum value
+	EnumOfFontTypeForGetExecutionOutputMsyhBold = "MsyhBold"
+
+	// EnumOfFontTypeForGetExecutionOutputMsyh is a EnumOfFontTypeForGetExecutionOutput enum value
+	EnumOfFontTypeForGetExecutionOutputMsyh = "Msyh"
+
+	// EnumOfFontTypeForGetExecutionOutputProximaSemiBold is a EnumOfFontTypeForGetExecutionOutput enum value
+	EnumOfFontTypeForGetExecutionOutputProximaSemiBold = "ProximaSemiBold"
+
+	// EnumOfFontTypeForGetExecutionOutputNotoArabic is a EnumOfFontTypeForGetExecutionOutput enum value
+	EnumOfFontTypeForGetExecutionOutputNotoArabic = "NotoArabic"
+
+	// EnumOfFontTypeForGetExecutionOutputNotoThai is a EnumOfFontTypeForGetExecutionOutput enum value
+	EnumOfFontTypeForGetExecutionOutputNotoThai = "NotoThai"
+
+	// EnumOfFontTypeForGetExecutionOutputNotoCjk is a EnumOfFontTypeForGetExecutionOutput enum value
+	EnumOfFontTypeForGetExecutionOutputNotoCjk = "NotoCJK"
+
+	// EnumOfFontTypeForGetExecutionOutputNotoYi is a EnumOfFontTypeForGetExecutionOutput enum value
+	EnumOfFontTypeForGetExecutionOutputNotoYi = "NotoYi"
+
+	// EnumOfFontTypeForGetExecutionOutputArialunicodems is a EnumOfFontTypeForGetExecutionOutput enum value
+	EnumOfFontTypeForGetExecutionOutputArialunicodems = "Arialunicodems"
+)
+
+const (
+	// EnumOfKeepAudioStreamsForGetExecutionOutputNull is a EnumOfKeepAudioStreamsForGetExecutionOutput enum value
+	EnumOfKeepAudioStreamsForGetExecutionOutputNull = "null"
+
+	// EnumOfKeepAudioStreamsForGetExecutionOutputAll is a EnumOfKeepAudioStreamsForGetExecutionOutput enum value
+	EnumOfKeepAudioStreamsForGetExecutionOutputAll = "all"
+)
+
+const (
+	// EnumOfKeepDataStreamsForGetExecutionOutputAll is a EnumOfKeepDataStreamsForGetExecutionOutput enum value
+	EnumOfKeepDataStreamsForGetExecutionOutputAll = "all"
+)
+
+const (
+	// EnumOfKeepVideoStreamsForGetExecutionOutputNull is a EnumOfKeepVideoStreamsForGetExecutionOutput enum value
+	EnumOfKeepVideoStreamsForGetExecutionOutputNull = "null"
+
+	// EnumOfKeepVideoStreamsForGetExecutionOutputAll is a EnumOfKeepVideoStreamsForGetExecutionOutput enum value
+	EnumOfKeepVideoStreamsForGetExecutionOutputAll = "all"
+)
+
+const (
+	// EnumOfLocateForGetExecutionOutputTopLeft is a EnumOfLocateForGetExecutionOutput enum value
+	EnumOfLocateForGetExecutionOutputTopLeft = "TopLeft"
+
+	// EnumOfLocateForGetExecutionOutputTop is a EnumOfLocateForGetExecutionOutput enum value
+	EnumOfLocateForGetExecutionOutputTop = "Top"
+
+	// EnumOfLocateForGetExecutionOutputTopRight is a EnumOfLocateForGetExecutionOutput enum value
+	EnumOfLocateForGetExecutionOutputTopRight = "TopRight"
+
+	// EnumOfLocateForGetExecutionOutputLeft is a EnumOfLocateForGetExecutionOutput enum value
+	EnumOfLocateForGetExecutionOutputLeft = "Left"
+
+	// EnumOfLocateForGetExecutionOutputCenter is a EnumOfLocateForGetExecutionOutput enum value
+	EnumOfLocateForGetExecutionOutputCenter = "Center"
+
+	// EnumOfLocateForGetExecutionOutputRight is a EnumOfLocateForGetExecutionOutput enum value
+	EnumOfLocateForGetExecutionOutputRight = "Right"
+
+	// EnumOfLocateForGetExecutionOutputBottomLeft is a EnumOfLocateForGetExecutionOutput enum value
+	EnumOfLocateForGetExecutionOutputBottomLeft = "BottomLeft"
+
+	// EnumOfLocateForGetExecutionOutputBottom is a EnumOfLocateForGetExecutionOutput enum value
+	EnumOfLocateForGetExecutionOutputBottom = "Bottom"
+
+	// EnumOfLocateForGetExecutionOutputBottomRight is a EnumOfLocateForGetExecutionOutput enum value
+	EnumOfLocateForGetExecutionOutputBottomRight = "BottomRight"
+)
+
+const (
+	// EnumOfMethodForGetExecutionOutput2pass is a EnumOfMethodForGetExecutionOutput enum value
+	EnumOfMethodForGetExecutionOutput2pass = "2Pass"
+)
+
+const (
+	// EnumOfModeForGetExecutionOutputCae is a EnumOfModeForGetExecutionOutput enum value
+	EnumOfModeForGetExecutionOutputCae = "cae"
+
+	// EnumOfModeForGetExecutionOutputCbr is a EnumOfModeForGetExecutionOutput enum value
+	EnumOfModeForGetExecutionOutputCbr = "cbr"
+)
+
+const (
+	// EnumOfPositionForGetExecutionOutputHead is a EnumOfPositionForGetExecutionOutput enum value
+	EnumOfPositionForGetExecutionOutputHead = "Head"
+
+	// EnumOfPositionForGetExecutionOutputTail is a EnumOfPositionForGetExecutionOutput enum value
+	EnumOfPositionForGetExecutionOutputTail = "Tail"
+)
+
+const (
+	// EnumOfProfileForGetExecutionOutputAacLc is a EnumOfProfileForGetExecutionOutput enum value
+	EnumOfProfileForGetExecutionOutputAacLc = "AAC-LC"
+
+	// EnumOfProfileForGetExecutionOutputHeAac is a EnumOfProfileForGetExecutionOutput enum value
+	EnumOfProfileForGetExecutionOutputHeAac = "HE-AAC"
+
+	// EnumOfProfileForGetExecutionOutputHeAacv2 is a EnumOfProfileForGetExecutionOutput enum value
+	EnumOfProfileForGetExecutionOutputHeAacv2 = "HE-AACv2"
+)
+
+const (
+	// EnumOfTypeForGetExecutionOutputStandard is a EnumOfTypeForGetExecutionOutput enum value
+	EnumOfTypeForGetExecutionOutputStandard = "Standard"
+
+	// EnumOfTypeForGetExecutionOutputPrivate is a EnumOfTypeForGetExecutionOutput enum value
+	EnumOfTypeForGetExecutionOutputPrivate = "Private"
+)
