@@ -3,6 +3,8 @@
 package vod20250101
 
 import (
+	"fmt"
+
 	"github.com/volcengine/volcengine-go-sdk/volcengine"
 	"github.com/volcengine/volcengine-go-sdk/volcengine/request"
 	"github.com/volcengine/volcengine-go-sdk/volcengine/response"
@@ -143,6 +145,77 @@ func (c *VOD20250101) StartExecutionWithContext(ctx volcengine.Context, input *S
 	return out, req.Send()
 }
 
+type ABRTranscodeForStartExecutionInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Container *ContainerForStartExecutionInput `type:"structure" json:",omitempty"`
+
+	Metadata *MetadataForStartExecutionInput `type:"structure" json:",omitempty"`
+
+	Outputs []*OutputForStartExecutionInput `type:"list" json:",omitempty"`
+
+	Type *string `type:"string" json:",omitempty" enum:"ConvertEnumOfTypeForStartExecutionInput"`
+}
+
+// String returns the string representation
+func (s ABRTranscodeForStartExecutionInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ABRTranscodeForStartExecutionInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *ABRTranscodeForStartExecutionInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "ABRTranscodeForStartExecutionInput"}
+	if s.Container != nil {
+		if err := s.Container.Validate(); err != nil {
+			invalidParams.AddNested("Container", err.(request.ErrInvalidParams))
+		}
+	}
+	if s.Outputs != nil {
+		for i, v := range s.Outputs {
+			if v == nil {
+				continue
+			}
+			if err := v.Validate(); err != nil {
+				invalidParams.AddNested(fmt.Sprintf("%s[%v]", "Outputs", i), err.(request.ErrInvalidParams))
+			}
+		}
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetContainer sets the Container field's value.
+func (s *ABRTranscodeForStartExecutionInput) SetContainer(v *ContainerForStartExecutionInput) *ABRTranscodeForStartExecutionInput {
+	s.Container = v
+	return s
+}
+
+// SetMetadata sets the Metadata field's value.
+func (s *ABRTranscodeForStartExecutionInput) SetMetadata(v *MetadataForStartExecutionInput) *ABRTranscodeForStartExecutionInput {
+	s.Metadata = v
+	return s
+}
+
+// SetOutputs sets the Outputs field's value.
+func (s *ABRTranscodeForStartExecutionInput) SetOutputs(v []*OutputForStartExecutionInput) *ABRTranscodeForStartExecutionInput {
+	s.Outputs = v
+	return s
+}
+
+// SetType sets the Type field's value.
+func (s *ABRTranscodeForStartExecutionInput) SetType(v string) *ABRTranscodeForStartExecutionInput {
+	s.Type = &v
+	return s
+}
+
 type AdAuditForStartExecutionInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -170,6 +243,36 @@ func (s *AdAuditForStartExecutionInput) SetAdvertiserId(v string) *AdAuditForSta
 // SetBusinessType sets the BusinessType field's value.
 func (s *AdAuditForStartExecutionInput) SetBusinessType(v string) *AdAuditForStartExecutionInput {
 	s.BusinessType = &v
+	return s
+}
+
+type AddTagForStartExecutionInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Key *string `type:"string" json:",omitempty"`
+
+	Value *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s AddTagForStartExecutionInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s AddTagForStartExecutionInput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *AddTagForStartExecutionInput) SetKey(v string) *AddTagForStartExecutionInput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *AddTagForStartExecutionInput) SetValue(v string) *AddTagForStartExecutionInput {
+	s.Value = &v
 	return s
 }
 
@@ -295,6 +398,88 @@ func (s *AudioExtractForStartExecutionInput) SetVoice(v bool) *AudioExtractForSt
 	return s
 }
 
+type AudioForStartExecutionInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	BitrateControl *BitrateControlForStartExecutionInput `type:"structure" json:",omitempty"`
+
+	Channels *int32 `type:"int32" json:",omitempty"`
+
+	Codec *string `type:"string" json:",omitempty" enum:"EnumOfCodecForStartExecutionInput"`
+
+	Profile *string `type:"string" json:",omitempty" enum:"EnumOfProfileForStartExecutionInput"`
+
+	SampleRate *int32 `type:"int32" json:",omitempty"`
+
+	Volume *VolumeForStartExecutionInput `type:"structure" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s AudioForStartExecutionInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s AudioForStartExecutionInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *AudioForStartExecutionInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "AudioForStartExecutionInput"}
+	if s.BitrateControl != nil {
+		if err := s.BitrateControl.Validate(); err != nil {
+			invalidParams.AddNested("BitrateControl", err.(request.ErrInvalidParams))
+		}
+	}
+	if s.Volume != nil {
+		if err := s.Volume.Validate(); err != nil {
+			invalidParams.AddNested("Volume", err.(request.ErrInvalidParams))
+		}
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetBitrateControl sets the BitrateControl field's value.
+func (s *AudioForStartExecutionInput) SetBitrateControl(v *BitrateControlForStartExecutionInput) *AudioForStartExecutionInput {
+	s.BitrateControl = v
+	return s
+}
+
+// SetChannels sets the Channels field's value.
+func (s *AudioForStartExecutionInput) SetChannels(v int32) *AudioForStartExecutionInput {
+	s.Channels = &v
+	return s
+}
+
+// SetCodec sets the Codec field's value.
+func (s *AudioForStartExecutionInput) SetCodec(v string) *AudioForStartExecutionInput {
+	s.Codec = &v
+	return s
+}
+
+// SetProfile sets the Profile field's value.
+func (s *AudioForStartExecutionInput) SetProfile(v string) *AudioForStartExecutionInput {
+	s.Profile = &v
+	return s
+}
+
+// SetSampleRate sets the SampleRate field's value.
+func (s *AudioForStartExecutionInput) SetSampleRate(v int32) *AudioForStartExecutionInput {
+	s.SampleRate = &v
+	return s
+}
+
+// SetVolume sets the Volume field's value.
+func (s *AudioForStartExecutionInput) SetVolume(v *VolumeForStartExecutionInput) *AudioForStartExecutionInput {
+	s.Volume = v
+	return s
+}
+
 type AutoForStartExecutionInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -330,6 +515,52 @@ func (s *AutoForStartExecutionInput) SetSubtitleFilter(v *SubtitleFilterForStart
 // SetType sets the Type field's value.
 func (s *AutoForStartExecutionInput) SetType(v string) *AutoForStartExecutionInput {
 	s.Type = &v
+	return s
+}
+
+type BitrateControlForStartExecutionInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Bitrate *int32 `min:"10" max:"500" type:"int32" json:",omitempty"`
+
+	Mode *string `type:"string" json:",omitempty" enum:"EnumOfModeForStartExecutionInput"`
+}
+
+// String returns the string representation
+func (s BitrateControlForStartExecutionInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s BitrateControlForStartExecutionInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *BitrateControlForStartExecutionInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "BitrateControlForStartExecutionInput"}
+	if s.Bitrate != nil && *s.Bitrate < 10 {
+		invalidParams.Add(request.NewErrParamMinValue("Bitrate", 10))
+	}
+	if s.Bitrate != nil && *s.Bitrate > 500 {
+		invalidParams.Add(request.NewErrParamMaxValue("Bitrate", 500))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetBitrate sets the Bitrate field's value.
+func (s *BitrateControlForStartExecutionInput) SetBitrate(v int32) *BitrateControlForStartExecutionInput {
+	s.Bitrate = &v
+	return s
+}
+
+// SetMode sets the Mode field's value.
+func (s *BitrateControlForStartExecutionInput) SetMode(v string) *BitrateControlForStartExecutionInput {
+	s.Mode = &v
 	return s
 }
 
@@ -555,6 +786,103 @@ func (s *CodecForStartExecutionInput) SetVideoCodec(v string) *CodecForStartExec
 	return s
 }
 
+type ConcatForStartExecutionInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Mid *string `type:"string" json:",omitempty"`
+
+	Position *string `type:"string" json:",omitempty" enum:"EnumOfPositionForStartExecutionInput"`
+
+	Type *string `type:"string" json:",omitempty" enum:"ConvertConvertConvertEnumOfTypeForStartExecutionInput"`
+}
+
+// String returns the string representation
+func (s ConcatForStartExecutionInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ConcatForStartExecutionInput) GoString() string {
+	return s.String()
+}
+
+// SetMid sets the Mid field's value.
+func (s *ConcatForStartExecutionInput) SetMid(v string) *ConcatForStartExecutionInput {
+	s.Mid = &v
+	return s
+}
+
+// SetPosition sets the Position field's value.
+func (s *ConcatForStartExecutionInput) SetPosition(v string) *ConcatForStartExecutionInput {
+	s.Position = &v
+	return s
+}
+
+// SetType sets the Type field's value.
+func (s *ConcatForStartExecutionInput) SetType(v string) *ConcatForStartExecutionInput {
+	s.Type = &v
+	return s
+}
+
+type ContainerForStartExecutionInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Container *string `type:"string" json:",omitempty" enum:"EnumOfContainerForStartExecutionInput"`
+
+	Encryption *EncryptionForStartExecutionInput `type:"structure" json:",omitempty"`
+
+	FileName *string `max:"696" type:"string" json:",omitempty"`
+
+	Segment *SegmentForStartExecutionInput `type:"structure" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s ContainerForStartExecutionInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ContainerForStartExecutionInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *ContainerForStartExecutionInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "ContainerForStartExecutionInput"}
+	if s.FileName != nil && len(*s.FileName) > 696 {
+		invalidParams.Add(request.NewErrParamMaxLen("FileName", 696, *s.FileName))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetContainer sets the Container field's value.
+func (s *ContainerForStartExecutionInput) SetContainer(v string) *ContainerForStartExecutionInput {
+	s.Container = &v
+	return s
+}
+
+// SetEncryption sets the Encryption field's value.
+func (s *ContainerForStartExecutionInput) SetEncryption(v *EncryptionForStartExecutionInput) *ContainerForStartExecutionInput {
+	s.Encryption = v
+	return s
+}
+
+// SetFileName sets the FileName field's value.
+func (s *ContainerForStartExecutionInput) SetFileName(v string) *ContainerForStartExecutionInput {
+	s.FileName = &v
+	return s
+}
+
+// SetSegment sets the Segment field's value.
+func (s *ContainerForStartExecutionInput) SetSegment(v *SegmentForStartExecutionInput) *ContainerForStartExecutionInput {
+	s.Segment = v
+	return s
+}
+
 type ControlForStartExecutionInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -609,12 +937,494 @@ func (s *ControlForStartExecutionInput) SetTaskListId(v string) *ControlForStart
 	return s
 }
 
-type ConvertConvertSegmentForStartExecutionInput struct {
+type ConvertAudioForStartExecutionInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	BitrateControl *ConvertConvertBitrateControlForStartExecutionInput `type:"structure" json:",omitempty"`
+
+	Channels *int32 `type:"int32" json:",omitempty"`
+
+	Codec *string `type:"string" json:",omitempty" enum:"ConvertConvertEnumOfCodecForStartExecutionInput"`
+
+	Profile *string `type:"string" json:",omitempty" enum:"EnumOfProfileForStartExecutionInput"`
+
+	SampleRate *int32 `type:"int32" json:",omitempty"`
+
+	Volume *ConvertVolumeForStartExecutionInput `type:"structure" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s ConvertAudioForStartExecutionInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ConvertAudioForStartExecutionInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *ConvertAudioForStartExecutionInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "ConvertAudioForStartExecutionInput"}
+	if s.BitrateControl != nil {
+		if err := s.BitrateControl.Validate(); err != nil {
+			invalidParams.AddNested("BitrateControl", err.(request.ErrInvalidParams))
+		}
+	}
+	if s.Volume != nil {
+		if err := s.Volume.Validate(); err != nil {
+			invalidParams.AddNested("Volume", err.(request.ErrInvalidParams))
+		}
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetBitrateControl sets the BitrateControl field's value.
+func (s *ConvertAudioForStartExecutionInput) SetBitrateControl(v *ConvertConvertBitrateControlForStartExecutionInput) *ConvertAudioForStartExecutionInput {
+	s.BitrateControl = v
+	return s
+}
+
+// SetChannels sets the Channels field's value.
+func (s *ConvertAudioForStartExecutionInput) SetChannels(v int32) *ConvertAudioForStartExecutionInput {
+	s.Channels = &v
+	return s
+}
+
+// SetCodec sets the Codec field's value.
+func (s *ConvertAudioForStartExecutionInput) SetCodec(v string) *ConvertAudioForStartExecutionInput {
+	s.Codec = &v
+	return s
+}
+
+// SetProfile sets the Profile field's value.
+func (s *ConvertAudioForStartExecutionInput) SetProfile(v string) *ConvertAudioForStartExecutionInput {
+	s.Profile = &v
+	return s
+}
+
+// SetSampleRate sets the SampleRate field's value.
+func (s *ConvertAudioForStartExecutionInput) SetSampleRate(v int32) *ConvertAudioForStartExecutionInput {
+	s.SampleRate = &v
+	return s
+}
+
+// SetVolume sets the Volume field's value.
+func (s *ConvertAudioForStartExecutionInput) SetVolume(v *ConvertVolumeForStartExecutionInput) *ConvertAudioForStartExecutionInput {
+	s.Volume = v
+	return s
+}
+
+type ConvertBitrateControlForStartExecutionInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Bitrate *int32 `min:"10" max:"50000" type:"int32" json:",omitempty"`
+
+	Crf *float64 `max:"51" type:"float" json:",omitempty"`
+
+	Mode *string `type:"string" json:",omitempty" enum:"ConvertEnumOfModeForStartExecutionInput"`
+}
+
+// String returns the string representation
+func (s ConvertBitrateControlForStartExecutionInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ConvertBitrateControlForStartExecutionInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *ConvertBitrateControlForStartExecutionInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "ConvertBitrateControlForStartExecutionInput"}
+	if s.Bitrate != nil && *s.Bitrate < 10 {
+		invalidParams.Add(request.NewErrParamMinValue("Bitrate", 10))
+	}
+	if s.Bitrate != nil && *s.Bitrate > 50000 {
+		invalidParams.Add(request.NewErrParamMaxValue("Bitrate", 50000))
+	}
+	if s.Crf != nil && *s.Crf > 51 {
+		invalidParams.Add(request.NewErrParamMaxValue("Crf", 51))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetBitrate sets the Bitrate field's value.
+func (s *ConvertBitrateControlForStartExecutionInput) SetBitrate(v int32) *ConvertBitrateControlForStartExecutionInput {
+	s.Bitrate = &v
+	return s
+}
+
+// SetCrf sets the Crf field's value.
+func (s *ConvertBitrateControlForStartExecutionInput) SetCrf(v float64) *ConvertBitrateControlForStartExecutionInput {
+	s.Crf = &v
+	return s
+}
+
+// SetMode sets the Mode field's value.
+func (s *ConvertBitrateControlForStartExecutionInput) SetMode(v string) *ConvertBitrateControlForStartExecutionInput {
+	s.Mode = &v
+	return s
+}
+
+type ConvertClipForStartExecutionInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	EndTime *int32 `type:"int32" json:",omitempty"`
+
+	StartTime *int32 `type:"int32" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s ConvertClipForStartExecutionInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ConvertClipForStartExecutionInput) GoString() string {
+	return s.String()
+}
+
+// SetEndTime sets the EndTime field's value.
+func (s *ConvertClipForStartExecutionInput) SetEndTime(v int32) *ConvertClipForStartExecutionInput {
+	s.EndTime = &v
+	return s
+}
+
+// SetStartTime sets the StartTime field's value.
+func (s *ConvertClipForStartExecutionInput) SetStartTime(v int32) *ConvertClipForStartExecutionInput {
+	s.StartTime = &v
+	return s
+}
+
+type ConvertConcatForStartExecutionInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Concat *ConcatForStartExecutionInput `type:"structure" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s ConvertConcatForStartExecutionInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ConvertConcatForStartExecutionInput) GoString() string {
+	return s.String()
+}
+
+// SetConcat sets the Concat field's value.
+func (s *ConvertConcatForStartExecutionInput) SetConcat(v *ConcatForStartExecutionInput) *ConvertConcatForStartExecutionInput {
+	s.Concat = v
+	return s
+}
+
+type ConvertContainerForStartExecutionInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Container *string `type:"string" json:",omitempty" enum:"ConvertEnumOfContainerForStartExecutionInput"`
+
+	Encryption *EncryptionForStartExecutionInput `type:"structure" json:",omitempty"`
+
+	FileName *string `max:"696" type:"string" json:",omitempty"`
+
+	Segment *SegmentForStartExecutionInput `type:"structure" json:",omitempty"`
+
+	StreamControl *StreamControlForStartExecutionInput `type:"structure" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s ConvertContainerForStartExecutionInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ConvertContainerForStartExecutionInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *ConvertContainerForStartExecutionInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "ConvertContainerForStartExecutionInput"}
+	if s.FileName != nil && len(*s.FileName) > 696 {
+		invalidParams.Add(request.NewErrParamMaxLen("FileName", 696, *s.FileName))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetContainer sets the Container field's value.
+func (s *ConvertContainerForStartExecutionInput) SetContainer(v string) *ConvertContainerForStartExecutionInput {
+	s.Container = &v
+	return s
+}
+
+// SetEncryption sets the Encryption field's value.
+func (s *ConvertContainerForStartExecutionInput) SetEncryption(v *EncryptionForStartExecutionInput) *ConvertContainerForStartExecutionInput {
+	s.Encryption = v
+	return s
+}
+
+// SetFileName sets the FileName field's value.
+func (s *ConvertContainerForStartExecutionInput) SetFileName(v string) *ConvertContainerForStartExecutionInput {
+	s.FileName = &v
+	return s
+}
+
+// SetSegment sets the Segment field's value.
+func (s *ConvertContainerForStartExecutionInput) SetSegment(v *SegmentForStartExecutionInput) *ConvertContainerForStartExecutionInput {
+	s.Segment = v
+	return s
+}
+
+// SetStreamControl sets the StreamControl field's value.
+func (s *ConvertContainerForStartExecutionInput) SetStreamControl(v *StreamControlForStartExecutionInput) *ConvertContainerForStartExecutionInput {
+	s.StreamControl = v
+	return s
+}
+
+type ConvertConvertBitrateControlForStartExecutionInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Bitrate *int32 `min:"10" max:"500" type:"int32" json:",omitempty"`
+
+	Mode *string `type:"string" json:",omitempty" enum:"EnumOfModeForStartExecutionInput"`
+}
+
+// String returns the string representation
+func (s ConvertConvertBitrateControlForStartExecutionInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ConvertConvertBitrateControlForStartExecutionInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *ConvertConvertBitrateControlForStartExecutionInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "ConvertConvertBitrateControlForStartExecutionInput"}
+	if s.Bitrate != nil && *s.Bitrate < 10 {
+		invalidParams.Add(request.NewErrParamMinValue("Bitrate", 10))
+	}
+	if s.Bitrate != nil && *s.Bitrate > 500 {
+		invalidParams.Add(request.NewErrParamMaxValue("Bitrate", 500))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetBitrate sets the Bitrate field's value.
+func (s *ConvertConvertBitrateControlForStartExecutionInput) SetBitrate(v int32) *ConvertConvertBitrateControlForStartExecutionInput {
+	s.Bitrate = &v
+	return s
+}
+
+// SetMode sets the Mode field's value.
+func (s *ConvertConvertBitrateControlForStartExecutionInput) SetMode(v string) *ConvertConvertBitrateControlForStartExecutionInput {
+	s.Mode = &v
+	return s
+}
+
+type ConvertConvertContainerForStartExecutionInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Container *string `type:"string" json:",omitempty" enum:"ConvertEnumOfContainerForStartExecutionInput"`
+
+	Encryption *EncryptionForStartExecutionInput `type:"structure" json:",omitempty"`
+
+	FileName *string `max:"696" type:"string" json:",omitempty"`
+
+	Segment *SegmentForStartExecutionInput `type:"structure" json:",omitempty"`
+
+	StreamControl *StreamControlForStartExecutionInput `type:"structure" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s ConvertConvertContainerForStartExecutionInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ConvertConvertContainerForStartExecutionInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *ConvertConvertContainerForStartExecutionInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "ConvertConvertContainerForStartExecutionInput"}
+	if s.FileName != nil && len(*s.FileName) > 696 {
+		invalidParams.Add(request.NewErrParamMaxLen("FileName", 696, *s.FileName))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetContainer sets the Container field's value.
+func (s *ConvertConvertContainerForStartExecutionInput) SetContainer(v string) *ConvertConvertContainerForStartExecutionInput {
+	s.Container = &v
+	return s
+}
+
+// SetEncryption sets the Encryption field's value.
+func (s *ConvertConvertContainerForStartExecutionInput) SetEncryption(v *EncryptionForStartExecutionInput) *ConvertConvertContainerForStartExecutionInput {
+	s.Encryption = v
+	return s
+}
+
+// SetFileName sets the FileName field's value.
+func (s *ConvertConvertContainerForStartExecutionInput) SetFileName(v string) *ConvertConvertContainerForStartExecutionInput {
+	s.FileName = &v
+	return s
+}
+
+// SetSegment sets the Segment field's value.
+func (s *ConvertConvertContainerForStartExecutionInput) SetSegment(v *SegmentForStartExecutionInput) *ConvertConvertContainerForStartExecutionInput {
+	s.Segment = v
+	return s
+}
+
+// SetStreamControl sets the StreamControl field's value.
+func (s *ConvertConvertContainerForStartExecutionInput) SetStreamControl(v *StreamControlForStartExecutionInput) *ConvertConvertContainerForStartExecutionInput {
+	s.StreamControl = v
+	return s
+}
+
+type ConvertConvertConvertBitrateControlForStartExecutionInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Bitrate *int32 `min:"10" max:"50000" type:"int32" json:",omitempty"`
+
+	Crf *float64 `max:"51" type:"float" json:",omitempty"`
+
+	Mode *string `type:"string" json:",omitempty" enum:"ConvertEnumOfModeForStartExecutionInput"`
+}
+
+// String returns the string representation
+func (s ConvertConvertConvertBitrateControlForStartExecutionInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ConvertConvertConvertBitrateControlForStartExecutionInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *ConvertConvertConvertBitrateControlForStartExecutionInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "ConvertConvertConvertBitrateControlForStartExecutionInput"}
+	if s.Bitrate != nil && *s.Bitrate < 10 {
+		invalidParams.Add(request.NewErrParamMinValue("Bitrate", 10))
+	}
+	if s.Bitrate != nil && *s.Bitrate > 50000 {
+		invalidParams.Add(request.NewErrParamMaxValue("Bitrate", 50000))
+	}
+	if s.Crf != nil && *s.Crf > 51 {
+		invalidParams.Add(request.NewErrParamMaxValue("Crf", 51))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetBitrate sets the Bitrate field's value.
+func (s *ConvertConvertConvertBitrateControlForStartExecutionInput) SetBitrate(v int32) *ConvertConvertConvertBitrateControlForStartExecutionInput {
+	s.Bitrate = &v
+	return s
+}
+
+// SetCrf sets the Crf field's value.
+func (s *ConvertConvertConvertBitrateControlForStartExecutionInput) SetCrf(v float64) *ConvertConvertConvertBitrateControlForStartExecutionInput {
+	s.Crf = &v
+	return s
+}
+
+// SetMode sets the Mode field's value.
+func (s *ConvertConvertConvertBitrateControlForStartExecutionInput) SetMode(v string) *ConvertConvertConvertBitrateControlForStartExecutionInput {
+	s.Mode = &v
+	return s
+}
+
+type ConvertConvertConvertSegmentForStartExecutionInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
 	End *float64 `type:"double" json:",omitempty"`
 
 	Start *float64 `type:"double" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s ConvertConvertConvertSegmentForStartExecutionInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ConvertConvertConvertSegmentForStartExecutionInput) GoString() string {
+	return s.String()
+}
+
+// SetEnd sets the End field's value.
+func (s *ConvertConvertConvertSegmentForStartExecutionInput) SetEnd(v float64) *ConvertConvertConvertSegmentForStartExecutionInput {
+	s.End = &v
+	return s
+}
+
+// SetStart sets the Start field's value.
+func (s *ConvertConvertConvertSegmentForStartExecutionInput) SetStart(v float64) *ConvertConvertConvertSegmentForStartExecutionInput {
+	s.Start = &v
+	return s
+}
+
+type ConvertConvertEnhanceForStartExecutionInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	TemplateId *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s ConvertConvertEnhanceForStartExecutionInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ConvertConvertEnhanceForStartExecutionInput) GoString() string {
+	return s.String()
+}
+
+// SetTemplateId sets the TemplateId field's value.
+func (s *ConvertConvertEnhanceForStartExecutionInput) SetTemplateId(v string) *ConvertConvertEnhanceForStartExecutionInput {
+	s.TemplateId = &v
+	return s
+}
+
+type ConvertConvertSegmentForStartExecutionInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	MaxDuration *float64 `type:"double" json:",omitempty"`
+
+	MinDuration *float64 `type:"double" json:",omitempty"`
+
+	Threshold *float64 `type:"double" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -627,22 +1437,30 @@ func (s ConvertConvertSegmentForStartExecutionInput) GoString() string {
 	return s.String()
 }
 
-// SetEnd sets the End field's value.
-func (s *ConvertConvertSegmentForStartExecutionInput) SetEnd(v float64) *ConvertConvertSegmentForStartExecutionInput {
-	s.End = &v
+// SetMaxDuration sets the MaxDuration field's value.
+func (s *ConvertConvertSegmentForStartExecutionInput) SetMaxDuration(v float64) *ConvertConvertSegmentForStartExecutionInput {
+	s.MaxDuration = &v
 	return s
 }
 
-// SetStart sets the Start field's value.
-func (s *ConvertConvertSegmentForStartExecutionInput) SetStart(v float64) *ConvertConvertSegmentForStartExecutionInput {
-	s.Start = &v
+// SetMinDuration sets the MinDuration field's value.
+func (s *ConvertConvertSegmentForStartExecutionInput) SetMinDuration(v float64) *ConvertConvertSegmentForStartExecutionInput {
+	s.MinDuration = &v
+	return s
+}
+
+// SetThreshold sets the Threshold field's value.
+func (s *ConvertConvertSegmentForStartExecutionInput) SetThreshold(v float64) *ConvertConvertSegmentForStartExecutionInput {
+	s.Threshold = &v
 	return s
 }
 
 type ConvertEnhanceForStartExecutionInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	TemplateId *string `type:"string" json:",omitempty"`
+	MoeEnhance *ConvertMoeEnhanceForStartExecutionInput `type:"structure" json:",omitempty"`
+
+	Type *string `type:"string" json:",omitempty" enum:"ConvertConvertEnumOfTypeForStartExecutionInput"`
 }
 
 // String returns the string representation
@@ -655,9 +1473,164 @@ func (s ConvertEnhanceForStartExecutionInput) GoString() string {
 	return s.String()
 }
 
-// SetTemplateId sets the TemplateId field's value.
-func (s *ConvertEnhanceForStartExecutionInput) SetTemplateId(v string) *ConvertEnhanceForStartExecutionInput {
-	s.TemplateId = &v
+// SetMoeEnhance sets the MoeEnhance field's value.
+func (s *ConvertEnhanceForStartExecutionInput) SetMoeEnhance(v *ConvertMoeEnhanceForStartExecutionInput) *ConvertEnhanceForStartExecutionInput {
+	s.MoeEnhance = v
+	return s
+}
+
+// SetType sets the Type field's value.
+func (s *ConvertEnhanceForStartExecutionInput) SetType(v string) *ConvertEnhanceForStartExecutionInput {
+	s.Type = &v
+	return s
+}
+
+type ConvertFormatForStartExecutionInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Container *ConvertContainerForStartExecutionInput `type:"structure" json:",omitempty"`
+
+	Metadata *MetadataForStartExecutionInput `type:"structure" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s ConvertFormatForStartExecutionInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ConvertFormatForStartExecutionInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *ConvertFormatForStartExecutionInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "ConvertFormatForStartExecutionInput"}
+	if s.Container != nil {
+		if err := s.Container.Validate(); err != nil {
+			invalidParams.AddNested("Container", err.(request.ErrInvalidParams))
+		}
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetContainer sets the Container field's value.
+func (s *ConvertFormatForStartExecutionInput) SetContainer(v *ConvertContainerForStartExecutionInput) *ConvertFormatForStartExecutionInput {
+	s.Container = v
+	return s
+}
+
+// SetMetadata sets the Metadata field's value.
+func (s *ConvertFormatForStartExecutionInput) SetMetadata(v *MetadataForStartExecutionInput) *ConvertFormatForStartExecutionInput {
+	s.Metadata = v
+	return s
+}
+
+type ConvertFpsControlForStartExecutionInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Fps *float64 `min:"1" max:"240" type:"float" json:",omitempty"`
+
+	Mode *string `type:"string" json:",omitempty" enum:"ConvertConvertEnumOfModeForStartExecutionInput"`
+}
+
+// String returns the string representation
+func (s ConvertFpsControlForStartExecutionInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ConvertFpsControlForStartExecutionInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *ConvertFpsControlForStartExecutionInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "ConvertFpsControlForStartExecutionInput"}
+	if s.Fps != nil && *s.Fps < 1 {
+		invalidParams.Add(request.NewErrParamMinValue("Fps", 1))
+	}
+	if s.Fps != nil && *s.Fps > 240 {
+		invalidParams.Add(request.NewErrParamMaxValue("Fps", 240))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetFps sets the Fps field's value.
+func (s *ConvertFpsControlForStartExecutionInput) SetFps(v float64) *ConvertFpsControlForStartExecutionInput {
+	s.Fps = &v
+	return s
+}
+
+// SetMode sets the Mode field's value.
+func (s *ConvertFpsControlForStartExecutionInput) SetMode(v string) *ConvertFpsControlForStartExecutionInput {
+	s.Mode = &v
+	return s
+}
+
+type ConvertLogoForStartExecutionInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Concats []*ConvertConcatForStartExecutionInput `type:"list" json:",omitempty"`
+
+	LogoType *string `type:"string" json:",omitempty"`
+
+	Logos []*LogoForStartExecutionInput `type:"list" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s ConvertLogoForStartExecutionInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ConvertLogoForStartExecutionInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *ConvertLogoForStartExecutionInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "ConvertLogoForStartExecutionInput"}
+	if s.Logos != nil {
+		for i, v := range s.Logos {
+			if v == nil {
+				continue
+			}
+			if err := v.Validate(); err != nil {
+				invalidParams.AddNested(fmt.Sprintf("%s[%v]", "Logos", i), err.(request.ErrInvalidParams))
+			}
+		}
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetConcats sets the Concats field's value.
+func (s *ConvertLogoForStartExecutionInput) SetConcats(v []*ConvertConcatForStartExecutionInput) *ConvertLogoForStartExecutionInput {
+	s.Concats = v
+	return s
+}
+
+// SetLogoType sets the LogoType field's value.
+func (s *ConvertLogoForStartExecutionInput) SetLogoType(v string) *ConvertLogoForStartExecutionInput {
+	s.LogoType = &v
+	return s
+}
+
+// SetLogos sets the Logos field's value.
+func (s *ConvertLogoForStartExecutionInput) SetLogos(v []*LogoForStartExecutionInput) *ConvertLogoForStartExecutionInput {
+	s.Logos = v
 	return s
 }
 
@@ -707,6 +1680,36 @@ func (s *ConvertModelForStartExecutionInput) SetDoubaoVisionEndpoint(v string) *
 	return s
 }
 
+type ConvertMoeEnhanceForStartExecutionInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Config *string `type:"string" json:",omitempty" enum:"EnumOfConfigForStartExecutionInput"`
+
+	VideoStrategy *VideoStrategyForStartExecutionInput `type:"structure" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s ConvertMoeEnhanceForStartExecutionInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ConvertMoeEnhanceForStartExecutionInput) GoString() string {
+	return s.String()
+}
+
+// SetConfig sets the Config field's value.
+func (s *ConvertMoeEnhanceForStartExecutionInput) SetConfig(v string) *ConvertMoeEnhanceForStartExecutionInput {
+	s.Config = &v
+	return s
+}
+
+// SetVideoStrategy sets the VideoStrategy field's value.
+func (s *ConvertMoeEnhanceForStartExecutionInput) SetVideoStrategy(v *VideoStrategyForStartExecutionInput) *ConvertMoeEnhanceForStartExecutionInput {
+	s.VideoStrategy = v
+	return s
+}
+
 type ConvertOperationForStartExecutionInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -727,6 +1730,26 @@ func (s ConvertOperationForStartExecutionInput) String() string {
 // GoString returns the string representation
 func (s ConvertOperationForStartExecutionInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *ConvertOperationForStartExecutionInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "ConvertOperationForStartExecutionInput"}
+	if s.Task != nil {
+		if err := s.Task.Validate(); err != nil {
+			invalidParams.AddNested("Task", err.(request.ErrInvalidParams))
+		}
+	}
+	if s.Workflow != nil {
+		if err := s.Workflow.Validate(); err != nil {
+			invalidParams.AddNested("Workflow", err.(request.ErrInvalidParams))
+		}
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetTask sets the Task field's value.
@@ -753,12 +1776,186 @@ func (s *ConvertOperationForStartExecutionInput) SetWorkflow(v *WorkflowForStart
 	return s
 }
 
+type ConvertOutputForStartExecutionInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Alpha *bool `type:"boolean" json:",omitempty"`
+
+	AudioPhaseDetect *bool `type:"boolean" json:",omitempty"`
+
+	CanvasWithMax *bool `type:"boolean" json:",omitempty"`
+
+	CanvasWithRatio *bool `type:"boolean" json:",omitempty"`
+
+	Codec *CodecForStartExecutionInput `type:"structure" json:",omitempty"`
+
+	DisableAudio *bool `type:"boolean" json:",omitempty"`
+
+	DisableVideo *bool `type:"boolean" json:",omitempty"`
+
+	Format *string `type:"string" json:",omitempty"`
+
+	Fps *float64 `type:"double" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s ConvertOutputForStartExecutionInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ConvertOutputForStartExecutionInput) GoString() string {
+	return s.String()
+}
+
+// SetAlpha sets the Alpha field's value.
+func (s *ConvertOutputForStartExecutionInput) SetAlpha(v bool) *ConvertOutputForStartExecutionInput {
+	s.Alpha = &v
+	return s
+}
+
+// SetAudioPhaseDetect sets the AudioPhaseDetect field's value.
+func (s *ConvertOutputForStartExecutionInput) SetAudioPhaseDetect(v bool) *ConvertOutputForStartExecutionInput {
+	s.AudioPhaseDetect = &v
+	return s
+}
+
+// SetCanvasWithMax sets the CanvasWithMax field's value.
+func (s *ConvertOutputForStartExecutionInput) SetCanvasWithMax(v bool) *ConvertOutputForStartExecutionInput {
+	s.CanvasWithMax = &v
+	return s
+}
+
+// SetCanvasWithRatio sets the CanvasWithRatio field's value.
+func (s *ConvertOutputForStartExecutionInput) SetCanvasWithRatio(v bool) *ConvertOutputForStartExecutionInput {
+	s.CanvasWithRatio = &v
+	return s
+}
+
+// SetCodec sets the Codec field's value.
+func (s *ConvertOutputForStartExecutionInput) SetCodec(v *CodecForStartExecutionInput) *ConvertOutputForStartExecutionInput {
+	s.Codec = v
+	return s
+}
+
+// SetDisableAudio sets the DisableAudio field's value.
+func (s *ConvertOutputForStartExecutionInput) SetDisableAudio(v bool) *ConvertOutputForStartExecutionInput {
+	s.DisableAudio = &v
+	return s
+}
+
+// SetDisableVideo sets the DisableVideo field's value.
+func (s *ConvertOutputForStartExecutionInput) SetDisableVideo(v bool) *ConvertOutputForStartExecutionInput {
+	s.DisableVideo = &v
+	return s
+}
+
+// SetFormat sets the Format field's value.
+func (s *ConvertOutputForStartExecutionInput) SetFormat(v string) *ConvertOutputForStartExecutionInput {
+	s.Format = &v
+	return s
+}
+
+// SetFps sets the Fps field's value.
+func (s *ConvertOutputForStartExecutionInput) SetFps(v float64) *ConvertOutputForStartExecutionInput {
+	s.Fps = &v
+	return s
+}
+
+type ConvertScaleControlForStartExecutionInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	ScaleHeight *int32 `max:"4320" type:"int32" json:",omitempty"`
+
+	ScaleLong *int32 `max:"4320" type:"int32" json:",omitempty"`
+
+	ScaleMode *int32 `type:"int32" json:",omitempty"`
+
+	ScaleShort *int32 `max:"4320" type:"int32" json:",omitempty"`
+
+	ScaleType *int32 `type:"int32" json:",omitempty"`
+
+	ScaleWidth *int32 `max:"4320" type:"int32" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s ConvertScaleControlForStartExecutionInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ConvertScaleControlForStartExecutionInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *ConvertScaleControlForStartExecutionInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "ConvertScaleControlForStartExecutionInput"}
+	if s.ScaleHeight != nil && *s.ScaleHeight > 4320 {
+		invalidParams.Add(request.NewErrParamMaxValue("ScaleHeight", 4320))
+	}
+	if s.ScaleLong != nil && *s.ScaleLong > 4320 {
+		invalidParams.Add(request.NewErrParamMaxValue("ScaleLong", 4320))
+	}
+	if s.ScaleShort != nil && *s.ScaleShort > 4320 {
+		invalidParams.Add(request.NewErrParamMaxValue("ScaleShort", 4320))
+	}
+	if s.ScaleWidth != nil && *s.ScaleWidth > 4320 {
+		invalidParams.Add(request.NewErrParamMaxValue("ScaleWidth", 4320))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetScaleHeight sets the ScaleHeight field's value.
+func (s *ConvertScaleControlForStartExecutionInput) SetScaleHeight(v int32) *ConvertScaleControlForStartExecutionInput {
+	s.ScaleHeight = &v
+	return s
+}
+
+// SetScaleLong sets the ScaleLong field's value.
+func (s *ConvertScaleControlForStartExecutionInput) SetScaleLong(v int32) *ConvertScaleControlForStartExecutionInput {
+	s.ScaleLong = &v
+	return s
+}
+
+// SetScaleMode sets the ScaleMode field's value.
+func (s *ConvertScaleControlForStartExecutionInput) SetScaleMode(v int32) *ConvertScaleControlForStartExecutionInput {
+	s.ScaleMode = &v
+	return s
+}
+
+// SetScaleShort sets the ScaleShort field's value.
+func (s *ConvertScaleControlForStartExecutionInput) SetScaleShort(v int32) *ConvertScaleControlForStartExecutionInput {
+	s.ScaleShort = &v
+	return s
+}
+
+// SetScaleType sets the ScaleType field's value.
+func (s *ConvertScaleControlForStartExecutionInput) SetScaleType(v int32) *ConvertScaleControlForStartExecutionInput {
+	s.ScaleType = &v
+	return s
+}
+
+// SetScaleWidth sets the ScaleWidth field's value.
+func (s *ConvertScaleControlForStartExecutionInput) SetScaleWidth(v int32) *ConvertScaleControlForStartExecutionInput {
+	s.ScaleWidth = &v
+	return s
+}
+
 type ConvertSegmentForStartExecutionInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
+
+	ClipFade *bool `type:"boolean" json:",omitempty"`
 
 	MaxDuration *float64 `type:"double" json:",omitempty"`
 
 	MinDuration *float64 `type:"double" json:",omitempty"`
+
+	NoFile *bool `type:"boolean" json:",omitempty"`
 
 	Threshold *float64 `type:"double" json:",omitempty"`
 }
@@ -773,6 +1970,12 @@ func (s ConvertSegmentForStartExecutionInput) GoString() string {
 	return s.String()
 }
 
+// SetClipFade sets the ClipFade field's value.
+func (s *ConvertSegmentForStartExecutionInput) SetClipFade(v bool) *ConvertSegmentForStartExecutionInput {
+	s.ClipFade = &v
+	return s
+}
+
 // SetMaxDuration sets the MaxDuration field's value.
 func (s *ConvertSegmentForStartExecutionInput) SetMaxDuration(v float64) *ConvertSegmentForStartExecutionInput {
 	s.MaxDuration = &v
@@ -785,9 +1988,102 @@ func (s *ConvertSegmentForStartExecutionInput) SetMinDuration(v float64) *Conver
 	return s
 }
 
+// SetNoFile sets the NoFile field's value.
+func (s *ConvertSegmentForStartExecutionInput) SetNoFile(v bool) *ConvertSegmentForStartExecutionInput {
+	s.NoFile = &v
+	return s
+}
+
 // SetThreshold sets the Threshold field's value.
 func (s *ConvertSegmentForStartExecutionInput) SetThreshold(v float64) *ConvertSegmentForStartExecutionInput {
 	s.Threshold = &v
+	return s
+}
+
+type ConvertVideoForStartExecutionInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	BitDepth *int32 `type:"int32" json:",omitempty"`
+
+	BitrateControl *ConvertConvertConvertBitrateControlForStartExecutionInput `type:"structure" json:",omitempty"`
+
+	Codec *string `type:"string" json:",omitempty" enum:"ConvertEnumOfCodecForStartExecutionInput"`
+
+	FpsControl *ConvertFpsControlForStartExecutionInput `type:"structure" json:",omitempty"`
+
+	HDRMode *int32 `type:"int32" json:",omitempty"`
+
+	ScaleControl *ConvertScaleControlForStartExecutionInput `type:"structure" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s ConvertVideoForStartExecutionInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ConvertVideoForStartExecutionInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *ConvertVideoForStartExecutionInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "ConvertVideoForStartExecutionInput"}
+	if s.BitrateControl != nil {
+		if err := s.BitrateControl.Validate(); err != nil {
+			invalidParams.AddNested("BitrateControl", err.(request.ErrInvalidParams))
+		}
+	}
+	if s.FpsControl != nil {
+		if err := s.FpsControl.Validate(); err != nil {
+			invalidParams.AddNested("FpsControl", err.(request.ErrInvalidParams))
+		}
+	}
+	if s.ScaleControl != nil {
+		if err := s.ScaleControl.Validate(); err != nil {
+			invalidParams.AddNested("ScaleControl", err.(request.ErrInvalidParams))
+		}
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetBitDepth sets the BitDepth field's value.
+func (s *ConvertVideoForStartExecutionInput) SetBitDepth(v int32) *ConvertVideoForStartExecutionInput {
+	s.BitDepth = &v
+	return s
+}
+
+// SetBitrateControl sets the BitrateControl field's value.
+func (s *ConvertVideoForStartExecutionInput) SetBitrateControl(v *ConvertConvertConvertBitrateControlForStartExecutionInput) *ConvertVideoForStartExecutionInput {
+	s.BitrateControl = v
+	return s
+}
+
+// SetCodec sets the Codec field's value.
+func (s *ConvertVideoForStartExecutionInput) SetCodec(v string) *ConvertVideoForStartExecutionInput {
+	s.Codec = &v
+	return s
+}
+
+// SetFpsControl sets the FpsControl field's value.
+func (s *ConvertVideoForStartExecutionInput) SetFpsControl(v *ConvertFpsControlForStartExecutionInput) *ConvertVideoForStartExecutionInput {
+	s.FpsControl = v
+	return s
+}
+
+// SetHDRMode sets the HDRMode field's value.
+func (s *ConvertVideoForStartExecutionInput) SetHDRMode(v int32) *ConvertVideoForStartExecutionInput {
+	s.HDRMode = &v
+	return s
+}
+
+// SetScaleControl sets the ScaleControl field's value.
+func (s *ConvertVideoForStartExecutionInput) SetScaleControl(v *ConvertScaleControlForStartExecutionInput) *ConvertVideoForStartExecutionInput {
+	s.ScaleControl = v
 	return s
 }
 
@@ -813,12 +2109,151 @@ func (s *ConvertVideoOptionForStartExecutionInput) SetFormat(v string) *ConvertV
 	return s
 }
 
+type ConvertVolumeForStartExecutionInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	IntegratedLoudness *float64 `type:"float" json:",omitempty"`
+
+	LoudnessRange *float64 `min:"1" max:"20" type:"float" json:",omitempty"`
+
+	Method *string `type:"string" json:",omitempty" enum:"EnumOfMethodForStartExecutionInput"`
+
+	TruePeak *float64 `type:"float" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s ConvertVolumeForStartExecutionInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ConvertVolumeForStartExecutionInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *ConvertVolumeForStartExecutionInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "ConvertVolumeForStartExecutionInput"}
+	if s.IntegratedLoudness != nil && *s.IntegratedLoudness < -70 {
+		invalidParams.Add(request.NewErrParamMinValue("IntegratedLoudness", -70))
+	}
+	if s.IntegratedLoudness != nil && *s.IntegratedLoudness > -5 {
+		invalidParams.Add(request.NewErrParamMaxValue("IntegratedLoudness", -5))
+	}
+	if s.LoudnessRange != nil && *s.LoudnessRange < 1 {
+		invalidParams.Add(request.NewErrParamMinValue("LoudnessRange", 1))
+	}
+	if s.LoudnessRange != nil && *s.LoudnessRange > 20 {
+		invalidParams.Add(request.NewErrParamMaxValue("LoudnessRange", 20))
+	}
+	if s.TruePeak != nil && *s.TruePeak < -9 {
+		invalidParams.Add(request.NewErrParamMinValue("TruePeak", -9))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetIntegratedLoudness sets the IntegratedLoudness field's value.
+func (s *ConvertVolumeForStartExecutionInput) SetIntegratedLoudness(v float64) *ConvertVolumeForStartExecutionInput {
+	s.IntegratedLoudness = &v
+	return s
+}
+
+// SetLoudnessRange sets the LoudnessRange field's value.
+func (s *ConvertVolumeForStartExecutionInput) SetLoudnessRange(v float64) *ConvertVolumeForStartExecutionInput {
+	s.LoudnessRange = &v
+	return s
+}
+
+// SetMethod sets the Method field's value.
+func (s *ConvertVolumeForStartExecutionInput) SetMethod(v string) *ConvertVolumeForStartExecutionInput {
+	s.Method = &v
+	return s
+}
+
+// SetTruePeak sets the TruePeak field's value.
+func (s *ConvertVolumeForStartExecutionInput) SetTruePeak(v float64) *ConvertVolumeForStartExecutionInput {
+	s.TruePeak = &v
+	return s
+}
+
+type CropForStartExecutionInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	PosX *int32 `max:"4320" type:"int32" json:",omitempty"`
+
+	PosY *int32 `max:"4320" type:"int32" json:",omitempty"`
+
+	SizeX *int32 `max:"4320" type:"int32" json:",omitempty"`
+
+	SizeY *int32 `max:"4320" type:"int32" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s CropForStartExecutionInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s CropForStartExecutionInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *CropForStartExecutionInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "CropForStartExecutionInput"}
+	if s.PosX != nil && *s.PosX > 4320 {
+		invalidParams.Add(request.NewErrParamMaxValue("PosX", 4320))
+	}
+	if s.PosY != nil && *s.PosY > 4320 {
+		invalidParams.Add(request.NewErrParamMaxValue("PosY", 4320))
+	}
+	if s.SizeX != nil && *s.SizeX > 4320 {
+		invalidParams.Add(request.NewErrParamMaxValue("SizeX", 4320))
+	}
+	if s.SizeY != nil && *s.SizeY > 4320 {
+		invalidParams.Add(request.NewErrParamMaxValue("SizeY", 4320))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetPosX sets the PosX field's value.
+func (s *CropForStartExecutionInput) SetPosX(v int32) *CropForStartExecutionInput {
+	s.PosX = &v
+	return s
+}
+
+// SetPosY sets the PosY field's value.
+func (s *CropForStartExecutionInput) SetPosY(v int32) *CropForStartExecutionInput {
+	s.PosY = &v
+	return s
+}
+
+// SetSizeX sets the SizeX field's value.
+func (s *CropForStartExecutionInput) SetSizeX(v int32) *CropForStartExecutionInput {
+	s.SizeX = &v
+	return s
+}
+
+// SetSizeY sets the SizeY field's value.
+func (s *CropForStartExecutionInput) SetSizeY(v int32) *CropForStartExecutionInput {
+	s.SizeY = &v
+	return s
+}
+
 type CustomEditForStartExecutionInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
 	Canvas *CanvasForStartExecutionInput `type:"structure" json:",omitempty"`
 
-	Output *OutputForStartExecutionInput `type:"structure" json:",omitempty"`
+	Output *ConvertOutputForStartExecutionInput `type:"structure" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -838,7 +2273,7 @@ func (s *CustomEditForStartExecutionInput) SetCanvas(v *CanvasForStartExecutionI
 }
 
 // SetOutput sets the Output field's value.
-func (s *CustomEditForStartExecutionInput) SetOutput(v *OutputForStartExecutionInput) *CustomEditForStartExecutionInput {
+func (s *CustomEditForStartExecutionInput) SetOutput(v *ConvertOutputForStartExecutionInput) *CustomEditForStartExecutionInput {
 	s.Output = v
 	return s
 }
@@ -916,6 +2351,44 @@ func (s *EditForStartExecutionInput) SetMiniseriesEdit(v *MiniseriesEditForStart
 // SetMode sets the Mode field's value.
 func (s *EditForStartExecutionInput) SetMode(v string) *EditForStartExecutionInput {
 	s.Mode = &v
+	return s
+}
+
+type EncryptionForStartExecutionInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Host *string `type:"string" json:",omitempty"`
+
+	Kid *string `type:"string" json:",omitempty"`
+
+	Type *string `type:"string" json:",omitempty" enum:"EnumOfTypeForStartExecutionInput"`
+}
+
+// String returns the string representation
+func (s EncryptionForStartExecutionInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s EncryptionForStartExecutionInput) GoString() string {
+	return s.String()
+}
+
+// SetHost sets the Host field's value.
+func (s *EncryptionForStartExecutionInput) SetHost(v string) *EncryptionForStartExecutionInput {
+	s.Host = &v
+	return s
+}
+
+// SetKid sets the Kid field's value.
+func (s *EncryptionForStartExecutionInput) SetKid(v string) *EncryptionForStartExecutionInput {
+	s.Kid = &v
+	return s
+}
+
+// SetType sets the Type field's value.
+func (s *EncryptionForStartExecutionInput) SetType(v string) *EncryptionForStartExecutionInput {
+	s.Type = &v
 	return s
 }
 
@@ -1090,6 +2563,90 @@ func (s *FileIdForStartExecutionInput) SetFileId(v string) *FileIdForStartExecut
 // SetVid sets the Vid field's value.
 func (s *FileIdForStartExecutionInput) SetVid(v string) *FileIdForStartExecutionInput {
 	s.Vid = &v
+	return s
+}
+
+type FontShadowForStartExecutionInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Color *string `type:"string" json:",omitempty"`
+
+	OffsetX *float64 `type:"float" json:",omitempty"`
+
+	OffsetY *float64 `type:"float" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s FontShadowForStartExecutionInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s FontShadowForStartExecutionInput) GoString() string {
+	return s.String()
+}
+
+// SetColor sets the Color field's value.
+func (s *FontShadowForStartExecutionInput) SetColor(v string) *FontShadowForStartExecutionInput {
+	s.Color = &v
+	return s
+}
+
+// SetOffsetX sets the OffsetX field's value.
+func (s *FontShadowForStartExecutionInput) SetOffsetX(v float64) *FontShadowForStartExecutionInput {
+	s.OffsetX = &v
+	return s
+}
+
+// SetOffsetY sets the OffsetY field's value.
+func (s *FontShadowForStartExecutionInput) SetOffsetY(v float64) *FontShadowForStartExecutionInput {
+	s.OffsetY = &v
+	return s
+}
+
+type FpsControlForStartExecutionInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Fps *float64 `min:"1" max:"240" type:"float" json:",omitempty"`
+
+	Mode *string `type:"string" json:",omitempty" enum:"ConvertConvertEnumOfModeForStartExecutionInput"`
+}
+
+// String returns the string representation
+func (s FpsControlForStartExecutionInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s FpsControlForStartExecutionInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *FpsControlForStartExecutionInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "FpsControlForStartExecutionInput"}
+	if s.Fps != nil && *s.Fps < 1 {
+		invalidParams.Add(request.NewErrParamMinValue("Fps", 1))
+	}
+	if s.Fps != nil && *s.Fps > 240 {
+		invalidParams.Add(request.NewErrParamMaxValue("Fps", 240))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetFps sets the Fps field's value.
+func (s *FpsControlForStartExecutionInput) SetFps(v float64) *FpsControlForStartExecutionInput {
+	s.Fps = &v
+	return s
+}
+
+// SetMode sets the Mode field's value.
+func (s *FpsControlForStartExecutionInput) SetMode(v string) *FpsControlForStartExecutionInput {
+	s.Mode = &v
 	return s
 }
 
@@ -1301,6 +2858,215 @@ func (s *LocationForStartExecutionInput) SetRatioLocation(v *RatioLocationForSta
 	return s
 }
 
+type LogoForStartExecutionInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Logos *LogosForStartExecutionInput `type:"structure" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s LogoForStartExecutionInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s LogoForStartExecutionInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *LogoForStartExecutionInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "LogoForStartExecutionInput"}
+	if s.Logos != nil {
+		if err := s.Logos.Validate(); err != nil {
+			invalidParams.AddNested("Logos", err.(request.ErrInvalidParams))
+		}
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetLogos sets the Logos field's value.
+func (s *LogoForStartExecutionInput) SetLogos(v *LogosForStartExecutionInput) *LogoForStartExecutionInput {
+	s.Logos = v
+	return s
+}
+
+type LogosForStartExecutionInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	AdaptMode *string `type:"string" json:",omitempty"`
+
+	EndTime *float64 `type:"float" json:",omitempty"`
+
+	FontColor *string `type:"string" json:",omitempty"`
+
+	FontShadow *FontShadowForStartExecutionInput `type:"structure" json:",omitempty"`
+
+	FontSize *float64 `type:"float" json:",omitempty"`
+
+	FontType *string `type:"string" json:",omitempty" enum:"EnumOfFontTypeForStartExecutionInput"`
+
+	Locate *string `type:"string" json:",omitempty" enum:"EnumOfLocateForStartExecutionInput"`
+
+	LoopTimes *float64 `type:"float" json:",omitempty"`
+
+	MaxLines *string `type:"string" json:",omitempty"`
+
+	MaxWidth *string `type:"string" json:",omitempty"`
+
+	Mid *string `type:"string" json:",omitempty"`
+
+	PosX *float64 `max:"4320" type:"float" json:",omitempty"`
+
+	PosY *float64 `max:"4320" type:"float" json:",omitempty"`
+
+	SizeX *float64 `max:"4320" type:"float" json:",omitempty"`
+
+	SizeY *float64 `max:"4320" type:"float" json:",omitempty"`
+
+	StartTime *float64 `type:"float" json:",omitempty"`
+
+	Type *string `type:"string" json:",omitempty" enum:"ConvertConvertConvertConvertEnumOfTypeForStartExecutionInput"`
+}
+
+// String returns the string representation
+func (s LogosForStartExecutionInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s LogosForStartExecutionInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *LogosForStartExecutionInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "LogosForStartExecutionInput"}
+	if s.PosX != nil && *s.PosX > 4320 {
+		invalidParams.Add(request.NewErrParamMaxValue("PosX", 4320))
+	}
+	if s.PosY != nil && *s.PosY > 4320 {
+		invalidParams.Add(request.NewErrParamMaxValue("PosY", 4320))
+	}
+	if s.SizeX != nil && *s.SizeX > 4320 {
+		invalidParams.Add(request.NewErrParamMaxValue("SizeX", 4320))
+	}
+	if s.SizeY != nil && *s.SizeY > 4320 {
+		invalidParams.Add(request.NewErrParamMaxValue("SizeY", 4320))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetAdaptMode sets the AdaptMode field's value.
+func (s *LogosForStartExecutionInput) SetAdaptMode(v string) *LogosForStartExecutionInput {
+	s.AdaptMode = &v
+	return s
+}
+
+// SetEndTime sets the EndTime field's value.
+func (s *LogosForStartExecutionInput) SetEndTime(v float64) *LogosForStartExecutionInput {
+	s.EndTime = &v
+	return s
+}
+
+// SetFontColor sets the FontColor field's value.
+func (s *LogosForStartExecutionInput) SetFontColor(v string) *LogosForStartExecutionInput {
+	s.FontColor = &v
+	return s
+}
+
+// SetFontShadow sets the FontShadow field's value.
+func (s *LogosForStartExecutionInput) SetFontShadow(v *FontShadowForStartExecutionInput) *LogosForStartExecutionInput {
+	s.FontShadow = v
+	return s
+}
+
+// SetFontSize sets the FontSize field's value.
+func (s *LogosForStartExecutionInput) SetFontSize(v float64) *LogosForStartExecutionInput {
+	s.FontSize = &v
+	return s
+}
+
+// SetFontType sets the FontType field's value.
+func (s *LogosForStartExecutionInput) SetFontType(v string) *LogosForStartExecutionInput {
+	s.FontType = &v
+	return s
+}
+
+// SetLocate sets the Locate field's value.
+func (s *LogosForStartExecutionInput) SetLocate(v string) *LogosForStartExecutionInput {
+	s.Locate = &v
+	return s
+}
+
+// SetLoopTimes sets the LoopTimes field's value.
+func (s *LogosForStartExecutionInput) SetLoopTimes(v float64) *LogosForStartExecutionInput {
+	s.LoopTimes = &v
+	return s
+}
+
+// SetMaxLines sets the MaxLines field's value.
+func (s *LogosForStartExecutionInput) SetMaxLines(v string) *LogosForStartExecutionInput {
+	s.MaxLines = &v
+	return s
+}
+
+// SetMaxWidth sets the MaxWidth field's value.
+func (s *LogosForStartExecutionInput) SetMaxWidth(v string) *LogosForStartExecutionInput {
+	s.MaxWidth = &v
+	return s
+}
+
+// SetMid sets the Mid field's value.
+func (s *LogosForStartExecutionInput) SetMid(v string) *LogosForStartExecutionInput {
+	s.Mid = &v
+	return s
+}
+
+// SetPosX sets the PosX field's value.
+func (s *LogosForStartExecutionInput) SetPosX(v float64) *LogosForStartExecutionInput {
+	s.PosX = &v
+	return s
+}
+
+// SetPosY sets the PosY field's value.
+func (s *LogosForStartExecutionInput) SetPosY(v float64) *LogosForStartExecutionInput {
+	s.PosY = &v
+	return s
+}
+
+// SetSizeX sets the SizeX field's value.
+func (s *LogosForStartExecutionInput) SetSizeX(v float64) *LogosForStartExecutionInput {
+	s.SizeX = &v
+	return s
+}
+
+// SetSizeY sets the SizeY field's value.
+func (s *LogosForStartExecutionInput) SetSizeY(v float64) *LogosForStartExecutionInput {
+	s.SizeY = &v
+	return s
+}
+
+// SetStartTime sets the StartTime field's value.
+func (s *LogosForStartExecutionInput) SetStartTime(v float64) *LogosForStartExecutionInput {
+	s.StartTime = &v
+	return s
+}
+
+// SetType sets the Type field's value.
+func (s *LogosForStartExecutionInput) SetType(v string) *LogosForStartExecutionInput {
+	s.Type = &v
+	return s
+}
+
 type ManualForStartExecutionInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -1320,6 +3086,36 @@ func (s ManualForStartExecutionInput) GoString() string {
 // SetLocations sets the Locations field's value.
 func (s *ManualForStartExecutionInput) SetLocations(v []*LocationForStartExecutionInput) *ManualForStartExecutionInput {
 	s.Locations = v
+	return s
+}
+
+type MetadataForStartExecutionInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	AddTags []*AddTagForStartExecutionInput `type:"list" json:",omitempty"`
+
+	KeepTags []*string `type:"list" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s MetadataForStartExecutionInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s MetadataForStartExecutionInput) GoString() string {
+	return s.String()
+}
+
+// SetAddTags sets the AddTags field's value.
+func (s *MetadataForStartExecutionInput) SetAddTags(v []*AddTagForStartExecutionInput) *MetadataForStartExecutionInput {
+	s.AddTags = v
+	return s
+}
+
+// SetKeepTags sets the KeepTags field's value.
+func (s *MetadataForStartExecutionInput) SetKeepTags(v []*string) *MetadataForStartExecutionInput {
+	s.KeepTags = v
 	return s
 }
 
@@ -1601,6 +3397,21 @@ func (s NodeForStartExecutionInput) GoString() string {
 	return s.String()
 }
 
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *NodeForStartExecutionInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "NodeForStartExecutionInput"}
+	if s.Operation != nil {
+		if err := s.Operation.Validate(); err != nil {
+			invalidParams.AddNested("Operation", err.(request.ErrInvalidParams))
+		}
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
 // SetDependencies sets the Dependencies field's value.
 func (s *NodeForStartExecutionInput) SetDependencies(v []*string) *NodeForStartExecutionInput {
 	s.Dependencies = v
@@ -1745,6 +3556,21 @@ func (s OperationForStartExecutionInput) GoString() string {
 	return s.String()
 }
 
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *OperationForStartExecutionInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "OperationForStartExecutionInput"}
+	if s.Task != nil {
+		if err := s.Task.Validate(); err != nil {
+			invalidParams.AddNested("Task", err.(request.ErrInvalidParams))
+		}
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
 // SetTask sets the Task field's value.
 func (s *OperationForStartExecutionInput) SetTask(v *TaskForStartExecutionInput) *OperationForStartExecutionInput {
 	s.Task = v
@@ -1760,23 +3586,9 @@ func (s *OperationForStartExecutionInput) SetType(v string) *OperationForStartEx
 type OutputForStartExecutionInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	Alpha *bool `type:"boolean" json:",omitempty"`
+	Audio *AudioForStartExecutionInput `type:"structure" json:",omitempty"`
 
-	AudioPhaseDetect *bool `type:"boolean" json:",omitempty"`
-
-	CanvasWithMax *bool `type:"boolean" json:",omitempty"`
-
-	CanvasWithRatio *bool `type:"boolean" json:",omitempty"`
-
-	Codec *CodecForStartExecutionInput `type:"structure" json:",omitempty"`
-
-	DisableAudio *bool `type:"boolean" json:",omitempty"`
-
-	DisableVideo *bool `type:"boolean" json:",omitempty"`
-
-	Format *string `type:"string" json:",omitempty"`
-
-	Fps *float64 `type:"double" json:",omitempty"`
+	Video *VideoForStartExecutionInput `type:"structure" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -1789,57 +3601,35 @@ func (s OutputForStartExecutionInput) GoString() string {
 	return s.String()
 }
 
-// SetAlpha sets the Alpha field's value.
-func (s *OutputForStartExecutionInput) SetAlpha(v bool) *OutputForStartExecutionInput {
-	s.Alpha = &v
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *OutputForStartExecutionInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "OutputForStartExecutionInput"}
+	if s.Audio != nil {
+		if err := s.Audio.Validate(); err != nil {
+			invalidParams.AddNested("Audio", err.(request.ErrInvalidParams))
+		}
+	}
+	if s.Video != nil {
+		if err := s.Video.Validate(); err != nil {
+			invalidParams.AddNested("Video", err.(request.ErrInvalidParams))
+		}
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetAudio sets the Audio field's value.
+func (s *OutputForStartExecutionInput) SetAudio(v *AudioForStartExecutionInput) *OutputForStartExecutionInput {
+	s.Audio = v
 	return s
 }
 
-// SetAudioPhaseDetect sets the AudioPhaseDetect field's value.
-func (s *OutputForStartExecutionInput) SetAudioPhaseDetect(v bool) *OutputForStartExecutionInput {
-	s.AudioPhaseDetect = &v
-	return s
-}
-
-// SetCanvasWithMax sets the CanvasWithMax field's value.
-func (s *OutputForStartExecutionInput) SetCanvasWithMax(v bool) *OutputForStartExecutionInput {
-	s.CanvasWithMax = &v
-	return s
-}
-
-// SetCanvasWithRatio sets the CanvasWithRatio field's value.
-func (s *OutputForStartExecutionInput) SetCanvasWithRatio(v bool) *OutputForStartExecutionInput {
-	s.CanvasWithRatio = &v
-	return s
-}
-
-// SetCodec sets the Codec field's value.
-func (s *OutputForStartExecutionInput) SetCodec(v *CodecForStartExecutionInput) *OutputForStartExecutionInput {
-	s.Codec = v
-	return s
-}
-
-// SetDisableAudio sets the DisableAudio field's value.
-func (s *OutputForStartExecutionInput) SetDisableAudio(v bool) *OutputForStartExecutionInput {
-	s.DisableAudio = &v
-	return s
-}
-
-// SetDisableVideo sets the DisableVideo field's value.
-func (s *OutputForStartExecutionInput) SetDisableVideo(v bool) *OutputForStartExecutionInput {
-	s.DisableVideo = &v
-	return s
-}
-
-// SetFormat sets the Format field's value.
-func (s *OutputForStartExecutionInput) SetFormat(v string) *OutputForStartExecutionInput {
-	s.Format = &v
-	return s
-}
-
-// SetFps sets the Fps field's value.
-func (s *OutputForStartExecutionInput) SetFps(v float64) *OutputForStartExecutionInput {
-	s.Fps = &v
+// SetVideo sets the Video field's value.
+func (s *OutputForStartExecutionInput) SetVideo(v *VideoForStartExecutionInput) *OutputForStartExecutionInput {
+	s.Video = v
 	return s
 }
 
@@ -1911,18 +3701,98 @@ func (s *RatioLocationForStartExecutionInput) SetTopLeftY(v float64) *RatioLocat
 	return s
 }
 
+type ScaleControlForStartExecutionInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	ScaleHeight *int32 `max:"4320" type:"int32" json:",omitempty"`
+
+	ScaleLong *int32 `max:"4320" type:"int32" json:",omitempty"`
+
+	ScaleMode *int32 `type:"int32" json:",omitempty"`
+
+	ScaleShort *int32 `max:"4320" type:"int32" json:",omitempty"`
+
+	ScaleType *int32 `type:"int32" json:",omitempty"`
+
+	ScaleWidth *int32 `max:"4320" type:"int32" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s ScaleControlForStartExecutionInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ScaleControlForStartExecutionInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *ScaleControlForStartExecutionInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "ScaleControlForStartExecutionInput"}
+	if s.ScaleHeight != nil && *s.ScaleHeight > 4320 {
+		invalidParams.Add(request.NewErrParamMaxValue("ScaleHeight", 4320))
+	}
+	if s.ScaleLong != nil && *s.ScaleLong > 4320 {
+		invalidParams.Add(request.NewErrParamMaxValue("ScaleLong", 4320))
+	}
+	if s.ScaleShort != nil && *s.ScaleShort > 4320 {
+		invalidParams.Add(request.NewErrParamMaxValue("ScaleShort", 4320))
+	}
+	if s.ScaleWidth != nil && *s.ScaleWidth > 4320 {
+		invalidParams.Add(request.NewErrParamMaxValue("ScaleWidth", 4320))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetScaleHeight sets the ScaleHeight field's value.
+func (s *ScaleControlForStartExecutionInput) SetScaleHeight(v int32) *ScaleControlForStartExecutionInput {
+	s.ScaleHeight = &v
+	return s
+}
+
+// SetScaleLong sets the ScaleLong field's value.
+func (s *ScaleControlForStartExecutionInput) SetScaleLong(v int32) *ScaleControlForStartExecutionInput {
+	s.ScaleLong = &v
+	return s
+}
+
+// SetScaleMode sets the ScaleMode field's value.
+func (s *ScaleControlForStartExecutionInput) SetScaleMode(v int32) *ScaleControlForStartExecutionInput {
+	s.ScaleMode = &v
+	return s
+}
+
+// SetScaleShort sets the ScaleShort field's value.
+func (s *ScaleControlForStartExecutionInput) SetScaleShort(v int32) *ScaleControlForStartExecutionInput {
+	s.ScaleShort = &v
+	return s
+}
+
+// SetScaleType sets the ScaleType field's value.
+func (s *ScaleControlForStartExecutionInput) SetScaleType(v int32) *ScaleControlForStartExecutionInput {
+	s.ScaleType = &v
+	return s
+}
+
+// SetScaleWidth sets the ScaleWidth field's value.
+func (s *ScaleControlForStartExecutionInput) SetScaleWidth(v int32) *ScaleControlForStartExecutionInput {
+	s.ScaleWidth = &v
+	return s
+}
+
 type SegmentForStartExecutionInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	ClipFade *bool `type:"boolean" json:",omitempty"`
+	Duration *int32 `type:"int32" json:",omitempty"`
 
-	MaxDuration *float64 `type:"double" json:",omitempty"`
+	Format *string `type:"string" json:",omitempty"`
 
-	MinDuration *float64 `type:"double" json:",omitempty"`
-
-	NoFile *bool `type:"boolean" json:",omitempty"`
-
-	Threshold *float64 `type:"double" json:",omitempty"`
+	Type *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -1935,33 +3805,21 @@ func (s SegmentForStartExecutionInput) GoString() string {
 	return s.String()
 }
 
-// SetClipFade sets the ClipFade field's value.
-func (s *SegmentForStartExecutionInput) SetClipFade(v bool) *SegmentForStartExecutionInput {
-	s.ClipFade = &v
+// SetDuration sets the Duration field's value.
+func (s *SegmentForStartExecutionInput) SetDuration(v int32) *SegmentForStartExecutionInput {
+	s.Duration = &v
 	return s
 }
 
-// SetMaxDuration sets the MaxDuration field's value.
-func (s *SegmentForStartExecutionInput) SetMaxDuration(v float64) *SegmentForStartExecutionInput {
-	s.MaxDuration = &v
+// SetFormat sets the Format field's value.
+func (s *SegmentForStartExecutionInput) SetFormat(v string) *SegmentForStartExecutionInput {
+	s.Format = &v
 	return s
 }
 
-// SetMinDuration sets the MinDuration field's value.
-func (s *SegmentForStartExecutionInput) SetMinDuration(v float64) *SegmentForStartExecutionInput {
-	s.MinDuration = &v
-	return s
-}
-
-// SetNoFile sets the NoFile field's value.
-func (s *SegmentForStartExecutionInput) SetNoFile(v bool) *SegmentForStartExecutionInput {
-	s.NoFile = &v
-	return s
-}
-
-// SetThreshold sets the Threshold field's value.
-func (s *SegmentForStartExecutionInput) SetThreshold(v float64) *SegmentForStartExecutionInput {
-	s.Threshold = &v
+// SetType sets the Type field's value.
+func (s *SegmentForStartExecutionInput) SetType(v string) *SegmentForStartExecutionInput {
+	s.Type = &v
 	return s
 }
 
@@ -2025,6 +3883,21 @@ func (s StartExecutionInput) String() string {
 // GoString returns the string representation
 func (s StartExecutionInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *StartExecutionInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "StartExecutionInput"}
+	if s.Operation != nil {
+		if err := s.Operation.Validate(); err != nil {
+			invalidParams.AddNested("Operation", err.(request.ErrInvalidParams))
+		}
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetControl sets the Control field's value.
@@ -2157,6 +4030,44 @@ func (s *StorylineForStartExecutionInput) SetWithSnapshot(v bool) *StorylineForS
 	return s
 }
 
+type StreamControlForStartExecutionInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	KeepAudioStreams *string `type:"string" json:",omitempty" enum:"EnumOfKeepAudioStreamsForStartExecutionInput"`
+
+	KeepDataStreams *string `type:"string" json:",omitempty" enum:"EnumOfKeepDataStreamsForStartExecutionInput"`
+
+	KeepVideoStreams *string `type:"string" json:",omitempty" enum:"EnumOfKeepVideoStreamsForStartExecutionInput"`
+}
+
+// String returns the string representation
+func (s StreamControlForStartExecutionInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s StreamControlForStartExecutionInput) GoString() string {
+	return s.String()
+}
+
+// SetKeepAudioStreams sets the KeepAudioStreams field's value.
+func (s *StreamControlForStartExecutionInput) SetKeepAudioStreams(v string) *StreamControlForStartExecutionInput {
+	s.KeepAudioStreams = &v
+	return s
+}
+
+// SetKeepDataStreams sets the KeepDataStreams field's value.
+func (s *StreamControlForStartExecutionInput) SetKeepDataStreams(v string) *StreamControlForStartExecutionInput {
+	s.KeepDataStreams = &v
+	return s
+}
+
+// SetKeepVideoStreams sets the KeepVideoStreams field's value.
+func (s *StreamControlForStartExecutionInput) SetKeepVideoStreams(v string) *StreamControlForStartExecutionInput {
+	s.KeepVideoStreams = &v
+	return s
+}
+
 type SubtitleFilterForStartExecutionInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -2236,11 +4147,15 @@ func (s *TargetForStartExecutionInput) SetResLimit(v int32) *TargetForStartExecu
 type TaskForStartExecutionInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	ABRTranscode *ABRTranscodeForStartExecutionInput `type:"structure" json:",omitempty"`
+
 	AdAudit *AdAuditForStartExecutionInput `type:"structure" json:",omitempty"`
 
 	Asr *AsrForStartExecutionInput `type:"structure" json:",omitempty"`
 
 	AudioExtract *AudioExtractForStartExecutionInput `type:"structure" json:",omitempty"`
+
+	ConvertFormat *ConvertFormatForStartExecutionInput `type:"structure" json:",omitempty"`
 
 	Enhance *EnhanceForStartExecutionInput `type:"structure" json:",omitempty"`
 
@@ -2252,9 +4167,13 @@ type TaskForStartExecutionInput struct {
 
 	Ocr *OcrForStartExecutionInput `type:"structure" json:",omitempty"`
 
-	Segment *SegmentForStartExecutionInput `type:"structure" json:",omitempty"`
+	Segment *ConvertSegmentForStartExecutionInput `type:"structure" json:",omitempty"`
 
 	Storyline *StorylineForStartExecutionInput `type:"structure" json:",omitempty"`
+
+	StrategyTag *string `type:"string" json:",omitempty"`
+
+	Transcode *TranscodeForStartExecutionInput `type:"structure" json:",omitempty"`
 
 	Type *string `type:"string" json:",omitempty"`
 
@@ -2279,6 +4198,37 @@ func (s TaskForStartExecutionInput) GoString() string {
 	return s.String()
 }
 
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *TaskForStartExecutionInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "TaskForStartExecutionInput"}
+	if s.ABRTranscode != nil {
+		if err := s.ABRTranscode.Validate(); err != nil {
+			invalidParams.AddNested("ABRTranscode", err.(request.ErrInvalidParams))
+		}
+	}
+	if s.ConvertFormat != nil {
+		if err := s.ConvertFormat.Validate(); err != nil {
+			invalidParams.AddNested("ConvertFormat", err.(request.ErrInvalidParams))
+		}
+	}
+	if s.Transcode != nil {
+		if err := s.Transcode.Validate(); err != nil {
+			invalidParams.AddNested("Transcode", err.(request.ErrInvalidParams))
+		}
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetABRTranscode sets the ABRTranscode field's value.
+func (s *TaskForStartExecutionInput) SetABRTranscode(v *ABRTranscodeForStartExecutionInput) *TaskForStartExecutionInput {
+	s.ABRTranscode = v
+	return s
+}
+
 // SetAdAudit sets the AdAudit field's value.
 func (s *TaskForStartExecutionInput) SetAdAudit(v *AdAuditForStartExecutionInput) *TaskForStartExecutionInput {
 	s.AdAudit = v
@@ -2294,6 +4244,12 @@ func (s *TaskForStartExecutionInput) SetAsr(v *AsrForStartExecutionInput) *TaskF
 // SetAudioExtract sets the AudioExtract field's value.
 func (s *TaskForStartExecutionInput) SetAudioExtract(v *AudioExtractForStartExecutionInput) *TaskForStartExecutionInput {
 	s.AudioExtract = v
+	return s
+}
+
+// SetConvertFormat sets the ConvertFormat field's value.
+func (s *TaskForStartExecutionInput) SetConvertFormat(v *ConvertFormatForStartExecutionInput) *TaskForStartExecutionInput {
+	s.ConvertFormat = v
 	return s
 }
 
@@ -2328,7 +4284,7 @@ func (s *TaskForStartExecutionInput) SetOcr(v *OcrForStartExecutionInput) *TaskF
 }
 
 // SetSegment sets the Segment field's value.
-func (s *TaskForStartExecutionInput) SetSegment(v *SegmentForStartExecutionInput) *TaskForStartExecutionInput {
+func (s *TaskForStartExecutionInput) SetSegment(v *ConvertSegmentForStartExecutionInput) *TaskForStartExecutionInput {
 	s.Segment = v
 	return s
 }
@@ -2336,6 +4292,18 @@ func (s *TaskForStartExecutionInput) SetSegment(v *SegmentForStartExecutionInput
 // SetStoryline sets the Storyline field's value.
 func (s *TaskForStartExecutionInput) SetStoryline(v *StorylineForStartExecutionInput) *TaskForStartExecutionInput {
 	s.Storyline = v
+	return s
+}
+
+// SetStrategyTag sets the StrategyTag field's value.
+func (s *TaskForStartExecutionInput) SetStrategyTag(v string) *TaskForStartExecutionInput {
+	s.StrategyTag = &v
+	return s
+}
+
+// SetTranscode sets the Transcode field's value.
+func (s *TaskForStartExecutionInput) SetTranscode(v *TranscodeForStartExecutionInput) *TaskForStartExecutionInput {
+	s.Transcode = v
 	return s
 }
 
@@ -2380,7 +4348,7 @@ type TemplateForStartExecutionInput struct {
 
 	ByteHD *ByteHDForStartExecutionInput `type:"structure" json:",omitempty"`
 
-	Enhance *ConvertEnhanceForStartExecutionInput `type:"structure" json:",omitempty"`
+	Enhance *ConvertConvertEnhanceForStartExecutionInput `type:"structure" json:",omitempty"`
 
 	TranscodeAudio *TranscodeAudioForStartExecutionInput `type:"structure" json:",omitempty"`
 
@@ -2406,7 +4374,7 @@ func (s *TemplateForStartExecutionInput) SetByteHD(v *ByteHDForStartExecutionInp
 }
 
 // SetEnhance sets the Enhance field's value.
-func (s *TemplateForStartExecutionInput) SetEnhance(v *ConvertEnhanceForStartExecutionInput) *TemplateForStartExecutionInput {
+func (s *TemplateForStartExecutionInput) SetEnhance(v *ConvertConvertEnhanceForStartExecutionInput) *TemplateForStartExecutionInput {
 	s.Enhance = v
 	return s
 }
@@ -2451,6 +4419,132 @@ func (s *TranscodeAudioForStartExecutionInput) SetTemplateId(v string) *Transcod
 	return s
 }
 
+type TranscodeForStartExecutionInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Audio *ConvertAudioForStartExecutionInput `type:"structure" json:",omitempty"`
+
+	Clip *ConvertClipForStartExecutionInput `type:"structure" json:",omitempty"`
+
+	Containers []*ConvertConvertContainerForStartExecutionInput `type:"list" json:",omitempty"`
+
+	Crop *CropForStartExecutionInput `type:"structure" json:",omitempty"`
+
+	Enhance *ConvertEnhanceForStartExecutionInput `type:"structure" json:",omitempty"`
+
+	Logo *ConvertLogoForStartExecutionInput `type:"structure" json:",omitempty"`
+
+	Metadata *MetadataForStartExecutionInput `type:"structure" json:",omitempty"`
+
+	Type *string `type:"string" json:",omitempty" enum:"ConvertConvertConvertConvertConvertEnumOfTypeForStartExecutionInput"`
+
+	Video *ConvertVideoForStartExecutionInput `type:"structure" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s TranscodeForStartExecutionInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TranscodeForStartExecutionInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *TranscodeForStartExecutionInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "TranscodeForStartExecutionInput"}
+	if s.Audio != nil {
+		if err := s.Audio.Validate(); err != nil {
+			invalidParams.AddNested("Audio", err.(request.ErrInvalidParams))
+		}
+	}
+	if s.Containers != nil {
+		for i, v := range s.Containers {
+			if v == nil {
+				continue
+			}
+			if err := v.Validate(); err != nil {
+				invalidParams.AddNested(fmt.Sprintf("%s[%v]", "Containers", i), err.(request.ErrInvalidParams))
+			}
+		}
+	}
+	if s.Crop != nil {
+		if err := s.Crop.Validate(); err != nil {
+			invalidParams.AddNested("Crop", err.(request.ErrInvalidParams))
+		}
+	}
+	if s.Logo != nil {
+		if err := s.Logo.Validate(); err != nil {
+			invalidParams.AddNested("Logo", err.(request.ErrInvalidParams))
+		}
+	}
+	if s.Video != nil {
+		if err := s.Video.Validate(); err != nil {
+			invalidParams.AddNested("Video", err.(request.ErrInvalidParams))
+		}
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetAudio sets the Audio field's value.
+func (s *TranscodeForStartExecutionInput) SetAudio(v *ConvertAudioForStartExecutionInput) *TranscodeForStartExecutionInput {
+	s.Audio = v
+	return s
+}
+
+// SetClip sets the Clip field's value.
+func (s *TranscodeForStartExecutionInput) SetClip(v *ConvertClipForStartExecutionInput) *TranscodeForStartExecutionInput {
+	s.Clip = v
+	return s
+}
+
+// SetContainers sets the Containers field's value.
+func (s *TranscodeForStartExecutionInput) SetContainers(v []*ConvertConvertContainerForStartExecutionInput) *TranscodeForStartExecutionInput {
+	s.Containers = v
+	return s
+}
+
+// SetCrop sets the Crop field's value.
+func (s *TranscodeForStartExecutionInput) SetCrop(v *CropForStartExecutionInput) *TranscodeForStartExecutionInput {
+	s.Crop = v
+	return s
+}
+
+// SetEnhance sets the Enhance field's value.
+func (s *TranscodeForStartExecutionInput) SetEnhance(v *ConvertEnhanceForStartExecutionInput) *TranscodeForStartExecutionInput {
+	s.Enhance = v
+	return s
+}
+
+// SetLogo sets the Logo field's value.
+func (s *TranscodeForStartExecutionInput) SetLogo(v *ConvertLogoForStartExecutionInput) *TranscodeForStartExecutionInput {
+	s.Logo = v
+	return s
+}
+
+// SetMetadata sets the Metadata field's value.
+func (s *TranscodeForStartExecutionInput) SetMetadata(v *MetadataForStartExecutionInput) *TranscodeForStartExecutionInput {
+	s.Metadata = v
+	return s
+}
+
+// SetType sets the Type field's value.
+func (s *TranscodeForStartExecutionInput) SetType(v string) *TranscodeForStartExecutionInput {
+	s.Type = &v
+	return s
+}
+
+// SetVideo sets the Video field's value.
+func (s *TranscodeForStartExecutionInput) SetVideo(v *ConvertVideoForStartExecutionInput) *TranscodeForStartExecutionInput {
+	s.Video = v
+	return s
+}
+
 type TranscodeVideoForStartExecutionInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -2478,6 +4572,93 @@ func (s *TranscodeVideoForStartExecutionInput) SetTemplateId(v string) *Transcod
 // SetWatermarkTemplateId sets the WatermarkTemplateId field's value.
 func (s *TranscodeVideoForStartExecutionInput) SetWatermarkTemplateId(v string) *TranscodeVideoForStartExecutionInput {
 	s.WatermarkTemplateId = &v
+	return s
+}
+
+type VideoForStartExecutionInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	BitDepth *int32 `type:"int32" json:",omitempty"`
+
+	BitrateControl *ConvertBitrateControlForStartExecutionInput `type:"structure" json:",omitempty"`
+
+	Codec *string `type:"string" json:",omitempty" enum:"ConvertEnumOfCodecForStartExecutionInput"`
+
+	FpsControl *FpsControlForStartExecutionInput `type:"structure" json:",omitempty"`
+
+	HDRMode *int32 `type:"int32" json:",omitempty"`
+
+	ScaleControl *ScaleControlForStartExecutionInput `type:"structure" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s VideoForStartExecutionInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s VideoForStartExecutionInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *VideoForStartExecutionInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "VideoForStartExecutionInput"}
+	if s.BitrateControl != nil {
+		if err := s.BitrateControl.Validate(); err != nil {
+			invalidParams.AddNested("BitrateControl", err.(request.ErrInvalidParams))
+		}
+	}
+	if s.FpsControl != nil {
+		if err := s.FpsControl.Validate(); err != nil {
+			invalidParams.AddNested("FpsControl", err.(request.ErrInvalidParams))
+		}
+	}
+	if s.ScaleControl != nil {
+		if err := s.ScaleControl.Validate(); err != nil {
+			invalidParams.AddNested("ScaleControl", err.(request.ErrInvalidParams))
+		}
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetBitDepth sets the BitDepth field's value.
+func (s *VideoForStartExecutionInput) SetBitDepth(v int32) *VideoForStartExecutionInput {
+	s.BitDepth = &v
+	return s
+}
+
+// SetBitrateControl sets the BitrateControl field's value.
+func (s *VideoForStartExecutionInput) SetBitrateControl(v *ConvertBitrateControlForStartExecutionInput) *VideoForStartExecutionInput {
+	s.BitrateControl = v
+	return s
+}
+
+// SetCodec sets the Codec field's value.
+func (s *VideoForStartExecutionInput) SetCodec(v string) *VideoForStartExecutionInput {
+	s.Codec = &v
+	return s
+}
+
+// SetFpsControl sets the FpsControl field's value.
+func (s *VideoForStartExecutionInput) SetFpsControl(v *FpsControlForStartExecutionInput) *VideoForStartExecutionInput {
+	s.FpsControl = v
+	return s
+}
+
+// SetHDRMode sets the HDRMode field's value.
+func (s *VideoForStartExecutionInput) SetHDRMode(v int32) *VideoForStartExecutionInput {
+	s.HDRMode = &v
+	return s
+}
+
+// SetScaleControl sets the ScaleControl field's value.
+func (s *VideoForStartExecutionInput) SetScaleControl(v *ScaleControlForStartExecutionInput) *VideoForStartExecutionInput {
+	s.ScaleControl = v
 	return s
 }
 
@@ -2710,7 +4891,7 @@ type VideoUnderstandingForStartExecutionInput struct {
 
 	Prompt *string `type:"string" json:",omitempty"`
 
-	Segment *ConvertSegmentForStartExecutionInput `type:"structure" json:",omitempty"`
+	Segment *ConvertConvertSegmentForStartExecutionInput `type:"structure" json:",omitempty"`
 
 	WithSegment *bool `type:"boolean" json:",omitempty"`
 }
@@ -2738,7 +4919,7 @@ func (s *VideoUnderstandingForStartExecutionInput) SetPrompt(v string) *VideoUnd
 }
 
 // SetSegment sets the Segment field's value.
-func (s *VideoUnderstandingForStartExecutionInput) SetSegment(v *ConvertSegmentForStartExecutionInput) *VideoUnderstandingForStartExecutionInput {
+func (s *VideoUnderstandingForStartExecutionInput) SetSegment(v *ConvertConvertSegmentForStartExecutionInput) *VideoUnderstandingForStartExecutionInput {
 	s.Segment = v
 	return s
 }
@@ -2760,7 +4941,7 @@ type VisionForStartExecutionInput struct {
 
 	ResponseFormatType *string `type:"string" json:",omitempty"`
 
-	Segment *ConvertConvertSegmentForStartExecutionInput `type:"structure" json:",omitempty"`
+	Segment *ConvertConvertConvertSegmentForStartExecutionInput `type:"structure" json:",omitempty"`
 
 	SnapshotParam *SnapshotParamForStartExecutionInput `type:"structure" json:",omitempty"`
 }
@@ -2800,7 +4981,7 @@ func (s *VisionForStartExecutionInput) SetResponseFormatType(v string) *VisionFo
 }
 
 // SetSegment sets the Segment field's value.
-func (s *VisionForStartExecutionInput) SetSegment(v *ConvertConvertSegmentForStartExecutionInput) *VisionForStartExecutionInput {
+func (s *VisionForStartExecutionInput) SetSegment(v *ConvertConvertConvertSegmentForStartExecutionInput) *VisionForStartExecutionInput {
 	s.Segment = v
 	return s
 }
@@ -2808,6 +4989,77 @@ func (s *VisionForStartExecutionInput) SetSegment(v *ConvertConvertSegmentForSta
 // SetSnapshotParam sets the SnapshotParam field's value.
 func (s *VisionForStartExecutionInput) SetSnapshotParam(v *SnapshotParamForStartExecutionInput) *VisionForStartExecutionInput {
 	s.SnapshotParam = v
+	return s
+}
+
+type VolumeForStartExecutionInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	IntegratedLoudness *float64 `type:"float" json:",omitempty"`
+
+	LoudnessRange *float64 `min:"1" max:"20" type:"float" json:",omitempty"`
+
+	Method *string `type:"string" json:",omitempty" enum:"EnumOfMethodForStartExecutionInput"`
+
+	TruePeak *float64 `type:"float" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s VolumeForStartExecutionInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s VolumeForStartExecutionInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *VolumeForStartExecutionInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "VolumeForStartExecutionInput"}
+	if s.IntegratedLoudness != nil && *s.IntegratedLoudness < -70 {
+		invalidParams.Add(request.NewErrParamMinValue("IntegratedLoudness", -70))
+	}
+	if s.IntegratedLoudness != nil && *s.IntegratedLoudness > -5 {
+		invalidParams.Add(request.NewErrParamMaxValue("IntegratedLoudness", -5))
+	}
+	if s.LoudnessRange != nil && *s.LoudnessRange < 1 {
+		invalidParams.Add(request.NewErrParamMinValue("LoudnessRange", 1))
+	}
+	if s.LoudnessRange != nil && *s.LoudnessRange > 20 {
+		invalidParams.Add(request.NewErrParamMaxValue("LoudnessRange", 20))
+	}
+	if s.TruePeak != nil && *s.TruePeak < -9 {
+		invalidParams.Add(request.NewErrParamMinValue("TruePeak", -9))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetIntegratedLoudness sets the IntegratedLoudness field's value.
+func (s *VolumeForStartExecutionInput) SetIntegratedLoudness(v float64) *VolumeForStartExecutionInput {
+	s.IntegratedLoudness = &v
+	return s
+}
+
+// SetLoudnessRange sets the LoudnessRange field's value.
+func (s *VolumeForStartExecutionInput) SetLoudnessRange(v float64) *VolumeForStartExecutionInput {
+	s.LoudnessRange = &v
+	return s
+}
+
+// SetMethod sets the Method field's value.
+func (s *VolumeForStartExecutionInput) SetMethod(v string) *VolumeForStartExecutionInput {
+	s.Method = &v
+	return s
+}
+
+// SetTruePeak sets the TruePeak field's value.
+func (s *VolumeForStartExecutionInput) SetTruePeak(v float64) *VolumeForStartExecutionInput {
+	s.TruePeak = &v
 	return s
 }
 
@@ -2827,8 +5079,293 @@ func (s WorkflowForStartExecutionInput) GoString() string {
 	return s.String()
 }
 
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *WorkflowForStartExecutionInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "WorkflowForStartExecutionInput"}
+	if s.Nodes != nil {
+		for i, v := range s.Nodes {
+			if v == nil {
+				continue
+			}
+			if err := v.Validate(); err != nil {
+				invalidParams.AddNested(fmt.Sprintf("%s[%v]", "Nodes", i), err.(request.ErrInvalidParams))
+			}
+		}
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
 // SetNodes sets the Nodes field's value.
 func (s *WorkflowForStartExecutionInput) SetNodes(v []*NodeForStartExecutionInput) *WorkflowForStartExecutionInput {
 	s.Nodes = v
 	return s
 }
+
+const (
+	// ConvertConvertConvertConvertConvertEnumOfTypeForStartExecutionInputLowCost is a ConvertConvertConvertConvertConvertEnumOfTypeForStartExecutionInput enum value
+	ConvertConvertConvertConvertConvertEnumOfTypeForStartExecutionInputLowCost = "LowCost"
+
+	// ConvertConvertConvertConvertConvertEnumOfTypeForStartExecutionInputNormal is a ConvertConvertConvertConvertConvertEnumOfTypeForStartExecutionInput enum value
+	ConvertConvertConvertConvertConvertEnumOfTypeForStartExecutionInputNormal = "Normal"
+
+	// ConvertConvertConvertConvertConvertEnumOfTypeForStartExecutionInputByteHd is a ConvertConvertConvertConvertConvertEnumOfTypeForStartExecutionInput enum value
+	ConvertConvertConvertConvertConvertEnumOfTypeForStartExecutionInputByteHd = "ByteHD"
+
+	// ConvertConvertConvertConvertConvertEnumOfTypeForStartExecutionInputEnhance is a ConvertConvertConvertConvertConvertEnumOfTypeForStartExecutionInput enum value
+	ConvertConvertConvertConvertConvertEnumOfTypeForStartExecutionInputEnhance = "Enhance"
+)
+
+const (
+	// ConvertConvertConvertConvertEnumOfTypeForStartExecutionInputImage is a ConvertConvertConvertConvertEnumOfTypeForStartExecutionInput enum value
+	ConvertConvertConvertConvertEnumOfTypeForStartExecutionInputImage = "Image"
+
+	// ConvertConvertConvertConvertEnumOfTypeForStartExecutionInputVideo is a ConvertConvertConvertConvertEnumOfTypeForStartExecutionInput enum value
+	ConvertConvertConvertConvertEnumOfTypeForStartExecutionInputVideo = "Video"
+
+	// ConvertConvertConvertConvertEnumOfTypeForStartExecutionInputText is a ConvertConvertConvertConvertEnumOfTypeForStartExecutionInput enum value
+	ConvertConvertConvertConvertEnumOfTypeForStartExecutionInputText = "Text"
+)
+
+const (
+	// ConvertConvertConvertEnumOfTypeForStartExecutionInputVideo is a ConvertConvertConvertEnumOfTypeForStartExecutionInput enum value
+	ConvertConvertConvertEnumOfTypeForStartExecutionInputVideo = "Video"
+)
+
+const (
+	// ConvertConvertEnumOfCodecForStartExecutionInputAac is a ConvertConvertEnumOfCodecForStartExecutionInput enum value
+	ConvertConvertEnumOfCodecForStartExecutionInputAac = "aac"
+
+	// ConvertConvertEnumOfCodecForStartExecutionInputMp3 is a ConvertConvertEnumOfCodecForStartExecutionInput enum value
+	ConvertConvertEnumOfCodecForStartExecutionInputMp3 = "mp3"
+
+	// ConvertConvertEnumOfCodecForStartExecutionInputOpus is a ConvertConvertEnumOfCodecForStartExecutionInput enum value
+	ConvertConvertEnumOfCodecForStartExecutionInputOpus = "opus"
+)
+
+const (
+	// ConvertConvertEnumOfModeForStartExecutionInputVfr is a ConvertConvertEnumOfModeForStartExecutionInput enum value
+	ConvertConvertEnumOfModeForStartExecutionInputVfr = "vfr"
+
+	// ConvertConvertEnumOfModeForStartExecutionInputCfr is a ConvertConvertEnumOfModeForStartExecutionInput enum value
+	ConvertConvertEnumOfModeForStartExecutionInputCfr = "cfr"
+)
+
+const (
+	// ConvertConvertEnumOfTypeForStartExecutionInputMoe is a ConvertConvertEnumOfTypeForStartExecutionInput enum value
+	ConvertConvertEnumOfTypeForStartExecutionInputMoe = "Moe"
+)
+
+const (
+	// ConvertEnumOfCodecForStartExecutionInputH264 is a ConvertEnumOfCodecForStartExecutionInput enum value
+	ConvertEnumOfCodecForStartExecutionInputH264 = "h264"
+
+	// ConvertEnumOfCodecForStartExecutionInputH265 is a ConvertEnumOfCodecForStartExecutionInput enum value
+	ConvertEnumOfCodecForStartExecutionInputH265 = "h265"
+
+	// ConvertEnumOfCodecForStartExecutionInputH266 is a ConvertEnumOfCodecForStartExecutionInput enum value
+	ConvertEnumOfCodecForStartExecutionInputH266 = "h266"
+)
+
+const (
+	// ConvertEnumOfContainerForStartExecutionInputMp4 is a ConvertEnumOfContainerForStartExecutionInput enum value
+	ConvertEnumOfContainerForStartExecutionInputMp4 = "MP4"
+
+	// ConvertEnumOfContainerForStartExecutionInputHls is a ConvertEnumOfContainerForStartExecutionInput enum value
+	ConvertEnumOfContainerForStartExecutionInputHls = "HLS"
+
+	// ConvertEnumOfContainerForStartExecutionInputDash is a ConvertEnumOfContainerForStartExecutionInput enum value
+	ConvertEnumOfContainerForStartExecutionInputDash = "DASH"
+
+	// ConvertEnumOfContainerForStartExecutionInputFlv is a ConvertEnumOfContainerForStartExecutionInput enum value
+	ConvertEnumOfContainerForStartExecutionInputFlv = "FLV"
+
+	// ConvertEnumOfContainerForStartExecutionInputMpegts is a ConvertEnumOfContainerForStartExecutionInput enum value
+	ConvertEnumOfContainerForStartExecutionInputMpegts = "MPEGTS"
+
+	// ConvertEnumOfContainerForStartExecutionInputMp3 is a ConvertEnumOfContainerForStartExecutionInput enum value
+	ConvertEnumOfContainerForStartExecutionInputMp3 = "MP3"
+
+	// ConvertEnumOfContainerForStartExecutionInputM4a is a ConvertEnumOfContainerForStartExecutionInput enum value
+	ConvertEnumOfContainerForStartExecutionInputM4a = "M4A"
+
+	// ConvertEnumOfContainerForStartExecutionInputOgg is a ConvertEnumOfContainerForStartExecutionInput enum value
+	ConvertEnumOfContainerForStartExecutionInputOgg = "OGG"
+)
+
+const (
+	// ConvertEnumOfModeForStartExecutionInputCrf is a ConvertEnumOfModeForStartExecutionInput enum value
+	ConvertEnumOfModeForStartExecutionInputCrf = "crf"
+
+	// ConvertEnumOfModeForStartExecutionInputAbr is a ConvertEnumOfModeForStartExecutionInput enum value
+	ConvertEnumOfModeForStartExecutionInputAbr = "abr"
+
+	// ConvertEnumOfModeForStartExecutionInputCbr is a ConvertEnumOfModeForStartExecutionInput enum value
+	ConvertEnumOfModeForStartExecutionInputCbr = "cbr"
+)
+
+const (
+	// ConvertEnumOfTypeForStartExecutionInputNormal is a ConvertEnumOfTypeForStartExecutionInput enum value
+	ConvertEnumOfTypeForStartExecutionInputNormal = "Normal"
+
+	// ConvertEnumOfTypeForStartExecutionInputByteHd is a ConvertEnumOfTypeForStartExecutionInput enum value
+	ConvertEnumOfTypeForStartExecutionInputByteHd = "ByteHD"
+)
+
+const (
+	// EnumOfCodecForStartExecutionInputAac is a EnumOfCodecForStartExecutionInput enum value
+	EnumOfCodecForStartExecutionInputAac = "aac"
+)
+
+const (
+	// EnumOfConfigForStartExecutionInputCommon is a EnumOfConfigForStartExecutionInput enum value
+	EnumOfConfigForStartExecutionInputCommon = "common"
+
+	// EnumOfConfigForStartExecutionInputUgc is a EnumOfConfigForStartExecutionInput enum value
+	EnumOfConfigForStartExecutionInputUgc = "ugc"
+
+	// EnumOfConfigForStartExecutionInputAigc is a EnumOfConfigForStartExecutionInput enum value
+	EnumOfConfigForStartExecutionInputAigc = "aigc"
+
+	// EnumOfConfigForStartExecutionInputShortSeries is a EnumOfConfigForStartExecutionInput enum value
+	EnumOfConfigForStartExecutionInputShortSeries = "short_series"
+
+	// EnumOfConfigForStartExecutionInputOldFilm is a EnumOfConfigForStartExecutionInput enum value
+	EnumOfConfigForStartExecutionInputOldFilm = "old_film"
+)
+
+const (
+	// EnumOfContainerForStartExecutionInputHls is a EnumOfContainerForStartExecutionInput enum value
+	EnumOfContainerForStartExecutionInputHls = "HLS"
+
+	// EnumOfContainerForStartExecutionInputDash is a EnumOfContainerForStartExecutionInput enum value
+	EnumOfContainerForStartExecutionInputDash = "DASH"
+)
+
+const (
+	// EnumOfFontTypeForStartExecutionInputPingFangScsemiBold is a EnumOfFontTypeForStartExecutionInput enum value
+	EnumOfFontTypeForStartExecutionInputPingFangScsemiBold = "PingFangSCSemiBold"
+
+	// EnumOfFontTypeForStartExecutionInputPingFangScmedium is a EnumOfFontTypeForStartExecutionInput enum value
+	EnumOfFontTypeForStartExecutionInputPingFangScmedium = "PingFangSCMedium"
+
+	// EnumOfFontTypeForStartExecutionInputPingFangScregular is a EnumOfFontTypeForStartExecutionInput enum value
+	EnumOfFontTypeForStartExecutionInputPingFangScregular = "PingFangSCRegular"
+
+	// EnumOfFontTypeForStartExecutionInputMsyhBold is a EnumOfFontTypeForStartExecutionInput enum value
+	EnumOfFontTypeForStartExecutionInputMsyhBold = "MsyhBold"
+
+	// EnumOfFontTypeForStartExecutionInputMsyh is a EnumOfFontTypeForStartExecutionInput enum value
+	EnumOfFontTypeForStartExecutionInputMsyh = "Msyh"
+
+	// EnumOfFontTypeForStartExecutionInputProximaSemiBold is a EnumOfFontTypeForStartExecutionInput enum value
+	EnumOfFontTypeForStartExecutionInputProximaSemiBold = "ProximaSemiBold"
+
+	// EnumOfFontTypeForStartExecutionInputNotoArabic is a EnumOfFontTypeForStartExecutionInput enum value
+	EnumOfFontTypeForStartExecutionInputNotoArabic = "NotoArabic"
+
+	// EnumOfFontTypeForStartExecutionInputNotoThai is a EnumOfFontTypeForStartExecutionInput enum value
+	EnumOfFontTypeForStartExecutionInputNotoThai = "NotoThai"
+
+	// EnumOfFontTypeForStartExecutionInputNotoCjk is a EnumOfFontTypeForStartExecutionInput enum value
+	EnumOfFontTypeForStartExecutionInputNotoCjk = "NotoCJK"
+
+	// EnumOfFontTypeForStartExecutionInputNotoYi is a EnumOfFontTypeForStartExecutionInput enum value
+	EnumOfFontTypeForStartExecutionInputNotoYi = "NotoYi"
+
+	// EnumOfFontTypeForStartExecutionInputArialunicodems is a EnumOfFontTypeForStartExecutionInput enum value
+	EnumOfFontTypeForStartExecutionInputArialunicodems = "Arialunicodems"
+)
+
+const (
+	// EnumOfKeepAudioStreamsForStartExecutionInputNull is a EnumOfKeepAudioStreamsForStartExecutionInput enum value
+	EnumOfKeepAudioStreamsForStartExecutionInputNull = "null"
+
+	// EnumOfKeepAudioStreamsForStartExecutionInputAll is a EnumOfKeepAudioStreamsForStartExecutionInput enum value
+	EnumOfKeepAudioStreamsForStartExecutionInputAll = "all"
+)
+
+const (
+	// EnumOfKeepDataStreamsForStartExecutionInputAll is a EnumOfKeepDataStreamsForStartExecutionInput enum value
+	EnumOfKeepDataStreamsForStartExecutionInputAll = "all"
+)
+
+const (
+	// EnumOfKeepVideoStreamsForStartExecutionInputNull is a EnumOfKeepVideoStreamsForStartExecutionInput enum value
+	EnumOfKeepVideoStreamsForStartExecutionInputNull = "null"
+
+	// EnumOfKeepVideoStreamsForStartExecutionInputAll is a EnumOfKeepVideoStreamsForStartExecutionInput enum value
+	EnumOfKeepVideoStreamsForStartExecutionInputAll = "all"
+)
+
+const (
+	// EnumOfLocateForStartExecutionInputTopLeft is a EnumOfLocateForStartExecutionInput enum value
+	EnumOfLocateForStartExecutionInputTopLeft = "TopLeft"
+
+	// EnumOfLocateForStartExecutionInputTop is a EnumOfLocateForStartExecutionInput enum value
+	EnumOfLocateForStartExecutionInputTop = "Top"
+
+	// EnumOfLocateForStartExecutionInputTopRight is a EnumOfLocateForStartExecutionInput enum value
+	EnumOfLocateForStartExecutionInputTopRight = "TopRight"
+
+	// EnumOfLocateForStartExecutionInputLeft is a EnumOfLocateForStartExecutionInput enum value
+	EnumOfLocateForStartExecutionInputLeft = "Left"
+
+	// EnumOfLocateForStartExecutionInputCenter is a EnumOfLocateForStartExecutionInput enum value
+	EnumOfLocateForStartExecutionInputCenter = "Center"
+
+	// EnumOfLocateForStartExecutionInputRight is a EnumOfLocateForStartExecutionInput enum value
+	EnumOfLocateForStartExecutionInputRight = "Right"
+
+	// EnumOfLocateForStartExecutionInputBottomLeft is a EnumOfLocateForStartExecutionInput enum value
+	EnumOfLocateForStartExecutionInputBottomLeft = "BottomLeft"
+
+	// EnumOfLocateForStartExecutionInputBottom is a EnumOfLocateForStartExecutionInput enum value
+	EnumOfLocateForStartExecutionInputBottom = "Bottom"
+
+	// EnumOfLocateForStartExecutionInputBottomRight is a EnumOfLocateForStartExecutionInput enum value
+	EnumOfLocateForStartExecutionInputBottomRight = "BottomRight"
+)
+
+const (
+	// EnumOfMethodForStartExecutionInput2pass is a EnumOfMethodForStartExecutionInput enum value
+	EnumOfMethodForStartExecutionInput2pass = "2Pass"
+)
+
+const (
+	// EnumOfModeForStartExecutionInputCae is a EnumOfModeForStartExecutionInput enum value
+	EnumOfModeForStartExecutionInputCae = "cae"
+
+	// EnumOfModeForStartExecutionInputCbr is a EnumOfModeForStartExecutionInput enum value
+	EnumOfModeForStartExecutionInputCbr = "cbr"
+)
+
+const (
+	// EnumOfPositionForStartExecutionInputHead is a EnumOfPositionForStartExecutionInput enum value
+	EnumOfPositionForStartExecutionInputHead = "Head"
+
+	// EnumOfPositionForStartExecutionInputTail is a EnumOfPositionForStartExecutionInput enum value
+	EnumOfPositionForStartExecutionInputTail = "Tail"
+)
+
+const (
+	// EnumOfProfileForStartExecutionInputAacLc is a EnumOfProfileForStartExecutionInput enum value
+	EnumOfProfileForStartExecutionInputAacLc = "AAC-LC"
+
+	// EnumOfProfileForStartExecutionInputHeAac is a EnumOfProfileForStartExecutionInput enum value
+	EnumOfProfileForStartExecutionInputHeAac = "HE-AAC"
+
+	// EnumOfProfileForStartExecutionInputHeAacv2 is a EnumOfProfileForStartExecutionInput enum value
+	EnumOfProfileForStartExecutionInputHeAacv2 = "HE-AACv2"
+)
+
+const (
+	// EnumOfTypeForStartExecutionInputStandard is a EnumOfTypeForStartExecutionInput enum value
+	EnumOfTypeForStartExecutionInputStandard = "Standard"
+
+	// EnumOfTypeForStartExecutionInputPrivate is a EnumOfTypeForStartExecutionInput enum value
+	EnumOfTypeForStartExecutionInputPrivate = "Private"
+)
