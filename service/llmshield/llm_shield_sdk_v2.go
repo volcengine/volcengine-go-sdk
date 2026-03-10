@@ -211,7 +211,7 @@ func (c *Client) ModerateStreamOld(request *ModerateV2Request, session *Moderate
 	return response, nil
 }
 
-func StreamSessionInit(streamId int64, chanSize int, isSync bool) (stream *StreamSession) {
+func StreamSessionInit(streamId int64, chanSize int, isSync bool, role string) (stream *StreamSession) {
 	if chanSize <= 0 {
 		chanSize = RespChanSize
 	}
@@ -223,6 +223,7 @@ func StreamSessionInit(streamId int64, chanSize int, isSync bool) (stream *Strea
 			dataChan: make(chan []byte, chanSize),
 			closed:   false,
 		},
+		Role:        role,
 		RspDataChan: make(chan *ModerateV2Response, chanSize),
 		IsSync:      isSync,
 	}
@@ -254,14 +255,14 @@ func (c *Client) ModerateStream(request *ModerateV2Request, ssn interface{}) (*M
 		session.Started = true
 
 		if request == nil {
-			startErr = fmt.Errorf("ModerateStreamSync request cannot be nil")
+			startErr = fmt.Errorf("ModerateStream request cannot be nil")
 			return
 		}
 
 		// 准备初始请求体并塞入通道
 		requestBody, err := json.Marshal(request)
 		if err != nil {
-			startErr = fmt.Errorf("ModerateStreamSync failed to marshal request: %v", err)
+			startErr = fmt.Errorf("ModerateStream failed to marshal request: %v", err)
 			return
 		}
 		session.ReqDataChan.Send(requestBody)
@@ -270,7 +271,7 @@ func (c *Client) ModerateStream(request *ModerateV2Request, ssn interface{}) (*M
 		targetURL := c.url + "/v2/moderatestream"
 		req, err := http.NewRequest("POST", targetURL, session.ReqDataChan)
 		if err != nil {
-			startErr = fmt.Errorf("ModerateStreamSync failed to create request: %v", err)
+			startErr = fmt.Errorf("ModerateStream failed to create request: %v", err)
 			return
 		}
 
@@ -282,25 +283,26 @@ func (c *Client) ModerateStream(request *ModerateV2Request, ssn interface{}) (*M
 		queries.Set("Version", Version)
 		queries.Set("X-NotSignBody", "stream")
 		queries.Set("isSyncCheck", fmt.Sprintf("%v", session.IsSync))
+		queries.Set("X-Role", session.Role)
 
 		// 将修改后的参数重新赋值给URL
 		req.URL.RawQuery = queries.Encode()
 
 		// 签名 (流式请求不进行 body 鉴权，传 nil 以触发 UNSIGNED-PAYLOAD)
 		if err := c.DoRequestSign(req, nil); err != nil {
-			startErr = fmt.Errorf("ModerateStreamSync failed to sign request: %v", err)
+			startErr = fmt.Errorf("ModerateStream failed to sign request: %v", err)
 			return
 		}
 
 		// 将发送请求的操作放在独立协程中，确保不阻塞主流程
 		go func() {
 			if c.httpClient == nil {
-				startErr = fmt.Errorf("ModerateStreamSync httpClient is nil")
+				startErr = fmt.Errorf("ModerateStream httpClient is nil")
 				return
 			}
 			resp, err := c.httpClient.Do(req)
 			if err != nil {
-				startErr = fmt.Errorf("ModerateStreamSync httpClient.Do: %v\n", err)
+				startErr = fmt.Errorf("ModerateStream httpClient.Do: %v\n", err)
 				session.RspDataChan <- &ModerateV2Response{
 					ResponseMetadata: ResponseMetadata{
 						Error: &Error{
@@ -317,7 +319,7 @@ func (c *Client) ModerateStream(request *ModerateV2Request, ssn interface{}) (*M
 
 			if resp.StatusCode != http.StatusOK {
 				body, _ := io.ReadAll(resp.Body)
-				startErr = fmt.Errorf("ModerateStreamSync Server RespCode:%d,error:%v\n", resp.StatusCode, string(body))
+				startErr = fmt.Errorf("ModerateStream Server RespCode:%d,error:%v\n", resp.StatusCode, string(body))
 				return
 			}
 
@@ -327,10 +329,10 @@ func (c *Client) ModerateStream(request *ModerateV2Request, ssn interface{}) (*M
 				response := &ModerateV2Response{}
 				if err := decoder.Decode(response); err != nil {
 					if err == io.EOF {
-						fmt.Printf("ModerateStreamSync response stream parsing finished (EOF)\n")
+						fmt.Printf("ModerateStream response stream parsing finished (EOF)\n")
 						break
 					}
-					fmt.Printf("ModerateStreamSync JSON parsing exception: %v\n", err)
+					fmt.Printf("ModerateStream JSON parsing exception: %v\n", err)
 					break
 				}
 

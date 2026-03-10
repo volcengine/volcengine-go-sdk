@@ -249,6 +249,7 @@ type StreamSession struct {
 	RspDataChan chan *ModerateV2Response
 	IsSync      bool
 	Started     bool
+	Role        string //方向：user或assistant
 	once        sync.Once
 	Connected   chan bool // 信号：连接已建立
 }
