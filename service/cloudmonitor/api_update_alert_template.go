@@ -148,6 +148,8 @@ type ConditionForUpdateAlertTemplateInput struct {
 
 	ComparisonOperator *string `type:"string" json:",omitempty"`
 
+	EvaluationWindow *int32 `type:"int32" json:",omitempty"`
+
 	MetricName *string `type:"string" json:",omitempty"`
 
 	MetricUnit *string `type:"string" json:",omitempty"`
@@ -170,6 +172,12 @@ func (s ConditionForUpdateAlertTemplateInput) GoString() string {
 // SetComparisonOperator sets the ComparisonOperator field's value.
 func (s *ConditionForUpdateAlertTemplateInput) SetComparisonOperator(v string) *ConditionForUpdateAlertTemplateInput {
 	s.ComparisonOperator = &v
+	return s
+}
+
+// SetEvaluationWindow sets the EvaluationWindow field's value.
+func (s *ConditionForUpdateAlertTemplateInput) SetEvaluationWindow(v int32) *ConditionForUpdateAlertTemplateInput {
+	s.EvaluationWindow = &v
 	return s
 }
 
@@ -294,6 +302,8 @@ type TemplateRuleForUpdateAlertTemplateInput struct {
 
 	EvaluationCount *int32 `type:"int32" json:",omitempty"`
 
+	EvaluationInterval *int32 `type:"int32" json:",omitempty"`
+
 	LevelConditions []*LevelConditionForUpdateAlertTemplateInput `type:"list" json:",omitempty"`
 
 	MultipleConditions *bool `type:"boolean" json:",omitempty"`
@@ -324,6 +334,12 @@ func (s *TemplateRuleForUpdateAlertTemplateInput) SetConditionOperator(v string)
 // SetEvaluationCount sets the EvaluationCount field's value.
 func (s *TemplateRuleForUpdateAlertTemplateInput) SetEvaluationCount(v int32) *TemplateRuleForUpdateAlertTemplateInput {
 	s.EvaluationCount = &v
+	return s
+}
+
+// SetEvaluationInterval sets the EvaluationInterval field's value.
+func (s *TemplateRuleForUpdateAlertTemplateInput) SetEvaluationInterval(v int32) *TemplateRuleForUpdateAlertTemplateInput {
+	s.EvaluationInterval = &v
 	return s
 }
 

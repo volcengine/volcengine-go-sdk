@@ -146,7 +146,7 @@ func (c *CLOUDMONITOR) ListEventsWithContext(ctx volcengine.Context, input *List
 type DataForListEventsOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	Detail map[string]*interface{} `type:"map" json:",omitempty"`
+	Detail map[string]interface{} `type:"map" json:",omitempty"`
 
 	EventBusName *string `type:"string" json:",omitempty"`
 
@@ -172,7 +172,7 @@ func (s DataForListEventsOutput) GoString() string {
 }
 
 // SetDetail sets the Detail field's value.
-func (s *DataForListEventsOutput) SetDetail(v map[string]*interface{}) *DataForListEventsOutput {
+func (s *DataForListEventsOutput) SetDetail(v map[string]interface{}) *DataForListEventsOutput {
 	s.Detail = v
 	return s
 }
