@@ -153,6 +153,8 @@ type CreateDataFlowTaskInput struct {
 	// DataType is a required field
 	DataType *string `type:"string" json:",omitempty" required:"true" enum:"EnumOfDataTypeForCreateDataFlowTaskInput"`
 
+	DeletePolicy *DeletePolicyForCreateDataFlowTaskInput `type:"structure" json:",omitempty"`
+
 	EntryListFileInfo *EntryListFileInfoForCreateDataFlowTaskInput `type:"structure" json:",omitempty"`
 
 	ExportSymlinkPolicy *string `type:"string" json:",omitempty" enum:"EnumOfExportSymlinkPolicyForCreateDataFlowTaskInput"`
@@ -214,6 +216,12 @@ func (s *CreateDataFlowTaskInput) SetDataStoragePath(v string) *CreateDataFlowTa
 // SetDataType sets the DataType field's value.
 func (s *CreateDataFlowTaskInput) SetDataType(v string) *CreateDataFlowTaskInput {
 	s.DataType = &v
+	return s
+}
+
+// SetDeletePolicy sets the DeletePolicy field's value.
+func (s *CreateDataFlowTaskInput) SetDeletePolicy(v *DeletePolicyForCreateDataFlowTaskInput) *CreateDataFlowTaskInput {
+	s.DeletePolicy = v
 	return s
 }
 
@@ -283,6 +291,36 @@ func (s *CreateDataFlowTaskOutput) SetDataFlowTaskId(v string) *CreateDataFlowTa
 	return s
 }
 
+type DeletePolicyForCreateDataFlowTaskInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	DeleteTimeBefore *string `type:"string" json:",omitempty"`
+
+	Rule *string `type:"string" json:",omitempty" enum:"EnumOfRuleForCreateDataFlowTaskInput"`
+}
+
+// String returns the string representation
+func (s DeletePolicyForCreateDataFlowTaskInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DeletePolicyForCreateDataFlowTaskInput) GoString() string {
+	return s.String()
+}
+
+// SetDeleteTimeBefore sets the DeleteTimeBefore field's value.
+func (s *DeletePolicyForCreateDataFlowTaskInput) SetDeleteTimeBefore(v string) *DeletePolicyForCreateDataFlowTaskInput {
+	s.DeleteTimeBefore = &v
+	return s
+}
+
+// SetRule sets the Rule field's value.
+func (s *DeletePolicyForCreateDataFlowTaskInput) SetRule(v string) *DeletePolicyForCreateDataFlowTaskInput {
+	s.Rule = &v
+	return s
+}
+
 type EntryListFileInfoForCreateDataFlowTaskInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -338,6 +376,17 @@ const (
 )
 
 const (
+	// EnumOfRuleForCreateDataFlowTaskInputDeleteTypeOnlyFs is a EnumOfRuleForCreateDataFlowTaskInput enum value
+	EnumOfRuleForCreateDataFlowTaskInputDeleteTypeOnlyFs = "DELETE_TYPE_ONLY_FS"
+
+	// EnumOfRuleForCreateDataFlowTaskInputDeleteTypeFsWithLatestObject is a EnumOfRuleForCreateDataFlowTaskInput enum value
+	EnumOfRuleForCreateDataFlowTaskInputDeleteTypeFsWithLatestObject = "DELETE_TYPE_FS_WITH_LATEST_OBJECT"
+
+	// EnumOfRuleForCreateDataFlowTaskInputDeleteTypeFsWithAllversionObject is a EnumOfRuleForCreateDataFlowTaskInput enum value
+	EnumOfRuleForCreateDataFlowTaskInputDeleteTypeFsWithAllversionObject = "DELETE_TYPE_FS_WITH_ALLVERSION_OBJECT"
+)
+
+const (
 	// EnumOfSameNameFilePolicyForCreateDataFlowTaskInputSkip is a EnumOfSameNameFilePolicyForCreateDataFlowTaskInput enum value
 	EnumOfSameNameFilePolicyForCreateDataFlowTaskInputSkip = "Skip"
 
@@ -357,4 +406,7 @@ const (
 
 	// EnumOfTaskActionForCreateDataFlowTaskInputInventory is a EnumOfTaskActionForCreateDataFlowTaskInput enum value
 	EnumOfTaskActionForCreateDataFlowTaskInputInventory = "Inventory"
+
+	// EnumOfTaskActionForCreateDataFlowTaskInputDelete is a EnumOfTaskActionForCreateDataFlowTaskInput enum value
+	EnumOfTaskActionForCreateDataFlowTaskInputDelete = "Delete"
 )
