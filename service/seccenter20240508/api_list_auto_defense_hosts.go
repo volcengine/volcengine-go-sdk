@@ -148,9 +148,13 @@ type DataForListAutoDefenseHostsOutput struct {
 
 	AbnormalPluginsList *string `type:"string" json:",omitempty"`
 
+	AccountID *string `type:"string" json:",omitempty"`
+
 	AgentID *string `type:"string" json:",omitempty"`
 
 	AgentStatus *string `type:"string" json:",omitempty"`
+
+	ClientPublicIP *string `type:"string" json:",omitempty"`
 
 	CloudProvider *string `type:"string" json:",omitempty"`
 
@@ -168,15 +172,21 @@ type DataForListAutoDefenseHostsOutput struct {
 
 	GroupPath *string `type:"string" json:",omitempty"`
 
+	GroupPathEn *string `type:"string" json:",omitempty"`
+
 	KernelVersion *string `type:"string" json:",omitempty"`
 
 	LastHeartbeatTime *int64 `type:"int64" json:",omitempty"`
 
 	MemUsage *float64 `type:"double" json:",omitempty"`
 
+	OldValidCode *int64 `type:"int64" json:",omitempty"`
+
 	Online *bool `type:"boolean" json:",omitempty"`
 
 	Platform *string `type:"string" json:",omitempty"`
+
+	PlatformVersion *string `type:"string" json:",omitempty"`
 
 	PluginsBriefInfo *string `type:"string" json:",omitempty"`
 
@@ -199,6 +209,8 @@ type DataForListAutoDefenseHostsOutput struct {
 	UserStatus *string `type:"string" json:",omitempty"`
 
 	UserStatusReason *string `type:"string" json:",omitempty"`
+
+	UserStatusReasonCode *int64 `type:"int64" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -217,6 +229,12 @@ func (s *DataForListAutoDefenseHostsOutput) SetAbnormalPluginsList(v string) *Da
 	return s
 }
 
+// SetAccountID sets the AccountID field's value.
+func (s *DataForListAutoDefenseHostsOutput) SetAccountID(v string) *DataForListAutoDefenseHostsOutput {
+	s.AccountID = &v
+	return s
+}
+
 // SetAgentID sets the AgentID field's value.
 func (s *DataForListAutoDefenseHostsOutput) SetAgentID(v string) *DataForListAutoDefenseHostsOutput {
 	s.AgentID = &v
@@ -226,6 +244,12 @@ func (s *DataForListAutoDefenseHostsOutput) SetAgentID(v string) *DataForListAut
 // SetAgentStatus sets the AgentStatus field's value.
 func (s *DataForListAutoDefenseHostsOutput) SetAgentStatus(v string) *DataForListAutoDefenseHostsOutput {
 	s.AgentStatus = &v
+	return s
+}
+
+// SetClientPublicIP sets the ClientPublicIP field's value.
+func (s *DataForListAutoDefenseHostsOutput) SetClientPublicIP(v string) *DataForListAutoDefenseHostsOutput {
+	s.ClientPublicIP = &v
 	return s
 }
 
@@ -277,6 +301,12 @@ func (s *DataForListAutoDefenseHostsOutput) SetGroupPath(v string) *DataForListA
 	return s
 }
 
+// SetGroupPathEn sets the GroupPathEn field's value.
+func (s *DataForListAutoDefenseHostsOutput) SetGroupPathEn(v string) *DataForListAutoDefenseHostsOutput {
+	s.GroupPathEn = &v
+	return s
+}
+
 // SetKernelVersion sets the KernelVersion field's value.
 func (s *DataForListAutoDefenseHostsOutput) SetKernelVersion(v string) *DataForListAutoDefenseHostsOutput {
 	s.KernelVersion = &v
@@ -295,6 +325,12 @@ func (s *DataForListAutoDefenseHostsOutput) SetMemUsage(v float64) *DataForListA
 	return s
 }
 
+// SetOldValidCode sets the OldValidCode field's value.
+func (s *DataForListAutoDefenseHostsOutput) SetOldValidCode(v int64) *DataForListAutoDefenseHostsOutput {
+	s.OldValidCode = &v
+	return s
+}
+
 // SetOnline sets the Online field's value.
 func (s *DataForListAutoDefenseHostsOutput) SetOnline(v bool) *DataForListAutoDefenseHostsOutput {
 	s.Online = &v
@@ -304,6 +340,12 @@ func (s *DataForListAutoDefenseHostsOutput) SetOnline(v bool) *DataForListAutoDe
 // SetPlatform sets the Platform field's value.
 func (s *DataForListAutoDefenseHostsOutput) SetPlatform(v string) *DataForListAutoDefenseHostsOutput {
 	s.Platform = &v
+	return s
+}
+
+// SetPlatformVersion sets the PlatformVersion field's value.
+func (s *DataForListAutoDefenseHostsOutput) SetPlatformVersion(v string) *DataForListAutoDefenseHostsOutput {
+	s.PlatformVersion = &v
 	return s
 }
 
@@ -370,6 +412,12 @@ func (s *DataForListAutoDefenseHostsOutput) SetUserStatus(v string) *DataForList
 // SetUserStatusReason sets the UserStatusReason field's value.
 func (s *DataForListAutoDefenseHostsOutput) SetUserStatusReason(v string) *DataForListAutoDefenseHostsOutput {
 	s.UserStatusReason = &v
+	return s
+}
+
+// SetUserStatusReasonCode sets the UserStatusReasonCode field's value.
+func (s *DataForListAutoDefenseHostsOutput) SetUserStatusReasonCode(v int64) *DataForListAutoDefenseHostsOutput {
+	s.UserStatusReasonCode = &v
 	return s
 }
 
@@ -714,6 +762,8 @@ type RiskForListAutoDefenseHostsOutput struct {
 
 	Baseline *int64 `type:"int64" json:",omitempty"`
 
+	RealRiskVul *int64 `type:"int64" json:",omitempty"`
+
 	Virus *int64 `type:"int64" json:",omitempty"`
 
 	Vuln *int64 `type:"int64" json:",omitempty"`
@@ -738,6 +788,12 @@ func (s *RiskForListAutoDefenseHostsOutput) SetAlarm(v int64) *RiskForListAutoDe
 // SetBaseline sets the Baseline field's value.
 func (s *RiskForListAutoDefenseHostsOutput) SetBaseline(v int64) *RiskForListAutoDefenseHostsOutput {
 	s.Baseline = &v
+	return s
+}
+
+// SetRealRiskVul sets the RealRiskVul field's value.
+func (s *RiskForListAutoDefenseHostsOutput) SetRealRiskVul(v int64) *RiskForListAutoDefenseHostsOutput {
+	s.RealRiskVul = &v
 	return s
 }
 

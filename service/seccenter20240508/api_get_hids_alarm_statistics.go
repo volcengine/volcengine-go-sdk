@@ -212,6 +212,14 @@ type GetHidsAlarmStatisticsOutput struct {
 
 	AlarmWhiteCount *int64 `type:"int64"`
 
+	AutoBanCount *int64 `type:"int64"`
+
+	AutoBanTodayCount *int64 `type:"int64"`
+
+	BanIPCount *int64 `type:"int64"`
+
+	BanIPTodayCount *int64 `type:"int64"`
+
 	IsolateFileCount *int64 `type:"int64"`
 
 	IsolateTodayCount *int64 `type:"int64"`
@@ -272,6 +280,30 @@ func (s *GetHidsAlarmStatisticsOutput) SetAlarmTotal(v int64) *GetHidsAlarmStati
 // SetAlarmWhiteCount sets the AlarmWhiteCount field's value.
 func (s *GetHidsAlarmStatisticsOutput) SetAlarmWhiteCount(v int64) *GetHidsAlarmStatisticsOutput {
 	s.AlarmWhiteCount = &v
+	return s
+}
+
+// SetAutoBanCount sets the AutoBanCount field's value.
+func (s *GetHidsAlarmStatisticsOutput) SetAutoBanCount(v int64) *GetHidsAlarmStatisticsOutput {
+	s.AutoBanCount = &v
+	return s
+}
+
+// SetAutoBanTodayCount sets the AutoBanTodayCount field's value.
+func (s *GetHidsAlarmStatisticsOutput) SetAutoBanTodayCount(v int64) *GetHidsAlarmStatisticsOutput {
+	s.AutoBanTodayCount = &v
+	return s
+}
+
+// SetBanIPCount sets the BanIPCount field's value.
+func (s *GetHidsAlarmStatisticsOutput) SetBanIPCount(v int64) *GetHidsAlarmStatisticsOutput {
+	s.BanIPCount = &v
+	return s
+}
+
+// SetBanIPTodayCount sets the BanIPTodayCount field's value.
+func (s *GetHidsAlarmStatisticsOutput) SetBanIPTodayCount(v int64) *GetHidsAlarmStatisticsOutput {
+	s.BanIPTodayCount = &v
 	return s
 }
 

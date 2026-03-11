@@ -161,6 +161,10 @@ type CreatFileScanTaskInput struct {
 
 	LeafGroupIDs []*string `type:"list" json:",omitempty"`
 
+	ScanPathList []*ScanPathListForCreatFileScanTaskInput `type:"list" json:",omitempty"`
+
+	ScanSkipList []*string `type:"list" json:",omitempty"`
+
 	TaskName *string `type:"string" json:",omitempty"`
 
 	Timeout *string `type:"string" json:",omitempty"`
@@ -233,6 +237,18 @@ func (s *CreatFileScanTaskInput) SetLeafGroupIDs(v []*string) *CreatFileScanTask
 	return s
 }
 
+// SetScanPathList sets the ScanPathList field's value.
+func (s *CreatFileScanTaskInput) SetScanPathList(v []*ScanPathListForCreatFileScanTaskInput) *CreatFileScanTaskInput {
+	s.ScanPathList = v
+	return s
+}
+
+// SetScanSkipList sets the ScanSkipList field's value.
+func (s *CreatFileScanTaskInput) SetScanSkipList(v []*string) *CreatFileScanTaskInput {
+	s.ScanSkipList = v
+	return s
+}
+
 // SetTaskName sets the TaskName field's value.
 func (s *CreatFileScanTaskInput) SetTaskName(v string) *CreatFileScanTaskInput {
 	s.TaskName = &v
@@ -280,5 +296,35 @@ func (s *CreatFileScanTaskOutput) SetCount(v int64) *CreatFileScanTaskOutput {
 // SetTaskID sets the TaskID field's value.
 func (s *CreatFileScanTaskOutput) SetTaskID(v string) *CreatFileScanTaskOutput {
 	s.TaskID = &v
+	return s
+}
+
+type ScanPathListForCreatFileScanTaskInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	FilePath *string `type:"string" json:",omitempty"`
+
+	MaxDepth *int64 `type:"int64" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s ScanPathListForCreatFileScanTaskInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ScanPathListForCreatFileScanTaskInput) GoString() string {
+	return s.String()
+}
+
+// SetFilePath sets the FilePath field's value.
+func (s *ScanPathListForCreatFileScanTaskInput) SetFilePath(v string) *ScanPathListForCreatFileScanTaskInput {
+	s.FilePath = &v
+	return s
+}
+
+// SetMaxDepth sets the MaxDepth field's value.
+func (s *ScanPathListForCreatFileScanTaskInput) SetMaxDepth(v int64) *ScanPathListForCreatFileScanTaskInput {
+	s.MaxDepth = &v
 	return s
 }

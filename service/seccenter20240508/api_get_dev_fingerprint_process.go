@@ -168,7 +168,11 @@ type DataForGetDevFingerprintProcessOutput struct {
 
 	PrivateIP *string `type:"string" json:",omitempty"`
 
+	ProtectStatus *string `type:"string" json:",omitempty"`
+
 	PublicIP *string `type:"string" json:",omitempty"`
+
+	SecurityEnhancement *bool `type:"boolean" json:",omitempty"`
 
 	StartTime *int64 `type:"int64" json:",omitempty"`
 
@@ -259,9 +263,21 @@ func (s *DataForGetDevFingerprintProcessOutput) SetPrivateIP(v string) *DataForG
 	return s
 }
 
+// SetProtectStatus sets the ProtectStatus field's value.
+func (s *DataForGetDevFingerprintProcessOutput) SetProtectStatus(v string) *DataForGetDevFingerprintProcessOutput {
+	s.ProtectStatus = &v
+	return s
+}
+
 // SetPublicIP sets the PublicIP field's value.
 func (s *DataForGetDevFingerprintProcessOutput) SetPublicIP(v string) *DataForGetDevFingerprintProcessOutput {
 	s.PublicIP = &v
+	return s
+}
+
+// SetSecurityEnhancement sets the SecurityEnhancement field's value.
+func (s *DataForGetDevFingerprintProcessOutput) SetSecurityEnhancement(v bool) *DataForGetDevFingerprintProcessOutput {
+	s.SecurityEnhancement = &v
 	return s
 }
 
@@ -330,7 +346,7 @@ type GetDevFingerprintProcessInput struct {
 
 	SortBy *string `type:"string" json:",omitempty"`
 
-	SortOrder *string `type:"string" json:",omitempty" enum:"EnumOfSortOrderForGetDevFingerprintProcessInput"`
+	SortOrder *string `type:"string" json:",omitempty"`
 
 	StartTimeEnd *int64 `type:"int64" json:",omitempty"`
 
@@ -508,11 +524,3 @@ func (s *GetDevFingerprintProcessOutput) SetTotalCount(v int64) *GetDevFingerpri
 	s.TotalCount = &v
 	return s
 }
-
-const (
-	// EnumOfSortOrderForGetDevFingerprintProcessInputAsc is a EnumOfSortOrderForGetDevFingerprintProcessInput enum value
-	EnumOfSortOrderForGetDevFingerprintProcessInputAsc = "Asc"
-
-	// EnumOfSortOrderForGetDevFingerprintProcessInputDesc is a EnumOfSortOrderForGetDevFingerprintProcessInput enum value
-	EnumOfSortOrderForGetDevFingerprintProcessInputDesc = " Desc"
-)

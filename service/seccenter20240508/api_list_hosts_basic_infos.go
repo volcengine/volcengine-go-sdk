@@ -162,6 +162,8 @@ type ConditionsForListHostsBasicInfosInput struct {
 
 	LeafGroupIDs []*string `type:"list" json:",omitempty"`
 
+	Os *string `type:"string" json:",omitempty"`
+
 	Platforms []*string `type:"list" json:",omitempty"`
 
 	ProxyName *string `type:"string" json:",omitempty"`
@@ -245,6 +247,12 @@ func (s *ConditionsForListHostsBasicInfosInput) SetLeafGroupIDs(v []*string) *Co
 	return s
 }
 
+// SetOs sets the Os field's value.
+func (s *ConditionsForListHostsBasicInfosInput) SetOs(v string) *ConditionsForListHostsBasicInfosInput {
+	s.Os = &v
+	return s
+}
+
 // SetPlatforms sets the Platforms field's value.
 func (s *ConditionsForListHostsBasicInfosInput) SetPlatforms(v []*string) *ConditionsForListHostsBasicInfosInput {
 	s.Platforms = v
@@ -322,9 +330,13 @@ type DataForListHostsBasicInfosOutput struct {
 
 	AbnormalPluginsList *string `type:"string" json:",omitempty"`
 
+	AccountID *string `type:"string" json:",omitempty"`
+
 	AgentID *string `type:"string" json:",omitempty"`
 
 	AgentStatus *string `type:"string" json:",omitempty"`
+
+	ClientPublicIP *string `type:"string" json:",omitempty"`
 
 	CloudProvider *string `type:"string" json:",omitempty"`
 
@@ -344,15 +356,21 @@ type DataForListHostsBasicInfosOutput struct {
 
 	GroupPath *string `type:"string" json:",omitempty"`
 
+	GroupPathEn *string `type:"string" json:",omitempty"`
+
 	KernelVersion *string `type:"string" json:",omitempty"`
 
 	LastHeartbeatTime *int64 `type:"int64" json:",omitempty"`
 
 	MemUsage *float64 `type:"double" json:",omitempty"`
 
+	OldValidCode *int64 `type:"int64" json:",omitempty"`
+
 	Online *bool `type:"boolean" json:",omitempty"`
 
 	Platform *string `type:"string" json:",omitempty"`
+
+	PlatformVersion *string `type:"string" json:",omitempty"`
 
 	PluginsBriefInfo *string `type:"string" json:",omitempty"`
 
@@ -373,6 +391,8 @@ type DataForListHostsBasicInfosOutput struct {
 	UserStatus *string `type:"string" json:",omitempty"`
 
 	UserStatusReason *string `type:"string" json:",omitempty"`
+
+	UserStatusReasonCode *int64 `type:"int64" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -391,6 +411,12 @@ func (s *DataForListHostsBasicInfosOutput) SetAbnormalPluginsList(v string) *Dat
 	return s
 }
 
+// SetAccountID sets the AccountID field's value.
+func (s *DataForListHostsBasicInfosOutput) SetAccountID(v string) *DataForListHostsBasicInfosOutput {
+	s.AccountID = &v
+	return s
+}
+
 // SetAgentID sets the AgentID field's value.
 func (s *DataForListHostsBasicInfosOutput) SetAgentID(v string) *DataForListHostsBasicInfosOutput {
 	s.AgentID = &v
@@ -400,6 +426,12 @@ func (s *DataForListHostsBasicInfosOutput) SetAgentID(v string) *DataForListHost
 // SetAgentStatus sets the AgentStatus field's value.
 func (s *DataForListHostsBasicInfosOutput) SetAgentStatus(v string) *DataForListHostsBasicInfosOutput {
 	s.AgentStatus = &v
+	return s
+}
+
+// SetClientPublicIP sets the ClientPublicIP field's value.
+func (s *DataForListHostsBasicInfosOutput) SetClientPublicIP(v string) *DataForListHostsBasicInfosOutput {
+	s.ClientPublicIP = &v
 	return s
 }
 
@@ -457,6 +489,12 @@ func (s *DataForListHostsBasicInfosOutput) SetGroupPath(v string) *DataForListHo
 	return s
 }
 
+// SetGroupPathEn sets the GroupPathEn field's value.
+func (s *DataForListHostsBasicInfosOutput) SetGroupPathEn(v string) *DataForListHostsBasicInfosOutput {
+	s.GroupPathEn = &v
+	return s
+}
+
 // SetKernelVersion sets the KernelVersion field's value.
 func (s *DataForListHostsBasicInfosOutput) SetKernelVersion(v string) *DataForListHostsBasicInfosOutput {
 	s.KernelVersion = &v
@@ -475,6 +513,12 @@ func (s *DataForListHostsBasicInfosOutput) SetMemUsage(v float64) *DataForListHo
 	return s
 }
 
+// SetOldValidCode sets the OldValidCode field's value.
+func (s *DataForListHostsBasicInfosOutput) SetOldValidCode(v int64) *DataForListHostsBasicInfosOutput {
+	s.OldValidCode = &v
+	return s
+}
+
 // SetOnline sets the Online field's value.
 func (s *DataForListHostsBasicInfosOutput) SetOnline(v bool) *DataForListHostsBasicInfosOutput {
 	s.Online = &v
@@ -484,6 +528,12 @@ func (s *DataForListHostsBasicInfosOutput) SetOnline(v bool) *DataForListHostsBa
 // SetPlatform sets the Platform field's value.
 func (s *DataForListHostsBasicInfosOutput) SetPlatform(v string) *DataForListHostsBasicInfosOutput {
 	s.Platform = &v
+	return s
+}
+
+// SetPlatformVersion sets the PlatformVersion field's value.
+func (s *DataForListHostsBasicInfosOutput) SetPlatformVersion(v string) *DataForListHostsBasicInfosOutput {
+	s.PlatformVersion = &v
 	return s
 }
 
@@ -544,6 +594,12 @@ func (s *DataForListHostsBasicInfosOutput) SetUserStatus(v string) *DataForListH
 // SetUserStatusReason sets the UserStatusReason field's value.
 func (s *DataForListHostsBasicInfosOutput) SetUserStatusReason(v string) *DataForListHostsBasicInfosOutput {
 	s.UserStatusReason = &v
+	return s
+}
+
+// SetUserStatusReasonCode sets the UserStatusReasonCode field's value.
+func (s *DataForListHostsBasicInfosOutput) SetUserStatusReasonCode(v int64) *DataForListHostsBasicInfosOutput {
+	s.UserStatusReasonCode = &v
 	return s
 }
 
@@ -872,6 +928,8 @@ type RiskForListHostsBasicInfosInput struct {
 
 	Baseline *bool `type:"boolean" json:",omitempty"`
 
+	IsRealRiskVul *bool `type:"boolean" json:",omitempty"`
+
 	Virus *bool `type:"boolean" json:",omitempty"`
 
 	Vuln *bool `type:"boolean" json:",omitempty"`
@@ -896,6 +954,12 @@ func (s *RiskForListHostsBasicInfosInput) SetAlarm(v bool) *RiskForListHostsBasi
 // SetBaseline sets the Baseline field's value.
 func (s *RiskForListHostsBasicInfosInput) SetBaseline(v bool) *RiskForListHostsBasicInfosInput {
 	s.Baseline = &v
+	return s
+}
+
+// SetIsRealRiskVul sets the IsRealRiskVul field's value.
+func (s *RiskForListHostsBasicInfosInput) SetIsRealRiskVul(v bool) *RiskForListHostsBasicInfosInput {
+	s.IsRealRiskVul = &v
 	return s
 }
 

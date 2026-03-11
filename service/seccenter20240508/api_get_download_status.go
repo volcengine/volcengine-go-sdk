@@ -142,8 +142,7 @@ func (c *SECCENTER20240508) GetDownloadStatusWithContext(ctx volcengine.Context,
 type GetDownloadStatusInput struct {
 	_ struct{} `type:"structure"`
 
-	// FileName is a required field
-	FileName *string `type:"string" required:"true"`
+	FileName *string `type:"string"`
 }
 
 // String returns the string representation
@@ -154,19 +153,6 @@ func (s GetDownloadStatusInput) String() string {
 // GoString returns the string representation
 func (s GetDownloadStatusInput) GoString() string {
 	return s.String()
-}
-
-// Validate inspects the fields of the type to determine if they are valid.
-func (s *GetDownloadStatusInput) Validate() error {
-	invalidParams := request.ErrInvalidParams{Context: "GetDownloadStatusInput"}
-	if s.FileName == nil {
-		invalidParams.Add(request.NewErrParamRequired("FileName"))
-	}
-
-	if invalidParams.Len() > 0 {
-		return invalidParams
-	}
-	return nil
 }
 
 // SetFileName sets the FileName field's value.

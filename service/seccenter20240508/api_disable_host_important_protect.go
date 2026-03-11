@@ -162,6 +162,8 @@ type ConditionsForDisableHostImportantProtectInput struct {
 
 	LeafGroupIDs []*string `type:"list" json:",omitempty"`
 
+	Os *string `type:"string" json:",omitempty"`
+
 	Platforms []*string `type:"list" json:",omitempty"`
 
 	ProxyName *string `type:"string" json:",omitempty"`
@@ -242,6 +244,12 @@ func (s *ConditionsForDisableHostImportantProtectInput) SetIp(v string) *Conditi
 // SetLeafGroupIDs sets the LeafGroupIDs field's value.
 func (s *ConditionsForDisableHostImportantProtectInput) SetLeafGroupIDs(v []*string) *ConditionsForDisableHostImportantProtectInput {
 	s.LeafGroupIDs = v
+	return s
+}
+
+// SetOs sets the Os field's value.
+func (s *ConditionsForDisableHostImportantProtectInput) SetOs(v string) *ConditionsForDisableHostImportantProtectInput {
+	s.Os = &v
 	return s
 }
 
@@ -378,6 +386,8 @@ type RiskForDisableHostImportantProtectInput struct {
 
 	Baseline *bool `type:"boolean" json:",omitempty"`
 
+	IsRealRiskVul *bool `type:"boolean" json:",omitempty"`
+
 	Virus *bool `type:"boolean" json:",omitempty"`
 
 	Vuln *bool `type:"boolean" json:",omitempty"`
@@ -402,6 +412,12 @@ func (s *RiskForDisableHostImportantProtectInput) SetAlarm(v bool) *RiskForDisab
 // SetBaseline sets the Baseline field's value.
 func (s *RiskForDisableHostImportantProtectInput) SetBaseline(v bool) *RiskForDisableHostImportantProtectInput {
 	s.Baseline = &v
+	return s
+}
+
+// SetIsRealRiskVul sets the IsRealRiskVul field's value.
+func (s *RiskForDisableHostImportantProtectInput) SetIsRealRiskVul(v bool) *RiskForDisableHostImportantProtectInput {
+	s.IsRealRiskVul = &v
 	return s
 }
 

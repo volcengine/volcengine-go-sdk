@@ -274,7 +274,7 @@ type ListVulnHostsInput struct {
 
 	AssetName *string `type:"string" json:",omitempty"`
 
-	AssetType *string `type:"string" json:",omitempty" enum:"EnumOfAssetTypeForListVulnHostsInput"`
+	AssetType *string `type:"string" json:",omitempty"`
 
 	CloudProviders []*string `type:"list" json:",omitempty"`
 
@@ -283,6 +283,8 @@ type ListVulnHostsInput struct {
 	HostName *string `type:"string" json:",omitempty"`
 
 	IP *string `type:"string" json:",omitempty"`
+
+	IsRealRiskVul *bool `type:"boolean" json:",omitempty"`
 
 	LeafGroupIDs []*string `type:"list" json:",omitempty"`
 
@@ -387,6 +389,12 @@ func (s *ListVulnHostsInput) SetIP(v string) *ListVulnHostsInput {
 	return s
 }
 
+// SetIsRealRiskVul sets the IsRealRiskVul field's value.
+func (s *ListVulnHostsInput) SetIsRealRiskVul(v bool) *ListVulnHostsInput {
+	s.IsRealRiskVul = &v
+	return s
+}
+
 // SetLeafGroupIDs sets the LeafGroupIDs field's value.
 func (s *ListVulnHostsInput) SetLeafGroupIDs(v []*string) *ListVulnHostsInput {
 	s.LeafGroupIDs = v
@@ -476,11 +484,3 @@ func (s *ListVulnHostsOutput) SetTotalCount(v int64) *ListVulnHostsOutput {
 	s.TotalCount = &v
 	return s
 }
-
-const (
-	// EnumOfAssetTypeForListVulnHostsInputHost is a EnumOfAssetTypeForListVulnHostsInput enum value
-	EnumOfAssetTypeForListVulnHostsInputHost = "Host"
-
-	// EnumOfAssetTypeForListVulnHostsInputDev is a EnumOfAssetTypeForListVulnHostsInput enum value
-	EnumOfAssetTypeForListVulnHostsInputDev = "Dev"
-)

@@ -226,6 +226,10 @@ type SetBruteForceBanConfigInput struct {
 
 	RuleList []*RuleListForSetBruteForceBanConfigInput `type:"list" json:",omitempty"`
 
+	SingleGroupPath *string `type:"string" json:",omitempty"`
+
+	SingleHostname *string `type:"string" json:",omitempty"`
+
 	TopGroupID *string `type:"string" json:",omitempty"`
 }
 
@@ -314,6 +318,18 @@ func (s *SetBruteForceBanConfigInput) SetOperator(v string) *SetBruteForceBanCon
 // SetRuleList sets the RuleList field's value.
 func (s *SetBruteForceBanConfigInput) SetRuleList(v []*RuleListForSetBruteForceBanConfigInput) *SetBruteForceBanConfigInput {
 	s.RuleList = v
+	return s
+}
+
+// SetSingleGroupPath sets the SingleGroupPath field's value.
+func (s *SetBruteForceBanConfigInput) SetSingleGroupPath(v string) *SetBruteForceBanConfigInput {
+	s.SingleGroupPath = &v
+	return s
+}
+
+// SetSingleHostname sets the SingleHostname field's value.
+func (s *SetBruteForceBanConfigInput) SetSingleHostname(v string) *SetBruteForceBanConfigInput {
+	s.SingleHostname = &v
 	return s
 }
 

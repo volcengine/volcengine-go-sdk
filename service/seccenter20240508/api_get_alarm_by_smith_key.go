@@ -492,6 +492,8 @@ func (s *ContainerInfoForGetAlarmBySmithKeyOutput) SetContainerName(v string) *C
 type GetAlarmBySmithKeyInput struct {
 	_ struct{} `type:"structure"`
 
+	AlarmCategory *string `type:"string"`
+
 	SmithKey *string `type:"string"`
 
 	Type *string `type:"string"`
@@ -505,6 +507,12 @@ func (s GetAlarmBySmithKeyInput) String() string {
 // GoString returns the string representation
 func (s GetAlarmBySmithKeyInput) GoString() string {
 	return s.String()
+}
+
+// SetAlarmCategory sets the AlarmCategory field's value.
+func (s *GetAlarmBySmithKeyInput) SetAlarmCategory(v string) *GetAlarmBySmithKeyInput {
+	s.AlarmCategory = &v
+	return s
 }
 
 // SetSmithKey sets the SmithKey field's value.
@@ -565,6 +573,8 @@ type GetAlarmBySmithKeyOutput struct {
 	PlusAlarmInfo601 *PlusAlarmInfo601ForGetAlarmBySmithKeyOutput `type:"structure"`
 
 	PlusAlarmInfo602 *PlusAlarmInfo602ForGetAlarmBySmithKeyOutput `type:"structure"`
+
+	PlusAlarmInfo602x *PlusAlarmInfo602xForGetAlarmBySmithKeyOutput `type:"structure"`
 
 	PlusAlarmInfo603 *PlusAlarmInfo603ForGetAlarmBySmithKeyOutput `type:"structure"`
 
@@ -718,6 +728,12 @@ func (s *GetAlarmBySmithKeyOutput) SetPlusAlarmInfo601(v *PlusAlarmInfo601ForGet
 // SetPlusAlarmInfo602 sets the PlusAlarmInfo602 field's value.
 func (s *GetAlarmBySmithKeyOutput) SetPlusAlarmInfo602(v *PlusAlarmInfo602ForGetAlarmBySmithKeyOutput) *GetAlarmBySmithKeyOutput {
 	s.PlusAlarmInfo602 = v
+	return s
+}
+
+// SetPlusAlarmInfo602x sets the PlusAlarmInfo602x field's value.
+func (s *GetAlarmBySmithKeyOutput) SetPlusAlarmInfo602x(v *PlusAlarmInfo602xForGetAlarmBySmithKeyOutput) *GetAlarmBySmithKeyOutput {
+	s.PlusAlarmInfo602x = v
 	return s
 }
 
@@ -1442,6 +1458,148 @@ func (s *PlusAlarmInfo602ForGetAlarmBySmithKeyOutput) SetPidTree(v string) *Plus
 // SetSocketArgv sets the SocketArgv field's value.
 func (s *PlusAlarmInfo602ForGetAlarmBySmithKeyOutput) SetSocketArgv(v string) *PlusAlarmInfo602ForGetAlarmBySmithKeyOutput {
 	s.SocketArgv = &v
+	return s
+}
+
+type PlusAlarmInfo602xForGetAlarmBySmithKeyOutput struct {
+	_ struct{} `type:"structure"`
+
+	Class *string `type:"string"`
+
+	CreateAt *string `type:"string"`
+
+	FileEntropy *string `type:"string"`
+
+	FileHash *string `type:"string"`
+
+	FileMagic *string `type:"string"`
+
+	FileMime *string `type:"string"`
+
+	FileSsdeep *string `type:"string"`
+
+	FileTlsh *string `type:"string"`
+
+	FileType *string `type:"string"`
+
+	M2md5 *string `type:"string"`
+
+	Md5Hash *string `type:"string"`
+
+	ModifyAt *string `type:"string"`
+
+	Name *string `type:"string"`
+
+	StaticFile *string `type:"string"`
+
+	Timestamp *string `type:"string"`
+
+	Types *string `type:"string"`
+}
+
+// String returns the string representation
+func (s PlusAlarmInfo602xForGetAlarmBySmithKeyOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s PlusAlarmInfo602xForGetAlarmBySmithKeyOutput) GoString() string {
+	return s.String()
+}
+
+// SetClass sets the Class field's value.
+func (s *PlusAlarmInfo602xForGetAlarmBySmithKeyOutput) SetClass(v string) *PlusAlarmInfo602xForGetAlarmBySmithKeyOutput {
+	s.Class = &v
+	return s
+}
+
+// SetCreateAt sets the CreateAt field's value.
+func (s *PlusAlarmInfo602xForGetAlarmBySmithKeyOutput) SetCreateAt(v string) *PlusAlarmInfo602xForGetAlarmBySmithKeyOutput {
+	s.CreateAt = &v
+	return s
+}
+
+// SetFileEntropy sets the FileEntropy field's value.
+func (s *PlusAlarmInfo602xForGetAlarmBySmithKeyOutput) SetFileEntropy(v string) *PlusAlarmInfo602xForGetAlarmBySmithKeyOutput {
+	s.FileEntropy = &v
+	return s
+}
+
+// SetFileHash sets the FileHash field's value.
+func (s *PlusAlarmInfo602xForGetAlarmBySmithKeyOutput) SetFileHash(v string) *PlusAlarmInfo602xForGetAlarmBySmithKeyOutput {
+	s.FileHash = &v
+	return s
+}
+
+// SetFileMagic sets the FileMagic field's value.
+func (s *PlusAlarmInfo602xForGetAlarmBySmithKeyOutput) SetFileMagic(v string) *PlusAlarmInfo602xForGetAlarmBySmithKeyOutput {
+	s.FileMagic = &v
+	return s
+}
+
+// SetFileMime sets the FileMime field's value.
+func (s *PlusAlarmInfo602xForGetAlarmBySmithKeyOutput) SetFileMime(v string) *PlusAlarmInfo602xForGetAlarmBySmithKeyOutput {
+	s.FileMime = &v
+	return s
+}
+
+// SetFileSsdeep sets the FileSsdeep field's value.
+func (s *PlusAlarmInfo602xForGetAlarmBySmithKeyOutput) SetFileSsdeep(v string) *PlusAlarmInfo602xForGetAlarmBySmithKeyOutput {
+	s.FileSsdeep = &v
+	return s
+}
+
+// SetFileTlsh sets the FileTlsh field's value.
+func (s *PlusAlarmInfo602xForGetAlarmBySmithKeyOutput) SetFileTlsh(v string) *PlusAlarmInfo602xForGetAlarmBySmithKeyOutput {
+	s.FileTlsh = &v
+	return s
+}
+
+// SetFileType sets the FileType field's value.
+func (s *PlusAlarmInfo602xForGetAlarmBySmithKeyOutput) SetFileType(v string) *PlusAlarmInfo602xForGetAlarmBySmithKeyOutput {
+	s.FileType = &v
+	return s
+}
+
+// SetM2md5 sets the M2md5 field's value.
+func (s *PlusAlarmInfo602xForGetAlarmBySmithKeyOutput) SetM2md5(v string) *PlusAlarmInfo602xForGetAlarmBySmithKeyOutput {
+	s.M2md5 = &v
+	return s
+}
+
+// SetMd5Hash sets the Md5Hash field's value.
+func (s *PlusAlarmInfo602xForGetAlarmBySmithKeyOutput) SetMd5Hash(v string) *PlusAlarmInfo602xForGetAlarmBySmithKeyOutput {
+	s.Md5Hash = &v
+	return s
+}
+
+// SetModifyAt sets the ModifyAt field's value.
+func (s *PlusAlarmInfo602xForGetAlarmBySmithKeyOutput) SetModifyAt(v string) *PlusAlarmInfo602xForGetAlarmBySmithKeyOutput {
+	s.ModifyAt = &v
+	return s
+}
+
+// SetName sets the Name field's value.
+func (s *PlusAlarmInfo602xForGetAlarmBySmithKeyOutput) SetName(v string) *PlusAlarmInfo602xForGetAlarmBySmithKeyOutput {
+	s.Name = &v
+	return s
+}
+
+// SetStaticFile sets the StaticFile field's value.
+func (s *PlusAlarmInfo602xForGetAlarmBySmithKeyOutput) SetStaticFile(v string) *PlusAlarmInfo602xForGetAlarmBySmithKeyOutput {
+	s.StaticFile = &v
+	return s
+}
+
+// SetTimestamp sets the Timestamp field's value.
+func (s *PlusAlarmInfo602xForGetAlarmBySmithKeyOutput) SetTimestamp(v string) *PlusAlarmInfo602xForGetAlarmBySmithKeyOutput {
+	s.Timestamp = &v
+	return s
+}
+
+// SetTypes sets the Types field's value.
+func (s *PlusAlarmInfo602xForGetAlarmBySmithKeyOutput) SetTypes(v string) *PlusAlarmInfo602xForGetAlarmBySmithKeyOutput {
+	s.Types = &v
 	return s
 }
 

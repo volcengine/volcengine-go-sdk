@@ -150,6 +150,8 @@ type DataForListLoginConfigsOutput struct {
 
 	Description *string `type:"string" json:",omitempty"`
 
+	DescriptionEn *string `type:"string" json:",omitempty"`
+
 	ID *string `type:"string" json:",omitempty"`
 
 	IPList []*string `type:"list" json:",omitempty"`
@@ -161,6 +163,8 @@ type DataForListLoginConfigsOutput struct {
 	LegalUser []*string `type:"list" json:",omitempty"`
 
 	LoginConfigRules []*string `type:"list" json:",omitempty"`
+
+	LoginLocations []*LoginLocationForListLoginConfigsOutput `type:"list" json:",omitempty"`
 
 	SingleGroupPath *string `type:"string" json:",omitempty"`
 
@@ -197,6 +201,12 @@ func (s *DataForListLoginConfigsOutput) SetDescription(v string) *DataForListLog
 	return s
 }
 
+// SetDescriptionEn sets the DescriptionEn field's value.
+func (s *DataForListLoginConfigsOutput) SetDescriptionEn(v string) *DataForListLoginConfigsOutput {
+	s.DescriptionEn = &v
+	return s
+}
+
 // SetID sets the ID field's value.
 func (s *DataForListLoginConfigsOutput) SetID(v string) *DataForListLoginConfigsOutput {
 	s.ID = &v
@@ -230,6 +240,12 @@ func (s *DataForListLoginConfigsOutput) SetLegalUser(v []*string) *DataForListLo
 // SetLoginConfigRules sets the LoginConfigRules field's value.
 func (s *DataForListLoginConfigsOutput) SetLoginConfigRules(v []*string) *DataForListLoginConfigsOutput {
 	s.LoginConfigRules = v
+	return s
+}
+
+// SetLoginLocations sets the LoginLocations field's value.
+func (s *DataForListLoginConfigsOutput) SetLoginLocations(v []*LoginLocationForListLoginConfigsOutput) *DataForListLoginConfigsOutput {
+	s.LoginLocations = v
 	return s
 }
 
@@ -386,5 +402,43 @@ func (s *ListLoginConfigsOutput) SetPageSize(v int64) *ListLoginConfigsOutput {
 // SetTotalCount sets the TotalCount field's value.
 func (s *ListLoginConfigsOutput) SetTotalCount(v int64) *ListLoginConfigsOutput {
 	s.TotalCount = &v
+	return s
+}
+
+type LoginLocationForListLoginConfigsOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	CityName *string `type:"string" json:",omitempty"`
+
+	CountryName *string `type:"string" json:",omitempty"`
+
+	DistrictName *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s LoginLocationForListLoginConfigsOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s LoginLocationForListLoginConfigsOutput) GoString() string {
+	return s.String()
+}
+
+// SetCityName sets the CityName field's value.
+func (s *LoginLocationForListLoginConfigsOutput) SetCityName(v string) *LoginLocationForListLoginConfigsOutput {
+	s.CityName = &v
+	return s
+}
+
+// SetCountryName sets the CountryName field's value.
+func (s *LoginLocationForListLoginConfigsOutput) SetCountryName(v string) *LoginLocationForListLoginConfigsOutput {
+	s.CountryName = &v
+	return s
+}
+
+// SetDistrictName sets the DistrictName field's value.
+func (s *LoginLocationForListLoginConfigsOutput) SetDistrictName(v string) *LoginLocationForListLoginConfigsOutput {
+	s.DistrictName = &v
 	return s
 }

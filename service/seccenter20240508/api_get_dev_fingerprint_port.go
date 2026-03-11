@@ -162,9 +162,13 @@ type DataForGetDevFingerprintPortOutput struct {
 
 	PrivateIP *string `type:"string" json:",omitempty"`
 
+	ProtectStatus *string `type:"string" json:",omitempty"`
+
 	Protocol *string `type:"string" json:",omitempty"`
 
 	PublicIP *string `type:"string" json:",omitempty"`
+
+	SecurityEnhancement *bool `type:"boolean" json:",omitempty"`
 
 	Sip *string `type:"string" json:",omitempty"`
 
@@ -239,6 +243,12 @@ func (s *DataForGetDevFingerprintPortOutput) SetPrivateIP(v string) *DataForGetD
 	return s
 }
 
+// SetProtectStatus sets the ProtectStatus field's value.
+func (s *DataForGetDevFingerprintPortOutput) SetProtectStatus(v string) *DataForGetDevFingerprintPortOutput {
+	s.ProtectStatus = &v
+	return s
+}
+
 // SetProtocol sets the Protocol field's value.
 func (s *DataForGetDevFingerprintPortOutput) SetProtocol(v string) *DataForGetDevFingerprintPortOutput {
 	s.Protocol = &v
@@ -248,6 +258,12 @@ func (s *DataForGetDevFingerprintPortOutput) SetProtocol(v string) *DataForGetDe
 // SetPublicIP sets the PublicIP field's value.
 func (s *DataForGetDevFingerprintPortOutput) SetPublicIP(v string) *DataForGetDevFingerprintPortOutput {
 	s.PublicIP = &v
+	return s
+}
+
+// SetSecurityEnhancement sets the SecurityEnhancement field's value.
+func (s *DataForGetDevFingerprintPortOutput) SetSecurityEnhancement(v bool) *DataForGetDevFingerprintPortOutput {
+	s.SecurityEnhancement = &v
 	return s
 }
 
@@ -312,7 +328,7 @@ type GetDevFingerprintPortInput struct {
 
 	SortBy *string `type:"string" json:",omitempty"`
 
-	SortOrder *string `type:"string" json:",omitempty" enum:"EnumOfSortOrderForGetDevFingerprintPortInput"`
+	SortOrder *string `type:"string" json:",omitempty"`
 
 	Sport *string `type:"string" json:",omitempty"`
 
@@ -452,11 +468,3 @@ func (s *GetDevFingerprintPortOutput) SetTotalCount(v int64) *GetDevFingerprintP
 	s.TotalCount = &v
 	return s
 }
-
-const (
-	// EnumOfSortOrderForGetDevFingerprintPortInputAsc is a EnumOfSortOrderForGetDevFingerprintPortInput enum value
-	EnumOfSortOrderForGetDevFingerprintPortInputAsc = "Asc"
-
-	// EnumOfSortOrderForGetDevFingerprintPortInputDesc is a EnumOfSortOrderForGetDevFingerprintPortInput enum value
-	EnumOfSortOrderForGetDevFingerprintPortInputDesc = " Desc"
-)

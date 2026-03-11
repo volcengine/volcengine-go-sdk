@@ -242,6 +242,8 @@ type DataForListVirusAlarmsOutput struct {
 
 	AgentID *string `type:"string" json:",omitempty"`
 
+	AlarmCount *int64 `type:"int64" json:",omitempty"`
+
 	AlarmHandleResult *int64 `type:"int64" json:",omitempty"`
 
 	AlarmHostname *string `type:"string" json:",omitempty"`
@@ -251,6 +253,8 @@ type DataForListVirusAlarmsOutput struct {
 	AlarmTime *int64 `type:"int64" json:",omitempty"`
 
 	AlertTags []*string `type:"list" json:",omitempty"`
+
+	AnalysisRecordUUID *string `type:"string" json:",omitempty"`
 
 	Args []*string `type:"list" json:",omitempty"`
 
@@ -263,6 +267,8 @@ type DataForListVirusAlarmsOutput struct {
 	Class *string `type:"string" json:",omitempty"`
 
 	Cluster *ClusterForListVirusAlarmsOutput `type:"structure" json:",omitempty"`
+
+	Confidence *string `type:"string" json:",omitempty"`
 
 	DataType *string `type:"string" json:",omitempty"`
 
@@ -282,6 +288,8 @@ type DataForListVirusAlarmsOutput struct {
 
 	GroupPath *string `type:"string" json:",omitempty"`
 
+	HandleFailReason *string `type:"string" json:",omitempty"`
+
 	HandleTime *int64 `type:"int64" json:",omitempty"`
 
 	Host *HostForListVirusAlarmsOutput `type:"structure" json:",omitempty"`
@@ -294,6 +302,8 @@ type DataForListVirusAlarmsOutput struct {
 
 	LLMProcessed *bool `type:"boolean" json:",omitempty"`
 
+	LastAlarmTime *int64 `type:"int64" json:",omitempty"`
+
 	Level *string `type:"string" json:",omitempty"`
 
 	MlpInstanceID *string `type:"string" json:",omitempty"`
@@ -304,6 +314,8 @@ type DataForListVirusAlarmsOutput struct {
 
 	NsPid *string `type:"string" json:",omitempty"`
 
+	OperationList []*string `type:"list" json:",omitempty"`
+
 	OsType *string `type:"string" json:",omitempty"`
 
 	Pid *string `type:"string" json:",omitempty"`
@@ -311,6 +323,10 @@ type DataForListVirusAlarmsOutput struct {
 	ProbeHook *string `type:"string" json:",omitempty"`
 
 	Region *string `type:"string" json:",omitempty"`
+
+	SecurityIntelligenceComplete *bool `type:"boolean" json:",omitempty"`
+
+	SecurityIntelligenceResult *string `type:"string" json:",omitempty"`
 
 	Sid *string `type:"string" json:",omitempty"`
 
@@ -347,6 +363,12 @@ func (s *DataForListVirusAlarmsOutput) SetAgentID(v string) *DataForListVirusAla
 	return s
 }
 
+// SetAlarmCount sets the AlarmCount field's value.
+func (s *DataForListVirusAlarmsOutput) SetAlarmCount(v int64) *DataForListVirusAlarmsOutput {
+	s.AlarmCount = &v
+	return s
+}
+
 // SetAlarmHandleResult sets the AlarmHandleResult field's value.
 func (s *DataForListVirusAlarmsOutput) SetAlarmHandleResult(v int64) *DataForListVirusAlarmsOutput {
 	s.AlarmHandleResult = &v
@@ -374,6 +396,12 @@ func (s *DataForListVirusAlarmsOutput) SetAlarmTime(v int64) *DataForListVirusAl
 // SetAlertTags sets the AlertTags field's value.
 func (s *DataForListVirusAlarmsOutput) SetAlertTags(v []*string) *DataForListVirusAlarmsOutput {
 	s.AlertTags = v
+	return s
+}
+
+// SetAnalysisRecordUUID sets the AnalysisRecordUUID field's value.
+func (s *DataForListVirusAlarmsOutput) SetAnalysisRecordUUID(v string) *DataForListVirusAlarmsOutput {
+	s.AnalysisRecordUUID = &v
 	return s
 }
 
@@ -410,6 +438,12 @@ func (s *DataForListVirusAlarmsOutput) SetClass(v string) *DataForListVirusAlarm
 // SetCluster sets the Cluster field's value.
 func (s *DataForListVirusAlarmsOutput) SetCluster(v *ClusterForListVirusAlarmsOutput) *DataForListVirusAlarmsOutput {
 	s.Cluster = v
+	return s
+}
+
+// SetConfidence sets the Confidence field's value.
+func (s *DataForListVirusAlarmsOutput) SetConfidence(v string) *DataForListVirusAlarmsOutput {
+	s.Confidence = &v
 	return s
 }
 
@@ -467,6 +501,12 @@ func (s *DataForListVirusAlarmsOutput) SetGroupPath(v string) *DataForListVirusA
 	return s
 }
 
+// SetHandleFailReason sets the HandleFailReason field's value.
+func (s *DataForListVirusAlarmsOutput) SetHandleFailReason(v string) *DataForListVirusAlarmsOutput {
+	s.HandleFailReason = &v
+	return s
+}
+
 // SetHandleTime sets the HandleTime field's value.
 func (s *DataForListVirusAlarmsOutput) SetHandleTime(v int64) *DataForListVirusAlarmsOutput {
 	s.HandleTime = &v
@@ -503,6 +543,12 @@ func (s *DataForListVirusAlarmsOutput) SetLLMProcessed(v bool) *DataForListVirus
 	return s
 }
 
+// SetLastAlarmTime sets the LastAlarmTime field's value.
+func (s *DataForListVirusAlarmsOutput) SetLastAlarmTime(v int64) *DataForListVirusAlarmsOutput {
+	s.LastAlarmTime = &v
+	return s
+}
+
 // SetLevel sets the Level field's value.
 func (s *DataForListVirusAlarmsOutput) SetLevel(v string) *DataForListVirusAlarmsOutput {
 	s.Level = &v
@@ -533,6 +579,12 @@ func (s *DataForListVirusAlarmsOutput) SetNsPid(v string) *DataForListVirusAlarm
 	return s
 }
 
+// SetOperationList sets the OperationList field's value.
+func (s *DataForListVirusAlarmsOutput) SetOperationList(v []*string) *DataForListVirusAlarmsOutput {
+	s.OperationList = v
+	return s
+}
+
 // SetOsType sets the OsType field's value.
 func (s *DataForListVirusAlarmsOutput) SetOsType(v string) *DataForListVirusAlarmsOutput {
 	s.OsType = &v
@@ -554,6 +606,18 @@ func (s *DataForListVirusAlarmsOutput) SetProbeHook(v string) *DataForListVirusA
 // SetRegion sets the Region field's value.
 func (s *DataForListVirusAlarmsOutput) SetRegion(v string) *DataForListVirusAlarmsOutput {
 	s.Region = &v
+	return s
+}
+
+// SetSecurityIntelligenceComplete sets the SecurityIntelligenceComplete field's value.
+func (s *DataForListVirusAlarmsOutput) SetSecurityIntelligenceComplete(v bool) *DataForListVirusAlarmsOutput {
+	s.SecurityIntelligenceComplete = &v
+	return s
+}
+
+// SetSecurityIntelligenceResult sets the SecurityIntelligenceResult field's value.
+func (s *DataForListVirusAlarmsOutput) SetSecurityIntelligenceResult(v string) *DataForListVirusAlarmsOutput {
+	s.SecurityIntelligenceResult = &v
 	return s
 }
 
@@ -700,6 +764,10 @@ type ListVirusAlarmsInput struct {
 
 	ImageName *string `type:"string" json:",omitempty"`
 
+	LastAlarmTimeEnd *int64 `type:"int64" json:",omitempty"`
+
+	LastAlarmTimeStart *int64 `type:"int64" json:",omitempty"`
+
 	LeafGroupIDs []*string `type:"list" json:",omitempty"`
 
 	LevelList []*string `type:"list" json:",omitempty"`
@@ -707,6 +775,8 @@ type ListVirusAlarmsInput struct {
 	MlpInstanceID *string `type:"string" json:",omitempty"`
 
 	Name *string `type:"string" json:",omitempty"`
+
+	OperationList []*string `type:"list" json:",omitempty"`
 
 	// PageNumber is a required field
 	PageNumber *int64 `type:"int64" json:",omitempty" required:"true"`
@@ -917,6 +987,18 @@ func (s *ListVirusAlarmsInput) SetImageName(v string) *ListVirusAlarmsInput {
 	return s
 }
 
+// SetLastAlarmTimeEnd sets the LastAlarmTimeEnd field's value.
+func (s *ListVirusAlarmsInput) SetLastAlarmTimeEnd(v int64) *ListVirusAlarmsInput {
+	s.LastAlarmTimeEnd = &v
+	return s
+}
+
+// SetLastAlarmTimeStart sets the LastAlarmTimeStart field's value.
+func (s *ListVirusAlarmsInput) SetLastAlarmTimeStart(v int64) *ListVirusAlarmsInput {
+	s.LastAlarmTimeStart = &v
+	return s
+}
+
 // SetLeafGroupIDs sets the LeafGroupIDs field's value.
 func (s *ListVirusAlarmsInput) SetLeafGroupIDs(v []*string) *ListVirusAlarmsInput {
 	s.LeafGroupIDs = v
@@ -938,6 +1020,12 @@ func (s *ListVirusAlarmsInput) SetMlpInstanceID(v string) *ListVirusAlarmsInput 
 // SetName sets the Name field's value.
 func (s *ListVirusAlarmsInput) SetName(v string) *ListVirusAlarmsInput {
 	s.Name = &v
+	return s
+}
+
+// SetOperationList sets the OperationList field's value.
+func (s *ListVirusAlarmsInput) SetOperationList(v []*string) *ListVirusAlarmsInput {
+	s.OperationList = v
 	return s
 }
 

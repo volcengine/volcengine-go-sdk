@@ -234,7 +234,7 @@ type DownloadBaselineCheckHostsInput struct {
 
 	AssetIDList []*string `type:"list" json:",omitempty"`
 
-	AssetType *string `type:"string" json:",omitempty" enum:"EnumOfAssetTypeForDownloadBaselineCheckHostsInput"`
+	AssetType *string `type:"string" json:",omitempty"`
 
 	BaselineID *int64 `type:"int64" json:",omitempty"`
 
@@ -314,11 +314,3 @@ func (s *DownloadBaselineCheckHostsOutput) SetFileName(v string) *DownloadBaseli
 	s.FileName = &v
 	return s
 }
-
-const (
-	// EnumOfAssetTypeForDownloadBaselineCheckHostsInputHost is a EnumOfAssetTypeForDownloadBaselineCheckHostsInput enum value
-	EnumOfAssetTypeForDownloadBaselineCheckHostsInputHost = "Host"
-
-	// EnumOfAssetTypeForDownloadBaselineCheckHostsInputDev is a EnumOfAssetTypeForDownloadBaselineCheckHostsInput enum value
-	EnumOfAssetTypeForDownloadBaselineCheckHostsInputDev = "Dev"
-)

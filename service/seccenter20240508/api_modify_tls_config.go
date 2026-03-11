@@ -173,6 +173,36 @@ func (s *AlarmTopicConfigForModifyTLSConfigInput) SetSwitch(v bool) *AlarmTopicC
 	return s
 }
 
+type BashAuditTopicConfigForModifyTLSConfigInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	StorageDays *int64 `type:"int64" json:",omitempty"`
+
+	Switch *bool `type:"boolean" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s BashAuditTopicConfigForModifyTLSConfigInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s BashAuditTopicConfigForModifyTLSConfigInput) GoString() string {
+	return s.String()
+}
+
+// SetStorageDays sets the StorageDays field's value.
+func (s *BashAuditTopicConfigForModifyTLSConfigInput) SetStorageDays(v int64) *BashAuditTopicConfigForModifyTLSConfigInput {
+	s.StorageDays = &v
+	return s
+}
+
+// SetSwitch sets the Switch field's value.
+func (s *BashAuditTopicConfigForModifyTLSConfigInput) SetSwitch(v bool) *BashAuditTopicConfigForModifyTLSConfigInput {
+	s.Switch = &v
+	return s
+}
+
 type LoginTopicConfigForModifyTLSConfigInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -208,6 +238,8 @@ type ModifyTLSConfigInput struct {
 
 	AlarmTopicConfig *AlarmTopicConfigForModifyTLSConfigInput `type:"structure" json:",omitempty"`
 
+	BashAuditTopicConfig *BashAuditTopicConfigForModifyTLSConfigInput `type:"structure" json:",omitempty"`
+
 	LoginTopicConfig *LoginTopicConfigForModifyTLSConfigInput `type:"structure" json:",omitempty"`
 
 	PortChangeTopicConfig *PortChangeTopicConfigForModifyTLSConfigInput `type:"structure" json:",omitempty"`
@@ -234,6 +266,12 @@ func (s ModifyTLSConfigInput) GoString() string {
 // SetAlarmTopicConfig sets the AlarmTopicConfig field's value.
 func (s *ModifyTLSConfigInput) SetAlarmTopicConfig(v *AlarmTopicConfigForModifyTLSConfigInput) *ModifyTLSConfigInput {
 	s.AlarmTopicConfig = v
+	return s
+}
+
+// SetBashAuditTopicConfig sets the BashAuditTopicConfig field's value.
+func (s *ModifyTLSConfigInput) SetBashAuditTopicConfig(v *BashAuditTopicConfigForModifyTLSConfigInput) *ModifyTLSConfigInput {
+	s.BashAuditTopicConfig = v
 	return s
 }
 

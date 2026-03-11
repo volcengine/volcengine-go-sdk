@@ -146,6 +146,8 @@ func (c *SECCENTER20240508) GetVulnInfoWithContext(ctx volcengine.Context, input
 type CveListForGetVulnInfoOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	Action *string `type:"string" json:",omitempty"`
+
 	CveDetailUrl *string `type:"string" json:",omitempty"`
 
 	CveID *string `type:"string" json:",omitempty"`
@@ -154,7 +156,13 @@ type CveListForGetVulnInfoOutput struct {
 
 	Descript *string `type:"string" json:",omitempty"`
 
+	ExploitLink *string `type:"string" json:",omitempty"`
+
 	HasExploit *bool `type:"boolean" json:",omitempty"`
+
+	HasPayload *bool `type:"boolean" json:",omitempty"`
+
+	PayloadLink *string `type:"string" json:",omitempty"`
 
 	Tag []*string `type:"list" json:",omitempty"`
 
@@ -169,6 +177,12 @@ func (s CveListForGetVulnInfoOutput) String() string {
 // GoString returns the string representation
 func (s CveListForGetVulnInfoOutput) GoString() string {
 	return s.String()
+}
+
+// SetAction sets the Action field's value.
+func (s *CveListForGetVulnInfoOutput) SetAction(v string) *CveListForGetVulnInfoOutput {
+	s.Action = &v
+	return s
 }
 
 // SetCveDetailUrl sets the CveDetailUrl field's value.
@@ -195,9 +209,27 @@ func (s *CveListForGetVulnInfoOutput) SetDescript(v string) *CveListForGetVulnIn
 	return s
 }
 
+// SetExploitLink sets the ExploitLink field's value.
+func (s *CveListForGetVulnInfoOutput) SetExploitLink(v string) *CveListForGetVulnInfoOutput {
+	s.ExploitLink = &v
+	return s
+}
+
 // SetHasExploit sets the HasExploit field's value.
 func (s *CveListForGetVulnInfoOutput) SetHasExploit(v bool) *CveListForGetVulnInfoOutput {
 	s.HasExploit = &v
+	return s
+}
+
+// SetHasPayload sets the HasPayload field's value.
+func (s *CveListForGetVulnInfoOutput) SetHasPayload(v bool) *CveListForGetVulnInfoOutput {
+	s.HasPayload = &v
+	return s
+}
+
+// SetPayloadLink sets the PayloadLink field's value.
+func (s *CveListForGetVulnInfoOutput) SetPayloadLink(v string) *CveListForGetVulnInfoOutput {
+	s.PayloadLink = &v
 	return s
 }
 
@@ -220,7 +252,7 @@ type GetVulnInfoInput struct {
 
 	AssetID *string `type:"string" json:",omitempty"`
 
-	AssetType *string `type:"string" json:",omitempty" enum:"EnumOfAssetTypeForGetVulnInfoInput"`
+	AssetType *string `type:"string" json:",omitempty"`
 
 	CwppID *string `type:"string" json:",omitempty"`
 
@@ -292,6 +324,8 @@ type GetVulnInfoOutput struct {
 
 	Cwe *string `type:"string" json:",omitempty"`
 
+	CweIds []*string `type:"list" json:",omitempty"`
+
 	Cwpp_id *string `type:"string" json:"cwpp_id,omitempty"`
 
 	Descript *string `type:"string" json:",omitempty"`
@@ -299,6 +333,12 @@ type GetVulnInfoOutput struct {
 	DescriptEn *string `type:"string" json:",omitempty"`
 
 	ExploitLink *string `type:"string" json:",omitempty"`
+
+	HasExploit *bool `type:"boolean" json:",omitempty"`
+
+	HasPayload *bool `type:"boolean" json:",omitempty"`
+
+	IfEmg *bool `type:"boolean" json:",omitempty"`
 
 	IfExp *int64 `type:"int64" json:",omitempty"`
 
@@ -399,6 +439,12 @@ func (s *GetVulnInfoOutput) SetCwe(v string) *GetVulnInfoOutput {
 	return s
 }
 
+// SetCweIds sets the CweIds field's value.
+func (s *GetVulnInfoOutput) SetCweIds(v []*string) *GetVulnInfoOutput {
+	s.CweIds = v
+	return s
+}
+
 // SetCwpp_id sets the Cwpp_id field's value.
 func (s *GetVulnInfoOutput) SetCwpp_id(v string) *GetVulnInfoOutput {
 	s.Cwpp_id = &v
@@ -420,6 +466,24 @@ func (s *GetVulnInfoOutput) SetDescriptEn(v string) *GetVulnInfoOutput {
 // SetExploitLink sets the ExploitLink field's value.
 func (s *GetVulnInfoOutput) SetExploitLink(v string) *GetVulnInfoOutput {
 	s.ExploitLink = &v
+	return s
+}
+
+// SetHasExploit sets the HasExploit field's value.
+func (s *GetVulnInfoOutput) SetHasExploit(v bool) *GetVulnInfoOutput {
+	s.HasExploit = &v
+	return s
+}
+
+// SetHasPayload sets the HasPayload field's value.
+func (s *GetVulnInfoOutput) SetHasPayload(v bool) *GetVulnInfoOutput {
+	s.HasPayload = &v
+	return s
+}
+
+// SetIfEmg sets the IfEmg field's value.
+func (s *GetVulnInfoOutput) SetIfEmg(v bool) *GetVulnInfoOutput {
+	s.IfEmg = &v
 	return s
 }
 
@@ -506,11 +570,3 @@ func (s *GetVulnInfoOutput) SetVulnNameEn(v string) *GetVulnInfoOutput {
 	s.VulnNameEn = &v
 	return s
 }
-
-const (
-	// EnumOfAssetTypeForGetVulnInfoInputHost is a EnumOfAssetTypeForGetVulnInfoInput enum value
-	EnumOfAssetTypeForGetVulnInfoInputHost = "Host"
-
-	// EnumOfAssetTypeForGetVulnInfoInputDev is a EnumOfAssetTypeForGetVulnInfoInput enum value
-	EnumOfAssetTypeForGetVulnInfoInputDev = "Dev"
-)

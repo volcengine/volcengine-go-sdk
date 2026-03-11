@@ -158,9 +158,13 @@ type ListDevAssetIDsInput struct {
 
 	Platforms []*string `type:"list" json:",omitempty"`
 
+	ProtectStatus *string `type:"string" json:",omitempty"`
+
 	Regions []*string `type:"list" json:",omitempty"`
 
 	Risk *RiskForListDevAssetIDsInput `type:"structure" json:",omitempty"`
+
+	SecurityEnhancement *bool `type:"boolean" json:",omitempty"`
 
 	Status []*string `type:"list" json:",omitempty"`
 }
@@ -211,6 +215,12 @@ func (s *ListDevAssetIDsInput) SetPlatforms(v []*string) *ListDevAssetIDsInput {
 	return s
 }
 
+// SetProtectStatus sets the ProtectStatus field's value.
+func (s *ListDevAssetIDsInput) SetProtectStatus(v string) *ListDevAssetIDsInput {
+	s.ProtectStatus = &v
+	return s
+}
+
 // SetRegions sets the Regions field's value.
 func (s *ListDevAssetIDsInput) SetRegions(v []*string) *ListDevAssetIDsInput {
 	s.Regions = v
@@ -220,6 +230,12 @@ func (s *ListDevAssetIDsInput) SetRegions(v []*string) *ListDevAssetIDsInput {
 // SetRisk sets the Risk field's value.
 func (s *ListDevAssetIDsInput) SetRisk(v *RiskForListDevAssetIDsInput) *ListDevAssetIDsInput {
 	s.Risk = v
+	return s
+}
+
+// SetSecurityEnhancement sets the SecurityEnhancement field's value.
+func (s *ListDevAssetIDsInput) SetSecurityEnhancement(v bool) *ListDevAssetIDsInput {
+	s.SecurityEnhancement = &v
 	return s
 }
 

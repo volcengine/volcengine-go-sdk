@@ -146,7 +146,7 @@ type GetBaselineGroupStatisticsInput struct {
 
 	AssetID *string `type:"string"`
 
-	AssetType *string `type:"string" enum:"EnumOfAssetTypeForGetBaselineGroupStatisticsInput"`
+	AssetType *string `type:"string"`
 
 	BaselineID *int64 `type:"int64"`
 
@@ -320,11 +320,3 @@ func (s *GetBaselineGroupStatisticsOutput) SetStatus(v string) *GetBaselineGroup
 	s.Status = &v
 	return s
 }
-
-const (
-	// EnumOfAssetTypeForGetBaselineGroupStatisticsInputHost is a EnumOfAssetTypeForGetBaselineGroupStatisticsInput enum value
-	EnumOfAssetTypeForGetBaselineGroupStatisticsInputHost = "Host"
-
-	// EnumOfAssetTypeForGetBaselineGroupStatisticsInputDev is a EnumOfAssetTypeForGetBaselineGroupStatisticsInput enum value
-	EnumOfAssetTypeForGetBaselineGroupStatisticsInputDev = "Dev"
-)

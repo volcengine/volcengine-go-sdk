@@ -148,6 +148,8 @@ type DataForGetOfflineNotificationListOutput struct {
 
 	AbnormalPluginsList *string `type:"string" json:",omitempty"`
 
+	AccountID *string `type:"string" json:",omitempty"`
+
 	AgentID *string `type:"string" json:",omitempty"`
 
 	AgentOfflineTime *int64 `type:"int64" json:",omitempty"`
@@ -172,6 +174,8 @@ type DataForGetOfflineNotificationListOutput struct {
 
 	GroupPath *string `type:"string" json:",omitempty"`
 
+	GroupPathEn *string `type:"string" json:",omitempty"`
+
 	KernelVersion *string `type:"string" json:",omitempty"`
 
 	LastHeartbeatTime *int64 `type:"int64" json:",omitempty"`
@@ -187,6 +191,8 @@ type DataForGetOfflineNotificationListOutput struct {
 	Online *bool `type:"boolean" json:",omitempty"`
 
 	Platform *string `type:"string" json:",omitempty"`
+
+	PlatformVersion *string `type:"string" json:",omitempty"`
 
 	PluginsBriefInfo *string `type:"string" json:",omitempty"`
 
@@ -209,6 +215,8 @@ type DataForGetOfflineNotificationListOutput struct {
 	UserStatus *string `type:"string" json:",omitempty"`
 
 	UserStatusReason *string `type:"string" json:",omitempty"`
+
+	UserStatusReasonCode *int64 `type:"int64" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -224,6 +232,12 @@ func (s DataForGetOfflineNotificationListOutput) GoString() string {
 // SetAbnormalPluginsList sets the AbnormalPluginsList field's value.
 func (s *DataForGetOfflineNotificationListOutput) SetAbnormalPluginsList(v string) *DataForGetOfflineNotificationListOutput {
 	s.AbnormalPluginsList = &v
+	return s
+}
+
+// SetAccountID sets the AccountID field's value.
+func (s *DataForGetOfflineNotificationListOutput) SetAccountID(v string) *DataForGetOfflineNotificationListOutput {
+	s.AccountID = &v
 	return s
 }
 
@@ -299,6 +313,12 @@ func (s *DataForGetOfflineNotificationListOutput) SetGroupPath(v string) *DataFo
 	return s
 }
 
+// SetGroupPathEn sets the GroupPathEn field's value.
+func (s *DataForGetOfflineNotificationListOutput) SetGroupPathEn(v string) *DataForGetOfflineNotificationListOutput {
+	s.GroupPathEn = &v
+	return s
+}
+
 // SetKernelVersion sets the KernelVersion field's value.
 func (s *DataForGetOfflineNotificationListOutput) SetKernelVersion(v string) *DataForGetOfflineNotificationListOutput {
 	s.KernelVersion = &v
@@ -344,6 +364,12 @@ func (s *DataForGetOfflineNotificationListOutput) SetOnline(v bool) *DataForGetO
 // SetPlatform sets the Platform field's value.
 func (s *DataForGetOfflineNotificationListOutput) SetPlatform(v string) *DataForGetOfflineNotificationListOutput {
 	s.Platform = &v
+	return s
+}
+
+// SetPlatformVersion sets the PlatformVersion field's value.
+func (s *DataForGetOfflineNotificationListOutput) SetPlatformVersion(v string) *DataForGetOfflineNotificationListOutput {
+	s.PlatformVersion = &v
 	return s
 }
 
@@ -410,6 +436,12 @@ func (s *DataForGetOfflineNotificationListOutput) SetUserStatus(v string) *DataF
 // SetUserStatusReason sets the UserStatusReason field's value.
 func (s *DataForGetOfflineNotificationListOutput) SetUserStatusReason(v string) *DataForGetOfflineNotificationListOutput {
 	s.UserStatusReason = &v
+	return s
+}
+
+// SetUserStatusReasonCode sets the UserStatusReasonCode field's value.
+func (s *DataForGetOfflineNotificationListOutput) SetUserStatusReasonCode(v int64) *DataForGetOfflineNotificationListOutput {
+	s.UserStatusReasonCode = &v
 	return s
 }
 
@@ -786,6 +818,8 @@ type RiskForGetOfflineNotificationListOutput struct {
 
 	Baseline *int64 `type:"int64" json:",omitempty"`
 
+	RealRiskVul *int64 `type:"int64" json:",omitempty"`
+
 	Virus *int64 `type:"int64" json:",omitempty"`
 
 	Vuln *int64 `type:"int64" json:",omitempty"`
@@ -810,6 +844,12 @@ func (s *RiskForGetOfflineNotificationListOutput) SetAlarm(v int64) *RiskForGetO
 // SetBaseline sets the Baseline field's value.
 func (s *RiskForGetOfflineNotificationListOutput) SetBaseline(v int64) *RiskForGetOfflineNotificationListOutput {
 	s.Baseline = &v
+	return s
+}
+
+// SetRealRiskVul sets the RealRiskVul field's value.
+func (s *RiskForGetOfflineNotificationListOutput) SetRealRiskVul(v int64) *RiskForGetOfflineNotificationListOutput {
+	s.RealRiskVul = &v
 	return s
 }
 

@@ -192,6 +192,8 @@ type GetMultiLevelHostAssetOverviewOutput struct {
 
 	ProtectionException *int64 `type:"int64" json:",omitempty"`
 
+	RealRiskVul *int64 `type:"int64" json:",omitempty"`
+
 	Risk *int64 `type:"int64" json:",omitempty"`
 
 	Unprotected *int64 `type:"int64" json:",omitempty"`
@@ -252,6 +254,12 @@ func (s *GetMultiLevelHostAssetOverviewOutput) SetProtecting(v int64) *GetMultiL
 // SetProtectionException sets the ProtectionException field's value.
 func (s *GetMultiLevelHostAssetOverviewOutput) SetProtectionException(v int64) *GetMultiLevelHostAssetOverviewOutput {
 	s.ProtectionException = &v
+	return s
+}
+
+// SetRealRiskVul sets the RealRiskVul field's value.
+func (s *GetMultiLevelHostAssetOverviewOutput) SetRealRiskVul(v int64) *GetMultiLevelHostAssetOverviewOutput {
+	s.RealRiskVul = &v
 	return s
 }
 

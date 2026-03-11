@@ -345,6 +345,8 @@ type ListVulByPodInput struct {
 
 	IfHighAvailability *bool `type:"boolean" json:",omitempty"`
 
+	IsRealRiskVul *bool `type:"boolean" json:",omitempty"`
+
 	LeafGroupIDs []*string `type:"list" json:",omitempty"`
 
 	Level []*string `type:"list" json:",omitempty"`
@@ -456,6 +458,12 @@ func (s *ListVulByPodInput) SetCveID(v string) *ListVulByPodInput {
 // SetIfHighAvailability sets the IfHighAvailability field's value.
 func (s *ListVulByPodInput) SetIfHighAvailability(v bool) *ListVulByPodInput {
 	s.IfHighAvailability = &v
+	return s
+}
+
+// SetIsRealRiskVul sets the IsRealRiskVul field's value.
+func (s *ListVulByPodInput) SetIsRealRiskVul(v bool) *ListVulByPodInput {
+	s.IsRealRiskVul = &v
 	return s
 }
 

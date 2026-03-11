@@ -150,7 +150,7 @@ type ListBaselineCheckDetailInput struct {
 
 	AssetID *string `type:"string" json:",omitempty"`
 
-	AssetType *string `type:"string" json:",omitempty" enum:"EnumOfAssetTypeForListBaselineCheckDetailInput"`
+	AssetType *string `type:"string" json:",omitempty"`
 
 	BaselineID *int64 `type:"int64" json:",omitempty"`
 
@@ -284,11 +284,3 @@ func (s *ListBaselineCheckDetailOutput) SetType(v string) *ListBaselineCheckDeta
 	s.Type = &v
 	return s
 }
-
-const (
-	// EnumOfAssetTypeForListBaselineCheckDetailInputHost is a EnumOfAssetTypeForListBaselineCheckDetailInput enum value
-	EnumOfAssetTypeForListBaselineCheckDetailInputHost = "Host"
-
-	// EnumOfAssetTypeForListBaselineCheckDetailInputDev is a EnumOfAssetTypeForListBaselineCheckDetailInput enum value
-	EnumOfAssetTypeForListBaselineCheckDetailInputDev = "Dev"
-)

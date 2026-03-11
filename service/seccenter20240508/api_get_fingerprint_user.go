@@ -331,7 +331,7 @@ type GetFingerprintUserInput struct {
 	LeafGroupIDs []*string `type:"list" json:",omitempty"`
 
 	// PageNumber is a required field
-	PageNumber *string `type:"string" json:",omitempty" required:"true"`
+	PageNumber *int64 `type:"int64" json:",omitempty" required:"true"`
 
 	// PageSize is a required field
 	PageSize *int64 `type:"int64" json:",omitempty" required:"true"`
@@ -428,7 +428,7 @@ func (s *GetFingerprintUserInput) SetLeafGroupIDs(v []*string) *GetFingerprintUs
 }
 
 // SetPageNumber sets the PageNumber field's value.
-func (s *GetFingerprintUserInput) SetPageNumber(v string) *GetFingerprintUserInput {
+func (s *GetFingerprintUserInput) SetPageNumber(v int64) *GetFingerprintUserInput {
 	s.PageNumber = &v
 	return s
 }
