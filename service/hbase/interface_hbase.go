@@ -19,7 +19,7 @@ import (
 //    // volcengine sdk func uses an SDK service client to make a request to
 //    // HBASE.
 //    func myFunc(svc HBASEAPI) bool {
-//        // Make svc.CreateDBInstance request
+//        // Make svc.AddTagsToResource request
 //    }
 //
 //    func main() {
@@ -30,6 +30,30 @@ import (
 //    }
 //
 type HBASEAPI interface {
+	AddTagsToResourceCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	AddTagsToResourceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	AddTagsToResourceCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	AddTagsToResource(*AddTagsToResourceInput) (*AddTagsToResourceOutput, error)
+	AddTagsToResourceWithContext(volcengine.Context, *AddTagsToResourceInput, ...request.Option) (*AddTagsToResourceOutput, error)
+	AddTagsToResourceRequest(*AddTagsToResourceInput) (*request.Request, *AddTagsToResourceOutput)
+
+	AssociateAllowListCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	AssociateAllowListCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	AssociateAllowListCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	AssociateAllowList(*AssociateAllowListInput) (*AssociateAllowListOutput, error)
+	AssociateAllowListWithContext(volcengine.Context, *AssociateAllowListInput, ...request.Option) (*AssociateAllowListOutput, error)
+	AssociateAllowListRequest(*AssociateAllowListInput) (*request.Request, *AssociateAllowListOutput)
+
+	CreateAllowListCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateAllowListCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateAllowListCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateAllowList(*CreateAllowListInput) (*CreateAllowListOutput, error)
+	CreateAllowListWithContext(volcengine.Context, *CreateAllowListInput, ...request.Option) (*CreateAllowListOutput, error)
+	CreateAllowListRequest(*CreateAllowListInput) (*request.Request, *CreateAllowListOutput)
+
 	CreateDBInstanceCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	CreateDBInstanceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	CreateDBInstanceCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -38,6 +62,14 @@ type HBASEAPI interface {
 	CreateDBInstanceWithContext(volcengine.Context, *CreateDBInstanceInput, ...request.Option) (*CreateDBInstanceOutput, error)
 	CreateDBInstanceRequest(*CreateDBInstanceInput) (*request.Request, *CreateDBInstanceOutput)
 
+	DeleteAllowListCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeleteAllowListCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeleteAllowListCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeleteAllowList(*DeleteAllowListInput) (*DeleteAllowListOutput, error)
+	DeleteAllowListWithContext(volcengine.Context, *DeleteAllowListInput, ...request.Option) (*DeleteAllowListOutput, error)
+	DeleteAllowListRequest(*DeleteAllowListInput) (*request.Request, *DeleteAllowListOutput)
+
 	DeleteDBInstanceCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DeleteDBInstanceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DeleteDBInstanceCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -45,6 +77,22 @@ type HBASEAPI interface {
 	DeleteDBInstance(*DeleteDBInstanceInput) (*DeleteDBInstanceOutput, error)
 	DeleteDBInstanceWithContext(volcengine.Context, *DeleteDBInstanceInput, ...request.Option) (*DeleteDBInstanceOutput, error)
 	DeleteDBInstanceRequest(*DeleteDBInstanceInput) (*request.Request, *DeleteDBInstanceOutput)
+
+	DescribeAllowListDetailCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeAllowListDetailCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeAllowListDetailCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeAllowListDetail(*DescribeAllowListDetailInput) (*DescribeAllowListDetailOutput, error)
+	DescribeAllowListDetailWithContext(volcengine.Context, *DescribeAllowListDetailInput, ...request.Option) (*DescribeAllowListDetailOutput, error)
+	DescribeAllowListDetailRequest(*DescribeAllowListDetailInput) (*request.Request, *DescribeAllowListDetailOutput)
+
+	DescribeAllowListsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeAllowListsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeAllowListsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeAllowLists(*DescribeAllowListsInput) (*DescribeAllowListsOutput, error)
+	DescribeAllowListsWithContext(volcengine.Context, *DescribeAllowListsInput, ...request.Option) (*DescribeAllowListsOutput, error)
+	DescribeAllowListsRequest(*DescribeAllowListsInput) (*request.Request, *DescribeAllowListsOutput)
 
 	DescribeDBInstanceDetailCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DescribeDBInstanceDetailCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -61,6 +109,30 @@ type HBASEAPI interface {
 	DescribeDBInstances(*DescribeDBInstancesInput) (*DescribeDBInstancesOutput, error)
 	DescribeDBInstancesWithContext(volcengine.Context, *DescribeDBInstancesInput, ...request.Option) (*DescribeDBInstancesOutput, error)
 	DescribeDBInstancesRequest(*DescribeDBInstancesInput) (*request.Request, *DescribeDBInstancesOutput)
+
+	DescribeTagsByResourceCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeTagsByResourceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeTagsByResourceCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeTagsByResource(*DescribeTagsByResourceInput) (*DescribeTagsByResourceOutput, error)
+	DescribeTagsByResourceWithContext(volcengine.Context, *DescribeTagsByResourceInput, ...request.Option) (*DescribeTagsByResourceOutput, error)
+	DescribeTagsByResourceRequest(*DescribeTagsByResourceInput) (*request.Request, *DescribeTagsByResourceOutput)
+
+	DisassociateAllowListCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DisassociateAllowListCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DisassociateAllowListCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DisassociateAllowList(*DisassociateAllowListInput) (*DisassociateAllowListOutput, error)
+	DisassociateAllowListWithContext(volcengine.Context, *DisassociateAllowListInput, ...request.Option) (*DisassociateAllowListOutput, error)
+	DisassociateAllowListRequest(*DisassociateAllowListInput) (*request.Request, *DisassociateAllowListOutput)
+
+	ModifyAllowListCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ModifyAllowListCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ModifyAllowListCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ModifyAllowList(*ModifyAllowListInput) (*ModifyAllowListOutput, error)
+	ModifyAllowListWithContext(volcengine.Context, *ModifyAllowListInput, ...request.Option) (*ModifyAllowListOutput, error)
+	ModifyAllowListRequest(*ModifyAllowListInput) (*request.Request, *ModifyAllowListOutput)
 
 	ModifyDBInstanceNameCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ModifyDBInstanceNameCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -85,6 +157,14 @@ type HBASEAPI interface {
 	ModifyInstanceDeletionProtectionPolicy(*ModifyInstanceDeletionProtectionPolicyInput) (*ModifyInstanceDeletionProtectionPolicyOutput, error)
 	ModifyInstanceDeletionProtectionPolicyWithContext(volcengine.Context, *ModifyInstanceDeletionProtectionPolicyInput, ...request.Option) (*ModifyInstanceDeletionProtectionPolicyOutput, error)
 	ModifyInstanceDeletionProtectionPolicyRequest(*ModifyInstanceDeletionProtectionPolicyInput) (*request.Request, *ModifyInstanceDeletionProtectionPolicyOutput)
+
+	RemoveTagsFromResourceCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	RemoveTagsFromResourceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	RemoveTagsFromResourceCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	RemoveTagsFromResource(*RemoveTagsFromResourceInput) (*RemoveTagsFromResourceOutput, error)
+	RemoveTagsFromResourceWithContext(volcengine.Context, *RemoveTagsFromResourceInput, ...request.Option) (*RemoveTagsFromResourceOutput, error)
+	RemoveTagsFromResourceRequest(*RemoveTagsFromResourceInput) (*request.Request, *RemoveTagsFromResourceOutput)
 
 	RestartDBInstanceCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	RestartDBInstanceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)

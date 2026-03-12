@@ -602,6 +602,10 @@ type TagForDescribeDBInstancesInput struct {
 
 	Key *string `type:"string" json:",omitempty"`
 
+	TagKey *string `type:"string" json:",omitempty"`
+
+	TagValue *string `type:"string" json:",omitempty"`
+
 	Value *string `type:"string" json:",omitempty"`
 }
 
@@ -621,6 +625,18 @@ func (s *TagForDescribeDBInstancesInput) SetKey(v string) *TagForDescribeDBInsta
 	return s
 }
 
+// SetTagKey sets the TagKey field's value.
+func (s *TagForDescribeDBInstancesInput) SetTagKey(v string) *TagForDescribeDBInstancesInput {
+	s.TagKey = &v
+	return s
+}
+
+// SetTagValue sets the TagValue field's value.
+func (s *TagForDescribeDBInstancesInput) SetTagValue(v string) *TagForDescribeDBInstancesInput {
+	s.TagValue = &v
+	return s
+}
+
 // SetValue sets the Value field's value.
 func (s *TagForDescribeDBInstancesInput) SetValue(v string) *TagForDescribeDBInstancesInput {
 	s.Value = &v
@@ -631,6 +647,10 @@ type TagForDescribeDBInstancesOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
 	Key *string `type:"string" json:",omitempty"`
+
+	TagKey *string `type:"string" json:",omitempty"`
+
+	TagValue *string `type:"string" json:",omitempty"`
 
 	Value *string `type:"string" json:",omitempty"`
 }
@@ -648,6 +668,18 @@ func (s TagForDescribeDBInstancesOutput) GoString() string {
 // SetKey sets the Key field's value.
 func (s *TagForDescribeDBInstancesOutput) SetKey(v string) *TagForDescribeDBInstancesOutput {
 	s.Key = &v
+	return s
+}
+
+// SetTagKey sets the TagKey field's value.
+func (s *TagForDescribeDBInstancesOutput) SetTagKey(v string) *TagForDescribeDBInstancesOutput {
+	s.TagKey = &v
+	return s
+}
+
+// SetTagValue sets the TagValue field's value.
+func (s *TagForDescribeDBInstancesOutput) SetTagValue(v string) *TagForDescribeDBInstancesOutput {
+	s.TagValue = &v
 	return s
 }
 
