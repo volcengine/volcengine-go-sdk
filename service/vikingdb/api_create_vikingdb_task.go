@@ -243,15 +243,6 @@ func (s *CreateVikingdbTaskOutput) SetTaskId(v string) *CreateVikingdbTaskOutput
 	return s
 }
 
-/*
-// Placeholder type commented out per DEV_PROMPT.md
-type FilterCondForCreateVikingdbTaskInput struct {
-    _ struct{} `type:"structure" json:",omitempty"`
-}
-func (s FilterCondForCreateVikingdbTaskInput) String() string { return volcengineutil.Prettify(s) }
-func (s FilterCondForCreateVikingdbTaskInput) GoString() string { return s.String() }
-*/
-
 type TaskConfigForCreateVikingdbTaskInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -273,7 +264,7 @@ type TaskConfigForCreateVikingdbTaskInput struct {
 
 	TosPath *string `type:"string" json:",omitempty"`
 
-	UpdateFields interface{} `json:",omitempty"`
+	UpdateFields interface{} `type:"interface" json:",omitempty"`
 
 	UsePublic *bool `type:"boolean" json:",omitempty"`
 }
@@ -344,7 +335,7 @@ func (s *TaskConfigForCreateVikingdbTaskInput) SetTosPath(v string) *TaskConfigF
 
 // SetUpdateFields sets the UpdateFields field's value.
 func (s *TaskConfigForCreateVikingdbTaskInput) SetUpdateFields(v interface{}) *TaskConfigForCreateVikingdbTaskInput {
-	s.UpdateFields = v
+	s.UpdateFields = &v
 	return s
 }
 
@@ -353,22 +344,6 @@ func (s *TaskConfigForCreateVikingdbTaskInput) SetUsePublic(v bool) *TaskConfigF
 	s.UsePublic = &v
 	return s
 }
-
-/*
-type UpdateFieldsForCreateVikingdbTaskInput struct {
-    _ struct{} `type:"structure" json:",omitempty"`
-}
-
-// String returns the string representation
-func (s UpdateFieldsForCreateVikingdbTaskInput) String() string {
-    return volcengineutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s UpdateFieldsForCreateVikingdbTaskInput) GoString() string {
-    return s.String()
-}
-*/
 
 const (
 	// EnumOfFileTypeForCreateVikingdbTaskInputParquet is a EnumOfFileTypeForCreateVikingdbTaskInput enum value
