@@ -62,6 +62,14 @@ type VEPFSAPI interface {
 	ConfigDataFlowBandwidthWithContext(volcengine.Context, *ConfigDataFlowBandwidthInput, ...request.Option) (*ConfigDataFlowBandwidthOutput, error)
 	ConfigDataFlowBandwidthRequest(*ConfigDataFlowBandwidthInput) (*request.Request, *ConfigDataFlowBandwidthOutput)
 
+	CreateAuditCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateAuditCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateAuditCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateAudit(*CreateAuditInput) (*CreateAuditOutput, error)
+	CreateAuditWithContext(volcengine.Context, *CreateAuditInput, ...request.Option) (*CreateAuditOutput, error)
+	CreateAuditRequest(*CreateAuditInput) (*request.Request, *CreateAuditOutput)
+
 	CreateDataFlowTaskCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	CreateDataFlowTaskCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	CreateDataFlowTaskCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -118,6 +126,14 @@ type VEPFSAPI interface {
 	CreatePreSignedUrlWithContext(volcengine.Context, *CreatePreSignedUrlInput, ...request.Option) (*CreatePreSignedUrlOutput, error)
 	CreatePreSignedUrlRequest(*CreatePreSignedUrlInput) (*request.Request, *CreatePreSignedUrlOutput)
 
+	DeleteAuditCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeleteAuditCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeleteAuditCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeleteAudit(*DeleteAuditInput) (*DeleteAuditOutput, error)
+	DeleteAuditWithContext(volcengine.Context, *DeleteAuditInput, ...request.Option) (*DeleteAuditOutput, error)
+	DeleteAuditRequest(*DeleteAuditInput) (*request.Request, *DeleteAuditOutput)
+
 	DeleteDataFlowTaskCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DeleteDataFlowTaskCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DeleteDataFlowTaskCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -165,6 +181,14 @@ type VEPFSAPI interface {
 	DeleteMountService(*DeleteMountServiceInput) (*DeleteMountServiceOutput, error)
 	DeleteMountServiceWithContext(volcengine.Context, *DeleteMountServiceInput, ...request.Option) (*DeleteMountServiceOutput, error)
 	DeleteMountServiceRequest(*DeleteMountServiceInput) (*request.Request, *DeleteMountServiceOutput)
+
+	DescribeAuditsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeAuditsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeAuditsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeAudits(*DescribeAuditsInput) (*DescribeAuditsOutput, error)
+	DescribeAuditsWithContext(volcengine.Context, *DescribeAuditsInput, ...request.Option) (*DescribeAuditsOutput, error)
+	DescribeAuditsRequest(*DescribeAuditsInput) (*request.Request, *DescribeAuditsOutput)
 
 	DescribeDataFlowBandwidthCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DescribeDataFlowBandwidthCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -310,6 +334,14 @@ type VEPFSAPI interface {
 	SetFilesetQuotaWithContext(volcengine.Context, *SetFilesetQuotaInput, ...request.Option) (*SetFilesetQuotaOutput, error)
 	SetFilesetQuotaRequest(*SetFilesetQuotaInput) (*request.Request, *SetFilesetQuotaOutput)
 
+	StartAuditCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	StartAuditCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	StartAuditCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	StartAudit(*StartAuditInput) (*StartAuditOutput, error)
+	StartAuditWithContext(volcengine.Context, *StartAuditInput, ...request.Option) (*StartAuditOutput, error)
+	StartAuditRequest(*StartAuditInput) (*request.Request, *StartAuditOutput)
+
 	StartLensServiceCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	StartLensServiceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	StartLensServiceCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -317,6 +349,14 @@ type VEPFSAPI interface {
 	StartLensService(*StartLensServiceInput) (*StartLensServiceOutput, error)
 	StartLensServiceWithContext(volcengine.Context, *StartLensServiceInput, ...request.Option) (*StartLensServiceOutput, error)
 	StartLensServiceRequest(*StartLensServiceInput) (*request.Request, *StartLensServiceOutput)
+
+	StopAuditCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	StopAuditCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	StopAuditCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	StopAudit(*StopAuditInput) (*StopAuditOutput, error)
+	StopAuditWithContext(volcengine.Context, *StopAuditInput, ...request.Option) (*StopAuditOutput, error)
+	StopAuditRequest(*StopAuditInput) (*request.Request, *StopAuditOutput)
 
 	StopLensServiceCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	StopLensServiceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -341,6 +381,14 @@ type VEPFSAPI interface {
 	UntagResources(*UntagResourcesInput) (*UntagResourcesOutput, error)
 	UntagResourcesWithContext(volcengine.Context, *UntagResourcesInput, ...request.Option) (*UntagResourcesOutput, error)
 	UntagResourcesRequest(*UntagResourcesInput) (*request.Request, *UntagResourcesOutput)
+
+	UpdateAuditCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	UpdateAuditCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	UpdateAuditCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	UpdateAudit(*UpdateAuditInput) (*UpdateAuditOutput, error)
+	UpdateAuditWithContext(volcengine.Context, *UpdateAuditInput, ...request.Option) (*UpdateAuditOutput, error)
+	UpdateAuditRequest(*UpdateAuditInput) (*request.Request, *UpdateAuditOutput)
 
 	UpdateFileSystemCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	UpdateFileSystemCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)

@@ -156,6 +156,8 @@ type DataFlowTaskForDescribeDataFlowTasksOutput struct {
 
 	DataType *string `type:"string" json:",omitempty" enum:"EnumOfDataTypeForDescribeDataFlowTasksOutput"`
 
+	DeletePolicy *DeletePolicyForDescribeDataFlowTasksOutput `type:"structure" json:",omitempty"`
+
 	EndTime *string `type:"string" json:",omitempty"`
 
 	EntryListFileInfo *EntryListFileInfoForDescribeDataFlowTasksOutput `type:"structure" json:",omitempty"`
@@ -232,6 +234,12 @@ func (s *DataFlowTaskForDescribeDataFlowTasksOutput) SetDataStoragePath(v string
 // SetDataType sets the DataType field's value.
 func (s *DataFlowTaskForDescribeDataFlowTasksOutput) SetDataType(v string) *DataFlowTaskForDescribeDataFlowTasksOutput {
 	s.DataType = &v
+	return s
+}
+
+// SetDeletePolicy sets the DeletePolicy field's value.
+func (s *DataFlowTaskForDescribeDataFlowTasksOutput) SetDeletePolicy(v *DeletePolicyForDescribeDataFlowTasksOutput) *DataFlowTaskForDescribeDataFlowTasksOutput {
+	s.DeletePolicy = v
 	return s
 }
 
@@ -346,6 +354,36 @@ func (s *DataFlowTaskForDescribeDataFlowTasksOutput) SetTotalSize(v string) *Dat
 // SetUpdateTime sets the UpdateTime field's value.
 func (s *DataFlowTaskForDescribeDataFlowTasksOutput) SetUpdateTime(v string) *DataFlowTaskForDescribeDataFlowTasksOutput {
 	s.UpdateTime = &v
+	return s
+}
+
+type DeletePolicyForDescribeDataFlowTasksOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	DeleteTimeBefore *string `type:"string" json:",omitempty"`
+
+	Rule *string `type:"string" json:",omitempty" enum:"EnumOfRuleForDescribeDataFlowTasksOutput"`
+}
+
+// String returns the string representation
+func (s DeletePolicyForDescribeDataFlowTasksOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DeletePolicyForDescribeDataFlowTasksOutput) GoString() string {
+	return s.String()
+}
+
+// SetDeleteTimeBefore sets the DeleteTimeBefore field's value.
+func (s *DeletePolicyForDescribeDataFlowTasksOutput) SetDeleteTimeBefore(v string) *DeletePolicyForDescribeDataFlowTasksOutput {
+	s.DeleteTimeBefore = &v
+	return s
+}
+
+// SetRule sets the Rule field's value.
+func (s *DeletePolicyForDescribeDataFlowTasksOutput) SetRule(v string) *DeletePolicyForDescribeDataFlowTasksOutput {
+	s.Rule = &v
 	return s
 }
 
@@ -555,6 +593,17 @@ const (
 
 	// EnumOfExportSymlinkPolicyForDescribeDataFlowTasksOutputNormalFile is a EnumOfExportSymlinkPolicyForDescribeDataFlowTasksOutput enum value
 	EnumOfExportSymlinkPolicyForDescribeDataFlowTasksOutputNormalFile = "NormalFile"
+)
+
+const (
+	// EnumOfRuleForDescribeDataFlowTasksOutputDeleteTypeOnlyFs is a EnumOfRuleForDescribeDataFlowTasksOutput enum value
+	EnumOfRuleForDescribeDataFlowTasksOutputDeleteTypeOnlyFs = "DELETE_TYPE_ONLY_FS"
+
+	// EnumOfRuleForDescribeDataFlowTasksOutputDeleteTypeFsWithLatestObject is a EnumOfRuleForDescribeDataFlowTasksOutput enum value
+	EnumOfRuleForDescribeDataFlowTasksOutputDeleteTypeFsWithLatestObject = "DELETE_TYPE_FS_WITH_LATEST_OBJECT"
+
+	// EnumOfRuleForDescribeDataFlowTasksOutputDeleteTypeFsWithAllversionObject is a EnumOfRuleForDescribeDataFlowTasksOutput enum value
+	EnumOfRuleForDescribeDataFlowTasksOutputDeleteTypeFsWithAllversionObject = "DELETE_TYPE_FS_WITH_ALLVERSION_OBJECT"
 )
 
 const (
