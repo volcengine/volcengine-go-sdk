@@ -166,6 +166,8 @@ type CreatePodInput struct {
 
 	ImageId *string `type:"string" json:",omitempty"`
 
+	IsSelinuxOn *bool `type:"boolean" json:",omitempty"`
+
 	OverlayPersistProperty []*OverlayPersistPropertyForCreatePodInput `type:"list" json:",omitempty"`
 
 	OverlayProperty []*OverlayPropertyForCreatePodInput `type:"list" json:",omitempty"`
@@ -274,6 +276,12 @@ func (s *CreatePodInput) SetIPWhiteList(v string) *CreatePodInput {
 // SetImageId sets the ImageId field's value.
 func (s *CreatePodInput) SetImageId(v string) *CreatePodInput {
 	s.ImageId = &v
+	return s
+}
+
+// SetIsSelinuxOn sets the IsSelinuxOn field's value.
+func (s *CreatePodInput) SetIsSelinuxOn(v bool) *CreatePodInput {
+	s.IsSelinuxOn = &v
 	return s
 }
 
@@ -534,6 +542,8 @@ type PodSpecListForCreatePodInput struct {
 
 	ImageId *string `type:"string" json:",omitempty"`
 
+	IsSelinuxOn *bool `type:"boolean" json:",omitempty"`
+
 	OverlayPersistProperty []*OverlayPersistPropertyForCreatePodInput `type:"list" json:",omitempty"`
 
 	OverlayProperty []*OverlayPropertyForCreatePodInput `type:"list" json:",omitempty"`
@@ -626,6 +636,12 @@ func (s *PodSpecListForCreatePodInput) SetIPWhiteList(v string) *PodSpecListForC
 // SetImageId sets the ImageId field's value.
 func (s *PodSpecListForCreatePodInput) SetImageId(v string) *PodSpecListForCreatePodInput {
 	s.ImageId = &v
+	return s
+}
+
+// SetIsSelinuxOn sets the IsSelinuxOn field's value.
+func (s *PodSpecListForCreatePodInput) SetIsSelinuxOn(v bool) *PodSpecListForCreatePodInput {
+	s.IsSelinuxOn = &v
 	return s
 }
 
