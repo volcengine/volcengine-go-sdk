@@ -205,6 +205,76 @@ func (s *ConditionForUpdateRuleInput) SetThreshold(v string) *ConditionForUpdate
 	return s
 }
 
+type ConvertConditionForUpdateRuleInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	ComparisonOperator *string `type:"string" json:",omitempty"`
+
+	EvaluationWindow *int32 `type:"int32" json:",omitempty"`
+
+	MetricName *string `type:"string" json:",omitempty"`
+
+	MetricUnit *string `type:"string" json:",omitempty"`
+
+	Period *string `type:"string" json:",omitempty"`
+
+	Statistics *string `type:"string" json:",omitempty"`
+
+	Threshold *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s ConvertConditionForUpdateRuleInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ConvertConditionForUpdateRuleInput) GoString() string {
+	return s.String()
+}
+
+// SetComparisonOperator sets the ComparisonOperator field's value.
+func (s *ConvertConditionForUpdateRuleInput) SetComparisonOperator(v string) *ConvertConditionForUpdateRuleInput {
+	s.ComparisonOperator = &v
+	return s
+}
+
+// SetEvaluationWindow sets the EvaluationWindow field's value.
+func (s *ConvertConditionForUpdateRuleInput) SetEvaluationWindow(v int32) *ConvertConditionForUpdateRuleInput {
+	s.EvaluationWindow = &v
+	return s
+}
+
+// SetMetricName sets the MetricName field's value.
+func (s *ConvertConditionForUpdateRuleInput) SetMetricName(v string) *ConvertConditionForUpdateRuleInput {
+	s.MetricName = &v
+	return s
+}
+
+// SetMetricUnit sets the MetricUnit field's value.
+func (s *ConvertConditionForUpdateRuleInput) SetMetricUnit(v string) *ConvertConditionForUpdateRuleInput {
+	s.MetricUnit = &v
+	return s
+}
+
+// SetPeriod sets the Period field's value.
+func (s *ConvertConditionForUpdateRuleInput) SetPeriod(v string) *ConvertConditionForUpdateRuleInput {
+	s.Period = &v
+	return s
+}
+
+// SetStatistics sets the Statistics field's value.
+func (s *ConvertConditionForUpdateRuleInput) SetStatistics(v string) *ConvertConditionForUpdateRuleInput {
+	s.Statistics = &v
+	return s
+}
+
+// SetThreshold sets the Threshold field's value.
+func (s *ConvertConditionForUpdateRuleInput) SetThreshold(v string) *ConvertConditionForUpdateRuleInput {
+	s.Threshold = &v
+	return s
+}
+
 type ConvertTagForUpdateRuleInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -284,7 +354,7 @@ func (s *DimensionConditionsForUpdateRuleInput) SetType(v string) *DimensionCond
 type LevelConditionForUpdateRuleInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	Conditions []*ConditionForUpdateRuleInput `type:"list" json:",omitempty"`
+	Conditions []*ConvertConditionForUpdateRuleInput `type:"list" json:",omitempty"`
 
 	Level *string `type:"string" json:",omitempty"`
 }
@@ -300,7 +370,7 @@ func (s LevelConditionForUpdateRuleInput) GoString() string {
 }
 
 // SetConditions sets the Conditions field's value.
-func (s *LevelConditionForUpdateRuleInput) SetConditions(v []*ConditionForUpdateRuleInput) *LevelConditionForUpdateRuleInput {
+func (s *LevelConditionForUpdateRuleInput) SetConditions(v []*ConvertConditionForUpdateRuleInput) *LevelConditionForUpdateRuleInput {
 	s.Conditions = v
 	return s
 }
@@ -594,6 +664,8 @@ type UpdateRuleInput struct {
 	// EvaluationCount is a required field
 	EvaluationCount *int32 `type:"int32" json:",omitempty" required:"true"`
 
+	EvaluationInterval *int32 `type:"int32" json:",omitempty"`
+
 	// Id is a required field
 	Id *string `type:"string" json:",omitempty" required:"true"`
 
@@ -750,6 +822,12 @@ func (s *UpdateRuleInput) SetEnableState(v string) *UpdateRuleInput {
 // SetEvaluationCount sets the EvaluationCount field's value.
 func (s *UpdateRuleInput) SetEvaluationCount(v int32) *UpdateRuleInput {
 	s.EvaluationCount = &v
+	return s
+}
+
+// SetEvaluationInterval sets the EvaluationInterval field's value.
+func (s *UpdateRuleInput) SetEvaluationInterval(v int32) *UpdateRuleInput {
+	s.EvaluationInterval = &v
 	return s
 }
 

@@ -148,6 +148,8 @@ type ConditionForCreateRuleInput struct {
 
 	ComparisonOperator *string `type:"string" json:",omitempty"`
 
+	EvaluationWindow *int32 `type:"int32" json:",omitempty"`
+
 	MetricName *string `type:"string" json:",omitempty"`
 
 	MetricUnit *string `type:"string" json:",omitempty"`
@@ -172,6 +174,12 @@ func (s ConditionForCreateRuleInput) GoString() string {
 // SetComparisonOperator sets the ComparisonOperator field's value.
 func (s *ConditionForCreateRuleInput) SetComparisonOperator(v string) *ConditionForCreateRuleInput {
 	s.ComparisonOperator = &v
+	return s
+}
+
+// SetEvaluationWindow sets the EvaluationWindow field's value.
+func (s *ConditionForCreateRuleInput) SetEvaluationWindow(v int32) *ConditionForCreateRuleInput {
+	s.EvaluationWindow = &v
 	return s
 }
 
@@ -261,6 +269,8 @@ type CreateRuleInput struct {
 
 	// EvaluationCount is a required field
 	EvaluationCount *int32 `type:"int32" json:",omitempty" required:"true"`
+
+	EvaluationInterval *int32 `type:"int32" json:",omitempty"`
 
 	// Level is a required field
 	Level *string `type:"string" json:",omitempty" required:"true"`
@@ -414,6 +424,12 @@ func (s *CreateRuleInput) SetEnableState(v string) *CreateRuleInput {
 // SetEvaluationCount sets the EvaluationCount field's value.
 func (s *CreateRuleInput) SetEvaluationCount(v int32) *CreateRuleInput {
 	s.EvaluationCount = &v
+	return s
+}
+
+// SetEvaluationInterval sets the EvaluationInterval field's value.
+func (s *CreateRuleInput) SetEvaluationInterval(v int32) *CreateRuleInput {
+	s.EvaluationInterval = &v
 	return s
 }
 

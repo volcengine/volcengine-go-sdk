@@ -386,7 +386,7 @@ type UpdateEventRuleInput struct {
 
 	EventType []*string `type:"list" json:",omitempty"`
 
-	FilterPattern map[string]*interface{} `type:"map" json:",omitempty"`
+	FilterPattern map[string]interface{} `type:"map" json:",omitempty"`
 
 	// Level is a required field
 	Level *string `type:"string" json:",omitempty" required:"true"`
@@ -504,7 +504,7 @@ func (s *UpdateEventRuleInput) SetEventType(v []*string) *UpdateEventRuleInput {
 }
 
 // SetFilterPattern sets the FilterPattern field's value.
-func (s *UpdateEventRuleInput) SetFilterPattern(v map[string]*interface{}) *UpdateEventRuleInput {
+func (s *UpdateEventRuleInput) SetFilterPattern(v map[string]interface{}) *UpdateEventRuleInput {
 	s.FilterPattern = v
 	return s
 }
