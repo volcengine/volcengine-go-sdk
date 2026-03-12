@@ -162,8 +162,6 @@ type CreateQuotaInput struct {
 	// QuotaType is a required field
 	QuotaType *string `type:"string" json:",omitempty" required:"true" enum:"EnumOfQuotaTypeForCreateQuotaInput"`
 
-	UserId *string `type:"string" json:",omitempty"`
-
 	UserType *string `type:"string" json:",omitempty" enum:"EnumOfUserTypeForCreateQuotaInput"`
 }
 
@@ -232,12 +230,6 @@ func (s *CreateQuotaInput) SetLimitType(v string) *CreateQuotaInput {
 // SetQuotaType sets the QuotaType field's value.
 func (s *CreateQuotaInput) SetQuotaType(v string) *CreateQuotaInput {
 	s.QuotaType = &v
-	return s
-}
-
-// SetUserId sets the UserId field's value.
-func (s *CreateQuotaInput) SetUserId(v string) *CreateQuotaInput {
-	s.UserId = &v
 	return s
 }
 
