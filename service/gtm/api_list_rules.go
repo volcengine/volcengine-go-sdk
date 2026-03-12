@@ -614,7 +614,7 @@ type PoolSetForListRulesOutput struct {
 
 	Active *bool `type:"boolean"`
 
-	ActiveAddrCount *int32 `type:"int32"`
+	ActiveAddrThr *int32 `type:"int32"`
 
 	Name *string `type:"string"`
 
@@ -639,9 +639,9 @@ func (s *PoolSetForListRulesOutput) SetActive(v bool) *PoolSetForListRulesOutput
 	return s
 }
 
-// SetActiveAddrCount sets the ActiveAddrCount field's value.
-func (s *PoolSetForListRulesOutput) SetActiveAddrCount(v int32) *PoolSetForListRulesOutput {
-	s.ActiveAddrCount = &v
+// SetActiveAddrThr sets the ActiveAddrThr field's value.
+func (s *PoolSetForListRulesOutput) SetActiveAddrThr(v int32) *PoolSetForListRulesOutput {
+	s.ActiveAddrThr = &v
 	return s
 }
 

@@ -220,7 +220,7 @@ func (s *PoolForUpdateRuleInput) SetWeight(v int32) *PoolForUpdateRuleInput {
 type PoolSetForUpdateRuleInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	ActiveAddrCount *int32 `type:"int32" json:",omitempty"`
+	ActiveAddrThr *int32 `type:"int32" json:",omitempty"`
 
 	Name *string `type:"string" json:",omitempty"`
 
@@ -237,9 +237,9 @@ func (s PoolSetForUpdateRuleInput) GoString() string {
 	return s.String()
 }
 
-// SetActiveAddrCount sets the ActiveAddrCount field's value.
-func (s *PoolSetForUpdateRuleInput) SetActiveAddrCount(v int32) *PoolSetForUpdateRuleInput {
-	s.ActiveAddrCount = &v
+// SetActiveAddrThr sets the ActiveAddrThr field's value.
+func (s *PoolSetForUpdateRuleInput) SetActiveAddrThr(v int32) *PoolSetForUpdateRuleInput {
+	s.ActiveAddrThr = &v
 	return s
 }
 
