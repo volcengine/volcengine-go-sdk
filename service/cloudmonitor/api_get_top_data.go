@@ -354,9 +354,9 @@ func (s *InstanceForGetTopDataInput) SetDimensions(v []*DimensionForGetTopDataIn
 type TopDataResultForGetTopDataOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	GroupKeys map[string]*interface{} `type:"map" json:",omitempty"`
+	GroupKeys map[string]interface{} `type:"map" json:",omitempty"`
 
-	MetricData map[string]*interface{} `type:"map" json:",omitempty"`
+	MetricData map[string]interface{} `type:"map" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -370,13 +370,13 @@ func (s TopDataResultForGetTopDataOutput) GoString() string {
 }
 
 // SetGroupKeys sets the GroupKeys field's value.
-func (s *TopDataResultForGetTopDataOutput) SetGroupKeys(v map[string]*interface{}) *TopDataResultForGetTopDataOutput {
+func (s *TopDataResultForGetTopDataOutput) SetGroupKeys(v map[string]interface{}) *TopDataResultForGetTopDataOutput {
 	s.GroupKeys = v
 	return s
 }
 
 // SetMetricData sets the MetricData field's value.
-func (s *TopDataResultForGetTopDataOutput) SetMetricData(v map[string]*interface{}) *TopDataResultForGetTopDataOutput {
+func (s *TopDataResultForGetTopDataOutput) SetMetricData(v map[string]interface{}) *TopDataResultForGetTopDataOutput {
 	s.MetricData = v
 	return s
 }

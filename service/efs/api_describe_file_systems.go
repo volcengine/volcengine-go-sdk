@@ -204,8 +204,6 @@ type DescribeFileSystemsInput struct {
 
 	ChargeType *string `type:"string" json:",omitempty" enum:"EnumOfChargeTypeForDescribeFileSystemsInput"`
 
-	ExportOnly *bool `type:"boolean" json:",omitempty"`
-
 	FileSystemId *string `type:"string" json:",omitempty"`
 
 	FileSystemName *string `type:"string" json:",omitempty"`
@@ -214,15 +212,13 @@ type DescribeFileSystemsInput struct {
 
 	Language *string `type:"string" json:",omitempty" enum:"EnumOfLanguageForDescribeFileSystemsInput"`
 
-	PageNumber *int32 `type:"int32" json:",omitempty"`
+	PageNumber *int32 `min:"1" type:"int32" json:",omitempty"`
 
-	PageSize *int32 `type:"int32" json:",omitempty"`
+	PageSize *int32 `min:"1" type:"int32" json:",omitempty"`
 
 	PerformanceDensity *string `type:"string" json:",omitempty" enum:"EnumOfPerformanceDensityForDescribeFileSystemsInput"`
 
 	ProjectName *string `type:"string" json:",omitempty"`
-
-	ProtocolType *string `type:"string" json:",omitempty" enum:"EnumOfProtocolTypeForDescribeFileSystemsInput"`
 
 	SortBy *string `type:"string" json:",omitempty" enum:"EnumOfSortByForDescribeFileSystemsInput"`
 
@@ -245,6 +241,22 @@ func (s DescribeFileSystemsInput) GoString() string {
 	return s.String()
 }
 
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DescribeFileSystemsInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DescribeFileSystemsInput"}
+	if s.PageNumber != nil && *s.PageNumber < 1 {
+		invalidParams.Add(request.NewErrParamMinValue("PageNumber", 1))
+	}
+	if s.PageSize != nil && *s.PageSize < 1 {
+		invalidParams.Add(request.NewErrParamMinValue("PageSize", 1))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
 // SetBandwidthMode sets the BandwidthMode field's value.
 func (s *DescribeFileSystemsInput) SetBandwidthMode(v string) *DescribeFileSystemsInput {
 	s.BandwidthMode = &v
@@ -254,12 +266,6 @@ func (s *DescribeFileSystemsInput) SetBandwidthMode(v string) *DescribeFileSyste
 // SetChargeType sets the ChargeType field's value.
 func (s *DescribeFileSystemsInput) SetChargeType(v string) *DescribeFileSystemsInput {
 	s.ChargeType = &v
-	return s
-}
-
-// SetExportOnly sets the ExportOnly field's value.
-func (s *DescribeFileSystemsInput) SetExportOnly(v bool) *DescribeFileSystemsInput {
-	s.ExportOnly = &v
 	return s
 }
 
@@ -308,12 +314,6 @@ func (s *DescribeFileSystemsInput) SetPerformanceDensity(v string) *DescribeFile
 // SetProjectName sets the ProjectName field's value.
 func (s *DescribeFileSystemsInput) SetProjectName(v string) *DescribeFileSystemsInput {
 	s.ProjectName = &v
-	return s
-}
-
-// SetProtocolType sets the ProtocolType field's value.
-func (s *DescribeFileSystemsInput) SetProtocolType(v string) *DescribeFileSystemsInput {
-	s.ProtocolType = &v
 	return s
 }
 
@@ -422,8 +422,6 @@ type FileSystemForDescribeFileSystemsOutput struct {
 
 	ProjectName *string `type:"string" json:",omitempty"`
 
-	ProtocolTypes []*string `type:"list" json:",omitempty"`
-
 	Status *string `type:"string" json:",omitempty"`
 
 	Storage *StorageForDescribeFileSystemsOutput `type:"structure" json:",omitempty"`
@@ -516,12 +514,6 @@ func (s *FileSystemForDescribeFileSystemsOutput) SetPerformanceDensity(v string)
 // SetProjectName sets the ProjectName field's value.
 func (s *FileSystemForDescribeFileSystemsOutput) SetProjectName(v string) *FileSystemForDescribeFileSystemsOutput {
 	s.ProjectName = &v
-	return s
-}
-
-// SetProtocolTypes sets the ProtocolTypes field's value.
-func (s *FileSystemForDescribeFileSystemsOutput) SetProtocolTypes(v []*string) *FileSystemForDescribeFileSystemsOutput {
-	s.ProtocolTypes = v
 	return s
 }
 
@@ -865,28 +857,6 @@ const (
 
 	// EnumOfPerformanceDensityForDescribeFileSystemsOutputPremium150 is a EnumOfPerformanceDensityForDescribeFileSystemsOutput enum value
 	EnumOfPerformanceDensityForDescribeFileSystemsOutputPremium150 = "Premium_150"
-)
-
-const (
-	// EnumOfProtocolTypeForDescribeFileSystemsInputNfs is a EnumOfProtocolTypeForDescribeFileSystemsInput enum value
-	EnumOfProtocolTypeForDescribeFileSystemsInputNfs = "NFS"
-
-	// EnumOfProtocolTypeForDescribeFileSystemsInputSmb is a EnumOfProtocolTypeForDescribeFileSystemsInput enum value
-	EnumOfProtocolTypeForDescribeFileSystemsInputSmb = "SMB"
-
-	// EnumOfProtocolTypeForDescribeFileSystemsInputFsx is a EnumOfProtocolTypeForDescribeFileSystemsInput enum value
-	EnumOfProtocolTypeForDescribeFileSystemsInputFsx = "FSX"
-)
-
-const (
-	// EnumOfProtocolTypeListForDescribeFileSystemsOutputNfs is a EnumOfProtocolTypeListForDescribeFileSystemsOutput enum value
-	EnumOfProtocolTypeListForDescribeFileSystemsOutputNfs = "NFS"
-
-	// EnumOfProtocolTypeListForDescribeFileSystemsOutputSmb is a EnumOfProtocolTypeListForDescribeFileSystemsOutput enum value
-	EnumOfProtocolTypeListForDescribeFileSystemsOutputSmb = "SMB"
-
-	// EnumOfProtocolTypeListForDescribeFileSystemsOutputFsx is a EnumOfProtocolTypeListForDescribeFileSystemsOutput enum value
-	EnumOfProtocolTypeListForDescribeFileSystemsOutputFsx = "FSX"
 )
 
 const (

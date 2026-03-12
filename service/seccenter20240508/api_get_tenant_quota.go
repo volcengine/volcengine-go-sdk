@@ -146,7 +146,11 @@ func (c *SECCENTER20240508) GetTenantQuotaWithContext(ctx volcengine.Context, in
 type AppSecForGetTenantQuotaOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	Action *string `type:"string" json:",omitempty"`
+
 	ExpireTime *int64 `type:"int64" json:",omitempty"`
+
+	NeedRemove *bool `type:"boolean" json:",omitempty"`
 
 	TotalCount *int64 `type:"int64" json:",omitempty"`
 
@@ -165,9 +169,21 @@ func (s AppSecForGetTenantQuotaOutput) GoString() string {
 	return s.String()
 }
 
+// SetAction sets the Action field's value.
+func (s *AppSecForGetTenantQuotaOutput) SetAction(v string) *AppSecForGetTenantQuotaOutput {
+	s.Action = &v
+	return s
+}
+
 // SetExpireTime sets the ExpireTime field's value.
 func (s *AppSecForGetTenantQuotaOutput) SetExpireTime(v int64) *AppSecForGetTenantQuotaOutput {
 	s.ExpireTime = &v
+	return s
+}
+
+// SetNeedRemove sets the NeedRemove field's value.
+func (s *AppSecForGetTenantQuotaOutput) SetNeedRemove(v bool) *AppSecForGetTenantQuotaOutput {
+	s.NeedRemove = &v
 	return s
 }
 
@@ -192,7 +208,11 @@ func (s *AppSecForGetTenantQuotaOutput) SetVersion(v int64) *AppSecForGetTenantQ
 type BasicQuotaForGetTenantQuotaOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	Action *string `type:"string" json:",omitempty"`
+
 	ExpireTime *int64 `type:"int64" json:",omitempty"`
+
+	NeedRemove *bool `type:"boolean" json:",omitempty"`
 
 	PaidType *string `type:"string" json:",omitempty"`
 
@@ -213,9 +233,21 @@ func (s BasicQuotaForGetTenantQuotaOutput) GoString() string {
 	return s.String()
 }
 
+// SetAction sets the Action field's value.
+func (s *BasicQuotaForGetTenantQuotaOutput) SetAction(v string) *BasicQuotaForGetTenantQuotaOutput {
+	s.Action = &v
+	return s
+}
+
 // SetExpireTime sets the ExpireTime field's value.
 func (s *BasicQuotaForGetTenantQuotaOutput) SetExpireTime(v int64) *BasicQuotaForGetTenantQuotaOutput {
 	s.ExpireTime = &v
+	return s
+}
+
+// SetNeedRemove sets the NeedRemove field's value.
+func (s *BasicQuotaForGetTenantQuotaOutput) SetNeedRemove(v bool) *BasicQuotaForGetTenantQuotaOutput {
+	s.NeedRemove = &v
 	return s
 }
 
@@ -243,10 +275,68 @@ func (s *BasicQuotaForGetTenantQuotaOutput) SetVersion(v int64) *BasicQuotaForGe
 	return s
 }
 
+type CapWhiteListForGetTenantQuotaOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	BashAuditCap *int64 `type:"int64" json:",omitempty"`
+
+	ClientBruteforceBanCap *int64 `type:"int64" json:",omitempty"`
+
+	CollectorV140Cap *int64 `type:"int64" json:",omitempty"`
+
+	FileMonitorCap *int64 `type:"int64" json:",omitempty"`
+
+	SecurityAgentCap *int64 `type:"int64" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s CapWhiteListForGetTenantQuotaOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s CapWhiteListForGetTenantQuotaOutput) GoString() string {
+	return s.String()
+}
+
+// SetBashAuditCap sets the BashAuditCap field's value.
+func (s *CapWhiteListForGetTenantQuotaOutput) SetBashAuditCap(v int64) *CapWhiteListForGetTenantQuotaOutput {
+	s.BashAuditCap = &v
+	return s
+}
+
+// SetClientBruteforceBanCap sets the ClientBruteforceBanCap field's value.
+func (s *CapWhiteListForGetTenantQuotaOutput) SetClientBruteforceBanCap(v int64) *CapWhiteListForGetTenantQuotaOutput {
+	s.ClientBruteforceBanCap = &v
+	return s
+}
+
+// SetCollectorV140Cap sets the CollectorV140Cap field's value.
+func (s *CapWhiteListForGetTenantQuotaOutput) SetCollectorV140Cap(v int64) *CapWhiteListForGetTenantQuotaOutput {
+	s.CollectorV140Cap = &v
+	return s
+}
+
+// SetFileMonitorCap sets the FileMonitorCap field's value.
+func (s *CapWhiteListForGetTenantQuotaOutput) SetFileMonitorCap(v int64) *CapWhiteListForGetTenantQuotaOutput {
+	s.FileMonitorCap = &v
+	return s
+}
+
+// SetSecurityAgentCap sets the SecurityAgentCap field's value.
+func (s *CapWhiteListForGetTenantQuotaOutput) SetSecurityAgentCap(v int64) *CapWhiteListForGetTenantQuotaOutput {
+	s.SecurityAgentCap = &v
+	return s
+}
+
 type ClusterSecForGetTenantQuotaOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	Action *string `type:"string" json:",omitempty"`
+
 	ExpireTime *int64 `type:"int64" json:",omitempty"`
+
+	NeedRemove *bool `type:"boolean" json:",omitempty"`
 
 	TotalCount *int64 `type:"int64" json:",omitempty"`
 
@@ -265,9 +355,21 @@ func (s ClusterSecForGetTenantQuotaOutput) GoString() string {
 	return s.String()
 }
 
+// SetAction sets the Action field's value.
+func (s *ClusterSecForGetTenantQuotaOutput) SetAction(v string) *ClusterSecForGetTenantQuotaOutput {
+	s.Action = &v
+	return s
+}
+
 // SetExpireTime sets the ExpireTime field's value.
 func (s *ClusterSecForGetTenantQuotaOutput) SetExpireTime(v int64) *ClusterSecForGetTenantQuotaOutput {
 	s.ExpireTime = &v
+	return s
+}
+
+// SetNeedRemove sets the NeedRemove field's value.
+func (s *ClusterSecForGetTenantQuotaOutput) SetNeedRemove(v bool) *ClusterSecForGetTenantQuotaOutput {
+	s.NeedRemove = &v
 	return s
 }
 
@@ -312,9 +414,13 @@ type GetTenantQuotaOutput struct {
 
 	BasicQuota *BasicQuotaForGetTenantQuotaOutput `type:"structure" json:",omitempty"`
 
+	CapWhiteList *CapWhiteListForGetTenantQuotaOutput `type:"structure" json:",omitempty"`
+
 	ExpireTime *int64 `type:"int64" json:",omitempty"`
 
 	ID *string `type:"string" json:",omitempty"`
+
+	Id *string `type:"string" json:"id,omitempty"`
 
 	InsertTime *int64 `type:"int64" json:",omitempty"`
 
@@ -347,6 +453,12 @@ func (s *GetTenantQuotaOutput) SetBasicQuota(v *BasicQuotaForGetTenantQuotaOutpu
 	return s
 }
 
+// SetCapWhiteList sets the CapWhiteList field's value.
+func (s *GetTenantQuotaOutput) SetCapWhiteList(v *CapWhiteListForGetTenantQuotaOutput) *GetTenantQuotaOutput {
+	s.CapWhiteList = v
+	return s
+}
+
 // SetExpireTime sets the ExpireTime field's value.
 func (s *GetTenantQuotaOutput) SetExpireTime(v int64) *GetTenantQuotaOutput {
 	s.ExpireTime = &v
@@ -356,6 +468,12 @@ func (s *GetTenantQuotaOutput) SetExpireTime(v int64) *GetTenantQuotaOutput {
 // SetID sets the ID field's value.
 func (s *GetTenantQuotaOutput) SetID(v string) *GetTenantQuotaOutput {
 	s.ID = &v
+	return s
+}
+
+// SetId sets the Id field's value.
+func (s *GetTenantQuotaOutput) SetId(v string) *GetTenantQuotaOutput {
+	s.Id = &v
 	return s
 }
 
@@ -383,10 +501,78 @@ func (s *GetTenantQuotaOutput) SetValueAdded(v *ValueAddedForGetTenantQuotaOutpu
 	return s
 }
 
+type LLMEvalQuotaForGetTenantQuotaOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Action *string `type:"string" json:",omitempty"`
+
+	ExpireTime *int64 `type:"int64" json:",omitempty"`
+
+	NeedRemove *bool `type:"boolean" json:",omitempty"`
+
+	TotalCount *int64 `type:"int64" json:",omitempty"`
+
+	UsedCount *int64 `type:"int64" json:",omitempty"`
+
+	Version *int64 `type:"int64" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s LLMEvalQuotaForGetTenantQuotaOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s LLMEvalQuotaForGetTenantQuotaOutput) GoString() string {
+	return s.String()
+}
+
+// SetAction sets the Action field's value.
+func (s *LLMEvalQuotaForGetTenantQuotaOutput) SetAction(v string) *LLMEvalQuotaForGetTenantQuotaOutput {
+	s.Action = &v
+	return s
+}
+
+// SetExpireTime sets the ExpireTime field's value.
+func (s *LLMEvalQuotaForGetTenantQuotaOutput) SetExpireTime(v int64) *LLMEvalQuotaForGetTenantQuotaOutput {
+	s.ExpireTime = &v
+	return s
+}
+
+// SetNeedRemove sets the NeedRemove field's value.
+func (s *LLMEvalQuotaForGetTenantQuotaOutput) SetNeedRemove(v bool) *LLMEvalQuotaForGetTenantQuotaOutput {
+	s.NeedRemove = &v
+	return s
+}
+
+// SetTotalCount sets the TotalCount field's value.
+func (s *LLMEvalQuotaForGetTenantQuotaOutput) SetTotalCount(v int64) *LLMEvalQuotaForGetTenantQuotaOutput {
+	s.TotalCount = &v
+	return s
+}
+
+// SetUsedCount sets the UsedCount field's value.
+func (s *LLMEvalQuotaForGetTenantQuotaOutput) SetUsedCount(v int64) *LLMEvalQuotaForGetTenantQuotaOutput {
+	s.UsedCount = &v
+	return s
+}
+
+// SetVersion sets the Version field's value.
+func (s *LLMEvalQuotaForGetTenantQuotaOutput) SetVersion(v int64) *LLMEvalQuotaForGetTenantQuotaOutput {
+	s.Version = &v
+	return s
+}
+
 type LogAnalysisQuotaForGetTenantQuotaOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	Action *string `type:"string" json:",omitempty"`
+
 	ExpireTime *int64 `type:"int64" json:",omitempty"`
+
+	NeedRemove *bool `type:"boolean" json:",omitempty"`
+
+	PaidType *string `type:"string" json:",omitempty"`
 
 	TotalCount *int64 `type:"int64" json:",omitempty"`
 
@@ -405,9 +591,27 @@ func (s LogAnalysisQuotaForGetTenantQuotaOutput) GoString() string {
 	return s.String()
 }
 
+// SetAction sets the Action field's value.
+func (s *LogAnalysisQuotaForGetTenantQuotaOutput) SetAction(v string) *LogAnalysisQuotaForGetTenantQuotaOutput {
+	s.Action = &v
+	return s
+}
+
 // SetExpireTime sets the ExpireTime field's value.
 func (s *LogAnalysisQuotaForGetTenantQuotaOutput) SetExpireTime(v int64) *LogAnalysisQuotaForGetTenantQuotaOutput {
 	s.ExpireTime = &v
+	return s
+}
+
+// SetNeedRemove sets the NeedRemove field's value.
+func (s *LogAnalysisQuotaForGetTenantQuotaOutput) SetNeedRemove(v bool) *LogAnalysisQuotaForGetTenantQuotaOutput {
+	s.NeedRemove = &v
+	return s
+}
+
+// SetPaidType sets the PaidType field's value.
+func (s *LogAnalysisQuotaForGetTenantQuotaOutput) SetPaidType(v string) *LogAnalysisQuotaForGetTenantQuotaOutput {
+	s.PaidType = &v
 	return s
 }
 
@@ -432,7 +636,11 @@ func (s *LogAnalysisQuotaForGetTenantQuotaOutput) SetVersion(v int64) *LogAnalys
 type MlpDefenderQuotaForGetTenantQuotaOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	Action *string `type:"string" json:",omitempty"`
+
 	ExpireTime *int64 `type:"int64" json:",omitempty"`
+
+	NeedRemove *bool `type:"boolean" json:",omitempty"`
 
 	TotalCount *int64 `type:"int64" json:",omitempty"`
 
@@ -451,9 +659,21 @@ func (s MlpDefenderQuotaForGetTenantQuotaOutput) GoString() string {
 	return s.String()
 }
 
+// SetAction sets the Action field's value.
+func (s *MlpDefenderQuotaForGetTenantQuotaOutput) SetAction(v string) *MlpDefenderQuotaForGetTenantQuotaOutput {
+	s.Action = &v
+	return s
+}
+
 // SetExpireTime sets the ExpireTime field's value.
 func (s *MlpDefenderQuotaForGetTenantQuotaOutput) SetExpireTime(v int64) *MlpDefenderQuotaForGetTenantQuotaOutput {
 	s.ExpireTime = &v
+	return s
+}
+
+// SetNeedRemove sets the NeedRemove field's value.
+func (s *MlpDefenderQuotaForGetTenantQuotaOutput) SetNeedRemove(v bool) *MlpDefenderQuotaForGetTenantQuotaOutput {
+	s.NeedRemove = &v
 	return s
 }
 
@@ -516,7 +736,11 @@ func (s *MultiLevelManagementForGetTenantQuotaOutput) SetProtectHost(v *ProtectH
 type ProtectHostForGetTenantQuotaOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	Action *string `type:"string" json:",omitempty"`
+
 	ExpireTime *int64 `type:"int64" json:",omitempty"`
+
+	NeedRemove *bool `type:"boolean" json:",omitempty"`
 
 	TotalCount *int64 `type:"int64" json:",omitempty"`
 
@@ -535,9 +759,21 @@ func (s ProtectHostForGetTenantQuotaOutput) GoString() string {
 	return s.String()
 }
 
+// SetAction sets the Action field's value.
+func (s *ProtectHostForGetTenantQuotaOutput) SetAction(v string) *ProtectHostForGetTenantQuotaOutput {
+	s.Action = &v
+	return s
+}
+
 // SetExpireTime sets the ExpireTime field's value.
 func (s *ProtectHostForGetTenantQuotaOutput) SetExpireTime(v int64) *ProtectHostForGetTenantQuotaOutput {
 	s.ExpireTime = &v
+	return s
+}
+
+// SetNeedRemove sets the NeedRemove field's value.
+func (s *ProtectHostForGetTenantQuotaOutput) SetNeedRemove(v bool) *ProtectHostForGetTenantQuotaOutput {
+	s.NeedRemove = &v
 	return s
 }
 
@@ -562,7 +798,13 @@ func (s *ProtectHostForGetTenantQuotaOutput) SetVersion(v int64) *ProtectHostFor
 type RaspAuthQuotaForGetTenantQuotaOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	Action *string `type:"string" json:",omitempty"`
+
 	ExpireTime *int64 `type:"int64" json:",omitempty"`
+
+	NeedRemove *bool `type:"boolean" json:",omitempty"`
+
+	PaidType *string `type:"string" json:",omitempty"`
 
 	TotalCount *int64 `type:"int64" json:",omitempty"`
 
@@ -581,9 +823,27 @@ func (s RaspAuthQuotaForGetTenantQuotaOutput) GoString() string {
 	return s.String()
 }
 
+// SetAction sets the Action field's value.
+func (s *RaspAuthQuotaForGetTenantQuotaOutput) SetAction(v string) *RaspAuthQuotaForGetTenantQuotaOutput {
+	s.Action = &v
+	return s
+}
+
 // SetExpireTime sets the ExpireTime field's value.
 func (s *RaspAuthQuotaForGetTenantQuotaOutput) SetExpireTime(v int64) *RaspAuthQuotaForGetTenantQuotaOutput {
 	s.ExpireTime = &v
+	return s
+}
+
+// SetNeedRemove sets the NeedRemove field's value.
+func (s *RaspAuthQuotaForGetTenantQuotaOutput) SetNeedRemove(v bool) *RaspAuthQuotaForGetTenantQuotaOutput {
+	s.NeedRemove = &v
+	return s
+}
+
+// SetPaidType sets the PaidType field's value.
+func (s *RaspAuthQuotaForGetTenantQuotaOutput) SetPaidType(v string) *RaspAuthQuotaForGetTenantQuotaOutput {
+	s.PaidType = &v
 	return s
 }
 
@@ -608,6 +868,8 @@ func (s *RaspAuthQuotaForGetTenantQuotaOutput) SetVersion(v int64) *RaspAuthQuot
 type ValueAddedForGetTenantQuotaOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	LLMEvalQuota *LLMEvalQuotaForGetTenantQuotaOutput `type:"structure" json:",omitempty"`
+
 	LogAnalysisQuota *LogAnalysisQuotaForGetTenantQuotaOutput `type:"structure" json:",omitempty"`
 
 	MlpDefenderQuota *MlpDefenderQuotaForGetTenantQuotaOutput `type:"structure" json:",omitempty"`
@@ -615,6 +877,8 @@ type ValueAddedForGetTenantQuotaOutput struct {
 	MultiLevelManagement *MultiLevelManagementForGetTenantQuotaOutput `type:"structure" json:",omitempty"`
 
 	RaspAuthQuota *RaspAuthQuotaForGetTenantQuotaOutput `type:"structure" json:",omitempty"`
+
+	VarmorQuota *VarmorQuotaForGetTenantQuotaOutput `type:"structure" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -625,6 +889,12 @@ func (s ValueAddedForGetTenantQuotaOutput) String() string {
 // GoString returns the string representation
 func (s ValueAddedForGetTenantQuotaOutput) GoString() string {
 	return s.String()
+}
+
+// SetLLMEvalQuota sets the LLMEvalQuota field's value.
+func (s *ValueAddedForGetTenantQuotaOutput) SetLLMEvalQuota(v *LLMEvalQuotaForGetTenantQuotaOutput) *ValueAddedForGetTenantQuotaOutput {
+	s.LLMEvalQuota = v
+	return s
 }
 
 // SetLogAnalysisQuota sets the LogAnalysisQuota field's value.
@@ -648,5 +918,81 @@ func (s *ValueAddedForGetTenantQuotaOutput) SetMultiLevelManagement(v *MultiLeve
 // SetRaspAuthQuota sets the RaspAuthQuota field's value.
 func (s *ValueAddedForGetTenantQuotaOutput) SetRaspAuthQuota(v *RaspAuthQuotaForGetTenantQuotaOutput) *ValueAddedForGetTenantQuotaOutput {
 	s.RaspAuthQuota = v
+	return s
+}
+
+// SetVarmorQuota sets the VarmorQuota field's value.
+func (s *ValueAddedForGetTenantQuotaOutput) SetVarmorQuota(v *VarmorQuotaForGetTenantQuotaOutput) *ValueAddedForGetTenantQuotaOutput {
+	s.VarmorQuota = v
+	return s
+}
+
+type VarmorQuotaForGetTenantQuotaOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Action *string `type:"string" json:",omitempty"`
+
+	ExpireTime *int64 `type:"int64" json:",omitempty"`
+
+	NeedRemove *bool `type:"boolean" json:",omitempty"`
+
+	PaidType *string `type:"string" json:",omitempty"`
+
+	TotalCount *int64 `type:"int64" json:",omitempty"`
+
+	UsedCount *int64 `type:"int64" json:",omitempty"`
+
+	Version *int64 `type:"int64" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s VarmorQuotaForGetTenantQuotaOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s VarmorQuotaForGetTenantQuotaOutput) GoString() string {
+	return s.String()
+}
+
+// SetAction sets the Action field's value.
+func (s *VarmorQuotaForGetTenantQuotaOutput) SetAction(v string) *VarmorQuotaForGetTenantQuotaOutput {
+	s.Action = &v
+	return s
+}
+
+// SetExpireTime sets the ExpireTime field's value.
+func (s *VarmorQuotaForGetTenantQuotaOutput) SetExpireTime(v int64) *VarmorQuotaForGetTenantQuotaOutput {
+	s.ExpireTime = &v
+	return s
+}
+
+// SetNeedRemove sets the NeedRemove field's value.
+func (s *VarmorQuotaForGetTenantQuotaOutput) SetNeedRemove(v bool) *VarmorQuotaForGetTenantQuotaOutput {
+	s.NeedRemove = &v
+	return s
+}
+
+// SetPaidType sets the PaidType field's value.
+func (s *VarmorQuotaForGetTenantQuotaOutput) SetPaidType(v string) *VarmorQuotaForGetTenantQuotaOutput {
+	s.PaidType = &v
+	return s
+}
+
+// SetTotalCount sets the TotalCount field's value.
+func (s *VarmorQuotaForGetTenantQuotaOutput) SetTotalCount(v int64) *VarmorQuotaForGetTenantQuotaOutput {
+	s.TotalCount = &v
+	return s
+}
+
+// SetUsedCount sets the UsedCount field's value.
+func (s *VarmorQuotaForGetTenantQuotaOutput) SetUsedCount(v int64) *VarmorQuotaForGetTenantQuotaOutput {
+	s.UsedCount = &v
+	return s
+}
+
+// SetVersion sets the Version field's value.
+func (s *VarmorQuotaForGetTenantQuotaOutput) SetVersion(v int64) *VarmorQuotaForGetTenantQuotaOutput {
+	s.Version = &v
 	return s
 }

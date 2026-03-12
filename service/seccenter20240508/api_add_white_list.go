@@ -154,11 +154,14 @@ type AddWhiteListInput struct {
 
 	MatchAlarmName *string `type:"string" json:",omitempty"`
 
+	MatchName *string `type:"string" json:",omitempty"`
+
 	Range *RangeForAddWhiteListInput `type:"structure" json:",omitempty"`
 
 	RuleList []*RuleListForAddWhiteListInput `type:"list" json:",omitempty"`
 
-	Type *string `type:"string" json:",omitempty"`
+	// Type is a required field
+	Type *string `type:"string" json:",omitempty" required:"true"`
 
 	User *string `type:"string" json:",omitempty"`
 }
@@ -171,6 +174,19 @@ func (s AddWhiteListInput) String() string {
 // GoString returns the string representation
 func (s AddWhiteListInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *AddWhiteListInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "AddWhiteListInput"}
+	if s.Type == nil {
+		invalidParams.Add(request.NewErrParamRequired("Type"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetDesc sets the Desc field's value.
@@ -194,6 +210,12 @@ func (s *AddWhiteListInput) SetLang(v string) *AddWhiteListInput {
 // SetMatchAlarmName sets the MatchAlarmName field's value.
 func (s *AddWhiteListInput) SetMatchAlarmName(v string) *AddWhiteListInput {
 	s.MatchAlarmName = &v
+	return s
+}
+
+// SetMatchName sets the MatchName field's value.
+func (s *AddWhiteListInput) SetMatchName(v string) *AddWhiteListInput {
+	s.MatchName = &v
 	return s
 }
 
@@ -304,6 +326,8 @@ type RuleListForAddWhiteListInput struct {
 
 	MatchContent *string `type:"string" json:",omitempty"`
 
+	MatchContentList []*string `type:"list" json:",omitempty"`
+
 	MatchKey *string `type:"string" json:",omitempty"`
 
 	MatchType *int64 `type:"int64" json:",omitempty"`
@@ -322,6 +346,12 @@ func (s RuleListForAddWhiteListInput) GoString() string {
 // SetMatchContent sets the MatchContent field's value.
 func (s *RuleListForAddWhiteListInput) SetMatchContent(v string) *RuleListForAddWhiteListInput {
 	s.MatchContent = &v
+	return s
+}
+
+// SetMatchContentList sets the MatchContentList field's value.
+func (s *RuleListForAddWhiteListInput) SetMatchContentList(v []*string) *RuleListForAddWhiteListInput {
+	s.MatchContentList = v
 	return s
 }
 

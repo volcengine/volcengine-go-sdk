@@ -194,6 +194,10 @@ type ConditionsForExportMlpAlarmListDataInput struct {
 
 	ImageName *string `type:"string" json:",omitempty"`
 
+	LastAlarmTimeEnd *int64 `type:"int64" json:",omitempty"`
+
+	LastAlarmTimeStart *int64 `type:"int64" json:",omitempty"`
+
 	LeafGroupIDs []*string `type:"list" json:",omitempty"`
 
 	Level []*string `type:"list" json:",omitempty"`
@@ -202,9 +206,13 @@ type ConditionsForExportMlpAlarmListDataInput struct {
 
 	Name *string `type:"string" json:",omitempty"`
 
+	OperationList []*string `type:"list" json:",omitempty"`
+
 	ProbeHook *string `type:"string" json:",omitempty"`
 
 	RaspArgv *string `type:"string" json:",omitempty"`
+
+	Security_intelligence_results []*string `type:"list" json:"security_intelligence_results,omitempty"`
 
 	Status []*int64 `type:"list" json:",omitempty"`
 
@@ -381,6 +389,18 @@ func (s *ConditionsForExportMlpAlarmListDataInput) SetImageName(v string) *Condi
 	return s
 }
 
+// SetLastAlarmTimeEnd sets the LastAlarmTimeEnd field's value.
+func (s *ConditionsForExportMlpAlarmListDataInput) SetLastAlarmTimeEnd(v int64) *ConditionsForExportMlpAlarmListDataInput {
+	s.LastAlarmTimeEnd = &v
+	return s
+}
+
+// SetLastAlarmTimeStart sets the LastAlarmTimeStart field's value.
+func (s *ConditionsForExportMlpAlarmListDataInput) SetLastAlarmTimeStart(v int64) *ConditionsForExportMlpAlarmListDataInput {
+	s.LastAlarmTimeStart = &v
+	return s
+}
+
 // SetLeafGroupIDs sets the LeafGroupIDs field's value.
 func (s *ConditionsForExportMlpAlarmListDataInput) SetLeafGroupIDs(v []*string) *ConditionsForExportMlpAlarmListDataInput {
 	s.LeafGroupIDs = v
@@ -405,6 +425,12 @@ func (s *ConditionsForExportMlpAlarmListDataInput) SetName(v string) *Conditions
 	return s
 }
 
+// SetOperationList sets the OperationList field's value.
+func (s *ConditionsForExportMlpAlarmListDataInput) SetOperationList(v []*string) *ConditionsForExportMlpAlarmListDataInput {
+	s.OperationList = v
+	return s
+}
+
 // SetProbeHook sets the ProbeHook field's value.
 func (s *ConditionsForExportMlpAlarmListDataInput) SetProbeHook(v string) *ConditionsForExportMlpAlarmListDataInput {
 	s.ProbeHook = &v
@@ -414,6 +440,12 @@ func (s *ConditionsForExportMlpAlarmListDataInput) SetProbeHook(v string) *Condi
 // SetRaspArgv sets the RaspArgv field's value.
 func (s *ConditionsForExportMlpAlarmListDataInput) SetRaspArgv(v string) *ConditionsForExportMlpAlarmListDataInput {
 	s.RaspArgv = &v
+	return s
+}
+
+// SetSecurity_intelligence_results sets the Security_intelligence_results field's value.
+func (s *ConditionsForExportMlpAlarmListDataInput) SetSecurity_intelligence_results(v []*string) *ConditionsForExportMlpAlarmListDataInput {
+	s.Security_intelligence_results = v
 	return s
 }
 

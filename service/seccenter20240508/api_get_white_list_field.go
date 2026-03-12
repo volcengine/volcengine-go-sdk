@@ -176,7 +176,8 @@ func (s *FieldListForGetWhiteListFieldOutput) SetValueList(v []*string) *FieldLi
 type GetWhiteListFieldInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	AlarmID *string `type:"string" json:",omitempty"`
+	// AlarmID is a required field
+	AlarmID *string `type:"string" json:",omitempty" required:"true"`
 
 	Type *string `type:"string" json:",omitempty"`
 }
@@ -189,6 +190,19 @@ func (s GetWhiteListFieldInput) String() string {
 // GoString returns the string representation
 func (s GetWhiteListFieldInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *GetWhiteListFieldInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "GetWhiteListFieldInput"}
+	if s.AlarmID == nil {
+		invalidParams.Add(request.NewErrParamRequired("AlarmID"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetAlarmID sets the AlarmID field's value.

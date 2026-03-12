@@ -154,7 +154,11 @@ type DataForListDevBasicInfosOutput struct {
 
 	PrivateIP *string `type:"string" json:",omitempty"`
 
+	ProtectStatus *string `type:"string" json:",omitempty"`
+
 	PublicIP *string `type:"string" json:",omitempty"`
+
+	SecurityEnhancement *bool `type:"boolean" json:",omitempty"`
 
 	Status *string `type:"string" json:",omitempty"`
 }
@@ -193,9 +197,21 @@ func (s *DataForListDevBasicInfosOutput) SetPrivateIP(v string) *DataForListDevB
 	return s
 }
 
+// SetProtectStatus sets the ProtectStatus field's value.
+func (s *DataForListDevBasicInfosOutput) SetProtectStatus(v string) *DataForListDevBasicInfosOutput {
+	s.ProtectStatus = &v
+	return s
+}
+
 // SetPublicIP sets the PublicIP field's value.
 func (s *DataForListDevBasicInfosOutput) SetPublicIP(v string) *DataForListDevBasicInfosOutput {
 	s.PublicIP = &v
+	return s
+}
+
+// SetSecurityEnhancement sets the SecurityEnhancement field's value.
+func (s *DataForListDevBasicInfosOutput) SetSecurityEnhancement(v bool) *DataForListDevBasicInfosOutput {
+	s.SecurityEnhancement = &v
 	return s
 }
 
@@ -226,9 +242,13 @@ type ListDevBasicInfosInput struct {
 
 	Platforms []*string `type:"list" json:",omitempty"`
 
+	ProtectStatus *string `type:"string" json:",omitempty"`
+
 	Regions []*string `type:"list" json:",omitempty"`
 
 	Risk *RiskForListDevBasicInfosInput `type:"structure" json:",omitempty"`
+
+	SecurityEnhancement *bool `type:"boolean" json:",omitempty"`
 
 	SortBy *string `type:"string" json:",omitempty"`
 
@@ -311,6 +331,12 @@ func (s *ListDevBasicInfosInput) SetPlatforms(v []*string) *ListDevBasicInfosInp
 	return s
 }
 
+// SetProtectStatus sets the ProtectStatus field's value.
+func (s *ListDevBasicInfosInput) SetProtectStatus(v string) *ListDevBasicInfosInput {
+	s.ProtectStatus = &v
+	return s
+}
+
 // SetRegions sets the Regions field's value.
 func (s *ListDevBasicInfosInput) SetRegions(v []*string) *ListDevBasicInfosInput {
 	s.Regions = v
@@ -320,6 +346,12 @@ func (s *ListDevBasicInfosInput) SetRegions(v []*string) *ListDevBasicInfosInput
 // SetRisk sets the Risk field's value.
 func (s *ListDevBasicInfosInput) SetRisk(v *RiskForListDevBasicInfosInput) *ListDevBasicInfosInput {
 	s.Risk = v
+	return s
+}
+
+// SetSecurityEnhancement sets the SecurityEnhancement field's value.
+func (s *ListDevBasicInfosInput) SetSecurityEnhancement(v bool) *ListDevBasicInfosInput {
+	s.SecurityEnhancement = &v
 	return s
 }
 

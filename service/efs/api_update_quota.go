@@ -148,6 +148,9 @@ type UpdateQuotaInput struct {
 
 	CapacityLimit *int64 `type:"int64" json:",omitempty"`
 
+	// FileSystemId is a required field
+	FileSystemId *string `type:"string" json:",omitempty" required:"true"`
+
 	InodeLimit *int64 `type:"int64" json:",omitempty"`
 
 	LimitType *string `type:"string" json:",omitempty" enum:"EnumOfLimitTypeForUpdateQuotaInput"`
@@ -169,6 +172,9 @@ func (s UpdateQuotaInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *UpdateQuotaInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "UpdateQuotaInput"}
+	if s.FileSystemId == nil {
+		invalidParams.Add(request.NewErrParamRequired("FileSystemId"))
+	}
 	if s.QuotaId == nil {
 		invalidParams.Add(request.NewErrParamRequired("QuotaId"))
 	}
@@ -182,6 +188,12 @@ func (s *UpdateQuotaInput) Validate() error {
 // SetCapacityLimit sets the CapacityLimit field's value.
 func (s *UpdateQuotaInput) SetCapacityLimit(v int64) *UpdateQuotaInput {
 	s.CapacityLimit = &v
+	return s
+}
+
+// SetFileSystemId sets the FileSystemId field's value.
+func (s *UpdateQuotaInput) SetFileSystemId(v string) *UpdateQuotaInput {
+	s.FileSystemId = &v
 	return s
 }
 

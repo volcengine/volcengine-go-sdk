@@ -286,6 +286,10 @@ type ConditionsForGetNeighboringAlarmInput struct {
 
 	ImageName *string `type:"string" json:",omitempty"`
 
+	LastAlarmTimeEnd *int64 `type:"int64" json:",omitempty"`
+
+	LastAlarmTimeStart *int64 `type:"int64" json:",omitempty"`
+
 	LeafGroupIDs []*string `type:"list" json:",omitempty"`
 
 	Level []*string `type:"list" json:",omitempty"`
@@ -294,9 +298,13 @@ type ConditionsForGetNeighboringAlarmInput struct {
 
 	Name *string `type:"string" json:",omitempty"`
 
+	OperationList []*string `type:"list" json:",omitempty"`
+
 	ProbeHook *string `type:"string" json:",omitempty"`
 
 	RaspArgv *string `type:"string" json:",omitempty"`
+
+	Security_intelligence_results []*string `type:"list" json:"security_intelligence_results,omitempty"`
 
 	Status []*int64 `type:"list" json:",omitempty"`
 
@@ -473,6 +481,18 @@ func (s *ConditionsForGetNeighboringAlarmInput) SetImageName(v string) *Conditio
 	return s
 }
 
+// SetLastAlarmTimeEnd sets the LastAlarmTimeEnd field's value.
+func (s *ConditionsForGetNeighboringAlarmInput) SetLastAlarmTimeEnd(v int64) *ConditionsForGetNeighboringAlarmInput {
+	s.LastAlarmTimeEnd = &v
+	return s
+}
+
+// SetLastAlarmTimeStart sets the LastAlarmTimeStart field's value.
+func (s *ConditionsForGetNeighboringAlarmInput) SetLastAlarmTimeStart(v int64) *ConditionsForGetNeighboringAlarmInput {
+	s.LastAlarmTimeStart = &v
+	return s
+}
+
 // SetLeafGroupIDs sets the LeafGroupIDs field's value.
 func (s *ConditionsForGetNeighboringAlarmInput) SetLeafGroupIDs(v []*string) *ConditionsForGetNeighboringAlarmInput {
 	s.LeafGroupIDs = v
@@ -497,6 +517,12 @@ func (s *ConditionsForGetNeighboringAlarmInput) SetName(v string) *ConditionsFor
 	return s
 }
 
+// SetOperationList sets the OperationList field's value.
+func (s *ConditionsForGetNeighboringAlarmInput) SetOperationList(v []*string) *ConditionsForGetNeighboringAlarmInput {
+	s.OperationList = v
+	return s
+}
+
 // SetProbeHook sets the ProbeHook field's value.
 func (s *ConditionsForGetNeighboringAlarmInput) SetProbeHook(v string) *ConditionsForGetNeighboringAlarmInput {
 	s.ProbeHook = &v
@@ -506,6 +532,12 @@ func (s *ConditionsForGetNeighboringAlarmInput) SetProbeHook(v string) *Conditio
 // SetRaspArgv sets the RaspArgv field's value.
 func (s *ConditionsForGetNeighboringAlarmInput) SetRaspArgv(v string) *ConditionsForGetNeighboringAlarmInput {
 	s.RaspArgv = &v
+	return s
+}
+
+// SetSecurity_intelligence_results sets the Security_intelligence_results field's value.
+func (s *ConditionsForGetNeighboringAlarmInput) SetSecurity_intelligence_results(v []*string) *ConditionsForGetNeighboringAlarmInput {
+	s.Security_intelligence_results = v
 	return s
 }
 
@@ -714,6 +746,8 @@ type NextForGetNeighboringAlarmOutput struct {
 
 	AgentID *string `type:"string" json:",omitempty"`
 
+	AlarmCount *int64 `type:"int64" json:",omitempty"`
+
 	AlarmHandleResult *int64 `type:"int64" json:",omitempty"`
 
 	AlarmHostname *string `type:"string" json:",omitempty"`
@@ -723,6 +757,8 @@ type NextForGetNeighboringAlarmOutput struct {
 	AlarmTime *int64 `type:"int64" json:",omitempty"`
 
 	AlertTags []*string `type:"list" json:",omitempty"`
+
+	AnalysisRecordUUID *string `type:"string" json:",omitempty"`
 
 	Args []*string `type:"list" json:",omitempty"`
 
@@ -735,6 +771,8 @@ type NextForGetNeighboringAlarmOutput struct {
 	Class *string `type:"string" json:",omitempty"`
 
 	Cluster *ClusterForGetNeighboringAlarmOutput `type:"structure" json:",omitempty"`
+
+	Confidence *string `type:"string" json:",omitempty"`
 
 	DataType *string `type:"string" json:",omitempty"`
 
@@ -754,6 +792,8 @@ type NextForGetNeighboringAlarmOutput struct {
 
 	GroupPath *string `type:"string" json:",omitempty"`
 
+	HandleFailReason *string `type:"string" json:",omitempty"`
+
 	HandleTime *int64 `type:"int64" json:",omitempty"`
 
 	Host *HostForGetNeighboringAlarmOutput `type:"structure" json:",omitempty"`
@@ -766,6 +806,8 @@ type NextForGetNeighboringAlarmOutput struct {
 
 	LLMProcessed *bool `type:"boolean" json:",omitempty"`
 
+	LastAlarmTime *int64 `type:"int64" json:",omitempty"`
+
 	Level *string `type:"string" json:",omitempty"`
 
 	MlpInstanceID *string `type:"string" json:",omitempty"`
@@ -776,6 +818,8 @@ type NextForGetNeighboringAlarmOutput struct {
 
 	NsPid *string `type:"string" json:",omitempty"`
 
+	OperationList []*string `type:"list" json:",omitempty"`
+
 	OsType *string `type:"string" json:",omitempty"`
 
 	Pid *string `type:"string" json:",omitempty"`
@@ -783,6 +827,10 @@ type NextForGetNeighboringAlarmOutput struct {
 	ProbeHook *string `type:"string" json:",omitempty"`
 
 	Region *string `type:"string" json:",omitempty"`
+
+	SecurityIntelligenceComplete *bool `type:"boolean" json:",omitempty"`
+
+	SecurityIntelligenceResult *string `type:"string" json:",omitempty"`
 
 	Sid *string `type:"string" json:",omitempty"`
 
@@ -819,6 +867,12 @@ func (s *NextForGetNeighboringAlarmOutput) SetAgentID(v string) *NextForGetNeigh
 	return s
 }
 
+// SetAlarmCount sets the AlarmCount field's value.
+func (s *NextForGetNeighboringAlarmOutput) SetAlarmCount(v int64) *NextForGetNeighboringAlarmOutput {
+	s.AlarmCount = &v
+	return s
+}
+
 // SetAlarmHandleResult sets the AlarmHandleResult field's value.
 func (s *NextForGetNeighboringAlarmOutput) SetAlarmHandleResult(v int64) *NextForGetNeighboringAlarmOutput {
 	s.AlarmHandleResult = &v
@@ -846,6 +900,12 @@ func (s *NextForGetNeighboringAlarmOutput) SetAlarmTime(v int64) *NextForGetNeig
 // SetAlertTags sets the AlertTags field's value.
 func (s *NextForGetNeighboringAlarmOutput) SetAlertTags(v []*string) *NextForGetNeighboringAlarmOutput {
 	s.AlertTags = v
+	return s
+}
+
+// SetAnalysisRecordUUID sets the AnalysisRecordUUID field's value.
+func (s *NextForGetNeighboringAlarmOutput) SetAnalysisRecordUUID(v string) *NextForGetNeighboringAlarmOutput {
+	s.AnalysisRecordUUID = &v
 	return s
 }
 
@@ -882,6 +942,12 @@ func (s *NextForGetNeighboringAlarmOutput) SetClass(v string) *NextForGetNeighbo
 // SetCluster sets the Cluster field's value.
 func (s *NextForGetNeighboringAlarmOutput) SetCluster(v *ClusterForGetNeighboringAlarmOutput) *NextForGetNeighboringAlarmOutput {
 	s.Cluster = v
+	return s
+}
+
+// SetConfidence sets the Confidence field's value.
+func (s *NextForGetNeighboringAlarmOutput) SetConfidence(v string) *NextForGetNeighboringAlarmOutput {
+	s.Confidence = &v
 	return s
 }
 
@@ -939,6 +1005,12 @@ func (s *NextForGetNeighboringAlarmOutput) SetGroupPath(v string) *NextForGetNei
 	return s
 }
 
+// SetHandleFailReason sets the HandleFailReason field's value.
+func (s *NextForGetNeighboringAlarmOutput) SetHandleFailReason(v string) *NextForGetNeighboringAlarmOutput {
+	s.HandleFailReason = &v
+	return s
+}
+
 // SetHandleTime sets the HandleTime field's value.
 func (s *NextForGetNeighboringAlarmOutput) SetHandleTime(v int64) *NextForGetNeighboringAlarmOutput {
 	s.HandleTime = &v
@@ -975,6 +1047,12 @@ func (s *NextForGetNeighboringAlarmOutput) SetLLMProcessed(v bool) *NextForGetNe
 	return s
 }
 
+// SetLastAlarmTime sets the LastAlarmTime field's value.
+func (s *NextForGetNeighboringAlarmOutput) SetLastAlarmTime(v int64) *NextForGetNeighboringAlarmOutput {
+	s.LastAlarmTime = &v
+	return s
+}
+
 // SetLevel sets the Level field's value.
 func (s *NextForGetNeighboringAlarmOutput) SetLevel(v string) *NextForGetNeighboringAlarmOutput {
 	s.Level = &v
@@ -1005,6 +1083,12 @@ func (s *NextForGetNeighboringAlarmOutput) SetNsPid(v string) *NextForGetNeighbo
 	return s
 }
 
+// SetOperationList sets the OperationList field's value.
+func (s *NextForGetNeighboringAlarmOutput) SetOperationList(v []*string) *NextForGetNeighboringAlarmOutput {
+	s.OperationList = v
+	return s
+}
+
 // SetOsType sets the OsType field's value.
 func (s *NextForGetNeighboringAlarmOutput) SetOsType(v string) *NextForGetNeighboringAlarmOutput {
 	s.OsType = &v
@@ -1026,6 +1110,18 @@ func (s *NextForGetNeighboringAlarmOutput) SetProbeHook(v string) *NextForGetNei
 // SetRegion sets the Region field's value.
 func (s *NextForGetNeighboringAlarmOutput) SetRegion(v string) *NextForGetNeighboringAlarmOutput {
 	s.Region = &v
+	return s
+}
+
+// SetSecurityIntelligenceComplete sets the SecurityIntelligenceComplete field's value.
+func (s *NextForGetNeighboringAlarmOutput) SetSecurityIntelligenceComplete(v bool) *NextForGetNeighboringAlarmOutput {
+	s.SecurityIntelligenceComplete = &v
+	return s
+}
+
+// SetSecurityIntelligenceResult sets the SecurityIntelligenceResult field's value.
+func (s *NextForGetNeighboringAlarmOutput) SetSecurityIntelligenceResult(v string) *NextForGetNeighboringAlarmOutput {
+	s.SecurityIntelligenceResult = &v
 	return s
 }
 
@@ -1072,6 +1168,8 @@ type PrevForGetNeighboringAlarmOutput struct {
 
 	AgentID *string `type:"string" json:",omitempty"`
 
+	AlarmCount *int64 `type:"int64" json:",omitempty"`
+
 	AlarmHandleResult *int64 `type:"int64" json:",omitempty"`
 
 	AlarmHostname *string `type:"string" json:",omitempty"`
@@ -1081,6 +1179,8 @@ type PrevForGetNeighboringAlarmOutput struct {
 	AlarmTime *int64 `type:"int64" json:",omitempty"`
 
 	AlertTags []*string `type:"list" json:",omitempty"`
+
+	AnalysisRecordUUID *string `type:"string" json:",omitempty"`
 
 	Args []*string `type:"list" json:",omitempty"`
 
@@ -1093,6 +1193,8 @@ type PrevForGetNeighboringAlarmOutput struct {
 	Class *string `type:"string" json:",omitempty"`
 
 	Cluster *ClusterForGetNeighboringAlarmOutput `type:"structure" json:",omitempty"`
+
+	Confidence *string `type:"string" json:",omitempty"`
 
 	DataType *string `type:"string" json:",omitempty"`
 
@@ -1112,6 +1214,8 @@ type PrevForGetNeighboringAlarmOutput struct {
 
 	GroupPath *string `type:"string" json:",omitempty"`
 
+	HandleFailReason *string `type:"string" json:",omitempty"`
+
 	HandleTime *int64 `type:"int64" json:",omitempty"`
 
 	Host *HostForGetNeighboringAlarmOutput `type:"structure" json:",omitempty"`
@@ -1124,6 +1228,8 @@ type PrevForGetNeighboringAlarmOutput struct {
 
 	LLMProcessed *bool `type:"boolean" json:",omitempty"`
 
+	LastAlarmTime *int64 `type:"int64" json:",omitempty"`
+
 	Level *string `type:"string" json:",omitempty"`
 
 	MlpInstanceID *string `type:"string" json:",omitempty"`
@@ -1134,6 +1240,8 @@ type PrevForGetNeighboringAlarmOutput struct {
 
 	NsPid *string `type:"string" json:",omitempty"`
 
+	OperationList []*string `type:"list" json:",omitempty"`
+
 	OsType *string `type:"string" json:",omitempty"`
 
 	Pid *string `type:"string" json:",omitempty"`
@@ -1141,6 +1249,10 @@ type PrevForGetNeighboringAlarmOutput struct {
 	ProbeHook *string `type:"string" json:",omitempty"`
 
 	Region *string `type:"string" json:",omitempty"`
+
+	SecurityIntelligenceComplete *bool `type:"boolean" json:",omitempty"`
+
+	SecurityIntelligenceResult *string `type:"string" json:",omitempty"`
 
 	Sid *string `type:"string" json:",omitempty"`
 
@@ -1177,6 +1289,12 @@ func (s *PrevForGetNeighboringAlarmOutput) SetAgentID(v string) *PrevForGetNeigh
 	return s
 }
 
+// SetAlarmCount sets the AlarmCount field's value.
+func (s *PrevForGetNeighboringAlarmOutput) SetAlarmCount(v int64) *PrevForGetNeighboringAlarmOutput {
+	s.AlarmCount = &v
+	return s
+}
+
 // SetAlarmHandleResult sets the AlarmHandleResult field's value.
 func (s *PrevForGetNeighboringAlarmOutput) SetAlarmHandleResult(v int64) *PrevForGetNeighboringAlarmOutput {
 	s.AlarmHandleResult = &v
@@ -1204,6 +1322,12 @@ func (s *PrevForGetNeighboringAlarmOutput) SetAlarmTime(v int64) *PrevForGetNeig
 // SetAlertTags sets the AlertTags field's value.
 func (s *PrevForGetNeighboringAlarmOutput) SetAlertTags(v []*string) *PrevForGetNeighboringAlarmOutput {
 	s.AlertTags = v
+	return s
+}
+
+// SetAnalysisRecordUUID sets the AnalysisRecordUUID field's value.
+func (s *PrevForGetNeighboringAlarmOutput) SetAnalysisRecordUUID(v string) *PrevForGetNeighboringAlarmOutput {
+	s.AnalysisRecordUUID = &v
 	return s
 }
 
@@ -1240,6 +1364,12 @@ func (s *PrevForGetNeighboringAlarmOutput) SetClass(v string) *PrevForGetNeighbo
 // SetCluster sets the Cluster field's value.
 func (s *PrevForGetNeighboringAlarmOutput) SetCluster(v *ClusterForGetNeighboringAlarmOutput) *PrevForGetNeighboringAlarmOutput {
 	s.Cluster = v
+	return s
+}
+
+// SetConfidence sets the Confidence field's value.
+func (s *PrevForGetNeighboringAlarmOutput) SetConfidence(v string) *PrevForGetNeighboringAlarmOutput {
+	s.Confidence = &v
 	return s
 }
 
@@ -1297,6 +1427,12 @@ func (s *PrevForGetNeighboringAlarmOutput) SetGroupPath(v string) *PrevForGetNei
 	return s
 }
 
+// SetHandleFailReason sets the HandleFailReason field's value.
+func (s *PrevForGetNeighboringAlarmOutput) SetHandleFailReason(v string) *PrevForGetNeighboringAlarmOutput {
+	s.HandleFailReason = &v
+	return s
+}
+
 // SetHandleTime sets the HandleTime field's value.
 func (s *PrevForGetNeighboringAlarmOutput) SetHandleTime(v int64) *PrevForGetNeighboringAlarmOutput {
 	s.HandleTime = &v
@@ -1333,6 +1469,12 @@ func (s *PrevForGetNeighboringAlarmOutput) SetLLMProcessed(v bool) *PrevForGetNe
 	return s
 }
 
+// SetLastAlarmTime sets the LastAlarmTime field's value.
+func (s *PrevForGetNeighboringAlarmOutput) SetLastAlarmTime(v int64) *PrevForGetNeighboringAlarmOutput {
+	s.LastAlarmTime = &v
+	return s
+}
+
 // SetLevel sets the Level field's value.
 func (s *PrevForGetNeighboringAlarmOutput) SetLevel(v string) *PrevForGetNeighboringAlarmOutput {
 	s.Level = &v
@@ -1363,6 +1505,12 @@ func (s *PrevForGetNeighboringAlarmOutput) SetNsPid(v string) *PrevForGetNeighbo
 	return s
 }
 
+// SetOperationList sets the OperationList field's value.
+func (s *PrevForGetNeighboringAlarmOutput) SetOperationList(v []*string) *PrevForGetNeighboringAlarmOutput {
+	s.OperationList = v
+	return s
+}
+
 // SetOsType sets the OsType field's value.
 func (s *PrevForGetNeighboringAlarmOutput) SetOsType(v string) *PrevForGetNeighboringAlarmOutput {
 	s.OsType = &v
@@ -1384,6 +1532,18 @@ func (s *PrevForGetNeighboringAlarmOutput) SetProbeHook(v string) *PrevForGetNei
 // SetRegion sets the Region field's value.
 func (s *PrevForGetNeighboringAlarmOutput) SetRegion(v string) *PrevForGetNeighboringAlarmOutput {
 	s.Region = &v
+	return s
+}
+
+// SetSecurityIntelligenceComplete sets the SecurityIntelligenceComplete field's value.
+func (s *PrevForGetNeighboringAlarmOutput) SetSecurityIntelligenceComplete(v bool) *PrevForGetNeighboringAlarmOutput {
+	s.SecurityIntelligenceComplete = &v
+	return s
+}
+
+// SetSecurityIntelligenceResult sets the SecurityIntelligenceResult field's value.
+func (s *PrevForGetNeighboringAlarmOutput) SetSecurityIntelligenceResult(v string) *PrevForGetNeighboringAlarmOutput {
+	s.SecurityIntelligenceResult = &v
 	return s
 }
 

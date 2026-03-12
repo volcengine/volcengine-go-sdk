@@ -212,6 +212,14 @@ type GetRaspAlarmStatisticsOutput struct {
 
 	AlarmWhiteCount *int64 `type:"int64"`
 
+	AutoBanCount *int64 `type:"int64"`
+
+	AutoBanTodayCount *int64 `type:"int64"`
+
+	BanIPCount *int64 `type:"int64"`
+
+	BanIPTodayCount *int64 `type:"int64"`
+
 	IsolateFileCount *int64 `type:"int64"`
 
 	IsolateTodayCount *int64 `type:"int64"`
@@ -272,6 +280,30 @@ func (s *GetRaspAlarmStatisticsOutput) SetAlarmTotal(v int64) *GetRaspAlarmStati
 // SetAlarmWhiteCount sets the AlarmWhiteCount field's value.
 func (s *GetRaspAlarmStatisticsOutput) SetAlarmWhiteCount(v int64) *GetRaspAlarmStatisticsOutput {
 	s.AlarmWhiteCount = &v
+	return s
+}
+
+// SetAutoBanCount sets the AutoBanCount field's value.
+func (s *GetRaspAlarmStatisticsOutput) SetAutoBanCount(v int64) *GetRaspAlarmStatisticsOutput {
+	s.AutoBanCount = &v
+	return s
+}
+
+// SetAutoBanTodayCount sets the AutoBanTodayCount field's value.
+func (s *GetRaspAlarmStatisticsOutput) SetAutoBanTodayCount(v int64) *GetRaspAlarmStatisticsOutput {
+	s.AutoBanTodayCount = &v
+	return s
+}
+
+// SetBanIPCount sets the BanIPCount field's value.
+func (s *GetRaspAlarmStatisticsOutput) SetBanIPCount(v int64) *GetRaspAlarmStatisticsOutput {
+	s.BanIPCount = &v
+	return s
+}
+
+// SetBanIPTodayCount sets the BanIPTodayCount field's value.
+func (s *GetRaspAlarmStatisticsOutput) SetBanIPTodayCount(v int64) *GetRaspAlarmStatisticsOutput {
+	s.BanIPTodayCount = &v
 	return s
 }
 

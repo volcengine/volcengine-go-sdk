@@ -161,8 +161,6 @@ type CreateFileSystemInput struct {
 	// InstanceType is a required field
 	InstanceType *string `type:"string" json:",omitempty" required:"true" enum:"EnumOfInstanceTypeForCreateFileSystemInput"`
 
-	OneStep *bool `type:"boolean" json:",omitempty"`
-
 	// PerformanceDensity is a required field
 	PerformanceDensity *string `type:"string" json:",omitempty" required:"true" enum:"EnumOfPerformanceDensityForCreateFileSystemInput"`
 
@@ -244,12 +242,6 @@ func (s *CreateFileSystemInput) SetFileSystemName(v string) *CreateFileSystemInp
 // SetInstanceType sets the InstanceType field's value.
 func (s *CreateFileSystemInput) SetInstanceType(v string) *CreateFileSystemInput {
 	s.InstanceType = &v
-	return s
-}
-
-// SetOneStep sets the OneStep field's value.
-func (s *CreateFileSystemInput) SetOneStep(v bool) *CreateFileSystemInput {
-	s.OneStep = &v
 	return s
 }
 
@@ -367,29 +359,17 @@ const (
 const (
 	// EnumOfChargeTypeForCreateFileSystemInputPayAsYouGo is a EnumOfChargeTypeForCreateFileSystemInput enum value
 	EnumOfChargeTypeForCreateFileSystemInputPayAsYouGo = "PayAsYouGo"
-
-	// EnumOfChargeTypeForCreateFileSystemInputNotEnabled is a EnumOfChargeTypeForCreateFileSystemInput enum value
-	EnumOfChargeTypeForCreateFileSystemInputNotEnabled = "NotEnabled"
 )
 
 const (
-	// EnumOfInstanceTypeForCreateFileSystemInputUnknown is a EnumOfInstanceTypeForCreateFileSystemInput enum value
-	EnumOfInstanceTypeForCreateFileSystemInputUnknown = "Unknown"
-
 	// EnumOfInstanceTypeForCreateFileSystemInputBasic is a EnumOfInstanceTypeForCreateFileSystemInput enum value
 	EnumOfInstanceTypeForCreateFileSystemInputBasic = "Basic"
 
 	// EnumOfInstanceTypeForCreateFileSystemInputPremium is a EnumOfInstanceTypeForCreateFileSystemInput enum value
 	EnumOfInstanceTypeForCreateFileSystemInputPremium = "Premium"
-
-	// EnumOfInstanceTypeForCreateFileSystemInputIntelliTier is a EnumOfInstanceTypeForCreateFileSystemInput enum value
-	EnumOfInstanceTypeForCreateFileSystemInputIntelliTier = "IntelliTier"
 )
 
 const (
-	// EnumOfPerformanceDensityForCreateFileSystemInputUnknown is a EnumOfPerformanceDensityForCreateFileSystemInput enum value
-	EnumOfPerformanceDensityForCreateFileSystemInputUnknown = "Unknown"
-
 	// EnumOfPerformanceDensityForCreateFileSystemInputBasic50 is a EnumOfPerformanceDensityForCreateFileSystemInput enum value
 	EnumOfPerformanceDensityForCreateFileSystemInputBasic50 = "Basic_50"
 

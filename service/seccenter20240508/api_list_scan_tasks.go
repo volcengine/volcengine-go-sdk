@@ -156,6 +156,8 @@ type DataForListScanTasksOutput struct {
 
 	IDCount *int64 `type:"int64" json:",omitempty"`
 
+	IsInternal *bool `type:"boolean" json:",omitempty"`
+
 	ResultNum *int64 `type:"int64" json:",omitempty"`
 
 	SubTaskCreated *int64 `type:"int64" json:",omitempty"`
@@ -226,6 +228,12 @@ func (s *DataForListScanTasksOutput) SetFilePath(v string) *DataForListScanTasks
 // SetIDCount sets the IDCount field's value.
 func (s *DataForListScanTasksOutput) SetIDCount(v int64) *DataForListScanTasksOutput {
 	s.IDCount = &v
+	return s
+}
+
+// SetIsInternal sets the IsInternal field's value.
+func (s *DataForListScanTasksOutput) SetIsInternal(v bool) *DataForListScanTasksOutput {
+	s.IsInternal = &v
 	return s
 }
 

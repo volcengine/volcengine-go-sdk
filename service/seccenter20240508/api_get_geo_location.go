@@ -32,7 +32,7 @@ const opGetGeoLocationCommon = "GetGeoLocation"
 func (c *SECCENTER20240508) GetGeoLocationCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opGetGeoLocationCommon,
-		HTTPMethod: "POST",
+		HTTPMethod: "GET",
 		HTTPPath:   "/",
 	}
 
@@ -42,8 +42,6 @@ func (c *SECCENTER20240508) GetGeoLocationCommonRequest(input *map[string]interf
 
 	output = &map[string]interface{}{}
 	req = c.newRequest(op, input, output)
-
-	req.HTTPRequest.Header.Set("Content-Type", "application/json; charset=utf-8")
 
 	return
 }
@@ -99,7 +97,7 @@ const opGetGeoLocation = "GetGeoLocation"
 func (c *SECCENTER20240508) GetGeoLocationRequest(input *GetGeoLocationInput) (req *request.Request, output *GetGeoLocationOutput) {
 	op := &request.Operation{
 		Name:       opGetGeoLocation,
-		HTTPMethod: "POST",
+		HTTPMethod: "GET",
 		HTTPPath:   "/",
 	}
 
@@ -109,8 +107,6 @@ func (c *SECCENTER20240508) GetGeoLocationRequest(input *GetGeoLocationInput) (r
 
 	output = &GetGeoLocationOutput{}
 	req = c.newRequest(op, input, output)
-
-	req.HTTPRequest.Header.Set("Content-Type", "application/json; charset=utf-8")
 
 	return
 }
@@ -144,9 +140,9 @@ func (c *SECCENTER20240508) GetGeoLocationWithContext(ctx volcengine.Context, in
 }
 
 type GetGeoLocationInput struct {
-	_ struct{} `type:"structure" json:",omitempty"`
+	_ struct{} `type:"structure"`
 
-	GeonameID *int64 `type:"int64" json:",omitempty"`
+	GeonameID *int64 `type:"int64"`
 }
 
 // String returns the string representation
@@ -166,11 +162,11 @@ func (s *GetGeoLocationInput) SetGeonameID(v int64) *GetGeoLocationInput {
 }
 
 type GetGeoLocationOutput struct {
-	_ struct{} `type:"structure" json:",omitempty"`
+	_ struct{} `type:"structure"`
 
 	Metadata *response.ResponseMetadata
 
-	Locations []*LocationForGetGeoLocationOutput `type:"list" json:",omitempty"`
+	Locations []*LocationForGetGeoLocationOutput `type:"list"`
 }
 
 // String returns the string representation
@@ -190,11 +186,11 @@ func (s *GetGeoLocationOutput) SetLocations(v []*LocationForGetGeoLocationOutput
 }
 
 type LocationForGetGeoLocationOutput struct {
-	_ struct{} `type:"structure" json:",omitempty"`
+	_ struct{} `type:"structure"`
 
-	GeonameID *int64 `type:"int64" json:",omitempty"`
+	GeonameID *int64 `type:"int64"`
 
-	Name *string `type:"string" json:",omitempty"`
+	Name *string `type:"string"`
 }
 
 // String returns the string representation

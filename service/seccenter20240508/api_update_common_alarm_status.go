@@ -194,6 +194,10 @@ type ConditionsForUpdateCommonAlarmStatusInput struct {
 
 	ImageName *string `type:"string" json:",omitempty"`
 
+	LastAlarmTimeEnd *int64 `type:"int64" json:",omitempty"`
+
+	LastAlarmTimeStart *int64 `type:"int64" json:",omitempty"`
+
 	LeafGroupIDs []*string `type:"list" json:",omitempty"`
 
 	Level []*string `type:"list" json:",omitempty"`
@@ -202,9 +206,13 @@ type ConditionsForUpdateCommonAlarmStatusInput struct {
 
 	Name *string `type:"string" json:",omitempty"`
 
+	OperationList []*string `type:"list" json:",omitempty"`
+
 	ProbeHook *string `type:"string" json:",omitempty"`
 
 	RaspArgv *string `type:"string" json:",omitempty"`
+
+	Security_intelligence_results []*string `type:"list" json:"security_intelligence_results,omitempty"`
 
 	Status []*int64 `type:"list" json:",omitempty"`
 
@@ -381,6 +389,18 @@ func (s *ConditionsForUpdateCommonAlarmStatusInput) SetImageName(v string) *Cond
 	return s
 }
 
+// SetLastAlarmTimeEnd sets the LastAlarmTimeEnd field's value.
+func (s *ConditionsForUpdateCommonAlarmStatusInput) SetLastAlarmTimeEnd(v int64) *ConditionsForUpdateCommonAlarmStatusInput {
+	s.LastAlarmTimeEnd = &v
+	return s
+}
+
+// SetLastAlarmTimeStart sets the LastAlarmTimeStart field's value.
+func (s *ConditionsForUpdateCommonAlarmStatusInput) SetLastAlarmTimeStart(v int64) *ConditionsForUpdateCommonAlarmStatusInput {
+	s.LastAlarmTimeStart = &v
+	return s
+}
+
 // SetLeafGroupIDs sets the LeafGroupIDs field's value.
 func (s *ConditionsForUpdateCommonAlarmStatusInput) SetLeafGroupIDs(v []*string) *ConditionsForUpdateCommonAlarmStatusInput {
 	s.LeafGroupIDs = v
@@ -405,6 +425,12 @@ func (s *ConditionsForUpdateCommonAlarmStatusInput) SetName(v string) *Condition
 	return s
 }
 
+// SetOperationList sets the OperationList field's value.
+func (s *ConditionsForUpdateCommonAlarmStatusInput) SetOperationList(v []*string) *ConditionsForUpdateCommonAlarmStatusInput {
+	s.OperationList = v
+	return s
+}
+
 // SetProbeHook sets the ProbeHook field's value.
 func (s *ConditionsForUpdateCommonAlarmStatusInput) SetProbeHook(v string) *ConditionsForUpdateCommonAlarmStatusInput {
 	s.ProbeHook = &v
@@ -414,6 +440,12 @@ func (s *ConditionsForUpdateCommonAlarmStatusInput) SetProbeHook(v string) *Cond
 // SetRaspArgv sets the RaspArgv field's value.
 func (s *ConditionsForUpdateCommonAlarmStatusInput) SetRaspArgv(v string) *ConditionsForUpdateCommonAlarmStatusInput {
 	s.RaspArgv = &v
+	return s
+}
+
+// SetSecurity_intelligence_results sets the Security_intelligence_results field's value.
+func (s *ConditionsForUpdateCommonAlarmStatusInput) SetSecurity_intelligence_results(v []*string) *ConditionsForUpdateCommonAlarmStatusInput {
+	s.Security_intelligence_results = v
 	return s
 }
 

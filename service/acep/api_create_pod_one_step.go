@@ -202,6 +202,8 @@ type CreatePodOneStepInput struct {
 
 	IsPreinstall *bool `type:"boolean" json:",omitempty"`
 
+	IsSelinuxOn *bool `type:"boolean" json:",omitempty"`
+
 	OverlayPersistProperty []*OverlayPersistPropertyForCreatePodOneStepInput `type:"list" json:",omitempty"`
 
 	OverlayProperty []*OverlayPropertyForCreatePodOneStepInput `type:"list" json:",omitempty"`
@@ -324,6 +326,12 @@ func (s *CreatePodOneStepInput) SetImageId(v string) *CreatePodOneStepInput {
 // SetIsPreinstall sets the IsPreinstall field's value.
 func (s *CreatePodOneStepInput) SetIsPreinstall(v bool) *CreatePodOneStepInput {
 	s.IsPreinstall = &v
+	return s
+}
+
+// SetIsSelinuxOn sets the IsSelinuxOn field's value.
+func (s *CreatePodOneStepInput) SetIsSelinuxOn(v bool) *CreatePodOneStepInput {
+	s.IsSelinuxOn = &v
 	return s
 }
 

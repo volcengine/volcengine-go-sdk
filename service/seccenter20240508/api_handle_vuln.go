@@ -152,11 +152,13 @@ type HandleVulnInput struct {
 
 	AssetIDs []*string `type:"list" json:",omitempty"`
 
-	AssetType *string `type:"string" json:",omitempty" enum:"EnumOfAssetTypeForHandleVulnInput"`
+	AssetType *string `type:"string" json:",omitempty"`
 
 	BeforeStatus *string `type:"string" json:",omitempty"`
 
 	CwppIDList []*string `type:"list" json:",omitempty"`
+
+	IsRealRiskVul *bool `type:"boolean" json:",omitempty"`
 
 	Reason *string `type:"string" json:",omitempty"`
 
@@ -209,6 +211,12 @@ func (s *HandleVulnInput) SetCwppIDList(v []*string) *HandleVulnInput {
 	return s
 }
 
+// SetIsRealRiskVul sets the IsRealRiskVul field's value.
+func (s *HandleVulnInput) SetIsRealRiskVul(v bool) *HandleVulnInput {
+	s.IsRealRiskVul = &v
+	return s
+}
+
 // SetReason sets the Reason field's value.
 func (s *HandleVulnInput) SetReason(v string) *HandleVulnInput {
 	s.Reason = &v
@@ -244,11 +252,3 @@ func (s *HandleVulnOutput) SetData(v string) *HandleVulnOutput {
 	s.Data = &v
 	return s
 }
-
-const (
-	// EnumOfAssetTypeForHandleVulnInputHost is a EnumOfAssetTypeForHandleVulnInput enum value
-	EnumOfAssetTypeForHandleVulnInputHost = "Host"
-
-	// EnumOfAssetTypeForHandleVulnInputDev is a EnumOfAssetTypeForHandleVulnInput enum value
-	EnumOfAssetTypeForHandleVulnInputDev = "Dev"
-)

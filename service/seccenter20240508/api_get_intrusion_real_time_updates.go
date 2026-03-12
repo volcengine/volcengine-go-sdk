@@ -154,6 +154,8 @@ type DataForGetIntrusionRealTimeUpdatesOutput struct {
 
 	AlarmType *string `type:"string" json:",omitempty"`
 
+	AlertDescEn *string `type:"string" json:",omitempty"`
+
 	AlertDetail *string `type:"string" json:",omitempty"`
 
 	ClusterID *string `type:"string" json:",omitempty"`
@@ -163,6 +165,8 @@ type DataForGetIntrusionRealTimeUpdatesOutput struct {
 	HarmLevel *string `type:"string" json:",omitempty"`
 
 	Name *string `type:"string" json:",omitempty"`
+
+	NameEn *string `type:"string" json:",omitempty"`
 
 	Status *int64 `type:"int64" json:",omitempty"`
 
@@ -203,6 +207,12 @@ func (s *DataForGetIntrusionRealTimeUpdatesOutput) SetAlarmType(v string) *DataF
 	return s
 }
 
+// SetAlertDescEn sets the AlertDescEn field's value.
+func (s *DataForGetIntrusionRealTimeUpdatesOutput) SetAlertDescEn(v string) *DataForGetIntrusionRealTimeUpdatesOutput {
+	s.AlertDescEn = &v
+	return s
+}
+
 // SetAlertDetail sets the AlertDetail field's value.
 func (s *DataForGetIntrusionRealTimeUpdatesOutput) SetAlertDetail(v string) *DataForGetIntrusionRealTimeUpdatesOutput {
 	s.AlertDetail = &v
@@ -230,6 +240,12 @@ func (s *DataForGetIntrusionRealTimeUpdatesOutput) SetHarmLevel(v string) *DataF
 // SetName sets the Name field's value.
 func (s *DataForGetIntrusionRealTimeUpdatesOutput) SetName(v string) *DataForGetIntrusionRealTimeUpdatesOutput {
 	s.Name = &v
+	return s
+}
+
+// SetNameEn sets the NameEn field's value.
+func (s *DataForGetIntrusionRealTimeUpdatesOutput) SetNameEn(v string) *DataForGetIntrusionRealTimeUpdatesOutput {
+	s.NameEn = &v
 	return s
 }
 

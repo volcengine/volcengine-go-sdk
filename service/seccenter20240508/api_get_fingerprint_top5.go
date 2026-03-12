@@ -156,8 +156,7 @@ func (s DataForGetFingerprintTop5Output) GoString() string {
 type GetFingerprintTop5Input struct {
 	_ struct{} `type:"structure"`
 
-	// FingerprintType is a required field
-	FingerprintType *string `type:"string" required:"true"`
+	FingerprintType *string `type:"string"`
 }
 
 // String returns the string representation
@@ -168,19 +167,6 @@ func (s GetFingerprintTop5Input) String() string {
 // GoString returns the string representation
 func (s GetFingerprintTop5Input) GoString() string {
 	return s.String()
-}
-
-// Validate inspects the fields of the type to determine if they are valid.
-func (s *GetFingerprintTop5Input) Validate() error {
-	invalidParams := request.ErrInvalidParams{Context: "GetFingerprintTop5Input"}
-	if s.FingerprintType == nil {
-		invalidParams.Add(request.NewErrParamRequired("FingerprintType"))
-	}
-
-	if invalidParams.Len() > 0 {
-		return invalidParams
-	}
-	return nil
 }
 
 // SetFingerprintType sets the FingerprintType field's value.

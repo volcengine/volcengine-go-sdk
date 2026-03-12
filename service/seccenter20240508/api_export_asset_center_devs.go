@@ -158,9 +158,13 @@ type ExportAssetCenterDevsInput struct {
 
 	Platforms []*string `type:"list" json:",omitempty"`
 
+	ProtectStatus *string `type:"string" json:",omitempty"`
+
 	Regions []*string `type:"list" json:",omitempty"`
 
 	Risk *RiskForExportAssetCenterDevsInput `type:"structure" json:",omitempty"`
+
+	SecurityEnhancement *bool `type:"boolean" json:",omitempty"`
 
 	Status []*string `type:"list" json:",omitempty"`
 }
@@ -211,6 +215,12 @@ func (s *ExportAssetCenterDevsInput) SetPlatforms(v []*string) *ExportAssetCente
 	return s
 }
 
+// SetProtectStatus sets the ProtectStatus field's value.
+func (s *ExportAssetCenterDevsInput) SetProtectStatus(v string) *ExportAssetCenterDevsInput {
+	s.ProtectStatus = &v
+	return s
+}
+
 // SetRegions sets the Regions field's value.
 func (s *ExportAssetCenterDevsInput) SetRegions(v []*string) *ExportAssetCenterDevsInput {
 	s.Regions = v
@@ -220,6 +230,12 @@ func (s *ExportAssetCenterDevsInput) SetRegions(v []*string) *ExportAssetCenterD
 // SetRisk sets the Risk field's value.
 func (s *ExportAssetCenterDevsInput) SetRisk(v *RiskForExportAssetCenterDevsInput) *ExportAssetCenterDevsInput {
 	s.Risk = v
+	return s
+}
+
+// SetSecurityEnhancement sets the SecurityEnhancement field's value.
+func (s *ExportAssetCenterDevsInput) SetSecurityEnhancement(v bool) *ExportAssetCenterDevsInput {
+	s.SecurityEnhancement = &v
 	return s
 }
 

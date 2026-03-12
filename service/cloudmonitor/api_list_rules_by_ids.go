@@ -150,6 +150,8 @@ type ConditionForListRulesByIdsOutput struct {
 
 	DisplayName *string `type:"string" json:",omitempty"`
 
+	EvaluationWindow *int32 `type:"int32" json:",omitempty"`
+
 	MetricName *string `type:"string" json:",omitempty"`
 
 	MetricUnit *string `type:"string" json:",omitempty"`
@@ -180,6 +182,12 @@ func (s *ConditionForListRulesByIdsOutput) SetComparisonOperator(v string) *Cond
 // SetDisplayName sets the DisplayName field's value.
 func (s *ConditionForListRulesByIdsOutput) SetDisplayName(v string) *ConditionForListRulesByIdsOutput {
 	s.DisplayName = &v
+	return s
+}
+
+// SetEvaluationWindow sets the EvaluationWindow field's value.
+func (s *ConditionForListRulesByIdsOutput) SetEvaluationWindow(v int32) *ConditionForListRulesByIdsOutput {
+	s.EvaluationWindow = &v
 	return s
 }
 
@@ -269,6 +277,8 @@ type DataForListRulesByIdsOutput struct {
 	EnableState *string `type:"string" json:",omitempty"`
 
 	EvaluationCount *int32 `type:"int32" json:",omitempty"`
+
+	EvaluationInterval *int32 `type:"int32" json:",omitempty"`
 
 	Id *string `type:"string" json:",omitempty"`
 
@@ -394,6 +404,12 @@ func (s *DataForListRulesByIdsOutput) SetEnableState(v string) *DataForListRules
 // SetEvaluationCount sets the EvaluationCount field's value.
 func (s *DataForListRulesByIdsOutput) SetEvaluationCount(v int32) *DataForListRulesByIdsOutput {
 	s.EvaluationCount = &v
+	return s
+}
+
+// SetEvaluationInterval sets the EvaluationInterval field's value.
+func (s *DataForListRulesByIdsOutput) SetEvaluationInterval(v int32) *DataForListRulesByIdsOutput {
+	s.EvaluationInterval = &v
 	return s
 }
 

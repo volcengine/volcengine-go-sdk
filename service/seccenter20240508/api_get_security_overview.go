@@ -230,6 +230,8 @@ type GetSecurityOverviewOutput struct {
 
 	RaspIntrusion *RaspIntrusionForGetSecurityOverviewOutput `type:"structure" json:",omitempty"`
 
+	RealRiskVul *RealRiskVulForGetSecurityOverviewOutput `type:"structure" json:",omitempty"`
+
 	VirusFile *VirusFileForGetSecurityOverviewOutput `type:"structure" json:",omitempty"`
 
 	VulnRisk *VulnRiskForGetSecurityOverviewOutput `type:"structure" json:",omitempty"`
@@ -266,6 +268,12 @@ func (s *GetSecurityOverviewOutput) SetHostIntrusion(v *HostIntrusionForGetSecur
 // SetRaspIntrusion sets the RaspIntrusion field's value.
 func (s *GetSecurityOverviewOutput) SetRaspIntrusion(v *RaspIntrusionForGetSecurityOverviewOutput) *GetSecurityOverviewOutput {
 	s.RaspIntrusion = v
+	return s
+}
+
+// SetRealRiskVul sets the RealRiskVul field's value.
+func (s *GetSecurityOverviewOutput) SetRealRiskVul(v *RealRiskVulForGetSecurityOverviewOutput) *GetSecurityOverviewOutput {
+	s.RealRiskVul = v
 	return s
 }
 
@@ -337,6 +345,36 @@ func (s *RaspIntrusionForGetSecurityOverviewOutput) SetRiskCount(v int64) *RaspI
 
 // SetSubjectCount sets the SubjectCount field's value.
 func (s *RaspIntrusionForGetSecurityOverviewOutput) SetSubjectCount(v int64) *RaspIntrusionForGetSecurityOverviewOutput {
+	s.SubjectCount = &v
+	return s
+}
+
+type RealRiskVulForGetSecurityOverviewOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	RiskCount *int64 `type:"int64" json:",omitempty"`
+
+	SubjectCount *int64 `type:"int64" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s RealRiskVulForGetSecurityOverviewOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s RealRiskVulForGetSecurityOverviewOutput) GoString() string {
+	return s.String()
+}
+
+// SetRiskCount sets the RiskCount field's value.
+func (s *RealRiskVulForGetSecurityOverviewOutput) SetRiskCount(v int64) *RealRiskVulForGetSecurityOverviewOutput {
+	s.RiskCount = &v
+	return s
+}
+
+// SetSubjectCount sets the SubjectCount field's value.
+func (s *RealRiskVulForGetSecurityOverviewOutput) SetSubjectCount(v int64) *RealRiskVulForGetSecurityOverviewOutput {
 	s.SubjectCount = &v
 	return s
 }

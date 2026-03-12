@@ -176,15 +176,23 @@ type GetBruteForceBanConfigOutput struct {
 
 	BanType *string `type:"string"`
 
+	BanTypeList []*string `type:"list"`
+
 	CloudProviders []*string `type:"list"`
 
 	Enable *bool `type:"boolean"`
 
 	LeafGroupIDs []*string `type:"list"`
 
+	ManagerID *string `type:"string"`
+
 	Operator *string `type:"string"`
 
 	RuleList []*RuleListForGetBruteForceBanConfigOutput `type:"list"`
+
+	SingleGroupPath *string `type:"string"`
+
+	SingleHostname *string `type:"string"`
 
 	TopGroupID *string `type:"string"`
 }
@@ -229,6 +237,12 @@ func (s *GetBruteForceBanConfigOutput) SetBanType(v string) *GetBruteForceBanCon
 	return s
 }
 
+// SetBanTypeList sets the BanTypeList field's value.
+func (s *GetBruteForceBanConfigOutput) SetBanTypeList(v []*string) *GetBruteForceBanConfigOutput {
+	s.BanTypeList = v
+	return s
+}
+
 // SetCloudProviders sets the CloudProviders field's value.
 func (s *GetBruteForceBanConfigOutput) SetCloudProviders(v []*string) *GetBruteForceBanConfigOutput {
 	s.CloudProviders = v
@@ -247,6 +261,12 @@ func (s *GetBruteForceBanConfigOutput) SetLeafGroupIDs(v []*string) *GetBruteFor
 	return s
 }
 
+// SetManagerID sets the ManagerID field's value.
+func (s *GetBruteForceBanConfigOutput) SetManagerID(v string) *GetBruteForceBanConfigOutput {
+	s.ManagerID = &v
+	return s
+}
+
 // SetOperator sets the Operator field's value.
 func (s *GetBruteForceBanConfigOutput) SetOperator(v string) *GetBruteForceBanConfigOutput {
 	s.Operator = &v
@@ -256,6 +276,18 @@ func (s *GetBruteForceBanConfigOutput) SetOperator(v string) *GetBruteForceBanCo
 // SetRuleList sets the RuleList field's value.
 func (s *GetBruteForceBanConfigOutput) SetRuleList(v []*RuleListForGetBruteForceBanConfigOutput) *GetBruteForceBanConfigOutput {
 	s.RuleList = v
+	return s
+}
+
+// SetSingleGroupPath sets the SingleGroupPath field's value.
+func (s *GetBruteForceBanConfigOutput) SetSingleGroupPath(v string) *GetBruteForceBanConfigOutput {
+	s.SingleGroupPath = &v
+	return s
+}
+
+// SetSingleHostname sets the SingleHostname field's value.
+func (s *GetBruteForceBanConfigOutput) SetSingleHostname(v string) *GetBruteForceBanConfigOutput {
+	s.SingleHostname = &v
 	return s
 }
 

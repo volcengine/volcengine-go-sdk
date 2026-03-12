@@ -242,6 +242,8 @@ type DataForListMlpAlarmsOutput struct {
 
 	AgentID *string `type:"string" json:",omitempty"`
 
+	AlarmCount *int64 `type:"int64" json:",omitempty"`
+
 	AlarmHandleResult *int64 `type:"int64" json:",omitempty"`
 
 	AlarmHostname *string `type:"string" json:",omitempty"`
@@ -251,6 +253,8 @@ type DataForListMlpAlarmsOutput struct {
 	AlarmTime *int64 `type:"int64" json:",omitempty"`
 
 	AlertTags []*string `type:"list" json:",omitempty"`
+
+	AnalysisRecordUUID *string `type:"string" json:",omitempty"`
 
 	Args []*string `type:"list" json:",omitempty"`
 
@@ -263,6 +267,8 @@ type DataForListMlpAlarmsOutput struct {
 	Class *string `type:"string" json:",omitempty"`
 
 	Cluster *ClusterForListMlpAlarmsOutput `type:"structure" json:",omitempty"`
+
+	Confidence *string `type:"string" json:",omitempty"`
 
 	DataType *string `type:"string" json:",omitempty"`
 
@@ -282,6 +288,8 @@ type DataForListMlpAlarmsOutput struct {
 
 	GroupPath *string `type:"string" json:",omitempty"`
 
+	HandleFailReason *string `type:"string" json:",omitempty"`
+
 	HandleTime *int64 `type:"int64" json:",omitempty"`
 
 	Host *HostForListMlpAlarmsOutput `type:"structure" json:",omitempty"`
@@ -294,6 +302,8 @@ type DataForListMlpAlarmsOutput struct {
 
 	LLMProcessed *bool `type:"boolean" json:",omitempty"`
 
+	LastAlarmTime *int64 `type:"int64" json:",omitempty"`
+
 	Level *string `type:"string" json:",omitempty"`
 
 	MlpInstanceID *string `type:"string" json:",omitempty"`
@@ -304,6 +314,8 @@ type DataForListMlpAlarmsOutput struct {
 
 	NsPid *string `type:"string" json:",omitempty"`
 
+	OperationList []*string `type:"list" json:",omitempty"`
+
 	OsType *string `type:"string" json:",omitempty"`
 
 	Pid *string `type:"string" json:",omitempty"`
@@ -311,6 +323,10 @@ type DataForListMlpAlarmsOutput struct {
 	ProbeHook *string `type:"string" json:",omitempty"`
 
 	Region *string `type:"string" json:",omitempty"`
+
+	SecurityIntelligenceComplete *bool `type:"boolean" json:",omitempty"`
+
+	SecurityIntelligenceResult *string `type:"string" json:",omitempty"`
 
 	Sid *string `type:"string" json:",omitempty"`
 
@@ -347,6 +363,12 @@ func (s *DataForListMlpAlarmsOutput) SetAgentID(v string) *DataForListMlpAlarmsO
 	return s
 }
 
+// SetAlarmCount sets the AlarmCount field's value.
+func (s *DataForListMlpAlarmsOutput) SetAlarmCount(v int64) *DataForListMlpAlarmsOutput {
+	s.AlarmCount = &v
+	return s
+}
+
 // SetAlarmHandleResult sets the AlarmHandleResult field's value.
 func (s *DataForListMlpAlarmsOutput) SetAlarmHandleResult(v int64) *DataForListMlpAlarmsOutput {
 	s.AlarmHandleResult = &v
@@ -374,6 +396,12 @@ func (s *DataForListMlpAlarmsOutput) SetAlarmTime(v int64) *DataForListMlpAlarms
 // SetAlertTags sets the AlertTags field's value.
 func (s *DataForListMlpAlarmsOutput) SetAlertTags(v []*string) *DataForListMlpAlarmsOutput {
 	s.AlertTags = v
+	return s
+}
+
+// SetAnalysisRecordUUID sets the AnalysisRecordUUID field's value.
+func (s *DataForListMlpAlarmsOutput) SetAnalysisRecordUUID(v string) *DataForListMlpAlarmsOutput {
+	s.AnalysisRecordUUID = &v
 	return s
 }
 
@@ -410,6 +438,12 @@ func (s *DataForListMlpAlarmsOutput) SetClass(v string) *DataForListMlpAlarmsOut
 // SetCluster sets the Cluster field's value.
 func (s *DataForListMlpAlarmsOutput) SetCluster(v *ClusterForListMlpAlarmsOutput) *DataForListMlpAlarmsOutput {
 	s.Cluster = v
+	return s
+}
+
+// SetConfidence sets the Confidence field's value.
+func (s *DataForListMlpAlarmsOutput) SetConfidence(v string) *DataForListMlpAlarmsOutput {
+	s.Confidence = &v
 	return s
 }
 
@@ -467,6 +501,12 @@ func (s *DataForListMlpAlarmsOutput) SetGroupPath(v string) *DataForListMlpAlarm
 	return s
 }
 
+// SetHandleFailReason sets the HandleFailReason field's value.
+func (s *DataForListMlpAlarmsOutput) SetHandleFailReason(v string) *DataForListMlpAlarmsOutput {
+	s.HandleFailReason = &v
+	return s
+}
+
 // SetHandleTime sets the HandleTime field's value.
 func (s *DataForListMlpAlarmsOutput) SetHandleTime(v int64) *DataForListMlpAlarmsOutput {
 	s.HandleTime = &v
@@ -503,6 +543,12 @@ func (s *DataForListMlpAlarmsOutput) SetLLMProcessed(v bool) *DataForListMlpAlar
 	return s
 }
 
+// SetLastAlarmTime sets the LastAlarmTime field's value.
+func (s *DataForListMlpAlarmsOutput) SetLastAlarmTime(v int64) *DataForListMlpAlarmsOutput {
+	s.LastAlarmTime = &v
+	return s
+}
+
 // SetLevel sets the Level field's value.
 func (s *DataForListMlpAlarmsOutput) SetLevel(v string) *DataForListMlpAlarmsOutput {
 	s.Level = &v
@@ -533,6 +579,12 @@ func (s *DataForListMlpAlarmsOutput) SetNsPid(v string) *DataForListMlpAlarmsOut
 	return s
 }
 
+// SetOperationList sets the OperationList field's value.
+func (s *DataForListMlpAlarmsOutput) SetOperationList(v []*string) *DataForListMlpAlarmsOutput {
+	s.OperationList = v
+	return s
+}
+
 // SetOsType sets the OsType field's value.
 func (s *DataForListMlpAlarmsOutput) SetOsType(v string) *DataForListMlpAlarmsOutput {
 	s.OsType = &v
@@ -554,6 +606,18 @@ func (s *DataForListMlpAlarmsOutput) SetProbeHook(v string) *DataForListMlpAlarm
 // SetRegion sets the Region field's value.
 func (s *DataForListMlpAlarmsOutput) SetRegion(v string) *DataForListMlpAlarmsOutput {
 	s.Region = &v
+	return s
+}
+
+// SetSecurityIntelligenceComplete sets the SecurityIntelligenceComplete field's value.
+func (s *DataForListMlpAlarmsOutput) SetSecurityIntelligenceComplete(v bool) *DataForListMlpAlarmsOutput {
+	s.SecurityIntelligenceComplete = &v
+	return s
+}
+
+// SetSecurityIntelligenceResult sets the SecurityIntelligenceResult field's value.
+func (s *DataForListMlpAlarmsOutput) SetSecurityIntelligenceResult(v string) *DataForListMlpAlarmsOutput {
+	s.SecurityIntelligenceResult = &v
 	return s
 }
 
@@ -700,6 +764,10 @@ type ListMlpAlarmsInput struct {
 
 	ImageName *string `type:"string" json:",omitempty"`
 
+	LastAlarmTimeEnd *int64 `type:"int64" json:",omitempty"`
+
+	LastAlarmTimeStart *int64 `type:"int64" json:",omitempty"`
+
 	LeafGroupIDs []*string `type:"list" json:",omitempty"`
 
 	LevelList []*string `type:"list" json:",omitempty"`
@@ -707,6 +775,8 @@ type ListMlpAlarmsInput struct {
 	MlpInstanceID *string `type:"string" json:",omitempty"`
 
 	Name *string `type:"string" json:",omitempty"`
+
+	OperationList []*string `type:"list" json:",omitempty"`
 
 	// PageNumber is a required field
 	PageNumber *int64 `type:"int64" json:",omitempty" required:"true"`
@@ -917,6 +987,18 @@ func (s *ListMlpAlarmsInput) SetImageName(v string) *ListMlpAlarmsInput {
 	return s
 }
 
+// SetLastAlarmTimeEnd sets the LastAlarmTimeEnd field's value.
+func (s *ListMlpAlarmsInput) SetLastAlarmTimeEnd(v int64) *ListMlpAlarmsInput {
+	s.LastAlarmTimeEnd = &v
+	return s
+}
+
+// SetLastAlarmTimeStart sets the LastAlarmTimeStart field's value.
+func (s *ListMlpAlarmsInput) SetLastAlarmTimeStart(v int64) *ListMlpAlarmsInput {
+	s.LastAlarmTimeStart = &v
+	return s
+}
+
 // SetLeafGroupIDs sets the LeafGroupIDs field's value.
 func (s *ListMlpAlarmsInput) SetLeafGroupIDs(v []*string) *ListMlpAlarmsInput {
 	s.LeafGroupIDs = v
@@ -938,6 +1020,12 @@ func (s *ListMlpAlarmsInput) SetMlpInstanceID(v string) *ListMlpAlarmsInput {
 // SetName sets the Name field's value.
 func (s *ListMlpAlarmsInput) SetName(v string) *ListMlpAlarmsInput {
 	s.Name = &v
+	return s
+}
+
+// SetOperationList sets the OperationList field's value.
+func (s *ListMlpAlarmsInput) SetOperationList(v []*string) *ListMlpAlarmsInput {
+	s.OperationList = v
 	return s
 }
 

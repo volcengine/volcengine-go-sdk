@@ -190,6 +190,14 @@ type EFSAPI interface {
 	DescribeQuotasWithContext(volcengine.Context, *DescribeQuotasInput, ...request.Option) (*DescribeQuotasOutput, error)
 	DescribeQuotasRequest(*DescribeQuotasInput) (*request.Request, *DescribeQuotasOutput)
 
+	DescribeRegionsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeRegionsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeRegionsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeRegions(*DescribeRegionsInput) (*DescribeRegionsOutput, error)
+	DescribeRegionsWithContext(volcengine.Context, *DescribeRegionsInput, ...request.Option) (*DescribeRegionsOutput, error)
+	DescribeRegionsRequest(*DescribeRegionsInput) (*request.Request, *DescribeRegionsOutput)
+
 	DescribeZonesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DescribeZonesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DescribeZonesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})

@@ -182,6 +182,14 @@ type GTMAPI interface {
 	UpdateLoadWithContext(volcengine.Context, *UpdateLoadInput, ...request.Option) (*UpdateLoadOutput, error)
 	UpdateLoadRequest(*UpdateLoadInput) (*request.Request, *UpdateLoadOutput)
 
+	UpdatePolicyCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	UpdatePolicyCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	UpdatePolicyCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	UpdatePolicy(*UpdatePolicyInput) (*UpdatePolicyOutput, error)
+	UpdatePolicyWithContext(volcengine.Context, *UpdatePolicyInput, ...request.Option) (*UpdatePolicyOutput, error)
+	UpdatePolicyRequest(*UpdatePolicyInput) (*request.Request, *UpdatePolicyOutput)
+
 	UpdatePoolCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	UpdatePoolCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	UpdatePoolCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})

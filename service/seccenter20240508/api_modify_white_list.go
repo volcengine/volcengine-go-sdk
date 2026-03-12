@@ -152,6 +152,8 @@ type ModifyWhiteListInput struct {
 
 	Name *string `type:"string" json:",omitempty"`
 
+	Range *RangeForModifyWhiteListInput `type:"structure" json:",omitempty"`
+
 	Type *string `type:"string" json:",omitempty"`
 }
 
@@ -183,6 +185,12 @@ func (s *ModifyWhiteListInput) SetName(v string) *ModifyWhiteListInput {
 	return s
 }
 
+// SetRange sets the Range field's value.
+func (s *ModifyWhiteListInput) SetRange(v *RangeForModifyWhiteListInput) *ModifyWhiteListInput {
+	s.Range = v
+	return s
+}
+
 // SetType sets the Type field's value.
 func (s *ModifyWhiteListInput) SetType(v string) *ModifyWhiteListInput {
 	s.Type = &v
@@ -210,5 +218,59 @@ func (s ModifyWhiteListOutput) GoString() string {
 // SetData sets the Data field's value.
 func (s *ModifyWhiteListOutput) SetData(v string) *ModifyWhiteListOutput {
 	s.Data = &v
+	return s
+}
+
+type RangeForModifyWhiteListInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	AgentIDList []*string `type:"list" json:",omitempty"`
+
+	CloudProviders []*string `type:"list" json:",omitempty"`
+
+	ClusterIDList []*string `type:"list" json:",omitempty"`
+
+	LeafGroupIDs []*string `type:"list" json:",omitempty"`
+
+	TopGroupID *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s RangeForModifyWhiteListInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s RangeForModifyWhiteListInput) GoString() string {
+	return s.String()
+}
+
+// SetAgentIDList sets the AgentIDList field's value.
+func (s *RangeForModifyWhiteListInput) SetAgentIDList(v []*string) *RangeForModifyWhiteListInput {
+	s.AgentIDList = v
+	return s
+}
+
+// SetCloudProviders sets the CloudProviders field's value.
+func (s *RangeForModifyWhiteListInput) SetCloudProviders(v []*string) *RangeForModifyWhiteListInput {
+	s.CloudProviders = v
+	return s
+}
+
+// SetClusterIDList sets the ClusterIDList field's value.
+func (s *RangeForModifyWhiteListInput) SetClusterIDList(v []*string) *RangeForModifyWhiteListInput {
+	s.ClusterIDList = v
+	return s
+}
+
+// SetLeafGroupIDs sets the LeafGroupIDs field's value.
+func (s *RangeForModifyWhiteListInput) SetLeafGroupIDs(v []*string) *RangeForModifyWhiteListInput {
+	s.LeafGroupIDs = v
+	return s
+}
+
+// SetTopGroupID sets the TopGroupID field's value.
+func (s *RangeForModifyWhiteListInput) SetTopGroupID(v string) *RangeForModifyWhiteListInput {
+	s.TopGroupID = &v
 	return s
 }

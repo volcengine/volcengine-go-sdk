@@ -152,6 +152,8 @@ type ConditionsForDownloadVulListByPodInput struct {
 
 	IfHighAvailability *bool `type:"boolean" json:",omitempty"`
 
+	IsRealRiskVul *bool `type:"boolean" json:",omitempty"`
+
 	LeafGroupIDs []*string `type:"list" json:",omitempty"`
 
 	Level []*string `type:"list" json:",omitempty"`
@@ -188,6 +190,12 @@ func (s *ConditionsForDownloadVulListByPodInput) SetCveID(v string) *ConditionsF
 // SetIfHighAvailability sets the IfHighAvailability field's value.
 func (s *ConditionsForDownloadVulListByPodInput) SetIfHighAvailability(v bool) *ConditionsForDownloadVulListByPodInput {
 	s.IfHighAvailability = &v
+	return s
+}
+
+// SetIsRealRiskVul sets the IsRealRiskVul field's value.
+func (s *ConditionsForDownloadVulListByPodInput) SetIsRealRiskVul(v bool) *ConditionsForDownloadVulListByPodInput {
+	s.IsRealRiskVul = &v
 	return s
 }
 

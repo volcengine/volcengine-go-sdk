@@ -32,7 +32,7 @@ const opListBaselineBasicInfoCommon = "ListBaselineBasicInfo"
 func (c *SECCENTER20240508) ListBaselineBasicInfoCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opListBaselineBasicInfoCommon,
-		HTTPMethod: "GET",
+		HTTPMethod: "POST",
 		HTTPPath:   "/",
 	}
 
@@ -42,6 +42,8 @@ func (c *SECCENTER20240508) ListBaselineBasicInfoCommonRequest(input *map[string
 
 	output = &map[string]interface{}{}
 	req = c.newRequest(op, input, output)
+
+	req.HTTPRequest.Header.Set("Content-Type", "application/json; charset=utf-8")
 
 	return
 }
@@ -97,7 +99,7 @@ const opListBaselineBasicInfo = "ListBaselineBasicInfo"
 func (c *SECCENTER20240508) ListBaselineBasicInfoRequest(input *ListBaselineBasicInfoInput) (req *request.Request, output *ListBaselineBasicInfoOutput) {
 	op := &request.Operation{
 		Name:       opListBaselineBasicInfo,
-		HTTPMethod: "GET",
+		HTTPMethod: "POST",
 		HTTPPath:   "/",
 	}
 
@@ -107,6 +109,8 @@ func (c *SECCENTER20240508) ListBaselineBasicInfoRequest(input *ListBaselineBasi
 
 	output = &ListBaselineBasicInfoOutput{}
 	req = c.newRequest(op, input, output)
+
+	req.HTTPRequest.Header.Set("Content-Type", "application/json; charset=utf-8")
 
 	return
 }
@@ -140,15 +144,15 @@ func (c *SECCENTER20240508) ListBaselineBasicInfoWithContext(ctx volcengine.Cont
 }
 
 type BaselineListForListBaselineBasicInfoOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	BaselineID *int64 `type:"int64"`
+	BaselineID *int64 `type:"int64" json:",omitempty"`
 
-	BaselineName *string `type:"string"`
+	BaselineName *string `type:"string" json:",omitempty"`
 
-	BaselineNameEn *string `type:"string"`
+	BaselineNameEn *string `type:"string" json:",omitempty"`
 
-	CheckNum *int64 `type:"int64"`
+	CheckNum *int64 `type:"int64" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -186,15 +190,15 @@ func (s *BaselineListForListBaselineBasicInfoOutput) SetCheckNum(v int64) *Basel
 }
 
 type DataForListBaselineBasicInfoOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	BaselineList []*BaselineListForListBaselineBasicInfoOutput `type:"list"`
+	BaselineList []*BaselineListForListBaselineBasicInfoOutput `type:"list" json:",omitempty"`
 
-	GroupID *int64 `type:"int64"`
+	GroupID *int64 `type:"int64" json:",omitempty"`
 
-	GroupName *string `type:"string"`
+	GroupName *string `type:"string" json:",omitempty"`
 
-	GroupNameEn *string `type:"string"`
+	GroupNameEn *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -232,17 +236,17 @@ func (s *DataForListBaselineBasicInfoOutput) SetGroupNameEn(v string) *DataForLi
 }
 
 type ListBaselineBasicInfoInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// PageNumber is a required field
-	PageNumber *int64 `type:"int64" required:"true"`
+	PageNumber *int64 `type:"int64" json:",omitempty" required:"true"`
 
 	// PageSize is a required field
-	PageSize *int64 `type:"int64" required:"true"`
+	PageSize *int64 `type:"int64" json:",omitempty" required:"true"`
 
-	SortBy *string `type:"string"`
+	SortBy *string `type:"string" json:",omitempty"`
 
-	SortOrder *string `type:"string"`
+	SortOrder *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -296,17 +300,17 @@ func (s *ListBaselineBasicInfoInput) SetSortOrder(v string) *ListBaselineBasicIn
 }
 
 type ListBaselineBasicInfoOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	Data []*DataForListBaselineBasicInfoOutput `type:"list"`
+	Data []*DataForListBaselineBasicInfoOutput `type:"list" json:",omitempty"`
 
-	PageNumber *int64 `type:"int64"`
+	PageNumber *int64 `type:"int64" json:",omitempty"`
 
-	PageSize *int64 `type:"int64"`
+	PageSize *int64 `type:"int64" json:",omitempty"`
 
-	TotalCount *int64 `type:"int64"`
+	TotalCount *int64 `type:"int64" json:",omitempty"`
 }
 
 // String returns the string representation

@@ -239,10 +239,10 @@ type ListCloudEnvsInput struct {
 	Comment *string `type:"string" json:",omitempty"`
 
 	// PageNumber is a required field
-	PageNumber *int64 `min:"1" type:"int64" json:",omitempty" required:"true"`
+	PageNumber *int64 `type:"int64" json:",omitempty" required:"true"`
 
 	// PageSize is a required field
-	PageSize *int64 `min:"1" max:"5000" type:"int64" json:",omitempty" required:"true"`
+	PageSize *int64 `type:"int64" json:",omitempty" required:"true"`
 
 	SortBy *string `type:"string" json:",omitempty"`
 
@@ -269,17 +269,8 @@ func (s *ListCloudEnvsInput) Validate() error {
 	if s.PageNumber == nil {
 		invalidParams.Add(request.NewErrParamRequired("PageNumber"))
 	}
-	if s.PageNumber != nil && *s.PageNumber < 1 {
-		invalidParams.Add(request.NewErrParamMinValue("PageNumber", 1))
-	}
 	if s.PageSize == nil {
 		invalidParams.Add(request.NewErrParamRequired("PageSize"))
-	}
-	if s.PageSize != nil && *s.PageSize < 1 {
-		invalidParams.Add(request.NewErrParamMinValue("PageSize", 1))
-	}
-	if s.PageSize != nil && *s.PageSize > 5000 {
-		invalidParams.Add(request.NewErrParamMaxValue("PageSize", 5000))
 	}
 
 	if invalidParams.Len() > 0 {

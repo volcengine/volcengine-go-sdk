@@ -280,6 +280,8 @@ type DataForListOrderedHostsBasicInfosOutput struct {
 
 	LastHeartbeatTime *int64 `type:"int64" json:",omitempty"`
 
+	OldValidCode *int64 `type:"int64" json:",omitempty"`
+
 	Online *bool `type:"boolean" json:",omitempty"`
 
 	Platform *string `type:"string" json:",omitempty"`
@@ -297,6 +299,8 @@ type DataForListOrderedHostsBasicInfosOutput struct {
 	UserStatus *string `type:"string" json:",omitempty"`
 
 	UserStatusReason *string `type:"string" json:",omitempty"`
+
+	UserStatusReasonCode *int64 `type:"int64" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -357,6 +361,12 @@ func (s *DataForListOrderedHostsBasicInfosOutput) SetLastHeartbeatTime(v int64) 
 	return s
 }
 
+// SetOldValidCode sets the OldValidCode field's value.
+func (s *DataForListOrderedHostsBasicInfosOutput) SetOldValidCode(v int64) *DataForListOrderedHostsBasicInfosOutput {
+	s.OldValidCode = &v
+	return s
+}
+
 // SetOnline sets the Online field's value.
 func (s *DataForListOrderedHostsBasicInfosOutput) SetOnline(v bool) *DataForListOrderedHostsBasicInfosOutput {
 	s.Online = &v
@@ -408,6 +418,12 @@ func (s *DataForListOrderedHostsBasicInfosOutput) SetUserStatus(v string) *DataF
 // SetUserStatusReason sets the UserStatusReason field's value.
 func (s *DataForListOrderedHostsBasicInfosOutput) SetUserStatusReason(v string) *DataForListOrderedHostsBasicInfosOutput {
 	s.UserStatusReason = &v
+	return s
+}
+
+// SetUserStatusReasonCode sets the UserStatusReasonCode field's value.
+func (s *DataForListOrderedHostsBasicInfosOutput) SetUserStatusReasonCode(v int64) *DataForListOrderedHostsBasicInfosOutput {
+	s.UserStatusReasonCode = &v
 	return s
 }
 
@@ -606,18 +622,15 @@ type ListOrderedHostsBasicInfosInput struct {
 
 	Conditions *ConditionsForListOrderedHostsBasicInfosInput `type:"structure" json:",omitempty"`
 
-	// PageNumber is a required field
-	PageNumber *int64 `type:"int64" json:",omitempty" required:"true"`
+	PageNumber *int64 `type:"int64" json:",omitempty"`
 
-	// PageSize is a required field
-	PageSize *int64 `type:"int64" json:",omitempty" required:"true"`
+	PageSize *int64 `type:"int64" json:",omitempty"`
 
 	SortBy *string `type:"string" json:",omitempty"`
 
 	SortOrder *string `type:"string" json:",omitempty"`
 
-	// Type is a required field
-	Type *string `type:"string" json:",omitempty" required:"true"`
+	Type *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -628,25 +641,6 @@ func (s ListOrderedHostsBasicInfosInput) String() string {
 // GoString returns the string representation
 func (s ListOrderedHostsBasicInfosInput) GoString() string {
 	return s.String()
-}
-
-// Validate inspects the fields of the type to determine if they are valid.
-func (s *ListOrderedHostsBasicInfosInput) Validate() error {
-	invalidParams := request.ErrInvalidParams{Context: "ListOrderedHostsBasicInfosInput"}
-	if s.PageNumber == nil {
-		invalidParams.Add(request.NewErrParamRequired("PageNumber"))
-	}
-	if s.PageSize == nil {
-		invalidParams.Add(request.NewErrParamRequired("PageSize"))
-	}
-	if s.Type == nil {
-		invalidParams.Add(request.NewErrParamRequired("Type"))
-	}
-
-	if invalidParams.Len() > 0 {
-		return invalidParams
-	}
-	return nil
 }
 
 // SetConditions sets the Conditions field's value.

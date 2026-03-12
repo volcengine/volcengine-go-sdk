@@ -180,7 +180,7 @@ type ExportBaselineCheckListInput struct {
 
 	AssetID *string `type:"string" json:",omitempty"`
 
-	AssetType *string `type:"string" json:",omitempty" enum:"EnumOfAssetTypeForExportBaselineCheckListInput"`
+	AssetType *string `type:"string" json:",omitempty"`
 
 	BaselineID *int64 `type:"int64" json:",omitempty"`
 
@@ -266,11 +266,3 @@ func (s *ExportBaselineCheckListOutput) SetFileName(v string) *ExportBaselineChe
 	s.FileName = &v
 	return s
 }
-
-const (
-	// EnumOfAssetTypeForExportBaselineCheckListInputHost is a EnumOfAssetTypeForExportBaselineCheckListInput enum value
-	EnumOfAssetTypeForExportBaselineCheckListInputHost = "Host"
-
-	// EnumOfAssetTypeForExportBaselineCheckListInputDev is a EnumOfAssetTypeForExportBaselineCheckListInput enum value
-	EnumOfAssetTypeForExportBaselineCheckListInputDev = "Dev"
-)

@@ -149,6 +149,8 @@ type CreateWebhookInput struct {
 	// Name is a required field
 	Name *string `min:"1" max:"512" type:"string" json:",omitempty" required:"true"`
 
+	Token *string `type:"string" json:",omitempty"`
+
 	// Type is a required field
 	Type *string `type:"string" json:",omitempty" required:"true" enum:"EnumOfTypeForCreateWebhookInput"`
 
@@ -194,6 +196,12 @@ func (s *CreateWebhookInput) Validate() error {
 // SetName sets the Name field's value.
 func (s *CreateWebhookInput) SetName(v string) *CreateWebhookInput {
 	s.Name = &v
+	return s
+}
+
+// SetToken sets the Token field's value.
+func (s *CreateWebhookInput) SetToken(v string) *CreateWebhookInput {
+	s.Token = &v
 	return s
 }
 

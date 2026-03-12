@@ -560,6 +560,8 @@ type TaskInfoForVideoProjectSerialTaskCreateInput struct {
 
 	NeedTranslateTitleAndDesc *bool `type:"boolean" json:"needTranslateTitleAndDesc,omitempty"`
 
+	NeedVideoSpeed *bool `type:"boolean" json:"needVideoSpeed,omitempty"`
+
 	SerialNumber *int32 `type:"int32" json:"serialNumber,omitempty"`
 
 	SourceLang *string `type:"string" json:"sourceLang,omitempty"`
@@ -660,6 +662,12 @@ func (s *TaskInfoForVideoProjectSerialTaskCreateInput) SetNeedTranslateTitle(v b
 // SetNeedTranslateTitleAndDesc sets the NeedTranslateTitleAndDesc field's value.
 func (s *TaskInfoForVideoProjectSerialTaskCreateInput) SetNeedTranslateTitleAndDesc(v bool) *TaskInfoForVideoProjectSerialTaskCreateInput {
 	s.NeedTranslateTitleAndDesc = &v
+	return s
+}
+
+// SetNeedVideoSpeed sets the NeedVideoSpeed field's value.
+func (s *TaskInfoForVideoProjectSerialTaskCreateInput) SetNeedVideoSpeed(v bool) *TaskInfoForVideoProjectSerialTaskCreateInput {
+	s.NeedVideoSpeed = &v
 	return s
 }
 
