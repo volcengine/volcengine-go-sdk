@@ -496,6 +496,12 @@ const (
 
 	// EnumOfSecretTypeForCreateSecretInputEcs is a EnumOfSecretTypeForCreateSecretInput enum value
 	EnumOfSecretTypeForCreateSecretInputEcs = "ECS"
+
+	// EnumOfSecretTypeForCreateSecretInputPgsql is a EnumOfSecretTypeForCreateSecretInput enum value
+	EnumOfSecretTypeForCreateSecretInputPgsql = "PGSQL"
+
+	// EnumOfSecretTypeForCreateSecretInputSqlserver is a EnumOfSecretTypeForCreateSecretInput enum value
+	EnumOfSecretTypeForCreateSecretInputSqlserver = "SQLServer"
 )
 
 const (
@@ -513,4 +519,10 @@ const (
 
 	// EnumOfSecretTypeForCreateSecretOutputEcs is a EnumOfSecretTypeForCreateSecretOutput enum value
 	EnumOfSecretTypeForCreateSecretOutputEcs = "ECS"
+
+	// EnumOfSecretTypeForCreateSecretOutputPgsql is a EnumOfSecretTypeForCreateSecretOutput enum value
+	EnumOfSecretTypeForCreateSecretOutputPgsql = "PGSQL"
+
+	// EnumOfSecretTypeForCreateSecretOutputSqlserver is a EnumOfSecretTypeForCreateSecretOutput enum value
+	EnumOfSecretTypeForCreateSecretOutputSqlserver = "SQLServer"
 )
