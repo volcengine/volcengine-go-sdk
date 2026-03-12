@@ -194,7 +194,11 @@ type DataForListRaspConfigsOutput struct {
 
 	AllProcessInject *bool `type:"boolean" json:",omitempty"`
 
+	BlockUuid *string `type:"string" json:",omitempty"`
+
 	Blocks []*BlockForListRaspConfigsOutput `type:"list" json:",omitempty"`
+
+	FilterUuid *string `type:"string" json:",omitempty"`
 
 	Filters []*FilterForListRaspConfigsOutput `type:"list" json:",omitempty"`
 
@@ -243,9 +247,21 @@ func (s *DataForListRaspConfigsOutput) SetAllProcessInject(v bool) *DataForListR
 	return s
 }
 
+// SetBlockUuid sets the BlockUuid field's value.
+func (s *DataForListRaspConfigsOutput) SetBlockUuid(v string) *DataForListRaspConfigsOutput {
+	s.BlockUuid = &v
+	return s
+}
+
 // SetBlocks sets the Blocks field's value.
 func (s *DataForListRaspConfigsOutput) SetBlocks(v []*BlockForListRaspConfigsOutput) *DataForListRaspConfigsOutput {
 	s.Blocks = v
+	return s
+}
+
+// SetFilterUuid sets the FilterUuid field's value.
+func (s *DataForListRaspConfigsOutput) SetFilterUuid(v string) *DataForListRaspConfigsOutput {
+	s.FilterUuid = &v
 	return s
 }
 

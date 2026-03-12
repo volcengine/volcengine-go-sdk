@@ -70,6 +70,14 @@ type SECCENTER20240508API interface {
 	AddLoginConfigWithContext(volcengine.Context, *AddLoginConfigInput, ...request.Option) (*AddLoginConfigOutput, error)
 	AddLoginConfigRequest(*AddLoginConfigInput) (*request.Request, *AddLoginConfigOutput)
 
+	AddMonitorPolicyCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	AddMonitorPolicyCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	AddMonitorPolicyCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	AddMonitorPolicy(*AddMonitorPolicyInput) (*AddMonitorPolicyOutput, error)
+	AddMonitorPolicyWithContext(volcengine.Context, *AddMonitorPolicyInput, ...request.Option) (*AddMonitorPolicyOutput, error)
+	AddMonitorPolicyRequest(*AddMonitorPolicyInput) (*request.Request, *AddMonitorPolicyOutput)
+
 	AddRaspConfigCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	AddRaspConfigCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	AddRaspConfigCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -134,6 +142,14 @@ type SECCENTER20240508API interface {
 	BatchCreateRepoRegistryVpcAuthWithContext(volcengine.Context, *BatchCreateRepoRegistryVpcAuthInput, ...request.Option) (*BatchCreateRepoRegistryVpcAuthOutput, error)
 	BatchCreateRepoRegistryVpcAuthRequest(*BatchCreateRepoRegistryVpcAuthInput) (*request.Request, *BatchCreateRepoRegistryVpcAuthOutput)
 
+	BatchDeleteVarmorPoliciesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	BatchDeleteVarmorPoliciesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	BatchDeleteVarmorPoliciesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	BatchDeleteVarmorPolicies(*BatchDeleteVarmorPoliciesInput) (*BatchDeleteVarmorPoliciesOutput, error)
+	BatchDeleteVarmorPoliciesWithContext(volcengine.Context, *BatchDeleteVarmorPoliciesInput, ...request.Option) (*BatchDeleteVarmorPoliciesOutput, error)
+	BatchDeleteVarmorPoliciesRequest(*BatchDeleteVarmorPoliciesInput) (*request.Request, *BatchDeleteVarmorPoliciesOutput)
+
 	BatchDetectWeakPasswordCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	BatchDetectWeakPasswordCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	BatchDetectWeakPasswordCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -141,6 +157,30 @@ type SECCENTER20240508API interface {
 	BatchDetectWeakPassword(*BatchDetectWeakPasswordInput) (*BatchDetectWeakPasswordOutput, error)
 	BatchDetectWeakPasswordWithContext(volcengine.Context, *BatchDetectWeakPasswordInput, ...request.Option) (*BatchDetectWeakPasswordOutput, error)
 	BatchDetectWeakPasswordRequest(*BatchDetectWeakPasswordInput) (*request.Request, *BatchDetectWeakPasswordOutput)
+
+	BatchInstallVarmorAppsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	BatchInstallVarmorAppsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	BatchInstallVarmorAppsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	BatchInstallVarmorApps(*BatchInstallVarmorAppsInput) (*BatchInstallVarmorAppsOutput, error)
+	BatchInstallVarmorAppsWithContext(volcengine.Context, *BatchInstallVarmorAppsInput, ...request.Option) (*BatchInstallVarmorAppsOutput, error)
+	BatchInstallVarmorAppsRequest(*BatchInstallVarmorAppsInput) (*request.Request, *BatchInstallVarmorAppsOutput)
+
+	BatchUninstallVarmorAppsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	BatchUninstallVarmorAppsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	BatchUninstallVarmorAppsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	BatchUninstallVarmorApps(*BatchUninstallVarmorAppsInput) (*BatchUninstallVarmorAppsOutput, error)
+	BatchUninstallVarmorAppsWithContext(volcengine.Context, *BatchUninstallVarmorAppsInput, ...request.Option) (*BatchUninstallVarmorAppsOutput, error)
+	BatchUninstallVarmorAppsRequest(*BatchUninstallVarmorAppsInput) (*request.Request, *BatchUninstallVarmorAppsOutput)
+
+	BatchUpgradeVarmorAppsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	BatchUpgradeVarmorAppsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	BatchUpgradeVarmorAppsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	BatchUpgradeVarmorApps(*BatchUpgradeVarmorAppsInput) (*BatchUpgradeVarmorAppsOutput, error)
+	BatchUpgradeVarmorAppsWithContext(volcengine.Context, *BatchUpgradeVarmorAppsInput, ...request.Option) (*BatchUpgradeVarmorAppsOutput, error)
+	BatchUpgradeVarmorAppsRequest(*BatchUpgradeVarmorAppsInput) (*request.Request, *BatchUpgradeVarmorAppsOutput)
 
 	BindMLPAuthCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	BindMLPAuthCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -181,6 +221,22 @@ type SECCENTER20240508API interface {
 	CheckInstallRasp(*CheckInstallRaspInput) (*CheckInstallRaspOutput, error)
 	CheckInstallRaspWithContext(volcengine.Context, *CheckInstallRaspInput, ...request.Option) (*CheckInstallRaspOutput, error)
 	CheckInstallRaspRequest(*CheckInstallRaspInput) (*request.Request, *CheckInstallRaspOutput)
+
+	CheckMonitorPolicyCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CheckMonitorPolicyCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CheckMonitorPolicyCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CheckMonitorPolicy(*CheckMonitorPolicyInput) (*CheckMonitorPolicyOutput, error)
+	CheckMonitorPolicyWithContext(volcengine.Context, *CheckMonitorPolicyInput, ...request.Option) (*CheckMonitorPolicyOutput, error)
+	CheckMonitorPolicyRequest(*CheckMonitorPolicyInput) (*request.Request, *CheckMonitorPolicyOutput)
+
+	ControlMonitorPolicyCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ControlMonitorPolicyCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ControlMonitorPolicyCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ControlMonitorPolicy(*ControlMonitorPolicyInput) (*ControlMonitorPolicyOutput, error)
+	ControlMonitorPolicyWithContext(volcengine.Context, *ControlMonitorPolicyInput, ...request.Option) (*ControlMonitorPolicyOutput, error)
+	ControlMonitorPolicyRequest(*ControlMonitorPolicyInput) (*request.Request, *ControlMonitorPolicyOutput)
 
 	CreatFileScanTaskCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	CreatFileScanTaskCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -237,6 +293,14 @@ type SECCENTER20240508API interface {
 	CreateRepoRegistryVpcAuth(*CreateRepoRegistryVpcAuthInput) (*CreateRepoRegistryVpcAuthOutput, error)
 	CreateRepoRegistryVpcAuthWithContext(volcengine.Context, *CreateRepoRegistryVpcAuthInput, ...request.Option) (*CreateRepoRegistryVpcAuthOutput, error)
 	CreateRepoRegistryVpcAuthRequest(*CreateRepoRegistryVpcAuthInput) (*request.Request, *CreateRepoRegistryVpcAuthOutput)
+
+	CreateVarmorPolicyCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateVarmorPolicyCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateVarmorPolicyCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateVarmorPolicy(*CreateVarmorPolicyInput) (*CreateVarmorPolicyOutput, error)
+	CreateVarmorPolicyWithContext(volcengine.Context, *CreateVarmorPolicyInput, ...request.Option) (*CreateVarmorPolicyOutput, error)
+	CreateVarmorPolicyRequest(*CreateVarmorPolicyInput) (*request.Request, *CreateVarmorPolicyOutput)
 
 	DeleteAgentProxyCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DeleteAgentProxyCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -310,6 +374,14 @@ type SECCENTER20240508API interface {
 	DeleteLoginConfigWithContext(volcengine.Context, *DeleteLoginConfigInput, ...request.Option) (*DeleteLoginConfigOutput, error)
 	DeleteLoginConfigRequest(*DeleteLoginConfigInput) (*request.Request, *DeleteLoginConfigOutput)
 
+	DeleteMonitorPolicyCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeleteMonitorPolicyCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeleteMonitorPolicyCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeleteMonitorPolicy(*DeleteMonitorPolicyInput) (*DeleteMonitorPolicyOutput, error)
+	DeleteMonitorPolicyWithContext(volcengine.Context, *DeleteMonitorPolicyInput, ...request.Option) (*DeleteMonitorPolicyOutput, error)
+	DeleteMonitorPolicyRequest(*DeleteMonitorPolicyInput) (*request.Request, *DeleteMonitorPolicyOutput)
+
 	DeleteMultiLevelInstitutionCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DeleteMultiLevelInstitutionCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DeleteMultiLevelInstitutionCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -333,6 +405,30 @@ type SECCENTER20240508API interface {
 	DeleteWhiteLists(*DeleteWhiteListsInput) (*DeleteWhiteListsOutput, error)
 	DeleteWhiteListsWithContext(volcengine.Context, *DeleteWhiteListsInput, ...request.Option) (*DeleteWhiteListsOutput, error)
 	DeleteWhiteListsRequest(*DeleteWhiteListsInput) (*request.Request, *DeleteWhiteListsOutput)
+
+	DescribeFileChangeTrendTop5Common(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeFileChangeTrendTop5CommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeFileChangeTrendTop5CommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeFileChangeTrendTop5(*DescribeFileChangeTrendTop5Input) (*DescribeFileChangeTrendTop5Output, error)
+	DescribeFileChangeTrendTop5WithContext(volcengine.Context, *DescribeFileChangeTrendTop5Input, ...request.Option) (*DescribeFileChangeTrendTop5Output, error)
+	DescribeFileChangeTrendTop5Request(*DescribeFileChangeTrendTop5Input) (*request.Request, *DescribeFileChangeTrendTop5Output)
+
+	DescribeFileMonitorOverviewCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeFileMonitorOverviewCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeFileMonitorOverviewCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeFileMonitorOverview(*DescribeFileMonitorOverviewInput) (*DescribeFileMonitorOverviewOutput, error)
+	DescribeFileMonitorOverviewWithContext(volcengine.Context, *DescribeFileMonitorOverviewInput, ...request.Option) (*DescribeFileMonitorOverviewOutput, error)
+	DescribeFileMonitorOverviewRequest(*DescribeFileMonitorOverviewInput) (*request.Request, *DescribeFileMonitorOverviewOutput)
+
+	DescribeLastWeekFileChangeTrendsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeLastWeekFileChangeTrendsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeLastWeekFileChangeTrendsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeLastWeekFileChangeTrends(*DescribeLastWeekFileChangeTrendsInput) (*DescribeLastWeekFileChangeTrendsOutput, error)
+	DescribeLastWeekFileChangeTrendsWithContext(volcengine.Context, *DescribeLastWeekFileChangeTrendsInput, ...request.Option) (*DescribeLastWeekFileChangeTrendsOutput, error)
+	DescribeLastWeekFileChangeTrendsRequest(*DescribeLastWeekFileChangeTrendsInput) (*request.Request, *DescribeLastWeekFileChangeTrendsOutput)
 
 	DetectBaselineCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DetectBaselineCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -358,6 +454,14 @@ type SECCENTER20240508API interface {
 	DetectVulnWithContext(volcengine.Context, *DetectVulnInput, ...request.Option) (*DetectVulnOutput, error)
 	DetectVulnRequest(*DetectVulnInput) (*request.Request, *DetectVulnOutput)
 
+	DetectVulnForAICommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DetectVulnForAICommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DetectVulnForAICommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DetectVulnForAI(*DetectVulnForAIInput) (*DetectVulnForAIOutput, error)
+	DetectVulnForAIWithContext(volcengine.Context, *DetectVulnForAIInput, ...request.Option) (*DetectVulnForAIOutput, error)
+	DetectVulnForAIRequest(*DetectVulnForAIInput) (*request.Request, *DetectVulnForAIOutput)
+
 	DisableHostImportantProtectCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DisableHostImportantProtectCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DisableHostImportantProtectCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -365,6 +469,14 @@ type SECCENTER20240508API interface {
 	DisableHostImportantProtect(*DisableHostImportantProtectInput) (*DisableHostImportantProtectOutput, error)
 	DisableHostImportantProtectWithContext(volcengine.Context, *DisableHostImportantProtectInput, ...request.Option) (*DisableHostImportantProtectOutput, error)
 	DisableHostImportantProtectRequest(*DisableHostImportantProtectInput) (*request.Request, *DisableHostImportantProtectOutput)
+
+	DownloadAIVulnListCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DownloadAIVulnListCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DownloadAIVulnListCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DownloadAIVulnList(*DownloadAIVulnListInput) (*DownloadAIVulnListOutput, error)
+	DownloadAIVulnListWithContext(volcengine.Context, *DownloadAIVulnListInput, ...request.Option) (*DownloadAIVulnListOutput, error)
+	DownloadAIVulnListRequest(*DownloadAIVulnListInput) (*request.Request, *DownloadAIVulnListOutput)
 
 	DownloadBaselineCheckCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DownloadBaselineCheckCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -406,6 +518,14 @@ type SECCENTER20240508API interface {
 	DownloadVulListByPodWithContext(volcengine.Context, *DownloadVulListByPodInput, ...request.Option) (*DownloadVulListByPodOutput, error)
 	DownloadVulListByPodRequest(*DownloadVulListByPodInput) (*request.Request, *DownloadVulListByPodOutput)
 
+	DownloadVulnAffectAISessionCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DownloadVulnAffectAISessionCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DownloadVulnAffectAISessionCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DownloadVulnAffectAISession(*DownloadVulnAffectAISessionInput) (*DownloadVulnAffectAISessionOutput, error)
+	DownloadVulnAffectAISessionWithContext(volcengine.Context, *DownloadVulnAffectAISessionInput, ...request.Option) (*DownloadVulnAffectAISessionOutput, error)
+	DownloadVulnAffectAISessionRequest(*DownloadVulnAffectAISessionInput) (*request.Request, *DownloadVulnAffectAISessionOutput)
+
 	DownloadVulnDatasCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DownloadVulnDatasCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DownloadVulnDatasCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -422,6 +542,14 @@ type SECCENTER20240508API interface {
 	DownloadVulnListWithContext(volcengine.Context, *DownloadVulnListInput, ...request.Option) (*DownloadVulnListOutput, error)
 	DownloadVulnListRequest(*DownloadVulnListInput) (*request.Request, *DownloadVulnListOutput)
 
+	EditAIApplicationSyncConfigCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	EditAIApplicationSyncConfigCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	EditAIApplicationSyncConfigCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	EditAIApplicationSyncConfig(*EditAIApplicationSyncConfigInput) (*EditAIApplicationSyncConfigOutput, error)
+	EditAIApplicationSyncConfigWithContext(volcengine.Context, *EditAIApplicationSyncConfigInput, ...request.Option) (*EditAIApplicationSyncConfigOutput, error)
+	EditAIApplicationSyncConfigRequest(*EditAIApplicationSyncConfigInput) (*request.Request, *EditAIApplicationSyncConfigOutput)
+
 	EditBaselineCheckConfigCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	EditBaselineCheckConfigCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	EditBaselineCheckConfigCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -437,6 +565,14 @@ type SECCENTER20240508API interface {
 	EditFingerprintCollectConfig(*EditFingerprintCollectConfigInput) (*EditFingerprintCollectConfigOutput, error)
 	EditFingerprintCollectConfigWithContext(volcengine.Context, *EditFingerprintCollectConfigInput, ...request.Option) (*EditFingerprintCollectConfigOutput, error)
 	EditFingerprintCollectConfigRequest(*EditFingerprintCollectConfigInput) (*request.Request, *EditFingerprintCollectConfigOutput)
+
+	EditMonitorPolicyCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	EditMonitorPolicyCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	EditMonitorPolicyCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	EditMonitorPolicy(*EditMonitorPolicyInput) (*EditMonitorPolicyOutput, error)
+	EditMonitorPolicyWithContext(volcengine.Context, *EditMonitorPolicyInput, ...request.Option) (*EditMonitorPolicyOutput, error)
+	EditMonitorPolicyRequest(*EditMonitorPolicyInput) (*request.Request, *EditMonitorPolicyOutput)
 
 	EditRaspConfigCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	EditRaspConfigCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -461,6 +597,14 @@ type SECCENTER20240508API interface {
 	EnableHostImportantProtect(*EnableHostImportantProtectInput) (*EnableHostImportantProtectOutput, error)
 	EnableHostImportantProtectWithContext(volcengine.Context, *EnableHostImportantProtectInput, ...request.Option) (*EnableHostImportantProtectOutput, error)
 	EnableHostImportantProtectRequest(*EnableHostImportantProtectInput) (*request.Request, *EnableHostImportantProtectOutput)
+
+	ExportAIFingerprintDataCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ExportAIFingerprintDataCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ExportAIFingerprintDataCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ExportAIFingerprintData(*ExportAIFingerprintDataInput) (*ExportAIFingerprintDataOutput, error)
+	ExportAIFingerprintDataWithContext(volcengine.Context, *ExportAIFingerprintDataInput, ...request.Option) (*ExportAIFingerprintDataOutput, error)
+	ExportAIFingerprintDataRequest(*ExportAIFingerprintDataInput) (*request.Request, *ExportAIFingerprintDataOutput)
 
 	ExportAlarmListDataForRaspCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ExportAlarmListDataForRaspCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -509,6 +653,14 @@ type SECCENTER20240508API interface {
 	ExportDevFingerprintData(*ExportDevFingerprintDataInput) (*ExportDevFingerprintDataOutput, error)
 	ExportDevFingerprintDataWithContext(volcengine.Context, *ExportDevFingerprintDataInput, ...request.Option) (*ExportDevFingerprintDataOutput, error)
 	ExportDevFingerprintDataRequest(*ExportDevFingerprintDataInput) (*request.Request, *ExportDevFingerprintDataOutput)
+
+	ExportFileMonitorAlarmListDataCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ExportFileMonitorAlarmListDataCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ExportFileMonitorAlarmListDataCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ExportFileMonitorAlarmListData(*ExportFileMonitorAlarmListDataInput) (*ExportFileMonitorAlarmListDataOutput, error)
+	ExportFileMonitorAlarmListDataWithContext(volcengine.Context, *ExportFileMonitorAlarmListDataInput, ...request.Option) (*ExportFileMonitorAlarmListDataOutput, error)
+	ExportFileMonitorAlarmListDataRequest(*ExportFileMonitorAlarmListDataInput) (*request.Request, *ExportFileMonitorAlarmListDataOutput)
 
 	ExportFingerprintDataCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ExportFingerprintDataCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -566,6 +718,94 @@ type SECCENTER20240508API interface {
 	GenerateInstallCommandWithContext(volcengine.Context, *GenerateInstallCommandInput, ...request.Option) (*GenerateInstallCommandOutput, error)
 	GenerateInstallCommandRequest(*GenerateInstallCommandInput) (*request.Request, *GenerateInstallCommandOutput)
 
+	GetAIAlarmJudgeConfigCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	GetAIAlarmJudgeConfigCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	GetAIAlarmJudgeConfigCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	GetAIAlarmJudgeConfig(*GetAIAlarmJudgeConfigInput) (*GetAIAlarmJudgeConfigOutput, error)
+	GetAIAlarmJudgeConfigWithContext(volcengine.Context, *GetAIAlarmJudgeConfigInput, ...request.Option) (*GetAIAlarmJudgeConfigOutput, error)
+	GetAIAlarmJudgeConfigRequest(*GetAIAlarmJudgeConfigInput) (*request.Request, *GetAIAlarmJudgeConfigOutput)
+
+	GetAIApplicationSyncConfigCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	GetAIApplicationSyncConfigCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	GetAIApplicationSyncConfigCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	GetAIApplicationSyncConfig(*GetAIApplicationSyncConfigInput) (*GetAIApplicationSyncConfigOutput, error)
+	GetAIApplicationSyncConfigWithContext(volcengine.Context, *GetAIApplicationSyncConfigInput, ...request.Option) (*GetAIApplicationSyncConfigOutput, error)
+	GetAIApplicationSyncConfigRequest(*GetAIApplicationSyncConfigInput) (*request.Request, *GetAIApplicationSyncConfigOutput)
+
+	GetAIFingerprintAppCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	GetAIFingerprintAppCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	GetAIFingerprintAppCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	GetAIFingerprintApp(*GetAIFingerprintAppInput) (*GetAIFingerprintAppOutput, error)
+	GetAIFingerprintAppWithContext(volcengine.Context, *GetAIFingerprintAppInput, ...request.Option) (*GetAIFingerprintAppOutput, error)
+	GetAIFingerprintAppRequest(*GetAIFingerprintAppInput) (*request.Request, *GetAIFingerprintAppOutput)
+
+	GetAIFingerprintPortCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	GetAIFingerprintPortCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	GetAIFingerprintPortCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	GetAIFingerprintPort(*GetAIFingerprintPortInput) (*GetAIFingerprintPortOutput, error)
+	GetAIFingerprintPortWithContext(volcengine.Context, *GetAIFingerprintPortInput, ...request.Option) (*GetAIFingerprintPortOutput, error)
+	GetAIFingerprintPortRequest(*GetAIFingerprintPortInput) (*request.Request, *GetAIFingerprintPortOutput)
+
+	GetAIFingerprintProcessCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	GetAIFingerprintProcessCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	GetAIFingerprintProcessCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	GetAIFingerprintProcess(*GetAIFingerprintProcessInput) (*GetAIFingerprintProcessOutput, error)
+	GetAIFingerprintProcessWithContext(volcengine.Context, *GetAIFingerprintProcessInput, ...request.Option) (*GetAIFingerprintProcessOutput, error)
+	GetAIFingerprintProcessRequest(*GetAIFingerprintProcessInput) (*request.Request, *GetAIFingerprintProcessOutput)
+
+	GetAIFingerprintRefreshStatusCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	GetAIFingerprintRefreshStatusCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	GetAIFingerprintRefreshStatusCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	GetAIFingerprintRefreshStatus(*GetAIFingerprintRefreshStatusInput) (*GetAIFingerprintRefreshStatusOutput, error)
+	GetAIFingerprintRefreshStatusWithContext(volcengine.Context, *GetAIFingerprintRefreshStatusInput, ...request.Option) (*GetAIFingerprintRefreshStatusOutput, error)
+	GetAIFingerprintRefreshStatusRequest(*GetAIFingerprintRefreshStatusInput) (*request.Request, *GetAIFingerprintRefreshStatusOutput)
+
+	GetAIFingerprintSoftwareCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	GetAIFingerprintSoftwareCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	GetAIFingerprintSoftwareCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	GetAIFingerprintSoftware(*GetAIFingerprintSoftwareInput) (*GetAIFingerprintSoftwareOutput, error)
+	GetAIFingerprintSoftwareWithContext(volcengine.Context, *GetAIFingerprintSoftwareInput, ...request.Option) (*GetAIFingerprintSoftwareOutput, error)
+	GetAIFingerprintSoftwareRequest(*GetAIFingerprintSoftwareInput) (*request.Request, *GetAIFingerprintSoftwareOutput)
+
+	GetAIFingerprintStatisticsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	GetAIFingerprintStatisticsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	GetAIFingerprintStatisticsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	GetAIFingerprintStatistics(*GetAIFingerprintStatisticsInput) (*GetAIFingerprintStatisticsOutput, error)
+	GetAIFingerprintStatisticsWithContext(volcengine.Context, *GetAIFingerprintStatisticsInput, ...request.Option) (*GetAIFingerprintStatisticsOutput, error)
+	GetAIFingerprintStatisticsRequest(*GetAIFingerprintStatisticsInput) (*request.Request, *GetAIFingerprintStatisticsOutput)
+
+	GetAIFingerprintTop5Common(*map[string]interface{}) (*map[string]interface{}, error)
+	GetAIFingerprintTop5CommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	GetAIFingerprintTop5CommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	GetAIFingerprintTop5(*GetAIFingerprintTop5Input) (*GetAIFingerprintTop5Output, error)
+	GetAIFingerprintTop5WithContext(volcengine.Context, *GetAIFingerprintTop5Input, ...request.Option) (*GetAIFingerprintTop5Output, error)
+	GetAIFingerprintTop5Request(*GetAIFingerprintTop5Input) (*request.Request, *GetAIFingerprintTop5Output)
+
+	GetAISessionVulnInfoCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	GetAISessionVulnInfoCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	GetAISessionVulnInfoCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	GetAISessionVulnInfo(*GetAISessionVulnInfoInput) (*GetAISessionVulnInfoOutput, error)
+	GetAISessionVulnInfoWithContext(volcengine.Context, *GetAISessionVulnInfoInput, ...request.Option) (*GetAISessionVulnInfoOutput, error)
+	GetAISessionVulnInfoRequest(*GetAISessionVulnInfoInput) (*request.Request, *GetAISessionVulnInfoOutput)
+
+	GetAIVulnDetectProgressDetailCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	GetAIVulnDetectProgressDetailCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	GetAIVulnDetectProgressDetailCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	GetAIVulnDetectProgressDetail(*GetAIVulnDetectProgressDetailInput) (*GetAIVulnDetectProgressDetailOutput, error)
+	GetAIVulnDetectProgressDetailWithContext(volcengine.Context, *GetAIVulnDetectProgressDetailInput, ...request.Option) (*GetAIVulnDetectProgressDetailOutput, error)
+	GetAIVulnDetectProgressDetailRequest(*GetAIVulnDetectProgressDetailInput) (*request.Request, *GetAIVulnDetectProgressDetailOutput)
+
 	GetAlarmBySmithKeyCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	GetAlarmBySmithKeyCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	GetAlarmBySmithKeyCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -605,6 +845,22 @@ type SECCENTER20240508API interface {
 	GetAlarmVirusStatistics(*GetAlarmVirusStatisticsInput) (*GetAlarmVirusStatisticsOutput, error)
 	GetAlarmVirusStatisticsWithContext(volcengine.Context, *GetAlarmVirusStatisticsInput, ...request.Option) (*GetAlarmVirusStatisticsOutput, error)
 	GetAlarmVirusStatisticsRequest(*GetAlarmVirusStatisticsInput) (*request.Request, *GetAlarmVirusStatisticsOutput)
+
+	GetAllMonitorSuffixListCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	GetAllMonitorSuffixListCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	GetAllMonitorSuffixListCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	GetAllMonitorSuffixList(*GetAllMonitorSuffixListInput) (*GetAllMonitorSuffixListOutput, error)
+	GetAllMonitorSuffixListWithContext(volcengine.Context, *GetAllMonitorSuffixListInput, ...request.Option) (*GetAllMonitorSuffixListOutput, error)
+	GetAllMonitorSuffixListRequest(*GetAllMonitorSuffixListInput) (*request.Request, *GetAllMonitorSuffixListOutput)
+
+	GetArmorProfileCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	GetArmorProfileCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	GetArmorProfileCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	GetArmorProfile(*GetArmorProfileInput) (*GetArmorProfileOutput, error)
+	GetArmorProfileWithContext(volcengine.Context, *GetArmorProfileInput, ...request.Option) (*GetArmorProfileOutput, error)
+	GetArmorProfileRequest(*GetArmorProfileInput) (*request.Request, *GetArmorProfileOutput)
 
 	GetAssetClusterStatisticCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	GetAssetClusterStatisticCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -693,6 +949,14 @@ type SECCENTER20240508API interface {
 	GetCisDetail(*GetCisDetailInput) (*GetCisDetailOutput, error)
 	GetCisDetailWithContext(volcengine.Context, *GetCisDetailInput, ...request.Option) (*GetCisDetailOutput, error)
 	GetCisDetailRequest(*GetCisDetailInput) (*request.Request, *GetCisDetailOutput)
+
+	GetClusterStatisticsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	GetClusterStatisticsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	GetClusterStatisticsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	GetClusterStatistics(*GetClusterStatisticsInput) (*GetClusterStatisticsOutput, error)
+	GetClusterStatisticsWithContext(volcengine.Context, *GetClusterStatisticsInput, ...request.Option) (*GetClusterStatisticsOutput, error)
+	GetClusterStatisticsRequest(*GetClusterStatisticsInput) (*request.Request, *GetClusterStatisticsOutput)
 
 	GetClustersPermissionResultCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	GetClustersPermissionResultCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -1014,6 +1278,14 @@ type SECCENTER20240508API interface {
 	GetMLPAssetSyncTaskStatusWithContext(volcengine.Context, *GetMLPAssetSyncTaskStatusInput, ...request.Option) (*GetMLPAssetSyncTaskStatusOutput, error)
 	GetMLPAssetSyncTaskStatusRequest(*GetMLPAssetSyncTaskStatusInput) (*request.Request, *GetMLPAssetSyncTaskStatusOutput)
 
+	GetManualSyncAIApplicationStatusCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	GetManualSyncAIApplicationStatusCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	GetManualSyncAIApplicationStatusCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	GetManualSyncAIApplicationStatus(*GetManualSyncAIApplicationStatusInput) (*GetManualSyncAIApplicationStatusOutput, error)
+	GetManualSyncAIApplicationStatusWithContext(volcengine.Context, *GetManualSyncAIApplicationStatusInput, ...request.Option) (*GetManualSyncAIApplicationStatusOutput, error)
+	GetManualSyncAIApplicationStatusRequest(*GetManualSyncAIApplicationStatusInput) (*request.Request, *GetManualSyncAIApplicationStatusOutput)
+
 	GetMlpAlarmStatisticsCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	GetMlpAlarmStatisticsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	GetMlpAlarmStatisticsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -1037,6 +1309,14 @@ type SECCENTER20240508API interface {
 	GetMlpUpdateSoftwareTaskDetail(*GetMlpUpdateSoftwareTaskDetailInput) (*GetMlpUpdateSoftwareTaskDetailOutput, error)
 	GetMlpUpdateSoftwareTaskDetailWithContext(volcengine.Context, *GetMlpUpdateSoftwareTaskDetailInput, ...request.Option) (*GetMlpUpdateSoftwareTaskDetailOutput, error)
 	GetMlpUpdateSoftwareTaskDetailRequest(*GetMlpUpdateSoftwareTaskDetailInput) (*request.Request, *GetMlpUpdateSoftwareTaskDetailOutput)
+
+	GetMonitorPolicyDirectoryCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	GetMonitorPolicyDirectoryCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	GetMonitorPolicyDirectoryCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	GetMonitorPolicyDirectory(*GetMonitorPolicyDirectoryInput) (*GetMonitorPolicyDirectoryOutput, error)
+	GetMonitorPolicyDirectoryWithContext(volcengine.Context, *GetMonitorPolicyDirectoryInput, ...request.Option) (*GetMonitorPolicyDirectoryOutput, error)
+	GetMonitorPolicyDirectoryRequest(*GetMonitorPolicyDirectoryInput) (*request.Request, *GetMonitorPolicyDirectoryOutput)
 
 	GetMultiLevelAuthDetailCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	GetMultiLevelAuthDetailCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -1093,6 +1373,14 @@ type SECCENTER20240508API interface {
 	GetOneRaspAlarm(*GetOneRaspAlarmInput) (*GetOneRaspAlarmOutput, error)
 	GetOneRaspAlarmWithContext(volcengine.Context, *GetOneRaspAlarmInput, ...request.Option) (*GetOneRaspAlarmOutput, error)
 	GetOneRaspAlarmRequest(*GetOneRaspAlarmInput) (*request.Request, *GetOneRaspAlarmOutput)
+
+	GetPolicyStatisticsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	GetPolicyStatisticsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	GetPolicyStatisticsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	GetPolicyStatistics(*GetPolicyStatisticsInput) (*GetPolicyStatisticsOutput, error)
+	GetPolicyStatisticsWithContext(volcengine.Context, *GetPolicyStatisticsInput, ...request.Option) (*GetPolicyStatisticsOutput, error)
+	GetPolicyStatisticsRequest(*GetPolicyStatisticsInput) (*request.Request, *GetPolicyStatisticsOutput)
 
 	GetRaspAlarmStatisticsCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	GetRaspAlarmStatisticsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -1238,6 +1526,46 @@ type SECCENTER20240508API interface {
 	GetRepoRegistryVpcAuthCreateInfoWithContext(volcengine.Context, *GetRepoRegistryVpcAuthCreateInfoInput, ...request.Option) (*GetRepoRegistryVpcAuthCreateInfoOutput, error)
 	GetRepoRegistryVpcAuthCreateInfoRequest(*GetRepoRegistryVpcAuthCreateInfoInput) (*request.Request, *GetRepoRegistryVpcAuthCreateInfoOutput)
 
+	GetSOCAssetAlarmStatsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	GetSOCAssetAlarmStatsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	GetSOCAssetAlarmStatsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	GetSOCAssetAlarmStats(*GetSOCAssetAlarmStatsInput) (*GetSOCAssetAlarmStatsOutput, error)
+	GetSOCAssetAlarmStatsWithContext(volcengine.Context, *GetSOCAssetAlarmStatsInput, ...request.Option) (*GetSOCAssetAlarmStatsOutput, error)
+	GetSOCAssetAlarmStatsRequest(*GetSOCAssetAlarmStatsInput) (*request.Request, *GetSOCAssetAlarmStatsOutput)
+
+	GetSOCAssetInstanceProtectStatusCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	GetSOCAssetInstanceProtectStatusCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	GetSOCAssetInstanceProtectStatusCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	GetSOCAssetInstanceProtectStatus(*GetSOCAssetInstanceProtectStatusInput) (*GetSOCAssetInstanceProtectStatusOutput, error)
+	GetSOCAssetInstanceProtectStatusWithContext(volcengine.Context, *GetSOCAssetInstanceProtectStatusInput, ...request.Option) (*GetSOCAssetInstanceProtectStatusOutput, error)
+	GetSOCAssetInstanceProtectStatusRequest(*GetSOCAssetInstanceProtectStatusInput) (*request.Request, *GetSOCAssetInstanceProtectStatusOutput)
+
+	GetSOCAssetSecurityScoreCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	GetSOCAssetSecurityScoreCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	GetSOCAssetSecurityScoreCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	GetSOCAssetSecurityScore(*GetSOCAssetSecurityScoreInput) (*GetSOCAssetSecurityScoreOutput, error)
+	GetSOCAssetSecurityScoreWithContext(volcengine.Context, *GetSOCAssetSecurityScoreInput, ...request.Option) (*GetSOCAssetSecurityScoreOutput, error)
+	GetSOCAssetSecurityScoreRequest(*GetSOCAssetSecurityScoreInput) (*request.Request, *GetSOCAssetSecurityScoreOutput)
+
+	GetSOCAssetVulnStatsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	GetSOCAssetVulnStatsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	GetSOCAssetVulnStatsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	GetSOCAssetVulnStats(*GetSOCAssetVulnStatsInput) (*GetSOCAssetVulnStatsOutput, error)
+	GetSOCAssetVulnStatsWithContext(volcengine.Context, *GetSOCAssetVulnStatsInput, ...request.Option) (*GetSOCAssetVulnStatsOutput, error)
+	GetSOCAssetVulnStatsRequest(*GetSOCAssetVulnStatsInput) (*request.Request, *GetSOCAssetVulnStatsOutput)
+
+	GetSOCPrecautionBaselineStatsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	GetSOCPrecautionBaselineStatsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	GetSOCPrecautionBaselineStatsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	GetSOCPrecautionBaselineStats(*GetSOCPrecautionBaselineStatsInput) (*GetSOCPrecautionBaselineStatsOutput, error)
+	GetSOCPrecautionBaselineStatsWithContext(volcengine.Context, *GetSOCPrecautionBaselineStatsInput, ...request.Option) (*GetSOCPrecautionBaselineStatsOutput, error)
+	GetSOCPrecautionBaselineStatsRequest(*GetSOCPrecautionBaselineStatsInput) (*request.Request, *GetSOCPrecautionBaselineStatsOutput)
+
 	GetSecurityOverviewCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	GetSecurityOverviewCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	GetSecurityOverviewCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -1286,6 +1614,30 @@ type SECCENTER20240508API interface {
 	GetUserBatchScanStatusWithContext(volcengine.Context, *GetUserBatchScanStatusInput, ...request.Option) (*GetUserBatchScanStatusOutput, error)
 	GetUserBatchScanStatusRequest(*GetUserBatchScanStatusInput) (*request.Request, *GetUserBatchScanStatusOutput)
 
+	GetVarmorConfigYAMLCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	GetVarmorConfigYAMLCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	GetVarmorConfigYAMLCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	GetVarmorConfigYAML(*GetVarmorConfigYAMLInput) (*GetVarmorConfigYAMLOutput, error)
+	GetVarmorConfigYAMLWithContext(volcengine.Context, *GetVarmorConfigYAMLInput, ...request.Option) (*GetVarmorConfigYAMLOutput, error)
+	GetVarmorConfigYAMLRequest(*GetVarmorConfigYAMLInput) (*request.Request, *GetVarmorConfigYAMLOutput)
+
+	GetVarmorPolicyCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	GetVarmorPolicyCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	GetVarmorPolicyCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	GetVarmorPolicy(*GetVarmorPolicyInput) (*GetVarmorPolicyOutput, error)
+	GetVarmorPolicyWithContext(volcengine.Context, *GetVarmorPolicyInput, ...request.Option) (*GetVarmorPolicyOutput, error)
+	GetVarmorPolicyRequest(*GetVarmorPolicyInput) (*request.Request, *GetVarmorPolicyOutput)
+
+	GetVarmorTLSInfoCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	GetVarmorTLSInfoCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	GetVarmorTLSInfoCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	GetVarmorTLSInfo(*GetVarmorTLSInfoInput) (*GetVarmorTLSInfoOutput, error)
+	GetVarmorTLSInfoWithContext(volcengine.Context, *GetVarmorTLSInfoInput, ...request.Option) (*GetVarmorTLSInfoOutput, error)
+	GetVarmorTLSInfoRequest(*GetVarmorTLSInfoInput) (*request.Request, *GetVarmorTLSInfoOutput)
+
 	GetVirusAlarmSummaryInfoCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	GetVirusAlarmSummaryInfoCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	GetVirusAlarmSummaryInfoCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -1326,6 +1678,14 @@ type SECCENTER20240508API interface {
 	GetVulnCheckStatusWithContext(volcengine.Context, *GetVulnCheckStatusInput, ...request.Option) (*GetVulnCheckStatusOutput, error)
 	GetVulnCheckStatusRequest(*GetVulnCheckStatusInput) (*request.Request, *GetVulnCheckStatusOutput)
 
+	GetVulnCheckStatusForAICommon(*map[string]interface{}) (*map[string]interface{}, error)
+	GetVulnCheckStatusForAICommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	GetVulnCheckStatusForAICommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	GetVulnCheckStatusForAI(*GetVulnCheckStatusForAIInput) (*GetVulnCheckStatusForAIOutput, error)
+	GetVulnCheckStatusForAIWithContext(volcengine.Context, *GetVulnCheckStatusForAIInput, ...request.Option) (*GetVulnCheckStatusForAIOutput, error)
+	GetVulnCheckStatusForAIRequest(*GetVulnCheckStatusForAIInput) (*request.Request, *GetVulnCheckStatusForAIOutput)
+
 	GetVulnDetailCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	GetVulnDetailCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	GetVulnDetailCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -1341,6 +1701,14 @@ type SECCENTER20240508API interface {
 	GetVulnInfo(*GetVulnInfoInput) (*GetVulnInfoOutput, error)
 	GetVulnInfoWithContext(volcengine.Context, *GetVulnInfoInput, ...request.Option) (*GetVulnInfoOutput, error)
 	GetVulnInfoRequest(*GetVulnInfoInput) (*request.Request, *GetVulnInfoOutput)
+
+	GetVulnInfoForAICommon(*map[string]interface{}) (*map[string]interface{}, error)
+	GetVulnInfoForAICommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	GetVulnInfoForAICommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	GetVulnInfoForAI(*GetVulnInfoForAIInput) (*GetVulnInfoForAIOutput, error)
+	GetVulnInfoForAIWithContext(volcengine.Context, *GetVulnInfoForAIInput, ...request.Option) (*GetVulnInfoForAIOutput, error)
+	GetVulnInfoForAIRequest(*GetVulnInfoForAIInput) (*request.Request, *GetVulnInfoForAIOutput)
 
 	GetVulnScanConfigCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	GetVulnScanConfigCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -1358,6 +1726,14 @@ type SECCENTER20240508API interface {
 	GetVulnStatisticsWithContext(volcengine.Context, *GetVulnStatisticsInput, ...request.Option) (*GetVulnStatisticsOutput, error)
 	GetVulnStatisticsRequest(*GetVulnStatisticsInput) (*request.Request, *GetVulnStatisticsOutput)
 
+	GetVulnStatisticsForAICommon(*map[string]interface{}) (*map[string]interface{}, error)
+	GetVulnStatisticsForAICommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	GetVulnStatisticsForAICommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	GetVulnStatisticsForAI(*GetVulnStatisticsForAIInput) (*GetVulnStatisticsForAIOutput, error)
+	GetVulnStatisticsForAIWithContext(volcengine.Context, *GetVulnStatisticsForAIInput, ...request.Option) (*GetVulnStatisticsForAIOutput, error)
+	GetVulnStatisticsForAIRequest(*GetVulnStatisticsForAIInput) (*request.Request, *GetVulnStatisticsForAIOutput)
+
 	GetWhiteListFieldCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	GetWhiteListFieldCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	GetWhiteListFieldCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -1365,6 +1741,14 @@ type SECCENTER20240508API interface {
 	GetWhiteListField(*GetWhiteListFieldInput) (*GetWhiteListFieldOutput, error)
 	GetWhiteListFieldWithContext(volcengine.Context, *GetWhiteListFieldInput, ...request.Option) (*GetWhiteListFieldOutput, error)
 	GetWhiteListFieldRequest(*GetWhiteListFieldInput) (*request.Request, *GetWhiteListFieldOutput)
+
+	HandleAIVulnCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	HandleAIVulnCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	HandleAIVulnCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	HandleAIVuln(*HandleAIVulnInput) (*HandleAIVulnOutput, error)
+	HandleAIVulnWithContext(volcengine.Context, *HandleAIVulnInput, ...request.Option) (*HandleAIVulnOutput, error)
+	HandleAIVulnRequest(*HandleAIVulnInput) (*request.Request, *HandleAIVulnOutput)
 
 	HandleAlarmByAgentCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	HandleAlarmByAgentCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -1414,6 +1798,14 @@ type SECCENTER20240508API interface {
 	IsolateFileWithContext(volcengine.Context, *IsolateFileInput, ...request.Option) (*IsolateFileOutput, error)
 	IsolateFileRequest(*IsolateFileInput) (*request.Request, *IsolateFileOutput)
 
+	ListAIApplicationBasicInfoCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListAIApplicationBasicInfoCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListAIApplicationBasicInfoCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListAIApplicationBasicInfo(*ListAIApplicationBasicInfoInput) (*ListAIApplicationBasicInfoOutput, error)
+	ListAIApplicationBasicInfoWithContext(volcengine.Context, *ListAIApplicationBasicInfoInput, ...request.Option) (*ListAIApplicationBasicInfoOutput, error)
+	ListAIApplicationBasicInfoRequest(*ListAIApplicationBasicInfoInput) (*request.Request, *ListAIApplicationBasicInfoOutput)
+
 	ListAgentProxiesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ListAgentProxiesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	ListAgentProxiesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -1429,6 +1821,14 @@ type SECCENTER20240508API interface {
 	ListAgentProxyServers(*ListAgentProxyServersInput) (*ListAgentProxyServersOutput, error)
 	ListAgentProxyServersWithContext(volcengine.Context, *ListAgentProxyServersInput, ...request.Option) (*ListAgentProxyServersOutput, error)
 	ListAgentProxyServersRequest(*ListAgentProxyServersInput) (*request.Request, *ListAgentProxyServersOutput)
+
+	ListAgentkitSessionIDsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListAgentkitSessionIDsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListAgentkitSessionIDsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListAgentkitSessionIDs(*ListAgentkitSessionIDsInput) (*ListAgentkitSessionIDsOutput, error)
+	ListAgentkitSessionIDsWithContext(volcengine.Context, *ListAgentkitSessionIDsInput, ...request.Option) (*ListAgentkitSessionIDsOutput, error)
+	ListAgentkitSessionIDsRequest(*ListAgentkitSessionIDsInput) (*request.Request, *ListAgentkitSessionIDsOutput)
 
 	ListAlarmArchiveRecordsCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ListAlarmArchiveRecordsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -1678,6 +2078,22 @@ type SECCENTER20240508API interface {
 	ListCloudPlatformsWithContext(volcengine.Context, *ListCloudPlatformsInput, ...request.Option) (*ListCloudPlatformsOutput, error)
 	ListCloudPlatformsRequest(*ListCloudPlatformsInput) (*request.Request, *ListCloudPlatformsOutput)
 
+	ListClusterVarmorVersionHistoryCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListClusterVarmorVersionHistoryCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListClusterVarmorVersionHistoryCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListClusterVarmorVersionHistory(*ListClusterVarmorVersionHistoryInput) (*ListClusterVarmorVersionHistoryOutput, error)
+	ListClusterVarmorVersionHistoryWithContext(volcengine.Context, *ListClusterVarmorVersionHistoryInput, ...request.Option) (*ListClusterVarmorVersionHistoryOutput, error)
+	ListClusterVarmorVersionHistoryRequest(*ListClusterVarmorVersionHistoryInput) (*request.Request, *ListClusterVarmorVersionHistoryOutput)
+
+	ListClustersAndVarmorAppsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListClustersAndVarmorAppsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListClustersAndVarmorAppsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListClustersAndVarmorApps(*ListClustersAndVarmorAppsInput) (*ListClustersAndVarmorAppsOutput, error)
+	ListClustersAndVarmorAppsWithContext(volcengine.Context, *ListClustersAndVarmorAppsInput, ...request.Option) (*ListClustersAndVarmorAppsOutput, error)
+	ListClustersAndVarmorAppsRequest(*ListClustersAndVarmorAppsInput) (*request.Request, *ListClustersAndVarmorAppsOutput)
+
 	ListDevAssetIDsCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ListDevAssetIDsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	ListDevAssetIDsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -1717,6 +2133,14 @@ type SECCENTER20240508API interface {
 	ListEndpointHandleMethods(*ListEndpointHandleMethodsInput) (*ListEndpointHandleMethodsOutput, error)
 	ListEndpointHandleMethodsWithContext(volcengine.Context, *ListEndpointHandleMethodsInput, ...request.Option) (*ListEndpointHandleMethodsOutput, error)
 	ListEndpointHandleMethodsRequest(*ListEndpointHandleMethodsInput) (*request.Request, *ListEndpointHandleMethodsOutput)
+
+	ListFileMonitorAlarmsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListFileMonitorAlarmsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListFileMonitorAlarmsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListFileMonitorAlarms(*ListFileMonitorAlarmsInput) (*ListFileMonitorAlarmsOutput, error)
+	ListFileMonitorAlarmsWithContext(volcengine.Context, *ListFileMonitorAlarmsInput, ...request.Option) (*ListFileMonitorAlarmsOutput, error)
+	ListFileMonitorAlarmsRequest(*ListFileMonitorAlarmsInput) (*request.Request, *ListFileMonitorAlarmsOutput)
 
 	ListFingerprintCollectConfigCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ListFingerprintCollectConfigCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -1845,6 +2269,14 @@ type SECCENTER20240508API interface {
 	ListMlpAlarms(*ListMlpAlarmsInput) (*ListMlpAlarmsOutput, error)
 	ListMlpAlarmsWithContext(volcengine.Context, *ListMlpAlarmsInput, ...request.Option) (*ListMlpAlarmsOutput, error)
 	ListMlpAlarmsRequest(*ListMlpAlarmsInput) (*request.Request, *ListMlpAlarmsOutput)
+
+	ListMonitorPoliciesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListMonitorPoliciesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListMonitorPoliciesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListMonitorPolicies(*ListMonitorPoliciesInput) (*ListMonitorPoliciesOutput, error)
+	ListMonitorPoliciesWithContext(volcengine.Context, *ListMonitorPoliciesInput, ...request.Option) (*ListMonitorPoliciesOutput, error)
+	ListMonitorPoliciesRequest(*ListMonitorPoliciesInput) (*request.Request, *ListMonitorPoliciesOutput)
 
 	ListMultiLevelAssetHostsCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ListMultiLevelAssetHostsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -2062,6 +2494,14 @@ type SECCENTER20240508API interface {
 	ListTagsDetailWithContext(volcengine.Context, *ListTagsDetailInput, ...request.Option) (*ListTagsDetailOutput, error)
 	ListTagsDetailRequest(*ListTagsDetailInput) (*request.Request, *ListTagsDetailOutput)
 
+	ListVarmorPoliciesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListVarmorPoliciesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListVarmorPoliciesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListVarmorPolicies(*ListVarmorPoliciesInput) (*ListVarmorPoliciesOutput, error)
+	ListVarmorPoliciesWithContext(volcengine.Context, *ListVarmorPoliciesInput, ...request.Option) (*ListVarmorPoliciesOutput, error)
+	ListVarmorPoliciesRequest(*ListVarmorPoliciesInput) (*request.Request, *ListVarmorPoliciesOutput)
+
 	ListVirusAlarmsCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ListVirusAlarmsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	ListVirusAlarmsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -2078,6 +2518,14 @@ type SECCENTER20240508API interface {
 	ListVulByPodWithContext(volcengine.Context, *ListVulByPodInput, ...request.Option) (*ListVulByPodOutput, error)
 	ListVulByPodRequest(*ListVulByPodInput) (*request.Request, *ListVulByPodOutput)
 
+	ListVulDetailCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListVulDetailCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListVulDetailCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListVulDetail(*ListVulDetailInput) (*ListVulDetailOutput, error)
+	ListVulDetailWithContext(volcengine.Context, *ListVulDetailInput, ...request.Option) (*ListVulDetailOutput, error)
+	ListVulDetailRequest(*ListVulDetailInput) (*request.Request, *ListVulDetailOutput)
+
 	ListVulHostByPodCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ListVulHostByPodCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	ListVulHostByPodCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -2085,6 +2533,22 @@ type SECCENTER20240508API interface {
 	ListVulHostByPod(*ListVulHostByPodInput) (*ListVulHostByPodOutput, error)
 	ListVulHostByPodWithContext(volcengine.Context, *ListVulHostByPodInput, ...request.Option) (*ListVulHostByPodOutput, error)
 	ListVulHostByPodRequest(*ListVulHostByPodInput) (*request.Request, *ListVulHostByPodOutput)
+
+	ListVulnAffectAISessionCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListVulnAffectAISessionCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListVulnAffectAISessionCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListVulnAffectAISession(*ListVulnAffectAISessionInput) (*ListVulnAffectAISessionOutput, error)
+	ListVulnAffectAISessionWithContext(volcengine.Context, *ListVulnAffectAISessionInput, ...request.Option) (*ListVulnAffectAISessionOutput, error)
+	ListVulnAffectAISessionRequest(*ListVulnAffectAISessionInput) (*request.Request, *ListVulnAffectAISessionOutput)
+
+	ListVulnForAICommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListVulnForAICommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListVulnForAICommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListVulnForAI(*ListVulnForAIInput) (*ListVulnForAIOutput, error)
+	ListVulnForAIWithContext(volcengine.Context, *ListVulnForAIInput, ...request.Option) (*ListVulnForAIOutput, error)
+	ListVulnForAIRequest(*ListVulnForAIInput) (*request.Request, *ListVulnForAIOutput)
 
 	ListVulnHostsCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ListVulnHostsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -2117,6 +2581,14 @@ type SECCENTER20240508API interface {
 	ListWhiteLists(*ListWhiteListsInput) (*ListWhiteListsOutput, error)
 	ListWhiteListsWithContext(volcengine.Context, *ListWhiteListsInput, ...request.Option) (*ListWhiteListsOutput, error)
 	ListWhiteListsRequest(*ListWhiteListsInput) (*request.Request, *ListWhiteListsOutput)
+
+	ManualSyncAIApplicationCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ManualSyncAIApplicationCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ManualSyncAIApplicationCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ManualSyncAIApplication(*ManualSyncAIApplicationInput) (*ManualSyncAIApplicationOutput, error)
+	ManualSyncAIApplicationWithContext(volcengine.Context, *ManualSyncAIApplicationInput, ...request.Option) (*ManualSyncAIApplicationOutput, error)
+	ManualSyncAIApplicationRequest(*ManualSyncAIApplicationInput) (*request.Request, *ManualSyncAIApplicationOutput)
 
 	ModifyAutoDefenseRuleCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ModifyAutoDefenseRuleCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -2230,6 +2702,14 @@ type SECCENTER20240508API interface {
 	RecoverFileWithContext(volcengine.Context, *RecoverFileInput, ...request.Option) (*RecoverFileOutput, error)
 	RecoverFileRequest(*RecoverFileInput) (*request.Request, *RecoverFileOutput)
 
+	RefreshAIFingerprintDataCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	RefreshAIFingerprintDataCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	RefreshAIFingerprintDataCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	RefreshAIFingerprintData(*RefreshAIFingerprintDataInput) (*RefreshAIFingerprintDataOutput, error)
+	RefreshAIFingerprintDataWithContext(volcengine.Context, *RefreshAIFingerprintDataInput, ...request.Option) (*RefreshAIFingerprintDataOutput, error)
+	RefreshAIFingerprintDataRequest(*RefreshAIFingerprintDataInput) (*request.Request, *RefreshAIFingerprintDataOutput)
+
 	RefreshFingerprintDataCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	RefreshFingerprintDataCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	RefreshFingerprintDataCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -2237,6 +2717,14 @@ type SECCENTER20240508API interface {
 	RefreshFingerprintData(*RefreshFingerprintDataInput) (*RefreshFingerprintDataOutput, error)
 	RefreshFingerprintDataWithContext(volcengine.Context, *RefreshFingerprintDataInput, ...request.Option) (*RefreshFingerprintDataOutput, error)
 	RefreshFingerprintDataRequest(*RefreshFingerprintDataInput) (*request.Request, *RefreshFingerprintDataOutput)
+
+	RefreshVarmorInfoCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	RefreshVarmorInfoCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	RefreshVarmorInfoCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	RefreshVarmorInfo(*RefreshVarmorInfoInput) (*RefreshVarmorInfoOutput, error)
+	RefreshVarmorInfoWithContext(volcengine.Context, *RefreshVarmorInfoInput, ...request.Option) (*RefreshVarmorInfoOutput, error)
+	RefreshVarmorInfoRequest(*RefreshVarmorInfoInput) (*request.Request, *RefreshVarmorInfoOutput)
 
 	RetryIPOperationCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	RetryIPOperationCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -2261,6 +2749,14 @@ type SECCENTER20240508API interface {
 	SaveRepoImageScanScope(*SaveRepoImageScanScopeInput) (*SaveRepoImageScanScopeOutput, error)
 	SaveRepoImageScanScopeWithContext(volcengine.Context, *SaveRepoImageScanScopeInput, ...request.Option) (*SaveRepoImageScanScopeOutput, error)
 	SaveRepoImageScanScopeRequest(*SaveRepoImageScanScopeInput) (*request.Request, *SaveRepoImageScanScopeOutput)
+
+	SetAIAlarmJudgeConfigCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	SetAIAlarmJudgeConfigCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	SetAIAlarmJudgeConfigCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	SetAIAlarmJudgeConfig(*SetAIAlarmJudgeConfigInput) (*SetAIAlarmJudgeConfigOutput, error)
+	SetAIAlarmJudgeConfigWithContext(volcengine.Context, *SetAIAlarmJudgeConfigInput, ...request.Option) (*SetAIAlarmJudgeConfigOutput, error)
+	SetAIAlarmJudgeConfigRequest(*SetAIAlarmJudgeConfigInput) (*request.Request, *SetAIAlarmJudgeConfigOutput)
 
 	SetBruteForceBanConfigCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	SetBruteForceBanConfigCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -2445,6 +2941,30 @@ type SECCENTER20240508API interface {
 	UpdateRegularClean(*UpdateRegularCleanInput) (*UpdateRegularCleanOutput, error)
 	UpdateRegularCleanWithContext(volcengine.Context, *UpdateRegularCleanInput, ...request.Option) (*UpdateRegularCleanOutput, error)
 	UpdateRegularCleanRequest(*UpdateRegularCleanInput) (*request.Request, *UpdateRegularCleanOutput)
+
+	UpdateVarmorAppConfigCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	UpdateVarmorAppConfigCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	UpdateVarmorAppConfigCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	UpdateVarmorAppConfig(*UpdateVarmorAppConfigInput) (*UpdateVarmorAppConfigOutput, error)
+	UpdateVarmorAppConfigWithContext(volcengine.Context, *UpdateVarmorAppConfigInput, ...request.Option) (*UpdateVarmorAppConfigOutput, error)
+	UpdateVarmorAppConfigRequest(*UpdateVarmorAppConfigInput) (*request.Request, *UpdateVarmorAppConfigOutput)
+
+	UpdateVarmorPolicyCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	UpdateVarmorPolicyCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	UpdateVarmorPolicyCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	UpdateVarmorPolicy(*UpdateVarmorPolicyInput) (*UpdateVarmorPolicyOutput, error)
+	UpdateVarmorPolicyWithContext(volcengine.Context, *UpdateVarmorPolicyInput, ...request.Option) (*UpdateVarmorPolicyOutput, error)
+	UpdateVarmorPolicyRequest(*UpdateVarmorPolicyInput) (*request.Request, *UpdateVarmorPolicyOutput)
+
+	UpdateVarmorTLSInfoCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	UpdateVarmorTLSInfoCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	UpdateVarmorTLSInfoCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	UpdateVarmorTLSInfo(*UpdateVarmorTLSInfoInput) (*UpdateVarmorTLSInfoOutput, error)
+	UpdateVarmorTLSInfoWithContext(volcengine.Context, *UpdateVarmorTLSInfoInput, ...request.Option) (*UpdateVarmorTLSInfoOutput, error)
+	UpdateVarmorTLSInfoRequest(*UpdateVarmorTLSInfoInput) (*request.Request, *UpdateVarmorTLSInfoOutput)
 }
 
 var _ SECCENTER20240508API = (*SECCENTER20240508)(nil)

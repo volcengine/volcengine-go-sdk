@@ -242,6 +242,8 @@ type DataForListRaspAlarmsOutput struct {
 
 	AgentID *string `type:"string" json:",omitempty"`
 
+	AlarmCount *int64 `type:"int64" json:",omitempty"`
+
 	AlarmHandleResult *int64 `type:"int64" json:",omitempty"`
 
 	AlarmHostname *string `type:"string" json:",omitempty"`
@@ -251,6 +253,8 @@ type DataForListRaspAlarmsOutput struct {
 	AlarmTime *int64 `type:"int64" json:",omitempty"`
 
 	AlertTags []*string `type:"list" json:",omitempty"`
+
+	AnalysisRecordUUID *string `type:"string" json:",omitempty"`
 
 	Args []*string `type:"list" json:",omitempty"`
 
@@ -263,6 +267,8 @@ type DataForListRaspAlarmsOutput struct {
 	Class *string `type:"string" json:",omitempty"`
 
 	Cluster *ClusterForListRaspAlarmsOutput `type:"structure" json:",omitempty"`
+
+	Confidence *string `type:"string" json:",omitempty"`
 
 	DataType *string `type:"string" json:",omitempty"`
 
@@ -282,6 +288,8 @@ type DataForListRaspAlarmsOutput struct {
 
 	GroupPath *string `type:"string" json:",omitempty"`
 
+	HandleFailReason *string `type:"string" json:",omitempty"`
+
 	HandleTime *int64 `type:"int64" json:",omitempty"`
 
 	Host *HostForListRaspAlarmsOutput `type:"structure" json:",omitempty"`
@@ -294,6 +302,8 @@ type DataForListRaspAlarmsOutput struct {
 
 	LLMProcessed *bool `type:"boolean" json:",omitempty"`
 
+	LastAlarmTime *int64 `type:"int64" json:",omitempty"`
+
 	Level *string `type:"string" json:",omitempty"`
 
 	MlpInstanceID *string `type:"string" json:",omitempty"`
@@ -304,6 +314,8 @@ type DataForListRaspAlarmsOutput struct {
 
 	NsPid *string `type:"string" json:",omitempty"`
 
+	OperationList []*string `type:"list" json:",omitempty"`
+
 	OsType *string `type:"string" json:",omitempty"`
 
 	Pid *string `type:"string" json:",omitempty"`
@@ -311,6 +323,10 @@ type DataForListRaspAlarmsOutput struct {
 	ProbeHook *string `type:"string" json:",omitempty"`
 
 	Region *string `type:"string" json:",omitempty"`
+
+	SecurityIntelligenceComplete *bool `type:"boolean" json:",omitempty"`
+
+	SecurityIntelligenceResult *string `type:"string" json:",omitempty"`
 
 	Sid *string `type:"string" json:",omitempty"`
 
@@ -347,6 +363,12 @@ func (s *DataForListRaspAlarmsOutput) SetAgentID(v string) *DataForListRaspAlarm
 	return s
 }
 
+// SetAlarmCount sets the AlarmCount field's value.
+func (s *DataForListRaspAlarmsOutput) SetAlarmCount(v int64) *DataForListRaspAlarmsOutput {
+	s.AlarmCount = &v
+	return s
+}
+
 // SetAlarmHandleResult sets the AlarmHandleResult field's value.
 func (s *DataForListRaspAlarmsOutput) SetAlarmHandleResult(v int64) *DataForListRaspAlarmsOutput {
 	s.AlarmHandleResult = &v
@@ -374,6 +396,12 @@ func (s *DataForListRaspAlarmsOutput) SetAlarmTime(v int64) *DataForListRaspAlar
 // SetAlertTags sets the AlertTags field's value.
 func (s *DataForListRaspAlarmsOutput) SetAlertTags(v []*string) *DataForListRaspAlarmsOutput {
 	s.AlertTags = v
+	return s
+}
+
+// SetAnalysisRecordUUID sets the AnalysisRecordUUID field's value.
+func (s *DataForListRaspAlarmsOutput) SetAnalysisRecordUUID(v string) *DataForListRaspAlarmsOutput {
+	s.AnalysisRecordUUID = &v
 	return s
 }
 
@@ -410,6 +438,12 @@ func (s *DataForListRaspAlarmsOutput) SetClass(v string) *DataForListRaspAlarmsO
 // SetCluster sets the Cluster field's value.
 func (s *DataForListRaspAlarmsOutput) SetCluster(v *ClusterForListRaspAlarmsOutput) *DataForListRaspAlarmsOutput {
 	s.Cluster = v
+	return s
+}
+
+// SetConfidence sets the Confidence field's value.
+func (s *DataForListRaspAlarmsOutput) SetConfidence(v string) *DataForListRaspAlarmsOutput {
+	s.Confidence = &v
 	return s
 }
 
@@ -467,6 +501,12 @@ func (s *DataForListRaspAlarmsOutput) SetGroupPath(v string) *DataForListRaspAla
 	return s
 }
 
+// SetHandleFailReason sets the HandleFailReason field's value.
+func (s *DataForListRaspAlarmsOutput) SetHandleFailReason(v string) *DataForListRaspAlarmsOutput {
+	s.HandleFailReason = &v
+	return s
+}
+
 // SetHandleTime sets the HandleTime field's value.
 func (s *DataForListRaspAlarmsOutput) SetHandleTime(v int64) *DataForListRaspAlarmsOutput {
 	s.HandleTime = &v
@@ -503,6 +543,12 @@ func (s *DataForListRaspAlarmsOutput) SetLLMProcessed(v bool) *DataForListRaspAl
 	return s
 }
 
+// SetLastAlarmTime sets the LastAlarmTime field's value.
+func (s *DataForListRaspAlarmsOutput) SetLastAlarmTime(v int64) *DataForListRaspAlarmsOutput {
+	s.LastAlarmTime = &v
+	return s
+}
+
 // SetLevel sets the Level field's value.
 func (s *DataForListRaspAlarmsOutput) SetLevel(v string) *DataForListRaspAlarmsOutput {
 	s.Level = &v
@@ -533,6 +579,12 @@ func (s *DataForListRaspAlarmsOutput) SetNsPid(v string) *DataForListRaspAlarmsO
 	return s
 }
 
+// SetOperationList sets the OperationList field's value.
+func (s *DataForListRaspAlarmsOutput) SetOperationList(v []*string) *DataForListRaspAlarmsOutput {
+	s.OperationList = v
+	return s
+}
+
 // SetOsType sets the OsType field's value.
 func (s *DataForListRaspAlarmsOutput) SetOsType(v string) *DataForListRaspAlarmsOutput {
 	s.OsType = &v
@@ -554,6 +606,18 @@ func (s *DataForListRaspAlarmsOutput) SetProbeHook(v string) *DataForListRaspAla
 // SetRegion sets the Region field's value.
 func (s *DataForListRaspAlarmsOutput) SetRegion(v string) *DataForListRaspAlarmsOutput {
 	s.Region = &v
+	return s
+}
+
+// SetSecurityIntelligenceComplete sets the SecurityIntelligenceComplete field's value.
+func (s *DataForListRaspAlarmsOutput) SetSecurityIntelligenceComplete(v bool) *DataForListRaspAlarmsOutput {
+	s.SecurityIntelligenceComplete = &v
+	return s
+}
+
+// SetSecurityIntelligenceResult sets the SecurityIntelligenceResult field's value.
+func (s *DataForListRaspAlarmsOutput) SetSecurityIntelligenceResult(v string) *DataForListRaspAlarmsOutput {
+	s.SecurityIntelligenceResult = &v
 	return s
 }
 
@@ -700,6 +764,10 @@ type ListRaspAlarmsInput struct {
 
 	ImageName *string `type:"string" json:",omitempty"`
 
+	LastAlarmTimeEnd *int64 `type:"int64" json:",omitempty"`
+
+	LastAlarmTimeStart *int64 `type:"int64" json:",omitempty"`
+
 	LeafGroupIDs []*string `type:"list" json:",omitempty"`
 
 	LevelList []*string `type:"list" json:",omitempty"`
@@ -707,6 +775,8 @@ type ListRaspAlarmsInput struct {
 	MlpInstanceID *string `type:"string" json:",omitempty"`
 
 	Name *string `type:"string" json:",omitempty"`
+
+	OperationList []*string `type:"list" json:",omitempty"`
 
 	// PageNumber is a required field
 	PageNumber *int64 `type:"int64" json:",omitempty" required:"true"`
@@ -917,6 +987,18 @@ func (s *ListRaspAlarmsInput) SetImageName(v string) *ListRaspAlarmsInput {
 	return s
 }
 
+// SetLastAlarmTimeEnd sets the LastAlarmTimeEnd field's value.
+func (s *ListRaspAlarmsInput) SetLastAlarmTimeEnd(v int64) *ListRaspAlarmsInput {
+	s.LastAlarmTimeEnd = &v
+	return s
+}
+
+// SetLastAlarmTimeStart sets the LastAlarmTimeStart field's value.
+func (s *ListRaspAlarmsInput) SetLastAlarmTimeStart(v int64) *ListRaspAlarmsInput {
+	s.LastAlarmTimeStart = &v
+	return s
+}
+
 // SetLeafGroupIDs sets the LeafGroupIDs field's value.
 func (s *ListRaspAlarmsInput) SetLeafGroupIDs(v []*string) *ListRaspAlarmsInput {
 	s.LeafGroupIDs = v
@@ -938,6 +1020,12 @@ func (s *ListRaspAlarmsInput) SetMlpInstanceID(v string) *ListRaspAlarmsInput {
 // SetName sets the Name field's value.
 func (s *ListRaspAlarmsInput) SetName(v string) *ListRaspAlarmsInput {
 	s.Name = &v
+	return s
+}
+
+// SetOperationList sets the OperationList field's value.
+func (s *ListRaspAlarmsInput) SetOperationList(v []*string) *ListRaspAlarmsInput {
+	s.OperationList = v
 	return s
 }
 

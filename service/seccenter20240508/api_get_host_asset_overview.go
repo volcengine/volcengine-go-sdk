@@ -176,6 +176,8 @@ type GetHostAssetOverviewOutput struct {
 
 	ProtectionException *int64 `type:"int64" json:",omitempty"`
 
+	RealRiskVul *int64 `type:"int64" json:",omitempty"`
+
 	Risk *int64 `type:"int64" json:",omitempty"`
 
 	Unprotected *int64 `type:"int64" json:",omitempty"`
@@ -236,6 +238,12 @@ func (s *GetHostAssetOverviewOutput) SetProtecting(v int64) *GetHostAssetOvervie
 // SetProtectionException sets the ProtectionException field's value.
 func (s *GetHostAssetOverviewOutput) SetProtectionException(v int64) *GetHostAssetOverviewOutput {
 	s.ProtectionException = &v
+	return s
+}
+
+// SetRealRiskVul sets the RealRiskVul field's value.
+func (s *GetHostAssetOverviewOutput) SetRealRiskVul(v int64) *GetHostAssetOverviewOutput {
+	s.RealRiskVul = &v
 	return s
 }
 

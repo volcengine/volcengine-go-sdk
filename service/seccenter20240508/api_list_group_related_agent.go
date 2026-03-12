@@ -142,8 +142,7 @@ func (c *SECCENTER20240508) ListGroupRelatedAgentWithContext(ctx volcengine.Cont
 type ListGroupRelatedAgentInput struct {
 	_ struct{} `type:"structure"`
 
-	// Group is a required field
-	Group *string `type:"string" required:"true"`
+	Group *string `type:"string"`
 }
 
 // String returns the string representation
@@ -154,19 +153,6 @@ func (s ListGroupRelatedAgentInput) String() string {
 // GoString returns the string representation
 func (s ListGroupRelatedAgentInput) GoString() string {
 	return s.String()
-}
-
-// Validate inspects the fields of the type to determine if they are valid.
-func (s *ListGroupRelatedAgentInput) Validate() error {
-	invalidParams := request.ErrInvalidParams{Context: "ListGroupRelatedAgentInput"}
-	if s.Group == nil {
-		invalidParams.Add(request.NewErrParamRequired("Group"))
-	}
-
-	if invalidParams.Len() > 0 {
-		return invalidParams
-	}
-	return nil
 }
 
 // SetGroup sets the Group field's value.

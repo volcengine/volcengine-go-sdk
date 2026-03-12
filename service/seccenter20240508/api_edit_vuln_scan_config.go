@@ -150,7 +150,7 @@ type EditVulnScanConfigInput struct {
 
 	AssetIDs []*string `type:"list" json:",omitempty"`
 
-	AssetType *string `type:"string" json:",omitempty" enum:"EnumOfAssetTypeForEditVulnScanConfigInput"`
+	AssetType *string `type:"string" json:",omitempty"`
 
 	IfAllHost *bool `type:"boolean" json:",omitempty"`
 
@@ -246,6 +246,8 @@ type ScanTypeForEditVulnScanConfigInput struct {
 
 	DevPy *bool `type:"boolean" json:",omitempty"`
 
+	Emg *bool `type:"boolean" json:",omitempty"`
+
 	Linux *bool `type:"boolean" json:",omitempty"`
 
 	Webcms *bool `type:"boolean" json:",omitempty"`
@@ -281,6 +283,12 @@ func (s *ScanTypeForEditVulnScanConfigInput) SetDevPy(v bool) *ScanTypeForEditVu
 	return s
 }
 
+// SetEmg sets the Emg field's value.
+func (s *ScanTypeForEditVulnScanConfigInput) SetEmg(v bool) *ScanTypeForEditVulnScanConfigInput {
+	s.Emg = &v
+	return s
+}
+
 // SetLinux sets the Linux field's value.
 func (s *ScanTypeForEditVulnScanConfigInput) SetLinux(v bool) *ScanTypeForEditVulnScanConfigInput {
 	s.Linux = &v
@@ -298,11 +306,3 @@ func (s *ScanTypeForEditVulnScanConfigInput) SetWindows(v bool) *ScanTypeForEdit
 	s.Windows = &v
 	return s
 }
-
-const (
-	// EnumOfAssetTypeForEditVulnScanConfigInputHost is a EnumOfAssetTypeForEditVulnScanConfigInput enum value
-	EnumOfAssetTypeForEditVulnScanConfigInputHost = "Host"
-
-	// EnumOfAssetTypeForEditVulnScanConfigInputDev is a EnumOfAssetTypeForEditVulnScanConfigInput enum value
-	EnumOfAssetTypeForEditVulnScanConfigInputDev = "Dev"
-)

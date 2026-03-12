@@ -192,6 +192,8 @@ type ListBatchEndpointHandleMethodsOutput struct {
 
 	Metadata *response.ResponseMetadata
 
+	NotSupportReason *string `type:"string" json:",omitempty"`
+
 	OperationList []*OperationListForListBatchEndpointHandleMethodsOutput `type:"list" json:",omitempty"`
 
 	Support *bool `type:"boolean" json:",omitempty"`
@@ -205,6 +207,12 @@ func (s ListBatchEndpointHandleMethodsOutput) String() string {
 // GoString returns the string representation
 func (s ListBatchEndpointHandleMethodsOutput) GoString() string {
 	return s.String()
+}
+
+// SetNotSupportReason sets the NotSupportReason field's value.
+func (s *ListBatchEndpointHandleMethodsOutput) SetNotSupportReason(v string) *ListBatchEndpointHandleMethodsOutput {
+	s.NotSupportReason = &v
+	return s
 }
 
 // SetOperationList sets the OperationList field's value.

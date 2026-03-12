@@ -228,7 +228,7 @@ type ListBaselineCheckResInput struct {
 
 	AssetID *string `type:"string" json:",omitempty"`
 
-	AssetType *string `type:"string" json:",omitempty" enum:"EnumOfAssetTypeForListBaselineCheckResInput"`
+	AssetType *string `type:"string" json:",omitempty"`
 
 	BaselineID *int64 `type:"int64" json:",omitempty"`
 
@@ -412,11 +412,3 @@ func (s *ListBaselineCheckResOutput) SetTotalCount(v int64) *ListBaselineCheckRe
 	s.TotalCount = &v
 	return s
 }
-
-const (
-	// EnumOfAssetTypeForListBaselineCheckResInputHost is a EnumOfAssetTypeForListBaselineCheckResInput enum value
-	EnumOfAssetTypeForListBaselineCheckResInputHost = "Host"
-
-	// EnumOfAssetTypeForListBaselineCheckResInputDev is a EnumOfAssetTypeForListBaselineCheckResInput enum value
-	EnumOfAssetTypeForListBaselineCheckResInputDev = "Dev"
-)

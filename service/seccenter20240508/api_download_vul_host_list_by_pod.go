@@ -156,6 +156,8 @@ type ConditionsForDownloadVulHostListByPodInput struct {
 
 	IP *string `type:"string" json:",omitempty"`
 
+	IsRealRiskVul *bool `type:"boolean" json:",omitempty"`
+
 	LeafGroupIDs []*string `type:"list" json:",omitempty"`
 
 	Status []*string `type:"list" json:",omitempty"`
@@ -200,6 +202,12 @@ func (s *ConditionsForDownloadVulHostListByPodInput) SetHostName(v string) *Cond
 // SetIP sets the IP field's value.
 func (s *ConditionsForDownloadVulHostListByPodInput) SetIP(v string) *ConditionsForDownloadVulHostListByPodInput {
 	s.IP = &v
+	return s
+}
+
+// SetIsRealRiskVul sets the IsRealRiskVul field's value.
+func (s *ConditionsForDownloadVulHostListByPodInput) SetIsRealRiskVul(v bool) *ConditionsForDownloadVulHostListByPodInput {
+	s.IsRealRiskVul = &v
 	return s
 }
 

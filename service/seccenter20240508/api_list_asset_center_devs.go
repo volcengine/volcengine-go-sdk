@@ -164,9 +164,15 @@ type DataForListAssetCenterDevsOutput struct {
 
 	Platform *string `type:"string" json:",omitempty"`
 
+	ProtectStatus *string `type:"string" json:",omitempty"`
+
 	Region *string `type:"string" json:",omitempty"`
 
+	SecurityEnhancement *bool `type:"boolean" json:",omitempty"`
+
 	Status *string `type:"string" json:",omitempty"`
+
+	UpdateTime *int64 `type:"int64" json:",omitempty"`
 
 	Vul *int64 `type:"int64" json:",omitempty"`
 }
@@ -235,15 +241,33 @@ func (s *DataForListAssetCenterDevsOutput) SetPlatform(v string) *DataForListAss
 	return s
 }
 
+// SetProtectStatus sets the ProtectStatus field's value.
+func (s *DataForListAssetCenterDevsOutput) SetProtectStatus(v string) *DataForListAssetCenterDevsOutput {
+	s.ProtectStatus = &v
+	return s
+}
+
 // SetRegion sets the Region field's value.
 func (s *DataForListAssetCenterDevsOutput) SetRegion(v string) *DataForListAssetCenterDevsOutput {
 	s.Region = &v
 	return s
 }
 
+// SetSecurityEnhancement sets the SecurityEnhancement field's value.
+func (s *DataForListAssetCenterDevsOutput) SetSecurityEnhancement(v bool) *DataForListAssetCenterDevsOutput {
+	s.SecurityEnhancement = &v
+	return s
+}
+
 // SetStatus sets the Status field's value.
 func (s *DataForListAssetCenterDevsOutput) SetStatus(v string) *DataForListAssetCenterDevsOutput {
 	s.Status = &v
+	return s
+}
+
+// SetUpdateTime sets the UpdateTime field's value.
+func (s *DataForListAssetCenterDevsOutput) SetUpdateTime(v int64) *DataForListAssetCenterDevsOutput {
+	s.UpdateTime = &v
 	return s
 }
 
@@ -274,9 +298,13 @@ type ListAssetCenterDevsInput struct {
 
 	Platforms []*string `type:"list" json:",omitempty"`
 
+	ProtectStatus *string `type:"string" json:",omitempty"`
+
 	Regions []*string `type:"list" json:",omitempty"`
 
 	Risk *RiskForListAssetCenterDevsInput `type:"structure" json:",omitempty"`
+
+	SecurityEnhancement *bool `type:"boolean" json:",omitempty"`
 
 	SortBy *string `type:"string" json:",omitempty"`
 
@@ -359,6 +387,12 @@ func (s *ListAssetCenterDevsInput) SetPlatforms(v []*string) *ListAssetCenterDev
 	return s
 }
 
+// SetProtectStatus sets the ProtectStatus field's value.
+func (s *ListAssetCenterDevsInput) SetProtectStatus(v string) *ListAssetCenterDevsInput {
+	s.ProtectStatus = &v
+	return s
+}
+
 // SetRegions sets the Regions field's value.
 func (s *ListAssetCenterDevsInput) SetRegions(v []*string) *ListAssetCenterDevsInput {
 	s.Regions = v
@@ -368,6 +402,12 @@ func (s *ListAssetCenterDevsInput) SetRegions(v []*string) *ListAssetCenterDevsI
 // SetRisk sets the Risk field's value.
 func (s *ListAssetCenterDevsInput) SetRisk(v *RiskForListAssetCenterDevsInput) *ListAssetCenterDevsInput {
 	s.Risk = v
+	return s
+}
+
+// SetSecurityEnhancement sets the SecurityEnhancement field's value.
+func (s *ListAssetCenterDevsInput) SetSecurityEnhancement(v bool) *ListAssetCenterDevsInput {
+	s.SecurityEnhancement = &v
 	return s
 }
 

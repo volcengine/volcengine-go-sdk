@@ -558,6 +558,8 @@ type GetHidsAlarmInfoOutput struct {
 
 	PlusAlarmInfo602 *PlusAlarmInfo602ForGetHidsAlarmInfoOutput `type:"structure"`
 
+	PlusAlarmInfo602x *PlusAlarmInfo602xForGetHidsAlarmInfoOutput `type:"structure"`
+
 	PlusAlarmInfo603 *PlusAlarmInfo603ForGetHidsAlarmInfoOutput `type:"structure"`
 
 	PlusAlarmInfo604 *PlusAlarmInfo604ForGetHidsAlarmInfoOutput `type:"structure"`
@@ -710,6 +712,12 @@ func (s *GetHidsAlarmInfoOutput) SetPlusAlarmInfo601(v *PlusAlarmInfo601ForGetHi
 // SetPlusAlarmInfo602 sets the PlusAlarmInfo602 field's value.
 func (s *GetHidsAlarmInfoOutput) SetPlusAlarmInfo602(v *PlusAlarmInfo602ForGetHidsAlarmInfoOutput) *GetHidsAlarmInfoOutput {
 	s.PlusAlarmInfo602 = v
+	return s
+}
+
+// SetPlusAlarmInfo602x sets the PlusAlarmInfo602x field's value.
+func (s *GetHidsAlarmInfoOutput) SetPlusAlarmInfo602x(v *PlusAlarmInfo602xForGetHidsAlarmInfoOutput) *GetHidsAlarmInfoOutput {
+	s.PlusAlarmInfo602x = v
 	return s
 }
 
@@ -1434,6 +1442,148 @@ func (s *PlusAlarmInfo602ForGetHidsAlarmInfoOutput) SetPidTree(v string) *PlusAl
 // SetSocketArgv sets the SocketArgv field's value.
 func (s *PlusAlarmInfo602ForGetHidsAlarmInfoOutput) SetSocketArgv(v string) *PlusAlarmInfo602ForGetHidsAlarmInfoOutput {
 	s.SocketArgv = &v
+	return s
+}
+
+type PlusAlarmInfo602xForGetHidsAlarmInfoOutput struct {
+	_ struct{} `type:"structure"`
+
+	Class *string `type:"string"`
+
+	CreateAt *string `type:"string"`
+
+	FileEntropy *string `type:"string"`
+
+	FileHash *string `type:"string"`
+
+	FileMagic *string `type:"string"`
+
+	FileMime *string `type:"string"`
+
+	FileSsdeep *string `type:"string"`
+
+	FileTlsh *string `type:"string"`
+
+	FileType *string `type:"string"`
+
+	M2md5 *string `type:"string"`
+
+	Md5Hash *string `type:"string"`
+
+	ModifyAt *string `type:"string"`
+
+	Name *string `type:"string"`
+
+	StaticFile *string `type:"string"`
+
+	Timestamp *string `type:"string"`
+
+	Types *string `type:"string"`
+}
+
+// String returns the string representation
+func (s PlusAlarmInfo602xForGetHidsAlarmInfoOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s PlusAlarmInfo602xForGetHidsAlarmInfoOutput) GoString() string {
+	return s.String()
+}
+
+// SetClass sets the Class field's value.
+func (s *PlusAlarmInfo602xForGetHidsAlarmInfoOutput) SetClass(v string) *PlusAlarmInfo602xForGetHidsAlarmInfoOutput {
+	s.Class = &v
+	return s
+}
+
+// SetCreateAt sets the CreateAt field's value.
+func (s *PlusAlarmInfo602xForGetHidsAlarmInfoOutput) SetCreateAt(v string) *PlusAlarmInfo602xForGetHidsAlarmInfoOutput {
+	s.CreateAt = &v
+	return s
+}
+
+// SetFileEntropy sets the FileEntropy field's value.
+func (s *PlusAlarmInfo602xForGetHidsAlarmInfoOutput) SetFileEntropy(v string) *PlusAlarmInfo602xForGetHidsAlarmInfoOutput {
+	s.FileEntropy = &v
+	return s
+}
+
+// SetFileHash sets the FileHash field's value.
+func (s *PlusAlarmInfo602xForGetHidsAlarmInfoOutput) SetFileHash(v string) *PlusAlarmInfo602xForGetHidsAlarmInfoOutput {
+	s.FileHash = &v
+	return s
+}
+
+// SetFileMagic sets the FileMagic field's value.
+func (s *PlusAlarmInfo602xForGetHidsAlarmInfoOutput) SetFileMagic(v string) *PlusAlarmInfo602xForGetHidsAlarmInfoOutput {
+	s.FileMagic = &v
+	return s
+}
+
+// SetFileMime sets the FileMime field's value.
+func (s *PlusAlarmInfo602xForGetHidsAlarmInfoOutput) SetFileMime(v string) *PlusAlarmInfo602xForGetHidsAlarmInfoOutput {
+	s.FileMime = &v
+	return s
+}
+
+// SetFileSsdeep sets the FileSsdeep field's value.
+func (s *PlusAlarmInfo602xForGetHidsAlarmInfoOutput) SetFileSsdeep(v string) *PlusAlarmInfo602xForGetHidsAlarmInfoOutput {
+	s.FileSsdeep = &v
+	return s
+}
+
+// SetFileTlsh sets the FileTlsh field's value.
+func (s *PlusAlarmInfo602xForGetHidsAlarmInfoOutput) SetFileTlsh(v string) *PlusAlarmInfo602xForGetHidsAlarmInfoOutput {
+	s.FileTlsh = &v
+	return s
+}
+
+// SetFileType sets the FileType field's value.
+func (s *PlusAlarmInfo602xForGetHidsAlarmInfoOutput) SetFileType(v string) *PlusAlarmInfo602xForGetHidsAlarmInfoOutput {
+	s.FileType = &v
+	return s
+}
+
+// SetM2md5 sets the M2md5 field's value.
+func (s *PlusAlarmInfo602xForGetHidsAlarmInfoOutput) SetM2md5(v string) *PlusAlarmInfo602xForGetHidsAlarmInfoOutput {
+	s.M2md5 = &v
+	return s
+}
+
+// SetMd5Hash sets the Md5Hash field's value.
+func (s *PlusAlarmInfo602xForGetHidsAlarmInfoOutput) SetMd5Hash(v string) *PlusAlarmInfo602xForGetHidsAlarmInfoOutput {
+	s.Md5Hash = &v
+	return s
+}
+
+// SetModifyAt sets the ModifyAt field's value.
+func (s *PlusAlarmInfo602xForGetHidsAlarmInfoOutput) SetModifyAt(v string) *PlusAlarmInfo602xForGetHidsAlarmInfoOutput {
+	s.ModifyAt = &v
+	return s
+}
+
+// SetName sets the Name field's value.
+func (s *PlusAlarmInfo602xForGetHidsAlarmInfoOutput) SetName(v string) *PlusAlarmInfo602xForGetHidsAlarmInfoOutput {
+	s.Name = &v
+	return s
+}
+
+// SetStaticFile sets the StaticFile field's value.
+func (s *PlusAlarmInfo602xForGetHidsAlarmInfoOutput) SetStaticFile(v string) *PlusAlarmInfo602xForGetHidsAlarmInfoOutput {
+	s.StaticFile = &v
+	return s
+}
+
+// SetTimestamp sets the Timestamp field's value.
+func (s *PlusAlarmInfo602xForGetHidsAlarmInfoOutput) SetTimestamp(v string) *PlusAlarmInfo602xForGetHidsAlarmInfoOutput {
+	s.Timestamp = &v
+	return s
+}
+
+// SetTypes sets the Types field's value.
+func (s *PlusAlarmInfo602xForGetHidsAlarmInfoOutput) SetTypes(v string) *PlusAlarmInfo602xForGetHidsAlarmInfoOutput {
+	s.Types = &v
 	return s
 }
 

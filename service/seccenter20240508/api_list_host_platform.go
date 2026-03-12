@@ -142,6 +142,8 @@ func (c *SECCENTER20240508) ListHostPlatformWithContext(ctx volcengine.Context, 
 type ListHostPlatformInput struct {
 	_ struct{} `type:"structure"`
 
+	Os *string `type:"string"`
+
 	TopGroupID *string `type:"string"`
 }
 
@@ -153,6 +155,12 @@ func (s ListHostPlatformInput) String() string {
 // GoString returns the string representation
 func (s ListHostPlatformInput) GoString() string {
 	return s.String()
+}
+
+// SetOs sets the Os field's value.
+func (s *ListHostPlatformInput) SetOs(v string) *ListHostPlatformInput {
+	s.Os = &v
+	return s
 }
 
 // SetTopGroupID sets the TopGroupID field's value.

@@ -250,13 +250,19 @@ func (s *AlarmContentForGetVirusAlarmSummaryInfoOutput) SetVirusHitDataList(v []
 type AlarmDescForGetVirusAlarmSummaryInfoOutput struct {
 	_ struct{} `type:"structure"`
 
+	AlarmCount *int64 `type:"int64"`
+
 	AlarmHandleResult *int64 `type:"int64"`
 
 	AlarmID *string `type:"string"`
 
 	AlertDesc *string `type:"string"`
 
+	AlertDescUS *string `type:"string"`
+
 	AlertDetail *string `type:"string"`
+
+	AlertDetailUS *string `type:"string"`
 
 	AlertTags []*string `type:"list"`
 
@@ -274,6 +280,8 @@ type AlarmDescForGetVirusAlarmSummaryInfoOutput struct {
 
 	DataTypeStr *string `type:"string"`
 
+	DataTypeStrEn *string `type:"string"`
+
 	Desc *string `type:"string"`
 
 	Docker *string `type:"string"`
@@ -290,6 +298,10 @@ type AlarmDescForGetVirusAlarmSummaryInfoOutput struct {
 
 	KubeLevel *string `type:"string"`
 
+	LastAlarmTime *int64 `type:"int64"`
+
+	OperationList []*string `type:"list"`
+
 	RaspConfigName *string `type:"string"`
 
 	RaspLevel *string `type:"string"`
@@ -300,9 +312,13 @@ type AlarmDescForGetVirusAlarmSummaryInfoOutput struct {
 
 	RuleName *string `type:"string"`
 
+	RuleNameUs *string `type:"string"`
+
 	Status *int64 `type:"int64"`
 
 	Suggestion *string `type:"string"`
+
+	SuggestionUs *string `type:"string"`
 
 	TraceID *string `type:"string"`
 }
@@ -315,6 +331,12 @@ func (s AlarmDescForGetVirusAlarmSummaryInfoOutput) String() string {
 // GoString returns the string representation
 func (s AlarmDescForGetVirusAlarmSummaryInfoOutput) GoString() string {
 	return s.String()
+}
+
+// SetAlarmCount sets the AlarmCount field's value.
+func (s *AlarmDescForGetVirusAlarmSummaryInfoOutput) SetAlarmCount(v int64) *AlarmDescForGetVirusAlarmSummaryInfoOutput {
+	s.AlarmCount = &v
+	return s
 }
 
 // SetAlarmHandleResult sets the AlarmHandleResult field's value.
@@ -335,9 +357,21 @@ func (s *AlarmDescForGetVirusAlarmSummaryInfoOutput) SetAlertDesc(v string) *Ala
 	return s
 }
 
+// SetAlertDescUS sets the AlertDescUS field's value.
+func (s *AlarmDescForGetVirusAlarmSummaryInfoOutput) SetAlertDescUS(v string) *AlarmDescForGetVirusAlarmSummaryInfoOutput {
+	s.AlertDescUS = &v
+	return s
+}
+
 // SetAlertDetail sets the AlertDetail field's value.
 func (s *AlarmDescForGetVirusAlarmSummaryInfoOutput) SetAlertDetail(v string) *AlarmDescForGetVirusAlarmSummaryInfoOutput {
 	s.AlertDetail = &v
+	return s
+}
+
+// SetAlertDetailUS sets the AlertDetailUS field's value.
+func (s *AlarmDescForGetVirusAlarmSummaryInfoOutput) SetAlertDetailUS(v string) *AlarmDescForGetVirusAlarmSummaryInfoOutput {
+	s.AlertDetailUS = &v
 	return s
 }
 
@@ -389,6 +423,12 @@ func (s *AlarmDescForGetVirusAlarmSummaryInfoOutput) SetDataTypeStr(v string) *A
 	return s
 }
 
+// SetDataTypeStrEn sets the DataTypeStrEn field's value.
+func (s *AlarmDescForGetVirusAlarmSummaryInfoOutput) SetDataTypeStrEn(v string) *AlarmDescForGetVirusAlarmSummaryInfoOutput {
+	s.DataTypeStrEn = &v
+	return s
+}
+
 // SetDesc sets the Desc field's value.
 func (s *AlarmDescForGetVirusAlarmSummaryInfoOutput) SetDesc(v string) *AlarmDescForGetVirusAlarmSummaryInfoOutput {
 	s.Desc = &v
@@ -437,6 +477,18 @@ func (s *AlarmDescForGetVirusAlarmSummaryInfoOutput) SetKubeLevel(v string) *Ala
 	return s
 }
 
+// SetLastAlarmTime sets the LastAlarmTime field's value.
+func (s *AlarmDescForGetVirusAlarmSummaryInfoOutput) SetLastAlarmTime(v int64) *AlarmDescForGetVirusAlarmSummaryInfoOutput {
+	s.LastAlarmTime = &v
+	return s
+}
+
+// SetOperationList sets the OperationList field's value.
+func (s *AlarmDescForGetVirusAlarmSummaryInfoOutput) SetOperationList(v []*string) *AlarmDescForGetVirusAlarmSummaryInfoOutput {
+	s.OperationList = v
+	return s
+}
+
 // SetRaspConfigName sets the RaspConfigName field's value.
 func (s *AlarmDescForGetVirusAlarmSummaryInfoOutput) SetRaspConfigName(v string) *AlarmDescForGetVirusAlarmSummaryInfoOutput {
 	s.RaspConfigName = &v
@@ -467,6 +519,12 @@ func (s *AlarmDescForGetVirusAlarmSummaryInfoOutput) SetRuleName(v string) *Alar
 	return s
 }
 
+// SetRuleNameUs sets the RuleNameUs field's value.
+func (s *AlarmDescForGetVirusAlarmSummaryInfoOutput) SetRuleNameUs(v string) *AlarmDescForGetVirusAlarmSummaryInfoOutput {
+	s.RuleNameUs = &v
+	return s
+}
+
 // SetStatus sets the Status field's value.
 func (s *AlarmDescForGetVirusAlarmSummaryInfoOutput) SetStatus(v int64) *AlarmDescForGetVirusAlarmSummaryInfoOutput {
 	s.Status = &v
@@ -476,6 +534,12 @@ func (s *AlarmDescForGetVirusAlarmSummaryInfoOutput) SetStatus(v int64) *AlarmDe
 // SetSuggestion sets the Suggestion field's value.
 func (s *AlarmDescForGetVirusAlarmSummaryInfoOutput) SetSuggestion(v string) *AlarmDescForGetVirusAlarmSummaryInfoOutput {
 	s.Suggestion = &v
+	return s
+}
+
+// SetSuggestionUs sets the SuggestionUs field's value.
+func (s *AlarmDescForGetVirusAlarmSummaryInfoOutput) SetSuggestionUs(v string) *AlarmDescForGetVirusAlarmSummaryInfoOutput {
+	s.SuggestionUs = &v
 	return s
 }
 
@@ -492,9 +556,13 @@ type AlarmNodeForGetVirusAlarmSummaryInfoOutput struct {
 
 	AdditionalActionsString *string `type:"string"`
 
+	AnalysisRecordUUID *string `type:"string"`
+
 	ArgsArray []*string `type:"list"`
 
 	Argv *string `type:"string"`
+
+	BackendAlarmTags []*string `type:"list"`
 
 	BruteforceSip *string `type:"string"`
 
@@ -507,6 +575,8 @@ type AlarmNodeForGetVirusAlarmSummaryInfoOutput struct {
 	Comm *string `type:"string"`
 
 	CommandLine *string `type:"string"`
+
+	Confidence *string `type:"string"`
 
 	Configuration *string `type:"string"`
 
@@ -542,6 +612,10 @@ type AlarmNodeForGetVirusAlarmSummaryInfoOutput struct {
 
 	DstList *string `type:"string"`
 
+	ElkeidSaveData []*ElkeidSaveDataForGetVirusAlarmSummaryInfoOutput `type:"list"`
+
+	EnHanced *string `type:"string"`
+
 	EventType *string `type:"string"`
 
 	Exe *string `type:"string"`
@@ -555,6 +629,8 @@ type AlarmNodeForGetVirusAlarmSummaryInfoOutput struct {
 	FdName *string `type:"string"`
 
 	FileDownloadable *bool `type:"boolean"`
+
+	FileName *string `type:"string"`
 
 	FilePath *string `type:"string"`
 
@@ -572,6 +648,12 @@ type AlarmNodeForGetVirusAlarmSummaryInfoOutput struct {
 
 	HomeDirectory *string `type:"string"`
 
+	IPIntelligence *string `type:"string"`
+
+	IPSource *string `type:"string"`
+
+	IPSourceUs *string `type:"string"`
+
 	Image *string `type:"string"`
 
 	ImageLoaded *string `type:"string"`
@@ -588,9 +670,13 @@ type AlarmNodeForGetVirusAlarmSummaryInfoOutput struct {
 
 	IpAddress *string `type:"string"`
 
+	IsInnerAccount *bool `type:"boolean"`
+
 	KoFile *string `type:"string"`
 
 	LdPreload *string `type:"string"`
+
+	LoginCount *string `type:"string"`
 
 	LogonType *string `type:"string"`
 
@@ -660,9 +746,15 @@ type AlarmNodeForGetVirusAlarmSummaryInfoOutput struct {
 
 	QueryStatus *string `type:"string"`
 
+	RootPns *string `type:"string"`
+
 	RunPath *string `type:"string"`
 
 	SamAccountName *string `type:"string"`
+
+	SecurityIntelligenceComplete *bool `type:"boolean"`
+
+	SecurityIntelligenceResult *string `type:"string"`
 
 	ServiceAccount *string `type:"string"`
 
@@ -785,6 +877,12 @@ func (s *AlarmNodeForGetVirusAlarmSummaryInfoOutput) SetAdditionalActionsString(
 	return s
 }
 
+// SetAnalysisRecordUUID sets the AnalysisRecordUUID field's value.
+func (s *AlarmNodeForGetVirusAlarmSummaryInfoOutput) SetAnalysisRecordUUID(v string) *AlarmNodeForGetVirusAlarmSummaryInfoOutput {
+	s.AnalysisRecordUUID = &v
+	return s
+}
+
 // SetArgsArray sets the ArgsArray field's value.
 func (s *AlarmNodeForGetVirusAlarmSummaryInfoOutput) SetArgsArray(v []*string) *AlarmNodeForGetVirusAlarmSummaryInfoOutput {
 	s.ArgsArray = v
@@ -794,6 +892,12 @@ func (s *AlarmNodeForGetVirusAlarmSummaryInfoOutput) SetArgsArray(v []*string) *
 // SetArgv sets the Argv field's value.
 func (s *AlarmNodeForGetVirusAlarmSummaryInfoOutput) SetArgv(v string) *AlarmNodeForGetVirusAlarmSummaryInfoOutput {
 	s.Argv = &v
+	return s
+}
+
+// SetBackendAlarmTags sets the BackendAlarmTags field's value.
+func (s *AlarmNodeForGetVirusAlarmSummaryInfoOutput) SetBackendAlarmTags(v []*string) *AlarmNodeForGetVirusAlarmSummaryInfoOutput {
+	s.BackendAlarmTags = v
 	return s
 }
 
@@ -830,6 +934,12 @@ func (s *AlarmNodeForGetVirusAlarmSummaryInfoOutput) SetComm(v string) *AlarmNod
 // SetCommandLine sets the CommandLine field's value.
 func (s *AlarmNodeForGetVirusAlarmSummaryInfoOutput) SetCommandLine(v string) *AlarmNodeForGetVirusAlarmSummaryInfoOutput {
 	s.CommandLine = &v
+	return s
+}
+
+// SetConfidence sets the Confidence field's value.
+func (s *AlarmNodeForGetVirusAlarmSummaryInfoOutput) SetConfidence(v string) *AlarmNodeForGetVirusAlarmSummaryInfoOutput {
+	s.Confidence = &v
 	return s
 }
 
@@ -935,6 +1045,18 @@ func (s *AlarmNodeForGetVirusAlarmSummaryInfoOutput) SetDstList(v string) *Alarm
 	return s
 }
 
+// SetElkeidSaveData sets the ElkeidSaveData field's value.
+func (s *AlarmNodeForGetVirusAlarmSummaryInfoOutput) SetElkeidSaveData(v []*ElkeidSaveDataForGetVirusAlarmSummaryInfoOutput) *AlarmNodeForGetVirusAlarmSummaryInfoOutput {
+	s.ElkeidSaveData = v
+	return s
+}
+
+// SetEnHanced sets the EnHanced field's value.
+func (s *AlarmNodeForGetVirusAlarmSummaryInfoOutput) SetEnHanced(v string) *AlarmNodeForGetVirusAlarmSummaryInfoOutput {
+	s.EnHanced = &v
+	return s
+}
+
 // SetEventType sets the EventType field's value.
 func (s *AlarmNodeForGetVirusAlarmSummaryInfoOutput) SetEventType(v string) *AlarmNodeForGetVirusAlarmSummaryInfoOutput {
 	s.EventType = &v
@@ -974,6 +1096,12 @@ func (s *AlarmNodeForGetVirusAlarmSummaryInfoOutput) SetFdName(v string) *AlarmN
 // SetFileDownloadable sets the FileDownloadable field's value.
 func (s *AlarmNodeForGetVirusAlarmSummaryInfoOutput) SetFileDownloadable(v bool) *AlarmNodeForGetVirusAlarmSummaryInfoOutput {
 	s.FileDownloadable = &v
+	return s
+}
+
+// SetFileName sets the FileName field's value.
+func (s *AlarmNodeForGetVirusAlarmSummaryInfoOutput) SetFileName(v string) *AlarmNodeForGetVirusAlarmSummaryInfoOutput {
+	s.FileName = &v
 	return s
 }
 
@@ -1025,6 +1153,24 @@ func (s *AlarmNodeForGetVirusAlarmSummaryInfoOutput) SetHomeDirectory(v string) 
 	return s
 }
 
+// SetIPIntelligence sets the IPIntelligence field's value.
+func (s *AlarmNodeForGetVirusAlarmSummaryInfoOutput) SetIPIntelligence(v string) *AlarmNodeForGetVirusAlarmSummaryInfoOutput {
+	s.IPIntelligence = &v
+	return s
+}
+
+// SetIPSource sets the IPSource field's value.
+func (s *AlarmNodeForGetVirusAlarmSummaryInfoOutput) SetIPSource(v string) *AlarmNodeForGetVirusAlarmSummaryInfoOutput {
+	s.IPSource = &v
+	return s
+}
+
+// SetIPSourceUs sets the IPSourceUs field's value.
+func (s *AlarmNodeForGetVirusAlarmSummaryInfoOutput) SetIPSourceUs(v string) *AlarmNodeForGetVirusAlarmSummaryInfoOutput {
+	s.IPSourceUs = &v
+	return s
+}
+
 // SetImage sets the Image field's value.
 func (s *AlarmNodeForGetVirusAlarmSummaryInfoOutput) SetImage(v string) *AlarmNodeForGetVirusAlarmSummaryInfoOutput {
 	s.Image = &v
@@ -1073,6 +1219,12 @@ func (s *AlarmNodeForGetVirusAlarmSummaryInfoOutput) SetIpAddress(v string) *Ala
 	return s
 }
 
+// SetIsInnerAccount sets the IsInnerAccount field's value.
+func (s *AlarmNodeForGetVirusAlarmSummaryInfoOutput) SetIsInnerAccount(v bool) *AlarmNodeForGetVirusAlarmSummaryInfoOutput {
+	s.IsInnerAccount = &v
+	return s
+}
+
 // SetKoFile sets the KoFile field's value.
 func (s *AlarmNodeForGetVirusAlarmSummaryInfoOutput) SetKoFile(v string) *AlarmNodeForGetVirusAlarmSummaryInfoOutput {
 	s.KoFile = &v
@@ -1082,6 +1234,12 @@ func (s *AlarmNodeForGetVirusAlarmSummaryInfoOutput) SetKoFile(v string) *AlarmN
 // SetLdPreload sets the LdPreload field's value.
 func (s *AlarmNodeForGetVirusAlarmSummaryInfoOutput) SetLdPreload(v string) *AlarmNodeForGetVirusAlarmSummaryInfoOutput {
 	s.LdPreload = &v
+	return s
+}
+
+// SetLoginCount sets the LoginCount field's value.
+func (s *AlarmNodeForGetVirusAlarmSummaryInfoOutput) SetLoginCount(v string) *AlarmNodeForGetVirusAlarmSummaryInfoOutput {
+	s.LoginCount = &v
 	return s
 }
 
@@ -1289,6 +1447,12 @@ func (s *AlarmNodeForGetVirusAlarmSummaryInfoOutput) SetQueryStatus(v string) *A
 	return s
 }
 
+// SetRootPns sets the RootPns field's value.
+func (s *AlarmNodeForGetVirusAlarmSummaryInfoOutput) SetRootPns(v string) *AlarmNodeForGetVirusAlarmSummaryInfoOutput {
+	s.RootPns = &v
+	return s
+}
+
 // SetRunPath sets the RunPath field's value.
 func (s *AlarmNodeForGetVirusAlarmSummaryInfoOutput) SetRunPath(v string) *AlarmNodeForGetVirusAlarmSummaryInfoOutput {
 	s.RunPath = &v
@@ -1298,6 +1462,18 @@ func (s *AlarmNodeForGetVirusAlarmSummaryInfoOutput) SetRunPath(v string) *Alarm
 // SetSamAccountName sets the SamAccountName field's value.
 func (s *AlarmNodeForGetVirusAlarmSummaryInfoOutput) SetSamAccountName(v string) *AlarmNodeForGetVirusAlarmSummaryInfoOutput {
 	s.SamAccountName = &v
+	return s
+}
+
+// SetSecurityIntelligenceComplete sets the SecurityIntelligenceComplete field's value.
+func (s *AlarmNodeForGetVirusAlarmSummaryInfoOutput) SetSecurityIntelligenceComplete(v bool) *AlarmNodeForGetVirusAlarmSummaryInfoOutput {
+	s.SecurityIntelligenceComplete = &v
+	return s
+}
+
+// SetSecurityIntelligenceResult sets the SecurityIntelligenceResult field's value.
+func (s *AlarmNodeForGetVirusAlarmSummaryInfoOutput) SetSecurityIntelligenceResult(v string) *AlarmNodeForGetVirusAlarmSummaryInfoOutput {
+	s.SecurityIntelligenceResult = &v
 	return s
 }
 
@@ -2075,6 +2251,20 @@ func (s *ContainerInfoForGetVirusAlarmSummaryInfoOutput) SetPodName(v string) *C
 	return s
 }
 
+type ElkeidSaveDataForGetVirusAlarmSummaryInfoOutput struct {
+	_ struct{} `type:"structure"`
+}
+
+// String returns the string representation
+func (s ElkeidSaveDataForGetVirusAlarmSummaryInfoOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ElkeidSaveDataForGetVirusAlarmSummaryInfoOutput) GoString() string {
+	return s.String()
+}
+
 type EndpointTraceForGetVirusAlarmSummaryInfoOutput struct {
 	_ struct{} `type:"structure"`
 
@@ -2472,9 +2662,13 @@ type KillChainNodeListForGetVirusAlarmSummaryInfoOutput struct {
 
 	AdditionalActionsString *string `type:"string"`
 
+	AnalysisRecordUUID *string `type:"string"`
+
 	ArgsArray []*string `type:"list"`
 
 	Argv *string `type:"string"`
+
+	BackendAlarmTags []*string `type:"list"`
 
 	BruteforceSip *string `type:"string"`
 
@@ -2487,6 +2681,8 @@ type KillChainNodeListForGetVirusAlarmSummaryInfoOutput struct {
 	Comm *string `type:"string"`
 
 	CommandLine *string `type:"string"`
+
+	Confidence *string `type:"string"`
 
 	Configuration *string `type:"string"`
 
@@ -2522,6 +2718,10 @@ type KillChainNodeListForGetVirusAlarmSummaryInfoOutput struct {
 
 	DstList *string `type:"string"`
 
+	ElkeidSaveData []*ElkeidSaveDataForGetVirusAlarmSummaryInfoOutput `type:"list"`
+
+	EnHanced *string `type:"string"`
+
 	EventType *string `type:"string"`
 
 	Exe *string `type:"string"`
@@ -2535,6 +2735,8 @@ type KillChainNodeListForGetVirusAlarmSummaryInfoOutput struct {
 	FdName *string `type:"string"`
 
 	FileDownloadable *bool `type:"boolean"`
+
+	FileName *string `type:"string"`
 
 	FilePath *string `type:"string"`
 
@@ -2552,6 +2754,12 @@ type KillChainNodeListForGetVirusAlarmSummaryInfoOutput struct {
 
 	HomeDirectory *string `type:"string"`
 
+	IPIntelligence *string `type:"string"`
+
+	IPSource *string `type:"string"`
+
+	IPSourceUs *string `type:"string"`
+
 	Image *string `type:"string"`
 
 	ImageLoaded *string `type:"string"`
@@ -2568,9 +2776,13 @@ type KillChainNodeListForGetVirusAlarmSummaryInfoOutput struct {
 
 	IpAddress *string `type:"string"`
 
+	IsInnerAccount *bool `type:"boolean"`
+
 	KoFile *string `type:"string"`
 
 	LdPreload *string `type:"string"`
+
+	LoginCount *string `type:"string"`
 
 	LogonType *string `type:"string"`
 
@@ -2640,9 +2852,15 @@ type KillChainNodeListForGetVirusAlarmSummaryInfoOutput struct {
 
 	QueryStatus *string `type:"string"`
 
+	RootPns *string `type:"string"`
+
 	RunPath *string `type:"string"`
 
 	SamAccountName *string `type:"string"`
+
+	SecurityIntelligenceComplete *bool `type:"boolean"`
+
+	SecurityIntelligenceResult *string `type:"string"`
 
 	ServiceAccount *string `type:"string"`
 
@@ -2765,6 +2983,12 @@ func (s *KillChainNodeListForGetVirusAlarmSummaryInfoOutput) SetAdditionalAction
 	return s
 }
 
+// SetAnalysisRecordUUID sets the AnalysisRecordUUID field's value.
+func (s *KillChainNodeListForGetVirusAlarmSummaryInfoOutput) SetAnalysisRecordUUID(v string) *KillChainNodeListForGetVirusAlarmSummaryInfoOutput {
+	s.AnalysisRecordUUID = &v
+	return s
+}
+
 // SetArgsArray sets the ArgsArray field's value.
 func (s *KillChainNodeListForGetVirusAlarmSummaryInfoOutput) SetArgsArray(v []*string) *KillChainNodeListForGetVirusAlarmSummaryInfoOutput {
 	s.ArgsArray = v
@@ -2774,6 +2998,12 @@ func (s *KillChainNodeListForGetVirusAlarmSummaryInfoOutput) SetArgsArray(v []*s
 // SetArgv sets the Argv field's value.
 func (s *KillChainNodeListForGetVirusAlarmSummaryInfoOutput) SetArgv(v string) *KillChainNodeListForGetVirusAlarmSummaryInfoOutput {
 	s.Argv = &v
+	return s
+}
+
+// SetBackendAlarmTags sets the BackendAlarmTags field's value.
+func (s *KillChainNodeListForGetVirusAlarmSummaryInfoOutput) SetBackendAlarmTags(v []*string) *KillChainNodeListForGetVirusAlarmSummaryInfoOutput {
+	s.BackendAlarmTags = v
 	return s
 }
 
@@ -2810,6 +3040,12 @@ func (s *KillChainNodeListForGetVirusAlarmSummaryInfoOutput) SetComm(v string) *
 // SetCommandLine sets the CommandLine field's value.
 func (s *KillChainNodeListForGetVirusAlarmSummaryInfoOutput) SetCommandLine(v string) *KillChainNodeListForGetVirusAlarmSummaryInfoOutput {
 	s.CommandLine = &v
+	return s
+}
+
+// SetConfidence sets the Confidence field's value.
+func (s *KillChainNodeListForGetVirusAlarmSummaryInfoOutput) SetConfidence(v string) *KillChainNodeListForGetVirusAlarmSummaryInfoOutput {
+	s.Confidence = &v
 	return s
 }
 
@@ -2915,6 +3151,18 @@ func (s *KillChainNodeListForGetVirusAlarmSummaryInfoOutput) SetDstList(v string
 	return s
 }
 
+// SetElkeidSaveData sets the ElkeidSaveData field's value.
+func (s *KillChainNodeListForGetVirusAlarmSummaryInfoOutput) SetElkeidSaveData(v []*ElkeidSaveDataForGetVirusAlarmSummaryInfoOutput) *KillChainNodeListForGetVirusAlarmSummaryInfoOutput {
+	s.ElkeidSaveData = v
+	return s
+}
+
+// SetEnHanced sets the EnHanced field's value.
+func (s *KillChainNodeListForGetVirusAlarmSummaryInfoOutput) SetEnHanced(v string) *KillChainNodeListForGetVirusAlarmSummaryInfoOutput {
+	s.EnHanced = &v
+	return s
+}
+
 // SetEventType sets the EventType field's value.
 func (s *KillChainNodeListForGetVirusAlarmSummaryInfoOutput) SetEventType(v string) *KillChainNodeListForGetVirusAlarmSummaryInfoOutput {
 	s.EventType = &v
@@ -2954,6 +3202,12 @@ func (s *KillChainNodeListForGetVirusAlarmSummaryInfoOutput) SetFdName(v string)
 // SetFileDownloadable sets the FileDownloadable field's value.
 func (s *KillChainNodeListForGetVirusAlarmSummaryInfoOutput) SetFileDownloadable(v bool) *KillChainNodeListForGetVirusAlarmSummaryInfoOutput {
 	s.FileDownloadable = &v
+	return s
+}
+
+// SetFileName sets the FileName field's value.
+func (s *KillChainNodeListForGetVirusAlarmSummaryInfoOutput) SetFileName(v string) *KillChainNodeListForGetVirusAlarmSummaryInfoOutput {
+	s.FileName = &v
 	return s
 }
 
@@ -3005,6 +3259,24 @@ func (s *KillChainNodeListForGetVirusAlarmSummaryInfoOutput) SetHomeDirectory(v 
 	return s
 }
 
+// SetIPIntelligence sets the IPIntelligence field's value.
+func (s *KillChainNodeListForGetVirusAlarmSummaryInfoOutput) SetIPIntelligence(v string) *KillChainNodeListForGetVirusAlarmSummaryInfoOutput {
+	s.IPIntelligence = &v
+	return s
+}
+
+// SetIPSource sets the IPSource field's value.
+func (s *KillChainNodeListForGetVirusAlarmSummaryInfoOutput) SetIPSource(v string) *KillChainNodeListForGetVirusAlarmSummaryInfoOutput {
+	s.IPSource = &v
+	return s
+}
+
+// SetIPSourceUs sets the IPSourceUs field's value.
+func (s *KillChainNodeListForGetVirusAlarmSummaryInfoOutput) SetIPSourceUs(v string) *KillChainNodeListForGetVirusAlarmSummaryInfoOutput {
+	s.IPSourceUs = &v
+	return s
+}
+
 // SetImage sets the Image field's value.
 func (s *KillChainNodeListForGetVirusAlarmSummaryInfoOutput) SetImage(v string) *KillChainNodeListForGetVirusAlarmSummaryInfoOutput {
 	s.Image = &v
@@ -3053,6 +3325,12 @@ func (s *KillChainNodeListForGetVirusAlarmSummaryInfoOutput) SetIpAddress(v stri
 	return s
 }
 
+// SetIsInnerAccount sets the IsInnerAccount field's value.
+func (s *KillChainNodeListForGetVirusAlarmSummaryInfoOutput) SetIsInnerAccount(v bool) *KillChainNodeListForGetVirusAlarmSummaryInfoOutput {
+	s.IsInnerAccount = &v
+	return s
+}
+
 // SetKoFile sets the KoFile field's value.
 func (s *KillChainNodeListForGetVirusAlarmSummaryInfoOutput) SetKoFile(v string) *KillChainNodeListForGetVirusAlarmSummaryInfoOutput {
 	s.KoFile = &v
@@ -3062,6 +3340,12 @@ func (s *KillChainNodeListForGetVirusAlarmSummaryInfoOutput) SetKoFile(v string)
 // SetLdPreload sets the LdPreload field's value.
 func (s *KillChainNodeListForGetVirusAlarmSummaryInfoOutput) SetLdPreload(v string) *KillChainNodeListForGetVirusAlarmSummaryInfoOutput {
 	s.LdPreload = &v
+	return s
+}
+
+// SetLoginCount sets the LoginCount field's value.
+func (s *KillChainNodeListForGetVirusAlarmSummaryInfoOutput) SetLoginCount(v string) *KillChainNodeListForGetVirusAlarmSummaryInfoOutput {
+	s.LoginCount = &v
 	return s
 }
 
@@ -3269,6 +3553,12 @@ func (s *KillChainNodeListForGetVirusAlarmSummaryInfoOutput) SetQueryStatus(v st
 	return s
 }
 
+// SetRootPns sets the RootPns field's value.
+func (s *KillChainNodeListForGetVirusAlarmSummaryInfoOutput) SetRootPns(v string) *KillChainNodeListForGetVirusAlarmSummaryInfoOutput {
+	s.RootPns = &v
+	return s
+}
+
 // SetRunPath sets the RunPath field's value.
 func (s *KillChainNodeListForGetVirusAlarmSummaryInfoOutput) SetRunPath(v string) *KillChainNodeListForGetVirusAlarmSummaryInfoOutput {
 	s.RunPath = &v
@@ -3278,6 +3568,18 @@ func (s *KillChainNodeListForGetVirusAlarmSummaryInfoOutput) SetRunPath(v string
 // SetSamAccountName sets the SamAccountName field's value.
 func (s *KillChainNodeListForGetVirusAlarmSummaryInfoOutput) SetSamAccountName(v string) *KillChainNodeListForGetVirusAlarmSummaryInfoOutput {
 	s.SamAccountName = &v
+	return s
+}
+
+// SetSecurityIntelligenceComplete sets the SecurityIntelligenceComplete field's value.
+func (s *KillChainNodeListForGetVirusAlarmSummaryInfoOutput) SetSecurityIntelligenceComplete(v bool) *KillChainNodeListForGetVirusAlarmSummaryInfoOutput {
+	s.SecurityIntelligenceComplete = &v
+	return s
+}
+
+// SetSecurityIntelligenceResult sets the SecurityIntelligenceResult field's value.
+func (s *KillChainNodeListForGetVirusAlarmSummaryInfoOutput) SetSecurityIntelligenceResult(v string) *KillChainNodeListForGetVirusAlarmSummaryInfoOutput {
+	s.SecurityIntelligenceResult = &v
 	return s
 }
 

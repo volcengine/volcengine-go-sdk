@@ -250,13 +250,19 @@ func (s *AlarmContentForGetMlpAlarmSummaryInfoOutput) SetVirusHitDataList(v []*V
 type AlarmDescForGetMlpAlarmSummaryInfoOutput struct {
 	_ struct{} `type:"structure"`
 
+	AlarmCount *int64 `type:"int64"`
+
 	AlarmHandleResult *int64 `type:"int64"`
 
 	AlarmID *string `type:"string"`
 
 	AlertDesc *string `type:"string"`
 
+	AlertDescUS *string `type:"string"`
+
 	AlertDetail *string `type:"string"`
+
+	AlertDetailUS *string `type:"string"`
 
 	AlertTags []*string `type:"list"`
 
@@ -274,6 +280,8 @@ type AlarmDescForGetMlpAlarmSummaryInfoOutput struct {
 
 	DataTypeStr *string `type:"string"`
 
+	DataTypeStrEn *string `type:"string"`
+
 	Desc *string `type:"string"`
 
 	Docker *string `type:"string"`
@@ -290,6 +298,10 @@ type AlarmDescForGetMlpAlarmSummaryInfoOutput struct {
 
 	KubeLevel *string `type:"string"`
 
+	LastAlarmTime *int64 `type:"int64"`
+
+	OperationList []*string `type:"list"`
+
 	RaspConfigName *string `type:"string"`
 
 	RaspLevel *string `type:"string"`
@@ -300,9 +312,13 @@ type AlarmDescForGetMlpAlarmSummaryInfoOutput struct {
 
 	RuleName *string `type:"string"`
 
+	RuleNameUs *string `type:"string"`
+
 	Status *int64 `type:"int64"`
 
 	Suggestion *string `type:"string"`
+
+	SuggestionUs *string `type:"string"`
 
 	TraceID *string `type:"string"`
 }
@@ -315,6 +331,12 @@ func (s AlarmDescForGetMlpAlarmSummaryInfoOutput) String() string {
 // GoString returns the string representation
 func (s AlarmDescForGetMlpAlarmSummaryInfoOutput) GoString() string {
 	return s.String()
+}
+
+// SetAlarmCount sets the AlarmCount field's value.
+func (s *AlarmDescForGetMlpAlarmSummaryInfoOutput) SetAlarmCount(v int64) *AlarmDescForGetMlpAlarmSummaryInfoOutput {
+	s.AlarmCount = &v
+	return s
 }
 
 // SetAlarmHandleResult sets the AlarmHandleResult field's value.
@@ -335,9 +357,21 @@ func (s *AlarmDescForGetMlpAlarmSummaryInfoOutput) SetAlertDesc(v string) *Alarm
 	return s
 }
 
+// SetAlertDescUS sets the AlertDescUS field's value.
+func (s *AlarmDescForGetMlpAlarmSummaryInfoOutput) SetAlertDescUS(v string) *AlarmDescForGetMlpAlarmSummaryInfoOutput {
+	s.AlertDescUS = &v
+	return s
+}
+
 // SetAlertDetail sets the AlertDetail field's value.
 func (s *AlarmDescForGetMlpAlarmSummaryInfoOutput) SetAlertDetail(v string) *AlarmDescForGetMlpAlarmSummaryInfoOutput {
 	s.AlertDetail = &v
+	return s
+}
+
+// SetAlertDetailUS sets the AlertDetailUS field's value.
+func (s *AlarmDescForGetMlpAlarmSummaryInfoOutput) SetAlertDetailUS(v string) *AlarmDescForGetMlpAlarmSummaryInfoOutput {
+	s.AlertDetailUS = &v
 	return s
 }
 
@@ -389,6 +423,12 @@ func (s *AlarmDescForGetMlpAlarmSummaryInfoOutput) SetDataTypeStr(v string) *Ala
 	return s
 }
 
+// SetDataTypeStrEn sets the DataTypeStrEn field's value.
+func (s *AlarmDescForGetMlpAlarmSummaryInfoOutput) SetDataTypeStrEn(v string) *AlarmDescForGetMlpAlarmSummaryInfoOutput {
+	s.DataTypeStrEn = &v
+	return s
+}
+
 // SetDesc sets the Desc field's value.
 func (s *AlarmDescForGetMlpAlarmSummaryInfoOutput) SetDesc(v string) *AlarmDescForGetMlpAlarmSummaryInfoOutput {
 	s.Desc = &v
@@ -437,6 +477,18 @@ func (s *AlarmDescForGetMlpAlarmSummaryInfoOutput) SetKubeLevel(v string) *Alarm
 	return s
 }
 
+// SetLastAlarmTime sets the LastAlarmTime field's value.
+func (s *AlarmDescForGetMlpAlarmSummaryInfoOutput) SetLastAlarmTime(v int64) *AlarmDescForGetMlpAlarmSummaryInfoOutput {
+	s.LastAlarmTime = &v
+	return s
+}
+
+// SetOperationList sets the OperationList field's value.
+func (s *AlarmDescForGetMlpAlarmSummaryInfoOutput) SetOperationList(v []*string) *AlarmDescForGetMlpAlarmSummaryInfoOutput {
+	s.OperationList = v
+	return s
+}
+
 // SetRaspConfigName sets the RaspConfigName field's value.
 func (s *AlarmDescForGetMlpAlarmSummaryInfoOutput) SetRaspConfigName(v string) *AlarmDescForGetMlpAlarmSummaryInfoOutput {
 	s.RaspConfigName = &v
@@ -467,6 +519,12 @@ func (s *AlarmDescForGetMlpAlarmSummaryInfoOutput) SetRuleName(v string) *AlarmD
 	return s
 }
 
+// SetRuleNameUs sets the RuleNameUs field's value.
+func (s *AlarmDescForGetMlpAlarmSummaryInfoOutput) SetRuleNameUs(v string) *AlarmDescForGetMlpAlarmSummaryInfoOutput {
+	s.RuleNameUs = &v
+	return s
+}
+
 // SetStatus sets the Status field's value.
 func (s *AlarmDescForGetMlpAlarmSummaryInfoOutput) SetStatus(v int64) *AlarmDescForGetMlpAlarmSummaryInfoOutput {
 	s.Status = &v
@@ -476,6 +534,12 @@ func (s *AlarmDescForGetMlpAlarmSummaryInfoOutput) SetStatus(v int64) *AlarmDesc
 // SetSuggestion sets the Suggestion field's value.
 func (s *AlarmDescForGetMlpAlarmSummaryInfoOutput) SetSuggestion(v string) *AlarmDescForGetMlpAlarmSummaryInfoOutput {
 	s.Suggestion = &v
+	return s
+}
+
+// SetSuggestionUs sets the SuggestionUs field's value.
+func (s *AlarmDescForGetMlpAlarmSummaryInfoOutput) SetSuggestionUs(v string) *AlarmDescForGetMlpAlarmSummaryInfoOutput {
+	s.SuggestionUs = &v
 	return s
 }
 
@@ -492,9 +556,13 @@ type AlarmNodeForGetMlpAlarmSummaryInfoOutput struct {
 
 	AdditionalActionsString *string `type:"string"`
 
+	AnalysisRecordUUID *string `type:"string"`
+
 	ArgsArray []*string `type:"list"`
 
 	Argv *string `type:"string"`
+
+	BackendAlarmTags []*string `type:"list"`
 
 	BruteforceSip *string `type:"string"`
 
@@ -507,6 +575,8 @@ type AlarmNodeForGetMlpAlarmSummaryInfoOutput struct {
 	Comm *string `type:"string"`
 
 	CommandLine *string `type:"string"`
+
+	Confidence *string `type:"string"`
 
 	Configuration *string `type:"string"`
 
@@ -542,6 +612,10 @@ type AlarmNodeForGetMlpAlarmSummaryInfoOutput struct {
 
 	DstList *string `type:"string"`
 
+	ElkeidSaveData []*ElkeidSaveDataForGetMlpAlarmSummaryInfoOutput `type:"list"`
+
+	EnHanced *string `type:"string"`
+
 	EventType *string `type:"string"`
 
 	Exe *string `type:"string"`
@@ -555,6 +629,8 @@ type AlarmNodeForGetMlpAlarmSummaryInfoOutput struct {
 	FdName *string `type:"string"`
 
 	FileDownloadable *bool `type:"boolean"`
+
+	FileName *string `type:"string"`
 
 	FilePath *string `type:"string"`
 
@@ -572,6 +648,12 @@ type AlarmNodeForGetMlpAlarmSummaryInfoOutput struct {
 
 	HomeDirectory *string `type:"string"`
 
+	IPIntelligence *string `type:"string"`
+
+	IPSource *string `type:"string"`
+
+	IPSourceUs *string `type:"string"`
+
 	Image *string `type:"string"`
 
 	ImageLoaded *string `type:"string"`
@@ -588,9 +670,13 @@ type AlarmNodeForGetMlpAlarmSummaryInfoOutput struct {
 
 	IpAddress *string `type:"string"`
 
+	IsInnerAccount *bool `type:"boolean"`
+
 	KoFile *string `type:"string"`
 
 	LdPreload *string `type:"string"`
+
+	LoginCount *string `type:"string"`
 
 	LogonType *string `type:"string"`
 
@@ -660,9 +746,15 @@ type AlarmNodeForGetMlpAlarmSummaryInfoOutput struct {
 
 	QueryStatus *string `type:"string"`
 
+	RootPns *string `type:"string"`
+
 	RunPath *string `type:"string"`
 
 	SamAccountName *string `type:"string"`
+
+	SecurityIntelligenceComplete *bool `type:"boolean"`
+
+	SecurityIntelligenceResult *string `type:"string"`
 
 	ServiceAccount *string `type:"string"`
 
@@ -785,6 +877,12 @@ func (s *AlarmNodeForGetMlpAlarmSummaryInfoOutput) SetAdditionalActionsString(v 
 	return s
 }
 
+// SetAnalysisRecordUUID sets the AnalysisRecordUUID field's value.
+func (s *AlarmNodeForGetMlpAlarmSummaryInfoOutput) SetAnalysisRecordUUID(v string) *AlarmNodeForGetMlpAlarmSummaryInfoOutput {
+	s.AnalysisRecordUUID = &v
+	return s
+}
+
 // SetArgsArray sets the ArgsArray field's value.
 func (s *AlarmNodeForGetMlpAlarmSummaryInfoOutput) SetArgsArray(v []*string) *AlarmNodeForGetMlpAlarmSummaryInfoOutput {
 	s.ArgsArray = v
@@ -794,6 +892,12 @@ func (s *AlarmNodeForGetMlpAlarmSummaryInfoOutput) SetArgsArray(v []*string) *Al
 // SetArgv sets the Argv field's value.
 func (s *AlarmNodeForGetMlpAlarmSummaryInfoOutput) SetArgv(v string) *AlarmNodeForGetMlpAlarmSummaryInfoOutput {
 	s.Argv = &v
+	return s
+}
+
+// SetBackendAlarmTags sets the BackendAlarmTags field's value.
+func (s *AlarmNodeForGetMlpAlarmSummaryInfoOutput) SetBackendAlarmTags(v []*string) *AlarmNodeForGetMlpAlarmSummaryInfoOutput {
+	s.BackendAlarmTags = v
 	return s
 }
 
@@ -830,6 +934,12 @@ func (s *AlarmNodeForGetMlpAlarmSummaryInfoOutput) SetComm(v string) *AlarmNodeF
 // SetCommandLine sets the CommandLine field's value.
 func (s *AlarmNodeForGetMlpAlarmSummaryInfoOutput) SetCommandLine(v string) *AlarmNodeForGetMlpAlarmSummaryInfoOutput {
 	s.CommandLine = &v
+	return s
+}
+
+// SetConfidence sets the Confidence field's value.
+func (s *AlarmNodeForGetMlpAlarmSummaryInfoOutput) SetConfidence(v string) *AlarmNodeForGetMlpAlarmSummaryInfoOutput {
+	s.Confidence = &v
 	return s
 }
 
@@ -935,6 +1045,18 @@ func (s *AlarmNodeForGetMlpAlarmSummaryInfoOutput) SetDstList(v string) *AlarmNo
 	return s
 }
 
+// SetElkeidSaveData sets the ElkeidSaveData field's value.
+func (s *AlarmNodeForGetMlpAlarmSummaryInfoOutput) SetElkeidSaveData(v []*ElkeidSaveDataForGetMlpAlarmSummaryInfoOutput) *AlarmNodeForGetMlpAlarmSummaryInfoOutput {
+	s.ElkeidSaveData = v
+	return s
+}
+
+// SetEnHanced sets the EnHanced field's value.
+func (s *AlarmNodeForGetMlpAlarmSummaryInfoOutput) SetEnHanced(v string) *AlarmNodeForGetMlpAlarmSummaryInfoOutput {
+	s.EnHanced = &v
+	return s
+}
+
 // SetEventType sets the EventType field's value.
 func (s *AlarmNodeForGetMlpAlarmSummaryInfoOutput) SetEventType(v string) *AlarmNodeForGetMlpAlarmSummaryInfoOutput {
 	s.EventType = &v
@@ -974,6 +1096,12 @@ func (s *AlarmNodeForGetMlpAlarmSummaryInfoOutput) SetFdName(v string) *AlarmNod
 // SetFileDownloadable sets the FileDownloadable field's value.
 func (s *AlarmNodeForGetMlpAlarmSummaryInfoOutput) SetFileDownloadable(v bool) *AlarmNodeForGetMlpAlarmSummaryInfoOutput {
 	s.FileDownloadable = &v
+	return s
+}
+
+// SetFileName sets the FileName field's value.
+func (s *AlarmNodeForGetMlpAlarmSummaryInfoOutput) SetFileName(v string) *AlarmNodeForGetMlpAlarmSummaryInfoOutput {
+	s.FileName = &v
 	return s
 }
 
@@ -1025,6 +1153,24 @@ func (s *AlarmNodeForGetMlpAlarmSummaryInfoOutput) SetHomeDirectory(v string) *A
 	return s
 }
 
+// SetIPIntelligence sets the IPIntelligence field's value.
+func (s *AlarmNodeForGetMlpAlarmSummaryInfoOutput) SetIPIntelligence(v string) *AlarmNodeForGetMlpAlarmSummaryInfoOutput {
+	s.IPIntelligence = &v
+	return s
+}
+
+// SetIPSource sets the IPSource field's value.
+func (s *AlarmNodeForGetMlpAlarmSummaryInfoOutput) SetIPSource(v string) *AlarmNodeForGetMlpAlarmSummaryInfoOutput {
+	s.IPSource = &v
+	return s
+}
+
+// SetIPSourceUs sets the IPSourceUs field's value.
+func (s *AlarmNodeForGetMlpAlarmSummaryInfoOutput) SetIPSourceUs(v string) *AlarmNodeForGetMlpAlarmSummaryInfoOutput {
+	s.IPSourceUs = &v
+	return s
+}
+
 // SetImage sets the Image field's value.
 func (s *AlarmNodeForGetMlpAlarmSummaryInfoOutput) SetImage(v string) *AlarmNodeForGetMlpAlarmSummaryInfoOutput {
 	s.Image = &v
@@ -1073,6 +1219,12 @@ func (s *AlarmNodeForGetMlpAlarmSummaryInfoOutput) SetIpAddress(v string) *Alarm
 	return s
 }
 
+// SetIsInnerAccount sets the IsInnerAccount field's value.
+func (s *AlarmNodeForGetMlpAlarmSummaryInfoOutput) SetIsInnerAccount(v bool) *AlarmNodeForGetMlpAlarmSummaryInfoOutput {
+	s.IsInnerAccount = &v
+	return s
+}
+
 // SetKoFile sets the KoFile field's value.
 func (s *AlarmNodeForGetMlpAlarmSummaryInfoOutput) SetKoFile(v string) *AlarmNodeForGetMlpAlarmSummaryInfoOutput {
 	s.KoFile = &v
@@ -1082,6 +1234,12 @@ func (s *AlarmNodeForGetMlpAlarmSummaryInfoOutput) SetKoFile(v string) *AlarmNod
 // SetLdPreload sets the LdPreload field's value.
 func (s *AlarmNodeForGetMlpAlarmSummaryInfoOutput) SetLdPreload(v string) *AlarmNodeForGetMlpAlarmSummaryInfoOutput {
 	s.LdPreload = &v
+	return s
+}
+
+// SetLoginCount sets the LoginCount field's value.
+func (s *AlarmNodeForGetMlpAlarmSummaryInfoOutput) SetLoginCount(v string) *AlarmNodeForGetMlpAlarmSummaryInfoOutput {
+	s.LoginCount = &v
 	return s
 }
 
@@ -1289,6 +1447,12 @@ func (s *AlarmNodeForGetMlpAlarmSummaryInfoOutput) SetQueryStatus(v string) *Ala
 	return s
 }
 
+// SetRootPns sets the RootPns field's value.
+func (s *AlarmNodeForGetMlpAlarmSummaryInfoOutput) SetRootPns(v string) *AlarmNodeForGetMlpAlarmSummaryInfoOutput {
+	s.RootPns = &v
+	return s
+}
+
 // SetRunPath sets the RunPath field's value.
 func (s *AlarmNodeForGetMlpAlarmSummaryInfoOutput) SetRunPath(v string) *AlarmNodeForGetMlpAlarmSummaryInfoOutput {
 	s.RunPath = &v
@@ -1298,6 +1462,18 @@ func (s *AlarmNodeForGetMlpAlarmSummaryInfoOutput) SetRunPath(v string) *AlarmNo
 // SetSamAccountName sets the SamAccountName field's value.
 func (s *AlarmNodeForGetMlpAlarmSummaryInfoOutput) SetSamAccountName(v string) *AlarmNodeForGetMlpAlarmSummaryInfoOutput {
 	s.SamAccountName = &v
+	return s
+}
+
+// SetSecurityIntelligenceComplete sets the SecurityIntelligenceComplete field's value.
+func (s *AlarmNodeForGetMlpAlarmSummaryInfoOutput) SetSecurityIntelligenceComplete(v bool) *AlarmNodeForGetMlpAlarmSummaryInfoOutput {
+	s.SecurityIntelligenceComplete = &v
+	return s
+}
+
+// SetSecurityIntelligenceResult sets the SecurityIntelligenceResult field's value.
+func (s *AlarmNodeForGetMlpAlarmSummaryInfoOutput) SetSecurityIntelligenceResult(v string) *AlarmNodeForGetMlpAlarmSummaryInfoOutput {
+	s.SecurityIntelligenceResult = &v
 	return s
 }
 
@@ -2075,6 +2251,20 @@ func (s *ContainerInfoForGetMlpAlarmSummaryInfoOutput) SetPodName(v string) *Con
 	return s
 }
 
+type ElkeidSaveDataForGetMlpAlarmSummaryInfoOutput struct {
+	_ struct{} `type:"structure"`
+}
+
+// String returns the string representation
+func (s ElkeidSaveDataForGetMlpAlarmSummaryInfoOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ElkeidSaveDataForGetMlpAlarmSummaryInfoOutput) GoString() string {
+	return s.String()
+}
+
 type EndpointTraceForGetMlpAlarmSummaryInfoOutput struct {
 	_ struct{} `type:"structure"`
 
@@ -2472,9 +2662,13 @@ type KillChainNodeListForGetMlpAlarmSummaryInfoOutput struct {
 
 	AdditionalActionsString *string `type:"string"`
 
+	AnalysisRecordUUID *string `type:"string"`
+
 	ArgsArray []*string `type:"list"`
 
 	Argv *string `type:"string"`
+
+	BackendAlarmTags []*string `type:"list"`
 
 	BruteforceSip *string `type:"string"`
 
@@ -2487,6 +2681,8 @@ type KillChainNodeListForGetMlpAlarmSummaryInfoOutput struct {
 	Comm *string `type:"string"`
 
 	CommandLine *string `type:"string"`
+
+	Confidence *string `type:"string"`
 
 	Configuration *string `type:"string"`
 
@@ -2522,6 +2718,10 @@ type KillChainNodeListForGetMlpAlarmSummaryInfoOutput struct {
 
 	DstList *string `type:"string"`
 
+	ElkeidSaveData []*ElkeidSaveDataForGetMlpAlarmSummaryInfoOutput `type:"list"`
+
+	EnHanced *string `type:"string"`
+
 	EventType *string `type:"string"`
 
 	Exe *string `type:"string"`
@@ -2535,6 +2735,8 @@ type KillChainNodeListForGetMlpAlarmSummaryInfoOutput struct {
 	FdName *string `type:"string"`
 
 	FileDownloadable *bool `type:"boolean"`
+
+	FileName *string `type:"string"`
 
 	FilePath *string `type:"string"`
 
@@ -2552,6 +2754,12 @@ type KillChainNodeListForGetMlpAlarmSummaryInfoOutput struct {
 
 	HomeDirectory *string `type:"string"`
 
+	IPIntelligence *string `type:"string"`
+
+	IPSource *string `type:"string"`
+
+	IPSourceUs *string `type:"string"`
+
 	Image *string `type:"string"`
 
 	ImageLoaded *string `type:"string"`
@@ -2568,9 +2776,13 @@ type KillChainNodeListForGetMlpAlarmSummaryInfoOutput struct {
 
 	IpAddress *string `type:"string"`
 
+	IsInnerAccount *bool `type:"boolean"`
+
 	KoFile *string `type:"string"`
 
 	LdPreload *string `type:"string"`
+
+	LoginCount *string `type:"string"`
 
 	LogonType *string `type:"string"`
 
@@ -2640,9 +2852,15 @@ type KillChainNodeListForGetMlpAlarmSummaryInfoOutput struct {
 
 	QueryStatus *string `type:"string"`
 
+	RootPns *string `type:"string"`
+
 	RunPath *string `type:"string"`
 
 	SamAccountName *string `type:"string"`
+
+	SecurityIntelligenceComplete *bool `type:"boolean"`
+
+	SecurityIntelligenceResult *string `type:"string"`
 
 	ServiceAccount *string `type:"string"`
 
@@ -2765,6 +2983,12 @@ func (s *KillChainNodeListForGetMlpAlarmSummaryInfoOutput) SetAdditionalActionsS
 	return s
 }
 
+// SetAnalysisRecordUUID sets the AnalysisRecordUUID field's value.
+func (s *KillChainNodeListForGetMlpAlarmSummaryInfoOutput) SetAnalysisRecordUUID(v string) *KillChainNodeListForGetMlpAlarmSummaryInfoOutput {
+	s.AnalysisRecordUUID = &v
+	return s
+}
+
 // SetArgsArray sets the ArgsArray field's value.
 func (s *KillChainNodeListForGetMlpAlarmSummaryInfoOutput) SetArgsArray(v []*string) *KillChainNodeListForGetMlpAlarmSummaryInfoOutput {
 	s.ArgsArray = v
@@ -2774,6 +2998,12 @@ func (s *KillChainNodeListForGetMlpAlarmSummaryInfoOutput) SetArgsArray(v []*str
 // SetArgv sets the Argv field's value.
 func (s *KillChainNodeListForGetMlpAlarmSummaryInfoOutput) SetArgv(v string) *KillChainNodeListForGetMlpAlarmSummaryInfoOutput {
 	s.Argv = &v
+	return s
+}
+
+// SetBackendAlarmTags sets the BackendAlarmTags field's value.
+func (s *KillChainNodeListForGetMlpAlarmSummaryInfoOutput) SetBackendAlarmTags(v []*string) *KillChainNodeListForGetMlpAlarmSummaryInfoOutput {
+	s.BackendAlarmTags = v
 	return s
 }
 
@@ -2810,6 +3040,12 @@ func (s *KillChainNodeListForGetMlpAlarmSummaryInfoOutput) SetComm(v string) *Ki
 // SetCommandLine sets the CommandLine field's value.
 func (s *KillChainNodeListForGetMlpAlarmSummaryInfoOutput) SetCommandLine(v string) *KillChainNodeListForGetMlpAlarmSummaryInfoOutput {
 	s.CommandLine = &v
+	return s
+}
+
+// SetConfidence sets the Confidence field's value.
+func (s *KillChainNodeListForGetMlpAlarmSummaryInfoOutput) SetConfidence(v string) *KillChainNodeListForGetMlpAlarmSummaryInfoOutput {
+	s.Confidence = &v
 	return s
 }
 
@@ -2915,6 +3151,18 @@ func (s *KillChainNodeListForGetMlpAlarmSummaryInfoOutput) SetDstList(v string) 
 	return s
 }
 
+// SetElkeidSaveData sets the ElkeidSaveData field's value.
+func (s *KillChainNodeListForGetMlpAlarmSummaryInfoOutput) SetElkeidSaveData(v []*ElkeidSaveDataForGetMlpAlarmSummaryInfoOutput) *KillChainNodeListForGetMlpAlarmSummaryInfoOutput {
+	s.ElkeidSaveData = v
+	return s
+}
+
+// SetEnHanced sets the EnHanced field's value.
+func (s *KillChainNodeListForGetMlpAlarmSummaryInfoOutput) SetEnHanced(v string) *KillChainNodeListForGetMlpAlarmSummaryInfoOutput {
+	s.EnHanced = &v
+	return s
+}
+
 // SetEventType sets the EventType field's value.
 func (s *KillChainNodeListForGetMlpAlarmSummaryInfoOutput) SetEventType(v string) *KillChainNodeListForGetMlpAlarmSummaryInfoOutput {
 	s.EventType = &v
@@ -2954,6 +3202,12 @@ func (s *KillChainNodeListForGetMlpAlarmSummaryInfoOutput) SetFdName(v string) *
 // SetFileDownloadable sets the FileDownloadable field's value.
 func (s *KillChainNodeListForGetMlpAlarmSummaryInfoOutput) SetFileDownloadable(v bool) *KillChainNodeListForGetMlpAlarmSummaryInfoOutput {
 	s.FileDownloadable = &v
+	return s
+}
+
+// SetFileName sets the FileName field's value.
+func (s *KillChainNodeListForGetMlpAlarmSummaryInfoOutput) SetFileName(v string) *KillChainNodeListForGetMlpAlarmSummaryInfoOutput {
+	s.FileName = &v
 	return s
 }
 
@@ -3005,6 +3259,24 @@ func (s *KillChainNodeListForGetMlpAlarmSummaryInfoOutput) SetHomeDirectory(v st
 	return s
 }
 
+// SetIPIntelligence sets the IPIntelligence field's value.
+func (s *KillChainNodeListForGetMlpAlarmSummaryInfoOutput) SetIPIntelligence(v string) *KillChainNodeListForGetMlpAlarmSummaryInfoOutput {
+	s.IPIntelligence = &v
+	return s
+}
+
+// SetIPSource sets the IPSource field's value.
+func (s *KillChainNodeListForGetMlpAlarmSummaryInfoOutput) SetIPSource(v string) *KillChainNodeListForGetMlpAlarmSummaryInfoOutput {
+	s.IPSource = &v
+	return s
+}
+
+// SetIPSourceUs sets the IPSourceUs field's value.
+func (s *KillChainNodeListForGetMlpAlarmSummaryInfoOutput) SetIPSourceUs(v string) *KillChainNodeListForGetMlpAlarmSummaryInfoOutput {
+	s.IPSourceUs = &v
+	return s
+}
+
 // SetImage sets the Image field's value.
 func (s *KillChainNodeListForGetMlpAlarmSummaryInfoOutput) SetImage(v string) *KillChainNodeListForGetMlpAlarmSummaryInfoOutput {
 	s.Image = &v
@@ -3053,6 +3325,12 @@ func (s *KillChainNodeListForGetMlpAlarmSummaryInfoOutput) SetIpAddress(v string
 	return s
 }
 
+// SetIsInnerAccount sets the IsInnerAccount field's value.
+func (s *KillChainNodeListForGetMlpAlarmSummaryInfoOutput) SetIsInnerAccount(v bool) *KillChainNodeListForGetMlpAlarmSummaryInfoOutput {
+	s.IsInnerAccount = &v
+	return s
+}
+
 // SetKoFile sets the KoFile field's value.
 func (s *KillChainNodeListForGetMlpAlarmSummaryInfoOutput) SetKoFile(v string) *KillChainNodeListForGetMlpAlarmSummaryInfoOutput {
 	s.KoFile = &v
@@ -3062,6 +3340,12 @@ func (s *KillChainNodeListForGetMlpAlarmSummaryInfoOutput) SetKoFile(v string) *
 // SetLdPreload sets the LdPreload field's value.
 func (s *KillChainNodeListForGetMlpAlarmSummaryInfoOutput) SetLdPreload(v string) *KillChainNodeListForGetMlpAlarmSummaryInfoOutput {
 	s.LdPreload = &v
+	return s
+}
+
+// SetLoginCount sets the LoginCount field's value.
+func (s *KillChainNodeListForGetMlpAlarmSummaryInfoOutput) SetLoginCount(v string) *KillChainNodeListForGetMlpAlarmSummaryInfoOutput {
+	s.LoginCount = &v
 	return s
 }
 
@@ -3269,6 +3553,12 @@ func (s *KillChainNodeListForGetMlpAlarmSummaryInfoOutput) SetQueryStatus(v stri
 	return s
 }
 
+// SetRootPns sets the RootPns field's value.
+func (s *KillChainNodeListForGetMlpAlarmSummaryInfoOutput) SetRootPns(v string) *KillChainNodeListForGetMlpAlarmSummaryInfoOutput {
+	s.RootPns = &v
+	return s
+}
+
 // SetRunPath sets the RunPath field's value.
 func (s *KillChainNodeListForGetMlpAlarmSummaryInfoOutput) SetRunPath(v string) *KillChainNodeListForGetMlpAlarmSummaryInfoOutput {
 	s.RunPath = &v
@@ -3278,6 +3568,18 @@ func (s *KillChainNodeListForGetMlpAlarmSummaryInfoOutput) SetRunPath(v string) 
 // SetSamAccountName sets the SamAccountName field's value.
 func (s *KillChainNodeListForGetMlpAlarmSummaryInfoOutput) SetSamAccountName(v string) *KillChainNodeListForGetMlpAlarmSummaryInfoOutput {
 	s.SamAccountName = &v
+	return s
+}
+
+// SetSecurityIntelligenceComplete sets the SecurityIntelligenceComplete field's value.
+func (s *KillChainNodeListForGetMlpAlarmSummaryInfoOutput) SetSecurityIntelligenceComplete(v bool) *KillChainNodeListForGetMlpAlarmSummaryInfoOutput {
+	s.SecurityIntelligenceComplete = &v
+	return s
+}
+
+// SetSecurityIntelligenceResult sets the SecurityIntelligenceResult field's value.
+func (s *KillChainNodeListForGetMlpAlarmSummaryInfoOutput) SetSecurityIntelligenceResult(v string) *KillChainNodeListForGetMlpAlarmSummaryInfoOutput {
+	s.SecurityIntelligenceResult = &v
 	return s
 }
 

@@ -266,9 +266,11 @@ type ListBaselinesInput struct {
 
 	AssetID *string `type:"string" json:",omitempty"`
 
-	AssetType *string `type:"string" json:",omitempty" enum:"EnumOfAssetTypeForListBaselinesInput"`
+	AssetType *string `type:"string" json:",omitempty"`
 
 	BaselineName *string `type:"string" json:",omitempty"`
+
+	BaselineNameEn *string `type:"string" json:",omitempty"`
 
 	CloudProviders []*string `type:"list" json:",omitempty"`
 
@@ -344,6 +346,12 @@ func (s *ListBaselinesInput) SetAssetType(v string) *ListBaselinesInput {
 // SetBaselineName sets the BaselineName field's value.
 func (s *ListBaselinesInput) SetBaselineName(v string) *ListBaselinesInput {
 	s.BaselineName = &v
+	return s
+}
+
+// SetBaselineNameEn sets the BaselineNameEn field's value.
+func (s *ListBaselinesInput) SetBaselineNameEn(v string) *ListBaselinesInput {
+	s.BaselineNameEn = &v
 	return s
 }
 
@@ -504,11 +512,3 @@ func (s *RiskNumForListBaselinesOutput) SetMediumNum(v int64) *RiskNumForListBas
 	s.MediumNum = &v
 	return s
 }
-
-const (
-	// EnumOfAssetTypeForListBaselinesInputHost is a EnumOfAssetTypeForListBaselinesInput enum value
-	EnumOfAssetTypeForListBaselinesInputHost = "Host"
-
-	// EnumOfAssetTypeForListBaselinesInputDev is a EnumOfAssetTypeForListBaselinesInput enum value
-	EnumOfAssetTypeForListBaselinesInputDev = "Dev"
-)

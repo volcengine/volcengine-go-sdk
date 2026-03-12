@@ -190,6 +190,8 @@ type CheckAlarmSupportBanIPOutput struct {
 
 	BanPortRange *string `type:"string" json:",omitempty"`
 
+	BanType *string `type:"string" json:",omitempty"`
+
 	Direction *string `type:"string" json:",omitempty"`
 
 	SecurityGroupName *string `type:"string" json:",omitempty"`
@@ -216,6 +218,12 @@ func (s *CheckAlarmSupportBanIPOutput) SetBanIP(v string) *CheckAlarmSupportBanI
 // SetBanPortRange sets the BanPortRange field's value.
 func (s *CheckAlarmSupportBanIPOutput) SetBanPortRange(v string) *CheckAlarmSupportBanIPOutput {
 	s.BanPortRange = &v
+	return s
+}
+
+// SetBanType sets the BanType field's value.
+func (s *CheckAlarmSupportBanIPOutput) SetBanType(v string) *CheckAlarmSupportBanIPOutput {
+	s.BanType = &v
 	return s
 }
 

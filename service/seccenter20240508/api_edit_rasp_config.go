@@ -194,7 +194,11 @@ type EditRaspConfigInput struct {
 
 	AllProcessInject *bool `type:"boolean" json:",omitempty"`
 
+	BlockUuid *string `type:"string" json:",omitempty"`
+
 	Blocks []*BlockForEditRaspConfigInput `type:"list" json:",omitempty"`
+
+	FilterUuid *string `type:"string" json:",omitempty"`
 
 	Filters []*FilterForEditRaspConfigInput `type:"list" json:",omitempty"`
 
@@ -261,9 +265,21 @@ func (s *EditRaspConfigInput) SetAllProcessInject(v bool) *EditRaspConfigInput {
 	return s
 }
 
+// SetBlockUuid sets the BlockUuid field's value.
+func (s *EditRaspConfigInput) SetBlockUuid(v string) *EditRaspConfigInput {
+	s.BlockUuid = &v
+	return s
+}
+
 // SetBlocks sets the Blocks field's value.
 func (s *EditRaspConfigInput) SetBlocks(v []*BlockForEditRaspConfigInput) *EditRaspConfigInput {
 	s.Blocks = v
+	return s
+}
+
+// SetFilterUuid sets the FilterUuid field's value.
+func (s *EditRaspConfigInput) SetFilterUuid(v string) *EditRaspConfigInput {
+	s.FilterUuid = &v
 	return s
 }
 

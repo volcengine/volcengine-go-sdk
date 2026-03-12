@@ -158,7 +158,11 @@ type DataForGetDevFingerprintSoftwareOutput struct {
 
 	PrivateIP *string `type:"string" json:",omitempty"`
 
+	ProtectStatus *string `type:"string" json:",omitempty"`
+
 	PublicIP *string `type:"string" json:",omitempty"`
+
+	SecurityEnhancement *bool `type:"boolean" json:",omitempty"`
 
 	StartTime *int64 `type:"int64" json:",omitempty"`
 
@@ -217,9 +221,21 @@ func (s *DataForGetDevFingerprintSoftwareOutput) SetPrivateIP(v string) *DataFor
 	return s
 }
 
+// SetProtectStatus sets the ProtectStatus field's value.
+func (s *DataForGetDevFingerprintSoftwareOutput) SetProtectStatus(v string) *DataForGetDevFingerprintSoftwareOutput {
+	s.ProtectStatus = &v
+	return s
+}
+
 // SetPublicIP sets the PublicIP field's value.
 func (s *DataForGetDevFingerprintSoftwareOutput) SetPublicIP(v string) *DataForGetDevFingerprintSoftwareOutput {
 	s.PublicIP = &v
+	return s
+}
+
+// SetSecurityEnhancement sets the SecurityEnhancement field's value.
+func (s *DataForGetDevFingerprintSoftwareOutput) SetSecurityEnhancement(v bool) *DataForGetDevFingerprintSoftwareOutput {
+	s.SecurityEnhancement = &v
 	return s
 }
 
@@ -268,7 +284,7 @@ type GetDevFingerprintSoftwareInput struct {
 
 	SortBy *string `type:"string" json:",omitempty"`
 
-	SortOrder *string `type:"string" json:",omitempty" enum:"EnumOfSortOrderForGetDevFingerprintSoftwareInput"`
+	SortOrder *string `type:"string" json:",omitempty"`
 
 	Type []*string `type:"list" json:",omitempty"`
 
@@ -396,22 +412,3 @@ func (s *GetDevFingerprintSoftwareOutput) SetTotalCount(v int64) *GetDevFingerpr
 	s.TotalCount = &v
 	return s
 }
-
-const (
-	// EnumOfSortOrderForGetDevFingerprintSoftwareInputAsc is a EnumOfSortOrderForGetDevFingerprintSoftwareInput enum value
-	EnumOfSortOrderForGetDevFingerprintSoftwareInputAsc = "Asc"
-
-	// EnumOfSortOrderForGetDevFingerprintSoftwareInputDesc is a EnumOfSortOrderForGetDevFingerprintSoftwareInput enum value
-	EnumOfSortOrderForGetDevFingerprintSoftwareInputDesc = " Desc"
-)
-
-const (
-	// EnumOfTypeListForGetDevFingerprintSoftwareInputDpkg is a EnumOfTypeListForGetDevFingerprintSoftwareInput enum value
-	EnumOfTypeListForGetDevFingerprintSoftwareInputDpkg = "dpkg"
-
-	// EnumOfTypeListForGetDevFingerprintSoftwareInputRpm is a EnumOfTypeListForGetDevFingerprintSoftwareInput enum value
-	EnumOfTypeListForGetDevFingerprintSoftwareInputRpm = " rpm"
-
-	// EnumOfTypeListForGetDevFingerprintSoftwareInputPypi is a EnumOfTypeListForGetDevFingerprintSoftwareInput enum value
-	EnumOfTypeListForGetDevFingerprintSoftwareInputPypi = " pypi"
-)

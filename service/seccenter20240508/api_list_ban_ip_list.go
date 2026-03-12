@@ -148,6 +148,8 @@ type DataForListBanIPListOutput struct {
 
 	AccountID *string `type:"string" json:",omitempty"`
 
+	AgentID *string `type:"string" json:",omitempty"`
+
 	BanEndTimeUnix *int64 `type:"int64" json:",omitempty"`
 
 	BanIP *string `type:"string" json:",omitempty"`
@@ -156,11 +158,19 @@ type DataForListBanIPListOutput struct {
 
 	BanType *string `type:"string" json:",omitempty"`
 
-	HostInfo *HostInfoForListBanIPListOutput `type:"structure" json:"hostInfo,omitempty"`
+	CloudProvider *string `type:"string" json:",omitempty"`
+
+	EcsInstance *EcsInstanceForListBanIPListOutput `type:"structure" json:",omitempty"`
+
+	GroupID *string `type:"string" json:",omitempty"`
 
 	ID *string `type:"string" json:",omitempty"`
 
+	IPtablesID *string `type:"string" json:",omitempty"`
+
 	InsertTime *int64 `type:"int64" json:",omitempty"`
+
+	Platform *string `type:"string" json:",omitempty"`
 
 	PortEnd *int64 `type:"int64" json:",omitempty"`
 
@@ -175,6 +185,12 @@ type DataForListBanIPListOutput struct {
 	SecurityGroupID *string `type:"string" json:",omitempty"`
 
 	Status *string `type:"string" json:",omitempty"`
+
+	Tags []*string `type:"list" json:",omitempty"`
+
+	TopGroupID *string `type:"string" json:",omitempty"`
+
+	UpdateTime *int64 `type:"int64" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -190,6 +206,12 @@ func (s DataForListBanIPListOutput) GoString() string {
 // SetAccountID sets the AccountID field's value.
 func (s *DataForListBanIPListOutput) SetAccountID(v string) *DataForListBanIPListOutput {
 	s.AccountID = &v
+	return s
+}
+
+// SetAgentID sets the AgentID field's value.
+func (s *DataForListBanIPListOutput) SetAgentID(v string) *DataForListBanIPListOutput {
+	s.AgentID = &v
 	return s
 }
 
@@ -217,9 +239,21 @@ func (s *DataForListBanIPListOutput) SetBanType(v string) *DataForListBanIPListO
 	return s
 }
 
-// SetHostInfo sets the HostInfo field's value.
-func (s *DataForListBanIPListOutput) SetHostInfo(v *HostInfoForListBanIPListOutput) *DataForListBanIPListOutput {
-	s.HostInfo = v
+// SetCloudProvider sets the CloudProvider field's value.
+func (s *DataForListBanIPListOutput) SetCloudProvider(v string) *DataForListBanIPListOutput {
+	s.CloudProvider = &v
+	return s
+}
+
+// SetEcsInstance sets the EcsInstance field's value.
+func (s *DataForListBanIPListOutput) SetEcsInstance(v *EcsInstanceForListBanIPListOutput) *DataForListBanIPListOutput {
+	s.EcsInstance = v
+	return s
+}
+
+// SetGroupID sets the GroupID field's value.
+func (s *DataForListBanIPListOutput) SetGroupID(v string) *DataForListBanIPListOutput {
+	s.GroupID = &v
 	return s
 }
 
@@ -229,9 +263,21 @@ func (s *DataForListBanIPListOutput) SetID(v string) *DataForListBanIPListOutput
 	return s
 }
 
+// SetIPtablesID sets the IPtablesID field's value.
+func (s *DataForListBanIPListOutput) SetIPtablesID(v string) *DataForListBanIPListOutput {
+	s.IPtablesID = &v
+	return s
+}
+
 // SetInsertTime sets the InsertTime field's value.
 func (s *DataForListBanIPListOutput) SetInsertTime(v int64) *DataForListBanIPListOutput {
 	s.InsertTime = &v
+	return s
+}
+
+// SetPlatform sets the Platform field's value.
+func (s *DataForListBanIPListOutput) SetPlatform(v string) *DataForListBanIPListOutput {
+	s.Platform = &v
 	return s
 }
 
@@ -274,6 +320,24 @@ func (s *DataForListBanIPListOutput) SetSecurityGroupID(v string) *DataForListBa
 // SetStatus sets the Status field's value.
 func (s *DataForListBanIPListOutput) SetStatus(v string) *DataForListBanIPListOutput {
 	s.Status = &v
+	return s
+}
+
+// SetTags sets the Tags field's value.
+func (s *DataForListBanIPListOutput) SetTags(v []*string) *DataForListBanIPListOutput {
+	s.Tags = v
+	return s
+}
+
+// SetTopGroupID sets the TopGroupID field's value.
+func (s *DataForListBanIPListOutput) SetTopGroupID(v string) *DataForListBanIPListOutput {
+	s.TopGroupID = &v
+	return s
+}
+
+// SetUpdateTime sets the UpdateTime field's value.
+func (s *DataForListBanIPListOutput) SetUpdateTime(v int64) *DataForListBanIPListOutput {
+	s.UpdateTime = &v
 	return s
 }
 
@@ -467,76 +531,6 @@ func (s *EcsInstanceForListBanIPListOutput) SetZoneId(v string) *EcsInstanceForL
 	return s
 }
 
-type HostInfoForListBanIPListOutput struct {
-	_ struct{} `type:"structure" json:",omitempty"`
-
-	AgentID *string `type:"string" json:",omitempty"`
-
-	CloudProvider *string `type:"string" json:",omitempty"`
-
-	EcsInstance *EcsInstanceForListBanIPListOutput `type:"structure" json:",omitempty"`
-
-	LeafGroupID *string `type:"string" json:",omitempty"`
-
-	Platform *string `type:"string" json:",omitempty"`
-
-	Tags []*string `type:"list" json:",omitempty"`
-
-	TopGroupID *string `type:"string" json:",omitempty"`
-}
-
-// String returns the string representation
-func (s HostInfoForListBanIPListOutput) String() string {
-	return volcengineutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s HostInfoForListBanIPListOutput) GoString() string {
-	return s.String()
-}
-
-// SetAgentID sets the AgentID field's value.
-func (s *HostInfoForListBanIPListOutput) SetAgentID(v string) *HostInfoForListBanIPListOutput {
-	s.AgentID = &v
-	return s
-}
-
-// SetCloudProvider sets the CloudProvider field's value.
-func (s *HostInfoForListBanIPListOutput) SetCloudProvider(v string) *HostInfoForListBanIPListOutput {
-	s.CloudProvider = &v
-	return s
-}
-
-// SetEcsInstance sets the EcsInstance field's value.
-func (s *HostInfoForListBanIPListOutput) SetEcsInstance(v *EcsInstanceForListBanIPListOutput) *HostInfoForListBanIPListOutput {
-	s.EcsInstance = v
-	return s
-}
-
-// SetLeafGroupID sets the LeafGroupID field's value.
-func (s *HostInfoForListBanIPListOutput) SetLeafGroupID(v string) *HostInfoForListBanIPListOutput {
-	s.LeafGroupID = &v
-	return s
-}
-
-// SetPlatform sets the Platform field's value.
-func (s *HostInfoForListBanIPListOutput) SetPlatform(v string) *HostInfoForListBanIPListOutput {
-	s.Platform = &v
-	return s
-}
-
-// SetTags sets the Tags field's value.
-func (s *HostInfoForListBanIPListOutput) SetTags(v []*string) *HostInfoForListBanIPListOutput {
-	s.Tags = v
-	return s
-}
-
-// SetTopGroupID sets the TopGroupID field's value.
-func (s *HostInfoForListBanIPListOutput) SetTopGroupID(v string) *HostInfoForListBanIPListOutput {
-	s.TopGroupID = &v
-	return s
-}
-
 type ListBanIPListInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -548,11 +542,15 @@ type ListBanIPListInput struct {
 
 	BanIP *string `type:"string" json:",omitempty"`
 
+	BanPort *int64 `type:"int64" json:",omitempty"`
+
 	BanStartTimeEndUnix *int64 `type:"int64" json:",omitempty"`
 
 	BanStartTimeStartUnix *int64 `type:"int64" json:",omitempty"`
 
 	BanType *string `type:"string" json:",omitempty"`
+
+	BanTypeList []*string `type:"list" json:",omitempty"`
 
 	CloudProviders []*string `type:"list" json:",omitempty"`
 
@@ -629,6 +627,12 @@ func (s *ListBanIPListInput) SetBanIP(v string) *ListBanIPListInput {
 	return s
 }
 
+// SetBanPort sets the BanPort field's value.
+func (s *ListBanIPListInput) SetBanPort(v int64) *ListBanIPListInput {
+	s.BanPort = &v
+	return s
+}
+
 // SetBanStartTimeEndUnix sets the BanStartTimeEndUnix field's value.
 func (s *ListBanIPListInput) SetBanStartTimeEndUnix(v int64) *ListBanIPListInput {
 	s.BanStartTimeEndUnix = &v
@@ -644,6 +648,12 @@ func (s *ListBanIPListInput) SetBanStartTimeStartUnix(v int64) *ListBanIPListInp
 // SetBanType sets the BanType field's value.
 func (s *ListBanIPListInput) SetBanType(v string) *ListBanIPListInput {
 	s.BanType = &v
+	return s
+}
+
+// SetBanTypeList sets the BanTypeList field's value.
+func (s *ListBanIPListInput) SetBanTypeList(v []*string) *ListBanIPListInput {
+	s.BanTypeList = v
 	return s
 }
 
@@ -764,7 +774,11 @@ func (s *ListBanIPListOutput) SetTotalCount(v int64) *ListBanIPListOutput {
 type RelateAlarmInfoForListBanIPListOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	AlarmHandleMethod *int64 `type:"int64" json:",omitempty"`
+
 	AlarmType *string `type:"string" json:",omitempty"`
+
+	CloudProvider *string `type:"string" json:",omitempty"`
 
 	RelatedAlarmID *string `type:"string" json:",omitempty"`
 }
@@ -779,9 +793,21 @@ func (s RelateAlarmInfoForListBanIPListOutput) GoString() string {
 	return s.String()
 }
 
+// SetAlarmHandleMethod sets the AlarmHandleMethod field's value.
+func (s *RelateAlarmInfoForListBanIPListOutput) SetAlarmHandleMethod(v int64) *RelateAlarmInfoForListBanIPListOutput {
+	s.AlarmHandleMethod = &v
+	return s
+}
+
 // SetAlarmType sets the AlarmType field's value.
 func (s *RelateAlarmInfoForListBanIPListOutput) SetAlarmType(v string) *RelateAlarmInfoForListBanIPListOutput {
 	s.AlarmType = &v
+	return s
+}
+
+// SetCloudProvider sets the CloudProvider field's value.
+func (s *RelateAlarmInfoForListBanIPListOutput) SetCloudProvider(v string) *RelateAlarmInfoForListBanIPListOutput {
+	s.CloudProvider = &v
 	return s
 }
 

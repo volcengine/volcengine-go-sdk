@@ -142,7 +142,7 @@ func (c *SECCENTER20240508) GetVulnCheckStatusWithContext(ctx volcengine.Context
 type GetVulnCheckStatusInput struct {
 	_ struct{} `type:"structure"`
 
-	AssetType *string `type:"string" enum:"EnumOfAssetTypeForGetVulnCheckStatusInput"`
+	AssetType *string `type:"string"`
 
 	TopGroupID *string `type:"string"`
 }
@@ -208,11 +208,3 @@ func (s *GetVulnCheckStatusOutput) SetStatus(v string) *GetVulnCheckStatusOutput
 	s.Status = &v
 	return s
 }
-
-const (
-	// EnumOfAssetTypeForGetVulnCheckStatusInputHost is a EnumOfAssetTypeForGetVulnCheckStatusInput enum value
-	EnumOfAssetTypeForGetVulnCheckStatusInputHost = "Host"
-
-	// EnumOfAssetTypeForGetVulnCheckStatusInputDev is a EnumOfAssetTypeForGetVulnCheckStatusInput enum value
-	EnumOfAssetTypeForGetVulnCheckStatusInputDev = "Dev"
-)

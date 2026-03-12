@@ -180,7 +180,7 @@ func (s *DataForListBaselineGroupsOutput) SetGroupNameEn(v string) *DataForListB
 type ListBaselineGroupsInput struct {
 	_ struct{} `type:"structure"`
 
-	AssetType *string `type:"string" enum:"EnumOfAssetTypeForListBaselineGroupsInput"`
+	AssetType *string `type:"string"`
 
 	IfContainer *bool `type:"boolean"`
 }
@@ -230,11 +230,3 @@ func (s *ListBaselineGroupsOutput) SetData(v []*DataForListBaselineGroupsOutput)
 	s.Data = v
 	return s
 }
-
-const (
-	// EnumOfAssetTypeForListBaselineGroupsInputHost is a EnumOfAssetTypeForListBaselineGroupsInput enum value
-	EnumOfAssetTypeForListBaselineGroupsInputHost = "Host"
-
-	// EnumOfAssetTypeForListBaselineGroupsInputDev is a EnumOfAssetTypeForListBaselineGroupsInput enum value
-	EnumOfAssetTypeForListBaselineGroupsInputDev = "Dev"
-)

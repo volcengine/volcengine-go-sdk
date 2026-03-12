@@ -330,7 +330,7 @@ type ListVulnsInput struct {
 
 	AssetID *string `type:"string" json:",omitempty"`
 
-	AssetType *string `type:"string" json:",omitempty" enum:"EnumOfAssetTypeForListVulnsInput"`
+	AssetType *string `type:"string" json:",omitempty"`
 
 	CloudProviders []*string `type:"list" json:",omitempty"`
 
@@ -341,6 +341,8 @@ type ListVulnsInput struct {
 	CveID *string `type:"string" json:",omitempty"`
 
 	IfHighAvailability *bool `type:"boolean" json:",omitempty"`
+
+	IsRealRiskVul *bool `type:"boolean" json:",omitempty"`
 
 	LeafGroupIDs []*string `type:"list" json:",omitempty"`
 
@@ -438,6 +440,12 @@ func (s *ListVulnsInput) SetCveID(v string) *ListVulnsInput {
 // SetIfHighAvailability sets the IfHighAvailability field's value.
 func (s *ListVulnsInput) SetIfHighAvailability(v bool) *ListVulnsInput {
 	s.IfHighAvailability = &v
+	return s
+}
+
+// SetIsRealRiskVul sets the IsRealRiskVul field's value.
+func (s *ListVulnsInput) SetIsRealRiskVul(v bool) *ListVulnsInput {
+	s.IsRealRiskVul = &v
 	return s
 }
 
@@ -554,11 +562,3 @@ func (s *ListVulnsOutput) SetTotalCount(v int64) *ListVulnsOutput {
 	s.TotalCount = &v
 	return s
 }
-
-const (
-	// EnumOfAssetTypeForListVulnsInputHost is a EnumOfAssetTypeForListVulnsInput enum value
-	EnumOfAssetTypeForListVulnsInputHost = "Host"
-
-	// EnumOfAssetTypeForListVulnsInputDev is a EnumOfAssetTypeForListVulnsInput enum value
-	EnumOfAssetTypeForListVulnsInputDev = "Dev"
-)

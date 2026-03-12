@@ -458,11 +458,15 @@ type GetHostBasicInfoOutput struct {
 
 	AbnormalPluginsList *string `type:"string"`
 
+	AccountID *string `type:"string"`
+
 	AgentID *string `type:"string"`
 
 	Alarm *AlarmForGetHostBasicInfoOutput `type:"structure"`
 
 	Baseline *BaselineForGetHostBasicInfoOutput `type:"structure"`
+
+	ClientPublicIP *string `type:"string"`
 
 	CloudProvider *string `type:"string"`
 
@@ -482,19 +486,27 @@ type GetHostBasicInfoOutput struct {
 
 	GroupPath *string `type:"string"`
 
+	GroupPathEn *string `type:"string"`
+
 	KernelVersion *string `type:"string"`
 
 	LastHeartbeatTime *int64 `type:"int64"`
 
 	MemUsage *float64 `type:"double"`
 
+	OldValidCode *int64 `type:"int64"`
+
 	Online *bool `type:"boolean"`
 
 	Platform *string `type:"string"`
 
+	PlatformVersion *string `type:"string"`
+
 	PluginsBriefInfo *string `type:"string"`
 
 	PluginsStatus *string `type:"string"`
+
+	RealRiskVul *RealRiskVulForGetHostBasicInfoOutput `type:"structure"`
 
 	Reason *string `type:"string"`
 
@@ -511,6 +523,8 @@ type GetHostBasicInfoOutput struct {
 	UserStatus *string `type:"string"`
 
 	UserStatusReason *string `type:"string"`
+
+	UserStatusReasonCode *int64 `type:"int64"`
 
 	Virus *VirusForGetHostBasicInfoOutput `type:"structure"`
 
@@ -533,6 +547,12 @@ func (s *GetHostBasicInfoOutput) SetAbnormalPluginsList(v string) *GetHostBasicI
 	return s
 }
 
+// SetAccountID sets the AccountID field's value.
+func (s *GetHostBasicInfoOutput) SetAccountID(v string) *GetHostBasicInfoOutput {
+	s.AccountID = &v
+	return s
+}
+
 // SetAgentID sets the AgentID field's value.
 func (s *GetHostBasicInfoOutput) SetAgentID(v string) *GetHostBasicInfoOutput {
 	s.AgentID = &v
@@ -548,6 +568,12 @@ func (s *GetHostBasicInfoOutput) SetAlarm(v *AlarmForGetHostBasicInfoOutput) *Ge
 // SetBaseline sets the Baseline field's value.
 func (s *GetHostBasicInfoOutput) SetBaseline(v *BaselineForGetHostBasicInfoOutput) *GetHostBasicInfoOutput {
 	s.Baseline = v
+	return s
+}
+
+// SetClientPublicIP sets the ClientPublicIP field's value.
+func (s *GetHostBasicInfoOutput) SetClientPublicIP(v string) *GetHostBasicInfoOutput {
+	s.ClientPublicIP = &v
 	return s
 }
 
@@ -605,6 +631,12 @@ func (s *GetHostBasicInfoOutput) SetGroupPath(v string) *GetHostBasicInfoOutput 
 	return s
 }
 
+// SetGroupPathEn sets the GroupPathEn field's value.
+func (s *GetHostBasicInfoOutput) SetGroupPathEn(v string) *GetHostBasicInfoOutput {
+	s.GroupPathEn = &v
+	return s
+}
+
 // SetKernelVersion sets the KernelVersion field's value.
 func (s *GetHostBasicInfoOutput) SetKernelVersion(v string) *GetHostBasicInfoOutput {
 	s.KernelVersion = &v
@@ -623,6 +655,12 @@ func (s *GetHostBasicInfoOutput) SetMemUsage(v float64) *GetHostBasicInfoOutput 
 	return s
 }
 
+// SetOldValidCode sets the OldValidCode field's value.
+func (s *GetHostBasicInfoOutput) SetOldValidCode(v int64) *GetHostBasicInfoOutput {
+	s.OldValidCode = &v
+	return s
+}
+
 // SetOnline sets the Online field's value.
 func (s *GetHostBasicInfoOutput) SetOnline(v bool) *GetHostBasicInfoOutput {
 	s.Online = &v
@@ -635,6 +673,12 @@ func (s *GetHostBasicInfoOutput) SetPlatform(v string) *GetHostBasicInfoOutput {
 	return s
 }
 
+// SetPlatformVersion sets the PlatformVersion field's value.
+func (s *GetHostBasicInfoOutput) SetPlatformVersion(v string) *GetHostBasicInfoOutput {
+	s.PlatformVersion = &v
+	return s
+}
+
 // SetPluginsBriefInfo sets the PluginsBriefInfo field's value.
 func (s *GetHostBasicInfoOutput) SetPluginsBriefInfo(v string) *GetHostBasicInfoOutput {
 	s.PluginsBriefInfo = &v
@@ -644,6 +688,12 @@ func (s *GetHostBasicInfoOutput) SetPluginsBriefInfo(v string) *GetHostBasicInfo
 // SetPluginsStatus sets the PluginsStatus field's value.
 func (s *GetHostBasicInfoOutput) SetPluginsStatus(v string) *GetHostBasicInfoOutput {
 	s.PluginsStatus = &v
+	return s
+}
+
+// SetRealRiskVul sets the RealRiskVul field's value.
+func (s *GetHostBasicInfoOutput) SetRealRiskVul(v *RealRiskVulForGetHostBasicInfoOutput) *GetHostBasicInfoOutput {
+	s.RealRiskVul = v
 	return s
 }
 
@@ -695,6 +745,12 @@ func (s *GetHostBasicInfoOutput) SetUserStatusReason(v string) *GetHostBasicInfo
 	return s
 }
 
+// SetUserStatusReasonCode sets the UserStatusReasonCode field's value.
+func (s *GetHostBasicInfoOutput) SetUserStatusReasonCode(v int64) *GetHostBasicInfoOutput {
+	s.UserStatusReasonCode = &v
+	return s
+}
+
 // SetVirus sets the Virus field's value.
 func (s *GetHostBasicInfoOutput) SetVirus(v *VirusForGetHostBasicInfoOutput) *GetHostBasicInfoOutput {
 	s.Virus = v
@@ -704,6 +760,60 @@ func (s *GetHostBasicInfoOutput) SetVirus(v *VirusForGetHostBasicInfoOutput) *Ge
 // SetVuln sets the Vuln field's value.
 func (s *GetHostBasicInfoOutput) SetVuln(v *VulnForGetHostBasicInfoOutput) *GetHostBasicInfoOutput {
 	s.Vuln = v
+	return s
+}
+
+type RealRiskVulForGetHostBasicInfoOutput struct {
+	_ struct{} `type:"structure"`
+
+	Critical *int64 `type:"int64"`
+
+	High *int64 `type:"int64"`
+
+	Low *int64 `type:"int64"`
+
+	Medium *int64 `type:"int64"`
+
+	Unknown *int64 `type:"int64"`
+}
+
+// String returns the string representation
+func (s RealRiskVulForGetHostBasicInfoOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s RealRiskVulForGetHostBasicInfoOutput) GoString() string {
+	return s.String()
+}
+
+// SetCritical sets the Critical field's value.
+func (s *RealRiskVulForGetHostBasicInfoOutput) SetCritical(v int64) *RealRiskVulForGetHostBasicInfoOutput {
+	s.Critical = &v
+	return s
+}
+
+// SetHigh sets the High field's value.
+func (s *RealRiskVulForGetHostBasicInfoOutput) SetHigh(v int64) *RealRiskVulForGetHostBasicInfoOutput {
+	s.High = &v
+	return s
+}
+
+// SetLow sets the Low field's value.
+func (s *RealRiskVulForGetHostBasicInfoOutput) SetLow(v int64) *RealRiskVulForGetHostBasicInfoOutput {
+	s.Low = &v
+	return s
+}
+
+// SetMedium sets the Medium field's value.
+func (s *RealRiskVulForGetHostBasicInfoOutput) SetMedium(v int64) *RealRiskVulForGetHostBasicInfoOutput {
+	s.Medium = &v
+	return s
+}
+
+// SetUnknown sets the Unknown field's value.
+func (s *RealRiskVulForGetHostBasicInfoOutput) SetUnknown(v int64) *RealRiskVulForGetHostBasicInfoOutput {
+	s.Unknown = &v
 	return s
 }
 

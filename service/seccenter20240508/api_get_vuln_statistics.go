@@ -150,9 +150,11 @@ type GetVulnStatisticsInput struct {
 
 	AssetID *string `type:"string" json:",omitempty"`
 
-	AssetType *string `type:"string" json:",omitempty" enum:"EnumOfAssetTypeForGetVulnStatisticsInput"`
+	AssetType *string `type:"string" json:",omitempty"`
 
 	IfHighAvailability *bool `type:"boolean" json:",omitempty"`
+
+	IsRealRiskVul *bool `type:"boolean" json:",omitempty"`
 
 	TopGroupID *string `type:"string" json:",omitempty"`
 }
@@ -188,6 +190,12 @@ func (s *GetVulnStatisticsInput) SetAssetType(v string) *GetVulnStatisticsInput 
 // SetIfHighAvailability sets the IfHighAvailability field's value.
 func (s *GetVulnStatisticsInput) SetIfHighAvailability(v bool) *GetVulnStatisticsInput {
 	s.IfHighAvailability = &v
+	return s
+}
+
+// SetIsRealRiskVul sets the IsRealRiskVul field's value.
+func (s *GetVulnStatisticsInput) SetIsRealRiskVul(v bool) *GetVulnStatisticsInput {
+	s.IsRealRiskVul = &v
 	return s
 }
 
@@ -334,6 +342,8 @@ type VulnTypeForGetVulnStatisticsOutput struct {
 
 	DevPy *int64 `type:"int64" json:",omitempty"`
 
+	Emg *int64 `type:"int64" json:",omitempty"`
+
 	Linux *int64 `type:"int64" json:",omitempty"`
 
 	Webcms *int64 `type:"int64" json:",omitempty"`
@@ -369,6 +379,12 @@ func (s *VulnTypeForGetVulnStatisticsOutput) SetDevPy(v int64) *VulnTypeForGetVu
 	return s
 }
 
+// SetEmg sets the Emg field's value.
+func (s *VulnTypeForGetVulnStatisticsOutput) SetEmg(v int64) *VulnTypeForGetVulnStatisticsOutput {
+	s.Emg = &v
+	return s
+}
+
 // SetLinux sets the Linux field's value.
 func (s *VulnTypeForGetVulnStatisticsOutput) SetLinux(v int64) *VulnTypeForGetVulnStatisticsOutput {
 	s.Linux = &v
@@ -386,11 +402,3 @@ func (s *VulnTypeForGetVulnStatisticsOutput) SetWindows(v int64) *VulnTypeForGet
 	s.Windows = &v
 	return s
 }
-
-const (
-	// EnumOfAssetTypeForGetVulnStatisticsInputHost is a EnumOfAssetTypeForGetVulnStatisticsInput enum value
-	EnumOfAssetTypeForGetVulnStatisticsInputHost = "Host"
-
-	// EnumOfAssetTypeForGetVulnStatisticsInputDev is a EnumOfAssetTypeForGetVulnStatisticsInput enum value
-	EnumOfAssetTypeForGetVulnStatisticsInputDev = "Dev"
-)

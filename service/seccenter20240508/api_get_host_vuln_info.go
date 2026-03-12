@@ -146,15 +146,15 @@ func (c *SECCENTER20240508) GetHostVulnInfoWithContext(ctx volcengine.Context, i
 type AffectForGetHostVulnInfoOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	Action *string `type:"string" json:"action,omitempty"`
+	Action *string `type:"string" json:",omitempty"`
 
 	AgentID *string `type:"string" json:",omitempty"`
 
 	AssetID *string `type:"string" json:",omitempty"`
 
-	Cluster_id *string `type:"string" json:"cluster_id,omitempty"`
+	ClusterID *string `type:"string" json:",omitempty"`
 
-	Cluster_name *string `type:"string" json:"cluster_name,omitempty"`
+	ClusterName *string `type:"string" json:",omitempty"`
 
 	Cmdline *string `type:"string" json:",omitempty"`
 
@@ -176,35 +176,35 @@ type AffectForGetHostVulnInfoOutput struct {
 
 	ContainerState *string `type:"string" json:",omitempty"`
 
-	Control_time *int64 `type:"int64" json:"control_time,omitempty"`
+	ControlTime *int64 `type:"int64" json:",omitempty"`
 
-	Create_time *int64 `type:"int64" json:"create_time,omitempty"`
+	CreateTime *int64 `type:"int64" json:",omitempty"`
 
-	Cve_id *string `type:"string" json:"cve_id,omitempty"`
+	CveID *string `type:"string" json:",omitempty"`
 
 	Cves []*string `type:"list" json:",omitempty"`
 
-	Cwpp_id *string `type:"string" json:"cwpp_id,omitempty"`
+	CwppID *string `type:"string" json:",omitempty"`
 
-	Fix_version *string `type:"string" json:"fix_version,omitempty"`
+	FixCommand *string `type:"string" json:",omitempty"`
+
+	FixVersion *string `type:"string" json:",omitempty"`
 
 	ImageID *string `type:"string" json:",omitempty"`
 
 	ImageName *string `type:"string" json:",omitempty"`
 
-	Level *string `type:"string" json:"level,omitempty"`
+	Level *string `type:"string" json:",omitempty"`
 
-	Namespace *string `type:"string" json:"namespace,omitempty"`
+	Namespace *string `type:"string" json:",omitempty"`
 
-	Operate_reason *string `type:"string" json:"operate_reason,omitempty"`
+	OperateReason *string `type:"string" json:",omitempty"`
 
 	PidList []*PidListForGetHostVulnInfoOutput `type:"list" json:",omitempty"`
 
 	PodID *string `type:"string" json:",omitempty"`
 
 	PodName *string `type:"string" json:",omitempty"`
-
-	Pod_hash *string `type:"string" json:"pod_hash,omitempty"`
 
 	SoftwareName *string `type:"string" json:",omitempty"`
 
@@ -216,21 +216,27 @@ type AffectForGetHostVulnInfoOutput struct {
 
 	State *string `type:"string" json:",omitempty"`
 
-	Status *string `type:"string" json:"status,omitempty"`
+	Status *string `type:"string" json:",omitempty"`
 
-	Tag []*string `type:"list" json:"tag,omitempty"`
+	Tag []*string `type:"list" json:",omitempty"`
+
+	TagEn []*string `type:"list" json:",omitempty"`
 
 	Type *string `type:"string" json:",omitempty"`
 
 	UpdateTime *int64 `type:"int64" json:",omitempty"`
 
-	Vuln_name *string `type:"string" json:"vuln_name,omitempty"`
+	VulnAffectVersion *string `type:"string" json:",omitempty"`
 
-	Vuln_type *string `type:"string" json:"vuln_type,omitempty"`
+	VulnName *string `type:"string" json:",omitempty"`
 
-	Workload_id *string `type:"string" json:"workload_id,omitempty"`
+	VulnNameEn *string `type:"string" json:",omitempty"`
 
-	Workload_name *string `type:"string" json:"workload_name,omitempty"`
+	VulnType *string `type:"string" json:",omitempty"`
+
+	WorkloadID *string `type:"string" json:",omitempty"`
+
+	WorkloadName *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -261,15 +267,15 @@ func (s *AffectForGetHostVulnInfoOutput) SetAssetID(v string) *AffectForGetHostV
 	return s
 }
 
-// SetCluster_id sets the Cluster_id field's value.
-func (s *AffectForGetHostVulnInfoOutput) SetCluster_id(v string) *AffectForGetHostVulnInfoOutput {
-	s.Cluster_id = &v
+// SetClusterID sets the ClusterID field's value.
+func (s *AffectForGetHostVulnInfoOutput) SetClusterID(v string) *AffectForGetHostVulnInfoOutput {
+	s.ClusterID = &v
 	return s
 }
 
-// SetCluster_name sets the Cluster_name field's value.
-func (s *AffectForGetHostVulnInfoOutput) SetCluster_name(v string) *AffectForGetHostVulnInfoOutput {
-	s.Cluster_name = &v
+// SetClusterName sets the ClusterName field's value.
+func (s *AffectForGetHostVulnInfoOutput) SetClusterName(v string) *AffectForGetHostVulnInfoOutput {
+	s.ClusterName = &v
 	return s
 }
 
@@ -333,21 +339,21 @@ func (s *AffectForGetHostVulnInfoOutput) SetContainerState(v string) *AffectForG
 	return s
 }
 
-// SetControl_time sets the Control_time field's value.
-func (s *AffectForGetHostVulnInfoOutput) SetControl_time(v int64) *AffectForGetHostVulnInfoOutput {
-	s.Control_time = &v
+// SetControlTime sets the ControlTime field's value.
+func (s *AffectForGetHostVulnInfoOutput) SetControlTime(v int64) *AffectForGetHostVulnInfoOutput {
+	s.ControlTime = &v
 	return s
 }
 
-// SetCreate_time sets the Create_time field's value.
-func (s *AffectForGetHostVulnInfoOutput) SetCreate_time(v int64) *AffectForGetHostVulnInfoOutput {
-	s.Create_time = &v
+// SetCreateTime sets the CreateTime field's value.
+func (s *AffectForGetHostVulnInfoOutput) SetCreateTime(v int64) *AffectForGetHostVulnInfoOutput {
+	s.CreateTime = &v
 	return s
 }
 
-// SetCve_id sets the Cve_id field's value.
-func (s *AffectForGetHostVulnInfoOutput) SetCve_id(v string) *AffectForGetHostVulnInfoOutput {
-	s.Cve_id = &v
+// SetCveID sets the CveID field's value.
+func (s *AffectForGetHostVulnInfoOutput) SetCveID(v string) *AffectForGetHostVulnInfoOutput {
+	s.CveID = &v
 	return s
 }
 
@@ -357,15 +363,21 @@ func (s *AffectForGetHostVulnInfoOutput) SetCves(v []*string) *AffectForGetHostV
 	return s
 }
 
-// SetCwpp_id sets the Cwpp_id field's value.
-func (s *AffectForGetHostVulnInfoOutput) SetCwpp_id(v string) *AffectForGetHostVulnInfoOutput {
-	s.Cwpp_id = &v
+// SetCwppID sets the CwppID field's value.
+func (s *AffectForGetHostVulnInfoOutput) SetCwppID(v string) *AffectForGetHostVulnInfoOutput {
+	s.CwppID = &v
 	return s
 }
 
-// SetFix_version sets the Fix_version field's value.
-func (s *AffectForGetHostVulnInfoOutput) SetFix_version(v string) *AffectForGetHostVulnInfoOutput {
-	s.Fix_version = &v
+// SetFixCommand sets the FixCommand field's value.
+func (s *AffectForGetHostVulnInfoOutput) SetFixCommand(v string) *AffectForGetHostVulnInfoOutput {
+	s.FixCommand = &v
+	return s
+}
+
+// SetFixVersion sets the FixVersion field's value.
+func (s *AffectForGetHostVulnInfoOutput) SetFixVersion(v string) *AffectForGetHostVulnInfoOutput {
+	s.FixVersion = &v
 	return s
 }
 
@@ -393,9 +405,9 @@ func (s *AffectForGetHostVulnInfoOutput) SetNamespace(v string) *AffectForGetHos
 	return s
 }
 
-// SetOperate_reason sets the Operate_reason field's value.
-func (s *AffectForGetHostVulnInfoOutput) SetOperate_reason(v string) *AffectForGetHostVulnInfoOutput {
-	s.Operate_reason = &v
+// SetOperateReason sets the OperateReason field's value.
+func (s *AffectForGetHostVulnInfoOutput) SetOperateReason(v string) *AffectForGetHostVulnInfoOutput {
+	s.OperateReason = &v
 	return s
 }
 
@@ -414,12 +426,6 @@ func (s *AffectForGetHostVulnInfoOutput) SetPodID(v string) *AffectForGetHostVul
 // SetPodName sets the PodName field's value.
 func (s *AffectForGetHostVulnInfoOutput) SetPodName(v string) *AffectForGetHostVulnInfoOutput {
 	s.PodName = &v
-	return s
-}
-
-// SetPod_hash sets the Pod_hash field's value.
-func (s *AffectForGetHostVulnInfoOutput) SetPod_hash(v string) *AffectForGetHostVulnInfoOutput {
-	s.Pod_hash = &v
 	return s
 }
 
@@ -465,6 +471,12 @@ func (s *AffectForGetHostVulnInfoOutput) SetTag(v []*string) *AffectForGetHostVu
 	return s
 }
 
+// SetTagEn sets the TagEn field's value.
+func (s *AffectForGetHostVulnInfoOutput) SetTagEn(v []*string) *AffectForGetHostVulnInfoOutput {
+	s.TagEn = v
+	return s
+}
+
 // SetType sets the Type field's value.
 func (s *AffectForGetHostVulnInfoOutput) SetType(v string) *AffectForGetHostVulnInfoOutput {
 	s.Type = &v
@@ -477,27 +489,39 @@ func (s *AffectForGetHostVulnInfoOutput) SetUpdateTime(v int64) *AffectForGetHos
 	return s
 }
 
-// SetVuln_name sets the Vuln_name field's value.
-func (s *AffectForGetHostVulnInfoOutput) SetVuln_name(v string) *AffectForGetHostVulnInfoOutput {
-	s.Vuln_name = &v
+// SetVulnAffectVersion sets the VulnAffectVersion field's value.
+func (s *AffectForGetHostVulnInfoOutput) SetVulnAffectVersion(v string) *AffectForGetHostVulnInfoOutput {
+	s.VulnAffectVersion = &v
 	return s
 }
 
-// SetVuln_type sets the Vuln_type field's value.
-func (s *AffectForGetHostVulnInfoOutput) SetVuln_type(v string) *AffectForGetHostVulnInfoOutput {
-	s.Vuln_type = &v
+// SetVulnName sets the VulnName field's value.
+func (s *AffectForGetHostVulnInfoOutput) SetVulnName(v string) *AffectForGetHostVulnInfoOutput {
+	s.VulnName = &v
 	return s
 }
 
-// SetWorkload_id sets the Workload_id field's value.
-func (s *AffectForGetHostVulnInfoOutput) SetWorkload_id(v string) *AffectForGetHostVulnInfoOutput {
-	s.Workload_id = &v
+// SetVulnNameEn sets the VulnNameEn field's value.
+func (s *AffectForGetHostVulnInfoOutput) SetVulnNameEn(v string) *AffectForGetHostVulnInfoOutput {
+	s.VulnNameEn = &v
 	return s
 }
 
-// SetWorkload_name sets the Workload_name field's value.
-func (s *AffectForGetHostVulnInfoOutput) SetWorkload_name(v string) *AffectForGetHostVulnInfoOutput {
-	s.Workload_name = &v
+// SetVulnType sets the VulnType field's value.
+func (s *AffectForGetHostVulnInfoOutput) SetVulnType(v string) *AffectForGetHostVulnInfoOutput {
+	s.VulnType = &v
+	return s
+}
+
+// SetWorkloadID sets the WorkloadID field's value.
+func (s *AffectForGetHostVulnInfoOutput) SetWorkloadID(v string) *AffectForGetHostVulnInfoOutput {
+	s.WorkloadID = &v
+	return s
+}
+
+// SetWorkloadName sets the WorkloadName field's value.
+func (s *AffectForGetHostVulnInfoOutput) SetWorkloadName(v string) *AffectForGetHostVulnInfoOutput {
+	s.WorkloadName = &v
 	return s
 }
 
@@ -508,7 +532,7 @@ type GetHostVulnInfoInput struct {
 
 	AssetID *string `type:"string" json:",omitempty"`
 
-	AssetType *string `type:"string" json:",omitempty" enum:"EnumOfAssetTypeForGetHostVulnInfoInput"`
+	AssetType *string `type:"string" json:",omitempty"`
 
 	CwppID *string `type:"string" json:",omitempty"`
 
@@ -664,11 +688,3 @@ func (s *PidListForGetHostVulnInfoOutput) SetPid(v string) *PidListForGetHostVul
 	s.Pid = &v
 	return s
 }
-
-const (
-	// EnumOfAssetTypeForGetHostVulnInfoInputHost is a EnumOfAssetTypeForGetHostVulnInfoInput enum value
-	EnumOfAssetTypeForGetHostVulnInfoInputHost = "Host"
-
-	// EnumOfAssetTypeForGetHostVulnInfoInputDev is a EnumOfAssetTypeForGetHostVulnInfoInput enum value
-	EnumOfAssetTypeForGetHostVulnInfoInputDev = "Dev"
-)

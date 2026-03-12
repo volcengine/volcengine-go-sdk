@@ -332,7 +332,7 @@ type ListBaselineHostItemHostsInput struct {
 
 	AssetName *string `type:"string" json:",omitempty"`
 
-	AssetType *string `type:"string" json:",omitempty" enum:"EnumOfAssetTypeForListBaselineHostItemHostsInput"`
+	AssetType *string `type:"string" json:",omitempty"`
 
 	BaselineID *int64 `type:"int64" json:",omitempty"`
 
@@ -600,11 +600,3 @@ func (s *RiskNumForListBaselineHostItemHostsOutput) SetMediumNum(v int64) *RiskN
 	s.MediumNum = &v
 	return s
 }
-
-const (
-	// EnumOfAssetTypeForListBaselineHostItemHostsInputHost is a EnumOfAssetTypeForListBaselineHostItemHostsInput enum value
-	EnumOfAssetTypeForListBaselineHostItemHostsInputHost = "Host"
-
-	// EnumOfAssetTypeForListBaselineHostItemHostsInputDev is a EnumOfAssetTypeForListBaselineHostItemHostsInput enum value
-	EnumOfAssetTypeForListBaselineHostItemHostsInputDev = "Dev"
-)

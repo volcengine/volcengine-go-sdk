@@ -146,8 +146,7 @@ func (c *SECCENTER20240508) GetMLPAssetSyncTaskStatusWithContext(ctx volcengine.
 type GetMLPAssetSyncTaskStatusInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	// AssetType is a required field
-	AssetType *string `type:"string" json:",omitempty" required:"true"`
+	AssetType *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -158,19 +157,6 @@ func (s GetMLPAssetSyncTaskStatusInput) String() string {
 // GoString returns the string representation
 func (s GetMLPAssetSyncTaskStatusInput) GoString() string {
 	return s.String()
-}
-
-// Validate inspects the fields of the type to determine if they are valid.
-func (s *GetMLPAssetSyncTaskStatusInput) Validate() error {
-	invalidParams := request.ErrInvalidParams{Context: "GetMLPAssetSyncTaskStatusInput"}
-	if s.AssetType == nil {
-		invalidParams.Add(request.NewErrParamRequired("AssetType"))
-	}
-
-	if invalidParams.Len() > 0 {
-		return invalidParams
-	}
-	return nil
 }
 
 // SetAssetType sets the AssetType field's value.
