@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"net/http"
 	"strconv"
+	"strings"
 	"time"
 
 	"github.com/volcengine/volcengine-go-sdk/volcengine"
@@ -99,5 +100,5 @@ func BuildAuthToken(ctx context.Context, sess *session.Session, dbUser, instance
 		return "", fmt.Errorf("unable to presign request: %w", err)
 	}
 
-	return signedUrl, nil
+	return strings.TrimLeft(signedUrl, "/?"), nil
 }
