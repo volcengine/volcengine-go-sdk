@@ -155,6 +155,8 @@ type CreateDataFlowTaskInput struct {
 
 	DeletePolicy *DeletePolicyForCreateDataFlowTaskInput `type:"structure" json:",omitempty"`
 
+	EnableTlsLog *bool `type:"boolean" json:",omitempty"`
+
 	EntryListFileInfo *EntryListFileInfoForCreateDataFlowTaskInput `type:"structure" json:",omitempty"`
 
 	ExportSymlinkPolicy *string `type:"string" json:",omitempty" enum:"EnumOfExportSymlinkPolicyForCreateDataFlowTaskInput"`
@@ -222,6 +224,12 @@ func (s *CreateDataFlowTaskInput) SetDataType(v string) *CreateDataFlowTaskInput
 // SetDeletePolicy sets the DeletePolicy field's value.
 func (s *CreateDataFlowTaskInput) SetDeletePolicy(v *DeletePolicyForCreateDataFlowTaskInput) *CreateDataFlowTaskInput {
 	s.DeletePolicy = v
+	return s
+}
+
+// SetEnableTlsLog sets the EnableTlsLog field's value.
+func (s *CreateDataFlowTaskInput) SetEnableTlsLog(v bool) *CreateDataFlowTaskInput {
+	s.EnableTlsLog = &v
 	return s
 }
 

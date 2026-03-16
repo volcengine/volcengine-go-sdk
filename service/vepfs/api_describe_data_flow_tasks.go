@@ -192,6 +192,8 @@ type DataFlowTaskForDescribeDataFlowTasksOutput struct {
 
 	TaskAction *string `type:"string" json:",omitempty" enum:"EnumOfTaskActionForDescribeDataFlowTasksOutput"`
 
+	TlsInfo *TlsInfoForDescribeDataFlowTasksOutput `type:"structure" json:",omitempty"`
+
 	TotalSize *string `type:"string" json:",omitempty"`
 
 	UpdateTime *string `type:"string" json:",omitempty"`
@@ -342,6 +344,12 @@ func (s *DataFlowTaskForDescribeDataFlowTasksOutput) SetSubPath(v string) *DataF
 // SetTaskAction sets the TaskAction field's value.
 func (s *DataFlowTaskForDescribeDataFlowTasksOutput) SetTaskAction(v string) *DataFlowTaskForDescribeDataFlowTasksOutput {
 	s.TaskAction = &v
+	return s
+}
+
+// SetTlsInfo sets the TlsInfo field's value.
+func (s *DataFlowTaskForDescribeDataFlowTasksOutput) SetTlsInfo(v *TlsInfoForDescribeDataFlowTasksOutput) *DataFlowTaskForDescribeDataFlowTasksOutput {
+	s.TlsInfo = v
 	return s
 }
 
@@ -576,6 +584,84 @@ func (s *ReportForDescribeDataFlowTasksOutput) SetPath(v string) *ReportForDescr
 // SetType sets the Type field's value.
 func (s *ReportForDescribeDataFlowTasksOutput) SetType(v string) *ReportForDescribeDataFlowTasksOutput {
 	s.Type = &v
+	return s
+}
+
+type TlsInfoForDescribeDataFlowTasksOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Enable *bool `type:"boolean" json:",omitempty"`
+
+	ProjectId *string `type:"string" json:",omitempty"`
+
+	ProjectName *string `type:"string" json:",omitempty"`
+
+	ProjectUrl *string `type:"string" json:",omitempty"`
+
+	TopicEmbeddedUrl *string `type:"string" json:",omitempty"`
+
+	TopicId *string `type:"string" json:",omitempty"`
+
+	TopicName *string `type:"string" json:",omitempty"`
+
+	TopicUrl *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s TlsInfoForDescribeDataFlowTasksOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TlsInfoForDescribeDataFlowTasksOutput) GoString() string {
+	return s.String()
+}
+
+// SetEnable sets the Enable field's value.
+func (s *TlsInfoForDescribeDataFlowTasksOutput) SetEnable(v bool) *TlsInfoForDescribeDataFlowTasksOutput {
+	s.Enable = &v
+	return s
+}
+
+// SetProjectId sets the ProjectId field's value.
+func (s *TlsInfoForDescribeDataFlowTasksOutput) SetProjectId(v string) *TlsInfoForDescribeDataFlowTasksOutput {
+	s.ProjectId = &v
+	return s
+}
+
+// SetProjectName sets the ProjectName field's value.
+func (s *TlsInfoForDescribeDataFlowTasksOutput) SetProjectName(v string) *TlsInfoForDescribeDataFlowTasksOutput {
+	s.ProjectName = &v
+	return s
+}
+
+// SetProjectUrl sets the ProjectUrl field's value.
+func (s *TlsInfoForDescribeDataFlowTasksOutput) SetProjectUrl(v string) *TlsInfoForDescribeDataFlowTasksOutput {
+	s.ProjectUrl = &v
+	return s
+}
+
+// SetTopicEmbeddedUrl sets the TopicEmbeddedUrl field's value.
+func (s *TlsInfoForDescribeDataFlowTasksOutput) SetTopicEmbeddedUrl(v string) *TlsInfoForDescribeDataFlowTasksOutput {
+	s.TopicEmbeddedUrl = &v
+	return s
+}
+
+// SetTopicId sets the TopicId field's value.
+func (s *TlsInfoForDescribeDataFlowTasksOutput) SetTopicId(v string) *TlsInfoForDescribeDataFlowTasksOutput {
+	s.TopicId = &v
+	return s
+}
+
+// SetTopicName sets the TopicName field's value.
+func (s *TlsInfoForDescribeDataFlowTasksOutput) SetTopicName(v string) *TlsInfoForDescribeDataFlowTasksOutput {
+	s.TopicName = &v
+	return s
+}
+
+// SetTopicUrl sets the TopicUrl field's value.
+func (s *TlsInfoForDescribeDataFlowTasksOutput) SetTopicUrl(v string) *TlsInfoForDescribeDataFlowTasksOutput {
+	s.TopicUrl = &v
 	return s
 }
 
