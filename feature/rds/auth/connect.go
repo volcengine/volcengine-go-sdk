@@ -79,6 +79,7 @@ func BuildAuthToken(ctx context.Context, sess *session.Session, dbUser, instance
 	q.Set("Version", defaultAPIVersion)
 	q.Set("DBUser", dbUser)
 	q.Set("InstanceId", instanceId)
+	q.Set("X-Host", req.ClientInfo.Endpoint)
 	if expires > 0 {
 		q.Set("X-Expires", strconv.Itoa(expires))
 	} else {
@@ -86,6 +87,10 @@ func BuildAuthToken(ctx context.Context, sess *session.Session, dbUser, instance
 		q.Set("X-Expires", strconv.Itoa(defaultExpires))
 	}
 	req.HTTPRequest.URL.RawQuery = q.Encode()
+
+	// Remove scheme and host
+	req.HTTPRequest.URL.Host = ""
+	req.HTTPRequest.URL.Scheme = ""
 
 	// Presign the request
 	expireDuration := time.Duration(expires) * time.Second
