@@ -84,6 +84,28 @@ type CliProvider struct {
 	hasExpiration bool
 }
 
+// NewCliProvider returns a raw *CliProvider for use in the default credential
+// chain. Unlike NewCliCredentials, it does not wrap in a Credentials object,
+// allowing the chain to manage expiration and caching uniformly.
+func NewCliProvider(configPath, profile string) *CliProvider {
+	if configPath == "" {
+		home := shareddefaults.UserHomeDir()
+		if home != "" {
+			configPath = filepath.Join(home, ".volcengine", "config.json")
+		}
+	}
+	cacheDir := ""
+	if configPath != "" {
+		cacheDir = filepath.Join(filepath.Dir(configPath), "sso", "cache")
+	}
+	return &CliProvider{
+		configPath: configPath,
+		cacheDir:   cacheDir,
+		profile:    profile,
+		Expiry:     credentials.Expiry{},
+	}
+}
+
 // NewCliCredentials returns a pointer to a new Credentials object wrapping the
 // volcengine-cli config provider.
 func NewCliCredentials(configPath, profile string) *credentials.Credentials {

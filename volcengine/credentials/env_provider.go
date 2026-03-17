@@ -44,15 +44,8 @@ func NewEnvCredentials() *Credentials {
 func (e *EnvProvider) Retrieve() (Value, error) {
 	e.retrieved = false
 
-	id := os.Getenv("VOLCSTACK_ACCESS_KEY_ID")
-	if id == "" {
-		id = os.Getenv("VOLCSTACK_ACCESS_KEY")
-	}
-
-	secret := os.Getenv("VOLCSTACK_SECRET_ACCESS_KEY")
-	if secret == "" {
-		secret = os.Getenv("VOLCSTACK_SECRET_KEY")
-	}
+	id := getEnvWithFallback("VOLCSTACK_ACCESS_KEY_ID", "VOLCENGINE_ACCESS_KEY", "VOLCSTACK_ACCESS_KEY")
+	secret := getEnvWithFallback("VOLCSTACK_SECRET_ACCESS_KEY", "VOLCENGINE_SECRET_KEY", "VOLCSTACK_SECRET_KEY")
 
 	if id == "" {
 		return Value{ProviderName: EnvProviderName}, ErrAccessKeyIDNotFound
@@ -66,9 +59,20 @@ func (e *EnvProvider) Retrieve() (Value, error) {
 	return Value{
 		AccessKeyID:     id,
 		SecretAccessKey: secret,
-		SessionToken:    os.Getenv("VOLCSTACK_SESSION_TOKEN"),
+		SessionToken:    getEnvWithFallback("VOLCSTACK_SESSION_TOKEN", "VOLCENGINE_SESSION_TOKEN"),
 		ProviderName:    EnvProviderName,
 	}, nil
+}
+
+// getEnvWithFallback returns the first non-empty environment variable value
+// from the given list of names.
+func getEnvWithFallback(names ...string) string {
+	for _, name := range names {
+		if v := os.Getenv(name); v != "" {
+			return v
+		}
+	}
+	return ""
 }
 
 // IsExpired returns if the credentials have been retrieved.

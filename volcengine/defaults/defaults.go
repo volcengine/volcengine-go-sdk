@@ -23,6 +23,7 @@ import (
 	"github.com/volcengine/volcengine-go-sdk/volcengine"
 	"github.com/volcengine/volcengine-go-sdk/volcengine/corehandlers"
 	"github.com/volcengine/volcengine-go-sdk/volcengine/credentials"
+	"github.com/volcengine/volcengine-go-sdk/volcengine/credentials/clicreds"
 	"github.com/volcengine/volcengine-go-sdk/volcengine/credentials/endpointcreds"
 	"github.com/volcengine/volcengine-go-sdk/volcengine/request"
 )
@@ -89,24 +90,60 @@ func Handlers() request.Handlers {
 // is available if you need to reset the credentials of an
 // existing service client or session's Config.
 func CredChain(cfg *volcengine.Config, handlers request.Handlers) *credentials.Credentials {
-	return credentials.NewCredentials(&credentials.ChainProvider{
-		VerboseErrors: volcengine.BoolValue(cfg.CredentialsChainVerboseErrors),
-		Providers:     CredProviders(cfg, handlers),
-	})
+	return credentials.NewDefaultCredentialProviderFromProviders(
+		CredProviders(cfg, handlers),
+		true, // reuseLastProviderEnabled
+	)
 }
 
 // CredProviders returns the slice of providers used in
 // the default credential chain.
 //
-// For applications that need to use some other provider (for example use
-// different  environment variables for legacy reasons) but still fall back
-// on the default chain of providers. This allows that default chaint to be
-// automatically updated
+// The 5-step default chain:
+//  1. EnvProvider (AK/SK/STS from environment variables)
+//  2. OIDCCredentialsProvider (from environment variables)
+//  3. CliProvider (from ~/.volcengine/config.json)
+//  4. SharedCredentialsProvider (from ~/.volcengine/credentials)
+//  5. EcsRoleProvider (from IMDS)
 func CredProviders(cfg *volcengine.Config, handlers request.Handlers) []credentials.Provider {
 	return []credentials.Provider{
 		&credentials.EnvProvider{},
+		credentials.NewOIDCCredentialsProviderFromEnv(),
+		clicreds.NewCliProvider("", ""),
 		&credentials.SharedCredentialsProvider{Filename: "", Profile: ""},
+		credentials.NewEcsRoleProvider(""),
 	}
+}
+
+// NewDefaultCredentialProvider creates a default credential chain with the
+// given options. This is the primary entry point for users who want to
+// customize the default chain (e.g., specify an ECS role name or profile).
+//
+// Example:
+//
+//	creds := defaults.NewDefaultCredentialProvider(
+//	    func(o *credentials.DefaultCredentialProviderOptions) {
+//	        o.RoleName = "my-ecs-role"
+//	    },
+//	)
+func NewDefaultCredentialProvider(optFns ...func(*credentials.DefaultCredentialProviderOptions)) *credentials.Credentials {
+	opts := credentials.DefaultCredentialProviderOptions{}
+	for _, fn := range optFns {
+		fn(&opts)
+	}
+
+	providers := []credentials.Provider{
+		&credentials.EnvProvider{},
+		credentials.NewOIDCCredentialsProviderFromEnv(),
+		clicreds.NewCliProvider("", opts.ProfileName),
+		&credentials.SharedCredentialsProvider{Filename: "", Profile: opts.ProfileName},
+		credentials.NewEcsRoleProvider(opts.RoleName),
+	}
+
+	return credentials.NewDefaultCredentialProviderFromProviders(
+		providers,
+		opts.IsReuseEnabled(),
+	)
 }
 
 const (
