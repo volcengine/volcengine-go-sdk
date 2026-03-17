@@ -148,6 +148,8 @@ type AutoStorageScalingConfigForCreateDBInstanceInput struct {
 
 	EnableStorageAutoScale *bool `type:"boolean" json:",omitempty"`
 
+	ScalingDetectNode *string `type:"string" json:",omitempty"`
+
 	StorageThreshold *int32 `type:"int32" json:",omitempty"`
 
 	StorageUpperBound *int32 `type:"int32" json:",omitempty"`
@@ -166,6 +168,12 @@ func (s AutoStorageScalingConfigForCreateDBInstanceInput) GoString() string {
 // SetEnableStorageAutoScale sets the EnableStorageAutoScale field's value.
 func (s *AutoStorageScalingConfigForCreateDBInstanceInput) SetEnableStorageAutoScale(v bool) *AutoStorageScalingConfigForCreateDBInstanceInput {
 	s.EnableStorageAutoScale = &v
+	return s
+}
+
+// SetScalingDetectNode sets the ScalingDetectNode field's value.
+func (s *AutoStorageScalingConfigForCreateDBInstanceInput) SetScalingDetectNode(v string) *AutoStorageScalingConfigForCreateDBInstanceInput {
+	s.ScalingDetectNode = &v
 	return s
 }
 
@@ -240,9 +248,15 @@ type CreateDBInstanceInput struct {
 
 	AllowListIds []*string `type:"list" json:",omitempty"`
 
+	AutoRenew *string `type:"string" json:",omitempty"`
+
 	AutoStorageScalingConfig *AutoStorageScalingConfigForCreateDBInstanceInput `type:"structure" json:",omitempty"`
 
 	ChargeInfo *ChargeInfoForCreateDBInstanceInput `type:"structure" json:",omitempty"`
+
+	ChargeType *string `type:"string" json:",omitempty"`
+
+	DBEngine *string `type:"string" json:",omitempty"`
 
 	// DBEngineVersion is a required field
 	DBEngineVersion *string `type:"string" json:",omitempty" required:"true"`
@@ -259,6 +273,8 @@ type CreateDBInstanceInput struct {
 
 	InstanceName *string `type:"string" json:",omitempty"`
 
+	InstanceSpecName *string `type:"string" json:",omitempty"`
+
 	InstanceTags []*InstanceTagForCreateDBInstanceInput `type:"list" json:",omitempty"`
 
 	InstanceType *string `type:"string" json:",omitempty"`
@@ -269,7 +285,13 @@ type CreateDBInstanceInput struct {
 
 	NodeInfo []*NodeInfoForCreateDBInstanceInput `type:"list" json:",omitempty"`
 
+	ParameterTemplateId *string `type:"string" json:",omitempty"`
+
 	Port *int32 `type:"int32" json:",omitempty"`
+
+	PrepaidPeriod *string `type:"string" json:",omitempty"`
+
+	PrivateIpAddress *string `type:"string" json:",omitempty"`
 
 	ProjectName *string `type:"string" json:",omitempty"`
 
@@ -288,8 +310,14 @@ type CreateDBInstanceInput struct {
 
 	SuperAccountPassword *string `type:"string" json:",omitempty"`
 
+	UsedTime *string `type:"string" json:",omitempty"`
+
+	VpcID *string `type:"string" json:",omitempty"`
+
 	// VpcId is a required field
 	VpcId *string `type:"string" json:",omitempty" required:"true"`
+
+	Zone *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -333,6 +361,12 @@ func (s *CreateDBInstanceInput) SetAllowListIds(v []*string) *CreateDBInstanceIn
 	return s
 }
 
+// SetAutoRenew sets the AutoRenew field's value.
+func (s *CreateDBInstanceInput) SetAutoRenew(v string) *CreateDBInstanceInput {
+	s.AutoRenew = &v
+	return s
+}
+
 // SetAutoStorageScalingConfig sets the AutoStorageScalingConfig field's value.
 func (s *CreateDBInstanceInput) SetAutoStorageScalingConfig(v *AutoStorageScalingConfigForCreateDBInstanceInput) *CreateDBInstanceInput {
 	s.AutoStorageScalingConfig = v
@@ -342,6 +376,18 @@ func (s *CreateDBInstanceInput) SetAutoStorageScalingConfig(v *AutoStorageScalin
 // SetChargeInfo sets the ChargeInfo field's value.
 func (s *CreateDBInstanceInput) SetChargeInfo(v *ChargeInfoForCreateDBInstanceInput) *CreateDBInstanceInput {
 	s.ChargeInfo = v
+	return s
+}
+
+// SetChargeType sets the ChargeType field's value.
+func (s *CreateDBInstanceInput) SetChargeType(v string) *CreateDBInstanceInput {
+	s.ChargeType = &v
+	return s
+}
+
+// SetDBEngine sets the DBEngine field's value.
+func (s *CreateDBInstanceInput) SetDBEngine(v string) *CreateDBInstanceInput {
+	s.DBEngine = &v
 	return s
 }
 
@@ -387,6 +433,12 @@ func (s *CreateDBInstanceInput) SetInstanceName(v string) *CreateDBInstanceInput
 	return s
 }
 
+// SetInstanceSpecName sets the InstanceSpecName field's value.
+func (s *CreateDBInstanceInput) SetInstanceSpecName(v string) *CreateDBInstanceInput {
+	s.InstanceSpecName = &v
+	return s
+}
+
 // SetInstanceTags sets the InstanceTags field's value.
 func (s *CreateDBInstanceInput) SetInstanceTags(v []*InstanceTagForCreateDBInstanceInput) *CreateDBInstanceInput {
 	s.InstanceTags = v
@@ -417,9 +469,27 @@ func (s *CreateDBInstanceInput) SetNodeInfo(v []*NodeInfoForCreateDBInstanceInpu
 	return s
 }
 
+// SetParameterTemplateId sets the ParameterTemplateId field's value.
+func (s *CreateDBInstanceInput) SetParameterTemplateId(v string) *CreateDBInstanceInput {
+	s.ParameterTemplateId = &v
+	return s
+}
+
 // SetPort sets the Port field's value.
 func (s *CreateDBInstanceInput) SetPort(v int32) *CreateDBInstanceInput {
 	s.Port = &v
+	return s
+}
+
+// SetPrepaidPeriod sets the PrepaidPeriod field's value.
+func (s *CreateDBInstanceInput) SetPrepaidPeriod(v string) *CreateDBInstanceInput {
+	s.PrepaidPeriod = &v
+	return s
+}
+
+// SetPrivateIpAddress sets the PrivateIpAddress field's value.
+func (s *CreateDBInstanceInput) SetPrivateIpAddress(v string) *CreateDBInstanceInput {
+	s.PrivateIpAddress = &v
 	return s
 }
 
@@ -465,9 +535,27 @@ func (s *CreateDBInstanceInput) SetSuperAccountPassword(v string) *CreateDBInsta
 	return s
 }
 
+// SetUsedTime sets the UsedTime field's value.
+func (s *CreateDBInstanceInput) SetUsedTime(v string) *CreateDBInstanceInput {
+	s.UsedTime = &v
+	return s
+}
+
+// SetVpcID sets the VpcID field's value.
+func (s *CreateDBInstanceInput) SetVpcID(v string) *CreateDBInstanceInput {
+	s.VpcID = &v
+	return s
+}
+
 // SetVpcId sets the VpcId field's value.
 func (s *CreateDBInstanceInput) SetVpcId(v string) *CreateDBInstanceInput {
 	s.VpcId = &v
+	return s
+}
+
+// SetZone sets the Zone field's value.
+func (s *CreateDBInstanceInput) SetZone(v string) *CreateDBInstanceInput {
+	s.Zone = &v
 	return s
 }
 

@@ -143,6 +143,52 @@ func (c *RDSMYSQLV2) DescribeDBInstanceHAConfigWithContext(ctx volcengine.Contex
 	return out, req.Send()
 }
 
+type AutoStorageScalingConfigForDescribeDBInstanceHAConfigOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	EnableStorageAutoScale *bool `type:"boolean" json:",omitempty"`
+
+	ScalingDetectNode *string `type:"string" json:",omitempty"`
+
+	StorageThreshold *int32 `type:"int32" json:",omitempty"`
+
+	StorageUpperBound *int32 `type:"int32" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s AutoStorageScalingConfigForDescribeDBInstanceHAConfigOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s AutoStorageScalingConfigForDescribeDBInstanceHAConfigOutput) GoString() string {
+	return s.String()
+}
+
+// SetEnableStorageAutoScale sets the EnableStorageAutoScale field's value.
+func (s *AutoStorageScalingConfigForDescribeDBInstanceHAConfigOutput) SetEnableStorageAutoScale(v bool) *AutoStorageScalingConfigForDescribeDBInstanceHAConfigOutput {
+	s.EnableStorageAutoScale = &v
+	return s
+}
+
+// SetScalingDetectNode sets the ScalingDetectNode field's value.
+func (s *AutoStorageScalingConfigForDescribeDBInstanceHAConfigOutput) SetScalingDetectNode(v string) *AutoStorageScalingConfigForDescribeDBInstanceHAConfigOutput {
+	s.ScalingDetectNode = &v
+	return s
+}
+
+// SetStorageThreshold sets the StorageThreshold field's value.
+func (s *AutoStorageScalingConfigForDescribeDBInstanceHAConfigOutput) SetStorageThreshold(v int32) *AutoStorageScalingConfigForDescribeDBInstanceHAConfigOutput {
+	s.StorageThreshold = &v
+	return s
+}
+
+// SetStorageUpperBound sets the StorageUpperBound field's value.
+func (s *AutoStorageScalingConfigForDescribeDBInstanceHAConfigOutput) SetStorageUpperBound(v int32) *AutoStorageScalingConfigForDescribeDBInstanceHAConfigOutput {
+	s.StorageUpperBound = &v
+	return s
+}
+
 type DescribeDBInstanceHAConfigInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -184,6 +230,8 @@ type DescribeDBInstanceHAConfigOutput struct {
 
 	Metadata *response.ResponseMetadata
 
+	AutoStorageScalingConfig *AutoStorageScalingConfigForDescribeDBInstanceHAConfigOutput `type:"structure" json:",omitempty"`
+
 	DataSyncMode *string `type:"string" json:",omitempty"`
 
 	Nodes []*NodeForDescribeDBInstanceHAConfigOutput `type:"list" json:",omitempty"`
@@ -197,6 +245,12 @@ func (s DescribeDBInstanceHAConfigOutput) String() string {
 // GoString returns the string representation
 func (s DescribeDBInstanceHAConfigOutput) GoString() string {
 	return s.String()
+}
+
+// SetAutoStorageScalingConfig sets the AutoStorageScalingConfig field's value.
+func (s *DescribeDBInstanceHAConfigOutput) SetAutoStorageScalingConfig(v *AutoStorageScalingConfigForDescribeDBInstanceHAConfigOutput) *DescribeDBInstanceHAConfigOutput {
+	s.AutoStorageScalingConfig = v
+	return s
 }
 
 // SetDataSyncMode sets the DataSyncMode field's value.

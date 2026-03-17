@@ -143,40 +143,8 @@ func (c *RDSMYSQLV2) DescribeTaskDetailWithContext(ctx volcengine.Context, input
 	return out, req.Send()
 }
 
-type CheckDetailForDescribeTaskDetailOutput struct {
-	_ struct{} `type:"structure" json:",omitempty"`
-
-	Impact *string `type:"string" json:",omitempty"`
-
-	Issue *string `type:"string" json:",omitempty"`
-}
-
-// String returns the string representation
-func (s CheckDetailForDescribeTaskDetailOutput) String() string {
-	return volcengineutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s CheckDetailForDescribeTaskDetailOutput) GoString() string {
-	return s.String()
-}
-
-// SetImpact sets the Impact field's value.
-func (s *CheckDetailForDescribeTaskDetailOutput) SetImpact(v string) *CheckDetailForDescribeTaskDetailOutput {
-	s.Impact = &v
-	return s
-}
-
-// SetIssue sets the Issue field's value.
-func (s *CheckDetailForDescribeTaskDetailOutput) SetIssue(v string) *CheckDetailForDescribeTaskDetailOutput {
-	s.Issue = &v
-	return s
-}
-
 type CheckItemForDescribeTaskDetailOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
-
-	CheckDetail *CheckDetailForDescribeTaskDetailOutput `type:"structure" json:",omitempty"`
 
 	Description *string `type:"string" json:",omitempty"`
 
@@ -193,12 +161,6 @@ func (s CheckItemForDescribeTaskDetailOutput) String() string {
 // GoString returns the string representation
 func (s CheckItemForDescribeTaskDetailOutput) GoString() string {
 	return s.String()
-}
-
-// SetCheckDetail sets the CheckDetail field's value.
-func (s *CheckItemForDescribeTaskDetailOutput) SetCheckDetail(v *CheckDetailForDescribeTaskDetailOutput) *CheckItemForDescribeTaskDetailOutput {
-	s.CheckDetail = v
-	return s
 }
 
 // SetDescription sets the Description field's value.
