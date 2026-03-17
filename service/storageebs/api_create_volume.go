@@ -146,6 +146,10 @@ type CreateVolumeInput struct {
 
 	ClientToken *string `type:"string"`
 
+	DeleteProtection *bool `type:"boolean"`
+
+	DeleteProtectionRetentionDays *int32 `type:"int32"`
+
 	Description *string `type:"string"`
 
 	ExtraPerformanceIOPS *int32 `type:"int32"`
@@ -214,6 +218,18 @@ func (s *CreateVolumeInput) Validate() error {
 // SetClientToken sets the ClientToken field's value.
 func (s *CreateVolumeInput) SetClientToken(v string) *CreateVolumeInput {
 	s.ClientToken = &v
+	return s
+}
+
+// SetDeleteProtection sets the DeleteProtection field's value.
+func (s *CreateVolumeInput) SetDeleteProtection(v bool) *CreateVolumeInput {
+	s.DeleteProtection = &v
+	return s
+}
+
+// SetDeleteProtectionRetentionDays sets the DeleteProtectionRetentionDays field's value.
+func (s *CreateVolumeInput) SetDeleteProtectionRetentionDays(v int32) *CreateVolumeInput {
+	s.DeleteProtectionRetentionDays = &v
 	return s
 }
 
