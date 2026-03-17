@@ -203,7 +203,7 @@ func (p *EcsRoleProvider) getCredentials(roleName string) (*imdsCredentialRespon
 // doRequestWithRetry performs an HTTP GET with retry logic.
 func (p *EcsRoleProvider) doRequestWithRetry(url string) ([]byte, error) {
 	var lastErr error
-	for i := 0; i <= p.maxRetries; i++ {
+	for i := 0; i < p.maxRetries; i++ {
 		if i > 0 {
 			time.Sleep(p.retryInterval)
 		}

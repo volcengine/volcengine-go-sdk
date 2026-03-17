@@ -89,6 +89,10 @@ func Handlers() request.Handlers {
 // Generally you shouldn't need to use this method directly, but
 // is available if you need to reset the credentials of an
 // existing service client or session's Config.
+//
+// Note: this now uses DefaultCredentialProvider instead of ChainProvider.
+// Error messages always include details from every provider in the chain
+// (the old CredentialsChainVerboseErrors config is no longer consulted).
 func CredChain(cfg *volcengine.Config, handlers request.Handlers) *credentials.Credentials {
 	return credentials.NewDefaultCredentialProviderFromProviders(
 		CredProviders(cfg, handlers),
