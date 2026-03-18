@@ -38,6 +38,62 @@ type I18NOPENAPIAPI interface {
 	CreateVideoCreateWithContext(volcengine.Context, *CreateVideoCreateInput, ...request.Option) (*CreateVideoCreateOutput, error)
 	CreateVideoCreateRequest(*CreateVideoCreateInput) (*request.Request, *CreateVideoCreateOutput)
 
+	DocumentCreateCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DocumentCreateCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DocumentCreateCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DocumentCreate(*DocumentCreateInput) (*DocumentCreateOutput, error)
+	DocumentCreateWithContext(volcengine.Context, *DocumentCreateInput, ...request.Option) (*DocumentCreateOutput, error)
+	DocumentCreateRequest(*DocumentCreateInput) (*request.Request, *DocumentCreateOutput)
+
+	DocumentTaskCreateCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DocumentTaskCreateCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DocumentTaskCreateCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DocumentTaskCreate(*DocumentTaskCreateInput) (*DocumentTaskCreateOutput, error)
+	DocumentTaskCreateWithContext(volcengine.Context, *DocumentTaskCreateInput, ...request.Option) (*DocumentTaskCreateOutput, error)
+	DocumentTaskCreateRequest(*DocumentTaskCreateInput) (*request.Request, *DocumentTaskCreateOutput)
+
+	DocumentTaskDeleteCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DocumentTaskDeleteCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DocumentTaskDeleteCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DocumentTaskDelete(*DocumentTaskDeleteInput) (*DocumentTaskDeleteOutput, error)
+	DocumentTaskDeleteWithContext(volcengine.Context, *DocumentTaskDeleteInput, ...request.Option) (*DocumentTaskDeleteOutput, error)
+	DocumentTaskDeleteRequest(*DocumentTaskDeleteInput) (*request.Request, *DocumentTaskDeleteOutput)
+
+	DocumentTaskDetailCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DocumentTaskDetailCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DocumentTaskDetailCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DocumentTaskDetail(*DocumentTaskDetailInput) (*DocumentTaskDetailOutput, error)
+	DocumentTaskDetailWithContext(volcengine.Context, *DocumentTaskDetailInput, ...request.Option) (*DocumentTaskDetailOutput, error)
+	DocumentTaskDetailRequest(*DocumentTaskDetailInput) (*request.Request, *DocumentTaskDetailOutput)
+
+	DocumentTaskStopCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DocumentTaskStopCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DocumentTaskStopCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DocumentTaskStop(*DocumentTaskStopInput) (*DocumentTaskStopOutput, error)
+	DocumentTaskStopWithContext(volcengine.Context, *DocumentTaskStopInput, ...request.Option) (*DocumentTaskStopOutput, error)
+	DocumentTaskStopRequest(*DocumentTaskStopInput) (*request.Request, *DocumentTaskStopOutput)
+
+	LanguagesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	LanguagesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	LanguagesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	Languages(*LanguagesInput) (*LanguagesOutput, error)
+	LanguagesWithContext(volcengine.Context, *LanguagesInput, ...request.Option) (*LanguagesOutput, error)
+	LanguagesRequest(*LanguagesInput) (*request.Request, *LanguagesOutput)
+
+	MtSupportLangCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	MtSupportLangCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	MtSupportLangCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	MtSupportLang(*MtSupportLangInput) (*MtSupportLangOutput, error)
+	MtSupportLangWithContext(volcengine.Context, *MtSupportLangInput, ...request.Option) (*MtSupportLangOutput, error)
+	MtSupportLangRequest(*MtSupportLangInput) (*request.Request, *MtSupportLangOutput)
+
 	ProjectDetailCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ProjectDetailCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	ProjectDetailCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -45,6 +101,38 @@ type I18NOPENAPIAPI interface {
 	ProjectDetail(*ProjectDetailInput) (*ProjectDetailOutput, error)
 	ProjectDetailWithContext(volcengine.Context, *ProjectDetailInput, ...request.Option) (*ProjectDetailOutput, error)
 	ProjectDetailRequest(*ProjectDetailInput) (*request.Request, *ProjectDetailOutput)
+
+	ProjectDownloadProgressQueryCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ProjectDownloadProgressQueryCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ProjectDownloadProgressQueryCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ProjectDownloadProgressQuery(*ProjectDownloadProgressQueryInput) (*ProjectDownloadProgressQueryOutput, error)
+	ProjectDownloadProgressQueryWithContext(volcengine.Context, *ProjectDownloadProgressQueryInput, ...request.Option) (*ProjectDownloadProgressQueryOutput, error)
+	ProjectDownloadProgressQueryRequest(*ProjectDownloadProgressQueryInput) (*request.Request, *ProjectDownloadProgressQueryOutput)
+
+	ProjectDownloadTaskDeleteCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ProjectDownloadTaskDeleteCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ProjectDownloadTaskDeleteCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ProjectDownloadTaskDelete(*ProjectDownloadTaskDeleteInput) (*ProjectDownloadTaskDeleteOutput, error)
+	ProjectDownloadTaskDeleteWithContext(volcengine.Context, *ProjectDownloadTaskDeleteInput, ...request.Option) (*ProjectDownloadTaskDeleteOutput, error)
+	ProjectDownloadTaskDeleteRequest(*ProjectDownloadTaskDeleteInput) (*request.Request, *ProjectDownloadTaskDeleteOutput)
+
+	ProjectMtDetectCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ProjectMtDetectCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ProjectMtDetectCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ProjectMtDetect(*ProjectMtDetectInput) (*ProjectMtDetectOutput, error)
+	ProjectMtDetectWithContext(volcengine.Context, *ProjectMtDetectInput, ...request.Option) (*ProjectMtDetectOutput, error)
+	ProjectMtDetectRequest(*ProjectMtDetectInput) (*request.Request, *ProjectMtDetectOutput)
+
+	ProjectMtTranslateCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ProjectMtTranslateCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ProjectMtTranslateCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ProjectMtTranslate(*ProjectMtTranslateInput) (*ProjectMtTranslateOutput, error)
+	ProjectMtTranslateWithContext(volcengine.Context, *ProjectMtTranslateInput, ...request.Option) (*ProjectMtTranslateOutput, error)
+	ProjectMtTranslateRequest(*ProjectMtTranslateInput) (*request.Request, *ProjectMtTranslateOutput)
 
 	ProjectNamespaceCreateCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ProjectNamespaceCreateCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -62,6 +150,126 @@ type I18NOPENAPIAPI interface {
 	ProjectNamespaceDetailWithContext(volcengine.Context, *ProjectNamespaceDetailInput, ...request.Option) (*ProjectNamespaceDetailOutput, error)
 	ProjectNamespaceDetailRequest(*ProjectNamespaceDetailInput) (*request.Request, *ProjectNamespaceDetailOutput)
 
+	ProjectNamespaceSourceAddCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ProjectNamespaceSourceAddCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ProjectNamespaceSourceAddCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ProjectNamespaceSourceAdd(*ProjectNamespaceSourceAddInput) (*ProjectNamespaceSourceAddOutput, error)
+	ProjectNamespaceSourceAddWithContext(volcengine.Context, *ProjectNamespaceSourceAddInput, ...request.Option) (*ProjectNamespaceSourceAddOutput, error)
+	ProjectNamespaceSourceAddRequest(*ProjectNamespaceSourceAddInput) (*request.Request, *ProjectNamespaceSourceAddOutput)
+
+	ProjectNamespaceSourceDeleteByIdsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ProjectNamespaceSourceDeleteByIdsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ProjectNamespaceSourceDeleteByIdsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ProjectNamespaceSourceDeleteByIds(*ProjectNamespaceSourceDeleteByIdsInput) (*ProjectNamespaceSourceDeleteByIdsOutput, error)
+	ProjectNamespaceSourceDeleteByIdsWithContext(volcengine.Context, *ProjectNamespaceSourceDeleteByIdsInput, ...request.Option) (*ProjectNamespaceSourceDeleteByIdsOutput, error)
+	ProjectNamespaceSourceDeleteByIdsRequest(*ProjectNamespaceSourceDeleteByIdsInput) (*request.Request, *ProjectNamespaceSourceDeleteByIdsOutput)
+
+	ProjectNamespaceSourceDeleteByKeysCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ProjectNamespaceSourceDeleteByKeysCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ProjectNamespaceSourceDeleteByKeysCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ProjectNamespaceSourceDeleteByKeys(*ProjectNamespaceSourceDeleteByKeysInput) (*ProjectNamespaceSourceDeleteByKeysOutput, error)
+	ProjectNamespaceSourceDeleteByKeysWithContext(volcengine.Context, *ProjectNamespaceSourceDeleteByKeysInput, ...request.Option) (*ProjectNamespaceSourceDeleteByKeysOutput, error)
+	ProjectNamespaceSourceDeleteByKeysRequest(*ProjectNamespaceSourceDeleteByKeysInput) (*request.Request, *ProjectNamespaceSourceDeleteByKeysOutput)
+
+	ProjectNamespaceSourceDetailCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ProjectNamespaceSourceDetailCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ProjectNamespaceSourceDetailCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ProjectNamespaceSourceDetail(*ProjectNamespaceSourceDetailInput) (*ProjectNamespaceSourceDetailOutput, error)
+	ProjectNamespaceSourceDetailWithContext(volcengine.Context, *ProjectNamespaceSourceDetailInput, ...request.Option) (*ProjectNamespaceSourceDetailOutput, error)
+	ProjectNamespaceSourceDetailRequest(*ProjectNamespaceSourceDetailInput) (*request.Request, *ProjectNamespaceSourceDetailOutput)
+
+	ProjectNamespaceSourceDownloadCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ProjectNamespaceSourceDownloadCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ProjectNamespaceSourceDownloadCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ProjectNamespaceSourceDownload(*ProjectNamespaceSourceDownloadInput) (*ProjectNamespaceSourceDownloadOutput, error)
+	ProjectNamespaceSourceDownloadWithContext(volcengine.Context, *ProjectNamespaceSourceDownloadInput, ...request.Option) (*ProjectNamespaceSourceDownloadOutput, error)
+	ProjectNamespaceSourceDownloadRequest(*ProjectNamespaceSourceDownloadInput) (*request.Request, *ProjectNamespaceSourceDownloadOutput)
+
+	ProjectNamespaceSourceMultiUpdateCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ProjectNamespaceSourceMultiUpdateCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ProjectNamespaceSourceMultiUpdateCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ProjectNamespaceSourceMultiUpdate(*ProjectNamespaceSourceMultiUpdateInput) (*ProjectNamespaceSourceMultiUpdateOutput, error)
+	ProjectNamespaceSourceMultiUpdateWithContext(volcengine.Context, *ProjectNamespaceSourceMultiUpdateInput, ...request.Option) (*ProjectNamespaceSourceMultiUpdateOutput, error)
+	ProjectNamespaceSourceMultiUpdateRequest(*ProjectNamespaceSourceMultiUpdateInput) (*request.Request, *ProjectNamespaceSourceMultiUpdateOutput)
+
+	ProjectNamespaceSourceUpdateCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ProjectNamespaceSourceUpdateCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ProjectNamespaceSourceUpdateCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ProjectNamespaceSourceUpdate(*ProjectNamespaceSourceUpdateInput) (*ProjectNamespaceSourceUpdateOutput, error)
+	ProjectNamespaceSourceUpdateWithContext(volcengine.Context, *ProjectNamespaceSourceUpdateInput, ...request.Option) (*ProjectNamespaceSourceUpdateOutput, error)
+	ProjectNamespaceSourceUpdateRequest(*ProjectNamespaceSourceUpdateInput) (*request.Request, *ProjectNamespaceSourceUpdateOutput)
+
+	ProjectNamespaceTargetDeleteByIdCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ProjectNamespaceTargetDeleteByIdCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ProjectNamespaceTargetDeleteByIdCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ProjectNamespaceTargetDeleteById(*ProjectNamespaceTargetDeleteByIdInput) (*ProjectNamespaceTargetDeleteByIdOutput, error)
+	ProjectNamespaceTargetDeleteByIdWithContext(volcengine.Context, *ProjectNamespaceTargetDeleteByIdInput, ...request.Option) (*ProjectNamespaceTargetDeleteByIdOutput, error)
+	ProjectNamespaceTargetDeleteByIdRequest(*ProjectNamespaceTargetDeleteByIdInput) (*request.Request, *ProjectNamespaceTargetDeleteByIdOutput)
+
+	ProjectNamespaceTargetDeleteByIdsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ProjectNamespaceTargetDeleteByIdsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ProjectNamespaceTargetDeleteByIdsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ProjectNamespaceTargetDeleteByIds(*ProjectNamespaceTargetDeleteByIdsInput) (*ProjectNamespaceTargetDeleteByIdsOutput, error)
+	ProjectNamespaceTargetDeleteByIdsWithContext(volcengine.Context, *ProjectNamespaceTargetDeleteByIdsInput, ...request.Option) (*ProjectNamespaceTargetDeleteByIdsOutput, error)
+	ProjectNamespaceTargetDeleteByIdsRequest(*ProjectNamespaceTargetDeleteByIdsInput) (*request.Request, *ProjectNamespaceTargetDeleteByIdsOutput)
+
+	ProjectNamespaceTargetDeleteByKeysCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ProjectNamespaceTargetDeleteByKeysCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ProjectNamespaceTargetDeleteByKeysCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ProjectNamespaceTargetDeleteByKeys(*ProjectNamespaceTargetDeleteByKeysInput) (*ProjectNamespaceTargetDeleteByKeysOutput, error)
+	ProjectNamespaceTargetDeleteByKeysWithContext(volcengine.Context, *ProjectNamespaceTargetDeleteByKeysInput, ...request.Option) (*ProjectNamespaceTargetDeleteByKeysOutput, error)
+	ProjectNamespaceTargetDeleteByKeysRequest(*ProjectNamespaceTargetDeleteByKeysInput) (*request.Request, *ProjectNamespaceTargetDeleteByKeysOutput)
+
+	ProjectNamespaceTargetDownloadCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ProjectNamespaceTargetDownloadCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ProjectNamespaceTargetDownloadCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ProjectNamespaceTargetDownload(*ProjectNamespaceTargetDownloadInput) (*ProjectNamespaceTargetDownloadOutput, error)
+	ProjectNamespaceTargetDownloadWithContext(volcengine.Context, *ProjectNamespaceTargetDownloadInput, ...request.Option) (*ProjectNamespaceTargetDownloadOutput, error)
+	ProjectNamespaceTargetDownloadRequest(*ProjectNamespaceTargetDownloadInput) (*request.Request, *ProjectNamespaceTargetDownloadOutput)
+
+	ProjectNamespaceTargetUpdateCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ProjectNamespaceTargetUpdateCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ProjectNamespaceTargetUpdateCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ProjectNamespaceTargetUpdate(*ProjectNamespaceTargetUpdateInput) (*ProjectNamespaceTargetUpdateOutput, error)
+	ProjectNamespaceTargetUpdateWithContext(volcengine.Context, *ProjectNamespaceTargetUpdateInput, ...request.Option) (*ProjectNamespaceTargetUpdateOutput, error)
+	ProjectNamespaceTargetUpdateRequest(*ProjectNamespaceTargetUpdateInput) (*request.Request, *ProjectNamespaceTargetUpdateOutput)
+
+	ProjectNamespaceTargetsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ProjectNamespaceTargetsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ProjectNamespaceTargetsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ProjectNamespaceTargets(*ProjectNamespaceTargetsInput) (*ProjectNamespaceTargetsOutput, error)
+	ProjectNamespaceTargetsWithContext(volcengine.Context, *ProjectNamespaceTargetsInput, ...request.Option) (*ProjectNamespaceTargetsOutput, error)
+	ProjectNamespaceTargetsRequest(*ProjectNamespaceTargetsInput) (*request.Request, *ProjectNamespaceTargetsOutput)
+
+	ProjectNamespaceTextImportCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ProjectNamespaceTextImportCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ProjectNamespaceTextImportCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ProjectNamespaceTextImport(*ProjectNamespaceTextImportInput) (*ProjectNamespaceTextImportOutput, error)
+	ProjectNamespaceTextImportWithContext(volcengine.Context, *ProjectNamespaceTextImportInput, ...request.Option) (*ProjectNamespaceTextImportOutput, error)
+	ProjectNamespaceTextImportRequest(*ProjectNamespaceTextImportInput) (*request.Request, *ProjectNamespaceTextImportOutput)
+
+	ProjectNamespaceUpdateCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ProjectNamespaceUpdateCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ProjectNamespaceUpdateCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ProjectNamespaceUpdate(*ProjectNamespaceUpdateInput) (*ProjectNamespaceUpdateOutput, error)
+	ProjectNamespaceUpdateWithContext(volcengine.Context, *ProjectNamespaceUpdateInput, ...request.Option) (*ProjectNamespaceUpdateOutput, error)
+	ProjectNamespaceUpdateRequest(*ProjectNamespaceUpdateInput) (*request.Request, *ProjectNamespaceUpdateOutput)
+
 	ProjectNamespacesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ProjectNamespacesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	ProjectNamespacesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -69,6 +277,294 @@ type I18NOPENAPIAPI interface {
 	ProjectNamespaces(*ProjectNamespacesInput) (*ProjectNamespacesOutput, error)
 	ProjectNamespacesWithContext(volcengine.Context, *ProjectNamespacesInput, ...request.Option) (*ProjectNamespacesOutput, error)
 	ProjectNamespacesRequest(*ProjectNamespacesInput) (*request.Request, *ProjectNamespacesOutput)
+
+	ProjectNamespacesTargetTextsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ProjectNamespacesTargetTextsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ProjectNamespacesTargetTextsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ProjectNamespacesTargetTexts(*ProjectNamespacesTargetTextsInput) (*ProjectNamespacesTargetTextsOutput, error)
+	ProjectNamespacesTargetTextsWithContext(volcengine.Context, *ProjectNamespacesTargetTextsInput, ...request.Option) (*ProjectNamespacesTargetTextsOutput, error)
+	ProjectNamespacesTargetTextsRequest(*ProjectNamespacesTargetTextsInput) (*request.Request, *ProjectNamespacesTargetTextsOutput)
+
+	ProjectOperableListCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ProjectOperableListCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ProjectOperableListCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ProjectOperableList(*ProjectOperableListInput) (*ProjectOperableListOutput, error)
+	ProjectOperableListWithContext(volcengine.Context, *ProjectOperableListInput, ...request.Option) (*ProjectOperableListOutput, error)
+	ProjectOperableListRequest(*ProjectOperableListInput) (*request.Request, *ProjectOperableListOutput)
+
+	ProjectScreenshotsAddCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ProjectScreenshotsAddCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ProjectScreenshotsAddCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ProjectScreenshotsAdd(*ProjectScreenshotsAddInput) (*ProjectScreenshotsAddOutput, error)
+	ProjectScreenshotsAddWithContext(volcengine.Context, *ProjectScreenshotsAddInput, ...request.Option) (*ProjectScreenshotsAddOutput, error)
+	ProjectScreenshotsAddRequest(*ProjectScreenshotsAddInput) (*request.Request, *ProjectScreenshotsAddOutput)
+
+	ProjectScreenshotsIdentifyCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ProjectScreenshotsIdentifyCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ProjectScreenshotsIdentifyCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ProjectScreenshotsIdentify(*ProjectScreenshotsIdentifyInput) (*ProjectScreenshotsIdentifyOutput, error)
+	ProjectScreenshotsIdentifyWithContext(volcengine.Context, *ProjectScreenshotsIdentifyInput, ...request.Option) (*ProjectScreenshotsIdentifyOutput, error)
+	ProjectScreenshotsIdentifyRequest(*ProjectScreenshotsIdentifyInput) (*request.Request, *ProjectScreenshotsIdentifyOutput)
+
+	ProjectScreenshotsRelationsDeleteCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ProjectScreenshotsRelationsDeleteCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ProjectScreenshotsRelationsDeleteCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ProjectScreenshotsRelationsDelete(*ProjectScreenshotsRelationsDeleteInput) (*ProjectScreenshotsRelationsDeleteOutput, error)
+	ProjectScreenshotsRelationsDeleteWithContext(volcengine.Context, *ProjectScreenshotsRelationsDeleteInput, ...request.Option) (*ProjectScreenshotsRelationsDeleteOutput, error)
+	ProjectScreenshotsRelationsDeleteRequest(*ProjectScreenshotsRelationsDeleteInput) (*request.Request, *ProjectScreenshotsRelationsDeleteOutput)
+
+	ProjectTargetTextStatusUpdateCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ProjectTargetTextStatusUpdateCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ProjectTargetTextStatusUpdateCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ProjectTargetTextStatusUpdate(*ProjectTargetTextStatusUpdateInput) (*ProjectTargetTextStatusUpdateOutput, error)
+	ProjectTargetTextStatusUpdateWithContext(volcengine.Context, *ProjectTargetTextStatusUpdateInput, ...request.Option) (*ProjectTargetTextStatusUpdateOutput, error)
+	ProjectTargetTextStatusUpdateRequest(*ProjectTargetTextStatusUpdateInput) (*request.Request, *ProjectTargetTextStatusUpdateOutput)
+
+	ProjectTaskCreateCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ProjectTaskCreateCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ProjectTaskCreateCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ProjectTaskCreate(*ProjectTaskCreateInput) (*ProjectTaskCreateOutput, error)
+	ProjectTaskCreateWithContext(volcengine.Context, *ProjectTaskCreateInput, ...request.Option) (*ProjectTaskCreateOutput, error)
+	ProjectTaskCreateRequest(*ProjectTaskCreateInput) (*request.Request, *ProjectTaskCreateOutput)
+
+	ProjectTaskDetailCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ProjectTaskDetailCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ProjectTaskDetailCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ProjectTaskDetail(*ProjectTaskDetailInput) (*ProjectTaskDetailOutput, error)
+	ProjectTaskDetailWithContext(volcengine.Context, *ProjectTaskDetailInput, ...request.Option) (*ProjectTaskDetailOutput, error)
+	ProjectTaskDetailRequest(*ProjectTaskDetailInput) (*request.Request, *ProjectTaskDetailOutput)
+
+	ProjectTaskSourceAddCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ProjectTaskSourceAddCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ProjectTaskSourceAddCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ProjectTaskSourceAdd(*ProjectTaskSourceAddInput) (*ProjectTaskSourceAddOutput, error)
+	ProjectTaskSourceAddWithContext(volcengine.Context, *ProjectTaskSourceAddInput, ...request.Option) (*ProjectTaskSourceAddOutput, error)
+	ProjectTaskSourceAddRequest(*ProjectTaskSourceAddInput) (*request.Request, *ProjectTaskSourceAddOutput)
+
+	ProjectTaskSourceDeleteByIdsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ProjectTaskSourceDeleteByIdsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ProjectTaskSourceDeleteByIdsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ProjectTaskSourceDeleteByIds(*ProjectTaskSourceDeleteByIdsInput) (*ProjectTaskSourceDeleteByIdsOutput, error)
+	ProjectTaskSourceDeleteByIdsWithContext(volcengine.Context, *ProjectTaskSourceDeleteByIdsInput, ...request.Option) (*ProjectTaskSourceDeleteByIdsOutput, error)
+	ProjectTaskSourceDeleteByIdsRequest(*ProjectTaskSourceDeleteByIdsInput) (*request.Request, *ProjectTaskSourceDeleteByIdsOutput)
+
+	ProjectTaskSourceDeleteByKeysCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ProjectTaskSourceDeleteByKeysCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ProjectTaskSourceDeleteByKeysCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ProjectTaskSourceDeleteByKeys(*ProjectTaskSourceDeleteByKeysInput) (*ProjectTaskSourceDeleteByKeysOutput, error)
+	ProjectTaskSourceDeleteByKeysWithContext(volcengine.Context, *ProjectTaskSourceDeleteByKeysInput, ...request.Option) (*ProjectTaskSourceDeleteByKeysOutput, error)
+	ProjectTaskSourceDeleteByKeysRequest(*ProjectTaskSourceDeleteByKeysInput) (*request.Request, *ProjectTaskSourceDeleteByKeysOutput)
+
+	ProjectTaskSourceDetailCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ProjectTaskSourceDetailCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ProjectTaskSourceDetailCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ProjectTaskSourceDetail(*ProjectTaskSourceDetailInput) (*ProjectTaskSourceDetailOutput, error)
+	ProjectTaskSourceDetailWithContext(volcengine.Context, *ProjectTaskSourceDetailInput, ...request.Option) (*ProjectTaskSourceDetailOutput, error)
+	ProjectTaskSourceDetailRequest(*ProjectTaskSourceDetailInput) (*request.Request, *ProjectTaskSourceDetailOutput)
+
+	ProjectTaskSourceDownloadCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ProjectTaskSourceDownloadCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ProjectTaskSourceDownloadCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ProjectTaskSourceDownload(*ProjectTaskSourceDownloadInput) (*ProjectTaskSourceDownloadOutput, error)
+	ProjectTaskSourceDownloadWithContext(volcengine.Context, *ProjectTaskSourceDownloadInput, ...request.Option) (*ProjectTaskSourceDownloadOutput, error)
+	ProjectTaskSourceDownloadRequest(*ProjectTaskSourceDownloadInput) (*request.Request, *ProjectTaskSourceDownloadOutput)
+
+	ProjectTaskSourceMultiUpdateCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ProjectTaskSourceMultiUpdateCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ProjectTaskSourceMultiUpdateCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ProjectTaskSourceMultiUpdate(*ProjectTaskSourceMultiUpdateInput) (*ProjectTaskSourceMultiUpdateOutput, error)
+	ProjectTaskSourceMultiUpdateWithContext(volcengine.Context, *ProjectTaskSourceMultiUpdateInput, ...request.Option) (*ProjectTaskSourceMultiUpdateOutput, error)
+	ProjectTaskSourceMultiUpdateRequest(*ProjectTaskSourceMultiUpdateInput) (*request.Request, *ProjectTaskSourceMultiUpdateOutput)
+
+	ProjectTaskSourceUpdateCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ProjectTaskSourceUpdateCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ProjectTaskSourceUpdateCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ProjectTaskSourceUpdate(*ProjectTaskSourceUpdateInput) (*ProjectTaskSourceUpdateOutput, error)
+	ProjectTaskSourceUpdateWithContext(volcengine.Context, *ProjectTaskSourceUpdateInput, ...request.Option) (*ProjectTaskSourceUpdateOutput, error)
+	ProjectTaskSourceUpdateRequest(*ProjectTaskSourceUpdateInput) (*request.Request, *ProjectTaskSourceUpdateOutput)
+
+	ProjectTaskSourcesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ProjectTaskSourcesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ProjectTaskSourcesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ProjectTaskSources(*ProjectTaskSourcesInput) (*ProjectTaskSourcesOutput, error)
+	ProjectTaskSourcesWithContext(volcengine.Context, *ProjectTaskSourcesInput, ...request.Option) (*ProjectTaskSourcesOutput, error)
+	ProjectTaskSourcesRequest(*ProjectTaskSourcesInput) (*request.Request, *ProjectTaskSourcesOutput)
+
+	ProjectTaskTargetDeleteByIdCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ProjectTaskTargetDeleteByIdCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ProjectTaskTargetDeleteByIdCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ProjectTaskTargetDeleteById(*ProjectTaskTargetDeleteByIdInput) (*ProjectTaskTargetDeleteByIdOutput, error)
+	ProjectTaskTargetDeleteByIdWithContext(volcengine.Context, *ProjectTaskTargetDeleteByIdInput, ...request.Option) (*ProjectTaskTargetDeleteByIdOutput, error)
+	ProjectTaskTargetDeleteByIdRequest(*ProjectTaskTargetDeleteByIdInput) (*request.Request, *ProjectTaskTargetDeleteByIdOutput)
+
+	ProjectTaskTargetDeleteByIdsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ProjectTaskTargetDeleteByIdsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ProjectTaskTargetDeleteByIdsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ProjectTaskTargetDeleteByIds(*ProjectTaskTargetDeleteByIdsInput) (*ProjectTaskTargetDeleteByIdsOutput, error)
+	ProjectTaskTargetDeleteByIdsWithContext(volcengine.Context, *ProjectTaskTargetDeleteByIdsInput, ...request.Option) (*ProjectTaskTargetDeleteByIdsOutput, error)
+	ProjectTaskTargetDeleteByIdsRequest(*ProjectTaskTargetDeleteByIdsInput) (*request.Request, *ProjectTaskTargetDeleteByIdsOutput)
+
+	ProjectTaskTargetDeleteByKeysCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ProjectTaskTargetDeleteByKeysCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ProjectTaskTargetDeleteByKeysCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ProjectTaskTargetDeleteByKeys(*ProjectTaskTargetDeleteByKeysInput) (*ProjectTaskTargetDeleteByKeysOutput, error)
+	ProjectTaskTargetDeleteByKeysWithContext(volcengine.Context, *ProjectTaskTargetDeleteByKeysInput, ...request.Option) (*ProjectTaskTargetDeleteByKeysOutput, error)
+	ProjectTaskTargetDeleteByKeysRequest(*ProjectTaskTargetDeleteByKeysInput) (*request.Request, *ProjectTaskTargetDeleteByKeysOutput)
+
+	ProjectTaskTargetUpdateCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ProjectTaskTargetUpdateCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ProjectTaskTargetUpdateCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ProjectTaskTargetUpdate(*ProjectTaskTargetUpdateInput) (*ProjectTaskTargetUpdateOutput, error)
+	ProjectTaskTargetUpdateWithContext(volcengine.Context, *ProjectTaskTargetUpdateInput, ...request.Option) (*ProjectTaskTargetUpdateOutput, error)
+	ProjectTaskTargetUpdateRequest(*ProjectTaskTargetUpdateInput) (*request.Request, *ProjectTaskTargetUpdateOutput)
+
+	ProjectTaskTargetsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ProjectTaskTargetsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ProjectTaskTargetsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ProjectTaskTargets(*ProjectTaskTargetsInput) (*ProjectTaskTargetsOutput, error)
+	ProjectTaskTargetsWithContext(volcengine.Context, *ProjectTaskTargetsInput, ...request.Option) (*ProjectTaskTargetsOutput, error)
+	ProjectTaskTargetsRequest(*ProjectTaskTargetsInput) (*request.Request, *ProjectTaskTargetsOutput)
+
+	ProjectTaskTextCountCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ProjectTaskTextCountCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ProjectTaskTextCountCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ProjectTaskTextCount(*ProjectTaskTextCountInput) (*ProjectTaskTextCountOutput, error)
+	ProjectTaskTextCountWithContext(volcengine.Context, *ProjectTaskTextCountInput, ...request.Option) (*ProjectTaskTextCountOutput, error)
+	ProjectTaskTextCountRequest(*ProjectTaskTextCountInput) (*request.Request, *ProjectTaskTextCountOutput)
+
+	ProjectTaskTextDownloadCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ProjectTaskTextDownloadCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ProjectTaskTextDownloadCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ProjectTaskTextDownload(*ProjectTaskTextDownloadInput) (*ProjectTaskTextDownloadOutput, error)
+	ProjectTaskTextDownloadWithContext(volcengine.Context, *ProjectTaskTextDownloadInput, ...request.Option) (*ProjectTaskTextDownloadOutput, error)
+	ProjectTaskTextDownloadRequest(*ProjectTaskTextDownloadInput) (*request.Request, *ProjectTaskTextDownloadOutput)
+
+	ProjectTaskTextImportCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ProjectTaskTextImportCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ProjectTaskTextImportCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ProjectTaskTextImport(*ProjectTaskTextImportInput) (*ProjectTaskTextImportOutput, error)
+	ProjectTaskTextImportWithContext(volcengine.Context, *ProjectTaskTextImportInput, ...request.Option) (*ProjectTaskTextImportOutput, error)
+	ProjectTaskTextImportRequest(*ProjectTaskTextImportInput) (*request.Request, *ProjectTaskTextImportOutput)
+
+	ProjectTasksCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ProjectTasksCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ProjectTasksCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ProjectTasks(*ProjectTasksInput) (*ProjectTasksOutput, error)
+	ProjectTasksWithContext(volcengine.Context, *ProjectTasksInput, ...request.Option) (*ProjectTasksOutput, error)
+	ProjectTasksRequest(*ProjectTasksInput) (*request.Request, *ProjectTasksOutput)
+
+	ProjectTermDetailCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ProjectTermDetailCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ProjectTermDetailCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ProjectTermDetail(*ProjectTermDetailInput) (*ProjectTermDetailOutput, error)
+	ProjectTermDetailWithContext(volcengine.Context, *ProjectTermDetailInput, ...request.Option) (*ProjectTermDetailOutput, error)
+	ProjectTermDetailRequest(*ProjectTermDetailInput) (*request.Request, *ProjectTermDetailOutput)
+
+	ProjectTermSourceDeleteCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ProjectTermSourceDeleteCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ProjectTermSourceDeleteCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ProjectTermSourceDelete(*ProjectTermSourceDeleteInput) (*ProjectTermSourceDeleteOutput, error)
+	ProjectTermSourceDeleteWithContext(volcengine.Context, *ProjectTermSourceDeleteInput, ...request.Option) (*ProjectTermSourceDeleteOutput, error)
+	ProjectTermSourceDeleteRequest(*ProjectTermSourceDeleteInput) (*request.Request, *ProjectTermSourceDeleteOutput)
+
+	ProjectTermSourceUpdateCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ProjectTermSourceUpdateCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ProjectTermSourceUpdateCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ProjectTermSourceUpdate(*ProjectTermSourceUpdateInput) (*ProjectTermSourceUpdateOutput, error)
+	ProjectTermSourceUpdateWithContext(volcengine.Context, *ProjectTermSourceUpdateInput, ...request.Option) (*ProjectTermSourceUpdateOutput, error)
+	ProjectTermSourceUpdateRequest(*ProjectTermSourceUpdateInput) (*request.Request, *ProjectTermSourceUpdateOutput)
+
+	ProjectTermTargetAddCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ProjectTermTargetAddCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ProjectTermTargetAddCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ProjectTermTargetAdd(*ProjectTermTargetAddInput) (*ProjectTermTargetAddOutput, error)
+	ProjectTermTargetAddWithContext(volcengine.Context, *ProjectTermTargetAddInput, ...request.Option) (*ProjectTermTargetAddOutput, error)
+	ProjectTermTargetAddRequest(*ProjectTermTargetAddInput) (*request.Request, *ProjectTermTargetAddOutput)
+
+	ProjectTermTargetDeleteCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ProjectTermTargetDeleteCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ProjectTermTargetDeleteCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ProjectTermTargetDelete(*ProjectTermTargetDeleteInput) (*ProjectTermTargetDeleteOutput, error)
+	ProjectTermTargetDeleteWithContext(volcengine.Context, *ProjectTermTargetDeleteInput, ...request.Option) (*ProjectTermTargetDeleteOutput, error)
+	ProjectTermTargetDeleteRequest(*ProjectTermTargetDeleteInput) (*request.Request, *ProjectTermTargetDeleteOutput)
+
+	ProjectTermTargetUpdateCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ProjectTermTargetUpdateCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ProjectTermTargetUpdateCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ProjectTermTargetUpdate(*ProjectTermTargetUpdateInput) (*ProjectTermTargetUpdateOutput, error)
+	ProjectTermTargetUpdateWithContext(volcengine.Context, *ProjectTermTargetUpdateInput, ...request.Option) (*ProjectTermTargetUpdateOutput, error)
+	ProjectTermTargetUpdateRequest(*ProjectTermTargetUpdateInput) (*request.Request, *ProjectTermTargetUpdateOutput)
+
+	ProjectTermsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ProjectTermsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ProjectTermsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ProjectTerms(*ProjectTermsInput) (*ProjectTermsOutput, error)
+	ProjectTermsWithContext(volcengine.Context, *ProjectTermsInput, ...request.Option) (*ProjectTermsOutput, error)
+	ProjectTermsRequest(*ProjectTermsInput) (*request.Request, *ProjectTermsOutput)
+
+	ProjectTextAcrossImportCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ProjectTextAcrossImportCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ProjectTextAcrossImportCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ProjectTextAcrossImport(*ProjectTextAcrossImportInput) (*ProjectTextAcrossImportOutput, error)
+	ProjectTextAcrossImportWithContext(volcengine.Context, *ProjectTextAcrossImportInput, ...request.Option) (*ProjectTextAcrossImportOutput, error)
+	ProjectTextAcrossImportRequest(*ProjectTextAcrossImportInput) (*request.Request, *ProjectTextAcrossImportOutput)
+
+	ProjectTextAcrossImportCheckCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ProjectTextAcrossImportCheckCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ProjectTextAcrossImportCheckCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ProjectTextAcrossImportCheck(*ProjectTextAcrossImportCheckInput) (*ProjectTextAcrossImportCheckOutput, error)
+	ProjectTextAcrossImportCheckWithContext(volcengine.Context, *ProjectTextAcrossImportCheckInput, ...request.Option) (*ProjectTextAcrossImportCheckOutput, error)
+	ProjectTextAcrossImportCheckRequest(*ProjectTextAcrossImportCheckInput) (*request.Request, *ProjectTextAcrossImportCheckOutput)
+
+	ProjectTextImportConfirmCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ProjectTextImportConfirmCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ProjectTextImportConfirmCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ProjectTextImportConfirm(*ProjectTextImportConfirmInput) (*ProjectTextImportConfirmOutput, error)
+	ProjectTextImportConfirmWithContext(volcengine.Context, *ProjectTextImportConfirmInput, ...request.Option) (*ProjectTextImportConfirmOutput, error)
+	ProjectTextImportConfirmRequest(*ProjectTextImportConfirmInput) (*request.Request, *ProjectTextImportConfirmOutput)
+
+	ProjectTextImportStatusQueryCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ProjectTextImportStatusQueryCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ProjectTextImportStatusQueryCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ProjectTextImportStatusQuery(*ProjectTextImportStatusQueryInput) (*ProjectTextImportStatusQueryOutput, error)
+	ProjectTextImportStatusQueryWithContext(volcengine.Context, *ProjectTextImportStatusQueryInput, ...request.Option) (*ProjectTextImportStatusQueryOutput, error)
+	ProjectTextImportStatusQueryRequest(*ProjectTextImportStatusQueryInput) (*request.Request, *ProjectTextImportStatusQueryOutput)
 
 	ProjectUserRoleCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ProjectUserRoleCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -93,6 +589,38 @@ type I18NOPENAPIAPI interface {
 	Projects(*ProjectsInput) (*ProjectsOutput, error)
 	ProjectsWithContext(volcengine.Context, *ProjectsInput, ...request.Option) (*ProjectsOutput, error)
 	ProjectsRequest(*ProjectsInput) (*request.Request, *ProjectsOutput)
+
+	TermBaseTermGroupImportCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	TermBaseTermGroupImportCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	TermBaseTermGroupImportCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	TermBaseTermGroupImport(*TermBaseTermGroupImportInput) (*TermBaseTermGroupImportOutput, error)
+	TermBaseTermGroupImportWithContext(volcengine.Context, *TermBaseTermGroupImportInput, ...request.Option) (*TermBaseTermGroupImportOutput, error)
+	TermBaseTermGroupImportRequest(*TermBaseTermGroupImportInput) (*request.Request, *TermBaseTermGroupImportOutput)
+
+	TermBaseTermGroupImportTaskCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	TermBaseTermGroupImportTaskCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	TermBaseTermGroupImportTaskCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	TermBaseTermGroupImportTask(*TermBaseTermGroupImportTaskInput) (*TermBaseTermGroupImportTaskOutput, error)
+	TermBaseTermGroupImportTaskWithContext(volcengine.Context, *TermBaseTermGroupImportTaskInput, ...request.Option) (*TermBaseTermGroupImportTaskOutput, error)
+	TermBaseTermGroupImportTaskRequest(*TermBaseTermGroupImportTaskInput) (*request.Request, *TermBaseTermGroupImportTaskOutput)
+
+	TermBaseTermGroupsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	TermBaseTermGroupsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	TermBaseTermGroupsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	TermBaseTermGroups(*TermBaseTermGroupsInput) (*TermBaseTermGroupsOutput, error)
+	TermBaseTermGroupsWithContext(volcengine.Context, *TermBaseTermGroupsInput, ...request.Option) (*TermBaseTermGroupsOutput, error)
+	TermBaseTermGroupsRequest(*TermBaseTermGroupsInput) (*request.Request, *TermBaseTermGroupsOutput)
+
+	TextGetTextListWithKeyOrSourceCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	TextGetTextListWithKeyOrSourceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	TextGetTextListWithKeyOrSourceCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	TextGetTextListWithKeyOrSource(*TextGetTextListWithKeyOrSourceInput) (*TextGetTextListWithKeyOrSourceOutput, error)
+	TextGetTextListWithKeyOrSourceWithContext(volcengine.Context, *TextGetTextListWithKeyOrSourceInput, ...request.Option) (*TextGetTextListWithKeyOrSourceOutput, error)
+	TextGetTextListWithKeyOrSourceRequest(*TextGetTextListWithKeyOrSourceInput) (*request.Request, *TextGetTextListWithKeyOrSourceOutput)
 
 	VideoProjectCreateCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	VideoProjectCreateCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -134,6 +662,14 @@ type I18NOPENAPIAPI interface {
 	VideoProjectSuppressionStartWithContext(volcengine.Context, *VideoProjectSuppressionStartInput, ...request.Option) (*VideoProjectSuppressionStartOutput, error)
 	VideoProjectSuppressionStartRequest(*VideoProjectSuppressionStartInput) (*request.Request, *VideoProjectSuppressionStartOutput)
 
+	VideoProjectTaskBatchStartAIFlowCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	VideoProjectTaskBatchStartAIFlowCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	VideoProjectTaskBatchStartAIFlowCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	VideoProjectTaskBatchStartAIFlow(*VideoProjectTaskBatchStartAIFlowInput) (*VideoProjectTaskBatchStartAIFlowOutput, error)
+	VideoProjectTaskBatchStartAIFlowWithContext(volcengine.Context, *VideoProjectTaskBatchStartAIFlowInput, ...request.Option) (*VideoProjectTaskBatchStartAIFlowOutput, error)
+	VideoProjectTaskBatchStartAIFlowRequest(*VideoProjectTaskBatchStartAIFlowInput) (*request.Request, *VideoProjectTaskBatchStartAIFlowOutput)
+
 	VideoProjectTaskDetailCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	VideoProjectTaskDetailCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	VideoProjectTaskDetailCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -157,6 +693,14 @@ type I18NOPENAPIAPI interface {
 	VideoResourceUpload(*VideoResourceUploadInput) (*VideoResourceUploadOutput, error)
 	VideoResourceUploadWithContext(volcengine.Context, *VideoResourceUploadInput, ...request.Option) (*VideoResourceUploadOutput, error)
 	VideoResourceUploadRequest(*VideoResourceUploadInput) (*request.Request, *VideoResourceUploadOutput)
+
+	VideoTermBasesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	VideoTermBasesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	VideoTermBasesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	VideoTermBases(*VideoTermBasesInput) (*VideoTermBasesOutput, error)
+	VideoTermBasesWithContext(volcengine.Context, *VideoTermBasesInput, ...request.Option) (*VideoTermBasesOutput, error)
+	VideoTermBasesRequest(*VideoTermBasesInput) (*request.Request, *VideoTermBasesOutput)
 
 	WebhooksCreateCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	WebhooksCreateCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)

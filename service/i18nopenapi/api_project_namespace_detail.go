@@ -229,7 +229,7 @@ type ProjectNamespaceDetailInput struct {
 	_ struct{} `type:"structure"`
 
 	// NamespaceId is a required field
-	NamespaceId *string `locationName:"namespaceId" type:"string" required:"true"`
+	NamespaceId *int32 `locationName:"namespaceId" type:"int32" required:"true"`
 
 	// ProjectId is a required field
 	ProjectId *int32 `locationName:"projectId" type:"int32" required:"true"`
@@ -262,7 +262,7 @@ func (s *ProjectNamespaceDetailInput) Validate() error {
 }
 
 // SetNamespaceId sets the NamespaceId field's value.
-func (s *ProjectNamespaceDetailInput) SetNamespaceId(v string) *ProjectNamespaceDetailInput {
+func (s *ProjectNamespaceDetailInput) SetNamespaceId(v int32) *ProjectNamespaceDetailInput {
 	s.NamespaceId = &v
 	return s
 }
