@@ -143,8 +143,88 @@ func (c *ID) GrantPermissionWithContext(ctx volcengine.Context, input *GrantPerm
 	return out, req.Send()
 }
 
+type DefinitionForGrantPermissionInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Condition *string `type:"string" json:",omitempty"`
+
+	ConditionInfo *string `type:"string" json:",omitempty"`
+
+	Effect *string `type:"string" json:",omitempty"`
+
+	Operation *string `type:"string" json:",omitempty"`
+
+	Principal *string `type:"string" json:",omitempty"`
+
+	PrincipalInfo *string `type:"string" json:",omitempty"`
+
+	Resource *string `type:"string" json:",omitempty"`
+
+	ResourceInfo *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s DefinitionForGrantPermissionInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DefinitionForGrantPermissionInput) GoString() string {
+	return s.String()
+}
+
+// SetCondition sets the Condition field's value.
+func (s *DefinitionForGrantPermissionInput) SetCondition(v string) *DefinitionForGrantPermissionInput {
+	s.Condition = &v
+	return s
+}
+
+// SetConditionInfo sets the ConditionInfo field's value.
+func (s *DefinitionForGrantPermissionInput) SetConditionInfo(v string) *DefinitionForGrantPermissionInput {
+	s.ConditionInfo = &v
+	return s
+}
+
+// SetEffect sets the Effect field's value.
+func (s *DefinitionForGrantPermissionInput) SetEffect(v string) *DefinitionForGrantPermissionInput {
+	s.Effect = &v
+	return s
+}
+
+// SetOperation sets the Operation field's value.
+func (s *DefinitionForGrantPermissionInput) SetOperation(v string) *DefinitionForGrantPermissionInput {
+	s.Operation = &v
+	return s
+}
+
+// SetPrincipal sets the Principal field's value.
+func (s *DefinitionForGrantPermissionInput) SetPrincipal(v string) *DefinitionForGrantPermissionInput {
+	s.Principal = &v
+	return s
+}
+
+// SetPrincipalInfo sets the PrincipalInfo field's value.
+func (s *DefinitionForGrantPermissionInput) SetPrincipalInfo(v string) *DefinitionForGrantPermissionInput {
+	s.PrincipalInfo = &v
+	return s
+}
+
+// SetResource sets the Resource field's value.
+func (s *DefinitionForGrantPermissionInput) SetResource(v string) *DefinitionForGrantPermissionInput {
+	s.Resource = &v
+	return s
+}
+
+// SetResourceInfo sets the ResourceInfo field's value.
+func (s *DefinitionForGrantPermissionInput) SetResourceInfo(v string) *DefinitionForGrantPermissionInput {
+	s.ResourceInfo = &v
+	return s
+}
+
 type GrantPermissionInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
+
+	Definition *DefinitionForGrantPermissionInput `type:"structure" json:",omitempty"`
 
 	Description *string `type:"string" json:",omitempty"`
 
@@ -171,6 +251,12 @@ func (s GrantPermissionInput) String() string {
 // GoString returns the string representation
 func (s GrantPermissionInput) GoString() string {
 	return s.String()
+}
+
+// SetDefinition sets the Definition field's value.
+func (s *GrantPermissionInput) SetDefinition(v *DefinitionForGrantPermissionInput) *GrantPermissionInput {
+	s.Definition = v
+	return s
 }
 
 // SetDescription sets the Description field's value.

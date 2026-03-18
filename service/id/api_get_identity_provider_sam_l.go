@@ -143,6 +143,36 @@ func (c *ID) GetIdentityProviderSAMLWithContext(ctx volcengine.Context, input *G
 	return out, req.Send()
 }
 
+type AdditionalMappingForGetIdentityProviderSAMLOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	ScimPath *string `type:"string" json:",omitempty"`
+
+	UserPoolPath []*string `type:"list" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s AdditionalMappingForGetIdentityProviderSAMLOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s AdditionalMappingForGetIdentityProviderSAMLOutput) GoString() string {
+	return s.String()
+}
+
+// SetScimPath sets the ScimPath field's value.
+func (s *AdditionalMappingForGetIdentityProviderSAMLOutput) SetScimPath(v string) *AdditionalMappingForGetIdentityProviderSAMLOutput {
+	s.ScimPath = &v
+	return s
+}
+
+// SetUserPoolPath sets the UserPoolPath field's value.
+func (s *AdditionalMappingForGetIdentityProviderSAMLOutput) SetUserPoolPath(v []*string) *AdditionalMappingForGetIdentityProviderSAMLOutput {
+	s.UserPoolPath = v
+	return s
+}
+
 type ClaimRuleForGetIdentityProviderSAMLOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -294,6 +324,8 @@ type GetIdentityProviderSAMLOutput struct {
 
 	ProviderOptions *ProviderOptionsForGetIdentityProviderSAMLOutput `type:"structure" json:",omitempty"`
 
+	ScimProvisioning *ScimProvisioningForGetIdentityProviderSAMLOutput `type:"structure" json:",omitempty"`
+
 	Uid *string `type:"string" json:",omitempty"`
 }
 
@@ -373,6 +405,12 @@ func (s *GetIdentityProviderSAMLOutput) SetProviderOptions(v *ProviderOptionsFor
 	return s
 }
 
+// SetScimProvisioning sets the ScimProvisioning field's value.
+func (s *GetIdentityProviderSAMLOutput) SetScimProvisioning(v *ScimProvisioningForGetIdentityProviderSAMLOutput) *GetIdentityProviderSAMLOutput {
+	s.ScimProvisioning = v
+	return s
+}
+
 // SetUid sets the Uid field's value.
 func (s *GetIdentityProviderSAMLOutput) SetUid(v string) *GetIdentityProviderSAMLOutput {
 	s.Uid = &v
@@ -430,5 +468,51 @@ func (s *ProviderOptionsForGetIdentityProviderSAMLOutput) SetIsCreationAllowed(v
 // SetIsLinkingAllowed sets the IsLinkingAllowed field's value.
 func (s *ProviderOptionsForGetIdentityProviderSAMLOutput) SetIsLinkingAllowed(v bool) *ProviderOptionsForGetIdentityProviderSAMLOutput {
 	s.IsLinkingAllowed = &v
+	return s
+}
+
+type ScimProvisioningForGetIdentityProviderSAMLOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	AdditionalMappings []*AdditionalMappingForGetIdentityProviderSAMLOutput `type:"list" json:",omitempty"`
+
+	BaseUrl *string `type:"string" json:",omitempty"`
+
+	Enabled *bool `type:"boolean" json:",omitempty"`
+
+	UserIdAttribute *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s ScimProvisioningForGetIdentityProviderSAMLOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ScimProvisioningForGetIdentityProviderSAMLOutput) GoString() string {
+	return s.String()
+}
+
+// SetAdditionalMappings sets the AdditionalMappings field's value.
+func (s *ScimProvisioningForGetIdentityProviderSAMLOutput) SetAdditionalMappings(v []*AdditionalMappingForGetIdentityProviderSAMLOutput) *ScimProvisioningForGetIdentityProviderSAMLOutput {
+	s.AdditionalMappings = v
+	return s
+}
+
+// SetBaseUrl sets the BaseUrl field's value.
+func (s *ScimProvisioningForGetIdentityProviderSAMLOutput) SetBaseUrl(v string) *ScimProvisioningForGetIdentityProviderSAMLOutput {
+	s.BaseUrl = &v
+	return s
+}
+
+// SetEnabled sets the Enabled field's value.
+func (s *ScimProvisioningForGetIdentityProviderSAMLOutput) SetEnabled(v bool) *ScimProvisioningForGetIdentityProviderSAMLOutput {
+	s.Enabled = &v
+	return s
+}
+
+// SetUserIdAttribute sets the UserIdAttribute field's value.
+func (s *ScimProvisioningForGetIdentityProviderSAMLOutput) SetUserIdAttribute(v string) *ScimProvisioningForGetIdentityProviderSAMLOutput {
+	s.UserIdAttribute = &v
 	return s
 }

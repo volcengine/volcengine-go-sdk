@@ -146,6 +146,8 @@ func (c *ID) CreateUsersWithContext(ctx volcengine.Context, input *CreateUsersIn
 type CreateUsersInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	ExternalProviderConnectionUid *string `type:"string" json:",omitempty"`
+
 	// UserPoolUid is a required field
 	UserPoolUid *string `type:"string" json:",omitempty" required:"true"`
 
@@ -175,6 +177,12 @@ func (s *CreateUsersInput) Validate() error {
 	return nil
 }
 
+// SetExternalProviderConnectionUid sets the ExternalProviderConnectionUid field's value.
+func (s *CreateUsersInput) SetExternalProviderConnectionUid(v string) *CreateUsersInput {
+	s.ExternalProviderConnectionUid = &v
+	return s
+}
+
 // SetUserPoolUid sets the UserPoolUid field's value.
 func (s *CreateUsersInput) SetUserPoolUid(v string) *CreateUsersInput {
 	s.UserPoolUid = &v
@@ -201,6 +209,8 @@ type CreateUsersOutput struct {
 	SuccessCount *int32 `type:"int32" json:",omitempty"`
 
 	SuccessfulUids []*string `type:"list" json:",omitempty"`
+
+	SuccessfulUidsStructured []*SuccessfulUidsStructuredForCreateUsersOutput `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -243,6 +253,12 @@ func (s *CreateUsersOutput) SetSuccessfulUids(v []*string) *CreateUsersOutput {
 	return s
 }
 
+// SetSuccessfulUidsStructured sets the SuccessfulUidsStructured field's value.
+func (s *CreateUsersOutput) SetSuccessfulUidsStructured(v []*SuccessfulUidsStructuredForCreateUsersOutput) *CreateUsersOutput {
+	s.SuccessfulUidsStructured = v
+	return s
+}
+
 type ErrorsStructuredForCreateUsersOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -281,20 +297,56 @@ func (s *ErrorsStructuredForCreateUsersOutput) SetIndex(v int32) *ErrorsStructur
 	return s
 }
 
+type SuccessfulUidsStructuredForCreateUsersOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Index *int32 `type:"int32" json:",omitempty"`
+
+	Uid *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s SuccessfulUidsStructuredForCreateUsersOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s SuccessfulUidsStructuredForCreateUsersOutput) GoString() string {
+	return s.String()
+}
+
+// SetIndex sets the Index field's value.
+func (s *SuccessfulUidsStructuredForCreateUsersOutput) SetIndex(v int32) *SuccessfulUidsStructuredForCreateUsersOutput {
+	s.Index = &v
+	return s
+}
+
+// SetUid sets the Uid field's value.
+func (s *SuccessfulUidsStructuredForCreateUsersOutput) SetUid(v string) *SuccessfulUidsStructuredForCreateUsersOutput {
+	s.Uid = &v
+	return s
+}
+
 type UserForCreateUsersInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
 	Birthdate *string `type:"string" json:",omitempty"`
 
+	Departments []*string `type:"list" json:",omitempty"`
+
 	Email *string `type:"string" json:",omitempty"`
 
 	EmailVerified *bool `type:"boolean" json:",omitempty"`
+
+	ExternalProviderUserIdentifier *string `type:"string" json:",omitempty"`
 
 	FamilyName *string `type:"string" json:",omitempty"`
 
 	Gender *string `type:"string" json:",omitempty"`
 
 	GivenName *string `type:"string" json:",omitempty"`
+
+	Groups []*string `type:"list" json:",omitempty"`
 
 	Locale *string `type:"string" json:",omitempty"`
 
@@ -339,6 +391,12 @@ func (s *UserForCreateUsersInput) SetBirthdate(v string) *UserForCreateUsersInpu
 	return s
 }
 
+// SetDepartments sets the Departments field's value.
+func (s *UserForCreateUsersInput) SetDepartments(v []*string) *UserForCreateUsersInput {
+	s.Departments = v
+	return s
+}
+
 // SetEmail sets the Email field's value.
 func (s *UserForCreateUsersInput) SetEmail(v string) *UserForCreateUsersInput {
 	s.Email = &v
@@ -348,6 +406,12 @@ func (s *UserForCreateUsersInput) SetEmail(v string) *UserForCreateUsersInput {
 // SetEmailVerified sets the EmailVerified field's value.
 func (s *UserForCreateUsersInput) SetEmailVerified(v bool) *UserForCreateUsersInput {
 	s.EmailVerified = &v
+	return s
+}
+
+// SetExternalProviderUserIdentifier sets the ExternalProviderUserIdentifier field's value.
+func (s *UserForCreateUsersInput) SetExternalProviderUserIdentifier(v string) *UserForCreateUsersInput {
+	s.ExternalProviderUserIdentifier = &v
 	return s
 }
 
@@ -366,6 +430,12 @@ func (s *UserForCreateUsersInput) SetGender(v string) *UserForCreateUsersInput {
 // SetGivenName sets the GivenName field's value.
 func (s *UserForCreateUsersInput) SetGivenName(v string) *UserForCreateUsersInput {
 	s.GivenName = &v
+	return s
+}
+
+// SetGroups sets the Groups field's value.
+func (s *UserForCreateUsersInput) SetGroups(v []*string) *UserForCreateUsersInput {
+	s.Groups = v
 	return s
 }
 

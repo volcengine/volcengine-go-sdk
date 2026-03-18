@@ -146,6 +146,8 @@ func (c *ID) CreatePolicyWithContext(ctx volcengine.Context, input *CreatePolicy
 type CreatePolicyInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	Definition *DefinitionForCreatePolicyInput `type:"structure" json:",omitempty"`
+
 	Description *string `type:"string" json:",omitempty"`
 
 	NamespaceName *string `type:"string" json:",omitempty"`
@@ -163,6 +165,12 @@ func (s CreatePolicyInput) String() string {
 // GoString returns the string representation
 func (s CreatePolicyInput) GoString() string {
 	return s.String()
+}
+
+// SetDefinition sets the Definition field's value.
+func (s *CreatePolicyInput) SetDefinition(v *DefinitionForCreatePolicyInput) *CreatePolicyInput {
+	s.Definition = v
+	return s
 }
 
 // SetDescription sets the Description field's value.
@@ -266,5 +274,83 @@ func (s *CreatePolicyOutput) SetTrn(v string) *CreatePolicyOutput {
 // SetUpdateTime sets the UpdateTime field's value.
 func (s *CreatePolicyOutput) SetUpdateTime(v string) *CreatePolicyOutput {
 	s.UpdateTime = &v
+	return s
+}
+
+type DefinitionForCreatePolicyInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Condition *string `type:"string" json:",omitempty"`
+
+	ConditionInfo *string `type:"string" json:",omitempty"`
+
+	Effect *string `type:"string" json:",omitempty"`
+
+	Operation *string `type:"string" json:",omitempty"`
+
+	Principal *string `type:"string" json:",omitempty"`
+
+	PrincipalInfo *string `type:"string" json:",omitempty"`
+
+	Resource *string `type:"string" json:",omitempty"`
+
+	ResourceInfo *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s DefinitionForCreatePolicyInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DefinitionForCreatePolicyInput) GoString() string {
+	return s.String()
+}
+
+// SetCondition sets the Condition field's value.
+func (s *DefinitionForCreatePolicyInput) SetCondition(v string) *DefinitionForCreatePolicyInput {
+	s.Condition = &v
+	return s
+}
+
+// SetConditionInfo sets the ConditionInfo field's value.
+func (s *DefinitionForCreatePolicyInput) SetConditionInfo(v string) *DefinitionForCreatePolicyInput {
+	s.ConditionInfo = &v
+	return s
+}
+
+// SetEffect sets the Effect field's value.
+func (s *DefinitionForCreatePolicyInput) SetEffect(v string) *DefinitionForCreatePolicyInput {
+	s.Effect = &v
+	return s
+}
+
+// SetOperation sets the Operation field's value.
+func (s *DefinitionForCreatePolicyInput) SetOperation(v string) *DefinitionForCreatePolicyInput {
+	s.Operation = &v
+	return s
+}
+
+// SetPrincipal sets the Principal field's value.
+func (s *DefinitionForCreatePolicyInput) SetPrincipal(v string) *DefinitionForCreatePolicyInput {
+	s.Principal = &v
+	return s
+}
+
+// SetPrincipalInfo sets the PrincipalInfo field's value.
+func (s *DefinitionForCreatePolicyInput) SetPrincipalInfo(v string) *DefinitionForCreatePolicyInput {
+	s.PrincipalInfo = &v
+	return s
+}
+
+// SetResource sets the Resource field's value.
+func (s *DefinitionForCreatePolicyInput) SetResource(v string) *DefinitionForCreatePolicyInput {
+	s.Resource = &v
+	return s
+}
+
+// SetResourceInfo sets the ResourceInfo field's value.
+func (s *DefinitionForCreatePolicyInput) SetResourceInfo(v string) *DefinitionForCreatePolicyInput {
+	s.ResourceInfo = &v
 	return s
 }
