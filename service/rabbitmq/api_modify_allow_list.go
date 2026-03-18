@@ -156,8 +156,7 @@ type ModifyAllowListInput struct {
 	// AllowListName is a required field
 	AllowListName *string `type:"string" json:",omitempty" required:"true"`
 
-	// ApplyDBInstanceNum is a required field
-	ApplyDBInstanceNum *int32 `type:"int32" json:",omitempty" required:"true"`
+	ApplyInstanceNum *int32 `type:"int32" json:",omitempty"`
 
 	ModifyMode *string `type:"string" json:",omitempty"`
 }
@@ -180,9 +179,6 @@ func (s *ModifyAllowListInput) Validate() error {
 	}
 	if s.AllowListName == nil {
 		invalidParams.Add(request.NewErrParamRequired("AllowListName"))
-	}
-	if s.ApplyDBInstanceNum == nil {
-		invalidParams.Add(request.NewErrParamRequired("ApplyDBInstanceNum"))
 	}
 
 	if invalidParams.Len() > 0 {
@@ -215,9 +211,9 @@ func (s *ModifyAllowListInput) SetAllowListName(v string) *ModifyAllowListInput 
 	return s
 }
 
-// SetApplyDBInstanceNum sets the ApplyDBInstanceNum field's value.
-func (s *ModifyAllowListInput) SetApplyDBInstanceNum(v int32) *ModifyAllowListInput {
-	s.ApplyDBInstanceNum = &v
+// SetApplyInstanceNum sets the ApplyInstanceNum field's value.
+func (s *ModifyAllowListInput) SetApplyInstanceNum(v int32) *ModifyAllowListInput {
+	s.ApplyInstanceNum = &v
 	return s
 }
 
