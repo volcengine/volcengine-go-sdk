@@ -126,6 +126,62 @@ type MILVUSAPI interface {
 	ListTagsForResourcesWithContext(volcengine.Context, *ListTagsForResourcesInput, ...request.Option) (*ListTagsForResourcesOutput, error)
 	ListTagsForResourcesRequest(*ListTagsForResourcesInput) (*request.Request, *ListTagsForResourcesOutput)
 
+	MSCreateInstanceCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	MSCreateInstanceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	MSCreateInstanceCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	MSCreateInstance(*MSCreateInstanceInput) (*MSCreateInstanceOutput, error)
+	MSCreateInstanceWithContext(volcengine.Context, *MSCreateInstanceInput, ...request.Option) (*MSCreateInstanceOutput, error)
+	MSCreateInstanceRequest(*MSCreateInstanceInput) (*request.Request, *MSCreateInstanceOutput)
+
+	MSCreateInstanceOneStepCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	MSCreateInstanceOneStepCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	MSCreateInstanceOneStepCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	MSCreateInstanceOneStep(*MSCreateInstanceOneStepInput) (*MSCreateInstanceOneStepOutput, error)
+	MSCreateInstanceOneStepWithContext(volcengine.Context, *MSCreateInstanceOneStepInput, ...request.Option) (*MSCreateInstanceOneStepOutput, error)
+	MSCreateInstanceOneStepRequest(*MSCreateInstanceOneStepInput) (*request.Request, *MSCreateInstanceOneStepOutput)
+
+	MSDescribeInstanceCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	MSDescribeInstanceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	MSDescribeInstanceCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	MSDescribeInstance(*MSDescribeInstanceInput) (*MSDescribeInstanceOutput, error)
+	MSDescribeInstanceWithContext(volcengine.Context, *MSDescribeInstanceInput, ...request.Option) (*MSDescribeInstanceOutput, error)
+	MSDescribeInstanceRequest(*MSDescribeInstanceInput) (*request.Request, *MSDescribeInstanceOutput)
+
+	MSDescribeInstancesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	MSDescribeInstancesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	MSDescribeInstancesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	MSDescribeInstances(*MSDescribeInstancesInput) (*MSDescribeInstancesOutput, error)
+	MSDescribeInstancesWithContext(volcengine.Context, *MSDescribeInstancesInput, ...request.Option) (*MSDescribeInstancesOutput, error)
+	MSDescribeInstancesRequest(*MSDescribeInstancesInput) (*request.Request, *MSDescribeInstancesOutput)
+
+	MSModifyEndpointAllowGroupCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	MSModifyEndpointAllowGroupCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	MSModifyEndpointAllowGroupCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	MSModifyEndpointAllowGroup(*MSModifyEndpointAllowGroupInput) (*MSModifyEndpointAllowGroupOutput, error)
+	MSModifyEndpointAllowGroupWithContext(volcengine.Context, *MSModifyEndpointAllowGroupInput, ...request.Option) (*MSModifyEndpointAllowGroupOutput, error)
+	MSModifyEndpointAllowGroupRequest(*MSModifyEndpointAllowGroupInput) (*request.Request, *MSModifyEndpointAllowGroupOutput)
+
+	MSModifyPublicDomainCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	MSModifyPublicDomainCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	MSModifyPublicDomainCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	MSModifyPublicDomain(*MSModifyPublicDomainInput) (*MSModifyPublicDomainOutput, error)
+	MSModifyPublicDomainWithContext(volcengine.Context, *MSModifyPublicDomainInput, ...request.Option) (*MSModifyPublicDomainOutput, error)
+	MSModifyPublicDomainRequest(*MSModifyPublicDomainInput) (*request.Request, *MSModifyPublicDomainOutput)
+
+	MSReleaseInstanceCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	MSReleaseInstanceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	MSReleaseInstanceCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	MSReleaseInstance(*MSReleaseInstanceInput) (*MSReleaseInstanceOutput, error)
+	MSReleaseInstanceWithContext(volcengine.Context, *MSReleaseInstanceInput, ...request.Option) (*MSReleaseInstanceOutput, error)
+	MSReleaseInstanceRequest(*MSReleaseInstanceInput) (*request.Request, *MSReleaseInstanceOutput)
+
 	ModifyDeleteProtectCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ModifyDeleteProtectCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	ModifyDeleteProtectCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
