@@ -19,8 +19,9 @@ import (
 const (
 	// CliProviderName provides a name of CLI config provider.
 	CliProviderName = "CliProvider"
-	modeSSO         = "sso"
-	modeAK          = "ak"
+	modeSSO      = "sso"
+	modeAK       = "ak"
+	modeStsToken = "ststoken"
 	defaultRegion   = "cn-beijing"
 )
 
@@ -179,6 +180,8 @@ func (p *CliProvider) Retrieve() (credentials.Value, error) {
 	switch mode {
 	case "", modeAK:
 		return p.retrieveAK(profile, profileName, configPath)
+	case modeStsToken:
+		return p.retrieveStsToken(profile, profileName, configPath)
 	case modeSSO:
 		return p.retrieveSSO(profile, profileName, configPath, cfg)
 	default:
@@ -202,6 +205,38 @@ func (p *CliProvider) retrieveAK(profile *cliProfile, profileName, configPath st
 		return credentials.Value{ProviderName: CliProviderName}, volcengineerr.New(
 			"CliConfigSecretKey",
 			fmt.Sprintf("cli config profile %s in %s did not contain secret-key", profileName, configPath),
+			nil,
+		)
+	}
+
+	p.retrieved = true
+	return credentials.Value{
+		AccessKeyID:     profile.AccessKey,
+		SecretAccessKey: profile.SecretKey,
+		SessionToken:    profile.SessionToken,
+		ProviderName:    CliProviderName,
+	}, nil
+}
+
+func (p *CliProvider) retrieveStsToken(profile *cliProfile, profileName, configPath string) (credentials.Value, error) {
+	if len(profile.AccessKey) == 0 {
+		return credentials.Value{ProviderName: CliProviderName}, volcengineerr.New(
+			"CliConfigAccessKey",
+			fmt.Sprintf("cli config profile %s in %s did not contain access-key (required for StsToken mode)", profileName, configPath),
+			nil,
+		)
+	}
+	if len(profile.SecretKey) == 0 {
+		return credentials.Value{ProviderName: CliProviderName}, volcengineerr.New(
+			"CliConfigSecretKey",
+			fmt.Sprintf("cli config profile %s in %s did not contain secret-key (required for StsToken mode)", profileName, configPath),
+			nil,
+		)
+	}
+	if len(profile.SessionToken) == 0 {
+		return credentials.Value{ProviderName: CliProviderName}, volcengineerr.New(
+			"CliConfigSessionToken",
+			fmt.Sprintf("cli config profile %s in %s did not contain session-token (required for StsToken mode)", profileName, configPath),
 			nil,
 		)
 	}
