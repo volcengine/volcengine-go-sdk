@@ -7,6 +7,7 @@ import (
 	"net/http"
 	"net/url"
 	"os"
+	"strconv"
 	"strings"
 	"time"
 
@@ -80,10 +81,14 @@ type OIDCCredentialsProvider struct {
 }
 
 func NewOIDCCredentialsProviderFromEnv() *OIDCCredentialsProvider {
+	sessionName := os.Getenv("VOLCENGINE_OIDC_ROLE_SESSION_NAME")
+	if sessionName == "" {
+		sessionName = "credentials-go-" + strconv.FormatInt(time.Now().UnixNano()/1000, 10)
+	}
 	return &OIDCCredentialsProvider{
 		OIDCTokenFilePath: os.Getenv("VOLCENGINE_OIDC_TOKEN_FILE"),
 		RoleTrn:           os.Getenv("VOLCENGINE_OIDC_ROLE_TRN"),
-		RoleSessionName:   os.Getenv("VOLCENGINE_OIDC_ROLE_SESSION_NAME"),
+		RoleSessionName:   sessionName,
 		DurationSeconds:   3600, // default duration
 		Policy:            os.Getenv("VOLCENGINE_OIDC_ROLE_POLICY"),
 		Schema:            "https", //default https

@@ -77,7 +77,7 @@ type CliProvider struct {
 	cacheDir string
 
 	// Profile is the profile name in the config. If empty, it will first try
-	// VOLCSTACK_PROFILE, then use config.current.
+	// VOLCENGINE_PROFILE (fallback VOLCSTACK_PROFILE), then use config.current.
 	profile string
 
 	retrieved     bool
@@ -608,7 +608,10 @@ func (p *CliProvider) getConfigPath() (string, error) {
 
 func (p *CliProvider) getProfile(cfg *cliConfigure) string {
 	if p.profile == "" {
-		p.profile = os.Getenv("VOLCENGINE_CLI_PROFILE")
+		p.profile = os.Getenv("VOLCENGINE_PROFILE")
+	}
+	if p.profile == "" {
+		p.profile = os.Getenv("VOLCSTACK_PROFILE")
 	}
 	if p.profile == "" && cfg != nil && cfg.Current != "" {
 		p.profile = cfg.Current

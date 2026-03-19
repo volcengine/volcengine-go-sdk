@@ -15,11 +15,11 @@ const EnvProviderName = "EnvProvider"
 var (
 	// ErrAccessKeyIDNotFound is returned when the Volcengine Access Key ID can't be
 	// found in the process's environment.
-	ErrAccessKeyIDNotFound = volcengineerr.New("EnvAccessKeyNotFound", "VOLCSTACK_ACCESS_KEY_ID or VOLCSTACK_ACCESS_KEY not found in environment", nil)
+	ErrAccessKeyIDNotFound = volcengineerr.New("EnvAccessKeyNotFound", "VOLCENGINE_ACCESS_KEY or VOLCSTACK_ACCESS_KEY_ID or VOLCSTACK_ACCESS_KEY not found in environment", nil)
 
 	// ErrSecretAccessKeyNotFound is returned when the Volcengine Secret Access Key
 	// can't be found in the process's environment.
-	ErrSecretAccessKeyNotFound = volcengineerr.New("EnvSecretNotFound", "VOLCSTACK_SECRET_ACCESS_KEY or VOLCSTACK_SECRET_KEY not found in environment", nil)
+	ErrSecretAccessKeyNotFound = volcengineerr.New("EnvSecretNotFound", "VOLCENGINE_SECRET_KEY or VOLCSTACK_SECRET_ACCESS_KEY or VOLCSTACK_SECRET_KEY not found in environment", nil)
 )
 
 // A EnvProvider retrieves credentials from the environment variables of the
@@ -27,9 +27,9 @@ var (
 //
 // Environment variables used:
 //
-// * Access Key ID:     VOLCSTACK_ACCESS_KEY_ID or VOLCSTACK_ACCESS_KEY
+// * Access Key ID:     VOLCENGINE_ACCESS_KEY > VOLCSTACK_ACCESS_KEY_ID > VOLCSTACK_ACCESS_KEY
 //
-// * Secret Access Key: VOLCSTACK_SECRET_ACCESS_KEY or VOLCSTACK_SECRET_KEY
+// * Secret Access Key: VOLCENGINE_SECRET_KEY > VOLCSTACK_SECRET_ACCESS_KEY > VOLCSTACK_SECRET_KEY
 type EnvProvider struct {
 	retrieved bool
 }
@@ -44,8 +44,8 @@ func NewEnvCredentials() *Credentials {
 func (e *EnvProvider) Retrieve() (Value, error) {
 	e.retrieved = false
 
-	id := getEnvWithFallback("VOLCSTACK_ACCESS_KEY_ID", "VOLCENGINE_ACCESS_KEY", "VOLCSTACK_ACCESS_KEY")
-	secret := getEnvWithFallback("VOLCSTACK_SECRET_ACCESS_KEY", "VOLCENGINE_SECRET_KEY", "VOLCSTACK_SECRET_KEY")
+	id := getEnvWithFallback("VOLCENGINE_ACCESS_KEY", "VOLCSTACK_ACCESS_KEY_ID", "VOLCSTACK_ACCESS_KEY")
+	secret := getEnvWithFallback("VOLCENGINE_SECRET_KEY", "VOLCSTACK_SECRET_ACCESS_KEY", "VOLCSTACK_SECRET_KEY")
 
 	if id == "" {
 		return Value{ProviderName: EnvProviderName}, ErrAccessKeyIDNotFound
@@ -59,7 +59,7 @@ func (e *EnvProvider) Retrieve() (Value, error) {
 	return Value{
 		AccessKeyID:     id,
 		SecretAccessKey: secret,
-		SessionToken:    getEnvWithFallback("VOLCSTACK_SESSION_TOKEN", "VOLCENGINE_SESSION_TOKEN"),
+		SessionToken:    getEnvWithFallback("VOLCENGINE_SESSION_TOKEN", "VOLCSTACK_SESSION_TOKEN"),
 		ProviderName:    EnvProviderName,
 	}, nil
 }

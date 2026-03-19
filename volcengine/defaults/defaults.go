@@ -103,18 +103,16 @@ func CredChain(cfg *volcengine.Config, handlers request.Handlers) *credentials.C
 // CredProviders returns the slice of providers used in
 // the default credential chain.
 //
-// The 5-step default chain:
+// The 4-step default chain:
 //  1. EnvProvider (AK/SK/STS from environment variables)
 //  2. OIDCCredentialsProvider (from environment variables)
 //  3. CliProvider (from ~/.volcengine/config.json)
-//  4. SharedCredentialsProvider (from ~/.volcengine/credentials)
-//  5. EcsRoleProvider (from IMDS)
+//  4. EcsRoleProvider (from IMDS)
 func CredProviders(cfg *volcengine.Config, handlers request.Handlers) []credentials.Provider {
 	return []credentials.Provider{
 		&credentials.EnvProvider{},
 		credentials.NewOIDCCredentialsProviderFromEnv(),
 		clicreds.NewCliProvider("", ""),
-		&credentials.SharedCredentialsProvider{Filename: "", Profile: ""},
 		credentials.NewEcsRoleProvider(""),
 	}
 }
@@ -139,8 +137,7 @@ func NewDefaultCredentialProvider(optFns ...func(*credentials.DefaultCredentialP
 	providers := []credentials.Provider{
 		&credentials.EnvProvider{},
 		credentials.NewOIDCCredentialsProviderFromEnv(),
-		clicreds.NewCliProvider("", opts.ProfileName),
-		&credentials.SharedCredentialsProvider{Filename: "", Profile: opts.ProfileName},
+		clicreds.NewCliProvider("", ""),
 		credentials.NewEcsRoleProvider(opts.RoleName),
 	}
 

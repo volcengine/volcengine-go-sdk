@@ -13,12 +13,8 @@ const DefaultProviderName = "DefaultCredentialProvider"
 // credential chain.
 type DefaultCredentialProviderOptions struct {
 	// RoleName is the ECS IMDS role name. If empty, it will be resolved
-	// from env var VOLCENGINE_ECS_METADATA or auto-detected.
+	// from env var VOLCENGINE_ECS_METADATA.
 	RoleName string
-
-	// ProfileName is used by CLI config and SharedCredentialsProvider.
-	// If empty, each provider falls back to its own default logic.
-	ProfileName string
 
 	// ReuseLastProviderEnabled controls whether the chain caches and
 	// reuses the last successful provider on subsequent calls.
@@ -48,7 +44,7 @@ type DefaultCredentialProvider struct {
 
 // NewDefaultCredentialProviderFromProviders creates a DefaultCredentialProvider
 // from an explicit list of providers. This is intended to be called from the
-// defaults package which assembles the full 5-step chain.
+// defaults package which assembles the full 4-step chain.
 func NewDefaultCredentialProviderFromProviders(providers []Provider, reuseEnabled bool) *Credentials {
 	p := &DefaultCredentialProvider{
 		Providers:    append([]Provider{}, providers...),

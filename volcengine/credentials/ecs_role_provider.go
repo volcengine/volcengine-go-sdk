@@ -20,9 +20,6 @@ const (
 	// imdsEndpoint is the IMDS endpoint address. Pending confirmation from ECS team.
 	imdsEndpoint = "http://100.96.0.96"
 
-	// imdsRoleListPath is the path to list available IAM roles.
-	imdsRoleListPath = "/volcstack/latest/iam/security_credentials/"
-
 	// imdsRoleCredsPath is the path template to get STS credentials for a role.
 	// Use fmt.Sprintf with roleName.
 	imdsRoleCredsPath = "/volcstack/latest/iam/security_credentials/%s"
@@ -49,7 +46,7 @@ type imdsCredentialResponse struct {
 	AccessKeyID     string `json:"AccessKeyId"`
 	SecretAccessKey string `json:"SecretAccessKey"`
 	SessionToken    string `json:"SessionToken"`
-	Expiration      string `json:"Expiration"`
+	Expiration      string `json:"ExpiredTime"`
 }
 
 // EcsRoleProvider retrieves credentials from the ECS Instance Metadata Service (IMDS).
@@ -57,7 +54,7 @@ type EcsRoleProvider struct {
 	Expiry
 
 	// RoleName is the IAM role name. If empty, it is resolved from the env var
-	// VOLCENGINE_ECS_METADATA, or auto-detected from IMDS.
+	// VOLCENGINE_ECS_METADATA. If neither is set, an error is returned.
 	RoleName string
 
 	// ExpiryWindow will allow the credentials to trigger refreshing prior to
@@ -133,7 +130,8 @@ func isIMDSDisabled() bool {
 	return strings.EqualFold(v, "true")
 }
 
-// resolveRoleName determines the role name from: parameter > env var > auto-detect.
+// resolveRoleName determines the role name from: parameter > env var.
+// If neither is set, returns an error (no auto-detect from IMDS).
 func (p *EcsRoleProvider) resolveRoleName() (string, error) {
 	if p.RoleName != "" {
 		return p.RoleName, nil
@@ -143,38 +141,8 @@ func (p *EcsRoleProvider) resolveRoleName() (string, error) {
 		return envRole, nil
 	}
 
-	return p.autoDetectRoleName()
-}
-
-// autoDetectRoleName calls IMDS to list available roles and picks one.
-func (p *EcsRoleProvider) autoDetectRoleName() (string, error) {
-	body, err := p.doRequestWithRetry(imdsEndpoint + imdsRoleListPath)
-	if err != nil {
-		return "", volcengineerr.New("EcsRoleAutoDetectFailed",
-			"failed to auto-detect ECS role name from IMDS", err)
-	}
-
-	roleName := strings.TrimSpace(string(body))
-	if roleName == "" {
-		return "", volcengineerr.New("EcsRoleNotFound",
-			"no IAM role found on this ECS instance", nil)
-	}
-
-	// IMDS may return multiple roles separated by newlines.
-	roles := strings.Split(roleName, "\n")
-	var filtered []string
-	for _, r := range roles {
-		r = strings.TrimSpace(r)
-		if r != "" {
-			filtered = append(filtered, r)
-		}
-	}
-	if len(filtered) == 0 {
-		return "", volcengineerr.New("EcsRoleNotFound",
-			"no IAM role found on this ECS instance", nil)
-	}
-
-	return filtered[0], nil
+	return "", volcengineerr.New("EcsRoleNameNotSet",
+		"ECS role name not set: specify via RoleName parameter or VOLCENGINE_ECS_METADATA environment variable", nil)
 }
 
 // getCredentials fetches STS credentials for the given role from IMDS.
