@@ -139,6 +139,11 @@ func NewCliCredentials(configPath, profile string) *credentials.Credentials {
 }
 
 func (p *CliProvider) Retrieve() (credentials.Value, error) {
+	// If a delegate provider exists and is not expired, reuse it
+	if p.delegate != nil && !p.delegate.IsExpired() {
+		return p.delegate.Retrieve()
+	}
+
 	p.retrieved = false
 	p.hasExpiration = false
 	p.delegate = nil
