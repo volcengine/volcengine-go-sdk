@@ -235,6 +235,8 @@ type CreateDBAccountInput struct {
 	// AccountType is a required field
 	AccountType *string `type:"string" json:",omitempty" required:"true"`
 
+	AuthenticationType *string `type:"string" json:",omitempty"`
+
 	DryRun *bool `type:"boolean" json:",omitempty"`
 
 	Host *string `type:"string" json:",omitempty"`
@@ -304,6 +306,12 @@ func (s *CreateDBAccountInput) SetAccountPrivileges(v []*AccountPrivilegeForCrea
 // SetAccountType sets the AccountType field's value.
 func (s *CreateDBAccountInput) SetAccountType(v string) *CreateDBAccountInput {
 	s.AccountType = &v
+	return s
+}
+
+// SetAuthenticationType sets the AuthenticationType field's value.
+func (s *CreateDBAccountInput) SetAuthenticationType(v string) *CreateDBAccountInput {
+	s.AuthenticationType = &v
 	return s
 }
 
