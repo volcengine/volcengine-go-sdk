@@ -145,6 +145,44 @@ func (c *VIKINGDB) CreateVikingdbCollectionWithContext(ctx volcengine.Context, i
 	return out, req.Send()
 }
 
+type AnalyzerForCreateVikingdbCollectionInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	CharacterConverters []*string `type:"list" json:",omitempty"`
+
+	StopWordsFilters []*string `type:"list" json:",omitempty"`
+
+	Tokenizer *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s AnalyzerForCreateVikingdbCollectionInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s AnalyzerForCreateVikingdbCollectionInput) GoString() string {
+	return s.String()
+}
+
+// SetCharacterConverters sets the CharacterConverters field's value.
+func (s *AnalyzerForCreateVikingdbCollectionInput) SetCharacterConverters(v []*string) *AnalyzerForCreateVikingdbCollectionInput {
+	s.CharacterConverters = v
+	return s
+}
+
+// SetStopWordsFilters sets the StopWordsFilters field's value.
+func (s *AnalyzerForCreateVikingdbCollectionInput) SetStopWordsFilters(v []*string) *AnalyzerForCreateVikingdbCollectionInput {
+	s.StopWordsFilters = v
+	return s
+}
+
+// SetTokenizer sets the Tokenizer field's value.
+func (s *AnalyzerForCreateVikingdbCollectionInput) SetTokenizer(v string) *AnalyzerForCreateVikingdbCollectionInput {
+	s.Tokenizer = &v
+	return s
+}
+
 type CreateVikingdbCollectionInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -154,6 +192,8 @@ type CreateVikingdbCollectionInput struct {
 	Description *string `max:"65535" type:"string" json:",omitempty"`
 
 	Fields []*FieldForCreateVikingdbCollectionInput `type:"list" json:",omitempty"`
+
+	FullText []*FullTextForCreateVikingdbCollectionInput `type:"list" json:",omitempty"`
 
 	ProjectName *string `min:"1" type:"string" json:",omitempty"`
 
@@ -200,6 +240,16 @@ func (s *CreateVikingdbCollectionInput) Validate() error {
 			}
 		}
 	}
+	if s.FullText != nil {
+		for i, v := range s.FullText {
+			if v == nil {
+				continue
+			}
+			if err := v.Validate(); err != nil {
+				invalidParams.AddNested(fmt.Sprintf("%s[%v]", "FullText", i), err.(request.ErrInvalidParams))
+			}
+		}
+	}
 
 	if invalidParams.Len() > 0 {
 		return invalidParams
@@ -222,6 +272,12 @@ func (s *CreateVikingdbCollectionInput) SetDescription(v string) *CreateVikingdb
 // SetFields sets the Fields field's value.
 func (s *CreateVikingdbCollectionInput) SetFields(v []*FieldForCreateVikingdbCollectionInput) *CreateVikingdbCollectionInput {
 	s.Fields = v
+	return s
+}
+
+// SetFullText sets the FullText field's value.
+func (s *CreateVikingdbCollectionInput) SetFullText(v []*FullTextForCreateVikingdbCollectionInput) *CreateVikingdbCollectionInput {
+	s.FullText = v
 	return s
 }
 
@@ -273,20 +329,6 @@ func (s *CreateVikingdbCollectionOutput) SetMessage(v string) *CreateVikingdbCol
 func (s *CreateVikingdbCollectionOutput) SetResourceId(v string) *CreateVikingdbCollectionOutput {
 	s.ResourceId = &v
 	return s
-}
-
-type DefaultValueForCreateVikingdbCollectionInput struct {
-	_ struct{} `type:"structure" json:",omitempty"`
-}
-
-// String returns the string representation
-func (s DefaultValueForCreateVikingdbCollectionInput) String() string {
-	return volcengineutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s DefaultValueForCreateVikingdbCollectionInput) GoString() string {
-	return s.String()
 }
 
 type DenseForCreateVikingdbCollectionInput struct {
@@ -386,7 +428,7 @@ func (s *DenseForCreateVikingdbCollectionInput) SetVideoField(v string) *DenseFo
 type FieldForCreateVikingdbCollectionInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	DefaultValue interface{} `json:",omitempty"`
+	DefaultValue interface{} `type:"interface" json:",omitempty"`
 
 	Dim *int32 `type:"int32" json:",omitempty"`
 
@@ -425,7 +467,7 @@ func (s *FieldForCreateVikingdbCollectionInput) Validate() error {
 
 // SetDefaultValue sets the DefaultValue field's value.
 func (s *FieldForCreateVikingdbCollectionInput) SetDefaultValue(v interface{}) *FieldForCreateVikingdbCollectionInput {
-	s.DefaultValue = v
+	s.DefaultValue = &v
 	return s
 }
 
@@ -453,10 +495,55 @@ func (s *FieldForCreateVikingdbCollectionInput) SetIsPrimaryKey(v bool) *FieldFo
 	return s
 }
 
+type FullTextForCreateVikingdbCollectionInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Analyzer *AnalyzerForCreateVikingdbCollectionInput `type:"structure" json:",omitempty"`
+
+	Field *string `min:"1" type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s FullTextForCreateVikingdbCollectionInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s FullTextForCreateVikingdbCollectionInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *FullTextForCreateVikingdbCollectionInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "FullTextForCreateVikingdbCollectionInput"}
+	if s.Field != nil && len(*s.Field) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("Field", 1))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetAnalyzer sets the Analyzer field's value.
+func (s *FullTextForCreateVikingdbCollectionInput) SetAnalyzer(v *AnalyzerForCreateVikingdbCollectionInput) *FullTextForCreateVikingdbCollectionInput {
+	s.Analyzer = v
+	return s
+}
+
+// SetField sets the Field field's value.
+func (s *FullTextForCreateVikingdbCollectionInput) SetField(v string) *FullTextForCreateVikingdbCollectionInput {
+	s.Field = &v
+	return s
+}
+
 type InstructionForCreateVikingdbCollectionInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
 	AutoFill *bool `type:"boolean" json:",omitempty"`
+
+	Content *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -475,6 +562,11 @@ func (s *InstructionForCreateVikingdbCollectionInput) SetAutoFill(v bool) *Instr
 	return s
 }
 
+// SetContent sets the Content field's value.
+func (s *InstructionForCreateVikingdbCollectionInput) SetContent(v string) *InstructionForCreateVikingdbCollectionInput {
+	s.Content = &v
+	return s
+}
 
 type SparseForCreateVikingdbCollectionInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`

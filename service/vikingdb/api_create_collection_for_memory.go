@@ -242,6 +242,8 @@ type CreateCollectionForMemoryInput struct {
 
 	BuiltinProfileTypes []*string `type:"list" json:",omitempty"`
 
+	CollectionModalType *string `type:"string" json:",omitempty" enum:"EnumOfCollectionModalTypeForCreateCollectionForMemoryInput"`
+
 	// CollectionName is a required field
 	CollectionName *string `type:"string" json:",omitempty" required:"true"`
 
@@ -290,6 +292,12 @@ func (s *CreateCollectionForMemoryInput) SetBuiltinEventTypes(v []*string) *Crea
 // SetBuiltinProfileTypes sets the BuiltinProfileTypes field's value.
 func (s *CreateCollectionForMemoryInput) SetBuiltinProfileTypes(v []*string) *CreateCollectionForMemoryInput {
 	s.BuiltinProfileTypes = v
+	return s
+}
+
+// SetCollectionModalType sets the CollectionModalType field's value.
+func (s *CreateCollectionForMemoryInput) SetCollectionModalType(v string) *CreateCollectionForMemoryInput {
+	s.CollectionModalType = &v
 	return s
 }
 
@@ -496,3 +504,11 @@ func (s *PropertyForCreateCollectionForMemoryInput) SetPropertyValueType(v strin
 	s.PropertyValueType = &v
 	return s
 }
+
+const (
+	// EnumOfCollectionModalTypeForCreateCollectionForMemoryInputText is a EnumOfCollectionModalTypeForCreateCollectionForMemoryInput enum value
+	EnumOfCollectionModalTypeForCreateCollectionForMemoryInputText = "text"
+
+	// EnumOfCollectionModalTypeForCreateCollectionForMemoryInputMultimodal is a EnumOfCollectionModalTypeForCreateCollectionForMemoryInput enum value
+	EnumOfCollectionModalTypeForCreateCollectionForMemoryInputMultimodal = "multimodal"
+)

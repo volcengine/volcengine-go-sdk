@@ -86,6 +86,22 @@ type VIKINGDBAPI interface {
 	DeleteVikingdbTaskWithContext(volcengine.Context, *DeleteVikingdbTaskInput, ...request.Option) (*DeleteVikingdbTaskOutput, error)
 	DeleteVikingdbTaskRequest(*DeleteVikingdbTaskInput) (*request.Request, *DeleteVikingdbTaskOutput)
 
+	DisableVikingdbIndexCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DisableVikingdbIndexCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DisableVikingdbIndexCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DisableVikingdbIndex(*DisableVikingdbIndexInput) (*DisableVikingdbIndexOutput, error)
+	DisableVikingdbIndexWithContext(volcengine.Context, *DisableVikingdbIndexInput, ...request.Option) (*DisableVikingdbIndexOutput, error)
+	DisableVikingdbIndexRequest(*DisableVikingdbIndexInput) (*request.Request, *DisableVikingdbIndexOutput)
+
+	EnableVikingdbIndexCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	EnableVikingdbIndexCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	EnableVikingdbIndexCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	EnableVikingdbIndex(*EnableVikingdbIndexInput) (*EnableVikingdbIndexOutput, error)
+	EnableVikingdbIndexWithContext(volcengine.Context, *EnableVikingdbIndexInput, ...request.Option) (*EnableVikingdbIndexOutput, error)
+	EnableVikingdbIndexRequest(*EnableVikingdbIndexInput) (*request.Request, *EnableVikingdbIndexOutput)
+
 	GetVikingdbCollectionCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	GetVikingdbCollectionCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	GetVikingdbCollectionCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
