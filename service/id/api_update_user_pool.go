@@ -252,7 +252,7 @@ type UpdateUserPoolInput struct {
 
 	SignUpAutoVerificationEnabled *bool `type:"boolean" json:",omitempty"`
 
-	SmsAnonymousSignUpEnabled *string `type:"string" json:",omitempty"`
+	SmsAnonymousSignUpEnabled *bool `type:"boolean" json:",omitempty"`
 
 	SmsPasswordlessSignInEnabled *bool `type:"boolean" json:",omitempty"`
 
@@ -334,7 +334,7 @@ func (s *UpdateUserPoolInput) SetSignUpAutoVerificationEnabled(v bool) *UpdateUs
 }
 
 // SetSmsAnonymousSignUpEnabled sets the SmsAnonymousSignUpEnabled field's value.
-func (s *UpdateUserPoolInput) SetSmsAnonymousSignUpEnabled(v string) *UpdateUserPoolInput {
+func (s *UpdateUserPoolInput) SetSmsAnonymousSignUpEnabled(v bool) *UpdateUserPoolInput {
 	s.SmsAnonymousSignUpEnabled = &v
 	return s
 }

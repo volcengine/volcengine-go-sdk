@@ -143,6 +143,36 @@ func (c *ID) ListIdentityProvidersOIDCWithContext(ctx volcengine.Context, input 
 	return out, req.Send()
 }
 
+type AdditionalMappingForListIdentityProvidersOIDCOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	ScimPath *string `type:"string" json:",omitempty"`
+
+	UserPoolPath []*string `type:"list" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s AdditionalMappingForListIdentityProvidersOIDCOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s AdditionalMappingForListIdentityProvidersOIDCOutput) GoString() string {
+	return s.String()
+}
+
+// SetScimPath sets the ScimPath field's value.
+func (s *AdditionalMappingForListIdentityProvidersOIDCOutput) SetScimPath(v string) *AdditionalMappingForListIdentityProvidersOIDCOutput {
+	s.ScimPath = &v
+	return s
+}
+
+// SetUserPoolPath sets the UserPoolPath field's value.
+func (s *AdditionalMappingForListIdentityProvidersOIDCOutput) SetUserPoolPath(v []*string) *AdditionalMappingForListIdentityProvidersOIDCOutput {
+	s.UserPoolPath = v
+	return s
+}
+
 type ClaimRuleForListIdentityProvidersOIDCOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -240,6 +270,8 @@ type DataForListIdentityProvidersOIDCOutput struct {
 
 	ProviderOptions *ProviderOptionsForListIdentityProvidersOIDCOutput `type:"structure" json:",omitempty"`
 
+	ScimProvisioning *ScimProvisioningForListIdentityProvidersOIDCOutput `type:"structure" json:",omitempty"`
+
 	ScopesList []*string `type:"list" json:",omitempty"`
 
 	Uid *string `type:"string" json:",omitempty"`
@@ -308,6 +340,12 @@ func (s *DataForListIdentityProvidersOIDCOutput) SetProvider(v string) *DataForL
 // SetProviderOptions sets the ProviderOptions field's value.
 func (s *DataForListIdentityProvidersOIDCOutput) SetProviderOptions(v *ProviderOptionsForListIdentityProvidersOIDCOutput) *DataForListIdentityProvidersOIDCOutput {
 	s.ProviderOptions = v
+	return s
+}
+
+// SetScimProvisioning sets the ScimProvisioning field's value.
+func (s *DataForListIdentityProvidersOIDCOutput) SetScimProvisioning(v *ScimProvisioningForListIdentityProvidersOIDCOutput) *DataForListIdentityProvidersOIDCOutput {
+	s.ScimProvisioning = v
 	return s
 }
 
@@ -464,5 +502,51 @@ func (s *ProviderOptionsForListIdentityProvidersOIDCOutput) SetIsCreationAllowed
 // SetIsLinkingAllowed sets the IsLinkingAllowed field's value.
 func (s *ProviderOptionsForListIdentityProvidersOIDCOutput) SetIsLinkingAllowed(v bool) *ProviderOptionsForListIdentityProvidersOIDCOutput {
 	s.IsLinkingAllowed = &v
+	return s
+}
+
+type ScimProvisioningForListIdentityProvidersOIDCOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	AdditionalMappings []*AdditionalMappingForListIdentityProvidersOIDCOutput `type:"list" json:",omitempty"`
+
+	BaseUrl *string `type:"string" json:",omitempty"`
+
+	Enabled *bool `type:"boolean" json:",omitempty"`
+
+	UserIdAttribute *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s ScimProvisioningForListIdentityProvidersOIDCOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ScimProvisioningForListIdentityProvidersOIDCOutput) GoString() string {
+	return s.String()
+}
+
+// SetAdditionalMappings sets the AdditionalMappings field's value.
+func (s *ScimProvisioningForListIdentityProvidersOIDCOutput) SetAdditionalMappings(v []*AdditionalMappingForListIdentityProvidersOIDCOutput) *ScimProvisioningForListIdentityProvidersOIDCOutput {
+	s.AdditionalMappings = v
+	return s
+}
+
+// SetBaseUrl sets the BaseUrl field's value.
+func (s *ScimProvisioningForListIdentityProvidersOIDCOutput) SetBaseUrl(v string) *ScimProvisioningForListIdentityProvidersOIDCOutput {
+	s.BaseUrl = &v
+	return s
+}
+
+// SetEnabled sets the Enabled field's value.
+func (s *ScimProvisioningForListIdentityProvidersOIDCOutput) SetEnabled(v bool) *ScimProvisioningForListIdentityProvidersOIDCOutput {
+	s.Enabled = &v
+	return s
+}
+
+// SetUserIdAttribute sets the UserIdAttribute field's value.
+func (s *ScimProvisioningForListIdentityProvidersOIDCOutput) SetUserIdAttribute(v string) *ScimProvisioningForListIdentityProvidersOIDCOutput {
+	s.UserIdAttribute = &v
 	return s
 }
