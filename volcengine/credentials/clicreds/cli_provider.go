@@ -19,9 +19,12 @@ import (
 const (
 	// CliProviderName provides a name of CLI config provider.
 	CliProviderName = "CliProvider"
-	modeSSO      = "sso"
-	modeAK       = "ak"
-	modeStsToken = "ststoken"
+	modeSSO         = "sso"
+	modeAK          = "ak"
+	modeStsToken    = "ststoken"
+	modeRamRoleArn  = "ramrolearn"
+	modeOIDC        = "oidc"
+	modeEcsRole     = "ecsrole"
 	defaultRegion   = "cn-beijing"
 )
 
@@ -40,6 +43,8 @@ type cliProfile struct {
 	SsoSessionName string `json:"sso-session-name"`
 	AccountId      string `json:"account-id"`
 	RoleName       string `json:"role-name"`
+	OIDCTokenFile  string `json:"oidc-token-file"`
+	RoleTrn        string `json:"role-trn"`
 }
 
 type SsoSession struct {
@@ -80,6 +85,11 @@ type CliProvider struct {
 	// Profile is the profile name in the config. If empty, it will first try
 	// VOLCENGINE_PROFILE (fallback VOLCSTACK_PROFILE), then use config.current.
 	profile string
+
+	// delegate is a cached provider for modes that delegate credential
+	// retrieval (RamRoleArn, OIDC, EcsRole). Once created on first
+	// Retrieve(), subsequent calls forward to delegate.Retrieve().
+	delegate credentials.Provider
 
 	retrieved     bool
 	hasExpiration bool
@@ -131,6 +141,7 @@ func NewCliCredentials(configPath, profile string) *credentials.Credentials {
 func (p *CliProvider) Retrieve() (credentials.Value, error) {
 	p.retrieved = false
 	p.hasExpiration = false
+	p.delegate = nil
 	p.SetExpiration(time.Time{}, 0)
 
 	configPath, err := p.getConfigPath()
@@ -184,6 +195,12 @@ func (p *CliProvider) Retrieve() (credentials.Value, error) {
 		return p.retrieveStsToken(profile, profileName, configPath)
 	case modeSSO:
 		return p.retrieveSSO(profile, profileName, configPath, cfg)
+	case modeRamRoleArn:
+		return p.retrieveRamRoleArn(profile, profileName, configPath)
+	case modeOIDC:
+		return p.retrieveOIDC(profile, profileName, configPath)
+	case modeEcsRole:
+		return p.retrieveEcsRole(profile, profileName, configPath)
 	default:
 		return credentials.Value{ProviderName: CliProviderName}, volcengineerr.New(
 			"CliConfigModeInvalid",
@@ -535,6 +552,102 @@ func (p *CliProvider) getRoleCredentials(accessToken string, profile *cliProfile
 	}, nil
 }
 
+func (p *CliProvider) retrieveRamRoleArn(profile *cliProfile, profileName, configPath string) (credentials.Value, error) {
+	if p.delegate == nil {
+		if len(profile.AccessKey) == 0 {
+			return credentials.Value{ProviderName: CliProviderName}, volcengineerr.New(
+				"CliConfigAccessKey",
+				fmt.Sprintf("cli config profile %s in %s did not contain access-key (required for RamRoleArn mode)", profileName, configPath),
+				nil,
+			)
+		}
+		if len(profile.SecretKey) == 0 {
+			return credentials.Value{ProviderName: CliProviderName}, volcengineerr.New(
+				"CliConfigSecretKey",
+				fmt.Sprintf("cli config profile %s in %s did not contain secret-key (required for RamRoleArn mode)", profileName, configPath),
+				nil,
+			)
+		}
+		if len(strings.TrimSpace(profile.RoleName)) == 0 {
+			return credentials.Value{ProviderName: CliProviderName}, volcengineerr.New(
+				"CliConfigRoleNameMissing",
+				fmt.Sprintf("cli config profile %s in %s did not contain role-name (required for RamRoleArn mode)", profileName, configPath),
+				nil,
+			)
+		}
+		if len(strings.TrimSpace(profile.AccountId)) == 0 {
+			return credentials.Value{ProviderName: CliProviderName}, volcengineerr.New(
+				"CliConfigAccountIDMissing",
+				fmt.Sprintf("cli config profile %s in %s did not contain account-id (required for RamRoleArn mode)", profileName, configPath),
+				nil,
+			)
+		}
+		stsProvider := &credentials.StsProvider{
+			StsValue: credentials.StsValue{
+				AccessKey:       profile.AccessKey,
+				SecurityKey:     profile.SecretKey,
+				RoleName:        profile.RoleName,
+				AccountId:       profile.AccountId,
+				Region:          defaultRegion,
+				Schema:          "https",
+				Host:            "sts.volcengineapi.com",
+				Timeout:         5 * time.Second,
+				DurationSeconds: 3600,
+			},
+		}
+		p.delegate = stsProvider
+	}
+	return p.delegate.Retrieve()
+}
+
+func (p *CliProvider) retrieveOIDC(profile *cliProfile, profileName, configPath string) (credentials.Value, error) {
+	if p.delegate == nil {
+		tokenFile := strings.TrimSpace(profile.OIDCTokenFile)
+		if tokenFile == "" {
+			tokenFile = os.Getenv("VOLCENGINE_OIDC_TOKEN_FILE")
+		}
+		roleTrn := strings.TrimSpace(profile.RoleTrn)
+		if roleTrn == "" {
+			roleTrn = os.Getenv("VOLCENGINE_OIDC_ROLE_TRN")
+		}
+		if tokenFile == "" {
+			return credentials.Value{ProviderName: CliProviderName}, volcengineerr.New(
+				"CliConfigOIDCTokenFileMissing",
+				fmt.Sprintf("cli config profile %s in %s did not contain oidc-token-file and VOLCENGINE_OIDC_TOKEN_FILE is not set", profileName, configPath),
+				nil,
+			)
+		}
+		if roleTrn == "" {
+			return credentials.Value{ProviderName: CliProviderName}, volcengineerr.New(
+				"CliConfigOIDCRoleTrnMissing",
+				fmt.Sprintf("cli config profile %s in %s did not contain role-trn and VOLCENGINE_OIDC_ROLE_TRN is not set", profileName, configPath),
+				nil,
+			)
+		}
+		p.delegate = &credentials.OIDCCredentialsProvider{
+			OIDCTokenFilePath: tokenFile,
+			RoleTrn:           roleTrn,
+			DurationSeconds:   3600,
+		}
+	}
+	return p.delegate.Retrieve()
+}
+
+func (p *CliProvider) retrieveEcsRole(profile *cliProfile, profileName, configPath string) (credentials.Value, error) {
+	if p.delegate == nil {
+		roleName := strings.TrimSpace(profile.RoleName)
+		if roleName == "" {
+			return credentials.Value{ProviderName: CliProviderName}, volcengineerr.New(
+				"CliConfigRoleNameMissing",
+				fmt.Sprintf("cli config profile %s in %s did not contain role-name (required for EcsRole mode)", profileName, configPath),
+				nil,
+			)
+		}
+		p.delegate = credentials.NewEcsRoleProvider(roleName)
+	}
+	return p.delegate.Retrieve()
+}
+
 func loadSsoTokenCache(path string) (*SsoTokenCache, error) {
 	data, err := ioutil.ReadFile(path)
 	if err != nil {
@@ -613,6 +726,9 @@ func isRefreshTokenExpired(cache *SsoTokenCache) (bool, error) {
 }
 
 func (p *CliProvider) IsExpired() bool {
+	if p.delegate != nil {
+		return p.delegate.IsExpired()
+	}
 	if !p.retrieved {
 		return true
 	}
