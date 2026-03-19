@@ -142,6 +142,8 @@ func (c *ID) CreateUsersCSVWithContext(ctx volcengine.Context, input *CreateUser
 type CreateUsersCSVInput struct {
 	_ struct{} `type:"structure"`
 
+	ExternalProviderConnectionUid *string `type:"string"`
+
 	// UserPoolUid is a required field
 	UserPoolUid *string `type:"string" required:"true"`
 }
@@ -169,6 +171,12 @@ func (s *CreateUsersCSVInput) Validate() error {
 	return nil
 }
 
+// SetExternalProviderConnectionUid sets the ExternalProviderConnectionUid field's value.
+func (s *CreateUsersCSVInput) SetExternalProviderConnectionUid(v string) *CreateUsersCSVInput {
+	s.ExternalProviderConnectionUid = &v
+	return s
+}
+
 // SetUserPoolUid sets the UserPoolUid field's value.
 func (s *CreateUsersCSVInput) SetUserPoolUid(v string) *CreateUsersCSVInput {
 	s.UserPoolUid = &v
@@ -189,6 +197,8 @@ type CreateUsersCSVOutput struct {
 	SuccessCount *int32 `type:"int32"`
 
 	SuccessfulUids []*string `type:"list"`
+
+	SuccessfulUidsStructured []*SuccessfulUidsStructuredForCreateUsersCSVOutput `type:"list"`
 }
 
 // String returns the string representation
@@ -231,6 +241,12 @@ func (s *CreateUsersCSVOutput) SetSuccessfulUids(v []*string) *CreateUsersCSVOut
 	return s
 }
 
+// SetSuccessfulUidsStructured sets the SuccessfulUidsStructured field's value.
+func (s *CreateUsersCSVOutput) SetSuccessfulUidsStructured(v []*SuccessfulUidsStructuredForCreateUsersCSVOutput) *CreateUsersCSVOutput {
+	s.SuccessfulUidsStructured = v
+	return s
+}
+
 type ErrorsStructuredForCreateUsersCSVOutput struct {
 	_ struct{} `type:"structure"`
 
@@ -266,5 +282,35 @@ func (s *ErrorsStructuredForCreateUsersCSVOutput) SetField(v string) *ErrorsStru
 // SetIndex sets the Index field's value.
 func (s *ErrorsStructuredForCreateUsersCSVOutput) SetIndex(v int32) *ErrorsStructuredForCreateUsersCSVOutput {
 	s.Index = &v
+	return s
+}
+
+type SuccessfulUidsStructuredForCreateUsersCSVOutput struct {
+	_ struct{} `type:"structure"`
+
+	Index *int32 `type:"int32"`
+
+	Uid *string `type:"string"`
+}
+
+// String returns the string representation
+func (s SuccessfulUidsStructuredForCreateUsersCSVOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s SuccessfulUidsStructuredForCreateUsersCSVOutput) GoString() string {
+	return s.String()
+}
+
+// SetIndex sets the Index field's value.
+func (s *SuccessfulUidsStructuredForCreateUsersCSVOutput) SetIndex(v int32) *SuccessfulUidsStructuredForCreateUsersCSVOutput {
+	s.Index = &v
+	return s
+}
+
+// SetUid sets the Uid field's value.
+func (s *SuccessfulUidsStructuredForCreateUsersCSVOutput) SetUid(v string) *SuccessfulUidsStructuredForCreateUsersCSVOutput {
+	s.Uid = &v
 	return s
 }

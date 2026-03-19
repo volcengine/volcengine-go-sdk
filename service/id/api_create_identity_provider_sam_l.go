@@ -143,6 +143,66 @@ func (c *ID) CreateIdentityProviderSAMLWithContext(ctx volcengine.Context, input
 	return out, req.Send()
 }
 
+type AdditionalMappingForCreateIdentityProviderSAMLInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	ScimPath *string `type:"string" json:",omitempty"`
+
+	UserPoolPath []*string `type:"list" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s AdditionalMappingForCreateIdentityProviderSAMLInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s AdditionalMappingForCreateIdentityProviderSAMLInput) GoString() string {
+	return s.String()
+}
+
+// SetScimPath sets the ScimPath field's value.
+func (s *AdditionalMappingForCreateIdentityProviderSAMLInput) SetScimPath(v string) *AdditionalMappingForCreateIdentityProviderSAMLInput {
+	s.ScimPath = &v
+	return s
+}
+
+// SetUserPoolPath sets the UserPoolPath field's value.
+func (s *AdditionalMappingForCreateIdentityProviderSAMLInput) SetUserPoolPath(v []*string) *AdditionalMappingForCreateIdentityProviderSAMLInput {
+	s.UserPoolPath = v
+	return s
+}
+
+type AdditionalMappingForCreateIdentityProviderSAMLOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	ScimPath *string `type:"string" json:",omitempty"`
+
+	UserPoolPath []*string `type:"list" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s AdditionalMappingForCreateIdentityProviderSAMLOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s AdditionalMappingForCreateIdentityProviderSAMLOutput) GoString() string {
+	return s.String()
+}
+
+// SetScimPath sets the ScimPath field's value.
+func (s *AdditionalMappingForCreateIdentityProviderSAMLOutput) SetScimPath(v string) *AdditionalMappingForCreateIdentityProviderSAMLOutput {
+	s.ScimPath = &v
+	return s
+}
+
+// SetUserPoolPath sets the UserPoolPath field's value.
+func (s *AdditionalMappingForCreateIdentityProviderSAMLOutput) SetUserPoolPath(v []*string) *AdditionalMappingForCreateIdentityProviderSAMLOutput {
+	s.UserPoolPath = v
+	return s
+}
+
 type ClaimRuleForCreateIdentityProviderSAMLInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -325,6 +385,8 @@ type CreateIdentityProviderSAMLInput struct {
 
 	ProviderOptions *ProviderOptionsForCreateIdentityProviderSAMLInput `type:"structure" json:",omitempty"`
 
+	ScimProvisioning *ScimProvisioningForCreateIdentityProviderSAMLInput `type:"structure" json:",omitempty"`
+
 	// UserPoolUid is a required field
 	UserPoolUid *string `type:"string" json:",omitempty" required:"true"`
 }
@@ -436,6 +498,12 @@ func (s *CreateIdentityProviderSAMLInput) SetProviderOptions(v *ProviderOptionsF
 	return s
 }
 
+// SetScimProvisioning sets the ScimProvisioning field's value.
+func (s *CreateIdentityProviderSAMLInput) SetScimProvisioning(v *ScimProvisioningForCreateIdentityProviderSAMLInput) *CreateIdentityProviderSAMLInput {
+	s.ScimProvisioning = v
+	return s
+}
+
 // SetUserPoolUid sets the UserPoolUid field's value.
 func (s *CreateIdentityProviderSAMLInput) SetUserPoolUid(v string) *CreateIdentityProviderSAMLInput {
 	s.UserPoolUid = &v
@@ -468,6 +536,8 @@ type CreateIdentityProviderSAMLOutput struct {
 	Provider *string `type:"string" json:",omitempty"`
 
 	ProviderOptions *ProviderOptionsForCreateIdentityProviderSAMLOutput `type:"structure" json:",omitempty"`
+
+	ScimProvisioning *ScimProvisioningForCreateIdentityProviderSAMLOutput `type:"structure" json:",omitempty"`
 
 	Uid *string `type:"string" json:",omitempty"`
 }
@@ -545,6 +615,12 @@ func (s *CreateIdentityProviderSAMLOutput) SetProvider(v string) *CreateIdentity
 // SetProviderOptions sets the ProviderOptions field's value.
 func (s *CreateIdentityProviderSAMLOutput) SetProviderOptions(v *ProviderOptionsForCreateIdentityProviderSAMLOutput) *CreateIdentityProviderSAMLOutput {
 	s.ProviderOptions = v
+	return s
+}
+
+// SetScimProvisioning sets the ScimProvisioning field's value.
+func (s *CreateIdentityProviderSAMLOutput) SetScimProvisioning(v *ScimProvisioningForCreateIdentityProviderSAMLOutput) *CreateIdentityProviderSAMLOutput {
+	s.ScimProvisioning = v
 	return s
 }
 
@@ -659,5 +735,89 @@ func (s *ProviderOptionsForCreateIdentityProviderSAMLOutput) SetIsCreationAllowe
 // SetIsLinkingAllowed sets the IsLinkingAllowed field's value.
 func (s *ProviderOptionsForCreateIdentityProviderSAMLOutput) SetIsLinkingAllowed(v bool) *ProviderOptionsForCreateIdentityProviderSAMLOutput {
 	s.IsLinkingAllowed = &v
+	return s
+}
+
+type ScimProvisioningForCreateIdentityProviderSAMLInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	AdditionalMappings []*AdditionalMappingForCreateIdentityProviderSAMLInput `type:"list" json:",omitempty"`
+
+	Enabled *bool `type:"boolean" json:",omitempty"`
+
+	UserIdAttribute *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s ScimProvisioningForCreateIdentityProviderSAMLInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ScimProvisioningForCreateIdentityProviderSAMLInput) GoString() string {
+	return s.String()
+}
+
+// SetAdditionalMappings sets the AdditionalMappings field's value.
+func (s *ScimProvisioningForCreateIdentityProviderSAMLInput) SetAdditionalMappings(v []*AdditionalMappingForCreateIdentityProviderSAMLInput) *ScimProvisioningForCreateIdentityProviderSAMLInput {
+	s.AdditionalMappings = v
+	return s
+}
+
+// SetEnabled sets the Enabled field's value.
+func (s *ScimProvisioningForCreateIdentityProviderSAMLInput) SetEnabled(v bool) *ScimProvisioningForCreateIdentityProviderSAMLInput {
+	s.Enabled = &v
+	return s
+}
+
+// SetUserIdAttribute sets the UserIdAttribute field's value.
+func (s *ScimProvisioningForCreateIdentityProviderSAMLInput) SetUserIdAttribute(v string) *ScimProvisioningForCreateIdentityProviderSAMLInput {
+	s.UserIdAttribute = &v
+	return s
+}
+
+type ScimProvisioningForCreateIdentityProviderSAMLOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	AdditionalMappings []*AdditionalMappingForCreateIdentityProviderSAMLOutput `type:"list" json:",omitempty"`
+
+	BaseUrl *string `type:"string" json:",omitempty"`
+
+	Enabled *bool `type:"boolean" json:",omitempty"`
+
+	UserIdAttribute *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s ScimProvisioningForCreateIdentityProviderSAMLOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ScimProvisioningForCreateIdentityProviderSAMLOutput) GoString() string {
+	return s.String()
+}
+
+// SetAdditionalMappings sets the AdditionalMappings field's value.
+func (s *ScimProvisioningForCreateIdentityProviderSAMLOutput) SetAdditionalMappings(v []*AdditionalMappingForCreateIdentityProviderSAMLOutput) *ScimProvisioningForCreateIdentityProviderSAMLOutput {
+	s.AdditionalMappings = v
+	return s
+}
+
+// SetBaseUrl sets the BaseUrl field's value.
+func (s *ScimProvisioningForCreateIdentityProviderSAMLOutput) SetBaseUrl(v string) *ScimProvisioningForCreateIdentityProviderSAMLOutput {
+	s.BaseUrl = &v
+	return s
+}
+
+// SetEnabled sets the Enabled field's value.
+func (s *ScimProvisioningForCreateIdentityProviderSAMLOutput) SetEnabled(v bool) *ScimProvisioningForCreateIdentityProviderSAMLOutput {
+	s.Enabled = &v
+	return s
+}
+
+// SetUserIdAttribute sets the UserIdAttribute field's value.
+func (s *ScimProvisioningForCreateIdentityProviderSAMLOutput) SetUserIdAttribute(v string) *ScimProvisioningForCreateIdentityProviderSAMLOutput {
+	s.UserIdAttribute = &v
 	return s
 }

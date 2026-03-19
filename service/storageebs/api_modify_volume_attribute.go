@@ -142,6 +142,10 @@ func (c *STORAGEEBS) ModifyVolumeAttributeWithContext(ctx volcengine.Context, in
 type ModifyVolumeAttributeInput struct {
 	_ struct{} `type:"structure"`
 
+	DeleteProtection *bool `type:"boolean"`
+
+	DeleteProtectionRetentionDays *int32 `type:"int32"`
+
 	DeleteWithInstance *bool `type:"boolean"`
 
 	Description *string `type:"string"`
@@ -177,6 +181,18 @@ func (s *ModifyVolumeAttributeInput) Validate() error {
 		return invalidParams
 	}
 	return nil
+}
+
+// SetDeleteProtection sets the DeleteProtection field's value.
+func (s *ModifyVolumeAttributeInput) SetDeleteProtection(v bool) *ModifyVolumeAttributeInput {
+	s.DeleteProtection = &v
+	return s
+}
+
+// SetDeleteProtectionRetentionDays sets the DeleteProtectionRetentionDays field's value.
+func (s *ModifyVolumeAttributeInput) SetDeleteProtectionRetentionDays(v int32) *ModifyVolumeAttributeInput {
+	s.DeleteProtectionRetentionDays = &v
+	return s
 }
 
 // SetDeleteWithInstance sets the DeleteWithInstance field's value.

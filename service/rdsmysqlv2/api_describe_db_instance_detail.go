@@ -254,6 +254,8 @@ type BasicInfoForDescribeDBInstanceDetailOutput struct {
 
 	DrSecondsBehindMaster *int32 `type:"int32" json:",omitempty"`
 
+	EngineType *string `type:"string" json:",omitempty"`
+
 	InstanceId *string `type:"string" json:",omitempty"`
 
 	InstanceName *string `type:"string" json:",omitempty"`
@@ -273,6 +275,8 @@ type BasicInfoForDescribeDBInstanceDetailOutput struct {
 	MasterRegion *string `type:"string" json:",omitempty"`
 
 	Memory *int32 `type:"int32" json:",omitempty"`
+
+	NewNodeSpec *string `type:"string" json:",omitempty"`
 
 	NodeNumber *string `type:"string" json:",omitempty"`
 
@@ -379,6 +383,12 @@ func (s *BasicInfoForDescribeDBInstanceDetailOutput) SetDrSecondsBehindMaster(v 
 	return s
 }
 
+// SetEngineType sets the EngineType field's value.
+func (s *BasicInfoForDescribeDBInstanceDetailOutput) SetEngineType(v string) *BasicInfoForDescribeDBInstanceDetailOutput {
+	s.EngineType = &v
+	return s
+}
+
 // SetInstanceId sets the InstanceId field's value.
 func (s *BasicInfoForDescribeDBInstanceDetailOutput) SetInstanceId(v string) *BasicInfoForDescribeDBInstanceDetailOutput {
 	s.InstanceId = &v
@@ -436,6 +446,12 @@ func (s *BasicInfoForDescribeDBInstanceDetailOutput) SetMasterRegion(v string) *
 // SetMemory sets the Memory field's value.
 func (s *BasicInfoForDescribeDBInstanceDetailOutput) SetMemory(v int32) *BasicInfoForDescribeDBInstanceDetailOutput {
 	s.Memory = &v
+	return s
+}
+
+// SetNewNodeSpec sets the NewNodeSpec field's value.
+func (s *BasicInfoForDescribeDBInstanceDetailOutput) SetNewNodeSpec(v string) *BasicInfoForDescribeDBInstanceDetailOutput {
+	s.NewNodeSpec = &v
 	return s
 }
 

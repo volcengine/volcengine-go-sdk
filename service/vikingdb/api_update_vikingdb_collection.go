@@ -145,29 +145,10 @@ func (c *VIKINGDB) UpdateVikingdbCollectionWithContext(ctx volcengine.Context, i
 	return out, req.Send()
 }
 
-/*
-// Placeholder type commented out per DEV_PROMPT.md
-// type DefaultValueForUpdateVikingdbCollectionInput is a placeholder and should be dynamic
-
-type DefaultValueForUpdateVikingdbCollectionInput struct {
-    _ struct{} `type:"structure" json:",omitempty"`
-}
-
-// String returns the string representation
-func (s DefaultValueForUpdateVikingdbCollectionInput) String() string {
-    return volcengineutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s DefaultValueForUpdateVikingdbCollectionInput) GoString() string {
-    return s.String()
-}
-*/
-
 type FieldForUpdateVikingdbCollectionInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	DefaultValue interface{} `json:",omitempty"`
+	DefaultValue interface{} `type:"interface" json:",omitempty"`
 
 	Dim *int32 `type:"int32" json:",omitempty"`
 
@@ -206,7 +187,7 @@ func (s *FieldForUpdateVikingdbCollectionInput) Validate() error {
 
 // SetDefaultValue sets the DefaultValue field's value.
 func (s *FieldForUpdateVikingdbCollectionInput) SetDefaultValue(v interface{}) *FieldForUpdateVikingdbCollectionInput {
-	s.DefaultValue = v
+	s.DefaultValue = &v
 	return s
 }
 

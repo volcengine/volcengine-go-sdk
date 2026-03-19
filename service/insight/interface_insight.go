@@ -19,7 +19,7 @@ import (
 //    // volcengine sdk func uses an SDK service client to make a request to
 //    // INSIGHT.
 //    func myFunc(svc INSIGHTAPI) bool {
-//        // Make svc.PullPost request
+//        // Make svc.ExpertInvokeAPI request
 //    }
 //
 //    func main() {
@@ -30,6 +30,22 @@ import (
 //    }
 //
 type INSIGHTAPI interface {
+	ExpertInvokeAPICommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ExpertInvokeAPICommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ExpertInvokeAPICommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ExpertInvokeAPI(*ExpertInvokeAPIInput) (*ExpertInvokeAPIOutput, error)
+	ExpertInvokeAPIWithContext(volcengine.Context, *ExpertInvokeAPIInput, ...request.Option) (*ExpertInvokeAPIOutput, error)
+	ExpertInvokeAPIRequest(*ExpertInvokeAPIInput) (*request.Request, *ExpertInvokeAPIOutput)
+
+	ListSubsTaskAPICommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListSubsTaskAPICommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListSubsTaskAPICommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListSubsTaskAPI(*ListSubsTaskAPIInput) (*ListSubsTaskAPIOutput, error)
+	ListSubsTaskAPIWithContext(volcengine.Context, *ListSubsTaskAPIInput, ...request.Option) (*ListSubsTaskAPIOutput, error)
+	ListSubsTaskAPIRequest(*ListSubsTaskAPIInput) (*request.Request, *ListSubsTaskAPIOutput)
+
 	PullPostCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	PullPostCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	PullPostCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})

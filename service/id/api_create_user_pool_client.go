@@ -258,6 +258,8 @@ type CreateUserPoolClientOutput struct {
 
 	DevelopmentModeEnabled *bool `type:"boolean" json:",omitempty"`
 
+	DismissLoginPageEnabled *bool `type:"boolean" json:",omitempty"`
+
 	IdToken *IdTokenForCreateUserPoolClientOutput `type:"structure" json:",omitempty"`
 
 	LoginPageUrl *string `type:"string" json:",omitempty"`
@@ -267,6 +269,8 @@ type CreateUserPoolClientOutput struct {
 	Name *string `type:"string" json:",omitempty"`
 
 	RefreshToken *RefreshTokenForCreateUserPoolClientOutput `type:"structure" json:",omitempty"`
+
+	SkipConsentEnabled *bool `type:"boolean" json:",omitempty"`
 
 	Uid *string `type:"string" json:",omitempty"`
 
@@ -337,6 +341,12 @@ func (s *CreateUserPoolClientOutput) SetDevelopmentModeEnabled(v bool) *CreateUs
 	return s
 }
 
+// SetDismissLoginPageEnabled sets the DismissLoginPageEnabled field's value.
+func (s *CreateUserPoolClientOutput) SetDismissLoginPageEnabled(v bool) *CreateUserPoolClientOutput {
+	s.DismissLoginPageEnabled = &v
+	return s
+}
+
 // SetIdToken sets the IdToken field's value.
 func (s *CreateUserPoolClientOutput) SetIdToken(v *IdTokenForCreateUserPoolClientOutput) *CreateUserPoolClientOutput {
 	s.IdToken = v
@@ -364,6 +374,12 @@ func (s *CreateUserPoolClientOutput) SetName(v string) *CreateUserPoolClientOutp
 // SetRefreshToken sets the RefreshToken field's value.
 func (s *CreateUserPoolClientOutput) SetRefreshToken(v *RefreshTokenForCreateUserPoolClientOutput) *CreateUserPoolClientOutput {
 	s.RefreshToken = v
+	return s
+}
+
+// SetSkipConsentEnabled sets the SkipConsentEnabled field's value.
+func (s *CreateUserPoolClientOutput) SetSkipConsentEnabled(v bool) *CreateUserPoolClientOutput {
+	s.SkipConsentEnabled = &v
 	return s
 }
 

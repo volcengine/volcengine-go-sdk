@@ -342,6 +342,14 @@ type STORAGEEBSAPI interface {
 	PurchaseReservedStorageCapacityWithContext(volcengine.Context, *PurchaseReservedStorageCapacityInput, ...request.Option) (*PurchaseReservedStorageCapacityOutput, error)
 	PurchaseReservedStorageCapacityRequest(*PurchaseReservedStorageCapacityInput) (*request.Request, *PurchaseReservedStorageCapacityOutput)
 
+	ReInitializeVolumeCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ReInitializeVolumeCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ReInitializeVolumeCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ReInitializeVolume(*ReInitializeVolumeInput) (*ReInitializeVolumeOutput, error)
+	ReInitializeVolumeWithContext(volcengine.Context, *ReInitializeVolumeInput, ...request.Option) (*ReInitializeVolumeOutput, error)
+	ReInitializeVolumeRequest(*ReInitializeVolumeInput) (*request.Request, *ReInitializeVolumeOutput)
+
 	RollbackSnapshotGroupCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	RollbackSnapshotGroupCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	RollbackSnapshotGroupCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})

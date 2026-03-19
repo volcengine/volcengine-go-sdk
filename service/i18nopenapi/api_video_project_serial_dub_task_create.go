@@ -349,6 +349,44 @@ func (s *PureVideoForVideoProjectSerialDubTaskCreateInput) SetVideoUrl(v string)
 	return s
 }
 
+type ReferenceDocForVideoProjectSerialDubTaskCreateInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	ReferenceDocName *string `type:"string" json:"referenceDocName,omitempty"`
+
+	ReferenceDocType *int32 `type:"int32" json:"referenceDocType,omitempty"`
+
+	ReferenceDocUrl *string `type:"string" json:"referenceDocUrl,omitempty"`
+}
+
+// String returns the string representation
+func (s ReferenceDocForVideoProjectSerialDubTaskCreateInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ReferenceDocForVideoProjectSerialDubTaskCreateInput) GoString() string {
+	return s.String()
+}
+
+// SetReferenceDocName sets the ReferenceDocName field's value.
+func (s *ReferenceDocForVideoProjectSerialDubTaskCreateInput) SetReferenceDocName(v string) *ReferenceDocForVideoProjectSerialDubTaskCreateInput {
+	s.ReferenceDocName = &v
+	return s
+}
+
+// SetReferenceDocType sets the ReferenceDocType field's value.
+func (s *ReferenceDocForVideoProjectSerialDubTaskCreateInput) SetReferenceDocType(v int32) *ReferenceDocForVideoProjectSerialDubTaskCreateInput {
+	s.ReferenceDocType = &v
+	return s
+}
+
+// SetReferenceDocUrl sets the ReferenceDocUrl field's value.
+func (s *ReferenceDocForVideoProjectSerialDubTaskCreateInput) SetReferenceDocUrl(v string) *ReferenceDocForVideoProjectSerialDubTaskCreateInput {
+	s.ReferenceDocUrl = &v
+	return s
+}
+
 type SerialInfoForVideoProjectSerialDubTaskCreateInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -558,13 +596,17 @@ type TaskInfoForVideoProjectSerialDubTaskCreateInput struct {
 
 	Comment *string `type:"string" json:"comment,omitempty"`
 
-	Deadline *int32 `type:"int32" json:"deadline,omitempty"`
+	CreatedAt *string `type:"string" json:"createdAt,omitempty"`
+
+	Deadline *string `type:"string" json:"deadline,omitempty"`
 
 	DramaCoverUrl *string `type:"string" json:"dramaCoverUrl,omitempty"`
 
 	DramaDescription *string `type:"string" json:"dramaDescription,omitempty"`
 
 	DramaTitle *string `type:"string" json:"dramaTitle,omitempty"`
+
+	DubOrTranslationTaskID *string `type:"string" json:"dubOrTranslationTaskID,omitempty"`
 
 	IsDub *bool `type:"boolean" json:"isDub,omitempty"`
 
@@ -578,15 +620,27 @@ type TaskInfoForVideoProjectSerialDubTaskCreateInput struct {
 
 	NeedVideoSpeed *bool `type:"boolean" json:"needVideoSpeed,omitempty"`
 
+	Procedures *int32 `type:"int32" json:"procedures,omitempty"`
+
+	ReferenceDoc *ReferenceDocForVideoProjectSerialDubTaskCreateInput `type:"structure" json:"referenceDoc,omitempty"`
+
 	SerialNumber *int32 `type:"int32" json:"serialNumber,omitempty"`
 
 	SourceLang *string `type:"string" json:"sourceLang,omitempty"`
+
+	SourceLocale *string `type:"string" json:"sourceLocale,omitempty"`
+
+	State *int32 `type:"int32" json:"state,omitempty"`
 
 	SuppressionParams *SuppressionParamsForVideoProjectSerialDubTaskCreateInput `type:"structure" json:"suppressionParams,omitempty"`
 
 	TargetLangs []*string `type:"list" json:"targetLangs,omitempty"`
 
+	TargetLocale []*string `type:"list" json:"targetLocale,omitempty"`
+
 	TargetStyleMap *TargetStyleMapForVideoProjectSerialDubTaskCreateInput `type:"structure" json:"targetStyleMap,omitempty"`
+
+	TaskId *int32 `type:"int32" json:"taskId,omitempty"`
 
 	TaskName *string `type:"string" json:"taskName,omitempty"`
 
@@ -627,8 +681,14 @@ func (s *TaskInfoForVideoProjectSerialDubTaskCreateInput) SetComment(v string) *
 	return s
 }
 
+// SetCreatedAt sets the CreatedAt field's value.
+func (s *TaskInfoForVideoProjectSerialDubTaskCreateInput) SetCreatedAt(v string) *TaskInfoForVideoProjectSerialDubTaskCreateInput {
+	s.CreatedAt = &v
+	return s
+}
+
 // SetDeadline sets the Deadline field's value.
-func (s *TaskInfoForVideoProjectSerialDubTaskCreateInput) SetDeadline(v int32) *TaskInfoForVideoProjectSerialDubTaskCreateInput {
+func (s *TaskInfoForVideoProjectSerialDubTaskCreateInput) SetDeadline(v string) *TaskInfoForVideoProjectSerialDubTaskCreateInput {
 	s.Deadline = &v
 	return s
 }
@@ -648,6 +708,12 @@ func (s *TaskInfoForVideoProjectSerialDubTaskCreateInput) SetDramaDescription(v 
 // SetDramaTitle sets the DramaTitle field's value.
 func (s *TaskInfoForVideoProjectSerialDubTaskCreateInput) SetDramaTitle(v string) *TaskInfoForVideoProjectSerialDubTaskCreateInput {
 	s.DramaTitle = &v
+	return s
+}
+
+// SetDubOrTranslationTaskID sets the DubOrTranslationTaskID field's value.
+func (s *TaskInfoForVideoProjectSerialDubTaskCreateInput) SetDubOrTranslationTaskID(v string) *TaskInfoForVideoProjectSerialDubTaskCreateInput {
+	s.DubOrTranslationTaskID = &v
 	return s
 }
 
@@ -687,6 +753,18 @@ func (s *TaskInfoForVideoProjectSerialDubTaskCreateInput) SetNeedVideoSpeed(v bo
 	return s
 }
 
+// SetProcedures sets the Procedures field's value.
+func (s *TaskInfoForVideoProjectSerialDubTaskCreateInput) SetProcedures(v int32) *TaskInfoForVideoProjectSerialDubTaskCreateInput {
+	s.Procedures = &v
+	return s
+}
+
+// SetReferenceDoc sets the ReferenceDoc field's value.
+func (s *TaskInfoForVideoProjectSerialDubTaskCreateInput) SetReferenceDoc(v *ReferenceDocForVideoProjectSerialDubTaskCreateInput) *TaskInfoForVideoProjectSerialDubTaskCreateInput {
+	s.ReferenceDoc = v
+	return s
+}
+
 // SetSerialNumber sets the SerialNumber field's value.
 func (s *TaskInfoForVideoProjectSerialDubTaskCreateInput) SetSerialNumber(v int32) *TaskInfoForVideoProjectSerialDubTaskCreateInput {
 	s.SerialNumber = &v
@@ -696,6 +774,18 @@ func (s *TaskInfoForVideoProjectSerialDubTaskCreateInput) SetSerialNumber(v int3
 // SetSourceLang sets the SourceLang field's value.
 func (s *TaskInfoForVideoProjectSerialDubTaskCreateInput) SetSourceLang(v string) *TaskInfoForVideoProjectSerialDubTaskCreateInput {
 	s.SourceLang = &v
+	return s
+}
+
+// SetSourceLocale sets the SourceLocale field's value.
+func (s *TaskInfoForVideoProjectSerialDubTaskCreateInput) SetSourceLocale(v string) *TaskInfoForVideoProjectSerialDubTaskCreateInput {
+	s.SourceLocale = &v
+	return s
+}
+
+// SetState sets the State field's value.
+func (s *TaskInfoForVideoProjectSerialDubTaskCreateInput) SetState(v int32) *TaskInfoForVideoProjectSerialDubTaskCreateInput {
+	s.State = &v
 	return s
 }
 
@@ -711,9 +801,21 @@ func (s *TaskInfoForVideoProjectSerialDubTaskCreateInput) SetTargetLangs(v []*st
 	return s
 }
 
+// SetTargetLocale sets the TargetLocale field's value.
+func (s *TaskInfoForVideoProjectSerialDubTaskCreateInput) SetTargetLocale(v []*string) *TaskInfoForVideoProjectSerialDubTaskCreateInput {
+	s.TargetLocale = v
+	return s
+}
+
 // SetTargetStyleMap sets the TargetStyleMap field's value.
 func (s *TaskInfoForVideoProjectSerialDubTaskCreateInput) SetTargetStyleMap(v *TargetStyleMapForVideoProjectSerialDubTaskCreateInput) *TaskInfoForVideoProjectSerialDubTaskCreateInput {
 	s.TargetStyleMap = v
+	return s
+}
+
+// SetTaskId sets the TaskId field's value.
+func (s *TaskInfoForVideoProjectSerialDubTaskCreateInput) SetTaskId(v int32) *TaskInfoForVideoProjectSerialDubTaskCreateInput {
+	s.TaskId = &v
 	return s
 }
 

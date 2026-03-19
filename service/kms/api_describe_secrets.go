@@ -481,4 +481,10 @@ const (
 
 	// EnumOfSecretTypeForDescribeSecretsOutputEcs is a EnumOfSecretTypeForDescribeSecretsOutput enum value
 	EnumOfSecretTypeForDescribeSecretsOutputEcs = "ECS"
+
+	// EnumOfSecretTypeForDescribeSecretsOutputPgsql is a EnumOfSecretTypeForDescribeSecretsOutput enum value
+	EnumOfSecretTypeForDescribeSecretsOutputPgsql = "PGSQL"
+
+	// EnumOfSecretTypeForDescribeSecretsOutputSqlserver is a EnumOfSecretTypeForDescribeSecretsOutput enum value
+	EnumOfSecretTypeForDescribeSecretsOutputSqlserver = "SQLServer"
 )

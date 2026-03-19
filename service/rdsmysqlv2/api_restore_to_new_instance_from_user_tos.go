@@ -148,6 +148,8 @@ type AutoStorageScalingConfigForRestoreToNewInstanceFromUserTosInput struct {
 
 	EnableStorageAutoScale *bool `type:"boolean" json:",omitempty"`
 
+	ScalingDetectNode *string `type:"string" json:",omitempty"`
+
 	StorageThreshold *int32 `type:"int32" json:",omitempty"`
 
 	StorageUpperBound *int32 `type:"int32" json:",omitempty"`
@@ -166,6 +168,12 @@ func (s AutoStorageScalingConfigForRestoreToNewInstanceFromUserTosInput) GoStrin
 // SetEnableStorageAutoScale sets the EnableStorageAutoScale field's value.
 func (s *AutoStorageScalingConfigForRestoreToNewInstanceFromUserTosInput) SetEnableStorageAutoScale(v bool) *AutoStorageScalingConfigForRestoreToNewInstanceFromUserTosInput {
 	s.EnableStorageAutoScale = &v
+	return s
+}
+
+// SetScalingDetectNode sets the ScalingDetectNode field's value.
+func (s *AutoStorageScalingConfigForRestoreToNewInstanceFromUserTosInput) SetScalingDetectNode(v string) *AutoStorageScalingConfigForRestoreToNewInstanceFromUserTosInput {
+	s.ScalingDetectNode = &v
 	return s
 }
 
@@ -367,6 +375,8 @@ type RestoreToNewInstanceFromUserTosInput struct {
 
 	Port *int32 `type:"int32" json:",omitempty"`
 
+	PrivateIpAddress *string `type:"string" json:",omitempty"`
+
 	ProjectName *string `type:"string" json:",omitempty"`
 
 	ProxyNodeCustom *ProxyNodeCustomForRestoreToNewInstanceFromUserTosInput `type:"structure" json:",omitempty"`
@@ -484,6 +494,12 @@ func (s *RestoreToNewInstanceFromUserTosInput) SetNodeInfo(v []*NodeInfoForResto
 // SetPort sets the Port field's value.
 func (s *RestoreToNewInstanceFromUserTosInput) SetPort(v int32) *RestoreToNewInstanceFromUserTosInput {
 	s.Port = &v
+	return s
+}
+
+// SetPrivateIpAddress sets the PrivateIpAddress field's value.
+func (s *RestoreToNewInstanceFromUserTosInput) SetPrivateIpAddress(v string) *RestoreToNewInstanceFromUserTosInput {
+	s.PrivateIpAddress = &v
 	return s
 }
 
