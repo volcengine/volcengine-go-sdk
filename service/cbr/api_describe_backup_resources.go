@@ -243,36 +243,6 @@ func (s *FilterListForDescribeBackupResourcesInput) SetValues(v []*string) *Filt
 	return s
 }
 
-type MetaInformationForDescribeBackupResourcesOutput struct {
-	_ struct{} `type:"structure" json:",omitempty"`
-
-	EcsMeta *string `type:"string" json:",omitempty"`
-
-	VepfsMeta *string `type:"string" json:",omitempty"`
-}
-
-// String returns the string representation
-func (s MetaInformationForDescribeBackupResourcesOutput) String() string {
-	return volcengineutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s MetaInformationForDescribeBackupResourcesOutput) GoString() string {
-	return s.String()
-}
-
-// SetEcsMeta sets the EcsMeta field's value.
-func (s *MetaInformationForDescribeBackupResourcesOutput) SetEcsMeta(v string) *MetaInformationForDescribeBackupResourcesOutput {
-	s.EcsMeta = &v
-	return s
-}
-
-// SetVepfsMeta sets the VepfsMeta field's value.
-func (s *MetaInformationForDescribeBackupResourcesOutput) SetVepfsMeta(v string) *MetaInformationForDescribeBackupResourcesOutput {
-	s.VepfsMeta = &v
-	return s
-}
-
 type PlanForDescribeBackupResourcesOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -314,15 +284,13 @@ type ResourceForDescribeBackupResourcesOutput struct {
 
 	InstanceName *string `type:"string" json:",omitempty"`
 
-	MetaInformation *MetaInformationForDescribeBackupResourcesOutput `type:"structure" json:",omitempty"`
-
 	Plans []*PlanForDescribeBackupResourcesOutput `type:"list" json:",omitempty"`
 
 	RecoveryPointNumber *int32 `type:"int32" json:",omitempty"`
 
 	ResourceId *string `type:"string" json:",omitempty"`
 
-	ResourceType *string `type:"string" json:",omitempty"`
+	ResourceType *string `type:"string" json:",omitempty" enum:"EnumOfResourceTypeForDescribeBackupResourcesOutput"`
 
 	Status *string `type:"string" json:",omitempty"`
 
@@ -362,12 +330,6 @@ func (s *ResourceForDescribeBackupResourcesOutput) SetInstanceId(v string) *Reso
 // SetInstanceName sets the InstanceName field's value.
 func (s *ResourceForDescribeBackupResourcesOutput) SetInstanceName(v string) *ResourceForDescribeBackupResourcesOutput {
 	s.InstanceName = &v
-	return s
-}
-
-// SetMetaInformation sets the MetaInformation field's value.
-func (s *ResourceForDescribeBackupResourcesOutput) SetMetaInformation(v *MetaInformationForDescribeBackupResourcesOutput) *ResourceForDescribeBackupResourcesOutput {
-	s.MetaInformation = v
 	return s
 }
 
@@ -412,3 +374,11 @@ func (s *ResourceForDescribeBackupResourcesOutput) SetUsedCapacityInBytes(v int3
 	s.UsedCapacityInBytes = &v
 	return s
 }
+
+const (
+	// EnumOfResourceTypeForDescribeBackupResourcesOutputEcs is a EnumOfResourceTypeForDescribeBackupResourcesOutput enum value
+	EnumOfResourceTypeForDescribeBackupResourcesOutputEcs = "ECS"
+
+	// EnumOfResourceTypeForDescribeBackupResourcesOutputVePfs is a EnumOfResourceTypeForDescribeBackupResourcesOutput enum value
+	EnumOfResourceTypeForDescribeBackupResourcesOutputVePfs = "vePFS"
+)

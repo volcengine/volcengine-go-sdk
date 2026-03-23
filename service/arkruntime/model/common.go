@@ -10,6 +10,10 @@ const (
 	ClientRequestHeader = "X-Client-Request-Id"
 	RetryAfterHeader    = "Retry-After"
 
+	ClientSessionTokenHeader = "X-Session-Token"
+	ClientEncryptInfoHeader  = "X-Encrypt-Info"
+	ClientIsEncryptedHeader  = "x-is-encrypted"
+
 	DefaultMandatoryRefreshTimeout = 10 * 60          // 10 min
 	DefaultAdvisoryRefreshTimeout  = 30 * 60          // 30 min
 	DefaultStsTimeout              = 7 * 24 * 60 * 60 // 7 days

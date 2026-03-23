@@ -260,6 +260,8 @@ type DescribeAllowListDetailOutput struct {
 
 	AssociatedInstances []*AssociatedInstanceForDescribeAllowListDetailOutput `type:"list" json:",omitempty"`
 
+	ProjectName *string `type:"string" json:",omitempty"`
+
 	SecurityGroupBindInfos []*SecurityGroupBindInfoForDescribeAllowListDetailOutput `type:"list" json:",omitempty"`
 
 	UserAllowList *string `type:"string" json:",omitempty"`
@@ -314,6 +316,12 @@ func (s *DescribeAllowListDetailOutput) SetAllowListType(v string) *DescribeAllo
 // SetAssociatedInstances sets the AssociatedInstances field's value.
 func (s *DescribeAllowListDetailOutput) SetAssociatedInstances(v []*AssociatedInstanceForDescribeAllowListDetailOutput) *DescribeAllowListDetailOutput {
 	s.AssociatedInstances = v
+	return s
+}
+
+// SetProjectName sets the ProjectName field's value.
+func (s *DescribeAllowListDetailOutput) SetProjectName(v string) *DescribeAllowListDetailOutput {
+	s.ProjectName = &v
 	return s
 }
 

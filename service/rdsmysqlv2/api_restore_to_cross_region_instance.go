@@ -148,6 +148,8 @@ type AutoStorageScalingConfigForRestoreToCrossRegionInstanceInput struct {
 
 	EnableStorageAutoScale *bool `type:"boolean" json:",omitempty"`
 
+	ScalingDetectNode *string `type:"string" json:",omitempty"`
+
 	StorageThreshold *int32 `type:"int32" json:",omitempty"`
 
 	StorageUpperBound *int32 `type:"int32" json:",omitempty"`
@@ -166,6 +168,12 @@ func (s AutoStorageScalingConfigForRestoreToCrossRegionInstanceInput) GoString()
 // SetEnableStorageAutoScale sets the EnableStorageAutoScale field's value.
 func (s *AutoStorageScalingConfigForRestoreToCrossRegionInstanceInput) SetEnableStorageAutoScale(v bool) *AutoStorageScalingConfigForRestoreToCrossRegionInstanceInput {
 	s.EnableStorageAutoScale = &v
+	return s
+}
+
+// SetScalingDetectNode sets the ScalingDetectNode field's value.
+func (s *AutoStorageScalingConfigForRestoreToCrossRegionInstanceInput) SetScalingDetectNode(v string) *AutoStorageScalingConfigForRestoreToCrossRegionInstanceInput {
+	s.ScalingDetectNode = &v
 	return s
 }
 
@@ -367,6 +375,8 @@ type RestoreToCrossRegionInstanceInput struct {
 
 	Port *int32 `type:"int32" json:",omitempty"`
 
+	PrivateIpAddress *string `type:"string" json:",omitempty"`
+
 	ProjectName *string `type:"string" json:",omitempty"`
 
 	ProxyNodeCustom *ProxyNodeCustomForRestoreToCrossRegionInstanceInput `type:"structure" json:",omitempty"`
@@ -492,6 +502,12 @@ func (s *RestoreToCrossRegionInstanceInput) SetNodeInfo(v []*NodeInfoForRestoreT
 // SetPort sets the Port field's value.
 func (s *RestoreToCrossRegionInstanceInput) SetPort(v int32) *RestoreToCrossRegionInstanceInput {
 	s.Port = &v
+	return s
+}
+
+// SetPrivateIpAddress sets the PrivateIpAddress field's value.
+func (s *RestoreToCrossRegionInstanceInput) SetPrivateIpAddress(v string) *RestoreToCrossRegionInstanceInput {
+	s.PrivateIpAddress = &v
 	return s
 }
 

@@ -143,15 +143,173 @@ func (c *CLOUDDETECT) CreateTaskWithContext(ctx volcengine.Context, input *Creat
 	return out, req.Send()
 }
 
+type ConditionForCreateTaskInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Field *string `type:"string" json:",omitempty"`
+
+	Operator *string `type:"string" json:",omitempty"`
+
+	ProcessType *string `type:"string" json:",omitempty"`
+
+	Property *string `type:"string" json:",omitempty"`
+
+	Value *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s ConditionForCreateTaskInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ConditionForCreateTaskInput) GoString() string {
+	return s.String()
+}
+
+// SetField sets the Field field's value.
+func (s *ConditionForCreateTaskInput) SetField(v string) *ConditionForCreateTaskInput {
+	s.Field = &v
+	return s
+}
+
+// SetOperator sets the Operator field's value.
+func (s *ConditionForCreateTaskInput) SetOperator(v string) *ConditionForCreateTaskInput {
+	s.Operator = &v
+	return s
+}
+
+// SetProcessType sets the ProcessType field's value.
+func (s *ConditionForCreateTaskInput) SetProcessType(v string) *ConditionForCreateTaskInput {
+	s.ProcessType = &v
+	return s
+}
+
+// SetProperty sets the Property field's value.
+func (s *ConditionForCreateTaskInput) SetProperty(v string) *ConditionForCreateTaskInput {
+	s.Property = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *ConditionForCreateTaskInput) SetValue(v string) *ConditionForCreateTaskInput {
+	s.Value = &v
+	return s
+}
+
+type ConvertGroupConfigForCreateTaskInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	GroupConfig []*GroupConfigForCreateTaskInput `type:"list" json:",omitempty"`
+
+	Groups []*int32 `type:"list" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s ConvertGroupConfigForCreateTaskInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ConvertGroupConfigForCreateTaskInput) GoString() string {
+	return s.String()
+}
+
+// SetGroupConfig sets the GroupConfig field's value.
+func (s *ConvertGroupConfigForCreateTaskInput) SetGroupConfig(v []*GroupConfigForCreateTaskInput) *ConvertGroupConfigForCreateTaskInput {
+	s.GroupConfig = v
+	return s
+}
+
+// SetGroups sets the Groups field's value.
+func (s *ConvertGroupConfigForCreateTaskInput) SetGroups(v []*int32) *ConvertGroupConfigForCreateTaskInput {
+	s.Groups = v
+	return s
+}
+
+type ConvertGroupListForCreateTaskInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Name *string `type:"string" json:",omitempty"`
+
+	NodeCount *int64 `type:"int64" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s ConvertGroupListForCreateTaskInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ConvertGroupListForCreateTaskInput) GoString() string {
+	return s.String()
+}
+
+// SetName sets the Name field's value.
+func (s *ConvertGroupListForCreateTaskInput) SetName(v string) *ConvertGroupListForCreateTaskInput {
+	s.Name = &v
+	return s
+}
+
+// SetNodeCount sets the NodeCount field's value.
+func (s *ConvertGroupListForCreateTaskInput) SetNodeCount(v int64) *ConvertGroupListForCreateTaskInput {
+	s.NodeCount = &v
+	return s
+}
+
+type CookieForCreateTaskInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Domain *string `type:"string" json:",omitempty"`
+
+	Name *string `type:"string" json:",omitempty"`
+
+	Value *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s CookieForCreateTaskInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s CookieForCreateTaskInput) GoString() string {
+	return s.String()
+}
+
+// SetDomain sets the Domain field's value.
+func (s *CookieForCreateTaskInput) SetDomain(v string) *CookieForCreateTaskInput {
+	s.Domain = &v
+	return s
+}
+
+// SetName sets the Name field's value.
+func (s *CookieForCreateTaskInput) SetName(v string) *CookieForCreateTaskInput {
+	s.Name = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *CookieForCreateTaskInput) SetValue(v string) *CookieForCreateTaskInput {
+	s.Value = &v
+	return s
+}
+
 type CreateTaskInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
 	// Address is a required field
 	Address *string `type:"string" json:",omitempty" required:"true"`
 
+	AlarmIDList []*int64 `type:"list" json:",omitempty"`
+
 	DNSConfig *DNSConfigForCreateTaskInput `type:"structure" json:",omitempty"`
 
+	DNSHijackConfig *DNSHijackConfigForCreateTaskInput `type:"structure" json:",omitempty"`
+
 	DiagnoseConfig *DiagnoseConfigForCreateTaskInput `type:"structure" json:",omitempty"`
+
+	DownloadConfig *DownloadConfigForCreateTaskInput `type:"structure" json:",omitempty"`
 
 	// FinishTime is a required field
 	FinishTime *int64 `type:"int64" json:",omitempty" required:"true"`
@@ -169,18 +327,32 @@ type CreateTaskInput struct {
 	// NodeCount is a required field
 	NodeCount *int32 `type:"int32" json:",omitempty" required:"true"`
 
+	PageConfig *PageConfigForCreateTaskInput `type:"structure" json:",omitempty"`
+
 	PeriodConfig *PeriodConfigForCreateTaskInput `type:"structure" json:",omitempty"`
 
 	PingConfig *PingConfigForCreateTaskInput `type:"structure" json:",omitempty"`
 
 	ProjectName *string `type:"string" json:",omitempty"`
 
+	ResultAssert *ResultAssertForCreateTaskInput `type:"structure" json:",omitempty"`
+
+	SelectionConfig *SelectionConfigForCreateTaskInput `type:"structure" json:",omitempty"`
+
 	TCPConfig *TCPConfigForCreateTaskInput `type:"structure" json:",omitempty"`
+
+	Tags []*TagForCreateTaskInput `type:"list" json:",omitempty"`
+
+	TargetServerType *int32 `type:"int32" json:",omitempty"`
+
+	TaskGroupID *int64 `type:"int64" json:",omitempty"`
 
 	// Type is a required field
 	Type *int32 `type:"int32" json:",omitempty" required:"true"`
 
 	UDPConfig *UDPConfigForCreateTaskInput `type:"structure" json:",omitempty"`
+
+	UploadConfig *UploadConfigForCreateTaskInput `type:"structure" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -227,15 +399,33 @@ func (s *CreateTaskInput) SetAddress(v string) *CreateTaskInput {
 	return s
 }
 
+// SetAlarmIDList sets the AlarmIDList field's value.
+func (s *CreateTaskInput) SetAlarmIDList(v []*int64) *CreateTaskInput {
+	s.AlarmIDList = v
+	return s
+}
+
 // SetDNSConfig sets the DNSConfig field's value.
 func (s *CreateTaskInput) SetDNSConfig(v *DNSConfigForCreateTaskInput) *CreateTaskInput {
 	s.DNSConfig = v
 	return s
 }
 
+// SetDNSHijackConfig sets the DNSHijackConfig field's value.
+func (s *CreateTaskInput) SetDNSHijackConfig(v *DNSHijackConfigForCreateTaskInput) *CreateTaskInput {
+	s.DNSHijackConfig = v
+	return s
+}
+
 // SetDiagnoseConfig sets the DiagnoseConfig field's value.
 func (s *CreateTaskInput) SetDiagnoseConfig(v *DiagnoseConfigForCreateTaskInput) *CreateTaskInput {
 	s.DiagnoseConfig = v
+	return s
+}
+
+// SetDownloadConfig sets the DownloadConfig field's value.
+func (s *CreateTaskInput) SetDownloadConfig(v *DownloadConfigForCreateTaskInput) *CreateTaskInput {
+	s.DownloadConfig = v
 	return s
 }
 
@@ -275,6 +465,12 @@ func (s *CreateTaskInput) SetNodeCount(v int32) *CreateTaskInput {
 	return s
 }
 
+// SetPageConfig sets the PageConfig field's value.
+func (s *CreateTaskInput) SetPageConfig(v *PageConfigForCreateTaskInput) *CreateTaskInput {
+	s.PageConfig = v
+	return s
+}
+
 // SetPeriodConfig sets the PeriodConfig field's value.
 func (s *CreateTaskInput) SetPeriodConfig(v *PeriodConfigForCreateTaskInput) *CreateTaskInput {
 	s.PeriodConfig = v
@@ -293,9 +489,39 @@ func (s *CreateTaskInput) SetProjectName(v string) *CreateTaskInput {
 	return s
 }
 
+// SetResultAssert sets the ResultAssert field's value.
+func (s *CreateTaskInput) SetResultAssert(v *ResultAssertForCreateTaskInput) *CreateTaskInput {
+	s.ResultAssert = v
+	return s
+}
+
+// SetSelectionConfig sets the SelectionConfig field's value.
+func (s *CreateTaskInput) SetSelectionConfig(v *SelectionConfigForCreateTaskInput) *CreateTaskInput {
+	s.SelectionConfig = v
+	return s
+}
+
 // SetTCPConfig sets the TCPConfig field's value.
 func (s *CreateTaskInput) SetTCPConfig(v *TCPConfigForCreateTaskInput) *CreateTaskInput {
 	s.TCPConfig = v
+	return s
+}
+
+// SetTags sets the Tags field's value.
+func (s *CreateTaskInput) SetTags(v []*TagForCreateTaskInput) *CreateTaskInput {
+	s.Tags = v
+	return s
+}
+
+// SetTargetServerType sets the TargetServerType field's value.
+func (s *CreateTaskInput) SetTargetServerType(v int32) *CreateTaskInput {
+	s.TargetServerType = &v
+	return s
+}
+
+// SetTaskGroupID sets the TaskGroupID field's value.
+func (s *CreateTaskInput) SetTaskGroupID(v int64) *CreateTaskInput {
+	s.TaskGroupID = &v
 	return s
 }
 
@@ -308,6 +534,12 @@ func (s *CreateTaskInput) SetType(v int32) *CreateTaskInput {
 // SetUDPConfig sets the UDPConfig field's value.
 func (s *CreateTaskInput) SetUDPConfig(v *UDPConfigForCreateTaskInput) *CreateTaskInput {
 	s.UDPConfig = v
+	return s
+}
+
+// SetUploadConfig sets the UploadConfig field's value.
+func (s *CreateTaskInput) SetUploadConfig(v *UploadConfigForCreateTaskInput) *CreateTaskInput {
+	s.UploadConfig = v
 	return s
 }
 
@@ -340,6 +572,36 @@ func (s *CreateTaskOutput) SetLocationInfo(v *LocationInfoForCreateTaskOutput) *
 // SetTaskID sets the TaskID field's value.
 func (s *CreateTaskOutput) SetTaskID(v int64) *CreateTaskOutput {
 	s.TaskID = &v
+	return s
+}
+
+type CustomHeaderForCreateTaskInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Type *int32 `type:"int32" json:",omitempty"`
+
+	Values *ValuesForCreateTaskInput `type:"structure" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s CustomHeaderForCreateTaskInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s CustomHeaderForCreateTaskInput) GoString() string {
+	return s.String()
+}
+
+// SetType sets the Type field's value.
+func (s *CustomHeaderForCreateTaskInput) SetType(v int32) *CustomHeaderForCreateTaskInput {
+	s.Type = &v
+	return s
+}
+
+// SetValues sets the Values field's value.
+func (s *CustomHeaderForCreateTaskInput) SetValues(v *ValuesForCreateTaskInput) *CustomHeaderForCreateTaskInput {
+	s.Values = v
 	return s
 }
 
@@ -465,6 +727,96 @@ func (s *DNSConfigForCreateTaskInput) SetTimeout(v int32) *DNSConfigForCreateTas
 	return s
 }
 
+type DNSHijackAllowListForCreateTaskInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	HijackList []*string `type:"list" json:",omitempty"`
+
+	Host *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s DNSHijackAllowListForCreateTaskInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DNSHijackAllowListForCreateTaskInput) GoString() string {
+	return s.String()
+}
+
+// SetHijackList sets the HijackList field's value.
+func (s *DNSHijackAllowListForCreateTaskInput) SetHijackList(v []*string) *DNSHijackAllowListForCreateTaskInput {
+	s.HijackList = v
+	return s
+}
+
+// SetHost sets the Host field's value.
+func (s *DNSHijackAllowListForCreateTaskInput) SetHost(v string) *DNSHijackAllowListForCreateTaskInput {
+	s.Host = &v
+	return s
+}
+
+type DNSHijackBlockListForCreateTaskInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	HijackList []*string `type:"list" json:",omitempty"`
+
+	Host *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s DNSHijackBlockListForCreateTaskInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DNSHijackBlockListForCreateTaskInput) GoString() string {
+	return s.String()
+}
+
+// SetHijackList sets the HijackList field's value.
+func (s *DNSHijackBlockListForCreateTaskInput) SetHijackList(v []*string) *DNSHijackBlockListForCreateTaskInput {
+	s.HijackList = v
+	return s
+}
+
+// SetHost sets the Host field's value.
+func (s *DNSHijackBlockListForCreateTaskInput) SetHost(v string) *DNSHijackBlockListForCreateTaskInput {
+	s.Host = &v
+	return s
+}
+
+type DNSHijackConfigForCreateTaskInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	DNSHijackAllowList []*DNSHijackAllowListForCreateTaskInput `type:"list" json:",omitempty"`
+
+	DNSHijackBlockList []*DNSHijackBlockListForCreateTaskInput `type:"list" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s DNSHijackConfigForCreateTaskInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DNSHijackConfigForCreateTaskInput) GoString() string {
+	return s.String()
+}
+
+// SetDNSHijackAllowList sets the DNSHijackAllowList field's value.
+func (s *DNSHijackConfigForCreateTaskInput) SetDNSHijackAllowList(v []*DNSHijackAllowListForCreateTaskInput) *DNSHijackConfigForCreateTaskInput {
+	s.DNSHijackAllowList = v
+	return s
+}
+
+// SetDNSHijackBlockList sets the DNSHijackBlockList field's value.
+func (s *DNSHijackConfigForCreateTaskInput) SetDNSHijackBlockList(v []*DNSHijackBlockListForCreateTaskInput) *DNSHijackConfigForCreateTaskInput {
+	s.DNSHijackBlockList = v
+	return s
+}
+
 type DiagnoseConfigForCreateTaskInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -519,6 +871,146 @@ func (s *DiagnoseConfigForCreateTaskInput) SetPingConfig(v *PingConfigForCreateT
 	return s
 }
 
+type DownloadConfigForCreateTaskInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	CustomHostConfig *CustomHostConfigForCreateTaskInput `type:"structure" json:",omitempty"`
+
+	DNSServer *string `type:"string" json:",omitempty"`
+
+	DNSType *string `type:"string" json:",omitempty"`
+
+	HTTPVersion *string `type:"string" json:",omitempty"`
+
+	Headers []*HeaderForCreateTaskInput `type:"list" json:",omitempty"`
+
+	IgnoreCertificate *bool `type:"boolean" json:",omitempty"`
+
+	MaxTransferSize *int64 `type:"int64" json:",omitempty"`
+
+	Method *int32 `type:"int32" json:",omitempty"`
+
+	Queries []*QueryForCreateTaskInput `type:"list" json:",omitempty"`
+
+	Redirect *bool `type:"boolean" json:",omitempty"`
+
+	Timeout *int32 `type:"int32" json:",omitempty"`
+
+	UploadFileURL *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s DownloadConfigForCreateTaskInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DownloadConfigForCreateTaskInput) GoString() string {
+	return s.String()
+}
+
+// SetCustomHostConfig sets the CustomHostConfig field's value.
+func (s *DownloadConfigForCreateTaskInput) SetCustomHostConfig(v *CustomHostConfigForCreateTaskInput) *DownloadConfigForCreateTaskInput {
+	s.CustomHostConfig = v
+	return s
+}
+
+// SetDNSServer sets the DNSServer field's value.
+func (s *DownloadConfigForCreateTaskInput) SetDNSServer(v string) *DownloadConfigForCreateTaskInput {
+	s.DNSServer = &v
+	return s
+}
+
+// SetDNSType sets the DNSType field's value.
+func (s *DownloadConfigForCreateTaskInput) SetDNSType(v string) *DownloadConfigForCreateTaskInput {
+	s.DNSType = &v
+	return s
+}
+
+// SetHTTPVersion sets the HTTPVersion field's value.
+func (s *DownloadConfigForCreateTaskInput) SetHTTPVersion(v string) *DownloadConfigForCreateTaskInput {
+	s.HTTPVersion = &v
+	return s
+}
+
+// SetHeaders sets the Headers field's value.
+func (s *DownloadConfigForCreateTaskInput) SetHeaders(v []*HeaderForCreateTaskInput) *DownloadConfigForCreateTaskInput {
+	s.Headers = v
+	return s
+}
+
+// SetIgnoreCertificate sets the IgnoreCertificate field's value.
+func (s *DownloadConfigForCreateTaskInput) SetIgnoreCertificate(v bool) *DownloadConfigForCreateTaskInput {
+	s.IgnoreCertificate = &v
+	return s
+}
+
+// SetMaxTransferSize sets the MaxTransferSize field's value.
+func (s *DownloadConfigForCreateTaskInput) SetMaxTransferSize(v int64) *DownloadConfigForCreateTaskInput {
+	s.MaxTransferSize = &v
+	return s
+}
+
+// SetMethod sets the Method field's value.
+func (s *DownloadConfigForCreateTaskInput) SetMethod(v int32) *DownloadConfigForCreateTaskInput {
+	s.Method = &v
+	return s
+}
+
+// SetQueries sets the Queries field's value.
+func (s *DownloadConfigForCreateTaskInput) SetQueries(v []*QueryForCreateTaskInput) *DownloadConfigForCreateTaskInput {
+	s.Queries = v
+	return s
+}
+
+// SetRedirect sets the Redirect field's value.
+func (s *DownloadConfigForCreateTaskInput) SetRedirect(v bool) *DownloadConfigForCreateTaskInput {
+	s.Redirect = &v
+	return s
+}
+
+// SetTimeout sets the Timeout field's value.
+func (s *DownloadConfigForCreateTaskInput) SetTimeout(v int32) *DownloadConfigForCreateTaskInput {
+	s.Timeout = &v
+	return s
+}
+
+// SetUploadFileURL sets the UploadFileURL field's value.
+func (s *DownloadConfigForCreateTaskInput) SetUploadFileURL(v string) *DownloadConfigForCreateTaskInput {
+	s.UploadFileURL = &v
+	return s
+}
+
+type EndCustomHostConfigTimeForCreateTaskInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	CustomHosts []*CustomHostForCreateTaskInput `type:"list" json:",omitempty"`
+
+	Strategy *int32 `type:"int32" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s EndCustomHostConfigTimeForCreateTaskInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s EndCustomHostConfigTimeForCreateTaskInput) GoString() string {
+	return s.String()
+}
+
+// SetCustomHosts sets the CustomHosts field's value.
+func (s *EndCustomHostConfigTimeForCreateTaskInput) SetCustomHosts(v []*CustomHostForCreateTaskInput) *EndCustomHostConfigTimeForCreateTaskInput {
+	s.CustomHosts = v
+	return s
+}
+
+// SetStrategy sets the Strategy field's value.
+func (s *EndCustomHostConfigTimeForCreateTaskInput) SetStrategy(v int32) *EndCustomHostConfigTimeForCreateTaskInput {
+	s.Strategy = &v
+	return s
+}
+
 type EndTimeForCreateTaskInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -546,6 +1038,36 @@ func (s *EndTimeForCreateTaskInput) SetHour(v int32) *EndTimeForCreateTaskInput 
 // SetMinute sets the Minute field's value.
 func (s *EndTimeForCreateTaskInput) SetMinute(v int32) *EndTimeForCreateTaskInput {
 	s.Minute = &v
+	return s
+}
+
+type GroupConfigForCreateTaskInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Name *string `type:"string" json:",omitempty"`
+
+	NodeCount *int64 `type:"int64" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s GroupConfigForCreateTaskInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s GroupConfigForCreateTaskInput) GoString() string {
+	return s.String()
+}
+
+// SetName sets the Name field's value.
+func (s *GroupConfigForCreateTaskInput) SetName(v string) *GroupConfigForCreateTaskInput {
+	s.Name = &v
+	return s
+}
+
+// SetNodeCount sets the NodeCount field's value.
+func (s *GroupConfigForCreateTaskInput) SetNodeCount(v int64) *GroupConfigForCreateTaskInput {
+	s.NodeCount = &v
 	return s
 }
 
@@ -697,6 +1219,188 @@ func (s *HTTPHeaderForCreateTaskInput) SetValue(v string) *HTTPHeaderForCreateTa
 	return s
 }
 
+type HeaderForCreateTaskInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Key *string `type:"string" json:",omitempty"`
+
+	Value *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s HeaderForCreateTaskInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s HeaderForCreateTaskInput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *HeaderForCreateTaskInput) SetKey(v string) *HeaderForCreateTaskInput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *HeaderForCreateTaskInput) SetValue(v string) *HeaderForCreateTaskInput {
+	s.Value = &v
+	return s
+}
+
+type LineConfigForCreateTaskInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	GroupList []*ConvertGroupListForCreateTaskInput `type:"list" json:",omitempty"`
+
+	Groups []*int32 `type:"list" json:",omitempty"`
+
+	LineList []*LineListForCreateTaskInput `type:"list" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s LineConfigForCreateTaskInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s LineConfigForCreateTaskInput) GoString() string {
+	return s.String()
+}
+
+// SetGroupList sets the GroupList field's value.
+func (s *LineConfigForCreateTaskInput) SetGroupList(v []*ConvertGroupListForCreateTaskInput) *LineConfigForCreateTaskInput {
+	s.GroupList = v
+	return s
+}
+
+// SetGroups sets the Groups field's value.
+func (s *LineConfigForCreateTaskInput) SetGroups(v []*int32) *LineConfigForCreateTaskInput {
+	s.Groups = v
+	return s
+}
+
+// SetLineList sets the LineList field's value.
+func (s *LineConfigForCreateTaskInput) SetLineList(v []*LineListForCreateTaskInput) *LineConfigForCreateTaskInput {
+	s.LineList = v
+	return s
+}
+
+type LineGroupConfigForCreateTaskInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	GroupList []*ConvertGroupListForCreateTaskInput `type:"list" json:",omitempty"`
+
+	Groups []*int32 `type:"list" json:",omitempty"`
+
+	LineGroupList []*LineGroupListForCreateTaskInput `type:"list" json:",omitempty"`
+
+	LineList []*LineListForCreateTaskInput `type:"list" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s LineGroupConfigForCreateTaskInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s LineGroupConfigForCreateTaskInput) GoString() string {
+	return s.String()
+}
+
+// SetGroupList sets the GroupList field's value.
+func (s *LineGroupConfigForCreateTaskInput) SetGroupList(v []*ConvertGroupListForCreateTaskInput) *LineGroupConfigForCreateTaskInput {
+	s.GroupList = v
+	return s
+}
+
+// SetGroups sets the Groups field's value.
+func (s *LineGroupConfigForCreateTaskInput) SetGroups(v []*int32) *LineGroupConfigForCreateTaskInput {
+	s.Groups = v
+	return s
+}
+
+// SetLineGroupList sets the LineGroupList field's value.
+func (s *LineGroupConfigForCreateTaskInput) SetLineGroupList(v []*LineGroupListForCreateTaskInput) *LineGroupConfigForCreateTaskInput {
+	s.LineGroupList = v
+	return s
+}
+
+// SetLineList sets the LineList field's value.
+func (s *LineGroupConfigForCreateTaskInput) SetLineList(v []*LineListForCreateTaskInput) *LineGroupConfigForCreateTaskInput {
+	s.LineList = v
+	return s
+}
+
+type LineGroupListForCreateTaskInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	ID *int64 `type:"int64" json:",omitempty"`
+
+	Name *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s LineGroupListForCreateTaskInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s LineGroupListForCreateTaskInput) GoString() string {
+	return s.String()
+}
+
+// SetID sets the ID field's value.
+func (s *LineGroupListForCreateTaskInput) SetID(v int64) *LineGroupListForCreateTaskInput {
+	s.ID = &v
+	return s
+}
+
+// SetName sets the Name field's value.
+func (s *LineGroupListForCreateTaskInput) SetName(v string) *LineGroupListForCreateTaskInput {
+	s.Name = &v
+	return s
+}
+
+type LineListForCreateTaskInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	ID *int64 `type:"int64" json:",omitempty"`
+
+	Name *string `type:"string" json:",omitempty"`
+
+	NodeCount *int64 `type:"int64" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s LineListForCreateTaskInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s LineListForCreateTaskInput) GoString() string {
+	return s.String()
+}
+
+// SetID sets the ID field's value.
+func (s *LineListForCreateTaskInput) SetID(v int64) *LineListForCreateTaskInput {
+	s.ID = &v
+	return s
+}
+
+// SetName sets the Name field's value.
+func (s *LineListForCreateTaskInput) SetName(v string) *LineListForCreateTaskInput {
+	s.Name = &v
+	return s
+}
+
+// SetNodeCount sets the NodeCount field's value.
+func (s *LineListForCreateTaskInput) SetNodeCount(v int64) *LineListForCreateTaskInput {
+	s.NodeCount = &v
+	return s
+}
+
 type LocationInfoForCreateTaskOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -829,6 +1533,132 @@ func (s *MtrConfigForCreateTaskInput) SetTimeout(v int32) *MtrConfigForCreateTas
 	return s
 }
 
+type PageConfigForCreateTaskInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	AutoScroll *bool `type:"boolean" json:",omitempty"`
+
+	Cookies []*CookieForCreateTaskInput `type:"list" json:",omitempty"`
+
+	CustomHeader *CustomHeaderForCreateTaskInput `type:"structure" json:",omitempty"`
+
+	DisableCompress *bool `type:"boolean" json:",omitempty"`
+
+	EnableCache *bool `type:"boolean" json:",omitempty"`
+
+	EnableRedirect *bool `type:"boolean" json:",omitempty"`
+
+	EndCustomHostConfigTime *EndCustomHostConfigTimeForCreateTaskInput `type:"structure" json:",omitempty"`
+
+	IgnoreCertificate *bool `type:"boolean" json:",omitempty"`
+
+	QuicConfig *QuicConfigForCreateTaskInput `type:"structure" json:",omitempty"`
+
+	SaveBaseDocumentBody *bool `type:"boolean" json:",omitempty"`
+
+	SaveElements *bool `type:"boolean" json:",omitempty"`
+
+	SaveFinalSnapshot *int32 `type:"int32" json:",omitempty"`
+
+	ScreenshotKeypoint *bool `type:"boolean" json:",omitempty"`
+
+	Timeout *int64 `type:"int64" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s PageConfigForCreateTaskInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s PageConfigForCreateTaskInput) GoString() string {
+	return s.String()
+}
+
+// SetAutoScroll sets the AutoScroll field's value.
+func (s *PageConfigForCreateTaskInput) SetAutoScroll(v bool) *PageConfigForCreateTaskInput {
+	s.AutoScroll = &v
+	return s
+}
+
+// SetCookies sets the Cookies field's value.
+func (s *PageConfigForCreateTaskInput) SetCookies(v []*CookieForCreateTaskInput) *PageConfigForCreateTaskInput {
+	s.Cookies = v
+	return s
+}
+
+// SetCustomHeader sets the CustomHeader field's value.
+func (s *PageConfigForCreateTaskInput) SetCustomHeader(v *CustomHeaderForCreateTaskInput) *PageConfigForCreateTaskInput {
+	s.CustomHeader = v
+	return s
+}
+
+// SetDisableCompress sets the DisableCompress field's value.
+func (s *PageConfigForCreateTaskInput) SetDisableCompress(v bool) *PageConfigForCreateTaskInput {
+	s.DisableCompress = &v
+	return s
+}
+
+// SetEnableCache sets the EnableCache field's value.
+func (s *PageConfigForCreateTaskInput) SetEnableCache(v bool) *PageConfigForCreateTaskInput {
+	s.EnableCache = &v
+	return s
+}
+
+// SetEnableRedirect sets the EnableRedirect field's value.
+func (s *PageConfigForCreateTaskInput) SetEnableRedirect(v bool) *PageConfigForCreateTaskInput {
+	s.EnableRedirect = &v
+	return s
+}
+
+// SetEndCustomHostConfigTime sets the EndCustomHostConfigTime field's value.
+func (s *PageConfigForCreateTaskInput) SetEndCustomHostConfigTime(v *EndCustomHostConfigTimeForCreateTaskInput) *PageConfigForCreateTaskInput {
+	s.EndCustomHostConfigTime = v
+	return s
+}
+
+// SetIgnoreCertificate sets the IgnoreCertificate field's value.
+func (s *PageConfigForCreateTaskInput) SetIgnoreCertificate(v bool) *PageConfigForCreateTaskInput {
+	s.IgnoreCertificate = &v
+	return s
+}
+
+// SetQuicConfig sets the QuicConfig field's value.
+func (s *PageConfigForCreateTaskInput) SetQuicConfig(v *QuicConfigForCreateTaskInput) *PageConfigForCreateTaskInput {
+	s.QuicConfig = v
+	return s
+}
+
+// SetSaveBaseDocumentBody sets the SaveBaseDocumentBody field's value.
+func (s *PageConfigForCreateTaskInput) SetSaveBaseDocumentBody(v bool) *PageConfigForCreateTaskInput {
+	s.SaveBaseDocumentBody = &v
+	return s
+}
+
+// SetSaveElements sets the SaveElements field's value.
+func (s *PageConfigForCreateTaskInput) SetSaveElements(v bool) *PageConfigForCreateTaskInput {
+	s.SaveElements = &v
+	return s
+}
+
+// SetSaveFinalSnapshot sets the SaveFinalSnapshot field's value.
+func (s *PageConfigForCreateTaskInput) SetSaveFinalSnapshot(v int32) *PageConfigForCreateTaskInput {
+	s.SaveFinalSnapshot = &v
+	return s
+}
+
+// SetScreenshotKeypoint sets the ScreenshotKeypoint field's value.
+func (s *PageConfigForCreateTaskInput) SetScreenshotKeypoint(v bool) *PageConfigForCreateTaskInput {
+	s.ScreenshotKeypoint = &v
+	return s
+}
+
+// SetTimeout sets the Timeout field's value.
+func (s *PageConfigForCreateTaskInput) SetTimeout(v int64) *PageConfigForCreateTaskInput {
+	s.Timeout = &v
+	return s
+}
+
 type PeriodConfigForCreateTaskInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -870,6 +1700,8 @@ func (s *PeriodConfigForCreateTaskInput) SetTimeRangeConfig(v []*TimeRangeConfig
 type PingConfigForCreateTaskInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	Common_typesProtocolType *int32 `type:"int32" json:"common_types.ProtocolType,omitempty"`
+
 	ConnectTimeout *float64 `type:"double" json:",omitempty"`
 
 	EnableDividePackage *bool `type:"boolean" json:",omitempty"`
@@ -893,6 +1725,12 @@ func (s PingConfigForCreateTaskInput) String() string {
 // GoString returns the string representation
 func (s PingConfigForCreateTaskInput) GoString() string {
 	return s.String()
+}
+
+// SetCommon_typesProtocolType sets the Common_typesProtocolType field's value.
+func (s *PingConfigForCreateTaskInput) SetCommon_typesProtocolType(v int32) *PingConfigForCreateTaskInput {
+	s.Common_typesProtocolType = &v
+	return s
 }
 
 // SetConnectTimeout sets the ConnectTimeout field's value.
@@ -934,6 +1772,142 @@ func (s *PingConfigForCreateTaskInput) SetProtocolType(v int32) *PingConfigForCr
 // SetTimeout sets the Timeout field's value.
 func (s *PingConfigForCreateTaskInput) SetTimeout(v int32) *PingConfigForCreateTaskInput {
 	s.Timeout = &v
+	return s
+}
+
+type QueryForCreateTaskInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Key *string `type:"string" json:",omitempty"`
+
+	Value *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s QueryForCreateTaskInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s QueryForCreateTaskInput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *QueryForCreateTaskInput) SetKey(v string) *QueryForCreateTaskInput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *QueryForCreateTaskInput) SetValue(v string) *QueryForCreateTaskInput {
+	s.Value = &v
+	return s
+}
+
+type QuicConfigForCreateTaskInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	ForceQuicHost []*string `type:"list" json:",omitempty"`
+
+	QuicVersion *int32 `type:"int32" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s QuicConfigForCreateTaskInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s QuicConfigForCreateTaskInput) GoString() string {
+	return s.String()
+}
+
+// SetForceQuicHost sets the ForceQuicHost field's value.
+func (s *QuicConfigForCreateTaskInput) SetForceQuicHost(v []*string) *QuicConfigForCreateTaskInput {
+	s.ForceQuicHost = v
+	return s
+}
+
+// SetQuicVersion sets the QuicVersion field's value.
+func (s *QuicConfigForCreateTaskInput) SetQuicVersion(v int32) *QuicConfigForCreateTaskInput {
+	s.QuicVersion = &v
+	return s
+}
+
+type ResultAssertForCreateTaskInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Conditions []*ConditionForCreateTaskInput `type:"list" json:",omitempty"`
+
+	Relation *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s ResultAssertForCreateTaskInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ResultAssertForCreateTaskInput) GoString() string {
+	return s.String()
+}
+
+// SetConditions sets the Conditions field's value.
+func (s *ResultAssertForCreateTaskInput) SetConditions(v []*ConditionForCreateTaskInput) *ResultAssertForCreateTaskInput {
+	s.Conditions = v
+	return s
+}
+
+// SetRelation sets the Relation field's value.
+func (s *ResultAssertForCreateTaskInput) SetRelation(v string) *ResultAssertForCreateTaskInput {
+	s.Relation = &v
+	return s
+}
+
+type SelectionConfigForCreateTaskInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	GroupConfig *ConvertGroupConfigForCreateTaskInput `type:"structure" json:",omitempty"`
+
+	LineConfig *LineConfigForCreateTaskInput `type:"structure" json:",omitempty"`
+
+	LineGroupConfig *LineGroupConfigForCreateTaskInput `type:"structure" json:",omitempty"`
+
+	Mode *int32 `type:"int32" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s SelectionConfigForCreateTaskInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s SelectionConfigForCreateTaskInput) GoString() string {
+	return s.String()
+}
+
+// SetGroupConfig sets the GroupConfig field's value.
+func (s *SelectionConfigForCreateTaskInput) SetGroupConfig(v *ConvertGroupConfigForCreateTaskInput) *SelectionConfigForCreateTaskInput {
+	s.GroupConfig = v
+	return s
+}
+
+// SetLineConfig sets the LineConfig field's value.
+func (s *SelectionConfigForCreateTaskInput) SetLineConfig(v *LineConfigForCreateTaskInput) *SelectionConfigForCreateTaskInput {
+	s.LineConfig = v
+	return s
+}
+
+// SetLineGroupConfig sets the LineGroupConfig field's value.
+func (s *SelectionConfigForCreateTaskInput) SetLineGroupConfig(v *LineGroupConfigForCreateTaskInput) *SelectionConfigForCreateTaskInput {
+	s.LineGroupConfig = v
+	return s
+}
+
+// SetMode sets the Mode field's value.
+func (s *SelectionConfigForCreateTaskInput) SetMode(v int32) *SelectionConfigForCreateTaskInput {
+	s.Mode = &v
 	return s
 }
 
@@ -1005,6 +1979,36 @@ func (s *TCPConfigForCreateTaskInput) SetTimeout(v int32) *TCPConfigForCreateTas
 	return s
 }
 
+type TagForCreateTaskInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Key *string `type:"string" json:",omitempty"`
+
+	Value *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s TagForCreateTaskInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagForCreateTaskInput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagForCreateTaskInput) SetKey(v string) *TagForCreateTaskInput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *TagForCreateTaskInput) SetValue(v string) *TagForCreateTaskInput {
+	s.Value = &v
+	return s
+}
+
 type TimeRangeConfigForCreateTaskInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -1046,6 +2050,8 @@ func (s *TimeRangeConfigForCreateTaskInput) SetStartTime(v *StartTimeForCreateTa
 type UDPConfigForCreateTaskInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	Mode *int32 `type:"int32" json:",omitempty"`
+
 	Payload *string `type:"string" json:",omitempty"`
 
 	PayloadType *int32 `type:"int32" json:",omitempty"`
@@ -1061,6 +2067,12 @@ func (s UDPConfigForCreateTaskInput) String() string {
 // GoString returns the string representation
 func (s UDPConfigForCreateTaskInput) GoString() string {
 	return s.String()
+}
+
+// SetMode sets the Mode field's value.
+func (s *UDPConfigForCreateTaskInput) SetMode(v int32) *UDPConfigForCreateTaskInput {
+	s.Mode = &v
+	return s
 }
 
 // SetPayload sets the Payload field's value.
@@ -1079,4 +2091,128 @@ func (s *UDPConfigForCreateTaskInput) SetPayloadType(v int32) *UDPConfigForCreat
 func (s *UDPConfigForCreateTaskInput) SetTimeout(v int32) *UDPConfigForCreateTaskInput {
 	s.Timeout = &v
 	return s
+}
+
+type UploadConfigForCreateTaskInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	CustomHostConfig *CustomHostConfigForCreateTaskInput `type:"structure" json:",omitempty"`
+
+	DNSServer *string `type:"string" json:",omitempty"`
+
+	DNSType *string `type:"string" json:",omitempty"`
+
+	HTTPVersion *string `type:"string" json:",omitempty"`
+
+	Headers []*HeaderForCreateTaskInput `type:"list" json:",omitempty"`
+
+	IgnoreCertificate *bool `type:"boolean" json:",omitempty"`
+
+	MaxTransferSize *int64 `type:"int64" json:",omitempty"`
+
+	Method *int32 `type:"int32" json:",omitempty"`
+
+	Queries []*QueryForCreateTaskInput `type:"list" json:",omitempty"`
+
+	Redirect *bool `type:"boolean" json:",omitempty"`
+
+	Timeout *int32 `type:"int32" json:",omitempty"`
+
+	UploadFileURL *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s UploadConfigForCreateTaskInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s UploadConfigForCreateTaskInput) GoString() string {
+	return s.String()
+}
+
+// SetCustomHostConfig sets the CustomHostConfig field's value.
+func (s *UploadConfigForCreateTaskInput) SetCustomHostConfig(v *CustomHostConfigForCreateTaskInput) *UploadConfigForCreateTaskInput {
+	s.CustomHostConfig = v
+	return s
+}
+
+// SetDNSServer sets the DNSServer field's value.
+func (s *UploadConfigForCreateTaskInput) SetDNSServer(v string) *UploadConfigForCreateTaskInput {
+	s.DNSServer = &v
+	return s
+}
+
+// SetDNSType sets the DNSType field's value.
+func (s *UploadConfigForCreateTaskInput) SetDNSType(v string) *UploadConfigForCreateTaskInput {
+	s.DNSType = &v
+	return s
+}
+
+// SetHTTPVersion sets the HTTPVersion field's value.
+func (s *UploadConfigForCreateTaskInput) SetHTTPVersion(v string) *UploadConfigForCreateTaskInput {
+	s.HTTPVersion = &v
+	return s
+}
+
+// SetHeaders sets the Headers field's value.
+func (s *UploadConfigForCreateTaskInput) SetHeaders(v []*HeaderForCreateTaskInput) *UploadConfigForCreateTaskInput {
+	s.Headers = v
+	return s
+}
+
+// SetIgnoreCertificate sets the IgnoreCertificate field's value.
+func (s *UploadConfigForCreateTaskInput) SetIgnoreCertificate(v bool) *UploadConfigForCreateTaskInput {
+	s.IgnoreCertificate = &v
+	return s
+}
+
+// SetMaxTransferSize sets the MaxTransferSize field's value.
+func (s *UploadConfigForCreateTaskInput) SetMaxTransferSize(v int64) *UploadConfigForCreateTaskInput {
+	s.MaxTransferSize = &v
+	return s
+}
+
+// SetMethod sets the Method field's value.
+func (s *UploadConfigForCreateTaskInput) SetMethod(v int32) *UploadConfigForCreateTaskInput {
+	s.Method = &v
+	return s
+}
+
+// SetQueries sets the Queries field's value.
+func (s *UploadConfigForCreateTaskInput) SetQueries(v []*QueryForCreateTaskInput) *UploadConfigForCreateTaskInput {
+	s.Queries = v
+	return s
+}
+
+// SetRedirect sets the Redirect field's value.
+func (s *UploadConfigForCreateTaskInput) SetRedirect(v bool) *UploadConfigForCreateTaskInput {
+	s.Redirect = &v
+	return s
+}
+
+// SetTimeout sets the Timeout field's value.
+func (s *UploadConfigForCreateTaskInput) SetTimeout(v int32) *UploadConfigForCreateTaskInput {
+	s.Timeout = &v
+	return s
+}
+
+// SetUploadFileURL sets the UploadFileURL field's value.
+func (s *UploadConfigForCreateTaskInput) SetUploadFileURL(v string) *UploadConfigForCreateTaskInput {
+	s.UploadFileURL = &v
+	return s
+}
+
+type ValuesForCreateTaskInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s ValuesForCreateTaskInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ValuesForCreateTaskInput) GoString() string {
+	return s.String()
 }

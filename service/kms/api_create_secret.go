@@ -166,6 +166,8 @@ type CreateSecretInput struct {
 
 	// SecretValue is a required field
 	SecretValue *string `max:"30720" type:"string" json:",omitempty" required:"true"`
+
+	VersionName *string `min:"2" max:"128" type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -204,6 +206,12 @@ func (s *CreateSecretInput) Validate() error {
 	}
 	if s.SecretValue != nil && len(*s.SecretValue) > 30720 {
 		invalidParams.Add(request.NewErrParamMaxLen("SecretValue", 30720, *s.SecretValue))
+	}
+	if s.VersionName != nil && len(*s.VersionName) < 2 {
+		invalidParams.Add(request.NewErrParamMinLen("VersionName", 2))
+	}
+	if s.VersionName != nil && len(*s.VersionName) > 128 {
+		invalidParams.Add(request.NewErrParamMaxLen("VersionName", 128, *s.VersionName))
 	}
 
 	if invalidParams.Len() > 0 {
@@ -263,6 +271,12 @@ func (s *CreateSecretInput) SetSecretType(v string) *CreateSecretInput {
 // SetSecretValue sets the SecretValue field's value.
 func (s *CreateSecretInput) SetSecretValue(v string) *CreateSecretInput {
 	s.SecretValue = &v
+	return s
+}
+
+// SetVersionName sets the VersionName field's value.
+func (s *CreateSecretInput) SetVersionName(v string) *CreateSecretInput {
+	s.VersionName = &v
 	return s
 }
 
@@ -482,6 +496,12 @@ const (
 
 	// EnumOfSecretTypeForCreateSecretInputEcs is a EnumOfSecretTypeForCreateSecretInput enum value
 	EnumOfSecretTypeForCreateSecretInputEcs = "ECS"
+
+	// EnumOfSecretTypeForCreateSecretInputPgsql is a EnumOfSecretTypeForCreateSecretInput enum value
+	EnumOfSecretTypeForCreateSecretInputPgsql = "PGSQL"
+
+	// EnumOfSecretTypeForCreateSecretInputSqlserver is a EnumOfSecretTypeForCreateSecretInput enum value
+	EnumOfSecretTypeForCreateSecretInputSqlserver = "SQLServer"
 )
 
 const (
@@ -499,4 +519,10 @@ const (
 
 	// EnumOfSecretTypeForCreateSecretOutputEcs is a EnumOfSecretTypeForCreateSecretOutput enum value
 	EnumOfSecretTypeForCreateSecretOutputEcs = "ECS"
+
+	// EnumOfSecretTypeForCreateSecretOutputPgsql is a EnumOfSecretTypeForCreateSecretOutput enum value
+	EnumOfSecretTypeForCreateSecretOutputPgsql = "PGSQL"
+
+	// EnumOfSecretTypeForCreateSecretOutputSqlserver is a EnumOfSecretTypeForCreateSecretOutput enum value
+	EnumOfSecretTypeForCreateSecretOutputSqlserver = "SQLServer"
 )

@@ -194,6 +194,10 @@ type ConditionsForExportVirusAlarmListDataInput struct {
 
 	ImageName *string `type:"string" json:",omitempty"`
 
+	LastAlarmTimeEnd *int64 `type:"int64" json:",omitempty"`
+
+	LastAlarmTimeStart *int64 `type:"int64" json:",omitempty"`
+
 	LeafGroupIDs []*string `type:"list" json:",omitempty"`
 
 	Level []*string `type:"list" json:",omitempty"`
@@ -202,9 +206,13 @@ type ConditionsForExportVirusAlarmListDataInput struct {
 
 	Name *string `type:"string" json:",omitempty"`
 
+	OperationList []*string `type:"list" json:",omitempty"`
+
 	ProbeHook *string `type:"string" json:",omitempty"`
 
 	RaspArgv *string `type:"string" json:",omitempty"`
+
+	Security_intelligence_results []*string `type:"list" json:"security_intelligence_results,omitempty"`
 
 	Status []*int64 `type:"list" json:",omitempty"`
 
@@ -381,6 +389,18 @@ func (s *ConditionsForExportVirusAlarmListDataInput) SetImageName(v string) *Con
 	return s
 }
 
+// SetLastAlarmTimeEnd sets the LastAlarmTimeEnd field's value.
+func (s *ConditionsForExportVirusAlarmListDataInput) SetLastAlarmTimeEnd(v int64) *ConditionsForExportVirusAlarmListDataInput {
+	s.LastAlarmTimeEnd = &v
+	return s
+}
+
+// SetLastAlarmTimeStart sets the LastAlarmTimeStart field's value.
+func (s *ConditionsForExportVirusAlarmListDataInput) SetLastAlarmTimeStart(v int64) *ConditionsForExportVirusAlarmListDataInput {
+	s.LastAlarmTimeStart = &v
+	return s
+}
+
 // SetLeafGroupIDs sets the LeafGroupIDs field's value.
 func (s *ConditionsForExportVirusAlarmListDataInput) SetLeafGroupIDs(v []*string) *ConditionsForExportVirusAlarmListDataInput {
 	s.LeafGroupIDs = v
@@ -405,6 +425,12 @@ func (s *ConditionsForExportVirusAlarmListDataInput) SetName(v string) *Conditio
 	return s
 }
 
+// SetOperationList sets the OperationList field's value.
+func (s *ConditionsForExportVirusAlarmListDataInput) SetOperationList(v []*string) *ConditionsForExportVirusAlarmListDataInput {
+	s.OperationList = v
+	return s
+}
+
 // SetProbeHook sets the ProbeHook field's value.
 func (s *ConditionsForExportVirusAlarmListDataInput) SetProbeHook(v string) *ConditionsForExportVirusAlarmListDataInput {
 	s.ProbeHook = &v
@@ -414,6 +440,12 @@ func (s *ConditionsForExportVirusAlarmListDataInput) SetProbeHook(v string) *Con
 // SetRaspArgv sets the RaspArgv field's value.
 func (s *ConditionsForExportVirusAlarmListDataInput) SetRaspArgv(v string) *ConditionsForExportVirusAlarmListDataInput {
 	s.RaspArgv = &v
+	return s
+}
+
+// SetSecurity_intelligence_results sets the Security_intelligence_results field's value.
+func (s *ConditionsForExportVirusAlarmListDataInput) SetSecurity_intelligence_results(v []*string) *ConditionsForExportVirusAlarmListDataInput {
+	s.Security_intelligence_results = v
 	return s
 }
 

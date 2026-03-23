@@ -146,8 +146,8 @@ func (c *CLOUDDETECT20251031) RestartTaskWithContext(ctx volcengine.Context, inp
 type RestartTaskInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	// ID is a required field
-	ID *int64 `type:"int64" json:",omitempty" required:"true"`
+	// Id is a required field
+	Id *int64 `type:"int64" json:",omitempty" required:"true"`
 
 	ProjectName *string `type:"string" json:",omitempty"`
 }
@@ -165,8 +165,8 @@ func (s RestartTaskInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *RestartTaskInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "RestartTaskInput"}
-	if s.ID == nil {
-		invalidParams.Add(request.NewErrParamRequired("ID"))
+	if s.Id == nil {
+		invalidParams.Add(request.NewErrParamRequired("Id"))
 	}
 
 	if invalidParams.Len() > 0 {
@@ -175,9 +175,9 @@ func (s *RestartTaskInput) Validate() error {
 	return nil
 }
 
-// SetID sets the ID field's value.
-func (s *RestartTaskInput) SetID(v int64) *RestartTaskInput {
-	s.ID = &v
+// SetId sets the Id field's value.
+func (s *RestartTaskInput) SetId(v int64) *RestartTaskInput {
+	s.Id = &v
 	return s
 }
 

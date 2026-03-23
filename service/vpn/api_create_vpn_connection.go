@@ -139,37 +139,7 @@ func (c *VPN) CreateVpnConnectionWithContext(ctx volcengine.Context, input *Crea
 	return out, req.Send()
 }
 
-type BGPConfigForCreateVpnConnectionInput struct {
-	_ struct{} `type:"structure"`
-
-	LocalBgpIp *string `type:"string"`
-
-	TunnelCidr *string `type:"string"`
-}
-
-// String returns the string representation
-func (s BGPConfigForCreateVpnConnectionInput) String() string {
-	return volcengineutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s BGPConfigForCreateVpnConnectionInput) GoString() string {
-	return s.String()
-}
-
-// SetLocalBgpIp sets the LocalBgpIp field's value.
-func (s *BGPConfigForCreateVpnConnectionInput) SetLocalBgpIp(v string) *BGPConfigForCreateVpnConnectionInput {
-	s.LocalBgpIp = &v
-	return s
-}
-
-// SetTunnelCidr sets the TunnelCidr field's value.
-func (s *BGPConfigForCreateVpnConnectionInput) SetTunnelCidr(v string) *BGPConfigForCreateVpnConnectionInput {
-	s.TunnelCidr = &v
-	return s
-}
-
-type ConvertBgpConfigForCreateVpnConnectionInput struct {
+type BgpConfigForCreateVpnConnectionInput struct {
 	_ struct{} `type:"structure"`
 
 	EnableBgp *bool `type:"boolean"`
@@ -180,29 +150,67 @@ type ConvertBgpConfigForCreateVpnConnectionInput struct {
 }
 
 // String returns the string representation
-func (s ConvertBgpConfigForCreateVpnConnectionInput) String() string {
+func (s BgpConfigForCreateVpnConnectionInput) String() string {
 	return volcengineutil.Prettify(s)
 }
 
 // GoString returns the string representation
-func (s ConvertBgpConfigForCreateVpnConnectionInput) GoString() string {
+func (s BgpConfigForCreateVpnConnectionInput) GoString() string {
 	return s.String()
 }
 
 // SetEnableBgp sets the EnableBgp field's value.
-func (s *ConvertBgpConfigForCreateVpnConnectionInput) SetEnableBgp(v bool) *ConvertBgpConfigForCreateVpnConnectionInput {
+func (s *BgpConfigForCreateVpnConnectionInput) SetEnableBgp(v bool) *BgpConfigForCreateVpnConnectionInput {
 	s.EnableBgp = &v
 	return s
 }
 
 // SetLocalBgpIp sets the LocalBgpIp field's value.
-func (s *ConvertBgpConfigForCreateVpnConnectionInput) SetLocalBgpIp(v string) *ConvertBgpConfigForCreateVpnConnectionInput {
+func (s *BgpConfigForCreateVpnConnectionInput) SetLocalBgpIp(v string) *BgpConfigForCreateVpnConnectionInput {
 	s.LocalBgpIp = &v
 	return s
 }
 
 // SetTunnelCidr sets the TunnelCidr field's value.
-func (s *ConvertBgpConfigForCreateVpnConnectionInput) SetTunnelCidr(v string) *ConvertBgpConfigForCreateVpnConnectionInput {
+func (s *BgpConfigForCreateVpnConnectionInput) SetTunnelCidr(v string) *BgpConfigForCreateVpnConnectionInput {
+	s.TunnelCidr = &v
+	return s
+}
+
+type ConvertBGPConfigForCreateVpnConnectionInput struct {
+	_ struct{} `type:"structure"`
+
+	LocalBgpIP *string `type:"string"`
+
+	LocalBgpIp *string `type:"string"`
+
+	TunnelCidr *string `type:"string"`
+}
+
+// String returns the string representation
+func (s ConvertBGPConfigForCreateVpnConnectionInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ConvertBGPConfigForCreateVpnConnectionInput) GoString() string {
+	return s.String()
+}
+
+// SetLocalBgpIP sets the LocalBgpIP field's value.
+func (s *ConvertBGPConfigForCreateVpnConnectionInput) SetLocalBgpIP(v string) *ConvertBGPConfigForCreateVpnConnectionInput {
+	s.LocalBgpIP = &v
+	return s
+}
+
+// SetLocalBgpIp sets the LocalBgpIp field's value.
+func (s *ConvertBGPConfigForCreateVpnConnectionInput) SetLocalBgpIp(v string) *ConvertBGPConfigForCreateVpnConnectionInput {
+	s.LocalBgpIp = &v
+	return s
+}
+
+// SetTunnelCidr sets the TunnelCidr field's value.
+func (s *ConvertBGPConfigForCreateVpnConnectionInput) SetTunnelCidr(v string) *ConvertBGPConfigForCreateVpnConnectionInput {
 	s.TunnelCidr = &v
 	return s
 }
@@ -210,9 +218,9 @@ func (s *ConvertBgpConfigForCreateVpnConnectionInput) SetTunnelCidr(v string) *C
 type CreateVpnConnectionInput struct {
 	_ struct{} `type:"structure"`
 
-	AttachType *string `type:"string"`
+	AttachType *string `type:"string" enum:"AttachTypeForCreateVpnConnectionInput"`
 
-	BgpConfig *ConvertBgpConfigForCreateVpnConnectionInput `type:"structure"`
+	BgpConfig *BgpConfigForCreateVpnConnectionInput `type:"structure"`
 
 	ClientToken *string `type:"string"`
 
@@ -220,7 +228,7 @@ type CreateVpnConnectionInput struct {
 
 	Description *string `type:"string"`
 
-	DpdAction *string `type:"string"`
+	DpdAction *string `type:"string" enum:"DpdActionForCreateVpnConnectionInput"`
 
 	EnableTunnelsBgp *bool `type:"boolean"`
 
@@ -243,6 +251,8 @@ type CreateVpnConnectionInput struct {
 	RemoteSubnet []*string `type:"list" required:"true"`
 
 	Spec *string `type:"string"`
+
+	Tags []*TagForCreateVpnConnectionInput `type:"list"`
 
 	TunnelOptions []*TunnelOptionForCreateVpnConnectionInput `type:"list"`
 
@@ -284,7 +294,7 @@ func (s *CreateVpnConnectionInput) SetAttachType(v string) *CreateVpnConnectionI
 }
 
 // SetBgpConfig sets the BgpConfig field's value.
-func (s *CreateVpnConnectionInput) SetBgpConfig(v *ConvertBgpConfigForCreateVpnConnectionInput) *CreateVpnConnectionInput {
+func (s *CreateVpnConnectionInput) SetBgpConfig(v *BgpConfigForCreateVpnConnectionInput) *CreateVpnConnectionInput {
 	s.BgpConfig = v
 	return s
 }
@@ -373,6 +383,12 @@ func (s *CreateVpnConnectionInput) SetSpec(v string) *CreateVpnConnectionInput {
 	return s
 }
 
+// SetTags sets the Tags field's value.
+func (s *CreateVpnConnectionInput) SetTags(v []*TagForCreateVpnConnectionInput) *CreateVpnConnectionInput {
+	s.Tags = v
+	return s
+}
+
 // SetTunnelOptions sets the TunnelOptions field's value.
 func (s *CreateVpnConnectionInput) SetTunnelOptions(v []*TunnelOptionForCreateVpnConnectionInput) *CreateVpnConnectionInput {
 	s.TunnelOptions = v
@@ -434,23 +450,23 @@ func (s *CreateVpnConnectionOutput) SetVpnConnectionId(v string) *CreateVpnConne
 type IkeConfigForCreateVpnConnectionInput struct {
 	_ struct{} `type:"structure"`
 
-	AuthAlg *string `type:"string"`
+	AuthAlg *string `type:"string" enum:"AuthAlgForCreateVpnConnectionInput"`
 
-	DhGroup *string `type:"string"`
+	DhGroup *string `type:"string" enum:"DhGroupForCreateVpnConnectionInput"`
 
-	EncAlg *string `type:"string"`
+	EncAlg *string `type:"string" enum:"EncAlgForCreateVpnConnectionInput"`
 
 	Lifetime *int64 `type:"integer"`
 
 	LocalId *string `type:"string"`
 
-	Mode *string `type:"string"`
+	Mode *string `type:"string" enum:"ModeForCreateVpnConnectionInput"`
 
 	Psk *string `type:"string"`
 
 	RemoteId *string `type:"string"`
 
-	Version *string `type:"string"`
+	Version *string `type:"string" enum:"VersionForCreateVpnConnectionInput"`
 }
 
 // String returns the string representation
@@ -520,11 +536,11 @@ func (s *IkeConfigForCreateVpnConnectionInput) SetVersion(v string) *IkeConfigFo
 type IpsecConfigForCreateVpnConnectionInput struct {
 	_ struct{} `type:"structure"`
 
-	AuthAlg *string `type:"string"`
+	AuthAlg *string `type:"string" enum:"AuthAlgForCreateVpnConnectionInput"`
 
-	DhGroup *string `type:"string"`
+	DhGroup *string `type:"string" enum:"DhGroupForCreateVpnConnectionInput"`
 
-	EncAlg *string `type:"string"`
+	EncAlg *string `type:"string" enum:"EncAlgForCreateVpnConnectionInput"`
 
 	Lifetime *int64 `type:"integer"`
 }
@@ -563,14 +579,44 @@ func (s *IpsecConfigForCreateVpnConnectionInput) SetLifetime(v int64) *IpsecConf
 	return s
 }
 
+type TagForCreateVpnConnectionInput struct {
+	_ struct{} `type:"structure"`
+
+	Key *string `type:"string"`
+
+	Value *string `type:"string"`
+}
+
+// String returns the string representation
+func (s TagForCreateVpnConnectionInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagForCreateVpnConnectionInput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagForCreateVpnConnectionInput) SetKey(v string) *TagForCreateVpnConnectionInput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *TagForCreateVpnConnectionInput) SetValue(v string) *TagForCreateVpnConnectionInput {
+	s.Value = &v
+	return s
+}
+
 type TunnelOptionForCreateVpnConnectionInput struct {
 	_ struct{} `type:"structure"`
 
-	BGPConfig *BGPConfigForCreateVpnConnectionInput `type:"structure"`
+	BGPConfig *ConvertBGPConfigForCreateVpnConnectionInput `type:"structure"`
 
 	CustomerGatewayId *string `type:"string"`
 
-	DpdAction *string `type:"string"`
+	DpdAction *string `type:"string" enum:"DpdActionForCreateVpnConnectionInput"`
 
 	IkeConfig *IkeConfigForCreateVpnConnectionInput `type:"structure"`
 
@@ -592,7 +638,7 @@ func (s TunnelOptionForCreateVpnConnectionInput) GoString() string {
 }
 
 // SetBGPConfig sets the BGPConfig field's value.
-func (s *TunnelOptionForCreateVpnConnectionInput) SetBGPConfig(v *BGPConfigForCreateVpnConnectionInput) *TunnelOptionForCreateVpnConnectionInput {
+func (s *TunnelOptionForCreateVpnConnectionInput) SetBGPConfig(v *ConvertBGPConfigForCreateVpnConnectionInput) *TunnelOptionForCreateVpnConnectionInput {
 	s.BGPConfig = v
 	return s
 }
@@ -632,3 +678,95 @@ func (s *TunnelOptionForCreateVpnConnectionInput) SetRole(v string) *TunnelOptio
 	s.Role = &v
 	return s
 }
+
+const (
+	// AttachTypeForCreateVpnConnectionInputVpnGateway is a AttachTypeForCreateVpnConnectionInput enum value
+	AttachTypeForCreateVpnConnectionInputVpnGateway = "VpnGateway"
+
+	// AttachTypeForCreateVpnConnectionInputTransitRouter is a AttachTypeForCreateVpnConnectionInput enum value
+	AttachTypeForCreateVpnConnectionInputTransitRouter = "TransitRouter"
+)
+
+const (
+	// AuthAlgForCreateVpnConnectionInputSha1 is a AuthAlgForCreateVpnConnectionInput enum value
+	AuthAlgForCreateVpnConnectionInputSha1 = "sha1"
+
+	// AuthAlgForCreateVpnConnectionInputMd5 is a AuthAlgForCreateVpnConnectionInput enum value
+	AuthAlgForCreateVpnConnectionInputMd5 = "md5"
+
+	// AuthAlgForCreateVpnConnectionInputSha256 is a AuthAlgForCreateVpnConnectionInput enum value
+	AuthAlgForCreateVpnConnectionInputSha256 = "sha256"
+
+	// AuthAlgForCreateVpnConnectionInputSha384 is a AuthAlgForCreateVpnConnectionInput enum value
+	AuthAlgForCreateVpnConnectionInputSha384 = "sha384"
+
+	// AuthAlgForCreateVpnConnectionInputSha512 is a AuthAlgForCreateVpnConnectionInput enum value
+	AuthAlgForCreateVpnConnectionInputSha512 = "sha512"
+
+	// AuthAlgForCreateVpnConnectionInputSm3 is a AuthAlgForCreateVpnConnectionInput enum value
+	AuthAlgForCreateVpnConnectionInputSm3 = "sm3"
+)
+
+const (
+	// DhGroupForCreateVpnConnectionInputGroup1 is a DhGroupForCreateVpnConnectionInput enum value
+	DhGroupForCreateVpnConnectionInputGroup1 = "group1"
+
+	// DhGroupForCreateVpnConnectionInputGroup2 is a DhGroupForCreateVpnConnectionInput enum value
+	DhGroupForCreateVpnConnectionInputGroup2 = "group2"
+
+	// DhGroupForCreateVpnConnectionInputGroup5 is a DhGroupForCreateVpnConnectionInput enum value
+	DhGroupForCreateVpnConnectionInputGroup5 = "group5"
+
+	// DhGroupForCreateVpnConnectionInputGroup14 is a DhGroupForCreateVpnConnectionInput enum value
+	DhGroupForCreateVpnConnectionInputGroup14 = "group14"
+)
+
+const (
+	// DpdActionForCreateVpnConnectionInputNone is a DpdActionForCreateVpnConnectionInput enum value
+	DpdActionForCreateVpnConnectionInputNone = "none"
+
+	// DpdActionForCreateVpnConnectionInputClear is a DpdActionForCreateVpnConnectionInput enum value
+	DpdActionForCreateVpnConnectionInputClear = "clear"
+
+	// DpdActionForCreateVpnConnectionInputHold is a DpdActionForCreateVpnConnectionInput enum value
+	DpdActionForCreateVpnConnectionInputHold = "hold"
+
+	// DpdActionForCreateVpnConnectionInputRestart is a DpdActionForCreateVpnConnectionInput enum value
+	DpdActionForCreateVpnConnectionInputRestart = "restart"
+)
+
+const (
+	// EncAlgForCreateVpnConnectionInputAes is a EncAlgForCreateVpnConnectionInput enum value
+	EncAlgForCreateVpnConnectionInputAes = "aes"
+
+	// EncAlgForCreateVpnConnectionInputAes192 is a EncAlgForCreateVpnConnectionInput enum value
+	EncAlgForCreateVpnConnectionInputAes192 = "aes192"
+
+	// EncAlgForCreateVpnConnectionInputAes256 is a EncAlgForCreateVpnConnectionInput enum value
+	EncAlgForCreateVpnConnectionInputAes256 = "aes256"
+
+	// EncAlgForCreateVpnConnectionInputDes is a EncAlgForCreateVpnConnectionInput enum value
+	EncAlgForCreateVpnConnectionInputDes = "des"
+
+	// EncAlgForCreateVpnConnectionInput3des is a EncAlgForCreateVpnConnectionInput enum value
+	EncAlgForCreateVpnConnectionInput3des = "3des"
+
+	// EncAlgForCreateVpnConnectionInputSm4 is a EncAlgForCreateVpnConnectionInput enum value
+	EncAlgForCreateVpnConnectionInputSm4 = "sm4"
+)
+
+const (
+	// ModeForCreateVpnConnectionInputMain is a ModeForCreateVpnConnectionInput enum value
+	ModeForCreateVpnConnectionInputMain = "main"
+
+	// ModeForCreateVpnConnectionInputAggressive is a ModeForCreateVpnConnectionInput enum value
+	ModeForCreateVpnConnectionInputAggressive = "aggressive"
+)
+
+const (
+	// VersionForCreateVpnConnectionInputIkev1 is a VersionForCreateVpnConnectionInput enum value
+	VersionForCreateVpnConnectionInputIkev1 = "ikev1"
+
+	// VersionForCreateVpnConnectionInputIkev2 is a VersionForCreateVpnConnectionInput enum value
+	VersionForCreateVpnConnectionInputIkev2 = "ikev2"
+)

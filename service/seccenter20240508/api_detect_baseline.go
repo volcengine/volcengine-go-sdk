@@ -210,7 +210,7 @@ type DetectBaselineInput struct {
 
 	AssetIDs []*string `type:"list" json:",omitempty"`
 
-	AssetType *string `type:"string" json:",omitempty" enum:"EnumOfAssetTypeForDetectBaselineInput"`
+	AssetType *string `type:"string" json:",omitempty"`
 
 	BaselineList []*int64 `type:"list" json:",omitempty"`
 
@@ -330,11 +330,3 @@ func (s *DetectBaselineOutput) SetStatus(v string) *DetectBaselineOutput {
 	s.Status = &v
 	return s
 }
-
-const (
-	// EnumOfAssetTypeForDetectBaselineInputHost is a EnumOfAssetTypeForDetectBaselineInput enum value
-	EnumOfAssetTypeForDetectBaselineInputHost = "Host"
-
-	// EnumOfAssetTypeForDetectBaselineInputDev is a EnumOfAssetTypeForDetectBaselineInput enum value
-	EnumOfAssetTypeForDetectBaselineInputDev = "Dev"
-)

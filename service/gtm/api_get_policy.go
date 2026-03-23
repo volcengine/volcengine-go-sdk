@@ -32,7 +32,7 @@ const opGetPolicyCommon = "GetPolicy"
 func (c *GTM) GetPolicyCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opGetPolicyCommon,
-		HTTPMethod: "POST",
+		HTTPMethod: "GET",
 		HTTPPath:   "/",
 	}
 
@@ -42,8 +42,6 @@ func (c *GTM) GetPolicyCommonRequest(input *map[string]interface{}) (req *reques
 
 	output = &map[string]interface{}{}
 	req = c.newRequest(op, input, output)
-
-	req.HTTPRequest.Header.Set("Content-Type", "application/json; charset=utf-8")
 
 	return
 }
@@ -99,7 +97,7 @@ const opGetPolicy = "GetPolicy"
 func (c *GTM) GetPolicyRequest(input *GetPolicyInput) (req *request.Request, output *GetPolicyOutput) {
 	op := &request.Operation{
 		Name:       opGetPolicy,
-		HTTPMethod: "POST",
+		HTTPMethod: "GET",
 		HTTPPath:   "/",
 	}
 
@@ -109,8 +107,6 @@ func (c *GTM) GetPolicyRequest(input *GetPolicyInput) (req *request.Request, out
 
 	output = &GetPolicyOutput{}
 	req = c.newRequest(op, input, output)
-
-	req.HTTPRequest.Header.Set("Content-Type", "application/json; charset=utf-8")
 
 	return
 }
@@ -144,13 +140,13 @@ func (c *GTM) GetPolicyWithContext(ctx volcengine.Context, input *GetPolicyInput
 }
 
 type GetPolicyInput struct {
-	_ struct{} `type:"structure" json:",omitempty"`
+	_ struct{} `type:"structure"`
 
 	// GtmId is a required field
-	GtmId *string `type:"string" json:",omitempty" required:"true"`
+	GtmId *string `type:"string" required:"true"`
 
 	// PolicyType is a required field
-	PolicyType *string `type:"string" json:",omitempty" required:"true"`
+	PolicyType *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -192,21 +188,21 @@ func (s *GetPolicyInput) SetPolicyType(v string) *GetPolicyInput {
 }
 
 type GetPolicyOutput struct {
-	_ struct{} `type:"structure" json:",omitempty"`
+	_ struct{} `type:"structure"`
 
 	Metadata *response.ResponseMetadata
 
-	AlarmOnly *bool `type:"boolean" json:",omitempty"`
+	AlarmOnly *bool `type:"boolean"`
 
-	PerfMode *string `type:"string" json:",omitempty"`
+	PerfMode *string `type:"string"`
 
-	RoutingMode *string `type:"string" json:",omitempty"`
+	RoutingMode *string `type:"string"`
 
-	SourceFlow *SourceFlowForGetPolicyOutput `type:"structure" json:",omitempty"`
+	SourceFlow *SourceFlowForGetPolicyOutput `type:"structure"`
 
-	Statistics *StatisticsForGetPolicyOutput `type:"structure" json:",omitempty"`
+	Statistics *StatisticsForGetPolicyOutput `type:"structure"`
 
-	Targets *TargetsForGetPolicyOutput `type:"structure" json:",omitempty"`
+	Targets []*TargetForGetPolicyOutput `type:"list"`
 }
 
 // String returns the string representation
@@ -250,13 +246,13 @@ func (s *GetPolicyOutput) SetStatistics(v *StatisticsForGetPolicyOutput) *GetPol
 }
 
 // SetTargets sets the Targets field's value.
-func (s *GetPolicyOutput) SetTargets(v *TargetsForGetPolicyOutput) *GetPolicyOutput {
+func (s *GetPolicyOutput) SetTargets(v []*TargetForGetPolicyOutput) *GetPolicyOutput {
 	s.Targets = v
 	return s
 }
 
 type SourceFlowForGetPolicyOutput struct {
-	_ struct{} `type:"structure" json:",omitempty"`
+	_ struct{} `type:"structure"`
 }
 
 // String returns the string representation
@@ -270,11 +266,11 @@ func (s SourceFlowForGetPolicyOutput) GoString() string {
 }
 
 type StatisticsForGetPolicyOutput struct {
-	_ struct{} `type:"structure" json:",omitempty"`
+	_ struct{} `type:"structure"`
 
-	ActiveAddr *int32 `type:"int32" json:",omitempty"`
+	ActiveAddr *int32 `type:"int32"`
 
-	InactiveAddr *int32 `type:"int32" json:",omitempty"`
+	InactiveAddr *int32 `type:"int32"`
 }
 
 // String returns the string representation
@@ -299,24 +295,24 @@ func (s *StatisticsForGetPolicyOutput) SetInactiveAddr(v int32) *StatisticsForGe
 	return s
 }
 
-type TargetsForGetPolicyOutput struct {
-	_ struct{} `type:"structure" json:",omitempty"`
+type TargetForGetPolicyOutput struct {
+	_ struct{} `type:"structure"`
 
-	PoolId []*string `type:"list" json:",omitempty"`
+	PoolId *string `type:"string"`
 }
 
 // String returns the string representation
-func (s TargetsForGetPolicyOutput) String() string {
+func (s TargetForGetPolicyOutput) String() string {
 	return volcengineutil.Prettify(s)
 }
 
 // GoString returns the string representation
-func (s TargetsForGetPolicyOutput) GoString() string {
+func (s TargetForGetPolicyOutput) GoString() string {
 	return s.String()
 }
 
 // SetPoolId sets the PoolId field's value.
-func (s *TargetsForGetPolicyOutput) SetPoolId(v []*string) *TargetsForGetPolicyOutput {
-	s.PoolId = v
+func (s *TargetForGetPolicyOutput) SetPoolId(v string) *TargetForGetPolicyOutput {
+	s.PoolId = &v
 	return s
 }

@@ -290,8 +290,6 @@ func (s *ExtraPerformanceTypeForDescribeVolumeTypeOutput) SetMaxThroughput(v str
 type VolumeTypeForDescribeVolumeTypeOutput struct {
 	_ struct{} `type:"structure"`
 
-	CreatedAt *string `type:"string"`
-
 	ExtraPerformanceTypes []*ExtraPerformanceTypeForDescribeVolumeTypeOutput `type:"list"`
 
 	Id *string `type:"string"`
@@ -307,12 +305,6 @@ func (s VolumeTypeForDescribeVolumeTypeOutput) String() string {
 // GoString returns the string representation
 func (s VolumeTypeForDescribeVolumeTypeOutput) GoString() string {
 	return s.String()
-}
-
-// SetCreatedAt sets the CreatedAt field's value.
-func (s *VolumeTypeForDescribeVolumeTypeOutput) SetCreatedAt(v string) *VolumeTypeForDescribeVolumeTypeOutput {
-	s.CreatedAt = &v
-	return s
 }
 
 // SetExtraPerformanceTypes sets the ExtraPerformanceTypes field's value.

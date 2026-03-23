@@ -146,7 +146,7 @@ func (c *GTM) CreatePoolWithContext(ctx volcengine.Context, input *CreatePoolInp
 type AddressForCreatePoolInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	Capacity *int64 `type:"int64" json:",omitempty"`
+	Capacity *int32 `type:"int32" json:",omitempty"`
 
 	Mode *string `type:"string" json:",omitempty"`
 
@@ -168,7 +168,7 @@ func (s AddressForCreatePoolInput) GoString() string {
 }
 
 // SetCapacity sets the Capacity field's value.
-func (s *AddressForCreatePoolInput) SetCapacity(v int64) *AddressForCreatePoolInput {
+func (s *AddressForCreatePoolInput) SetCapacity(v int32) *AddressForCreatePoolInput {
 	s.Capacity = &v
 	return s
 }

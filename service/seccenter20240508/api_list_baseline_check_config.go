@@ -32,7 +32,7 @@ const opListBaselineCheckConfigCommon = "ListBaselineCheckConfig"
 func (c *SECCENTER20240508) ListBaselineCheckConfigCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opListBaselineCheckConfigCommon,
-		HTTPMethod: "GET",
+		HTTPMethod: "POST",
 		HTTPPath:   "/",
 	}
 
@@ -42,6 +42,8 @@ func (c *SECCENTER20240508) ListBaselineCheckConfigCommonRequest(input *map[stri
 
 	output = &map[string]interface{}{}
 	req = c.newRequest(op, input, output)
+
+	req.HTTPRequest.Header.Set("Content-Type", "application/json; charset=utf-8")
 
 	return
 }
@@ -97,7 +99,7 @@ const opListBaselineCheckConfig = "ListBaselineCheckConfig"
 func (c *SECCENTER20240508) ListBaselineCheckConfigRequest(input *ListBaselineCheckConfigInput) (req *request.Request, output *ListBaselineCheckConfigOutput) {
 	op := &request.Operation{
 		Name:       opListBaselineCheckConfig,
-		HTTPMethod: "GET",
+		HTTPMethod: "POST",
 		HTTPPath:   "/",
 	}
 
@@ -107,6 +109,8 @@ func (c *SECCENTER20240508) ListBaselineCheckConfigRequest(input *ListBaselineCh
 
 	output = &ListBaselineCheckConfigOutput{}
 	req = c.newRequest(op, input, output)
+
+	req.HTTPRequest.Header.Set("Content-Type", "application/json; charset=utf-8")
 
 	return
 }
@@ -140,11 +144,11 @@ func (c *SECCENTER20240508) ListBaselineCheckConfigWithContext(ctx volcengine.Co
 }
 
 type BaselineListForListBaselineCheckConfigOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	BaselineIDList []*int64 `type:"list"`
+	BaselineIDList []*int64 `type:"list" json:",omitempty"`
 
-	GroupID *int64 `type:"int64"`
+	GroupID *int64 `type:"int64" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -170,47 +174,49 @@ func (s *BaselineListForListBaselineCheckConfigOutput) SetGroupID(v int64) *Base
 }
 
 type DataForListBaselineCheckConfigOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	AccountID *string `type:"string"`
+	AccountID *string `type:"string" json:",omitempty"`
 
-	AgentIDList []*string `type:"list"`
+	AgentIDList []*string `type:"list" json:",omitempty"`
 
-	BaselineList []*BaselineListForListBaselineCheckConfigOutput `type:"list"`
+	BaselineList []*BaselineListForListBaselineCheckConfigOutput `type:"list" json:",omitempty"`
 
-	ConfigID *string `type:"string"`
+	ConfigID *string `type:"string" json:",omitempty"`
 
-	ConfigName *string `type:"string"`
+	ConfigName *string `type:"string" json:",omitempty"`
 
-	Enable *bool `type:"boolean"`
+	ConfigNameEn *string `type:"string" json:",omitempty"`
 
-	EndTime *int64 `type:"int64"`
+	Enable *bool `type:"boolean" json:",omitempty"`
 
-	IfAllHost *bool `type:"boolean"`
+	EndTime *int64 `type:"int64" json:",omitempty"`
 
-	IsDefaultConfig *bool `type:"boolean"`
+	IfAllHost *bool `type:"boolean" json:",omitempty"`
 
-	LastCheckTime *int64 `type:"int64"`
+	IsDefaultConfig *bool `type:"boolean" json:",omitempty"`
 
-	LeafGroupIDs []*string `type:"list"`
+	LastCheckTime *int64 `type:"int64" json:",omitempty"`
 
-	Model *string `type:"string"`
+	LeafGroupIDs []*string `type:"list" json:",omitempty"`
 
-	Period *string `type:"string"`
+	Model *string `type:"string" json:",omitempty"`
 
-	Remark *string `type:"string"`
+	Period *string `type:"string" json:",omitempty"`
 
-	SingleGroupPath *string `type:"string"`
+	Remark *string `type:"string" json:",omitempty"`
 
-	SingleHostname *string `type:"string"`
+	SingleGroupPath *string `type:"string" json:",omitempty"`
 
-	StartTime *int64 `type:"int64"`
+	SingleHostname *string `type:"string" json:",omitempty"`
 
-	Status *string `type:"string"`
+	StartTime *int64 `type:"int64" json:",omitempty"`
 
-	UpdateTime *int64 `type:"int64"`
+	Status *string `type:"string" json:",omitempty"`
 
-	UpdateUser *string `type:"string"`
+	UpdateTime *int64 `type:"int64" json:",omitempty"`
+
+	UpdateUser *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -250,6 +256,12 @@ func (s *DataForListBaselineCheckConfigOutput) SetConfigID(v string) *DataForLis
 // SetConfigName sets the ConfigName field's value.
 func (s *DataForListBaselineCheckConfigOutput) SetConfigName(v string) *DataForListBaselineCheckConfigOutput {
 	s.ConfigName = &v
+	return s
+}
+
+// SetConfigNameEn sets the ConfigNameEn field's value.
+func (s *DataForListBaselineCheckConfigOutput) SetConfigNameEn(v string) *DataForListBaselineCheckConfigOutput {
+	s.ConfigNameEn = &v
 	return s
 }
 
@@ -344,17 +356,17 @@ func (s *DataForListBaselineCheckConfigOutput) SetUpdateUser(v string) *DataForL
 }
 
 type ListBaselineCheckConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// PageNumber is a required field
-	PageNumber *int64 `type:"int64" required:"true"`
+	PageNumber *int64 `type:"int64" json:",omitempty" required:"true"`
 
 	// PageSize is a required field
-	PageSize *int64 `type:"int64" required:"true"`
+	PageSize *int64 `type:"int64" json:",omitempty" required:"true"`
 
-	SortBy *string `type:"string"`
+	SortBy *string `type:"string" json:",omitempty"`
 
-	SortOrder *string `type:"string"`
+	SortOrder *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -408,17 +420,17 @@ func (s *ListBaselineCheckConfigInput) SetSortOrder(v string) *ListBaselineCheck
 }
 
 type ListBaselineCheckConfigOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	Data []*DataForListBaselineCheckConfigOutput `type:"list"`
+	Data []*DataForListBaselineCheckConfigOutput `type:"list" json:",omitempty"`
 
-	PageNumber *int64 `type:"int64"`
+	PageNumber *int64 `type:"int64" json:",omitempty"`
 
-	PageSize *int64 `type:"int64"`
+	PageSize *int64 `type:"int64" json:",omitempty"`
 
-	TotalCount *int64 `type:"int64"`
+	TotalCount *int64 `type:"int64" json:",omitempty"`
 }
 
 // String returns the string representation

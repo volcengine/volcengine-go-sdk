@@ -146,7 +146,13 @@ func (c *ACEP) BackupDataWithContext(ctx volcengine.Context, input *BackupDataIn
 type BackupDataInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	BackupAll *bool `type:"boolean" json:",omitempty"`
+
 	Description *string `type:"string" json:",omitempty"`
+
+	ExcludePathList []*string `type:"list" json:",omitempty"`
+
+	IncludePathList []*string `type:"list" json:",omitempty"`
 
 	PodIdList []*string `type:"list" json:",omitempty"`
 
@@ -177,9 +183,27 @@ func (s *BackupDataInput) Validate() error {
 	return nil
 }
 
+// SetBackupAll sets the BackupAll field's value.
+func (s *BackupDataInput) SetBackupAll(v bool) *BackupDataInput {
+	s.BackupAll = &v
+	return s
+}
+
 // SetDescription sets the Description field's value.
 func (s *BackupDataInput) SetDescription(v string) *BackupDataInput {
 	s.Description = &v
+	return s
+}
+
+// SetExcludePathList sets the ExcludePathList field's value.
+func (s *BackupDataInput) SetExcludePathList(v []*string) *BackupDataInput {
+	s.ExcludePathList = v
+	return s
+}
+
+// SetIncludePathList sets the IncludePathList field's value.
+func (s *BackupDataInput) SetIncludePathList(v []*string) *BackupDataInput {
+	s.IncludePathList = v
 	return s
 }
 

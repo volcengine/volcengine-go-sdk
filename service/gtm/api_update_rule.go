@@ -220,7 +220,7 @@ func (s *PoolForUpdateRuleInput) SetWeight(v int32) *PoolForUpdateRuleInput {
 type PoolSetForUpdateRuleInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	ActiveAddrCount *int32 `type:"int32" json:",omitempty"`
+	ActiveAddrThr *int32 `type:"int32" json:",omitempty"`
 
 	Name *string `type:"string" json:",omitempty"`
 
@@ -237,9 +237,9 @@ func (s PoolSetForUpdateRuleInput) GoString() string {
 	return s.String()
 }
 
-// SetActiveAddrCount sets the ActiveAddrCount field's value.
-func (s *PoolSetForUpdateRuleInput) SetActiveAddrCount(v int32) *PoolSetForUpdateRuleInput {
-	s.ActiveAddrCount = &v
+// SetActiveAddrThr sets the ActiveAddrThr field's value.
+func (s *PoolSetForUpdateRuleInput) SetActiveAddrThr(v int32) *PoolSetForUpdateRuleInput {
+	s.ActiveAddrThr = &v
 	return s
 }
 
@@ -414,9 +414,11 @@ type RuleForUpdateRuleInput struct {
 
 	Probe *ProbeForUpdateRuleInput `type:"structure" json:",omitempty"`
 
-	ProbeMode *string `type:"string" json:",omitempty"`
-
 	Remark *string `type:"string" json:",omitempty"`
+
+	UsePolicyProbeNodes *bool `type:"boolean" json:",omitempty"`
+
+	UseRuleProbeConfig *bool `type:"boolean" json:",omitempty"`
 
 	Weight *int32 `type:"int32" json:",omitempty"`
 }
@@ -473,15 +475,21 @@ func (s *RuleForUpdateRuleInput) SetProbe(v *ProbeForUpdateRuleInput) *RuleForUp
 	return s
 }
 
-// SetProbeMode sets the ProbeMode field's value.
-func (s *RuleForUpdateRuleInput) SetProbeMode(v string) *RuleForUpdateRuleInput {
-	s.ProbeMode = &v
-	return s
-}
-
 // SetRemark sets the Remark field's value.
 func (s *RuleForUpdateRuleInput) SetRemark(v string) *RuleForUpdateRuleInput {
 	s.Remark = &v
+	return s
+}
+
+// SetUsePolicyProbeNodes sets the UsePolicyProbeNodes field's value.
+func (s *RuleForUpdateRuleInput) SetUsePolicyProbeNodes(v bool) *RuleForUpdateRuleInput {
+	s.UsePolicyProbeNodes = &v
+	return s
+}
+
+// SetUseRuleProbeConfig sets the UseRuleProbeConfig field's value.
+func (s *RuleForUpdateRuleInput) SetUseRuleProbeConfig(v bool) *RuleForUpdateRuleInput {
+	s.UseRuleProbeConfig = &v
 	return s
 }
 

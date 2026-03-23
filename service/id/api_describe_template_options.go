@@ -146,6 +146,8 @@ func (c *ID) DescribeTemplateOptionsWithContext(ctx volcengine.Context, input *D
 type DescribeTemplateOptionsInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	BackendType *string `type:"string" json:",omitempty"`
+
 	Keyword *string `type:"string" json:",omitempty"`
 }
 
@@ -157,6 +159,12 @@ func (s DescribeTemplateOptionsInput) String() string {
 // GoString returns the string representation
 func (s DescribeTemplateOptionsInput) GoString() string {
 	return s.String()
+}
+
+// SetBackendType sets the BackendType field's value.
+func (s *DescribeTemplateOptionsInput) SetBackendType(v string) *DescribeTemplateOptionsInput {
+	s.BackendType = &v
+	return s
 }
 
 // SetKeyword sets the Keyword field's value.

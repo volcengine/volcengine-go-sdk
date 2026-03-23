@@ -126,6 +126,14 @@ type GTMAPI interface {
 	ListPoolsWithContext(volcengine.Context, *ListPoolsInput, ...request.Option) (*ListPoolsOutput, error)
 	ListPoolsRequest(*ListPoolsInput) (*request.Request, *ListPoolsOutput)
 
+	ListProbeTaskIdsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListProbeTaskIdsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListProbeTaskIdsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListProbeTaskIds(*ListProbeTaskIdsInput) (*ListProbeTaskIdsOutput, error)
+	ListProbeTaskIdsWithContext(volcengine.Context, *ListProbeTaskIdsInput, ...request.Option) (*ListProbeTaskIdsOutput, error)
+	ListProbeTaskIdsRequest(*ListProbeTaskIdsInput) (*request.Request, *ListProbeTaskIdsOutput)
+
 	ListRulesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ListRulesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	ListRulesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -133,6 +141,14 @@ type GTMAPI interface {
 	ListRules(*ListRulesInput) (*ListRulesOutput, error)
 	ListRulesWithContext(volcengine.Context, *ListRulesInput, ...request.Option) (*ListRulesOutput, error)
 	ListRulesRequest(*ListRulesInput) (*request.Request, *ListRulesOutput)
+
+	ReadProbeTaskDetailCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ReadProbeTaskDetailCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ReadProbeTaskDetailCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ReadProbeTaskDetail(*ReadProbeTaskDetailInput) (*ReadProbeTaskDetailOutput, error)
+	ReadProbeTaskDetailWithContext(volcengine.Context, *ReadProbeTaskDetailInput, ...request.Option) (*ReadProbeTaskDetailOutput, error)
+	ReadProbeTaskDetailRequest(*ReadProbeTaskDetailInput) (*request.Request, *ReadProbeTaskDetailOutput)
 
 	StartRoutingCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	StartRoutingCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)

@@ -152,11 +152,15 @@ type UpdateWebhookInput struct {
 	// Name is a required field
 	Name *string `type:"string" json:",omitempty" required:"true"`
 
+	Token *string `type:"string" json:",omitempty"`
+
 	// Type is a required field
 	Type *string `type:"string" json:",omitempty" required:"true"`
 
 	// Url is a required field
 	Url *string `type:"string" json:",omitempty" required:"true"`
+
+	WithToken *bool `type:"boolean" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -203,6 +207,12 @@ func (s *UpdateWebhookInput) SetName(v string) *UpdateWebhookInput {
 	return s
 }
 
+// SetToken sets the Token field's value.
+func (s *UpdateWebhookInput) SetToken(v string) *UpdateWebhookInput {
+	s.Token = &v
+	return s
+}
+
 // SetType sets the Type field's value.
 func (s *UpdateWebhookInput) SetType(v string) *UpdateWebhookInput {
 	s.Type = &v
@@ -212,6 +222,12 @@ func (s *UpdateWebhookInput) SetType(v string) *UpdateWebhookInput {
 // SetUrl sets the Url field's value.
 func (s *UpdateWebhookInput) SetUrl(v string) *UpdateWebhookInput {
 	s.Url = &v
+	return s
+}
+
+// SetWithToken sets the WithToken field's value.
+func (s *UpdateWebhookInput) SetWithToken(v bool) *UpdateWebhookInput {
+	s.WithToken = &v
 	return s
 }
 

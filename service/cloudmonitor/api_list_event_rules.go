@@ -168,7 +168,7 @@ type DataForListEventRulesOutput struct {
 
 	EventType []*string `type:"list" json:",omitempty"`
 
-	FilterPattern map[string]*interface{} `type:"map" json:",omitempty"`
+	FilterPattern map[string]interface{} `type:"map" json:",omitempty"`
 
 	Level *string `type:"string" json:",omitempty"`
 
@@ -268,7 +268,7 @@ func (s *DataForListEventRulesOutput) SetEventType(v []*string) *DataForListEven
 }
 
 // SetFilterPattern sets the FilterPattern field's value.
-func (s *DataForListEventRulesOutput) SetFilterPattern(v map[string]*interface{}) *DataForListEventRulesOutput {
+func (s *DataForListEventRulesOutput) SetFilterPattern(v map[string]interface{}) *DataForListEventRulesOutput {
 	s.FilterPattern = v
 	return s
 }

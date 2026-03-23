@@ -143,6 +143,572 @@ func (c *CLOUDDETECT) ListTaskWithContext(ctx volcengine.Context, input *ListTas
 	return out, req.Send()
 }
 
+type AlarmListForListTaskOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	ID *int64 `type:"int64" json:",omitempty"`
+
+	Name *string `type:"string" json:",omitempty"`
+
+	Status *int32 `type:"int32" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s AlarmListForListTaskOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s AlarmListForListTaskOutput) GoString() string {
+	return s.String()
+}
+
+// SetID sets the ID field's value.
+func (s *AlarmListForListTaskOutput) SetID(v int64) *AlarmListForListTaskOutput {
+	s.ID = &v
+	return s
+}
+
+// SetName sets the Name field's value.
+func (s *AlarmListForListTaskOutput) SetName(v string) *AlarmListForListTaskOutput {
+	s.Name = &v
+	return s
+}
+
+// SetStatus sets the Status field's value.
+func (s *AlarmListForListTaskOutput) SetStatus(v int32) *AlarmListForListTaskOutput {
+	s.Status = &v
+	return s
+}
+
+type ConditionForListTaskOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Field *string `type:"string" json:",omitempty"`
+
+	Operator *string `type:"string" json:",omitempty"`
+
+	ProcessType *string `type:"string" json:",omitempty"`
+
+	Property *string `type:"string" json:",omitempty"`
+
+	Value *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s ConditionForListTaskOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ConditionForListTaskOutput) GoString() string {
+	return s.String()
+}
+
+// SetField sets the Field field's value.
+func (s *ConditionForListTaskOutput) SetField(v string) *ConditionForListTaskOutput {
+	s.Field = &v
+	return s
+}
+
+// SetOperator sets the Operator field's value.
+func (s *ConditionForListTaskOutput) SetOperator(v string) *ConditionForListTaskOutput {
+	s.Operator = &v
+	return s
+}
+
+// SetProcessType sets the ProcessType field's value.
+func (s *ConditionForListTaskOutput) SetProcessType(v string) *ConditionForListTaskOutput {
+	s.ProcessType = &v
+	return s
+}
+
+// SetProperty sets the Property field's value.
+func (s *ConditionForListTaskOutput) SetProperty(v string) *ConditionForListTaskOutput {
+	s.Property = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *ConditionForListTaskOutput) SetValue(v string) *ConditionForListTaskOutput {
+	s.Value = &v
+	return s
+}
+
+type CookieForListTaskOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Domain *string `type:"string" json:",omitempty"`
+
+	Name *string `type:"string" json:",omitempty"`
+
+	Value *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s CookieForListTaskOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s CookieForListTaskOutput) GoString() string {
+	return s.String()
+}
+
+// SetDomain sets the Domain field's value.
+func (s *CookieForListTaskOutput) SetDomain(v string) *CookieForListTaskOutput {
+	s.Domain = &v
+	return s
+}
+
+// SetName sets the Name field's value.
+func (s *CookieForListTaskOutput) SetName(v string) *CookieForListTaskOutput {
+	s.Name = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *CookieForListTaskOutput) SetValue(v string) *CookieForListTaskOutput {
+	s.Value = &v
+	return s
+}
+
+type CustomHeaderForListTaskOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Type *int32 `type:"int32" json:",omitempty"`
+
+	Values *ValuesForListTaskOutput `type:"structure" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s CustomHeaderForListTaskOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s CustomHeaderForListTaskOutput) GoString() string {
+	return s.String()
+}
+
+// SetType sets the Type field's value.
+func (s *CustomHeaderForListTaskOutput) SetType(v int32) *CustomHeaderForListTaskOutput {
+	s.Type = &v
+	return s
+}
+
+// SetValues sets the Values field's value.
+func (s *CustomHeaderForListTaskOutput) SetValues(v *ValuesForListTaskOutput) *CustomHeaderForListTaskOutput {
+	s.Values = v
+	return s
+}
+
+type CustomHostConfigForListTaskOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	CustomHosts []*CustomHostForListTaskOutput `type:"list" json:",omitempty"`
+
+	Strategy *int32 `type:"int32" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s CustomHostConfigForListTaskOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s CustomHostConfigForListTaskOutput) GoString() string {
+	return s.String()
+}
+
+// SetCustomHosts sets the CustomHosts field's value.
+func (s *CustomHostConfigForListTaskOutput) SetCustomHosts(v []*CustomHostForListTaskOutput) *CustomHostConfigForListTaskOutput {
+	s.CustomHosts = v
+	return s
+}
+
+// SetStrategy sets the Strategy field's value.
+func (s *CustomHostConfigForListTaskOutput) SetStrategy(v int32) *CustomHostConfigForListTaskOutput {
+	s.Strategy = &v
+	return s
+}
+
+type CustomHostForListTaskOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	RawHostPort *string `type:"string" json:",omitempty"`
+
+	ResolveList []*string `type:"list" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s CustomHostForListTaskOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s CustomHostForListTaskOutput) GoString() string {
+	return s.String()
+}
+
+// SetRawHostPort sets the RawHostPort field's value.
+func (s *CustomHostForListTaskOutput) SetRawHostPort(v string) *CustomHostForListTaskOutput {
+	s.RawHostPort = &v
+	return s
+}
+
+// SetResolveList sets the ResolveList field's value.
+func (s *CustomHostForListTaskOutput) SetResolveList(v []*string) *CustomHostForListTaskOutput {
+	s.ResolveList = v
+	return s
+}
+
+type DNSConfigForListTaskOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	EnableDig *bool `type:"boolean" json:",omitempty"`
+
+	RecordType *int32 `type:"int32" json:",omitempty"`
+
+	SearchType *int32 `type:"int32" json:",omitempty"`
+
+	Server *string `type:"string" json:",omitempty"`
+
+	ServerType *int32 `type:"int32" json:",omitempty"`
+
+	Timeout *int32 `type:"int32" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s DNSConfigForListTaskOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DNSConfigForListTaskOutput) GoString() string {
+	return s.String()
+}
+
+// SetEnableDig sets the EnableDig field's value.
+func (s *DNSConfigForListTaskOutput) SetEnableDig(v bool) *DNSConfigForListTaskOutput {
+	s.EnableDig = &v
+	return s
+}
+
+// SetRecordType sets the RecordType field's value.
+func (s *DNSConfigForListTaskOutput) SetRecordType(v int32) *DNSConfigForListTaskOutput {
+	s.RecordType = &v
+	return s
+}
+
+// SetSearchType sets the SearchType field's value.
+func (s *DNSConfigForListTaskOutput) SetSearchType(v int32) *DNSConfigForListTaskOutput {
+	s.SearchType = &v
+	return s
+}
+
+// SetServer sets the Server field's value.
+func (s *DNSConfigForListTaskOutput) SetServer(v string) *DNSConfigForListTaskOutput {
+	s.Server = &v
+	return s
+}
+
+// SetServerType sets the ServerType field's value.
+func (s *DNSConfigForListTaskOutput) SetServerType(v int32) *DNSConfigForListTaskOutput {
+	s.ServerType = &v
+	return s
+}
+
+// SetTimeout sets the Timeout field's value.
+func (s *DNSConfigForListTaskOutput) SetTimeout(v int32) *DNSConfigForListTaskOutput {
+	s.Timeout = &v
+	return s
+}
+
+type DNSHijackAllowListForListTaskOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	HijackList []*string `type:"list" json:",omitempty"`
+
+	Host *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s DNSHijackAllowListForListTaskOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DNSHijackAllowListForListTaskOutput) GoString() string {
+	return s.String()
+}
+
+// SetHijackList sets the HijackList field's value.
+func (s *DNSHijackAllowListForListTaskOutput) SetHijackList(v []*string) *DNSHijackAllowListForListTaskOutput {
+	s.HijackList = v
+	return s
+}
+
+// SetHost sets the Host field's value.
+func (s *DNSHijackAllowListForListTaskOutput) SetHost(v string) *DNSHijackAllowListForListTaskOutput {
+	s.Host = &v
+	return s
+}
+
+type DNSHijackBlockListForListTaskOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	HijackList []*string `type:"list" json:",omitempty"`
+
+	Host *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s DNSHijackBlockListForListTaskOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DNSHijackBlockListForListTaskOutput) GoString() string {
+	return s.String()
+}
+
+// SetHijackList sets the HijackList field's value.
+func (s *DNSHijackBlockListForListTaskOutput) SetHijackList(v []*string) *DNSHijackBlockListForListTaskOutput {
+	s.HijackList = v
+	return s
+}
+
+// SetHost sets the Host field's value.
+func (s *DNSHijackBlockListForListTaskOutput) SetHost(v string) *DNSHijackBlockListForListTaskOutput {
+	s.Host = &v
+	return s
+}
+
+type DNSHijackConfigForListTaskOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	DNSHijackAllowList []*DNSHijackAllowListForListTaskOutput `type:"list" json:",omitempty"`
+
+	DNSHijackBlockList []*DNSHijackBlockListForListTaskOutput `type:"list" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s DNSHijackConfigForListTaskOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DNSHijackConfigForListTaskOutput) GoString() string {
+	return s.String()
+}
+
+// SetDNSHijackAllowList sets the DNSHijackAllowList field's value.
+func (s *DNSHijackConfigForListTaskOutput) SetDNSHijackAllowList(v []*DNSHijackAllowListForListTaskOutput) *DNSHijackConfigForListTaskOutput {
+	s.DNSHijackAllowList = v
+	return s
+}
+
+// SetDNSHijackBlockList sets the DNSHijackBlockList field's value.
+func (s *DNSHijackConfigForListTaskOutput) SetDNSHijackBlockList(v []*DNSHijackBlockListForListTaskOutput) *DNSHijackConfigForListTaskOutput {
+	s.DNSHijackBlockList = v
+	return s
+}
+
+type DiagnoseConfigForListTaskOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	DNSConfig *DNSConfigForListTaskOutput `type:"structure" json:",omitempty"`
+
+	MethodList []*int32 `type:"list" json:",omitempty"`
+
+	MtrConfig *MtrConfigForListTaskOutput `type:"structure" json:",omitempty"`
+
+	PcapStatus *int32 `type:"int32" json:",omitempty"`
+
+	PingConfig *PingConfigForListTaskOutput `type:"structure" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s DiagnoseConfigForListTaskOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DiagnoseConfigForListTaskOutput) GoString() string {
+	return s.String()
+}
+
+// SetDNSConfig sets the DNSConfig field's value.
+func (s *DiagnoseConfigForListTaskOutput) SetDNSConfig(v *DNSConfigForListTaskOutput) *DiagnoseConfigForListTaskOutput {
+	s.DNSConfig = v
+	return s
+}
+
+// SetMethodList sets the MethodList field's value.
+func (s *DiagnoseConfigForListTaskOutput) SetMethodList(v []*int32) *DiagnoseConfigForListTaskOutput {
+	s.MethodList = v
+	return s
+}
+
+// SetMtrConfig sets the MtrConfig field's value.
+func (s *DiagnoseConfigForListTaskOutput) SetMtrConfig(v *MtrConfigForListTaskOutput) *DiagnoseConfigForListTaskOutput {
+	s.MtrConfig = v
+	return s
+}
+
+// SetPcapStatus sets the PcapStatus field's value.
+func (s *DiagnoseConfigForListTaskOutput) SetPcapStatus(v int32) *DiagnoseConfigForListTaskOutput {
+	s.PcapStatus = &v
+	return s
+}
+
+// SetPingConfig sets the PingConfig field's value.
+func (s *DiagnoseConfigForListTaskOutput) SetPingConfig(v *PingConfigForListTaskOutput) *DiagnoseConfigForListTaskOutput {
+	s.PingConfig = v
+	return s
+}
+
+type DownloadConfigForListTaskOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	CustomHostConfig *CustomHostConfigForListTaskOutput `type:"structure" json:",omitempty"`
+
+	DNSServer *string `type:"string" json:",omitempty"`
+
+	DNSType *string `type:"string" json:",omitempty"`
+
+	HTTPVersion *string `type:"string" json:",omitempty"`
+
+	Headers []*HeaderForListTaskOutput `type:"list" json:",omitempty"`
+
+	IgnoreCertificate *bool `type:"boolean" json:",omitempty"`
+
+	MaxTransferSize *int64 `type:"int64" json:",omitempty"`
+
+	Method *int32 `type:"int32" json:",omitempty"`
+
+	Queries []*QueryForListTaskOutput `type:"list" json:",omitempty"`
+
+	Redirect *bool `type:"boolean" json:",omitempty"`
+
+	Timeout *int32 `type:"int32" json:",omitempty"`
+
+	UploadFileURL *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s DownloadConfigForListTaskOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DownloadConfigForListTaskOutput) GoString() string {
+	return s.String()
+}
+
+// SetCustomHostConfig sets the CustomHostConfig field's value.
+func (s *DownloadConfigForListTaskOutput) SetCustomHostConfig(v *CustomHostConfigForListTaskOutput) *DownloadConfigForListTaskOutput {
+	s.CustomHostConfig = v
+	return s
+}
+
+// SetDNSServer sets the DNSServer field's value.
+func (s *DownloadConfigForListTaskOutput) SetDNSServer(v string) *DownloadConfigForListTaskOutput {
+	s.DNSServer = &v
+	return s
+}
+
+// SetDNSType sets the DNSType field's value.
+func (s *DownloadConfigForListTaskOutput) SetDNSType(v string) *DownloadConfigForListTaskOutput {
+	s.DNSType = &v
+	return s
+}
+
+// SetHTTPVersion sets the HTTPVersion field's value.
+func (s *DownloadConfigForListTaskOutput) SetHTTPVersion(v string) *DownloadConfigForListTaskOutput {
+	s.HTTPVersion = &v
+	return s
+}
+
+// SetHeaders sets the Headers field's value.
+func (s *DownloadConfigForListTaskOutput) SetHeaders(v []*HeaderForListTaskOutput) *DownloadConfigForListTaskOutput {
+	s.Headers = v
+	return s
+}
+
+// SetIgnoreCertificate sets the IgnoreCertificate field's value.
+func (s *DownloadConfigForListTaskOutput) SetIgnoreCertificate(v bool) *DownloadConfigForListTaskOutput {
+	s.IgnoreCertificate = &v
+	return s
+}
+
+// SetMaxTransferSize sets the MaxTransferSize field's value.
+func (s *DownloadConfigForListTaskOutput) SetMaxTransferSize(v int64) *DownloadConfigForListTaskOutput {
+	s.MaxTransferSize = &v
+	return s
+}
+
+// SetMethod sets the Method field's value.
+func (s *DownloadConfigForListTaskOutput) SetMethod(v int32) *DownloadConfigForListTaskOutput {
+	s.Method = &v
+	return s
+}
+
+// SetQueries sets the Queries field's value.
+func (s *DownloadConfigForListTaskOutput) SetQueries(v []*QueryForListTaskOutput) *DownloadConfigForListTaskOutput {
+	s.Queries = v
+	return s
+}
+
+// SetRedirect sets the Redirect field's value.
+func (s *DownloadConfigForListTaskOutput) SetRedirect(v bool) *DownloadConfigForListTaskOutput {
+	s.Redirect = &v
+	return s
+}
+
+// SetTimeout sets the Timeout field's value.
+func (s *DownloadConfigForListTaskOutput) SetTimeout(v int32) *DownloadConfigForListTaskOutput {
+	s.Timeout = &v
+	return s
+}
+
+// SetUploadFileURL sets the UploadFileURL field's value.
+func (s *DownloadConfigForListTaskOutput) SetUploadFileURL(v string) *DownloadConfigForListTaskOutput {
+	s.UploadFileURL = &v
+	return s
+}
+
+type EndCustomHostConfigTimeForListTaskOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	CustomHosts []*CustomHostForListTaskOutput `type:"list" json:",omitempty"`
+
+	Strategy *int32 `type:"int32" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s EndCustomHostConfigTimeForListTaskOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s EndCustomHostConfigTimeForListTaskOutput) GoString() string {
+	return s.String()
+}
+
+// SetCustomHosts sets the CustomHosts field's value.
+func (s *EndCustomHostConfigTimeForListTaskOutput) SetCustomHosts(v []*CustomHostForListTaskOutput) *EndCustomHostConfigTimeForListTaskOutput {
+	s.CustomHosts = v
+	return s
+}
+
+// SetStrategy sets the Strategy field's value.
+func (s *EndCustomHostConfigTimeForListTaskOutput) SetStrategy(v int32) *EndCustomHostConfigTimeForListTaskOutput {
+	s.Strategy = &v
+	return s
+}
+
 type EndTimeForListTaskOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -173,49 +739,181 @@ func (s *EndTimeForListTaskOutput) SetMinute(v int32) *EndTimeForListTaskOutput 
 	return s
 }
 
-type LabelForListTaskOutput struct {
+type HTTPConfigForListTaskOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	Key *string `type:"string" json:",omitempty"`
+	BodyType *int32 `type:"int32" json:",omitempty"`
 
-	KeyID *int64 `type:"int64" json:",omitempty"`
+	CustomHostConfig *CustomHostConfigForListTaskOutput `type:"structure" json:",omitempty"`
 
-	Option *string `type:"string" json:",omitempty"`
+	DNSServer *string `type:"string" json:",omitempty"`
 
-	OptionID *int64 `type:"int64" json:",omitempty"`
+	DNSType *string `type:"string" json:",omitempty"`
+
+	HTTPHeaders []*HTTPHeaderForListTaskOutput `type:"list" json:",omitempty"`
+
+	HTTPMethod *int32 `type:"int32" json:",omitempty"`
+
+	HTTPVersion *string `type:"string" json:",omitempty"`
+
+	IgnoreCertificate *bool `type:"boolean" json:",omitempty"`
+
+	MaxBodySize *int64 `type:"int64" json:",omitempty"`
+
+	ProxyURL *string `type:"string" json:",omitempty"`
+
+	Redirect *bool `type:"boolean" json:",omitempty"`
+
+	RequestBody *string `type:"string" json:",omitempty"`
+
+	Timeout *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation
-func (s LabelForListTaskOutput) String() string {
+func (s HTTPConfigForListTaskOutput) String() string {
 	return volcengineutil.Prettify(s)
 }
 
 // GoString returns the string representation
-func (s LabelForListTaskOutput) GoString() string {
+func (s HTTPConfigForListTaskOutput) GoString() string {
+	return s.String()
+}
+
+// SetBodyType sets the BodyType field's value.
+func (s *HTTPConfigForListTaskOutput) SetBodyType(v int32) *HTTPConfigForListTaskOutput {
+	s.BodyType = &v
+	return s
+}
+
+// SetCustomHostConfig sets the CustomHostConfig field's value.
+func (s *HTTPConfigForListTaskOutput) SetCustomHostConfig(v *CustomHostConfigForListTaskOutput) *HTTPConfigForListTaskOutput {
+	s.CustomHostConfig = v
+	return s
+}
+
+// SetDNSServer sets the DNSServer field's value.
+func (s *HTTPConfigForListTaskOutput) SetDNSServer(v string) *HTTPConfigForListTaskOutput {
+	s.DNSServer = &v
+	return s
+}
+
+// SetDNSType sets the DNSType field's value.
+func (s *HTTPConfigForListTaskOutput) SetDNSType(v string) *HTTPConfigForListTaskOutput {
+	s.DNSType = &v
+	return s
+}
+
+// SetHTTPHeaders sets the HTTPHeaders field's value.
+func (s *HTTPConfigForListTaskOutput) SetHTTPHeaders(v []*HTTPHeaderForListTaskOutput) *HTTPConfigForListTaskOutput {
+	s.HTTPHeaders = v
+	return s
+}
+
+// SetHTTPMethod sets the HTTPMethod field's value.
+func (s *HTTPConfigForListTaskOutput) SetHTTPMethod(v int32) *HTTPConfigForListTaskOutput {
+	s.HTTPMethod = &v
+	return s
+}
+
+// SetHTTPVersion sets the HTTPVersion field's value.
+func (s *HTTPConfigForListTaskOutput) SetHTTPVersion(v string) *HTTPConfigForListTaskOutput {
+	s.HTTPVersion = &v
+	return s
+}
+
+// SetIgnoreCertificate sets the IgnoreCertificate field's value.
+func (s *HTTPConfigForListTaskOutput) SetIgnoreCertificate(v bool) *HTTPConfigForListTaskOutput {
+	s.IgnoreCertificate = &v
+	return s
+}
+
+// SetMaxBodySize sets the MaxBodySize field's value.
+func (s *HTTPConfigForListTaskOutput) SetMaxBodySize(v int64) *HTTPConfigForListTaskOutput {
+	s.MaxBodySize = &v
+	return s
+}
+
+// SetProxyURL sets the ProxyURL field's value.
+func (s *HTTPConfigForListTaskOutput) SetProxyURL(v string) *HTTPConfigForListTaskOutput {
+	s.ProxyURL = &v
+	return s
+}
+
+// SetRedirect sets the Redirect field's value.
+func (s *HTTPConfigForListTaskOutput) SetRedirect(v bool) *HTTPConfigForListTaskOutput {
+	s.Redirect = &v
+	return s
+}
+
+// SetRequestBody sets the RequestBody field's value.
+func (s *HTTPConfigForListTaskOutput) SetRequestBody(v string) *HTTPConfigForListTaskOutput {
+	s.RequestBody = &v
+	return s
+}
+
+// SetTimeout sets the Timeout field's value.
+func (s *HTTPConfigForListTaskOutput) SetTimeout(v int32) *HTTPConfigForListTaskOutput {
+	s.Timeout = &v
+	return s
+}
+
+type HTTPHeaderForListTaskOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Key *string `type:"string" json:",omitempty"`
+
+	Value *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s HTTPHeaderForListTaskOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s HTTPHeaderForListTaskOutput) GoString() string {
 	return s.String()
 }
 
 // SetKey sets the Key field's value.
-func (s *LabelForListTaskOutput) SetKey(v string) *LabelForListTaskOutput {
+func (s *HTTPHeaderForListTaskOutput) SetKey(v string) *HTTPHeaderForListTaskOutput {
 	s.Key = &v
 	return s
 }
 
-// SetKeyID sets the KeyID field's value.
-func (s *LabelForListTaskOutput) SetKeyID(v int64) *LabelForListTaskOutput {
-	s.KeyID = &v
+// SetValue sets the Value field's value.
+func (s *HTTPHeaderForListTaskOutput) SetValue(v string) *HTTPHeaderForListTaskOutput {
+	s.Value = &v
 	return s
 }
 
-// SetOption sets the Option field's value.
-func (s *LabelForListTaskOutput) SetOption(v string) *LabelForListTaskOutput {
-	s.Option = &v
+type HeaderForListTaskOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Key *string `type:"string" json:",omitempty"`
+
+	Value *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s HeaderForListTaskOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s HeaderForListTaskOutput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *HeaderForListTaskOutput) SetKey(v string) *HeaderForListTaskOutput {
+	s.Key = &v
 	return s
 }
 
-// SetOptionID sets the OptionID field's value.
-func (s *LabelForListTaskOutput) SetOptionID(v int64) *LabelForListTaskOutput {
-	s.OptionID = &v
+// SetValue sets the Value field's value.
+func (s *HeaderForListTaskOutput) SetValue(v string) *HeaderForListTaskOutput {
+	s.Value = &v
 	return s
 }
 
@@ -237,6 +935,8 @@ type ListTaskInput struct {
 	PageSize *int64 `type:"int64" json:",omitempty" required:"true"`
 
 	ProjectName *string `type:"string" json:",omitempty"`
+
+	TagFilters []*TagFilterForListTaskInput `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -307,6 +1007,12 @@ func (s *ListTaskInput) SetProjectName(v string) *ListTaskInput {
 	return s
 }
 
+// SetTagFilters sets the TagFilters field's value.
+func (s *ListTaskInput) SetTagFilters(v []*TagFilterForListTaskInput) *ListTaskInput {
+	s.TagFilters = v
+	return s
+}
+
 type ListTaskOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -360,6 +1066,210 @@ func (s *ListTaskOutput) SetTaskList(v []*TaskListForListTaskOutput) *ListTaskOu
 // SetTotal sets the Total field's value.
 func (s *ListTaskOutput) SetTotal(v int64) *ListTaskOutput {
 	s.Total = &v
+	return s
+}
+
+type MtrConfigForListTaskOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	DNSReverseResolution *bool `type:"boolean" json:",omitempty"`
+
+	Interval *float64 `type:"double" json:",omitempty"`
+
+	MaxHops *int32 `type:"int32" json:",omitempty"`
+
+	MaxUnknownHost *int32 `type:"int32" json:",omitempty"`
+
+	PackageNum *int32 `type:"int32" json:",omitempty"`
+
+	PackageSize *int32 `type:"int32" json:",omitempty"`
+
+	PackageType *int32 `type:"int32" json:",omitempty"`
+
+	Timeout *int32 `type:"int32" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s MtrConfigForListTaskOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s MtrConfigForListTaskOutput) GoString() string {
+	return s.String()
+}
+
+// SetDNSReverseResolution sets the DNSReverseResolution field's value.
+func (s *MtrConfigForListTaskOutput) SetDNSReverseResolution(v bool) *MtrConfigForListTaskOutput {
+	s.DNSReverseResolution = &v
+	return s
+}
+
+// SetInterval sets the Interval field's value.
+func (s *MtrConfigForListTaskOutput) SetInterval(v float64) *MtrConfigForListTaskOutput {
+	s.Interval = &v
+	return s
+}
+
+// SetMaxHops sets the MaxHops field's value.
+func (s *MtrConfigForListTaskOutput) SetMaxHops(v int32) *MtrConfigForListTaskOutput {
+	s.MaxHops = &v
+	return s
+}
+
+// SetMaxUnknownHost sets the MaxUnknownHost field's value.
+func (s *MtrConfigForListTaskOutput) SetMaxUnknownHost(v int32) *MtrConfigForListTaskOutput {
+	s.MaxUnknownHost = &v
+	return s
+}
+
+// SetPackageNum sets the PackageNum field's value.
+func (s *MtrConfigForListTaskOutput) SetPackageNum(v int32) *MtrConfigForListTaskOutput {
+	s.PackageNum = &v
+	return s
+}
+
+// SetPackageSize sets the PackageSize field's value.
+func (s *MtrConfigForListTaskOutput) SetPackageSize(v int32) *MtrConfigForListTaskOutput {
+	s.PackageSize = &v
+	return s
+}
+
+// SetPackageType sets the PackageType field's value.
+func (s *MtrConfigForListTaskOutput) SetPackageType(v int32) *MtrConfigForListTaskOutput {
+	s.PackageType = &v
+	return s
+}
+
+// SetTimeout sets the Timeout field's value.
+func (s *MtrConfigForListTaskOutput) SetTimeout(v int32) *MtrConfigForListTaskOutput {
+	s.Timeout = &v
+	return s
+}
+
+type PageConfigForListTaskOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	AutoScroll *bool `type:"boolean" json:",omitempty"`
+
+	Cookies []*CookieForListTaskOutput `type:"list" json:",omitempty"`
+
+	CustomHeader *CustomHeaderForListTaskOutput `type:"structure" json:",omitempty"`
+
+	DisableCompress *bool `type:"boolean" json:",omitempty"`
+
+	EnableCache *bool `type:"boolean" json:",omitempty"`
+
+	EnableRedirect *bool `type:"boolean" json:",omitempty"`
+
+	EndCustomHostConfigTime *EndCustomHostConfigTimeForListTaskOutput `type:"structure" json:",omitempty"`
+
+	IgnoreCertificate *bool `type:"boolean" json:",omitempty"`
+
+	QuicConfig *QuicConfigForListTaskOutput `type:"structure" json:",omitempty"`
+
+	SaveBaseDocumentBody *bool `type:"boolean" json:",omitempty"`
+
+	SaveElements *bool `type:"boolean" json:",omitempty"`
+
+	SaveFinalSnapshot *int32 `type:"int32" json:",omitempty"`
+
+	ScreenshotKeypoint *bool `type:"boolean" json:",omitempty"`
+
+	Timeout *int64 `type:"int64" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s PageConfigForListTaskOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s PageConfigForListTaskOutput) GoString() string {
+	return s.String()
+}
+
+// SetAutoScroll sets the AutoScroll field's value.
+func (s *PageConfigForListTaskOutput) SetAutoScroll(v bool) *PageConfigForListTaskOutput {
+	s.AutoScroll = &v
+	return s
+}
+
+// SetCookies sets the Cookies field's value.
+func (s *PageConfigForListTaskOutput) SetCookies(v []*CookieForListTaskOutput) *PageConfigForListTaskOutput {
+	s.Cookies = v
+	return s
+}
+
+// SetCustomHeader sets the CustomHeader field's value.
+func (s *PageConfigForListTaskOutput) SetCustomHeader(v *CustomHeaderForListTaskOutput) *PageConfigForListTaskOutput {
+	s.CustomHeader = v
+	return s
+}
+
+// SetDisableCompress sets the DisableCompress field's value.
+func (s *PageConfigForListTaskOutput) SetDisableCompress(v bool) *PageConfigForListTaskOutput {
+	s.DisableCompress = &v
+	return s
+}
+
+// SetEnableCache sets the EnableCache field's value.
+func (s *PageConfigForListTaskOutput) SetEnableCache(v bool) *PageConfigForListTaskOutput {
+	s.EnableCache = &v
+	return s
+}
+
+// SetEnableRedirect sets the EnableRedirect field's value.
+func (s *PageConfigForListTaskOutput) SetEnableRedirect(v bool) *PageConfigForListTaskOutput {
+	s.EnableRedirect = &v
+	return s
+}
+
+// SetEndCustomHostConfigTime sets the EndCustomHostConfigTime field's value.
+func (s *PageConfigForListTaskOutput) SetEndCustomHostConfigTime(v *EndCustomHostConfigTimeForListTaskOutput) *PageConfigForListTaskOutput {
+	s.EndCustomHostConfigTime = v
+	return s
+}
+
+// SetIgnoreCertificate sets the IgnoreCertificate field's value.
+func (s *PageConfigForListTaskOutput) SetIgnoreCertificate(v bool) *PageConfigForListTaskOutput {
+	s.IgnoreCertificate = &v
+	return s
+}
+
+// SetQuicConfig sets the QuicConfig field's value.
+func (s *PageConfigForListTaskOutput) SetQuicConfig(v *QuicConfigForListTaskOutput) *PageConfigForListTaskOutput {
+	s.QuicConfig = v
+	return s
+}
+
+// SetSaveBaseDocumentBody sets the SaveBaseDocumentBody field's value.
+func (s *PageConfigForListTaskOutput) SetSaveBaseDocumentBody(v bool) *PageConfigForListTaskOutput {
+	s.SaveBaseDocumentBody = &v
+	return s
+}
+
+// SetSaveElements sets the SaveElements field's value.
+func (s *PageConfigForListTaskOutput) SetSaveElements(v bool) *PageConfigForListTaskOutput {
+	s.SaveElements = &v
+	return s
+}
+
+// SetSaveFinalSnapshot sets the SaveFinalSnapshot field's value.
+func (s *PageConfigForListTaskOutput) SetSaveFinalSnapshot(v int32) *PageConfigForListTaskOutput {
+	s.SaveFinalSnapshot = &v
+	return s
+}
+
+// SetScreenshotKeypoint sets the ScreenshotKeypoint field's value.
+func (s *PageConfigForListTaskOutput) SetScreenshotKeypoint(v bool) *PageConfigForListTaskOutput {
+	s.ScreenshotKeypoint = &v
+	return s
+}
+
+// SetTimeout sets the Timeout field's value.
+func (s *PageConfigForListTaskOutput) SetTimeout(v int64) *PageConfigForListTaskOutput {
+	s.Timeout = &v
 	return s
 }
 
@@ -439,6 +1349,174 @@ func (s *PeriodConfigForListTaskOutput) SetTimeRangeConfig(v []*TimeRangeConfigF
 	return s
 }
 
+type PingConfigForListTaskOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Common_typesProtocolType *int32 `type:"int32" json:"common_types.ProtocolType,omitempty"`
+
+	ConnectTimeout *float64 `type:"double" json:",omitempty"`
+
+	EnableDividePackage *bool `type:"boolean" json:",omitempty"`
+
+	ExecuteInterval *float64 `type:"double" json:",omitempty"`
+
+	PackagesNum *int32 `type:"int32" json:",omitempty"`
+
+	PackagesSize *int32 `type:"int32" json:",omitempty"`
+
+	ProtocolType *int32 `type:"int32" json:",omitempty"`
+
+	Timeout *int32 `type:"int32" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s PingConfigForListTaskOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s PingConfigForListTaskOutput) GoString() string {
+	return s.String()
+}
+
+// SetCommon_typesProtocolType sets the Common_typesProtocolType field's value.
+func (s *PingConfigForListTaskOutput) SetCommon_typesProtocolType(v int32) *PingConfigForListTaskOutput {
+	s.Common_typesProtocolType = &v
+	return s
+}
+
+// SetConnectTimeout sets the ConnectTimeout field's value.
+func (s *PingConfigForListTaskOutput) SetConnectTimeout(v float64) *PingConfigForListTaskOutput {
+	s.ConnectTimeout = &v
+	return s
+}
+
+// SetEnableDividePackage sets the EnableDividePackage field's value.
+func (s *PingConfigForListTaskOutput) SetEnableDividePackage(v bool) *PingConfigForListTaskOutput {
+	s.EnableDividePackage = &v
+	return s
+}
+
+// SetExecuteInterval sets the ExecuteInterval field's value.
+func (s *PingConfigForListTaskOutput) SetExecuteInterval(v float64) *PingConfigForListTaskOutput {
+	s.ExecuteInterval = &v
+	return s
+}
+
+// SetPackagesNum sets the PackagesNum field's value.
+func (s *PingConfigForListTaskOutput) SetPackagesNum(v int32) *PingConfigForListTaskOutput {
+	s.PackagesNum = &v
+	return s
+}
+
+// SetPackagesSize sets the PackagesSize field's value.
+func (s *PingConfigForListTaskOutput) SetPackagesSize(v int32) *PingConfigForListTaskOutput {
+	s.PackagesSize = &v
+	return s
+}
+
+// SetProtocolType sets the ProtocolType field's value.
+func (s *PingConfigForListTaskOutput) SetProtocolType(v int32) *PingConfigForListTaskOutput {
+	s.ProtocolType = &v
+	return s
+}
+
+// SetTimeout sets the Timeout field's value.
+func (s *PingConfigForListTaskOutput) SetTimeout(v int32) *PingConfigForListTaskOutput {
+	s.Timeout = &v
+	return s
+}
+
+type QueryForListTaskOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Key *string `type:"string" json:",omitempty"`
+
+	Value *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s QueryForListTaskOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s QueryForListTaskOutput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *QueryForListTaskOutput) SetKey(v string) *QueryForListTaskOutput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *QueryForListTaskOutput) SetValue(v string) *QueryForListTaskOutput {
+	s.Value = &v
+	return s
+}
+
+type QuicConfigForListTaskOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	ForceQuicHost []*string `type:"list" json:",omitempty"`
+
+	QuicVersion *int32 `type:"int32" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s QuicConfigForListTaskOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s QuicConfigForListTaskOutput) GoString() string {
+	return s.String()
+}
+
+// SetForceQuicHost sets the ForceQuicHost field's value.
+func (s *QuicConfigForListTaskOutput) SetForceQuicHost(v []*string) *QuicConfigForListTaskOutput {
+	s.ForceQuicHost = v
+	return s
+}
+
+// SetQuicVersion sets the QuicVersion field's value.
+func (s *QuicConfigForListTaskOutput) SetQuicVersion(v int32) *QuicConfigForListTaskOutput {
+	s.QuicVersion = &v
+	return s
+}
+
+type ResultAssertForListTaskOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Conditions []*ConditionForListTaskOutput `type:"list" json:",omitempty"`
+
+	Relation *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s ResultAssertForListTaskOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ResultAssertForListTaskOutput) GoString() string {
+	return s.String()
+}
+
+// SetConditions sets the Conditions field's value.
+func (s *ResultAssertForListTaskOutput) SetConditions(v []*ConditionForListTaskOutput) *ResultAssertForListTaskOutput {
+	s.Conditions = v
+	return s
+}
+
+// SetRelation sets the Relation field's value.
+func (s *ResultAssertForListTaskOutput) SetRelation(v string) *ResultAssertForListTaskOutput {
+	s.Relation = &v
+	return s
+}
+
 type StartTimeForListTaskOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -469,24 +1547,142 @@ func (s *StartTimeForListTaskOutput) SetMinute(v int32) *StartTimeForListTaskOut
 	return s
 }
 
+type TCPConfigForListTaskOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Payload *string `type:"string" json:",omitempty"`
+
+	PayloadType *int32 `type:"int32" json:",omitempty"`
+
+	Timeout *int32 `type:"int32" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s TCPConfigForListTaskOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TCPConfigForListTaskOutput) GoString() string {
+	return s.String()
+}
+
+// SetPayload sets the Payload field's value.
+func (s *TCPConfigForListTaskOutput) SetPayload(v string) *TCPConfigForListTaskOutput {
+	s.Payload = &v
+	return s
+}
+
+// SetPayloadType sets the PayloadType field's value.
+func (s *TCPConfigForListTaskOutput) SetPayloadType(v int32) *TCPConfigForListTaskOutput {
+	s.PayloadType = &v
+	return s
+}
+
+// SetTimeout sets the Timeout field's value.
+func (s *TCPConfigForListTaskOutput) SetTimeout(v int32) *TCPConfigForListTaskOutput {
+	s.Timeout = &v
+	return s
+}
+
+type TagFilterForListTaskInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Key *string `type:"string" json:",omitempty"`
+
+	Values []*string `type:"list" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s TagFilterForListTaskInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagFilterForListTaskInput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagFilterForListTaskInput) SetKey(v string) *TagFilterForListTaskInput {
+	s.Key = &v
+	return s
+}
+
+// SetValues sets the Values field's value.
+func (s *TagFilterForListTaskInput) SetValues(v []*string) *TagFilterForListTaskInput {
+	s.Values = v
+	return s
+}
+
+type TagForListTaskOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Key *string `type:"string" json:",omitempty"`
+
+	Value *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s TagForListTaskOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagForListTaskOutput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagForListTaskOutput) SetKey(v string) *TagForListTaskOutput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *TagForListTaskOutput) SetValue(v string) *TagForListTaskOutput {
+	s.Value = &v
+	return s
+}
+
 type TaskListForListTaskOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
 	Address *string `type:"string" json:",omitempty"`
 
+	AlarmIDList []*int64 `type:"list" json:",omitempty"`
+
+	AlarmList []*AlarmListForListTaskOutput `type:"list" json:",omitempty"`
+
+	BindGroupID *int64 `type:"int64" json:",omitempty"`
+
+	BindGroupName *string `type:"string" json:",omitempty"`
+
 	CreateTime *int64 `type:"int64" json:",omitempty"`
+
+	CreateTimeStr *string `type:"string" json:",omitempty"`
+
+	DNSConfig *DNSConfigForListTaskOutput `type:"structure" json:",omitempty"`
+
+	DNSHijackConfig *DNSHijackConfigForListTaskOutput `type:"structure" json:",omitempty"`
+
+	DiagnoseConfig *DiagnoseConfigForListTaskOutput `type:"structure" json:",omitempty"`
+
+	DownloadConfig *DownloadConfigForListTaskOutput `type:"structure" json:",omitempty"`
 
 	EnableShuffle *bool `type:"boolean" json:",omitempty"`
 
 	FinishTime *int64 `type:"int64" json:",omitempty"`
 
+	HTTPConfig *HTTPConfigForListTaskOutput `type:"structure" json:",omitempty"`
+
 	HTTPMethod *int32 `type:"int32" json:",omitempty"`
 
 	ID *int64 `type:"int64" json:",omitempty"`
 
-	IntervalSeconds *int32 `type:"int32" json:",omitempty"`
+	IDStr *string `type:"string" json:",omitempty"`
 
-	Labels []*LabelForListTaskOutput `type:"list" json:",omitempty"`
+	IntervalSeconds *int32 `type:"int32" json:",omitempty"`
 
 	LineIDList []*int64 `type:"list" json:",omitempty"`
 
@@ -494,7 +1690,15 @@ type TaskListForListTaskOutput struct {
 
 	Owner *string `type:"string" json:",omitempty"`
 
+	PageConfig *PageConfigForListTaskOutput `type:"structure" json:",omitempty"`
+
 	PeriodConfig *PeriodConfigForListTaskOutput `type:"structure" json:",omitempty"`
+
+	PingConfig *PingConfigForListTaskOutput `type:"structure" json:",omitempty"`
+
+	ProjectName *string `type:"string" json:",omitempty"`
+
+	ResultAssert *ResultAssertForListTaskOutput `type:"structure" json:",omitempty"`
 
 	RunnerIDList []*int64 `type:"list" json:",omitempty"`
 
@@ -502,13 +1706,25 @@ type TaskListForListTaskOutput struct {
 
 	SubTaskType *int32 `type:"int32" json:",omitempty"`
 
+	TCPConfig *TCPConfigForListTaskOutput `type:"structure" json:",omitempty"`
+
+	Tags []*TagForListTaskOutput `type:"list" json:",omitempty"`
+
+	TargetServerType *int32 `type:"int32" json:",omitempty"`
+
 	TaskGroupID *int64 `type:"int64" json:",omitempty"`
 
 	TaskGroupName *string `type:"string" json:",omitempty"`
 
 	TaskType *int32 `type:"int32" json:",omitempty"`
 
+	Type *int32 `type:"int32" json:",omitempty"`
+
+	UDPConfig *UDPConfigForListTaskOutput `type:"structure" json:",omitempty"`
+
 	UpdateTime *int64 `type:"int64" json:",omitempty"`
+
+	UploadConfig *UploadConfigForListTaskOutput `type:"structure" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -527,9 +1743,63 @@ func (s *TaskListForListTaskOutput) SetAddress(v string) *TaskListForListTaskOut
 	return s
 }
 
+// SetAlarmIDList sets the AlarmIDList field's value.
+func (s *TaskListForListTaskOutput) SetAlarmIDList(v []*int64) *TaskListForListTaskOutput {
+	s.AlarmIDList = v
+	return s
+}
+
+// SetAlarmList sets the AlarmList field's value.
+func (s *TaskListForListTaskOutput) SetAlarmList(v []*AlarmListForListTaskOutput) *TaskListForListTaskOutput {
+	s.AlarmList = v
+	return s
+}
+
+// SetBindGroupID sets the BindGroupID field's value.
+func (s *TaskListForListTaskOutput) SetBindGroupID(v int64) *TaskListForListTaskOutput {
+	s.BindGroupID = &v
+	return s
+}
+
+// SetBindGroupName sets the BindGroupName field's value.
+func (s *TaskListForListTaskOutput) SetBindGroupName(v string) *TaskListForListTaskOutput {
+	s.BindGroupName = &v
+	return s
+}
+
 // SetCreateTime sets the CreateTime field's value.
 func (s *TaskListForListTaskOutput) SetCreateTime(v int64) *TaskListForListTaskOutput {
 	s.CreateTime = &v
+	return s
+}
+
+// SetCreateTimeStr sets the CreateTimeStr field's value.
+func (s *TaskListForListTaskOutput) SetCreateTimeStr(v string) *TaskListForListTaskOutput {
+	s.CreateTimeStr = &v
+	return s
+}
+
+// SetDNSConfig sets the DNSConfig field's value.
+func (s *TaskListForListTaskOutput) SetDNSConfig(v *DNSConfigForListTaskOutput) *TaskListForListTaskOutput {
+	s.DNSConfig = v
+	return s
+}
+
+// SetDNSHijackConfig sets the DNSHijackConfig field's value.
+func (s *TaskListForListTaskOutput) SetDNSHijackConfig(v *DNSHijackConfigForListTaskOutput) *TaskListForListTaskOutput {
+	s.DNSHijackConfig = v
+	return s
+}
+
+// SetDiagnoseConfig sets the DiagnoseConfig field's value.
+func (s *TaskListForListTaskOutput) SetDiagnoseConfig(v *DiagnoseConfigForListTaskOutput) *TaskListForListTaskOutput {
+	s.DiagnoseConfig = v
+	return s
+}
+
+// SetDownloadConfig sets the DownloadConfig field's value.
+func (s *TaskListForListTaskOutput) SetDownloadConfig(v *DownloadConfigForListTaskOutput) *TaskListForListTaskOutput {
+	s.DownloadConfig = v
 	return s
 }
 
@@ -545,6 +1815,12 @@ func (s *TaskListForListTaskOutput) SetFinishTime(v int64) *TaskListForListTaskO
 	return s
 }
 
+// SetHTTPConfig sets the HTTPConfig field's value.
+func (s *TaskListForListTaskOutput) SetHTTPConfig(v *HTTPConfigForListTaskOutput) *TaskListForListTaskOutput {
+	s.HTTPConfig = v
+	return s
+}
+
 // SetHTTPMethod sets the HTTPMethod field's value.
 func (s *TaskListForListTaskOutput) SetHTTPMethod(v int32) *TaskListForListTaskOutput {
 	s.HTTPMethod = &v
@@ -557,15 +1833,15 @@ func (s *TaskListForListTaskOutput) SetID(v int64) *TaskListForListTaskOutput {
 	return s
 }
 
-// SetIntervalSeconds sets the IntervalSeconds field's value.
-func (s *TaskListForListTaskOutput) SetIntervalSeconds(v int32) *TaskListForListTaskOutput {
-	s.IntervalSeconds = &v
+// SetIDStr sets the IDStr field's value.
+func (s *TaskListForListTaskOutput) SetIDStr(v string) *TaskListForListTaskOutput {
+	s.IDStr = &v
 	return s
 }
 
-// SetLabels sets the Labels field's value.
-func (s *TaskListForListTaskOutput) SetLabels(v []*LabelForListTaskOutput) *TaskListForListTaskOutput {
-	s.Labels = v
+// SetIntervalSeconds sets the IntervalSeconds field's value.
+func (s *TaskListForListTaskOutput) SetIntervalSeconds(v int32) *TaskListForListTaskOutput {
+	s.IntervalSeconds = &v
 	return s
 }
 
@@ -587,9 +1863,33 @@ func (s *TaskListForListTaskOutput) SetOwner(v string) *TaskListForListTaskOutpu
 	return s
 }
 
+// SetPageConfig sets the PageConfig field's value.
+func (s *TaskListForListTaskOutput) SetPageConfig(v *PageConfigForListTaskOutput) *TaskListForListTaskOutput {
+	s.PageConfig = v
+	return s
+}
+
 // SetPeriodConfig sets the PeriodConfig field's value.
 func (s *TaskListForListTaskOutput) SetPeriodConfig(v *PeriodConfigForListTaskOutput) *TaskListForListTaskOutput {
 	s.PeriodConfig = v
+	return s
+}
+
+// SetPingConfig sets the PingConfig field's value.
+func (s *TaskListForListTaskOutput) SetPingConfig(v *PingConfigForListTaskOutput) *TaskListForListTaskOutput {
+	s.PingConfig = v
+	return s
+}
+
+// SetProjectName sets the ProjectName field's value.
+func (s *TaskListForListTaskOutput) SetProjectName(v string) *TaskListForListTaskOutput {
+	s.ProjectName = &v
+	return s
+}
+
+// SetResultAssert sets the ResultAssert field's value.
+func (s *TaskListForListTaskOutput) SetResultAssert(v *ResultAssertForListTaskOutput) *TaskListForListTaskOutput {
+	s.ResultAssert = v
 	return s
 }
 
@@ -611,6 +1911,24 @@ func (s *TaskListForListTaskOutput) SetSubTaskType(v int32) *TaskListForListTask
 	return s
 }
 
+// SetTCPConfig sets the TCPConfig field's value.
+func (s *TaskListForListTaskOutput) SetTCPConfig(v *TCPConfigForListTaskOutput) *TaskListForListTaskOutput {
+	s.TCPConfig = v
+	return s
+}
+
+// SetTags sets the Tags field's value.
+func (s *TaskListForListTaskOutput) SetTags(v []*TagForListTaskOutput) *TaskListForListTaskOutput {
+	s.Tags = v
+	return s
+}
+
+// SetTargetServerType sets the TargetServerType field's value.
+func (s *TaskListForListTaskOutput) SetTargetServerType(v int32) *TaskListForListTaskOutput {
+	s.TargetServerType = &v
+	return s
+}
+
 // SetTaskGroupID sets the TaskGroupID field's value.
 func (s *TaskListForListTaskOutput) SetTaskGroupID(v int64) *TaskListForListTaskOutput {
 	s.TaskGroupID = &v
@@ -629,9 +1947,27 @@ func (s *TaskListForListTaskOutput) SetTaskType(v int32) *TaskListForListTaskOut
 	return s
 }
 
+// SetType sets the Type field's value.
+func (s *TaskListForListTaskOutput) SetType(v int32) *TaskListForListTaskOutput {
+	s.Type = &v
+	return s
+}
+
+// SetUDPConfig sets the UDPConfig field's value.
+func (s *TaskListForListTaskOutput) SetUDPConfig(v *UDPConfigForListTaskOutput) *TaskListForListTaskOutput {
+	s.UDPConfig = v
+	return s
+}
+
 // SetUpdateTime sets the UpdateTime field's value.
 func (s *TaskListForListTaskOutput) SetUpdateTime(v int64) *TaskListForListTaskOutput {
 	s.UpdateTime = &v
+	return s
+}
+
+// SetUploadConfig sets the UploadConfig field's value.
+func (s *TaskListForListTaskOutput) SetUploadConfig(v *UploadConfigForListTaskOutput) *TaskListForListTaskOutput {
+	s.UploadConfig = v
 	return s
 }
 
@@ -671,4 +2007,174 @@ func (s *TimeRangeConfigForListTaskOutput) SetInterval(v int64) *TimeRangeConfig
 func (s *TimeRangeConfigForListTaskOutput) SetStartTime(v *StartTimeForListTaskOutput) *TimeRangeConfigForListTaskOutput {
 	s.StartTime = v
 	return s
+}
+
+type UDPConfigForListTaskOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Mode *int32 `type:"int32" json:",omitempty"`
+
+	Payload *string `type:"string" json:",omitempty"`
+
+	PayloadType *int32 `type:"int32" json:",omitempty"`
+
+	Timeout *int32 `type:"int32" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s UDPConfigForListTaskOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s UDPConfigForListTaskOutput) GoString() string {
+	return s.String()
+}
+
+// SetMode sets the Mode field's value.
+func (s *UDPConfigForListTaskOutput) SetMode(v int32) *UDPConfigForListTaskOutput {
+	s.Mode = &v
+	return s
+}
+
+// SetPayload sets the Payload field's value.
+func (s *UDPConfigForListTaskOutput) SetPayload(v string) *UDPConfigForListTaskOutput {
+	s.Payload = &v
+	return s
+}
+
+// SetPayloadType sets the PayloadType field's value.
+func (s *UDPConfigForListTaskOutput) SetPayloadType(v int32) *UDPConfigForListTaskOutput {
+	s.PayloadType = &v
+	return s
+}
+
+// SetTimeout sets the Timeout field's value.
+func (s *UDPConfigForListTaskOutput) SetTimeout(v int32) *UDPConfigForListTaskOutput {
+	s.Timeout = &v
+	return s
+}
+
+type UploadConfigForListTaskOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	CustomHostConfig *CustomHostConfigForListTaskOutput `type:"structure" json:",omitempty"`
+
+	DNSServer *string `type:"string" json:",omitempty"`
+
+	DNSType *string `type:"string" json:",omitempty"`
+
+	HTTPVersion *string `type:"string" json:",omitempty"`
+
+	Headers []*HeaderForListTaskOutput `type:"list" json:",omitempty"`
+
+	IgnoreCertificate *bool `type:"boolean" json:",omitempty"`
+
+	MaxTransferSize *int64 `type:"int64" json:",omitempty"`
+
+	Method *int32 `type:"int32" json:",omitempty"`
+
+	Queries []*QueryForListTaskOutput `type:"list" json:",omitempty"`
+
+	Redirect *bool `type:"boolean" json:",omitempty"`
+
+	Timeout *int32 `type:"int32" json:",omitempty"`
+
+	UploadFileURL *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s UploadConfigForListTaskOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s UploadConfigForListTaskOutput) GoString() string {
+	return s.String()
+}
+
+// SetCustomHostConfig sets the CustomHostConfig field's value.
+func (s *UploadConfigForListTaskOutput) SetCustomHostConfig(v *CustomHostConfigForListTaskOutput) *UploadConfigForListTaskOutput {
+	s.CustomHostConfig = v
+	return s
+}
+
+// SetDNSServer sets the DNSServer field's value.
+func (s *UploadConfigForListTaskOutput) SetDNSServer(v string) *UploadConfigForListTaskOutput {
+	s.DNSServer = &v
+	return s
+}
+
+// SetDNSType sets the DNSType field's value.
+func (s *UploadConfigForListTaskOutput) SetDNSType(v string) *UploadConfigForListTaskOutput {
+	s.DNSType = &v
+	return s
+}
+
+// SetHTTPVersion sets the HTTPVersion field's value.
+func (s *UploadConfigForListTaskOutput) SetHTTPVersion(v string) *UploadConfigForListTaskOutput {
+	s.HTTPVersion = &v
+	return s
+}
+
+// SetHeaders sets the Headers field's value.
+func (s *UploadConfigForListTaskOutput) SetHeaders(v []*HeaderForListTaskOutput) *UploadConfigForListTaskOutput {
+	s.Headers = v
+	return s
+}
+
+// SetIgnoreCertificate sets the IgnoreCertificate field's value.
+func (s *UploadConfigForListTaskOutput) SetIgnoreCertificate(v bool) *UploadConfigForListTaskOutput {
+	s.IgnoreCertificate = &v
+	return s
+}
+
+// SetMaxTransferSize sets the MaxTransferSize field's value.
+func (s *UploadConfigForListTaskOutput) SetMaxTransferSize(v int64) *UploadConfigForListTaskOutput {
+	s.MaxTransferSize = &v
+	return s
+}
+
+// SetMethod sets the Method field's value.
+func (s *UploadConfigForListTaskOutput) SetMethod(v int32) *UploadConfigForListTaskOutput {
+	s.Method = &v
+	return s
+}
+
+// SetQueries sets the Queries field's value.
+func (s *UploadConfigForListTaskOutput) SetQueries(v []*QueryForListTaskOutput) *UploadConfigForListTaskOutput {
+	s.Queries = v
+	return s
+}
+
+// SetRedirect sets the Redirect field's value.
+func (s *UploadConfigForListTaskOutput) SetRedirect(v bool) *UploadConfigForListTaskOutput {
+	s.Redirect = &v
+	return s
+}
+
+// SetTimeout sets the Timeout field's value.
+func (s *UploadConfigForListTaskOutput) SetTimeout(v int32) *UploadConfigForListTaskOutput {
+	s.Timeout = &v
+	return s
+}
+
+// SetUploadFileURL sets the UploadFileURL field's value.
+func (s *UploadConfigForListTaskOutput) SetUploadFileURL(v string) *UploadConfigForListTaskOutput {
+	s.UploadFileURL = &v
+	return s
+}
+
+type ValuesForListTaskOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s ValuesForListTaskOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ValuesForListTaskOutput) GoString() string {
+	return s.String()
 }

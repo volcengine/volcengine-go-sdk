@@ -194,6 +194,10 @@ type ConditionsForUpdateMlpAlarmStatusInput struct {
 
 	ImageName *string `type:"string" json:",omitempty"`
 
+	LastAlarmTimeEnd *int64 `type:"int64" json:",omitempty"`
+
+	LastAlarmTimeStart *int64 `type:"int64" json:",omitempty"`
+
 	LeafGroupIDs []*string `type:"list" json:",omitempty"`
 
 	Level []*string `type:"list" json:",omitempty"`
@@ -202,9 +206,13 @@ type ConditionsForUpdateMlpAlarmStatusInput struct {
 
 	Name *string `type:"string" json:",omitempty"`
 
+	OperationList []*string `type:"list" json:",omitempty"`
+
 	ProbeHook *string `type:"string" json:",omitempty"`
 
 	RaspArgv *string `type:"string" json:",omitempty"`
+
+	Security_intelligence_results []*string `type:"list" json:"security_intelligence_results,omitempty"`
 
 	Status []*int64 `type:"list" json:",omitempty"`
 
@@ -381,6 +389,18 @@ func (s *ConditionsForUpdateMlpAlarmStatusInput) SetImageName(v string) *Conditi
 	return s
 }
 
+// SetLastAlarmTimeEnd sets the LastAlarmTimeEnd field's value.
+func (s *ConditionsForUpdateMlpAlarmStatusInput) SetLastAlarmTimeEnd(v int64) *ConditionsForUpdateMlpAlarmStatusInput {
+	s.LastAlarmTimeEnd = &v
+	return s
+}
+
+// SetLastAlarmTimeStart sets the LastAlarmTimeStart field's value.
+func (s *ConditionsForUpdateMlpAlarmStatusInput) SetLastAlarmTimeStart(v int64) *ConditionsForUpdateMlpAlarmStatusInput {
+	s.LastAlarmTimeStart = &v
+	return s
+}
+
 // SetLeafGroupIDs sets the LeafGroupIDs field's value.
 func (s *ConditionsForUpdateMlpAlarmStatusInput) SetLeafGroupIDs(v []*string) *ConditionsForUpdateMlpAlarmStatusInput {
 	s.LeafGroupIDs = v
@@ -405,6 +425,12 @@ func (s *ConditionsForUpdateMlpAlarmStatusInput) SetName(v string) *ConditionsFo
 	return s
 }
 
+// SetOperationList sets the OperationList field's value.
+func (s *ConditionsForUpdateMlpAlarmStatusInput) SetOperationList(v []*string) *ConditionsForUpdateMlpAlarmStatusInput {
+	s.OperationList = v
+	return s
+}
+
 // SetProbeHook sets the ProbeHook field's value.
 func (s *ConditionsForUpdateMlpAlarmStatusInput) SetProbeHook(v string) *ConditionsForUpdateMlpAlarmStatusInput {
 	s.ProbeHook = &v
@@ -414,6 +440,12 @@ func (s *ConditionsForUpdateMlpAlarmStatusInput) SetProbeHook(v string) *Conditi
 // SetRaspArgv sets the RaspArgv field's value.
 func (s *ConditionsForUpdateMlpAlarmStatusInput) SetRaspArgv(v string) *ConditionsForUpdateMlpAlarmStatusInput {
 	s.RaspArgv = &v
+	return s
+}
+
+// SetSecurity_intelligence_results sets the Security_intelligence_results field's value.
+func (s *ConditionsForUpdateMlpAlarmStatusInput) SetSecurity_intelligence_results(v []*string) *ConditionsForUpdateMlpAlarmStatusInput {
+	s.Security_intelligence_results = v
 	return s
 }
 

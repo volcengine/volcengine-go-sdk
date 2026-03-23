@@ -147,8 +147,7 @@ type DeleteVpnConnectionHealthCheckerInput struct {
 
 	ClientToken *string `type:"string"`
 
-	// VpnConnectionId is a required field
-	VpnConnectionId *string `type:"string" required:"true"`
+	VpnConnectionId *string `type:"string"`
 }
 
 // String returns the string representation
@@ -166,9 +165,6 @@ func (s *DeleteVpnConnectionHealthCheckerInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "DeleteVpnConnectionHealthCheckerInput"}
 	if s.CheckerId == nil {
 		invalidParams.Add(request.NewErrParamRequired("CheckerId"))
-	}
-	if s.VpnConnectionId == nil {
-		invalidParams.Add(request.NewErrParamRequired("VpnConnectionId"))
 	}
 
 	if invalidParams.Len() > 0 {

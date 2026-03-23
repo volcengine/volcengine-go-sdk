@@ -208,8 +208,8 @@ func (s *AllowListForDescribeAllowListsOutput) SetAssociatedInstanceNum(v int64)
 type DescribeAllowListsInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	// RegionID is a required field
-	RegionID *string `type:"string" json:",omitempty" required:"true"`
+	// RegionId is a required field
+	RegionId *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -225,8 +225,8 @@ func (s DescribeAllowListsInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *DescribeAllowListsInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "DescribeAllowListsInput"}
-	if s.RegionID == nil {
-		invalidParams.Add(request.NewErrParamRequired("RegionID"))
+	if s.RegionId == nil {
+		invalidParams.Add(request.NewErrParamRequired("RegionId"))
 	}
 
 	if invalidParams.Len() > 0 {
@@ -235,9 +235,9 @@ func (s *DescribeAllowListsInput) Validate() error {
 	return nil
 }
 
-// SetRegionID sets the RegionID field's value.
-func (s *DescribeAllowListsInput) SetRegionID(v string) *DescribeAllowListsInput {
-	s.RegionID = &v
+// SetRegionId sets the RegionId field's value.
+func (s *DescribeAllowListsInput) SetRegionId(v string) *DescribeAllowListsInput {
+	s.RegionId = &v
 	return s
 }
 

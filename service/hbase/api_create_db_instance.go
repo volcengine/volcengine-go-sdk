@@ -166,6 +166,8 @@ type CreateDBInstanceInput struct {
 
 	InstanceType *string `type:"string" json:",omitempty"`
 
+	MaintenanceWindow *MaintenanceWindowForCreateDBInstanceInput `type:"structure" json:",omitempty"`
+
 	// MasterSpec is a required field
 	MasterSpec *string `type:"string" json:",omitempty" required:"true"`
 
@@ -305,6 +307,12 @@ func (s *CreateDBInstanceInput) SetInstanceType(v string) *CreateDBInstanceInput
 	return s
 }
 
+// SetMaintenanceWindow sets the MaintenanceWindow field's value.
+func (s *CreateDBInstanceInput) SetMaintenanceWindow(v *MaintenanceWindowForCreateDBInstanceInput) *CreateDBInstanceInput {
+	s.MaintenanceWindow = v
+	return s
+}
+
 // SetMasterSpec sets the MasterSpec field's value.
 func (s *CreateDBInstanceInput) SetMasterSpec(v string) *CreateDBInstanceInput {
 	s.MasterSpec = &v
@@ -415,10 +423,60 @@ func (s *CreateDBInstanceOutput) SetOrderNo(v string) *CreateDBInstanceOutput {
 	return s
 }
 
+type MaintenanceWindowForCreateDBInstanceInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	DayKind *string `type:"string" json:",omitempty"`
+
+	DayOfWeeks []*string `type:"list" json:",omitempty"`
+
+	Period *int32 `type:"int32" json:",omitempty"`
+
+	StartTime *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s MaintenanceWindowForCreateDBInstanceInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s MaintenanceWindowForCreateDBInstanceInput) GoString() string {
+	return s.String()
+}
+
+// SetDayKind sets the DayKind field's value.
+func (s *MaintenanceWindowForCreateDBInstanceInput) SetDayKind(v string) *MaintenanceWindowForCreateDBInstanceInput {
+	s.DayKind = &v
+	return s
+}
+
+// SetDayOfWeeks sets the DayOfWeeks field's value.
+func (s *MaintenanceWindowForCreateDBInstanceInput) SetDayOfWeeks(v []*string) *MaintenanceWindowForCreateDBInstanceInput {
+	s.DayOfWeeks = v
+	return s
+}
+
+// SetPeriod sets the Period field's value.
+func (s *MaintenanceWindowForCreateDBInstanceInput) SetPeriod(v int32) *MaintenanceWindowForCreateDBInstanceInput {
+	s.Period = &v
+	return s
+}
+
+// SetStartTime sets the StartTime field's value.
+func (s *MaintenanceWindowForCreateDBInstanceInput) SetStartTime(v string) *MaintenanceWindowForCreateDBInstanceInput {
+	s.StartTime = &v
+	return s
+}
+
 type TagForCreateDBInstanceInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
 	Key *string `type:"string" json:",omitempty"`
+
+	TagKey *string `type:"string" json:",omitempty"`
+
+	TagValue *string `type:"string" json:",omitempty"`
 
 	Value *string `type:"string" json:",omitempty"`
 }
@@ -436,6 +494,18 @@ func (s TagForCreateDBInstanceInput) GoString() string {
 // SetKey sets the Key field's value.
 func (s *TagForCreateDBInstanceInput) SetKey(v string) *TagForCreateDBInstanceInput {
 	s.Key = &v
+	return s
+}
+
+// SetTagKey sets the TagKey field's value.
+func (s *TagForCreateDBInstanceInput) SetTagKey(v string) *TagForCreateDBInstanceInput {
+	s.TagKey = &v
+	return s
+}
+
+// SetTagValue sets the TagValue field's value.
+func (s *TagForCreateDBInstanceInput) SetTagValue(v string) *TagForCreateDBInstanceInput {
+	s.TagValue = &v
 	return s
 }
 

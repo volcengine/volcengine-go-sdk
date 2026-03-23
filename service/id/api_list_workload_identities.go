@@ -160,6 +160,8 @@ type ListWorkloadIdentitiesInput struct {
 
 	SortOrder *string `type:"string" json:",omitempty"`
 
+	Source *string `type:"string" json:",omitempty"`
+
 	Trn *string `type:"string" json:",omitempty"`
 
 	WorkloadPoolName *string `type:"string" json:",omitempty"`
@@ -230,6 +232,12 @@ func (s *ListWorkloadIdentitiesInput) SetSortBy(v string) *ListWorkloadIdentitie
 // SetSortOrder sets the SortOrder field's value.
 func (s *ListWorkloadIdentitiesInput) SetSortOrder(v string) *ListWorkloadIdentitiesInput {
 	s.SortOrder = &v
+	return s
+}
+
+// SetSource sets the Source field's value.
+func (s *ListWorkloadIdentitiesInput) SetSource(v string) *ListWorkloadIdentitiesInput {
+	s.Source = &v
 	return s
 }
 
@@ -306,6 +314,8 @@ type WorkloadIdentityForListWorkloadIdentitiesOutput struct {
 
 	Name *string `type:"string" json:",omitempty"`
 
+	Source *string `type:"string" json:",omitempty"`
+
 	Trn *string `type:"string" json:",omitempty"`
 
 	UpdatedAt *string `type:"string" json:",omitempty"`
@@ -350,6 +360,12 @@ func (s *WorkloadIdentityForListWorkloadIdentitiesOutput) SetDescription(v strin
 // SetName sets the Name field's value.
 func (s *WorkloadIdentityForListWorkloadIdentitiesOutput) SetName(v string) *WorkloadIdentityForListWorkloadIdentitiesOutput {
 	s.Name = &v
+	return s
+}
+
+// SetSource sets the Source field's value.
+func (s *WorkloadIdentityForListWorkloadIdentitiesOutput) SetSource(v string) *WorkloadIdentityForListWorkloadIdentitiesOutput {
+	s.Source = &v
 	return s
 }
 

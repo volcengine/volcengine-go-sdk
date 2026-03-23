@@ -470,7 +470,8 @@ type ListWhiteListsInput struct {
 
 	SortOrder *string `type:"string" json:",omitempty"`
 
-	Type *string `type:"string" json:",omitempty"`
+	// Type is a required field
+	Type *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -491,6 +492,9 @@ func (s *ListWhiteListsInput) Validate() error {
 	}
 	if s.PageSize == nil {
 		invalidParams.Add(request.NewErrParamRequired("PageSize"))
+	}
+	if s.Type == nil {
+		invalidParams.Add(request.NewErrParamRequired("Type"))
 	}
 
 	if invalidParams.Len() > 0 {
@@ -710,6 +714,8 @@ type RuleListForListWhiteListsOutput struct {
 
 	MatchContent *string `type:"string" json:",omitempty"`
 
+	MatchContentList []*string `type:"list" json:",omitempty"`
+
 	MatchKey *string `type:"string" json:",omitempty"`
 
 	MatchType *int64 `type:"int64" json:",omitempty"`
@@ -728,6 +734,12 @@ func (s RuleListForListWhiteListsOutput) GoString() string {
 // SetMatchContent sets the MatchContent field's value.
 func (s *RuleListForListWhiteListsOutput) SetMatchContent(v string) *RuleListForListWhiteListsOutput {
 	s.MatchContent = &v
+	return s
+}
+
+// SetMatchContentList sets the MatchContentList field's value.
+func (s *RuleListForListWhiteListsOutput) SetMatchContentList(v []*string) *RuleListForListWhiteListsOutput {
+	s.MatchContentList = v
 	return s
 }
 

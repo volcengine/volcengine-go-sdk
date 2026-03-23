@@ -150,6 +150,8 @@ type ConditionForListRulesByIdsOutput struct {
 
 	DisplayName *string `type:"string" json:",omitempty"`
 
+	EvaluationWindow *int32 `type:"int32" json:",omitempty"`
+
 	MetricName *string `type:"string" json:",omitempty"`
 
 	MetricUnit *string `type:"string" json:",omitempty"`
@@ -180,6 +182,12 @@ func (s *ConditionForListRulesByIdsOutput) SetComparisonOperator(v string) *Cond
 // SetDisplayName sets the DisplayName field's value.
 func (s *ConditionForListRulesByIdsOutput) SetDisplayName(v string) *ConditionForListRulesByIdsOutput {
 	s.DisplayName = &v
+	return s
+}
+
+// SetEvaluationWindow sets the EvaluationWindow field's value.
+func (s *ConditionForListRulesByIdsOutput) SetEvaluationWindow(v int32) *ConditionForListRulesByIdsOutput {
+	s.EvaluationWindow = &v
 	return s
 }
 
@@ -270,6 +278,8 @@ type DataForListRulesByIdsOutput struct {
 
 	EvaluationCount *int32 `type:"int32" json:",omitempty"`
 
+	EvaluationInterval *int32 `type:"int32" json:",omitempty"`
+
 	Id *string `type:"string" json:",omitempty"`
 
 	Level *string `type:"string" json:",omitempty"`
@@ -280,9 +290,13 @@ type DataForListRulesByIdsOutput struct {
 
 	Namespace *string `type:"string" json:",omitempty"`
 
+	NoData *NoDataForListRulesByIdsOutput `type:"structure" json:",omitempty"`
+
 	NotificationId *string `type:"string" json:",omitempty"`
 
 	NotifyTemplates []*NotifyTemplateForListRulesByIdsOutput `type:"list" json:",omitempty"`
+
+	ObjectGroupId *string `type:"string" json:",omitempty"`
 
 	OriginalDimensions map[string][]*string `type:"map" json:",omitempty"`
 
@@ -393,6 +407,12 @@ func (s *DataForListRulesByIdsOutput) SetEvaluationCount(v int32) *DataForListRu
 	return s
 }
 
+// SetEvaluationInterval sets the EvaluationInterval field's value.
+func (s *DataForListRulesByIdsOutput) SetEvaluationInterval(v int32) *DataForListRulesByIdsOutput {
+	s.EvaluationInterval = &v
+	return s
+}
+
 // SetId sets the Id field's value.
 func (s *DataForListRulesByIdsOutput) SetId(v string) *DataForListRulesByIdsOutput {
 	s.Id = &v
@@ -423,6 +443,12 @@ func (s *DataForListRulesByIdsOutput) SetNamespace(v string) *DataForListRulesBy
 	return s
 }
 
+// SetNoData sets the NoData field's value.
+func (s *DataForListRulesByIdsOutput) SetNoData(v *NoDataForListRulesByIdsOutput) *DataForListRulesByIdsOutput {
+	s.NoData = v
+	return s
+}
+
 // SetNotificationId sets the NotificationId field's value.
 func (s *DataForListRulesByIdsOutput) SetNotificationId(v string) *DataForListRulesByIdsOutput {
 	s.NotificationId = &v
@@ -432,6 +458,12 @@ func (s *DataForListRulesByIdsOutput) SetNotificationId(v string) *DataForListRu
 // SetNotifyTemplates sets the NotifyTemplates field's value.
 func (s *DataForListRulesByIdsOutput) SetNotifyTemplates(v []*NotifyTemplateForListRulesByIdsOutput) *DataForListRulesByIdsOutput {
 	s.NotifyTemplates = v
+	return s
+}
+
+// SetObjectGroupId sets the ObjectGroupId field's value.
+func (s *DataForListRulesByIdsOutput) SetObjectGroupId(v string) *DataForListRulesByIdsOutput {
+	s.ObjectGroupId = &v
 	return s
 }
 
@@ -708,6 +740,44 @@ func (s *MetaForListRulesByIdsOutput) SetKey(v string) *MetaForListRulesByIdsOut
 // SetValues sets the Values field's value.
 func (s *MetaForListRulesByIdsOutput) SetValues(v []*string) *MetaForListRulesByIdsOutput {
 	s.Values = v
+	return s
+}
+
+type NoDataForListRulesByIdsOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Enable *bool `type:"boolean" json:",omitempty"`
+
+	EvaluationCount *int32 `type:"int32" json:",omitempty"`
+
+	Level *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s NoDataForListRulesByIdsOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s NoDataForListRulesByIdsOutput) GoString() string {
+	return s.String()
+}
+
+// SetEnable sets the Enable field's value.
+func (s *NoDataForListRulesByIdsOutput) SetEnable(v bool) *NoDataForListRulesByIdsOutput {
+	s.Enable = &v
+	return s
+}
+
+// SetEvaluationCount sets the EvaluationCount field's value.
+func (s *NoDataForListRulesByIdsOutput) SetEvaluationCount(v int32) *NoDataForListRulesByIdsOutput {
+	s.EvaluationCount = &v
+	return s
+}
+
+// SetLevel sets the Level field's value.
+func (s *NoDataForListRulesByIdsOutput) SetLevel(v string) *NoDataForListRulesByIdsOutput {
+	s.Level = &v
 	return s
 }
 

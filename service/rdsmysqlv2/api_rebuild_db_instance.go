@@ -148,6 +148,8 @@ type AutoStorageScalingConfigForRebuildDBInstanceInput struct {
 
 	EnableStorageAutoScale *bool `type:"boolean" json:",omitempty"`
 
+	ScalingDetectNode *string `type:"string" json:",omitempty"`
+
 	StorageThreshold *int32 `type:"int32" json:",omitempty"`
 
 	StorageUpperBound *int32 `type:"int32" json:",omitempty"`
@@ -166,6 +168,12 @@ func (s AutoStorageScalingConfigForRebuildDBInstanceInput) GoString() string {
 // SetEnableStorageAutoScale sets the EnableStorageAutoScale field's value.
 func (s *AutoStorageScalingConfigForRebuildDBInstanceInput) SetEnableStorageAutoScale(v bool) *AutoStorageScalingConfigForRebuildDBInstanceInput {
 	s.EnableStorageAutoScale = &v
+	return s
+}
+
+// SetScalingDetectNode sets the ScalingDetectNode field's value.
+func (s *AutoStorageScalingConfigForRebuildDBInstanceInput) SetScalingDetectNode(v string) *AutoStorageScalingConfigForRebuildDBInstanceInput {
+	s.ScalingDetectNode = &v
 	return s
 }
 
@@ -367,6 +375,8 @@ type RebuildDBInstanceInput struct {
 
 	Port *int32 `type:"int32" json:",omitempty"`
 
+	PrivateIpAddress *string `type:"string" json:",omitempty"`
+
 	ProjectName *string `type:"string" json:",omitempty"`
 
 	ProxyNodeCustom *ProxyNodeCustomForRebuildDBInstanceInput `type:"structure" json:",omitempty"`
@@ -468,6 +478,12 @@ func (s *RebuildDBInstanceInput) SetNodeInfo(v []*NodeInfoForRebuildDBInstanceIn
 // SetPort sets the Port field's value.
 func (s *RebuildDBInstanceInput) SetPort(v int32) *RebuildDBInstanceInput {
 	s.Port = &v
+	return s
+}
+
+// SetPrivateIpAddress sets the PrivateIpAddress field's value.
+func (s *RebuildDBInstanceInput) SetPrivateIpAddress(v string) *RebuildDBInstanceInput {
+	s.PrivateIpAddress = &v
 	return s
 }
 

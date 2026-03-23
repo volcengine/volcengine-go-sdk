@@ -162,6 +162,8 @@ type ConditionsForListAssetCenterHostsInput struct {
 
 	LeafGroupIDs []*string `type:"list" json:",omitempty"`
 
+	Os *string `type:"string" json:",omitempty"`
+
 	Platforms []*string `type:"list" json:",omitempty"`
 
 	ProxyName *string `type:"string" json:",omitempty"`
@@ -245,6 +247,12 @@ func (s *ConditionsForListAssetCenterHostsInput) SetLeafGroupIDs(v []*string) *C
 	return s
 }
 
+// SetOs sets the Os field's value.
+func (s *ConditionsForListAssetCenterHostsInput) SetOs(v string) *ConditionsForListAssetCenterHostsInput {
+	s.Os = &v
+	return s
+}
+
 // SetPlatforms sets the Platforms field's value.
 func (s *ConditionsForListAssetCenterHostsInput) SetPlatforms(v []*string) *ConditionsForListAssetCenterHostsInput {
 	s.Platforms = v
@@ -322,9 +330,13 @@ type DataForListAssetCenterHostsOutput struct {
 
 	AbnormalPluginsList *string `type:"string" json:",omitempty"`
 
+	AccountID *string `type:"string" json:",omitempty"`
+
 	AgentID *string `type:"string" json:",omitempty"`
 
 	AgentStatus *string `type:"string" json:",omitempty"`
+
+	ClientPublicIP *string `type:"string" json:",omitempty"`
 
 	CloudProvider *string `type:"string" json:",omitempty"`
 
@@ -342,15 +354,21 @@ type DataForListAssetCenterHostsOutput struct {
 
 	GroupPath *string `type:"string" json:",omitempty"`
 
+	GroupPathEn *string `type:"string" json:",omitempty"`
+
 	KernelVersion *string `type:"string" json:",omitempty"`
 
 	LastHeartbeatTime *int64 `type:"int64" json:",omitempty"`
 
 	MemUsage *float64 `type:"double" json:",omitempty"`
 
+	OldValidCode *int64 `type:"int64" json:",omitempty"`
+
 	Online *bool `type:"boolean" json:",omitempty"`
 
 	Platform *string `type:"string" json:",omitempty"`
+
+	PlatformVersion *string `type:"string" json:",omitempty"`
 
 	PluginsBriefInfo *string `type:"string" json:",omitempty"`
 
@@ -373,6 +391,8 @@ type DataForListAssetCenterHostsOutput struct {
 	UserStatus *string `type:"string" json:",omitempty"`
 
 	UserStatusReason *string `type:"string" json:",omitempty"`
+
+	UserStatusReasonCode *int64 `type:"int64" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -391,6 +411,12 @@ func (s *DataForListAssetCenterHostsOutput) SetAbnormalPluginsList(v string) *Da
 	return s
 }
 
+// SetAccountID sets the AccountID field's value.
+func (s *DataForListAssetCenterHostsOutput) SetAccountID(v string) *DataForListAssetCenterHostsOutput {
+	s.AccountID = &v
+	return s
+}
+
 // SetAgentID sets the AgentID field's value.
 func (s *DataForListAssetCenterHostsOutput) SetAgentID(v string) *DataForListAssetCenterHostsOutput {
 	s.AgentID = &v
@@ -400,6 +426,12 @@ func (s *DataForListAssetCenterHostsOutput) SetAgentID(v string) *DataForListAss
 // SetAgentStatus sets the AgentStatus field's value.
 func (s *DataForListAssetCenterHostsOutput) SetAgentStatus(v string) *DataForListAssetCenterHostsOutput {
 	s.AgentStatus = &v
+	return s
+}
+
+// SetClientPublicIP sets the ClientPublicIP field's value.
+func (s *DataForListAssetCenterHostsOutput) SetClientPublicIP(v string) *DataForListAssetCenterHostsOutput {
+	s.ClientPublicIP = &v
 	return s
 }
 
@@ -451,6 +483,12 @@ func (s *DataForListAssetCenterHostsOutput) SetGroupPath(v string) *DataForListA
 	return s
 }
 
+// SetGroupPathEn sets the GroupPathEn field's value.
+func (s *DataForListAssetCenterHostsOutput) SetGroupPathEn(v string) *DataForListAssetCenterHostsOutput {
+	s.GroupPathEn = &v
+	return s
+}
+
 // SetKernelVersion sets the KernelVersion field's value.
 func (s *DataForListAssetCenterHostsOutput) SetKernelVersion(v string) *DataForListAssetCenterHostsOutput {
 	s.KernelVersion = &v
@@ -469,6 +507,12 @@ func (s *DataForListAssetCenterHostsOutput) SetMemUsage(v float64) *DataForListA
 	return s
 }
 
+// SetOldValidCode sets the OldValidCode field's value.
+func (s *DataForListAssetCenterHostsOutput) SetOldValidCode(v int64) *DataForListAssetCenterHostsOutput {
+	s.OldValidCode = &v
+	return s
+}
+
 // SetOnline sets the Online field's value.
 func (s *DataForListAssetCenterHostsOutput) SetOnline(v bool) *DataForListAssetCenterHostsOutput {
 	s.Online = &v
@@ -478,6 +522,12 @@ func (s *DataForListAssetCenterHostsOutput) SetOnline(v bool) *DataForListAssetC
 // SetPlatform sets the Platform field's value.
 func (s *DataForListAssetCenterHostsOutput) SetPlatform(v string) *DataForListAssetCenterHostsOutput {
 	s.Platform = &v
+	return s
+}
+
+// SetPlatformVersion sets the PlatformVersion field's value.
+func (s *DataForListAssetCenterHostsOutput) SetPlatformVersion(v string) *DataForListAssetCenterHostsOutput {
+	s.PlatformVersion = &v
 	return s
 }
 
@@ -544,6 +594,12 @@ func (s *DataForListAssetCenterHostsOutput) SetUserStatus(v string) *DataForList
 // SetUserStatusReason sets the UserStatusReason field's value.
 func (s *DataForListAssetCenterHostsOutput) SetUserStatusReason(v string) *DataForListAssetCenterHostsOutput {
 	s.UserStatusReason = &v
+	return s
+}
+
+// SetUserStatusReasonCode sets the UserStatusReasonCode field's value.
+func (s *DataForListAssetCenterHostsOutput) SetUserStatusReasonCode(v int64) *DataForListAssetCenterHostsOutput {
+	s.UserStatusReasonCode = &v
 	return s
 }
 
@@ -872,6 +928,8 @@ type RiskForListAssetCenterHostsInput struct {
 
 	Baseline *bool `type:"boolean" json:",omitempty"`
 
+	IsRealRiskVul *bool `type:"boolean" json:",omitempty"`
+
 	Virus *bool `type:"boolean" json:",omitempty"`
 
 	Vuln *bool `type:"boolean" json:",omitempty"`
@@ -899,6 +957,12 @@ func (s *RiskForListAssetCenterHostsInput) SetBaseline(v bool) *RiskForListAsset
 	return s
 }
 
+// SetIsRealRiskVul sets the IsRealRiskVul field's value.
+func (s *RiskForListAssetCenterHostsInput) SetIsRealRiskVul(v bool) *RiskForListAssetCenterHostsInput {
+	s.IsRealRiskVul = &v
+	return s
+}
+
 // SetVirus sets the Virus field's value.
 func (s *RiskForListAssetCenterHostsInput) SetVirus(v bool) *RiskForListAssetCenterHostsInput {
 	s.Virus = &v
@@ -917,6 +981,8 @@ type RiskForListAssetCenterHostsOutput struct {
 	Alarm *int64 `type:"int64" json:",omitempty"`
 
 	Baseline *int64 `type:"int64" json:",omitempty"`
+
+	RealRiskVul *int64 `type:"int64" json:",omitempty"`
 
 	Virus *int64 `type:"int64" json:",omitempty"`
 
@@ -942,6 +1008,12 @@ func (s *RiskForListAssetCenterHostsOutput) SetAlarm(v int64) *RiskForListAssetC
 // SetBaseline sets the Baseline field's value.
 func (s *RiskForListAssetCenterHostsOutput) SetBaseline(v int64) *RiskForListAssetCenterHostsOutput {
 	s.Baseline = &v
+	return s
+}
+
+// SetRealRiskVul sets the RealRiskVul field's value.
+func (s *RiskForListAssetCenterHostsOutput) SetRealRiskVul(v int64) *RiskForListAssetCenterHostsOutput {
+	s.RealRiskVul = &v
 	return s
 }
 

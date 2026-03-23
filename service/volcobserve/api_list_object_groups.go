@@ -213,8 +213,56 @@ func (s *DataForListObjectGroupsOutput) SetUpdatedAt(v string) *DataForListObjec
 	return s
 }
 
+type DimensionConditionsForListObjectGroupsOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	MetaCondition *MetaConditionForListObjectGroupsOutput `type:"structure" json:",omitempty"`
+
+	ProjectCondition *ProjectConditionForListObjectGroupsOutput `type:"structure" json:",omitempty"`
+
+	TagCondition *TagConditionForListObjectGroupsOutput `type:"structure" json:",omitempty"`
+
+	Type *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s DimensionConditionsForListObjectGroupsOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DimensionConditionsForListObjectGroupsOutput) GoString() string {
+	return s.String()
+}
+
+// SetMetaCondition sets the MetaCondition field's value.
+func (s *DimensionConditionsForListObjectGroupsOutput) SetMetaCondition(v *MetaConditionForListObjectGroupsOutput) *DimensionConditionsForListObjectGroupsOutput {
+	s.MetaCondition = v
+	return s
+}
+
+// SetProjectCondition sets the ProjectCondition field's value.
+func (s *DimensionConditionsForListObjectGroupsOutput) SetProjectCondition(v *ProjectConditionForListObjectGroupsOutput) *DimensionConditionsForListObjectGroupsOutput {
+	s.ProjectCondition = v
+	return s
+}
+
+// SetTagCondition sets the TagCondition field's value.
+func (s *DimensionConditionsForListObjectGroupsOutput) SetTagCondition(v *TagConditionForListObjectGroupsOutput) *DimensionConditionsForListObjectGroupsOutput {
+	s.TagCondition = v
+	return s
+}
+
+// SetType sets the Type field's value.
+func (s *DimensionConditionsForListObjectGroupsOutput) SetType(v string) *DimensionConditionsForListObjectGroupsOutput {
+	s.Type = &v
+	return s
+}
+
 type ListObjectGroupsInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
+
+	AlertTemplateIds []*string `type:"list" json:",omitempty"`
 
 	Ids []*string `type:"list" json:",omitempty"`
 
@@ -233,6 +281,12 @@ func (s ListObjectGroupsInput) String() string {
 // GoString returns the string representation
 func (s ListObjectGroupsInput) GoString() string {
 	return s.String()
+}
+
+// SetAlertTemplateIds sets the AlertTemplateIds field's value.
+func (s *ListObjectGroupsInput) SetAlertTemplateIds(v []*string) *ListObjectGroupsInput {
+	s.AlertTemplateIds = v
+	return s
 }
 
 // SetIds sets the Ids field's value.
@@ -307,10 +361,86 @@ func (s *ListObjectGroupsOutput) SetTotalCount(v int64) *ListObjectGroupsOutput 
 	return s
 }
 
+type MetaConditionForListObjectGroupsOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	AllDimensions *bool `type:"boolean" json:",omitempty"`
+
+	Condition *string `type:"string" json:",omitempty"`
+
+	Metas []*MetaForListObjectGroupsOutput `type:"list" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s MetaConditionForListObjectGroupsOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s MetaConditionForListObjectGroupsOutput) GoString() string {
+	return s.String()
+}
+
+// SetAllDimensions sets the AllDimensions field's value.
+func (s *MetaConditionForListObjectGroupsOutput) SetAllDimensions(v bool) *MetaConditionForListObjectGroupsOutput {
+	s.AllDimensions = &v
+	return s
+}
+
+// SetCondition sets the Condition field's value.
+func (s *MetaConditionForListObjectGroupsOutput) SetCondition(v string) *MetaConditionForListObjectGroupsOutput {
+	s.Condition = &v
+	return s
+}
+
+// SetMetas sets the Metas field's value.
+func (s *MetaConditionForListObjectGroupsOutput) SetMetas(v []*MetaForListObjectGroupsOutput) *MetaConditionForListObjectGroupsOutput {
+	s.Metas = v
+	return s
+}
+
+type MetaForListObjectGroupsOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Comparator *string `type:"string" json:",omitempty"`
+
+	Key *string `type:"string" json:",omitempty"`
+
+	Values []*string `type:"list" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s MetaForListObjectGroupsOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s MetaForListObjectGroupsOutput) GoString() string {
+	return s.String()
+}
+
+// SetComparator sets the Comparator field's value.
+func (s *MetaForListObjectGroupsOutput) SetComparator(v string) *MetaForListObjectGroupsOutput {
+	s.Comparator = &v
+	return s
+}
+
+// SetKey sets the Key field's value.
+func (s *MetaForListObjectGroupsOutput) SetKey(v string) *MetaForListObjectGroupsOutput {
+	s.Key = &v
+	return s
+}
+
+// SetValues sets the Values field's value.
+func (s *MetaForListObjectGroupsOutput) SetValues(v []*string) *MetaForListObjectGroupsOutput {
+	s.Values = v
+	return s
+}
+
 type ObjectForListObjectGroupsOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	DimensionConditions *string `type:"string" json:",omitempty"`
+	DimensionConditions *DimensionConditionsForListObjectGroupsOutput `type:"structure" json:",omitempty"`
 
 	Dimensions map[string][]*string `type:"map" json:",omitempty"`
 
@@ -319,6 +449,8 @@ type ObjectForListObjectGroupsOutput struct {
 	Namespace *string `type:"string" json:",omitempty"`
 
 	Region *string `type:"string" json:",omitempty"`
+
+	Rules []*RuleForListObjectGroupsOutput `type:"list" json:",omitempty"`
 
 	Type *string `type:"string" json:",omitempty"`
 }
@@ -334,8 +466,8 @@ func (s ObjectForListObjectGroupsOutput) GoString() string {
 }
 
 // SetDimensionConditions sets the DimensionConditions field's value.
-func (s *ObjectForListObjectGroupsOutput) SetDimensionConditions(v string) *ObjectForListObjectGroupsOutput {
-	s.DimensionConditions = &v
+func (s *ObjectForListObjectGroupsOutput) SetDimensionConditions(v *DimensionConditionsForListObjectGroupsOutput) *ObjectForListObjectGroupsOutput {
+	s.DimensionConditions = v
 	return s
 }
 
@@ -363,8 +495,150 @@ func (s *ObjectForListObjectGroupsOutput) SetRegion(v string) *ObjectForListObje
 	return s
 }
 
+// SetRules sets the Rules field's value.
+func (s *ObjectForListObjectGroupsOutput) SetRules(v []*RuleForListObjectGroupsOutput) *ObjectForListObjectGroupsOutput {
+	s.Rules = v
+	return s
+}
+
 // SetType sets the Type field's value.
 func (s *ObjectForListObjectGroupsOutput) SetType(v string) *ObjectForListObjectGroupsOutput {
 	s.Type = &v
+	return s
+}
+
+type ProjectConditionForListObjectGroupsOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Projects []*string `type:"list" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s ProjectConditionForListObjectGroupsOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ProjectConditionForListObjectGroupsOutput) GoString() string {
+	return s.String()
+}
+
+// SetProjects sets the Projects field's value.
+func (s *ProjectConditionForListObjectGroupsOutput) SetProjects(v []*string) *ProjectConditionForListObjectGroupsOutput {
+	s.Projects = v
+	return s
+}
+
+type RuleForListObjectGroupsOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	AlertTemplateId *string `type:"string" json:",omitempty"`
+
+	Id *string `type:"string" json:",omitempty"`
+
+	Name *string `type:"string" json:",omitempty"`
+
+	TemplateRuleId *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s RuleForListObjectGroupsOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s RuleForListObjectGroupsOutput) GoString() string {
+	return s.String()
+}
+
+// SetAlertTemplateId sets the AlertTemplateId field's value.
+func (s *RuleForListObjectGroupsOutput) SetAlertTemplateId(v string) *RuleForListObjectGroupsOutput {
+	s.AlertTemplateId = &v
+	return s
+}
+
+// SetId sets the Id field's value.
+func (s *RuleForListObjectGroupsOutput) SetId(v string) *RuleForListObjectGroupsOutput {
+	s.Id = &v
+	return s
+}
+
+// SetName sets the Name field's value.
+func (s *RuleForListObjectGroupsOutput) SetName(v string) *RuleForListObjectGroupsOutput {
+	s.Name = &v
+	return s
+}
+
+// SetTemplateRuleId sets the TemplateRuleId field's value.
+func (s *RuleForListObjectGroupsOutput) SetTemplateRuleId(v string) *RuleForListObjectGroupsOutput {
+	s.TemplateRuleId = &v
+	return s
+}
+
+type TagConditionForListObjectGroupsOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Condition *string `type:"string" json:",omitempty"`
+
+	Tags []*TagForListObjectGroupsOutput `type:"list" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s TagConditionForListObjectGroupsOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagConditionForListObjectGroupsOutput) GoString() string {
+	return s.String()
+}
+
+// SetCondition sets the Condition field's value.
+func (s *TagConditionForListObjectGroupsOutput) SetCondition(v string) *TagConditionForListObjectGroupsOutput {
+	s.Condition = &v
+	return s
+}
+
+// SetTags sets the Tags field's value.
+func (s *TagConditionForListObjectGroupsOutput) SetTags(v []*TagForListObjectGroupsOutput) *TagConditionForListObjectGroupsOutput {
+	s.Tags = v
+	return s
+}
+
+type TagForListObjectGroupsOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Comparator *string `type:"string" json:",omitempty"`
+
+	Key *string `type:"string" json:",omitempty"`
+
+	Values []*string `type:"list" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s TagForListObjectGroupsOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagForListObjectGroupsOutput) GoString() string {
+	return s.String()
+}
+
+// SetComparator sets the Comparator field's value.
+func (s *TagForListObjectGroupsOutput) SetComparator(v string) *TagForListObjectGroupsOutput {
+	s.Comparator = &v
+	return s
+}
+
+// SetKey sets the Key field's value.
+func (s *TagForListObjectGroupsOutput) SetKey(v string) *TagForListObjectGroupsOutput {
+	s.Key = &v
+	return s
+}
+
+// SetValues sets the Values field's value.
+func (s *TagForListObjectGroupsOutput) SetValues(v []*string) *TagForListObjectGroupsOutput {
+	s.Values = v
 	return s
 }

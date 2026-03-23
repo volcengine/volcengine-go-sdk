@@ -149,6 +149,10 @@ type AppliedRuleForListAlertTemplatesOutput struct {
 	Id *string `type:"string" json:",omitempty"`
 
 	Name *string `type:"string" json:",omitempty"`
+
+	ObjectGroupId *string `type:"string" json:",omitempty"`
+
+	ObjectId *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -170,6 +174,18 @@ func (s *AppliedRuleForListAlertTemplatesOutput) SetId(v string) *AppliedRuleFor
 // SetName sets the Name field's value.
 func (s *AppliedRuleForListAlertTemplatesOutput) SetName(v string) *AppliedRuleForListAlertTemplatesOutput {
 	s.Name = &v
+	return s
+}
+
+// SetObjectGroupId sets the ObjectGroupId field's value.
+func (s *AppliedRuleForListAlertTemplatesOutput) SetObjectGroupId(v string) *AppliedRuleForListAlertTemplatesOutput {
+	s.ObjectGroupId = &v
+	return s
+}
+
+// SetObjectId sets the ObjectId field's value.
+func (s *AppliedRuleForListAlertTemplatesOutput) SetObjectId(v string) *AppliedRuleForListAlertTemplatesOutput {
+	s.ObjectId = &v
 	return s
 }
 
@@ -374,6 +390,8 @@ type ListAlertTemplatesInput struct {
 
 	Namespaces []*string `type:"list" json:",omitempty"`
 
+	ObjectGroupIds []*string `type:"list" json:",omitempty"`
+
 	PageNumber *int64 `type:"integer" json:",omitempty"`
 
 	PageSize *int64 `type:"integer" json:",omitempty"`
@@ -400,6 +418,12 @@ func (s *ListAlertTemplatesInput) SetName(v string) *ListAlertTemplatesInput {
 // SetNamespaces sets the Namespaces field's value.
 func (s *ListAlertTemplatesInput) SetNamespaces(v []*string) *ListAlertTemplatesInput {
 	s.Namespaces = v
+	return s
+}
+
+// SetObjectGroupIds sets the ObjectGroupIds field's value.
+func (s *ListAlertTemplatesInput) SetObjectGroupIds(v []*string) *ListAlertTemplatesInput {
+	s.ObjectGroupIds = v
 	return s
 }
 

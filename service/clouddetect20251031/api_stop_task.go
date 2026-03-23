@@ -146,8 +146,8 @@ func (c *CLOUDDETECT20251031) StopTaskWithContext(ctx volcengine.Context, input 
 type StopTaskInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	// ID is a required field
-	ID *int64 `type:"int64" json:",omitempty" required:"true"`
+	// Id is a required field
+	Id *int64 `type:"int64" json:",omitempty" required:"true"`
 
 	ProjectName *string `type:"string" json:",omitempty"`
 }
@@ -165,8 +165,8 @@ func (s StopTaskInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *StopTaskInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "StopTaskInput"}
-	if s.ID == nil {
-		invalidParams.Add(request.NewErrParamRequired("ID"))
+	if s.Id == nil {
+		invalidParams.Add(request.NewErrParamRequired("Id"))
 	}
 
 	if invalidParams.Len() > 0 {
@@ -175,9 +175,9 @@ func (s *StopTaskInput) Validate() error {
 	return nil
 }
 
-// SetID sets the ID field's value.
-func (s *StopTaskInput) SetID(v int64) *StopTaskInput {
-	s.ID = &v
+// SetId sets the Id field's value.
+func (s *StopTaskInput) SetId(v int64) *StopTaskInput {
+	s.Id = &v
 	return s
 }
 

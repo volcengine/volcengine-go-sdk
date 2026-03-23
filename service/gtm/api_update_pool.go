@@ -146,7 +146,7 @@ func (c *GTM) UpdatePoolWithContext(ctx volcengine.Context, input *UpdatePoolInp
 type AddressForUpdatePoolInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	Capacity *int64 `type:"int64" json:",omitempty"`
+	Capacity *int32 `type:"int32" json:",omitempty"`
 
 	Mode *string `type:"string" json:",omitempty"`
 
@@ -168,7 +168,7 @@ func (s AddressForUpdatePoolInput) GoString() string {
 }
 
 // SetCapacity sets the Capacity field's value.
-func (s *AddressForUpdatePoolInput) SetCapacity(v int64) *AddressForUpdatePoolInput {
+func (s *AddressForUpdatePoolInput) SetCapacity(v int32) *AddressForUpdatePoolInput {
 	s.Capacity = &v
 	return s
 }

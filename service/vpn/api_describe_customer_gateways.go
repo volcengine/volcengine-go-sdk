@@ -164,6 +164,8 @@ type CustomerGatewayForDescribeCustomerGatewaysOutput struct {
 
 	Status *string `type:"string"`
 
+	Tags []*TagForDescribeCustomerGatewaysOutput `type:"list"`
+
 	UpdateTime *string `type:"string"`
 }
 
@@ -240,6 +242,12 @@ func (s *CustomerGatewayForDescribeCustomerGatewaysOutput) SetProjectName(v stri
 // SetStatus sets the Status field's value.
 func (s *CustomerGatewayForDescribeCustomerGatewaysOutput) SetStatus(v string) *CustomerGatewayForDescribeCustomerGatewaysOutput {
 	s.Status = &v
+	return s
+}
+
+// SetTags sets the Tags field's value.
+func (s *CustomerGatewayForDescribeCustomerGatewaysOutput) SetTags(v []*TagForDescribeCustomerGatewaysOutput) *CustomerGatewayForDescribeCustomerGatewaysOutput {
+	s.Tags = v
 	return s
 }
 
@@ -418,5 +426,35 @@ func (s *TagFilterForDescribeCustomerGatewaysInput) SetKey(v string) *TagFilterF
 // SetValues sets the Values field's value.
 func (s *TagFilterForDescribeCustomerGatewaysInput) SetValues(v []*string) *TagFilterForDescribeCustomerGatewaysInput {
 	s.Values = v
+	return s
+}
+
+type TagForDescribeCustomerGatewaysOutput struct {
+	_ struct{} `type:"structure"`
+
+	Key *string `type:"string"`
+
+	Value *string `type:"string"`
+}
+
+// String returns the string representation
+func (s TagForDescribeCustomerGatewaysOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagForDescribeCustomerGatewaysOutput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagForDescribeCustomerGatewaysOutput) SetKey(v string) *TagForDescribeCustomerGatewaysOutput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *TagForDescribeCustomerGatewaysOutput) SetValue(v string) *TagForDescribeCustomerGatewaysOutput {
+	s.Value = &v
 	return s
 }

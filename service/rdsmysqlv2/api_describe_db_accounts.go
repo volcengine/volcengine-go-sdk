@@ -158,6 +158,8 @@ type AccountForDescribeDBAccountsOutput struct {
 
 	AccountType *string `type:"string" json:",omitempty"`
 
+	AuthenticationType *string `type:"string" json:",omitempty"`
+
 	GlobalAccountPrivileges []*string `type:"list" json:",omitempty"`
 
 	HasTableColumnPrivilegeDBNames []*string `type:"list" json:",omitempty"`
@@ -208,6 +210,12 @@ func (s *AccountForDescribeDBAccountsOutput) SetAccountStatus(v string) *Account
 // SetAccountType sets the AccountType field's value.
 func (s *AccountForDescribeDBAccountsOutput) SetAccountType(v string) *AccountForDescribeDBAccountsOutput {
 	s.AccountType = &v
+	return s
+}
+
+// SetAuthenticationType sets the AuthenticationType field's value.
+func (s *AccountForDescribeDBAccountsOutput) SetAuthenticationType(v string) *AccountForDescribeDBAccountsOutput {
+	s.AuthenticationType = &v
 	return s
 }
 

@@ -9,6 +9,7 @@ import (
 
 	"github.com/volcengine/volcengine-go-sdk/service/arkruntime/model"
 	"github.com/volcengine/volcengine-go-sdk/service/arkruntime/model/responses"
+	"github.com/volcengine/volcengine-go-sdk/service/arkruntime/pkg/encryption"
 )
 
 var (
@@ -24,6 +25,8 @@ type ChatCompletionStreamReader struct {
 	Response       *http.Response
 	ErrAccumulator ErrorAccumulator
 	Unmarshaler    Unmarshaler
+	KeyNonce       []byte
+	Cleanup        func()
 
 	model.HttpHeader
 }
@@ -70,6 +73,7 @@ func (stream *ResponsesStreamReader) Recv() (response *responses.Event, err erro
 	response, err = stream.processLines()
 	return
 }
+
 func (stream *ImageGenerationStreamReader) Recv() (response model.ImagesStreamResponse, err error) {
 	if stream.IsFinished {
 		err = io.EOF
@@ -121,13 +125,22 @@ func (stream *ChatCompletionStreamReader) processLines() (model.ChatCompletionSt
 
 		if string(trimedLine) == "[DONE]" {
 			stream.IsFinished = true
+			if stream.Cleanup != nil {
+				stream.Cleanup()
+				stream.Cleanup = nil
+			}
 			return model.ChatCompletionStreamResponse{}, io.EOF
 		}
-
 		var response model.ChatCompletionStreamResponse
 		unmarshalErr := stream.Unmarshaler.Unmarshal(trimedLine, &response)
 		if unmarshalErr != nil {
 			return model.ChatCompletionStreamResponse{}, unmarshalErr
+		}
+		if len(stream.KeyNonce) > 0 {
+			err := encryption.DecryptChatStreamResponse(stream.KeyNonce, response)
+			if err != nil {
+				return model.ChatCompletionStreamResponse{}, err
+			}
 		}
 
 		return response, nil
@@ -189,9 +202,7 @@ func (stream *BotChatCompletionStreamReader) processLines() (model.BotChatComple
 }
 
 func (stream *ResponsesStreamReader) processLines() (*responses.Event, error) {
-	var (
-		emptyMessagesCount uint
-	)
+	var emptyMessagesCount uint
 
 	for stream.Decoder.Next() {
 
@@ -276,7 +287,6 @@ func (stream *ImageGenerationStreamReader) processLines() (model.ImagesStreamRes
 		unmarshalErr := stream.Unmarshaler.Unmarshal(trimedLine, &response)
 		if unmarshalErr != nil {
 			return model.ImagesStreamResponse{}, unmarshalErr
-
 		}
 
 		return response, nil
@@ -304,6 +314,9 @@ func (stream *ChatCompletionStreamReader) unmarshalError() (errResp *model.Error
 }
 
 func (stream *ChatCompletionStreamReader) Close() error {
+	if stream.Cleanup != nil {
+		stream.Cleanup()
+	}
 	return stream.Response.Body.Close()
 }
 

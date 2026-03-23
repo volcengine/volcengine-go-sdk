@@ -242,6 +242,8 @@ type DataForListHidsAlarmsOutput struct {
 
 	AgentID *string `type:"string" json:",omitempty"`
 
+	AlarmCount *int64 `type:"int64" json:",omitempty"`
+
 	AlarmHandleResult *int64 `type:"int64" json:",omitempty"`
 
 	AlarmHostname *string `type:"string" json:",omitempty"`
@@ -251,6 +253,8 @@ type DataForListHidsAlarmsOutput struct {
 	AlarmTime *int64 `type:"int64" json:",omitempty"`
 
 	AlertTags []*string `type:"list" json:",omitempty"`
+
+	AnalysisRecordUUID *string `type:"string" json:",omitempty"`
 
 	Args []*string `type:"list" json:",omitempty"`
 
@@ -263,6 +267,8 @@ type DataForListHidsAlarmsOutput struct {
 	Class *string `type:"string" json:",omitempty"`
 
 	Cluster *ClusterForListHidsAlarmsOutput `type:"structure" json:",omitempty"`
+
+	Confidence *string `type:"string" json:",omitempty"`
 
 	DataType *string `type:"string" json:",omitempty"`
 
@@ -282,6 +288,8 @@ type DataForListHidsAlarmsOutput struct {
 
 	GroupPath *string `type:"string" json:",omitempty"`
 
+	HandleFailReason *string `type:"string" json:",omitempty"`
+
 	HandleTime *int64 `type:"int64" json:",omitempty"`
 
 	Host *HostForListHidsAlarmsOutput `type:"structure" json:",omitempty"`
@@ -294,6 +302,8 @@ type DataForListHidsAlarmsOutput struct {
 
 	LLMProcessed *bool `type:"boolean" json:",omitempty"`
 
+	LastAlarmTime *int64 `type:"int64" json:",omitempty"`
+
 	Level *string `type:"string" json:",omitempty"`
 
 	MlpInstanceID *string `type:"string" json:",omitempty"`
@@ -304,6 +314,8 @@ type DataForListHidsAlarmsOutput struct {
 
 	NsPid *string `type:"string" json:",omitempty"`
 
+	OperationList []*string `type:"list" json:",omitempty"`
+
 	OsType *string `type:"string" json:",omitempty"`
 
 	Pid *string `type:"string" json:",omitempty"`
@@ -311,6 +323,10 @@ type DataForListHidsAlarmsOutput struct {
 	ProbeHook *string `type:"string" json:",omitempty"`
 
 	Region *string `type:"string" json:",omitempty"`
+
+	SecurityIntelligenceComplete *bool `type:"boolean" json:",omitempty"`
+
+	SecurityIntelligenceResult *string `type:"string" json:",omitempty"`
 
 	Sid *string `type:"string" json:",omitempty"`
 
@@ -347,6 +363,12 @@ func (s *DataForListHidsAlarmsOutput) SetAgentID(v string) *DataForListHidsAlarm
 	return s
 }
 
+// SetAlarmCount sets the AlarmCount field's value.
+func (s *DataForListHidsAlarmsOutput) SetAlarmCount(v int64) *DataForListHidsAlarmsOutput {
+	s.AlarmCount = &v
+	return s
+}
+
 // SetAlarmHandleResult sets the AlarmHandleResult field's value.
 func (s *DataForListHidsAlarmsOutput) SetAlarmHandleResult(v int64) *DataForListHidsAlarmsOutput {
 	s.AlarmHandleResult = &v
@@ -374,6 +396,12 @@ func (s *DataForListHidsAlarmsOutput) SetAlarmTime(v int64) *DataForListHidsAlar
 // SetAlertTags sets the AlertTags field's value.
 func (s *DataForListHidsAlarmsOutput) SetAlertTags(v []*string) *DataForListHidsAlarmsOutput {
 	s.AlertTags = v
+	return s
+}
+
+// SetAnalysisRecordUUID sets the AnalysisRecordUUID field's value.
+func (s *DataForListHidsAlarmsOutput) SetAnalysisRecordUUID(v string) *DataForListHidsAlarmsOutput {
+	s.AnalysisRecordUUID = &v
 	return s
 }
 
@@ -410,6 +438,12 @@ func (s *DataForListHidsAlarmsOutput) SetClass(v string) *DataForListHidsAlarmsO
 // SetCluster sets the Cluster field's value.
 func (s *DataForListHidsAlarmsOutput) SetCluster(v *ClusterForListHidsAlarmsOutput) *DataForListHidsAlarmsOutput {
 	s.Cluster = v
+	return s
+}
+
+// SetConfidence sets the Confidence field's value.
+func (s *DataForListHidsAlarmsOutput) SetConfidence(v string) *DataForListHidsAlarmsOutput {
+	s.Confidence = &v
 	return s
 }
 
@@ -467,6 +501,12 @@ func (s *DataForListHidsAlarmsOutput) SetGroupPath(v string) *DataForListHidsAla
 	return s
 }
 
+// SetHandleFailReason sets the HandleFailReason field's value.
+func (s *DataForListHidsAlarmsOutput) SetHandleFailReason(v string) *DataForListHidsAlarmsOutput {
+	s.HandleFailReason = &v
+	return s
+}
+
 // SetHandleTime sets the HandleTime field's value.
 func (s *DataForListHidsAlarmsOutput) SetHandleTime(v int64) *DataForListHidsAlarmsOutput {
 	s.HandleTime = &v
@@ -503,6 +543,12 @@ func (s *DataForListHidsAlarmsOutput) SetLLMProcessed(v bool) *DataForListHidsAl
 	return s
 }
 
+// SetLastAlarmTime sets the LastAlarmTime field's value.
+func (s *DataForListHidsAlarmsOutput) SetLastAlarmTime(v int64) *DataForListHidsAlarmsOutput {
+	s.LastAlarmTime = &v
+	return s
+}
+
 // SetLevel sets the Level field's value.
 func (s *DataForListHidsAlarmsOutput) SetLevel(v string) *DataForListHidsAlarmsOutput {
 	s.Level = &v
@@ -533,6 +579,12 @@ func (s *DataForListHidsAlarmsOutput) SetNsPid(v string) *DataForListHidsAlarmsO
 	return s
 }
 
+// SetOperationList sets the OperationList field's value.
+func (s *DataForListHidsAlarmsOutput) SetOperationList(v []*string) *DataForListHidsAlarmsOutput {
+	s.OperationList = v
+	return s
+}
+
 // SetOsType sets the OsType field's value.
 func (s *DataForListHidsAlarmsOutput) SetOsType(v string) *DataForListHidsAlarmsOutput {
 	s.OsType = &v
@@ -554,6 +606,18 @@ func (s *DataForListHidsAlarmsOutput) SetProbeHook(v string) *DataForListHidsAla
 // SetRegion sets the Region field's value.
 func (s *DataForListHidsAlarmsOutput) SetRegion(v string) *DataForListHidsAlarmsOutput {
 	s.Region = &v
+	return s
+}
+
+// SetSecurityIntelligenceComplete sets the SecurityIntelligenceComplete field's value.
+func (s *DataForListHidsAlarmsOutput) SetSecurityIntelligenceComplete(v bool) *DataForListHidsAlarmsOutput {
+	s.SecurityIntelligenceComplete = &v
+	return s
+}
+
+// SetSecurityIntelligenceResult sets the SecurityIntelligenceResult field's value.
+func (s *DataForListHidsAlarmsOutput) SetSecurityIntelligenceResult(v string) *DataForListHidsAlarmsOutput {
+	s.SecurityIntelligenceResult = &v
 	return s
 }
 
@@ -700,6 +764,10 @@ type ListHidsAlarmsInput struct {
 
 	ImageName *string `type:"string" json:",omitempty"`
 
+	LastAlarmTimeEnd *int64 `type:"int64" json:",omitempty"`
+
+	LastAlarmTimeStart *int64 `type:"int64" json:",omitempty"`
+
 	LeafGroupIDs []*string `type:"list" json:",omitempty"`
 
 	LevelList []*string `type:"list" json:",omitempty"`
@@ -707,6 +775,8 @@ type ListHidsAlarmsInput struct {
 	MlpInstanceID *string `type:"string" json:",omitempty"`
 
 	Name *string `type:"string" json:",omitempty"`
+
+	OperationList []*string `type:"list" json:",omitempty"`
 
 	// PageNumber is a required field
 	PageNumber *int64 `type:"int64" json:",omitempty" required:"true"`
@@ -917,6 +987,18 @@ func (s *ListHidsAlarmsInput) SetImageName(v string) *ListHidsAlarmsInput {
 	return s
 }
 
+// SetLastAlarmTimeEnd sets the LastAlarmTimeEnd field's value.
+func (s *ListHidsAlarmsInput) SetLastAlarmTimeEnd(v int64) *ListHidsAlarmsInput {
+	s.LastAlarmTimeEnd = &v
+	return s
+}
+
+// SetLastAlarmTimeStart sets the LastAlarmTimeStart field's value.
+func (s *ListHidsAlarmsInput) SetLastAlarmTimeStart(v int64) *ListHidsAlarmsInput {
+	s.LastAlarmTimeStart = &v
+	return s
+}
+
 // SetLeafGroupIDs sets the LeafGroupIDs field's value.
 func (s *ListHidsAlarmsInput) SetLeafGroupIDs(v []*string) *ListHidsAlarmsInput {
 	s.LeafGroupIDs = v
@@ -938,6 +1020,12 @@ func (s *ListHidsAlarmsInput) SetMlpInstanceID(v string) *ListHidsAlarmsInput {
 // SetName sets the Name field's value.
 func (s *ListHidsAlarmsInput) SetName(v string) *ListHidsAlarmsInput {
 	s.Name = &v
+	return s
+}
+
+// SetOperationList sets the OperationList field's value.
+func (s *ListHidsAlarmsInput) SetOperationList(v []*string) *ListHidsAlarmsInput {
+	s.OperationList = v
 	return s
 }
 

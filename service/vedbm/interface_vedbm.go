@@ -70,6 +70,14 @@ type VEDBMAPI interface {
 	ChangeMasterWithContext(volcengine.Context, *ChangeMasterInput, ...request.Option) (*ChangeMasterOutput, error)
 	ChangeMasterRequest(*ChangeMasterInput) (*request.Request, *ChangeMasterOutput)
 
+	CopyParameterTemplateCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CopyParameterTemplateCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CopyParameterTemplateCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CopyParameterTemplate(*CopyParameterTemplateInput) (*CopyParameterTemplateOutput, error)
+	CopyParameterTemplateWithContext(volcengine.Context, *CopyParameterTemplateInput, ...request.Option) (*CopyParameterTemplateOutput, error)
+	CopyParameterTemplateRequest(*CopyParameterTemplateInput) (*request.Request, *CopyParameterTemplateOutput)
+
 	CreateAllowListCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	CreateAllowListCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	CreateAllowListCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -541,6 +549,14 @@ type VEDBMAPI interface {
 	ModifyDatabaseDescription(*ModifyDatabaseDescriptionInput) (*ModifyDatabaseDescriptionOutput, error)
 	ModifyDatabaseDescriptionWithContext(volcengine.Context, *ModifyDatabaseDescriptionInput, ...request.Option) (*ModifyDatabaseDescriptionOutput, error)
 	ModifyDatabaseDescriptionRequest(*ModifyDatabaseDescriptionInput) (*request.Request, *ModifyDatabaseDescriptionOutput)
+
+	ModifyParameterTemplateCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ModifyParameterTemplateCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ModifyParameterTemplateCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ModifyParameterTemplate(*ModifyParameterTemplateInput) (*ModifyParameterTemplateOutput, error)
+	ModifyParameterTemplateWithContext(volcengine.Context, *ModifyParameterTemplateInput, ...request.Option) (*ModifyParameterTemplateOutput, error)
+	ModifyParameterTemplateRequest(*ModifyParameterTemplateInput) (*request.Request, *ModifyParameterTemplateOutput)
 
 	ModifyScheduleEventsCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ModifyScheduleEventsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)

@@ -142,8 +142,7 @@ func (c *SECCENTER20240508) GetDevDetailWithContext(ctx volcengine.Context, inpu
 type GetDevDetailInput struct {
 	_ struct{} `type:"structure"`
 
-	// AssetID is a required field
-	AssetID *string `type:"string" required:"true"`
+	AssetID *string `type:"string"`
 }
 
 // String returns the string representation
@@ -154,19 +153,6 @@ func (s GetDevDetailInput) String() string {
 // GoString returns the string representation
 func (s GetDevDetailInput) GoString() string {
 	return s.String()
-}
-
-// Validate inspects the fields of the type to determine if they are valid.
-func (s *GetDevDetailInput) Validate() error {
-	invalidParams := request.ErrInvalidParams{Context: "GetDevDetailInput"}
-	if s.AssetID == nil {
-		invalidParams.Add(request.NewErrParamRequired("AssetID"))
-	}
-
-	if invalidParams.Len() > 0 {
-		return invalidParams
-	}
-	return nil
 }
 
 // SetAssetID sets the AssetID field's value.
@@ -198,9 +184,13 @@ type GetDevDetailOutput struct {
 
 	PrivateIP *string `type:"string"`
 
+	ProtectStatus *string `type:"string"`
+
 	PublicIP *string `type:"string"`
 
 	Region *string `type:"string"`
+
+	SecurityEnhancement *bool `type:"boolean"`
 
 	Status *string `type:"string"`
 
@@ -275,6 +265,12 @@ func (s *GetDevDetailOutput) SetPrivateIP(v string) *GetDevDetailOutput {
 	return s
 }
 
+// SetProtectStatus sets the ProtectStatus field's value.
+func (s *GetDevDetailOutput) SetProtectStatus(v string) *GetDevDetailOutput {
+	s.ProtectStatus = &v
+	return s
+}
+
 // SetPublicIP sets the PublicIP field's value.
 func (s *GetDevDetailOutput) SetPublicIP(v string) *GetDevDetailOutput {
 	s.PublicIP = &v
@@ -284,6 +280,12 @@ func (s *GetDevDetailOutput) SetPublicIP(v string) *GetDevDetailOutput {
 // SetRegion sets the Region field's value.
 func (s *GetDevDetailOutput) SetRegion(v string) *GetDevDetailOutput {
 	s.Region = &v
+	return s
+}
+
+// SetSecurityEnhancement sets the SecurityEnhancement field's value.
+func (s *GetDevDetailOutput) SetSecurityEnhancement(v bool) *GetDevDetailOutput {
+	s.SecurityEnhancement = &v
 	return s
 }
 

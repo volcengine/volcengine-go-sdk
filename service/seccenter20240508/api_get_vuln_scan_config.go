@@ -142,7 +142,7 @@ func (c *SECCENTER20240508) GetVulnScanConfigWithContext(ctx volcengine.Context,
 type GetVulnScanConfigInput struct {
 	_ struct{} `type:"structure"`
 
-	AssetType *string `type:"string" enum:"EnumOfAssetTypeForGetVulnScanConfigInput"`
+	AssetType *string `type:"string"`
 
 	TopGroupID *string `type:"string"`
 }
@@ -242,6 +242,8 @@ type ScanTypeForGetVulnScanConfigOutput struct {
 
 	DevPy *bool `type:"boolean"`
 
+	Emg *bool `type:"boolean"`
+
 	Linux *bool `type:"boolean"`
 
 	Webcms *bool `type:"boolean"`
@@ -277,6 +279,12 @@ func (s *ScanTypeForGetVulnScanConfigOutput) SetDevPy(v bool) *ScanTypeForGetVul
 	return s
 }
 
+// SetEmg sets the Emg field's value.
+func (s *ScanTypeForGetVulnScanConfigOutput) SetEmg(v bool) *ScanTypeForGetVulnScanConfigOutput {
+	s.Emg = &v
+	return s
+}
+
 // SetLinux sets the Linux field's value.
 func (s *ScanTypeForGetVulnScanConfigOutput) SetLinux(v bool) *ScanTypeForGetVulnScanConfigOutput {
 	s.Linux = &v
@@ -294,11 +302,3 @@ func (s *ScanTypeForGetVulnScanConfigOutput) SetWindows(v bool) *ScanTypeForGetV
 	s.Windows = &v
 	return s
 }
-
-const (
-	// EnumOfAssetTypeForGetVulnScanConfigInputHost is a EnumOfAssetTypeForGetVulnScanConfigInput enum value
-	EnumOfAssetTypeForGetVulnScanConfigInputHost = "Host"
-
-	// EnumOfAssetTypeForGetVulnScanConfigInputDev is a EnumOfAssetTypeForGetVulnScanConfigInput enum value
-	EnumOfAssetTypeForGetVulnScanConfigInputDev = "Dev"
-)

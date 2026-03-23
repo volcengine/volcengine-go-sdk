@@ -148,6 +148,8 @@ type ConditionForCreateRuleInput struct {
 
 	ComparisonOperator *string `type:"string" json:",omitempty"`
 
+	EvaluationWindow *int32 `type:"int32" json:",omitempty"`
+
 	MetricName *string `type:"string" json:",omitempty"`
 
 	MetricUnit *string `type:"string" json:",omitempty"`
@@ -172,6 +174,12 @@ func (s ConditionForCreateRuleInput) GoString() string {
 // SetComparisonOperator sets the ComparisonOperator field's value.
 func (s *ConditionForCreateRuleInput) SetComparisonOperator(v string) *ConditionForCreateRuleInput {
 	s.ComparisonOperator = &v
+	return s
+}
+
+// SetEvaluationWindow sets the EvaluationWindow field's value.
+func (s *ConditionForCreateRuleInput) SetEvaluationWindow(v int32) *ConditionForCreateRuleInput {
+	s.EvaluationWindow = &v
 	return s
 }
 
@@ -262,6 +270,8 @@ type CreateRuleInput struct {
 	// EvaluationCount is a required field
 	EvaluationCount *int32 `type:"int32" json:",omitempty" required:"true"`
 
+	EvaluationInterval *int32 `type:"int32" json:",omitempty"`
+
 	// Level is a required field
 	Level *string `type:"string" json:",omitempty" required:"true"`
 
@@ -277,6 +287,8 @@ type CreateRuleInput struct {
 	NotificationId *string `type:"string" json:",omitempty"`
 
 	NotifyTemplates []*NotifyTemplateForCreateRuleInput `type:"list" json:",omitempty"`
+
+	ObjectGroupId *string `type:"string" json:",omitempty"`
 
 	OriginalDimensions map[string][]*string `type:"map" json:",omitempty"`
 
@@ -415,6 +427,12 @@ func (s *CreateRuleInput) SetEvaluationCount(v int32) *CreateRuleInput {
 	return s
 }
 
+// SetEvaluationInterval sets the EvaluationInterval field's value.
+func (s *CreateRuleInput) SetEvaluationInterval(v int32) *CreateRuleInput {
+	s.EvaluationInterval = &v
+	return s
+}
+
 // SetLevel sets the Level field's value.
 func (s *CreateRuleInput) SetLevel(v string) *CreateRuleInput {
 	s.Level = &v
@@ -454,6 +472,12 @@ func (s *CreateRuleInput) SetNotificationId(v string) *CreateRuleInput {
 // SetNotifyTemplates sets the NotifyTemplates field's value.
 func (s *CreateRuleInput) SetNotifyTemplates(v []*NotifyTemplateForCreateRuleInput) *CreateRuleInput {
 	s.NotifyTemplates = v
+	return s
+}
+
+// SetObjectGroupId sets the ObjectGroupId field's value.
+func (s *CreateRuleInput) SetObjectGroupId(v string) *CreateRuleInput {
+	s.ObjectGroupId = &v
 	return s
 }
 
@@ -705,6 +729,8 @@ type NoDataForCreateRuleInput struct {
 	Enable *bool `type:"boolean" json:",omitempty"`
 
 	EvaluationCount *int32 `type:"int32" json:",omitempty"`
+
+	Level *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -726,6 +752,12 @@ func (s *NoDataForCreateRuleInput) SetEnable(v bool) *NoDataForCreateRuleInput {
 // SetEvaluationCount sets the EvaluationCount field's value.
 func (s *NoDataForCreateRuleInput) SetEvaluationCount(v int32) *NoDataForCreateRuleInput {
 	s.EvaluationCount = &v
+	return s
+}
+
+// SetLevel sets the Level field's value.
+func (s *NoDataForCreateRuleInput) SetLevel(v string) *NoDataForCreateRuleInput {
+	s.Level = &v
 	return s
 }
 

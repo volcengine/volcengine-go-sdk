@@ -286,6 +286,14 @@ type IAMAPI interface {
 	GetAccountSummaryWithContext(volcengine.Context, *GetAccountSummaryInput, ...request.Option) (*GetAccountSummaryOutput, error)
 	GetAccountSummaryRequest(*GetAccountSummaryInput) (*request.Request, *GetAccountSummaryOutput)
 
+	GetAllowedIPAddressesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	GetAllowedIPAddressesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	GetAllowedIPAddressesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	GetAllowedIPAddresses(*GetAllowedIPAddressesInput) (*GetAllowedIPAddressesOutput, error)
+	GetAllowedIPAddressesWithContext(volcengine.Context, *GetAllowedIPAddressesInput, ...request.Option) (*GetAllowedIPAddressesOutput, error)
+	GetAllowedIPAddressesRequest(*GetAllowedIPAddressesInput) (*request.Request, *GetAllowedIPAddressesOutput)
+
 	GetGroupCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	GetGroupCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	GetGroupCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -486,14 +494,6 @@ type IAMAPI interface {
 	ListUsersForGroupWithContext(volcengine.Context, *ListUsersForGroupInput, ...request.Option) (*ListUsersForGroupOutput, error)
 	ListUsersForGroupRequest(*ListUsersForGroupInput) (*request.Request, *ListUsersForGroupOutput)
 
-	RecoverAccessKeyCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	RecoverAccessKeyCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	RecoverAccessKeyCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	RecoverAccessKey(*RecoverAccessKeyInput) (*RecoverAccessKeyOutput, error)
-	RecoverAccessKeyWithContext(volcengine.Context, *RecoverAccessKeyInput, ...request.Option) (*RecoverAccessKeyOutput, error)
-	RecoverAccessKeyRequest(*RecoverAccessKeyInput) (*request.Request, *RecoverAccessKeyOutput)
-
 	RemoveClientIDFromOIDCProviderCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	RemoveClientIDFromOIDCProviderCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	RemoveClientIDFromOIDCProviderCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -557,6 +557,14 @@ type IAMAPI interface {
 	UpdateAccessKey(*UpdateAccessKeyInput) (*UpdateAccessKeyOutput, error)
 	UpdateAccessKeyWithContext(volcengine.Context, *UpdateAccessKeyInput, ...request.Option) (*UpdateAccessKeyOutput, error)
 	UpdateAccessKeyRequest(*UpdateAccessKeyInput) (*request.Request, *UpdateAccessKeyOutput)
+
+	UpdateAllowedIPAddressesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	UpdateAllowedIPAddressesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	UpdateAllowedIPAddressesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	UpdateAllowedIPAddresses(*UpdateAllowedIPAddressesInput) (*UpdateAllowedIPAddressesOutput, error)
+	UpdateAllowedIPAddressesWithContext(volcengine.Context, *UpdateAllowedIPAddressesInput, ...request.Option) (*UpdateAllowedIPAddressesOutput, error)
+	UpdateAllowedIPAddressesRequest(*UpdateAllowedIPAddressesInput) (*request.Request, *UpdateAllowedIPAddressesOutput)
 
 	UpdateGroupCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	UpdateGroupCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)

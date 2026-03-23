@@ -250,13 +250,19 @@ func (s *AlarmContentForGetRaspAlarmSummaryInfoOutput) SetVirusHitDataList(v []*
 type AlarmDescForGetRaspAlarmSummaryInfoOutput struct {
 	_ struct{} `type:"structure"`
 
+	AlarmCount *int64 `type:"int64"`
+
 	AlarmHandleResult *int64 `type:"int64"`
 
 	AlarmID *string `type:"string"`
 
 	AlertDesc *string `type:"string"`
 
+	AlertDescUS *string `type:"string"`
+
 	AlertDetail *string `type:"string"`
+
+	AlertDetailUS *string `type:"string"`
 
 	AlertTags []*string `type:"list"`
 
@@ -274,6 +280,8 @@ type AlarmDescForGetRaspAlarmSummaryInfoOutput struct {
 
 	DataTypeStr *string `type:"string"`
 
+	DataTypeStrEn *string `type:"string"`
+
 	Desc *string `type:"string"`
 
 	Docker *string `type:"string"`
@@ -290,6 +298,10 @@ type AlarmDescForGetRaspAlarmSummaryInfoOutput struct {
 
 	KubeLevel *string `type:"string"`
 
+	LastAlarmTime *int64 `type:"int64"`
+
+	OperationList []*string `type:"list"`
+
 	RaspConfigName *string `type:"string"`
 
 	RaspLevel *string `type:"string"`
@@ -300,9 +312,13 @@ type AlarmDescForGetRaspAlarmSummaryInfoOutput struct {
 
 	RuleName *string `type:"string"`
 
+	RuleNameUs *string `type:"string"`
+
 	Status *int64 `type:"int64"`
 
 	Suggestion *string `type:"string"`
+
+	SuggestionUs *string `type:"string"`
 
 	TraceID *string `type:"string"`
 }
@@ -315,6 +331,12 @@ func (s AlarmDescForGetRaspAlarmSummaryInfoOutput) String() string {
 // GoString returns the string representation
 func (s AlarmDescForGetRaspAlarmSummaryInfoOutput) GoString() string {
 	return s.String()
+}
+
+// SetAlarmCount sets the AlarmCount field's value.
+func (s *AlarmDescForGetRaspAlarmSummaryInfoOutput) SetAlarmCount(v int64) *AlarmDescForGetRaspAlarmSummaryInfoOutput {
+	s.AlarmCount = &v
+	return s
 }
 
 // SetAlarmHandleResult sets the AlarmHandleResult field's value.
@@ -335,9 +357,21 @@ func (s *AlarmDescForGetRaspAlarmSummaryInfoOutput) SetAlertDesc(v string) *Alar
 	return s
 }
 
+// SetAlertDescUS sets the AlertDescUS field's value.
+func (s *AlarmDescForGetRaspAlarmSummaryInfoOutput) SetAlertDescUS(v string) *AlarmDescForGetRaspAlarmSummaryInfoOutput {
+	s.AlertDescUS = &v
+	return s
+}
+
 // SetAlertDetail sets the AlertDetail field's value.
 func (s *AlarmDescForGetRaspAlarmSummaryInfoOutput) SetAlertDetail(v string) *AlarmDescForGetRaspAlarmSummaryInfoOutput {
 	s.AlertDetail = &v
+	return s
+}
+
+// SetAlertDetailUS sets the AlertDetailUS field's value.
+func (s *AlarmDescForGetRaspAlarmSummaryInfoOutput) SetAlertDetailUS(v string) *AlarmDescForGetRaspAlarmSummaryInfoOutput {
+	s.AlertDetailUS = &v
 	return s
 }
 
@@ -389,6 +423,12 @@ func (s *AlarmDescForGetRaspAlarmSummaryInfoOutput) SetDataTypeStr(v string) *Al
 	return s
 }
 
+// SetDataTypeStrEn sets the DataTypeStrEn field's value.
+func (s *AlarmDescForGetRaspAlarmSummaryInfoOutput) SetDataTypeStrEn(v string) *AlarmDescForGetRaspAlarmSummaryInfoOutput {
+	s.DataTypeStrEn = &v
+	return s
+}
+
 // SetDesc sets the Desc field's value.
 func (s *AlarmDescForGetRaspAlarmSummaryInfoOutput) SetDesc(v string) *AlarmDescForGetRaspAlarmSummaryInfoOutput {
 	s.Desc = &v
@@ -437,6 +477,18 @@ func (s *AlarmDescForGetRaspAlarmSummaryInfoOutput) SetKubeLevel(v string) *Alar
 	return s
 }
 
+// SetLastAlarmTime sets the LastAlarmTime field's value.
+func (s *AlarmDescForGetRaspAlarmSummaryInfoOutput) SetLastAlarmTime(v int64) *AlarmDescForGetRaspAlarmSummaryInfoOutput {
+	s.LastAlarmTime = &v
+	return s
+}
+
+// SetOperationList sets the OperationList field's value.
+func (s *AlarmDescForGetRaspAlarmSummaryInfoOutput) SetOperationList(v []*string) *AlarmDescForGetRaspAlarmSummaryInfoOutput {
+	s.OperationList = v
+	return s
+}
+
 // SetRaspConfigName sets the RaspConfigName field's value.
 func (s *AlarmDescForGetRaspAlarmSummaryInfoOutput) SetRaspConfigName(v string) *AlarmDescForGetRaspAlarmSummaryInfoOutput {
 	s.RaspConfigName = &v
@@ -467,6 +519,12 @@ func (s *AlarmDescForGetRaspAlarmSummaryInfoOutput) SetRuleName(v string) *Alarm
 	return s
 }
 
+// SetRuleNameUs sets the RuleNameUs field's value.
+func (s *AlarmDescForGetRaspAlarmSummaryInfoOutput) SetRuleNameUs(v string) *AlarmDescForGetRaspAlarmSummaryInfoOutput {
+	s.RuleNameUs = &v
+	return s
+}
+
 // SetStatus sets the Status field's value.
 func (s *AlarmDescForGetRaspAlarmSummaryInfoOutput) SetStatus(v int64) *AlarmDescForGetRaspAlarmSummaryInfoOutput {
 	s.Status = &v
@@ -476,6 +534,12 @@ func (s *AlarmDescForGetRaspAlarmSummaryInfoOutput) SetStatus(v int64) *AlarmDes
 // SetSuggestion sets the Suggestion field's value.
 func (s *AlarmDescForGetRaspAlarmSummaryInfoOutput) SetSuggestion(v string) *AlarmDescForGetRaspAlarmSummaryInfoOutput {
 	s.Suggestion = &v
+	return s
+}
+
+// SetSuggestionUs sets the SuggestionUs field's value.
+func (s *AlarmDescForGetRaspAlarmSummaryInfoOutput) SetSuggestionUs(v string) *AlarmDescForGetRaspAlarmSummaryInfoOutput {
+	s.SuggestionUs = &v
 	return s
 }
 
@@ -492,9 +556,13 @@ type AlarmNodeForGetRaspAlarmSummaryInfoOutput struct {
 
 	AdditionalActionsString *string `type:"string"`
 
+	AnalysisRecordUUID *string `type:"string"`
+
 	ArgsArray []*string `type:"list"`
 
 	Argv *string `type:"string"`
+
+	BackendAlarmTags []*string `type:"list"`
 
 	BruteforceSip *string `type:"string"`
 
@@ -507,6 +575,8 @@ type AlarmNodeForGetRaspAlarmSummaryInfoOutput struct {
 	Comm *string `type:"string"`
 
 	CommandLine *string `type:"string"`
+
+	Confidence *string `type:"string"`
 
 	Configuration *string `type:"string"`
 
@@ -542,6 +612,10 @@ type AlarmNodeForGetRaspAlarmSummaryInfoOutput struct {
 
 	DstList *string `type:"string"`
 
+	ElkeidSaveData []*ElkeidSaveDataForGetRaspAlarmSummaryInfoOutput `type:"list"`
+
+	EnHanced *string `type:"string"`
+
 	EventType *string `type:"string"`
 
 	Exe *string `type:"string"`
@@ -555,6 +629,8 @@ type AlarmNodeForGetRaspAlarmSummaryInfoOutput struct {
 	FdName *string `type:"string"`
 
 	FileDownloadable *bool `type:"boolean"`
+
+	FileName *string `type:"string"`
 
 	FilePath *string `type:"string"`
 
@@ -572,6 +648,12 @@ type AlarmNodeForGetRaspAlarmSummaryInfoOutput struct {
 
 	HomeDirectory *string `type:"string"`
 
+	IPIntelligence *string `type:"string"`
+
+	IPSource *string `type:"string"`
+
+	IPSourceUs *string `type:"string"`
+
 	Image *string `type:"string"`
 
 	ImageLoaded *string `type:"string"`
@@ -588,9 +670,13 @@ type AlarmNodeForGetRaspAlarmSummaryInfoOutput struct {
 
 	IpAddress *string `type:"string"`
 
+	IsInnerAccount *bool `type:"boolean"`
+
 	KoFile *string `type:"string"`
 
 	LdPreload *string `type:"string"`
+
+	LoginCount *string `type:"string"`
 
 	LogonType *string `type:"string"`
 
@@ -660,9 +746,15 @@ type AlarmNodeForGetRaspAlarmSummaryInfoOutput struct {
 
 	QueryStatus *string `type:"string"`
 
+	RootPns *string `type:"string"`
+
 	RunPath *string `type:"string"`
 
 	SamAccountName *string `type:"string"`
+
+	SecurityIntelligenceComplete *bool `type:"boolean"`
+
+	SecurityIntelligenceResult *string `type:"string"`
 
 	ServiceAccount *string `type:"string"`
 
@@ -785,6 +877,12 @@ func (s *AlarmNodeForGetRaspAlarmSummaryInfoOutput) SetAdditionalActionsString(v
 	return s
 }
 
+// SetAnalysisRecordUUID sets the AnalysisRecordUUID field's value.
+func (s *AlarmNodeForGetRaspAlarmSummaryInfoOutput) SetAnalysisRecordUUID(v string) *AlarmNodeForGetRaspAlarmSummaryInfoOutput {
+	s.AnalysisRecordUUID = &v
+	return s
+}
+
 // SetArgsArray sets the ArgsArray field's value.
 func (s *AlarmNodeForGetRaspAlarmSummaryInfoOutput) SetArgsArray(v []*string) *AlarmNodeForGetRaspAlarmSummaryInfoOutput {
 	s.ArgsArray = v
@@ -794,6 +892,12 @@ func (s *AlarmNodeForGetRaspAlarmSummaryInfoOutput) SetArgsArray(v []*string) *A
 // SetArgv sets the Argv field's value.
 func (s *AlarmNodeForGetRaspAlarmSummaryInfoOutput) SetArgv(v string) *AlarmNodeForGetRaspAlarmSummaryInfoOutput {
 	s.Argv = &v
+	return s
+}
+
+// SetBackendAlarmTags sets the BackendAlarmTags field's value.
+func (s *AlarmNodeForGetRaspAlarmSummaryInfoOutput) SetBackendAlarmTags(v []*string) *AlarmNodeForGetRaspAlarmSummaryInfoOutput {
+	s.BackendAlarmTags = v
 	return s
 }
 
@@ -830,6 +934,12 @@ func (s *AlarmNodeForGetRaspAlarmSummaryInfoOutput) SetComm(v string) *AlarmNode
 // SetCommandLine sets the CommandLine field's value.
 func (s *AlarmNodeForGetRaspAlarmSummaryInfoOutput) SetCommandLine(v string) *AlarmNodeForGetRaspAlarmSummaryInfoOutput {
 	s.CommandLine = &v
+	return s
+}
+
+// SetConfidence sets the Confidence field's value.
+func (s *AlarmNodeForGetRaspAlarmSummaryInfoOutput) SetConfidence(v string) *AlarmNodeForGetRaspAlarmSummaryInfoOutput {
+	s.Confidence = &v
 	return s
 }
 
@@ -935,6 +1045,18 @@ func (s *AlarmNodeForGetRaspAlarmSummaryInfoOutput) SetDstList(v string) *AlarmN
 	return s
 }
 
+// SetElkeidSaveData sets the ElkeidSaveData field's value.
+func (s *AlarmNodeForGetRaspAlarmSummaryInfoOutput) SetElkeidSaveData(v []*ElkeidSaveDataForGetRaspAlarmSummaryInfoOutput) *AlarmNodeForGetRaspAlarmSummaryInfoOutput {
+	s.ElkeidSaveData = v
+	return s
+}
+
+// SetEnHanced sets the EnHanced field's value.
+func (s *AlarmNodeForGetRaspAlarmSummaryInfoOutput) SetEnHanced(v string) *AlarmNodeForGetRaspAlarmSummaryInfoOutput {
+	s.EnHanced = &v
+	return s
+}
+
 // SetEventType sets the EventType field's value.
 func (s *AlarmNodeForGetRaspAlarmSummaryInfoOutput) SetEventType(v string) *AlarmNodeForGetRaspAlarmSummaryInfoOutput {
 	s.EventType = &v
@@ -974,6 +1096,12 @@ func (s *AlarmNodeForGetRaspAlarmSummaryInfoOutput) SetFdName(v string) *AlarmNo
 // SetFileDownloadable sets the FileDownloadable field's value.
 func (s *AlarmNodeForGetRaspAlarmSummaryInfoOutput) SetFileDownloadable(v bool) *AlarmNodeForGetRaspAlarmSummaryInfoOutput {
 	s.FileDownloadable = &v
+	return s
+}
+
+// SetFileName sets the FileName field's value.
+func (s *AlarmNodeForGetRaspAlarmSummaryInfoOutput) SetFileName(v string) *AlarmNodeForGetRaspAlarmSummaryInfoOutput {
+	s.FileName = &v
 	return s
 }
 
@@ -1025,6 +1153,24 @@ func (s *AlarmNodeForGetRaspAlarmSummaryInfoOutput) SetHomeDirectory(v string) *
 	return s
 }
 
+// SetIPIntelligence sets the IPIntelligence field's value.
+func (s *AlarmNodeForGetRaspAlarmSummaryInfoOutput) SetIPIntelligence(v string) *AlarmNodeForGetRaspAlarmSummaryInfoOutput {
+	s.IPIntelligence = &v
+	return s
+}
+
+// SetIPSource sets the IPSource field's value.
+func (s *AlarmNodeForGetRaspAlarmSummaryInfoOutput) SetIPSource(v string) *AlarmNodeForGetRaspAlarmSummaryInfoOutput {
+	s.IPSource = &v
+	return s
+}
+
+// SetIPSourceUs sets the IPSourceUs field's value.
+func (s *AlarmNodeForGetRaspAlarmSummaryInfoOutput) SetIPSourceUs(v string) *AlarmNodeForGetRaspAlarmSummaryInfoOutput {
+	s.IPSourceUs = &v
+	return s
+}
+
 // SetImage sets the Image field's value.
 func (s *AlarmNodeForGetRaspAlarmSummaryInfoOutput) SetImage(v string) *AlarmNodeForGetRaspAlarmSummaryInfoOutput {
 	s.Image = &v
@@ -1073,6 +1219,12 @@ func (s *AlarmNodeForGetRaspAlarmSummaryInfoOutput) SetIpAddress(v string) *Alar
 	return s
 }
 
+// SetIsInnerAccount sets the IsInnerAccount field's value.
+func (s *AlarmNodeForGetRaspAlarmSummaryInfoOutput) SetIsInnerAccount(v bool) *AlarmNodeForGetRaspAlarmSummaryInfoOutput {
+	s.IsInnerAccount = &v
+	return s
+}
+
 // SetKoFile sets the KoFile field's value.
 func (s *AlarmNodeForGetRaspAlarmSummaryInfoOutput) SetKoFile(v string) *AlarmNodeForGetRaspAlarmSummaryInfoOutput {
 	s.KoFile = &v
@@ -1082,6 +1234,12 @@ func (s *AlarmNodeForGetRaspAlarmSummaryInfoOutput) SetKoFile(v string) *AlarmNo
 // SetLdPreload sets the LdPreload field's value.
 func (s *AlarmNodeForGetRaspAlarmSummaryInfoOutput) SetLdPreload(v string) *AlarmNodeForGetRaspAlarmSummaryInfoOutput {
 	s.LdPreload = &v
+	return s
+}
+
+// SetLoginCount sets the LoginCount field's value.
+func (s *AlarmNodeForGetRaspAlarmSummaryInfoOutput) SetLoginCount(v string) *AlarmNodeForGetRaspAlarmSummaryInfoOutput {
+	s.LoginCount = &v
 	return s
 }
 
@@ -1289,6 +1447,12 @@ func (s *AlarmNodeForGetRaspAlarmSummaryInfoOutput) SetQueryStatus(v string) *Al
 	return s
 }
 
+// SetRootPns sets the RootPns field's value.
+func (s *AlarmNodeForGetRaspAlarmSummaryInfoOutput) SetRootPns(v string) *AlarmNodeForGetRaspAlarmSummaryInfoOutput {
+	s.RootPns = &v
+	return s
+}
+
 // SetRunPath sets the RunPath field's value.
 func (s *AlarmNodeForGetRaspAlarmSummaryInfoOutput) SetRunPath(v string) *AlarmNodeForGetRaspAlarmSummaryInfoOutput {
 	s.RunPath = &v
@@ -1298,6 +1462,18 @@ func (s *AlarmNodeForGetRaspAlarmSummaryInfoOutput) SetRunPath(v string) *AlarmN
 // SetSamAccountName sets the SamAccountName field's value.
 func (s *AlarmNodeForGetRaspAlarmSummaryInfoOutput) SetSamAccountName(v string) *AlarmNodeForGetRaspAlarmSummaryInfoOutput {
 	s.SamAccountName = &v
+	return s
+}
+
+// SetSecurityIntelligenceComplete sets the SecurityIntelligenceComplete field's value.
+func (s *AlarmNodeForGetRaspAlarmSummaryInfoOutput) SetSecurityIntelligenceComplete(v bool) *AlarmNodeForGetRaspAlarmSummaryInfoOutput {
+	s.SecurityIntelligenceComplete = &v
+	return s
+}
+
+// SetSecurityIntelligenceResult sets the SecurityIntelligenceResult field's value.
+func (s *AlarmNodeForGetRaspAlarmSummaryInfoOutput) SetSecurityIntelligenceResult(v string) *AlarmNodeForGetRaspAlarmSummaryInfoOutput {
+	s.SecurityIntelligenceResult = &v
 	return s
 }
 
@@ -2075,6 +2251,20 @@ func (s *ContainerInfoForGetRaspAlarmSummaryInfoOutput) SetPodName(v string) *Co
 	return s
 }
 
+type ElkeidSaveDataForGetRaspAlarmSummaryInfoOutput struct {
+	_ struct{} `type:"structure"`
+}
+
+// String returns the string representation
+func (s ElkeidSaveDataForGetRaspAlarmSummaryInfoOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ElkeidSaveDataForGetRaspAlarmSummaryInfoOutput) GoString() string {
+	return s.String()
+}
+
 type EndpointTraceForGetRaspAlarmSummaryInfoOutput struct {
 	_ struct{} `type:"structure"`
 
@@ -2472,9 +2662,13 @@ type KillChainNodeListForGetRaspAlarmSummaryInfoOutput struct {
 
 	AdditionalActionsString *string `type:"string"`
 
+	AnalysisRecordUUID *string `type:"string"`
+
 	ArgsArray []*string `type:"list"`
 
 	Argv *string `type:"string"`
+
+	BackendAlarmTags []*string `type:"list"`
 
 	BruteforceSip *string `type:"string"`
 
@@ -2487,6 +2681,8 @@ type KillChainNodeListForGetRaspAlarmSummaryInfoOutput struct {
 	Comm *string `type:"string"`
 
 	CommandLine *string `type:"string"`
+
+	Confidence *string `type:"string"`
 
 	Configuration *string `type:"string"`
 
@@ -2522,6 +2718,10 @@ type KillChainNodeListForGetRaspAlarmSummaryInfoOutput struct {
 
 	DstList *string `type:"string"`
 
+	ElkeidSaveData []*ElkeidSaveDataForGetRaspAlarmSummaryInfoOutput `type:"list"`
+
+	EnHanced *string `type:"string"`
+
 	EventType *string `type:"string"`
 
 	Exe *string `type:"string"`
@@ -2535,6 +2735,8 @@ type KillChainNodeListForGetRaspAlarmSummaryInfoOutput struct {
 	FdName *string `type:"string"`
 
 	FileDownloadable *bool `type:"boolean"`
+
+	FileName *string `type:"string"`
 
 	FilePath *string `type:"string"`
 
@@ -2552,6 +2754,12 @@ type KillChainNodeListForGetRaspAlarmSummaryInfoOutput struct {
 
 	HomeDirectory *string `type:"string"`
 
+	IPIntelligence *string `type:"string"`
+
+	IPSource *string `type:"string"`
+
+	IPSourceUs *string `type:"string"`
+
 	Image *string `type:"string"`
 
 	ImageLoaded *string `type:"string"`
@@ -2568,9 +2776,13 @@ type KillChainNodeListForGetRaspAlarmSummaryInfoOutput struct {
 
 	IpAddress *string `type:"string"`
 
+	IsInnerAccount *bool `type:"boolean"`
+
 	KoFile *string `type:"string"`
 
 	LdPreload *string `type:"string"`
+
+	LoginCount *string `type:"string"`
 
 	LogonType *string `type:"string"`
 
@@ -2640,9 +2852,15 @@ type KillChainNodeListForGetRaspAlarmSummaryInfoOutput struct {
 
 	QueryStatus *string `type:"string"`
 
+	RootPns *string `type:"string"`
+
 	RunPath *string `type:"string"`
 
 	SamAccountName *string `type:"string"`
+
+	SecurityIntelligenceComplete *bool `type:"boolean"`
+
+	SecurityIntelligenceResult *string `type:"string"`
 
 	ServiceAccount *string `type:"string"`
 
@@ -2765,6 +2983,12 @@ func (s *KillChainNodeListForGetRaspAlarmSummaryInfoOutput) SetAdditionalActions
 	return s
 }
 
+// SetAnalysisRecordUUID sets the AnalysisRecordUUID field's value.
+func (s *KillChainNodeListForGetRaspAlarmSummaryInfoOutput) SetAnalysisRecordUUID(v string) *KillChainNodeListForGetRaspAlarmSummaryInfoOutput {
+	s.AnalysisRecordUUID = &v
+	return s
+}
+
 // SetArgsArray sets the ArgsArray field's value.
 func (s *KillChainNodeListForGetRaspAlarmSummaryInfoOutput) SetArgsArray(v []*string) *KillChainNodeListForGetRaspAlarmSummaryInfoOutput {
 	s.ArgsArray = v
@@ -2774,6 +2998,12 @@ func (s *KillChainNodeListForGetRaspAlarmSummaryInfoOutput) SetArgsArray(v []*st
 // SetArgv sets the Argv field's value.
 func (s *KillChainNodeListForGetRaspAlarmSummaryInfoOutput) SetArgv(v string) *KillChainNodeListForGetRaspAlarmSummaryInfoOutput {
 	s.Argv = &v
+	return s
+}
+
+// SetBackendAlarmTags sets the BackendAlarmTags field's value.
+func (s *KillChainNodeListForGetRaspAlarmSummaryInfoOutput) SetBackendAlarmTags(v []*string) *KillChainNodeListForGetRaspAlarmSummaryInfoOutput {
+	s.BackendAlarmTags = v
 	return s
 }
 
@@ -2810,6 +3040,12 @@ func (s *KillChainNodeListForGetRaspAlarmSummaryInfoOutput) SetComm(v string) *K
 // SetCommandLine sets the CommandLine field's value.
 func (s *KillChainNodeListForGetRaspAlarmSummaryInfoOutput) SetCommandLine(v string) *KillChainNodeListForGetRaspAlarmSummaryInfoOutput {
 	s.CommandLine = &v
+	return s
+}
+
+// SetConfidence sets the Confidence field's value.
+func (s *KillChainNodeListForGetRaspAlarmSummaryInfoOutput) SetConfidence(v string) *KillChainNodeListForGetRaspAlarmSummaryInfoOutput {
+	s.Confidence = &v
 	return s
 }
 
@@ -2915,6 +3151,18 @@ func (s *KillChainNodeListForGetRaspAlarmSummaryInfoOutput) SetDstList(v string)
 	return s
 }
 
+// SetElkeidSaveData sets the ElkeidSaveData field's value.
+func (s *KillChainNodeListForGetRaspAlarmSummaryInfoOutput) SetElkeidSaveData(v []*ElkeidSaveDataForGetRaspAlarmSummaryInfoOutput) *KillChainNodeListForGetRaspAlarmSummaryInfoOutput {
+	s.ElkeidSaveData = v
+	return s
+}
+
+// SetEnHanced sets the EnHanced field's value.
+func (s *KillChainNodeListForGetRaspAlarmSummaryInfoOutput) SetEnHanced(v string) *KillChainNodeListForGetRaspAlarmSummaryInfoOutput {
+	s.EnHanced = &v
+	return s
+}
+
 // SetEventType sets the EventType field's value.
 func (s *KillChainNodeListForGetRaspAlarmSummaryInfoOutput) SetEventType(v string) *KillChainNodeListForGetRaspAlarmSummaryInfoOutput {
 	s.EventType = &v
@@ -2954,6 +3202,12 @@ func (s *KillChainNodeListForGetRaspAlarmSummaryInfoOutput) SetFdName(v string) 
 // SetFileDownloadable sets the FileDownloadable field's value.
 func (s *KillChainNodeListForGetRaspAlarmSummaryInfoOutput) SetFileDownloadable(v bool) *KillChainNodeListForGetRaspAlarmSummaryInfoOutput {
 	s.FileDownloadable = &v
+	return s
+}
+
+// SetFileName sets the FileName field's value.
+func (s *KillChainNodeListForGetRaspAlarmSummaryInfoOutput) SetFileName(v string) *KillChainNodeListForGetRaspAlarmSummaryInfoOutput {
+	s.FileName = &v
 	return s
 }
 
@@ -3005,6 +3259,24 @@ func (s *KillChainNodeListForGetRaspAlarmSummaryInfoOutput) SetHomeDirectory(v s
 	return s
 }
 
+// SetIPIntelligence sets the IPIntelligence field's value.
+func (s *KillChainNodeListForGetRaspAlarmSummaryInfoOutput) SetIPIntelligence(v string) *KillChainNodeListForGetRaspAlarmSummaryInfoOutput {
+	s.IPIntelligence = &v
+	return s
+}
+
+// SetIPSource sets the IPSource field's value.
+func (s *KillChainNodeListForGetRaspAlarmSummaryInfoOutput) SetIPSource(v string) *KillChainNodeListForGetRaspAlarmSummaryInfoOutput {
+	s.IPSource = &v
+	return s
+}
+
+// SetIPSourceUs sets the IPSourceUs field's value.
+func (s *KillChainNodeListForGetRaspAlarmSummaryInfoOutput) SetIPSourceUs(v string) *KillChainNodeListForGetRaspAlarmSummaryInfoOutput {
+	s.IPSourceUs = &v
+	return s
+}
+
 // SetImage sets the Image field's value.
 func (s *KillChainNodeListForGetRaspAlarmSummaryInfoOutput) SetImage(v string) *KillChainNodeListForGetRaspAlarmSummaryInfoOutput {
 	s.Image = &v
@@ -3053,6 +3325,12 @@ func (s *KillChainNodeListForGetRaspAlarmSummaryInfoOutput) SetIpAddress(v strin
 	return s
 }
 
+// SetIsInnerAccount sets the IsInnerAccount field's value.
+func (s *KillChainNodeListForGetRaspAlarmSummaryInfoOutput) SetIsInnerAccount(v bool) *KillChainNodeListForGetRaspAlarmSummaryInfoOutput {
+	s.IsInnerAccount = &v
+	return s
+}
+
 // SetKoFile sets the KoFile field's value.
 func (s *KillChainNodeListForGetRaspAlarmSummaryInfoOutput) SetKoFile(v string) *KillChainNodeListForGetRaspAlarmSummaryInfoOutput {
 	s.KoFile = &v
@@ -3062,6 +3340,12 @@ func (s *KillChainNodeListForGetRaspAlarmSummaryInfoOutput) SetKoFile(v string) 
 // SetLdPreload sets the LdPreload field's value.
 func (s *KillChainNodeListForGetRaspAlarmSummaryInfoOutput) SetLdPreload(v string) *KillChainNodeListForGetRaspAlarmSummaryInfoOutput {
 	s.LdPreload = &v
+	return s
+}
+
+// SetLoginCount sets the LoginCount field's value.
+func (s *KillChainNodeListForGetRaspAlarmSummaryInfoOutput) SetLoginCount(v string) *KillChainNodeListForGetRaspAlarmSummaryInfoOutput {
+	s.LoginCount = &v
 	return s
 }
 
@@ -3269,6 +3553,12 @@ func (s *KillChainNodeListForGetRaspAlarmSummaryInfoOutput) SetQueryStatus(v str
 	return s
 }
 
+// SetRootPns sets the RootPns field's value.
+func (s *KillChainNodeListForGetRaspAlarmSummaryInfoOutput) SetRootPns(v string) *KillChainNodeListForGetRaspAlarmSummaryInfoOutput {
+	s.RootPns = &v
+	return s
+}
+
 // SetRunPath sets the RunPath field's value.
 func (s *KillChainNodeListForGetRaspAlarmSummaryInfoOutput) SetRunPath(v string) *KillChainNodeListForGetRaspAlarmSummaryInfoOutput {
 	s.RunPath = &v
@@ -3278,6 +3568,18 @@ func (s *KillChainNodeListForGetRaspAlarmSummaryInfoOutput) SetRunPath(v string)
 // SetSamAccountName sets the SamAccountName field's value.
 func (s *KillChainNodeListForGetRaspAlarmSummaryInfoOutput) SetSamAccountName(v string) *KillChainNodeListForGetRaspAlarmSummaryInfoOutput {
 	s.SamAccountName = &v
+	return s
+}
+
+// SetSecurityIntelligenceComplete sets the SecurityIntelligenceComplete field's value.
+func (s *KillChainNodeListForGetRaspAlarmSummaryInfoOutput) SetSecurityIntelligenceComplete(v bool) *KillChainNodeListForGetRaspAlarmSummaryInfoOutput {
+	s.SecurityIntelligenceComplete = &v
+	return s
+}
+
+// SetSecurityIntelligenceResult sets the SecurityIntelligenceResult field's value.
+func (s *KillChainNodeListForGetRaspAlarmSummaryInfoOutput) SetSecurityIntelligenceResult(v string) *KillChainNodeListForGetRaspAlarmSummaryInfoOutput {
+	s.SecurityIntelligenceResult = &v
 	return s
 }
 

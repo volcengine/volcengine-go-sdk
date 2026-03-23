@@ -151,6 +151,8 @@ type SetSecretValueInput struct {
 
 	// SecretValue is a required field
 	SecretValue *string `max:"30720" type:"string" json:",omitempty" required:"true"`
+
+	VersionName *string `min:"2" max:"128" type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -181,6 +183,12 @@ func (s *SetSecretValueInput) Validate() error {
 	if s.SecretValue != nil && len(*s.SecretValue) > 30720 {
 		invalidParams.Add(request.NewErrParamMaxLen("SecretValue", 30720, *s.SecretValue))
 	}
+	if s.VersionName != nil && len(*s.VersionName) < 2 {
+		invalidParams.Add(request.NewErrParamMinLen("VersionName", 2))
+	}
+	if s.VersionName != nil && len(*s.VersionName) > 128 {
+		invalidParams.Add(request.NewErrParamMaxLen("VersionName", 128, *s.VersionName))
+	}
 
 	if invalidParams.Len() > 0 {
 		return invalidParams
@@ -200,6 +208,12 @@ func (s *SetSecretValueInput) SetSecretValue(v string) *SetSecretValueInput {
 	return s
 }
 
+// SetVersionName sets the VersionName field's value.
+func (s *SetSecretValueInput) SetVersionName(v string) *SetSecretValueInput {
+	s.VersionName = &v
+	return s
+}
+
 type SetSecretValueOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -208,6 +222,8 @@ type SetSecretValueOutput struct {
 	CreationDate *int64 `type:"int64" json:",omitempty"`
 
 	VersionID *string `type:"string" json:",omitempty"`
+
+	VersionName *string `type:"string" json:",omitempty"`
 
 	VersionStage *string `type:"string" json:",omitempty"`
 }
@@ -231,6 +247,12 @@ func (s *SetSecretValueOutput) SetCreationDate(v int64) *SetSecretValueOutput {
 // SetVersionID sets the VersionID field's value.
 func (s *SetSecretValueOutput) SetVersionID(v string) *SetSecretValueOutput {
 	s.VersionID = &v
+	return s
+}
+
+// SetVersionName sets the VersionName field's value.
+func (s *SetSecretValueOutput) SetVersionName(v string) *SetSecretValueOutput {
+	s.VersionName = &v
 	return s
 }
 

@@ -143,6 +143,60 @@ func (c *SECCENTER20240508) GetLayeredGroupsWithContext(ctx volcengine.Context, 
 	return out, req.Send()
 }
 
+type DataForGetLayeredGroupsOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	GroupID *string `type:"string" json:",omitempty"`
+
+	GroupName *string `type:"string" json:",omitempty"`
+
+	GroupPath *string `type:"string" json:",omitempty"`
+
+	HostCount *int64 `type:"int64" json:",omitempty"`
+
+	TopGroupId *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s DataForGetLayeredGroupsOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DataForGetLayeredGroupsOutput) GoString() string {
+	return s.String()
+}
+
+// SetGroupID sets the GroupID field's value.
+func (s *DataForGetLayeredGroupsOutput) SetGroupID(v string) *DataForGetLayeredGroupsOutput {
+	s.GroupID = &v
+	return s
+}
+
+// SetGroupName sets the GroupName field's value.
+func (s *DataForGetLayeredGroupsOutput) SetGroupName(v string) *DataForGetLayeredGroupsOutput {
+	s.GroupName = &v
+	return s
+}
+
+// SetGroupPath sets the GroupPath field's value.
+func (s *DataForGetLayeredGroupsOutput) SetGroupPath(v string) *DataForGetLayeredGroupsOutput {
+	s.GroupPath = &v
+	return s
+}
+
+// SetHostCount sets the HostCount field's value.
+func (s *DataForGetLayeredGroupsOutput) SetHostCount(v int64) *DataForGetLayeredGroupsOutput {
+	s.HostCount = &v
+	return s
+}
+
+// SetTopGroupId sets the TopGroupId field's value.
+func (s *DataForGetLayeredGroupsOutput) SetTopGroupId(v string) *DataForGetLayeredGroupsOutput {
+	s.TopGroupId = &v
+	return s
+}
+
 type GetLayeredGroupsInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -170,7 +224,7 @@ type GetLayeredGroupsOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	Data []*string `type:"list" json:",omitempty"`
+	Data []*DataForGetLayeredGroupsOutput `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -184,7 +238,7 @@ func (s GetLayeredGroupsOutput) GoString() string {
 }
 
 // SetData sets the Data field's value.
-func (s *GetLayeredGroupsOutput) SetData(v []*string) *GetLayeredGroupsOutput {
+func (s *GetLayeredGroupsOutput) SetData(v []*DataForGetLayeredGroupsOutput) *GetLayeredGroupsOutput {
 	s.Data = v
 	return s
 }

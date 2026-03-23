@@ -574,6 +574,8 @@ type ListForListAmortizedCostBillMonthlyOutput struct {
 
 	Region *string `type:"string" json:",omitempty"`
 
+	ResourceID *string `type:"string" json:",omitempty"`
+
 	RoundAmount *string `type:"string" json:",omitempty"`
 
 	SavingPlanOriginalAmount *string `type:"string" json:",omitempty"`
@@ -1400,6 +1402,12 @@ func (s *ListForListAmortizedCostBillMonthlyOutput) SetRealValue(v string) *List
 // SetRegion sets the Region field's value.
 func (s *ListForListAmortizedCostBillMonthlyOutput) SetRegion(v string) *ListForListAmortizedCostBillMonthlyOutput {
 	s.Region = &v
+	return s
+}
+
+// SetResourceID sets the ResourceID field's value.
+func (s *ListForListAmortizedCostBillMonthlyOutput) SetResourceID(v string) *ListForListAmortizedCostBillMonthlyOutput {
+	s.ResourceID = &v
 	return s
 }
 

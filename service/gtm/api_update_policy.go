@@ -184,7 +184,7 @@ func (s *PolicyForUpdatePolicyInput) SetTargets(v []*TargetForUpdatePolicyInput)
 type TargetForUpdatePolicyInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	PoolId []*string `type:"list" json:",omitempty"`
+	PoolId *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -198,8 +198,8 @@ func (s TargetForUpdatePolicyInput) GoString() string {
 }
 
 // SetPoolId sets the PoolId field's value.
-func (s *TargetForUpdatePolicyInput) SetPoolId(v []*string) *TargetForUpdatePolicyInput {
-	s.PoolId = v
+func (s *TargetForUpdatePolicyInput) SetPoolId(v string) *TargetForUpdatePolicyInput {
+	s.PoolId = &v
 	return s
 }
 

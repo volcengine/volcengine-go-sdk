@@ -156,6 +156,8 @@ type ConditionsForDownloadVulnDatasInput struct {
 
 	IP *string `type:"string" json:",omitempty"`
 
+	IsRealRiskVul *bool `type:"boolean" json:",omitempty"`
+
 	LeafGroupIDs []*string `type:"list" json:",omitempty"`
 
 	Status []*string `type:"list" json:",omitempty"`
@@ -203,6 +205,12 @@ func (s *ConditionsForDownloadVulnDatasInput) SetIP(v string) *ConditionsForDown
 	return s
 }
 
+// SetIsRealRiskVul sets the IsRealRiskVul field's value.
+func (s *ConditionsForDownloadVulnDatasInput) SetIsRealRiskVul(v bool) *ConditionsForDownloadVulnDatasInput {
+	s.IsRealRiskVul = &v
+	return s
+}
+
 // SetLeafGroupIDs sets the LeafGroupIDs field's value.
 func (s *ConditionsForDownloadVulnDatasInput) SetLeafGroupIDs(v []*string) *ConditionsForDownloadVulnDatasInput {
 	s.LeafGroupIDs = v
@@ -226,7 +234,7 @@ type DownloadVulnDatasInput struct {
 
 	AssetIDs []*string `type:"list" json:",omitempty"`
 
-	AssetType *string `type:"string" json:",omitempty" enum:"EnumOfAssetTypeForDownloadVulnDatasInput"`
+	AssetType *string `type:"string" json:",omitempty"`
 
 	Conditions *ConditionsForDownloadVulnDatasInput `type:"structure" json:",omitempty"`
 
@@ -298,11 +306,3 @@ func (s *DownloadVulnDatasOutput) SetFileName(v string) *DownloadVulnDatasOutput
 	s.FileName = &v
 	return s
 }
-
-const (
-	// EnumOfAssetTypeForDownloadVulnDatasInputHost is a EnumOfAssetTypeForDownloadVulnDatasInput enum value
-	EnumOfAssetTypeForDownloadVulnDatasInputHost = "Host"
-
-	// EnumOfAssetTypeForDownloadVulnDatasInputDev is a EnumOfAssetTypeForDownloadVulnDatasInput enum value
-	EnumOfAssetTypeForDownloadVulnDatasInputDev = "Dev"
-)

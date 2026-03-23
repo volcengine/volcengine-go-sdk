@@ -198,6 +198,14 @@ type GRAPHAPI interface {
 	GetTableSchemaWithContext(volcengine.Context, *GetTableSchemaInput, ...request.Option) (*GetTableSchemaOutput, error)
 	GetTableSchemaRequest(*GetTableSchemaInput) (*request.Request, *GetTableSchemaOutput)
 
+	GetVegraphInstanceOpCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	GetVegraphInstanceOpCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	GetVegraphInstanceOpCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	GetVegraphInstanceOp(*GetVegraphInstanceOpInput) (*GetVegraphInstanceOpOutput, error)
+	GetVegraphInstanceOpWithContext(volcengine.Context, *GetVegraphInstanceOpInput, ...request.Option) (*GetVegraphInstanceOpOutput, error)
+	GetVegraphInstanceOpRequest(*GetVegraphInstanceOpInput) (*request.Request, *GetVegraphInstanceOpOutput)
+
 	GetVegraphNetworkResourceCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	GetVegraphNetworkResourceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	GetVegraphNetworkResourceCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})

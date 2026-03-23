@@ -146,8 +146,8 @@ func (c *CLOUDDETECT20251031) DeleteTaskWithContext(ctx volcengine.Context, inpu
 type DeleteTaskInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	// ID is a required field
-	ID *int64 `type:"int64" json:",omitempty" required:"true"`
+	// Id is a required field
+	Id *int64 `type:"int64" json:",omitempty" required:"true"`
 
 	ProjectName *string `type:"string" json:",omitempty"`
 }
@@ -165,8 +165,8 @@ func (s DeleteTaskInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *DeleteTaskInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "DeleteTaskInput"}
-	if s.ID == nil {
-		invalidParams.Add(request.NewErrParamRequired("ID"))
+	if s.Id == nil {
+		invalidParams.Add(request.NewErrParamRequired("Id"))
 	}
 
 	if invalidParams.Len() > 0 {
@@ -175,9 +175,9 @@ func (s *DeleteTaskInput) Validate() error {
 	return nil
 }
 
-// SetID sets the ID field's value.
-func (s *DeleteTaskInput) SetID(v int64) *DeleteTaskInput {
-	s.ID = &v
+// SetId sets the Id field's value.
+func (s *DeleteTaskInput) SetId(v int64) *DeleteTaskInput {
+	s.Id = &v
 	return s
 }
 

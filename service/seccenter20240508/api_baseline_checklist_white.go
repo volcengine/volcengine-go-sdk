@@ -150,7 +150,7 @@ type BaselineChecklistWhiteInput struct {
 
 	AssetIDList []*string `type:"list" json:",omitempty"`
 
-	AssetType *string `type:"string" json:",omitempty" enum:"EnumOfAssetTypeForBaselineChecklistWhiteInput"`
+	AssetType *string `type:"string" json:",omitempty"`
 
 	BaselineID *int64 `type:"int64" json:",omitempty"`
 
@@ -322,11 +322,3 @@ func (s *ConditionsForBaselineChecklistWhiteInput) SetTopGroupID(v string) *Cond
 	s.TopGroupID = &v
 	return s
 }
-
-const (
-	// EnumOfAssetTypeForBaselineChecklistWhiteInputHost is a EnumOfAssetTypeForBaselineChecklistWhiteInput enum value
-	EnumOfAssetTypeForBaselineChecklistWhiteInputHost = "Host"
-
-	// EnumOfAssetTypeForBaselineChecklistWhiteInputDev is a EnumOfAssetTypeForBaselineChecklistWhiteInput enum value
-	EnumOfAssetTypeForBaselineChecklistWhiteInputDev = "Dev"
-)

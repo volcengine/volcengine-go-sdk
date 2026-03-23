@@ -224,8 +224,7 @@ func (s *DataForGetMLPAssetSyncTaskDetailOutput) SetTaskType(v string) *DataForG
 type GetMLPAssetSyncTaskDetailInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	// TaskID is a required field
-	TaskID *string `type:"string" json:",omitempty" required:"true"`
+	TaskID *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -236,19 +235,6 @@ func (s GetMLPAssetSyncTaskDetailInput) String() string {
 // GoString returns the string representation
 func (s GetMLPAssetSyncTaskDetailInput) GoString() string {
 	return s.String()
-}
-
-// Validate inspects the fields of the type to determine if they are valid.
-func (s *GetMLPAssetSyncTaskDetailInput) Validate() error {
-	invalidParams := request.ErrInvalidParams{Context: "GetMLPAssetSyncTaskDetailInput"}
-	if s.TaskID == nil {
-		invalidParams.Add(request.NewErrParamRequired("TaskID"))
-	}
-
-	if invalidParams.Len() > 0 {
-		return invalidParams
-	}
-	return nil
 }
 
 // SetTaskID sets the TaskID field's value.
@@ -262,7 +248,23 @@ type GetMLPAssetSyncTaskDetailOutput struct {
 
 	Metadata *response.ResponseMetadata
 
+	AccountID *string `type:"string" json:",omitempty"`
+
+	AssetCount *int64 `type:"int64" json:",omitempty"`
+
+	Creator *string `type:"string" json:",omitempty"`
+
 	Data *DataForGetMLPAssetSyncTaskDetailOutput `type:"structure" json:",omitempty"`
+
+	EndTime *int64 `type:"int64" json:",omitempty"`
+
+	StartTime *int64 `type:"int64" json:",omitempty"`
+
+	Status *string `type:"string" json:",omitempty"`
+
+	TaskID *string `type:"string" json:",omitempty"`
+
+	TaskType *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -275,8 +277,56 @@ func (s GetMLPAssetSyncTaskDetailOutput) GoString() string {
 	return s.String()
 }
 
+// SetAccountID sets the AccountID field's value.
+func (s *GetMLPAssetSyncTaskDetailOutput) SetAccountID(v string) *GetMLPAssetSyncTaskDetailOutput {
+	s.AccountID = &v
+	return s
+}
+
+// SetAssetCount sets the AssetCount field's value.
+func (s *GetMLPAssetSyncTaskDetailOutput) SetAssetCount(v int64) *GetMLPAssetSyncTaskDetailOutput {
+	s.AssetCount = &v
+	return s
+}
+
+// SetCreator sets the Creator field's value.
+func (s *GetMLPAssetSyncTaskDetailOutput) SetCreator(v string) *GetMLPAssetSyncTaskDetailOutput {
+	s.Creator = &v
+	return s
+}
+
 // SetData sets the Data field's value.
 func (s *GetMLPAssetSyncTaskDetailOutput) SetData(v *DataForGetMLPAssetSyncTaskDetailOutput) *GetMLPAssetSyncTaskDetailOutput {
 	s.Data = v
+	return s
+}
+
+// SetEndTime sets the EndTime field's value.
+func (s *GetMLPAssetSyncTaskDetailOutput) SetEndTime(v int64) *GetMLPAssetSyncTaskDetailOutput {
+	s.EndTime = &v
+	return s
+}
+
+// SetStartTime sets the StartTime field's value.
+func (s *GetMLPAssetSyncTaskDetailOutput) SetStartTime(v int64) *GetMLPAssetSyncTaskDetailOutput {
+	s.StartTime = &v
+	return s
+}
+
+// SetStatus sets the Status field's value.
+func (s *GetMLPAssetSyncTaskDetailOutput) SetStatus(v string) *GetMLPAssetSyncTaskDetailOutput {
+	s.Status = &v
+	return s
+}
+
+// SetTaskID sets the TaskID field's value.
+func (s *GetMLPAssetSyncTaskDetailOutput) SetTaskID(v string) *GetMLPAssetSyncTaskDetailOutput {
+	s.TaskID = &v
+	return s
+}
+
+// SetTaskType sets the TaskType field's value.
+func (s *GetMLPAssetSyncTaskDetailOutput) SetTaskType(v string) *GetMLPAssetSyncTaskDetailOutput {
+	s.TaskType = &v
 	return s
 }

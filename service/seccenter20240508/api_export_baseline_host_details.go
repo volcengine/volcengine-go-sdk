@@ -160,7 +160,7 @@ type ConditionsForExportBaselineHostDetailsInput struct {
 
 	LeafGroupIDs []*string `type:"list" json:",omitempty"`
 
-	Tag *string `type:"string" json:",omitempty"`
+	Tag []*string `type:"list" json:",omitempty"`
 
 	TopGroupID *string `type:"string" json:",omitempty"`
 }
@@ -218,8 +218,8 @@ func (s *ConditionsForExportBaselineHostDetailsInput) SetLeafGroupIDs(v []*strin
 }
 
 // SetTag sets the Tag field's value.
-func (s *ConditionsForExportBaselineHostDetailsInput) SetTag(v string) *ConditionsForExportBaselineHostDetailsInput {
-	s.Tag = &v
+func (s *ConditionsForExportBaselineHostDetailsInput) SetTag(v []*string) *ConditionsForExportBaselineHostDetailsInput {
+	s.Tag = v
 	return s
 }
 
@@ -234,7 +234,7 @@ type ExportBaselineHostDetailsInput struct {
 
 	AssetIDList []*string `type:"list" json:",omitempty"`
 
-	AssetType *string `type:"string" json:",omitempty" enum:"EnumOfAssetTypeForExportBaselineHostDetailsInput"`
+	AssetType *string `type:"string" json:",omitempty"`
 
 	BaselineID *int64 `type:"int64" json:",omitempty"`
 
@@ -306,11 +306,3 @@ func (s *ExportBaselineHostDetailsOutput) SetFileName(v string) *ExportBaselineH
 	s.FileName = &v
 	return s
 }
-
-const (
-	// EnumOfAssetTypeForExportBaselineHostDetailsInputHost is a EnumOfAssetTypeForExportBaselineHostDetailsInput enum value
-	EnumOfAssetTypeForExportBaselineHostDetailsInputHost = "Host"
-
-	// EnumOfAssetTypeForExportBaselineHostDetailsInputDev is a EnumOfAssetTypeForExportBaselineHostDetailsInput enum value
-	EnumOfAssetTypeForExportBaselineHostDetailsInputDev = "Dev"
-)

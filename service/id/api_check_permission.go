@@ -153,6 +153,8 @@ type CheckPermissionInput struct {
 
 	OriginalCallers []*OriginalCallerForCheckPermissionInput `type:"list" json:",omitempty"`
 
+	PermissionPointId *string `type:"string" json:",omitempty"`
+
 	Principal *PrincipalForCheckPermissionInput `type:"structure" json:",omitempty"`
 
 	References []*ReferenceForCheckPermissionInput `type:"list" json:",omitempty"`
@@ -198,6 +200,12 @@ func (s *CheckPermissionInput) SetOperation(v *OperationForCheckPermissionInput)
 // SetOriginalCallers sets the OriginalCallers field's value.
 func (s *CheckPermissionInput) SetOriginalCallers(v []*OriginalCallerForCheckPermissionInput) *CheckPermissionInput {
 	s.OriginalCallers = v
+	return s
+}
+
+// SetPermissionPointId sets the PermissionPointId field's value.
+func (s *CheckPermissionInput) SetPermissionPointId(v string) *CheckPermissionInput {
+	s.PermissionPointId = &v
 	return s
 }
 

@@ -250,13 +250,19 @@ func (s *AlarmContentForGetHidsAlarmSummaryInfoOutput) SetVirusHitDataList(v []*
 type AlarmDescForGetHidsAlarmSummaryInfoOutput struct {
 	_ struct{} `type:"structure"`
 
+	AlarmCount *int64 `type:"int64"`
+
 	AlarmHandleResult *int64 `type:"int64"`
 
 	AlarmID *string `type:"string"`
 
 	AlertDesc *string `type:"string"`
 
+	AlertDescUS *string `type:"string"`
+
 	AlertDetail *string `type:"string"`
+
+	AlertDetailUS *string `type:"string"`
 
 	AlertTags []*string `type:"list"`
 
@@ -274,6 +280,8 @@ type AlarmDescForGetHidsAlarmSummaryInfoOutput struct {
 
 	DataTypeStr *string `type:"string"`
 
+	DataTypeStrEn *string `type:"string"`
+
 	Desc *string `type:"string"`
 
 	Docker *string `type:"string"`
@@ -290,6 +298,10 @@ type AlarmDescForGetHidsAlarmSummaryInfoOutput struct {
 
 	KubeLevel *string `type:"string"`
 
+	LastAlarmTime *int64 `type:"int64"`
+
+	OperationList []*string `type:"list"`
+
 	RaspConfigName *string `type:"string"`
 
 	RaspLevel *string `type:"string"`
@@ -300,9 +312,13 @@ type AlarmDescForGetHidsAlarmSummaryInfoOutput struct {
 
 	RuleName *string `type:"string"`
 
+	RuleNameUs *string `type:"string"`
+
 	Status *int64 `type:"int64"`
 
 	Suggestion *string `type:"string"`
+
+	SuggestionUs *string `type:"string"`
 
 	TraceID *string `type:"string"`
 }
@@ -315,6 +331,12 @@ func (s AlarmDescForGetHidsAlarmSummaryInfoOutput) String() string {
 // GoString returns the string representation
 func (s AlarmDescForGetHidsAlarmSummaryInfoOutput) GoString() string {
 	return s.String()
+}
+
+// SetAlarmCount sets the AlarmCount field's value.
+func (s *AlarmDescForGetHidsAlarmSummaryInfoOutput) SetAlarmCount(v int64) *AlarmDescForGetHidsAlarmSummaryInfoOutput {
+	s.AlarmCount = &v
+	return s
 }
 
 // SetAlarmHandleResult sets the AlarmHandleResult field's value.
@@ -335,9 +357,21 @@ func (s *AlarmDescForGetHidsAlarmSummaryInfoOutput) SetAlertDesc(v string) *Alar
 	return s
 }
 
+// SetAlertDescUS sets the AlertDescUS field's value.
+func (s *AlarmDescForGetHidsAlarmSummaryInfoOutput) SetAlertDescUS(v string) *AlarmDescForGetHidsAlarmSummaryInfoOutput {
+	s.AlertDescUS = &v
+	return s
+}
+
 // SetAlertDetail sets the AlertDetail field's value.
 func (s *AlarmDescForGetHidsAlarmSummaryInfoOutput) SetAlertDetail(v string) *AlarmDescForGetHidsAlarmSummaryInfoOutput {
 	s.AlertDetail = &v
+	return s
+}
+
+// SetAlertDetailUS sets the AlertDetailUS field's value.
+func (s *AlarmDescForGetHidsAlarmSummaryInfoOutput) SetAlertDetailUS(v string) *AlarmDescForGetHidsAlarmSummaryInfoOutput {
+	s.AlertDetailUS = &v
 	return s
 }
 
@@ -389,6 +423,12 @@ func (s *AlarmDescForGetHidsAlarmSummaryInfoOutput) SetDataTypeStr(v string) *Al
 	return s
 }
 
+// SetDataTypeStrEn sets the DataTypeStrEn field's value.
+func (s *AlarmDescForGetHidsAlarmSummaryInfoOutput) SetDataTypeStrEn(v string) *AlarmDescForGetHidsAlarmSummaryInfoOutput {
+	s.DataTypeStrEn = &v
+	return s
+}
+
 // SetDesc sets the Desc field's value.
 func (s *AlarmDescForGetHidsAlarmSummaryInfoOutput) SetDesc(v string) *AlarmDescForGetHidsAlarmSummaryInfoOutput {
 	s.Desc = &v
@@ -437,6 +477,18 @@ func (s *AlarmDescForGetHidsAlarmSummaryInfoOutput) SetKubeLevel(v string) *Alar
 	return s
 }
 
+// SetLastAlarmTime sets the LastAlarmTime field's value.
+func (s *AlarmDescForGetHidsAlarmSummaryInfoOutput) SetLastAlarmTime(v int64) *AlarmDescForGetHidsAlarmSummaryInfoOutput {
+	s.LastAlarmTime = &v
+	return s
+}
+
+// SetOperationList sets the OperationList field's value.
+func (s *AlarmDescForGetHidsAlarmSummaryInfoOutput) SetOperationList(v []*string) *AlarmDescForGetHidsAlarmSummaryInfoOutput {
+	s.OperationList = v
+	return s
+}
+
 // SetRaspConfigName sets the RaspConfigName field's value.
 func (s *AlarmDescForGetHidsAlarmSummaryInfoOutput) SetRaspConfigName(v string) *AlarmDescForGetHidsAlarmSummaryInfoOutput {
 	s.RaspConfigName = &v
@@ -467,6 +519,12 @@ func (s *AlarmDescForGetHidsAlarmSummaryInfoOutput) SetRuleName(v string) *Alarm
 	return s
 }
 
+// SetRuleNameUs sets the RuleNameUs field's value.
+func (s *AlarmDescForGetHidsAlarmSummaryInfoOutput) SetRuleNameUs(v string) *AlarmDescForGetHidsAlarmSummaryInfoOutput {
+	s.RuleNameUs = &v
+	return s
+}
+
 // SetStatus sets the Status field's value.
 func (s *AlarmDescForGetHidsAlarmSummaryInfoOutput) SetStatus(v int64) *AlarmDescForGetHidsAlarmSummaryInfoOutput {
 	s.Status = &v
@@ -476,6 +534,12 @@ func (s *AlarmDescForGetHidsAlarmSummaryInfoOutput) SetStatus(v int64) *AlarmDes
 // SetSuggestion sets the Suggestion field's value.
 func (s *AlarmDescForGetHidsAlarmSummaryInfoOutput) SetSuggestion(v string) *AlarmDescForGetHidsAlarmSummaryInfoOutput {
 	s.Suggestion = &v
+	return s
+}
+
+// SetSuggestionUs sets the SuggestionUs field's value.
+func (s *AlarmDescForGetHidsAlarmSummaryInfoOutput) SetSuggestionUs(v string) *AlarmDescForGetHidsAlarmSummaryInfoOutput {
+	s.SuggestionUs = &v
 	return s
 }
 
@@ -492,9 +556,13 @@ type AlarmNodeForGetHidsAlarmSummaryInfoOutput struct {
 
 	AdditionalActionsString *string `type:"string"`
 
+	AnalysisRecordUUID *string `type:"string"`
+
 	ArgsArray []*string `type:"list"`
 
 	Argv *string `type:"string"`
+
+	BackendAlarmTags []*string `type:"list"`
 
 	BruteforceSip *string `type:"string"`
 
@@ -507,6 +575,8 @@ type AlarmNodeForGetHidsAlarmSummaryInfoOutput struct {
 	Comm *string `type:"string"`
 
 	CommandLine *string `type:"string"`
+
+	Confidence *string `type:"string"`
 
 	Configuration *string `type:"string"`
 
@@ -542,6 +612,10 @@ type AlarmNodeForGetHidsAlarmSummaryInfoOutput struct {
 
 	DstList *string `type:"string"`
 
+	ElkeidSaveData []*ElkeidSaveDataForGetHidsAlarmSummaryInfoOutput `type:"list"`
+
+	EnHanced *string `type:"string"`
+
 	EventType *string `type:"string"`
 
 	Exe *string `type:"string"`
@@ -555,6 +629,8 @@ type AlarmNodeForGetHidsAlarmSummaryInfoOutput struct {
 	FdName *string `type:"string"`
 
 	FileDownloadable *bool `type:"boolean"`
+
+	FileName *string `type:"string"`
 
 	FilePath *string `type:"string"`
 
@@ -572,6 +648,12 @@ type AlarmNodeForGetHidsAlarmSummaryInfoOutput struct {
 
 	HomeDirectory *string `type:"string"`
 
+	IPIntelligence *string `type:"string"`
+
+	IPSource *string `type:"string"`
+
+	IPSourceUs *string `type:"string"`
+
 	Image *string `type:"string"`
 
 	ImageLoaded *string `type:"string"`
@@ -588,9 +670,13 @@ type AlarmNodeForGetHidsAlarmSummaryInfoOutput struct {
 
 	IpAddress *string `type:"string"`
 
+	IsInnerAccount *bool `type:"boolean"`
+
 	KoFile *string `type:"string"`
 
 	LdPreload *string `type:"string"`
+
+	LoginCount *string `type:"string"`
 
 	LogonType *string `type:"string"`
 
@@ -660,9 +746,15 @@ type AlarmNodeForGetHidsAlarmSummaryInfoOutput struct {
 
 	QueryStatus *string `type:"string"`
 
+	RootPns *string `type:"string"`
+
 	RunPath *string `type:"string"`
 
 	SamAccountName *string `type:"string"`
+
+	SecurityIntelligenceComplete *bool `type:"boolean"`
+
+	SecurityIntelligenceResult *string `type:"string"`
 
 	ServiceAccount *string `type:"string"`
 
@@ -785,6 +877,12 @@ func (s *AlarmNodeForGetHidsAlarmSummaryInfoOutput) SetAdditionalActionsString(v
 	return s
 }
 
+// SetAnalysisRecordUUID sets the AnalysisRecordUUID field's value.
+func (s *AlarmNodeForGetHidsAlarmSummaryInfoOutput) SetAnalysisRecordUUID(v string) *AlarmNodeForGetHidsAlarmSummaryInfoOutput {
+	s.AnalysisRecordUUID = &v
+	return s
+}
+
 // SetArgsArray sets the ArgsArray field's value.
 func (s *AlarmNodeForGetHidsAlarmSummaryInfoOutput) SetArgsArray(v []*string) *AlarmNodeForGetHidsAlarmSummaryInfoOutput {
 	s.ArgsArray = v
@@ -794,6 +892,12 @@ func (s *AlarmNodeForGetHidsAlarmSummaryInfoOutput) SetArgsArray(v []*string) *A
 // SetArgv sets the Argv field's value.
 func (s *AlarmNodeForGetHidsAlarmSummaryInfoOutput) SetArgv(v string) *AlarmNodeForGetHidsAlarmSummaryInfoOutput {
 	s.Argv = &v
+	return s
+}
+
+// SetBackendAlarmTags sets the BackendAlarmTags field's value.
+func (s *AlarmNodeForGetHidsAlarmSummaryInfoOutput) SetBackendAlarmTags(v []*string) *AlarmNodeForGetHidsAlarmSummaryInfoOutput {
+	s.BackendAlarmTags = v
 	return s
 }
 
@@ -830,6 +934,12 @@ func (s *AlarmNodeForGetHidsAlarmSummaryInfoOutput) SetComm(v string) *AlarmNode
 // SetCommandLine sets the CommandLine field's value.
 func (s *AlarmNodeForGetHidsAlarmSummaryInfoOutput) SetCommandLine(v string) *AlarmNodeForGetHidsAlarmSummaryInfoOutput {
 	s.CommandLine = &v
+	return s
+}
+
+// SetConfidence sets the Confidence field's value.
+func (s *AlarmNodeForGetHidsAlarmSummaryInfoOutput) SetConfidence(v string) *AlarmNodeForGetHidsAlarmSummaryInfoOutput {
+	s.Confidence = &v
 	return s
 }
 
@@ -935,6 +1045,18 @@ func (s *AlarmNodeForGetHidsAlarmSummaryInfoOutput) SetDstList(v string) *AlarmN
 	return s
 }
 
+// SetElkeidSaveData sets the ElkeidSaveData field's value.
+func (s *AlarmNodeForGetHidsAlarmSummaryInfoOutput) SetElkeidSaveData(v []*ElkeidSaveDataForGetHidsAlarmSummaryInfoOutput) *AlarmNodeForGetHidsAlarmSummaryInfoOutput {
+	s.ElkeidSaveData = v
+	return s
+}
+
+// SetEnHanced sets the EnHanced field's value.
+func (s *AlarmNodeForGetHidsAlarmSummaryInfoOutput) SetEnHanced(v string) *AlarmNodeForGetHidsAlarmSummaryInfoOutput {
+	s.EnHanced = &v
+	return s
+}
+
 // SetEventType sets the EventType field's value.
 func (s *AlarmNodeForGetHidsAlarmSummaryInfoOutput) SetEventType(v string) *AlarmNodeForGetHidsAlarmSummaryInfoOutput {
 	s.EventType = &v
@@ -974,6 +1096,12 @@ func (s *AlarmNodeForGetHidsAlarmSummaryInfoOutput) SetFdName(v string) *AlarmNo
 // SetFileDownloadable sets the FileDownloadable field's value.
 func (s *AlarmNodeForGetHidsAlarmSummaryInfoOutput) SetFileDownloadable(v bool) *AlarmNodeForGetHidsAlarmSummaryInfoOutput {
 	s.FileDownloadable = &v
+	return s
+}
+
+// SetFileName sets the FileName field's value.
+func (s *AlarmNodeForGetHidsAlarmSummaryInfoOutput) SetFileName(v string) *AlarmNodeForGetHidsAlarmSummaryInfoOutput {
+	s.FileName = &v
 	return s
 }
 
@@ -1025,6 +1153,24 @@ func (s *AlarmNodeForGetHidsAlarmSummaryInfoOutput) SetHomeDirectory(v string) *
 	return s
 }
 
+// SetIPIntelligence sets the IPIntelligence field's value.
+func (s *AlarmNodeForGetHidsAlarmSummaryInfoOutput) SetIPIntelligence(v string) *AlarmNodeForGetHidsAlarmSummaryInfoOutput {
+	s.IPIntelligence = &v
+	return s
+}
+
+// SetIPSource sets the IPSource field's value.
+func (s *AlarmNodeForGetHidsAlarmSummaryInfoOutput) SetIPSource(v string) *AlarmNodeForGetHidsAlarmSummaryInfoOutput {
+	s.IPSource = &v
+	return s
+}
+
+// SetIPSourceUs sets the IPSourceUs field's value.
+func (s *AlarmNodeForGetHidsAlarmSummaryInfoOutput) SetIPSourceUs(v string) *AlarmNodeForGetHidsAlarmSummaryInfoOutput {
+	s.IPSourceUs = &v
+	return s
+}
+
 // SetImage sets the Image field's value.
 func (s *AlarmNodeForGetHidsAlarmSummaryInfoOutput) SetImage(v string) *AlarmNodeForGetHidsAlarmSummaryInfoOutput {
 	s.Image = &v
@@ -1073,6 +1219,12 @@ func (s *AlarmNodeForGetHidsAlarmSummaryInfoOutput) SetIpAddress(v string) *Alar
 	return s
 }
 
+// SetIsInnerAccount sets the IsInnerAccount field's value.
+func (s *AlarmNodeForGetHidsAlarmSummaryInfoOutput) SetIsInnerAccount(v bool) *AlarmNodeForGetHidsAlarmSummaryInfoOutput {
+	s.IsInnerAccount = &v
+	return s
+}
+
 // SetKoFile sets the KoFile field's value.
 func (s *AlarmNodeForGetHidsAlarmSummaryInfoOutput) SetKoFile(v string) *AlarmNodeForGetHidsAlarmSummaryInfoOutput {
 	s.KoFile = &v
@@ -1082,6 +1234,12 @@ func (s *AlarmNodeForGetHidsAlarmSummaryInfoOutput) SetKoFile(v string) *AlarmNo
 // SetLdPreload sets the LdPreload field's value.
 func (s *AlarmNodeForGetHidsAlarmSummaryInfoOutput) SetLdPreload(v string) *AlarmNodeForGetHidsAlarmSummaryInfoOutput {
 	s.LdPreload = &v
+	return s
+}
+
+// SetLoginCount sets the LoginCount field's value.
+func (s *AlarmNodeForGetHidsAlarmSummaryInfoOutput) SetLoginCount(v string) *AlarmNodeForGetHidsAlarmSummaryInfoOutput {
+	s.LoginCount = &v
 	return s
 }
 
@@ -1289,6 +1447,12 @@ func (s *AlarmNodeForGetHidsAlarmSummaryInfoOutput) SetQueryStatus(v string) *Al
 	return s
 }
 
+// SetRootPns sets the RootPns field's value.
+func (s *AlarmNodeForGetHidsAlarmSummaryInfoOutput) SetRootPns(v string) *AlarmNodeForGetHidsAlarmSummaryInfoOutput {
+	s.RootPns = &v
+	return s
+}
+
 // SetRunPath sets the RunPath field's value.
 func (s *AlarmNodeForGetHidsAlarmSummaryInfoOutput) SetRunPath(v string) *AlarmNodeForGetHidsAlarmSummaryInfoOutput {
 	s.RunPath = &v
@@ -1298,6 +1462,18 @@ func (s *AlarmNodeForGetHidsAlarmSummaryInfoOutput) SetRunPath(v string) *AlarmN
 // SetSamAccountName sets the SamAccountName field's value.
 func (s *AlarmNodeForGetHidsAlarmSummaryInfoOutput) SetSamAccountName(v string) *AlarmNodeForGetHidsAlarmSummaryInfoOutput {
 	s.SamAccountName = &v
+	return s
+}
+
+// SetSecurityIntelligenceComplete sets the SecurityIntelligenceComplete field's value.
+func (s *AlarmNodeForGetHidsAlarmSummaryInfoOutput) SetSecurityIntelligenceComplete(v bool) *AlarmNodeForGetHidsAlarmSummaryInfoOutput {
+	s.SecurityIntelligenceComplete = &v
+	return s
+}
+
+// SetSecurityIntelligenceResult sets the SecurityIntelligenceResult field's value.
+func (s *AlarmNodeForGetHidsAlarmSummaryInfoOutput) SetSecurityIntelligenceResult(v string) *AlarmNodeForGetHidsAlarmSummaryInfoOutput {
+	s.SecurityIntelligenceResult = &v
 	return s
 }
 
@@ -2075,6 +2251,20 @@ func (s *ContainerInfoForGetHidsAlarmSummaryInfoOutput) SetPodName(v string) *Co
 	return s
 }
 
+type ElkeidSaveDataForGetHidsAlarmSummaryInfoOutput struct {
+	_ struct{} `type:"structure"`
+}
+
+// String returns the string representation
+func (s ElkeidSaveDataForGetHidsAlarmSummaryInfoOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ElkeidSaveDataForGetHidsAlarmSummaryInfoOutput) GoString() string {
+	return s.String()
+}
+
 type EndpointTraceForGetHidsAlarmSummaryInfoOutput struct {
 	_ struct{} `type:"structure"`
 
@@ -2472,9 +2662,13 @@ type KillChainNodeListForGetHidsAlarmSummaryInfoOutput struct {
 
 	AdditionalActionsString *string `type:"string"`
 
+	AnalysisRecordUUID *string `type:"string"`
+
 	ArgsArray []*string `type:"list"`
 
 	Argv *string `type:"string"`
+
+	BackendAlarmTags []*string `type:"list"`
 
 	BruteforceSip *string `type:"string"`
 
@@ -2487,6 +2681,8 @@ type KillChainNodeListForGetHidsAlarmSummaryInfoOutput struct {
 	Comm *string `type:"string"`
 
 	CommandLine *string `type:"string"`
+
+	Confidence *string `type:"string"`
 
 	Configuration *string `type:"string"`
 
@@ -2522,6 +2718,10 @@ type KillChainNodeListForGetHidsAlarmSummaryInfoOutput struct {
 
 	DstList *string `type:"string"`
 
+	ElkeidSaveData []*ElkeidSaveDataForGetHidsAlarmSummaryInfoOutput `type:"list"`
+
+	EnHanced *string `type:"string"`
+
 	EventType *string `type:"string"`
 
 	Exe *string `type:"string"`
@@ -2535,6 +2735,8 @@ type KillChainNodeListForGetHidsAlarmSummaryInfoOutput struct {
 	FdName *string `type:"string"`
 
 	FileDownloadable *bool `type:"boolean"`
+
+	FileName *string `type:"string"`
 
 	FilePath *string `type:"string"`
 
@@ -2552,6 +2754,12 @@ type KillChainNodeListForGetHidsAlarmSummaryInfoOutput struct {
 
 	HomeDirectory *string `type:"string"`
 
+	IPIntelligence *string `type:"string"`
+
+	IPSource *string `type:"string"`
+
+	IPSourceUs *string `type:"string"`
+
 	Image *string `type:"string"`
 
 	ImageLoaded *string `type:"string"`
@@ -2568,9 +2776,13 @@ type KillChainNodeListForGetHidsAlarmSummaryInfoOutput struct {
 
 	IpAddress *string `type:"string"`
 
+	IsInnerAccount *bool `type:"boolean"`
+
 	KoFile *string `type:"string"`
 
 	LdPreload *string `type:"string"`
+
+	LoginCount *string `type:"string"`
 
 	LogonType *string `type:"string"`
 
@@ -2640,9 +2852,15 @@ type KillChainNodeListForGetHidsAlarmSummaryInfoOutput struct {
 
 	QueryStatus *string `type:"string"`
 
+	RootPns *string `type:"string"`
+
 	RunPath *string `type:"string"`
 
 	SamAccountName *string `type:"string"`
+
+	SecurityIntelligenceComplete *bool `type:"boolean"`
+
+	SecurityIntelligenceResult *string `type:"string"`
 
 	ServiceAccount *string `type:"string"`
 
@@ -2765,6 +2983,12 @@ func (s *KillChainNodeListForGetHidsAlarmSummaryInfoOutput) SetAdditionalActions
 	return s
 }
 
+// SetAnalysisRecordUUID sets the AnalysisRecordUUID field's value.
+func (s *KillChainNodeListForGetHidsAlarmSummaryInfoOutput) SetAnalysisRecordUUID(v string) *KillChainNodeListForGetHidsAlarmSummaryInfoOutput {
+	s.AnalysisRecordUUID = &v
+	return s
+}
+
 // SetArgsArray sets the ArgsArray field's value.
 func (s *KillChainNodeListForGetHidsAlarmSummaryInfoOutput) SetArgsArray(v []*string) *KillChainNodeListForGetHidsAlarmSummaryInfoOutput {
 	s.ArgsArray = v
@@ -2774,6 +2998,12 @@ func (s *KillChainNodeListForGetHidsAlarmSummaryInfoOutput) SetArgsArray(v []*st
 // SetArgv sets the Argv field's value.
 func (s *KillChainNodeListForGetHidsAlarmSummaryInfoOutput) SetArgv(v string) *KillChainNodeListForGetHidsAlarmSummaryInfoOutput {
 	s.Argv = &v
+	return s
+}
+
+// SetBackendAlarmTags sets the BackendAlarmTags field's value.
+func (s *KillChainNodeListForGetHidsAlarmSummaryInfoOutput) SetBackendAlarmTags(v []*string) *KillChainNodeListForGetHidsAlarmSummaryInfoOutput {
+	s.BackendAlarmTags = v
 	return s
 }
 
@@ -2810,6 +3040,12 @@ func (s *KillChainNodeListForGetHidsAlarmSummaryInfoOutput) SetComm(v string) *K
 // SetCommandLine sets the CommandLine field's value.
 func (s *KillChainNodeListForGetHidsAlarmSummaryInfoOutput) SetCommandLine(v string) *KillChainNodeListForGetHidsAlarmSummaryInfoOutput {
 	s.CommandLine = &v
+	return s
+}
+
+// SetConfidence sets the Confidence field's value.
+func (s *KillChainNodeListForGetHidsAlarmSummaryInfoOutput) SetConfidence(v string) *KillChainNodeListForGetHidsAlarmSummaryInfoOutput {
+	s.Confidence = &v
 	return s
 }
 
@@ -2915,6 +3151,18 @@ func (s *KillChainNodeListForGetHidsAlarmSummaryInfoOutput) SetDstList(v string)
 	return s
 }
 
+// SetElkeidSaveData sets the ElkeidSaveData field's value.
+func (s *KillChainNodeListForGetHidsAlarmSummaryInfoOutput) SetElkeidSaveData(v []*ElkeidSaveDataForGetHidsAlarmSummaryInfoOutput) *KillChainNodeListForGetHidsAlarmSummaryInfoOutput {
+	s.ElkeidSaveData = v
+	return s
+}
+
+// SetEnHanced sets the EnHanced field's value.
+func (s *KillChainNodeListForGetHidsAlarmSummaryInfoOutput) SetEnHanced(v string) *KillChainNodeListForGetHidsAlarmSummaryInfoOutput {
+	s.EnHanced = &v
+	return s
+}
+
 // SetEventType sets the EventType field's value.
 func (s *KillChainNodeListForGetHidsAlarmSummaryInfoOutput) SetEventType(v string) *KillChainNodeListForGetHidsAlarmSummaryInfoOutput {
 	s.EventType = &v
@@ -2954,6 +3202,12 @@ func (s *KillChainNodeListForGetHidsAlarmSummaryInfoOutput) SetFdName(v string) 
 // SetFileDownloadable sets the FileDownloadable field's value.
 func (s *KillChainNodeListForGetHidsAlarmSummaryInfoOutput) SetFileDownloadable(v bool) *KillChainNodeListForGetHidsAlarmSummaryInfoOutput {
 	s.FileDownloadable = &v
+	return s
+}
+
+// SetFileName sets the FileName field's value.
+func (s *KillChainNodeListForGetHidsAlarmSummaryInfoOutput) SetFileName(v string) *KillChainNodeListForGetHidsAlarmSummaryInfoOutput {
+	s.FileName = &v
 	return s
 }
 
@@ -3005,6 +3259,24 @@ func (s *KillChainNodeListForGetHidsAlarmSummaryInfoOutput) SetHomeDirectory(v s
 	return s
 }
 
+// SetIPIntelligence sets the IPIntelligence field's value.
+func (s *KillChainNodeListForGetHidsAlarmSummaryInfoOutput) SetIPIntelligence(v string) *KillChainNodeListForGetHidsAlarmSummaryInfoOutput {
+	s.IPIntelligence = &v
+	return s
+}
+
+// SetIPSource sets the IPSource field's value.
+func (s *KillChainNodeListForGetHidsAlarmSummaryInfoOutput) SetIPSource(v string) *KillChainNodeListForGetHidsAlarmSummaryInfoOutput {
+	s.IPSource = &v
+	return s
+}
+
+// SetIPSourceUs sets the IPSourceUs field's value.
+func (s *KillChainNodeListForGetHidsAlarmSummaryInfoOutput) SetIPSourceUs(v string) *KillChainNodeListForGetHidsAlarmSummaryInfoOutput {
+	s.IPSourceUs = &v
+	return s
+}
+
 // SetImage sets the Image field's value.
 func (s *KillChainNodeListForGetHidsAlarmSummaryInfoOutput) SetImage(v string) *KillChainNodeListForGetHidsAlarmSummaryInfoOutput {
 	s.Image = &v
@@ -3053,6 +3325,12 @@ func (s *KillChainNodeListForGetHidsAlarmSummaryInfoOutput) SetIpAddress(v strin
 	return s
 }
 
+// SetIsInnerAccount sets the IsInnerAccount field's value.
+func (s *KillChainNodeListForGetHidsAlarmSummaryInfoOutput) SetIsInnerAccount(v bool) *KillChainNodeListForGetHidsAlarmSummaryInfoOutput {
+	s.IsInnerAccount = &v
+	return s
+}
+
 // SetKoFile sets the KoFile field's value.
 func (s *KillChainNodeListForGetHidsAlarmSummaryInfoOutput) SetKoFile(v string) *KillChainNodeListForGetHidsAlarmSummaryInfoOutput {
 	s.KoFile = &v
@@ -3062,6 +3340,12 @@ func (s *KillChainNodeListForGetHidsAlarmSummaryInfoOutput) SetKoFile(v string) 
 // SetLdPreload sets the LdPreload field's value.
 func (s *KillChainNodeListForGetHidsAlarmSummaryInfoOutput) SetLdPreload(v string) *KillChainNodeListForGetHidsAlarmSummaryInfoOutput {
 	s.LdPreload = &v
+	return s
+}
+
+// SetLoginCount sets the LoginCount field's value.
+func (s *KillChainNodeListForGetHidsAlarmSummaryInfoOutput) SetLoginCount(v string) *KillChainNodeListForGetHidsAlarmSummaryInfoOutput {
+	s.LoginCount = &v
 	return s
 }
 
@@ -3269,6 +3553,12 @@ func (s *KillChainNodeListForGetHidsAlarmSummaryInfoOutput) SetQueryStatus(v str
 	return s
 }
 
+// SetRootPns sets the RootPns field's value.
+func (s *KillChainNodeListForGetHidsAlarmSummaryInfoOutput) SetRootPns(v string) *KillChainNodeListForGetHidsAlarmSummaryInfoOutput {
+	s.RootPns = &v
+	return s
+}
+
 // SetRunPath sets the RunPath field's value.
 func (s *KillChainNodeListForGetHidsAlarmSummaryInfoOutput) SetRunPath(v string) *KillChainNodeListForGetHidsAlarmSummaryInfoOutput {
 	s.RunPath = &v
@@ -3278,6 +3568,18 @@ func (s *KillChainNodeListForGetHidsAlarmSummaryInfoOutput) SetRunPath(v string)
 // SetSamAccountName sets the SamAccountName field's value.
 func (s *KillChainNodeListForGetHidsAlarmSummaryInfoOutput) SetSamAccountName(v string) *KillChainNodeListForGetHidsAlarmSummaryInfoOutput {
 	s.SamAccountName = &v
+	return s
+}
+
+// SetSecurityIntelligenceComplete sets the SecurityIntelligenceComplete field's value.
+func (s *KillChainNodeListForGetHidsAlarmSummaryInfoOutput) SetSecurityIntelligenceComplete(v bool) *KillChainNodeListForGetHidsAlarmSummaryInfoOutput {
+	s.SecurityIntelligenceComplete = &v
+	return s
+}
+
+// SetSecurityIntelligenceResult sets the SecurityIntelligenceResult field's value.
+func (s *KillChainNodeListForGetHidsAlarmSummaryInfoOutput) SetSecurityIntelligenceResult(v string) *KillChainNodeListForGetHidsAlarmSummaryInfoOutput {
+	s.SecurityIntelligenceResult = &v
 	return s
 }
 

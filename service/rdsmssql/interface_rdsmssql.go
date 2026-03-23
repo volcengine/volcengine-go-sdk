@@ -19,7 +19,7 @@ import (
 //    // volcengine sdk func uses an SDK service client to make a request to
 //    // RDS_MSSQL.
 //    func myFunc(svc RDSMSSQLAPI) bool {
-//        // Make svc.CreateBackup request
+//        // Make svc.AssociateAllowList request
 //    }
 //
 //    func main() {
@@ -30,6 +30,22 @@ import (
 //    }
 //
 type RDSMSSQLAPI interface {
+	AssociateAllowListCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	AssociateAllowListCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	AssociateAllowListCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	AssociateAllowList(*AssociateAllowListInput) (*AssociateAllowListOutput, error)
+	AssociateAllowListWithContext(volcengine.Context, *AssociateAllowListInput, ...request.Option) (*AssociateAllowListOutput, error)
+	AssociateAllowListRequest(*AssociateAllowListInput) (*request.Request, *AssociateAllowListOutput)
+
+	CreateAllowListCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateAllowListCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateAllowListCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateAllowList(*CreateAllowListInput) (*CreateAllowListOutput, error)
+	CreateAllowListWithContext(volcengine.Context, *CreateAllowListInput, ...request.Option) (*CreateAllowListOutput, error)
+	CreateAllowListRequest(*CreateAllowListInput) (*request.Request, *CreateAllowListOutput)
+
 	CreateBackupCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	CreateBackupCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	CreateBackupCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -37,6 +53,14 @@ type RDSMSSQLAPI interface {
 	CreateBackup(*CreateBackupInput) (*CreateBackupOutput, error)
 	CreateBackupWithContext(volcengine.Context, *CreateBackupInput, ...request.Option) (*CreateBackupOutput, error)
 	CreateBackupRequest(*CreateBackupInput) (*request.Request, *CreateBackupOutput)
+
+	CreateDBAccountCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateDBAccountCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateDBAccountCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateDBAccount(*CreateDBAccountInput) (*CreateDBAccountOutput, error)
+	CreateDBAccountWithContext(volcengine.Context, *CreateDBAccountInput, ...request.Option) (*CreateDBAccountOutput, error)
+	CreateDBAccountRequest(*CreateDBAccountInput) (*request.Request, *CreateDBAccountOutput)
 
 	CreateDBInstanceCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	CreateDBInstanceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -54,6 +78,14 @@ type RDSMSSQLAPI interface {
 	CreateTosRestoreWithContext(volcengine.Context, *CreateTosRestoreInput, ...request.Option) (*CreateTosRestoreOutput, error)
 	CreateTosRestoreRequest(*CreateTosRestoreInput) (*request.Request, *CreateTosRestoreOutput)
 
+	DeleteAllowListCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeleteAllowListCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeleteAllowListCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeleteAllowList(*DeleteAllowListInput) (*DeleteAllowListOutput, error)
+	DeleteAllowListWithContext(volcengine.Context, *DeleteAllowListInput, ...request.Option) (*DeleteAllowListOutput, error)
+	DeleteAllowListRequest(*DeleteAllowListInput) (*request.Request, *DeleteAllowListOutput)
+
 	DeleteBackupCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DeleteBackupCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DeleteBackupCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -62,6 +94,14 @@ type RDSMSSQLAPI interface {
 	DeleteBackupWithContext(volcengine.Context, *DeleteBackupInput, ...request.Option) (*DeleteBackupOutput, error)
 	DeleteBackupRequest(*DeleteBackupInput) (*request.Request, *DeleteBackupOutput)
 
+	DeleteDBAccountCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeleteDBAccountCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeleteDBAccountCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeleteDBAccount(*DeleteDBAccountInput) (*DeleteDBAccountOutput, error)
+	DeleteDBAccountWithContext(volcengine.Context, *DeleteDBAccountInput, ...request.Option) (*DeleteDBAccountOutput, error)
+	DeleteDBAccountRequest(*DeleteDBAccountInput) (*request.Request, *DeleteDBAccountOutput)
+
 	DeleteDBInstanceCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DeleteDBInstanceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DeleteDBInstanceCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -69,6 +109,22 @@ type RDSMSSQLAPI interface {
 	DeleteDBInstance(*DeleteDBInstanceInput) (*DeleteDBInstanceOutput, error)
 	DeleteDBInstanceWithContext(volcengine.Context, *DeleteDBInstanceInput, ...request.Option) (*DeleteDBInstanceOutput, error)
 	DeleteDBInstanceRequest(*DeleteDBInstanceInput) (*request.Request, *DeleteDBInstanceOutput)
+
+	DescribeAllowListDetailCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeAllowListDetailCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeAllowListDetailCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeAllowListDetail(*DescribeAllowListDetailInput) (*DescribeAllowListDetailOutput, error)
+	DescribeAllowListDetailWithContext(volcengine.Context, *DescribeAllowListDetailInput, ...request.Option) (*DescribeAllowListDetailOutput, error)
+	DescribeAllowListDetailRequest(*DescribeAllowListDetailInput) (*request.Request, *DescribeAllowListDetailOutput)
+
+	DescribeAllowListsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeAllowListsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeAllowListsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeAllowLists(*DescribeAllowListsInput) (*DescribeAllowListsOutput, error)
+	DescribeAllowListsWithContext(volcengine.Context, *DescribeAllowListsInput, ...request.Option) (*DescribeAllowListsOutput, error)
+	DescribeAllowListsRequest(*DescribeAllowListsInput) (*request.Request, *DescribeAllowListsOutput)
 
 	DescribeAvailabilityZonesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DescribeAvailabilityZonesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -110,6 +166,14 @@ type RDSMSSQLAPI interface {
 	DescribeCrossBackupPolicyWithContext(volcengine.Context, *DescribeCrossBackupPolicyInput, ...request.Option) (*DescribeCrossBackupPolicyOutput, error)
 	DescribeCrossBackupPolicyRequest(*DescribeCrossBackupPolicyInput) (*request.Request, *DescribeCrossBackupPolicyOutput)
 
+	DescribeDBAccountsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeDBAccountsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeDBAccountsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeDBAccounts(*DescribeDBAccountsInput) (*DescribeDBAccountsOutput, error)
+	DescribeDBAccountsWithContext(volcengine.Context, *DescribeDBAccountsInput, ...request.Option) (*DescribeDBAccountsOutput, error)
+	DescribeDBAccountsRequest(*DescribeDBAccountsInput) (*request.Request, *DescribeDBAccountsOutput)
+
 	DescribeDBInstanceDetailCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DescribeDBInstanceDetailCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DescribeDBInstanceDetailCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -142,6 +206,14 @@ type RDSMSSQLAPI interface {
 	DescribeDBInstancesWithContext(volcengine.Context, *DescribeDBInstancesInput, ...request.Option) (*DescribeDBInstancesOutput, error)
 	DescribeDBInstancesRequest(*DescribeDBInstancesInput) (*request.Request, *DescribeDBInstancesOutput)
 
+	DescribeInstanceAllowListsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeInstanceAllowListsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeInstanceAllowListsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeInstanceAllowLists(*DescribeInstanceAllowListsInput) (*DescribeInstanceAllowListsOutput, error)
+	DescribeInstanceAllowListsWithContext(volcengine.Context, *DescribeInstanceAllowListsInput, ...request.Option) (*DescribeInstanceAllowListsOutput, error)
+	DescribeInstanceAllowListsRequest(*DescribeInstanceAllowListsInput) (*request.Request, *DescribeInstanceAllowListsOutput)
+
 	DescribeRegionsCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DescribeRegionsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DescribeRegionsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -166,6 +238,14 @@ type RDSMSSQLAPI interface {
 	DescribeTosRestoreTasksWithContext(volcengine.Context, *DescribeTosRestoreTasksInput, ...request.Option) (*DescribeTosRestoreTasksOutput, error)
 	DescribeTosRestoreTasksRequest(*DescribeTosRestoreTasksInput) (*request.Request, *DescribeTosRestoreTasksOutput)
 
+	DisassociateAllowListCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DisassociateAllowListCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DisassociateAllowListCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DisassociateAllowList(*DisassociateAllowListInput) (*DisassociateAllowListOutput, error)
+	DisassociateAllowListWithContext(volcengine.Context, *DisassociateAllowListInput, ...request.Option) (*DisassociateAllowListOutput, error)
+	DisassociateAllowListRequest(*DisassociateAllowListInput) (*request.Request, *DisassociateAllowListOutput)
+
 	DownloadBackupCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DownloadBackupCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DownloadBackupCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -173,6 +253,22 @@ type RDSMSSQLAPI interface {
 	DownloadBackup(*DownloadBackupInput) (*DownloadBackupOutput, error)
 	DownloadBackupWithContext(volcengine.Context, *DownloadBackupInput, ...request.Option) (*DownloadBackupOutput, error)
 	DownloadBackupRequest(*DownloadBackupInput) (*request.Request, *DownloadBackupOutput)
+
+	GrantDBAccountPrivilegeCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	GrantDBAccountPrivilegeCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	GrantDBAccountPrivilegeCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	GrantDBAccountPrivilege(*GrantDBAccountPrivilegeInput) (*GrantDBAccountPrivilegeOutput, error)
+	GrantDBAccountPrivilegeWithContext(volcengine.Context, *GrantDBAccountPrivilegeInput, ...request.Option) (*GrantDBAccountPrivilegeOutput, error)
+	GrantDBAccountPrivilegeRequest(*GrantDBAccountPrivilegeInput) (*request.Request, *GrantDBAccountPrivilegeOutput)
+
+	ModifyAllowListCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ModifyAllowListCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ModifyAllowListCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ModifyAllowList(*ModifyAllowListInput) (*ModifyAllowListOutput, error)
+	ModifyAllowListWithContext(volcengine.Context, *ModifyAllowListInput, ...request.Option) (*ModifyAllowListOutput, error)
+	ModifyAllowListRequest(*ModifyAllowListInput) (*request.Request, *ModifyAllowListOutput)
 
 	ModifyBackupPolicyCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ModifyBackupPolicyCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -189,6 +285,14 @@ type RDSMSSQLAPI interface {
 	ModifyCrossBackupPolicy(*ModifyCrossBackupPolicyInput) (*ModifyCrossBackupPolicyOutput, error)
 	ModifyCrossBackupPolicyWithContext(volcengine.Context, *ModifyCrossBackupPolicyInput, ...request.Option) (*ModifyCrossBackupPolicyOutput, error)
 	ModifyCrossBackupPolicyRequest(*ModifyCrossBackupPolicyInput) (*request.Request, *ModifyCrossBackupPolicyOutput)
+
+	ModifyDBAccountStatusCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ModifyDBAccountStatusCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ModifyDBAccountStatusCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ModifyDBAccountStatus(*ModifyDBAccountStatusInput) (*ModifyDBAccountStatusOutput, error)
+	ModifyDBAccountStatusWithContext(volcengine.Context, *ModifyDBAccountStatusInput, ...request.Option) (*ModifyDBAccountStatusOutput, error)
+	ModifyDBAccountStatusRequest(*ModifyDBAccountStatusInput) (*request.Request, *ModifyDBAccountStatusOutput)
 
 	ModifyDBFailoverCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ModifyDBFailoverCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -214,6 +318,14 @@ type RDSMSSQLAPI interface {
 	ModifyInstanceAdvancedFeaturesWithContext(volcengine.Context, *ModifyInstanceAdvancedFeaturesInput, ...request.Option) (*ModifyInstanceAdvancedFeaturesOutput, error)
 	ModifyInstanceAdvancedFeaturesRequest(*ModifyInstanceAdvancedFeaturesInput) (*request.Request, *ModifyInstanceAdvancedFeaturesOutput)
 
+	ResetDBAccountCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ResetDBAccountCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ResetDBAccountCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ResetDBAccount(*ResetDBAccountInput) (*ResetDBAccountOutput, error)
+	ResetDBAccountWithContext(volcengine.Context, *ResetDBAccountInput, ...request.Option) (*ResetDBAccountOutput, error)
+	ResetDBAccountRequest(*ResetDBAccountInput) (*request.Request, *ResetDBAccountOutput)
+
 	RestartDBInstanceCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	RestartDBInstanceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	RestartDBInstanceCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -229,6 +341,14 @@ type RDSMSSQLAPI interface {
 	RestoreToExistedInstance(*RestoreToExistedInstanceInput) (*RestoreToExistedInstanceOutput, error)
 	RestoreToExistedInstanceWithContext(volcengine.Context, *RestoreToExistedInstanceInput, ...request.Option) (*RestoreToExistedInstanceOutput, error)
 	RestoreToExistedInstanceRequest(*RestoreToExistedInstanceInput) (*request.Request, *RestoreToExistedInstanceOutput)
+
+	RevokeDBAccountPrivilegeCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	RevokeDBAccountPrivilegeCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	RevokeDBAccountPrivilegeCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	RevokeDBAccountPrivilege(*RevokeDBAccountPrivilegeInput) (*RevokeDBAccountPrivilegeOutput, error)
+	RevokeDBAccountPrivilegeWithContext(volcengine.Context, *RevokeDBAccountPrivilegeInput, ...request.Option) (*RevokeDBAccountPrivilegeOutput, error)
+	RevokeDBAccountPrivilegeRequest(*RevokeDBAccountPrivilegeInput) (*request.Request, *RevokeDBAccountPrivilegeOutput)
 }
 
 var _ RDSMSSQLAPI = (*RDSMSSQL)(nil)

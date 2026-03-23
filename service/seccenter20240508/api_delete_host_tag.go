@@ -162,6 +162,8 @@ type ConditionsForDeleteHostTagInput struct {
 
 	LeafGroupIDs []*string `type:"list" json:",omitempty"`
 
+	Os *string `type:"string" json:",omitempty"`
+
 	Platforms []*string `type:"list" json:",omitempty"`
 
 	ProxyName *string `type:"string" json:",omitempty"`
@@ -242,6 +244,12 @@ func (s *ConditionsForDeleteHostTagInput) SetIp(v string) *ConditionsForDeleteHo
 // SetLeafGroupIDs sets the LeafGroupIDs field's value.
 func (s *ConditionsForDeleteHostTagInput) SetLeafGroupIDs(v []*string) *ConditionsForDeleteHostTagInput {
 	s.LeafGroupIDs = v
+	return s
+}
+
+// SetOs sets the Os field's value.
+func (s *ConditionsForDeleteHostTagInput) SetOs(v string) *ConditionsForDeleteHostTagInput {
+	s.Os = &v
 	return s
 }
 
@@ -394,6 +402,8 @@ type RiskForDeleteHostTagInput struct {
 
 	Baseline *bool `type:"boolean" json:",omitempty"`
 
+	IsRealRiskVul *bool `type:"boolean" json:",omitempty"`
+
 	Virus *bool `type:"boolean" json:",omitempty"`
 
 	Vuln *bool `type:"boolean" json:",omitempty"`
@@ -418,6 +428,12 @@ func (s *RiskForDeleteHostTagInput) SetAlarm(v bool) *RiskForDeleteHostTagInput 
 // SetBaseline sets the Baseline field's value.
 func (s *RiskForDeleteHostTagInput) SetBaseline(v bool) *RiskForDeleteHostTagInput {
 	s.Baseline = &v
+	return s
+}
+
+// SetIsRealRiskVul sets the IsRealRiskVul field's value.
+func (s *RiskForDeleteHostTagInput) SetIsRealRiskVul(v bool) *RiskForDeleteHostTagInput {
+	s.IsRealRiskVul = &v
 	return s
 }
 

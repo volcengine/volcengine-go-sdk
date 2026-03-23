@@ -146,6 +146,8 @@ type ListPoliciesInput struct {
 
 	Offset *int32 `type:"int32"`
 
+	Query *string `type:"string"`
+
 	Scope *string `type:"string"`
 
 	WithServiceRolePolicy *int32 `type:"int32"`
@@ -170,6 +172,12 @@ func (s *ListPoliciesInput) SetLimit(v int32) *ListPoliciesInput {
 // SetOffset sets the Offset field's value.
 func (s *ListPoliciesInput) SetOffset(v int32) *ListPoliciesInput {
 	s.Offset = &v
+	return s
+}
+
+// SetQuery sets the Query field's value.
+func (s *ListPoliciesInput) SetQuery(v string) *ListPoliciesInput {
+	s.Query = &v
 	return s
 }
 

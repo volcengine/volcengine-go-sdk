@@ -614,6 +614,8 @@ type NodeDetailInfoForDescribeDBInstancesOutput struct {
 
 	CreateTime *string `type:"string" json:",omitempty"`
 
+	HostName *string `type:"string" json:",omitempty"`
+
 	InstanceId *string `type:"string" json:",omitempty"`
 
 	Memory *int32 `type:"int32" json:",omitempty"`
@@ -650,6 +652,12 @@ func (s NodeDetailInfoForDescribeDBInstancesOutput) GoString() string {
 // SetCreateTime sets the CreateTime field's value.
 func (s *NodeDetailInfoForDescribeDBInstancesOutput) SetCreateTime(v string) *NodeDetailInfoForDescribeDBInstancesOutput {
 	s.CreateTime = &v
+	return s
+}
+
+// SetHostName sets the HostName field's value.
+func (s *NodeDetailInfoForDescribeDBInstancesOutput) SetHostName(v string) *NodeDetailInfoForDescribeDBInstancesOutput {
+	s.HostName = &v
 	return s
 }
 

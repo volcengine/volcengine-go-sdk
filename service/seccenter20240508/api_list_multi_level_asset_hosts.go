@@ -162,6 +162,8 @@ type ConditionsForListMultiLevelAssetHostsInput struct {
 
 	LeafGroupIDs []*string `type:"list" json:",omitempty"`
 
+	Os *string `type:"string" json:",omitempty"`
+
 	Platforms []*string `type:"list" json:",omitempty"`
 
 	ProxyName *string `type:"string" json:",omitempty"`
@@ -242,6 +244,12 @@ func (s *ConditionsForListMultiLevelAssetHostsInput) SetIp(v string) *Conditions
 // SetLeafGroupIDs sets the LeafGroupIDs field's value.
 func (s *ConditionsForListMultiLevelAssetHostsInput) SetLeafGroupIDs(v []*string) *ConditionsForListMultiLevelAssetHostsInput {
 	s.LeafGroupIDs = v
+	return s
+}
+
+// SetOs sets the Os field's value.
+func (s *ConditionsForListMultiLevelAssetHostsInput) SetOs(v string) *ConditionsForListMultiLevelAssetHostsInput {
+	s.Os = &v
 	return s
 }
 
@@ -328,6 +336,8 @@ type DataForListMultiLevelAssetHostsOutput struct {
 
 	AgentStatus *string `type:"string" json:",omitempty"`
 
+	ClientPublicIP *string `type:"string" json:",omitempty"`
+
 	CloudProvider *string `type:"string" json:",omitempty"`
 
 	CpuUsage *float64 `type:"double" json:",omitempty"`
@@ -344,6 +354,8 @@ type DataForListMultiLevelAssetHostsOutput struct {
 
 	GroupPath *string `type:"string" json:",omitempty"`
 
+	GroupPathEn *string `type:"string" json:",omitempty"`
+
 	InstitutionID *string `type:"string" json:",omitempty"`
 
 	KernelVersion *string `type:"string" json:",omitempty"`
@@ -352,9 +364,13 @@ type DataForListMultiLevelAssetHostsOutput struct {
 
 	MemUsage *float64 `type:"double" json:",omitempty"`
 
+	OldValidCode *int64 `type:"int64" json:",omitempty"`
+
 	Online *bool `type:"boolean" json:",omitempty"`
 
 	Platform *string `type:"string" json:",omitempty"`
+
+	PlatformVersion *string `type:"string" json:",omitempty"`
 
 	PluginsBriefInfo *string `type:"string" json:",omitempty"`
 
@@ -379,6 +395,8 @@ type DataForListMultiLevelAssetHostsOutput struct {
 	UserStatus *string `type:"string" json:",omitempty"`
 
 	UserStatusReason *string `type:"string" json:",omitempty"`
+
+	UserStatusReasonCode *int64 `type:"int64" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -412,6 +430,12 @@ func (s *DataForListMultiLevelAssetHostsOutput) SetAgentID(v string) *DataForLis
 // SetAgentStatus sets the AgentStatus field's value.
 func (s *DataForListMultiLevelAssetHostsOutput) SetAgentStatus(v string) *DataForListMultiLevelAssetHostsOutput {
 	s.AgentStatus = &v
+	return s
+}
+
+// SetClientPublicIP sets the ClientPublicIP field's value.
+func (s *DataForListMultiLevelAssetHostsOutput) SetClientPublicIP(v string) *DataForListMultiLevelAssetHostsOutput {
+	s.ClientPublicIP = &v
 	return s
 }
 
@@ -463,6 +487,12 @@ func (s *DataForListMultiLevelAssetHostsOutput) SetGroupPath(v string) *DataForL
 	return s
 }
 
+// SetGroupPathEn sets the GroupPathEn field's value.
+func (s *DataForListMultiLevelAssetHostsOutput) SetGroupPathEn(v string) *DataForListMultiLevelAssetHostsOutput {
+	s.GroupPathEn = &v
+	return s
+}
+
 // SetInstitutionID sets the InstitutionID field's value.
 func (s *DataForListMultiLevelAssetHostsOutput) SetInstitutionID(v string) *DataForListMultiLevelAssetHostsOutput {
 	s.InstitutionID = &v
@@ -487,6 +517,12 @@ func (s *DataForListMultiLevelAssetHostsOutput) SetMemUsage(v float64) *DataForL
 	return s
 }
 
+// SetOldValidCode sets the OldValidCode field's value.
+func (s *DataForListMultiLevelAssetHostsOutput) SetOldValidCode(v int64) *DataForListMultiLevelAssetHostsOutput {
+	s.OldValidCode = &v
+	return s
+}
+
 // SetOnline sets the Online field's value.
 func (s *DataForListMultiLevelAssetHostsOutput) SetOnline(v bool) *DataForListMultiLevelAssetHostsOutput {
 	s.Online = &v
@@ -496,6 +532,12 @@ func (s *DataForListMultiLevelAssetHostsOutput) SetOnline(v bool) *DataForListMu
 // SetPlatform sets the Platform field's value.
 func (s *DataForListMultiLevelAssetHostsOutput) SetPlatform(v string) *DataForListMultiLevelAssetHostsOutput {
 	s.Platform = &v
+	return s
+}
+
+// SetPlatformVersion sets the PlatformVersion field's value.
+func (s *DataForListMultiLevelAssetHostsOutput) SetPlatformVersion(v string) *DataForListMultiLevelAssetHostsOutput {
+	s.PlatformVersion = &v
 	return s
 }
 
@@ -568,6 +610,12 @@ func (s *DataForListMultiLevelAssetHostsOutput) SetUserStatus(v string) *DataFor
 // SetUserStatusReason sets the UserStatusReason field's value.
 func (s *DataForListMultiLevelAssetHostsOutput) SetUserStatusReason(v string) *DataForListMultiLevelAssetHostsOutput {
 	s.UserStatusReason = &v
+	return s
+}
+
+// SetUserStatusReasonCode sets the UserStatusReasonCode field's value.
+func (s *DataForListMultiLevelAssetHostsOutput) SetUserStatusReasonCode(v int64) *DataForListMultiLevelAssetHostsOutput {
+	s.UserStatusReasonCode = &v
 	return s
 }
 
@@ -912,6 +960,8 @@ type RiskForListMultiLevelAssetHostsInput struct {
 
 	Baseline *bool `type:"boolean" json:",omitempty"`
 
+	IsRealRiskVul *bool `type:"boolean" json:",omitempty"`
+
 	Virus *bool `type:"boolean" json:",omitempty"`
 
 	Vuln *bool `type:"boolean" json:",omitempty"`
@@ -936,6 +986,12 @@ func (s *RiskForListMultiLevelAssetHostsInput) SetAlarm(v bool) *RiskForListMult
 // SetBaseline sets the Baseline field's value.
 func (s *RiskForListMultiLevelAssetHostsInput) SetBaseline(v bool) *RiskForListMultiLevelAssetHostsInput {
 	s.Baseline = &v
+	return s
+}
+
+// SetIsRealRiskVul sets the IsRealRiskVul field's value.
+func (s *RiskForListMultiLevelAssetHostsInput) SetIsRealRiskVul(v bool) *RiskForListMultiLevelAssetHostsInput {
+	s.IsRealRiskVul = &v
 	return s
 }
 

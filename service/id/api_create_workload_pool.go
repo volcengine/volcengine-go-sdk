@@ -198,6 +198,8 @@ type CreateWorkloadPoolOutput struct {
 
 	Description *string `type:"string" json:",omitempty"`
 
+	DiscoveryUrl *string `type:"string" json:",omitempty"`
+
 	ProjectName *string `type:"string" json:",omitempty"`
 
 	Tags []*TagForCreateWorkloadPoolOutput `type:"list" json:",omitempty"`
@@ -230,6 +232,12 @@ func (s *CreateWorkloadPoolOutput) SetCreatedAt(v string) *CreateWorkloadPoolOut
 // SetDescription sets the Description field's value.
 func (s *CreateWorkloadPoolOutput) SetDescription(v string) *CreateWorkloadPoolOutput {
 	s.Description = &v
+	return s
+}
+
+// SetDiscoveryUrl sets the DiscoveryUrl field's value.
+func (s *CreateWorkloadPoolOutput) SetDiscoveryUrl(v string) *CreateWorkloadPoolOutput {
+	s.DiscoveryUrl = &v
 	return s
 }
 

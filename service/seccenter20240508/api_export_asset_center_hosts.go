@@ -162,6 +162,8 @@ type ConditionsForExportAssetCenterHostsInput struct {
 
 	LeafGroupIDs []*string `type:"list" json:",omitempty"`
 
+	Os *string `type:"string" json:",omitempty"`
+
 	Platforms []*string `type:"list" json:",omitempty"`
 
 	ProxyName *string `type:"string" json:",omitempty"`
@@ -242,6 +244,12 @@ func (s *ConditionsForExportAssetCenterHostsInput) SetIp(v string) *ConditionsFo
 // SetLeafGroupIDs sets the LeafGroupIDs field's value.
 func (s *ConditionsForExportAssetCenterHostsInput) SetLeafGroupIDs(v []*string) *ConditionsForExportAssetCenterHostsInput {
 	s.LeafGroupIDs = v
+	return s
+}
+
+// SetOs sets the Os field's value.
+func (s *ConditionsForExportAssetCenterHostsInput) SetOs(v string) *ConditionsForExportAssetCenterHostsInput {
+	s.Os = &v
 	return s
 }
 
@@ -378,6 +386,8 @@ type RiskForExportAssetCenterHostsInput struct {
 
 	Baseline *bool `type:"boolean" json:",omitempty"`
 
+	IsRealRiskVul *bool `type:"boolean" json:",omitempty"`
+
 	Virus *bool `type:"boolean" json:",omitempty"`
 
 	Vuln *bool `type:"boolean" json:",omitempty"`
@@ -402,6 +412,12 @@ func (s *RiskForExportAssetCenterHostsInput) SetAlarm(v bool) *RiskForExportAsse
 // SetBaseline sets the Baseline field's value.
 func (s *RiskForExportAssetCenterHostsInput) SetBaseline(v bool) *RiskForExportAssetCenterHostsInput {
 	s.Baseline = &v
+	return s
+}
+
+// SetIsRealRiskVul sets the IsRealRiskVul field's value.
+func (s *RiskForExportAssetCenterHostsInput) SetIsRealRiskVul(v bool) *RiskForExportAssetCenterHostsInput {
+	s.IsRealRiskVul = &v
 	return s
 }
 

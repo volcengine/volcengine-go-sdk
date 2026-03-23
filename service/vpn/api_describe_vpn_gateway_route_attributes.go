@@ -144,7 +144,7 @@ type AsPathForDescribeVpnGatewayRouteAttributesOutput struct {
 
 	Numbers []*int64 `type:"list"`
 
-	Type *string `type:"string" enum:"TypeForDescribeVpnGatewayRouteAttributesOutput"`
+	Type *string `type:"string"`
 }
 
 // String returns the string representation
@@ -308,11 +308,3 @@ func (s *DescribeVpnGatewayRouteAttributesOutput) SetVpnGatewayRouteId(v string)
 	s.VpnGatewayRouteId = &v
 	return s
 }
-
-const (
-	// TypeForDescribeVpnGatewayRouteAttributesOutputSequence is a TypeForDescribeVpnGatewayRouteAttributesOutput enum value
-	TypeForDescribeVpnGatewayRouteAttributesOutputSequence = "Sequence"
-
-	// TypeForDescribeVpnGatewayRouteAttributesOutputSet is a TypeForDescribeVpnGatewayRouteAttributesOutput enum value
-	TypeForDescribeVpnGatewayRouteAttributesOutputSet = " Set"
-)

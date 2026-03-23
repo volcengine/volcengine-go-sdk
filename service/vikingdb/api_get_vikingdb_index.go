@@ -143,20 +143,6 @@ func (c *VIKINGDB) GetVikingdbIndexWithContext(ctx volcengine.Context, input *Ge
 	return out, req.Send()
 }
 
-type DefaultValueForGetVikingdbIndexOutput struct {
-	_ struct{} `type:"structure" json:",omitempty"`
-}
-
-// String returns the string representation
-func (s DefaultValueForGetVikingdbIndexOutput) String() string {
-	return volcengineutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s DefaultValueForGetVikingdbIndexOutput) GoString() string {
-	return s.String()
-}
-
 type GetVikingdbIndexInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -332,7 +318,7 @@ func (s *GetVikingdbIndexOutput) SetVectorIndex(v *VectorIndexForGetVikingdbInde
 type ScalarIndexForGetVikingdbIndexOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	DefaultValue interface{} `json:",omitempty"`
+	DefaultValue interface{} `type:"interface" json:",omitempty"`
 
 	Dim *int32 `type:"int32" json:",omitempty"`
 
@@ -355,7 +341,7 @@ func (s ScalarIndexForGetVikingdbIndexOutput) GoString() string {
 
 // SetDefaultValue sets the DefaultValue field's value.
 func (s *ScalarIndexForGetVikingdbIndexOutput) SetDefaultValue(v interface{}) *ScalarIndexForGetVikingdbIndexOutput {
-	s.DefaultValue = v
+	s.DefaultValue = &v
 	return s
 }
 

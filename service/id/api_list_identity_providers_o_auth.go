@@ -143,10 +143,88 @@ func (c *ID) ListIdentityProvidersOAuthWithContext(ctx volcengine.Context, input
 	return out, req.Send()
 }
 
+type ClaimRuleForListIdentityProvidersOAuthOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	ClaimType *string `type:"string" json:",omitempty"`
+
+	Required *bool `type:"boolean" json:",omitempty"`
+
+	SourceClaimPath *string `type:"string" json:",omitempty"`
+
+	TargetClaim *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s ClaimRuleForListIdentityProvidersOAuthOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ClaimRuleForListIdentityProvidersOAuthOutput) GoString() string {
+	return s.String()
+}
+
+// SetClaimType sets the ClaimType field's value.
+func (s *ClaimRuleForListIdentityProvidersOAuthOutput) SetClaimType(v string) *ClaimRuleForListIdentityProvidersOAuthOutput {
+	s.ClaimType = &v
+	return s
+}
+
+// SetRequired sets the Required field's value.
+func (s *ClaimRuleForListIdentityProvidersOAuthOutput) SetRequired(v bool) *ClaimRuleForListIdentityProvidersOAuthOutput {
+	s.Required = &v
+	return s
+}
+
+// SetSourceClaimPath sets the SourceClaimPath field's value.
+func (s *ClaimRuleForListIdentityProvidersOAuthOutput) SetSourceClaimPath(v string) *ClaimRuleForListIdentityProvidersOAuthOutput {
+	s.SourceClaimPath = &v
+	return s
+}
+
+// SetTargetClaim sets the TargetClaim field's value.
+func (s *ClaimRuleForListIdentityProvidersOAuthOutput) SetTargetClaim(v string) *ClaimRuleForListIdentityProvidersOAuthOutput {
+	s.TargetClaim = &v
+	return s
+}
+
+type ClaimsPropagationConfigForListIdentityProvidersOAuthOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	ClaimRules []*ClaimRuleForListIdentityProvidersOAuthOutput `type:"list" json:",omitempty"`
+
+	Mode *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s ClaimsPropagationConfigForListIdentityProvidersOAuthOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ClaimsPropagationConfigForListIdentityProvidersOAuthOutput) GoString() string {
+	return s.String()
+}
+
+// SetClaimRules sets the ClaimRules field's value.
+func (s *ClaimsPropagationConfigForListIdentityProvidersOAuthOutput) SetClaimRules(v []*ClaimRuleForListIdentityProvidersOAuthOutput) *ClaimsPropagationConfigForListIdentityProvidersOAuthOutput {
+	s.ClaimRules = v
+	return s
+}
+
+// SetMode sets the Mode field's value.
+func (s *ClaimsPropagationConfigForListIdentityProvidersOAuthOutput) SetMode(v string) *ClaimsPropagationConfigForListIdentityProvidersOAuthOutput {
+	s.Mode = &v
+	return s
+}
+
 type DataForListIdentityProvidersOAuthOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
 	AuthorizationEndpoint *string `type:"string" json:",omitempty"`
+
+	ClaimsPropagationConfig *ClaimsPropagationConfigForListIdentityProvidersOAuthOutput `type:"structure" json:",omitempty"`
 
 	ClientId *string `type:"string" json:",omitempty"`
 
@@ -186,6 +264,12 @@ func (s DataForListIdentityProvidersOAuthOutput) GoString() string {
 // SetAuthorizationEndpoint sets the AuthorizationEndpoint field's value.
 func (s *DataForListIdentityProvidersOAuthOutput) SetAuthorizationEndpoint(v string) *DataForListIdentityProvidersOAuthOutput {
 	s.AuthorizationEndpoint = &v
+	return s
+}
+
+// SetClaimsPropagationConfig sets the ClaimsPropagationConfig field's value.
+func (s *DataForListIdentityProvidersOAuthOutput) SetClaimsPropagationConfig(v *ClaimsPropagationConfigForListIdentityProvidersOAuthOutput) *DataForListIdentityProvidersOAuthOutput {
+	s.ClaimsPropagationConfig = v
 	return s
 }
 

@@ -148,7 +148,7 @@ type DetectVulnInput struct {
 
 	AssetIDs []*string `type:"list" json:",omitempty"`
 
-	AssetType *string `type:"string" json:",omitempty" enum:"EnumOfAssetTypeForDetectVulnInput"`
+	AssetType *string `type:"string" json:",omitempty"`
 
 	HostList []*string `type:"list" json:",omitempty"`
 
@@ -246,6 +246,8 @@ type ScanTypeForDetectVulnInput struct {
 
 	DevPy *bool `type:"boolean" json:",omitempty"`
 
+	Emg *bool `type:"boolean" json:",omitempty"`
+
 	Linux *bool `type:"boolean" json:",omitempty"`
 
 	Webcms *bool `type:"boolean" json:",omitempty"`
@@ -281,6 +283,12 @@ func (s *ScanTypeForDetectVulnInput) SetDevPy(v bool) *ScanTypeForDetectVulnInpu
 	return s
 }
 
+// SetEmg sets the Emg field's value.
+func (s *ScanTypeForDetectVulnInput) SetEmg(v bool) *ScanTypeForDetectVulnInput {
+	s.Emg = &v
+	return s
+}
+
 // SetLinux sets the Linux field's value.
 func (s *ScanTypeForDetectVulnInput) SetLinux(v bool) *ScanTypeForDetectVulnInput {
 	s.Linux = &v
@@ -298,11 +306,3 @@ func (s *ScanTypeForDetectVulnInput) SetWindows(v bool) *ScanTypeForDetectVulnIn
 	s.Windows = &v
 	return s
 }
-
-const (
-	// EnumOfAssetTypeForDetectVulnInputHost is a EnumOfAssetTypeForDetectVulnInput enum value
-	EnumOfAssetTypeForDetectVulnInputHost = "Host"
-
-	// EnumOfAssetTypeForDetectVulnInputDev is a EnumOfAssetTypeForDetectVulnInput enum value
-	EnumOfAssetTypeForDetectVulnInputDev = "Dev"
-)

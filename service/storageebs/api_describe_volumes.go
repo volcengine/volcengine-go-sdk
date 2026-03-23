@@ -491,9 +491,15 @@ type VolumeForDescribeVolumesOutput struct {
 
 	CreatedAt *string `type:"string"`
 
+	DeleteProtection *bool `type:"boolean"`
+
+	DeleteProtectionRetentionDays *int32 `type:"int32"`
+
 	DeleteWithInstance *bool `type:"boolean"`
 
 	Description *string `type:"string"`
+
+	DetachedTime *string `type:"string"`
 
 	ErrorDetail *string `type:"string"`
 
@@ -586,6 +592,18 @@ func (s *VolumeForDescribeVolumesOutput) SetCreatedAt(v string) *VolumeForDescri
 	return s
 }
 
+// SetDeleteProtection sets the DeleteProtection field's value.
+func (s *VolumeForDescribeVolumesOutput) SetDeleteProtection(v bool) *VolumeForDescribeVolumesOutput {
+	s.DeleteProtection = &v
+	return s
+}
+
+// SetDeleteProtectionRetentionDays sets the DeleteProtectionRetentionDays field's value.
+func (s *VolumeForDescribeVolumesOutput) SetDeleteProtectionRetentionDays(v int32) *VolumeForDescribeVolumesOutput {
+	s.DeleteProtectionRetentionDays = &v
+	return s
+}
+
 // SetDeleteWithInstance sets the DeleteWithInstance field's value.
 func (s *VolumeForDescribeVolumesOutput) SetDeleteWithInstance(v bool) *VolumeForDescribeVolumesOutput {
 	s.DeleteWithInstance = &v
@@ -595,6 +613,12 @@ func (s *VolumeForDescribeVolumesOutput) SetDeleteWithInstance(v bool) *VolumeFo
 // SetDescription sets the Description field's value.
 func (s *VolumeForDescribeVolumesOutput) SetDescription(v string) *VolumeForDescribeVolumesOutput {
 	s.Description = &v
+	return s
+}
+
+// SetDetachedTime sets the DetachedTime field's value.
+func (s *VolumeForDescribeVolumesOutput) SetDetachedTime(v string) *VolumeForDescribeVolumesOutput {
+	s.DetachedTime = &v
 	return s
 }
 

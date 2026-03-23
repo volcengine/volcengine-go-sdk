@@ -143,6 +143,44 @@ func (c *VIKINGDB) ListVikingdbCollectionWithContext(ctx volcengine.Context, inp
 	return out, req.Send()
 }
 
+type AnalyzerForListVikingdbCollectionOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	CharacterConverters []*string `type:"list" json:",omitempty"`
+
+	StopWordsFilters []*string `type:"list" json:",omitempty"`
+
+	Tokenizer *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s AnalyzerForListVikingdbCollectionOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s AnalyzerForListVikingdbCollectionOutput) GoString() string {
+	return s.String()
+}
+
+// SetCharacterConverters sets the CharacterConverters field's value.
+func (s *AnalyzerForListVikingdbCollectionOutput) SetCharacterConverters(v []*string) *AnalyzerForListVikingdbCollectionOutput {
+	s.CharacterConverters = v
+	return s
+}
+
+// SetStopWordsFilters sets the StopWordsFilters field's value.
+func (s *AnalyzerForListVikingdbCollectionOutput) SetStopWordsFilters(v []*string) *AnalyzerForListVikingdbCollectionOutput {
+	s.StopWordsFilters = v
+	return s
+}
+
+// SetTokenizer sets the Tokenizer field's value.
+func (s *AnalyzerForListVikingdbCollectionOutput) SetTokenizer(v string) *AnalyzerForListVikingdbCollectionOutput {
+	s.Tokenizer = &v
+	return s
+}
+
 type CollectionForListVikingdbCollectionOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -157,6 +195,8 @@ type CollectionForListVikingdbCollectionOutput struct {
 	EnableKeywordsSearch *bool `type:"boolean" json:",omitempty"`
 
 	Fields []*FieldForListVikingdbCollectionOutput `type:"list" json:",omitempty"`
+
+	FullText []*FullTextForListVikingdbCollectionOutput `type:"list" json:",omitempty"`
 
 	IndexCount *int32 `type:"int32" json:",omitempty"`
 
@@ -218,6 +258,12 @@ func (s *CollectionForListVikingdbCollectionOutput) SetEnableKeywordsSearch(v bo
 // SetFields sets the Fields field's value.
 func (s *CollectionForListVikingdbCollectionOutput) SetFields(v []*FieldForListVikingdbCollectionOutput) *CollectionForListVikingdbCollectionOutput {
 	s.Fields = v
+	return s
+}
+
+// SetFullText sets the FullText field's value.
+func (s *CollectionForListVikingdbCollectionOutput) SetFullText(v []*FullTextForListVikingdbCollectionOutput) *CollectionForListVikingdbCollectionOutput {
+	s.FullText = v
 	return s
 }
 
@@ -298,22 +344,6 @@ func (s *CollectionStatsForListVikingdbCollectionOutput) SetDataStorage(v int64)
 	s.DataStorage = &v
 	return s
 }
-
-/*
-type DefaultValueForListVikingdbCollectionOutput struct {
-    _ struct{} `type:"structure" json:",omitempty"`
-}
-
-// String returns the string representation
-func (s DefaultValueForListVikingdbCollectionOutput) String() string {
-    return volcengineutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s DefaultValueForListVikingdbCollectionOutput) GoString() string {
-    return s.String()
-}
-*/
 
 type DenseForListVikingdbCollectionOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
@@ -412,7 +442,7 @@ func (s *DenseForListVikingdbCollectionOutput) SetVideoField(v string) *DenseFor
 type FieldForListVikingdbCollectionOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	DefaultValue interface{} `json:",omitempty"`
+	DefaultValue interface{} `type:"interface" json:",omitempty"`
 
 	Dim *int32 `type:"int32" json:",omitempty"`
 
@@ -435,8 +465,8 @@ func (s FieldForListVikingdbCollectionOutput) GoString() string {
 
 // SetDefaultValue sets the DefaultValue field's value.
 func (s *FieldForListVikingdbCollectionOutput) SetDefaultValue(v interface{}) *FieldForListVikingdbCollectionOutput {
-    s.DefaultValue = v
-    return s
+	s.DefaultValue = &v
+	return s
 }
 
 // SetDim sets the Dim field's value.
@@ -482,6 +512,36 @@ func (s FilterForListVikingdbCollectionInput) GoString() string {
 // SetCollectionNameKeyword sets the CollectionNameKeyword field's value.
 func (s *FilterForListVikingdbCollectionInput) SetCollectionNameKeyword(v string) *FilterForListVikingdbCollectionInput {
 	s.CollectionNameKeyword = &v
+	return s
+}
+
+type FullTextForListVikingdbCollectionOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Analyzer *AnalyzerForListVikingdbCollectionOutput `type:"structure" json:",omitempty"`
+
+	Field *string `min:"1" type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s FullTextForListVikingdbCollectionOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s FullTextForListVikingdbCollectionOutput) GoString() string {
+	return s.String()
+}
+
+// SetAnalyzer sets the Analyzer field's value.
+func (s *FullTextForListVikingdbCollectionOutput) SetAnalyzer(v *AnalyzerForListVikingdbCollectionOutput) *FullTextForListVikingdbCollectionOutput {
+	s.Analyzer = v
+	return s
+}
+
+// SetField sets the Field field's value.
+func (s *FullTextForListVikingdbCollectionOutput) SetField(v string) *FullTextForListVikingdbCollectionOutput {
+	s.Field = &v
 	return s
 }
 

@@ -143,14 +143,6 @@ func (c *VIKINGDB) GetVikingdbTaskWithContext(ctx volcengine.Context, input *Get
 	return out, req.Send()
 }
 
-/*
-type FilterCondForGetVikingdbTaskOutput struct {
-    _ struct{} `type:"structure" json:",omitempty"`
-}
-func (s FilterCondForGetVikingdbTaskOutput) String() string { return volcengineutil.Prettify(s) }
-func (s FilterCondForGetVikingdbTaskOutput) GoString() string { return s.String() }
-*/
-
 type GetVikingdbTaskInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -267,14 +259,6 @@ func (s *GetVikingdbTaskOutput) SetUpdateTime(v string) *GetVikingdbTaskOutput {
 	return s
 }
 
-/*
-type SampleDataForGetVikingdbTaskOutput struct {
-    _ struct{} `type:"structure" json:",omitempty"`
-}
-func (s SampleDataForGetVikingdbTaskOutput) String() string { return volcengineutil.Prettify(s) }
-func (s SampleDataForGetVikingdbTaskOutput) GoString() string { return s.String() }
-*/
-
 type TaskConfigForGetVikingdbTaskOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -296,7 +280,7 @@ type TaskConfigForGetVikingdbTaskOutput struct {
 
 	TosPath *string `type:"string" json:",omitempty"`
 
-	UpdateFields interface{} `json:",omitempty"`
+	UpdateFields interface{} `type:"interface" json:",omitempty"`
 
 	UsePublic *bool `type:"boolean" json:",omitempty"`
 }
@@ -331,8 +315,8 @@ func (s *TaskConfigForGetVikingdbTaskOutput) SetFileType(v string) *TaskConfigFo
 
 // SetFilterConds sets the FilterConds field's value.
 func (s *TaskConfigForGetVikingdbTaskOutput) SetFilterConds(v []interface{}) *TaskConfigForGetVikingdbTaskOutput {
-    s.FilterConds = v
-    return s
+	s.FilterConds = v
+	return s
 }
 
 // SetIgnoreError sets the IgnoreError field's value.
@@ -367,8 +351,8 @@ func (s *TaskConfigForGetVikingdbTaskOutput) SetTosPath(v string) *TaskConfigFor
 
 // SetUpdateFields sets the UpdateFields field's value.
 func (s *TaskConfigForGetVikingdbTaskOutput) SetUpdateFields(v interface{}) *TaskConfigForGetVikingdbTaskOutput {
-    s.UpdateFields = v
-    return s
+	s.UpdateFields = &v
+	return s
 }
 
 // SetUsePublic sets the UsePublic field's value.
@@ -413,8 +397,8 @@ func (s *TaskProcessInfoForGetVikingdbTaskOutput) SetErrorMessage(v string) *Tas
 
 // SetSampleData sets the SampleData field's value.
 func (s *TaskProcessInfoForGetVikingdbTaskOutput) SetSampleData(v []interface{}) *TaskProcessInfoForGetVikingdbTaskOutput {
-    s.SampleData = v
-    return s
+	s.SampleData = v
+	return s
 }
 
 // SetSampleTimestamp sets the SampleTimestamp field's value.
@@ -446,22 +430,6 @@ func (s *TaskProcessInfoForGetVikingdbTaskOutput) SetTotalFilterCount(v int64) *
 	s.TotalFilterCount = &v
 	return s
 }
-
-/*
-type UpdateFieldsForGetVikingdbTaskOutput struct {
-	_ struct{} `type:"structure" json:",omitempty"`
-}
-
-// String returns the string representation
-func (s UpdateFieldsForGetVikingdbTaskOutput) String() string {
-	return volcengineutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s UpdateFieldsForGetVikingdbTaskOutput) GoString() string {
-	return s.String()
-}
-*/
 
 const (
 	// EnumOfFileTypeForGetVikingdbTaskOutputParquet is a EnumOfFileTypeForGetVikingdbTaskOutput enum value

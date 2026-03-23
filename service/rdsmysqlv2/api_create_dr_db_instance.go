@@ -148,6 +148,8 @@ type AutoStorageScalingConfigForCreateDrDBInstanceInput struct {
 
 	EnableStorageAutoScale *bool `type:"boolean" json:",omitempty"`
 
+	ScalingDetectNode *string `type:"string" json:",omitempty"`
+
 	StorageThreshold *int32 `type:"int32" json:",omitempty"`
 
 	StorageUpperBound *int32 `type:"int32" json:",omitempty"`
@@ -166,6 +168,12 @@ func (s AutoStorageScalingConfigForCreateDrDBInstanceInput) GoString() string {
 // SetEnableStorageAutoScale sets the EnableStorageAutoScale field's value.
 func (s *AutoStorageScalingConfigForCreateDrDBInstanceInput) SetEnableStorageAutoScale(v bool) *AutoStorageScalingConfigForCreateDrDBInstanceInput {
 	s.EnableStorageAutoScale = &v
+	return s
+}
+
+// SetScalingDetectNode sets the ScalingDetectNode field's value.
+func (s *AutoStorageScalingConfigForCreateDrDBInstanceInput) SetScalingDetectNode(v string) *AutoStorageScalingConfigForCreateDrDBInstanceInput {
+	s.ScalingDetectNode = &v
 	return s
 }
 
@@ -197,6 +205,8 @@ type CreateDrDBInstanceInput struct {
 	MasterRegion *string `type:"string" json:",omitempty" required:"true"`
 
 	NodeInfo []*NodeInfoForCreateDrDBInstanceInput `type:"list" json:",omitempty"`
+
+	PrivateIpAddress *string `type:"string" json:",omitempty"`
 
 	ProxyNodeCustom *ProxyNodeCustomForCreateDrDBInstanceInput `type:"structure" json:",omitempty"`
 
@@ -280,6 +290,12 @@ func (s *CreateDrDBInstanceInput) SetMasterRegion(v string) *CreateDrDBInstanceI
 // SetNodeInfo sets the NodeInfo field's value.
 func (s *CreateDrDBInstanceInput) SetNodeInfo(v []*NodeInfoForCreateDrDBInstanceInput) *CreateDrDBInstanceInput {
 	s.NodeInfo = v
+	return s
+}
+
+// SetPrivateIpAddress sets the PrivateIpAddress field's value.
+func (s *CreateDrDBInstanceInput) SetPrivateIpAddress(v string) *CreateDrDBInstanceInput {
+	s.PrivateIpAddress = &v
 	return s
 }
 

@@ -176,8 +176,7 @@ func (s *LineListForListNodesOutput) SetName(v string) *LineListForListNodesOutp
 type ListNodesInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	// IsMainland is a required field
-	IsMainland *bool `type:"boolean" json:",omitempty" required:"true"`
+	IsMainland *bool `type:"boolean" json:",omitempty"`
 
 	LineType []*int32 `type:"list" json:",omitempty"`
 
@@ -192,19 +191,6 @@ func (s ListNodesInput) String() string {
 // GoString returns the string representation
 func (s ListNodesInput) GoString() string {
 	return s.String()
-}
-
-// Validate inspects the fields of the type to determine if they are valid.
-func (s *ListNodesInput) Validate() error {
-	invalidParams := request.ErrInvalidParams{Context: "ListNodesInput"}
-	if s.IsMainland == nil {
-		invalidParams.Add(request.NewErrParamRequired("IsMainland"))
-	}
-
-	if invalidParams.Len() > 0 {
-		return invalidParams
-	}
-	return nil
 }
 
 // SetIsMainland sets the IsMainland field's value.

@@ -790,8 +790,6 @@ func (s *TagForAllocateInstancesInput) SetValue(v string) *TagForAllocateInstanc
 type VolumeForAllocateInstancesInput struct {
 	_ struct{} `type:"structure"`
 
-	DeleteWithInstance *string `type:"string"`
-
 	ExtraPerformanceIOPS *int32 `type:"int32"`
 
 	ExtraPerformanceThroughputMB *int32 `type:"int32"`
@@ -827,12 +825,6 @@ func (s *VolumeForAllocateInstancesInput) Validate() error {
 		return invalidParams
 	}
 	return nil
-}
-
-// SetDeleteWithInstance sets the DeleteWithInstance field's value.
-func (s *VolumeForAllocateInstancesInput) SetDeleteWithInstance(v string) *VolumeForAllocateInstancesInput {
-	s.DeleteWithInstance = &v
-	return s
 }
 
 // SetExtraPerformanceIOPS sets the ExtraPerformanceIOPS field's value.

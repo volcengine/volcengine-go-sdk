@@ -156,6 +156,8 @@ type DataFlowTaskForDescribeDataFlowTasksOutput struct {
 
 	DataType *string `type:"string" json:",omitempty" enum:"EnumOfDataTypeForDescribeDataFlowTasksOutput"`
 
+	DeletePolicy *DeletePolicyForDescribeDataFlowTasksOutput `type:"structure" json:",omitempty"`
+
 	EndTime *string `type:"string" json:",omitempty"`
 
 	EntryListFileInfo *EntryListFileInfoForDescribeDataFlowTasksOutput `type:"structure" json:",omitempty"`
@@ -189,6 +191,8 @@ type DataFlowTaskForDescribeDataFlowTasksOutput struct {
 	SubPath *string `type:"string" json:",omitempty"`
 
 	TaskAction *string `type:"string" json:",omitempty" enum:"EnumOfTaskActionForDescribeDataFlowTasksOutput"`
+
+	TlsInfo *TlsInfoForDescribeDataFlowTasksOutput `type:"structure" json:",omitempty"`
 
 	TotalSize *string `type:"string" json:",omitempty"`
 
@@ -232,6 +236,12 @@ func (s *DataFlowTaskForDescribeDataFlowTasksOutput) SetDataStoragePath(v string
 // SetDataType sets the DataType field's value.
 func (s *DataFlowTaskForDescribeDataFlowTasksOutput) SetDataType(v string) *DataFlowTaskForDescribeDataFlowTasksOutput {
 	s.DataType = &v
+	return s
+}
+
+// SetDeletePolicy sets the DeletePolicy field's value.
+func (s *DataFlowTaskForDescribeDataFlowTasksOutput) SetDeletePolicy(v *DeletePolicyForDescribeDataFlowTasksOutput) *DataFlowTaskForDescribeDataFlowTasksOutput {
+	s.DeletePolicy = v
 	return s
 }
 
@@ -337,6 +347,12 @@ func (s *DataFlowTaskForDescribeDataFlowTasksOutput) SetTaskAction(v string) *Da
 	return s
 }
 
+// SetTlsInfo sets the TlsInfo field's value.
+func (s *DataFlowTaskForDescribeDataFlowTasksOutput) SetTlsInfo(v *TlsInfoForDescribeDataFlowTasksOutput) *DataFlowTaskForDescribeDataFlowTasksOutput {
+	s.TlsInfo = v
+	return s
+}
+
 // SetTotalSize sets the TotalSize field's value.
 func (s *DataFlowTaskForDescribeDataFlowTasksOutput) SetTotalSize(v string) *DataFlowTaskForDescribeDataFlowTasksOutput {
 	s.TotalSize = &v
@@ -346,6 +362,36 @@ func (s *DataFlowTaskForDescribeDataFlowTasksOutput) SetTotalSize(v string) *Dat
 // SetUpdateTime sets the UpdateTime field's value.
 func (s *DataFlowTaskForDescribeDataFlowTasksOutput) SetUpdateTime(v string) *DataFlowTaskForDescribeDataFlowTasksOutput {
 	s.UpdateTime = &v
+	return s
+}
+
+type DeletePolicyForDescribeDataFlowTasksOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	DeleteTimeBefore *string `type:"string" json:",omitempty"`
+
+	Rule *string `type:"string" json:",omitempty" enum:"EnumOfRuleForDescribeDataFlowTasksOutput"`
+}
+
+// String returns the string representation
+func (s DeletePolicyForDescribeDataFlowTasksOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DeletePolicyForDescribeDataFlowTasksOutput) GoString() string {
+	return s.String()
+}
+
+// SetDeleteTimeBefore sets the DeleteTimeBefore field's value.
+func (s *DeletePolicyForDescribeDataFlowTasksOutput) SetDeleteTimeBefore(v string) *DeletePolicyForDescribeDataFlowTasksOutput {
+	s.DeleteTimeBefore = &v
+	return s
+}
+
+// SetRule sets the Rule field's value.
+func (s *DeletePolicyForDescribeDataFlowTasksOutput) SetRule(v string) *DeletePolicyForDescribeDataFlowTasksOutput {
+	s.Rule = &v
 	return s
 }
 
@@ -541,6 +587,84 @@ func (s *ReportForDescribeDataFlowTasksOutput) SetType(v string) *ReportForDescr
 	return s
 }
 
+type TlsInfoForDescribeDataFlowTasksOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Enable *bool `type:"boolean" json:",omitempty"`
+
+	ProjectId *string `type:"string" json:",omitempty"`
+
+	ProjectName *string `type:"string" json:",omitempty"`
+
+	ProjectUrl *string `type:"string" json:",omitempty"`
+
+	TopicEmbeddedUrl *string `type:"string" json:",omitempty"`
+
+	TopicId *string `type:"string" json:",omitempty"`
+
+	TopicName *string `type:"string" json:",omitempty"`
+
+	TopicUrl *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s TlsInfoForDescribeDataFlowTasksOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TlsInfoForDescribeDataFlowTasksOutput) GoString() string {
+	return s.String()
+}
+
+// SetEnable sets the Enable field's value.
+func (s *TlsInfoForDescribeDataFlowTasksOutput) SetEnable(v bool) *TlsInfoForDescribeDataFlowTasksOutput {
+	s.Enable = &v
+	return s
+}
+
+// SetProjectId sets the ProjectId field's value.
+func (s *TlsInfoForDescribeDataFlowTasksOutput) SetProjectId(v string) *TlsInfoForDescribeDataFlowTasksOutput {
+	s.ProjectId = &v
+	return s
+}
+
+// SetProjectName sets the ProjectName field's value.
+func (s *TlsInfoForDescribeDataFlowTasksOutput) SetProjectName(v string) *TlsInfoForDescribeDataFlowTasksOutput {
+	s.ProjectName = &v
+	return s
+}
+
+// SetProjectUrl sets the ProjectUrl field's value.
+func (s *TlsInfoForDescribeDataFlowTasksOutput) SetProjectUrl(v string) *TlsInfoForDescribeDataFlowTasksOutput {
+	s.ProjectUrl = &v
+	return s
+}
+
+// SetTopicEmbeddedUrl sets the TopicEmbeddedUrl field's value.
+func (s *TlsInfoForDescribeDataFlowTasksOutput) SetTopicEmbeddedUrl(v string) *TlsInfoForDescribeDataFlowTasksOutput {
+	s.TopicEmbeddedUrl = &v
+	return s
+}
+
+// SetTopicId sets the TopicId field's value.
+func (s *TlsInfoForDescribeDataFlowTasksOutput) SetTopicId(v string) *TlsInfoForDescribeDataFlowTasksOutput {
+	s.TopicId = &v
+	return s
+}
+
+// SetTopicName sets the TopicName field's value.
+func (s *TlsInfoForDescribeDataFlowTasksOutput) SetTopicName(v string) *TlsInfoForDescribeDataFlowTasksOutput {
+	s.TopicName = &v
+	return s
+}
+
+// SetTopicUrl sets the TopicUrl field's value.
+func (s *TlsInfoForDescribeDataFlowTasksOutput) SetTopicUrl(v string) *TlsInfoForDescribeDataFlowTasksOutput {
+	s.TopicUrl = &v
+	return s
+}
+
 const (
 	// EnumOfDataTypeForDescribeDataFlowTasksOutputMetadata is a EnumOfDataTypeForDescribeDataFlowTasksOutput enum value
 	EnumOfDataTypeForDescribeDataFlowTasksOutputMetadata = "Metadata"
@@ -555,6 +679,17 @@ const (
 
 	// EnumOfExportSymlinkPolicyForDescribeDataFlowTasksOutputNormalFile is a EnumOfExportSymlinkPolicyForDescribeDataFlowTasksOutput enum value
 	EnumOfExportSymlinkPolicyForDescribeDataFlowTasksOutputNormalFile = "NormalFile"
+)
+
+const (
+	// EnumOfRuleForDescribeDataFlowTasksOutputDeleteTypeOnlyFs is a EnumOfRuleForDescribeDataFlowTasksOutput enum value
+	EnumOfRuleForDescribeDataFlowTasksOutputDeleteTypeOnlyFs = "DELETE_TYPE_ONLY_FS"
+
+	// EnumOfRuleForDescribeDataFlowTasksOutputDeleteTypeFsWithLatestObject is a EnumOfRuleForDescribeDataFlowTasksOutput enum value
+	EnumOfRuleForDescribeDataFlowTasksOutputDeleteTypeFsWithLatestObject = "DELETE_TYPE_FS_WITH_LATEST_OBJECT"
+
+	// EnumOfRuleForDescribeDataFlowTasksOutputDeleteTypeFsWithAllversionObject is a EnumOfRuleForDescribeDataFlowTasksOutput enum value
+	EnumOfRuleForDescribeDataFlowTasksOutputDeleteTypeFsWithAllversionObject = "DELETE_TYPE_FS_WITH_ALLVERSION_OBJECT"
 )
 
 const (

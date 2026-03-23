@@ -146,8 +146,7 @@ func (c *SECCENTER20240508) StopMLPAssetSyncTaskWithContext(ctx volcengine.Conte
 type StopMLPAssetSyncTaskInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	// TaskID is a required field
-	TaskID *string `type:"string" json:",omitempty" required:"true"`
+	TaskID *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -158,19 +157,6 @@ func (s StopMLPAssetSyncTaskInput) String() string {
 // GoString returns the string representation
 func (s StopMLPAssetSyncTaskInput) GoString() string {
 	return s.String()
-}
-
-// Validate inspects the fields of the type to determine if they are valid.
-func (s *StopMLPAssetSyncTaskInput) Validate() error {
-	invalidParams := request.ErrInvalidParams{Context: "StopMLPAssetSyncTaskInput"}
-	if s.TaskID == nil {
-		invalidParams.Add(request.NewErrParamRequired("TaskID"))
-	}
-
-	if invalidParams.Len() > 0 {
-		return invalidParams
-	}
-	return nil
 }
 
 // SetTaskID sets the TaskID field's value.

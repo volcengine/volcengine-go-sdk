@@ -3,6 +3,8 @@
 package vpn
 
 import (
+	"fmt"
+
 	"github.com/volcengine/volcengine-go-sdk/volcengine"
 	"github.com/volcengine/volcengine-go-sdk/volcengine/request"
 	"github.com/volcengine/volcengine-go-sdk/volcengine/response"
@@ -163,7 +165,7 @@ type CreateVpnGatewayInput struct {
 
 	Period *int64 `type:"integer"`
 
-	PeriodUnit *string `type:"string"`
+	PeriodUnit *string `type:"string" enum:"PeriodUnitForCreateVpnGatewayInput"`
 
 	ProjectName *string `type:"string"`
 
@@ -205,6 +207,16 @@ func (s *CreateVpnGatewayInput) Validate() error {
 	}
 	if s.VpcId == nil {
 		invalidParams.Add(request.NewErrParamRequired("VpcId"))
+	}
+	if s.Tags != nil {
+		for i, v := range s.Tags {
+			if v == nil {
+				continue
+			}
+			if err := v.Validate(); err != nil {
+				invalidParams.AddNested(fmt.Sprintf("%s[%v]", "Tags", i), err.(request.ErrInvalidParams))
+			}
+		}
 	}
 
 	if invalidParams.Len() > 0 {
@@ -372,7 +384,8 @@ type TagForCreateVpnGatewayInput struct {
 
 	Key *string `type:"string"`
 
-	Value *string `type:"string"`
+	// Value is a required field
+	Value *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -383,6 +396,19 @@ func (s TagForCreateVpnGatewayInput) String() string {
 // GoString returns the string representation
 func (s TagForCreateVpnGatewayInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *TagForCreateVpnGatewayInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "TagForCreateVpnGatewayInput"}
+	if s.Value == nil {
+		invalidParams.Add(request.NewErrParamRequired("Value"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetKey sets the Key field's value.
@@ -396,3 +422,11 @@ func (s *TagForCreateVpnGatewayInput) SetValue(v string) *TagForCreateVpnGateway
 	s.Value = &v
 	return s
 }
+
+const (
+	// PeriodUnitForCreateVpnGatewayInputMonth is a PeriodUnitForCreateVpnGatewayInput enum value
+	PeriodUnitForCreateVpnGatewayInputMonth = "Month"
+
+	// PeriodUnitForCreateVpnGatewayInputYear is a PeriodUnitForCreateVpnGatewayInput enum value
+	PeriodUnitForCreateVpnGatewayInputYear = "Year"
+)
