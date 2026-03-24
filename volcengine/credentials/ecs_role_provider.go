@@ -15,33 +15,27 @@ import (
 // EcsRoleProviderName provides a name of EcsRole provider.
 const EcsRoleProviderName = "EcsRoleProvider"
 
-// TODO: Confirm with ECS team and replace placeholders.
 const (
-	// imdsEndpoint is the IMDS endpoint address. Pending confirmation from ECS team.
-	imdsEndpoint = "http://100.96.0.96"
+	// IMDSv2 endpoint and paths
+	imdsEndpoint      = "http://100.96.0.96"
+	imdsRoleCredsPath = "/volcstack/latest/iam/security_credentials/%s"        // POST
+	imdsRoleNamePath  = "/volcstack/latest/iam/security_credentials?type=user" // GET
+	imdsTokenPath     = "/latest/api/token"                                    // GET
 
-	// imdsRoleCredsPath is the path template to get STS credentials for a role.
-	// Use fmt.Sprintf with roleName.
-	imdsRoleCredsPath = "/volcstack/latest/iam/security_credentials/%s"
+	// IMDSv2 headers
+	imdsTokenTTLHeader  = "X-volc-ecs-metadata-token-ttl-seconds"
+	imdsTokenHeader     = "X-volc-ecs-metadata-token"
+	imdsTokenTTLSeconds = "21600" // 6 hours
 
-	// imdsDefaultConnectTimeout is the default connect timeout for IMDS requests.
+	// Defaults
 	imdsDefaultConnectTimeout = 1 * time.Second
-
-	// imdsDefaultReadTimeout is the default read timeout for IMDS requests.
-	imdsDefaultReadTimeout = 1 * time.Second
-
-	// imdsDefaultMaxRetries is the default max retries for IMDS requests.
-	imdsDefaultMaxRetries = 3
-
-	// imdsDefaultRetryInterval is the default retry interval.
-	imdsDefaultRetryInterval = 1 * time.Second
-
-	// imdsDefaultExpiryWindow is the default expiry window.
-	imdsDefaultExpiryWindow = 5 * time.Minute
+	imdsDefaultReadTimeout    = 1 * time.Second
+	imdsDefaultMaxRetries     = 3
+	imdsDefaultRetryInterval  = 1 * time.Second
+	imdsDefaultExpiryWindow   = 5 * time.Minute
 )
 
 // imdsCredentialResponse represents the JSON response from the IMDS credential endpoint.
-// TODO: Confirm exact field names with ECS team.
 type imdsCredentialResponse struct {
 	AccessKeyID     string `json:"AccessKeyId"`
 	SecretAccessKey string `json:"SecretAccessKey"`
@@ -49,20 +43,24 @@ type imdsCredentialResponse struct {
 	Expiration      string `json:"ExpiredTime"`
 }
 
-// EcsRoleProvider retrieves credentials from the ECS Instance Metadata Service (IMDS).
+// EcsRoleProvider retrieves credentials from the ECS Instance Metadata Service (IMDSv2).
+//
+// Flow:
+//  1. GET IMDSv2 token (fresh every time, not cached)
+//  2. Resolve roleName: param > env > auto-detect from IMDS
+//  3. POST to get STS credentials with token header
 type EcsRoleProvider struct {
 	Expiry
 
-	// RoleName is the IAM role name. If empty, it is resolved from the env var
-	// VOLCENGINE_ECS_METADATA. If neither is set, an error is returned.
+	// RoleName is the IAM role name. If empty, resolved from env or auto-detected.
 	RoleName string
 
 	// ExpiryWindow will allow the credentials to trigger refreshing prior to
 	// the credentials actually expiring.
 	ExpiryWindow time.Duration
 
-	httpClient *http.Client
-	maxRetries int
+	httpClient    *http.Client
+	maxRetries    int
 	retryInterval time.Duration
 }
 
@@ -85,7 +83,7 @@ func NewEcsRoleCredentials(roleName string) *Credentials {
 	return NewCredentials(NewEcsRoleProvider(roleName))
 }
 
-// Retrieve retrieves ECS role credentials from IMDS.
+// Retrieve retrieves ECS role credentials from IMDS via IMDSv2.
 func (p *EcsRoleProvider) Retrieve() (Value, error) {
 	if isIMDSDisabled() {
 		return Value{ProviderName: EcsRoleProviderName},
@@ -93,12 +91,20 @@ func (p *EcsRoleProvider) Retrieve() (Value, error) {
 				"IMDS credential retrieval is disabled via VOLCENGINE_ECS_METADATA_DISABLED=true", nil)
 	}
 
-	roleName, err := p.resolveRoleName()
+	// Step 1: Get IMDSv2 token (fresh every time)
+	token, err := p.getIMDSv2Token()
 	if err != nil {
 		return Value{ProviderName: EcsRoleProviderName}, err
 	}
 
-	creds, err := p.getCredentials(roleName)
+	// Step 2: Resolve role name
+	roleName, err := p.resolveRoleName(token)
+	if err != nil {
+		return Value{ProviderName: EcsRoleProviderName}, err
+	}
+
+	// Step 3: POST to get credentials
+	creds, err := p.getCredentials(roleName, token)
 	if err != nil {
 		return Value{ProviderName: EcsRoleProviderName}, err
 	}
@@ -130,9 +136,26 @@ func isIMDSDisabled() bool {
 	return strings.EqualFold(v, "true")
 }
 
-// resolveRoleName determines the role name from: parameter > env var.
-// If neither is set, returns an error (no auto-detect from IMDS).
-func (p *EcsRoleProvider) resolveRoleName() (string, error) {
+// getIMDSv2Token fetches a fresh IMDSv2 token. Not cached.
+func (p *EcsRoleProvider) getIMDSv2Token() (string, error) {
+	url := imdsEndpoint + imdsTokenPath
+	headers := map[string]string{imdsTokenTTLHeader: imdsTokenTTLSeconds}
+	body, err := p.doRequestWithRetry(url, "GET", headers)
+	if err != nil {
+		return "", volcengineerr.New("EcsRoleTokenFailed",
+			"failed to get IMDSv2 token", err)
+	}
+	token := strings.TrimSpace(string(body))
+	if token == "" {
+		return "", volcengineerr.New("EcsRoleTokenEmpty",
+			"IMDSv2 token endpoint returned empty response", nil)
+	}
+	return token, nil
+}
+
+// resolveRoleName determines the role name: param > env > auto-detect from IMDS (every time).
+// Not cached — roles can be dynamically unbound/rebound.
+func (p *EcsRoleProvider) resolveRoleName(imdsToken string) (string, error) {
 	if p.RoleName != "" {
 		return p.RoleName, nil
 	}
@@ -141,14 +164,43 @@ func (p *EcsRoleProvider) resolveRoleName() (string, error) {
 		return envRole, nil
 	}
 
-	return "", volcengineerr.New("EcsRoleNameNotSet",
-		"ECS role name not set: specify via RoleName parameter or VOLCENGINE_ECS_METADATA environment variable", nil)
+	// Auto-detect from IMDS
+	return p.autoDetectRoleName(imdsToken)
 }
 
-// getCredentials fetches STS credentials for the given role from IMDS.
-func (p *EcsRoleProvider) getCredentials(roleName string) (*imdsCredentialResponse, error) {
+// autoDetectRoleName queries IMDS for the role list and returns the first one.
+func (p *EcsRoleProvider) autoDetectRoleName(imdsToken string) (string, error) {
+	url := imdsEndpoint + imdsRoleNamePath
+	headers := map[string]string{imdsTokenHeader: imdsToken}
+	body, err := p.doRequestWithRetry(url, "GET", headers)
+	if err != nil {
+		return "", volcengineerr.New("EcsRoleDetectFailed",
+			"failed to auto-detect role name from IMDS", err)
+	}
+
+	var roles []string
+	if err := json.Unmarshal(body, &roles); err != nil {
+		// Fallback: try splitting by newlines
+		for _, r := range strings.Split(strings.TrimSpace(string(body)), "\n") {
+			if r = strings.TrimSpace(r); r != "" {
+				roles = append(roles, r)
+			}
+		}
+	}
+
+	if len(roles) == 0 {
+		return "", volcengineerr.New("EcsRoleNotFound",
+			"no IAM roles found via IMDS", nil)
+	}
+
+	return roles[0], nil
+}
+
+// getCredentials POSTs to IMDS to get STS credentials for the given role.
+func (p *EcsRoleProvider) getCredentials(roleName, imdsToken string) (*imdsCredentialResponse, error) {
 	url := fmt.Sprintf("%s"+imdsRoleCredsPath, imdsEndpoint, roleName)
-	body, err := p.doRequestWithRetry(url)
+	headers := map[string]string{imdsTokenHeader: imdsToken}
+	body, err := p.doRequestWithRetry(url, "POST", headers)
 	if err != nil {
 		return nil, volcengineerr.New("EcsRoleCredentialsFailed",
 			fmt.Sprintf("failed to get credentials for role %s from IMDS", roleName), err)
@@ -168,15 +220,15 @@ func (p *EcsRoleProvider) getCredentials(roleName string) (*imdsCredentialRespon
 	return &resp, nil
 }
 
-// doRequestWithRetry performs an HTTP GET with retry logic.
-func (p *EcsRoleProvider) doRequestWithRetry(url string) ([]byte, error) {
+// doRequestWithRetry performs an HTTP request with retry logic.
+func (p *EcsRoleProvider) doRequestWithRetry(url, method string, headers map[string]string) ([]byte, error) {
 	var lastErr error
 	for i := 0; i < p.maxRetries; i++ {
 		if i > 0 {
 			time.Sleep(p.retryInterval)
 		}
 
-		body, err := p.doRequest(url)
+		body, err := p.doRequest(url, method, headers)
 		if err == nil {
 			return body, nil
 		}
@@ -185,8 +237,16 @@ func (p *EcsRoleProvider) doRequestWithRetry(url string) ([]byte, error) {
 	return nil, lastErr
 }
 
-func (p *EcsRoleProvider) doRequest(url string) ([]byte, error) {
-	resp, err := p.httpClient.Get(url)
+func (p *EcsRoleProvider) doRequest(url, method string, headers map[string]string) ([]byte, error) {
+	req, err := http.NewRequest(method, url, nil)
+	if err != nil {
+		return nil, fmt.Errorf("failed to create IMDS request: %w", err)
+	}
+	for k, v := range headers {
+		req.Header.Set(k, v)
+	}
+
+	resp, err := p.httpClient.Do(req)
 	if err != nil {
 		return nil, fmt.Errorf("IMDS request failed: %w", err)
 	}
