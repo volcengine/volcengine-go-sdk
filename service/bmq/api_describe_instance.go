@@ -226,6 +226,12 @@ type DescribeInstanceOutput struct {
 
 	TopicLimit *int32 `type:"int32" json:",omitempty"`
 
+	UsedGroups *int32 `type:"int32" json:",omitempty"`
+
+	UsedPartitions *int32 `type:"int32" json:",omitempty"`
+
+	UsedTopics *int32 `type:"int32" json:",omitempty"`
+
 	VpcId *string `type:"string" json:",omitempty"`
 
 	ZoneIdList []*string `type:"list" json:",omitempty"`
@@ -358,6 +364,24 @@ func (s *DescribeInstanceOutput) SetTags(v []*TagForDescribeInstanceOutput) *Des
 // SetTopicLimit sets the TopicLimit field's value.
 func (s *DescribeInstanceOutput) SetTopicLimit(v int32) *DescribeInstanceOutput {
 	s.TopicLimit = &v
+	return s
+}
+
+// SetUsedGroups sets the UsedGroups field's value.
+func (s *DescribeInstanceOutput) SetUsedGroups(v int32) *DescribeInstanceOutput {
+	s.UsedGroups = &v
+	return s
+}
+
+// SetUsedPartitions sets the UsedPartitions field's value.
+func (s *DescribeInstanceOutput) SetUsedPartitions(v int32) *DescribeInstanceOutput {
+	s.UsedPartitions = &v
+	return s
+}
+
+// SetUsedTopics sets the UsedTopics field's value.
+func (s *DescribeInstanceOutput) SetUsedTopics(v int32) *DescribeInstanceOutput {
+	s.UsedTopics = &v
 	return s
 }
 

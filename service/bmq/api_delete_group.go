@@ -146,8 +146,11 @@ func (c *BMQ) DeleteGroupWithContext(ctx volcengine.Context, input *DeleteGroupI
 type DeleteGroupInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	// GroupId is a required field
-	GroupId *string `type:"string" json:",omitempty" required:"true"`
+	GroupId *string `type:"string" json:",omitempty"`
+
+	GroupName *string `type:"string" json:",omitempty"`
+
+	InstanceId *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -160,22 +163,21 @@ func (s DeleteGroupInput) GoString() string {
 	return s.String()
 }
 
-// Validate inspects the fields of the type to determine if they are valid.
-func (s *DeleteGroupInput) Validate() error {
-	invalidParams := request.ErrInvalidParams{Context: "DeleteGroupInput"}
-	if s.GroupId == nil {
-		invalidParams.Add(request.NewErrParamRequired("GroupId"))
-	}
-
-	if invalidParams.Len() > 0 {
-		return invalidParams
-	}
-	return nil
-}
-
 // SetGroupId sets the GroupId field's value.
 func (s *DeleteGroupInput) SetGroupId(v string) *DeleteGroupInput {
 	s.GroupId = &v
+	return s
+}
+
+// SetGroupName sets the GroupName field's value.
+func (s *DeleteGroupInput) SetGroupName(v string) *DeleteGroupInput {
+	s.GroupName = &v
+	return s
+}
+
+// SetInstanceId sets the InstanceId field's value.
+func (s *DeleteGroupInput) SetInstanceId(v string) *DeleteGroupInput {
+	s.InstanceId = &v
 	return s
 }
 

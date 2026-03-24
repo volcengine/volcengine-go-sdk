@@ -146,8 +146,11 @@ func (c *BMQ) DescribeTopicTimeRangeWithContext(ctx volcengine.Context, input *D
 type DescribeTopicTimeRangeInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	// TopicId is a required field
-	TopicId *string `type:"string" json:",omitempty" required:"true"`
+	InstanceId *string `type:"string" json:",omitempty"`
+
+	TopicId *string `type:"string" json:",omitempty"`
+
+	TopicName *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -160,22 +163,21 @@ func (s DescribeTopicTimeRangeInput) GoString() string {
 	return s.String()
 }
 
-// Validate inspects the fields of the type to determine if they are valid.
-func (s *DescribeTopicTimeRangeInput) Validate() error {
-	invalidParams := request.ErrInvalidParams{Context: "DescribeTopicTimeRangeInput"}
-	if s.TopicId == nil {
-		invalidParams.Add(request.NewErrParamRequired("TopicId"))
-	}
-
-	if invalidParams.Len() > 0 {
-		return invalidParams
-	}
-	return nil
+// SetInstanceId sets the InstanceId field's value.
+func (s *DescribeTopicTimeRangeInput) SetInstanceId(v string) *DescribeTopicTimeRangeInput {
+	s.InstanceId = &v
+	return s
 }
 
 // SetTopicId sets the TopicId field's value.
 func (s *DescribeTopicTimeRangeInput) SetTopicId(v string) *DescribeTopicTimeRangeInput {
 	s.TopicId = &v
+	return s
+}
+
+// SetTopicName sets the TopicName field's value.
+func (s *DescribeTopicTimeRangeInput) SetTopicName(v string) *DescribeTopicTimeRangeInput {
+	s.TopicName = &v
 	return s
 }
 

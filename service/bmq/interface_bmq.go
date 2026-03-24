@@ -270,6 +270,14 @@ type BMQAPI interface {
 	ResetSubscriptionOffsetWithContext(volcengine.Context, *ResetSubscriptionOffsetInput, ...request.Option) (*ResetSubscriptionOffsetOutput, error)
 	ResetSubscriptionOffsetRequest(*ResetSubscriptionOffsetInput) (*request.Request, *ResetSubscriptionOffsetOutput)
 
+	ScaleDownInstanceCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ScaleDownInstanceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ScaleDownInstanceCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ScaleDownInstance(*ScaleDownInstanceInput) (*ScaleDownInstanceOutput, error)
+	ScaleDownInstanceWithContext(volcengine.Context, *ScaleDownInstanceInput, ...request.Option) (*ScaleDownInstanceOutput, error)
+	ScaleDownInstanceRequest(*ScaleDownInstanceInput) (*request.Request, *ScaleDownInstanceOutput)
+
 	ScaleUpTopicCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ScaleUpTopicCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	ScaleUpTopicCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -301,6 +309,14 @@ type BMQAPI interface {
 	SearchTopics(*SearchTopicsInput) (*SearchTopicsOutput, error)
 	SearchTopicsWithContext(volcengine.Context, *SearchTopicsInput, ...request.Option) (*SearchTopicsOutput, error)
 	SearchTopicsRequest(*SearchTopicsInput) (*request.Request, *SearchTopicsOutput)
+
+	TopicExistCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	TopicExistCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	TopicExistCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	TopicExist(*TopicExistInput) (*TopicExistOutput, error)
+	TopicExistWithContext(volcengine.Context, *TopicExistInput, ...request.Option) (*TopicExistOutput, error)
+	TopicExistRequest(*TopicExistInput) (*request.Request, *TopicExistOutput)
 
 	UpdateInstanceMessageRetentionCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	UpdateInstanceMessageRetentionCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)

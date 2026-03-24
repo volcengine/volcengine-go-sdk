@@ -232,6 +232,9 @@ type ListAvailableVPCForBMQInput struct {
 
 	NextToken *string `type:"string" json:",omitempty"`
 
+	// ProjectName is a required field
+	ProjectName *string `type:"string" json:",omitempty" required:"true"`
+
 	VpcIds []*string `type:"list" json:",omitempty"`
 }
 
@@ -253,6 +256,9 @@ func (s *ListAvailableVPCForBMQInput) Validate() error {
 	}
 	if s.MaxResults != nil && *s.MaxResults > 100 {
 		invalidParams.Add(request.NewErrParamMaxValue("MaxResults", 100))
+	}
+	if s.ProjectName == nil {
+		invalidParams.Add(request.NewErrParamRequired("ProjectName"))
 	}
 
 	if invalidParams.Len() > 0 {
@@ -282,6 +288,12 @@ func (s *ListAvailableVPCForBMQInput) SetName(v string) *ListAvailableVPCForBMQI
 // SetNextToken sets the NextToken field's value.
 func (s *ListAvailableVPCForBMQInput) SetNextToken(v string) *ListAvailableVPCForBMQInput {
 	s.NextToken = &v
+	return s
+}
+
+// SetProjectName sets the ProjectName field's value.
+func (s *ListAvailableVPCForBMQInput) SetProjectName(v string) *ListAvailableVPCForBMQInput {
+	s.ProjectName = &v
 	return s
 }
 
