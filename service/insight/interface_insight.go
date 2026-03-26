@@ -38,6 +38,14 @@ type INSIGHTAPI interface {
 	ExpertInvokeAPIWithContext(volcengine.Context, *ExpertInvokeAPIInput, ...request.Option) (*ExpertInvokeAPIOutput, error)
 	ExpertInvokeAPIRequest(*ExpertInvokeAPIInput) (*request.Request, *ExpertInvokeAPIOutput)
 
+	ListCustomSubsTaskCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListCustomSubsTaskCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListCustomSubsTaskCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListCustomSubsTask(*ListCustomSubsTaskInput) (*ListCustomSubsTaskOutput, error)
+	ListCustomSubsTaskWithContext(volcengine.Context, *ListCustomSubsTaskInput, ...request.Option) (*ListCustomSubsTaskOutput, error)
+	ListCustomSubsTaskRequest(*ListCustomSubsTaskInput) (*request.Request, *ListCustomSubsTaskOutput)
+
 	ListSubsTaskAPICommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ListSubsTaskAPICommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	ListSubsTaskAPICommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -53,6 +61,14 @@ type INSIGHTAPI interface {
 	PullPost(*PullPostInput) (*PullPostOutput, error)
 	PullPostWithContext(volcengine.Context, *PullPostInput, ...request.Option) (*PullPostOutput, error)
 	PullPostRequest(*PullPostInput) (*request.Request, *PullPostOutput)
+
+	QueryClueInfoCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	QueryClueInfoCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	QueryClueInfoCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	QueryClueInfo(*QueryClueInfoInput) (*QueryClueInfoOutput, error)
+	QueryClueInfoWithContext(volcengine.Context, *QueryClueInfoInput, ...request.Option) (*QueryClueInfoOutput, error)
+	QueryClueInfoRequest(*QueryClueInfoInput) (*request.Request, *QueryClueInfoOutput)
 }
 
 var _ INSIGHTAPI = (*INSIGHT)(nil)

@@ -150,6 +150,8 @@ type ItemDocForPullPostOutput struct {
 
 	Content *string `type:"string" json:",omitempty"`
 
+	CoverUrl *string `type:"string" json:",omitempty"`
+
 	DedupID *string `type:"string" json:",omitempty"`
 
 	Emotion *string `type:"string" json:",omitempty"`
@@ -202,6 +204,12 @@ func (s *ItemDocForPullPostOutput) SetAsr(v string) *ItemDocForPullPostOutput {
 // SetContent sets the Content field's value.
 func (s *ItemDocForPullPostOutput) SetContent(v string) *ItemDocForPullPostOutput {
 	s.Content = &v
+	return s
+}
+
+// SetCoverUrl sets the CoverUrl field's value.
+func (s *ItemDocForPullPostOutput) SetCoverUrl(v string) *ItemDocForPullPostOutput {
+	s.CoverUrl = &v
 	return s
 }
 
