@@ -222,7 +222,7 @@ type DescribeSnapshotsOutput struct {
 
 	PageSize *int32 `type:"int32" json:",omitempty"`
 
-	Snapshots []*SnapshotForDescribeSnapshotsOutput `type:"list" json:",omitempty"`
+	Snapshots []*SnapshotForDescribeSnapshotsOutput `type:"list"`
 
 	TotalCount *int32 `type:"int32" json:",omitempty"`
 }

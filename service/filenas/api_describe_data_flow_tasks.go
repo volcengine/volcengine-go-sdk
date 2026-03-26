@@ -154,7 +154,11 @@ type DataFlowTaskForDescribeDataFlowTasksOutput struct {
 
 	DataFlowId *string `type:"string" json:",omitempty"`
 
+	DeletePolicy *DeletePolicyForDescribeDataFlowTasksOutput `type:"structure" json:",omitempty"`
+
 	EndTime *string `type:"string" json:",omitempty"`
+
+	EntryListFileBucket *string `type:"string" json:",omitempty"`
 
 	EntryListFileKey *string `type:"string" json:",omitempty"`
 
@@ -225,9 +229,21 @@ func (s *DataFlowTaskForDescribeDataFlowTasksOutput) SetDataFlowId(v string) *Da
 	return s
 }
 
+// SetDeletePolicy sets the DeletePolicy field's value.
+func (s *DataFlowTaskForDescribeDataFlowTasksOutput) SetDeletePolicy(v *DeletePolicyForDescribeDataFlowTasksOutput) *DataFlowTaskForDescribeDataFlowTasksOutput {
+	s.DeletePolicy = v
+	return s
+}
+
 // SetEndTime sets the EndTime field's value.
 func (s *DataFlowTaskForDescribeDataFlowTasksOutput) SetEndTime(v string) *DataFlowTaskForDescribeDataFlowTasksOutput {
 	s.EndTime = &v
+	return s
+}
+
+// SetEntryListFileBucket sets the EntryListFileBucket field's value.
+func (s *DataFlowTaskForDescribeDataFlowTasksOutput) SetEntryListFileBucket(v string) *DataFlowTaskForDescribeDataFlowTasksOutput {
+	s.EntryListFileBucket = &v
 	return s
 }
 
@@ -333,6 +349,66 @@ func (s *DataFlowTaskForDescribeDataFlowTasksOutput) SetUpdateTime(v string) *Da
 	return s
 }
 
+type DeletePolicyForDescribeDataFlowTasksOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	DeleteRuleInfo *DeleteRuleInfoForDescribeDataFlowTasksOutput `type:"structure" json:",omitempty"`
+
+	FilterInfo *FilterInfoForDescribeDataFlowTasksOutput `type:"structure" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s DeletePolicyForDescribeDataFlowTasksOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DeletePolicyForDescribeDataFlowTasksOutput) GoString() string {
+	return s.String()
+}
+
+// SetDeleteRuleInfo sets the DeleteRuleInfo field's value.
+func (s *DeletePolicyForDescribeDataFlowTasksOutput) SetDeleteRuleInfo(v *DeleteRuleInfoForDescribeDataFlowTasksOutput) *DeletePolicyForDescribeDataFlowTasksOutput {
+	s.DeleteRuleInfo = v
+	return s
+}
+
+// SetFilterInfo sets the FilterInfo field's value.
+func (s *DeletePolicyForDescribeDataFlowTasksOutput) SetFilterInfo(v *FilterInfoForDescribeDataFlowTasksOutput) *DeletePolicyForDescribeDataFlowTasksOutput {
+	s.FilterInfo = v
+	return s
+}
+
+type DeleteRuleInfoForDescribeDataFlowTasksOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	DataLocation *string `type:"string" json:",omitempty" enum:"EnumOfDataLocationForDescribeDataFlowTasksOutput"`
+
+	TosDataVersion *string `type:"string" json:",omitempty" enum:"EnumOfTosDataVersionForDescribeDataFlowTasksOutput"`
+}
+
+// String returns the string representation
+func (s DeleteRuleInfoForDescribeDataFlowTasksOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DeleteRuleInfoForDescribeDataFlowTasksOutput) GoString() string {
+	return s.String()
+}
+
+// SetDataLocation sets the DataLocation field's value.
+func (s *DeleteRuleInfoForDescribeDataFlowTasksOutput) SetDataLocation(v string) *DeleteRuleInfoForDescribeDataFlowTasksOutput {
+	s.DataLocation = &v
+	return s
+}
+
+// SetTosDataVersion sets the TosDataVersion field's value.
+func (s *DeleteRuleInfoForDescribeDataFlowTasksOutput) SetTosDataVersion(v string) *DeleteRuleInfoForDescribeDataFlowTasksOutput {
+	s.TosDataVersion = &v
+	return s
+}
+
 type DescribeDataFlowTasksInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -418,7 +494,7 @@ type DescribeDataFlowTasksOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	DataFlowTasks []*DataFlowTaskForDescribeDataFlowTasksOutput `type:"list" json:",omitempty"`
+	DataFlowTasks []*DataFlowTaskForDescribeDataFlowTasksOutput `type:"list"`
 
 	PageNumber *int32 `type:"int32" json:",omitempty"`
 
@@ -466,7 +542,7 @@ type DimensionForDescribeDataFlowTasksOutput struct {
 
 	Attr *string `type:"string" json:",omitempty" enum:"EnumOfAttrForDescribeDataFlowTasksOutput"`
 
-	StaticValues []*StaticValueForDescribeDataFlowTasksOutput `type:"list" json:",omitempty"`
+	StaticValues []*StaticValueForDescribeDataFlowTasksOutput `type:"list"`
 }
 
 // String returns the string representation
@@ -532,9 +608,13 @@ func (s *EvictPolicyForDescribeDataFlowTasksOutput) SetType(v string) *EvictPoli
 type ExportPolicyForDescribeDataFlowTasksOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	EventTypes []*string `type:"list"`
+
 	FilterInfo *FilterInfoForDescribeDataFlowTasksOutput `type:"structure" json:",omitempty"`
 
 	Status *string `type:"string" json:",omitempty" enum:"EnumOfStatusForDescribeDataFlowTasksOutput"`
+
+	TosDeletePolicy *string `type:"string" json:",omitempty" enum:"EnumOfTosDeletePolicyForDescribeDataFlowTasksOutput"`
 
 	Type *string `type:"string" json:",omitempty" enum:"EnumOfTypeForDescribeDataFlowTasksOutput"`
 }
@@ -549,6 +629,12 @@ func (s ExportPolicyForDescribeDataFlowTasksOutput) GoString() string {
 	return s.String()
 }
 
+// SetEventTypes sets the EventTypes field's value.
+func (s *ExportPolicyForDescribeDataFlowTasksOutput) SetEventTypes(v []*string) *ExportPolicyForDescribeDataFlowTasksOutput {
+	s.EventTypes = v
+	return s
+}
+
 // SetFilterInfo sets the FilterInfo field's value.
 func (s *ExportPolicyForDescribeDataFlowTasksOutput) SetFilterInfo(v *FilterInfoForDescribeDataFlowTasksOutput) *ExportPolicyForDescribeDataFlowTasksOutput {
 	s.FilterInfo = v
@@ -561,6 +647,12 @@ func (s *ExportPolicyForDescribeDataFlowTasksOutput) SetStatus(v string) *Export
 	return s
 }
 
+// SetTosDeletePolicy sets the TosDeletePolicy field's value.
+func (s *ExportPolicyForDescribeDataFlowTasksOutput) SetTosDeletePolicy(v string) *ExportPolicyForDescribeDataFlowTasksOutput {
+	s.TosDeletePolicy = &v
+	return s
+}
+
 // SetType sets the Type field's value.
 func (s *ExportPolicyForDescribeDataFlowTasksOutput) SetType(v string) *ExportPolicyForDescribeDataFlowTasksOutput {
 	s.Type = &v
@@ -570,7 +662,7 @@ func (s *ExportPolicyForDescribeDataFlowTasksOutput) SetType(v string) *ExportPo
 type FilterInfoForDescribeDataFlowTasksOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	Dimensions []*DimensionForDescribeDataFlowTasksOutput `type:"list" json:",omitempty"`
+	Dimensions []*DimensionForDescribeDataFlowTasksOutput `type:"list"`
 }
 
 // String returns the string representation
@@ -592,6 +684,8 @@ func (s *FilterInfoForDescribeDataFlowTasksOutput) SetDimensions(v []*DimensionF
 type ImportPolicyForDescribeDataFlowTasksOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	EventTypes []*string `type:"list"`
+
 	FilterInfo *FilterInfoForDescribeDataFlowTasksOutput `type:"structure" json:",omitempty"`
 
 	Status *string `type:"string" json:",omitempty" enum:"EnumOfStatusForDescribeDataFlowTasksOutput"`
@@ -607,6 +701,12 @@ func (s ImportPolicyForDescribeDataFlowTasksOutput) String() string {
 // GoString returns the string representation
 func (s ImportPolicyForDescribeDataFlowTasksOutput) GoString() string {
 	return s.String()
+}
+
+// SetEventTypes sets the EventTypes field's value.
+func (s *ImportPolicyForDescribeDataFlowTasksOutput) SetEventTypes(v []*string) *ImportPolicyForDescribeDataFlowTasksOutput {
+	s.EventTypes = v
+	return s
 }
 
 // SetFilterInfo sets the FilterInfo field's value.
@@ -674,6 +774,9 @@ const (
 
 	// ConvertConvertEnumOfTypeForDescribeDataFlowTasksOutputEvict is a ConvertConvertEnumOfTypeForDescribeDataFlowTasksOutput enum value
 	ConvertConvertEnumOfTypeForDescribeDataFlowTasksOutputEvict = "Evict"
+
+	// ConvertConvertEnumOfTypeForDescribeDataFlowTasksOutputDelete is a ConvertConvertEnumOfTypeForDescribeDataFlowTasksOutput enum value
+	ConvertConvertEnumOfTypeForDescribeDataFlowTasksOutputDelete = "Delete"
 )
 
 const (
@@ -728,6 +831,25 @@ const (
 )
 
 const (
+	// EnumOfDataLocationForDescribeDataFlowTasksOutputFileSystem is a EnumOfDataLocationForDescribeDataFlowTasksOutput enum value
+	EnumOfDataLocationForDescribeDataFlowTasksOutputFileSystem = "FileSystem"
+
+	// EnumOfDataLocationForDescribeDataFlowTasksOutputFileSystemCorruptedFiles is a EnumOfDataLocationForDescribeDataFlowTasksOutput enum value
+	EnumOfDataLocationForDescribeDataFlowTasksOutputFileSystemCorruptedFiles = "FileSystemCorruptedFiles"
+
+	// EnumOfDataLocationForDescribeDataFlowTasksOutputAll is a EnumOfDataLocationForDescribeDataFlowTasksOutput enum value
+	EnumOfDataLocationForDescribeDataFlowTasksOutputAll = "All"
+)
+
+const (
+	// EnumOfEventTypeListForDescribeDataFlowTasksOutputCreateAndUpdate is a EnumOfEventTypeListForDescribeDataFlowTasksOutput enum value
+	EnumOfEventTypeListForDescribeDataFlowTasksOutputCreateAndUpdate = "CreateAndUpdate"
+
+	// EnumOfEventTypeListForDescribeDataFlowTasksOutputDelete is a EnumOfEventTypeListForDescribeDataFlowTasksOutput enum value
+	EnumOfEventTypeListForDescribeDataFlowTasksOutputDelete = "Delete"
+)
+
+const (
 	// EnumOfRelationshipForDescribeDataFlowTasksOutputGe is a EnumOfRelationshipForDescribeDataFlowTasksOutput enum value
 	EnumOfRelationshipForDescribeDataFlowTasksOutputGe = "GE"
 
@@ -764,6 +886,28 @@ const (
 
 	// EnumOfStatusForDescribeDataFlowTasksOutputError is a EnumOfStatusForDescribeDataFlowTasksOutput enum value
 	EnumOfStatusForDescribeDataFlowTasksOutputError = "Error"
+)
+
+const (
+	// EnumOfTosDataVersionForDescribeDataFlowTasksOutputLatest is a EnumOfTosDataVersionForDescribeDataFlowTasksOutput enum value
+	EnumOfTosDataVersionForDescribeDataFlowTasksOutputLatest = "Latest"
+
+	// EnumOfTosDataVersionForDescribeDataFlowTasksOutputAll is a EnumOfTosDataVersionForDescribeDataFlowTasksOutput enum value
+	EnumOfTosDataVersionForDescribeDataFlowTasksOutputAll = "All"
+)
+
+const (
+	// EnumOfTosDeletePolicyForDescribeDataFlowTasksOutputNone is a EnumOfTosDeletePolicyForDescribeDataFlowTasksOutput enum value
+	EnumOfTosDeletePolicyForDescribeDataFlowTasksOutputNone = "None"
+
+	// EnumOfTosDeletePolicyForDescribeDataFlowTasksOutputLatestVersionOnly is a EnumOfTosDeletePolicyForDescribeDataFlowTasksOutput enum value
+	EnumOfTosDeletePolicyForDescribeDataFlowTasksOutputLatestVersionOnly = "LatestVersionOnly"
+
+	// EnumOfTosDeletePolicyForDescribeDataFlowTasksOutputAllVersions is a EnumOfTosDeletePolicyForDescribeDataFlowTasksOutput enum value
+	EnumOfTosDeletePolicyForDescribeDataFlowTasksOutputAllVersions = "AllVersions"
+
+	// EnumOfTosDeletePolicyForDescribeDataFlowTasksOutputSpecifiedVersion is a EnumOfTosDeletePolicyForDescribeDataFlowTasksOutput enum value
+	EnumOfTosDeletePolicyForDescribeDataFlowTasksOutputSpecifiedVersion = "SpecifiedVersion"
 )
 
 const (

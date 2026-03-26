@@ -192,7 +192,7 @@ type DescribeFileSystemStatisticsOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	Statistics []*StatisticForDescribeFileSystemStatisticsOutput `type:"list" json:",omitempty"`
+	Statistics []*StatisticForDescribeFileSystemStatisticsOutput `type:"list"`
 
 	TotalCount *int32 `type:"int32" json:",omitempty"`
 }

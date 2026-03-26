@@ -192,7 +192,7 @@ type DescribePermissionRulesOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	PermissionRules []*PermissionRuleForDescribePermissionRulesOutput `type:"list" json:",omitempty"`
+	PermissionRules []*PermissionRuleForDescribePermissionRulesOutput `type:"list"`
 
 	TotalCount *int32 `type:"int32" json:",omitempty"`
 }

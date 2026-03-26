@@ -276,7 +276,7 @@ type PosixUserForCreateAccessPointInput struct {
 
 	PosixGroupId *int32 `type:"int32" json:",omitempty"`
 
-	PosixSecondaryGroupIds []*int32 `type:"list" json:",omitempty"`
+	PosixSecondaryGroupIds []*int32 `type:"list"`
 
 	PosixUserId *int32 `type:"int32" json:",omitempty"`
 }

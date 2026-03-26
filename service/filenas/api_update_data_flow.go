@@ -148,7 +148,7 @@ type DimensionForUpdateDataFlowInput struct {
 
 	Attr *string `type:"string" json:",omitempty" enum:"EnumOfAttrForUpdateDataFlowInput"`
 
-	StaticValues []*StaticValueForUpdateDataFlowInput `type:"list" json:",omitempty"`
+	StaticValues []*StaticValueForUpdateDataFlowInput `type:"list"`
 }
 
 // String returns the string representation
@@ -214,9 +214,13 @@ func (s *EvictPolicyForUpdateDataFlowInput) SetType(v string) *EvictPolicyForUpd
 type ExportPolicyForUpdateDataFlowInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	EventTypes []*string `type:"list"`
+
 	FilterInfo *FilterInfoForUpdateDataFlowInput `type:"structure" json:",omitempty"`
 
 	Status *string `type:"string" json:",omitempty" enum:"EnumOfStatusForUpdateDataFlowInput"`
+
+	TosDeletePolicy *string `type:"string" json:",omitempty" enum:"EnumOfTosDeletePolicyForUpdateDataFlowInput"`
 
 	Type *string `type:"string" json:",omitempty" enum:"EnumOfTypeForUpdateDataFlowInput"`
 }
@@ -231,6 +235,12 @@ func (s ExportPolicyForUpdateDataFlowInput) GoString() string {
 	return s.String()
 }
 
+// SetEventTypes sets the EventTypes field's value.
+func (s *ExportPolicyForUpdateDataFlowInput) SetEventTypes(v []*string) *ExportPolicyForUpdateDataFlowInput {
+	s.EventTypes = v
+	return s
+}
+
 // SetFilterInfo sets the FilterInfo field's value.
 func (s *ExportPolicyForUpdateDataFlowInput) SetFilterInfo(v *FilterInfoForUpdateDataFlowInput) *ExportPolicyForUpdateDataFlowInput {
 	s.FilterInfo = v
@@ -243,6 +253,12 @@ func (s *ExportPolicyForUpdateDataFlowInput) SetStatus(v string) *ExportPolicyFo
 	return s
 }
 
+// SetTosDeletePolicy sets the TosDeletePolicy field's value.
+func (s *ExportPolicyForUpdateDataFlowInput) SetTosDeletePolicy(v string) *ExportPolicyForUpdateDataFlowInput {
+	s.TosDeletePolicy = &v
+	return s
+}
+
 // SetType sets the Type field's value.
 func (s *ExportPolicyForUpdateDataFlowInput) SetType(v string) *ExportPolicyForUpdateDataFlowInput {
 	s.Type = &v
@@ -252,7 +268,7 @@ func (s *ExportPolicyForUpdateDataFlowInput) SetType(v string) *ExportPolicyForU
 type FilterInfoForUpdateDataFlowInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	Dimensions []*DimensionForUpdateDataFlowInput `type:"list" json:",omitempty"`
+	Dimensions []*DimensionForUpdateDataFlowInput `type:"list"`
 }
 
 // String returns the string representation
@@ -274,6 +290,8 @@ func (s *FilterInfoForUpdateDataFlowInput) SetDimensions(v []*DimensionForUpdate
 type ImportPolicyForUpdateDataFlowInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	EventTypes []*string `type:"list"`
+
 	FilterInfo *FilterInfoForUpdateDataFlowInput `type:"structure" json:",omitempty"`
 
 	Status *string `type:"string" json:",omitempty" enum:"EnumOfStatusForUpdateDataFlowInput"`
@@ -289,6 +307,12 @@ func (s ImportPolicyForUpdateDataFlowInput) String() string {
 // GoString returns the string representation
 func (s ImportPolicyForUpdateDataFlowInput) GoString() string {
 	return s.String()
+}
+
+// SetEventTypes sets the EventTypes field's value.
+func (s *ImportPolicyForUpdateDataFlowInput) SetEventTypes(v []*string) *ImportPolicyForUpdateDataFlowInput {
+	s.EventTypes = v
+	return s
 }
 
 // SetFilterInfo sets the FilterInfo field's value.
@@ -468,6 +492,14 @@ const (
 )
 
 const (
+	// EnumOfEventTypeListForUpdateDataFlowInputCreateAndUpdate is a EnumOfEventTypeListForUpdateDataFlowInput enum value
+	EnumOfEventTypeListForUpdateDataFlowInputCreateAndUpdate = "CreateAndUpdate"
+
+	// EnumOfEventTypeListForUpdateDataFlowInputDelete is a EnumOfEventTypeListForUpdateDataFlowInput enum value
+	EnumOfEventTypeListForUpdateDataFlowInputDelete = "Delete"
+)
+
+const (
 	// EnumOfRelationshipForUpdateDataFlowInputGe is a EnumOfRelationshipForUpdateDataFlowInput enum value
 	EnumOfRelationshipForUpdateDataFlowInputGe = "GE"
 
@@ -504,6 +536,20 @@ const (
 
 	// EnumOfStatusForUpdateDataFlowInputError is a EnumOfStatusForUpdateDataFlowInput enum value
 	EnumOfStatusForUpdateDataFlowInputError = "Error"
+)
+
+const (
+	// EnumOfTosDeletePolicyForUpdateDataFlowInputNone is a EnumOfTosDeletePolicyForUpdateDataFlowInput enum value
+	EnumOfTosDeletePolicyForUpdateDataFlowInputNone = "None"
+
+	// EnumOfTosDeletePolicyForUpdateDataFlowInputLatestVersionOnly is a EnumOfTosDeletePolicyForUpdateDataFlowInput enum value
+	EnumOfTosDeletePolicyForUpdateDataFlowInputLatestVersionOnly = "LatestVersionOnly"
+
+	// EnumOfTosDeletePolicyForUpdateDataFlowInputAllVersions is a EnumOfTosDeletePolicyForUpdateDataFlowInput enum value
+	EnumOfTosDeletePolicyForUpdateDataFlowInputAllVersions = "AllVersions"
+
+	// EnumOfTosDeletePolicyForUpdateDataFlowInputSpecifiedVersion is a EnumOfTosDeletePolicyForUpdateDataFlowInput enum value
+	EnumOfTosDeletePolicyForUpdateDataFlowInputSpecifiedVersion = "SpecifiedVersion"
 )
 
 const (
