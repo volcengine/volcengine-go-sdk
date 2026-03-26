@@ -1034,6 +1034,8 @@ type UpdateFunctionInput struct {
 
 	EnableApmplus *bool `type:"boolean" json:",omitempty"`
 
+	EnableZTIToken *string `type:"string" json:",omitempty"`
+
 	Envs []*EnvForUpdateFunctionInput `type:"list" json:",omitempty"`
 
 	ExclusiveMode *bool `type:"boolean" json:",omitempty"`
@@ -1122,6 +1124,12 @@ func (s *UpdateFunctionInput) SetDescription(v string) *UpdateFunctionInput {
 // SetEnableApmplus sets the EnableApmplus field's value.
 func (s *UpdateFunctionInput) SetEnableApmplus(v bool) *UpdateFunctionInput {
 	s.EnableApmplus = &v
+	return s
+}
+
+// SetEnableZTIToken sets the EnableZTIToken field's value.
+func (s *UpdateFunctionInput) SetEnableZTIToken(v string) *UpdateFunctionInput {
+	s.EnableZTIToken = &v
 	return s
 }
 

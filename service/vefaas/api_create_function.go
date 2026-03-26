@@ -236,6 +236,8 @@ type CreateFunctionInput struct {
 
 	EnableApmplus *bool `type:"boolean" json:",omitempty"`
 
+	EnableZTIToken *string `type:"string" json:",omitempty"`
+
 	Envs []*EnvForCreateFunctionInput `type:"list" json:",omitempty"`
 
 	ExclusiveMode *bool `type:"boolean" json:",omitempty"`
@@ -344,6 +346,12 @@ func (s *CreateFunctionInput) SetDescription(v string) *CreateFunctionInput {
 // SetEnableApmplus sets the EnableApmplus field's value.
 func (s *CreateFunctionInput) SetEnableApmplus(v bool) *CreateFunctionInput {
 	s.EnableApmplus = &v
+	return s
+}
+
+// SetEnableZTIToken sets the EnableZTIToken field's value.
+func (s *CreateFunctionInput) SetEnableZTIToken(v string) *CreateFunctionInput {
+	s.EnableZTIToken = &v
 	return s
 }
 
