@@ -145,6 +145,10 @@ func (c *BMQ) PreviewTopicDataWithContext(ctx volcengine.Context, input *Preview
 
 type HeaderForPreviewTopicDataOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
+
+	Key *string `type:"string" json:"key,omitempty"`
+
+	Value *string `type:"string" json:"value,omitempty"`
 }
 
 // String returns the string representation
@@ -155,6 +159,18 @@ func (s HeaderForPreviewTopicDataOutput) String() string {
 // GoString returns the string representation
 func (s HeaderForPreviewTopicDataOutput) GoString() string {
 	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *HeaderForPreviewTopicDataOutput) SetKey(v string) *HeaderForPreviewTopicDataOutput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *HeaderForPreviewTopicDataOutput) SetValue(v string) *HeaderForPreviewTopicDataOutput {
+	s.Value = &v
+	return s
 }
 
 type ItemForPreviewTopicDataOutput struct {

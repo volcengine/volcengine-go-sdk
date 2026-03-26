@@ -146,7 +146,11 @@ func (c *BMQ) DescribeGroupsInTopicWithContext(ctx volcengine.Context, input *De
 type DescribeGroupsInTopicInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	InstanceId *string `type:"string" json:",omitempty"`
+
 	TopicId *string `type:"string" json:",omitempty"`
+
+	TopicName *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -159,9 +163,21 @@ func (s DescribeGroupsInTopicInput) GoString() string {
 	return s.String()
 }
 
+// SetInstanceId sets the InstanceId field's value.
+func (s *DescribeGroupsInTopicInput) SetInstanceId(v string) *DescribeGroupsInTopicInput {
+	s.InstanceId = &v
+	return s
+}
+
 // SetTopicId sets the TopicId field's value.
 func (s *DescribeGroupsInTopicInput) SetTopicId(v string) *DescribeGroupsInTopicInput {
 	s.TopicId = &v
+	return s
+}
+
+// SetTopicName sets the TopicName field's value.
+func (s *DescribeGroupsInTopicInput) SetTopicName(v string) *DescribeGroupsInTopicInput {
+	s.TopicName = &v
 	return s
 }
 

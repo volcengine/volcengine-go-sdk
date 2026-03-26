@@ -146,7 +146,11 @@ func (c *BMQ) DescribePartitionsInTopicWithContext(ctx volcengine.Context, input
 type DescribePartitionsInTopicInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	InstanceId *string `type:"string" json:",omitempty"`
+
 	TopicId *string `type:"string" json:",omitempty"`
+
+	TopicName *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -159,9 +163,21 @@ func (s DescribePartitionsInTopicInput) GoString() string {
 	return s.String()
 }
 
+// SetInstanceId sets the InstanceId field's value.
+func (s *DescribePartitionsInTopicInput) SetInstanceId(v string) *DescribePartitionsInTopicInput {
+	s.InstanceId = &v
+	return s
+}
+
 // SetTopicId sets the TopicId field's value.
 func (s *DescribePartitionsInTopicInput) SetTopicId(v string) *DescribePartitionsInTopicInput {
 	s.TopicId = &v
+	return s
+}
+
+// SetTopicName sets the TopicName field's value.
+func (s *DescribePartitionsInTopicInput) SetTopicName(v string) *DescribePartitionsInTopicInput {
+	s.TopicName = &v
 	return s
 }
 

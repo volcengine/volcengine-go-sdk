@@ -195,6 +195,8 @@ type ListInstanceResourceStatsInput struct {
 	// InstanceIds is a required field
 	InstanceIds *string `type:"string" json:",omitempty" required:"true"`
 
+	ProjectName *string `type:"string" json:",omitempty"`
+
 	WithGroup *bool `type:"boolean" json:",omitempty"`
 
 	WithPartition *bool `type:"boolean" json:",omitempty"`
@@ -228,6 +230,12 @@ func (s *ListInstanceResourceStatsInput) Validate() error {
 // SetInstanceIds sets the InstanceIds field's value.
 func (s *ListInstanceResourceStatsInput) SetInstanceIds(v string) *ListInstanceResourceStatsInput {
 	s.InstanceIds = &v
+	return s
+}
+
+// SetProjectName sets the ProjectName field's value.
+func (s *ListInstanceResourceStatsInput) SetProjectName(v string) *ListInstanceResourceStatsInput {
+	s.ProjectName = &v
 	return s
 }
 
