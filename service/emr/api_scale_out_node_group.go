@@ -165,6 +165,16 @@ type ScaleOutNodeGroupInput struct {
 	// ClusterId is a required field
 	ClusterId *string `type:"string" json:",omitempty" required:"true"`
 
+	ElasticScheduledInstanceAutoReleaseAt *string `type:"string" json:",omitempty"`
+
+	ElasticScheduledInstanceDeliveryType *string `type:"string" json:",omitempty" enum:"EnumOfElasticScheduledInstanceDeliveryTypeForScaleOutNodeGroupInput"`
+
+	ElasticScheduledInstanceEndDeliveryAt *string `type:"string" json:",omitempty"`
+
+	ElasticScheduledInstanceStartDeliveryAt *string `type:"string" json:",omitempty"`
+
+	ElasticScheduledInstanceType *string `type:"string" json:",omitempty" enum:"EnumOfElasticScheduledInstanceTypeForScaleOutNodeGroupInput"`
+
 	// NodeGroupId is a required field
 	NodeGroupId *string `type:"string" json:",omitempty" required:"true"`
 
@@ -219,6 +229,36 @@ func (s *ScaleOutNodeGroupInput) SetClusterId(v string) *ScaleOutNodeGroupInput 
 	return s
 }
 
+// SetElasticScheduledInstanceAutoReleaseAt sets the ElasticScheduledInstanceAutoReleaseAt field's value.
+func (s *ScaleOutNodeGroupInput) SetElasticScheduledInstanceAutoReleaseAt(v string) *ScaleOutNodeGroupInput {
+	s.ElasticScheduledInstanceAutoReleaseAt = &v
+	return s
+}
+
+// SetElasticScheduledInstanceDeliveryType sets the ElasticScheduledInstanceDeliveryType field's value.
+func (s *ScaleOutNodeGroupInput) SetElasticScheduledInstanceDeliveryType(v string) *ScaleOutNodeGroupInput {
+	s.ElasticScheduledInstanceDeliveryType = &v
+	return s
+}
+
+// SetElasticScheduledInstanceEndDeliveryAt sets the ElasticScheduledInstanceEndDeliveryAt field's value.
+func (s *ScaleOutNodeGroupInput) SetElasticScheduledInstanceEndDeliveryAt(v string) *ScaleOutNodeGroupInput {
+	s.ElasticScheduledInstanceEndDeliveryAt = &v
+	return s
+}
+
+// SetElasticScheduledInstanceStartDeliveryAt sets the ElasticScheduledInstanceStartDeliveryAt field's value.
+func (s *ScaleOutNodeGroupInput) SetElasticScheduledInstanceStartDeliveryAt(v string) *ScaleOutNodeGroupInput {
+	s.ElasticScheduledInstanceStartDeliveryAt = &v
+	return s
+}
+
+// SetElasticScheduledInstanceType sets the ElasticScheduledInstanceType field's value.
+func (s *ScaleOutNodeGroupInput) SetElasticScheduledInstanceType(v string) *ScaleOutNodeGroupInput {
+	s.ElasticScheduledInstanceType = &v
+	return s
+}
+
 // SetNodeGroupId sets the NodeGroupId field's value.
 func (s *ScaleOutNodeGroupInput) SetNodeGroupId(v string) *ScaleOutNodeGroupInput {
 	s.NodeGroupId = &v
@@ -270,3 +310,19 @@ func (s *ScaleOutNodeGroupOutput) SetResultData(v *ResultDataForScaleOutNodeGrou
 	s.ResultData = v
 	return s
 }
+
+const (
+	// EnumOfElasticScheduledInstanceDeliveryTypeForScaleOutNodeGroupInputReserve is a EnumOfElasticScheduledInstanceDeliveryTypeForScaleOutNodeGroupInput enum value
+	EnumOfElasticScheduledInstanceDeliveryTypeForScaleOutNodeGroupInputReserve = "Reserve"
+
+	// EnumOfElasticScheduledInstanceDeliveryTypeForScaleOutNodeGroupInputImmediate is a EnumOfElasticScheduledInstanceDeliveryTypeForScaleOutNodeGroupInput enum value
+	EnumOfElasticScheduledInstanceDeliveryTypeForScaleOutNodeGroupInputImmediate = "Immediate"
+)
+
+const (
+	// EnumOfElasticScheduledInstanceTypeForScaleOutNodeGroupInputEsi is a EnumOfElasticScheduledInstanceTypeForScaleOutNodeGroupInput enum value
+	EnumOfElasticScheduledInstanceTypeForScaleOutNodeGroupInputEsi = "Esi"
+
+	// EnumOfElasticScheduledInstanceTypeForScaleOutNodeGroupInputSegmented is a EnumOfElasticScheduledInstanceTypeForScaleOutNodeGroupInput enum value
+	EnumOfElasticScheduledInstanceTypeForScaleOutNodeGroupInputSegmented = "Segmented"
+)

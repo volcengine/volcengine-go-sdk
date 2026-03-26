@@ -374,14 +374,6 @@ type VEFAASAPI interface {
 	ReleaseWithContext(volcengine.Context, *ReleaseInput, ...request.Option) (*ReleaseOutput, error)
 	ReleaseRequest(*ReleaseInput) (*request.Request, *ReleaseOutput)
 
-	RunCodeCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	RunCodeCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	RunCodeCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	RunCode(*RunCodeInput) (*RunCodeOutput, error)
-	RunCodeWithContext(volcengine.Context, *RunCodeInput, ...request.Option) (*RunCodeOutput, error)
-	RunCodeRequest(*RunCodeInput) (*request.Request, *RunCodeOutput)
-
 	SetSandboxTimeoutCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	SetSandboxTimeoutCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	SetSandboxTimeoutCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -405,14 +397,6 @@ type VEFAASAPI interface {
 	TerminateDependencyInstallTask(*TerminateDependencyInstallTaskInput) (*TerminateDependencyInstallTaskOutput, error)
 	TerminateDependencyInstallTaskWithContext(volcengine.Context, *TerminateDependencyInstallTaskInput, ...request.Option) (*TerminateDependencyInstallTaskOutput, error)
 	TerminateDependencyInstallTaskRequest(*TerminateDependencyInstallTaskInput) (*request.Request, *TerminateDependencyInstallTaskOutput)
-
-	TransitionSandboxCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	TransitionSandboxCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	TransitionSandboxCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	TransitionSandbox(*TransitionSandboxInput) (*TransitionSandboxOutput, error)
-	TransitionSandboxWithContext(volcengine.Context, *TransitionSandboxInput, ...request.Option) (*TransitionSandboxOutput, error)
-	TransitionSandboxRequest(*TransitionSandboxInput) (*request.Request, *TransitionSandboxOutput)
 
 	UpdateFunctionCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	UpdateFunctionCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -461,6 +445,14 @@ type VEFAASAPI interface {
 	UpdateTimer(*UpdateTimerInput) (*UpdateTimerOutput, error)
 	UpdateTimerWithContext(volcengine.Context, *UpdateTimerInput, ...request.Option) (*UpdateTimerOutput, error)
 	UpdateTimerRequest(*UpdateTimerInput) (*request.Request, *UpdateTimerOutput)
+
+	UpsertSecretTokenCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	UpsertSecretTokenCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	UpsertSecretTokenCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	UpsertSecretToken(*UpsertSecretTokenInput) (*UpsertSecretTokenOutput, error)
+	UpsertSecretTokenWithContext(volcengine.Context, *UpsertSecretTokenInput, ...request.Option) (*UpsertSecretTokenOutput, error)
+	UpsertSecretTokenRequest(*UpsertSecretTokenInput) (*request.Request, *UpsertSecretTokenOutput)
 }
 
 var _ VEFAASAPI = (*VEFAAS)(nil)

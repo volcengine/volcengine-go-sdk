@@ -145,6 +145,18 @@ func (c *VEDBM) ModifyDBEndpointDNSWithContext(ctx volcengine.Context, input *Mo
 
 type ModifyDBEndpointDNSInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
+
+	// DNSVisibility is a required field
+	DNSVisibility *bool `type:"boolean" json:",omitempty" required:"true"`
+
+	// EndpointId is a required field
+	EndpointId *string `type:"string" json:",omitempty" required:"true"`
+
+	// InstanceId is a required field
+	InstanceId *string `type:"string" json:",omitempty" required:"true"`
+
+	// NetworkType is a required field
+	NetworkType *string `type:"string" json:",omitempty" required:"true" enum:"EnumOfNetworkTypeForModifyDBEndpointDNSInput"`
 }
 
 // String returns the string representation
@@ -155,6 +167,52 @@ func (s ModifyDBEndpointDNSInput) String() string {
 // GoString returns the string representation
 func (s ModifyDBEndpointDNSInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *ModifyDBEndpointDNSInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "ModifyDBEndpointDNSInput"}
+	if s.DNSVisibility == nil {
+		invalidParams.Add(request.NewErrParamRequired("DNSVisibility"))
+	}
+	if s.EndpointId == nil {
+		invalidParams.Add(request.NewErrParamRequired("EndpointId"))
+	}
+	if s.InstanceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("InstanceId"))
+	}
+	if s.NetworkType == nil {
+		invalidParams.Add(request.NewErrParamRequired("NetworkType"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetDNSVisibility sets the DNSVisibility field's value.
+func (s *ModifyDBEndpointDNSInput) SetDNSVisibility(v bool) *ModifyDBEndpointDNSInput {
+	s.DNSVisibility = &v
+	return s
+}
+
+// SetEndpointId sets the EndpointId field's value.
+func (s *ModifyDBEndpointDNSInput) SetEndpointId(v string) *ModifyDBEndpointDNSInput {
+	s.EndpointId = &v
+	return s
+}
+
+// SetInstanceId sets the InstanceId field's value.
+func (s *ModifyDBEndpointDNSInput) SetInstanceId(v string) *ModifyDBEndpointDNSInput {
+	s.InstanceId = &v
+	return s
+}
+
+// SetNetworkType sets the NetworkType field's value.
+func (s *ModifyDBEndpointDNSInput) SetNetworkType(v string) *ModifyDBEndpointDNSInput {
+	s.NetworkType = &v
+	return s
 }
 
 type ModifyDBEndpointDNSOutput struct {
@@ -172,3 +230,8 @@ func (s ModifyDBEndpointDNSOutput) String() string {
 func (s ModifyDBEndpointDNSOutput) GoString() string {
 	return s.String()
 }
+
+const (
+	// EnumOfNetworkTypeForModifyDBEndpointDNSInputPrivate is a EnumOfNetworkTypeForModifyDBEndpointDNSInput enum value
+	EnumOfNetworkTypeForModifyDBEndpointDNSInputPrivate = "Private"
+)

@@ -182,6 +182,14 @@ type EMRAPI interface {
 	ListComponentsWithContext(volcengine.Context, *ListComponentsInput, ...request.Option) (*ListComponentsOutput, error)
 	ListComponentsRequest(*ListComponentsInput) (*request.Request, *ListComponentsOutput)
 
+	ListNodeGroupElasticScheduledInstancesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListNodeGroupElasticScheduledInstancesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListNodeGroupElasticScheduledInstancesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListNodeGroupElasticScheduledInstances(*ListNodeGroupElasticScheduledInstancesInput) (*ListNodeGroupElasticScheduledInstancesOutput, error)
+	ListNodeGroupElasticScheduledInstancesWithContext(volcengine.Context, *ListNodeGroupElasticScheduledInstancesInput, ...request.Option) (*ListNodeGroupElasticScheduledInstancesOutput, error)
+	ListNodeGroupElasticScheduledInstancesRequest(*ListNodeGroupElasticScheduledInstancesInput) (*request.Request, *ListNodeGroupElasticScheduledInstancesOutput)
+
 	ListNodeGroupsCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ListNodeGroupsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	ListNodeGroupsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})

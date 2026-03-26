@@ -292,6 +292,8 @@ type TaskConfigForListVikingdbTaskOutput struct {
 
 	NeedConfirm *bool `type:"boolean" json:",omitempty"`
 
+	OutputFields []*string `type:"list" json:",omitempty"`
+
 	ProjectName *string `type:"string" json:",omitempty"`
 
 	ResourceId *string `type:"string" json:",omitempty"`
@@ -346,6 +348,12 @@ func (s *TaskConfigForListVikingdbTaskOutput) SetIgnoreError(v bool) *TaskConfig
 // SetNeedConfirm sets the NeedConfirm field's value.
 func (s *TaskConfigForListVikingdbTaskOutput) SetNeedConfirm(v bool) *TaskConfigForListVikingdbTaskOutput {
 	s.NeedConfirm = &v
+	return s
+}
+
+// SetOutputFields sets the OutputFields field's value.
+func (s *TaskConfigForListVikingdbTaskOutput) SetOutputFields(v []*string) *TaskConfigForListVikingdbTaskOutput {
+	s.OutputFields = v
 	return s
 }
 

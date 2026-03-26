@@ -146,8 +146,11 @@ func (c *BMQ) DescribeTopicsInGroupWithContext(ctx volcengine.Context, input *De
 type DescribeTopicsInGroupInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	// GroupId is a required field
-	GroupId *string `type:"string" json:",omitempty" required:"true"`
+	GroupId *string `type:"string" json:",omitempty"`
+
+	GroupName *string `type:"string" json:",omitempty"`
+
+	InstanceId *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -160,22 +163,21 @@ func (s DescribeTopicsInGroupInput) GoString() string {
 	return s.String()
 }
 
-// Validate inspects the fields of the type to determine if they are valid.
-func (s *DescribeTopicsInGroupInput) Validate() error {
-	invalidParams := request.ErrInvalidParams{Context: "DescribeTopicsInGroupInput"}
-	if s.GroupId == nil {
-		invalidParams.Add(request.NewErrParamRequired("GroupId"))
-	}
-
-	if invalidParams.Len() > 0 {
-		return invalidParams
-	}
-	return nil
-}
-
 // SetGroupId sets the GroupId field's value.
 func (s *DescribeTopicsInGroupInput) SetGroupId(v string) *DescribeTopicsInGroupInput {
 	s.GroupId = &v
+	return s
+}
+
+// SetGroupName sets the GroupName field's value.
+func (s *DescribeTopicsInGroupInput) SetGroupName(v string) *DescribeTopicsInGroupInput {
+	s.GroupName = &v
+	return s
+}
+
+// SetInstanceId sets the InstanceId field's value.
+func (s *DescribeTopicsInGroupInput) SetInstanceId(v string) *DescribeTopicsInGroupInput {
+	s.InstanceId = &v
 	return s
 }
 
