@@ -11,10 +11,15 @@ English | [中文](SDK_Integration_zh.md)
       - [GUI Setup](#gui-setup)
       - [Command Line Setup](#command-line-setup)
 - [Credentials](#credentials)
+  - [Credential Providers Overview](#credential-providers-overview)
   - [AK/SK](#aksk)
   - [STS Token](#sts-token)
   - [AssumeRole](#assumerole)
   - [STS AssumeRoleWithOIDC Example](#sts-assumerolewithoidc-example)
+  - [Environment Variable Credential Provider](#environment-variable-credential-provider)
+  - [CLI Config Credential Provider](#cli-config-credential-provider)
+  - [ECS Role Credential Provider](#ecs-role-credential-provider)
+  - [Default Credential Provider (Credential Chain)](#default-credential-provider-credential-chain)
 - [Endpoint Configuration](#endpoint-configuration)
   - [Custom Endpoint](#custom-endpoint)
   - [Custom RegionId](#custom-regionid)
@@ -103,7 +108,19 @@ setx VOLCSTACK_SESSION_TOKEN yourSessionToken /M
 
 # Credentials
 
-Volcengine SDK supports three common authentication mechanisms: **AK/SK**, **STS temporary credentials**, and **AssumeRole**. Choose the one that best matches your scenario.
+Volcengine Go SDK supports multiple authentication mechanisms. Choose the one that best matches your scenario.
+
+## Credential Providers Overview
+
+| Provider | Purpose | Refresh Support | Typical Scenario |
+| --- | --- | --- | --- |
+| `StaticCredentials` | Static AK/SK(/Token) | No | Long-lived server-side credentials |
+| `EnvCredentials` | Read from env vars | No | CI/CD and container env injection |
+| `StsCredentials` | STS AssumeRole | Yes | Role-based temporary credentials |
+| `OIDCCredentialsProvider` | STS AssumeRoleWithOIDC | Yes | OIDC federation |
+| `CliProvider` | Read from `~/.volcengine/config.json` | Depends on mode | Reuse CLI login/profile |
+| `EcsRoleProvider` | Read from ECS IMDS (IMDSv2) | Yes | ECS instance role credentials |
+| `DefaultCredentialProvider` | 4-step chain wrapper | Depends on delegated provider | No AK/SK in application code |
 
 You can refer to: [Environment Variable Setup](#environment-variable-setup)
 
@@ -260,6 +277,183 @@ func main() {
 	}
 	// Print the result to verify success
 	fmt.Println(resp)
+}
+```
+
+## Environment Variable Credential Provider
+
+`EnvProvider` reads credentials from environment variables. Priority order:
+
+- Access Key: `VOLCENGINE_ACCESS_KEY` > `VOLCSTACK_ACCESS_KEY_ID` > `VOLCSTACK_ACCESS_KEY`
+- Secret Key: `VOLCENGINE_SECRET_KEY` > `VOLCSTACK_SECRET_ACCESS_KEY` > `VOLCSTACK_SECRET_KEY`
+- Session Token: `VOLCENGINE_SESSION_TOKEN` > `VOLCSTACK_SESSION_TOKEN` (optional)
+
+```go
+package main
+
+import (
+	"github.com/volcengine/volcengine-go-sdk/volcengine"
+	"github.com/volcengine/volcengine-go-sdk/volcengine/credentials"
+	"github.com/volcengine/volcengine-go-sdk/volcengine/session"
+)
+
+func main() {
+	config := volcengine.NewConfig().
+		WithRegion("cn-beijing").
+		WithCredentials(credentials.NewEnvCredentials())
+
+	sess, err := session.NewSession(config)
+	if err != nil {
+		panic(err)
+	}
+	_ = sess
+}
+```
+
+## CLI Config Credential Provider
+
+`CliProvider` reads credentials from the volcengine-cli config file (`~/.volcengine/config.json`).
+
+- Config path priority: constructor param > `VOLCENGINE_CLI_CONFIG_FILE` > `~/.volcengine/config.json`
+- Profile priority: constructor param > `VOLCENGINE_PROFILE` > `VOLCSTACK_PROFILE` > `current` in config > `default`
+
+Supported modes in profile (case-insensitive):
+
+| Mode | Description |
+| --- | --- |
+| `ak` / empty | Static AK/SK from profile |
+| `ststoken` | Static AK/SK + SessionToken |
+| `sso` | SSO login via OIDC Device Authorization |
+| `ramrolearn` | STS AssumeRole (delegates to `StsProvider`) |
+| `oidc` | STS AssumeRoleWithOIDC (delegates to `OIDCCredentialsProvider`) |
+| `ecsrole` | ECS IMDS (delegates to `EcsRoleProvider`) |
+
+```go
+package main
+
+import (
+	"github.com/volcengine/volcengine-go-sdk/volcengine"
+	"github.com/volcengine/volcengine-go-sdk/volcengine/credentials/clicreds"
+	"github.com/volcengine/volcengine-go-sdk/volcengine/session"
+)
+
+func main() {
+	// Use default config path and profile
+	config := volcengine.NewConfig().
+		WithRegion("cn-beijing").
+		WithCredentials(clicreds.NewCliCredentials("", ""))
+
+	// Or specify a profile
+	// WithCredentials(clicreds.NewCliCredentials("", "prod"))
+
+	sess, err := session.NewSession(config)
+	if err != nil {
+		panic(err)
+	}
+	_ = sess
+}
+```
+
+## ECS Role Credential Provider
+
+`EcsRoleProvider` retrieves temporary credentials from the ECS Instance Metadata Service (IMDSv2).
+
+- Role name priority: constructor param > `VOLCENGINE_ECS_METADATA` env var > auto-detect from IMDS
+- Disable switch: `VOLCENGINE_ECS_METADATA_DISABLED=true`
+- IMDS endpoint: `http://100.96.0.96` (IMDSv2 with token-based authentication)
+- Credentials are automatically refreshed before expiration (5-minute buffer)
+
+> ⚠️ Notes
+>
+> 1. Only works on ECS instances with an IAM role attached.
+> 2. Auto-detection queries the IMDS role list and uses the first role found.
+
+```go
+package main
+
+import (
+	"github.com/volcengine/volcengine-go-sdk/volcengine"
+	"github.com/volcengine/volcengine-go-sdk/volcengine/credentials"
+	"github.com/volcengine/volcengine-go-sdk/volcengine/session"
+)
+
+func main() {
+	// Specify role name explicitly
+	config := volcengine.NewConfig().
+		WithRegion("cn-beijing").
+		WithCredentials(credentials.NewEcsRoleCredentials("your-ecs-role-name"))
+
+	// Or auto-detect role name from IMDS
+	// WithCredentials(credentials.NewEcsRoleCredentials(""))
+
+	sess, err := session.NewSession(config)
+	if err != nil {
+		panic(err)
+	}
+	_ = sess
+}
+```
+
+## Default Credential Provider (Credential Chain)
+
+When no credentials are explicitly configured, the SDK automatically uses `DefaultCredentialProvider` — a 4-step chain that tries each provider in order until one succeeds:
+
+1. **EnvProvider** — environment variables (`VOLCENGINE_ACCESS_KEY` / `VOLCSTACK_ACCESS_KEY_ID`)
+2. **OIDCCredentialsProvider** — OIDC from env vars (`VOLCENGINE_OIDC_TOKEN_FILE`, `VOLCENGINE_OIDC_ROLE_TRN`)
+3. **CliProvider** — CLI config file (`~/.volcengine/config.json`)
+4. **EcsRoleProvider** — ECS IMDS (instance metadata)
+
+By default, `reuseLastProviderEnabled=true`: after the first successful resolution, subsequent calls reuse the cached provider for performance, falling back to full chain traversal only if the cached provider fails.
+
+**Implicit usage** (no credentials configured — the SDK uses the default chain automatically):
+
+```go
+package main
+
+import (
+	"github.com/volcengine/volcengine-go-sdk/volcengine"
+	"github.com/volcengine/volcengine-go-sdk/volcengine/session"
+)
+
+func main() {
+	// No WithCredentials — SDK automatically uses DefaultCredentialProvider
+	config := volcengine.NewConfig().
+		WithRegion("cn-beijing")
+
+	sess, err := session.NewSession(config)
+	if err != nil {
+		panic(err)
+	}
+	_ = sess
+}
+```
+
+**Explicit usage** (customize the default chain, e.g., specify an ECS role name):
+
+```go
+package main
+
+import (
+	"github.com/volcengine/volcengine-go-sdk/volcengine"
+	"github.com/volcengine/volcengine-go-sdk/volcengine/credentials"
+	"github.com/volcengine/volcengine-go-sdk/volcengine/defaults"
+	"github.com/volcengine/volcengine-go-sdk/volcengine/session"
+)
+
+func main() {
+	config := volcengine.NewConfig().
+		WithRegion("cn-beijing").
+		WithCredentials(defaults.NewDefaultCredentialProvider(
+			func(o *credentials.DefaultCredentialProviderOptions) {
+				o.RoleName = "my-ecs-role"
+			},
+		))
+
+	sess, err := session.NewSession(config)
+	if err != nil {
+		panic(err)
+	}
+	_ = sess
 }
 ```
 

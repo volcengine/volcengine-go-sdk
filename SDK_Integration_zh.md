@@ -12,10 +12,15 @@
       - [图形化界面设置](#图形化界面设置)
       - [命令行设置](#命令行设置)
 - [访问凭据](#访问凭据)
+  - [凭证提供者概览](#凭证提供者概览)
   - [AK、SK设置](#aksk设置)
   - [STS Token设置](#sts-token设置)
   - [AssumeRole](#assumerole)
-  - [AssumeRoleOidc](#assumeroleoidc)
+  - [AssumeRoleOIDC](#assumeroleoidc)
+  - [环境变量凭证提供者](#环境变量凭证提供者)
+  - [CLI 配置文件凭证提供者](#cli-配置文件凭证提供者)
+  - [ECS 实例角色凭证提供者](#ecs-实例角色凭证提供者)
+  - [默认凭证提供者（凭证链）](#默认凭证提供者凭证链)
 - [EndPoint配置](#endpoint配置)
   - [自定义Endpoint](#自定义endpoint)
   - [自定义RegionId](#自定义regionid)
@@ -106,7 +111,19 @@ setx VOLCSTACK_SESSION_TOKEN yourSessionToken /M
 
 # 访问凭据
 
-为保障资源访问安全，火山引擎 SDK 支持三种主流的认证方式：**AK/SK**、**STS 临时凭证** 和 **AssumeRole**。不同认证方式适用于不同场景，开发者可根据业务需求选择合适的方式接入。
+火山引擎 Go SDK 支持多种认证方式，开发者可根据业务需求选择合适的方式接入。
+
+## 凭证提供者概览
+
+| 提供者 | 用途 | 自动刷新 | 典型场景 |
+| --- | --- | --- | --- |
+| `StaticCredentials` | 静态 AK/SK(/Token) | 否 | 长期服务端凭证 |
+| `EnvCredentials` | 从环境变量读取 | 否 | CI/CD 和容器环境注入 |
+| `StsCredentials` | STS AssumeRole | 是 | 基于角色的临时凭证 |
+| `OIDCCredentialsProvider` | STS AssumeRoleWithOIDC | 是 | OIDC 联合身份认证 |
+| `CliProvider` | 从 `~/.volcengine/config.json` 读取 | 取决于 mode | 复用 CLI 登录/配置 |
+| `EcsRoleProvider` | 从 ECS IMDS (IMDSv2) 读取 | 是 | ECS 实例角色凭证 |
+| `DefaultCredentialProvider` | 4 步凭证链 | 取决于委托的提供者 | 应用代码中无需 AK/SK |
 
 环境变量设置可以参考这里:[**环境变量设置**](#环境变量设置)
 
@@ -244,6 +261,183 @@ func main() {
 	}
 	// 打印返回结果，验证调用成功
 	fmt.Println(resp)
+}
+```
+
+## 环境变量凭证提供者
+
+`EnvProvider` 从环境变量中读取凭证。优先级顺序：
+
+- Access Key：`VOLCENGINE_ACCESS_KEY` > `VOLCSTACK_ACCESS_KEY_ID` > `VOLCSTACK_ACCESS_KEY`
+- Secret Key：`VOLCENGINE_SECRET_KEY` > `VOLCSTACK_SECRET_ACCESS_KEY` > `VOLCSTACK_SECRET_KEY`
+- Session Token：`VOLCENGINE_SESSION_TOKEN` > `VOLCSTACK_SESSION_TOKEN`（可选）
+
+```go
+package main
+
+import (
+	"github.com/volcengine/volcengine-go-sdk/volcengine"
+	"github.com/volcengine/volcengine-go-sdk/volcengine/credentials"
+	"github.com/volcengine/volcengine-go-sdk/volcengine/session"
+)
+
+func main() {
+	config := volcengine.NewConfig().
+		WithRegion("cn-beijing").
+		WithCredentials(credentials.NewEnvCredentials())
+
+	sess, err := session.NewSession(config)
+	if err != nil {
+		panic(err)
+	}
+	_ = sess
+}
+```
+
+## CLI 配置文件凭证提供者
+
+`CliProvider` 从 volcengine-cli 配置文件 (`~/.volcengine/config.json`) 读取凭证。
+
+- 配置文件路径优先级：构造参数 > `VOLCENGINE_CLI_CONFIG_FILE` 环境变量 > `~/.volcengine/config.json`
+- Profile 优先级：构造参数 > `VOLCENGINE_PROFILE` > `VOLCSTACK_PROFILE` > 配置中的 `current` > `default`
+
+支持的 Profile 模式（不区分大小写）：
+
+| 模式 | 说明 |
+| --- | --- |
+| `ak` / 空 | 从 profile 中读取静态 AK/SK |
+| `ststoken` | 静态 AK/SK + SessionToken |
+| `sso` | SSO 登录（OIDC Device Authorization） |
+| `ramrolearn` | STS AssumeRole（委托给 `StsProvider`） |
+| `oidc` | STS AssumeRoleWithOIDC（委托给 `OIDCCredentialsProvider`） |
+| `ecsrole` | ECS IMDS（委托给 `EcsRoleProvider`） |
+
+```go
+package main
+
+import (
+	"github.com/volcengine/volcengine-go-sdk/volcengine"
+	"github.com/volcengine/volcengine-go-sdk/volcengine/credentials/clicreds"
+	"github.com/volcengine/volcengine-go-sdk/volcengine/session"
+)
+
+func main() {
+	// 使用默认配置路径和 profile
+	config := volcengine.NewConfig().
+		WithRegion("cn-beijing").
+		WithCredentials(clicreds.NewCliCredentials("", ""))
+
+	// 或者指定 profile
+	// WithCredentials(clicreds.NewCliCredentials("", "prod"))
+
+	sess, err := session.NewSession(config)
+	if err != nil {
+		panic(err)
+	}
+	_ = sess
+}
+```
+
+## ECS 实例角色凭证提供者
+
+`EcsRoleProvider` 通过 ECS 实例元数据服务 (IMDSv2) 获取临时凭证。
+
+- 角色名优先级：构造参数 > `VOLCENGINE_ECS_METADATA` 环境变量 > 从 IMDS 自动检测
+- 禁用开关：`VOLCENGINE_ECS_METADATA_DISABLED=true`
+- IMDS 端点：`http://100.96.0.96`（IMDSv2 基于 token 的认证）
+- 凭证在过期前自动刷新（5 分钟缓冲窗口）
+
+> ⚠️ 注意事项
+>
+> 1. 仅在绑定了 IAM 角色的 ECS 实例上可用。
+> 2. 自动检测会查询 IMDS 角色列表并使用找到的第一个角色。
+
+```go
+package main
+
+import (
+	"github.com/volcengine/volcengine-go-sdk/volcengine"
+	"github.com/volcengine/volcengine-go-sdk/volcengine/credentials"
+	"github.com/volcengine/volcengine-go-sdk/volcengine/session"
+)
+
+func main() {
+	// 显式指定角色名
+	config := volcengine.NewConfig().
+		WithRegion("cn-beijing").
+		WithCredentials(credentials.NewEcsRoleCredentials("your-ecs-role-name"))
+
+	// 或者从 IMDS 自动检测角色名
+	// WithCredentials(credentials.NewEcsRoleCredentials(""))
+
+	sess, err := session.NewSession(config)
+	if err != nil {
+		panic(err)
+	}
+	_ = sess
+}
+```
+
+## 默认凭证提供者（凭证链）
+
+当未显式配置凭证时，SDK 会自动使用 `DefaultCredentialProvider` —— 一个 4 步凭证链，按顺序尝试每个提供者，直到成功：
+
+1. **EnvProvider** — 环境变量（`VOLCENGINE_ACCESS_KEY` / `VOLCSTACK_ACCESS_KEY_ID`）
+2. **OIDCCredentialsProvider** — 从环境变量读取 OIDC（`VOLCENGINE_OIDC_TOKEN_FILE`、`VOLCENGINE_OIDC_ROLE_TRN`）
+3. **CliProvider** — CLI 配置文件（`~/.volcengine/config.json`）
+4. **EcsRoleProvider** — ECS IMDS（实例元数据）
+
+默认启用 `reuseLastProviderEnabled=true`：首次成功解析后，后续调用复用缓存的提供者以提升性能，仅在缓存提供者失败时才回退到完整链遍历。
+
+**隐式使用**（不配置凭证 —— SDK 自动使用默认凭证链）：
+
+```go
+package main
+
+import (
+	"github.com/volcengine/volcengine-go-sdk/volcengine"
+	"github.com/volcengine/volcengine-go-sdk/volcengine/session"
+)
+
+func main() {
+	// 不设置 WithCredentials —— SDK 自动使用 DefaultCredentialProvider
+	config := volcengine.NewConfig().
+		WithRegion("cn-beijing")
+
+	sess, err := session.NewSession(config)
+	if err != nil {
+		panic(err)
+	}
+	_ = sess
+}
+```
+
+**显式使用**（自定义默认凭证链，例如指定 ECS 角色名）：
+
+```go
+package main
+
+import (
+	"github.com/volcengine/volcengine-go-sdk/volcengine"
+	"github.com/volcengine/volcengine-go-sdk/volcengine/credentials"
+	"github.com/volcengine/volcengine-go-sdk/volcengine/defaults"
+	"github.com/volcengine/volcengine-go-sdk/volcengine/session"
+)
+
+func main() {
+	config := volcengine.NewConfig().
+		WithRegion("cn-beijing").
+		WithCredentials(defaults.NewDefaultCredentialProvider(
+			func(o *credentials.DefaultCredentialProviderOptions) {
+				o.RoleName = "my-ecs-role"
+			},
+		))
+
+	sess, err := session.NewSession(config)
+	if err != nil {
+		panic(err)
+	}
+	_ = sess
 }
 ```
 
