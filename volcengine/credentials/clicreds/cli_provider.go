@@ -609,23 +609,17 @@ func (p *CliProvider) retrieveOIDC(profile *cliProfile, profileName, configPath 
 	if p.delegate == nil {
 		tokenFile := strings.TrimSpace(profile.OIDCTokenFile)
 		if tokenFile == "" {
-			tokenFile = os.Getenv("VOLCENGINE_OIDC_TOKEN_FILE")
-		}
-		roleTrn := strings.TrimSpace(profile.RoleTrn)
-		if roleTrn == "" {
-			roleTrn = os.Getenv("VOLCENGINE_OIDC_ROLE_TRN")
-		}
-		if tokenFile == "" {
 			return credentials.Value{ProviderName: CliProviderName}, volcengineerr.New(
 				"CliConfigOIDCTokenFileMissing",
-				fmt.Sprintf("cli config profile %s in %s did not contain oidc-token-file and VOLCENGINE_OIDC_TOKEN_FILE is not set", profileName, configPath),
+				fmt.Sprintf("cli config profile %s in %s did not contain oidc-token-file", profileName, configPath),
 				nil,
 			)
 		}
+		roleTrn := strings.TrimSpace(profile.RoleTrn)
 		if roleTrn == "" {
 			return credentials.Value{ProviderName: CliProviderName}, volcengineerr.New(
 				"CliConfigOIDCRoleTrnMissing",
-				fmt.Sprintf("cli config profile %s in %s did not contain role-trn and VOLCENGINE_OIDC_ROLE_TRN is not set", profileName, configPath),
+				fmt.Sprintf("cli config profile %s in %s did not contain role-trn", profileName, configPath),
 				nil,
 			)
 		}
