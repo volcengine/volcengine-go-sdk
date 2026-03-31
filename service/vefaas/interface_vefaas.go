@@ -350,6 +350,14 @@ type VEFAASAPI interface {
 	ListTriggersWithContext(volcengine.Context, *ListTriggersInput, ...request.Option) (*ListTriggersOutput, error)
 	ListTriggersRequest(*ListTriggersInput) (*request.Request, *ListTriggersOutput)
 
+	PauseSandboxCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	PauseSandboxCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	PauseSandboxCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	PauseSandbox(*PauseSandboxInput) (*PauseSandboxOutput, error)
+	PauseSandboxWithContext(volcengine.Context, *PauseSandboxInput, ...request.Option) (*PauseSandboxOutput, error)
+	PauseSandboxRequest(*PauseSandboxInput) (*request.Request, *PauseSandboxOutput)
+
 	PrecacheSandboxImagesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	PrecacheSandboxImagesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	PrecacheSandboxImagesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -373,6 +381,14 @@ type VEFAASAPI interface {
 	Release(*ReleaseInput) (*ReleaseOutput, error)
 	ReleaseWithContext(volcengine.Context, *ReleaseInput, ...request.Option) (*ReleaseOutput, error)
 	ReleaseRequest(*ReleaseInput) (*request.Request, *ReleaseOutput)
+
+	ResumeSandboxCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ResumeSandboxCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ResumeSandboxCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ResumeSandbox(*ResumeSandboxInput) (*ResumeSandboxOutput, error)
+	ResumeSandboxWithContext(volcengine.Context, *ResumeSandboxInput, ...request.Option) (*ResumeSandboxOutput, error)
+	ResumeSandboxRequest(*ResumeSandboxInput) (*request.Request, *ResumeSandboxOutput)
 
 	SetSandboxTimeoutCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	SetSandboxTimeoutCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
