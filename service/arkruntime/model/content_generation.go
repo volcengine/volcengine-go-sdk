@@ -23,6 +23,7 @@ const (
 type CreateContentGenerationTaskRequest struct {
 	Model                 string                                `json:"model"`
 	Content               []*CreateContentGenerationContentItem `json:"content"`
+	SafetyIdentifier      *string                               `json:"safety_identifier,omitempty"`
 	CallbackUrl           *string                               `json:"callback_url,omitempty"`
 	ReturnLastFrame       *bool                                 `json:"return_last_frame,omitempty"`
 	ServiceTier           *string                               `json:"service_tier,omitempty"`
@@ -63,7 +64,8 @@ func (r CreateContentGenerationTaskRequest) MarshalJSON() ([]byte, error) {
 type ExtraBody map[string]interface{}
 
 type CreateContentGenerationTaskResponse struct {
-	ID string `json:"id"`
+	ID               string  `json:"id"`
+	SafetyIdentifier *string `json:"safety_identifier,omitempty"`
 
 	HttpHeader
 }
@@ -75,6 +77,7 @@ type GetContentGenerationTaskRequest struct {
 type GetContentGenerationTaskResponse struct {
 	ID                    string                   `json:"id"`
 	Model                 string                   `json:"model"`
+	SafetyIdentifier      *string                  `json:"safety_identifier,omitempty"`
 	Status                string                   `json:"status"`
 	Error                 *ContentGenerationError  `json:"error,omitempty"`
 	Content               Content                  `json:"content"`
@@ -162,6 +165,7 @@ type ListContentGenerationTasksResponse struct {
 type ListContentGenerationTaskItem struct {
 	ID                    string                   `json:"id"`
 	Model                 string                   `json:"model"`
+	SafetyIdentifier      *string                  `json:"safety_identifier,omitempty"`
 	Status                string                   `json:"status"`
 	FailureReason         *ContentGenerationError  `json:"failure_reason,omitempty"`
 	Content               Content                  `json:"content"`
