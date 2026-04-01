@@ -163,7 +163,7 @@ type VideoProjectSuppressionStartInput struct {
 	ManualStyle *string `type:"string" json:"manualStyle,omitempty"`
 
 	// ProjectId is a required field
-	ProjectId *int64 `type:"int64" json:"projectId,omitempty" required:"true"`
+	ProjectId *string `type:"string" json:"projectId,omitempty" required:"true"`
 
 	StartTime *int32 `type:"int32" json:"startTime,omitempty"`
 
@@ -242,7 +242,7 @@ func (s *VideoProjectSuppressionStartInput) SetManualStyle(v string) *VideoProje
 }
 
 // SetProjectId sets the ProjectId field's value.
-func (s *VideoProjectSuppressionStartInput) SetProjectId(v int64) *VideoProjectSuppressionStartInput {
+func (s *VideoProjectSuppressionStartInput) SetProjectId(v string) *VideoProjectSuppressionStartInput {
 	s.ProjectId = &v
 	return s
 }

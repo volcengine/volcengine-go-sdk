@@ -169,10 +169,42 @@ func (s *AutoFillTargetTextForProjectsOutput) SetOnUpdate(v bool) *AutoFillTarge
 	return s
 }
 
+type CreatorForProjectsOutput struct {
+	_ struct{} `type:"structure"`
+
+	Avatar *string `type:"string" json:"avatar"`
+
+	Username *string `type:"string" json:"username"`
+}
+
+// String returns the string representation
+func (s CreatorForProjectsOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s CreatorForProjectsOutput) GoString() string {
+	return s.String()
+}
+
+// SetAvatar sets the Avatar field's value.
+func (s *CreatorForProjectsOutput) SetAvatar(v string) *CreatorForProjectsOutput {
+	s.Avatar = &v
+	return s
+}
+
+// SetUsername sets the Username field's value.
+func (s *CreatorForProjectsOutput) SetUsername(v string) *CreatorForProjectsOutput {
+	s.Username = &v
+	return s
+}
+
 type DataForProjectsOutput struct {
 	_ struct{} `type:"structure"`
 
 	CreatedAt *string `type:"string" json:"createdAt"`
+
+	Creator *CreatorForProjectsOutput `type:"structure" json:"creator"`
 
 	CreatorId *string `type:"string" json:"creatorId"`
 
@@ -180,11 +212,15 @@ type DataForProjectsOutput struct {
 
 	Extra *ExtraForProjectsOutput `type:"structure" json:"extra"`
 
-	Id *int32 `type:"int32" json:"id"`
+	Id *string `type:"string" json:"id"`
 
 	Name *string `type:"string" json:"name"`
 
+	SourceLang *string `type:"string" json:"sourceLang"`
+
 	SourceLocale *string `type:"string" json:"sourceLocale"`
+
+	TargetLangs []*string `type:"list" json:"targetLangs"`
 
 	TargetLocales []*string `type:"list" json:"targetLocales"`
 
@@ -207,6 +243,12 @@ func (s *DataForProjectsOutput) SetCreatedAt(v string) *DataForProjectsOutput {
 	return s
 }
 
+// SetCreator sets the Creator field's value.
+func (s *DataForProjectsOutput) SetCreator(v *CreatorForProjectsOutput) *DataForProjectsOutput {
+	s.Creator = v
+	return s
+}
+
 // SetCreatorId sets the CreatorId field's value.
 func (s *DataForProjectsOutput) SetCreatorId(v string) *DataForProjectsOutput {
 	s.CreatorId = &v
@@ -226,7 +268,7 @@ func (s *DataForProjectsOutput) SetExtra(v *ExtraForProjectsOutput) *DataForProj
 }
 
 // SetId sets the Id field's value.
-func (s *DataForProjectsOutput) SetId(v int32) *DataForProjectsOutput {
+func (s *DataForProjectsOutput) SetId(v string) *DataForProjectsOutput {
 	s.Id = &v
 	return s
 }
@@ -237,9 +279,21 @@ func (s *DataForProjectsOutput) SetName(v string) *DataForProjectsOutput {
 	return s
 }
 
+// SetSourceLang sets the SourceLang field's value.
+func (s *DataForProjectsOutput) SetSourceLang(v string) *DataForProjectsOutput {
+	s.SourceLang = &v
+	return s
+}
+
 // SetSourceLocale sets the SourceLocale field's value.
 func (s *DataForProjectsOutput) SetSourceLocale(v string) *DataForProjectsOutput {
 	s.SourceLocale = &v
+	return s
+}
+
+// SetTargetLangs sets the TargetLangs field's value.
+func (s *DataForProjectsOutput) SetTargetLangs(v []*string) *DataForProjectsOutput {
+	s.TargetLangs = v
 	return s
 }
 

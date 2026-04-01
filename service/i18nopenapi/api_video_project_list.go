@@ -169,10 +169,42 @@ func (s *AutoFillTargetTextForVideoProjectListOutput) SetOnUpdate(v bool) *AutoF
 	return s
 }
 
+type CreatorForVideoProjectListOutput struct {
+	_ struct{} `type:"structure"`
+
+	Avatar *string `type:"string" json:"avatar"`
+
+	Username *string `type:"string" json:"username"`
+}
+
+// String returns the string representation
+func (s CreatorForVideoProjectListOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s CreatorForVideoProjectListOutput) GoString() string {
+	return s.String()
+}
+
+// SetAvatar sets the Avatar field's value.
+func (s *CreatorForVideoProjectListOutput) SetAvatar(v string) *CreatorForVideoProjectListOutput {
+	s.Avatar = &v
+	return s
+}
+
+// SetUsername sets the Username field's value.
+func (s *CreatorForVideoProjectListOutput) SetUsername(v string) *CreatorForVideoProjectListOutput {
+	s.Username = &v
+	return s
+}
+
 type DataForVideoProjectListOutput struct {
 	_ struct{} `type:"structure"`
 
 	CreatedAt *string `type:"string" json:"createdAt"`
+
+	Creator *CreatorForVideoProjectListOutput `type:"structure" json:"creator"`
 
 	CreatorId *string `type:"string" json:"creatorId"`
 
@@ -180,11 +212,15 @@ type DataForVideoProjectListOutput struct {
 
 	Extra *ExtraForVideoProjectListOutput `type:"structure" json:"extra"`
 
-	Id *int32 `type:"int32" json:"id"`
+	Id *string `type:"string" json:"id"`
 
 	Name *string `type:"string" json:"name"`
 
+	SourceLang *string `type:"string" json:"sourceLang"`
+
 	SourceLocale *string `type:"string" json:"sourceLocale"`
+
+	TargetLangs []*string `type:"list" json:"targetLangs"`
 
 	TargetLocales []*string `type:"list" json:"targetLocales"`
 
@@ -207,6 +243,12 @@ func (s *DataForVideoProjectListOutput) SetCreatedAt(v string) *DataForVideoProj
 	return s
 }
 
+// SetCreator sets the Creator field's value.
+func (s *DataForVideoProjectListOutput) SetCreator(v *CreatorForVideoProjectListOutput) *DataForVideoProjectListOutput {
+	s.Creator = v
+	return s
+}
+
 // SetCreatorId sets the CreatorId field's value.
 func (s *DataForVideoProjectListOutput) SetCreatorId(v string) *DataForVideoProjectListOutput {
 	s.CreatorId = &v
@@ -226,7 +268,7 @@ func (s *DataForVideoProjectListOutput) SetExtra(v *ExtraForVideoProjectListOutp
 }
 
 // SetId sets the Id field's value.
-func (s *DataForVideoProjectListOutput) SetId(v int32) *DataForVideoProjectListOutput {
+func (s *DataForVideoProjectListOutput) SetId(v string) *DataForVideoProjectListOutput {
 	s.Id = &v
 	return s
 }
@@ -237,9 +279,21 @@ func (s *DataForVideoProjectListOutput) SetName(v string) *DataForVideoProjectLi
 	return s
 }
 
+// SetSourceLang sets the SourceLang field's value.
+func (s *DataForVideoProjectListOutput) SetSourceLang(v string) *DataForVideoProjectListOutput {
+	s.SourceLang = &v
+	return s
+}
+
 // SetSourceLocale sets the SourceLocale field's value.
 func (s *DataForVideoProjectListOutput) SetSourceLocale(v string) *DataForVideoProjectListOutput {
 	s.SourceLocale = &v
+	return s
+}
+
+// SetTargetLangs sets the TargetLangs field's value.
+func (s *DataForVideoProjectListOutput) SetTargetLangs(v []*string) *DataForVideoProjectListOutput {
+	s.TargetLangs = v
 	return s
 }
 
@@ -274,6 +328,36 @@ func (s ExtraForVideoProjectListOutput) GoString() string {
 // SetSetting sets the Setting field's value.
 func (s *ExtraForVideoProjectListOutput) SetSetting(v *SettingForVideoProjectListOutput) *ExtraForVideoProjectListOutput {
 	s.Setting = v
+	return s
+}
+
+type PaginationForVideoProjectListOutput struct {
+	_ struct{} `type:"structure"`
+
+	Limit *int32 `type:"int32" json:"limit"`
+
+	Offset *int32 `type:"int32" json:"offset"`
+}
+
+// String returns the string representation
+func (s PaginationForVideoProjectListOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s PaginationForVideoProjectListOutput) GoString() string {
+	return s.String()
+}
+
+// SetLimit sets the Limit field's value.
+func (s *PaginationForVideoProjectListOutput) SetLimit(v int32) *PaginationForVideoProjectListOutput {
+	s.Limit = &v
+	return s
+}
+
+// SetOffset sets the Offset field's value.
+func (s *PaginationForVideoProjectListOutput) SetOffset(v int32) *PaginationForVideoProjectListOutput {
+	s.Offset = &v
 	return s
 }
 
@@ -407,6 +491,10 @@ type VideoProjectListOutput struct {
 	Metadata *response.ResponseMetadata
 
 	Data []*DataForVideoProjectListOutput `type:"list" json:"data"`
+
+	Pagination *PaginationForVideoProjectListOutput `type:"structure" json:"pagination"`
+
+	Total *int32 `type:"int32" json:"total"`
 }
 
 // String returns the string representation
@@ -422,5 +510,17 @@ func (s VideoProjectListOutput) GoString() string {
 // SetData sets the Data field's value.
 func (s *VideoProjectListOutput) SetData(v []*DataForVideoProjectListOutput) *VideoProjectListOutput {
 	s.Data = v
+	return s
+}
+
+// SetPagination sets the Pagination field's value.
+func (s *VideoProjectListOutput) SetPagination(v *PaginationForVideoProjectListOutput) *VideoProjectListOutput {
+	s.Pagination = v
+	return s
+}
+
+// SetTotal sets the Total field's value.
+func (s *VideoProjectListOutput) SetTotal(v int32) *VideoProjectListOutput {
+	s.Total = &v
 	return s
 }
