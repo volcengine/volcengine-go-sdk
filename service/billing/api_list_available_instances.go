@@ -162,6 +162,8 @@ type InstanceListForListAvailableInstancesOutput struct {
 
 	Product *string `type:"string" json:",omitempty"`
 
+	ProductName *string `type:"string" json:",omitempty"`
+
 	RemainRenewTimes *string `type:"string" json:",omitempty"`
 
 	RenewType *string `type:"string" json:",omitempty"`
@@ -230,6 +232,12 @@ func (s *InstanceListForListAvailableInstancesOutput) SetPaymentMethod(v string)
 // SetProduct sets the Product field's value.
 func (s *InstanceListForListAvailableInstancesOutput) SetProduct(v string) *InstanceListForListAvailableInstancesOutput {
 	s.Product = &v
+	return s
+}
+
+// SetProductName sets the ProductName field's value.
+func (s *InstanceListForListAvailableInstancesOutput) SetProductName(v string) *InstanceListForListAvailableInstancesOutput {
+	s.ProductName = &v
 	return s
 }
 
