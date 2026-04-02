@@ -201,7 +201,7 @@ type UpdateFileSystemInput struct {
 
 	ProjectName *string `type:"string" json:",omitempty"`
 
-	Tags []*TagForUpdateFileSystemInput `type:"list" json:",omitempty"`
+	Tags []*TagForUpdateFileSystemInput `type:"list"`
 }
 
 // String returns the string representation

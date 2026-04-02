@@ -216,7 +216,7 @@ type DimensionForDeleteDataFlowInput struct {
 
 	Attr *string `type:"string" json:",omitempty" enum:"EnumOfAttrForDeleteDataFlowInput"`
 
-	StaticValues []*StaticValueForDeleteDataFlowInput `type:"list" json:",omitempty"`
+	StaticValues []*StaticValueForDeleteDataFlowInput `type:"list"`
 }
 
 // String returns the string representation
@@ -244,7 +244,7 @@ func (s *DimensionForDeleteDataFlowInput) SetStaticValues(v []*StaticValueForDel
 type FilterInfoForDeleteDataFlowInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	Dimensions []*DimensionForDeleteDataFlowInput `type:"list" json:",omitempty"`
+	Dimensions []*DimensionForDeleteDataFlowInput `type:"list"`
 }
 
 // String returns the string representation

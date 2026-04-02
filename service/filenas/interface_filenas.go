@@ -102,14 +102,6 @@ type FILENASAPI interface {
 	CreatePreSignedUrlWithContext(volcengine.Context, *CreatePreSignedUrlInput, ...request.Option) (*CreatePreSignedUrlOutput, error)
 	CreatePreSignedUrlRequest(*CreatePreSignedUrlInput) (*request.Request, *CreatePreSignedUrlOutput)
 
-	CreateReservedCapacityCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	CreateReservedCapacityCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	CreateReservedCapacityCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	CreateReservedCapacity(*CreateReservedCapacityInput) (*CreateReservedCapacityOutput, error)
-	CreateReservedCapacityWithContext(volcengine.Context, *CreateReservedCapacityInput, ...request.Option) (*CreateReservedCapacityOutput, error)
-	CreateReservedCapacityRequest(*CreateReservedCapacityInput) (*request.Request, *CreateReservedCapacityOutput)
-
 	CreateSnapshotCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	CreateSnapshotCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	CreateSnapshotCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -269,14 +261,6 @@ type FILENASAPI interface {
 	DescribeRegions(*DescribeRegionsInput) (*DescribeRegionsOutput, error)
 	DescribeRegionsWithContext(volcengine.Context, *DescribeRegionsInput, ...request.Option) (*DescribeRegionsOutput, error)
 	DescribeRegionsRequest(*DescribeRegionsInput) (*request.Request, *DescribeRegionsOutput)
-
-	DescribeReservedCapacitysCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	DescribeReservedCapacitysCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	DescribeReservedCapacitysCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	DescribeReservedCapacitys(*DescribeReservedCapacitysInput) (*DescribeReservedCapacitysOutput, error)
-	DescribeReservedCapacitysWithContext(volcengine.Context, *DescribeReservedCapacitysInput, ...request.Option) (*DescribeReservedCapacitysOutput, error)
-	DescribeReservedCapacitysRequest(*DescribeReservedCapacitysInput) (*request.Request, *DescribeReservedCapacitysOutput)
 
 	DescribeSnapshotsCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DescribeSnapshotsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)

@@ -197,7 +197,7 @@ type UpdatePermissionRuleInput struct {
 
 	PermissionGroupId *string `type:"string" json:",omitempty"`
 
-	PermissionRules []*PermissionRuleForUpdatePermissionRuleInput `type:"list" json:",omitempty"`
+	PermissionRules []*PermissionRuleForUpdatePermissionRuleInput `type:"list"`
 }
 
 // String returns the string representation

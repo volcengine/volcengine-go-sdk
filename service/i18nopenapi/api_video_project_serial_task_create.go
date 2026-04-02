@@ -240,6 +240,8 @@ type DataForVideoProjectSerialTaskCreateOutput struct {
 
 	BaseResp *BaseRespForVideoProjectSerialTaskCreateOutput `type:"structure" json:",omitempty"`
 
+	DubTaskIDs []*string `type:"list" json:",omitempty"`
+
 	SubtitleFileCheckReports []*SubtitleFileCheckReportForVideoProjectSerialTaskCreateOutput `type:"list" json:",omitempty"`
 
 	TaskIDs []*string `type:"list" json:",omitempty"`
@@ -258,6 +260,12 @@ func (s DataForVideoProjectSerialTaskCreateOutput) GoString() string {
 // SetBaseResp sets the BaseResp field's value.
 func (s *DataForVideoProjectSerialTaskCreateOutput) SetBaseResp(v *BaseRespForVideoProjectSerialTaskCreateOutput) *DataForVideoProjectSerialTaskCreateOutput {
 	s.BaseResp = v
+	return s
+}
+
+// SetDubTaskIDs sets the DubTaskIDs field's value.
+func (s *DataForVideoProjectSerialTaskCreateOutput) SetDubTaskIDs(v []*string) *DataForVideoProjectSerialTaskCreateOutput {
+	s.DubTaskIDs = v
 	return s
 }
 
@@ -572,7 +580,7 @@ func (s *TargetStyleMapForVideoProjectSerialTaskCreateInput) SetAf(v string) *Ta
 type TaskInfoForVideoProjectSerialTaskCreateInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	AiRemoveType *string `type:"string" json:"aiRemoveType,omitempty"`
+	AiRemoveType *int32 `type:"int32" json:"aiRemoveType,omitempty"`
 
 	AsrModel *int32 `type:"int32" json:"asrModel,omitempty"`
 
@@ -642,7 +650,7 @@ func (s TaskInfoForVideoProjectSerialTaskCreateInput) GoString() string {
 }
 
 // SetAiRemoveType sets the AiRemoveType field's value.
-func (s *TaskInfoForVideoProjectSerialTaskCreateInput) SetAiRemoveType(v string) *TaskInfoForVideoProjectSerialTaskCreateInput {
+func (s *TaskInfoForVideoProjectSerialTaskCreateInput) SetAiRemoveType(v int32) *TaskInfoForVideoProjectSerialTaskCreateInput {
 	s.AiRemoveType = &v
 	return s
 }
@@ -857,7 +865,7 @@ type VideoProjectSerialTaskCreateInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
 	// ProjectId is a required field
-	ProjectId *int64 `type:"int64" json:"projectId,omitempty" required:"true"`
+	ProjectId *string `type:"string" json:"projectId,omitempty" required:"true"`
 
 	SerialInfo []*SerialInfoForVideoProjectSerialTaskCreateInput `type:"list" json:"serialInfo,omitempty"`
 
@@ -888,7 +896,7 @@ func (s *VideoProjectSerialTaskCreateInput) Validate() error {
 }
 
 // SetProjectId sets the ProjectId field's value.
-func (s *VideoProjectSerialTaskCreateInput) SetProjectId(v int64) *VideoProjectSerialTaskCreateInput {
+func (s *VideoProjectSerialTaskCreateInput) SetProjectId(v string) *VideoProjectSerialTaskCreateInput {
 	s.ProjectId = &v
 	return s
 }

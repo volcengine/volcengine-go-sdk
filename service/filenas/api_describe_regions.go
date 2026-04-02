@@ -162,7 +162,7 @@ type DescribeRegionsOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	Regions []*RegionForDescribeRegionsOutput `type:"list" json:",omitempty"`
+	Regions []*RegionForDescribeRegionsOutput `type:"list"`
 
 	TotalCount *int32 `type:"int32" json:",omitempty"`
 }

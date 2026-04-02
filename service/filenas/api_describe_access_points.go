@@ -374,7 +374,7 @@ type DescribeAccessPointsOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	AccessPoints []*AccessPointForDescribeAccessPointsOutput `type:"list" json:",omitempty"`
+	AccessPoints []*AccessPointForDescribeAccessPointsOutput `type:"list"`
 
 	PageNumber *int32 `type:"int32" json:",omitempty"`
 
@@ -452,7 +452,7 @@ type PosixUserForDescribeAccessPointsOutput struct {
 
 	PosixGroupId *int32 `type:"int32" json:",omitempty"`
 
-	PosixSecondaryGroupIds []*int32 `type:"list" json:",omitempty"`
+	PosixSecondaryGroupIds []*int32 `type:"list"`
 
 	PosixUserId *int32 `type:"int32" json:",omitempty"`
 }

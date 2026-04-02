@@ -173,7 +173,7 @@ type CreateFileSystemInput struct {
 
 	StorageType *string `type:"string" json:",omitempty" enum:"EnumOfStorageTypeForCreateFileSystemInput"`
 
-	Tags []*TagForCreateFileSystemInput `type:"list" json:",omitempty"`
+	Tags []*TagForCreateFileSystemInput `type:"list"`
 
 	// ZoneId is a required field
 	ZoneId *string `type:"string" json:",omitempty" required:"true"`

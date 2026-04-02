@@ -218,7 +218,7 @@ type DescribeFileSystemsInput struct {
 
 	FileSystemType *string `type:"string" json:",omitempty" enum:"EnumOfFileSystemTypeForDescribeFileSystemsInput"`
 
-	Filters []*FilterForDescribeFileSystemsInput `type:"list" json:",omitempty"`
+	Filters []*FilterForDescribeFileSystemsInput `type:"list"`
 
 	PageNumber *int32 `type:"int32" json:",omitempty"`
 
@@ -226,7 +226,7 @@ type DescribeFileSystemsInput struct {
 
 	ProjectName *string `type:"string" json:",omitempty"`
 
-	TagFilters []*TagFilterForDescribeFileSystemsInput `type:"list" json:",omitempty"`
+	TagFilters []*TagFilterForDescribeFileSystemsInput `type:"list"`
 }
 
 // String returns the string representation
@@ -286,7 +286,7 @@ type DescribeFileSystemsOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	FileSystems []*FileSystemForDescribeFileSystemsOutput `type:"list" json:",omitempty"`
+	FileSystems []*FileSystemForDescribeFileSystemsOutput `type:"list"`
 
 	PageNumber *int32 `type:"int32" json:",omitempty"`
 
@@ -360,7 +360,7 @@ type FileSystemForDescribeFileSystemsOutput struct {
 
 	StorageType *string `type:"string" json:",omitempty" enum:"EnumOfStorageTypeForDescribeFileSystemsOutput"`
 
-	Tags []*TagForDescribeFileSystemsOutput `type:"list" json:",omitempty"`
+	Tags []*TagForDescribeFileSystemsOutput `type:"list"`
 
 	UpdateTime *string `type:"string" json:",omitempty"`
 

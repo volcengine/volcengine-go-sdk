@@ -611,7 +611,7 @@ func (s *TargetStyleMapForDocumentTaskDetailOutput) SetAf(v string) *TargetStyle
 type TaskInfoForDocumentTaskDetailOutput struct {
 	_ struct{} `type:"structure"`
 
-	AiRemoveType *string `type:"string" json:"aiRemoveType"`
+	AiRemoveType *int32 `type:"int32" json:"aiRemoveType"`
 
 	AsrModel *int32 `type:"int32" json:"asrModel"`
 
@@ -681,7 +681,7 @@ func (s TaskInfoForDocumentTaskDetailOutput) GoString() string {
 }
 
 // SetAiRemoveType sets the AiRemoveType field's value.
-func (s *TaskInfoForDocumentTaskDetailOutput) SetAiRemoveType(v string) *TaskInfoForDocumentTaskDetailOutput {
+func (s *TaskInfoForDocumentTaskDetailOutput) SetAiRemoveType(v int32) *TaskInfoForDocumentTaskDetailOutput {
 	s.AiRemoveType = &v
 	return s
 }

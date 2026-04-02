@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"net/http"
 	"strconv"
+	"strings"
 	"time"
 
 	"github.com/volcengine/volcengine-go-sdk/volcengine"
@@ -79,6 +80,7 @@ func BuildAuthToken(ctx context.Context, sess *session.Session, dbUser, instance
 	q.Set("Version", defaultAPIVersion)
 	q.Set("DBUser", dbUser)
 	q.Set("InstanceId", instanceId)
+	q.Set("X-Host", req.ClientInfo.Endpoint)
 	if expires > 0 {
 		q.Set("X-Expires", strconv.Itoa(expires))
 	} else {
@@ -87,6 +89,10 @@ func BuildAuthToken(ctx context.Context, sess *session.Session, dbUser, instance
 	}
 	req.HTTPRequest.URL.RawQuery = q.Encode()
 
+	// Remove scheme and host
+	req.HTTPRequest.URL.Host = ""
+	req.HTTPRequest.URL.Scheme = ""
+
 	// Presign the request
 	expireDuration := time.Duration(expires) * time.Second
 	signedUrl, _, err := req.PresignRequest(expireDuration)
@@ -94,5 +100,5 @@ func BuildAuthToken(ctx context.Context, sess *session.Session, dbUser, instance
 		return "", fmt.Errorf("unable to presign request: %w", err)
 	}
 
-	return signedUrl, nil
+	return strings.TrimLeft(signedUrl, "/?"), nil
 }

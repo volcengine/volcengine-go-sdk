@@ -318,7 +318,7 @@ type DescribeMountPointsOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	MountPoints []*ConvertMountPointForDescribeMountPointsOutput `type:"list" json:",omitempty"`
+	MountPoints []*ConvertMountPointForDescribeMountPointsOutput `type:"list"`
 
 	TotalCount *int32 `type:"int32" json:",omitempty"`
 }
@@ -394,7 +394,7 @@ type PermissionGroupForDescribeMountPointsOutput struct {
 
 	FileSystemType *string `type:"string" json:",omitempty" enum:"EnumOfFileSystemTypeForDescribeMountPointsOutput"`
 
-	MountPoints []*MountPointForDescribeMountPointsOutput `type:"list" json:",omitempty"`
+	MountPoints []*MountPointForDescribeMountPointsOutput `type:"list"`
 
 	PermissionGroupId *string `type:"string" json:",omitempty"`
 
@@ -473,9 +473,6 @@ const (
 )
 
 const (
-	// EnumOfStatusForDescribeMountPointsOutputUnknown is a EnumOfStatusForDescribeMountPointsOutput enum value
-	EnumOfStatusForDescribeMountPointsOutputUnknown = "Unknown"
-
 	// EnumOfStatusForDescribeMountPointsOutputCreating is a EnumOfStatusForDescribeMountPointsOutput enum value
 	EnumOfStatusForDescribeMountPointsOutputCreating = "Creating"
 
