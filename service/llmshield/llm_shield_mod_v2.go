@@ -5,7 +5,10 @@ import (
 	"fmt"
 	"io"
 	"net/http"
+	"sync"
 )
+
+const RespChanSize = 100
 
 type ContentTypeV2 int64
 
@@ -73,24 +76,28 @@ type ModerateV2Request struct {
 	History []*MessageV2 `thrift:"history,6,optional" form:"History" json:"History,omitempty"`
 }
 type Error struct {
-	CodeN   int
-	Code    string
-	Message string
+	CodeN   int    `json:"CodeN"`
+	Code    string `json:"Code"`
+	Message string `json:"Message"`
 }
 
 type ResponseMetadata struct {
-	RequestId string
-	Action    string
-	Version   string
-	Service   string
-	Region    string
-	HTTPCode  int
-	Error     *Error
+	RequestId string `json:"RequestId"`
+	Action    string `json:"Action"`
+	Version   string `json:"Version"`
+	Service   string `json:"Service"`
+	Region    string `json:"Region"`
+	HTTPCode  int    `json:"HTTPCode"`
+	Error     *Error `json:"Error"`
 }
 
 type ModerateV2Response struct {
 	ResponseMetadata ResponseMetadata `json:"ResponseMetadata"`
 	Result           ModerateV2Result `json:"Result"`
+}
+
+type StreamDetail struct {
+	SafeChunk string `json:"SafeChunk"`
 }
 
 type ModerateV2Result struct {
@@ -226,6 +233,25 @@ type DecisionV2 struct {
 	DecisionStrategyID *string `thrift:"decisionStrategyID,3,optional" form:"DecisionStrategyID" json:"DecisionStrategyID,omitempty"`
 	// 命中策略ID列表
 	HitStrategyIDs []string `thrift:"hitStrategyIDs,4,optional" form:"HitStrategyIDs" json:"HitStrategyIDs,omitempty"`
+}
+
+type streamReader struct {
+	mu       sync.Mutex  // 保护并发访问
+	dataChan chan []byte // 数据通道，用于传递待发送的流式数据
+	closed   bool        // 通道关闭标识
+	buffer   []byte      // 用于存储单次 Read 未读取完的数据
+}
+
+type StreamSession struct {
+	ChanSize    int
+	StreamId    int64
+	ReqDataChan *streamReader
+	RspDataChan chan *ModerateV2Response
+	IsSync      bool
+	Started     bool
+	Role        string //方向：user或assistant
+	once        sync.Once
+	Connected   chan bool // 信号：连接已建立
 }
 
 type ModerateV2StreamSession struct {

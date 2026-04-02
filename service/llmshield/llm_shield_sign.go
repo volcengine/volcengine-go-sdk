@@ -59,7 +59,7 @@ func hashSHA256(data []byte) []byte {
 	return hash.Sum(nil)
 }
 
-func (c *Client) doRequestSign(request *http.Request, body []byte) error {
+func (c *Client) DoRequestSign(request *http.Request, body []byte) error {
 	queries := request.URL.Query()
 	// 1. 构建请求
 	_ = fmt.Sprintf("%s%s?%s", request.URL.Host, request.URL.Path, queries.Encode())
