@@ -382,6 +382,22 @@ type ALBAPI interface {
 	ListTagsForResourcesWithContext(volcengine.Context, *ListTagsForResourcesInput, ...request.Option) (*ListTagsForResourcesOutput, error)
 	ListTagsForResourcesRequest(*ListTagsForResourcesInput) (*request.Request, *ListTagsForResourcesOutput)
 
+	LoadBalancerJoinSecurityGroupCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	LoadBalancerJoinSecurityGroupCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	LoadBalancerJoinSecurityGroupCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	LoadBalancerJoinSecurityGroup(*LoadBalancerJoinSecurityGroupInput) (*LoadBalancerJoinSecurityGroupOutput, error)
+	LoadBalancerJoinSecurityGroupWithContext(volcengine.Context, *LoadBalancerJoinSecurityGroupInput, ...request.Option) (*LoadBalancerJoinSecurityGroupOutput, error)
+	LoadBalancerJoinSecurityGroupRequest(*LoadBalancerJoinSecurityGroupInput) (*request.Request, *LoadBalancerJoinSecurityGroupOutput)
+
+	LoadBalancerLeaveSecurityGroupCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	LoadBalancerLeaveSecurityGroupCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	LoadBalancerLeaveSecurityGroupCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	LoadBalancerLeaveSecurityGroup(*LoadBalancerLeaveSecurityGroupInput) (*LoadBalancerLeaveSecurityGroupOutput, error)
+	LoadBalancerLeaveSecurityGroupWithContext(volcengine.Context, *LoadBalancerLeaveSecurityGroupInput, ...request.Option) (*LoadBalancerLeaveSecurityGroupOutput, error)
+	LoadBalancerLeaveSecurityGroupRequest(*LoadBalancerLeaveSecurityGroupInput) (*request.Request, *LoadBalancerLeaveSecurityGroupOutput)
+
 	ModifyAclAttributesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ModifyAclAttributesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	ModifyAclAttributesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})

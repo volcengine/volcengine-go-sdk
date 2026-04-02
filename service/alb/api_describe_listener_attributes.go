@@ -241,6 +241,8 @@ type DescribeListenerAttributesOutput struct {
 	Tags []*TagForDescribeListenerAttributesOutput `type:"list"`
 
 	UpdateTime *string `type:"string"`
+
+	XRealIpEnabled *string `type:"string"`
 }
 
 // String returns the string representation
@@ -436,6 +438,12 @@ func (s *DescribeListenerAttributesOutput) SetTags(v []*TagForDescribeListenerAt
 // SetUpdateTime sets the UpdateTime field's value.
 func (s *DescribeListenerAttributesOutput) SetUpdateTime(v string) *DescribeListenerAttributesOutput {
 	s.UpdateTime = &v
+	return s
+}
+
+// SetXRealIpEnabled sets the XRealIpEnabled field's value.
+func (s *DescribeListenerAttributesOutput) SetXRealIpEnabled(v string) *DescribeListenerAttributesOutput {
+	s.XRealIpEnabled = &v
 	return s
 }
 

@@ -226,6 +226,8 @@ func (s *ConvertRedirectConfigForDescribeRulesOutput) SetProtocol(v string) *Con
 type ConvertRewriteConfigForDescribeRulesOutput struct {
 	_ struct{} `type:"structure"`
 
+	Host *string `type:"string"`
+
 	Path *string `type:"string"`
 }
 
@@ -239,9 +241,99 @@ func (s ConvertRewriteConfigForDescribeRulesOutput) GoString() string {
 	return s.String()
 }
 
+// SetHost sets the Host field's value.
+func (s *ConvertRewriteConfigForDescribeRulesOutput) SetHost(v string) *ConvertRewriteConfigForDescribeRulesOutput {
+	s.Host = &v
+	return s
+}
+
 // SetPath sets the Path field's value.
 func (s *ConvertRewriteConfigForDescribeRulesOutput) SetPath(v string) *ConvertRewriteConfigForDescribeRulesOutput {
 	s.Path = &v
+	return s
+}
+
+type CookieConfigForDescribeRulesOutput struct {
+	_ struct{} `type:"structure"`
+
+	Values []*ValueForDescribeRulesOutput `type:"list"`
+}
+
+// String returns the string representation
+func (s CookieConfigForDescribeRulesOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s CookieConfigForDescribeRulesOutput) GoString() string {
+	return s.String()
+}
+
+// SetValues sets the Values field's value.
+func (s *CookieConfigForDescribeRulesOutput) SetValues(v []*ValueForDescribeRulesOutput) *CookieConfigForDescribeRulesOutput {
+	s.Values = v
+	return s
+}
+
+type CorsConfigForDescribeRulesOutput struct {
+	_ struct{} `type:"structure"`
+
+	AllowCredentials *string `type:"string"`
+
+	AllowHeaders []*string `type:"list"`
+
+	AllowMethods []*string `type:"list"`
+
+	AllowOrigin []*string `type:"list"`
+
+	ExposeHeaders []*string `type:"list"`
+
+	MaxAge *int64 `type:"integer"`
+}
+
+// String returns the string representation
+func (s CorsConfigForDescribeRulesOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s CorsConfigForDescribeRulesOutput) GoString() string {
+	return s.String()
+}
+
+// SetAllowCredentials sets the AllowCredentials field's value.
+func (s *CorsConfigForDescribeRulesOutput) SetAllowCredentials(v string) *CorsConfigForDescribeRulesOutput {
+	s.AllowCredentials = &v
+	return s
+}
+
+// SetAllowHeaders sets the AllowHeaders field's value.
+func (s *CorsConfigForDescribeRulesOutput) SetAllowHeaders(v []*string) *CorsConfigForDescribeRulesOutput {
+	s.AllowHeaders = v
+	return s
+}
+
+// SetAllowMethods sets the AllowMethods field's value.
+func (s *CorsConfigForDescribeRulesOutput) SetAllowMethods(v []*string) *CorsConfigForDescribeRulesOutput {
+	s.AllowMethods = v
+	return s
+}
+
+// SetAllowOrigin sets the AllowOrigin field's value.
+func (s *CorsConfigForDescribeRulesOutput) SetAllowOrigin(v []*string) *CorsConfigForDescribeRulesOutput {
+	s.AllowOrigin = v
+	return s
+}
+
+// SetExposeHeaders sets the ExposeHeaders field's value.
+func (s *CorsConfigForDescribeRulesOutput) SetExposeHeaders(v []*string) *CorsConfigForDescribeRulesOutput {
+	s.ExposeHeaders = v
+	return s
+}
+
+// SetMaxAge sets the MaxAge field's value.
+func (s *CorsConfigForDescribeRulesOutput) SetMaxAge(v int64) *CorsConfigForDescribeRulesOutput {
+	s.MaxAge = &v
 	return s
 }
 
@@ -485,36 +577,6 @@ func (s *PathConfigForDescribeRulesOutput) SetValues(v []*string) *PathConfigFor
 	return s
 }
 
-type ValueForDescribeRulesOutput struct {
-	_ struct{} `type:"structure"`
-
-	Key *string `type:"string"`
-
-	Value *string `type:"string"`
-}
-
-// String returns the string representation
-func (s ValueForDescribeRulesOutput) String() string {
-	return volcengineutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s ValueForDescribeRulesOutput) GoString() string {
-	return s.String()
-}
-
-// SetKey sets the Key field's value.
-func (s *ValueForDescribeRulesOutput) SetKey(v string) *ValueForDescribeRulesOutput {
-	s.Key = &v
-	return s
-}
-
-// SetValue sets the Value field's value.
-func (s *ValueForDescribeRulesOutput) SetValue(v string) *ValueForDescribeRulesOutput {
-	s.Value = &v
-	return s
-}
-
 type QueryStringConfigForDescribeRulesOutput struct {
 	_ struct{} `type:"structure"`
 
@@ -616,6 +678,8 @@ func (s *RewriteConfigForDescribeRulesOutput) SetRewritePath(v string) *RewriteC
 type RuleActionForDescribeRulesOutput struct {
 	_ struct{} `type:"structure"`
 
+	CorsConfig *CorsConfigForDescribeRulesOutput `type:"structure"`
+
 	FixedResponseConfig *FixedResponseConfigForDescribeRulesOutput `type:"structure"`
 
 	ForwardGroupConfig *ConvertForwardGroupConfigForDescribeRulesOutput `type:"structure"`
@@ -637,6 +701,12 @@ func (s RuleActionForDescribeRulesOutput) String() string {
 // GoString returns the string representation
 func (s RuleActionForDescribeRulesOutput) GoString() string {
 	return s.String()
+}
+
+// SetCorsConfig sets the CorsConfig field's value.
+func (s *RuleActionForDescribeRulesOutput) SetCorsConfig(v *CorsConfigForDescribeRulesOutput) *RuleActionForDescribeRulesOutput {
+	s.CorsConfig = v
+	return s
 }
 
 // SetFixedResponseConfig sets the FixedResponseConfig field's value.
@@ -678,6 +748,8 @@ func (s *RuleActionForDescribeRulesOutput) SetType(v string) *RuleActionForDescr
 type RuleConditionForDescribeRulesOutput struct {
 	_ struct{} `type:"structure"`
 
+	CookieConfig *CookieConfigForDescribeRulesOutput `type:"structure"`
+
 	HeaderConfig *HeaderConfigForDescribeRulesOutput `type:"structure"`
 
 	HostConfig *HostConfigForDescribeRulesOutput `type:"structure"`
@@ -687,6 +759,8 @@ type RuleConditionForDescribeRulesOutput struct {
 	PathConfig *PathConfigForDescribeRulesOutput `type:"structure"`
 
 	QueryStringConfig *QueryStringConfigForDescribeRulesOutput `type:"structure"`
+
+	SourceIpConfig *SourceIpConfigForDescribeRulesOutput `type:"structure"`
 
 	Type *string `type:"string"`
 }
@@ -699,6 +773,12 @@ func (s RuleConditionForDescribeRulesOutput) String() string {
 // GoString returns the string representation
 func (s RuleConditionForDescribeRulesOutput) GoString() string {
 	return s.String()
+}
+
+// SetCookieConfig sets the CookieConfig field's value.
+func (s *RuleConditionForDescribeRulesOutput) SetCookieConfig(v *CookieConfigForDescribeRulesOutput) *RuleConditionForDescribeRulesOutput {
+	s.CookieConfig = v
+	return s
 }
 
 // SetHeaderConfig sets the HeaderConfig field's value.
@@ -728,6 +808,12 @@ func (s *RuleConditionForDescribeRulesOutput) SetPathConfig(v *PathConfigForDesc
 // SetQueryStringConfig sets the QueryStringConfig field's value.
 func (s *RuleConditionForDescribeRulesOutput) SetQueryStringConfig(v *QueryStringConfigForDescribeRulesOutput) *RuleConditionForDescribeRulesOutput {
 	s.QueryStringConfig = v
+	return s
+}
+
+// SetSourceIpConfig sets the SourceIpConfig field's value.
+func (s *RuleConditionForDescribeRulesOutput) SetSourceIpConfig(v *SourceIpConfigForDescribeRulesOutput) *RuleConditionForDescribeRulesOutput {
+	s.SourceIpConfig = v
 	return s
 }
 
@@ -931,6 +1017,28 @@ func (s *ServerGroupTupleForDescribeRulesOutput) SetWeight(v int64) *ServerGroup
 	return s
 }
 
+type SourceIpConfigForDescribeRulesOutput struct {
+	_ struct{} `type:"structure"`
+
+	Values []*string `type:"list"`
+}
+
+// String returns the string representation
+func (s SourceIpConfigForDescribeRulesOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s SourceIpConfigForDescribeRulesOutput) GoString() string {
+	return s.String()
+}
+
+// SetValues sets the Values field's value.
+func (s *SourceIpConfigForDescribeRulesOutput) SetValues(v []*string) *SourceIpConfigForDescribeRulesOutput {
+	s.Values = v
+	return s
+}
+
 type TrafficLimitConfigForDescribeRulesOutput struct {
 	_ struct{} `type:"structure"`
 
@@ -950,5 +1058,35 @@ func (s TrafficLimitConfigForDescribeRulesOutput) GoString() string {
 // SetQPS sets the QPS field's value.
 func (s *TrafficLimitConfigForDescribeRulesOutput) SetQPS(v int64) *TrafficLimitConfigForDescribeRulesOutput {
 	s.QPS = &v
+	return s
+}
+
+type ValueForDescribeRulesOutput struct {
+	_ struct{} `type:"structure"`
+
+	Key *string `type:"string"`
+
+	Value *string `type:"string"`
+}
+
+// String returns the string representation
+func (s ValueForDescribeRulesOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ValueForDescribeRulesOutput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *ValueForDescribeRulesOutput) SetKey(v string) *ValueForDescribeRulesOutput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *ValueForDescribeRulesOutput) SetValue(v string) *ValueForDescribeRulesOutput {
+	s.Value = &v
 	return s
 }

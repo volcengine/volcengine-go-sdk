@@ -254,6 +254,8 @@ type ModifyListenerAttributesInput struct {
 	PcaSubCACertificateId *string `type:"string"`
 
 	ServerGroupId *string `type:"string"`
+
+	XRealIpEnabled *string `type:"string"`
 }
 
 // String returns the string representation
@@ -408,6 +410,12 @@ func (s *ModifyListenerAttributesInput) SetPcaSubCACertificateId(v string) *Modi
 // SetServerGroupId sets the ServerGroupId field's value.
 func (s *ModifyListenerAttributesInput) SetServerGroupId(v string) *ModifyListenerAttributesInput {
 	s.ServerGroupId = &v
+	return s
+}
+
+// SetXRealIpEnabled sets the XRealIpEnabled field's value.
+func (s *ModifyListenerAttributesInput) SetXRealIpEnabled(v string) *ModifyListenerAttributesInput {
+	s.XRealIpEnabled = &v
 	return s
 }
 

@@ -420,9 +420,13 @@ type LoadBalancerAddressForDescribeLoadBalancersOutput struct {
 
 	EniIpv6Address *string `type:"string"`
 
+	Ipv4LocalAddresses []*string `type:"list"`
+
 	Ipv6Eip *Ipv6EipForDescribeLoadBalancersOutput `type:"structure"`
 
 	Ipv6EipId *string `type:"string"`
+
+	Ipv6LocalAddresses []*string `type:"list"`
 }
 
 // String returns the string representation
@@ -471,6 +475,12 @@ func (s *LoadBalancerAddressForDescribeLoadBalancersOutput) SetEniIpv6Address(v 
 	return s
 }
 
+// SetIpv4LocalAddresses sets the Ipv4LocalAddresses field's value.
+func (s *LoadBalancerAddressForDescribeLoadBalancersOutput) SetIpv4LocalAddresses(v []*string) *LoadBalancerAddressForDescribeLoadBalancersOutput {
+	s.Ipv4LocalAddresses = v
+	return s
+}
+
 // SetIpv6Eip sets the Ipv6Eip field's value.
 func (s *LoadBalancerAddressForDescribeLoadBalancersOutput) SetIpv6Eip(v *Ipv6EipForDescribeLoadBalancersOutput) *LoadBalancerAddressForDescribeLoadBalancersOutput {
 	s.Ipv6Eip = v
@@ -480,6 +490,12 @@ func (s *LoadBalancerAddressForDescribeLoadBalancersOutput) SetIpv6Eip(v *Ipv6Ei
 // SetIpv6EipId sets the Ipv6EipId field's value.
 func (s *LoadBalancerAddressForDescribeLoadBalancersOutput) SetIpv6EipId(v string) *LoadBalancerAddressForDescribeLoadBalancersOutput {
 	s.Ipv6EipId = &v
+	return s
+}
+
+// SetIpv6LocalAddresses sets the Ipv6LocalAddresses field's value.
+func (s *LoadBalancerAddressForDescribeLoadBalancersOutput) SetIpv6LocalAddresses(v []*string) *LoadBalancerAddressForDescribeLoadBalancersOutput {
+	s.Ipv6LocalAddresses = v
 	return s
 }
 
@@ -529,6 +545,8 @@ type LoadBalancerForDescribeLoadBalancersOutput struct {
 	ProjectName *string `type:"string"`
 
 	ProxyProtocolEnabled *string `type:"string"`
+
+	SecurityGroupIds []*string `type:"list"`
 
 	SniAutoMatch *string `type:"string"`
 
@@ -690,6 +708,12 @@ func (s *LoadBalancerForDescribeLoadBalancersOutput) SetProjectName(v string) *L
 // SetProxyProtocolEnabled sets the ProxyProtocolEnabled field's value.
 func (s *LoadBalancerForDescribeLoadBalancersOutput) SetProxyProtocolEnabled(v string) *LoadBalancerForDescribeLoadBalancersOutput {
 	s.ProxyProtocolEnabled = &v
+	return s
+}
+
+// SetSecurityGroupIds sets the SecurityGroupIds field's value.
+func (s *LoadBalancerForDescribeLoadBalancersOutput) SetSecurityGroupIds(v []*string) *LoadBalancerForDescribeLoadBalancersOutput {
+	s.SecurityGroupIds = v
 	return s
 }
 
