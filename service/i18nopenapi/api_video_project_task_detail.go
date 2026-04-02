@@ -266,21 +266,21 @@ type SubTaskForVideoProjectTaskDetailOutput struct {
 
 	CreateTime *string `type:"string" json:"createTime"`
 
-	CurrentStage *string `type:"string" json:"currentStage"`
+	CurrentStage *int32 `type:"int32" json:"currentStage"`
 
 	DefaultStyle *string `type:"string" json:"defaultStyle"`
 
-	EpisodeNum *int32 `type:"int32" json:"episodeNum"`
+	EpisodeNum *string `type:"string" json:"episodeNum"`
 
 	Id *string `type:"string" json:"id"`
 
-	OpStatus *string `type:"string" json:"opStatus"`
+	OpStatus *int32 `type:"int32" json:"opStatus"`
 
 	SourceLanguage *string `type:"string" json:"sourceLanguage"`
 
 	SourceSubtitleFileInfo *SourceSubtitleFileInfoForVideoProjectTaskDetailOutput `type:"structure" json:"sourceSubtitleFileInfo"`
 
-	Status *string `type:"string" json:"status"`
+	Status *int32 `type:"int32" json:"status"`
 
 	SubtaskType *int32 `type:"int32" json:"subtaskType"`
 
@@ -298,7 +298,7 @@ type SubTaskForVideoProjectTaskDetailOutput struct {
 
 	UpdateTime *string `type:"string" json:"updateTime"`
 
-	UseDubTask *string `type:"string" json:"useDubTask"`
+	UseDubTask *bool `type:"boolean" json:"useDubTask"`
 
 	UseMt *bool `type:"boolean" json:"useMt"`
 
@@ -328,7 +328,7 @@ func (s *SubTaskForVideoProjectTaskDetailOutput) SetCreateTime(v string) *SubTas
 }
 
 // SetCurrentStage sets the CurrentStage field's value.
-func (s *SubTaskForVideoProjectTaskDetailOutput) SetCurrentStage(v string) *SubTaskForVideoProjectTaskDetailOutput {
+func (s *SubTaskForVideoProjectTaskDetailOutput) SetCurrentStage(v int32) *SubTaskForVideoProjectTaskDetailOutput {
 	s.CurrentStage = &v
 	return s
 }
@@ -340,7 +340,7 @@ func (s *SubTaskForVideoProjectTaskDetailOutput) SetDefaultStyle(v string) *SubT
 }
 
 // SetEpisodeNum sets the EpisodeNum field's value.
-func (s *SubTaskForVideoProjectTaskDetailOutput) SetEpisodeNum(v int32) *SubTaskForVideoProjectTaskDetailOutput {
+func (s *SubTaskForVideoProjectTaskDetailOutput) SetEpisodeNum(v string) *SubTaskForVideoProjectTaskDetailOutput {
 	s.EpisodeNum = &v
 	return s
 }
@@ -352,7 +352,7 @@ func (s *SubTaskForVideoProjectTaskDetailOutput) SetId(v string) *SubTaskForVide
 }
 
 // SetOpStatus sets the OpStatus field's value.
-func (s *SubTaskForVideoProjectTaskDetailOutput) SetOpStatus(v string) *SubTaskForVideoProjectTaskDetailOutput {
+func (s *SubTaskForVideoProjectTaskDetailOutput) SetOpStatus(v int32) *SubTaskForVideoProjectTaskDetailOutput {
 	s.OpStatus = &v
 	return s
 }
@@ -370,7 +370,7 @@ func (s *SubTaskForVideoProjectTaskDetailOutput) SetSourceSubtitleFileInfo(v *So
 }
 
 // SetStatus sets the Status field's value.
-func (s *SubTaskForVideoProjectTaskDetailOutput) SetStatus(v string) *SubTaskForVideoProjectTaskDetailOutput {
+func (s *SubTaskForVideoProjectTaskDetailOutput) SetStatus(v int32) *SubTaskForVideoProjectTaskDetailOutput {
 	s.Status = &v
 	return s
 }
@@ -424,7 +424,7 @@ func (s *SubTaskForVideoProjectTaskDetailOutput) SetUpdateTime(v string) *SubTas
 }
 
 // SetUseDubTask sets the UseDubTask field's value.
-func (s *SubTaskForVideoProjectTaskDetailOutput) SetUseDubTask(v string) *SubTaskForVideoProjectTaskDetailOutput {
+func (s *SubTaskForVideoProjectTaskDetailOutput) SetUseDubTask(v bool) *SubTaskForVideoProjectTaskDetailOutput {
 	s.UseDubTask = &v
 	return s
 }
@@ -610,7 +610,7 @@ type TaskForVideoProjectTaskDetailOutput struct {
 
 	Deadline *string `type:"string" json:"deadline"`
 
-	DramaTaskWorkflow *string `type:"string" json:"dramaTaskWorkflow"`
+	DramaTaskWorkflow *int32 `type:"int32" json:"dramaTaskWorkflow"`
 
 	DurationCount *string `type:"string" json:"durationCount"`
 
@@ -626,13 +626,13 @@ type TaskForVideoProjectTaskDetailOutput struct {
 
 	SourceVideos *string `type:"string" json:"sourceVideos"`
 
-	Status *string `type:"string" json:"status"`
+	Status *int32 `type:"int32" json:"status"`
 
 	TargetLanguages []*string `type:"list" json:"targetLanguages"`
 
-	TaskType *string `type:"string" json:"taskType"`
+	TaskType *int32 `type:"int32" json:"taskType"`
 
-	TranslationTeam *string `type:"string" json:"translationTeam"`
+	TranslationTeam *int32 `type:"int32" json:"translationTeam"`
 
 	UpdatedAt *string `type:"string" json:"updatedAt"`
 
@@ -640,7 +640,7 @@ type TaskForVideoProjectTaskDetailOutput struct {
 
 	WordsCount *string `type:"string" json:"wordsCount"`
 
-	WorkflowType *string `type:"string" json:"workflowType"`
+	WorkflowType *int32 `type:"int32" json:"workflowType"`
 }
 
 // String returns the string representation
@@ -678,7 +678,7 @@ func (s *TaskForVideoProjectTaskDetailOutput) SetDeadline(v string) *TaskForVide
 }
 
 // SetDramaTaskWorkflow sets the DramaTaskWorkflow field's value.
-func (s *TaskForVideoProjectTaskDetailOutput) SetDramaTaskWorkflow(v string) *TaskForVideoProjectTaskDetailOutput {
+func (s *TaskForVideoProjectTaskDetailOutput) SetDramaTaskWorkflow(v int32) *TaskForVideoProjectTaskDetailOutput {
 	s.DramaTaskWorkflow = &v
 	return s
 }
@@ -726,7 +726,7 @@ func (s *TaskForVideoProjectTaskDetailOutput) SetSourceVideos(v string) *TaskFor
 }
 
 // SetStatus sets the Status field's value.
-func (s *TaskForVideoProjectTaskDetailOutput) SetStatus(v string) *TaskForVideoProjectTaskDetailOutput {
+func (s *TaskForVideoProjectTaskDetailOutput) SetStatus(v int32) *TaskForVideoProjectTaskDetailOutput {
 	s.Status = &v
 	return s
 }
@@ -738,13 +738,13 @@ func (s *TaskForVideoProjectTaskDetailOutput) SetTargetLanguages(v []*string) *T
 }
 
 // SetTaskType sets the TaskType field's value.
-func (s *TaskForVideoProjectTaskDetailOutput) SetTaskType(v string) *TaskForVideoProjectTaskDetailOutput {
+func (s *TaskForVideoProjectTaskDetailOutput) SetTaskType(v int32) *TaskForVideoProjectTaskDetailOutput {
 	s.TaskType = &v
 	return s
 }
 
 // SetTranslationTeam sets the TranslationTeam field's value.
-func (s *TaskForVideoProjectTaskDetailOutput) SetTranslationTeam(v string) *TaskForVideoProjectTaskDetailOutput {
+func (s *TaskForVideoProjectTaskDetailOutput) SetTranslationTeam(v int32) *TaskForVideoProjectTaskDetailOutput {
 	s.TranslationTeam = &v
 	return s
 }
@@ -768,7 +768,7 @@ func (s *TaskForVideoProjectTaskDetailOutput) SetWordsCount(v string) *TaskForVi
 }
 
 // SetWorkflowType sets the WorkflowType field's value.
-func (s *TaskForVideoProjectTaskDetailOutput) SetWorkflowType(v string) *TaskForVideoProjectTaskDetailOutput {
+func (s *TaskForVideoProjectTaskDetailOutput) SetWorkflowType(v int32) *TaskForVideoProjectTaskDetailOutput {
 	s.WorkflowType = &v
 	return s
 }
@@ -1034,7 +1034,7 @@ type VideoProjectTaskDetailInput struct {
 	SubtaskIds *string `locationName:"subtaskIds" type:"string"`
 
 	// TaskId is a required field
-	TaskId *int32 `locationName:"taskId" type:"int32" required:"true"`
+	TaskId *string `locationName:"taskId" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -1076,7 +1076,7 @@ func (s *VideoProjectTaskDetailInput) SetSubtaskIds(v string) *VideoProjectTaskD
 }
 
 // SetTaskId sets the TaskId field's value.
-func (s *VideoProjectTaskDetailInput) SetTaskId(v int32) *VideoProjectTaskDetailInput {
+func (s *VideoProjectTaskDetailInput) SetTaskId(v string) *VideoProjectTaskDetailInput {
 	s.TaskId = &v
 	return s
 }
