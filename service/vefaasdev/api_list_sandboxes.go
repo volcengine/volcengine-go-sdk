@@ -143,19 +143,55 @@ func (c *VEFAASDEV) ListSandboxesWithContext(ctx volcengine.Context, input *List
 	return out, req.Send()
 }
 
+type FilterForListSandboxesInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Name *string `type:"string" json:",omitempty"`
+
+	Values []*string `type:"list" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s FilterForListSandboxesInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s FilterForListSandboxesInput) GoString() string {
+	return s.String()
+}
+
+// SetName sets the Name field's value.
+func (s *FilterForListSandboxesInput) SetName(v string) *FilterForListSandboxesInput {
+	s.Name = &v
+	return s
+}
+
+// SetValues sets the Values field's value.
+func (s *FilterForListSandboxesInput) SetValues(v []*string) *FilterForListSandboxesInput {
+	s.Values = v
+	return s
+}
+
 type ListSandboxesInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
+
+	Filters []*FilterForListSandboxesInput `type:"list" json:",omitempty"`
 
 	// FunctionId is a required field
 	FunctionId *string `type:"string" json:",omitempty" required:"true"`
 
-	Metadata *MetadataForListSandboxesInput `type:"structure" json:",omitempty"`
+	ImageUrl *string `type:"string" json:",omitempty"`
+
+	Metadata map[string]*string `type:"map" json:",omitempty"`
 
 	PageNumber *int32 `type:"int32" json:",omitempty"`
 
 	PageSize *int32 `type:"int32" json:",omitempty"`
 
 	SandboxId *string `type:"string" json:",omitempty"`
+
+	Status *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -181,14 +217,26 @@ func (s *ListSandboxesInput) Validate() error {
 	return nil
 }
 
+// SetFilters sets the Filters field's value.
+func (s *ListSandboxesInput) SetFilters(v []*FilterForListSandboxesInput) *ListSandboxesInput {
+	s.Filters = v
+	return s
+}
+
 // SetFunctionId sets the FunctionId field's value.
 func (s *ListSandboxesInput) SetFunctionId(v string) *ListSandboxesInput {
 	s.FunctionId = &v
 	return s
 }
 
+// SetImageUrl sets the ImageUrl field's value.
+func (s *ListSandboxesInput) SetImageUrl(v string) *ListSandboxesInput {
+	s.ImageUrl = &v
+	return s
+}
+
 // SetMetadata sets the Metadata field's value.
-func (s *ListSandboxesInput) SetMetadata(v *MetadataForListSandboxesInput) *ListSandboxesInput {
+func (s *ListSandboxesInput) SetMetadata(v map[string]*string) *ListSandboxesInput {
 	s.Metadata = v
 	return s
 }
@@ -211,12 +259,22 @@ func (s *ListSandboxesInput) SetSandboxId(v string) *ListSandboxesInput {
 	return s
 }
 
+// SetStatus sets the Status field's value.
+func (s *ListSandboxesInput) SetStatus(v string) *ListSandboxesInput {
+	s.Status = &v
+	return s
+}
+
 type ListSandboxesOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
+	RevisionCount *RevisionCountForListSandboxesOutput `type:"structure" json:",omitempty"`
+
 	Sandboxes []*SandboxForListSandboxesOutput `type:"list" json:",omitempty"`
+
+	StatusCount map[string]*int32 `type:"map" json:",omitempty"`
 
 	Total *int32 `type:"int32" json:",omitempty"`
 }
@@ -231,9 +289,21 @@ func (s ListSandboxesOutput) GoString() string {
 	return s.String()
 }
 
+// SetRevisionCount sets the RevisionCount field's value.
+func (s *ListSandboxesOutput) SetRevisionCount(v *RevisionCountForListSandboxesOutput) *ListSandboxesOutput {
+	s.RevisionCount = v
+	return s
+}
+
 // SetSandboxes sets the Sandboxes field's value.
 func (s *ListSandboxesOutput) SetSandboxes(v []*SandboxForListSandboxesOutput) *ListSandboxesOutput {
 	s.Sandboxes = v
+	return s
+}
+
+// SetStatusCount sets the StatusCount field's value.
+func (s *ListSandboxesOutput) SetStatusCount(v map[string]*int32) *ListSandboxesOutput {
+	s.StatusCount = v
 	return s
 }
 
@@ -243,31 +313,17 @@ func (s *ListSandboxesOutput) SetTotal(v int32) *ListSandboxesOutput {
 	return s
 }
 
-type MetadataForListSandboxesInput struct {
+type RevisionCountForListSandboxesOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 }
 
 // String returns the string representation
-func (s MetadataForListSandboxesInput) String() string {
+func (s RevisionCountForListSandboxesOutput) String() string {
 	return volcengineutil.Prettify(s)
 }
 
 // GoString returns the string representation
-func (s MetadataForListSandboxesInput) GoString() string {
-	return s.String()
-}
-
-type MetadataForListSandboxesOutput struct {
-	_ struct{} `type:"structure" json:",omitempty"`
-}
-
-// String returns the string representation
-func (s MetadataForListSandboxesOutput) String() string {
-	return volcengineutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s MetadataForListSandboxesOutput) GoString() string {
+func (s RevisionCountForListSandboxesOutput) GoString() string {
 	return s.String()
 }
 
@@ -276,7 +332,13 @@ type SandboxForListSandboxesOutput struct {
 
 	AvailabilityZone *string `type:"string" json:",omitempty"`
 
+	CpuMilli *int32 `type:"int32" json:",omitempty"`
+
 	CreatedAt *string `type:"string" json:",omitempty"`
+
+	ErrorCode *string `type:"string" json:",omitempty"`
+
+	ErrorMessage *string `type:"string" json:",omitempty"`
 
 	ExpireAt *string `type:"string" json:",omitempty"`
 
@@ -284,11 +346,19 @@ type SandboxForListSandboxesOutput struct {
 
 	Id *string `type:"string" json:",omitempty"`
 
+	Image *string `type:"string" json:",omitempty"`
+
 	InstanceType *string `type:"string" json:",omitempty"`
 
-	Metadata *MetadataForListSandboxesOutput `type:"structure" json:",omitempty"`
+	MemoryMB *int32 `type:"int32" json:",omitempty"`
+
+	Metadata map[string]*string `type:"map" json:",omitempty"`
+
+	Pending *bool `type:"boolean" json:",omitempty"`
 
 	RevisionNumber *int32 `type:"int32" json:",omitempty"`
+
+	SessionId *string `type:"string" json:",omitempty"`
 
 	Status *string `type:"string" json:",omitempty"`
 }
@@ -309,9 +379,27 @@ func (s *SandboxForListSandboxesOutput) SetAvailabilityZone(v string) *SandboxFo
 	return s
 }
 
+// SetCpuMilli sets the CpuMilli field's value.
+func (s *SandboxForListSandboxesOutput) SetCpuMilli(v int32) *SandboxForListSandboxesOutput {
+	s.CpuMilli = &v
+	return s
+}
+
 // SetCreatedAt sets the CreatedAt field's value.
 func (s *SandboxForListSandboxesOutput) SetCreatedAt(v string) *SandboxForListSandboxesOutput {
 	s.CreatedAt = &v
+	return s
+}
+
+// SetErrorCode sets the ErrorCode field's value.
+func (s *SandboxForListSandboxesOutput) SetErrorCode(v string) *SandboxForListSandboxesOutput {
+	s.ErrorCode = &v
+	return s
+}
+
+// SetErrorMessage sets the ErrorMessage field's value.
+func (s *SandboxForListSandboxesOutput) SetErrorMessage(v string) *SandboxForListSandboxesOutput {
+	s.ErrorMessage = &v
 	return s
 }
 
@@ -333,21 +421,45 @@ func (s *SandboxForListSandboxesOutput) SetId(v string) *SandboxForListSandboxes
 	return s
 }
 
+// SetImage sets the Image field's value.
+func (s *SandboxForListSandboxesOutput) SetImage(v string) *SandboxForListSandboxesOutput {
+	s.Image = &v
+	return s
+}
+
 // SetInstanceType sets the InstanceType field's value.
 func (s *SandboxForListSandboxesOutput) SetInstanceType(v string) *SandboxForListSandboxesOutput {
 	s.InstanceType = &v
 	return s
 }
 
+// SetMemoryMB sets the MemoryMB field's value.
+func (s *SandboxForListSandboxesOutput) SetMemoryMB(v int32) *SandboxForListSandboxesOutput {
+	s.MemoryMB = &v
+	return s
+}
+
 // SetMetadata sets the Metadata field's value.
-func (s *SandboxForListSandboxesOutput) SetMetadata(v *MetadataForListSandboxesOutput) *SandboxForListSandboxesOutput {
+func (s *SandboxForListSandboxesOutput) SetMetadata(v map[string]*string) *SandboxForListSandboxesOutput {
 	s.Metadata = v
+	return s
+}
+
+// SetPending sets the Pending field's value.
+func (s *SandboxForListSandboxesOutput) SetPending(v bool) *SandboxForListSandboxesOutput {
+	s.Pending = &v
 	return s
 }
 
 // SetRevisionNumber sets the RevisionNumber field's value.
 func (s *SandboxForListSandboxesOutput) SetRevisionNumber(v int32) *SandboxForListSandboxesOutput {
 	s.RevisionNumber = &v
+	return s
+}
+
+// SetSessionId sets the SessionId field's value.
+func (s *SandboxForListSandboxesOutput) SetSessionId(v string) *SandboxForListSandboxesOutput {
+	s.SessionId = &v
 	return s
 }
 
