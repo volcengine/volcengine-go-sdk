@@ -146,14 +146,34 @@ func (c *VEFAASDEV) CreateSandboxWithContext(ctx volcengine.Context, input *Crea
 type CreateSandboxInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	Async *bool `type:"boolean" json:",omitempty"`
+
+	CpuMilli *int32 `type:"int32" json:",omitempty"`
+
 	Envs []*EnvForCreateSandboxInput `type:"list" json:",omitempty"`
 
 	// FunctionId is a required field
 	FunctionId *string `type:"string" json:",omitempty" required:"true"`
 
-	Metadata *MetadataForCreateSandboxInput `type:"structure" json:",omitempty"`
+	InstanceImageInfo *InstanceImageInfoForCreateSandboxInput `type:"structure" json:",omitempty"`
+
+	InstanceNasMountConfig *InstanceNasMountConfigForCreateSandboxInput `type:"structure" json:",omitempty"`
+
+	InstanceTosMountConfig *InstanceTosMountConfigForCreateSandboxInput `type:"structure" json:",omitempty"`
+
+	MaxConcurrency *int32 `type:"int32" json:",omitempty"`
+
+	MemoryMB *int32 `type:"int32" json:",omitempty"`
+
+	Metadata map[string]*string `type:"map" json:",omitempty"`
+
+	RequestTimeout *int32 `type:"int32" json:",omitempty"`
+
+	SessionId *string `type:"string" json:",omitempty"`
 
 	Timeout *int32 `type:"int32" json:",omitempty"`
+
+	TimeoutUnit *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -179,6 +199,18 @@ func (s *CreateSandboxInput) Validate() error {
 	return nil
 }
 
+// SetAsync sets the Async field's value.
+func (s *CreateSandboxInput) SetAsync(v bool) *CreateSandboxInput {
+	s.Async = &v
+	return s
+}
+
+// SetCpuMilli sets the CpuMilli field's value.
+func (s *CreateSandboxInput) SetCpuMilli(v int32) *CreateSandboxInput {
+	s.CpuMilli = &v
+	return s
+}
+
 // SetEnvs sets the Envs field's value.
 func (s *CreateSandboxInput) SetEnvs(v []*EnvForCreateSandboxInput) *CreateSandboxInput {
 	s.Envs = v
@@ -191,15 +223,63 @@ func (s *CreateSandboxInput) SetFunctionId(v string) *CreateSandboxInput {
 	return s
 }
 
+// SetInstanceImageInfo sets the InstanceImageInfo field's value.
+func (s *CreateSandboxInput) SetInstanceImageInfo(v *InstanceImageInfoForCreateSandboxInput) *CreateSandboxInput {
+	s.InstanceImageInfo = v
+	return s
+}
+
+// SetInstanceNasMountConfig sets the InstanceNasMountConfig field's value.
+func (s *CreateSandboxInput) SetInstanceNasMountConfig(v *InstanceNasMountConfigForCreateSandboxInput) *CreateSandboxInput {
+	s.InstanceNasMountConfig = v
+	return s
+}
+
+// SetInstanceTosMountConfig sets the InstanceTosMountConfig field's value.
+func (s *CreateSandboxInput) SetInstanceTosMountConfig(v *InstanceTosMountConfigForCreateSandboxInput) *CreateSandboxInput {
+	s.InstanceTosMountConfig = v
+	return s
+}
+
+// SetMaxConcurrency sets the MaxConcurrency field's value.
+func (s *CreateSandboxInput) SetMaxConcurrency(v int32) *CreateSandboxInput {
+	s.MaxConcurrency = &v
+	return s
+}
+
+// SetMemoryMB sets the MemoryMB field's value.
+func (s *CreateSandboxInput) SetMemoryMB(v int32) *CreateSandboxInput {
+	s.MemoryMB = &v
+	return s
+}
+
 // SetMetadata sets the Metadata field's value.
-func (s *CreateSandboxInput) SetMetadata(v *MetadataForCreateSandboxInput) *CreateSandboxInput {
+func (s *CreateSandboxInput) SetMetadata(v map[string]*string) *CreateSandboxInput {
 	s.Metadata = v
+	return s
+}
+
+// SetRequestTimeout sets the RequestTimeout field's value.
+func (s *CreateSandboxInput) SetRequestTimeout(v int32) *CreateSandboxInput {
+	s.RequestTimeout = &v
+	return s
+}
+
+// SetSessionId sets the SessionId field's value.
+func (s *CreateSandboxInput) SetSessionId(v string) *CreateSandboxInput {
+	s.SessionId = &v
 	return s
 }
 
 // SetTimeout sets the Timeout field's value.
 func (s *CreateSandboxInput) SetTimeout(v int32) *CreateSandboxInput {
 	s.Timeout = &v
+	return s
+}
+
+// SetTimeoutUnit sets the TimeoutUnit field's value.
+func (s *CreateSandboxInput) SetTimeoutUnit(v string) *CreateSandboxInput {
+	s.TimeoutUnit = &v
 	return s
 }
 
@@ -224,6 +304,106 @@ func (s CreateSandboxOutput) GoString() string {
 // SetSandboxId sets the SandboxId field's value.
 func (s *CreateSandboxOutput) SetSandboxId(v string) *CreateSandboxOutput {
 	s.SandboxId = &v
+	return s
+}
+
+type CredentialsForCreateSandboxInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	AccessKeyId *string `type:"string" json:",omitempty"`
+
+	SecretAccessKey *string `type:"string" json:",omitempty"`
+
+	SessionToken *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s CredentialsForCreateSandboxInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s CredentialsForCreateSandboxInput) GoString() string {
+	return s.String()
+}
+
+// SetAccessKeyId sets the AccessKeyId field's value.
+func (s *CredentialsForCreateSandboxInput) SetAccessKeyId(v string) *CredentialsForCreateSandboxInput {
+	s.AccessKeyId = &v
+	return s
+}
+
+// SetSecretAccessKey sets the SecretAccessKey field's value.
+func (s *CredentialsForCreateSandboxInput) SetSecretAccessKey(v string) *CredentialsForCreateSandboxInput {
+	s.SecretAccessKey = &v
+	return s
+}
+
+// SetSessionToken sets the SessionToken field's value.
+func (s *CredentialsForCreateSandboxInput) SetSessionToken(v string) *CredentialsForCreateSandboxInput {
+	s.SessionToken = &v
+	return s
+}
+
+type EncryptionConfigForCreateSandboxInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	EnableSSE *bool `type:"boolean" json:",omitempty"`
+
+	EncryptionAlgorithm *string `type:"string" json:",omitempty"`
+
+	EncryptionMethod *string `type:"string" json:",omitempty"`
+
+	KMSMasterKeyID *string `type:"string" json:",omitempty"`
+
+	SSECKey *string `type:"string" json:",omitempty"`
+
+	SSECMD5 *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s EncryptionConfigForCreateSandboxInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s EncryptionConfigForCreateSandboxInput) GoString() string {
+	return s.String()
+}
+
+// SetEnableSSE sets the EnableSSE field's value.
+func (s *EncryptionConfigForCreateSandboxInput) SetEnableSSE(v bool) *EncryptionConfigForCreateSandboxInput {
+	s.EnableSSE = &v
+	return s
+}
+
+// SetEncryptionAlgorithm sets the EncryptionAlgorithm field's value.
+func (s *EncryptionConfigForCreateSandboxInput) SetEncryptionAlgorithm(v string) *EncryptionConfigForCreateSandboxInput {
+	s.EncryptionAlgorithm = &v
+	return s
+}
+
+// SetEncryptionMethod sets the EncryptionMethod field's value.
+func (s *EncryptionConfigForCreateSandboxInput) SetEncryptionMethod(v string) *EncryptionConfigForCreateSandboxInput {
+	s.EncryptionMethod = &v
+	return s
+}
+
+// SetKMSMasterKeyID sets the KMSMasterKeyID field's value.
+func (s *EncryptionConfigForCreateSandboxInput) SetKMSMasterKeyID(v string) *EncryptionConfigForCreateSandboxInput {
+	s.KMSMasterKeyID = &v
+	return s
+}
+
+// SetSSECKey sets the SSECKey field's value.
+func (s *EncryptionConfigForCreateSandboxInput) SetSSECKey(v string) *EncryptionConfigForCreateSandboxInput {
+	s.SSECKey = &v
+	return s
+}
+
+// SetSSECMD5 sets the SSECMD5 field's value.
+func (s *EncryptionConfigForCreateSandboxInput) SetSSECMD5(v string) *EncryptionConfigForCreateSandboxInput {
+	s.SSECMD5 = &v
 	return s
 }
 
@@ -257,16 +437,240 @@ func (s *EnvForCreateSandboxInput) SetValue(v string) *EnvForCreateSandboxInput 
 	return s
 }
 
-type MetadataForCreateSandboxInput struct {
+type InstanceImageInfoForCreateSandboxInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
+
+	Command *string `type:"string" json:",omitempty"`
+
+	Id *string `type:"string" json:",omitempty"`
+
+	Image *string `type:"string" json:",omitempty"`
+
+	Port *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation
-func (s MetadataForCreateSandboxInput) String() string {
+func (s InstanceImageInfoForCreateSandboxInput) String() string {
 	return volcengineutil.Prettify(s)
 }
 
 // GoString returns the string representation
-func (s MetadataForCreateSandboxInput) GoString() string {
+func (s InstanceImageInfoForCreateSandboxInput) GoString() string {
 	return s.String()
+}
+
+// SetCommand sets the Command field's value.
+func (s *InstanceImageInfoForCreateSandboxInput) SetCommand(v string) *InstanceImageInfoForCreateSandboxInput {
+	s.Command = &v
+	return s
+}
+
+// SetId sets the Id field's value.
+func (s *InstanceImageInfoForCreateSandboxInput) SetId(v string) *InstanceImageInfoForCreateSandboxInput {
+	s.Id = &v
+	return s
+}
+
+// SetImage sets the Image field's value.
+func (s *InstanceImageInfoForCreateSandboxInput) SetImage(v string) *InstanceImageInfoForCreateSandboxInput {
+	s.Image = &v
+	return s
+}
+
+// SetPort sets the Port field's value.
+func (s *InstanceImageInfoForCreateSandboxInput) SetPort(v int32) *InstanceImageInfoForCreateSandboxInput {
+	s.Port = &v
+	return s
+}
+
+type InstanceNasMountConfigForCreateSandboxInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Enable *bool `type:"boolean" json:",omitempty"`
+
+	NasMountPoints []*NasMountPointForCreateSandboxInput `type:"list" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s InstanceNasMountConfigForCreateSandboxInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s InstanceNasMountConfigForCreateSandboxInput) GoString() string {
+	return s.String()
+}
+
+// SetEnable sets the Enable field's value.
+func (s *InstanceNasMountConfigForCreateSandboxInput) SetEnable(v bool) *InstanceNasMountConfigForCreateSandboxInput {
+	s.Enable = &v
+	return s
+}
+
+// SetNasMountPoints sets the NasMountPoints field's value.
+func (s *InstanceNasMountConfigForCreateSandboxInput) SetNasMountPoints(v []*NasMountPointForCreateSandboxInput) *InstanceNasMountConfigForCreateSandboxInput {
+	s.NasMountPoints = v
+	return s
+}
+
+type InstanceTosMountConfigForCreateSandboxInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	AuthMode *string `type:"string" json:",omitempty"`
+
+	Credentials *CredentialsForCreateSandboxInput `type:"structure" json:",omitempty"`
+
+	Enable *bool `type:"boolean" json:",omitempty"`
+
+	Mode *string `type:"string" json:",omitempty"`
+
+	TosMountPoints []*TosMountPointForCreateSandboxInput `type:"list" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s InstanceTosMountConfigForCreateSandboxInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s InstanceTosMountConfigForCreateSandboxInput) GoString() string {
+	return s.String()
+}
+
+// SetAuthMode sets the AuthMode field's value.
+func (s *InstanceTosMountConfigForCreateSandboxInput) SetAuthMode(v string) *InstanceTosMountConfigForCreateSandboxInput {
+	s.AuthMode = &v
+	return s
+}
+
+// SetCredentials sets the Credentials field's value.
+func (s *InstanceTosMountConfigForCreateSandboxInput) SetCredentials(v *CredentialsForCreateSandboxInput) *InstanceTosMountConfigForCreateSandboxInput {
+	s.Credentials = v
+	return s
+}
+
+// SetEnable sets the Enable field's value.
+func (s *InstanceTosMountConfigForCreateSandboxInput) SetEnable(v bool) *InstanceTosMountConfigForCreateSandboxInput {
+	s.Enable = &v
+	return s
+}
+
+// SetMode sets the Mode field's value.
+func (s *InstanceTosMountConfigForCreateSandboxInput) SetMode(v string) *InstanceTosMountConfigForCreateSandboxInput {
+	s.Mode = &v
+	return s
+}
+
+// SetTosMountPoints sets the TosMountPoints field's value.
+func (s *InstanceTosMountConfigForCreateSandboxInput) SetTosMountPoints(v []*TosMountPointForCreateSandboxInput) *InstanceTosMountConfigForCreateSandboxInput {
+	s.TosMountPoints = v
+	return s
+}
+
+type NasMountPointForCreateSandboxInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	LocalMountPath *string `type:"string" json:",omitempty"`
+
+	RemotePath *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s NasMountPointForCreateSandboxInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s NasMountPointForCreateSandboxInput) GoString() string {
+	return s.String()
+}
+
+// SetLocalMountPath sets the LocalMountPath field's value.
+func (s *NasMountPointForCreateSandboxInput) SetLocalMountPath(v string) *NasMountPointForCreateSandboxInput {
+	s.LocalMountPath = &v
+	return s
+}
+
+// SetRemotePath sets the RemotePath field's value.
+func (s *NasMountPointForCreateSandboxInput) SetRemotePath(v string) *NasMountPointForCreateSandboxInput {
+	s.RemotePath = &v
+	return s
+}
+
+type TosMountPointForCreateSandboxInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	AuthMode *string `type:"string" json:",omitempty"`
+
+	BucketName *string `type:"string" json:",omitempty"`
+
+	BucketPath *string `type:"string" json:",omitempty"`
+
+	Credentials *CredentialsForCreateSandboxInput `type:"structure" json:",omitempty"`
+
+	EncryptionConfig *EncryptionConfigForCreateSandboxInput `type:"structure" json:",omitempty"`
+
+	Endpoint *string `type:"string" json:",omitempty"`
+
+	LocalMountPath *string `type:"string" json:",omitempty"`
+
+	ReadOnly *bool `type:"boolean" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s TosMountPointForCreateSandboxInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TosMountPointForCreateSandboxInput) GoString() string {
+	return s.String()
+}
+
+// SetAuthMode sets the AuthMode field's value.
+func (s *TosMountPointForCreateSandboxInput) SetAuthMode(v string) *TosMountPointForCreateSandboxInput {
+	s.AuthMode = &v
+	return s
+}
+
+// SetBucketName sets the BucketName field's value.
+func (s *TosMountPointForCreateSandboxInput) SetBucketName(v string) *TosMountPointForCreateSandboxInput {
+	s.BucketName = &v
+	return s
+}
+
+// SetBucketPath sets the BucketPath field's value.
+func (s *TosMountPointForCreateSandboxInput) SetBucketPath(v string) *TosMountPointForCreateSandboxInput {
+	s.BucketPath = &v
+	return s
+}
+
+// SetCredentials sets the Credentials field's value.
+func (s *TosMountPointForCreateSandboxInput) SetCredentials(v *CredentialsForCreateSandboxInput) *TosMountPointForCreateSandboxInput {
+	s.Credentials = v
+	return s
+}
+
+// SetEncryptionConfig sets the EncryptionConfig field's value.
+func (s *TosMountPointForCreateSandboxInput) SetEncryptionConfig(v *EncryptionConfigForCreateSandboxInput) *TosMountPointForCreateSandboxInput {
+	s.EncryptionConfig = v
+	return s
+}
+
+// SetEndpoint sets the Endpoint field's value.
+func (s *TosMountPointForCreateSandboxInput) SetEndpoint(v string) *TosMountPointForCreateSandboxInput {
+	s.Endpoint = &v
+	return s
+}
+
+// SetLocalMountPath sets the LocalMountPath field's value.
+func (s *TosMountPointForCreateSandboxInput) SetLocalMountPath(v string) *TosMountPointForCreateSandboxInput {
+	s.LocalMountPath = &v
+	return s
+}
+
+// SetReadOnly sets the ReadOnly field's value.
+func (s *TosMountPointForCreateSandboxInput) SetReadOnly(v bool) *TosMountPointForCreateSandboxInput {
+	s.ReadOnly = &v
+	return s
 }
