@@ -152,6 +152,8 @@ type CreateDataFlowTaskInput struct {
 
 	DataFlowId *string `type:"string" json:",omitempty"`
 
+	DeletePolicy *DeletePolicyForCreateDataFlowTaskInput `type:"structure" json:",omitempty"`
+
 	EntryListFileBucket *string `type:"string" json:",omitempty"`
 
 	EntryListFileKey *string `type:"string" json:",omitempty"`
@@ -200,6 +202,12 @@ func (s *CreateDataFlowTaskInput) SetBucketPrefix(v string) *CreateDataFlowTaskI
 // SetDataFlowId sets the DataFlowId field's value.
 func (s *CreateDataFlowTaskInput) SetDataFlowId(v string) *CreateDataFlowTaskInput {
 	s.DataFlowId = &v
+	return s
+}
+
+// SetDeletePolicy sets the DeletePolicy field's value.
+func (s *CreateDataFlowTaskInput) SetDeletePolicy(v *DeletePolicyForCreateDataFlowTaskInput) *CreateDataFlowTaskInput {
+	s.DeletePolicy = v
 	return s
 }
 
@@ -293,12 +301,72 @@ func (s *CreateDataFlowTaskOutput) SetId(v string) *CreateDataFlowTaskOutput {
 	return s
 }
 
+type DeletePolicyForCreateDataFlowTaskInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	DeleteRuleInfo *DeleteRuleInfoForCreateDataFlowTaskInput `type:"structure" json:",omitempty"`
+
+	FilterInfo *FilterInfoForCreateDataFlowTaskInput `type:"structure" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s DeletePolicyForCreateDataFlowTaskInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DeletePolicyForCreateDataFlowTaskInput) GoString() string {
+	return s.String()
+}
+
+// SetDeleteRuleInfo sets the DeleteRuleInfo field's value.
+func (s *DeletePolicyForCreateDataFlowTaskInput) SetDeleteRuleInfo(v *DeleteRuleInfoForCreateDataFlowTaskInput) *DeletePolicyForCreateDataFlowTaskInput {
+	s.DeleteRuleInfo = v
+	return s
+}
+
+// SetFilterInfo sets the FilterInfo field's value.
+func (s *DeletePolicyForCreateDataFlowTaskInput) SetFilterInfo(v *FilterInfoForCreateDataFlowTaskInput) *DeletePolicyForCreateDataFlowTaskInput {
+	s.FilterInfo = v
+	return s
+}
+
+type DeleteRuleInfoForCreateDataFlowTaskInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	DataLocation *string `type:"string" json:",omitempty" enum:"EnumOfDataLocationForCreateDataFlowTaskInput"`
+
+	TosDataVersion *string `type:"string" json:",omitempty" enum:"EnumOfTosDataVersionForCreateDataFlowTaskInput"`
+}
+
+// String returns the string representation
+func (s DeleteRuleInfoForCreateDataFlowTaskInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DeleteRuleInfoForCreateDataFlowTaskInput) GoString() string {
+	return s.String()
+}
+
+// SetDataLocation sets the DataLocation field's value.
+func (s *DeleteRuleInfoForCreateDataFlowTaskInput) SetDataLocation(v string) *DeleteRuleInfoForCreateDataFlowTaskInput {
+	s.DataLocation = &v
+	return s
+}
+
+// SetTosDataVersion sets the TosDataVersion field's value.
+func (s *DeleteRuleInfoForCreateDataFlowTaskInput) SetTosDataVersion(v string) *DeleteRuleInfoForCreateDataFlowTaskInput {
+	s.TosDataVersion = &v
+	return s
+}
+
 type DimensionForCreateDataFlowTaskInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
 	Attr *string `type:"string" json:",omitempty" enum:"EnumOfAttrForCreateDataFlowTaskInput"`
 
-	StaticValues []*StaticValueForCreateDataFlowTaskInput `type:"list" json:",omitempty"`
+	StaticValues []*StaticValueForCreateDataFlowTaskInput `type:"list"`
 }
 
 // String returns the string representation
@@ -364,9 +432,13 @@ func (s *EvictPolicyForCreateDataFlowTaskInput) SetType(v string) *EvictPolicyFo
 type ExportPolicyForCreateDataFlowTaskInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	EventTypes []*string `type:"list"`
+
 	FilterInfo *FilterInfoForCreateDataFlowTaskInput `type:"structure" json:",omitempty"`
 
 	Status *string `type:"string" json:",omitempty" enum:"EnumOfStatusForCreateDataFlowTaskInput"`
+
+	TosDeletePolicy *string `type:"string" json:",omitempty" enum:"EnumOfTosDeletePolicyForCreateDataFlowTaskInput"`
 
 	Type *string `type:"string" json:",omitempty" enum:"EnumOfTypeForCreateDataFlowTaskInput"`
 }
@@ -381,6 +453,12 @@ func (s ExportPolicyForCreateDataFlowTaskInput) GoString() string {
 	return s.String()
 }
 
+// SetEventTypes sets the EventTypes field's value.
+func (s *ExportPolicyForCreateDataFlowTaskInput) SetEventTypes(v []*string) *ExportPolicyForCreateDataFlowTaskInput {
+	s.EventTypes = v
+	return s
+}
+
 // SetFilterInfo sets the FilterInfo field's value.
 func (s *ExportPolicyForCreateDataFlowTaskInput) SetFilterInfo(v *FilterInfoForCreateDataFlowTaskInput) *ExportPolicyForCreateDataFlowTaskInput {
 	s.FilterInfo = v
@@ -393,6 +471,12 @@ func (s *ExportPolicyForCreateDataFlowTaskInput) SetStatus(v string) *ExportPoli
 	return s
 }
 
+// SetTosDeletePolicy sets the TosDeletePolicy field's value.
+func (s *ExportPolicyForCreateDataFlowTaskInput) SetTosDeletePolicy(v string) *ExportPolicyForCreateDataFlowTaskInput {
+	s.TosDeletePolicy = &v
+	return s
+}
+
 // SetType sets the Type field's value.
 func (s *ExportPolicyForCreateDataFlowTaskInput) SetType(v string) *ExportPolicyForCreateDataFlowTaskInput {
 	s.Type = &v
@@ -402,7 +486,7 @@ func (s *ExportPolicyForCreateDataFlowTaskInput) SetType(v string) *ExportPolicy
 type FilterInfoForCreateDataFlowTaskInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	Dimensions []*DimensionForCreateDataFlowTaskInput `type:"list" json:",omitempty"`
+	Dimensions []*DimensionForCreateDataFlowTaskInput `type:"list"`
 }
 
 // String returns the string representation
@@ -424,6 +508,8 @@ func (s *FilterInfoForCreateDataFlowTaskInput) SetDimensions(v []*DimensionForCr
 type ImportPolicyForCreateDataFlowTaskInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	EventTypes []*string `type:"list"`
+
 	FilterInfo *FilterInfoForCreateDataFlowTaskInput `type:"structure" json:",omitempty"`
 
 	Status *string `type:"string" json:",omitempty" enum:"EnumOfStatusForCreateDataFlowTaskInput"`
@@ -439,6 +525,12 @@ func (s ImportPolicyForCreateDataFlowTaskInput) String() string {
 // GoString returns the string representation
 func (s ImportPolicyForCreateDataFlowTaskInput) GoString() string {
 	return s.String()
+}
+
+// SetEventTypes sets the EventTypes field's value.
+func (s *ImportPolicyForCreateDataFlowTaskInput) SetEventTypes(v []*string) *ImportPolicyForCreateDataFlowTaskInput {
+	s.EventTypes = v
+	return s
 }
 
 // SetFilterInfo sets the FilterInfo field's value.
@@ -506,6 +598,9 @@ const (
 
 	// ConvertConvertEnumOfTypeForCreateDataFlowTaskInputEvict is a ConvertConvertEnumOfTypeForCreateDataFlowTaskInput enum value
 	ConvertConvertEnumOfTypeForCreateDataFlowTaskInputEvict = "Evict"
+
+	// ConvertConvertEnumOfTypeForCreateDataFlowTaskInputDelete is a ConvertConvertEnumOfTypeForCreateDataFlowTaskInput enum value
+	ConvertConvertEnumOfTypeForCreateDataFlowTaskInputDelete = "Delete"
 )
 
 const (
@@ -534,6 +629,25 @@ const (
 
 	// EnumOfAttrForCreateDataFlowTaskInputAccessTime is a EnumOfAttrForCreateDataFlowTaskInput enum value
 	EnumOfAttrForCreateDataFlowTaskInputAccessTime = "AccessTime"
+)
+
+const (
+	// EnumOfDataLocationForCreateDataFlowTaskInputFileSystem is a EnumOfDataLocationForCreateDataFlowTaskInput enum value
+	EnumOfDataLocationForCreateDataFlowTaskInputFileSystem = "FileSystem"
+
+	// EnumOfDataLocationForCreateDataFlowTaskInputFileSystemCorruptedFiles is a EnumOfDataLocationForCreateDataFlowTaskInput enum value
+	EnumOfDataLocationForCreateDataFlowTaskInputFileSystemCorruptedFiles = "FileSystemCorruptedFiles"
+
+	// EnumOfDataLocationForCreateDataFlowTaskInputAll is a EnumOfDataLocationForCreateDataFlowTaskInput enum value
+	EnumOfDataLocationForCreateDataFlowTaskInputAll = "All"
+)
+
+const (
+	// EnumOfEventTypeListForCreateDataFlowTaskInputCreateAndUpdate is a EnumOfEventTypeListForCreateDataFlowTaskInput enum value
+	EnumOfEventTypeListForCreateDataFlowTaskInputCreateAndUpdate = "CreateAndUpdate"
+
+	// EnumOfEventTypeListForCreateDataFlowTaskInputDelete is a EnumOfEventTypeListForCreateDataFlowTaskInput enum value
+	EnumOfEventTypeListForCreateDataFlowTaskInputDelete = "Delete"
 )
 
 const (
@@ -573,6 +687,28 @@ const (
 
 	// EnumOfStatusForCreateDataFlowTaskInputError is a EnumOfStatusForCreateDataFlowTaskInput enum value
 	EnumOfStatusForCreateDataFlowTaskInputError = "Error"
+)
+
+const (
+	// EnumOfTosDataVersionForCreateDataFlowTaskInputLatest is a EnumOfTosDataVersionForCreateDataFlowTaskInput enum value
+	EnumOfTosDataVersionForCreateDataFlowTaskInputLatest = "Latest"
+
+	// EnumOfTosDataVersionForCreateDataFlowTaskInputAll is a EnumOfTosDataVersionForCreateDataFlowTaskInput enum value
+	EnumOfTosDataVersionForCreateDataFlowTaskInputAll = "All"
+)
+
+const (
+	// EnumOfTosDeletePolicyForCreateDataFlowTaskInputNone is a EnumOfTosDeletePolicyForCreateDataFlowTaskInput enum value
+	EnumOfTosDeletePolicyForCreateDataFlowTaskInputNone = "None"
+
+	// EnumOfTosDeletePolicyForCreateDataFlowTaskInputLatestVersionOnly is a EnumOfTosDeletePolicyForCreateDataFlowTaskInput enum value
+	EnumOfTosDeletePolicyForCreateDataFlowTaskInputLatestVersionOnly = "LatestVersionOnly"
+
+	// EnumOfTosDeletePolicyForCreateDataFlowTaskInputAllVersions is a EnumOfTosDeletePolicyForCreateDataFlowTaskInput enum value
+	EnumOfTosDeletePolicyForCreateDataFlowTaskInputAllVersions = "AllVersions"
+
+	// EnumOfTosDeletePolicyForCreateDataFlowTaskInputSpecifiedVersion is a EnumOfTosDeletePolicyForCreateDataFlowTaskInput enum value
+	EnumOfTosDeletePolicyForCreateDataFlowTaskInputSpecifiedVersion = "SpecifiedVersion"
 )
 
 const (

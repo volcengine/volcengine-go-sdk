@@ -164,7 +164,7 @@ type DescribeZonesOutput struct {
 
 	TotalCount *int32 `type:"int32" json:",omitempty"`
 
-	Zones []*ZoneForDescribeZonesOutput `type:"list" json:",omitempty"`
+	Zones []*ZoneForDescribeZonesOutput `type:"list"`
 }
 
 // String returns the string representation
@@ -238,7 +238,7 @@ func (s *SaleForDescribeZonesOutput) SetStorageType(v string) *SaleForDescribeZo
 type ZoneForDescribeZonesOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	Sales []*SaleForDescribeZonesOutput `type:"list" json:",omitempty"`
+	Sales []*SaleForDescribeZonesOutput `type:"list"`
 
 	Status *string `type:"string" json:",omitempty" enum:"EnumOfStatusForDescribeZonesOutput"`
 

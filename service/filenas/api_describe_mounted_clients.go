@@ -230,7 +230,7 @@ type DescribeMountedClientsOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	Clients []*ClientForDescribeMountedClientsOutput `type:"list" json:",omitempty"`
+	Clients []*ClientForDescribeMountedClientsOutput `type:"list"`
 
 	TotalCount *int32 `type:"int32" json:",omitempty"`
 }

@@ -208,7 +208,7 @@ type DescribeDirQuotasOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	DirQuotaInfos []*DirQuotaInfoForDescribeDirQuotasOutput `type:"list" json:",omitempty"`
+	DirQuotaInfos []*DirQuotaInfoForDescribeDirQuotasOutput `type:"list"`
 
 	PageNumber *int32 `type:"int32" json:",omitempty"`
 
@@ -260,7 +260,7 @@ type DirQuotaInfoForDescribeDirQuotasOutput struct {
 
 	Status *string `type:"string" json:",omitempty" enum:"EnumOfStatusForDescribeDirQuotasOutput"`
 
-	UserQuotaInfos []*UserQuotaInfoForDescribeDirQuotasOutput `type:"list" json:",omitempty"`
+	UserQuotaInfos []*UserQuotaInfoForDescribeDirQuotasOutput `type:"list"`
 
 	UserQuotaInfosCount *int32 `type:"int32" json:",omitempty"`
 }

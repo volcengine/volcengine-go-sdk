@@ -149,7 +149,7 @@ type DescribePermissionGroupsInput struct {
 	// FileSystemType is a required field
 	FileSystemType *string `type:"string" json:",omitempty" required:"true" enum:"EnumOfFileSystemTypeForDescribePermissionGroupsInput"`
 
-	Filters []*FilterForDescribePermissionGroupsInput `type:"list" json:",omitempty"`
+	Filters []*FilterForDescribePermissionGroupsInput `type:"list"`
 
 	PageNumber *int32 `type:"int32" json:",omitempty"`
 
@@ -212,7 +212,7 @@ type DescribePermissionGroupsOutput struct {
 
 	PageSize *int32 `type:"int32" json:",omitempty"`
 
-	PermissionGroups []*PermissionGroupForDescribePermissionGroupsOutput `type:"list" json:",omitempty"`
+	PermissionGroups []*PermissionGroupForDescribePermissionGroupsOutput `type:"list"`
 
 	TotalCount *int32 `type:"int32" json:",omitempty"`
 }
@@ -330,7 +330,7 @@ type PermissionGroupForDescribePermissionGroupsOutput struct {
 
 	FileSystemType *string `type:"string" json:",omitempty" enum:"EnumOfFileSystemTypeForDescribePermissionGroupsOutput"`
 
-	MountPoints []*MountPointForDescribePermissionGroupsOutput `type:"list" json:",omitempty"`
+	MountPoints []*MountPointForDescribePermissionGroupsOutput `type:"list"`
 
 	PermissionGroupId *string `type:"string" json:",omitempty"`
 
