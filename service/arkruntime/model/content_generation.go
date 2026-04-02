@@ -7,6 +7,8 @@ type ContentGenerationContentItemType string
 const (
 	ContentGenerationContentItemTypeText      ContentGenerationContentItemType = "text"
 	ContentGenerationContentItemTypeImage     ContentGenerationContentItemType = "image_url"
+	ContentGenerationContentItemTypeVideo     ContentGenerationContentItemType = "video_url"
+	ContentGenerationContentItemTypeAudio     ContentGenerationContentItemType = "audio_url"
 	ContentGenerationContentItemTypeDraftTask ContentGenerationContentItemType = "draft_task"
 )
 
@@ -117,6 +119,8 @@ type CreateContentGenerationContentItem struct {
 	Type      ContentGenerationContentItemType `json:"type"`
 	Text      *string                          `json:"text,omitempty"`
 	ImageURL  *ImageURL                        `json:"image_url,omitempty"`
+	VideoURL  *VideoURL                        `json:"video_url,omitempty"`
+	AudioURL  *AudioURL                        `json:"audio_url,omitempty"`
 	Role      *string                          `json:"role,omitempty"`
 	DraftTask *DraftTask                       `json:"draft_task,omitempty"`
 }
@@ -128,6 +132,15 @@ type DraftTask struct {
 type ImageURL struct {
 	URL string `json:"url"`
 }
+
+type VideoURL struct {
+	URL string `json:"url"`
+}
+
+type AudioURL struct {
+	URL string `json:"url"`
+}
+
 type Content struct {
 	VideoURL     string `json:"video_url"`
 	LastFrameURL string `json:"last_frame_url"`
