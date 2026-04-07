@@ -146,6 +146,8 @@ type GetUserInput struct {
 
 	ID *int64 `type:"int64"`
 
+	PiiRedaction *int32 `type:"int32"`
+
 	UserName *string `type:"string"`
 }
 
@@ -168,6 +170,12 @@ func (s *GetUserInput) SetAccessKeyID(v string) *GetUserInput {
 // SetID sets the ID field's value.
 func (s *GetUserInput) SetID(v int64) *GetUserInput {
 	s.ID = &v
+	return s
+}
+
+// SetPiiRedaction sets the PiiRedaction field's value.
+func (s *GetUserInput) SetPiiRedaction(v int32) *GetUserInput {
+	s.PiiRedaction = &v
 	return s
 }
 

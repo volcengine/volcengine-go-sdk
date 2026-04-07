@@ -146,6 +146,8 @@ type ListUsersInput struct {
 
 	Offset *int32 `type:"int32"`
 
+	PiiRedaction *int32 `type:"int32"`
+
 	Query *string `type:"string"`
 }
 
@@ -168,6 +170,12 @@ func (s *ListUsersInput) SetLimit(v int32) *ListUsersInput {
 // SetOffset sets the Offset field's value.
 func (s *ListUsersInput) SetOffset(v int32) *ListUsersInput {
 	s.Offset = &v
+	return s
+}
+
+// SetPiiRedaction sets the PiiRedaction field's value.
+func (s *ListUsersInput) SetPiiRedaction(v int32) *ListUsersInput {
+	s.PiiRedaction = &v
 	return s
 }
 
