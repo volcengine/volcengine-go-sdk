@@ -14,6 +14,7 @@
 | `EnvCredentials` | 从环境变量读取 | 否 | CI/CD 和容器环境注入 |
 | `StsCredentials` | STS AssumeRole | 是 | 基于角色的临时凭证 |
 | `OIDCCredentialsProvider` | STS AssumeRoleWithOIDC | 是 | OIDC 联合身份认证 |
+| `SAMLCredentialsProvider` | STS AssumeRoleWithSAML | 是 | SAML 联合身份认证 |
 | `CliProvider` | 从 `~/.volcengine/config.json` 读取 | 取决于 mode | 复用 CLI 登录/配置 |
 | `EcsRoleProvider` | 从 ECS IMDS (IMDSv2) 读取 | 是 | ECS 实例角色凭证 |
 | `DefaultCredentialProvider` | 4 步凭证链 | 取决于委托的提供者 | 应用代码中无需 AK/SK |
@@ -155,6 +156,45 @@ func main() {
 	}
 	// 打印返回结果，验证调用成功
 	fmt.Println(resp)
+}
+```
+
+## AssumeRoleWithSAML
+
+`SAMLCredentialsProvider` 通过 SAML 2.0 IdP 返回的 SAML 断言调用 STS `AssumeRoleWithSAML` 接口换取临时凭证，并在到期前自动刷新。
+
+> ⚠️ 注意事项
+>
+> 1. **最小权限原则**：仅授予必要的权限。
+> 2. **合理的有效期**：建议不超过 1 小时。
+> 3. `SAMLAssertion` 为 IdP 返回的 base64 编码的 SAML Response。
+
+```go
+package main
+
+import (
+    "github.com/volcengine/volcengine-go-sdk/volcengine"
+    "github.com/volcengine/volcengine-go-sdk/volcengine/credentials"
+    "github.com/volcengine/volcengine-go-sdk/volcengine/session"
+)
+
+func main() {
+    p := credentials.NewSAMLCredentialsProvider(
+        "trn:iam::1234567890:role/saml-role",                // RoleTrn
+        "trn:iam::1234567890:saml-provider/MyIdp",           // SAMLProviderTrn
+        "BASE64_ENCODED_SAML_RESPONSE_FROM_IDP",             // SAMLAssertion
+    )
+    p.DurationSeconds = 3600
+
+    config := volcengine.NewConfig().
+        WithRegion("cn-beijing").
+        WithCredentials(credentials.NewCredentials(p))
+
+    sess, err := session.NewSession(config)
+    if err != nil {
+        panic(err)
+    }
+    _ = sess
 }
 ```
 

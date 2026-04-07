@@ -14,6 +14,7 @@ Volcengine Go SDK supports multiple authentication mechanisms. Choose the one th
 | `EnvCredentials` | Read from env vars | No | CI/CD and container env injection |
 | `StsCredentials` | STS AssumeRole | Yes | Role-based temporary credentials |
 | `OIDCCredentialsProvider` | STS AssumeRoleWithOIDC | Yes | OIDC federation |
+| `SAMLCredentialsProvider` | STS AssumeRoleWithSAML | Yes | SAML federation |
 | `CliProvider` | Read from `~/.volcengine/config.json` | Depends on mode | Reuse CLI login/profile |
 | `EcsRoleProvider` | Read from ECS IMDS (IMDSv2) | Yes | ECS instance role credentials |
 | `DefaultCredentialProvider` | 4-step chain wrapper | Depends on delegated provider | No AK/SK in application code |
@@ -173,6 +174,45 @@ func main() {
 	}
 	// Print the result to verify success
 	fmt.Println(resp)
+}
+```
+
+## STS AssumeRoleWithSAML Example
+
+`SAMLCredentialsProvider` exchanges a SAML assertion (returned by your SAML 2.0 IdP) for temporary STS credentials via `AssumeRoleWithSAML`. Credentials are auto-refreshed before expiration.
+
+> ⚠️ Notes
+>
+> 1. **Least Privilege**: Grant only the minimum permissions required.
+> 2. **Reasonable Validity Period**: Recommended not to exceed 1 hour.
+> 3. The `SAMLAssertion` is the base64-encoded SAML Response returned by your IdP.
+
+```go
+package main
+
+import (
+    "github.com/volcengine/volcengine-go-sdk/volcengine"
+    "github.com/volcengine/volcengine-go-sdk/volcengine/credentials"
+    "github.com/volcengine/volcengine-go-sdk/volcengine/session"
+)
+
+func main() {
+    p := credentials.NewSAMLCredentialsProvider(
+        "trn:iam::1234567890:role/saml-role",                // RoleTrn
+        "trn:iam::1234567890:saml-provider/MyIdp",           // SAMLProviderTrn
+        "BASE64_ENCODED_SAML_RESPONSE_FROM_IDP",             // SAMLAssertion
+    )
+    p.DurationSeconds = 3600
+
+    config := volcengine.NewConfig().
+        WithRegion("cn-beijing").
+        WithCredentials(credentials.NewCredentials(p))
+
+    sess, err := session.NewSession(config)
+    if err != nil {
+        panic(err)
+    }
+    _ = sess
 }
 ```
 
