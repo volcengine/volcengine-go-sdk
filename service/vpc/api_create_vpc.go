@@ -151,9 +151,15 @@ type CreateVpcInput struct {
 
 	DnsServers []*string `type:"list"`
 
+	DryRun *bool `type:"boolean"`
+
 	EnableIpv6 *bool `type:"boolean"`
 
 	Ipv6CidrBlock *string `type:"string"`
+
+	Ipv6Isp *string `type:"string"`
+
+	Ipv6MaskLen *int64 `type:"integer"`
 
 	ProjectName *string `type:"string"`
 
@@ -221,6 +227,12 @@ func (s *CreateVpcInput) SetDnsServers(v []*string) *CreateVpcInput {
 	return s
 }
 
+// SetDryRun sets the DryRun field's value.
+func (s *CreateVpcInput) SetDryRun(v bool) *CreateVpcInput {
+	s.DryRun = &v
+	return s
+}
+
 // SetEnableIpv6 sets the EnableIpv6 field's value.
 func (s *CreateVpcInput) SetEnableIpv6(v bool) *CreateVpcInput {
 	s.EnableIpv6 = &v
@@ -230,6 +242,18 @@ func (s *CreateVpcInput) SetEnableIpv6(v bool) *CreateVpcInput {
 // SetIpv6CidrBlock sets the Ipv6CidrBlock field's value.
 func (s *CreateVpcInput) SetIpv6CidrBlock(v string) *CreateVpcInput {
 	s.Ipv6CidrBlock = &v
+	return s
+}
+
+// SetIpv6Isp sets the Ipv6Isp field's value.
+func (s *CreateVpcInput) SetIpv6Isp(v string) *CreateVpcInput {
+	s.Ipv6Isp = &v
+	return s
+}
+
+// SetIpv6MaskLen sets the Ipv6MaskLen field's value.
+func (s *CreateVpcInput) SetIpv6MaskLen(v int64) *CreateVpcInput {
+	s.Ipv6MaskLen = &v
 	return s
 }
 

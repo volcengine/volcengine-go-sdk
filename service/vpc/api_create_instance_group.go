@@ -142,6 +142,8 @@ func (c *VPC) CreateInstanceGroupWithContext(ctx volcengine.Context, input *Crea
 type CreateInstanceGroupInput struct {
 	_ struct{} `type:"structure"`
 
+	ClientToken *string `type:"string"`
+
 	Description *string `min:"1" max:"255" type:"string"`
 
 	Name *string `min:"1" max:"128" type:"string"`
@@ -183,6 +185,12 @@ func (s *CreateInstanceGroupInput) Validate() error {
 		return invalidParams
 	}
 	return nil
+}
+
+// SetClientToken sets the ClientToken field's value.
+func (s *CreateInstanceGroupInput) SetClientToken(v string) *CreateInstanceGroupInput {
+	s.ClientToken = &v
+	return s
 }
 
 // SetDescription sets the Description field's value.

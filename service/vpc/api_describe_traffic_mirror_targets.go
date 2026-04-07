@@ -321,6 +321,8 @@ type TrafficMirrorTargetForDescribeTrafficMirrorTargetsOutput struct {
 	TrafficMirrorTargetId *string `type:"string"`
 
 	TrafficMirrorTargetName *string `type:"string"`
+
+	UpdatedAt *string `type:"string"`
 }
 
 // String returns the string representation
@@ -384,5 +386,11 @@ func (s *TrafficMirrorTargetForDescribeTrafficMirrorTargetsOutput) SetTrafficMir
 // SetTrafficMirrorTargetName sets the TrafficMirrorTargetName field's value.
 func (s *TrafficMirrorTargetForDescribeTrafficMirrorTargetsOutput) SetTrafficMirrorTargetName(v string) *TrafficMirrorTargetForDescribeTrafficMirrorTargetsOutput {
 	s.TrafficMirrorTargetName = &v
+	return s
+}
+
+// SetUpdatedAt sets the UpdatedAt field's value.
+func (s *TrafficMirrorTargetForDescribeTrafficMirrorTargetsOutput) SetUpdatedAt(v string) *TrafficMirrorTargetForDescribeTrafficMirrorTargetsOutput {
+	s.UpdatedAt = &v
 	return s
 }

@@ -144,6 +144,10 @@ type ModifyRouteEntryInput struct {
 
 	Description *string `min:"1" max:"255" type:"string"`
 
+	NextHopId *string `type:"string"`
+
+	NextHopType *string `type:"string"`
+
 	// RouteEntryId is a required field
 	RouteEntryId *string `type:"string" required:"true"`
 
@@ -188,6 +192,18 @@ func (s *ModifyRouteEntryInput) Validate() error {
 // SetDescription sets the Description field's value.
 func (s *ModifyRouteEntryInput) SetDescription(v string) *ModifyRouteEntryInput {
 	s.Description = &v
+	return s
+}
+
+// SetNextHopId sets the NextHopId field's value.
+func (s *ModifyRouteEntryInput) SetNextHopId(v string) *ModifyRouteEntryInput {
+	s.NextHopId = &v
+	return s
+}
+
+// SetNextHopType sets the NextHopType field's value.
+func (s *ModifyRouteEntryInput) SetNextHopType(v string) *ModifyRouteEntryInput {
+	s.NextHopType = &v
 	return s
 }
 

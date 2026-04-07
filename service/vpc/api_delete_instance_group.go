@@ -142,6 +142,8 @@ func (c *VPC) DeleteInstanceGroupWithContext(ctx volcengine.Context, input *Dele
 type DeleteInstanceGroupInput struct {
 	_ struct{} `type:"structure"`
 
+	ClientToken *string `type:"string"`
+
 	// InstanceGroupId is a required field
 	InstanceGroupId *string `type:"string" required:"true"`
 }
@@ -167,6 +169,12 @@ func (s *DeleteInstanceGroupInput) Validate() error {
 		return invalidParams
 	}
 	return nil
+}
+
+// SetClientToken sets the ClientToken field's value.
+func (s *DeleteInstanceGroupInput) SetClientToken(v string) *DeleteInstanceGroupInput {
+	s.ClientToken = &v
+	return s
 }
 
 // SetInstanceGroupId sets the InstanceGroupId field's value.

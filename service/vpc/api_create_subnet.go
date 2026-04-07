@@ -158,6 +158,8 @@ type CreateSubnetInput struct {
 	// VpcId is a required field
 	VpcId *string `type:"string" required:"true"`
 
+	VpcIpv6CidrBlock *string `type:"string"`
+
 	// ZoneId is a required field
 	ZoneId *string `type:"string" required:"true"`
 }
@@ -245,6 +247,12 @@ func (s *CreateSubnetInput) SetTags(v []*TagForCreateSubnetInput) *CreateSubnetI
 // SetVpcId sets the VpcId field's value.
 func (s *CreateSubnetInput) SetVpcId(v string) *CreateSubnetInput {
 	s.VpcId = &v
+	return s
+}
+
+// SetVpcIpv6CidrBlock sets the VpcIpv6CidrBlock field's value.
+func (s *CreateSubnetInput) SetVpcIpv6CidrBlock(v string) *CreateSubnetInput {
+	s.VpcIpv6CidrBlock = &v
 	return s
 }
 

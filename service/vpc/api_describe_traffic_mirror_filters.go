@@ -244,6 +244,8 @@ func (s *DescribeTrafficMirrorFiltersOutput) SetTrafficMirrorFilters(v []*Traffi
 type EgressFilterRuleForDescribeTrafficMirrorFiltersOutput struct {
 	_ struct{} `type:"structure"`
 
+	CreatedAt *string `type:"string"`
+
 	Description *string `type:"string"`
 
 	DestinationCidrBlock *string `type:"string"`
@@ -253,8 +255,6 @@ type EgressFilterRuleForDescribeTrafficMirrorFiltersOutput struct {
 	Policy *string `type:"string"`
 
 	Priority *int64 `type:"integer"`
-
-	ProjectName *string `type:"string"`
 
 	Protocol *string `type:"string"`
 
@@ -269,6 +269,8 @@ type EgressFilterRuleForDescribeTrafficMirrorFiltersOutput struct {
 	TrafficMirrorFilterId *string `type:"string"`
 
 	TrafficMirrorFilterRuleId *string `type:"string"`
+
+	UpdatedAt *string `type:"string"`
 }
 
 // String returns the string representation
@@ -279,6 +281,12 @@ func (s EgressFilterRuleForDescribeTrafficMirrorFiltersOutput) String() string {
 // GoString returns the string representation
 func (s EgressFilterRuleForDescribeTrafficMirrorFiltersOutput) GoString() string {
 	return s.String()
+}
+
+// SetCreatedAt sets the CreatedAt field's value.
+func (s *EgressFilterRuleForDescribeTrafficMirrorFiltersOutput) SetCreatedAt(v string) *EgressFilterRuleForDescribeTrafficMirrorFiltersOutput {
+	s.CreatedAt = &v
+	return s
 }
 
 // SetDescription sets the Description field's value.
@@ -308,12 +316,6 @@ func (s *EgressFilterRuleForDescribeTrafficMirrorFiltersOutput) SetPolicy(v stri
 // SetPriority sets the Priority field's value.
 func (s *EgressFilterRuleForDescribeTrafficMirrorFiltersOutput) SetPriority(v int64) *EgressFilterRuleForDescribeTrafficMirrorFiltersOutput {
 	s.Priority = &v
-	return s
-}
-
-// SetProjectName sets the ProjectName field's value.
-func (s *EgressFilterRuleForDescribeTrafficMirrorFiltersOutput) SetProjectName(v string) *EgressFilterRuleForDescribeTrafficMirrorFiltersOutput {
-	s.ProjectName = &v
 	return s
 }
 
@@ -359,8 +361,16 @@ func (s *EgressFilterRuleForDescribeTrafficMirrorFiltersOutput) SetTrafficMirror
 	return s
 }
 
+// SetUpdatedAt sets the UpdatedAt field's value.
+func (s *EgressFilterRuleForDescribeTrafficMirrorFiltersOutput) SetUpdatedAt(v string) *EgressFilterRuleForDescribeTrafficMirrorFiltersOutput {
+	s.UpdatedAt = &v
+	return s
+}
+
 type IngressFilterRuleForDescribeTrafficMirrorFiltersOutput struct {
 	_ struct{} `type:"structure"`
+
+	CreatedAt *string `type:"string"`
 
 	Description *string `type:"string"`
 
@@ -371,8 +381,6 @@ type IngressFilterRuleForDescribeTrafficMirrorFiltersOutput struct {
 	Policy *string `type:"string"`
 
 	Priority *int64 `type:"integer"`
-
-	ProjectName *string `type:"string"`
 
 	Protocol *string `type:"string"`
 
@@ -387,6 +395,8 @@ type IngressFilterRuleForDescribeTrafficMirrorFiltersOutput struct {
 	TrafficMirrorFilterId *string `type:"string"`
 
 	TrafficMirrorFilterRuleId *string `type:"string"`
+
+	UpdatedAt *string `type:"string"`
 }
 
 // String returns the string representation
@@ -397,6 +407,12 @@ func (s IngressFilterRuleForDescribeTrafficMirrorFiltersOutput) String() string 
 // GoString returns the string representation
 func (s IngressFilterRuleForDescribeTrafficMirrorFiltersOutput) GoString() string {
 	return s.String()
+}
+
+// SetCreatedAt sets the CreatedAt field's value.
+func (s *IngressFilterRuleForDescribeTrafficMirrorFiltersOutput) SetCreatedAt(v string) *IngressFilterRuleForDescribeTrafficMirrorFiltersOutput {
+	s.CreatedAt = &v
+	return s
 }
 
 // SetDescription sets the Description field's value.
@@ -426,12 +442,6 @@ func (s *IngressFilterRuleForDescribeTrafficMirrorFiltersOutput) SetPolicy(v str
 // SetPriority sets the Priority field's value.
 func (s *IngressFilterRuleForDescribeTrafficMirrorFiltersOutput) SetPriority(v int64) *IngressFilterRuleForDescribeTrafficMirrorFiltersOutput {
 	s.Priority = &v
-	return s
-}
-
-// SetProjectName sets the ProjectName field's value.
-func (s *IngressFilterRuleForDescribeTrafficMirrorFiltersOutput) SetProjectName(v string) *IngressFilterRuleForDescribeTrafficMirrorFiltersOutput {
-	s.ProjectName = &v
 	return s
 }
 
@@ -474,6 +484,12 @@ func (s *IngressFilterRuleForDescribeTrafficMirrorFiltersOutput) SetTrafficMirro
 // SetTrafficMirrorFilterRuleId sets the TrafficMirrorFilterRuleId field's value.
 func (s *IngressFilterRuleForDescribeTrafficMirrorFiltersOutput) SetTrafficMirrorFilterRuleId(v string) *IngressFilterRuleForDescribeTrafficMirrorFiltersOutput {
 	s.TrafficMirrorFilterRuleId = &v
+	return s
+}
+
+// SetUpdatedAt sets the UpdatedAt field's value.
+func (s *IngressFilterRuleForDescribeTrafficMirrorFiltersOutput) SetUpdatedAt(v string) *IngressFilterRuleForDescribeTrafficMirrorFiltersOutput {
+	s.UpdatedAt = &v
 	return s
 }
 
@@ -557,6 +573,8 @@ type TrafficMirrorFilterForDescribeTrafficMirrorFiltersOutput struct {
 	TrafficMirrorFilterId *string `type:"string"`
 
 	TrafficMirrorFilterName *string `type:"string"`
+
+	UpdatedAt *string `type:"string"`
 }
 
 // String returns the string representation
@@ -620,5 +638,11 @@ func (s *TrafficMirrorFilterForDescribeTrafficMirrorFiltersOutput) SetTrafficMir
 // SetTrafficMirrorFilterName sets the TrafficMirrorFilterName field's value.
 func (s *TrafficMirrorFilterForDescribeTrafficMirrorFiltersOutput) SetTrafficMirrorFilterName(v string) *TrafficMirrorFilterForDescribeTrafficMirrorFiltersOutput {
 	s.TrafficMirrorFilterName = &v
+	return s
+}
+
+// SetUpdatedAt sets the UpdatedAt field's value.
+func (s *TrafficMirrorFilterForDescribeTrafficMirrorFiltersOutput) SetUpdatedAt(v string) *TrafficMirrorFilterForDescribeTrafficMirrorFiltersOutput {
+	s.UpdatedAt = &v
 	return s
 }

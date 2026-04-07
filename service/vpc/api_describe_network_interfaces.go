@@ -177,6 +177,36 @@ func (s *AssociatedElasticIpForDescribeNetworkInterfacesOutput) SetReleaseWithIn
 	return s
 }
 
+type AttachmentForDescribeNetworkInterfacesOutput struct {
+	_ struct{} `type:"structure"`
+
+	DeleteOnTermination *bool `type:"boolean"`
+
+	InstanceId *string `type:"string"`
+}
+
+// String returns the string representation
+func (s AttachmentForDescribeNetworkInterfacesOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s AttachmentForDescribeNetworkInterfacesOutput) GoString() string {
+	return s.String()
+}
+
+// SetDeleteOnTermination sets the DeleteOnTermination field's value.
+func (s *AttachmentForDescribeNetworkInterfacesOutput) SetDeleteOnTermination(v bool) *AttachmentForDescribeNetworkInterfacesOutput {
+	s.DeleteOnTermination = &v
+	return s
+}
+
+// SetInstanceId sets the InstanceId field's value.
+func (s *AttachmentForDescribeNetworkInterfacesOutput) SetInstanceId(v string) *AttachmentForDescribeNetworkInterfacesOutput {
+	s.InstanceId = &v
+	return s
+}
+
 type DescribeNetworkInterfacesInput struct {
 	_ struct{} `type:"structure"`
 
@@ -425,6 +455,8 @@ type NetworkInterfaceSetForDescribeNetworkInterfacesOutput struct {
 
 	AssociatedElasticIp *AssociatedElasticIpForDescribeNetworkInterfacesOutput `type:"structure"`
 
+	Attachment *AttachmentForDescribeNetworkInterfacesOutput `type:"structure"`
+
 	CreatedAt *string `type:"string"`
 
 	Description *string `type:"string"`
@@ -487,6 +519,12 @@ func (s *NetworkInterfaceSetForDescribeNetworkInterfacesOutput) SetAccountId(v s
 // SetAssociatedElasticIp sets the AssociatedElasticIp field's value.
 func (s *NetworkInterfaceSetForDescribeNetworkInterfacesOutput) SetAssociatedElasticIp(v *AssociatedElasticIpForDescribeNetworkInterfacesOutput) *NetworkInterfaceSetForDescribeNetworkInterfacesOutput {
 	s.AssociatedElasticIp = v
+	return s
+}
+
+// SetAttachment sets the Attachment field's value.
+func (s *NetworkInterfaceSetForDescribeNetworkInterfacesOutput) SetAttachment(v *AttachmentForDescribeNetworkInterfacesOutput) *NetworkInterfaceSetForDescribeNetworkInterfacesOutput {
+	s.Attachment = v
 	return s
 }
 
