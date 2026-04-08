@@ -100,15 +100,13 @@ type CliProvider struct {
 // allowing the chain to manage expiration and caching uniformly.
 func NewCliProvider(configPath, profile string) *CliProvider {
 	if configPath == "" {
-		home := shareddefaults.UserHomeDir()
-		if home != "" {
+		configPath = os.Getenv("VOLCENGINE_CLI_CONFIG_FILE")
+		if configPath == "" {
+			home := shareddefaults.UserHomeDir()
 			configPath = filepath.Join(home, ".volcengine", "config.json")
 		}
 	}
-	cacheDir := ""
-	if configPath != "" {
-		cacheDir = filepath.Join(filepath.Dir(configPath), "sso", "cache")
-	}
+	cacheDir := filepath.Join(filepath.Dir(configPath), "sso", "cache")
 	return &CliProvider{
 		configPath: configPath,
 		cacheDir:   cacheDir,
@@ -120,22 +118,7 @@ func NewCliProvider(configPath, profile string) *CliProvider {
 // NewCliCredentials returns a pointer to a new Credentials object wrapping the
 // volcengine-cli config provider.
 func NewCliCredentials(configPath, profile string) *credentials.Credentials {
-	cacheDir := ""
-	if configPath == "" {
-		home := shareddefaults.UserHomeDir()
-		if home != "" {
-			configPath = filepath.Join(home, ".volcengine", "config.json")
-			cacheDir = filepath.Join(home, ".volcengine", "sso", "cache")
-		}
-	} else {
-		cacheDir = filepath.Join(filepath.Dir(configPath), "sso", "cache")
-	}
-	return credentials.NewExpireAbleCredentials(&CliProvider{
-		configPath: configPath,
-		cacheDir:   cacheDir,
-		profile:    profile,
-		Expiry:     credentials.Expiry{},
-	})
+	return credentials.NewExpireAbleCredentials(NewCliProvider(configPath, profile))
 }
 
 func (p *CliProvider) Retrieve() (credentials.Value, error) {
@@ -149,16 +132,11 @@ func (p *CliProvider) Retrieve() (credentials.Value, error) {
 	p.delegate = nil
 	p.SetExpiration(time.Time{}, 0)
 
-	configPath, err := p.getConfigPath()
-	if err != nil {
-		return credentials.Value{ProviderName: CliProviderName}, err
-	}
-
-	b, err := ioutil.ReadFile(configPath)
+	b, err := ioutil.ReadFile(p.configPath)
 	if err != nil {
 		return credentials.Value{ProviderName: CliProviderName}, volcengineerr.New(
 			"CliConfigLoad",
-			fmt.Sprintf("failed to load cli config file %s", configPath),
+			fmt.Sprintf("failed to load cli config file %s", p.configPath),
 			err,
 		)
 	}
@@ -168,7 +146,7 @@ func (p *CliProvider) Retrieve() (credentials.Value, error) {
 		if err := json.Unmarshal(b, cfg); err != nil {
 			return credentials.Value{ProviderName: CliProviderName}, volcengineerr.New(
 				"CliConfigUnmarshal",
-				fmt.Sprintf("failed to unmarshal cli config file %s", configPath),
+				fmt.Sprintf("failed to unmarshal cli config file %s", p.configPath),
 				err,
 			)
 		}
@@ -178,7 +156,7 @@ func (p *CliProvider) Retrieve() (credentials.Value, error) {
 	if cfg.Profiles == nil || len(cfg.Profiles) == 0 {
 		return credentials.Value{ProviderName: CliProviderName}, volcengineerr.New(
 			"CliConfigNoProfiles",
-			fmt.Sprintf("cli config file %s did not contain any profiles", configPath),
+			fmt.Sprintf("cli config file %s did not contain any profiles", p.configPath),
 			nil,
 		)
 	}
@@ -187,7 +165,7 @@ func (p *CliProvider) Retrieve() (credentials.Value, error) {
 	if !ok || profile == nil {
 		return credentials.Value{ProviderName: CliProviderName}, volcengineerr.New(
 			"CliConfigProfileNotFound",
-			fmt.Sprintf("cli config file %s did not contain profile %s", configPath, profileName),
+			fmt.Sprintf("cli config file %s did not contain profile %s", p.configPath, profileName),
 			nil,
 		)
 	}
@@ -195,21 +173,21 @@ func (p *CliProvider) Retrieve() (credentials.Value, error) {
 	mode := strings.ToLower(strings.TrimSpace(profile.Mode))
 	switch mode {
 	case "", modeAK:
-		return p.retrieveAK(profile, profileName, configPath)
+		return p.retrieveAK(profile, profileName, p.configPath)
 	case modeStsToken:
-		return p.retrieveStsToken(profile, profileName, configPath)
+		return p.retrieveStsToken(profile, profileName, p.configPath)
 	case modeSSO:
-		return p.retrieveSSO(profile, profileName, configPath, cfg)
+		return p.retrieveSSO(profile, profileName, p.configPath, cfg)
 	case modeRamRoleArn:
-		return p.retrieveRamRoleArn(profile, profileName, configPath)
+		return p.retrieveRamRoleArn(profile, profileName, p.configPath)
 	case modeOIDC:
-		return p.retrieveOIDC(profile, profileName, configPath)
+		return p.retrieveOIDC(profile, profileName, p.configPath)
 	case modeEcsRole:
-		return p.retrieveEcsRole(profile, profileName, configPath)
+		return p.retrieveEcsRole(profile, profileName, p.configPath)
 	default:
 		return credentials.Value{ProviderName: CliProviderName}, volcengineerr.New(
 			"CliConfigModeInvalid",
-			fmt.Sprintf("cli config profile %s in %s contained unsupported mode %q", profileName, configPath, profile.Mode),
+			fmt.Sprintf("cli config profile %s in %s contained unsupported mode %q", profileName, p.configPath, profile.Mode),
 			nil,
 		)
 	}
@@ -737,31 +715,9 @@ func (p *CliProvider) IsExpired() bool {
 	return false
 }
 
-func (p *CliProvider) getConfigPath() (string, error) {
-	if len(p.configPath) != 0 {
-		return p.configPath, nil
-	}
-
-	if env := os.Getenv("VOLCENGINE_CLI_CONFIG_FILE"); env != "" {
-		p.configPath = env
-		return p.configPath, nil
-	}
-
-	home := shareddefaults.UserHomeDir()
-	if len(home) == 0 {
-		return "", credentials.ErrSharedCredentialsHomeNotFound
-	}
-
-	p.configPath = filepath.Join(home, ".volcengine", "config.json")
-	return p.configPath, nil
-}
-
 func (p *CliProvider) getProfile(cfg *cliConfigure) string {
 	if p.profile == "" {
-		p.profile = os.Getenv("VOLCENGINE_PROFILE")
-	}
-	if p.profile == "" {
-		p.profile = os.Getenv("VOLCSTACK_PROFILE")
+		p.profile = credentials.GetEnvWithFallback("VOLCENGINE_PROFILE", "VOLCSTACK_PROFILE")
 	}
 	if p.profile == "" && cfg != nil && cfg.Current != "" {
 		p.profile = cfg.Current
@@ -771,7 +727,6 @@ func (p *CliProvider) getProfile(cfg *cliConfigure) string {
 	}
 	return p.profile
 }
-
 func UnixTimestampToTime(ts int64) time.Time {
 	switch {
 	case ts >= 1e18: // 纳秒
