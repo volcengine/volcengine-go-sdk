@@ -151,7 +151,7 @@ type CreateDNSRuleInput struct {
 	// Dc is a required field
 	Dc *string `type:"string" json:",omitempty" required:"true"`
 
-	IPList []*IPListForCreateDNSRuleInput `type:"list" json:",omitempty"`
+	IPList []*IPListForCreateDNSRuleInput `type:"list"`
 
 	// ProductId is a required field
 	ProductId *string `type:"string" json:",omitempty" required:"true"`
@@ -228,7 +228,7 @@ type CreateDNSRuleOutput struct {
 
 	Dc *string `type:"string" json:",omitempty"`
 
-	IPList []*IPListForCreateDNSRuleOutput `type:"list" json:",omitempty"`
+	IPList []*IPListForCreateDNSRuleOutput `type:"list"`
 
 	ProductId *string `type:"string" json:",omitempty"`
 

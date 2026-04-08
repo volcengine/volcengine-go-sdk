@@ -204,7 +204,7 @@ type DetailDNSRuleOutput struct {
 
 	Dc *string `type:"string" json:",omitempty"`
 
-	IPList []*IPListForDetailDNSRuleOutput `type:"list" json:",omitempty"`
+	IPList []*IPListForDetailDNSRuleOutput `type:"list"`
 
 	ProductId *string `type:"string" json:",omitempty"`
 

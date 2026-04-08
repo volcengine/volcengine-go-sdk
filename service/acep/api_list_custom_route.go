@@ -234,7 +234,7 @@ type ListCustomRouteOutput struct {
 
 	NextToken *string `type:"string" json:",omitempty"`
 
-	Row []*RowForListCustomRouteOutput `type:"list" json:",omitempty"`
+	Row []*RowForListCustomRouteOutput `type:"list"`
 }
 
 // String returns the string representation

@@ -234,7 +234,7 @@ type ListAppInput struct {
 
 	NextToken *string `type:"string" json:",omitempty"`
 
-	PackageNameList []*string `type:"list" json:",omitempty"`
+	PackageNameList []*string `type:"list"`
 
 	// ProductId is a required field
 	ProductId *string `type:"string" json:",omitempty" required:"true"`
@@ -312,7 +312,7 @@ type ListAppOutput struct {
 
 	NextToken *string `type:"string" json:",omitempty"`
 
-	Row []*RowForListAppOutput `type:"list" json:",omitempty"`
+	Row []*RowForListAppOutput `type:"list"`
 }
 
 // String returns the string representation

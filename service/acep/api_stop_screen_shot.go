@@ -216,7 +216,7 @@ func (s *DetailForStopScreenShotOutput) SetWidth(v int32) *DetailForStopScreenSh
 type StopScreenShotInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	PodIdList []*string `type:"list" json:",omitempty"`
+	PodIdList []*string `type:"list"`
 
 	// ProductId is a required field
 	ProductId *string `type:"string" json:",omitempty" required:"true"`
@@ -262,7 +262,7 @@ type StopScreenShotOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	Details []*DetailForStopScreenShotOutput `type:"list" json:",omitempty"`
+	Details []*DetailForStopScreenShotOutput `type:"list"`
 }
 
 // String returns the string representation

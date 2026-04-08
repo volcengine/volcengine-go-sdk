@@ -146,7 +146,7 @@ func (c *ACEP) BackupPodWithContext(ctx volcengine.Context, input *BackupPodInpu
 type BackupPodInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	PodIdList []*string `type:"list" json:",omitempty"`
+	PodIdList []*string `type:"list"`
 
 	// ProductId is a required field
 	ProductId *string `type:"string" json:",omitempty" required:"true"`
@@ -192,7 +192,7 @@ type BackupPodOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	TaskIdList []*string `type:"list" json:",omitempty"`
+	TaskIdList []*string `type:"list"`
 }
 
 // String returns the string representation

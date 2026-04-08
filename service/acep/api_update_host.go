@@ -148,7 +148,7 @@ type UpdateHostInput struct {
 
 	ConfigurationCode *string `type:"string" json:",omitempty"`
 
-	HostIdList []*string `type:"list" json:",omitempty"`
+	HostIdList []*string `type:"list"`
 
 	// ProductId is a required field
 	ProductId *string `type:"string" json:",omitempty" required:"true"`

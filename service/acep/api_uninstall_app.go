@@ -195,12 +195,12 @@ type UninstallAppInput struct {
 	// AppId is a required field
 	AppId *string `type:"string" json:",omitempty" required:"true"`
 
-	PodIdList []*string `type:"list" json:",omitempty"`
+	PodIdList []*string `type:"list"`
 
 	// ProductId is a required field
 	ProductId *string `type:"string" json:",omitempty" required:"true"`
 
-	TagIdList []*string `type:"list" json:",omitempty"`
+	TagIdList []*string `type:"list"`
 }
 
 // String returns the string representation
@@ -258,7 +258,7 @@ type UninstallAppOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	Jobs []*JobForUninstallAppOutput `type:"list" json:",omitempty"`
+	Jobs []*JobForUninstallAppOutput `type:"list"`
 
 	TaskAction *string `type:"string" json:",omitempty"`
 

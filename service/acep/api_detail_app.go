@@ -174,7 +174,7 @@ type AppForDetailAppOutput struct {
 
 	Rotation *int32 `type:"int32" json:",omitempty"`
 
-	VersionList []*VersionListForDetailAppOutput `type:"list" json:",omitempty"`
+	VersionList []*VersionListForDetailAppOutput `type:"list"`
 }
 
 // String returns the string representation
@@ -518,7 +518,7 @@ type DetailAppOutput struct {
 
 	Rotation *int32 `type:"int32" json:",omitempty"`
 
-	VersionList []*ConvertVersionListForDetailAppOutput `type:"list" json:",omitempty"`
+	VersionList []*ConvertVersionListForDetailAppOutput `type:"list"`
 }
 
 // String returns the string representation

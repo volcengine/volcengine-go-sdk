@@ -176,7 +176,7 @@ func (s *AppListForInstallAppsInput) SetVersionId(v string) *AppListForInstallAp
 type InstallAppsInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	AppList []*AppListForInstallAppsInput `type:"list" json:",omitempty"`
+	AppList []*AppListForInstallAppsInput `type:"list"`
 
 	InstallType *int32 `type:"int32" json:",omitempty"`
 
@@ -250,7 +250,7 @@ type InstallAppsOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	Jobs []*JobForInstallAppsOutput `type:"list" json:",omitempty"`
+	Jobs []*JobForInstallAppsOutput `type:"list"`
 
 	TaskAction *string `type:"string" json:",omitempty"`
 

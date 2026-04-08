@@ -184,7 +184,7 @@ func (s *PreOrderListForRenewResourceAutoInput) SetTerm(v int32) *PreOrderListFo
 type RenewResourceAutoInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	PreOrderList []*PreOrderListForRenewResourceAutoInput `type:"list" json:",omitempty"`
+	PreOrderList []*PreOrderListForRenewResourceAutoInput `type:"list"`
 
 	// ProductId is a required field
 	ProductId *string `type:"string" json:",omitempty" required:"true"`

@@ -149,11 +149,11 @@ type AddPhoneTemplateInput struct {
 	// AospVersion is a required field
 	AospVersion *string `type:"string" json:",omitempty" required:"true"`
 
-	OverlayPersistProperty []*OverlayPersistPropertyForAddPhoneTemplateInput `type:"list" json:",omitempty"`
+	OverlayPersistProperty []*OverlayPersistPropertyForAddPhoneTemplateInput `type:"list"`
 
-	OverlayProperty []*OverlayPropertyForAddPhoneTemplateInput `type:"list" json:",omitempty"`
+	OverlayProperty []*OverlayPropertyForAddPhoneTemplateInput `type:"list"`
 
-	OverlaySettings []*OverlaySettingForAddPhoneTemplateInput `type:"list" json:",omitempty"`
+	OverlaySettings []*OverlaySettingForAddPhoneTemplateInput `type:"list"`
 
 	// PhoneTemplateName is a required field
 	PhoneTemplateName *string `type:"string" json:",omitempty" required:"true"`

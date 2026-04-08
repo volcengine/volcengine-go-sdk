@@ -195,7 +195,7 @@ type LaunchAppInput struct {
 	// PackageName is a required field
 	PackageName *string `type:"string" json:",omitempty" required:"true"`
 
-	PodIdList []*string `type:"list" json:",omitempty"`
+	PodIdList []*string `type:"list"`
 
 	// ProductId is a required field
 	ProductId *string `type:"string" json:",omitempty" required:"true"`
@@ -250,7 +250,7 @@ type LaunchAppOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	Jobs []*JobForLaunchAppOutput `type:"list" json:",omitempty"`
+	Jobs []*JobForLaunchAppOutput `type:"list"`
 
 	TaskAction *string `type:"string" json:",omitempty"`
 

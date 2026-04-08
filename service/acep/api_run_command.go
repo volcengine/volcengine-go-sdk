@@ -197,7 +197,7 @@ type RunCommandInput struct {
 
 	PermissionType *string `type:"string" json:",omitempty"`
 
-	PodIdList []*string `type:"list" json:",omitempty"`
+	PodIdList []*string `type:"list"`
 
 	// ProductId is a required field
 	ProductId *string `type:"string" json:",omitempty" required:"true"`
@@ -266,7 +266,7 @@ type RunCommandOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	Jobs []*JobForRunCommandOutput `type:"list" json:",omitempty"`
+	Jobs []*JobForRunCommandOutput `type:"list"`
 
 	TaskAction *string `type:"string" json:",omitempty"`
 

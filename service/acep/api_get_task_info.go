@@ -196,7 +196,7 @@ type GetTaskInfoOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	Jobs []*JobForGetTaskInfoOutput `type:"list" json:",omitempty"`
+	Jobs []*JobForGetTaskInfoOutput `type:"list"`
 
 	TaskAction *string `type:"string" json:",omitempty"`
 

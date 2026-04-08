@@ -208,7 +208,7 @@ type ListImageResourceOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	Row []*RowForListImageResourceOutput `type:"list" json:",omitempty"`
+	Row []*RowForListImageResourceOutput `type:"list"`
 
 	Total *int64 `type:"int64" json:",omitempty"`
 }

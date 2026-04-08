@@ -220,7 +220,7 @@ type ListPhoneTemplateOutput struct {
 
 	NextToken *string `type:"string" json:",omitempty"`
 
-	Row []*RowForListPhoneTemplateOutput `type:"list" json:",omitempty"`
+	Row []*RowForListPhoneTemplateOutput `type:"list"`
 }
 
 // String returns the string representation
@@ -372,11 +372,11 @@ type RowForListPhoneTemplateOutput struct {
 
 	AospVersion *string `type:"string" json:",omitempty"`
 
-	OverlayPersistProperty []*OverlayPersistPropertyForListPhoneTemplateOutput `type:"list" json:",omitempty"`
+	OverlayPersistProperty []*OverlayPersistPropertyForListPhoneTemplateOutput `type:"list"`
 
-	OverlayProperty []*OverlayPropertyForListPhoneTemplateOutput `type:"list" json:",omitempty"`
+	OverlayProperty []*OverlayPropertyForListPhoneTemplateOutput `type:"list"`
 
-	OverlaySettings []*OverlaySettingForListPhoneTemplateOutput `type:"list" json:",omitempty"`
+	OverlaySettings []*OverlaySettingForListPhoneTemplateOutput `type:"list"`
 
 	PhoneTemplateId *string `type:"string" json:",omitempty"`
 

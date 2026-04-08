@@ -200,7 +200,7 @@ func (s *JobForResetHostOutput) SetUpdateAt(v int64) *JobForResetHostOutput {
 type ResetHostInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	HostIdList []*string `type:"list" json:",omitempty"`
+	HostIdList []*string `type:"list"`
 
 	// ProductId is a required field
 	ProductId *string `type:"string" json:",omitempty" required:"true"`
@@ -246,7 +246,7 @@ type ResetHostOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	Jobs []*JobForResetHostOutput `type:"list" json:",omitempty"`
+	Jobs []*JobForResetHostOutput `type:"list"`
 
 	TaskAction *string `type:"string" json:",omitempty"`
 

@@ -146,9 +146,9 @@ func (c *ACEP) PodDataDeleteWithContext(ctx volcengine.Context, input *PodDataDe
 type PodDataDeleteInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	FilePathList []*string `type:"list" json:",omitempty"`
+	FilePathList []*string `type:"list"`
 
-	PackageList []*string `type:"list" json:",omitempty"`
+	PackageList []*string `type:"list"`
 
 	// PodId is a required field
 	PodId *string `type:"string" json:",omitempty" required:"true"`
