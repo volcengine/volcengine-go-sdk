@@ -146,6 +146,10 @@ func (c *I18NOPENAPI) TermBaseTermGroupImportWithContext(ctx volcengine.Context,
 type DataForTermBaseTermGroupImportOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	Code *int32 `type:"int32" json:"code,omitempty"`
+
+	Message *string `type:"string" json:"message,omitempty"`
+
 	TaskId *int32 `type:"int32" json:"taskId,omitempty"`
 }
 
@@ -157,6 +161,18 @@ func (s DataForTermBaseTermGroupImportOutput) String() string {
 // GoString returns the string representation
 func (s DataForTermBaseTermGroupImportOutput) GoString() string {
 	return s.String()
+}
+
+// SetCode sets the Code field's value.
+func (s *DataForTermBaseTermGroupImportOutput) SetCode(v int32) *DataForTermBaseTermGroupImportOutput {
+	s.Code = &v
+	return s
+}
+
+// SetMessage sets the Message field's value.
+func (s *DataForTermBaseTermGroupImportOutput) SetMessage(v string) *DataForTermBaseTermGroupImportOutput {
+	s.Message = &v
+	return s
 }
 
 // SetTaskId sets the TaskId field's value.

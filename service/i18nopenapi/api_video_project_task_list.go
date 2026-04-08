@@ -178,8 +178,6 @@ type DataForVideoProjectTaskListOutput struct {
 
 	Tasks []*TaskForVideoProjectTaskListOutput `type:"list" json:"tasks"`
 
-	Total *int32 `type:"int32" json:"total"`
-
 	TotalCount *string `type:"string" json:"totalCount"`
 }
 
@@ -208,12 +206,6 @@ func (s *DataForVideoProjectTaskListOutput) SetAllTargetLanguages(v []*string) *
 // SetTasks sets the Tasks field's value.
 func (s *DataForVideoProjectTaskListOutput) SetTasks(v []*TaskForVideoProjectTaskListOutput) *DataForVideoProjectTaskListOutput {
 	s.Tasks = v
-	return s
-}
-
-// SetTotal sets the Total field's value.
-func (s *DataForVideoProjectTaskListOutput) SetTotal(v int32) *DataForVideoProjectTaskListOutput {
-	s.Total = &v
 	return s
 }
 

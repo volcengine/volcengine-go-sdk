@@ -618,6 +618,8 @@ type TaskInfoForVideoProjectSerialDubTaskCreateInput struct {
 
 	IsDub *bool `type:"boolean" json:"isDub,omitempty"`
 
+	LlmVideoUnderstandingType *int32 `type:"int32" json:"llmVideoUnderstandingType,omitempty"`
+
 	NeedTranslateCover *bool `type:"boolean" json:"needTranslateCover,omitempty"`
 
 	NeedTranslateDesc *bool `type:"boolean" json:"needTranslateDesc,omitempty"`
@@ -728,6 +730,12 @@ func (s *TaskInfoForVideoProjectSerialDubTaskCreateInput) SetDubOrTranslationTas
 // SetIsDub sets the IsDub field's value.
 func (s *TaskInfoForVideoProjectSerialDubTaskCreateInput) SetIsDub(v bool) *TaskInfoForVideoProjectSerialDubTaskCreateInput {
 	s.IsDub = &v
+	return s
+}
+
+// SetLlmVideoUnderstandingType sets the LlmVideoUnderstandingType field's value.
+func (s *TaskInfoForVideoProjectSerialDubTaskCreateInput) SetLlmVideoUnderstandingType(v int32) *TaskInfoForVideoProjectSerialDubTaskCreateInput {
+	s.LlmVideoUnderstandingType = &v
 	return s
 }
 

@@ -143,40 +143,12 @@ func (c *I18NOPENAPI) VideoProjectTaskBatchStartAIFlowWithContext(ctx volcengine
 	return out, req.Send()
 }
 
-type BaseRespForVideoProjectTaskBatchStartAIFlowOutput struct {
-	_ struct{} `type:"structure" json:",omitempty"`
-
-	StatusCode *int32 `type:"int32" json:",omitempty"`
-
-	StatusMessage *string `type:"string" json:",omitempty"`
-}
-
-// String returns the string representation
-func (s BaseRespForVideoProjectTaskBatchStartAIFlowOutput) String() string {
-	return volcengineutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s BaseRespForVideoProjectTaskBatchStartAIFlowOutput) GoString() string {
-	return s.String()
-}
-
-// SetStatusCode sets the StatusCode field's value.
-func (s *BaseRespForVideoProjectTaskBatchStartAIFlowOutput) SetStatusCode(v int32) *BaseRespForVideoProjectTaskBatchStartAIFlowOutput {
-	s.StatusCode = &v
-	return s
-}
-
-// SetStatusMessage sets the StatusMessage field's value.
-func (s *BaseRespForVideoProjectTaskBatchStartAIFlowOutput) SetStatusMessage(v string) *BaseRespForVideoProjectTaskBatchStartAIFlowOutput {
-	s.StatusMessage = &v
-	return s
-}
-
 type DataForVideoProjectTaskBatchStartAIFlowOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	BaseResp *BaseRespForVideoProjectTaskBatchStartAIFlowOutput `type:"structure" json:",omitempty"`
+	StatusCode *string `type:"string" json:"statusCode,omitempty"`
+
+	StatusMessage *string `type:"string" json:"statusMessage,omitempty"`
 }
 
 // String returns the string representation
@@ -189,9 +161,15 @@ func (s DataForVideoProjectTaskBatchStartAIFlowOutput) GoString() string {
 	return s.String()
 }
 
-// SetBaseResp sets the BaseResp field's value.
-func (s *DataForVideoProjectTaskBatchStartAIFlowOutput) SetBaseResp(v *BaseRespForVideoProjectTaskBatchStartAIFlowOutput) *DataForVideoProjectTaskBatchStartAIFlowOutput {
-	s.BaseResp = v
+// SetStatusCode sets the StatusCode field's value.
+func (s *DataForVideoProjectTaskBatchStartAIFlowOutput) SetStatusCode(v string) *DataForVideoProjectTaskBatchStartAIFlowOutput {
+	s.StatusCode = &v
+	return s
+}
+
+// SetStatusMessage sets the StatusMessage field's value.
+func (s *DataForVideoProjectTaskBatchStartAIFlowOutput) SetStatusMessage(v string) *DataForVideoProjectTaskBatchStartAIFlowOutput {
+	s.StatusMessage = &v
 	return s
 }
 

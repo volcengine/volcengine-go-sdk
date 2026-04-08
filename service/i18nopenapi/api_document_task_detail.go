@@ -633,6 +633,8 @@ type TaskInfoForDocumentTaskDetailOutput struct {
 
 	IsDub *bool `type:"boolean" json:"isDub"`
 
+	LlmVideoUnderstandingType *int32 `type:"int32" json:"llmVideoUnderstandingType"`
+
 	NeedTranslateCover *bool `type:"boolean" json:"needTranslateCover"`
 
 	NeedTranslateDesc *bool `type:"boolean" json:"needTranslateDesc"`
@@ -743,6 +745,12 @@ func (s *TaskInfoForDocumentTaskDetailOutput) SetDubOrTranslationTaskID(v string
 // SetIsDub sets the IsDub field's value.
 func (s *TaskInfoForDocumentTaskDetailOutput) SetIsDub(v bool) *TaskInfoForDocumentTaskDetailOutput {
 	s.IsDub = &v
+	return s
+}
+
+// SetLlmVideoUnderstandingType sets the LlmVideoUnderstandingType field's value.
+func (s *TaskInfoForDocumentTaskDetailOutput) SetLlmVideoUnderstandingType(v int32) *TaskInfoForDocumentTaskDetailOutput {
+	s.LlmVideoUnderstandingType = &v
 	return s
 }
 
