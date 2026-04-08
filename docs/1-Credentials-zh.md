@@ -131,10 +131,14 @@ func main() {
 	roleTrn := "Your Role Trn" // 你的角色TRN
 
 	// 创建 OIDC 凭证提供者
+	// 提示：credentials.NewOIDCCredentialsProviderFromEnv() 可从环境变量直接构造。
 	p := &credentials.OIDCCredentialsProvider{
-		OIDCTokenFilePath: oidcTokenFile,
-		RoleTrn:           roleTrn,
-		DurationSeconds:   3600, // 有效期
+		OIDCTokenFilePath: oidcTokenFile, // env: VOLCENGINE_OIDC_TOKEN_FILE（必填）
+		RoleTrn:           roleTrn,       // env: VOLCENGINE_OIDC_ROLE_TRN（必填）
+		RoleSessionName:   "",            // env: VOLCENGINE_OIDC_ROLE_SESSION_NAME（可选）
+		Policy:            "",            // env: VOLCENGINE_OIDC_ROLE_POLICY（可选）
+		Endpoint:          "",            // env: VOLCENGINE_OIDC_STS_ENDPOINT（可选）
+		DurationSeconds:   3600,          // 有效期
 	}
 
 	// 配置 SDK 使用 OIDC 凭证

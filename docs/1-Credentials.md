@@ -153,10 +153,14 @@ func main() {
 	roleTrn := "Your Role Trn" // Your Role TRN
 
 	// Create OIDC credentials provider
+	// Tip: credentials.NewOIDCCredentialsProviderFromEnv() builds the provider from the env vars.
 	p := &credentials.OIDCCredentialsProvider{
-		OIDCTokenFilePath: oidcTokenFile,
-		RoleTrn:           roleTrn,
-		DurationSeconds:   3600, // Validity period
+		OIDCTokenFilePath: oidcTokenFile, // env: VOLCENGINE_OIDC_TOKEN_FILE (required)
+		RoleTrn:           roleTrn,       // env: VOLCENGINE_OIDC_ROLE_TRN  (required)
+		RoleSessionName:   "",            // env: VOLCENGINE_OIDC_ROLE_SESSION_NAME (optional)
+		Policy:            "",            // env: VOLCENGINE_OIDC_ROLE_POLICY (optional)
+		Endpoint:          "",            // env: VOLCENGINE_OIDC_STS_ENDPOINT (optional)
+		DurationSeconds:   3600,          // Validity period
 	}
 
 	// Configure SDK to use OIDC credentials
