@@ -44,15 +44,21 @@ func (s *StsProvider) Retrieve() (Value, error) {
 	}
 	t := time.Now().Add(time.Duration(s.DurationSeconds-60) * time.Second)
 	output, _, err := assumeRoleWithRetry(ins, input, s.MaxRetries, s.RetryInterval)
-	if err != nil || output.ResponseMetadata.Error != nil {
-		if err == nil {
-			bb, _err := json.Marshal(output.ResponseMetadata.Error)
-			if _err != nil {
-				return Value{}, _err
-			}
-			return Value{}, fmt.Errorf(string(bb))
-		}
+	if err != nil {
 		return Value{}, err
+	}
+	if output == nil {
+		return Value{}, fmt.Errorf("StsProvider: AssumeRole returned nil response")
+	}
+	if output.ResponseMetadata.Error != nil {
+		bb, _err := json.Marshal(output.ResponseMetadata.Error)
+		if _err != nil {
+			return Value{}, _err
+		}
+		return Value{}, fmt.Errorf(string(bb))
+	}
+	if output.Result == nil || output.Result.Credentials == nil {
+		return Value{}, fmt.Errorf("StsProvider: AssumeRole returned empty credentials")
 	}
 	v := Value{
 		AccessKeyID:     output.Result.Credentials.AccessKeyId,

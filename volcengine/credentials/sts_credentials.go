@@ -59,6 +59,10 @@ func StsAssumeRole(p *StsAssumeRoleProvider) (*Credentials, *StsAssumeRoleTime, 
 	if err != nil {
 		return nil, nil, fmt.Errorf("AssumeRole error,httpcode is %v and reqId is %s error is %s", statusCode, reqId, err.Error())
 	}
+	if output != nil && output.ResponseMetadata.Error != nil {
+		return nil, nil, fmt.Errorf("AssumeRole service error, reqId: %s, code: %s, message: %s",
+			reqId, output.ResponseMetadata.Error.Code, output.ResponseMetadata.Error.Message)
+	}
 	if statusCode >= 300 || statusCode < 200 {
 		return nil, nil, fmt.Errorf("AssumeRole error,httpcode is %v and reqId is %s", statusCode, reqId)
 	}
@@ -92,7 +96,8 @@ func assumeRoleWithRetry(ins *sts.STS, input *sts.AssumeRoleRequest, maxRetries 
 		output, statusCode, err = ins.AssumeRole(input)
 		failed := err != nil ||
 			statusCode < 200 || statusCode >= 300 ||
-			(output != nil && output.ResponseMetadata.Error != nil)
+			output == nil ||
+			output.ResponseMetadata.Error != nil
 		if !failed {
 			return output, statusCode, err
 		}

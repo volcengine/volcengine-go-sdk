@@ -155,12 +155,14 @@ func main() {
 	// Create OIDC credentials provider
 	// Tip: credentials.NewOIDCCredentialsProviderFromEnv() builds the provider from the env vars.
 	p := &credentials.OIDCCredentialsProvider{
-		OIDCTokenFilePath: oidcTokenFile, // env: VOLCENGINE_OIDC_TOKEN_FILE (required)
-		RoleTrn:           roleTrn,       // env: VOLCENGINE_OIDC_ROLE_TRN  (required)
-		RoleSessionName:   "",            // env: VOLCENGINE_OIDC_ROLE_SESSION_NAME (optional)
-		Policy:            "",            // env: VOLCENGINE_OIDC_ROLE_POLICY (optional)
-		Endpoint:          "",            // env: VOLCENGINE_OIDC_STS_ENDPOINT (optional)
-		DurationSeconds:   3600,          // Validity period
+		OIDCTokenFilePath: oidcTokenFile,   // env: VOLCENGINE_OIDC_TOKEN_FILE (required)
+		RoleTrn:           roleTrn,         // env: VOLCENGINE_OIDC_ROLE_TRN  (required)
+		RoleSessionName:   "",              // env: VOLCENGINE_OIDC_ROLE_SESSION_NAME (optional)
+		Policy:            "",              // env: VOLCENGINE_OIDC_ROLE_POLICY (optional)
+		Endpoint:          "",              // env: VOLCENGINE_OIDC_STS_ENDPOINT (optional)
+		DurationSeconds:   3600,            // Validity period
+		MaxRetries:        3,               // optional extra retry attempts on failure (default 0, i.e. no retry)
+		RetryInterval:     1 * time.Second, // optional sleep between retries (default 1s)
 	}
 
 	// Configure SDK to use OIDC credentials
@@ -214,6 +216,8 @@ func main() {
         "BASE64_ENCODED_SAML_RESPONSE_FROM_IDP",             // SAMLAssertion
     )
     p.DurationSeconds = 3600
+    p.MaxRetries = 3                  // optional extra retry attempts on failure (default 0, i.e. no retry)
+    p.RetryInterval = 1 * time.Second // optional sleep between retries (default 1s)
 
     config := volcengine.NewConfig().
         WithRegion("cn-beijing").

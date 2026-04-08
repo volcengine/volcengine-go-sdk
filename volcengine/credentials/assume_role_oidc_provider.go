@@ -73,6 +73,8 @@ type OIDCCredentialsProvider struct {
 	// for sts endpoint
 	Schema              string
 	Endpoint            string
+	MaxRetries          int           // Retry Times. Default is 0.
+	RetryInterval       time.Duration // the sleep interval between retries. Defaults to 1s.
 	lastUpdateTimestamp int64
 	expirationTimestamp int64
 	sessionValue        *Value
@@ -135,35 +137,37 @@ func (p *OIDCCredentialsProvider) fetchOnce() (Value, error) {
 		scheme = p.Schema
 	}
 
-	url := scheme + "://" + endpoint
 	var client *http.Client
 	if p.httpOptions != nil {
 		client = &http.Client{Timeout: p.httpOptions.Timeout}
 	} else {
 		client = &http.Client{}
 	}
-	// 发送请求到STS服务
-	resp, err := client.Post(
-		url+"/?Action=AssumeRoleWithOIDC&Version=2018-01-01",
-		"application/x-www-form-urlencoded",
-		strings.NewReader(data.Encode()),
-	)
-	if err != nil {
-		return Value{}, fmt.Errorf("failed to request STS service: %v", err)
-	}
-	defer resp.Body.Close()
 
-	// 检查响应状态
-	if resp.StatusCode != http.StatusOK {
-		body, _ := ioutil.ReadAll(resp.Body)
-		return Value{}, fmt.Errorf("STS service returned non-OK status: %d, body: %s", resp.StatusCode, string(body))
+	maxRetries := p.MaxRetries
+	if maxRetries < 0 {
+		maxRetries = 0
 	}
-	stsResp := AssumeRoleWithOIDCResponse{}
-	if err := json.NewDecoder(resp.Body).Decode(&stsResp); err != nil {
-		return Value{}, fmt.Errorf("failed to decode STS response: %v", err)
+	retryInterval := p.RetryInterval
+	if retryInterval <= 0 {
+		retryInterval = time.Second
 	}
-	if stsResp.ResponseMetadata.Error != nil {
-		return Value{}, fmt.Errorf("failed to decode STS response: %v", stsResp.ResponseMetadata)
+
+	// 发送请求到STS服务（带重试）
+	requestURL := scheme + "://" + endpoint + "/?Action=AssumeRoleWithOIDC&Version=2018-01-01"
+	var stsResp AssumeRoleWithOIDCResponse
+	var lastErr error
+	for attempt := 0; attempt <= maxRetries; attempt++ {
+		stsResp, lastErr = doOIDCAssumeRoleOnce(client, requestURL, data.Encode())
+		if lastErr == nil {
+			break
+		}
+		if attempt < maxRetries {
+			time.Sleep(retryInterval)
+		}
+	}
+	if lastErr != nil {
+		return Value{}, lastErr
 	}
 
 	// 创建凭证对象
@@ -190,4 +194,26 @@ func (p *OIDCCredentialsProvider) IsExpired() bool {
 		return true
 	}
 	return time.Now().Unix() > p.expirationTimestamp
+}
+
+// doOIDCAssumeRoleOnce performs one AssumeRoleWithOIDC HTTP call and decodes the response. It is intended to be invoked inside a retry loop.
+func doOIDCAssumeRoleOnce(client *http.Client, requestURL, body string) (AssumeRoleWithOIDCResponse, error) {
+	var stsResp AssumeRoleWithOIDCResponse
+	resp, err := client.Post(requestURL, "application/x-www-form-urlencoded", strings.NewReader(body))
+	if err != nil {
+		return stsResp, fmt.Errorf("failed to request STS service: %v", err)
+	}
+	defer resp.Body.Close()
+
+	if resp.StatusCode != http.StatusOK {
+		respBody, _ := ioutil.ReadAll(resp.Body)
+		return stsResp, fmt.Errorf("STS service returned non-OK status: %d, body: %s", resp.StatusCode, string(respBody))
+	}
+	if err := json.NewDecoder(resp.Body).Decode(&stsResp); err != nil {
+		return AssumeRoleWithOIDCResponse{}, fmt.Errorf("failed to decode STS response: %v", err)
+	}
+	if stsResp.ResponseMetadata.Error != nil {
+		return AssumeRoleWithOIDCResponse{}, fmt.Errorf("STS AssumeRoleWithOIDC service error: %v", stsResp.ResponseMetadata)
+	}
+	return stsResp, nil
 }

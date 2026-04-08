@@ -35,8 +35,10 @@ type SAMLCredentialsProvider struct {
 	DurationSeconds int
 	Policy          string
 	// for sts endpoint
-	Schema   string
-	Endpoint string
+	Schema        string
+	Endpoint      string
+	MaxRetries    int           // Retry Times. Default is 0.
+	RetryInterval time.Duration // the sleep interval between retries. Defaults to 1s.
 
 	lastUpdateTimestamp int64
 	expirationTimestamp int64
@@ -103,27 +105,29 @@ func (p *SAMLCredentialsProvider) fetchOnce() (Value, error) {
 		client = &http.Client{}
 	}
 
-	resp, err := client.Post(
-		scheme+"://"+endpoint+"/?Action=AssumeRoleWithSAML&Version=2018-01-01",
-		"application/x-www-form-urlencoded",
-		strings.NewReader(data.Encode()),
-	)
-	if err != nil {
-		return Value{}, fmt.Errorf("failed to request STS service: %v", err)
+	maxRetries := p.MaxRetries
+	if maxRetries < 0 {
+		maxRetries = 0
 	}
-	defer resp.Body.Close()
-
-	if resp.StatusCode != http.StatusOK {
-		body, _ := ioutil.ReadAll(resp.Body)
-		return Value{}, fmt.Errorf("STS service returned non-OK status: %d, body: %s", resp.StatusCode, string(body))
+	retryInterval := p.RetryInterval
+	if retryInterval <= 0 {
+		retryInterval = time.Second
 	}
 
-	stsResp := AssumeRoleWithSAMLResponse{}
-	if err := json.NewDecoder(resp.Body).Decode(&stsResp); err != nil {
-		return Value{}, fmt.Errorf("failed to decode STS response: %v", err)
+	requestURL := scheme + "://" + endpoint + "/?Action=AssumeRoleWithSAML&Version=2018-01-01"
+	var stsResp AssumeRoleWithSAMLResponse
+	var lastErr error
+	for attempt := 0; attempt <= maxRetries; attempt++ {
+		stsResp, lastErr = doSAMLAssumeRoleOnce(client, requestURL, data.Encode())
+		if lastErr == nil {
+			break
+		}
+		if attempt < maxRetries {
+			time.Sleep(retryInterval)
+		}
 	}
-	if stsResp.ResponseMetadata.Error != nil {
-		return Value{}, fmt.Errorf("STS AssumeRoleWithSAML returned error: %v", stsResp.ResponseMetadata)
+	if lastErr != nil {
+		return Value{}, lastErr
 	}
 
 	creds := Value{
@@ -140,4 +144,26 @@ func (p *SAMLCredentialsProvider) fetchOnce() (Value, error) {
 	p.expirationTimestamp = expirationTime.Add(-60 * time.Second).Unix()
 	p.sessionValue = &creds
 	return creds, nil
+}
+
+// doSAMLAssumeRoleOnce performs one AssumeRoleWithSAML HTTP call and decodes the response. It is intended to be invoked inside a retry loop.
+func doSAMLAssumeRoleOnce(client *http.Client, requestURL, body string) (AssumeRoleWithSAMLResponse, error) {
+	var stsResp AssumeRoleWithSAMLResponse
+	resp, err := client.Post(requestURL, "application/x-www-form-urlencoded", strings.NewReader(body))
+	if err != nil {
+		return stsResp, fmt.Errorf("failed to request STS service: %v", err)
+	}
+	defer resp.Body.Close()
+
+	if resp.StatusCode != http.StatusOK {
+		respBody, _ := ioutil.ReadAll(resp.Body)
+		return stsResp, fmt.Errorf("STS service returned non-OK status: %d, body: %s", resp.StatusCode, string(respBody))
+	}
+	if err := json.NewDecoder(resp.Body).Decode(&stsResp); err != nil {
+		return AssumeRoleWithSAMLResponse{}, fmt.Errorf("failed to decode STS response: %v", err)
+	}
+	if stsResp.ResponseMetadata.Error != nil {
+		return AssumeRoleWithSAMLResponse{}, fmt.Errorf("STS AssumeRoleWithSAML returned error: %v", stsResp.ResponseMetadata)
+	}
+	return stsResp, nil
 }

@@ -133,12 +133,14 @@ func main() {
 	// 创建 OIDC 凭证提供者
 	// 提示：credentials.NewOIDCCredentialsProviderFromEnv() 可从环境变量直接构造。
 	p := &credentials.OIDCCredentialsProvider{
-		OIDCTokenFilePath: oidcTokenFile, // env: VOLCENGINE_OIDC_TOKEN_FILE（必填）
-		RoleTrn:           roleTrn,       // env: VOLCENGINE_OIDC_ROLE_TRN（必填）
-		RoleSessionName:   "",            // env: VOLCENGINE_OIDC_ROLE_SESSION_NAME（可选）
-		Policy:            "",            // env: VOLCENGINE_OIDC_ROLE_POLICY（可选）
-		Endpoint:          "",            // env: VOLCENGINE_OIDC_STS_ENDPOINT（可选）
-		DurationSeconds:   3600,          // 有效期
+		OIDCTokenFilePath: oidcTokenFile,   // env: VOLCENGINE_OIDC_TOKEN_FILE（必填）
+		RoleTrn:           roleTrn,         // env: VOLCENGINE_OIDC_ROLE_TRN（必填）
+		RoleSessionName:   "",              // env: VOLCENGINE_OIDC_ROLE_SESSION_NAME（可选）
+		Policy:            "",              // env: VOLCENGINE_OIDC_ROLE_POLICY（可选）
+		Endpoint:          "",              // env: VOLCENGINE_OIDC_STS_ENDPOINT（可选）
+		DurationSeconds:   3600,            // 有效期
+		MaxRetries:        3,               // 可选的失败时额外重试次数，默认 0（不重试）
+		RetryInterval:     1 * time.Second, // 可选的重试间隔，默认 1s
 	}
 
 	// 配置 SDK 使用 OIDC 凭证
@@ -192,6 +194,8 @@ func main() {
         "BASE64_ENCODED_SAML_RESPONSE_FROM_IDP",             // SAMLAssertion
     )
     p.DurationSeconds = 3600
+    p.MaxRetries = 3                  // 可选的失败时额外重试次数，默认 0（不重试）
+    p.RetryInterval = 1 * time.Second // 可选的重试间隔，默认 1s
 
     config := volcengine.NewConfig().
         WithRegion("cn-beijing").
