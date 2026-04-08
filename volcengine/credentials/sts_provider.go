@@ -40,9 +40,10 @@ func (s *StsProvider) Retrieve() (Value, error) {
 		DurationSeconds: s.DurationSeconds,
 		RoleTrn:         fmt.Sprintf("trn:iam::%s:role/%s", s.AccountId, s.RoleName),
 		RoleSessionName: uuid.New().String(),
+		Policy:          s.Policy,
 	}
 	t := time.Now().Add(time.Duration(s.DurationSeconds-60) * time.Second)
-	output, _, err := ins.AssumeRole(input)
+	output, _, err := assumeRoleWithRetry(ins, input, s.MaxRetries, s.RetryInterval)
 	if err != nil || output.ResponseMetadata.Error != nil {
 		if err == nil {
 			bb, _err := json.Marshal(output.ResponseMetadata.Error)

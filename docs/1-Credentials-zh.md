@@ -38,7 +38,7 @@ func main() {
        WithRegion(region).
        // 1. credentials.NewStaticCredentials 是输入静态ak和sk可能泄漏会导致AK/SK泄漏，生产环境不能这样使用
        WithCredentials(credentials.NewStaticCredentials(ak, sk, ""))
-       // 2. credentials.NewEnvCredentials() 不用传入任何参数，会从环境变量中读取：VOLCSTACK_ACCESS_KEY_ID、VOLCSTACK_SECRET_ACCESS_KEY、VOLCSTACK_SESSION_TOKEN，生产环境建议使用这个
+       // 2. credentials.NewEnvCredentials() 不用传入任何参数，会从环境变量中读取：VOLCENGINE_ACCESS_KEY、VOLCENGINE_SECRET_KEY、VOLCENGINE_SESSION_TOKEN，生产环境建议使用这个
        // WithCredentials(credentials.NewEnvCredentials())
 
     sess, err := session.NewSession(config)
@@ -62,9 +62,9 @@ func main() {
     ak, sk,token,region := "Your AK", "Your SK", "Your token", "cn-beijing"
     config := volcengine.NewConfig().
        WithRegion(region).
-       // 1. credentials.NewStaticCredentials 是输入静态ak和sk可能泄漏会导致AK/SK泄漏，生产环境不能这样使用
+       // 1. credentials.NewStaticCredentials 是输入静态ak和sk可能泄漏会导致AK/SK泄漏，生产环境不推荐这样使用
        WithCredentials(credentials.NewStaticCredentials(ak, sk, token))
-       // 2. credentials.NewEnvCredentials() 不用传入任何参数，会从环境变量中读取：VOLCSTACK_ACCESS_KEY_ID、VOLCSTACK_SECRET_ACCESS_KEY、VOLCSTACK_SESSION_TOKEN，生产环境建议使用这个
+       // 2. credentials.NewEnvCredentials() 不用传入任何参数，会从环境变量中读取：VOLCENGINE_ACCESS_KEY、VOLCENGINE_SECRET_KEY、VOLCENGINE_SESSION_TOKEN，生产环境建议使用这个
        // WithCredentials(credentials.NewEnvCredentials())
     sess, err := session.NewSession(config)
     if err != nil {
@@ -89,8 +89,8 @@ func main() {
     config := volcengine.NewConfig().
         WithRegion(region).
         WithCredentials(credentials.NewStsCredentials(credentials.StsValue{
-            AccessKey:  ak,         // 子账号AK,最好从环境变量获取：os.Getenv("VOLCSTACK_ACCESS_KEY_ID")
-            SecurityKey: sk,        // 子账号SK，最好从环境变量获取：os.Getenv("VOLCSTACK_SECRET_ACCESS_KEY")
+            AccessKey:  ak,         // 子账号AK,最好从环境变量获取：os.Getenv("VOLCENGINE_ACCESS_KEY")
+            SecurityKey: sk,        // 子账号SK，最好从环境变量获取：os.Getenv("VOLCENGINE_SECRET_KEY")
             RoleName:   "RoleName", // 扮演角色名称
             Host:       "Host",     // 请求的sts域名
             Region:     "Region",   // 请求sts的region信息
@@ -98,6 +98,9 @@ func main() {
             Schema:     "Schema",   // 请求sts的schema信息
             Timeout:    5 * time.Second, // 请求sts的超时时间
             DurationSeconds: 900,        // STS临时凭证过期时长，单位为秒
+            // Policy: 可选的 session policy JSON，用于进一步收窄临时凭证的权限，例如：`{"Statement":[{"Effect":"Allow","Action":["vpc:DescribeVpcs"],"Resource":["*"]}]}`,
+            MaxRetries:    3, // 可选的 AssumeRole 失败时的额外重试次数，默认 0（不重试）
+            RetryInterval: 1 * time.Second,
         }))
 
 

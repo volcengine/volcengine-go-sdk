@@ -36,9 +36,10 @@ func main() {
     ak, sk, region := "Your AK", "Your SK", "cn-beijing"
     config := volcengine.NewConfig().
        WithRegion(region).
-       // 1. NewStaticCredentials may leak credentials; do not use in production.
+       // 1. credentials.NewStaticCredentials takes static AK/SK and may leak credentials; not recommended in production.
        WithCredentials(credentials.NewStaticCredentials(ak, sk, ""))
-       // 2. Recommended in production: read from env vars.
+       // 2. credentials.NewEnvCredentials() takes no arguments and reads from env vars:
+       //    VOLCENGINE_ACCESS_KEY, VOLCENGINE_SECRET_KEY, VOLCENGINE_SESSION_TOKEN. Recommended in production.
        // WithCredentials(credentials.NewEnvCredentials())
 
     sess, err := session.NewSession(config)
@@ -62,7 +63,10 @@ func main() {
     ak, sk, token, region := "Your AK", "Your SK", "Your token", "cn-beijing"
     config := volcengine.NewConfig().
        WithRegion(region).
+       // 1. credentials.NewStaticCredentials takes static AK/SK(/Token) and may leak credentials; not recommended in production.
        WithCredentials(credentials.NewStaticCredentials(ak, sk, token))
+       // 2. credentials.NewEnvCredentials() takes no arguments and reads from env vars:
+       //    VOLCENGINE_ACCESS_KEY, VOLCENGINE_SECRET_KEY, VOLCENGINE_SESSION_TOKEN. Recommended in production.
        // WithCredentials(credentials.NewEnvCredentials())
     sess, err := session.NewSession(config)
     if err != nil {
@@ -96,15 +100,18 @@ func main() {
     config := volcengine.NewConfig().
         WithRegion(region).
         WithCredentials(credentials.NewStsCredentials(credentials.StsValue{
-            AccessKey:  ak,
-            SecurityKey: sk,
-            RoleName:   "RoleName",
-            Host:       "Host",
-            Region:     "Region",
-            AccountId:  "123456",
-            Schema:     "Schema",
-            Timeout:    5 * time.Second,
-            DurationSeconds: 900,
+            AccessKey:  ak,              // Sub-account AK, preferably read from env: os.Getenv("VOLCENGINE_ACCESS_KEY")
+            SecurityKey: sk,              // Sub-account SK, preferably read from env: os.Getenv("VOLCENGINE_SECRET_KEY")
+            RoleName:   "RoleName",       // Name of the role to assume
+            Host:       "Host",            // STS host
+            Region:     "Region",          // STS region
+            AccountId:  "123456",          // Main account ID that owns the role
+            Schema:     "Schema",          // STS schema (http/https)
+            Timeout:    5 * time.Second,   // STS request timeout
+            DurationSeconds: 900,          // TTL of the temporary credentials, in seconds
+            // Policy: optional session policy JSON that further restricts the temporary credentials, e.g. `{"Statement":[{"Effect":"Allow","Action":["vpc:DescribeVpcs"],"Resource":["*"]}]}`
+            MaxRetries:    3, // optional extra retry attempts on AssumeRole failure (default 0, i.e. no retry)
+            RetryInterval: 1 * time.Second,
         }))
 
     sess, err := session.NewSession(config)
