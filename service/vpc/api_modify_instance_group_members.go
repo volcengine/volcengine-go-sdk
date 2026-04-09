@@ -174,6 +174,8 @@ type ModifyInstanceGroupMembersInput struct {
 
 	AppendMembers []*AppendMemberForModifyInstanceGroupMembersInput `type:"list"`
 
+	ClientToken *string `type:"string"`
+
 	// InstanceGroupId is a required field
 	InstanceGroupId *string `type:"string" required:"true"`
 
@@ -206,6 +208,12 @@ func (s *ModifyInstanceGroupMembersInput) Validate() error {
 // SetAppendMembers sets the AppendMembers field's value.
 func (s *ModifyInstanceGroupMembersInput) SetAppendMembers(v []*AppendMemberForModifyInstanceGroupMembersInput) *ModifyInstanceGroupMembersInput {
 	s.AppendMembers = v
+	return s
+}
+
+// SetClientToken sets the ClientToken field's value.
+func (s *ModifyInstanceGroupMembersInput) SetClientToken(v string) *ModifyInstanceGroupMembersInput {
+	s.ClientToken = &v
 	return s
 }
 

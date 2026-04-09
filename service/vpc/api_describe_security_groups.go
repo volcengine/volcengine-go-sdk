@@ -311,6 +311,12 @@ func (s *DescribeSecurityGroupsOutput) SetTotalCount(v int64) *DescribeSecurityG
 type SecurityGroupForDescribeSecurityGroupsOutput struct {
 	_ struct{} `type:"structure"`
 
+	AccountId *string `type:"string"`
+
+	AvailableIpCount *int64 `type:"integer"`
+
+	AvailableNetworkInterfaceCount *int64 `type:"integer"`
+
 	CreationTime *string `type:"string"`
 
 	Description *string `type:"string"`
@@ -329,6 +335,10 @@ type SecurityGroupForDescribeSecurityGroupsOutput struct {
 
 	Type *string `type:"string"`
 
+	UsedIpCount *int64 `type:"integer"`
+
+	UsedNetworkInterfaceCount *int64 `type:"integer"`
+
 	VpcId *string `type:"string"`
 }
 
@@ -340,6 +350,24 @@ func (s SecurityGroupForDescribeSecurityGroupsOutput) String() string {
 // GoString returns the string representation
 func (s SecurityGroupForDescribeSecurityGroupsOutput) GoString() string {
 	return s.String()
+}
+
+// SetAccountId sets the AccountId field's value.
+func (s *SecurityGroupForDescribeSecurityGroupsOutput) SetAccountId(v string) *SecurityGroupForDescribeSecurityGroupsOutput {
+	s.AccountId = &v
+	return s
+}
+
+// SetAvailableIpCount sets the AvailableIpCount field's value.
+func (s *SecurityGroupForDescribeSecurityGroupsOutput) SetAvailableIpCount(v int64) *SecurityGroupForDescribeSecurityGroupsOutput {
+	s.AvailableIpCount = &v
+	return s
+}
+
+// SetAvailableNetworkInterfaceCount sets the AvailableNetworkInterfaceCount field's value.
+func (s *SecurityGroupForDescribeSecurityGroupsOutput) SetAvailableNetworkInterfaceCount(v int64) *SecurityGroupForDescribeSecurityGroupsOutput {
+	s.AvailableNetworkInterfaceCount = &v
+	return s
 }
 
 // SetCreationTime sets the CreationTime field's value.
@@ -393,6 +421,18 @@ func (s *SecurityGroupForDescribeSecurityGroupsOutput) SetTags(v []*TagForDescri
 // SetType sets the Type field's value.
 func (s *SecurityGroupForDescribeSecurityGroupsOutput) SetType(v string) *SecurityGroupForDescribeSecurityGroupsOutput {
 	s.Type = &v
+	return s
+}
+
+// SetUsedIpCount sets the UsedIpCount field's value.
+func (s *SecurityGroupForDescribeSecurityGroupsOutput) SetUsedIpCount(v int64) *SecurityGroupForDescribeSecurityGroupsOutput {
+	s.UsedIpCount = &v
+	return s
+}
+
+// SetUsedNetworkInterfaceCount sets the UsedNetworkInterfaceCount field's value.
+func (s *SecurityGroupForDescribeSecurityGroupsOutput) SetUsedNetworkInterfaceCount(v int64) *SecurityGroupForDescribeSecurityGroupsOutput {
+	s.UsedNetworkInterfaceCount = &v
 	return s
 }
 

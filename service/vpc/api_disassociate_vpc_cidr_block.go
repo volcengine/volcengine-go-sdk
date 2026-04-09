@@ -142,6 +142,8 @@ func (c *VPC) DisassociateVpcCidrBlockWithContext(ctx volcengine.Context, input 
 type DisassociateVpcCidrBlockInput struct {
 	_ struct{} `type:"structure"`
 
+	Ipv6CidrBlock *string `type:"string"`
+
 	SecondaryCidrBlock *string `type:"string"`
 
 	// VpcId is a required field
@@ -169,6 +171,12 @@ func (s *DisassociateVpcCidrBlockInput) Validate() error {
 		return invalidParams
 	}
 	return nil
+}
+
+// SetIpv6CidrBlock sets the Ipv6CidrBlock field's value.
+func (s *DisassociateVpcCidrBlockInput) SetIpv6CidrBlock(v string) *DisassociateVpcCidrBlockInput {
+	s.Ipv6CidrBlock = &v
+	return s
 }
 
 // SetSecondaryCidrBlock sets the SecondaryCidrBlock field's value.

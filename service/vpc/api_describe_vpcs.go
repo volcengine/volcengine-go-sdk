@@ -354,6 +354,36 @@ func (s *DescribeVpcsOutput) SetVpcs(v []*VpcForDescribeVpcsOutput) *DescribeVpc
 	return s
 }
 
+type Ipv6CidrBlockForDescribeVpcsOutput struct {
+	_ struct{} `type:"structure"`
+
+	Ipv6CidrBlock *string `type:"string"`
+
+	Ipv6Isp *string `type:"string"`
+}
+
+// String returns the string representation
+func (s Ipv6CidrBlockForDescribeVpcsOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s Ipv6CidrBlockForDescribeVpcsOutput) GoString() string {
+	return s.String()
+}
+
+// SetIpv6CidrBlock sets the Ipv6CidrBlock field's value.
+func (s *Ipv6CidrBlockForDescribeVpcsOutput) SetIpv6CidrBlock(v string) *Ipv6CidrBlockForDescribeVpcsOutput {
+	s.Ipv6CidrBlock = &v
+	return s
+}
+
+// SetIpv6Isp sets the Ipv6Isp field's value.
+func (s *Ipv6CidrBlockForDescribeVpcsOutput) SetIpv6Isp(v string) *Ipv6CidrBlockForDescribeVpcsOutput {
+	s.Ipv6Isp = &v
+	return s
+}
+
 type TagFilterForDescribeVpcsInput struct {
 	_ struct{} `type:"structure"`
 
@@ -430,6 +460,10 @@ type VpcForDescribeVpcsOutput struct {
 	DnsServers []*string `type:"list"`
 
 	Ipv4GatewayId *string `type:"string"`
+
+	Ipv6CidrBlock *string `type:"string"`
+
+	Ipv6CidrBlocks []*Ipv6CidrBlockForDescribeVpcsOutput `type:"list"`
 
 	IsDefault *bool `type:"boolean"`
 
@@ -511,6 +545,18 @@ func (s *VpcForDescribeVpcsOutput) SetDnsServers(v []*string) *VpcForDescribeVpc
 // SetIpv4GatewayId sets the Ipv4GatewayId field's value.
 func (s *VpcForDescribeVpcsOutput) SetIpv4GatewayId(v string) *VpcForDescribeVpcsOutput {
 	s.Ipv4GatewayId = &v
+	return s
+}
+
+// SetIpv6CidrBlock sets the Ipv6CidrBlock field's value.
+func (s *VpcForDescribeVpcsOutput) SetIpv6CidrBlock(v string) *VpcForDescribeVpcsOutput {
+	s.Ipv6CidrBlock = &v
+	return s
+}
+
+// SetIpv6CidrBlocks sets the Ipv6CidrBlocks field's value.
+func (s *VpcForDescribeVpcsOutput) SetIpv6CidrBlocks(v []*Ipv6CidrBlockForDescribeVpcsOutput) *VpcForDescribeVpcsOutput {
+	s.Ipv6CidrBlocks = v
 	return s
 }
 

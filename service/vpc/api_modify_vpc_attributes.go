@@ -150,6 +150,10 @@ type ModifyVpcAttributesInput struct {
 
 	Ipv6CidrBlock *string `type:"string"`
 
+	Ipv6Isp *string `type:"string"`
+
+	Ipv6MaskLen *int64 `type:"integer"`
+
 	// VpcId is a required field
 	VpcId *string `type:"string" required:"true"`
 
@@ -212,6 +216,18 @@ func (s *ModifyVpcAttributesInput) SetEnableIpv6(v bool) *ModifyVpcAttributesInp
 // SetIpv6CidrBlock sets the Ipv6CidrBlock field's value.
 func (s *ModifyVpcAttributesInput) SetIpv6CidrBlock(v string) *ModifyVpcAttributesInput {
 	s.Ipv6CidrBlock = &v
+	return s
+}
+
+// SetIpv6Isp sets the Ipv6Isp field's value.
+func (s *ModifyVpcAttributesInput) SetIpv6Isp(v string) *ModifyVpcAttributesInput {
+	s.Ipv6Isp = &v
+	return s
+}
+
+// SetIpv6MaskLen sets the Ipv6MaskLen field's value.
+func (s *ModifyVpcAttributesInput) SetIpv6MaskLen(v int64) *ModifyVpcAttributesInput {
+	s.Ipv6MaskLen = &v
 	return s
 }
 

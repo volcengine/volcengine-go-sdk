@@ -380,6 +380,8 @@ type TrafficMirrorSessionForDescribeTrafficMirrorSessionsOutput struct {
 
 	TrafficMirrorTargetId *string `type:"string"`
 
+	UpdatedAt *string `type:"string"`
+
 	VirtualNetworkId *int64 `type:"integer"`
 }
 
@@ -474,6 +476,12 @@ func (s *TrafficMirrorSessionForDescribeTrafficMirrorSessionsOutput) SetTrafficM
 // SetTrafficMirrorTargetId sets the TrafficMirrorTargetId field's value.
 func (s *TrafficMirrorSessionForDescribeTrafficMirrorSessionsOutput) SetTrafficMirrorTargetId(v string) *TrafficMirrorSessionForDescribeTrafficMirrorSessionsOutput {
 	s.TrafficMirrorTargetId = &v
+	return s
+}
+
+// SetUpdatedAt sets the UpdatedAt field's value.
+func (s *TrafficMirrorSessionForDescribeTrafficMirrorSessionsOutput) SetUpdatedAt(v string) *TrafficMirrorSessionForDescribeTrafficMirrorSessionsOutput {
+	s.UpdatedAt = &v
 	return s
 }
 

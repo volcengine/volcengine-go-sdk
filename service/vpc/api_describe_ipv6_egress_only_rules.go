@@ -146,7 +146,7 @@ type DescribeIpv6EgressOnlyRulesInput struct {
 
 	Ipv6Address *string `type:"string"`
 
-	Ipv6EgressOnlyRuleIds *string `type:"string"`
+	Ipv6EgressOnlyRuleIds []*string `type:"list"`
 
 	// Ipv6GatewayId is a required field
 	Ipv6GatewayId *string `type:"string" required:"true"`
@@ -194,8 +194,8 @@ func (s *DescribeIpv6EgressOnlyRulesInput) SetIpv6Address(v string) *DescribeIpv
 }
 
 // SetIpv6EgressOnlyRuleIds sets the Ipv6EgressOnlyRuleIds field's value.
-func (s *DescribeIpv6EgressOnlyRulesInput) SetIpv6EgressOnlyRuleIds(v string) *DescribeIpv6EgressOnlyRulesInput {
-	s.Ipv6EgressOnlyRuleIds = &v
+func (s *DescribeIpv6EgressOnlyRulesInput) SetIpv6EgressOnlyRuleIds(v []*string) *DescribeIpv6EgressOnlyRulesInput {
+	s.Ipv6EgressOnlyRuleIds = v
 	return s
 }
 

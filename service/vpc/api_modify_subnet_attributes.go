@@ -152,6 +152,8 @@ type ModifySubnetAttributesInput struct {
 	SubnetId *string `type:"string" required:"true"`
 
 	SubnetName *string `min:"1" max:"128" type:"string"`
+
+	VpcIpv6CidrBlock *string `type:"string"`
 }
 
 // String returns the string representation
@@ -219,6 +221,12 @@ func (s *ModifySubnetAttributesInput) SetSubnetId(v string) *ModifySubnetAttribu
 // SetSubnetName sets the SubnetName field's value.
 func (s *ModifySubnetAttributesInput) SetSubnetName(v string) *ModifySubnetAttributesInput {
 	s.SubnetName = &v
+	return s
+}
+
+// SetVpcIpv6CidrBlock sets the VpcIpv6CidrBlock field's value.
+func (s *ModifySubnetAttributesInput) SetVpcIpv6CidrBlock(v string) *ModifySubnetAttributesInput {
+	s.VpcIpv6CidrBlock = &v
 	return s
 }
 

@@ -234,6 +234,8 @@ type DescribeVpcAttributesOutput struct {
 
 	Ipv6CidrBlock *string `type:"string"`
 
+	Ipv6CidrBlocks []*Ipv6CidrBlockForDescribeVpcAttributesOutput `type:"list"`
+
 	IsDefault *bool `type:"boolean"`
 
 	NatGatewayIds []*string `type:"list"`
@@ -322,6 +324,12 @@ func (s *DescribeVpcAttributesOutput) SetIpv4GatewayId(v string) *DescribeVpcAtt
 // SetIpv6CidrBlock sets the Ipv6CidrBlock field's value.
 func (s *DescribeVpcAttributesOutput) SetIpv6CidrBlock(v string) *DescribeVpcAttributesOutput {
 	s.Ipv6CidrBlock = &v
+	return s
+}
+
+// SetIpv6CidrBlocks sets the Ipv6CidrBlocks field's value.
+func (s *DescribeVpcAttributesOutput) SetIpv6CidrBlocks(v []*Ipv6CidrBlockForDescribeVpcAttributesOutput) *DescribeVpcAttributesOutput {
+	s.Ipv6CidrBlocks = v
 	return s
 }
 
@@ -418,6 +426,36 @@ func (s *DescribeVpcAttributesOutput) SetVpcId(v string) *DescribeVpcAttributesO
 // SetVpcName sets the VpcName field's value.
 func (s *DescribeVpcAttributesOutput) SetVpcName(v string) *DescribeVpcAttributesOutput {
 	s.VpcName = &v
+	return s
+}
+
+type Ipv6CidrBlockForDescribeVpcAttributesOutput struct {
+	_ struct{} `type:"structure"`
+
+	Ipv6CidrBlock *string `type:"string"`
+
+	Ipv6Isp *string `type:"string"`
+}
+
+// String returns the string representation
+func (s Ipv6CidrBlockForDescribeVpcAttributesOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s Ipv6CidrBlockForDescribeVpcAttributesOutput) GoString() string {
+	return s.String()
+}
+
+// SetIpv6CidrBlock sets the Ipv6CidrBlock field's value.
+func (s *Ipv6CidrBlockForDescribeVpcAttributesOutput) SetIpv6CidrBlock(v string) *Ipv6CidrBlockForDescribeVpcAttributesOutput {
+	s.Ipv6CidrBlock = &v
+	return s
+}
+
+// SetIpv6Isp sets the Ipv6Isp field's value.
+func (s *Ipv6CidrBlockForDescribeVpcAttributesOutput) SetIpv6Isp(v string) *Ipv6CidrBlockForDescribeVpcAttributesOutput {
+	s.Ipv6Isp = &v
 	return s
 }
 
