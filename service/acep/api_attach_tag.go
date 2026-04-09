@@ -146,7 +146,7 @@ func (c *ACEP) AttachTagWithContext(ctx volcengine.Context, input *AttachTagInpu
 type AttachTagInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	PodIdList []*string `type:"list" json:",omitempty"`
+	PodIdList []*string `type:"list"`
 
 	// ProductId is a required field
 	ProductId *string `type:"string" json:",omitempty" required:"true"`

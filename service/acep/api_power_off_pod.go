@@ -194,7 +194,7 @@ type PowerOffPodInput struct {
 
 	PodId *string `type:"string" json:",omitempty"`
 
-	PodIdList []*string `type:"list" json:",omitempty"`
+	PodIdList []*string `type:"list"`
 
 	// ProductId is a required field
 	ProductId *string `type:"string" json:",omitempty" required:"true"`
@@ -248,7 +248,7 @@ type PowerOffPodOutput struct {
 
 	AccountId *string `type:"string" json:",omitempty"`
 
-	Details []*DetailForPowerOffPodOutput `type:"list" json:",omitempty"`
+	Details []*DetailForPowerOffPodOutput `type:"list"`
 
 	ProductId *string `type:"string" json:",omitempty"`
 }

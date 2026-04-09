@@ -190,7 +190,7 @@ func (s ProxyConfigForSetProxyInput) GoString() string {
 type SetProxyInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	PodIdList []*string `type:"list" json:",omitempty"`
+	PodIdList []*string `type:"list"`
 
 	// ProductId is a required field
 	ProductId *string `type:"string" json:",omitempty" required:"true"`
@@ -256,7 +256,7 @@ type SetProxyOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	JobList []*JobListForSetProxyOutput `type:"list" json:",omitempty"`
+	JobList []*JobListForSetProxyOutput `type:"list"`
 
 	TaskAction *string `type:"string" json:",omitempty"`
 

@@ -195,7 +195,7 @@ type GetAppCrashLogInput struct {
 	// EndTime is a required field
 	EndTime *int64 `type:"int64" json:",omitempty" required:"true"`
 
-	PodIdList []*string `type:"list" json:",omitempty"`
+	PodIdList []*string `type:"list"`
 
 	// ProductId is a required field
 	ProductId *string `type:"string" json:",omitempty" required:"true"`
@@ -262,7 +262,7 @@ type GetAppCrashLogOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	AppCrashLogList []*AppCrashLogListForGetAppCrashLogOutput `type:"list" json:",omitempty"`
+	AppCrashLogList []*AppCrashLogListForGetAppCrashLogOutput `type:"list"`
 }
 
 // String returns the string representation

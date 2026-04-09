@@ -366,6 +366,14 @@ type ACEPAPI interface {
 	GetProductResourceWithContext(volcengine.Context, *GetProductResourceInput, ...request.Option) (*GetProductResourceOutput, error)
 	GetProductResourceRequest(*GetProductResourceInput) (*request.Request, *GetProductResourceOutput)
 
+	GetProxyCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	GetProxyCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	GetProxyCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	GetProxy(*GetProxyInput) (*GetProxyOutput, error)
+	GetProxyWithContext(volcengine.Context, *GetProxyInput, ...request.Option) (*GetProxyOutput, error)
+	GetProxyRequest(*GetProxyInput) (*request.Request, *GetProxyOutput)
+
 	GetTaskInfoCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	GetTaskInfoCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	GetTaskInfoCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -422,6 +430,14 @@ type ACEPAPI interface {
 	ListAppWithContext(volcengine.Context, *ListAppInput, ...request.Option) (*ListAppOutput, error)
 	ListAppRequest(*ListAppInput) (*request.Request, *ListAppOutput)
 
+	ListAppVersionDeployCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListAppVersionDeployCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListAppVersionDeployCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListAppVersionDeploy(*ListAppVersionDeployInput) (*ListAppVersionDeployOutput, error)
+	ListAppVersionDeployWithContext(volcengine.Context, *ListAppVersionDeployInput, ...request.Option) (*ListAppVersionDeployOutput, error)
+	ListAppVersionDeployRequest(*ListAppVersionDeployInput) (*request.Request, *ListAppVersionDeployOutput)
+
 	ListBackupDataCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ListBackupDataCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	ListBackupDataCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -446,6 +462,14 @@ type ACEPAPI interface {
 	ListCustomRouteWithContext(volcengine.Context, *ListCustomRouteInput, ...request.Option) (*ListCustomRouteOutput, error)
 	ListCustomRouteRequest(*ListCustomRouteInput) (*request.Request, *ListCustomRouteOutput)
 
+	ListDNSRuleCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListDNSRuleCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListDNSRuleCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListDNSRule(*ListDNSRuleInput) (*ListDNSRuleOutput, error)
+	ListDNSRuleWithContext(volcengine.Context, *ListDNSRuleInput, ...request.Option) (*ListDNSRuleOutput, error)
+	ListDNSRuleRequest(*ListDNSRuleInput) (*request.Request, *ListDNSRuleOutput)
+
 	ListDcCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ListDcCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	ListDcCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -453,6 +477,22 @@ type ACEPAPI interface {
 	ListDc(*ListDcInput) (*ListDcOutput, error)
 	ListDcWithContext(volcengine.Context, *ListDcInput, ...request.Option) (*ListDcOutput, error)
 	ListDcRequest(*ListDcInput) (*request.Request, *ListDcOutput)
+
+	ListDisplayLayoutMiniCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListDisplayLayoutMiniCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListDisplayLayoutMiniCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListDisplayLayoutMini(*ListDisplayLayoutMiniInput) (*ListDisplayLayoutMiniOutput, error)
+	ListDisplayLayoutMiniWithContext(volcengine.Context, *ListDisplayLayoutMiniInput, ...request.Option) (*ListDisplayLayoutMiniOutput, error)
+	ListDisplayLayoutMiniRequest(*ListDisplayLayoutMiniInput) (*request.Request, *ListDisplayLayoutMiniOutput)
+
+	ListHostCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListHostCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListHostCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListHost(*ListHostInput) (*ListHostOutput, error)
+	ListHostWithContext(volcengine.Context, *ListHostInput, ...request.Option) (*ListHostOutput, error)
+	ListHostRequest(*ListHostInput) (*request.Request, *ListHostOutput)
 
 	ListImageResourceCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ListImageResourceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -477,6 +517,46 @@ type ACEPAPI interface {
 	ListPod(*ListPodInput) (*ListPodOutput, error)
 	ListPodWithContext(volcengine.Context, *ListPodInput, ...request.Option) (*ListPodOutput, error)
 	ListPodRequest(*ListPodInput) (*request.Request, *ListPodOutput)
+
+	ListPodResourceCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListPodResourceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListPodResourceCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListPodResource(*ListPodResourceInput) (*ListPodResourceOutput, error)
+	ListPodResourceWithContext(volcengine.Context, *ListPodResourceInput, ...request.Option) (*ListPodResourceOutput, error)
+	ListPodResourceRequest(*ListPodResourceInput) (*request.Request, *ListPodResourceOutput)
+
+	ListPodResourceSetCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListPodResourceSetCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListPodResourceSetCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListPodResourceSet(*ListPodResourceSetInput) (*ListPodResourceSetOutput, error)
+	ListPodResourceSetWithContext(volcengine.Context, *ListPodResourceSetInput, ...request.Option) (*ListPodResourceSetOutput, error)
+	ListPodResourceSetRequest(*ListPodResourceSetInput) (*request.Request, *ListPodResourceSetOutput)
+
+	ListPortMappingRuleCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListPortMappingRuleCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListPortMappingRuleCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListPortMappingRule(*ListPortMappingRuleInput) (*ListPortMappingRuleOutput, error)
+	ListPortMappingRuleWithContext(volcengine.Context, *ListPortMappingRuleInput, ...request.Option) (*ListPortMappingRuleOutput, error)
+	ListPortMappingRuleRequest(*ListPortMappingRuleInput) (*request.Request, *ListPortMappingRuleOutput)
+
+	ListTagCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListTagCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListTagCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListTag(*ListTagInput) (*ListTagOutput, error)
+	ListTagWithContext(volcengine.Context, *ListTagInput, ...request.Option) (*ListTagOutput, error)
+	ListTagRequest(*ListTagInput) (*request.Request, *ListTagOutput)
+
+	ListTaskCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListTaskCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListTaskCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListTask(*ListTaskInput) (*ListTaskOutput, error)
+	ListTaskWithContext(volcengine.Context, *ListTaskInput, ...request.Option) (*ListTaskOutput, error)
+	ListTaskRequest(*ListTaskInput) (*request.Request, *ListTaskOutput)
 
 	MigratePodCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	MigratePodCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)

@@ -168,19 +168,19 @@ type CreatePodInput struct {
 
 	IsSelinuxOn *bool `type:"boolean" json:",omitempty"`
 
-	OverlayPersistProperty []*OverlayPersistPropertyForCreatePodInput `type:"list" json:",omitempty"`
+	OverlayPersistProperty []*OverlayPersistPropertyForCreatePodInput `type:"list"`
 
-	OverlayProperty []*OverlayPropertyForCreatePodInput `type:"list" json:",omitempty"`
+	OverlayProperty []*OverlayPropertyForCreatePodInput `type:"list"`
 
-	OverlaySettings []*OverlaySettingForCreatePodInput `type:"list" json:",omitempty"`
+	OverlaySettings []*OverlaySettingForCreatePodInput `type:"list"`
 
 	PhoneTemplateId *string `type:"string" json:",omitempty"`
 
 	PodName *string `type:"string" json:",omitempty"`
 
-	PodSpecList []*PodSpecListForCreatePodInput `type:"list" json:",omitempty"`
+	PodSpecList []*PodSpecListForCreatePodInput `type:"list"`
 
-	PortMappingRuleIdList []*string `type:"list" json:",omitempty"`
+	PortMappingRuleIdList []*string `type:"list"`
 
 	// ProductId is a required field
 	ProductId *string `type:"string" json:",omitempty" required:"true"`
@@ -370,7 +370,7 @@ type CreatePodOutput struct {
 
 	PodId *string `type:"string" json:",omitempty"`
 
-	PodIdList []*string `type:"list" json:",omitempty"`
+	PodIdList []*string `type:"list"`
 }
 
 // String returns the string representation
@@ -544,17 +544,17 @@ type PodSpecListForCreatePodInput struct {
 
 	IsSelinuxOn *bool `type:"boolean" json:",omitempty"`
 
-	OverlayPersistProperty []*OverlayPersistPropertyForCreatePodInput `type:"list" json:",omitempty"`
+	OverlayPersistProperty []*OverlayPersistPropertyForCreatePodInput `type:"list"`
 
-	OverlayProperty []*OverlayPropertyForCreatePodInput `type:"list" json:",omitempty"`
+	OverlayProperty []*OverlayPropertyForCreatePodInput `type:"list"`
 
-	OverlaySettings []*OverlaySettingForCreatePodInput `type:"list" json:",omitempty"`
+	OverlaySettings []*OverlaySettingForCreatePodInput `type:"list"`
 
 	PhoneTemplateId *string `type:"string" json:",omitempty"`
 
 	PodName *string `type:"string" json:",omitempty"`
 
-	PortMappingRuleIdList []*string `type:"list" json:",omitempty"`
+	PortMappingRuleIdList []*string `type:"list"`
 
 	Start *bool `type:"boolean" json:",omitempty"`
 

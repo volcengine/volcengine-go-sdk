@@ -200,7 +200,7 @@ func (s *JobForLaunchAppsOutput) SetStatus(v int32) *JobForLaunchAppsOutput {
 type LaunchAppsInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	PackageNameList []*string `type:"list" json:",omitempty"`
+	PackageNameList []*string `type:"list"`
 
 	// PodId is a required field
 	PodId *string `type:"string" json:",omitempty" required:"true"`
@@ -258,7 +258,7 @@ type LaunchAppsOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	Jobs []*JobForLaunchAppsOutput `type:"list" json:",omitempty"`
+	Jobs []*JobForLaunchAppsOutput `type:"list"`
 
 	TaskAction *string `type:"string" json:",omitempty"`
 

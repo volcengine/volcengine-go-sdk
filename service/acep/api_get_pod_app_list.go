@@ -204,9 +204,9 @@ type GetPodAppListOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	PodAppList []*PodAppListForGetPodAppListOutput `type:"list" json:",omitempty"`
+	PodAppList []*PodAppListForGetPodAppListOutput `type:"list"`
 
-	Row []*RowForGetPodAppListOutput `type:"list" json:",omitempty"`
+	Row []*RowForGetPodAppListOutput `type:"list"`
 
 	Total *int64 `type:"int64" json:",omitempty"`
 }

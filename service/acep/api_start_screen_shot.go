@@ -222,7 +222,7 @@ type StartScreenShotInput struct {
 
 	Interval *int32 `type:"int32" json:",omitempty"`
 
-	PodIdList []*string `type:"list" json:",omitempty"`
+	PodIdList []*string `type:"list"`
 
 	// ProductId is a required field
 	ProductId *string `type:"string" json:",omitempty" required:"true"`
@@ -334,7 +334,7 @@ type StartScreenShotOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	Details []*DetailForStartScreenShotOutput `type:"list" json:",omitempty"`
+	Details []*DetailForStartScreenShotOutput `type:"list"`
 }
 
 // String returns the string representation

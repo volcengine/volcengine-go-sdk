@@ -338,7 +338,7 @@ type DetailPodOutput struct {
 
 	PodName *string `type:"string" json:",omitempty"`
 
-	PortMappingRuleList []*PortMappingRuleListForDetailPodOutput `type:"list" json:",omitempty"`
+	PortMappingRuleList []*PortMappingRuleListForDetailPodOutput `type:"list"`
 
 	PreviewRoomId *string `type:"string" json:",omitempty"`
 
@@ -650,7 +650,7 @@ type PortMappingRuleListForDetailPodOutput struct {
 
 	PublicPort *int32 `type:"int32" json:",omitempty"`
 
-	PublicPortInfoList []*PublicPortInfoListForDetailPodOutput `type:"list" json:",omitempty"`
+	PublicPortInfoList []*PublicPortInfoListForDetailPodOutput `type:"list"`
 
 	SourcePort *int32 `type:"int32" json:",omitempty"`
 

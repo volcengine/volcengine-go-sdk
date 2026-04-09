@@ -204,7 +204,7 @@ type GetImagePreheatingOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	Row []*RowForGetImagePreheatingOutput `type:"list" json:",omitempty"`
+	Row []*RowForGetImagePreheatingOutput `type:"list"`
 }
 
 // String returns the string representation

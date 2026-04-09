@@ -152,7 +152,7 @@ type BatchScreenShotInput struct {
 
 	IsSavedOnPod *bool `type:"boolean" json:",omitempty"`
 
-	PodIdList []*string `type:"list" json:",omitempty"`
+	PodIdList []*string `type:"list"`
 
 	// ProductId is a required field
 	ProductId *string `type:"string" json:",omitempty" required:"true"`
@@ -272,7 +272,7 @@ type BatchScreenShotOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	Details []*DetailForBatchScreenShotOutput `type:"list" json:",omitempty"`
+	Details []*DetailForBatchScreenShotOutput `type:"list"`
 }
 
 // String returns the string representation

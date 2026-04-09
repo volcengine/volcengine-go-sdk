@@ -149,7 +149,7 @@ type DeleteTagInput struct {
 	// ProductId is a required field
 	ProductId *string `type:"string" json:",omitempty" required:"true"`
 
-	TagIdList []*string `type:"list" json:",omitempty"`
+	TagIdList []*string `type:"list"`
 }
 
 // String returns the string representation

@@ -192,7 +192,7 @@ func (s *DetailForMigratePodOutput) SetSuccess(v bool) *DetailForMigratePodOutpu
 type MigratePodInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	PodIdList []*string `type:"list" json:",omitempty"`
+	PodIdList []*string `type:"list"`
 
 	// ProductId is a required field
 	ProductId *string `type:"string" json:",omitempty" required:"true"`
@@ -246,7 +246,7 @@ type MigratePodOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	Details []*DetailForMigratePodOutput `type:"list" json:",omitempty"`
+	Details []*DetailForMigratePodOutput `type:"list"`
 
 	ProductId *string `type:"string" json:",omitempty"`
 }

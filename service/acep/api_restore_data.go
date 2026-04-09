@@ -189,7 +189,7 @@ type RestoreDataInput struct {
 
 	CreatePodNum *int32 `type:"int32" json:",omitempty"`
 
-	PodIdList []*string `type:"list" json:",omitempty"`
+	PodIdList []*string `type:"list"`
 
 	// ProductId is a required field
 	ProductId *string `type:"string" json:",omitempty" required:"true"`
@@ -250,9 +250,9 @@ type RestoreDataOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	Details []*DetailForRestoreDataOutput `type:"list" json:",omitempty"`
+	Details []*DetailForRestoreDataOutput `type:"list"`
 
-	TaskIdList []*string `type:"list" json:",omitempty"`
+	TaskIdList []*string `type:"list"`
 }
 
 // String returns the string representation

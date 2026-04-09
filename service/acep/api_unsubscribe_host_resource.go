@@ -148,9 +148,9 @@ type ExceptionListForUnsubscribeHostResourceOutput struct {
 
 	Err *string `type:"string" json:",omitempty"`
 
-	HostIdList []*string `type:"list" json:",omitempty"`
+	HostIdList []*string `type:"list"`
 
-	ResourceSetIdList []*string `type:"list" json:",omitempty"`
+	ResourceSetIdList []*string `type:"list"`
 }
 
 // String returns the string representation
@@ -186,7 +186,7 @@ type UnsubscribeHostResourceInput struct {
 
 	Force *bool `type:"boolean" json:",omitempty"`
 
-	HostIdList []*string `type:"list" json:",omitempty"`
+	HostIdList []*string `type:"list"`
 
 	// ProductId is a required field
 	ProductId *string `type:"string" json:",omitempty" required:"true"`
@@ -238,7 +238,7 @@ type UnsubscribeHostResourceOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	ExceptionList []*ExceptionListForUnsubscribeHostResourceOutput `type:"list" json:",omitempty"`
+	ExceptionList []*ExceptionListForUnsubscribeHostResourceOutput `type:"list"`
 }
 
 // String returns the string representation

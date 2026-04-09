@@ -157,12 +157,12 @@ type InstallAppInput struct {
 
 	IsPreinstall *bool `type:"boolean" json:",omitempty"`
 
-	PodIdList []*string `type:"list" json:",omitempty"`
+	PodIdList []*string `type:"list"`
 
 	// ProductId is a required field
 	ProductId *string `type:"string" json:",omitempty" required:"true"`
 
-	TagIdList []*string `type:"list" json:",omitempty"`
+	TagIdList []*string `type:"list"`
 
 	// VersionId is a required field
 	VersionId *string `type:"string" json:",omitempty" required:"true"`
@@ -256,7 +256,7 @@ type InstallAppOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	Jobs []*JobForInstallAppOutput `type:"list" json:",omitempty"`
+	Jobs []*JobForInstallAppOutput `type:"list"`
 
 	TaskAction *string `type:"string" json:",omitempty"`
 

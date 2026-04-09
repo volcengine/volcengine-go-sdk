@@ -150,11 +150,11 @@ type BackupDataInput struct {
 
 	Description *string `type:"string" json:",omitempty"`
 
-	ExcludePathList []*string `type:"list" json:",omitempty"`
+	ExcludePathList []*string `type:"list"`
 
-	IncludePathList []*string `type:"list" json:",omitempty"`
+	IncludePathList []*string `type:"list"`
 
-	PodIdList []*string `type:"list" json:",omitempty"`
+	PodIdList []*string `type:"list"`
 
 	// ProductId is a required field
 	ProductId *string `type:"string" json:",omitempty" required:"true"`
@@ -224,9 +224,9 @@ type BackupDataOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	Details []*DetailForBackupDataOutput `type:"list" json:",omitempty"`
+	Details []*DetailForBackupDataOutput `type:"list"`
 
-	TaskIdList []*string `type:"list" json:",omitempty"`
+	TaskIdList []*string `type:"list"`
 }
 
 // String returns the string representation
