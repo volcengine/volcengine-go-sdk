@@ -375,9 +375,9 @@ func (s *InstanceGroupForDescribeInstanceGroupsOutput) SetVpcId(v string) *Insta
 type MemberForDescribeInstanceGroupsOutput struct {
 	_ struct{} `type:"structure"`
 
-	Enabled *bool `type:"boolean"`
-
 	Id *string `type:"string"`
+
+	Status *string `type:"string"`
 
 	Type *string `type:"string"`
 
@@ -394,15 +394,15 @@ func (s MemberForDescribeInstanceGroupsOutput) GoString() string {
 	return s.String()
 }
 
-// SetEnabled sets the Enabled field's value.
-func (s *MemberForDescribeInstanceGroupsOutput) SetEnabled(v bool) *MemberForDescribeInstanceGroupsOutput {
-	s.Enabled = &v
-	return s
-}
-
 // SetId sets the Id field's value.
 func (s *MemberForDescribeInstanceGroupsOutput) SetId(v string) *MemberForDescribeInstanceGroupsOutput {
 	s.Id = &v
+	return s
+}
+
+// SetStatus sets the Status field's value.
+func (s *MemberForDescribeInstanceGroupsOutput) SetStatus(v string) *MemberForDescribeInstanceGroupsOutput {
+	s.Status = &v
 	return s
 }
 

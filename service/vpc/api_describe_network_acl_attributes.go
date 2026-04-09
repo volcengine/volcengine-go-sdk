@@ -366,6 +366,8 @@ func (s *IngressAclEntryForDescribeNetworkAclAttributesOutput) SetSourceCidrIp(v
 type NetworkAclAttributeForDescribeNetworkAclAttributesOutput struct {
 	_ struct{} `type:"structure"`
 
+	AccountId *string `type:"string"`
+
 	CreationTime *string `type:"string"`
 
 	Description *string `type:"string"`
@@ -399,6 +401,12 @@ func (s NetworkAclAttributeForDescribeNetworkAclAttributesOutput) String() strin
 // GoString returns the string representation
 func (s NetworkAclAttributeForDescribeNetworkAclAttributesOutput) GoString() string {
 	return s.String()
+}
+
+// SetAccountId sets the AccountId field's value.
+func (s *NetworkAclAttributeForDescribeNetworkAclAttributesOutput) SetAccountId(v string) *NetworkAclAttributeForDescribeNetworkAclAttributesOutput {
+	s.AccountId = &v
+	return s
 }
 
 // SetCreationTime sets the CreationTime field's value.

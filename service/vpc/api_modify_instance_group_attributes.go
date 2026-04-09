@@ -142,6 +142,8 @@ func (c *VPC) ModifyInstanceGroupAttributesWithContext(ctx volcengine.Context, i
 type ModifyInstanceGroupAttributesInput struct {
 	_ struct{} `type:"structure"`
 
+	ClientToken *string `type:"string"`
+
 	Description *string `min:"1" max:"255" type:"string"`
 
 	// InstanceGroupId is a required field
@@ -183,6 +185,12 @@ func (s *ModifyInstanceGroupAttributesInput) Validate() error {
 		return invalidParams
 	}
 	return nil
+}
+
+// SetClientToken sets the ClientToken field's value.
+func (s *ModifyInstanceGroupAttributesInput) SetClientToken(v string) *ModifyInstanceGroupAttributesInput {
+	s.ClientToken = &v
+	return s
 }
 
 // SetDescription sets the Description field's value.

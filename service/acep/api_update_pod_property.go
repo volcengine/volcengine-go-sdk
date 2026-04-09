@@ -272,13 +272,13 @@ type UpdatePodPropertyInput struct {
 
 	PodId *string `type:"string" json:",omitempty"`
 
-	PodIdList []*string `type:"list" json:",omitempty"`
+	PodIdList []*string `type:"list"`
 
-	PodPersistProperties []*PodPersistPropertyForUpdatePodPropertyInput `type:"list" json:",omitempty"`
+	PodPersistProperties []*PodPersistPropertyForUpdatePodPropertyInput `type:"list"`
 
-	PodProperties []*PodPropertyForUpdatePodPropertyInput `type:"list" json:",omitempty"`
+	PodProperties []*PodPropertyForUpdatePodPropertyInput `type:"list"`
 
-	PodSettings []*PodSettingForUpdatePodPropertyInput `type:"list" json:",omitempty"`
+	PodSettings []*PodSettingForUpdatePodPropertyInput `type:"list"`
 
 	// ProductId is a required field
 	ProductId *string `type:"string" json:",omitempty" required:"true"`

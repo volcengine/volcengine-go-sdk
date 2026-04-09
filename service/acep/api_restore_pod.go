@@ -146,12 +146,12 @@ func (c *ACEP) RestorePodWithContext(ctx volcengine.Context, input *RestorePodIn
 type RestorePodInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	PodIdList []*string `type:"list" json:",omitempty"`
+	PodIdList []*string `type:"list"`
 
 	// ProductId is a required field
 	ProductId *string `type:"string" json:",omitempty" required:"true"`
 
-	SpecifyHostList []*SpecifyHostListForRestorePodInput `type:"list" json:",omitempty"`
+	SpecifyHostList []*SpecifyHostListForRestorePodInput `type:"list"`
 }
 
 // String returns the string representation
@@ -200,7 +200,7 @@ type RestorePodOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	TaskIdList []*string `type:"list" json:",omitempty"`
+	TaskIdList []*string `type:"list"`
 }
 
 // String returns the string representation
@@ -224,7 +224,7 @@ type SpecifyHostListForRestorePodInput struct {
 
 	HostId *string `type:"string" json:",omitempty"`
 
-	PodIdList []*string `type:"list" json:",omitempty"`
+	PodIdList []*string `type:"list"`
 }
 
 // String returns the string representation

@@ -164,7 +164,7 @@ type PreOrderListForSubscribeResourceAutoInput struct {
 
 	ServerTypeCode *string `type:"string" json:",omitempty"`
 
-	Tags []*TagForSubscribeResourceAutoInput `type:"list" json:",omitempty"`
+	Tags []*TagForSubscribeResourceAutoInput `type:"list"`
 
 	Term *int32 `type:"int32" json:",omitempty"`
 
@@ -258,7 +258,7 @@ type SubscribeResourceAutoInput struct {
 
 	AutoRenew *bool `type:"boolean" json:",omitempty"`
 
-	PreOrderList []*PreOrderListForSubscribeResourceAutoInput `type:"list" json:",omitempty"`
+	PreOrderList []*PreOrderListForSubscribeResourceAutoInput `type:"list"`
 
 	// ProductId is a required field
 	ProductId *string `type:"string" json:",omitempty" required:"true"`

@@ -146,7 +146,7 @@ func (c *ACEP) GetDcBandwidthDailyPeakWithContext(ctx volcengine.Context, input 
 type GetDcBandwidthDailyPeakInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	DcIdList []*string `type:"list" json:",omitempty"`
+	DcIdList []*string `type:"list"`
 
 	// EndDate is a required field
 	EndDate *string `type:"string" json:",omitempty" required:"true"`
@@ -216,7 +216,7 @@ type GetDcBandwidthDailyPeakOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	Row []*RowForGetDcBandwidthDailyPeakOutput `type:"list" json:",omitempty"`
+	Row []*RowForGetDcBandwidthDailyPeakOutput `type:"list"`
 }
 
 // String returns the string representation

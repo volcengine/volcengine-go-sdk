@@ -266,6 +266,8 @@ type DescribeLoadBalancerAttributesOutput struct {
 
 	RequestId *string `type:"string"`
 
+	SecurityGroupIds []*string `type:"list"`
+
 	SniAutoMatch *string `type:"string"`
 
 	Status *string `type:"string"`
@@ -464,6 +466,12 @@ func (s *DescribeLoadBalancerAttributesOutput) SetProjectName(v string) *Describ
 // SetRequestId sets the RequestId field's value.
 func (s *DescribeLoadBalancerAttributesOutput) SetRequestId(v string) *DescribeLoadBalancerAttributesOutput {
 	s.RequestId = &v
+	return s
+}
+
+// SetSecurityGroupIds sets the SecurityGroupIds field's value.
+func (s *DescribeLoadBalancerAttributesOutput) SetSecurityGroupIds(v []*string) *DescribeLoadBalancerAttributesOutput {
+	s.SecurityGroupIds = v
 	return s
 }
 
@@ -762,9 +770,13 @@ type LoadBalancerAddressForDescribeLoadBalancerAttributesOutput struct {
 
 	EniIpv6Address *string `type:"string"`
 
+	Ipv4LocalAddresses []*string `type:"list"`
+
 	Ipv6Eip *Ipv6EipForDescribeLoadBalancerAttributesOutput `type:"structure"`
 
 	Ipv6EipId *string `type:"string"`
+
+	Ipv6LocalAddresses []*string `type:"list"`
 }
 
 // String returns the string representation
@@ -813,6 +825,12 @@ func (s *LoadBalancerAddressForDescribeLoadBalancerAttributesOutput) SetEniIpv6A
 	return s
 }
 
+// SetIpv4LocalAddresses sets the Ipv4LocalAddresses field's value.
+func (s *LoadBalancerAddressForDescribeLoadBalancerAttributesOutput) SetIpv4LocalAddresses(v []*string) *LoadBalancerAddressForDescribeLoadBalancerAttributesOutput {
+	s.Ipv4LocalAddresses = v
+	return s
+}
+
 // SetIpv6Eip sets the Ipv6Eip field's value.
 func (s *LoadBalancerAddressForDescribeLoadBalancerAttributesOutput) SetIpv6Eip(v *Ipv6EipForDescribeLoadBalancerAttributesOutput) *LoadBalancerAddressForDescribeLoadBalancerAttributesOutput {
 	s.Ipv6Eip = v
@@ -822,6 +840,12 @@ func (s *LoadBalancerAddressForDescribeLoadBalancerAttributesOutput) SetIpv6Eip(
 // SetIpv6EipId sets the Ipv6EipId field's value.
 func (s *LoadBalancerAddressForDescribeLoadBalancerAttributesOutput) SetIpv6EipId(v string) *LoadBalancerAddressForDescribeLoadBalancerAttributesOutput {
 	s.Ipv6EipId = &v
+	return s
+}
+
+// SetIpv6LocalAddresses sets the Ipv6LocalAddresses field's value.
+func (s *LoadBalancerAddressForDescribeLoadBalancerAttributesOutput) SetIpv6LocalAddresses(v []*string) *LoadBalancerAddressForDescribeLoadBalancerAttributesOutput {
+	s.Ipv6LocalAddresses = v
 	return s
 }
 

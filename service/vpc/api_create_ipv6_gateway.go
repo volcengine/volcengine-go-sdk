@@ -150,6 +150,8 @@ type CreateIpv6GatewayInput struct {
 
 	ProjectName *string `type:"string"`
 
+	Tags []*TagForCreateIpv6GatewayInput `type:"list"`
+
 	// VpcId is a required field
 	VpcId *string `type:"string" required:"true"`
 }
@@ -201,6 +203,12 @@ func (s *CreateIpv6GatewayInput) SetProjectName(v string) *CreateIpv6GatewayInpu
 	return s
 }
 
+// SetTags sets the Tags field's value.
+func (s *CreateIpv6GatewayInput) SetTags(v []*TagForCreateIpv6GatewayInput) *CreateIpv6GatewayInput {
+	s.Tags = v
+	return s
+}
+
 // SetVpcId sets the VpcId field's value.
 func (s *CreateIpv6GatewayInput) SetVpcId(v string) *CreateIpv6GatewayInput {
 	s.VpcId = &v
@@ -244,5 +252,35 @@ func (s *CreateIpv6GatewayOutput) SetIpv6GatewayId(v string) *CreateIpv6GatewayO
 // SetRequestId sets the RequestId field's value.
 func (s *CreateIpv6GatewayOutput) SetRequestId(v string) *CreateIpv6GatewayOutput {
 	s.RequestId = &v
+	return s
+}
+
+type TagForCreateIpv6GatewayInput struct {
+	_ struct{} `type:"structure"`
+
+	Key *string `type:"string"`
+
+	Value *string `type:"string"`
+}
+
+// String returns the string representation
+func (s TagForCreateIpv6GatewayInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagForCreateIpv6GatewayInput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagForCreateIpv6GatewayInput) SetKey(v string) *TagForCreateIpv6GatewayInput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *TagForCreateIpv6GatewayInput) SetValue(v string) *TagForCreateIpv6GatewayInput {
+	s.Value = &v
 	return s
 }

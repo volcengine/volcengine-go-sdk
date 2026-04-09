@@ -266,6 +266,8 @@ type Ipv6GatewayForDescribeIpv6GatewaysOutput struct {
 
 	Status *string `type:"string"`
 
+	Tags []*TagForDescribeIpv6GatewaysOutput `type:"list"`
+
 	UpdateTime *string `type:"string"`
 
 	VpcId *string `type:"string"`
@@ -323,6 +325,12 @@ func (s *Ipv6GatewayForDescribeIpv6GatewaysOutput) SetStatus(v string) *Ipv6Gate
 	return s
 }
 
+// SetTags sets the Tags field's value.
+func (s *Ipv6GatewayForDescribeIpv6GatewaysOutput) SetTags(v []*TagForDescribeIpv6GatewaysOutput) *Ipv6GatewayForDescribeIpv6GatewaysOutput {
+	s.Tags = v
+	return s
+}
+
 // SetUpdateTime sets the UpdateTime field's value.
 func (s *Ipv6GatewayForDescribeIpv6GatewaysOutput) SetUpdateTime(v string) *Ipv6GatewayForDescribeIpv6GatewaysOutput {
 	s.UpdateTime = &v
@@ -362,5 +370,35 @@ func (s *TagFilterForDescribeIpv6GatewaysInput) SetKey(v string) *TagFilterForDe
 // SetValues sets the Values field's value.
 func (s *TagFilterForDescribeIpv6GatewaysInput) SetValues(v []*string) *TagFilterForDescribeIpv6GatewaysInput {
 	s.Values = v
+	return s
+}
+
+type TagForDescribeIpv6GatewaysOutput struct {
+	_ struct{} `type:"structure"`
+
+	Key *string `type:"string"`
+
+	Value *string `type:"string"`
+}
+
+// String returns the string representation
+func (s TagForDescribeIpv6GatewaysOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagForDescribeIpv6GatewaysOutput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagForDescribeIpv6GatewaysOutput) SetKey(v string) *TagForDescribeIpv6GatewaysOutput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *TagForDescribeIpv6GatewaysOutput) SetValue(v string) *TagForDescribeIpv6GatewaysOutput {
+	s.Value = &v
 	return s
 }

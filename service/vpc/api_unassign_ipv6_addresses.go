@@ -142,6 +142,8 @@ func (c *VPC) UnassignIpv6AddressesWithContext(ctx volcengine.Context, input *Un
 type UnassignIpv6AddressesInput struct {
 	_ struct{} `type:"structure"`
 
+	ClientToken *string `type:"string"`
+
 	// Ipv6Address is a required field
 	Ipv6Address []*string `type:"list" required:"true"`
 
@@ -173,6 +175,12 @@ func (s *UnassignIpv6AddressesInput) Validate() error {
 		return invalidParams
 	}
 	return nil
+}
+
+// SetClientToken sets the ClientToken field's value.
+func (s *UnassignIpv6AddressesInput) SetClientToken(v string) *UnassignIpv6AddressesInput {
+	s.ClientToken = &v
+	return s
 }
 
 // SetIpv6Address sets the Ipv6Address field's value.

@@ -228,7 +228,7 @@ type ResetPodInput struct {
 
 	PhoneTemplateId *string `type:"string" json:",omitempty"`
 
-	PodIdList []*string `type:"list" json:",omitempty"`
+	PodIdList []*string `type:"list"`
 
 	PreInstallAppPersistedType *int32 `type:"int32" json:",omitempty"`
 
@@ -310,7 +310,7 @@ type ResetPodOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	Jobs []*JobForResetPodOutput `type:"list" json:",omitempty"`
+	Jobs []*JobForResetPodOutput `type:"list"`
 
 	TaskAction *string `type:"string" json:",omitempty"`
 

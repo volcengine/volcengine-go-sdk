@@ -176,7 +176,7 @@ func (s *AppListForCreatePodOneStepInput) SetVersionId(v string) *AppListForCrea
 type CreatePodOneStepInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	AppList []*AppListForCreatePodOneStepInput `type:"list" json:",omitempty"`
+	AppList []*AppListForCreatePodOneStepInput `type:"list"`
 
 	// ConfigurationCode is a required field
 	ConfigurationCode *string `type:"string" json:",omitempty" required:"true"`
@@ -204,17 +204,17 @@ type CreatePodOneStepInput struct {
 
 	IsSelinuxOn *bool `type:"boolean" json:",omitempty"`
 
-	OverlayPersistProperty []*OverlayPersistPropertyForCreatePodOneStepInput `type:"list" json:",omitempty"`
+	OverlayPersistProperty []*OverlayPersistPropertyForCreatePodOneStepInput `type:"list"`
 
-	OverlayProperty []*OverlayPropertyForCreatePodOneStepInput `type:"list" json:",omitempty"`
+	OverlayProperty []*OverlayPropertyForCreatePodOneStepInput `type:"list"`
 
-	OverlaySettings []*OverlaySettingForCreatePodOneStepInput `type:"list" json:",omitempty"`
+	OverlaySettings []*OverlaySettingForCreatePodOneStepInput `type:"list"`
 
 	PhoneTemplateId *string `type:"string" json:",omitempty"`
 
 	PodName *string `type:"string" json:",omitempty"`
 
-	PortMappingRuleIdList []*string `type:"list" json:",omitempty"`
+	PortMappingRuleIdList []*string `type:"list"`
 
 	// ProductId is a required field
 	ProductId *string `type:"string" json:",omitempty" required:"true"`

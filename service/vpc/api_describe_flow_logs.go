@@ -336,8 +336,6 @@ type FlowLogForDescribeFlowLogsOutput struct {
 
 	LogTopicId *string `type:"string"`
 
-	OpenAnalyzeProductLog *bool `type:"boolean"`
-
 	ProjectName *string `type:"string"`
 
 	ResourceId *string `type:"string"`
@@ -422,12 +420,6 @@ func (s *FlowLogForDescribeFlowLogsOutput) SetLogProjectId(v string) *FlowLogFor
 // SetLogTopicId sets the LogTopicId field's value.
 func (s *FlowLogForDescribeFlowLogsOutput) SetLogTopicId(v string) *FlowLogForDescribeFlowLogsOutput {
 	s.LogTopicId = &v
-	return s
-}
-
-// SetOpenAnalyzeProductLog sets the OpenAnalyzeProductLog field's value.
-func (s *FlowLogForDescribeFlowLogsOutput) SetOpenAnalyzeProductLog(v bool) *FlowLogForDescribeFlowLogsOutput {
-	s.OpenAnalyzeProductLog = &v
 	return s
 }
 

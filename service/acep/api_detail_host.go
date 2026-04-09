@@ -216,7 +216,7 @@ type DetailHostOutput struct {
 
 	HostId *string `type:"string" json:",omitempty"`
 
-	PodIdList []*string `type:"list" json:",omitempty"`
+	PodIdList []*string `type:"list"`
 
 	PodNumAvailable *int32 `type:"int32" json:",omitempty"`
 

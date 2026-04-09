@@ -142,6 +142,12 @@ func (c *VPC) AssociateVpcCidrBlockWithContext(ctx volcengine.Context, input *As
 type AssociateVpcCidrBlockInput struct {
 	_ struct{} `type:"structure"`
 
+	Ipv6CidrBlock *string `type:"string"`
+
+	Ipv6Isp *string `type:"string"`
+
+	Ipv6MaskLen *int64 `type:"integer"`
+
 	SecondaryCidrBlock *string `type:"string"`
 
 	// VpcId is a required field
@@ -171,6 +177,24 @@ func (s *AssociateVpcCidrBlockInput) Validate() error {
 	return nil
 }
 
+// SetIpv6CidrBlock sets the Ipv6CidrBlock field's value.
+func (s *AssociateVpcCidrBlockInput) SetIpv6CidrBlock(v string) *AssociateVpcCidrBlockInput {
+	s.Ipv6CidrBlock = &v
+	return s
+}
+
+// SetIpv6Isp sets the Ipv6Isp field's value.
+func (s *AssociateVpcCidrBlockInput) SetIpv6Isp(v string) *AssociateVpcCidrBlockInput {
+	s.Ipv6Isp = &v
+	return s
+}
+
+// SetIpv6MaskLen sets the Ipv6MaskLen field's value.
+func (s *AssociateVpcCidrBlockInput) SetIpv6MaskLen(v int64) *AssociateVpcCidrBlockInput {
+	s.Ipv6MaskLen = &v
+	return s
+}
+
 // SetSecondaryCidrBlock sets the SecondaryCidrBlock field's value.
 func (s *AssociateVpcCidrBlockInput) SetSecondaryCidrBlock(v string) *AssociateVpcCidrBlockInput {
 	s.SecondaryCidrBlock = &v
@@ -189,6 +213,8 @@ type AssociateVpcCidrBlockOutput struct {
 	Metadata *response.ResponseMetadata
 
 	AsyncTaskId *string `type:"string"`
+
+	Ipv6CidrBlocks []*Ipv6CidrBlockForAssociateVpcCidrBlockOutput `type:"list"`
 
 	RequestId *string `type:"string"`
 
@@ -213,6 +239,12 @@ func (s *AssociateVpcCidrBlockOutput) SetAsyncTaskId(v string) *AssociateVpcCidr
 	return s
 }
 
+// SetIpv6CidrBlocks sets the Ipv6CidrBlocks field's value.
+func (s *AssociateVpcCidrBlockOutput) SetIpv6CidrBlocks(v []*Ipv6CidrBlockForAssociateVpcCidrBlockOutput) *AssociateVpcCidrBlockOutput {
+	s.Ipv6CidrBlocks = v
+	return s
+}
+
 // SetRequestId sets the RequestId field's value.
 func (s *AssociateVpcCidrBlockOutput) SetRequestId(v string) *AssociateVpcCidrBlockOutput {
 	s.RequestId = &v
@@ -228,5 +260,35 @@ func (s *AssociateVpcCidrBlockOutput) SetSecondaryCidrBlocks(v []*string) *Assoc
 // SetVpcId sets the VpcId field's value.
 func (s *AssociateVpcCidrBlockOutput) SetVpcId(v string) *AssociateVpcCidrBlockOutput {
 	s.VpcId = &v
+	return s
+}
+
+type Ipv6CidrBlockForAssociateVpcCidrBlockOutput struct {
+	_ struct{} `type:"structure"`
+
+	Ipv6CidrBlock *string `type:"string"`
+
+	Ipv6Isp *string `type:"string"`
+}
+
+// String returns the string representation
+func (s Ipv6CidrBlockForAssociateVpcCidrBlockOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s Ipv6CidrBlockForAssociateVpcCidrBlockOutput) GoString() string {
+	return s.String()
+}
+
+// SetIpv6CidrBlock sets the Ipv6CidrBlock field's value.
+func (s *Ipv6CidrBlockForAssociateVpcCidrBlockOutput) SetIpv6CidrBlock(v string) *Ipv6CidrBlockForAssociateVpcCidrBlockOutput {
+	s.Ipv6CidrBlock = &v
+	return s
+}
+
+// SetIpv6Isp sets the Ipv6Isp field's value.
+func (s *Ipv6CidrBlockForAssociateVpcCidrBlockOutput) SetIpv6Isp(v string) *Ipv6CidrBlockForAssociateVpcCidrBlockOutput {
+	s.Ipv6Isp = &v
 	return s
 }

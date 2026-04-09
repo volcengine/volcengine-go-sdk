@@ -232,7 +232,7 @@ type ListDcOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	Row []*RowForListDcOutput `type:"list" json:",omitempty"`
+	Row []*RowForListDcOutput `type:"list"`
 
 	Total *int64 `type:"int64" json:",omitempty"`
 }

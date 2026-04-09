@@ -224,11 +224,16 @@ type ServerForModifyServerGroupBackendServersInput struct {
 
 	Description *string `type:"string"`
 
+	InstanceId *string `type:"string"`
+
+	Ip *string `type:"string"`
+
 	// Port is a required field
 	Port *int64 `type:"integer" required:"true"`
 
-	// ServerId is a required field
-	ServerId *string `type:"string" required:"true"`
+	ServerId *string `type:"string"`
+
+	Type *string `type:"string"`
 
 	// Weight is a required field
 	Weight *int64 `type:"integer" required:"true"`
@@ -250,9 +255,6 @@ func (s *ServerForModifyServerGroupBackendServersInput) Validate() error {
 	if s.Port == nil {
 		invalidParams.Add(request.NewErrParamRequired("Port"))
 	}
-	if s.ServerId == nil {
-		invalidParams.Add(request.NewErrParamRequired("ServerId"))
-	}
 	if s.Weight == nil {
 		invalidParams.Add(request.NewErrParamRequired("Weight"))
 	}
@@ -269,6 +271,18 @@ func (s *ServerForModifyServerGroupBackendServersInput) SetDescription(v string)
 	return s
 }
 
+// SetInstanceId sets the InstanceId field's value.
+func (s *ServerForModifyServerGroupBackendServersInput) SetInstanceId(v string) *ServerForModifyServerGroupBackendServersInput {
+	s.InstanceId = &v
+	return s
+}
+
+// SetIp sets the Ip field's value.
+func (s *ServerForModifyServerGroupBackendServersInput) SetIp(v string) *ServerForModifyServerGroupBackendServersInput {
+	s.Ip = &v
+	return s
+}
+
 // SetPort sets the Port field's value.
 func (s *ServerForModifyServerGroupBackendServersInput) SetPort(v int64) *ServerForModifyServerGroupBackendServersInput {
 	s.Port = &v
@@ -278,6 +292,12 @@ func (s *ServerForModifyServerGroupBackendServersInput) SetPort(v int64) *Server
 // SetServerId sets the ServerId field's value.
 func (s *ServerForModifyServerGroupBackendServersInput) SetServerId(v string) *ServerForModifyServerGroupBackendServersInput {
 	s.ServerId = &v
+	return s
+}
+
+// SetType sets the Type field's value.
+func (s *ServerForModifyServerGroupBackendServersInput) SetType(v string) *ServerForModifyServerGroupBackendServersInput {
+	s.Type = &v
 	return s
 }
 

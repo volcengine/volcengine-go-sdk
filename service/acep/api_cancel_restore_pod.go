@@ -146,7 +146,7 @@ func (c *ACEP) CancelRestorePodWithContext(ctx volcengine.Context, input *Cancel
 type CancelRestorePodInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	PodIdList []*string `type:"list" json:",omitempty"`
+	PodIdList []*string `type:"list"`
 
 	// ProductId is a required field
 	ProductId *string `type:"string" json:",omitempty" required:"true"`

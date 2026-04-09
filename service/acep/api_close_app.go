@@ -149,7 +149,7 @@ type CloseAppInput struct {
 	// PackageName is a required field
 	PackageName *string `type:"string" json:",omitempty" required:"true"`
 
-	PodIdList []*string `type:"list" json:",omitempty"`
+	PodIdList []*string `type:"list"`
 
 	// ProductId is a required field
 	ProductId *string `type:"string" json:",omitempty" required:"true"`
@@ -204,7 +204,7 @@ type CloseAppOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	Jobs []*JobForCloseAppOutput `type:"list" json:",omitempty"`
+	Jobs []*JobForCloseAppOutput `type:"list"`
 
 	TaskAction *string `type:"string" json:",omitempty"`
 

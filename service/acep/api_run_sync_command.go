@@ -151,7 +151,7 @@ type RunSyncCommandInput struct {
 
 	PermissionType *string `type:"string" json:",omitempty"`
 
-	PodIdList []*string `type:"list" json:",omitempty"`
+	PodIdList []*string `type:"list"`
 
 	// ProductId is a required field
 	ProductId *string `type:"string" json:",omitempty" required:"true"`
@@ -216,7 +216,7 @@ type RunSyncCommandOutput struct {
 
 	ProductId *string `type:"string" json:",omitempty"`
 
-	Status []*StatusForRunSyncCommandOutput `type:"list" json:",omitempty"`
+	Status []*StatusForRunSyncCommandOutput `type:"list"`
 }
 
 // String returns the string representation

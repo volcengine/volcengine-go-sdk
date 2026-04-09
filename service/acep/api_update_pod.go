@@ -164,11 +164,11 @@ type UpdatePodInput struct {
 
 	PodId *string `type:"string" json:",omitempty"`
 
-	PodIdList []*string `type:"list" json:",omitempty"`
+	PodIdList []*string `type:"list"`
 
 	PodName *string `type:"string" json:",omitempty"`
 
-	PortMappingRuleIdList []*string `type:"list" json:",omitempty"`
+	PortMappingRuleIdList []*string `type:"list"`
 
 	// ProductId is a required field
 	ProductId *string `type:"string" json:",omitempty" required:"true"`

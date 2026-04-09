@@ -150,7 +150,7 @@ type ListAOSPImageInput struct {
 
 	ExpandScope *bool `type:"boolean" json:",omitempty"`
 
-	ImageIdList []*string `type:"list" json:",omitempty"`
+	ImageIdList []*string `type:"list"`
 
 	ImageName *string `type:"string" json:",omitempty"`
 
@@ -250,7 +250,7 @@ type ListAOSPImageOutput struct {
 
 	NextToken *string `type:"string" json:",omitempty"`
 
-	Row []*RowForListAOSPImageOutput `type:"list" json:",omitempty"`
+	Row []*RowForListAOSPImageOutput `type:"list"`
 }
 
 // String returns the string representation

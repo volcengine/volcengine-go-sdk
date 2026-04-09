@@ -186,7 +186,7 @@ type GetPhoneTemplateOutput struct {
 
 	PhoneTemplate *PhoneTemplateForGetPhoneTemplateOutput `type:"structure" json:",omitempty"`
 
-	Tags []*TagForGetPhoneTemplateOutput `type:"list" json:",omitempty"`
+	Tags []*TagForGetPhoneTemplateOutput `type:"list"`
 }
 
 // String returns the string representation
@@ -338,11 +338,11 @@ type PhoneTemplateForGetPhoneTemplateOutput struct {
 
 	AospVersion *string `type:"string" json:",omitempty"`
 
-	OverlayPersistProperty []*OverlayPersistPropertyForGetPhoneTemplateOutput `type:"list" json:",omitempty"`
+	OverlayPersistProperty []*OverlayPersistPropertyForGetPhoneTemplateOutput `type:"list"`
 
-	OverlayProperty []*OverlayPropertyForGetPhoneTemplateOutput `type:"list" json:",omitempty"`
+	OverlayProperty []*OverlayPropertyForGetPhoneTemplateOutput `type:"list"`
 
-	OverlaySettings []*OverlaySettingForGetPhoneTemplateOutput `type:"list" json:",omitempty"`
+	OverlaySettings []*OverlaySettingForGetPhoneTemplateOutput `type:"list"`
 
 	PhoneTemplateId *string `type:"string" json:",omitempty"`
 

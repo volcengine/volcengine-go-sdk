@@ -146,7 +146,7 @@ func (c *ACEP) DeleteAOSPImageWithContext(ctx volcengine.Context, input *DeleteA
 type DeleteAOSPImageInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	ImageIdList []*string `type:"list" json:",omitempty"`
+	ImageIdList []*string `type:"list"`
 }
 
 // String returns the string representation
@@ -170,7 +170,7 @@ type DeleteAOSPImageOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	Items []*ItemForDeleteAOSPImageOutput `type:"list" json:",omitempty"`
+	Items []*ItemForDeleteAOSPImageOutput `type:"list"`
 }
 
 // String returns the string representation

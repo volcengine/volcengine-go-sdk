@@ -160,7 +160,7 @@ type AutoInstallAppInput struct {
 
 	PackageName *string `type:"string" json:",omitempty"`
 
-	PodIdList []*string `type:"list" json:",omitempty"`
+	PodIdList []*string `type:"list"`
 
 	// ProductId is a required field
 	ProductId *string `type:"string" json:",omitempty" required:"true"`
@@ -256,7 +256,7 @@ type AutoInstallAppOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	Jobs []*JobForAutoInstallAppOutput `type:"list" json:",omitempty"`
+	Jobs []*JobForAutoInstallAppOutput `type:"list"`
 
 	TaskAction *string `type:"string" json:",omitempty"`
 

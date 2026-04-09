@@ -146,7 +146,7 @@ func (c *ACEP) DeleteBackupDataWithContext(ctx volcengine.Context, input *Delete
 type DeleteBackupDataInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	BackupDataIdList []*string `type:"list" json:",omitempty"`
+	BackupDataIdList []*string `type:"list"`
 
 	// ProductId is a required field
 	ProductId *string `type:"string" json:",omitempty" required:"true"`
@@ -192,7 +192,7 @@ type DeleteBackupDataOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	Details []*DetailForDeleteBackupDataOutput `type:"list" json:",omitempty"`
+	Details []*DetailForDeleteBackupDataOutput `type:"list"`
 }
 
 // String returns the string representation

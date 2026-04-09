@@ -43,6 +43,8 @@ func (c *I18NOPENAPI) VideoEditorSubmitSubtaskCommonRequest(input *map[string]in
 	output = &map[string]interface{}{}
 	req = c.newRequest(op, input, output)
 
+	req.HTTPRequest.Header.Set("Content-Type", "application/json; charset=utf-8")
+
 	return
 }
 
@@ -108,6 +110,8 @@ func (c *I18NOPENAPI) VideoEditorSubmitSubtaskRequest(input *VideoEditorSubmitSu
 	output = &VideoEditorSubmitSubtaskOutput{}
 	req = c.newRequest(op, input, output)
 
+	req.HTTPRequest.Header.Set("Content-Type", "application/json; charset=utf-8")
+
 	return
 }
 
@@ -140,11 +144,11 @@ func (c *I18NOPENAPI) VideoEditorSubmitSubtaskWithContext(ctx volcengine.Context
 }
 
 type BaseRespForVideoEditorSubmitSubtaskOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	StatusCode *int32 `type:"int32" json:"statusCode"`
+	StatusCode *int32 `type:"int32" json:"statusCode,omitempty"`
 
-	StatusMessage *string `type:"string" json:"statusMessage"`
+	StatusMessage *string `type:"string" json:"statusMessage,omitempty"`
 }
 
 // String returns the string representation
@@ -170,9 +174,9 @@ func (s *BaseRespForVideoEditorSubmitSubtaskOutput) SetStatusMessage(v string) *
 }
 
 type DataForVideoEditorSubmitSubtaskOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	BaseResp *BaseRespForVideoEditorSubmitSubtaskOutput `type:"structure" json:"baseResp"`
+	BaseResp *BaseRespForVideoEditorSubmitSubtaskOutput `type:"structure" json:"baseResp,omitempty"`
 }
 
 // String returns the string representation
@@ -192,14 +196,14 @@ func (s *DataForVideoEditorSubmitSubtaskOutput) SetBaseResp(v *BaseRespForVideoE
 }
 
 type VideoEditorSubmitSubtaskInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	NeedSuppression *bool `locationName:"needSuppression" type:"boolean"`
+	NeedSuppression *bool `type:"boolean" json:"needSuppression,omitempty"`
 
-	NeedSyncSource *bool `locationName:"needSyncSource" type:"boolean"`
+	NeedSyncSource *bool `type:"boolean" json:"needSyncSource,omitempty"`
 
 	// SubtaskId is a required field
-	SubtaskId *string `locationName:"subtaskId" type:"string" required:"true"`
+	SubtaskId *string `type:"string" json:"subtaskId,omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -244,11 +248,11 @@ func (s *VideoEditorSubmitSubtaskInput) SetSubtaskId(v string) *VideoEditorSubmi
 }
 
 type VideoEditorSubmitSubtaskOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	Data *DataForVideoEditorSubmitSubtaskOutput `type:"structure" json:"data"`
+	Data *DataForVideoEditorSubmitSubtaskOutput `type:"structure" json:"data,omitempty"`
 }
 
 // String returns the string representation

@@ -146,9 +146,9 @@ func (c *ACEP) BindPortMappingRuleWithContext(ctx volcengine.Context, input *Bin
 type BindPortMappingRuleInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	PodIdList []*string `type:"list" json:",omitempty"`
+	PodIdList []*string `type:"list"`
 
-	PortMappingRuleIdList []*string `type:"list" json:",omitempty"`
+	PortMappingRuleIdList []*string `type:"list"`
 
 	// ProductId is a required field
 	ProductId *string `type:"string" json:",omitempty" required:"true"`
@@ -200,9 +200,9 @@ type BindPortMappingRuleOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	ErrorPodInfoList []*ErrorPodInfoListForBindPortMappingRuleOutput `type:"list" json:",omitempty"`
+	ErrorPodInfoList []*ErrorPodInfoListForBindPortMappingRuleOutput `type:"list"`
 
-	SuccessPodIdList []*string `type:"list" json:",omitempty"`
+	SuccessPodIdList []*string `type:"list"`
 }
 
 // String returns the string representation

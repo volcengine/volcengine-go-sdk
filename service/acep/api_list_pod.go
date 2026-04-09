@@ -243,6 +243,44 @@ func (s *DcInfoForListPodOutput) SetZoneId(v string) *DcInfoForListPodOutput {
 	return s
 }
 
+type EipForListPodOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	EipAddress *string `type:"string" json:",omitempty"`
+
+	EipId *string `type:"string" json:",omitempty"`
+
+	Isp *int32 `type:"int32" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s EipForListPodOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s EipForListPodOutput) GoString() string {
+	return s.String()
+}
+
+// SetEipAddress sets the EipAddress field's value.
+func (s *EipForListPodOutput) SetEipAddress(v string) *EipForListPodOutput {
+	s.EipAddress = &v
+	return s
+}
+
+// SetEipId sets the EipId field's value.
+func (s *EipForListPodOutput) SetEipId(v string) *EipForListPodOutput {
+	s.EipId = &v
+	return s
+}
+
+// SetIsp sets the Isp field's value.
+func (s *EipForListPodOutput) SetIsp(v int32) *EipForListPodOutput {
+	s.Isp = &v
+	return s
+}
+
 type ListPodInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -250,11 +288,11 @@ type ListPodInput struct {
 
 	AuthorityStatus *int32 `type:"int32" json:",omitempty"`
 
-	ConfigurationCodeList []*string `type:"list" json:",omitempty"`
+	ConfigurationCodeList []*string `type:"list"`
 
 	DNSId *string `type:"string" json:",omitempty"`
 
-	DcList []*string `type:"list" json:",omitempty"`
+	DcList []*string `type:"list"`
 
 	HostId *string `type:"string" json:",omitempty"`
 
@@ -262,22 +300,22 @@ type ListPodInput struct {
 
 	NextToken *string `type:"string" json:",omitempty"`
 
-	OnlineList []*int32 `type:"list" json:",omitempty"`
+	OnlineList []*int32 `type:"list"`
 
-	PodIdList []*string `type:"list" json:",omitempty"`
+	PodIdList []*string `type:"list"`
 
 	PodName *string `type:"string" json:",omitempty"`
 
 	// ProductId is a required field
 	ProductId *string `type:"string" json:",omitempty" required:"true"`
 
-	RegionList []*string `type:"list" json:",omitempty"`
+	RegionList []*string `type:"list"`
 
 	ServerTypeCode *string `type:"string" json:",omitempty"`
 
-	StreamStatusList []*int32 `type:"list" json:",omitempty"`
+	StreamStatusList []*int32 `type:"list"`
 
-	TagIdList []*string `type:"list" json:",omitempty"`
+	TagIdList []*string `type:"list"`
 
 	ZoneId *string `type:"string" json:",omitempty"`
 }
@@ -414,7 +452,7 @@ type ListPodOutput struct {
 
 	NextToken *string `type:"string" json:",omitempty"`
 
-	Row []*RowForListPodOutput `type:"list" json:",omitempty"`
+	Row []*RowForListPodOutput `type:"list"`
 }
 
 // String returns the string representation
@@ -450,7 +488,7 @@ type PortMappingRuleListForListPodOutput struct {
 
 	PublicPort *int32 `type:"int32" json:",omitempty"`
 
-	PublicPortInfoList []*PublicPortInfoListForListPodOutput `type:"list" json:",omitempty"`
+	PublicPortInfoList []*PublicPortInfoListForListPodOutput `type:"list"`
 
 	SourcePort *int32 `type:"int32" json:",omitempty"`
 
@@ -582,6 +620,8 @@ type RowForListPodOutput struct {
 
 	DownBandwidthLimit *int32 `type:"int32" json:",omitempty"`
 
+	Eip *EipForListPodOutput `type:"structure" json:",omitempty"`
+
 	HostId *string `type:"string" json:",omitempty"`
 
 	ImageId *string `type:"string" json:",omitempty"`
@@ -592,11 +632,13 @@ type RowForListPodOutput struct {
 
 	Online *int32 `type:"int32" json:",omitempty"`
 
+	PhoneTemplateId *string `type:"string" json:",omitempty"`
+
 	PodId *string `type:"string" json:",omitempty"`
 
 	PodName *string `type:"string" json:",omitempty"`
 
-	PortMappingRuleList []*PortMappingRuleListForListPodOutput `type:"list" json:",omitempty"`
+	PortMappingRuleList []*PortMappingRuleListForListPodOutput `type:"list"`
 
 	ProductId *string `type:"string" json:",omitempty"`
 
@@ -715,6 +757,12 @@ func (s *RowForListPodOutput) SetDownBandwidthLimit(v int32) *RowForListPodOutpu
 	return s
 }
 
+// SetEip sets the Eip field's value.
+func (s *RowForListPodOutput) SetEip(v *EipForListPodOutput) *RowForListPodOutput {
+	s.Eip = v
+	return s
+}
+
 // SetHostId sets the HostId field's value.
 func (s *RowForListPodOutput) SetHostId(v string) *RowForListPodOutput {
 	s.HostId = &v
@@ -742,6 +790,12 @@ func (s *RowForListPodOutput) SetIntranetIP(v string) *RowForListPodOutput {
 // SetOnline sets the Online field's value.
 func (s *RowForListPodOutput) SetOnline(v int32) *RowForListPodOutput {
 	s.Online = &v
+	return s
+}
+
+// SetPhoneTemplateId sets the PhoneTemplateId field's value.
+func (s *RowForListPodOutput) SetPhoneTemplateId(v string) *RowForListPodOutput {
+	s.PhoneTemplateId = &v
 	return s
 }
 

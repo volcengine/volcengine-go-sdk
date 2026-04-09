@@ -181,7 +181,7 @@ type UpdateDNSRuleInput struct {
 
 	DNSName *string `type:"string" json:",omitempty"`
 
-	IPList []*IPListForUpdateDNSRuleInput `type:"list" json:",omitempty"`
+	IPList []*IPListForUpdateDNSRuleInput `type:"list"`
 
 	// ProductId is a required field
 	ProductId *string `type:"string" json:",omitempty" required:"true"`

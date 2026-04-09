@@ -146,7 +146,7 @@ func (c *ACEP) PodMuteWithContext(ctx volcengine.Context, input *PodMuteInput, o
 type PodMuteInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	DisplayList []*string `type:"list" json:",omitempty"`
+	DisplayList []*string `type:"list"`
 
 	// Mute is a required field
 	Mute *bool `type:"boolean" json:",omitempty" required:"true"`

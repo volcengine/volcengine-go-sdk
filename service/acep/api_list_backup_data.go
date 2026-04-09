@@ -146,7 +146,7 @@ func (c *ACEP) ListBackupDataWithContext(ctx volcengine.Context, input *ListBack
 type ListBackupDataInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	BackupDataIdList []*string `type:"list" json:",omitempty"`
+	BackupDataIdList []*string `type:"list"`
 
 	MaxResults *int32 `type:"int32" json:",omitempty"`
 
@@ -226,7 +226,7 @@ type ListBackupDataOutput struct {
 
 	NextToken *string `type:"string" json:",omitempty"`
 
-	Rows []*RowForListBackupDataOutput `type:"list" json:",omitempty"`
+	Rows []*RowForListBackupDataOutput `type:"list"`
 }
 
 // String returns the string representation
@@ -282,7 +282,7 @@ type RowForListBackupDataOutput struct {
 
 	Detail *string `type:"string" json:",omitempty"`
 
-	ExcludePathList []*string `type:"list" json:",omitempty"`
+	ExcludePathList []*string `type:"list"`
 
 	ExpireTime *int64 `type:"int64" json:",omitempty"`
 
@@ -290,7 +290,7 @@ type RowForListBackupDataOutput struct {
 
 	InUseCount *int64 `type:"int64" json:",omitempty"`
 
-	IncludePathList []*string `type:"list" json:",omitempty"`
+	IncludePathList []*string `type:"list"`
 
 	Md5Sum *string `type:"string" json:",omitempty"`
 

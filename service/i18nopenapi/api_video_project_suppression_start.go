@@ -167,7 +167,7 @@ type VideoProjectSuppressionStartInput struct {
 
 	StartTime *int32 `type:"int32" json:"startTime,omitempty"`
 
-	SubtaskIds []*int32 `type:"list" json:"subtaskIds,omitempty"`
+	SubtaskIds []*string `type:"list" json:"subtaskIds,omitempty"`
 }
 
 // String returns the string representation
@@ -254,7 +254,7 @@ func (s *VideoProjectSuppressionStartInput) SetStartTime(v int32) *VideoProjectS
 }
 
 // SetSubtaskIds sets the SubtaskIds field's value.
-func (s *VideoProjectSuppressionStartInput) SetSubtaskIds(v []*int32) *VideoProjectSuppressionStartInput {
+func (s *VideoProjectSuppressionStartInput) SetSubtaskIds(v []*string) *VideoProjectSuppressionStartInput {
 	s.SubtaskIds = v
 	return s
 }

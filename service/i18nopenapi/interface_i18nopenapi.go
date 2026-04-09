@@ -622,6 +622,22 @@ type I18NOPENAPIAPI interface {
 	TextGetTextListWithKeyOrSourceWithContext(volcengine.Context, *TextGetTextListWithKeyOrSourceInput, ...request.Option) (*TextGetTextListWithKeyOrSourceOutput, error)
 	TextGetTextListWithKeyOrSourceRequest(*TextGetTextListWithKeyOrSourceInput) (*request.Request, *TextGetTextListWithKeyOrSourceOutput)
 
+	VideoEditorAddEmotionTagCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	VideoEditorAddEmotionTagCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	VideoEditorAddEmotionTagCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	VideoEditorAddEmotionTag(*VideoEditorAddEmotionTagInput) (*VideoEditorAddEmotionTagOutput, error)
+	VideoEditorAddEmotionTagWithContext(volcengine.Context, *VideoEditorAddEmotionTagInput, ...request.Option) (*VideoEditorAddEmotionTagOutput, error)
+	VideoEditorAddEmotionTagRequest(*VideoEditorAddEmotionTagInput) (*request.Request, *VideoEditorAddEmotionTagOutput)
+
+	VideoEditorAddSpeakerCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	VideoEditorAddSpeakerCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	VideoEditorAddSpeakerCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	VideoEditorAddSpeaker(*VideoEditorAddSpeakerInput) (*VideoEditorAddSpeakerOutput, error)
+	VideoEditorAddSpeakerWithContext(volcengine.Context, *VideoEditorAddSpeakerInput, ...request.Option) (*VideoEditorAddSpeakerOutput, error)
+	VideoEditorAddSpeakerRequest(*VideoEditorAddSpeakerInput) (*request.Request, *VideoEditorAddSpeakerOutput)
+
 	VideoEditorAsyncGenDubbingCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	VideoEditorAsyncGenDubbingCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	VideoEditorAsyncGenDubbingCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -630,6 +646,22 @@ type I18NOPENAPIAPI interface {
 	VideoEditorAsyncGenDubbingWithContext(volcengine.Context, *VideoEditorAsyncGenDubbingInput, ...request.Option) (*VideoEditorAsyncGenDubbingOutput, error)
 	VideoEditorAsyncGenDubbingRequest(*VideoEditorAsyncGenDubbingInput) (*request.Request, *VideoEditorAsyncGenDubbingOutput)
 
+	VideoEditorDeleteEmotionTagCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	VideoEditorDeleteEmotionTagCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	VideoEditorDeleteEmotionTagCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	VideoEditorDeleteEmotionTag(*VideoEditorDeleteEmotionTagInput) (*VideoEditorDeleteEmotionTagOutput, error)
+	VideoEditorDeleteEmotionTagWithContext(volcengine.Context, *VideoEditorDeleteEmotionTagInput, ...request.Option) (*VideoEditorDeleteEmotionTagOutput, error)
+	VideoEditorDeleteEmotionTagRequest(*VideoEditorDeleteEmotionTagInput) (*request.Request, *VideoEditorDeleteEmotionTagOutput)
+
+	VideoEditorDeleteSpeakerCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	VideoEditorDeleteSpeakerCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	VideoEditorDeleteSpeakerCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	VideoEditorDeleteSpeaker(*VideoEditorDeleteSpeakerInput) (*VideoEditorDeleteSpeakerOutput, error)
+	VideoEditorDeleteSpeakerWithContext(volcengine.Context, *VideoEditorDeleteSpeakerInput, ...request.Option) (*VideoEditorDeleteSpeakerOutput, error)
+	VideoEditorDeleteSpeakerRequest(*VideoEditorDeleteSpeakerInput) (*request.Request, *VideoEditorDeleteSpeakerOutput)
+
 	VideoEditorGenDubbingCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	VideoEditorGenDubbingCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	VideoEditorGenDubbingCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -637,6 +669,14 @@ type I18NOPENAPIAPI interface {
 	VideoEditorGenDubbing(*VideoEditorGenDubbingInput) (*VideoEditorGenDubbingOutput, error)
 	VideoEditorGenDubbingWithContext(volcengine.Context, *VideoEditorGenDubbingInput, ...request.Option) (*VideoEditorGenDubbingOutput, error)
 	VideoEditorGenDubbingRequest(*VideoEditorGenDubbingInput) (*request.Request, *VideoEditorGenDubbingOutput)
+
+	VideoEditorGetEmotionTagsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	VideoEditorGetEmotionTagsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	VideoEditorGetEmotionTagsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	VideoEditorGetEmotionTags(*VideoEditorGetEmotionTagsInput) (*VideoEditorGetEmotionTagsOutput, error)
+	VideoEditorGetEmotionTagsWithContext(volcengine.Context, *VideoEditorGetEmotionTagsInput, ...request.Option) (*VideoEditorGetEmotionTagsOutput, error)
+	VideoEditorGetEmotionTagsRequest(*VideoEditorGetEmotionTagsInput) (*request.Request, *VideoEditorGetEmotionTagsOutput)
 
 	VideoEditorGetSpeakersCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	VideoEditorGetSpeakersCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -677,6 +717,22 @@ type I18NOPENAPIAPI interface {
 	VideoEditorSubmitSubtask(*VideoEditorSubmitSubtaskInput) (*VideoEditorSubmitSubtaskOutput, error)
 	VideoEditorSubmitSubtaskWithContext(volcengine.Context, *VideoEditorSubmitSubtaskInput, ...request.Option) (*VideoEditorSubmitSubtaskOutput, error)
 	VideoEditorSubmitSubtaskRequest(*VideoEditorSubmitSubtaskInput) (*request.Request, *VideoEditorSubmitSubtaskOutput)
+
+	VideoEditorSyncSpeakerToSubTaskCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	VideoEditorSyncSpeakerToSubTaskCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	VideoEditorSyncSpeakerToSubTaskCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	VideoEditorSyncSpeakerToSubTask(*VideoEditorSyncSpeakerToSubTaskInput) (*VideoEditorSyncSpeakerToSubTaskOutput, error)
+	VideoEditorSyncSpeakerToSubTaskWithContext(volcengine.Context, *VideoEditorSyncSpeakerToSubTaskInput, ...request.Option) (*VideoEditorSyncSpeakerToSubTaskOutput, error)
+	VideoEditorSyncSpeakerToSubTaskRequest(*VideoEditorSyncSpeakerToSubTaskInput) (*request.Request, *VideoEditorSyncSpeakerToSubTaskOutput)
+
+	VideoEditorUpdateSpeakerCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	VideoEditorUpdateSpeakerCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	VideoEditorUpdateSpeakerCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	VideoEditorUpdateSpeaker(*VideoEditorUpdateSpeakerInput) (*VideoEditorUpdateSpeakerOutput, error)
+	VideoEditorUpdateSpeakerWithContext(volcengine.Context, *VideoEditorUpdateSpeakerInput, ...request.Option) (*VideoEditorUpdateSpeakerOutput, error)
+	VideoEditorUpdateSpeakerRequest(*VideoEditorUpdateSpeakerInput) (*request.Request, *VideoEditorUpdateSpeakerOutput)
 
 	VideoProjectCreateCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	VideoProjectCreateCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)

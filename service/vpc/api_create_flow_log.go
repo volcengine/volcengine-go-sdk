@@ -149,6 +149,8 @@ type CreateFlowLogInput struct {
 
 	Description *string `max:"255" type:"string"`
 
+	EnableIndex *bool `type:"boolean"`
+
 	// FlowLogName is a required field
 	FlowLogName *string `min:"1" max:"128" type:"string" required:"true"`
 
@@ -237,6 +239,12 @@ func (s *CreateFlowLogInput) SetClientToken(v string) *CreateFlowLogInput {
 // SetDescription sets the Description field's value.
 func (s *CreateFlowLogInput) SetDescription(v string) *CreateFlowLogInput {
 	s.Description = &v
+	return s
+}
+
+// SetEnableIndex sets the EnableIndex field's value.
+func (s *CreateFlowLogInput) SetEnableIndex(v bool) *CreateFlowLogInput {
+	s.EnableIndex = &v
 	return s
 }
 

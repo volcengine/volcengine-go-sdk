@@ -139,36 +139,6 @@ func (c *I18NOPENAPI) VideoProjectListWithContext(ctx volcengine.Context, input 
 	return out, req.Send()
 }
 
-type AutoFillTargetTextForVideoProjectListOutput struct {
-	_ struct{} `type:"structure"`
-
-	OnCreate *bool `type:"boolean" json:"onCreate"`
-
-	OnUpdate *bool `type:"boolean" json:"onUpdate"`
-}
-
-// String returns the string representation
-func (s AutoFillTargetTextForVideoProjectListOutput) String() string {
-	return volcengineutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s AutoFillTargetTextForVideoProjectListOutput) GoString() string {
-	return s.String()
-}
-
-// SetOnCreate sets the OnCreate field's value.
-func (s *AutoFillTargetTextForVideoProjectListOutput) SetOnCreate(v bool) *AutoFillTargetTextForVideoProjectListOutput {
-	s.OnCreate = &v
-	return s
-}
-
-// SetOnUpdate sets the OnUpdate field's value.
-func (s *AutoFillTargetTextForVideoProjectListOutput) SetOnUpdate(v bool) *AutoFillTargetTextForVideoProjectListOutput {
-	s.OnUpdate = &v
-	return s
-}
-
 type CreatorForVideoProjectListOutput struct {
 	_ struct{} `type:"structure"`
 
@@ -202,15 +172,11 @@ func (s *CreatorForVideoProjectListOutput) SetUsername(v string) *CreatorForVide
 type DataForVideoProjectListOutput struct {
 	_ struct{} `type:"structure"`
 
+	Comment *string `type:"string" json:"comment"`
+
 	CreatedAt *string `type:"string" json:"createdAt"`
 
 	Creator *CreatorForVideoProjectListOutput `type:"structure" json:"creator"`
-
-	CreatorId *string `type:"string" json:"creatorId"`
-
-	Description *string `type:"string" json:"description"`
-
-	Extra *ExtraForVideoProjectListOutput `type:"structure" json:"extra"`
 
 	Id *string `type:"string" json:"id"`
 
@@ -237,6 +203,12 @@ func (s DataForVideoProjectListOutput) GoString() string {
 	return s.String()
 }
 
+// SetComment sets the Comment field's value.
+func (s *DataForVideoProjectListOutput) SetComment(v string) *DataForVideoProjectListOutput {
+	s.Comment = &v
+	return s
+}
+
 // SetCreatedAt sets the CreatedAt field's value.
 func (s *DataForVideoProjectListOutput) SetCreatedAt(v string) *DataForVideoProjectListOutput {
 	s.CreatedAt = &v
@@ -246,24 +218,6 @@ func (s *DataForVideoProjectListOutput) SetCreatedAt(v string) *DataForVideoProj
 // SetCreator sets the Creator field's value.
 func (s *DataForVideoProjectListOutput) SetCreator(v *CreatorForVideoProjectListOutput) *DataForVideoProjectListOutput {
 	s.Creator = v
-	return s
-}
-
-// SetCreatorId sets the CreatorId field's value.
-func (s *DataForVideoProjectListOutput) SetCreatorId(v string) *DataForVideoProjectListOutput {
-	s.CreatorId = &v
-	return s
-}
-
-// SetDescription sets the Description field's value.
-func (s *DataForVideoProjectListOutput) SetDescription(v string) *DataForVideoProjectListOutput {
-	s.Description = &v
-	return s
-}
-
-// SetExtra sets the Extra field's value.
-func (s *DataForVideoProjectListOutput) SetExtra(v *ExtraForVideoProjectListOutput) *DataForVideoProjectListOutput {
-	s.Extra = v
 	return s
 }
 
@@ -309,28 +263,6 @@ func (s *DataForVideoProjectListOutput) SetUpdatedAt(v string) *DataForVideoProj
 	return s
 }
 
-type ExtraForVideoProjectListOutput struct {
-	_ struct{} `type:"structure"`
-
-	Setting *SettingForVideoProjectListOutput `type:"structure" json:"setting"`
-}
-
-// String returns the string representation
-func (s ExtraForVideoProjectListOutput) String() string {
-	return volcengineutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s ExtraForVideoProjectListOutput) GoString() string {
-	return s.String()
-}
-
-// SetSetting sets the Setting field's value.
-func (s *ExtraForVideoProjectListOutput) SetSetting(v *SettingForVideoProjectListOutput) *ExtraForVideoProjectListOutput {
-	s.Setting = v
-	return s
-}
-
 type PaginationForVideoProjectListOutput struct {
 	_ struct{} `type:"structure"`
 
@@ -358,74 +290,6 @@ func (s *PaginationForVideoProjectListOutput) SetLimit(v int32) *PaginationForVi
 // SetOffset sets the Offset field's value.
 func (s *PaginationForVideoProjectListOutput) SetOffset(v int32) *PaginationForVideoProjectListOutput {
 	s.Offset = &v
-	return s
-}
-
-type SettingForVideoProjectListOutput struct {
-	_ struct{} `type:"structure"`
-
-	Approval *bool `type:"boolean" json:"approval"`
-
-	AutoFillTargetText *AutoFillTargetTextForVideoProjectListOutput `type:"structure" json:"autoFillTargetText"`
-
-	TextValidate *TextValidateForVideoProjectListOutput `type:"structure" json:"textValidate"`
-}
-
-// String returns the string representation
-func (s SettingForVideoProjectListOutput) String() string {
-	return volcengineutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s SettingForVideoProjectListOutput) GoString() string {
-	return s.String()
-}
-
-// SetApproval sets the Approval field's value.
-func (s *SettingForVideoProjectListOutput) SetApproval(v bool) *SettingForVideoProjectListOutput {
-	s.Approval = &v
-	return s
-}
-
-// SetAutoFillTargetText sets the AutoFillTargetText field's value.
-func (s *SettingForVideoProjectListOutput) SetAutoFillTargetText(v *AutoFillTargetTextForVideoProjectListOutput) *SettingForVideoProjectListOutput {
-	s.AutoFillTargetText = v
-	return s
-}
-
-// SetTextValidate sets the TextValidate field's value.
-func (s *SettingForVideoProjectListOutput) SetTextValidate(v *TextValidateForVideoProjectListOutput) *SettingForVideoProjectListOutput {
-	s.TextValidate = v
-	return s
-}
-
-type TextValidateForVideoProjectListOutput struct {
-	_ struct{} `type:"structure"`
-
-	SourceTextValidate *bool `type:"boolean" json:"sourceTextValidate"`
-
-	TargetTextValidate *bool `type:"boolean" json:"targetTextValidate"`
-}
-
-// String returns the string representation
-func (s TextValidateForVideoProjectListOutput) String() string {
-	return volcengineutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s TextValidateForVideoProjectListOutput) GoString() string {
-	return s.String()
-}
-
-// SetSourceTextValidate sets the SourceTextValidate field's value.
-func (s *TextValidateForVideoProjectListOutput) SetSourceTextValidate(v bool) *TextValidateForVideoProjectListOutput {
-	s.SourceTextValidate = &v
-	return s
-}
-
-// SetTargetTextValidate sets the TargetTextValidate field's value.
-func (s *TextValidateForVideoProjectListOutput) SetTargetTextValidate(v bool) *TextValidateForVideoProjectListOutput {
-	s.TargetTextValidate = &v
 	return s
 }
 

@@ -216,7 +216,7 @@ type ListConfigurationOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	Row []*RowForListConfigurationOutput `type:"list" json:",omitempty"`
+	Row []*RowForListConfigurationOutput `type:"list"`
 
 	Total *int64 `type:"int64" json:",omitempty"`
 }

@@ -202,7 +202,7 @@ type RebootHostInput struct {
 
 	Force *bool `type:"boolean" json:",omitempty"`
 
-	HostIdList []*string `type:"list" json:",omitempty"`
+	HostIdList []*string `type:"list"`
 
 	// ProductId is a required field
 	ProductId *string `type:"string" json:",omitempty" required:"true"`
@@ -254,7 +254,7 @@ type RebootHostOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	Jobs []*JobForRebootHostOutput `type:"list" json:",omitempty"`
+	Jobs []*JobForRebootHostOutput `type:"list"`
 
 	TaskAction *string `type:"string" json:",omitempty"`
 
