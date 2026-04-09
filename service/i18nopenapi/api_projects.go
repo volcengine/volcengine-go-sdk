@@ -139,36 +139,6 @@ func (c *I18NOPENAPI) ProjectsWithContext(ctx volcengine.Context, input *Project
 	return out, req.Send()
 }
 
-type AutoFillTargetTextForProjectsOutput struct {
-	_ struct{} `type:"structure"`
-
-	OnCreate *bool `type:"boolean" json:"onCreate"`
-
-	OnUpdate *bool `type:"boolean" json:"onUpdate"`
-}
-
-// String returns the string representation
-func (s AutoFillTargetTextForProjectsOutput) String() string {
-	return volcengineutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s AutoFillTargetTextForProjectsOutput) GoString() string {
-	return s.String()
-}
-
-// SetOnCreate sets the OnCreate field's value.
-func (s *AutoFillTargetTextForProjectsOutput) SetOnCreate(v bool) *AutoFillTargetTextForProjectsOutput {
-	s.OnCreate = &v
-	return s
-}
-
-// SetOnUpdate sets the OnUpdate field's value.
-func (s *AutoFillTargetTextForProjectsOutput) SetOnUpdate(v bool) *AutoFillTargetTextForProjectsOutput {
-	s.OnUpdate = &v
-	return s
-}
-
 type CreatorForProjectsOutput struct {
 	_ struct{} `type:"structure"`
 
@@ -202,15 +172,11 @@ func (s *CreatorForProjectsOutput) SetUsername(v string) *CreatorForProjectsOutp
 type DataForProjectsOutput struct {
 	_ struct{} `type:"structure"`
 
+	Comment *string `type:"string" json:"comment"`
+
 	CreatedAt *string `type:"string" json:"createdAt"`
 
 	Creator *CreatorForProjectsOutput `type:"structure" json:"creator"`
-
-	CreatorId *string `type:"string" json:"creatorId"`
-
-	Description *string `type:"string" json:"description"`
-
-	Extra *ExtraForProjectsOutput `type:"structure" json:"extra"`
 
 	Id *string `type:"string" json:"id"`
 
@@ -237,6 +203,12 @@ func (s DataForProjectsOutput) GoString() string {
 	return s.String()
 }
 
+// SetComment sets the Comment field's value.
+func (s *DataForProjectsOutput) SetComment(v string) *DataForProjectsOutput {
+	s.Comment = &v
+	return s
+}
+
 // SetCreatedAt sets the CreatedAt field's value.
 func (s *DataForProjectsOutput) SetCreatedAt(v string) *DataForProjectsOutput {
 	s.CreatedAt = &v
@@ -246,24 +218,6 @@ func (s *DataForProjectsOutput) SetCreatedAt(v string) *DataForProjectsOutput {
 // SetCreator sets the Creator field's value.
 func (s *DataForProjectsOutput) SetCreator(v *CreatorForProjectsOutput) *DataForProjectsOutput {
 	s.Creator = v
-	return s
-}
-
-// SetCreatorId sets the CreatorId field's value.
-func (s *DataForProjectsOutput) SetCreatorId(v string) *DataForProjectsOutput {
-	s.CreatorId = &v
-	return s
-}
-
-// SetDescription sets the Description field's value.
-func (s *DataForProjectsOutput) SetDescription(v string) *DataForProjectsOutput {
-	s.Description = &v
-	return s
-}
-
-// SetExtra sets the Extra field's value.
-func (s *DataForProjectsOutput) SetExtra(v *ExtraForProjectsOutput) *DataForProjectsOutput {
-	s.Extra = v
 	return s
 }
 
@@ -306,28 +260,6 @@ func (s *DataForProjectsOutput) SetTargetLocales(v []*string) *DataForProjectsOu
 // SetUpdatedAt sets the UpdatedAt field's value.
 func (s *DataForProjectsOutput) SetUpdatedAt(v string) *DataForProjectsOutput {
 	s.UpdatedAt = &v
-	return s
-}
-
-type ExtraForProjectsOutput struct {
-	_ struct{} `type:"structure"`
-
-	Setting *SettingForProjectsOutput `type:"structure" json:"setting"`
-}
-
-// String returns the string representation
-func (s ExtraForProjectsOutput) String() string {
-	return volcengineutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s ExtraForProjectsOutput) GoString() string {
-	return s.String()
-}
-
-// SetSetting sets the Setting field's value.
-func (s *ExtraForProjectsOutput) SetSetting(v *SettingForProjectsOutput) *ExtraForProjectsOutput {
-	s.Setting = v
 	return s
 }
 
@@ -436,73 +368,5 @@ func (s *ProjectsOutput) SetPagination(v *PaginationForProjectsOutput) *Projects
 // SetTotal sets the Total field's value.
 func (s *ProjectsOutput) SetTotal(v int32) *ProjectsOutput {
 	s.Total = &v
-	return s
-}
-
-type SettingForProjectsOutput struct {
-	_ struct{} `type:"structure"`
-
-	Approval *bool `type:"boolean" json:"approval"`
-
-	AutoFillTargetText *AutoFillTargetTextForProjectsOutput `type:"structure" json:"autoFillTargetText"`
-
-	TextValidate *TextValidateForProjectsOutput `type:"structure" json:"textValidate"`
-}
-
-// String returns the string representation
-func (s SettingForProjectsOutput) String() string {
-	return volcengineutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s SettingForProjectsOutput) GoString() string {
-	return s.String()
-}
-
-// SetApproval sets the Approval field's value.
-func (s *SettingForProjectsOutput) SetApproval(v bool) *SettingForProjectsOutput {
-	s.Approval = &v
-	return s
-}
-
-// SetAutoFillTargetText sets the AutoFillTargetText field's value.
-func (s *SettingForProjectsOutput) SetAutoFillTargetText(v *AutoFillTargetTextForProjectsOutput) *SettingForProjectsOutput {
-	s.AutoFillTargetText = v
-	return s
-}
-
-// SetTextValidate sets the TextValidate field's value.
-func (s *SettingForProjectsOutput) SetTextValidate(v *TextValidateForProjectsOutput) *SettingForProjectsOutput {
-	s.TextValidate = v
-	return s
-}
-
-type TextValidateForProjectsOutput struct {
-	_ struct{} `type:"structure"`
-
-	SourceTextValidate *bool `type:"boolean" json:"sourceTextValidate"`
-
-	TargetTextValidate *bool `type:"boolean" json:"targetTextValidate"`
-}
-
-// String returns the string representation
-func (s TextValidateForProjectsOutput) String() string {
-	return volcengineutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s TextValidateForProjectsOutput) GoString() string {
-	return s.String()
-}
-
-// SetSourceTextValidate sets the SourceTextValidate field's value.
-func (s *TextValidateForProjectsOutput) SetSourceTextValidate(v bool) *TextValidateForProjectsOutput {
-	s.SourceTextValidate = &v
-	return s
-}
-
-// SetTargetTextValidate sets the TargetTextValidate field's value.
-func (s *TextValidateForProjectsOutput) SetTargetTextValidate(v bool) *TextValidateForProjectsOutput {
-	s.TargetTextValidate = &v
 	return s
 }

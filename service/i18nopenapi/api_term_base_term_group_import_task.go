@@ -139,6 +139,84 @@ func (c *I18NOPENAPI) TermBaseTermGroupImportTaskWithContext(ctx volcengine.Cont
 	return out, req.Send()
 }
 
+type DataForTermBaseTermGroupImportTaskOutput struct {
+	_ struct{} `type:"structure"`
+
+	CreateTime *string `type:"string" json:"createTime"`
+
+	Id *string `type:"string" json:"id"`
+
+	Operator *string `type:"string" json:"operator"`
+
+	Status *int32 `type:"int32" json:"status"`
+
+	TermBaseld *string `type:"string" json:"termBaseld"`
+
+	Total *int32 `type:"int32" json:"total"`
+
+	UpdateTime *string `type:"string" json:"updateTime"`
+
+	UploadedCount *int32 `type:"int32" json:"uploadedCount"`
+}
+
+// String returns the string representation
+func (s DataForTermBaseTermGroupImportTaskOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DataForTermBaseTermGroupImportTaskOutput) GoString() string {
+	return s.String()
+}
+
+// SetCreateTime sets the CreateTime field's value.
+func (s *DataForTermBaseTermGroupImportTaskOutput) SetCreateTime(v string) *DataForTermBaseTermGroupImportTaskOutput {
+	s.CreateTime = &v
+	return s
+}
+
+// SetId sets the Id field's value.
+func (s *DataForTermBaseTermGroupImportTaskOutput) SetId(v string) *DataForTermBaseTermGroupImportTaskOutput {
+	s.Id = &v
+	return s
+}
+
+// SetOperator sets the Operator field's value.
+func (s *DataForTermBaseTermGroupImportTaskOutput) SetOperator(v string) *DataForTermBaseTermGroupImportTaskOutput {
+	s.Operator = &v
+	return s
+}
+
+// SetStatus sets the Status field's value.
+func (s *DataForTermBaseTermGroupImportTaskOutput) SetStatus(v int32) *DataForTermBaseTermGroupImportTaskOutput {
+	s.Status = &v
+	return s
+}
+
+// SetTermBaseld sets the TermBaseld field's value.
+func (s *DataForTermBaseTermGroupImportTaskOutput) SetTermBaseld(v string) *DataForTermBaseTermGroupImportTaskOutput {
+	s.TermBaseld = &v
+	return s
+}
+
+// SetTotal sets the Total field's value.
+func (s *DataForTermBaseTermGroupImportTaskOutput) SetTotal(v int32) *DataForTermBaseTermGroupImportTaskOutput {
+	s.Total = &v
+	return s
+}
+
+// SetUpdateTime sets the UpdateTime field's value.
+func (s *DataForTermBaseTermGroupImportTaskOutput) SetUpdateTime(v string) *DataForTermBaseTermGroupImportTaskOutput {
+	s.UpdateTime = &v
+	return s
+}
+
+// SetUploadedCount sets the UploadedCount field's value.
+func (s *DataForTermBaseTermGroupImportTaskOutput) SetUploadedCount(v int32) *DataForTermBaseTermGroupImportTaskOutput {
+	s.UploadedCount = &v
+	return s
+}
+
 type TermBaseTermGroupImportTaskInput struct {
 	_ struct{} `type:"structure"`
 
@@ -191,6 +269,12 @@ type TermBaseTermGroupImportTaskOutput struct {
 	_ struct{} `type:"structure"`
 
 	Metadata *response.ResponseMetadata
+
+	Code *int32 `type:"int32" json:"code"`
+
+	Data *DataForTermBaseTermGroupImportTaskOutput `type:"structure" json:"data"`
+
+	Message *string `type:"string" json:"message"`
 }
 
 // String returns the string representation
@@ -201,4 +285,22 @@ func (s TermBaseTermGroupImportTaskOutput) String() string {
 // GoString returns the string representation
 func (s TermBaseTermGroupImportTaskOutput) GoString() string {
 	return s.String()
+}
+
+// SetCode sets the Code field's value.
+func (s *TermBaseTermGroupImportTaskOutput) SetCode(v int32) *TermBaseTermGroupImportTaskOutput {
+	s.Code = &v
+	return s
+}
+
+// SetData sets the Data field's value.
+func (s *TermBaseTermGroupImportTaskOutput) SetData(v *DataForTermBaseTermGroupImportTaskOutput) *TermBaseTermGroupImportTaskOutput {
+	s.Data = v
+	return s
+}
+
+// SetMessage sets the Message field's value.
+func (s *TermBaseTermGroupImportTaskOutput) SetMessage(v string) *TermBaseTermGroupImportTaskOutput {
+	s.Message = &v
+	return s
 }

@@ -32,7 +32,7 @@ const opVideoEditorAsyncGenDubbingCommon = "VideoEditorAsyncGenDubbing"
 func (c *I18NOPENAPI) VideoEditorAsyncGenDubbingCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opVideoEditorAsyncGenDubbingCommon,
-		HTTPMethod: "GET",
+		HTTPMethod: "POST",
 		HTTPPath:   "/",
 	}
 
@@ -42,6 +42,8 @@ func (c *I18NOPENAPI) VideoEditorAsyncGenDubbingCommonRequest(input *map[string]
 
 	output = &map[string]interface{}{}
 	req = c.newRequest(op, input, output)
+
+	req.HTTPRequest.Header.Set("Content-Type", "application/json; charset=utf-8")
 
 	return
 }
@@ -97,7 +99,7 @@ const opVideoEditorAsyncGenDubbing = "VideoEditorAsyncGenDubbing"
 func (c *I18NOPENAPI) VideoEditorAsyncGenDubbingRequest(input *VideoEditorAsyncGenDubbingInput) (req *request.Request, output *VideoEditorAsyncGenDubbingOutput) {
 	op := &request.Operation{
 		Name:       opVideoEditorAsyncGenDubbing,
-		HTTPMethod: "GET",
+		HTTPMethod: "POST",
 		HTTPPath:   "/",
 	}
 
@@ -107,6 +109,8 @@ func (c *I18NOPENAPI) VideoEditorAsyncGenDubbingRequest(input *VideoEditorAsyncG
 
 	output = &VideoEditorAsyncGenDubbingOutput{}
 	req = c.newRequest(op, input, output)
+
+	req.HTTPRequest.Header.Set("Content-Type", "application/json; charset=utf-8")
 
 	return
 }
@@ -140,11 +144,11 @@ func (c *I18NOPENAPI) VideoEditorAsyncGenDubbingWithContext(ctx volcengine.Conte
 }
 
 type BaseRespForVideoEditorAsyncGenDubbingOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	StatusCode *int32 `type:"int32" json:"statusCode"`
+	StatusCode *int32 `type:"int32" json:"statusCode,omitempty"`
 
-	StatusMessage *string `type:"string" json:"statusMessage"`
+	StatusMessage *string `type:"string" json:"statusMessage,omitempty"`
 }
 
 // String returns the string representation
@@ -170,9 +174,9 @@ func (s *BaseRespForVideoEditorAsyncGenDubbingOutput) SetStatusMessage(v string)
 }
 
 type DataForVideoEditorAsyncGenDubbingOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	BaseResp *BaseRespForVideoEditorAsyncGenDubbingOutput `type:"structure" json:"baseResp"`
+	BaseResp *BaseRespForVideoEditorAsyncGenDubbingOutput `type:"structure" json:"baseResp,omitempty"`
 }
 
 // String returns the string representation
@@ -192,13 +196,13 @@ func (s *DataForVideoEditorAsyncGenDubbingOutput) SetBaseResp(v *BaseRespForVide
 }
 
 type VideoEditorAsyncGenDubbingInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// SegmentId is a required field
-	SegmentId *string `locationName:"segmentId" type:"string" required:"true"`
+	SegmentId *string `type:"string" json:"segmentId,omitempty" required:"true"`
 
 	// SubtaskId is a required field
-	SubtaskId *string `locationName:"subtaskId" type:"string" required:"true"`
+	SubtaskId *string `type:"string" json:"subtaskId,omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -240,13 +244,13 @@ func (s *VideoEditorAsyncGenDubbingInput) SetSubtaskId(v string) *VideoEditorAsy
 }
 
 type VideoEditorAsyncGenDubbingOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	Data *DataForVideoEditorAsyncGenDubbingOutput `type:"structure" json:"data"`
+	Data *DataForVideoEditorAsyncGenDubbingOutput `type:"structure" json:"data,omitempty"`
 
-	Message *string `type:"string" json:"message"`
+	Message *string `type:"string" json:"message,omitempty"`
 }
 
 // String returns the string representation

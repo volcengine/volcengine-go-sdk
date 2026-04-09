@@ -155,7 +155,7 @@ type TermBaseTermGroupsInput struct {
 	Sorting *int32 `locationName:"sorting" type:"int32"`
 
 	// TermBaseId is a required field
-	TermBaseId *int32 `locationName:"termBaseId" type:"int32" required:"true"`
+	TermBaseId *string `locationName:"termBaseId" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -218,7 +218,7 @@ func (s *TermBaseTermGroupsInput) SetSorting(v int32) *TermBaseTermGroupsInput {
 }
 
 // SetTermBaseId sets the TermBaseId field's value.
-func (s *TermBaseTermGroupsInput) SetTermBaseId(v int32) *TermBaseTermGroupsInput {
+func (s *TermBaseTermGroupsInput) SetTermBaseId(v string) *TermBaseTermGroupsInput {
 	s.TermBaseId = &v
 	return s
 }
