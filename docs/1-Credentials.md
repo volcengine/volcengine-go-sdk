@@ -110,8 +110,8 @@ func main() {
             Timeout:    5 * time.Second,   // STS request timeout
             DurationSeconds: 900,          // TTL of the temporary credentials, in seconds
             // Policy: optional session policy JSON that further restricts the temporary credentials, e.g. `{"Statement":[{"Effect":"Allow","Action":["vpc:DescribeVpcs"],"Resource":["*"]}]}`
-            MaxRetries:    3, // optional extra retry attempts on AssumeRole failure (default 0, i.e. no retry)
-            RetryInterval: 1 * time.Second,
+            MaxRetries:    volcengine.Int(3),  // optional extra retry attempts on AssumeRole failure; nil defaults to 3, 0 disables retries
+            RetryInterval: 30 * time.Millisecond, // optional sleep between retries; <= 0 falls back to 30ms
         }))
 
     sess, err := session.NewSession(config)
@@ -161,8 +161,8 @@ func main() {
 		Policy:            "",              // env: VOLCENGINE_OIDC_ROLE_POLICY (optional)
 		Endpoint:          "",              // env: VOLCENGINE_OIDC_STS_ENDPOINT (optional)
 		DurationSeconds:   3600,            // Validity period
-		MaxRetries:        3,               // optional extra retry attempts on failure (default 0, i.e. no retry)
-		RetryInterval:     1 * time.Second, // optional sleep between retries (default 1s)
+		MaxRetries:        volcengine.Int(3),  // optional extra retry attempts on failure; nil defaults to 3, 0 disables retries
+		RetryInterval:     30 * time.Millisecond, // optional sleep between retries; <= 0 falls back to 30ms
 	}
 
 	// Configure SDK to use OIDC credentials
@@ -216,8 +216,8 @@ func main() {
         "BASE64_ENCODED_SAML_RESPONSE_FROM_IDP",             // SAMLAssertion
     )
     p.DurationSeconds = 3600
-    p.MaxRetries = 3                  // optional extra retry attempts on failure (default 0, i.e. no retry)
-    p.RetryInterval = 1 * time.Second // optional sleep between retries (default 1s)
+    p.MaxRetries = volcengine.Int(3)         // optional extra retry attempts on failure; nil defaults to 3, 0 disables retries
+    p.RetryInterval = 30 * time.Millisecond  // optional sleep between retries; <= 0 falls back to 30ms
 
     config := volcengine.NewConfig().
         WithRegion("cn-beijing").

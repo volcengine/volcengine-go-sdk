@@ -37,8 +37,8 @@ type SAMLCredentialsProvider struct {
 	// for sts endpoint
 	Schema        string
 	Endpoint      string
-	MaxRetries    int           // Retry Times. Default is 0.
-	RetryInterval time.Duration // the sleep interval between retries. Defaults to 1s.
+	MaxRetries    *int          // Retry attempts. Nil falls back to DefaultRetryerMaxNumRetries (3); 0 disables retries.
+	RetryInterval time.Duration // Sleep interval between retries. If zero or negative, falls back to DefaultRetryerMinRetryDelay (30ms).
 
 	lastUpdateTimestamp int64
 	expirationTimestamp int64
@@ -105,13 +105,10 @@ func (p *SAMLCredentialsProvider) fetchOnce() (Value, error) {
 		client = &http.Client{}
 	}
 
-	maxRetries := p.MaxRetries
-	if maxRetries < 0 {
-		maxRetries = 0
-	}
+	maxRetries := resolveCredentialMaxRetries(p.MaxRetries)
 	retryInterval := p.RetryInterval
 	if retryInterval <= 0 {
-		retryInterval = time.Second
+		retryInterval = DefaultRetryerMinRetryDelay
 	}
 
 	requestURL := scheme + "://" + endpoint + "/?Action=AssumeRoleWithSAML&Version=2018-01-01"

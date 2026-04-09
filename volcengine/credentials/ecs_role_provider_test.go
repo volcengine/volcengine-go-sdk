@@ -5,17 +5,25 @@ import (
 	"time"
 )
 
+func intPtr(v int) *int {
+	return &v
+}
+
 func TestNewEcsRoleProvider_DefaultRetryConfig(t *testing.T) {
 	p := NewEcsRoleProvider("role")
 
-	if p.RetryInterval != imdsDefaultRetryInterval {
-		t.Fatalf("expected RetryInterval=%v, got %v", imdsDefaultRetryInterval, p.RetryInterval)
+	maxRetries, retryInterval := p.retryConfig()
+	if maxRetries != DefaultRetryerMaxNumRetries {
+		t.Fatalf("expected default MaxRetries=%d, got %d", DefaultRetryerMaxNumRetries, maxRetries)
+	}
+	if retryInterval != DefaultRetryerMinRetryDelay {
+		t.Fatalf("expected default RetryInterval=%v, got %v", DefaultRetryerMinRetryDelay, retryInterval)
 	}
 }
 
 func TestEcsRoleProvider_RetryConfig_DefaultIntervalWhenUnset(t *testing.T) {
 	p := &EcsRoleProvider{
-		MaxRetries:    2,
+		MaxRetries:    intPtr(2),
 		RetryInterval: 0,
 	}
 
@@ -23,14 +31,14 @@ func TestEcsRoleProvider_RetryConfig_DefaultIntervalWhenUnset(t *testing.T) {
 	if maxRetries != 2 {
 		t.Fatalf("expected MaxRetries=2, got %d", maxRetries)
 	}
-	if retryInterval != imdsDefaultRetryInterval {
-		t.Fatalf("expected default RetryInterval=%v, got %v", imdsDefaultRetryInterval, retryInterval)
+	if retryInterval != DefaultRetryerMinRetryDelay {
+		t.Fatalf("expected default RetryInterval=%v, got %v", DefaultRetryerMinRetryDelay, retryInterval)
 	}
 }
 
-func TestEcsRoleProvider_RetryConfig_NegativeRetriesBecomeZero(t *testing.T) {
+func TestEcsRoleProvider_RetryConfig_ZeroRetriesDisableRetry(t *testing.T) {
 	p := &EcsRoleProvider{
-		MaxRetries:    -1,
+		MaxRetries:    intPtr(0),
 		RetryInterval: 10 * time.Millisecond,
 	}
 

@@ -19,7 +19,7 @@ type StsAssumeRoleProvider struct {
 	Timeout         time.Duration
 	DurationSeconds int
 	Policy          string
-	MaxRetries      int
+	MaxRetries      *int
 	RetryInterval   time.Duration
 }
 
@@ -80,19 +80,17 @@ func StsAssumeRole(p *StsAssumeRoleProvider) (*Credentials, *StsAssumeRoleTime, 
 }
 
 // assumeRoleWithRetry invokes sts.AssumeRole with retries
-func assumeRoleWithRetry(ins *sts.STS, input *sts.AssumeRoleRequest, maxRetries int, retryInterval time.Duration) (*sts.AssumeRoleResp, int, error) {
-	if maxRetries < 0 {
-		maxRetries = 0
-	}
+func assumeRoleWithRetry(ins *sts.STS, input *sts.AssumeRoleRequest, maxRetries *int, retryInterval time.Duration) (*sts.AssumeRoleResp, int, error) {
+	resolvedMaxRetries := resolveCredentialMaxRetries(maxRetries)
 	if retryInterval <= 0 {
-		retryInterval = time.Second
+		retryInterval = DefaultRetryerMinRetryDelay
 	}
 	var (
 		output     *sts.AssumeRoleResp
 		statusCode int
 		err        error
 	)
-	for attempt := 0; attempt <= maxRetries; attempt++ {
+	for attempt := 0; attempt <= resolvedMaxRetries; attempt++ {
 		output, statusCode, err = ins.AssumeRole(input)
 		failed := err != nil ||
 			statusCode < 200 || statusCode >= 300 ||
@@ -101,7 +99,7 @@ func assumeRoleWithRetry(ins *sts.STS, input *sts.AssumeRoleRequest, maxRetries 
 		if !failed {
 			return output, statusCode, err
 		}
-		if attempt < maxRetries {
+		if attempt < resolvedMaxRetries {
 			time.Sleep(retryInterval)
 		}
 	}

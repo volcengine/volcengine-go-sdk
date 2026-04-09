@@ -99,8 +99,8 @@ func main() {
             Timeout:    5 * time.Second, // 请求sts的超时时间
             DurationSeconds: 900,        // STS临时凭证过期时长，单位为秒
             // Policy: 可选的 session policy JSON，用于进一步收窄临时凭证的权限，例如：`{"Statement":[{"Effect":"Allow","Action":["vpc:DescribeVpcs"],"Resource":["*"]}]}`,
-            MaxRetries:    3, // 可选的 AssumeRole 失败时的额外重试次数，默认 0（不重试）
-            RetryInterval: 1 * time.Second,
+            MaxRetries:    volcengine.Int(3),    // 可选：AssumeRole 失败时的额外重试次数；nil 默认 3，0 表示关闭重试
+            RetryInterval: 30 * time.Millisecond, // 可选：重试间隔；<= 0 时回退到 30ms
         }))
 
 
@@ -139,8 +139,8 @@ func main() {
 		Policy:            "",              // env: VOLCENGINE_OIDC_ROLE_POLICY（可选）
 		Endpoint:          "",              // env: VOLCENGINE_OIDC_STS_ENDPOINT（可选）
 		DurationSeconds:   3600,            // 有效期
-		MaxRetries:        3,               // 可选的失败时额外重试次数，默认 0（不重试）
-		RetryInterval:     1 * time.Second, // 可选的重试间隔，默认 1s
+		MaxRetries:        volcengine.Int(3),    // 可选：失败时额外重试次数；nil 默认 3，0 表示关闭重试
+		RetryInterval:     30 * time.Millisecond, // 可选：重试间隔；<= 0 时回退到 30ms
 	}
 
 	// 配置 SDK 使用 OIDC 凭证
@@ -194,8 +194,8 @@ func main() {
         "BASE64_ENCODED_SAML_RESPONSE_FROM_IDP",             // SAMLAssertion
     )
     p.DurationSeconds = 3600
-    p.MaxRetries = 3                  // 可选的失败时额外重试次数，默认 0（不重试）
-    p.RetryInterval = 1 * time.Second // 可选的重试间隔，默认 1s
+    p.MaxRetries = volcengine.Int(3)         // 可选：失败时额外重试次数；nil 默认 3，0 表示关闭重试
+    p.RetryInterval = 30 * time.Millisecond  // 可选：重试间隔；<= 0 时回退到 30ms
 
     config := volcengine.NewConfig().
         WithRegion("cn-beijing").

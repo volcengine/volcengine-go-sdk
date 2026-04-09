@@ -58,10 +58,12 @@ type EcsRoleProvider struct {
 	// the credentials actually expiring.
 	ExpiryWindow time.Duration
 
-	// MaxRetries is the number of retry attempts after the initial IMDS request. Default is 0.
-	MaxRetries int
+	// MaxRetries is the number of retry attempts after the initial IMDS request.
+	// Nil falls back to DefaultRetryerMaxNumRetries (3); 0 disables retries.
+	MaxRetries *int
 
-	// RetryInterval is the sleep interval between IMDS retry attempts. Default is 1s.
+	// RetryInterval is the sleep interval between IMDS retry attempts.
+	// If zero or negative, it falls back to DefaultRetryerMinRetryDelay (30ms).
 	RetryInterval time.Duration
 
 	httpClient *http.Client
@@ -241,13 +243,10 @@ func (p *EcsRoleProvider) doRequestWithRetry(url, method string, headers map[str
 }
 
 func (p *EcsRoleProvider) retryConfig() (int, time.Duration) {
-	maxRetries := p.MaxRetries
-	if maxRetries < 0 {
-		maxRetries = 0
-	}
+	maxRetries := resolveCredentialMaxRetries(p.MaxRetries)
 	retryInterval := p.RetryInterval
 	if retryInterval <= 0 {
-		retryInterval = imdsDefaultRetryInterval
+		retryInterval = DefaultRetryerMinRetryDelay
 	}
 	return maxRetries, retryInterval
 }
