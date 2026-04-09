@@ -191,6 +191,8 @@ type CreateListenerInput struct {
 	ServerGroupId *string `type:"string" required:"true"`
 
 	Tags []*TagForCreateListenerInput `type:"list"`
+
+	XRealIpEnabled *string `type:"string"`
 }
 
 // String returns the string representation
@@ -366,6 +368,12 @@ func (s *CreateListenerInput) SetServerGroupId(v string) *CreateListenerInput {
 // SetTags sets the Tags field's value.
 func (s *CreateListenerInput) SetTags(v []*TagForCreateListenerInput) *CreateListenerInput {
 	s.Tags = v
+	return s
+}
+
+// SetXRealIpEnabled sets the XRealIpEnabled field's value.
+func (s *CreateListenerInput) SetXRealIpEnabled(v string) *CreateListenerInput {
+	s.XRealIpEnabled = &v
 	return s
 }
 

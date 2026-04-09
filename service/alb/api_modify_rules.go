@@ -228,6 +228,8 @@ func (s *ConvertRedirectConfigForModifyRulesInput) SetProtocol(v string) *Conver
 type ConvertRewriteConfigForModifyRulesInput struct {
 	_ struct{} `type:"structure"`
 
+	Host *string `type:"string"`
+
 	Path *string `type:"string"`
 }
 
@@ -241,9 +243,129 @@ func (s ConvertRewriteConfigForModifyRulesInput) GoString() string {
 	return s.String()
 }
 
+// SetHost sets the Host field's value.
+func (s *ConvertRewriteConfigForModifyRulesInput) SetHost(v string) *ConvertRewriteConfigForModifyRulesInput {
+	s.Host = &v
+	return s
+}
+
 // SetPath sets the Path field's value.
 func (s *ConvertRewriteConfigForModifyRulesInput) SetPath(v string) *ConvertRewriteConfigForModifyRulesInput {
 	s.Path = &v
+	return s
+}
+
+type CookieConfigForModifyRulesInput struct {
+	_ struct{} `type:"structure"`
+
+	Values []*CookieConfigValueForModifyRulesInput `type:"list"`
+}
+
+// String returns the string representation
+func (s CookieConfigForModifyRulesInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s CookieConfigForModifyRulesInput) GoString() string {
+	return s.String()
+}
+
+// SetValues sets the Values field's value.
+func (s *CookieConfigForModifyRulesInput) SetValues(v []*CookieConfigValueForModifyRulesInput) *CookieConfigForModifyRulesInput {
+	s.Values = v
+	return s
+}
+
+type CookieConfigValueForModifyRulesInput struct {
+	_ struct{} `type:"structure"`
+
+	Key *string `type:"string"`
+
+	Value *string `type:"string"`
+}
+
+// String returns the string representation
+func (s CookieConfigValueForModifyRulesInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s CookieConfigValueForModifyRulesInput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *CookieConfigValueForModifyRulesInput) SetKey(v string) *CookieConfigValueForModifyRulesInput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *CookieConfigValueForModifyRulesInput) SetValue(v string) *CookieConfigValueForModifyRulesInput {
+	s.Value = &v
+	return s
+}
+
+type CorsConfigForModifyRulesInput struct {
+	_ struct{} `type:"structure"`
+
+	AllowCredentials *string `type:"string"`
+
+	AllowHeaders []*string `type:"list"`
+
+	AllowMethods []*string `type:"list"`
+
+	AllowOrigin []*string `type:"list"`
+
+	ExposeHeaders []*string `type:"list"`
+
+	MaxAge *int64 `type:"integer"`
+}
+
+// String returns the string representation
+func (s CorsConfigForModifyRulesInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s CorsConfigForModifyRulesInput) GoString() string {
+	return s.String()
+}
+
+// SetAllowCredentials sets the AllowCredentials field's value.
+func (s *CorsConfigForModifyRulesInput) SetAllowCredentials(v string) *CorsConfigForModifyRulesInput {
+	s.AllowCredentials = &v
+	return s
+}
+
+// SetAllowHeaders sets the AllowHeaders field's value.
+func (s *CorsConfigForModifyRulesInput) SetAllowHeaders(v []*string) *CorsConfigForModifyRulesInput {
+	s.AllowHeaders = v
+	return s
+}
+
+// SetAllowMethods sets the AllowMethods field's value.
+func (s *CorsConfigForModifyRulesInput) SetAllowMethods(v []*string) *CorsConfigForModifyRulesInput {
+	s.AllowMethods = v
+	return s
+}
+
+// SetAllowOrigin sets the AllowOrigin field's value.
+func (s *CorsConfigForModifyRulesInput) SetAllowOrigin(v []*string) *CorsConfigForModifyRulesInput {
+	s.AllowOrigin = v
+	return s
+}
+
+// SetExposeHeaders sets the ExposeHeaders field's value.
+func (s *CorsConfigForModifyRulesInput) SetExposeHeaders(v []*string) *CorsConfigForModifyRulesInput {
+	s.ExposeHeaders = v
+	return s
+}
+
+// SetMaxAge sets the MaxAge field's value.
+func (s *CorsConfigForModifyRulesInput) SetMaxAge(v int64) *CorsConfigForModifyRulesInput {
+	s.MaxAge = &v
 	return s
 }
 
@@ -823,6 +945,8 @@ func (s *RuleForModifyRulesInput) SetTrafficLimitQPS(v int64) *RuleForModifyRule
 type RulesRuleActionForModifyRulesInput struct {
 	_ struct{} `type:"structure"`
 
+	CorsConfig *CorsConfigForModifyRulesInput `type:"structure"`
+
 	FixedResponseConfig *FixedResponseConfigForModifyRulesInput `type:"structure"`
 
 	ForwardGroupConfig *ConvertForwardGroupConfigForModifyRulesInput `type:"structure"`
@@ -844,6 +968,12 @@ func (s RulesRuleActionForModifyRulesInput) String() string {
 // GoString returns the string representation
 func (s RulesRuleActionForModifyRulesInput) GoString() string {
 	return s.String()
+}
+
+// SetCorsConfig sets the CorsConfig field's value.
+func (s *RulesRuleActionForModifyRulesInput) SetCorsConfig(v *CorsConfigForModifyRulesInput) *RulesRuleActionForModifyRulesInput {
+	s.CorsConfig = v
+	return s
 }
 
 // SetFixedResponseConfig sets the FixedResponseConfig field's value.
@@ -885,6 +1015,8 @@ func (s *RulesRuleActionForModifyRulesInput) SetType(v string) *RulesRuleActionF
 type RulesRuleConditionForModifyRulesInput struct {
 	_ struct{} `type:"structure"`
 
+	CookieConfig *CookieConfigForModifyRulesInput `type:"structure"`
+
 	HeaderConfig *HeaderConfigForModifyRulesInput `type:"structure"`
 
 	HostConfig *HostConfigForModifyRulesInput `type:"structure"`
@@ -894,6 +1026,8 @@ type RulesRuleConditionForModifyRulesInput struct {
 	PathConfig *PathConfigForModifyRulesInput `type:"structure"`
 
 	QueryStringConfig *QueryStringConfigForModifyRulesInput `type:"structure"`
+
+	SourceIpConfig *SourceIpConfigForModifyRulesInput `type:"structure"`
 
 	Type *string `type:"string"`
 }
@@ -906,6 +1040,12 @@ func (s RulesRuleConditionForModifyRulesInput) String() string {
 // GoString returns the string representation
 func (s RulesRuleConditionForModifyRulesInput) GoString() string {
 	return s.String()
+}
+
+// SetCookieConfig sets the CookieConfig field's value.
+func (s *RulesRuleConditionForModifyRulesInput) SetCookieConfig(v *CookieConfigForModifyRulesInput) *RulesRuleConditionForModifyRulesInput {
+	s.CookieConfig = v
+	return s
 }
 
 // SetHeaderConfig sets the HeaderConfig field's value.
@@ -935,6 +1075,12 @@ func (s *RulesRuleConditionForModifyRulesInput) SetPathConfig(v *PathConfigForMo
 // SetQueryStringConfig sets the QueryStringConfig field's value.
 func (s *RulesRuleConditionForModifyRulesInput) SetQueryStringConfig(v *QueryStringConfigForModifyRulesInput) *RulesRuleConditionForModifyRulesInput {
 	s.QueryStringConfig = v
+	return s
+}
+
+// SetSourceIpConfig sets the SourceIpConfig field's value.
+func (s *RulesRuleConditionForModifyRulesInput) SetSourceIpConfig(v *SourceIpConfigForModifyRulesInput) *RulesRuleConditionForModifyRulesInput {
+	s.SourceIpConfig = v
 	return s
 }
 
@@ -971,6 +1117,28 @@ func (s *ServerGroupStickySessionForModifyRulesInput) SetEnabled(v string) *Serv
 // SetTimeout sets the Timeout field's value.
 func (s *ServerGroupStickySessionForModifyRulesInput) SetTimeout(v int64) *ServerGroupStickySessionForModifyRulesInput {
 	s.Timeout = &v
+	return s
+}
+
+type SourceIpConfigForModifyRulesInput struct {
+	_ struct{} `type:"structure"`
+
+	Values []*string `type:"list"`
+}
+
+// String returns the string representation
+func (s SourceIpConfigForModifyRulesInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s SourceIpConfigForModifyRulesInput) GoString() string {
+	return s.String()
+}
+
+// SetValues sets the Values field's value.
+func (s *SourceIpConfigForModifyRulesInput) SetValues(v []*string) *SourceIpConfigForModifyRulesInput {
+	s.Values = v
 	return s
 }
 

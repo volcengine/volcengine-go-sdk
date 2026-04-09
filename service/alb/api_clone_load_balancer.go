@@ -148,6 +148,8 @@ type CloneLoadBalancerInput struct {
 
 	Description *string `type:"string"`
 
+	DryRun *string `type:"string"`
+
 	EipBillingConfig *EipBillingConfigForCloneLoadBalancerInput `type:"structure"`
 
 	Ipv6BandwidthPackageId *string `type:"string"`
@@ -208,6 +210,12 @@ func (s *CloneLoadBalancerInput) SetDeleteProtection(v string) *CloneLoadBalance
 // SetDescription sets the Description field's value.
 func (s *CloneLoadBalancerInput) SetDescription(v string) *CloneLoadBalancerInput {
 	s.Description = &v
+	return s
+}
+
+// SetDryRun sets the DryRun field's value.
+func (s *CloneLoadBalancerInput) SetDryRun(v string) *CloneLoadBalancerInput {
+	s.DryRun = &v
 	return s
 }
 
@@ -299,6 +307,10 @@ type EipBillingConfigForCloneLoadBalancerInput struct {
 	EipBillingType *int64 `type:"integer"`
 
 	ISP *string `type:"string"`
+
+	SecurityProtectionInstanceId *int64 `type:"integer"`
+
+	SecurityProtectionTypes *string `type:"string"`
 }
 
 // String returns the string representation
@@ -326,6 +338,18 @@ func (s *EipBillingConfigForCloneLoadBalancerInput) SetEipBillingType(v int64) *
 // SetISP sets the ISP field's value.
 func (s *EipBillingConfigForCloneLoadBalancerInput) SetISP(v string) *EipBillingConfigForCloneLoadBalancerInput {
 	s.ISP = &v
+	return s
+}
+
+// SetSecurityProtectionInstanceId sets the SecurityProtectionInstanceId field's value.
+func (s *EipBillingConfigForCloneLoadBalancerInput) SetSecurityProtectionInstanceId(v int64) *EipBillingConfigForCloneLoadBalancerInput {
+	s.SecurityProtectionInstanceId = &v
+	return s
+}
+
+// SetSecurityProtectionTypes sets the SecurityProtectionTypes field's value.
+func (s *EipBillingConfigForCloneLoadBalancerInput) SetSecurityProtectionTypes(v string) *EipBillingConfigForCloneLoadBalancerInput {
+	s.SecurityProtectionTypes = &v
 	return s
 }
 
