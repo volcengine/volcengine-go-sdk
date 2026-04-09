@@ -30,7 +30,6 @@ const (
 	// Defaults
 	imdsDefaultConnectTimeout = 1 * time.Second
 	imdsDefaultReadTimeout    = 1 * time.Second
-	imdsDefaultMaxRetries     = 3
 	imdsDefaultRetryInterval  = 1 * time.Second
 	imdsDefaultExpiryWindow   = 5 * time.Minute
 )
@@ -59,9 +58,13 @@ type EcsRoleProvider struct {
 	// the credentials actually expiring.
 	ExpiryWindow time.Duration
 
-	httpClient    *http.Client
-	maxRetries    int
-	retryInterval time.Duration
+	// MaxRetries is the number of retry attempts after the initial IMDS request. Default is 0.
+	MaxRetries int
+
+	// RetryInterval is the sleep interval between IMDS retry attempts. Default is 1s.
+	RetryInterval time.Duration
+
+	httpClient *http.Client
 }
 
 // NewEcsRoleProvider returns a new EcsRoleProvider.
@@ -72,8 +75,6 @@ func NewEcsRoleProvider(roleName string) *EcsRoleProvider {
 		httpClient: &http.Client{
 			Timeout: imdsDefaultConnectTimeout + imdsDefaultReadTimeout,
 		},
-		maxRetries:    imdsDefaultMaxRetries,
-		retryInterval: imdsDefaultRetryInterval,
 	}
 }
 
@@ -222,10 +223,12 @@ func (p *EcsRoleProvider) getCredentials(roleName, imdsToken string) (*imdsCrede
 
 // doRequestWithRetry performs an HTTP request with retry logic.
 func (p *EcsRoleProvider) doRequestWithRetry(url, method string, headers map[string]string) ([]byte, error) {
+	maxRetries, retryInterval := p.retryConfig()
+
 	var lastErr error
-	for i := 0; i < p.maxRetries; i++ {
+	for i := 0; i <= maxRetries; i++ {
 		if i > 0 {
-			time.Sleep(p.retryInterval)
+			time.Sleep(retryInterval)
 		}
 
 		body, err := p.doRequest(url, method, headers)
@@ -235,6 +238,18 @@ func (p *EcsRoleProvider) doRequestWithRetry(url, method string, headers map[str
 		lastErr = err
 	}
 	return nil, lastErr
+}
+
+func (p *EcsRoleProvider) retryConfig() (int, time.Duration) {
+	maxRetries := p.MaxRetries
+	if maxRetries < 0 {
+		maxRetries = 0
+	}
+	retryInterval := p.RetryInterval
+	if retryInterval <= 0 {
+		retryInterval = imdsDefaultRetryInterval
+	}
+	return maxRetries, retryInterval
 }
 
 func (p *EcsRoleProvider) doRequest(url, method string, headers map[string]string) ([]byte, error) {
