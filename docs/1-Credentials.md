@@ -114,8 +114,8 @@ func main() {
             //     o.Timeout = 5 * time.Second       // Request timeout
             //     o.DurationSeconds = 900           // TTL in seconds, default 3600
             //     o.Policy = `{"Statement":[...]}`  // Session policy JSON
-            //     o.MaxRetries = volcengine.Int(3)   // Retry attempts; nil defaults to 3, 0 disables
-            //     o.RetryInterval = 30 * time.Millisecond // Sleep between retries; <= 0 falls back to 30ms
+            //     o.MaxRetries = volcengine.Int(3)  // Retry attempts; nil defaults to 3, 0 disables
+            //     o.RetryInterval = 1 * time.Second // Sleep between retries; <= 0 falls back to 1s
             // },
         ))
 
@@ -155,7 +155,7 @@ func main() {
             DurationSeconds: 900,          // TTL of the temporary credentials, in seconds
             // Policy: optional session policy JSON, e.g. `{"Statement":[{"Effect":"Allow","Action":["vpc:DescribeVpcs"],"Resource":["*"]}]}`
             MaxRetries:    volcengine.Int(3),  // optional extra retry attempts; nil defaults to 3, 0 disables retries
-            RetryInterval: 30 * time.Millisecond, // optional sleep between retries; <= 0 falls back to 30ms
+            RetryInterval: 1 * time.Second, // optional sleep between retries; <= 0 falls back to 1s
         }))
 
     sess, err := session.NewSession(config)
@@ -200,7 +200,7 @@ func main() {
 			// o.Endpoint = ""                                // env: VOLCENGINE_OIDC_STS_ENDPOINT (optional)
 			// o.DurationSeconds = 3600                       // Validity period, default 3600
 			// o.MaxRetries = volcengine.Int(3)               // optional: retry attempts; nil defaults to 3, 0 disables
-			// o.RetryInterval = 30 * time.Millisecond        // optional: sleep between retries; <= 0 falls back to 30ms
+			// o.RetryInterval = 1 * time.Second               // optional: sleep between retries; <= 0 falls back to 1s
 		},
 	)
 
@@ -248,7 +248,7 @@ func main() {
 		Endpoint:          "",              // env: VOLCENGINE_OIDC_STS_ENDPOINT (optional)
 		DurationSeconds:   3600,            // Validity period
 		MaxRetries:        volcengine.Int(3),  // optional extra retry attempts; nil defaults to 3, 0 disables retries
-		RetryInterval:     30 * time.Millisecond, // optional sleep between retries; <= 0 falls back to 30ms
+		RetryInterval:     1 * time.Second, // optional sleep between retries; <= 0 falls back to 1s
 	}
 
 	config := volcengine.NewConfig().
@@ -298,7 +298,7 @@ func main() {
         func(o *credentials.SAMLProviderOptions) {
             // o.DurationSeconds = 3600                                 // Validity period, default 3600
             // o.MaxRetries = volcengine.Int(3)                         // optional: retry attempts; nil defaults to 3, 0 disables
-            // o.RetryInterval = 30 * time.Millisecond                  // optional: sleep between retries; <= 0 falls back to 30ms
+            // o.RetryInterval = 1 * time.Second                        // optional: sleep between retries; <= 0 falls back to 1s
         },
     )
 
@@ -335,7 +335,7 @@ func main() {
     )
     p.DurationSeconds = 3600
     p.MaxRetries = volcengine.Int(3)         // optional extra retry attempts; nil defaults to 3, 0 disables retries
-    p.RetryInterval = 30 * time.Millisecond  // optional sleep between retries; <= 0 falls back to 30ms
+    p.RetryInterval = 1 * time.Second  // optional sleep between retries; <= 0 falls back to 1s
 
     config := volcengine.NewConfig().
         WithRegion("cn-beijing").
@@ -453,7 +453,7 @@ func main() {
 		"your-ecs-role-name", // Role name (leave empty to auto-detect from IMDS)
 		func(o *credentials.EcsRoleProviderOptions) {
 			// o.MaxRetries = volcengine.Int(3)                // optional: retry attempts; nil defaults to 3, 0 disables
-			// o.RetryInterval = 30 * time.Millisecond         // optional: sleep between retries; <= 0 falls back to 30ms
+			// o.RetryInterval = 1 * time.Second               // optional: sleep between retries; <= 0 falls back to 1s
 		},
 	)
 

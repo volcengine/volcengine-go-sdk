@@ -72,7 +72,7 @@ type OIDCCredentialsProvider struct {
 	Schema              string
 	Endpoint            string
 	MaxRetries          *int          // Retry attempts. Nil falls back to DefaultRetryerMaxNumRetries (3); 0 disables retries.
-	RetryInterval       time.Duration // Sleep interval between retries. If zero or negative, falls back to DefaultRetryerMinRetryDelay (30ms).
+	RetryInterval       time.Duration // Sleep interval between retries. If zero or negative, falls back to DefaultRetryerRetryDelay (1s).
 	lastUpdateTimestamp int64
 	expirationTimestamp int64
 	sessionValue        *Value

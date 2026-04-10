@@ -103,7 +103,7 @@ func main() {
             //     o.DurationSeconds = 900           // 临时凭证有效期（秒），默认 3600
             //     o.Policy = `{"Statement":[...]}`  // session policy JSON
             //     o.MaxRetries = volcengine.Int(3)   // 重试次数；nil 默认 3，0 关闭重试
-            //     o.RetryInterval = 30 * time.Millisecond // 重试间隔；<= 0 回退到 30ms
+            //     o.RetryInterval = 1 * time.Second // 重试间隔；<= 0 回退到 1s
             // },
         ))
 
@@ -133,7 +133,7 @@ func main() {
             DurationSeconds: 900,        // STS临时凭证过期时长，单位为秒
             // Policy: 可选的 session policy JSON，用于进一步收窄临时凭证的权限，例如：`{"Statement":[{"Effect":"Allow","Action":["vpc:DescribeVpcs"],"Resource":["*"]}]}`,
             MaxRetries:    volcengine.Int(3),    // 可选：AssumeRole 失败时的额外重试次数；nil 默认 3，0 表示关闭重试
-            RetryInterval: 30 * time.Millisecond, // 可选：重试间隔；<= 0 时回退到 30ms
+            RetryInterval: 1 * time.Second, // 可选：重试间隔；<= 0 时回退到 1s
         }))
 
     sess, err := session.NewSession(config)
@@ -166,7 +166,7 @@ func main() {
 			// o.Endpoint = ""                                // env: VOLCENGINE_OIDC_STS_ENDPOINT（可选）
 			// o.DurationSeconds = 3600                       // 有效期，默认 3600
 			// o.MaxRetries = volcengine.Int(3)               // 可选：失败时额外重试次数；nil 默认 3，0 表示关闭重试
-			// o.RetryInterval = 30 * time.Millisecond        // 可选：重试间隔；<= 0 时回退到 30ms
+			// o.RetryInterval = 1 * time.Second              // 可选：重试间隔；<= 0 时回退到 1s
 		},
 	)
 
@@ -202,7 +202,7 @@ func main() {
 		Endpoint:          "",              // env: VOLCENGINE_OIDC_STS_ENDPOINT（可选）
 		DurationSeconds:   3600,            // 有效期
 		MaxRetries:        volcengine.Int(3),    // 可选：失败时额外重试次数；nil 默认 3，0 表示关闭重试
-		RetryInterval:     30 * time.Millisecond, // 可选：重试间隔；<= 0 时回退到 30ms
+		RetryInterval:     1 * time.Second, // 可选：重试间隔；<= 0 时回退到 1s
 	}
 
 	config := volcengine.NewConfig().
@@ -252,7 +252,7 @@ func main() {
         func(o *credentials.SAMLProviderOptions) {
             // o.DurationSeconds = 3600                                 // 有效期，默认 3600
             // o.MaxRetries = volcengine.Int(3)                         // 可选：失败时额外重试次数；nil 默认 3，0 表示关闭重试
-            // o.RetryInterval = 30 * time.Millisecond                  // 可选：重试间隔；<= 0 时回退到 30ms
+            // o.RetryInterval = 1 * time.Second                        // 可选：重试间隔；<= 0 时回退到 1s
         },
     )
 
@@ -289,7 +289,7 @@ func main() {
     )
     p.DurationSeconds = 3600
     p.MaxRetries = volcengine.Int(3)         // 可选：失败时额外重试次数；nil 默认 3，0 表示关闭重试
-    p.RetryInterval = 30 * time.Millisecond  // 可选：重试间隔；<= 0 时回退到 30ms
+    p.RetryInterval = 1 * time.Second  // 可选：重试间隔；<= 0 时回退到 1s
 
     config := volcengine.NewConfig().
         WithRegion("cn-beijing").
@@ -407,7 +407,7 @@ func main() {
 		"your-ecs-role-name", // 角色名（为空时从 IMDS 自动检测）
 		func(o *credentials.EcsRoleProviderOptions) {
 			// o.MaxRetries = volcengine.Int(3)                // 可选：失败时额外重试次数；nil 默认 3，0 表示关闭重试
-			// o.RetryInterval = 30 * time.Millisecond         // 可选：重试间隔；<= 0 时回退到 30ms
+			// o.RetryInterval = 1 * time.Second               // 可选：重试间隔；<= 0 时回退到 1s
 		},
 	)
 

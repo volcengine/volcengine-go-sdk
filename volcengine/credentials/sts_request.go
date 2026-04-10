@@ -35,7 +35,7 @@ func doSTSFormRequest(
 	requestURL := scheme + "://" + endpoint + "/?Action=" + action + "&Version=2018-01-01"
 	retries := resolveCredentialMaxRetries(maxRetries)
 	if retryInterval <= 0 {
-		retryInterval = DefaultRetryerMinRetryDelay
+		retryInterval = DefaultRetryerRetryDelay
 	}
 
 	var lastErr error

@@ -63,7 +63,7 @@ type EcsRoleProvider struct {
 	MaxRetries *int
 
 	// RetryInterval is the sleep interval between IMDS retry attempts.
-	// If zero or negative, it falls back to DefaultRetryerMinRetryDelay (30ms).
+	// If zero or negative, it falls back to DefaultRetryerRetryDelay (1s).
 	RetryInterval time.Duration
 
 	httpClient *http.Client
@@ -267,7 +267,7 @@ func (p *EcsRoleProvider) retryConfig() (int, time.Duration) {
 	maxRetries := resolveCredentialMaxRetries(p.MaxRetries)
 	retryInterval := p.RetryInterval
 	if retryInterval <= 0 {
-		retryInterval = DefaultRetryerMinRetryDelay
+		retryInterval = DefaultRetryerRetryDelay
 	}
 	return maxRetries, retryInterval
 }

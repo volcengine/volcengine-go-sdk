@@ -324,9 +324,9 @@ const (
 	// DefaultRetryerMaxNumRetries is the shared fallback retry count used by
 	// credential providers when they opt into the default retry policy.
 	DefaultRetryerMaxNumRetries = 3
-	// DefaultRetryerMinRetryDelay is the shared fallback retry interval used by
+	// DefaultRetryerRetryDelay is the shared fallback retry interval used by
 	// credential providers when retry interval is unset or invalid.
-	DefaultRetryerMinRetryDelay = 30 * time.Millisecond
+	DefaultRetryerRetryDelay = 1 * time.Second
 )
 
 func resolveCredentialMaxRetries(maxRetries *int) int {

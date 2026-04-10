@@ -127,7 +127,7 @@ func stsAssumeRoleInternal(p *StsAssumeRoleProvider) (*Credentials, *StsAssumeRo
 func assumeRoleWithRetry(ins *sts.STS, input *sts.AssumeRoleRequest, maxRetries *int, retryInterval time.Duration) (*sts.AssumeRoleResp, int, error) {
 	resolvedMaxRetries := resolveCredentialMaxRetries(maxRetries)
 	if retryInterval <= 0 {
-		retryInterval = DefaultRetryerMinRetryDelay
+		retryInterval = DefaultRetryerRetryDelay
 	}
 	var (
 		output     *sts.AssumeRoleResp
