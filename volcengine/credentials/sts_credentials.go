@@ -28,7 +28,51 @@ type StsAssumeRoleTime struct {
 	ExpiredTime string
 }
 
+// StsAssumeRoleOptions contains optional configuration for STS AssumeRole.
+type StsAssumeRoleOptions struct {
+	Host            string
+	Region          string
+	Schema          string
+	Timeout         time.Duration
+	DurationSeconds int
+	Policy          string
+	MaxRetries      *int
+	RetryInterval   time.Duration
+}
+
+// StsAssumeRoleWithOptions creates a one-shot AssumeRole call with required
+// parameters and optional functional options.
+func StsAssumeRoleWithOptions(accessKey, securityKey, roleName, accountId string, optFns ...func(*StsAssumeRoleOptions)) (*Credentials, *StsAssumeRoleTime, error) {
+	opts := StsAssumeRoleOptions{
+		DurationSeconds: 3600,
+	}
+	for _, fn := range optFns {
+		fn(&opts)
+	}
+	p := &StsAssumeRoleProvider{
+		AccessKey:       accessKey,
+		SecurityKey:     securityKey,
+		RoleName:        roleName,
+		AccountId:       accountId,
+		Host:            opts.Host,
+		Region:          opts.Region,
+		Schema:          opts.Schema,
+		Timeout:         opts.Timeout,
+		DurationSeconds: opts.DurationSeconds,
+		Policy:          opts.Policy,
+		MaxRetries:      opts.MaxRetries,
+		RetryInterval:   opts.RetryInterval,
+	}
+	return stsAssumeRoleInternal(p)
+}
+
 func StsAssumeRole(p *StsAssumeRoleProvider) (*Credentials, *StsAssumeRoleTime, error) {
+	return stsAssumeRoleInternal(p)
+}
+
+// stsAssumeRoleInternal is the shared implementation for StsAssumeRole and
+// StsAssumeRoleWithOptions.
+func stsAssumeRoleInternal(p *StsAssumeRoleProvider) (*Credentials, *StsAssumeRoleTime, error) {
 	ins := sts.NewInstance()
 	if p.Region != "" {
 		ins.Client.ServiceInfo.Credentials.Region = p.Region

@@ -1,12 +1,9 @@
 package credentials
 
 import (
-	"encoding/json"
 	"fmt"
-	"io/ioutil"
 	"net/http"
 	"net/url"
-	"strings"
 	"time"
 
 	"github.com/volcengine/volcengine-go-sdk/volcengine/response"
@@ -46,18 +43,47 @@ type SAMLCredentialsProvider struct {
 	httpOptions         *HttpOptions
 }
 
-// NewSAMLCredentialsProvider constructs a SAMLCredentialsProvider with the
-// required role/saml-provider TRNs and the base64-encoded SAML assertion
-// returned by your IdP.
-func NewSAMLCredentialsProvider(roleTrn, samlProviderTrn, samlAssertion string) *SAMLCredentialsProvider {
+// SAMLProviderOptions contains optional configuration for SAMLCredentialsProvider.
+type SAMLProviderOptions struct {
+	DurationSeconds int
+	Policy          string
+	Schema          string
+	Endpoint        string
+	MaxRetries      *int
+	RetryInterval   time.Duration
+	HttpOptions     *HttpOptions
+}
+
+// NewSAMLCredentialsProviderWithOptions constructs a SAMLCredentialsProvider
+// with required parameters and optional functional options.
+func NewSAMLCredentialsProviderWithOptions(roleTrn, samlProviderTrn, samlAssertion string, optFns ...func(*SAMLProviderOptions)) *SAMLCredentialsProvider {
+	opts := SAMLProviderOptions{
+		DurationSeconds: 3600,
+		Schema:          "https",
+		HttpOptions:     &HttpOptions{Timeout: 10 * time.Second},
+	}
+	for _, fn := range optFns {
+		fn(&opts)
+	}
 	return &SAMLCredentialsProvider{
 		RoleTrn:         roleTrn,
 		SAMLProviderTrn: samlProviderTrn,
 		SAMLAssertion:   samlAssertion,
-		DurationSeconds: 3600,
-		Schema:          "https",
-		httpOptions:     &HttpOptions{Timeout: 10 * time.Second},
+		DurationSeconds: opts.DurationSeconds,
+		Policy:          opts.Policy,
+		Schema:          opts.Schema,
+		Endpoint:        opts.Endpoint,
+		MaxRetries:      opts.MaxRetries,
+		RetryInterval:   opts.RetryInterval,
+		httpOptions:     opts.HttpOptions,
 	}
+}
+
+// NewSAMLCredentialsProvider constructs a SAMLCredentialsProvider with the
+// required role/saml-provider TRNs and the base64-encoded SAML assertion
+// returned by your IdP.
+func NewSAMLCredentialsProvider(roleTrn, samlProviderTrn, samlAssertion string) *SAMLCredentialsProvider {
+	return NewSAMLCredentialsProviderWithOptions(roleTrn, samlProviderTrn, samlAssertion)
 }
 
 func (p *SAMLCredentialsProvider) Retrieve() (Value, error) {
@@ -105,26 +131,11 @@ func (p *SAMLCredentialsProvider) fetchOnce() (Value, error) {
 		client = &http.Client{}
 	}
 
-	maxRetries := resolveCredentialMaxRetries(p.MaxRetries)
-	retryInterval := p.RetryInterval
-	if retryInterval <= 0 {
-		retryInterval = DefaultRetryerMinRetryDelay
-	}
-
-	requestURL := scheme + "://" + endpoint + "/?Action=AssumeRoleWithSAML&Version=2018-01-01"
 	var stsResp AssumeRoleWithSAMLResponse
-	var lastErr error
-	for attempt := 0; attempt <= maxRetries; attempt++ {
-		stsResp, lastErr = doSAMLAssumeRoleOnce(client, requestURL, data.Encode())
-		if lastErr == nil {
-			break
-		}
-		if attempt < maxRetries {
-			time.Sleep(retryInterval)
-		}
-	}
-	if lastErr != nil {
-		return Value{}, lastErr
+	if err := doSTSFormRequest(client, scheme, endpoint, "AssumeRoleWithSAML",
+		data, &stsResp, p.MaxRetries, p.RetryInterval,
+		"STS AssumeRoleWithSAML returned error"); err != nil {
+		return Value{}, err
 	}
 
 	creds := Value{
@@ -141,26 +152,4 @@ func (p *SAMLCredentialsProvider) fetchOnce() (Value, error) {
 	p.expirationTimestamp = expirationTime.Add(-60 * time.Second).Unix()
 	p.sessionValue = &creds
 	return creds, nil
-}
-
-// doSAMLAssumeRoleOnce performs one AssumeRoleWithSAML HTTP call and decodes the response. It is intended to be invoked inside a retry loop.
-func doSAMLAssumeRoleOnce(client *http.Client, requestURL, body string) (AssumeRoleWithSAMLResponse, error) {
-	var stsResp AssumeRoleWithSAMLResponse
-	resp, err := client.Post(requestURL, "application/x-www-form-urlencoded", strings.NewReader(body))
-	if err != nil {
-		return stsResp, fmt.Errorf("failed to request STS service: %v", err)
-	}
-	defer resp.Body.Close()
-
-	if resp.StatusCode != http.StatusOK {
-		respBody, _ := ioutil.ReadAll(resp.Body)
-		return stsResp, fmt.Errorf("STS service returned non-OK status: %d, body: %s", resp.StatusCode, string(respBody))
-	}
-	if err := json.NewDecoder(resp.Body).Decode(&stsResp); err != nil {
-		return AssumeRoleWithSAMLResponse{}, fmt.Errorf("failed to decode STS response: %v", err)
-	}
-	if stsResp.ResponseMetadata.Error != nil {
-		return AssumeRoleWithSAMLResponse{}, fmt.Errorf("STS AssumeRoleWithSAML returned error: %v", stsResp.ResponseMetadata)
-	}
-	return stsResp, nil
 }

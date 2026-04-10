@@ -1,14 +1,12 @@
 package credentials
 
 import (
-	"encoding/json"
 	"fmt"
 	"io/ioutil"
 	"net/http"
 	"net/url"
 	"os"
 	"strconv"
-	"strings"
 	"time"
 
 	"github.com/volcengine/volcengine-go-sdk/volcengine/response"
@@ -82,22 +80,59 @@ type OIDCCredentialsProvider struct {
 	httpOptions *HttpOptions
 }
 
+// OIDCProviderOptions contains optional configuration for OIDCCredentialsProvider.
+type OIDCProviderOptions struct {
+	RoleSessionName string
+	DurationSeconds int
+	Policy          string
+	Schema          string
+	Endpoint        string
+	MaxRetries      *int
+	RetryInterval   time.Duration
+	HttpOptions     *HttpOptions
+}
+
+// NewOIDCCredentialsProviderWithOptions constructs an OIDCCredentialsProvider
+// with required parameters and optional functional options.
+func NewOIDCCredentialsProviderWithOptions(tokenFilePath, roleTrn string, optFns ...func(*OIDCProviderOptions)) *OIDCCredentialsProvider {
+	opts := OIDCProviderOptions{
+		DurationSeconds: 3600,
+		Schema:          "https",
+		HttpOptions:     &HttpOptions{Timeout: 10 * time.Second},
+	}
+	for _, fn := range optFns {
+		fn(&opts)
+	}
+	return &OIDCCredentialsProvider{
+		OIDCTokenFilePath: tokenFilePath,
+		RoleTrn:           roleTrn,
+		RoleSessionName:   opts.RoleSessionName,
+		DurationSeconds:   opts.DurationSeconds,
+		Policy:            opts.Policy,
+		Schema:            opts.Schema,
+		Endpoint:          opts.Endpoint,
+		MaxRetries:        opts.MaxRetries,
+		RetryInterval:     opts.RetryInterval,
+		httpOptions:       opts.HttpOptions,
+	}
+}
+
 func NewOIDCCredentialsProviderFromEnv() *OIDCCredentialsProvider {
 	sessionName := os.Getenv("VOLCENGINE_OIDC_ROLE_SESSION_NAME")
 	if sessionName == "" {
 		sessionName = "credentials-go-" + strconv.FormatInt(time.Now().UnixNano()/1000, 10)
 	}
-	return &OIDCCredentialsProvider{
-		OIDCTokenFilePath: os.Getenv("VOLCENGINE_OIDC_TOKEN_FILE"),
-		RoleTrn:           os.Getenv("VOLCENGINE_OIDC_ROLE_TRN"),
-		RoleSessionName:   sessionName,
-		DurationSeconds:   3600, // default duration
-		Policy:            os.Getenv("VOLCENGINE_OIDC_ROLE_POLICY"),
-		Schema:            "https", //default https
-		Endpoint:          os.Getenv("VOLCENGINE_OIDC_STS_ENDPOINT"),
-		httpOptions:       &HttpOptions{Timeout: 10 * time.Second},
-	}
+	return NewOIDCCredentialsProviderWithOptions(
+		os.Getenv("VOLCENGINE_OIDC_TOKEN_FILE"),
+		os.Getenv("VOLCENGINE_OIDC_ROLE_TRN"),
+		func(o *OIDCProviderOptions) {
+			o.RoleSessionName = sessionName
+			o.Policy = os.Getenv("VOLCENGINE_OIDC_ROLE_POLICY")
+			o.Endpoint = os.Getenv("VOLCENGINE_OIDC_STS_ENDPOINT")
+		},
+	)
 }
+
 func (p *OIDCCredentialsProvider) Retrieve() (Value, error) {
 	return p.fetchOnce()
 }
@@ -128,6 +163,7 @@ func (p *OIDCCredentialsProvider) fetchOnce() (Value, error) {
 	if p.Policy != "" {
 		data.Set("Policy", p.Policy)
 	}
+
 	endpoint := DefaultEndpoint
 	if p.Endpoint != "" {
 		endpoint = p.Endpoint
@@ -144,30 +180,13 @@ func (p *OIDCCredentialsProvider) fetchOnce() (Value, error) {
 		client = &http.Client{}
 	}
 
-	maxRetries := resolveCredentialMaxRetries(p.MaxRetries)
-	retryInterval := p.RetryInterval
-	if retryInterval <= 0 {
-		retryInterval = DefaultRetryerMinRetryDelay
-	}
-
-	// 发送请求到STS服务（带重试）
-	requestURL := scheme + "://" + endpoint + "/?Action=AssumeRoleWithOIDC&Version=2018-01-01"
 	var stsResp AssumeRoleWithOIDCResponse
-	var lastErr error
-	for attempt := 0; attempt <= maxRetries; attempt++ {
-		stsResp, lastErr = doOIDCAssumeRoleOnce(client, requestURL, data.Encode())
-		if lastErr == nil {
-			break
-		}
-		if attempt < maxRetries {
-			time.Sleep(retryInterval)
-		}
-	}
-	if lastErr != nil {
-		return Value{}, lastErr
+	if err := doSTSFormRequest(client, scheme, endpoint, "AssumeRoleWithOIDC",
+		data, &stsResp, p.MaxRetries, p.RetryInterval,
+		"STS AssumeRoleWithOIDC service error"); err != nil {
+		return Value{}, err
 	}
 
-	// 创建凭证对象
 	creds := Value{
 		AccessKeyID:     stsResp.Result.Credentials.AccessKeyId,
 		SecretAccessKey: stsResp.Result.Credentials.SecretAccessKey,
@@ -175,7 +194,6 @@ func (p *OIDCCredentialsProvider) fetchOnce() (Value, error) {
 		ProviderName:    "OIDC",
 	}
 	p.lastUpdateTimestamp = time.Now().Unix()
-	// parse time 2021-04-12T11:57:09+08:00 to unix timestamp
 	expirationTime, err := time.Parse(time.RFC3339, stsResp.Result.Credentials.Expiration)
 	if err != nil {
 		return Value{}, fmt.Errorf("failed to parse expiration time: %v", err)
@@ -191,26 +209,4 @@ func (p *OIDCCredentialsProvider) IsExpired() bool {
 		return true
 	}
 	return time.Now().Unix() > p.expirationTimestamp
-}
-
-// doOIDCAssumeRoleOnce performs one AssumeRoleWithOIDC HTTP call and decodes the response. It is intended to be invoked inside a retry loop.
-func doOIDCAssumeRoleOnce(client *http.Client, requestURL, body string) (AssumeRoleWithOIDCResponse, error) {
-	var stsResp AssumeRoleWithOIDCResponse
-	resp, err := client.Post(requestURL, "application/x-www-form-urlencoded", strings.NewReader(body))
-	if err != nil {
-		return stsResp, fmt.Errorf("failed to request STS service: %v", err)
-	}
-	defer resp.Body.Close()
-
-	if resp.StatusCode != http.StatusOK {
-		respBody, _ := ioutil.ReadAll(resp.Body)
-		return stsResp, fmt.Errorf("STS service returned non-OK status: %d, body: %s", resp.StatusCode, string(respBody))
-	}
-	if err := json.NewDecoder(resp.Body).Decode(&stsResp); err != nil {
-		return AssumeRoleWithOIDCResponse{}, fmt.Errorf("failed to decode STS response: %v", err)
-	}
-	if stsResp.ResponseMetadata.Error != nil {
-		return AssumeRoleWithOIDCResponse{}, fmt.Errorf("STS AssumeRoleWithOIDC service error: %v", stsResp.ResponseMetadata)
-	}
-	return stsResp, nil
 }

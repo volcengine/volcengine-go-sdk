@@ -69,15 +69,36 @@ type EcsRoleProvider struct {
 	httpClient *http.Client
 }
 
+// EcsRoleProviderOptions contains optional configuration for EcsRoleProvider.
+type EcsRoleProviderOptions struct {
+	ExpiryWindow  time.Duration
+	MaxRetries    *int
+	RetryInterval time.Duration
+	HttpTimeout   time.Duration
+}
+
+// NewEcsRoleProviderWithOptions constructs an EcsRoleProvider with the role
+// name as a required parameter and optional functional options.
+func NewEcsRoleProviderWithOptions(roleName string, optFns ...func(*EcsRoleProviderOptions)) *EcsRoleProvider {
+	opts := EcsRoleProviderOptions{
+		ExpiryWindow: imdsDefaultExpiryWindow,
+		HttpTimeout:  imdsDefaultConnectTimeout + imdsDefaultReadTimeout,
+	}
+	for _, fn := range optFns {
+		fn(&opts)
+	}
+	return &EcsRoleProvider{
+		RoleName:      roleName,
+		ExpiryWindow:  opts.ExpiryWindow,
+		MaxRetries:    opts.MaxRetries,
+		RetryInterval: opts.RetryInterval,
+		httpClient:    &http.Client{Timeout: opts.HttpTimeout},
+	}
+}
+
 // NewEcsRoleProvider returns a new EcsRoleProvider.
 func NewEcsRoleProvider(roleName string) *EcsRoleProvider {
-	return &EcsRoleProvider{
-		RoleName:     roleName,
-		ExpiryWindow: imdsDefaultExpiryWindow,
-		httpClient: &http.Client{
-			Timeout: imdsDefaultConnectTimeout + imdsDefaultReadTimeout,
-		},
-	}
+	return NewEcsRoleProviderWithOptions(roleName)
 }
 
 // NewEcsRoleCredentials returns a pointer to a new Credentials object wrapping

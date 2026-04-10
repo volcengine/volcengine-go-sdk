@@ -74,6 +74,36 @@ func (s *StsProvider) IsExpired() bool {
 	return s.Expiry.IsExpired()
 }
 
+// NewStsCredentialsWithOptions constructs an StsProvider-backed Credentials
+// with required parameters and optional functional options.
+func NewStsCredentialsWithOptions(accessKey, securityKey, roleName, accountId string, optFns ...func(*StsAssumeRoleOptions)) *Credentials {
+	opts := StsAssumeRoleOptions{
+		DurationSeconds: 3600,
+	}
+	for _, fn := range optFns {
+		fn(&opts)
+	}
+	cfg := StsAssumeRoleProvider{
+		AccessKey:       accessKey,
+		SecurityKey:     securityKey,
+		RoleName:        roleName,
+		AccountId:       accountId,
+		Host:            opts.Host,
+		Region:          opts.Region,
+		Schema:          opts.Schema,
+		Timeout:         opts.Timeout,
+		DurationSeconds: opts.DurationSeconds,
+		Policy:          opts.Policy,
+		MaxRetries:      opts.MaxRetries,
+		RetryInterval:   opts.RetryInterval,
+	}
+	p := &StsProvider{
+		StsValue: StsValue(cfg),
+		Expiry:   Expiry{},
+	}
+	return NewExpireAbleCredentials(p)
+}
+
 func NewStsCredentials(value StsValue) *Credentials {
 
 	p := &StsProvider{

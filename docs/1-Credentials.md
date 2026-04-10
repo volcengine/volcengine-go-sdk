@@ -85,6 +85,50 @@ AssumeRole supports dynamic credentials with automatic refresh. The SDK refreshe
 > 2. Choose a reasonable TTL; maximum is 12 hours.
 > 3. Use fine-grained roles and policies.
 
+**Option 1: Using WithOptions (recommended)**
+
+```go
+package main
+
+import (
+    "os"
+    "time"
+    "github.com/volcengine/volcengine-go-sdk/volcengine"
+    "github.com/volcengine/volcengine-go-sdk/volcengine/credentials"
+    "github.com/volcengine/volcengine-go-sdk/volcengine/session"
+)
+
+func main() {
+    config := volcengine.NewConfig().
+        WithRegion("cn-beijing").
+        WithCredentials(credentials.NewStsCredentialsWithOptions(
+            os.Getenv("VOLCENGINE_ACCESS_KEY"),  // Sub-account AK (required)
+            os.Getenv("VOLCENGINE_SECRET_KEY"),  // Sub-account SK (required)
+            "RoleName",                          // Name of the role to assume (required)
+            "123456",                            // Main account ID (required)
+            // All options below are optional; omit the func to use defaults
+            // func(o *credentials.StsAssumeRoleOptions) {
+            //     o.Host = "open.volcengineapi.com" // STS host
+            //     o.Region = "cn-beijing"           // STS region
+            //     o.Schema = "https"                // STS schema
+            //     o.Timeout = 5 * time.Second       // Request timeout
+            //     o.DurationSeconds = 900           // TTL in seconds, default 3600
+            //     o.Policy = `{"Statement":[...]}`  // Session policy JSON
+            //     o.MaxRetries = volcengine.Int(3)   // Retry attempts; nil defaults to 3, 0 disables
+            //     o.RetryInterval = 30 * time.Millisecond // Sleep between retries; <= 0 falls back to 30ms
+            // },
+        ))
+
+    sess, err := session.NewSession(config)
+    if err != nil {
+        panic(err)
+    }
+    _ = sess
+}
+```
+
+**Option 2: Using StsValue struct**
+
 ```go
 package main
 
@@ -109,8 +153,8 @@ func main() {
             Schema:     "Schema",          // STS schema (http/https)
             Timeout:    5 * time.Second,   // STS request timeout
             DurationSeconds: 900,          // TTL of the temporary credentials, in seconds
-            // Policy: optional session policy JSON that further restricts the temporary credentials, e.g. `{"Statement":[{"Effect":"Allow","Action":["vpc:DescribeVpcs"],"Resource":["*"]}]}`
-            MaxRetries:    volcengine.Int(3),  // optional extra retry attempts on AssumeRole failure; nil defaults to 3, 0 disables retries
+            // Policy: optional session policy JSON, e.g. `{"Statement":[{"Effect":"Allow","Action":["vpc:DescribeVpcs"],"Resource":["*"]}]}`
+            MaxRetries:    volcengine.Int(3),  // optional extra retry attempts; nil defaults to 3, 0 disables retries
             RetryInterval: 30 * time.Millisecond, // optional sleep between retries; <= 0 falls back to 30ms
         }))
 
@@ -132,7 +176,7 @@ STS AssumeRoleOIDC (Security Token Service) is a temporary access credential mec
 > 2. **Reasonable Validity Period**: Set a reasonable validity period based on actual conditions. Shorter periods are safer; it is recommended not to exceed 1 hour.
 > 3. **OIDC Token Storage**: In the Go SDK, the OIDC Token must be stored in a file.
 
-**Code Example:**
+**Option 1: Using WithOptions (recommended)**
 
 ```go
 package main
@@ -147,25 +191,19 @@ import (
 )
 
 func main() {
-	// Your OIDC Token file path
-	// Note: The Go SDK currently supports reading OIDC Token only from a file
-	oidcTokenFile := "/path/to/oidc_token_file"
-	roleTrn := "Your Role Trn" // Your Role TRN
+	p := credentials.NewOIDCCredentialsProviderWithOptions(
+		"/path/to/oidc_token_file",              // OIDC Token file path (required)
+		"Your Role Trn",                         // Role TRN (required)
+		func(o *credentials.OIDCProviderOptions) {
+			// o.RoleSessionName = ""                         // env: VOLCENGINE_OIDC_ROLE_SESSION_NAME (optional)
+			// o.Policy = ""                                  // env: VOLCENGINE_OIDC_ROLE_POLICY (optional)
+			// o.Endpoint = ""                                // env: VOLCENGINE_OIDC_STS_ENDPOINT (optional)
+			// o.DurationSeconds = 3600                       // Validity period, default 3600
+			// o.MaxRetries = volcengine.Int(3)               // optional: retry attempts; nil defaults to 3, 0 disables
+			// o.RetryInterval = 30 * time.Millisecond        // optional: sleep between retries; <= 0 falls back to 30ms
+		},
+	)
 
-	// Create OIDC credentials provider
-	// Tip: credentials.NewOIDCCredentialsProviderFromEnv() builds the provider from the env vars.
-	p := &credentials.OIDCCredentialsProvider{
-		OIDCTokenFilePath: oidcTokenFile,   // env: VOLCENGINE_OIDC_TOKEN_FILE (required)
-		RoleTrn:           roleTrn,         // env: VOLCENGINE_OIDC_ROLE_TRN  (required)
-		RoleSessionName:   "",              // env: VOLCENGINE_OIDC_ROLE_SESSION_NAME (optional)
-		Policy:            "",              // env: VOLCENGINE_OIDC_ROLE_POLICY (optional)
-		Endpoint:          "",              // env: VOLCENGINE_OIDC_STS_ENDPOINT (optional)
-		DurationSeconds:   3600,            // Validity period
-		MaxRetries:        volcengine.Int(3),  // optional extra retry attempts on failure; nil defaults to 3, 0 disables retries
-		RetryInterval:     30 * time.Millisecond, // optional sleep between retries; <= 0 falls back to 30ms
-	}
-
-	// Configure SDK to use OIDC credentials
 	config := volcengine.NewConfig().
 		WithRegion("cn-beijing").
 		WithCredentials(credentials.NewCredentials(p))
@@ -176,16 +214,57 @@ func main() {
 	}
 
 	svc := vpc.New(sess)
-	// Use DescribeVpcs as an example, no extra parameters needed
-	describeVpcsInput := &vpc.DescribeVpcsInput{}
-
-	// Copy the code to run the example, please print the API return value yourself.
-	resp, err := svc.DescribeVpcs(describeVpcsInput)
+	resp, err := svc.DescribeVpcs(&vpc.DescribeVpcsInput{})
 	if err != nil {
-		// Copy the code to run the example, please print the API error info yourself.
 		panic(err)
 	}
-	// Print the result to verify success
+	fmt.Println(resp)
+}
+```
+
+> Tip: `credentials.NewOIDCCredentialsProviderFromEnv()` builds the provider from environment variables without any arguments.
+
+**Option 2: Using struct literal**
+
+```go
+package main
+
+import (
+	"fmt"
+	"time"
+
+	"github.com/volcengine/volcengine-go-sdk/service/vpc"
+	"github.com/volcengine/volcengine-go-sdk/volcengine"
+	"github.com/volcengine/volcengine-go-sdk/volcengine/credentials"
+	"github.com/volcengine/volcengine-go-sdk/volcengine/session"
+)
+
+func main() {
+	p := &credentials.OIDCCredentialsProvider{
+		OIDCTokenFilePath: "/path/to/oidc_token_file", // env: VOLCENGINE_OIDC_TOKEN_FILE (required)
+		RoleTrn:           "Your Role Trn",            // env: VOLCENGINE_OIDC_ROLE_TRN  (required)
+		RoleSessionName:   "",              // env: VOLCENGINE_OIDC_ROLE_SESSION_NAME (optional)
+		Policy:            "",              // env: VOLCENGINE_OIDC_ROLE_POLICY (optional)
+		Endpoint:          "",              // env: VOLCENGINE_OIDC_STS_ENDPOINT (optional)
+		DurationSeconds:   3600,            // Validity period
+		MaxRetries:        volcengine.Int(3),  // optional extra retry attempts; nil defaults to 3, 0 disables retries
+		RetryInterval:     30 * time.Millisecond, // optional sleep between retries; <= 0 falls back to 30ms
+	}
+
+	config := volcengine.NewConfig().
+		WithRegion("cn-beijing").
+		WithCredentials(credentials.NewCredentials(p))
+
+	sess, err := session.NewSession(config)
+	if err != nil {
+		panic(err)
+	}
+
+	svc := vpc.New(sess)
+	resp, err := svc.DescribeVpcs(&vpc.DescribeVpcsInput{})
+	if err != nil {
+		panic(err)
+	}
 	fmt.Println(resp)
 }
 ```
@@ -200,10 +279,49 @@ func main() {
 > 2. **Reasonable Validity Period**: Recommended not to exceed 1 hour.
 > 3. The `SAMLAssertion` is the base64-encoded SAML Response returned by your IdP.
 
+**Option 1: Using WithOptions (recommended)**
+
 ```go
 package main
 
 import (
+    "github.com/volcengine/volcengine-go-sdk/volcengine"
+    "github.com/volcengine/volcengine-go-sdk/volcengine/credentials"
+    "github.com/volcengine/volcengine-go-sdk/volcengine/session"
+)
+
+func main() {
+    p := credentials.NewSAMLCredentialsProviderWithOptions(
+        "trn:iam::1234567890:role/saml-role",                // Role TRN (required)
+        "trn:iam::1234567890:saml-provider/MyIdp",           // SAML provider TRN (required)
+        "BASE64_ENCODED_SAML_RESPONSE_FROM_IDP",             // SAML assertion (required)
+        func(o *credentials.SAMLProviderOptions) {
+            // o.DurationSeconds = 3600                                 // Validity period, default 3600
+            // o.MaxRetries = volcengine.Int(3)                         // optional: retry attempts; nil defaults to 3, 0 disables
+            // o.RetryInterval = 30 * time.Millisecond                  // optional: sleep between retries; <= 0 falls back to 30ms
+        },
+    )
+
+    config := volcengine.NewConfig().
+        WithRegion("cn-beijing").
+        WithCredentials(credentials.NewCredentials(p))
+
+    sess, err := session.NewSession(config)
+    if err != nil {
+        panic(err)
+    }
+    _ = sess
+}
+```
+
+**Option 2: Using convenience constructor**
+
+```go
+package main
+
+import (
+    "time"
+
     "github.com/volcengine/volcengine-go-sdk/volcengine"
     "github.com/volcengine/volcengine-go-sdk/volcengine/credentials"
     "github.com/volcengine/volcengine-go-sdk/volcengine/session"
@@ -216,7 +334,7 @@ func main() {
         "BASE64_ENCODED_SAML_RESPONSE_FROM_IDP",             // SAMLAssertion
     )
     p.DurationSeconds = 3600
-    p.MaxRetries = volcengine.Int(3)         // optional extra retry attempts on failure; nil defaults to 3, 0 disables retries
+    p.MaxRetries = volcengine.Int(3)         // optional extra retry attempts; nil defaults to 3, 0 disables retries
     p.RetryInterval = 30 * time.Millisecond  // optional sleep between retries; <= 0 falls back to 30ms
 
     config := volcengine.NewConfig().
@@ -318,6 +436,40 @@ func main() {
 >
 > 1. Only works on ECS instances with an IAM role attached.
 > 2. Auto-detection queries the IMDS role list and uses the first role found.
+
+**Option 1: Using WithOptions (recommended, supports custom retry config)**
+
+```go
+package main
+
+import (
+	"github.com/volcengine/volcengine-go-sdk/volcengine"
+	"github.com/volcengine/volcengine-go-sdk/volcengine/credentials"
+	"github.com/volcengine/volcengine-go-sdk/volcengine/session"
+)
+
+func main() {
+	p := credentials.NewEcsRoleProviderWithOptions(
+		"your-ecs-role-name", // Role name (leave empty to auto-detect from IMDS)
+		func(o *credentials.EcsRoleProviderOptions) {
+			// o.MaxRetries = volcengine.Int(3)                // optional: retry attempts; nil defaults to 3, 0 disables
+			// o.RetryInterval = 30 * time.Millisecond         // optional: sleep between retries; <= 0 falls back to 30ms
+		},
+	)
+
+	config := volcengine.NewConfig().
+		WithRegion("cn-beijing").
+		WithCredentials(credentials.NewCredentials(p))
+
+	sess, err := session.NewSession(config)
+	if err != nil {
+		panic(err)
+	}
+	_ = sess
+}
+```
+
+**Option 2: Using convenience constructor**
 
 ```go
 package main
