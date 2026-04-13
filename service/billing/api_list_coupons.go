@@ -295,6 +295,8 @@ type ListForListCouponsOutput struct {
 	TotalAmount *float64 `type:"double" json:",omitempty"`
 
 	UsageLimit *int32 `type:"int32" json:",omitempty"`
+
+	VoidReason *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -400,6 +402,12 @@ func (s *ListForListCouponsOutput) SetTotalAmount(v float64) *ListForListCoupons
 // SetUsageLimit sets the UsageLimit field's value.
 func (s *ListForListCouponsOutput) SetUsageLimit(v int32) *ListForListCouponsOutput {
 	s.UsageLimit = &v
+	return s
+}
+
+// SetVoidReason sets the VoidReason field's value.
+func (s *ListForListCouponsOutput) SetVoidReason(v string) *ListForListCouponsOutput {
+	s.VoidReason = &v
 	return s
 }
 
