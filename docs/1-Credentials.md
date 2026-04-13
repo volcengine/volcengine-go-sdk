@@ -1,4 +1,4 @@
-[← SDK Integration](../SDK_Integration.md) | Credentials[(中文)](1-Credentials-zh.md) | [Endpoint →](2-Endpoint.md)
+[← Overview](0-Overview.md) | Credentials[(中文)](1-Credentials-zh.md) | [Endpoint →](2-Endpoint.md)
 
 ---
 
@@ -19,7 +19,7 @@ Volcengine Go SDK supports multiple authentication mechanisms. Choose the one th
 | `EcsRoleProvider` | Read from ECS IMDS (IMDSv2) | Yes | ECS instance role credentials |
 | `DefaultCredentialProvider` | 4-step chain wrapper | Depends on delegated provider | No AK/SK in application code |
 
-You can refer to: [Environment Variable Setup](../SDK_Integration.md#environment-variable-setup)
+You can refer to: [Environment Variable Setup](0-Overview.md)
 
 ## AK/SK
 
@@ -562,4 +562,4 @@ func main() {
 
 ---
 
-[← SDK Integration](../SDK_Integration.md) | Credentials[(中文)](1-Credentials-zh.md) | [Endpoint →](2-Endpoint.md)
+[← Overview](0-Overview.md) | Credentials[(中文)](1-Credentials-zh.md) | [Endpoint →](2-Endpoint.md)

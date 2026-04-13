@@ -167,7 +167,7 @@ config = volcengine.NewConfig().
     WithRegion(region).WithHTTPProxy("http://your_proxy:8080").WithHTTPSProxy("http://your_proxy:8080")
 
 sess, _ = session.NewSession(config)
-client = ecsops.New(sess)
+client = ecs.New(sess)
 ```
 
 ## Notes
