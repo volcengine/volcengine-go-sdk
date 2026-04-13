@@ -143,56 +143,8 @@ func (c *RDSMYSQLV2) CreateDrDBInstanceWithContext(ctx volcengine.Context, input
 	return out, req.Send()
 }
 
-type AutoStorageScalingConfigForCreateDrDBInstanceInput struct {
-	_ struct{} `type:"structure" json:",omitempty"`
-
-	EnableStorageAutoScale *bool `type:"boolean" json:",omitempty"`
-
-	ScalingDetectNode *string `type:"string" json:",omitempty"`
-
-	StorageThreshold *int32 `type:"int32" json:",omitempty"`
-
-	StorageUpperBound *int32 `type:"int32" json:",omitempty"`
-}
-
-// String returns the string representation
-func (s AutoStorageScalingConfigForCreateDrDBInstanceInput) String() string {
-	return volcengineutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s AutoStorageScalingConfigForCreateDrDBInstanceInput) GoString() string {
-	return s.String()
-}
-
-// SetEnableStorageAutoScale sets the EnableStorageAutoScale field's value.
-func (s *AutoStorageScalingConfigForCreateDrDBInstanceInput) SetEnableStorageAutoScale(v bool) *AutoStorageScalingConfigForCreateDrDBInstanceInput {
-	s.EnableStorageAutoScale = &v
-	return s
-}
-
-// SetScalingDetectNode sets the ScalingDetectNode field's value.
-func (s *AutoStorageScalingConfigForCreateDrDBInstanceInput) SetScalingDetectNode(v string) *AutoStorageScalingConfigForCreateDrDBInstanceInput {
-	s.ScalingDetectNode = &v
-	return s
-}
-
-// SetStorageThreshold sets the StorageThreshold field's value.
-func (s *AutoStorageScalingConfigForCreateDrDBInstanceInput) SetStorageThreshold(v int32) *AutoStorageScalingConfigForCreateDrDBInstanceInput {
-	s.StorageThreshold = &v
-	return s
-}
-
-// SetStorageUpperBound sets the StorageUpperBound field's value.
-func (s *AutoStorageScalingConfigForCreateDrDBInstanceInput) SetStorageUpperBound(v int32) *AutoStorageScalingConfigForCreateDrDBInstanceInput {
-	s.StorageUpperBound = &v
-	return s
-}
-
 type CreateDrDBInstanceInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
-
-	AutoStorageScalingConfig *AutoStorageScalingConfigForCreateDrDBInstanceInput `type:"structure" json:",omitempty"`
 
 	DeletionProtection *string `type:"string" json:",omitempty"`
 
@@ -255,12 +207,6 @@ func (s *CreateDrDBInstanceInput) Validate() error {
 		return invalidParams
 	}
 	return nil
-}
-
-// SetAutoStorageScalingConfig sets the AutoStorageScalingConfig field's value.
-func (s *CreateDrDBInstanceInput) SetAutoStorageScalingConfig(v *AutoStorageScalingConfigForCreateDrDBInstanceInput) *CreateDrDBInstanceInput {
-	s.AutoStorageScalingConfig = v
-	return s
 }
 
 // SetDeletionProtection sets the DeletionProtection field's value.

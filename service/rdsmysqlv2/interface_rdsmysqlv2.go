@@ -38,14 +38,6 @@ type RDSMYSQLV2API interface {
 	AddDiagnosticsEntityWithContext(volcengine.Context, *AddDiagnosticsEntityInput, ...request.Option) (*AddDiagnosticsEntityOutput, error)
 	AddDiagnosticsEntityRequest(*AddDiagnosticsEntityInput) (*request.Request, *AddDiagnosticsEntityOutput)
 
-	AddTagFromUserBackupInfoCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	AddTagFromUserBackupInfoCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	AddTagFromUserBackupInfoCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	AddTagFromUserBackupInfo(*AddTagFromUserBackupInfoInput) (*AddTagFromUserBackupInfoOutput, error)
-	AddTagFromUserBackupInfoWithContext(volcengine.Context, *AddTagFromUserBackupInfoInput, ...request.Option) (*AddTagFromUserBackupInfoOutput, error)
-	AddTagFromUserBackupInfoRequest(*AddTagFromUserBackupInfoInput) (*request.Request, *AddTagFromUserBackupInfoOutput)
-
 	AddTagsToResourceCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	AddTagsToResourceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	AddTagsToResourceCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -61,22 +53,6 @@ type RDSMYSQLV2API interface {
 	AssociateAllowList(*AssociateAllowListInput) (*AssociateAllowListOutput, error)
 	AssociateAllowListWithContext(volcengine.Context, *AssociateAllowListInput, ...request.Option) (*AssociateAllowListOutput, error)
 	AssociateAllowListRequest(*AssociateAllowListInput) (*request.Request, *AssociateAllowListOutput)
-
-	AssociateUserBackupCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	AssociateUserBackupCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	AssociateUserBackupCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	AssociateUserBackup(*AssociateUserBackupInput) (*AssociateUserBackupOutput, error)
-	AssociateUserBackupWithContext(volcengine.Context, *AssociateUserBackupInput, ...request.Option) (*AssociateUserBackupOutput, error)
-	AssociateUserBackupRequest(*AssociateUserBackupInput) (*request.Request, *AssociateUserBackupOutput)
-
-	CheckUserUploadBackupCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	CheckUserUploadBackupCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	CheckUserUploadBackupCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	CheckUserUploadBackup(*CheckUserUploadBackupInput) (*CheckUserUploadBackupOutput, error)
-	CheckUserUploadBackupWithContext(volcengine.Context, *CheckUserUploadBackupInput, ...request.Option) (*CheckUserUploadBackupOutput, error)
-	CheckUserUploadBackupRequest(*CheckUserUploadBackupInput) (*request.Request, *CheckUserUploadBackupOutput)
 
 	CleanNonWhiteSessionCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	CleanNonWhiteSessionCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -285,14 +261,6 @@ type RDSMYSQLV2API interface {
 	DeleteParameterTemplate(*DeleteParameterTemplateInput) (*DeleteParameterTemplateOutput, error)
 	DeleteParameterTemplateWithContext(volcengine.Context, *DeleteParameterTemplateInput, ...request.Option) (*DeleteParameterTemplateOutput, error)
 	DeleteParameterTemplateRequest(*DeleteParameterTemplateInput) (*request.Request, *DeleteParameterTemplateOutput)
-
-	DeleteUserUploadBackupCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	DeleteUserUploadBackupCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	DeleteUserUploadBackupCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	DeleteUserUploadBackup(*DeleteUserUploadBackupInput) (*DeleteUserUploadBackupOutput, error)
-	DeleteUserUploadBackupWithContext(volcengine.Context, *DeleteUserUploadBackupInput, ...request.Option) (*DeleteUserUploadBackupOutput, error)
-	DeleteUserUploadBackupRequest(*DeleteUserUploadBackupInput) (*request.Request, *DeleteUserUploadBackupOutput)
 
 	DescribeAllowListDetailCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DescribeAllowListDetailCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -742,22 +710,6 @@ type RDSMYSQLV2API interface {
 	DescribeUpgradeEngineMajorVersionPrecheckResultWithContext(volcengine.Context, *DescribeUpgradeEngineMajorVersionPrecheckResultInput, ...request.Option) (*DescribeUpgradeEngineMajorVersionPrecheckResultOutput, error)
 	DescribeUpgradeEngineMajorVersionPrecheckResultRequest(*DescribeUpgradeEngineMajorVersionPrecheckResultInput) (*request.Request, *DescribeUpgradeEngineMajorVersionPrecheckResultOutput)
 
-	DescribeUserTosBackupAssociateCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	DescribeUserTosBackupAssociateCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	DescribeUserTosBackupAssociateCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	DescribeUserTosBackupAssociate(*DescribeUserTosBackupAssociateInput) (*DescribeUserTosBackupAssociateOutput, error)
-	DescribeUserTosBackupAssociateWithContext(volcengine.Context, *DescribeUserTosBackupAssociateInput, ...request.Option) (*DescribeUserTosBackupAssociateOutput, error)
-	DescribeUserTosBackupAssociateRequest(*DescribeUserTosBackupAssociateInput) (*request.Request, *DescribeUserTosBackupAssociateOutput)
-
-	DescribeUserUploadBackupsCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	DescribeUserUploadBackupsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	DescribeUserUploadBackupsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	DescribeUserUploadBackups(*DescribeUserUploadBackupsInput) (*DescribeUserUploadBackupsOutput, error)
-	DescribeUserUploadBackupsWithContext(volcengine.Context, *DescribeUserUploadBackupsInput, ...request.Option) (*DescribeUserUploadBackupsOutput, error)
-	DescribeUserUploadBackupsRequest(*DescribeUserUploadBackupsInput) (*request.Request, *DescribeUserUploadBackupsOutput)
-
 	DisassociateAllowListCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DisassociateAllowListCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DisassociateAllowListCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -845,6 +797,14 @@ type RDSMYSQLV2API interface {
 	ModifyBackupEncryptionPolicy(*ModifyBackupEncryptionPolicyInput) (*ModifyBackupEncryptionPolicyOutput, error)
 	ModifyBackupEncryptionPolicyWithContext(volcengine.Context, *ModifyBackupEncryptionPolicyInput, ...request.Option) (*ModifyBackupEncryptionPolicyOutput, error)
 	ModifyBackupEncryptionPolicyRequest(*ModifyBackupEncryptionPolicyInput) (*request.Request, *ModifyBackupEncryptionPolicyOutput)
+
+	ModifyBackupNameCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ModifyBackupNameCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ModifyBackupNameCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ModifyBackupName(*ModifyBackupNameInput) (*ModifyBackupNameOutput, error)
+	ModifyBackupNameWithContext(volcengine.Context, *ModifyBackupNameInput, ...request.Option) (*ModifyBackupNameOutput, error)
+	ModifyBackupNameRequest(*ModifyBackupNameInput) (*request.Request, *ModifyBackupNameOutput)
 
 	ModifyBackupPolicyCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ModifyBackupPolicyCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -1094,6 +1054,14 @@ type RDSMYSQLV2API interface {
 	ModifyTaskWithContext(volcengine.Context, *ModifyTaskInput, ...request.Option) (*ModifyTaskOutput, error)
 	ModifyTaskRequest(*ModifyTaskInput) (*request.Request, *ModifyTaskOutput)
 
+	RebuildDBGreenInstanceCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	RebuildDBGreenInstanceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	RebuildDBGreenInstanceCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	RebuildDBGreenInstance(*RebuildDBGreenInstanceInput) (*RebuildDBGreenInstanceOutput, error)
+	RebuildDBGreenInstanceWithContext(volcengine.Context, *RebuildDBGreenInstanceInput, ...request.Option) (*RebuildDBGreenInstanceOutput, error)
+	RebuildDBGreenInstanceRequest(*RebuildDBGreenInstanceInput) (*request.Request, *RebuildDBGreenInstanceOutput)
+
 	RebuildDBInstanceCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	RebuildDBInstanceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	RebuildDBInstanceCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -1117,14 +1085,6 @@ type RDSMYSQLV2API interface {
 	RemoveDiagnosticsEntity(*RemoveDiagnosticsEntityInput) (*RemoveDiagnosticsEntityOutput, error)
 	RemoveDiagnosticsEntityWithContext(volcengine.Context, *RemoveDiagnosticsEntityInput, ...request.Option) (*RemoveDiagnosticsEntityOutput, error)
 	RemoveDiagnosticsEntityRequest(*RemoveDiagnosticsEntityInput) (*request.Request, *RemoveDiagnosticsEntityOutput)
-
-	RemoveTagFromUserBackupInfoCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	RemoveTagFromUserBackupInfoCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	RemoveTagFromUserBackupInfoCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	RemoveTagFromUserBackupInfo(*RemoveTagFromUserBackupInfoInput) (*RemoveTagFromUserBackupInfoOutput, error)
-	RemoveTagFromUserBackupInfoWithContext(volcengine.Context, *RemoveTagFromUserBackupInfoInput, ...request.Option) (*RemoveTagFromUserBackupInfoOutput, error)
-	RemoveTagFromUserBackupInfoRequest(*RemoveTagFromUserBackupInfoInput) (*request.Request, *RemoveTagFromUserBackupInfoOutput)
 
 	RemoveTagsFromResourceCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	RemoveTagsFromResourceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -1173,14 +1133,6 @@ type RDSMYSQLV2API interface {
 	RestoreToNewInstance(*RestoreToNewInstanceInput) (*RestoreToNewInstanceOutput, error)
 	RestoreToNewInstanceWithContext(volcengine.Context, *RestoreToNewInstanceInput, ...request.Option) (*RestoreToNewInstanceOutput, error)
 	RestoreToNewInstanceRequest(*RestoreToNewInstanceInput) (*request.Request, *RestoreToNewInstanceOutput)
-
-	RestoreToNewInstanceFromUserTosCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	RestoreToNewInstanceFromUserTosCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	RestoreToNewInstanceFromUserTosCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	RestoreToNewInstanceFromUserTos(*RestoreToNewInstanceFromUserTosInput) (*RestoreToNewInstanceFromUserTosOutput, error)
-	RestoreToNewInstanceFromUserTosWithContext(volcengine.Context, *RestoreToNewInstanceFromUserTosInput, ...request.Option) (*RestoreToNewInstanceFromUserTosOutput, error)
-	RestoreToNewInstanceFromUserTosRequest(*RestoreToNewInstanceFromUserTosInput) (*request.Request, *RestoreToNewInstanceFromUserTosOutput)
 
 	RevokeDBAccountPrivilegeCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	RevokeDBAccountPrivilegeCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
