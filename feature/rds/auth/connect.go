@@ -80,7 +80,7 @@ func BuildAuthToken(ctx context.Context, sess *session.Session, dbUser, instance
 	q.Set("Version", defaultAPIVersion)
 	q.Set("DBUser", dbUser)
 	q.Set("InstanceId", instanceId)
-	q.Set("X-Host", req.ClientInfo.Endpoint)
+	q.Set("X-HOST", req.ClientInfo.Endpoint)
 	if expires > 0 {
 		q.Set("X-Expires", strconv.Itoa(expires))
 	} else {
