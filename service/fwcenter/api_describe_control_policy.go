@@ -176,17 +176,19 @@ type DataForDescribeControlPolicyOutput struct {
 
 	Direction *string `type:"string" json:",omitempty"`
 
+	DomainResolutionMode *string `type:"string" json:",omitempty"`
+
 	EffectStatus *int32 `type:"int32" json:",omitempty"`
 
 	EndTime *int32 `type:"int32" json:",omitempty"`
 
-	HitCnt *int32 `type:"int32" json:",omitempty"`
+	HitCnt *int64 `type:"int64" json:",omitempty"`
 
 	IpType *string `type:"string" json:",omitempty"`
 
 	IsEffected *bool `type:"boolean" json:",omitempty"`
 
-	Prio *int32 `type:"int32" json:",omitempty"`
+	Prio *int64 `type:"int64" json:",omitempty"`
 
 	Proto *string `type:"string" json:",omitempty"`
 
@@ -210,13 +212,13 @@ type DataForDescribeControlPolicyOutput struct {
 
 	SourceType *string `type:"string" json:",omitempty"`
 
-	StartTime *int32 `type:"int32" json:",omitempty"`
+	StartTime *int64 `type:"int64" json:",omitempty"`
 
 	Status *bool `type:"boolean" json:",omitempty"`
 
-	UpdateTime *int32 `type:"int32" json:",omitempty"`
+	UpdateTime *int64 `type:"int64" json:",omitempty"`
 
-	UseCount *int32 `type:"int32" json:",omitempty"`
+	UseCount *int64 `type:"int64" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -319,6 +321,12 @@ func (s *DataForDescribeControlPolicyOutput) SetDirection(v string) *DataForDesc
 	return s
 }
 
+// SetDomainResolutionMode sets the DomainResolutionMode field's value.
+func (s *DataForDescribeControlPolicyOutput) SetDomainResolutionMode(v string) *DataForDescribeControlPolicyOutput {
+	s.DomainResolutionMode = &v
+	return s
+}
+
 // SetEffectStatus sets the EffectStatus field's value.
 func (s *DataForDescribeControlPolicyOutput) SetEffectStatus(v int32) *DataForDescribeControlPolicyOutput {
 	s.EffectStatus = &v
@@ -332,7 +340,7 @@ func (s *DataForDescribeControlPolicyOutput) SetEndTime(v int32) *DataForDescrib
 }
 
 // SetHitCnt sets the HitCnt field's value.
-func (s *DataForDescribeControlPolicyOutput) SetHitCnt(v int32) *DataForDescribeControlPolicyOutput {
+func (s *DataForDescribeControlPolicyOutput) SetHitCnt(v int64) *DataForDescribeControlPolicyOutput {
 	s.HitCnt = &v
 	return s
 }
@@ -350,7 +358,7 @@ func (s *DataForDescribeControlPolicyOutput) SetIsEffected(v bool) *DataForDescr
 }
 
 // SetPrio sets the Prio field's value.
-func (s *DataForDescribeControlPolicyOutput) SetPrio(v int32) *DataForDescribeControlPolicyOutput {
+func (s *DataForDescribeControlPolicyOutput) SetPrio(v int64) *DataForDescribeControlPolicyOutput {
 	s.Prio = &v
 	return s
 }
@@ -422,7 +430,7 @@ func (s *DataForDescribeControlPolicyOutput) SetSourceType(v string) *DataForDes
 }
 
 // SetStartTime sets the StartTime field's value.
-func (s *DataForDescribeControlPolicyOutput) SetStartTime(v int32) *DataForDescribeControlPolicyOutput {
+func (s *DataForDescribeControlPolicyOutput) SetStartTime(v int64) *DataForDescribeControlPolicyOutput {
 	s.StartTime = &v
 	return s
 }
@@ -434,13 +442,13 @@ func (s *DataForDescribeControlPolicyOutput) SetStatus(v bool) *DataForDescribeC
 }
 
 // SetUpdateTime sets the UpdateTime field's value.
-func (s *DataForDescribeControlPolicyOutput) SetUpdateTime(v int32) *DataForDescribeControlPolicyOutput {
+func (s *DataForDescribeControlPolicyOutput) SetUpdateTime(v int64) *DataForDescribeControlPolicyOutput {
 	s.UpdateTime = &v
 	return s
 }
 
 // SetUseCount sets the UseCount field's value.
-func (s *DataForDescribeControlPolicyOutput) SetUseCount(v int32) *DataForDescribeControlPolicyOutput {
+func (s *DataForDescribeControlPolicyOutput) SetUseCount(v int64) *DataForDescribeControlPolicyOutput {
 	s.UseCount = &v
 	return s
 }

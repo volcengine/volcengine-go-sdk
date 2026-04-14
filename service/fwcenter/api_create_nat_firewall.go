@@ -149,7 +149,7 @@ type CreateNatFirewallInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
 	// Bandwidth is a required field
-	Bandwidth *int32 `min:"10" type:"int32" json:",omitempty" required:"true"`
+	Bandwidth *int64 `min:"10" type:"int64" json:",omitempty" required:"true"`
 
 	CloudFirewallId *string `type:"string" json:",omitempty"`
 
@@ -213,7 +213,7 @@ func (s *CreateNatFirewallInput) Validate() error {
 }
 
 // SetBandwidth sets the Bandwidth field's value.
-func (s *CreateNatFirewallInput) SetBandwidth(v int32) *CreateNatFirewallInput {
+func (s *CreateNatFirewallInput) SetBandwidth(v int64) *CreateNatFirewallInput {
 	s.Bandwidth = &v
 	return s
 }
