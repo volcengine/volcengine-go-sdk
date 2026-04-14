@@ -377,7 +377,7 @@ func (r *ResponseStatus_Enum) UnmarshalJSON(bytes []byte) error {
 	return nil
 }
 
-// MarshalJSON ...
+// MarshalJSON implements json.MarshalJSON for EventType_Enum.
 func (r EventType_Enum) MarshalJSON() ([]byte, error) {
 	if r == 0 {
 		return json.Marshal(nil)

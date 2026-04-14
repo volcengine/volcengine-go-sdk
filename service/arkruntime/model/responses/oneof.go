@@ -260,25 +260,25 @@ func (i *ItemFunctionImageProcess) UnmarshalJSON(bytes []byte) error {
 	switch i.GetAction().GetType() {
 	case ResponseImageProcessType_point.String():
 		oneof1 := ResponseImageProcessArgs_PointArgs{}
-		if err = unmarshal(bytes, &oneof1.PointArgs); err == nil {
+		if err = json.Unmarshal(bytes, &oneof1.PointArgs); err == nil {
 			i.Arguments.Union = &oneof1
 			return nil
 		}
 	case ResponseImageProcessType_grounding.String():
 		oneof2 := ResponseImageProcessArgs_GroundingArgs{}
-		if err = unmarshal(bytes, &oneof2.GroundingArgs); err == nil {
+		if err = json.Unmarshal(bytes, &oneof2.GroundingArgs); err == nil {
 			i.Arguments.Union = &oneof2
 			return nil
 		}
 	case ResponseImageProcessType_rotate.String():
 		oneof3 := ResponseImageProcessArgs_RotateArgs{}
-		if err = unmarshal(bytes, &oneof3.RotateArgs); err == nil {
+		if err = json.Unmarshal(bytes, &oneof3.RotateArgs); err == nil {
 			i.Arguments.Union = &oneof3
 			return nil
 		}
 	case ResponseImageProcessType_zoom.String():
 		oneof4 := ResponseImageProcessArgs_ZoomArgs{}
-		if err = unmarshal(bytes, &oneof4.ZoomArgs); err == nil {
+		if err = json.Unmarshal(bytes, &oneof4.ZoomArgs); err == nil {
 			i.Arguments.Union = &oneof4
 			return nil
 		}
@@ -773,6 +773,12 @@ func (r *OutputItem) UnmarshalJSON(bytes []byte) error {
 			r.Union = &oneof
 			return nil
 		}
+	case ItemType_agent_tool_call:
+		oneof := OutputItem_FunctionAgentToolCall{}
+		if err = unmarshal(bytes, &oneof.FunctionAgentToolCall); err == nil {
+			r.Union = &oneof
+			return nil
+		}
 	default:
 		err = &json.InvalidUnmarshalError{
 			Type: reflect.TypeOf(r),
@@ -814,6 +820,9 @@ func (r *OutputItem) MarshalJSON() ([]byte, error) {
 		return json.Marshal(v)
 	}
 	if v := r.GetFunctionDoubaoAppCall(); v != nil {
+		return json.Marshal(v)
+	}
+	if v := r.GetFunctionAgentToolCall(); v != nil {
 		return json.Marshal(v)
 	}
 	return json.Marshal(nil)
@@ -858,6 +867,12 @@ func (e *Event) MarshalJSON() ([]byte, error) {
 		return json.Marshal(v)
 	}
 	if v := e.GetReasoningTextDone(); v != nil {
+		return json.Marshal(v)
+	}
+	if v := e.GetReasoningRawTextDelta(); v != nil {
+		return json.Marshal(v)
+	}
+	if v := e.GetReasoningRawTextDone(); v != nil {
 		return json.Marshal(v)
 	}
 	if v := e.GetText(); v != nil {
@@ -989,6 +1004,12 @@ func (e *Event) MarshalJSON() ([]byte, error) {
 	if v := e.GetResponseDoubaoAppCallSearchCompleted(); v != nil {
 		return json.Marshal(v)
 	}
+	if v := e.GetResponseAgentToolCallInProgress(); v != nil {
+		return json.Marshal(v)
+	}
+	if v := e.GetResponseAgentToolCallCompleted(); v != nil {
+		return json.Marshal(v)
+	}
 	return json.Marshal(nil)
 }
 
@@ -1077,6 +1098,18 @@ func (e *Event) UnmarshalJSON(bytes []byte) error {
 	case EventType_response_reasoning_summary_text_delta:
 		oneof := Event_ReasoningText{}
 		if err := unmarshal(bytes, &oneof.ReasoningText); err != nil {
+			return err
+		}
+		e.Event = &oneof
+	case EventType_response_reasoning_text_delta:
+		oneof := Event_ReasoningRawTextDelta{}
+		if err := unmarshal(bytes, &oneof.ReasoningRawTextDelta); err != nil {
+			return err
+		}
+		e.Event = &oneof
+	case EventType_response_reasoning_text_done:
+		oneof := Event_ReasoningRawTextDone{}
+		if err := unmarshal(bytes, &oneof.ReasoningRawTextDone); err != nil {
 			return err
 		}
 		e.Event = &oneof
@@ -1299,6 +1332,18 @@ func (e *Event) UnmarshalJSON(bytes []byte) error {
 	case EventType_response_doubao_app_call_block_done:
 		oneof := Event_ResponseDoubaoAppCallBlockDone{}
 		if err := unmarshal(bytes, &oneof.ResponseDoubaoAppCallBlockDone); err != nil {
+			return err
+		}
+		e.Event = &oneof
+	case EventType_response_agent_tool_call_in_progress:
+		oneof := Event_ResponseAgentToolCallInProgress{}
+		if err := unmarshal(bytes, &oneof.ResponseAgentToolCallInProgress); err != nil {
+			return err
+		}
+		e.Event = &oneof
+	case EventType_response_agent_tool_call_completed:
+		oneof := Event_ResponseAgentToolCallCompleted{}
+		if err := unmarshal(bytes, &oneof.ResponseAgentToolCallCompleted); err != nil {
 			return err
 		}
 		e.Event = &oneof

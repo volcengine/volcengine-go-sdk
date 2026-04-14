@@ -114,6 +114,7 @@ func (e *Event) GetEventType() string {
 func (e *Event) IsDelta() bool {
 	if (e.GetText() != nil) ||
 		(e.GetReasoningText() != nil) ||
+		(e.GetReasoningRawTextDelta() != nil) ||
 		(e.GetFunctionCallArguments() != nil) ||
 		(e.GetTranscriptionText() != nil) ||
 		(e.GetResponseAnnotationAdded() != nil) ||
@@ -141,6 +142,7 @@ func (e *Event) IsDelta() bool {
 func (e *Event) IsDeltaDone() bool {
 	if (e.GetTextDone() != nil) ||
 		(e.GetReasoningTextDone() != nil) ||
+		(e.GetReasoningRawTextDone() != nil) ||
 		(e.GetFunctionCallArgumentsDone() != nil) ||
 		(e.GetTranscriptionTextDone() != nil) {
 		return true
