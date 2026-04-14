@@ -276,7 +276,7 @@ type DescribeCrossRegionBackupsInput struct {
 
 	BackupPointName *string `type:"string" json:",omitempty"`
 
-	BackupStrategyList []*string `type:"list" json:",omitempty"`
+	BackupStrategyList []*string `type:"list"`
 
 	EndTime *string `type:"string" json:",omitempty"`
 
@@ -376,7 +376,7 @@ type DescribeCrossRegionBackupsOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	Backups []*BackupForDescribeCrossRegionBackupsOutput `type:"list" json:",omitempty"`
+	Backups []*BackupForDescribeCrossRegionBackupsOutput `type:"list"`
 
 	Total *int32 `type:"int32" json:",omitempty"`
 }
@@ -438,7 +438,7 @@ type InstanceInfoForDescribeCrossRegionBackupsOutput struct {
 
 	VpcId *string `type:"string" json:",omitempty"`
 
-	ZoneIds []*string `type:"list" json:",omitempty"`
+	ZoneIds []*string `type:"list"`
 }
 
 // String returns the string representation

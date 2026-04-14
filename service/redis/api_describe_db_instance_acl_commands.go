@@ -196,7 +196,7 @@ type DescribeDBInstanceAclCommandsOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	Commands []*string `type:"list" json:",omitempty"`
+	Commands []*string `type:"list"`
 }
 
 // String returns the string representation

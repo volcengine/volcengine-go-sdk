@@ -150,9 +150,9 @@ type RemoveTagsFromResourceInput struct {
 
 	ClientToken *string `type:"string" json:",omitempty"`
 
-	InstanceIds []*string `type:"list" json:",omitempty"`
+	InstanceIds []*string `type:"list"`
 
-	TagKeys []*string `type:"list" json:",omitempty"`
+	TagKeys []*string `type:"list"`
 }
 
 // String returns the string representation

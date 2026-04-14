@@ -244,11 +244,11 @@ type DescribeAllowListDetailOutput struct {
 
 	AssociatedInstanceNum *int32 `type:"int32" json:",omitempty"`
 
-	AssociatedInstances []*AssociatedInstanceForDescribeAllowListDetailOutput `type:"list" json:",omitempty"`
+	AssociatedInstances []*AssociatedInstanceForDescribeAllowListDetailOutput `type:"list"`
 
 	ProjectName *string `type:"string" json:",omitempty"`
 
-	SecurityGroupBindInfos []*SecurityGroupBindInfoForDescribeAllowListDetailOutput `type:"list" json:",omitempty"`
+	SecurityGroupBindInfos []*SecurityGroupBindInfoForDescribeAllowListDetailOutput `type:"list"`
 }
 
 // String returns the string representation
@@ -326,7 +326,7 @@ type SecurityGroupBindInfoForDescribeAllowListDetailOutput struct {
 
 	BindMode *string `type:"string" json:",omitempty" enum:"EnumOfBindModeForDescribeAllowListDetailOutput"`
 
-	IpList []*string `type:"list" json:",omitempty"`
+	IpList []*string `type:"list"`
 
 	SecurityGroupId *string `type:"string" json:",omitempty"`
 

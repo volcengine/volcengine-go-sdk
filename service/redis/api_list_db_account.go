@@ -246,7 +246,7 @@ type ListDBAccountOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	Accounts []*AccountForListDBAccountOutput `type:"list" json:",omitempty"`
+	Accounts []*AccountForListDBAccountOutput `type:"list"`
 }
 
 // String returns the string representation

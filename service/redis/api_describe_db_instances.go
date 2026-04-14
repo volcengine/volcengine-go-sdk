@@ -200,7 +200,7 @@ type DescribeDBInstancesInput struct {
 
 	Status *string `type:"string" json:",omitempty"`
 
-	TagFilters []*TagFilterForDescribeDBInstancesInput `type:"list" json:",omitempty"`
+	TagFilters []*TagFilterForDescribeDBInstancesInput `type:"list"`
 
 	VpcId *string `type:"string" json:",omitempty"`
 
@@ -312,7 +312,7 @@ type DescribeDBInstancesOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	Instances []*InstanceForDescribeDBInstancesOutput `type:"list" json:",omitempty"`
+	Instances []*InstanceForDescribeDBInstancesOutput `type:"list"`
 
 	TotalInstancesNum *int32 `type:"int32" json:",omitempty"`
 }
@@ -386,7 +386,7 @@ type InstanceForDescribeDBInstancesOutput struct {
 
 	Status *string `type:"string" json:",omitempty"`
 
-	Tags []*TagForDescribeDBInstancesOutput `type:"list" json:",omitempty"`
+	Tags []*TagForDescribeDBInstancesOutput `type:"list"`
 
 	VIP *string `type:"string" json:",omitempty"`
 
@@ -394,7 +394,7 @@ type InstanceForDescribeDBInstancesOutput struct {
 
 	VpcId *string `type:"string" json:",omitempty"`
 
-	ZoneIds []*string `type:"list" json:",omitempty"`
+	ZoneIds []*string `type:"list"`
 }
 
 // String returns the string representation

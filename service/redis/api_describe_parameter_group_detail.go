@@ -226,7 +226,7 @@ type ParameterForDescribeParameterGroupDetailOutput struct {
 
 	NeedReboot *bool `type:"boolean" json:",omitempty"`
 
-	Options []*OptionForDescribeParameterGroupDetailOutput `type:"list" json:",omitempty"`
+	Options []*OptionForDescribeParameterGroupDetailOutput `type:"list"`
 
 	ParamName *string `type:"string" json:",omitempty"`
 
@@ -310,7 +310,7 @@ type ParameterGroupInfoForDescribeParameterGroupDetailOutput struct {
 
 	ParameterGroupId *string `type:"string" json:",omitempty"`
 
-	Parameters []*ParameterForDescribeParameterGroupDetailOutput `type:"list" json:",omitempty"`
+	Parameters []*ParameterForDescribeParameterGroupDetailOutput `type:"list"`
 
 	Source *string `type:"string" json:",omitempty" enum:"EnumOfSourceForDescribeParameterGroupDetailOutput"`
 

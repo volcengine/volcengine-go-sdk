@@ -220,7 +220,7 @@ type DescribePlannedEventsOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	PlannedEvents []*PlannedEventForDescribePlannedEventsOutput `type:"list" json:",omitempty"`
+	PlannedEvents []*PlannedEventForDescribePlannedEventsOutput `type:"list"`
 
 	Total *int32 `type:"int32" json:",omitempty"`
 }

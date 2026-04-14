@@ -161,7 +161,7 @@ type CreateAllowListInput struct {
 
 	ProjectName *string `type:"string" json:",omitempty"`
 
-	SecurityGroupBindInfos []*SecurityGroupBindInfoForCreateAllowListInput `type:"list" json:",omitempty"`
+	SecurityGroupBindInfos []*SecurityGroupBindInfoForCreateAllowListInput `type:"list"`
 }
 
 // String returns the string representation

@@ -158,7 +158,7 @@ type DescribeHotKeysInput struct {
 
 	QueryStartTime *string `type:"string" json:",omitempty"`
 
-	ShardIds []*string `type:"list" json:",omitempty"`
+	ShardIds []*string `type:"list"`
 }
 
 // String returns the string representation
@@ -228,7 +228,7 @@ type DescribeHotKeysOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	HotKey []*HotKeyForDescribeHotKeysOutput `type:"list" json:",omitempty"`
+	HotKey []*HotKeyForDescribeHotKeysOutput `type:"list"`
 
 	InstanceId *string `type:"string" json:",omitempty"`
 

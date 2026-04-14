@@ -148,9 +148,9 @@ type AddTagsToResourceInput struct {
 
 	ClientToken *string `type:"string" json:",omitempty"`
 
-	InstanceIds []*string `type:"list" json:",omitempty"`
+	InstanceIds []*string `type:"list"`
 
-	Tags []*TagForAddTagsToResourceInput `type:"list" json:",omitempty"`
+	Tags []*TagForAddTagsToResourceInput `type:"list"`
 }
 
 // String returns the string representation

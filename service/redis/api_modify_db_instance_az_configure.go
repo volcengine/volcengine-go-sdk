@@ -175,7 +175,7 @@ type ModifyDBInstanceAZConfigureInput struct {
 
 	ClientToken *string `type:"string" json:",omitempty"`
 
-	ConfigureNodes []*ConfigureNodeForModifyDBInstanceAZConfigureInput `type:"list" json:",omitempty"`
+	ConfigureNodes []*ConfigureNodeForModifyDBInstanceAZConfigureInput `type:"list"`
 
 	CreateBackup *bool `type:"boolean" json:",omitempty"`
 

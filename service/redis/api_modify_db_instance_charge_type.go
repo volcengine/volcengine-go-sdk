@@ -153,7 +153,7 @@ type ModifyDBInstanceChargeTypeInput struct {
 
 	ClientToken *string `type:"string" json:",omitempty"`
 
-	InstanceIds []*string `type:"list" json:",omitempty"`
+	InstanceIds []*string `type:"list"`
 
 	PurchaseMonths *int32 `type:"int32" json:",omitempty"`
 }

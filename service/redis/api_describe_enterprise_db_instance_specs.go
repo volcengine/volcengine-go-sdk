@@ -170,7 +170,7 @@ type DescribeEnterpriseDBInstanceSpecsOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	InstanceSpecs []*InstanceSpecForDescribeEnterpriseDBInstanceSpecsOutput `type:"list" json:",omitempty"`
+	InstanceSpecs []*InstanceSpecForDescribeEnterpriseDBInstanceSpecsOutput `type:"list"`
 }
 
 // String returns the string representation
@@ -202,7 +202,7 @@ type InstanceSpecForDescribeEnterpriseDBInstanceSpecsOutput struct {
 
 	RamCapacity *int32 `type:"int32" json:",omitempty"`
 
-	ShardNumberSpecs []*ShardNumberSpecForDescribeEnterpriseDBInstanceSpecsOutput `type:"list" json:",omitempty"`
+	ShardNumberSpecs []*ShardNumberSpecForDescribeEnterpriseDBInstanceSpecsOutput `type:"list"`
 }
 
 // String returns the string representation
