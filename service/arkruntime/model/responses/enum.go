@@ -551,3 +551,25 @@ func (r DoubaoAppBlockType_Enum) MarshalJSON() ([]byte, error) {
 	}
 	return json.Marshal(r.String())
 }
+
+// UnmarshalJSON ...
+func (r *ResponseImageProcessType_Enum) UnmarshalJSON(bytes []byte) error {
+	var value string
+	if err := json.Unmarshal(bytes, &value); err != nil {
+		return err
+	}
+	enumValue, ok := ResponseImageProcessType_Enum_value[value]
+	if !ok || enumValue == 0 {
+		return &json.InvalidUnmarshalError{Type: reflect.TypeOf(r)}
+	}
+	*r = ResponseImageProcessType_Enum(enumValue)
+	return nil
+}
+
+// MarshalJSON ...
+func (r ResponseImageProcessType_Enum) MarshalJSON() ([]byte, error) {
+	if r == 0 {
+		return json.Marshal(nil)
+	}
+	return json.Marshal(r.String())
+}
