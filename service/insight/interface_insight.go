@@ -38,6 +38,22 @@ type INSIGHTAPI interface {
 	ExpertInvokeAPIWithContext(volcengine.Context, *ExpertInvokeAPIInput, ...request.Option) (*ExpertInvokeAPIOutput, error)
 	ExpertInvokeAPIRequest(*ExpertInvokeAPIInput) (*request.Request, *ExpertInvokeAPIOutput)
 
+	GetTaskListCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	GetTaskListCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	GetTaskListCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	GetTaskList(*GetTaskListInput) (*GetTaskListOutput, error)
+	GetTaskListWithContext(volcengine.Context, *GetTaskListInput, ...request.Option) (*GetTaskListOutput, error)
+	GetTaskListRequest(*GetTaskListInput) (*request.Request, *GetTaskListOutput)
+
+	GetTaskResultCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	GetTaskResultCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	GetTaskResultCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	GetTaskResult(*GetTaskResultInput) (*GetTaskResultOutput, error)
+	GetTaskResultWithContext(volcengine.Context, *GetTaskResultInput, ...request.Option) (*GetTaskResultOutput, error)
+	GetTaskResultRequest(*GetTaskResultInput) (*request.Request, *GetTaskResultOutput)
+
 	ListCustomSubsTaskCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ListCustomSubsTaskCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	ListCustomSubsTaskCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})

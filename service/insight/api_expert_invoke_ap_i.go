@@ -163,7 +163,7 @@ type ExpertInvokeAPIInput struct {
 
 	Ocr *string `type:"string" json:",omitempty"`
 
-	OriginId *int64 `type:"int64" json:",omitempty"`
+	OriginId *string `type:"string" json:",omitempty"`
 
 	Title *string `type:"string" json:",omitempty"`
 
@@ -242,7 +242,7 @@ func (s *ExpertInvokeAPIInput) SetOcr(v string) *ExpertInvokeAPIInput {
 }
 
 // SetOriginId sets the OriginId field's value.
-func (s *ExpertInvokeAPIInput) SetOriginId(v int64) *ExpertInvokeAPIInput {
+func (s *ExpertInvokeAPIInput) SetOriginId(v string) *ExpertInvokeAPIInput {
 	s.OriginId = &v
 	return s
 }
@@ -263,28 +263,6 @@ type ExpertInvokeAPIOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
-
-	Result *ResultForExpertInvokeAPIOutput `type:"structure" json:",omitempty"`
-}
-
-// String returns the string representation
-func (s ExpertInvokeAPIOutput) String() string {
-	return volcengineutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s ExpertInvokeAPIOutput) GoString() string {
-	return s.String()
-}
-
-// SetResult sets the Result field's value.
-func (s *ExpertInvokeAPIOutput) SetResult(v *ResultForExpertInvokeAPIOutput) *ExpertInvokeAPIOutput {
-	s.Result = v
-	return s
-}
-
-type ResultForExpertInvokeAPIOutput struct {
-	_ struct{} `type:"structure" json:",omitempty"`
 
 	Asr *string `type:"string" json:",omitempty"`
 
@@ -318,101 +296,101 @@ type ResultForExpertInvokeAPIOutput struct {
 }
 
 // String returns the string representation
-func (s ResultForExpertInvokeAPIOutput) String() string {
+func (s ExpertInvokeAPIOutput) String() string {
 	return volcengineutil.Prettify(s)
 }
 
 // GoString returns the string representation
-func (s ResultForExpertInvokeAPIOutput) GoString() string {
+func (s ExpertInvokeAPIOutput) GoString() string {
 	return s.String()
 }
 
 // SetAsr sets the Asr field's value.
-func (s *ResultForExpertInvokeAPIOutput) SetAsr(v string) *ResultForExpertInvokeAPIOutput {
+func (s *ExpertInvokeAPIOutput) SetAsr(v string) *ExpertInvokeAPIOutput {
 	s.Asr = &v
 	return s
 }
 
 // SetContent sets the Content field's value.
-func (s *ResultForExpertInvokeAPIOutput) SetContent(v string) *ResultForExpertInvokeAPIOutput {
+func (s *ExpertInvokeAPIOutput) SetContent(v string) *ExpertInvokeAPIOutput {
 	s.Content = &v
 	return s
 }
 
 // SetDomainLevel sets the DomainLevel field's value.
-func (s *ResultForExpertInvokeAPIOutput) SetDomainLevel(v int32) *ResultForExpertInvokeAPIOutput {
+func (s *ExpertInvokeAPIOutput) SetDomainLevel(v int32) *ExpertInvokeAPIOutput {
 	s.DomainLevel = &v
 	return s
 }
 
 // SetFansCnt sets the FansCnt field's value.
-func (s *ResultForExpertInvokeAPIOutput) SetFansCnt(v int64) *ResultForExpertInvokeAPIOutput {
+func (s *ExpertInvokeAPIOutput) SetFansCnt(v int64) *ExpertInvokeAPIOutput {
 	s.FansCnt = &v
 	return s
 }
 
 // SetHasRisk sets the HasRisk field's value.
-func (s *ResultForExpertInvokeAPIOutput) SetHasRisk(v bool) *ResultForExpertInvokeAPIOutput {
+func (s *ExpertInvokeAPIOutput) SetHasRisk(v bool) *ExpertInvokeAPIOutput {
 	s.HasRisk = &v
 	return s
 }
 
 // SetOcr sets the Ocr field's value.
-func (s *ResultForExpertInvokeAPIOutput) SetOcr(v string) *ResultForExpertInvokeAPIOutput {
+func (s *ExpertInvokeAPIOutput) SetOcr(v string) *ExpertInvokeAPIOutput {
 	s.Ocr = &v
 	return s
 }
 
 // SetOriginId sets the OriginId field's value.
-func (s *ResultForExpertInvokeAPIOutput) SetOriginId(v string) *ResultForExpertInvokeAPIOutput {
+func (s *ExpertInvokeAPIOutput) SetOriginId(v string) *ExpertInvokeAPIOutput {
 	s.OriginId = &v
 	return s
 }
 
 // SetRelated sets the Related field's value.
-func (s *ResultForExpertInvokeAPIOutput) SetRelated(v bool) *ResultForExpertInvokeAPIOutput {
+func (s *ExpertInvokeAPIOutput) SetRelated(v bool) *ExpertInvokeAPIOutput {
 	s.Related = &v
 	return s
 }
 
 // SetRelatedReason sets the RelatedReason field's value.
-func (s *ResultForExpertInvokeAPIOutput) SetRelatedReason(v string) *ResultForExpertInvokeAPIOutput {
+func (s *ExpertInvokeAPIOutput) SetRelatedReason(v string) *ExpertInvokeAPIOutput {
 	s.RelatedReason = &v
 	return s
 }
 
 // SetRiskLevel sets the RiskLevel field's value.
-func (s *ResultForExpertInvokeAPIOutput) SetRiskLevel(v string) *ResultForExpertInvokeAPIOutput {
+func (s *ExpertInvokeAPIOutput) SetRiskLevel(v string) *ExpertInvokeAPIOutput {
 	s.RiskLevel = &v
 	return s
 }
 
 // SetRiskReason sets the RiskReason field's value.
-func (s *ResultForExpertInvokeAPIOutput) SetRiskReason(v string) *ResultForExpertInvokeAPIOutput {
+func (s *ExpertInvokeAPIOutput) SetRiskReason(v string) *ExpertInvokeAPIOutput {
 	s.RiskReason = &v
 	return s
 }
 
 // SetRiskTags sets the RiskTags field's value.
-func (s *ResultForExpertInvokeAPIOutput) SetRiskTags(v []*string) *ResultForExpertInvokeAPIOutput {
+func (s *ExpertInvokeAPIOutput) SetRiskTags(v []*string) *ExpertInvokeAPIOutput {
 	s.RiskTags = v
 	return s
 }
 
 // SetSuggestion sets the Suggestion field's value.
-func (s *ResultForExpertInvokeAPIOutput) SetSuggestion(v string) *ResultForExpertInvokeAPIOutput {
+func (s *ExpertInvokeAPIOutput) SetSuggestion(v string) *ExpertInvokeAPIOutput {
 	s.Suggestion = &v
 	return s
 }
 
 // SetSummary sets the Summary field's value.
-func (s *ResultForExpertInvokeAPIOutput) SetSummary(v string) *ResultForExpertInvokeAPIOutput {
+func (s *ExpertInvokeAPIOutput) SetSummary(v string) *ExpertInvokeAPIOutput {
 	s.Summary = &v
 	return s
 }
 
 // SetTitle sets the Title field's value.
-func (s *ResultForExpertInvokeAPIOutput) SetTitle(v string) *ResultForExpertInvokeAPIOutput {
+func (s *ExpertInvokeAPIOutput) SetTitle(v string) *ExpertInvokeAPIOutput {
 	s.Title = &v
 	return s
 }
