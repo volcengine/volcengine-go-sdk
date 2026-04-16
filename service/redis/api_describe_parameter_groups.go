@@ -212,7 +212,7 @@ type DescribeParameterGroupsOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	ParameterGroups []*ParameterGroupForDescribeParameterGroupsOutput `type:"list" json:",omitempty"`
+	ParameterGroups []*ParameterGroupForDescribeParameterGroupsOutput `type:"list"`
 
 	Total *int32 `type:"int32" json:",omitempty"`
 }

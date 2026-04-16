@@ -160,6 +160,8 @@ type DataForListGroupsForUserOutput struct {
 
 	Source *string `type:"string" json:",omitempty"`
 
+	TotalCountOfGroupMember *int32 `type:"int32" json:",omitempty"`
+
 	Uid *string `type:"string" json:",omitempty"`
 
 	UpdateTime *string `type:"string" json:",omitempty"`
@@ -219,6 +221,12 @@ func (s *DataForListGroupsForUserOutput) SetSource(v string) *DataForListGroupsF
 	return s
 }
 
+// SetTotalCountOfGroupMember sets the TotalCountOfGroupMember field's value.
+func (s *DataForListGroupsForUserOutput) SetTotalCountOfGroupMember(v int32) *DataForListGroupsForUserOutput {
+	s.TotalCountOfGroupMember = &v
+	return s
+}
+
 // SetUid sets the Uid field's value.
 func (s *DataForListGroupsForUserOutput) SetUid(v string) *DataForListGroupsForUserOutput {
 	s.Uid = &v
@@ -244,6 +252,8 @@ type FilterForListGroupsForUserInput struct {
 
 	GroupIdTokenName *string `type:"string" json:",omitempty"`
 
+	GroupUidsOr []*string `type:"list" json:",omitempty"`
+
 	Name *string `type:"string" json:",omitempty"`
 
 	Source *string `type:"string" json:",omitempty"`
@@ -268,6 +278,12 @@ func (s *FilterForListGroupsForUserInput) SetDescription(v string) *FilterForLis
 // SetGroupIdTokenName sets the GroupIdTokenName field's value.
 func (s *FilterForListGroupsForUserInput) SetGroupIdTokenName(v string) *FilterForListGroupsForUserInput {
 	s.GroupIdTokenName = &v
+	return s
+}
+
+// SetGroupUidsOr sets the GroupUidsOr field's value.
+func (s *FilterForListGroupsForUserInput) SetGroupUidsOr(v []*string) *FilterForListGroupsForUserInput {
+	s.GroupUidsOr = v
 	return s
 }
 

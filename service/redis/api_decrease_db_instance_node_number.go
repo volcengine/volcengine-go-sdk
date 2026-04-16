@@ -161,7 +161,7 @@ type DecreaseDBInstanceNodeNumberInput struct {
 	// NodesNumberToDecrease is a required field
 	NodesNumberToDecrease *int32 `type:"int32" json:",omitempty" required:"true"`
 
-	NodesToRemove []*NodesToRemoveForDecreaseDBInstanceNodeNumberInput `type:"list" json:",omitempty"`
+	NodesToRemove []*NodesToRemoveForDecreaseDBInstanceNodeNumberInput `type:"list"`
 }
 
 // String returns the string representation

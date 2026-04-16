@@ -611,6 +611,8 @@ type ProviderOptionsForCreateIdentityProviderOAuthInput struct {
 	IsCreationAllowed *bool `type:"boolean" json:",omitempty"`
 
 	IsLinkingAllowed *bool `type:"boolean" json:",omitempty"`
+
+	UserLinkingPromptEnabled *bool `type:"boolean" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -653,6 +655,12 @@ func (s *ProviderOptionsForCreateIdentityProviderOAuthInput) SetIsLinkingAllowed
 	return s
 }
 
+// SetUserLinkingPromptEnabled sets the UserLinkingPromptEnabled field's value.
+func (s *ProviderOptionsForCreateIdentityProviderOAuthInput) SetUserLinkingPromptEnabled(v bool) *ProviderOptionsForCreateIdentityProviderOAuthInput {
+	s.UserLinkingPromptEnabled = &v
+	return s
+}
+
 type ProviderOptionsForCreateIdentityProviderOAuthOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -665,6 +673,8 @@ type ProviderOptionsForCreateIdentityProviderOAuthOutput struct {
 	IsCreationAllowed *bool `type:"boolean" json:",omitempty"`
 
 	IsLinkingAllowed *bool `type:"boolean" json:",omitempty"`
+
+	UserLinkingPromptEnabled *bool `type:"boolean" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -704,5 +714,11 @@ func (s *ProviderOptionsForCreateIdentityProviderOAuthOutput) SetIsCreationAllow
 // SetIsLinkingAllowed sets the IsLinkingAllowed field's value.
 func (s *ProviderOptionsForCreateIdentityProviderOAuthOutput) SetIsLinkingAllowed(v bool) *ProviderOptionsForCreateIdentityProviderOAuthOutput {
 	s.IsLinkingAllowed = &v
+	return s
+}
+
+// SetUserLinkingPromptEnabled sets the UserLinkingPromptEnabled field's value.
+func (s *ProviderOptionsForCreateIdentityProviderOAuthOutput) SetUserLinkingPromptEnabled(v bool) *ProviderOptionsForCreateIdentityProviderOAuthOutput {
+	s.UserLinkingPromptEnabled = &v
 	return s
 }

@@ -184,7 +184,7 @@ type DescribeAvailableCrossRegionOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	TargetRegionIds []*string `type:"list" json:",omitempty"`
+	TargetRegionIds []*string `type:"list"`
 }
 
 // String returns the string representation

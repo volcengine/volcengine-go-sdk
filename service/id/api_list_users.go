@@ -152,15 +152,21 @@ type DataForListUsersOutput struct {
 
 	CreateTime *string `type:"string" json:",omitempty"`
 
+	DepartmentUids []*string `type:"list" json:",omitempty"`
+
 	Email *string `type:"string" json:",omitempty"`
 
 	EmailVerified *bool `type:"boolean" json:",omitempty"`
+
+	ExternalIdentities []*ExternalIdentityForListUsersOutput `type:"list" json:",omitempty"`
 
 	FamilyName *string `type:"string" json:",omitempty"`
 
 	Gender *string `type:"string" json:",omitempty"`
 
 	GivenName *string `type:"string" json:",omitempty"`
+
+	GroupUids []*string `type:"list" json:",omitempty"`
 
 	LatestBrowser *string `type:"string" json:",omitempty"`
 
@@ -231,6 +237,12 @@ func (s *DataForListUsersOutput) SetCreateTime(v string) *DataForListUsersOutput
 	return s
 }
 
+// SetDepartmentUids sets the DepartmentUids field's value.
+func (s *DataForListUsersOutput) SetDepartmentUids(v []*string) *DataForListUsersOutput {
+	s.DepartmentUids = v
+	return s
+}
+
 // SetEmail sets the Email field's value.
 func (s *DataForListUsersOutput) SetEmail(v string) *DataForListUsersOutput {
 	s.Email = &v
@@ -240,6 +252,12 @@ func (s *DataForListUsersOutput) SetEmail(v string) *DataForListUsersOutput {
 // SetEmailVerified sets the EmailVerified field's value.
 func (s *DataForListUsersOutput) SetEmailVerified(v bool) *DataForListUsersOutput {
 	s.EmailVerified = &v
+	return s
+}
+
+// SetExternalIdentities sets the ExternalIdentities field's value.
+func (s *DataForListUsersOutput) SetExternalIdentities(v []*ExternalIdentityForListUsersOutput) *DataForListUsersOutput {
+	s.ExternalIdentities = v
 	return s
 }
 
@@ -258,6 +276,12 @@ func (s *DataForListUsersOutput) SetGender(v string) *DataForListUsersOutput {
 // SetGivenName sets the GivenName field's value.
 func (s *DataForListUsersOutput) SetGivenName(v string) *DataForListUsersOutput {
 	s.GivenName = &v
+	return s
+}
+
+// SetGroupUids sets the GroupUids field's value.
+func (s *DataForListUsersOutput) SetGroupUids(v []*string) *DataForListUsersOutput {
+	s.GroupUids = v
 	return s
 }
 
@@ -381,18 +405,102 @@ func (s *DataForListUsersOutput) SetZoneinfo(v string) *DataForListUsersOutput {
 	return s
 }
 
+type ExternalIdentityForListUsersOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	ConnectionType *string `type:"string" json:",omitempty"`
+
+	ConnectionUid *string `type:"string" json:",omitempty"`
+
+	ExternalProviderUserIdentifier *string `type:"string" json:",omitempty"`
+
+	ExternalProviderUserMetadata *string `type:"string" json:",omitempty"`
+
+	LinkSource *string `type:"string" json:",omitempty"`
+
+	Provider *string `type:"string" json:",omitempty"`
+
+	UpdatedAt *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s ExternalIdentityForListUsersOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ExternalIdentityForListUsersOutput) GoString() string {
+	return s.String()
+}
+
+// SetConnectionType sets the ConnectionType field's value.
+func (s *ExternalIdentityForListUsersOutput) SetConnectionType(v string) *ExternalIdentityForListUsersOutput {
+	s.ConnectionType = &v
+	return s
+}
+
+// SetConnectionUid sets the ConnectionUid field's value.
+func (s *ExternalIdentityForListUsersOutput) SetConnectionUid(v string) *ExternalIdentityForListUsersOutput {
+	s.ConnectionUid = &v
+	return s
+}
+
+// SetExternalProviderUserIdentifier sets the ExternalProviderUserIdentifier field's value.
+func (s *ExternalIdentityForListUsersOutput) SetExternalProviderUserIdentifier(v string) *ExternalIdentityForListUsersOutput {
+	s.ExternalProviderUserIdentifier = &v
+	return s
+}
+
+// SetExternalProviderUserMetadata sets the ExternalProviderUserMetadata field's value.
+func (s *ExternalIdentityForListUsersOutput) SetExternalProviderUserMetadata(v string) *ExternalIdentityForListUsersOutput {
+	s.ExternalProviderUserMetadata = &v
+	return s
+}
+
+// SetLinkSource sets the LinkSource field's value.
+func (s *ExternalIdentityForListUsersOutput) SetLinkSource(v string) *ExternalIdentityForListUsersOutput {
+	s.LinkSource = &v
+	return s
+}
+
+// SetProvider sets the Provider field's value.
+func (s *ExternalIdentityForListUsersOutput) SetProvider(v string) *ExternalIdentityForListUsersOutput {
+	s.Provider = &v
+	return s
+}
+
+// SetUpdatedAt sets the UpdatedAt field's value.
+func (s *ExternalIdentityForListUsersOutput) SetUpdatedAt(v string) *ExternalIdentityForListUsersOutput {
+	s.UpdatedAt = &v
+	return s
+}
+
 type FilterForListUsersInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
 	Connection *string `type:"string" json:",omitempty"`
 
+	DepartmentUid *string `type:"string" json:",omitempty"`
+
 	Email *string `type:"string" json:",omitempty"`
+
+	EmailIsNullOrEmpty *bool `type:"boolean" json:",omitempty"`
+
+	EmailPhoneNameIsNullOrEmpty *bool `type:"boolean" json:",omitempty"`
 
 	FamilyName *string `type:"string" json:",omitempty"`
 
+	FamilyNameIsNullOrEmpty *bool `type:"boolean" json:",omitempty"`
+
 	Gender *string `type:"string" json:",omitempty"`
 
+	GenderIsNullOrEmpty *bool `type:"boolean" json:",omitempty"`
+
 	GivenName *string `type:"string" json:",omitempty"`
+
+	GivenNameIsNullOrEmpty *bool `type:"boolean" json:",omitempty"`
+
+	GroupUid *string `type:"string" json:",omitempty"`
 
 	LatestBrowser *string `type:"string" json:",omitempty"`
 
@@ -402,15 +510,29 @@ type FilterForListUsersInput struct {
 
 	MiddleName *string `type:"string" json:",omitempty"`
 
+	MiddleNameIsNullOrEmpty *bool `type:"boolean" json:",omitempty"`
+
 	Name *string `type:"string" json:",omitempty"`
+
+	NameIsNullOrEmpty *bool `type:"boolean" json:",omitempty"`
 
 	Nickname *string `type:"string" json:",omitempty"`
 
+	NicknameIsNullOrEmpty *bool `type:"boolean" json:",omitempty"`
+
 	PhoneNumber *string `type:"string" json:",omitempty"`
+
+	PhoneNumberIsNullOrEmpty *bool `type:"boolean" json:",omitempty"`
 
 	PreferredUsername *string `type:"string" json:",omitempty"`
 
+	PreferredUsernameIsNullOrEmpty *bool `type:"boolean" json:",omitempty"`
+
+	UserUidsOr []*string `type:"list" json:",omitempty"`
+
 	Website *string `type:"string" json:",omitempty"`
+
+	WebsiteIsNullOrEmpty *bool `type:"boolean" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -429,9 +551,27 @@ func (s *FilterForListUsersInput) SetConnection(v string) *FilterForListUsersInp
 	return s
 }
 
+// SetDepartmentUid sets the DepartmentUid field's value.
+func (s *FilterForListUsersInput) SetDepartmentUid(v string) *FilterForListUsersInput {
+	s.DepartmentUid = &v
+	return s
+}
+
 // SetEmail sets the Email field's value.
 func (s *FilterForListUsersInput) SetEmail(v string) *FilterForListUsersInput {
 	s.Email = &v
+	return s
+}
+
+// SetEmailIsNullOrEmpty sets the EmailIsNullOrEmpty field's value.
+func (s *FilterForListUsersInput) SetEmailIsNullOrEmpty(v bool) *FilterForListUsersInput {
+	s.EmailIsNullOrEmpty = &v
+	return s
+}
+
+// SetEmailPhoneNameIsNullOrEmpty sets the EmailPhoneNameIsNullOrEmpty field's value.
+func (s *FilterForListUsersInput) SetEmailPhoneNameIsNullOrEmpty(v bool) *FilterForListUsersInput {
+	s.EmailPhoneNameIsNullOrEmpty = &v
 	return s
 }
 
@@ -441,15 +581,39 @@ func (s *FilterForListUsersInput) SetFamilyName(v string) *FilterForListUsersInp
 	return s
 }
 
+// SetFamilyNameIsNullOrEmpty sets the FamilyNameIsNullOrEmpty field's value.
+func (s *FilterForListUsersInput) SetFamilyNameIsNullOrEmpty(v bool) *FilterForListUsersInput {
+	s.FamilyNameIsNullOrEmpty = &v
+	return s
+}
+
 // SetGender sets the Gender field's value.
 func (s *FilterForListUsersInput) SetGender(v string) *FilterForListUsersInput {
 	s.Gender = &v
 	return s
 }
 
+// SetGenderIsNullOrEmpty sets the GenderIsNullOrEmpty field's value.
+func (s *FilterForListUsersInput) SetGenderIsNullOrEmpty(v bool) *FilterForListUsersInput {
+	s.GenderIsNullOrEmpty = &v
+	return s
+}
+
 // SetGivenName sets the GivenName field's value.
 func (s *FilterForListUsersInput) SetGivenName(v string) *FilterForListUsersInput {
 	s.GivenName = &v
+	return s
+}
+
+// SetGivenNameIsNullOrEmpty sets the GivenNameIsNullOrEmpty field's value.
+func (s *FilterForListUsersInput) SetGivenNameIsNullOrEmpty(v bool) *FilterForListUsersInput {
+	s.GivenNameIsNullOrEmpty = &v
+	return s
+}
+
+// SetGroupUid sets the GroupUid field's value.
+func (s *FilterForListUsersInput) SetGroupUid(v string) *FilterForListUsersInput {
+	s.GroupUid = &v
 	return s
 }
 
@@ -477,9 +641,21 @@ func (s *FilterForListUsersInput) SetMiddleName(v string) *FilterForListUsersInp
 	return s
 }
 
+// SetMiddleNameIsNullOrEmpty sets the MiddleNameIsNullOrEmpty field's value.
+func (s *FilterForListUsersInput) SetMiddleNameIsNullOrEmpty(v bool) *FilterForListUsersInput {
+	s.MiddleNameIsNullOrEmpty = &v
+	return s
+}
+
 // SetName sets the Name field's value.
 func (s *FilterForListUsersInput) SetName(v string) *FilterForListUsersInput {
 	s.Name = &v
+	return s
+}
+
+// SetNameIsNullOrEmpty sets the NameIsNullOrEmpty field's value.
+func (s *FilterForListUsersInput) SetNameIsNullOrEmpty(v bool) *FilterForListUsersInput {
+	s.NameIsNullOrEmpty = &v
 	return s
 }
 
@@ -489,9 +665,21 @@ func (s *FilterForListUsersInput) SetNickname(v string) *FilterForListUsersInput
 	return s
 }
 
+// SetNicknameIsNullOrEmpty sets the NicknameIsNullOrEmpty field's value.
+func (s *FilterForListUsersInput) SetNicknameIsNullOrEmpty(v bool) *FilterForListUsersInput {
+	s.NicknameIsNullOrEmpty = &v
+	return s
+}
+
 // SetPhoneNumber sets the PhoneNumber field's value.
 func (s *FilterForListUsersInput) SetPhoneNumber(v string) *FilterForListUsersInput {
 	s.PhoneNumber = &v
+	return s
+}
+
+// SetPhoneNumberIsNullOrEmpty sets the PhoneNumberIsNullOrEmpty field's value.
+func (s *FilterForListUsersInput) SetPhoneNumberIsNullOrEmpty(v bool) *FilterForListUsersInput {
+	s.PhoneNumberIsNullOrEmpty = &v
 	return s
 }
 
@@ -501,14 +689,34 @@ func (s *FilterForListUsersInput) SetPreferredUsername(v string) *FilterForListU
 	return s
 }
 
+// SetPreferredUsernameIsNullOrEmpty sets the PreferredUsernameIsNullOrEmpty field's value.
+func (s *FilterForListUsersInput) SetPreferredUsernameIsNullOrEmpty(v bool) *FilterForListUsersInput {
+	s.PreferredUsernameIsNullOrEmpty = &v
+	return s
+}
+
+// SetUserUidsOr sets the UserUidsOr field's value.
+func (s *FilterForListUsersInput) SetUserUidsOr(v []*string) *FilterForListUsersInput {
+	s.UserUidsOr = v
+	return s
+}
+
 // SetWebsite sets the Website field's value.
 func (s *FilterForListUsersInput) SetWebsite(v string) *FilterForListUsersInput {
 	s.Website = &v
 	return s
 }
 
+// SetWebsiteIsNullOrEmpty sets the WebsiteIsNullOrEmpty field's value.
+func (s *FilterForListUsersInput) SetWebsiteIsNullOrEmpty(v bool) *FilterForListUsersInput {
+	s.WebsiteIsNullOrEmpty = &v
+	return s
+}
+
 type ListUsersInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
+
+	DepartmentUidRecursive *bool `type:"boolean" json:",omitempty"`
 
 	Filter *FilterForListUsersInput `type:"structure" json:",omitempty"`
 
@@ -517,6 +725,8 @@ type ListUsersInput struct {
 
 	// PageSize is a required field
 	PageSize *int32 `type:"int32" json:",omitempty" required:"true"`
+
+	ResponseValueNull *ResponseValueNullForListUsersInput `type:"structure" json:",omitempty"`
 
 	SortDirection *string `type:"string" json:",omitempty"`
 
@@ -555,6 +765,12 @@ func (s *ListUsersInput) Validate() error {
 	return nil
 }
 
+// SetDepartmentUidRecursive sets the DepartmentUidRecursive field's value.
+func (s *ListUsersInput) SetDepartmentUidRecursive(v bool) *ListUsersInput {
+	s.DepartmentUidRecursive = &v
+	return s
+}
+
 // SetFilter sets the Filter field's value.
 func (s *ListUsersInput) SetFilter(v *FilterForListUsersInput) *ListUsersInput {
 	s.Filter = v
@@ -570,6 +786,12 @@ func (s *ListUsersInput) SetPageNumber(v int32) *ListUsersInput {
 // SetPageSize sets the PageSize field's value.
 func (s *ListUsersInput) SetPageSize(v int32) *ListUsersInput {
 	s.PageSize = &v
+	return s
+}
+
+// SetResponseValueNull sets the ResponseValueNull field's value.
+func (s *ListUsersInput) SetResponseValueNull(v *ResponseValueNullForListUsersInput) *ListUsersInput {
+	s.ResponseValueNull = v
 	return s
 }
 
@@ -636,5 +858,35 @@ func (s *ListUsersOutput) SetPageSize(v int32) *ListUsersOutput {
 // SetTotalCount sets the TotalCount field's value.
 func (s *ListUsersOutput) SetTotalCount(v int32) *ListUsersOutput {
 	s.TotalCount = &v
+	return s
+}
+
+type ResponseValueNullForListUsersInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	ExternalIdentitiesExternalProviderUserMetadata *bool `type:"boolean" json:",omitempty"`
+
+	UserMetadata *bool `type:"boolean" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s ResponseValueNullForListUsersInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ResponseValueNullForListUsersInput) GoString() string {
+	return s.String()
+}
+
+// SetExternalIdentitiesExternalProviderUserMetadata sets the ExternalIdentitiesExternalProviderUserMetadata field's value.
+func (s *ResponseValueNullForListUsersInput) SetExternalIdentitiesExternalProviderUserMetadata(v bool) *ResponseValueNullForListUsersInput {
+	s.ExternalIdentitiesExternalProviderUserMetadata = &v
+	return s
+}
+
+// SetUserMetadata sets the UserMetadata field's value.
+func (s *ResponseValueNullForListUsersInput) SetUserMetadata(v bool) *ResponseValueNullForListUsersInput {
+	s.UserMetadata = &v
 	return s
 }

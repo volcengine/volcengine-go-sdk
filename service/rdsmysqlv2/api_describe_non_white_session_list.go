@@ -148,7 +148,7 @@ type DescribeNonWhiteSessionListInput struct {
 
 	DisassociateAllowListInfos []*DisassociateAllowListInfoForDescribeNonWhiteSessionListInput `type:"list" json:",omitempty"`
 
-	InstanceIds *string `type:"string" json:",omitempty"`
+	InstanceIds []*string `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -168,8 +168,8 @@ func (s *DescribeNonWhiteSessionListInput) SetDisassociateAllowListInfos(v []*Di
 }
 
 // SetInstanceIds sets the InstanceIds field's value.
-func (s *DescribeNonWhiteSessionListInput) SetInstanceIds(v string) *DescribeNonWhiteSessionListInput {
-	s.InstanceIds = &v
+func (s *DescribeNonWhiteSessionListInput) SetInstanceIds(v []*string) *DescribeNonWhiteSessionListInput {
+	s.InstanceIds = v
 	return s
 }
 

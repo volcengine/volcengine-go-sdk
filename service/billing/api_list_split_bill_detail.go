@@ -164,6 +164,8 @@ type ListForListSplitBillDetailOutput struct {
 
 	BusinessMode *string `type:"string" json:",omitempty"`
 
+	ChargeItemCode *string `type:"string" json:",omitempty"`
+
 	ConfigName *string `type:"string" json:",omitempty"`
 
 	ConfigurationCode *string `type:"string" json:",omitempty"`
@@ -205,6 +207,8 @@ type ListForListSplitBillDetailOutput struct {
 	ExchangeRate *string `type:"string" json:",omitempty"`
 
 	ExpandField *string `type:"string" json:",omitempty"`
+
+	ExpenseDate *string `type:"string" json:",omitempty"`
 
 	ExpenseTime *string `type:"string" json:",omitempty"`
 
@@ -407,6 +411,12 @@ func (s *ListForListSplitBillDetailOutput) SetBusinessMode(v string) *ListForLis
 	return s
 }
 
+// SetChargeItemCode sets the ChargeItemCode field's value.
+func (s *ListForListSplitBillDetailOutput) SetChargeItemCode(v string) *ListForListSplitBillDetailOutput {
+	s.ChargeItemCode = &v
+	return s
+}
+
 // SetConfigName sets the ConfigName field's value.
 func (s *ListForListSplitBillDetailOutput) SetConfigName(v string) *ListForListSplitBillDetailOutput {
 	s.ConfigName = &v
@@ -530,6 +540,12 @@ func (s *ListForListSplitBillDetailOutput) SetExchangeRate(v string) *ListForLis
 // SetExpandField sets the ExpandField field's value.
 func (s *ListForListSplitBillDetailOutput) SetExpandField(v string) *ListForListSplitBillDetailOutput {
 	s.ExpandField = &v
+	return s
+}
+
+// SetExpenseDate sets the ExpenseDate field's value.
+func (s *ListForListSplitBillDetailOutput) SetExpenseDate(v string) *ListForListSplitBillDetailOutput {
+	s.ExpenseDate = &v
 	return s
 }
 

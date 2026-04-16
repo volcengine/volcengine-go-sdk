@@ -19,7 +19,7 @@ import (
 //    // volcengine sdk func uses an SDK service client to make a request to
 //    // ID.
 //    func myFunc(svc IDAPI) bool {
-//        // Make svc.AddUsersToGroup request
+//        // Make svc.AddUsersToDepartment request
 //    }
 //
 //    func main() {
@@ -30,6 +30,14 @@ import (
 //    }
 //
 type IDAPI interface {
+	AddUsersToDepartmentCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	AddUsersToDepartmentCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	AddUsersToDepartmentCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	AddUsersToDepartment(*AddUsersToDepartmentInput) (*AddUsersToDepartmentOutput, error)
+	AddUsersToDepartmentWithContext(volcengine.Context, *AddUsersToDepartmentInput, ...request.Option) (*AddUsersToDepartmentOutput, error)
+	AddUsersToDepartmentRequest(*AddUsersToDepartmentInput) (*request.Request, *AddUsersToDepartmentOutput)
+
 	AddUsersToGroupCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	AddUsersToGroupCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	AddUsersToGroupCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -37,6 +45,14 @@ type IDAPI interface {
 	AddUsersToGroup(*AddUsersToGroupInput) (*AddUsersToGroupOutput, error)
 	AddUsersToGroupWithContext(volcengine.Context, *AddUsersToGroupInput, ...request.Option) (*AddUsersToGroupOutput, error)
 	AddUsersToGroupRequest(*AddUsersToGroupInput) (*request.Request, *AddUsersToGroupOutput)
+
+	AddWorkloadMetaDataCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	AddWorkloadMetaDataCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	AddWorkloadMetaDataCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	AddWorkloadMetaData(*AddWorkloadMetaDataInput) (*AddWorkloadMetaDataOutput, error)
+	AddWorkloadMetaDataWithContext(volcengine.Context, *AddWorkloadMetaDataInput, ...request.Option) (*AddWorkloadMetaDataOutput, error)
+	AddWorkloadMetaDataRequest(*AddWorkloadMetaDataInput) (*request.Request, *AddWorkloadMetaDataOutput)
 
 	AttachInboundAuthConfigCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	AttachInboundAuthConfigCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -62,6 +78,14 @@ type IDAPI interface {
 	BatchGetApiKeyCredentialProvidersWithContext(volcengine.Context, *BatchGetApiKeyCredentialProvidersInput, ...request.Option) (*BatchGetApiKeyCredentialProvidersOutput, error)
 	BatchGetApiKeyCredentialProvidersRequest(*BatchGetApiKeyCredentialProvidersInput) (*request.Request, *BatchGetApiKeyCredentialProvidersOutput)
 
+	BatchGetDepartmentsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	BatchGetDepartmentsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	BatchGetDepartmentsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	BatchGetDepartments(*BatchGetDepartmentsInput) (*BatchGetDepartmentsOutput, error)
+	BatchGetDepartmentsWithContext(volcengine.Context, *BatchGetDepartmentsInput, ...request.Option) (*BatchGetDepartmentsOutput, error)
+	BatchGetDepartmentsRequest(*BatchGetDepartmentsInput) (*request.Request, *BatchGetDepartmentsOutput)
+
 	BatchGetInboundAuthConfigCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	BatchGetInboundAuthConfigCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	BatchGetInboundAuthConfigCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -77,6 +101,70 @@ type IDAPI interface {
 	BatchGetOauth2CredentialProviders(*BatchGetOauth2CredentialProvidersInput) (*BatchGetOauth2CredentialProvidersOutput, error)
 	BatchGetOauth2CredentialProvidersWithContext(volcengine.Context, *BatchGetOauth2CredentialProvidersInput, ...request.Option) (*BatchGetOauth2CredentialProvidersOutput, error)
 	BatchGetOauth2CredentialProvidersRequest(*BatchGetOauth2CredentialProvidersInput) (*request.Request, *BatchGetOauth2CredentialProvidersOutput)
+
+	BatchListDepartmentsForUsersCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	BatchListDepartmentsForUsersCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	BatchListDepartmentsForUsersCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	BatchListDepartmentsForUsers(*BatchListDepartmentsForUsersInput) (*BatchListDepartmentsForUsersOutput, error)
+	BatchListDepartmentsForUsersWithContext(volcengine.Context, *BatchListDepartmentsForUsersInput, ...request.Option) (*BatchListDepartmentsForUsersOutput, error)
+	BatchListDepartmentsForUsersRequest(*BatchListDepartmentsForUsersInput) (*request.Request, *BatchListDepartmentsForUsersOutput)
+
+	BatchSyncDepartmentMembersCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	BatchSyncDepartmentMembersCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	BatchSyncDepartmentMembersCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	BatchSyncDepartmentMembers(*BatchSyncDepartmentMembersInput) (*BatchSyncDepartmentMembersOutput, error)
+	BatchSyncDepartmentMembersWithContext(volcengine.Context, *BatchSyncDepartmentMembersInput, ...request.Option) (*BatchSyncDepartmentMembersOutput, error)
+	BatchSyncDepartmentMembersRequest(*BatchSyncDepartmentMembersInput) (*request.Request, *BatchSyncDepartmentMembersOutput)
+
+	BatchUpsertDepartmentsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	BatchUpsertDepartmentsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	BatchUpsertDepartmentsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	BatchUpsertDepartments(*BatchUpsertDepartmentsInput) (*BatchUpsertDepartmentsOutput, error)
+	BatchUpsertDepartmentsWithContext(volcengine.Context, *BatchUpsertDepartmentsInput, ...request.Option) (*BatchUpsertDepartmentsOutput, error)
+	BatchUpsertDepartmentsRequest(*BatchUpsertDepartmentsInput) (*request.Request, *BatchUpsertDepartmentsOutput)
+
+	BindWorkloadPoolTrustAnchorCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	BindWorkloadPoolTrustAnchorCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	BindWorkloadPoolTrustAnchorCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	BindWorkloadPoolTrustAnchor(*BindWorkloadPoolTrustAnchorInput) (*BindWorkloadPoolTrustAnchorOutput, error)
+	BindWorkloadPoolTrustAnchorWithContext(volcengine.Context, *BindWorkloadPoolTrustAnchorInput, ...request.Option) (*BindWorkloadPoolTrustAnchorOutput, error)
+	BindWorkloadPoolTrustAnchorRequest(*BindWorkloadPoolTrustAnchorInput) (*request.Request, *BindWorkloadPoolTrustAnchorOutput)
+
+	CancelDepartmentSyncSessionCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CancelDepartmentSyncSessionCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CancelDepartmentSyncSessionCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CancelDepartmentSyncSession(*CancelDepartmentSyncSessionInput) (*CancelDepartmentSyncSessionOutput, error)
+	CancelDepartmentSyncSessionWithContext(volcengine.Context, *CancelDepartmentSyncSessionInput, ...request.Option) (*CancelDepartmentSyncSessionOutput, error)
+	CancelDepartmentSyncSessionRequest(*CancelDepartmentSyncSessionInput) (*request.Request, *CancelDepartmentSyncSessionOutput)
+
+	CancelTaskCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CancelTaskCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CancelTaskCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CancelTask(*CancelTaskInput) (*CancelTaskOutput, error)
+	CancelTaskWithContext(volcengine.Context, *CancelTaskInput, ...request.Option) (*CancelTaskOutput, error)
+	CancelTaskRequest(*CancelTaskInput) (*request.Request, *CancelTaskOutput)
+
+	ChangeUsersDepartmentCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ChangeUsersDepartmentCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ChangeUsersDepartmentCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ChangeUsersDepartment(*ChangeUsersDepartmentInput) (*ChangeUsersDepartmentOutput, error)
+	ChangeUsersDepartmentWithContext(volcengine.Context, *ChangeUsersDepartmentInput, ...request.Option) (*ChangeUsersDepartmentOutput, error)
+	ChangeUsersDepartmentRequest(*ChangeUsersDepartmentInput) (*request.Request, *ChangeUsersDepartmentOutput)
+
+	ChangeUsersGroupCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ChangeUsersGroupCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ChangeUsersGroupCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ChangeUsersGroup(*ChangeUsersGroupInput) (*ChangeUsersGroupOutput, error)
+	ChangeUsersGroupWithContext(volcengine.Context, *ChangeUsersGroupInput, ...request.Option) (*ChangeUsersGroupOutput, error)
+	ChangeUsersGroupRequest(*ChangeUsersGroupInput) (*request.Request, *ChangeUsersGroupOutput)
 
 	CheckApiKeyCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	CheckApiKeyCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -102,6 +190,14 @@ type IDAPI interface {
 	CheckServiceNameWithContext(volcengine.Context, *CheckServiceNameInput, ...request.Option) (*CheckServiceNameOutput, error)
 	CheckServiceNameRequest(*CheckServiceNameInput) (*request.Request, *CheckServiceNameOutput)
 
+	CommitDepartmentSyncSessionCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CommitDepartmentSyncSessionCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CommitDepartmentSyncSessionCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CommitDepartmentSyncSession(*CommitDepartmentSyncSessionInput) (*CommitDepartmentSyncSessionOutput, error)
+	CommitDepartmentSyncSessionWithContext(volcengine.Context, *CommitDepartmentSyncSessionInput, ...request.Option) (*CommitDepartmentSyncSessionOutput, error)
+	CommitDepartmentSyncSessionRequest(*CommitDepartmentSyncSessionInput) (*request.Request, *CommitDepartmentSyncSessionOutput)
+
 	CompleteResourceTokenAuthCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	CompleteResourceTokenAuthCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	CompleteResourceTokenAuthCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -125,6 +221,22 @@ type IDAPI interface {
 	CreateApiKeyCredentialProvider(*CreateApiKeyCredentialProviderInput) (*CreateApiKeyCredentialProviderOutput, error)
 	CreateApiKeyCredentialProviderWithContext(volcengine.Context, *CreateApiKeyCredentialProviderInput, ...request.Option) (*CreateApiKeyCredentialProviderOutput, error)
 	CreateApiKeyCredentialProviderRequest(*CreateApiKeyCredentialProviderInput) (*request.Request, *CreateApiKeyCredentialProviderOutput)
+
+	CreateDepartmentCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateDepartmentCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateDepartmentCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateDepartment(*CreateDepartmentInput) (*CreateDepartmentOutput, error)
+	CreateDepartmentWithContext(volcengine.Context, *CreateDepartmentInput, ...request.Option) (*CreateDepartmentOutput, error)
+	CreateDepartmentRequest(*CreateDepartmentInput) (*request.Request, *CreateDepartmentOutput)
+
+	CreateDepartmentSyncSessionCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateDepartmentSyncSessionCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateDepartmentSyncSessionCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateDepartmentSyncSession(*CreateDepartmentSyncSessionInput) (*CreateDepartmentSyncSessionOutput, error)
+	CreateDepartmentSyncSessionWithContext(volcengine.Context, *CreateDepartmentSyncSessionInput, ...request.Option) (*CreateDepartmentSyncSessionOutput, error)
+	CreateDepartmentSyncSessionRequest(*CreateDepartmentSyncSessionInput) (*request.Request, *CreateDepartmentSyncSessionOutput)
 
 	CreateFaasServiceCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	CreateFaasServiceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -189,6 +301,14 @@ type IDAPI interface {
 	CreateIdentityProviderSAML(*CreateIdentityProviderSAMLInput) (*CreateIdentityProviderSAMLOutput, error)
 	CreateIdentityProviderSAMLWithContext(volcengine.Context, *CreateIdentityProviderSAMLInput, ...request.Option) (*CreateIdentityProviderSAMLOutput, error)
 	CreateIdentityProviderSAMLRequest(*CreateIdentityProviderSAMLInput) (*request.Request, *CreateIdentityProviderSAMLOutput)
+
+	CreateIdentityProviderWeComCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateIdentityProviderWeComCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateIdentityProviderWeComCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateIdentityProviderWeCom(*CreateIdentityProviderWeComInput) (*CreateIdentityProviderWeComOutput, error)
+	CreateIdentityProviderWeComWithContext(volcengine.Context, *CreateIdentityProviderWeComInput, ...request.Option) (*CreateIdentityProviderWeComOutput, error)
+	CreateIdentityProviderWeComRequest(*CreateIdentityProviderWeComInput) (*request.Request, *CreateIdentityProviderWeComOutput)
 
 	CreateInboundAuthConfigCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	CreateInboundAuthConfigCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -286,6 +406,22 @@ type IDAPI interface {
 	CreateServiceFromTemplateWithContext(volcengine.Context, *CreateServiceFromTemplateInput, ...request.Option) (*CreateServiceFromTemplateOutput, error)
 	CreateServiceFromTemplateRequest(*CreateServiceFromTemplateInput) (*request.Request, *CreateServiceFromTemplateOutput)
 
+	CreateTaskRetrieveUserSyncCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateTaskRetrieveUserSyncCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateTaskRetrieveUserSyncCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateTaskRetrieveUserSync(*CreateTaskRetrieveUserSyncInput) (*CreateTaskRetrieveUserSyncOutput, error)
+	CreateTaskRetrieveUserSyncWithContext(volcengine.Context, *CreateTaskRetrieveUserSyncInput, ...request.Option) (*CreateTaskRetrieveUserSyncOutput, error)
+	CreateTaskRetrieveUserSyncRequest(*CreateTaskRetrieveUserSyncInput) (*request.Request, *CreateTaskRetrieveUserSyncOutput)
+
+	CreateTrustAnchorCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateTrustAnchorCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateTrustAnchorCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateTrustAnchor(*CreateTrustAnchorInput) (*CreateTrustAnchorOutput, error)
+	CreateTrustAnchorWithContext(volcengine.Context, *CreateTrustAnchorInput, ...request.Option) (*CreateTrustAnchorOutput, error)
+	CreateTrustAnchorRequest(*CreateTrustAnchorInput) (*request.Request, *CreateTrustAnchorOutput)
+
 	CreateUserCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	CreateUserCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	CreateUserCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -366,6 +502,14 @@ type IDAPI interface {
 	DeleteApiKeyCredentialProviderWithContext(volcengine.Context, *DeleteApiKeyCredentialProviderInput, ...request.Option) (*DeleteApiKeyCredentialProviderOutput, error)
 	DeleteApiKeyCredentialProviderRequest(*DeleteApiKeyCredentialProviderInput) (*request.Request, *DeleteApiKeyCredentialProviderOutput)
 
+	DeleteDepartmentCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeleteDepartmentCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeleteDepartmentCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeleteDepartment(*DeleteDepartmentInput) (*DeleteDepartmentOutput, error)
+	DeleteDepartmentWithContext(volcengine.Context, *DeleteDepartmentInput, ...request.Option) (*DeleteDepartmentOutput, error)
+	DeleteDepartmentRequest(*DeleteDepartmentInput) (*request.Request, *DeleteDepartmentOutput)
+
 	DeleteFaasServiceCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DeleteFaasServiceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DeleteFaasServiceCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -421,6 +565,14 @@ type IDAPI interface {
 	DeleteIdentityProviderSAML(*DeleteIdentityProviderSAMLInput) (*DeleteIdentityProviderSAMLOutput, error)
 	DeleteIdentityProviderSAMLWithContext(volcengine.Context, *DeleteIdentityProviderSAMLInput, ...request.Option) (*DeleteIdentityProviderSAMLOutput, error)
 	DeleteIdentityProviderSAMLRequest(*DeleteIdentityProviderSAMLInput) (*request.Request, *DeleteIdentityProviderSAMLOutput)
+
+	DeleteIdentityProviderWeComCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeleteIdentityProviderWeComCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeleteIdentityProviderWeComCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeleteIdentityProviderWeCom(*DeleteIdentityProviderWeComInput) (*DeleteIdentityProviderWeComOutput, error)
+	DeleteIdentityProviderWeComWithContext(volcengine.Context, *DeleteIdentityProviderWeComInput, ...request.Option) (*DeleteIdentityProviderWeComOutput, error)
+	DeleteIdentityProviderWeComRequest(*DeleteIdentityProviderWeComInput) (*request.Request, *DeleteIdentityProviderWeComOutput)
 
 	DeleteInboundAuthConfigCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DeleteInboundAuthConfigCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -493,6 +645,14 @@ type IDAPI interface {
 	DeleteService(*DeleteServiceInput) (*DeleteServiceOutput, error)
 	DeleteServiceWithContext(volcengine.Context, *DeleteServiceInput, ...request.Option) (*DeleteServiceOutput, error)
 	DeleteServiceRequest(*DeleteServiceInput) (*request.Request, *DeleteServiceOutput)
+
+	DeleteTrustAnchorCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeleteTrustAnchorCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeleteTrustAnchorCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeleteTrustAnchor(*DeleteTrustAnchorInput) (*DeleteTrustAnchorOutput, error)
+	DeleteTrustAnchorWithContext(volcengine.Context, *DeleteTrustAnchorInput, ...request.Option) (*DeleteTrustAnchorOutput, error)
+	DeleteTrustAnchorRequest(*DeleteTrustAnchorInput) (*request.Request, *DeleteTrustAnchorOutput)
 
 	DeleteUserCredentialCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DeleteUserCredentialCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -574,6 +734,14 @@ type IDAPI interface {
 	DetachInboundAuthConfigWithContext(volcengine.Context, *DetachInboundAuthConfigInput, ...request.Option) (*DetachInboundAuthConfigOutput, error)
 	DetachInboundAuthConfigRequest(*DetachInboundAuthConfigInput) (*request.Request, *DetachInboundAuthConfigOutput)
 
+	DisableIdentityProviderForUserCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DisableIdentityProviderForUserCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DisableIdentityProviderForUserCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DisableIdentityProviderForUser(*DisableIdentityProviderForUserInput) (*DisableIdentityProviderForUserOutput, error)
+	DisableIdentityProviderForUserWithContext(volcengine.Context, *DisableIdentityProviderForUserInput, ...request.Option) (*DisableIdentityProviderForUserOutput, error)
+	DisableIdentityProviderForUserRequest(*DisableIdentityProviderForUserInput) (*request.Request, *DisableIdentityProviderForUserOutput)
+
 	DisableRouteCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DisableRouteCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DisableRouteCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -589,6 +757,46 @@ type IDAPI interface {
 	GetApiKeyCredentialProvider(*GetApiKeyCredentialProviderInput) (*GetApiKeyCredentialProviderOutput, error)
 	GetApiKeyCredentialProviderWithContext(volcengine.Context, *GetApiKeyCredentialProviderInput, ...request.Option) (*GetApiKeyCredentialProviderOutput, error)
 	GetApiKeyCredentialProviderRequest(*GetApiKeyCredentialProviderInput) (*request.Request, *GetApiKeyCredentialProviderOutput)
+
+	GetDepartmentCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	GetDepartmentCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	GetDepartmentCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	GetDepartment(*GetDepartmentInput) (*GetDepartmentOutput, error)
+	GetDepartmentWithContext(volcengine.Context, *GetDepartmentInput, ...request.Option) (*GetDepartmentOutput, error)
+	GetDepartmentRequest(*GetDepartmentInput) (*request.Request, *GetDepartmentOutput)
+
+	GetDepartmentPathCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	GetDepartmentPathCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	GetDepartmentPathCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	GetDepartmentPath(*GetDepartmentPathInput) (*GetDepartmentPathOutput, error)
+	GetDepartmentPathWithContext(volcengine.Context, *GetDepartmentPathInput, ...request.Option) (*GetDepartmentPathOutput, error)
+	GetDepartmentPathRequest(*GetDepartmentPathInput) (*request.Request, *GetDepartmentPathOutput)
+
+	GetDepartmentSyncJobCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	GetDepartmentSyncJobCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	GetDepartmentSyncJobCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	GetDepartmentSyncJob(*GetDepartmentSyncJobInput) (*GetDepartmentSyncJobOutput, error)
+	GetDepartmentSyncJobWithContext(volcengine.Context, *GetDepartmentSyncJobInput, ...request.Option) (*GetDepartmentSyncJobOutput, error)
+	GetDepartmentSyncJobRequest(*GetDepartmentSyncJobInput) (*request.Request, *GetDepartmentSyncJobOutput)
+
+	GetDepartmentSyncSessionCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	GetDepartmentSyncSessionCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	GetDepartmentSyncSessionCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	GetDepartmentSyncSession(*GetDepartmentSyncSessionInput) (*GetDepartmentSyncSessionOutput, error)
+	GetDepartmentSyncSessionWithContext(volcengine.Context, *GetDepartmentSyncSessionInput, ...request.Option) (*GetDepartmentSyncSessionOutput, error)
+	GetDepartmentSyncSessionRequest(*GetDepartmentSyncSessionInput) (*request.Request, *GetDepartmentSyncSessionOutput)
+
+	GetDepartmentTreeCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	GetDepartmentTreeCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	GetDepartmentTreeCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	GetDepartmentTree(*GetDepartmentTreeInput) (*GetDepartmentTreeOutput, error)
+	GetDepartmentTreeWithContext(volcengine.Context, *GetDepartmentTreeInput, ...request.Option) (*GetDepartmentTreeOutput, error)
+	GetDepartmentTreeRequest(*GetDepartmentTreeInput) (*request.Request, *GetDepartmentTreeOutput)
 
 	GetDocumentStatusCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	GetDocumentStatusCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -622,6 +830,14 @@ type IDAPI interface {
 	GetIamRoleAttachmentWithContext(volcengine.Context, *GetIamRoleAttachmentInput, ...request.Option) (*GetIamRoleAttachmentOutput, error)
 	GetIamRoleAttachmentRequest(*GetIamRoleAttachmentInput) (*request.Request, *GetIamRoleAttachmentOutput)
 
+	GetIdentityProviderFeishuScopesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	GetIdentityProviderFeishuScopesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	GetIdentityProviderFeishuScopesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	GetIdentityProviderFeishuScopes(*GetIdentityProviderFeishuScopesInput) (*GetIdentityProviderFeishuScopesOutput, error)
+	GetIdentityProviderFeishuScopesWithContext(volcengine.Context, *GetIdentityProviderFeishuScopesInput, ...request.Option) (*GetIdentityProviderFeishuScopesOutput, error)
+	GetIdentityProviderFeishuScopesRequest(*GetIdentityProviderFeishuScopesInput) (*request.Request, *GetIdentityProviderFeishuScopesOutput)
+
 	GetIdentityProviderLDAPADAgentCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	GetIdentityProviderLDAPADAgentCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	GetIdentityProviderLDAPADAgentCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -653,6 +869,14 @@ type IDAPI interface {
 	GetIdentityProviderSAML(*GetIdentityProviderSAMLInput) (*GetIdentityProviderSAMLOutput, error)
 	GetIdentityProviderSAMLWithContext(volcengine.Context, *GetIdentityProviderSAMLInput, ...request.Option) (*GetIdentityProviderSAMLOutput, error)
 	GetIdentityProviderSAMLRequest(*GetIdentityProviderSAMLInput) (*request.Request, *GetIdentityProviderSAMLOutput)
+
+	GetIdentityProviderWeComCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	GetIdentityProviderWeComCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	GetIdentityProviderWeComCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	GetIdentityProviderWeCom(*GetIdentityProviderWeComInput) (*GetIdentityProviderWeComOutput, error)
+	GetIdentityProviderWeComWithContext(volcengine.Context, *GetIdentityProviderWeComInput, ...request.Option) (*GetIdentityProviderWeComOutput, error)
+	GetIdentityProviderWeComRequest(*GetIdentityProviderWeComInput) (*request.Request, *GetIdentityProviderWeComOutput)
 
 	GetInboundAuthConfigCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	GetInboundAuthConfigCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -758,6 +982,22 @@ type IDAPI interface {
 	GetSmsServiceWithContext(volcengine.Context, *GetSmsServiceInput, ...request.Option) (*GetSmsServiceOutput, error)
 	GetSmsServiceRequest(*GetSmsServiceInput) (*request.Request, *GetSmsServiceOutput)
 
+	GetTaskCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	GetTaskCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	GetTaskCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	GetTask(*GetTaskInput) (*GetTaskOutput, error)
+	GetTaskWithContext(volcengine.Context, *GetTaskInput, ...request.Option) (*GetTaskOutput, error)
+	GetTaskRequest(*GetTaskInput) (*request.Request, *GetTaskOutput)
+
+	GetTaskStateUserSyncCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	GetTaskStateUserSyncCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	GetTaskStateUserSyncCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	GetTaskStateUserSync(*GetTaskStateUserSyncInput) (*GetTaskStateUserSyncOutput, error)
+	GetTaskStateUserSyncWithContext(volcengine.Context, *GetTaskStateUserSyncInput, ...request.Option) (*GetTaskStateUserSyncOutput, error)
+	GetTaskStateUserSyncRequest(*GetTaskStateUserSyncInput) (*request.Request, *GetTaskStateUserSyncOutput)
+
 	GetTenantServiceStatusCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	GetTenantServiceStatusCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	GetTenantServiceStatusCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -765,6 +1005,14 @@ type IDAPI interface {
 	GetTenantServiceStatus(*GetTenantServiceStatusInput) (*GetTenantServiceStatusOutput, error)
 	GetTenantServiceStatusWithContext(volcengine.Context, *GetTenantServiceStatusInput, ...request.Option) (*GetTenantServiceStatusOutput, error)
 	GetTenantServiceStatusRequest(*GetTenantServiceStatusInput) (*request.Request, *GetTenantServiceStatusOutput)
+
+	GetTrustAnchorCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	GetTrustAnchorCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	GetTrustAnchorCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	GetTrustAnchor(*GetTrustAnchorInput) (*GetTrustAnchorOutput, error)
+	GetTrustAnchorWithContext(volcengine.Context, *GetTrustAnchorInput, ...request.Option) (*GetTrustAnchorOutput, error)
+	GetTrustAnchorRequest(*GetTrustAnchorInput) (*request.Request, *GetTrustAnchorOutput)
 
 	GetUserCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	GetUserCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -870,6 +1118,14 @@ type IDAPI interface {
 	GrantPermissionWithContext(volcengine.Context, *GrantPermissionInput, ...request.Option) (*GrantPermissionOutput, error)
 	GrantPermissionRequest(*GrantPermissionInput) (*request.Request, *GrantPermissionOutput)
 
+	LinkIdentityProviderToUserCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	LinkIdentityProviderToUserCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	LinkIdentityProviderToUserCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	LinkIdentityProviderToUser(*LinkIdentityProviderToUserInput) (*LinkIdentityProviderToUserOutput, error)
+	LinkIdentityProviderToUserWithContext(volcengine.Context, *LinkIdentityProviderToUserInput, ...request.Option) (*LinkIdentityProviderToUserOutput, error)
+	LinkIdentityProviderToUserRequest(*LinkIdentityProviderToUserInput) (*request.Request, *LinkIdentityProviderToUserOutput)
+
 	ListApiKeyCredentialProvidersCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ListApiKeyCredentialProvidersCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	ListApiKeyCredentialProvidersCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -885,6 +1141,38 @@ type IDAPI interface {
 	ListCredentialProviders(*ListCredentialProvidersInput) (*ListCredentialProvidersOutput, error)
 	ListCredentialProvidersWithContext(volcengine.Context, *ListCredentialProvidersInput, ...request.Option) (*ListCredentialProvidersOutput, error)
 	ListCredentialProvidersRequest(*ListCredentialProvidersInput) (*request.Request, *ListCredentialProvidersOutput)
+
+	ListDepartmentMembersCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListDepartmentMembersCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListDepartmentMembersCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListDepartmentMembers(*ListDepartmentMembersInput) (*ListDepartmentMembersOutput, error)
+	ListDepartmentMembersWithContext(volcengine.Context, *ListDepartmentMembersInput, ...request.Option) (*ListDepartmentMembersOutput, error)
+	ListDepartmentMembersRequest(*ListDepartmentMembersInput) (*request.Request, *ListDepartmentMembersOutput)
+
+	ListDepartmentSyncJobsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListDepartmentSyncJobsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListDepartmentSyncJobsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListDepartmentSyncJobs(*ListDepartmentSyncJobsInput) (*ListDepartmentSyncJobsOutput, error)
+	ListDepartmentSyncJobsWithContext(volcengine.Context, *ListDepartmentSyncJobsInput, ...request.Option) (*ListDepartmentSyncJobsOutput, error)
+	ListDepartmentSyncJobsRequest(*ListDepartmentSyncJobsInput) (*request.Request, *ListDepartmentSyncJobsOutput)
+
+	ListDepartmentsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListDepartmentsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListDepartmentsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListDepartments(*ListDepartmentsInput) (*ListDepartmentsOutput, error)
+	ListDepartmentsWithContext(volcengine.Context, *ListDepartmentsInput, ...request.Option) (*ListDepartmentsOutput, error)
+	ListDepartmentsRequest(*ListDepartmentsInput) (*request.Request, *ListDepartmentsOutput)
+
+	ListDepartmentsForUserCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListDepartmentsForUserCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListDepartmentsForUserCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListDepartmentsForUser(*ListDepartmentsForUserInput) (*ListDepartmentsForUserOutput, error)
+	ListDepartmentsForUserWithContext(volcengine.Context, *ListDepartmentsForUserInput, ...request.Option) (*ListDepartmentsForUserOutput, error)
+	ListDepartmentsForUserRequest(*ListDepartmentsForUserInput) (*request.Request, *ListDepartmentsForUserOutput)
 
 	ListFaasServicesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ListFaasServicesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -909,6 +1197,14 @@ type IDAPI interface {
 	ListGroupsForUser(*ListGroupsForUserInput) (*ListGroupsForUserOutput, error)
 	ListGroupsForUserWithContext(volcengine.Context, *ListGroupsForUserInput, ...request.Option) (*ListGroupsForUserOutput, error)
 	ListGroupsForUserRequest(*ListGroupsForUserInput) (*request.Request, *ListGroupsForUserOutput)
+
+	ListGroupsForUsersCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListGroupsForUsersCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListGroupsForUsersCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListGroupsForUsers(*ListGroupsForUsersInput) (*ListGroupsForUsersOutput, error)
+	ListGroupsForUsersWithContext(volcengine.Context, *ListGroupsForUsersInput, ...request.Option) (*ListGroupsForUsersOutput, error)
+	ListGroupsForUsersRequest(*ListGroupsForUsersInput) (*request.Request, *ListGroupsForUsersOutput)
 
 	ListIdentityProviderLDAPADAgentCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ListIdentityProviderLDAPADAgentCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -950,6 +1246,14 @@ type IDAPI interface {
 	ListIdentityProvidersSAMLWithContext(volcengine.Context, *ListIdentityProvidersSAMLInput, ...request.Option) (*ListIdentityProvidersSAMLOutput, error)
 	ListIdentityProvidersSAMLRequest(*ListIdentityProvidersSAMLInput) (*request.Request, *ListIdentityProvidersSAMLOutput)
 
+	ListIdentityProvidersWeComCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListIdentityProvidersWeComCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListIdentityProvidersWeComCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListIdentityProvidersWeCom(*ListIdentityProvidersWeComInput) (*ListIdentityProvidersWeComOutput, error)
+	ListIdentityProvidersWeComWithContext(volcengine.Context, *ListIdentityProvidersWeComInput, ...request.Option) (*ListIdentityProvidersWeComOutput, error)
+	ListIdentityProvidersWeComRequest(*ListIdentityProvidersWeComInput) (*request.Request, *ListIdentityProvidersWeComOutput)
+
 	ListInboundAuthConfigsCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ListInboundAuthConfigsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	ListInboundAuthConfigsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -957,6 +1261,14 @@ type IDAPI interface {
 	ListInboundAuthConfigs(*ListInboundAuthConfigsInput) (*ListInboundAuthConfigsOutput, error)
 	ListInboundAuthConfigsWithContext(volcengine.Context, *ListInboundAuthConfigsInput, ...request.Option) (*ListInboundAuthConfigsOutput, error)
 	ListInboundAuthConfigsRequest(*ListInboundAuthConfigsInput) (*request.Request, *ListInboundAuthConfigsOutput)
+
+	ListMergeUserSyncResultUsersCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListMergeUserSyncResultUsersCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListMergeUserSyncResultUsersCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListMergeUserSyncResultUsers(*ListMergeUserSyncResultUsersInput) (*ListMergeUserSyncResultUsersOutput, error)
+	ListMergeUserSyncResultUsersWithContext(volcengine.Context, *ListMergeUserSyncResultUsersInput, ...request.Option) (*ListMergeUserSyncResultUsersOutput, error)
+	ListMergeUserSyncResultUsersRequest(*ListMergeUserSyncResultUsersInput) (*request.Request, *ListMergeUserSyncResultUsersOutput)
 
 	ListNamespacesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ListNamespacesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -1030,6 +1342,22 @@ type IDAPI interface {
 	ListTagsForResourcesWithContext(volcengine.Context, *ListTagsForResourcesInput, ...request.Option) (*ListTagsForResourcesOutput, error)
 	ListTagsForResourcesRequest(*ListTagsForResourcesInput) (*request.Request, *ListTagsForResourcesOutput)
 
+	ListTasksCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListTasksCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListTasksCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListTasks(*ListTasksInput) (*ListTasksOutput, error)
+	ListTasksWithContext(volcengine.Context, *ListTasksInput, ...request.Option) (*ListTasksOutput, error)
+	ListTasksRequest(*ListTasksInput) (*request.Request, *ListTasksOutput)
+
+	ListTrustAnchorsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListTrustAnchorsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListTrustAnchorsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListTrustAnchors(*ListTrustAnchorsInput) (*ListTrustAnchorsOutput, error)
+	ListTrustAnchorsWithContext(volcengine.Context, *ListTrustAnchorsInput, ...request.Option) (*ListTrustAnchorsOutput, error)
+	ListTrustAnchorsRequest(*ListTrustAnchorsInput) (*request.Request, *ListTrustAnchorsOutput)
+
 	ListUserPoolClientsCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ListUserPoolClientsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	ListUserPoolClientsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -1053,6 +1381,14 @@ type IDAPI interface {
 	ListUsers(*ListUsersInput) (*ListUsersOutput, error)
 	ListUsersWithContext(volcengine.Context, *ListUsersInput, ...request.Option) (*ListUsersOutput, error)
 	ListUsersRequest(*ListUsersInput) (*request.Request, *ListUsersOutput)
+
+	ListUsersInDepartmentCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListUsersInDepartmentCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListUsersInDepartmentCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListUsersInDepartment(*ListUsersInDepartmentInput) (*ListUsersInDepartmentOutput, error)
+	ListUsersInDepartmentWithContext(volcengine.Context, *ListUsersInDepartmentInput, ...request.Option) (*ListUsersInDepartmentOutput, error)
+	ListUsersInDepartmentRequest(*ListUsersInDepartmentInput) (*request.Request, *ListUsersInDepartmentOutput)
 
 	ListUsersInGroupCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ListUsersInGroupCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -1110,6 +1446,14 @@ type IDAPI interface {
 	RegisterServiceWithContext(volcengine.Context, *RegisterServiceInput, ...request.Option) (*RegisterServiceOutput, error)
 	RegisterServiceRequest(*RegisterServiceInput) (*request.Request, *RegisterServiceOutput)
 
+	RemoveUsersFromDepartmentCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	RemoveUsersFromDepartmentCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	RemoveUsersFromDepartmentCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	RemoveUsersFromDepartment(*RemoveUsersFromDepartmentInput) (*RemoveUsersFromDepartmentOutput, error)
+	RemoveUsersFromDepartmentWithContext(volcengine.Context, *RemoveUsersFromDepartmentInput, ...request.Option) (*RemoveUsersFromDepartmentOutput, error)
+	RemoveUsersFromDepartmentRequest(*RemoveUsersFromDepartmentInput) (*request.Request, *RemoveUsersFromDepartmentOutput)
+
 	RemoveUsersFromGroupCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	RemoveUsersFromGroupCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	RemoveUsersFromGroupCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -1118,6 +1462,14 @@ type IDAPI interface {
 	RemoveUsersFromGroupWithContext(volcengine.Context, *RemoveUsersFromGroupInput, ...request.Option) (*RemoveUsersFromGroupOutput, error)
 	RemoveUsersFromGroupRequest(*RemoveUsersFromGroupInput) (*request.Request, *RemoveUsersFromGroupOutput)
 
+	RemoveWorkloadMetaDataCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	RemoveWorkloadMetaDataCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	RemoveWorkloadMetaDataCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	RemoveWorkloadMetaData(*RemoveWorkloadMetaDataInput) (*RemoveWorkloadMetaDataOutput, error)
+	RemoveWorkloadMetaDataWithContext(volcengine.Context, *RemoveWorkloadMetaDataInput, ...request.Option) (*RemoveWorkloadMetaDataOutput, error)
+	RemoveWorkloadMetaDataRequest(*RemoveWorkloadMetaDataInput) (*request.Request, *RemoveWorkloadMetaDataOutput)
+
 	TagResourcesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	TagResourcesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	TagResourcesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -1125,6 +1477,14 @@ type IDAPI interface {
 	TagResources(*TagResourcesInput) (*TagResourcesOutput, error)
 	TagResourcesWithContext(volcengine.Context, *TagResourcesInput, ...request.Option) (*TagResourcesOutput, error)
 	TagResourcesRequest(*TagResourcesInput) (*request.Request, *TagResourcesOutput)
+
+	UnBindWorkloadPoolTrustAnchorCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	UnBindWorkloadPoolTrustAnchorCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	UnBindWorkloadPoolTrustAnchorCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	UnBindWorkloadPoolTrustAnchor(*UnBindWorkloadPoolTrustAnchorInput) (*UnBindWorkloadPoolTrustAnchorOutput, error)
+	UnBindWorkloadPoolTrustAnchorWithContext(volcengine.Context, *UnBindWorkloadPoolTrustAnchorInput, ...request.Option) (*UnBindWorkloadPoolTrustAnchorOutput, error)
+	UnBindWorkloadPoolTrustAnchorRequest(*UnBindWorkloadPoolTrustAnchorInput) (*request.Request, *UnBindWorkloadPoolTrustAnchorOutput)
 
 	UntagResourcesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	UntagResourcesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -1141,6 +1501,22 @@ type IDAPI interface {
 	UpdateApiKeyCredentialProvider(*UpdateApiKeyCredentialProviderInput) (*UpdateApiKeyCredentialProviderOutput, error)
 	UpdateApiKeyCredentialProviderWithContext(volcengine.Context, *UpdateApiKeyCredentialProviderInput, ...request.Option) (*UpdateApiKeyCredentialProviderOutput, error)
 	UpdateApiKeyCredentialProviderRequest(*UpdateApiKeyCredentialProviderInput) (*request.Request, *UpdateApiKeyCredentialProviderOutput)
+
+	UpdateDepartmentCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	UpdateDepartmentCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	UpdateDepartmentCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	UpdateDepartment(*UpdateDepartmentInput) (*UpdateDepartmentOutput, error)
+	UpdateDepartmentWithContext(volcengine.Context, *UpdateDepartmentInput, ...request.Option) (*UpdateDepartmentOutput, error)
+	UpdateDepartmentRequest(*UpdateDepartmentInput) (*request.Request, *UpdateDepartmentOutput)
+
+	UpdateDepartmentMemberCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	UpdateDepartmentMemberCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	UpdateDepartmentMemberCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	UpdateDepartmentMember(*UpdateDepartmentMemberInput) (*UpdateDepartmentMemberOutput, error)
+	UpdateDepartmentMemberWithContext(volcengine.Context, *UpdateDepartmentMemberInput, ...request.Option) (*UpdateDepartmentMemberOutput, error)
+	UpdateDepartmentMemberRequest(*UpdateDepartmentMemberInput) (*request.Request, *UpdateDepartmentMemberOutput)
 
 	UpdateFaasServiceCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	UpdateFaasServiceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -1197,6 +1573,14 @@ type IDAPI interface {
 	UpdateIdentityProviderSAML(*UpdateIdentityProviderSAMLInput) (*UpdateIdentityProviderSAMLOutput, error)
 	UpdateIdentityProviderSAMLWithContext(volcengine.Context, *UpdateIdentityProviderSAMLInput, ...request.Option) (*UpdateIdentityProviderSAMLOutput, error)
 	UpdateIdentityProviderSAMLRequest(*UpdateIdentityProviderSAMLInput) (*request.Request, *UpdateIdentityProviderSAMLOutput)
+
+	UpdateIdentityProviderWeComCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	UpdateIdentityProviderWeComCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	UpdateIdentityProviderWeComCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	UpdateIdentityProviderWeCom(*UpdateIdentityProviderWeComInput) (*UpdateIdentityProviderWeComOutput, error)
+	UpdateIdentityProviderWeComWithContext(volcengine.Context, *UpdateIdentityProviderWeComInput, ...request.Option) (*UpdateIdentityProviderWeComOutput, error)
+	UpdateIdentityProviderWeComRequest(*UpdateIdentityProviderWeComInput) (*request.Request, *UpdateIdentityProviderWeComOutput)
 
 	UpdateInboundAuthConfigCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	UpdateInboundAuthConfigCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -1262,6 +1646,14 @@ type IDAPI interface {
 	UpdateSmsServiceWithContext(volcengine.Context, *UpdateSmsServiceInput, ...request.Option) (*UpdateSmsServiceOutput, error)
 	UpdateSmsServiceRequest(*UpdateSmsServiceInput) (*request.Request, *UpdateSmsServiceOutput)
 
+	UpdateTrustAnchorCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	UpdateTrustAnchorCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	UpdateTrustAnchorCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	UpdateTrustAnchor(*UpdateTrustAnchorInput) (*UpdateTrustAnchorOutput, error)
+	UpdateTrustAnchorWithContext(volcengine.Context, *UpdateTrustAnchorInput, ...request.Option) (*UpdateTrustAnchorOutput, error)
+	UpdateTrustAnchorRequest(*UpdateTrustAnchorInput) (*request.Request, *UpdateTrustAnchorOutput)
+
 	UpdateUserCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	UpdateUserCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	UpdateUserCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -1309,6 +1701,30 @@ type IDAPI interface {
 	UpdateWorkloadPool(*UpdateWorkloadPoolInput) (*UpdateWorkloadPoolOutput, error)
 	UpdateWorkloadPoolWithContext(volcengine.Context, *UpdateWorkloadPoolInput, ...request.Option) (*UpdateWorkloadPoolOutput, error)
 	UpdateWorkloadPoolRequest(*UpdateWorkloadPoolInput) (*request.Request, *UpdateWorkloadPoolOutput)
+
+	UploadDepartmentSyncDepartmentsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	UploadDepartmentSyncDepartmentsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	UploadDepartmentSyncDepartmentsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	UploadDepartmentSyncDepartments(*UploadDepartmentSyncDepartmentsInput) (*UploadDepartmentSyncDepartmentsOutput, error)
+	UploadDepartmentSyncDepartmentsWithContext(volcengine.Context, *UploadDepartmentSyncDepartmentsInput, ...request.Option) (*UploadDepartmentSyncDepartmentsOutput, error)
+	UploadDepartmentSyncDepartmentsRequest(*UploadDepartmentSyncDepartmentsInput) (*request.Request, *UploadDepartmentSyncDepartmentsOutput)
+
+	UploadDepartmentSyncMembersCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	UploadDepartmentSyncMembersCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	UploadDepartmentSyncMembersCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	UploadDepartmentSyncMembers(*UploadDepartmentSyncMembersInput) (*UploadDepartmentSyncMembersOutput, error)
+	UploadDepartmentSyncMembersWithContext(volcengine.Context, *UploadDepartmentSyncMembersInput, ...request.Option) (*UploadDepartmentSyncMembersOutput, error)
+	UploadDepartmentSyncMembersRequest(*UploadDepartmentSyncMembersInput) (*request.Request, *UploadDepartmentSyncMembersOutput)
+
+	ValidateDepartmentSyncSessionCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ValidateDepartmentSyncSessionCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ValidateDepartmentSyncSessionCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ValidateDepartmentSyncSession(*ValidateDepartmentSyncSessionInput) (*ValidateDepartmentSyncSessionOutput, error)
+	ValidateDepartmentSyncSessionWithContext(volcengine.Context, *ValidateDepartmentSyncSessionInput, ...request.Option) (*ValidateDepartmentSyncSessionOutput, error)
+	ValidateDepartmentSyncSessionRequest(*ValidateDepartmentSyncSessionInput) (*request.Request, *ValidateDepartmentSyncSessionOutput)
 }
 
 var _ IDAPI = (*ID)(nil)

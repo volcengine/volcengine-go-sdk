@@ -148,7 +148,7 @@ type ModifyPlannedEventExecuteTimeInput struct {
 
 	ClientToken *string `type:"string" json:",omitempty"`
 
-	EventIds []*string `type:"list" json:",omitempty"`
+	EventIds []*string `type:"list"`
 
 	// TargetEndTime is a required field
 	TargetEndTime *string `type:"string" json:",omitempty" required:"true"`

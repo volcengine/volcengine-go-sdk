@@ -244,7 +244,7 @@ type DescribeDBInstanceDetailOutput struct {
 
 	ChargeType *string `type:"string" json:",omitempty"`
 
-	ConfigureNodes []*ConfigureNodeForDescribeDBInstanceDetailOutput `type:"list" json:",omitempty"`
+	ConfigureNodes []*ConfigureNodeForDescribeDBInstanceDetailOutput `type:"list"`
 
 	CreateTime *string `type:"string" json:",omitempty"`
 
@@ -286,15 +286,15 @@ type DescribeDBInstanceDetailOutput struct {
 
 	SubnetId *string `type:"string" json:",omitempty"`
 
-	Tags []*TagForDescribeDBInstanceDetailOutput `type:"list" json:",omitempty"`
+	Tags []*TagForDescribeDBInstanceDetailOutput `type:"list"`
 
-	VisitAddrs []*VisitAddrForDescribeDBInstanceDetailOutput `type:"list" json:",omitempty"`
+	VisitAddrs []*VisitAddrForDescribeDBInstanceDetailOutput `type:"list"`
 
 	VpcAuthMode *string `type:"string" json:",omitempty"`
 
 	VpcId *string `type:"string" json:",omitempty"`
 
-	ZoneIds []*string `type:"list" json:",omitempty"`
+	ZoneIds []*string `type:"list"`
 }
 
 // String returns the string representation

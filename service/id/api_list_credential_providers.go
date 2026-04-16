@@ -156,6 +156,8 @@ type CredentialProviderForListCredentialProvidersOutput struct {
 
 	PoolName *string `type:"string" json:",omitempty"`
 
+	ProjectName *string `type:"string" json:",omitempty"`
+
 	Type *string `type:"string" json:",omitempty" enum:"EnumOfTypeForListCredentialProvidersOutput"`
 
 	UpdatedAt *string `type:"string" json:",omitempty"`
@@ -203,6 +205,12 @@ func (s *CredentialProviderForListCredentialProvidersOutput) SetPoolName(v strin
 	return s
 }
 
+// SetProjectName sets the ProjectName field's value.
+func (s *CredentialProviderForListCredentialProvidersOutput) SetProjectName(v string) *CredentialProviderForListCredentialProvidersOutput {
+	s.ProjectName = &v
+	return s
+}
+
 // SetType sets the Type field's value.
 func (s *CredentialProviderForListCredentialProvidersOutput) SetType(v string) *CredentialProviderForListCredentialProvidersOutput {
 	s.Type = &v
@@ -229,6 +237,8 @@ type FilterForListCredentialProvidersInput struct {
 	Name *string `type:"string" json:",omitempty"`
 
 	PoolName *string `type:"string" json:",omitempty"`
+
+	ProjectName *string `type:"string" json:",omitempty"`
 
 	Type *string `type:"string" json:",omitempty" enum:"EnumOfTypeForListCredentialProvidersInput"`
 
@@ -260,6 +270,12 @@ func (s *FilterForListCredentialProvidersInput) SetName(v string) *FilterForList
 // SetPoolName sets the PoolName field's value.
 func (s *FilterForListCredentialProvidersInput) SetPoolName(v string) *FilterForListCredentialProvidersInput {
 	s.PoolName = &v
+	return s
+}
+
+// SetProjectName sets the ProjectName field's value.
+func (s *FilterForListCredentialProvidersInput) SetProjectName(v string) *FilterForListCredentialProvidersInput {
+	s.ProjectName = &v
 	return s
 }
 

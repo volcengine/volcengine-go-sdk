@@ -364,7 +364,11 @@ type ListForListAmortizedCostBillDetailOutput struct {
 
 	BusinessMode *string `type:"string" json:",omitempty"`
 
+	ChargeItemCode *string `type:"string" json:",omitempty"`
+
 	ConfigName *string `type:"string" json:",omitempty"`
+
+	ConfigurationCode *string `type:"string" json:",omitempty"`
 
 	CostID *string `type:"string" json:",omitempty"`
 
@@ -651,9 +655,21 @@ func (s *ListForListAmortizedCostBillDetailOutput) SetBusinessMode(v string) *Li
 	return s
 }
 
+// SetChargeItemCode sets the ChargeItemCode field's value.
+func (s *ListForListAmortizedCostBillDetailOutput) SetChargeItemCode(v string) *ListForListAmortizedCostBillDetailOutput {
+	s.ChargeItemCode = &v
+	return s
+}
+
 // SetConfigName sets the ConfigName field's value.
 func (s *ListForListAmortizedCostBillDetailOutput) SetConfigName(v string) *ListForListAmortizedCostBillDetailOutput {
 	s.ConfigName = &v
+	return s
+}
+
+// SetConfigurationCode sets the ConfigurationCode field's value.
+func (s *ListForListAmortizedCostBillDetailOutput) SetConfigurationCode(v string) *ListForListAmortizedCostBillDetailOutput {
+	s.ConfigurationCode = &v
 	return s
 }
 

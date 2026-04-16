@@ -163,7 +163,7 @@ type ModifyAllowListInput struct {
 
 	ModifyMode *string `type:"string" json:",omitempty"`
 
-	SecurityGroupBindInfos []*SecurityGroupBindInfoForModifyAllowListInput `type:"list" json:",omitempty"`
+	SecurityGroupBindInfos []*SecurityGroupBindInfoForModifyAllowListInput `type:"list"`
 }
 
 // String returns the string representation

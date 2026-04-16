@@ -286,6 +286,14 @@ type REDISAPI interface {
 	DescribeCrossRegionBackupsWithContext(volcengine.Context, *DescribeCrossRegionBackupsInput, ...request.Option) (*DescribeCrossRegionBackupsOutput, error)
 	DescribeCrossRegionBackupsRequest(*DescribeCrossRegionBackupsInput) (*request.Request, *DescribeCrossRegionBackupsOutput)
 
+	DescribeDBEngineVersionsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeDBEngineVersionsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeDBEngineVersionsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeDBEngineVersions(*DescribeDBEngineVersionsInput) (*DescribeDBEngineVersionsOutput, error)
+	DescribeDBEngineVersionsWithContext(volcengine.Context, *DescribeDBEngineVersionsInput, ...request.Option) (*DescribeDBEngineVersionsOutput, error)
+	DescribeDBEngineVersionsRequest(*DescribeDBEngineVersionsInput) (*request.Request, *DescribeDBEngineVersionsOutput)
+
 	DescribeDBInstanceAclCategoriesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DescribeDBInstanceAclCategoriesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DescribeDBInstanceAclCategoriesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -478,6 +486,14 @@ type REDISAPI interface {
 	DisassociateAllowListWithContext(volcengine.Context, *DisassociateAllowListInput, ...request.Option) (*DisassociateAllowListOutput, error)
 	DisassociateAllowListRequest(*DisassociateAllowListInput) (*request.Request, *DisassociateAllowListOutput)
 
+	EnableDBInstanceHACommon(*map[string]interface{}) (*map[string]interface{}, error)
+	EnableDBInstanceHACommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	EnableDBInstanceHACommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	EnableDBInstanceHA(*EnableDBInstanceHAInput) (*EnableDBInstanceHAOutput, error)
+	EnableDBInstanceHAWithContext(volcengine.Context, *EnableDBInstanceHAInput, ...request.Option) (*EnableDBInstanceHAOutput, error)
+	EnableDBInstanceHARequest(*EnableDBInstanceHAInput) (*request.Request, *EnableDBInstanceHAOutput)
+
 	EnableShardedClusterCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	EnableShardedClusterCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	EnableShardedClusterCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -605,6 +621,14 @@ type REDISAPI interface {
 	ModifyDBInstanceMaxConn(*ModifyDBInstanceMaxConnInput) (*ModifyDBInstanceMaxConnOutput, error)
 	ModifyDBInstanceMaxConnWithContext(volcengine.Context, *ModifyDBInstanceMaxConnInput, ...request.Option) (*ModifyDBInstanceMaxConnOutput, error)
 	ModifyDBInstanceMaxConnRequest(*ModifyDBInstanceMaxConnInput) (*request.Request, *ModifyDBInstanceMaxConnOutput)
+
+	ModifyDBInstanceMinorVersionCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ModifyDBInstanceMinorVersionCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ModifyDBInstanceMinorVersionCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ModifyDBInstanceMinorVersion(*ModifyDBInstanceMinorVersionInput) (*ModifyDBInstanceMinorVersionOutput, error)
+	ModifyDBInstanceMinorVersionWithContext(volcengine.Context, *ModifyDBInstanceMinorVersionInput, ...request.Option) (*ModifyDBInstanceMinorVersionOutput, error)
+	ModifyDBInstanceMinorVersionRequest(*ModifyDBInstanceMinorVersionInput) (*request.Request, *ModifyDBInstanceMinorVersionOutput)
 
 	ModifyDBInstanceNameCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ModifyDBInstanceNameCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)

@@ -143,6 +143,76 @@ func (c *ID) GetUserWithContext(ctx volcengine.Context, input *GetUserInput, opt
 	return out, req.Send()
 }
 
+type ExternalIdentityForGetUserOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	ConnectionType *string `type:"string" json:",omitempty"`
+
+	ConnectionUid *string `type:"string" json:",omitempty"`
+
+	ExternalProviderUserIdentifier *string `type:"string" json:",omitempty"`
+
+	ExternalProviderUserMetadata *string `type:"string" json:",omitempty"`
+
+	LinkSource *string `type:"string" json:",omitempty"`
+
+	Provider *string `type:"string" json:",omitempty"`
+
+	UpdatedAt *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s ExternalIdentityForGetUserOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ExternalIdentityForGetUserOutput) GoString() string {
+	return s.String()
+}
+
+// SetConnectionType sets the ConnectionType field's value.
+func (s *ExternalIdentityForGetUserOutput) SetConnectionType(v string) *ExternalIdentityForGetUserOutput {
+	s.ConnectionType = &v
+	return s
+}
+
+// SetConnectionUid sets the ConnectionUid field's value.
+func (s *ExternalIdentityForGetUserOutput) SetConnectionUid(v string) *ExternalIdentityForGetUserOutput {
+	s.ConnectionUid = &v
+	return s
+}
+
+// SetExternalProviderUserIdentifier sets the ExternalProviderUserIdentifier field's value.
+func (s *ExternalIdentityForGetUserOutput) SetExternalProviderUserIdentifier(v string) *ExternalIdentityForGetUserOutput {
+	s.ExternalProviderUserIdentifier = &v
+	return s
+}
+
+// SetExternalProviderUserMetadata sets the ExternalProviderUserMetadata field's value.
+func (s *ExternalIdentityForGetUserOutput) SetExternalProviderUserMetadata(v string) *ExternalIdentityForGetUserOutput {
+	s.ExternalProviderUserMetadata = &v
+	return s
+}
+
+// SetLinkSource sets the LinkSource field's value.
+func (s *ExternalIdentityForGetUserOutput) SetLinkSource(v string) *ExternalIdentityForGetUserOutput {
+	s.LinkSource = &v
+	return s
+}
+
+// SetProvider sets the Provider field's value.
+func (s *ExternalIdentityForGetUserOutput) SetProvider(v string) *ExternalIdentityForGetUserOutput {
+	s.Provider = &v
+	return s
+}
+
+// SetUpdatedAt sets the UpdatedAt field's value.
+func (s *ExternalIdentityForGetUserOutput) SetUpdatedAt(v string) *ExternalIdentityForGetUserOutput {
+	s.UpdatedAt = &v
+	return s
+}
+
 type GetUserInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -202,15 +272,21 @@ type GetUserOutput struct {
 
 	CreateTime *string `type:"string" json:",omitempty"`
 
+	DepartmentUids []*string `type:"list" json:",omitempty"`
+
 	Email *string `type:"string" json:",omitempty"`
 
 	EmailVerified *bool `type:"boolean" json:",omitempty"`
+
+	ExternalIdentities []*ExternalIdentityForGetUserOutput `type:"list" json:",omitempty"`
 
 	FamilyName *string `type:"string" json:",omitempty"`
 
 	Gender *string `type:"string" json:",omitempty"`
 
 	GivenName *string `type:"string" json:",omitempty"`
+
+	GroupUids []*string `type:"list" json:",omitempty"`
 
 	LatestBrowser *string `type:"string" json:",omitempty"`
 
@@ -281,6 +357,12 @@ func (s *GetUserOutput) SetCreateTime(v string) *GetUserOutput {
 	return s
 }
 
+// SetDepartmentUids sets the DepartmentUids field's value.
+func (s *GetUserOutput) SetDepartmentUids(v []*string) *GetUserOutput {
+	s.DepartmentUids = v
+	return s
+}
+
 // SetEmail sets the Email field's value.
 func (s *GetUserOutput) SetEmail(v string) *GetUserOutput {
 	s.Email = &v
@@ -290,6 +372,12 @@ func (s *GetUserOutput) SetEmail(v string) *GetUserOutput {
 // SetEmailVerified sets the EmailVerified field's value.
 func (s *GetUserOutput) SetEmailVerified(v bool) *GetUserOutput {
 	s.EmailVerified = &v
+	return s
+}
+
+// SetExternalIdentities sets the ExternalIdentities field's value.
+func (s *GetUserOutput) SetExternalIdentities(v []*ExternalIdentityForGetUserOutput) *GetUserOutput {
+	s.ExternalIdentities = v
 	return s
 }
 
@@ -308,6 +396,12 @@ func (s *GetUserOutput) SetGender(v string) *GetUserOutput {
 // SetGivenName sets the GivenName field's value.
 func (s *GetUserOutput) SetGivenName(v string) *GetUserOutput {
 	s.GivenName = &v
+	return s
+}
+
+// SetGroupUids sets the GroupUids field's value.
+func (s *GetUserOutput) SetGroupUids(v []*string) *GetUserOutput {
+	s.GroupUids = v
 	return s
 }
 

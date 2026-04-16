@@ -276,6 +276,8 @@ type DataForListIdentityProvidersSAMLOutput struct {
 
 	ScimProvisioning *ScimProvisioningForListIdentityProvidersSAMLOutput `type:"structure" json:",omitempty"`
 
+	SpMetadata *string `type:"string" json:",omitempty"`
+
 	Uid *string `type:"string" json:",omitempty"`
 }
 
@@ -358,6 +360,12 @@ func (s *DataForListIdentityProvidersSAMLOutput) SetProviderOptions(v *ProviderO
 // SetScimProvisioning sets the ScimProvisioning field's value.
 func (s *DataForListIdentityProvidersSAMLOutput) SetScimProvisioning(v *ScimProvisioningForListIdentityProvidersSAMLOutput) *DataForListIdentityProvidersSAMLOutput {
 	s.ScimProvisioning = v
+	return s
+}
+
+// SetSpMetadata sets the SpMetadata field's value.
+func (s *DataForListIdentityProvidersSAMLOutput) SetSpMetadata(v string) *DataForListIdentityProvidersSAMLOutput {
+	s.SpMetadata = &v
 	return s
 }
 
@@ -463,6 +471,8 @@ type ProviderOptionsForListIdentityProvidersSAMLOutput struct {
 	IsCreationAllowed *bool `type:"boolean" json:",omitempty"`
 
 	IsLinkingAllowed *bool `type:"boolean" json:",omitempty"`
+
+	UserLinkingPromptEnabled *bool `type:"boolean" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -502,6 +512,12 @@ func (s *ProviderOptionsForListIdentityProvidersSAMLOutput) SetIsCreationAllowed
 // SetIsLinkingAllowed sets the IsLinkingAllowed field's value.
 func (s *ProviderOptionsForListIdentityProvidersSAMLOutput) SetIsLinkingAllowed(v bool) *ProviderOptionsForListIdentityProvidersSAMLOutput {
 	s.IsLinkingAllowed = &v
+	return s
+}
+
+// SetUserLinkingPromptEnabled sets the UserLinkingPromptEnabled field's value.
+func (s *ProviderOptionsForListIdentityProvidersSAMLOutput) SetUserLinkingPromptEnabled(v bool) *ProviderOptionsForListIdentityProvidersSAMLOutput {
+	s.UserLinkingPromptEnabled = &v
 	return s
 }
 

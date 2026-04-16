@@ -562,8 +562,6 @@ type InstanceForDescribeDBInstancesOutput struct {
 
 	MaintenanceWindow *MaintenanceWindowForDescribeDBInstancesOutput `type:"structure" json:",omitempty"`
 
-	NewNodeSpec *string `type:"string" json:",omitempty"`
-
 	NodeCPUUsedPercentage *float64 `type:"double" json:",omitempty"`
 
 	NodeMemoryUsedPercentage *float64 `type:"double" json:",omitempty"`
@@ -577,8 +575,6 @@ type InstanceForDescribeDBInstancesOutput struct {
 	ProjectName *string `type:"string" json:",omitempty"`
 
 	RegionId *string `type:"string" json:",omitempty"`
-
-	SecondsMonitorConfig *string `type:"string" json:",omitempty"`
 
 	StorageSpace *int32 `type:"int32" json:",omitempty"`
 
@@ -697,12 +693,6 @@ func (s *InstanceForDescribeDBInstancesOutput) SetMaintenanceWindow(v *Maintenan
 	return s
 }
 
-// SetNewNodeSpec sets the NewNodeSpec field's value.
-func (s *InstanceForDescribeDBInstancesOutput) SetNewNodeSpec(v string) *InstanceForDescribeDBInstancesOutput {
-	s.NewNodeSpec = &v
-	return s
-}
-
 // SetNodeCPUUsedPercentage sets the NodeCPUUsedPercentage field's value.
 func (s *InstanceForDescribeDBInstancesOutput) SetNodeCPUUsedPercentage(v float64) *InstanceForDescribeDBInstancesOutput {
 	s.NodeCPUUsedPercentage = &v
@@ -742,12 +732,6 @@ func (s *InstanceForDescribeDBInstancesOutput) SetProjectName(v string) *Instanc
 // SetRegionId sets the RegionId field's value.
 func (s *InstanceForDescribeDBInstancesOutput) SetRegionId(v string) *InstanceForDescribeDBInstancesOutput {
 	s.RegionId = &v
-	return s
-}
-
-// SetSecondsMonitorConfig sets the SecondsMonitorConfig field's value.
-func (s *InstanceForDescribeDBInstancesOutput) SetSecondsMonitorConfig(v string) *InstanceForDescribeDBInstancesOutput {
-	s.SecondsMonitorConfig = &v
 	return s
 }
 

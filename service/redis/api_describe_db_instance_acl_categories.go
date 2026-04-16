@@ -184,7 +184,7 @@ type DescribeDBInstanceAclCategoriesOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	Categories []*string `type:"list" json:",omitempty"`
+	Categories []*string `type:"list"`
 }
 
 // String returns the string representation

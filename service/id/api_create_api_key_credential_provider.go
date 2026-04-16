@@ -193,6 +193,10 @@ type CreateApiKeyCredentialProviderInput struct {
 	Name *string `type:"string" json:",omitempty" required:"true"`
 
 	PoolName *string `type:"string" json:",omitempty"`
+
+	ProjectName *string `type:"string" json:",omitempty"`
+
+	SecretStorage *SecretStorageForCreateApiKeyCredentialProviderInput `type:"structure" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -245,6 +249,18 @@ func (s *CreateApiKeyCredentialProviderInput) SetPoolName(v string) *CreateApiKe
 	return s
 }
 
+// SetProjectName sets the ProjectName field's value.
+func (s *CreateApiKeyCredentialProviderInput) SetProjectName(v string) *CreateApiKeyCredentialProviderInput {
+	s.ProjectName = &v
+	return s
+}
+
+// SetSecretStorage sets the SecretStorage field's value.
+func (s *CreateApiKeyCredentialProviderInput) SetSecretStorage(v *SecretStorageForCreateApiKeyCredentialProviderInput) *CreateApiKeyCredentialProviderInput {
+	s.SecretStorage = v
+	return s
+}
+
 type CreateApiKeyCredentialProviderOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -282,5 +298,35 @@ func (s *CreateApiKeyCredentialProviderOutput) SetName(v string) *CreateApiKeyCr
 // SetSecretTrn sets the SecretTrn field's value.
 func (s *CreateApiKeyCredentialProviderOutput) SetSecretTrn(v string) *CreateApiKeyCredentialProviderOutput {
 	s.SecretTrn = &v
+	return s
+}
+
+type SecretStorageForCreateApiKeyCredentialProviderInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	EncryptionKey *string `type:"string" json:",omitempty"`
+
+	StorageType *int32 `type:"int32" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s SecretStorageForCreateApiKeyCredentialProviderInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s SecretStorageForCreateApiKeyCredentialProviderInput) GoString() string {
+	return s.String()
+}
+
+// SetEncryptionKey sets the EncryptionKey field's value.
+func (s *SecretStorageForCreateApiKeyCredentialProviderInput) SetEncryptionKey(v string) *SecretStorageForCreateApiKeyCredentialProviderInput {
+	s.EncryptionKey = &v
+	return s
+}
+
+// SetStorageType sets the StorageType field's value.
+func (s *SecretStorageForCreateApiKeyCredentialProviderInput) SetStorageType(v int32) *SecretStorageForCreateApiKeyCredentialProviderInput {
+	s.StorageType = &v
 	return s
 }

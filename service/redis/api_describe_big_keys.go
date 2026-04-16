@@ -282,7 +282,7 @@ type DescribeBigKeysOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	BigKey []*BigKeyForDescribeBigKeysOutput `type:"list" json:",omitempty"`
+	BigKey []*BigKeyForDescribeBigKeysOutput `type:"list"`
 
 	InstanceId *string `type:"string" json:",omitempty"`
 

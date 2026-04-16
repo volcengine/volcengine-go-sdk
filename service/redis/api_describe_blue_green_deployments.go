@@ -294,7 +294,7 @@ type DescribeBlueGreenDeploymentsOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	BlueGreenDeployments []*BlueGreenDeploymentForDescribeBlueGreenDeploymentsOutput `type:"list" json:",omitempty"`
+	BlueGreenDeployments []*BlueGreenDeploymentForDescribeBlueGreenDeploymentsOutput `type:"list"`
 }
 
 // String returns the string representation

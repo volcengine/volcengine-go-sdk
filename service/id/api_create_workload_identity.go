@@ -152,6 +152,8 @@ type CreateWorkloadIdentityInput struct {
 
 	Description *string `type:"string" json:",omitempty"`
 
+	MetaData []*MetaDataForCreateWorkloadIdentityInput `type:"list" json:",omitempty"`
+
 	// Name is a required field
 	Name *string `type:"string" json:",omitempty" required:"true"`
 
@@ -199,6 +201,12 @@ func (s *CreateWorkloadIdentityInput) SetDescription(v string) *CreateWorkloadId
 	return s
 }
 
+// SetMetaData sets the MetaData field's value.
+func (s *CreateWorkloadIdentityInput) SetMetaData(v []*MetaDataForCreateWorkloadIdentityInput) *CreateWorkloadIdentityInput {
+	s.MetaData = v
+	return s
+}
+
 // SetName sets the Name field's value.
 func (s *CreateWorkloadIdentityInput) SetName(v string) *CreateWorkloadIdentityInput {
 	s.Name = &v
@@ -223,6 +231,8 @@ type CreateWorkloadIdentityOutput struct {
 	CreatedAt *string `type:"string" json:",omitempty"`
 
 	Description *string `type:"string" json:",omitempty"`
+
+	MetaData []*MetaDataForCreateWorkloadIdentityOutput `type:"list" json:",omitempty"`
 
 	Name *string `type:"string" json:",omitempty"`
 
@@ -269,6 +279,12 @@ func (s *CreateWorkloadIdentityOutput) SetDescription(v string) *CreateWorkloadI
 	return s
 }
 
+// SetMetaData sets the MetaData field's value.
+func (s *CreateWorkloadIdentityOutput) SetMetaData(v []*MetaDataForCreateWorkloadIdentityOutput) *CreateWorkloadIdentityOutput {
+	s.MetaData = v
+	return s
+}
+
 // SetName sets the Name field's value.
 func (s *CreateWorkloadIdentityOutput) SetName(v string) *CreateWorkloadIdentityOutput {
 	s.Name = &v
@@ -296,5 +312,65 @@ func (s *CreateWorkloadIdentityOutput) SetUpdatedAt(v string) *CreateWorkloadIde
 // SetWorkloadPoolName sets the WorkloadPoolName field's value.
 func (s *CreateWorkloadIdentityOutput) SetWorkloadPoolName(v string) *CreateWorkloadIdentityOutput {
 	s.WorkloadPoolName = &v
+	return s
+}
+
+type MetaDataForCreateWorkloadIdentityInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Key *string `type:"string" json:",omitempty"`
+
+	Values []*string `type:"list" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s MetaDataForCreateWorkloadIdentityInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s MetaDataForCreateWorkloadIdentityInput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *MetaDataForCreateWorkloadIdentityInput) SetKey(v string) *MetaDataForCreateWorkloadIdentityInput {
+	s.Key = &v
+	return s
+}
+
+// SetValues sets the Values field's value.
+func (s *MetaDataForCreateWorkloadIdentityInput) SetValues(v []*string) *MetaDataForCreateWorkloadIdentityInput {
+	s.Values = v
+	return s
+}
+
+type MetaDataForCreateWorkloadIdentityOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Key *string `type:"string" json:",omitempty"`
+
+	Values []*string `type:"list" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s MetaDataForCreateWorkloadIdentityOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s MetaDataForCreateWorkloadIdentityOutput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *MetaDataForCreateWorkloadIdentityOutput) SetKey(v string) *MetaDataForCreateWorkloadIdentityOutput {
+	s.Key = &v
+	return s
+}
+
+// SetValues sets the Values field's value.
+func (s *MetaDataForCreateWorkloadIdentityOutput) SetValues(v []*string) *MetaDataForCreateWorkloadIdentityOutput {
+	s.Values = v
 	return s
 }

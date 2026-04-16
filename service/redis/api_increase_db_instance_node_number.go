@@ -175,7 +175,7 @@ type IncreaseDBInstanceNodeNumberInput struct {
 
 	ClientToken *string `type:"string" json:",omitempty"`
 
-	ConfigureNewNodes []*ConfigureNewNodeForIncreaseDBInstanceNodeNumberInput `type:"list" json:",omitempty"`
+	ConfigureNewNodes []*ConfigureNewNodeForIncreaseDBInstanceNodeNumberInput `type:"list"`
 
 	CreateBackup *bool `type:"boolean" json:",omitempty"`
 

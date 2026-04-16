@@ -178,7 +178,7 @@ type DescribeDBInstanceSpecsOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	InstanceSpecs []*InstanceSpecForDescribeDBInstanceSpecsOutput `type:"list" json:",omitempty"`
+	InstanceSpecs []*InstanceSpecForDescribeDBInstanceSpecsOutput `type:"list"`
 }
 
 // String returns the string representation
@@ -206,11 +206,11 @@ type InstanceSpecForDescribeDBInstanceSpecsOutput struct {
 
 	MaxConnectionsPerShard *int32 `type:"int32" json:",omitempty"`
 
-	NodeNumbers []*int32 `type:"list" json:",omitempty"`
+	NodeNumbers []*int32 `type:"list"`
 
-	ShardCapacitySpecs []*ShardCapacitySpecForDescribeDBInstanceSpecsOutput `type:"list" json:",omitempty"`
+	ShardCapacitySpecs []*ShardCapacitySpecForDescribeDBInstanceSpecsOutput `type:"list"`
 
-	ShardNumbers []*int32 `type:"list" json:",omitempty"`
+	ShardNumbers []*int32 `type:"list"`
 }
 
 // String returns the string representation

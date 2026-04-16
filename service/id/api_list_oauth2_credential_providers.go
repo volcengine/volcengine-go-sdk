@@ -256,6 +256,8 @@ type Oauth2CredentialProviderForListOauth2CredentialProvidersOutput struct {
 
 	Name *string `type:"string" json:",omitempty"`
 
+	ProjectName *string `type:"string" json:",omitempty"`
+
 	UpdatedAt *string `type:"string" json:",omitempty"`
 
 	Vendor *int32 `type:"int32" json:",omitempty"`
@@ -286,6 +288,12 @@ func (s *Oauth2CredentialProviderForListOauth2CredentialProvidersOutput) SetCred
 // SetName sets the Name field's value.
 func (s *Oauth2CredentialProviderForListOauth2CredentialProvidersOutput) SetName(v string) *Oauth2CredentialProviderForListOauth2CredentialProvidersOutput {
 	s.Name = &v
+	return s
+}
+
+// SetProjectName sets the ProjectName field's value.
+func (s *Oauth2CredentialProviderForListOauth2CredentialProvidersOutput) SetProjectName(v string) *Oauth2CredentialProviderForListOauth2CredentialProvidersOutput {
+	s.ProjectName = &v
 	return s
 }
 

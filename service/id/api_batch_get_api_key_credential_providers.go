@@ -152,6 +152,8 @@ type ApiKeyCredentialProviderForBatchGetApiKeyCredentialProvidersOutput struct {
 
 	Name *string `type:"string" json:",omitempty"`
 
+	ProjectName *string `type:"string" json:",omitempty"`
+
 	UpdatedAt *string `type:"string" json:",omitempty"`
 }
 
@@ -180,6 +182,12 @@ func (s *ApiKeyCredentialProviderForBatchGetApiKeyCredentialProvidersOutput) Set
 // SetName sets the Name field's value.
 func (s *ApiKeyCredentialProviderForBatchGetApiKeyCredentialProvidersOutput) SetName(v string) *ApiKeyCredentialProviderForBatchGetApiKeyCredentialProvidersOutput {
 	s.Name = &v
+	return s
+}
+
+// SetProjectName sets the ProjectName field's value.
+func (s *ApiKeyCredentialProviderForBatchGetApiKeyCredentialProvidersOutput) SetProjectName(v string) *ApiKeyCredentialProviderForBatchGetApiKeyCredentialProvidersOutput {
+	s.ProjectName = &v
 	return s
 }
 

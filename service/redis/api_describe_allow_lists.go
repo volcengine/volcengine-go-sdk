@@ -162,7 +162,7 @@ type AllowListForDescribeAllowListsOutput struct {
 
 	ProjectName *string `type:"string" json:",omitempty"`
 
-	SecurityGroupBindInfos []*SecurityGroupBindInfoForDescribeAllowListsOutput `type:"list" json:",omitempty"`
+	SecurityGroupBindInfos []*SecurityGroupBindInfoForDescribeAllowListsOutput `type:"list"`
 }
 
 // String returns the string representation
@@ -310,7 +310,7 @@ type DescribeAllowListsOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	AllowLists []*AllowListForDescribeAllowListsOutput `type:"list" json:",omitempty"`
+	AllowLists []*AllowListForDescribeAllowListsOutput `type:"list"`
 }
 
 // String returns the string representation
@@ -334,7 +334,7 @@ type SecurityGroupBindInfoForDescribeAllowListsOutput struct {
 
 	BindMode *string `type:"string" json:",omitempty" enum:"EnumOfBindModeForDescribeAllowListsOutput"`
 
-	IpList []*string `type:"list" json:",omitempty"`
+	IpList []*string `type:"list"`
 
 	SecurityGroupId *string `type:"string" json:",omitempty"`
 

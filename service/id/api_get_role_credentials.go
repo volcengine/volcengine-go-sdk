@@ -230,6 +230,8 @@ func (s *CredentialsForGetRoleCredentialsOutput) SetSessionToken(v string) *Cred
 type GetRoleCredentialsInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	DurationSeconds *int32 `type:"int32" json:",omitempty"`
+
 	// IdentityToken is a required field
 	IdentityToken *string `type:"string" json:",omitempty" required:"true"`
 
@@ -269,6 +271,12 @@ func (s *GetRoleCredentialsInput) Validate() error {
 		return invalidParams
 	}
 	return nil
+}
+
+// SetDurationSeconds sets the DurationSeconds field's value.
+func (s *GetRoleCredentialsInput) SetDurationSeconds(v int32) *GetRoleCredentialsInput {
+	s.DurationSeconds = &v
+	return s
 }
 
 // SetIdentityToken sets the IdentityToken field's value.

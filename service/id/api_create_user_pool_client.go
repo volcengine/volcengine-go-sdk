@@ -155,10 +155,16 @@ type CreateUserPoolClientInput struct {
 
 	DevelopmentModeEnabled *bool `type:"boolean" json:",omitempty"`
 
+	DeviceFlowEnabled *bool `type:"boolean" json:",omitempty"`
+
+	DismissLoginPageEnabled *bool `type:"boolean" json:",omitempty"`
+
 	LogoUri *string `type:"string" json:",omitempty"`
 
 	// Name is a required field
 	Name *string `type:"string" json:",omitempty" required:"true"`
+
+	SkipConsentEnabled *bool `type:"boolean" json:",omitempty"`
 
 	// UserPoolUid is a required field
 	UserPoolUid *string `type:"string" json:",omitempty" required:"true"`
@@ -217,6 +223,18 @@ func (s *CreateUserPoolClientInput) SetDevelopmentModeEnabled(v bool) *CreateUse
 	return s
 }
 
+// SetDeviceFlowEnabled sets the DeviceFlowEnabled field's value.
+func (s *CreateUserPoolClientInput) SetDeviceFlowEnabled(v bool) *CreateUserPoolClientInput {
+	s.DeviceFlowEnabled = &v
+	return s
+}
+
+// SetDismissLoginPageEnabled sets the DismissLoginPageEnabled field's value.
+func (s *CreateUserPoolClientInput) SetDismissLoginPageEnabled(v bool) *CreateUserPoolClientInput {
+	s.DismissLoginPageEnabled = &v
+	return s
+}
+
 // SetLogoUri sets the LogoUri field's value.
 func (s *CreateUserPoolClientInput) SetLogoUri(v string) *CreateUserPoolClientInput {
 	s.LogoUri = &v
@@ -226,6 +244,12 @@ func (s *CreateUserPoolClientInput) SetLogoUri(v string) *CreateUserPoolClientIn
 // SetName sets the Name field's value.
 func (s *CreateUserPoolClientInput) SetName(v string) *CreateUserPoolClientInput {
 	s.Name = &v
+	return s
+}
+
+// SetSkipConsentEnabled sets the SkipConsentEnabled field's value.
+func (s *CreateUserPoolClientInput) SetSkipConsentEnabled(v bool) *CreateUserPoolClientInput {
+	s.SkipConsentEnabled = &v
 	return s
 }
 

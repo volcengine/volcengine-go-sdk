@@ -54,6 +54,14 @@ type VEFAASAPI interface {
 	CreateDependencyInstallTaskWithContext(volcengine.Context, *CreateDependencyInstallTaskInput, ...request.Option) (*CreateDependencyInstallTaskOutput, error)
 	CreateDependencyInstallTaskRequest(*CreateDependencyInstallTaskInput) (*request.Request, *CreateDependencyInstallTaskOutput)
 
+	CreateE2BAPIKeyCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateE2BAPIKeyCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateE2BAPIKeyCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateE2BAPIKey(*CreateE2BAPIKeyInput) (*CreateE2BAPIKeyOutput, error)
+	CreateE2BAPIKeyWithContext(volcengine.Context, *CreateE2BAPIKeyInput, ...request.Option) (*CreateE2BAPIKeyOutput, error)
+	CreateE2BAPIKeyRequest(*CreateE2BAPIKeyInput) (*request.Request, *CreateE2BAPIKeyOutput)
+
 	CreateFunctionCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	CreateFunctionCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	CreateFunctionCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -277,6 +285,14 @@ type VEFAASAPI interface {
 	ListAsyncTasks(*ListAsyncTasksInput) (*ListAsyncTasksOutput, error)
 	ListAsyncTasksWithContext(volcengine.Context, *ListAsyncTasksInput, ...request.Option) (*ListAsyncTasksOutput, error)
 	ListAsyncTasksRequest(*ListAsyncTasksInput) (*request.Request, *ListAsyncTasksOutput)
+
+	ListE2BAPIKeysCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListE2BAPIKeysCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListE2BAPIKeysCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListE2BAPIKeys(*ListE2BAPIKeysInput) (*ListE2BAPIKeysOutput, error)
+	ListE2BAPIKeysWithContext(volcengine.Context, *ListE2BAPIKeysInput, ...request.Option) (*ListE2BAPIKeysOutput, error)
+	ListE2BAPIKeysRequest(*ListE2BAPIKeysInput) (*request.Request, *ListE2BAPIKeysOutput)
 
 	ListFunctionElasticScaleStrategyCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ListFunctionElasticScaleStrategyCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)

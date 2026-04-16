@@ -153,7 +153,7 @@ type DescribeSlowLogsInput struct {
 	// InstanceId is a required field
 	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 
-	NodeIds []*string `type:"list" json:",omitempty"`
+	NodeIds []*string `type:"list"`
 
 	// PageSize is a required field
 	PageSize *int32 `type:"int32" json:",omitempty" required:"true"`
@@ -250,7 +250,7 @@ type DescribeSlowLogsOutput struct {
 
 	ListOver *bool `type:"boolean" json:",omitempty"`
 
-	SlowQuery []*SlowQueryForDescribeSlowLogsOutput `type:"list" json:",omitempty"`
+	SlowQuery []*SlowQueryForDescribeSlowLogsOutput `type:"list"`
 
 	Total *int32 `type:"int32" json:",omitempty"`
 }
