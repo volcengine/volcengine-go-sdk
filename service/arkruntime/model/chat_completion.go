@@ -38,12 +38,17 @@ type ChatMessageVideoURL struct {
 	FPS *float64 `json:"fps,omitempty"`
 }
 
+type ChatMessageAudioURL struct {
+	URL string `json:"url"`
+}
+
 type ChatCompletionMessageContentPartType string
 
 const (
 	ChatCompletionMessageContentPartTypeText     ChatCompletionMessageContentPartType = "text"
 	ChatCompletionMessageContentPartTypeImageURL ChatCompletionMessageContentPartType = "image_url"
 	ChatCompletionMessageContentPartTypeVideoURL ChatCompletionMessageContentPartType = "video_url"
+	ChatCompletionMessageContentPartTypeAudioURL ChatCompletionMessageContentPartType = "audio_url"
 )
 
 type ChatCompletionMessageContentPart struct {
@@ -51,6 +56,7 @@ type ChatCompletionMessageContentPart struct {
 	Text     string                               `json:"text,omitempty"`
 	ImageURL *ChatMessageImageURL                 `json:"image_url,omitempty"`
 	VideoURL *ChatMessageVideoURL                 `json:"video_url,omitempty"`
+	AudioURL *ChatMessageAudioURL                 `json:"audio_url,omitempty"`
 }
 
 type ChatCompletionMessageContent struct {
