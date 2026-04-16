@@ -463,6 +463,8 @@ type ProviderOptionsForListIdentityProvidersOIDCOutput struct {
 	IsCreationAllowed *bool `type:"boolean" json:",omitempty"`
 
 	IsLinkingAllowed *bool `type:"boolean" json:",omitempty"`
+
+	UserLinkingPromptEnabled *bool `type:"boolean" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -502,6 +504,12 @@ func (s *ProviderOptionsForListIdentityProvidersOIDCOutput) SetIsCreationAllowed
 // SetIsLinkingAllowed sets the IsLinkingAllowed field's value.
 func (s *ProviderOptionsForListIdentityProvidersOIDCOutput) SetIsLinkingAllowed(v bool) *ProviderOptionsForListIdentityProvidersOIDCOutput {
 	s.IsLinkingAllowed = &v
+	return s
+}
+
+// SetUserLinkingPromptEnabled sets the UserLinkingPromptEnabled field's value.
+func (s *ProviderOptionsForListIdentityProvidersOIDCOutput) SetUserLinkingPromptEnabled(v bool) *ProviderOptionsForListIdentityProvidersOIDCOutput {
+	s.UserLinkingPromptEnabled = &v
 	return s
 }
 

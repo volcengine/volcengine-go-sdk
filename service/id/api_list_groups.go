@@ -160,6 +160,8 @@ type DataForListGroupsOutput struct {
 
 	Source *string `type:"string" json:",omitempty"`
 
+	TotalCountOfGroupMember *int32 `type:"int32" json:",omitempty"`
+
 	Uid *string `type:"string" json:",omitempty"`
 
 	UpdateTime *string `type:"string" json:",omitempty"`
@@ -219,6 +221,12 @@ func (s *DataForListGroupsOutput) SetSource(v string) *DataForListGroupsOutput {
 	return s
 }
 
+// SetTotalCountOfGroupMember sets the TotalCountOfGroupMember field's value.
+func (s *DataForListGroupsOutput) SetTotalCountOfGroupMember(v int32) *DataForListGroupsOutput {
+	s.TotalCountOfGroupMember = &v
+	return s
+}
+
 // SetUid sets the Uid field's value.
 func (s *DataForListGroupsOutput) SetUid(v string) *DataForListGroupsOutput {
 	s.Uid = &v
@@ -243,6 +251,8 @@ type FilterForListGroupsInput struct {
 	Description *string `type:"string" json:",omitempty"`
 
 	GroupIdTokenName *string `type:"string" json:",omitempty"`
+
+	GroupUidsOr []*string `type:"list" json:",omitempty"`
 
 	Name *string `type:"string" json:",omitempty"`
 
@@ -271,6 +281,12 @@ func (s *FilterForListGroupsInput) SetGroupIdTokenName(v string) *FilterForListG
 	return s
 }
 
+// SetGroupUidsOr sets the GroupUidsOr field's value.
+func (s *FilterForListGroupsInput) SetGroupUidsOr(v []*string) *FilterForListGroupsInput {
+	s.GroupUidsOr = v
+	return s
+}
+
 // SetName sets the Name field's value.
 func (s *FilterForListGroupsInput) SetName(v string) *FilterForListGroupsInput {
 	s.Name = &v
@@ -291,7 +307,8 @@ type ListGroupsInput struct {
 	// PageNumber is a required field
 	PageNumber *int32 `type:"int32" json:",omitempty" required:"true"`
 
-	PageSize *int32 `type:"int32" json:",omitempty"`
+	// PageSize is a required field
+	PageSize *int32 `type:"int32" json:",omitempty" required:"true"`
 
 	SortDirection *string `type:"string" json:",omitempty"`
 
@@ -316,6 +333,9 @@ func (s *ListGroupsInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "ListGroupsInput"}
 	if s.PageNumber == nil {
 		invalidParams.Add(request.NewErrParamRequired("PageNumber"))
+	}
+	if s.PageSize == nil {
+		invalidParams.Add(request.NewErrParamRequired("PageSize"))
 	}
 	if s.UserPoolUid == nil {
 		invalidParams.Add(request.NewErrParamRequired("UserPoolUid"))

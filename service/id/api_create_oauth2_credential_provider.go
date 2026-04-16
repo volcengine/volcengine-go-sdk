@@ -235,6 +235,8 @@ type ConfigForCreateOauth2CredentialProviderInput struct {
 	RedirectUrl *string `type:"string" json:",omitempty"`
 
 	Scopes []*string `type:"list" json:",omitempty"`
+
+	SecretStorage *SecretStorageForCreateOauth2CredentialProviderInput `type:"structure" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -307,6 +309,12 @@ func (s *ConfigForCreateOauth2CredentialProviderInput) SetScopes(v []*string) *C
 	return s
 }
 
+// SetSecretStorage sets the SecretStorage field's value.
+func (s *ConfigForCreateOauth2CredentialProviderInput) SetSecretStorage(v *SecretStorageForCreateOauth2CredentialProviderInput) *ConfigForCreateOauth2CredentialProviderInput {
+	s.SecretStorage = v
+	return s
+}
+
 type CreateOauth2CredentialProviderInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -316,6 +324,8 @@ type CreateOauth2CredentialProviderInput struct {
 	Name *string `type:"string" json:",omitempty" required:"true"`
 
 	PoolName *string `type:"string" json:",omitempty"`
+
+	ProjectName *string `type:"string" json:",omitempty"`
 
 	// Vendor is a required field
 	Vendor *int32 `type:"int32" json:",omitempty" required:"true"`
@@ -362,6 +372,12 @@ func (s *CreateOauth2CredentialProviderInput) SetName(v string) *CreateOauth2Cre
 // SetPoolName sets the PoolName field's value.
 func (s *CreateOauth2CredentialProviderInput) SetPoolName(v string) *CreateOauth2CredentialProviderInput {
 	s.PoolName = &v
+	return s
+}
+
+// SetProjectName sets the ProjectName field's value.
+func (s *CreateOauth2CredentialProviderInput) SetProjectName(v string) *CreateOauth2CredentialProviderInput {
+	s.ProjectName = &v
 	return s
 }
 
@@ -498,6 +514,36 @@ func (s *Oauth2DiscoveryForCreateOauth2CredentialProviderInput) SetAuthorization
 // SetDiscoveryUrl sets the DiscoveryUrl field's value.
 func (s *Oauth2DiscoveryForCreateOauth2CredentialProviderInput) SetDiscoveryUrl(v string) *Oauth2DiscoveryForCreateOauth2CredentialProviderInput {
 	s.DiscoveryUrl = &v
+	return s
+}
+
+type SecretStorageForCreateOauth2CredentialProviderInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	EncryptionKey *string `type:"string" json:",omitempty"`
+
+	StorageType *int32 `type:"int32" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s SecretStorageForCreateOauth2CredentialProviderInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s SecretStorageForCreateOauth2CredentialProviderInput) GoString() string {
+	return s.String()
+}
+
+// SetEncryptionKey sets the EncryptionKey field's value.
+func (s *SecretStorageForCreateOauth2CredentialProviderInput) SetEncryptionKey(v string) *SecretStorageForCreateOauth2CredentialProviderInput {
+	s.EncryptionKey = &v
+	return s
+}
+
+// SetStorageType sets the StorageType field's value.
+func (s *SecretStorageForCreateOauth2CredentialProviderInput) SetStorageType(v int32) *SecretStorageForCreateOauth2CredentialProviderInput {
+	s.StorageType = &v
 	return s
 }
 

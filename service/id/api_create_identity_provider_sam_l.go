@@ -539,6 +539,8 @@ type CreateIdentityProviderSAMLOutput struct {
 
 	ScimProvisioning *ScimProvisioningForCreateIdentityProviderSAMLOutput `type:"structure" json:",omitempty"`
 
+	SpMetadata *string `type:"string" json:",omitempty"`
+
 	Uid *string `type:"string" json:",omitempty"`
 }
 
@@ -624,6 +626,12 @@ func (s *CreateIdentityProviderSAMLOutput) SetScimProvisioning(v *ScimProvisioni
 	return s
 }
 
+// SetSpMetadata sets the SpMetadata field's value.
+func (s *CreateIdentityProviderSAMLOutput) SetSpMetadata(v string) *CreateIdentityProviderSAMLOutput {
+	s.SpMetadata = &v
+	return s
+}
+
 // SetUid sets the Uid field's value.
 func (s *CreateIdentityProviderSAMLOutput) SetUid(v string) *CreateIdentityProviderSAMLOutput {
 	s.Uid = &v
@@ -642,6 +650,8 @@ type ProviderOptionsForCreateIdentityProviderSAMLInput struct {
 	IsCreationAllowed *bool `type:"boolean" json:",omitempty"`
 
 	IsLinkingAllowed *bool `type:"boolean" json:",omitempty"`
+
+	UserLinkingPromptEnabled *bool `type:"boolean" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -684,6 +694,12 @@ func (s *ProviderOptionsForCreateIdentityProviderSAMLInput) SetIsLinkingAllowed(
 	return s
 }
 
+// SetUserLinkingPromptEnabled sets the UserLinkingPromptEnabled field's value.
+func (s *ProviderOptionsForCreateIdentityProviderSAMLInput) SetUserLinkingPromptEnabled(v bool) *ProviderOptionsForCreateIdentityProviderSAMLInput {
+	s.UserLinkingPromptEnabled = &v
+	return s
+}
+
 type ProviderOptionsForCreateIdentityProviderSAMLOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -696,6 +712,8 @@ type ProviderOptionsForCreateIdentityProviderSAMLOutput struct {
 	IsCreationAllowed *bool `type:"boolean" json:",omitempty"`
 
 	IsLinkingAllowed *bool `type:"boolean" json:",omitempty"`
+
+	UserLinkingPromptEnabled *bool `type:"boolean" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -735,6 +753,12 @@ func (s *ProviderOptionsForCreateIdentityProviderSAMLOutput) SetIsCreationAllowe
 // SetIsLinkingAllowed sets the IsLinkingAllowed field's value.
 func (s *ProviderOptionsForCreateIdentityProviderSAMLOutput) SetIsLinkingAllowed(v bool) *ProviderOptionsForCreateIdentityProviderSAMLOutput {
 	s.IsLinkingAllowed = &v
+	return s
+}
+
+// SetUserLinkingPromptEnabled sets the UserLinkingPromptEnabled field's value.
+func (s *ProviderOptionsForCreateIdentityProviderSAMLOutput) SetUserLinkingPromptEnabled(v bool) *ProviderOptionsForCreateIdentityProviderSAMLOutput {
+	s.UserLinkingPromptEnabled = &v
 	return s
 }
 

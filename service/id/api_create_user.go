@@ -346,15 +346,21 @@ type CreateUserOutput struct {
 
 	CreateTime *string `type:"string" json:",omitempty"`
 
+	DepartmentUids []*string `type:"list" json:",omitempty"`
+
 	Email *string `type:"string" json:",omitempty"`
 
 	EmailVerified *bool `type:"boolean" json:",omitempty"`
+
+	ExternalIdentities []*ExternalIdentityForCreateUserOutput `type:"list" json:",omitempty"`
 
 	FamilyName *string `type:"string" json:",omitempty"`
 
 	Gender *string `type:"string" json:",omitempty"`
 
 	GivenName *string `type:"string" json:",omitempty"`
+
+	GroupUids []*string `type:"list" json:",omitempty"`
 
 	LatestBrowser *string `type:"string" json:",omitempty"`
 
@@ -425,6 +431,12 @@ func (s *CreateUserOutput) SetCreateTime(v string) *CreateUserOutput {
 	return s
 }
 
+// SetDepartmentUids sets the DepartmentUids field's value.
+func (s *CreateUserOutput) SetDepartmentUids(v []*string) *CreateUserOutput {
+	s.DepartmentUids = v
+	return s
+}
+
 // SetEmail sets the Email field's value.
 func (s *CreateUserOutput) SetEmail(v string) *CreateUserOutput {
 	s.Email = &v
@@ -434,6 +446,12 @@ func (s *CreateUserOutput) SetEmail(v string) *CreateUserOutput {
 // SetEmailVerified sets the EmailVerified field's value.
 func (s *CreateUserOutput) SetEmailVerified(v bool) *CreateUserOutput {
 	s.EmailVerified = &v
+	return s
+}
+
+// SetExternalIdentities sets the ExternalIdentities field's value.
+func (s *CreateUserOutput) SetExternalIdentities(v []*ExternalIdentityForCreateUserOutput) *CreateUserOutput {
+	s.ExternalIdentities = v
 	return s
 }
 
@@ -452,6 +470,12 @@ func (s *CreateUserOutput) SetGender(v string) *CreateUserOutput {
 // SetGivenName sets the GivenName field's value.
 func (s *CreateUserOutput) SetGivenName(v string) *CreateUserOutput {
 	s.GivenName = &v
+	return s
+}
+
+// SetGroupUids sets the GroupUids field's value.
+func (s *CreateUserOutput) SetGroupUids(v []*string) *CreateUserOutput {
+	s.GroupUids = v
 	return s
 }
 
@@ -572,5 +596,75 @@ func (s *CreateUserOutput) SetWebsite(v string) *CreateUserOutput {
 // SetZoneinfo sets the Zoneinfo field's value.
 func (s *CreateUserOutput) SetZoneinfo(v string) *CreateUserOutput {
 	s.Zoneinfo = &v
+	return s
+}
+
+type ExternalIdentityForCreateUserOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	ConnectionType *string `type:"string" json:",omitempty"`
+
+	ConnectionUid *string `type:"string" json:",omitempty"`
+
+	ExternalProviderUserIdentifier *string `type:"string" json:",omitempty"`
+
+	ExternalProviderUserMetadata *string `type:"string" json:",omitempty"`
+
+	LinkSource *string `type:"string" json:",omitempty"`
+
+	Provider *string `type:"string" json:",omitempty"`
+
+	UpdatedAt *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s ExternalIdentityForCreateUserOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ExternalIdentityForCreateUserOutput) GoString() string {
+	return s.String()
+}
+
+// SetConnectionType sets the ConnectionType field's value.
+func (s *ExternalIdentityForCreateUserOutput) SetConnectionType(v string) *ExternalIdentityForCreateUserOutput {
+	s.ConnectionType = &v
+	return s
+}
+
+// SetConnectionUid sets the ConnectionUid field's value.
+func (s *ExternalIdentityForCreateUserOutput) SetConnectionUid(v string) *ExternalIdentityForCreateUserOutput {
+	s.ConnectionUid = &v
+	return s
+}
+
+// SetExternalProviderUserIdentifier sets the ExternalProviderUserIdentifier field's value.
+func (s *ExternalIdentityForCreateUserOutput) SetExternalProviderUserIdentifier(v string) *ExternalIdentityForCreateUserOutput {
+	s.ExternalProviderUserIdentifier = &v
+	return s
+}
+
+// SetExternalProviderUserMetadata sets the ExternalProviderUserMetadata field's value.
+func (s *ExternalIdentityForCreateUserOutput) SetExternalProviderUserMetadata(v string) *ExternalIdentityForCreateUserOutput {
+	s.ExternalProviderUserMetadata = &v
+	return s
+}
+
+// SetLinkSource sets the LinkSource field's value.
+func (s *ExternalIdentityForCreateUserOutput) SetLinkSource(v string) *ExternalIdentityForCreateUserOutput {
+	s.LinkSource = &v
+	return s
+}
+
+// SetProvider sets the Provider field's value.
+func (s *ExternalIdentityForCreateUserOutput) SetProvider(v string) *ExternalIdentityForCreateUserOutput {
+	s.Provider = &v
+	return s
+}
+
+// SetUpdatedAt sets the UpdatedAt field's value.
+func (s *ExternalIdentityForCreateUserOutput) SetUpdatedAt(v string) *ExternalIdentityForCreateUserOutput {
+	s.UpdatedAt = &v
 	return s
 }

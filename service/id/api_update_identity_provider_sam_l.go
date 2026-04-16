@@ -367,6 +367,8 @@ type ProviderOptionsForUpdateIdentityProviderSAMLInput struct {
 	IsCreationAllowed *bool `type:"boolean" json:",omitempty"`
 
 	IsLinkingAllowed *bool `type:"boolean" json:",omitempty"`
+
+	UserLinkingPromptEnabled *bool `type:"boolean" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -409,6 +411,12 @@ func (s *ProviderOptionsForUpdateIdentityProviderSAMLInput) SetIsLinkingAllowed(
 	return s
 }
 
+// SetUserLinkingPromptEnabled sets the UserLinkingPromptEnabled field's value.
+func (s *ProviderOptionsForUpdateIdentityProviderSAMLInput) SetUserLinkingPromptEnabled(v bool) *ProviderOptionsForUpdateIdentityProviderSAMLInput {
+	s.UserLinkingPromptEnabled = &v
+	return s
+}
+
 type ProviderOptionsForUpdateIdentityProviderSAMLOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -421,6 +429,8 @@ type ProviderOptionsForUpdateIdentityProviderSAMLOutput struct {
 	IsCreationAllowed *bool `type:"boolean" json:",omitempty"`
 
 	IsLinkingAllowed *bool `type:"boolean" json:",omitempty"`
+
+	UserLinkingPromptEnabled *bool `type:"boolean" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -460,6 +470,12 @@ func (s *ProviderOptionsForUpdateIdentityProviderSAMLOutput) SetIsCreationAllowe
 // SetIsLinkingAllowed sets the IsLinkingAllowed field's value.
 func (s *ProviderOptionsForUpdateIdentityProviderSAMLOutput) SetIsLinkingAllowed(v bool) *ProviderOptionsForUpdateIdentityProviderSAMLOutput {
 	s.IsLinkingAllowed = &v
+	return s
+}
+
+// SetUserLinkingPromptEnabled sets the UserLinkingPromptEnabled field's value.
+func (s *ProviderOptionsForUpdateIdentityProviderSAMLOutput) SetUserLinkingPromptEnabled(v bool) *ProviderOptionsForUpdateIdentityProviderSAMLOutput {
+	s.UserLinkingPromptEnabled = &v
 	return s
 }
 
@@ -707,6 +723,8 @@ type UpdateIdentityProviderSAMLOutput struct {
 
 	ScimProvisioning *ScimProvisioningForUpdateIdentityProviderSAMLOutput `type:"structure" json:",omitempty"`
 
+	SpMetadata *string `type:"string" json:",omitempty"`
+
 	Uid *string `type:"string" json:",omitempty"`
 }
 
@@ -789,6 +807,12 @@ func (s *UpdateIdentityProviderSAMLOutput) SetProviderOptions(v *ProviderOptions
 // SetScimProvisioning sets the ScimProvisioning field's value.
 func (s *UpdateIdentityProviderSAMLOutput) SetScimProvisioning(v *ScimProvisioningForUpdateIdentityProviderSAMLOutput) *UpdateIdentityProviderSAMLOutput {
 	s.ScimProvisioning = v
+	return s
+}
+
+// SetSpMetadata sets the SpMetadata field's value.
+func (s *UpdateIdentityProviderSAMLOutput) SetSpMetadata(v string) *UpdateIdentityProviderSAMLOutput {
+	s.SpMetadata = &v
 	return s
 }
 

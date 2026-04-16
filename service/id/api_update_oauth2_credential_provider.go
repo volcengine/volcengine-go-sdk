@@ -235,6 +235,8 @@ type ConfigForUpdateOauth2CredentialProviderInput struct {
 	RedirectUrl *string `type:"string" json:",omitempty"`
 
 	Scopes []*string `type:"list" json:",omitempty"`
+
+	SecretStorage *SecretStorageForUpdateOauth2CredentialProviderInput `type:"structure" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -304,6 +306,12 @@ func (s *ConfigForUpdateOauth2CredentialProviderInput) SetRedirectUrl(v string) 
 // SetScopes sets the Scopes field's value.
 func (s *ConfigForUpdateOauth2CredentialProviderInput) SetScopes(v []*string) *ConfigForUpdateOauth2CredentialProviderInput {
 	s.Scopes = v
+	return s
+}
+
+// SetSecretStorage sets the SecretStorage field's value.
+func (s *ConfigForUpdateOauth2CredentialProviderInput) SetSecretStorage(v *SecretStorageForUpdateOauth2CredentialProviderInput) *ConfigForUpdateOauth2CredentialProviderInput {
+	s.SecretStorage = v
 	return s
 }
 
@@ -386,6 +394,36 @@ func (s *Oauth2DiscoveryForUpdateOauth2CredentialProviderInput) SetAuthorization
 // SetDiscoveryUrl sets the DiscoveryUrl field's value.
 func (s *Oauth2DiscoveryForUpdateOauth2CredentialProviderInput) SetDiscoveryUrl(v string) *Oauth2DiscoveryForUpdateOauth2CredentialProviderInput {
 	s.DiscoveryUrl = &v
+	return s
+}
+
+type SecretStorageForUpdateOauth2CredentialProviderInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	EncryptionKey *string `type:"string" json:",omitempty"`
+
+	StorageType *int32 `type:"int32" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s SecretStorageForUpdateOauth2CredentialProviderInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s SecretStorageForUpdateOauth2CredentialProviderInput) GoString() string {
+	return s.String()
+}
+
+// SetEncryptionKey sets the EncryptionKey field's value.
+func (s *SecretStorageForUpdateOauth2CredentialProviderInput) SetEncryptionKey(v string) *SecretStorageForUpdateOauth2CredentialProviderInput {
+	s.EncryptionKey = &v
+	return s
+}
+
+// SetStorageType sets the StorageType field's value.
+func (s *SecretStorageForUpdateOauth2CredentialProviderInput) SetStorageType(v int32) *SecretStorageForUpdateOauth2CredentialProviderInput {
+	s.StorageType = &v
 	return s
 }
 

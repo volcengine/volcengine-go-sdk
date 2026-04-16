@@ -150,6 +150,8 @@ type DataForListIdentityProvidersOutput struct {
 
 	CreateTime *string `type:"string" json:",omitempty"`
 
+	Enabled *bool `type:"boolean" json:",omitempty"`
+
 	Name *string `type:"string" json:",omitempty"`
 
 	Provider *string `type:"string" json:",omitempty"`
@@ -178,6 +180,12 @@ func (s *DataForListIdentityProvidersOutput) SetConnectionType(v string) *DataFo
 // SetCreateTime sets the CreateTime field's value.
 func (s *DataForListIdentityProvidersOutput) SetCreateTime(v string) *DataForListIdentityProvidersOutput {
 	s.CreateTime = &v
+	return s
+}
+
+// SetEnabled sets the Enabled field's value.
+func (s *DataForListIdentityProvidersOutput) SetEnabled(v bool) *DataForListIdentityProvidersOutput {
+	s.Enabled = &v
 	return s
 }
 

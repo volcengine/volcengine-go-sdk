@@ -143,13 +143,110 @@ func (c *ID) CreateRoleCredentialProviderWithContext(ctx volcengine.Context, inp
 	return out, req.Send()
 }
 
+type AgentPoolForCreateRoleCredentialProviderInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	PoolName *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s AgentPoolForCreateRoleCredentialProviderInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s AgentPoolForCreateRoleCredentialProviderInput) GoString() string {
+	return s.String()
+}
+
+// SetPoolName sets the PoolName field's value.
+func (s *AgentPoolForCreateRoleCredentialProviderInput) SetPoolName(v string) *AgentPoolForCreateRoleCredentialProviderInput {
+	s.PoolName = &v
+	return s
+}
+
+type AllowedRoleForCreateRoleCredentialProviderInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	PolicyTemplate *string `type:"string" json:",omitempty"`
+
+	RoleName *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s AllowedRoleForCreateRoleCredentialProviderInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s AllowedRoleForCreateRoleCredentialProviderInput) GoString() string {
+	return s.String()
+}
+
+// SetPolicyTemplate sets the PolicyTemplate field's value.
+func (s *AllowedRoleForCreateRoleCredentialProviderInput) SetPolicyTemplate(v string) *AllowedRoleForCreateRoleCredentialProviderInput {
+	s.PolicyTemplate = &v
+	return s
+}
+
+// SetRoleName sets the RoleName field's value.
+func (s *AllowedRoleForCreateRoleCredentialProviderInput) SetRoleName(v string) *AllowedRoleForCreateRoleCredentialProviderInput {
+	s.RoleName = &v
+	return s
+}
+
+type ConfigForCreateRoleCredentialProviderInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	IdentitySource *IdentitySourceForCreateRoleCredentialProviderInput `type:"structure" json:",omitempty"`
+
+	Metadata *string `type:"string" json:",omitempty"`
+
+	RoleMapping *RoleMappingForCreateRoleCredentialProviderInput `type:"structure" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s ConfigForCreateRoleCredentialProviderInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ConfigForCreateRoleCredentialProviderInput) GoString() string {
+	return s.String()
+}
+
+// SetIdentitySource sets the IdentitySource field's value.
+func (s *ConfigForCreateRoleCredentialProviderInput) SetIdentitySource(v *IdentitySourceForCreateRoleCredentialProviderInput) *ConfigForCreateRoleCredentialProviderInput {
+	s.IdentitySource = v
+	return s
+}
+
+// SetMetadata sets the Metadata field's value.
+func (s *ConfigForCreateRoleCredentialProviderInput) SetMetadata(v string) *ConfigForCreateRoleCredentialProviderInput {
+	s.Metadata = &v
+	return s
+}
+
+// SetRoleMapping sets the RoleMapping field's value.
+func (s *ConfigForCreateRoleCredentialProviderInput) SetRoleMapping(v *RoleMappingForCreateRoleCredentialProviderInput) *ConfigForCreateRoleCredentialProviderInput {
+	s.RoleMapping = v
+	return s
+}
+
 type CreateRoleCredentialProviderInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
+
+	Config *ConfigForCreateRoleCredentialProviderInput `type:"structure" json:",omitempty"`
 
 	// Name is a required field
 	Name *string `type:"string" json:",omitempty" required:"true"`
 
 	PoolName *string `type:"string" json:",omitempty"`
+
+	ProjectName *string `type:"string" json:",omitempty"`
+
+	// Vendor is a required field
+	Vendor *int32 `type:"int32" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -168,11 +265,20 @@ func (s *CreateRoleCredentialProviderInput) Validate() error {
 	if s.Name == nil {
 		invalidParams.Add(request.NewErrParamRequired("Name"))
 	}
+	if s.Vendor == nil {
+		invalidParams.Add(request.NewErrParamRequired("Vendor"))
+	}
 
 	if invalidParams.Len() > 0 {
 		return invalidParams
 	}
 	return nil
+}
+
+// SetConfig sets the Config field's value.
+func (s *CreateRoleCredentialProviderInput) SetConfig(v *ConfigForCreateRoleCredentialProviderInput) *CreateRoleCredentialProviderInput {
+	s.Config = v
+	return s
 }
 
 // SetName sets the Name field's value.
@@ -184,6 +290,18 @@ func (s *CreateRoleCredentialProviderInput) SetName(v string) *CreateRoleCredent
 // SetPoolName sets the PoolName field's value.
 func (s *CreateRoleCredentialProviderInput) SetPoolName(v string) *CreateRoleCredentialProviderInput {
 	s.PoolName = &v
+	return s
+}
+
+// SetProjectName sets the ProjectName field's value.
+func (s *CreateRoleCredentialProviderInput) SetProjectName(v string) *CreateRoleCredentialProviderInput {
+	s.ProjectName = &v
+	return s
+}
+
+// SetVendor sets the Vendor field's value.
+func (s *CreateRoleCredentialProviderInput) SetVendor(v int32) *CreateRoleCredentialProviderInput {
+	s.Vendor = &v
 	return s
 }
 
@@ -248,5 +366,247 @@ func (s *CreateRoleCredentialProviderOutput) SetUpdatedAt(v string) *CreateRoleC
 // SetVendor sets the Vendor field's value.
 func (s *CreateRoleCredentialProviderOutput) SetVendor(v int32) *CreateRoleCredentialProviderOutput {
 	s.Vendor = &v
+	return s
+}
+
+type FromRequestForCreateRoleCredentialProviderInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	AllowedRoles []*AllowedRoleForCreateRoleCredentialProviderInput `type:"list" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s FromRequestForCreateRoleCredentialProviderInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s FromRequestForCreateRoleCredentialProviderInput) GoString() string {
+	return s.String()
+}
+
+// SetAllowedRoles sets the AllowedRoles field's value.
+func (s *FromRequestForCreateRoleCredentialProviderInput) SetAllowedRoles(v []*AllowedRoleForCreateRoleCredentialProviderInput) *FromRequestForCreateRoleCredentialProviderInput {
+	s.AllowedRoles = v
+	return s
+}
+
+type FromRoleForCreateRoleCredentialProviderInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	PolicyTemplate *string `type:"string" json:",omitempty"`
+
+	RoleName *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s FromRoleForCreateRoleCredentialProviderInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s FromRoleForCreateRoleCredentialProviderInput) GoString() string {
+	return s.String()
+}
+
+// SetPolicyTemplate sets the PolicyTemplate field's value.
+func (s *FromRoleForCreateRoleCredentialProviderInput) SetPolicyTemplate(v string) *FromRoleForCreateRoleCredentialProviderInput {
+	s.PolicyTemplate = &v
+	return s
+}
+
+// SetRoleName sets the RoleName field's value.
+func (s *FromRoleForCreateRoleCredentialProviderInput) SetRoleName(v string) *FromRoleForCreateRoleCredentialProviderInput {
+	s.RoleName = &v
+	return s
+}
+
+type FromRuleForCreateRoleCredentialProviderInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	DefaultRole *string `type:"string" json:",omitempty"`
+
+	Rules []*RuleForCreateRoleCredentialProviderInput `type:"list" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s FromRuleForCreateRoleCredentialProviderInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s FromRuleForCreateRoleCredentialProviderInput) GoString() string {
+	return s.String()
+}
+
+// SetDefaultRole sets the DefaultRole field's value.
+func (s *FromRuleForCreateRoleCredentialProviderInput) SetDefaultRole(v string) *FromRuleForCreateRoleCredentialProviderInput {
+	s.DefaultRole = &v
+	return s
+}
+
+// SetRules sets the Rules field's value.
+func (s *FromRuleForCreateRoleCredentialProviderInput) SetRules(v []*RuleForCreateRoleCredentialProviderInput) *FromRuleForCreateRoleCredentialProviderInput {
+	s.Rules = v
+	return s
+}
+
+type IdentitySourceForCreateRoleCredentialProviderInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	AgentPool *AgentPoolForCreateRoleCredentialProviderInput `type:"structure" json:",omitempty"`
+
+	UserPool *UserPoolForCreateRoleCredentialProviderInput `type:"structure" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s IdentitySourceForCreateRoleCredentialProviderInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s IdentitySourceForCreateRoleCredentialProviderInput) GoString() string {
+	return s.String()
+}
+
+// SetAgentPool sets the AgentPool field's value.
+func (s *IdentitySourceForCreateRoleCredentialProviderInput) SetAgentPool(v *AgentPoolForCreateRoleCredentialProviderInput) *IdentitySourceForCreateRoleCredentialProviderInput {
+	s.AgentPool = v
+	return s
+}
+
+// SetUserPool sets the UserPool field's value.
+func (s *IdentitySourceForCreateRoleCredentialProviderInput) SetUserPool(v *UserPoolForCreateRoleCredentialProviderInput) *IdentitySourceForCreateRoleCredentialProviderInput {
+	s.UserPool = v
+	return s
+}
+
+type RoleMappingForCreateRoleCredentialProviderInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	FromRequest *FromRequestForCreateRoleCredentialProviderInput `type:"structure" json:",omitempty"`
+
+	FromRole *FromRoleForCreateRoleCredentialProviderInput `type:"structure" json:",omitempty"`
+
+	FromRule *FromRuleForCreateRoleCredentialProviderInput `type:"structure" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s RoleMappingForCreateRoleCredentialProviderInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s RoleMappingForCreateRoleCredentialProviderInput) GoString() string {
+	return s.String()
+}
+
+// SetFromRequest sets the FromRequest field's value.
+func (s *RoleMappingForCreateRoleCredentialProviderInput) SetFromRequest(v *FromRequestForCreateRoleCredentialProviderInput) *RoleMappingForCreateRoleCredentialProviderInput {
+	s.FromRequest = v
+	return s
+}
+
+// SetFromRole sets the FromRole field's value.
+func (s *RoleMappingForCreateRoleCredentialProviderInput) SetFromRole(v *FromRoleForCreateRoleCredentialProviderInput) *RoleMappingForCreateRoleCredentialProviderInput {
+	s.FromRole = v
+	return s
+}
+
+// SetFromRule sets the FromRule field's value.
+func (s *RoleMappingForCreateRoleCredentialProviderInput) SetFromRule(v *FromRuleForCreateRoleCredentialProviderInput) *RoleMappingForCreateRoleCredentialProviderInput {
+	s.FromRule = v
+	return s
+}
+
+type RuleForCreateRoleCredentialProviderInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Claim *string `type:"string" json:",omitempty"`
+
+	MatchType *string `type:"string" json:",omitempty"`
+
+	Role *string `type:"string" json:",omitempty"`
+
+	Value *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s RuleForCreateRoleCredentialProviderInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s RuleForCreateRoleCredentialProviderInput) GoString() string {
+	return s.String()
+}
+
+// SetClaim sets the Claim field's value.
+func (s *RuleForCreateRoleCredentialProviderInput) SetClaim(v string) *RuleForCreateRoleCredentialProviderInput {
+	s.Claim = &v
+	return s
+}
+
+// SetMatchType sets the MatchType field's value.
+func (s *RuleForCreateRoleCredentialProviderInput) SetMatchType(v string) *RuleForCreateRoleCredentialProviderInput {
+	s.MatchType = &v
+	return s
+}
+
+// SetRole sets the Role field's value.
+func (s *RuleForCreateRoleCredentialProviderInput) SetRole(v string) *RuleForCreateRoleCredentialProviderInput {
+	s.Role = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *RuleForCreateRoleCredentialProviderInput) SetValue(v string) *RuleForCreateRoleCredentialProviderInput {
+	s.Value = &v
+	return s
+}
+
+type UserPoolForCreateRoleCredentialProviderInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	ClientId *string `type:"string" json:",omitempty"`
+
+	ClientName *string `type:"string" json:",omitempty"`
+
+	PoolId *string `type:"string" json:",omitempty"`
+
+	PoolName *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s UserPoolForCreateRoleCredentialProviderInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s UserPoolForCreateRoleCredentialProviderInput) GoString() string {
+	return s.String()
+}
+
+// SetClientId sets the ClientId field's value.
+func (s *UserPoolForCreateRoleCredentialProviderInput) SetClientId(v string) *UserPoolForCreateRoleCredentialProviderInput {
+	s.ClientId = &v
+	return s
+}
+
+// SetClientName sets the ClientName field's value.
+func (s *UserPoolForCreateRoleCredentialProviderInput) SetClientName(v string) *UserPoolForCreateRoleCredentialProviderInput {
+	s.ClientName = &v
+	return s
+}
+
+// SetPoolId sets the PoolId field's value.
+func (s *UserPoolForCreateRoleCredentialProviderInput) SetPoolId(v string) *UserPoolForCreateRoleCredentialProviderInput {
+	s.PoolId = &v
+	return s
+}
+
+// SetPoolName sets the PoolName field's value.
+func (s *UserPoolForCreateRoleCredentialProviderInput) SetPoolName(v string) *UserPoolForCreateRoleCredentialProviderInput {
+	s.PoolName = &v
 	return s
 }
