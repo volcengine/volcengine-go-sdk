@@ -262,7 +262,11 @@ func (s *CreateUsersOutput) SetSuccessfulUidsStructured(v []*SuccessfulUidsStruc
 type ErrorsStructuredForCreateUsersOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	DuplicatedUserUid *string `type:"string" json:",omitempty"`
+
 	Error *string `type:"string" json:",omitempty"`
+
+	ErrorType *string `type:"string" json:",omitempty"`
 
 	Field *string `type:"string" json:",omitempty"`
 
@@ -279,9 +283,21 @@ func (s ErrorsStructuredForCreateUsersOutput) GoString() string {
 	return s.String()
 }
 
+// SetDuplicatedUserUid sets the DuplicatedUserUid field's value.
+func (s *ErrorsStructuredForCreateUsersOutput) SetDuplicatedUserUid(v string) *ErrorsStructuredForCreateUsersOutput {
+	s.DuplicatedUserUid = &v
+	return s
+}
+
 // SetError sets the Error field's value.
 func (s *ErrorsStructuredForCreateUsersOutput) SetError(v string) *ErrorsStructuredForCreateUsersOutput {
 	s.Error = &v
+	return s
+}
+
+// SetErrorType sets the ErrorType field's value.
+func (s *ErrorsStructuredForCreateUsersOutput) SetErrorType(v string) *ErrorsStructuredForCreateUsersOutput {
+	s.ErrorType = &v
 	return s
 }
 
@@ -332,8 +348,6 @@ type UserForCreateUsersInput struct {
 
 	Birthdate *string `type:"string" json:",omitempty"`
 
-	Departments []*string `type:"list" json:",omitempty"`
-
 	Email *string `type:"string" json:",omitempty"`
 
 	EmailVerified *bool `type:"boolean" json:",omitempty"`
@@ -345,8 +359,6 @@ type UserForCreateUsersInput struct {
 	Gender *string `type:"string" json:",omitempty"`
 
 	GivenName *string `type:"string" json:",omitempty"`
-
-	Groups []*string `type:"list" json:",omitempty"`
 
 	Locale *string `type:"string" json:",omitempty"`
 
@@ -391,12 +403,6 @@ func (s *UserForCreateUsersInput) SetBirthdate(v string) *UserForCreateUsersInpu
 	return s
 }
 
-// SetDepartments sets the Departments field's value.
-func (s *UserForCreateUsersInput) SetDepartments(v []*string) *UserForCreateUsersInput {
-	s.Departments = v
-	return s
-}
-
 // SetEmail sets the Email field's value.
 func (s *UserForCreateUsersInput) SetEmail(v string) *UserForCreateUsersInput {
 	s.Email = &v
@@ -430,12 +436,6 @@ func (s *UserForCreateUsersInput) SetGender(v string) *UserForCreateUsersInput {
 // SetGivenName sets the GivenName field's value.
 func (s *UserForCreateUsersInput) SetGivenName(v string) *UserForCreateUsersInput {
 	s.GivenName = &v
-	return s
-}
-
-// SetGroups sets the Groups field's value.
-func (s *UserForCreateUsersInput) SetGroups(v []*string) *UserForCreateUsersInput {
-	s.Groups = v
 	return s
 }
 

@@ -194,7 +194,7 @@ type DeletePolicyOutput struct {
 
 	Message *string `type:"string" json:",omitempty"`
 
-	Success *int32 `type:"int32" json:",omitempty"`
+	Success *bool `type:"boolean" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -214,7 +214,7 @@ func (s *DeletePolicyOutput) SetMessage(v string) *DeletePolicyOutput {
 }
 
 // SetSuccess sets the Success field's value.
-func (s *DeletePolicyOutput) SetSuccess(v int32) *DeletePolicyOutput {
+func (s *DeletePolicyOutput) SetSuccess(v bool) *DeletePolicyOutput {
 	s.Success = &v
 	return s
 }

@@ -240,6 +240,10 @@ type GetApiKeyCredentialProviderOutput struct {
 
 	PoolName *string `type:"string" json:",omitempty"`
 
+	ProjectName *string `type:"string" json:",omitempty"`
+
+	SecretStorage *SecretStorageForGetApiKeyCredentialProviderOutput `type:"structure" json:",omitempty"`
+
 	SecretTrn *string `type:"string" json:",omitempty"`
 
 	UpdatedAt *string `type:"string" json:",omitempty"`
@@ -285,6 +289,18 @@ func (s *GetApiKeyCredentialProviderOutput) SetPoolName(v string) *GetApiKeyCred
 	return s
 }
 
+// SetProjectName sets the ProjectName field's value.
+func (s *GetApiKeyCredentialProviderOutput) SetProjectName(v string) *GetApiKeyCredentialProviderOutput {
+	s.ProjectName = &v
+	return s
+}
+
+// SetSecretStorage sets the SecretStorage field's value.
+func (s *GetApiKeyCredentialProviderOutput) SetSecretStorage(v *SecretStorageForGetApiKeyCredentialProviderOutput) *GetApiKeyCredentialProviderOutput {
+	s.SecretStorage = v
+	return s
+}
+
 // SetSecretTrn sets the SecretTrn field's value.
 func (s *GetApiKeyCredentialProviderOutput) SetSecretTrn(v string) *GetApiKeyCredentialProviderOutput {
 	s.SecretTrn = &v
@@ -294,5 +310,35 @@ func (s *GetApiKeyCredentialProviderOutput) SetSecretTrn(v string) *GetApiKeyCre
 // SetUpdatedAt sets the UpdatedAt field's value.
 func (s *GetApiKeyCredentialProviderOutput) SetUpdatedAt(v string) *GetApiKeyCredentialProviderOutput {
 	s.UpdatedAt = &v
+	return s
+}
+
+type SecretStorageForGetApiKeyCredentialProviderOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	EncryptionKey *string `type:"string" json:",omitempty"`
+
+	StorageType *int32 `type:"int32" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s SecretStorageForGetApiKeyCredentialProviderOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s SecretStorageForGetApiKeyCredentialProviderOutput) GoString() string {
+	return s.String()
+}
+
+// SetEncryptionKey sets the EncryptionKey field's value.
+func (s *SecretStorageForGetApiKeyCredentialProviderOutput) SetEncryptionKey(v string) *SecretStorageForGetApiKeyCredentialProviderOutput {
+	s.EncryptionKey = &v
+	return s
+}
+
+// SetStorageType sets the StorageType field's value.
+func (s *SecretStorageForGetApiKeyCredentialProviderOutput) SetStorageType(v int32) *SecretStorageForGetApiKeyCredentialProviderOutput {
+	s.StorageType = &v
 	return s
 }

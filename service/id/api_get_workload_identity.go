@@ -200,6 +200,8 @@ type GetWorkloadIdentityOutput struct {
 
 	Description *string `type:"string" json:",omitempty"`
 
+	MetaData []*MetaDataForGetWorkloadIdentityOutput `type:"list" json:",omitempty"`
+
 	Name *string `type:"string" json:",omitempty"`
 
 	Source *string `type:"string" json:",omitempty"`
@@ -245,6 +247,12 @@ func (s *GetWorkloadIdentityOutput) SetDescription(v string) *GetWorkloadIdentit
 	return s
 }
 
+// SetMetaData sets the MetaData field's value.
+func (s *GetWorkloadIdentityOutput) SetMetaData(v []*MetaDataForGetWorkloadIdentityOutput) *GetWorkloadIdentityOutput {
+	s.MetaData = v
+	return s
+}
+
 // SetName sets the Name field's value.
 func (s *GetWorkloadIdentityOutput) SetName(v string) *GetWorkloadIdentityOutput {
 	s.Name = &v
@@ -272,5 +280,35 @@ func (s *GetWorkloadIdentityOutput) SetUpdatedAt(v string) *GetWorkloadIdentityO
 // SetWorkloadPoolName sets the WorkloadPoolName field's value.
 func (s *GetWorkloadIdentityOutput) SetWorkloadPoolName(v string) *GetWorkloadIdentityOutput {
 	s.WorkloadPoolName = &v
+	return s
+}
+
+type MetaDataForGetWorkloadIdentityOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Key *string `type:"string" json:",omitempty"`
+
+	Values []*string `type:"list" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s MetaDataForGetWorkloadIdentityOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s MetaDataForGetWorkloadIdentityOutput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *MetaDataForGetWorkloadIdentityOutput) SetKey(v string) *MetaDataForGetWorkloadIdentityOutput {
+	s.Key = &v
+	return s
+}
+
+// SetValues sets the Values field's value.
+func (s *MetaDataForGetWorkloadIdentityOutput) SetValues(v []*string) *MetaDataForGetWorkloadIdentityOutput {
+	s.Values = v
 	return s
 }

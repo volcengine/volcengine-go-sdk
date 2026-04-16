@@ -372,6 +372,8 @@ type WorkloadPoolForListWorkloadPoolsOutput struct {
 
 	Trn *string `type:"string" json:",omitempty"`
 
+	TrustAnchors []*string `type:"list" json:",omitempty"`
+
 	UpdatedAt *string `type:"string" json:",omitempty"`
 
 	WorkloadPoolId *string `type:"string" json:",omitempty"`
@@ -434,6 +436,12 @@ func (s *WorkloadPoolForListWorkloadPoolsOutput) SetTotalWorkloads(v int64) *Wor
 // SetTrn sets the Trn field's value.
 func (s *WorkloadPoolForListWorkloadPoolsOutput) SetTrn(v string) *WorkloadPoolForListWorkloadPoolsOutput {
 	s.Trn = &v
+	return s
+}
+
+// SetTrustAnchors sets the TrustAnchors field's value.
+func (s *WorkloadPoolForListWorkloadPoolsOutput) SetTrustAnchors(v []*string) *WorkloadPoolForListWorkloadPoolsOutput {
+	s.TrustAnchors = v
 	return s
 }
 

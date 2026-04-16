@@ -250,7 +250,11 @@ func (s *CreateUsersCSVOutput) SetSuccessfulUidsStructured(v []*SuccessfulUidsSt
 type ErrorsStructuredForCreateUsersCSVOutput struct {
 	_ struct{} `type:"structure"`
 
+	DuplicatedUserUid *string `type:"string"`
+
 	Error *string `type:"string"`
+
+	ErrorType *string `type:"string"`
 
 	Field *string `type:"string"`
 
@@ -267,9 +271,21 @@ func (s ErrorsStructuredForCreateUsersCSVOutput) GoString() string {
 	return s.String()
 }
 
+// SetDuplicatedUserUid sets the DuplicatedUserUid field's value.
+func (s *ErrorsStructuredForCreateUsersCSVOutput) SetDuplicatedUserUid(v string) *ErrorsStructuredForCreateUsersCSVOutput {
+	s.DuplicatedUserUid = &v
+	return s
+}
+
 // SetError sets the Error field's value.
 func (s *ErrorsStructuredForCreateUsersCSVOutput) SetError(v string) *ErrorsStructuredForCreateUsersCSVOutput {
 	s.Error = &v
+	return s
+}
+
+// SetErrorType sets the ErrorType field's value.
+func (s *ErrorsStructuredForCreateUsersCSVOutput) SetErrorType(v string) *ErrorsStructuredForCreateUsersCSVOutput {
+	s.ErrorType = &v
 	return s
 }
 

@@ -233,6 +233,60 @@ func (s *ConfigForListRoleCredentialProvidersOutput) SetRoleMapping(v *RoleMappi
 	return s
 }
 
+type FilterForListRoleCredentialProvidersInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	CredentialProviderId *string `type:"string" json:",omitempty"`
+
+	Name *string `type:"string" json:",omitempty"`
+
+	PoolName *string `type:"string" json:",omitempty"`
+
+	ProjectName *string `type:"string" json:",omitempty"`
+
+	Vendor *int32 `type:"int32" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s FilterForListRoleCredentialProvidersInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s FilterForListRoleCredentialProvidersInput) GoString() string {
+	return s.String()
+}
+
+// SetCredentialProviderId sets the CredentialProviderId field's value.
+func (s *FilterForListRoleCredentialProvidersInput) SetCredentialProviderId(v string) *FilterForListRoleCredentialProvidersInput {
+	s.CredentialProviderId = &v
+	return s
+}
+
+// SetName sets the Name field's value.
+func (s *FilterForListRoleCredentialProvidersInput) SetName(v string) *FilterForListRoleCredentialProvidersInput {
+	s.Name = &v
+	return s
+}
+
+// SetPoolName sets the PoolName field's value.
+func (s *FilterForListRoleCredentialProvidersInput) SetPoolName(v string) *FilterForListRoleCredentialProvidersInput {
+	s.PoolName = &v
+	return s
+}
+
+// SetProjectName sets the ProjectName field's value.
+func (s *FilterForListRoleCredentialProvidersInput) SetProjectName(v string) *FilterForListRoleCredentialProvidersInput {
+	s.ProjectName = &v
+	return s
+}
+
+// SetVendor sets the Vendor field's value.
+func (s *FilterForListRoleCredentialProvidersInput) SetVendor(v int32) *FilterForListRoleCredentialProvidersInput {
+	s.Vendor = &v
+	return s
+}
+
 type FromRequestForListRoleCredentialProvidersOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -348,13 +402,17 @@ func (s *IdentitySourceForListRoleCredentialProvidersOutput) SetUserPool(v *User
 type ListRoleCredentialProvidersInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	Filter *FilterForListRoleCredentialProvidersInput `type:"structure" json:",omitempty"`
+
 	// PageNumber is a required field
 	PageNumber *int32 `type:"int32" json:",omitempty" required:"true"`
 
 	// PageSize is a required field
 	PageSize *int32 `type:"int32" json:",omitempty" required:"true"`
 
-	PoolName *string `type:"string" json:",omitempty"`
+	SortDesc *bool `type:"boolean" json:",omitempty"`
+
+	SortField *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -383,6 +441,12 @@ func (s *ListRoleCredentialProvidersInput) Validate() error {
 	return nil
 }
 
+// SetFilter sets the Filter field's value.
+func (s *ListRoleCredentialProvidersInput) SetFilter(v *FilterForListRoleCredentialProvidersInput) *ListRoleCredentialProvidersInput {
+	s.Filter = v
+	return s
+}
+
 // SetPageNumber sets the PageNumber field's value.
 func (s *ListRoleCredentialProvidersInput) SetPageNumber(v int32) *ListRoleCredentialProvidersInput {
 	s.PageNumber = &v
@@ -395,9 +459,15 @@ func (s *ListRoleCredentialProvidersInput) SetPageSize(v int32) *ListRoleCredent
 	return s
 }
 
-// SetPoolName sets the PoolName field's value.
-func (s *ListRoleCredentialProvidersInput) SetPoolName(v string) *ListRoleCredentialProvidersInput {
-	s.PoolName = &v
+// SetSortDesc sets the SortDesc field's value.
+func (s *ListRoleCredentialProvidersInput) SetSortDesc(v bool) *ListRoleCredentialProvidersInput {
+	s.SortDesc = &v
+	return s
+}
+
+// SetSortField sets the SortField field's value.
+func (s *ListRoleCredentialProvidersInput) SetSortField(v string) *ListRoleCredentialProvidersInput {
+	s.SortField = &v
 	return s
 }
 
@@ -406,7 +476,13 @@ type ListRoleCredentialProvidersOutput struct {
 
 	Metadata *response.ResponseMetadata
 
+	PageNumber *int32 `type:"int32" json:",omitempty"`
+
+	PageSize *int32 `type:"int32" json:",omitempty"`
+
 	RoleCredentialProviders []*RoleCredentialProviderForListRoleCredentialProvidersOutput `type:"list" json:",omitempty"`
+
+	TotalCount *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -419,9 +495,27 @@ func (s ListRoleCredentialProvidersOutput) GoString() string {
 	return s.String()
 }
 
+// SetPageNumber sets the PageNumber field's value.
+func (s *ListRoleCredentialProvidersOutput) SetPageNumber(v int32) *ListRoleCredentialProvidersOutput {
+	s.PageNumber = &v
+	return s
+}
+
+// SetPageSize sets the PageSize field's value.
+func (s *ListRoleCredentialProvidersOutput) SetPageSize(v int32) *ListRoleCredentialProvidersOutput {
+	s.PageSize = &v
+	return s
+}
+
 // SetRoleCredentialProviders sets the RoleCredentialProviders field's value.
 func (s *ListRoleCredentialProvidersOutput) SetRoleCredentialProviders(v []*RoleCredentialProviderForListRoleCredentialProvidersOutput) *ListRoleCredentialProvidersOutput {
 	s.RoleCredentialProviders = v
+	return s
+}
+
+// SetTotalCount sets the TotalCount field's value.
+func (s *ListRoleCredentialProvidersOutput) SetTotalCount(v int32) *ListRoleCredentialProvidersOutput {
+	s.TotalCount = &v
 	return s
 }
 
@@ -437,6 +531,10 @@ type RoleCredentialProviderForListRoleCredentialProvidersOutput struct {
 	CredentialProviderTrn *string `type:"string" json:",omitempty"`
 
 	Name *string `type:"string" json:",omitempty"`
+
+	PoolName *string `type:"string" json:",omitempty"`
+
+	ProjectName *string `type:"string" json:",omitempty"`
 
 	UpdatedAt *string `type:"string" json:",omitempty"`
 
@@ -480,6 +578,18 @@ func (s *RoleCredentialProviderForListRoleCredentialProvidersOutput) SetCredenti
 // SetName sets the Name field's value.
 func (s *RoleCredentialProviderForListRoleCredentialProvidersOutput) SetName(v string) *RoleCredentialProviderForListRoleCredentialProvidersOutput {
 	s.Name = &v
+	return s
+}
+
+// SetPoolName sets the PoolName field's value.
+func (s *RoleCredentialProviderForListRoleCredentialProvidersOutput) SetPoolName(v string) *RoleCredentialProviderForListRoleCredentialProvidersOutput {
+	s.PoolName = &v
+	return s
+}
+
+// SetProjectName sets the ProjectName field's value.
+func (s *RoleCredentialProviderForListRoleCredentialProvidersOutput) SetProjectName(v string) *RoleCredentialProviderForListRoleCredentialProvidersOutput {
+	s.ProjectName = &v
 	return s
 }
 
