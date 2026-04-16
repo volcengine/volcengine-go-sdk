@@ -19,7 +19,7 @@ import (
 //    // volcengine sdk func uses an SDK service client to make a request to
 //    // DBW.
 //    func myFunc(svc DBWAPI) bool {
-//        // Make svc.DescribeAuditLogConfig request
+//        // Make svc.AgreeUserProtocol request
 //    }
 //
 //    func main() {
@@ -30,6 +30,30 @@ import (
 //    }
 //
 type DBWAPI interface {
+	AgreeUserProtocolCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	AgreeUserProtocolCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	AgreeUserProtocolCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	AgreeUserProtocol(*AgreeUserProtocolInput) (*AgreeUserProtocolOutput, error)
+	AgreeUserProtocolWithContext(volcengine.Context, *AgreeUserProtocolInput, ...request.Option) (*AgreeUserProtocolOutput, error)
+	AgreeUserProtocolRequest(*AgreeUserProtocolInput) (*request.Request, *AgreeUserProtocolOutput)
+
+	CreateDdlSqlChangeTicketCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateDdlSqlChangeTicketCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateDdlSqlChangeTicketCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateDdlSqlChangeTicket(*CreateDdlSqlChangeTicketInput) (*CreateDdlSqlChangeTicketOutput, error)
+	CreateDdlSqlChangeTicketWithContext(volcengine.Context, *CreateDdlSqlChangeTicketInput, ...request.Option) (*CreateDdlSqlChangeTicketOutput, error)
+	CreateDdlSqlChangeTicketRequest(*CreateDdlSqlChangeTicketInput) (*request.Request, *CreateDdlSqlChangeTicketOutput)
+
+	CreateDmlSqlChangeTicketCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateDmlSqlChangeTicketCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateDmlSqlChangeTicketCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateDmlSqlChangeTicket(*CreateDmlSqlChangeTicketInput) (*CreateDmlSqlChangeTicketOutput, error)
+	CreateDmlSqlChangeTicketWithContext(volcengine.Context, *CreateDmlSqlChangeTicketInput, ...request.Option) (*CreateDmlSqlChangeTicketOutput, error)
+	CreateDmlSqlChangeTicketRequest(*CreateDmlSqlChangeTicketInput) (*request.Request, *CreateDmlSqlChangeTicketOutput)
+
 	DescribeAuditLogConfigCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DescribeAuditLogConfigCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DescribeAuditLogConfigCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -54,6 +78,78 @@ type DBWAPI interface {
 	DescribeSlowLogsWithContext(volcengine.Context, *DescribeSlowLogsInput, ...request.Option) (*DescribeSlowLogsOutput, error)
 	DescribeSlowLogsRequest(*DescribeSlowLogsInput) (*request.Request, *DescribeSlowLogsOutput)
 
+	DescribeTicketDetailCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeTicketDetailCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeTicketDetailCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeTicketDetail(*DescribeTicketDetailInput) (*DescribeTicketDetailOutput, error)
+	DescribeTicketDetailWithContext(volcengine.Context, *DescribeTicketDetailInput, ...request.Option) (*DescribeTicketDetailOutput, error)
+	DescribeTicketDetailRequest(*DescribeTicketDetailInput) (*request.Request, *DescribeTicketDetailOutput)
+
+	DescribeTicketsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeTicketsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeTicketsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeTickets(*DescribeTicketsInput) (*DescribeTicketsOutput, error)
+	DescribeTicketsWithContext(volcengine.Context, *DescribeTicketsInput, ...request.Option) (*DescribeTicketsOutput, error)
+	DescribeTicketsRequest(*DescribeTicketsInput) (*request.Request, *DescribeTicketsOutput)
+
+	DescribeWorkflowCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeWorkflowCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeWorkflowCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeWorkflow(*DescribeWorkflowInput) (*DescribeWorkflowOutput, error)
+	DescribeWorkflowWithContext(volcengine.Context, *DescribeWorkflowInput, ...request.Option) (*DescribeWorkflowOutput, error)
+	DescribeWorkflowRequest(*DescribeWorkflowInput) (*request.Request, *DescribeWorkflowOutput)
+
+	ExecuteSQLCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ExecuteSQLCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ExecuteSQLCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ExecuteSQL(*ExecuteSQLInput) (*ExecuteSQLOutput, error)
+	ExecuteSQLWithContext(volcengine.Context, *ExecuteSQLInput, ...request.Option) (*ExecuteSQLOutput, error)
+	ExecuteSQLRequest(*ExecuteSQLInput) (*request.Request, *ExecuteSQLOutput)
+
+	GenerateSQLFromNLCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	GenerateSQLFromNLCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	GenerateSQLFromNLCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	GenerateSQLFromNL(*GenerateSQLFromNLInput) (*GenerateSQLFromNLOutput, error)
+	GenerateSQLFromNLWithContext(volcengine.Context, *GenerateSQLFromNLInput, ...request.Option) (*GenerateSQLFromNLOutput, error)
+	GenerateSQLFromNLRequest(*GenerateSQLFromNLInput) (*request.Request, *GenerateSQLFromNLOutput)
+
+	GetTableInfoCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	GetTableInfoCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	GetTableInfoCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	GetTableInfo(*GetTableInfoInput) (*GetTableInfoOutput, error)
+	GetTableInfoWithContext(volcengine.Context, *GetTableInfoInput, ...request.Option) (*GetTableInfoOutput, error)
+	GetTableInfoRequest(*GetTableInfoInput) (*request.Request, *GetTableInfoOutput)
+
+	ListDatabasesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListDatabasesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListDatabasesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListDatabases(*ListDatabasesInput) (*ListDatabasesOutput, error)
+	ListDatabasesWithContext(volcengine.Context, *ListDatabasesInput, ...request.Option) (*ListDatabasesOutput, error)
+	ListDatabasesRequest(*ListDatabasesInput) (*request.Request, *ListDatabasesOutput)
+
+	ListTablesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListTablesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListTablesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListTables(*ListTablesInput) (*ListTablesOutput, error)
+	ListTablesWithContext(volcengine.Context, *ListTablesInput, ...request.Option) (*ListTablesOutput, error)
+	ListTablesRequest(*ListTablesInput) (*request.Request, *ListTablesOutput)
+
+	ManualExecuteTicketCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ManualExecuteTicketCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ManualExecuteTicketCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ManualExecuteTicket(*ManualExecuteTicketInput) (*ManualExecuteTicketOutput, error)
+	ManualExecuteTicketWithContext(volcengine.Context, *ManualExecuteTicketInput, ...request.Option) (*ManualExecuteTicketOutput, error)
+	ManualExecuteTicketRequest(*ManualExecuteTicketInput) (*request.Request, *ManualExecuteTicketOutput)
+
 	ModifyAuditLogConfigCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ModifyAuditLogConfigCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	ModifyAuditLogConfigCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -61,6 +157,14 @@ type DBWAPI interface {
 	ModifyAuditLogConfig(*ModifyAuditLogConfigInput) (*ModifyAuditLogConfigOutput, error)
 	ModifyAuditLogConfigWithContext(volcengine.Context, *ModifyAuditLogConfigInput, ...request.Option) (*ModifyAuditLogConfigOutput, error)
 	ModifyAuditLogConfigRequest(*ModifyAuditLogConfigInput) (*request.Request, *ModifyAuditLogConfigOutput)
+
+	SlowQueryAdviceTaskHistoryApiCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	SlowQueryAdviceTaskHistoryApiCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	SlowQueryAdviceTaskHistoryApiCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	SlowQueryAdviceTaskHistoryApi(*SlowQueryAdviceTaskHistoryApiInput) (*SlowQueryAdviceTaskHistoryApiOutput, error)
+	SlowQueryAdviceTaskHistoryApiWithContext(volcengine.Context, *SlowQueryAdviceTaskHistoryApiInput, ...request.Option) (*SlowQueryAdviceTaskHistoryApiOutput, error)
+	SlowQueryAdviceTaskHistoryApiRequest(*SlowQueryAdviceTaskHistoryApiInput) (*request.Request, *SlowQueryAdviceTaskHistoryApiOutput)
 }
 
 var _ DBWAPI = (*DBW)(nil)
