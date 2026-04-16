@@ -184,7 +184,7 @@ type DescribeEnterpriseZonesOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	Zones []*ZoneForDescribeEnterpriseZonesOutput `type:"list" json:",omitempty"`
+	Zones []*ZoneForDescribeEnterpriseZonesOutput `type:"list"`
 }
 
 // String returns the string representation

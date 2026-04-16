@@ -208,7 +208,7 @@ type DescribeDBInstanceShardsOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	InstanceShards []*InstanceShardForDescribeDBInstanceShardsOutput `type:"list" json:",omitempty"`
+	InstanceShards []*InstanceShardForDescribeDBInstanceShardsOutput `type:"list"`
 
 	Total *int32 `type:"int32" json:",omitempty"`
 }
@@ -240,7 +240,7 @@ type InstanceShardForDescribeDBInstanceShardsOutput struct {
 
 	NodeNumber *int32 `type:"int32" json:",omitempty"`
 
-	ServerNodes []*ServerNodeForDescribeDBInstanceShardsOutput `type:"list" json:",omitempty"`
+	ServerNodes []*ServerNodeForDescribeDBInstanceShardsOutput `type:"list"`
 
 	ShardId *string `type:"string" json:",omitempty"`
 }

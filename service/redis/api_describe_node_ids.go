@@ -184,7 +184,7 @@ type DescribeNodeIdsOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	NodeIds []*string `type:"list" json:",omitempty"`
+	NodeIds []*string `type:"list"`
 }
 
 // String returns the string representation

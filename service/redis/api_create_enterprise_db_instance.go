@@ -168,7 +168,7 @@ func (s *ConfigureNodeForCreateEnterpriseDBInstanceInput) SetAZ(v string) *Confi
 type CreateEnterpriseDBInstanceInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	AllowListIds []*string `type:"list" json:",omitempty"`
+	AllowListIds []*string `type:"list"`
 
 	AutoRenew *bool `type:"boolean" json:",omitempty"`
 
@@ -177,7 +177,7 @@ type CreateEnterpriseDBInstanceInput struct {
 
 	ClientToken *string `type:"string" json:",omitempty"`
 
-	ConfigureNodes []*ConfigureNodeForCreateEnterpriseDBInstanceInput `type:"list" json:",omitempty"`
+	ConfigureNodes []*ConfigureNodeForCreateEnterpriseDBInstanceInput `type:"list"`
 
 	// DataLayout is a required field
 	DataLayout *string `type:"string" json:",omitempty" required:"true"`
@@ -189,7 +189,7 @@ type CreateEnterpriseDBInstanceInput struct {
 
 	InstanceName *string `type:"string" json:",omitempty"`
 
-	Modules []*string `type:"list" json:",omitempty"`
+	Modules []*string `type:"list"`
 
 	MultiAZ *string `type:"string" json:",omitempty"`
 
@@ -211,7 +211,7 @@ type CreateEnterpriseDBInstanceInput struct {
 	// SubnetId is a required field
 	SubnetId *string `type:"string" json:",omitempty" required:"true"`
 
-	Tags []*TagForCreateEnterpriseDBInstanceInput `type:"list" json:",omitempty"`
+	Tags []*TagForCreateEnterpriseDBInstanceInput `type:"list"`
 
 	// VpcId is a required field
 	VpcId *string `type:"string" json:",omitempty" required:"true"`

@@ -151,7 +151,7 @@ type ModifyDBInstanceParamsInput struct {
 	// InstanceId is a required field
 	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 
-	ParamValues []*ParamValueForModifyDBInstanceParamsInput `type:"list" json:",omitempty"`
+	ParamValues []*ParamValueForModifyDBInstanceParamsInput `type:"list"`
 }
 
 // String returns the string representation

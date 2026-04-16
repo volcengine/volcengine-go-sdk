@@ -151,7 +151,7 @@ type ModifyParameterGroupInput struct {
 	// Name is a required field
 	Name *string `type:"string" json:",omitempty" required:"true"`
 
-	ParamValues []*ParamValueForModifyParameterGroupInput `type:"list" json:",omitempty"`
+	ParamValues []*ParamValueForModifyParameterGroupInput `type:"list"`
 
 	// ParameterGroupId is a required field
 	ParameterGroupId *string `type:"string" json:",omitempty" required:"true"`

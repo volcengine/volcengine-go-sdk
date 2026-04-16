@@ -168,7 +168,7 @@ func (s *ConfigureNodeForCreateDBInstanceInput) SetAZ(v string) *ConfigureNodeFo
 type CreateDBInstanceInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	AllowListIds []*string `type:"list" json:",omitempty"`
+	AllowListIds []*string `type:"list"`
 
 	AutoRenew *bool `type:"boolean" json:",omitempty"`
 
@@ -176,7 +176,7 @@ type CreateDBInstanceInput struct {
 
 	ClientToken *string `type:"string" json:",omitempty"`
 
-	ConfigureNodes []*ConfigureNodeForCreateDBInstanceInput `type:"list" json:",omitempty"`
+	ConfigureNodes []*ConfigureNodeForCreateDBInstanceInput `type:"list"`
 
 	DeletionProtection *string `type:"string" json:",omitempty"`
 
@@ -217,7 +217,7 @@ type CreateDBInstanceInput struct {
 	// SubnetId is a required field
 	SubnetId *string `type:"string" json:",omitempty" required:"true"`
 
-	Tags []*TagForCreateDBInstanceInput `type:"list" json:",omitempty"`
+	Tags []*TagForCreateDBInstanceInput `type:"list"`
 
 	// VpcId is a required field
 	VpcId *string `type:"string" json:",omitempty" required:"true"`

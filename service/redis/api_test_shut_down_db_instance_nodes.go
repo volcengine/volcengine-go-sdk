@@ -149,9 +149,9 @@ type TestShutDownDBInstanceNodesInput struct {
 	// InstanceId is a required field
 	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 
-	ProxyNodeIds []*string `type:"list" json:",omitempty"`
+	ProxyNodeIds []*string `type:"list"`
 
-	ServerShardIds []*string `type:"list" json:",omitempty"`
+	ServerShardIds []*string `type:"list"`
 }
 
 // String returns the string representation

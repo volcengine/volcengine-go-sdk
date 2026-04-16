@@ -242,7 +242,7 @@ type DescribeBackupPointDownloadUrlsOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	BackupPointDownloadUrls []*BackupPointDownloadUrlForDescribeBackupPointDownloadUrlsOutput `type:"list" json:",omitempty"`
+	BackupPointDownloadUrls []*BackupPointDownloadUrlForDescribeBackupPointDownloadUrlsOutput `type:"list"`
 
 	InstanceId *string `type:"string" json:",omitempty"`
 

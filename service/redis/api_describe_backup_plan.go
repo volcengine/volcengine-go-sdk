@@ -196,7 +196,7 @@ type DescribeBackupPlanOutput struct {
 
 	LastUpdateTime *string `type:"string" json:",omitempty"`
 
-	Period []*int32 `type:"list" json:",omitempty"`
+	Period []*int32 `type:"list"`
 
 	TTL *int32 `type:"int32" json:",omitempty"`
 }

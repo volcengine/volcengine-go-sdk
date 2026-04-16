@@ -170,7 +170,7 @@ type DescribeRegionsOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	Regions []*RegionForDescribeRegionsOutput `type:"list" json:",omitempty"`
+	Regions []*RegionForDescribeRegionsOutput `type:"list"`
 }
 
 // String returns the string representation

@@ -151,8 +151,9 @@ type SwitchOverInput struct {
 	// InstanceId is a required field
 	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 
-	// TargetPrimaryNodeId is a required field
-	TargetPrimaryNodeId *string `type:"string" json:",omitempty" required:"true"`
+	TargetPrimaryNodeId *string `type:"string" json:",omitempty"`
+
+	TargetPrimaryNodeIds []*string `type:"list"`
 }
 
 // String returns the string representation
@@ -170,9 +171,6 @@ func (s *SwitchOverInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "SwitchOverInput"}
 	if s.InstanceId == nil {
 		invalidParams.Add(request.NewErrParamRequired("InstanceId"))
-	}
-	if s.TargetPrimaryNodeId == nil {
-		invalidParams.Add(request.NewErrParamRequired("TargetPrimaryNodeId"))
 	}
 
 	if invalidParams.Len() > 0 {
@@ -196,6 +194,12 @@ func (s *SwitchOverInput) SetInstanceId(v string) *SwitchOverInput {
 // SetTargetPrimaryNodeId sets the TargetPrimaryNodeId field's value.
 func (s *SwitchOverInput) SetTargetPrimaryNodeId(v string) *SwitchOverInput {
 	s.TargetPrimaryNodeId = &v
+	return s
+}
+
+// SetTargetPrimaryNodeIds sets the TargetPrimaryNodeIds field's value.
+func (s *SwitchOverInput) SetTargetPrimaryNodeIds(v []*string) *SwitchOverInput {
+	s.TargetPrimaryNodeIds = v
 	return s
 }
 

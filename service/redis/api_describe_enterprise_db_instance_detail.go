@@ -238,7 +238,7 @@ type DescribeEnterpriseDBInstanceDetailOutput struct {
 
 	MaintenanceTime *string `type:"string" json:",omitempty"`
 
-	Modules []*string `type:"list" json:",omitempty"`
+	Modules []*string `type:"list"`
 
 	MultiAZ *string `type:"string" json:",omitempty"`
 
@@ -256,13 +256,13 @@ type DescribeEnterpriseDBInstanceDetailOutput struct {
 
 	SubnetId *string `type:"string" json:",omitempty"`
 
-	Tags []*TagForDescribeEnterpriseDBInstanceDetailOutput `type:"list" json:",omitempty"`
+	Tags []*TagForDescribeEnterpriseDBInstanceDetailOutput `type:"list"`
 
-	VisitAddrs []*VisitAddrForDescribeEnterpriseDBInstanceDetailOutput `type:"list" json:",omitempty"`
+	VisitAddrs []*VisitAddrForDescribeEnterpriseDBInstanceDetailOutput `type:"list"`
 
 	VpcId *string `type:"string" json:",omitempty"`
 
-	ZoneIds []*string `type:"list" json:",omitempty"`
+	ZoneIds []*string `type:"list"`
 }
 
 // String returns the string representation

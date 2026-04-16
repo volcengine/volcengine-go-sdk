@@ -224,7 +224,7 @@ type DescribeKeyScanJobsOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	JobList []*JobListForDescribeKeyScanJobsOutput `type:"list" json:",omitempty"`
+	JobList []*JobListForDescribeKeyScanJobsOutput `type:"list"`
 
 	TotalJobsNumber *int32 `type:"int32" json:",omitempty"`
 }

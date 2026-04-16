@@ -155,7 +155,7 @@ type ModifyBackupPlanInput struct {
 	// InstanceId is a required field
 	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 
-	Period []*int32 `type:"list" json:",omitempty"`
+	Period []*int32 `type:"list"`
 }
 
 // String returns the string representation

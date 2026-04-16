@@ -146,7 +146,7 @@ func (c *REDIS) DescribeTagsByResourceWithContext(ctx volcengine.Context, input 
 type DescribeTagsByResourceInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	InstanceIds []*string `type:"list" json:",omitempty"`
+	InstanceIds []*string `type:"list"`
 
 	// PageNumber is a required field
 	PageNumber *int32 `type:"int32" json:",omitempty" required:"true"`
@@ -154,7 +154,7 @@ type DescribeTagsByResourceInput struct {
 	// PageSize is a required field
 	PageSize *int32 `type:"int32" json:",omitempty" required:"true"`
 
-	TagFilters []*TagFilterForDescribeTagsByResourceInput `type:"list" json:",omitempty"`
+	TagFilters []*TagFilterForDescribeTagsByResourceInput `type:"list"`
 }
 
 // String returns the string representation
@@ -212,7 +212,7 @@ type DescribeTagsByResourceOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	TagResources []*TagResourceForDescribeTagsByResourceOutput `type:"list" json:",omitempty"`
+	TagResources []*TagResourceForDescribeTagsByResourceOutput `type:"list"`
 
 	Total *int32 `type:"int32" json:",omitempty"`
 }

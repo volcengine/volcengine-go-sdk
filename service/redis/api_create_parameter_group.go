@@ -154,7 +154,7 @@ type CreateParameterGroupInput struct {
 	// Name is a required field
 	Name *string `type:"string" json:",omitempty" required:"true"`
 
-	ParamValues []*ParamValueForCreateParameterGroupInput `type:"list" json:",omitempty"`
+	ParamValues []*ParamValueForCreateParameterGroupInput `type:"list"`
 }
 
 // String returns the string representation

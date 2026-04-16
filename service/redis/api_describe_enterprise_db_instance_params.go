@@ -208,7 +208,7 @@ type DescribeEnterpriseDBInstanceParamsOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	Params []*ParamForDescribeEnterpriseDBInstanceParamsOutput `type:"list" json:",omitempty"`
+	Params []*ParamForDescribeEnterpriseDBInstanceParamsOutput `type:"list"`
 
 	TotalParamsNum *int32 `type:"int32" json:",omitempty"`
 }
@@ -278,7 +278,7 @@ type ParamForDescribeEnterpriseDBInstanceParamsOutput struct {
 
 	NeedReboot *bool `type:"boolean" json:",omitempty"`
 
-	Options []*OptionForDescribeEnterpriseDBInstanceParamsOutput `type:"list" json:",omitempty"`
+	Options []*OptionForDescribeEnterpriseDBInstanceParamsOutput `type:"list"`
 
 	ParamName *string `type:"string" json:",omitempty"`
 
