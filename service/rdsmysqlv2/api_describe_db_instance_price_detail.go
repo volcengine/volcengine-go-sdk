@@ -219,8 +219,6 @@ type DescribeDBInstancePriceDetailInput struct {
 
 	PeriodUnit *string `type:"string" json:",omitempty"`
 
-	ProjectName *string `type:"string" json:",omitempty"`
-
 	ProxyNodeCustom *ProxyNodeCustomForDescribeDBInstancePriceDetailInput `type:"structure" json:",omitempty"`
 
 	// StorageSpace is a required field
@@ -286,12 +284,6 @@ func (s *DescribeDBInstancePriceDetailInput) SetPeriod(v int32) *DescribeDBInsta
 // SetPeriodUnit sets the PeriodUnit field's value.
 func (s *DescribeDBInstancePriceDetailInput) SetPeriodUnit(v string) *DescribeDBInstancePriceDetailInput {
 	s.PeriodUnit = &v
-	return s
-}
-
-// SetProjectName sets the ProjectName field's value.
-func (s *DescribeDBInstancePriceDetailInput) SetProjectName(v string) *DescribeDBInstancePriceDetailInput {
-	s.ProjectName = &v
 	return s
 }
 

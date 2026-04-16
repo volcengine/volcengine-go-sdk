@@ -186,6 +186,8 @@ type DescribeCrossBackupPolicyOutput struct {
 
 	BackupEnabled *bool `type:"boolean" json:",omitempty"`
 
+	CrossBackupAllRetention *bool `type:"boolean" json:",omitempty"`
+
 	CrossBackupRegion *string `type:"string" json:",omitempty"`
 
 	InstanceId *string `type:"string" json:",omitempty"`
@@ -208,6 +210,12 @@ func (s DescribeCrossBackupPolicyOutput) GoString() string {
 // SetBackupEnabled sets the BackupEnabled field's value.
 func (s *DescribeCrossBackupPolicyOutput) SetBackupEnabled(v bool) *DescribeCrossBackupPolicyOutput {
 	s.BackupEnabled = &v
+	return s
+}
+
+// SetCrossBackupAllRetention sets the CrossBackupAllRetention field's value.
+func (s *DescribeCrossBackupPolicyOutput) SetCrossBackupAllRetention(v bool) *DescribeCrossBackupPolicyOutput {
+	s.CrossBackupAllRetention = &v
 	return s
 }
 

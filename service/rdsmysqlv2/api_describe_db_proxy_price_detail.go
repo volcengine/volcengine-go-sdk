@@ -359,8 +359,6 @@ type DescribeDBProxyPriceDetailInput struct {
 	// InstanceId is a required field
 	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 
-	ProjectName *string `type:"string" json:",omitempty"`
-
 	ProxyNodeCustom *ProxyNodeCustomForDescribeDBProxyPriceDetailInput `type:"structure" json:",omitempty"`
 }
 
@@ -390,12 +388,6 @@ func (s *DescribeDBProxyPriceDetailInput) Validate() error {
 // SetInstanceId sets the InstanceId field's value.
 func (s *DescribeDBProxyPriceDetailInput) SetInstanceId(v string) *DescribeDBProxyPriceDetailInput {
 	s.InstanceId = &v
-	return s
-}
-
-// SetProjectName sets the ProjectName field's value.
-func (s *DescribeDBProxyPriceDetailInput) SetProjectName(v string) *DescribeDBProxyPriceDetailInput {
-	s.ProjectName = &v
 	return s
 }
 
