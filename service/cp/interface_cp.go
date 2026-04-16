@@ -19,7 +19,7 @@ import (
 //    // volcengine sdk func uses an SDK service client to make a request to
 //    // CP.
 //    func myFunc(svc CPAPI) bool {
-//        // Make svc.CancelPipelineRun request
+//        // Make svc.CancelManagedAppChangeRecord request
 //    }
 //
 //    func main() {
@@ -30,6 +30,14 @@ import (
 //    }
 //
 type CPAPI interface {
+	CancelManagedAppChangeRecordCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CancelManagedAppChangeRecordCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CancelManagedAppChangeRecordCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CancelManagedAppChangeRecord(*CancelManagedAppChangeRecordInput) (*CancelManagedAppChangeRecordOutput, error)
+	CancelManagedAppChangeRecordWithContext(volcengine.Context, *CancelManagedAppChangeRecordInput, ...request.Option) (*CancelManagedAppChangeRecordOutput, error)
+	CancelManagedAppChangeRecordRequest(*CancelManagedAppChangeRecordInput) (*request.Request, *CancelManagedAppChangeRecordOutput)
+
 	CancelPipelineRunCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	CancelPipelineRunCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	CancelPipelineRunCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -45,6 +53,14 @@ type CPAPI interface {
 	CreateComponentStep(*CreateComponentStepInput) (*CreateComponentStepOutput, error)
 	CreateComponentStepWithContext(volcengine.Context, *CreateComponentStepInput, ...request.Option) (*CreateComponentStepOutput, error)
 	CreateComponentStepRequest(*CreateComponentStepInput) (*request.Request, *CreateComponentStepOutput)
+
+	CreateManagedAppCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateManagedAppCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateManagedAppCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateManagedApp(*CreateManagedAppInput) (*CreateManagedAppOutput, error)
+	CreateManagedAppWithContext(volcengine.Context, *CreateManagedAppInput, ...request.Option) (*CreateManagedAppOutput, error)
+	CreateManagedAppRequest(*CreateManagedAppInput) (*request.Request, *CreateManagedAppOutput)
 
 	CreatePipelineWebhookURLCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	CreatePipelineWebhookURLCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -85,6 +101,14 @@ type CPAPI interface {
 	CreateWorkspace(*CreateWorkspaceInput) (*CreateWorkspaceOutput, error)
 	CreateWorkspaceWithContext(volcengine.Context, *CreateWorkspaceInput, ...request.Option) (*CreateWorkspaceOutput, error)
 	CreateWorkspaceRequest(*CreateWorkspaceInput) (*request.Request, *CreateWorkspaceOutput)
+
+	DeleteAppCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeleteAppCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeleteAppCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeleteApp(*DeleteAppInput) (*DeleteAppOutput, error)
+	DeleteAppWithContext(volcengine.Context, *DeleteAppInput, ...request.Option) (*DeleteAppOutput, error)
+	DeleteAppRequest(*DeleteAppInput) (*request.Request, *DeleteAppOutput)
 
 	DeleteComponentStepCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DeleteComponentStepCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -134,6 +158,14 @@ type CPAPI interface {
 	DeleteWorkspaceWithContext(volcengine.Context, *DeleteWorkspaceInput, ...request.Option) (*DeleteWorkspaceOutput, error)
 	DeleteWorkspaceRequest(*DeleteWorkspaceInput) (*request.Request, *DeleteWorkspaceOutput)
 
+	GetManagedAppPodLogCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	GetManagedAppPodLogCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	GetManagedAppPodLogCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	GetManagedAppPodLog(*GetManagedAppPodLogInput) (*GetManagedAppPodLogOutput, error)
+	GetManagedAppPodLogWithContext(volcengine.Context, *GetManagedAppPodLogInput, ...request.Option) (*GetManagedAppPodLogOutput, error)
+	GetManagedAppPodLogRequest(*GetManagedAppPodLogInput) (*request.Request, *GetManagedAppPodLogOutput)
+
 	GetServiceConnectionCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	GetServiceConnectionCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	GetServiceConnectionCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -165,6 +197,38 @@ type CPAPI interface {
 	ListComponentStep(*ListComponentStepInput) (*ListComponentStepOutput, error)
 	ListComponentStepWithContext(volcengine.Context, *ListComponentStepInput, ...request.Option) (*ListComponentStepOutput, error)
 	ListComponentStepRequest(*ListComponentStepInput) (*request.Request, *ListComponentStepOutput)
+
+	ListDeployResourcesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListDeployResourcesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListDeployResourcesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListDeployResources(*ListDeployResourcesInput) (*ListDeployResourcesOutput, error)
+	ListDeployResourcesWithContext(volcengine.Context, *ListDeployResourcesInput, ...request.Option) (*ListDeployResourcesOutput, error)
+	ListDeployResourcesRequest(*ListDeployResourcesInput) (*request.Request, *ListDeployResourcesOutput)
+
+	ListManagedAppChangeRecordsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListManagedAppChangeRecordsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListManagedAppChangeRecordsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListManagedAppChangeRecords(*ListManagedAppChangeRecordsInput) (*ListManagedAppChangeRecordsOutput, error)
+	ListManagedAppChangeRecordsWithContext(volcengine.Context, *ListManagedAppChangeRecordsInput, ...request.Option) (*ListManagedAppChangeRecordsOutput, error)
+	ListManagedAppChangeRecordsRequest(*ListManagedAppChangeRecordsInput) (*request.Request, *ListManagedAppChangeRecordsOutput)
+
+	ListManagedAppChangeStepsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListManagedAppChangeStepsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListManagedAppChangeStepsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListManagedAppChangeSteps(*ListManagedAppChangeStepsInput) (*ListManagedAppChangeStepsOutput, error)
+	ListManagedAppChangeStepsWithContext(volcengine.Context, *ListManagedAppChangeStepsInput, ...request.Option) (*ListManagedAppChangeStepsOutput, error)
+	ListManagedAppChangeStepsRequest(*ListManagedAppChangeStepsInput) (*request.Request, *ListManagedAppChangeStepsOutput)
+
+	ListManagedAppPodsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListManagedAppPodsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListManagedAppPodsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListManagedAppPods(*ListManagedAppPodsInput) (*ListManagedAppPodsOutput, error)
+	ListManagedAppPodsWithContext(volcengine.Context, *ListManagedAppPodsInput, ...request.Option) (*ListManagedAppPodsOutput, error)
+	ListManagedAppPodsRequest(*ListManagedAppPodsInput) (*request.Request, *ListManagedAppPodsOutput)
 
 	ListPipelineRunsCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ListPipelineRunsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -229,6 +293,30 @@ type CPAPI interface {
 	RunPipeline(*RunPipelineInput) (*RunPipelineOutput, error)
 	RunPipelineWithContext(volcengine.Context, *RunPipelineInput, ...request.Option) (*RunPipelineOutput, error)
 	RunPipelineRequest(*RunPipelineInput) (*request.Request, *RunPipelineOutput)
+
+	TriggerManagedAppDeployCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	TriggerManagedAppDeployCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	TriggerManagedAppDeployCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	TriggerManagedAppDeploy(*TriggerManagedAppDeployInput) (*TriggerManagedAppDeployOutput, error)
+	TriggerManagedAppDeployWithContext(volcengine.Context, *TriggerManagedAppDeployInput, ...request.Option) (*TriggerManagedAppDeployOutput, error)
+	TriggerManagedAppDeployRequest(*TriggerManagedAppDeployInput) (*request.Request, *TriggerManagedAppDeployOutput)
+
+	TriggerManagedAppRollbackCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	TriggerManagedAppRollbackCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	TriggerManagedAppRollbackCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	TriggerManagedAppRollback(*TriggerManagedAppRollbackInput) (*TriggerManagedAppRollbackOutput, error)
+	TriggerManagedAppRollbackWithContext(volcengine.Context, *TriggerManagedAppRollbackInput, ...request.Option) (*TriggerManagedAppRollbackOutput, error)
+	TriggerManagedAppRollbackRequest(*TriggerManagedAppRollbackInput) (*request.Request, *TriggerManagedAppRollbackOutput)
+
+	TriggerManagedAppScalingCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	TriggerManagedAppScalingCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	TriggerManagedAppScalingCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	TriggerManagedAppScaling(*TriggerManagedAppScalingInput) (*TriggerManagedAppScalingOutput, error)
+	TriggerManagedAppScalingWithContext(volcengine.Context, *TriggerManagedAppScalingInput, ...request.Option) (*TriggerManagedAppScalingOutput, error)
+	TriggerManagedAppScalingRequest(*TriggerManagedAppScalingInput) (*request.Request, *TriggerManagedAppScalingOutput)
 
 	UpdateComponentStepCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	UpdateComponentStepCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
