@@ -46,6 +46,14 @@ type ARKCLAWAPI interface {
 	DeleteClawOmniInstanceWithContext(volcengine.Context, *DeleteClawOmniInstanceInput, ...request.Option) (*DeleteClawOmniInstanceOutput, error)
 	DeleteClawOmniInstanceRequest(*DeleteClawOmniInstanceInput) (*request.Request, *DeleteClawOmniInstanceOutput)
 
+	ExecuteClawOmniInstanceCommandCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ExecuteClawOmniInstanceCommandCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ExecuteClawOmniInstanceCommandCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ExecuteClawOmniInstanceCommand(*ExecuteClawOmniInstanceCommandInput) (*ExecuteClawOmniInstanceCommandOutput, error)
+	ExecuteClawOmniInstanceCommandWithContext(volcengine.Context, *ExecuteClawOmniInstanceCommandInput, ...request.Option) (*ExecuteClawOmniInstanceCommandOutput, error)
+	ExecuteClawOmniInstanceCommandRequest(*ExecuteClawOmniInstanceCommandInput) (*request.Request, *ExecuteClawOmniInstanceCommandOutput)
+
 	GetClawOmniInstanceCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	GetClawOmniInstanceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	GetClawOmniInstanceCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})

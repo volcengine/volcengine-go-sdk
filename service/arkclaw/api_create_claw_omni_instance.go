@@ -149,6 +149,8 @@ type CreateClawOmniInstanceInput struct {
 
 	Description *string `type:"string"`
 
+	EnvVars []*EnvVarForCreateClawOmniInstanceInput `type:"list"`
+
 	ExpiredAction *string `type:"string"`
 
 	// Image is a required field
@@ -202,6 +204,16 @@ func (s *CreateClawOmniInstanceInput) Validate() error {
 	if s.Timeout == nil {
 		invalidParams.Add(request.NewErrParamRequired("Timeout"))
 	}
+	if s.EnvVars != nil {
+		for i, v := range s.EnvVars {
+			if v == nil {
+				continue
+			}
+			if err := v.Validate(); err != nil {
+				invalidParams.AddNested(fmt.Sprintf("%s[%v]", "EnvVars", i), err.(request.ErrInvalidParams))
+			}
+		}
+	}
 	if s.Tags != nil {
 		for i, v := range s.Tags {
 			if v == nil {
@@ -228,6 +240,12 @@ func (s *CreateClawOmniInstanceInput) SetCpuMilli(v int32) *CreateClawOmniInstan
 // SetDescription sets the Description field's value.
 func (s *CreateClawOmniInstanceInput) SetDescription(v string) *CreateClawOmniInstanceInput {
 	s.Description = &v
+	return s
+}
+
+// SetEnvVars sets the EnvVars field's value.
+func (s *CreateClawOmniInstanceInput) SetEnvVars(v []*EnvVarForCreateClawOmniInstanceInput) *CreateClawOmniInstanceInput {
+	s.EnvVars = v
 	return s
 }
 
@@ -315,12 +333,54 @@ func (s *CreateClawOmniInstanceOutput) SetId(v string) *CreateClawOmniInstanceOu
 	return s
 }
 
+type EnvVarForCreateClawOmniInstanceInput struct {
+	_ struct{} `type:"structure"`
+
+	// Key is a required field
+	Key *string `type:"string" required:"true"`
+
+	Value *string `type:"string"`
+}
+
+// String returns the string representation
+func (s EnvVarForCreateClawOmniInstanceInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s EnvVarForCreateClawOmniInstanceInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *EnvVarForCreateClawOmniInstanceInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "EnvVarForCreateClawOmniInstanceInput"}
+	if s.Key == nil {
+		invalidParams.Add(request.NewErrParamRequired("Key"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetKey sets the Key field's value.
+func (s *EnvVarForCreateClawOmniInstanceInput) SetKey(v string) *EnvVarForCreateClawOmniInstanceInput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *EnvVarForCreateClawOmniInstanceInput) SetValue(v string) *EnvVarForCreateClawOmniInstanceInput {
+	s.Value = &v
+	return s
+}
+
 type ModelConfigForCreateClawOmniInstanceInput struct {
 	_ struct{} `type:"structure"`
 
 	ModelId *string `type:"string"`
-
-	ModelName *string `type:"string"`
 
 	ModelSource *string `type:"string"`
 }
@@ -338,12 +398,6 @@ func (s ModelConfigForCreateClawOmniInstanceInput) GoString() string {
 // SetModelId sets the ModelId field's value.
 func (s *ModelConfigForCreateClawOmniInstanceInput) SetModelId(v string) *ModelConfigForCreateClawOmniInstanceInput {
 	s.ModelId = &v
-	return s
-}
-
-// SetModelName sets the ModelName field's value.
-func (s *ModelConfigForCreateClawOmniInstanceInput) SetModelName(v string) *ModelConfigForCreateClawOmniInstanceInput {
-	s.ModelName = &v
 	return s
 }
 
