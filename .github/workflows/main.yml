@@ -1,10 +1,11 @@
-# .github/workflows/release.yml (Go)
+# .github/workflows/main.yml (Go)
 name: Release Go SDK
 
 on:
   push:
     branches: [master]
-    paths-ignore: ['**.md', '.gitignore', 'LICENSE']
+    paths:
+      - '.changelog/v*.md'
 
 jobs:
   release:
@@ -29,14 +30,6 @@ jobs:
           VERSION=$(grep -oP 'const SDKVersion = "\K[^"]+' volcengine/version.go 2>/dev/null || cat VERSION)
           echo "version=$VERSION" >> $GITHUB_OUTPUT
           echo "tag=v$VERSION" >> $GITHUB_OUTPUT
-
-      - name: Extract Release Info
-        id: release_info
-        run: |
-          if [ -f ".release_info" ]; then
-            RELEASE_UUID=$(cat .release_info | jq -r '.release_uuid')
-            echo "release_uuid=$RELEASE_UUID" >> $GITHUB_OUTPUT
-          fi
 
       - name: Create Tag
         run: |
@@ -65,40 +58,3 @@ jobs:
           tag_name: ${{ steps.version.outputs.tag }}
           name: Release ${{ steps.version.outputs.tag }}
           body: ${{ steps.changelog.outputs.content }}
-
-      # Go Modules 通过 Tag 自动被 proxy.golang.org 索引，无需额外发布步骤
-
-      - name: Notify CASM
-        if: always()
-        env:
-          WEBHOOK_URL: ${{ secrets.CASM_WEBHOOK_URL }}
-          WEBHOOK_SECRET: ${{ secrets.WEBHOOK_SECRET }}
-        run: |
-          CONCLUSION="${{ job.status == 'success' && 'success' || 'failure' }}"
-
-          PAYLOAD=$(cat <<EOF
-          {
-            "action": "go",
-            "workflow_run": {
-              "id": ${{ github.run_id }},
-              "name": "${{ github.workflow }}",
-              "conclusion": "$CONCLUSION",
-              "head_branch": "${{ github.ref_name }}",
-              "head_sha": "${{ github.sha }}",
-              "html_url": "${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}",
-              "release_uuid": "${{ steps.release_info.outputs.release_uuid }}"
-            },
-            "repository": {
-              "full_name": "${{ github.repository }}"
-            }
-          }
-          EOF
-          )
-
-          SIGNATURE=$(echo -n "$PAYLOAD" | openssl dgst -sha256 -hmac "$WEBHOOK_SECRET" | cut -d' ' -f2)
-
-          curl -X POST "$WEBHOOK_URL" \
-            -H "Content-Type: application/json" \
-            -H "X-Hub-Signature-256: sha256=$SIGNATURE" \
-            -H "X-TT-ENV: boe_githubaction" \
-            -d "$PAYLOAD"
