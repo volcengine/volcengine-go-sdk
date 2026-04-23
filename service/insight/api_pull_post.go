@@ -154,6 +154,8 @@ type ItemDocForPullPostOutput struct {
 
 	DedupID *string `type:"string" json:",omitempty"`
 
+	DocStatus *string `type:"string" json:",omitempty"`
+
 	Emotion *string `type:"string" json:",omitempty"`
 
 	FansCount *int32 `type:"int32" json:",omitempty"`
@@ -216,6 +218,12 @@ func (s *ItemDocForPullPostOutput) SetCoverUrl(v string) *ItemDocForPullPostOutp
 // SetDedupID sets the DedupID field's value.
 func (s *ItemDocForPullPostOutput) SetDedupID(v string) *ItemDocForPullPostOutput {
 	s.DedupID = &v
+	return s
+}
+
+// SetDocStatus sets the DocStatus field's value.
+func (s *ItemDocForPullPostOutput) SetDocStatus(v string) *ItemDocForPullPostOutput {
+	s.DocStatus = &v
 	return s
 }
 
