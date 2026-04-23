@@ -200,7 +200,7 @@ type DataForDescribeAddressBookOutput struct {
 
 	InstanceTypeList []*string `type:"list" json:",omitempty"`
 
-	RefCnt *int32 `type:"int32" json:",omitempty"`
+	RefCnt *int64 `type:"int64" json:",omitempty"`
 
 	ResourceType *string `type:"string" json:",omitempty"`
 
@@ -208,7 +208,7 @@ type DataForDescribeAddressBookOutput struct {
 
 	Tags []*TagForDescribeAddressBookOutput `type:"list" json:",omitempty"`
 
-	Updated *int32 `type:"int32" json:",omitempty"`
+	Updated *int64 `type:"int64" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -270,7 +270,7 @@ func (s *DataForDescribeAddressBookOutput) SetInstanceTypeList(v []*string) *Dat
 }
 
 // SetRefCnt sets the RefCnt field's value.
-func (s *DataForDescribeAddressBookOutput) SetRefCnt(v int32) *DataForDescribeAddressBookOutput {
+func (s *DataForDescribeAddressBookOutput) SetRefCnt(v int64) *DataForDescribeAddressBookOutput {
 	s.RefCnt = &v
 	return s
 }
@@ -294,7 +294,7 @@ func (s *DataForDescribeAddressBookOutput) SetTags(v []*TagForDescribeAddressBoo
 }
 
 // SetUpdated sets the Updated field's value.
-func (s *DataForDescribeAddressBookOutput) SetUpdated(v int32) *DataForDescribeAddressBookOutput {
+func (s *DataForDescribeAddressBookOutput) SetUpdated(v int64) *DataForDescribeAddressBookOutput {
 	s.Updated = &v
 	return s
 }
@@ -306,7 +306,7 @@ type DescribeAddressBookInput struct {
 
 	GroupType *string `type:"string" json:",omitempty" enum:"EnumOfGroupTypeForDescribeAddressBookInput"`
 
-	PageNumber *int32 `max:"100" type:"int32" json:",omitempty"`
+	PageNumber *int32 `type:"int32" json:",omitempty"`
 
 	PageSize *int32 `max:"1000" type:"int32" json:",omitempty"`
 
@@ -326,9 +326,6 @@ func (s DescribeAddressBookInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *DescribeAddressBookInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "DescribeAddressBookInput"}
-	if s.PageNumber != nil && *s.PageNumber > 100 {
-		invalidParams.Add(request.NewErrParamMaxValue("PageNumber", 100))
-	}
 	if s.PageSize != nil && *s.PageSize > 1000 {
 		invalidParams.Add(request.NewErrParamMaxValue("PageSize", 1000))
 	}

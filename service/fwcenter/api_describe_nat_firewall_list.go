@@ -148,7 +148,7 @@ type DataForDescribeNatFirewallListOutput struct {
 
 	AccountId *string `type:"string" json:",omitempty"`
 
-	Bandwidth *int32 `type:"int32" json:",omitempty"`
+	Bandwidth *int64 `type:"int64" json:",omitempty"`
 
 	CanCreate *bool `type:"boolean" json:",omitempty"`
 
@@ -166,9 +166,9 @@ type DataForDescribeNatFirewallListOutput struct {
 
 	NatGatewayName *string `type:"string" json:",omitempty"`
 
-	PeakTrafficWithin7Day *int32 `type:"int32" json:",omitempty"`
+	PeakTrafficWithin7Day *int64 `type:"int64" json:",omitempty"`
 
-	ProjectName *string `type:"string" json:",omitempty"`
+	ProjectNameForNatGate *string `type:"string" json:",omitempty"`
 
 	Region *string `type:"string" json:",omitempty"`
 
@@ -198,7 +198,7 @@ func (s *DataForDescribeNatFirewallListOutput) SetAccountId(v string) *DataForDe
 }
 
 // SetBandwidth sets the Bandwidth field's value.
-func (s *DataForDescribeNatFirewallListOutput) SetBandwidth(v int32) *DataForDescribeNatFirewallListOutput {
+func (s *DataForDescribeNatFirewallListOutput) SetBandwidth(v int64) *DataForDescribeNatFirewallListOutput {
 	s.Bandwidth = &v
 	return s
 }
@@ -252,14 +252,14 @@ func (s *DataForDescribeNatFirewallListOutput) SetNatGatewayName(v string) *Data
 }
 
 // SetPeakTrafficWithin7Day sets the PeakTrafficWithin7Day field's value.
-func (s *DataForDescribeNatFirewallListOutput) SetPeakTrafficWithin7Day(v int32) *DataForDescribeNatFirewallListOutput {
+func (s *DataForDescribeNatFirewallListOutput) SetPeakTrafficWithin7Day(v int64) *DataForDescribeNatFirewallListOutput {
 	s.PeakTrafficWithin7Day = &v
 	return s
 }
 
-// SetProjectName sets the ProjectName field's value.
-func (s *DataForDescribeNatFirewallListOutput) SetProjectName(v string) *DataForDescribeNatFirewallListOutput {
-	s.ProjectName = &v
+// SetProjectNameForNatGate sets the ProjectNameForNatGate field's value.
+func (s *DataForDescribeNatFirewallListOutput) SetProjectNameForNatGate(v string) *DataForDescribeNatFirewallListOutput {
+	s.ProjectNameForNatGate = &v
 	return s
 }
 
@@ -307,6 +307,8 @@ type DescribeNatFirewallListInput struct {
 	NatGatewayId *string `type:"string" json:",omitempty"`
 
 	NatGatewayName *string `type:"string" json:",omitempty"`
+
+	OrderDir *string `type:"string" json:",omitempty" enum:"EnumOfOrderDirForDescribeNatFirewallListInput"`
 
 	PageNumber *int32 `type:"int32" json:",omitempty"`
 
@@ -377,6 +379,12 @@ func (s *DescribeNatFirewallListInput) SetNatGatewayId(v string) *DescribeNatFir
 // SetNatGatewayName sets the NatGatewayName field's value.
 func (s *DescribeNatFirewallListInput) SetNatGatewayName(v string) *DescribeNatFirewallListInput {
 	s.NatGatewayName = &v
+	return s
+}
+
+// SetOrderDir sets the OrderDir field's value.
+func (s *DescribeNatFirewallListInput) SetOrderDir(v string) *DescribeNatFirewallListInput {
+	s.OrderDir = &v
 	return s
 }
 
@@ -471,3 +479,11 @@ func (s *DescribeNatFirewallListOutput) SetTotalCount(v int32) *DescribeNatFirew
 	s.TotalCount = &v
 	return s
 }
+
+const (
+	// EnumOfOrderDirForDescribeNatFirewallListInputAsc is a EnumOfOrderDirForDescribeNatFirewallListInput enum value
+	EnumOfOrderDirForDescribeNatFirewallListInputAsc = "asc"
+
+	// EnumOfOrderDirForDescribeNatFirewallListInputDesc is a EnumOfOrderDirForDescribeNatFirewallListInput enum value
+	EnumOfOrderDirForDescribeNatFirewallListInputDesc = "desc"
+)

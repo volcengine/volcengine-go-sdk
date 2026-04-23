@@ -198,11 +198,11 @@ type DescribeNatFirewallControlPolicyPriorityUsedOutput struct {
 
 	AccountId *string `type:"string" json:",omitempty"`
 
-	End *int32 `type:"int32" json:",omitempty"`
+	End *int64 `type:"int64" json:",omitempty"`
 
 	NatFirewallId *string `type:"string" json:",omitempty"`
 
-	Start *int32 `type:"int32" json:",omitempty"`
+	Start *int64 `type:"int64" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -222,7 +222,7 @@ func (s *DescribeNatFirewallControlPolicyPriorityUsedOutput) SetAccountId(v stri
 }
 
 // SetEnd sets the End field's value.
-func (s *DescribeNatFirewallControlPolicyPriorityUsedOutput) SetEnd(v int32) *DescribeNatFirewallControlPolicyPriorityUsedOutput {
+func (s *DescribeNatFirewallControlPolicyPriorityUsedOutput) SetEnd(v int64) *DescribeNatFirewallControlPolicyPriorityUsedOutput {
 	s.End = &v
 	return s
 }
@@ -234,7 +234,7 @@ func (s *DescribeNatFirewallControlPolicyPriorityUsedOutput) SetNatFirewallId(v 
 }
 
 // SetStart sets the Start field's value.
-func (s *DescribeNatFirewallControlPolicyPriorityUsedOutput) SetStart(v int32) *DescribeNatFirewallControlPolicyPriorityUsedOutput {
+func (s *DescribeNatFirewallControlPolicyPriorityUsedOutput) SetStart(v int64) *DescribeNatFirewallControlPolicyPriorityUsedOutput {
 	s.Start = &v
 	return s
 }

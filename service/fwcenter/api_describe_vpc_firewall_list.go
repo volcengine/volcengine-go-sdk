@@ -146,9 +146,11 @@ func (c *FWCENTER) DescribeVpcFirewallListWithContext(ctx volcengine.Context, in
 type DataForDescribeVpcFirewallListOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	Bandwidth *int32 `type:"int32" json:",omitempty"`
+	Bandwidth *int64 `type:"int64" json:",omitempty"`
 
 	BypassStatus *string `type:"string" json:",omitempty"`
+
+	EnableIpv6 *bool `type:"boolean" json:",omitempty"`
 
 	ErrMessage *string `type:"string" json:",omitempty"`
 
@@ -156,9 +158,9 @@ type DataForDescribeVpcFirewallListOutput struct {
 
 	InstanceType *int32 `type:"int32" json:",omitempty"`
 
-	PeakTrafficWithin7Day *int32 `type:"int32" json:",omitempty"`
+	PeakTrafficWithin7Day *int64 `type:"int64" json:",omitempty"`
 
-	ProjectName *string `type:"string" json:",omitempty"`
+	ProjectNameForTR *string `type:"string" json:",omitempty"`
 
 	Region *string `type:"string" json:",omitempty"`
 
@@ -166,9 +168,9 @@ type DataForDescribeVpcFirewallListOutput struct {
 
 	RoutePolicyStatus *string `type:"string" json:",omitempty"`
 
-	ScheduleEndTime *int32 `type:"int32" json:",omitempty"`
+	ScheduleEndTime *int64 `type:"int64" json:",omitempty"`
 
-	ScheduleStartTime *int32 `type:"int32" json:",omitempty"`
+	ScheduleStartTime *int64 `type:"int64" json:",omitempty"`
 
 	TransitRouterDescription *string `type:"string" json:",omitempty"`
 
@@ -200,7 +202,7 @@ func (s DataForDescribeVpcFirewallListOutput) GoString() string {
 }
 
 // SetBandwidth sets the Bandwidth field's value.
-func (s *DataForDescribeVpcFirewallListOutput) SetBandwidth(v int32) *DataForDescribeVpcFirewallListOutput {
+func (s *DataForDescribeVpcFirewallListOutput) SetBandwidth(v int64) *DataForDescribeVpcFirewallListOutput {
 	s.Bandwidth = &v
 	return s
 }
@@ -208,6 +210,12 @@ func (s *DataForDescribeVpcFirewallListOutput) SetBandwidth(v int32) *DataForDes
 // SetBypassStatus sets the BypassStatus field's value.
 func (s *DataForDescribeVpcFirewallListOutput) SetBypassStatus(v string) *DataForDescribeVpcFirewallListOutput {
 	s.BypassStatus = &v
+	return s
+}
+
+// SetEnableIpv6 sets the EnableIpv6 field's value.
+func (s *DataForDescribeVpcFirewallListOutput) SetEnableIpv6(v bool) *DataForDescribeVpcFirewallListOutput {
+	s.EnableIpv6 = &v
 	return s
 }
 
@@ -230,14 +238,14 @@ func (s *DataForDescribeVpcFirewallListOutput) SetInstanceType(v int32) *DataFor
 }
 
 // SetPeakTrafficWithin7Day sets the PeakTrafficWithin7Day field's value.
-func (s *DataForDescribeVpcFirewallListOutput) SetPeakTrafficWithin7Day(v int32) *DataForDescribeVpcFirewallListOutput {
+func (s *DataForDescribeVpcFirewallListOutput) SetPeakTrafficWithin7Day(v int64) *DataForDescribeVpcFirewallListOutput {
 	s.PeakTrafficWithin7Day = &v
 	return s
 }
 
-// SetProjectName sets the ProjectName field's value.
-func (s *DataForDescribeVpcFirewallListOutput) SetProjectName(v string) *DataForDescribeVpcFirewallListOutput {
-	s.ProjectName = &v
+// SetProjectNameForTR sets the ProjectNameForTR field's value.
+func (s *DataForDescribeVpcFirewallListOutput) SetProjectNameForTR(v string) *DataForDescribeVpcFirewallListOutput {
+	s.ProjectNameForTR = &v
 	return s
 }
 
@@ -260,13 +268,13 @@ func (s *DataForDescribeVpcFirewallListOutput) SetRoutePolicyStatus(v string) *D
 }
 
 // SetScheduleEndTime sets the ScheduleEndTime field's value.
-func (s *DataForDescribeVpcFirewallListOutput) SetScheduleEndTime(v int32) *DataForDescribeVpcFirewallListOutput {
+func (s *DataForDescribeVpcFirewallListOutput) SetScheduleEndTime(v int64) *DataForDescribeVpcFirewallListOutput {
 	s.ScheduleEndTime = &v
 	return s
 }
 
 // SetScheduleStartTime sets the ScheduleStartTime field's value.
-func (s *DataForDescribeVpcFirewallListOutput) SetScheduleStartTime(v int32) *DataForDescribeVpcFirewallListOutput {
+func (s *DataForDescribeVpcFirewallListOutput) SetScheduleStartTime(v int64) *DataForDescribeVpcFirewallListOutput {
 	s.ScheduleStartTime = &v
 	return s
 }
@@ -332,6 +340,8 @@ type DescribeVpcFirewallListInput struct {
 
 	FirewallStatus []*string `type:"list" json:",omitempty"`
 
+	OrderDir *string `type:"string" json:",omitempty" enum:"EnumOfOrderDirForDescribeVpcFirewallListInput"`
+
 	PageNumber *int32 `type:"int32" json:",omitempty"`
 
 	PageSize *int32 `max:"1000" type:"int32" json:",omitempty"`
@@ -385,6 +395,12 @@ func (s *DescribeVpcFirewallListInput) SetCloudFirewallId(v string) *DescribeVpc
 // SetFirewallStatus sets the FirewallStatus field's value.
 func (s *DescribeVpcFirewallListInput) SetFirewallStatus(v []*string) *DescribeVpcFirewallListInput {
 	s.FirewallStatus = v
+	return s
+}
+
+// SetOrderDir sets the OrderDir field's value.
+func (s *DescribeVpcFirewallListInput) SetOrderDir(v string) *DescribeVpcFirewallListInput {
+	s.OrderDir = &v
 	return s
 }
 
@@ -503,3 +519,11 @@ func (s *DescribeVpcFirewallListOutput) SetTotalCount(v int32) *DescribeVpcFirew
 	s.TotalCount = &v
 	return s
 }
+
+const (
+	// EnumOfOrderDirForDescribeVpcFirewallListInputAsc is a EnumOfOrderDirForDescribeVpcFirewallListInput enum value
+	EnumOfOrderDirForDescribeVpcFirewallListInputAsc = "asc"
+
+	// EnumOfOrderDirForDescribeVpcFirewallListInputDesc is a EnumOfOrderDirForDescribeVpcFirewallListInput enum value
+	EnumOfOrderDirForDescribeVpcFirewallListInputDesc = "desc"
+)

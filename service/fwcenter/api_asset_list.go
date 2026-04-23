@@ -148,6 +148,10 @@ type AssetListInput struct {
 
 	Asset *string `type:"string" json:"asset,omitempty"`
 
+	Asset_ip []*string `type:"list" json:"asset_ip,omitempty"`
+
+	Asset_name []*string `type:"list" json:"asset_name,omitempty"`
+
 	Asset_type []*string `type:"list" json:"asset_type,omitempty"`
 
 	Current_page *int32 `type:"int32" json:"current_page,omitempty"`
@@ -193,6 +197,18 @@ func (s *AssetListInput) Validate() error {
 // SetAsset sets the Asset field's value.
 func (s *AssetListInput) SetAsset(v string) *AssetListInput {
 	s.Asset = &v
+	return s
+}
+
+// SetAsset_ip sets the Asset_ip field's value.
+func (s *AssetListInput) SetAsset_ip(v []*string) *AssetListInput {
+	s.Asset_ip = v
+	return s
+}
+
+// SetAsset_name sets the Asset_name field's value.
+func (s *AssetListInput) SetAsset_name(v []*string) *AssetListInput {
+	s.Asset_name = v
 	return s
 }
 
@@ -323,7 +339,7 @@ type DataForAssetListOutput struct {
 
 	Ip_type *string `type:"string" json:"ip_type,omitempty"`
 
-	Latest_7_days_peak_traffic *int32 `type:"int32" json:"latest_7_days_peak_traffic,omitempty"`
+	Latest_7_days_peak_traffic *int64 `type:"int64" json:"latest_7_days_peak_traffic,omitempty"`
 
 	Name *string `type:"string" json:"name,omitempty"`
 
@@ -387,7 +403,7 @@ func (s *DataForAssetListOutput) SetIp_type(v string) *DataForAssetListOutput {
 }
 
 // SetLatest_7_days_peak_traffic sets the Latest_7_days_peak_traffic field's value.
-func (s *DataForAssetListOutput) SetLatest_7_days_peak_traffic(v int32) *DataForAssetListOutput {
+func (s *DataForAssetListOutput) SetLatest_7_days_peak_traffic(v int64) *DataForAssetListOutput {
 	s.Latest_7_days_peak_traffic = &v
 	return s
 }

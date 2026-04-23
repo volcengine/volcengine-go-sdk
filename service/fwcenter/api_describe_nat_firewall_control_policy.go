@@ -180,21 +180,25 @@ type DataForDescribeNatFirewallControlPolicyOutput struct {
 
 	Direction *string `type:"string" json:",omitempty"`
 
+	DomainResolutionMode *string `type:"string" json:",omitempty"`
+
 	EffectStatus *int32 `type:"int32" json:",omitempty"`
 
-	EndTime *int32 `type:"int32" json:",omitempty"`
+	EndTime *int64 `type:"int64" json:",omitempty"`
 
 	FirewallId *string `type:"string" json:",omitempty"`
 
-	HitCnt *int32 `type:"int32" json:",omitempty"`
+	HitCnt *int64 `type:"int64" json:",omitempty"`
+
+	InsertTime *string `type:"string" json:",omitempty"`
 
 	IpType *string `type:"string" json:",omitempty"`
 
 	IsEffected *bool `type:"boolean" json:",omitempty"`
 
-	LastHitTime *int32 `type:"int32" json:",omitempty"`
+	LastHitTime *int64 `type:"int64" json:",omitempty"`
 
-	Prio *int32 `type:"int32" json:",omitempty"`
+	Prio *int64 `type:"int64" json:",omitempty"`
 
 	Proto *string `type:"string" json:",omitempty"`
 
@@ -220,13 +224,13 @@ type DataForDescribeNatFirewallControlPolicyOutput struct {
 
 	SourceType *string `type:"string" json:",omitempty"`
 
-	StartTime *int32 `type:"int32" json:",omitempty"`
+	StartTime *int64 `type:"int64" json:",omitempty"`
 
 	Status *bool `type:"boolean" json:",omitempty"`
 
-	UpdateTime *int32 `type:"int32" json:",omitempty"`
+	UpdateTime *int64 `type:"int64" json:",omitempty"`
 
-	UseCount *int32 `type:"int32" json:",omitempty"`
+	UseCount *int64 `type:"int64" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -341,6 +345,12 @@ func (s *DataForDescribeNatFirewallControlPolicyOutput) SetDirection(v string) *
 	return s
 }
 
+// SetDomainResolutionMode sets the DomainResolutionMode field's value.
+func (s *DataForDescribeNatFirewallControlPolicyOutput) SetDomainResolutionMode(v string) *DataForDescribeNatFirewallControlPolicyOutput {
+	s.DomainResolutionMode = &v
+	return s
+}
+
 // SetEffectStatus sets the EffectStatus field's value.
 func (s *DataForDescribeNatFirewallControlPolicyOutput) SetEffectStatus(v int32) *DataForDescribeNatFirewallControlPolicyOutput {
 	s.EffectStatus = &v
@@ -348,7 +358,7 @@ func (s *DataForDescribeNatFirewallControlPolicyOutput) SetEffectStatus(v int32)
 }
 
 // SetEndTime sets the EndTime field's value.
-func (s *DataForDescribeNatFirewallControlPolicyOutput) SetEndTime(v int32) *DataForDescribeNatFirewallControlPolicyOutput {
+func (s *DataForDescribeNatFirewallControlPolicyOutput) SetEndTime(v int64) *DataForDescribeNatFirewallControlPolicyOutput {
 	s.EndTime = &v
 	return s
 }
@@ -360,8 +370,14 @@ func (s *DataForDescribeNatFirewallControlPolicyOutput) SetFirewallId(v string) 
 }
 
 // SetHitCnt sets the HitCnt field's value.
-func (s *DataForDescribeNatFirewallControlPolicyOutput) SetHitCnt(v int32) *DataForDescribeNatFirewallControlPolicyOutput {
+func (s *DataForDescribeNatFirewallControlPolicyOutput) SetHitCnt(v int64) *DataForDescribeNatFirewallControlPolicyOutput {
 	s.HitCnt = &v
+	return s
+}
+
+// SetInsertTime sets the InsertTime field's value.
+func (s *DataForDescribeNatFirewallControlPolicyOutput) SetInsertTime(v string) *DataForDescribeNatFirewallControlPolicyOutput {
+	s.InsertTime = &v
 	return s
 }
 
@@ -378,13 +394,13 @@ func (s *DataForDescribeNatFirewallControlPolicyOutput) SetIsEffected(v bool) *D
 }
 
 // SetLastHitTime sets the LastHitTime field's value.
-func (s *DataForDescribeNatFirewallControlPolicyOutput) SetLastHitTime(v int32) *DataForDescribeNatFirewallControlPolicyOutput {
+func (s *DataForDescribeNatFirewallControlPolicyOutput) SetLastHitTime(v int64) *DataForDescribeNatFirewallControlPolicyOutput {
 	s.LastHitTime = &v
 	return s
 }
 
 // SetPrio sets the Prio field's value.
-func (s *DataForDescribeNatFirewallControlPolicyOutput) SetPrio(v int32) *DataForDescribeNatFirewallControlPolicyOutput {
+func (s *DataForDescribeNatFirewallControlPolicyOutput) SetPrio(v int64) *DataForDescribeNatFirewallControlPolicyOutput {
 	s.Prio = &v
 	return s
 }
@@ -462,7 +478,7 @@ func (s *DataForDescribeNatFirewallControlPolicyOutput) SetSourceType(v string) 
 }
 
 // SetStartTime sets the StartTime field's value.
-func (s *DataForDescribeNatFirewallControlPolicyOutput) SetStartTime(v int32) *DataForDescribeNatFirewallControlPolicyOutput {
+func (s *DataForDescribeNatFirewallControlPolicyOutput) SetStartTime(v int64) *DataForDescribeNatFirewallControlPolicyOutput {
 	s.StartTime = &v
 	return s
 }
@@ -474,13 +490,13 @@ func (s *DataForDescribeNatFirewallControlPolicyOutput) SetStatus(v bool) *DataF
 }
 
 // SetUpdateTime sets the UpdateTime field's value.
-func (s *DataForDescribeNatFirewallControlPolicyOutput) SetUpdateTime(v int32) *DataForDescribeNatFirewallControlPolicyOutput {
+func (s *DataForDescribeNatFirewallControlPolicyOutput) SetUpdateTime(v int64) *DataForDescribeNatFirewallControlPolicyOutput {
 	s.UpdateTime = &v
 	return s
 }
 
 // SetUseCount sets the UseCount field's value.
-func (s *DataForDescribeNatFirewallControlPolicyOutput) SetUseCount(v int32) *DataForDescribeNatFirewallControlPolicyOutput {
+func (s *DataForDescribeNatFirewallControlPolicyOutput) SetUseCount(v int64) *DataForDescribeNatFirewallControlPolicyOutput {
 	s.UseCount = &v
 	return s
 }

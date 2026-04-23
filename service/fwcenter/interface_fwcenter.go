@@ -19,7 +19,7 @@ import (
 //    // volcengine sdk func uses an SDK service client to make a request to
 //    // FWCENTER.
 //    func myFunc(svc FWCENTERAPI) bool {
-//        // Make svc.AddAddressBook request
+//        // Make svc.AddAclBackup request
 //    }
 //
 //    func main() {
@@ -30,6 +30,14 @@ import (
 //    }
 //
 type FWCENTERAPI interface {
+	AddAclBackupCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	AddAclBackupCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	AddAclBackupCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	AddAclBackup(*AddAclBackupInput) (*AddAclBackupOutput, error)
+	AddAclBackupWithContext(volcengine.Context, *AddAclBackupInput, ...request.Option) (*AddAclBackupOutput, error)
+	AddAclBackupRequest(*AddAclBackupInput) (*request.Request, *AddAclBackupOutput)
+
 	AddAddressBookCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	AddAddressBookCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	AddAddressBookCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -78,6 +86,14 @@ type FWCENTERAPI interface {
 	AssetListWithContext(volcengine.Context, *AssetListInput, ...request.Option) (*AssetListOutput, error)
 	AssetListRequest(*AssetListInput) (*request.Request, *AssetListOutput)
 
+	CreateFwInstanceForUserCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateFwInstanceForUserCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateFwInstanceForUserCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateFwInstanceForUser(*CreateFwInstanceForUserInput) (*CreateFwInstanceForUserOutput, error)
+	CreateFwInstanceForUserWithContext(volcengine.Context, *CreateFwInstanceForUserInput, ...request.Option) (*CreateFwInstanceForUserOutput, error)
+	CreateFwInstanceForUserRequest(*CreateFwInstanceForUserInput) (*request.Request, *CreateFwInstanceForUserOutput)
+
 	CreateNatFirewallCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	CreateNatFirewallCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	CreateNatFirewallCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -85,6 +101,30 @@ type FWCENTERAPI interface {
 	CreateNatFirewall(*CreateNatFirewallInput) (*CreateNatFirewallOutput, error)
 	CreateNatFirewallWithContext(volcengine.Context, *CreateNatFirewallInput, ...request.Option) (*CreateNatFirewallOutput, error)
 	CreateNatFirewallRequest(*CreateNatFirewallInput) (*request.Request, *CreateNatFirewallOutput)
+
+	CreateVpcFirewallCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateVpcFirewallCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateVpcFirewallCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateVpcFirewall(*CreateVpcFirewallInput) (*CreateVpcFirewallOutput, error)
+	CreateVpcFirewallWithContext(volcengine.Context, *CreateVpcFirewallInput, ...request.Option) (*CreateVpcFirewallOutput, error)
+	CreateVpcFirewallRequest(*CreateVpcFirewallInput) (*request.Request, *CreateVpcFirewallOutput)
+
+	CreateVpcFirewallRoutePolicyCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateVpcFirewallRoutePolicyCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateVpcFirewallRoutePolicyCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateVpcFirewallRoutePolicy(*CreateVpcFirewallRoutePolicyInput) (*CreateVpcFirewallRoutePolicyOutput, error)
+	CreateVpcFirewallRoutePolicyWithContext(volcengine.Context, *CreateVpcFirewallRoutePolicyInput, ...request.Option) (*CreateVpcFirewallRoutePolicyOutput, error)
+	CreateVpcFirewallRoutePolicyRequest(*CreateVpcFirewallRoutePolicyInput) (*request.Request, *CreateVpcFirewallRoutePolicyOutput)
+
+	DeleteAclBackupCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeleteAclBackupCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeleteAclBackupCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeleteAclBackup(*DeleteAclBackupInput) (*DeleteAclBackupOutput, error)
+	DeleteAclBackupWithContext(volcengine.Context, *DeleteAclBackupInput, ...request.Option) (*DeleteAclBackupOutput, error)
+	DeleteAclBackupRequest(*DeleteAclBackupInput) (*request.Request, *DeleteAclBackupOutput)
 
 	DeleteAddressBookCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DeleteAddressBookCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -126,6 +166,14 @@ type FWCENTERAPI interface {
 	DeleteNatFirewallControlPolicyWithContext(volcengine.Context, *DeleteNatFirewallControlPolicyInput, ...request.Option) (*DeleteNatFirewallControlPolicyOutput, error)
 	DeleteNatFirewallControlPolicyRequest(*DeleteNatFirewallControlPolicyInput) (*request.Request, *DeleteNatFirewallControlPolicyOutput)
 
+	DeleteVpcFirewallCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeleteVpcFirewallCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeleteVpcFirewallCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeleteVpcFirewall(*DeleteVpcFirewallInput) (*DeleteVpcFirewallOutput, error)
+	DeleteVpcFirewallWithContext(volcengine.Context, *DeleteVpcFirewallInput, ...request.Option) (*DeleteVpcFirewallOutput, error)
+	DeleteVpcFirewallRequest(*DeleteVpcFirewallInput) (*request.Request, *DeleteVpcFirewallOutput)
+
 	DeleteVpcFirewallAclRuleCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DeleteVpcFirewallAclRuleCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DeleteVpcFirewallAclRuleCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -133,6 +181,22 @@ type FWCENTERAPI interface {
 	DeleteVpcFirewallAclRule(*DeleteVpcFirewallAclRuleInput) (*DeleteVpcFirewallAclRuleOutput, error)
 	DeleteVpcFirewallAclRuleWithContext(volcengine.Context, *DeleteVpcFirewallAclRuleInput, ...request.Option) (*DeleteVpcFirewallAclRuleOutput, error)
 	DeleteVpcFirewallAclRuleRequest(*DeleteVpcFirewallAclRuleInput) (*request.Request, *DeleteVpcFirewallAclRuleOutput)
+
+	DeleteVpcFirewallRoutePolicyCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeleteVpcFirewallRoutePolicyCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeleteVpcFirewallRoutePolicyCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeleteVpcFirewallRoutePolicy(*DeleteVpcFirewallRoutePolicyInput) (*DeleteVpcFirewallRoutePolicyOutput, error)
+	DeleteVpcFirewallRoutePolicyWithContext(volcengine.Context, *DeleteVpcFirewallRoutePolicyInput, ...request.Option) (*DeleteVpcFirewallRoutePolicyOutput, error)
+	DeleteVpcFirewallRoutePolicyRequest(*DeleteVpcFirewallRoutePolicyInput) (*request.Request, *DeleteVpcFirewallRoutePolicyOutput)
+
+	DescribeAclBackupCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeAclBackupCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeAclBackupCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeAclBackup(*DescribeAclBackupInput) (*DescribeAclBackupOutput, error)
+	DescribeAclBackupWithContext(volcengine.Context, *DescribeAclBackupInput, ...request.Option) (*DescribeAclBackupOutput, error)
+	DescribeAclBackupRequest(*DescribeAclBackupInput) (*request.Request, *DescribeAclBackupOutput)
 
 	DescribeAddressBookCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DescribeAddressBookCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -198,6 +262,14 @@ type FWCENTERAPI interface {
 	DescribeNatFirewallListWithContext(volcengine.Context, *DescribeNatFirewallListInput, ...request.Option) (*DescribeNatFirewallListOutput, error)
 	DescribeNatFirewallListRequest(*DescribeNatFirewallListInput) (*request.Request, *DescribeNatFirewallListOutput)
 
+	DescribeTransitRouterResourcesListCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeTransitRouterResourcesListCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeTransitRouterResourcesListCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeTransitRouterResourcesList(*DescribeTransitRouterResourcesListInput) (*DescribeTransitRouterResourcesListOutput, error)
+	DescribeTransitRouterResourcesListWithContext(volcengine.Context, *DescribeTransitRouterResourcesListInput, ...request.Option) (*DescribeTransitRouterResourcesListOutput, error)
+	DescribeTransitRouterResourcesListRequest(*DescribeTransitRouterResourcesListInput) (*request.Request, *DescribeTransitRouterResourcesListOutput)
+
 	DescribeVpcFirewallAclRuleListCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DescribeVpcFirewallAclRuleListCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DescribeVpcFirewallAclRuleListCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -222,6 +294,14 @@ type FWCENTERAPI interface {
 	DescribeVpcFirewallListWithContext(volcengine.Context, *DescribeVpcFirewallListInput, ...request.Option) (*DescribeVpcFirewallListOutput, error)
 	DescribeVpcFirewallListRequest(*DescribeVpcFirewallListInput) (*request.Request, *DescribeVpcFirewallListOutput)
 
+	DescribeVpcFirewallRoutePolicyListCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeVpcFirewallRoutePolicyListCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeVpcFirewallRoutePolicyListCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeVpcFirewallRoutePolicyList(*DescribeVpcFirewallRoutePolicyListInput) (*DescribeVpcFirewallRoutePolicyListOutput, error)
+	DescribeVpcFirewallRoutePolicyListWithContext(volcengine.Context, *DescribeVpcFirewallRoutePolicyListInput, ...request.Option) (*DescribeVpcFirewallRoutePolicyListOutput, error)
+	DescribeVpcFirewallRoutePolicyListRequest(*DescribeVpcFirewallRoutePolicyListInput) (*request.Request, *DescribeVpcFirewallRoutePolicyListOutput)
+
 	DescribeVpcsCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DescribeVpcsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DescribeVpcsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -229,6 +309,38 @@ type FWCENTERAPI interface {
 	DescribeVpcs(*DescribeVpcsInput) (*DescribeVpcsOutput, error)
 	DescribeVpcsWithContext(volcengine.Context, *DescribeVpcsInput, ...request.Option) (*DescribeVpcsOutput, error)
 	DescribeVpcsRequest(*DescribeVpcsInput) (*request.Request, *DescribeVpcsOutput)
+
+	GetPolicyAnalyzeDetailCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	GetPolicyAnalyzeDetailCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	GetPolicyAnalyzeDetailCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	GetPolicyAnalyzeDetail(*GetPolicyAnalyzeDetailInput) (*GetPolicyAnalyzeDetailOutput, error)
+	GetPolicyAnalyzeDetailWithContext(volcengine.Context, *GetPolicyAnalyzeDetailInput, ...request.Option) (*GetPolicyAnalyzeDetailOutput, error)
+	GetPolicyAnalyzeDetailRequest(*GetPolicyAnalyzeDetailInput) (*request.Request, *GetPolicyAnalyzeDetailOutput)
+
+	GetPolicyAnalyzeOverviewCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	GetPolicyAnalyzeOverviewCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	GetPolicyAnalyzeOverviewCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	GetPolicyAnalyzeOverview(*GetPolicyAnalyzeOverviewInput) (*GetPolicyAnalyzeOverviewOutput, error)
+	GetPolicyAnalyzeOverviewWithContext(volcengine.Context, *GetPolicyAnalyzeOverviewInput, ...request.Option) (*GetPolicyAnalyzeOverviewOutput, error)
+	GetPolicyAnalyzeOverviewRequest(*GetPolicyAnalyzeOverviewInput) (*request.Request, *GetPolicyAnalyzeOverviewOutput)
+
+	GetPolicyAnalyzeResultCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	GetPolicyAnalyzeResultCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	GetPolicyAnalyzeResultCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	GetPolicyAnalyzeResult(*GetPolicyAnalyzeResultInput) (*GetPolicyAnalyzeResultOutput, error)
+	GetPolicyAnalyzeResultWithContext(volcengine.Context, *GetPolicyAnalyzeResultInput, ...request.Option) (*GetPolicyAnalyzeResultOutput, error)
+	GetPolicyAnalyzeResultRequest(*GetPolicyAnalyzeResultInput) (*request.Request, *GetPolicyAnalyzeResultOutput)
+
+	GetPolicyCheckResultCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	GetPolicyCheckResultCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	GetPolicyCheckResultCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	GetPolicyCheckResult(*GetPolicyCheckResultInput) (*GetPolicyCheckResultOutput, error)
+	GetPolicyCheckResultWithContext(volcengine.Context, *GetPolicyCheckResultInput, ...request.Option) (*GetPolicyCheckResultOutput, error)
+	GetPolicyCheckResultRequest(*GetPolicyCheckResultInput) (*request.Request, *GetPolicyCheckResultOutput)
 
 	ModifyAddressBookCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ModifyAddressBookCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -286,6 +398,14 @@ type FWCENTERAPI interface {
 	ModifyNatFirewallControlPolicyPositionWithContext(volcengine.Context, *ModifyNatFirewallControlPolicyPositionInput, ...request.Option) (*ModifyNatFirewallControlPolicyPositionOutput, error)
 	ModifyNatFirewallControlPolicyPositionRequest(*ModifyNatFirewallControlPolicyPositionInput) (*request.Request, *ModifyNatFirewallControlPolicyPositionOutput)
 
+	ModifyVpcFirewallCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ModifyVpcFirewallCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ModifyVpcFirewallCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ModifyVpcFirewall(*ModifyVpcFirewallInput) (*ModifyVpcFirewallOutput, error)
+	ModifyVpcFirewallWithContext(volcengine.Context, *ModifyVpcFirewallInput, ...request.Option) (*ModifyVpcFirewallOutput, error)
+	ModifyVpcFirewallRequest(*ModifyVpcFirewallInput) (*request.Request, *ModifyVpcFirewallOutput)
+
 	ModifyVpcFirewallAclRuleCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ModifyVpcFirewallAclRuleCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	ModifyVpcFirewallAclRuleCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -301,6 +421,30 @@ type FWCENTERAPI interface {
 	ModifyVpcFirewallAclRulePosition(*ModifyVpcFirewallAclRulePositionInput) (*ModifyVpcFirewallAclRulePositionOutput, error)
 	ModifyVpcFirewallAclRulePositionWithContext(volcengine.Context, *ModifyVpcFirewallAclRulePositionInput, ...request.Option) (*ModifyVpcFirewallAclRulePositionOutput, error)
 	ModifyVpcFirewallAclRulePositionRequest(*ModifyVpcFirewallAclRulePositionInput) (*request.Request, *ModifyVpcFirewallAclRulePositionOutput)
+
+	ModifyVpcFirewallRoutePolicyCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ModifyVpcFirewallRoutePolicyCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ModifyVpcFirewallRoutePolicyCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ModifyVpcFirewallRoutePolicy(*ModifyVpcFirewallRoutePolicyInput) (*ModifyVpcFirewallRoutePolicyOutput, error)
+	ModifyVpcFirewallRoutePolicyWithContext(volcengine.Context, *ModifyVpcFirewallRoutePolicyInput, ...request.Option) (*ModifyVpcFirewallRoutePolicyOutput, error)
+	ModifyVpcFirewallRoutePolicyRequest(*ModifyVpcFirewallRoutePolicyInput) (*request.Request, *ModifyVpcFirewallRoutePolicyOutput)
+
+	QueryUserAlarmConfigCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	QueryUserAlarmConfigCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	QueryUserAlarmConfigCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	QueryUserAlarmConfig(*QueryUserAlarmConfigInput) (*QueryUserAlarmConfigOutput, error)
+	QueryUserAlarmConfigWithContext(volcengine.Context, *QueryUserAlarmConfigInput, ...request.Option) (*QueryUserAlarmConfigOutput, error)
+	QueryUserAlarmConfigRequest(*QueryUserAlarmConfigInput) (*request.Request, *QueryUserAlarmConfigOutput)
+
+	StartPolicyAnalyzeTaskCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	StartPolicyAnalyzeTaskCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	StartPolicyAnalyzeTaskCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	StartPolicyAnalyzeTask(*StartPolicyAnalyzeTaskInput) (*StartPolicyAnalyzeTaskOutput, error)
+	StartPolicyAnalyzeTaskWithContext(volcengine.Context, *StartPolicyAnalyzeTaskInput, ...request.Option) (*StartPolicyAnalyzeTaskOutput, error)
+	StartPolicyAnalyzeTaskRequest(*StartPolicyAnalyzeTaskInput) (*request.Request, *StartPolicyAnalyzeTaskOutput)
 
 	UpdateAssetSwitchCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	UpdateAssetSwitchCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -342,6 +486,22 @@ type FWCENTERAPI interface {
 	UpdateNatFirewallControlPolicySwitchWithContext(volcengine.Context, *UpdateNatFirewallControlPolicySwitchInput, ...request.Option) (*UpdateNatFirewallControlPolicySwitchOutput, error)
 	UpdateNatFirewallControlPolicySwitchRequest(*UpdateNatFirewallControlPolicySwitchInput) (*request.Request, *UpdateNatFirewallControlPolicySwitchOutput)
 
+	UpdatePolicyResultStatusCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	UpdatePolicyResultStatusCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	UpdatePolicyResultStatusCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	UpdatePolicyResultStatus(*UpdatePolicyResultStatusInput) (*UpdatePolicyResultStatusOutput, error)
+	UpdatePolicyResultStatusWithContext(volcengine.Context, *UpdatePolicyResultStatusInput, ...request.Option) (*UpdatePolicyResultStatusOutput, error)
+	UpdatePolicyResultStatusRequest(*UpdatePolicyResultStatusInput) (*request.Request, *UpdatePolicyResultStatusOutput)
+
+	UpdateUserAlarmConfigCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	UpdateUserAlarmConfigCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	UpdateUserAlarmConfigCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	UpdateUserAlarmConfig(*UpdateUserAlarmConfigInput) (*UpdateUserAlarmConfigOutput, error)
+	UpdateUserAlarmConfigWithContext(volcengine.Context, *UpdateUserAlarmConfigInput, ...request.Option) (*UpdateUserAlarmConfigOutput, error)
+	UpdateUserAlarmConfigRequest(*UpdateUserAlarmConfigInput) (*request.Request, *UpdateUserAlarmConfigOutput)
+
 	UpdateVpcFirewallAclRuleSwitchCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	UpdateVpcFirewallAclRuleSwitchCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	UpdateVpcFirewallAclRuleSwitchCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -349,6 +509,22 @@ type FWCENTERAPI interface {
 	UpdateVpcFirewallAclRuleSwitch(*UpdateVpcFirewallAclRuleSwitchInput) (*UpdateVpcFirewallAclRuleSwitchOutput, error)
 	UpdateVpcFirewallAclRuleSwitchWithContext(volcengine.Context, *UpdateVpcFirewallAclRuleSwitchInput, ...request.Option) (*UpdateVpcFirewallAclRuleSwitchOutput, error)
 	UpdateVpcFirewallAclRuleSwitchRequest(*UpdateVpcFirewallAclRuleSwitchInput) (*request.Request, *UpdateVpcFirewallAclRuleSwitchOutput)
+
+	UpdateVpcFirewallRoutePolicySwitchCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	UpdateVpcFirewallRoutePolicySwitchCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	UpdateVpcFirewallRoutePolicySwitchCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	UpdateVpcFirewallRoutePolicySwitch(*UpdateVpcFirewallRoutePolicySwitchInput) (*UpdateVpcFirewallRoutePolicySwitchOutput, error)
+	UpdateVpcFirewallRoutePolicySwitchWithContext(volcengine.Context, *UpdateVpcFirewallRoutePolicySwitchInput, ...request.Option) (*UpdateVpcFirewallRoutePolicySwitchOutput, error)
+	UpdateVpcFirewallRoutePolicySwitchRequest(*UpdateVpcFirewallRoutePolicySwitchInput) (*request.Request, *UpdateVpcFirewallRoutePolicySwitchOutput)
+
+	UseAclBackupCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	UseAclBackupCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	UseAclBackupCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	UseAclBackup(*UseAclBackupInput) (*UseAclBackupOutput, error)
+	UseAclBackupWithContext(volcengine.Context, *UseAclBackupInput, ...request.Option) (*UseAclBackupOutput, error)
+	UseAclBackupRequest(*UseAclBackupInput) (*request.Request, *UseAclBackupOutput)
 }
 
 var _ FWCENTERAPI = (*FWCENTER)(nil)

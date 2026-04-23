@@ -164,13 +164,15 @@ type AddControlPolicyInput struct {
 	// Direction is a required field
 	Direction *string `type:"string" json:",omitempty" required:"true" enum:"EnumOfDirectionForAddControlPolicyInput"`
 
-	EndTime *int32 `type:"int32" json:",omitempty"`
+	DomainResolutionMode *string `type:"string" json:",omitempty" enum:"EnumOfDomainResolutionModeForAddControlPolicyInput"`
+
+	EndTime *int64 `type:"int64" json:",omitempty"`
 
 	InternetFirewallId *string `type:"string" json:",omitempty"`
 
 	IpType *string `type:"string" json:",omitempty" enum:"EnumOfIpTypeForAddControlPolicyInput"`
 
-	Prio *int32 `type:"int32" json:",omitempty"`
+	Prio *int64 `type:"int64" json:",omitempty"`
 
 	// Proto is a required field
 	Proto *string `type:"string" json:",omitempty" required:"true" enum:"EnumOfProtoForAddControlPolicyInput"`
@@ -189,7 +191,7 @@ type AddControlPolicyInput struct {
 	// SourceType is a required field
 	SourceType *string `type:"string" json:",omitempty" required:"true" enum:"EnumOfSourceTypeForAddControlPolicyInput"`
 
-	StartTime *int32 `type:"int32" json:",omitempty"`
+	StartTime *int64 `type:"int64" json:",omitempty"`
 
 	Status *bool `type:"boolean" json:",omitempty"`
 }
@@ -277,8 +279,14 @@ func (s *AddControlPolicyInput) SetDirection(v string) *AddControlPolicyInput {
 	return s
 }
 
+// SetDomainResolutionMode sets the DomainResolutionMode field's value.
+func (s *AddControlPolicyInput) SetDomainResolutionMode(v string) *AddControlPolicyInput {
+	s.DomainResolutionMode = &v
+	return s
+}
+
 // SetEndTime sets the EndTime field's value.
-func (s *AddControlPolicyInput) SetEndTime(v int32) *AddControlPolicyInput {
+func (s *AddControlPolicyInput) SetEndTime(v int64) *AddControlPolicyInput {
 	s.EndTime = &v
 	return s
 }
@@ -296,7 +304,7 @@ func (s *AddControlPolicyInput) SetIpType(v string) *AddControlPolicyInput {
 }
 
 // SetPrio sets the Prio field's value.
-func (s *AddControlPolicyInput) SetPrio(v int32) *AddControlPolicyInput {
+func (s *AddControlPolicyInput) SetPrio(v int64) *AddControlPolicyInput {
 	s.Prio = &v
 	return s
 }
@@ -344,7 +352,7 @@ func (s *AddControlPolicyInput) SetSourceType(v string) *AddControlPolicyInput {
 }
 
 // SetStartTime sets the StartTime field's value.
-func (s *AddControlPolicyInput) SetStartTime(v int32) *AddControlPolicyInput {
+func (s *AddControlPolicyInput) SetStartTime(v int64) *AddControlPolicyInput {
 	s.StartTime = &v
 	return s
 }
@@ -418,6 +426,14 @@ const (
 
 	// EnumOfDirectionForAddControlPolicyInputOut is a EnumOfDirectionForAddControlPolicyInput enum value
 	EnumOfDirectionForAddControlPolicyInputOut = "out"
+)
+
+const (
+	// EnumOfDomainResolutionModeForAddControlPolicyInputFqdn is a EnumOfDomainResolutionModeForAddControlPolicyInput enum value
+	EnumOfDomainResolutionModeForAddControlPolicyInputFqdn = "fqdn"
+
+	// EnumOfDomainResolutionModeForAddControlPolicyInputDns is a EnumOfDomainResolutionModeForAddControlPolicyInput enum value
+	EnumOfDomainResolutionModeForAddControlPolicyInputDns = "dns"
 )
 
 const (

@@ -161,9 +161,13 @@ type AddVpcFirewallAclRuleInput struct {
 	// DestinationType is a required field
 	DestinationType *string `type:"string" json:",omitempty" required:"true" enum:"EnumOfDestinationTypeForAddVpcFirewallAclRuleInput"`
 
-	EndTime *int32 `type:"int32" json:",omitempty"`
+	DomainResolutionMode *string `type:"string" json:",omitempty" enum:"EnumOfDomainResolutionModeForAddVpcFirewallAclRuleInput"`
 
-	Prio *int32 `type:"int32" json:",omitempty"`
+	EndTime *int64 `type:"int64" json:",omitempty"`
+
+	IpType *string `type:"string" json:",omitempty" enum:"EnumOfIpTypeForAddVpcFirewallAclRuleInput"`
+
+	Prio *int64 `type:"int64" json:",omitempty"`
 
 	// Proto is a required field
 	Proto *string `type:"string" json:",omitempty" required:"true" enum:"EnumOfProtoForAddVpcFirewallAclRuleInput"`
@@ -182,7 +186,7 @@ type AddVpcFirewallAclRuleInput struct {
 	// SourceType is a required field
 	SourceType *string `type:"string" json:",omitempty" required:"true" enum:"EnumOfSourceTypeForAddVpcFirewallAclRuleInput"`
 
-	StartTime *int32 `type:"int32" json:",omitempty"`
+	StartTime *int64 `type:"int64" json:",omitempty"`
 
 	Status *bool `type:"boolean" json:",omitempty"`
 
@@ -267,14 +271,26 @@ func (s *AddVpcFirewallAclRuleInput) SetDestinationType(v string) *AddVpcFirewal
 	return s
 }
 
+// SetDomainResolutionMode sets the DomainResolutionMode field's value.
+func (s *AddVpcFirewallAclRuleInput) SetDomainResolutionMode(v string) *AddVpcFirewallAclRuleInput {
+	s.DomainResolutionMode = &v
+	return s
+}
+
 // SetEndTime sets the EndTime field's value.
-func (s *AddVpcFirewallAclRuleInput) SetEndTime(v int32) *AddVpcFirewallAclRuleInput {
+func (s *AddVpcFirewallAclRuleInput) SetEndTime(v int64) *AddVpcFirewallAclRuleInput {
 	s.EndTime = &v
 	return s
 }
 
+// SetIpType sets the IpType field's value.
+func (s *AddVpcFirewallAclRuleInput) SetIpType(v string) *AddVpcFirewallAclRuleInput {
+	s.IpType = &v
+	return s
+}
+
 // SetPrio sets the Prio field's value.
-func (s *AddVpcFirewallAclRuleInput) SetPrio(v int32) *AddVpcFirewallAclRuleInput {
+func (s *AddVpcFirewallAclRuleInput) SetPrio(v int64) *AddVpcFirewallAclRuleInput {
 	s.Prio = &v
 	return s
 }
@@ -322,7 +338,7 @@ func (s *AddVpcFirewallAclRuleInput) SetSourceType(v string) *AddVpcFirewallAclR
 }
 
 // SetStartTime sets the StartTime field's value.
-func (s *AddVpcFirewallAclRuleInput) SetStartTime(v int32) *AddVpcFirewallAclRuleInput {
+func (s *AddVpcFirewallAclRuleInput) SetStartTime(v int64) *AddVpcFirewallAclRuleInput {
 	s.StartTime = &v
 	return s
 }
@@ -391,6 +407,22 @@ const (
 
 	// EnumOfDestinationTypeForAddVpcFirewallAclRuleInputDomain is a EnumOfDestinationTypeForAddVpcFirewallAclRuleInput enum value
 	EnumOfDestinationTypeForAddVpcFirewallAclRuleInputDomain = "domain"
+)
+
+const (
+	// EnumOfDomainResolutionModeForAddVpcFirewallAclRuleInputFqdn is a EnumOfDomainResolutionModeForAddVpcFirewallAclRuleInput enum value
+	EnumOfDomainResolutionModeForAddVpcFirewallAclRuleInputFqdn = "fqdn"
+
+	// EnumOfDomainResolutionModeForAddVpcFirewallAclRuleInputDns is a EnumOfDomainResolutionModeForAddVpcFirewallAclRuleInput enum value
+	EnumOfDomainResolutionModeForAddVpcFirewallAclRuleInputDns = "dns"
+)
+
+const (
+	// EnumOfIpTypeForAddVpcFirewallAclRuleInputV4 is a EnumOfIpTypeForAddVpcFirewallAclRuleInput enum value
+	EnumOfIpTypeForAddVpcFirewallAclRuleInputV4 = "v4"
+
+	// EnumOfIpTypeForAddVpcFirewallAclRuleInputV6 is a EnumOfIpTypeForAddVpcFirewallAclRuleInput enum value
+	EnumOfIpTypeForAddVpcFirewallAclRuleInputV6 = "v6"
 )
 
 const (

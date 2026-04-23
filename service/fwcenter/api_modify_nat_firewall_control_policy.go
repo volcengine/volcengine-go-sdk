@@ -164,7 +164,9 @@ type ModifyNatFirewallControlPolicyInput struct {
 	// Direction is a required field
 	Direction *string `type:"string" json:",omitempty" required:"true" enum:"EnumOfDirectionForModifyNatFirewallControlPolicyInput"`
 
-	EndTime *int32 `type:"int32" json:",omitempty"`
+	DomainResolutionMode *string `type:"string" json:",omitempty" enum:"EnumOfDomainResolutionModeForModifyNatFirewallControlPolicyInput"`
+
+	EndTime *int64 `type:"int64" json:",omitempty"`
 
 	// NatFirewallId is a required field
 	NatFirewallId *string `type:"string" json:",omitempty" required:"true"`
@@ -189,7 +191,7 @@ type ModifyNatFirewallControlPolicyInput struct {
 	// SourceType is a required field
 	SourceType *string `type:"string" json:",omitempty" required:"true" enum:"EnumOfSourceTypeForModifyNatFirewallControlPolicyInput"`
 
-	StartTime *int32 `type:"int32" json:",omitempty"`
+	StartTime *int64 `type:"int64" json:",omitempty"`
 
 	Status *bool `type:"boolean" json:",omitempty"`
 }
@@ -283,8 +285,14 @@ func (s *ModifyNatFirewallControlPolicyInput) SetDirection(v string) *ModifyNatF
 	return s
 }
 
+// SetDomainResolutionMode sets the DomainResolutionMode field's value.
+func (s *ModifyNatFirewallControlPolicyInput) SetDomainResolutionMode(v string) *ModifyNatFirewallControlPolicyInput {
+	s.DomainResolutionMode = &v
+	return s
+}
+
 // SetEndTime sets the EndTime field's value.
-func (s *ModifyNatFirewallControlPolicyInput) SetEndTime(v int32) *ModifyNatFirewallControlPolicyInput {
+func (s *ModifyNatFirewallControlPolicyInput) SetEndTime(v int64) *ModifyNatFirewallControlPolicyInput {
 	s.EndTime = &v
 	return s
 }
@@ -344,7 +352,7 @@ func (s *ModifyNatFirewallControlPolicyInput) SetSourceType(v string) *ModifyNat
 }
 
 // SetStartTime sets the StartTime field's value.
-func (s *ModifyNatFirewallControlPolicyInput) SetStartTime(v int32) *ModifyNatFirewallControlPolicyInput {
+func (s *ModifyNatFirewallControlPolicyInput) SetStartTime(v int64) *ModifyNatFirewallControlPolicyInput {
 	s.StartTime = &v
 	return s
 }
@@ -418,6 +426,14 @@ const (
 
 	// EnumOfDirectionForModifyNatFirewallControlPolicyInputOut is a EnumOfDirectionForModifyNatFirewallControlPolicyInput enum value
 	EnumOfDirectionForModifyNatFirewallControlPolicyInputOut = "out"
+)
+
+const (
+	// EnumOfDomainResolutionModeForModifyNatFirewallControlPolicyInputFqdn is a EnumOfDomainResolutionModeForModifyNatFirewallControlPolicyInput enum value
+	EnumOfDomainResolutionModeForModifyNatFirewallControlPolicyInputFqdn = "fqdn"
+
+	// EnumOfDomainResolutionModeForModifyNatFirewallControlPolicyInputDns is a EnumOfDomainResolutionModeForModifyNatFirewallControlPolicyInput enum value
+	EnumOfDomainResolutionModeForModifyNatFirewallControlPolicyInputDns = "dns"
 )
 
 const (

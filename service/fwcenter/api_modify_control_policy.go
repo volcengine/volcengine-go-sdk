@@ -164,7 +164,9 @@ type ModifyControlPolicyInput struct {
 	// Direction is a required field
 	Direction *string `type:"string" json:",omitempty" required:"true" enum:"EnumOfDirectionForModifyControlPolicyInput"`
 
-	EndTime *int32 `type:"int32" json:",omitempty"`
+	DomainResolutionMode *string `type:"string" json:",omitempty" enum:"EnumOfDomainResolutionModeForModifyControlPolicyInput"`
+
+	EndTime *int64 `type:"int64" json:",omitempty"`
 
 	InternetFirewallId *string `type:"string" json:",omitempty"`
 
@@ -190,7 +192,7 @@ type ModifyControlPolicyInput struct {
 	// SourceType is a required field
 	SourceType *string `type:"string" json:",omitempty" required:"true" enum:"EnumOfSourceTypeForModifyControlPolicyInput"`
 
-	StartTime *int32 `type:"int32" json:",omitempty"`
+	StartTime *int64 `type:"int64" json:",omitempty"`
 
 	Status *bool `type:"boolean" json:",omitempty"`
 }
@@ -281,8 +283,14 @@ func (s *ModifyControlPolicyInput) SetDirection(v string) *ModifyControlPolicyIn
 	return s
 }
 
+// SetDomainResolutionMode sets the DomainResolutionMode field's value.
+func (s *ModifyControlPolicyInput) SetDomainResolutionMode(v string) *ModifyControlPolicyInput {
+	s.DomainResolutionMode = &v
+	return s
+}
+
 // SetEndTime sets the EndTime field's value.
-func (s *ModifyControlPolicyInput) SetEndTime(v int32) *ModifyControlPolicyInput {
+func (s *ModifyControlPolicyInput) SetEndTime(v int64) *ModifyControlPolicyInput {
 	s.EndTime = &v
 	return s
 }
@@ -348,7 +356,7 @@ func (s *ModifyControlPolicyInput) SetSourceType(v string) *ModifyControlPolicyI
 }
 
 // SetStartTime sets the StartTime field's value.
-func (s *ModifyControlPolicyInput) SetStartTime(v int32) *ModifyControlPolicyInput {
+func (s *ModifyControlPolicyInput) SetStartTime(v int64) *ModifyControlPolicyInput {
 	s.StartTime = &v
 	return s
 }
@@ -422,6 +430,14 @@ const (
 
 	// EnumOfDirectionForModifyControlPolicyInputOut is a EnumOfDirectionForModifyControlPolicyInput enum value
 	EnumOfDirectionForModifyControlPolicyInputOut = "out"
+)
+
+const (
+	// EnumOfDomainResolutionModeForModifyControlPolicyInputFqdn is a EnumOfDomainResolutionModeForModifyControlPolicyInput enum value
+	EnumOfDomainResolutionModeForModifyControlPolicyInputFqdn = "fqdn"
+
+	// EnumOfDomainResolutionModeForModifyControlPolicyInputDns is a EnumOfDomainResolutionModeForModifyControlPolicyInput enum value
+	EnumOfDomainResolutionModeForModifyControlPolicyInputDns = "dns"
 )
 
 const (
