@@ -19,8 +19,10 @@ type StsAssumeRoleProvider struct {
 	Timeout         time.Duration
 	DurationSeconds int
 	Policy          string
-	MaxRetries      *int
-	RetryInterval   time.Duration
+	// MaxRetries controls AssumeRole retry attempts.
+	// Zero or negative values fall back to DefaultRetryerMaxNumRetries.
+	MaxRetries    int
+	RetryInterval time.Duration
 }
 
 type StsAssumeRoleTime struct {
@@ -36,8 +38,10 @@ type StsAssumeRoleOptions struct {
 	Timeout         time.Duration
 	DurationSeconds int
 	Policy          string
-	MaxRetries      *int
-	RetryInterval   time.Duration
+	// MaxRetries controls AssumeRole retry attempts.
+	// Zero or negative values fall back to DefaultRetryerMaxNumRetries.
+	MaxRetries    int
+	RetryInterval time.Duration
 }
 
 // StsAssumeRoleWithOptions creates a one-shot AssumeRole call with required
@@ -95,7 +99,11 @@ func stsAssumeRoleInternal(p *StsAssumeRoleProvider) (*Credentials, *StsAssumeRo
 		RoleSessionName: uuid.New().String(),
 		Policy:          p.Policy,
 	}
-	output, statusCode, err := assumeRoleWithRetry(ins, input, p.MaxRetries, p.RetryInterval)
+	var maxRetriesPtr *int
+	if p.MaxRetries > 0 {
+		maxRetriesPtr = &p.MaxRetries
+	}
+	output, statusCode, err := assumeRoleWithRetry(ins, input, maxRetriesPtr, p.RetryInterval)
 	var reqId string
 	if output != nil {
 		reqId = output.ResponseMetadata.RequestId

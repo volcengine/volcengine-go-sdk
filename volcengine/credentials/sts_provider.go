@@ -43,7 +43,11 @@ func (s *StsProvider) Retrieve() (Value, error) {
 		Policy:          s.Policy,
 	}
 	t := time.Now().Add(time.Duration(s.DurationSeconds-60) * time.Second)
-	output, _, err := assumeRoleWithRetry(ins, input, s.MaxRetries, s.RetryInterval)
+	var maxRetriesPtr *int
+	if s.MaxRetries > 0 {
+		maxRetriesPtr = &s.MaxRetries
+	}
+	output, _, err := assumeRoleWithRetry(ins, input, maxRetriesPtr, s.RetryInterval)
 	if err != nil {
 		return Value{}, err
 	}
