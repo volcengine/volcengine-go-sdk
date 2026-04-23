@@ -194,9 +194,9 @@ type DescribeControlPolicyPriorUsedOutput struct {
 
 	AccountId *string `type:"string" json:",omitempty"`
 
-	End *int32 `type:"int32" json:",omitempty"`
+	End *int64 `type:"int64" json:",omitempty"`
 
-	Start *int32 `type:"int32" json:",omitempty"`
+	Start *int64 `type:"int64" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -216,13 +216,13 @@ func (s *DescribeControlPolicyPriorUsedOutput) SetAccountId(v string) *DescribeC
 }
 
 // SetEnd sets the End field's value.
-func (s *DescribeControlPolicyPriorUsedOutput) SetEnd(v int32) *DescribeControlPolicyPriorUsedOutput {
+func (s *DescribeControlPolicyPriorUsedOutput) SetEnd(v int64) *DescribeControlPolicyPriorUsedOutput {
 	s.End = &v
 	return s
 }
 
 // SetStart sets the Start field's value.
-func (s *DescribeControlPolicyPriorUsedOutput) SetStart(v int32) *DescribeControlPolicyPriorUsedOutput {
+func (s *DescribeControlPolicyPriorUsedOutput) SetStart(v int64) *DescribeControlPolicyPriorUsedOutput {
 	s.Start = &v
 	return s
 }

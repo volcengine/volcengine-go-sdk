@@ -160,9 +160,9 @@ type DataForDescribeDnsControlPolicyOutput struct {
 
 	DomainListV1 []*DomainListV1ForDescribeDnsControlPolicyOutput `type:"list" json:",omitempty"`
 
-	HitCnt *int32 `type:"int32" json:",omitempty"`
+	HitCnt *int64 `type:"int64" json:",omitempty"`
 
-	LastHitTime *int32 `type:"int32" json:",omitempty"`
+	LastHitTime *int64 `type:"int64" json:",omitempty"`
 
 	RuleId *string `type:"string" json:",omitempty"`
 
@@ -170,7 +170,7 @@ type DataForDescribeDnsControlPolicyOutput struct {
 
 	Status *bool `type:"boolean" json:",omitempty"`
 
-	UseCount *int32 `type:"int32" json:",omitempty"`
+	UseCount *int64 `type:"int64" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -226,13 +226,13 @@ func (s *DataForDescribeDnsControlPolicyOutput) SetDomainListV1(v []*DomainListV
 }
 
 // SetHitCnt sets the HitCnt field's value.
-func (s *DataForDescribeDnsControlPolicyOutput) SetHitCnt(v int32) *DataForDescribeDnsControlPolicyOutput {
+func (s *DataForDescribeDnsControlPolicyOutput) SetHitCnt(v int64) *DataForDescribeDnsControlPolicyOutput {
 	s.HitCnt = &v
 	return s
 }
 
 // SetLastHitTime sets the LastHitTime field's value.
-func (s *DataForDescribeDnsControlPolicyOutput) SetLastHitTime(v int32) *DataForDescribeDnsControlPolicyOutput {
+func (s *DataForDescribeDnsControlPolicyOutput) SetLastHitTime(v int64) *DataForDescribeDnsControlPolicyOutput {
 	s.LastHitTime = &v
 	return s
 }
@@ -256,7 +256,7 @@ func (s *DataForDescribeDnsControlPolicyOutput) SetStatus(v bool) *DataForDescri
 }
 
 // SetUseCount sets the UseCount field's value.
-func (s *DataForDescribeDnsControlPolicyOutput) SetUseCount(v int32) *DataForDescribeDnsControlPolicyOutput {
+func (s *DataForDescribeDnsControlPolicyOutput) SetUseCount(v int64) *DataForDescribeDnsControlPolicyOutput {
 	s.UseCount = &v
 	return s
 }

@@ -186,9 +186,9 @@ type DescribeVpcFirewallAclRulePriorUsedOutput struct {
 
 	AccountId *string `type:"string" json:",omitempty"`
 
-	End *int32 `type:"int32" json:",omitempty"`
+	End *int64 `type:"int64" json:",omitempty"`
 
-	Start *int32 `type:"int32" json:",omitempty"`
+	Start *int64 `type:"int64" json:",omitempty"`
 
 	VpcFirewallId *string `type:"string" json:",omitempty"`
 }
@@ -210,13 +210,13 @@ func (s *DescribeVpcFirewallAclRulePriorUsedOutput) SetAccountId(v string) *Desc
 }
 
 // SetEnd sets the End field's value.
-func (s *DescribeVpcFirewallAclRulePriorUsedOutput) SetEnd(v int32) *DescribeVpcFirewallAclRulePriorUsedOutput {
+func (s *DescribeVpcFirewallAclRulePriorUsedOutput) SetEnd(v int64) *DescribeVpcFirewallAclRulePriorUsedOutput {
 	s.End = &v
 	return s
 }
 
 // SetStart sets the Start field's value.
-func (s *DescribeVpcFirewallAclRulePriorUsedOutput) SetStart(v int32) *DescribeVpcFirewallAclRulePriorUsedOutput {
+func (s *DescribeVpcFirewallAclRulePriorUsedOutput) SetStart(v int64) *DescribeVpcFirewallAclRulePriorUsedOutput {
 	s.Start = &v
 	return s
 }

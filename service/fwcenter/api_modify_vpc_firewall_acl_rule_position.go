@@ -147,7 +147,7 @@ type ModifyVpcFirewallAclRulePositionInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
 	// NewPrio is a required field
-	NewPrio *int32 `min:"1" type:"int32" json:",omitempty" required:"true"`
+	NewPrio *int64 `min:"1" type:"int64" json:",omitempty" required:"true"`
 
 	// RuleId is a required field
 	RuleId *string `type:"string" json:",omitempty" required:"true"`
@@ -189,7 +189,7 @@ func (s *ModifyVpcFirewallAclRulePositionInput) Validate() error {
 }
 
 // SetNewPrio sets the NewPrio field's value.
-func (s *ModifyVpcFirewallAclRulePositionInput) SetNewPrio(v int32) *ModifyVpcFirewallAclRulePositionInput {
+func (s *ModifyVpcFirewallAclRulePositionInput) SetNewPrio(v int64) *ModifyVpcFirewallAclRulePositionInput {
 	s.NewPrio = &v
 	return s
 }

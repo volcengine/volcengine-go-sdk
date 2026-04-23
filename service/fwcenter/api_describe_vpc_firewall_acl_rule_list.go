@@ -174,15 +174,17 @@ type DataForDescribeVpcFirewallAclRuleListOutput struct {
 
 	DestinationType *string `type:"string" json:",omitempty"`
 
+	DomainResolutionMode *string `type:"string" json:",omitempty"`
+
 	EffectStatus *int32 `type:"int32" json:",omitempty"`
 
-	EndTime *int32 `type:"int32" json:",omitempty"`
+	EndTime *int64 `type:"int64" json:",omitempty"`
 
-	HitCnt *int32 `type:"int32" json:",omitempty"`
+	HitCnt *int64 `type:"int64" json:",omitempty"`
 
 	IsEffected *bool `type:"boolean" json:",omitempty"`
 
-	Prio *int32 `type:"int32" json:",omitempty"`
+	Prio *int64 `type:"int64" json:",omitempty"`
 
 	Proto *string `type:"string" json:",omitempty"`
 
@@ -206,13 +208,13 @@ type DataForDescribeVpcFirewallAclRuleListOutput struct {
 
 	SourceType *string `type:"string" json:",omitempty"`
 
-	StartTime *int32 `type:"int32" json:",omitempty"`
+	StartTime *int64 `type:"int64" json:",omitempty"`
 
 	Status *bool `type:"boolean" json:",omitempty"`
 
-	UpdateTime *int32 `type:"int32" json:",omitempty"`
+	UpdateTime *int64 `type:"int64" json:",omitempty"`
 
-	UseCount *int32 `type:"int32" json:",omitempty"`
+	UseCount *int64 `type:"int64" json:",omitempty"`
 
 	VpcFirewallId *string `type:"string" json:",omitempty"`
 
@@ -313,6 +315,12 @@ func (s *DataForDescribeVpcFirewallAclRuleListOutput) SetDestinationType(v strin
 	return s
 }
 
+// SetDomainResolutionMode sets the DomainResolutionMode field's value.
+func (s *DataForDescribeVpcFirewallAclRuleListOutput) SetDomainResolutionMode(v string) *DataForDescribeVpcFirewallAclRuleListOutput {
+	s.DomainResolutionMode = &v
+	return s
+}
+
 // SetEffectStatus sets the EffectStatus field's value.
 func (s *DataForDescribeVpcFirewallAclRuleListOutput) SetEffectStatus(v int32) *DataForDescribeVpcFirewallAclRuleListOutput {
 	s.EffectStatus = &v
@@ -320,13 +328,13 @@ func (s *DataForDescribeVpcFirewallAclRuleListOutput) SetEffectStatus(v int32) *
 }
 
 // SetEndTime sets the EndTime field's value.
-func (s *DataForDescribeVpcFirewallAclRuleListOutput) SetEndTime(v int32) *DataForDescribeVpcFirewallAclRuleListOutput {
+func (s *DataForDescribeVpcFirewallAclRuleListOutput) SetEndTime(v int64) *DataForDescribeVpcFirewallAclRuleListOutput {
 	s.EndTime = &v
 	return s
 }
 
 // SetHitCnt sets the HitCnt field's value.
-func (s *DataForDescribeVpcFirewallAclRuleListOutput) SetHitCnt(v int32) *DataForDescribeVpcFirewallAclRuleListOutput {
+func (s *DataForDescribeVpcFirewallAclRuleListOutput) SetHitCnt(v int64) *DataForDescribeVpcFirewallAclRuleListOutput {
 	s.HitCnt = &v
 	return s
 }
@@ -338,7 +346,7 @@ func (s *DataForDescribeVpcFirewallAclRuleListOutput) SetIsEffected(v bool) *Dat
 }
 
 // SetPrio sets the Prio field's value.
-func (s *DataForDescribeVpcFirewallAclRuleListOutput) SetPrio(v int32) *DataForDescribeVpcFirewallAclRuleListOutput {
+func (s *DataForDescribeVpcFirewallAclRuleListOutput) SetPrio(v int64) *DataForDescribeVpcFirewallAclRuleListOutput {
 	s.Prio = &v
 	return s
 }
@@ -410,7 +418,7 @@ func (s *DataForDescribeVpcFirewallAclRuleListOutput) SetSourceType(v string) *D
 }
 
 // SetStartTime sets the StartTime field's value.
-func (s *DataForDescribeVpcFirewallAclRuleListOutput) SetStartTime(v int32) *DataForDescribeVpcFirewallAclRuleListOutput {
+func (s *DataForDescribeVpcFirewallAclRuleListOutput) SetStartTime(v int64) *DataForDescribeVpcFirewallAclRuleListOutput {
 	s.StartTime = &v
 	return s
 }
@@ -422,13 +430,13 @@ func (s *DataForDescribeVpcFirewallAclRuleListOutput) SetStatus(v bool) *DataFor
 }
 
 // SetUpdateTime sets the UpdateTime field's value.
-func (s *DataForDescribeVpcFirewallAclRuleListOutput) SetUpdateTime(v int32) *DataForDescribeVpcFirewallAclRuleListOutput {
+func (s *DataForDescribeVpcFirewallAclRuleListOutput) SetUpdateTime(v int64) *DataForDescribeVpcFirewallAclRuleListOutput {
 	s.UpdateTime = &v
 	return s
 }
 
 // SetUseCount sets the UseCount field's value.
-func (s *DataForDescribeVpcFirewallAclRuleListOutput) SetUseCount(v int32) *DataForDescribeVpcFirewallAclRuleListOutput {
+func (s *DataForDescribeVpcFirewallAclRuleListOutput) SetUseCount(v int64) *DataForDescribeVpcFirewallAclRuleListOutput {
 	s.UseCount = &v
 	return s
 }
@@ -453,6 +461,8 @@ type DescribeVpcFirewallAclRuleListInput struct {
 	Description *string `type:"string" json:",omitempty"`
 
 	Destination *string `type:"string" json:",omitempty"`
+
+	IpType *string `type:"string" json:",omitempty" enum:"EnumOfIpTypeForDescribeVpcFirewallAclRuleListInput"`
 
 	OrderDir *string `type:"string" json:",omitempty" enum:"EnumOfOrderDirForDescribeVpcFirewallAclRuleListInput"`
 
@@ -515,6 +525,12 @@ func (s *DescribeVpcFirewallAclRuleListInput) SetDescription(v string) *Describe
 // SetDestination sets the Destination field's value.
 func (s *DescribeVpcFirewallAclRuleListInput) SetDestination(v string) *DescribeVpcFirewallAclRuleListInput {
 	s.Destination = &v
+	return s
+}
+
+// SetIpType sets the IpType field's value.
+func (s *DescribeVpcFirewallAclRuleListInput) SetIpType(v string) *DescribeVpcFirewallAclRuleListInput {
+	s.IpType = &v
 	return s
 }
 
@@ -741,6 +757,14 @@ func (s *SourceCidrListV1ForDescribeVpcFirewallAclRuleListOutput) SetType(v stri
 	s.Type = &v
 	return s
 }
+
+const (
+	// EnumOfIpTypeForDescribeVpcFirewallAclRuleListInputV4 is a EnumOfIpTypeForDescribeVpcFirewallAclRuleListInput enum value
+	EnumOfIpTypeForDescribeVpcFirewallAclRuleListInputV4 = "v4"
+
+	// EnumOfIpTypeForDescribeVpcFirewallAclRuleListInputV6 is a EnumOfIpTypeForDescribeVpcFirewallAclRuleListInput enum value
+	EnumOfIpTypeForDescribeVpcFirewallAclRuleListInputV6 = "v6"
+)
 
 const (
 	// EnumOfOrderDirForDescribeVpcFirewallAclRuleListInputAsc is a EnumOfOrderDirForDescribeVpcFirewallAclRuleListInput enum value

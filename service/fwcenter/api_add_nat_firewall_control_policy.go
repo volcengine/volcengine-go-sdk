@@ -164,12 +164,14 @@ type AddNatFirewallControlPolicyInput struct {
 	// Direction is a required field
 	Direction *string `type:"string" json:",omitempty" required:"true" enum:"EnumOfDirectionForAddNatFirewallControlPolicyInput"`
 
-	EndTime *int32 `type:"int32" json:",omitempty"`
+	DomainResolutionMode *string `type:"string" json:",omitempty" enum:"EnumOfDomainResolutionModeForAddNatFirewallControlPolicyInput"`
+
+	EndTime *int64 `type:"int64" json:",omitempty"`
 
 	// NatFirewallId is a required field
 	NatFirewallId *string `type:"string" json:",omitempty" required:"true"`
 
-	Prio *int32 `type:"int32" json:",omitempty"`
+	Prio *int64 `type:"int64" json:",omitempty"`
 
 	// Proto is a required field
 	Proto *string `type:"string" json:",omitempty" required:"true" enum:"EnumOfProtoForAddNatFirewallControlPolicyInput"`
@@ -188,7 +190,7 @@ type AddNatFirewallControlPolicyInput struct {
 	// SourceType is a required field
 	SourceType *string `type:"string" json:",omitempty" required:"true" enum:"EnumOfSourceTypeForAddNatFirewallControlPolicyInput"`
 
-	StartTime *int32 `type:"int32" json:",omitempty"`
+	StartTime *int64 `type:"int64" json:",omitempty"`
 
 	Status *bool `type:"boolean" json:",omitempty"`
 }
@@ -279,8 +281,14 @@ func (s *AddNatFirewallControlPolicyInput) SetDirection(v string) *AddNatFirewal
 	return s
 }
 
+// SetDomainResolutionMode sets the DomainResolutionMode field's value.
+func (s *AddNatFirewallControlPolicyInput) SetDomainResolutionMode(v string) *AddNatFirewallControlPolicyInput {
+	s.DomainResolutionMode = &v
+	return s
+}
+
 // SetEndTime sets the EndTime field's value.
-func (s *AddNatFirewallControlPolicyInput) SetEndTime(v int32) *AddNatFirewallControlPolicyInput {
+func (s *AddNatFirewallControlPolicyInput) SetEndTime(v int64) *AddNatFirewallControlPolicyInput {
 	s.EndTime = &v
 	return s
 }
@@ -292,7 +300,7 @@ func (s *AddNatFirewallControlPolicyInput) SetNatFirewallId(v string) *AddNatFir
 }
 
 // SetPrio sets the Prio field's value.
-func (s *AddNatFirewallControlPolicyInput) SetPrio(v int32) *AddNatFirewallControlPolicyInput {
+func (s *AddNatFirewallControlPolicyInput) SetPrio(v int64) *AddNatFirewallControlPolicyInput {
 	s.Prio = &v
 	return s
 }
@@ -340,7 +348,7 @@ func (s *AddNatFirewallControlPolicyInput) SetSourceType(v string) *AddNatFirewa
 }
 
 // SetStartTime sets the StartTime field's value.
-func (s *AddNatFirewallControlPolicyInput) SetStartTime(v int32) *AddNatFirewallControlPolicyInput {
+func (s *AddNatFirewallControlPolicyInput) SetStartTime(v int64) *AddNatFirewallControlPolicyInput {
 	s.StartTime = &v
 	return s
 }
@@ -414,6 +422,14 @@ const (
 
 	// EnumOfDirectionForAddNatFirewallControlPolicyInputOut is a EnumOfDirectionForAddNatFirewallControlPolicyInput enum value
 	EnumOfDirectionForAddNatFirewallControlPolicyInputOut = "out"
+)
+
+const (
+	// EnumOfDomainResolutionModeForAddNatFirewallControlPolicyInputFqdn is a EnumOfDomainResolutionModeForAddNatFirewallControlPolicyInput enum value
+	EnumOfDomainResolutionModeForAddNatFirewallControlPolicyInputFqdn = "fqdn"
+
+	// EnumOfDomainResolutionModeForAddNatFirewallControlPolicyInputDns is a EnumOfDomainResolutionModeForAddNatFirewallControlPolicyInput enum value
+	EnumOfDomainResolutionModeForAddNatFirewallControlPolicyInputDns = "dns"
 )
 
 const (
