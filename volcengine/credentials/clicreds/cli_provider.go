@@ -43,8 +43,14 @@ type cliProfile struct {
 	SsoSessionName string `json:"sso-session-name"`
 	AccountId      string `json:"account-id"`
 	RoleName       string `json:"role-name"`
-	OIDCTokenFile  string `json:"oidc-token-file"`
-	RoleTrn        string `json:"role-trn"`
+
+	OidcTokenFile    string `json:"oidc-token-file"`
+	RoleTrn          string `json:"role-trn"`
+	Region           string `json:"region"`
+	Endpoint         string `json:"endpoint"`
+	DisableSSL       bool   `json:"disable-ssl"`
+	EndpointResolver string `json:"endpoint-resolver,omitempty"`
+	UseDualStack     *bool  `json:"use-dual-stack,omitempty"`
 }
 
 type SsoSession struct {
@@ -376,7 +382,11 @@ func (p *CliProvider) resolveSsoSession(profile *cliProfile, profileName, config
 
 	region := strings.TrimSpace(session.Region)
 	if region == "" {
-		region = defaultRegion
+		if r := strings.TrimSpace(profile.Region); r != "" {
+			region = r
+		} else {
+			region = defaultRegion
+		}
 	}
 	return sessionName, startURL, region, nil
 }
@@ -565,15 +575,27 @@ func (p *CliProvider) retrieveRamRoleArn(profile *cliProfile, profileName, confi
 				nil,
 			)
 		}
+		region := strings.TrimSpace(profile.Region)
+		if region == "" {
+			region = defaultRegion
+		}
+		endpoint := strings.TrimSpace(profile.Endpoint)
+		if endpoint == "" {
+			endpoint = "sts.volcengineapi.com"
+		}
+		schema := "https"
+		if profile.DisableSSL {
+			schema = "http"
+		}
 		stsProvider := &credentials.StsProvider{
 			StsValue: credentials.StsValue{
 				AccessKey:       profile.AccessKey,
 				SecurityKey:     profile.SecretKey,
 				RoleName:        profile.RoleName,
 				AccountId:       profile.AccountId,
-				Region:          defaultRegion,
-				Schema:          "https",
-				Host:            "sts.volcengineapi.com",
+				Region:          region,
+				Schema:          schema,
+				Host:            endpoint,
 				Timeout:         5 * time.Second,
 				DurationSeconds: 3600,
 			},
@@ -585,7 +607,7 @@ func (p *CliProvider) retrieveRamRoleArn(profile *cliProfile, profileName, confi
 
 func (p *CliProvider) retrieveOIDC(profile *cliProfile, profileName, configPath string) (credentials.Value, error) {
 	if p.delegate == nil {
-		tokenFile := strings.TrimSpace(profile.OIDCTokenFile)
+		tokenFile := strings.TrimSpace(profile.OidcTokenFile)
 		if tokenFile == "" {
 			return credentials.Value{ProviderName: CliProviderName}, volcengineerr.New(
 				"CliConfigOIDCTokenFileMissing",
