@@ -1,0 +1,60 @@
+# .github/workflows/main.yml (Go)
+name: Release Go SDK
+
+on:
+  push:
+    branches: [master]
+    paths:
+      - '.changelog/v*.md'
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: '1.21'
+
+      - name: Extract Version
+        id: version
+        run: |
+          VERSION=$(grep -oP 'const SDKVersion = "\K[^"]+' volcengine/version.go 2>/dev/null || cat VERSION)
+          echo "version=$VERSION" >> $GITHUB_OUTPUT
+          echo "tag=v$VERSION" >> $GITHUB_OUTPUT
+
+      - name: Create Tag
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git tag -a ${{ steps.version.outputs.tag }} -m "Release ${{ steps.version.outputs.tag }}"
+          git push origin ${{ steps.version.outputs.tag }}
+
+      - name: Read Changelog
+        id: changelog
+        run: |
+          CHANGELOG_FILE=".changelog/${{ steps.version.outputs.tag }}.md"
+          if [ -f "$CHANGELOG_FILE" ]; then
+            delimiter="$(openssl rand -hex 8)"
+            echo "content<<$delimiter" >> $GITHUB_OUTPUT
+            cat "$CHANGELOG_FILE" >> $GITHUB_OUTPUT
+            echo "" >> $GITHUB_OUTPUT
+            echo "$delimiter" >> $GITHUB_OUTPUT
+          else
+            echo "content=Release ${{ steps.version.outputs.tag }}" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Create Release
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: ${{ steps.version.outputs.tag }}
+          name: Release ${{ steps.version.outputs.tag }}
+          body: ${{ steps.changelog.outputs.content }}
