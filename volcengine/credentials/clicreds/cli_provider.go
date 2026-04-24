@@ -623,11 +623,19 @@ func (p *CliProvider) retrieveOIDC(profile *cliProfile, profileName, configPath 
 				nil,
 			)
 		}
-		p.delegate = &credentials.OIDCCredentialsProvider{
-			OIDCTokenFilePath: tokenFile,
-			RoleTrn:           roleTrn,
-			DurationSeconds:   3600,
-		}
+		p.delegate = credentials.NewOIDCCredentialsProviderWithOptions(
+			tokenFile,
+			roleTrn,
+			func(o *credentials.OIDCProviderOptions) {
+				o.DurationSeconds = 3600
+				if profile.Endpoint != "" {
+					o.Endpoint = profile.Endpoint
+				}
+				if profile.DisableSSL {
+					o.Schema = "http"
+				}
+			},
+		)
 	}
 	return p.delegate.Retrieve()
 }

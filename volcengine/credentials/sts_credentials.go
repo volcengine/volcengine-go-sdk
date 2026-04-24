@@ -151,6 +151,18 @@ func assumeRoleWithRetry(ins *sts.STS, input *sts.AssumeRoleRequest, maxRetries 
 		if !failed {
 			return output, statusCode, err
 		}
+		// Determine STS error code for retryability check.
+		var errCode string
+		if output != nil && output.ResponseMetadata.Error != nil {
+			errCode = output.ResponseMetadata.Error.Code
+		}
+		httpStatusCode := statusCode
+		if err != nil && statusCode == 0 {
+			httpStatusCode = 0
+		}
+		if !isRetryableSTSError(httpStatusCode, errCode) {
+			return output, statusCode, err
+		}
 		if attempt < resolvedMaxRetries {
 			time.Sleep(retryInterval)
 		}
