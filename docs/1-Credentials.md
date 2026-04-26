@@ -391,7 +391,6 @@ Supported modes in profile (case-insensitive):
 | Mode | Description |
 | --- | --- |
 | `ak` / empty | Static AK/SK from profile |
-| `ststoken` | Static AK/SK + SessionToken |
 | `sso` | SSO login via OIDC Device Authorization |
 | `ramrolearn` | STS AssumeRole (delegates to `StsProvider`) |
 | `oidc` | STS AssumeRoleWithOIDC (delegates to `OIDCCredentialsProvider`) |

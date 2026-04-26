@@ -345,7 +345,6 @@ func main() {
 | 模式 | 说明 |
 | --- | --- |
 | `ak` / 空 | 从 profile 中读取静态 AK/SK |
-| `ststoken` | 静态 AK/SK + SessionToken |
 | `sso` | SSO 登录（OIDC Device Authorization） |
 | `ramrolearn` | STS AssumeRole（委托给 `StsProvider`） |
 | `oidc` | STS AssumeRoleWithOIDC（委托给 `OIDCCredentialsProvider`） |

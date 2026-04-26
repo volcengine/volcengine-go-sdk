@@ -21,7 +21,6 @@ const (
 	CliProviderName = "CliProvider"
 	modeSSO         = "sso"
 	modeAK          = "ak"
-	modeStsToken    = "ststoken"
 	modeRamRoleArn  = "ramrolearn"
 	modeOIDC        = "oidc"
 	modeEcsRole     = "ecsrole"
@@ -47,7 +46,6 @@ type cliProfile struct {
 	OidcTokenFile    string `json:"oidc-token-file"`
 	RoleTrn          string `json:"role-trn"`
 	Region           string `json:"region"`
-	Endpoint         string `json:"endpoint"`
 	DisableSSL       bool   `json:"disable-ssl"`
 	EndpointResolver string `json:"endpoint-resolver,omitempty"`
 	UseDualStack     *bool  `json:"use-dual-stack,omitempty"`
@@ -180,8 +178,6 @@ func (p *CliProvider) Retrieve() (credentials.Value, error) {
 	switch mode {
 	case "", modeAK:
 		return p.retrieveAK(profile, profileName, p.configPath)
-	case modeStsToken:
-		return p.retrieveStsToken(profile, profileName, p.configPath)
 	case modeSSO:
 		return p.retrieveSSO(profile, profileName, p.configPath, cfg)
 	case modeRamRoleArn:
@@ -211,38 +207,6 @@ func (p *CliProvider) retrieveAK(profile *cliProfile, profileName, configPath st
 		return credentials.Value{ProviderName: CliProviderName}, volcengineerr.New(
 			"CliConfigSecretKey",
 			fmt.Sprintf("cli config profile %s in %s did not contain secret-key", profileName, configPath),
-			nil,
-		)
-	}
-
-	p.retrieved = true
-	return credentials.Value{
-		AccessKeyID:     profile.AccessKey,
-		SecretAccessKey: profile.SecretKey,
-		SessionToken:    profile.SessionToken,
-		ProviderName:    CliProviderName,
-	}, nil
-}
-
-func (p *CliProvider) retrieveStsToken(profile *cliProfile, profileName, configPath string) (credentials.Value, error) {
-	if len(profile.AccessKey) == 0 {
-		return credentials.Value{ProviderName: CliProviderName}, volcengineerr.New(
-			"CliConfigAccessKey",
-			fmt.Sprintf("cli config profile %s in %s did not contain access-key (required for StsToken mode)", profileName, configPath),
-			nil,
-		)
-	}
-	if len(profile.SecretKey) == 0 {
-		return credentials.Value{ProviderName: CliProviderName}, volcengineerr.New(
-			"CliConfigSecretKey",
-			fmt.Sprintf("cli config profile %s in %s did not contain secret-key (required for StsToken mode)", profileName, configPath),
-			nil,
-		)
-	}
-	if len(profile.SessionToken) == 0 {
-		return credentials.Value{ProviderName: CliProviderName}, volcengineerr.New(
-			"CliConfigSessionToken",
-			fmt.Sprintf("cli config profile %s in %s did not contain session-token (required for StsToken mode)", profileName, configPath),
 			nil,
 		)
 	}
@@ -579,10 +543,6 @@ func (p *CliProvider) retrieveRamRoleArn(profile *cliProfile, profileName, confi
 		if region == "" {
 			region = defaultRegion
 		}
-		endpoint := strings.TrimSpace(profile.Endpoint)
-		if endpoint == "" {
-			endpoint = "sts.volcengineapi.com"
-		}
 		schema := "https"
 		if profile.DisableSSL {
 			schema = "http"
@@ -595,7 +555,6 @@ func (p *CliProvider) retrieveRamRoleArn(profile *cliProfile, profileName, confi
 				AccountId:       profile.AccountId,
 				Region:          region,
 				Schema:          schema,
-				Host:            endpoint,
 				Timeout:         5 * time.Second,
 				DurationSeconds: 3600,
 			},
@@ -628,9 +587,6 @@ func (p *CliProvider) retrieveOIDC(profile *cliProfile, profileName, configPath 
 			roleTrn,
 			func(o *credentials.OIDCProviderOptions) {
 				o.DurationSeconds = 3600
-				if profile.Endpoint != "" {
-					o.Endpoint = profile.Endpoint
-				}
 				if profile.DisableSSL {
 					o.Schema = "http"
 				}
