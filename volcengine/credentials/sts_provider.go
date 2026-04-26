@@ -36,6 +36,9 @@ func (s *StsProvider) Retrieve() (Value, error) {
 
 	ins.Client.SetAccessKey(s.AccessKey)
 	ins.Client.SetSecretKey(s.SecurityKey)
+	if s.SessionToken != "" {
+		ins.Client.SetSessionToken(s.SessionToken)
+	}
 	input := &sts.AssumeRoleRequest{
 		DurationSeconds: s.DurationSeconds,
 		RoleTrn:         fmt.Sprintf("trn:iam::%s:role/%s", s.AccountId, s.RoleName),
@@ -90,6 +93,7 @@ func NewStsCredentialsWithOptions(accessKey, securityKey, roleName, accountId st
 	cfg := StsAssumeRoleProvider{
 		AccessKey:       accessKey,
 		SecurityKey:     securityKey,
+		SessionToken:    opts.SessionToken,
 		RoleName:        roleName,
 		AccountId:       accountId,
 		Host:            opts.Host,

@@ -90,20 +90,21 @@ func Handlers() request.Handlers {
 // is available if you need to reset the credentials of an
 // existing service client or session's Config.
 //
-// Note: this now uses DefaultCredentialProvider instead of ChainProvider.
-// Error messages always include details from every provider in the chain
-// (the old CredentialsChainVerboseErrors config is no longer consulted).
+// The chain honors cfg.CredentialsChainVerboseErrors: when true the failure
+// error includes per-provider details; otherwise (default) the stable
+// credentials.ErrNoValidProvidersFoundInChain is returned.
 func CredChain(cfg *volcengine.Config, handlers request.Handlers) *credentials.Credentials {
 	return credentials.NewDefaultCredentialProviderFromProviders(
 		CredProviders(cfg, handlers),
 		true, // reuseLastProviderEnabled
+		volcengine.BoolValue(cfg.CredentialsChainVerboseErrors),
 	)
 }
 
 // CredProviders returns the slice of providers used in
 // the default credential chain.
 //
-// The 4-step default chain:
+// The default chain:
 //  1. EnvProvider (AK/SK/STS from environment variables)
 //  2. OIDCCredentialsProvider (from environment variables)
 //  3. CliProvider (from ~/.volcengine/config.json)
@@ -119,7 +120,7 @@ func CredProviders(cfg *volcengine.Config, handlers request.Handlers) []credenti
 
 // NewDefaultCredentialProvider creates a default credential chain with the
 // given options. This is the primary entry point for users who want to
-// customize the default chain (e.g., specify an ECS role name or profile).
+// customize the default chain (e.g., specify an ECS role name).
 //
 // Example:
 //
@@ -144,6 +145,7 @@ func NewDefaultCredentialProvider(optFns ...func(*credentials.DefaultCredentialP
 	return credentials.NewDefaultCredentialProviderFromProviders(
 		providers,
 		opts.IsReuseEnabled(),
+		false, // verbose flag is honored only via volcengine.Config.WithCredentialsChainVerboseErrors
 	)
 }
 

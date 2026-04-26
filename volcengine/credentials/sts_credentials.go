@@ -11,6 +11,7 @@ import (
 type StsAssumeRoleProvider struct {
 	AccessKey       string
 	SecurityKey     string
+	SessionToken    string
 	RoleName        string
 	AccountId       string
 	Host            string
@@ -32,6 +33,7 @@ type StsAssumeRoleTime struct {
 
 // StsAssumeRoleOptions contains optional configuration for STS AssumeRole.
 type StsAssumeRoleOptions struct {
+	SessionToken    string
 	Host            string
 	Region          string
 	Schema          string
@@ -56,6 +58,7 @@ func StsAssumeRoleWithOptions(accessKey, securityKey, roleName, accountId string
 	p := &StsAssumeRoleProvider{
 		AccessKey:       accessKey,
 		SecurityKey:     securityKey,
+		SessionToken:    opts.SessionToken,
 		RoleName:        roleName,
 		AccountId:       accountId,
 		Host:            opts.Host,
@@ -93,6 +96,9 @@ func stsAssumeRoleInternal(p *StsAssumeRoleProvider) (*Credentials, *StsAssumeRo
 
 	ins.Client.SetAccessKey(p.AccessKey)
 	ins.Client.SetSecretKey(p.SecurityKey)
+	if p.SessionToken != "" {
+		ins.Client.SetSessionToken(p.SessionToken)
+	}
 	input := &sts.AssumeRoleRequest{
 		DurationSeconds: p.DurationSeconds,
 		RoleTrn:         fmt.Sprintf("trn:iam::%s:role/%s", p.AccountId, p.RoleName),

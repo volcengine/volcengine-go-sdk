@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
+	neturl "net/url"
 	"os"
 	"strings"
 	"time"
@@ -222,7 +223,7 @@ func (p *EcsRoleProvider) autoDetectRoleName(imdsToken string) (string, error) {
 
 // getCredentials POSTs to IMDS to get STS credentials for the given role.
 func (p *EcsRoleProvider) getCredentials(roleName, imdsToken string) (*imdsCredentialResponse, error) {
-	url := fmt.Sprintf("%s"+imdsRoleCredsPath, imdsEndpoint, roleName)
+	url := fmt.Sprintf("%s"+imdsRoleCredsPath, imdsEndpoint, neturl.PathEscape(roleName))
 	headers := map[string]string{imdsTokenHeader: imdsToken}
 	body, err := p.doRequestWithRetry(url, "POST", headers)
 	if err != nil {

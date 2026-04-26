@@ -513,6 +513,52 @@ func main() {
 }
 ```
 
+## 共享凭据文件（已废弃 · Deprecated）
+
+> ⚠️ **该方式已废弃，仅保留向后兼容，未来版本可能移除。** 新代码请改用以下任一推荐方式：
+> 1. **环境变量**：`VOLCENGINE_ACCESS_KEY` / `VOLCENGINE_SECRET_KEY`（见 [EnvironmentVariables-zh.md](EnvironmentVariables-zh.md)）
+> 2. **CLI 配置文件**：`~/.volcengine/config.json`（参见上文 *CLI 配置文件凭证提供者*）
+> 3. **默认凭证链**：不显式配置时由 SDK 自动发现（参见上文 *默认凭证提供者*）
+
+`~/.volcengine/credentials` 共享凭据文件（INI 格式，AWS 风格）继续支持，路径与字段语义未变。在新的默认凭证链中，该文件不再作为独立 provider 出现，而是由 `session` 层的 `sharedConfig` 解析路径处理——老用户的代码无需任何改动即可继续使用。
+
+注意：本文件与 CLI 凭证文件 `~/.volcengine/config.json`（JSON 格式，由 volcengine-cli 写入）**是两套独立体系**。
+
+```ini
+# ~/.volcengine/credentials
+[default]
+volcstack_access_key_id = AK_DEFAULT
+volcstack_secret_access_key = SK_DEFAULT
+
+[prod]
+volcstack_access_key_id = AK_PROD
+volcstack_secret_access_key = SK_PROD
+```
+
+```go
+package main
+
+import (
+	"github.com/volcengine/volcengine-go-sdk/volcengine/session"
+)
+
+func main() {
+	// 显式选择 [prod] profile
+	sess, err := session.NewSessionWithOptions(session.Options{
+		Profile: "prod",
+	})
+	if err != nil {
+		panic(err)
+	}
+	_ = sess
+}
+```
+
+加载行为：
+
+- 不传 `Options.Profile` 时，若该文件存在且有可用 profile，会被自动加载（与 master 行为一致）；找不到则继续走默认凭证链兜底。
+- 显式传 `Options{Profile: "prod"}` 但文件中找不到 `prod` section → `creds.Get()` 返回 `failed to load profile, prod.`，**不会**静默回落到默认凭证链，避免误用其他身份。
+
 ---
 
 [← 概览](0-Overview-zh.md) | 访问凭据[(English)](1-Credentials.md) | [Endpoint 配置 →](2-Endpoint-zh.md)

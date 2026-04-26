@@ -4,11 +4,14 @@ package session
 // May have been modified by Beijing Volcanoengine Technology Ltd.
 
 import (
+	"fmt"
+
 	"github.com/volcengine/volcengine-go-sdk/volcengine"
 	"github.com/volcengine/volcengine-go-sdk/volcengine/credentials"
 	"github.com/volcengine/volcengine-go-sdk/volcengine/credentials/processcreds"
 	"github.com/volcengine/volcengine-go-sdk/volcengine/defaults"
 	"github.com/volcengine/volcengine-go-sdk/volcengine/request"
+	"github.com/volcengine/volcengine-go-sdk/volcengine/volcengineerr"
 )
 
 func resolveCredentials(cfg *volcengine.Config,
@@ -63,7 +66,17 @@ func resolveCredsFromProfile(cfg *volcengine.Config,
 		)
 
 	default:
-		creds = defaults.NewDefaultCredentialProvider()
+		if len(sessOpts.Profile) != 0 {
+			creds = credentials.NewCredentials(&credProviderError{
+				Err: volcengineerr.New(
+					"SharedCredsLoad",
+					fmt.Sprintf("failed to load profile, %s.", sessOpts.Profile),
+					nil,
+				),
+			})
+		} else {
+			creds = defaults.CredChain(cfg, handlers)
+		}
 	}
 	if err != nil {
 		return nil, err

@@ -6,6 +6,8 @@ import (
 	"path/filepath"
 	"strings"
 	"testing"
+
+	"github.com/volcengine/volcengine-go-sdk/volcengine/credentials"
 )
 
 func writeTempConfig(t *testing.T, dir string, config interface{}) string {
@@ -44,51 +46,6 @@ func TestRetrieve_AKMode(t *testing.T) {
 	}
 	if v.SessionToken != "" {
 		t.Errorf("expected empty session token, got %q", v.SessionToken)
-	}
-}
-
-func TestRetrieve_StsTokenMode_Success(t *testing.T) {
-	dir := t.TempDir()
-	configPath := writeTempConfig(t, dir, map[string]interface{}{
-		"current": "sts",
-		"profiles": map[string]interface{}{
-			"sts": map[string]interface{}{
-				"mode":          "StsToken",
-				"access-key":    "AKID_STS",
-				"secret-key":    "SK_STS",
-				"session-token": "TOKEN_STS",
-			},
-		},
-	})
-
-	p := NewCliProvider(configPath, "sts")
-	v, err := p.Retrieve()
-	if err != nil {
-		t.Fatalf("unexpected error: %v", err)
-	}
-	if v.AccessKeyID != "AKID_STS" || v.SecretAccessKey != "SK_STS" || v.SessionToken != "TOKEN_STS" {
-		t.Errorf("unexpected credentials: %+v", v)
-	}
-}
-
-func TestRetrieve_StsTokenMode_MissingToken(t *testing.T) {
-	dir := t.TempDir()
-	configPath := writeTempConfig(t, dir, map[string]interface{}{
-		"current": "sts",
-		"profiles": map[string]interface{}{
-			"sts": map[string]interface{}{
-				"mode":       "StsToken",
-				"access-key": "AKID_STS",
-				"secret-key": "SK_STS",
-				// no session-token
-			},
-		},
-	})
-
-	p := NewCliProvider(configPath, "sts")
-	_, err := p.Retrieve()
-	if err == nil {
-		t.Fatal("expected error for StsToken mode without session-token")
 	}
 }
 
@@ -210,5 +167,33 @@ func TestRetrieve_OIDCMode_MissingTokenFile(t *testing.T) {
 	}
 	if !strings.Contains(err.Error(), "oidc-token-file") {
 		t.Errorf("expected error about oidc-token-file, got: %v", err)
+	}
+}
+
+func TestRetrieve_RamRoleArnMode_PassesSessionToken(t *testing.T) {
+	dir := t.TempDir()
+	configPath := writeTempConfig(t, dir, map[string]interface{}{
+		"current": "ramrole",
+		"profiles": map[string]interface{}{
+			"ramrole": map[string]interface{}{
+				"mode":          "RamRoleArn",
+				"access-key":    "STS_AK",
+				"secret-key":    "STS_SK",
+				"session-token": "STS_TOKEN",
+				"role-name":     "TargetRole",
+				"account-id":    "12345678",
+			},
+		},
+	})
+
+	p := NewCliProvider(configPath, "ramrole")
+	_, _ = p.Retrieve()
+
+	sp, ok := p.delegate.(*credentials.StsProvider)
+	if !ok {
+		t.Fatalf("expected delegate to be *credentials.StsProvider, got %T", p.delegate)
+	}
+	if sp.SessionToken != "STS_TOKEN" {
+		t.Errorf("expected SessionToken=STS_TOKEN, got %q", sp.SessionToken)
 	}
 }

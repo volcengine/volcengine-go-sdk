@@ -559,6 +559,52 @@ func main() {
 }
 ```
 
+## Shared credentials file (Deprecated)
+
+> ⚠️ **This mechanism is deprecated and may be removed in a future release.** It is kept only for backward compatibility. New code should use one of the following instead:
+> 1. **Environment variables**: `VOLCENGINE_ACCESS_KEY` / `VOLCENGINE_SECRET_KEY` (see [EnvironmentVariables.md](EnvironmentVariables.md))
+> 2. **CLI config file**: `~/.volcengine/config.json` (see *CLI Config Credential Provider* above)
+> 3. **Default credential chain**: automatic discovery when no credentials are configured (see *Default Credential Provider* above)
+
+The `~/.volcengine/credentials` shared credentials file (INI format, AWS-style) is still supported. Its path and field semantics are unchanged. In the new default credential chain, this file is no longer surfaced as a standalone provider; instead, it is handled by the `sharedConfig` resolution path inside the `session` layer — existing user code requires no changes to keep working.
+
+Note: this file and the CLI credentials file `~/.volcengine/config.json` (JSON format, written by volcengine-cli) are **two independent systems**.
+
+```ini
+# ~/.volcengine/credentials
+[default]
+volcstack_access_key_id = AK_DEFAULT
+volcstack_secret_access_key = SK_DEFAULT
+
+[prod]
+volcstack_access_key_id = AK_PROD
+volcstack_secret_access_key = SK_PROD
+```
+
+```go
+package main
+
+import (
+	"github.com/volcengine/volcengine-go-sdk/volcengine/session"
+)
+
+func main() {
+	// Explicitly pick the [prod] profile
+	sess, err := session.NewSessionWithOptions(session.Options{
+		Profile: "prod",
+	})
+	if err != nil {
+		panic(err)
+	}
+	_ = sess
+}
+```
+
+Loading behavior:
+
+- When `Options.Profile` is empty, if the file exists and contains a usable profile, it is loaded automatically (parity with master). If not, the default credential chain is used as a fallback.
+- When `Options{Profile: "prod"}` is set explicitly but the `prod` section is missing in the file, `creds.Get()` returns `failed to load profile, prod.` — it does NOT silently fall back to the default chain, preventing accidental use of a different identity.
+
 ---
 
 [← Overview](0-Overview.md) | Credentials[(中文)](1-Credentials-zh.md) | [Endpoint →](2-Endpoint.md)

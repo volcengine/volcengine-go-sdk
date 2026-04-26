@@ -41,18 +41,25 @@ type providerHolder struct{ p Provider }
 // it for subsequent calls, falling back to full traversal if that provider
 // later fails.
 type DefaultCredentialProvider struct {
-	Providers    []Provider
-	lastProvider atomic.Value // stores providerHolder
-	reuseEnabled bool
+	Providers     []Provider
+	lastProvider  atomic.Value // stores providerHolder
+	reuseEnabled  bool
+	verboseErrors bool
 }
 
 // NewDefaultCredentialProviderFromProviders creates a DefaultCredentialProvider
 // from an explicit list of providers. This is intended to be called from the
-// defaults package which assembles the full 4-step chain.
-func NewDefaultCredentialProviderFromProviders(providers []Provider, reuseEnabled bool) *Credentials {
+// defaults package which assembles the full default chain.
+//
+// verboseErrors mirrors volcengine.Config.CredentialsChainVerboseErrors: when
+// true the failure error includes per-provider details, otherwise the stable
+// ErrNoValidProvidersFoundInChain is returned (compatible with the legacy
+// ChainProvider behavior).
+func NewDefaultCredentialProviderFromProviders(providers []Provider, reuseEnabled, verboseErrors bool) *Credentials {
 	p := &DefaultCredentialProvider{
-		Providers:    append([]Provider{}, providers...),
-		reuseEnabled: reuseEnabled,
+		Providers:     append([]Provider{}, providers...),
+		reuseEnabled:  reuseEnabled,
+		verboseErrors: verboseErrors,
 	}
 	return NewCredentials(p)
 }
@@ -84,9 +91,11 @@ func (d *DefaultCredentialProvider) Retrieve() (Value, error) {
 		errs = append(errs, err)
 	}
 
-	return Value{},
-		volcengineerr.NewBatchError("NoCredentialProviders",
-			"no valid providers in default credential chain", errs)
+	if d.verboseErrors {
+		return Value{}, volcengineerr.NewBatchError("NoCredentialProviders",
+			"no valid providers in chain", errs)
+	}
+	return Value{}, ErrNoValidProvidersFoundInChain
 }
 
 // IsExpired checks if the last successful provider's credentials are expired.
