@@ -19,7 +19,7 @@ const EcsRoleProviderName = "EcsRoleProvider"
 const (
 	// IMDSv2 endpoint and paths
 	imdsEndpoint      = "http://100.96.0.96"
-	imdsRoleCredsPath = "/volcstack/latest/iam/security_credentials/%s"        // POST
+	imdsRoleCredsPath = "/volcstack/latest/iam/security_credentials/%s"        // GET
 	imdsRoleNamePath  = "/volcstack/latest/iam/security_credentials?type=user" // GET
 	imdsTokenPath     = "/latest/api/token"                                    // GET
 
@@ -221,11 +221,11 @@ func (p *EcsRoleProvider) autoDetectRoleName(imdsToken string) (string, error) {
 	return roles[0], nil
 }
 
-// getCredentials POSTs to IMDS to get STS credentials for the given role.
+// getCredentials GET to IMDS to get STS credentials for the given role.
 func (p *EcsRoleProvider) getCredentials(roleName, imdsToken string) (*imdsCredentialResponse, error) {
 	url := fmt.Sprintf("%s"+imdsRoleCredsPath, imdsEndpoint, neturl.PathEscape(roleName))
 	headers := map[string]string{imdsTokenHeader: imdsToken}
-	body, err := p.doRequestWithRetry(url, "POST", headers)
+	body, err := p.doRequestWithRetry(url, "GET", headers)
 	if err != nil {
 		return nil, volcengineerr.New("EcsRoleCredentialsFailed",
 			fmt.Sprintf("failed to get credentials for role %s from IMDS", roleName), err)
