@@ -39,9 +39,9 @@ type ChatMessageVideoURL struct {
 }
 
 type ChatMessageAudioURL struct {
-	URL    string `json:"url"`
-	Data   string `json:"data"`
-	Format string `json:"format"`
+	URL    string `json:"url,omitempty"`
+	Data   string `json:"data,omitempty"`
+	Format string `json:"format,omitempty"`
 }
 
 type ChatCompletionMessageContentPartType string
