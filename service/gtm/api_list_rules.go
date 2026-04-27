@@ -558,7 +558,7 @@ func (s *ListRulesOutput) SetTotalCount(v int32) *ListRulesOutput {
 type PoolForListRulesOutput struct {
 	_ struct{} `type:"structure"`
 
-	Address []*AddressForListRulesOutput `type:"list"`
+	Addresses []*AddressForListRulesOutput `type:"list"`
 
 	InactiveAddrCount *int32 `type:"int32"`
 
@@ -579,9 +579,9 @@ func (s PoolForListRulesOutput) GoString() string {
 	return s.String()
 }
 
-// SetAddress sets the Address field's value.
-func (s *PoolForListRulesOutput) SetAddress(v []*AddressForListRulesOutput) *PoolForListRulesOutput {
-	s.Address = v
+// SetAddresses sets the Addresses field's value.
+func (s *PoolForListRulesOutput) SetAddresses(v []*AddressForListRulesOutput) *PoolForListRulesOutput {
+	s.Addresses = v
 	return s
 }
 
