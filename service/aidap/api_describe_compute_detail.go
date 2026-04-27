@@ -166,7 +166,11 @@ type ComputeForDescribeComputeDetailOutput struct {
 
 	Disabled *bool `type:"boolean" json:",omitempty"`
 
+	EnableAnalytics *string `type:"string" json:",omitempty" enum:"EnumOfEnableAnalyticsForDescribeComputeDetailOutput"`
+
 	LastActiveTime *string `type:"string" json:",omitempty"`
+
+	ServiceType *string `type:"string" json:",omitempty" enum:"EnumOfServiceTypeForDescribeComputeDetailOutput"`
 
 	StatusChangedTime *string `type:"string" json:",omitempty"`
 
@@ -247,9 +251,21 @@ func (s *ComputeForDescribeComputeDetailOutput) SetDisabled(v bool) *ComputeForD
 	return s
 }
 
+// SetEnableAnalytics sets the EnableAnalytics field's value.
+func (s *ComputeForDescribeComputeDetailOutput) SetEnableAnalytics(v string) *ComputeForDescribeComputeDetailOutput {
+	s.EnableAnalytics = &v
+	return s
+}
+
 // SetLastActiveTime sets the LastActiveTime field's value.
 func (s *ComputeForDescribeComputeDetailOutput) SetLastActiveTime(v string) *ComputeForDescribeComputeDetailOutput {
 	s.LastActiveTime = &v
+	return s
+}
+
+// SetServiceType sets the ServiceType field's value.
+func (s *ComputeForDescribeComputeDetailOutput) SetServiceType(v string) *ComputeForDescribeComputeDetailOutput {
+	s.ServiceType = &v
 	return s
 }
 
@@ -350,6 +366,9 @@ func (s *DescribeComputeDetailOutput) SetCompute(v *ComputeForDescribeComputeDet
 }
 
 const (
+	// EnumOfComputeRoleForDescribeComputeDetailOutputUnknown is a EnumOfComputeRoleForDescribeComputeDetailOutput enum value
+	EnumOfComputeRoleForDescribeComputeDetailOutputUnknown = "Unknown"
+
 	// EnumOfComputeRoleForDescribeComputeDetailOutputPrimary is a EnumOfComputeRoleForDescribeComputeDetailOutput enum value
 	EnumOfComputeRoleForDescribeComputeDetailOutputPrimary = "Primary"
 
@@ -416,4 +435,20 @@ const (
 
 	// EnumOfCreationSourceForDescribeComputeDetailOutputUitool is a EnumOfCreationSourceForDescribeComputeDetailOutput enum value
 	EnumOfCreationSourceForDescribeComputeDetailOutputUitool = "UITool"
+)
+
+const (
+	// EnumOfEnableAnalyticsForDescribeComputeDetailOutputEnabled is a EnumOfEnableAnalyticsForDescribeComputeDetailOutput enum value
+	EnumOfEnableAnalyticsForDescribeComputeDetailOutputEnabled = "Enabled"
+
+	// EnumOfEnableAnalyticsForDescribeComputeDetailOutputDisabled is a EnumOfEnableAnalyticsForDescribeComputeDetailOutput enum value
+	EnumOfEnableAnalyticsForDescribeComputeDetailOutputDisabled = "Disabled"
+)
+
+const (
+	// EnumOfServiceTypeForDescribeComputeDetailOutputDatabase is a EnumOfServiceTypeForDescribeComputeDetailOutput enum value
+	EnumOfServiceTypeForDescribeComputeDetailOutputDatabase = "Database"
+
+	// EnumOfServiceTypeForDescribeComputeDetailOutputSupabase is a EnumOfServiceTypeForDescribeComputeDetailOutput enum value
+	EnumOfServiceTypeForDescribeComputeDetailOutputSupabase = "Supabase"
 )

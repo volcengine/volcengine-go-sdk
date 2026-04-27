@@ -149,8 +149,7 @@ type DeleteEndpointPublicAddressInput struct {
 	// BranchId is a required field
 	BranchId *string `type:"string" json:",omitempty" required:"true"`
 
-	// EndpointId is a required field
-	EndpointId *string `type:"string" json:",omitempty" required:"true"`
+	EndpointId *string `type:"string" json:",omitempty"`
 
 	// WorkspaceId is a required field
 	WorkspaceId *string `type:"string" json:",omitempty" required:"true"`
@@ -171,9 +170,6 @@ func (s *DeleteEndpointPublicAddressInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "DeleteEndpointPublicAddressInput"}
 	if s.BranchId == nil {
 		invalidParams.Add(request.NewErrParamRequired("BranchId"))
-	}
-	if s.EndpointId == nil {
-		invalidParams.Add(request.NewErrParamRequired("EndpointId"))
 	}
 	if s.WorkspaceId == nil {
 		invalidParams.Add(request.NewErrParamRequired("WorkspaceId"))

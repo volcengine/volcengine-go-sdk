@@ -380,4 +380,7 @@ const (
 
 	// EnumOfEndpointTypeForDescribeWorkspaceEndpointOutputDashBoard is a EnumOfEndpointTypeForDescribeWorkspaceEndpointOutput enum value
 	EnumOfEndpointTypeForDescribeWorkspaceEndpointOutputDashBoard = "DashBoard"
+
+	// EnumOfEndpointTypeForDescribeWorkspaceEndpointOutputService is a EnumOfEndpointTypeForDescribeWorkspaceEndpointOutput enum value
+	EnumOfEndpointTypeForDescribeWorkspaceEndpointOutputService = "Service"
 )

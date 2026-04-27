@@ -1,0 +1,5 @@
+{
+  "description": "AIDAP: 新增 EnableBranchAIFunction, ModifyBranchAIFunctionSettings, ModifyWorkspaceAIModelSettings, ApplyPrivateDNSToPublic, DescribeBranchAIFunction, DescribeOperations；修改 DescribeRestorableBranches, ModifyComputeSpec, ResetBranch, CreateEndpointPublicAddress, DeleteEndpointPublicAddress, DescribeBranches, DescribeComputeDetail, DescribeComputes, ModifyComputeSettings, SetAsDefaultBranch, UpdateBranch, CreateBranch, CreateCompute, DescribeDefaultBranch, ModifyWorkspaceName, CreateWorkspace, DescribeAPIKeys, DescribeBranchDetail, DescribeChildBranches, DescribeWorkspaceDetail, DescribeWorkspaceEndpoint, DescribeWorkspaces, ModifyWorkspaceSettings",
+  "modules": "service/aidap",
+  "type": "breaking-change"
+}
