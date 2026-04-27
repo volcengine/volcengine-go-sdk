@@ -160,6 +160,8 @@ type ConditionForListRulesByIdsOutput struct {
 
 	Statistics *string `type:"string" json:",omitempty"`
 
+	SubNamespace *string `type:"string" json:",omitempty"`
+
 	Threshold *string `type:"string" json:",omitempty"`
 }
 
@@ -212,6 +214,12 @@ func (s *ConditionForListRulesByIdsOutput) SetPeriod(v string) *ConditionForList
 // SetStatistics sets the Statistics field's value.
 func (s *ConditionForListRulesByIdsOutput) SetStatistics(v string) *ConditionForListRulesByIdsOutput {
 	s.Statistics = &v
+	return s
+}
+
+// SetSubNamespace sets the SubNamespace field's value.
+func (s *ConditionForListRulesByIdsOutput) SetSubNamespace(v string) *ConditionForListRulesByIdsOutput {
+	s.SubNamespace = &v
 	return s
 }
 

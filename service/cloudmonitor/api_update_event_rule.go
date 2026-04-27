@@ -393,6 +393,8 @@ type UpdateEventRuleInput struct {
 
 	MessageQueue []*MessageQueueForUpdateEventRuleInput `type:"list" json:",omitempty"`
 
+	NotificationId *string `type:"string" json:",omitempty"`
+
 	NotifyTemplates []*NotifyTemplateForUpdateEventRuleInput `type:"list" json:",omitempty"`
 
 	// RuleId is a required field
@@ -518,6 +520,12 @@ func (s *UpdateEventRuleInput) SetLevel(v string) *UpdateEventRuleInput {
 // SetMessageQueue sets the MessageQueue field's value.
 func (s *UpdateEventRuleInput) SetMessageQueue(v []*MessageQueueForUpdateEventRuleInput) *UpdateEventRuleInput {
 	s.MessageQueue = v
+	return s
+}
+
+// SetNotificationId sets the NotificationId field's value.
+func (s *UpdateEventRuleInput) SetNotificationId(v string) *UpdateEventRuleInput {
+	s.NotificationId = &v
 	return s
 }
 
