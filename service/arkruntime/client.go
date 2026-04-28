@@ -18,6 +18,7 @@ import (
 
 	"github.com/volcengine/volcengine-go-sdk/service/ark"
 	"github.com/volcengine/volcengine-go-sdk/service/arkruntime/model"
+	"github.com/volcengine/volcengine-go-sdk/service/arkruntime/model/responses"
 	"github.com/volcengine/volcengine-go-sdk/service/arkruntime/pkg/encryption"
 	"github.com/volcengine/volcengine-go-sdk/service/arkruntime/utils"
 	"github.com/volcengine/volcengine-go-sdk/volcengine"
@@ -157,9 +158,10 @@ func (c *Client) protectedRefresh(ctx context.Context, resourceType string, reso
 }
 
 type requestOptions struct {
-	body   interface{}
-	header http.Header
-	query  url.Values
+	body                 interface{}
+	header               http.Header
+	query                url.Values
+	responsesExtraFields map[string]interface{}
 }
 
 type requestOption func(*requestOptions)
@@ -182,6 +184,29 @@ func structToMap(obj interface{}) (map[string]interface{}, error) {
 	}
 
 	return result, nil
+}
+
+func mergeResponsesRequestBodyIfNeeded(args *requestOptions) error {
+	if len(args.responsesExtraFields) == 0 {
+		return nil
+	}
+	req, ok := args.body.(*responses.ResponsesRequest)
+	if !ok {
+		return fmt.Errorf("WithResponsesExtraFields only applies to *responses.ResponsesRequest body")
+	}
+	baseMap, err := structToMap(req)
+	if err != nil {
+		return err
+	}
+	for k, v := range args.responsesExtraFields {
+		baseMap[k] = v
+	}
+	b, err := json.Marshal(baseMap)
+	if err != nil {
+		return err
+	}
+	args.body = b
+	return nil
 }
 
 func withContentType(contentType string) requestOption {
@@ -218,6 +243,16 @@ func WithQuery(key, value string) requestOption {
 	}
 }
 
+// WithResponsesExtraFields shallow-merges fields into the JSON body when the request body is
+// a *responses.ResponsesRequest (Responses API). Merging runs after all requestOption setters
+// apply, so it sees the same body that will be sent (including after multimodal preprocessing).
+// Keys in fields overwrite top-level keys produced from the protobuf message.
+func WithResponsesExtraFields(fields map[string]interface{}) requestOption {
+	return func(args *requestOptions) {
+		args.responsesExtraFields = fields
+	}
+}
+
 func (c *Client) newRequest(ctx context.Context, method, url, resourceType, resourceId string, setters ...requestOption) (*http.Request, *model.RequestError) {
 	// Default Options
 	args := &requestOptions{
@@ -236,6 +271,10 @@ func (c *Client) newRequest(ctx context.Context, method, url, resourceType, reso
 
 	for _, setter := range setters {
 		setter(args)
+	}
+
+	if errBody := mergeResponsesRequestBodyIfNeeded(args); errBody != nil {
+		return nil, model.NewRequestError(http.StatusBadRequest, errBody, requestID)
 	}
 
 	errH := c.setCommonHeaders(ctx, args, resourceType, resourceId)
