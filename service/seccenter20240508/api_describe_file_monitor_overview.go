@@ -165,10 +165,6 @@ type DescribeFileMonitorOverviewOutput struct {
 	MonitorAgentCount *int64 `type:"int64" json:",omitempty"`
 
 	MonitorDirectoryCount *int64 `type:"int64" json:",omitempty"`
-
-	Monitor_agent_count *int64 `type:"int64" json:"monitor_agent_count,omitempty"`
-
-	Monitor_directory_count *int64 `type:"int64" json:"monitor_directory_count,omitempty"`
 }
 
 // String returns the string representation
@@ -190,17 +186,5 @@ func (s *DescribeFileMonitorOverviewOutput) SetMonitorAgentCount(v int64) *Descr
 // SetMonitorDirectoryCount sets the MonitorDirectoryCount field's value.
 func (s *DescribeFileMonitorOverviewOutput) SetMonitorDirectoryCount(v int64) *DescribeFileMonitorOverviewOutput {
 	s.MonitorDirectoryCount = &v
-	return s
-}
-
-// SetMonitor_agent_count sets the Monitor_agent_count field's value.
-func (s *DescribeFileMonitorOverviewOutput) SetMonitor_agent_count(v int64) *DescribeFileMonitorOverviewOutput {
-	s.Monitor_agent_count = &v
-	return s
-}
-
-// SetMonitor_directory_count sets the Monitor_directory_count field's value.
-func (s *DescribeFileMonitorOverviewOutput) SetMonitor_directory_count(v int64) *DescribeFileMonitorOverviewOutput {
-	s.Monitor_directory_count = &v
 	return s
 }
