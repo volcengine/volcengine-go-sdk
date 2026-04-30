@@ -14,19 +14,18 @@ Set max retries to `0` to disable.
 
 ```go
 func main() {
-    region := "cn-beijing"
-    config := volcengine.NewConfig().
-            WithRegion(region).
-            WithDisableSSL(true).
-            WithCredentials(credentials.NewEnvCredentials()).
-            WithMaxRetries(0)
+	region := "cn-beijing"
+	config := volcengine.NewConfig().
+		WithRegion(region).
+		WithDisableSSL(true).
+		WithCredentials(credentials.NewEnvCredentials()).
+		WithMaxRetries(0)
 
-    sess, err := session.NewSession(config)
-    if err != nil {
-            panic(err)
-    }
-    svc := ecs.New(sess)
-    _ = svc
+	sess, err := session.NewSession(config)
+	if err != nil {
+		panic(err)
+	}
+	svc := ecs.New(sess)
 }
 ```
 
@@ -36,19 +35,18 @@ func main() {
 
 ```go
 func main() {
-    region := "cn-beijing"
-    config := volcengine.NewConfig().
-            WithRegion(region).
-            WithDisableSSL(true).
-            WithCredentials(credentials.NewEnvCredentials()).
-            WithMaxRetries(4)
+	region := "cn-beijing"
+	config := volcengine.NewConfig().
+		WithRegion(region).
+		WithDisableSSL(true).
+		WithCredentials(credentials.NewEnvCredentials()).
+		WithMaxRetries(4)
 
-    sess, err := session.NewSession(config)
-    if err != nil {
-            panic(err)
-    }
-    svc := ecs.New(sess)
-    _ = svc
+	sess, err := session.NewSession(config)
+	if err != nil {
+		panic(err)
+	}
+	svc := ecs.New(sess)
 }
 ```
 
@@ -58,7 +56,7 @@ Configure retryable server error codes per request.
 
 ```go
 resp, err := svc.DescribeAvailableResourceWithContext(ctx, describeAvailableResourceInput, func(request *request.Request) {
-    request.RetryErrorCodes = []string{"InvalidAccessKey"}
+	request.RetryErrorCodes = []string{"InvalidAccessKey"}
 })
 ```
 

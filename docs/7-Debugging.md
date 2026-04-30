@@ -10,9 +10,9 @@ Debug logs are disabled by default. Enable via `WithDebug(true)`.
 
 ```go
 config := volcengine.NewConfig().
-    WithRegion(region).
-    WithDebug(true).
-    WithCredentials(credentials.NewEnvCredentials())
+	WithRegion(region).
+	WithDebug(true).
+	WithCredentials(credentials.NewEnvCredentials())
 ```
 
 # Log Output
@@ -22,10 +22,10 @@ By default, logs are written to `os.Stdout`. Use `WithLogWriter` to write to a f
 ```go
 file, _ := os.Create("sdk.log")
 config := volcengine.NewConfig().
-  WithRegion(region).
-  WithDebug(true).
-  WithLogWriter(file).
-  WithCredentials(credentials.NewEnvCredentials())
+	WithRegion(region).
+	WithDebug(true).
+	WithLogWriter(file).
+	WithCredentials(credentials.NewEnvCredentials())
 ```
 
 ---

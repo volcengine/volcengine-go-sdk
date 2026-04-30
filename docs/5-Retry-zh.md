@@ -40,20 +40,20 @@
 
 ```go
 func main() {
-        region := "cn-beijing"
-        // Configure retry settings
-        config := volcengine.NewConfig().
-                WithRegion(region).
-                WithDisableSSL(true).
-                WithCredentials(credentials.NewEnvCredentials()). //环境变量配置：VOLCSTACK_ACCESS_KEY_ID、VOLCSTACK_SECRET_ACCESS_KEY、VOLCSTACK_SESSION_TOKEN
-                // 关闭重试
-                WithMaxRetries(0)
+	region := "cn-beijing"
+	// Configure retry settings
+	config := volcengine.NewConfig().
+		WithRegion(region).
+		WithDisableSSL(true).
+		WithCredentials(credentials.NewEnvCredentials()). //环境变量配置：VOLCSTACK_ACCESS_KEY_ID、VOLCSTACK_SECRET_ACCESS_KEY、VOLCSTACK_SESSION_TOKEN
+		// 关闭重试
+		WithMaxRetries(0)
 
-        sess, err := session.NewSession(config)
-        if err != nil {
-                panic(err)
-        }
-        svc := ecs.New(sess)
+	sess, err := session.NewSession(config)
+	if err != nil {
+		panic(err)
+	}
+	svc := ecs.New(sess)
 }
 ```
 
@@ -66,20 +66,20 @@ func main() {
 
 ```go
 func main() {
-        region := "cn-beijing"
-        // Configure retry settings
-        config := volcengine.NewConfig().
-                WithRegion(region).
-                WithDisableSSL(true).
-                WithCredentials(credentials.NewEnvCredentials()). //环境变量配置：VOLCSTACK_ACCESS_KEY_ID、VOLCSTACK_SECRET_ACCESS_KEY、VOLCSTACK_SESSION_TOKEN
-                // 设置最大重试次数 (default is DefaultRetryerMaxNumRetries)
-                WithMaxRetries(4)
+	region := "cn-beijing"
+	// Configure retry settings
+	config := volcengine.NewConfig().
+		WithRegion(region).
+		WithDisableSSL(true).
+		WithCredentials(credentials.NewEnvCredentials()). //环境变量配置：VOLCSTACK_ACCESS_KEY_ID、VOLCSTACK_SECRET_ACCESS_KEY、VOLCSTACK_SESSION_TOKEN
+		// 设置最大重试次数 (default is DefaultRetryerMaxNumRetries)
+		WithMaxRetries(4)
 
-        sess, err := session.NewSession(config)
-        if err != nil {
-                panic(err)
-        }
-        svc := ecs.New(sess)
+	sess, err := session.NewSession(config)
+	if err != nil {
+		panic(err)
+	}
+	svc := ecs.New(sess)
 }
 ```
 
@@ -89,34 +89,34 @@ func main() {
 
 ```go
 func main() {
-        region := "cn-beijing"
-        // Configure retry settings
-        config := volcengine.NewConfig().
-                WithRegion(region).
-                WithDisableSSL(true).
-                WithCredentials(credentials.NewEnvCredentials()). //环境变量配置：VOLCSTACK_ACCESS_KEY_ID、VOLCSTACK_SECRET_ACCESS_KEY、VOLCSTACK_SESSION_TOKEN
-                // 设置最大重试次数 (default is DefaultRetryerMaxNumRetries)
-                WithMaxRetries(4)
+	region := "cn-beijing"
+	// Configure retry settings
+	config := volcengine.NewConfig().
+		WithRegion(region).
+		WithDisableSSL(true).
+		WithCredentials(credentials.NewEnvCredentials()). //环境变量配置：VOLCSTACK_ACCESS_KEY_ID、VOLCSTACK_SECRET_ACCESS_KEY、VOLCSTACK_SESSION_TOKEN
+		// 设置最大重试次数 (default is DefaultRetryerMaxNumRetries)
+		WithMaxRetries(4)
 
-        sess, err := session.NewSession(config)
-        if err != nil {
-                panic(err)
-        }
-        svc := ecs.New(sess)
-        describeAvailableResourceInput := &ecs.DescribeAvailableResourceInput{
-            DestinationResource: volcengine.String("InstanceType"),
-            InstanceTypeId:      volcengine.String("ecs.g2i.large"),
-            ZoneId:              volcengine.String("cn-*****"),
-        }
-        ctx, cancel := context.WithTimeout(context.Background(), 60*time.Second)
-        defer cancel()
-        resp, err := svc.DescribeAvailableResourceWithContext(ctx, describeAvailableResourceInput, func(request *request.Request) {
-            // 自定义重试错误码
-            request.RetryErrorCodes = []string{"InvalidAccessKey"}
-        })
-        if err != nil {
-            panic(err)
-        }
+	sess, err := session.NewSession(config)
+	if err != nil {
+		panic(err)
+	}
+	svc := ecs.New(sess)
+	describeAvailableResourceInput := &ecs.DescribeAvailableResourceInput{
+		DestinationResource: volcengine.String("InstanceType"),
+		InstanceTypeId:      volcengine.String("ecs.g2i.large"),
+		ZoneId:              volcengine.String("cn-*****"),
+	}
+	ctx, cancel := context.WithTimeout(context.Background(), 60*time.Second)
+	defer cancel()
+	resp, err := svc.DescribeAvailableResourceWithContext(ctx, describeAvailableResourceInput, func(request *request.Request) {
+		// 自定义重试错误码
+		request.RetryErrorCodes = []string{"InvalidAccessKey"}
+	})
+	if err != nil {
+		panic(err)
+	}
 }
 ```
 

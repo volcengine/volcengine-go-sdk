@@ -9,6 +9,8 @@ English | [中文](README.MD)
 3. Files in the `service` directory are auto-generated; do not modify them.
 4. It is recommended to use `go mod` for dependency management.
 
+For detailed SDK documentation (credentials, endpoint, transport, timeout, retry, error handling, debugging), see: [SDK Integration Guide](./docs/0-Overview.md)
+
 #### Endpoint Configuration
 
 If you want to customize the SDK endpoint, use the following code:
@@ -83,4 +85,3 @@ func main() {
 }
 ```
 
-For more examples, see: [SDK Integration Guide](./docs/0-Overview.md)

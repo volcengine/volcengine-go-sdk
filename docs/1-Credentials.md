@@ -33,19 +33,19 @@ AK/SK is a pair of permanent access keys created in the Volcengine console. The 
 
 ```go
 func main() {
-    ak, sk, region := "Your AK", "Your SK", "cn-beijing"
-    config := volcengine.NewConfig().
-       WithRegion(region).
-       // 1. credentials.NewStaticCredentials takes static AK/SK and may leak credentials; not recommended in production.
-       WithCredentials(credentials.NewStaticCredentials(ak, sk, ""))
-       // 2. credentials.NewEnvCredentials() takes no arguments and reads from env vars:
-       //    VOLCENGINE_ACCESS_KEY, VOLCENGINE_SECRET_KEY, VOLCENGINE_SESSION_TOKEN. Recommended in production.
-       // WithCredentials(credentials.NewEnvCredentials())
+	ak, sk, region := "Your AK", "Your SK", "cn-beijing"
+	config := volcengine.NewConfig().
+		WithRegion(region).
+		// 1. credentials.NewStaticCredentials takes static AK/SK and may leak credentials; not recommended in production.
+		WithCredentials(credentials.NewStaticCredentials(ak, sk, ""))
+		// 2. credentials.NewEnvCredentials() takes no arguments and reads from env vars:
+		//    VOLCENGINE_ACCESS_KEY, VOLCENGINE_SECRET_KEY, VOLCENGINE_SESSION_TOKEN. Recommended in production.
+		// WithCredentials(credentials.NewEnvCredentials())
 
-    sess, err := session.NewSession(config)
-    if err != nil {
-       panic(err)
-    }
+	sess, err := session.NewSession(config)
+	if err != nil {
+		panic(err)
+	}
 }
 ```
 
@@ -60,18 +60,18 @@ STS (Security Token Service) provides temporary credentials (temporary AK/SK and
 
 ```go
 func main() {
-    ak, sk, token, region := "Your AK", "Your SK", "Your token", "cn-beijing"
-    config := volcengine.NewConfig().
-       WithRegion(region).
-       // 1. credentials.NewStaticCredentials takes static AK/SK(/Token) and may leak credentials; not recommended in production.
-       WithCredentials(credentials.NewStaticCredentials(ak, sk, token))
-       // 2. credentials.NewEnvCredentials() takes no arguments and reads from env vars:
-       //    VOLCENGINE_ACCESS_KEY, VOLCENGINE_SECRET_KEY, VOLCENGINE_SESSION_TOKEN. Recommended in production.
-       // WithCredentials(credentials.NewEnvCredentials())
-    sess, err := session.NewSession(config)
-    if err != nil {
-       panic(err)
-    }
+	ak, sk, token, region := "Your AK", "Your SK", "Your token", "cn-beijing"
+	config := volcengine.NewConfig().
+		WithRegion(region).
+		// 1. credentials.NewStaticCredentials takes static AK/SK(/Token) and may leak credentials; not recommended in production.
+		WithCredentials(credentials.NewStaticCredentials(ak, sk, token))
+		// 2. credentials.NewEnvCredentials() takes no arguments and reads from env vars:
+		//    VOLCENGINE_ACCESS_KEY, VOLCENGINE_SECRET_KEY, VOLCENGINE_SESSION_TOKEN. Recommended in production.
+		// WithCredentials(credentials.NewEnvCredentials())
+	sess, err := session.NewSession(config)
+	if err != nil {
+		panic(err)
+	}
 }
 ```
 
@@ -91,39 +91,38 @@ AssumeRole supports dynamic credentials with automatic refresh. The SDK refreshe
 package main
 
 import (
-    "os"
-    "time"
-    "github.com/volcengine/volcengine-go-sdk/volcengine"
-    "github.com/volcengine/volcengine-go-sdk/volcengine/credentials"
-    "github.com/volcengine/volcengine-go-sdk/volcengine/session"
+	"os"
+
+	"github.com/volcengine/volcengine-go-sdk/volcengine"
+	"github.com/volcengine/volcengine-go-sdk/volcengine/credentials"
+	"github.com/volcengine/volcengine-go-sdk/volcengine/session"
 )
 
 func main() {
-    config := volcengine.NewConfig().
-        WithRegion("cn-beijing").
-        WithCredentials(credentials.NewStsCredentialsWithOptions(
-            os.Getenv("VOLCENGINE_ACCESS_KEY"),  // Sub-account AK (required)
-            os.Getenv("VOLCENGINE_SECRET_KEY"),  // Sub-account SK (required)
-            "RoleName",                          // Name of the role to assume (required)
-            "123456",                            // Main account ID (required)
-            // All options below are optional; omit the func to use defaults
-            // func(o *credentials.StsAssumeRoleOptions) {
-            //     o.Host = "open.volcengineapi.com" // STS host
-            //     o.Region = "cn-beijing"           // STS region
-            //     o.Schema = "https"                // STS schema
-            //     o.Timeout = 5 * time.Second       // Request timeout
-            //     o.DurationSeconds = 900           // TTL in seconds, default 3600
-            //     o.Policy = `{"Statement":[...]}`  // Session policy JSON
-            //     o.MaxRetries = volcengine.Int(3)  // Retry attempts; nil defaults to 3, 0 disables
-            //     o.RetryInterval = 1 * time.Second // Sleep between retries; <= 0 falls back to 1s
-            // },
-        ))
+	config := volcengine.NewConfig().
+		WithRegion("cn-beijing").
+		WithCredentials(credentials.NewStsCredentialsWithOptions(
+			os.Getenv("VOLCENGINE_ACCESS_KEY"), // Sub-account AK (required)
+			os.Getenv("VOLCENGINE_SECRET_KEY"), // Sub-account SK (required)
+			"RoleName",                         // Name of the role to assume (required)
+			"123456",                           // Main account ID (required)
+			// All options below are optional; omit the func to use defaults
+			// func(o *credentials.StsAssumeRoleOptions) {
+			//     o.Host = "open.volcengineapi.com" // STS host
+			//     o.Region = "cn-beijing"           // STS region
+			//     o.Schema = "https"                // STS schema
+			//     o.Timeout = 5 * time.Second       // Request timeout
+			//     o.DurationSeconds = 900           // TTL in seconds, default 3600
+			//     o.Policy = `{"Statement":[...]}`  // Session policy JSON
+			//     o.MaxRetries = volcengine.Int(3)  // Retry attempts; nil defaults to 3, 0 disables
+			//     o.RetryInterval = 1 * time.Second // Sleep between retries; <= 0 falls back to 1s
+			// },
+		))
 
-    sess, err := session.NewSession(config)
-    if err != nil {
-        panic(err)
-    }
-    _ = sess
+	sess, err := session.NewSession(config)
+	if err != nil {
+		panic(err)
+	}
 }
 ```
 
@@ -133,36 +132,36 @@ func main() {
 package main
 
 import (
-    "time"
-    "github.com/volcengine/volcengine-go-sdk/volcengine"
-    "github.com/volcengine/volcengine-go-sdk/volcengine/credentials"
-    "github.com/volcengine/volcengine-go-sdk/volcengine/session"
+	"time"
+
+	"github.com/volcengine/volcengine-go-sdk/volcengine"
+	"github.com/volcengine/volcengine-go-sdk/volcengine/credentials"
+	"github.com/volcengine/volcengine-go-sdk/volcengine/session"
 )
 
 func main() {
-    ak, sk, region := "Your AK", "Your SK", "cn-beijing"
-    config := volcengine.NewConfig().
-        WithRegion(region).
-        WithCredentials(credentials.NewStsCredentials(credentials.StsValue{
-            AccessKey:  ak,              // Sub-account AK, preferably read from env: os.Getenv("VOLCENGINE_ACCESS_KEY")
-            SecurityKey: sk,              // Sub-account SK, preferably read from env: os.Getenv("VOLCENGINE_SECRET_KEY")
-            RoleName:   "RoleName",       // Name of the role to assume
-            Host:       "Host",            // STS host
-            Region:     "Region",          // STS region
-            AccountId:  "123456",          // Main account ID that owns the role
-            Schema:     "Schema",          // STS schema (http/https)
-            Timeout:    5 * time.Second,   // STS request timeout
-            DurationSeconds: 900,          // TTL of the temporary credentials, in seconds
-            // Policy: optional session policy JSON, e.g. `{"Statement":[{"Effect":"Allow","Action":["vpc:DescribeVpcs"],"Resource":["*"]}]}`
-            MaxRetries:    volcengine.Int(3),  // optional extra retry attempts; nil defaults to 3, 0 disables retries
-            RetryInterval: 1 * time.Second, // optional sleep between retries; <= 0 falls back to 1s
-        }))
+	ak, sk, region := "Your AK", "Your SK", "cn-beijing"
+	config := volcengine.NewConfig().
+		WithRegion(region).
+		WithCredentials(credentials.NewStsCredentials(credentials.StsValue{
+			AccessKey:       ak,              // Sub-account AK, preferably read from env: os.Getenv("VOLCENGINE_ACCESS_KEY")
+			SecurityKey:     sk,              // Sub-account SK, preferably read from env: os.Getenv("VOLCENGINE_SECRET_KEY")
+			RoleName:        "RoleName",      // Name of the role to assume
+			Host:            "Host",          // STS host
+			Region:          "Region",        // STS region
+			AccountId:       "123456",        // Main account ID that owns the role
+			Schema:          "Schema",        // STS schema (http/https)
+			Timeout:         5 * time.Second, // STS request timeout
+			DurationSeconds: 900,             // TTL of the temporary credentials, in seconds
+			// Policy: optional session policy JSON, e.g. `{"Statement":[{"Effect":"Allow","Action":["vpc:DescribeVpcs"],"Resource":["*"]}]}`
+			MaxRetries:    volcengine.Int(3), // optional extra retry attempts; nil defaults to 3, 0 disables retries
+			RetryInterval: 1 * time.Second,   // optional sleep between retries; <= 0 falls back to 1s
+		}))
 
-    sess, err := session.NewSession(config)
-    if err != nil {
-        panic(err)
-    }
-    _ = sess
+	sess, err := session.NewSession(config)
+	if err != nil {
+		panic(err)
+	}
 }
 ```
 
@@ -192,8 +191,8 @@ import (
 
 func main() {
 	p := credentials.NewOIDCCredentialsProviderWithOptions(
-		"/path/to/oidc_token_file",              // OIDC Token file path (required)
-		"Your Role Trn",                         // Role TRN (required)
+		"/path/to/oidc_token_file", // OIDC Token file path (required)
+		"Your Role Trn",            // Role TRN (required)
 		func(o *credentials.OIDCProviderOptions) {
 			// o.RoleSessionName = ""                         // env: VOLCENGINE_OIDC_ROLE_SESSION_NAME (optional)
 			// o.Policy = ""                                  // env: VOLCENGINE_OIDC_ROLE_POLICY (optional)
@@ -243,12 +242,12 @@ func main() {
 	p := &credentials.OIDCCredentialsProvider{
 		OIDCTokenFilePath: "/path/to/oidc_token_file", // env: VOLCENGINE_OIDC_TOKEN_FILE (required)
 		RoleTrn:           "Your Role Trn",            // env: VOLCENGINE_OIDC_ROLE_TRN  (required)
-		RoleSessionName:   "",              // env: VOLCENGINE_OIDC_ROLE_SESSION_NAME (optional)
-		Policy:            "",              // env: VOLCENGINE_OIDC_ROLE_POLICY (optional)
-		Endpoint:          "",              // env: VOLCENGINE_OIDC_STS_ENDPOINT (optional)
-		DurationSeconds:   3600,            // Validity period
-		MaxRetries:        volcengine.Int(3),  // optional extra retry attempts; nil defaults to 3, 0 disables retries
-		RetryInterval:     1 * time.Second, // optional sleep between retries; <= 0 falls back to 1s
+		RoleSessionName:   "",                         // env: VOLCENGINE_OIDC_ROLE_SESSION_NAME (optional)
+		Policy:            "",                         // env: VOLCENGINE_OIDC_ROLE_POLICY (optional)
+		Endpoint:          "",                         // env: VOLCENGINE_OIDC_STS_ENDPOINT (optional)
+		DurationSeconds:   3600,                       // Validity period
+		MaxRetries:        volcengine.Int(3),          // optional extra retry attempts; nil defaults to 3, 0 disables retries
+		RetryInterval:     1 * time.Second,            // optional sleep between retries; <= 0 falls back to 1s
 	}
 
 	config := volcengine.NewConfig().
@@ -285,32 +284,31 @@ func main() {
 package main
 
 import (
-    "github.com/volcengine/volcengine-go-sdk/volcengine"
-    "github.com/volcengine/volcengine-go-sdk/volcengine/credentials"
-    "github.com/volcengine/volcengine-go-sdk/volcengine/session"
+	"github.com/volcengine/volcengine-go-sdk/volcengine"
+	"github.com/volcengine/volcengine-go-sdk/volcengine/credentials"
+	"github.com/volcengine/volcengine-go-sdk/volcengine/session"
 )
 
 func main() {
-    p := credentials.NewSAMLCredentialsProviderWithOptions(
-        "trn:iam::1234567890:role/saml-role",                // Role TRN (required)
-        "trn:iam::1234567890:saml-provider/MyIdp",           // SAML provider TRN (required)
-        "BASE64_ENCODED_SAML_RESPONSE_FROM_IDP",             // SAML assertion (required)
-        func(o *credentials.SAMLProviderOptions) {
-            // o.DurationSeconds = 3600                                 // Validity period, default 3600
-            // o.MaxRetries = volcengine.Int(3)                         // optional: retry attempts; nil defaults to 3, 0 disables
-            // o.RetryInterval = 1 * time.Second                        // optional: sleep between retries; <= 0 falls back to 1s
-        },
-    )
+	p := credentials.NewSAMLCredentialsProviderWithOptions(
+		"trn:iam::1234567890:role/saml-role",      // Role TRN (required)
+		"trn:iam::1234567890:saml-provider/MyIdp", // SAML provider TRN (required)
+		"BASE64_ENCODED_SAML_RESPONSE_FROM_IDP",   // SAML assertion (required)
+		func(o *credentials.SAMLProviderOptions) {
+			// o.DurationSeconds = 3600                                 // Validity period, default 3600
+			// o.MaxRetries = volcengine.Int(3)                         // optional: retry attempts; nil defaults to 3, 0 disables
+			// o.RetryInterval = 1 * time.Second                        // optional: sleep between retries; <= 0 falls back to 1s
+		},
+	)
 
-    config := volcengine.NewConfig().
-        WithRegion("cn-beijing").
-        WithCredentials(credentials.NewCredentials(p))
+	config := volcengine.NewConfig().
+		WithRegion("cn-beijing").
+		WithCredentials(credentials.NewCredentials(p))
 
-    sess, err := session.NewSession(config)
-    if err != nil {
-        panic(err)
-    }
-    _ = sess
+	sess, err := session.NewSession(config)
+	if err != nil {
+		panic(err)
+	}
 }
 ```
 
@@ -320,32 +318,31 @@ func main() {
 package main
 
 import (
-    "time"
+	"time"
 
-    "github.com/volcengine/volcengine-go-sdk/volcengine"
-    "github.com/volcengine/volcengine-go-sdk/volcengine/credentials"
-    "github.com/volcengine/volcengine-go-sdk/volcengine/session"
+	"github.com/volcengine/volcengine-go-sdk/volcengine"
+	"github.com/volcengine/volcengine-go-sdk/volcengine/credentials"
+	"github.com/volcengine/volcengine-go-sdk/volcengine/session"
 )
 
 func main() {
-    p := credentials.NewSAMLCredentialsProvider(
-        "trn:iam::1234567890:role/saml-role",                // RoleTrn
-        "trn:iam::1234567890:saml-provider/MyIdp",           // SAMLProviderTrn
-        "BASE64_ENCODED_SAML_RESPONSE_FROM_IDP",             // SAMLAssertion
-    )
-    p.DurationSeconds = 3600
-    p.MaxRetries = volcengine.Int(3)         // optional extra retry attempts; nil defaults to 3, 0 disables retries
-    p.RetryInterval = 1 * time.Second  // optional sleep between retries; <= 0 falls back to 1s
+	p := credentials.NewSAMLCredentialsProvider(
+		"trn:iam::1234567890:role/saml-role",      // RoleTrn
+		"trn:iam::1234567890:saml-provider/MyIdp", // SAMLProviderTrn
+		"BASE64_ENCODED_SAML_RESPONSE_FROM_IDP",   // SAMLAssertion
+	)
+	p.DurationSeconds = 3600
+	p.MaxRetries = volcengine.Int(3)  // optional extra retry attempts; nil defaults to 3, 0 disables retries
+	p.RetryInterval = 1 * time.Second // optional sleep between retries; <= 0 falls back to 1s
 
-    config := volcengine.NewConfig().
-        WithRegion("cn-beijing").
-        WithCredentials(credentials.NewCredentials(p))
+	config := volcengine.NewConfig().
+		WithRegion("cn-beijing").
+		WithCredentials(credentials.NewCredentials(p))
 
-    sess, err := session.NewSession(config)
-    if err != nil {
-        panic(err)
-    }
-    _ = sess
+	sess, err := session.NewSession(config)
+	if err != nil {
+		panic(err)
+	}
 }
 ```
 
@@ -375,7 +372,6 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
-	_ = sess
 }
 ```
 
@@ -418,7 +414,6 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
-	_ = sess
 }
 ```
 
@@ -464,7 +459,6 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
-	_ = sess
 }
 ```
 
@@ -492,7 +486,6 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
-	_ = sess
 }
 ```
 
@@ -526,7 +519,6 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
-	_ = sess
 }
 ```
 
@@ -555,7 +547,6 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
-	_ = sess
 }
 ```
 
@@ -596,7 +587,6 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
-	_ = sess
 }
 ```
 

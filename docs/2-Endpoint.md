@@ -10,15 +10,15 @@
 
 ```go
 func main() {
-    region := "cn-beijing"
-    config := volcengine.NewConfig().
-       WithCredentials(credentials.NewEnvCredentials()).
-       WithRegion(region).
-       WithEndpoint("<example>.<regionId>.volcengineapi.com")
-    sess, err := session.NewSession(config)
-    if err != nil {
-        panic(err)
-    }
+	region := "cn-beijing"
+	config := volcengine.NewConfig().
+		WithCredentials(credentials.NewEnvCredentials()).
+		WithRegion(region).
+		WithEndpoint("<example>.<regionId>.volcengineapi.com")
+	sess, err := session.NewSession(config)
+	if err != nil {
+		panic(err)
+	}
 }
 ```
 
@@ -26,14 +26,14 @@ func main() {
 
 ```go
 func main() {
-    regionId := "cn-beijing"
-    config := volcengine.NewConfig().
-       WithCredentials(credentials.NewEnvCredentials()).
-       WithRegion(regionId)
-    sess, err := session.NewSession(config)
-    if err != nil {
-        panic(err)
-    }
+	regionId := "cn-beijing"
+	config := volcengine.NewConfig().
+		WithCredentials(credentials.NewEnvCredentials()).
+		WithRegion(regionId)
+	sess, err := session.NewSession(config)
+	if err != nil {
+		panic(err)
+	}
 }
 ```
 
@@ -62,19 +62,19 @@ Volcengine provides a flexible endpoint resolution mechanism. The SDK automatica
 
 ```go
 func main() {
-    regionId := "cn-beijing"
-    config := volcengine.NewConfig().
-        WithCredentials(credentials.NewEnvCredentials()).
-        WithRegion(regionId).
-        WithUseDualStack(true).
-        WithBootstrapRegion(map[string]struct{}{
-            "custom_example_region1": {},
-            "custom_example_region2": {},
-        })
-    sess, err := session.NewSession(config)
-    if err != nil {
-        panic(err)
-    }
+	regionId := "cn-beijing"
+	config := volcengine.NewConfig().
+		WithCredentials(credentials.NewEnvCredentials()).
+		WithRegion(regionId).
+		WithUseDualStack(true).
+		WithBootstrapRegion(map[string]struct{}{
+			"custom_example_region1": {},
+			"custom_example_region2": {},
+		})
+	sess, err := session.NewSession(config)
+	if err != nil {
+		panic(err)
+	}
 }
 ```
 
@@ -93,23 +93,23 @@ Whether a service is global depends on the service itself and cannot be changed.
 package main
 
 import (
-  "github.com/volcengine/volcengine-go-sdk/volcengine"
-  "github.com/volcengine/volcengine-go-sdk/volcengine/credentials"
-  "github.com/volcengine/volcengine-go-sdk/volcengine/endpoints"
-  "github.com/volcengine/volcengine-go-sdk/volcengine/session"
+	"github.com/volcengine/volcengine-go-sdk/volcengine"
+	"github.com/volcengine/volcengine-go-sdk/volcengine/credentials"
+	"github.com/volcengine/volcengine-go-sdk/volcengine/endpoints"
+	"github.com/volcengine/volcengine-go-sdk/volcengine/session"
 )
 
 func main() {
-  regionId := "cn-beijing"
-  config := volcengine.NewConfig().
-    WithCredentials(credentials.NewEnvCredentials()).
-    WithEndpointResolver(endpoints.NewStandardEndpointResolver()).
-    WithRegion(regionId).
-    WithUseDualStack(true)
-  sess, err := session.NewSession(config)
-  if err != nil {
-    panic(err)
-  }
+	regionId := "cn-beijing"
+	config := volcengine.NewConfig().
+		WithCredentials(credentials.NewEnvCredentials()).
+		WithEndpointResolver(endpoints.NewStandardEndpointResolver()).
+		WithRegion(regionId).
+		WithUseDualStack(true)
+	sess, err := session.NewSession(config)
+	if err != nil {
+		panic(err)
+	}
 }
 ```
 

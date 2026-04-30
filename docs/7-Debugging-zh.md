@@ -14,20 +14,20 @@ debug日志默认是关闭的，开启可以用`WithDebug`方法开启
 > * `debug` - `False`
 
 **代码示例：**
-```golang
+```go
 import (
 	"github.com/volcengine/volcengine-go-sdk/volcengine"
-    "github.com/volcengine/volcengine-go-sdk/volcengine/credentials"
-    "github.com/volcengine/volcengine-go-sdk/volcengine/session"
+	"github.com/volcengine/volcengine-go-sdk/volcengine/credentials"
+	"github.com/volcengine/volcengine-go-sdk/volcengine/session"
 )
 
 func main() {
-    region :=  "cn-beijing"
-    config := volcengine.NewConfig().
-		  WithRegion(region).
-          // 开启debug日志
-          WithDebug(true).
-          WithCredentials(credentials.NewEnvCredentials()) // 环境变量配置：VOLCSTACK_ACCESS_KEY_ID、VOLCSTACK_SECRET_ACCESS_KEY、VOLCSTACK_SESSION_TOKEN
+	region := "cn-beijing"
+	config := volcengine.NewConfig().
+		WithRegion(region).
+		// 开启debug日志
+		WithDebug(true).
+		WithCredentials(credentials.NewEnvCredentials()) // 环境变量配置：VOLCSTACK_ACCESS_KEY_ID、VOLCSTACK_SECRET_ACCESS_KEY、VOLCSTACK_SESSION_TOKEN
 }
 ```
 
@@ -41,21 +41,22 @@ func main() {
 **代码示例：**
 ```go
 package main
+
 import (
-    "github.com/volcengine/volcengine-go-sdk/volcengine"
-    "github.com/volcengine/volcengine-go-sdk/volcengine/credentials"
-    "github.com/volcengine/volcengine-go-sdk/volcengine/session"
+	"github.com/volcengine/volcengine-go-sdk/volcengine"
+	"github.com/volcengine/volcengine-go-sdk/volcengine/credentials"
+	"github.com/volcengine/volcengine-go-sdk/volcengine/session"
 	"os"
 )
 
 func main() {
-    region := "cn-beijing"
-    file, _ := os.Create("sdk.log")
-    config := volcengine.NewConfig().
-      WithRegion(region).
-      WithDebug(true).
-	  WithLogWriter(file).
-      WithCredentials(credentials.NewEnvCredentials()) // 环境变量配置：VOLCSTACK_ACCESS_KEY_ID、VOLCSTACK_SECRET_ACCESS_KEY、VOLCSTACK_SESSION_TOKEN
+	region := "cn-beijing"
+	file, _ := os.Create("sdk.log")
+	config := volcengine.NewConfig().
+		WithRegion(region).
+		WithDebug(true).
+		WithLogWriter(file).
+		WithCredentials(credentials.NewEnvCredentials()) // 环境变量配置：VOLCSTACK_ACCESS_KEY_ID、VOLCSTACK_SECRET_ACCESS_KEY、VOLCSTACK_SESSION_TOKEN
 }
 ```
 
