@@ -78,6 +78,14 @@ type ARKCLAWAPI interface {
 	PauseClawOmniInstanceWithContext(volcengine.Context, *PauseClawOmniInstanceInput, ...request.Option) (*PauseClawOmniInstanceOutput, error)
 	PauseClawOmniInstanceRequest(*PauseClawOmniInstanceInput) (*request.Request, *PauseClawOmniInstanceOutput)
 
+	ResetClawOmniInstanceCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ResetClawOmniInstanceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ResetClawOmniInstanceCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ResetClawOmniInstance(*ResetClawOmniInstanceInput) (*ResetClawOmniInstanceOutput, error)
+	ResetClawOmniInstanceWithContext(volcengine.Context, *ResetClawOmniInstanceInput, ...request.Option) (*ResetClawOmniInstanceOutput, error)
+	ResetClawOmniInstanceRequest(*ResetClawOmniInstanceInput) (*request.Request, *ResetClawOmniInstanceOutput)
+
 	ResumeClawOmniInstanceCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ResumeClawOmniInstanceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	ResumeClawOmniInstanceCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
