@@ -8,6 +8,11 @@ import (
 	"github.com/volcengine/volc-sdk-golang/service/sts"
 )
 
+const (
+	defaultSTSRegion = "cn-beijing"
+	defaultSTSHost   = "sts.volcengineapi.com"
+)
+
 type StsAssumeRoleProvider struct {
 	AccessKey       string
 	SecurityKey     string
@@ -81,6 +86,8 @@ func StsAssumeRole(p *StsAssumeRoleProvider) (*Credentials, *StsAssumeRoleTime, 
 // StsAssumeRoleWithOptions.
 func stsAssumeRoleInternal(p *StsAssumeRoleProvider) (*Credentials, *StsAssumeRoleTime, error) {
 	ins := sts.NewInstance()
+	ins.Client.ServiceInfo.Credentials.Region = defaultSTSRegion
+	ins.SetHost(defaultSTSHost)
 	if p.Region != "" {
 		ins.Client.ServiceInfo.Credentials.Region = p.Region
 	}
