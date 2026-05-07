@@ -148,8 +148,6 @@ type APIKeyForDescribeAPIKeysOutput struct {
 
 	CreateTime *string `type:"string" json:",omitempty"`
 
-	ExpireTime *string `type:"string" json:",omitempty"`
-
 	Key *string `type:"string" json:",omitempty"`
 
 	Name *string `type:"string" json:",omitempty"`
@@ -170,12 +168,6 @@ func (s APIKeyForDescribeAPIKeysOutput) GoString() string {
 // SetCreateTime sets the CreateTime field's value.
 func (s *APIKeyForDescribeAPIKeysOutput) SetCreateTime(v string) *APIKeyForDescribeAPIKeysOutput {
 	s.CreateTime = &v
-	return s
-}
-
-// SetExpireTime sets the ExpireTime field's value.
-func (s *APIKeyForDescribeAPIKeysOutput) SetExpireTime(v string) *APIKeyForDescribeAPIKeysOutput {
-	s.ExpireTime = &v
 	return s
 }
 
@@ -200,8 +192,11 @@ func (s *APIKeyForDescribeAPIKeysOutput) SetType(v string) *APIKeyForDescribeAPI
 type DescribeAPIKeysInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	// BranchId is a required field
-	BranchId *string `type:"string" json:",omitempty" required:"true"`
+	BranchId *string `type:"string" json:",omitempty"`
+
+	Limit *int32 `type:"int32" json:",omitempty"`
+
+	Offset *int32 `type:"int32" json:",omitempty"`
 
 	// WorkspaceId is a required field
 	WorkspaceId *string `type:"string" json:",omitempty" required:"true"`
@@ -220,9 +215,6 @@ func (s DescribeAPIKeysInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *DescribeAPIKeysInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "DescribeAPIKeysInput"}
-	if s.BranchId == nil {
-		invalidParams.Add(request.NewErrParamRequired("BranchId"))
-	}
 	if s.WorkspaceId == nil {
 		invalidParams.Add(request.NewErrParamRequired("WorkspaceId"))
 	}
@@ -239,6 +231,18 @@ func (s *DescribeAPIKeysInput) SetBranchId(v string) *DescribeAPIKeysInput {
 	return s
 }
 
+// SetLimit sets the Limit field's value.
+func (s *DescribeAPIKeysInput) SetLimit(v int32) *DescribeAPIKeysInput {
+	s.Limit = &v
+	return s
+}
+
+// SetOffset sets the Offset field's value.
+func (s *DescribeAPIKeysInput) SetOffset(v int32) *DescribeAPIKeysInput {
+	s.Offset = &v
+	return s
+}
+
 // SetWorkspaceId sets the WorkspaceId field's value.
 func (s *DescribeAPIKeysInput) SetWorkspaceId(v string) *DescribeAPIKeysInput {
 	s.WorkspaceId = &v
@@ -251,6 +255,8 @@ type DescribeAPIKeysOutput struct {
 	Metadata *response.ResponseMetadata
 
 	APIKeys []*APIKeyForDescribeAPIKeysOutput `type:"list" json:",omitempty"`
+
+	Total *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -266,6 +272,12 @@ func (s DescribeAPIKeysOutput) GoString() string {
 // SetAPIKeys sets the APIKeys field's value.
 func (s *DescribeAPIKeysOutput) SetAPIKeys(v []*APIKeyForDescribeAPIKeysOutput) *DescribeAPIKeysOutput {
 	s.APIKeys = v
+	return s
+}
+
+// SetTotal sets the Total field's value.
+func (s *DescribeAPIKeysOutput) SetTotal(v int32) *DescribeAPIKeysOutput {
+	s.Total = &v
 	return s
 }
 

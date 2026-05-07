@@ -149,11 +149,9 @@ type CreateEndpointPublicAddressInput struct {
 	// BranchId is a required field
 	BranchId *string `type:"string" json:",omitempty" required:"true"`
 
-	// EipId is a required field
-	EipId *string `type:"string" json:",omitempty" required:"true"`
+	EipId *string `type:"string" json:",omitempty"`
 
-	// EndpointId is a required field
-	EndpointId *string `type:"string" json:",omitempty" required:"true"`
+	EndpointId *string `type:"string" json:",omitempty"`
 
 	// WorkspaceId is a required field
 	WorkspaceId *string `type:"string" json:",omitempty" required:"true"`
@@ -174,12 +172,6 @@ func (s *CreateEndpointPublicAddressInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "CreateEndpointPublicAddressInput"}
 	if s.BranchId == nil {
 		invalidParams.Add(request.NewErrParamRequired("BranchId"))
-	}
-	if s.EipId == nil {
-		invalidParams.Add(request.NewErrParamRequired("EipId"))
-	}
-	if s.EndpointId == nil {
-		invalidParams.Add(request.NewErrParamRequired("EndpointId"))
 	}
 	if s.WorkspaceId == nil {
 		invalidParams.Add(request.NewErrParamRequired("WorkspaceId"))

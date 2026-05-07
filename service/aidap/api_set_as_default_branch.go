@@ -547,6 +547,9 @@ const (
 
 	// EnumOfBranchStatusForSetAsDefaultBranchOutputRestarting is a EnumOfBranchStatusForSetAsDefaultBranchOutput enum value
 	EnumOfBranchStatusForSetAsDefaultBranchOutputRestarting = "Restarting"
+
+	// EnumOfBranchStatusForSetAsDefaultBranchOutputUpdating is a EnumOfBranchStatusForSetAsDefaultBranchOutput enum value
+	EnumOfBranchStatusForSetAsDefaultBranchOutputUpdating = "Updating"
 )
 
 const (
@@ -573,6 +576,6 @@ const (
 	// EnumOfInitSourceForSetAsDefaultBranchOutputParentData is a EnumOfInitSourceForSetAsDefaultBranchOutput enum value
 	EnumOfInitSourceForSetAsDefaultBranchOutputParentData = "ParentData"
 
-	// EnumOfInitSourceForSetAsDefaultBranchOutputSchemeOnly is a EnumOfInitSourceForSetAsDefaultBranchOutput enum value
-	EnumOfInitSourceForSetAsDefaultBranchOutputSchemeOnly = "SchemeOnly"
+	// EnumOfInitSourceForSetAsDefaultBranchOutputSchemaOnly is a EnumOfInitSourceForSetAsDefaultBranchOutput enum value
+	EnumOfInitSourceForSetAsDefaultBranchOutputSchemaOnly = "SchemaOnly"
 )

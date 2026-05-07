@@ -188,6 +188,7 @@ var defaultEndpoint = map[string]*ServiceEndpointInfo{
 	"eco_partner":                 {Service: "eco_partner", IsGlobal: true},
 	"smc":                         {Service: "smc", IsGlobal: true},
 	"livesaas":                    {Service: "livesaas", IsGlobal: true},
+	"aidap":                       {Service: "aidap", IsGlobal: false},
 	"cbr":                         {Service: "cbr", IsGlobal: false},
 	"veenedge":                    {Service: "veenedge", IsGlobal: true},
 	"arkclaw":                     {Service: "arkclaw", IsGlobal: false},
