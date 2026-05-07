@@ -308,6 +308,8 @@ func (s *DataForVideoEditorListSubtitlesOutput) SetVoiceTosUrl(v string) *DataFo
 type SourceForVideoEditorListSubtitlesOutput struct {
 	_ struct{} `type:"structure"`
 
+	Style *string `type:"string" json:"style"`
+
 	Text *string `type:"string" json:"text"`
 }
 
@@ -321,6 +323,12 @@ func (s SourceForVideoEditorListSubtitlesOutput) GoString() string {
 	return s.String()
 }
 
+// SetStyle sets the Style field's value.
+func (s *SourceForVideoEditorListSubtitlesOutput) SetStyle(v string) *SourceForVideoEditorListSubtitlesOutput {
+	s.Style = &v
+	return s
+}
+
 // SetText sets the Text field's value.
 func (s *SourceForVideoEditorListSubtitlesOutput) SetText(v string) *SourceForVideoEditorListSubtitlesOutput {
 	s.Text = &v
@@ -329,6 +337,8 @@ func (s *SourceForVideoEditorListSubtitlesOutput) SetText(v string) *SourceForVi
 
 type TargetForVideoEditorListSubtitlesOutput struct {
 	_ struct{} `type:"structure"`
+
+	Style *string `type:"string" json:"style"`
 
 	Text *string `type:"string" json:"text"`
 }
@@ -341,6 +351,12 @@ func (s TargetForVideoEditorListSubtitlesOutput) String() string {
 // GoString returns the string representation
 func (s TargetForVideoEditorListSubtitlesOutput) GoString() string {
 	return s.String()
+}
+
+// SetStyle sets the Style field's value.
+func (s *TargetForVideoEditorListSubtitlesOutput) SetStyle(v string) *TargetForVideoEditorListSubtitlesOutput {
+	s.Style = &v
+	return s
 }
 
 // SetText sets the Text field's value.

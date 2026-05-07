@@ -8,9 +8,15 @@ import (
 	"github.com/volcengine/volc-sdk-golang/service/sts"
 )
 
+const (
+	defaultSTSRegion = "cn-beijing"
+	defaultSTSHost   = "sts.volcengineapi.com"
+)
+
 type StsAssumeRoleProvider struct {
 	AccessKey       string
 	SecurityKey     string
+	SessionToken    string
 	RoleName        string
 	AccountId       string
 	Host            string
@@ -18,6 +24,11 @@ type StsAssumeRoleProvider struct {
 	Schema          string
 	Timeout         time.Duration
 	DurationSeconds int
+	Policy          string
+	// MaxRetries controls AssumeRole retry attempts.
+	// Zero or negative values fall back to DefaultRetryerMaxNumRetries.
+	MaxRetries    int
+	RetryInterval time.Duration
 }
 
 type StsAssumeRoleTime struct {
@@ -25,8 +36,58 @@ type StsAssumeRoleTime struct {
 	ExpiredTime string
 }
 
+// StsAssumeRoleOptions contains optional configuration for STS AssumeRole.
+type StsAssumeRoleOptions struct {
+	SessionToken    string
+	Host            string
+	Region          string
+	Schema          string
+	Timeout         time.Duration
+	DurationSeconds int
+	Policy          string
+	// MaxRetries controls AssumeRole retry attempts.
+	// Zero or negative values fall back to DefaultRetryerMaxNumRetries.
+	MaxRetries    int
+	RetryInterval time.Duration
+}
+
+// StsAssumeRoleWithOptions creates a one-shot AssumeRole call with required
+// parameters and optional functional options.
+func StsAssumeRoleWithOptions(accessKey, securityKey, roleName, accountId string, optFns ...func(*StsAssumeRoleOptions)) (*Credentials, *StsAssumeRoleTime, error) {
+	opts := StsAssumeRoleOptions{
+		DurationSeconds: 3600,
+	}
+	for _, fn := range optFns {
+		fn(&opts)
+	}
+	p := &StsAssumeRoleProvider{
+		AccessKey:       accessKey,
+		SecurityKey:     securityKey,
+		SessionToken:    opts.SessionToken,
+		RoleName:        roleName,
+		AccountId:       accountId,
+		Host:            opts.Host,
+		Region:          opts.Region,
+		Schema:          opts.Schema,
+		Timeout:         opts.Timeout,
+		DurationSeconds: opts.DurationSeconds,
+		Policy:          opts.Policy,
+		MaxRetries:      opts.MaxRetries,
+		RetryInterval:   opts.RetryInterval,
+	}
+	return stsAssumeRoleInternal(p)
+}
+
 func StsAssumeRole(p *StsAssumeRoleProvider) (*Credentials, *StsAssumeRoleTime, error) {
+	return stsAssumeRoleInternal(p)
+}
+
+// stsAssumeRoleInternal is the shared implementation for StsAssumeRole and
+// StsAssumeRoleWithOptions.
+func stsAssumeRoleInternal(p *StsAssumeRoleProvider) (*Credentials, *StsAssumeRoleTime, error) {
 	ins := sts.NewInstance()
+	ins.Client.ServiceInfo.Credentials.Region = defaultSTSRegion
+	ins.SetHost(defaultSTSHost)
 	if p.Region != "" {
 		ins.Client.ServiceInfo.Credentials.Region = p.Region
 	}
@@ -42,18 +103,30 @@ func StsAssumeRole(p *StsAssumeRoleProvider) (*Credentials, *StsAssumeRoleTime, 
 
 	ins.Client.SetAccessKey(p.AccessKey)
 	ins.Client.SetSecretKey(p.SecurityKey)
+	if p.SessionToken != "" {
+		ins.Client.SetSessionToken(p.SessionToken)
+	}
 	input := &sts.AssumeRoleRequest{
 		DurationSeconds: p.DurationSeconds,
 		RoleTrn:         fmt.Sprintf("trn:iam::%s:role/%s", p.AccountId, p.RoleName),
 		RoleSessionName: uuid.New().String(),
+		Policy:          p.Policy,
 	}
-	output, statusCode, err := ins.AssumeRole(input)
+	var maxRetriesPtr *int
+	if p.MaxRetries > 0 {
+		maxRetriesPtr = &p.MaxRetries
+	}
+	output, statusCode, err := assumeRoleWithRetry(ins, input, maxRetriesPtr, p.RetryInterval)
 	var reqId string
 	if output != nil {
 		reqId = output.ResponseMetadata.RequestId
 	}
 	if err != nil {
 		return nil, nil, fmt.Errorf("AssumeRole error,httpcode is %v and reqId is %s error is %s", statusCode, reqId, err.Error())
+	}
+	if output != nil && output.ResponseMetadata.Error != nil {
+		return nil, nil, fmt.Errorf("AssumeRole service error, reqId: %s, code: %s, message: %s",
+			reqId, output.ResponseMetadata.Error.Code, output.ResponseMetadata.Error.Message)
 	}
 	if statusCode >= 300 || statusCode < 200 {
 		return nil, nil, fmt.Errorf("AssumeRole error,httpcode is %v and reqId is %s", statusCode, reqId)
@@ -69,4 +142,43 @@ func StsAssumeRole(p *StsAssumeRoleProvider) (*Credentials, *StsAssumeRoleTime, 
 			CurrentTime: output.Result.Credentials.CurrentTime,
 			ExpiredTime: output.Result.Credentials.ExpiredTime,
 		}, nil
+}
+
+// assumeRoleWithRetry invokes sts.AssumeRole with retries
+func assumeRoleWithRetry(ins *sts.STS, input *sts.AssumeRoleRequest, maxRetries *int, retryInterval time.Duration) (*sts.AssumeRoleResp, int, error) {
+	resolvedMaxRetries := resolveCredentialMaxRetries(maxRetries)
+	if retryInterval <= 0 {
+		retryInterval = DefaultRetryerRetryDelay
+	}
+	var (
+		output     *sts.AssumeRoleResp
+		statusCode int
+		err        error
+	)
+	for attempt := 0; attempt <= resolvedMaxRetries; attempt++ {
+		output, statusCode, err = ins.AssumeRole(input)
+		failed := err != nil ||
+			statusCode < 200 || statusCode >= 300 ||
+			output == nil ||
+			output.ResponseMetadata.Error != nil
+		if !failed {
+			return output, statusCode, err
+		}
+		// Determine STS error code for retryability check.
+		var errCode string
+		if output != nil && output.ResponseMetadata.Error != nil {
+			errCode = output.ResponseMetadata.Error.Code
+		}
+		httpStatusCode := statusCode
+		if err != nil && statusCode == 0 {
+			httpStatusCode = 0
+		}
+		if !isRetryableSTSError(httpStatusCode, errCode) {
+			return output, statusCode, err
+		}
+		if attempt < resolvedMaxRetries {
+			time.Sleep(retryInterval)
+		}
+	}
+	return output, statusCode, err
 }
