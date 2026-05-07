@@ -2,14 +2,15 @@
 
 ---
 
-# Timeouts
+## Timeouts
 
-## Global Timeouts (Client Level)
+### Global Timeouts (Client Level)
 
-> - **Default**
->   - `ConnectTimeout`: 30s
->   - `ReadTimeout`: unlimited
->   - Default client: `http.DefaultClient`
+> **Default**
+>
+> - `ConnectTimeout`: 30s
+> - `ReadTimeout`: unlimited
+> - Default client: `http.DefaultClient`
 
 Configure timeouts via a custom `http.Client`.
 
@@ -46,7 +47,7 @@ func main() {
 }
 ```
 
-## Per-API Timeout
+### Per-API Timeout
 
 Use API methods with suffix `WithContext`.
 

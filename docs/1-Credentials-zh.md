@@ -2,11 +2,11 @@
 
 ---
 
-# 访问凭据
+## 访问凭据
 
 火山引擎 Go SDK 支持多种认证方式，开发者可根据业务需求选择合适的方式接入。
 
-## 凭证提供者概览
+### 凭证提供者概览
 
 | 提供者 | 用途 | 自动刷新 | 典型场景 |
 | --- | --- | --- | --- |
@@ -19,13 +19,13 @@
 | `EcsRoleProvider` | 从 ECS IMDS (IMDSv2) 读取 | 是 | ECS 实例角色凭证 |
 | `DefaultCredentialProvider` | 4 步凭证链 | 取决于委托的提供者 | 应用代码中无需 AK/SK |
 
-环境变量设置可以参考这里:[**环境变量设置**](../SDK_Integration_zh.md#环境变量设置)
+环境变量设置可以参考 [环境变量](EnvironmentVariables-zh.md)。
 
-## AK、SK设置
+### AK、SK设置
 
 AK/SK 是由火山引擎用户在控制台创建的一对永久访问密钥。SDK 使用该密钥对每次请求进行签名，从而完成身份验证。
 
-> ⚠️ 注意事项
+> ⚠️ **注意事项**
 >
 > 1. 不得在客户端嵌入或暴露 AK/SK。
 > 2. 推荐使用配置中心或环境变量存储密钥。
@@ -48,13 +48,13 @@ func main() {
 }
 ```
 
-## STS Token设置
+### STS Token设置
 
 STS（Security Token Service）是火山引擎提供的临时访问凭证机制。开发者通过服务端调用 STS 接口获取临时凭证（临时 AK、SK 和 Token），有效期可配置，适用于安全要求较高的场景。
 
-> ⚠️ 注意事项
+> ⚠️ **注意事项**
 >
-> 1. 最小权限： 仅授予调用方访问所需资源的最小权限，避免使用 * 通配符授予全资源、全操作权限。
+> 1. 最小权限：仅授予调用方访问所需资源的最小权限，避免使用 * 通配符授予全资源、全操作权限。
 > 2. 设置合理的有效期: 请根据实际情况设置合理有效期，越短越安全，建议不要超过1小时。
 
 ```go
@@ -73,17 +73,17 @@ func main() {
 }
 ```
 
-## AssumeRole
+### AssumeRole
 
-动态访问凭证信息，支持动态刷新，在STS临时Token过期前60S会进行自动的刷新，避免临界时间点Token过期
+动态访问凭证信息，支持动态刷新，在 STS 临时 Token 过期前 60 秒会进行自动刷新，避免临界时间点 Token 过期。
 
-> ⚠️ 注意事项
+> ⚠️ **注意事项**
 >
-> 1. 最小权限： 仅授予调用方访问所需资源的最小权限，避免使用 * 通配符授予全资源、全操作权限。
+> 1. 最小权限：仅授予调用方访问所需资源的最小权限，避免使用 * 通配符授予全资源、全操作权限。
 > 2. 设置合理的有效期: 请根据实际情况设置合理有效期，越短越安全，最长不能超过12小时。
 > 3. 细粒度角色: 角色应绑定精细的访问控制策略，仅允许访问特定服务、资源、操作，防止角色滥用。
 
-**方式一：使用 WithOptions（推荐）**
+#### 方式一：使用 WithOptions（推荐）
 
 ```go
 package main
@@ -124,7 +124,7 @@ func main() {
 }
 ```
 
-**方式二：使用 StsValue 结构体**
+#### 方式二：使用 StsValue 结构体
 
 ```go
 func main() {
@@ -153,17 +153,17 @@ func main() {
 }
 ```
 
-## AssumeRoleOIDC
+### AssumeRoleOIDC
 
 STS AssumeRoleOIDC（Security Token Service）是火山引擎提供的临时访问凭证机制。开发者通过oidc_token在服务端调用 STS 接口获取临时凭证（临时 AK、SK 和 Token），有效期可配置，适用于安全要求较高的场景。
 
-> ⚠️ 注意事项
+> ⚠️ **注意事项**
 >
-> 1. 最小权限： 仅授予调用方访问所需资源的最小权限，避免使用 * 通配符授予全资源、全操作权限。
+> 1. 最小权限：仅授予调用方访问所需资源的最小权限，避免使用 * 通配符授予全资源、全操作权限。
 > 2. 设置合理的有效期: 请根据实际情况设置合理有效期，越短越安全，建议不要超过1小时。
 > 3. Go SDK 中 OIDC Token 需要存储在文件中。
 
-**方式一：使用 WithOptions（推荐）**
+#### 方式一：使用 WithOptions（推荐）
 
 ```go
 func main() {
@@ -200,7 +200,7 @@ func main() {
 
 > 提示：`credentials.NewOIDCCredentialsProviderFromEnv()` 可从环境变量直接构造，无需传入任何参数。
 
-**方式二：使用结构体字面量**
+#### 方式二：使用结构体字面量
 
 ```go
 func main() {
@@ -233,17 +233,17 @@ func main() {
 }
 ```
 
-## AssumeRoleWithSAML
+### AssumeRoleWithSAML
 
 `SAMLCredentialsProvider` 通过 SAML 2.0 IdP 返回的 SAML 断言调用 STS `AssumeRoleWithSAML` 接口换取临时凭证，并在到期前自动刷新。
 
-> ⚠️ 注意事项
+> ⚠️ **注意事项**
 >
 > 1. **最小权限原则**：仅授予必要的权限。
 > 2. **合理的有效期**：建议不超过 1 小时。
 > 3. `SAMLAssertion` 为 IdP 返回的 base64 编码的 SAML Response。
 
-**方式一：使用 WithOptions（推荐）**
+#### 方式一：使用 WithOptions（推荐）
 
 ```go
 package main
@@ -277,7 +277,7 @@ func main() {
 }
 ```
 
-**方式二：使用便捷构造函数**
+#### 方式二：使用便捷构造函数
 
 ```go
 package main
@@ -311,7 +311,7 @@ func main() {
 }
 ```
 
-## 环境变量凭证提供者
+### 环境变量凭证提供者
 
 `EnvProvider` 从环境变量中读取凭证。优先级顺序：
 
@@ -340,7 +340,7 @@ func main() {
 }
 ```
 
-## CLI 配置文件凭证提供者
+### CLI 配置文件凭证提供者
 
 `CliProvider` 从 volcengine-cli 配置文件 (`~/.volcengine/config.json`) 读取凭证。
 
@@ -382,7 +382,7 @@ func main() {
 }
 ```
 
-## ECS 实例角色凭证提供者
+### ECS 实例角色凭证提供者
 
 `EcsRoleProvider` 通过 ECS 实例元数据服务 (IMDSv2) 获取临时凭证。
 
@@ -391,12 +391,12 @@ func main() {
 - IMDS 端点：`http://100.96.0.96`（IMDSv2 基于 token 的认证）
 - 凭证在过期前自动刷新（5 分钟缓冲窗口）
 
-> ⚠️ 注意事项
+> ⚠️ **注意事项**
 >
 > 1. 仅在绑定了 IAM 角色的 ECS 实例上可用。
 > 2. 自动检测会查询 IMDS 角色列表并使用找到的第一个角色。
 
-**方式一：使用 WithOptions（推荐，支持自定义重试等配置）**
+#### 方式一：使用 WithOptions（推荐，支持自定义重试等配置）
 
 ```go
 package main
@@ -427,7 +427,7 @@ func main() {
 }
 ```
 
-**方式二：使用便捷构造函数**
+#### 方式二：使用便捷构造函数
 
 ```go
 package main
@@ -454,7 +454,7 @@ func main() {
 }
 ```
 
-## 默认凭证提供者（凭证链）
+### 默认凭证提供者（凭证链）
 
 当未显式配置凭证时，SDK 会自动使用 `DefaultCredentialProvider` —— 一个 4 步凭证链，按顺序尝试每个提供者，直到成功：
 
@@ -515,7 +515,7 @@ func main() {
 }
 ```
 
-## 共享凭据文件（已废弃 · Deprecated）
+### 共享凭据文件（已废弃 · Deprecated）
 
 > ⚠️ **该方式已废弃，仅保留向后兼容，未来版本可能移除。** 新代码请改用以下任一推荐方式：
 > 1. **环境变量**：`VOLCENGINE_ACCESS_KEY` / `VOLCENGINE_SECRET_KEY`（见 [EnvironmentVariables-zh.md](EnvironmentVariables-zh.md)）

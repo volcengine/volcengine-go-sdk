@@ -2,18 +2,20 @@
 
 ---
 
-# Debug机制
+## Debug 机制
 
-为便于客户在处理请求时进行问题排查和调试，SDK 支持日志功能，并提供多种日志级别设置。客户可根据实际需求配置日志级别，获取详细的请求与响应信息，以提升排障效率和系统可 observability（可观测性）。
+为便于客户在处理请求时进行问题排查和调试，SDK 支持日志功能，并提供多种日志级别设置。客户可根据实际需求配置日志级别，获取详细的请求与响应信息，以提升排障效率和系统可观测性。
 
-## 开启Debug模式
+### 开启 Debug 模式
 
-debug日志默认是关闭的，开启可以用`WithDebug`方法开启
+debug 日志默认是关闭的，开启可以用 `WithDebug` 方法开启。
 
 > **默认**
-> * `debug` - `False`
+>
+> - `debug` - `false`
 
 **代码示例：**
+
 ```go
 import (
 	"github.com/volcengine/volcengine-go-sdk/volcengine"
@@ -31,14 +33,17 @@ func main() {
 }
 ```
 
-# 指定日志输出位置
+### 指定日志输出位置
+
 > **默认**
-> * `LogWriter` - `os.Stdout`
+>
+> - `LogWriter` - `os.Stdout`
 
 默认情况下，SDK 会将日志输出到标准输出（stdout）。如果需要将日志输出到文件或其他位置，可以使用 `WithLogWriter` 方法指定日志输出位置。
 如果你用的其它日志库，传入其它日志库的Writer即可。
 
 **代码示例：**
+
 ```go
 package main
 

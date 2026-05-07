@@ -2,7 +2,7 @@
 
 ---
 
-# Error Handling
+## Error Handling
 
 When calling APIs, different types of errors may be returned. You can adopt targeted handling strategies based on the specific error type and error code. For example, network errors can be retried, while business logic errors should be addressed by adjusting parameters or fixing business logic, thereby improving system robustness and user experience.
 
@@ -16,7 +16,7 @@ Error classification:
 | 3. Network/timeout error | DNS resolution error or request timeout | volcengineerr.Error | Same as above | None |
 | 4. Other errors | Other errors not covered by the above categories | volcengineerr.Error or native error | Same as above | None |
 
-**Code example:**
+### Code Example
 
 ```go
 package main

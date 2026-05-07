@@ -2,16 +2,17 @@
 
 ---
 
-# 超时配置
+## 超时配置
 
-## 全局超时设置（Client级别）
+### 全局超时设置（Client 级别）
 
-> - **默认**
->   ConnectTimeOut  30s
->   ReadTimeout       不限制
->   备注：默认用的是http.DefaultClient
+> **默认**
+>
+> - `ConnectTimeout` - 30s
+> - `ReadTimeout` - 不限制
+> - 备注：默认用的是 `http.DefaultClient`
 
-暂不支持直接设置ConnectTimeOut和ReadTimeout配置，可以通过自定义HttpClient来实现
+暂不支持直接设置 `ConnectTimeOut` 和 `ReadTimeout` 配置，可以通过自定义 HttpClient 来实现。
 
 ```go
 func main() {
@@ -46,9 +47,9 @@ func main() {
 }
 ```
 
-## 单接口指定超时设置
+### 单接口指定超时设置
 
-单个接口超时配置需要调用以**WithContext**结尾的接口
+单个接口超时配置需要调用以 **WithContext** 结尾的接口。
 
 ```go
 func main() {

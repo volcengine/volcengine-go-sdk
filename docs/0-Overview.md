@@ -2,17 +2,17 @@ Overview[(中文)](0-Overview-zh.md) | [Credentials →](1-Credentials.md)
 
 ---
 
-# SDK Integration
+## SDK Integration
 
 When calling APIs, it is recommended to integrate the SDK in your project. Using the SDK simplifies development, speeds up integration, and reduces long-term maintenance costs. Volcengine SDK integration typically includes three steps: importing the SDK, configuring access credentials, and writing API call code.
 
-# Requirements
+## Requirements
 
 1. Go version **>= 1.14**.
 2. If you use Ark service (`service/arkruntime`), Go version **>= 1.18** is required.
 3. It is recommended to use `go mod` for dependency management.
 
-# Table of Contents
+## Table of Contents
 
 1. [Credentials](1-Credentials.md) — AK/SK, STS, AssumeRole, OIDC, SAML, ECS Role, Default Chain
 2. [Endpoint Configuration](2-Endpoint.md) — Custom Endpoint, RegionId, Automatic Resolution

@@ -2,14 +2,15 @@
 
 ---
 
-# Http连接池配置
+## HTTP 连接池配置
 
-> - **默认**
->   最大空闲连接数（MaxIdleConns） - 100
->   空闲连接存活时间（IdleConnTimeout） - 90
->   每个路由最大连接数（MaxIdleConnsPerHost） - 2
+> **默认**
+>
+> - 最大空闲连接数（`MaxIdleConns`）：100
+> - 空闲连接存活时间（`IdleConnTimeout`）：90s
+> - 每个路由最大连接数（`MaxIdleConnsPerHost`）：2
 
-最大空闲连接数、空闲连接存活时间、每个路由最大连接数没有直接提供参数设置，可以通过自定义HTTPClient实现
+最大空闲连接数、空闲连接存活时间、每个路由最大连接数没有直接提供参数设置，可以通过自定义 HTTPClient 实现。
 
 ```go
 func main() {
@@ -45,14 +46,15 @@ func main() {
 }
 ```
 
-# Https请求配置
+## HTTPS 请求配置
 
-## 指定scheme
+### 指定 scheme
 
-> - **默认**
->   https
+> **默认**
+>
+> - HTTPS
 
-scheme，为true表示scheme为http，为false表示scheme为https；建议使用HTTPS，这样可以提升数据传输的安全性。若不设置，则使用默认支持的请求协议类型（HTTPS）
+scheme，为 `true` 表示 scheme 为 http，为 `false` 表示 scheme 为 https；建议使用 HTTPS，这样可以提升数据传输的安全性。若不设置，则使用默认支持的请求协议类型（HTTPS）。
 
 ```go
 func main() {
@@ -70,12 +72,13 @@ func main() {
 }
 ```
 
-## 忽略SSL验证
+### 忽略 SSL 验证
 
-> - **默认**
->   不忽略（开启ssl认证）
+> **默认**
+>
+> - 不忽略（开启 SSL 认证）
 
-没有直接提供参数设置，可以通过自定义HTTPClient实现
+没有直接提供参数设置，可以通过自定义 HTTPClient 实现。
 
 ```go
 func main() {
@@ -112,12 +115,13 @@ func main() {
 }
 ```
 
-## 指定TLS协议版本
+### 指定 TLS 协议版本
 
-> - **默认**
->   \>=TLS 1.2
+> **默认**
+>
+> - ≥ TLS 1.2
 
-目前只支持自定义HTTPClient的方式实现；如果没有特殊要求，建议不要修改。
+目前只支持自定义 HTTPClient 的方式实现；如果没有特殊要求，建议不要修改。
 
 ```go
 func main() {
@@ -157,12 +161,13 @@ func main() {
 }
 ```
 
-# Http(s)代理配置
+## HTTP(S) 代理配置
 
-> - **默认**
->   无代理
+> **默认**
+>
+> - 无代理
 
-## 配置Http(s)代理
+### 配置 HTTP(S) 代理
 
 ```go
 var ak, sk, region string
@@ -174,13 +179,14 @@ sess, _ = session.NewSession(config)
 client = ecs.New(sess)
 ```
 
-## 注意事项
+### 注意事项
 
-支持通过以下环境变量配置代理:
+支持通过以下环境变量配置代理：
 
-http_proxy/HTTP_PROXY, https_proxy/HTTPS_PROXY
+- `http_proxy` / `HTTP_PROXY`
+- `https_proxy` / `HTTPS_PROXY`
 
-优先级：代码指定 > 环境变量
+优先级：代码指定 > 环境变量。
 
 ---
 

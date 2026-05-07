@@ -2,13 +2,15 @@
 
 ---
 
-# Retries
+## Retries
 
 The SDK includes retry logic for network errors and throttling. Business logic errors (invalid params, resource not found) are not retried.
 
-## Enable/Disable Retries
+### Enable/Disable Retries
 
-> - **Default**: enabled (3 times)
+> **Default**
+>
+> - Enabled (3 times)
 
 Set max retries to `0` to disable.
 
@@ -29,9 +31,11 @@ func main() {
 }
 ```
 
-## Retry Count
+### Retry Count
 
-> - **Default**: 3
+> **Default**
+>
+> - 3
 
 ```go
 func main() {
@@ -50,7 +54,7 @@ func main() {
 }
 ```
 
-## Custom Retry Error Codes
+### Custom Retry Error Codes
 
 Configure retryable server error codes per request.
 

@@ -2,9 +2,9 @@
 
 ---
 
-# Debugging
+## Debugging
 
-## Enable Debug Mode
+### Enable Debug Mode
 
 Debug logs are disabled by default. Enable via `WithDebug(true)`.
 
@@ -15,7 +15,7 @@ config := volcengine.NewConfig().
 	WithCredentials(credentials.NewEnvCredentials())
 ```
 
-# Log Output
+### Log Output
 
 By default, logs are written to `os.Stdout`. Use `WithLogWriter` to write to a file or other writer.
 

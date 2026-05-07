@@ -2,17 +2,17 @@
 
 ---
 
-# 集成SDK
+## 集成 SDK
 
 在调用接口时，推荐在项目中集成 SDK 的方式进行接入。通过使用 SDK，不仅可以简化开发流程、加快功能集成速度，还能有效降低后期的维护成本。火山引擎 SDK 的集成主要包括以下三个步骤：引入 SDK、配置访问凭证，以及编写接口调用代码。
 
-# 环境要求
+## 环境要求
 
 1. Go环境版本>=1.14
 2. 如使用方舟服务(service/arkruntime)，需要使用 >=1.18
 3. 建议使用go mod的方式进行包管理
 
-# 目录
+## 目录
 
 1. [访问凭据](1-Credentials-zh.md) — AK/SK、STS、AssumeRole、OIDC、SAML、ECS 角色、默认凭证链
 2. [Endpoint 配置](2-Endpoint-zh.md) — 自定义 Endpoint、RegionId、自动化寻址

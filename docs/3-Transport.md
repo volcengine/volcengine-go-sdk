@@ -2,12 +2,13 @@
 
 ---
 
-# HTTP Connection Pool
+## HTTP Connection Pool
 
-> - **Default**
->   - `MaxIdleConns`: 100
->   - `IdleConnTimeout`: 90s
->   - `MaxIdleConnsPerHost`: 2
+> **Default**
+>
+> - `MaxIdleConns`: 100
+> - `IdleConnTimeout`: 90s
+> - `MaxIdleConnsPerHost`: 2
 
 You can customize an `http.Client` to adjust these settings.
 
@@ -45,11 +46,13 @@ func main() {
 }
 ```
 
-# HTTPS Request Configuration
+## HTTPS Request Configuration
 
-## Specify Scheme
+### Specify Scheme
 
-> - **Default**: `https`
+> **Default**
+>
+> - `https`
 
 In the SDK, `disableSSL=true` means using `http`, and `disableSSL=false` means using `https`.
 
@@ -69,7 +72,7 @@ func main() {
 }
 ```
 
-## Ignore SSL Verification
+### Ignore SSL Verification
 
 You can customize `http.Client` to skip certificate verification.
 
@@ -108,7 +111,7 @@ func main() {
 }
 ```
 
-## Specify TLS Version
+### Specify TLS Version
 
 You can customize TLS min/max versions via `TLSClientConfig`.
 
@@ -150,11 +153,13 @@ func main() {
 }
 ```
 
-# HTTP(S) Proxy
+## HTTP(S) Proxy
 
-> - **Default**: no proxy
+> **Default**
+>
+> - No proxy
 
-## Configure HTTP(S) Proxy
+### Configure HTTP(S) Proxy
 
 ```go
 var ak, sk, region string
@@ -166,11 +171,12 @@ sess, _ = session.NewSession(config)
 client = ecs.New(sess)
 ```
 
-## Notes
+### Notes
 
 Supported environment variables:
 
-- `http_proxy`/`HTTP_PROXY`, `https_proxy`/`HTTPS_PROXY`
+- `http_proxy` / `HTTP_PROXY`
+- `https_proxy` / `HTTPS_PROXY`
 
 Priority: code > environment variables.
 

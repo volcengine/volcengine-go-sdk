@@ -2,11 +2,11 @@
 
 ---
 
-# Credentials
+## Credentials
 
 Volcengine Go SDK supports multiple authentication mechanisms. Choose the one that best matches your scenario.
 
-## Credential Providers Overview
+### Credential Providers Overview
 
 | Provider | Purpose | Refresh Support | Typical Scenario |
 | --- | --- | --- | --- |
@@ -21,11 +21,11 @@ Volcengine Go SDK supports multiple authentication mechanisms. Choose the one th
 
 You can refer to: [Environment Variable Setup](0-Overview.md)
 
-## AK/SK
+### AK/SK
 
 AK/SK is a pair of permanent access keys created in the Volcengine console. The SDK signs each request to authenticate.
 
-> ⚠️ Notes
+> ⚠️ **Notes**
 >
 > 1. Do not embed or expose AK/SK in client-side applications.
 > 2. Use a configuration center or environment variables.
@@ -49,11 +49,11 @@ func main() {
 }
 ```
 
-## STS Token
+### STS Token
 
 STS (Security Token Service) provides temporary credentials (temporary AK/SK and Token). You can configure validity duration. It is recommended for high-security scenarios.
 
-> ⚠️ Notes
+> ⚠️ **Notes**
 >
 > 1. Least privilege: only grant required permissions.
 > 2. Use a reasonable TTL. Shorter is safer; avoid exceeding 1 hour.
@@ -75,17 +75,17 @@ func main() {
 }
 ```
 
-## AssumeRole
+### AssumeRole
 
 AssumeRole supports dynamic credentials with automatic refresh. The SDK refreshes before STS token expiry (buffer 60s) to avoid failures at the boundary.
 
-> ⚠️ Notes
+> ⚠️ **Notes**
 >
 > 1. Least privilege.
 > 2. Choose a reasonable TTL; maximum is 12 hours.
 > 3. Use fine-grained roles and policies.
 
-**Option 1: Using WithOptions (recommended)**
+#### Option 1: Using WithOptions (recommended)
 
 ```go
 package main
@@ -126,7 +126,7 @@ func main() {
 }
 ```
 
-**Option 2: Using StsValue struct**
+#### Option 2: Using StsValue struct
 
 ```go
 package main
@@ -165,17 +165,17 @@ func main() {
 }
 ```
 
-## STS AssumeRoleWithOIDC Example
+### STS AssumeRoleWithOIDC Example
 
 STS AssumeRoleOIDC (Security Token Service) is a temporary access credential mechanism provided by Volcengine. Developers use an `oidc_token` to call the STS interface on the server side to obtain temporary credentials (temporary AK, SK, and Token). The validity period is configurable, making it suitable for scenarios with high security requirements.
 
-> ⚠️ Notes
+> ⚠️ **Notes**
 >
 > 1. **Least Privilege**: Grant only the minimum permissions required for the caller to access resources, avoiding the use of `*` wildcards to grant full resource and operation permissions.
 > 2. **Reasonable Validity Period**: Set a reasonable validity period based on actual conditions. Shorter periods are safer; it is recommended not to exceed 1 hour.
 > 3. **OIDC Token Storage**: In the Go SDK, the OIDC Token must be stored in a file.
 
-**Option 1: Using WithOptions (recommended)**
+#### Option 1: Using WithOptions (recommended)
 
 ```go
 package main
@@ -223,7 +223,7 @@ func main() {
 
 > Tip: `credentials.NewOIDCCredentialsProviderFromEnv()` builds the provider from environment variables without any arguments.
 
-**Option 2: Using struct literal**
+#### Option 2: Using struct literal
 
 ```go
 package main
@@ -268,17 +268,17 @@ func main() {
 }
 ```
 
-## STS AssumeRoleWithSAML Example
+### STS AssumeRoleWithSAML Example
 
 `SAMLCredentialsProvider` exchanges a SAML assertion (returned by your SAML 2.0 IdP) for temporary STS credentials via `AssumeRoleWithSAML`. Credentials are auto-refreshed before expiration.
 
-> ⚠️ Notes
+> ⚠️ **Notes**
 >
 > 1. **Least Privilege**: Grant only the minimum permissions required.
 > 2. **Reasonable Validity Period**: Recommended not to exceed 1 hour.
 > 3. The `SAMLAssertion` is the base64-encoded SAML Response returned by your IdP.
 
-**Option 1: Using WithOptions (recommended)**
+#### Option 1: Using WithOptions (recommended)
 
 ```go
 package main
@@ -312,7 +312,7 @@ func main() {
 }
 ```
 
-**Option 2: Using convenience constructor**
+#### Option 2: Using convenience constructor
 
 ```go
 package main
@@ -346,7 +346,7 @@ func main() {
 }
 ```
 
-## Environment Variable Credential Provider
+### Environment Variable Credential Provider
 
 `EnvProvider` reads credentials from environment variables. Priority order:
 
@@ -375,7 +375,7 @@ func main() {
 }
 ```
 
-## CLI Config Credential Provider
+### CLI Config Credential Provider
 
 `CliProvider` reads credentials from the volcengine-cli config file (`~/.volcengine/config.json`).
 
@@ -417,7 +417,7 @@ func main() {
 }
 ```
 
-## ECS Role Credential Provider
+### ECS Role Credential Provider
 
 `EcsRoleProvider` retrieves temporary credentials from the ECS Instance Metadata Service (IMDSv2).
 
@@ -426,12 +426,12 @@ func main() {
 - IMDS endpoint: `http://100.96.0.96` (IMDSv2 with token-based authentication)
 - Credentials are automatically refreshed before expiration (5-minute buffer)
 
-> ⚠️ Notes
+> ⚠️ **Notes**
 >
 > 1. Only works on ECS instances with an IAM role attached.
 > 2. Auto-detection queries the IMDS role list and uses the first role found.
 
-**Option 1: Using WithOptions (recommended, supports custom retry config)**
+#### Option 1: Using WithOptions (recommended, supports custom retry config)
 
 ```go
 package main
@@ -462,7 +462,7 @@ func main() {
 }
 ```
 
-**Option 2: Using convenience constructor**
+#### Option 2: Using convenience constructor
 
 ```go
 package main
@@ -489,7 +489,7 @@ func main() {
 }
 ```
 
-## Default Credential Provider (Credential Chain)
+### Default Credential Provider (Credential Chain)
 
 When no credentials are explicitly configured, the SDK automatically uses `DefaultCredentialProvider` — a 4-step chain that tries each provider in order until one succeeds:
 
@@ -550,7 +550,7 @@ func main() {
 }
 ```
 
-## Shared credentials file (Deprecated)
+### Shared credentials file (Deprecated)
 
 > ⚠️ **This mechanism is deprecated and may be removed in a future release.** It is kept only for backward compatibility. New code should use one of the following instead:
 > 1. **Environment variables**: `VOLCENGINE_ACCESS_KEY` / `VOLCENGINE_SECRET_KEY` (see [EnvironmentVariables.md](EnvironmentVariables.md))

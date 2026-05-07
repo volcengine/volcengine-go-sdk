@@ -2,11 +2,13 @@
 
 ---
 
-# Endpoint Configuration
+## Endpoint Configuration
 
-## Custom Endpoint
+> **Default**
+>
+> If `Endpoint` is not specified, the SDK uses [Automatic Endpoint Resolution](#automatic-endpoint-resolution).
 
-> - **Default**: if `endpoint` is not specified, the SDK uses [Automatic Endpoint Resolution](#automatic-endpoint-resolution).
+### Custom Endpoint
 
 ```go
 func main() {
@@ -22,7 +24,7 @@ func main() {
 }
 ```
 
-## Custom RegionId
+### Custom RegionId
 
 ```go
 func main() {
@@ -37,28 +39,34 @@ func main() {
 }
 ```
 
-## Automatic Endpoint Resolution
-
-> - **Default**: automatic resolution is enabled; no manual endpoint configuration is required.
+### Automatic Endpoint Resolution
 
 Volcengine provides a flexible endpoint resolution mechanism. The SDK automatically builds the endpoint based on service name and region, and supports DualStack.
 
-### Default Endpoint Resolution
+#### Default Endpoint Resolution
 
-**Logic**
+##### Resolution Logic
 
-1. Whether region is in the bootstrap list.
-   - Built-in list implementation: `./volcengine/volcengineutil/url.go#bootstrapRegion`.
-   - Only predefined regions (e.g., `cn-beijing-autodriving`, `ap-southeast-2`) or user-configured regions are auto-resolved; others fall back to `open.volcengineapi.com`.
-   - You can extend the list via env var `VOLC_BOOTSTRAP_REGION_LIST_CONF` or `customBootstrapRegion`.
-2. DualStack support (IPv6)
-   - Enable via `useDualStack=true` or env var `VOLC_ENABLE_DUALSTACK=true`.
-   - When enabled, the suffix changes from `volcengineapi.com` to `volcengine-api.com`.
-3. Construct endpoint:
-   - Global services: `<service>.volcengineapi.com`.
-   - Regional services: `<service>.<region>.volcengineapi.com`.
+1. **Whether the region is in the bootstrap list**
 
-**Example**
+    Built-in list implementation: [`./volcengine/volcengineutil/url.go#bootstrapRegion`](./volcengine/volcengineutil/url.go#L463).
+
+    Only predefined regions (e.g., `cn-beijing-autodriving`, `ap-southeast-2`) or user-configured regions are auto-resolved; others fall back to `open.volcengineapi.com`.
+
+    You can extend the list via env var `VOLC_BOOTSTRAP_REGION_LIST_CONF` or `customBootstrapRegion`.
+
+2. **DualStack support (IPv6)**
+
+    Enable via `useDualStack=true` or env var `VOLC_ENABLE_DUALSTACK=true`. Priority: `useDualStack` > `VOLC_ENABLE_DUALSTACK`.
+
+    When enabled, the suffix changes from `volcengineapi.com` to `volcengine-api.com`.
+
+3. **Construct endpoint based on service name and region**
+
+    - **Global services (e.g., `CDN`, `IAM`)**: `<service>.volcengineapi.com` (or `volcengine-api.com` when DualStack is enabled). Example: `cdn.volcengineapi.com`.
+    - **Regional services (e.g., `ECS`, `RDS`)**: `<service>.<region>.volcengineapi.com` is used as the default endpoint. Example: `ecs.cn-beijing.volcengineapi.com`.
+
+##### Code Example
 
 ```go
 func main() {
@@ -78,7 +86,9 @@ func main() {
 }
 ```
 
-### Standard Endpoint Resolution
+#### Standard Endpoint Resolution
+
+##### Resolution Rules
 
 | Global service | DualStack | Format |
 |---|---|---|
@@ -87,7 +97,9 @@ func main() {
 | No  | Yes | `{Service}.{region}.volcengine-api.com` |
 | No  | No  | `{Service}.{region}.volcengineapi.com` |
 
-Whether a service is global depends on the service itself and cannot be changed. See: `./volcengine/endpoints/standard_resolver.go#ServiceInfos`.
+Whether a service is global depends on the service itself and cannot be changed. See: [`./volcengine/endpoints/standard_resolver.go#ServiceInfos`](./volcengine/endpoints/standard_resolver.go#L69).
+
+##### Code Example
 
 ```go
 package main
