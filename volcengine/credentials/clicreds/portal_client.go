@@ -1,4 +1,4 @@
-﻿package clicreds
+package clicreds
 
 import (
 	"context"
@@ -86,7 +86,7 @@ type RoleCredentials struct {
 	AccessKeyID     string `json:"AccessKeyId"`
 	Expiration      int64  `json:"Expiration"`
 	SecretAccessKey string `json:"SecretAccessKey"`
-	SessionToken    string `json:"sessionToken"`
+	SessionToken    string `json:"SessionToken"`
 }
 
 // GetRoleCredentialsRequest 为 GetRoleCredentials 的请求参数封装。

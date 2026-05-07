@@ -139,6 +139,44 @@ func (c *I18NOPENAPI) VideoEditorQueryAsyncGenDubbingResultWithContext(ctx volce
 	return out, req.Send()
 }
 
+type DataForVideoEditorQueryAsyncGenDubbingResultOutput struct {
+	_ struct{} `type:"structure"`
+
+	Status *int32 `type:"int32" json:"status"`
+
+	TosUrl *string `type:"string" json:"tosUrl"`
+
+	TosUrlList []*string `type:"list" json:"tosUrlList"`
+}
+
+// String returns the string representation
+func (s DataForVideoEditorQueryAsyncGenDubbingResultOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DataForVideoEditorQueryAsyncGenDubbingResultOutput) GoString() string {
+	return s.String()
+}
+
+// SetStatus sets the Status field's value.
+func (s *DataForVideoEditorQueryAsyncGenDubbingResultOutput) SetStatus(v int32) *DataForVideoEditorQueryAsyncGenDubbingResultOutput {
+	s.Status = &v
+	return s
+}
+
+// SetTosUrl sets the TosUrl field's value.
+func (s *DataForVideoEditorQueryAsyncGenDubbingResultOutput) SetTosUrl(v string) *DataForVideoEditorQueryAsyncGenDubbingResultOutput {
+	s.TosUrl = &v
+	return s
+}
+
+// SetTosUrlList sets the TosUrlList field's value.
+func (s *DataForVideoEditorQueryAsyncGenDubbingResultOutput) SetTosUrlList(v []*string) *DataForVideoEditorQueryAsyncGenDubbingResultOutput {
+	s.TosUrlList = v
+	return s
+}
+
 type VideoEditorQueryAsyncGenDubbingResultInput struct {
 	_ struct{} `type:"structure"`
 
@@ -192,11 +230,7 @@ type VideoEditorQueryAsyncGenDubbingResultOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	Status *int32 `type:"int32" json:"status"`
-
-	TosUrl *string `type:"string" json:"tosUrl"`
-
-	TosUrlList []*string `type:"list" json:"tosUrlList"`
+	Data *DataForVideoEditorQueryAsyncGenDubbingResultOutput `type:"structure" json:"data"`
 }
 
 // String returns the string representation
@@ -209,20 +243,8 @@ func (s VideoEditorQueryAsyncGenDubbingResultOutput) GoString() string {
 	return s.String()
 }
 
-// SetStatus sets the Status field's value.
-func (s *VideoEditorQueryAsyncGenDubbingResultOutput) SetStatus(v int32) *VideoEditorQueryAsyncGenDubbingResultOutput {
-	s.Status = &v
-	return s
-}
-
-// SetTosUrl sets the TosUrl field's value.
-func (s *VideoEditorQueryAsyncGenDubbingResultOutput) SetTosUrl(v string) *VideoEditorQueryAsyncGenDubbingResultOutput {
-	s.TosUrl = &v
-	return s
-}
-
-// SetTosUrlList sets the TosUrlList field's value.
-func (s *VideoEditorQueryAsyncGenDubbingResultOutput) SetTosUrlList(v []*string) *VideoEditorQueryAsyncGenDubbingResultOutput {
-	s.TosUrlList = v
+// SetData sets the Data field's value.
+func (s *VideoEditorQueryAsyncGenDubbingResultOutput) SetData(v *DataForVideoEditorQueryAsyncGenDubbingResultOutput) *VideoEditorQueryAsyncGenDubbingResultOutput {
+	s.Data = v
 	return s
 }

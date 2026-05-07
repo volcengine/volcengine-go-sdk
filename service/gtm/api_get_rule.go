@@ -452,7 +452,7 @@ func (s *HttpUsabilityCodeForGetRuleOutput) SetOperator(v string) *HttpUsability
 type PoolForGetRuleOutput struct {
 	_ struct{} `type:"structure"`
 
-	Address []*AddressForGetRuleOutput `type:"list"`
+	Addresses []*AddressForGetRuleOutput `type:"list"`
 
 	InactiveAddrCount *int32 `type:"int32"`
 
@@ -473,9 +473,9 @@ func (s PoolForGetRuleOutput) GoString() string {
 	return s.String()
 }
 
-// SetAddress sets the Address field's value.
-func (s *PoolForGetRuleOutput) SetAddress(v []*AddressForGetRuleOutput) *PoolForGetRuleOutput {
-	s.Address = v
+// SetAddresses sets the Addresses field's value.
+func (s *PoolForGetRuleOutput) SetAddresses(v []*AddressForGetRuleOutput) *PoolForGetRuleOutput {
+	s.Addresses = v
 	return s
 }
 

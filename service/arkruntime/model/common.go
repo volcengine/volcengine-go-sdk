@@ -29,6 +29,7 @@ type PromptTokensDetail struct {
 	CachedTokens      int  `json:"cached_tokens"`
 	ProvisionedTokens *int `json:"provisioned_tokens,omitempty"`
 	AudioTokens       *int `json:"audio_tokens,omitempty"`
+	AudioCachedTokens *int `json:"audio_cached_tokens,omitempty"`
 }
 
 type CompletionTokensDetails struct {

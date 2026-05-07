@@ -182,15 +182,11 @@ type GetGtmOutput struct {
 
 	AccessMode *string `type:"string"`
 
-	AddressType *string `type:"string"`
-
 	AlarmId *string `type:"string"`
 
 	Cname *string `type:"string"`
 
 	CreateTime *string `type:"string"`
-
-	CreatedTime *string `type:"string"`
 
 	Domain *string `type:"string"`
 
@@ -214,8 +210,6 @@ type GetGtmOutput struct {
 
 	UpdateTime *string `type:"string"`
 
-	UpdatedTime *string `type:"string"`
-
 	ZoneType *string `type:"string"`
 }
 
@@ -235,12 +229,6 @@ func (s *GetGtmOutput) SetAccessMode(v string) *GetGtmOutput {
 	return s
 }
 
-// SetAddressType sets the AddressType field's value.
-func (s *GetGtmOutput) SetAddressType(v string) *GetGtmOutput {
-	s.AddressType = &v
-	return s
-}
-
 // SetAlarmId sets the AlarmId field's value.
 func (s *GetGtmOutput) SetAlarmId(v string) *GetGtmOutput {
 	s.AlarmId = &v
@@ -256,12 +244,6 @@ func (s *GetGtmOutput) SetCname(v string) *GetGtmOutput {
 // SetCreateTime sets the CreateTime field's value.
 func (s *GetGtmOutput) SetCreateTime(v string) *GetGtmOutput {
 	s.CreateTime = &v
-	return s
-}
-
-// SetCreatedTime sets the CreatedTime field's value.
-func (s *GetGtmOutput) SetCreatedTime(v string) *GetGtmOutput {
-	s.CreatedTime = &v
 	return s
 }
 
@@ -328,12 +310,6 @@ func (s *GetGtmOutput) SetTtl(v int32) *GetGtmOutput {
 // SetUpdateTime sets the UpdateTime field's value.
 func (s *GetGtmOutput) SetUpdateTime(v string) *GetGtmOutput {
 	s.UpdateTime = &v
-	return s
-}
-
-// SetUpdatedTime sets the UpdatedTime field's value.
-func (s *GetGtmOutput) SetUpdatedTime(v string) *GetGtmOutput {
-	s.UpdatedTime = &v
 	return s
 }
 

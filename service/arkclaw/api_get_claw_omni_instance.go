@@ -176,6 +176,8 @@ type ClawOmniInstanceForGetClawOmniInstanceOutput struct {
 
 	Tags []*TagForGetClawOmniInstanceOutput `type:"list"`
 
+	TemplateId *string `type:"string"`
+
 	UpdatedAt *string `type:"string"`
 }
 
@@ -288,6 +290,12 @@ func (s *ClawOmniInstanceForGetClawOmniInstanceOutput) SetStatus(v string) *Claw
 // SetTags sets the Tags field's value.
 func (s *ClawOmniInstanceForGetClawOmniInstanceOutput) SetTags(v []*TagForGetClawOmniInstanceOutput) *ClawOmniInstanceForGetClawOmniInstanceOutput {
 	s.Tags = v
+	return s
+}
+
+// SetTemplateId sets the TemplateId field's value.
+func (s *ClawOmniInstanceForGetClawOmniInstanceOutput) SetTemplateId(v string) *ClawOmniInstanceForGetClawOmniInstanceOutput {
+	s.TemplateId = &v
 	return s
 }
 
