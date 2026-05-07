@@ -139,26 +139,52 @@ func (c *I18NOPENAPI) VideoEditorGetSpeakersWithContext(ctx volcengine.Context, 
 	return out, req.Send()
 }
 
+type DataForVideoEditorGetSpeakersOutput struct {
+	_ struct{} `type:"structure"`
+
+	SubTaskSpeakers []*SubTaskSpeakerForVideoEditorGetSpeakersOutput `type:"list" json:"subTaskSpeakers"`
+
+	TaskSpeakers []*TaskSpeakerForVideoEditorGetSpeakersOutput `type:"list" json:"taskSpeakers"`
+}
+
+// String returns the string representation
+func (s DataForVideoEditorGetSpeakersOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DataForVideoEditorGetSpeakersOutput) GoString() string {
+	return s.String()
+}
+
+// SetSubTaskSpeakers sets the SubTaskSpeakers field's value.
+func (s *DataForVideoEditorGetSpeakersOutput) SetSubTaskSpeakers(v []*SubTaskSpeakerForVideoEditorGetSpeakersOutput) *DataForVideoEditorGetSpeakersOutput {
+	s.SubTaskSpeakers = v
+	return s
+}
+
+// SetTaskSpeakers sets the TaskSpeakers field's value.
+func (s *DataForVideoEditorGetSpeakersOutput) SetTaskSpeakers(v []*TaskSpeakerForVideoEditorGetSpeakersOutput) *DataForVideoEditorGetSpeakersOutput {
+	s.TaskSpeakers = v
+	return s
+}
+
 type SubTaskSpeakerForVideoEditorGetSpeakersOutput struct {
 	_ struct{} `type:"structure"`
 
-	CreateAt *int32 `type:"int32" json:"createAt"`
+	CreateAt *string `type:"string" json:"createAt"`
 
-	Id *int32 `type:"int32" json:"id"`
+	Id *string `type:"string" json:"id"`
 
 	SpeakerDesc *string `type:"string" json:"speakerDesc"`
 
-	SpeakerId *int32 `type:"int32" json:"speakerId"`
+	SpeakerId *string `type:"string" json:"speakerId"`
 
 	SpeakerName *string `type:"string" json:"speakerName"`
 
 	SpeakerType *int32 `type:"int32" json:"speakerType"`
 
-	Status *int32 `type:"int32" json:"status"`
-
-	UpdateAt *int32 `type:"int32" json:"updateAt"`
-
-	Voices []*VoiceForVideoEditorGetSpeakersOutput `type:"list" json:"voices"`
+	UpdateAt *string `type:"string" json:"updateAt"`
 }
 
 // String returns the string representation
@@ -172,13 +198,13 @@ func (s SubTaskSpeakerForVideoEditorGetSpeakersOutput) GoString() string {
 }
 
 // SetCreateAt sets the CreateAt field's value.
-func (s *SubTaskSpeakerForVideoEditorGetSpeakersOutput) SetCreateAt(v int32) *SubTaskSpeakerForVideoEditorGetSpeakersOutput {
+func (s *SubTaskSpeakerForVideoEditorGetSpeakersOutput) SetCreateAt(v string) *SubTaskSpeakerForVideoEditorGetSpeakersOutput {
 	s.CreateAt = &v
 	return s
 }
 
 // SetId sets the Id field's value.
-func (s *SubTaskSpeakerForVideoEditorGetSpeakersOutput) SetId(v int32) *SubTaskSpeakerForVideoEditorGetSpeakersOutput {
+func (s *SubTaskSpeakerForVideoEditorGetSpeakersOutput) SetId(v string) *SubTaskSpeakerForVideoEditorGetSpeakersOutput {
 	s.Id = &v
 	return s
 }
@@ -190,7 +216,7 @@ func (s *SubTaskSpeakerForVideoEditorGetSpeakersOutput) SetSpeakerDesc(v string)
 }
 
 // SetSpeakerId sets the SpeakerId field's value.
-func (s *SubTaskSpeakerForVideoEditorGetSpeakersOutput) SetSpeakerId(v int32) *SubTaskSpeakerForVideoEditorGetSpeakersOutput {
+func (s *SubTaskSpeakerForVideoEditorGetSpeakersOutput) SetSpeakerId(v string) *SubTaskSpeakerForVideoEditorGetSpeakersOutput {
 	s.SpeakerId = &v
 	return s
 }
@@ -207,44 +233,28 @@ func (s *SubTaskSpeakerForVideoEditorGetSpeakersOutput) SetSpeakerType(v int32) 
 	return s
 }
 
-// SetStatus sets the Status field's value.
-func (s *SubTaskSpeakerForVideoEditorGetSpeakersOutput) SetStatus(v int32) *SubTaskSpeakerForVideoEditorGetSpeakersOutput {
-	s.Status = &v
-	return s
-}
-
 // SetUpdateAt sets the UpdateAt field's value.
-func (s *SubTaskSpeakerForVideoEditorGetSpeakersOutput) SetUpdateAt(v int32) *SubTaskSpeakerForVideoEditorGetSpeakersOutput {
+func (s *SubTaskSpeakerForVideoEditorGetSpeakersOutput) SetUpdateAt(v string) *SubTaskSpeakerForVideoEditorGetSpeakersOutput {
 	s.UpdateAt = &v
-	return s
-}
-
-// SetVoices sets the Voices field's value.
-func (s *SubTaskSpeakerForVideoEditorGetSpeakersOutput) SetVoices(v []*VoiceForVideoEditorGetSpeakersOutput) *SubTaskSpeakerForVideoEditorGetSpeakersOutput {
-	s.Voices = v
 	return s
 }
 
 type TaskSpeakerForVideoEditorGetSpeakersOutput struct {
 	_ struct{} `type:"structure"`
 
-	CreateAt *int32 `type:"int32" json:"createAt"`
+	CreateAt *string `type:"string" json:"createAt"`
 
-	Id *int32 `type:"int32" json:"id"`
+	Id *string `type:"string" json:"id"`
 
 	SpeakerDesc *string `type:"string" json:"speakerDesc"`
 
-	SpeakerId *int32 `type:"int32" json:"speakerId"`
+	SpeakerId *string `type:"string" json:"speakerId"`
 
 	SpeakerName *string `type:"string" json:"speakerName"`
 
 	SpeakerType *int32 `type:"int32" json:"speakerType"`
 
-	Status *int32 `type:"int32" json:"status"`
-
-	UpdateAt *int32 `type:"int32" json:"updateAt"`
-
-	Voices []*VoiceForVideoEditorGetSpeakersOutput `type:"list" json:"voices"`
+	UpdateAt *string `type:"string" json:"updateAt"`
 }
 
 // String returns the string representation
@@ -258,13 +268,13 @@ func (s TaskSpeakerForVideoEditorGetSpeakersOutput) GoString() string {
 }
 
 // SetCreateAt sets the CreateAt field's value.
-func (s *TaskSpeakerForVideoEditorGetSpeakersOutput) SetCreateAt(v int32) *TaskSpeakerForVideoEditorGetSpeakersOutput {
+func (s *TaskSpeakerForVideoEditorGetSpeakersOutput) SetCreateAt(v string) *TaskSpeakerForVideoEditorGetSpeakersOutput {
 	s.CreateAt = &v
 	return s
 }
 
 // SetId sets the Id field's value.
-func (s *TaskSpeakerForVideoEditorGetSpeakersOutput) SetId(v int32) *TaskSpeakerForVideoEditorGetSpeakersOutput {
+func (s *TaskSpeakerForVideoEditorGetSpeakersOutput) SetId(v string) *TaskSpeakerForVideoEditorGetSpeakersOutput {
 	s.Id = &v
 	return s
 }
@@ -276,7 +286,7 @@ func (s *TaskSpeakerForVideoEditorGetSpeakersOutput) SetSpeakerDesc(v string) *T
 }
 
 // SetSpeakerId sets the SpeakerId field's value.
-func (s *TaskSpeakerForVideoEditorGetSpeakersOutput) SetSpeakerId(v int32) *TaskSpeakerForVideoEditorGetSpeakersOutput {
+func (s *TaskSpeakerForVideoEditorGetSpeakersOutput) SetSpeakerId(v string) *TaskSpeakerForVideoEditorGetSpeakersOutput {
 	s.SpeakerId = &v
 	return s
 }
@@ -293,21 +303,9 @@ func (s *TaskSpeakerForVideoEditorGetSpeakersOutput) SetSpeakerType(v int32) *Ta
 	return s
 }
 
-// SetStatus sets the Status field's value.
-func (s *TaskSpeakerForVideoEditorGetSpeakersOutput) SetStatus(v int32) *TaskSpeakerForVideoEditorGetSpeakersOutput {
-	s.Status = &v
-	return s
-}
-
 // SetUpdateAt sets the UpdateAt field's value.
-func (s *TaskSpeakerForVideoEditorGetSpeakersOutput) SetUpdateAt(v int32) *TaskSpeakerForVideoEditorGetSpeakersOutput {
+func (s *TaskSpeakerForVideoEditorGetSpeakersOutput) SetUpdateAt(v string) *TaskSpeakerForVideoEditorGetSpeakersOutput {
 	s.UpdateAt = &v
-	return s
-}
-
-// SetVoices sets the Voices field's value.
-func (s *TaskSpeakerForVideoEditorGetSpeakersOutput) SetVoices(v []*VoiceForVideoEditorGetSpeakersOutput) *TaskSpeakerForVideoEditorGetSpeakersOutput {
-	s.Voices = v
 	return s
 }
 
@@ -315,7 +313,7 @@ type VideoEditorGetSpeakersInput struct {
 	_ struct{} `type:"structure"`
 
 	// SubtaskId is a required field
-	SubtaskId *int32 `locationName:"subtaskId" type:"int32" required:"true"`
+	SubtaskId *string `locationName:"subtaskId" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -342,7 +340,7 @@ func (s *VideoEditorGetSpeakersInput) Validate() error {
 }
 
 // SetSubtaskId sets the SubtaskId field's value.
-func (s *VideoEditorGetSpeakersInput) SetSubtaskId(v int32) *VideoEditorGetSpeakersInput {
+func (s *VideoEditorGetSpeakersInput) SetSubtaskId(v string) *VideoEditorGetSpeakersInput {
 	s.SubtaskId = &v
 	return s
 }
@@ -352,9 +350,7 @@ type VideoEditorGetSpeakersOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	SubTaskSpeakers []*SubTaskSpeakerForVideoEditorGetSpeakersOutput `type:"list" json:"subTaskSpeakers"`
-
-	TaskSpeakers []*TaskSpeakerForVideoEditorGetSpeakersOutput `type:"list" json:"taskSpeakers"`
+	Data *DataForVideoEditorGetSpeakersOutput `type:"structure" json:"data"`
 }
 
 // String returns the string representation
@@ -367,68 +363,8 @@ func (s VideoEditorGetSpeakersOutput) GoString() string {
 	return s.String()
 }
 
-// SetSubTaskSpeakers sets the SubTaskSpeakers field's value.
-func (s *VideoEditorGetSpeakersOutput) SetSubTaskSpeakers(v []*SubTaskSpeakerForVideoEditorGetSpeakersOutput) *VideoEditorGetSpeakersOutput {
-	s.SubTaskSpeakers = v
-	return s
-}
-
-// SetTaskSpeakers sets the TaskSpeakers field's value.
-func (s *VideoEditorGetSpeakersOutput) SetTaskSpeakers(v []*TaskSpeakerForVideoEditorGetSpeakersOutput) *VideoEditorGetSpeakersOutput {
-	s.TaskSpeakers = v
-	return s
-}
-
-type VoiceForVideoEditorGetSpeakersOutput struct {
-	_ struct{} `type:"structure"`
-
-	CreateAt *int32 `type:"int32" json:"createAt"`
-
-	EmotionTag *string `type:"string" json:"emotionTag"`
-
-	Id *int32 `type:"int32" json:"id"`
-
-	Name *string `type:"string" json:"name"`
-
-	VoiceId *string `type:"string" json:"voiceId"`
-}
-
-// String returns the string representation
-func (s VoiceForVideoEditorGetSpeakersOutput) String() string {
-	return volcengineutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s VoiceForVideoEditorGetSpeakersOutput) GoString() string {
-	return s.String()
-}
-
-// SetCreateAt sets the CreateAt field's value.
-func (s *VoiceForVideoEditorGetSpeakersOutput) SetCreateAt(v int32) *VoiceForVideoEditorGetSpeakersOutput {
-	s.CreateAt = &v
-	return s
-}
-
-// SetEmotionTag sets the EmotionTag field's value.
-func (s *VoiceForVideoEditorGetSpeakersOutput) SetEmotionTag(v string) *VoiceForVideoEditorGetSpeakersOutput {
-	s.EmotionTag = &v
-	return s
-}
-
-// SetId sets the Id field's value.
-func (s *VoiceForVideoEditorGetSpeakersOutput) SetId(v int32) *VoiceForVideoEditorGetSpeakersOutput {
-	s.Id = &v
-	return s
-}
-
-// SetName sets the Name field's value.
-func (s *VoiceForVideoEditorGetSpeakersOutput) SetName(v string) *VoiceForVideoEditorGetSpeakersOutput {
-	s.Name = &v
-	return s
-}
-
-// SetVoiceId sets the VoiceId field's value.
-func (s *VoiceForVideoEditorGetSpeakersOutput) SetVoiceId(v string) *VoiceForVideoEditorGetSpeakersOutput {
-	s.VoiceId = &v
+// SetData sets the Data field's value.
+func (s *VideoEditorGetSpeakersOutput) SetData(v *DataForVideoEditorGetSpeakersOutput) *VideoEditorGetSpeakersOutput {
+	s.Data = v
 	return s
 }

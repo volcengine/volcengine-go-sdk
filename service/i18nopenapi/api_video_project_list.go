@@ -184,11 +184,7 @@ type DataForVideoProjectListOutput struct {
 
 	SourceLang *string `type:"string" json:"sourceLang"`
 
-	SourceLocale *string `type:"string" json:"sourceLocale"`
-
 	TargetLangs []*string `type:"list" json:"targetLangs"`
-
-	TargetLocales []*string `type:"list" json:"targetLocales"`
 
 	UpdatedAt *string `type:"string" json:"updatedAt"`
 }
@@ -239,21 +235,9 @@ func (s *DataForVideoProjectListOutput) SetSourceLang(v string) *DataForVideoPro
 	return s
 }
 
-// SetSourceLocale sets the SourceLocale field's value.
-func (s *DataForVideoProjectListOutput) SetSourceLocale(v string) *DataForVideoProjectListOutput {
-	s.SourceLocale = &v
-	return s
-}
-
 // SetTargetLangs sets the TargetLangs field's value.
 func (s *DataForVideoProjectListOutput) SetTargetLangs(v []*string) *DataForVideoProjectListOutput {
 	s.TargetLangs = v
-	return s
-}
-
-// SetTargetLocales sets the TargetLocales field's value.
-func (s *DataForVideoProjectListOutput) SetTargetLocales(v []*string) *DataForVideoProjectListOutput {
-	s.TargetLocales = v
 	return s
 }
 

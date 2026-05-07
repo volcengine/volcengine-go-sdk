@@ -184,11 +184,7 @@ type DataForProjectsOutput struct {
 
 	SourceLang *string `type:"string" json:"sourceLang"`
 
-	SourceLocale *string `type:"string" json:"sourceLocale"`
-
 	TargetLangs []*string `type:"list" json:"targetLangs"`
-
-	TargetLocales []*string `type:"list" json:"targetLocales"`
 
 	UpdatedAt *string `type:"string" json:"updatedAt"`
 }
@@ -239,21 +235,9 @@ func (s *DataForProjectsOutput) SetSourceLang(v string) *DataForProjectsOutput {
 	return s
 }
 
-// SetSourceLocale sets the SourceLocale field's value.
-func (s *DataForProjectsOutput) SetSourceLocale(v string) *DataForProjectsOutput {
-	s.SourceLocale = &v
-	return s
-}
-
 // SetTargetLangs sets the TargetLangs field's value.
 func (s *DataForProjectsOutput) SetTargetLangs(v []*string) *DataForProjectsOutput {
 	s.TargetLangs = v
-	return s
-}
-
-// SetTargetLocales sets the TargetLocales field's value.
-func (s *DataForProjectsOutput) SetTargetLocales(v []*string) *DataForProjectsOutput {
-	s.TargetLocales = v
 	return s
 }
 

@@ -32,7 +32,7 @@ const opVideoEditorDeleteSpeakerCommon = "VideoEditorDeleteSpeaker"
 func (c *I18NOPENAPI) VideoEditorDeleteSpeakerCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opVideoEditorDeleteSpeakerCommon,
-		HTTPMethod: "GET",
+		HTTPMethod: "POST",
 		HTTPPath:   "/",
 	}
 
@@ -42,6 +42,8 @@ func (c *I18NOPENAPI) VideoEditorDeleteSpeakerCommonRequest(input *map[string]in
 
 	output = &map[string]interface{}{}
 	req = c.newRequest(op, input, output)
+
+	req.HTTPRequest.Header.Set("Content-Type", "application/json; charset=utf-8")
 
 	return
 }
@@ -97,7 +99,7 @@ const opVideoEditorDeleteSpeaker = "VideoEditorDeleteSpeaker"
 func (c *I18NOPENAPI) VideoEditorDeleteSpeakerRequest(input *VideoEditorDeleteSpeakerInput) (req *request.Request, output *VideoEditorDeleteSpeakerOutput) {
 	op := &request.Operation{
 		Name:       opVideoEditorDeleteSpeaker,
-		HTTPMethod: "GET",
+		HTTPMethod: "POST",
 		HTTPPath:   "/",
 	}
 
@@ -107,6 +109,8 @@ func (c *I18NOPENAPI) VideoEditorDeleteSpeakerRequest(input *VideoEditorDeleteSp
 
 	output = &VideoEditorDeleteSpeakerOutput{}
 	req = c.newRequest(op, input, output)
+
+	req.HTTPRequest.Header.Set("Content-Type", "application/json; charset=utf-8")
 
 	return
 }
@@ -140,15 +144,16 @@ func (c *I18NOPENAPI) VideoEditorDeleteSpeakerWithContext(ctx volcengine.Context
 }
 
 type VideoEditorDeleteSpeakerInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// Id is a required field
-	Id *int32 `locationName:"id" type:"int32" required:"true"`
+	Id *string `type:"string" json:"id,omitempty" required:"true"`
 
 	// SubtaskId is a required field
-	SubtaskId *int32 `locationName:"subtaskId" type:"int32" required:"true"`
+	SubtaskId *string `type:"string" json:"subtaskId,omitempty" required:"true"`
 
-	Type *int32 `locationName:"type" type:"int32"`
+	// Type is a required field
+	Type *int32 `type:"int32" json:"type,omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -170,6 +175,9 @@ func (s *VideoEditorDeleteSpeakerInput) Validate() error {
 	if s.SubtaskId == nil {
 		invalidParams.Add(request.NewErrParamRequired("SubtaskId"))
 	}
+	if s.Type == nil {
+		invalidParams.Add(request.NewErrParamRequired("Type"))
+	}
 
 	if invalidParams.Len() > 0 {
 		return invalidParams
@@ -178,13 +186,13 @@ func (s *VideoEditorDeleteSpeakerInput) Validate() error {
 }
 
 // SetId sets the Id field's value.
-func (s *VideoEditorDeleteSpeakerInput) SetId(v int32) *VideoEditorDeleteSpeakerInput {
+func (s *VideoEditorDeleteSpeakerInput) SetId(v string) *VideoEditorDeleteSpeakerInput {
 	s.Id = &v
 	return s
 }
 
 // SetSubtaskId sets the SubtaskId field's value.
-func (s *VideoEditorDeleteSpeakerInput) SetSubtaskId(v int32) *VideoEditorDeleteSpeakerInput {
+func (s *VideoEditorDeleteSpeakerInput) SetSubtaskId(v string) *VideoEditorDeleteSpeakerInput {
 	s.SubtaskId = &v
 	return s
 }
@@ -196,7 +204,7 @@ func (s *VideoEditorDeleteSpeakerInput) SetType(v int32) *VideoEditorDeleteSpeak
 }
 
 type VideoEditorDeleteSpeakerOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 }

@@ -489,6 +489,8 @@ type VolumeForDescribeVolumesOutput struct {
 
 	BillingType *int32 `type:"int32"`
 
+	BurstEnabled *bool `type:"boolean"`
+
 	CreatedAt *string `type:"string"`
 
 	DeleteProtection *bool `type:"boolean"`
@@ -583,6 +585,12 @@ func (s *VolumeForDescribeVolumesOutput) SetBaselinePerformance(v *BaselinePerfo
 // SetBillingType sets the BillingType field's value.
 func (s *VolumeForDescribeVolumesOutput) SetBillingType(v int32) *VolumeForDescribeVolumesOutput {
 	s.BillingType = &v
+	return s
+}
+
+// SetBurstEnabled sets the BurstEnabled field's value.
+func (s *VolumeForDescribeVolumesOutput) SetBurstEnabled(v bool) *VolumeForDescribeVolumesOutput {
+	s.BurstEnabled = &v
 	return s
 }
 

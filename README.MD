@@ -7,6 +7,8 @@
 3. service目录下的文件请不要修改，都是由代码生成器自动生成
 4. 建议使用go mod方式进行依赖管理
 
+SDK 详细使用文档（凭证配置、Endpoint、Transport、超时、重试、异常处理、Debug）请参考：[SDK 接入文档](./docs/0-Overview-zh.md)
+
 #### Endpoint设置
 
 如果您要自定义SDK的Endpoint，可以按照以下示例代码设置：
@@ -81,4 +83,3 @@ func main() {
 }
 ```
 
-更多代码示例请参考：[SDK接入文档](./SDK_Integration_zh.md)

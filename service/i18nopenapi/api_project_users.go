@@ -142,13 +142,17 @@ func (c *I18NOPENAPI) ProjectUsersWithContext(ctx volcengine.Context, input *Pro
 type DataForProjectUsersOutput struct {
 	_ struct{} `type:"structure"`
 
+	Avatar *string `type:"string" json:"avatar"`
+
 	CreateAt *string `type:"string" json:"createAt"`
+
+	Name *string `type:"string" json:"name"`
 
 	Role *int32 `type:"int32" json:"role"`
 
 	UpdatedAt *string `type:"string" json:"updatedAt"`
 
-	UserId *int32 `type:"int32" json:"userId"`
+	UserId *string `type:"string" json:"userId"`
 }
 
 // String returns the string representation
@@ -161,9 +165,21 @@ func (s DataForProjectUsersOutput) GoString() string {
 	return s.String()
 }
 
+// SetAvatar sets the Avatar field's value.
+func (s *DataForProjectUsersOutput) SetAvatar(v string) *DataForProjectUsersOutput {
+	s.Avatar = &v
+	return s
+}
+
 // SetCreateAt sets the CreateAt field's value.
 func (s *DataForProjectUsersOutput) SetCreateAt(v string) *DataForProjectUsersOutput {
 	s.CreateAt = &v
+	return s
+}
+
+// SetName sets the Name field's value.
+func (s *DataForProjectUsersOutput) SetName(v string) *DataForProjectUsersOutput {
+	s.Name = &v
 	return s
 }
 
@@ -180,7 +196,7 @@ func (s *DataForProjectUsersOutput) SetUpdatedAt(v string) *DataForProjectUsersO
 }
 
 // SetUserId sets the UserId field's value.
-func (s *DataForProjectUsersOutput) SetUserId(v int32) *DataForProjectUsersOutput {
+func (s *DataForProjectUsersOutput) SetUserId(v string) *DataForProjectUsersOutput {
 	s.UserId = &v
 	return s
 }

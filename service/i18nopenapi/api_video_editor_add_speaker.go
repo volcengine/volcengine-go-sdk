@@ -32,7 +32,7 @@ const opVideoEditorAddSpeakerCommon = "VideoEditorAddSpeaker"
 func (c *I18NOPENAPI) VideoEditorAddSpeakerCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opVideoEditorAddSpeakerCommon,
-		HTTPMethod: "GET",
+		HTTPMethod: "POST",
 		HTTPPath:   "/",
 	}
 
@@ -42,6 +42,8 @@ func (c *I18NOPENAPI) VideoEditorAddSpeakerCommonRequest(input *map[string]inter
 
 	output = &map[string]interface{}{}
 	req = c.newRequest(op, input, output)
+
+	req.HTTPRequest.Header.Set("Content-Type", "application/json; charset=utf-8")
 
 	return
 }
@@ -97,7 +99,7 @@ const opVideoEditorAddSpeaker = "VideoEditorAddSpeaker"
 func (c *I18NOPENAPI) VideoEditorAddSpeakerRequest(input *VideoEditorAddSpeakerInput) (req *request.Request, output *VideoEditorAddSpeakerOutput) {
 	op := &request.Operation{
 		Name:       opVideoEditorAddSpeaker,
-		HTTPMethod: "GET",
+		HTTPMethod: "POST",
 		HTTPPath:   "/",
 	}
 
@@ -107,6 +109,8 @@ func (c *I18NOPENAPI) VideoEditorAddSpeakerRequest(input *VideoEditorAddSpeakerI
 
 	output = &VideoEditorAddSpeakerOutput{}
 	req = c.newRequest(op, input, output)
+
+	req.HTTPRequest.Header.Set("Content-Type", "application/json; charset=utf-8")
 
 	return
 }
@@ -139,16 +143,39 @@ func (c *I18NOPENAPI) VideoEditorAddSpeakerWithContext(ctx volcengine.Context, i
 	return out, req.Send()
 }
 
+type DataForVideoEditorAddSpeakerOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Id *string `type:"string" json:"id,omitempty"`
+}
+
+// String returns the string representation
+func (s DataForVideoEditorAddSpeakerOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DataForVideoEditorAddSpeakerOutput) GoString() string {
+	return s.String()
+}
+
+// SetId sets the Id field's value.
+func (s *DataForVideoEditorAddSpeakerOutput) SetId(v string) *DataForVideoEditorAddSpeakerOutput {
+	s.Id = &v
+	return s
+}
+
 type VideoEditorAddSpeakerInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// SpeakerName is a required field
-	SpeakerName *string `locationName:"speakerName" type:"string" required:"true"`
+	SpeakerName *string `type:"string" json:"speakerName,omitempty" required:"true"`
 
 	// SubtaskId is a required field
-	SubtaskId *int32 `locationName:"subtaskId" type:"int32" required:"true"`
+	SubtaskId *string `type:"string" json:"subtaskId,omitempty" required:"true"`
 
-	Type *int32 `locationName:"type" type:"int32"`
+	// Type is a required field
+	Type *int32 `type:"int32" json:"type,omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -170,6 +197,9 @@ func (s *VideoEditorAddSpeakerInput) Validate() error {
 	if s.SubtaskId == nil {
 		invalidParams.Add(request.NewErrParamRequired("SubtaskId"))
 	}
+	if s.Type == nil {
+		invalidParams.Add(request.NewErrParamRequired("Type"))
+	}
 
 	if invalidParams.Len() > 0 {
 		return invalidParams
@@ -184,7 +214,7 @@ func (s *VideoEditorAddSpeakerInput) SetSpeakerName(v string) *VideoEditorAddSpe
 }
 
 // SetSubtaskId sets the SubtaskId field's value.
-func (s *VideoEditorAddSpeakerInput) SetSubtaskId(v int32) *VideoEditorAddSpeakerInput {
+func (s *VideoEditorAddSpeakerInput) SetSubtaskId(v string) *VideoEditorAddSpeakerInput {
 	s.SubtaskId = &v
 	return s
 }
@@ -196,11 +226,11 @@ func (s *VideoEditorAddSpeakerInput) SetType(v int32) *VideoEditorAddSpeakerInpu
 }
 
 type VideoEditorAddSpeakerOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	Id *int32 `type:"int32" json:"id"`
+	Data *DataForVideoEditorAddSpeakerOutput `type:"structure" json:"data,omitempty"`
 }
 
 // String returns the string representation
@@ -213,8 +243,8 @@ func (s VideoEditorAddSpeakerOutput) GoString() string {
 	return s.String()
 }
 
-// SetId sets the Id field's value.
-func (s *VideoEditorAddSpeakerOutput) SetId(v int32) *VideoEditorAddSpeakerOutput {
-	s.Id = &v
+// SetData sets the Data field's value.
+func (s *VideoEditorAddSpeakerOutput) SetData(v *DataForVideoEditorAddSpeakerOutput) *VideoEditorAddSpeakerOutput {
+	s.Data = v
 	return s
 }
