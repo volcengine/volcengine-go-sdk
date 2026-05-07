@@ -32,7 +32,7 @@ const opVideoEditorUpdateSpeakerCommon = "VideoEditorUpdateSpeaker"
 func (c *I18NOPENAPI) VideoEditorUpdateSpeakerCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opVideoEditorUpdateSpeakerCommon,
-		HTTPMethod: "GET",
+		HTTPMethod: "POST",
 		HTTPPath:   "/",
 	}
 
@@ -42,6 +42,8 @@ func (c *I18NOPENAPI) VideoEditorUpdateSpeakerCommonRequest(input *map[string]in
 
 	output = &map[string]interface{}{}
 	req = c.newRequest(op, input, output)
+
+	req.HTTPRequest.Header.Set("Content-Type", "application/json; charset=utf-8")
 
 	return
 }
@@ -97,7 +99,7 @@ const opVideoEditorUpdateSpeaker = "VideoEditorUpdateSpeaker"
 func (c *I18NOPENAPI) VideoEditorUpdateSpeakerRequest(input *VideoEditorUpdateSpeakerInput) (req *request.Request, output *VideoEditorUpdateSpeakerOutput) {
 	op := &request.Operation{
 		Name:       opVideoEditorUpdateSpeaker,
-		HTTPMethod: "GET",
+		HTTPMethod: "POST",
 		HTTPPath:   "/",
 	}
 
@@ -107,6 +109,8 @@ func (c *I18NOPENAPI) VideoEditorUpdateSpeakerRequest(input *VideoEditorUpdateSp
 
 	output = &VideoEditorUpdateSpeakerOutput{}
 	req = c.newRequest(op, input, output)
+
+	req.HTTPRequest.Header.Set("Content-Type", "application/json; charset=utf-8")
 
 	return
 }
@@ -140,16 +144,16 @@ func (c *I18NOPENAPI) VideoEditorUpdateSpeakerWithContext(ctx volcengine.Context
 }
 
 type VideoEditorUpdateSpeakerInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// Id is a required field
-	Id *int32 `locationName:"id" type:"int32" required:"true"`
+	Id *string `type:"string" json:"id,omitempty" required:"true"`
 
 	// SpeakerName is a required field
-	SpeakerName *string `locationName:"speakerName" type:"string" required:"true"`
+	SpeakerName *string `type:"string" json:"speakerName,omitempty" required:"true"`
 
 	// SubtaskId is a required field
-	SubtaskId *int32 `locationName:"subtaskId" type:"int32" required:"true"`
+	SubtaskId *string `type:"string" json:"subtaskId,omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -182,7 +186,7 @@ func (s *VideoEditorUpdateSpeakerInput) Validate() error {
 }
 
 // SetId sets the Id field's value.
-func (s *VideoEditorUpdateSpeakerInput) SetId(v int32) *VideoEditorUpdateSpeakerInput {
+func (s *VideoEditorUpdateSpeakerInput) SetId(v string) *VideoEditorUpdateSpeakerInput {
 	s.Id = &v
 	return s
 }
@@ -194,13 +198,13 @@ func (s *VideoEditorUpdateSpeakerInput) SetSpeakerName(v string) *VideoEditorUpd
 }
 
 // SetSubtaskId sets the SubtaskId field's value.
-func (s *VideoEditorUpdateSpeakerInput) SetSubtaskId(v int32) *VideoEditorUpdateSpeakerInput {
+func (s *VideoEditorUpdateSpeakerInput) SetSubtaskId(v string) *VideoEditorUpdateSpeakerInput {
 	s.SubtaskId = &v
 	return s
 }
 
 type VideoEditorUpdateSpeakerOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 }

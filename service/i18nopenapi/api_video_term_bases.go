@@ -139,20 +139,482 @@ func (c *I18NOPENAPI) VideoTermBasesWithContext(ctx volcengine.Context, input *V
 	return out, req.Send()
 }
 
+type BindProjectForVideoTermBasesOutput struct {
+	_ struct{} `type:"structure"`
+
+	Id *string `type:"string" json:"id"`
+
+	Name *string `type:"string" json:"name"`
+
+	Ptype *int32 `type:"int32" json:"ptype"`
+
+	UserRole *string `type:"string" json:"userRole"`
+}
+
+// String returns the string representation
+func (s BindProjectForVideoTermBasesOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s BindProjectForVideoTermBasesOutput) GoString() string {
+	return s.String()
+}
+
+// SetId sets the Id field's value.
+func (s *BindProjectForVideoTermBasesOutput) SetId(v string) *BindProjectForVideoTermBasesOutput {
+	s.Id = &v
+	return s
+}
+
+// SetName sets the Name field's value.
+func (s *BindProjectForVideoTermBasesOutput) SetName(v string) *BindProjectForVideoTermBasesOutput {
+	s.Name = &v
+	return s
+}
+
+// SetPtype sets the Ptype field's value.
+func (s *BindProjectForVideoTermBasesOutput) SetPtype(v int32) *BindProjectForVideoTermBasesOutput {
+	s.Ptype = &v
+	return s
+}
+
+// SetUserRole sets the UserRole field's value.
+func (s *BindProjectForVideoTermBasesOutput) SetUserRole(v string) *BindProjectForVideoTermBasesOutput {
+	s.UserRole = &v
+	return s
+}
+
+type BusinessLineListForVideoTermBasesOutput struct {
+	_ struct{} `type:"structure"`
+
+	Id *string `type:"string" json:"id"`
+
+	Name *string `type:"string" json:"name"`
+}
+
+// String returns the string representation
+func (s BusinessLineListForVideoTermBasesOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s BusinessLineListForVideoTermBasesOutput) GoString() string {
+	return s.String()
+}
+
+// SetId sets the Id field's value.
+func (s *BusinessLineListForVideoTermBasesOutput) SetId(v string) *BusinessLineListForVideoTermBasesOutput {
+	s.Id = &v
+	return s
+}
+
+// SetName sets the Name field's value.
+func (s *BusinessLineListForVideoTermBasesOutput) SetName(v string) *BusinessLineListForVideoTermBasesOutput {
+	s.Name = &v
+	return s
+}
+
+type CreatorForVideoTermBasesOutput struct {
+	_ struct{} `type:"structure"`
+
+	Avatar *string `type:"string" json:"avatar"`
+
+	CreateAt *string `type:"string" json:"createAt"`
+
+	Name *string `type:"string" json:"name"`
+
+	Role *int32 `type:"int32" json:"role"`
+
+	UpdatedAt *string `type:"string" json:"updatedAt"`
+
+	UserId *string `type:"string" json:"userId"`
+}
+
+// String returns the string representation
+func (s CreatorForVideoTermBasesOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s CreatorForVideoTermBasesOutput) GoString() string {
+	return s.String()
+}
+
+// SetAvatar sets the Avatar field's value.
+func (s *CreatorForVideoTermBasesOutput) SetAvatar(v string) *CreatorForVideoTermBasesOutput {
+	s.Avatar = &v
+	return s
+}
+
+// SetCreateAt sets the CreateAt field's value.
+func (s *CreatorForVideoTermBasesOutput) SetCreateAt(v string) *CreatorForVideoTermBasesOutput {
+	s.CreateAt = &v
+	return s
+}
+
+// SetName sets the Name field's value.
+func (s *CreatorForVideoTermBasesOutput) SetName(v string) *CreatorForVideoTermBasesOutput {
+	s.Name = &v
+	return s
+}
+
+// SetRole sets the Role field's value.
+func (s *CreatorForVideoTermBasesOutput) SetRole(v int32) *CreatorForVideoTermBasesOutput {
+	s.Role = &v
+	return s
+}
+
+// SetUpdatedAt sets the UpdatedAt field's value.
+func (s *CreatorForVideoTermBasesOutput) SetUpdatedAt(v string) *CreatorForVideoTermBasesOutput {
+	s.UpdatedAt = &v
+	return s
+}
+
+// SetUserId sets the UserId field's value.
+func (s *CreatorForVideoTermBasesOutput) SetUserId(v string) *CreatorForVideoTermBasesOutput {
+	s.UserId = &v
+	return s
+}
+
+type DataForVideoTermBasesOutput struct {
+	_ struct{} `type:"structure"`
+
+	BindProjects []*BindProjectForVideoTermBasesOutput `type:"list" json:"bindProjects"`
+
+	BusinessLineList []*BusinessLineListForVideoTermBasesOutput `type:"list" json:"businessLineList"`
+
+	CreatedAt *string `type:"string" json:"createdAt"`
+
+	Creator *CreatorForVideoTermBasesOutput `type:"structure" json:"creator"`
+
+	Description *string `type:"string" json:"description"`
+
+	Id *string `type:"string" json:"id"`
+
+	Langs []*string `type:"list" json:"langs"`
+
+	Managers []*ManagerForVideoTermBasesOutput `type:"list" json:"managers"`
+
+	Name *string `type:"string" json:"name"`
+
+	Operator *OperatorForVideoTermBasesOutput `type:"structure" json:"operator"`
+
+	Perm *int32 `type:"int32" json:"perm"`
+
+	Priority *string `type:"string" json:"priority"`
+
+	ProjectId *string `type:"string" json:"projectId"`
+
+	Ptype *int32 `type:"int32" json:"ptype"`
+
+	TermBaseSpecificType *int32 `type:"int32" json:"termBaseSpecificType"`
+
+	TermBaseType *int32 `type:"int32" json:"termBaseType"`
+
+	TermGroupCount *int32 `type:"int32" json:"termGroupCount"`
+
+	UpdatedAt *string `type:"string" json:"updatedAt"`
+
+	Visibility *int32 `type:"int32" json:"visibility"`
+}
+
+// String returns the string representation
+func (s DataForVideoTermBasesOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DataForVideoTermBasesOutput) GoString() string {
+	return s.String()
+}
+
+// SetBindProjects sets the BindProjects field's value.
+func (s *DataForVideoTermBasesOutput) SetBindProjects(v []*BindProjectForVideoTermBasesOutput) *DataForVideoTermBasesOutput {
+	s.BindProjects = v
+	return s
+}
+
+// SetBusinessLineList sets the BusinessLineList field's value.
+func (s *DataForVideoTermBasesOutput) SetBusinessLineList(v []*BusinessLineListForVideoTermBasesOutput) *DataForVideoTermBasesOutput {
+	s.BusinessLineList = v
+	return s
+}
+
+// SetCreatedAt sets the CreatedAt field's value.
+func (s *DataForVideoTermBasesOutput) SetCreatedAt(v string) *DataForVideoTermBasesOutput {
+	s.CreatedAt = &v
+	return s
+}
+
+// SetCreator sets the Creator field's value.
+func (s *DataForVideoTermBasesOutput) SetCreator(v *CreatorForVideoTermBasesOutput) *DataForVideoTermBasesOutput {
+	s.Creator = v
+	return s
+}
+
+// SetDescription sets the Description field's value.
+func (s *DataForVideoTermBasesOutput) SetDescription(v string) *DataForVideoTermBasesOutput {
+	s.Description = &v
+	return s
+}
+
+// SetId sets the Id field's value.
+func (s *DataForVideoTermBasesOutput) SetId(v string) *DataForVideoTermBasesOutput {
+	s.Id = &v
+	return s
+}
+
+// SetLangs sets the Langs field's value.
+func (s *DataForVideoTermBasesOutput) SetLangs(v []*string) *DataForVideoTermBasesOutput {
+	s.Langs = v
+	return s
+}
+
+// SetManagers sets the Managers field's value.
+func (s *DataForVideoTermBasesOutput) SetManagers(v []*ManagerForVideoTermBasesOutput) *DataForVideoTermBasesOutput {
+	s.Managers = v
+	return s
+}
+
+// SetName sets the Name field's value.
+func (s *DataForVideoTermBasesOutput) SetName(v string) *DataForVideoTermBasesOutput {
+	s.Name = &v
+	return s
+}
+
+// SetOperator sets the Operator field's value.
+func (s *DataForVideoTermBasesOutput) SetOperator(v *OperatorForVideoTermBasesOutput) *DataForVideoTermBasesOutput {
+	s.Operator = v
+	return s
+}
+
+// SetPerm sets the Perm field's value.
+func (s *DataForVideoTermBasesOutput) SetPerm(v int32) *DataForVideoTermBasesOutput {
+	s.Perm = &v
+	return s
+}
+
+// SetPriority sets the Priority field's value.
+func (s *DataForVideoTermBasesOutput) SetPriority(v string) *DataForVideoTermBasesOutput {
+	s.Priority = &v
+	return s
+}
+
+// SetProjectId sets the ProjectId field's value.
+func (s *DataForVideoTermBasesOutput) SetProjectId(v string) *DataForVideoTermBasesOutput {
+	s.ProjectId = &v
+	return s
+}
+
+// SetPtype sets the Ptype field's value.
+func (s *DataForVideoTermBasesOutput) SetPtype(v int32) *DataForVideoTermBasesOutput {
+	s.Ptype = &v
+	return s
+}
+
+// SetTermBaseSpecificType sets the TermBaseSpecificType field's value.
+func (s *DataForVideoTermBasesOutput) SetTermBaseSpecificType(v int32) *DataForVideoTermBasesOutput {
+	s.TermBaseSpecificType = &v
+	return s
+}
+
+// SetTermBaseType sets the TermBaseType field's value.
+func (s *DataForVideoTermBasesOutput) SetTermBaseType(v int32) *DataForVideoTermBasesOutput {
+	s.TermBaseType = &v
+	return s
+}
+
+// SetTermGroupCount sets the TermGroupCount field's value.
+func (s *DataForVideoTermBasesOutput) SetTermGroupCount(v int32) *DataForVideoTermBasesOutput {
+	s.TermGroupCount = &v
+	return s
+}
+
+// SetUpdatedAt sets the UpdatedAt field's value.
+func (s *DataForVideoTermBasesOutput) SetUpdatedAt(v string) *DataForVideoTermBasesOutput {
+	s.UpdatedAt = &v
+	return s
+}
+
+// SetVisibility sets the Visibility field's value.
+func (s *DataForVideoTermBasesOutput) SetVisibility(v int32) *DataForVideoTermBasesOutput {
+	s.Visibility = &v
+	return s
+}
+
+type ManagerForVideoTermBasesOutput struct {
+	_ struct{} `type:"structure"`
+
+	Avatar *string `type:"string" json:"avatar"`
+
+	CreateAt *string `type:"string" json:"createAt"`
+
+	Name *string `type:"string" json:"name"`
+
+	Role *int32 `type:"int32" json:"role"`
+
+	UpdatedAt *string `type:"string" json:"updatedAt"`
+
+	UserId *string `type:"string" json:"userId"`
+}
+
+// String returns the string representation
+func (s ManagerForVideoTermBasesOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ManagerForVideoTermBasesOutput) GoString() string {
+	return s.String()
+}
+
+// SetAvatar sets the Avatar field's value.
+func (s *ManagerForVideoTermBasesOutput) SetAvatar(v string) *ManagerForVideoTermBasesOutput {
+	s.Avatar = &v
+	return s
+}
+
+// SetCreateAt sets the CreateAt field's value.
+func (s *ManagerForVideoTermBasesOutput) SetCreateAt(v string) *ManagerForVideoTermBasesOutput {
+	s.CreateAt = &v
+	return s
+}
+
+// SetName sets the Name field's value.
+func (s *ManagerForVideoTermBasesOutput) SetName(v string) *ManagerForVideoTermBasesOutput {
+	s.Name = &v
+	return s
+}
+
+// SetRole sets the Role field's value.
+func (s *ManagerForVideoTermBasesOutput) SetRole(v int32) *ManagerForVideoTermBasesOutput {
+	s.Role = &v
+	return s
+}
+
+// SetUpdatedAt sets the UpdatedAt field's value.
+func (s *ManagerForVideoTermBasesOutput) SetUpdatedAt(v string) *ManagerForVideoTermBasesOutput {
+	s.UpdatedAt = &v
+	return s
+}
+
+// SetUserId sets the UserId field's value.
+func (s *ManagerForVideoTermBasesOutput) SetUserId(v string) *ManagerForVideoTermBasesOutput {
+	s.UserId = &v
+	return s
+}
+
+type OperatorForVideoTermBasesOutput struct {
+	_ struct{} `type:"structure"`
+
+	Avatar *string `type:"string" json:"avatar"`
+
+	CreateAt *string `type:"string" json:"createAt"`
+
+	Name *string `type:"string" json:"name"`
+
+	Role *int32 `type:"int32" json:"role"`
+
+	UpdatedAt *string `type:"string" json:"updatedAt"`
+
+	UserId *string `type:"string" json:"userId"`
+}
+
+// String returns the string representation
+func (s OperatorForVideoTermBasesOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s OperatorForVideoTermBasesOutput) GoString() string {
+	return s.String()
+}
+
+// SetAvatar sets the Avatar field's value.
+func (s *OperatorForVideoTermBasesOutput) SetAvatar(v string) *OperatorForVideoTermBasesOutput {
+	s.Avatar = &v
+	return s
+}
+
+// SetCreateAt sets the CreateAt field's value.
+func (s *OperatorForVideoTermBasesOutput) SetCreateAt(v string) *OperatorForVideoTermBasesOutput {
+	s.CreateAt = &v
+	return s
+}
+
+// SetName sets the Name field's value.
+func (s *OperatorForVideoTermBasesOutput) SetName(v string) *OperatorForVideoTermBasesOutput {
+	s.Name = &v
+	return s
+}
+
+// SetRole sets the Role field's value.
+func (s *OperatorForVideoTermBasesOutput) SetRole(v int32) *OperatorForVideoTermBasesOutput {
+	s.Role = &v
+	return s
+}
+
+// SetUpdatedAt sets the UpdatedAt field's value.
+func (s *OperatorForVideoTermBasesOutput) SetUpdatedAt(v string) *OperatorForVideoTermBasesOutput {
+	s.UpdatedAt = &v
+	return s
+}
+
+// SetUserId sets the UserId field's value.
+func (s *OperatorForVideoTermBasesOutput) SetUserId(v string) *OperatorForVideoTermBasesOutput {
+	s.UserId = &v
+	return s
+}
+
+type PaginationForVideoTermBasesOutput struct {
+	_ struct{} `type:"structure"`
+
+	Limit *int32 `type:"int32" json:"limit"`
+
+	Offset *int32 `type:"int32" json:"offset"`
+}
+
+// String returns the string representation
+func (s PaginationForVideoTermBasesOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s PaginationForVideoTermBasesOutput) GoString() string {
+	return s.String()
+}
+
+// SetLimit sets the Limit field's value.
+func (s *PaginationForVideoTermBasesOutput) SetLimit(v int32) *PaginationForVideoTermBasesOutput {
+	s.Limit = &v
+	return s
+}
+
+// SetOffset sets the Offset field's value.
+func (s *PaginationForVideoTermBasesOutput) SetOffset(v int32) *PaginationForVideoTermBasesOutput {
+	s.Offset = &v
+	return s
+}
+
 type VideoTermBasesInput struct {
 	_ struct{} `type:"structure"`
 
-	// Limit is a required field
-	Limit *int32 `locationName:"limit" type:"int32" required:"true"`
+	Keyword *string `locationName:"keyword" type:"string"`
 
-	// Offset is a required field
-	Offset *int32 `locationName:"offset" type:"int32" required:"true"`
+	Limit *int32 `locationName:"limit" type:"int32"`
+
+	Offset *int32 `locationName:"offset" type:"int32"`
 
 	// ProjectId is a required field
 	ProjectId *string `locationName:"projectId" type:"string" required:"true"`
 
 	// TargetProject is a required field
 	TargetProject *string `locationName:"targetProject" type:"string" required:"true"`
+
+	TermBaseId *string `locationName:"termBaseId" type:"string"`
+
+	TermBaseType *int32 `locationName:"termBaseType" type:"int32"`
 }
 
 // String returns the string representation
@@ -168,12 +630,6 @@ func (s VideoTermBasesInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *VideoTermBasesInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "VideoTermBasesInput"}
-	if s.Limit == nil {
-		invalidParams.Add(request.NewErrParamRequired("Limit"))
-	}
-	if s.Offset == nil {
-		invalidParams.Add(request.NewErrParamRequired("Offset"))
-	}
 	if s.ProjectId == nil {
 		invalidParams.Add(request.NewErrParamRequired("ProjectId"))
 	}
@@ -185,6 +641,12 @@ func (s *VideoTermBasesInput) Validate() error {
 		return invalidParams
 	}
 	return nil
+}
+
+// SetKeyword sets the Keyword field's value.
+func (s *VideoTermBasesInput) SetKeyword(v string) *VideoTermBasesInput {
+	s.Keyword = &v
+	return s
 }
 
 // SetLimit sets the Limit field's value.
@@ -211,10 +673,28 @@ func (s *VideoTermBasesInput) SetTargetProject(v string) *VideoTermBasesInput {
 	return s
 }
 
+// SetTermBaseId sets the TermBaseId field's value.
+func (s *VideoTermBasesInput) SetTermBaseId(v string) *VideoTermBasesInput {
+	s.TermBaseId = &v
+	return s
+}
+
+// SetTermBaseType sets the TermBaseType field's value.
+func (s *VideoTermBasesInput) SetTermBaseType(v int32) *VideoTermBasesInput {
+	s.TermBaseType = &v
+	return s
+}
+
 type VideoTermBasesOutput struct {
 	_ struct{} `type:"structure"`
 
 	Metadata *response.ResponseMetadata
+
+	Data []*DataForVideoTermBasesOutput `type:"list" json:"data"`
+
+	Pagination *PaginationForVideoTermBasesOutput `type:"structure" json:"pagination"`
+
+	Total *int32 `type:"int32" json:"total"`
 }
 
 // String returns the string representation
@@ -225,4 +705,22 @@ func (s VideoTermBasesOutput) String() string {
 // GoString returns the string representation
 func (s VideoTermBasesOutput) GoString() string {
 	return s.String()
+}
+
+// SetData sets the Data field's value.
+func (s *VideoTermBasesOutput) SetData(v []*DataForVideoTermBasesOutput) *VideoTermBasesOutput {
+	s.Data = v
+	return s
+}
+
+// SetPagination sets the Pagination field's value.
+func (s *VideoTermBasesOutput) SetPagination(v *PaginationForVideoTermBasesOutput) *VideoTermBasesOutput {
+	s.Pagination = v
+	return s
+}
+
+// SetTotal sets the Total field's value.
+func (s *VideoTermBasesOutput) SetTotal(v int32) *VideoTermBasesOutput {
+	s.Total = &v
+	return s
 }

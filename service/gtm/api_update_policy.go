@@ -211,7 +211,8 @@ type UpdatePolicyInput struct {
 
 	Policy *PolicyForUpdatePolicyInput `type:"structure" json:",omitempty"`
 
-	PolicyType *string `type:"string" json:",omitempty"`
+	// PolicyType is a required field
+	PolicyType *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -229,6 +230,9 @@ func (s *UpdatePolicyInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "UpdatePolicyInput"}
 	if s.GtmId == nil {
 		invalidParams.Add(request.NewErrParamRequired("GtmId"))
+	}
+	if s.PolicyType == nil {
+		invalidParams.Add(request.NewErrParamRequired("PolicyType"))
 	}
 
 	if invalidParams.Len() > 0 {

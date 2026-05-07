@@ -143,12 +143,60 @@ func (c *AIDAP) DescribeWorkspacesWithContext(ctx volcengine.Context, input *Des
 	return out, req.Send()
 }
 
+type BaasComputeSettingsForDescribeWorkspacesOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	AutoScalingLimitMaxCU *float64 `type:"double" json:",omitempty"`
+
+	AutoScalingLimitMinCU *float64 `type:"double" json:",omitempty"`
+
+	EnableAnalytics *string `type:"string" json:",omitempty" enum:"EnumOfEnableAnalyticsForDescribeWorkspacesOutput"`
+
+	SuspendTimeoutSeconds *int32 `type:"int32" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s BaasComputeSettingsForDescribeWorkspacesOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s BaasComputeSettingsForDescribeWorkspacesOutput) GoString() string {
+	return s.String()
+}
+
+// SetAutoScalingLimitMaxCU sets the AutoScalingLimitMaxCU field's value.
+func (s *BaasComputeSettingsForDescribeWorkspacesOutput) SetAutoScalingLimitMaxCU(v float64) *BaasComputeSettingsForDescribeWorkspacesOutput {
+	s.AutoScalingLimitMaxCU = &v
+	return s
+}
+
+// SetAutoScalingLimitMinCU sets the AutoScalingLimitMinCU field's value.
+func (s *BaasComputeSettingsForDescribeWorkspacesOutput) SetAutoScalingLimitMinCU(v float64) *BaasComputeSettingsForDescribeWorkspacesOutput {
+	s.AutoScalingLimitMinCU = &v
+	return s
+}
+
+// SetEnableAnalytics sets the EnableAnalytics field's value.
+func (s *BaasComputeSettingsForDescribeWorkspacesOutput) SetEnableAnalytics(v string) *BaasComputeSettingsForDescribeWorkspacesOutput {
+	s.EnableAnalytics = &v
+	return s
+}
+
+// SetSuspendTimeoutSeconds sets the SuspendTimeoutSeconds field's value.
+func (s *BaasComputeSettingsForDescribeWorkspacesOutput) SetSuspendTimeoutSeconds(v int32) *BaasComputeSettingsForDescribeWorkspacesOutput {
+	s.SuspendTimeoutSeconds = &v
+	return s
+}
+
 type ComputeSettingsForDescribeWorkspacesOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
 	AutoScalingLimitMaxCU *float64 `type:"double" json:",omitempty"`
 
 	AutoScalingLimitMinCU *float64 `type:"double" json:",omitempty"`
+
+	EnableAnalytics *string `type:"string" json:",omitempty" enum:"EnumOfEnableAnalyticsForDescribeWorkspacesOutput"`
 
 	SuspendTimeoutSeconds *int32 `type:"int32" json:",omitempty"`
 }
@@ -172,6 +220,12 @@ func (s *ComputeSettingsForDescribeWorkspacesOutput) SetAutoScalingLimitMaxCU(v 
 // SetAutoScalingLimitMinCU sets the AutoScalingLimitMinCU field's value.
 func (s *ComputeSettingsForDescribeWorkspacesOutput) SetAutoScalingLimitMinCU(v float64) *ComputeSettingsForDescribeWorkspacesOutput {
 	s.AutoScalingLimitMinCU = &v
+	return s
+}
+
+// SetEnableAnalytics sets the EnableAnalytics field's value.
+func (s *ComputeSettingsForDescribeWorkspacesOutput) SetEnableAnalytics(v string) *ComputeSettingsForDescribeWorkspacesOutput {
+	s.EnableAnalytics = &v
 	return s
 }
 
@@ -326,11 +380,15 @@ type WorkspaceForDescribeWorkspacesOutput struct {
 
 	AccountId *string `type:"string" json:",omitempty"`
 
+	BaasComputeSettings *BaasComputeSettingsForDescribeWorkspacesOutput `type:"structure" json:",omitempty"`
+
 	ComputeSettings *ComputeSettingsForDescribeWorkspacesOutput `type:"structure" json:",omitempty"`
 
 	CreateTime *string `type:"string" json:",omitempty"`
 
 	CreationSource *string `type:"string" json:",omitempty" enum:"EnumOfCreationSourceForDescribeWorkspacesOutput"`
+
+	DNSVisibility *bool `type:"boolean" json:",omitempty"`
 
 	DeletionProtectionStatus *string `type:"string" json:",omitempty" enum:"EnumOfDeletionProtectionStatusForDescribeWorkspacesOutput"`
 
@@ -387,6 +445,12 @@ func (s *WorkspaceForDescribeWorkspacesOutput) SetAccountId(v string) *Workspace
 	return s
 }
 
+// SetBaasComputeSettings sets the BaasComputeSettings field's value.
+func (s *WorkspaceForDescribeWorkspacesOutput) SetBaasComputeSettings(v *BaasComputeSettingsForDescribeWorkspacesOutput) *WorkspaceForDescribeWorkspacesOutput {
+	s.BaasComputeSettings = v
+	return s
+}
+
 // SetComputeSettings sets the ComputeSettings field's value.
 func (s *WorkspaceForDescribeWorkspacesOutput) SetComputeSettings(v *ComputeSettingsForDescribeWorkspacesOutput) *WorkspaceForDescribeWorkspacesOutput {
 	s.ComputeSettings = v
@@ -402,6 +466,12 @@ func (s *WorkspaceForDescribeWorkspacesOutput) SetCreateTime(v string) *Workspac
 // SetCreationSource sets the CreationSource field's value.
 func (s *WorkspaceForDescribeWorkspacesOutput) SetCreationSource(v string) *WorkspaceForDescribeWorkspacesOutput {
 	s.CreationSource = &v
+	return s
+}
+
+// SetDNSVisibility sets the DNSVisibility field's value.
+func (s *WorkspaceForDescribeWorkspacesOutput) SetDNSVisibility(v bool) *WorkspaceForDescribeWorkspacesOutput {
+	s.DNSVisibility = &v
 	return s
 }
 
@@ -748,6 +818,14 @@ const (
 )
 
 const (
+	// EnumOfEnableAnalyticsForDescribeWorkspacesOutputEnabled is a EnumOfEnableAnalyticsForDescribeWorkspacesOutput enum value
+	EnumOfEnableAnalyticsForDescribeWorkspacesOutputEnabled = "Enabled"
+
+	// EnumOfEnableAnalyticsForDescribeWorkspacesOutputDisabled is a EnumOfEnableAnalyticsForDescribeWorkspacesOutput enum value
+	EnumOfEnableAnalyticsForDescribeWorkspacesOutputDisabled = "Disabled"
+)
+
+const (
 	// EnumOfEngineTypeForDescribeWorkspacesOutputUnknown is a EnumOfEngineTypeForDescribeWorkspacesOutput enum value
 	EnumOfEngineTypeForDescribeWorkspacesOutputUnknown = "Unknown"
 
@@ -811,6 +889,9 @@ const (
 
 	// EnumOfStorageTypeForDescribeWorkspacesOutputStoragePool is a EnumOfStorageTypeForDescribeWorkspacesOutput enum value
 	EnumOfStorageTypeForDescribeWorkspacesOutputStoragePool = "StoragePool"
+
+	// EnumOfStorageTypeForDescribeWorkspacesOutputNotInvolved is a EnumOfStorageTypeForDescribeWorkspacesOutput enum value
+	EnumOfStorageTypeForDescribeWorkspacesOutputNotInvolved = "NotInvolved"
 )
 
 const (

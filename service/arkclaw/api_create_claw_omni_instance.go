@@ -144,8 +144,7 @@ func (c *ARKCLAW) CreateClawOmniInstanceWithContext(ctx volcengine.Context, inpu
 type CreateClawOmniInstanceInput struct {
 	_ struct{} `type:"structure"`
 
-	// CpuMilli is a required field
-	CpuMilli *int32 `type:"int32" required:"true"`
+	CpuMilli *int32 `type:"int32"`
 
 	Description *string `type:"string"`
 
@@ -153,8 +152,7 @@ type CreateClawOmniInstanceInput struct {
 
 	ExpiredAction *string `type:"string"`
 
-	// Image is a required field
-	Image *string `type:"string" required:"true"`
+	Image *string `type:"string"`
 
 	// MemoryMb is a required field
 	MemoryMb *int32 `type:"int32" required:"true"`
@@ -171,6 +169,8 @@ type CreateClawOmniInstanceInput struct {
 	SpaceId *string `type:"string" required:"true"`
 
 	Tags []*TagForCreateClawOmniInstanceInput `type:"list"`
+
+	TemplateId *string `type:"string"`
 
 	// Timeout is a required field
 	Timeout *int32 `type:"int32" required:"true"`
@@ -189,12 +189,6 @@ func (s CreateClawOmniInstanceInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *CreateClawOmniInstanceInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "CreateClawOmniInstanceInput"}
-	if s.CpuMilli == nil {
-		invalidParams.Add(request.NewErrParamRequired("CpuMilli"))
-	}
-	if s.Image == nil {
-		invalidParams.Add(request.NewErrParamRequired("Image"))
-	}
 	if s.MemoryMb == nil {
 		invalidParams.Add(request.NewErrParamRequired("MemoryMb"))
 	}
@@ -300,6 +294,12 @@ func (s *CreateClawOmniInstanceInput) SetSpaceId(v string) *CreateClawOmniInstan
 // SetTags sets the Tags field's value.
 func (s *CreateClawOmniInstanceInput) SetTags(v []*TagForCreateClawOmniInstanceInput) *CreateClawOmniInstanceInput {
 	s.Tags = v
+	return s
+}
+
+// SetTemplateId sets the TemplateId field's value.
+func (s *CreateClawOmniInstanceInput) SetTemplateId(v string) *CreateClawOmniInstanceInput {
+	s.TemplateId = &v
 	return s
 }
 

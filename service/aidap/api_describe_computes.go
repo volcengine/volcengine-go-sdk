@@ -166,7 +166,11 @@ type ComputeForDescribeComputesOutput struct {
 
 	Disabled *bool `type:"boolean" json:",omitempty"`
 
+	EnableAnalytics *string `type:"string" json:",omitempty" enum:"EnumOfEnableAnalyticsForDescribeComputesOutput"`
+
 	LastActiveTime *string `type:"string" json:",omitempty"`
+
+	ServiceType *string `type:"string" json:",omitempty" enum:"EnumOfServiceTypeForDescribeComputesOutput"`
 
 	StatusChangedTime *string `type:"string" json:",omitempty"`
 
@@ -247,9 +251,21 @@ func (s *ComputeForDescribeComputesOutput) SetDisabled(v bool) *ComputeForDescri
 	return s
 }
 
+// SetEnableAnalytics sets the EnableAnalytics field's value.
+func (s *ComputeForDescribeComputesOutput) SetEnableAnalytics(v string) *ComputeForDescribeComputesOutput {
+	s.EnableAnalytics = &v
+	return s
+}
+
 // SetLastActiveTime sets the LastActiveTime field's value.
 func (s *ComputeForDescribeComputesOutput) SetLastActiveTime(v string) *ComputeForDescribeComputesOutput {
 	s.LastActiveTime = &v
+	return s
+}
+
+// SetServiceType sets the ServiceType field's value.
+func (s *ComputeForDescribeComputesOutput) SetServiceType(v string) *ComputeForDescribeComputesOutput {
+	s.ServiceType = &v
 	return s
 }
 
@@ -282,6 +298,8 @@ type DescribeComputesInput struct {
 
 	// BranchId is a required field
 	BranchId *string `type:"string" json:",omitempty" required:"true"`
+
+	ServiceType *string `type:"string" json:",omitempty" enum:"EnumOfServiceTypeForDescribeComputesInput"`
 
 	// WorkspaceId is a required field
 	WorkspaceId *string `type:"string" json:",omitempty" required:"true"`
@@ -316,6 +334,12 @@ func (s *DescribeComputesInput) Validate() error {
 // SetBranchId sets the BranchId field's value.
 func (s *DescribeComputesInput) SetBranchId(v string) *DescribeComputesInput {
 	s.BranchId = &v
+	return s
+}
+
+// SetServiceType sets the ServiceType field's value.
+func (s *DescribeComputesInput) SetServiceType(v string) *DescribeComputesInput {
+	s.ServiceType = &v
 	return s
 }
 
@@ -358,6 +382,9 @@ func (s *DescribeComputesOutput) SetTotal(v int32) *DescribeComputesOutput {
 }
 
 const (
+	// EnumOfComputeRoleForDescribeComputesOutputUnknown is a EnumOfComputeRoleForDescribeComputesOutput enum value
+	EnumOfComputeRoleForDescribeComputesOutputUnknown = "Unknown"
+
 	// EnumOfComputeRoleForDescribeComputesOutputPrimary is a EnumOfComputeRoleForDescribeComputesOutput enum value
 	EnumOfComputeRoleForDescribeComputesOutputPrimary = "Primary"
 
@@ -424,4 +451,28 @@ const (
 
 	// EnumOfCreationSourceForDescribeComputesOutputUitool is a EnumOfCreationSourceForDescribeComputesOutput enum value
 	EnumOfCreationSourceForDescribeComputesOutputUitool = "UITool"
+)
+
+const (
+	// EnumOfEnableAnalyticsForDescribeComputesOutputEnabled is a EnumOfEnableAnalyticsForDescribeComputesOutput enum value
+	EnumOfEnableAnalyticsForDescribeComputesOutputEnabled = "Enabled"
+
+	// EnumOfEnableAnalyticsForDescribeComputesOutputDisabled is a EnumOfEnableAnalyticsForDescribeComputesOutput enum value
+	EnumOfEnableAnalyticsForDescribeComputesOutputDisabled = "Disabled"
+)
+
+const (
+	// EnumOfServiceTypeForDescribeComputesInputDatabase is a EnumOfServiceTypeForDescribeComputesInput enum value
+	EnumOfServiceTypeForDescribeComputesInputDatabase = "Database"
+
+	// EnumOfServiceTypeForDescribeComputesInputSupabase is a EnumOfServiceTypeForDescribeComputesInput enum value
+	EnumOfServiceTypeForDescribeComputesInputSupabase = "Supabase"
+)
+
+const (
+	// EnumOfServiceTypeForDescribeComputesOutputDatabase is a EnumOfServiceTypeForDescribeComputesOutput enum value
+	EnumOfServiceTypeForDescribeComputesOutputDatabase = "Database"
+
+	// EnumOfServiceTypeForDescribeComputesOutputSupabase is a EnumOfServiceTypeForDescribeComputesOutput enum value
+	EnumOfServiceTypeForDescribeComputesOutputSupabase = "Supabase"
 )
