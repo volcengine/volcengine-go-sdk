@@ -19,7 +19,7 @@ import (
 //    // volcengine sdk func uses an SDK service client to make a request to
 //    // INSIGHT.
 //    func myFunc(svc INSIGHTAPI) bool {
-//        // Make svc.ExpertInvokeAPI request
+//        // Make svc.AgentChat request
 //    }
 //
 //    func main() {
@@ -30,6 +30,14 @@ import (
 //    }
 //
 type INSIGHTAPI interface {
+	AgentChatCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	AgentChatCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	AgentChatCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	AgentChat(*AgentChatInput) (*AgentChatOutput, error)
+	AgentChatWithContext(volcengine.Context, *AgentChatInput, ...request.Option) (*AgentChatOutput, error)
+	AgentChatRequest(*AgentChatInput) (*request.Request, *AgentChatOutput)
+
 	ExpertInvokeAPICommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ExpertInvokeAPICommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	ExpertInvokeAPICommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
