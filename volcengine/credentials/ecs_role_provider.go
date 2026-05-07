@@ -19,9 +19,9 @@ const EcsRoleProviderName = "EcsRoleProvider"
 const (
 	// IMDSv2 endpoint and paths
 	imdsEndpoint      = "http://100.96.0.96"
-	imdsRoleCredsPath = "/volcstack/latest/iam/security_credentials/%s"        // GET
-	imdsRoleNamePath  = "/volcstack/latest/iam/security_credentials?fetchuserrole=true" // GET
-	imdsTokenPath     = "/latest/api/token"                                    // PUT
+	imdsRoleCredsPath = "/volcstack/latest/iam/security_credentials/%s"                    // GET
+	imdsRoleNamePath  = "/volcstack/latest/iam/security_credentials?type=user&format=json" // GET
+	imdsTokenPath     = "/latest/api/token"                                                // PUT
 
 	// IMDSv2 headers
 	imdsTokenTTLHeader  = "X-volc-ecs-metadata-token-ttl-seconds"
