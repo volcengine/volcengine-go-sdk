@@ -206,6 +206,8 @@ func (s *DataForVideoEditorSaveSubtitleOutput) SetSub(v []*SubForVideoEditorSave
 type SourceForVideoEditorSaveSubtitleInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	Style *string `type:"string" json:"style,omitempty"`
+
 	Text *string `type:"string" json:"text,omitempty"`
 }
 
@@ -219,6 +221,12 @@ func (s SourceForVideoEditorSaveSubtitleInput) GoString() string {
 	return s.String()
 }
 
+// SetStyle sets the Style field's value.
+func (s *SourceForVideoEditorSaveSubtitleInput) SetStyle(v string) *SourceForVideoEditorSaveSubtitleInput {
+	s.Style = &v
+	return s
+}
+
 // SetText sets the Text field's value.
 func (s *SourceForVideoEditorSaveSubtitleInput) SetText(v string) *SourceForVideoEditorSaveSubtitleInput {
 	s.Text = &v
@@ -227,6 +235,8 @@ func (s *SourceForVideoEditorSaveSubtitleInput) SetText(v string) *SourceForVide
 
 type SourceForVideoEditorSaveSubtitleOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
+
+	Style *string `type:"string" json:"style,omitempty"`
 
 	Text *string `type:"string" json:"text,omitempty"`
 }
@@ -241,6 +251,12 @@ func (s SourceForVideoEditorSaveSubtitleOutput) GoString() string {
 	return s.String()
 }
 
+// SetStyle sets the Style field's value.
+func (s *SourceForVideoEditorSaveSubtitleOutput) SetStyle(v string) *SourceForVideoEditorSaveSubtitleOutput {
+	s.Style = &v
+	return s
+}
+
 // SetText sets the Text field's value.
 func (s *SourceForVideoEditorSaveSubtitleOutput) SetText(v string) *SourceForVideoEditorSaveSubtitleOutput {
 	s.Text = &v
@@ -253,6 +269,8 @@ type SubForVideoEditorSaveSubtitleInput struct {
 	AiVoiceId *string `type:"string" json:"aiVoiceId,omitempty"`
 
 	EffectType *string `type:"string" json:"effectType,omitempty"`
+
+	EmotionTag *string `type:"string" json:"emotionTag,omitempty"`
 
 	EndTime *string `type:"string" json:"endTime,omitempty"`
 
@@ -292,6 +310,12 @@ func (s *SubForVideoEditorSaveSubtitleInput) SetAiVoiceId(v string) *SubForVideo
 // SetEffectType sets the EffectType field's value.
 func (s *SubForVideoEditorSaveSubtitleInput) SetEffectType(v string) *SubForVideoEditorSaveSubtitleInput {
 	s.EffectType = &v
+	return s
+}
+
+// SetEmotionTag sets the EmotionTag field's value.
+func (s *SubForVideoEditorSaveSubtitleInput) SetEmotionTag(v string) *SubForVideoEditorSaveSubtitleInput {
+	s.EmotionTag = &v
 	return s
 }
 
@@ -518,6 +542,8 @@ func (s *SubForVideoEditorSaveSubtitleOutput) SetVoiceTosUrl(v string) *SubForVi
 type TargetForVideoEditorSaveSubtitleInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	Style *string `type:"string" json:"style,omitempty"`
+
 	Text *string `type:"string" json:"text,omitempty"`
 }
 
@@ -531,6 +557,12 @@ func (s TargetForVideoEditorSaveSubtitleInput) GoString() string {
 	return s.String()
 }
 
+// SetStyle sets the Style field's value.
+func (s *TargetForVideoEditorSaveSubtitleInput) SetStyle(v string) *TargetForVideoEditorSaveSubtitleInput {
+	s.Style = &v
+	return s
+}
+
 // SetText sets the Text field's value.
 func (s *TargetForVideoEditorSaveSubtitleInput) SetText(v string) *TargetForVideoEditorSaveSubtitleInput {
 	s.Text = &v
@@ -539,6 +571,8 @@ func (s *TargetForVideoEditorSaveSubtitleInput) SetText(v string) *TargetForVide
 
 type TargetForVideoEditorSaveSubtitleOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
+
+	Style *string `type:"string" json:"style,omitempty"`
 
 	Text *string `type:"string" json:"text,omitempty"`
 }
@@ -551,6 +585,12 @@ func (s TargetForVideoEditorSaveSubtitleOutput) String() string {
 // GoString returns the string representation
 func (s TargetForVideoEditorSaveSubtitleOutput) GoString() string {
 	return s.String()
+}
+
+// SetStyle sets the Style field's value.
+func (s *TargetForVideoEditorSaveSubtitleOutput) SetStyle(v string) *TargetForVideoEditorSaveSubtitleOutput {
+	s.Style = &v
+	return s
 }
 
 // SetText sets the Text field's value.
