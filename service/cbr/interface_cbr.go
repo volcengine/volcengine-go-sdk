@@ -19,7 +19,7 @@ import (
 //    // volcengine sdk func uses an SDK service client to make a request to
 //    // CBR.
 //    func myFunc(svc CBRAPI) bool {
-//        // Make svc.CreateBackupJob request
+//        // Make svc.CheckExternalAccountRole request
 //    }
 //
 //    func main() {
@@ -30,6 +30,14 @@ import (
 //    }
 //
 type CBRAPI interface {
+	CheckExternalAccountRoleCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CheckExternalAccountRoleCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CheckExternalAccountRoleCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CheckExternalAccountRole(*CheckExternalAccountRoleInput) (*CheckExternalAccountRoleOutput, error)
+	CheckExternalAccountRoleWithContext(volcengine.Context, *CheckExternalAccountRoleInput, ...request.Option) (*CheckExternalAccountRoleOutput, error)
+	CheckExternalAccountRoleRequest(*CheckExternalAccountRoleInput) (*request.Request, *CheckExternalAccountRoleOutput)
+
 	CreateBackupJobCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	CreateBackupJobCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	CreateBackupJobCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -61,6 +69,14 @@ type CBRAPI interface {
 	CreateBackupResource(*CreateBackupResourceInput) (*CreateBackupResourceOutput, error)
 	CreateBackupResourceWithContext(volcengine.Context, *CreateBackupResourceInput, ...request.Option) (*CreateBackupResourceOutput, error)
 	CreateBackupResourceRequest(*CreateBackupResourceInput) (*request.Request, *CreateBackupResourceOutput)
+
+	CreateExternalAccountCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateExternalAccountCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateExternalAccountCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateExternalAccount(*CreateExternalAccountInput) (*CreateExternalAccountOutput, error)
+	CreateExternalAccountWithContext(volcengine.Context, *CreateExternalAccountInput, ...request.Option) (*CreateExternalAccountOutput, error)
+	CreateExternalAccountRequest(*CreateExternalAccountInput) (*request.Request, *CreateExternalAccountOutput)
 
 	CreateRestoreJobCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	CreateRestoreJobCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -101,6 +117,14 @@ type CBRAPI interface {
 	DeleteBackupResource(*DeleteBackupResourceInput) (*DeleteBackupResourceOutput, error)
 	DeleteBackupResourceWithContext(volcengine.Context, *DeleteBackupResourceInput, ...request.Option) (*DeleteBackupResourceOutput, error)
 	DeleteBackupResourceRequest(*DeleteBackupResourceInput) (*request.Request, *DeleteBackupResourceOutput)
+
+	DeleteExternalAccountCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeleteExternalAccountCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeleteExternalAccountCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeleteExternalAccount(*DeleteExternalAccountInput) (*DeleteExternalAccountOutput, error)
+	DeleteExternalAccountWithContext(volcengine.Context, *DeleteExternalAccountInput, ...request.Option) (*DeleteExternalAccountOutput, error)
+	DeleteExternalAccountRequest(*DeleteExternalAccountInput) (*request.Request, *DeleteExternalAccountOutput)
 
 	DeleteRecoveryPointCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DeleteRecoveryPointCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -197,6 +221,14 @@ type CBRAPI interface {
 	EnableBackupPolicy(*EnableBackupPolicyInput) (*EnableBackupPolicyOutput, error)
 	EnableBackupPolicyWithContext(volcengine.Context, *EnableBackupPolicyInput, ...request.Option) (*EnableBackupPolicyOutput, error)
 	EnableBackupPolicyRequest(*EnableBackupPolicyInput) (*request.Request, *EnableBackupPolicyOutput)
+
+	ListExternalAccountsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListExternalAccountsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListExternalAccountsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListExternalAccounts(*ListExternalAccountsInput) (*ListExternalAccountsOutput, error)
+	ListExternalAccountsWithContext(volcengine.Context, *ListExternalAccountsInput, ...request.Option) (*ListExternalAccountsOutput, error)
+	ListExternalAccountsRequest(*ListExternalAccountsInput) (*request.Request, *ListExternalAccountsOutput)
 
 	ListTagsForResourcesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ListTagsForResourcesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
