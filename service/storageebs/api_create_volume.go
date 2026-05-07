@@ -144,6 +144,8 @@ func (c *STORAGEEBS) CreateVolumeWithContext(ctx volcengine.Context, input *Crea
 type CreateVolumeInput struct {
 	_ struct{} `type:"structure"`
 
+	BurstEnabled *bool `type:"boolean"`
+
 	ClientToken *string `type:"string"`
 
 	DeleteProtection *bool `type:"boolean"`
@@ -213,6 +215,12 @@ func (s *CreateVolumeInput) Validate() error {
 		return invalidParams
 	}
 	return nil
+}
+
+// SetBurstEnabled sets the BurstEnabled field's value.
+func (s *CreateVolumeInput) SetBurstEnabled(v bool) *CreateVolumeInput {
+	s.BurstEnabled = &v
+	return s
 }
 
 // SetClientToken sets the ClientToken field's value.

@@ -18,6 +18,8 @@ type StsProvider struct {
 
 func (s *StsProvider) Retrieve() (Value, error) {
 	ins := sts.NewInstance()
+	ins.Client.ServiceInfo.Credentials.Region = defaultSTSRegion
+	ins.SetHost(defaultSTSHost)
 	if s.Region != "" {
 		ins.Client.ServiceInfo.Credentials.Region = s.Region
 	}
@@ -36,22 +38,36 @@ func (s *StsProvider) Retrieve() (Value, error) {
 
 	ins.Client.SetAccessKey(s.AccessKey)
 	ins.Client.SetSecretKey(s.SecurityKey)
+	if s.SessionToken != "" {
+		ins.Client.SetSessionToken(s.SessionToken)
+	}
 	input := &sts.AssumeRoleRequest{
 		DurationSeconds: s.DurationSeconds,
 		RoleTrn:         fmt.Sprintf("trn:iam::%s:role/%s", s.AccountId, s.RoleName),
 		RoleSessionName: uuid.New().String(),
+		Policy:          s.Policy,
 	}
 	t := time.Now().Add(time.Duration(s.DurationSeconds-60) * time.Second)
-	output, _, err := ins.AssumeRole(input)
-	if err != nil || output.ResponseMetadata.Error != nil {
-		if err == nil {
-			bb, _err := json.Marshal(output.ResponseMetadata.Error)
-			if _err != nil {
-				return Value{}, _err
-			}
-			return Value{}, fmt.Errorf(string(bb))
-		}
+	var maxRetriesPtr *int
+	if s.MaxRetries > 0 {
+		maxRetriesPtr = &s.MaxRetries
+	}
+	output, _, err := assumeRoleWithRetry(ins, input, maxRetriesPtr, s.RetryInterval)
+	if err != nil {
 		return Value{}, err
+	}
+	if output == nil {
+		return Value{}, fmt.Errorf("StsProvider: AssumeRole returned nil response")
+	}
+	if output.ResponseMetadata.Error != nil {
+		bb, _err := json.Marshal(output.ResponseMetadata.Error)
+		if _err != nil {
+			return Value{}, _err
+		}
+		return Value{}, fmt.Errorf(string(bb))
+	}
+	if output.Result == nil || output.Result.Credentials == nil {
+		return Value{}, fmt.Errorf("StsProvider: AssumeRole returned empty credentials")
 	}
 	v := Value{
 		AccessKeyID:     output.Result.Credentials.AccessKeyId,
@@ -65,6 +81,37 @@ func (s *StsProvider) Retrieve() (Value, error) {
 
 func (s *StsProvider) IsExpired() bool {
 	return s.Expiry.IsExpired()
+}
+
+// NewStsCredentialsWithOptions constructs an StsProvider-backed Credentials
+// with required parameters and optional functional options.
+func NewStsCredentialsWithOptions(accessKey, securityKey, roleName, accountId string, optFns ...func(*StsAssumeRoleOptions)) *Credentials {
+	opts := StsAssumeRoleOptions{
+		DurationSeconds: 3600,
+	}
+	for _, fn := range optFns {
+		fn(&opts)
+	}
+	cfg := StsAssumeRoleProvider{
+		AccessKey:       accessKey,
+		SecurityKey:     securityKey,
+		SessionToken:    opts.SessionToken,
+		RoleName:        roleName,
+		AccountId:       accountId,
+		Host:            opts.Host,
+		Region:          opts.Region,
+		Schema:          opts.Schema,
+		Timeout:         opts.Timeout,
+		DurationSeconds: opts.DurationSeconds,
+		Policy:          opts.Policy,
+		MaxRetries:      opts.MaxRetries,
+		RetryInterval:   opts.RetryInterval,
+	}
+	p := &StsProvider{
+		StsValue: StsValue(cfg),
+		Expiry:   Expiry{},
+	}
+	return NewExpireAbleCredentials(p)
 }
 
 func NewStsCredentials(value StsValue) *Credentials {

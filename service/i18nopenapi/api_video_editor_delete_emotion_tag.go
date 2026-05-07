@@ -32,7 +32,7 @@ const opVideoEditorDeleteEmotionTagCommon = "VideoEditorDeleteEmotionTag"
 func (c *I18NOPENAPI) VideoEditorDeleteEmotionTagCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opVideoEditorDeleteEmotionTagCommon,
-		HTTPMethod: "GET",
+		HTTPMethod: "POST",
 		HTTPPath:   "/",
 	}
 
@@ -42,6 +42,8 @@ func (c *I18NOPENAPI) VideoEditorDeleteEmotionTagCommonRequest(input *map[string
 
 	output = &map[string]interface{}{}
 	req = c.newRequest(op, input, output)
+
+	req.HTTPRequest.Header.Set("Content-Type", "application/json; charset=utf-8")
 
 	return
 }
@@ -97,7 +99,7 @@ const opVideoEditorDeleteEmotionTag = "VideoEditorDeleteEmotionTag"
 func (c *I18NOPENAPI) VideoEditorDeleteEmotionTagRequest(input *VideoEditorDeleteEmotionTagInput) (req *request.Request, output *VideoEditorDeleteEmotionTagOutput) {
 	op := &request.Operation{
 		Name:       opVideoEditorDeleteEmotionTag,
-		HTTPMethod: "GET",
+		HTTPMethod: "POST",
 		HTTPPath:   "/",
 	}
 
@@ -107,6 +109,8 @@ func (c *I18NOPENAPI) VideoEditorDeleteEmotionTagRequest(input *VideoEditorDelet
 
 	output = &VideoEditorDeleteEmotionTagOutput{}
 	req = c.newRequest(op, input, output)
+
+	req.HTTPRequest.Header.Set("Content-Type", "application/json; charset=utf-8")
 
 	return
 }
@@ -140,13 +144,13 @@ func (c *I18NOPENAPI) VideoEditorDeleteEmotionTagWithContext(ctx volcengine.Cont
 }
 
 type VideoEditorDeleteEmotionTagInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// Id is a required field
-	Id *int32 `locationName:"id" type:"int32" required:"true"`
+	Id *string `type:"string" json:"id,omitempty" required:"true"`
 
 	// SubtaskId is a required field
-	SubtaskId *int32 `locationName:"subtaskId" type:"int32" required:"true"`
+	SubtaskId *string `type:"string" json:"subtaskId,omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -176,19 +180,19 @@ func (s *VideoEditorDeleteEmotionTagInput) Validate() error {
 }
 
 // SetId sets the Id field's value.
-func (s *VideoEditorDeleteEmotionTagInput) SetId(v int32) *VideoEditorDeleteEmotionTagInput {
+func (s *VideoEditorDeleteEmotionTagInput) SetId(v string) *VideoEditorDeleteEmotionTagInput {
 	s.Id = &v
 	return s
 }
 
 // SetSubtaskId sets the SubtaskId field's value.
-func (s *VideoEditorDeleteEmotionTagInput) SetSubtaskId(v int32) *VideoEditorDeleteEmotionTagInput {
+func (s *VideoEditorDeleteEmotionTagInput) SetSubtaskId(v string) *VideoEditorDeleteEmotionTagInput {
 	s.SubtaskId = &v
 	return s
 }
 
 type VideoEditorDeleteEmotionTagOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 }

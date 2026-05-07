@@ -142,21 +142,19 @@ func (c *I18NOPENAPI) VideoEditorGetEmotionTagsWithContext(ctx volcengine.Contex
 type BuiltInEmotionTagForVideoEditorGetEmotionTagsOutput struct {
 	_ struct{} `type:"structure"`
 
-	CreateTime *int32 `type:"int32" json:"createTime"`
+	CreateTime *string `type:"string" json:"createTime"`
 
 	EmotionTag *string `type:"string" json:"emotionTag"`
 
-	Id *int32 `type:"int32" json:"id"`
+	Id *string `type:"string" json:"id"`
 
 	Name *string `type:"string" json:"name"`
 
 	Operator *string `type:"string" json:"operator"`
 
-	TaskId *int32 `type:"int32" json:"taskId"`
+	TaskId *string `type:"string" json:"taskId"`
 
 	Type *int32 `type:"int32" json:"type"`
-
-	VoiceId *string `type:"string" json:"voiceId"`
 }
 
 // String returns the string representation
@@ -170,7 +168,7 @@ func (s BuiltInEmotionTagForVideoEditorGetEmotionTagsOutput) GoString() string {
 }
 
 // SetCreateTime sets the CreateTime field's value.
-func (s *BuiltInEmotionTagForVideoEditorGetEmotionTagsOutput) SetCreateTime(v int32) *BuiltInEmotionTagForVideoEditorGetEmotionTagsOutput {
+func (s *BuiltInEmotionTagForVideoEditorGetEmotionTagsOutput) SetCreateTime(v string) *BuiltInEmotionTagForVideoEditorGetEmotionTagsOutput {
 	s.CreateTime = &v
 	return s
 }
@@ -182,7 +180,7 @@ func (s *BuiltInEmotionTagForVideoEditorGetEmotionTagsOutput) SetEmotionTag(v st
 }
 
 // SetId sets the Id field's value.
-func (s *BuiltInEmotionTagForVideoEditorGetEmotionTagsOutput) SetId(v int32) *BuiltInEmotionTagForVideoEditorGetEmotionTagsOutput {
+func (s *BuiltInEmotionTagForVideoEditorGetEmotionTagsOutput) SetId(v string) *BuiltInEmotionTagForVideoEditorGetEmotionTagsOutput {
 	s.Id = &v
 	return s
 }
@@ -200,7 +198,7 @@ func (s *BuiltInEmotionTagForVideoEditorGetEmotionTagsOutput) SetOperator(v stri
 }
 
 // SetTaskId sets the TaskId field's value.
-func (s *BuiltInEmotionTagForVideoEditorGetEmotionTagsOutput) SetTaskId(v int32) *BuiltInEmotionTagForVideoEditorGetEmotionTagsOutput {
+func (s *BuiltInEmotionTagForVideoEditorGetEmotionTagsOutput) SetTaskId(v string) *BuiltInEmotionTagForVideoEditorGetEmotionTagsOutput {
 	s.TaskId = &v
 	return s
 }
@@ -211,30 +209,22 @@ func (s *BuiltInEmotionTagForVideoEditorGetEmotionTagsOutput) SetType(v int32) *
 	return s
 }
 
-// SetVoiceId sets the VoiceId field's value.
-func (s *BuiltInEmotionTagForVideoEditorGetEmotionTagsOutput) SetVoiceId(v string) *BuiltInEmotionTagForVideoEditorGetEmotionTagsOutput {
-	s.VoiceId = &v
-	return s
-}
-
 type CustomEmotionTagForVideoEditorGetEmotionTagsOutput struct {
 	_ struct{} `type:"structure"`
 
-	CreateTime *int32 `type:"int32" json:"createTime"`
+	CreateTime *string `type:"string" json:"createTime"`
 
 	EmotionTag *string `type:"string" json:"emotionTag"`
 
-	Id *int32 `type:"int32" json:"id"`
+	Id *string `type:"string" json:"id"`
 
 	Name *string `type:"string" json:"name"`
 
 	Operator *string `type:"string" json:"operator"`
 
-	TaskId *int32 `type:"int32" json:"taskId"`
+	TaskId *string `type:"string" json:"taskId"`
 
 	Type *int32 `type:"int32" json:"type"`
-
-	VoiceId *string `type:"string" json:"voiceId"`
 }
 
 // String returns the string representation
@@ -248,7 +238,7 @@ func (s CustomEmotionTagForVideoEditorGetEmotionTagsOutput) GoString() string {
 }
 
 // SetCreateTime sets the CreateTime field's value.
-func (s *CustomEmotionTagForVideoEditorGetEmotionTagsOutput) SetCreateTime(v int32) *CustomEmotionTagForVideoEditorGetEmotionTagsOutput {
+func (s *CustomEmotionTagForVideoEditorGetEmotionTagsOutput) SetCreateTime(v string) *CustomEmotionTagForVideoEditorGetEmotionTagsOutput {
 	s.CreateTime = &v
 	return s
 }
@@ -260,7 +250,7 @@ func (s *CustomEmotionTagForVideoEditorGetEmotionTagsOutput) SetEmotionTag(v str
 }
 
 // SetId sets the Id field's value.
-func (s *CustomEmotionTagForVideoEditorGetEmotionTagsOutput) SetId(v int32) *CustomEmotionTagForVideoEditorGetEmotionTagsOutput {
+func (s *CustomEmotionTagForVideoEditorGetEmotionTagsOutput) SetId(v string) *CustomEmotionTagForVideoEditorGetEmotionTagsOutput {
 	s.Id = &v
 	return s
 }
@@ -278,7 +268,7 @@ func (s *CustomEmotionTagForVideoEditorGetEmotionTagsOutput) SetOperator(v strin
 }
 
 // SetTaskId sets the TaskId field's value.
-func (s *CustomEmotionTagForVideoEditorGetEmotionTagsOutput) SetTaskId(v int32) *CustomEmotionTagForVideoEditorGetEmotionTagsOutput {
+func (s *CustomEmotionTagForVideoEditorGetEmotionTagsOutput) SetTaskId(v string) *CustomEmotionTagForVideoEditorGetEmotionTagsOutput {
 	s.TaskId = &v
 	return s
 }
@@ -289,9 +279,33 @@ func (s *CustomEmotionTagForVideoEditorGetEmotionTagsOutput) SetType(v int32) *C
 	return s
 }
 
-// SetVoiceId sets the VoiceId field's value.
-func (s *CustomEmotionTagForVideoEditorGetEmotionTagsOutput) SetVoiceId(v string) *CustomEmotionTagForVideoEditorGetEmotionTagsOutput {
-	s.VoiceId = &v
+type DataForVideoEditorGetEmotionTagsOutput struct {
+	_ struct{} `type:"structure"`
+
+	BuiltInEmotionTags []*BuiltInEmotionTagForVideoEditorGetEmotionTagsOutput `type:"list" json:"builtInEmotionTags"`
+
+	CustomEmotionTags []*CustomEmotionTagForVideoEditorGetEmotionTagsOutput `type:"list" json:"customEmotionTags"`
+}
+
+// String returns the string representation
+func (s DataForVideoEditorGetEmotionTagsOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DataForVideoEditorGetEmotionTagsOutput) GoString() string {
+	return s.String()
+}
+
+// SetBuiltInEmotionTags sets the BuiltInEmotionTags field's value.
+func (s *DataForVideoEditorGetEmotionTagsOutput) SetBuiltInEmotionTags(v []*BuiltInEmotionTagForVideoEditorGetEmotionTagsOutput) *DataForVideoEditorGetEmotionTagsOutput {
+	s.BuiltInEmotionTags = v
+	return s
+}
+
+// SetCustomEmotionTags sets the CustomEmotionTags field's value.
+func (s *DataForVideoEditorGetEmotionTagsOutput) SetCustomEmotionTags(v []*CustomEmotionTagForVideoEditorGetEmotionTagsOutput) *DataForVideoEditorGetEmotionTagsOutput {
+	s.CustomEmotionTags = v
 	return s
 }
 
@@ -336,9 +350,7 @@ type VideoEditorGetEmotionTagsOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	BuiltInEmotionTags []*BuiltInEmotionTagForVideoEditorGetEmotionTagsOutput `type:"list" json:"builtInEmotionTags"`
-
-	CustomEmotionTags []*CustomEmotionTagForVideoEditorGetEmotionTagsOutput `type:"list" json:"customEmotionTags"`
+	Data *DataForVideoEditorGetEmotionTagsOutput `type:"structure" json:"data"`
 }
 
 // String returns the string representation
@@ -351,14 +363,8 @@ func (s VideoEditorGetEmotionTagsOutput) GoString() string {
 	return s.String()
 }
 
-// SetBuiltInEmotionTags sets the BuiltInEmotionTags field's value.
-func (s *VideoEditorGetEmotionTagsOutput) SetBuiltInEmotionTags(v []*BuiltInEmotionTagForVideoEditorGetEmotionTagsOutput) *VideoEditorGetEmotionTagsOutput {
-	s.BuiltInEmotionTags = v
-	return s
-}
-
-// SetCustomEmotionTags sets the CustomEmotionTags field's value.
-func (s *VideoEditorGetEmotionTagsOutput) SetCustomEmotionTags(v []*CustomEmotionTagForVideoEditorGetEmotionTagsOutput) *VideoEditorGetEmotionTagsOutput {
-	s.CustomEmotionTags = v
+// SetData sets the Data field's value.
+func (s *VideoEditorGetEmotionTagsOutput) SetData(v *DataForVideoEditorGetEmotionTagsOutput) *VideoEditorGetEmotionTagsOutput {
+	s.Data = v
 	return s
 }

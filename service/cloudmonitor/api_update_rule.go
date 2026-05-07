@@ -156,6 +156,8 @@ type ConditionForUpdateRuleInput struct {
 
 	Statistics *string `type:"string" json:",omitempty"`
 
+	SubNamespace *string `type:"string" json:",omitempty"`
+
 	Threshold *string `type:"string" json:",omitempty"`
 }
 
@@ -199,6 +201,12 @@ func (s *ConditionForUpdateRuleInput) SetStatistics(v string) *ConditionForUpdat
 	return s
 }
 
+// SetSubNamespace sets the SubNamespace field's value.
+func (s *ConditionForUpdateRuleInput) SetSubNamespace(v string) *ConditionForUpdateRuleInput {
+	s.SubNamespace = &v
+	return s
+}
+
 // SetThreshold sets the Threshold field's value.
 func (s *ConditionForUpdateRuleInput) SetThreshold(v string) *ConditionForUpdateRuleInput {
 	s.Threshold = &v
@@ -219,6 +227,8 @@ type ConvertConditionForUpdateRuleInput struct {
 	Period *string `type:"string" json:",omitempty"`
 
 	Statistics *string `type:"string" json:",omitempty"`
+
+	SubNamespace *string `type:"string" json:",omitempty"`
 
 	Threshold *string `type:"string" json:",omitempty"`
 }
@@ -266,6 +276,12 @@ func (s *ConvertConditionForUpdateRuleInput) SetPeriod(v string) *ConvertConditi
 // SetStatistics sets the Statistics field's value.
 func (s *ConvertConditionForUpdateRuleInput) SetStatistics(v string) *ConvertConditionForUpdateRuleInput {
 	s.Statistics = &v
+	return s
+}
+
+// SetSubNamespace sets the SubNamespace field's value.
+func (s *ConvertConditionForUpdateRuleInput) SetSubNamespace(v string) *ConvertConditionForUpdateRuleInput {
+	s.SubNamespace = &v
 	return s
 }
 

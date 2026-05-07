@@ -142,6 +142,8 @@ func (c *STORAGEEBS) ModifyVolumeAttributeWithContext(ctx volcengine.Context, in
 type ModifyVolumeAttributeInput struct {
 	_ struct{} `type:"structure"`
 
+	BurstEnabled *bool `type:"boolean"`
+
 	DeleteProtection *bool `type:"boolean"`
 
 	DeleteProtectionRetentionDays *int32 `type:"int32"`
@@ -181,6 +183,12 @@ func (s *ModifyVolumeAttributeInput) Validate() error {
 		return invalidParams
 	}
 	return nil
+}
+
+// SetBurstEnabled sets the BurstEnabled field's value.
+func (s *ModifyVolumeAttributeInput) SetBurstEnabled(v bool) *ModifyVolumeAttributeInput {
+	s.BurstEnabled = &v
+	return s
 }
 
 // SetDeleteProtection sets the DeleteProtection field's value.
