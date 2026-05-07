@@ -171,6 +171,8 @@ type CreateEventRuleInput struct {
 
 	MessageQueue []*MessageQueueForCreateEventRuleInput `type:"list" json:",omitempty"`
 
+	NotificationId *string `type:"string" json:",omitempty"`
+
 	NotifyTemplates []*NotifyTemplateForCreateEventRuleInput `type:"list" json:",omitempty"`
 
 	// RuleName is a required field
@@ -290,6 +292,12 @@ func (s *CreateEventRuleInput) SetLevel(v string) *CreateEventRuleInput {
 // SetMessageQueue sets the MessageQueue field's value.
 func (s *CreateEventRuleInput) SetMessageQueue(v []*MessageQueueForCreateEventRuleInput) *CreateEventRuleInput {
 	s.MessageQueue = v
+	return s
+}
+
+// SetNotificationId sets the NotificationId field's value.
+func (s *CreateEventRuleInput) SetNotificationId(v string) *CreateEventRuleInput {
+	s.NotificationId = &v
 	return s
 }
 

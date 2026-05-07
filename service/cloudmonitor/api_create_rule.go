@@ -158,6 +158,8 @@ type ConditionForCreateRuleInput struct {
 
 	Statistics *string `type:"string" json:",omitempty"`
 
+	SubNamespace *string `type:"string" json:",omitempty"`
+
 	Threshold *string `type:"string" json:",omitempty"`
 }
 
@@ -204,6 +206,12 @@ func (s *ConditionForCreateRuleInput) SetPeriod(v string) *ConditionForCreateRul
 // SetStatistics sets the Statistics field's value.
 func (s *ConditionForCreateRuleInput) SetStatistics(v string) *ConditionForCreateRuleInput {
 	s.Statistics = &v
+	return s
+}
+
+// SetSubNamespace sets the SubNamespace field's value.
+func (s *ConditionForCreateRuleInput) SetSubNamespace(v string) *ConditionForCreateRuleInput {
+	s.SubNamespace = &v
 	return s
 }
 
