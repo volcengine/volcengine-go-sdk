@@ -41,6 +41,14 @@ const (
 )
 
 const (
+	ExtensionsKey_UserID    string = "user_id"
+	ExtensionsKey_RunID     string = "run_id"
+	ExtensionsKey_SessionID string = "session_id"
+	ExtensionsKey_ContextID string = "context_id"
+	ExtensionsKey_HookName  string = "hook_name"
+)
+
+const (
 	LLM_STREAM_SEND_BASE_WINDOW_V2 int64 = 10
 	LLM_STREAM_SEND_EXPONENT_V2    int64 = 2
 )
@@ -74,6 +82,8 @@ type ModerateV2Request struct {
 	Scene string `thrift:"scene,5,optional" form:"Scene" json:"Scene,omitempty"`
 	// 历史消息
 	History []*MessageV2 `thrift:"history,6,optional" form:"History" json:"History,omitempty"`
+	// 扩展字段，如HookName
+	Extensions map[string]string `thrift:"Extensions,7" form:"Extensions" json:"Extensions"`
 }
 type Error struct {
 	CodeN   int    `json:"CodeN"`
