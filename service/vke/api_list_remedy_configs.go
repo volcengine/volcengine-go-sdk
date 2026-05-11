@@ -182,6 +182,8 @@ type ConfigForListRemedyConfigsOutput struct {
 
 	Drain *DrainForListRemedyConfigsOutput `type:"structure" json:",omitempty"`
 
+	IaasEvents []*string `type:"list" json:",omitempty"`
+
 	InterveneCordon *InterveneCordonForListRemedyConfigsOutput `type:"structure" json:",omitempty"`
 
 	InterveneDrain *InterveneDrainForListRemedyConfigsOutput `type:"structure" json:",omitempty"`
@@ -212,6 +214,12 @@ func (s *ConfigForListRemedyConfigsOutput) SetAutoRestoreSchedule(v bool) *Confi
 // SetDrain sets the Drain field's value.
 func (s *ConfigForListRemedyConfigsOutput) SetDrain(v *DrainForListRemedyConfigsOutput) *ConfigForListRemedyConfigsOutput {
 	s.Drain = v
+	return s
+}
+
+// SetIaasEvents sets the IaasEvents field's value.
+func (s *ConfigForListRemedyConfigsOutput) SetIaasEvents(v []*string) *ConfigForListRemedyConfigsOutput {
+	s.IaasEvents = v
 	return s
 }
 
