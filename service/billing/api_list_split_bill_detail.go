@@ -284,6 +284,8 @@ type ListForListSplitBillDetailOutput struct {
 
 	SavingPlanDeductionDiscountAmount *string `type:"string" json:",omitempty"`
 
+	SavingPlanDeductionDiscountTotalAmount *string `type:"string" json:",omitempty"`
+
 	SavingPlanDeductionSpID *string `type:"string" json:",omitempty"`
 
 	SavingPlanOriginalAmount *string `type:"string" json:",omitempty"`
@@ -768,6 +770,12 @@ func (s *ListForListSplitBillDetailOutput) SetRoundAmount(v string) *ListForList
 // SetSavingPlanDeductionDiscountAmount sets the SavingPlanDeductionDiscountAmount field's value.
 func (s *ListForListSplitBillDetailOutput) SetSavingPlanDeductionDiscountAmount(v string) *ListForListSplitBillDetailOutput {
 	s.SavingPlanDeductionDiscountAmount = &v
+	return s
+}
+
+// SetSavingPlanDeductionDiscountTotalAmount sets the SavingPlanDeductionDiscountTotalAmount field's value.
+func (s *ListForListSplitBillDetailOutput) SetSavingPlanDeductionDiscountTotalAmount(v string) *ListForListSplitBillDetailOutput {
+	s.SavingPlanDeductionDiscountTotalAmount = &v
 	return s
 }
 

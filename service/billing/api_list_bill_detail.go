@@ -454,6 +454,8 @@ type ListForListBillDetailOutput struct {
 
 	Price *string `type:"string" json:",omitempty"`
 
+	PriceFactor *string `type:"string" json:",omitempty"`
+
 	PriceInterval *string `type:"string" json:",omitempty"`
 
 	PriceUnit *string `type:"string" json:",omitempty"`
@@ -479,6 +481,8 @@ type ListForListBillDetailOutput struct {
 	RoundAmount *float64 `type:"double" json:",omitempty"`
 
 	SavingPlanDeductionDiscountAmount *string `type:"string" json:",omitempty"`
+
+	SavingPlanDeductionDiscountTotalAmount *string `type:"string" json:",omitempty"`
 
 	SavingPlanDeductionSpID *string `type:"string" json:",omitempty"`
 
@@ -891,6 +895,12 @@ func (s *ListForListBillDetailOutput) SetPrice(v string) *ListForListBillDetailO
 	return s
 }
 
+// SetPriceFactor sets the PriceFactor field's value.
+func (s *ListForListBillDetailOutput) SetPriceFactor(v string) *ListForListBillDetailOutput {
+	s.PriceFactor = &v
+	return s
+}
+
 // SetPriceInterval sets the PriceInterval field's value.
 func (s *ListForListBillDetailOutput) SetPriceInterval(v string) *ListForListBillDetailOutput {
 	s.PriceInterval = &v
@@ -966,6 +976,12 @@ func (s *ListForListBillDetailOutput) SetRoundAmount(v float64) *ListForListBill
 // SetSavingPlanDeductionDiscountAmount sets the SavingPlanDeductionDiscountAmount field's value.
 func (s *ListForListBillDetailOutput) SetSavingPlanDeductionDiscountAmount(v string) *ListForListBillDetailOutput {
 	s.SavingPlanDeductionDiscountAmount = &v
+	return s
+}
+
+// SetSavingPlanDeductionDiscountTotalAmount sets the SavingPlanDeductionDiscountTotalAmount field's value.
+func (s *ListForListBillDetailOutput) SetSavingPlanDeductionDiscountTotalAmount(v string) *ListForListBillDetailOutput {
+	s.SavingPlanDeductionDiscountTotalAmount = &v
 	return s
 }
 
