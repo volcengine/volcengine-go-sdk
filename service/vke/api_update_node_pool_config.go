@@ -143,6 +143,36 @@ func (c *VKE) UpdateNodePoolConfigWithContext(ctx volcengine.Context, input *Upd
 	return out, req.Send()
 }
 
+type AffinityGroupConfigForUpdateNodePoolConfigInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Enabled *bool `type:"boolean" json:",omitempty"`
+
+	Size *int32 `type:"int32" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s AffinityGroupConfigForUpdateNodePoolConfigInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s AffinityGroupConfigForUpdateNodePoolConfigInput) GoString() string {
+	return s.String()
+}
+
+// SetEnabled sets the Enabled field's value.
+func (s *AffinityGroupConfigForUpdateNodePoolConfigInput) SetEnabled(v bool) *AffinityGroupConfigForUpdateNodePoolConfigInput {
+	s.Enabled = &v
+	return s
+}
+
+// SetSize sets the Size field's value.
+func (s *AffinityGroupConfigForUpdateNodePoolConfigInput) SetSize(v int32) *AffinityGroupConfigForUpdateNodePoolConfigInput {
+	s.Size = &v
+	return s
+}
+
 type AutoScalingForUpdateNodePoolConfigInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -238,6 +268,12 @@ func (s *ContainerdConfigForUpdateNodePoolConfigInput) SetRegistryProxyConfigs(v
 type DataVolumeForUpdateNodePoolConfigInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	ExtraPerformanceIops *int32 `type:"int32" json:",omitempty"`
+
+	ExtraPerformanceThroughputMb *int32 `type:"int32" json:",omitempty"`
+
+	ExtraPerformanceTypeId *string `type:"string" json:",omitempty" enum:"EnumOfExtraPerformanceTypeIdForUpdateNodePoolConfigInput"`
+
 	FileSystem *string `type:"string" json:",omitempty" enum:"EnumOfFileSystemForUpdateNodePoolConfigInput"`
 
 	MountPoint *string `type:"string" json:",omitempty"`
@@ -250,7 +286,7 @@ type DataVolumeForUpdateNodePoolConfigInput struct {
 
 	SubgroupNumber *int32 `type:"int32" json:",omitempty"`
 
-	Type *string `type:"string" json:",omitempty" enum:"EnumOfTypeForUpdateNodePoolConfigInput"`
+	Type *string `type:"string" json:",omitempty" enum:"ConvertEnumOfTypeForUpdateNodePoolConfigInput"`
 }
 
 // String returns the string representation
@@ -261,6 +297,24 @@ func (s DataVolumeForUpdateNodePoolConfigInput) String() string {
 // GoString returns the string representation
 func (s DataVolumeForUpdateNodePoolConfigInput) GoString() string {
 	return s.String()
+}
+
+// SetExtraPerformanceIops sets the ExtraPerformanceIops field's value.
+func (s *DataVolumeForUpdateNodePoolConfigInput) SetExtraPerformanceIops(v int32) *DataVolumeForUpdateNodePoolConfigInput {
+	s.ExtraPerformanceIops = &v
+	return s
+}
+
+// SetExtraPerformanceThroughputMb sets the ExtraPerformanceThroughputMb field's value.
+func (s *DataVolumeForUpdateNodePoolConfigInput) SetExtraPerformanceThroughputMb(v int32) *DataVolumeForUpdateNodePoolConfigInput {
+	s.ExtraPerformanceThroughputMb = &v
+	return s
+}
+
+// SetExtraPerformanceTypeId sets the ExtraPerformanceTypeId field's value.
+func (s *DataVolumeForUpdateNodePoolConfigInput) SetExtraPerformanceTypeId(v string) *DataVolumeForUpdateNodePoolConfigInput {
+	s.ExtraPerformanceTypeId = &v
+	return s
 }
 
 // SetFileSystem sets the FileSystem field's value.
@@ -578,6 +632,8 @@ type KubernetesConfigForUpdateNodePoolConfigInput struct {
 
 	NameUseHostname *bool `type:"boolean" json:",omitempty"`
 
+	Runtime *RuntimeForUpdateNodePoolConfigInput `type:"structure" json:",omitempty"`
+
 	Taints []*TaintForUpdateNodePoolConfigInput `type:"list" json:",omitempty"`
 }
 
@@ -636,6 +692,12 @@ func (s *KubernetesConfigForUpdateNodePoolConfigInput) SetNameSuffix(v string) *
 // SetNameUseHostname sets the NameUseHostname field's value.
 func (s *KubernetesConfigForUpdateNodePoolConfigInput) SetNameUseHostname(v bool) *KubernetesConfigForUpdateNodePoolConfigInput {
 	s.NameUseHostname = &v
+	return s
+}
+
+// SetRuntime sets the Runtime field's value.
+func (s *KubernetesConfigForUpdateNodePoolConfigInput) SetRuntime(v *RuntimeForUpdateNodePoolConfigInput) *KubernetesConfigForUpdateNodePoolConfigInput {
+	s.Runtime = v
 	return s
 }
 
@@ -740,11 +802,15 @@ type NodeConfigForUpdateNodePoolConfigInput struct {
 
 	AdditionalContainerStorageEnabled *bool `type:"boolean" json:",omitempty"`
 
+	AffinityGroupConfig *AffinityGroupConfigForUpdateNodePoolConfigInput `type:"structure" json:",omitempty"`
+
 	AutoRenew *bool `type:"boolean" json:",omitempty"`
 
 	AutoRenewPeriod *int32 `type:"int32" json:",omitempty"`
 
 	DataVolumes []*DataVolumeForUpdateNodePoolConfigInput `type:"list" json:",omitempty"`
+
+	GpuDriverVersion *string `type:"string" json:",omitempty"`
 
 	Hostname *string `type:"string" json:",omitempty"`
 
@@ -801,6 +867,12 @@ func (s *NodeConfigForUpdateNodePoolConfigInput) SetAdditionalContainerStorageEn
 	return s
 }
 
+// SetAffinityGroupConfig sets the AffinityGroupConfig field's value.
+func (s *NodeConfigForUpdateNodePoolConfigInput) SetAffinityGroupConfig(v *AffinityGroupConfigForUpdateNodePoolConfigInput) *NodeConfigForUpdateNodePoolConfigInput {
+	s.AffinityGroupConfig = v
+	return s
+}
+
 // SetAutoRenew sets the AutoRenew field's value.
 func (s *NodeConfigForUpdateNodePoolConfigInput) SetAutoRenew(v bool) *NodeConfigForUpdateNodePoolConfigInput {
 	s.AutoRenew = &v
@@ -816,6 +888,12 @@ func (s *NodeConfigForUpdateNodePoolConfigInput) SetAutoRenewPeriod(v int32) *No
 // SetDataVolumes sets the DataVolumes field's value.
 func (s *NodeConfigForUpdateNodePoolConfigInput) SetDataVolumes(v []*DataVolumeForUpdateNodePoolConfigInput) *NodeConfigForUpdateNodePoolConfigInput {
 	s.DataVolumes = v
+	return s
+}
+
+// SetGpuDriverVersion sets the GpuDriverVersion field's value.
+func (s *NodeConfigForUpdateNodePoolConfigInput) SetGpuDriverVersion(v string) *NodeConfigForUpdateNodePoolConfigInput {
+	s.GpuDriverVersion = &v
 	return s
 }
 
@@ -1031,6 +1109,36 @@ func (s *RemedyConfigForUpdateNodePoolConfigInput) SetId(v string) *RemedyConfig
 	return s
 }
 
+type RuntimeForUpdateNodePoolConfigInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Type *string `type:"string" json:",omitempty" enum:"EnumOfTypeForUpdateNodePoolConfigInput"`
+
+	Version *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s RuntimeForUpdateNodePoolConfigInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s RuntimeForUpdateNodePoolConfigInput) GoString() string {
+	return s.String()
+}
+
+// SetType sets the Type field's value.
+func (s *RuntimeForUpdateNodePoolConfigInput) SetType(v string) *RuntimeForUpdateNodePoolConfigInput {
+	s.Type = &v
+	return s
+}
+
+// SetVersion sets the Version field's value.
+func (s *RuntimeForUpdateNodePoolConfigInput) SetVersion(v string) *RuntimeForUpdateNodePoolConfigInput {
+	s.Version = &v
+	return s
+}
+
 type SecurityForUpdateNodePoolConfigInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -1108,7 +1216,7 @@ type SystemVolumeForUpdateNodePoolConfigInput struct {
 
 	SubgroupNumber *int32 `type:"int32" json:",omitempty"`
 
-	Type *string `type:"string" json:",omitempty" enum:"EnumOfTypeForUpdateNodePoolConfigInput"`
+	Type *string `type:"string" json:",omitempty" enum:"ConvertEnumOfTypeForUpdateNodePoolConfigInput"`
 }
 
 // String returns the string representation
@@ -1326,6 +1434,38 @@ func (s UpdateNodePoolConfigOutput) GoString() string {
 }
 
 const (
+	// ConvertEnumOfTypeForUpdateNodePoolConfigInputEssd is a ConvertEnumOfTypeForUpdateNodePoolConfigInput enum value
+	ConvertEnumOfTypeForUpdateNodePoolConfigInputEssd = "ESSD"
+
+	// ConvertEnumOfTypeForUpdateNodePoolConfigInputEssdPl0 is a ConvertEnumOfTypeForUpdateNodePoolConfigInput enum value
+	ConvertEnumOfTypeForUpdateNodePoolConfigInputEssdPl0 = "ESSD_PL0"
+
+	// ConvertEnumOfTypeForUpdateNodePoolConfigInputEssdFlexPl is a ConvertEnumOfTypeForUpdateNodePoolConfigInput enum value
+	ConvertEnumOfTypeForUpdateNodePoolConfigInputEssdFlexPl = "ESSD_FlexPL"
+
+	// ConvertEnumOfTypeForUpdateNodePoolConfigInputUltraDisk is a ConvertEnumOfTypeForUpdateNodePoolConfigInput enum value
+	ConvertEnumOfTypeForUpdateNodePoolConfigInputUltraDisk = "Ultra_Disk"
+
+	// ConvertEnumOfTypeForUpdateNodePoolConfigInputTssdTl0 is a ConvertEnumOfTypeForUpdateNodePoolConfigInput enum value
+	ConvertEnumOfTypeForUpdateNodePoolConfigInputTssdTl0 = "TSSD_TL0"
+
+	// ConvertEnumOfTypeForUpdateNodePoolConfigInputRssdRl0 is a ConvertEnumOfTypeForUpdateNodePoolConfigInput enum value
+	ConvertEnumOfTypeForUpdateNodePoolConfigInputRssdRl0 = "RSSD_RL0"
+
+	// ConvertEnumOfTypeForUpdateNodePoolConfigInputLocalSsd is a ConvertEnumOfTypeForUpdateNodePoolConfigInput enum value
+	ConvertEnumOfTypeForUpdateNodePoolConfigInputLocalSsd = "LOCAL_SSD"
+
+	// ConvertEnumOfTypeForUpdateNodePoolConfigInputLocalHdd is a ConvertEnumOfTypeForUpdateNodePoolConfigInput enum value
+	ConvertEnumOfTypeForUpdateNodePoolConfigInputLocalHdd = "LOCAL_HDD"
+
+	// ConvertEnumOfTypeForUpdateNodePoolConfigInputLocalSsdSriov is a ConvertEnumOfTypeForUpdateNodePoolConfigInput enum value
+	ConvertEnumOfTypeForUpdateNodePoolConfigInputLocalSsdSriov = "LOCAL_SSD_SRIOV"
+
+	// ConvertEnumOfTypeForUpdateNodePoolConfigInputLocalLvmSsd is a ConvertEnumOfTypeForUpdateNodePoolConfigInput enum value
+	ConvertEnumOfTypeForUpdateNodePoolConfigInputLocalLvmSsd = "LOCAL_LVM_SSD"
+)
+
+const (
 	// EnumOfCpuManagerPolicyForUpdateNodePoolConfigInputNone is a EnumOfCpuManagerPolicyForUpdateNodePoolConfigInput enum value
 	EnumOfCpuManagerPolicyForUpdateNodePoolConfigInputNone = "none"
 
@@ -1342,6 +1482,17 @@ const (
 
 	// EnumOfEffectForUpdateNodePoolConfigInputNoExecute is a EnumOfEffectForUpdateNodePoolConfigInput enum value
 	EnumOfEffectForUpdateNodePoolConfigInputNoExecute = "NoExecute"
+)
+
+const (
+	// EnumOfExtraPerformanceTypeIdForUpdateNodePoolConfigInputBalance is a EnumOfExtraPerformanceTypeIdForUpdateNodePoolConfigInput enum value
+	EnumOfExtraPerformanceTypeIdForUpdateNodePoolConfigInputBalance = "Balance"
+
+	// EnumOfExtraPerformanceTypeIdForUpdateNodePoolConfigInputIops is a EnumOfExtraPerformanceTypeIdForUpdateNodePoolConfigInput enum value
+	EnumOfExtraPerformanceTypeIdForUpdateNodePoolConfigInputIops = "IOPS"
+
+	// EnumOfExtraPerformanceTypeIdForUpdateNodePoolConfigInputThroughput is a EnumOfExtraPerformanceTypeIdForUpdateNodePoolConfigInput enum value
+	EnumOfExtraPerformanceTypeIdForUpdateNodePoolConfigInputThroughput = "Throughput"
 )
 
 const (
@@ -1459,33 +1610,6 @@ const (
 )
 
 const (
-	// EnumOfTypeForUpdateNodePoolConfigInputEssd is a EnumOfTypeForUpdateNodePoolConfigInput enum value
-	EnumOfTypeForUpdateNodePoolConfigInputEssd = "ESSD"
-
-	// EnumOfTypeForUpdateNodePoolConfigInputEssdPl0 is a EnumOfTypeForUpdateNodePoolConfigInput enum value
-	EnumOfTypeForUpdateNodePoolConfigInputEssdPl0 = "ESSD_PL0"
-
-	// EnumOfTypeForUpdateNodePoolConfigInputEssdFlexPl is a EnumOfTypeForUpdateNodePoolConfigInput enum value
-	EnumOfTypeForUpdateNodePoolConfigInputEssdFlexPl = "ESSD_FlexPL"
-
-	// EnumOfTypeForUpdateNodePoolConfigInputUltraDisk is a EnumOfTypeForUpdateNodePoolConfigInput enum value
-	EnumOfTypeForUpdateNodePoolConfigInputUltraDisk = "Ultra_Disk"
-
-	// EnumOfTypeForUpdateNodePoolConfigInputTssdTl0 is a EnumOfTypeForUpdateNodePoolConfigInput enum value
-	EnumOfTypeForUpdateNodePoolConfigInputTssdTl0 = "TSSD_TL0"
-
-	// EnumOfTypeForUpdateNodePoolConfigInputRssdRl0 is a EnumOfTypeForUpdateNodePoolConfigInput enum value
-	EnumOfTypeForUpdateNodePoolConfigInputRssdRl0 = "RSSD_RL0"
-
-	// EnumOfTypeForUpdateNodePoolConfigInputLocalSsd is a EnumOfTypeForUpdateNodePoolConfigInput enum value
-	EnumOfTypeForUpdateNodePoolConfigInputLocalSsd = "LOCAL_SSD"
-
-	// EnumOfTypeForUpdateNodePoolConfigInputLocalHdd is a EnumOfTypeForUpdateNodePoolConfigInput enum value
-	EnumOfTypeForUpdateNodePoolConfigInputLocalHdd = "LOCAL_HDD"
-
-	// EnumOfTypeForUpdateNodePoolConfigInputLocalSsdSriov is a EnumOfTypeForUpdateNodePoolConfigInput enum value
-	EnumOfTypeForUpdateNodePoolConfigInputLocalSsdSriov = "LOCAL_SSD_SRIOV"
-
-	// EnumOfTypeForUpdateNodePoolConfigInputLocalLvmSsd is a EnumOfTypeForUpdateNodePoolConfigInput enum value
-	EnumOfTypeForUpdateNodePoolConfigInputLocalLvmSsd = "LOCAL_LVM_SSD"
+	// EnumOfTypeForUpdateNodePoolConfigInputContainerd is a EnumOfTypeForUpdateNodePoolConfigInput enum value
+	EnumOfTypeForUpdateNodePoolConfigInputContainerd = "containerd"
 )

@@ -727,6 +727,8 @@ type VpcCniConfigForUpdateClusterConfigInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
 	SubnetIds []*string `type:"list" json:",omitempty"`
+
+	VciSubnetIds []*string `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -742,6 +744,12 @@ func (s VpcCniConfigForUpdateClusterConfigInput) GoString() string {
 // SetSubnetIds sets the SubnetIds field's value.
 func (s *VpcCniConfigForUpdateClusterConfigInput) SetSubnetIds(v []*string) *VpcCniConfigForUpdateClusterConfigInput {
 	s.SubnetIds = v
+	return s
+}
+
+// SetVciSubnetIds sets the VciSubnetIds field's value.
+func (s *VpcCniConfigForUpdateClusterConfigInput) SetVciSubnetIds(v []*string) *VpcCniConfigForUpdateClusterConfigInput {
+	s.VciSubnetIds = v
 	return s
 }
 

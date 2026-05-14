@@ -94,6 +94,14 @@ type VKEAPI interface {
 	CreateScalingPolicyWithContext(volcengine.Context, *CreateScalingPolicyInput, ...request.Option) (*CreateScalingPolicyOutput, error)
 	CreateScalingPolicyRequest(*CreateScalingPolicyInput) (*request.Request, *CreateScalingPolicyOutput)
 
+	CreateSnapshotCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateSnapshotCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateSnapshotCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateSnapshot(*CreateSnapshotInput) (*CreateSnapshotOutput, error)
+	CreateSnapshotWithContext(volcengine.Context, *CreateSnapshotInput, ...request.Option) (*CreateSnapshotOutput, error)
+	CreateSnapshotRequest(*CreateSnapshotInput) (*request.Request, *CreateSnapshotOutput)
+
 	DeleteAddonCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DeleteAddonCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DeleteAddonCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -141,6 +149,30 @@ type VKEAPI interface {
 	DeleteScalingPolicies(*DeleteScalingPoliciesInput) (*DeleteScalingPoliciesOutput, error)
 	DeleteScalingPoliciesWithContext(volcengine.Context, *DeleteScalingPoliciesInput, ...request.Option) (*DeleteScalingPoliciesOutput, error)
 	DeleteScalingPoliciesRequest(*DeleteScalingPoliciesInput) (*request.Request, *DeleteScalingPoliciesOutput)
+
+	DeleteSnapshotCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeleteSnapshotCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeleteSnapshotCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeleteSnapshot(*DeleteSnapshotInput) (*DeleteSnapshotOutput, error)
+	DeleteSnapshotWithContext(volcengine.Context, *DeleteSnapshotInput, ...request.Option) (*DeleteSnapshotOutput, error)
+	DeleteSnapshotRequest(*DeleteSnapshotInput) (*request.Request, *DeleteSnapshotOutput)
+
+	DescribeContainerImageCommitmentsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeContainerImageCommitmentsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeContainerImageCommitmentsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeContainerImageCommitments(*DescribeContainerImageCommitmentsInput) (*DescribeContainerImageCommitmentsOutput, error)
+	DescribeContainerImageCommitmentsWithContext(volcengine.Context, *DescribeContainerImageCommitmentsInput, ...request.Option) (*DescribeContainerImageCommitmentsOutput, error)
+	DescribeContainerImageCommitmentsRequest(*DescribeContainerImageCommitmentsInput) (*request.Request, *DescribeContainerImageCommitmentsOutput)
+
+	DescribeSnapshotsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeSnapshotsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeSnapshotsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeSnapshots(*DescribeSnapshotsInput) (*DescribeSnapshotsOutput, error)
+	DescribeSnapshotsWithContext(volcengine.Context, *DescribeSnapshotsInput, ...request.Option) (*DescribeSnapshotsOutput, error)
+	DescribeSnapshotsRequest(*DescribeSnapshotsInput) (*request.Request, *DescribeSnapshotsOutput)
 
 	ExecContainerImageCommitmentCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ExecContainerImageCommitmentCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -269,6 +301,14 @@ type VKEAPI interface {
 	ListSupportedAddons(*ListSupportedAddonsInput) (*ListSupportedAddonsOutput, error)
 	ListSupportedAddonsWithContext(volcengine.Context, *ListSupportedAddonsInput, ...request.Option) (*ListSupportedAddonsOutput, error)
 	ListSupportedAddonsRequest(*ListSupportedAddonsInput) (*request.Request, *ListSupportedAddonsOutput)
+
+	ListSupportedGpuDriverVersionsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListSupportedGpuDriverVersionsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListSupportedGpuDriverVersionsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListSupportedGpuDriverVersions(*ListSupportedGpuDriverVersionsInput) (*ListSupportedGpuDriverVersionsOutput, error)
+	ListSupportedGpuDriverVersionsWithContext(volcengine.Context, *ListSupportedGpuDriverVersionsInput, ...request.Option) (*ListSupportedGpuDriverVersionsOutput, error)
+	ListSupportedGpuDriverVersionsRequest(*ListSupportedGpuDriverVersionsInput) (*request.Request, *ListSupportedGpuDriverVersionsOutput)
 
 	ListSupportedImagesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ListSupportedImagesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)

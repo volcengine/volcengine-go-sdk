@@ -194,6 +194,8 @@ type ExecContainerImageCommitmentInput struct {
 
 	AuthConfig *AuthConfigForExecContainerImageCommitmentInput `type:"structure" json:",omitempty"`
 
+	ClientToken *string `type:"string" json:",omitempty"`
+
 	// ContainerName is a required field
 	ContainerName *string `type:"string" json:",omitempty" required:"true"`
 
@@ -237,6 +239,12 @@ func (s *ExecContainerImageCommitmentInput) SetAuthConfig(v *AuthConfigForExecCo
 	return s
 }
 
+// SetClientToken sets the ClientToken field's value.
+func (s *ExecContainerImageCommitmentInput) SetClientToken(v string) *ExecContainerImageCommitmentInput {
+	s.ClientToken = &v
+	return s
+}
+
 // SetContainerName sets the ContainerName field's value.
 func (s *ExecContainerImageCommitmentInput) SetContainerName(v string) *ExecContainerImageCommitmentInput {
 	s.ContainerName = &v
@@ -265,6 +273,8 @@ type ExecContainerImageCommitmentOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
+
+	TaskId *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -275,6 +285,12 @@ func (s ExecContainerImageCommitmentOutput) String() string {
 // GoString returns the string representation
 func (s ExecContainerImageCommitmentOutput) GoString() string {
 	return s.String()
+}
+
+// SetTaskId sets the TaskId field's value.
+func (s *ExecContainerImageCommitmentOutput) SetTaskId(v string) *ExecContainerImageCommitmentOutput {
+	s.TaskId = &v
+	return s
 }
 
 type ImageSpecForExecContainerImageCommitmentInput struct {
