@@ -162,6 +162,8 @@ type ListAOSPImageInput struct {
 
 	NextToken *string `type:"string" json:",omitempty"`
 
+	PlatformType *string `type:"string" json:",omitempty"`
+
 	// ProductId is a required field
 	ProductId *string `type:"string" json:",omitempty" required:"true"`
 }
@@ -237,6 +239,12 @@ func (s *ListAOSPImageInput) SetNextToken(v string) *ListAOSPImageInput {
 	return s
 }
 
+// SetPlatformType sets the PlatformType field's value.
+func (s *ListAOSPImageInput) SetPlatformType(v string) *ListAOSPImageInput {
+	s.PlatformType = &v
+	return s
+}
+
 // SetProductId sets the ProductId field's value.
 func (s *ListAOSPImageInput) SetProductId(v string) *ListAOSPImageInput {
 	s.ProductId = &v
@@ -297,6 +305,8 @@ type RowForListAOSPImageOutput struct {
 	ImageStatus *int32 `type:"int32" json:",omitempty"`
 
 	ImageStatusStr *string `type:"string" json:",omitempty"`
+
+	PlatformType *string `type:"string" json:",omitempty"`
 
 	PreheatStatus *int32 `type:"int32" json:",omitempty"`
 
@@ -372,6 +382,12 @@ func (s *RowForListAOSPImageOutput) SetImageStatus(v int32) *RowForListAOSPImage
 // SetImageStatusStr sets the ImageStatusStr field's value.
 func (s *RowForListAOSPImageOutput) SetImageStatusStr(v string) *RowForListAOSPImageOutput {
 	s.ImageStatusStr = &v
+	return s
+}
+
+// SetPlatformType sets the PlatformType field's value.
+func (s *RowForListAOSPImageOutput) SetPlatformType(v string) *RowForListAOSPImageOutput {
+	s.PlatformType = &v
 	return s
 }
 

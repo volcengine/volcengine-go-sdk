@@ -143,6 +143,36 @@ func (c *VKE) ListNodePoolsWithContext(ctx volcengine.Context, input *ListNodePo
 	return out, req.Send()
 }
 
+type AffinityGroupConfigForListNodePoolsOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Enabled *bool `type:"boolean" json:",omitempty"`
+
+	Size *int32 `type:"int32" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s AffinityGroupConfigForListNodePoolsOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s AffinityGroupConfigForListNodePoolsOutput) GoString() string {
+	return s.String()
+}
+
+// SetEnabled sets the Enabled field's value.
+func (s *AffinityGroupConfigForListNodePoolsOutput) SetEnabled(v bool) *AffinityGroupConfigForListNodePoolsOutput {
+	s.Enabled = &v
+	return s
+}
+
+// SetSize sets the Size field's value.
+func (s *AffinityGroupConfigForListNodePoolsOutput) SetSize(v int32) *AffinityGroupConfigForListNodePoolsOutput {
+	s.Size = &v
+	return s
+}
+
 type AutoScalingForListNodePoolsOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -216,7 +246,7 @@ func (s *AutoScalingForListNodePoolsOutput) SetSubnetPolicy(v string) *AutoScali
 type ConditionForListNodePoolsOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	Type *string `type:"string" json:",omitempty" enum:"ConvertConvertEnumOfTypeForListNodePoolsOutput"`
+	Type *string `type:"string" json:",omitempty" enum:"ConvertConvertConvertEnumOfTypeForListNodePoolsOutput"`
 }
 
 // String returns the string representation
@@ -270,7 +300,7 @@ type ConvertTagForListNodePoolsOutput struct {
 
 	Key *string `type:"string" json:",omitempty"`
 
-	Type *string `type:"string" json:",omitempty" enum:"ConvertConvertConvertEnumOfTypeForListNodePoolsOutput"`
+	Type *string `type:"string" json:",omitempty" enum:"ConvertConvertConvertConvertEnumOfTypeForListNodePoolsOutput"`
 
 	Value *string `type:"string" json:",omitempty"`
 }
@@ -306,6 +336,12 @@ func (s *ConvertTagForListNodePoolsOutput) SetValue(v string) *ConvertTagForList
 type DataVolumeForListNodePoolsOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	ExtraPerformanceIops *int32 `type:"int32" json:",omitempty"`
+
+	ExtraPerformanceThroughputMb *int32 `type:"int32" json:",omitempty"`
+
+	ExtraPerformanceTypeId *string `type:"string" json:",omitempty" enum:"EnumOfExtraPerformanceTypeIdForListNodePoolsOutput"`
+
 	FileSystem *string `type:"string" json:",omitempty" enum:"EnumOfFileSystemForListNodePoolsOutput"`
 
 	MountPoint *string `type:"string" json:",omitempty"`
@@ -318,7 +354,7 @@ type DataVolumeForListNodePoolsOutput struct {
 
 	SubgroupNumber *int32 `type:"int32" json:",omitempty"`
 
-	Type *string `type:"string" json:",omitempty" enum:"EnumOfTypeForListNodePoolsOutput"`
+	Type *string `type:"string" json:",omitempty" enum:"ConvertEnumOfTypeForListNodePoolsOutput"`
 }
 
 // String returns the string representation
@@ -329,6 +365,24 @@ func (s DataVolumeForListNodePoolsOutput) String() string {
 // GoString returns the string representation
 func (s DataVolumeForListNodePoolsOutput) GoString() string {
 	return s.String()
+}
+
+// SetExtraPerformanceIops sets the ExtraPerformanceIops field's value.
+func (s *DataVolumeForListNodePoolsOutput) SetExtraPerformanceIops(v int32) *DataVolumeForListNodePoolsOutput {
+	s.ExtraPerformanceIops = &v
+	return s
+}
+
+// SetExtraPerformanceThroughputMb sets the ExtraPerformanceThroughputMb field's value.
+func (s *DataVolumeForListNodePoolsOutput) SetExtraPerformanceThroughputMb(v int32) *DataVolumeForListNodePoolsOutput {
+	s.ExtraPerformanceThroughputMb = &v
+	return s
+}
+
+// SetExtraPerformanceTypeId sets the ExtraPerformanceTypeId field's value.
+func (s *DataVolumeForListNodePoolsOutput) SetExtraPerformanceTypeId(v string) *DataVolumeForListNodePoolsOutput {
+	s.ExtraPerformanceTypeId = &v
+	return s
 }
 
 // SetFileSystem sets the FileSystem field's value.
@@ -842,6 +896,8 @@ type KubernetesConfigForListNodePoolsOutput struct {
 
 	NameUseHostname *bool `type:"boolean" json:",omitempty"`
 
+	Runtime *RuntimeForListNodePoolsOutput `type:"structure" json:",omitempty"`
+
 	Taints []*TaintForListNodePoolsOutput `type:"list" json:",omitempty"`
 }
 
@@ -900,6 +956,12 @@ func (s *KubernetesConfigForListNodePoolsOutput) SetNameSuffix(v string) *Kubern
 // SetNameUseHostname sets the NameUseHostname field's value.
 func (s *KubernetesConfigForListNodePoolsOutput) SetNameUseHostname(v bool) *KubernetesConfigForListNodePoolsOutput {
 	s.NameUseHostname = &v
+	return s
+}
+
+// SetRuntime sets the Runtime field's value.
+func (s *KubernetesConfigForListNodePoolsOutput) SetRuntime(v *RuntimeForListNodePoolsOutput) *KubernetesConfigForListNodePoolsOutput {
+	s.Runtime = v
 	return s
 }
 
@@ -1038,7 +1100,7 @@ type LoginForListNodePoolsOutput struct {
 
 	SshKeyPairName *string `type:"string" json:",omitempty"`
 
-	Type *string `type:"string" json:",omitempty" enum:"ConvertEnumOfTypeForListNodePoolsOutput"`
+	Type *string `type:"string" json:",omitempty" enum:"ConvertConvertEnumOfTypeForListNodePoolsOutput"`
 }
 
 // String returns the string representation
@@ -1098,6 +1160,8 @@ type NodeConfigForListNodePoolsOutput struct {
 
 	AdditionalContainerStorageEnabled *bool `type:"boolean" json:",omitempty"`
 
+	AffinityGroupConfig *AffinityGroupConfigForListNodePoolsOutput `type:"structure" json:",omitempty"`
+
 	AutoRenew *bool `type:"boolean" json:",omitempty"`
 
 	AutoRenewPeriod *int32 `type:"int32" json:",omitempty"`
@@ -1107,6 +1171,8 @@ type NodeConfigForListNodePoolsOutput struct {
 	DeploymentSetGroupNumber *int32 `type:"int32" json:",omitempty"`
 
 	DeploymentSetId *string `type:"string" json:",omitempty"`
+
+	GpuDriverVersion *string `type:"string" json:",omitempty"`
 
 	Hostname *string `type:"string" json:",omitempty"`
 
@@ -1165,6 +1231,12 @@ func (s *NodeConfigForListNodePoolsOutput) SetAdditionalContainerStorageEnabled(
 	return s
 }
 
+// SetAffinityGroupConfig sets the AffinityGroupConfig field's value.
+func (s *NodeConfigForListNodePoolsOutput) SetAffinityGroupConfig(v *AffinityGroupConfigForListNodePoolsOutput) *NodeConfigForListNodePoolsOutput {
+	s.AffinityGroupConfig = v
+	return s
+}
+
 // SetAutoRenew sets the AutoRenew field's value.
 func (s *NodeConfigForListNodePoolsOutput) SetAutoRenew(v bool) *NodeConfigForListNodePoolsOutput {
 	s.AutoRenew = &v
@@ -1192,6 +1264,12 @@ func (s *NodeConfigForListNodePoolsOutput) SetDeploymentSetGroupNumber(v int32) 
 // SetDeploymentSetId sets the DeploymentSetId field's value.
 func (s *NodeConfigForListNodePoolsOutput) SetDeploymentSetId(v string) *NodeConfigForListNodePoolsOutput {
 	s.DeploymentSetId = &v
+	return s
+}
+
+// SetGpuDriverVersion sets the GpuDriverVersion field's value.
+func (s *NodeConfigForListNodePoolsOutput) SetGpuDriverVersion(v string) *NodeConfigForListNodePoolsOutput {
+	s.GpuDriverVersion = &v
 	return s
 }
 
@@ -1475,6 +1553,36 @@ func (s *RemedyConfigForListNodePoolsOutput) SetId(v string) *RemedyConfigForLis
 	return s
 }
 
+type RuntimeForListNodePoolsOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Type *string `type:"string" json:",omitempty" enum:"EnumOfTypeForListNodePoolsOutput"`
+
+	Version *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s RuntimeForListNodePoolsOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s RuntimeForListNodePoolsOutput) GoString() string {
+	return s.String()
+}
+
+// SetType sets the Type field's value.
+func (s *RuntimeForListNodePoolsOutput) SetType(v string) *RuntimeForListNodePoolsOutput {
+	s.Type = &v
+	return s
+}
+
+// SetVersion sets the Version field's value.
+func (s *RuntimeForListNodePoolsOutput) SetVersion(v string) *RuntimeForListNodePoolsOutput {
+	s.Version = &v
+	return s
+}
+
 type SecurityForListNodePoolsOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -1620,7 +1728,7 @@ type SystemVolumeForListNodePoolsOutput struct {
 
 	SubgroupNumber *int32 `type:"int32" json:",omitempty"`
 
-	Type *string `type:"string" json:",omitempty" enum:"EnumOfTypeForListNodePoolsOutput"`
+	Type *string `type:"string" json:",omitempty" enum:"ConvertEnumOfTypeForListNodePoolsOutput"`
 }
 
 // String returns the string representation
@@ -1756,54 +1864,86 @@ func (s *TaintForListNodePoolsOutput) SetValue(v string) *TaintForListNodePoolsO
 }
 
 const (
-	// ConvertConvertConvertEnumOfTypeForListNodePoolsOutputSystem is a ConvertConvertConvertEnumOfTypeForListNodePoolsOutput enum value
-	ConvertConvertConvertEnumOfTypeForListNodePoolsOutputSystem = "System"
+	// ConvertConvertConvertConvertEnumOfTypeForListNodePoolsOutputSystem is a ConvertConvertConvertConvertEnumOfTypeForListNodePoolsOutput enum value
+	ConvertConvertConvertConvertEnumOfTypeForListNodePoolsOutputSystem = "System"
 
-	// ConvertConvertConvertEnumOfTypeForListNodePoolsOutputCustom is a ConvertConvertConvertEnumOfTypeForListNodePoolsOutput enum value
-	ConvertConvertConvertEnumOfTypeForListNodePoolsOutputCustom = "Custom"
+	// ConvertConvertConvertConvertEnumOfTypeForListNodePoolsOutputCustom is a ConvertConvertConvertConvertEnumOfTypeForListNodePoolsOutput enum value
+	ConvertConvertConvertConvertEnumOfTypeForListNodePoolsOutputCustom = "Custom"
 )
 
 const (
-	// ConvertConvertEnumOfTypeForListNodePoolsOutputOk is a ConvertConvertEnumOfTypeForListNodePoolsOutput enum value
-	ConvertConvertEnumOfTypeForListNodePoolsOutputOk = "Ok"
+	// ConvertConvertConvertEnumOfTypeForListNodePoolsOutputOk is a ConvertConvertConvertEnumOfTypeForListNodePoolsOutput enum value
+	ConvertConvertConvertEnumOfTypeForListNodePoolsOutputOk = "Ok"
 
-	// ConvertConvertEnumOfTypeForListNodePoolsOutputStockOut is a ConvertConvertEnumOfTypeForListNodePoolsOutput enum value
-	ConvertConvertEnumOfTypeForListNodePoolsOutputStockOut = "StockOut"
+	// ConvertConvertConvertEnumOfTypeForListNodePoolsOutputStockOut is a ConvertConvertConvertEnumOfTypeForListNodePoolsOutput enum value
+	ConvertConvertConvertEnumOfTypeForListNodePoolsOutputStockOut = "StockOut"
 
-	// ConvertConvertEnumOfTypeForListNodePoolsOutputLimitedByQuota is a ConvertConvertEnumOfTypeForListNodePoolsOutput enum value
-	ConvertConvertEnumOfTypeForListNodePoolsOutputLimitedByQuota = "LimitedByQuota"
+	// ConvertConvertConvertEnumOfTypeForListNodePoolsOutputLimitedByQuota is a ConvertConvertConvertEnumOfTypeForListNodePoolsOutput enum value
+	ConvertConvertConvertEnumOfTypeForListNodePoolsOutputLimitedByQuota = "LimitedByQuota"
 
-	// ConvertConvertEnumOfTypeForListNodePoolsOutputBalance is a ConvertConvertEnumOfTypeForListNodePoolsOutput enum value
-	ConvertConvertEnumOfTypeForListNodePoolsOutputBalance = "Balance"
+	// ConvertConvertConvertEnumOfTypeForListNodePoolsOutputBalance is a ConvertConvertConvertEnumOfTypeForListNodePoolsOutput enum value
+	ConvertConvertConvertEnumOfTypeForListNodePoolsOutputBalance = "Balance"
 
-	// ConvertConvertEnumOfTypeForListNodePoolsOutputVersionPartlyUpgraded is a ConvertConvertEnumOfTypeForListNodePoolsOutput enum value
-	ConvertConvertEnumOfTypeForListNodePoolsOutputVersionPartlyUpgraded = "VersionPartlyUpgraded"
+	// ConvertConvertConvertEnumOfTypeForListNodePoolsOutputVersionPartlyUpgraded is a ConvertConvertConvertEnumOfTypeForListNodePoolsOutput enum value
+	ConvertConvertConvertEnumOfTypeForListNodePoolsOutputVersionPartlyUpgraded = "VersionPartlyUpgraded"
 
-	// ConvertConvertEnumOfTypeForListNodePoolsOutputResourceCleanupFailed is a ConvertConvertEnumOfTypeForListNodePoolsOutput enum value
-	ConvertConvertEnumOfTypeForListNodePoolsOutputResourceCleanupFailed = "ResourceCleanupFailed"
+	// ConvertConvertConvertEnumOfTypeForListNodePoolsOutputResourceCleanupFailed is a ConvertConvertConvertEnumOfTypeForListNodePoolsOutput enum value
+	ConvertConvertConvertEnumOfTypeForListNodePoolsOutputResourceCleanupFailed = "ResourceCleanupFailed"
 
-	// ConvertConvertEnumOfTypeForListNodePoolsOutputClusterNotRunning is a ConvertConvertEnumOfTypeForListNodePoolsOutput enum value
-	ConvertConvertEnumOfTypeForListNodePoolsOutputClusterNotRunning = "ClusterNotRunning"
+	// ConvertConvertConvertEnumOfTypeForListNodePoolsOutputClusterNotRunning is a ConvertConvertConvertEnumOfTypeForListNodePoolsOutput enum value
+	ConvertConvertConvertEnumOfTypeForListNodePoolsOutputClusterNotRunning = "ClusterNotRunning"
 
-	// ConvertConvertEnumOfTypeForListNodePoolsOutputUnknown is a ConvertConvertEnumOfTypeForListNodePoolsOutput enum value
-	ConvertConvertEnumOfTypeForListNodePoolsOutputUnknown = "Unknown"
+	// ConvertConvertConvertEnumOfTypeForListNodePoolsOutputUnknown is a ConvertConvertConvertEnumOfTypeForListNodePoolsOutput enum value
+	ConvertConvertConvertEnumOfTypeForListNodePoolsOutputUnknown = "Unknown"
 
-	// ConvertConvertEnumOfTypeForListNodePoolsOutputProgressing is a ConvertConvertEnumOfTypeForListNodePoolsOutput enum value
-	ConvertConvertEnumOfTypeForListNodePoolsOutputProgressing = "Progressing"
+	// ConvertConvertConvertEnumOfTypeForListNodePoolsOutputProgressing is a ConvertConvertConvertEnumOfTypeForListNodePoolsOutput enum value
+	ConvertConvertConvertEnumOfTypeForListNodePoolsOutputProgressing = "Progressing"
 
-	// ConvertConvertEnumOfTypeForListNodePoolsOutputClusterVersionUpgrading is a ConvertConvertEnumOfTypeForListNodePoolsOutput enum value
-	ConvertConvertEnumOfTypeForListNodePoolsOutputClusterVersionUpgrading = "ClusterVersionUpgrading"
+	// ConvertConvertConvertEnumOfTypeForListNodePoolsOutputClusterVersionUpgrading is a ConvertConvertConvertEnumOfTypeForListNodePoolsOutput enum value
+	ConvertConvertConvertEnumOfTypeForListNodePoolsOutputClusterVersionUpgrading = "ClusterVersionUpgrading"
 
-	// ConvertConvertEnumOfTypeForListNodePoolsOutputScalingFailed is a ConvertConvertEnumOfTypeForListNodePoolsOutput enum value
-	ConvertConvertEnumOfTypeForListNodePoolsOutputScalingFailed = "ScalingFailed"
+	// ConvertConvertConvertEnumOfTypeForListNodePoolsOutputScalingFailed is a ConvertConvertConvertEnumOfTypeForListNodePoolsOutput enum value
+	ConvertConvertConvertEnumOfTypeForListNodePoolsOutputScalingFailed = "ScalingFailed"
 )
 
 const (
-	// ConvertEnumOfTypeForListNodePoolsOutputPassword is a ConvertEnumOfTypeForListNodePoolsOutput enum value
-	ConvertEnumOfTypeForListNodePoolsOutputPassword = "Password"
+	// ConvertConvertEnumOfTypeForListNodePoolsOutputPassword is a ConvertConvertEnumOfTypeForListNodePoolsOutput enum value
+	ConvertConvertEnumOfTypeForListNodePoolsOutputPassword = "Password"
 
-	// ConvertEnumOfTypeForListNodePoolsOutputSshKeyPair is a ConvertEnumOfTypeForListNodePoolsOutput enum value
-	ConvertEnumOfTypeForListNodePoolsOutputSshKeyPair = "SshKeyPair"
+	// ConvertConvertEnumOfTypeForListNodePoolsOutputSshKeyPair is a ConvertConvertEnumOfTypeForListNodePoolsOutput enum value
+	ConvertConvertEnumOfTypeForListNodePoolsOutputSshKeyPair = "SshKeyPair"
+)
+
+const (
+	// ConvertEnumOfTypeForListNodePoolsOutputEssd is a ConvertEnumOfTypeForListNodePoolsOutput enum value
+	ConvertEnumOfTypeForListNodePoolsOutputEssd = "ESSD"
+
+	// ConvertEnumOfTypeForListNodePoolsOutputEssdPl0 is a ConvertEnumOfTypeForListNodePoolsOutput enum value
+	ConvertEnumOfTypeForListNodePoolsOutputEssdPl0 = "ESSD_PL0"
+
+	// ConvertEnumOfTypeForListNodePoolsOutputEssdFlexPl is a ConvertEnumOfTypeForListNodePoolsOutput enum value
+	ConvertEnumOfTypeForListNodePoolsOutputEssdFlexPl = "ESSD_FlexPL"
+
+	// ConvertEnumOfTypeForListNodePoolsOutputUltraDisk is a ConvertEnumOfTypeForListNodePoolsOutput enum value
+	ConvertEnumOfTypeForListNodePoolsOutputUltraDisk = "Ultra_Disk"
+
+	// ConvertEnumOfTypeForListNodePoolsOutputTssdTl0 is a ConvertEnumOfTypeForListNodePoolsOutput enum value
+	ConvertEnumOfTypeForListNodePoolsOutputTssdTl0 = "TSSD_TL0"
+
+	// ConvertEnumOfTypeForListNodePoolsOutputRssdRl0 is a ConvertEnumOfTypeForListNodePoolsOutput enum value
+	ConvertEnumOfTypeForListNodePoolsOutputRssdRl0 = "RSSD_RL0"
+
+	// ConvertEnumOfTypeForListNodePoolsOutputLocalSsd is a ConvertEnumOfTypeForListNodePoolsOutput enum value
+	ConvertEnumOfTypeForListNodePoolsOutputLocalSsd = "LOCAL_SSD"
+
+	// ConvertEnumOfTypeForListNodePoolsOutputLocalHdd is a ConvertEnumOfTypeForListNodePoolsOutput enum value
+	ConvertEnumOfTypeForListNodePoolsOutputLocalHdd = "LOCAL_HDD"
+
+	// ConvertEnumOfTypeForListNodePoolsOutputLocalSsdSriov is a ConvertEnumOfTypeForListNodePoolsOutput enum value
+	ConvertEnumOfTypeForListNodePoolsOutputLocalSsdSriov = "LOCAL_SSD_SRIOV"
+
+	// ConvertEnumOfTypeForListNodePoolsOutputLocalLvmSsd is a ConvertEnumOfTypeForListNodePoolsOutput enum value
+	ConvertEnumOfTypeForListNodePoolsOutputLocalLvmSsd = "LOCAL_LVM_SSD"
 )
 
 const (
@@ -1858,6 +1998,17 @@ const (
 
 	// EnumOfEffectForListNodePoolsOutputNoExecute is a EnumOfEffectForListNodePoolsOutput enum value
 	EnumOfEffectForListNodePoolsOutputNoExecute = "NoExecute"
+)
+
+const (
+	// EnumOfExtraPerformanceTypeIdForListNodePoolsOutputBalance is a EnumOfExtraPerformanceTypeIdForListNodePoolsOutput enum value
+	EnumOfExtraPerformanceTypeIdForListNodePoolsOutputBalance = "Balance"
+
+	// EnumOfExtraPerformanceTypeIdForListNodePoolsOutputIops is a EnumOfExtraPerformanceTypeIdForListNodePoolsOutput enum value
+	EnumOfExtraPerformanceTypeIdForListNodePoolsOutputIops = "IOPS"
+
+	// EnumOfExtraPerformanceTypeIdForListNodePoolsOutputThroughput is a EnumOfExtraPerformanceTypeIdForListNodePoolsOutput enum value
+	EnumOfExtraPerformanceTypeIdForListNodePoolsOutputThroughput = "Throughput"
 )
 
 const (
@@ -2023,33 +2174,6 @@ const (
 )
 
 const (
-	// EnumOfTypeForListNodePoolsOutputEssd is a EnumOfTypeForListNodePoolsOutput enum value
-	EnumOfTypeForListNodePoolsOutputEssd = "ESSD"
-
-	// EnumOfTypeForListNodePoolsOutputEssdPl0 is a EnumOfTypeForListNodePoolsOutput enum value
-	EnumOfTypeForListNodePoolsOutputEssdPl0 = "ESSD_PL0"
-
-	// EnumOfTypeForListNodePoolsOutputEssdFlexPl is a EnumOfTypeForListNodePoolsOutput enum value
-	EnumOfTypeForListNodePoolsOutputEssdFlexPl = "ESSD_FlexPL"
-
-	// EnumOfTypeForListNodePoolsOutputUltraDisk is a EnumOfTypeForListNodePoolsOutput enum value
-	EnumOfTypeForListNodePoolsOutputUltraDisk = "Ultra_Disk"
-
-	// EnumOfTypeForListNodePoolsOutputTssdTl0 is a EnumOfTypeForListNodePoolsOutput enum value
-	EnumOfTypeForListNodePoolsOutputTssdTl0 = "TSSD_TL0"
-
-	// EnumOfTypeForListNodePoolsOutputRssdRl0 is a EnumOfTypeForListNodePoolsOutput enum value
-	EnumOfTypeForListNodePoolsOutputRssdRl0 = "RSSD_RL0"
-
-	// EnumOfTypeForListNodePoolsOutputLocalSsd is a EnumOfTypeForListNodePoolsOutput enum value
-	EnumOfTypeForListNodePoolsOutputLocalSsd = "LOCAL_SSD"
-
-	// EnumOfTypeForListNodePoolsOutputLocalHdd is a EnumOfTypeForListNodePoolsOutput enum value
-	EnumOfTypeForListNodePoolsOutputLocalHdd = "LOCAL_HDD"
-
-	// EnumOfTypeForListNodePoolsOutputLocalSsdSriov is a EnumOfTypeForListNodePoolsOutput enum value
-	EnumOfTypeForListNodePoolsOutputLocalSsdSriov = "LOCAL_SSD_SRIOV"
-
-	// EnumOfTypeForListNodePoolsOutputLocalLvmSsd is a EnumOfTypeForListNodePoolsOutput enum value
-	EnumOfTypeForListNodePoolsOutputLocalLvmSsd = "LOCAL_LVM_SSD"
+	// EnumOfTypeForListNodePoolsOutputContainerd is a EnumOfTypeForListNodePoolsOutput enum value
+	EnumOfTypeForListNodePoolsOutputContainerd = "containerd"
 )

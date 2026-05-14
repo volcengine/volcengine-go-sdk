@@ -208,9 +208,13 @@ type DescribeLensTasksInput struct {
 
 	LensTaskName *string `type:"string" json:",omitempty"`
 
+	MasterTaskId *string `type:"string" json:",omitempty"`
+
 	PageNumber *int32 `type:"int32" json:",omitempty"`
 
 	PageSize *int32 `type:"int32" json:",omitempty"`
+
+	ScheduleType *string `type:"string" json:",omitempty" enum:"EnumOfScheduleTypeForDescribeLensTasksInput"`
 
 	Status []*string `type:"list" json:",omitempty"`
 }
@@ -249,6 +253,12 @@ func (s *DescribeLensTasksInput) SetLensTaskName(v string) *DescribeLensTasksInp
 	return s
 }
 
+// SetMasterTaskId sets the MasterTaskId field's value.
+func (s *DescribeLensTasksInput) SetMasterTaskId(v string) *DescribeLensTasksInput {
+	s.MasterTaskId = &v
+	return s
+}
+
 // SetPageNumber sets the PageNumber field's value.
 func (s *DescribeLensTasksInput) SetPageNumber(v int32) *DescribeLensTasksInput {
 	s.PageNumber = &v
@@ -258,6 +268,12 @@ func (s *DescribeLensTasksInput) SetPageNumber(v int32) *DescribeLensTasksInput 
 // SetPageSize sets the PageSize field's value.
 func (s *DescribeLensTasksInput) SetPageSize(v int32) *DescribeLensTasksInput {
 	s.PageSize = &v
+	return s
+}
+
+// SetScheduleType sets the ScheduleType field's value.
+func (s *DescribeLensTasksInput) SetScheduleType(v string) *DescribeLensTasksInput {
+	s.ScheduleType = &v
 	return s
 }
 
@@ -1313,6 +1329,14 @@ const (
 
 	// EnumOfPeriodUnitForDescribeLensTasksOutputMonth is a EnumOfPeriodUnitForDescribeLensTasksOutput enum value
 	EnumOfPeriodUnitForDescribeLensTasksOutputMonth = "Month"
+)
+
+const (
+	// EnumOfScheduleTypeForDescribeLensTasksInputOnce is a EnumOfScheduleTypeForDescribeLensTasksInput enum value
+	EnumOfScheduleTypeForDescribeLensTasksInputOnce = "Once"
+
+	// EnumOfScheduleTypeForDescribeLensTasksInputTimed is a EnumOfScheduleTypeForDescribeLensTasksInput enum value
+	EnumOfScheduleTypeForDescribeLensTasksInputTimed = "Timed"
 )
 
 const (

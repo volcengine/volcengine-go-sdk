@@ -358,6 +358,14 @@ type ACEPAPI interface {
 	GetPodPropertyWithContext(volcengine.Context, *GetPodPropertyInput, ...request.Option) (*GetPodPropertyOutput, error)
 	GetPodPropertyRequest(*GetPodPropertyInput) (*request.Request, *GetPodPropertyOutput)
 
+	GetPreSignedEdgeURLCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	GetPreSignedEdgeURLCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	GetPreSignedEdgeURLCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	GetPreSignedEdgeURL(*GetPreSignedEdgeURLInput) (*GetPreSignedEdgeURLOutput, error)
+	GetPreSignedEdgeURLWithContext(volcengine.Context, *GetPreSignedEdgeURLInput, ...request.Option) (*GetPreSignedEdgeURLOutput, error)
+	GetPreSignedEdgeURLRequest(*GetPreSignedEdgeURLInput) (*request.Request, *GetPreSignedEdgeURLOutput)
+
 	GetProductResourceCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	GetProductResourceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	GetProductResourceCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -717,6 +725,14 @@ type ACEPAPI interface {
 	SetProxy(*SetProxyInput) (*SetProxyOutput, error)
 	SetProxyWithContext(volcengine.Context, *SetProxyInput, ...request.Option) (*SetProxyOutput, error)
 	SetProxyRequest(*SetProxyInput) (*request.Request, *SetProxyOutput)
+
+	StartNetRedirectCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	StartNetRedirectCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	StartNetRedirectCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	StartNetRedirect(*StartNetRedirectInput) (*StartNetRedirectOutput, error)
+	StartNetRedirectWithContext(volcengine.Context, *StartNetRedirectInput, ...request.Option) (*StartNetRedirectOutput, error)
+	StartNetRedirectRequest(*StartNetRedirectInput) (*request.Request, *StartNetRedirectOutput)
 
 	StartRecordingCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	StartRecordingCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
