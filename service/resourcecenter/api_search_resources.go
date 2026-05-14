@@ -184,9 +184,11 @@ func (s *FilterForSearchResourcesInput) SetValues(v []*string) *FilterForSearchR
 type ResourceForSearchResourcesOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	AccountID *int32 `type:"int32" json:",omitempty"`
+	AccountID *int64 `type:"int64" json:",omitempty"`
 
 	CreateTime *string `type:"string" json:",omitempty"`
+
+	Identifier *string `type:"string" json:",omitempty"`
 
 	PrivateIpAddress []*string `type:"list" json:",omitempty"`
 
@@ -205,6 +207,8 @@ type ResourceForSearchResourcesOutput struct {
 	Service *string `type:"string" json:",omitempty"`
 
 	Tags []*TagForSearchResourcesOutput `type:"list" json:",omitempty"`
+
+	TypeName *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -218,7 +222,7 @@ func (s ResourceForSearchResourcesOutput) GoString() string {
 }
 
 // SetAccountID sets the AccountID field's value.
-func (s *ResourceForSearchResourcesOutput) SetAccountID(v int32) *ResourceForSearchResourcesOutput {
+func (s *ResourceForSearchResourcesOutput) SetAccountID(v int64) *ResourceForSearchResourcesOutput {
 	s.AccountID = &v
 	return s
 }
@@ -226,6 +230,12 @@ func (s *ResourceForSearchResourcesOutput) SetAccountID(v int32) *ResourceForSea
 // SetCreateTime sets the CreateTime field's value.
 func (s *ResourceForSearchResourcesOutput) SetCreateTime(v string) *ResourceForSearchResourcesOutput {
 	s.CreateTime = &v
+	return s
+}
+
+// SetIdentifier sets the Identifier field's value.
+func (s *ResourceForSearchResourcesOutput) SetIdentifier(v string) *ResourceForSearchResourcesOutput {
+	s.Identifier = &v
 	return s
 }
 
@@ -280,6 +290,12 @@ func (s *ResourceForSearchResourcesOutput) SetService(v string) *ResourceForSear
 // SetTags sets the Tags field's value.
 func (s *ResourceForSearchResourcesOutput) SetTags(v []*TagForSearchResourcesOutput) *ResourceForSearchResourcesOutput {
 	s.Tags = v
+	return s
+}
+
+// SetTypeName sets the TypeName field's value.
+func (s *ResourceForSearchResourcesOutput) SetTypeName(v string) *ResourceForSearchResourcesOutput {
+	s.TypeName = &v
 	return s
 }
 
