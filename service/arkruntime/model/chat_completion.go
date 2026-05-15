@@ -101,6 +101,7 @@ type ChatCompletionMessage struct {
 	Role             string                        `json:"role"`
 	Content          *ChatCompletionMessageContent `json:"content"`
 	ReasoningContent *string                       `json:"reasoning_content,omitempty"`
+	EncryptedContent *string                       `json:"encrypted_content,omitempty"`
 	Name             *string                       `json:"name"`
 	FunctionCall     *FunctionCall                 `json:"function_call,omitempty"`
 	ToolCalls        []*ToolCall                   `json:"tool_calls,omitempty"`
@@ -411,6 +412,7 @@ type ChatCompletionStreamChoiceDelta struct {
 	Content          string        `json:"content,omitempty"`
 	Role             string        `json:"role,omitempty"`
 	ReasoningContent *string       `json:"reasoning_content,omitempty"`
+	EncryptedContent *string       `json:"encrypted_content,omitempty"`
 	FunctionCall     *FunctionCall `json:"function_call,omitempty"`
 	ToolCalls        []*ToolCall   `json:"tool_calls,omitempty"`
 }
