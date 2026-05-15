@@ -13,7 +13,7 @@ const generateImagesPath = "/images/generations"
 func (c *Client) GenerateImages(
 	ctx context.Context,
 	request model.GenerateImagesRequest,
-	setters ...requestOption,
+	setters ...RequestOption,
 ) (response model.ImagesResponse, err error) {
 	if !c.isAPIKeyAuthentication() {
 		return response, model.ErrAKSKNotSupported
@@ -28,7 +28,7 @@ func (c *Client) GenerateImages(
 	return
 }
 
-func (c *Client) GenerateImagesStreaming(ctx context.Context, request model.GenerateImagesRequest, setters ...requestOption) (stream *utils.ImageGenerationStreamReader, err error) {
+func (c *Client) GenerateImagesStreaming(ctx context.Context, request model.GenerateImagesRequest, setters ...RequestOption) (stream *utils.ImageGenerationStreamReader, err error) {
 	if !c.isAPIKeyAuthentication() {
 		return stream, model.ErrAKSKNotSupported
 	}

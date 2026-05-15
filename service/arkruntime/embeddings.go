@@ -19,7 +19,7 @@ const (
 func (c *Client) CreateEmbeddings(
 	ctx context.Context,
 	conv model.EmbeddingRequestConverter,
-	setters ...requestOption,
+	setters ...RequestOption,
 ) (res model.EmbeddingResponse, err error) {
 	baseReq := conv.Convert()
 
@@ -44,7 +44,7 @@ func (c *Client) CreateEmbeddings(
 func (c *Client) CreateMultiModalEmbeddings(
 	ctx context.Context,
 	request model.MultiModalEmbeddingRequest,
-	setters ...requestOption,
+	setters ...RequestOption,
 ) (res model.MultimodalEmbeddingResponse, err error) {
 
 	requestOptions := append(setters, withBody(request))
