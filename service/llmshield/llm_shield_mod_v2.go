@@ -55,6 +55,22 @@ const (
 	LLM_STREAM_SEND_EXPONENT_V2    int64 = 2
 )
 
+type FunctionCall struct {
+	// 函数名
+	Name string `thrift:"name,1" form:"Name" json:"Name"`
+	// 函数参数，JSON字符串
+	Arguments string `thrift:"arguments,2" form:"Arguments" json:"Arguments"`
+}
+
+type ToolCall struct {
+	// 工具调用ID
+	ID string `thrift:"id,1" form:"ID" json:"ID"`
+	// 工具类型
+	Type string `thrift:"type,2" form:"Type" json:"Type"`
+	// 调用的工具
+	Function *FunctionCall `thrift:"function,3" form:"Function" json:"Function"`
+}
+
 type MessageV2 struct {
 	// 消息内容ID @tpl=select @jsonCEnums=["user","assistant","system","rag"]
 	Role string `thrift:"role,1" form:"Role" json:"Role"`
@@ -64,6 +80,10 @@ type MessageV2 struct {
 	ContentType ContentTypeV2 `thrift:"contentType,3" form:"ContentType" json:"ContentType"`
 	// 多模态送检内容
 	MultiPart []*MultiPart `thrift:"multiPart,4,optional" form:"MultiPart" json:"MultiPart,omitempty"`
+	// 工具调用ID
+	ToolCallID *string `thrift:"toolCallID,5,optional" form:"ToolCallID" json:"ToolCallID,omitempty"`
+	// 工具调用
+	ToolCall []*ToolCall `thrift:"toolCall,6,optional,list<ToolCall>" form:"ToolCall" json:"ToolCall,omitempty"`
 }
 
 type MultiPart struct {
