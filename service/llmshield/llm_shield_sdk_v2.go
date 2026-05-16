@@ -8,6 +8,8 @@ import (
 	"net/http"
 	purl "net/url"
 	"time"
+
+	"github.com/volcengine/volcengine-go-sdk/service/llmshield/aicc"
 )
 
 // New 创建一个新的客户端实例
@@ -67,6 +69,139 @@ func GetServiceCode() string {
 	return Service
 }
 
+// fetchAiccModuleConf 请求 AiccModuleConf 接口，获取 AICC 模块配置
+// 返回 (aiccTopAddr, serAccID, serPolicyID, serServiceName, error)
+func (c *Client) fetchAiccModuleConf() (string, string, string, string, error) {
+	path := "/ctrl/aicc_module_conf"
+	action := "AiccModuleConf"
+	version := "2025-08-31"
+
+	postBody := map[string]interface{}{"Version": 100}
+	requestBody, err := json.Marshal(postBody)
+	if err != nil {
+		return "", "", "", "", fmt.Errorf("failed to marshal AiccModuleConf request: %w", err)
+	}
+
+	req, err := http.NewRequest("POST", c.url+path, bytes.NewBuffer(requestBody))
+	if err != nil {
+		return "", "", "", "", fmt.Errorf("failed to create AiccModuleConf request: %w", err)
+	}
+	req.Header.Set("Content-Type", "application/json")
+	queries := req.URL.Query()
+	queries.Set("Action", action)
+	queries.Set("Version", version)
+	req.URL.RawQuery = queries.Encode()
+
+	if err := c.DoRequestSign(req, requestBody); err != nil {
+		return "", "", "", "", fmt.Errorf("failed to sign AiccModuleConf request: %w", err)
+	}
+
+	resp, err := c.httpClient.Do(req)
+	if err != nil {
+		return "", "", "", "", fmt.Errorf("failed to send AiccModuleConf request: %w", err)
+	}
+	defer resp.Body.Close()
+
+	respBody, err := io.ReadAll(resp.Body)
+	if err != nil {
+		return "", "", "", "", fmt.Errorf("failed to read AiccModuleConf response: %w", err)
+	}
+
+	var respJSON struct {
+		Result struct {
+			PccUrl     string `json:"PccUrl"`
+			AccID      string `json:"AccID"`
+			ServerID   string `json:"ServerID"`
+			ServerName string `json:"ServerName"`
+		} `json:"Result"`
+	}
+	if err := json.Unmarshal(respBody, &respJSON); err != nil {
+		return "", "", "", "", fmt.Errorf("AiccModuleConf 响应解析失败: %w", err)
+	}
+
+	aiccTopAddr := respJSON.Result.PccUrl
+	serAccID := respJSON.Result.AccID
+	serPolicyID := respJSON.Result.ServerID
+	serServiceName := respJSON.Result.ServerName
+
+	if aiccTopAddr == "" || serAccID == "" || serPolicyID == "" || serServiceName == "" {
+		return "", "", "", "", fmt.Errorf("AiccModuleConf 响应缺少必要字段: %s", string(respBody))
+	}
+
+	return aiccTopAddr, serAccID, serPolicyID, serServiceName, nil
+}
+
+// SetAiccInit 初始化 AICC Client.
+// AICC 属于可选能力，外部需要使用 AICC 能力时，请显式调用本方法。
+func (c *Client) SetAiccInit() error {
+	aiccTopAddr, serAccID, serPolicyID, serServiceName, err := c.fetchAiccModuleConf()
+	if err != nil {
+		return err
+	}
+	fmt.Printf("AiccList %s, %s, %s, %s\n", aiccTopAddr, serAccID, serPolicyID, serServiceName)
+
+	aiccRfTick := float64(1800)
+	aiccSerAddr := c.url
+
+	byteTopInfo := fmt.Sprintf(
+		`{"url": "%s","url_rewrite": "%s", "ak": "%s", "sk": "%s", "target_uid": "%s", "aicc_saas_trn": "trn:iam::%s:role/aicc_role", "service": "pcc"}`,
+		aiccTopAddr, aiccSerAddr, c.ak, c.sk, serAccID, serAccID,
+	)
+
+	aiccConf := map[string]interface{}{
+		"ra_url":             aiccSerAddr,
+		"attest_interval":    aiccRfTick,
+		"ra_uid":             serAccID,
+		"ra_policy_id":       serPolicyID,
+		"ra_service_name":    serServiceName,
+		"bytedance_top_info": byteTopInfo,
+	}
+
+	cfg, err := (&aicc.ClientConfig{}).FromDict(aiccConf)
+	if err != nil {
+		return fmt.Errorf("AICC 配置构造失败: %w", err)
+	}
+
+	c.aiccClient = aicc.NewClient(cfg)
+	if c.aiccClient == nil {
+		return fmt.Errorf("AICC客户端初始化失败")
+	}
+	return nil
+}
+
+func (c *Client) requireAiccClient() (*aicc.Client, error) {
+	if c.aiccClient == nil {
+		return nil, fmt.Errorf("AICC Client 未初始化，请先调用 Client.SetAiccInit()")
+	}
+	return c.aiccClient, nil
+}
+
+// Encrypt 使用 AICC Client 加密请求数据，返回信封加密字符串
+func (c *Client) Encrypt(plaintext string) (string, error) {
+	cli, err := c.requireAiccClient()
+	if err != nil {
+		return "", err
+	}
+	return cli.Encrypt(plaintext)
+}
+
+// EncryptWithResponse 使用 AICC Client 加密请求数据，并返回用于解密响应的 ResponseKey
+func (c *Client) EncryptWithResponse(plaintext string) (string, *aicc.ResponseKey, error) {
+	cli, err := c.requireAiccClient()
+	if err != nil {
+		return "", nil, err
+	}
+	return cli.EncryptWithResponse(plaintext)
+}
+
+// DecryptResponse 使用 EncryptWithResponse 返回的 responseKey 解密服务端响应
+func (c *Client) DecryptResponse(responseKey *aicc.ResponseKey, response []byte) ([]byte, error) {
+	if responseKey == nil {
+		return nil, fmt.Errorf("response_key 不能为空")
+	}
+	return responseKey.Decrypt(response)
+}
+
 // Moderate 方法，根据传入的 Request 结构体反序列成 JSON 并发送请求，读取响应并转化为 Response 结构体
 func (c *Client) Moderate(request *ModerateV2Request) (*ModerateV2Response, error) {
 	if request == nil {
@@ -95,6 +230,20 @@ func (c *Client) Moderate(request *ModerateV2Request) (*ModerateV2Response, erro
 	// 发送 HTTP 请求
 	//req.Header.Set("x-api-key", c.api_key)
 	c.DoRequestSign(req, requestBody)
+
+	// 若已初始化 AICC Client，则对请求体加密，并替换请求 body
+	var encReqKey *aicc.ResponseKey
+	if c.aiccClient != nil {
+		encBody, key, encErr := c.EncryptWithResponse(string(requestBody))
+		if encErr != nil {
+			return nil, fmt.Errorf("failed to encrypt request: %w", encErr)
+		}
+		encReqKey = key
+		encBytes := []byte(encBody)
+		req.Body = io.NopCloser(bytes.NewBuffer(encBytes))
+		req.ContentLength = int64(len(encBytes))
+	}
+
 	// 4. 打印请求，发起请求
 	//requestRaw, err := httputil.DumpRequest(req, true)
 	//if err != nil {
@@ -112,6 +261,16 @@ func (c *Client) Moderate(request *ModerateV2Request) (*ModerateV2Response, erro
 	if err != nil {
 		return nil, fmt.Errorf("failed to read response body: %w", err)
 	}
+
+	// 若有响应密钥则解密响应
+	if encReqKey != nil {
+		decrypted, decErr := c.DecryptResponse(encReqKey, responseBody)
+		if decErr != nil {
+			return nil, fmt.Errorf("failed to decrypt response: %w", decErr)
+		}
+		responseBody = decrypted
+	}
+
 	response := &ModerateV2Response{}
 	err = json.Unmarshal(responseBody, &response)
 	if err != nil {

@@ -6,6 +6,8 @@ import (
 	"io"
 	"net/http"
 	"sync"
+
+	"github.com/volcengine/volcengine-go-sdk/service/llmshield/aicc"
 )
 
 const RespChanSize = 100
@@ -321,4 +323,5 @@ type Client struct {
 	ak         string
 	sk         string
 	httpClient *http.Client
+	aiccClient *aicc.Client
 }
