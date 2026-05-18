@@ -46,6 +46,86 @@ type ConfigServiceAPI interface {
 	CreateAccountGroupWithContext(volcengine.Context, *CreateAccountGroupInput, ...request.Option) (*CreateAccountGroupOutput, error)
 	CreateAccountGroupRequest(*CreateAccountGroupInput) (*request.Request, *CreateAccountGroupOutput)
 
+	CreateAccountGroupConformancePackCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateAccountGroupConformancePackCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateAccountGroupConformancePackCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateAccountGroupConformancePack(*CreateAccountGroupConformancePackInput) (*CreateAccountGroupConformancePackOutput, error)
+	CreateAccountGroupConformancePackWithContext(volcengine.Context, *CreateAccountGroupConformancePackInput, ...request.Option) (*CreateAccountGroupConformancePackOutput, error)
+	CreateAccountGroupConformancePackRequest(*CreateAccountGroupConformancePackInput) (*request.Request, *CreateAccountGroupConformancePackOutput)
+
+	CreateAccountGroupConformancePackTemplateCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateAccountGroupConformancePackTemplateCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateAccountGroupConformancePackTemplateCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateAccountGroupConformancePackTemplate(*CreateAccountGroupConformancePackTemplateInput) (*CreateAccountGroupConformancePackTemplateOutput, error)
+	CreateAccountGroupConformancePackTemplateWithContext(volcengine.Context, *CreateAccountGroupConformancePackTemplateInput, ...request.Option) (*CreateAccountGroupConformancePackTemplateOutput, error)
+	CreateAccountGroupConformancePackTemplateRequest(*CreateAccountGroupConformancePackTemplateInput) (*request.Request, *CreateAccountGroupConformancePackTemplateOutput)
+
+	CreateAccountGroupDeliveryChannelCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateAccountGroupDeliveryChannelCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateAccountGroupDeliveryChannelCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateAccountGroupDeliveryChannel(*CreateAccountGroupDeliveryChannelInput) (*CreateAccountGroupDeliveryChannelOutput, error)
+	CreateAccountGroupDeliveryChannelWithContext(volcengine.Context, *CreateAccountGroupDeliveryChannelInput, ...request.Option) (*CreateAccountGroupDeliveryChannelOutput, error)
+	CreateAccountGroupDeliveryChannelRequest(*CreateAccountGroupDeliveryChannelInput) (*request.Request, *CreateAccountGroupDeliveryChannelOutput)
+
+	CreateAccountGroupRuleCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateAccountGroupRuleCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateAccountGroupRuleCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateAccountGroupRule(*CreateAccountGroupRuleInput) (*CreateAccountGroupRuleOutput, error)
+	CreateAccountGroupRuleWithContext(volcengine.Context, *CreateAccountGroupRuleInput, ...request.Option) (*CreateAccountGroupRuleOutput, error)
+	CreateAccountGroupRuleRequest(*CreateAccountGroupRuleInput) (*request.Request, *CreateAccountGroupRuleOutput)
+
+	CreateAccountGroupRuleTemplateCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateAccountGroupRuleTemplateCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateAccountGroupRuleTemplateCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateAccountGroupRuleTemplate(*CreateAccountGroupRuleTemplateInput) (*CreateAccountGroupRuleTemplateOutput, error)
+	CreateAccountGroupRuleTemplateWithContext(volcengine.Context, *CreateAccountGroupRuleTemplateInput, ...request.Option) (*CreateAccountGroupRuleTemplateOutput, error)
+	CreateAccountGroupRuleTemplateRequest(*CreateAccountGroupRuleTemplateInput) (*request.Request, *CreateAccountGroupRuleTemplateOutput)
+
+	CreateConformancePackCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateConformancePackCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateConformancePackCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateConformancePack(*CreateConformancePackInput) (*CreateConformancePackOutput, error)
+	CreateConformancePackWithContext(volcengine.Context, *CreateConformancePackInput, ...request.Option) (*CreateConformancePackOutput, error)
+	CreateConformancePackRequest(*CreateConformancePackInput) (*request.Request, *CreateConformancePackOutput)
+
+	CreateConformancePackTemplateCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateConformancePackTemplateCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateConformancePackTemplateCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateConformancePackTemplate(*CreateConformancePackTemplateInput) (*CreateConformancePackTemplateOutput, error)
+	CreateConformancePackTemplateWithContext(volcengine.Context, *CreateConformancePackTemplateInput, ...request.Option) (*CreateConformancePackTemplateOutput, error)
+	CreateConformancePackTemplateRequest(*CreateConformancePackTemplateInput) (*request.Request, *CreateConformancePackTemplateOutput)
+
+	CreateDeliveryChannelCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateDeliveryChannelCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateDeliveryChannelCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateDeliveryChannel(*CreateDeliveryChannelInput) (*CreateDeliveryChannelOutput, error)
+	CreateDeliveryChannelWithContext(volcengine.Context, *CreateDeliveryChannelInput, ...request.Option) (*CreateDeliveryChannelOutput, error)
+	CreateDeliveryChannelRequest(*CreateDeliveryChannelInput) (*request.Request, *CreateDeliveryChannelOutput)
+
+	CreateRuleCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateRuleCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateRuleCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateRule(*CreateRuleInput) (*CreateRuleOutput, error)
+	CreateRuleWithContext(volcengine.Context, *CreateRuleInput, ...request.Option) (*CreateRuleOutput, error)
+	CreateRuleRequest(*CreateRuleInput) (*request.Request, *CreateRuleOutput)
+
+	CreateRuleTemplateCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateRuleTemplateCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateRuleTemplateCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateRuleTemplate(*CreateRuleTemplateInput) (*CreateRuleTemplateOutput, error)
+	CreateRuleTemplateWithContext(volcengine.Context, *CreateRuleTemplateInput, ...request.Option) (*CreateRuleTemplateOutput, error)
+	CreateRuleTemplateRequest(*CreateRuleTemplateInput) (*request.Request, *CreateRuleTemplateOutput)
+
 	DeleteAccountGroupCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DeleteAccountGroupCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DeleteAccountGroupCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -53,6 +133,158 @@ type ConfigServiceAPI interface {
 	DeleteAccountGroup(*DeleteAccountGroupInput) (*DeleteAccountGroupOutput, error)
 	DeleteAccountGroupWithContext(volcengine.Context, *DeleteAccountGroupInput, ...request.Option) (*DeleteAccountGroupOutput, error)
 	DeleteAccountGroupRequest(*DeleteAccountGroupInput) (*request.Request, *DeleteAccountGroupOutput)
+
+	DeleteAccountGroupConformancePackCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeleteAccountGroupConformancePackCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeleteAccountGroupConformancePackCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeleteAccountGroupConformancePack(*DeleteAccountGroupConformancePackInput) (*DeleteAccountGroupConformancePackOutput, error)
+	DeleteAccountGroupConformancePackWithContext(volcengine.Context, *DeleteAccountGroupConformancePackInput, ...request.Option) (*DeleteAccountGroupConformancePackOutput, error)
+	DeleteAccountGroupConformancePackRequest(*DeleteAccountGroupConformancePackInput) (*request.Request, *DeleteAccountGroupConformancePackOutput)
+
+	DeleteAccountGroupConformancePackTemplatesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeleteAccountGroupConformancePackTemplatesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeleteAccountGroupConformancePackTemplatesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeleteAccountGroupConformancePackTemplates(*DeleteAccountGroupConformancePackTemplatesInput) (*DeleteAccountGroupConformancePackTemplatesOutput, error)
+	DeleteAccountGroupConformancePackTemplatesWithContext(volcengine.Context, *DeleteAccountGroupConformancePackTemplatesInput, ...request.Option) (*DeleteAccountGroupConformancePackTemplatesOutput, error)
+	DeleteAccountGroupConformancePackTemplatesRequest(*DeleteAccountGroupConformancePackTemplatesInput) (*request.Request, *DeleteAccountGroupConformancePackTemplatesOutput)
+
+	DeleteAccountGroupDeliveryChannelCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeleteAccountGroupDeliveryChannelCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeleteAccountGroupDeliveryChannelCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeleteAccountGroupDeliveryChannel(*DeleteAccountGroupDeliveryChannelInput) (*DeleteAccountGroupDeliveryChannelOutput, error)
+	DeleteAccountGroupDeliveryChannelWithContext(volcengine.Context, *DeleteAccountGroupDeliveryChannelInput, ...request.Option) (*DeleteAccountGroupDeliveryChannelOutput, error)
+	DeleteAccountGroupDeliveryChannelRequest(*DeleteAccountGroupDeliveryChannelInput) (*request.Request, *DeleteAccountGroupDeliveryChannelOutput)
+
+	DeleteAccountGroupRuleCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeleteAccountGroupRuleCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeleteAccountGroupRuleCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeleteAccountGroupRule(*DeleteAccountGroupRuleInput) (*DeleteAccountGroupRuleOutput, error)
+	DeleteAccountGroupRuleWithContext(volcengine.Context, *DeleteAccountGroupRuleInput, ...request.Option) (*DeleteAccountGroupRuleOutput, error)
+	DeleteAccountGroupRuleRequest(*DeleteAccountGroupRuleInput) (*request.Request, *DeleteAccountGroupRuleOutput)
+
+	DeleteAccountGroupRuleTemplatesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeleteAccountGroupRuleTemplatesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeleteAccountGroupRuleTemplatesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeleteAccountGroupRuleTemplates(*DeleteAccountGroupRuleTemplatesInput) (*DeleteAccountGroupRuleTemplatesOutput, error)
+	DeleteAccountGroupRuleTemplatesWithContext(volcengine.Context, *DeleteAccountGroupRuleTemplatesInput, ...request.Option) (*DeleteAccountGroupRuleTemplatesOutput, error)
+	DeleteAccountGroupRuleTemplatesRequest(*DeleteAccountGroupRuleTemplatesInput) (*request.Request, *DeleteAccountGroupRuleTemplatesOutput)
+
+	DeleteConformancePackCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeleteConformancePackCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeleteConformancePackCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeleteConformancePack(*DeleteConformancePackInput) (*DeleteConformancePackOutput, error)
+	DeleteConformancePackWithContext(volcengine.Context, *DeleteConformancePackInput, ...request.Option) (*DeleteConformancePackOutput, error)
+	DeleteConformancePackRequest(*DeleteConformancePackInput) (*request.Request, *DeleteConformancePackOutput)
+
+	DeleteConformancePackTemplatesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeleteConformancePackTemplatesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeleteConformancePackTemplatesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeleteConformancePackTemplates(*DeleteConformancePackTemplatesInput) (*DeleteConformancePackTemplatesOutput, error)
+	DeleteConformancePackTemplatesWithContext(volcengine.Context, *DeleteConformancePackTemplatesInput, ...request.Option) (*DeleteConformancePackTemplatesOutput, error)
+	DeleteConformancePackTemplatesRequest(*DeleteConformancePackTemplatesInput) (*request.Request, *DeleteConformancePackTemplatesOutput)
+
+	DeleteDeliveryChannelCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeleteDeliveryChannelCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeleteDeliveryChannelCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeleteDeliveryChannel(*DeleteDeliveryChannelInput) (*DeleteDeliveryChannelOutput, error)
+	DeleteDeliveryChannelWithContext(volcengine.Context, *DeleteDeliveryChannelInput, ...request.Option) (*DeleteDeliveryChannelOutput, error)
+	DeleteDeliveryChannelRequest(*DeleteDeliveryChannelInput) (*request.Request, *DeleteDeliveryChannelOutput)
+
+	DeleteRuleCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeleteRuleCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeleteRuleCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeleteRule(*DeleteRuleInput) (*DeleteRuleOutput, error)
+	DeleteRuleWithContext(volcengine.Context, *DeleteRuleInput, ...request.Option) (*DeleteRuleOutput, error)
+	DeleteRuleRequest(*DeleteRuleInput) (*request.Request, *DeleteRuleOutput)
+
+	DeleteRuleTemplatesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeleteRuleTemplatesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeleteRuleTemplatesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeleteRuleTemplates(*DeleteRuleTemplatesInput) (*DeleteRuleTemplatesOutput, error)
+	DeleteRuleTemplatesWithContext(volcengine.Context, *DeleteRuleTemplatesInput, ...request.Option) (*DeleteRuleTemplatesOutput, error)
+	DeleteRuleTemplatesRequest(*DeleteRuleTemplatesInput) (*request.Request, *DeleteRuleTemplatesOutput)
+
+	DescribeAccountGroupComplianceByConformancePacksCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeAccountGroupComplianceByConformancePacksCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeAccountGroupComplianceByConformancePacksCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeAccountGroupComplianceByConformancePacks(*DescribeAccountGroupComplianceByConformancePacksInput) (*DescribeAccountGroupComplianceByConformancePacksOutput, error)
+	DescribeAccountGroupComplianceByConformancePacksWithContext(volcengine.Context, *DescribeAccountGroupComplianceByConformancePacksInput, ...request.Option) (*DescribeAccountGroupComplianceByConformancePacksOutput, error)
+	DescribeAccountGroupComplianceByConformancePacksRequest(*DescribeAccountGroupComplianceByConformancePacksInput) (*request.Request, *DescribeAccountGroupComplianceByConformancePacksOutput)
+
+	DescribeAccountGroupComplianceByResourcesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeAccountGroupComplianceByResourcesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeAccountGroupComplianceByResourcesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeAccountGroupComplianceByResources(*DescribeAccountGroupComplianceByResourcesInput) (*DescribeAccountGroupComplianceByResourcesOutput, error)
+	DescribeAccountGroupComplianceByResourcesWithContext(volcengine.Context, *DescribeAccountGroupComplianceByResourcesInput, ...request.Option) (*DescribeAccountGroupComplianceByResourcesOutput, error)
+	DescribeAccountGroupComplianceByResourcesRequest(*DescribeAccountGroupComplianceByResourcesInput) (*request.Request, *DescribeAccountGroupComplianceByResourcesOutput)
+
+	DescribeAccountGroupComplianceByRulesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeAccountGroupComplianceByRulesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeAccountGroupComplianceByRulesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeAccountGroupComplianceByRules(*DescribeAccountGroupComplianceByRulesInput) (*DescribeAccountGroupComplianceByRulesOutput, error)
+	DescribeAccountGroupComplianceByRulesWithContext(volcengine.Context, *DescribeAccountGroupComplianceByRulesInput, ...request.Option) (*DescribeAccountGroupComplianceByRulesOutput, error)
+	DescribeAccountGroupComplianceByRulesRequest(*DescribeAccountGroupComplianceByRulesInput) (*request.Request, *DescribeAccountGroupComplianceByRulesOutput)
+
+	DescribeAccountGroupConformancePackTemplatesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeAccountGroupConformancePackTemplatesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeAccountGroupConformancePackTemplatesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeAccountGroupConformancePackTemplates(*DescribeAccountGroupConformancePackTemplatesInput) (*DescribeAccountGroupConformancePackTemplatesOutput, error)
+	DescribeAccountGroupConformancePackTemplatesWithContext(volcengine.Context, *DescribeAccountGroupConformancePackTemplatesInput, ...request.Option) (*DescribeAccountGroupConformancePackTemplatesOutput, error)
+	DescribeAccountGroupConformancePackTemplatesRequest(*DescribeAccountGroupConformancePackTemplatesInput) (*request.Request, *DescribeAccountGroupConformancePackTemplatesOutput)
+
+	DescribeAccountGroupConformancePacksCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeAccountGroupConformancePacksCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeAccountGroupConformancePacksCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeAccountGroupConformancePacks(*DescribeAccountGroupConformancePacksInput) (*DescribeAccountGroupConformancePacksOutput, error)
+	DescribeAccountGroupConformancePacksWithContext(volcengine.Context, *DescribeAccountGroupConformancePacksInput, ...request.Option) (*DescribeAccountGroupConformancePacksOutput, error)
+	DescribeAccountGroupConformancePacksRequest(*DescribeAccountGroupConformancePacksInput) (*request.Request, *DescribeAccountGroupConformancePacksOutput)
+
+	DescribeAccountGroupDeliveryChannelCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeAccountGroupDeliveryChannelCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeAccountGroupDeliveryChannelCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeAccountGroupDeliveryChannel(*DescribeAccountGroupDeliveryChannelInput) (*DescribeAccountGroupDeliveryChannelOutput, error)
+	DescribeAccountGroupDeliveryChannelWithContext(volcengine.Context, *DescribeAccountGroupDeliveryChannelInput, ...request.Option) (*DescribeAccountGroupDeliveryChannelOutput, error)
+	DescribeAccountGroupDeliveryChannelRequest(*DescribeAccountGroupDeliveryChannelInput) (*request.Request, *DescribeAccountGroupDeliveryChannelOutput)
+
+	DescribeAccountGroupResourceExemptionsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeAccountGroupResourceExemptionsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeAccountGroupResourceExemptionsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeAccountGroupResourceExemptions(*DescribeAccountGroupResourceExemptionsInput) (*DescribeAccountGroupResourceExemptionsOutput, error)
+	DescribeAccountGroupResourceExemptionsWithContext(volcengine.Context, *DescribeAccountGroupResourceExemptionsInput, ...request.Option) (*DescribeAccountGroupResourceExemptionsOutput, error)
+	DescribeAccountGroupResourceExemptionsRequest(*DescribeAccountGroupResourceExemptionsInput) (*request.Request, *DescribeAccountGroupResourceExemptionsOutput)
+
+	DescribeAccountGroupRuleTemplatesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeAccountGroupRuleTemplatesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeAccountGroupRuleTemplatesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeAccountGroupRuleTemplates(*DescribeAccountGroupRuleTemplatesInput) (*DescribeAccountGroupRuleTemplatesOutput, error)
+	DescribeAccountGroupRuleTemplatesWithContext(volcengine.Context, *DescribeAccountGroupRuleTemplatesInput, ...request.Option) (*DescribeAccountGroupRuleTemplatesOutput, error)
+	DescribeAccountGroupRuleTemplatesRequest(*DescribeAccountGroupRuleTemplatesInput) (*request.Request, *DescribeAccountGroupRuleTemplatesOutput)
+
+	DescribeAccountGroupRulesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeAccountGroupRulesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeAccountGroupRulesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeAccountGroupRules(*DescribeAccountGroupRulesInput) (*DescribeAccountGroupRulesOutput, error)
+	DescribeAccountGroupRulesWithContext(volcengine.Context, *DescribeAccountGroupRulesInput, ...request.Option) (*DescribeAccountGroupRulesOutput, error)
+	DescribeAccountGroupRulesRequest(*DescribeAccountGroupRulesInput) (*request.Request, *DescribeAccountGroupRulesOutput)
 
 	DescribeAccountGroupsCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DescribeAccountGroupsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -62,6 +294,30 @@ type ConfigServiceAPI interface {
 	DescribeAccountGroupsWithContext(volcengine.Context, *DescribeAccountGroupsInput, ...request.Option) (*DescribeAccountGroupsOutput, error)
 	DescribeAccountGroupsRequest(*DescribeAccountGroupsInput) (*request.Request, *DescribeAccountGroupsOutput)
 
+	DescribeComplianceByConformancePacksCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeComplianceByConformancePacksCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeComplianceByConformancePacksCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeComplianceByConformancePacks(*DescribeComplianceByConformancePacksInput) (*DescribeComplianceByConformancePacksOutput, error)
+	DescribeComplianceByConformancePacksWithContext(volcengine.Context, *DescribeComplianceByConformancePacksInput, ...request.Option) (*DescribeComplianceByConformancePacksOutput, error)
+	DescribeComplianceByConformancePacksRequest(*DescribeComplianceByConformancePacksInput) (*request.Request, *DescribeComplianceByConformancePacksOutput)
+
+	DescribeComplianceByResourcesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeComplianceByResourcesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeComplianceByResourcesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeComplianceByResources(*DescribeComplianceByResourcesInput) (*DescribeComplianceByResourcesOutput, error)
+	DescribeComplianceByResourcesWithContext(volcengine.Context, *DescribeComplianceByResourcesInput, ...request.Option) (*DescribeComplianceByResourcesOutput, error)
+	DescribeComplianceByResourcesRequest(*DescribeComplianceByResourcesInput) (*request.Request, *DescribeComplianceByResourcesOutput)
+
+	DescribeComplianceByRulesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeComplianceByRulesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeComplianceByRulesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeComplianceByRules(*DescribeComplianceByRulesInput) (*DescribeComplianceByRulesOutput, error)
+	DescribeComplianceByRulesWithContext(volcengine.Context, *DescribeComplianceByRulesInput, ...request.Option) (*DescribeComplianceByRulesOutput, error)
+	DescribeComplianceByRulesRequest(*DescribeComplianceByRulesInput) (*request.Request, *DescribeComplianceByRulesOutput)
+
 	DescribeConfigurationRecordersCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DescribeConfigurationRecordersCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DescribeConfigurationRecordersCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -70,6 +326,94 @@ type ConfigServiceAPI interface {
 	DescribeConfigurationRecordersWithContext(volcengine.Context, *DescribeConfigurationRecordersInput, ...request.Option) (*DescribeConfigurationRecordersOutput, error)
 	DescribeConfigurationRecordersRequest(*DescribeConfigurationRecordersInput) (*request.Request, *DescribeConfigurationRecordersOutput)
 
+	DescribeConformancePackTemplatesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeConformancePackTemplatesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeConformancePackTemplatesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeConformancePackTemplates(*DescribeConformancePackTemplatesInput) (*DescribeConformancePackTemplatesOutput, error)
+	DescribeConformancePackTemplatesWithContext(volcengine.Context, *DescribeConformancePackTemplatesInput, ...request.Option) (*DescribeConformancePackTemplatesOutput, error)
+	DescribeConformancePackTemplatesRequest(*DescribeConformancePackTemplatesInput) (*request.Request, *DescribeConformancePackTemplatesOutput)
+
+	DescribeConformancePacksCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeConformancePacksCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeConformancePacksCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeConformancePacks(*DescribeConformancePacksInput) (*DescribeConformancePacksOutput, error)
+	DescribeConformancePacksWithContext(volcengine.Context, *DescribeConformancePacksInput, ...request.Option) (*DescribeConformancePacksOutput, error)
+	DescribeConformancePacksRequest(*DescribeConformancePacksInput) (*request.Request, *DescribeConformancePacksOutput)
+
+	DescribeDeliveryChannelCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeDeliveryChannelCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeDeliveryChannelCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeDeliveryChannel(*DescribeDeliveryChannelInput) (*DescribeDeliveryChannelOutput, error)
+	DescribeDeliveryChannelWithContext(volcengine.Context, *DescribeDeliveryChannelInput, ...request.Option) (*DescribeDeliveryChannelOutput, error)
+	DescribeDeliveryChannelRequest(*DescribeDeliveryChannelInput) (*request.Request, *DescribeDeliveryChannelOutput)
+
+	DescribeResourceExemptionsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeResourceExemptionsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeResourceExemptionsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeResourceExemptions(*DescribeResourceExemptionsInput) (*DescribeResourceExemptionsOutput, error)
+	DescribeResourceExemptionsWithContext(volcengine.Context, *DescribeResourceExemptionsInput, ...request.Option) (*DescribeResourceExemptionsOutput, error)
+	DescribeResourceExemptionsRequest(*DescribeResourceExemptionsInput) (*request.Request, *DescribeResourceExemptionsOutput)
+
+	DescribeRuleTemplatesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeRuleTemplatesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeRuleTemplatesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeRuleTemplates(*DescribeRuleTemplatesInput) (*DescribeRuleTemplatesOutput, error)
+	DescribeRuleTemplatesWithContext(volcengine.Context, *DescribeRuleTemplatesInput, ...request.Option) (*DescribeRuleTemplatesOutput, error)
+	DescribeRuleTemplatesRequest(*DescribeRuleTemplatesInput) (*request.Request, *DescribeRuleTemplatesOutput)
+
+	DescribeRulesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeRulesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeRulesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeRules(*DescribeRulesInput) (*DescribeRulesOutput, error)
+	DescribeRulesWithContext(volcengine.Context, *DescribeRulesInput, ...request.Option) (*DescribeRulesOutput, error)
+	DescribeRulesRequest(*DescribeRulesInput) (*request.Request, *DescribeRulesOutput)
+
+	DescribeSupportedResourceTypesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeSupportedResourceTypesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeSupportedResourceTypesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeSupportedResourceTypes(*DescribeSupportedResourceTypesInput) (*DescribeSupportedResourceTypesOutput, error)
+	DescribeSupportedResourceTypesWithContext(volcengine.Context, *DescribeSupportedResourceTypesInput, ...request.Option) (*DescribeSupportedResourceTypesOutput, error)
+	DescribeSupportedResourceTypesRequest(*DescribeSupportedResourceTypesInput) (*request.Request, *DescribeSupportedResourceTypesOutput)
+
+	DisableAccountGroupResourceExemptionCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DisableAccountGroupResourceExemptionCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DisableAccountGroupResourceExemptionCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DisableAccountGroupResourceExemption(*DisableAccountGroupResourceExemptionInput) (*DisableAccountGroupResourceExemptionOutput, error)
+	DisableAccountGroupResourceExemptionWithContext(volcengine.Context, *DisableAccountGroupResourceExemptionInput, ...request.Option) (*DisableAccountGroupResourceExemptionOutput, error)
+	DisableAccountGroupResourceExemptionRequest(*DisableAccountGroupResourceExemptionInput) (*request.Request, *DisableAccountGroupResourceExemptionOutput)
+
+	DisableAccountGroupRuleCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DisableAccountGroupRuleCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DisableAccountGroupRuleCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DisableAccountGroupRule(*DisableAccountGroupRuleInput) (*DisableAccountGroupRuleOutput, error)
+	DisableAccountGroupRuleWithContext(volcengine.Context, *DisableAccountGroupRuleInput, ...request.Option) (*DisableAccountGroupRuleOutput, error)
+	DisableAccountGroupRuleRequest(*DisableAccountGroupRuleInput) (*request.Request, *DisableAccountGroupRuleOutput)
+
+	DisableResourceExemptionCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DisableResourceExemptionCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DisableResourceExemptionCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DisableResourceExemption(*DisableResourceExemptionInput) (*DisableResourceExemptionOutput, error)
+	DisableResourceExemptionWithContext(volcengine.Context, *DisableResourceExemptionInput, ...request.Option) (*DisableResourceExemptionOutput, error)
+	DisableResourceExemptionRequest(*DisableResourceExemptionInput) (*request.Request, *DisableResourceExemptionOutput)
+
+	DisableRuleCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DisableRuleCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DisableRuleCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DisableRule(*DisableRuleInput) (*DisableRuleOutput, error)
+	DisableRuleWithContext(volcengine.Context, *DisableRuleInput, ...request.Option) (*DisableRuleOutput, error)
+	DisableRuleRequest(*DisableRuleInput) (*request.Request, *DisableRuleOutput)
+
 	DisassociateAccountGroupPrincipalsCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DisassociateAccountGroupPrincipalsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DisassociateAccountGroupPrincipalsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -77,6 +421,30 @@ type ConfigServiceAPI interface {
 	DisassociateAccountGroupPrincipals(*DisassociateAccountGroupPrincipalsInput) (*DisassociateAccountGroupPrincipalsOutput, error)
 	DisassociateAccountGroupPrincipalsWithContext(volcengine.Context, *DisassociateAccountGroupPrincipalsInput, ...request.Option) (*DisassociateAccountGroupPrincipalsOutput, error)
 	DisassociateAccountGroupPrincipalsRequest(*DisassociateAccountGroupPrincipalsInput) (*request.Request, *DisassociateAccountGroupPrincipalsOutput)
+
+	EnableAccountGroupRuleCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	EnableAccountGroupRuleCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	EnableAccountGroupRuleCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	EnableAccountGroupRule(*EnableAccountGroupRuleInput) (*EnableAccountGroupRuleOutput, error)
+	EnableAccountGroupRuleWithContext(volcengine.Context, *EnableAccountGroupRuleInput, ...request.Option) (*EnableAccountGroupRuleOutput, error)
+	EnableAccountGroupRuleRequest(*EnableAccountGroupRuleInput) (*request.Request, *EnableAccountGroupRuleOutput)
+
+	EnableRuleCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	EnableRuleCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	EnableRuleCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	EnableRule(*EnableRuleInput) (*EnableRuleOutput, error)
+	EnableRuleWithContext(volcengine.Context, *EnableRuleInput, ...request.Option) (*EnableRuleOutput, error)
+	EnableRuleRequest(*EnableRuleInput) (*request.Request, *EnableRuleOutput)
+
+	GetAccountGroupComplianceHistoryCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	GetAccountGroupComplianceHistoryCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	GetAccountGroupComplianceHistoryCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	GetAccountGroupComplianceHistory(*GetAccountGroupComplianceHistoryInput) (*GetAccountGroupComplianceHistoryOutput, error)
+	GetAccountGroupComplianceHistoryWithContext(volcengine.Context, *GetAccountGroupComplianceHistoryInput, ...request.Option) (*GetAccountGroupComplianceHistoryOutput, error)
+	GetAccountGroupComplianceHistoryRequest(*GetAccountGroupComplianceHistoryInput) (*request.Request, *GetAccountGroupComplianceHistoryOutput)
 
 	GetAccountGroupDiscoveredResourceCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	GetAccountGroupDiscoveredResourceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -102,6 +470,30 @@ type ConfigServiceAPI interface {
 	GetAccountGroupResourceConfigHistoryWithContext(volcengine.Context, *GetAccountGroupResourceConfigHistoryInput, ...request.Option) (*GetAccountGroupResourceConfigHistoryOutput, error)
 	GetAccountGroupResourceConfigHistoryRequest(*GetAccountGroupResourceConfigHistoryInput) (*request.Request, *GetAccountGroupResourceConfigHistoryOutput)
 
+	GetComplianceHistoryCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	GetComplianceHistoryCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	GetComplianceHistoryCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	GetComplianceHistory(*GetComplianceHistoryInput) (*GetComplianceHistoryOutput, error)
+	GetComplianceHistoryWithContext(volcengine.Context, *GetComplianceHistoryInput, ...request.Option) (*GetComplianceHistoryOutput, error)
+	GetComplianceHistoryRequest(*GetComplianceHistoryInput) (*request.Request, *GetComplianceHistoryOutput)
+
+	GetComplianceSummaryCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	GetComplianceSummaryCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	GetComplianceSummaryCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	GetComplianceSummary(*GetComplianceSummaryInput) (*GetComplianceSummaryOutput, error)
+	GetComplianceSummaryWithContext(volcengine.Context, *GetComplianceSummaryInput, ...request.Option) (*GetComplianceSummaryOutput, error)
+	GetComplianceSummaryRequest(*GetComplianceSummaryInput) (*request.Request, *GetComplianceSummaryOutput)
+
+	GetComplianceSummaryByResourceCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	GetComplianceSummaryByResourceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	GetComplianceSummaryByResourceCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	GetComplianceSummaryByResource(*GetComplianceSummaryByResourceInput) (*GetComplianceSummaryByResourceOutput, error)
+	GetComplianceSummaryByResourceWithContext(volcengine.Context, *GetComplianceSummaryByResourceInput, ...request.Option) (*GetComplianceSummaryByResourceOutput, error)
+	GetComplianceSummaryByResourceRequest(*GetComplianceSummaryByResourceInput) (*request.Request, *GetComplianceSummaryByResourceOutput)
+
 	GetDiscoveredResourceCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	GetDiscoveredResourceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	GetDiscoveredResourceCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -117,6 +509,22 @@ type ConfigServiceAPI interface {
 	GetDiscoveredResourceCounts(*GetDiscoveredResourceCountsInput) (*GetDiscoveredResourceCountsOutput, error)
 	GetDiscoveredResourceCountsWithContext(volcengine.Context, *GetDiscoveredResourceCountsInput, ...request.Option) (*GetDiscoveredResourceCountsOutput, error)
 	GetDiscoveredResourceCountsRequest(*GetDiscoveredResourceCountsInput) (*request.Request, *GetDiscoveredResourceCountsOutput)
+
+	GetOrganizationComplianceSummaryCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	GetOrganizationComplianceSummaryCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	GetOrganizationComplianceSummaryCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	GetOrganizationComplianceSummary(*GetOrganizationComplianceSummaryInput) (*GetOrganizationComplianceSummaryOutput, error)
+	GetOrganizationComplianceSummaryWithContext(volcengine.Context, *GetOrganizationComplianceSummaryInput, ...request.Option) (*GetOrganizationComplianceSummaryOutput, error)
+	GetOrganizationComplianceSummaryRequest(*GetOrganizationComplianceSummaryInput) (*request.Request, *GetOrganizationComplianceSummaryOutput)
+
+	GetOrganizationComplianceSummaryByResourceCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	GetOrganizationComplianceSummaryByResourceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	GetOrganizationComplianceSummaryByResourceCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	GetOrganizationComplianceSummaryByResource(*GetOrganizationComplianceSummaryByResourceInput) (*GetOrganizationComplianceSummaryByResourceOutput, error)
+	GetOrganizationComplianceSummaryByResourceWithContext(volcengine.Context, *GetOrganizationComplianceSummaryByResourceInput, ...request.Option) (*GetOrganizationComplianceSummaryByResourceOutput, error)
+	GetOrganizationComplianceSummaryByResourceRequest(*GetOrganizationComplianceSummaryByResourceInput) (*request.Request, *GetOrganizationComplianceSummaryByResourceOutput)
 
 	GetOrganizationDiscoveredResourceCountsCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	GetOrganizationDiscoveredResourceCountsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -134,6 +542,30 @@ type ConfigServiceAPI interface {
 	GetResourceConfigHistoryWithContext(volcengine.Context, *GetResourceConfigHistoryInput, ...request.Option) (*GetResourceConfigHistoryOutput, error)
 	GetResourceConfigHistoryRequest(*GetResourceConfigHistoryInput) (*request.Request, *GetResourceConfigHistoryOutput)
 
+	ListAccountGroupConformancePackTemplatesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListAccountGroupConformancePackTemplatesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListAccountGroupConformancePackTemplatesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListAccountGroupConformancePackTemplates(*ListAccountGroupConformancePackTemplatesInput) (*ListAccountGroupConformancePackTemplatesOutput, error)
+	ListAccountGroupConformancePackTemplatesWithContext(volcengine.Context, *ListAccountGroupConformancePackTemplatesInput, ...request.Option) (*ListAccountGroupConformancePackTemplatesOutput, error)
+	ListAccountGroupConformancePackTemplatesRequest(*ListAccountGroupConformancePackTemplatesInput) (*request.Request, *ListAccountGroupConformancePackTemplatesOutput)
+
+	ListAccountGroupConformancePacksCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListAccountGroupConformancePacksCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListAccountGroupConformancePacksCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListAccountGroupConformancePacks(*ListAccountGroupConformancePacksInput) (*ListAccountGroupConformancePacksOutput, error)
+	ListAccountGroupConformancePacksWithContext(volcengine.Context, *ListAccountGroupConformancePacksInput, ...request.Option) (*ListAccountGroupConformancePacksOutput, error)
+	ListAccountGroupConformancePacksRequest(*ListAccountGroupConformancePacksInput) (*request.Request, *ListAccountGroupConformancePacksOutput)
+
+	ListAccountGroupDeliveryChannelsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListAccountGroupDeliveryChannelsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListAccountGroupDeliveryChannelsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListAccountGroupDeliveryChannels(*ListAccountGroupDeliveryChannelsInput) (*ListAccountGroupDeliveryChannelsOutput, error)
+	ListAccountGroupDeliveryChannelsWithContext(volcengine.Context, *ListAccountGroupDeliveryChannelsInput, ...request.Option) (*ListAccountGroupDeliveryChannelsOutput, error)
+	ListAccountGroupDeliveryChannelsRequest(*ListAccountGroupDeliveryChannelsInput) (*request.Request, *ListAccountGroupDeliveryChannelsOutput)
+
 	ListAccountGroupDiscoveredResourcesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ListAccountGroupDiscoveredResourcesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	ListAccountGroupDiscoveredResourcesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -141,6 +573,14 @@ type ConfigServiceAPI interface {
 	ListAccountGroupDiscoveredResources(*ListAccountGroupDiscoveredResourcesInput) (*ListAccountGroupDiscoveredResourcesOutput, error)
 	ListAccountGroupDiscoveredResourcesWithContext(volcengine.Context, *ListAccountGroupDiscoveredResourcesInput, ...request.Option) (*ListAccountGroupDiscoveredResourcesOutput, error)
 	ListAccountGroupDiscoveredResourcesRequest(*ListAccountGroupDiscoveredResourcesInput) (*request.Request, *ListAccountGroupDiscoveredResourcesOutput)
+
+	ListAccountGroupEvaluationResultsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListAccountGroupEvaluationResultsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListAccountGroupEvaluationResultsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListAccountGroupEvaluationResults(*ListAccountGroupEvaluationResultsInput) (*ListAccountGroupEvaluationResultsOutput, error)
+	ListAccountGroupEvaluationResultsWithContext(volcengine.Context, *ListAccountGroupEvaluationResultsInput, ...request.Option) (*ListAccountGroupEvaluationResultsOutput, error)
+	ListAccountGroupEvaluationResultsRequest(*ListAccountGroupEvaluationResultsInput) (*request.Request, *ListAccountGroupEvaluationResultsOutput)
 
 	ListAccountGroupMembersCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ListAccountGroupMembersCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -150,6 +590,22 @@ type ConfigServiceAPI interface {
 	ListAccountGroupMembersWithContext(volcengine.Context, *ListAccountGroupMembersInput, ...request.Option) (*ListAccountGroupMembersOutput, error)
 	ListAccountGroupMembersRequest(*ListAccountGroupMembersInput) (*request.Request, *ListAccountGroupMembersOutput)
 
+	ListAccountGroupRuleTemplatesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListAccountGroupRuleTemplatesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListAccountGroupRuleTemplatesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListAccountGroupRuleTemplates(*ListAccountGroupRuleTemplatesInput) (*ListAccountGroupRuleTemplatesOutput, error)
+	ListAccountGroupRuleTemplatesWithContext(volcengine.Context, *ListAccountGroupRuleTemplatesInput, ...request.Option) (*ListAccountGroupRuleTemplatesOutput, error)
+	ListAccountGroupRuleTemplatesRequest(*ListAccountGroupRuleTemplatesInput) (*request.Request, *ListAccountGroupRuleTemplatesOutput)
+
+	ListAccountGroupRulesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListAccountGroupRulesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListAccountGroupRulesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListAccountGroupRules(*ListAccountGroupRulesInput) (*ListAccountGroupRulesOutput, error)
+	ListAccountGroupRulesWithContext(volcengine.Context, *ListAccountGroupRulesInput, ...request.Option) (*ListAccountGroupRulesOutput, error)
+	ListAccountGroupRulesRequest(*ListAccountGroupRulesInput) (*request.Request, *ListAccountGroupRulesOutput)
+
 	ListAccountGroupsCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ListAccountGroupsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	ListAccountGroupsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -157,6 +613,30 @@ type ConfigServiceAPI interface {
 	ListAccountGroups(*ListAccountGroupsInput) (*ListAccountGroupsOutput, error)
 	ListAccountGroupsWithContext(volcengine.Context, *ListAccountGroupsInput, ...request.Option) (*ListAccountGroupsOutput, error)
 	ListAccountGroupsRequest(*ListAccountGroupsInput) (*request.Request, *ListAccountGroupsOutput)
+
+	ListConformancePackTemplatesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListConformancePackTemplatesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListConformancePackTemplatesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListConformancePackTemplates(*ListConformancePackTemplatesInput) (*ListConformancePackTemplatesOutput, error)
+	ListConformancePackTemplatesWithContext(volcengine.Context, *ListConformancePackTemplatesInput, ...request.Option) (*ListConformancePackTemplatesOutput, error)
+	ListConformancePackTemplatesRequest(*ListConformancePackTemplatesInput) (*request.Request, *ListConformancePackTemplatesOutput)
+
+	ListConformancePacksCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListConformancePacksCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListConformancePacksCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListConformancePacks(*ListConformancePacksInput) (*ListConformancePacksOutput, error)
+	ListConformancePacksWithContext(volcengine.Context, *ListConformancePacksInput, ...request.Option) (*ListConformancePacksOutput, error)
+	ListConformancePacksRequest(*ListConformancePacksInput) (*request.Request, *ListConformancePacksOutput)
+
+	ListDeliveryChannelsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListDeliveryChannelsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListDeliveryChannelsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListDeliveryChannels(*ListDeliveryChannelsInput) (*ListDeliveryChannelsOutput, error)
+	ListDeliveryChannelsWithContext(volcengine.Context, *ListDeliveryChannelsInput, ...request.Option) (*ListDeliveryChannelsOutput, error)
+	ListDeliveryChannelsRequest(*ListDeliveryChannelsInput) (*request.Request, *ListDeliveryChannelsOutput)
 
 	ListDiscoveredResourcesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ListDiscoveredResourcesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -166,6 +646,54 @@ type ConfigServiceAPI interface {
 	ListDiscoveredResourcesWithContext(volcengine.Context, *ListDiscoveredResourcesInput, ...request.Option) (*ListDiscoveredResourcesOutput, error)
 	ListDiscoveredResourcesRequest(*ListDiscoveredResourcesInput) (*request.Request, *ListDiscoveredResourcesOutput)
 
+	ListEvaluationResultsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListEvaluationResultsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListEvaluationResultsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListEvaluationResults(*ListEvaluationResultsInput) (*ListEvaluationResultsOutput, error)
+	ListEvaluationResultsWithContext(volcengine.Context, *ListEvaluationResultsInput, ...request.Option) (*ListEvaluationResultsOutput, error)
+	ListEvaluationResultsRequest(*ListEvaluationResultsInput) (*request.Request, *ListEvaluationResultsOutput)
+
+	ListRuleTemplatesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListRuleTemplatesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListRuleTemplatesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListRuleTemplates(*ListRuleTemplatesInput) (*ListRuleTemplatesOutput, error)
+	ListRuleTemplatesWithContext(volcengine.Context, *ListRuleTemplatesInput, ...request.Option) (*ListRuleTemplatesOutput, error)
+	ListRuleTemplatesRequest(*ListRuleTemplatesInput) (*request.Request, *ListRuleTemplatesOutput)
+
+	ListRulesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListRulesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListRulesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListRules(*ListRulesInput) (*ListRulesOutput, error)
+	ListRulesWithContext(volcengine.Context, *ListRulesInput, ...request.Option) (*ListRulesOutput, error)
+	ListRulesRequest(*ListRulesInput) (*request.Request, *ListRulesOutput)
+
+	ListSupportedResourceTypeCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListSupportedResourceTypeCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListSupportedResourceTypeCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListSupportedResourceType(*ListSupportedResourceTypeInput) (*ListSupportedResourceTypeOutput, error)
+	ListSupportedResourceTypeWithContext(volcengine.Context, *ListSupportedResourceTypeInput, ...request.Option) (*ListSupportedResourceTypeOutput, error)
+	ListSupportedResourceTypeRequest(*ListSupportedResourceTypeInput) (*request.Request, *ListSupportedResourceTypeOutput)
+
+	ListSupportedResourceTypesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListSupportedResourceTypesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListSupportedResourceTypesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListSupportedResourceTypes(*ListSupportedResourceTypesInput) (*ListSupportedResourceTypesOutput, error)
+	ListSupportedResourceTypesWithContext(volcengine.Context, *ListSupportedResourceTypesInput, ...request.Option) (*ListSupportedResourceTypesOutput, error)
+	ListSupportedResourceTypesRequest(*ListSupportedResourceTypesInput) (*request.Request, *ListSupportedResourceTypesOutput)
+
+	PutAccountGroupResourceExemptionCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	PutAccountGroupResourceExemptionCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	PutAccountGroupResourceExemptionCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	PutAccountGroupResourceExemption(*PutAccountGroupResourceExemptionInput) (*PutAccountGroupResourceExemptionOutput, error)
+	PutAccountGroupResourceExemptionWithContext(volcengine.Context, *PutAccountGroupResourceExemptionInput, ...request.Option) (*PutAccountGroupResourceExemptionOutput, error)
+	PutAccountGroupResourceExemptionRequest(*PutAccountGroupResourceExemptionInput) (*request.Request, *PutAccountGroupResourceExemptionOutput)
+
 	PutConfigurationRecorderCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	PutConfigurationRecorderCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	PutConfigurationRecorderCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -174,6 +702,22 @@ type ConfigServiceAPI interface {
 	PutConfigurationRecorderWithContext(volcengine.Context, *PutConfigurationRecorderInput, ...request.Option) (*PutConfigurationRecorderOutput, error)
 	PutConfigurationRecorderRequest(*PutConfigurationRecorderInput) (*request.Request, *PutConfigurationRecorderOutput)
 
+	PutResourceExemptionCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	PutResourceExemptionCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	PutResourceExemptionCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	PutResourceExemption(*PutResourceExemptionInput) (*PutResourceExemptionOutput, error)
+	PutResourceExemptionWithContext(volcengine.Context, *PutResourceExemptionInput, ...request.Option) (*PutResourceExemptionOutput, error)
+	PutResourceExemptionRequest(*PutResourceExemptionInput) (*request.Request, *PutResourceExemptionOutput)
+
+	StartAccountGroupRuleEvaluationCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	StartAccountGroupRuleEvaluationCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	StartAccountGroupRuleEvaluationCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	StartAccountGroupRuleEvaluation(*StartAccountGroupRuleEvaluationInput) (*StartAccountGroupRuleEvaluationOutput, error)
+	StartAccountGroupRuleEvaluationWithContext(volcengine.Context, *StartAccountGroupRuleEvaluationInput, ...request.Option) (*StartAccountGroupRuleEvaluationOutput, error)
+	StartAccountGroupRuleEvaluationRequest(*StartAccountGroupRuleEvaluationInput) (*request.Request, *StartAccountGroupRuleEvaluationOutput)
+
 	StartConfigurationRecorderCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	StartConfigurationRecorderCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	StartConfigurationRecorderCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -181,6 +725,14 @@ type ConfigServiceAPI interface {
 	StartConfigurationRecorder(*StartConfigurationRecorderInput) (*StartConfigurationRecorderOutput, error)
 	StartConfigurationRecorderWithContext(volcengine.Context, *StartConfigurationRecorderInput, ...request.Option) (*StartConfigurationRecorderOutput, error)
 	StartConfigurationRecorderRequest(*StartConfigurationRecorderInput) (*request.Request, *StartConfigurationRecorderOutput)
+
+	StartRuleEvaluationCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	StartRuleEvaluationCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	StartRuleEvaluationCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	StartRuleEvaluation(*StartRuleEvaluationInput) (*StartRuleEvaluationOutput, error)
+	StartRuleEvaluationWithContext(volcengine.Context, *StartRuleEvaluationInput, ...request.Option) (*StartRuleEvaluationOutput, error)
+	StartRuleEvaluationRequest(*StartRuleEvaluationInput) (*request.Request, *StartRuleEvaluationOutput)
 
 	StopConfigurationRecorderCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	StopConfigurationRecorderCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -197,6 +749,86 @@ type ConfigServiceAPI interface {
 	UpdateAccountGroup(*UpdateAccountGroupInput) (*UpdateAccountGroupOutput, error)
 	UpdateAccountGroupWithContext(volcengine.Context, *UpdateAccountGroupInput, ...request.Option) (*UpdateAccountGroupOutput, error)
 	UpdateAccountGroupRequest(*UpdateAccountGroupInput) (*request.Request, *UpdateAccountGroupOutput)
+
+	UpdateAccountGroupConformancePackCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	UpdateAccountGroupConformancePackCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	UpdateAccountGroupConformancePackCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	UpdateAccountGroupConformancePack(*UpdateAccountGroupConformancePackInput) (*UpdateAccountGroupConformancePackOutput, error)
+	UpdateAccountGroupConformancePackWithContext(volcengine.Context, *UpdateAccountGroupConformancePackInput, ...request.Option) (*UpdateAccountGroupConformancePackOutput, error)
+	UpdateAccountGroupConformancePackRequest(*UpdateAccountGroupConformancePackInput) (*request.Request, *UpdateAccountGroupConformancePackOutput)
+
+	UpdateAccountGroupConformancePackTemplateCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	UpdateAccountGroupConformancePackTemplateCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	UpdateAccountGroupConformancePackTemplateCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	UpdateAccountGroupConformancePackTemplate(*UpdateAccountGroupConformancePackTemplateInput) (*UpdateAccountGroupConformancePackTemplateOutput, error)
+	UpdateAccountGroupConformancePackTemplateWithContext(volcengine.Context, *UpdateAccountGroupConformancePackTemplateInput, ...request.Option) (*UpdateAccountGroupConformancePackTemplateOutput, error)
+	UpdateAccountGroupConformancePackTemplateRequest(*UpdateAccountGroupConformancePackTemplateInput) (*request.Request, *UpdateAccountGroupConformancePackTemplateOutput)
+
+	UpdateAccountGroupDeliveryChannelCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	UpdateAccountGroupDeliveryChannelCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	UpdateAccountGroupDeliveryChannelCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	UpdateAccountGroupDeliveryChannel(*UpdateAccountGroupDeliveryChannelInput) (*UpdateAccountGroupDeliveryChannelOutput, error)
+	UpdateAccountGroupDeliveryChannelWithContext(volcengine.Context, *UpdateAccountGroupDeliveryChannelInput, ...request.Option) (*UpdateAccountGroupDeliveryChannelOutput, error)
+	UpdateAccountGroupDeliveryChannelRequest(*UpdateAccountGroupDeliveryChannelInput) (*request.Request, *UpdateAccountGroupDeliveryChannelOutput)
+
+	UpdateAccountGroupRuleCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	UpdateAccountGroupRuleCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	UpdateAccountGroupRuleCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	UpdateAccountGroupRule(*UpdateAccountGroupRuleInput) (*UpdateAccountGroupRuleOutput, error)
+	UpdateAccountGroupRuleWithContext(volcengine.Context, *UpdateAccountGroupRuleInput, ...request.Option) (*UpdateAccountGroupRuleOutput, error)
+	UpdateAccountGroupRuleRequest(*UpdateAccountGroupRuleInput) (*request.Request, *UpdateAccountGroupRuleOutput)
+
+	UpdateAccountGroupRuleTemplateCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	UpdateAccountGroupRuleTemplateCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	UpdateAccountGroupRuleTemplateCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	UpdateAccountGroupRuleTemplate(*UpdateAccountGroupRuleTemplateInput) (*UpdateAccountGroupRuleTemplateOutput, error)
+	UpdateAccountGroupRuleTemplateWithContext(volcengine.Context, *UpdateAccountGroupRuleTemplateInput, ...request.Option) (*UpdateAccountGroupRuleTemplateOutput, error)
+	UpdateAccountGroupRuleTemplateRequest(*UpdateAccountGroupRuleTemplateInput) (*request.Request, *UpdateAccountGroupRuleTemplateOutput)
+
+	UpdateConformancePackCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	UpdateConformancePackCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	UpdateConformancePackCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	UpdateConformancePack(*UpdateConformancePackInput) (*UpdateConformancePackOutput, error)
+	UpdateConformancePackWithContext(volcengine.Context, *UpdateConformancePackInput, ...request.Option) (*UpdateConformancePackOutput, error)
+	UpdateConformancePackRequest(*UpdateConformancePackInput) (*request.Request, *UpdateConformancePackOutput)
+
+	UpdateConformancePackTemplateCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	UpdateConformancePackTemplateCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	UpdateConformancePackTemplateCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	UpdateConformancePackTemplate(*UpdateConformancePackTemplateInput) (*UpdateConformancePackTemplateOutput, error)
+	UpdateConformancePackTemplateWithContext(volcengine.Context, *UpdateConformancePackTemplateInput, ...request.Option) (*UpdateConformancePackTemplateOutput, error)
+	UpdateConformancePackTemplateRequest(*UpdateConformancePackTemplateInput) (*request.Request, *UpdateConformancePackTemplateOutput)
+
+	UpdateDeliveryChannelCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	UpdateDeliveryChannelCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	UpdateDeliveryChannelCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	UpdateDeliveryChannel(*UpdateDeliveryChannelInput) (*UpdateDeliveryChannelOutput, error)
+	UpdateDeliveryChannelWithContext(volcengine.Context, *UpdateDeliveryChannelInput, ...request.Option) (*UpdateDeliveryChannelOutput, error)
+	UpdateDeliveryChannelRequest(*UpdateDeliveryChannelInput) (*request.Request, *UpdateDeliveryChannelOutput)
+
+	UpdateRuleCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	UpdateRuleCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	UpdateRuleCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	UpdateRule(*UpdateRuleInput) (*UpdateRuleOutput, error)
+	UpdateRuleWithContext(volcengine.Context, *UpdateRuleInput, ...request.Option) (*UpdateRuleOutput, error)
+	UpdateRuleRequest(*UpdateRuleInput) (*request.Request, *UpdateRuleOutput)
+
+	UpdateRuleTemplateCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	UpdateRuleTemplateCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	UpdateRuleTemplateCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	UpdateRuleTemplate(*UpdateRuleTemplateInput) (*UpdateRuleTemplateOutput, error)
+	UpdateRuleTemplateWithContext(volcengine.Context, *UpdateRuleTemplateInput, ...request.Option) (*UpdateRuleTemplateOutput, error)
+	UpdateRuleTemplateRequest(*UpdateRuleTemplateInput) (*request.Request, *UpdateRuleTemplateOutput)
 }
 
 var _ ConfigServiceAPI = (*ConfigService)(nil)
