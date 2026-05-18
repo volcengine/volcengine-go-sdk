@@ -19,7 +19,7 @@ import (
 //    // volcengine sdk func uses an SDK service client to make a request to
 //    // TRANSITROUTER.
 //    func myFunc(svc TRANSITROUTERAPI) bool {
-//        // Make svc.AssociateTransitRouterAttachmentToRouteTable request
+//        // Make svc.AcceptTransitRouterPeerAttachment request
 //    }
 //
 //    func main() {
@@ -30,6 +30,14 @@ import (
 //    }
 //
 type TRANSITROUTERAPI interface {
+	AcceptTransitRouterPeerAttachmentCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	AcceptTransitRouterPeerAttachmentCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	AcceptTransitRouterPeerAttachmentCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	AcceptTransitRouterPeerAttachment(*AcceptTransitRouterPeerAttachmentInput) (*AcceptTransitRouterPeerAttachmentOutput, error)
+	AcceptTransitRouterPeerAttachmentWithContext(volcengine.Context, *AcceptTransitRouterPeerAttachmentInput, ...request.Option) (*AcceptTransitRouterPeerAttachmentOutput, error)
+	AcceptTransitRouterPeerAttachmentRequest(*AcceptTransitRouterPeerAttachmentInput) (*request.Request, *AcceptTransitRouterPeerAttachmentOutput)
+
 	AssociateTransitRouterAttachmentToRouteTableCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	AssociateTransitRouterAttachmentToRouteTableCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	AssociateTransitRouterAttachmentToRouteTableCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -806,6 +814,14 @@ type TRANSITROUTERAPI interface {
 	ModifyTransitRouterTrafficQosMarkingPolicyAttributesWithContext(volcengine.Context, *ModifyTransitRouterTrafficQosMarkingPolicyAttributesInput, ...request.Option) (*ModifyTransitRouterTrafficQosMarkingPolicyAttributesOutput, error)
 	ModifyTransitRouterTrafficQosMarkingPolicyAttributesRequest(*ModifyTransitRouterTrafficQosMarkingPolicyAttributesInput) (*request.Request, *ModifyTransitRouterTrafficQosMarkingPolicyAttributesOutput)
 
+	ModifyTransitRouterTrafficQosQueueEntryAttributesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ModifyTransitRouterTrafficQosQueueEntryAttributesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ModifyTransitRouterTrafficQosQueueEntryAttributesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ModifyTransitRouterTrafficQosQueueEntryAttributes(*ModifyTransitRouterTrafficQosQueueEntryAttributesInput) (*ModifyTransitRouterTrafficQosQueueEntryAttributesOutput, error)
+	ModifyTransitRouterTrafficQosQueueEntryAttributesWithContext(volcengine.Context, *ModifyTransitRouterTrafficQosQueueEntryAttributesInput, ...request.Option) (*ModifyTransitRouterTrafficQosQueueEntryAttributesOutput, error)
+	ModifyTransitRouterTrafficQosQueueEntryAttributesRequest(*ModifyTransitRouterTrafficQosQueueEntryAttributesInput) (*request.Request, *ModifyTransitRouterTrafficQosQueueEntryAttributesOutput)
+
 	ModifyTransitRouterTrafficQosQueuePolicyAssociationCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ModifyTransitRouterTrafficQosQueuePolicyAssociationCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	ModifyTransitRouterTrafficQosQueuePolicyAssociationCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -837,6 +853,14 @@ type TRANSITROUTERAPI interface {
 	ModifyTransitRouterVpnAttachmentAttributes(*ModifyTransitRouterVpnAttachmentAttributesInput) (*ModifyTransitRouterVpnAttachmentAttributesOutput, error)
 	ModifyTransitRouterVpnAttachmentAttributesWithContext(volcengine.Context, *ModifyTransitRouterVpnAttachmentAttributesInput, ...request.Option) (*ModifyTransitRouterVpnAttachmentAttributesOutput, error)
 	ModifyTransitRouterVpnAttachmentAttributesRequest(*ModifyTransitRouterVpnAttachmentAttributesInput) (*request.Request, *ModifyTransitRouterVpnAttachmentAttributesOutput)
+
+	RejectTransitRouterPeerAttachmentCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	RejectTransitRouterPeerAttachmentCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	RejectTransitRouterPeerAttachmentCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	RejectTransitRouterPeerAttachment(*RejectTransitRouterPeerAttachmentInput) (*RejectTransitRouterPeerAttachmentOutput, error)
+	RejectTransitRouterPeerAttachmentWithContext(volcengine.Context, *RejectTransitRouterPeerAttachmentInput, ...request.Option) (*RejectTransitRouterPeerAttachmentOutput, error)
+	RejectTransitRouterPeerAttachmentRequest(*RejectTransitRouterPeerAttachmentInput) (*request.Request, *RejectTransitRouterPeerAttachmentOutput)
 
 	RenewTransitRouterBandwidthPackageCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	RenewTransitRouterBandwidthPackageCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)

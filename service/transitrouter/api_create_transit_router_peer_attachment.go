@@ -151,6 +151,8 @@ type CreateTransitRouterPeerAttachmentInput struct {
 	// PeerTransitRouterId is a required field
 	PeerTransitRouterId *string `type:"string" required:"true"`
 
+	PeerTransitRouterOwnerId *string `type:"string"`
+
 	// PeerTransitRouterRegionId is a required field
 	PeerTransitRouterRegionId *string `type:"string" required:"true"`
 
@@ -214,6 +216,12 @@ func (s *CreateTransitRouterPeerAttachmentInput) SetDescription(v string) *Creat
 // SetPeerTransitRouterId sets the PeerTransitRouterId field's value.
 func (s *CreateTransitRouterPeerAttachmentInput) SetPeerTransitRouterId(v string) *CreateTransitRouterPeerAttachmentInput {
 	s.PeerTransitRouterId = &v
+	return s
+}
+
+// SetPeerTransitRouterOwnerId sets the PeerTransitRouterOwnerId field's value.
+func (s *CreateTransitRouterPeerAttachmentInput) SetPeerTransitRouterOwnerId(v string) *CreateTransitRouterPeerAttachmentInput {
+	s.PeerTransitRouterOwnerId = &v
 	return s
 }
 

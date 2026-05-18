@@ -144,7 +144,7 @@ type DescribeTransitRouterAttachmentsInput struct {
 
 	PageNumber *int32 `type:"int32"`
 
-	PageSize *int32 `type:"int32"`
+	PageSize *int32 `max:"100" type:"int32"`
 
 	ResourceId *string `type:"string"`
 
@@ -171,6 +171,19 @@ func (s DescribeTransitRouterAttachmentsInput) String() string {
 // GoString returns the string representation
 func (s DescribeTransitRouterAttachmentsInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DescribeTransitRouterAttachmentsInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DescribeTransitRouterAttachmentsInput"}
+	if s.PageSize != nil && *s.PageSize > 100 {
+		invalidParams.Add(request.NewErrParamMaxValue("PageSize", 100))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetPageNumber sets the PageNumber field's value.
@@ -348,6 +361,8 @@ type TransitRouterAttachmentForDescribeTransitRouterAttachmentsOutput struct {
 
 	AutoPublishRouteEnabled *bool `type:"boolean"`
 
+	BillingAccountId *string `type:"string"`
+
 	BusinessStatus *string `type:"string"`
 
 	CreationTime *string `type:"string"`
@@ -404,6 +419,12 @@ func (s *TransitRouterAttachmentForDescribeTransitRouterAttachmentsOutput) SetAc
 // SetAutoPublishRouteEnabled sets the AutoPublishRouteEnabled field's value.
 func (s *TransitRouterAttachmentForDescribeTransitRouterAttachmentsOutput) SetAutoPublishRouteEnabled(v bool) *TransitRouterAttachmentForDescribeTransitRouterAttachmentsOutput {
 	s.AutoPublishRouteEnabled = &v
+	return s
+}
+
+// SetBillingAccountId sets the BillingAccountId field's value.
+func (s *TransitRouterAttachmentForDescribeTransitRouterAttachmentsOutput) SetBillingAccountId(v string) *TransitRouterAttachmentForDescribeTransitRouterAttachmentsOutput {
+	s.BillingAccountId = &v
 	return s
 }
 
