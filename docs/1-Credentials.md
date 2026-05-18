@@ -384,13 +384,14 @@ func main() {
 
 Supported modes in profile (case-insensitive):
 
-| Mode | Description |
-| --- | --- |
-| `ak` / empty | Static AK/SK from profile |
-| `sso` | SSO login via OIDC Device Authorization |
-| `ramrolearn` | STS AssumeRole (delegates to `StsProvider`) |
+| Mode | Description                                                     |
+| --- |-----------------------------------------------------------------|
+| `ak` / empty | Static AK/SK from profile                                       |
+| `sso` | Reads STS credentials from the CLI sso cache                    |
+| `ramrolearn` | STS AssumeRole (delegates to `StsProvider`)                     |
 | `oidc` | STS AssumeRoleWithOIDC (delegates to `OIDCCredentialsProvider`) |
-| `ecsrole` | ECS IMDS (delegates to `EcsRoleProvider`) |
+| `ecsrole` | ECS IMDS (delegates to `EcsRoleProvider`)                       |
+| `console-login` | Reads STS credentials from the CLI console-login cache          |
 
 ```go
 package main

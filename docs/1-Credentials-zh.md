@@ -349,13 +349,14 @@ func main() {
 
 支持的 Profile 模式（不区分大小写）：
 
-| 模式 | 说明 |
-| --- | --- |
-| `ak` / 空 | 从 profile 中读取静态 AK/SK |
-| `sso` | SSO 登录（OIDC Device Authorization） |
-| `ramrolearn` | STS AssumeRole（委托给 `StsProvider`） |
+| 模式 | 说明                                                    |
+| --- |-------------------------------------------------------|
+| `ak` / 空 | 从 profile 中读取静态 AK/SK                                 |
+| `sso` | 从 CLI sso 缓存读取 STS 凭证                                 |
+| `ramrolearn` | STS AssumeRole（委托给 `StsProvider`）                     |
 | `oidc` | STS AssumeRoleWithOIDC（委托给 `OIDCCredentialsProvider`） |
-| `ecsrole` | ECS IMDS（委托给 `EcsRoleProvider`） |
+| `ecsrole` | ECS IMDS（委托给 `EcsRoleProvider`）                       |
+| `console-login` | 从 CLI console-login 缓存读取 STS 凭证                       |
 
 ```go
 package main
