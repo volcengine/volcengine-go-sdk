@@ -184,9 +184,9 @@ func (s *ChartAttributeForListTagsOutput) SetVersion(v string) *ChartAttributeFo
 type FilterForListTagsInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	Names []*string `type:"list" json:",omitempty"`
+	Names []*string `type:"list"`
 
-	Types []*string `type:"list" json:",omitempty"`
+	Types []*string `type:"list"`
 }
 
 // String returns the string representation
@@ -272,7 +272,7 @@ type ItemForListTagsOutput struct {
 
 	Digest *string `type:"string" json:",omitempty"`
 
-	ImageAttributes []*ImageAttributeForListTagsOutput `type:"list" json:",omitempty"`
+	ImageAttributes []*ImageAttributeForListTagsOutput `type:"list"`
 
 	Name *string `type:"string" json:",omitempty"`
 
@@ -442,7 +442,7 @@ type ListTagsOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	Items []*ItemForListTagsOutput `type:"list" json:",omitempty"`
+	Items []*ItemForListTagsOutput `type:"list"`
 
 	Namespace *string `type:"string" json:",omitempty"`
 

@@ -146,7 +146,7 @@ func (c *CR) DeleteTagsWithContext(ctx volcengine.Context, input *DeleteTagsInpu
 type DeleteTagsInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	Names []*string `type:"list" json:",omitempty"`
+	Names []*string `type:"list"`
 
 	// Namespace is a required field
 	Namespace *string `min:"2" max:"90" type:"string" json:",omitempty" required:"true"`
@@ -228,9 +228,9 @@ type DeleteTagsOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	Failures []*FailureForDeleteTagsOutput `type:"list" json:",omitempty"`
+	Failures []*FailureForDeleteTagsOutput `type:"list"`
 
-	Successes []*SuccessForDeleteTagsOutput `type:"list" json:",omitempty"`
+	Successes []*SuccessForDeleteTagsOutput `type:"list"`
 }
 
 // String returns the string representation

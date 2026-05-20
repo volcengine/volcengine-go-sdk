@@ -146,11 +146,11 @@ func (c *CR) ListRepositoriesWithContext(ctx volcengine.Context, input *ListRepo
 type FilterForListRepositoriesInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	AccessLevels []*string `type:"list" json:",omitempty"`
+	AccessLevels []*string `type:"list"`
 
-	Names []*string `type:"list" json:",omitempty"`
+	Names []*string `type:"list"`
 
-	Namespaces []*string `type:"list" json:",omitempty"`
+	Namespaces []*string `type:"list"`
 }
 
 // String returns the string representation
@@ -320,7 +320,7 @@ type ListRepositoriesOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	Items []*ItemForListRepositoriesOutput `type:"list" json:",omitempty"`
+	Items []*ItemForListRepositoriesOutput `type:"list"`
 
 	PageNumber *int64 `type:"int64" json:",omitempty"`
 
