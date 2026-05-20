@@ -32,7 +32,7 @@ const opPauseClawOmniInstanceCommon = "PauseClawOmniInstance"
 func (c *ARKCLAW) PauseClawOmniInstanceCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opPauseClawOmniInstanceCommon,
-		HTTPMethod: "GET",
+		HTTPMethod: "POST",
 		HTTPPath:   "/",
 	}
 
@@ -42,6 +42,8 @@ func (c *ARKCLAW) PauseClawOmniInstanceCommonRequest(input *map[string]interface
 
 	output = &map[string]interface{}{}
 	req = c.newRequest(op, input, output)
+
+	req.HTTPRequest.Header.Set("Content-Type", "application/json; charset=utf-8")
 
 	return
 }
@@ -97,7 +99,7 @@ const opPauseClawOmniInstance = "PauseClawOmniInstance"
 func (c *ARKCLAW) PauseClawOmniInstanceRequest(input *PauseClawOmniInstanceInput) (req *request.Request, output *PauseClawOmniInstanceOutput) {
 	op := &request.Operation{
 		Name:       opPauseClawOmniInstance,
-		HTTPMethod: "GET",
+		HTTPMethod: "POST",
 		HTTPPath:   "/",
 	}
 
@@ -107,6 +109,8 @@ func (c *ARKCLAW) PauseClawOmniInstanceRequest(input *PauseClawOmniInstanceInput
 
 	output = &PauseClawOmniInstanceOutput{}
 	req = c.newRequest(op, input, output)
+
+	req.HTTPRequest.Header.Set("Content-Type", "application/json; charset=utf-8")
 
 	return
 }
@@ -140,10 +144,10 @@ func (c *ARKCLAW) PauseClawOmniInstanceWithContext(ctx volcengine.Context, input
 }
 
 type PauseClawOmniInstanceInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// Id is a required field
-	Id *string `type:"string" required:"true"`
+	Id *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -176,11 +180,11 @@ func (s *PauseClawOmniInstanceInput) SetId(v string) *PauseClawOmniInstanceInput
 }
 
 type PauseClawOmniInstanceOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	Id *string `type:"string"`
+	Id *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
