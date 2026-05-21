@@ -139,6 +139,1346 @@ func (c *I18NOPENAPI) TermBaseTermGroupsWithContext(ctx volcengine.Context, inpu
 	return out, req.Send()
 }
 
+type AfForTermBaseTermGroupsOutput struct {
+	_ struct{} `type:"structure"`
+
+	Acronym *string `type:"string" json:"acronym"`
+
+	ApplyMode *int32 `type:"int32" json:"applyMode"`
+
+	CaseSensitive *int64 `type:"int64" json:"caseSensitive"`
+
+	Content *string `type:"string" json:"content"`
+
+	CreateTime *string `type:"string" json:"createTime"`
+
+	CreatedAt *string `type:"string" json:"createdAt"`
+
+	Creator *CreatorForTermBaseTermGroupsOutput `locationName:"creator" type:"structure"`
+
+	Id *string `type:"string" json:"id"`
+
+	Lang *string `type:"string" json:"lang"`
+
+	Operator *CreatorForTermBaseTermGroupsOutput `locationName:"operator" type:"structure"`
+
+	PartOfSpeech *int32 `type:"int32" json:"partOfSpeech"`
+
+	TermBaseId *string `type:"string" json:"termBaseId"`
+
+	TermGroupId *string `type:"string" json:"termGroupId"`
+
+	UpdateTime *string `type:"string" json:"updateTime"`
+
+	UpdatedAt *string `type:"string" json:"updatedAt"`
+}
+
+// String returns the string representation
+func (s AfForTermBaseTermGroupsOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s AfForTermBaseTermGroupsOutput) GoString() string {
+	return s.String()
+}
+
+// SetAcronym sets the Acronym field's value.
+func (s *AfForTermBaseTermGroupsOutput) SetAcronym(v string) *AfForTermBaseTermGroupsOutput {
+	s.Acronym = &v
+	return s
+}
+
+// SetApplyMode sets the ApplyMode field's value.
+func (s *AfForTermBaseTermGroupsOutput) SetApplyMode(v int32) *AfForTermBaseTermGroupsOutput {
+	s.ApplyMode = &v
+	return s
+}
+
+// SetCaseSensitive sets the CaseSensitive field's value.
+func (s *AfForTermBaseTermGroupsOutput) SetCaseSensitive(v int64) *AfForTermBaseTermGroupsOutput {
+	s.CaseSensitive = &v
+	return s
+}
+
+// SetContent sets the Content field's value.
+func (s *AfForTermBaseTermGroupsOutput) SetContent(v string) *AfForTermBaseTermGroupsOutput {
+	s.Content = &v
+	return s
+}
+
+// SetCreateTime sets the CreateTime field's value.
+func (s *AfForTermBaseTermGroupsOutput) SetCreateTime(v string) *AfForTermBaseTermGroupsOutput {
+	s.CreateTime = &v
+	return s
+}
+
+// SetCreatedAt sets the CreatedAt field's value.
+func (s *AfForTermBaseTermGroupsOutput) SetCreatedAt(v string) *AfForTermBaseTermGroupsOutput {
+	s.CreatedAt = &v
+	return s
+}
+
+// SetCreator sets the Creator field's value.
+func (s *AfForTermBaseTermGroupsOutput) SetCreator(v *CreatorForTermBaseTermGroupsOutput) *AfForTermBaseTermGroupsOutput {
+	s.Creator = v
+	return s
+}
+
+// SetId sets the Id field's value.
+func (s *AfForTermBaseTermGroupsOutput) SetId(v string) *AfForTermBaseTermGroupsOutput {
+	s.Id = &v
+	return s
+}
+
+// SetLang sets the Lang field's value.
+func (s *AfForTermBaseTermGroupsOutput) SetLang(v string) *AfForTermBaseTermGroupsOutput {
+	s.Lang = &v
+	return s
+}
+
+// SetOperator sets the Operator field's value.
+func (s *AfForTermBaseTermGroupsOutput) SetOperator(v *CreatorForTermBaseTermGroupsOutput) *AfForTermBaseTermGroupsOutput {
+	s.Operator = v
+	return s
+}
+
+// SetPartOfSpeech sets the PartOfSpeech field's value.
+func (s *AfForTermBaseTermGroupsOutput) SetPartOfSpeech(v int32) *AfForTermBaseTermGroupsOutput {
+	s.PartOfSpeech = &v
+	return s
+}
+
+// SetTermBaseId sets the TermBaseId field's value.
+func (s *AfForTermBaseTermGroupsOutput) SetTermBaseId(v string) *AfForTermBaseTermGroupsOutput {
+	s.TermBaseId = &v
+	return s
+}
+
+// SetTermGroupId sets the TermGroupId field's value.
+func (s *AfForTermBaseTermGroupsOutput) SetTermGroupId(v string) *AfForTermBaseTermGroupsOutput {
+	s.TermGroupId = &v
+	return s
+}
+
+// SetUpdateTime sets the UpdateTime field's value.
+func (s *AfForTermBaseTermGroupsOutput) SetUpdateTime(v string) *AfForTermBaseTermGroupsOutput {
+	s.UpdateTime = &v
+	return s
+}
+
+// SetUpdatedAt sets the UpdatedAt field's value.
+func (s *AfForTermBaseTermGroupsOutput) SetUpdatedAt(v string) *AfForTermBaseTermGroupsOutput {
+	s.UpdatedAt = &v
+	return s
+}
+
+type AfZAForTermBaseTermGroupsOutput struct {
+	_ struct{} `type:"structure"`
+
+	Acronym *string `type:"string" json:"acronym"`
+
+	ApplyMode *int32 `type:"int32" json:"applyMode"`
+
+	CaseSensitive *int64 `type:"int64" json:"caseSensitive"`
+
+	Content *string `type:"string" json:"content"`
+
+	CreateTime *string `type:"string" json:"createTime"`
+
+	CreatedAt *string `type:"string" json:"createdAt"`
+
+	Creator *CreatorForTermBaseTermGroupsOutput `locationName:"creator" type:"structure"`
+
+	Id *string `type:"string" json:"id"`
+
+	Lang *string `type:"string" json:"lang"`
+
+	Operator *CreatorForTermBaseTermGroupsOutput `locationName:"operator" type:"structure"`
+
+	PartOfSpeech *int32 `type:"int32" json:"partOfSpeech"`
+
+	TermBaseId *string `type:"string" json:"termBaseId"`
+
+	TermGroupId *string `type:"string" json:"termGroupId"`
+
+	UpdateTime *string `type:"string" json:"updateTime"`
+
+	UpdatedAt *string `type:"string" json:"updatedAt"`
+}
+
+// String returns the string representation
+func (s AfZAForTermBaseTermGroupsOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s AfZAForTermBaseTermGroupsOutput) GoString() string {
+	return s.String()
+}
+
+// SetAcronym sets the Acronym field's value.
+func (s *AfZAForTermBaseTermGroupsOutput) SetAcronym(v string) *AfZAForTermBaseTermGroupsOutput {
+	s.Acronym = &v
+	return s
+}
+
+// SetApplyMode sets the ApplyMode field's value.
+func (s *AfZAForTermBaseTermGroupsOutput) SetApplyMode(v int32) *AfZAForTermBaseTermGroupsOutput {
+	s.ApplyMode = &v
+	return s
+}
+
+// SetCaseSensitive sets the CaseSensitive field's value.
+func (s *AfZAForTermBaseTermGroupsOutput) SetCaseSensitive(v int64) *AfZAForTermBaseTermGroupsOutput {
+	s.CaseSensitive = &v
+	return s
+}
+
+// SetContent sets the Content field's value.
+func (s *AfZAForTermBaseTermGroupsOutput) SetContent(v string) *AfZAForTermBaseTermGroupsOutput {
+	s.Content = &v
+	return s
+}
+
+// SetCreateTime sets the CreateTime field's value.
+func (s *AfZAForTermBaseTermGroupsOutput) SetCreateTime(v string) *AfZAForTermBaseTermGroupsOutput {
+	s.CreateTime = &v
+	return s
+}
+
+// SetCreatedAt sets the CreatedAt field's value.
+func (s *AfZAForTermBaseTermGroupsOutput) SetCreatedAt(v string) *AfZAForTermBaseTermGroupsOutput {
+	s.CreatedAt = &v
+	return s
+}
+
+// SetCreator sets the Creator field's value.
+func (s *AfZAForTermBaseTermGroupsOutput) SetCreator(v *CreatorForTermBaseTermGroupsOutput) *AfZAForTermBaseTermGroupsOutput {
+	s.Creator = v
+	return s
+}
+
+// SetId sets the Id field's value.
+func (s *AfZAForTermBaseTermGroupsOutput) SetId(v string) *AfZAForTermBaseTermGroupsOutput {
+	s.Id = &v
+	return s
+}
+
+// SetLang sets the Lang field's value.
+func (s *AfZAForTermBaseTermGroupsOutput) SetLang(v string) *AfZAForTermBaseTermGroupsOutput {
+	s.Lang = &v
+	return s
+}
+
+// SetOperator sets the Operator field's value.
+func (s *AfZAForTermBaseTermGroupsOutput) SetOperator(v *CreatorForTermBaseTermGroupsOutput) *AfZAForTermBaseTermGroupsOutput {
+	s.Operator = v
+	return s
+}
+
+// SetPartOfSpeech sets the PartOfSpeech field's value.
+func (s *AfZAForTermBaseTermGroupsOutput) SetPartOfSpeech(v int32) *AfZAForTermBaseTermGroupsOutput {
+	s.PartOfSpeech = &v
+	return s
+}
+
+// SetTermBaseId sets the TermBaseId field's value.
+func (s *AfZAForTermBaseTermGroupsOutput) SetTermBaseId(v string) *AfZAForTermBaseTermGroupsOutput {
+	s.TermBaseId = &v
+	return s
+}
+
+// SetTermGroupId sets the TermGroupId field's value.
+func (s *AfZAForTermBaseTermGroupsOutput) SetTermGroupId(v string) *AfZAForTermBaseTermGroupsOutput {
+	s.TermGroupId = &v
+	return s
+}
+
+// SetUpdateTime sets the UpdateTime field's value.
+func (s *AfZAForTermBaseTermGroupsOutput) SetUpdateTime(v string) *AfZAForTermBaseTermGroupsOutput {
+	s.UpdateTime = &v
+	return s
+}
+
+// SetUpdatedAt sets the UpdatedAt field's value.
+func (s *AfZAForTermBaseTermGroupsOutput) SetUpdatedAt(v string) *AfZAForTermBaseTermGroupsOutput {
+	s.UpdatedAt = &v
+	return s
+}
+
+type ArARForTermBaseTermGroupsOutput struct {
+	_ struct{} `type:"structure"`
+
+	Acronym *string `type:"string" json:"acronym"`
+
+	ApplyMode *int32 `type:"int32" json:"applyMode"`
+
+	CaseSensitive *int64 `type:"int64" json:"caseSensitive"`
+
+	Content *string `type:"string" json:"content"`
+
+	CreateTime *string `type:"string" json:"createTime"`
+
+	CreatedAt *string `type:"string" json:"createdAt"`
+
+	Creator *CreatorForTermBaseTermGroupsOutput `locationName:"creator" type:"structure"`
+
+	Id *string `type:"string" json:"id"`
+
+	Lang *string `type:"string" json:"lang"`
+
+	Operator *CreatorForTermBaseTermGroupsOutput `locationName:"operator" type:"structure"`
+
+	PartOfSpeech *int32 `type:"int32" json:"partOfSpeech"`
+
+	TermBaseId *string `type:"string" json:"termBaseId"`
+
+	TermGroupId *string `type:"string" json:"termGroupId"`
+
+	UpdateTime *string `type:"string" json:"updateTime"`
+
+	UpdatedAt *string `type:"string" json:"updatedAt"`
+}
+
+// String returns the string representation
+func (s ArARForTermBaseTermGroupsOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ArARForTermBaseTermGroupsOutput) GoString() string {
+	return s.String()
+}
+
+// SetAcronym sets the Acronym field's value.
+func (s *ArARForTermBaseTermGroupsOutput) SetAcronym(v string) *ArARForTermBaseTermGroupsOutput {
+	s.Acronym = &v
+	return s
+}
+
+// SetApplyMode sets the ApplyMode field's value.
+func (s *ArARForTermBaseTermGroupsOutput) SetApplyMode(v int32) *ArARForTermBaseTermGroupsOutput {
+	s.ApplyMode = &v
+	return s
+}
+
+// SetCaseSensitive sets the CaseSensitive field's value.
+func (s *ArARForTermBaseTermGroupsOutput) SetCaseSensitive(v int64) *ArARForTermBaseTermGroupsOutput {
+	s.CaseSensitive = &v
+	return s
+}
+
+// SetContent sets the Content field's value.
+func (s *ArARForTermBaseTermGroupsOutput) SetContent(v string) *ArARForTermBaseTermGroupsOutput {
+	s.Content = &v
+	return s
+}
+
+// SetCreateTime sets the CreateTime field's value.
+func (s *ArARForTermBaseTermGroupsOutput) SetCreateTime(v string) *ArARForTermBaseTermGroupsOutput {
+	s.CreateTime = &v
+	return s
+}
+
+// SetCreatedAt sets the CreatedAt field's value.
+func (s *ArARForTermBaseTermGroupsOutput) SetCreatedAt(v string) *ArARForTermBaseTermGroupsOutput {
+	s.CreatedAt = &v
+	return s
+}
+
+// SetCreator sets the Creator field's value.
+func (s *ArARForTermBaseTermGroupsOutput) SetCreator(v *CreatorForTermBaseTermGroupsOutput) *ArARForTermBaseTermGroupsOutput {
+	s.Creator = v
+	return s
+}
+
+// SetId sets the Id field's value.
+func (s *ArARForTermBaseTermGroupsOutput) SetId(v string) *ArARForTermBaseTermGroupsOutput {
+	s.Id = &v
+	return s
+}
+
+// SetLang sets the Lang field's value.
+func (s *ArARForTermBaseTermGroupsOutput) SetLang(v string) *ArARForTermBaseTermGroupsOutput {
+	s.Lang = &v
+	return s
+}
+
+// SetOperator sets the Operator field's value.
+func (s *ArARForTermBaseTermGroupsOutput) SetOperator(v *CreatorForTermBaseTermGroupsOutput) *ArARForTermBaseTermGroupsOutput {
+	s.Operator = v
+	return s
+}
+
+// SetPartOfSpeech sets the PartOfSpeech field's value.
+func (s *ArARForTermBaseTermGroupsOutput) SetPartOfSpeech(v int32) *ArARForTermBaseTermGroupsOutput {
+	s.PartOfSpeech = &v
+	return s
+}
+
+// SetTermBaseId sets the TermBaseId field's value.
+func (s *ArARForTermBaseTermGroupsOutput) SetTermBaseId(v string) *ArARForTermBaseTermGroupsOutput {
+	s.TermBaseId = &v
+	return s
+}
+
+// SetTermGroupId sets the TermGroupId field's value.
+func (s *ArARForTermBaseTermGroupsOutput) SetTermGroupId(v string) *ArARForTermBaseTermGroupsOutput {
+	s.TermGroupId = &v
+	return s
+}
+
+// SetUpdateTime sets the UpdateTime field's value.
+func (s *ArARForTermBaseTermGroupsOutput) SetUpdateTime(v string) *ArARForTermBaseTermGroupsOutput {
+	s.UpdateTime = &v
+	return s
+}
+
+// SetUpdatedAt sets the UpdatedAt field's value.
+func (s *ArARForTermBaseTermGroupsOutput) SetUpdatedAt(v string) *ArARForTermBaseTermGroupsOutput {
+	s.UpdatedAt = &v
+	return s
+}
+
+type ArDZForTermBaseTermGroupsOutput struct {
+	_ struct{} `type:"structure"`
+
+	Acronym *string `type:"string" json:"acronym"`
+
+	ApplyMode *int32 `type:"int32" json:"applyMode"`
+
+	CaseSensitive *int64 `type:"int64" json:"caseSensitive"`
+
+	Content *string `type:"string" json:"content"`
+
+	CreateTime *string `type:"string" json:"createTime"`
+
+	CreatedAt *string `type:"string" json:"createdAt"`
+
+	Creator *CreatorForTermBaseTermGroupsOutput `locationName:"creator" type:"structure"`
+
+	Id *string `type:"string" json:"id"`
+
+	Lang *string `type:"string" json:"lang"`
+
+	Operator *CreatorForTermBaseTermGroupsOutput `locationName:"operator" type:"structure"`
+
+	PartOfSpeech *int32 `type:"int32" json:"partOfSpeech"`
+
+	TermBaseId *string `type:"string" json:"termBaseId"`
+
+	TermGroupId *string `type:"string" json:"termGroupId"`
+
+	UpdateTime *string `type:"string" json:"updateTime"`
+
+	UpdatedAt *string `type:"string" json:"updatedAt"`
+}
+
+// String returns the string representation
+func (s ArDZForTermBaseTermGroupsOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ArDZForTermBaseTermGroupsOutput) GoString() string {
+	return s.String()
+}
+
+// SetAcronym sets the Acronym field's value.
+func (s *ArDZForTermBaseTermGroupsOutput) SetAcronym(v string) *ArDZForTermBaseTermGroupsOutput {
+	s.Acronym = &v
+	return s
+}
+
+// SetApplyMode sets the ApplyMode field's value.
+func (s *ArDZForTermBaseTermGroupsOutput) SetApplyMode(v int32) *ArDZForTermBaseTermGroupsOutput {
+	s.ApplyMode = &v
+	return s
+}
+
+// SetCaseSensitive sets the CaseSensitive field's value.
+func (s *ArDZForTermBaseTermGroupsOutput) SetCaseSensitive(v int64) *ArDZForTermBaseTermGroupsOutput {
+	s.CaseSensitive = &v
+	return s
+}
+
+// SetContent sets the Content field's value.
+func (s *ArDZForTermBaseTermGroupsOutput) SetContent(v string) *ArDZForTermBaseTermGroupsOutput {
+	s.Content = &v
+	return s
+}
+
+// SetCreateTime sets the CreateTime field's value.
+func (s *ArDZForTermBaseTermGroupsOutput) SetCreateTime(v string) *ArDZForTermBaseTermGroupsOutput {
+	s.CreateTime = &v
+	return s
+}
+
+// SetCreatedAt sets the CreatedAt field's value.
+func (s *ArDZForTermBaseTermGroupsOutput) SetCreatedAt(v string) *ArDZForTermBaseTermGroupsOutput {
+	s.CreatedAt = &v
+	return s
+}
+
+// SetCreator sets the Creator field's value.
+func (s *ArDZForTermBaseTermGroupsOutput) SetCreator(v *CreatorForTermBaseTermGroupsOutput) *ArDZForTermBaseTermGroupsOutput {
+	s.Creator = v
+	return s
+}
+
+// SetId sets the Id field's value.
+func (s *ArDZForTermBaseTermGroupsOutput) SetId(v string) *ArDZForTermBaseTermGroupsOutput {
+	s.Id = &v
+	return s
+}
+
+// SetLang sets the Lang field's value.
+func (s *ArDZForTermBaseTermGroupsOutput) SetLang(v string) *ArDZForTermBaseTermGroupsOutput {
+	s.Lang = &v
+	return s
+}
+
+// SetOperator sets the Operator field's value.
+func (s *ArDZForTermBaseTermGroupsOutput) SetOperator(v *CreatorForTermBaseTermGroupsOutput) *ArDZForTermBaseTermGroupsOutput {
+	s.Operator = v
+	return s
+}
+
+// SetPartOfSpeech sets the PartOfSpeech field's value.
+func (s *ArDZForTermBaseTermGroupsOutput) SetPartOfSpeech(v int32) *ArDZForTermBaseTermGroupsOutput {
+	s.PartOfSpeech = &v
+	return s
+}
+
+// SetTermBaseId sets the TermBaseId field's value.
+func (s *ArDZForTermBaseTermGroupsOutput) SetTermBaseId(v string) *ArDZForTermBaseTermGroupsOutput {
+	s.TermBaseId = &v
+	return s
+}
+
+// SetTermGroupId sets the TermGroupId field's value.
+func (s *ArDZForTermBaseTermGroupsOutput) SetTermGroupId(v string) *ArDZForTermBaseTermGroupsOutput {
+	s.TermGroupId = &v
+	return s
+}
+
+// SetUpdateTime sets the UpdateTime field's value.
+func (s *ArDZForTermBaseTermGroupsOutput) SetUpdateTime(v string) *ArDZForTermBaseTermGroupsOutput {
+	s.UpdateTime = &v
+	return s
+}
+
+// SetUpdatedAt sets the UpdatedAt field's value.
+func (s *ArDZForTermBaseTermGroupsOutput) SetUpdatedAt(v string) *ArDZForTermBaseTermGroupsOutput {
+	s.UpdatedAt = &v
+	return s
+}
+
+type ArForTermBaseTermGroupsOutput struct {
+	_ struct{} `type:"structure"`
+
+	Acronym *string `type:"string" json:"acronym"`
+
+	ApplyMode *int32 `type:"int32" json:"applyMode"`
+
+	CaseSensitive *int64 `type:"int64" json:"caseSensitive"`
+
+	Content *string `type:"string" json:"content"`
+
+	CreateTime *string `type:"string" json:"createTime"`
+
+	CreatedAt *string `type:"string" json:"createdAt"`
+
+	Creator *CreatorForTermBaseTermGroupsOutput `locationName:"creator" type:"structure"`
+
+	Id *string `type:"string" json:"id"`
+
+	Lang *string `type:"string" json:"lang"`
+
+	Operator *CreatorForTermBaseTermGroupsOutput `locationName:"operator" type:"structure"`
+
+	PartOfSpeech *int32 `type:"int32" json:"partOfSpeech"`
+
+	TermBaseId *string `type:"string" json:"termBaseId"`
+
+	TermGroupId *string `type:"string" json:"termGroupId"`
+
+	UpdateTime *string `type:"string" json:"updateTime"`
+
+	UpdatedAt *string `type:"string" json:"updatedAt"`
+}
+
+// String returns the string representation
+func (s ArForTermBaseTermGroupsOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ArForTermBaseTermGroupsOutput) GoString() string {
+	return s.String()
+}
+
+// SetAcronym sets the Acronym field's value.
+func (s *ArForTermBaseTermGroupsOutput) SetAcronym(v string) *ArForTermBaseTermGroupsOutput {
+	s.Acronym = &v
+	return s
+}
+
+// SetApplyMode sets the ApplyMode field's value.
+func (s *ArForTermBaseTermGroupsOutput) SetApplyMode(v int32) *ArForTermBaseTermGroupsOutput {
+	s.ApplyMode = &v
+	return s
+}
+
+// SetCaseSensitive sets the CaseSensitive field's value.
+func (s *ArForTermBaseTermGroupsOutput) SetCaseSensitive(v int64) *ArForTermBaseTermGroupsOutput {
+	s.CaseSensitive = &v
+	return s
+}
+
+// SetContent sets the Content field's value.
+func (s *ArForTermBaseTermGroupsOutput) SetContent(v string) *ArForTermBaseTermGroupsOutput {
+	s.Content = &v
+	return s
+}
+
+// SetCreateTime sets the CreateTime field's value.
+func (s *ArForTermBaseTermGroupsOutput) SetCreateTime(v string) *ArForTermBaseTermGroupsOutput {
+	s.CreateTime = &v
+	return s
+}
+
+// SetCreatedAt sets the CreatedAt field's value.
+func (s *ArForTermBaseTermGroupsOutput) SetCreatedAt(v string) *ArForTermBaseTermGroupsOutput {
+	s.CreatedAt = &v
+	return s
+}
+
+// SetCreator sets the Creator field's value.
+func (s *ArForTermBaseTermGroupsOutput) SetCreator(v *CreatorForTermBaseTermGroupsOutput) *ArForTermBaseTermGroupsOutput {
+	s.Creator = v
+	return s
+}
+
+// SetId sets the Id field's value.
+func (s *ArForTermBaseTermGroupsOutput) SetId(v string) *ArForTermBaseTermGroupsOutput {
+	s.Id = &v
+	return s
+}
+
+// SetLang sets the Lang field's value.
+func (s *ArForTermBaseTermGroupsOutput) SetLang(v string) *ArForTermBaseTermGroupsOutput {
+	s.Lang = &v
+	return s
+}
+
+// SetOperator sets the Operator field's value.
+func (s *ArForTermBaseTermGroupsOutput) SetOperator(v *CreatorForTermBaseTermGroupsOutput) *ArForTermBaseTermGroupsOutput {
+	s.Operator = v
+	return s
+}
+
+// SetPartOfSpeech sets the PartOfSpeech field's value.
+func (s *ArForTermBaseTermGroupsOutput) SetPartOfSpeech(v int32) *ArForTermBaseTermGroupsOutput {
+	s.PartOfSpeech = &v
+	return s
+}
+
+// SetTermBaseId sets the TermBaseId field's value.
+func (s *ArForTermBaseTermGroupsOutput) SetTermBaseId(v string) *ArForTermBaseTermGroupsOutput {
+	s.TermBaseId = &v
+	return s
+}
+
+// SetTermGroupId sets the TermGroupId field's value.
+func (s *ArForTermBaseTermGroupsOutput) SetTermGroupId(v string) *ArForTermBaseTermGroupsOutput {
+	s.TermGroupId = &v
+	return s
+}
+
+// SetUpdateTime sets the UpdateTime field's value.
+func (s *ArForTermBaseTermGroupsOutput) SetUpdateTime(v string) *ArForTermBaseTermGroupsOutput {
+	s.UpdateTime = &v
+	return s
+}
+
+// SetUpdatedAt sets the UpdatedAt field's value.
+func (s *ArForTermBaseTermGroupsOutput) SetUpdatedAt(v string) *ArForTermBaseTermGroupsOutput {
+	s.UpdatedAt = &v
+	return s
+}
+
+type ArSYForTermBaseTermGroupsOutput struct {
+	_ struct{} `type:"structure"`
+
+	Acronym *string `type:"string" json:"acronym"`
+
+	ApplyMode *int32 `type:"int32" json:"applyMode"`
+
+	CaseSensitive *int64 `type:"int64" json:"caseSensitive"`
+
+	Content *string `type:"string" json:"content"`
+
+	CreateTime *string `type:"string" json:"createTime"`
+
+	CreatedAt *string `type:"string" json:"createdAt"`
+
+	Creator *CreatorForTermBaseTermGroupsOutput `locationName:"creator" type:"structure"`
+
+	Id *string `type:"string" json:"id"`
+
+	Lang *string `type:"string" json:"lang"`
+
+	Operator *CreatorForTermBaseTermGroupsOutput `locationName:"operator" type:"structure"`
+
+	PartOfSpeech *int32 `type:"int32" json:"partOfSpeech"`
+
+	TermBaseId *string `type:"string" json:"termBaseId"`
+
+	TermGroupId *string `type:"string" json:"termGroupId"`
+
+	UpdateTime *string `type:"string" json:"updateTime"`
+
+	UpdatedAt *string `type:"string" json:"updatedAt"`
+}
+
+// String returns the string representation
+func (s ArSYForTermBaseTermGroupsOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ArSYForTermBaseTermGroupsOutput) GoString() string {
+	return s.String()
+}
+
+// SetAcronym sets the Acronym field's value.
+func (s *ArSYForTermBaseTermGroupsOutput) SetAcronym(v string) *ArSYForTermBaseTermGroupsOutput {
+	s.Acronym = &v
+	return s
+}
+
+// SetApplyMode sets the ApplyMode field's value.
+func (s *ArSYForTermBaseTermGroupsOutput) SetApplyMode(v int32) *ArSYForTermBaseTermGroupsOutput {
+	s.ApplyMode = &v
+	return s
+}
+
+// SetCaseSensitive sets the CaseSensitive field's value.
+func (s *ArSYForTermBaseTermGroupsOutput) SetCaseSensitive(v int64) *ArSYForTermBaseTermGroupsOutput {
+	s.CaseSensitive = &v
+	return s
+}
+
+// SetContent sets the Content field's value.
+func (s *ArSYForTermBaseTermGroupsOutput) SetContent(v string) *ArSYForTermBaseTermGroupsOutput {
+	s.Content = &v
+	return s
+}
+
+// SetCreateTime sets the CreateTime field's value.
+func (s *ArSYForTermBaseTermGroupsOutput) SetCreateTime(v string) *ArSYForTermBaseTermGroupsOutput {
+	s.CreateTime = &v
+	return s
+}
+
+// SetCreatedAt sets the CreatedAt field's value.
+func (s *ArSYForTermBaseTermGroupsOutput) SetCreatedAt(v string) *ArSYForTermBaseTermGroupsOutput {
+	s.CreatedAt = &v
+	return s
+}
+
+// SetCreator sets the Creator field's value.
+func (s *ArSYForTermBaseTermGroupsOutput) SetCreator(v *CreatorForTermBaseTermGroupsOutput) *ArSYForTermBaseTermGroupsOutput {
+	s.Creator = v
+	return s
+}
+
+// SetId sets the Id field's value.
+func (s *ArSYForTermBaseTermGroupsOutput) SetId(v string) *ArSYForTermBaseTermGroupsOutput {
+	s.Id = &v
+	return s
+}
+
+// SetLang sets the Lang field's value.
+func (s *ArSYForTermBaseTermGroupsOutput) SetLang(v string) *ArSYForTermBaseTermGroupsOutput {
+	s.Lang = &v
+	return s
+}
+
+// SetOperator sets the Operator field's value.
+func (s *ArSYForTermBaseTermGroupsOutput) SetOperator(v *CreatorForTermBaseTermGroupsOutput) *ArSYForTermBaseTermGroupsOutput {
+	s.Operator = v
+	return s
+}
+
+// SetPartOfSpeech sets the PartOfSpeech field's value.
+func (s *ArSYForTermBaseTermGroupsOutput) SetPartOfSpeech(v int32) *ArSYForTermBaseTermGroupsOutput {
+	s.PartOfSpeech = &v
+	return s
+}
+
+// SetTermBaseId sets the TermBaseId field's value.
+func (s *ArSYForTermBaseTermGroupsOutput) SetTermBaseId(v string) *ArSYForTermBaseTermGroupsOutput {
+	s.TermBaseId = &v
+	return s
+}
+
+// SetTermGroupId sets the TermGroupId field's value.
+func (s *ArSYForTermBaseTermGroupsOutput) SetTermGroupId(v string) *ArSYForTermBaseTermGroupsOutput {
+	s.TermGroupId = &v
+	return s
+}
+
+// SetUpdateTime sets the UpdateTime field's value.
+func (s *ArSYForTermBaseTermGroupsOutput) SetUpdateTime(v string) *ArSYForTermBaseTermGroupsOutput {
+	s.UpdateTime = &v
+	return s
+}
+
+// SetUpdatedAt sets the UpdatedAt field's value.
+func (s *ArSYForTermBaseTermGroupsOutput) SetUpdatedAt(v string) *ArSYForTermBaseTermGroupsOutput {
+	s.UpdatedAt = &v
+	return s
+}
+
+type ArYEForTermBaseTermGroupsOutput struct {
+	_ struct{} `type:"structure"`
+
+	Acronym *string `type:"string" json:"acronym"`
+
+	ApplyMode *int32 `type:"int32" json:"applyMode"`
+
+	CaseSensitive *int64 `type:"int64" json:"caseSensitive"`
+
+	Content *string `type:"string" json:"content"`
+
+	CreateTime *string `type:"string" json:"createTime"`
+
+	CreatedAt *string `type:"string" json:"createdAt"`
+
+	Creator *CreatorForTermBaseTermGroupsOutput `locationName:"creator" type:"structure"`
+
+	Id *string `type:"string" json:"id"`
+
+	Lang *string `type:"string" json:"lang"`
+
+	Operator *CreatorForTermBaseTermGroupsOutput `locationName:"operator" type:"structure"`
+
+	PartOfSpeech *int32 `type:"int32" json:"partOfSpeech"`
+
+	TermBaseId *string `type:"string" json:"termBaseId"`
+
+	TermGroupId *string `type:"string" json:"termGroupId"`
+
+	UpdateTime *string `type:"string" json:"updateTime"`
+
+	UpdatedAt *string `type:"string" json:"updatedAt"`
+}
+
+// String returns the string representation
+func (s ArYEForTermBaseTermGroupsOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ArYEForTermBaseTermGroupsOutput) GoString() string {
+	return s.String()
+}
+
+// SetAcronym sets the Acronym field's value.
+func (s *ArYEForTermBaseTermGroupsOutput) SetAcronym(v string) *ArYEForTermBaseTermGroupsOutput {
+	s.Acronym = &v
+	return s
+}
+
+// SetApplyMode sets the ApplyMode field's value.
+func (s *ArYEForTermBaseTermGroupsOutput) SetApplyMode(v int32) *ArYEForTermBaseTermGroupsOutput {
+	s.ApplyMode = &v
+	return s
+}
+
+// SetCaseSensitive sets the CaseSensitive field's value.
+func (s *ArYEForTermBaseTermGroupsOutput) SetCaseSensitive(v int64) *ArYEForTermBaseTermGroupsOutput {
+	s.CaseSensitive = &v
+	return s
+}
+
+// SetContent sets the Content field's value.
+func (s *ArYEForTermBaseTermGroupsOutput) SetContent(v string) *ArYEForTermBaseTermGroupsOutput {
+	s.Content = &v
+	return s
+}
+
+// SetCreateTime sets the CreateTime field's value.
+func (s *ArYEForTermBaseTermGroupsOutput) SetCreateTime(v string) *ArYEForTermBaseTermGroupsOutput {
+	s.CreateTime = &v
+	return s
+}
+
+// SetCreatedAt sets the CreatedAt field's value.
+func (s *ArYEForTermBaseTermGroupsOutput) SetCreatedAt(v string) *ArYEForTermBaseTermGroupsOutput {
+	s.CreatedAt = &v
+	return s
+}
+
+// SetCreator sets the Creator field's value.
+func (s *ArYEForTermBaseTermGroupsOutput) SetCreator(v *CreatorForTermBaseTermGroupsOutput) *ArYEForTermBaseTermGroupsOutput {
+	s.Creator = v
+	return s
+}
+
+// SetId sets the Id field's value.
+func (s *ArYEForTermBaseTermGroupsOutput) SetId(v string) *ArYEForTermBaseTermGroupsOutput {
+	s.Id = &v
+	return s
+}
+
+// SetLang sets the Lang field's value.
+func (s *ArYEForTermBaseTermGroupsOutput) SetLang(v string) *ArYEForTermBaseTermGroupsOutput {
+	s.Lang = &v
+	return s
+}
+
+// SetOperator sets the Operator field's value.
+func (s *ArYEForTermBaseTermGroupsOutput) SetOperator(v *CreatorForTermBaseTermGroupsOutput) *ArYEForTermBaseTermGroupsOutput {
+	s.Operator = v
+	return s
+}
+
+// SetPartOfSpeech sets the PartOfSpeech field's value.
+func (s *ArYEForTermBaseTermGroupsOutput) SetPartOfSpeech(v int32) *ArYEForTermBaseTermGroupsOutput {
+	s.PartOfSpeech = &v
+	return s
+}
+
+// SetTermBaseId sets the TermBaseId field's value.
+func (s *ArYEForTermBaseTermGroupsOutput) SetTermBaseId(v string) *ArYEForTermBaseTermGroupsOutput {
+	s.TermBaseId = &v
+	return s
+}
+
+// SetTermGroupId sets the TermGroupId field's value.
+func (s *ArYEForTermBaseTermGroupsOutput) SetTermGroupId(v string) *ArYEForTermBaseTermGroupsOutput {
+	s.TermGroupId = &v
+	return s
+}
+
+// SetUpdateTime sets the UpdateTime field's value.
+func (s *ArYEForTermBaseTermGroupsOutput) SetUpdateTime(v string) *ArYEForTermBaseTermGroupsOutput {
+	s.UpdateTime = &v
+	return s
+}
+
+// SetUpdatedAt sets the UpdatedAt field's value.
+func (s *ArYEForTermBaseTermGroupsOutput) SetUpdatedAt(v string) *ArYEForTermBaseTermGroupsOutput {
+	s.UpdatedAt = &v
+	return s
+}
+
+type BeForTermBaseTermGroupsOutput struct {
+	_ struct{} `type:"structure"`
+
+	Acronym *string `type:"string" json:"acronym"`
+
+	ApplyMode *int32 `type:"int32" json:"applyMode"`
+
+	CaseSensitive *int64 `type:"int64" json:"caseSensitive"`
+
+	Content *string `type:"string" json:"content"`
+
+	CreateTime *string `type:"string" json:"createTime"`
+
+	CreatedAt *string `type:"string" json:"createdAt"`
+
+	Creator *CreatorForTermBaseTermGroupsOutput `locationName:"creator" type:"structure"`
+
+	Id *string `type:"string" json:"id"`
+
+	Lang *string `type:"string" json:"lang"`
+
+	Operator *CreatorForTermBaseTermGroupsOutput `locationName:"operator" type:"structure"`
+
+	PartOfSpeech *int32 `type:"int32" json:"partOfSpeech"`
+
+	TermBaseId *string `type:"string" json:"termBaseId"`
+
+	TermGroupId *string `type:"string" json:"termGroupId"`
+
+	UpdateTime *string `type:"string" json:"updateTime"`
+
+	UpdatedAt *string `type:"string" json:"updatedAt"`
+}
+
+// String returns the string representation
+func (s BeForTermBaseTermGroupsOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s BeForTermBaseTermGroupsOutput) GoString() string {
+	return s.String()
+}
+
+// SetAcronym sets the Acronym field's value.
+func (s *BeForTermBaseTermGroupsOutput) SetAcronym(v string) *BeForTermBaseTermGroupsOutput {
+	s.Acronym = &v
+	return s
+}
+
+// SetApplyMode sets the ApplyMode field's value.
+func (s *BeForTermBaseTermGroupsOutput) SetApplyMode(v int32) *BeForTermBaseTermGroupsOutput {
+	s.ApplyMode = &v
+	return s
+}
+
+// SetCaseSensitive sets the CaseSensitive field's value.
+func (s *BeForTermBaseTermGroupsOutput) SetCaseSensitive(v int64) *BeForTermBaseTermGroupsOutput {
+	s.CaseSensitive = &v
+	return s
+}
+
+// SetContent sets the Content field's value.
+func (s *BeForTermBaseTermGroupsOutput) SetContent(v string) *BeForTermBaseTermGroupsOutput {
+	s.Content = &v
+	return s
+}
+
+// SetCreateTime sets the CreateTime field's value.
+func (s *BeForTermBaseTermGroupsOutput) SetCreateTime(v string) *BeForTermBaseTermGroupsOutput {
+	s.CreateTime = &v
+	return s
+}
+
+// SetCreatedAt sets the CreatedAt field's value.
+func (s *BeForTermBaseTermGroupsOutput) SetCreatedAt(v string) *BeForTermBaseTermGroupsOutput {
+	s.CreatedAt = &v
+	return s
+}
+
+// SetCreator sets the Creator field's value.
+func (s *BeForTermBaseTermGroupsOutput) SetCreator(v *CreatorForTermBaseTermGroupsOutput) *BeForTermBaseTermGroupsOutput {
+	s.Creator = v
+	return s
+}
+
+// SetId sets the Id field's value.
+func (s *BeForTermBaseTermGroupsOutput) SetId(v string) *BeForTermBaseTermGroupsOutput {
+	s.Id = &v
+	return s
+}
+
+// SetLang sets the Lang field's value.
+func (s *BeForTermBaseTermGroupsOutput) SetLang(v string) *BeForTermBaseTermGroupsOutput {
+	s.Lang = &v
+	return s
+}
+
+// SetOperator sets the Operator field's value.
+func (s *BeForTermBaseTermGroupsOutput) SetOperator(v *CreatorForTermBaseTermGroupsOutput) *BeForTermBaseTermGroupsOutput {
+	s.Operator = v
+	return s
+}
+
+// SetPartOfSpeech sets the PartOfSpeech field's value.
+func (s *BeForTermBaseTermGroupsOutput) SetPartOfSpeech(v int32) *BeForTermBaseTermGroupsOutput {
+	s.PartOfSpeech = &v
+	return s
+}
+
+// SetTermBaseId sets the TermBaseId field's value.
+func (s *BeForTermBaseTermGroupsOutput) SetTermBaseId(v string) *BeForTermBaseTermGroupsOutput {
+	s.TermBaseId = &v
+	return s
+}
+
+// SetTermGroupId sets the TermGroupId field's value.
+func (s *BeForTermBaseTermGroupsOutput) SetTermGroupId(v string) *BeForTermBaseTermGroupsOutput {
+	s.TermGroupId = &v
+	return s
+}
+
+// SetUpdateTime sets the UpdateTime field's value.
+func (s *BeForTermBaseTermGroupsOutput) SetUpdateTime(v string) *BeForTermBaseTermGroupsOutput {
+	s.UpdateTime = &v
+	return s
+}
+
+// SetUpdatedAt sets the UpdatedAt field's value.
+func (s *BeForTermBaseTermGroupsOutput) SetUpdatedAt(v string) *BeForTermBaseTermGroupsOutput {
+	s.UpdatedAt = &v
+	return s
+}
+
+type BnBDForTermBaseTermGroupsOutput struct {
+	_ struct{} `type:"structure"`
+
+	Acronym *string `type:"string" json:"acronym"`
+
+	ApplyMode *int32 `type:"int32" json:"applyMode"`
+
+	CaseSensitive *int64 `type:"int64" json:"caseSensitive"`
+
+	Content *string `type:"string" json:"content"`
+
+	CreateTime *string `type:"string" json:"createTime"`
+
+	CreatedAt *string `type:"string" json:"createdAt"`
+
+	Creator *CreatorForTermBaseTermGroupsOutput `locationName:"creator" type:"structure"`
+
+	Id *string `type:"string" json:"id"`
+
+	Lang *string `type:"string" json:"lang"`
+
+	Operator *CreatorForTermBaseTermGroupsOutput `locationName:"operator" type:"structure"`
+
+	PartOfSpeech *int32 `type:"int32" json:"partOfSpeech"`
+
+	TermBaseId *string `type:"string" json:"termBaseId"`
+
+	TermGroupId *string `type:"string" json:"termGroupId"`
+
+	UpdateTime *string `type:"string" json:"updateTime"`
+
+	UpdatedAt *string `type:"string" json:"updatedAt"`
+}
+
+// String returns the string representation
+func (s BnBDForTermBaseTermGroupsOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s BnBDForTermBaseTermGroupsOutput) GoString() string {
+	return s.String()
+}
+
+// SetAcronym sets the Acronym field's value.
+func (s *BnBDForTermBaseTermGroupsOutput) SetAcronym(v string) *BnBDForTermBaseTermGroupsOutput {
+	s.Acronym = &v
+	return s
+}
+
+// SetApplyMode sets the ApplyMode field's value.
+func (s *BnBDForTermBaseTermGroupsOutput) SetApplyMode(v int32) *BnBDForTermBaseTermGroupsOutput {
+	s.ApplyMode = &v
+	return s
+}
+
+// SetCaseSensitive sets the CaseSensitive field's value.
+func (s *BnBDForTermBaseTermGroupsOutput) SetCaseSensitive(v int64) *BnBDForTermBaseTermGroupsOutput {
+	s.CaseSensitive = &v
+	return s
+}
+
+// SetContent sets the Content field's value.
+func (s *BnBDForTermBaseTermGroupsOutput) SetContent(v string) *BnBDForTermBaseTermGroupsOutput {
+	s.Content = &v
+	return s
+}
+
+// SetCreateTime sets the CreateTime field's value.
+func (s *BnBDForTermBaseTermGroupsOutput) SetCreateTime(v string) *BnBDForTermBaseTermGroupsOutput {
+	s.CreateTime = &v
+	return s
+}
+
+// SetCreatedAt sets the CreatedAt field's value.
+func (s *BnBDForTermBaseTermGroupsOutput) SetCreatedAt(v string) *BnBDForTermBaseTermGroupsOutput {
+	s.CreatedAt = &v
+	return s
+}
+
+// SetCreator sets the Creator field's value.
+func (s *BnBDForTermBaseTermGroupsOutput) SetCreator(v *CreatorForTermBaseTermGroupsOutput) *BnBDForTermBaseTermGroupsOutput {
+	s.Creator = v
+	return s
+}
+
+// SetId sets the Id field's value.
+func (s *BnBDForTermBaseTermGroupsOutput) SetId(v string) *BnBDForTermBaseTermGroupsOutput {
+	s.Id = &v
+	return s
+}
+
+// SetLang sets the Lang field's value.
+func (s *BnBDForTermBaseTermGroupsOutput) SetLang(v string) *BnBDForTermBaseTermGroupsOutput {
+	s.Lang = &v
+	return s
+}
+
+// SetOperator sets the Operator field's value.
+func (s *BnBDForTermBaseTermGroupsOutput) SetOperator(v *CreatorForTermBaseTermGroupsOutput) *BnBDForTermBaseTermGroupsOutput {
+	s.Operator = v
+	return s
+}
+
+// SetPartOfSpeech sets the PartOfSpeech field's value.
+func (s *BnBDForTermBaseTermGroupsOutput) SetPartOfSpeech(v int32) *BnBDForTermBaseTermGroupsOutput {
+	s.PartOfSpeech = &v
+	return s
+}
+
+// SetTermBaseId sets the TermBaseId field's value.
+func (s *BnBDForTermBaseTermGroupsOutput) SetTermBaseId(v string) *BnBDForTermBaseTermGroupsOutput {
+	s.TermBaseId = &v
+	return s
+}
+
+// SetTermGroupId sets the TermGroupId field's value.
+func (s *BnBDForTermBaseTermGroupsOutput) SetTermGroupId(v string) *BnBDForTermBaseTermGroupsOutput {
+	s.TermGroupId = &v
+	return s
+}
+
+// SetUpdateTime sets the UpdateTime field's value.
+func (s *BnBDForTermBaseTermGroupsOutput) SetUpdateTime(v string) *BnBDForTermBaseTermGroupsOutput {
+	s.UpdateTime = &v
+	return s
+}
+
+// SetUpdatedAt sets the UpdatedAt field's value.
+func (s *BnBDForTermBaseTermGroupsOutput) SetUpdatedAt(v string) *BnBDForTermBaseTermGroupsOutput {
+	s.UpdatedAt = &v
+	return s
+}
+
+type BnForTermBaseTermGroupsOutput struct {
+	_ struct{} `type:"structure"`
+
+	Acronym *string `type:"string" json:"acronym"`
+
+	ApplyMode *int32 `type:"int32" json:"applyMode"`
+
+	CaseSensitive *int64 `type:"int64" json:"caseSensitive"`
+
+	Content *string `type:"string" json:"content"`
+
+	CreateTime *string `type:"string" json:"createTime"`
+
+	CreatedAt *string `type:"string" json:"createdAt"`
+
+	Creator *CreatorForTermBaseTermGroupsOutput `locationName:"creator" type:"structure"`
+
+	Id *string `type:"string" json:"id"`
+
+	Lang *string `type:"string" json:"lang"`
+
+	Operator *CreatorForTermBaseTermGroupsOutput `locationName:"operator" type:"structure"`
+
+	PartOfSpeech *int32 `type:"int32" json:"partOfSpeech"`
+
+	TermBaseId *string `type:"string" json:"termBaseId"`
+
+	TermGroupId *string `type:"string" json:"termGroupId"`
+
+	UpdateTime *string `type:"string" json:"updateTime"`
+
+	UpdatedAt *string `type:"string" json:"updatedAt"`
+}
+
+// String returns the string representation
+func (s BnForTermBaseTermGroupsOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s BnForTermBaseTermGroupsOutput) GoString() string {
+	return s.String()
+}
+
+// SetAcronym sets the Acronym field's value.
+func (s *BnForTermBaseTermGroupsOutput) SetAcronym(v string) *BnForTermBaseTermGroupsOutput {
+	s.Acronym = &v
+	return s
+}
+
+// SetApplyMode sets the ApplyMode field's value.
+func (s *BnForTermBaseTermGroupsOutput) SetApplyMode(v int32) *BnForTermBaseTermGroupsOutput {
+	s.ApplyMode = &v
+	return s
+}
+
+// SetCaseSensitive sets the CaseSensitive field's value.
+func (s *BnForTermBaseTermGroupsOutput) SetCaseSensitive(v int64) *BnForTermBaseTermGroupsOutput {
+	s.CaseSensitive = &v
+	return s
+}
+
+// SetContent sets the Content field's value.
+func (s *BnForTermBaseTermGroupsOutput) SetContent(v string) *BnForTermBaseTermGroupsOutput {
+	s.Content = &v
+	return s
+}
+
+// SetCreateTime sets the CreateTime field's value.
+func (s *BnForTermBaseTermGroupsOutput) SetCreateTime(v string) *BnForTermBaseTermGroupsOutput {
+	s.CreateTime = &v
+	return s
+}
+
+// SetCreatedAt sets the CreatedAt field's value.
+func (s *BnForTermBaseTermGroupsOutput) SetCreatedAt(v string) *BnForTermBaseTermGroupsOutput {
+	s.CreatedAt = &v
+	return s
+}
+
+// SetCreator sets the Creator field's value.
+func (s *BnForTermBaseTermGroupsOutput) SetCreator(v *CreatorForTermBaseTermGroupsOutput) *BnForTermBaseTermGroupsOutput {
+	s.Creator = v
+	return s
+}
+
+// SetId sets the Id field's value.
+func (s *BnForTermBaseTermGroupsOutput) SetId(v string) *BnForTermBaseTermGroupsOutput {
+	s.Id = &v
+	return s
+}
+
+// SetLang sets the Lang field's value.
+func (s *BnForTermBaseTermGroupsOutput) SetLang(v string) *BnForTermBaseTermGroupsOutput {
+	s.Lang = &v
+	return s
+}
+
+// SetOperator sets the Operator field's value.
+func (s *BnForTermBaseTermGroupsOutput) SetOperator(v *CreatorForTermBaseTermGroupsOutput) *BnForTermBaseTermGroupsOutput {
+	s.Operator = v
+	return s
+}
+
+// SetPartOfSpeech sets the PartOfSpeech field's value.
+func (s *BnForTermBaseTermGroupsOutput) SetPartOfSpeech(v int32) *BnForTermBaseTermGroupsOutput {
+	s.PartOfSpeech = &v
+	return s
+}
+
+// SetTermBaseId sets the TermBaseId field's value.
+func (s *BnForTermBaseTermGroupsOutput) SetTermBaseId(v string) *BnForTermBaseTermGroupsOutput {
+	s.TermBaseId = &v
+	return s
+}
+
+// SetTermGroupId sets the TermGroupId field's value.
+func (s *BnForTermBaseTermGroupsOutput) SetTermGroupId(v string) *BnForTermBaseTermGroupsOutput {
+	s.TermGroupId = &v
+	return s
+}
+
+// SetUpdateTime sets the UpdateTime field's value.
+func (s *BnForTermBaseTermGroupsOutput) SetUpdateTime(v string) *BnForTermBaseTermGroupsOutput {
+	s.UpdateTime = &v
+	return s
+}
+
+// SetUpdatedAt sets the UpdatedAt field's value.
+func (s *BnForTermBaseTermGroupsOutput) SetUpdatedAt(v string) *BnForTermBaseTermGroupsOutput {
+	s.UpdatedAt = &v
+	return s
+}
+
 type CreatorForTermBaseTermGroupsOutput struct {
 	_ struct{} `type:"structure"`
 
@@ -198,6 +1538,140 @@ func (s *CreatorForTermBaseTermGroupsOutput) SetUpdatedAt(v string) *CreatorForT
 // SetUserId sets the UserId field's value.
 func (s *CreatorForTermBaseTermGroupsOutput) SetUserId(v string) *CreatorForTermBaseTermGroupsOutput {
 	s.UserId = &v
+	return s
+}
+
+type DaForTermBaseTermGroupsOutput struct {
+	_ struct{} `type:"structure"`
+
+	Acronym *string `type:"string" json:"acronym"`
+
+	ApplyMode *int32 `type:"int32" json:"applyMode"`
+
+	CaseSensitive *int64 `type:"int64" json:"caseSensitive"`
+
+	Content *string `type:"string" json:"content"`
+
+	CreateTime *string `type:"string" json:"createTime"`
+
+	CreatedAt *string `type:"string" json:"createdAt"`
+
+	Creator *CreatorForTermBaseTermGroupsOutput `locationName:"creator" type:"structure"`
+
+	Id *string `type:"string" json:"id"`
+
+	Lang *string `type:"string" json:"lang"`
+
+	Operator *CreatorForTermBaseTermGroupsOutput `locationName:"operator" type:"structure"`
+
+	PartOfSpeech *int32 `type:"int32" json:"partOfSpeech"`
+
+	TermBaseId *string `type:"string" json:"termBaseId"`
+
+	TermGroupId *string `type:"string" json:"termGroupId"`
+
+	UpdateTime *string `type:"string" json:"updateTime"`
+
+	UpdatedAt *string `type:"string" json:"updatedAt"`
+}
+
+// String returns the string representation
+func (s DaForTermBaseTermGroupsOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DaForTermBaseTermGroupsOutput) GoString() string {
+	return s.String()
+}
+
+// SetAcronym sets the Acronym field's value.
+func (s *DaForTermBaseTermGroupsOutput) SetAcronym(v string) *DaForTermBaseTermGroupsOutput {
+	s.Acronym = &v
+	return s
+}
+
+// SetApplyMode sets the ApplyMode field's value.
+func (s *DaForTermBaseTermGroupsOutput) SetApplyMode(v int32) *DaForTermBaseTermGroupsOutput {
+	s.ApplyMode = &v
+	return s
+}
+
+// SetCaseSensitive sets the CaseSensitive field's value.
+func (s *DaForTermBaseTermGroupsOutput) SetCaseSensitive(v int64) *DaForTermBaseTermGroupsOutput {
+	s.CaseSensitive = &v
+	return s
+}
+
+// SetContent sets the Content field's value.
+func (s *DaForTermBaseTermGroupsOutput) SetContent(v string) *DaForTermBaseTermGroupsOutput {
+	s.Content = &v
+	return s
+}
+
+// SetCreateTime sets the CreateTime field's value.
+func (s *DaForTermBaseTermGroupsOutput) SetCreateTime(v string) *DaForTermBaseTermGroupsOutput {
+	s.CreateTime = &v
+	return s
+}
+
+// SetCreatedAt sets the CreatedAt field's value.
+func (s *DaForTermBaseTermGroupsOutput) SetCreatedAt(v string) *DaForTermBaseTermGroupsOutput {
+	s.CreatedAt = &v
+	return s
+}
+
+// SetCreator sets the Creator field's value.
+func (s *DaForTermBaseTermGroupsOutput) SetCreator(v *CreatorForTermBaseTermGroupsOutput) *DaForTermBaseTermGroupsOutput {
+	s.Creator = v
+	return s
+}
+
+// SetId sets the Id field's value.
+func (s *DaForTermBaseTermGroupsOutput) SetId(v string) *DaForTermBaseTermGroupsOutput {
+	s.Id = &v
+	return s
+}
+
+// SetLang sets the Lang field's value.
+func (s *DaForTermBaseTermGroupsOutput) SetLang(v string) *DaForTermBaseTermGroupsOutput {
+	s.Lang = &v
+	return s
+}
+
+// SetOperator sets the Operator field's value.
+func (s *DaForTermBaseTermGroupsOutput) SetOperator(v *CreatorForTermBaseTermGroupsOutput) *DaForTermBaseTermGroupsOutput {
+	s.Operator = v
+	return s
+}
+
+// SetPartOfSpeech sets the PartOfSpeech field's value.
+func (s *DaForTermBaseTermGroupsOutput) SetPartOfSpeech(v int32) *DaForTermBaseTermGroupsOutput {
+	s.PartOfSpeech = &v
+	return s
+}
+
+// SetTermBaseId sets the TermBaseId field's value.
+func (s *DaForTermBaseTermGroupsOutput) SetTermBaseId(v string) *DaForTermBaseTermGroupsOutput {
+	s.TermBaseId = &v
+	return s
+}
+
+// SetTermGroupId sets the TermGroupId field's value.
+func (s *DaForTermBaseTermGroupsOutput) SetTermGroupId(v string) *DaForTermBaseTermGroupsOutput {
+	s.TermGroupId = &v
+	return s
+}
+
+// SetUpdateTime sets the UpdateTime field's value.
+func (s *DaForTermBaseTermGroupsOutput) SetUpdateTime(v string) *DaForTermBaseTermGroupsOutput {
+	s.UpdateTime = &v
+	return s
+}
+
+// SetUpdatedAt sets the UpdatedAt field's value.
+func (s *DaForTermBaseTermGroupsOutput) SetUpdatedAt(v string) *DaForTermBaseTermGroupsOutput {
+	s.UpdatedAt = &v
 	return s
 }
 
@@ -351,7 +1825,7 @@ func (s *DataForTermBaseTermGroupsOutput) SetUpdatedAt(v string) *DataForTermBas
 	return s
 }
 
-type LangItemMapForTermBaseTermGroupsOutput struct {
+type DeDEForTermBaseTermGroupsOutput struct {
 	_ struct{} `type:"structure"`
 
 	Acronym *string `type:"string" json:"acronym"`
@@ -386,6 +1860,4560 @@ type LangItemMapForTermBaseTermGroupsOutput struct {
 }
 
 // String returns the string representation
+func (s DeDEForTermBaseTermGroupsOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DeDEForTermBaseTermGroupsOutput) GoString() string {
+	return s.String()
+}
+
+// SetAcronym sets the Acronym field's value.
+func (s *DeDEForTermBaseTermGroupsOutput) SetAcronym(v string) *DeDEForTermBaseTermGroupsOutput {
+	s.Acronym = &v
+	return s
+}
+
+// SetApplyMode sets the ApplyMode field's value.
+func (s *DeDEForTermBaseTermGroupsOutput) SetApplyMode(v int32) *DeDEForTermBaseTermGroupsOutput {
+	s.ApplyMode = &v
+	return s
+}
+
+// SetCaseSensitive sets the CaseSensitive field's value.
+func (s *DeDEForTermBaseTermGroupsOutput) SetCaseSensitive(v int64) *DeDEForTermBaseTermGroupsOutput {
+	s.CaseSensitive = &v
+	return s
+}
+
+// SetContent sets the Content field's value.
+func (s *DeDEForTermBaseTermGroupsOutput) SetContent(v string) *DeDEForTermBaseTermGroupsOutput {
+	s.Content = &v
+	return s
+}
+
+// SetCreateTime sets the CreateTime field's value.
+func (s *DeDEForTermBaseTermGroupsOutput) SetCreateTime(v string) *DeDEForTermBaseTermGroupsOutput {
+	s.CreateTime = &v
+	return s
+}
+
+// SetCreatedAt sets the CreatedAt field's value.
+func (s *DeDEForTermBaseTermGroupsOutput) SetCreatedAt(v string) *DeDEForTermBaseTermGroupsOutput {
+	s.CreatedAt = &v
+	return s
+}
+
+// SetCreator sets the Creator field's value.
+func (s *DeDEForTermBaseTermGroupsOutput) SetCreator(v *CreatorForTermBaseTermGroupsOutput) *DeDEForTermBaseTermGroupsOutput {
+	s.Creator = v
+	return s
+}
+
+// SetId sets the Id field's value.
+func (s *DeDEForTermBaseTermGroupsOutput) SetId(v string) *DeDEForTermBaseTermGroupsOutput {
+	s.Id = &v
+	return s
+}
+
+// SetLang sets the Lang field's value.
+func (s *DeDEForTermBaseTermGroupsOutput) SetLang(v string) *DeDEForTermBaseTermGroupsOutput {
+	s.Lang = &v
+	return s
+}
+
+// SetOperator sets the Operator field's value.
+func (s *DeDEForTermBaseTermGroupsOutput) SetOperator(v *CreatorForTermBaseTermGroupsOutput) *DeDEForTermBaseTermGroupsOutput {
+	s.Operator = v
+	return s
+}
+
+// SetPartOfSpeech sets the PartOfSpeech field's value.
+func (s *DeDEForTermBaseTermGroupsOutput) SetPartOfSpeech(v int32) *DeDEForTermBaseTermGroupsOutput {
+	s.PartOfSpeech = &v
+	return s
+}
+
+// SetTermBaseId sets the TermBaseId field's value.
+func (s *DeDEForTermBaseTermGroupsOutput) SetTermBaseId(v string) *DeDEForTermBaseTermGroupsOutput {
+	s.TermBaseId = &v
+	return s
+}
+
+// SetTermGroupId sets the TermGroupId field's value.
+func (s *DeDEForTermBaseTermGroupsOutput) SetTermGroupId(v string) *DeDEForTermBaseTermGroupsOutput {
+	s.TermGroupId = &v
+	return s
+}
+
+// SetUpdateTime sets the UpdateTime field's value.
+func (s *DeDEForTermBaseTermGroupsOutput) SetUpdateTime(v string) *DeDEForTermBaseTermGroupsOutput {
+	s.UpdateTime = &v
+	return s
+}
+
+// SetUpdatedAt sets the UpdatedAt field's value.
+func (s *DeDEForTermBaseTermGroupsOutput) SetUpdatedAt(v string) *DeDEForTermBaseTermGroupsOutput {
+	s.UpdatedAt = &v
+	return s
+}
+
+type DeForTermBaseTermGroupsOutput struct {
+	_ struct{} `type:"structure"`
+
+	Acronym *string `type:"string" json:"acronym"`
+
+	ApplyMode *int32 `type:"int32" json:"applyMode"`
+
+	CaseSensitive *int64 `type:"int64" json:"caseSensitive"`
+
+	Content *string `type:"string" json:"content"`
+
+	CreateTime *string `type:"string" json:"createTime"`
+
+	CreatedAt *string `type:"string" json:"createdAt"`
+
+	Creator *CreatorForTermBaseTermGroupsOutput `locationName:"creator" type:"structure"`
+
+	Id *string `type:"string" json:"id"`
+
+	Lang *string `type:"string" json:"lang"`
+
+	Operator *CreatorForTermBaseTermGroupsOutput `locationName:"operator" type:"structure"`
+
+	PartOfSpeech *int32 `type:"int32" json:"partOfSpeech"`
+
+	TermBaseId *string `type:"string" json:"termBaseId"`
+
+	TermGroupId *string `type:"string" json:"termGroupId"`
+
+	UpdateTime *string `type:"string" json:"updateTime"`
+
+	UpdatedAt *string `type:"string" json:"updatedAt"`
+}
+
+// String returns the string representation
+func (s DeForTermBaseTermGroupsOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DeForTermBaseTermGroupsOutput) GoString() string {
+	return s.String()
+}
+
+// SetAcronym sets the Acronym field's value.
+func (s *DeForTermBaseTermGroupsOutput) SetAcronym(v string) *DeForTermBaseTermGroupsOutput {
+	s.Acronym = &v
+	return s
+}
+
+// SetApplyMode sets the ApplyMode field's value.
+func (s *DeForTermBaseTermGroupsOutput) SetApplyMode(v int32) *DeForTermBaseTermGroupsOutput {
+	s.ApplyMode = &v
+	return s
+}
+
+// SetCaseSensitive sets the CaseSensitive field's value.
+func (s *DeForTermBaseTermGroupsOutput) SetCaseSensitive(v int64) *DeForTermBaseTermGroupsOutput {
+	s.CaseSensitive = &v
+	return s
+}
+
+// SetContent sets the Content field's value.
+func (s *DeForTermBaseTermGroupsOutput) SetContent(v string) *DeForTermBaseTermGroupsOutput {
+	s.Content = &v
+	return s
+}
+
+// SetCreateTime sets the CreateTime field's value.
+func (s *DeForTermBaseTermGroupsOutput) SetCreateTime(v string) *DeForTermBaseTermGroupsOutput {
+	s.CreateTime = &v
+	return s
+}
+
+// SetCreatedAt sets the CreatedAt field's value.
+func (s *DeForTermBaseTermGroupsOutput) SetCreatedAt(v string) *DeForTermBaseTermGroupsOutput {
+	s.CreatedAt = &v
+	return s
+}
+
+// SetCreator sets the Creator field's value.
+func (s *DeForTermBaseTermGroupsOutput) SetCreator(v *CreatorForTermBaseTermGroupsOutput) *DeForTermBaseTermGroupsOutput {
+	s.Creator = v
+	return s
+}
+
+// SetId sets the Id field's value.
+func (s *DeForTermBaseTermGroupsOutput) SetId(v string) *DeForTermBaseTermGroupsOutput {
+	s.Id = &v
+	return s
+}
+
+// SetLang sets the Lang field's value.
+func (s *DeForTermBaseTermGroupsOutput) SetLang(v string) *DeForTermBaseTermGroupsOutput {
+	s.Lang = &v
+	return s
+}
+
+// SetOperator sets the Operator field's value.
+func (s *DeForTermBaseTermGroupsOutput) SetOperator(v *CreatorForTermBaseTermGroupsOutput) *DeForTermBaseTermGroupsOutput {
+	s.Operator = v
+	return s
+}
+
+// SetPartOfSpeech sets the PartOfSpeech field's value.
+func (s *DeForTermBaseTermGroupsOutput) SetPartOfSpeech(v int32) *DeForTermBaseTermGroupsOutput {
+	s.PartOfSpeech = &v
+	return s
+}
+
+// SetTermBaseId sets the TermBaseId field's value.
+func (s *DeForTermBaseTermGroupsOutput) SetTermBaseId(v string) *DeForTermBaseTermGroupsOutput {
+	s.TermBaseId = &v
+	return s
+}
+
+// SetTermGroupId sets the TermGroupId field's value.
+func (s *DeForTermBaseTermGroupsOutput) SetTermGroupId(v string) *DeForTermBaseTermGroupsOutput {
+	s.TermGroupId = &v
+	return s
+}
+
+// SetUpdateTime sets the UpdateTime field's value.
+func (s *DeForTermBaseTermGroupsOutput) SetUpdateTime(v string) *DeForTermBaseTermGroupsOutput {
+	s.UpdateTime = &v
+	return s
+}
+
+// SetUpdatedAt sets the UpdatedAt field's value.
+func (s *DeForTermBaseTermGroupsOutput) SetUpdatedAt(v string) *DeForTermBaseTermGroupsOutput {
+	s.UpdatedAt = &v
+	return s
+}
+
+type EnDAForTermBaseTermGroupsOutput struct {
+	_ struct{} `type:"structure"`
+
+	Acronym *string `type:"string" json:"acronym"`
+
+	ApplyMode *int32 `type:"int32" json:"applyMode"`
+
+	CaseSensitive *int64 `type:"int64" json:"caseSensitive"`
+
+	Content *string `type:"string" json:"content"`
+
+	CreateTime *string `type:"string" json:"createTime"`
+
+	CreatedAt *string `type:"string" json:"createdAt"`
+
+	Creator *CreatorForTermBaseTermGroupsOutput `locationName:"creator" type:"structure"`
+
+	Id *string `type:"string" json:"id"`
+
+	Lang *string `type:"string" json:"lang"`
+
+	Operator *CreatorForTermBaseTermGroupsOutput `locationName:"operator" type:"structure"`
+
+	PartOfSpeech *int32 `type:"int32" json:"partOfSpeech"`
+
+	TermBaseId *string `type:"string" json:"termBaseId"`
+
+	TermGroupId *string `type:"string" json:"termGroupId"`
+
+	UpdateTime *string `type:"string" json:"updateTime"`
+
+	UpdatedAt *string `type:"string" json:"updatedAt"`
+}
+
+// String returns the string representation
+func (s EnDAForTermBaseTermGroupsOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s EnDAForTermBaseTermGroupsOutput) GoString() string {
+	return s.String()
+}
+
+// SetAcronym sets the Acronym field's value.
+func (s *EnDAForTermBaseTermGroupsOutput) SetAcronym(v string) *EnDAForTermBaseTermGroupsOutput {
+	s.Acronym = &v
+	return s
+}
+
+// SetApplyMode sets the ApplyMode field's value.
+func (s *EnDAForTermBaseTermGroupsOutput) SetApplyMode(v int32) *EnDAForTermBaseTermGroupsOutput {
+	s.ApplyMode = &v
+	return s
+}
+
+// SetCaseSensitive sets the CaseSensitive field's value.
+func (s *EnDAForTermBaseTermGroupsOutput) SetCaseSensitive(v int64) *EnDAForTermBaseTermGroupsOutput {
+	s.CaseSensitive = &v
+	return s
+}
+
+// SetContent sets the Content field's value.
+func (s *EnDAForTermBaseTermGroupsOutput) SetContent(v string) *EnDAForTermBaseTermGroupsOutput {
+	s.Content = &v
+	return s
+}
+
+// SetCreateTime sets the CreateTime field's value.
+func (s *EnDAForTermBaseTermGroupsOutput) SetCreateTime(v string) *EnDAForTermBaseTermGroupsOutput {
+	s.CreateTime = &v
+	return s
+}
+
+// SetCreatedAt sets the CreatedAt field's value.
+func (s *EnDAForTermBaseTermGroupsOutput) SetCreatedAt(v string) *EnDAForTermBaseTermGroupsOutput {
+	s.CreatedAt = &v
+	return s
+}
+
+// SetCreator sets the Creator field's value.
+func (s *EnDAForTermBaseTermGroupsOutput) SetCreator(v *CreatorForTermBaseTermGroupsOutput) *EnDAForTermBaseTermGroupsOutput {
+	s.Creator = v
+	return s
+}
+
+// SetId sets the Id field's value.
+func (s *EnDAForTermBaseTermGroupsOutput) SetId(v string) *EnDAForTermBaseTermGroupsOutput {
+	s.Id = &v
+	return s
+}
+
+// SetLang sets the Lang field's value.
+func (s *EnDAForTermBaseTermGroupsOutput) SetLang(v string) *EnDAForTermBaseTermGroupsOutput {
+	s.Lang = &v
+	return s
+}
+
+// SetOperator sets the Operator field's value.
+func (s *EnDAForTermBaseTermGroupsOutput) SetOperator(v *CreatorForTermBaseTermGroupsOutput) *EnDAForTermBaseTermGroupsOutput {
+	s.Operator = v
+	return s
+}
+
+// SetPartOfSpeech sets the PartOfSpeech field's value.
+func (s *EnDAForTermBaseTermGroupsOutput) SetPartOfSpeech(v int32) *EnDAForTermBaseTermGroupsOutput {
+	s.PartOfSpeech = &v
+	return s
+}
+
+// SetTermBaseId sets the TermBaseId field's value.
+func (s *EnDAForTermBaseTermGroupsOutput) SetTermBaseId(v string) *EnDAForTermBaseTermGroupsOutput {
+	s.TermBaseId = &v
+	return s
+}
+
+// SetTermGroupId sets the TermGroupId field's value.
+func (s *EnDAForTermBaseTermGroupsOutput) SetTermGroupId(v string) *EnDAForTermBaseTermGroupsOutput {
+	s.TermGroupId = &v
+	return s
+}
+
+// SetUpdateTime sets the UpdateTime field's value.
+func (s *EnDAForTermBaseTermGroupsOutput) SetUpdateTime(v string) *EnDAForTermBaseTermGroupsOutput {
+	s.UpdateTime = &v
+	return s
+}
+
+// SetUpdatedAt sets the UpdatedAt field's value.
+func (s *EnDAForTermBaseTermGroupsOutput) SetUpdatedAt(v string) *EnDAForTermBaseTermGroupsOutput {
+	s.UpdatedAt = &v
+	return s
+}
+
+type EnForTermBaseTermGroupsOutput struct {
+	_ struct{} `type:"structure"`
+
+	Acronym *string `type:"string" json:"acronym"`
+
+	ApplyMode *int32 `type:"int32" json:"applyMode"`
+
+	CaseSensitive *int64 `type:"int64" json:"caseSensitive"`
+
+	Content *string `type:"string" json:"content"`
+
+	CreateTime *string `type:"string" json:"createTime"`
+
+	CreatedAt *string `type:"string" json:"createdAt"`
+
+	Creator *CreatorForTermBaseTermGroupsOutput `locationName:"creator" type:"structure"`
+
+	Id *string `type:"string" json:"id"`
+
+	Lang *string `type:"string" json:"lang"`
+
+	Operator *CreatorForTermBaseTermGroupsOutput `locationName:"operator" type:"structure"`
+
+	PartOfSpeech *int32 `type:"int32" json:"partOfSpeech"`
+
+	TermBaseId *string `type:"string" json:"termBaseId"`
+
+	TermGroupId *string `type:"string" json:"termGroupId"`
+
+	UpdateTime *string `type:"string" json:"updateTime"`
+
+	UpdatedAt *string `type:"string" json:"updatedAt"`
+}
+
+// String returns the string representation
+func (s EnForTermBaseTermGroupsOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s EnForTermBaseTermGroupsOutput) GoString() string {
+	return s.String()
+}
+
+// SetAcronym sets the Acronym field's value.
+func (s *EnForTermBaseTermGroupsOutput) SetAcronym(v string) *EnForTermBaseTermGroupsOutput {
+	s.Acronym = &v
+	return s
+}
+
+// SetApplyMode sets the ApplyMode field's value.
+func (s *EnForTermBaseTermGroupsOutput) SetApplyMode(v int32) *EnForTermBaseTermGroupsOutput {
+	s.ApplyMode = &v
+	return s
+}
+
+// SetCaseSensitive sets the CaseSensitive field's value.
+func (s *EnForTermBaseTermGroupsOutput) SetCaseSensitive(v int64) *EnForTermBaseTermGroupsOutput {
+	s.CaseSensitive = &v
+	return s
+}
+
+// SetContent sets the Content field's value.
+func (s *EnForTermBaseTermGroupsOutput) SetContent(v string) *EnForTermBaseTermGroupsOutput {
+	s.Content = &v
+	return s
+}
+
+// SetCreateTime sets the CreateTime field's value.
+func (s *EnForTermBaseTermGroupsOutput) SetCreateTime(v string) *EnForTermBaseTermGroupsOutput {
+	s.CreateTime = &v
+	return s
+}
+
+// SetCreatedAt sets the CreatedAt field's value.
+func (s *EnForTermBaseTermGroupsOutput) SetCreatedAt(v string) *EnForTermBaseTermGroupsOutput {
+	s.CreatedAt = &v
+	return s
+}
+
+// SetCreator sets the Creator field's value.
+func (s *EnForTermBaseTermGroupsOutput) SetCreator(v *CreatorForTermBaseTermGroupsOutput) *EnForTermBaseTermGroupsOutput {
+	s.Creator = v
+	return s
+}
+
+// SetId sets the Id field's value.
+func (s *EnForTermBaseTermGroupsOutput) SetId(v string) *EnForTermBaseTermGroupsOutput {
+	s.Id = &v
+	return s
+}
+
+// SetLang sets the Lang field's value.
+func (s *EnForTermBaseTermGroupsOutput) SetLang(v string) *EnForTermBaseTermGroupsOutput {
+	s.Lang = &v
+	return s
+}
+
+// SetOperator sets the Operator field's value.
+func (s *EnForTermBaseTermGroupsOutput) SetOperator(v *CreatorForTermBaseTermGroupsOutput) *EnForTermBaseTermGroupsOutput {
+	s.Operator = v
+	return s
+}
+
+// SetPartOfSpeech sets the PartOfSpeech field's value.
+func (s *EnForTermBaseTermGroupsOutput) SetPartOfSpeech(v int32) *EnForTermBaseTermGroupsOutput {
+	s.PartOfSpeech = &v
+	return s
+}
+
+// SetTermBaseId sets the TermBaseId field's value.
+func (s *EnForTermBaseTermGroupsOutput) SetTermBaseId(v string) *EnForTermBaseTermGroupsOutput {
+	s.TermBaseId = &v
+	return s
+}
+
+// SetTermGroupId sets the TermGroupId field's value.
+func (s *EnForTermBaseTermGroupsOutput) SetTermGroupId(v string) *EnForTermBaseTermGroupsOutput {
+	s.TermGroupId = &v
+	return s
+}
+
+// SetUpdateTime sets the UpdateTime field's value.
+func (s *EnForTermBaseTermGroupsOutput) SetUpdateTime(v string) *EnForTermBaseTermGroupsOutput {
+	s.UpdateTime = &v
+	return s
+}
+
+// SetUpdatedAt sets the UpdatedAt field's value.
+func (s *EnForTermBaseTermGroupsOutput) SetUpdatedAt(v string) *EnForTermBaseTermGroupsOutput {
+	s.UpdatedAt = &v
+	return s
+}
+
+type EnGBForTermBaseTermGroupsOutput struct {
+	_ struct{} `type:"structure"`
+
+	Acronym *string `type:"string" json:"acronym"`
+
+	ApplyMode *int32 `type:"int32" json:"applyMode"`
+
+	CaseSensitive *int64 `type:"int64" json:"caseSensitive"`
+
+	Content *string `type:"string" json:"content"`
+
+	CreateTime *string `type:"string" json:"createTime"`
+
+	CreatedAt *string `type:"string" json:"createdAt"`
+
+	Creator *CreatorForTermBaseTermGroupsOutput `locationName:"creator" type:"structure"`
+
+	Id *string `type:"string" json:"id"`
+
+	Lang *string `type:"string" json:"lang"`
+
+	Operator *CreatorForTermBaseTermGroupsOutput `locationName:"operator" type:"structure"`
+
+	PartOfSpeech *int32 `type:"int32" json:"partOfSpeech"`
+
+	TermBaseId *string `type:"string" json:"termBaseId"`
+
+	TermGroupId *string `type:"string" json:"termGroupId"`
+
+	UpdateTime *string `type:"string" json:"updateTime"`
+
+	UpdatedAt *string `type:"string" json:"updatedAt"`
+}
+
+// String returns the string representation
+func (s EnGBForTermBaseTermGroupsOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s EnGBForTermBaseTermGroupsOutput) GoString() string {
+	return s.String()
+}
+
+// SetAcronym sets the Acronym field's value.
+func (s *EnGBForTermBaseTermGroupsOutput) SetAcronym(v string) *EnGBForTermBaseTermGroupsOutput {
+	s.Acronym = &v
+	return s
+}
+
+// SetApplyMode sets the ApplyMode field's value.
+func (s *EnGBForTermBaseTermGroupsOutput) SetApplyMode(v int32) *EnGBForTermBaseTermGroupsOutput {
+	s.ApplyMode = &v
+	return s
+}
+
+// SetCaseSensitive sets the CaseSensitive field's value.
+func (s *EnGBForTermBaseTermGroupsOutput) SetCaseSensitive(v int64) *EnGBForTermBaseTermGroupsOutput {
+	s.CaseSensitive = &v
+	return s
+}
+
+// SetContent sets the Content field's value.
+func (s *EnGBForTermBaseTermGroupsOutput) SetContent(v string) *EnGBForTermBaseTermGroupsOutput {
+	s.Content = &v
+	return s
+}
+
+// SetCreateTime sets the CreateTime field's value.
+func (s *EnGBForTermBaseTermGroupsOutput) SetCreateTime(v string) *EnGBForTermBaseTermGroupsOutput {
+	s.CreateTime = &v
+	return s
+}
+
+// SetCreatedAt sets the CreatedAt field's value.
+func (s *EnGBForTermBaseTermGroupsOutput) SetCreatedAt(v string) *EnGBForTermBaseTermGroupsOutput {
+	s.CreatedAt = &v
+	return s
+}
+
+// SetCreator sets the Creator field's value.
+func (s *EnGBForTermBaseTermGroupsOutput) SetCreator(v *CreatorForTermBaseTermGroupsOutput) *EnGBForTermBaseTermGroupsOutput {
+	s.Creator = v
+	return s
+}
+
+// SetId sets the Id field's value.
+func (s *EnGBForTermBaseTermGroupsOutput) SetId(v string) *EnGBForTermBaseTermGroupsOutput {
+	s.Id = &v
+	return s
+}
+
+// SetLang sets the Lang field's value.
+func (s *EnGBForTermBaseTermGroupsOutput) SetLang(v string) *EnGBForTermBaseTermGroupsOutput {
+	s.Lang = &v
+	return s
+}
+
+// SetOperator sets the Operator field's value.
+func (s *EnGBForTermBaseTermGroupsOutput) SetOperator(v *CreatorForTermBaseTermGroupsOutput) *EnGBForTermBaseTermGroupsOutput {
+	s.Operator = v
+	return s
+}
+
+// SetPartOfSpeech sets the PartOfSpeech field's value.
+func (s *EnGBForTermBaseTermGroupsOutput) SetPartOfSpeech(v int32) *EnGBForTermBaseTermGroupsOutput {
+	s.PartOfSpeech = &v
+	return s
+}
+
+// SetTermBaseId sets the TermBaseId field's value.
+func (s *EnGBForTermBaseTermGroupsOutput) SetTermBaseId(v string) *EnGBForTermBaseTermGroupsOutput {
+	s.TermBaseId = &v
+	return s
+}
+
+// SetTermGroupId sets the TermGroupId field's value.
+func (s *EnGBForTermBaseTermGroupsOutput) SetTermGroupId(v string) *EnGBForTermBaseTermGroupsOutput {
+	s.TermGroupId = &v
+	return s
+}
+
+// SetUpdateTime sets the UpdateTime field's value.
+func (s *EnGBForTermBaseTermGroupsOutput) SetUpdateTime(v string) *EnGBForTermBaseTermGroupsOutput {
+	s.UpdateTime = &v
+	return s
+}
+
+// SetUpdatedAt sets the UpdatedAt field's value.
+func (s *EnGBForTermBaseTermGroupsOutput) SetUpdatedAt(v string) *EnGBForTermBaseTermGroupsOutput {
+	s.UpdatedAt = &v
+	return s
+}
+
+type EnINForTermBaseTermGroupsOutput struct {
+	_ struct{} `type:"structure"`
+
+	Acronym *string `type:"string" json:"acronym"`
+
+	ApplyMode *int32 `type:"int32" json:"applyMode"`
+
+	CaseSensitive *int64 `type:"int64" json:"caseSensitive"`
+
+	Content *string `type:"string" json:"content"`
+
+	CreateTime *string `type:"string" json:"createTime"`
+
+	CreatedAt *string `type:"string" json:"createdAt"`
+
+	Creator *CreatorForTermBaseTermGroupsOutput `locationName:"creator" type:"structure"`
+
+	Id *string `type:"string" json:"id"`
+
+	Lang *string `type:"string" json:"lang"`
+
+	Operator *CreatorForTermBaseTermGroupsOutput `locationName:"operator" type:"structure"`
+
+	PartOfSpeech *int32 `type:"int32" json:"partOfSpeech"`
+
+	TermBaseId *string `type:"string" json:"termBaseId"`
+
+	TermGroupId *string `type:"string" json:"termGroupId"`
+
+	UpdateTime *string `type:"string" json:"updateTime"`
+
+	UpdatedAt *string `type:"string" json:"updatedAt"`
+}
+
+// String returns the string representation
+func (s EnINForTermBaseTermGroupsOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s EnINForTermBaseTermGroupsOutput) GoString() string {
+	return s.String()
+}
+
+// SetAcronym sets the Acronym field's value.
+func (s *EnINForTermBaseTermGroupsOutput) SetAcronym(v string) *EnINForTermBaseTermGroupsOutput {
+	s.Acronym = &v
+	return s
+}
+
+// SetApplyMode sets the ApplyMode field's value.
+func (s *EnINForTermBaseTermGroupsOutput) SetApplyMode(v int32) *EnINForTermBaseTermGroupsOutput {
+	s.ApplyMode = &v
+	return s
+}
+
+// SetCaseSensitive sets the CaseSensitive field's value.
+func (s *EnINForTermBaseTermGroupsOutput) SetCaseSensitive(v int64) *EnINForTermBaseTermGroupsOutput {
+	s.CaseSensitive = &v
+	return s
+}
+
+// SetContent sets the Content field's value.
+func (s *EnINForTermBaseTermGroupsOutput) SetContent(v string) *EnINForTermBaseTermGroupsOutput {
+	s.Content = &v
+	return s
+}
+
+// SetCreateTime sets the CreateTime field's value.
+func (s *EnINForTermBaseTermGroupsOutput) SetCreateTime(v string) *EnINForTermBaseTermGroupsOutput {
+	s.CreateTime = &v
+	return s
+}
+
+// SetCreatedAt sets the CreatedAt field's value.
+func (s *EnINForTermBaseTermGroupsOutput) SetCreatedAt(v string) *EnINForTermBaseTermGroupsOutput {
+	s.CreatedAt = &v
+	return s
+}
+
+// SetCreator sets the Creator field's value.
+func (s *EnINForTermBaseTermGroupsOutput) SetCreator(v *CreatorForTermBaseTermGroupsOutput) *EnINForTermBaseTermGroupsOutput {
+	s.Creator = v
+	return s
+}
+
+// SetId sets the Id field's value.
+func (s *EnINForTermBaseTermGroupsOutput) SetId(v string) *EnINForTermBaseTermGroupsOutput {
+	s.Id = &v
+	return s
+}
+
+// SetLang sets the Lang field's value.
+func (s *EnINForTermBaseTermGroupsOutput) SetLang(v string) *EnINForTermBaseTermGroupsOutput {
+	s.Lang = &v
+	return s
+}
+
+// SetOperator sets the Operator field's value.
+func (s *EnINForTermBaseTermGroupsOutput) SetOperator(v *CreatorForTermBaseTermGroupsOutput) *EnINForTermBaseTermGroupsOutput {
+	s.Operator = v
+	return s
+}
+
+// SetPartOfSpeech sets the PartOfSpeech field's value.
+func (s *EnINForTermBaseTermGroupsOutput) SetPartOfSpeech(v int32) *EnINForTermBaseTermGroupsOutput {
+	s.PartOfSpeech = &v
+	return s
+}
+
+// SetTermBaseId sets the TermBaseId field's value.
+func (s *EnINForTermBaseTermGroupsOutput) SetTermBaseId(v string) *EnINForTermBaseTermGroupsOutput {
+	s.TermBaseId = &v
+	return s
+}
+
+// SetTermGroupId sets the TermGroupId field's value.
+func (s *EnINForTermBaseTermGroupsOutput) SetTermGroupId(v string) *EnINForTermBaseTermGroupsOutput {
+	s.TermGroupId = &v
+	return s
+}
+
+// SetUpdateTime sets the UpdateTime field's value.
+func (s *EnINForTermBaseTermGroupsOutput) SetUpdateTime(v string) *EnINForTermBaseTermGroupsOutput {
+	s.UpdateTime = &v
+	return s
+}
+
+// SetUpdatedAt sets the UpdatedAt field's value.
+func (s *EnINForTermBaseTermGroupsOutput) SetUpdatedAt(v string) *EnINForTermBaseTermGroupsOutput {
+	s.UpdatedAt = &v
+	return s
+}
+
+type EnPHForTermBaseTermGroupsOutput struct {
+	_ struct{} `type:"structure"`
+
+	Acronym *string `type:"string" json:"acronym"`
+
+	ApplyMode *int32 `type:"int32" json:"applyMode"`
+
+	CaseSensitive *int64 `type:"int64" json:"caseSensitive"`
+
+	Content *string `type:"string" json:"content"`
+
+	CreateTime *string `type:"string" json:"createTime"`
+
+	CreatedAt *string `type:"string" json:"createdAt"`
+
+	Creator *CreatorForTermBaseTermGroupsOutput `locationName:"creator" type:"structure"`
+
+	Id *string `type:"string" json:"id"`
+
+	Lang *string `type:"string" json:"lang"`
+
+	Operator *CreatorForTermBaseTermGroupsOutput `locationName:"operator" type:"structure"`
+
+	PartOfSpeech *int32 `type:"int32" json:"partOfSpeech"`
+
+	TermBaseId *string `type:"string" json:"termBaseId"`
+
+	TermGroupId *string `type:"string" json:"termGroupId"`
+
+	UpdateTime *string `type:"string" json:"updateTime"`
+
+	UpdatedAt *string `type:"string" json:"updatedAt"`
+}
+
+// String returns the string representation
+func (s EnPHForTermBaseTermGroupsOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s EnPHForTermBaseTermGroupsOutput) GoString() string {
+	return s.String()
+}
+
+// SetAcronym sets the Acronym field's value.
+func (s *EnPHForTermBaseTermGroupsOutput) SetAcronym(v string) *EnPHForTermBaseTermGroupsOutput {
+	s.Acronym = &v
+	return s
+}
+
+// SetApplyMode sets the ApplyMode field's value.
+func (s *EnPHForTermBaseTermGroupsOutput) SetApplyMode(v int32) *EnPHForTermBaseTermGroupsOutput {
+	s.ApplyMode = &v
+	return s
+}
+
+// SetCaseSensitive sets the CaseSensitive field's value.
+func (s *EnPHForTermBaseTermGroupsOutput) SetCaseSensitive(v int64) *EnPHForTermBaseTermGroupsOutput {
+	s.CaseSensitive = &v
+	return s
+}
+
+// SetContent sets the Content field's value.
+func (s *EnPHForTermBaseTermGroupsOutput) SetContent(v string) *EnPHForTermBaseTermGroupsOutput {
+	s.Content = &v
+	return s
+}
+
+// SetCreateTime sets the CreateTime field's value.
+func (s *EnPHForTermBaseTermGroupsOutput) SetCreateTime(v string) *EnPHForTermBaseTermGroupsOutput {
+	s.CreateTime = &v
+	return s
+}
+
+// SetCreatedAt sets the CreatedAt field's value.
+func (s *EnPHForTermBaseTermGroupsOutput) SetCreatedAt(v string) *EnPHForTermBaseTermGroupsOutput {
+	s.CreatedAt = &v
+	return s
+}
+
+// SetCreator sets the Creator field's value.
+func (s *EnPHForTermBaseTermGroupsOutput) SetCreator(v *CreatorForTermBaseTermGroupsOutput) *EnPHForTermBaseTermGroupsOutput {
+	s.Creator = v
+	return s
+}
+
+// SetId sets the Id field's value.
+func (s *EnPHForTermBaseTermGroupsOutput) SetId(v string) *EnPHForTermBaseTermGroupsOutput {
+	s.Id = &v
+	return s
+}
+
+// SetLang sets the Lang field's value.
+func (s *EnPHForTermBaseTermGroupsOutput) SetLang(v string) *EnPHForTermBaseTermGroupsOutput {
+	s.Lang = &v
+	return s
+}
+
+// SetOperator sets the Operator field's value.
+func (s *EnPHForTermBaseTermGroupsOutput) SetOperator(v *CreatorForTermBaseTermGroupsOutput) *EnPHForTermBaseTermGroupsOutput {
+	s.Operator = v
+	return s
+}
+
+// SetPartOfSpeech sets the PartOfSpeech field's value.
+func (s *EnPHForTermBaseTermGroupsOutput) SetPartOfSpeech(v int32) *EnPHForTermBaseTermGroupsOutput {
+	s.PartOfSpeech = &v
+	return s
+}
+
+// SetTermBaseId sets the TermBaseId field's value.
+func (s *EnPHForTermBaseTermGroupsOutput) SetTermBaseId(v string) *EnPHForTermBaseTermGroupsOutput {
+	s.TermBaseId = &v
+	return s
+}
+
+// SetTermGroupId sets the TermGroupId field's value.
+func (s *EnPHForTermBaseTermGroupsOutput) SetTermGroupId(v string) *EnPHForTermBaseTermGroupsOutput {
+	s.TermGroupId = &v
+	return s
+}
+
+// SetUpdateTime sets the UpdateTime field's value.
+func (s *EnPHForTermBaseTermGroupsOutput) SetUpdateTime(v string) *EnPHForTermBaseTermGroupsOutput {
+	s.UpdateTime = &v
+	return s
+}
+
+// SetUpdatedAt sets the UpdatedAt field's value.
+func (s *EnPHForTermBaseTermGroupsOutput) SetUpdatedAt(v string) *EnPHForTermBaseTermGroupsOutput {
+	s.UpdatedAt = &v
+	return s
+}
+
+type EnSGForTermBaseTermGroupsOutput struct {
+	_ struct{} `type:"structure"`
+
+	Acronym *string `type:"string" json:"acronym"`
+
+	ApplyMode *int32 `type:"int32" json:"applyMode"`
+
+	CaseSensitive *int64 `type:"int64" json:"caseSensitive"`
+
+	Content *string `type:"string" json:"content"`
+
+	CreateTime *string `type:"string" json:"createTime"`
+
+	CreatedAt *string `type:"string" json:"createdAt"`
+
+	Creator *CreatorForTermBaseTermGroupsOutput `locationName:"creator" type:"structure"`
+
+	Id *string `type:"string" json:"id"`
+
+	Lang *string `type:"string" json:"lang"`
+
+	Operator *CreatorForTermBaseTermGroupsOutput `locationName:"operator" type:"structure"`
+
+	PartOfSpeech *int32 `type:"int32" json:"partOfSpeech"`
+
+	TermBaseId *string `type:"string" json:"termBaseId"`
+
+	TermGroupId *string `type:"string" json:"termGroupId"`
+
+	UpdateTime *string `type:"string" json:"updateTime"`
+
+	UpdatedAt *string `type:"string" json:"updatedAt"`
+}
+
+// String returns the string representation
+func (s EnSGForTermBaseTermGroupsOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s EnSGForTermBaseTermGroupsOutput) GoString() string {
+	return s.String()
+}
+
+// SetAcronym sets the Acronym field's value.
+func (s *EnSGForTermBaseTermGroupsOutput) SetAcronym(v string) *EnSGForTermBaseTermGroupsOutput {
+	s.Acronym = &v
+	return s
+}
+
+// SetApplyMode sets the ApplyMode field's value.
+func (s *EnSGForTermBaseTermGroupsOutput) SetApplyMode(v int32) *EnSGForTermBaseTermGroupsOutput {
+	s.ApplyMode = &v
+	return s
+}
+
+// SetCaseSensitive sets the CaseSensitive field's value.
+func (s *EnSGForTermBaseTermGroupsOutput) SetCaseSensitive(v int64) *EnSGForTermBaseTermGroupsOutput {
+	s.CaseSensitive = &v
+	return s
+}
+
+// SetContent sets the Content field's value.
+func (s *EnSGForTermBaseTermGroupsOutput) SetContent(v string) *EnSGForTermBaseTermGroupsOutput {
+	s.Content = &v
+	return s
+}
+
+// SetCreateTime sets the CreateTime field's value.
+func (s *EnSGForTermBaseTermGroupsOutput) SetCreateTime(v string) *EnSGForTermBaseTermGroupsOutput {
+	s.CreateTime = &v
+	return s
+}
+
+// SetCreatedAt sets the CreatedAt field's value.
+func (s *EnSGForTermBaseTermGroupsOutput) SetCreatedAt(v string) *EnSGForTermBaseTermGroupsOutput {
+	s.CreatedAt = &v
+	return s
+}
+
+// SetCreator sets the Creator field's value.
+func (s *EnSGForTermBaseTermGroupsOutput) SetCreator(v *CreatorForTermBaseTermGroupsOutput) *EnSGForTermBaseTermGroupsOutput {
+	s.Creator = v
+	return s
+}
+
+// SetId sets the Id field's value.
+func (s *EnSGForTermBaseTermGroupsOutput) SetId(v string) *EnSGForTermBaseTermGroupsOutput {
+	s.Id = &v
+	return s
+}
+
+// SetLang sets the Lang field's value.
+func (s *EnSGForTermBaseTermGroupsOutput) SetLang(v string) *EnSGForTermBaseTermGroupsOutput {
+	s.Lang = &v
+	return s
+}
+
+// SetOperator sets the Operator field's value.
+func (s *EnSGForTermBaseTermGroupsOutput) SetOperator(v *CreatorForTermBaseTermGroupsOutput) *EnSGForTermBaseTermGroupsOutput {
+	s.Operator = v
+	return s
+}
+
+// SetPartOfSpeech sets the PartOfSpeech field's value.
+func (s *EnSGForTermBaseTermGroupsOutput) SetPartOfSpeech(v int32) *EnSGForTermBaseTermGroupsOutput {
+	s.PartOfSpeech = &v
+	return s
+}
+
+// SetTermBaseId sets the TermBaseId field's value.
+func (s *EnSGForTermBaseTermGroupsOutput) SetTermBaseId(v string) *EnSGForTermBaseTermGroupsOutput {
+	s.TermBaseId = &v
+	return s
+}
+
+// SetTermGroupId sets the TermGroupId field's value.
+func (s *EnSGForTermBaseTermGroupsOutput) SetTermGroupId(v string) *EnSGForTermBaseTermGroupsOutput {
+	s.TermGroupId = &v
+	return s
+}
+
+// SetUpdateTime sets the UpdateTime field's value.
+func (s *EnSGForTermBaseTermGroupsOutput) SetUpdateTime(v string) *EnSGForTermBaseTermGroupsOutput {
+	s.UpdateTime = &v
+	return s
+}
+
+// SetUpdatedAt sets the UpdatedAt field's value.
+func (s *EnSGForTermBaseTermGroupsOutput) SetUpdatedAt(v string) *EnSGForTermBaseTermGroupsOutput {
+	s.UpdatedAt = &v
+	return s
+}
+
+type EnUSForTermBaseTermGroupsOutput struct {
+	_ struct{} `type:"structure"`
+
+	Acronym *string `type:"string" json:"acronym"`
+
+	ApplyMode *int32 `type:"int32" json:"applyMode"`
+
+	CaseSensitive *int64 `type:"int64" json:"caseSensitive"`
+
+	Content *string `type:"string" json:"content"`
+
+	CreateTime *string `type:"string" json:"createTime"`
+
+	CreatedAt *string `type:"string" json:"createdAt"`
+
+	Creator *CreatorForTermBaseTermGroupsOutput `locationName:"creator" type:"structure"`
+
+	Id *string `type:"string" json:"id"`
+
+	Lang *string `type:"string" json:"lang"`
+
+	Operator *CreatorForTermBaseTermGroupsOutput `locationName:"operator" type:"structure"`
+
+	PartOfSpeech *int32 `type:"int32" json:"partOfSpeech"`
+
+	TermBaseId *string `type:"string" json:"termBaseId"`
+
+	TermGroupId *string `type:"string" json:"termGroupId"`
+
+	UpdateTime *string `type:"string" json:"updateTime"`
+
+	UpdatedAt *string `type:"string" json:"updatedAt"`
+}
+
+// String returns the string representation
+func (s EnUSForTermBaseTermGroupsOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s EnUSForTermBaseTermGroupsOutput) GoString() string {
+	return s.String()
+}
+
+// SetAcronym sets the Acronym field's value.
+func (s *EnUSForTermBaseTermGroupsOutput) SetAcronym(v string) *EnUSForTermBaseTermGroupsOutput {
+	s.Acronym = &v
+	return s
+}
+
+// SetApplyMode sets the ApplyMode field's value.
+func (s *EnUSForTermBaseTermGroupsOutput) SetApplyMode(v int32) *EnUSForTermBaseTermGroupsOutput {
+	s.ApplyMode = &v
+	return s
+}
+
+// SetCaseSensitive sets the CaseSensitive field's value.
+func (s *EnUSForTermBaseTermGroupsOutput) SetCaseSensitive(v int64) *EnUSForTermBaseTermGroupsOutput {
+	s.CaseSensitive = &v
+	return s
+}
+
+// SetContent sets the Content field's value.
+func (s *EnUSForTermBaseTermGroupsOutput) SetContent(v string) *EnUSForTermBaseTermGroupsOutput {
+	s.Content = &v
+	return s
+}
+
+// SetCreateTime sets the CreateTime field's value.
+func (s *EnUSForTermBaseTermGroupsOutput) SetCreateTime(v string) *EnUSForTermBaseTermGroupsOutput {
+	s.CreateTime = &v
+	return s
+}
+
+// SetCreatedAt sets the CreatedAt field's value.
+func (s *EnUSForTermBaseTermGroupsOutput) SetCreatedAt(v string) *EnUSForTermBaseTermGroupsOutput {
+	s.CreatedAt = &v
+	return s
+}
+
+// SetCreator sets the Creator field's value.
+func (s *EnUSForTermBaseTermGroupsOutput) SetCreator(v *CreatorForTermBaseTermGroupsOutput) *EnUSForTermBaseTermGroupsOutput {
+	s.Creator = v
+	return s
+}
+
+// SetId sets the Id field's value.
+func (s *EnUSForTermBaseTermGroupsOutput) SetId(v string) *EnUSForTermBaseTermGroupsOutput {
+	s.Id = &v
+	return s
+}
+
+// SetLang sets the Lang field's value.
+func (s *EnUSForTermBaseTermGroupsOutput) SetLang(v string) *EnUSForTermBaseTermGroupsOutput {
+	s.Lang = &v
+	return s
+}
+
+// SetOperator sets the Operator field's value.
+func (s *EnUSForTermBaseTermGroupsOutput) SetOperator(v *CreatorForTermBaseTermGroupsOutput) *EnUSForTermBaseTermGroupsOutput {
+	s.Operator = v
+	return s
+}
+
+// SetPartOfSpeech sets the PartOfSpeech field's value.
+func (s *EnUSForTermBaseTermGroupsOutput) SetPartOfSpeech(v int32) *EnUSForTermBaseTermGroupsOutput {
+	s.PartOfSpeech = &v
+	return s
+}
+
+// SetTermBaseId sets the TermBaseId field's value.
+func (s *EnUSForTermBaseTermGroupsOutput) SetTermBaseId(v string) *EnUSForTermBaseTermGroupsOutput {
+	s.TermBaseId = &v
+	return s
+}
+
+// SetTermGroupId sets the TermGroupId field's value.
+func (s *EnUSForTermBaseTermGroupsOutput) SetTermGroupId(v string) *EnUSForTermBaseTermGroupsOutput {
+	s.TermGroupId = &v
+	return s
+}
+
+// SetUpdateTime sets the UpdateTime field's value.
+func (s *EnUSForTermBaseTermGroupsOutput) SetUpdateTime(v string) *EnUSForTermBaseTermGroupsOutput {
+	s.UpdateTime = &v
+	return s
+}
+
+// SetUpdatedAt sets the UpdatedAt field's value.
+func (s *EnUSForTermBaseTermGroupsOutput) SetUpdatedAt(v string) *EnUSForTermBaseTermGroupsOutput {
+	s.UpdatedAt = &v
+	return s
+}
+
+type Es419ForTermBaseTermGroupsOutput struct {
+	_ struct{} `type:"structure"`
+
+	Acronym *string `type:"string" json:"acronym"`
+
+	ApplyMode *int32 `type:"int32" json:"applyMode"`
+
+	CaseSensitive *int64 `type:"int64" json:"caseSensitive"`
+
+	Content *string `type:"string" json:"content"`
+
+	CreateTime *string `type:"string" json:"createTime"`
+
+	CreatedAt *string `type:"string" json:"createdAt"`
+
+	Creator *CreatorForTermBaseTermGroupsOutput `locationName:"creator" type:"structure"`
+
+	Id *string `type:"string" json:"id"`
+
+	Lang *string `type:"string" json:"lang"`
+
+	Operator *CreatorForTermBaseTermGroupsOutput `locationName:"operator" type:"structure"`
+
+	PartOfSpeech *int32 `type:"int32" json:"partOfSpeech"`
+
+	TermBaseId *string `type:"string" json:"termBaseId"`
+
+	TermGroupId *string `type:"string" json:"termGroupId"`
+
+	UpdateTime *string `type:"string" json:"updateTime"`
+
+	UpdatedAt *string `type:"string" json:"updatedAt"`
+}
+
+// String returns the string representation
+func (s Es419ForTermBaseTermGroupsOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s Es419ForTermBaseTermGroupsOutput) GoString() string {
+	return s.String()
+}
+
+// SetAcronym sets the Acronym field's value.
+func (s *Es419ForTermBaseTermGroupsOutput) SetAcronym(v string) *Es419ForTermBaseTermGroupsOutput {
+	s.Acronym = &v
+	return s
+}
+
+// SetApplyMode sets the ApplyMode field's value.
+func (s *Es419ForTermBaseTermGroupsOutput) SetApplyMode(v int32) *Es419ForTermBaseTermGroupsOutput {
+	s.ApplyMode = &v
+	return s
+}
+
+// SetCaseSensitive sets the CaseSensitive field's value.
+func (s *Es419ForTermBaseTermGroupsOutput) SetCaseSensitive(v int64) *Es419ForTermBaseTermGroupsOutput {
+	s.CaseSensitive = &v
+	return s
+}
+
+// SetContent sets the Content field's value.
+func (s *Es419ForTermBaseTermGroupsOutput) SetContent(v string) *Es419ForTermBaseTermGroupsOutput {
+	s.Content = &v
+	return s
+}
+
+// SetCreateTime sets the CreateTime field's value.
+func (s *Es419ForTermBaseTermGroupsOutput) SetCreateTime(v string) *Es419ForTermBaseTermGroupsOutput {
+	s.CreateTime = &v
+	return s
+}
+
+// SetCreatedAt sets the CreatedAt field's value.
+func (s *Es419ForTermBaseTermGroupsOutput) SetCreatedAt(v string) *Es419ForTermBaseTermGroupsOutput {
+	s.CreatedAt = &v
+	return s
+}
+
+// SetCreator sets the Creator field's value.
+func (s *Es419ForTermBaseTermGroupsOutput) SetCreator(v *CreatorForTermBaseTermGroupsOutput) *Es419ForTermBaseTermGroupsOutput {
+	s.Creator = v
+	return s
+}
+
+// SetId sets the Id field's value.
+func (s *Es419ForTermBaseTermGroupsOutput) SetId(v string) *Es419ForTermBaseTermGroupsOutput {
+	s.Id = &v
+	return s
+}
+
+// SetLang sets the Lang field's value.
+func (s *Es419ForTermBaseTermGroupsOutput) SetLang(v string) *Es419ForTermBaseTermGroupsOutput {
+	s.Lang = &v
+	return s
+}
+
+// SetOperator sets the Operator field's value.
+func (s *Es419ForTermBaseTermGroupsOutput) SetOperator(v *CreatorForTermBaseTermGroupsOutput) *Es419ForTermBaseTermGroupsOutput {
+	s.Operator = v
+	return s
+}
+
+// SetPartOfSpeech sets the PartOfSpeech field's value.
+func (s *Es419ForTermBaseTermGroupsOutput) SetPartOfSpeech(v int32) *Es419ForTermBaseTermGroupsOutput {
+	s.PartOfSpeech = &v
+	return s
+}
+
+// SetTermBaseId sets the TermBaseId field's value.
+func (s *Es419ForTermBaseTermGroupsOutput) SetTermBaseId(v string) *Es419ForTermBaseTermGroupsOutput {
+	s.TermBaseId = &v
+	return s
+}
+
+// SetTermGroupId sets the TermGroupId field's value.
+func (s *Es419ForTermBaseTermGroupsOutput) SetTermGroupId(v string) *Es419ForTermBaseTermGroupsOutput {
+	s.TermGroupId = &v
+	return s
+}
+
+// SetUpdateTime sets the UpdateTime field's value.
+func (s *Es419ForTermBaseTermGroupsOutput) SetUpdateTime(v string) *Es419ForTermBaseTermGroupsOutput {
+	s.UpdateTime = &v
+	return s
+}
+
+// SetUpdatedAt sets the UpdatedAt field's value.
+func (s *Es419ForTermBaseTermGroupsOutput) SetUpdatedAt(v string) *Es419ForTermBaseTermGroupsOutput {
+	s.UpdatedAt = &v
+	return s
+}
+
+type EsESForTermBaseTermGroupsOutput struct {
+	_ struct{} `type:"structure"`
+
+	Acronym *string `type:"string" json:"acronym"`
+
+	ApplyMode *int32 `type:"int32" json:"applyMode"`
+
+	CaseSensitive *int64 `type:"int64" json:"caseSensitive"`
+
+	Content *string `type:"string" json:"content"`
+
+	CreateTime *string `type:"string" json:"createTime"`
+
+	CreatedAt *string `type:"string" json:"createdAt"`
+
+	Creator *CreatorForTermBaseTermGroupsOutput `locationName:"creator" type:"structure"`
+
+	Id *string `type:"string" json:"id"`
+
+	Lang *string `type:"string" json:"lang"`
+
+	Operator *CreatorForTermBaseTermGroupsOutput `locationName:"operator" type:"structure"`
+
+	PartOfSpeech *int32 `type:"int32" json:"partOfSpeech"`
+
+	TermBaseId *string `type:"string" json:"termBaseId"`
+
+	TermGroupId *string `type:"string" json:"termGroupId"`
+
+	UpdateTime *string `type:"string" json:"updateTime"`
+
+	UpdatedAt *string `type:"string" json:"updatedAt"`
+}
+
+// String returns the string representation
+func (s EsESForTermBaseTermGroupsOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s EsESForTermBaseTermGroupsOutput) GoString() string {
+	return s.String()
+}
+
+// SetAcronym sets the Acronym field's value.
+func (s *EsESForTermBaseTermGroupsOutput) SetAcronym(v string) *EsESForTermBaseTermGroupsOutput {
+	s.Acronym = &v
+	return s
+}
+
+// SetApplyMode sets the ApplyMode field's value.
+func (s *EsESForTermBaseTermGroupsOutput) SetApplyMode(v int32) *EsESForTermBaseTermGroupsOutput {
+	s.ApplyMode = &v
+	return s
+}
+
+// SetCaseSensitive sets the CaseSensitive field's value.
+func (s *EsESForTermBaseTermGroupsOutput) SetCaseSensitive(v int64) *EsESForTermBaseTermGroupsOutput {
+	s.CaseSensitive = &v
+	return s
+}
+
+// SetContent sets the Content field's value.
+func (s *EsESForTermBaseTermGroupsOutput) SetContent(v string) *EsESForTermBaseTermGroupsOutput {
+	s.Content = &v
+	return s
+}
+
+// SetCreateTime sets the CreateTime field's value.
+func (s *EsESForTermBaseTermGroupsOutput) SetCreateTime(v string) *EsESForTermBaseTermGroupsOutput {
+	s.CreateTime = &v
+	return s
+}
+
+// SetCreatedAt sets the CreatedAt field's value.
+func (s *EsESForTermBaseTermGroupsOutput) SetCreatedAt(v string) *EsESForTermBaseTermGroupsOutput {
+	s.CreatedAt = &v
+	return s
+}
+
+// SetCreator sets the Creator field's value.
+func (s *EsESForTermBaseTermGroupsOutput) SetCreator(v *CreatorForTermBaseTermGroupsOutput) *EsESForTermBaseTermGroupsOutput {
+	s.Creator = v
+	return s
+}
+
+// SetId sets the Id field's value.
+func (s *EsESForTermBaseTermGroupsOutput) SetId(v string) *EsESForTermBaseTermGroupsOutput {
+	s.Id = &v
+	return s
+}
+
+// SetLang sets the Lang field's value.
+func (s *EsESForTermBaseTermGroupsOutput) SetLang(v string) *EsESForTermBaseTermGroupsOutput {
+	s.Lang = &v
+	return s
+}
+
+// SetOperator sets the Operator field's value.
+func (s *EsESForTermBaseTermGroupsOutput) SetOperator(v *CreatorForTermBaseTermGroupsOutput) *EsESForTermBaseTermGroupsOutput {
+	s.Operator = v
+	return s
+}
+
+// SetPartOfSpeech sets the PartOfSpeech field's value.
+func (s *EsESForTermBaseTermGroupsOutput) SetPartOfSpeech(v int32) *EsESForTermBaseTermGroupsOutput {
+	s.PartOfSpeech = &v
+	return s
+}
+
+// SetTermBaseId sets the TermBaseId field's value.
+func (s *EsESForTermBaseTermGroupsOutput) SetTermBaseId(v string) *EsESForTermBaseTermGroupsOutput {
+	s.TermBaseId = &v
+	return s
+}
+
+// SetTermGroupId sets the TermGroupId field's value.
+func (s *EsESForTermBaseTermGroupsOutput) SetTermGroupId(v string) *EsESForTermBaseTermGroupsOutput {
+	s.TermGroupId = &v
+	return s
+}
+
+// SetUpdateTime sets the UpdateTime field's value.
+func (s *EsESForTermBaseTermGroupsOutput) SetUpdateTime(v string) *EsESForTermBaseTermGroupsOutput {
+	s.UpdateTime = &v
+	return s
+}
+
+// SetUpdatedAt sets the UpdatedAt field's value.
+func (s *EsESForTermBaseTermGroupsOutput) SetUpdatedAt(v string) *EsESForTermBaseTermGroupsOutput {
+	s.UpdatedAt = &v
+	return s
+}
+
+type EsForTermBaseTermGroupsOutput struct {
+	_ struct{} `type:"structure"`
+
+	Acronym *string `type:"string" json:"acronym"`
+
+	ApplyMode *int32 `type:"int32" json:"applyMode"`
+
+	CaseSensitive *int64 `type:"int64" json:"caseSensitive"`
+
+	Content *string `type:"string" json:"content"`
+
+	CreateTime *string `type:"string" json:"createTime"`
+
+	CreatedAt *string `type:"string" json:"createdAt"`
+
+	Creator *CreatorForTermBaseTermGroupsOutput `locationName:"creator" type:"structure"`
+
+	Id *string `type:"string" json:"id"`
+
+	Lang *string `type:"string" json:"lang"`
+
+	Operator *CreatorForTermBaseTermGroupsOutput `locationName:"operator" type:"structure"`
+
+	PartOfSpeech *int32 `type:"int32" json:"partOfSpeech"`
+
+	TermBaseId *string `type:"string" json:"termBaseId"`
+
+	TermGroupId *string `type:"string" json:"termGroupId"`
+
+	UpdateTime *string `type:"string" json:"updateTime"`
+
+	UpdatedAt *string `type:"string" json:"updatedAt"`
+}
+
+// String returns the string representation
+func (s EsForTermBaseTermGroupsOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s EsForTermBaseTermGroupsOutput) GoString() string {
+	return s.String()
+}
+
+// SetAcronym sets the Acronym field's value.
+func (s *EsForTermBaseTermGroupsOutput) SetAcronym(v string) *EsForTermBaseTermGroupsOutput {
+	s.Acronym = &v
+	return s
+}
+
+// SetApplyMode sets the ApplyMode field's value.
+func (s *EsForTermBaseTermGroupsOutput) SetApplyMode(v int32) *EsForTermBaseTermGroupsOutput {
+	s.ApplyMode = &v
+	return s
+}
+
+// SetCaseSensitive sets the CaseSensitive field's value.
+func (s *EsForTermBaseTermGroupsOutput) SetCaseSensitive(v int64) *EsForTermBaseTermGroupsOutput {
+	s.CaseSensitive = &v
+	return s
+}
+
+// SetContent sets the Content field's value.
+func (s *EsForTermBaseTermGroupsOutput) SetContent(v string) *EsForTermBaseTermGroupsOutput {
+	s.Content = &v
+	return s
+}
+
+// SetCreateTime sets the CreateTime field's value.
+func (s *EsForTermBaseTermGroupsOutput) SetCreateTime(v string) *EsForTermBaseTermGroupsOutput {
+	s.CreateTime = &v
+	return s
+}
+
+// SetCreatedAt sets the CreatedAt field's value.
+func (s *EsForTermBaseTermGroupsOutput) SetCreatedAt(v string) *EsForTermBaseTermGroupsOutput {
+	s.CreatedAt = &v
+	return s
+}
+
+// SetCreator sets the Creator field's value.
+func (s *EsForTermBaseTermGroupsOutput) SetCreator(v *CreatorForTermBaseTermGroupsOutput) *EsForTermBaseTermGroupsOutput {
+	s.Creator = v
+	return s
+}
+
+// SetId sets the Id field's value.
+func (s *EsForTermBaseTermGroupsOutput) SetId(v string) *EsForTermBaseTermGroupsOutput {
+	s.Id = &v
+	return s
+}
+
+// SetLang sets the Lang field's value.
+func (s *EsForTermBaseTermGroupsOutput) SetLang(v string) *EsForTermBaseTermGroupsOutput {
+	s.Lang = &v
+	return s
+}
+
+// SetOperator sets the Operator field's value.
+func (s *EsForTermBaseTermGroupsOutput) SetOperator(v *CreatorForTermBaseTermGroupsOutput) *EsForTermBaseTermGroupsOutput {
+	s.Operator = v
+	return s
+}
+
+// SetPartOfSpeech sets the PartOfSpeech field's value.
+func (s *EsForTermBaseTermGroupsOutput) SetPartOfSpeech(v int32) *EsForTermBaseTermGroupsOutput {
+	s.PartOfSpeech = &v
+	return s
+}
+
+// SetTermBaseId sets the TermBaseId field's value.
+func (s *EsForTermBaseTermGroupsOutput) SetTermBaseId(v string) *EsForTermBaseTermGroupsOutput {
+	s.TermBaseId = &v
+	return s
+}
+
+// SetTermGroupId sets the TermGroupId field's value.
+func (s *EsForTermBaseTermGroupsOutput) SetTermGroupId(v string) *EsForTermBaseTermGroupsOutput {
+	s.TermGroupId = &v
+	return s
+}
+
+// SetUpdateTime sets the UpdateTime field's value.
+func (s *EsForTermBaseTermGroupsOutput) SetUpdateTime(v string) *EsForTermBaseTermGroupsOutput {
+	s.UpdateTime = &v
+	return s
+}
+
+// SetUpdatedAt sets the UpdatedAt field's value.
+func (s *EsForTermBaseTermGroupsOutput) SetUpdatedAt(v string) *EsForTermBaseTermGroupsOutput {
+	s.UpdatedAt = &v
+	return s
+}
+
+type EsUSForTermBaseTermGroupsOutput struct {
+	_ struct{} `type:"structure"`
+
+	Acronym *string `type:"string" json:"acronym"`
+
+	ApplyMode *int32 `type:"int32" json:"applyMode"`
+
+	CaseSensitive *int64 `type:"int64" json:"caseSensitive"`
+
+	Content *string `type:"string" json:"content"`
+
+	CreateTime *string `type:"string" json:"createTime"`
+
+	CreatedAt *string `type:"string" json:"createdAt"`
+
+	Creator *CreatorForTermBaseTermGroupsOutput `locationName:"creator" type:"structure"`
+
+	Id *string `type:"string" json:"id"`
+
+	Lang *string `type:"string" json:"lang"`
+
+	Operator *CreatorForTermBaseTermGroupsOutput `locationName:"operator" type:"structure"`
+
+	PartOfSpeech *int32 `type:"int32" json:"partOfSpeech"`
+
+	TermBaseId *string `type:"string" json:"termBaseId"`
+
+	TermGroupId *string `type:"string" json:"termGroupId"`
+
+	UpdateTime *string `type:"string" json:"updateTime"`
+
+	UpdatedAt *string `type:"string" json:"updatedAt"`
+}
+
+// String returns the string representation
+func (s EsUSForTermBaseTermGroupsOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s EsUSForTermBaseTermGroupsOutput) GoString() string {
+	return s.String()
+}
+
+// SetAcronym sets the Acronym field's value.
+func (s *EsUSForTermBaseTermGroupsOutput) SetAcronym(v string) *EsUSForTermBaseTermGroupsOutput {
+	s.Acronym = &v
+	return s
+}
+
+// SetApplyMode sets the ApplyMode field's value.
+func (s *EsUSForTermBaseTermGroupsOutput) SetApplyMode(v int32) *EsUSForTermBaseTermGroupsOutput {
+	s.ApplyMode = &v
+	return s
+}
+
+// SetCaseSensitive sets the CaseSensitive field's value.
+func (s *EsUSForTermBaseTermGroupsOutput) SetCaseSensitive(v int64) *EsUSForTermBaseTermGroupsOutput {
+	s.CaseSensitive = &v
+	return s
+}
+
+// SetContent sets the Content field's value.
+func (s *EsUSForTermBaseTermGroupsOutput) SetContent(v string) *EsUSForTermBaseTermGroupsOutput {
+	s.Content = &v
+	return s
+}
+
+// SetCreateTime sets the CreateTime field's value.
+func (s *EsUSForTermBaseTermGroupsOutput) SetCreateTime(v string) *EsUSForTermBaseTermGroupsOutput {
+	s.CreateTime = &v
+	return s
+}
+
+// SetCreatedAt sets the CreatedAt field's value.
+func (s *EsUSForTermBaseTermGroupsOutput) SetCreatedAt(v string) *EsUSForTermBaseTermGroupsOutput {
+	s.CreatedAt = &v
+	return s
+}
+
+// SetCreator sets the Creator field's value.
+func (s *EsUSForTermBaseTermGroupsOutput) SetCreator(v *CreatorForTermBaseTermGroupsOutput) *EsUSForTermBaseTermGroupsOutput {
+	s.Creator = v
+	return s
+}
+
+// SetId sets the Id field's value.
+func (s *EsUSForTermBaseTermGroupsOutput) SetId(v string) *EsUSForTermBaseTermGroupsOutput {
+	s.Id = &v
+	return s
+}
+
+// SetLang sets the Lang field's value.
+func (s *EsUSForTermBaseTermGroupsOutput) SetLang(v string) *EsUSForTermBaseTermGroupsOutput {
+	s.Lang = &v
+	return s
+}
+
+// SetOperator sets the Operator field's value.
+func (s *EsUSForTermBaseTermGroupsOutput) SetOperator(v *CreatorForTermBaseTermGroupsOutput) *EsUSForTermBaseTermGroupsOutput {
+	s.Operator = v
+	return s
+}
+
+// SetPartOfSpeech sets the PartOfSpeech field's value.
+func (s *EsUSForTermBaseTermGroupsOutput) SetPartOfSpeech(v int32) *EsUSForTermBaseTermGroupsOutput {
+	s.PartOfSpeech = &v
+	return s
+}
+
+// SetTermBaseId sets the TermBaseId field's value.
+func (s *EsUSForTermBaseTermGroupsOutput) SetTermBaseId(v string) *EsUSForTermBaseTermGroupsOutput {
+	s.TermBaseId = &v
+	return s
+}
+
+// SetTermGroupId sets the TermGroupId field's value.
+func (s *EsUSForTermBaseTermGroupsOutput) SetTermGroupId(v string) *EsUSForTermBaseTermGroupsOutput {
+	s.TermGroupId = &v
+	return s
+}
+
+// SetUpdateTime sets the UpdateTime field's value.
+func (s *EsUSForTermBaseTermGroupsOutput) SetUpdateTime(v string) *EsUSForTermBaseTermGroupsOutput {
+	s.UpdateTime = &v
+	return s
+}
+
+// SetUpdatedAt sets the UpdatedAt field's value.
+func (s *EsUSForTermBaseTermGroupsOutput) SetUpdatedAt(v string) *EsUSForTermBaseTermGroupsOutput {
+	s.UpdatedAt = &v
+	return s
+}
+
+type FaIRForTermBaseTermGroupsOutput struct {
+	_ struct{} `type:"structure"`
+
+	Acronym *string `type:"string" json:"acronym"`
+
+	ApplyMode *int32 `type:"int32" json:"applyMode"`
+
+	CaseSensitive *int64 `type:"int64" json:"caseSensitive"`
+
+	Content *string `type:"string" json:"content"`
+
+	CreateTime *string `type:"string" json:"createTime"`
+
+	CreatedAt *string `type:"string" json:"createdAt"`
+
+	Creator *CreatorForTermBaseTermGroupsOutput `locationName:"creator" type:"structure"`
+
+	Id *string `type:"string" json:"id"`
+
+	Lang *string `type:"string" json:"lang"`
+
+	Operator *CreatorForTermBaseTermGroupsOutput `locationName:"operator" type:"structure"`
+
+	PartOfSpeech *int32 `type:"int32" json:"partOfSpeech"`
+
+	TermBaseId *string `type:"string" json:"termBaseId"`
+
+	TermGroupId *string `type:"string" json:"termGroupId"`
+
+	UpdateTime *string `type:"string" json:"updateTime"`
+
+	UpdatedAt *string `type:"string" json:"updatedAt"`
+}
+
+// String returns the string representation
+func (s FaIRForTermBaseTermGroupsOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s FaIRForTermBaseTermGroupsOutput) GoString() string {
+	return s.String()
+}
+
+// SetAcronym sets the Acronym field's value.
+func (s *FaIRForTermBaseTermGroupsOutput) SetAcronym(v string) *FaIRForTermBaseTermGroupsOutput {
+	s.Acronym = &v
+	return s
+}
+
+// SetApplyMode sets the ApplyMode field's value.
+func (s *FaIRForTermBaseTermGroupsOutput) SetApplyMode(v int32) *FaIRForTermBaseTermGroupsOutput {
+	s.ApplyMode = &v
+	return s
+}
+
+// SetCaseSensitive sets the CaseSensitive field's value.
+func (s *FaIRForTermBaseTermGroupsOutput) SetCaseSensitive(v int64) *FaIRForTermBaseTermGroupsOutput {
+	s.CaseSensitive = &v
+	return s
+}
+
+// SetContent sets the Content field's value.
+func (s *FaIRForTermBaseTermGroupsOutput) SetContent(v string) *FaIRForTermBaseTermGroupsOutput {
+	s.Content = &v
+	return s
+}
+
+// SetCreateTime sets the CreateTime field's value.
+func (s *FaIRForTermBaseTermGroupsOutput) SetCreateTime(v string) *FaIRForTermBaseTermGroupsOutput {
+	s.CreateTime = &v
+	return s
+}
+
+// SetCreatedAt sets the CreatedAt field's value.
+func (s *FaIRForTermBaseTermGroupsOutput) SetCreatedAt(v string) *FaIRForTermBaseTermGroupsOutput {
+	s.CreatedAt = &v
+	return s
+}
+
+// SetCreator sets the Creator field's value.
+func (s *FaIRForTermBaseTermGroupsOutput) SetCreator(v *CreatorForTermBaseTermGroupsOutput) *FaIRForTermBaseTermGroupsOutput {
+	s.Creator = v
+	return s
+}
+
+// SetId sets the Id field's value.
+func (s *FaIRForTermBaseTermGroupsOutput) SetId(v string) *FaIRForTermBaseTermGroupsOutput {
+	s.Id = &v
+	return s
+}
+
+// SetLang sets the Lang field's value.
+func (s *FaIRForTermBaseTermGroupsOutput) SetLang(v string) *FaIRForTermBaseTermGroupsOutput {
+	s.Lang = &v
+	return s
+}
+
+// SetOperator sets the Operator field's value.
+func (s *FaIRForTermBaseTermGroupsOutput) SetOperator(v *CreatorForTermBaseTermGroupsOutput) *FaIRForTermBaseTermGroupsOutput {
+	s.Operator = v
+	return s
+}
+
+// SetPartOfSpeech sets the PartOfSpeech field's value.
+func (s *FaIRForTermBaseTermGroupsOutput) SetPartOfSpeech(v int32) *FaIRForTermBaseTermGroupsOutput {
+	s.PartOfSpeech = &v
+	return s
+}
+
+// SetTermBaseId sets the TermBaseId field's value.
+func (s *FaIRForTermBaseTermGroupsOutput) SetTermBaseId(v string) *FaIRForTermBaseTermGroupsOutput {
+	s.TermBaseId = &v
+	return s
+}
+
+// SetTermGroupId sets the TermGroupId field's value.
+func (s *FaIRForTermBaseTermGroupsOutput) SetTermGroupId(v string) *FaIRForTermBaseTermGroupsOutput {
+	s.TermGroupId = &v
+	return s
+}
+
+// SetUpdateTime sets the UpdateTime field's value.
+func (s *FaIRForTermBaseTermGroupsOutput) SetUpdateTime(v string) *FaIRForTermBaseTermGroupsOutput {
+	s.UpdateTime = &v
+	return s
+}
+
+// SetUpdatedAt sets the UpdatedAt field's value.
+func (s *FaIRForTermBaseTermGroupsOutput) SetUpdatedAt(v string) *FaIRForTermBaseTermGroupsOutput {
+	s.UpdatedAt = &v
+	return s
+}
+
+type FilForTermBaseTermGroupsOutput struct {
+	_ struct{} `type:"structure"`
+
+	Acronym *string `type:"string" json:"acronym"`
+
+	ApplyMode *int32 `type:"int32" json:"applyMode"`
+
+	CaseSensitive *int64 `type:"int64" json:"caseSensitive"`
+
+	Content *string `type:"string" json:"content"`
+
+	CreateTime *string `type:"string" json:"createTime"`
+
+	CreatedAt *string `type:"string" json:"createdAt"`
+
+	Creator *CreatorForTermBaseTermGroupsOutput `locationName:"creator" type:"structure"`
+
+	Id *string `type:"string" json:"id"`
+
+	Lang *string `type:"string" json:"lang"`
+
+	Operator *CreatorForTermBaseTermGroupsOutput `locationName:"operator" type:"structure"`
+
+	PartOfSpeech *int32 `type:"int32" json:"partOfSpeech"`
+
+	TermBaseId *string `type:"string" json:"termBaseId"`
+
+	TermGroupId *string `type:"string" json:"termGroupId"`
+
+	UpdateTime *string `type:"string" json:"updateTime"`
+
+	UpdatedAt *string `type:"string" json:"updatedAt"`
+}
+
+// String returns the string representation
+func (s FilForTermBaseTermGroupsOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s FilForTermBaseTermGroupsOutput) GoString() string {
+	return s.String()
+}
+
+// SetAcronym sets the Acronym field's value.
+func (s *FilForTermBaseTermGroupsOutput) SetAcronym(v string) *FilForTermBaseTermGroupsOutput {
+	s.Acronym = &v
+	return s
+}
+
+// SetApplyMode sets the ApplyMode field's value.
+func (s *FilForTermBaseTermGroupsOutput) SetApplyMode(v int32) *FilForTermBaseTermGroupsOutput {
+	s.ApplyMode = &v
+	return s
+}
+
+// SetCaseSensitive sets the CaseSensitive field's value.
+func (s *FilForTermBaseTermGroupsOutput) SetCaseSensitive(v int64) *FilForTermBaseTermGroupsOutput {
+	s.CaseSensitive = &v
+	return s
+}
+
+// SetContent sets the Content field's value.
+func (s *FilForTermBaseTermGroupsOutput) SetContent(v string) *FilForTermBaseTermGroupsOutput {
+	s.Content = &v
+	return s
+}
+
+// SetCreateTime sets the CreateTime field's value.
+func (s *FilForTermBaseTermGroupsOutput) SetCreateTime(v string) *FilForTermBaseTermGroupsOutput {
+	s.CreateTime = &v
+	return s
+}
+
+// SetCreatedAt sets the CreatedAt field's value.
+func (s *FilForTermBaseTermGroupsOutput) SetCreatedAt(v string) *FilForTermBaseTermGroupsOutput {
+	s.CreatedAt = &v
+	return s
+}
+
+// SetCreator sets the Creator field's value.
+func (s *FilForTermBaseTermGroupsOutput) SetCreator(v *CreatorForTermBaseTermGroupsOutput) *FilForTermBaseTermGroupsOutput {
+	s.Creator = v
+	return s
+}
+
+// SetId sets the Id field's value.
+func (s *FilForTermBaseTermGroupsOutput) SetId(v string) *FilForTermBaseTermGroupsOutput {
+	s.Id = &v
+	return s
+}
+
+// SetLang sets the Lang field's value.
+func (s *FilForTermBaseTermGroupsOutput) SetLang(v string) *FilForTermBaseTermGroupsOutput {
+	s.Lang = &v
+	return s
+}
+
+// SetOperator sets the Operator field's value.
+func (s *FilForTermBaseTermGroupsOutput) SetOperator(v *CreatorForTermBaseTermGroupsOutput) *FilForTermBaseTermGroupsOutput {
+	s.Operator = v
+	return s
+}
+
+// SetPartOfSpeech sets the PartOfSpeech field's value.
+func (s *FilForTermBaseTermGroupsOutput) SetPartOfSpeech(v int32) *FilForTermBaseTermGroupsOutput {
+	s.PartOfSpeech = &v
+	return s
+}
+
+// SetTermBaseId sets the TermBaseId field's value.
+func (s *FilForTermBaseTermGroupsOutput) SetTermBaseId(v string) *FilForTermBaseTermGroupsOutput {
+	s.TermBaseId = &v
+	return s
+}
+
+// SetTermGroupId sets the TermGroupId field's value.
+func (s *FilForTermBaseTermGroupsOutput) SetTermGroupId(v string) *FilForTermBaseTermGroupsOutput {
+	s.TermGroupId = &v
+	return s
+}
+
+// SetUpdateTime sets the UpdateTime field's value.
+func (s *FilForTermBaseTermGroupsOutput) SetUpdateTime(v string) *FilForTermBaseTermGroupsOutput {
+	s.UpdateTime = &v
+	return s
+}
+
+// SetUpdatedAt sets the UpdatedAt field's value.
+func (s *FilForTermBaseTermGroupsOutput) SetUpdatedAt(v string) *FilForTermBaseTermGroupsOutput {
+	s.UpdatedAt = &v
+	return s
+}
+
+type FilPHForTermBaseTermGroupsOutput struct {
+	_ struct{} `type:"structure"`
+
+	Acronym *string `type:"string" json:"acronym"`
+
+	ApplyMode *int32 `type:"int32" json:"applyMode"`
+
+	CaseSensitive *int64 `type:"int64" json:"caseSensitive"`
+
+	Content *string `type:"string" json:"content"`
+
+	CreateTime *string `type:"string" json:"createTime"`
+
+	CreatedAt *string `type:"string" json:"createdAt"`
+
+	Creator *CreatorForTermBaseTermGroupsOutput `locationName:"creator" type:"structure"`
+
+	Id *string `type:"string" json:"id"`
+
+	Lang *string `type:"string" json:"lang"`
+
+	Operator *CreatorForTermBaseTermGroupsOutput `locationName:"operator" type:"structure"`
+
+	PartOfSpeech *int32 `type:"int32" json:"partOfSpeech"`
+
+	TermBaseId *string `type:"string" json:"termBaseId"`
+
+	TermGroupId *string `type:"string" json:"termGroupId"`
+
+	UpdateTime *string `type:"string" json:"updateTime"`
+
+	UpdatedAt *string `type:"string" json:"updatedAt"`
+}
+
+// String returns the string representation
+func (s FilPHForTermBaseTermGroupsOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s FilPHForTermBaseTermGroupsOutput) GoString() string {
+	return s.String()
+}
+
+// SetAcronym sets the Acronym field's value.
+func (s *FilPHForTermBaseTermGroupsOutput) SetAcronym(v string) *FilPHForTermBaseTermGroupsOutput {
+	s.Acronym = &v
+	return s
+}
+
+// SetApplyMode sets the ApplyMode field's value.
+func (s *FilPHForTermBaseTermGroupsOutput) SetApplyMode(v int32) *FilPHForTermBaseTermGroupsOutput {
+	s.ApplyMode = &v
+	return s
+}
+
+// SetCaseSensitive sets the CaseSensitive field's value.
+func (s *FilPHForTermBaseTermGroupsOutput) SetCaseSensitive(v int64) *FilPHForTermBaseTermGroupsOutput {
+	s.CaseSensitive = &v
+	return s
+}
+
+// SetContent sets the Content field's value.
+func (s *FilPHForTermBaseTermGroupsOutput) SetContent(v string) *FilPHForTermBaseTermGroupsOutput {
+	s.Content = &v
+	return s
+}
+
+// SetCreateTime sets the CreateTime field's value.
+func (s *FilPHForTermBaseTermGroupsOutput) SetCreateTime(v string) *FilPHForTermBaseTermGroupsOutput {
+	s.CreateTime = &v
+	return s
+}
+
+// SetCreatedAt sets the CreatedAt field's value.
+func (s *FilPHForTermBaseTermGroupsOutput) SetCreatedAt(v string) *FilPHForTermBaseTermGroupsOutput {
+	s.CreatedAt = &v
+	return s
+}
+
+// SetCreator sets the Creator field's value.
+func (s *FilPHForTermBaseTermGroupsOutput) SetCreator(v *CreatorForTermBaseTermGroupsOutput) *FilPHForTermBaseTermGroupsOutput {
+	s.Creator = v
+	return s
+}
+
+// SetId sets the Id field's value.
+func (s *FilPHForTermBaseTermGroupsOutput) SetId(v string) *FilPHForTermBaseTermGroupsOutput {
+	s.Id = &v
+	return s
+}
+
+// SetLang sets the Lang field's value.
+func (s *FilPHForTermBaseTermGroupsOutput) SetLang(v string) *FilPHForTermBaseTermGroupsOutput {
+	s.Lang = &v
+	return s
+}
+
+// SetOperator sets the Operator field's value.
+func (s *FilPHForTermBaseTermGroupsOutput) SetOperator(v *CreatorForTermBaseTermGroupsOutput) *FilPHForTermBaseTermGroupsOutput {
+	s.Operator = v
+	return s
+}
+
+// SetPartOfSpeech sets the PartOfSpeech field's value.
+func (s *FilPHForTermBaseTermGroupsOutput) SetPartOfSpeech(v int32) *FilPHForTermBaseTermGroupsOutput {
+	s.PartOfSpeech = &v
+	return s
+}
+
+// SetTermBaseId sets the TermBaseId field's value.
+func (s *FilPHForTermBaseTermGroupsOutput) SetTermBaseId(v string) *FilPHForTermBaseTermGroupsOutput {
+	s.TermBaseId = &v
+	return s
+}
+
+// SetTermGroupId sets the TermGroupId field's value.
+func (s *FilPHForTermBaseTermGroupsOutput) SetTermGroupId(v string) *FilPHForTermBaseTermGroupsOutput {
+	s.TermGroupId = &v
+	return s
+}
+
+// SetUpdateTime sets the UpdateTime field's value.
+func (s *FilPHForTermBaseTermGroupsOutput) SetUpdateTime(v string) *FilPHForTermBaseTermGroupsOutput {
+	s.UpdateTime = &v
+	return s
+}
+
+// SetUpdatedAt sets the UpdatedAt field's value.
+func (s *FilPHForTermBaseTermGroupsOutput) SetUpdatedAt(v string) *FilPHForTermBaseTermGroupsOutput {
+	s.UpdatedAt = &v
+	return s
+}
+
+type FrFRForTermBaseTermGroupsOutput struct {
+	_ struct{} `type:"structure"`
+
+	Acronym *string `type:"string" json:"acronym"`
+
+	ApplyMode *int32 `type:"int32" json:"applyMode"`
+
+	CaseSensitive *int64 `type:"int64" json:"caseSensitive"`
+
+	Content *string `type:"string" json:"content"`
+
+	CreateTime *string `type:"string" json:"createTime"`
+
+	CreatedAt *string `type:"string" json:"createdAt"`
+
+	Creator *CreatorForTermBaseTermGroupsOutput `locationName:"creator" type:"structure"`
+
+	Id *string `type:"string" json:"id"`
+
+	Lang *string `type:"string" json:"lang"`
+
+	Operator *CreatorForTermBaseTermGroupsOutput `locationName:"operator" type:"structure"`
+
+	PartOfSpeech *int32 `type:"int32" json:"partOfSpeech"`
+
+	TermBaseId *string `type:"string" json:"termBaseId"`
+
+	TermGroupId *string `type:"string" json:"termGroupId"`
+
+	UpdateTime *string `type:"string" json:"updateTime"`
+
+	UpdatedAt *string `type:"string" json:"updatedAt"`
+}
+
+// String returns the string representation
+func (s FrFRForTermBaseTermGroupsOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s FrFRForTermBaseTermGroupsOutput) GoString() string {
+	return s.String()
+}
+
+// SetAcronym sets the Acronym field's value.
+func (s *FrFRForTermBaseTermGroupsOutput) SetAcronym(v string) *FrFRForTermBaseTermGroupsOutput {
+	s.Acronym = &v
+	return s
+}
+
+// SetApplyMode sets the ApplyMode field's value.
+func (s *FrFRForTermBaseTermGroupsOutput) SetApplyMode(v int32) *FrFRForTermBaseTermGroupsOutput {
+	s.ApplyMode = &v
+	return s
+}
+
+// SetCaseSensitive sets the CaseSensitive field's value.
+func (s *FrFRForTermBaseTermGroupsOutput) SetCaseSensitive(v int64) *FrFRForTermBaseTermGroupsOutput {
+	s.CaseSensitive = &v
+	return s
+}
+
+// SetContent sets the Content field's value.
+func (s *FrFRForTermBaseTermGroupsOutput) SetContent(v string) *FrFRForTermBaseTermGroupsOutput {
+	s.Content = &v
+	return s
+}
+
+// SetCreateTime sets the CreateTime field's value.
+func (s *FrFRForTermBaseTermGroupsOutput) SetCreateTime(v string) *FrFRForTermBaseTermGroupsOutput {
+	s.CreateTime = &v
+	return s
+}
+
+// SetCreatedAt sets the CreatedAt field's value.
+func (s *FrFRForTermBaseTermGroupsOutput) SetCreatedAt(v string) *FrFRForTermBaseTermGroupsOutput {
+	s.CreatedAt = &v
+	return s
+}
+
+// SetCreator sets the Creator field's value.
+func (s *FrFRForTermBaseTermGroupsOutput) SetCreator(v *CreatorForTermBaseTermGroupsOutput) *FrFRForTermBaseTermGroupsOutput {
+	s.Creator = v
+	return s
+}
+
+// SetId sets the Id field's value.
+func (s *FrFRForTermBaseTermGroupsOutput) SetId(v string) *FrFRForTermBaseTermGroupsOutput {
+	s.Id = &v
+	return s
+}
+
+// SetLang sets the Lang field's value.
+func (s *FrFRForTermBaseTermGroupsOutput) SetLang(v string) *FrFRForTermBaseTermGroupsOutput {
+	s.Lang = &v
+	return s
+}
+
+// SetOperator sets the Operator field's value.
+func (s *FrFRForTermBaseTermGroupsOutput) SetOperator(v *CreatorForTermBaseTermGroupsOutput) *FrFRForTermBaseTermGroupsOutput {
+	s.Operator = v
+	return s
+}
+
+// SetPartOfSpeech sets the PartOfSpeech field's value.
+func (s *FrFRForTermBaseTermGroupsOutput) SetPartOfSpeech(v int32) *FrFRForTermBaseTermGroupsOutput {
+	s.PartOfSpeech = &v
+	return s
+}
+
+// SetTermBaseId sets the TermBaseId field's value.
+func (s *FrFRForTermBaseTermGroupsOutput) SetTermBaseId(v string) *FrFRForTermBaseTermGroupsOutput {
+	s.TermBaseId = &v
+	return s
+}
+
+// SetTermGroupId sets the TermGroupId field's value.
+func (s *FrFRForTermBaseTermGroupsOutput) SetTermGroupId(v string) *FrFRForTermBaseTermGroupsOutput {
+	s.TermGroupId = &v
+	return s
+}
+
+// SetUpdateTime sets the UpdateTime field's value.
+func (s *FrFRForTermBaseTermGroupsOutput) SetUpdateTime(v string) *FrFRForTermBaseTermGroupsOutput {
+	s.UpdateTime = &v
+	return s
+}
+
+// SetUpdatedAt sets the UpdatedAt field's value.
+func (s *FrFRForTermBaseTermGroupsOutput) SetUpdatedAt(v string) *FrFRForTermBaseTermGroupsOutput {
+	s.UpdatedAt = &v
+	return s
+}
+
+type FrForTermBaseTermGroupsOutput struct {
+	_ struct{} `type:"structure"`
+
+	Acronym *string `type:"string" json:"acronym"`
+
+	ApplyMode *int32 `type:"int32" json:"applyMode"`
+
+	CaseSensitive *int64 `type:"int64" json:"caseSensitive"`
+
+	Content *string `type:"string" json:"content"`
+
+	CreateTime *string `type:"string" json:"createTime"`
+
+	CreatedAt *string `type:"string" json:"createdAt"`
+
+	Creator *CreatorForTermBaseTermGroupsOutput `locationName:"creator" type:"structure"`
+
+	Id *string `type:"string" json:"id"`
+
+	Lang *string `type:"string" json:"lang"`
+
+	Operator *CreatorForTermBaseTermGroupsOutput `locationName:"operator" type:"structure"`
+
+	PartOfSpeech *int32 `type:"int32" json:"partOfSpeech"`
+
+	TermBaseId *string `type:"string" json:"termBaseId"`
+
+	TermGroupId *string `type:"string" json:"termGroupId"`
+
+	UpdateTime *string `type:"string" json:"updateTime"`
+
+	UpdatedAt *string `type:"string" json:"updatedAt"`
+}
+
+// String returns the string representation
+func (s FrForTermBaseTermGroupsOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s FrForTermBaseTermGroupsOutput) GoString() string {
+	return s.String()
+}
+
+// SetAcronym sets the Acronym field's value.
+func (s *FrForTermBaseTermGroupsOutput) SetAcronym(v string) *FrForTermBaseTermGroupsOutput {
+	s.Acronym = &v
+	return s
+}
+
+// SetApplyMode sets the ApplyMode field's value.
+func (s *FrForTermBaseTermGroupsOutput) SetApplyMode(v int32) *FrForTermBaseTermGroupsOutput {
+	s.ApplyMode = &v
+	return s
+}
+
+// SetCaseSensitive sets the CaseSensitive field's value.
+func (s *FrForTermBaseTermGroupsOutput) SetCaseSensitive(v int64) *FrForTermBaseTermGroupsOutput {
+	s.CaseSensitive = &v
+	return s
+}
+
+// SetContent sets the Content field's value.
+func (s *FrForTermBaseTermGroupsOutput) SetContent(v string) *FrForTermBaseTermGroupsOutput {
+	s.Content = &v
+	return s
+}
+
+// SetCreateTime sets the CreateTime field's value.
+func (s *FrForTermBaseTermGroupsOutput) SetCreateTime(v string) *FrForTermBaseTermGroupsOutput {
+	s.CreateTime = &v
+	return s
+}
+
+// SetCreatedAt sets the CreatedAt field's value.
+func (s *FrForTermBaseTermGroupsOutput) SetCreatedAt(v string) *FrForTermBaseTermGroupsOutput {
+	s.CreatedAt = &v
+	return s
+}
+
+// SetCreator sets the Creator field's value.
+func (s *FrForTermBaseTermGroupsOutput) SetCreator(v *CreatorForTermBaseTermGroupsOutput) *FrForTermBaseTermGroupsOutput {
+	s.Creator = v
+	return s
+}
+
+// SetId sets the Id field's value.
+func (s *FrForTermBaseTermGroupsOutput) SetId(v string) *FrForTermBaseTermGroupsOutput {
+	s.Id = &v
+	return s
+}
+
+// SetLang sets the Lang field's value.
+func (s *FrForTermBaseTermGroupsOutput) SetLang(v string) *FrForTermBaseTermGroupsOutput {
+	s.Lang = &v
+	return s
+}
+
+// SetOperator sets the Operator field's value.
+func (s *FrForTermBaseTermGroupsOutput) SetOperator(v *CreatorForTermBaseTermGroupsOutput) *FrForTermBaseTermGroupsOutput {
+	s.Operator = v
+	return s
+}
+
+// SetPartOfSpeech sets the PartOfSpeech field's value.
+func (s *FrForTermBaseTermGroupsOutput) SetPartOfSpeech(v int32) *FrForTermBaseTermGroupsOutput {
+	s.PartOfSpeech = &v
+	return s
+}
+
+// SetTermBaseId sets the TermBaseId field's value.
+func (s *FrForTermBaseTermGroupsOutput) SetTermBaseId(v string) *FrForTermBaseTermGroupsOutput {
+	s.TermBaseId = &v
+	return s
+}
+
+// SetTermGroupId sets the TermGroupId field's value.
+func (s *FrForTermBaseTermGroupsOutput) SetTermGroupId(v string) *FrForTermBaseTermGroupsOutput {
+	s.TermGroupId = &v
+	return s
+}
+
+// SetUpdateTime sets the UpdateTime field's value.
+func (s *FrForTermBaseTermGroupsOutput) SetUpdateTime(v string) *FrForTermBaseTermGroupsOutput {
+	s.UpdateTime = &v
+	return s
+}
+
+// SetUpdatedAt sets the UpdatedAt field's value.
+func (s *FrForTermBaseTermGroupsOutput) SetUpdatedAt(v string) *FrForTermBaseTermGroupsOutput {
+	s.UpdatedAt = &v
+	return s
+}
+
+type HiForTermBaseTermGroupsOutput struct {
+	_ struct{} `type:"structure"`
+
+	Acronym *string `type:"string" json:"acronym"`
+
+	ApplyMode *int32 `type:"int32" json:"applyMode"`
+
+	CaseSensitive *int64 `type:"int64" json:"caseSensitive"`
+
+	Content *string `type:"string" json:"content"`
+
+	CreateTime *string `type:"string" json:"createTime"`
+
+	CreatedAt *string `type:"string" json:"createdAt"`
+
+	Creator *CreatorForTermBaseTermGroupsOutput `locationName:"creator" type:"structure"`
+
+	Id *string `type:"string" json:"id"`
+
+	Lang *string `type:"string" json:"lang"`
+
+	Operator *CreatorForTermBaseTermGroupsOutput `locationName:"operator" type:"structure"`
+
+	PartOfSpeech *int32 `type:"int32" json:"partOfSpeech"`
+
+	TermBaseId *string `type:"string" json:"termBaseId"`
+
+	TermGroupId *string `type:"string" json:"termGroupId"`
+
+	UpdateTime *string `type:"string" json:"updateTime"`
+
+	UpdatedAt *string `type:"string" json:"updatedAt"`
+}
+
+// String returns the string representation
+func (s HiForTermBaseTermGroupsOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s HiForTermBaseTermGroupsOutput) GoString() string {
+	return s.String()
+}
+
+// SetAcronym sets the Acronym field's value.
+func (s *HiForTermBaseTermGroupsOutput) SetAcronym(v string) *HiForTermBaseTermGroupsOutput {
+	s.Acronym = &v
+	return s
+}
+
+// SetApplyMode sets the ApplyMode field's value.
+func (s *HiForTermBaseTermGroupsOutput) SetApplyMode(v int32) *HiForTermBaseTermGroupsOutput {
+	s.ApplyMode = &v
+	return s
+}
+
+// SetCaseSensitive sets the CaseSensitive field's value.
+func (s *HiForTermBaseTermGroupsOutput) SetCaseSensitive(v int64) *HiForTermBaseTermGroupsOutput {
+	s.CaseSensitive = &v
+	return s
+}
+
+// SetContent sets the Content field's value.
+func (s *HiForTermBaseTermGroupsOutput) SetContent(v string) *HiForTermBaseTermGroupsOutput {
+	s.Content = &v
+	return s
+}
+
+// SetCreateTime sets the CreateTime field's value.
+func (s *HiForTermBaseTermGroupsOutput) SetCreateTime(v string) *HiForTermBaseTermGroupsOutput {
+	s.CreateTime = &v
+	return s
+}
+
+// SetCreatedAt sets the CreatedAt field's value.
+func (s *HiForTermBaseTermGroupsOutput) SetCreatedAt(v string) *HiForTermBaseTermGroupsOutput {
+	s.CreatedAt = &v
+	return s
+}
+
+// SetCreator sets the Creator field's value.
+func (s *HiForTermBaseTermGroupsOutput) SetCreator(v *CreatorForTermBaseTermGroupsOutput) *HiForTermBaseTermGroupsOutput {
+	s.Creator = v
+	return s
+}
+
+// SetId sets the Id field's value.
+func (s *HiForTermBaseTermGroupsOutput) SetId(v string) *HiForTermBaseTermGroupsOutput {
+	s.Id = &v
+	return s
+}
+
+// SetLang sets the Lang field's value.
+func (s *HiForTermBaseTermGroupsOutput) SetLang(v string) *HiForTermBaseTermGroupsOutput {
+	s.Lang = &v
+	return s
+}
+
+// SetOperator sets the Operator field's value.
+func (s *HiForTermBaseTermGroupsOutput) SetOperator(v *CreatorForTermBaseTermGroupsOutput) *HiForTermBaseTermGroupsOutput {
+	s.Operator = v
+	return s
+}
+
+// SetPartOfSpeech sets the PartOfSpeech field's value.
+func (s *HiForTermBaseTermGroupsOutput) SetPartOfSpeech(v int32) *HiForTermBaseTermGroupsOutput {
+	s.PartOfSpeech = &v
+	return s
+}
+
+// SetTermBaseId sets the TermBaseId field's value.
+func (s *HiForTermBaseTermGroupsOutput) SetTermBaseId(v string) *HiForTermBaseTermGroupsOutput {
+	s.TermBaseId = &v
+	return s
+}
+
+// SetTermGroupId sets the TermGroupId field's value.
+func (s *HiForTermBaseTermGroupsOutput) SetTermGroupId(v string) *HiForTermBaseTermGroupsOutput {
+	s.TermGroupId = &v
+	return s
+}
+
+// SetUpdateTime sets the UpdateTime field's value.
+func (s *HiForTermBaseTermGroupsOutput) SetUpdateTime(v string) *HiForTermBaseTermGroupsOutput {
+	s.UpdateTime = &v
+	return s
+}
+
+// SetUpdatedAt sets the UpdatedAt field's value.
+func (s *HiForTermBaseTermGroupsOutput) SetUpdatedAt(v string) *HiForTermBaseTermGroupsOutput {
+	s.UpdatedAt = &v
+	return s
+}
+
+type HiINForTermBaseTermGroupsOutput struct {
+	_ struct{} `type:"structure"`
+
+	Acronym *string `type:"string" json:"acronym"`
+
+	ApplyMode *int32 `type:"int32" json:"applyMode"`
+
+	CaseSensitive *int64 `type:"int64" json:"caseSensitive"`
+
+	Content *string `type:"string" json:"content"`
+
+	CreateTime *string `type:"string" json:"createTime"`
+
+	CreatedAt *string `type:"string" json:"createdAt"`
+
+	Creator *CreatorForTermBaseTermGroupsOutput `locationName:"creator" type:"structure"`
+
+	Id *string `type:"string" json:"id"`
+
+	Lang *string `type:"string" json:"lang"`
+
+	Operator *CreatorForTermBaseTermGroupsOutput `locationName:"operator" type:"structure"`
+
+	PartOfSpeech *int32 `type:"int32" json:"partOfSpeech"`
+
+	TermBaseId *string `type:"string" json:"termBaseId"`
+
+	TermGroupId *string `type:"string" json:"termGroupId"`
+
+	UpdateTime *string `type:"string" json:"updateTime"`
+
+	UpdatedAt *string `type:"string" json:"updatedAt"`
+}
+
+// String returns the string representation
+func (s HiINForTermBaseTermGroupsOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s HiINForTermBaseTermGroupsOutput) GoString() string {
+	return s.String()
+}
+
+// SetAcronym sets the Acronym field's value.
+func (s *HiINForTermBaseTermGroupsOutput) SetAcronym(v string) *HiINForTermBaseTermGroupsOutput {
+	s.Acronym = &v
+	return s
+}
+
+// SetApplyMode sets the ApplyMode field's value.
+func (s *HiINForTermBaseTermGroupsOutput) SetApplyMode(v int32) *HiINForTermBaseTermGroupsOutput {
+	s.ApplyMode = &v
+	return s
+}
+
+// SetCaseSensitive sets the CaseSensitive field's value.
+func (s *HiINForTermBaseTermGroupsOutput) SetCaseSensitive(v int64) *HiINForTermBaseTermGroupsOutput {
+	s.CaseSensitive = &v
+	return s
+}
+
+// SetContent sets the Content field's value.
+func (s *HiINForTermBaseTermGroupsOutput) SetContent(v string) *HiINForTermBaseTermGroupsOutput {
+	s.Content = &v
+	return s
+}
+
+// SetCreateTime sets the CreateTime field's value.
+func (s *HiINForTermBaseTermGroupsOutput) SetCreateTime(v string) *HiINForTermBaseTermGroupsOutput {
+	s.CreateTime = &v
+	return s
+}
+
+// SetCreatedAt sets the CreatedAt field's value.
+func (s *HiINForTermBaseTermGroupsOutput) SetCreatedAt(v string) *HiINForTermBaseTermGroupsOutput {
+	s.CreatedAt = &v
+	return s
+}
+
+// SetCreator sets the Creator field's value.
+func (s *HiINForTermBaseTermGroupsOutput) SetCreator(v *CreatorForTermBaseTermGroupsOutput) *HiINForTermBaseTermGroupsOutput {
+	s.Creator = v
+	return s
+}
+
+// SetId sets the Id field's value.
+func (s *HiINForTermBaseTermGroupsOutput) SetId(v string) *HiINForTermBaseTermGroupsOutput {
+	s.Id = &v
+	return s
+}
+
+// SetLang sets the Lang field's value.
+func (s *HiINForTermBaseTermGroupsOutput) SetLang(v string) *HiINForTermBaseTermGroupsOutput {
+	s.Lang = &v
+	return s
+}
+
+// SetOperator sets the Operator field's value.
+func (s *HiINForTermBaseTermGroupsOutput) SetOperator(v *CreatorForTermBaseTermGroupsOutput) *HiINForTermBaseTermGroupsOutput {
+	s.Operator = v
+	return s
+}
+
+// SetPartOfSpeech sets the PartOfSpeech field's value.
+func (s *HiINForTermBaseTermGroupsOutput) SetPartOfSpeech(v int32) *HiINForTermBaseTermGroupsOutput {
+	s.PartOfSpeech = &v
+	return s
+}
+
+// SetTermBaseId sets the TermBaseId field's value.
+func (s *HiINForTermBaseTermGroupsOutput) SetTermBaseId(v string) *HiINForTermBaseTermGroupsOutput {
+	s.TermBaseId = &v
+	return s
+}
+
+// SetTermGroupId sets the TermGroupId field's value.
+func (s *HiINForTermBaseTermGroupsOutput) SetTermGroupId(v string) *HiINForTermBaseTermGroupsOutput {
+	s.TermGroupId = &v
+	return s
+}
+
+// SetUpdateTime sets the UpdateTime field's value.
+func (s *HiINForTermBaseTermGroupsOutput) SetUpdateTime(v string) *HiINForTermBaseTermGroupsOutput {
+	s.UpdateTime = &v
+	return s
+}
+
+// SetUpdatedAt sets the UpdatedAt field's value.
+func (s *HiINForTermBaseTermGroupsOutput) SetUpdatedAt(v string) *HiINForTermBaseTermGroupsOutput {
+	s.UpdatedAt = &v
+	return s
+}
+
+type IdForTermBaseTermGroupsOutput struct {
+	_ struct{} `type:"structure"`
+
+	Acronym *string `type:"string" json:"acronym"`
+
+	ApplyMode *int32 `type:"int32" json:"applyMode"`
+
+	CaseSensitive *int64 `type:"int64" json:"caseSensitive"`
+
+	Content *string `type:"string" json:"content"`
+
+	CreateTime *string `type:"string" json:"createTime"`
+
+	CreatedAt *string `type:"string" json:"createdAt"`
+
+	Creator *CreatorForTermBaseTermGroupsOutput `locationName:"creator" type:"structure"`
+
+	Id *string `type:"string" json:"id"`
+
+	Lang *string `type:"string" json:"lang"`
+
+	Operator *CreatorForTermBaseTermGroupsOutput `locationName:"operator" type:"structure"`
+
+	PartOfSpeech *int32 `type:"int32" json:"partOfSpeech"`
+
+	TermBaseId *string `type:"string" json:"termBaseId"`
+
+	TermGroupId *string `type:"string" json:"termGroupId"`
+
+	UpdateTime *string `type:"string" json:"updateTime"`
+
+	UpdatedAt *string `type:"string" json:"updatedAt"`
+}
+
+// String returns the string representation
+func (s IdForTermBaseTermGroupsOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s IdForTermBaseTermGroupsOutput) GoString() string {
+	return s.String()
+}
+
+// SetAcronym sets the Acronym field's value.
+func (s *IdForTermBaseTermGroupsOutput) SetAcronym(v string) *IdForTermBaseTermGroupsOutput {
+	s.Acronym = &v
+	return s
+}
+
+// SetApplyMode sets the ApplyMode field's value.
+func (s *IdForTermBaseTermGroupsOutput) SetApplyMode(v int32) *IdForTermBaseTermGroupsOutput {
+	s.ApplyMode = &v
+	return s
+}
+
+// SetCaseSensitive sets the CaseSensitive field's value.
+func (s *IdForTermBaseTermGroupsOutput) SetCaseSensitive(v int64) *IdForTermBaseTermGroupsOutput {
+	s.CaseSensitive = &v
+	return s
+}
+
+// SetContent sets the Content field's value.
+func (s *IdForTermBaseTermGroupsOutput) SetContent(v string) *IdForTermBaseTermGroupsOutput {
+	s.Content = &v
+	return s
+}
+
+// SetCreateTime sets the CreateTime field's value.
+func (s *IdForTermBaseTermGroupsOutput) SetCreateTime(v string) *IdForTermBaseTermGroupsOutput {
+	s.CreateTime = &v
+	return s
+}
+
+// SetCreatedAt sets the CreatedAt field's value.
+func (s *IdForTermBaseTermGroupsOutput) SetCreatedAt(v string) *IdForTermBaseTermGroupsOutput {
+	s.CreatedAt = &v
+	return s
+}
+
+// SetCreator sets the Creator field's value.
+func (s *IdForTermBaseTermGroupsOutput) SetCreator(v *CreatorForTermBaseTermGroupsOutput) *IdForTermBaseTermGroupsOutput {
+	s.Creator = v
+	return s
+}
+
+// SetId sets the Id field's value.
+func (s *IdForTermBaseTermGroupsOutput) SetId(v string) *IdForTermBaseTermGroupsOutput {
+	s.Id = &v
+	return s
+}
+
+// SetLang sets the Lang field's value.
+func (s *IdForTermBaseTermGroupsOutput) SetLang(v string) *IdForTermBaseTermGroupsOutput {
+	s.Lang = &v
+	return s
+}
+
+// SetOperator sets the Operator field's value.
+func (s *IdForTermBaseTermGroupsOutput) SetOperator(v *CreatorForTermBaseTermGroupsOutput) *IdForTermBaseTermGroupsOutput {
+	s.Operator = v
+	return s
+}
+
+// SetPartOfSpeech sets the PartOfSpeech field's value.
+func (s *IdForTermBaseTermGroupsOutput) SetPartOfSpeech(v int32) *IdForTermBaseTermGroupsOutput {
+	s.PartOfSpeech = &v
+	return s
+}
+
+// SetTermBaseId sets the TermBaseId field's value.
+func (s *IdForTermBaseTermGroupsOutput) SetTermBaseId(v string) *IdForTermBaseTermGroupsOutput {
+	s.TermBaseId = &v
+	return s
+}
+
+// SetTermGroupId sets the TermGroupId field's value.
+func (s *IdForTermBaseTermGroupsOutput) SetTermGroupId(v string) *IdForTermBaseTermGroupsOutput {
+	s.TermGroupId = &v
+	return s
+}
+
+// SetUpdateTime sets the UpdateTime field's value.
+func (s *IdForTermBaseTermGroupsOutput) SetUpdateTime(v string) *IdForTermBaseTermGroupsOutput {
+	s.UpdateTime = &v
+	return s
+}
+
+// SetUpdatedAt sets the UpdatedAt field's value.
+func (s *IdForTermBaseTermGroupsOutput) SetUpdatedAt(v string) *IdForTermBaseTermGroupsOutput {
+	s.UpdatedAt = &v
+	return s
+}
+
+type IdIDForTermBaseTermGroupsOutput struct {
+	_ struct{} `type:"structure"`
+
+	Acronym *string `type:"string" json:"acronym"`
+
+	ApplyMode *int32 `type:"int32" json:"applyMode"`
+
+	CaseSensitive *int64 `type:"int64" json:"caseSensitive"`
+
+	Content *string `type:"string" json:"content"`
+
+	CreateTime *string `type:"string" json:"createTime"`
+
+	CreatedAt *string `type:"string" json:"createdAt"`
+
+	Creator *CreatorForTermBaseTermGroupsOutput `locationName:"creator" type:"structure"`
+
+	Id *string `type:"string" json:"id"`
+
+	Lang *string `type:"string" json:"lang"`
+
+	Operator *CreatorForTermBaseTermGroupsOutput `locationName:"operator" type:"structure"`
+
+	PartOfSpeech *int32 `type:"int32" json:"partOfSpeech"`
+
+	TermBaseId *string `type:"string" json:"termBaseId"`
+
+	TermGroupId *string `type:"string" json:"termGroupId"`
+
+	UpdateTime *string `type:"string" json:"updateTime"`
+
+	UpdatedAt *string `type:"string" json:"updatedAt"`
+}
+
+// String returns the string representation
+func (s IdIDForTermBaseTermGroupsOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s IdIDForTermBaseTermGroupsOutput) GoString() string {
+	return s.String()
+}
+
+// SetAcronym sets the Acronym field's value.
+func (s *IdIDForTermBaseTermGroupsOutput) SetAcronym(v string) *IdIDForTermBaseTermGroupsOutput {
+	s.Acronym = &v
+	return s
+}
+
+// SetApplyMode sets the ApplyMode field's value.
+func (s *IdIDForTermBaseTermGroupsOutput) SetApplyMode(v int32) *IdIDForTermBaseTermGroupsOutput {
+	s.ApplyMode = &v
+	return s
+}
+
+// SetCaseSensitive sets the CaseSensitive field's value.
+func (s *IdIDForTermBaseTermGroupsOutput) SetCaseSensitive(v int64) *IdIDForTermBaseTermGroupsOutput {
+	s.CaseSensitive = &v
+	return s
+}
+
+// SetContent sets the Content field's value.
+func (s *IdIDForTermBaseTermGroupsOutput) SetContent(v string) *IdIDForTermBaseTermGroupsOutput {
+	s.Content = &v
+	return s
+}
+
+// SetCreateTime sets the CreateTime field's value.
+func (s *IdIDForTermBaseTermGroupsOutput) SetCreateTime(v string) *IdIDForTermBaseTermGroupsOutput {
+	s.CreateTime = &v
+	return s
+}
+
+// SetCreatedAt sets the CreatedAt field's value.
+func (s *IdIDForTermBaseTermGroupsOutput) SetCreatedAt(v string) *IdIDForTermBaseTermGroupsOutput {
+	s.CreatedAt = &v
+	return s
+}
+
+// SetCreator sets the Creator field's value.
+func (s *IdIDForTermBaseTermGroupsOutput) SetCreator(v *CreatorForTermBaseTermGroupsOutput) *IdIDForTermBaseTermGroupsOutput {
+	s.Creator = v
+	return s
+}
+
+// SetId sets the Id field's value.
+func (s *IdIDForTermBaseTermGroupsOutput) SetId(v string) *IdIDForTermBaseTermGroupsOutput {
+	s.Id = &v
+	return s
+}
+
+// SetLang sets the Lang field's value.
+func (s *IdIDForTermBaseTermGroupsOutput) SetLang(v string) *IdIDForTermBaseTermGroupsOutput {
+	s.Lang = &v
+	return s
+}
+
+// SetOperator sets the Operator field's value.
+func (s *IdIDForTermBaseTermGroupsOutput) SetOperator(v *CreatorForTermBaseTermGroupsOutput) *IdIDForTermBaseTermGroupsOutput {
+	s.Operator = v
+	return s
+}
+
+// SetPartOfSpeech sets the PartOfSpeech field's value.
+func (s *IdIDForTermBaseTermGroupsOutput) SetPartOfSpeech(v int32) *IdIDForTermBaseTermGroupsOutput {
+	s.PartOfSpeech = &v
+	return s
+}
+
+// SetTermBaseId sets the TermBaseId field's value.
+func (s *IdIDForTermBaseTermGroupsOutput) SetTermBaseId(v string) *IdIDForTermBaseTermGroupsOutput {
+	s.TermBaseId = &v
+	return s
+}
+
+// SetTermGroupId sets the TermGroupId field's value.
+func (s *IdIDForTermBaseTermGroupsOutput) SetTermGroupId(v string) *IdIDForTermBaseTermGroupsOutput {
+	s.TermGroupId = &v
+	return s
+}
+
+// SetUpdateTime sets the UpdateTime field's value.
+func (s *IdIDForTermBaseTermGroupsOutput) SetUpdateTime(v string) *IdIDForTermBaseTermGroupsOutput {
+	s.UpdateTime = &v
+	return s
+}
+
+// SetUpdatedAt sets the UpdatedAt field's value.
+func (s *IdIDForTermBaseTermGroupsOutput) SetUpdatedAt(v string) *IdIDForTermBaseTermGroupsOutput {
+	s.UpdatedAt = &v
+	return s
+}
+
+type ItForTermBaseTermGroupsOutput struct {
+	_ struct{} `type:"structure"`
+
+	Acronym *string `type:"string" json:"acronym"`
+
+	ApplyMode *int32 `type:"int32" json:"applyMode"`
+
+	CaseSensitive *int64 `type:"int64" json:"caseSensitive"`
+
+	Content *string `type:"string" json:"content"`
+
+	CreateTime *string `type:"string" json:"createTime"`
+
+	CreatedAt *string `type:"string" json:"createdAt"`
+
+	Creator *CreatorForTermBaseTermGroupsOutput `locationName:"creator" type:"structure"`
+
+	Id *string `type:"string" json:"id"`
+
+	Lang *string `type:"string" json:"lang"`
+
+	Operator *CreatorForTermBaseTermGroupsOutput `locationName:"operator" type:"structure"`
+
+	PartOfSpeech *int32 `type:"int32" json:"partOfSpeech"`
+
+	TermBaseId *string `type:"string" json:"termBaseId"`
+
+	TermGroupId *string `type:"string" json:"termGroupId"`
+
+	UpdateTime *string `type:"string" json:"updateTime"`
+
+	UpdatedAt *string `type:"string" json:"updatedAt"`
+}
+
+// String returns the string representation
+func (s ItForTermBaseTermGroupsOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ItForTermBaseTermGroupsOutput) GoString() string {
+	return s.String()
+}
+
+// SetAcronym sets the Acronym field's value.
+func (s *ItForTermBaseTermGroupsOutput) SetAcronym(v string) *ItForTermBaseTermGroupsOutput {
+	s.Acronym = &v
+	return s
+}
+
+// SetApplyMode sets the ApplyMode field's value.
+func (s *ItForTermBaseTermGroupsOutput) SetApplyMode(v int32) *ItForTermBaseTermGroupsOutput {
+	s.ApplyMode = &v
+	return s
+}
+
+// SetCaseSensitive sets the CaseSensitive field's value.
+func (s *ItForTermBaseTermGroupsOutput) SetCaseSensitive(v int64) *ItForTermBaseTermGroupsOutput {
+	s.CaseSensitive = &v
+	return s
+}
+
+// SetContent sets the Content field's value.
+func (s *ItForTermBaseTermGroupsOutput) SetContent(v string) *ItForTermBaseTermGroupsOutput {
+	s.Content = &v
+	return s
+}
+
+// SetCreateTime sets the CreateTime field's value.
+func (s *ItForTermBaseTermGroupsOutput) SetCreateTime(v string) *ItForTermBaseTermGroupsOutput {
+	s.CreateTime = &v
+	return s
+}
+
+// SetCreatedAt sets the CreatedAt field's value.
+func (s *ItForTermBaseTermGroupsOutput) SetCreatedAt(v string) *ItForTermBaseTermGroupsOutput {
+	s.CreatedAt = &v
+	return s
+}
+
+// SetCreator sets the Creator field's value.
+func (s *ItForTermBaseTermGroupsOutput) SetCreator(v *CreatorForTermBaseTermGroupsOutput) *ItForTermBaseTermGroupsOutput {
+	s.Creator = v
+	return s
+}
+
+// SetId sets the Id field's value.
+func (s *ItForTermBaseTermGroupsOutput) SetId(v string) *ItForTermBaseTermGroupsOutput {
+	s.Id = &v
+	return s
+}
+
+// SetLang sets the Lang field's value.
+func (s *ItForTermBaseTermGroupsOutput) SetLang(v string) *ItForTermBaseTermGroupsOutput {
+	s.Lang = &v
+	return s
+}
+
+// SetOperator sets the Operator field's value.
+func (s *ItForTermBaseTermGroupsOutput) SetOperator(v *CreatorForTermBaseTermGroupsOutput) *ItForTermBaseTermGroupsOutput {
+	s.Operator = v
+	return s
+}
+
+// SetPartOfSpeech sets the PartOfSpeech field's value.
+func (s *ItForTermBaseTermGroupsOutput) SetPartOfSpeech(v int32) *ItForTermBaseTermGroupsOutput {
+	s.PartOfSpeech = &v
+	return s
+}
+
+// SetTermBaseId sets the TermBaseId field's value.
+func (s *ItForTermBaseTermGroupsOutput) SetTermBaseId(v string) *ItForTermBaseTermGroupsOutput {
+	s.TermBaseId = &v
+	return s
+}
+
+// SetTermGroupId sets the TermGroupId field's value.
+func (s *ItForTermBaseTermGroupsOutput) SetTermGroupId(v string) *ItForTermBaseTermGroupsOutput {
+	s.TermGroupId = &v
+	return s
+}
+
+// SetUpdateTime sets the UpdateTime field's value.
+func (s *ItForTermBaseTermGroupsOutput) SetUpdateTime(v string) *ItForTermBaseTermGroupsOutput {
+	s.UpdateTime = &v
+	return s
+}
+
+// SetUpdatedAt sets the UpdatedAt field's value.
+func (s *ItForTermBaseTermGroupsOutput) SetUpdatedAt(v string) *ItForTermBaseTermGroupsOutput {
+	s.UpdatedAt = &v
+	return s
+}
+
+type ItITForTermBaseTermGroupsOutput struct {
+	_ struct{} `type:"structure"`
+
+	Acronym *string `type:"string" json:"acronym"`
+
+	ApplyMode *int32 `type:"int32" json:"applyMode"`
+
+	CaseSensitive *int64 `type:"int64" json:"caseSensitive"`
+
+	Content *string `type:"string" json:"content"`
+
+	CreateTime *string `type:"string" json:"createTime"`
+
+	CreatedAt *string `type:"string" json:"createdAt"`
+
+	Creator *CreatorForTermBaseTermGroupsOutput `locationName:"creator" type:"structure"`
+
+	Id *string `type:"string" json:"id"`
+
+	Lang *string `type:"string" json:"lang"`
+
+	Operator *CreatorForTermBaseTermGroupsOutput `locationName:"operator" type:"structure"`
+
+	PartOfSpeech *int32 `type:"int32" json:"partOfSpeech"`
+
+	TermBaseId *string `type:"string" json:"termBaseId"`
+
+	TermGroupId *string `type:"string" json:"termGroupId"`
+
+	UpdateTime *string `type:"string" json:"updateTime"`
+
+	UpdatedAt *string `type:"string" json:"updatedAt"`
+}
+
+// String returns the string representation
+func (s ItITForTermBaseTermGroupsOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ItITForTermBaseTermGroupsOutput) GoString() string {
+	return s.String()
+}
+
+// SetAcronym sets the Acronym field's value.
+func (s *ItITForTermBaseTermGroupsOutput) SetAcronym(v string) *ItITForTermBaseTermGroupsOutput {
+	s.Acronym = &v
+	return s
+}
+
+// SetApplyMode sets the ApplyMode field's value.
+func (s *ItITForTermBaseTermGroupsOutput) SetApplyMode(v int32) *ItITForTermBaseTermGroupsOutput {
+	s.ApplyMode = &v
+	return s
+}
+
+// SetCaseSensitive sets the CaseSensitive field's value.
+func (s *ItITForTermBaseTermGroupsOutput) SetCaseSensitive(v int64) *ItITForTermBaseTermGroupsOutput {
+	s.CaseSensitive = &v
+	return s
+}
+
+// SetContent sets the Content field's value.
+func (s *ItITForTermBaseTermGroupsOutput) SetContent(v string) *ItITForTermBaseTermGroupsOutput {
+	s.Content = &v
+	return s
+}
+
+// SetCreateTime sets the CreateTime field's value.
+func (s *ItITForTermBaseTermGroupsOutput) SetCreateTime(v string) *ItITForTermBaseTermGroupsOutput {
+	s.CreateTime = &v
+	return s
+}
+
+// SetCreatedAt sets the CreatedAt field's value.
+func (s *ItITForTermBaseTermGroupsOutput) SetCreatedAt(v string) *ItITForTermBaseTermGroupsOutput {
+	s.CreatedAt = &v
+	return s
+}
+
+// SetCreator sets the Creator field's value.
+func (s *ItITForTermBaseTermGroupsOutput) SetCreator(v *CreatorForTermBaseTermGroupsOutput) *ItITForTermBaseTermGroupsOutput {
+	s.Creator = v
+	return s
+}
+
+// SetId sets the Id field's value.
+func (s *ItITForTermBaseTermGroupsOutput) SetId(v string) *ItITForTermBaseTermGroupsOutput {
+	s.Id = &v
+	return s
+}
+
+// SetLang sets the Lang field's value.
+func (s *ItITForTermBaseTermGroupsOutput) SetLang(v string) *ItITForTermBaseTermGroupsOutput {
+	s.Lang = &v
+	return s
+}
+
+// SetOperator sets the Operator field's value.
+func (s *ItITForTermBaseTermGroupsOutput) SetOperator(v *CreatorForTermBaseTermGroupsOutput) *ItITForTermBaseTermGroupsOutput {
+	s.Operator = v
+	return s
+}
+
+// SetPartOfSpeech sets the PartOfSpeech field's value.
+func (s *ItITForTermBaseTermGroupsOutput) SetPartOfSpeech(v int32) *ItITForTermBaseTermGroupsOutput {
+	s.PartOfSpeech = &v
+	return s
+}
+
+// SetTermBaseId sets the TermBaseId field's value.
+func (s *ItITForTermBaseTermGroupsOutput) SetTermBaseId(v string) *ItITForTermBaseTermGroupsOutput {
+	s.TermBaseId = &v
+	return s
+}
+
+// SetTermGroupId sets the TermGroupId field's value.
+func (s *ItITForTermBaseTermGroupsOutput) SetTermGroupId(v string) *ItITForTermBaseTermGroupsOutput {
+	s.TermGroupId = &v
+	return s
+}
+
+// SetUpdateTime sets the UpdateTime field's value.
+func (s *ItITForTermBaseTermGroupsOutput) SetUpdateTime(v string) *ItITForTermBaseTermGroupsOutput {
+	s.UpdateTime = &v
+	return s
+}
+
+// SetUpdatedAt sets the UpdatedAt field's value.
+func (s *ItITForTermBaseTermGroupsOutput) SetUpdatedAt(v string) *ItITForTermBaseTermGroupsOutput {
+	s.UpdatedAt = &v
+	return s
+}
+
+type JaForTermBaseTermGroupsOutput struct {
+	_ struct{} `type:"structure"`
+
+	Acronym *string `type:"string" json:"acronym"`
+
+	ApplyMode *int32 `type:"int32" json:"applyMode"`
+
+	CaseSensitive *int64 `type:"int64" json:"caseSensitive"`
+
+	Content *string `type:"string" json:"content"`
+
+	CreateTime *string `type:"string" json:"createTime"`
+
+	CreatedAt *string `type:"string" json:"createdAt"`
+
+	Creator *CreatorForTermBaseTermGroupsOutput `locationName:"creator" type:"structure"`
+
+	Id *string `type:"string" json:"id"`
+
+	Lang *string `type:"string" json:"lang"`
+
+	Operator *CreatorForTermBaseTermGroupsOutput `locationName:"operator" type:"structure"`
+
+	PartOfSpeech *int32 `type:"int32" json:"partOfSpeech"`
+
+	TermBaseId *string `type:"string" json:"termBaseId"`
+
+	TermGroupId *string `type:"string" json:"termGroupId"`
+
+	UpdateTime *string `type:"string" json:"updateTime"`
+
+	UpdatedAt *string `type:"string" json:"updatedAt"`
+}
+
+// String returns the string representation
+func (s JaForTermBaseTermGroupsOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s JaForTermBaseTermGroupsOutput) GoString() string {
+	return s.String()
+}
+
+// SetAcronym sets the Acronym field's value.
+func (s *JaForTermBaseTermGroupsOutput) SetAcronym(v string) *JaForTermBaseTermGroupsOutput {
+	s.Acronym = &v
+	return s
+}
+
+// SetApplyMode sets the ApplyMode field's value.
+func (s *JaForTermBaseTermGroupsOutput) SetApplyMode(v int32) *JaForTermBaseTermGroupsOutput {
+	s.ApplyMode = &v
+	return s
+}
+
+// SetCaseSensitive sets the CaseSensitive field's value.
+func (s *JaForTermBaseTermGroupsOutput) SetCaseSensitive(v int64) *JaForTermBaseTermGroupsOutput {
+	s.CaseSensitive = &v
+	return s
+}
+
+// SetContent sets the Content field's value.
+func (s *JaForTermBaseTermGroupsOutput) SetContent(v string) *JaForTermBaseTermGroupsOutput {
+	s.Content = &v
+	return s
+}
+
+// SetCreateTime sets the CreateTime field's value.
+func (s *JaForTermBaseTermGroupsOutput) SetCreateTime(v string) *JaForTermBaseTermGroupsOutput {
+	s.CreateTime = &v
+	return s
+}
+
+// SetCreatedAt sets the CreatedAt field's value.
+func (s *JaForTermBaseTermGroupsOutput) SetCreatedAt(v string) *JaForTermBaseTermGroupsOutput {
+	s.CreatedAt = &v
+	return s
+}
+
+// SetCreator sets the Creator field's value.
+func (s *JaForTermBaseTermGroupsOutput) SetCreator(v *CreatorForTermBaseTermGroupsOutput) *JaForTermBaseTermGroupsOutput {
+	s.Creator = v
+	return s
+}
+
+// SetId sets the Id field's value.
+func (s *JaForTermBaseTermGroupsOutput) SetId(v string) *JaForTermBaseTermGroupsOutput {
+	s.Id = &v
+	return s
+}
+
+// SetLang sets the Lang field's value.
+func (s *JaForTermBaseTermGroupsOutput) SetLang(v string) *JaForTermBaseTermGroupsOutput {
+	s.Lang = &v
+	return s
+}
+
+// SetOperator sets the Operator field's value.
+func (s *JaForTermBaseTermGroupsOutput) SetOperator(v *CreatorForTermBaseTermGroupsOutput) *JaForTermBaseTermGroupsOutput {
+	s.Operator = v
+	return s
+}
+
+// SetPartOfSpeech sets the PartOfSpeech field's value.
+func (s *JaForTermBaseTermGroupsOutput) SetPartOfSpeech(v int32) *JaForTermBaseTermGroupsOutput {
+	s.PartOfSpeech = &v
+	return s
+}
+
+// SetTermBaseId sets the TermBaseId field's value.
+func (s *JaForTermBaseTermGroupsOutput) SetTermBaseId(v string) *JaForTermBaseTermGroupsOutput {
+	s.TermBaseId = &v
+	return s
+}
+
+// SetTermGroupId sets the TermGroupId field's value.
+func (s *JaForTermBaseTermGroupsOutput) SetTermGroupId(v string) *JaForTermBaseTermGroupsOutput {
+	s.TermGroupId = &v
+	return s
+}
+
+// SetUpdateTime sets the UpdateTime field's value.
+func (s *JaForTermBaseTermGroupsOutput) SetUpdateTime(v string) *JaForTermBaseTermGroupsOutput {
+	s.UpdateTime = &v
+	return s
+}
+
+// SetUpdatedAt sets the UpdatedAt field's value.
+func (s *JaForTermBaseTermGroupsOutput) SetUpdatedAt(v string) *JaForTermBaseTermGroupsOutput {
+	s.UpdatedAt = &v
+	return s
+}
+
+type JaJPForTermBaseTermGroupsOutput struct {
+	_ struct{} `type:"structure"`
+
+	Acronym *string `type:"string" json:"acronym"`
+
+	ApplyMode *int32 `type:"int32" json:"applyMode"`
+
+	CaseSensitive *int64 `type:"int64" json:"caseSensitive"`
+
+	Content *string `type:"string" json:"content"`
+
+	CreateTime *string `type:"string" json:"createTime"`
+
+	CreatedAt *string `type:"string" json:"createdAt"`
+
+	Creator *CreatorForTermBaseTermGroupsOutput `locationName:"creator" type:"structure"`
+
+	Id *string `type:"string" json:"id"`
+
+	Lang *string `type:"string" json:"lang"`
+
+	Operator *CreatorForTermBaseTermGroupsOutput `locationName:"operator" type:"structure"`
+
+	PartOfSpeech *int32 `type:"int32" json:"partOfSpeech"`
+
+	TermBaseId *string `type:"string" json:"termBaseId"`
+
+	TermGroupId *string `type:"string" json:"termGroupId"`
+
+	UpdateTime *string `type:"string" json:"updateTime"`
+
+	UpdatedAt *string `type:"string" json:"updatedAt"`
+}
+
+// String returns the string representation
+func (s JaJPForTermBaseTermGroupsOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s JaJPForTermBaseTermGroupsOutput) GoString() string {
+	return s.String()
+}
+
+// SetAcronym sets the Acronym field's value.
+func (s *JaJPForTermBaseTermGroupsOutput) SetAcronym(v string) *JaJPForTermBaseTermGroupsOutput {
+	s.Acronym = &v
+	return s
+}
+
+// SetApplyMode sets the ApplyMode field's value.
+func (s *JaJPForTermBaseTermGroupsOutput) SetApplyMode(v int32) *JaJPForTermBaseTermGroupsOutput {
+	s.ApplyMode = &v
+	return s
+}
+
+// SetCaseSensitive sets the CaseSensitive field's value.
+func (s *JaJPForTermBaseTermGroupsOutput) SetCaseSensitive(v int64) *JaJPForTermBaseTermGroupsOutput {
+	s.CaseSensitive = &v
+	return s
+}
+
+// SetContent sets the Content field's value.
+func (s *JaJPForTermBaseTermGroupsOutput) SetContent(v string) *JaJPForTermBaseTermGroupsOutput {
+	s.Content = &v
+	return s
+}
+
+// SetCreateTime sets the CreateTime field's value.
+func (s *JaJPForTermBaseTermGroupsOutput) SetCreateTime(v string) *JaJPForTermBaseTermGroupsOutput {
+	s.CreateTime = &v
+	return s
+}
+
+// SetCreatedAt sets the CreatedAt field's value.
+func (s *JaJPForTermBaseTermGroupsOutput) SetCreatedAt(v string) *JaJPForTermBaseTermGroupsOutput {
+	s.CreatedAt = &v
+	return s
+}
+
+// SetCreator sets the Creator field's value.
+func (s *JaJPForTermBaseTermGroupsOutput) SetCreator(v *CreatorForTermBaseTermGroupsOutput) *JaJPForTermBaseTermGroupsOutput {
+	s.Creator = v
+	return s
+}
+
+// SetId sets the Id field's value.
+func (s *JaJPForTermBaseTermGroupsOutput) SetId(v string) *JaJPForTermBaseTermGroupsOutput {
+	s.Id = &v
+	return s
+}
+
+// SetLang sets the Lang field's value.
+func (s *JaJPForTermBaseTermGroupsOutput) SetLang(v string) *JaJPForTermBaseTermGroupsOutput {
+	s.Lang = &v
+	return s
+}
+
+// SetOperator sets the Operator field's value.
+func (s *JaJPForTermBaseTermGroupsOutput) SetOperator(v *CreatorForTermBaseTermGroupsOutput) *JaJPForTermBaseTermGroupsOutput {
+	s.Operator = v
+	return s
+}
+
+// SetPartOfSpeech sets the PartOfSpeech field's value.
+func (s *JaJPForTermBaseTermGroupsOutput) SetPartOfSpeech(v int32) *JaJPForTermBaseTermGroupsOutput {
+	s.PartOfSpeech = &v
+	return s
+}
+
+// SetTermBaseId sets the TermBaseId field's value.
+func (s *JaJPForTermBaseTermGroupsOutput) SetTermBaseId(v string) *JaJPForTermBaseTermGroupsOutput {
+	s.TermBaseId = &v
+	return s
+}
+
+// SetTermGroupId sets the TermGroupId field's value.
+func (s *JaJPForTermBaseTermGroupsOutput) SetTermGroupId(v string) *JaJPForTermBaseTermGroupsOutput {
+	s.TermGroupId = &v
+	return s
+}
+
+// SetUpdateTime sets the UpdateTime field's value.
+func (s *JaJPForTermBaseTermGroupsOutput) SetUpdateTime(v string) *JaJPForTermBaseTermGroupsOutput {
+	s.UpdateTime = &v
+	return s
+}
+
+// SetUpdatedAt sets the UpdatedAt field's value.
+func (s *JaJPForTermBaseTermGroupsOutput) SetUpdatedAt(v string) *JaJPForTermBaseTermGroupsOutput {
+	s.UpdatedAt = &v
+	return s
+}
+
+type KaForTermBaseTermGroupsOutput struct {
+	_ struct{} `type:"structure"`
+
+	Acronym *string `type:"string" json:"acronym"`
+
+	ApplyMode *int32 `type:"int32" json:"applyMode"`
+
+	CaseSensitive *int64 `type:"int64" json:"caseSensitive"`
+
+	Content *string `type:"string" json:"content"`
+
+	CreateTime *string `type:"string" json:"createTime"`
+
+	CreatedAt *string `type:"string" json:"createdAt"`
+
+	Creator *CreatorForTermBaseTermGroupsOutput `locationName:"creator" type:"structure"`
+
+	Id *string `type:"string" json:"id"`
+
+	Lang *string `type:"string" json:"lang"`
+
+	Operator *CreatorForTermBaseTermGroupsOutput `locationName:"operator" type:"structure"`
+
+	PartOfSpeech *int32 `type:"int32" json:"partOfSpeech"`
+
+	TermBaseId *string `type:"string" json:"termBaseId"`
+
+	TermGroupId *string `type:"string" json:"termGroupId"`
+
+	UpdateTime *string `type:"string" json:"updateTime"`
+
+	UpdatedAt *string `type:"string" json:"updatedAt"`
+}
+
+// String returns the string representation
+func (s KaForTermBaseTermGroupsOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s KaForTermBaseTermGroupsOutput) GoString() string {
+	return s.String()
+}
+
+// SetAcronym sets the Acronym field's value.
+func (s *KaForTermBaseTermGroupsOutput) SetAcronym(v string) *KaForTermBaseTermGroupsOutput {
+	s.Acronym = &v
+	return s
+}
+
+// SetApplyMode sets the ApplyMode field's value.
+func (s *KaForTermBaseTermGroupsOutput) SetApplyMode(v int32) *KaForTermBaseTermGroupsOutput {
+	s.ApplyMode = &v
+	return s
+}
+
+// SetCaseSensitive sets the CaseSensitive field's value.
+func (s *KaForTermBaseTermGroupsOutput) SetCaseSensitive(v int64) *KaForTermBaseTermGroupsOutput {
+	s.CaseSensitive = &v
+	return s
+}
+
+// SetContent sets the Content field's value.
+func (s *KaForTermBaseTermGroupsOutput) SetContent(v string) *KaForTermBaseTermGroupsOutput {
+	s.Content = &v
+	return s
+}
+
+// SetCreateTime sets the CreateTime field's value.
+func (s *KaForTermBaseTermGroupsOutput) SetCreateTime(v string) *KaForTermBaseTermGroupsOutput {
+	s.CreateTime = &v
+	return s
+}
+
+// SetCreatedAt sets the CreatedAt field's value.
+func (s *KaForTermBaseTermGroupsOutput) SetCreatedAt(v string) *KaForTermBaseTermGroupsOutput {
+	s.CreatedAt = &v
+	return s
+}
+
+// SetCreator sets the Creator field's value.
+func (s *KaForTermBaseTermGroupsOutput) SetCreator(v *CreatorForTermBaseTermGroupsOutput) *KaForTermBaseTermGroupsOutput {
+	s.Creator = v
+	return s
+}
+
+// SetId sets the Id field's value.
+func (s *KaForTermBaseTermGroupsOutput) SetId(v string) *KaForTermBaseTermGroupsOutput {
+	s.Id = &v
+	return s
+}
+
+// SetLang sets the Lang field's value.
+func (s *KaForTermBaseTermGroupsOutput) SetLang(v string) *KaForTermBaseTermGroupsOutput {
+	s.Lang = &v
+	return s
+}
+
+// SetOperator sets the Operator field's value.
+func (s *KaForTermBaseTermGroupsOutput) SetOperator(v *CreatorForTermBaseTermGroupsOutput) *KaForTermBaseTermGroupsOutput {
+	s.Operator = v
+	return s
+}
+
+// SetPartOfSpeech sets the PartOfSpeech field's value.
+func (s *KaForTermBaseTermGroupsOutput) SetPartOfSpeech(v int32) *KaForTermBaseTermGroupsOutput {
+	s.PartOfSpeech = &v
+	return s
+}
+
+// SetTermBaseId sets the TermBaseId field's value.
+func (s *KaForTermBaseTermGroupsOutput) SetTermBaseId(v string) *KaForTermBaseTermGroupsOutput {
+	s.TermBaseId = &v
+	return s
+}
+
+// SetTermGroupId sets the TermGroupId field's value.
+func (s *KaForTermBaseTermGroupsOutput) SetTermGroupId(v string) *KaForTermBaseTermGroupsOutput {
+	s.TermGroupId = &v
+	return s
+}
+
+// SetUpdateTime sets the UpdateTime field's value.
+func (s *KaForTermBaseTermGroupsOutput) SetUpdateTime(v string) *KaForTermBaseTermGroupsOutput {
+	s.UpdateTime = &v
+	return s
+}
+
+// SetUpdatedAt sets the UpdatedAt field's value.
+func (s *KaForTermBaseTermGroupsOutput) SetUpdatedAt(v string) *KaForTermBaseTermGroupsOutput {
+	s.UpdatedAt = &v
+	return s
+}
+
+type KkKZForTermBaseTermGroupsOutput struct {
+	_ struct{} `type:"structure"`
+
+	Acronym *string `type:"string" json:"acronym"`
+
+	ApplyMode *int32 `type:"int32" json:"applyMode"`
+
+	CaseSensitive *int64 `type:"int64" json:"caseSensitive"`
+
+	Content *string `type:"string" json:"content"`
+
+	CreateTime *string `type:"string" json:"createTime"`
+
+	CreatedAt *string `type:"string" json:"createdAt"`
+
+	Creator *CreatorForTermBaseTermGroupsOutput `locationName:"creator" type:"structure"`
+
+	Id *string `type:"string" json:"id"`
+
+	Lang *string `type:"string" json:"lang"`
+
+	Operator *CreatorForTermBaseTermGroupsOutput `locationName:"operator" type:"structure"`
+
+	PartOfSpeech *int32 `type:"int32" json:"partOfSpeech"`
+
+	TermBaseId *string `type:"string" json:"termBaseId"`
+
+	TermGroupId *string `type:"string" json:"termGroupId"`
+
+	UpdateTime *string `type:"string" json:"updateTime"`
+
+	UpdatedAt *string `type:"string" json:"updatedAt"`
+}
+
+// String returns the string representation
+func (s KkKZForTermBaseTermGroupsOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s KkKZForTermBaseTermGroupsOutput) GoString() string {
+	return s.String()
+}
+
+// SetAcronym sets the Acronym field's value.
+func (s *KkKZForTermBaseTermGroupsOutput) SetAcronym(v string) *KkKZForTermBaseTermGroupsOutput {
+	s.Acronym = &v
+	return s
+}
+
+// SetApplyMode sets the ApplyMode field's value.
+func (s *KkKZForTermBaseTermGroupsOutput) SetApplyMode(v int32) *KkKZForTermBaseTermGroupsOutput {
+	s.ApplyMode = &v
+	return s
+}
+
+// SetCaseSensitive sets the CaseSensitive field's value.
+func (s *KkKZForTermBaseTermGroupsOutput) SetCaseSensitive(v int64) *KkKZForTermBaseTermGroupsOutput {
+	s.CaseSensitive = &v
+	return s
+}
+
+// SetContent sets the Content field's value.
+func (s *KkKZForTermBaseTermGroupsOutput) SetContent(v string) *KkKZForTermBaseTermGroupsOutput {
+	s.Content = &v
+	return s
+}
+
+// SetCreateTime sets the CreateTime field's value.
+func (s *KkKZForTermBaseTermGroupsOutput) SetCreateTime(v string) *KkKZForTermBaseTermGroupsOutput {
+	s.CreateTime = &v
+	return s
+}
+
+// SetCreatedAt sets the CreatedAt field's value.
+func (s *KkKZForTermBaseTermGroupsOutput) SetCreatedAt(v string) *KkKZForTermBaseTermGroupsOutput {
+	s.CreatedAt = &v
+	return s
+}
+
+// SetCreator sets the Creator field's value.
+func (s *KkKZForTermBaseTermGroupsOutput) SetCreator(v *CreatorForTermBaseTermGroupsOutput) *KkKZForTermBaseTermGroupsOutput {
+	s.Creator = v
+	return s
+}
+
+// SetId sets the Id field's value.
+func (s *KkKZForTermBaseTermGroupsOutput) SetId(v string) *KkKZForTermBaseTermGroupsOutput {
+	s.Id = &v
+	return s
+}
+
+// SetLang sets the Lang field's value.
+func (s *KkKZForTermBaseTermGroupsOutput) SetLang(v string) *KkKZForTermBaseTermGroupsOutput {
+	s.Lang = &v
+	return s
+}
+
+// SetOperator sets the Operator field's value.
+func (s *KkKZForTermBaseTermGroupsOutput) SetOperator(v *CreatorForTermBaseTermGroupsOutput) *KkKZForTermBaseTermGroupsOutput {
+	s.Operator = v
+	return s
+}
+
+// SetPartOfSpeech sets the PartOfSpeech field's value.
+func (s *KkKZForTermBaseTermGroupsOutput) SetPartOfSpeech(v int32) *KkKZForTermBaseTermGroupsOutput {
+	s.PartOfSpeech = &v
+	return s
+}
+
+// SetTermBaseId sets the TermBaseId field's value.
+func (s *KkKZForTermBaseTermGroupsOutput) SetTermBaseId(v string) *KkKZForTermBaseTermGroupsOutput {
+	s.TermBaseId = &v
+	return s
+}
+
+// SetTermGroupId sets the TermGroupId field's value.
+func (s *KkKZForTermBaseTermGroupsOutput) SetTermGroupId(v string) *KkKZForTermBaseTermGroupsOutput {
+	s.TermGroupId = &v
+	return s
+}
+
+// SetUpdateTime sets the UpdateTime field's value.
+func (s *KkKZForTermBaseTermGroupsOutput) SetUpdateTime(v string) *KkKZForTermBaseTermGroupsOutput {
+	s.UpdateTime = &v
+	return s
+}
+
+// SetUpdatedAt sets the UpdatedAt field's value.
+func (s *KkKZForTermBaseTermGroupsOutput) SetUpdatedAt(v string) *KkKZForTermBaseTermGroupsOutput {
+	s.UpdatedAt = &v
+	return s
+}
+
+type KlForTermBaseTermGroupsOutput struct {
+	_ struct{} `type:"structure"`
+
+	Acronym *string `type:"string" json:"acronym"`
+
+	ApplyMode *int32 `type:"int32" json:"applyMode"`
+
+	CaseSensitive *int64 `type:"int64" json:"caseSensitive"`
+
+	Content *string `type:"string" json:"content"`
+
+	CreateTime *string `type:"string" json:"createTime"`
+
+	CreatedAt *string `type:"string" json:"createdAt"`
+
+	Creator *CreatorForTermBaseTermGroupsOutput `locationName:"creator" type:"structure"`
+
+	Id *string `type:"string" json:"id"`
+
+	Lang *string `type:"string" json:"lang"`
+
+	Operator *CreatorForTermBaseTermGroupsOutput `locationName:"operator" type:"structure"`
+
+	PartOfSpeech *int32 `type:"int32" json:"partOfSpeech"`
+
+	TermBaseId *string `type:"string" json:"termBaseId"`
+
+	TermGroupId *string `type:"string" json:"termGroupId"`
+
+	UpdateTime *string `type:"string" json:"updateTime"`
+
+	UpdatedAt *string `type:"string" json:"updatedAt"`
+}
+
+// String returns the string representation
+func (s KlForTermBaseTermGroupsOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s KlForTermBaseTermGroupsOutput) GoString() string {
+	return s.String()
+}
+
+// SetAcronym sets the Acronym field's value.
+func (s *KlForTermBaseTermGroupsOutput) SetAcronym(v string) *KlForTermBaseTermGroupsOutput {
+	s.Acronym = &v
+	return s
+}
+
+// SetApplyMode sets the ApplyMode field's value.
+func (s *KlForTermBaseTermGroupsOutput) SetApplyMode(v int32) *KlForTermBaseTermGroupsOutput {
+	s.ApplyMode = &v
+	return s
+}
+
+// SetCaseSensitive sets the CaseSensitive field's value.
+func (s *KlForTermBaseTermGroupsOutput) SetCaseSensitive(v int64) *KlForTermBaseTermGroupsOutput {
+	s.CaseSensitive = &v
+	return s
+}
+
+// SetContent sets the Content field's value.
+func (s *KlForTermBaseTermGroupsOutput) SetContent(v string) *KlForTermBaseTermGroupsOutput {
+	s.Content = &v
+	return s
+}
+
+// SetCreateTime sets the CreateTime field's value.
+func (s *KlForTermBaseTermGroupsOutput) SetCreateTime(v string) *KlForTermBaseTermGroupsOutput {
+	s.CreateTime = &v
+	return s
+}
+
+// SetCreatedAt sets the CreatedAt field's value.
+func (s *KlForTermBaseTermGroupsOutput) SetCreatedAt(v string) *KlForTermBaseTermGroupsOutput {
+	s.CreatedAt = &v
+	return s
+}
+
+// SetCreator sets the Creator field's value.
+func (s *KlForTermBaseTermGroupsOutput) SetCreator(v *CreatorForTermBaseTermGroupsOutput) *KlForTermBaseTermGroupsOutput {
+	s.Creator = v
+	return s
+}
+
+// SetId sets the Id field's value.
+func (s *KlForTermBaseTermGroupsOutput) SetId(v string) *KlForTermBaseTermGroupsOutput {
+	s.Id = &v
+	return s
+}
+
+// SetLang sets the Lang field's value.
+func (s *KlForTermBaseTermGroupsOutput) SetLang(v string) *KlForTermBaseTermGroupsOutput {
+	s.Lang = &v
+	return s
+}
+
+// SetOperator sets the Operator field's value.
+func (s *KlForTermBaseTermGroupsOutput) SetOperator(v *CreatorForTermBaseTermGroupsOutput) *KlForTermBaseTermGroupsOutput {
+	s.Operator = v
+	return s
+}
+
+// SetPartOfSpeech sets the PartOfSpeech field's value.
+func (s *KlForTermBaseTermGroupsOutput) SetPartOfSpeech(v int32) *KlForTermBaseTermGroupsOutput {
+	s.PartOfSpeech = &v
+	return s
+}
+
+// SetTermBaseId sets the TermBaseId field's value.
+func (s *KlForTermBaseTermGroupsOutput) SetTermBaseId(v string) *KlForTermBaseTermGroupsOutput {
+	s.TermBaseId = &v
+	return s
+}
+
+// SetTermGroupId sets the TermGroupId field's value.
+func (s *KlForTermBaseTermGroupsOutput) SetTermGroupId(v string) *KlForTermBaseTermGroupsOutput {
+	s.TermGroupId = &v
+	return s
+}
+
+// SetUpdateTime sets the UpdateTime field's value.
+func (s *KlForTermBaseTermGroupsOutput) SetUpdateTime(v string) *KlForTermBaseTermGroupsOutput {
+	s.UpdateTime = &v
+	return s
+}
+
+// SetUpdatedAt sets the UpdatedAt field's value.
+func (s *KlForTermBaseTermGroupsOutput) SetUpdatedAt(v string) *KlForTermBaseTermGroupsOutput {
+	s.UpdatedAt = &v
+	return s
+}
+
+type KmForTermBaseTermGroupsOutput struct {
+	_ struct{} `type:"structure"`
+
+	Acronym *string `type:"string" json:"acronym"`
+
+	ApplyMode *int32 `type:"int32" json:"applyMode"`
+
+	CaseSensitive *int64 `type:"int64" json:"caseSensitive"`
+
+	Content *string `type:"string" json:"content"`
+
+	CreateTime *string `type:"string" json:"createTime"`
+
+	CreatedAt *string `type:"string" json:"createdAt"`
+
+	Creator *CreatorForTermBaseTermGroupsOutput `locationName:"creator" type:"structure"`
+
+	Id *string `type:"string" json:"id"`
+
+	Lang *string `type:"string" json:"lang"`
+
+	Operator *CreatorForTermBaseTermGroupsOutput `locationName:"operator" type:"structure"`
+
+	PartOfSpeech *int32 `type:"int32" json:"partOfSpeech"`
+
+	TermBaseId *string `type:"string" json:"termBaseId"`
+
+	TermGroupId *string `type:"string" json:"termGroupId"`
+
+	UpdateTime *string `type:"string" json:"updateTime"`
+
+	UpdatedAt *string `type:"string" json:"updatedAt"`
+}
+
+// String returns the string representation
+func (s KmForTermBaseTermGroupsOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s KmForTermBaseTermGroupsOutput) GoString() string {
+	return s.String()
+}
+
+// SetAcronym sets the Acronym field's value.
+func (s *KmForTermBaseTermGroupsOutput) SetAcronym(v string) *KmForTermBaseTermGroupsOutput {
+	s.Acronym = &v
+	return s
+}
+
+// SetApplyMode sets the ApplyMode field's value.
+func (s *KmForTermBaseTermGroupsOutput) SetApplyMode(v int32) *KmForTermBaseTermGroupsOutput {
+	s.ApplyMode = &v
+	return s
+}
+
+// SetCaseSensitive sets the CaseSensitive field's value.
+func (s *KmForTermBaseTermGroupsOutput) SetCaseSensitive(v int64) *KmForTermBaseTermGroupsOutput {
+	s.CaseSensitive = &v
+	return s
+}
+
+// SetContent sets the Content field's value.
+func (s *KmForTermBaseTermGroupsOutput) SetContent(v string) *KmForTermBaseTermGroupsOutput {
+	s.Content = &v
+	return s
+}
+
+// SetCreateTime sets the CreateTime field's value.
+func (s *KmForTermBaseTermGroupsOutput) SetCreateTime(v string) *KmForTermBaseTermGroupsOutput {
+	s.CreateTime = &v
+	return s
+}
+
+// SetCreatedAt sets the CreatedAt field's value.
+func (s *KmForTermBaseTermGroupsOutput) SetCreatedAt(v string) *KmForTermBaseTermGroupsOutput {
+	s.CreatedAt = &v
+	return s
+}
+
+// SetCreator sets the Creator field's value.
+func (s *KmForTermBaseTermGroupsOutput) SetCreator(v *CreatorForTermBaseTermGroupsOutput) *KmForTermBaseTermGroupsOutput {
+	s.Creator = v
+	return s
+}
+
+// SetId sets the Id field's value.
+func (s *KmForTermBaseTermGroupsOutput) SetId(v string) *KmForTermBaseTermGroupsOutput {
+	s.Id = &v
+	return s
+}
+
+// SetLang sets the Lang field's value.
+func (s *KmForTermBaseTermGroupsOutput) SetLang(v string) *KmForTermBaseTermGroupsOutput {
+	s.Lang = &v
+	return s
+}
+
+// SetOperator sets the Operator field's value.
+func (s *KmForTermBaseTermGroupsOutput) SetOperator(v *CreatorForTermBaseTermGroupsOutput) *KmForTermBaseTermGroupsOutput {
+	s.Operator = v
+	return s
+}
+
+// SetPartOfSpeech sets the PartOfSpeech field's value.
+func (s *KmForTermBaseTermGroupsOutput) SetPartOfSpeech(v int32) *KmForTermBaseTermGroupsOutput {
+	s.PartOfSpeech = &v
+	return s
+}
+
+// SetTermBaseId sets the TermBaseId field's value.
+func (s *KmForTermBaseTermGroupsOutput) SetTermBaseId(v string) *KmForTermBaseTermGroupsOutput {
+	s.TermBaseId = &v
+	return s
+}
+
+// SetTermGroupId sets the TermGroupId field's value.
+func (s *KmForTermBaseTermGroupsOutput) SetTermGroupId(v string) *KmForTermBaseTermGroupsOutput {
+	s.TermGroupId = &v
+	return s
+}
+
+// SetUpdateTime sets the UpdateTime field's value.
+func (s *KmForTermBaseTermGroupsOutput) SetUpdateTime(v string) *KmForTermBaseTermGroupsOutput {
+	s.UpdateTime = &v
+	return s
+}
+
+// SetUpdatedAt sets the UpdatedAt field's value.
+func (s *KmForTermBaseTermGroupsOutput) SetUpdatedAt(v string) *KmForTermBaseTermGroupsOutput {
+	s.UpdatedAt = &v
+	return s
+}
+
+type KmKHForTermBaseTermGroupsOutput struct {
+	_ struct{} `type:"structure"`
+
+	Acronym *string `type:"string" json:"acronym"`
+
+	ApplyMode *int32 `type:"int32" json:"applyMode"`
+
+	CaseSensitive *int64 `type:"int64" json:"caseSensitive"`
+
+	Content *string `type:"string" json:"content"`
+
+	CreateTime *string `type:"string" json:"createTime"`
+
+	CreatedAt *string `type:"string" json:"createdAt"`
+
+	Creator *CreatorForTermBaseTermGroupsOutput `locationName:"creator" type:"structure"`
+
+	Id *string `type:"string" json:"id"`
+
+	Lang *string `type:"string" json:"lang"`
+
+	Operator *CreatorForTermBaseTermGroupsOutput `locationName:"operator" type:"structure"`
+
+	PartOfSpeech *int32 `type:"int32" json:"partOfSpeech"`
+
+	TermBaseId *string `type:"string" json:"termBaseId"`
+
+	TermGroupId *string `type:"string" json:"termGroupId"`
+
+	UpdateTime *string `type:"string" json:"updateTime"`
+
+	UpdatedAt *string `type:"string" json:"updatedAt"`
+}
+
+// String returns the string representation
+func (s KmKHForTermBaseTermGroupsOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s KmKHForTermBaseTermGroupsOutput) GoString() string {
+	return s.String()
+}
+
+// SetAcronym sets the Acronym field's value.
+func (s *KmKHForTermBaseTermGroupsOutput) SetAcronym(v string) *KmKHForTermBaseTermGroupsOutput {
+	s.Acronym = &v
+	return s
+}
+
+// SetApplyMode sets the ApplyMode field's value.
+func (s *KmKHForTermBaseTermGroupsOutput) SetApplyMode(v int32) *KmKHForTermBaseTermGroupsOutput {
+	s.ApplyMode = &v
+	return s
+}
+
+// SetCaseSensitive sets the CaseSensitive field's value.
+func (s *KmKHForTermBaseTermGroupsOutput) SetCaseSensitive(v int64) *KmKHForTermBaseTermGroupsOutput {
+	s.CaseSensitive = &v
+	return s
+}
+
+// SetContent sets the Content field's value.
+func (s *KmKHForTermBaseTermGroupsOutput) SetContent(v string) *KmKHForTermBaseTermGroupsOutput {
+	s.Content = &v
+	return s
+}
+
+// SetCreateTime sets the CreateTime field's value.
+func (s *KmKHForTermBaseTermGroupsOutput) SetCreateTime(v string) *KmKHForTermBaseTermGroupsOutput {
+	s.CreateTime = &v
+	return s
+}
+
+// SetCreatedAt sets the CreatedAt field's value.
+func (s *KmKHForTermBaseTermGroupsOutput) SetCreatedAt(v string) *KmKHForTermBaseTermGroupsOutput {
+	s.CreatedAt = &v
+	return s
+}
+
+// SetCreator sets the Creator field's value.
+func (s *KmKHForTermBaseTermGroupsOutput) SetCreator(v *CreatorForTermBaseTermGroupsOutput) *KmKHForTermBaseTermGroupsOutput {
+	s.Creator = v
+	return s
+}
+
+// SetId sets the Id field's value.
+func (s *KmKHForTermBaseTermGroupsOutput) SetId(v string) *KmKHForTermBaseTermGroupsOutput {
+	s.Id = &v
+	return s
+}
+
+// SetLang sets the Lang field's value.
+func (s *KmKHForTermBaseTermGroupsOutput) SetLang(v string) *KmKHForTermBaseTermGroupsOutput {
+	s.Lang = &v
+	return s
+}
+
+// SetOperator sets the Operator field's value.
+func (s *KmKHForTermBaseTermGroupsOutput) SetOperator(v *CreatorForTermBaseTermGroupsOutput) *KmKHForTermBaseTermGroupsOutput {
+	s.Operator = v
+	return s
+}
+
+// SetPartOfSpeech sets the PartOfSpeech field's value.
+func (s *KmKHForTermBaseTermGroupsOutput) SetPartOfSpeech(v int32) *KmKHForTermBaseTermGroupsOutput {
+	s.PartOfSpeech = &v
+	return s
+}
+
+// SetTermBaseId sets the TermBaseId field's value.
+func (s *KmKHForTermBaseTermGroupsOutput) SetTermBaseId(v string) *KmKHForTermBaseTermGroupsOutput {
+	s.TermBaseId = &v
+	return s
+}
+
+// SetTermGroupId sets the TermGroupId field's value.
+func (s *KmKHForTermBaseTermGroupsOutput) SetTermGroupId(v string) *KmKHForTermBaseTermGroupsOutput {
+	s.TermGroupId = &v
+	return s
+}
+
+// SetUpdateTime sets the UpdateTime field's value.
+func (s *KmKHForTermBaseTermGroupsOutput) SetUpdateTime(v string) *KmKHForTermBaseTermGroupsOutput {
+	s.UpdateTime = &v
+	return s
+}
+
+// SetUpdatedAt sets the UpdatedAt field's value.
+func (s *KmKHForTermBaseTermGroupsOutput) SetUpdatedAt(v string) *KmKHForTermBaseTermGroupsOutput {
+	s.UpdatedAt = &v
+	return s
+}
+
+type KoForTermBaseTermGroupsOutput struct {
+	_ struct{} `type:"structure"`
+
+	Acronym *string `type:"string" json:"acronym"`
+
+	ApplyMode *int32 `type:"int32" json:"applyMode"`
+
+	CaseSensitive *int64 `type:"int64" json:"caseSensitive"`
+
+	Content *string `type:"string" json:"content"`
+
+	CreateTime *string `type:"string" json:"createTime"`
+
+	CreatedAt *string `type:"string" json:"createdAt"`
+
+	Creator *CreatorForTermBaseTermGroupsOutput `locationName:"creator" type:"structure"`
+
+	Id *string `type:"string" json:"id"`
+
+	Lang *string `type:"string" json:"lang"`
+
+	Operator *CreatorForTermBaseTermGroupsOutput `locationName:"operator" type:"structure"`
+
+	PartOfSpeech *int32 `type:"int32" json:"partOfSpeech"`
+
+	TermBaseId *string `type:"string" json:"termBaseId"`
+
+	TermGroupId *string `type:"string" json:"termGroupId"`
+
+	UpdateTime *string `type:"string" json:"updateTime"`
+
+	UpdatedAt *string `type:"string" json:"updatedAt"`
+}
+
+// String returns the string representation
+func (s KoForTermBaseTermGroupsOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s KoForTermBaseTermGroupsOutput) GoString() string {
+	return s.String()
+}
+
+// SetAcronym sets the Acronym field's value.
+func (s *KoForTermBaseTermGroupsOutput) SetAcronym(v string) *KoForTermBaseTermGroupsOutput {
+	s.Acronym = &v
+	return s
+}
+
+// SetApplyMode sets the ApplyMode field's value.
+func (s *KoForTermBaseTermGroupsOutput) SetApplyMode(v int32) *KoForTermBaseTermGroupsOutput {
+	s.ApplyMode = &v
+	return s
+}
+
+// SetCaseSensitive sets the CaseSensitive field's value.
+func (s *KoForTermBaseTermGroupsOutput) SetCaseSensitive(v int64) *KoForTermBaseTermGroupsOutput {
+	s.CaseSensitive = &v
+	return s
+}
+
+// SetContent sets the Content field's value.
+func (s *KoForTermBaseTermGroupsOutput) SetContent(v string) *KoForTermBaseTermGroupsOutput {
+	s.Content = &v
+	return s
+}
+
+// SetCreateTime sets the CreateTime field's value.
+func (s *KoForTermBaseTermGroupsOutput) SetCreateTime(v string) *KoForTermBaseTermGroupsOutput {
+	s.CreateTime = &v
+	return s
+}
+
+// SetCreatedAt sets the CreatedAt field's value.
+func (s *KoForTermBaseTermGroupsOutput) SetCreatedAt(v string) *KoForTermBaseTermGroupsOutput {
+	s.CreatedAt = &v
+	return s
+}
+
+// SetCreator sets the Creator field's value.
+func (s *KoForTermBaseTermGroupsOutput) SetCreator(v *CreatorForTermBaseTermGroupsOutput) *KoForTermBaseTermGroupsOutput {
+	s.Creator = v
+	return s
+}
+
+// SetId sets the Id field's value.
+func (s *KoForTermBaseTermGroupsOutput) SetId(v string) *KoForTermBaseTermGroupsOutput {
+	s.Id = &v
+	return s
+}
+
+// SetLang sets the Lang field's value.
+func (s *KoForTermBaseTermGroupsOutput) SetLang(v string) *KoForTermBaseTermGroupsOutput {
+	s.Lang = &v
+	return s
+}
+
+// SetOperator sets the Operator field's value.
+func (s *KoForTermBaseTermGroupsOutput) SetOperator(v *CreatorForTermBaseTermGroupsOutput) *KoForTermBaseTermGroupsOutput {
+	s.Operator = v
+	return s
+}
+
+// SetPartOfSpeech sets the PartOfSpeech field's value.
+func (s *KoForTermBaseTermGroupsOutput) SetPartOfSpeech(v int32) *KoForTermBaseTermGroupsOutput {
+	s.PartOfSpeech = &v
+	return s
+}
+
+// SetTermBaseId sets the TermBaseId field's value.
+func (s *KoForTermBaseTermGroupsOutput) SetTermBaseId(v string) *KoForTermBaseTermGroupsOutput {
+	s.TermBaseId = &v
+	return s
+}
+
+// SetTermGroupId sets the TermGroupId field's value.
+func (s *KoForTermBaseTermGroupsOutput) SetTermGroupId(v string) *KoForTermBaseTermGroupsOutput {
+	s.TermGroupId = &v
+	return s
+}
+
+// SetUpdateTime sets the UpdateTime field's value.
+func (s *KoForTermBaseTermGroupsOutput) SetUpdateTime(v string) *KoForTermBaseTermGroupsOutput {
+	s.UpdateTime = &v
+	return s
+}
+
+// SetUpdatedAt sets the UpdatedAt field's value.
+func (s *KoForTermBaseTermGroupsOutput) SetUpdatedAt(v string) *KoForTermBaseTermGroupsOutput {
+	s.UpdatedAt = &v
+	return s
+}
+
+type KoKRForTermBaseTermGroupsOutput struct {
+	_ struct{} `type:"structure"`
+
+	Acronym *string `type:"string" json:"acronym"`
+
+	ApplyMode *int32 `type:"int32" json:"applyMode"`
+
+	CaseSensitive *int64 `type:"int64" json:"caseSensitive"`
+
+	Content *string `type:"string" json:"content"`
+
+	CreateTime *string `type:"string" json:"createTime"`
+
+	CreatedAt *string `type:"string" json:"createdAt"`
+
+	Creator *CreatorForTermBaseTermGroupsOutput `locationName:"creator" type:"structure"`
+
+	Id *string `type:"string" json:"id"`
+
+	Lang *string `type:"string" json:"lang"`
+
+	Operator *CreatorForTermBaseTermGroupsOutput `locationName:"operator" type:"structure"`
+
+	PartOfSpeech *int32 `type:"int32" json:"partOfSpeech"`
+
+	TermBaseId *string `type:"string" json:"termBaseId"`
+
+	TermGroupId *string `type:"string" json:"termGroupId"`
+
+	UpdateTime *string `type:"string" json:"updateTime"`
+
+	UpdatedAt *string `type:"string" json:"updatedAt"`
+}
+
+// String returns the string representation
+func (s KoKRForTermBaseTermGroupsOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s KoKRForTermBaseTermGroupsOutput) GoString() string {
+	return s.String()
+}
+
+// SetAcronym sets the Acronym field's value.
+func (s *KoKRForTermBaseTermGroupsOutput) SetAcronym(v string) *KoKRForTermBaseTermGroupsOutput {
+	s.Acronym = &v
+	return s
+}
+
+// SetApplyMode sets the ApplyMode field's value.
+func (s *KoKRForTermBaseTermGroupsOutput) SetApplyMode(v int32) *KoKRForTermBaseTermGroupsOutput {
+	s.ApplyMode = &v
+	return s
+}
+
+// SetCaseSensitive sets the CaseSensitive field's value.
+func (s *KoKRForTermBaseTermGroupsOutput) SetCaseSensitive(v int64) *KoKRForTermBaseTermGroupsOutput {
+	s.CaseSensitive = &v
+	return s
+}
+
+// SetContent sets the Content field's value.
+func (s *KoKRForTermBaseTermGroupsOutput) SetContent(v string) *KoKRForTermBaseTermGroupsOutput {
+	s.Content = &v
+	return s
+}
+
+// SetCreateTime sets the CreateTime field's value.
+func (s *KoKRForTermBaseTermGroupsOutput) SetCreateTime(v string) *KoKRForTermBaseTermGroupsOutput {
+	s.CreateTime = &v
+	return s
+}
+
+// SetCreatedAt sets the CreatedAt field's value.
+func (s *KoKRForTermBaseTermGroupsOutput) SetCreatedAt(v string) *KoKRForTermBaseTermGroupsOutput {
+	s.CreatedAt = &v
+	return s
+}
+
+// SetCreator sets the Creator field's value.
+func (s *KoKRForTermBaseTermGroupsOutput) SetCreator(v *CreatorForTermBaseTermGroupsOutput) *KoKRForTermBaseTermGroupsOutput {
+	s.Creator = v
+	return s
+}
+
+// SetId sets the Id field's value.
+func (s *KoKRForTermBaseTermGroupsOutput) SetId(v string) *KoKRForTermBaseTermGroupsOutput {
+	s.Id = &v
+	return s
+}
+
+// SetLang sets the Lang field's value.
+func (s *KoKRForTermBaseTermGroupsOutput) SetLang(v string) *KoKRForTermBaseTermGroupsOutput {
+	s.Lang = &v
+	return s
+}
+
+// SetOperator sets the Operator field's value.
+func (s *KoKRForTermBaseTermGroupsOutput) SetOperator(v *CreatorForTermBaseTermGroupsOutput) *KoKRForTermBaseTermGroupsOutput {
+	s.Operator = v
+	return s
+}
+
+// SetPartOfSpeech sets the PartOfSpeech field's value.
+func (s *KoKRForTermBaseTermGroupsOutput) SetPartOfSpeech(v int32) *KoKRForTermBaseTermGroupsOutput {
+	s.PartOfSpeech = &v
+	return s
+}
+
+// SetTermBaseId sets the TermBaseId field's value.
+func (s *KoKRForTermBaseTermGroupsOutput) SetTermBaseId(v string) *KoKRForTermBaseTermGroupsOutput {
+	s.TermBaseId = &v
+	return s
+}
+
+// SetTermGroupId sets the TermGroupId field's value.
+func (s *KoKRForTermBaseTermGroupsOutput) SetTermGroupId(v string) *KoKRForTermBaseTermGroupsOutput {
+	s.TermGroupId = &v
+	return s
+}
+
+// SetUpdateTime sets the UpdateTime field's value.
+func (s *KoKRForTermBaseTermGroupsOutput) SetUpdateTime(v string) *KoKRForTermBaseTermGroupsOutput {
+	s.UpdateTime = &v
+	return s
+}
+
+// SetUpdatedAt sets the UpdatedAt field's value.
+func (s *KoKRForTermBaseTermGroupsOutput) SetUpdatedAt(v string) *KoKRForTermBaseTermGroupsOutput {
+	s.UpdatedAt = &v
+	return s
+}
+
+type LangItemMapForTermBaseTermGroupsOutput struct {
+	_ struct{} `type:"structure"`
+
+	Af *AfForTermBaseTermGroupsOutput `type:"structure" json:"af"`
+
+	AfZA *AfZAForTermBaseTermGroupsOutput `type:"structure" json:"af-ZA"`
+
+	Ar *ArForTermBaseTermGroupsOutput `type:"structure" json:"ar"`
+
+	ArAR *ArARForTermBaseTermGroupsOutput `type:"structure" json:"ar-AR"`
+
+	ArDZ *ArDZForTermBaseTermGroupsOutput `type:"structure" json:"ar-DZ"`
+
+	ArSY *ArSYForTermBaseTermGroupsOutput `type:"structure" json:"ar-SY"`
+
+	ArYE *ArYEForTermBaseTermGroupsOutput `type:"structure" json:"ar-YE"`
+
+	Be *BeForTermBaseTermGroupsOutput `type:"structure" json:"be"`
+
+	Bn *BnForTermBaseTermGroupsOutput `type:"structure" json:"bn"`
+
+	BnBD *BnBDForTermBaseTermGroupsOutput `type:"structure" json:"bn-BD"`
+
+	Da *DaForTermBaseTermGroupsOutput `type:"structure" json:"da"`
+
+	De *DeForTermBaseTermGroupsOutput `type:"structure" json:"de"`
+
+	DeDE *DeDEForTermBaseTermGroupsOutput `type:"structure" json:"de-DE"`
+
+	En *EnForTermBaseTermGroupsOutput `type:"structure" json:"en"`
+
+	EnDA *EnDAForTermBaseTermGroupsOutput `type:"structure" json:"en-DA"`
+
+	EnGB *EnGBForTermBaseTermGroupsOutput `type:"structure" json:"en-GB"`
+
+	EnIN *EnINForTermBaseTermGroupsOutput `type:"structure" json:"en-IN"`
+
+	EnPH *EnPHForTermBaseTermGroupsOutput `type:"structure" json:"en-PH"`
+
+	EnSG *EnSGForTermBaseTermGroupsOutput `type:"structure" json:"en-SG"`
+
+	EnUS *EnUSForTermBaseTermGroupsOutput `type:"structure" json:"en-US"`
+
+	Es *EsForTermBaseTermGroupsOutput `type:"structure" json:"es"`
+
+	Es419 *Es419ForTermBaseTermGroupsOutput `type:"structure" json:"es-419"`
+
+	EsES *EsESForTermBaseTermGroupsOutput `type:"structure" json:"es-ES"`
+
+	EsUS *EsUSForTermBaseTermGroupsOutput `type:"structure" json:"es-US"`
+
+	FaIR *FaIRForTermBaseTermGroupsOutput `type:"structure" json:"fa-IR"`
+
+	Fil *FilForTermBaseTermGroupsOutput `type:"structure" json:"fil"`
+
+	FilPH *FilPHForTermBaseTermGroupsOutput `type:"structure" json:"fil-PH"`
+
+	Fr *FrForTermBaseTermGroupsOutput `type:"structure" json:"fr"`
+
+	FrFR *FrFRForTermBaseTermGroupsOutput `type:"structure" json:"fr-FR"`
+
+	Hi *HiForTermBaseTermGroupsOutput `type:"structure" json:"hi"`
+
+	HiIN *HiINForTermBaseTermGroupsOutput `type:"structure" json:"hi-IN"`
+
+	Id *IdForTermBaseTermGroupsOutput `type:"structure" json:"id"`
+
+	IdID *IdIDForTermBaseTermGroupsOutput `type:"structure" json:"id-ID"`
+
+	It *ItForTermBaseTermGroupsOutput `type:"structure" json:"it"`
+
+	ItIT *ItITForTermBaseTermGroupsOutput `type:"structure" json:"it-IT"`
+
+	Ja *JaForTermBaseTermGroupsOutput `type:"structure" json:"ja"`
+
+	JaJP *JaJPForTermBaseTermGroupsOutput `type:"structure" json:"ja-JP"`
+
+	Ka *KaForTermBaseTermGroupsOutput `type:"structure" json:"ka"`
+
+	KkKZ *KkKZForTermBaseTermGroupsOutput `type:"structure" json:"kk-KZ"`
+
+	Kl *KlForTermBaseTermGroupsOutput `type:"structure" json:"kl"`
+
+	Km *KmForTermBaseTermGroupsOutput `type:"structure" json:"km"`
+
+	KmKH *KmKHForTermBaseTermGroupsOutput `type:"structure" json:"km-KH"`
+
+	Ko *KoForTermBaseTermGroupsOutput `type:"structure" json:"ko"`
+
+	KoKR *KoKRForTermBaseTermGroupsOutput `type:"structure" json:"ko-KR"`
+
+	Mn *MnForTermBaseTermGroupsOutput `type:"structure" json:"mn"`
+
+	Ms *MsForTermBaseTermGroupsOutput `type:"structure" json:"ms"`
+
+	MsMY *MsMYForTermBaseTermGroupsOutput `type:"structure" json:"ms-MY"`
+
+	My *MyForTermBaseTermGroupsOutput `type:"structure" json:"my"`
+
+	Ne *NeForTermBaseTermGroupsOutput `type:"structure" json:"ne"`
+
+	Pl *PlForTermBaseTermGroupsOutput `type:"structure" json:"pl"`
+
+	PlPL *PlPLForTermBaseTermGroupsOutput `type:"structure" json:"pl-PL"`
+
+	Pt *PtForTermBaseTermGroupsOutput `type:"structure" json:"pt"`
+
+	PtBR *PtBRForTermBaseTermGroupsOutput `type:"structure" json:"pt-BR"`
+
+	PtPT *PtPTForTermBaseTermGroupsOutput `type:"structure" json:"pt-PT"`
+
+	Ro *RoForTermBaseTermGroupsOutput `type:"structure" json:"ro"`
+
+	Ru *RuForTermBaseTermGroupsOutput `type:"structure" json:"ru"`
+
+	RuRU *RuRUForTermBaseTermGroupsOutput `type:"structure" json:"ru-RU"`
+
+	Sk *SkForTermBaseTermGroupsOutput `type:"structure" json:"sk"`
+
+	Sl *SlForTermBaseTermGroupsOutput `type:"structure" json:"sl"`
+
+	Source *SourceForTermBaseTermGroupsOutput `type:"structure" json:"source"`
+
+	Sr *SrForTermBaseTermGroupsOutput `type:"structure" json:"sr"`
+
+	Sv *SvForTermBaseTermGroupsOutput `type:"structure" json:"sv"`
+
+	Ta *TaForTermBaseTermGroupsOutput `type:"structure" json:"ta"`
+
+	Target *TargetForTermBaseTermGroupsOutput `type:"structure" json:"target"`
+
+	Te *TeForTermBaseTermGroupsOutput `type:"structure" json:"te"`
+
+	Th *ThForTermBaseTermGroupsOutput `type:"structure" json:"th"`
+
+	ThTH *ThTHForTermBaseTermGroupsOutput `type:"structure" json:"th-TH"`
+
+	TlPH *TlPHForTermBaseTermGroupsOutput `type:"structure" json:"tl-PH"`
+
+	Tr *TrForTermBaseTermGroupsOutput `type:"structure" json:"tr"`
+
+	TrTR *TrTRForTermBaseTermGroupsOutput `type:"structure" json:"tr-TR"`
+
+	Ur *UrForTermBaseTermGroupsOutput `type:"structure" json:"ur"`
+
+	Uz *UzForTermBaseTermGroupsOutput `type:"structure" json:"uz"`
+
+	Vi *ViForTermBaseTermGroupsOutput `type:"structure" json:"vi"`
+
+	ViVN *ViVNForTermBaseTermGroupsOutput `type:"structure" json:"vi-VN"`
+
+	Zh *ZhForTermBaseTermGroupsOutput `type:"structure" json:"zh"`
+
+	ZhCN *ZhCNForTermBaseTermGroupsOutput `type:"structure" json:"zh-CN"`
+
+	ZhHK *ZhHKForTermBaseTermGroupsOutput `type:"structure" json:"zh-HK"`
+
+	ZhHans *ZhHansForTermBaseTermGroupsOutput `type:"structure" json:"zh-Hans"`
+
+	ZhHansCN *ZhHansCNForTermBaseTermGroupsOutput `type:"structure" json:"zh-Hans-CN"`
+
+	ZhHant *ZhHantForTermBaseTermGroupsOutput `type:"structure" json:"zh-Hant"`
+
+	ZhTW *ZhTWForTermBaseTermGroupsOutput `type:"structure" json:"zh-TW"`
+}
+
+// String returns the string representation
 func (s LangItemMapForTermBaseTermGroupsOutput) String() string {
 	return volcengineutil.Prettify(s)
 }
@@ -395,92 +6423,1158 @@ func (s LangItemMapForTermBaseTermGroupsOutput) GoString() string {
 	return s.String()
 }
 
+// SetAf sets the Af field's value.
+func (s *LangItemMapForTermBaseTermGroupsOutput) SetAf(v *AfForTermBaseTermGroupsOutput) *LangItemMapForTermBaseTermGroupsOutput {
+	s.Af = v
+	return s
+}
+
+// SetAfZA sets the AfZA field's value.
+func (s *LangItemMapForTermBaseTermGroupsOutput) SetAfZA(v *AfZAForTermBaseTermGroupsOutput) *LangItemMapForTermBaseTermGroupsOutput {
+	s.AfZA = v
+	return s
+}
+
+// SetAr sets the Ar field's value.
+func (s *LangItemMapForTermBaseTermGroupsOutput) SetAr(v *ArForTermBaseTermGroupsOutput) *LangItemMapForTermBaseTermGroupsOutput {
+	s.Ar = v
+	return s
+}
+
+// SetArAR sets the ArAR field's value.
+func (s *LangItemMapForTermBaseTermGroupsOutput) SetArAR(v *ArARForTermBaseTermGroupsOutput) *LangItemMapForTermBaseTermGroupsOutput {
+	s.ArAR = v
+	return s
+}
+
+// SetArDZ sets the ArDZ field's value.
+func (s *LangItemMapForTermBaseTermGroupsOutput) SetArDZ(v *ArDZForTermBaseTermGroupsOutput) *LangItemMapForTermBaseTermGroupsOutput {
+	s.ArDZ = v
+	return s
+}
+
+// SetArSY sets the ArSY field's value.
+func (s *LangItemMapForTermBaseTermGroupsOutput) SetArSY(v *ArSYForTermBaseTermGroupsOutput) *LangItemMapForTermBaseTermGroupsOutput {
+	s.ArSY = v
+	return s
+}
+
+// SetArYE sets the ArYE field's value.
+func (s *LangItemMapForTermBaseTermGroupsOutput) SetArYE(v *ArYEForTermBaseTermGroupsOutput) *LangItemMapForTermBaseTermGroupsOutput {
+	s.ArYE = v
+	return s
+}
+
+// SetBe sets the Be field's value.
+func (s *LangItemMapForTermBaseTermGroupsOutput) SetBe(v *BeForTermBaseTermGroupsOutput) *LangItemMapForTermBaseTermGroupsOutput {
+	s.Be = v
+	return s
+}
+
+// SetBn sets the Bn field's value.
+func (s *LangItemMapForTermBaseTermGroupsOutput) SetBn(v *BnForTermBaseTermGroupsOutput) *LangItemMapForTermBaseTermGroupsOutput {
+	s.Bn = v
+	return s
+}
+
+// SetBnBD sets the BnBD field's value.
+func (s *LangItemMapForTermBaseTermGroupsOutput) SetBnBD(v *BnBDForTermBaseTermGroupsOutput) *LangItemMapForTermBaseTermGroupsOutput {
+	s.BnBD = v
+	return s
+}
+
+// SetDa sets the Da field's value.
+func (s *LangItemMapForTermBaseTermGroupsOutput) SetDa(v *DaForTermBaseTermGroupsOutput) *LangItemMapForTermBaseTermGroupsOutput {
+	s.Da = v
+	return s
+}
+
+// SetDe sets the De field's value.
+func (s *LangItemMapForTermBaseTermGroupsOutput) SetDe(v *DeForTermBaseTermGroupsOutput) *LangItemMapForTermBaseTermGroupsOutput {
+	s.De = v
+	return s
+}
+
+// SetDeDE sets the DeDE field's value.
+func (s *LangItemMapForTermBaseTermGroupsOutput) SetDeDE(v *DeDEForTermBaseTermGroupsOutput) *LangItemMapForTermBaseTermGroupsOutput {
+	s.DeDE = v
+	return s
+}
+
+// SetEn sets the En field's value.
+func (s *LangItemMapForTermBaseTermGroupsOutput) SetEn(v *EnForTermBaseTermGroupsOutput) *LangItemMapForTermBaseTermGroupsOutput {
+	s.En = v
+	return s
+}
+
+// SetEnDA sets the EnDA field's value.
+func (s *LangItemMapForTermBaseTermGroupsOutput) SetEnDA(v *EnDAForTermBaseTermGroupsOutput) *LangItemMapForTermBaseTermGroupsOutput {
+	s.EnDA = v
+	return s
+}
+
+// SetEnGB sets the EnGB field's value.
+func (s *LangItemMapForTermBaseTermGroupsOutput) SetEnGB(v *EnGBForTermBaseTermGroupsOutput) *LangItemMapForTermBaseTermGroupsOutput {
+	s.EnGB = v
+	return s
+}
+
+// SetEnIN sets the EnIN field's value.
+func (s *LangItemMapForTermBaseTermGroupsOutput) SetEnIN(v *EnINForTermBaseTermGroupsOutput) *LangItemMapForTermBaseTermGroupsOutput {
+	s.EnIN = v
+	return s
+}
+
+// SetEnPH sets the EnPH field's value.
+func (s *LangItemMapForTermBaseTermGroupsOutput) SetEnPH(v *EnPHForTermBaseTermGroupsOutput) *LangItemMapForTermBaseTermGroupsOutput {
+	s.EnPH = v
+	return s
+}
+
+// SetEnSG sets the EnSG field's value.
+func (s *LangItemMapForTermBaseTermGroupsOutput) SetEnSG(v *EnSGForTermBaseTermGroupsOutput) *LangItemMapForTermBaseTermGroupsOutput {
+	s.EnSG = v
+	return s
+}
+
+// SetEnUS sets the EnUS field's value.
+func (s *LangItemMapForTermBaseTermGroupsOutput) SetEnUS(v *EnUSForTermBaseTermGroupsOutput) *LangItemMapForTermBaseTermGroupsOutput {
+	s.EnUS = v
+	return s
+}
+
+// SetEs sets the Es field's value.
+func (s *LangItemMapForTermBaseTermGroupsOutput) SetEs(v *EsForTermBaseTermGroupsOutput) *LangItemMapForTermBaseTermGroupsOutput {
+	s.Es = v
+	return s
+}
+
+// SetEs419 sets the Es419 field's value.
+func (s *LangItemMapForTermBaseTermGroupsOutput) SetEs419(v *Es419ForTermBaseTermGroupsOutput) *LangItemMapForTermBaseTermGroupsOutput {
+	s.Es419 = v
+	return s
+}
+
+// SetEsES sets the EsES field's value.
+func (s *LangItemMapForTermBaseTermGroupsOutput) SetEsES(v *EsESForTermBaseTermGroupsOutput) *LangItemMapForTermBaseTermGroupsOutput {
+	s.EsES = v
+	return s
+}
+
+// SetEsUS sets the EsUS field's value.
+func (s *LangItemMapForTermBaseTermGroupsOutput) SetEsUS(v *EsUSForTermBaseTermGroupsOutput) *LangItemMapForTermBaseTermGroupsOutput {
+	s.EsUS = v
+	return s
+}
+
+// SetFaIR sets the FaIR field's value.
+func (s *LangItemMapForTermBaseTermGroupsOutput) SetFaIR(v *FaIRForTermBaseTermGroupsOutput) *LangItemMapForTermBaseTermGroupsOutput {
+	s.FaIR = v
+	return s
+}
+
+// SetFil sets the Fil field's value.
+func (s *LangItemMapForTermBaseTermGroupsOutput) SetFil(v *FilForTermBaseTermGroupsOutput) *LangItemMapForTermBaseTermGroupsOutput {
+	s.Fil = v
+	return s
+}
+
+// SetFilPH sets the FilPH field's value.
+func (s *LangItemMapForTermBaseTermGroupsOutput) SetFilPH(v *FilPHForTermBaseTermGroupsOutput) *LangItemMapForTermBaseTermGroupsOutput {
+	s.FilPH = v
+	return s
+}
+
+// SetFr sets the Fr field's value.
+func (s *LangItemMapForTermBaseTermGroupsOutput) SetFr(v *FrForTermBaseTermGroupsOutput) *LangItemMapForTermBaseTermGroupsOutput {
+	s.Fr = v
+	return s
+}
+
+// SetFrFR sets the FrFR field's value.
+func (s *LangItemMapForTermBaseTermGroupsOutput) SetFrFR(v *FrFRForTermBaseTermGroupsOutput) *LangItemMapForTermBaseTermGroupsOutput {
+	s.FrFR = v
+	return s
+}
+
+// SetHi sets the Hi field's value.
+func (s *LangItemMapForTermBaseTermGroupsOutput) SetHi(v *HiForTermBaseTermGroupsOutput) *LangItemMapForTermBaseTermGroupsOutput {
+	s.Hi = v
+	return s
+}
+
+// SetHiIN sets the HiIN field's value.
+func (s *LangItemMapForTermBaseTermGroupsOutput) SetHiIN(v *HiINForTermBaseTermGroupsOutput) *LangItemMapForTermBaseTermGroupsOutput {
+	s.HiIN = v
+	return s
+}
+
+// SetId sets the Id field's value.
+func (s *LangItemMapForTermBaseTermGroupsOutput) SetId(v *IdForTermBaseTermGroupsOutput) *LangItemMapForTermBaseTermGroupsOutput {
+	s.Id = v
+	return s
+}
+
+// SetIdID sets the IdID field's value.
+func (s *LangItemMapForTermBaseTermGroupsOutput) SetIdID(v *IdIDForTermBaseTermGroupsOutput) *LangItemMapForTermBaseTermGroupsOutput {
+	s.IdID = v
+	return s
+}
+
+// SetIt sets the It field's value.
+func (s *LangItemMapForTermBaseTermGroupsOutput) SetIt(v *ItForTermBaseTermGroupsOutput) *LangItemMapForTermBaseTermGroupsOutput {
+	s.It = v
+	return s
+}
+
+// SetItIT sets the ItIT field's value.
+func (s *LangItemMapForTermBaseTermGroupsOutput) SetItIT(v *ItITForTermBaseTermGroupsOutput) *LangItemMapForTermBaseTermGroupsOutput {
+	s.ItIT = v
+	return s
+}
+
+// SetJa sets the Ja field's value.
+func (s *LangItemMapForTermBaseTermGroupsOutput) SetJa(v *JaForTermBaseTermGroupsOutput) *LangItemMapForTermBaseTermGroupsOutput {
+	s.Ja = v
+	return s
+}
+
+// SetJaJP sets the JaJP field's value.
+func (s *LangItemMapForTermBaseTermGroupsOutput) SetJaJP(v *JaJPForTermBaseTermGroupsOutput) *LangItemMapForTermBaseTermGroupsOutput {
+	s.JaJP = v
+	return s
+}
+
+// SetKa sets the Ka field's value.
+func (s *LangItemMapForTermBaseTermGroupsOutput) SetKa(v *KaForTermBaseTermGroupsOutput) *LangItemMapForTermBaseTermGroupsOutput {
+	s.Ka = v
+	return s
+}
+
+// SetKkKZ sets the KkKZ field's value.
+func (s *LangItemMapForTermBaseTermGroupsOutput) SetKkKZ(v *KkKZForTermBaseTermGroupsOutput) *LangItemMapForTermBaseTermGroupsOutput {
+	s.KkKZ = v
+	return s
+}
+
+// SetKl sets the Kl field's value.
+func (s *LangItemMapForTermBaseTermGroupsOutput) SetKl(v *KlForTermBaseTermGroupsOutput) *LangItemMapForTermBaseTermGroupsOutput {
+	s.Kl = v
+	return s
+}
+
+// SetKm sets the Km field's value.
+func (s *LangItemMapForTermBaseTermGroupsOutput) SetKm(v *KmForTermBaseTermGroupsOutput) *LangItemMapForTermBaseTermGroupsOutput {
+	s.Km = v
+	return s
+}
+
+// SetKmKH sets the KmKH field's value.
+func (s *LangItemMapForTermBaseTermGroupsOutput) SetKmKH(v *KmKHForTermBaseTermGroupsOutput) *LangItemMapForTermBaseTermGroupsOutput {
+	s.KmKH = v
+	return s
+}
+
+// SetKo sets the Ko field's value.
+func (s *LangItemMapForTermBaseTermGroupsOutput) SetKo(v *KoForTermBaseTermGroupsOutput) *LangItemMapForTermBaseTermGroupsOutput {
+	s.Ko = v
+	return s
+}
+
+// SetKoKR sets the KoKR field's value.
+func (s *LangItemMapForTermBaseTermGroupsOutput) SetKoKR(v *KoKRForTermBaseTermGroupsOutput) *LangItemMapForTermBaseTermGroupsOutput {
+	s.KoKR = v
+	return s
+}
+
+// SetMn sets the Mn field's value.
+func (s *LangItemMapForTermBaseTermGroupsOutput) SetMn(v *MnForTermBaseTermGroupsOutput) *LangItemMapForTermBaseTermGroupsOutput {
+	s.Mn = v
+	return s
+}
+
+// SetMs sets the Ms field's value.
+func (s *LangItemMapForTermBaseTermGroupsOutput) SetMs(v *MsForTermBaseTermGroupsOutput) *LangItemMapForTermBaseTermGroupsOutput {
+	s.Ms = v
+	return s
+}
+
+// SetMsMY sets the MsMY field's value.
+func (s *LangItemMapForTermBaseTermGroupsOutput) SetMsMY(v *MsMYForTermBaseTermGroupsOutput) *LangItemMapForTermBaseTermGroupsOutput {
+	s.MsMY = v
+	return s
+}
+
+// SetMy sets the My field's value.
+func (s *LangItemMapForTermBaseTermGroupsOutput) SetMy(v *MyForTermBaseTermGroupsOutput) *LangItemMapForTermBaseTermGroupsOutput {
+	s.My = v
+	return s
+}
+
+// SetNe sets the Ne field's value.
+func (s *LangItemMapForTermBaseTermGroupsOutput) SetNe(v *NeForTermBaseTermGroupsOutput) *LangItemMapForTermBaseTermGroupsOutput {
+	s.Ne = v
+	return s
+}
+
+// SetPl sets the Pl field's value.
+func (s *LangItemMapForTermBaseTermGroupsOutput) SetPl(v *PlForTermBaseTermGroupsOutput) *LangItemMapForTermBaseTermGroupsOutput {
+	s.Pl = v
+	return s
+}
+
+// SetPlPL sets the PlPL field's value.
+func (s *LangItemMapForTermBaseTermGroupsOutput) SetPlPL(v *PlPLForTermBaseTermGroupsOutput) *LangItemMapForTermBaseTermGroupsOutput {
+	s.PlPL = v
+	return s
+}
+
+// SetPt sets the Pt field's value.
+func (s *LangItemMapForTermBaseTermGroupsOutput) SetPt(v *PtForTermBaseTermGroupsOutput) *LangItemMapForTermBaseTermGroupsOutput {
+	s.Pt = v
+	return s
+}
+
+// SetPtBR sets the PtBR field's value.
+func (s *LangItemMapForTermBaseTermGroupsOutput) SetPtBR(v *PtBRForTermBaseTermGroupsOutput) *LangItemMapForTermBaseTermGroupsOutput {
+	s.PtBR = v
+	return s
+}
+
+// SetPtPT sets the PtPT field's value.
+func (s *LangItemMapForTermBaseTermGroupsOutput) SetPtPT(v *PtPTForTermBaseTermGroupsOutput) *LangItemMapForTermBaseTermGroupsOutput {
+	s.PtPT = v
+	return s
+}
+
+// SetRo sets the Ro field's value.
+func (s *LangItemMapForTermBaseTermGroupsOutput) SetRo(v *RoForTermBaseTermGroupsOutput) *LangItemMapForTermBaseTermGroupsOutput {
+	s.Ro = v
+	return s
+}
+
+// SetRu sets the Ru field's value.
+func (s *LangItemMapForTermBaseTermGroupsOutput) SetRu(v *RuForTermBaseTermGroupsOutput) *LangItemMapForTermBaseTermGroupsOutput {
+	s.Ru = v
+	return s
+}
+
+// SetRuRU sets the RuRU field's value.
+func (s *LangItemMapForTermBaseTermGroupsOutput) SetRuRU(v *RuRUForTermBaseTermGroupsOutput) *LangItemMapForTermBaseTermGroupsOutput {
+	s.RuRU = v
+	return s
+}
+
+// SetSk sets the Sk field's value.
+func (s *LangItemMapForTermBaseTermGroupsOutput) SetSk(v *SkForTermBaseTermGroupsOutput) *LangItemMapForTermBaseTermGroupsOutput {
+	s.Sk = v
+	return s
+}
+
+// SetSl sets the Sl field's value.
+func (s *LangItemMapForTermBaseTermGroupsOutput) SetSl(v *SlForTermBaseTermGroupsOutput) *LangItemMapForTermBaseTermGroupsOutput {
+	s.Sl = v
+	return s
+}
+
+// SetSource sets the Source field's value.
+func (s *LangItemMapForTermBaseTermGroupsOutput) SetSource(v *SourceForTermBaseTermGroupsOutput) *LangItemMapForTermBaseTermGroupsOutput {
+	s.Source = v
+	return s
+}
+
+// SetSr sets the Sr field's value.
+func (s *LangItemMapForTermBaseTermGroupsOutput) SetSr(v *SrForTermBaseTermGroupsOutput) *LangItemMapForTermBaseTermGroupsOutput {
+	s.Sr = v
+	return s
+}
+
+// SetSv sets the Sv field's value.
+func (s *LangItemMapForTermBaseTermGroupsOutput) SetSv(v *SvForTermBaseTermGroupsOutput) *LangItemMapForTermBaseTermGroupsOutput {
+	s.Sv = v
+	return s
+}
+
+// SetTa sets the Ta field's value.
+func (s *LangItemMapForTermBaseTermGroupsOutput) SetTa(v *TaForTermBaseTermGroupsOutput) *LangItemMapForTermBaseTermGroupsOutput {
+	s.Ta = v
+	return s
+}
+
+// SetTarget sets the Target field's value.
+func (s *LangItemMapForTermBaseTermGroupsOutput) SetTarget(v *TargetForTermBaseTermGroupsOutput) *LangItemMapForTermBaseTermGroupsOutput {
+	s.Target = v
+	return s
+}
+
+// SetTe sets the Te field's value.
+func (s *LangItemMapForTermBaseTermGroupsOutput) SetTe(v *TeForTermBaseTermGroupsOutput) *LangItemMapForTermBaseTermGroupsOutput {
+	s.Te = v
+	return s
+}
+
+// SetTh sets the Th field's value.
+func (s *LangItemMapForTermBaseTermGroupsOutput) SetTh(v *ThForTermBaseTermGroupsOutput) *LangItemMapForTermBaseTermGroupsOutput {
+	s.Th = v
+	return s
+}
+
+// SetThTH sets the ThTH field's value.
+func (s *LangItemMapForTermBaseTermGroupsOutput) SetThTH(v *ThTHForTermBaseTermGroupsOutput) *LangItemMapForTermBaseTermGroupsOutput {
+	s.ThTH = v
+	return s
+}
+
+// SetTlPH sets the TlPH field's value.
+func (s *LangItemMapForTermBaseTermGroupsOutput) SetTlPH(v *TlPHForTermBaseTermGroupsOutput) *LangItemMapForTermBaseTermGroupsOutput {
+	s.TlPH = v
+	return s
+}
+
+// SetTr sets the Tr field's value.
+func (s *LangItemMapForTermBaseTermGroupsOutput) SetTr(v *TrForTermBaseTermGroupsOutput) *LangItemMapForTermBaseTermGroupsOutput {
+	s.Tr = v
+	return s
+}
+
+// SetTrTR sets the TrTR field's value.
+func (s *LangItemMapForTermBaseTermGroupsOutput) SetTrTR(v *TrTRForTermBaseTermGroupsOutput) *LangItemMapForTermBaseTermGroupsOutput {
+	s.TrTR = v
+	return s
+}
+
+// SetUr sets the Ur field's value.
+func (s *LangItemMapForTermBaseTermGroupsOutput) SetUr(v *UrForTermBaseTermGroupsOutput) *LangItemMapForTermBaseTermGroupsOutput {
+	s.Ur = v
+	return s
+}
+
+// SetUz sets the Uz field's value.
+func (s *LangItemMapForTermBaseTermGroupsOutput) SetUz(v *UzForTermBaseTermGroupsOutput) *LangItemMapForTermBaseTermGroupsOutput {
+	s.Uz = v
+	return s
+}
+
+// SetVi sets the Vi field's value.
+func (s *LangItemMapForTermBaseTermGroupsOutput) SetVi(v *ViForTermBaseTermGroupsOutput) *LangItemMapForTermBaseTermGroupsOutput {
+	s.Vi = v
+	return s
+}
+
+// SetViVN sets the ViVN field's value.
+func (s *LangItemMapForTermBaseTermGroupsOutput) SetViVN(v *ViVNForTermBaseTermGroupsOutput) *LangItemMapForTermBaseTermGroupsOutput {
+	s.ViVN = v
+	return s
+}
+
+// SetZh sets the Zh field's value.
+func (s *LangItemMapForTermBaseTermGroupsOutput) SetZh(v *ZhForTermBaseTermGroupsOutput) *LangItemMapForTermBaseTermGroupsOutput {
+	s.Zh = v
+	return s
+}
+
+// SetZhCN sets the ZhCN field's value.
+func (s *LangItemMapForTermBaseTermGroupsOutput) SetZhCN(v *ZhCNForTermBaseTermGroupsOutput) *LangItemMapForTermBaseTermGroupsOutput {
+	s.ZhCN = v
+	return s
+}
+
+// SetZhHK sets the ZhHK field's value.
+func (s *LangItemMapForTermBaseTermGroupsOutput) SetZhHK(v *ZhHKForTermBaseTermGroupsOutput) *LangItemMapForTermBaseTermGroupsOutput {
+	s.ZhHK = v
+	return s
+}
+
+// SetZhHans sets the ZhHans field's value.
+func (s *LangItemMapForTermBaseTermGroupsOutput) SetZhHans(v *ZhHansForTermBaseTermGroupsOutput) *LangItemMapForTermBaseTermGroupsOutput {
+	s.ZhHans = v
+	return s
+}
+
+// SetZhHansCN sets the ZhHansCN field's value.
+func (s *LangItemMapForTermBaseTermGroupsOutput) SetZhHansCN(v *ZhHansCNForTermBaseTermGroupsOutput) *LangItemMapForTermBaseTermGroupsOutput {
+	s.ZhHansCN = v
+	return s
+}
+
+// SetZhHant sets the ZhHant field's value.
+func (s *LangItemMapForTermBaseTermGroupsOutput) SetZhHant(v *ZhHantForTermBaseTermGroupsOutput) *LangItemMapForTermBaseTermGroupsOutput {
+	s.ZhHant = v
+	return s
+}
+
+// SetZhTW sets the ZhTW field's value.
+func (s *LangItemMapForTermBaseTermGroupsOutput) SetZhTW(v *ZhTWForTermBaseTermGroupsOutput) *LangItemMapForTermBaseTermGroupsOutput {
+	s.ZhTW = v
+	return s
+}
+
+type MnForTermBaseTermGroupsOutput struct {
+	_ struct{} `type:"structure"`
+
+	Acronym *string `type:"string" json:"acronym"`
+
+	ApplyMode *int32 `type:"int32" json:"applyMode"`
+
+	CaseSensitive *int64 `type:"int64" json:"caseSensitive"`
+
+	Content *string `type:"string" json:"content"`
+
+	CreateTime *string `type:"string" json:"createTime"`
+
+	CreatedAt *string `type:"string" json:"createdAt"`
+
+	Creator *CreatorForTermBaseTermGroupsOutput `locationName:"creator" type:"structure"`
+
+	Id *string `type:"string" json:"id"`
+
+	Lang *string `type:"string" json:"lang"`
+
+	Operator *CreatorForTermBaseTermGroupsOutput `locationName:"operator" type:"structure"`
+
+	PartOfSpeech *int32 `type:"int32" json:"partOfSpeech"`
+
+	TermBaseId *string `type:"string" json:"termBaseId"`
+
+	TermGroupId *string `type:"string" json:"termGroupId"`
+
+	UpdateTime *string `type:"string" json:"updateTime"`
+
+	UpdatedAt *string `type:"string" json:"updatedAt"`
+}
+
+// String returns the string representation
+func (s MnForTermBaseTermGroupsOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s MnForTermBaseTermGroupsOutput) GoString() string {
+	return s.String()
+}
+
 // SetAcronym sets the Acronym field's value.
-func (s *LangItemMapForTermBaseTermGroupsOutput) SetAcronym(v string) *LangItemMapForTermBaseTermGroupsOutput {
+func (s *MnForTermBaseTermGroupsOutput) SetAcronym(v string) *MnForTermBaseTermGroupsOutput {
 	s.Acronym = &v
 	return s
 }
 
 // SetApplyMode sets the ApplyMode field's value.
-func (s *LangItemMapForTermBaseTermGroupsOutput) SetApplyMode(v int32) *LangItemMapForTermBaseTermGroupsOutput {
+func (s *MnForTermBaseTermGroupsOutput) SetApplyMode(v int32) *MnForTermBaseTermGroupsOutput {
 	s.ApplyMode = &v
 	return s
 }
 
 // SetCaseSensitive sets the CaseSensitive field's value.
-func (s *LangItemMapForTermBaseTermGroupsOutput) SetCaseSensitive(v int64) *LangItemMapForTermBaseTermGroupsOutput {
+func (s *MnForTermBaseTermGroupsOutput) SetCaseSensitive(v int64) *MnForTermBaseTermGroupsOutput {
 	s.CaseSensitive = &v
 	return s
 }
 
 // SetContent sets the Content field's value.
-func (s *LangItemMapForTermBaseTermGroupsOutput) SetContent(v string) *LangItemMapForTermBaseTermGroupsOutput {
+func (s *MnForTermBaseTermGroupsOutput) SetContent(v string) *MnForTermBaseTermGroupsOutput {
 	s.Content = &v
 	return s
 }
 
 // SetCreateTime sets the CreateTime field's value.
-func (s *LangItemMapForTermBaseTermGroupsOutput) SetCreateTime(v string) *LangItemMapForTermBaseTermGroupsOutput {
+func (s *MnForTermBaseTermGroupsOutput) SetCreateTime(v string) *MnForTermBaseTermGroupsOutput {
 	s.CreateTime = &v
 	return s
 }
 
 // SetCreatedAt sets the CreatedAt field's value.
-func (s *LangItemMapForTermBaseTermGroupsOutput) SetCreatedAt(v string) *LangItemMapForTermBaseTermGroupsOutput {
+func (s *MnForTermBaseTermGroupsOutput) SetCreatedAt(v string) *MnForTermBaseTermGroupsOutput {
 	s.CreatedAt = &v
 	return s
 }
 
 // SetCreator sets the Creator field's value.
-func (s *LangItemMapForTermBaseTermGroupsOutput) SetCreator(v *CreatorForTermBaseTermGroupsOutput) *LangItemMapForTermBaseTermGroupsOutput {
+func (s *MnForTermBaseTermGroupsOutput) SetCreator(v *CreatorForTermBaseTermGroupsOutput) *MnForTermBaseTermGroupsOutput {
 	s.Creator = v
 	return s
 }
 
 // SetId sets the Id field's value.
-func (s *LangItemMapForTermBaseTermGroupsOutput) SetId(v string) *LangItemMapForTermBaseTermGroupsOutput {
+func (s *MnForTermBaseTermGroupsOutput) SetId(v string) *MnForTermBaseTermGroupsOutput {
 	s.Id = &v
 	return s
 }
 
 // SetLang sets the Lang field's value.
-func (s *LangItemMapForTermBaseTermGroupsOutput) SetLang(v string) *LangItemMapForTermBaseTermGroupsOutput {
+func (s *MnForTermBaseTermGroupsOutput) SetLang(v string) *MnForTermBaseTermGroupsOutput {
 	s.Lang = &v
 	return s
 }
 
 // SetOperator sets the Operator field's value.
-func (s *LangItemMapForTermBaseTermGroupsOutput) SetOperator(v *CreatorForTermBaseTermGroupsOutput) *LangItemMapForTermBaseTermGroupsOutput {
+func (s *MnForTermBaseTermGroupsOutput) SetOperator(v *CreatorForTermBaseTermGroupsOutput) *MnForTermBaseTermGroupsOutput {
 	s.Operator = v
 	return s
 }
 
 // SetPartOfSpeech sets the PartOfSpeech field's value.
-func (s *LangItemMapForTermBaseTermGroupsOutput) SetPartOfSpeech(v int32) *LangItemMapForTermBaseTermGroupsOutput {
+func (s *MnForTermBaseTermGroupsOutput) SetPartOfSpeech(v int32) *MnForTermBaseTermGroupsOutput {
 	s.PartOfSpeech = &v
 	return s
 }
 
 // SetTermBaseId sets the TermBaseId field's value.
-func (s *LangItemMapForTermBaseTermGroupsOutput) SetTermBaseId(v string) *LangItemMapForTermBaseTermGroupsOutput {
+func (s *MnForTermBaseTermGroupsOutput) SetTermBaseId(v string) *MnForTermBaseTermGroupsOutput {
 	s.TermBaseId = &v
 	return s
 }
 
 // SetTermGroupId sets the TermGroupId field's value.
-func (s *LangItemMapForTermBaseTermGroupsOutput) SetTermGroupId(v string) *LangItemMapForTermBaseTermGroupsOutput {
+func (s *MnForTermBaseTermGroupsOutput) SetTermGroupId(v string) *MnForTermBaseTermGroupsOutput {
 	s.TermGroupId = &v
 	return s
 }
 
 // SetUpdateTime sets the UpdateTime field's value.
-func (s *LangItemMapForTermBaseTermGroupsOutput) SetUpdateTime(v string) *LangItemMapForTermBaseTermGroupsOutput {
+func (s *MnForTermBaseTermGroupsOutput) SetUpdateTime(v string) *MnForTermBaseTermGroupsOutput {
 	s.UpdateTime = &v
 	return s
 }
 
 // SetUpdatedAt sets the UpdatedAt field's value.
-func (s *LangItemMapForTermBaseTermGroupsOutput) SetUpdatedAt(v string) *LangItemMapForTermBaseTermGroupsOutput {
+func (s *MnForTermBaseTermGroupsOutput) SetUpdatedAt(v string) *MnForTermBaseTermGroupsOutput {
+	s.UpdatedAt = &v
+	return s
+}
+
+type MsForTermBaseTermGroupsOutput struct {
+	_ struct{} `type:"structure"`
+
+	Acronym *string `type:"string" json:"acronym"`
+
+	ApplyMode *int32 `type:"int32" json:"applyMode"`
+
+	CaseSensitive *int64 `type:"int64" json:"caseSensitive"`
+
+	Content *string `type:"string" json:"content"`
+
+	CreateTime *string `type:"string" json:"createTime"`
+
+	CreatedAt *string `type:"string" json:"createdAt"`
+
+	Creator *CreatorForTermBaseTermGroupsOutput `locationName:"creator" type:"structure"`
+
+	Id *string `type:"string" json:"id"`
+
+	Lang *string `type:"string" json:"lang"`
+
+	Operator *CreatorForTermBaseTermGroupsOutput `locationName:"operator" type:"structure"`
+
+	PartOfSpeech *int32 `type:"int32" json:"partOfSpeech"`
+
+	TermBaseId *string `type:"string" json:"termBaseId"`
+
+	TermGroupId *string `type:"string" json:"termGroupId"`
+
+	UpdateTime *string `type:"string" json:"updateTime"`
+
+	UpdatedAt *string `type:"string" json:"updatedAt"`
+}
+
+// String returns the string representation
+func (s MsForTermBaseTermGroupsOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s MsForTermBaseTermGroupsOutput) GoString() string {
+	return s.String()
+}
+
+// SetAcronym sets the Acronym field's value.
+func (s *MsForTermBaseTermGroupsOutput) SetAcronym(v string) *MsForTermBaseTermGroupsOutput {
+	s.Acronym = &v
+	return s
+}
+
+// SetApplyMode sets the ApplyMode field's value.
+func (s *MsForTermBaseTermGroupsOutput) SetApplyMode(v int32) *MsForTermBaseTermGroupsOutput {
+	s.ApplyMode = &v
+	return s
+}
+
+// SetCaseSensitive sets the CaseSensitive field's value.
+func (s *MsForTermBaseTermGroupsOutput) SetCaseSensitive(v int64) *MsForTermBaseTermGroupsOutput {
+	s.CaseSensitive = &v
+	return s
+}
+
+// SetContent sets the Content field's value.
+func (s *MsForTermBaseTermGroupsOutput) SetContent(v string) *MsForTermBaseTermGroupsOutput {
+	s.Content = &v
+	return s
+}
+
+// SetCreateTime sets the CreateTime field's value.
+func (s *MsForTermBaseTermGroupsOutput) SetCreateTime(v string) *MsForTermBaseTermGroupsOutput {
+	s.CreateTime = &v
+	return s
+}
+
+// SetCreatedAt sets the CreatedAt field's value.
+func (s *MsForTermBaseTermGroupsOutput) SetCreatedAt(v string) *MsForTermBaseTermGroupsOutput {
+	s.CreatedAt = &v
+	return s
+}
+
+// SetCreator sets the Creator field's value.
+func (s *MsForTermBaseTermGroupsOutput) SetCreator(v *CreatorForTermBaseTermGroupsOutput) *MsForTermBaseTermGroupsOutput {
+	s.Creator = v
+	return s
+}
+
+// SetId sets the Id field's value.
+func (s *MsForTermBaseTermGroupsOutput) SetId(v string) *MsForTermBaseTermGroupsOutput {
+	s.Id = &v
+	return s
+}
+
+// SetLang sets the Lang field's value.
+func (s *MsForTermBaseTermGroupsOutput) SetLang(v string) *MsForTermBaseTermGroupsOutput {
+	s.Lang = &v
+	return s
+}
+
+// SetOperator sets the Operator field's value.
+func (s *MsForTermBaseTermGroupsOutput) SetOperator(v *CreatorForTermBaseTermGroupsOutput) *MsForTermBaseTermGroupsOutput {
+	s.Operator = v
+	return s
+}
+
+// SetPartOfSpeech sets the PartOfSpeech field's value.
+func (s *MsForTermBaseTermGroupsOutput) SetPartOfSpeech(v int32) *MsForTermBaseTermGroupsOutput {
+	s.PartOfSpeech = &v
+	return s
+}
+
+// SetTermBaseId sets the TermBaseId field's value.
+func (s *MsForTermBaseTermGroupsOutput) SetTermBaseId(v string) *MsForTermBaseTermGroupsOutput {
+	s.TermBaseId = &v
+	return s
+}
+
+// SetTermGroupId sets the TermGroupId field's value.
+func (s *MsForTermBaseTermGroupsOutput) SetTermGroupId(v string) *MsForTermBaseTermGroupsOutput {
+	s.TermGroupId = &v
+	return s
+}
+
+// SetUpdateTime sets the UpdateTime field's value.
+func (s *MsForTermBaseTermGroupsOutput) SetUpdateTime(v string) *MsForTermBaseTermGroupsOutput {
+	s.UpdateTime = &v
+	return s
+}
+
+// SetUpdatedAt sets the UpdatedAt field's value.
+func (s *MsForTermBaseTermGroupsOutput) SetUpdatedAt(v string) *MsForTermBaseTermGroupsOutput {
+	s.UpdatedAt = &v
+	return s
+}
+
+type MsMYForTermBaseTermGroupsOutput struct {
+	_ struct{} `type:"structure"`
+
+	Acronym *string `type:"string" json:"acronym"`
+
+	ApplyMode *int32 `type:"int32" json:"applyMode"`
+
+	CaseSensitive *int64 `type:"int64" json:"caseSensitive"`
+
+	Content *string `type:"string" json:"content"`
+
+	CreateTime *string `type:"string" json:"createTime"`
+
+	CreatedAt *string `type:"string" json:"createdAt"`
+
+	Creator *CreatorForTermBaseTermGroupsOutput `locationName:"creator" type:"structure"`
+
+	Id *string `type:"string" json:"id"`
+
+	Lang *string `type:"string" json:"lang"`
+
+	Operator *CreatorForTermBaseTermGroupsOutput `locationName:"operator" type:"structure"`
+
+	PartOfSpeech *int32 `type:"int32" json:"partOfSpeech"`
+
+	TermBaseId *string `type:"string" json:"termBaseId"`
+
+	TermGroupId *string `type:"string" json:"termGroupId"`
+
+	UpdateTime *string `type:"string" json:"updateTime"`
+
+	UpdatedAt *string `type:"string" json:"updatedAt"`
+}
+
+// String returns the string representation
+func (s MsMYForTermBaseTermGroupsOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s MsMYForTermBaseTermGroupsOutput) GoString() string {
+	return s.String()
+}
+
+// SetAcronym sets the Acronym field's value.
+func (s *MsMYForTermBaseTermGroupsOutput) SetAcronym(v string) *MsMYForTermBaseTermGroupsOutput {
+	s.Acronym = &v
+	return s
+}
+
+// SetApplyMode sets the ApplyMode field's value.
+func (s *MsMYForTermBaseTermGroupsOutput) SetApplyMode(v int32) *MsMYForTermBaseTermGroupsOutput {
+	s.ApplyMode = &v
+	return s
+}
+
+// SetCaseSensitive sets the CaseSensitive field's value.
+func (s *MsMYForTermBaseTermGroupsOutput) SetCaseSensitive(v int64) *MsMYForTermBaseTermGroupsOutput {
+	s.CaseSensitive = &v
+	return s
+}
+
+// SetContent sets the Content field's value.
+func (s *MsMYForTermBaseTermGroupsOutput) SetContent(v string) *MsMYForTermBaseTermGroupsOutput {
+	s.Content = &v
+	return s
+}
+
+// SetCreateTime sets the CreateTime field's value.
+func (s *MsMYForTermBaseTermGroupsOutput) SetCreateTime(v string) *MsMYForTermBaseTermGroupsOutput {
+	s.CreateTime = &v
+	return s
+}
+
+// SetCreatedAt sets the CreatedAt field's value.
+func (s *MsMYForTermBaseTermGroupsOutput) SetCreatedAt(v string) *MsMYForTermBaseTermGroupsOutput {
+	s.CreatedAt = &v
+	return s
+}
+
+// SetCreator sets the Creator field's value.
+func (s *MsMYForTermBaseTermGroupsOutput) SetCreator(v *CreatorForTermBaseTermGroupsOutput) *MsMYForTermBaseTermGroupsOutput {
+	s.Creator = v
+	return s
+}
+
+// SetId sets the Id field's value.
+func (s *MsMYForTermBaseTermGroupsOutput) SetId(v string) *MsMYForTermBaseTermGroupsOutput {
+	s.Id = &v
+	return s
+}
+
+// SetLang sets the Lang field's value.
+func (s *MsMYForTermBaseTermGroupsOutput) SetLang(v string) *MsMYForTermBaseTermGroupsOutput {
+	s.Lang = &v
+	return s
+}
+
+// SetOperator sets the Operator field's value.
+func (s *MsMYForTermBaseTermGroupsOutput) SetOperator(v *CreatorForTermBaseTermGroupsOutput) *MsMYForTermBaseTermGroupsOutput {
+	s.Operator = v
+	return s
+}
+
+// SetPartOfSpeech sets the PartOfSpeech field's value.
+func (s *MsMYForTermBaseTermGroupsOutput) SetPartOfSpeech(v int32) *MsMYForTermBaseTermGroupsOutput {
+	s.PartOfSpeech = &v
+	return s
+}
+
+// SetTermBaseId sets the TermBaseId field's value.
+func (s *MsMYForTermBaseTermGroupsOutput) SetTermBaseId(v string) *MsMYForTermBaseTermGroupsOutput {
+	s.TermBaseId = &v
+	return s
+}
+
+// SetTermGroupId sets the TermGroupId field's value.
+func (s *MsMYForTermBaseTermGroupsOutput) SetTermGroupId(v string) *MsMYForTermBaseTermGroupsOutput {
+	s.TermGroupId = &v
+	return s
+}
+
+// SetUpdateTime sets the UpdateTime field's value.
+func (s *MsMYForTermBaseTermGroupsOutput) SetUpdateTime(v string) *MsMYForTermBaseTermGroupsOutput {
+	s.UpdateTime = &v
+	return s
+}
+
+// SetUpdatedAt sets the UpdatedAt field's value.
+func (s *MsMYForTermBaseTermGroupsOutput) SetUpdatedAt(v string) *MsMYForTermBaseTermGroupsOutput {
+	s.UpdatedAt = &v
+	return s
+}
+
+type MyForTermBaseTermGroupsOutput struct {
+	_ struct{} `type:"structure"`
+
+	Acronym *string `type:"string" json:"acronym"`
+
+	ApplyMode *int32 `type:"int32" json:"applyMode"`
+
+	CaseSensitive *int64 `type:"int64" json:"caseSensitive"`
+
+	Content *string `type:"string" json:"content"`
+
+	CreateTime *string `type:"string" json:"createTime"`
+
+	CreatedAt *string `type:"string" json:"createdAt"`
+
+	Creator *CreatorForTermBaseTermGroupsOutput `locationName:"creator" type:"structure"`
+
+	Id *string `type:"string" json:"id"`
+
+	Lang *string `type:"string" json:"lang"`
+
+	Operator *CreatorForTermBaseTermGroupsOutput `locationName:"operator" type:"structure"`
+
+	PartOfSpeech *int32 `type:"int32" json:"partOfSpeech"`
+
+	TermBaseId *string `type:"string" json:"termBaseId"`
+
+	TermGroupId *string `type:"string" json:"termGroupId"`
+
+	UpdateTime *string `type:"string" json:"updateTime"`
+
+	UpdatedAt *string `type:"string" json:"updatedAt"`
+}
+
+// String returns the string representation
+func (s MyForTermBaseTermGroupsOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s MyForTermBaseTermGroupsOutput) GoString() string {
+	return s.String()
+}
+
+// SetAcronym sets the Acronym field's value.
+func (s *MyForTermBaseTermGroupsOutput) SetAcronym(v string) *MyForTermBaseTermGroupsOutput {
+	s.Acronym = &v
+	return s
+}
+
+// SetApplyMode sets the ApplyMode field's value.
+func (s *MyForTermBaseTermGroupsOutput) SetApplyMode(v int32) *MyForTermBaseTermGroupsOutput {
+	s.ApplyMode = &v
+	return s
+}
+
+// SetCaseSensitive sets the CaseSensitive field's value.
+func (s *MyForTermBaseTermGroupsOutput) SetCaseSensitive(v int64) *MyForTermBaseTermGroupsOutput {
+	s.CaseSensitive = &v
+	return s
+}
+
+// SetContent sets the Content field's value.
+func (s *MyForTermBaseTermGroupsOutput) SetContent(v string) *MyForTermBaseTermGroupsOutput {
+	s.Content = &v
+	return s
+}
+
+// SetCreateTime sets the CreateTime field's value.
+func (s *MyForTermBaseTermGroupsOutput) SetCreateTime(v string) *MyForTermBaseTermGroupsOutput {
+	s.CreateTime = &v
+	return s
+}
+
+// SetCreatedAt sets the CreatedAt field's value.
+func (s *MyForTermBaseTermGroupsOutput) SetCreatedAt(v string) *MyForTermBaseTermGroupsOutput {
+	s.CreatedAt = &v
+	return s
+}
+
+// SetCreator sets the Creator field's value.
+func (s *MyForTermBaseTermGroupsOutput) SetCreator(v *CreatorForTermBaseTermGroupsOutput) *MyForTermBaseTermGroupsOutput {
+	s.Creator = v
+	return s
+}
+
+// SetId sets the Id field's value.
+func (s *MyForTermBaseTermGroupsOutput) SetId(v string) *MyForTermBaseTermGroupsOutput {
+	s.Id = &v
+	return s
+}
+
+// SetLang sets the Lang field's value.
+func (s *MyForTermBaseTermGroupsOutput) SetLang(v string) *MyForTermBaseTermGroupsOutput {
+	s.Lang = &v
+	return s
+}
+
+// SetOperator sets the Operator field's value.
+func (s *MyForTermBaseTermGroupsOutput) SetOperator(v *CreatorForTermBaseTermGroupsOutput) *MyForTermBaseTermGroupsOutput {
+	s.Operator = v
+	return s
+}
+
+// SetPartOfSpeech sets the PartOfSpeech field's value.
+func (s *MyForTermBaseTermGroupsOutput) SetPartOfSpeech(v int32) *MyForTermBaseTermGroupsOutput {
+	s.PartOfSpeech = &v
+	return s
+}
+
+// SetTermBaseId sets the TermBaseId field's value.
+func (s *MyForTermBaseTermGroupsOutput) SetTermBaseId(v string) *MyForTermBaseTermGroupsOutput {
+	s.TermBaseId = &v
+	return s
+}
+
+// SetTermGroupId sets the TermGroupId field's value.
+func (s *MyForTermBaseTermGroupsOutput) SetTermGroupId(v string) *MyForTermBaseTermGroupsOutput {
+	s.TermGroupId = &v
+	return s
+}
+
+// SetUpdateTime sets the UpdateTime field's value.
+func (s *MyForTermBaseTermGroupsOutput) SetUpdateTime(v string) *MyForTermBaseTermGroupsOutput {
+	s.UpdateTime = &v
+	return s
+}
+
+// SetUpdatedAt sets the UpdatedAt field's value.
+func (s *MyForTermBaseTermGroupsOutput) SetUpdatedAt(v string) *MyForTermBaseTermGroupsOutput {
+	s.UpdatedAt = &v
+	return s
+}
+
+type NeForTermBaseTermGroupsOutput struct {
+	_ struct{} `type:"structure"`
+
+	Acronym *string `type:"string" json:"acronym"`
+
+	ApplyMode *int32 `type:"int32" json:"applyMode"`
+
+	CaseSensitive *int64 `type:"int64" json:"caseSensitive"`
+
+	Content *string `type:"string" json:"content"`
+
+	CreateTime *string `type:"string" json:"createTime"`
+
+	CreatedAt *string `type:"string" json:"createdAt"`
+
+	Creator *CreatorForTermBaseTermGroupsOutput `locationName:"creator" type:"structure"`
+
+	Id *string `type:"string" json:"id"`
+
+	Lang *string `type:"string" json:"lang"`
+
+	Operator *CreatorForTermBaseTermGroupsOutput `locationName:"operator" type:"structure"`
+
+	PartOfSpeech *int32 `type:"int32" json:"partOfSpeech"`
+
+	TermBaseId *string `type:"string" json:"termBaseId"`
+
+	TermGroupId *string `type:"string" json:"termGroupId"`
+
+	UpdateTime *string `type:"string" json:"updateTime"`
+
+	UpdatedAt *string `type:"string" json:"updatedAt"`
+}
+
+// String returns the string representation
+func (s NeForTermBaseTermGroupsOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s NeForTermBaseTermGroupsOutput) GoString() string {
+	return s.String()
+}
+
+// SetAcronym sets the Acronym field's value.
+func (s *NeForTermBaseTermGroupsOutput) SetAcronym(v string) *NeForTermBaseTermGroupsOutput {
+	s.Acronym = &v
+	return s
+}
+
+// SetApplyMode sets the ApplyMode field's value.
+func (s *NeForTermBaseTermGroupsOutput) SetApplyMode(v int32) *NeForTermBaseTermGroupsOutput {
+	s.ApplyMode = &v
+	return s
+}
+
+// SetCaseSensitive sets the CaseSensitive field's value.
+func (s *NeForTermBaseTermGroupsOutput) SetCaseSensitive(v int64) *NeForTermBaseTermGroupsOutput {
+	s.CaseSensitive = &v
+	return s
+}
+
+// SetContent sets the Content field's value.
+func (s *NeForTermBaseTermGroupsOutput) SetContent(v string) *NeForTermBaseTermGroupsOutput {
+	s.Content = &v
+	return s
+}
+
+// SetCreateTime sets the CreateTime field's value.
+func (s *NeForTermBaseTermGroupsOutput) SetCreateTime(v string) *NeForTermBaseTermGroupsOutput {
+	s.CreateTime = &v
+	return s
+}
+
+// SetCreatedAt sets the CreatedAt field's value.
+func (s *NeForTermBaseTermGroupsOutput) SetCreatedAt(v string) *NeForTermBaseTermGroupsOutput {
+	s.CreatedAt = &v
+	return s
+}
+
+// SetCreator sets the Creator field's value.
+func (s *NeForTermBaseTermGroupsOutput) SetCreator(v *CreatorForTermBaseTermGroupsOutput) *NeForTermBaseTermGroupsOutput {
+	s.Creator = v
+	return s
+}
+
+// SetId sets the Id field's value.
+func (s *NeForTermBaseTermGroupsOutput) SetId(v string) *NeForTermBaseTermGroupsOutput {
+	s.Id = &v
+	return s
+}
+
+// SetLang sets the Lang field's value.
+func (s *NeForTermBaseTermGroupsOutput) SetLang(v string) *NeForTermBaseTermGroupsOutput {
+	s.Lang = &v
+	return s
+}
+
+// SetOperator sets the Operator field's value.
+func (s *NeForTermBaseTermGroupsOutput) SetOperator(v *CreatorForTermBaseTermGroupsOutput) *NeForTermBaseTermGroupsOutput {
+	s.Operator = v
+	return s
+}
+
+// SetPartOfSpeech sets the PartOfSpeech field's value.
+func (s *NeForTermBaseTermGroupsOutput) SetPartOfSpeech(v int32) *NeForTermBaseTermGroupsOutput {
+	s.PartOfSpeech = &v
+	return s
+}
+
+// SetTermBaseId sets the TermBaseId field's value.
+func (s *NeForTermBaseTermGroupsOutput) SetTermBaseId(v string) *NeForTermBaseTermGroupsOutput {
+	s.TermBaseId = &v
+	return s
+}
+
+// SetTermGroupId sets the TermGroupId field's value.
+func (s *NeForTermBaseTermGroupsOutput) SetTermGroupId(v string) *NeForTermBaseTermGroupsOutput {
+	s.TermGroupId = &v
+	return s
+}
+
+// SetUpdateTime sets the UpdateTime field's value.
+func (s *NeForTermBaseTermGroupsOutput) SetUpdateTime(v string) *NeForTermBaseTermGroupsOutput {
+	s.UpdateTime = &v
+	return s
+}
+
+// SetUpdatedAt sets the UpdatedAt field's value.
+func (s *NeForTermBaseTermGroupsOutput) SetUpdatedAt(v string) *NeForTermBaseTermGroupsOutput {
 	s.UpdatedAt = &v
 	return s
 }
@@ -577,6 +7671,676 @@ func (s *PaginationForTermBaseTermGroupsOutput) SetOffset(v int32) *PaginationFo
 	return s
 }
 
+type PlForTermBaseTermGroupsOutput struct {
+	_ struct{} `type:"structure"`
+
+	Acronym *string `type:"string" json:"acronym"`
+
+	ApplyMode *int32 `type:"int32" json:"applyMode"`
+
+	CaseSensitive *int64 `type:"int64" json:"caseSensitive"`
+
+	Content *string `type:"string" json:"content"`
+
+	CreateTime *string `type:"string" json:"createTime"`
+
+	CreatedAt *string `type:"string" json:"createdAt"`
+
+	Creator *CreatorForTermBaseTermGroupsOutput `locationName:"creator" type:"structure"`
+
+	Id *string `type:"string" json:"id"`
+
+	Lang *string `type:"string" json:"lang"`
+
+	Operator *CreatorForTermBaseTermGroupsOutput `locationName:"operator" type:"structure"`
+
+	PartOfSpeech *int32 `type:"int32" json:"partOfSpeech"`
+
+	TermBaseId *string `type:"string" json:"termBaseId"`
+
+	TermGroupId *string `type:"string" json:"termGroupId"`
+
+	UpdateTime *string `type:"string" json:"updateTime"`
+
+	UpdatedAt *string `type:"string" json:"updatedAt"`
+}
+
+// String returns the string representation
+func (s PlForTermBaseTermGroupsOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s PlForTermBaseTermGroupsOutput) GoString() string {
+	return s.String()
+}
+
+// SetAcronym sets the Acronym field's value.
+func (s *PlForTermBaseTermGroupsOutput) SetAcronym(v string) *PlForTermBaseTermGroupsOutput {
+	s.Acronym = &v
+	return s
+}
+
+// SetApplyMode sets the ApplyMode field's value.
+func (s *PlForTermBaseTermGroupsOutput) SetApplyMode(v int32) *PlForTermBaseTermGroupsOutput {
+	s.ApplyMode = &v
+	return s
+}
+
+// SetCaseSensitive sets the CaseSensitive field's value.
+func (s *PlForTermBaseTermGroupsOutput) SetCaseSensitive(v int64) *PlForTermBaseTermGroupsOutput {
+	s.CaseSensitive = &v
+	return s
+}
+
+// SetContent sets the Content field's value.
+func (s *PlForTermBaseTermGroupsOutput) SetContent(v string) *PlForTermBaseTermGroupsOutput {
+	s.Content = &v
+	return s
+}
+
+// SetCreateTime sets the CreateTime field's value.
+func (s *PlForTermBaseTermGroupsOutput) SetCreateTime(v string) *PlForTermBaseTermGroupsOutput {
+	s.CreateTime = &v
+	return s
+}
+
+// SetCreatedAt sets the CreatedAt field's value.
+func (s *PlForTermBaseTermGroupsOutput) SetCreatedAt(v string) *PlForTermBaseTermGroupsOutput {
+	s.CreatedAt = &v
+	return s
+}
+
+// SetCreator sets the Creator field's value.
+func (s *PlForTermBaseTermGroupsOutput) SetCreator(v *CreatorForTermBaseTermGroupsOutput) *PlForTermBaseTermGroupsOutput {
+	s.Creator = v
+	return s
+}
+
+// SetId sets the Id field's value.
+func (s *PlForTermBaseTermGroupsOutput) SetId(v string) *PlForTermBaseTermGroupsOutput {
+	s.Id = &v
+	return s
+}
+
+// SetLang sets the Lang field's value.
+func (s *PlForTermBaseTermGroupsOutput) SetLang(v string) *PlForTermBaseTermGroupsOutput {
+	s.Lang = &v
+	return s
+}
+
+// SetOperator sets the Operator field's value.
+func (s *PlForTermBaseTermGroupsOutput) SetOperator(v *CreatorForTermBaseTermGroupsOutput) *PlForTermBaseTermGroupsOutput {
+	s.Operator = v
+	return s
+}
+
+// SetPartOfSpeech sets the PartOfSpeech field's value.
+func (s *PlForTermBaseTermGroupsOutput) SetPartOfSpeech(v int32) *PlForTermBaseTermGroupsOutput {
+	s.PartOfSpeech = &v
+	return s
+}
+
+// SetTermBaseId sets the TermBaseId field's value.
+func (s *PlForTermBaseTermGroupsOutput) SetTermBaseId(v string) *PlForTermBaseTermGroupsOutput {
+	s.TermBaseId = &v
+	return s
+}
+
+// SetTermGroupId sets the TermGroupId field's value.
+func (s *PlForTermBaseTermGroupsOutput) SetTermGroupId(v string) *PlForTermBaseTermGroupsOutput {
+	s.TermGroupId = &v
+	return s
+}
+
+// SetUpdateTime sets the UpdateTime field's value.
+func (s *PlForTermBaseTermGroupsOutput) SetUpdateTime(v string) *PlForTermBaseTermGroupsOutput {
+	s.UpdateTime = &v
+	return s
+}
+
+// SetUpdatedAt sets the UpdatedAt field's value.
+func (s *PlForTermBaseTermGroupsOutput) SetUpdatedAt(v string) *PlForTermBaseTermGroupsOutput {
+	s.UpdatedAt = &v
+	return s
+}
+
+type PlPLForTermBaseTermGroupsOutput struct {
+	_ struct{} `type:"structure"`
+
+	Acronym *string `type:"string" json:"acronym"`
+
+	ApplyMode *int32 `type:"int32" json:"applyMode"`
+
+	CaseSensitive *int64 `type:"int64" json:"caseSensitive"`
+
+	Content *string `type:"string" json:"content"`
+
+	CreateTime *string `type:"string" json:"createTime"`
+
+	CreatedAt *string `type:"string" json:"createdAt"`
+
+	Creator *CreatorForTermBaseTermGroupsOutput `locationName:"creator" type:"structure"`
+
+	Id *string `type:"string" json:"id"`
+
+	Lang *string `type:"string" json:"lang"`
+
+	Operator *CreatorForTermBaseTermGroupsOutput `locationName:"operator" type:"structure"`
+
+	PartOfSpeech *int32 `type:"int32" json:"partOfSpeech"`
+
+	TermBaseId *string `type:"string" json:"termBaseId"`
+
+	TermGroupId *string `type:"string" json:"termGroupId"`
+
+	UpdateTime *string `type:"string" json:"updateTime"`
+
+	UpdatedAt *string `type:"string" json:"updatedAt"`
+}
+
+// String returns the string representation
+func (s PlPLForTermBaseTermGroupsOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s PlPLForTermBaseTermGroupsOutput) GoString() string {
+	return s.String()
+}
+
+// SetAcronym sets the Acronym field's value.
+func (s *PlPLForTermBaseTermGroupsOutput) SetAcronym(v string) *PlPLForTermBaseTermGroupsOutput {
+	s.Acronym = &v
+	return s
+}
+
+// SetApplyMode sets the ApplyMode field's value.
+func (s *PlPLForTermBaseTermGroupsOutput) SetApplyMode(v int32) *PlPLForTermBaseTermGroupsOutput {
+	s.ApplyMode = &v
+	return s
+}
+
+// SetCaseSensitive sets the CaseSensitive field's value.
+func (s *PlPLForTermBaseTermGroupsOutput) SetCaseSensitive(v int64) *PlPLForTermBaseTermGroupsOutput {
+	s.CaseSensitive = &v
+	return s
+}
+
+// SetContent sets the Content field's value.
+func (s *PlPLForTermBaseTermGroupsOutput) SetContent(v string) *PlPLForTermBaseTermGroupsOutput {
+	s.Content = &v
+	return s
+}
+
+// SetCreateTime sets the CreateTime field's value.
+func (s *PlPLForTermBaseTermGroupsOutput) SetCreateTime(v string) *PlPLForTermBaseTermGroupsOutput {
+	s.CreateTime = &v
+	return s
+}
+
+// SetCreatedAt sets the CreatedAt field's value.
+func (s *PlPLForTermBaseTermGroupsOutput) SetCreatedAt(v string) *PlPLForTermBaseTermGroupsOutput {
+	s.CreatedAt = &v
+	return s
+}
+
+// SetCreator sets the Creator field's value.
+func (s *PlPLForTermBaseTermGroupsOutput) SetCreator(v *CreatorForTermBaseTermGroupsOutput) *PlPLForTermBaseTermGroupsOutput {
+	s.Creator = v
+	return s
+}
+
+// SetId sets the Id field's value.
+func (s *PlPLForTermBaseTermGroupsOutput) SetId(v string) *PlPLForTermBaseTermGroupsOutput {
+	s.Id = &v
+	return s
+}
+
+// SetLang sets the Lang field's value.
+func (s *PlPLForTermBaseTermGroupsOutput) SetLang(v string) *PlPLForTermBaseTermGroupsOutput {
+	s.Lang = &v
+	return s
+}
+
+// SetOperator sets the Operator field's value.
+func (s *PlPLForTermBaseTermGroupsOutput) SetOperator(v *CreatorForTermBaseTermGroupsOutput) *PlPLForTermBaseTermGroupsOutput {
+	s.Operator = v
+	return s
+}
+
+// SetPartOfSpeech sets the PartOfSpeech field's value.
+func (s *PlPLForTermBaseTermGroupsOutput) SetPartOfSpeech(v int32) *PlPLForTermBaseTermGroupsOutput {
+	s.PartOfSpeech = &v
+	return s
+}
+
+// SetTermBaseId sets the TermBaseId field's value.
+func (s *PlPLForTermBaseTermGroupsOutput) SetTermBaseId(v string) *PlPLForTermBaseTermGroupsOutput {
+	s.TermBaseId = &v
+	return s
+}
+
+// SetTermGroupId sets the TermGroupId field's value.
+func (s *PlPLForTermBaseTermGroupsOutput) SetTermGroupId(v string) *PlPLForTermBaseTermGroupsOutput {
+	s.TermGroupId = &v
+	return s
+}
+
+// SetUpdateTime sets the UpdateTime field's value.
+func (s *PlPLForTermBaseTermGroupsOutput) SetUpdateTime(v string) *PlPLForTermBaseTermGroupsOutput {
+	s.UpdateTime = &v
+	return s
+}
+
+// SetUpdatedAt sets the UpdatedAt field's value.
+func (s *PlPLForTermBaseTermGroupsOutput) SetUpdatedAt(v string) *PlPLForTermBaseTermGroupsOutput {
+	s.UpdatedAt = &v
+	return s
+}
+
+type PtBRForTermBaseTermGroupsOutput struct {
+	_ struct{} `type:"structure"`
+
+	Acronym *string `type:"string" json:"acronym"`
+
+	ApplyMode *int32 `type:"int32" json:"applyMode"`
+
+	CaseSensitive *int64 `type:"int64" json:"caseSensitive"`
+
+	Content *string `type:"string" json:"content"`
+
+	CreateTime *string `type:"string" json:"createTime"`
+
+	CreatedAt *string `type:"string" json:"createdAt"`
+
+	Creator *CreatorForTermBaseTermGroupsOutput `locationName:"creator" type:"structure"`
+
+	Id *string `type:"string" json:"id"`
+
+	Lang *string `type:"string" json:"lang"`
+
+	Operator *CreatorForTermBaseTermGroupsOutput `locationName:"operator" type:"structure"`
+
+	PartOfSpeech *int32 `type:"int32" json:"partOfSpeech"`
+
+	TermBaseId *string `type:"string" json:"termBaseId"`
+
+	TermGroupId *string `type:"string" json:"termGroupId"`
+
+	UpdateTime *string `type:"string" json:"updateTime"`
+
+	UpdatedAt *string `type:"string" json:"updatedAt"`
+}
+
+// String returns the string representation
+func (s PtBRForTermBaseTermGroupsOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s PtBRForTermBaseTermGroupsOutput) GoString() string {
+	return s.String()
+}
+
+// SetAcronym sets the Acronym field's value.
+func (s *PtBRForTermBaseTermGroupsOutput) SetAcronym(v string) *PtBRForTermBaseTermGroupsOutput {
+	s.Acronym = &v
+	return s
+}
+
+// SetApplyMode sets the ApplyMode field's value.
+func (s *PtBRForTermBaseTermGroupsOutput) SetApplyMode(v int32) *PtBRForTermBaseTermGroupsOutput {
+	s.ApplyMode = &v
+	return s
+}
+
+// SetCaseSensitive sets the CaseSensitive field's value.
+func (s *PtBRForTermBaseTermGroupsOutput) SetCaseSensitive(v int64) *PtBRForTermBaseTermGroupsOutput {
+	s.CaseSensitive = &v
+	return s
+}
+
+// SetContent sets the Content field's value.
+func (s *PtBRForTermBaseTermGroupsOutput) SetContent(v string) *PtBRForTermBaseTermGroupsOutput {
+	s.Content = &v
+	return s
+}
+
+// SetCreateTime sets the CreateTime field's value.
+func (s *PtBRForTermBaseTermGroupsOutput) SetCreateTime(v string) *PtBRForTermBaseTermGroupsOutput {
+	s.CreateTime = &v
+	return s
+}
+
+// SetCreatedAt sets the CreatedAt field's value.
+func (s *PtBRForTermBaseTermGroupsOutput) SetCreatedAt(v string) *PtBRForTermBaseTermGroupsOutput {
+	s.CreatedAt = &v
+	return s
+}
+
+// SetCreator sets the Creator field's value.
+func (s *PtBRForTermBaseTermGroupsOutput) SetCreator(v *CreatorForTermBaseTermGroupsOutput) *PtBRForTermBaseTermGroupsOutput {
+	s.Creator = v
+	return s
+}
+
+// SetId sets the Id field's value.
+func (s *PtBRForTermBaseTermGroupsOutput) SetId(v string) *PtBRForTermBaseTermGroupsOutput {
+	s.Id = &v
+	return s
+}
+
+// SetLang sets the Lang field's value.
+func (s *PtBRForTermBaseTermGroupsOutput) SetLang(v string) *PtBRForTermBaseTermGroupsOutput {
+	s.Lang = &v
+	return s
+}
+
+// SetOperator sets the Operator field's value.
+func (s *PtBRForTermBaseTermGroupsOutput) SetOperator(v *CreatorForTermBaseTermGroupsOutput) *PtBRForTermBaseTermGroupsOutput {
+	s.Operator = v
+	return s
+}
+
+// SetPartOfSpeech sets the PartOfSpeech field's value.
+func (s *PtBRForTermBaseTermGroupsOutput) SetPartOfSpeech(v int32) *PtBRForTermBaseTermGroupsOutput {
+	s.PartOfSpeech = &v
+	return s
+}
+
+// SetTermBaseId sets the TermBaseId field's value.
+func (s *PtBRForTermBaseTermGroupsOutput) SetTermBaseId(v string) *PtBRForTermBaseTermGroupsOutput {
+	s.TermBaseId = &v
+	return s
+}
+
+// SetTermGroupId sets the TermGroupId field's value.
+func (s *PtBRForTermBaseTermGroupsOutput) SetTermGroupId(v string) *PtBRForTermBaseTermGroupsOutput {
+	s.TermGroupId = &v
+	return s
+}
+
+// SetUpdateTime sets the UpdateTime field's value.
+func (s *PtBRForTermBaseTermGroupsOutput) SetUpdateTime(v string) *PtBRForTermBaseTermGroupsOutput {
+	s.UpdateTime = &v
+	return s
+}
+
+// SetUpdatedAt sets the UpdatedAt field's value.
+func (s *PtBRForTermBaseTermGroupsOutput) SetUpdatedAt(v string) *PtBRForTermBaseTermGroupsOutput {
+	s.UpdatedAt = &v
+	return s
+}
+
+type PtForTermBaseTermGroupsOutput struct {
+	_ struct{} `type:"structure"`
+
+	Acronym *string `type:"string" json:"acronym"`
+
+	ApplyMode *int32 `type:"int32" json:"applyMode"`
+
+	CaseSensitive *int64 `type:"int64" json:"caseSensitive"`
+
+	Content *string `type:"string" json:"content"`
+
+	CreateTime *string `type:"string" json:"createTime"`
+
+	CreatedAt *string `type:"string" json:"createdAt"`
+
+	Creator *CreatorForTermBaseTermGroupsOutput `locationName:"creator" type:"structure"`
+
+	Id *string `type:"string" json:"id"`
+
+	Lang *string `type:"string" json:"lang"`
+
+	Operator *CreatorForTermBaseTermGroupsOutput `locationName:"operator" type:"structure"`
+
+	PartOfSpeech *int32 `type:"int32" json:"partOfSpeech"`
+
+	TermBaseId *string `type:"string" json:"termBaseId"`
+
+	TermGroupId *string `type:"string" json:"termGroupId"`
+
+	UpdateTime *string `type:"string" json:"updateTime"`
+
+	UpdatedAt *string `type:"string" json:"updatedAt"`
+}
+
+// String returns the string representation
+func (s PtForTermBaseTermGroupsOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s PtForTermBaseTermGroupsOutput) GoString() string {
+	return s.String()
+}
+
+// SetAcronym sets the Acronym field's value.
+func (s *PtForTermBaseTermGroupsOutput) SetAcronym(v string) *PtForTermBaseTermGroupsOutput {
+	s.Acronym = &v
+	return s
+}
+
+// SetApplyMode sets the ApplyMode field's value.
+func (s *PtForTermBaseTermGroupsOutput) SetApplyMode(v int32) *PtForTermBaseTermGroupsOutput {
+	s.ApplyMode = &v
+	return s
+}
+
+// SetCaseSensitive sets the CaseSensitive field's value.
+func (s *PtForTermBaseTermGroupsOutput) SetCaseSensitive(v int64) *PtForTermBaseTermGroupsOutput {
+	s.CaseSensitive = &v
+	return s
+}
+
+// SetContent sets the Content field's value.
+func (s *PtForTermBaseTermGroupsOutput) SetContent(v string) *PtForTermBaseTermGroupsOutput {
+	s.Content = &v
+	return s
+}
+
+// SetCreateTime sets the CreateTime field's value.
+func (s *PtForTermBaseTermGroupsOutput) SetCreateTime(v string) *PtForTermBaseTermGroupsOutput {
+	s.CreateTime = &v
+	return s
+}
+
+// SetCreatedAt sets the CreatedAt field's value.
+func (s *PtForTermBaseTermGroupsOutput) SetCreatedAt(v string) *PtForTermBaseTermGroupsOutput {
+	s.CreatedAt = &v
+	return s
+}
+
+// SetCreator sets the Creator field's value.
+func (s *PtForTermBaseTermGroupsOutput) SetCreator(v *CreatorForTermBaseTermGroupsOutput) *PtForTermBaseTermGroupsOutput {
+	s.Creator = v
+	return s
+}
+
+// SetId sets the Id field's value.
+func (s *PtForTermBaseTermGroupsOutput) SetId(v string) *PtForTermBaseTermGroupsOutput {
+	s.Id = &v
+	return s
+}
+
+// SetLang sets the Lang field's value.
+func (s *PtForTermBaseTermGroupsOutput) SetLang(v string) *PtForTermBaseTermGroupsOutput {
+	s.Lang = &v
+	return s
+}
+
+// SetOperator sets the Operator field's value.
+func (s *PtForTermBaseTermGroupsOutput) SetOperator(v *CreatorForTermBaseTermGroupsOutput) *PtForTermBaseTermGroupsOutput {
+	s.Operator = v
+	return s
+}
+
+// SetPartOfSpeech sets the PartOfSpeech field's value.
+func (s *PtForTermBaseTermGroupsOutput) SetPartOfSpeech(v int32) *PtForTermBaseTermGroupsOutput {
+	s.PartOfSpeech = &v
+	return s
+}
+
+// SetTermBaseId sets the TermBaseId field's value.
+func (s *PtForTermBaseTermGroupsOutput) SetTermBaseId(v string) *PtForTermBaseTermGroupsOutput {
+	s.TermBaseId = &v
+	return s
+}
+
+// SetTermGroupId sets the TermGroupId field's value.
+func (s *PtForTermBaseTermGroupsOutput) SetTermGroupId(v string) *PtForTermBaseTermGroupsOutput {
+	s.TermGroupId = &v
+	return s
+}
+
+// SetUpdateTime sets the UpdateTime field's value.
+func (s *PtForTermBaseTermGroupsOutput) SetUpdateTime(v string) *PtForTermBaseTermGroupsOutput {
+	s.UpdateTime = &v
+	return s
+}
+
+// SetUpdatedAt sets the UpdatedAt field's value.
+func (s *PtForTermBaseTermGroupsOutput) SetUpdatedAt(v string) *PtForTermBaseTermGroupsOutput {
+	s.UpdatedAt = &v
+	return s
+}
+
+type PtPTForTermBaseTermGroupsOutput struct {
+	_ struct{} `type:"structure"`
+
+	Acronym *string `type:"string" json:"acronym"`
+
+	ApplyMode *int32 `type:"int32" json:"applyMode"`
+
+	CaseSensitive *int64 `type:"int64" json:"caseSensitive"`
+
+	Content *string `type:"string" json:"content"`
+
+	CreateTime *string `type:"string" json:"createTime"`
+
+	CreatedAt *string `type:"string" json:"createdAt"`
+
+	Creator *CreatorForTermBaseTermGroupsOutput `locationName:"creator" type:"structure"`
+
+	Id *string `type:"string" json:"id"`
+
+	Lang *string `type:"string" json:"lang"`
+
+	Operator *CreatorForTermBaseTermGroupsOutput `locationName:"operator" type:"structure"`
+
+	PartOfSpeech *int32 `type:"int32" json:"partOfSpeech"`
+
+	TermBaseId *string `type:"string" json:"termBaseId"`
+
+	TermGroupId *string `type:"string" json:"termGroupId"`
+
+	UpdateTime *string `type:"string" json:"updateTime"`
+
+	UpdatedAt *string `type:"string" json:"updatedAt"`
+}
+
+// String returns the string representation
+func (s PtPTForTermBaseTermGroupsOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s PtPTForTermBaseTermGroupsOutput) GoString() string {
+	return s.String()
+}
+
+// SetAcronym sets the Acronym field's value.
+func (s *PtPTForTermBaseTermGroupsOutput) SetAcronym(v string) *PtPTForTermBaseTermGroupsOutput {
+	s.Acronym = &v
+	return s
+}
+
+// SetApplyMode sets the ApplyMode field's value.
+func (s *PtPTForTermBaseTermGroupsOutput) SetApplyMode(v int32) *PtPTForTermBaseTermGroupsOutput {
+	s.ApplyMode = &v
+	return s
+}
+
+// SetCaseSensitive sets the CaseSensitive field's value.
+func (s *PtPTForTermBaseTermGroupsOutput) SetCaseSensitive(v int64) *PtPTForTermBaseTermGroupsOutput {
+	s.CaseSensitive = &v
+	return s
+}
+
+// SetContent sets the Content field's value.
+func (s *PtPTForTermBaseTermGroupsOutput) SetContent(v string) *PtPTForTermBaseTermGroupsOutput {
+	s.Content = &v
+	return s
+}
+
+// SetCreateTime sets the CreateTime field's value.
+func (s *PtPTForTermBaseTermGroupsOutput) SetCreateTime(v string) *PtPTForTermBaseTermGroupsOutput {
+	s.CreateTime = &v
+	return s
+}
+
+// SetCreatedAt sets the CreatedAt field's value.
+func (s *PtPTForTermBaseTermGroupsOutput) SetCreatedAt(v string) *PtPTForTermBaseTermGroupsOutput {
+	s.CreatedAt = &v
+	return s
+}
+
+// SetCreator sets the Creator field's value.
+func (s *PtPTForTermBaseTermGroupsOutput) SetCreator(v *CreatorForTermBaseTermGroupsOutput) *PtPTForTermBaseTermGroupsOutput {
+	s.Creator = v
+	return s
+}
+
+// SetId sets the Id field's value.
+func (s *PtPTForTermBaseTermGroupsOutput) SetId(v string) *PtPTForTermBaseTermGroupsOutput {
+	s.Id = &v
+	return s
+}
+
+// SetLang sets the Lang field's value.
+func (s *PtPTForTermBaseTermGroupsOutput) SetLang(v string) *PtPTForTermBaseTermGroupsOutput {
+	s.Lang = &v
+	return s
+}
+
+// SetOperator sets the Operator field's value.
+func (s *PtPTForTermBaseTermGroupsOutput) SetOperator(v *CreatorForTermBaseTermGroupsOutput) *PtPTForTermBaseTermGroupsOutput {
+	s.Operator = v
+	return s
+}
+
+// SetPartOfSpeech sets the PartOfSpeech field's value.
+func (s *PtPTForTermBaseTermGroupsOutput) SetPartOfSpeech(v int32) *PtPTForTermBaseTermGroupsOutput {
+	s.PartOfSpeech = &v
+	return s
+}
+
+// SetTermBaseId sets the TermBaseId field's value.
+func (s *PtPTForTermBaseTermGroupsOutput) SetTermBaseId(v string) *PtPTForTermBaseTermGroupsOutput {
+	s.TermBaseId = &v
+	return s
+}
+
+// SetTermGroupId sets the TermGroupId field's value.
+func (s *PtPTForTermBaseTermGroupsOutput) SetTermGroupId(v string) *PtPTForTermBaseTermGroupsOutput {
+	s.TermGroupId = &v
+	return s
+}
+
+// SetUpdateTime sets the UpdateTime field's value.
+func (s *PtPTForTermBaseTermGroupsOutput) SetUpdateTime(v string) *PtPTForTermBaseTermGroupsOutput {
+	s.UpdateTime = &v
+	return s
+}
+
+// SetUpdatedAt sets the UpdatedAt field's value.
+func (s *PtPTForTermBaseTermGroupsOutput) SetUpdatedAt(v string) *PtPTForTermBaseTermGroupsOutput {
+	s.UpdatedAt = &v
+	return s
+}
+
 type RelatedTextProjectForTermBaseTermGroupsOutput struct {
 	_ struct{} `type:"structure"`
 
@@ -604,6 +8368,1212 @@ func (s *RelatedTextProjectForTermBaseTermGroupsOutput) SetId(v string) *Related
 // SetName sets the Name field's value.
 func (s *RelatedTextProjectForTermBaseTermGroupsOutput) SetName(v string) *RelatedTextProjectForTermBaseTermGroupsOutput {
 	s.Name = &v
+	return s
+}
+
+type RoForTermBaseTermGroupsOutput struct {
+	_ struct{} `type:"structure"`
+
+	Acronym *string `type:"string" json:"acronym"`
+
+	ApplyMode *int32 `type:"int32" json:"applyMode"`
+
+	CaseSensitive *int64 `type:"int64" json:"caseSensitive"`
+
+	Content *string `type:"string" json:"content"`
+
+	CreateTime *string `type:"string" json:"createTime"`
+
+	CreatedAt *string `type:"string" json:"createdAt"`
+
+	Creator *CreatorForTermBaseTermGroupsOutput `locationName:"creator" type:"structure"`
+
+	Id *string `type:"string" json:"id"`
+
+	Lang *string `type:"string" json:"lang"`
+
+	Operator *CreatorForTermBaseTermGroupsOutput `locationName:"operator" type:"structure"`
+
+	PartOfSpeech *int32 `type:"int32" json:"partOfSpeech"`
+
+	TermBaseId *string `type:"string" json:"termBaseId"`
+
+	TermGroupId *string `type:"string" json:"termGroupId"`
+
+	UpdateTime *string `type:"string" json:"updateTime"`
+
+	UpdatedAt *string `type:"string" json:"updatedAt"`
+}
+
+// String returns the string representation
+func (s RoForTermBaseTermGroupsOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s RoForTermBaseTermGroupsOutput) GoString() string {
+	return s.String()
+}
+
+// SetAcronym sets the Acronym field's value.
+func (s *RoForTermBaseTermGroupsOutput) SetAcronym(v string) *RoForTermBaseTermGroupsOutput {
+	s.Acronym = &v
+	return s
+}
+
+// SetApplyMode sets the ApplyMode field's value.
+func (s *RoForTermBaseTermGroupsOutput) SetApplyMode(v int32) *RoForTermBaseTermGroupsOutput {
+	s.ApplyMode = &v
+	return s
+}
+
+// SetCaseSensitive sets the CaseSensitive field's value.
+func (s *RoForTermBaseTermGroupsOutput) SetCaseSensitive(v int64) *RoForTermBaseTermGroupsOutput {
+	s.CaseSensitive = &v
+	return s
+}
+
+// SetContent sets the Content field's value.
+func (s *RoForTermBaseTermGroupsOutput) SetContent(v string) *RoForTermBaseTermGroupsOutput {
+	s.Content = &v
+	return s
+}
+
+// SetCreateTime sets the CreateTime field's value.
+func (s *RoForTermBaseTermGroupsOutput) SetCreateTime(v string) *RoForTermBaseTermGroupsOutput {
+	s.CreateTime = &v
+	return s
+}
+
+// SetCreatedAt sets the CreatedAt field's value.
+func (s *RoForTermBaseTermGroupsOutput) SetCreatedAt(v string) *RoForTermBaseTermGroupsOutput {
+	s.CreatedAt = &v
+	return s
+}
+
+// SetCreator sets the Creator field's value.
+func (s *RoForTermBaseTermGroupsOutput) SetCreator(v *CreatorForTermBaseTermGroupsOutput) *RoForTermBaseTermGroupsOutput {
+	s.Creator = v
+	return s
+}
+
+// SetId sets the Id field's value.
+func (s *RoForTermBaseTermGroupsOutput) SetId(v string) *RoForTermBaseTermGroupsOutput {
+	s.Id = &v
+	return s
+}
+
+// SetLang sets the Lang field's value.
+func (s *RoForTermBaseTermGroupsOutput) SetLang(v string) *RoForTermBaseTermGroupsOutput {
+	s.Lang = &v
+	return s
+}
+
+// SetOperator sets the Operator field's value.
+func (s *RoForTermBaseTermGroupsOutput) SetOperator(v *CreatorForTermBaseTermGroupsOutput) *RoForTermBaseTermGroupsOutput {
+	s.Operator = v
+	return s
+}
+
+// SetPartOfSpeech sets the PartOfSpeech field's value.
+func (s *RoForTermBaseTermGroupsOutput) SetPartOfSpeech(v int32) *RoForTermBaseTermGroupsOutput {
+	s.PartOfSpeech = &v
+	return s
+}
+
+// SetTermBaseId sets the TermBaseId field's value.
+func (s *RoForTermBaseTermGroupsOutput) SetTermBaseId(v string) *RoForTermBaseTermGroupsOutput {
+	s.TermBaseId = &v
+	return s
+}
+
+// SetTermGroupId sets the TermGroupId field's value.
+func (s *RoForTermBaseTermGroupsOutput) SetTermGroupId(v string) *RoForTermBaseTermGroupsOutput {
+	s.TermGroupId = &v
+	return s
+}
+
+// SetUpdateTime sets the UpdateTime field's value.
+func (s *RoForTermBaseTermGroupsOutput) SetUpdateTime(v string) *RoForTermBaseTermGroupsOutput {
+	s.UpdateTime = &v
+	return s
+}
+
+// SetUpdatedAt sets the UpdatedAt field's value.
+func (s *RoForTermBaseTermGroupsOutput) SetUpdatedAt(v string) *RoForTermBaseTermGroupsOutput {
+	s.UpdatedAt = &v
+	return s
+}
+
+type RuForTermBaseTermGroupsOutput struct {
+	_ struct{} `type:"structure"`
+
+	Acronym *string `type:"string" json:"acronym"`
+
+	ApplyMode *int32 `type:"int32" json:"applyMode"`
+
+	CaseSensitive *int64 `type:"int64" json:"caseSensitive"`
+
+	Content *string `type:"string" json:"content"`
+
+	CreateTime *string `type:"string" json:"createTime"`
+
+	CreatedAt *string `type:"string" json:"createdAt"`
+
+	Creator *CreatorForTermBaseTermGroupsOutput `locationName:"creator" type:"structure"`
+
+	Id *string `type:"string" json:"id"`
+
+	Lang *string `type:"string" json:"lang"`
+
+	Operator *CreatorForTermBaseTermGroupsOutput `locationName:"operator" type:"structure"`
+
+	PartOfSpeech *int32 `type:"int32" json:"partOfSpeech"`
+
+	TermBaseId *string `type:"string" json:"termBaseId"`
+
+	TermGroupId *string `type:"string" json:"termGroupId"`
+
+	UpdateTime *string `type:"string" json:"updateTime"`
+
+	UpdatedAt *string `type:"string" json:"updatedAt"`
+}
+
+// String returns the string representation
+func (s RuForTermBaseTermGroupsOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s RuForTermBaseTermGroupsOutput) GoString() string {
+	return s.String()
+}
+
+// SetAcronym sets the Acronym field's value.
+func (s *RuForTermBaseTermGroupsOutput) SetAcronym(v string) *RuForTermBaseTermGroupsOutput {
+	s.Acronym = &v
+	return s
+}
+
+// SetApplyMode sets the ApplyMode field's value.
+func (s *RuForTermBaseTermGroupsOutput) SetApplyMode(v int32) *RuForTermBaseTermGroupsOutput {
+	s.ApplyMode = &v
+	return s
+}
+
+// SetCaseSensitive sets the CaseSensitive field's value.
+func (s *RuForTermBaseTermGroupsOutput) SetCaseSensitive(v int64) *RuForTermBaseTermGroupsOutput {
+	s.CaseSensitive = &v
+	return s
+}
+
+// SetContent sets the Content field's value.
+func (s *RuForTermBaseTermGroupsOutput) SetContent(v string) *RuForTermBaseTermGroupsOutput {
+	s.Content = &v
+	return s
+}
+
+// SetCreateTime sets the CreateTime field's value.
+func (s *RuForTermBaseTermGroupsOutput) SetCreateTime(v string) *RuForTermBaseTermGroupsOutput {
+	s.CreateTime = &v
+	return s
+}
+
+// SetCreatedAt sets the CreatedAt field's value.
+func (s *RuForTermBaseTermGroupsOutput) SetCreatedAt(v string) *RuForTermBaseTermGroupsOutput {
+	s.CreatedAt = &v
+	return s
+}
+
+// SetCreator sets the Creator field's value.
+func (s *RuForTermBaseTermGroupsOutput) SetCreator(v *CreatorForTermBaseTermGroupsOutput) *RuForTermBaseTermGroupsOutput {
+	s.Creator = v
+	return s
+}
+
+// SetId sets the Id field's value.
+func (s *RuForTermBaseTermGroupsOutput) SetId(v string) *RuForTermBaseTermGroupsOutput {
+	s.Id = &v
+	return s
+}
+
+// SetLang sets the Lang field's value.
+func (s *RuForTermBaseTermGroupsOutput) SetLang(v string) *RuForTermBaseTermGroupsOutput {
+	s.Lang = &v
+	return s
+}
+
+// SetOperator sets the Operator field's value.
+func (s *RuForTermBaseTermGroupsOutput) SetOperator(v *CreatorForTermBaseTermGroupsOutput) *RuForTermBaseTermGroupsOutput {
+	s.Operator = v
+	return s
+}
+
+// SetPartOfSpeech sets the PartOfSpeech field's value.
+func (s *RuForTermBaseTermGroupsOutput) SetPartOfSpeech(v int32) *RuForTermBaseTermGroupsOutput {
+	s.PartOfSpeech = &v
+	return s
+}
+
+// SetTermBaseId sets the TermBaseId field's value.
+func (s *RuForTermBaseTermGroupsOutput) SetTermBaseId(v string) *RuForTermBaseTermGroupsOutput {
+	s.TermBaseId = &v
+	return s
+}
+
+// SetTermGroupId sets the TermGroupId field's value.
+func (s *RuForTermBaseTermGroupsOutput) SetTermGroupId(v string) *RuForTermBaseTermGroupsOutput {
+	s.TermGroupId = &v
+	return s
+}
+
+// SetUpdateTime sets the UpdateTime field's value.
+func (s *RuForTermBaseTermGroupsOutput) SetUpdateTime(v string) *RuForTermBaseTermGroupsOutput {
+	s.UpdateTime = &v
+	return s
+}
+
+// SetUpdatedAt sets the UpdatedAt field's value.
+func (s *RuForTermBaseTermGroupsOutput) SetUpdatedAt(v string) *RuForTermBaseTermGroupsOutput {
+	s.UpdatedAt = &v
+	return s
+}
+
+type RuRUForTermBaseTermGroupsOutput struct {
+	_ struct{} `type:"structure"`
+
+	Acronym *string `type:"string" json:"acronym"`
+
+	ApplyMode *int32 `type:"int32" json:"applyMode"`
+
+	CaseSensitive *int64 `type:"int64" json:"caseSensitive"`
+
+	Content *string `type:"string" json:"content"`
+
+	CreateTime *string `type:"string" json:"createTime"`
+
+	CreatedAt *string `type:"string" json:"createdAt"`
+
+	Creator *CreatorForTermBaseTermGroupsOutput `locationName:"creator" type:"structure"`
+
+	Id *string `type:"string" json:"id"`
+
+	Lang *string `type:"string" json:"lang"`
+
+	Operator *CreatorForTermBaseTermGroupsOutput `locationName:"operator" type:"structure"`
+
+	PartOfSpeech *int32 `type:"int32" json:"partOfSpeech"`
+
+	TermBaseId *string `type:"string" json:"termBaseId"`
+
+	TermGroupId *string `type:"string" json:"termGroupId"`
+
+	UpdateTime *string `type:"string" json:"updateTime"`
+
+	UpdatedAt *string `type:"string" json:"updatedAt"`
+}
+
+// String returns the string representation
+func (s RuRUForTermBaseTermGroupsOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s RuRUForTermBaseTermGroupsOutput) GoString() string {
+	return s.String()
+}
+
+// SetAcronym sets the Acronym field's value.
+func (s *RuRUForTermBaseTermGroupsOutput) SetAcronym(v string) *RuRUForTermBaseTermGroupsOutput {
+	s.Acronym = &v
+	return s
+}
+
+// SetApplyMode sets the ApplyMode field's value.
+func (s *RuRUForTermBaseTermGroupsOutput) SetApplyMode(v int32) *RuRUForTermBaseTermGroupsOutput {
+	s.ApplyMode = &v
+	return s
+}
+
+// SetCaseSensitive sets the CaseSensitive field's value.
+func (s *RuRUForTermBaseTermGroupsOutput) SetCaseSensitive(v int64) *RuRUForTermBaseTermGroupsOutput {
+	s.CaseSensitive = &v
+	return s
+}
+
+// SetContent sets the Content field's value.
+func (s *RuRUForTermBaseTermGroupsOutput) SetContent(v string) *RuRUForTermBaseTermGroupsOutput {
+	s.Content = &v
+	return s
+}
+
+// SetCreateTime sets the CreateTime field's value.
+func (s *RuRUForTermBaseTermGroupsOutput) SetCreateTime(v string) *RuRUForTermBaseTermGroupsOutput {
+	s.CreateTime = &v
+	return s
+}
+
+// SetCreatedAt sets the CreatedAt field's value.
+func (s *RuRUForTermBaseTermGroupsOutput) SetCreatedAt(v string) *RuRUForTermBaseTermGroupsOutput {
+	s.CreatedAt = &v
+	return s
+}
+
+// SetCreator sets the Creator field's value.
+func (s *RuRUForTermBaseTermGroupsOutput) SetCreator(v *CreatorForTermBaseTermGroupsOutput) *RuRUForTermBaseTermGroupsOutput {
+	s.Creator = v
+	return s
+}
+
+// SetId sets the Id field's value.
+func (s *RuRUForTermBaseTermGroupsOutput) SetId(v string) *RuRUForTermBaseTermGroupsOutput {
+	s.Id = &v
+	return s
+}
+
+// SetLang sets the Lang field's value.
+func (s *RuRUForTermBaseTermGroupsOutput) SetLang(v string) *RuRUForTermBaseTermGroupsOutput {
+	s.Lang = &v
+	return s
+}
+
+// SetOperator sets the Operator field's value.
+func (s *RuRUForTermBaseTermGroupsOutput) SetOperator(v *CreatorForTermBaseTermGroupsOutput) *RuRUForTermBaseTermGroupsOutput {
+	s.Operator = v
+	return s
+}
+
+// SetPartOfSpeech sets the PartOfSpeech field's value.
+func (s *RuRUForTermBaseTermGroupsOutput) SetPartOfSpeech(v int32) *RuRUForTermBaseTermGroupsOutput {
+	s.PartOfSpeech = &v
+	return s
+}
+
+// SetTermBaseId sets the TermBaseId field's value.
+func (s *RuRUForTermBaseTermGroupsOutput) SetTermBaseId(v string) *RuRUForTermBaseTermGroupsOutput {
+	s.TermBaseId = &v
+	return s
+}
+
+// SetTermGroupId sets the TermGroupId field's value.
+func (s *RuRUForTermBaseTermGroupsOutput) SetTermGroupId(v string) *RuRUForTermBaseTermGroupsOutput {
+	s.TermGroupId = &v
+	return s
+}
+
+// SetUpdateTime sets the UpdateTime field's value.
+func (s *RuRUForTermBaseTermGroupsOutput) SetUpdateTime(v string) *RuRUForTermBaseTermGroupsOutput {
+	s.UpdateTime = &v
+	return s
+}
+
+// SetUpdatedAt sets the UpdatedAt field's value.
+func (s *RuRUForTermBaseTermGroupsOutput) SetUpdatedAt(v string) *RuRUForTermBaseTermGroupsOutput {
+	s.UpdatedAt = &v
+	return s
+}
+
+type SkForTermBaseTermGroupsOutput struct {
+	_ struct{} `type:"structure"`
+
+	Acronym *string `type:"string" json:"acronym"`
+
+	ApplyMode *int32 `type:"int32" json:"applyMode"`
+
+	CaseSensitive *int64 `type:"int64" json:"caseSensitive"`
+
+	Content *string `type:"string" json:"content"`
+
+	CreateTime *string `type:"string" json:"createTime"`
+
+	CreatedAt *string `type:"string" json:"createdAt"`
+
+	Creator *CreatorForTermBaseTermGroupsOutput `locationName:"creator" type:"structure"`
+
+	Id *string `type:"string" json:"id"`
+
+	Lang *string `type:"string" json:"lang"`
+
+	Operator *CreatorForTermBaseTermGroupsOutput `locationName:"operator" type:"structure"`
+
+	PartOfSpeech *int32 `type:"int32" json:"partOfSpeech"`
+
+	TermBaseId *string `type:"string" json:"termBaseId"`
+
+	TermGroupId *string `type:"string" json:"termGroupId"`
+
+	UpdateTime *string `type:"string" json:"updateTime"`
+
+	UpdatedAt *string `type:"string" json:"updatedAt"`
+}
+
+// String returns the string representation
+func (s SkForTermBaseTermGroupsOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s SkForTermBaseTermGroupsOutput) GoString() string {
+	return s.String()
+}
+
+// SetAcronym sets the Acronym field's value.
+func (s *SkForTermBaseTermGroupsOutput) SetAcronym(v string) *SkForTermBaseTermGroupsOutput {
+	s.Acronym = &v
+	return s
+}
+
+// SetApplyMode sets the ApplyMode field's value.
+func (s *SkForTermBaseTermGroupsOutput) SetApplyMode(v int32) *SkForTermBaseTermGroupsOutput {
+	s.ApplyMode = &v
+	return s
+}
+
+// SetCaseSensitive sets the CaseSensitive field's value.
+func (s *SkForTermBaseTermGroupsOutput) SetCaseSensitive(v int64) *SkForTermBaseTermGroupsOutput {
+	s.CaseSensitive = &v
+	return s
+}
+
+// SetContent sets the Content field's value.
+func (s *SkForTermBaseTermGroupsOutput) SetContent(v string) *SkForTermBaseTermGroupsOutput {
+	s.Content = &v
+	return s
+}
+
+// SetCreateTime sets the CreateTime field's value.
+func (s *SkForTermBaseTermGroupsOutput) SetCreateTime(v string) *SkForTermBaseTermGroupsOutput {
+	s.CreateTime = &v
+	return s
+}
+
+// SetCreatedAt sets the CreatedAt field's value.
+func (s *SkForTermBaseTermGroupsOutput) SetCreatedAt(v string) *SkForTermBaseTermGroupsOutput {
+	s.CreatedAt = &v
+	return s
+}
+
+// SetCreator sets the Creator field's value.
+func (s *SkForTermBaseTermGroupsOutput) SetCreator(v *CreatorForTermBaseTermGroupsOutput) *SkForTermBaseTermGroupsOutput {
+	s.Creator = v
+	return s
+}
+
+// SetId sets the Id field's value.
+func (s *SkForTermBaseTermGroupsOutput) SetId(v string) *SkForTermBaseTermGroupsOutput {
+	s.Id = &v
+	return s
+}
+
+// SetLang sets the Lang field's value.
+func (s *SkForTermBaseTermGroupsOutput) SetLang(v string) *SkForTermBaseTermGroupsOutput {
+	s.Lang = &v
+	return s
+}
+
+// SetOperator sets the Operator field's value.
+func (s *SkForTermBaseTermGroupsOutput) SetOperator(v *CreatorForTermBaseTermGroupsOutput) *SkForTermBaseTermGroupsOutput {
+	s.Operator = v
+	return s
+}
+
+// SetPartOfSpeech sets the PartOfSpeech field's value.
+func (s *SkForTermBaseTermGroupsOutput) SetPartOfSpeech(v int32) *SkForTermBaseTermGroupsOutput {
+	s.PartOfSpeech = &v
+	return s
+}
+
+// SetTermBaseId sets the TermBaseId field's value.
+func (s *SkForTermBaseTermGroupsOutput) SetTermBaseId(v string) *SkForTermBaseTermGroupsOutput {
+	s.TermBaseId = &v
+	return s
+}
+
+// SetTermGroupId sets the TermGroupId field's value.
+func (s *SkForTermBaseTermGroupsOutput) SetTermGroupId(v string) *SkForTermBaseTermGroupsOutput {
+	s.TermGroupId = &v
+	return s
+}
+
+// SetUpdateTime sets the UpdateTime field's value.
+func (s *SkForTermBaseTermGroupsOutput) SetUpdateTime(v string) *SkForTermBaseTermGroupsOutput {
+	s.UpdateTime = &v
+	return s
+}
+
+// SetUpdatedAt sets the UpdatedAt field's value.
+func (s *SkForTermBaseTermGroupsOutput) SetUpdatedAt(v string) *SkForTermBaseTermGroupsOutput {
+	s.UpdatedAt = &v
+	return s
+}
+
+type SlForTermBaseTermGroupsOutput struct {
+	_ struct{} `type:"structure"`
+
+	Acronym *string `type:"string" json:"acronym"`
+
+	ApplyMode *int32 `type:"int32" json:"applyMode"`
+
+	CaseSensitive *int64 `type:"int64" json:"caseSensitive"`
+
+	Content *string `type:"string" json:"content"`
+
+	CreateTime *string `type:"string" json:"createTime"`
+
+	CreatedAt *string `type:"string" json:"createdAt"`
+
+	Creator *CreatorForTermBaseTermGroupsOutput `locationName:"creator" type:"structure"`
+
+	Id *string `type:"string" json:"id"`
+
+	Lang *string `type:"string" json:"lang"`
+
+	Operator *CreatorForTermBaseTermGroupsOutput `locationName:"operator" type:"structure"`
+
+	PartOfSpeech *int32 `type:"int32" json:"partOfSpeech"`
+
+	TermBaseId *string `type:"string" json:"termBaseId"`
+
+	TermGroupId *string `type:"string" json:"termGroupId"`
+
+	UpdateTime *string `type:"string" json:"updateTime"`
+
+	UpdatedAt *string `type:"string" json:"updatedAt"`
+}
+
+// String returns the string representation
+func (s SlForTermBaseTermGroupsOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s SlForTermBaseTermGroupsOutput) GoString() string {
+	return s.String()
+}
+
+// SetAcronym sets the Acronym field's value.
+func (s *SlForTermBaseTermGroupsOutput) SetAcronym(v string) *SlForTermBaseTermGroupsOutput {
+	s.Acronym = &v
+	return s
+}
+
+// SetApplyMode sets the ApplyMode field's value.
+func (s *SlForTermBaseTermGroupsOutput) SetApplyMode(v int32) *SlForTermBaseTermGroupsOutput {
+	s.ApplyMode = &v
+	return s
+}
+
+// SetCaseSensitive sets the CaseSensitive field's value.
+func (s *SlForTermBaseTermGroupsOutput) SetCaseSensitive(v int64) *SlForTermBaseTermGroupsOutput {
+	s.CaseSensitive = &v
+	return s
+}
+
+// SetContent sets the Content field's value.
+func (s *SlForTermBaseTermGroupsOutput) SetContent(v string) *SlForTermBaseTermGroupsOutput {
+	s.Content = &v
+	return s
+}
+
+// SetCreateTime sets the CreateTime field's value.
+func (s *SlForTermBaseTermGroupsOutput) SetCreateTime(v string) *SlForTermBaseTermGroupsOutput {
+	s.CreateTime = &v
+	return s
+}
+
+// SetCreatedAt sets the CreatedAt field's value.
+func (s *SlForTermBaseTermGroupsOutput) SetCreatedAt(v string) *SlForTermBaseTermGroupsOutput {
+	s.CreatedAt = &v
+	return s
+}
+
+// SetCreator sets the Creator field's value.
+func (s *SlForTermBaseTermGroupsOutput) SetCreator(v *CreatorForTermBaseTermGroupsOutput) *SlForTermBaseTermGroupsOutput {
+	s.Creator = v
+	return s
+}
+
+// SetId sets the Id field's value.
+func (s *SlForTermBaseTermGroupsOutput) SetId(v string) *SlForTermBaseTermGroupsOutput {
+	s.Id = &v
+	return s
+}
+
+// SetLang sets the Lang field's value.
+func (s *SlForTermBaseTermGroupsOutput) SetLang(v string) *SlForTermBaseTermGroupsOutput {
+	s.Lang = &v
+	return s
+}
+
+// SetOperator sets the Operator field's value.
+func (s *SlForTermBaseTermGroupsOutput) SetOperator(v *CreatorForTermBaseTermGroupsOutput) *SlForTermBaseTermGroupsOutput {
+	s.Operator = v
+	return s
+}
+
+// SetPartOfSpeech sets the PartOfSpeech field's value.
+func (s *SlForTermBaseTermGroupsOutput) SetPartOfSpeech(v int32) *SlForTermBaseTermGroupsOutput {
+	s.PartOfSpeech = &v
+	return s
+}
+
+// SetTermBaseId sets the TermBaseId field's value.
+func (s *SlForTermBaseTermGroupsOutput) SetTermBaseId(v string) *SlForTermBaseTermGroupsOutput {
+	s.TermBaseId = &v
+	return s
+}
+
+// SetTermGroupId sets the TermGroupId field's value.
+func (s *SlForTermBaseTermGroupsOutput) SetTermGroupId(v string) *SlForTermBaseTermGroupsOutput {
+	s.TermGroupId = &v
+	return s
+}
+
+// SetUpdateTime sets the UpdateTime field's value.
+func (s *SlForTermBaseTermGroupsOutput) SetUpdateTime(v string) *SlForTermBaseTermGroupsOutput {
+	s.UpdateTime = &v
+	return s
+}
+
+// SetUpdatedAt sets the UpdatedAt field's value.
+func (s *SlForTermBaseTermGroupsOutput) SetUpdatedAt(v string) *SlForTermBaseTermGroupsOutput {
+	s.UpdatedAt = &v
+	return s
+}
+
+type SourceForTermBaseTermGroupsOutput struct {
+	_ struct{} `type:"structure"`
+
+	Acronym *string `type:"string" json:"acronym"`
+
+	ApplyMode *int32 `type:"int32" json:"applyMode"`
+
+	CaseSensitive *int64 `type:"int64" json:"caseSensitive"`
+
+	Content *string `type:"string" json:"content"`
+
+	CreateTime *string `type:"string" json:"createTime"`
+
+	CreatedAt *string `type:"string" json:"createdAt"`
+
+	Creator *CreatorForTermBaseTermGroupsOutput `locationName:"creator" type:"structure"`
+
+	Id *string `type:"string" json:"id"`
+
+	Lang *string `type:"string" json:"lang"`
+
+	Operator *CreatorForTermBaseTermGroupsOutput `locationName:"operator" type:"structure"`
+
+	PartOfSpeech *int32 `type:"int32" json:"partOfSpeech"`
+
+	TermBaseId *string `type:"string" json:"termBaseId"`
+
+	TermGroupId *string `type:"string" json:"termGroupId"`
+
+	UpdateTime *string `type:"string" json:"updateTime"`
+
+	UpdatedAt *string `type:"string" json:"updatedAt"`
+}
+
+// String returns the string representation
+func (s SourceForTermBaseTermGroupsOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s SourceForTermBaseTermGroupsOutput) GoString() string {
+	return s.String()
+}
+
+// SetAcronym sets the Acronym field's value.
+func (s *SourceForTermBaseTermGroupsOutput) SetAcronym(v string) *SourceForTermBaseTermGroupsOutput {
+	s.Acronym = &v
+	return s
+}
+
+// SetApplyMode sets the ApplyMode field's value.
+func (s *SourceForTermBaseTermGroupsOutput) SetApplyMode(v int32) *SourceForTermBaseTermGroupsOutput {
+	s.ApplyMode = &v
+	return s
+}
+
+// SetCaseSensitive sets the CaseSensitive field's value.
+func (s *SourceForTermBaseTermGroupsOutput) SetCaseSensitive(v int64) *SourceForTermBaseTermGroupsOutput {
+	s.CaseSensitive = &v
+	return s
+}
+
+// SetContent sets the Content field's value.
+func (s *SourceForTermBaseTermGroupsOutput) SetContent(v string) *SourceForTermBaseTermGroupsOutput {
+	s.Content = &v
+	return s
+}
+
+// SetCreateTime sets the CreateTime field's value.
+func (s *SourceForTermBaseTermGroupsOutput) SetCreateTime(v string) *SourceForTermBaseTermGroupsOutput {
+	s.CreateTime = &v
+	return s
+}
+
+// SetCreatedAt sets the CreatedAt field's value.
+func (s *SourceForTermBaseTermGroupsOutput) SetCreatedAt(v string) *SourceForTermBaseTermGroupsOutput {
+	s.CreatedAt = &v
+	return s
+}
+
+// SetCreator sets the Creator field's value.
+func (s *SourceForTermBaseTermGroupsOutput) SetCreator(v *CreatorForTermBaseTermGroupsOutput) *SourceForTermBaseTermGroupsOutput {
+	s.Creator = v
+	return s
+}
+
+// SetId sets the Id field's value.
+func (s *SourceForTermBaseTermGroupsOutput) SetId(v string) *SourceForTermBaseTermGroupsOutput {
+	s.Id = &v
+	return s
+}
+
+// SetLang sets the Lang field's value.
+func (s *SourceForTermBaseTermGroupsOutput) SetLang(v string) *SourceForTermBaseTermGroupsOutput {
+	s.Lang = &v
+	return s
+}
+
+// SetOperator sets the Operator field's value.
+func (s *SourceForTermBaseTermGroupsOutput) SetOperator(v *CreatorForTermBaseTermGroupsOutput) *SourceForTermBaseTermGroupsOutput {
+	s.Operator = v
+	return s
+}
+
+// SetPartOfSpeech sets the PartOfSpeech field's value.
+func (s *SourceForTermBaseTermGroupsOutput) SetPartOfSpeech(v int32) *SourceForTermBaseTermGroupsOutput {
+	s.PartOfSpeech = &v
+	return s
+}
+
+// SetTermBaseId sets the TermBaseId field's value.
+func (s *SourceForTermBaseTermGroupsOutput) SetTermBaseId(v string) *SourceForTermBaseTermGroupsOutput {
+	s.TermBaseId = &v
+	return s
+}
+
+// SetTermGroupId sets the TermGroupId field's value.
+func (s *SourceForTermBaseTermGroupsOutput) SetTermGroupId(v string) *SourceForTermBaseTermGroupsOutput {
+	s.TermGroupId = &v
+	return s
+}
+
+// SetUpdateTime sets the UpdateTime field's value.
+func (s *SourceForTermBaseTermGroupsOutput) SetUpdateTime(v string) *SourceForTermBaseTermGroupsOutput {
+	s.UpdateTime = &v
+	return s
+}
+
+// SetUpdatedAt sets the UpdatedAt field's value.
+func (s *SourceForTermBaseTermGroupsOutput) SetUpdatedAt(v string) *SourceForTermBaseTermGroupsOutput {
+	s.UpdatedAt = &v
+	return s
+}
+
+type SrForTermBaseTermGroupsOutput struct {
+	_ struct{} `type:"structure"`
+
+	Acronym *string `type:"string" json:"acronym"`
+
+	ApplyMode *int32 `type:"int32" json:"applyMode"`
+
+	CaseSensitive *int64 `type:"int64" json:"caseSensitive"`
+
+	Content *string `type:"string" json:"content"`
+
+	CreateTime *string `type:"string" json:"createTime"`
+
+	CreatedAt *string `type:"string" json:"createdAt"`
+
+	Creator *CreatorForTermBaseTermGroupsOutput `locationName:"creator" type:"structure"`
+
+	Id *string `type:"string" json:"id"`
+
+	Lang *string `type:"string" json:"lang"`
+
+	Operator *CreatorForTermBaseTermGroupsOutput `locationName:"operator" type:"structure"`
+
+	PartOfSpeech *int32 `type:"int32" json:"partOfSpeech"`
+
+	TermBaseId *string `type:"string" json:"termBaseId"`
+
+	TermGroupId *string `type:"string" json:"termGroupId"`
+
+	UpdateTime *string `type:"string" json:"updateTime"`
+
+	UpdatedAt *string `type:"string" json:"updatedAt"`
+}
+
+// String returns the string representation
+func (s SrForTermBaseTermGroupsOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s SrForTermBaseTermGroupsOutput) GoString() string {
+	return s.String()
+}
+
+// SetAcronym sets the Acronym field's value.
+func (s *SrForTermBaseTermGroupsOutput) SetAcronym(v string) *SrForTermBaseTermGroupsOutput {
+	s.Acronym = &v
+	return s
+}
+
+// SetApplyMode sets the ApplyMode field's value.
+func (s *SrForTermBaseTermGroupsOutput) SetApplyMode(v int32) *SrForTermBaseTermGroupsOutput {
+	s.ApplyMode = &v
+	return s
+}
+
+// SetCaseSensitive sets the CaseSensitive field's value.
+func (s *SrForTermBaseTermGroupsOutput) SetCaseSensitive(v int64) *SrForTermBaseTermGroupsOutput {
+	s.CaseSensitive = &v
+	return s
+}
+
+// SetContent sets the Content field's value.
+func (s *SrForTermBaseTermGroupsOutput) SetContent(v string) *SrForTermBaseTermGroupsOutput {
+	s.Content = &v
+	return s
+}
+
+// SetCreateTime sets the CreateTime field's value.
+func (s *SrForTermBaseTermGroupsOutput) SetCreateTime(v string) *SrForTermBaseTermGroupsOutput {
+	s.CreateTime = &v
+	return s
+}
+
+// SetCreatedAt sets the CreatedAt field's value.
+func (s *SrForTermBaseTermGroupsOutput) SetCreatedAt(v string) *SrForTermBaseTermGroupsOutput {
+	s.CreatedAt = &v
+	return s
+}
+
+// SetCreator sets the Creator field's value.
+func (s *SrForTermBaseTermGroupsOutput) SetCreator(v *CreatorForTermBaseTermGroupsOutput) *SrForTermBaseTermGroupsOutput {
+	s.Creator = v
+	return s
+}
+
+// SetId sets the Id field's value.
+func (s *SrForTermBaseTermGroupsOutput) SetId(v string) *SrForTermBaseTermGroupsOutput {
+	s.Id = &v
+	return s
+}
+
+// SetLang sets the Lang field's value.
+func (s *SrForTermBaseTermGroupsOutput) SetLang(v string) *SrForTermBaseTermGroupsOutput {
+	s.Lang = &v
+	return s
+}
+
+// SetOperator sets the Operator field's value.
+func (s *SrForTermBaseTermGroupsOutput) SetOperator(v *CreatorForTermBaseTermGroupsOutput) *SrForTermBaseTermGroupsOutput {
+	s.Operator = v
+	return s
+}
+
+// SetPartOfSpeech sets the PartOfSpeech field's value.
+func (s *SrForTermBaseTermGroupsOutput) SetPartOfSpeech(v int32) *SrForTermBaseTermGroupsOutput {
+	s.PartOfSpeech = &v
+	return s
+}
+
+// SetTermBaseId sets the TermBaseId field's value.
+func (s *SrForTermBaseTermGroupsOutput) SetTermBaseId(v string) *SrForTermBaseTermGroupsOutput {
+	s.TermBaseId = &v
+	return s
+}
+
+// SetTermGroupId sets the TermGroupId field's value.
+func (s *SrForTermBaseTermGroupsOutput) SetTermGroupId(v string) *SrForTermBaseTermGroupsOutput {
+	s.TermGroupId = &v
+	return s
+}
+
+// SetUpdateTime sets the UpdateTime field's value.
+func (s *SrForTermBaseTermGroupsOutput) SetUpdateTime(v string) *SrForTermBaseTermGroupsOutput {
+	s.UpdateTime = &v
+	return s
+}
+
+// SetUpdatedAt sets the UpdatedAt field's value.
+func (s *SrForTermBaseTermGroupsOutput) SetUpdatedAt(v string) *SrForTermBaseTermGroupsOutput {
+	s.UpdatedAt = &v
+	return s
+}
+
+type SvForTermBaseTermGroupsOutput struct {
+	_ struct{} `type:"structure"`
+
+	Acronym *string `type:"string" json:"acronym"`
+
+	ApplyMode *int32 `type:"int32" json:"applyMode"`
+
+	CaseSensitive *int64 `type:"int64" json:"caseSensitive"`
+
+	Content *string `type:"string" json:"content"`
+
+	CreateTime *string `type:"string" json:"createTime"`
+
+	CreatedAt *string `type:"string" json:"createdAt"`
+
+	Creator *CreatorForTermBaseTermGroupsOutput `locationName:"creator" type:"structure"`
+
+	Id *string `type:"string" json:"id"`
+
+	Lang *string `type:"string" json:"lang"`
+
+	Operator *CreatorForTermBaseTermGroupsOutput `locationName:"operator" type:"structure"`
+
+	PartOfSpeech *int32 `type:"int32" json:"partOfSpeech"`
+
+	TermBaseId *string `type:"string" json:"termBaseId"`
+
+	TermGroupId *string `type:"string" json:"termGroupId"`
+
+	UpdateTime *string `type:"string" json:"updateTime"`
+
+	UpdatedAt *string `type:"string" json:"updatedAt"`
+}
+
+// String returns the string representation
+func (s SvForTermBaseTermGroupsOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s SvForTermBaseTermGroupsOutput) GoString() string {
+	return s.String()
+}
+
+// SetAcronym sets the Acronym field's value.
+func (s *SvForTermBaseTermGroupsOutput) SetAcronym(v string) *SvForTermBaseTermGroupsOutput {
+	s.Acronym = &v
+	return s
+}
+
+// SetApplyMode sets the ApplyMode field's value.
+func (s *SvForTermBaseTermGroupsOutput) SetApplyMode(v int32) *SvForTermBaseTermGroupsOutput {
+	s.ApplyMode = &v
+	return s
+}
+
+// SetCaseSensitive sets the CaseSensitive field's value.
+func (s *SvForTermBaseTermGroupsOutput) SetCaseSensitive(v int64) *SvForTermBaseTermGroupsOutput {
+	s.CaseSensitive = &v
+	return s
+}
+
+// SetContent sets the Content field's value.
+func (s *SvForTermBaseTermGroupsOutput) SetContent(v string) *SvForTermBaseTermGroupsOutput {
+	s.Content = &v
+	return s
+}
+
+// SetCreateTime sets the CreateTime field's value.
+func (s *SvForTermBaseTermGroupsOutput) SetCreateTime(v string) *SvForTermBaseTermGroupsOutput {
+	s.CreateTime = &v
+	return s
+}
+
+// SetCreatedAt sets the CreatedAt field's value.
+func (s *SvForTermBaseTermGroupsOutput) SetCreatedAt(v string) *SvForTermBaseTermGroupsOutput {
+	s.CreatedAt = &v
+	return s
+}
+
+// SetCreator sets the Creator field's value.
+func (s *SvForTermBaseTermGroupsOutput) SetCreator(v *CreatorForTermBaseTermGroupsOutput) *SvForTermBaseTermGroupsOutput {
+	s.Creator = v
+	return s
+}
+
+// SetId sets the Id field's value.
+func (s *SvForTermBaseTermGroupsOutput) SetId(v string) *SvForTermBaseTermGroupsOutput {
+	s.Id = &v
+	return s
+}
+
+// SetLang sets the Lang field's value.
+func (s *SvForTermBaseTermGroupsOutput) SetLang(v string) *SvForTermBaseTermGroupsOutput {
+	s.Lang = &v
+	return s
+}
+
+// SetOperator sets the Operator field's value.
+func (s *SvForTermBaseTermGroupsOutput) SetOperator(v *CreatorForTermBaseTermGroupsOutput) *SvForTermBaseTermGroupsOutput {
+	s.Operator = v
+	return s
+}
+
+// SetPartOfSpeech sets the PartOfSpeech field's value.
+func (s *SvForTermBaseTermGroupsOutput) SetPartOfSpeech(v int32) *SvForTermBaseTermGroupsOutput {
+	s.PartOfSpeech = &v
+	return s
+}
+
+// SetTermBaseId sets the TermBaseId field's value.
+func (s *SvForTermBaseTermGroupsOutput) SetTermBaseId(v string) *SvForTermBaseTermGroupsOutput {
+	s.TermBaseId = &v
+	return s
+}
+
+// SetTermGroupId sets the TermGroupId field's value.
+func (s *SvForTermBaseTermGroupsOutput) SetTermGroupId(v string) *SvForTermBaseTermGroupsOutput {
+	s.TermGroupId = &v
+	return s
+}
+
+// SetUpdateTime sets the UpdateTime field's value.
+func (s *SvForTermBaseTermGroupsOutput) SetUpdateTime(v string) *SvForTermBaseTermGroupsOutput {
+	s.UpdateTime = &v
+	return s
+}
+
+// SetUpdatedAt sets the UpdatedAt field's value.
+func (s *SvForTermBaseTermGroupsOutput) SetUpdatedAt(v string) *SvForTermBaseTermGroupsOutput {
+	s.UpdatedAt = &v
+	return s
+}
+
+type TaForTermBaseTermGroupsOutput struct {
+	_ struct{} `type:"structure"`
+
+	Acronym *string `type:"string" json:"acronym"`
+
+	ApplyMode *int32 `type:"int32" json:"applyMode"`
+
+	CaseSensitive *int64 `type:"int64" json:"caseSensitive"`
+
+	Content *string `type:"string" json:"content"`
+
+	CreateTime *string `type:"string" json:"createTime"`
+
+	CreatedAt *string `type:"string" json:"createdAt"`
+
+	Creator *CreatorForTermBaseTermGroupsOutput `locationName:"creator" type:"structure"`
+
+	Id *string `type:"string" json:"id"`
+
+	Lang *string `type:"string" json:"lang"`
+
+	Operator *CreatorForTermBaseTermGroupsOutput `locationName:"operator" type:"structure"`
+
+	PartOfSpeech *int32 `type:"int32" json:"partOfSpeech"`
+
+	TermBaseId *string `type:"string" json:"termBaseId"`
+
+	TermGroupId *string `type:"string" json:"termGroupId"`
+
+	UpdateTime *string `type:"string" json:"updateTime"`
+
+	UpdatedAt *string `type:"string" json:"updatedAt"`
+}
+
+// String returns the string representation
+func (s TaForTermBaseTermGroupsOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TaForTermBaseTermGroupsOutput) GoString() string {
+	return s.String()
+}
+
+// SetAcronym sets the Acronym field's value.
+func (s *TaForTermBaseTermGroupsOutput) SetAcronym(v string) *TaForTermBaseTermGroupsOutput {
+	s.Acronym = &v
+	return s
+}
+
+// SetApplyMode sets the ApplyMode field's value.
+func (s *TaForTermBaseTermGroupsOutput) SetApplyMode(v int32) *TaForTermBaseTermGroupsOutput {
+	s.ApplyMode = &v
+	return s
+}
+
+// SetCaseSensitive sets the CaseSensitive field's value.
+func (s *TaForTermBaseTermGroupsOutput) SetCaseSensitive(v int64) *TaForTermBaseTermGroupsOutput {
+	s.CaseSensitive = &v
+	return s
+}
+
+// SetContent sets the Content field's value.
+func (s *TaForTermBaseTermGroupsOutput) SetContent(v string) *TaForTermBaseTermGroupsOutput {
+	s.Content = &v
+	return s
+}
+
+// SetCreateTime sets the CreateTime field's value.
+func (s *TaForTermBaseTermGroupsOutput) SetCreateTime(v string) *TaForTermBaseTermGroupsOutput {
+	s.CreateTime = &v
+	return s
+}
+
+// SetCreatedAt sets the CreatedAt field's value.
+func (s *TaForTermBaseTermGroupsOutput) SetCreatedAt(v string) *TaForTermBaseTermGroupsOutput {
+	s.CreatedAt = &v
+	return s
+}
+
+// SetCreator sets the Creator field's value.
+func (s *TaForTermBaseTermGroupsOutput) SetCreator(v *CreatorForTermBaseTermGroupsOutput) *TaForTermBaseTermGroupsOutput {
+	s.Creator = v
+	return s
+}
+
+// SetId sets the Id field's value.
+func (s *TaForTermBaseTermGroupsOutput) SetId(v string) *TaForTermBaseTermGroupsOutput {
+	s.Id = &v
+	return s
+}
+
+// SetLang sets the Lang field's value.
+func (s *TaForTermBaseTermGroupsOutput) SetLang(v string) *TaForTermBaseTermGroupsOutput {
+	s.Lang = &v
+	return s
+}
+
+// SetOperator sets the Operator field's value.
+func (s *TaForTermBaseTermGroupsOutput) SetOperator(v *CreatorForTermBaseTermGroupsOutput) *TaForTermBaseTermGroupsOutput {
+	s.Operator = v
+	return s
+}
+
+// SetPartOfSpeech sets the PartOfSpeech field's value.
+func (s *TaForTermBaseTermGroupsOutput) SetPartOfSpeech(v int32) *TaForTermBaseTermGroupsOutput {
+	s.PartOfSpeech = &v
+	return s
+}
+
+// SetTermBaseId sets the TermBaseId field's value.
+func (s *TaForTermBaseTermGroupsOutput) SetTermBaseId(v string) *TaForTermBaseTermGroupsOutput {
+	s.TermBaseId = &v
+	return s
+}
+
+// SetTermGroupId sets the TermGroupId field's value.
+func (s *TaForTermBaseTermGroupsOutput) SetTermGroupId(v string) *TaForTermBaseTermGroupsOutput {
+	s.TermGroupId = &v
+	return s
+}
+
+// SetUpdateTime sets the UpdateTime field's value.
+func (s *TaForTermBaseTermGroupsOutput) SetUpdateTime(v string) *TaForTermBaseTermGroupsOutput {
+	s.UpdateTime = &v
+	return s
+}
+
+// SetUpdatedAt sets the UpdatedAt field's value.
+func (s *TaForTermBaseTermGroupsOutput) SetUpdatedAt(v string) *TaForTermBaseTermGroupsOutput {
+	s.UpdatedAt = &v
 	return s
 }
 
@@ -658,6 +9628,274 @@ func (s *TagForTermBaseTermGroupsOutput) SetTag(v string) *TagForTermBaseTermGro
 // SetTermBaseId sets the TermBaseId field's value.
 func (s *TagForTermBaseTermGroupsOutput) SetTermBaseId(v string) *TagForTermBaseTermGroupsOutput {
 	s.TermBaseId = &v
+	return s
+}
+
+type TargetForTermBaseTermGroupsOutput struct {
+	_ struct{} `type:"structure"`
+
+	Acronym *string `type:"string" json:"acronym"`
+
+	ApplyMode *int32 `type:"int32" json:"applyMode"`
+
+	CaseSensitive *int64 `type:"int64" json:"caseSensitive"`
+
+	Content *string `type:"string" json:"content"`
+
+	CreateTime *string `type:"string" json:"createTime"`
+
+	CreatedAt *string `type:"string" json:"createdAt"`
+
+	Creator *CreatorForTermBaseTermGroupsOutput `locationName:"creator" type:"structure"`
+
+	Id *string `type:"string" json:"id"`
+
+	Lang *string `type:"string" json:"lang"`
+
+	Operator *CreatorForTermBaseTermGroupsOutput `locationName:"operator" type:"structure"`
+
+	PartOfSpeech *int32 `type:"int32" json:"partOfSpeech"`
+
+	TermBaseId *string `type:"string" json:"termBaseId"`
+
+	TermGroupId *string `type:"string" json:"termGroupId"`
+
+	UpdateTime *string `type:"string" json:"updateTime"`
+
+	UpdatedAt *string `type:"string" json:"updatedAt"`
+}
+
+// String returns the string representation
+func (s TargetForTermBaseTermGroupsOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TargetForTermBaseTermGroupsOutput) GoString() string {
+	return s.String()
+}
+
+// SetAcronym sets the Acronym field's value.
+func (s *TargetForTermBaseTermGroupsOutput) SetAcronym(v string) *TargetForTermBaseTermGroupsOutput {
+	s.Acronym = &v
+	return s
+}
+
+// SetApplyMode sets the ApplyMode field's value.
+func (s *TargetForTermBaseTermGroupsOutput) SetApplyMode(v int32) *TargetForTermBaseTermGroupsOutput {
+	s.ApplyMode = &v
+	return s
+}
+
+// SetCaseSensitive sets the CaseSensitive field's value.
+func (s *TargetForTermBaseTermGroupsOutput) SetCaseSensitive(v int64) *TargetForTermBaseTermGroupsOutput {
+	s.CaseSensitive = &v
+	return s
+}
+
+// SetContent sets the Content field's value.
+func (s *TargetForTermBaseTermGroupsOutput) SetContent(v string) *TargetForTermBaseTermGroupsOutput {
+	s.Content = &v
+	return s
+}
+
+// SetCreateTime sets the CreateTime field's value.
+func (s *TargetForTermBaseTermGroupsOutput) SetCreateTime(v string) *TargetForTermBaseTermGroupsOutput {
+	s.CreateTime = &v
+	return s
+}
+
+// SetCreatedAt sets the CreatedAt field's value.
+func (s *TargetForTermBaseTermGroupsOutput) SetCreatedAt(v string) *TargetForTermBaseTermGroupsOutput {
+	s.CreatedAt = &v
+	return s
+}
+
+// SetCreator sets the Creator field's value.
+func (s *TargetForTermBaseTermGroupsOutput) SetCreator(v *CreatorForTermBaseTermGroupsOutput) *TargetForTermBaseTermGroupsOutput {
+	s.Creator = v
+	return s
+}
+
+// SetId sets the Id field's value.
+func (s *TargetForTermBaseTermGroupsOutput) SetId(v string) *TargetForTermBaseTermGroupsOutput {
+	s.Id = &v
+	return s
+}
+
+// SetLang sets the Lang field's value.
+func (s *TargetForTermBaseTermGroupsOutput) SetLang(v string) *TargetForTermBaseTermGroupsOutput {
+	s.Lang = &v
+	return s
+}
+
+// SetOperator sets the Operator field's value.
+func (s *TargetForTermBaseTermGroupsOutput) SetOperator(v *CreatorForTermBaseTermGroupsOutput) *TargetForTermBaseTermGroupsOutput {
+	s.Operator = v
+	return s
+}
+
+// SetPartOfSpeech sets the PartOfSpeech field's value.
+func (s *TargetForTermBaseTermGroupsOutput) SetPartOfSpeech(v int32) *TargetForTermBaseTermGroupsOutput {
+	s.PartOfSpeech = &v
+	return s
+}
+
+// SetTermBaseId sets the TermBaseId field's value.
+func (s *TargetForTermBaseTermGroupsOutput) SetTermBaseId(v string) *TargetForTermBaseTermGroupsOutput {
+	s.TermBaseId = &v
+	return s
+}
+
+// SetTermGroupId sets the TermGroupId field's value.
+func (s *TargetForTermBaseTermGroupsOutput) SetTermGroupId(v string) *TargetForTermBaseTermGroupsOutput {
+	s.TermGroupId = &v
+	return s
+}
+
+// SetUpdateTime sets the UpdateTime field's value.
+func (s *TargetForTermBaseTermGroupsOutput) SetUpdateTime(v string) *TargetForTermBaseTermGroupsOutput {
+	s.UpdateTime = &v
+	return s
+}
+
+// SetUpdatedAt sets the UpdatedAt field's value.
+func (s *TargetForTermBaseTermGroupsOutput) SetUpdatedAt(v string) *TargetForTermBaseTermGroupsOutput {
+	s.UpdatedAt = &v
+	return s
+}
+
+type TeForTermBaseTermGroupsOutput struct {
+	_ struct{} `type:"structure"`
+
+	Acronym *string `type:"string" json:"acronym"`
+
+	ApplyMode *int32 `type:"int32" json:"applyMode"`
+
+	CaseSensitive *int64 `type:"int64" json:"caseSensitive"`
+
+	Content *string `type:"string" json:"content"`
+
+	CreateTime *string `type:"string" json:"createTime"`
+
+	CreatedAt *string `type:"string" json:"createdAt"`
+
+	Creator *CreatorForTermBaseTermGroupsOutput `locationName:"creator" type:"structure"`
+
+	Id *string `type:"string" json:"id"`
+
+	Lang *string `type:"string" json:"lang"`
+
+	Operator *CreatorForTermBaseTermGroupsOutput `locationName:"operator" type:"structure"`
+
+	PartOfSpeech *int32 `type:"int32" json:"partOfSpeech"`
+
+	TermBaseId *string `type:"string" json:"termBaseId"`
+
+	TermGroupId *string `type:"string" json:"termGroupId"`
+
+	UpdateTime *string `type:"string" json:"updateTime"`
+
+	UpdatedAt *string `type:"string" json:"updatedAt"`
+}
+
+// String returns the string representation
+func (s TeForTermBaseTermGroupsOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TeForTermBaseTermGroupsOutput) GoString() string {
+	return s.String()
+}
+
+// SetAcronym sets the Acronym field's value.
+func (s *TeForTermBaseTermGroupsOutput) SetAcronym(v string) *TeForTermBaseTermGroupsOutput {
+	s.Acronym = &v
+	return s
+}
+
+// SetApplyMode sets the ApplyMode field's value.
+func (s *TeForTermBaseTermGroupsOutput) SetApplyMode(v int32) *TeForTermBaseTermGroupsOutput {
+	s.ApplyMode = &v
+	return s
+}
+
+// SetCaseSensitive sets the CaseSensitive field's value.
+func (s *TeForTermBaseTermGroupsOutput) SetCaseSensitive(v int64) *TeForTermBaseTermGroupsOutput {
+	s.CaseSensitive = &v
+	return s
+}
+
+// SetContent sets the Content field's value.
+func (s *TeForTermBaseTermGroupsOutput) SetContent(v string) *TeForTermBaseTermGroupsOutput {
+	s.Content = &v
+	return s
+}
+
+// SetCreateTime sets the CreateTime field's value.
+func (s *TeForTermBaseTermGroupsOutput) SetCreateTime(v string) *TeForTermBaseTermGroupsOutput {
+	s.CreateTime = &v
+	return s
+}
+
+// SetCreatedAt sets the CreatedAt field's value.
+func (s *TeForTermBaseTermGroupsOutput) SetCreatedAt(v string) *TeForTermBaseTermGroupsOutput {
+	s.CreatedAt = &v
+	return s
+}
+
+// SetCreator sets the Creator field's value.
+func (s *TeForTermBaseTermGroupsOutput) SetCreator(v *CreatorForTermBaseTermGroupsOutput) *TeForTermBaseTermGroupsOutput {
+	s.Creator = v
+	return s
+}
+
+// SetId sets the Id field's value.
+func (s *TeForTermBaseTermGroupsOutput) SetId(v string) *TeForTermBaseTermGroupsOutput {
+	s.Id = &v
+	return s
+}
+
+// SetLang sets the Lang field's value.
+func (s *TeForTermBaseTermGroupsOutput) SetLang(v string) *TeForTermBaseTermGroupsOutput {
+	s.Lang = &v
+	return s
+}
+
+// SetOperator sets the Operator field's value.
+func (s *TeForTermBaseTermGroupsOutput) SetOperator(v *CreatorForTermBaseTermGroupsOutput) *TeForTermBaseTermGroupsOutput {
+	s.Operator = v
+	return s
+}
+
+// SetPartOfSpeech sets the PartOfSpeech field's value.
+func (s *TeForTermBaseTermGroupsOutput) SetPartOfSpeech(v int32) *TeForTermBaseTermGroupsOutput {
+	s.PartOfSpeech = &v
+	return s
+}
+
+// SetTermBaseId sets the TermBaseId field's value.
+func (s *TeForTermBaseTermGroupsOutput) SetTermBaseId(v string) *TeForTermBaseTermGroupsOutput {
+	s.TermBaseId = &v
+	return s
+}
+
+// SetTermGroupId sets the TermGroupId field's value.
+func (s *TeForTermBaseTermGroupsOutput) SetTermGroupId(v string) *TeForTermBaseTermGroupsOutput {
+	s.TermGroupId = &v
+	return s
+}
+
+// SetUpdateTime sets the UpdateTime field's value.
+func (s *TeForTermBaseTermGroupsOutput) SetUpdateTime(v string) *TeForTermBaseTermGroupsOutput {
+	s.UpdateTime = &v
+	return s
+}
+
+// SetUpdatedAt sets the UpdatedAt field's value.
+func (s *TeForTermBaseTermGroupsOutput) SetUpdatedAt(v string) *TeForTermBaseTermGroupsOutput {
+	s.UpdatedAt = &v
 	return s
 }
 
@@ -798,5 +10036,2149 @@ func (s *TermBaseTermGroupsOutput) SetPagination(v *PaginationForTermBaseTermGro
 // SetTotal sets the Total field's value.
 func (s *TermBaseTermGroupsOutput) SetTotal(v int32) *TermBaseTermGroupsOutput {
 	s.Total = &v
+	return s
+}
+
+type ThForTermBaseTermGroupsOutput struct {
+	_ struct{} `type:"structure"`
+
+	Acronym *string `type:"string" json:"acronym"`
+
+	ApplyMode *int32 `type:"int32" json:"applyMode"`
+
+	CaseSensitive *int64 `type:"int64" json:"caseSensitive"`
+
+	Content *string `type:"string" json:"content"`
+
+	CreateTime *string `type:"string" json:"createTime"`
+
+	CreatedAt *string `type:"string" json:"createdAt"`
+
+	Creator *CreatorForTermBaseTermGroupsOutput `locationName:"creator" type:"structure"`
+
+	Id *string `type:"string" json:"id"`
+
+	Lang *string `type:"string" json:"lang"`
+
+	Operator *CreatorForTermBaseTermGroupsOutput `locationName:"operator" type:"structure"`
+
+	PartOfSpeech *int32 `type:"int32" json:"partOfSpeech"`
+
+	TermBaseId *string `type:"string" json:"termBaseId"`
+
+	TermGroupId *string `type:"string" json:"termGroupId"`
+
+	UpdateTime *string `type:"string" json:"updateTime"`
+
+	UpdatedAt *string `type:"string" json:"updatedAt"`
+}
+
+// String returns the string representation
+func (s ThForTermBaseTermGroupsOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ThForTermBaseTermGroupsOutput) GoString() string {
+	return s.String()
+}
+
+// SetAcronym sets the Acronym field's value.
+func (s *ThForTermBaseTermGroupsOutput) SetAcronym(v string) *ThForTermBaseTermGroupsOutput {
+	s.Acronym = &v
+	return s
+}
+
+// SetApplyMode sets the ApplyMode field's value.
+func (s *ThForTermBaseTermGroupsOutput) SetApplyMode(v int32) *ThForTermBaseTermGroupsOutput {
+	s.ApplyMode = &v
+	return s
+}
+
+// SetCaseSensitive sets the CaseSensitive field's value.
+func (s *ThForTermBaseTermGroupsOutput) SetCaseSensitive(v int64) *ThForTermBaseTermGroupsOutput {
+	s.CaseSensitive = &v
+	return s
+}
+
+// SetContent sets the Content field's value.
+func (s *ThForTermBaseTermGroupsOutput) SetContent(v string) *ThForTermBaseTermGroupsOutput {
+	s.Content = &v
+	return s
+}
+
+// SetCreateTime sets the CreateTime field's value.
+func (s *ThForTermBaseTermGroupsOutput) SetCreateTime(v string) *ThForTermBaseTermGroupsOutput {
+	s.CreateTime = &v
+	return s
+}
+
+// SetCreatedAt sets the CreatedAt field's value.
+func (s *ThForTermBaseTermGroupsOutput) SetCreatedAt(v string) *ThForTermBaseTermGroupsOutput {
+	s.CreatedAt = &v
+	return s
+}
+
+// SetCreator sets the Creator field's value.
+func (s *ThForTermBaseTermGroupsOutput) SetCreator(v *CreatorForTermBaseTermGroupsOutput) *ThForTermBaseTermGroupsOutput {
+	s.Creator = v
+	return s
+}
+
+// SetId sets the Id field's value.
+func (s *ThForTermBaseTermGroupsOutput) SetId(v string) *ThForTermBaseTermGroupsOutput {
+	s.Id = &v
+	return s
+}
+
+// SetLang sets the Lang field's value.
+func (s *ThForTermBaseTermGroupsOutput) SetLang(v string) *ThForTermBaseTermGroupsOutput {
+	s.Lang = &v
+	return s
+}
+
+// SetOperator sets the Operator field's value.
+func (s *ThForTermBaseTermGroupsOutput) SetOperator(v *CreatorForTermBaseTermGroupsOutput) *ThForTermBaseTermGroupsOutput {
+	s.Operator = v
+	return s
+}
+
+// SetPartOfSpeech sets the PartOfSpeech field's value.
+func (s *ThForTermBaseTermGroupsOutput) SetPartOfSpeech(v int32) *ThForTermBaseTermGroupsOutput {
+	s.PartOfSpeech = &v
+	return s
+}
+
+// SetTermBaseId sets the TermBaseId field's value.
+func (s *ThForTermBaseTermGroupsOutput) SetTermBaseId(v string) *ThForTermBaseTermGroupsOutput {
+	s.TermBaseId = &v
+	return s
+}
+
+// SetTermGroupId sets the TermGroupId field's value.
+func (s *ThForTermBaseTermGroupsOutput) SetTermGroupId(v string) *ThForTermBaseTermGroupsOutput {
+	s.TermGroupId = &v
+	return s
+}
+
+// SetUpdateTime sets the UpdateTime field's value.
+func (s *ThForTermBaseTermGroupsOutput) SetUpdateTime(v string) *ThForTermBaseTermGroupsOutput {
+	s.UpdateTime = &v
+	return s
+}
+
+// SetUpdatedAt sets the UpdatedAt field's value.
+func (s *ThForTermBaseTermGroupsOutput) SetUpdatedAt(v string) *ThForTermBaseTermGroupsOutput {
+	s.UpdatedAt = &v
+	return s
+}
+
+type ThTHForTermBaseTermGroupsOutput struct {
+	_ struct{} `type:"structure"`
+
+	Acronym *string `type:"string" json:"acronym"`
+
+	ApplyMode *int32 `type:"int32" json:"applyMode"`
+
+	CaseSensitive *int64 `type:"int64" json:"caseSensitive"`
+
+	Content *string `type:"string" json:"content"`
+
+	CreateTime *string `type:"string" json:"createTime"`
+
+	CreatedAt *string `type:"string" json:"createdAt"`
+
+	Creator *CreatorForTermBaseTermGroupsOutput `locationName:"creator" type:"structure"`
+
+	Id *string `type:"string" json:"id"`
+
+	Lang *string `type:"string" json:"lang"`
+
+	Operator *CreatorForTermBaseTermGroupsOutput `locationName:"operator" type:"structure"`
+
+	PartOfSpeech *int32 `type:"int32" json:"partOfSpeech"`
+
+	TermBaseId *string `type:"string" json:"termBaseId"`
+
+	TermGroupId *string `type:"string" json:"termGroupId"`
+
+	UpdateTime *string `type:"string" json:"updateTime"`
+
+	UpdatedAt *string `type:"string" json:"updatedAt"`
+}
+
+// String returns the string representation
+func (s ThTHForTermBaseTermGroupsOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ThTHForTermBaseTermGroupsOutput) GoString() string {
+	return s.String()
+}
+
+// SetAcronym sets the Acronym field's value.
+func (s *ThTHForTermBaseTermGroupsOutput) SetAcronym(v string) *ThTHForTermBaseTermGroupsOutput {
+	s.Acronym = &v
+	return s
+}
+
+// SetApplyMode sets the ApplyMode field's value.
+func (s *ThTHForTermBaseTermGroupsOutput) SetApplyMode(v int32) *ThTHForTermBaseTermGroupsOutput {
+	s.ApplyMode = &v
+	return s
+}
+
+// SetCaseSensitive sets the CaseSensitive field's value.
+func (s *ThTHForTermBaseTermGroupsOutput) SetCaseSensitive(v int64) *ThTHForTermBaseTermGroupsOutput {
+	s.CaseSensitive = &v
+	return s
+}
+
+// SetContent sets the Content field's value.
+func (s *ThTHForTermBaseTermGroupsOutput) SetContent(v string) *ThTHForTermBaseTermGroupsOutput {
+	s.Content = &v
+	return s
+}
+
+// SetCreateTime sets the CreateTime field's value.
+func (s *ThTHForTermBaseTermGroupsOutput) SetCreateTime(v string) *ThTHForTermBaseTermGroupsOutput {
+	s.CreateTime = &v
+	return s
+}
+
+// SetCreatedAt sets the CreatedAt field's value.
+func (s *ThTHForTermBaseTermGroupsOutput) SetCreatedAt(v string) *ThTHForTermBaseTermGroupsOutput {
+	s.CreatedAt = &v
+	return s
+}
+
+// SetCreator sets the Creator field's value.
+func (s *ThTHForTermBaseTermGroupsOutput) SetCreator(v *CreatorForTermBaseTermGroupsOutput) *ThTHForTermBaseTermGroupsOutput {
+	s.Creator = v
+	return s
+}
+
+// SetId sets the Id field's value.
+func (s *ThTHForTermBaseTermGroupsOutput) SetId(v string) *ThTHForTermBaseTermGroupsOutput {
+	s.Id = &v
+	return s
+}
+
+// SetLang sets the Lang field's value.
+func (s *ThTHForTermBaseTermGroupsOutput) SetLang(v string) *ThTHForTermBaseTermGroupsOutput {
+	s.Lang = &v
+	return s
+}
+
+// SetOperator sets the Operator field's value.
+func (s *ThTHForTermBaseTermGroupsOutput) SetOperator(v *CreatorForTermBaseTermGroupsOutput) *ThTHForTermBaseTermGroupsOutput {
+	s.Operator = v
+	return s
+}
+
+// SetPartOfSpeech sets the PartOfSpeech field's value.
+func (s *ThTHForTermBaseTermGroupsOutput) SetPartOfSpeech(v int32) *ThTHForTermBaseTermGroupsOutput {
+	s.PartOfSpeech = &v
+	return s
+}
+
+// SetTermBaseId sets the TermBaseId field's value.
+func (s *ThTHForTermBaseTermGroupsOutput) SetTermBaseId(v string) *ThTHForTermBaseTermGroupsOutput {
+	s.TermBaseId = &v
+	return s
+}
+
+// SetTermGroupId sets the TermGroupId field's value.
+func (s *ThTHForTermBaseTermGroupsOutput) SetTermGroupId(v string) *ThTHForTermBaseTermGroupsOutput {
+	s.TermGroupId = &v
+	return s
+}
+
+// SetUpdateTime sets the UpdateTime field's value.
+func (s *ThTHForTermBaseTermGroupsOutput) SetUpdateTime(v string) *ThTHForTermBaseTermGroupsOutput {
+	s.UpdateTime = &v
+	return s
+}
+
+// SetUpdatedAt sets the UpdatedAt field's value.
+func (s *ThTHForTermBaseTermGroupsOutput) SetUpdatedAt(v string) *ThTHForTermBaseTermGroupsOutput {
+	s.UpdatedAt = &v
+	return s
+}
+
+type TlPHForTermBaseTermGroupsOutput struct {
+	_ struct{} `type:"structure"`
+
+	Acronym *string `type:"string" json:"acronym"`
+
+	ApplyMode *int32 `type:"int32" json:"applyMode"`
+
+	CaseSensitive *int64 `type:"int64" json:"caseSensitive"`
+
+	Content *string `type:"string" json:"content"`
+
+	CreateTime *string `type:"string" json:"createTime"`
+
+	CreatedAt *string `type:"string" json:"createdAt"`
+
+	Creator *CreatorForTermBaseTermGroupsOutput `locationName:"creator" type:"structure"`
+
+	Id *string `type:"string" json:"id"`
+
+	Lang *string `type:"string" json:"lang"`
+
+	Operator *CreatorForTermBaseTermGroupsOutput `locationName:"operator" type:"structure"`
+
+	PartOfSpeech *int32 `type:"int32" json:"partOfSpeech"`
+
+	TermBaseId *string `type:"string" json:"termBaseId"`
+
+	TermGroupId *string `type:"string" json:"termGroupId"`
+
+	UpdateTime *string `type:"string" json:"updateTime"`
+
+	UpdatedAt *string `type:"string" json:"updatedAt"`
+}
+
+// String returns the string representation
+func (s TlPHForTermBaseTermGroupsOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TlPHForTermBaseTermGroupsOutput) GoString() string {
+	return s.String()
+}
+
+// SetAcronym sets the Acronym field's value.
+func (s *TlPHForTermBaseTermGroupsOutput) SetAcronym(v string) *TlPHForTermBaseTermGroupsOutput {
+	s.Acronym = &v
+	return s
+}
+
+// SetApplyMode sets the ApplyMode field's value.
+func (s *TlPHForTermBaseTermGroupsOutput) SetApplyMode(v int32) *TlPHForTermBaseTermGroupsOutput {
+	s.ApplyMode = &v
+	return s
+}
+
+// SetCaseSensitive sets the CaseSensitive field's value.
+func (s *TlPHForTermBaseTermGroupsOutput) SetCaseSensitive(v int64) *TlPHForTermBaseTermGroupsOutput {
+	s.CaseSensitive = &v
+	return s
+}
+
+// SetContent sets the Content field's value.
+func (s *TlPHForTermBaseTermGroupsOutput) SetContent(v string) *TlPHForTermBaseTermGroupsOutput {
+	s.Content = &v
+	return s
+}
+
+// SetCreateTime sets the CreateTime field's value.
+func (s *TlPHForTermBaseTermGroupsOutput) SetCreateTime(v string) *TlPHForTermBaseTermGroupsOutput {
+	s.CreateTime = &v
+	return s
+}
+
+// SetCreatedAt sets the CreatedAt field's value.
+func (s *TlPHForTermBaseTermGroupsOutput) SetCreatedAt(v string) *TlPHForTermBaseTermGroupsOutput {
+	s.CreatedAt = &v
+	return s
+}
+
+// SetCreator sets the Creator field's value.
+func (s *TlPHForTermBaseTermGroupsOutput) SetCreator(v *CreatorForTermBaseTermGroupsOutput) *TlPHForTermBaseTermGroupsOutput {
+	s.Creator = v
+	return s
+}
+
+// SetId sets the Id field's value.
+func (s *TlPHForTermBaseTermGroupsOutput) SetId(v string) *TlPHForTermBaseTermGroupsOutput {
+	s.Id = &v
+	return s
+}
+
+// SetLang sets the Lang field's value.
+func (s *TlPHForTermBaseTermGroupsOutput) SetLang(v string) *TlPHForTermBaseTermGroupsOutput {
+	s.Lang = &v
+	return s
+}
+
+// SetOperator sets the Operator field's value.
+func (s *TlPHForTermBaseTermGroupsOutput) SetOperator(v *CreatorForTermBaseTermGroupsOutput) *TlPHForTermBaseTermGroupsOutput {
+	s.Operator = v
+	return s
+}
+
+// SetPartOfSpeech sets the PartOfSpeech field's value.
+func (s *TlPHForTermBaseTermGroupsOutput) SetPartOfSpeech(v int32) *TlPHForTermBaseTermGroupsOutput {
+	s.PartOfSpeech = &v
+	return s
+}
+
+// SetTermBaseId sets the TermBaseId field's value.
+func (s *TlPHForTermBaseTermGroupsOutput) SetTermBaseId(v string) *TlPHForTermBaseTermGroupsOutput {
+	s.TermBaseId = &v
+	return s
+}
+
+// SetTermGroupId sets the TermGroupId field's value.
+func (s *TlPHForTermBaseTermGroupsOutput) SetTermGroupId(v string) *TlPHForTermBaseTermGroupsOutput {
+	s.TermGroupId = &v
+	return s
+}
+
+// SetUpdateTime sets the UpdateTime field's value.
+func (s *TlPHForTermBaseTermGroupsOutput) SetUpdateTime(v string) *TlPHForTermBaseTermGroupsOutput {
+	s.UpdateTime = &v
+	return s
+}
+
+// SetUpdatedAt sets the UpdatedAt field's value.
+func (s *TlPHForTermBaseTermGroupsOutput) SetUpdatedAt(v string) *TlPHForTermBaseTermGroupsOutput {
+	s.UpdatedAt = &v
+	return s
+}
+
+type TrForTermBaseTermGroupsOutput struct {
+	_ struct{} `type:"structure"`
+
+	Acronym *string `type:"string" json:"acronym"`
+
+	ApplyMode *int32 `type:"int32" json:"applyMode"`
+
+	CaseSensitive *int64 `type:"int64" json:"caseSensitive"`
+
+	Content *string `type:"string" json:"content"`
+
+	CreateTime *string `type:"string" json:"createTime"`
+
+	CreatedAt *string `type:"string" json:"createdAt"`
+
+	Creator *CreatorForTermBaseTermGroupsOutput `locationName:"creator" type:"structure"`
+
+	Id *string `type:"string" json:"id"`
+
+	Lang *string `type:"string" json:"lang"`
+
+	Operator *CreatorForTermBaseTermGroupsOutput `locationName:"operator" type:"structure"`
+
+	PartOfSpeech *int32 `type:"int32" json:"partOfSpeech"`
+
+	TermBaseId *string `type:"string" json:"termBaseId"`
+
+	TermGroupId *string `type:"string" json:"termGroupId"`
+
+	UpdateTime *string `type:"string" json:"updateTime"`
+
+	UpdatedAt *string `type:"string" json:"updatedAt"`
+}
+
+// String returns the string representation
+func (s TrForTermBaseTermGroupsOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TrForTermBaseTermGroupsOutput) GoString() string {
+	return s.String()
+}
+
+// SetAcronym sets the Acronym field's value.
+func (s *TrForTermBaseTermGroupsOutput) SetAcronym(v string) *TrForTermBaseTermGroupsOutput {
+	s.Acronym = &v
+	return s
+}
+
+// SetApplyMode sets the ApplyMode field's value.
+func (s *TrForTermBaseTermGroupsOutput) SetApplyMode(v int32) *TrForTermBaseTermGroupsOutput {
+	s.ApplyMode = &v
+	return s
+}
+
+// SetCaseSensitive sets the CaseSensitive field's value.
+func (s *TrForTermBaseTermGroupsOutput) SetCaseSensitive(v int64) *TrForTermBaseTermGroupsOutput {
+	s.CaseSensitive = &v
+	return s
+}
+
+// SetContent sets the Content field's value.
+func (s *TrForTermBaseTermGroupsOutput) SetContent(v string) *TrForTermBaseTermGroupsOutput {
+	s.Content = &v
+	return s
+}
+
+// SetCreateTime sets the CreateTime field's value.
+func (s *TrForTermBaseTermGroupsOutput) SetCreateTime(v string) *TrForTermBaseTermGroupsOutput {
+	s.CreateTime = &v
+	return s
+}
+
+// SetCreatedAt sets the CreatedAt field's value.
+func (s *TrForTermBaseTermGroupsOutput) SetCreatedAt(v string) *TrForTermBaseTermGroupsOutput {
+	s.CreatedAt = &v
+	return s
+}
+
+// SetCreator sets the Creator field's value.
+func (s *TrForTermBaseTermGroupsOutput) SetCreator(v *CreatorForTermBaseTermGroupsOutput) *TrForTermBaseTermGroupsOutput {
+	s.Creator = v
+	return s
+}
+
+// SetId sets the Id field's value.
+func (s *TrForTermBaseTermGroupsOutput) SetId(v string) *TrForTermBaseTermGroupsOutput {
+	s.Id = &v
+	return s
+}
+
+// SetLang sets the Lang field's value.
+func (s *TrForTermBaseTermGroupsOutput) SetLang(v string) *TrForTermBaseTermGroupsOutput {
+	s.Lang = &v
+	return s
+}
+
+// SetOperator sets the Operator field's value.
+func (s *TrForTermBaseTermGroupsOutput) SetOperator(v *CreatorForTermBaseTermGroupsOutput) *TrForTermBaseTermGroupsOutput {
+	s.Operator = v
+	return s
+}
+
+// SetPartOfSpeech sets the PartOfSpeech field's value.
+func (s *TrForTermBaseTermGroupsOutput) SetPartOfSpeech(v int32) *TrForTermBaseTermGroupsOutput {
+	s.PartOfSpeech = &v
+	return s
+}
+
+// SetTermBaseId sets the TermBaseId field's value.
+func (s *TrForTermBaseTermGroupsOutput) SetTermBaseId(v string) *TrForTermBaseTermGroupsOutput {
+	s.TermBaseId = &v
+	return s
+}
+
+// SetTermGroupId sets the TermGroupId field's value.
+func (s *TrForTermBaseTermGroupsOutput) SetTermGroupId(v string) *TrForTermBaseTermGroupsOutput {
+	s.TermGroupId = &v
+	return s
+}
+
+// SetUpdateTime sets the UpdateTime field's value.
+func (s *TrForTermBaseTermGroupsOutput) SetUpdateTime(v string) *TrForTermBaseTermGroupsOutput {
+	s.UpdateTime = &v
+	return s
+}
+
+// SetUpdatedAt sets the UpdatedAt field's value.
+func (s *TrForTermBaseTermGroupsOutput) SetUpdatedAt(v string) *TrForTermBaseTermGroupsOutput {
+	s.UpdatedAt = &v
+	return s
+}
+
+type TrTRForTermBaseTermGroupsOutput struct {
+	_ struct{} `type:"structure"`
+
+	Acronym *string `type:"string" json:"acronym"`
+
+	ApplyMode *int32 `type:"int32" json:"applyMode"`
+
+	CaseSensitive *int64 `type:"int64" json:"caseSensitive"`
+
+	Content *string `type:"string" json:"content"`
+
+	CreateTime *string `type:"string" json:"createTime"`
+
+	CreatedAt *string `type:"string" json:"createdAt"`
+
+	Creator *CreatorForTermBaseTermGroupsOutput `locationName:"creator" type:"structure"`
+
+	Id *string `type:"string" json:"id"`
+
+	Lang *string `type:"string" json:"lang"`
+
+	Operator *CreatorForTermBaseTermGroupsOutput `locationName:"operator" type:"structure"`
+
+	PartOfSpeech *int32 `type:"int32" json:"partOfSpeech"`
+
+	TermBaseId *string `type:"string" json:"termBaseId"`
+
+	TermGroupId *string `type:"string" json:"termGroupId"`
+
+	UpdateTime *string `type:"string" json:"updateTime"`
+
+	UpdatedAt *string `type:"string" json:"updatedAt"`
+}
+
+// String returns the string representation
+func (s TrTRForTermBaseTermGroupsOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TrTRForTermBaseTermGroupsOutput) GoString() string {
+	return s.String()
+}
+
+// SetAcronym sets the Acronym field's value.
+func (s *TrTRForTermBaseTermGroupsOutput) SetAcronym(v string) *TrTRForTermBaseTermGroupsOutput {
+	s.Acronym = &v
+	return s
+}
+
+// SetApplyMode sets the ApplyMode field's value.
+func (s *TrTRForTermBaseTermGroupsOutput) SetApplyMode(v int32) *TrTRForTermBaseTermGroupsOutput {
+	s.ApplyMode = &v
+	return s
+}
+
+// SetCaseSensitive sets the CaseSensitive field's value.
+func (s *TrTRForTermBaseTermGroupsOutput) SetCaseSensitive(v int64) *TrTRForTermBaseTermGroupsOutput {
+	s.CaseSensitive = &v
+	return s
+}
+
+// SetContent sets the Content field's value.
+func (s *TrTRForTermBaseTermGroupsOutput) SetContent(v string) *TrTRForTermBaseTermGroupsOutput {
+	s.Content = &v
+	return s
+}
+
+// SetCreateTime sets the CreateTime field's value.
+func (s *TrTRForTermBaseTermGroupsOutput) SetCreateTime(v string) *TrTRForTermBaseTermGroupsOutput {
+	s.CreateTime = &v
+	return s
+}
+
+// SetCreatedAt sets the CreatedAt field's value.
+func (s *TrTRForTermBaseTermGroupsOutput) SetCreatedAt(v string) *TrTRForTermBaseTermGroupsOutput {
+	s.CreatedAt = &v
+	return s
+}
+
+// SetCreator sets the Creator field's value.
+func (s *TrTRForTermBaseTermGroupsOutput) SetCreator(v *CreatorForTermBaseTermGroupsOutput) *TrTRForTermBaseTermGroupsOutput {
+	s.Creator = v
+	return s
+}
+
+// SetId sets the Id field's value.
+func (s *TrTRForTermBaseTermGroupsOutput) SetId(v string) *TrTRForTermBaseTermGroupsOutput {
+	s.Id = &v
+	return s
+}
+
+// SetLang sets the Lang field's value.
+func (s *TrTRForTermBaseTermGroupsOutput) SetLang(v string) *TrTRForTermBaseTermGroupsOutput {
+	s.Lang = &v
+	return s
+}
+
+// SetOperator sets the Operator field's value.
+func (s *TrTRForTermBaseTermGroupsOutput) SetOperator(v *CreatorForTermBaseTermGroupsOutput) *TrTRForTermBaseTermGroupsOutput {
+	s.Operator = v
+	return s
+}
+
+// SetPartOfSpeech sets the PartOfSpeech field's value.
+func (s *TrTRForTermBaseTermGroupsOutput) SetPartOfSpeech(v int32) *TrTRForTermBaseTermGroupsOutput {
+	s.PartOfSpeech = &v
+	return s
+}
+
+// SetTermBaseId sets the TermBaseId field's value.
+func (s *TrTRForTermBaseTermGroupsOutput) SetTermBaseId(v string) *TrTRForTermBaseTermGroupsOutput {
+	s.TermBaseId = &v
+	return s
+}
+
+// SetTermGroupId sets the TermGroupId field's value.
+func (s *TrTRForTermBaseTermGroupsOutput) SetTermGroupId(v string) *TrTRForTermBaseTermGroupsOutput {
+	s.TermGroupId = &v
+	return s
+}
+
+// SetUpdateTime sets the UpdateTime field's value.
+func (s *TrTRForTermBaseTermGroupsOutput) SetUpdateTime(v string) *TrTRForTermBaseTermGroupsOutput {
+	s.UpdateTime = &v
+	return s
+}
+
+// SetUpdatedAt sets the UpdatedAt field's value.
+func (s *TrTRForTermBaseTermGroupsOutput) SetUpdatedAt(v string) *TrTRForTermBaseTermGroupsOutput {
+	s.UpdatedAt = &v
+	return s
+}
+
+type UrForTermBaseTermGroupsOutput struct {
+	_ struct{} `type:"structure"`
+
+	Acronym *string `type:"string" json:"acronym"`
+
+	ApplyMode *int32 `type:"int32" json:"applyMode"`
+
+	CaseSensitive *int64 `type:"int64" json:"caseSensitive"`
+
+	Content *string `type:"string" json:"content"`
+
+	CreateTime *string `type:"string" json:"createTime"`
+
+	CreatedAt *string `type:"string" json:"createdAt"`
+
+	Creator *CreatorForTermBaseTermGroupsOutput `locationName:"creator" type:"structure"`
+
+	Id *string `type:"string" json:"id"`
+
+	Lang *string `type:"string" json:"lang"`
+
+	Operator *CreatorForTermBaseTermGroupsOutput `locationName:"operator" type:"structure"`
+
+	PartOfSpeech *int32 `type:"int32" json:"partOfSpeech"`
+
+	TermBaseId *string `type:"string" json:"termBaseId"`
+
+	TermGroupId *string `type:"string" json:"termGroupId"`
+
+	UpdateTime *string `type:"string" json:"updateTime"`
+
+	UpdatedAt *string `type:"string" json:"updatedAt"`
+}
+
+// String returns the string representation
+func (s UrForTermBaseTermGroupsOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s UrForTermBaseTermGroupsOutput) GoString() string {
+	return s.String()
+}
+
+// SetAcronym sets the Acronym field's value.
+func (s *UrForTermBaseTermGroupsOutput) SetAcronym(v string) *UrForTermBaseTermGroupsOutput {
+	s.Acronym = &v
+	return s
+}
+
+// SetApplyMode sets the ApplyMode field's value.
+func (s *UrForTermBaseTermGroupsOutput) SetApplyMode(v int32) *UrForTermBaseTermGroupsOutput {
+	s.ApplyMode = &v
+	return s
+}
+
+// SetCaseSensitive sets the CaseSensitive field's value.
+func (s *UrForTermBaseTermGroupsOutput) SetCaseSensitive(v int64) *UrForTermBaseTermGroupsOutput {
+	s.CaseSensitive = &v
+	return s
+}
+
+// SetContent sets the Content field's value.
+func (s *UrForTermBaseTermGroupsOutput) SetContent(v string) *UrForTermBaseTermGroupsOutput {
+	s.Content = &v
+	return s
+}
+
+// SetCreateTime sets the CreateTime field's value.
+func (s *UrForTermBaseTermGroupsOutput) SetCreateTime(v string) *UrForTermBaseTermGroupsOutput {
+	s.CreateTime = &v
+	return s
+}
+
+// SetCreatedAt sets the CreatedAt field's value.
+func (s *UrForTermBaseTermGroupsOutput) SetCreatedAt(v string) *UrForTermBaseTermGroupsOutput {
+	s.CreatedAt = &v
+	return s
+}
+
+// SetCreator sets the Creator field's value.
+func (s *UrForTermBaseTermGroupsOutput) SetCreator(v *CreatorForTermBaseTermGroupsOutput) *UrForTermBaseTermGroupsOutput {
+	s.Creator = v
+	return s
+}
+
+// SetId sets the Id field's value.
+func (s *UrForTermBaseTermGroupsOutput) SetId(v string) *UrForTermBaseTermGroupsOutput {
+	s.Id = &v
+	return s
+}
+
+// SetLang sets the Lang field's value.
+func (s *UrForTermBaseTermGroupsOutput) SetLang(v string) *UrForTermBaseTermGroupsOutput {
+	s.Lang = &v
+	return s
+}
+
+// SetOperator sets the Operator field's value.
+func (s *UrForTermBaseTermGroupsOutput) SetOperator(v *CreatorForTermBaseTermGroupsOutput) *UrForTermBaseTermGroupsOutput {
+	s.Operator = v
+	return s
+}
+
+// SetPartOfSpeech sets the PartOfSpeech field's value.
+func (s *UrForTermBaseTermGroupsOutput) SetPartOfSpeech(v int32) *UrForTermBaseTermGroupsOutput {
+	s.PartOfSpeech = &v
+	return s
+}
+
+// SetTermBaseId sets the TermBaseId field's value.
+func (s *UrForTermBaseTermGroupsOutput) SetTermBaseId(v string) *UrForTermBaseTermGroupsOutput {
+	s.TermBaseId = &v
+	return s
+}
+
+// SetTermGroupId sets the TermGroupId field's value.
+func (s *UrForTermBaseTermGroupsOutput) SetTermGroupId(v string) *UrForTermBaseTermGroupsOutput {
+	s.TermGroupId = &v
+	return s
+}
+
+// SetUpdateTime sets the UpdateTime field's value.
+func (s *UrForTermBaseTermGroupsOutput) SetUpdateTime(v string) *UrForTermBaseTermGroupsOutput {
+	s.UpdateTime = &v
+	return s
+}
+
+// SetUpdatedAt sets the UpdatedAt field's value.
+func (s *UrForTermBaseTermGroupsOutput) SetUpdatedAt(v string) *UrForTermBaseTermGroupsOutput {
+	s.UpdatedAt = &v
+	return s
+}
+
+type UzForTermBaseTermGroupsOutput struct {
+	_ struct{} `type:"structure"`
+
+	Acronym *string `type:"string" json:"acronym"`
+
+	ApplyMode *int32 `type:"int32" json:"applyMode"`
+
+	CaseSensitive *int64 `type:"int64" json:"caseSensitive"`
+
+	Content *string `type:"string" json:"content"`
+
+	CreateTime *string `type:"string" json:"createTime"`
+
+	CreatedAt *string `type:"string" json:"createdAt"`
+
+	Creator *CreatorForTermBaseTermGroupsOutput `locationName:"creator" type:"structure"`
+
+	Id *string `type:"string" json:"id"`
+
+	Lang *string `type:"string" json:"lang"`
+
+	Operator *CreatorForTermBaseTermGroupsOutput `locationName:"operator" type:"structure"`
+
+	PartOfSpeech *int32 `type:"int32" json:"partOfSpeech"`
+
+	TermBaseId *string `type:"string" json:"termBaseId"`
+
+	TermGroupId *string `type:"string" json:"termGroupId"`
+
+	UpdateTime *string `type:"string" json:"updateTime"`
+
+	UpdatedAt *string `type:"string" json:"updatedAt"`
+}
+
+// String returns the string representation
+func (s UzForTermBaseTermGroupsOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s UzForTermBaseTermGroupsOutput) GoString() string {
+	return s.String()
+}
+
+// SetAcronym sets the Acronym field's value.
+func (s *UzForTermBaseTermGroupsOutput) SetAcronym(v string) *UzForTermBaseTermGroupsOutput {
+	s.Acronym = &v
+	return s
+}
+
+// SetApplyMode sets the ApplyMode field's value.
+func (s *UzForTermBaseTermGroupsOutput) SetApplyMode(v int32) *UzForTermBaseTermGroupsOutput {
+	s.ApplyMode = &v
+	return s
+}
+
+// SetCaseSensitive sets the CaseSensitive field's value.
+func (s *UzForTermBaseTermGroupsOutput) SetCaseSensitive(v int64) *UzForTermBaseTermGroupsOutput {
+	s.CaseSensitive = &v
+	return s
+}
+
+// SetContent sets the Content field's value.
+func (s *UzForTermBaseTermGroupsOutput) SetContent(v string) *UzForTermBaseTermGroupsOutput {
+	s.Content = &v
+	return s
+}
+
+// SetCreateTime sets the CreateTime field's value.
+func (s *UzForTermBaseTermGroupsOutput) SetCreateTime(v string) *UzForTermBaseTermGroupsOutput {
+	s.CreateTime = &v
+	return s
+}
+
+// SetCreatedAt sets the CreatedAt field's value.
+func (s *UzForTermBaseTermGroupsOutput) SetCreatedAt(v string) *UzForTermBaseTermGroupsOutput {
+	s.CreatedAt = &v
+	return s
+}
+
+// SetCreator sets the Creator field's value.
+func (s *UzForTermBaseTermGroupsOutput) SetCreator(v *CreatorForTermBaseTermGroupsOutput) *UzForTermBaseTermGroupsOutput {
+	s.Creator = v
+	return s
+}
+
+// SetId sets the Id field's value.
+func (s *UzForTermBaseTermGroupsOutput) SetId(v string) *UzForTermBaseTermGroupsOutput {
+	s.Id = &v
+	return s
+}
+
+// SetLang sets the Lang field's value.
+func (s *UzForTermBaseTermGroupsOutput) SetLang(v string) *UzForTermBaseTermGroupsOutput {
+	s.Lang = &v
+	return s
+}
+
+// SetOperator sets the Operator field's value.
+func (s *UzForTermBaseTermGroupsOutput) SetOperator(v *CreatorForTermBaseTermGroupsOutput) *UzForTermBaseTermGroupsOutput {
+	s.Operator = v
+	return s
+}
+
+// SetPartOfSpeech sets the PartOfSpeech field's value.
+func (s *UzForTermBaseTermGroupsOutput) SetPartOfSpeech(v int32) *UzForTermBaseTermGroupsOutput {
+	s.PartOfSpeech = &v
+	return s
+}
+
+// SetTermBaseId sets the TermBaseId field's value.
+func (s *UzForTermBaseTermGroupsOutput) SetTermBaseId(v string) *UzForTermBaseTermGroupsOutput {
+	s.TermBaseId = &v
+	return s
+}
+
+// SetTermGroupId sets the TermGroupId field's value.
+func (s *UzForTermBaseTermGroupsOutput) SetTermGroupId(v string) *UzForTermBaseTermGroupsOutput {
+	s.TermGroupId = &v
+	return s
+}
+
+// SetUpdateTime sets the UpdateTime field's value.
+func (s *UzForTermBaseTermGroupsOutput) SetUpdateTime(v string) *UzForTermBaseTermGroupsOutput {
+	s.UpdateTime = &v
+	return s
+}
+
+// SetUpdatedAt sets the UpdatedAt field's value.
+func (s *UzForTermBaseTermGroupsOutput) SetUpdatedAt(v string) *UzForTermBaseTermGroupsOutput {
+	s.UpdatedAt = &v
+	return s
+}
+
+type ViForTermBaseTermGroupsOutput struct {
+	_ struct{} `type:"structure"`
+
+	Acronym *string `type:"string" json:"acronym"`
+
+	ApplyMode *int32 `type:"int32" json:"applyMode"`
+
+	CaseSensitive *int64 `type:"int64" json:"caseSensitive"`
+
+	Content *string `type:"string" json:"content"`
+
+	CreateTime *string `type:"string" json:"createTime"`
+
+	CreatedAt *string `type:"string" json:"createdAt"`
+
+	Creator *CreatorForTermBaseTermGroupsOutput `locationName:"creator" type:"structure"`
+
+	Id *string `type:"string" json:"id"`
+
+	Lang *string `type:"string" json:"lang"`
+
+	Operator *CreatorForTermBaseTermGroupsOutput `locationName:"operator" type:"structure"`
+
+	PartOfSpeech *int32 `type:"int32" json:"partOfSpeech"`
+
+	TermBaseId *string `type:"string" json:"termBaseId"`
+
+	TermGroupId *string `type:"string" json:"termGroupId"`
+
+	UpdateTime *string `type:"string" json:"updateTime"`
+
+	UpdatedAt *string `type:"string" json:"updatedAt"`
+}
+
+// String returns the string representation
+func (s ViForTermBaseTermGroupsOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ViForTermBaseTermGroupsOutput) GoString() string {
+	return s.String()
+}
+
+// SetAcronym sets the Acronym field's value.
+func (s *ViForTermBaseTermGroupsOutput) SetAcronym(v string) *ViForTermBaseTermGroupsOutput {
+	s.Acronym = &v
+	return s
+}
+
+// SetApplyMode sets the ApplyMode field's value.
+func (s *ViForTermBaseTermGroupsOutput) SetApplyMode(v int32) *ViForTermBaseTermGroupsOutput {
+	s.ApplyMode = &v
+	return s
+}
+
+// SetCaseSensitive sets the CaseSensitive field's value.
+func (s *ViForTermBaseTermGroupsOutput) SetCaseSensitive(v int64) *ViForTermBaseTermGroupsOutput {
+	s.CaseSensitive = &v
+	return s
+}
+
+// SetContent sets the Content field's value.
+func (s *ViForTermBaseTermGroupsOutput) SetContent(v string) *ViForTermBaseTermGroupsOutput {
+	s.Content = &v
+	return s
+}
+
+// SetCreateTime sets the CreateTime field's value.
+func (s *ViForTermBaseTermGroupsOutput) SetCreateTime(v string) *ViForTermBaseTermGroupsOutput {
+	s.CreateTime = &v
+	return s
+}
+
+// SetCreatedAt sets the CreatedAt field's value.
+func (s *ViForTermBaseTermGroupsOutput) SetCreatedAt(v string) *ViForTermBaseTermGroupsOutput {
+	s.CreatedAt = &v
+	return s
+}
+
+// SetCreator sets the Creator field's value.
+func (s *ViForTermBaseTermGroupsOutput) SetCreator(v *CreatorForTermBaseTermGroupsOutput) *ViForTermBaseTermGroupsOutput {
+	s.Creator = v
+	return s
+}
+
+// SetId sets the Id field's value.
+func (s *ViForTermBaseTermGroupsOutput) SetId(v string) *ViForTermBaseTermGroupsOutput {
+	s.Id = &v
+	return s
+}
+
+// SetLang sets the Lang field's value.
+func (s *ViForTermBaseTermGroupsOutput) SetLang(v string) *ViForTermBaseTermGroupsOutput {
+	s.Lang = &v
+	return s
+}
+
+// SetOperator sets the Operator field's value.
+func (s *ViForTermBaseTermGroupsOutput) SetOperator(v *CreatorForTermBaseTermGroupsOutput) *ViForTermBaseTermGroupsOutput {
+	s.Operator = v
+	return s
+}
+
+// SetPartOfSpeech sets the PartOfSpeech field's value.
+func (s *ViForTermBaseTermGroupsOutput) SetPartOfSpeech(v int32) *ViForTermBaseTermGroupsOutput {
+	s.PartOfSpeech = &v
+	return s
+}
+
+// SetTermBaseId sets the TermBaseId field's value.
+func (s *ViForTermBaseTermGroupsOutput) SetTermBaseId(v string) *ViForTermBaseTermGroupsOutput {
+	s.TermBaseId = &v
+	return s
+}
+
+// SetTermGroupId sets the TermGroupId field's value.
+func (s *ViForTermBaseTermGroupsOutput) SetTermGroupId(v string) *ViForTermBaseTermGroupsOutput {
+	s.TermGroupId = &v
+	return s
+}
+
+// SetUpdateTime sets the UpdateTime field's value.
+func (s *ViForTermBaseTermGroupsOutput) SetUpdateTime(v string) *ViForTermBaseTermGroupsOutput {
+	s.UpdateTime = &v
+	return s
+}
+
+// SetUpdatedAt sets the UpdatedAt field's value.
+func (s *ViForTermBaseTermGroupsOutput) SetUpdatedAt(v string) *ViForTermBaseTermGroupsOutput {
+	s.UpdatedAt = &v
+	return s
+}
+
+type ViVNForTermBaseTermGroupsOutput struct {
+	_ struct{} `type:"structure"`
+
+	Acronym *string `type:"string" json:"acronym"`
+
+	ApplyMode *int32 `type:"int32" json:"applyMode"`
+
+	CaseSensitive *int64 `type:"int64" json:"caseSensitive"`
+
+	Content *string `type:"string" json:"content"`
+
+	CreateTime *string `type:"string" json:"createTime"`
+
+	CreatedAt *string `type:"string" json:"createdAt"`
+
+	Creator *CreatorForTermBaseTermGroupsOutput `locationName:"creator" type:"structure"`
+
+	Id *string `type:"string" json:"id"`
+
+	Lang *string `type:"string" json:"lang"`
+
+	Operator *CreatorForTermBaseTermGroupsOutput `locationName:"operator" type:"structure"`
+
+	PartOfSpeech *int32 `type:"int32" json:"partOfSpeech"`
+
+	TermBaseId *string `type:"string" json:"termBaseId"`
+
+	TermGroupId *string `type:"string" json:"termGroupId"`
+
+	UpdateTime *string `type:"string" json:"updateTime"`
+
+	UpdatedAt *string `type:"string" json:"updatedAt"`
+}
+
+// String returns the string representation
+func (s ViVNForTermBaseTermGroupsOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ViVNForTermBaseTermGroupsOutput) GoString() string {
+	return s.String()
+}
+
+// SetAcronym sets the Acronym field's value.
+func (s *ViVNForTermBaseTermGroupsOutput) SetAcronym(v string) *ViVNForTermBaseTermGroupsOutput {
+	s.Acronym = &v
+	return s
+}
+
+// SetApplyMode sets the ApplyMode field's value.
+func (s *ViVNForTermBaseTermGroupsOutput) SetApplyMode(v int32) *ViVNForTermBaseTermGroupsOutput {
+	s.ApplyMode = &v
+	return s
+}
+
+// SetCaseSensitive sets the CaseSensitive field's value.
+func (s *ViVNForTermBaseTermGroupsOutput) SetCaseSensitive(v int64) *ViVNForTermBaseTermGroupsOutput {
+	s.CaseSensitive = &v
+	return s
+}
+
+// SetContent sets the Content field's value.
+func (s *ViVNForTermBaseTermGroupsOutput) SetContent(v string) *ViVNForTermBaseTermGroupsOutput {
+	s.Content = &v
+	return s
+}
+
+// SetCreateTime sets the CreateTime field's value.
+func (s *ViVNForTermBaseTermGroupsOutput) SetCreateTime(v string) *ViVNForTermBaseTermGroupsOutput {
+	s.CreateTime = &v
+	return s
+}
+
+// SetCreatedAt sets the CreatedAt field's value.
+func (s *ViVNForTermBaseTermGroupsOutput) SetCreatedAt(v string) *ViVNForTermBaseTermGroupsOutput {
+	s.CreatedAt = &v
+	return s
+}
+
+// SetCreator sets the Creator field's value.
+func (s *ViVNForTermBaseTermGroupsOutput) SetCreator(v *CreatorForTermBaseTermGroupsOutput) *ViVNForTermBaseTermGroupsOutput {
+	s.Creator = v
+	return s
+}
+
+// SetId sets the Id field's value.
+func (s *ViVNForTermBaseTermGroupsOutput) SetId(v string) *ViVNForTermBaseTermGroupsOutput {
+	s.Id = &v
+	return s
+}
+
+// SetLang sets the Lang field's value.
+func (s *ViVNForTermBaseTermGroupsOutput) SetLang(v string) *ViVNForTermBaseTermGroupsOutput {
+	s.Lang = &v
+	return s
+}
+
+// SetOperator sets the Operator field's value.
+func (s *ViVNForTermBaseTermGroupsOutput) SetOperator(v *CreatorForTermBaseTermGroupsOutput) *ViVNForTermBaseTermGroupsOutput {
+	s.Operator = v
+	return s
+}
+
+// SetPartOfSpeech sets the PartOfSpeech field's value.
+func (s *ViVNForTermBaseTermGroupsOutput) SetPartOfSpeech(v int32) *ViVNForTermBaseTermGroupsOutput {
+	s.PartOfSpeech = &v
+	return s
+}
+
+// SetTermBaseId sets the TermBaseId field's value.
+func (s *ViVNForTermBaseTermGroupsOutput) SetTermBaseId(v string) *ViVNForTermBaseTermGroupsOutput {
+	s.TermBaseId = &v
+	return s
+}
+
+// SetTermGroupId sets the TermGroupId field's value.
+func (s *ViVNForTermBaseTermGroupsOutput) SetTermGroupId(v string) *ViVNForTermBaseTermGroupsOutput {
+	s.TermGroupId = &v
+	return s
+}
+
+// SetUpdateTime sets the UpdateTime field's value.
+func (s *ViVNForTermBaseTermGroupsOutput) SetUpdateTime(v string) *ViVNForTermBaseTermGroupsOutput {
+	s.UpdateTime = &v
+	return s
+}
+
+// SetUpdatedAt sets the UpdatedAt field's value.
+func (s *ViVNForTermBaseTermGroupsOutput) SetUpdatedAt(v string) *ViVNForTermBaseTermGroupsOutput {
+	s.UpdatedAt = &v
+	return s
+}
+
+type ZhCNForTermBaseTermGroupsOutput struct {
+	_ struct{} `type:"structure"`
+
+	Acronym *string `type:"string" json:"acronym"`
+
+	ApplyMode *int32 `type:"int32" json:"applyMode"`
+
+	CaseSensitive *int64 `type:"int64" json:"caseSensitive"`
+
+	Content *string `type:"string" json:"content"`
+
+	CreateTime *string `type:"string" json:"createTime"`
+
+	CreatedAt *string `type:"string" json:"createdAt"`
+
+	Creator *CreatorForTermBaseTermGroupsOutput `locationName:"creator" type:"structure"`
+
+	Id *string `type:"string" json:"id"`
+
+	Lang *string `type:"string" json:"lang"`
+
+	Operator *CreatorForTermBaseTermGroupsOutput `locationName:"operator" type:"structure"`
+
+	PartOfSpeech *int32 `type:"int32" json:"partOfSpeech"`
+
+	TermBaseId *string `type:"string" json:"termBaseId"`
+
+	TermGroupId *string `type:"string" json:"termGroupId"`
+
+	UpdateTime *string `type:"string" json:"updateTime"`
+
+	UpdatedAt *string `type:"string" json:"updatedAt"`
+}
+
+// String returns the string representation
+func (s ZhCNForTermBaseTermGroupsOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ZhCNForTermBaseTermGroupsOutput) GoString() string {
+	return s.String()
+}
+
+// SetAcronym sets the Acronym field's value.
+func (s *ZhCNForTermBaseTermGroupsOutput) SetAcronym(v string) *ZhCNForTermBaseTermGroupsOutput {
+	s.Acronym = &v
+	return s
+}
+
+// SetApplyMode sets the ApplyMode field's value.
+func (s *ZhCNForTermBaseTermGroupsOutput) SetApplyMode(v int32) *ZhCNForTermBaseTermGroupsOutput {
+	s.ApplyMode = &v
+	return s
+}
+
+// SetCaseSensitive sets the CaseSensitive field's value.
+func (s *ZhCNForTermBaseTermGroupsOutput) SetCaseSensitive(v int64) *ZhCNForTermBaseTermGroupsOutput {
+	s.CaseSensitive = &v
+	return s
+}
+
+// SetContent sets the Content field's value.
+func (s *ZhCNForTermBaseTermGroupsOutput) SetContent(v string) *ZhCNForTermBaseTermGroupsOutput {
+	s.Content = &v
+	return s
+}
+
+// SetCreateTime sets the CreateTime field's value.
+func (s *ZhCNForTermBaseTermGroupsOutput) SetCreateTime(v string) *ZhCNForTermBaseTermGroupsOutput {
+	s.CreateTime = &v
+	return s
+}
+
+// SetCreatedAt sets the CreatedAt field's value.
+func (s *ZhCNForTermBaseTermGroupsOutput) SetCreatedAt(v string) *ZhCNForTermBaseTermGroupsOutput {
+	s.CreatedAt = &v
+	return s
+}
+
+// SetCreator sets the Creator field's value.
+func (s *ZhCNForTermBaseTermGroupsOutput) SetCreator(v *CreatorForTermBaseTermGroupsOutput) *ZhCNForTermBaseTermGroupsOutput {
+	s.Creator = v
+	return s
+}
+
+// SetId sets the Id field's value.
+func (s *ZhCNForTermBaseTermGroupsOutput) SetId(v string) *ZhCNForTermBaseTermGroupsOutput {
+	s.Id = &v
+	return s
+}
+
+// SetLang sets the Lang field's value.
+func (s *ZhCNForTermBaseTermGroupsOutput) SetLang(v string) *ZhCNForTermBaseTermGroupsOutput {
+	s.Lang = &v
+	return s
+}
+
+// SetOperator sets the Operator field's value.
+func (s *ZhCNForTermBaseTermGroupsOutput) SetOperator(v *CreatorForTermBaseTermGroupsOutput) *ZhCNForTermBaseTermGroupsOutput {
+	s.Operator = v
+	return s
+}
+
+// SetPartOfSpeech sets the PartOfSpeech field's value.
+func (s *ZhCNForTermBaseTermGroupsOutput) SetPartOfSpeech(v int32) *ZhCNForTermBaseTermGroupsOutput {
+	s.PartOfSpeech = &v
+	return s
+}
+
+// SetTermBaseId sets the TermBaseId field's value.
+func (s *ZhCNForTermBaseTermGroupsOutput) SetTermBaseId(v string) *ZhCNForTermBaseTermGroupsOutput {
+	s.TermBaseId = &v
+	return s
+}
+
+// SetTermGroupId sets the TermGroupId field's value.
+func (s *ZhCNForTermBaseTermGroupsOutput) SetTermGroupId(v string) *ZhCNForTermBaseTermGroupsOutput {
+	s.TermGroupId = &v
+	return s
+}
+
+// SetUpdateTime sets the UpdateTime field's value.
+func (s *ZhCNForTermBaseTermGroupsOutput) SetUpdateTime(v string) *ZhCNForTermBaseTermGroupsOutput {
+	s.UpdateTime = &v
+	return s
+}
+
+// SetUpdatedAt sets the UpdatedAt field's value.
+func (s *ZhCNForTermBaseTermGroupsOutput) SetUpdatedAt(v string) *ZhCNForTermBaseTermGroupsOutput {
+	s.UpdatedAt = &v
+	return s
+}
+
+type ZhForTermBaseTermGroupsOutput struct {
+	_ struct{} `type:"structure"`
+
+	Acronym *string `type:"string" json:"acronym"`
+
+	ApplyMode *int32 `type:"int32" json:"applyMode"`
+
+	CaseSensitive *int64 `type:"int64" json:"caseSensitive"`
+
+	Content *string `type:"string" json:"content"`
+
+	CreateTime *string `type:"string" json:"createTime"`
+
+	CreatedAt *string `type:"string" json:"createdAt"`
+
+	Creator *CreatorForTermBaseTermGroupsOutput `locationName:"creator" type:"structure"`
+
+	Id *string `type:"string" json:"id"`
+
+	Lang *string `type:"string" json:"lang"`
+
+	Operator *CreatorForTermBaseTermGroupsOutput `locationName:"operator" type:"structure"`
+
+	PartOfSpeech *int32 `type:"int32" json:"partOfSpeech"`
+
+	TermBaseId *string `type:"string" json:"termBaseId"`
+
+	TermGroupId *string `type:"string" json:"termGroupId"`
+
+	UpdateTime *string `type:"string" json:"updateTime"`
+
+	UpdatedAt *string `type:"string" json:"updatedAt"`
+}
+
+// String returns the string representation
+func (s ZhForTermBaseTermGroupsOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ZhForTermBaseTermGroupsOutput) GoString() string {
+	return s.String()
+}
+
+// SetAcronym sets the Acronym field's value.
+func (s *ZhForTermBaseTermGroupsOutput) SetAcronym(v string) *ZhForTermBaseTermGroupsOutput {
+	s.Acronym = &v
+	return s
+}
+
+// SetApplyMode sets the ApplyMode field's value.
+func (s *ZhForTermBaseTermGroupsOutput) SetApplyMode(v int32) *ZhForTermBaseTermGroupsOutput {
+	s.ApplyMode = &v
+	return s
+}
+
+// SetCaseSensitive sets the CaseSensitive field's value.
+func (s *ZhForTermBaseTermGroupsOutput) SetCaseSensitive(v int64) *ZhForTermBaseTermGroupsOutput {
+	s.CaseSensitive = &v
+	return s
+}
+
+// SetContent sets the Content field's value.
+func (s *ZhForTermBaseTermGroupsOutput) SetContent(v string) *ZhForTermBaseTermGroupsOutput {
+	s.Content = &v
+	return s
+}
+
+// SetCreateTime sets the CreateTime field's value.
+func (s *ZhForTermBaseTermGroupsOutput) SetCreateTime(v string) *ZhForTermBaseTermGroupsOutput {
+	s.CreateTime = &v
+	return s
+}
+
+// SetCreatedAt sets the CreatedAt field's value.
+func (s *ZhForTermBaseTermGroupsOutput) SetCreatedAt(v string) *ZhForTermBaseTermGroupsOutput {
+	s.CreatedAt = &v
+	return s
+}
+
+// SetCreator sets the Creator field's value.
+func (s *ZhForTermBaseTermGroupsOutput) SetCreator(v *CreatorForTermBaseTermGroupsOutput) *ZhForTermBaseTermGroupsOutput {
+	s.Creator = v
+	return s
+}
+
+// SetId sets the Id field's value.
+func (s *ZhForTermBaseTermGroupsOutput) SetId(v string) *ZhForTermBaseTermGroupsOutput {
+	s.Id = &v
+	return s
+}
+
+// SetLang sets the Lang field's value.
+func (s *ZhForTermBaseTermGroupsOutput) SetLang(v string) *ZhForTermBaseTermGroupsOutput {
+	s.Lang = &v
+	return s
+}
+
+// SetOperator sets the Operator field's value.
+func (s *ZhForTermBaseTermGroupsOutput) SetOperator(v *CreatorForTermBaseTermGroupsOutput) *ZhForTermBaseTermGroupsOutput {
+	s.Operator = v
+	return s
+}
+
+// SetPartOfSpeech sets the PartOfSpeech field's value.
+func (s *ZhForTermBaseTermGroupsOutput) SetPartOfSpeech(v int32) *ZhForTermBaseTermGroupsOutput {
+	s.PartOfSpeech = &v
+	return s
+}
+
+// SetTermBaseId sets the TermBaseId field's value.
+func (s *ZhForTermBaseTermGroupsOutput) SetTermBaseId(v string) *ZhForTermBaseTermGroupsOutput {
+	s.TermBaseId = &v
+	return s
+}
+
+// SetTermGroupId sets the TermGroupId field's value.
+func (s *ZhForTermBaseTermGroupsOutput) SetTermGroupId(v string) *ZhForTermBaseTermGroupsOutput {
+	s.TermGroupId = &v
+	return s
+}
+
+// SetUpdateTime sets the UpdateTime field's value.
+func (s *ZhForTermBaseTermGroupsOutput) SetUpdateTime(v string) *ZhForTermBaseTermGroupsOutput {
+	s.UpdateTime = &v
+	return s
+}
+
+// SetUpdatedAt sets the UpdatedAt field's value.
+func (s *ZhForTermBaseTermGroupsOutput) SetUpdatedAt(v string) *ZhForTermBaseTermGroupsOutput {
+	s.UpdatedAt = &v
+	return s
+}
+
+type ZhHKForTermBaseTermGroupsOutput struct {
+	_ struct{} `type:"structure"`
+
+	Acronym *string `type:"string" json:"acronym"`
+
+	ApplyMode *int32 `type:"int32" json:"applyMode"`
+
+	CaseSensitive *int64 `type:"int64" json:"caseSensitive"`
+
+	Content *string `type:"string" json:"content"`
+
+	CreateTime *string `type:"string" json:"createTime"`
+
+	CreatedAt *string `type:"string" json:"createdAt"`
+
+	Creator *CreatorForTermBaseTermGroupsOutput `locationName:"creator" type:"structure"`
+
+	Id *string `type:"string" json:"id"`
+
+	Lang *string `type:"string" json:"lang"`
+
+	Operator *CreatorForTermBaseTermGroupsOutput `locationName:"operator" type:"structure"`
+
+	PartOfSpeech *int32 `type:"int32" json:"partOfSpeech"`
+
+	TermBaseId *string `type:"string" json:"termBaseId"`
+
+	TermGroupId *string `type:"string" json:"termGroupId"`
+
+	UpdateTime *string `type:"string" json:"updateTime"`
+
+	UpdatedAt *string `type:"string" json:"updatedAt"`
+}
+
+// String returns the string representation
+func (s ZhHKForTermBaseTermGroupsOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ZhHKForTermBaseTermGroupsOutput) GoString() string {
+	return s.String()
+}
+
+// SetAcronym sets the Acronym field's value.
+func (s *ZhHKForTermBaseTermGroupsOutput) SetAcronym(v string) *ZhHKForTermBaseTermGroupsOutput {
+	s.Acronym = &v
+	return s
+}
+
+// SetApplyMode sets the ApplyMode field's value.
+func (s *ZhHKForTermBaseTermGroupsOutput) SetApplyMode(v int32) *ZhHKForTermBaseTermGroupsOutput {
+	s.ApplyMode = &v
+	return s
+}
+
+// SetCaseSensitive sets the CaseSensitive field's value.
+func (s *ZhHKForTermBaseTermGroupsOutput) SetCaseSensitive(v int64) *ZhHKForTermBaseTermGroupsOutput {
+	s.CaseSensitive = &v
+	return s
+}
+
+// SetContent sets the Content field's value.
+func (s *ZhHKForTermBaseTermGroupsOutput) SetContent(v string) *ZhHKForTermBaseTermGroupsOutput {
+	s.Content = &v
+	return s
+}
+
+// SetCreateTime sets the CreateTime field's value.
+func (s *ZhHKForTermBaseTermGroupsOutput) SetCreateTime(v string) *ZhHKForTermBaseTermGroupsOutput {
+	s.CreateTime = &v
+	return s
+}
+
+// SetCreatedAt sets the CreatedAt field's value.
+func (s *ZhHKForTermBaseTermGroupsOutput) SetCreatedAt(v string) *ZhHKForTermBaseTermGroupsOutput {
+	s.CreatedAt = &v
+	return s
+}
+
+// SetCreator sets the Creator field's value.
+func (s *ZhHKForTermBaseTermGroupsOutput) SetCreator(v *CreatorForTermBaseTermGroupsOutput) *ZhHKForTermBaseTermGroupsOutput {
+	s.Creator = v
+	return s
+}
+
+// SetId sets the Id field's value.
+func (s *ZhHKForTermBaseTermGroupsOutput) SetId(v string) *ZhHKForTermBaseTermGroupsOutput {
+	s.Id = &v
+	return s
+}
+
+// SetLang sets the Lang field's value.
+func (s *ZhHKForTermBaseTermGroupsOutput) SetLang(v string) *ZhHKForTermBaseTermGroupsOutput {
+	s.Lang = &v
+	return s
+}
+
+// SetOperator sets the Operator field's value.
+func (s *ZhHKForTermBaseTermGroupsOutput) SetOperator(v *CreatorForTermBaseTermGroupsOutput) *ZhHKForTermBaseTermGroupsOutput {
+	s.Operator = v
+	return s
+}
+
+// SetPartOfSpeech sets the PartOfSpeech field's value.
+func (s *ZhHKForTermBaseTermGroupsOutput) SetPartOfSpeech(v int32) *ZhHKForTermBaseTermGroupsOutput {
+	s.PartOfSpeech = &v
+	return s
+}
+
+// SetTermBaseId sets the TermBaseId field's value.
+func (s *ZhHKForTermBaseTermGroupsOutput) SetTermBaseId(v string) *ZhHKForTermBaseTermGroupsOutput {
+	s.TermBaseId = &v
+	return s
+}
+
+// SetTermGroupId sets the TermGroupId field's value.
+func (s *ZhHKForTermBaseTermGroupsOutput) SetTermGroupId(v string) *ZhHKForTermBaseTermGroupsOutput {
+	s.TermGroupId = &v
+	return s
+}
+
+// SetUpdateTime sets the UpdateTime field's value.
+func (s *ZhHKForTermBaseTermGroupsOutput) SetUpdateTime(v string) *ZhHKForTermBaseTermGroupsOutput {
+	s.UpdateTime = &v
+	return s
+}
+
+// SetUpdatedAt sets the UpdatedAt field's value.
+func (s *ZhHKForTermBaseTermGroupsOutput) SetUpdatedAt(v string) *ZhHKForTermBaseTermGroupsOutput {
+	s.UpdatedAt = &v
+	return s
+}
+
+type ZhHansCNForTermBaseTermGroupsOutput struct {
+	_ struct{} `type:"structure"`
+
+	Acronym *string `type:"string" json:"acronym"`
+
+	ApplyMode *int32 `type:"int32" json:"applyMode"`
+
+	CaseSensitive *int64 `type:"int64" json:"caseSensitive"`
+
+	Content *string `type:"string" json:"content"`
+
+	CreateTime *string `type:"string" json:"createTime"`
+
+	CreatedAt *string `type:"string" json:"createdAt"`
+
+	Creator *CreatorForTermBaseTermGroupsOutput `locationName:"creator" type:"structure"`
+
+	Id *string `type:"string" json:"id"`
+
+	Lang *string `type:"string" json:"lang"`
+
+	Operator *CreatorForTermBaseTermGroupsOutput `locationName:"operator" type:"structure"`
+
+	PartOfSpeech *int32 `type:"int32" json:"partOfSpeech"`
+
+	TermBaseId *string `type:"string" json:"termBaseId"`
+
+	TermGroupId *string `type:"string" json:"termGroupId"`
+
+	UpdateTime *string `type:"string" json:"updateTime"`
+
+	UpdatedAt *string `type:"string" json:"updatedAt"`
+}
+
+// String returns the string representation
+func (s ZhHansCNForTermBaseTermGroupsOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ZhHansCNForTermBaseTermGroupsOutput) GoString() string {
+	return s.String()
+}
+
+// SetAcronym sets the Acronym field's value.
+func (s *ZhHansCNForTermBaseTermGroupsOutput) SetAcronym(v string) *ZhHansCNForTermBaseTermGroupsOutput {
+	s.Acronym = &v
+	return s
+}
+
+// SetApplyMode sets the ApplyMode field's value.
+func (s *ZhHansCNForTermBaseTermGroupsOutput) SetApplyMode(v int32) *ZhHansCNForTermBaseTermGroupsOutput {
+	s.ApplyMode = &v
+	return s
+}
+
+// SetCaseSensitive sets the CaseSensitive field's value.
+func (s *ZhHansCNForTermBaseTermGroupsOutput) SetCaseSensitive(v int64) *ZhHansCNForTermBaseTermGroupsOutput {
+	s.CaseSensitive = &v
+	return s
+}
+
+// SetContent sets the Content field's value.
+func (s *ZhHansCNForTermBaseTermGroupsOutput) SetContent(v string) *ZhHansCNForTermBaseTermGroupsOutput {
+	s.Content = &v
+	return s
+}
+
+// SetCreateTime sets the CreateTime field's value.
+func (s *ZhHansCNForTermBaseTermGroupsOutput) SetCreateTime(v string) *ZhHansCNForTermBaseTermGroupsOutput {
+	s.CreateTime = &v
+	return s
+}
+
+// SetCreatedAt sets the CreatedAt field's value.
+func (s *ZhHansCNForTermBaseTermGroupsOutput) SetCreatedAt(v string) *ZhHansCNForTermBaseTermGroupsOutput {
+	s.CreatedAt = &v
+	return s
+}
+
+// SetCreator sets the Creator field's value.
+func (s *ZhHansCNForTermBaseTermGroupsOutput) SetCreator(v *CreatorForTermBaseTermGroupsOutput) *ZhHansCNForTermBaseTermGroupsOutput {
+	s.Creator = v
+	return s
+}
+
+// SetId sets the Id field's value.
+func (s *ZhHansCNForTermBaseTermGroupsOutput) SetId(v string) *ZhHansCNForTermBaseTermGroupsOutput {
+	s.Id = &v
+	return s
+}
+
+// SetLang sets the Lang field's value.
+func (s *ZhHansCNForTermBaseTermGroupsOutput) SetLang(v string) *ZhHansCNForTermBaseTermGroupsOutput {
+	s.Lang = &v
+	return s
+}
+
+// SetOperator sets the Operator field's value.
+func (s *ZhHansCNForTermBaseTermGroupsOutput) SetOperator(v *CreatorForTermBaseTermGroupsOutput) *ZhHansCNForTermBaseTermGroupsOutput {
+	s.Operator = v
+	return s
+}
+
+// SetPartOfSpeech sets the PartOfSpeech field's value.
+func (s *ZhHansCNForTermBaseTermGroupsOutput) SetPartOfSpeech(v int32) *ZhHansCNForTermBaseTermGroupsOutput {
+	s.PartOfSpeech = &v
+	return s
+}
+
+// SetTermBaseId sets the TermBaseId field's value.
+func (s *ZhHansCNForTermBaseTermGroupsOutput) SetTermBaseId(v string) *ZhHansCNForTermBaseTermGroupsOutput {
+	s.TermBaseId = &v
+	return s
+}
+
+// SetTermGroupId sets the TermGroupId field's value.
+func (s *ZhHansCNForTermBaseTermGroupsOutput) SetTermGroupId(v string) *ZhHansCNForTermBaseTermGroupsOutput {
+	s.TermGroupId = &v
+	return s
+}
+
+// SetUpdateTime sets the UpdateTime field's value.
+func (s *ZhHansCNForTermBaseTermGroupsOutput) SetUpdateTime(v string) *ZhHansCNForTermBaseTermGroupsOutput {
+	s.UpdateTime = &v
+	return s
+}
+
+// SetUpdatedAt sets the UpdatedAt field's value.
+func (s *ZhHansCNForTermBaseTermGroupsOutput) SetUpdatedAt(v string) *ZhHansCNForTermBaseTermGroupsOutput {
+	s.UpdatedAt = &v
+	return s
+}
+
+type ZhHansForTermBaseTermGroupsOutput struct {
+	_ struct{} `type:"structure"`
+
+	Acronym *string `type:"string" json:"acronym"`
+
+	ApplyMode *int32 `type:"int32" json:"applyMode"`
+
+	CaseSensitive *int64 `type:"int64" json:"caseSensitive"`
+
+	Content *string `type:"string" json:"content"`
+
+	CreateTime *string `type:"string" json:"createTime"`
+
+	CreatedAt *string `type:"string" json:"createdAt"`
+
+	Creator *CreatorForTermBaseTermGroupsOutput `locationName:"creator" type:"structure"`
+
+	Id *string `type:"string" json:"id"`
+
+	Lang *string `type:"string" json:"lang"`
+
+	Operator *CreatorForTermBaseTermGroupsOutput `locationName:"operator" type:"structure"`
+
+	PartOfSpeech *int32 `type:"int32" json:"partOfSpeech"`
+
+	TermBaseId *string `type:"string" json:"termBaseId"`
+
+	TermGroupId *string `type:"string" json:"termGroupId"`
+
+	UpdateTime *string `type:"string" json:"updateTime"`
+
+	UpdatedAt *string `type:"string" json:"updatedAt"`
+}
+
+// String returns the string representation
+func (s ZhHansForTermBaseTermGroupsOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ZhHansForTermBaseTermGroupsOutput) GoString() string {
+	return s.String()
+}
+
+// SetAcronym sets the Acronym field's value.
+func (s *ZhHansForTermBaseTermGroupsOutput) SetAcronym(v string) *ZhHansForTermBaseTermGroupsOutput {
+	s.Acronym = &v
+	return s
+}
+
+// SetApplyMode sets the ApplyMode field's value.
+func (s *ZhHansForTermBaseTermGroupsOutput) SetApplyMode(v int32) *ZhHansForTermBaseTermGroupsOutput {
+	s.ApplyMode = &v
+	return s
+}
+
+// SetCaseSensitive sets the CaseSensitive field's value.
+func (s *ZhHansForTermBaseTermGroupsOutput) SetCaseSensitive(v int64) *ZhHansForTermBaseTermGroupsOutput {
+	s.CaseSensitive = &v
+	return s
+}
+
+// SetContent sets the Content field's value.
+func (s *ZhHansForTermBaseTermGroupsOutput) SetContent(v string) *ZhHansForTermBaseTermGroupsOutput {
+	s.Content = &v
+	return s
+}
+
+// SetCreateTime sets the CreateTime field's value.
+func (s *ZhHansForTermBaseTermGroupsOutput) SetCreateTime(v string) *ZhHansForTermBaseTermGroupsOutput {
+	s.CreateTime = &v
+	return s
+}
+
+// SetCreatedAt sets the CreatedAt field's value.
+func (s *ZhHansForTermBaseTermGroupsOutput) SetCreatedAt(v string) *ZhHansForTermBaseTermGroupsOutput {
+	s.CreatedAt = &v
+	return s
+}
+
+// SetCreator sets the Creator field's value.
+func (s *ZhHansForTermBaseTermGroupsOutput) SetCreator(v *CreatorForTermBaseTermGroupsOutput) *ZhHansForTermBaseTermGroupsOutput {
+	s.Creator = v
+	return s
+}
+
+// SetId sets the Id field's value.
+func (s *ZhHansForTermBaseTermGroupsOutput) SetId(v string) *ZhHansForTermBaseTermGroupsOutput {
+	s.Id = &v
+	return s
+}
+
+// SetLang sets the Lang field's value.
+func (s *ZhHansForTermBaseTermGroupsOutput) SetLang(v string) *ZhHansForTermBaseTermGroupsOutput {
+	s.Lang = &v
+	return s
+}
+
+// SetOperator sets the Operator field's value.
+func (s *ZhHansForTermBaseTermGroupsOutput) SetOperator(v *CreatorForTermBaseTermGroupsOutput) *ZhHansForTermBaseTermGroupsOutput {
+	s.Operator = v
+	return s
+}
+
+// SetPartOfSpeech sets the PartOfSpeech field's value.
+func (s *ZhHansForTermBaseTermGroupsOutput) SetPartOfSpeech(v int32) *ZhHansForTermBaseTermGroupsOutput {
+	s.PartOfSpeech = &v
+	return s
+}
+
+// SetTermBaseId sets the TermBaseId field's value.
+func (s *ZhHansForTermBaseTermGroupsOutput) SetTermBaseId(v string) *ZhHansForTermBaseTermGroupsOutput {
+	s.TermBaseId = &v
+	return s
+}
+
+// SetTermGroupId sets the TermGroupId field's value.
+func (s *ZhHansForTermBaseTermGroupsOutput) SetTermGroupId(v string) *ZhHansForTermBaseTermGroupsOutput {
+	s.TermGroupId = &v
+	return s
+}
+
+// SetUpdateTime sets the UpdateTime field's value.
+func (s *ZhHansForTermBaseTermGroupsOutput) SetUpdateTime(v string) *ZhHansForTermBaseTermGroupsOutput {
+	s.UpdateTime = &v
+	return s
+}
+
+// SetUpdatedAt sets the UpdatedAt field's value.
+func (s *ZhHansForTermBaseTermGroupsOutput) SetUpdatedAt(v string) *ZhHansForTermBaseTermGroupsOutput {
+	s.UpdatedAt = &v
+	return s
+}
+
+type ZhHantForTermBaseTermGroupsOutput struct {
+	_ struct{} `type:"structure"`
+
+	Acronym *string `type:"string" json:"acronym"`
+
+	ApplyMode *int32 `type:"int32" json:"applyMode"`
+
+	CaseSensitive *int64 `type:"int64" json:"caseSensitive"`
+
+	Content *string `type:"string" json:"content"`
+
+	CreateTime *string `type:"string" json:"createTime"`
+
+	CreatedAt *string `type:"string" json:"createdAt"`
+
+	Creator *CreatorForTermBaseTermGroupsOutput `locationName:"creator" type:"structure"`
+
+	Id *string `type:"string" json:"id"`
+
+	Lang *string `type:"string" json:"lang"`
+
+	Operator *CreatorForTermBaseTermGroupsOutput `locationName:"operator" type:"structure"`
+
+	PartOfSpeech *int32 `type:"int32" json:"partOfSpeech"`
+
+	TermBaseId *string `type:"string" json:"termBaseId"`
+
+	TermGroupId *string `type:"string" json:"termGroupId"`
+
+	UpdateTime *string `type:"string" json:"updateTime"`
+
+	UpdatedAt *string `type:"string" json:"updatedAt"`
+}
+
+// String returns the string representation
+func (s ZhHantForTermBaseTermGroupsOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ZhHantForTermBaseTermGroupsOutput) GoString() string {
+	return s.String()
+}
+
+// SetAcronym sets the Acronym field's value.
+func (s *ZhHantForTermBaseTermGroupsOutput) SetAcronym(v string) *ZhHantForTermBaseTermGroupsOutput {
+	s.Acronym = &v
+	return s
+}
+
+// SetApplyMode sets the ApplyMode field's value.
+func (s *ZhHantForTermBaseTermGroupsOutput) SetApplyMode(v int32) *ZhHantForTermBaseTermGroupsOutput {
+	s.ApplyMode = &v
+	return s
+}
+
+// SetCaseSensitive sets the CaseSensitive field's value.
+func (s *ZhHantForTermBaseTermGroupsOutput) SetCaseSensitive(v int64) *ZhHantForTermBaseTermGroupsOutput {
+	s.CaseSensitive = &v
+	return s
+}
+
+// SetContent sets the Content field's value.
+func (s *ZhHantForTermBaseTermGroupsOutput) SetContent(v string) *ZhHantForTermBaseTermGroupsOutput {
+	s.Content = &v
+	return s
+}
+
+// SetCreateTime sets the CreateTime field's value.
+func (s *ZhHantForTermBaseTermGroupsOutput) SetCreateTime(v string) *ZhHantForTermBaseTermGroupsOutput {
+	s.CreateTime = &v
+	return s
+}
+
+// SetCreatedAt sets the CreatedAt field's value.
+func (s *ZhHantForTermBaseTermGroupsOutput) SetCreatedAt(v string) *ZhHantForTermBaseTermGroupsOutput {
+	s.CreatedAt = &v
+	return s
+}
+
+// SetCreator sets the Creator field's value.
+func (s *ZhHantForTermBaseTermGroupsOutput) SetCreator(v *CreatorForTermBaseTermGroupsOutput) *ZhHantForTermBaseTermGroupsOutput {
+	s.Creator = v
+	return s
+}
+
+// SetId sets the Id field's value.
+func (s *ZhHantForTermBaseTermGroupsOutput) SetId(v string) *ZhHantForTermBaseTermGroupsOutput {
+	s.Id = &v
+	return s
+}
+
+// SetLang sets the Lang field's value.
+func (s *ZhHantForTermBaseTermGroupsOutput) SetLang(v string) *ZhHantForTermBaseTermGroupsOutput {
+	s.Lang = &v
+	return s
+}
+
+// SetOperator sets the Operator field's value.
+func (s *ZhHantForTermBaseTermGroupsOutput) SetOperator(v *CreatorForTermBaseTermGroupsOutput) *ZhHantForTermBaseTermGroupsOutput {
+	s.Operator = v
+	return s
+}
+
+// SetPartOfSpeech sets the PartOfSpeech field's value.
+func (s *ZhHantForTermBaseTermGroupsOutput) SetPartOfSpeech(v int32) *ZhHantForTermBaseTermGroupsOutput {
+	s.PartOfSpeech = &v
+	return s
+}
+
+// SetTermBaseId sets the TermBaseId field's value.
+func (s *ZhHantForTermBaseTermGroupsOutput) SetTermBaseId(v string) *ZhHantForTermBaseTermGroupsOutput {
+	s.TermBaseId = &v
+	return s
+}
+
+// SetTermGroupId sets the TermGroupId field's value.
+func (s *ZhHantForTermBaseTermGroupsOutput) SetTermGroupId(v string) *ZhHantForTermBaseTermGroupsOutput {
+	s.TermGroupId = &v
+	return s
+}
+
+// SetUpdateTime sets the UpdateTime field's value.
+func (s *ZhHantForTermBaseTermGroupsOutput) SetUpdateTime(v string) *ZhHantForTermBaseTermGroupsOutput {
+	s.UpdateTime = &v
+	return s
+}
+
+// SetUpdatedAt sets the UpdatedAt field's value.
+func (s *ZhHantForTermBaseTermGroupsOutput) SetUpdatedAt(v string) *ZhHantForTermBaseTermGroupsOutput {
+	s.UpdatedAt = &v
+	return s
+}
+
+type ZhTWForTermBaseTermGroupsOutput struct {
+	_ struct{} `type:"structure"`
+
+	Acronym *string `type:"string" json:"acronym"`
+
+	ApplyMode *int32 `type:"int32" json:"applyMode"`
+
+	CaseSensitive *int64 `type:"int64" json:"caseSensitive"`
+
+	Content *string `type:"string" json:"content"`
+
+	CreateTime *string `type:"string" json:"createTime"`
+
+	CreatedAt *string `type:"string" json:"createdAt"`
+
+	Creator *CreatorForTermBaseTermGroupsOutput `locationName:"creator" type:"structure"`
+
+	Id *string `type:"string" json:"id"`
+
+	Lang *string `type:"string" json:"lang"`
+
+	Operator *CreatorForTermBaseTermGroupsOutput `locationName:"operator" type:"structure"`
+
+	PartOfSpeech *int32 `type:"int32" json:"partOfSpeech"`
+
+	TermBaseId *string `type:"string" json:"termBaseId"`
+
+	TermGroupId *string `type:"string" json:"termGroupId"`
+
+	UpdateTime *string `type:"string" json:"updateTime"`
+
+	UpdatedAt *string `type:"string" json:"updatedAt"`
+}
+
+// String returns the string representation
+func (s ZhTWForTermBaseTermGroupsOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ZhTWForTermBaseTermGroupsOutput) GoString() string {
+	return s.String()
+}
+
+// SetAcronym sets the Acronym field's value.
+func (s *ZhTWForTermBaseTermGroupsOutput) SetAcronym(v string) *ZhTWForTermBaseTermGroupsOutput {
+	s.Acronym = &v
+	return s
+}
+
+// SetApplyMode sets the ApplyMode field's value.
+func (s *ZhTWForTermBaseTermGroupsOutput) SetApplyMode(v int32) *ZhTWForTermBaseTermGroupsOutput {
+	s.ApplyMode = &v
+	return s
+}
+
+// SetCaseSensitive sets the CaseSensitive field's value.
+func (s *ZhTWForTermBaseTermGroupsOutput) SetCaseSensitive(v int64) *ZhTWForTermBaseTermGroupsOutput {
+	s.CaseSensitive = &v
+	return s
+}
+
+// SetContent sets the Content field's value.
+func (s *ZhTWForTermBaseTermGroupsOutput) SetContent(v string) *ZhTWForTermBaseTermGroupsOutput {
+	s.Content = &v
+	return s
+}
+
+// SetCreateTime sets the CreateTime field's value.
+func (s *ZhTWForTermBaseTermGroupsOutput) SetCreateTime(v string) *ZhTWForTermBaseTermGroupsOutput {
+	s.CreateTime = &v
+	return s
+}
+
+// SetCreatedAt sets the CreatedAt field's value.
+func (s *ZhTWForTermBaseTermGroupsOutput) SetCreatedAt(v string) *ZhTWForTermBaseTermGroupsOutput {
+	s.CreatedAt = &v
+	return s
+}
+
+// SetCreator sets the Creator field's value.
+func (s *ZhTWForTermBaseTermGroupsOutput) SetCreator(v *CreatorForTermBaseTermGroupsOutput) *ZhTWForTermBaseTermGroupsOutput {
+	s.Creator = v
+	return s
+}
+
+// SetId sets the Id field's value.
+func (s *ZhTWForTermBaseTermGroupsOutput) SetId(v string) *ZhTWForTermBaseTermGroupsOutput {
+	s.Id = &v
+	return s
+}
+
+// SetLang sets the Lang field's value.
+func (s *ZhTWForTermBaseTermGroupsOutput) SetLang(v string) *ZhTWForTermBaseTermGroupsOutput {
+	s.Lang = &v
+	return s
+}
+
+// SetOperator sets the Operator field's value.
+func (s *ZhTWForTermBaseTermGroupsOutput) SetOperator(v *CreatorForTermBaseTermGroupsOutput) *ZhTWForTermBaseTermGroupsOutput {
+	s.Operator = v
+	return s
+}
+
+// SetPartOfSpeech sets the PartOfSpeech field's value.
+func (s *ZhTWForTermBaseTermGroupsOutput) SetPartOfSpeech(v int32) *ZhTWForTermBaseTermGroupsOutput {
+	s.PartOfSpeech = &v
+	return s
+}
+
+// SetTermBaseId sets the TermBaseId field's value.
+func (s *ZhTWForTermBaseTermGroupsOutput) SetTermBaseId(v string) *ZhTWForTermBaseTermGroupsOutput {
+	s.TermBaseId = &v
+	return s
+}
+
+// SetTermGroupId sets the TermGroupId field's value.
+func (s *ZhTWForTermBaseTermGroupsOutput) SetTermGroupId(v string) *ZhTWForTermBaseTermGroupsOutput {
+	s.TermGroupId = &v
+	return s
+}
+
+// SetUpdateTime sets the UpdateTime field's value.
+func (s *ZhTWForTermBaseTermGroupsOutput) SetUpdateTime(v string) *ZhTWForTermBaseTermGroupsOutput {
+	s.UpdateTime = &v
+	return s
+}
+
+// SetUpdatedAt sets the UpdatedAt field's value.
+func (s *ZhTWForTermBaseTermGroupsOutput) SetUpdatedAt(v string) *ZhTWForTermBaseTermGroupsOutput {
+	s.UpdatedAt = &v
 	return s
 }

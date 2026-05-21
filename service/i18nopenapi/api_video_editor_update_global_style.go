@@ -143,10 +143,246 @@ func (c *I18NOPENAPI) VideoEditorUpdateGlobalStyleWithContext(ctx volcengine.Con
 	return out, req.Send()
 }
 
+type SourceForVideoEditorUpdateGlobalStyleInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Alignment *int32 `max:"4" type:"int32" json:"alignment,omitempty"`
+
+	FontFamily *string `type:"string" json:"fontFamily,omitempty"`
+
+	FontSize *int32 `min:"11" max:"72" type:"int32" json:"fontSize,omitempty"`
+
+	Show *float32 `type:"float" json:"show,omitempty"`
+
+	X *int64 `max:"1" type:"int64" json:"x,omitempty"`
+
+	Y *int64 `max:"1" type:"int64" json:"y,omitempty"`
+}
+
+// String returns the string representation
+func (s SourceForVideoEditorUpdateGlobalStyleInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s SourceForVideoEditorUpdateGlobalStyleInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *SourceForVideoEditorUpdateGlobalStyleInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "SourceForVideoEditorUpdateGlobalStyleInput"}
+	if s.Alignment != nil && *s.Alignment > 4 {
+		invalidParams.Add(request.NewErrParamMaxValue("Alignment", 4))
+	}
+	if s.FontSize != nil && *s.FontSize < 11 {
+		invalidParams.Add(request.NewErrParamMinValue("FontSize", 11))
+	}
+	if s.FontSize != nil && *s.FontSize > 72 {
+		invalidParams.Add(request.NewErrParamMaxValue("FontSize", 72))
+	}
+	if s.X != nil && *s.X < -1 {
+		invalidParams.Add(request.NewErrParamMinValue("X", -1))
+	}
+	if s.X != nil && *s.X > 1 {
+		invalidParams.Add(request.NewErrParamMaxValue("X", 1))
+	}
+	if s.Y != nil && *s.Y < -1 {
+		invalidParams.Add(request.NewErrParamMinValue("Y", -1))
+	}
+	if s.Y != nil && *s.Y > 1 {
+		invalidParams.Add(request.NewErrParamMaxValue("Y", 1))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetAlignment sets the Alignment field's value.
+func (s *SourceForVideoEditorUpdateGlobalStyleInput) SetAlignment(v int32) *SourceForVideoEditorUpdateGlobalStyleInput {
+	s.Alignment = &v
+	return s
+}
+
+// SetFontFamily sets the FontFamily field's value.
+func (s *SourceForVideoEditorUpdateGlobalStyleInput) SetFontFamily(v string) *SourceForVideoEditorUpdateGlobalStyleInput {
+	s.FontFamily = &v
+	return s
+}
+
+// SetFontSize sets the FontSize field's value.
+func (s *SourceForVideoEditorUpdateGlobalStyleInput) SetFontSize(v int32) *SourceForVideoEditorUpdateGlobalStyleInput {
+	s.FontSize = &v
+	return s
+}
+
+// SetShow sets the Show field's value.
+func (s *SourceForVideoEditorUpdateGlobalStyleInput) SetShow(v float32) *SourceForVideoEditorUpdateGlobalStyleInput {
+	s.Show = &v
+	return s
+}
+
+// SetX sets the X field's value.
+func (s *SourceForVideoEditorUpdateGlobalStyleInput) SetX(v int64) *SourceForVideoEditorUpdateGlobalStyleInput {
+	s.X = &v
+	return s
+}
+
+// SetY sets the Y field's value.
+func (s *SourceForVideoEditorUpdateGlobalStyleInput) SetY(v int64) *SourceForVideoEditorUpdateGlobalStyleInput {
+	s.Y = &v
+	return s
+}
+
+type StyleConfigForVideoEditorUpdateGlobalStyleInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Source *SourceForVideoEditorUpdateGlobalStyleInput `type:"structure" json:"source,omitempty"`
+
+	Target *TargetForVideoEditorUpdateGlobalStyleInput `type:"structure" json:"target,omitempty"`
+}
+
+// String returns the string representation
+func (s StyleConfigForVideoEditorUpdateGlobalStyleInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s StyleConfigForVideoEditorUpdateGlobalStyleInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *StyleConfigForVideoEditorUpdateGlobalStyleInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "StyleConfigForVideoEditorUpdateGlobalStyleInput"}
+	if s.Source != nil {
+		if err := s.Source.Validate(); err != nil {
+			invalidParams.AddNested("Source", err.(request.ErrInvalidParams))
+		}
+	}
+	if s.Target != nil {
+		if err := s.Target.Validate(); err != nil {
+			invalidParams.AddNested("Target", err.(request.ErrInvalidParams))
+		}
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetSource sets the Source field's value.
+func (s *StyleConfigForVideoEditorUpdateGlobalStyleInput) SetSource(v *SourceForVideoEditorUpdateGlobalStyleInput) *StyleConfigForVideoEditorUpdateGlobalStyleInput {
+	s.Source = v
+	return s
+}
+
+// SetTarget sets the Target field's value.
+func (s *StyleConfigForVideoEditorUpdateGlobalStyleInput) SetTarget(v *TargetForVideoEditorUpdateGlobalStyleInput) *StyleConfigForVideoEditorUpdateGlobalStyleInput {
+	s.Target = v
+	return s
+}
+
+type TargetForVideoEditorUpdateGlobalStyleInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Alignment *int32 `max:"4" type:"int32" json:"alignment,omitempty"`
+
+	FontFamily *string `type:"string" json:"fontFamily,omitempty"`
+
+	FontSize *int32 `min:"11" max:"72" type:"int32" json:"fontSize,omitempty"`
+
+	Show *float32 `type:"float" json:"show,omitempty"`
+
+	X *int64 `max:"1" type:"int64" json:"x,omitempty"`
+
+	Y *int64 `max:"1" type:"int64" json:"y,omitempty"`
+}
+
+// String returns the string representation
+func (s TargetForVideoEditorUpdateGlobalStyleInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TargetForVideoEditorUpdateGlobalStyleInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *TargetForVideoEditorUpdateGlobalStyleInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "TargetForVideoEditorUpdateGlobalStyleInput"}
+	if s.Alignment != nil && *s.Alignment > 4 {
+		invalidParams.Add(request.NewErrParamMaxValue("Alignment", 4))
+	}
+	if s.FontSize != nil && *s.FontSize < 11 {
+		invalidParams.Add(request.NewErrParamMinValue("FontSize", 11))
+	}
+	if s.FontSize != nil && *s.FontSize > 72 {
+		invalidParams.Add(request.NewErrParamMaxValue("FontSize", 72))
+	}
+	if s.X != nil && *s.X < -1 {
+		invalidParams.Add(request.NewErrParamMinValue("X", -1))
+	}
+	if s.X != nil && *s.X > 1 {
+		invalidParams.Add(request.NewErrParamMaxValue("X", 1))
+	}
+	if s.Y != nil && *s.Y < -1 {
+		invalidParams.Add(request.NewErrParamMinValue("Y", -1))
+	}
+	if s.Y != nil && *s.Y > 1 {
+		invalidParams.Add(request.NewErrParamMaxValue("Y", 1))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetAlignment sets the Alignment field's value.
+func (s *TargetForVideoEditorUpdateGlobalStyleInput) SetAlignment(v int32) *TargetForVideoEditorUpdateGlobalStyleInput {
+	s.Alignment = &v
+	return s
+}
+
+// SetFontFamily sets the FontFamily field's value.
+func (s *TargetForVideoEditorUpdateGlobalStyleInput) SetFontFamily(v string) *TargetForVideoEditorUpdateGlobalStyleInput {
+	s.FontFamily = &v
+	return s
+}
+
+// SetFontSize sets the FontSize field's value.
+func (s *TargetForVideoEditorUpdateGlobalStyleInput) SetFontSize(v int32) *TargetForVideoEditorUpdateGlobalStyleInput {
+	s.FontSize = &v
+	return s
+}
+
+// SetShow sets the Show field's value.
+func (s *TargetForVideoEditorUpdateGlobalStyleInput) SetShow(v float32) *TargetForVideoEditorUpdateGlobalStyleInput {
+	s.Show = &v
+	return s
+}
+
+// SetX sets the X field's value.
+func (s *TargetForVideoEditorUpdateGlobalStyleInput) SetX(v int64) *TargetForVideoEditorUpdateGlobalStyleInput {
+	s.X = &v
+	return s
+}
+
+// SetY sets the Y field's value.
+func (s *TargetForVideoEditorUpdateGlobalStyleInput) SetY(v int64) *TargetForVideoEditorUpdateGlobalStyleInput {
+	s.Y = &v
+	return s
+}
+
 type VideoEditorUpdateGlobalStyleInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	Style *string `type:"string" json:"style,omitempty"`
+	StyleConfig *StyleConfigForVideoEditorUpdateGlobalStyleInput `type:"structure" json:"styleConfig,omitempty"`
 
 	SubtaskId *string `type:"string" json:"subtaskId,omitempty"`
 }
@@ -161,9 +397,24 @@ func (s VideoEditorUpdateGlobalStyleInput) GoString() string {
 	return s.String()
 }
 
-// SetStyle sets the Style field's value.
-func (s *VideoEditorUpdateGlobalStyleInput) SetStyle(v string) *VideoEditorUpdateGlobalStyleInput {
-	s.Style = &v
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *VideoEditorUpdateGlobalStyleInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "VideoEditorUpdateGlobalStyleInput"}
+	if s.StyleConfig != nil {
+		if err := s.StyleConfig.Validate(); err != nil {
+			invalidParams.AddNested("StyleConfig", err.(request.ErrInvalidParams))
+		}
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetStyleConfig sets the StyleConfig field's value.
+func (s *VideoEditorUpdateGlobalStyleInput) SetStyleConfig(v *StyleConfigForVideoEditorUpdateGlobalStyleInput) *VideoEditorUpdateGlobalStyleInput {
+	s.StyleConfig = v
 	return s
 }
 
