@@ -142,7 +142,7 @@ func (c *I18NOPENAPI) ProjectNamespaceTargetDownloadWithContext(ctx volcengine.C
 type ProjectNamespaceTargetDownloadInput struct {
 	_ struct{} `type:"structure"`
 
-	ConvertPlural *float64 `locationName:"convertPlural" type:"float"`
+	ConvertPlural *float32 `locationName:"convertPlural" type:"float"`
 
 	FileFormat *string `locationName:"fileFormat" type:"string"`
 
@@ -182,7 +182,7 @@ func (s *ProjectNamespaceTargetDownloadInput) Validate() error {
 }
 
 // SetConvertPlural sets the ConvertPlural field's value.
-func (s *ProjectNamespaceTargetDownloadInput) SetConvertPlural(v float64) *ProjectNamespaceTargetDownloadInput {
+func (s *ProjectNamespaceTargetDownloadInput) SetConvertPlural(v float32) *ProjectNamespaceTargetDownloadInput {
 	s.ConvertPlural = &v
 	return s
 }
