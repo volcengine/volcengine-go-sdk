@@ -232,7 +232,7 @@ type DescribeAllowListDetailOutput struct {
 
 	AllowListType *string `type:"string" json:",omitempty"`
 
-	AssociatedInstances []*AssociatedInstanceForDescribeAllowListDetailOutput `type:"list" json:",omitempty"`
+	AssociatedInstances []*AssociatedInstanceForDescribeAllowListDetailOutput `type:"list"`
 }
 
 // String returns the string representation

@@ -142,6 +142,8 @@ func (c *TRANSITROUTER) EnableTransitRouterRouteTablePropagationWithContext(ctx 
 type EnableTransitRouterRouteTablePropagationInput struct {
 	_ struct{} `type:"structure"`
 
+	PropagationGranularity *string `type:"string"`
+
 	// TransitRouterAttachmentId is a required field
 	TransitRouterAttachmentId *string `type:"string" required:"true"`
 
@@ -173,6 +175,12 @@ func (s *EnableTransitRouterRouteTablePropagationInput) Validate() error {
 		return invalidParams
 	}
 	return nil
+}
+
+// SetPropagationGranularity sets the PropagationGranularity field's value.
+func (s *EnableTransitRouterRouteTablePropagationInput) SetPropagationGranularity(v string) *EnableTransitRouterRouteTablePropagationInput {
+	s.PropagationGranularity = &v
+	return s
 }
 
 // SetTransitRouterAttachmentId sets the TransitRouterAttachmentId field's value.

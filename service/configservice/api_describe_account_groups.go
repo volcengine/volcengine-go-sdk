@@ -154,11 +154,11 @@ type AccountGroupForDescribeAccountGroupsOutput struct {
 
 	GroupName *string `type:"string" json:",omitempty"`
 
-	GroupType *string `type:"string" json:",omitempty"`
+	GroupType *string `type:"string" json:",omitempty" enum:"EnumOfGroupTypeForDescribeAccountGroupsOutput"`
 
 	Principals []*string `type:"list" json:",omitempty"`
 
-	Status *string `type:"string" json:",omitempty"`
+	Status *string `type:"string" json:",omitempty" enum:"EnumOfStatusForDescribeAccountGroupsOutput"`
 
 	UpdatedTime *string `type:"string" json:",omitempty"`
 }
@@ -266,3 +266,22 @@ func (s *DescribeAccountGroupsOutput) SetAccountGroups(v []*AccountGroupForDescr
 	s.AccountGroups = v
 	return s
 }
+
+const (
+	// EnumOfGroupTypeForDescribeAccountGroupsOutputOrg is a EnumOfGroupTypeForDescribeAccountGroupsOutput enum value
+	EnumOfGroupTypeForDescribeAccountGroupsOutputOrg = "Org"
+
+	// EnumOfGroupTypeForDescribeAccountGroupsOutputOrgUnit is a EnumOfGroupTypeForDescribeAccountGroupsOutput enum value
+	EnumOfGroupTypeForDescribeAccountGroupsOutputOrgUnit = "OrgUnit"
+
+	// EnumOfGroupTypeForDescribeAccountGroupsOutputOrgMember is a EnumOfGroupTypeForDescribeAccountGroupsOutput enum value
+	EnumOfGroupTypeForDescribeAccountGroupsOutputOrgMember = "OrgMember"
+)
+
+const (
+	// EnumOfStatusForDescribeAccountGroupsOutputCreating is a EnumOfStatusForDescribeAccountGroupsOutput enum value
+	EnumOfStatusForDescribeAccountGroupsOutputCreating = "Creating"
+
+	// EnumOfStatusForDescribeAccountGroupsOutputEnabled is a EnumOfStatusForDescribeAccountGroupsOutput enum value
+	EnumOfStatusForDescribeAccountGroupsOutputEnabled = "Enabled"
+)

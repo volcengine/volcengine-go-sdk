@@ -32,7 +32,7 @@ const opGetClawOmniInstanceCommon = "GetClawOmniInstance"
 func (c *ARKCLAW) GetClawOmniInstanceCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opGetClawOmniInstanceCommon,
-		HTTPMethod: "GET",
+		HTTPMethod: "POST",
 		HTTPPath:   "/",
 	}
 
@@ -42,6 +42,8 @@ func (c *ARKCLAW) GetClawOmniInstanceCommonRequest(input *map[string]interface{}
 
 	output = &map[string]interface{}{}
 	req = c.newRequest(op, input, output)
+
+	req.HTTPRequest.Header.Set("Content-Type", "application/json; charset=utf-8")
 
 	return
 }
@@ -97,7 +99,7 @@ const opGetClawOmniInstance = "GetClawOmniInstance"
 func (c *ARKCLAW) GetClawOmniInstanceRequest(input *GetClawOmniInstanceInput) (req *request.Request, output *GetClawOmniInstanceOutput) {
 	op := &request.Operation{
 		Name:       opGetClawOmniInstance,
-		HTTPMethod: "GET",
+		HTTPMethod: "POST",
 		HTTPPath:   "/",
 	}
 
@@ -107,6 +109,8 @@ func (c *ARKCLAW) GetClawOmniInstanceRequest(input *GetClawOmniInstanceInput) (r
 
 	output = &GetClawOmniInstanceOutput{}
 	req = c.newRequest(op, input, output)
+
+	req.HTTPRequest.Header.Set("Content-Type", "application/json; charset=utf-8")
 
 	return
 }
@@ -140,45 +144,45 @@ func (c *ARKCLAW) GetClawOmniInstanceWithContext(ctx volcengine.Context, input *
 }
 
 type ClawOmniInstanceForGetClawOmniInstanceOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	CpuMilli *int32 `type:"int32"`
+	CpuMilli *int32 `type:"int32" json:",omitempty"`
 
-	CreatedAt *string `type:"string"`
+	CreatedAt *string `type:"string" json:",omitempty"`
 
-	Description *string `type:"string"`
+	Description *string `type:"string" json:",omitempty"`
 
-	Endpoint *string `type:"string"`
+	Endpoint *string `type:"string" json:",omitempty"`
 
-	ExpiredAction *string `type:"string"`
+	ExpiredAction *string `type:"string" json:",omitempty"`
 
-	ExpiredAt *string `type:"string"`
+	ExpiredAt *string `type:"string" json:",omitempty"`
 
-	Id *string `type:"string"`
+	Id *string `type:"string" json:",omitempty"`
 
-	Image *string `type:"string"`
+	Image *string `type:"string" json:",omitempty"`
 
-	InternalEndpoint *string `type:"string"`
+	InternalEndpoint *string `type:"string" json:",omitempty"`
 
-	MemoryMb *int32 `type:"int32"`
+	MemoryMb *int32 `type:"int32" json:",omitempty"`
 
-	ModelConfig *ModelConfigForGetClawOmniInstanceOutput `type:"structure"`
+	ModelConfig *ModelConfigForGetClawOmniInstanceOutput `type:"structure" json:",omitempty"`
 
-	Name *string `type:"string"`
+	Name *string `type:"string" json:",omitempty"`
 
-	ProjectName *string `type:"string"`
+	ProjectName *string `type:"string" json:",omitempty"`
 
-	Soul *string `type:"string"`
+	Soul *string `type:"string" json:",omitempty"`
 
-	SpaceId *string `type:"string"`
+	SpaceId *string `type:"string" json:",omitempty"`
 
-	Status *string `type:"string"`
+	Status *string `type:"string" json:",omitempty"`
 
 	Tags []*TagForGetClawOmniInstanceOutput `type:"list"`
 
-	TemplateId *string `type:"string"`
+	TemplateId *string `type:"string" json:",omitempty"`
 
-	UpdatedAt *string `type:"string"`
+	UpdatedAt *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -306,12 +310,12 @@ func (s *ClawOmniInstanceForGetClawOmniInstanceOutput) SetUpdatedAt(v string) *C
 }
 
 type GetClawOmniInstanceInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// Id is a required field
-	Id *string `type:"string" required:"true"`
+	Id *string `type:"string" json:",omitempty" required:"true"`
 
-	ProjectName *string `type:"string"`
+	ProjectName *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -350,11 +354,11 @@ func (s *GetClawOmniInstanceInput) SetProjectName(v string) *GetClawOmniInstance
 }
 
 type GetClawOmniInstanceOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	ClawOmniInstance *ClawOmniInstanceForGetClawOmniInstanceOutput `type:"structure"`
+	ClawOmniInstance *ClawOmniInstanceForGetClawOmniInstanceOutput `type:"structure" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -374,13 +378,13 @@ func (s *GetClawOmniInstanceOutput) SetClawOmniInstance(v *ClawOmniInstanceForGe
 }
 
 type ModelConfigForGetClawOmniInstanceOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	ModelId *string `type:"string"`
+	ModelId *string `type:"string" json:",omitempty"`
 
-	ModelName *string `type:"string"`
+	ModelName *string `type:"string" json:",omitempty"`
 
-	ModelSource *string `type:"string"`
+	ModelSource *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -412,13 +416,13 @@ func (s *ModelConfigForGetClawOmniInstanceOutput) SetModelSource(v string) *Mode
 }
 
 type TagForGetClawOmniInstanceOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Key *string `type:"string"`
+	Key *string `type:"string" json:",omitempty"`
 
-	Type *string `type:"string"`
+	Type *string `type:"string" json:",omitempty"`
 
-	Value *string `type:"string"`
+	Value *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation

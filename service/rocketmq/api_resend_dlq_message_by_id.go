@@ -152,7 +152,7 @@ type ResendDLQMessageByIdInput struct {
 	// InstanceId is a required field
 	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 
-	MessageIds []*string `type:"list" json:",omitempty"`
+	MessageIds []*string `type:"list"`
 }
 
 // String returns the string representation
@@ -204,7 +204,7 @@ type ResendDLQMessageByIdOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	ResendResult []*ResendResultForResendDLQMessageByIdOutput `type:"list" json:",omitempty"`
+	ResendResults []*ResendResultForResendDLQMessageByIdOutput `type:"list"`
 }
 
 // String returns the string representation
@@ -217,9 +217,9 @@ func (s ResendDLQMessageByIdOutput) GoString() string {
 	return s.String()
 }
 
-// SetResendResult sets the ResendResult field's value.
-func (s *ResendDLQMessageByIdOutput) SetResendResult(v []*ResendResultForResendDLQMessageByIdOutput) *ResendDLQMessageByIdOutput {
-	s.ResendResult = v
+// SetResendResults sets the ResendResults field's value.
+func (s *ResendDLQMessageByIdOutput) SetResendResults(v []*ResendResultForResendDLQMessageByIdOutput) *ResendDLQMessageByIdOutput {
+	s.ResendResults = v
 	return s
 }
 

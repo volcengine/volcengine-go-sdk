@@ -146,9 +146,9 @@ func (c *ROCKETMQ) AddTagsToResourceWithContext(ctx volcengine.Context, input *A
 type AddTagsToResourceInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	InstanceIds []*string `type:"list" json:",omitempty"`
+	InstanceIds []*string `type:"list"`
 
-	Tags []*TagForAddTagsToResourceInput `type:"list" json:",omitempty"`
+	Tags []*TagForAddTagsToResourceInput `type:"list"`
 }
 
 // String returns the string representation

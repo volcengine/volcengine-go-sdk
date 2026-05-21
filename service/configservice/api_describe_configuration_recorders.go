@@ -158,7 +158,7 @@ type ConfigurationRecorderForDescribeConfigurationRecordersOutput struct {
 
 	RecorderName *string `type:"string" json:",omitempty"`
 
-	RecorderType *string `type:"string" json:",omitempty"`
+	RecorderType *string `type:"string" json:",omitempty" enum:"EnumOfRecorderTypeForDescribeConfigurationRecordersOutput"`
 }
 
 // String returns the string representation
@@ -325,4 +325,12 @@ const (
 
 	// EnumOfConfigurationRecorderStatusForDescribeConfigurationRecordersOutputPendingDisable is a EnumOfConfigurationRecorderStatusForDescribeConfigurationRecordersOutput enum value
 	EnumOfConfigurationRecorderStatusForDescribeConfigurationRecordersOutputPendingDisable = "PendingDisable"
+)
+
+const (
+	// EnumOfRecorderTypeForDescribeConfigurationRecordersOutputSingleAccount is a EnumOfRecorderTypeForDescribeConfigurationRecordersOutput enum value
+	EnumOfRecorderTypeForDescribeConfigurationRecordersOutputSingleAccount = "SingleAccount"
+
+	// EnumOfRecorderTypeForDescribeConfigurationRecordersOutputOrganization is a EnumOfRecorderTypeForDescribeConfigurationRecordersOutput enum value
+	EnumOfRecorderTypeForDescribeConfigurationRecordersOutputOrganization = "Organization"
 )

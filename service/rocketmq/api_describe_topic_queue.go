@@ -155,7 +155,7 @@ type DescribeTopicQueueInput struct {
 	// PageSize is a required field
 	PageSize *int32 `type:"int32" json:",omitempty" required:"true"`
 
-	QueueIds []*string `type:"list" json:",omitempty"`
+	QueueIds []*string `type:"list"`
 
 	// TopicName is a required field
 	TopicName *string `type:"string" json:",omitempty" required:"true"`
@@ -228,7 +228,7 @@ type DescribeTopicQueueOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	QueuesInfo []*QueuesInfoForDescribeTopicQueueOutput `type:"list" json:",omitempty"`
+	QueuesInfo []*QueuesInfoForDescribeTopicQueueOutput `type:"list"`
 
 	Total *int32 `type:"int32" json:",omitempty"`
 }

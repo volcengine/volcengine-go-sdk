@@ -146,7 +146,7 @@ func (c *CR) DeleteEndpointAclPoliciesWithContext(ctx volcengine.Context, input 
 type DeleteEndpointAclPoliciesInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	Entries []*string `type:"list" json:",omitempty"`
+	Entries []*string `type:"list"`
 
 	// Registry is a required field
 	Registry *string `min:"3" max:"30" type:"string" json:",omitempty" required:"true"`

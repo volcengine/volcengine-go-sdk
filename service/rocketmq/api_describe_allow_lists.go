@@ -346,7 +346,7 @@ type DescribeAllowListsOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	AllowLists []*AllowListForDescribeAllowListsOutput `type:"list" json:",omitempty"`
+	AllowLists []*AllowListForDescribeAllowListsOutput `type:"list"`
 }
 
 // String returns the string representation

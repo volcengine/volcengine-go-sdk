@@ -806,6 +806,14 @@ type I18NOPENAPIAPI interface {
 	VideoProjectCreateWithContext(volcengine.Context, *VideoProjectCreateInput, ...request.Option) (*VideoProjectCreateOutput, error)
 	VideoProjectCreateRequest(*VideoProjectCreateInput) (*request.Request, *VideoProjectCreateOutput)
 
+	VideoProjectGetVideoUploadStatusCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	VideoProjectGetVideoUploadStatusCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	VideoProjectGetVideoUploadStatusCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	VideoProjectGetVideoUploadStatus(*VideoProjectGetVideoUploadStatusInput) (*VideoProjectGetVideoUploadStatusOutput, error)
+	VideoProjectGetVideoUploadStatusWithContext(volcengine.Context, *VideoProjectGetVideoUploadStatusInput, ...request.Option) (*VideoProjectGetVideoUploadStatusOutput, error)
+	VideoProjectGetVideoUploadStatusRequest(*VideoProjectGetVideoUploadStatusInput) (*request.Request, *VideoProjectGetVideoUploadStatusOutput)
+
 	VideoProjectListCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	VideoProjectListCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	VideoProjectListCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -861,6 +869,14 @@ type I18NOPENAPIAPI interface {
 	VideoProjectTaskList(*VideoProjectTaskListInput) (*VideoProjectTaskListOutput, error)
 	VideoProjectTaskListWithContext(volcengine.Context, *VideoProjectTaskListInput, ...request.Option) (*VideoProjectTaskListOutput, error)
 	VideoProjectTaskListRequest(*VideoProjectTaskListInput) (*request.Request, *VideoProjectTaskListOutput)
+
+	VideoProjectVideoUploadCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	VideoProjectVideoUploadCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	VideoProjectVideoUploadCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	VideoProjectVideoUpload(*VideoProjectVideoUploadInput) (*VideoProjectVideoUploadOutput, error)
+	VideoProjectVideoUploadWithContext(volcengine.Context, *VideoProjectVideoUploadInput, ...request.Option) (*VideoProjectVideoUploadOutput, error)
+	VideoProjectVideoUploadRequest(*VideoProjectVideoUploadInput) (*request.Request, *VideoProjectVideoUploadOutput)
 
 	VideoResourceUploadCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	VideoResourceUploadCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)

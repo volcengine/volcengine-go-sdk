@@ -148,7 +148,7 @@ type ConfigurationItemForGetAccountGroupResourceConfigHistoryOutput struct {
 
 	AccountId *string `type:"string" json:",omitempty"`
 
-	Configuration map[string]*interface{} `type:"map" json:",omitempty"`
+	Configuration map[string]interface{} `type:"map" json:",omitempty"`
 
 	ConfigurationCaptureTime *string `type:"string" json:",omitempty"`
 
@@ -162,7 +162,7 @@ type ConfigurationItemForGetAccountGroupResourceConfigHistoryOutput struct {
 
 	ResourceCreationTime *string `type:"string" json:",omitempty"`
 
-	ResourceEventType *string `type:"string" json:",omitempty"`
+	ResourceEventType *string `type:"string" json:",omitempty" enum:"EnumOfResourceEventTypeForGetAccountGroupResourceConfigHistoryOutput"`
 
 	ResourceIdentifier *string `type:"string" json:",omitempty"`
 
@@ -190,7 +190,7 @@ func (s *ConfigurationItemForGetAccountGroupResourceConfigHistoryOutput) SetAcco
 }
 
 // SetConfiguration sets the Configuration field's value.
-func (s *ConfigurationItemForGetAccountGroupResourceConfigHistoryOutput) SetConfiguration(v map[string]*interface{}) *ConfigurationItemForGetAccountGroupResourceConfigHistoryOutput {
+func (s *ConfigurationItemForGetAccountGroupResourceConfigHistoryOutput) SetConfiguration(v map[string]interface{}) *ConfigurationItemForGetAccountGroupResourceConfigHistoryOutput {
 	s.Configuration = v
 	return s
 }
@@ -428,7 +428,7 @@ type PreviousConfigurationForGetAccountGroupResourceConfigHistoryOutput struct {
 
 	AccountId *string `type:"string" json:",omitempty"`
 
-	Configuration map[string]*interface{} `type:"map" json:",omitempty"`
+	Configuration map[string]interface{} `type:"map" json:",omitempty"`
 
 	ProjectName *string `type:"string" json:",omitempty"`
 
@@ -462,7 +462,7 @@ func (s *PreviousConfigurationForGetAccountGroupResourceConfigHistoryOutput) Set
 }
 
 // SetConfiguration sets the Configuration field's value.
-func (s *PreviousConfigurationForGetAccountGroupResourceConfigHistoryOutput) SetConfiguration(v map[string]*interface{}) *PreviousConfigurationForGetAccountGroupResourceConfigHistoryOutput {
+func (s *PreviousConfigurationForGetAccountGroupResourceConfigHistoryOutput) SetConfiguration(v map[string]interface{}) *PreviousConfigurationForGetAccountGroupResourceConfigHistoryOutput {
 	s.Configuration = v
 	return s
 }
@@ -592,3 +592,14 @@ func (s *TagForGetAccountGroupResourceConfigHistoryOutput) SetValue(v string) *T
 	s.Value = &v
 	return s
 }
+
+const (
+	// EnumOfResourceEventTypeForGetAccountGroupResourceConfigHistoryOutputDiscovered is a EnumOfResourceEventTypeForGetAccountGroupResourceConfigHistoryOutput enum value
+	EnumOfResourceEventTypeForGetAccountGroupResourceConfigHistoryOutputDiscovered = "Discovered"
+
+	// EnumOfResourceEventTypeForGetAccountGroupResourceConfigHistoryOutputUpdate is a EnumOfResourceEventTypeForGetAccountGroupResourceConfigHistoryOutput enum value
+	EnumOfResourceEventTypeForGetAccountGroupResourceConfigHistoryOutputUpdate = "Update"
+
+	// EnumOfResourceEventTypeForGetAccountGroupResourceConfigHistoryOutputDelete is a EnumOfResourceEventTypeForGetAccountGroupResourceConfigHistoryOutput enum value
+	EnumOfResourceEventTypeForGetAccountGroupResourceConfigHistoryOutputDelete = "Delete"
+)

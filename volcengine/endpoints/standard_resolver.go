@@ -191,6 +191,7 @@ var ServiceInfos = map[string]ServiceInfo{
 	"veenedge":                    {Service: "veenedge", IsGlobal: true},
 	"arkclaw":                     {Service: "arkclaw", IsGlobal: false},
 	"i18n_openapi":                {Service: "i18n_openapi", IsGlobal: true},
+	"config":                      {Service: "config", IsGlobal: true},
 }
 
 type RegionInfo struct{}

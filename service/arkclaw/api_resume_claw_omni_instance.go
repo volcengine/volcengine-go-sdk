@@ -32,7 +32,7 @@ const opResumeClawOmniInstanceCommon = "ResumeClawOmniInstance"
 func (c *ARKCLAW) ResumeClawOmniInstanceCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opResumeClawOmniInstanceCommon,
-		HTTPMethod: "GET",
+		HTTPMethod: "POST",
 		HTTPPath:   "/",
 	}
 
@@ -42,6 +42,8 @@ func (c *ARKCLAW) ResumeClawOmniInstanceCommonRequest(input *map[string]interfac
 
 	output = &map[string]interface{}{}
 	req = c.newRequest(op, input, output)
+
+	req.HTTPRequest.Header.Set("Content-Type", "application/json; charset=utf-8")
 
 	return
 }
@@ -97,7 +99,7 @@ const opResumeClawOmniInstance = "ResumeClawOmniInstance"
 func (c *ARKCLAW) ResumeClawOmniInstanceRequest(input *ResumeClawOmniInstanceInput) (req *request.Request, output *ResumeClawOmniInstanceOutput) {
 	op := &request.Operation{
 		Name:       opResumeClawOmniInstance,
-		HTTPMethod: "GET",
+		HTTPMethod: "POST",
 		HTTPPath:   "/",
 	}
 
@@ -107,6 +109,8 @@ func (c *ARKCLAW) ResumeClawOmniInstanceRequest(input *ResumeClawOmniInstanceInp
 
 	output = &ResumeClawOmniInstanceOutput{}
 	req = c.newRequest(op, input, output)
+
+	req.HTTPRequest.Header.Set("Content-Type", "application/json; charset=utf-8")
 
 	return
 }
@@ -140,12 +144,12 @@ func (c *ARKCLAW) ResumeClawOmniInstanceWithContext(ctx volcengine.Context, inpu
 }
 
 type ResumeClawOmniInstanceInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// Id is a required field
-	Id *string `type:"string" required:"true"`
+	Id *string `type:"string" json:",omitempty" required:"true"`
 
-	Timeout *int32 `type:"int32"`
+	Timeout *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -184,11 +188,11 @@ func (s *ResumeClawOmniInstanceInput) SetTimeout(v int32) *ResumeClawOmniInstanc
 }
 
 type ResumeClawOmniInstanceOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	Id *string `type:"string"`
+	Id *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
