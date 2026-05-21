@@ -300,7 +300,7 @@ type GetInspectConfigOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	Configs []*ConfigForGetInspectConfigOutput `type:"list" json:",omitempty"`
+	Configs []*ConfigForGetInspectConfigOutput `type:"list"`
 
 	InstanceId *string `type:"string" json:",omitempty"`
 

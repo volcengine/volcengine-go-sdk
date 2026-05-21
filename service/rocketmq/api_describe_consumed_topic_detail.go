@@ -286,7 +286,7 @@ type DescribeConsumedTopicDetailOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	ConsumedQueueInfo []*ConsumedQueueInfoForDescribeConsumedTopicDetailOutput `type:"list" json:",omitempty"`
+	ConsumedQueueInfo []*ConsumedQueueInfoForDescribeConsumedTopicDetailOutput `type:"list"`
 
 	Total *int32 `type:"int32" json:",omitempty"`
 }

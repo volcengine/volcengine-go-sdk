@@ -326,7 +326,7 @@ type QueryDLQMessageByGroupIdOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	DLQMessageList []*DLQMessageListForQueryDLQMessageByGroupIdOutput `type:"list" json:",omitempty"`
+	DLQMessageList []*DLQMessageListForQueryDLQMessageByGroupIdOutput `type:"list"`
 
 	HasMoreMessage *bool `type:"boolean" json:",omitempty"`
 }

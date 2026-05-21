@@ -146,7 +146,7 @@ func (c *ROCKETMQ) DescribeTopicGroupsWithContext(ctx volcengine.Context, input 
 type DescribeTopicGroupsInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	GroupIds []*string `type:"list" json:",omitempty"`
+	GroupIds []*string `type:"list"`
 
 	// InstanceId is a required field
 	InstanceId *string `type:"string" json:",omitempty" required:"true"`
@@ -228,7 +228,7 @@ type DescribeTopicGroupsOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	GroupsInfo []*GroupsInfoForDescribeTopicGroupsOutput `type:"list" json:",omitempty"`
+	GroupsInfo []*GroupsInfoForDescribeTopicGroupsOutput `type:"list"`
 
 	Total *int32 `type:"int32" json:",omitempty"`
 }

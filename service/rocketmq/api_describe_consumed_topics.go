@@ -276,7 +276,7 @@ type DescribeConsumedTopicsOutput struct {
 
 	Accumulation *int64 `type:"int64" json:",omitempty"`
 
-	ConsumedTopicsInfo []*ConsumedTopicsInfoForDescribeConsumedTopicsOutput `type:"list" json:",omitempty"`
+	ConsumedTopicsInfo []*ConsumedTopicsInfoForDescribeConsumedTopicsOutput `type:"list"`
 
 	Total *int32 `type:"int32" json:",omitempty"`
 }

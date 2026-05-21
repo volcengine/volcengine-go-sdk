@@ -204,7 +204,7 @@ type DescribeAccessKeyDetailOutput struct {
 
 	InstanceId *string `type:"string" json:",omitempty"`
 
-	TopicPermissions []*TopicPermissionForDescribeAccessKeyDetailOutput `type:"list" json:",omitempty"`
+	TopicPermissions []*TopicPermissionForDescribeAccessKeyDetailOutput `type:"list"`
 }
 
 // String returns the string representation

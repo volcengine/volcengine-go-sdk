@@ -292,7 +292,7 @@ type DescribeConsumedClientsOutput struct {
 
 	ConnectionCount *int32 `type:"int32" json:",omitempty"`
 
-	ConsumedClientsInfo []*ConsumedClientsInfoForDescribeConsumedClientsOutput `type:"list" json:",omitempty"`
+	ConsumedClientsInfo []*ConsumedClientsInfoForDescribeConsumedClientsOutput `type:"list"`
 }
 
 // String returns the string representation

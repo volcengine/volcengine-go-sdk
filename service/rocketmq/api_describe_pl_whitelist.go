@@ -184,7 +184,7 @@ type DescribePLWhitelistOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	AccountIds []*string `type:"list" json:",omitempty"`
+	AccountIds []*string `type:"list"`
 
 	InstanceId *string `type:"string" json:",omitempty"`
 
