@@ -32,7 +32,7 @@ const opDeleteClawOmniInstanceCommon = "DeleteClawOmniInstance"
 func (c *ARKCLAW) DeleteClawOmniInstanceCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDeleteClawOmniInstanceCommon,
-		HTTPMethod: "GET",
+		HTTPMethod: "POST",
 		HTTPPath:   "/",
 	}
 
@@ -42,6 +42,8 @@ func (c *ARKCLAW) DeleteClawOmniInstanceCommonRequest(input *map[string]interfac
 
 	output = &map[string]interface{}{}
 	req = c.newRequest(op, input, output)
+
+	req.HTTPRequest.Header.Set("Content-Type", "application/json; charset=utf-8")
 
 	return
 }
@@ -97,7 +99,7 @@ const opDeleteClawOmniInstance = "DeleteClawOmniInstance"
 func (c *ARKCLAW) DeleteClawOmniInstanceRequest(input *DeleteClawOmniInstanceInput) (req *request.Request, output *DeleteClawOmniInstanceOutput) {
 	op := &request.Operation{
 		Name:       opDeleteClawOmniInstance,
-		HTTPMethod: "GET",
+		HTTPMethod: "POST",
 		HTTPPath:   "/",
 	}
 
@@ -107,6 +109,8 @@ func (c *ARKCLAW) DeleteClawOmniInstanceRequest(input *DeleteClawOmniInstanceInp
 
 	output = &DeleteClawOmniInstanceOutput{}
 	req = c.newRequest(op, input, output)
+
+	req.HTTPRequest.Header.Set("Content-Type", "application/json; charset=utf-8")
 
 	return
 }
@@ -140,12 +144,12 @@ func (c *ARKCLAW) DeleteClawOmniInstanceWithContext(ctx volcengine.Context, inpu
 }
 
 type DeleteClawOmniInstanceInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// Id is a required field
-	Id *string `type:"string" required:"true"`
+	Id *string `type:"string" json:",omitempty" required:"true"`
 
-	ProjectName *string `type:"string"`
+	ProjectName *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -184,11 +188,11 @@ func (s *DeleteClawOmniInstanceInput) SetProjectName(v string) *DeleteClawOmniIn
 }
 
 type DeleteClawOmniInstanceOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	Id *string `type:"string"`
+	Id *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation

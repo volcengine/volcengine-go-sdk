@@ -32,7 +32,7 @@ const opResetClawOmniInstanceCommon = "ResetClawOmniInstance"
 func (c *ARKCLAW) ResetClawOmniInstanceCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opResetClawOmniInstanceCommon,
-		HTTPMethod: "GET",
+		HTTPMethod: "POST",
 		HTTPPath:   "/",
 	}
 
@@ -42,6 +42,8 @@ func (c *ARKCLAW) ResetClawOmniInstanceCommonRequest(input *map[string]interface
 
 	output = &map[string]interface{}{}
 	req = c.newRequest(op, input, output)
+
+	req.HTTPRequest.Header.Set("Content-Type", "application/json; charset=utf-8")
 
 	return
 }
@@ -97,7 +99,7 @@ const opResetClawOmniInstance = "ResetClawOmniInstance"
 func (c *ARKCLAW) ResetClawOmniInstanceRequest(input *ResetClawOmniInstanceInput) (req *request.Request, output *ResetClawOmniInstanceOutput) {
 	op := &request.Operation{
 		Name:       opResetClawOmniInstance,
-		HTTPMethod: "GET",
+		HTTPMethod: "POST",
 		HTTPPath:   "/",
 	}
 
@@ -107,6 +109,8 @@ func (c *ARKCLAW) ResetClawOmniInstanceRequest(input *ResetClawOmniInstanceInput
 
 	output = &ResetClawOmniInstanceOutput{}
 	req = c.newRequest(op, input, output)
+
+	req.HTTPRequest.Header.Set("Content-Type", "application/json; charset=utf-8")
 
 	return
 }
@@ -140,14 +144,14 @@ func (c *ARKCLAW) ResetClawOmniInstanceWithContext(ctx volcengine.Context, input
 }
 
 type ResetClawOmniInstanceInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// Id is a required field
-	Id *string `type:"string" required:"true"`
+	Id *string `type:"string" json:",omitempty" required:"true"`
 
-	ProjectName *string `type:"string"`
+	ProjectName *string `type:"string" json:",omitempty"`
 
-	TemplateId *string `type:"string"`
+	TemplateId *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -192,11 +196,11 @@ func (s *ResetClawOmniInstanceInput) SetTemplateId(v string) *ResetClawOmniInsta
 }
 
 type ResetClawOmniInstanceOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	Id *string `type:"string"`
+	Id *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
