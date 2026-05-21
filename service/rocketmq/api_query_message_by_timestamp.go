@@ -328,7 +328,7 @@ type QueryMessageByTimestampOutput struct {
 
 	HasMoreMessage *bool `type:"boolean" json:",omitempty"`
 
-	MessageList []*MessageListForQueryMessageByTimestampOutput `type:"list" json:",omitempty"`
+	MessageList []*MessageListForQueryMessageByTimestampOutput `type:"list"`
 }
 
 // String returns the string representation

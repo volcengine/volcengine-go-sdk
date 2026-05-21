@@ -228,7 +228,7 @@ type GetInstanceInspectResultOutput struct {
 
 	InstanceId *string `type:"string" json:",omitempty"`
 
-	Results []*ResultForGetInstanceInspectResultOutput `type:"list" json:",omitempty"`
+	Results []*ResultForGetInstanceInspectResultOutput `type:"list"`
 
 	Total *int32 `type:"int32" json:",omitempty"`
 
@@ -284,13 +284,13 @@ type ResultForGetInstanceInspectResultOutput struct {
 
 	Level *string `type:"string" json:",omitempty"`
 
-	Resource []*string `type:"list" json:",omitempty"`
+	Resource []*string `type:"list"`
 
 	ResultId *string `type:"string" json:",omitempty"`
 
 	Status *string `type:"string" json:",omitempty"`
 
-	Suggestion []*string `type:"list" json:",omitempty"`
+	Suggestion []*string `type:"list"`
 
 	TimeStamp *string `type:"string" json:",omitempty"`
 

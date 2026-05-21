@@ -214,6 +214,8 @@ type DescribeGroupsDetailOutput struct {
 
 	MessageModel *string `type:"string" json:",omitempty"`
 
+	ReadEnable *bool `type:"boolean" json:",omitempty"`
+
 	RetryMaxTimes *int32 `type:"int32" json:",omitempty"`
 
 	RocketmqVersion *string `type:"string" json:",omitempty"`
@@ -288,6 +290,12 @@ func (s *DescribeGroupsDetailOutput) SetMessageDelayTime(v string) *DescribeGrou
 // SetMessageModel sets the MessageModel field's value.
 func (s *DescribeGroupsDetailOutput) SetMessageModel(v string) *DescribeGroupsDetailOutput {
 	s.MessageModel = &v
+	return s
+}
+
+// SetReadEnable sets the ReadEnable field's value.
+func (s *DescribeGroupsDetailOutput) SetReadEnable(v bool) *DescribeGroupsDetailOutput {
+	s.ReadEnable = &v
 	return s
 }
 

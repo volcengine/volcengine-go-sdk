@@ -146,7 +146,7 @@ func (c *ROCKETMQ) DeleteGroupsWithContext(ctx volcengine.Context, input *Delete
 type DeleteGroupsInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	GroupsId []*string `type:"list" json:",omitempty"`
+	GroupsId []*string `type:"list"`
 
 	// InstanceId is a required field
 	InstanceId *string `type:"string" json:",omitempty" required:"true"`

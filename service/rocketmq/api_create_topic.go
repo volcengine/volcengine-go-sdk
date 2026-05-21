@@ -200,7 +200,7 @@ func (s *AccessPolicyForCreateTopicInput) SetAuthority(v string) *AccessPolicyFo
 type CreateTopicInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	AccessPolicies []*AccessPolicyForCreateTopicInput `type:"list" json:",omitempty"`
+	AccessPolicies []*AccessPolicyForCreateTopicInput `type:"list"`
 
 	Description *string `type:"string" json:",omitempty"`
 

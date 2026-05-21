@@ -222,9 +222,9 @@ func (s *ChargeInfoForCreateInstanceInput) SetPeriodUnit(v string) *ChargeInfoFo
 type CreateInstanceInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	AllowListIds []*string `type:"list" json:",omitempty"`
+	AllowListIds []*string `type:"list"`
 
-	BindTags []*BindTagForCreateInstanceInput `type:"list" json:",omitempty"`
+	BindTags []*BindTagForCreateInstanceInput `type:"list"`
 
 	ChargeInfo *ChargeInfoForCreateInstanceInput `type:"structure" json:",omitempty"`
 

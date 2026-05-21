@@ -150,7 +150,11 @@ type BasicInfoForDescribeInstanceDetailOutput struct {
 
 	ApplyPrivateDNSToPublic *bool `type:"boolean" json:",omitempty"`
 
+	AvailableGroupNumber *int32 `type:"int32" json:",omitempty"`
+
 	AvailableQueueNumber *int32 `type:"int32" json:",omitempty"`
+
+	AvailableTopicNumber *int32 `type:"int32" json:",omitempty"`
 
 	ChargeDetail *ChargeDetailForDescribeInstanceDetailOutput `type:"structure" json:",omitempty"`
 
@@ -159,6 +163,8 @@ type BasicInfoForDescribeInstanceDetailOutput struct {
 	CreateTime *string `type:"string" json:",omitempty"`
 
 	EipId *string `type:"string" json:",omitempty"`
+
+	EnableInspect *bool `type:"boolean" json:",omitempty"`
 
 	EnableSSL *bool `type:"boolean" json:",omitempty"`
 
@@ -172,7 +178,9 @@ type BasicInfoForDescribeInstanceDetailOutput struct {
 
 	InstanceStatus *string `type:"string" json:",omitempty"`
 
-	InstanceTags []*InstanceTagForDescribeInstanceDetailOutput `type:"list" json:",omitempty"`
+	InstanceTags []*InstanceTagForDescribeInstanceDetailOutput `type:"list"`
+
+	ProductVersion *string `type:"string" json:",omitempty"`
 
 	ProjectName *string `type:"string" json:",omitempty"`
 
@@ -180,9 +188,13 @@ type BasicInfoForDescribeInstanceDetailOutput struct {
 
 	SSLMode *string `type:"string" json:",omitempty"`
 
+	SendReceiveRatio *int32 `min:"1" max:"99" type:"int32" json:",omitempty"`
+
 	StorageSpace *int32 `type:"int32" json:",omitempty"`
 
 	SubnetId *string `type:"string" json:",omitempty"`
+
+	TotalTps *int32 `type:"int32" json:",omitempty"`
 
 	UsedGroupNumber *int32 `type:"int32" json:",omitempty"`
 
@@ -221,9 +233,21 @@ func (s *BasicInfoForDescribeInstanceDetailOutput) SetApplyPrivateDNSToPublic(v 
 	return s
 }
 
+// SetAvailableGroupNumber sets the AvailableGroupNumber field's value.
+func (s *BasicInfoForDescribeInstanceDetailOutput) SetAvailableGroupNumber(v int32) *BasicInfoForDescribeInstanceDetailOutput {
+	s.AvailableGroupNumber = &v
+	return s
+}
+
 // SetAvailableQueueNumber sets the AvailableQueueNumber field's value.
 func (s *BasicInfoForDescribeInstanceDetailOutput) SetAvailableQueueNumber(v int32) *BasicInfoForDescribeInstanceDetailOutput {
 	s.AvailableQueueNumber = &v
+	return s
+}
+
+// SetAvailableTopicNumber sets the AvailableTopicNumber field's value.
+func (s *BasicInfoForDescribeInstanceDetailOutput) SetAvailableTopicNumber(v int32) *BasicInfoForDescribeInstanceDetailOutput {
+	s.AvailableTopicNumber = &v
 	return s
 }
 
@@ -248,6 +272,12 @@ func (s *BasicInfoForDescribeInstanceDetailOutput) SetCreateTime(v string) *Basi
 // SetEipId sets the EipId field's value.
 func (s *BasicInfoForDescribeInstanceDetailOutput) SetEipId(v string) *BasicInfoForDescribeInstanceDetailOutput {
 	s.EipId = &v
+	return s
+}
+
+// SetEnableInspect sets the EnableInspect field's value.
+func (s *BasicInfoForDescribeInstanceDetailOutput) SetEnableInspect(v bool) *BasicInfoForDescribeInstanceDetailOutput {
+	s.EnableInspect = &v
 	return s
 }
 
@@ -293,6 +323,12 @@ func (s *BasicInfoForDescribeInstanceDetailOutput) SetInstanceTags(v []*Instance
 	return s
 }
 
+// SetProductVersion sets the ProductVersion field's value.
+func (s *BasicInfoForDescribeInstanceDetailOutput) SetProductVersion(v string) *BasicInfoForDescribeInstanceDetailOutput {
+	s.ProductVersion = &v
+	return s
+}
+
 // SetProjectName sets the ProjectName field's value.
 func (s *BasicInfoForDescribeInstanceDetailOutput) SetProjectName(v string) *BasicInfoForDescribeInstanceDetailOutput {
 	s.ProjectName = &v
@@ -311,6 +347,12 @@ func (s *BasicInfoForDescribeInstanceDetailOutput) SetSSLMode(v string) *BasicIn
 	return s
 }
 
+// SetSendReceiveRatio sets the SendReceiveRatio field's value.
+func (s *BasicInfoForDescribeInstanceDetailOutput) SetSendReceiveRatio(v int32) *BasicInfoForDescribeInstanceDetailOutput {
+	s.SendReceiveRatio = &v
+	return s
+}
+
 // SetStorageSpace sets the StorageSpace field's value.
 func (s *BasicInfoForDescribeInstanceDetailOutput) SetStorageSpace(v int32) *BasicInfoForDescribeInstanceDetailOutput {
 	s.StorageSpace = &v
@@ -320,6 +362,12 @@ func (s *BasicInfoForDescribeInstanceDetailOutput) SetStorageSpace(v int32) *Bas
 // SetSubnetId sets the SubnetId field's value.
 func (s *BasicInfoForDescribeInstanceDetailOutput) SetSubnetId(v string) *BasicInfoForDescribeInstanceDetailOutput {
 	s.SubnetId = &v
+	return s
+}
+
+// SetTotalTps sets the TotalTps field's value.
+func (s *BasicInfoForDescribeInstanceDetailOutput) SetTotalTps(v int32) *BasicInfoForDescribeInstanceDetailOutput {
+	s.TotalTps = &v
 	return s
 }
 
@@ -542,7 +590,7 @@ type DescribeInstanceDetailOutput struct {
 
 	ChargeDetail *ChargeDetailForDescribeInstanceDetailOutput `type:"structure" json:",omitempty"`
 
-	ConnectionInfo []*ConnectionInfoForDescribeInstanceDetailOutput `type:"list" json:",omitempty"`
+	ConnectionInfo []*ConnectionInfoForDescribeInstanceDetailOutput `type:"list"`
 
 	FileReservedTime *int32 `type:"int32" json:",omitempty"`
 }

@@ -376,9 +376,9 @@ type QueryMessageTraceByMessageIdOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	ConsumerTraceInfos []*ConsumerTraceInfoForQueryMessageTraceByMessageIdOutput `type:"list" json:",omitempty"`
+	ConsumerTraceInfos []*ConsumerTraceInfoForQueryMessageTraceByMessageIdOutput `type:"list"`
 
-	ProducerTraceInfo []*ProducerTraceInfoForQueryMessageTraceByMessageIdOutput `type:"list" json:",omitempty"`
+	ProducerTraceInfo []*ProducerTraceInfoForQueryMessageTraceByMessageIdOutput `type:"list"`
 }
 
 // String returns the string representation
