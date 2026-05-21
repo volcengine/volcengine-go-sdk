@@ -25,7 +25,7 @@ func newBatchHTTPClient(maxParallel int) *http.Client {
 func (c *Client) CreateBatchChatCompletion(
 	ctx context.Context,
 	request model.ChatRequest,
-	setters ...requestOption,
+	setters ...RequestOption,
 ) (response model.ChatCompletionResponse, err error) {
 	if request.IsStream() {
 		err = model.ErrChatCompletionStreamNotSupported
@@ -43,7 +43,7 @@ func (c *Client) CreateBatchChatCompletion(
 func (c *Client) CreateBatchEmbeddings(
 	ctx context.Context,
 	conv model.EmbeddingRequestConverter,
-	setters ...requestOption,
+	setters ...RequestOption,
 ) (res model.EmbeddingResponse, err error) {
 	baseReq := conv.Convert()
 
@@ -67,7 +67,7 @@ func (c *Client) CreateBatchEmbeddings(
 func (c *Client) CreateBatchMultiModalEmbeddings(
 	ctx context.Context,
 	request model.MultiModalEmbeddingRequest,
-	setters ...requestOption,
+	setters ...RequestOption,
 ) (res model.MultimodalEmbeddingResponse, err error) {
 
 	requestOptions := append(setters, withBody(request))

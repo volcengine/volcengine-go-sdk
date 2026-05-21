@@ -15,7 +15,7 @@ const contentGenerationTaskPath = "/contents/generations/tasks"
 func (c *Client) CreateContentGenerationTask(
 	ctx context.Context,
 	request model.CreateContentGenerationTaskRequest,
-	setters ...requestOption,
+	setters ...RequestOption,
 ) (response model.CreateContentGenerationTaskResponse, err error) {
 	if !c.isAPIKeyAuthentication() {
 		return response, model.ErrAKSKNotSupported
@@ -29,7 +29,7 @@ func (c *Client) CreateContentGenerationTask(
 func (c *Client) GetContentGenerationTask(
 	ctx context.Context,
 	request model.GetContentGenerationTaskRequest,
-	setters ...requestOption,
+	setters ...RequestOption,
 ) (response model.GetContentGenerationTaskResponse, err error) {
 	if !c.isAPIKeyAuthentication() {
 		return response, model.ErrAKSKNotSupported
@@ -44,7 +44,7 @@ func (c *Client) GetContentGenerationTask(
 func (c *Client) DeleteContentGenerationTask(
 	ctx context.Context,
 	request model.DeleteContentGenerationTaskRequest,
-	setters ...requestOption,
+	setters ...RequestOption,
 ) (err error) {
 	if !c.isAPIKeyAuthentication() {
 		return model.ErrAKSKNotSupported
@@ -59,7 +59,7 @@ func (c *Client) DeleteContentGenerationTask(
 func (c *Client) ListContentGenerationTasks(
 	ctx context.Context,
 	request model.ListContentGenerationTasksRequest,
-	setters ...requestOption,
+	setters ...RequestOption,
 ) (response model.ListContentGenerationTasksResponse, err error) {
 	if !c.isAPIKeyAuthentication() {
 		return response, model.ErrAKSKNotSupported

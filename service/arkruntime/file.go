@@ -25,7 +25,7 @@ const (
 	maxWaitTime  = 10 * time.Minute
 )
 
-func (c *Client) UploadFile(ctx context.Context, request *file.UploadFileRequest, setters ...requestOption) (response *file.FileMeta, err error) {
+func (c *Client) UploadFile(ctx context.Context, request *file.UploadFileRequest, setters ...RequestOption) (response *file.FileMeta, err error) {
 	opts := append(setters, withBody(request))
 	response = &file.FileMeta{}
 	// files do not support ak/sk authorization, do not have resource
@@ -33,7 +33,7 @@ func (c *Client) UploadFile(ctx context.Context, request *file.UploadFileRequest
 	return
 }
 
-func (c *Client) RetrieveFile(ctx context.Context, fileID string, setters ...requestOption) (response *file.FileMeta, err error) {
+func (c *Client) RetrieveFile(ctx context.Context, fileID string, setters ...RequestOption) (response *file.FileMeta, err error) {
 	if fileID == "" {
 		err = errors.New("missing required file_id parameter")
 		return
@@ -44,14 +44,14 @@ func (c *Client) RetrieveFile(ctx context.Context, fileID string, setters ...req
 	err = c.Do(ctx, http.MethodGet, c.fullURL(filePrefix+"/"+fileID), "", "", response, opts...)
 	return
 }
-func (c *Client) ListFiles(ctx context.Context, request *file.ListFilesRequest, setters ...requestOption) (response *file.ListFilesResponse, err error) {
+func (c *Client) ListFiles(ctx context.Context, request *file.ListFilesRequest, setters ...RequestOption) (response *file.ListFilesResponse, err error) {
 	opts := append(setters, withBody(request))
 	response = &file.ListFilesResponse{}
 	// files do not support ak/sk authorization, do not have resource
 	err = c.Do(ctx, http.MethodGet, c.fullURL(filePrefix), "", "", response, opts...)
 	return
 }
-func (c *Client) DeleteFile(ctx context.Context, fileID string, setters ...requestOption) (response *file.DeleteFileResponse, err error) {
+func (c *Client) DeleteFile(ctx context.Context, fileID string, setters ...RequestOption) (response *file.DeleteFileResponse, err error) {
 	if fileID == "" {
 		err = errors.New("missing required file_id parameter")
 		return
