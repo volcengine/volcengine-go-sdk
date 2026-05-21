@@ -194,6 +194,7 @@ var defaultEndpoint = map[string]*ServiceEndpointInfo{
 	"veenedge":                    {Service: "veenedge", IsGlobal: true},
 	"arkclaw":                     {Service: "arkclaw", IsGlobal: false},
 	"i18n_openapi":                {Service: "i18n_openapi", IsGlobal: true},
+	"config":                      {Service: "config", IsGlobal: true},
 }
 
 func standardizeDomainServiceCode(serviceCode string) string {

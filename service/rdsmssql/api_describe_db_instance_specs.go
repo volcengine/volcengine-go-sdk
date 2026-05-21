@@ -186,7 +186,7 @@ type DescribeDBInstanceSpecsOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	InstanceSpecInfo []*InstanceSpecInfoForDescribeDBInstanceSpecsOutput `type:"list" json:",omitempty"`
+	InstanceSpecsInfo []*InstanceSpecsInfoForDescribeDBInstanceSpecsOutput `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -199,13 +199,13 @@ func (s DescribeDBInstanceSpecsOutput) GoString() string {
 	return s.String()
 }
 
-// SetInstanceSpecInfo sets the InstanceSpecInfo field's value.
-func (s *DescribeDBInstanceSpecsOutput) SetInstanceSpecInfo(v []*InstanceSpecInfoForDescribeDBInstanceSpecsOutput) *DescribeDBInstanceSpecsOutput {
-	s.InstanceSpecInfo = v
+// SetInstanceSpecsInfo sets the InstanceSpecsInfo field's value.
+func (s *DescribeDBInstanceSpecsOutput) SetInstanceSpecsInfo(v []*InstanceSpecsInfoForDescribeDBInstanceSpecsOutput) *DescribeDBInstanceSpecsOutput {
+	s.InstanceSpecsInfo = v
 	return s
 }
 
-type InstanceSpecInfoForDescribeDBInstanceSpecsOutput struct {
+type InstanceSpecsInfoForDescribeDBInstanceSpecsOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
 	DBEngineVersion *string `type:"string" json:",omitempty"`
@@ -230,71 +230,71 @@ type InstanceSpecInfoForDescribeDBInstanceSpecsOutput struct {
 }
 
 // String returns the string representation
-func (s InstanceSpecInfoForDescribeDBInstanceSpecsOutput) String() string {
+func (s InstanceSpecsInfoForDescribeDBInstanceSpecsOutput) String() string {
 	return volcengineutil.Prettify(s)
 }
 
 // GoString returns the string representation
-func (s InstanceSpecInfoForDescribeDBInstanceSpecsOutput) GoString() string {
+func (s InstanceSpecsInfoForDescribeDBInstanceSpecsOutput) GoString() string {
 	return s.String()
 }
 
 // SetDBEngineVersion sets the DBEngineVersion field's value.
-func (s *InstanceSpecInfoForDescribeDBInstanceSpecsOutput) SetDBEngineVersion(v string) *InstanceSpecInfoForDescribeDBInstanceSpecsOutput {
+func (s *InstanceSpecsInfoForDescribeDBInstanceSpecsOutput) SetDBEngineVersion(v string) *InstanceSpecsInfoForDescribeDBInstanceSpecsOutput {
 	s.DBEngineVersion = &v
 	return s
 }
 
 // SetGeneration sets the Generation field's value.
-func (s *InstanceSpecInfoForDescribeDBInstanceSpecsOutput) SetGeneration(v string) *InstanceSpecInfoForDescribeDBInstanceSpecsOutput {
+func (s *InstanceSpecsInfoForDescribeDBInstanceSpecsOutput) SetGeneration(v string) *InstanceSpecsInfoForDescribeDBInstanceSpecsOutput {
 	s.Generation = &v
 	return s
 }
 
 // SetInstanceType sets the InstanceType field's value.
-func (s *InstanceSpecInfoForDescribeDBInstanceSpecsOutput) SetInstanceType(v string) *InstanceSpecInfoForDescribeDBInstanceSpecsOutput {
+func (s *InstanceSpecsInfoForDescribeDBInstanceSpecsOutput) SetInstanceType(v string) *InstanceSpecsInfoForDescribeDBInstanceSpecsOutput {
 	s.InstanceType = &v
 	return s
 }
 
 // SetMemory sets the Memory field's value.
-func (s *InstanceSpecInfoForDescribeDBInstanceSpecsOutput) SetMemory(v int32) *InstanceSpecInfoForDescribeDBInstanceSpecsOutput {
+func (s *InstanceSpecsInfoForDescribeDBInstanceSpecsOutput) SetMemory(v int32) *InstanceSpecsInfoForDescribeDBInstanceSpecsOutput {
 	s.Memory = &v
 	return s
 }
 
 // SetSpecCode sets the SpecCode field's value.
-func (s *InstanceSpecInfoForDescribeDBInstanceSpecsOutput) SetSpecCode(v string) *InstanceSpecInfoForDescribeDBInstanceSpecsOutput {
+func (s *InstanceSpecsInfoForDescribeDBInstanceSpecsOutput) SetSpecCode(v string) *InstanceSpecsInfoForDescribeDBInstanceSpecsOutput {
 	s.SpecCode = &v
 	return s
 }
 
 // SetSpecFamily sets the SpecFamily field's value.
-func (s *InstanceSpecInfoForDescribeDBInstanceSpecsOutput) SetSpecFamily(v string) *InstanceSpecInfoForDescribeDBInstanceSpecsOutput {
+func (s *InstanceSpecsInfoForDescribeDBInstanceSpecsOutput) SetSpecFamily(v string) *InstanceSpecsInfoForDescribeDBInstanceSpecsOutput {
 	s.SpecFamily = &v
 	return s
 }
 
 // SetSpecSaleType sets the SpecSaleType field's value.
-func (s *InstanceSpecInfoForDescribeDBInstanceSpecsOutput) SetSpecSaleType(v string) *InstanceSpecInfoForDescribeDBInstanceSpecsOutput {
+func (s *InstanceSpecsInfoForDescribeDBInstanceSpecsOutput) SetSpecSaleType(v string) *InstanceSpecsInfoForDescribeDBInstanceSpecsOutput {
 	s.SpecSaleType = &v
 	return s
 }
 
 // SetSpecStatus sets the SpecStatus field's value.
-func (s *InstanceSpecInfoForDescribeDBInstanceSpecsOutput) SetSpecStatus(v string) *InstanceSpecInfoForDescribeDBInstanceSpecsOutput {
+func (s *InstanceSpecsInfoForDescribeDBInstanceSpecsOutput) SetSpecStatus(v string) *InstanceSpecsInfoForDescribeDBInstanceSpecsOutput {
 	s.SpecStatus = &v
 	return s
 }
 
 // SetVCPU sets the VCPU field's value.
-func (s *InstanceSpecInfoForDescribeDBInstanceSpecsOutput) SetVCPU(v int32) *InstanceSpecInfoForDescribeDBInstanceSpecsOutput {
+func (s *InstanceSpecsInfoForDescribeDBInstanceSpecsOutput) SetVCPU(v int32) *InstanceSpecsInfoForDescribeDBInstanceSpecsOutput {
 	s.VCPU = &v
 	return s
 }
 
 // SetZoneId sets the ZoneId field's value.
-func (s *InstanceSpecInfoForDescribeDBInstanceSpecsOutput) SetZoneId(v string) *InstanceSpecInfoForDescribeDBInstanceSpecsOutput {
+func (s *InstanceSpecsInfoForDescribeDBInstanceSpecsOutput) SetZoneId(v string) *InstanceSpecsInfoForDescribeDBInstanceSpecsOutput {
 	s.ZoneId = &v
 	return s
 }

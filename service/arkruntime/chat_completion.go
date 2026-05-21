@@ -14,7 +14,7 @@ const chatCompletionsSuffix = "/chat/completions"
 func (c *Client) CreateChatCompletion(
 	ctx context.Context,
 	request model.ChatRequest,
-	setters ...requestOption,
+	setters ...RequestOption,
 ) (response model.ChatCompletionResponse, err error) {
 	if request.IsStream() {
 		err = model.ErrChatCompletionStreamNotSupported
@@ -36,7 +36,7 @@ func (c *Client) CreateChatCompletion(
 func (c *Client) CreateChatCompletionStream(
 	ctx context.Context,
 	request model.ChatRequest,
-	setters ...requestOption,
+	setters ...RequestOption,
 ) (stream *utils.ChatCompletionStreamReader, err error) {
 	request = request.WithStream(true)
 

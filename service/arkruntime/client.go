@@ -162,9 +162,9 @@ type requestOptions struct {
 	query  url.Values
 }
 
-type requestOption func(*requestOptions)
+type RequestOption func(*requestOptions)
 
-func withBody(body interface{}) requestOption {
+func withBody(body interface{}) RequestOption {
 	return func(args *requestOptions) {
 		args.body = body
 	}
@@ -184,25 +184,25 @@ func structToMap(obj interface{}) (map[string]interface{}, error) {
 	return result, nil
 }
 
-func withContentType(contentType string) requestOption {
+func withContentType(contentType string) RequestOption {
 	return func(args *requestOptions) {
 		args.header.Set("Content-Type", contentType)
 	}
 }
 
-func WithProjectName(project string) requestOption {
+func WithProjectName(project string) RequestOption {
 	return func(args *requestOptions) {
 		args.header.Set("X-Project-Name", project)
 	}
 }
 
-func WithCustomHeader(key, value string) requestOption {
+func WithCustomHeader(key, value string) RequestOption {
 	return func(args *requestOptions) {
 		args.header.Set(key, value)
 	}
 }
 
-func WithCustomHeaders(m map[string]string) requestOption {
+func WithCustomHeaders(m map[string]string) RequestOption {
 	return func(args *requestOptions) {
 		for k, v := range m {
 			args.header.Set(k, v)
@@ -212,13 +212,13 @@ func WithCustomHeaders(m map[string]string) requestOption {
 
 // WithQuery returns a RequestOption that sets the query value to the associated key. It overwrites
 // any value if there was one already present.
-func WithQuery(key, value string) requestOption {
+func WithQuery(key, value string) RequestOption {
 	return func(args *requestOptions) {
 		args.query.Set(key, value)
 	}
 }
 
-func (c *Client) newRequest(ctx context.Context, method, url, resourceType, resourceId string, setters ...requestOption) (*http.Request, *model.RequestError) {
+func (c *Client) newRequest(ctx context.Context, method, url, resourceType, resourceId string, setters ...RequestOption) (*http.Request, *model.RequestError) {
 	// Default Options
 	args := &requestOptions{
 		body:   nil,
@@ -308,7 +308,7 @@ func (c *Client) sendRequest(client *http.Client, req *http.Request, v model.Res
 	return err
 }
 
-func (c *Client) Do(ctx context.Context, method, url, resourceType, resourceId string, v model.Response, setters ...requestOption) (err error) {
+func (c *Client) Do(ctx context.Context, method, url, resourceType, resourceId string, v model.Response, setters ...RequestOption) (err error) {
 	err = utils.Retry(
 		ctx,
 		utils.RetryPolicy{
@@ -331,7 +331,7 @@ func (c *Client) Do(ctx context.Context, method, url, resourceType, resourceId s
 	return
 }
 
-func (c *Client) DoBatch(ctx context.Context, method, url, resourceType, resourceId string, v model.Response, setters ...requestOption) error {
+func (c *Client) DoBatch(ctx context.Context, method, url, resourceType, resourceId string, v model.Response, setters ...RequestOption) error {
 	breaker := c.modelBreakerProvider.GetOrCreateBreaker(resourceId)
 
 	for {
@@ -487,7 +487,7 @@ func sendImageGenerationStream(client *Client, httpClient *http.Client, req *htt
 	}, nil
 }
 
-func (c *Client) BotChatCompletionRequestStreamDo(ctx context.Context, method, url, botId string, setters ...requestOption) (streamReader *utils.BotChatCompletionStreamReader, err error) {
+func (c *Client) BotChatCompletionRequestStreamDo(ctx context.Context, method, url, botId string, setters ...RequestOption) (streamReader *utils.BotChatCompletionStreamReader, err error) {
 	err = utils.Retry(
 		ctx,
 		utils.RetryPolicy{
@@ -512,7 +512,7 @@ func (c *Client) BotChatCompletionRequestStreamDo(ctx context.Context, method, u
 	return
 }
 
-func (c *Client) ChatCompletionRequestStreamDo(ctx context.Context, method, url, resourceId string, setters ...requestOption) (streamReader *utils.ChatCompletionStreamReader, err error) {
+func (c *Client) ChatCompletionRequestStreamDo(ctx context.Context, method, url, resourceId string, setters ...RequestOption) (streamReader *utils.ChatCompletionStreamReader, err error) {
 	err = utils.Retry(
 		ctx,
 		utils.RetryPolicy{
@@ -538,7 +538,7 @@ func (c *Client) ChatCompletionRequestStreamDo(ctx context.Context, method, url,
 }
 
 // ResponsesRequestStreamDo executes a request.
-func (c *Client) ResponsesRequestStreamDo(ctx context.Context, method, url, resourceType, resourceId string, setters ...requestOption) (resp *utils.ResponsesStreamReader, err error) {
+func (c *Client) ResponsesRequestStreamDo(ctx context.Context, method, url, resourceType, resourceId string, setters ...RequestOption) (resp *utils.ResponsesStreamReader, err error) {
 	err = utils.Retry(
 		ctx,
 		utils.RetryPolicy{
@@ -561,7 +561,7 @@ func (c *Client) ResponsesRequestStreamDo(ctx context.Context, method, url, reso
 	return
 }
 
-func (c *Client) ImageGenerationStreamDo(ctx context.Context, method, url, resourceId string, setters ...requestOption) (streamReader *utils.ImageGenerationStreamReader, err error) {
+func (c *Client) ImageGenerationStreamDo(ctx context.Context, method, url, resourceId string, setters ...RequestOption) (streamReader *utils.ImageGenerationStreamReader, err error) {
 	err = utils.Retry(
 		ctx,
 		utils.RetryPolicy{

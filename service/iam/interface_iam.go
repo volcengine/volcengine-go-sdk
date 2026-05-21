@@ -358,6 +358,14 @@ type IAMAPI interface {
 	GetSecurityConfigWithContext(volcengine.Context, *GetSecurityConfigInput, ...request.Option) (*GetSecurityConfigOutput, error)
 	GetSecurityConfigRequest(*GetSecurityConfigInput) (*request.Request, *GetSecurityConfigOutput)
 
+	GetServiceLinkedRoleTemplateCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	GetServiceLinkedRoleTemplateCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	GetServiceLinkedRoleTemplateCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	GetServiceLinkedRoleTemplate(*GetServiceLinkedRoleTemplateInput) (*GetServiceLinkedRoleTemplateOutput, error)
+	GetServiceLinkedRoleTemplateWithContext(volcengine.Context, *GetServiceLinkedRoleTemplateInput, ...request.Option) (*GetServiceLinkedRoleTemplateOutput, error)
+	GetServiceLinkedRoleTemplateRequest(*GetServiceLinkedRoleTemplateInput) (*request.Request, *GetServiceLinkedRoleTemplateOutput)
+
 	GetUserCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	GetUserCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	GetUserCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})

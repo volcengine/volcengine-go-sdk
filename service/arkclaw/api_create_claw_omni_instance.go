@@ -174,6 +174,12 @@ type CreateClawOmniInstanceInput struct {
 
 	// Timeout is a required field
 	Timeout *int32 `type:"int32" required:"true"`
+
+	TokenLimitPerDay *int32 `type:"int32"`
+
+	TokenLimitPerMin *int32 `type:"int32"`
+
+	TokenLimitPerWeek *int32 `type:"int32"`
 }
 
 // String returns the string representation
@@ -306,6 +312,24 @@ func (s *CreateClawOmniInstanceInput) SetTemplateId(v string) *CreateClawOmniIns
 // SetTimeout sets the Timeout field's value.
 func (s *CreateClawOmniInstanceInput) SetTimeout(v int32) *CreateClawOmniInstanceInput {
 	s.Timeout = &v
+	return s
+}
+
+// SetTokenLimitPerDay sets the TokenLimitPerDay field's value.
+func (s *CreateClawOmniInstanceInput) SetTokenLimitPerDay(v int32) *CreateClawOmniInstanceInput {
+	s.TokenLimitPerDay = &v
+	return s
+}
+
+// SetTokenLimitPerMin sets the TokenLimitPerMin field's value.
+func (s *CreateClawOmniInstanceInput) SetTokenLimitPerMin(v int32) *CreateClawOmniInstanceInput {
+	s.TokenLimitPerMin = &v
+	return s
+}
+
+// SetTokenLimitPerWeek sets the TokenLimitPerWeek field's value.
+func (s *CreateClawOmniInstanceInput) SetTokenLimitPerWeek(v int32) *CreateClawOmniInstanceInput {
+	s.TokenLimitPerWeek = &v
 	return s
 }
 

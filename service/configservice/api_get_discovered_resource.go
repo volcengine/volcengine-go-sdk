@@ -210,7 +210,7 @@ type GetDiscoveredResourceOutput struct {
 
 	AccountId *string `type:"string" json:",omitempty"`
 
-	Configuration map[string]*interface{} `type:"map" json:",omitempty"`
+	Configuration map[string]interface{} `type:"map" json:",omitempty"`
 
 	ConfigurationCaptureTime *string `type:"string" json:",omitempty"`
 
@@ -252,7 +252,7 @@ func (s *GetDiscoveredResourceOutput) SetAccountId(v string) *GetDiscoveredResou
 }
 
 // SetConfiguration sets the Configuration field's value.
-func (s *GetDiscoveredResourceOutput) SetConfiguration(v map[string]*interface{}) *GetDiscoveredResourceOutput {
+func (s *GetDiscoveredResourceOutput) SetConfiguration(v map[string]interface{}) *GetDiscoveredResourceOutput {
 	s.Configuration = v
 	return s
 }

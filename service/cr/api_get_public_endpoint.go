@@ -220,7 +220,7 @@ type GetPublicEndpointOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	AclPolicies []*AclPolicyForGetPublicEndpointOutput `type:"list" json:",omitempty"`
+	AclPolicies []*AclPolicyForGetPublicEndpointOutput `type:"list"`
 
 	Enabled *bool `type:"boolean" json:",omitempty"`
 

@@ -3,6 +3,8 @@
 package cr
 
 import (
+	"fmt"
+
 	"github.com/volcengine/volcengine-go-sdk/volcengine"
 	"github.com/volcengine/volcengine-go-sdk/volcengine/request"
 	"github.com/volcengine/volcengine-go-sdk/volcengine/response"
@@ -149,7 +151,7 @@ type UpdateVpcEndpointInput struct {
 	// Registry is a required field
 	Registry *string `min:"3" max:"30" type:"string" json:",omitempty" required:"true"`
 
-	Vpcs []*VpcForUpdateVpcEndpointInput `type:"list" json:",omitempty"`
+	Vpcs []*VpcForUpdateVpcEndpointInput `type:"list"`
 }
 
 // String returns the string representation
@@ -173,6 +175,16 @@ func (s *UpdateVpcEndpointInput) Validate() error {
 	}
 	if s.Registry != nil && len(*s.Registry) > 30 {
 		invalidParams.Add(request.NewErrParamMaxLen("Registry", 30, *s.Registry))
+	}
+	if s.Vpcs != nil {
+		for i, v := range s.Vpcs {
+			if v == nil {
+				continue
+			}
+			if err := v.Validate(); err != nil {
+				invalidParams.AddNested(fmt.Sprintf("%s[%v]", "Vpcs", i), err.(request.ErrInvalidParams))
+			}
+		}
 	}
 
 	if invalidParams.Len() > 0 {
@@ -214,6 +226,8 @@ type VpcForUpdateVpcEndpointInput struct {
 
 	AccountId *int64 `type:"int64" json:",omitempty"`
 
+	Description *string `max:"50" type:"string" json:",omitempty"`
+
 	SubnetId *string `type:"string" json:",omitempty"`
 
 	VpcId *string `type:"string" json:",omitempty"`
@@ -229,9 +243,28 @@ func (s VpcForUpdateVpcEndpointInput) GoString() string {
 	return s.String()
 }
 
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *VpcForUpdateVpcEndpointInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "VpcForUpdateVpcEndpointInput"}
+	if s.Description != nil && len(*s.Description) > 50 {
+		invalidParams.Add(request.NewErrParamMaxLen("Description", 50, *s.Description))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
 // SetAccountId sets the AccountId field's value.
 func (s *VpcForUpdateVpcEndpointInput) SetAccountId(v int64) *VpcForUpdateVpcEndpointInput {
 	s.AccountId = &v
+	return s
+}
+
+// SetDescription sets the Description field's value.
+func (s *VpcForUpdateVpcEndpointInput) SetDescription(v string) *VpcForUpdateVpcEndpointInput {
+	s.Description = &v
 	return s
 }
 

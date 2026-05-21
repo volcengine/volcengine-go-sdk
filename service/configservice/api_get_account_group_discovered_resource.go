@@ -234,7 +234,9 @@ type GetAccountGroupDiscoveredResourceOutput struct {
 
 	AccountId *string `type:"string" json:",omitempty"`
 
-	Configuration map[string]*interface{} `type:"map" json:",omitempty"`
+	Configuration map[string]interface{} `type:"map" json:",omitempty"`
+
+	ConfigurationCaptureTime *string `type:"string" json:",omitempty"`
 
 	IsDeleted *bool `type:"boolean" json:",omitempty"`
 
@@ -243,6 +245,8 @@ type GetAccountGroupDiscoveredResourceOutput struct {
 	Region *string `type:"string" json:",omitempty"`
 
 	Relationships []*RelationshipForGetAccountGroupDiscoveredResourceOutput `type:"list" json:",omitempty"`
+
+	ResourceCreationTime *string `type:"string" json:",omitempty"`
 
 	ResourceId *string `type:"string" json:",omitempty"`
 
@@ -272,8 +276,14 @@ func (s *GetAccountGroupDiscoveredResourceOutput) SetAccountId(v string) *GetAcc
 }
 
 // SetConfiguration sets the Configuration field's value.
-func (s *GetAccountGroupDiscoveredResourceOutput) SetConfiguration(v map[string]*interface{}) *GetAccountGroupDiscoveredResourceOutput {
+func (s *GetAccountGroupDiscoveredResourceOutput) SetConfiguration(v map[string]interface{}) *GetAccountGroupDiscoveredResourceOutput {
 	s.Configuration = v
+	return s
+}
+
+// SetConfigurationCaptureTime sets the ConfigurationCaptureTime field's value.
+func (s *GetAccountGroupDiscoveredResourceOutput) SetConfigurationCaptureTime(v string) *GetAccountGroupDiscoveredResourceOutput {
+	s.ConfigurationCaptureTime = &v
 	return s
 }
 
@@ -298,6 +308,12 @@ func (s *GetAccountGroupDiscoveredResourceOutput) SetRegion(v string) *GetAccoun
 // SetRelationships sets the Relationships field's value.
 func (s *GetAccountGroupDiscoveredResourceOutput) SetRelationships(v []*RelationshipForGetAccountGroupDiscoveredResourceOutput) *GetAccountGroupDiscoveredResourceOutput {
 	s.Relationships = v
+	return s
+}
+
+// SetResourceCreationTime sets the ResourceCreationTime field's value.
+func (s *GetAccountGroupDiscoveredResourceOutput) SetResourceCreationTime(v string) *GetAccountGroupDiscoveredResourceOutput {
+	s.ResourceCreationTime = &v
 	return s
 }
 
