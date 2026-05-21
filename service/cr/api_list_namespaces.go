@@ -148,9 +148,9 @@ type FilterForListNamespacesInput struct {
 
 	InProject *bool `type:"boolean" json:",omitempty"`
 
-	Names []*string `type:"list" json:",omitempty"`
+	Names []*string `type:"list"`
 
-	Projects []*string `type:"list" json:",omitempty"`
+	Projects []*string `type:"list"`
 }
 
 // String returns the string representation
@@ -296,7 +296,7 @@ type ListNamespacesOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	Items []*ItemForListNamespacesOutput `type:"list" json:",omitempty"`
+	Items []*ItemForListNamespacesOutput `type:"list"`
 
 	PageNumber *int64 `type:"int64" json:",omitempty"`
 

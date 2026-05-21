@@ -258,7 +258,7 @@ type ListDomainsOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	Items []*ItemForListDomainsOutput `type:"list" json:",omitempty"`
+	Items []*ItemForListDomainsOutput `type:"list"`
 
 	PageNumber *int64 `type:"int64" json:",omitempty"`
 
