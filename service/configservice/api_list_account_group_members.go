@@ -231,6 +231,8 @@ type ListAccountGroupMembersOutput struct {
 	AccountList []*AccountListForListAccountGroupMembersOutput `type:"list" json:",omitempty"`
 
 	NextToken *string `type:"string" json:",omitempty"`
+
+	TotalCount *int64 `type:"int64" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -252,5 +254,11 @@ func (s *ListAccountGroupMembersOutput) SetAccountList(v []*AccountListForListAc
 // SetNextToken sets the NextToken field's value.
 func (s *ListAccountGroupMembersOutput) SetNextToken(v string) *ListAccountGroupMembersOutput {
 	s.NextToken = &v
+	return s
+}
+
+// SetTotalCount sets the TotalCount field's value.
+func (s *ListAccountGroupMembersOutput) SetTotalCount(v int64) *ListAccountGroupMembersOutput {
+	s.TotalCount = &v
 	return s
 }
