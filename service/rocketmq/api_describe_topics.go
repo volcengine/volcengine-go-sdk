@@ -248,7 +248,7 @@ type DescribeTopicsOutput struct {
 
 	InstanceId *string `type:"string" json:",omitempty"`
 
-	TopicsInfo []*TopicsInfoForDescribeTopicsOutput `type:"list" json:",omitempty"`
+	TopicsInfo []*TopicsInfoForDescribeTopicsOutput `type:"list"`
 
 	Total *int32 `type:"int32" json:",omitempty"`
 }

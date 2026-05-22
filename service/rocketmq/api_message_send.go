@@ -154,7 +154,7 @@ type MessageSendInput struct {
 
 	Key *string `type:"string" json:",omitempty"`
 
-	Properties []*string `type:"list" json:",omitempty"`
+	Properties []*string `type:"list"`
 
 	Tag *string `type:"string" json:",omitempty"`
 

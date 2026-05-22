@@ -144,7 +144,7 @@ type DescribeTransitRouterTrafficQosQueueEntriesInput struct {
 
 	PageNumber *int32 `type:"int32"`
 
-	PageSize *int32 `type:"int32"`
+	PageSize *int32 `max:"100" type:"int32"`
 
 	TransitRouterTrafficQosQueueEntryIds []*string `type:"list"`
 
@@ -167,6 +167,9 @@ func (s DescribeTransitRouterTrafficQosQueueEntriesInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *DescribeTransitRouterTrafficQosQueueEntriesInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "DescribeTransitRouterTrafficQosQueueEntriesInput"}
+	if s.PageSize != nil && *s.PageSize > 100 {
+		invalidParams.Add(request.NewErrParamMaxValue("PageSize", 100))
+	}
 	if s.TransitRouterTrafficQosQueuePolicyId == nil {
 		invalidParams.Add(request.NewErrParamRequired("TransitRouterTrafficQosQueuePolicyId"))
 	}
@@ -268,6 +271,8 @@ type TransitRouterTrafficQosQueueEntryForDescribeTransitRouterTrafficQosQueueEnt
 
 	IsDefault *bool `type:"boolean"`
 
+	Priority *string `type:"string"`
+
 	Status *string `type:"string"`
 
 	TransitRouterTrafficQosQueueEntryId *string `type:"string"`
@@ -316,6 +321,12 @@ func (s *TransitRouterTrafficQosQueueEntryForDescribeTransitRouterTrafficQosQueu
 // SetIsDefault sets the IsDefault field's value.
 func (s *TransitRouterTrafficQosQueueEntryForDescribeTransitRouterTrafficQosQueueEntriesOutput) SetIsDefault(v bool) *TransitRouterTrafficQosQueueEntryForDescribeTransitRouterTrafficQosQueueEntriesOutput {
 	s.IsDefault = &v
+	return s
+}
+
+// SetPriority sets the Priority field's value.
+func (s *TransitRouterTrafficQosQueueEntryForDescribeTransitRouterTrafficQosQueueEntriesOutput) SetPriority(v string) *TransitRouterTrafficQosQueueEntryForDescribeTransitRouterTrafficQosQueueEntriesOutput {
+	s.Priority = &v
 	return s
 }
 

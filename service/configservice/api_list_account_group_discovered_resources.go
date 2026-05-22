@@ -155,9 +155,13 @@ type ListAccountGroupDiscoveredResourcesInput struct {
 
 	Regions []*string `type:"list" json:",omitempty"`
 
+	ResourceAccountId *int64 `type:"int64" json:",omitempty"`
+
 	ResourceIdentifiers []*string `type:"list" json:",omitempty"`
 
 	ResourceIds []*string `type:"list" json:",omitempty"`
+
+	ResourceName *string `type:"string" json:",omitempty"`
 
 	ResourceStatus *string `type:"string" json:",omitempty" enum:"EnumOfResourceStatusForListAccountGroupDiscoveredResourcesInput"`
 
@@ -214,6 +218,12 @@ func (s *ListAccountGroupDiscoveredResourcesInput) SetRegions(v []*string) *List
 	return s
 }
 
+// SetResourceAccountId sets the ResourceAccountId field's value.
+func (s *ListAccountGroupDiscoveredResourcesInput) SetResourceAccountId(v int64) *ListAccountGroupDiscoveredResourcesInput {
+	s.ResourceAccountId = &v
+	return s
+}
+
 // SetResourceIdentifiers sets the ResourceIdentifiers field's value.
 func (s *ListAccountGroupDiscoveredResourcesInput) SetResourceIdentifiers(v []*string) *ListAccountGroupDiscoveredResourcesInput {
 	s.ResourceIdentifiers = v
@@ -223,6 +233,12 @@ func (s *ListAccountGroupDiscoveredResourcesInput) SetResourceIdentifiers(v []*s
 // SetResourceIds sets the ResourceIds field's value.
 func (s *ListAccountGroupDiscoveredResourcesInput) SetResourceIds(v []*string) *ListAccountGroupDiscoveredResourcesInput {
 	s.ResourceIds = v
+	return s
+}
+
+// SetResourceName sets the ResourceName field's value.
+func (s *ListAccountGroupDiscoveredResourcesInput) SetResourceName(v string) *ListAccountGroupDiscoveredResourcesInput {
+	s.ResourceName = &v
 	return s
 }
 

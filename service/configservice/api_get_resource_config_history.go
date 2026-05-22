@@ -148,7 +148,7 @@ type ConfigurationItemForGetResourceConfigHistoryOutput struct {
 
 	AccountId *string `type:"string" json:",omitempty"`
 
-	Configuration map[string]*interface{} `type:"map" json:",omitempty"`
+	Configuration map[string]interface{} `type:"map" json:",omitempty"`
 
 	ConfigurationCaptureTime *string `type:"string" json:",omitempty"`
 
@@ -162,7 +162,7 @@ type ConfigurationItemForGetResourceConfigHistoryOutput struct {
 
 	ResourceCreationTime *string `type:"string" json:",omitempty"`
 
-	ResourceEventType *string `type:"string" json:",omitempty"`
+	ResourceEventType *string `type:"string" json:",omitempty" enum:"EnumOfResourceEventTypeForGetResourceConfigHistoryOutput"`
 
 	ResourceIdentifier *string `type:"string" json:",omitempty"`
 
@@ -190,7 +190,7 @@ func (s *ConfigurationItemForGetResourceConfigHistoryOutput) SetAccountId(v stri
 }
 
 // SetConfiguration sets the Configuration field's value.
-func (s *ConfigurationItemForGetResourceConfigHistoryOutput) SetConfiguration(v map[string]*interface{}) *ConfigurationItemForGetResourceConfigHistoryOutput {
+func (s *ConfigurationItemForGetResourceConfigHistoryOutput) SetConfiguration(v map[string]interface{}) *ConfigurationItemForGetResourceConfigHistoryOutput {
 	s.Configuration = v
 	return s
 }
@@ -404,7 +404,7 @@ type PreviousConfigurationForGetResourceConfigHistoryOutput struct {
 
 	AccountId *string `type:"string" json:",omitempty"`
 
-	Configuration map[string]*interface{} `type:"map" json:",omitempty"`
+	Configuration map[string]interface{} `type:"map" json:",omitempty"`
 
 	ProjectName *string `type:"string" json:",omitempty"`
 
@@ -438,7 +438,7 @@ func (s *PreviousConfigurationForGetResourceConfigHistoryOutput) SetAccountId(v 
 }
 
 // SetConfiguration sets the Configuration field's value.
-func (s *PreviousConfigurationForGetResourceConfigHistoryOutput) SetConfiguration(v map[string]*interface{}) *PreviousConfigurationForGetResourceConfigHistoryOutput {
+func (s *PreviousConfigurationForGetResourceConfigHistoryOutput) SetConfiguration(v map[string]interface{}) *PreviousConfigurationForGetResourceConfigHistoryOutput {
 	s.Configuration = v
 	return s
 }
@@ -568,3 +568,14 @@ func (s *TagForGetResourceConfigHistoryOutput) SetValue(v string) *TagForGetReso
 	s.Value = &v
 	return s
 }
+
+const (
+	// EnumOfResourceEventTypeForGetResourceConfigHistoryOutputDiscovered is a EnumOfResourceEventTypeForGetResourceConfigHistoryOutput enum value
+	EnumOfResourceEventTypeForGetResourceConfigHistoryOutputDiscovered = "Discovered"
+
+	// EnumOfResourceEventTypeForGetResourceConfigHistoryOutputUpdate is a EnumOfResourceEventTypeForGetResourceConfigHistoryOutput enum value
+	EnumOfResourceEventTypeForGetResourceConfigHistoryOutputUpdate = "Update"
+
+	// EnumOfResourceEventTypeForGetResourceConfigHistoryOutputDelete is a EnumOfResourceEventTypeForGetResourceConfigHistoryOutput enum value
+	EnumOfResourceEventTypeForGetResourceConfigHistoryOutputDelete = "Delete"
+)

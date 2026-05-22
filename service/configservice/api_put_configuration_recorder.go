@@ -152,7 +152,7 @@ type PutConfigurationRecorderInput struct {
 	IncludeResourceTypes []*string `type:"list" json:",omitempty"`
 
 	// RecorderType is a required field
-	RecorderType *string `type:"string" json:",omitempty" required:"true"`
+	RecorderType *string `type:"string" json:",omitempty" required:"true" enum:"EnumOfRecorderTypeForPutConfigurationRecorderInput"`
 }
 
 // String returns the string representation
@@ -230,3 +230,11 @@ func (s *PutConfigurationRecorderOutput) SetRecorderId(v string) *PutConfigurati
 	s.RecorderId = &v
 	return s
 }
+
+const (
+	// EnumOfRecorderTypeForPutConfigurationRecorderInputSingleAccount is a EnumOfRecorderTypeForPutConfigurationRecorderInput enum value
+	EnumOfRecorderTypeForPutConfigurationRecorderInputSingleAccount = "SingleAccount"
+
+	// EnumOfRecorderTypeForPutConfigurationRecorderInputOrganization is a EnumOfRecorderTypeForPutConfigurationRecorderInput enum value
+	EnumOfRecorderTypeForPutConfigurationRecorderInputOrganization = "Organization"
+)

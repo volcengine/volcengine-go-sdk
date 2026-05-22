@@ -155,6 +155,8 @@ type CreateNodesInput struct {
 
 	ContainerStoragePath *string `type:"string" json:",omitempty"`
 
+	GpuDriverVersion *string `type:"string" json:",omitempty"`
+
 	ImageId *string `type:"string" json:",omitempty"`
 
 	InitializeScript *string `type:"string" json:",omitempty"`
@@ -216,6 +218,12 @@ func (s *CreateNodesInput) SetClusterId(v string) *CreateNodesInput {
 // SetContainerStoragePath sets the ContainerStoragePath field's value.
 func (s *CreateNodesInput) SetContainerStoragePath(v string) *CreateNodesInput {
 	s.ContainerStoragePath = &v
+	return s
+}
+
+// SetGpuDriverVersion sets the GpuDriverVersion field's value.
+func (s *CreateNodesInput) SetGpuDriverVersion(v string) *CreateNodesInput {
+	s.GpuDriverVersion = &v
 	return s
 }
 

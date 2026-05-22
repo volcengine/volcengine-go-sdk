@@ -156,7 +156,7 @@ type ListHostInput struct {
 
 	HostId *string `type:"string" json:",omitempty"`
 
-	HostIdList *string `type:"string" json:",omitempty"`
+	HostIdList []*string `type:"list"`
 
 	MaxResults *int32 `type:"int32" json:",omitempty"`
 
@@ -164,7 +164,7 @@ type ListHostInput struct {
 
 	PodId *string `type:"string" json:",omitempty"`
 
-	PodIdList *string `type:"string" json:",omitempty"`
+	PodIdList []*string `type:"list"`
 
 	// ProductId is a required field
 	ProductId *string `type:"string" json:",omitempty" required:"true"`
@@ -173,7 +173,7 @@ type ListHostInput struct {
 
 	ResourceSetId *string `type:"string" json:",omitempty"`
 
-	StatusList *string `type:"string" json:",omitempty"`
+	StatusList []*int32 `type:"list"`
 
 	SyncRenewType *bool `type:"boolean" json:",omitempty"`
 
@@ -236,8 +236,8 @@ func (s *ListHostInput) SetHostId(v string) *ListHostInput {
 }
 
 // SetHostIdList sets the HostIdList field's value.
-func (s *ListHostInput) SetHostIdList(v string) *ListHostInput {
-	s.HostIdList = &v
+func (s *ListHostInput) SetHostIdList(v []*string) *ListHostInput {
+	s.HostIdList = v
 	return s
 }
 
@@ -260,8 +260,8 @@ func (s *ListHostInput) SetPodId(v string) *ListHostInput {
 }
 
 // SetPodIdList sets the PodIdList field's value.
-func (s *ListHostInput) SetPodIdList(v string) *ListHostInput {
-	s.PodIdList = &v
+func (s *ListHostInput) SetPodIdList(v []*string) *ListHostInput {
+	s.PodIdList = v
 	return s
 }
 
@@ -284,8 +284,8 @@ func (s *ListHostInput) SetResourceSetId(v string) *ListHostInput {
 }
 
 // SetStatusList sets the StatusList field's value.
-func (s *ListHostInput) SetStatusList(v string) *ListHostInput {
-	s.StatusList = &v
+func (s *ListHostInput) SetStatusList(v []*int32) *ListHostInput {
+	s.StatusList = v
 	return s
 }
 
@@ -362,6 +362,8 @@ type RowForListHostOutput struct {
 
 	HostId *string `type:"string" json:",omitempty"`
 
+	LastRebootTime *string `type:"string" json:",omitempty"`
+
 	PodIdList []*string `type:"list"`
 
 	PodNumAvailable *int32 `type:"int32" json:",omitempty"`
@@ -371,6 +373,8 @@ type RowForListHostOutput struct {
 	ProductId *string `type:"string" json:",omitempty"`
 
 	Region *string `type:"string" json:",omitempty"`
+
+	RenewType *int32 `type:"int32" json:",omitempty"`
 
 	ResourceSetId *string `type:"string" json:",omitempty"`
 
@@ -451,6 +455,12 @@ func (s *RowForListHostOutput) SetHostId(v string) *RowForListHostOutput {
 	return s
 }
 
+// SetLastRebootTime sets the LastRebootTime field's value.
+func (s *RowForListHostOutput) SetLastRebootTime(v string) *RowForListHostOutput {
+	s.LastRebootTime = &v
+	return s
+}
+
 // SetPodIdList sets the PodIdList field's value.
 func (s *RowForListHostOutput) SetPodIdList(v []*string) *RowForListHostOutput {
 	s.PodIdList = v
@@ -478,6 +488,12 @@ func (s *RowForListHostOutput) SetProductId(v string) *RowForListHostOutput {
 // SetRegion sets the Region field's value.
 func (s *RowForListHostOutput) SetRegion(v string) *RowForListHostOutput {
 	s.Region = &v
+	return s
+}
+
+// SetRenewType sets the RenewType field's value.
+func (s *RowForListHostOutput) SetRenewType(v int32) *RowForListHostOutput {
+	s.RenewType = &v
 	return s
 }
 

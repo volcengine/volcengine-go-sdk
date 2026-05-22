@@ -146,7 +146,7 @@ func (c *ConfigService) GetOrganizationDiscoveredResourceCountsWithContext(ctx v
 type GetOrganizationDiscoveredResourceCountsInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	ResourceStatus *string `type:"string" json:",omitempty"`
+	ResourceStatus *string `type:"string" json:",omitempty" enum:"EnumOfResourceStatusForGetOrganizationDiscoveredResourceCountsInput"`
 
 	ResourceTypes []*string `type:"list" json:",omitempty"`
 }
@@ -196,3 +196,11 @@ func (s *GetOrganizationDiscoveredResourceCountsOutput) SetTotalResourceCount(v 
 	s.TotalResourceCount = &v
 	return s
 }
+
+const (
+	// EnumOfResourceStatusForGetOrganizationDiscoveredResourceCountsInputDeleted is a EnumOfResourceStatusForGetOrganizationDiscoveredResourceCountsInput enum value
+	EnumOfResourceStatusForGetOrganizationDiscoveredResourceCountsInputDeleted = "Deleted"
+
+	// EnumOfResourceStatusForGetOrganizationDiscoveredResourceCountsInputHeld is a EnumOfResourceStatusForGetOrganizationDiscoveredResourceCountsInput enum value
+	EnumOfResourceStatusForGetOrganizationDiscoveredResourceCountsInputHeld = "Held"
+)

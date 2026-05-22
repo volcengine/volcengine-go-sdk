@@ -197,7 +197,7 @@ type ModifyAccessKeyAuthorityInput struct {
 	// AccessKey is a required field
 	AccessKey *string `type:"string" json:",omitempty" required:"true"`
 
-	AccessPolicies []*AccessPolicyForModifyAccessKeyAuthorityInput `type:"list" json:",omitempty"`
+	AccessPolicies []*AccessPolicyForModifyAccessKeyAuthorityInput `type:"list"`
 
 	// InstanceId is a required field
 	InstanceId *string `type:"string" json:",omitempty" required:"true"`

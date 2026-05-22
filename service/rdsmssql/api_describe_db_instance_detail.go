@@ -216,7 +216,7 @@ func (s *AddressForDescribeDBInstanceDetailOutput) SetSubnetId(v string) *Addres
 type BasicInfoForDescribeDBInstanceDetailOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	BackupUse *float64 `type:"float" json:",omitempty"`
+	BackupUse *float32 `type:"float" json:",omitempty"`
 
 	CreateTime *string `type:"string" json:",omitempty"`
 
@@ -256,7 +256,7 @@ type BasicInfoForDescribeDBInstanceDetailOutput struct {
 
 	StorageType *string `type:"string" json:",omitempty"`
 
-	StorageUse *float64 `type:"float" json:",omitempty"`
+	StorageUse *float32 `type:"float" json:",omitempty"`
 
 	SubnetId *string `type:"string" json:",omitempty"`
 
@@ -284,7 +284,7 @@ func (s BasicInfoForDescribeDBInstanceDetailOutput) GoString() string {
 }
 
 // SetBackupUse sets the BackupUse field's value.
-func (s *BasicInfoForDescribeDBInstanceDetailOutput) SetBackupUse(v float64) *BasicInfoForDescribeDBInstanceDetailOutput {
+func (s *BasicInfoForDescribeDBInstanceDetailOutput) SetBackupUse(v float32) *BasicInfoForDescribeDBInstanceDetailOutput {
 	s.BackupUse = &v
 	return s
 }
@@ -404,7 +404,7 @@ func (s *BasicInfoForDescribeDBInstanceDetailOutput) SetStorageType(v string) *B
 }
 
 // SetStorageUse sets the StorageUse field's value.
-func (s *BasicInfoForDescribeDBInstanceDetailOutput) SetStorageUse(v float64) *BasicInfoForDescribeDBInstanceDetailOutput {
+func (s *BasicInfoForDescribeDBInstanceDetailOutput) SetStorageUse(v float32) *BasicInfoForDescribeDBInstanceDetailOutput {
 	s.StorageUse = &v
 	return s
 }

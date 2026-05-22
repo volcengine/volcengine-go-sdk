@@ -1409,6 +1409,8 @@ type VpcCniConfigForListClustersOutput struct {
 	SubnetIds []*string `type:"list" json:",omitempty"`
 
 	TrunkEniEnabled *bool `type:"boolean" json:",omitempty"`
+
+	VciSubnetIds []*string `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -1430,6 +1432,12 @@ func (s *VpcCniConfigForListClustersOutput) SetSubnetIds(v []*string) *VpcCniCon
 // SetTrunkEniEnabled sets the TrunkEniEnabled field's value.
 func (s *VpcCniConfigForListClustersOutput) SetTrunkEniEnabled(v bool) *VpcCniConfigForListClustersOutput {
 	s.TrunkEniEnabled = &v
+	return s
+}
+
+// SetVciSubnetIds sets the VciSubnetIds field's value.
+func (s *VpcCniConfigForListClustersOutput) SetVciSubnetIds(v []*string) *VpcCniConfigForListClustersOutput {
+	s.VciSubnetIds = v
 	return s
 }
 
