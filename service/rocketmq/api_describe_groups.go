@@ -224,7 +224,7 @@ type DescribeGroupsOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	GroupsInfo []*GroupsInfoForDescribeGroupsOutput `type:"list" json:",omitempty"`
+	GroupsInfo []*GroupsInfoForDescribeGroupsOutput `type:"list"`
 
 	Total *int32 `type:"int32" json:",omitempty"`
 }

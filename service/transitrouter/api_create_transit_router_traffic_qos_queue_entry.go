@@ -142,8 +142,7 @@ func (c *TRANSITROUTER) CreateTransitRouterTrafficQosQueueEntryWithContext(ctx v
 type CreateTransitRouterTrafficQosQueueEntryInput struct {
 	_ struct{} `type:"structure"`
 
-	// BandwidthPercent is a required field
-	BandwidthPercent *int32 `type:"int32" required:"true"`
+	BandwidthPercent *int32 `max:"100" type:"int32"`
 
 	ClientToken *string `type:"string"`
 
@@ -151,6 +150,8 @@ type CreateTransitRouterTrafficQosQueueEntryInput struct {
 
 	// Dscps is a required field
 	Dscps []*int32 `type:"list" required:"true"`
+
+	Priority *string `type:"string" enum:"EnumOfPriorityForCreateTransitRouterTrafficQosQueueEntryInput"`
 
 	// TransitRouterTrafficQosQueueEntryName is a required field
 	TransitRouterTrafficQosQueueEntryName *string `type:"string" required:"true"`
@@ -172,8 +173,8 @@ func (s CreateTransitRouterTrafficQosQueueEntryInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *CreateTransitRouterTrafficQosQueueEntryInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "CreateTransitRouterTrafficQosQueueEntryInput"}
-	if s.BandwidthPercent == nil {
-		invalidParams.Add(request.NewErrParamRequired("BandwidthPercent"))
+	if s.BandwidthPercent != nil && *s.BandwidthPercent > 100 {
+		invalidParams.Add(request.NewErrParamMaxValue("BandwidthPercent", 100))
 	}
 	if s.Dscps == nil {
 		invalidParams.Add(request.NewErrParamRequired("Dscps"))
@@ -215,6 +216,12 @@ func (s *CreateTransitRouterTrafficQosQueueEntryInput) SetDscps(v []*int32) *Cre
 	return s
 }
 
+// SetPriority sets the Priority field's value.
+func (s *CreateTransitRouterTrafficQosQueueEntryInput) SetPriority(v string) *CreateTransitRouterTrafficQosQueueEntryInput {
+	s.Priority = &v
+	return s
+}
+
 // SetTransitRouterTrafficQosQueueEntryName sets the TransitRouterTrafficQosQueueEntryName field's value.
 func (s *CreateTransitRouterTrafficQosQueueEntryInput) SetTransitRouterTrafficQosQueueEntryName(v string) *CreateTransitRouterTrafficQosQueueEntryInput {
 	s.TransitRouterTrafficQosQueueEntryName = &v
@@ -250,3 +257,11 @@ func (s *CreateTransitRouterTrafficQosQueueEntryOutput) SetTransitRouterTrafficQ
 	s.TransitRouterTrafficQosQueueEntryId = &v
 	return s
 }
+
+const (
+	// EnumOfPriorityForCreateTransitRouterTrafficQosQueueEntryInputNormal is a EnumOfPriorityForCreateTransitRouterTrafficQosQueueEntryInput enum value
+	EnumOfPriorityForCreateTransitRouterTrafficQosQueueEntryInputNormal = "Normal"
+
+	// EnumOfPriorityForCreateTransitRouterTrafficQosQueueEntryInputHigh is a EnumOfPriorityForCreateTransitRouterTrafficQosQueueEntryInput enum value
+	EnumOfPriorityForCreateTransitRouterTrafficQosQueueEntryInputHigh = "High"
+)

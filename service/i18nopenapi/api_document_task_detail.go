@@ -590,6 +590,162 @@ type TargetStyleMapForDocumentTaskDetailOutput struct {
 	_ struct{} `type:"structure"`
 
 	Af *string `type:"string" json:"af"`
+
+	AfZA *string `type:"string" json:"af-ZA"`
+
+	Ar *string `type:"string" json:"ar"`
+
+	ArAR *string `type:"string" json:"ar-AR"`
+
+	ArDZ *string `type:"string" json:"ar-DZ"`
+
+	ArSY *string `type:"string" json:"ar-SY"`
+
+	ArYE *string `type:"string" json:"ar-YE"`
+
+	Be *string `type:"string" json:"be"`
+
+	Bn *string `type:"string" json:"bn"`
+
+	BnBD *string `type:"string" json:"bn-BD"`
+
+	Da *string `type:"string" json:"da"`
+
+	De *string `type:"string" json:"de"`
+
+	DeDE *string `type:"string" json:"de-DE"`
+
+	En *string `type:"string" json:"en"`
+
+	EnDA *string `type:"string" json:"en-DA"`
+
+	EnGB *string `type:"string" json:"en-GB"`
+
+	EnIN *string `type:"string" json:"en-IN"`
+
+	EnPH *string `type:"string" json:"en-PH"`
+
+	EnSG *string `type:"string" json:"en-SG"`
+
+	EnUS *string `type:"string" json:"en-US"`
+
+	Es *string `type:"string" json:"es"`
+
+	Es419 *string `type:"string" json:"es-419"`
+
+	EsES *string `type:"string" json:"es-ES"`
+
+	EsUS *string `type:"string" json:"es-US"`
+
+	FaIR *string `type:"string" json:"fa-IR"`
+
+	Fil *string `type:"string" json:"fil"`
+
+	FilPH *string `type:"string" json:"fil-PH"`
+
+	Fr *string `type:"string" json:"fr"`
+
+	FrFR *string `type:"string" json:"fr-FR"`
+
+	Hi *string `type:"string" json:"hi"`
+
+	HiIN *string `type:"string" json:"hi-IN"`
+
+	Id *string `type:"string" json:"id"`
+
+	IdID *string `type:"string" json:"id-ID"`
+
+	It *string `type:"string" json:"it"`
+
+	ItIT *string `type:"string" json:"it-IT"`
+
+	Ja *string `type:"string" json:"ja"`
+
+	JaJP *string `type:"string" json:"ja-JP"`
+
+	Ka *string `type:"string" json:"ka"`
+
+	KkKZ *string `type:"string" json:"kk-KZ"`
+
+	Kl *string `type:"string" json:"kl"`
+
+	Km *string `type:"string" json:"km"`
+
+	KmKH *string `type:"string" json:"km-KH"`
+
+	Ko *string `type:"string" json:"ko"`
+
+	KoKR *string `type:"string" json:"ko-KR"`
+
+	Mn *string `type:"string" json:"mn"`
+
+	Ms *string `type:"string" json:"ms"`
+
+	MsMY *string `type:"string" json:"ms-MY"`
+
+	My *string `type:"string" json:"my"`
+
+	Ne *string `type:"string" json:"ne"`
+
+	Pl *string `type:"string" json:"pl"`
+
+	PlPL *string `type:"string" json:"pl-PL"`
+
+	Pt *string `type:"string" json:"pt"`
+
+	PtBR *string `type:"string" json:"pt-BR"`
+
+	PtPT *string `type:"string" json:"pt-PT"`
+
+	Ro *string `type:"string" json:"ro"`
+
+	Ru *string `type:"string" json:"ru"`
+
+	RuRU *string `type:"string" json:"ru-RU"`
+
+	Sk *string `type:"string" json:"sk"`
+
+	Sl *string `type:"string" json:"sl"`
+
+	Sr *string `type:"string" json:"sr"`
+
+	Sv *string `type:"string" json:"sv"`
+
+	Ta *string `type:"string" json:"ta"`
+
+	Te *string `type:"string" json:"te"`
+
+	Th *string `type:"string" json:"th"`
+
+	ThTH *string `type:"string" json:"th-TH"`
+
+	TlPH *string `type:"string" json:"tl-PH"`
+
+	Tr *string `type:"string" json:"tr"`
+
+	TrTR *string `type:"string" json:"tr-TR"`
+
+	Ur *string `type:"string" json:"ur"`
+
+	Uz *string `type:"string" json:"uz"`
+
+	Vi *string `type:"string" json:"vi"`
+
+	ViVN *string `type:"string" json:"vi-VN"`
+
+	Zh *string `type:"string" json:"zh"`
+
+	ZhCN *string `type:"string" json:"zh-CN"`
+
+	ZhHK *string `type:"string" json:"zh-HK"`
+
+	ZhHans *string `type:"string" json:"zh-Hans"`
+
+	ZhHansCN *string `type:"string" json:"zh-Hans-CN"`
+
+	ZhHant *string `type:"string" json:"zh-Hant"`
+
+	ZhTW *string `type:"string" json:"zh-TW"`
 }
 
 // String returns the string representation
@@ -608,12 +764,482 @@ func (s *TargetStyleMapForDocumentTaskDetailOutput) SetAf(v string) *TargetStyle
 	return s
 }
 
+// SetAfZA sets the AfZA field's value.
+func (s *TargetStyleMapForDocumentTaskDetailOutput) SetAfZA(v string) *TargetStyleMapForDocumentTaskDetailOutput {
+	s.AfZA = &v
+	return s
+}
+
+// SetAr sets the Ar field's value.
+func (s *TargetStyleMapForDocumentTaskDetailOutput) SetAr(v string) *TargetStyleMapForDocumentTaskDetailOutput {
+	s.Ar = &v
+	return s
+}
+
+// SetArAR sets the ArAR field's value.
+func (s *TargetStyleMapForDocumentTaskDetailOutput) SetArAR(v string) *TargetStyleMapForDocumentTaskDetailOutput {
+	s.ArAR = &v
+	return s
+}
+
+// SetArDZ sets the ArDZ field's value.
+func (s *TargetStyleMapForDocumentTaskDetailOutput) SetArDZ(v string) *TargetStyleMapForDocumentTaskDetailOutput {
+	s.ArDZ = &v
+	return s
+}
+
+// SetArSY sets the ArSY field's value.
+func (s *TargetStyleMapForDocumentTaskDetailOutput) SetArSY(v string) *TargetStyleMapForDocumentTaskDetailOutput {
+	s.ArSY = &v
+	return s
+}
+
+// SetArYE sets the ArYE field's value.
+func (s *TargetStyleMapForDocumentTaskDetailOutput) SetArYE(v string) *TargetStyleMapForDocumentTaskDetailOutput {
+	s.ArYE = &v
+	return s
+}
+
+// SetBe sets the Be field's value.
+func (s *TargetStyleMapForDocumentTaskDetailOutput) SetBe(v string) *TargetStyleMapForDocumentTaskDetailOutput {
+	s.Be = &v
+	return s
+}
+
+// SetBn sets the Bn field's value.
+func (s *TargetStyleMapForDocumentTaskDetailOutput) SetBn(v string) *TargetStyleMapForDocumentTaskDetailOutput {
+	s.Bn = &v
+	return s
+}
+
+// SetBnBD sets the BnBD field's value.
+func (s *TargetStyleMapForDocumentTaskDetailOutput) SetBnBD(v string) *TargetStyleMapForDocumentTaskDetailOutput {
+	s.BnBD = &v
+	return s
+}
+
+// SetDa sets the Da field's value.
+func (s *TargetStyleMapForDocumentTaskDetailOutput) SetDa(v string) *TargetStyleMapForDocumentTaskDetailOutput {
+	s.Da = &v
+	return s
+}
+
+// SetDe sets the De field's value.
+func (s *TargetStyleMapForDocumentTaskDetailOutput) SetDe(v string) *TargetStyleMapForDocumentTaskDetailOutput {
+	s.De = &v
+	return s
+}
+
+// SetDeDE sets the DeDE field's value.
+func (s *TargetStyleMapForDocumentTaskDetailOutput) SetDeDE(v string) *TargetStyleMapForDocumentTaskDetailOutput {
+	s.DeDE = &v
+	return s
+}
+
+// SetEn sets the En field's value.
+func (s *TargetStyleMapForDocumentTaskDetailOutput) SetEn(v string) *TargetStyleMapForDocumentTaskDetailOutput {
+	s.En = &v
+	return s
+}
+
+// SetEnDA sets the EnDA field's value.
+func (s *TargetStyleMapForDocumentTaskDetailOutput) SetEnDA(v string) *TargetStyleMapForDocumentTaskDetailOutput {
+	s.EnDA = &v
+	return s
+}
+
+// SetEnGB sets the EnGB field's value.
+func (s *TargetStyleMapForDocumentTaskDetailOutput) SetEnGB(v string) *TargetStyleMapForDocumentTaskDetailOutput {
+	s.EnGB = &v
+	return s
+}
+
+// SetEnIN sets the EnIN field's value.
+func (s *TargetStyleMapForDocumentTaskDetailOutput) SetEnIN(v string) *TargetStyleMapForDocumentTaskDetailOutput {
+	s.EnIN = &v
+	return s
+}
+
+// SetEnPH sets the EnPH field's value.
+func (s *TargetStyleMapForDocumentTaskDetailOutput) SetEnPH(v string) *TargetStyleMapForDocumentTaskDetailOutput {
+	s.EnPH = &v
+	return s
+}
+
+// SetEnSG sets the EnSG field's value.
+func (s *TargetStyleMapForDocumentTaskDetailOutput) SetEnSG(v string) *TargetStyleMapForDocumentTaskDetailOutput {
+	s.EnSG = &v
+	return s
+}
+
+// SetEnUS sets the EnUS field's value.
+func (s *TargetStyleMapForDocumentTaskDetailOutput) SetEnUS(v string) *TargetStyleMapForDocumentTaskDetailOutput {
+	s.EnUS = &v
+	return s
+}
+
+// SetEs sets the Es field's value.
+func (s *TargetStyleMapForDocumentTaskDetailOutput) SetEs(v string) *TargetStyleMapForDocumentTaskDetailOutput {
+	s.Es = &v
+	return s
+}
+
+// SetEs419 sets the Es419 field's value.
+func (s *TargetStyleMapForDocumentTaskDetailOutput) SetEs419(v string) *TargetStyleMapForDocumentTaskDetailOutput {
+	s.Es419 = &v
+	return s
+}
+
+// SetEsES sets the EsES field's value.
+func (s *TargetStyleMapForDocumentTaskDetailOutput) SetEsES(v string) *TargetStyleMapForDocumentTaskDetailOutput {
+	s.EsES = &v
+	return s
+}
+
+// SetEsUS sets the EsUS field's value.
+func (s *TargetStyleMapForDocumentTaskDetailOutput) SetEsUS(v string) *TargetStyleMapForDocumentTaskDetailOutput {
+	s.EsUS = &v
+	return s
+}
+
+// SetFaIR sets the FaIR field's value.
+func (s *TargetStyleMapForDocumentTaskDetailOutput) SetFaIR(v string) *TargetStyleMapForDocumentTaskDetailOutput {
+	s.FaIR = &v
+	return s
+}
+
+// SetFil sets the Fil field's value.
+func (s *TargetStyleMapForDocumentTaskDetailOutput) SetFil(v string) *TargetStyleMapForDocumentTaskDetailOutput {
+	s.Fil = &v
+	return s
+}
+
+// SetFilPH sets the FilPH field's value.
+func (s *TargetStyleMapForDocumentTaskDetailOutput) SetFilPH(v string) *TargetStyleMapForDocumentTaskDetailOutput {
+	s.FilPH = &v
+	return s
+}
+
+// SetFr sets the Fr field's value.
+func (s *TargetStyleMapForDocumentTaskDetailOutput) SetFr(v string) *TargetStyleMapForDocumentTaskDetailOutput {
+	s.Fr = &v
+	return s
+}
+
+// SetFrFR sets the FrFR field's value.
+func (s *TargetStyleMapForDocumentTaskDetailOutput) SetFrFR(v string) *TargetStyleMapForDocumentTaskDetailOutput {
+	s.FrFR = &v
+	return s
+}
+
+// SetHi sets the Hi field's value.
+func (s *TargetStyleMapForDocumentTaskDetailOutput) SetHi(v string) *TargetStyleMapForDocumentTaskDetailOutput {
+	s.Hi = &v
+	return s
+}
+
+// SetHiIN sets the HiIN field's value.
+func (s *TargetStyleMapForDocumentTaskDetailOutput) SetHiIN(v string) *TargetStyleMapForDocumentTaskDetailOutput {
+	s.HiIN = &v
+	return s
+}
+
+// SetId sets the Id field's value.
+func (s *TargetStyleMapForDocumentTaskDetailOutput) SetId(v string) *TargetStyleMapForDocumentTaskDetailOutput {
+	s.Id = &v
+	return s
+}
+
+// SetIdID sets the IdID field's value.
+func (s *TargetStyleMapForDocumentTaskDetailOutput) SetIdID(v string) *TargetStyleMapForDocumentTaskDetailOutput {
+	s.IdID = &v
+	return s
+}
+
+// SetIt sets the It field's value.
+func (s *TargetStyleMapForDocumentTaskDetailOutput) SetIt(v string) *TargetStyleMapForDocumentTaskDetailOutput {
+	s.It = &v
+	return s
+}
+
+// SetItIT sets the ItIT field's value.
+func (s *TargetStyleMapForDocumentTaskDetailOutput) SetItIT(v string) *TargetStyleMapForDocumentTaskDetailOutput {
+	s.ItIT = &v
+	return s
+}
+
+// SetJa sets the Ja field's value.
+func (s *TargetStyleMapForDocumentTaskDetailOutput) SetJa(v string) *TargetStyleMapForDocumentTaskDetailOutput {
+	s.Ja = &v
+	return s
+}
+
+// SetJaJP sets the JaJP field's value.
+func (s *TargetStyleMapForDocumentTaskDetailOutput) SetJaJP(v string) *TargetStyleMapForDocumentTaskDetailOutput {
+	s.JaJP = &v
+	return s
+}
+
+// SetKa sets the Ka field's value.
+func (s *TargetStyleMapForDocumentTaskDetailOutput) SetKa(v string) *TargetStyleMapForDocumentTaskDetailOutput {
+	s.Ka = &v
+	return s
+}
+
+// SetKkKZ sets the KkKZ field's value.
+func (s *TargetStyleMapForDocumentTaskDetailOutput) SetKkKZ(v string) *TargetStyleMapForDocumentTaskDetailOutput {
+	s.KkKZ = &v
+	return s
+}
+
+// SetKl sets the Kl field's value.
+func (s *TargetStyleMapForDocumentTaskDetailOutput) SetKl(v string) *TargetStyleMapForDocumentTaskDetailOutput {
+	s.Kl = &v
+	return s
+}
+
+// SetKm sets the Km field's value.
+func (s *TargetStyleMapForDocumentTaskDetailOutput) SetKm(v string) *TargetStyleMapForDocumentTaskDetailOutput {
+	s.Km = &v
+	return s
+}
+
+// SetKmKH sets the KmKH field's value.
+func (s *TargetStyleMapForDocumentTaskDetailOutput) SetKmKH(v string) *TargetStyleMapForDocumentTaskDetailOutput {
+	s.KmKH = &v
+	return s
+}
+
+// SetKo sets the Ko field's value.
+func (s *TargetStyleMapForDocumentTaskDetailOutput) SetKo(v string) *TargetStyleMapForDocumentTaskDetailOutput {
+	s.Ko = &v
+	return s
+}
+
+// SetKoKR sets the KoKR field's value.
+func (s *TargetStyleMapForDocumentTaskDetailOutput) SetKoKR(v string) *TargetStyleMapForDocumentTaskDetailOutput {
+	s.KoKR = &v
+	return s
+}
+
+// SetMn sets the Mn field's value.
+func (s *TargetStyleMapForDocumentTaskDetailOutput) SetMn(v string) *TargetStyleMapForDocumentTaskDetailOutput {
+	s.Mn = &v
+	return s
+}
+
+// SetMs sets the Ms field's value.
+func (s *TargetStyleMapForDocumentTaskDetailOutput) SetMs(v string) *TargetStyleMapForDocumentTaskDetailOutput {
+	s.Ms = &v
+	return s
+}
+
+// SetMsMY sets the MsMY field's value.
+func (s *TargetStyleMapForDocumentTaskDetailOutput) SetMsMY(v string) *TargetStyleMapForDocumentTaskDetailOutput {
+	s.MsMY = &v
+	return s
+}
+
+// SetMy sets the My field's value.
+func (s *TargetStyleMapForDocumentTaskDetailOutput) SetMy(v string) *TargetStyleMapForDocumentTaskDetailOutput {
+	s.My = &v
+	return s
+}
+
+// SetNe sets the Ne field's value.
+func (s *TargetStyleMapForDocumentTaskDetailOutput) SetNe(v string) *TargetStyleMapForDocumentTaskDetailOutput {
+	s.Ne = &v
+	return s
+}
+
+// SetPl sets the Pl field's value.
+func (s *TargetStyleMapForDocumentTaskDetailOutput) SetPl(v string) *TargetStyleMapForDocumentTaskDetailOutput {
+	s.Pl = &v
+	return s
+}
+
+// SetPlPL sets the PlPL field's value.
+func (s *TargetStyleMapForDocumentTaskDetailOutput) SetPlPL(v string) *TargetStyleMapForDocumentTaskDetailOutput {
+	s.PlPL = &v
+	return s
+}
+
+// SetPt sets the Pt field's value.
+func (s *TargetStyleMapForDocumentTaskDetailOutput) SetPt(v string) *TargetStyleMapForDocumentTaskDetailOutput {
+	s.Pt = &v
+	return s
+}
+
+// SetPtBR sets the PtBR field's value.
+func (s *TargetStyleMapForDocumentTaskDetailOutput) SetPtBR(v string) *TargetStyleMapForDocumentTaskDetailOutput {
+	s.PtBR = &v
+	return s
+}
+
+// SetPtPT sets the PtPT field's value.
+func (s *TargetStyleMapForDocumentTaskDetailOutput) SetPtPT(v string) *TargetStyleMapForDocumentTaskDetailOutput {
+	s.PtPT = &v
+	return s
+}
+
+// SetRo sets the Ro field's value.
+func (s *TargetStyleMapForDocumentTaskDetailOutput) SetRo(v string) *TargetStyleMapForDocumentTaskDetailOutput {
+	s.Ro = &v
+	return s
+}
+
+// SetRu sets the Ru field's value.
+func (s *TargetStyleMapForDocumentTaskDetailOutput) SetRu(v string) *TargetStyleMapForDocumentTaskDetailOutput {
+	s.Ru = &v
+	return s
+}
+
+// SetRuRU sets the RuRU field's value.
+func (s *TargetStyleMapForDocumentTaskDetailOutput) SetRuRU(v string) *TargetStyleMapForDocumentTaskDetailOutput {
+	s.RuRU = &v
+	return s
+}
+
+// SetSk sets the Sk field's value.
+func (s *TargetStyleMapForDocumentTaskDetailOutput) SetSk(v string) *TargetStyleMapForDocumentTaskDetailOutput {
+	s.Sk = &v
+	return s
+}
+
+// SetSl sets the Sl field's value.
+func (s *TargetStyleMapForDocumentTaskDetailOutput) SetSl(v string) *TargetStyleMapForDocumentTaskDetailOutput {
+	s.Sl = &v
+	return s
+}
+
+// SetSr sets the Sr field's value.
+func (s *TargetStyleMapForDocumentTaskDetailOutput) SetSr(v string) *TargetStyleMapForDocumentTaskDetailOutput {
+	s.Sr = &v
+	return s
+}
+
+// SetSv sets the Sv field's value.
+func (s *TargetStyleMapForDocumentTaskDetailOutput) SetSv(v string) *TargetStyleMapForDocumentTaskDetailOutput {
+	s.Sv = &v
+	return s
+}
+
+// SetTa sets the Ta field's value.
+func (s *TargetStyleMapForDocumentTaskDetailOutput) SetTa(v string) *TargetStyleMapForDocumentTaskDetailOutput {
+	s.Ta = &v
+	return s
+}
+
+// SetTe sets the Te field's value.
+func (s *TargetStyleMapForDocumentTaskDetailOutput) SetTe(v string) *TargetStyleMapForDocumentTaskDetailOutput {
+	s.Te = &v
+	return s
+}
+
+// SetTh sets the Th field's value.
+func (s *TargetStyleMapForDocumentTaskDetailOutput) SetTh(v string) *TargetStyleMapForDocumentTaskDetailOutput {
+	s.Th = &v
+	return s
+}
+
+// SetThTH sets the ThTH field's value.
+func (s *TargetStyleMapForDocumentTaskDetailOutput) SetThTH(v string) *TargetStyleMapForDocumentTaskDetailOutput {
+	s.ThTH = &v
+	return s
+}
+
+// SetTlPH sets the TlPH field's value.
+func (s *TargetStyleMapForDocumentTaskDetailOutput) SetTlPH(v string) *TargetStyleMapForDocumentTaskDetailOutput {
+	s.TlPH = &v
+	return s
+}
+
+// SetTr sets the Tr field's value.
+func (s *TargetStyleMapForDocumentTaskDetailOutput) SetTr(v string) *TargetStyleMapForDocumentTaskDetailOutput {
+	s.Tr = &v
+	return s
+}
+
+// SetTrTR sets the TrTR field's value.
+func (s *TargetStyleMapForDocumentTaskDetailOutput) SetTrTR(v string) *TargetStyleMapForDocumentTaskDetailOutput {
+	s.TrTR = &v
+	return s
+}
+
+// SetUr sets the Ur field's value.
+func (s *TargetStyleMapForDocumentTaskDetailOutput) SetUr(v string) *TargetStyleMapForDocumentTaskDetailOutput {
+	s.Ur = &v
+	return s
+}
+
+// SetUz sets the Uz field's value.
+func (s *TargetStyleMapForDocumentTaskDetailOutput) SetUz(v string) *TargetStyleMapForDocumentTaskDetailOutput {
+	s.Uz = &v
+	return s
+}
+
+// SetVi sets the Vi field's value.
+func (s *TargetStyleMapForDocumentTaskDetailOutput) SetVi(v string) *TargetStyleMapForDocumentTaskDetailOutput {
+	s.Vi = &v
+	return s
+}
+
+// SetViVN sets the ViVN field's value.
+func (s *TargetStyleMapForDocumentTaskDetailOutput) SetViVN(v string) *TargetStyleMapForDocumentTaskDetailOutput {
+	s.ViVN = &v
+	return s
+}
+
+// SetZh sets the Zh field's value.
+func (s *TargetStyleMapForDocumentTaskDetailOutput) SetZh(v string) *TargetStyleMapForDocumentTaskDetailOutput {
+	s.Zh = &v
+	return s
+}
+
+// SetZhCN sets the ZhCN field's value.
+func (s *TargetStyleMapForDocumentTaskDetailOutput) SetZhCN(v string) *TargetStyleMapForDocumentTaskDetailOutput {
+	s.ZhCN = &v
+	return s
+}
+
+// SetZhHK sets the ZhHK field's value.
+func (s *TargetStyleMapForDocumentTaskDetailOutput) SetZhHK(v string) *TargetStyleMapForDocumentTaskDetailOutput {
+	s.ZhHK = &v
+	return s
+}
+
+// SetZhHans sets the ZhHans field's value.
+func (s *TargetStyleMapForDocumentTaskDetailOutput) SetZhHans(v string) *TargetStyleMapForDocumentTaskDetailOutput {
+	s.ZhHans = &v
+	return s
+}
+
+// SetZhHansCN sets the ZhHansCN field's value.
+func (s *TargetStyleMapForDocumentTaskDetailOutput) SetZhHansCN(v string) *TargetStyleMapForDocumentTaskDetailOutput {
+	s.ZhHansCN = &v
+	return s
+}
+
+// SetZhHant sets the ZhHant field's value.
+func (s *TargetStyleMapForDocumentTaskDetailOutput) SetZhHant(v string) *TargetStyleMapForDocumentTaskDetailOutput {
+	s.ZhHant = &v
+	return s
+}
+
+// SetZhTW sets the ZhTW field's value.
+func (s *TargetStyleMapForDocumentTaskDetailOutput) SetZhTW(v string) *TargetStyleMapForDocumentTaskDetailOutput {
+	s.ZhTW = &v
+	return s
+}
+
 type TaskInfoForDocumentTaskDetailOutput struct {
 	_ struct{} `type:"structure"`
 
 	AiRemoveType *int32 `type:"int32" json:"aiRemoveType"`
 
 	AsrModel *int32 `type:"int32" json:"asrModel"`
+
+	AuditFailPolicy *int32 `type:"int32" json:"auditFailPolicy"`
 
 	BgmPolicy *int32 `type:"int32" json:"bgmPolicy"`
 
@@ -691,6 +1317,12 @@ func (s *TaskInfoForDocumentTaskDetailOutput) SetAiRemoveType(v int32) *TaskInfo
 // SetAsrModel sets the AsrModel field's value.
 func (s *TaskInfoForDocumentTaskDetailOutput) SetAsrModel(v int32) *TaskInfoForDocumentTaskDetailOutput {
 	s.AsrModel = &v
+	return s
+}
+
+// SetAuditFailPolicy sets the AuditFailPolicy field's value.
+func (s *TaskInfoForDocumentTaskDetailOutput) SetAuditFailPolicy(v int32) *TaskInfoForDocumentTaskDetailOutput {
+	s.AuditFailPolicy = &v
 	return s
 }
 

@@ -19,7 +19,7 @@ import (
 //    // volcengine sdk func uses an SDK service client to make a request to
 //    // RESOURCECENTER.
 //    func myFunc(svc RESOURCECENTERAPI) bool {
-//        // Make svc.DisableResourceCenter request
+//        // Make svc.CreateQuery request
 //    }
 //
 //    func main() {
@@ -30,6 +30,30 @@ import (
 //    }
 //
 type RESOURCECENTERAPI interface {
+	CreateQueryCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateQueryCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateQueryCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateQuery(*CreateQueryInput) (*CreateQueryOutput, error)
+	CreateQueryWithContext(volcengine.Context, *CreateQueryInput, ...request.Option) (*CreateQueryOutput, error)
+	CreateQueryRequest(*CreateQueryInput) (*request.Request, *CreateQueryOutput)
+
+	DeleteQueryCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeleteQueryCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeleteQueryCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeleteQuery(*DeleteQueryInput) (*DeleteQueryOutput, error)
+	DeleteQueryWithContext(volcengine.Context, *DeleteQueryInput, ...request.Option) (*DeleteQueryOutput, error)
+	DeleteQueryRequest(*DeleteQueryInput) (*request.Request, *DeleteQueryOutput)
+
+	DisableMultiAccountResourceCenterCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DisableMultiAccountResourceCenterCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DisableMultiAccountResourceCenterCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DisableMultiAccountResourceCenter(*DisableMultiAccountResourceCenterInput) (*DisableMultiAccountResourceCenterOutput, error)
+	DisableMultiAccountResourceCenterWithContext(volcengine.Context, *DisableMultiAccountResourceCenterInput, ...request.Option) (*DisableMultiAccountResourceCenterOutput, error)
+	DisableMultiAccountResourceCenterRequest(*DisableMultiAccountResourceCenterInput) (*request.Request, *DisableMultiAccountResourceCenterOutput)
+
 	DisableResourceCenterCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DisableResourceCenterCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DisableResourceCenterCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -38,6 +62,14 @@ type RESOURCECENTERAPI interface {
 	DisableResourceCenterWithContext(volcengine.Context, *DisableResourceCenterInput, ...request.Option) (*DisableResourceCenterOutput, error)
 	DisableResourceCenterRequest(*DisableResourceCenterInput) (*request.Request, *DisableResourceCenterOutput)
 
+	EnableMultiAccountResourceCenterCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	EnableMultiAccountResourceCenterCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	EnableMultiAccountResourceCenterCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	EnableMultiAccountResourceCenter(*EnableMultiAccountResourceCenterInput) (*EnableMultiAccountResourceCenterOutput, error)
+	EnableMultiAccountResourceCenterWithContext(volcengine.Context, *EnableMultiAccountResourceCenterInput, ...request.Option) (*EnableMultiAccountResourceCenterOutput, error)
+	EnableMultiAccountResourceCenterRequest(*EnableMultiAccountResourceCenterInput) (*request.Request, *EnableMultiAccountResourceCenterOutput)
+
 	EnableResourceCenterCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	EnableResourceCenterCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	EnableResourceCenterCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -45,6 +77,46 @@ type RESOURCECENTERAPI interface {
 	EnableResourceCenter(*EnableResourceCenterInput) (*EnableResourceCenterOutput, error)
 	EnableResourceCenterWithContext(volcengine.Context, *EnableResourceCenterInput, ...request.Option) (*EnableResourceCenterOutput, error)
 	EnableResourceCenterRequest(*EnableResourceCenterInput) (*request.Request, *EnableResourceCenterOutput)
+
+	ExecuteSQLQueryCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ExecuteSQLQueryCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ExecuteSQLQueryCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ExecuteSQLQuery(*ExecuteSQLQueryInput) (*ExecuteSQLQueryOutput, error)
+	ExecuteSQLQueryWithContext(volcengine.Context, *ExecuteSQLQueryInput, ...request.Option) (*ExecuteSQLQueryOutput, error)
+	ExecuteSQLQueryRequest(*ExecuteSQLQueryInput) (*request.Request, *ExecuteSQLQueryOutput)
+
+	GetExampleQueryCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	GetExampleQueryCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	GetExampleQueryCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	GetExampleQuery(*GetExampleQueryInput) (*GetExampleQueryOutput, error)
+	GetExampleQueryWithContext(volcengine.Context, *GetExampleQueryInput, ...request.Option) (*GetExampleQueryOutput, error)
+	GetExampleQueryRequest(*GetExampleQueryInput) (*request.Request, *GetExampleQueryOutput)
+
+	GetMultiAccountResourceCenterStatusCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	GetMultiAccountResourceCenterStatusCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	GetMultiAccountResourceCenterStatusCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	GetMultiAccountResourceCenterStatus(*GetMultiAccountResourceCenterStatusInput) (*GetMultiAccountResourceCenterStatusOutput, error)
+	GetMultiAccountResourceCenterStatusWithContext(volcengine.Context, *GetMultiAccountResourceCenterStatusInput, ...request.Option) (*GetMultiAccountResourceCenterStatusOutput, error)
+	GetMultiAccountResourceCenterStatusRequest(*GetMultiAccountResourceCenterStatusInput) (*request.Request, *GetMultiAccountResourceCenterStatusOutput)
+
+	GetMultiAccountResourceCountsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	GetMultiAccountResourceCountsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	GetMultiAccountResourceCountsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	GetMultiAccountResourceCounts(*GetMultiAccountResourceCountsInput) (*GetMultiAccountResourceCountsOutput, error)
+	GetMultiAccountResourceCountsWithContext(volcengine.Context, *GetMultiAccountResourceCountsInput, ...request.Option) (*GetMultiAccountResourceCountsOutput, error)
+	GetMultiAccountResourceCountsRequest(*GetMultiAccountResourceCountsInput) (*request.Request, *GetMultiAccountResourceCountsOutput)
+
+	GetQueryCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	GetQueryCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	GetQueryCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	GetQuery(*GetQueryInput) (*GetQueryOutput, error)
+	GetQueryWithContext(volcengine.Context, *GetQueryInput, ...request.Option) (*GetQueryOutput, error)
+	GetQueryRequest(*GetQueryInput) (*request.Request, *GetQueryOutput)
 
 	GetResourceCenterStatusCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	GetResourceCenterStatusCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -62,6 +134,22 @@ type RESOURCECENTERAPI interface {
 	GetResourceCountsWithContext(volcengine.Context, *GetResourceCountsInput, ...request.Option) (*GetResourceCountsOutput, error)
 	GetResourceCountsRequest(*GetResourceCountsInput) (*request.Request, *GetResourceCountsOutput)
 
+	ListExampleQueriesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListExampleQueriesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListExampleQueriesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListExampleQueries(*ListExampleQueriesInput) (*ListExampleQueriesOutput, error)
+	ListExampleQueriesWithContext(volcengine.Context, *ListExampleQueriesInput, ...request.Option) (*ListExampleQueriesOutput, error)
+	ListExampleQueriesRequest(*ListExampleQueriesInput) (*request.Request, *ListExampleQueriesOutput)
+
+	ListQueriesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListQueriesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListQueriesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListQueries(*ListQueriesInput) (*ListQueriesOutput, error)
+	ListQueriesWithContext(volcengine.Context, *ListQueriesInput, ...request.Option) (*ListQueriesOutput, error)
+	ListQueriesRequest(*ListQueriesInput) (*request.Request, *ListQueriesOutput)
+
 	ListResourceTypesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ListResourceTypesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	ListResourceTypesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -70,6 +158,14 @@ type RESOURCECENTERAPI interface {
 	ListResourceTypesWithContext(volcengine.Context, *ListResourceTypesInput, ...request.Option) (*ListResourceTypesOutput, error)
 	ListResourceTypesRequest(*ListResourceTypesInput) (*request.Request, *ListResourceTypesOutput)
 
+	SearchMultiAccountResourcesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	SearchMultiAccountResourcesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	SearchMultiAccountResourcesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	SearchMultiAccountResources(*SearchMultiAccountResourcesInput) (*SearchMultiAccountResourcesOutput, error)
+	SearchMultiAccountResourcesWithContext(volcengine.Context, *SearchMultiAccountResourcesInput, ...request.Option) (*SearchMultiAccountResourcesOutput, error)
+	SearchMultiAccountResourcesRequest(*SearchMultiAccountResourcesInput) (*request.Request, *SearchMultiAccountResourcesOutput)
+
 	SearchResourcesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	SearchResourcesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	SearchResourcesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -77,6 +173,14 @@ type RESOURCECENTERAPI interface {
 	SearchResources(*SearchResourcesInput) (*SearchResourcesOutput, error)
 	SearchResourcesWithContext(volcengine.Context, *SearchResourcesInput, ...request.Option) (*SearchResourcesOutput, error)
 	SearchResourcesRequest(*SearchResourcesInput) (*request.Request, *SearchResourcesOutput)
+
+	UpdateQueryCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	UpdateQueryCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	UpdateQueryCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	UpdateQuery(*UpdateQueryInput) (*UpdateQueryOutput, error)
+	UpdateQueryWithContext(volcengine.Context, *UpdateQueryInput, ...request.Option) (*UpdateQueryOutput, error)
+	UpdateQueryRequest(*UpdateQueryInput) (*request.Request, *UpdateQueryOutput)
 }
 
 var _ RESOURCECENTERAPI = (*RESOURCECENTER)(nil)

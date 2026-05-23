@@ -143,6 +143,36 @@ func (c *VKE) CreateNodePoolWithContext(ctx volcengine.Context, input *CreateNod
 	return out, req.Send()
 }
 
+type AffinityGroupConfigForCreateNodePoolInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Enabled *bool `type:"boolean" json:",omitempty"`
+
+	Size *int32 `type:"int32" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s AffinityGroupConfigForCreateNodePoolInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s AffinityGroupConfigForCreateNodePoolInput) GoString() string {
+	return s.String()
+}
+
+// SetEnabled sets the Enabled field's value.
+func (s *AffinityGroupConfigForCreateNodePoolInput) SetEnabled(v bool) *AffinityGroupConfigForCreateNodePoolInput {
+	s.Enabled = &v
+	return s
+}
+
+// SetSize sets the Size field's value.
+func (s *AffinityGroupConfigForCreateNodePoolInput) SetSize(v int32) *AffinityGroupConfigForCreateNodePoolInput {
+	s.Size = &v
+	return s
+}
+
 type AutoScalingForCreateNodePoolInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -358,6 +388,12 @@ func (s *CreateNodePoolOutput) SetId(v string) *CreateNodePoolOutput {
 type DataVolumeForCreateNodePoolInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	ExtraPerformanceIops *int32 `type:"int32" json:",omitempty"`
+
+	ExtraPerformanceThroughputMb *int32 `type:"int32" json:",omitempty"`
+
+	ExtraPerformanceTypeId *string `type:"string" json:",omitempty" enum:"EnumOfExtraPerformanceTypeIdForCreateNodePoolInput"`
+
 	FileSystem *string `type:"string" json:",omitempty" enum:"EnumOfFileSystemForCreateNodePoolInput"`
 
 	MountPoint *string `type:"string" json:",omitempty"`
@@ -370,7 +406,7 @@ type DataVolumeForCreateNodePoolInput struct {
 
 	SubgroupNumber *int32 `type:"int32" json:",omitempty"`
 
-	Type *string `type:"string" json:",omitempty" enum:"EnumOfTypeForCreateNodePoolInput"`
+	Type *string `type:"string" json:",omitempty" enum:"ConvertEnumOfTypeForCreateNodePoolInput"`
 }
 
 // String returns the string representation
@@ -381,6 +417,24 @@ func (s DataVolumeForCreateNodePoolInput) String() string {
 // GoString returns the string representation
 func (s DataVolumeForCreateNodePoolInput) GoString() string {
 	return s.String()
+}
+
+// SetExtraPerformanceIops sets the ExtraPerformanceIops field's value.
+func (s *DataVolumeForCreateNodePoolInput) SetExtraPerformanceIops(v int32) *DataVolumeForCreateNodePoolInput {
+	s.ExtraPerformanceIops = &v
+	return s
+}
+
+// SetExtraPerformanceThroughputMb sets the ExtraPerformanceThroughputMb field's value.
+func (s *DataVolumeForCreateNodePoolInput) SetExtraPerformanceThroughputMb(v int32) *DataVolumeForCreateNodePoolInput {
+	s.ExtraPerformanceThroughputMb = &v
+	return s
+}
+
+// SetExtraPerformanceTypeId sets the ExtraPerformanceTypeId field's value.
+func (s *DataVolumeForCreateNodePoolInput) SetExtraPerformanceTypeId(v string) *DataVolumeForCreateNodePoolInput {
+	s.ExtraPerformanceTypeId = &v
+	return s
 }
 
 // SetFileSystem sets the FileSystem field's value.
@@ -698,6 +752,8 @@ type KubernetesConfigForCreateNodePoolInput struct {
 
 	NameUseHostname *bool `type:"boolean" json:",omitempty"`
 
+	Runtime *RuntimeForCreateNodePoolInput `type:"structure" json:",omitempty"`
+
 	Taints []*TaintForCreateNodePoolInput `type:"list" json:",omitempty"`
 }
 
@@ -756,6 +812,12 @@ func (s *KubernetesConfigForCreateNodePoolInput) SetNameSuffix(v string) *Kubern
 // SetNameUseHostname sets the NameUseHostname field's value.
 func (s *KubernetesConfigForCreateNodePoolInput) SetNameUseHostname(v bool) *KubernetesConfigForCreateNodePoolInput {
 	s.NameUseHostname = &v
+	return s
+}
+
+// SetRuntime sets the Runtime field's value.
+func (s *KubernetesConfigForCreateNodePoolInput) SetRuntime(v *RuntimeForCreateNodePoolInput) *KubernetesConfigForCreateNodePoolInput {
+	s.Runtime = v
 	return s
 }
 
@@ -860,6 +922,8 @@ type NodeConfigForCreateNodePoolInput struct {
 
 	AdditionalContainerStorageEnabled *bool `type:"boolean" json:",omitempty"`
 
+	AffinityGroupConfig *AffinityGroupConfigForCreateNodePoolInput `type:"structure" json:",omitempty"`
+
 	AutoRenew *bool `type:"boolean" json:",omitempty"`
 
 	AutoRenewPeriod *int32 `type:"int32" json:",omitempty"`
@@ -869,6 +933,8 @@ type NodeConfigForCreateNodePoolInput struct {
 	DeploymentSetGroupNumber *int32 `type:"int32" json:",omitempty"`
 
 	DeploymentSetId *string `type:"string" json:",omitempty"`
+
+	GpuDriverVersion *string `type:"string" json:",omitempty"`
 
 	Hostname *string `type:"string" json:",omitempty"`
 
@@ -927,6 +993,12 @@ func (s *NodeConfigForCreateNodePoolInput) SetAdditionalContainerStorageEnabled(
 	return s
 }
 
+// SetAffinityGroupConfig sets the AffinityGroupConfig field's value.
+func (s *NodeConfigForCreateNodePoolInput) SetAffinityGroupConfig(v *AffinityGroupConfigForCreateNodePoolInput) *NodeConfigForCreateNodePoolInput {
+	s.AffinityGroupConfig = v
+	return s
+}
+
 // SetAutoRenew sets the AutoRenew field's value.
 func (s *NodeConfigForCreateNodePoolInput) SetAutoRenew(v bool) *NodeConfigForCreateNodePoolInput {
 	s.AutoRenew = &v
@@ -954,6 +1026,12 @@ func (s *NodeConfigForCreateNodePoolInput) SetDeploymentSetGroupNumber(v int32) 
 // SetDeploymentSetId sets the DeploymentSetId field's value.
 func (s *NodeConfigForCreateNodePoolInput) SetDeploymentSetId(v string) *NodeConfigForCreateNodePoolInput {
 	s.DeploymentSetId = &v
+	return s
+}
+
+// SetGpuDriverVersion sets the GpuDriverVersion field's value.
+func (s *NodeConfigForCreateNodePoolInput) SetGpuDriverVersion(v string) *NodeConfigForCreateNodePoolInput {
+	s.GpuDriverVersion = &v
 	return s
 }
 
@@ -1175,6 +1253,36 @@ func (s *RemedyConfigForCreateNodePoolInput) SetId(v string) *RemedyConfigForCre
 	return s
 }
 
+type RuntimeForCreateNodePoolInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Type *string `type:"string" json:",omitempty" enum:"EnumOfTypeForCreateNodePoolInput"`
+
+	Version *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s RuntimeForCreateNodePoolInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s RuntimeForCreateNodePoolInput) GoString() string {
+	return s.String()
+}
+
+// SetType sets the Type field's value.
+func (s *RuntimeForCreateNodePoolInput) SetType(v string) *RuntimeForCreateNodePoolInput {
+	s.Type = &v
+	return s
+}
+
+// SetVersion sets the Version field's value.
+func (s *RuntimeForCreateNodePoolInput) SetVersion(v string) *RuntimeForCreateNodePoolInput {
+	s.Version = &v
+	return s
+}
+
 type SecurityForCreateNodePoolInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -1252,7 +1360,7 @@ type SystemVolumeForCreateNodePoolInput struct {
 
 	SubgroupNumber *int32 `type:"int32" json:",omitempty"`
 
-	Type *string `type:"string" json:",omitempty" enum:"EnumOfTypeForCreateNodePoolInput"`
+	Type *string `type:"string" json:",omitempty" enum:"ConvertEnumOfTypeForCreateNodePoolInput"`
 }
 
 // String returns the string representation
@@ -1358,6 +1466,38 @@ func (s *TaintForCreateNodePoolInput) SetValue(v string) *TaintForCreateNodePool
 }
 
 const (
+	// ConvertEnumOfTypeForCreateNodePoolInputEssd is a ConvertEnumOfTypeForCreateNodePoolInput enum value
+	ConvertEnumOfTypeForCreateNodePoolInputEssd = "ESSD"
+
+	// ConvertEnumOfTypeForCreateNodePoolInputEssdPl0 is a ConvertEnumOfTypeForCreateNodePoolInput enum value
+	ConvertEnumOfTypeForCreateNodePoolInputEssdPl0 = "ESSD_PL0"
+
+	// ConvertEnumOfTypeForCreateNodePoolInputEssdFlexPl is a ConvertEnumOfTypeForCreateNodePoolInput enum value
+	ConvertEnumOfTypeForCreateNodePoolInputEssdFlexPl = "ESSD_FlexPL"
+
+	// ConvertEnumOfTypeForCreateNodePoolInputUltraDisk is a ConvertEnumOfTypeForCreateNodePoolInput enum value
+	ConvertEnumOfTypeForCreateNodePoolInputUltraDisk = "Ultra_Disk"
+
+	// ConvertEnumOfTypeForCreateNodePoolInputTssdTl0 is a ConvertEnumOfTypeForCreateNodePoolInput enum value
+	ConvertEnumOfTypeForCreateNodePoolInputTssdTl0 = "TSSD_TL0"
+
+	// ConvertEnumOfTypeForCreateNodePoolInputRssdRl0 is a ConvertEnumOfTypeForCreateNodePoolInput enum value
+	ConvertEnumOfTypeForCreateNodePoolInputRssdRl0 = "RSSD_RL0"
+
+	// ConvertEnumOfTypeForCreateNodePoolInputLocalSsd is a ConvertEnumOfTypeForCreateNodePoolInput enum value
+	ConvertEnumOfTypeForCreateNodePoolInputLocalSsd = "LOCAL_SSD"
+
+	// ConvertEnumOfTypeForCreateNodePoolInputLocalHdd is a ConvertEnumOfTypeForCreateNodePoolInput enum value
+	ConvertEnumOfTypeForCreateNodePoolInputLocalHdd = "LOCAL_HDD"
+
+	// ConvertEnumOfTypeForCreateNodePoolInputLocalSsdSriov is a ConvertEnumOfTypeForCreateNodePoolInput enum value
+	ConvertEnumOfTypeForCreateNodePoolInputLocalSsdSriov = "LOCAL_SSD_SRIOV"
+
+	// ConvertEnumOfTypeForCreateNodePoolInputLocalLvmSsd is a ConvertEnumOfTypeForCreateNodePoolInput enum value
+	ConvertEnumOfTypeForCreateNodePoolInputLocalLvmSsd = "LOCAL_LVM_SSD"
+)
+
+const (
 	// EnumOfCpuManagerPolicyForCreateNodePoolInputNone is a EnumOfCpuManagerPolicyForCreateNodePoolInput enum value
 	EnumOfCpuManagerPolicyForCreateNodePoolInputNone = "none"
 
@@ -1374,6 +1514,17 @@ const (
 
 	// EnumOfEffectForCreateNodePoolInputNoExecute is a EnumOfEffectForCreateNodePoolInput enum value
 	EnumOfEffectForCreateNodePoolInputNoExecute = "NoExecute"
+)
+
+const (
+	// EnumOfExtraPerformanceTypeIdForCreateNodePoolInputBalance is a EnumOfExtraPerformanceTypeIdForCreateNodePoolInput enum value
+	EnumOfExtraPerformanceTypeIdForCreateNodePoolInputBalance = "Balance"
+
+	// EnumOfExtraPerformanceTypeIdForCreateNodePoolInputIops is a EnumOfExtraPerformanceTypeIdForCreateNodePoolInput enum value
+	EnumOfExtraPerformanceTypeIdForCreateNodePoolInputIops = "IOPS"
+
+	// EnumOfExtraPerformanceTypeIdForCreateNodePoolInputThroughput is a EnumOfExtraPerformanceTypeIdForCreateNodePoolInput enum value
+	EnumOfExtraPerformanceTypeIdForCreateNodePoolInputThroughput = "Throughput"
 )
 
 const (
@@ -1499,33 +1650,6 @@ const (
 )
 
 const (
-	// EnumOfTypeForCreateNodePoolInputEssd is a EnumOfTypeForCreateNodePoolInput enum value
-	EnumOfTypeForCreateNodePoolInputEssd = "ESSD"
-
-	// EnumOfTypeForCreateNodePoolInputEssdPl0 is a EnumOfTypeForCreateNodePoolInput enum value
-	EnumOfTypeForCreateNodePoolInputEssdPl0 = "ESSD_PL0"
-
-	// EnumOfTypeForCreateNodePoolInputEssdFlexPl is a EnumOfTypeForCreateNodePoolInput enum value
-	EnumOfTypeForCreateNodePoolInputEssdFlexPl = "ESSD_FlexPL"
-
-	// EnumOfTypeForCreateNodePoolInputUltraDisk is a EnumOfTypeForCreateNodePoolInput enum value
-	EnumOfTypeForCreateNodePoolInputUltraDisk = "Ultra_Disk"
-
-	// EnumOfTypeForCreateNodePoolInputTssdTl0 is a EnumOfTypeForCreateNodePoolInput enum value
-	EnumOfTypeForCreateNodePoolInputTssdTl0 = "TSSD_TL0"
-
-	// EnumOfTypeForCreateNodePoolInputRssdRl0 is a EnumOfTypeForCreateNodePoolInput enum value
-	EnumOfTypeForCreateNodePoolInputRssdRl0 = "RSSD_RL0"
-
-	// EnumOfTypeForCreateNodePoolInputLocalSsd is a EnumOfTypeForCreateNodePoolInput enum value
-	EnumOfTypeForCreateNodePoolInputLocalSsd = "LOCAL_SSD"
-
-	// EnumOfTypeForCreateNodePoolInputLocalHdd is a EnumOfTypeForCreateNodePoolInput enum value
-	EnumOfTypeForCreateNodePoolInputLocalHdd = "LOCAL_HDD"
-
-	// EnumOfTypeForCreateNodePoolInputLocalSsdSriov is a EnumOfTypeForCreateNodePoolInput enum value
-	EnumOfTypeForCreateNodePoolInputLocalSsdSriov = "LOCAL_SSD_SRIOV"
-
-	// EnumOfTypeForCreateNodePoolInputLocalLvmSsd is a EnumOfTypeForCreateNodePoolInput enum value
-	EnumOfTypeForCreateNodePoolInputLocalLvmSsd = "LOCAL_LVM_SSD"
+	// EnumOfTypeForCreateNodePoolInputContainerd is a EnumOfTypeForCreateNodePoolInput enum value
+	EnumOfTypeForCreateNodePoolInputContainerd = "containerd"
 )

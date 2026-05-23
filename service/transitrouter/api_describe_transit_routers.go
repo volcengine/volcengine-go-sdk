@@ -144,7 +144,7 @@ type DescribeTransitRoutersInput struct {
 
 	PageNumber *int32 `type:"int32"`
 
-	PageSize *int32 `type:"int32"`
+	PageSize *int32 `max:"100" type:"int32"`
 
 	ProjectName *string `type:"string"`
 
@@ -163,6 +163,19 @@ func (s DescribeTransitRoutersInput) String() string {
 // GoString returns the string representation
 func (s DescribeTransitRoutersInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DescribeTransitRoutersInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DescribeTransitRoutersInput"}
+	if s.PageSize != nil && *s.PageSize > 100 {
+		invalidParams.Add(request.NewErrParamMaxValue("PageSize", 100))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetPageNumber sets the PageNumber field's value.
@@ -316,6 +329,8 @@ type TransitRouterForDescribeTransitRoutersOutput struct {
 
 	Asn *int64 `type:"int64"`
 
+	BillingOwnerType *string `type:"string"`
+
 	BusinessStatus *string `type:"string"`
 
 	CreationTime *string `type:"string"`
@@ -364,6 +379,12 @@ func (s *TransitRouterForDescribeTransitRoutersOutput) SetAccountId(v string) *T
 // SetAsn sets the Asn field's value.
 func (s *TransitRouterForDescribeTransitRoutersOutput) SetAsn(v int64) *TransitRouterForDescribeTransitRoutersOutput {
 	s.Asn = &v
+	return s
+}
+
+// SetBillingOwnerType sets the BillingOwnerType field's value.
+func (s *TransitRouterForDescribeTransitRoutersOutput) SetBillingOwnerType(v string) *TransitRouterForDescribeTransitRoutersOutput {
+	s.BillingOwnerType = &v
 	return s
 }
 

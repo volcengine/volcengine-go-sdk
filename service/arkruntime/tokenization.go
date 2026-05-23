@@ -12,7 +12,7 @@ const tokenizationSuffix = "/tokenization"
 func (c *Client) CreateTokenization(
 	ctx context.Context,
 	conv model.TokenizationRequestConverter,
-	setters ...requestOption,
+	setters ...RequestOption,
 ) (res model.TokenizationResponse, err error) {
 	baseReq := conv.Convert()
 

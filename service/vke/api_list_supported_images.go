@@ -143,6 +143,36 @@ func (c *VKE) ListSupportedImagesWithContext(ctx volcengine.Context, input *List
 	return out, req.Send()
 }
 
+type IntersectionItemForListSupportedImagesOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	ImageId *string `type:"string" json:",omitempty"`
+
+	ImageName *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s IntersectionItemForListSupportedImagesOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s IntersectionItemForListSupportedImagesOutput) GoString() string {
+	return s.String()
+}
+
+// SetImageId sets the ImageId field's value.
+func (s *IntersectionItemForListSupportedImagesOutput) SetImageId(v string) *IntersectionItemForListSupportedImagesOutput {
+	s.ImageId = &v
+	return s
+}
+
+// SetImageName sets the ImageName field's value.
+func (s *IntersectionItemForListSupportedImagesOutput) SetImageName(v string) *IntersectionItemForListSupportedImagesOutput {
+	s.ImageName = &v
+	return s
+}
+
 type ItemForListSupportedImagesOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -177,6 +207,10 @@ type ListSupportedImagesInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
 	InstanceTypeIds []*string `type:"list" json:",omitempty"`
+
+	Intersection *bool `type:"boolean" json:",omitempty"`
+
+	KubernetesVersion *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -195,10 +229,24 @@ func (s *ListSupportedImagesInput) SetInstanceTypeIds(v []*string) *ListSupporte
 	return s
 }
 
+// SetIntersection sets the Intersection field's value.
+func (s *ListSupportedImagesInput) SetIntersection(v bool) *ListSupportedImagesInput {
+	s.Intersection = &v
+	return s
+}
+
+// SetKubernetesVersion sets the KubernetesVersion field's value.
+func (s *ListSupportedImagesInput) SetKubernetesVersion(v string) *ListSupportedImagesInput {
+	s.KubernetesVersion = &v
+	return s
+}
+
 type ListSupportedImagesOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
+
+	IntersectionItems []*IntersectionItemForListSupportedImagesOutput `type:"list" json:",omitempty"`
 
 	Items []*ItemForListSupportedImagesOutput `type:"list" json:",omitempty"`
 }
@@ -211,6 +259,12 @@ func (s ListSupportedImagesOutput) String() string {
 // GoString returns the string representation
 func (s ListSupportedImagesOutput) GoString() string {
 	return s.String()
+}
+
+// SetIntersectionItems sets the IntersectionItems field's value.
+func (s *ListSupportedImagesOutput) SetIntersectionItems(v []*IntersectionItemForListSupportedImagesOutput) *ListSupportedImagesOutput {
+	s.IntersectionItems = v
+	return s
 }
 
 // SetItems sets the Items field's value.

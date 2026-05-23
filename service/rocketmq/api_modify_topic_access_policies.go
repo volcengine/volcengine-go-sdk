@@ -200,7 +200,7 @@ func (s *AccessPolicyForModifyTopicAccessPoliciesInput) SetAuthority(v string) *
 type ModifyTopicAccessPoliciesInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	AccessPolicies []*AccessPolicyForModifyTopicAccessPoliciesInput `type:"list" json:",omitempty"`
+	AccessPolicies []*AccessPolicyForModifyTopicAccessPoliciesInput `type:"list"`
 
 	// InstanceId is a required field
 	InstanceId *string `type:"string" json:",omitempty" required:"true"`

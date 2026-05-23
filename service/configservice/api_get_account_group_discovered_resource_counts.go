@@ -149,7 +149,9 @@ type GetAccountGroupDiscoveredResourceCountsInput struct {
 	// AccountGroupId is a required field
 	AccountGroupId *string `type:"string" json:",omitempty" required:"true"`
 
-	ResourceStatus *string `type:"string" json:",omitempty"`
+	ResourceAccountId *int64 `type:"int64" json:",omitempty"`
+
+	ResourceStatus *string `type:"string" json:",omitempty" enum:"EnumOfResourceStatusForGetAccountGroupDiscoveredResourceCountsInput"`
 
 	ResourceTypes []*string `type:"list" json:",omitempty"`
 }
@@ -180,6 +182,12 @@ func (s *GetAccountGroupDiscoveredResourceCountsInput) Validate() error {
 // SetAccountGroupId sets the AccountGroupId field's value.
 func (s *GetAccountGroupDiscoveredResourceCountsInput) SetAccountGroupId(v string) *GetAccountGroupDiscoveredResourceCountsInput {
 	s.AccountGroupId = &v
+	return s
+}
+
+// SetResourceAccountId sets the ResourceAccountId field's value.
+func (s *GetAccountGroupDiscoveredResourceCountsInput) SetResourceAccountId(v int64) *GetAccountGroupDiscoveredResourceCountsInput {
+	s.ResourceAccountId = &v
 	return s
 }
 
@@ -218,3 +226,11 @@ func (s *GetAccountGroupDiscoveredResourceCountsOutput) SetTotalResourceCount(v 
 	s.TotalResourceCount = &v
 	return s
 }
+
+const (
+	// EnumOfResourceStatusForGetAccountGroupDiscoveredResourceCountsInputDeleted is a EnumOfResourceStatusForGetAccountGroupDiscoveredResourceCountsInput enum value
+	EnumOfResourceStatusForGetAccountGroupDiscoveredResourceCountsInputDeleted = "Deleted"
+
+	// EnumOfResourceStatusForGetAccountGroupDiscoveredResourceCountsInputHeld is a EnumOfResourceStatusForGetAccountGroupDiscoveredResourceCountsInput enum value
+	EnumOfResourceStatusForGetAccountGroupDiscoveredResourceCountsInputHeld = "Held"
+)

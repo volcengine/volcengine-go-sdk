@@ -156,13 +156,13 @@ func (c *Client) SetAiccInit() error {
 		"ra_service_name":    serServiceName,
 		"bytedance_top_info": byteTopInfo,
 	}
+	cli_conf_obj := aicc.NewClientConfig()
 
-	cfg, err := (&aicc.ClientConfig{}).FromDict(aiccConf)
+	cliCfg, err := cli_conf_obj.FromDict(aiccConf)
 	if err != nil {
 		return fmt.Errorf("AICC 配置构造失败: %w", err)
 	}
-
-	c.aiccClient = aicc.NewClient(cfg)
+	c.aiccClient = aicc.NewClient(cliCfg)
 	if c.aiccClient == nil {
 		return fmt.Errorf("AICC客户端初始化失败")
 	}

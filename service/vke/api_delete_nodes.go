@@ -153,8 +153,7 @@ type DeleteNodesInput struct {
 
 	Ids []*string `type:"list" json:",omitempty"`
 
-	// NodePoolId is a required field
-	NodePoolId *string `type:"string" json:",omitempty" required:"true"`
+	NodePoolId *string `type:"string" json:",omitempty"`
 
 	RetainResources []*string `type:"list" json:",omitempty"`
 }
@@ -174,9 +173,6 @@ func (s *DeleteNodesInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "DeleteNodesInput"}
 	if s.ClusterId == nil {
 		invalidParams.Add(request.NewErrParamRequired("ClusterId"))
-	}
-	if s.NodePoolId == nil {
-		invalidParams.Add(request.NewErrParamRequired("NodePoolId"))
 	}
 
 	if invalidParams.Len() > 0 {

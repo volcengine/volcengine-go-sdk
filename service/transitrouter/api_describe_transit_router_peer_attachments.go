@@ -340,6 +340,8 @@ type TransitRouterAttachmentForDescribeTransitRouterPeerAttachmentsOutput struct
 
 	PeerTransitRouterId *string `type:"string"`
 
+	PeerTransitRouterOwnerId *string `type:"string"`
+
 	PeerTransitRouterRegionId *string `type:"string"`
 
 	Status *string `type:"string"`
@@ -351,6 +353,8 @@ type TransitRouterAttachmentForDescribeTransitRouterPeerAttachmentsOutput struct
 	TransitRouterAttachmentName *string `type:"string"`
 
 	TransitRouterBandwidthPackageId *string `type:"string"`
+
+	TransitRouterBandwidthPackageOwnerId *string `type:"string"`
 
 	TransitRouterForwardPolicyTableId *string `type:"string"`
 
@@ -411,6 +415,12 @@ func (s *TransitRouterAttachmentForDescribeTransitRouterPeerAttachmentsOutput) S
 	return s
 }
 
+// SetPeerTransitRouterOwnerId sets the PeerTransitRouterOwnerId field's value.
+func (s *TransitRouterAttachmentForDescribeTransitRouterPeerAttachmentsOutput) SetPeerTransitRouterOwnerId(v string) *TransitRouterAttachmentForDescribeTransitRouterPeerAttachmentsOutput {
+	s.PeerTransitRouterOwnerId = &v
+	return s
+}
+
 // SetPeerTransitRouterRegionId sets the PeerTransitRouterRegionId field's value.
 func (s *TransitRouterAttachmentForDescribeTransitRouterPeerAttachmentsOutput) SetPeerTransitRouterRegionId(v string) *TransitRouterAttachmentForDescribeTransitRouterPeerAttachmentsOutput {
 	s.PeerTransitRouterRegionId = &v
@@ -444,6 +454,12 @@ func (s *TransitRouterAttachmentForDescribeTransitRouterPeerAttachmentsOutput) S
 // SetTransitRouterBandwidthPackageId sets the TransitRouterBandwidthPackageId field's value.
 func (s *TransitRouterAttachmentForDescribeTransitRouterPeerAttachmentsOutput) SetTransitRouterBandwidthPackageId(v string) *TransitRouterAttachmentForDescribeTransitRouterPeerAttachmentsOutput {
 	s.TransitRouterBandwidthPackageId = &v
+	return s
+}
+
+// SetTransitRouterBandwidthPackageOwnerId sets the TransitRouterBandwidthPackageOwnerId field's value.
+func (s *TransitRouterAttachmentForDescribeTransitRouterPeerAttachmentsOutput) SetTransitRouterBandwidthPackageOwnerId(v string) *TransitRouterAttachmentForDescribeTransitRouterPeerAttachmentsOutput {
+	s.TransitRouterBandwidthPackageOwnerId = &v
 	return s
 }
 

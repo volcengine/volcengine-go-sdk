@@ -147,7 +147,7 @@ type StopConfigurationRecorderInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
 	// RecorderType is a required field
-	RecorderType *string `type:"string" json:",omitempty" required:"true"`
+	RecorderType *string `type:"string" json:",omitempty" required:"true" enum:"EnumOfRecorderTypeForStopConfigurationRecorderInput"`
 }
 
 // String returns the string representation
@@ -210,3 +210,11 @@ func (s *StopConfigurationRecorderOutput) SetRecorderId(v string) *StopConfigura
 	s.RecorderId = &v
 	return s
 }
+
+const (
+	// EnumOfRecorderTypeForStopConfigurationRecorderInputSingleAccount is a EnumOfRecorderTypeForStopConfigurationRecorderInput enum value
+	EnumOfRecorderTypeForStopConfigurationRecorderInputSingleAccount = "SingleAccount"
+
+	// EnumOfRecorderTypeForStopConfigurationRecorderInputOrganization is a EnumOfRecorderTypeForStopConfigurationRecorderInput enum value
+	EnumOfRecorderTypeForStopConfigurationRecorderInputOrganization = "Organization"
+)

@@ -54,6 +54,14 @@ type ROCKETMQAPI interface {
 	AssociateAllowListWithContext(volcengine.Context, *AssociateAllowListInput, ...request.Option) (*AssociateAllowListOutput, error)
 	AssociateAllowListRequest(*AssociateAllowListInput) (*request.Request, *AssociateAllowListOutput)
 
+	CreateAccessKeyCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateAccessKeyCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateAccessKeyCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateAccessKey(*CreateAccessKeyInput) (*CreateAccessKeyOutput, error)
+	CreateAccessKeyWithContext(volcengine.Context, *CreateAccessKeyInput, ...request.Option) (*CreateAccessKeyOutput, error)
+	CreateAccessKeyRequest(*CreateAccessKeyInput) (*request.Request, *CreateAccessKeyOutput)
+
 	CreateAllowListCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	CreateAllowListCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	CreateAllowListCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -261,6 +269,14 @@ type ROCKETMQAPI interface {
 	DescribeConsumedTopics(*DescribeConsumedTopicsInput) (*DescribeConsumedTopicsOutput, error)
 	DescribeConsumedTopicsWithContext(volcengine.Context, *DescribeConsumedTopicsInput, ...request.Option) (*DescribeConsumedTopicsOutput, error)
 	DescribeConsumedTopicsRequest(*DescribeConsumedTopicsInput) (*request.Request, *DescribeConsumedTopicsOutput)
+
+	DescribeConsumerGroupLagCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeConsumerGroupLagCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeConsumerGroupLagCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeConsumerGroupLag(*DescribeConsumerGroupLagInput) (*DescribeConsumerGroupLagOutput, error)
+	DescribeConsumerGroupLagWithContext(volcengine.Context, *DescribeConsumerGroupLagInput, ...request.Option) (*DescribeConsumerGroupLagOutput, error)
+	DescribeConsumerGroupLagRequest(*DescribeConsumerGroupLagInput) (*request.Request, *DescribeConsumerGroupLagOutput)
 
 	DescribeGroupsCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DescribeGroupsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
