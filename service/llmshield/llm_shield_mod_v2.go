@@ -41,12 +41,36 @@ const (
 )
 
 const (
+	ExtensionsKey_UserID    string = "user_id"
+	ExtensionsKey_RunID     string = "run_id"
+	ExtensionsKey_SessionID string = "session_id"
+	ExtensionsKey_ContextID string = "context_id"
+	ExtensionsKey_HookName  string = "hook_name"
+)
+
+const (
 	LLM_STREAM_SEND_BASE_WINDOW_V2 int64 = 10
 	LLM_STREAM_SEND_EXPONENT_V2    int64 = 2
 )
 
+type FunctionCall struct {
+	// 函数名
+	Name string `thrift:"name,1" form:"Name" json:"Name"`
+	// 函数参数，JSON字符串
+	Arguments string `thrift:"arguments,2" form:"Arguments" json:"Arguments"`
+}
+
+type ToolCall struct {
+	// 工具调用ID
+	ID string `thrift:"id,1" form:"ID" json:"ID"`
+	// 工具类型
+	Type string `thrift:"type,2" form:"Type" json:"Type"`
+	// 调用的工具
+	Function *FunctionCall `thrift:"function,3" form:"Function" json:"Function"`
+}
+
 type MessageV2 struct {
-	// 消息内容ID @tpl=select @jsonCEnums=["user","assistant","system","rag"]
+	// 消息内容ID @tpl=select @jsonCEnums=["user","assistant","system","tool"]
 	Role string `thrift:"role,1" form:"Role" json:"Role"`
 	// 内容文本或链接
 	Content string `thrift:"content,2" form:"Content" json:"Content"`
@@ -54,6 +78,10 @@ type MessageV2 struct {
 	ContentType ContentTypeV2 `thrift:"contentType,3" form:"ContentType" json:"ContentType"`
 	// 多模态送检内容
 	MultiPart []*MultiPart `thrift:"multiPart,4,optional" form:"MultiPart" json:"MultiPart,omitempty"`
+	// 工具调用ID, 幻觉检测时Role为tool，ToolCallID为rag
+	ToolCallID *string `thrift:"toolCallID,5,optional" form:"ToolCallID" json:"ToolCallID,omitempty"`
+	// 工具调用
+	ToolCall []*ToolCall `thrift:"toolCall,6,optional" form:"ToolCall" json:"ToolCall,omitempty"`
 }
 
 type MultiPart struct {
@@ -74,7 +102,10 @@ type ModerateV2Request struct {
 	Scene string `thrift:"scene,5,optional" form:"Scene" json:"Scene,omitempty"`
 	// 历史消息
 	History []*MessageV2 `thrift:"history,6,optional" form:"History" json:"History,omitempty"`
+	// 扩展字段，如HookName
+	Extensions map[string]string `thrift:"Extensions,7,optional" form:"Extensions" json:"Extensions,omitempty"`
 }
+
 type Error struct {
 	CodeN   int    `json:"CodeN"`
 	Code    string `json:"Code"`
