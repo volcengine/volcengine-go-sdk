@@ -175,7 +175,17 @@ func (p *ConsoleLoginRefreshableProvider) refreshTokenWithCachedRT(ctx context.C
 		RefreshToken: p.cached.RefreshToken,
 	})
 	if err != nil {
-		return err
+		// Pass invalid_grant through verbatim so refreshLocked can detect it
+		// and trigger the disk-reload fallback. Wrap all other errors with a
+		// stable error code and the actionable hint.
+		if isRefreshTokenInvalidErr(err) {
+			return err
+		}
+		return volcengineerr.New(
+			"CliConsoleLoginRefreshTokenFailed",
+			"failed to refresh console-login access token; please run 've login' to re-authenticate",
+			err,
+		)
 	}
 
 	// 更新内存 cache：access_token 必更，refresh_token 仅当服务端返回新值时
