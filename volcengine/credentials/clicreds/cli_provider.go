@@ -151,14 +151,18 @@ func NewCliCredentials(configPath, profile string) *credentials.Credentials {
 }
 
 func (p *CliProvider) Retrieve() (credentials.Value, error) {
-	// If a delegate provider exists, reuse it unconditionally — the delegate
-	// manages its own expiry and refresh internally.
-	if p.delegate != nil {
+	// Fast path: delegate not yet expired — reuse without touching config.
+	// On expiry, fall through to reload the config so profile / mode / AK
+	// changes made by the user (or by `ve` cli) are picked up. The delegate's
+	// own invalid_grant fallback still protects against in-flight RT rotation,
+	// so rebuilding the delegate here is safe.
+	if p.delegate != nil && !p.delegate.IsExpired() {
 		return p.delegate.Retrieve()
 	}
 
 	p.retrieved = false
 	p.hasExpiration = false
+	p.delegate = nil
 	p.SetExpiration(time.Time{}, 0)
 
 	b, err := ioutil.ReadFile(p.configPath)
