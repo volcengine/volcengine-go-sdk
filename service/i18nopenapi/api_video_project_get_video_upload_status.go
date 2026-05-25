@@ -139,6 +139,28 @@ func (c *I18NOPENAPI) VideoProjectGetVideoUploadStatusWithContext(ctx volcengine
 	return out, req.Send()
 }
 
+type DataForVideoProjectGetVideoUploadStatusOutput struct {
+	_ struct{} `type:"structure"`
+
+	VideoUploadTasks []*VideoUploadTaskForVideoProjectGetVideoUploadStatusOutput `type:"list" json:"videoUploadTasks"`
+}
+
+// String returns the string representation
+func (s DataForVideoProjectGetVideoUploadStatusOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DataForVideoProjectGetVideoUploadStatusOutput) GoString() string {
+	return s.String()
+}
+
+// SetVideoUploadTasks sets the VideoUploadTasks field's value.
+func (s *DataForVideoProjectGetVideoUploadStatusOutput) SetVideoUploadTasks(v []*VideoUploadTaskForVideoProjectGetVideoUploadStatusOutput) *DataForVideoProjectGetVideoUploadStatusOutput {
+	s.VideoUploadTasks = v
+	return s
+}
+
 type VideoProjectGetVideoUploadStatusInput struct {
 	_ struct{} `type:"structure"`
 
@@ -192,7 +214,7 @@ type VideoProjectGetVideoUploadStatusOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	VideoUploadTasks []*VideoUploadTaskForVideoProjectGetVideoUploadStatusOutput `type:"list" json:"videoUploadTasks"`
+	Data *DataForVideoProjectGetVideoUploadStatusOutput `type:"structure" json:"data"`
 }
 
 // String returns the string representation
@@ -205,9 +227,9 @@ func (s VideoProjectGetVideoUploadStatusOutput) GoString() string {
 	return s.String()
 }
 
-// SetVideoUploadTasks sets the VideoUploadTasks field's value.
-func (s *VideoProjectGetVideoUploadStatusOutput) SetVideoUploadTasks(v []*VideoUploadTaskForVideoProjectGetVideoUploadStatusOutput) *VideoProjectGetVideoUploadStatusOutput {
-	s.VideoUploadTasks = v
+// SetData sets the Data field's value.
+func (s *VideoProjectGetVideoUploadStatusOutput) SetData(v *DataForVideoProjectGetVideoUploadStatusOutput) *VideoProjectGetVideoUploadStatusOutput {
+	s.Data = v
 	return s
 }
 

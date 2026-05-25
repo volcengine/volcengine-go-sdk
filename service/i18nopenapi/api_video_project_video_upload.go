@@ -143,6 +143,28 @@ func (c *I18NOPENAPI) VideoProjectVideoUploadWithContext(ctx volcengine.Context,
 	return out, req.Send()
 }
 
+type DataForVideoProjectVideoUploadOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	BatchId *string `type:"string" json:"batchId,omitempty"`
+}
+
+// String returns the string representation
+func (s DataForVideoProjectVideoUploadOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DataForVideoProjectVideoUploadOutput) GoString() string {
+	return s.String()
+}
+
+// SetBatchId sets the BatchId field's value.
+func (s *DataForVideoProjectVideoUploadOutput) SetBatchId(v string) *DataForVideoProjectVideoUploadOutput {
+	s.BatchId = &v
+	return s
+}
+
 type VideoProjectVideoUploadInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -204,7 +226,7 @@ type VideoProjectVideoUploadOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	BatchId *string `type:"string" json:"batchId,omitempty"`
+	Data *DataForVideoProjectVideoUploadOutput `type:"structure" json:"data,omitempty"`
 }
 
 // String returns the string representation
@@ -217,8 +239,8 @@ func (s VideoProjectVideoUploadOutput) GoString() string {
 	return s.String()
 }
 
-// SetBatchId sets the BatchId field's value.
-func (s *VideoProjectVideoUploadOutput) SetBatchId(v string) *VideoProjectVideoUploadOutput {
-	s.BatchId = &v
+// SetData sets the Data field's value.
+func (s *VideoProjectVideoUploadOutput) SetData(v *DataForVideoProjectVideoUploadOutput) *VideoProjectVideoUploadOutput {
+	s.Data = v
 	return s
 }
