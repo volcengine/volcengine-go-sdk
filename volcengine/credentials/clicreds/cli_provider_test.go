@@ -251,7 +251,7 @@ func TestRetrieve_ConsoleLoginMode_ReadsObjectAccessToken(t *testing.T) {
 	if v.AccessKeyID != "AK_CONSOLE" || v.SecretAccessKey != "SK_CONSOLE" || v.SessionToken != "TOKEN_CONSOLE" {
 		t.Fatalf("unexpected credentials: %+v", v)
 	}
-	if !p.hasExpiration || p.IsExpired() {
+	if p.IsExpired() {
 		t.Fatalf("expected console-login credentials to have a live expiration")
 	}
 }

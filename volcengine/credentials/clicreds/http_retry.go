@@ -75,6 +75,16 @@ func shouldRetryError(err error) bool {
 		return isRetryableHTTPStatus(portalErr.StatusCode)
 	}
 
+	var consoleLoginErr *ConsoleLoginOAuthAPIError
+	if errors.As(err, &consoleLoginErr) {
+		// 400 invalid_grant 等"refresh token 不可再用"语义必须立刻失败，
+		// 否则重试只会消耗一次本来还能用的旧 RT 配额。
+		if consoleLoginErr.IsRefreshTokenInvalid() {
+			return false
+		}
+		return isRetryableHTTPStatus(consoleLoginErr.StatusCode)
+	}
+
 	var netErr net.Error
 	if errors.As(err, &netErr) {
 		return true
