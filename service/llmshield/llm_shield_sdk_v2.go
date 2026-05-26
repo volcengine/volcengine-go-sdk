@@ -113,7 +113,7 @@ func (c *Client) fetchAiccModuleConf() (string, string, string, string, string, 
 			AccID      string `json:"AccID"`
 			ServerID   string `json:"ServerID"`
 			ServerName string `json:"ServerName"`
-			TrnInfo    string `json:TrnInfo`
+			TrnInfo    string `json:"TrnInfo"`
 		} `json:"Result"`
 	}
 	if err := json.Unmarshal(respBody, &respJSON); err != nil {
@@ -170,13 +170,20 @@ func (c *Client) SetAiccInit() error {
 	if c.aiccClient == nil {
 		return fmt.Errorf("AICC客户端初始化失败")
 	}
-	return nil
+
+	err = c.aiccClient.AttestServer()
+	if err != nil {
+		fmt.Printf("AttestServer init error:%v.\n", err)
+	}
+
+	return err
 }
 
 func (c *Client) requireAiccClient() (*aicc.Client, error) {
 	if c.aiccClient == nil {
 		return nil, fmt.Errorf("AICC Client 未初始化，请先调用 Client.SetAiccInit()")
 	}
+
 	return c.aiccClient, nil
 }
 
