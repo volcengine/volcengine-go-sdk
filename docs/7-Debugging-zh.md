@@ -29,7 +29,7 @@ func main() {
 		WithRegion(region).
 		// 开启debug日志
 		WithDebug(true).
-		WithCredentials(credentials.NewEnvCredentials()) // 环境变量配置：VOLCSTACK_ACCESS_KEY_ID、VOLCSTACK_SECRET_ACCESS_KEY、VOLCSTACK_SESSION_TOKEN
+		WithCredentials(credentials.NewEnvCredentials()) // 需要配置环境变量
 }
 ```
 
@@ -61,7 +61,7 @@ func main() {
 		WithRegion(region).
 		WithDebug(true).
 		WithLogWriter(file).
-		WithCredentials(credentials.NewEnvCredentials()) // 环境变量配置：VOLCSTACK_ACCESS_KEY_ID、VOLCSTACK_SECRET_ACCESS_KEY、VOLCSTACK_SESSION_TOKEN
+		WithCredentials(credentials.NewEnvCredentials()) // 需要配置环境变量
 }
 ```
 

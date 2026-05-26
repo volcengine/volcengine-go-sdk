@@ -88,7 +88,7 @@ Early SDKs used the `VOLCSTACK_*` prefix. When the corresponding `VOLCENGINE_*` 
 
 #### Default Credential Chain
 
-When no credentials are explicitly configured, all four SDKs try the following providers in order; the first one that succeeds is used:
+When no credentials are explicitly configured, the Go SDK tries the following providers in order; the first one that succeeds is used:
 
 1. Environment Variable Provider (`VOLCENGINE_ACCESS_KEY` / `VOLCENGINE_SECRET_KEY`[/`VOLCENGINE_SESSION_TOKEN`])
 2. OIDC Provider (reads `VOLCENGINE_OIDC_*`)

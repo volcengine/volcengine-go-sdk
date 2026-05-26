@@ -36,7 +36,7 @@ func main() {
 	config := volcengine.NewConfig().
 		WithRegion(region).
 		WithHTTPClient(client).
-		WithCredentials(credentials.NewEnvCredentials()) //环境变量配置：VOLCSTACK_ACCESS_KEY_ID、VOLCSTACK_SECRET_ACCESS_KEY、VOLCSTACK_SESSION_TOKEN
+		WithCredentials(credentials.NewEnvCredentials()) //需要配置环境变量
 
 	sess, err := session.NewSession(config)
 	if err != nil {
@@ -62,7 +62,7 @@ func main() {
 	config := volcengine.NewConfig().
 		WithRegion(region).
 		WithDisableSSL(true).                            //true 表示scheme为http，false表示为https，默认为false
-		WithCredentials(credentials.NewEnvCredentials()) // 环境变量配置：VOLCSTACK_ACCESS_KEY_ID、VOLCSTACK_SECRET_ACCESS_KEY、VOLCSTACK_SESSION_TOKEN
+		WithCredentials(credentials.NewEnvCredentials()) // 需要配置环境变量
 
 	sess, err := session.NewSession(config)
 	if err != nil {
@@ -105,7 +105,7 @@ func main() {
 	config := volcengine.NewConfig().
 		WithRegion(region).
 		WithHTTPClient(client).
-		WithCredentials(credentials.NewEnvCredentials()) //环境变量配置：VOLCSTACK_ACCESS_KEY_ID、VOLCSTACK_SECRET_ACCESS_KEY、VOLCSTACK_SESSION_TOKEN
+		WithCredentials(credentials.NewEnvCredentials()) //需要配置环境变量
 
 	sess, err := session.NewSession(config)
 	if err != nil {
@@ -151,7 +151,7 @@ func main() {
 	config := volcengine.NewConfig().
 		WithRegion(region).
 		WithHTTPClient(client).
-		WithCredentials(credentials.NewEnvCredentials()) //环境变量配置：VOLCSTACK_ACCESS_KEY_ID、VOLCSTACK_SECRET_ACCESS_KEY、VOLCSTACK_SESSION_TOKEN
+		WithCredentials(credentials.NewEnvCredentials()) //需要配置环境变量
 
 	sess, err := session.NewSession(config)
 	if err != nil {

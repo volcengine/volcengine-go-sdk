@@ -88,7 +88,7 @@ setx VOLCENGINE_SESSION_TOKEN your-session-token /M
 
 #### 默认凭证链顺序
 
-未显式配置凭证时，四端 SDK 均按以下顺序依次尝试，首个成功的 Provider 生效：
+未显式配置凭证时，Go SDK 按以下顺序依次尝试，首个成功的 Provider 生效：
 
 1. 环境变量 Provider（`VOLCENGINE_ACCESS_KEY` / `VOLCENGINE_SECRET_KEY`[/`VOLCENGINE_SESSION_TOKEN`]）
 2. OIDC Provider（从 `VOLCENGINE_OIDC_*` 读取）

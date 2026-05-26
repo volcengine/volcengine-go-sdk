@@ -112,7 +112,7 @@ func main() {
 			//     o.Timeout = 5 * time.Second       // 请求超时时间
 			//     o.DurationSeconds = 900           // 临时凭证有效期（秒），默认 3600
 			//     o.Policy = `{"Statement":[...]}`  // session policy JSON
-			//     o.MaxRetries = volcengine.Int(3)   // 重试次数；nil 默认 3，0 关闭重试
+			//     o.MaxRetries = 3                   // 重试次数；0 或负数回退到 DefaultRetryerMaxNumRetries（默认 3）
 			//     o.RetryInterval = 1 * time.Second // 重试间隔；<= 0 回退到 1s
 			// },
 		))
@@ -142,7 +142,7 @@ func main() {
 			Timeout:         5 * time.Second, // 请求sts的超时时间
 			DurationSeconds: 900,             // STS临时凭证过期时长，单位为秒
 			// Policy: 可选的 session policy JSON，用于进一步收窄临时凭证的权限，例如：`{"Statement":[{"Effect":"Allow","Action":["vpc:DescribeVpcs"],"Resource":["*"]}]}`,
-			MaxRetries:    volcengine.Int(3), // 可选：AssumeRole 失败时的额外重试次数；nil 默认 3，0 表示关闭重试
+			MaxRetries:    3,                 // 可选：AssumeRole 失败时的额外重试次数；0 或负数回退到 DefaultRetryerMaxNumRetries（默认 3）
 			RetryInterval: 1 * time.Second,   // 可选：重试间隔；<= 0 时回退到 1s
 		}))
 

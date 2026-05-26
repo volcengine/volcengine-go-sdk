@@ -8,9 +8,9 @@
 
 > **Default**
 >
-> - `ConnectTimeout`: 30s
-> - `ReadTimeout`: unlimited
-> - Default client: `http.DefaultClient`
+> - Default client: `http.DefaultClient` (set by `defaults/defaults.go:WithHTTPClient`)
+> - `ConnectTimeout`: 30s (which uses `net.Dialer{Timeout: 30s}`)
+> - `ReadTimeout` / overall request timeout: unlimited (`http.DefaultClient.Timeout == 0`)
 
 Configure timeouts via a custom `http.Client`.
 

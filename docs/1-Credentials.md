@@ -114,7 +114,7 @@ func main() {
 			//     o.Timeout = 5 * time.Second       // Request timeout
 			//     o.DurationSeconds = 900           // TTL in seconds, default 3600
 			//     o.Policy = `{"Statement":[...]}`  // Session policy JSON
-			//     o.MaxRetries = volcengine.Int(3)  // Retry attempts; nil defaults to 3, 0 disables
+			//     o.MaxRetries = 3                  // Retry attempts; 0 or negative falls back to DefaultRetryerMaxNumRetries (3)
 			//     o.RetryInterval = 1 * time.Second // Sleep between retries; <= 0 falls back to 1s
 			// },
 		))
@@ -154,7 +154,7 @@ func main() {
 			Timeout:         5 * time.Second, // STS request timeout
 			DurationSeconds: 900,             // TTL of the temporary credentials, in seconds
 			// Policy: optional session policy JSON, e.g. `{"Statement":[{"Effect":"Allow","Action":["vpc:DescribeVpcs"],"Resource":["*"]}]}`
-			MaxRetries:    volcengine.Int(3), // optional extra retry attempts; nil defaults to 3, 0 disables retries
+			MaxRetries:    3,                 // optional extra retry attempts; 0 or negative falls back to DefaultRetryerMaxNumRetries (3)
 			RetryInterval: 1 * time.Second,   // optional sleep between retries; <= 0 falls back to 1s
 		}))
 

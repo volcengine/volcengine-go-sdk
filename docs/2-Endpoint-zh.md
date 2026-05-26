@@ -16,7 +16,7 @@
 func main() {
 	region := "cn-beijing"
 	config := volcengine.NewConfig().
-		WithCredentials(credentials.NewEnvCredentials()). //环境变量配置：VOLCSTACK_ACCESS_KEY_ID、VOLCSTACK_SECRET_ACCESS_KEY、VOLCSTACK_SESSION_TOKEN
+		WithCredentials(credentials.NewEnvCredentials()). // 需要配置环境变量
 		WithRegion(region).
 		// 自定义Endpoint
 		WithEndpoint("<example>.<regionId>.volcengineapi.com")
@@ -33,7 +33,7 @@ func main() {
 func main() {
 	regionId := "cn-beijing"
 	config := volcengine.NewConfig().
-		WithCredentials(credentials.NewEnvCredentials()). //环境变量配置：VOLCSTACK_ACCESS_KEY_ID、VOLCSTACK_SECRET_ACCESS_KEY、VOLCSTACK_SESSION_TOKEN
+		WithCredentials(credentials.NewEnvCredentials()). // 需要配置环境变量
 		WithRegion(regionId)                              // 自定义regionId
 	sess, err := session.NewSession(config)
 	if err != nil {
@@ -79,7 +79,7 @@ func main() {
 func main() {
 	regionId := "cn-beijing"
 	config := volcengine.NewConfig().
-		WithCredentials(credentials.NewEnvCredentials()). //环境变量配置：VOLCSTACK_ACCESS_KEY_ID、VOLCSTACK_SECRET_ACCESS_KEY、VOLCSTACK_SESSION_TOKEN
+		WithCredentials(credentials.NewEnvCredentials()). // 需要配置环境变量
 		WithRegion(regionId).
 		WithUseDualStack(true). // 定义是否启用双栈网络（IPv4 + IPv6）访问地址，默认false；也可以使用环境变量VOLC_ENABLE_DUALSTACK=true
 		WithBootstrapRegion(map[string]struct{}{
