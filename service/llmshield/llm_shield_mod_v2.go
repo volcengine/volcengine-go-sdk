@@ -7,7 +7,7 @@ import (
 	"net/http"
 	"sync"
 
-	"github.com/volcengine/volcengine-go-sdk/service/llmshield/aicc"
+	aicc "github.com/volcengine/volcengine-go-sdk/service/llmshield/aicc"
 )
 
 const RespChanSize = 100

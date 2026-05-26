@@ -9,7 +9,7 @@ import (
 	purl "net/url"
 	"time"
 
-	"github.com/volcengine/volcengine-go-sdk/service/llmshield/aicc"
+	aicc "github.com/volcengine/volcengine-go-sdk/service/llmshield/aicc"
 )
 
 // New 创建一个新的客户端实例
@@ -71,7 +71,7 @@ func GetServiceCode() string {
 
 // fetchAiccModuleConf 请求 AiccModuleConf 接口，获取 AICC 模块配置
 // 返回 (aiccTopAddr, serAccID, serPolicyID, serServiceName, error)
-func (c *Client) fetchAiccModuleConf() (string, string, string, string, error) {
+func (c *Client) fetchAiccModuleConf() (string, string, string, string, string, error) {
 	path := "/ctrl/aicc_module_conf"
 	action := "AiccModuleConf"
 	version := "2025-08-31"
@@ -79,12 +79,12 @@ func (c *Client) fetchAiccModuleConf() (string, string, string, string, error) {
 	postBody := map[string]interface{}{"Version": 100}
 	requestBody, err := json.Marshal(postBody)
 	if err != nil {
-		return "", "", "", "", fmt.Errorf("failed to marshal AiccModuleConf request: %w", err)
+		return "", "", "", "", "", fmt.Errorf("failed to marshal AiccModuleConf request: %w", err)
 	}
 
 	req, err := http.NewRequest("POST", c.url+path, bytes.NewBuffer(requestBody))
 	if err != nil {
-		return "", "", "", "", fmt.Errorf("failed to create AiccModuleConf request: %w", err)
+		return "", "", "", "", "", fmt.Errorf("failed to create AiccModuleConf request: %w", err)
 	}
 	req.Header.Set("Content-Type", "application/json")
 	queries := req.URL.Query()
@@ -93,18 +93,18 @@ func (c *Client) fetchAiccModuleConf() (string, string, string, string, error) {
 	req.URL.RawQuery = queries.Encode()
 
 	if err := c.DoRequestSign(req, requestBody); err != nil {
-		return "", "", "", "", fmt.Errorf("failed to sign AiccModuleConf request: %w", err)
+		return "", "", "", "", "", fmt.Errorf("failed to sign AiccModuleConf request: %w", err)
 	}
 
 	resp, err := c.httpClient.Do(req)
 	if err != nil {
-		return "", "", "", "", fmt.Errorf("failed to send AiccModuleConf request: %w", err)
+		return "", "", "", "", "", fmt.Errorf("failed to send AiccModuleConf request: %w", err)
 	}
 	defer resp.Body.Close()
 
 	respBody, err := io.ReadAll(resp.Body)
 	if err != nil {
-		return "", "", "", "", fmt.Errorf("failed to read AiccModuleConf response: %w", err)
+		return "", "", "", "", "", fmt.Errorf("failed to read AiccModuleConf response: %w", err)
 	}
 
 	var respJSON struct {
@@ -113,52 +113,56 @@ func (c *Client) fetchAiccModuleConf() (string, string, string, string, error) {
 			AccID      string `json:"AccID"`
 			ServerID   string `json:"ServerID"`
 			ServerName string `json:"ServerName"`
+			TrnInfo    string `json:TrnInfo`
 		} `json:"Result"`
 	}
 	if err := json.Unmarshal(respBody, &respJSON); err != nil {
-		return "", "", "", "", fmt.Errorf("AiccModuleConf 响应解析失败: %w", err)
+		return "", "", "", "", "", fmt.Errorf("AiccModuleConf 响应解析失败: %w", err)
 	}
 
 	aiccTopAddr := respJSON.Result.PccUrl
 	serAccID := respJSON.Result.AccID
 	serPolicyID := respJSON.Result.ServerID
 	serServiceName := respJSON.Result.ServerName
+	serTrnInfo := respJSON.Result.TrnInfo
 
-	if aiccTopAddr == "" || serAccID == "" || serPolicyID == "" || serServiceName == "" {
-		return "", "", "", "", fmt.Errorf("AiccModuleConf 响应缺少必要字段: %s", string(respBody))
+	if aiccTopAddr == "" || serAccID == "" || serPolicyID == "" || serServiceName == "" || serTrnInfo == "" {
+		return "", "", "", "", "", fmt.Errorf("AiccModuleConf 响应缺少必要字段: %s", string(respBody))
 	}
 
-	return aiccTopAddr, serAccID, serPolicyID, serServiceName, nil
+	return aiccTopAddr, serAccID, serPolicyID, serServiceName, serTrnInfo, nil
 }
 
 // SetAiccInit 初始化 AICC Client.
 // AICC 属于可选能力，外部需要使用 AICC 能力时，请显式调用本方法。
 func (c *Client) SetAiccInit() error {
-	aiccTopAddr, serAccID, serPolicyID, serServiceName, err := c.fetchAiccModuleConf()
+	aiccTopAddr, serAccID, serPolicyID, serServiceName, serTrnInfo, err := c.fetchAiccModuleConf()
 	if err != nil {
 		return err
 	}
-	fmt.Printf("AiccList %s, %s, %s, %s\n", aiccTopAddr, serAccID, serPolicyID, serServiceName)
+	fmt.Printf("AiccList %s, %s, %s, %s, %s\n", aiccTopAddr, serAccID, serPolicyID, serServiceName, serTrnInfo)
 
 	aiccRfTick := float64(1800)
 	aiccSerAddr := c.url
 
 	byteTopInfo := fmt.Sprintf(
-		`{"url": "%s","url_rewrite": "%s", "ak": "%s", "sk": "%s", "target_uid": "%s", "aicc_saas_trn": "trn:iam::%s:role/aicc_role", "service": "pcc"}`,
-		aiccTopAddr, aiccSerAddr, c.ak, c.sk, serAccID, serAccID,
+		`{"url": "%s","url_rewrite": "%s", "ak": "%s", "sk": "%s", "target_uid": "%s", "aicc_saas_trn": "trn:iam::%s:role/%s", "service": "pcc"}`,
+		aiccTopAddr, aiccSerAddr, c.ak, c.sk, serAccID, serAccID, serTrnInfo,
 	)
 
-	aiccConf := map[string]interface{}{
+	aiccConfJSON, err := json.Marshal(map[string]interface{}{
 		"ra_url":             aiccSerAddr,
 		"attest_interval":    aiccRfTick,
 		"ra_uid":             serAccID,
 		"ra_policy_id":       serPolicyID,
 		"ra_service_name":    serServiceName,
 		"bytedance_top_info": byteTopInfo,
+	})
+	if err != nil {
+		return fmt.Errorf("AICC 配置序列化失败: %w", err)
 	}
-	cli_conf_obj := aicc.NewClientConfig()
 
-	cliCfg, err := cli_conf_obj.FromDict(aiccConf)
+	cliCfg, err := aicc.ClientConfigFromJson(string(aiccConfJSON))
 	if err != nil {
 		return fmt.Errorf("AICC 配置构造失败: %w", err)
 	}
@@ -182,7 +186,7 @@ func (c *Client) Encrypt(plaintext string) (string, error) {
 	if err != nil {
 		return "", err
 	}
-	return cli.Encrypt(plaintext)
+	return cli.EncryptString(plaintext)
 }
 
 // EncryptWithResponse 使用 AICC Client 加密请求数据，并返回用于解密响应的 ResponseKey
@@ -191,7 +195,11 @@ func (c *Client) EncryptWithResponse(plaintext string) (string, *aicc.ResponseKe
 	if err != nil {
 		return "", nil, err
 	}
-	return cli.EncryptWithResponse(plaintext)
+	result, err := cli.EncryptStringWithResponse(plaintext)
+	if err != nil {
+		return "", nil, err
+	}
+	return result.Ciphertext, &result.ResponseKey, nil
 }
 
 // DecryptResponse 使用 EncryptWithResponse 返回的 responseKey 解密服务端响应
@@ -199,7 +207,7 @@ func (c *Client) DecryptResponse(responseKey *aicc.ResponseKey, response []byte)
 	if responseKey == nil {
 		return nil, fmt.Errorf("response_key 不能为空")
 	}
-	return responseKey.Decrypt(response)
+	return responseKey.DecryptBytesString(string(response))
 }
 
 // Moderate 方法，根据传入的 Request 结构体反序列成 JSON 并发送请求，读取响应并转化为 Response 结构体
