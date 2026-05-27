@@ -1,4 +1,4 @@
-[← Transport](3-Transport.md) | Timeout[(中文)](4-Timeout-zh.md) | [Retry →](5-Retry.md)
+[← Proxy](4-Proxy.md) | Timeout[(中文)](5-Timeout-zh.md) | [Retry →](6-Retry.md)
 
 ---
 
@@ -76,4 +76,4 @@ func main() {
 
 ---
 
-[← Transport](3-Transport.md) | Timeout[(中文)](4-Timeout-zh.md) | [Retry →](5-Retry.md)
+[← Proxy](4-Proxy.md) | Timeout[(中文)](5-Timeout-zh.md) | [Retry →](6-Retry.md)

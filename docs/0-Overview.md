@@ -16,11 +16,12 @@ When calling APIs, it is recommended to integrate the SDK in your project. Using
 
 1. [Credentials](1-Credentials.md) — AK/SK, STS, AssumeRole, OIDC, SAML, ECS Role, Default Chain
 2. [Endpoint Configuration](2-Endpoint.md) — Custom Endpoint, RegionId, Automatic Resolution
-3. [Transport](3-Transport.md) — HTTP Connection Pool, HTTPS Scheme, SSL Verification, TLS Version, HTTP(S) Proxy
-4. [Timeout](4-Timeout.md) — Global Timeouts, Per-API Timeout
-5. [Retry](5-Retry.md) — Retry Strategy
-6. [Error Handling](6-ErrorHandling.md) — Exception Handling
-7. [Debugging](7-Debugging.md) — Debug Mode, Log Output
+3. [Transport](3-Transport.md) — HTTP Connection Pool, HTTPS Scheme, SSL Verification, TLS Version
+4. [Proxy](4-Proxy.md) — HTTP(S) Proxy Configuration
+5. [Timeout](5-Timeout.md) — Global Timeouts, Per-API Timeout
+6. [Retry](6-Retry.md) — Retry Strategy
+7. [Error Handling](7-ErrorHandling.md) — Exception Handling
+8. [Debugging](8-Debugging.md) — Debug Mode, Log Output
 
 ---
 
