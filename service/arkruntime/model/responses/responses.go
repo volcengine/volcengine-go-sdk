@@ -32,6 +32,7 @@ const (
 	ResponsesServiceTier_unspecified ResponsesServiceTier_Enum = 0
 	ResponsesServiceTier_auto        ResponsesServiceTier_Enum = 1
 	ResponsesServiceTier_default     ResponsesServiceTier_Enum = 2
+	ResponsesServiceTier_fast        ResponsesServiceTier_Enum = 3
 )
 
 // Enum value maps for ResponsesServiceTier_Enum.
@@ -40,11 +41,13 @@ var (
 		0: "unspecified",
 		1: "auto",
 		2: "default",
+		3: "fast",
 	}
 	ResponsesServiceTier_Enum_value = map[string]int32{
 		"unspecified": 0,
 		"auto":        1,
 		"default":     2,
+		"fast":        3,
 	}
 )
 
