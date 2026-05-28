@@ -236,6 +236,8 @@ func (s *GetVulnScanConfigOutput) SetTopGroupID(v string) *GetVulnScanConfigOutp
 type ScanTypeForGetVulnScanConfigOutput struct {
 	_ struct{} `type:"structure"`
 
+	AIApp *bool `type:"boolean"`
+
 	App *bool `type:"boolean"`
 
 	DevLinux *bool `type:"boolean"`
@@ -259,6 +261,12 @@ func (s ScanTypeForGetVulnScanConfigOutput) String() string {
 // GoString returns the string representation
 func (s ScanTypeForGetVulnScanConfigOutput) GoString() string {
 	return s.String()
+}
+
+// SetAIApp sets the AIApp field's value.
+func (s *ScanTypeForGetVulnScanConfigOutput) SetAIApp(v bool) *ScanTypeForGetVulnScanConfigOutput {
+	s.AIApp = &v
+	return s
 }
 
 // SetApp sets the App field's value.

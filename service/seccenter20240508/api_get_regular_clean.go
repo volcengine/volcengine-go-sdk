@@ -164,6 +164,8 @@ type GetRegularCleanOutput struct {
 
 	CleanDays *int64 `type:"int64" json:",omitempty"`
 
+	CleanHours *int64 `type:"int64" json:",omitempty"`
+
 	Switch *bool `type:"boolean" json:",omitempty"`
 }
 
@@ -180,6 +182,12 @@ func (s GetRegularCleanOutput) GoString() string {
 // SetCleanDays sets the CleanDays field's value.
 func (s *GetRegularCleanOutput) SetCleanDays(v int64) *GetRegularCleanOutput {
 	s.CleanDays = &v
+	return s
+}
+
+// SetCleanHours sets the CleanHours field's value.
+func (s *GetRegularCleanOutput) SetCleanHours(v int64) *GetRegularCleanOutput {
+	s.CleanHours = &v
 	return s
 }
 

@@ -240,6 +240,8 @@ func (s *EditVulnScanConfigOutput) SetData(v string) *EditVulnScanConfigOutput {
 type ScanTypeForEditVulnScanConfigInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	AIApp *bool `type:"boolean" json:",omitempty"`
+
 	App *bool `type:"boolean" json:",omitempty"`
 
 	DevLinux *bool `type:"boolean" json:",omitempty"`
@@ -263,6 +265,12 @@ func (s ScanTypeForEditVulnScanConfigInput) String() string {
 // GoString returns the string representation
 func (s ScanTypeForEditVulnScanConfigInput) GoString() string {
 	return s.String()
+}
+
+// SetAIApp sets the AIApp field's value.
+func (s *ScanTypeForEditVulnScanConfigInput) SetAIApp(v bool) *ScanTypeForEditVulnScanConfigInput {
+	s.AIApp = &v
+	return s
 }
 
 // SetApp sets the App field's value.

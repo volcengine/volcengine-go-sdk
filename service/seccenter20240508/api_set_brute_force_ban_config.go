@@ -343,6 +343,8 @@ type SetBruteForceBanConfigOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
+
+	Data *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -353,4 +355,10 @@ func (s SetBruteForceBanConfigOutput) String() string {
 // GoString returns the string representation
 func (s SetBruteForceBanConfigOutput) GoString() string {
 	return s.String()
+}
+
+// SetData sets the Data field's value.
+func (s *SetBruteForceBanConfigOutput) SetData(v string) *SetBruteForceBanConfigOutput {
+	s.Data = &v
+	return s
 }

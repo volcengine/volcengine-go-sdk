@@ -164,15 +164,9 @@ type DescribeLastWeekFileChangeTrendsOutput struct {
 
 	LastSevenChange *int64 `type:"int64" json:",omitempty"`
 
-	Last_seven_change *int64 `type:"int64" json:"last_seven_change,omitempty"`
-
 	PointInfo []*PointInfoForDescribeLastWeekFileChangeTrendsOutput `type:"list" json:",omitempty"`
 
-	Point_info []*Point_infoForDescribeLastWeekFileChangeTrendsOutput `type:"list" json:"point_info,omitempty"`
-
 	TodayChange *int64 `type:"int64" json:",omitempty"`
-
-	Today_change *int64 `type:"int64" json:"today_change,omitempty"`
 }
 
 // String returns the string representation
@@ -191,33 +185,15 @@ func (s *DescribeLastWeekFileChangeTrendsOutput) SetLastSevenChange(v int64) *De
 	return s
 }
 
-// SetLast_seven_change sets the Last_seven_change field's value.
-func (s *DescribeLastWeekFileChangeTrendsOutput) SetLast_seven_change(v int64) *DescribeLastWeekFileChangeTrendsOutput {
-	s.Last_seven_change = &v
-	return s
-}
-
 // SetPointInfo sets the PointInfo field's value.
 func (s *DescribeLastWeekFileChangeTrendsOutput) SetPointInfo(v []*PointInfoForDescribeLastWeekFileChangeTrendsOutput) *DescribeLastWeekFileChangeTrendsOutput {
 	s.PointInfo = v
 	return s
 }
 
-// SetPoint_info sets the Point_info field's value.
-func (s *DescribeLastWeekFileChangeTrendsOutput) SetPoint_info(v []*Point_infoForDescribeLastWeekFileChangeTrendsOutput) *DescribeLastWeekFileChangeTrendsOutput {
-	s.Point_info = v
-	return s
-}
-
 // SetTodayChange sets the TodayChange field's value.
 func (s *DescribeLastWeekFileChangeTrendsOutput) SetTodayChange(v int64) *DescribeLastWeekFileChangeTrendsOutput {
 	s.TodayChange = &v
-	return s
-}
-
-// SetToday_change sets the Today_change field's value.
-func (s *DescribeLastWeekFileChangeTrendsOutput) SetToday_change(v int64) *DescribeLastWeekFileChangeTrendsOutput {
-	s.Today_change = &v
 	return s
 }
 
@@ -247,36 +223,6 @@ func (s *PointInfoForDescribeLastWeekFileChangeTrendsOutput) SetKey(v string) *P
 
 // SetValue sets the Value field's value.
 func (s *PointInfoForDescribeLastWeekFileChangeTrendsOutput) SetValue(v int64) *PointInfoForDescribeLastWeekFileChangeTrendsOutput {
-	s.Value = &v
-	return s
-}
-
-type Point_infoForDescribeLastWeekFileChangeTrendsOutput struct {
-	_ struct{} `type:"structure" json:",omitempty"`
-
-	Key *string `type:"string" json:"key,omitempty"`
-
-	Value *int64 `type:"int64" json:"value,omitempty"`
-}
-
-// String returns the string representation
-func (s Point_infoForDescribeLastWeekFileChangeTrendsOutput) String() string {
-	return volcengineutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s Point_infoForDescribeLastWeekFileChangeTrendsOutput) GoString() string {
-	return s.String()
-}
-
-// SetKey sets the Key field's value.
-func (s *Point_infoForDescribeLastWeekFileChangeTrendsOutput) SetKey(v string) *Point_infoForDescribeLastWeekFileChangeTrendsOutput {
-	s.Key = &v
-	return s
-}
-
-// SetValue sets the Value field's value.
-func (s *Point_infoForDescribeLastWeekFileChangeTrendsOutput) SetValue(v int64) *Point_infoForDescribeLastWeekFileChangeTrendsOutput {
 	s.Value = &v
 	return s
 }

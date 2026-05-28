@@ -420,8 +420,6 @@ type GetTenantQuotaOutput struct {
 
 	ID *string `type:"string" json:",omitempty"`
 
-	Id *string `type:"string" json:"id,omitempty"`
-
 	InsertTime *int64 `type:"int64" json:",omitempty"`
 
 	Labels []*string `type:"list" json:",omitempty"`
@@ -468,12 +466,6 @@ func (s *GetTenantQuotaOutput) SetExpireTime(v int64) *GetTenantQuotaOutput {
 // SetID sets the ID field's value.
 func (s *GetTenantQuotaOutput) SetID(v string) *GetTenantQuotaOutput {
 	s.ID = &v
-	return s
-}
-
-// SetId sets the Id field's value.
-func (s *GetTenantQuotaOutput) SetId(v string) *GetTenantQuotaOutput {
-	s.Id = &v
 	return s
 }
 

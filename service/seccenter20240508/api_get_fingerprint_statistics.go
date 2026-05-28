@@ -166,6 +166,8 @@ type GetFingerprintStatisticsOutput struct {
 
 	Metadata *response.ResponseMetadata
 
+	AIApp *int64 `type:"int64"`
+
 	App *int64 `type:"int64"`
 
 	Container *int64 `type:"int64"`
@@ -199,6 +201,12 @@ func (s GetFingerprintStatisticsOutput) String() string {
 // GoString returns the string representation
 func (s GetFingerprintStatisticsOutput) GoString() string {
 	return s.String()
+}
+
+// SetAIApp sets the AIApp field's value.
+func (s *GetFingerprintStatisticsOutput) SetAIApp(v int64) *GetFingerprintStatisticsOutput {
+	s.AIApp = &v
+	return s
 }
 
 // SetApp sets the App field's value.

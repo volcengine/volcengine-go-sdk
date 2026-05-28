@@ -336,6 +336,8 @@ func (s *GetVulnStatisticsOutput) SetVulnType(v *VulnTypeForGetVulnStatisticsOut
 type VulnTypeForGetVulnStatisticsOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	AIApp *int64 `type:"int64" json:",omitempty"`
+
 	App *int64 `type:"int64" json:",omitempty"`
 
 	DevLinux *int64 `type:"int64" json:",omitempty"`
@@ -359,6 +361,12 @@ func (s VulnTypeForGetVulnStatisticsOutput) String() string {
 // GoString returns the string representation
 func (s VulnTypeForGetVulnStatisticsOutput) GoString() string {
 	return s.String()
+}
+
+// SetAIApp sets the AIApp field's value.
+func (s *VulnTypeForGetVulnStatisticsOutput) SetAIApp(v int64) *VulnTypeForGetVulnStatisticsOutput {
+	s.AIApp = &v
+	return s
 }
 
 // SetApp sets the App field's value.
