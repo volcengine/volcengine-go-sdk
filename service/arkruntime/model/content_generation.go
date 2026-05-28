@@ -28,6 +28,7 @@ type CreateContentGenerationTaskRequest struct {
 	ReturnLastFrame       *bool                                 `json:"return_last_frame,omitempty"`
 	ServiceTier           *string                               `json:"service_tier,omitempty"`
 	ExecutionExpiresAfter *int64                                `json:"execution_expires_after,omitempty"`
+	Priority              *int32                                `json:"priority,omitempty"`
 	GenerateAudio         *bool                                 `json:"generate_audio,omitempty"`
 	Draft                 *bool                                 `json:"draft,omitempty"`
 	CameraFixed           *bool                                 `json:"camera_fixed,omitempty"`
@@ -95,6 +96,7 @@ type GetContentGenerationTaskResponse struct {
 	RevisedPrompt         *string                  `json:"revised_prompt,omitempty"`
 	ServiceTier           *string                  `json:"service_tier,omitempty"`
 	ExecutionExpiresAfter *int64                   `json:"execution_expires_after,omitempty"`
+	Priority              *int32                   `json:"priority,omitempty"`
 	GenerateAudio         *bool                    `json:"generate_audio,omitempty"`
 	Draft                 *bool                    `json:"draft,omitempty"`
 	DraftTaskID           *string                  `json:"draft_task_id,omitempty"`
@@ -180,6 +182,7 @@ type ListContentGenerationTaskItem struct {
 	RevisedPrompt         *string                  `json:"revised_prompt,omitempty"`
 	ServiceTier           *string                  `json:"service_tier,omitempty"`
 	ExecutionExpiresAfter *int64                   `json:"execution_expires_after,omitempty"`
+	Priority              *int32                   `json:"priority,omitempty"`
 	GenerateAudio         *bool                    `json:"generate_audio,omitempty"`
 	Draft                 *bool                    `json:"draft,omitempty"`
 	DraftTaskID           *string                  `json:"draft_task_id,omitempty"`
